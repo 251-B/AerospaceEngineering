@@ -63,6 +63,14 @@ By the Existence and Uniqueness Theorem for linear ODEs (global form; local vers
 3. **Differentiate General Solution:** Compute $\dot{u}(t)$ symbolically.
 4. **Impose Initial Conditions:** Solve the $2 \times 2$ algebraic linear system for integration constants $(c_1, c_2)$.
 
+**Method of the class notes [Notes.pdf, p. 5].** The notes divide by the leading coefficient to reach $x'' + px' + qx = 0$ (items 8 and 11 need it), try $x = e^{kt}$, get $k^2 + pk + q = 0$, $k = \frac{-p \pm \sqrt{p^2 - 4q}}{2}$, and read the case: Case 01, $k_1 \neq k_2$ real, $C_1e^{k_1t} + C_2e^{k_2t}$; Case 02, double root $k = -p/2$, $C_1e^{kt} + C_2te^{kt}$; Case 03, $\rho \pm \omega i$ with $\rho = -p/2$, $\omega = \sqrt{4q - p^2}/2$, $e^{\rho t}(A\cos\omega t + B\sin\omega t)$.
+
+The initial data are then matched as in the example of the notes:
+
+$$ \begin{pmatrix} x_1(0) & x_2(0) \\ x_1'(0) & x_2'(0)\end{pmatrix}\begin{pmatrix} C_1 \\ C_2\end{pmatrix} = \begin{pmatrix} x(0) \\ x'(0)\end{pmatrix}, $$
+
+a system whose determinant is the Wronskian $W(0) \neq 0$, so every item has exactly one solution.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

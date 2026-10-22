@@ -46,6 +46,8 @@ We have seen that, if $x_1(t)$ and $x_2(t)$ are two solutions of a linear homoge
 - **Wronskian Calculation:** Compute $W[f_1, f_2](t) = f_1(t) f_2'(t) - f_2(t) f_1'(t)$ across all $t \in \mathbb{R}$. Show it evaluates identically to $0$.
 - **Pedagogical Explanation:** Explain why this does not contradict the Wronskian theorem for ODEs.
 
+**Class notes and complement [Notes.pdf, p. 5].** The notes state the dichotomy ($W \equiv 0$ or $W$ never zero) only for two solutions of $x'' + px' + qx = 0$ with continuous $p$, $q$. This counterexample (not in the class notes) shows that the hypothesis is needed: $t^2\lvert t\rvert$ and $t^3$ are independent with $W \equiv 0$, so they cannot both solve such an equation on an interval containing $0$.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

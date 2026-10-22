@@ -50,6 +50,10 @@ $$ W[x_1, x_2](t) = \det \begin{pmatrix} x_1(t) & x_2(t) \\ \dot{x}_1(t) & \dot{
 > If the Wronskian $W[x_1, x_2](t)$ is non-zero at even a single point $t_0 \in I$, the functions $x_1(t)$ and $x_2(t)$ are linearly independent on the interval $I$.
 > For solutions of a linear homogeneous second-order ODE with continuous coefficients, Abel's identity further guarantees that $W(t)$ is either non-zero everywhere or identically zero on $I$.
 
+**Method of the class notes [Notes.pdf, p. 5].** The notes define $W(x_1, x_2) = x_1x_2' - x_2x_1'$ and list the Wronskian of each pair of Cases 01 to 03: $(k_2 - k_1)e^{(k_1 + k_2)t}$ for $e^{k_1t}, e^{k_2t}$; $e^{2kt}$ for $e^{kt}, te^{kt}$; $\omega e^{2\rho t}$ for $e^{\rho t}\cos\omega t, e^{\rho t}\sin\omega t$. These are the three pairs of this problem. In (iii) the order is reversed (sine first), so the sign flips: $W = -\omega e^{2\rho t}$, still never zero for $\omega \neq 0$.
+
+For solutions of $x'' + px' + qx = 0$ the notes also show that $W \equiv 0$ or $W$ never vanishes (Problem 3.2), so one point with $W \neq 0$ is enough.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

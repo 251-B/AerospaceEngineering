@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-22-maths-ch3-problems-class-method",
+    "date": "2026-10-22",
+    "tag": "Advanced Maths",
+    "title": "Maths Chapter 3 problems linked to the class notes method",
+    "text": "All 20 Chapter 3 problems now show the class-notes route: Cases 01 to 03, the Wronskian matrix, x = xH + xN with the educated guess, reduction of order and variation of constants.",
+    "link": "subjects/advanced-maths/problemas/topic-3-problems.html"
+  },
+  {
     "id": "2026-10-22-maths-ch2-problems-class-method",
     "date": "2026-10-22",
     "tag": "Advanced Maths",

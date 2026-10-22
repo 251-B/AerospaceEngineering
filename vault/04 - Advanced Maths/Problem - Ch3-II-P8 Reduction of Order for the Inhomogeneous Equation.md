@@ -34,6 +34,9 @@ The idea is the same as in Topic 3, Sec. 7: promote the constant in $Ay_1$ to a 
 
 $$ y' = v'y_1 + vy_1', \qquad y'' = v''y_1 + 2v'y_1' + vy_1'' $$
 
+> [!info] Class notes and complement [Notes, p. 7]
+> The notes reduce the order of the homogeneous equation: with a known solution $u$, set $x = yu$; then $\big[u'' + pu' + qu\big]y + \big[2u' + pu\big]y' + uy'' = 0$, the first bracket is $0$, and $z = y'$ satisfies the first-order equation $uz' + (2u' + pu)z = 0$. Here the notes' $u$ is $y_1$ and their $y$ is $v$; keeping the forcing on the right side is a complement (not in the class notes).
+
 ## Phase 3: Derivation
 
 #### Step 1: substitute in $L[y]$

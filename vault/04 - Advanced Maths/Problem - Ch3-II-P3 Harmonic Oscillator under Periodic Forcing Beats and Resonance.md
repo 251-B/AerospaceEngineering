@@ -34,6 +34,9 @@ The forcing $a\cos\alpha t$ has exponent $s = \pm i\alpha$. The whole discussion
 
 General solution $x = x_h + x_p$ (Robinson Sec. 14.1). For $x_p$ use the guess table of Topic 3, Sec. 5: $K_1\cos\alpha t + K_2\sin\alpha t$ when $P(i\alpha) \neq 0$ and $t(K_1\cos\omega t + K_2\sin\omega t)$ when $\alpha = \omega$.
 
+> [!info] Method of the class notes [Notes, p. 6]
+> $x = x_H + x_N$ as in the notes, with $x_H = C_1\cos\omega t + C_2\sin\omega t$ (Case 03 with $\rho = 0$). The guess $A\cos\alpha t + B\sin\alpha t$ of the notes works while $\alpha \neq \omega$; when $\alpha = \omega$ the forcing is already in $x_H$ and the notes multiply the guess by $t$, which is the resonant solution.
+
 ## Phase 3: Derivation
 
 ### Case A: $\alpha \neq \omega$ (non-resonant forcing)

@@ -46,6 +46,10 @@ Consider a so-called simple pendulum whose shaft has length $L$ and negligible m
 3. **Equation of Motion via First Integral of Motion:** Differentiate $E(t)$ with respect to time $t$ via the chain rule. Since energy is conserved ($\frac{dE}{dt} = 0$), divide by $mL^2\dot{\theta} \neq 0$ to obtain the nonlinear pendulum ODE.
 4. **Linearization & Harmonic Solution:** For $|\theta| \ll 1$, apply the first-order Taylor expansion $\sin\theta \approx \theta$. Solve the resulting linear harmonic oscillator using the characteristic equation, convert to amplitude-phase form (using Problem 3.6), and inspect dependencies on mass $m$ and amplitude $M$.
 
+**Method of the class notes [Notes.pdf, p. 5].** The theorem of the notes applies to the full pendulum $\ddot\theta = f(\dot\theta, \theta) = -\frac{g}{L}\sin\theta$: $f$, $\partial f/\partial\theta = -\frac{g}{L}\cos\theta$ and $\partial f/\partial\dot\theta = 0$ are continuous everywhere, so each pair $\theta(0)$, $\dot\theta(0)$ gives one solution.
+
+The small-oscillation equation is $x'' + px' + qx = 0$ with $p = 0$, $q = g/L$: $k^2 + g/L = 0$, Case 03 with $\rho = -p/2 = 0$ and $\omega = \frac{\sqrt{4q - p^2}}{2} = \sqrt{g/L}$, so $\theta = A\cos\omega t + B\sin\omega t$.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

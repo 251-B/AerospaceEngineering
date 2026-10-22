@@ -32,6 +32,9 @@ $$ f = 12e^{-t} - 6e^{t} = 4\,\underbrace{\left(3e^{-t}\right)}_{f_a\ \text{(ite
 
 Item (iii) found $x_a$ with $L[x_a] = 3e^{-t}$ and item (iv) found $x_b$ with $L[x_b] = e^{t}$. Then $x_p = 4x_a - 6x_b$.
 
+> [!info] Method of the class notes [Notes, p. 6]
+> This is the decomposition rule of the educated guess in the notes: if $L[x_a] = f_a$ and $L[x_b] = f_b$, then $L[\lambda x_a + \mu x_b] = \lambda f_a + \mu f_b$ by linearity, so each piece of the forcing is guessed separately and the results are added.
+
 ## Phase 3: Derivation
 
 #### The two particular integrals of Exercise 1

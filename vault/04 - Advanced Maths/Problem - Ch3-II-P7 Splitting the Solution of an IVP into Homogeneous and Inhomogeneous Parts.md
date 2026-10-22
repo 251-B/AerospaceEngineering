@@ -34,6 +34,9 @@ Hypotheses: $p, q, g$ are continuous on an open interval $I \ni t_0$. Under thes
 
 Let $y$ be the unique solution of the original IVP, $u$ the unique solution of the homogeneous IVP with the data of $y$, and $v$ the unique solution of the inhomogeneous IVP with zero data (both exist on $I$ by the theorem). The claim is $y = u + v$ on $I$. Proof strategy: show that $u + v$ solves the **original** IVP; uniqueness then forces $u + v = y$.
 
+> [!info] Method of the class notes [Notes, pp. 5–6]
+> The theorem of the notes (p. 5) gives the three unique solutions $y$, $u$, $v$. The splitting is the argument the notes use for $x = x_H + x_N$ (p. 6): the difference of two solutions of the inhomogeneous equation solves the homogeneous one. Here the roles are fixed by the data: $u$ carries the initial values and $v$ carries the forcing.
+
 ## Phase 3: Derivation
 
 #### Step 1: $u + v$ solves the differential equation

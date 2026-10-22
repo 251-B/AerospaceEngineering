@@ -11,6 +11,7 @@
    "pdf_key": "am-p3b",
    "pdf_pages": 2,
    "cards": {"1": 1, "2": 1, "3": 1, "4": 1, "5": 2, "6": 2, "7": 2, "8": 2, "9": 2},
+   "notes_pages": [5, 6, 7, 8],
    "prev": ["topic-3-problems.html", "Chapter 3 Part 1: Second-Order Linear ODEs"],
    "next": ["topic-4-part-1.html", "Chapter 4 Part 1: Systems and Real Eigenvalues", "Next Problem Set"],
    "nav_label": "3 · Second-order, part 2",

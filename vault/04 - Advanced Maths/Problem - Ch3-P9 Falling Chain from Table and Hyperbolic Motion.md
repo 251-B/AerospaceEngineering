@@ -57,6 +57,12 @@ A chain of length $\ell = 5\text{ m}$ and mass $m$, with uniform mass density, i
 5. **Compute Detachment Time $t_*$:**
    Set $x(t_*) = \ell = 5\text{ m}$, solve $\cosh(\alpha t_*) = \frac{\ell}{x_0}$, and evaluate numerically.
 
+**Method of the class notes [Notes.pdf, p. 5].** $\ddot x - \frac{g}{\ell}x = 0$ is Case 01 of the notes with $p = 0$, $q = -g/\ell$: $k = \pm\alpha$, $\alpha = \sqrt{g/\ell}$, so $x = C_1e^{\alpha t} + C_2e^{-\alpha t}$. The data $x(0) = 1$, $\dot x(0) = 0$ are matched with the matrix of the notes:
+
+$$ \begin{pmatrix} 1 & 1 \\ \alpha & -\alpha\end{pmatrix}\begin{pmatrix} C_1 \\ C_2\end{pmatrix} = \begin{pmatrix} 1 \\ 0\end{pmatrix}, \qquad W(0) = -2\alpha \neq 0, $$
+
+which gives $C_1 = C_2 = \frac12$ and $x = \frac12(e^{\alpha t} + e^{-\alpha t}) = \cosh\alpha t$, the hyperbolic form used below.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

@@ -32,6 +32,9 @@ Parameters: $\lambda > 0$ (damping rate, s$^{-1}$), $\omega > 0$ (natural freque
 
 We must find constants $M$ and $\phi$ such that $x_p = M\cos(\alpha t - \phi)$ satisfies $L[x_p] = a\cos\alpha t$. Because $\cos(\alpha t - \phi)$ is a shifted cosine, the cosine and sine terms of the guess of Topic 3, Sec. 6.1 are packed in one amplitude and one phase. The subtraction formulas $\cos(\alpha t - \phi) = \cos\alpha t\cos\phi + \sin\alpha t\sin\phi$ and $\sin(\alpha t - \phi) = \sin\alpha t\cos\phi - \cos\alpha t\sin\phi$ will be used.
 
+> [!info] Class notes and complement [Notes, p. 6]
+> The guess of the notes for $a\cos\alpha t$ is $A\cos\alpha t + B\sin\alpha t$ ($\pm i\alpha$ is not a root because $\lambda > 0$), and $x = x_H + x_N$ with $x_H \to 0$ (Case 03 with $\rho = -\lambda/2 < 0$). Packing $A$ and $B$ into one amplitude and one phase, $M\cos(\alpha t - \phi)$, is a complement (not in the class notes).
+
 ## Phase 3: Derivation
 
 #### Substitution

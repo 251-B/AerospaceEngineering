@@ -56,6 +56,10 @@ Discuss how the form of the solutions changes, depending on the value of the dam
    - Critically Damped (Amortiguamiento Crítico): Repeated negative real root, most rapid non-oscillatory return.
    - Overdamped (Sobreamortiguado): Two distinct negative real roots, sluggish two-mode exponential return.
 
+**Method of the class notes [Notes.pdf, p. 5].** The notes read $x'' + px' + qx = 0$ as a spring with friction $p$ and spring constant $q$: dividing by $m$, $p = \mu/m$ and $q = k/m$. The roots $k = \frac{-p \pm \sqrt{p^2 - 4q}}{2}$ depend on the sign of $p^2 - 4q = \frac{\mu^2 - 4mk}{m^2} = \frac{\mu^2 - \mu_c^2}{m^2}$:
+
+Case 01 for $\mu > \mu_c$ (two negative real roots); Case 02 for $\mu = \mu_c$ (double root $k = -p/2 = -\frac{\mu}{2m}$); Case 03 for $\mu < \mu_c$, with $\rho = -\frac{\mu}{2m}$ and $\omega = \frac{\sqrt{4q - p^2}}{2} = \frac{\sqrt{4mk - \mu^2}}{2m}$.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

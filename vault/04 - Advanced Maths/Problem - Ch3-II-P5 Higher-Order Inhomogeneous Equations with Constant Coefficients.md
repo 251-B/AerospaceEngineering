@@ -35,6 +35,9 @@ All three are linear, constant-coefficient, inhomogeneous equations of order $3$
 
 Characteristic polynomial $P(k) = a_nk^n + \dots + a_0$. A root $k$ of multiplicity $m$ gives $t^je^{kt}$ for $j = 0, \dots, m - 1$; a complex pair $\rho \pm i\omega$ of multiplicity $m$ gives $t^je^{\rho t}\cos\omega t$ and $t^je^{\rho t}\sin\omega t$ for $j = 0, \dots, m - 1$ (Topic 3, Sec. 3 box, Robinson Sec. 16.1). The particular integral uses the guess table of Topic 3, Sec. 5, with the factor $t^{m_s}$ when the exponent $s$ of the forcing is a root of $P$ of multiplicity $m_s$. The derivatives needed are now up to order $n$.
 
+> [!info] Class notes and complement [Notes, p. 6]
+> The notes state that the educated guess works 'the same for higher order'. The homogeneous part, with $t^j$ factors for a root of multiplicity $m$, extends Cases 01 to 03 and is a complement (not in the class notes); the particular part uses the guess of the notes, times $t^{m_s}$ when the exponent of the forcing is a root.
+
 ## Phase 3: Derivation
 
 ### (i) $x''' - 6x'' + 11x' - 6x = e^{-t}$

@@ -213,8 +213,10 @@ def sync(root, sheets, counts):
         d["pdfs"][sh["pdf_key"]] = {"path": sh["pdf"], "label": pathlib.PurePosixPath(sh["pdf"]).name, "pages": sh["pdf_pages"]}
         rel = SUBJECT + sh["page"]
         entry = d["pages"].setdefault(rel, {})
-        entry["panel"] = [[sh["pdf_key"], 1], ["am-book", "auto"]]
+        entry["panel"] = [[sh["pdf_key"], 1], ["am-book", "auto"]] + [["am-notes", n] for n in sh.get("notes_pages", [])]
         entry["cite"] = {"robinson": "am-book"}
+        if sh.get("notes_pages"):  # class notes (Notes.pdf) cited as [Notes, p. N]
+            entry["cite"]["notes"] = "am-notes"
         entry["cards"] = {f"{sh['id_prefix']}{num}": [sh["pdf_key"], page] for num, page in sh["cards"].items()}
     write(root, SOURCE_LINKS, json.dumps(d, indent=1, ensure_ascii=False) + "\n")
 

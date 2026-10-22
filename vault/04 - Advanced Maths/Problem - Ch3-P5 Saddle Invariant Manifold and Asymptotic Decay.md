@@ -48,6 +48,12 @@ Find the relationship between $x_0$ and $y_0$ that ensures this.
    Therefore, $x(t) \to 0$ if and only if the coefficient of the exploding exponential vanishes identically: $A = 0$.
 5. **Phase-Space Interpretation:** Connect $A = 0$ to the stable eigenspace of a saddle equilibrium in dynamical systems.
 
+**Method of the class notes [Notes.pdf, p. 5].** Case 01 of the notes with $k_1$ and $-k_2$, and the initial data matched with the matrix of the notes:
+
+$$ \begin{pmatrix} 1 & 1 \\ k_1 & -k_2\end{pmatrix}\begin{pmatrix} A \\ B\end{pmatrix} = \begin{pmatrix} x_0 \\ y_0\end{pmatrix}, \qquad W(0) = -k_2 - k_1 \neq 0. $$
+
+Cramer's rule gives $A = \frac{-k_2x_0 - y_0}{-k_1 - k_2} = \frac{k_2x_0 + y_0}{k_1 + k_2}$, so $x(t) \to 0$ exactly when $A = 0$, that is $y_0 = -k_2x_0$.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

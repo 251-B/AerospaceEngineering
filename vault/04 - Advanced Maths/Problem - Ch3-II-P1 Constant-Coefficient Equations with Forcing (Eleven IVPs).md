@@ -84,6 +84,9 @@ Applying the rule item by item (the roots of $P$ were found in Exercise 4 of par
 
 Items with $m_s \geq 1$ (resonant forcing, marked by a non-zero last column) need the extra factor $t^{m_s}$: (ii), (iv), (v), (vii), (ix), (x).
 
+> [!info] Method of the class notes [Notes, p. 6]
+> The notes split the solution as $x = x_H + x_N$ (if $x_N$ is one solution, $\Phi = x - x_N$ solves the homogeneous equation) and choose $x_N$ by an educated guess: a polynomial of order $n$ gives a full polynomial; $Ce^{\alpha t}$ gives $Ae^{\alpha t}$ when $\alpha$ is not a root (Case 1) and $Ate^{\alpha t}$ when it is (Case 2); $\alpha\cos\omega t + \beta\sin\omega t$ gives $A\cos\omega t + B\sin\omega t$, times $t$ if it is already in $x_H$; sums are decomposed. The factor $t^{m_s}$ of the table above is the same rule, with $t^2$ for a double root (a complement: the notes treat the simple root).
+
 ## Phase 3: Step-by-step derivation of the eleven solutions
 
 ### (i) $\ddot{x} - 4x = t^{2}$, with $x(0) = 1$, $\dot x(0) = 0$

@@ -708,6 +708,10 @@
         <span class="src-panel-label">Official material</span>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf" target="_blank" rel="noopener">ProblemsCh3.pdf</a>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf" target="_blank" rel="noopener">Robinson (2004).pdf</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener">Notes.pdf · p. 5</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener">Notes.pdf · p. 6</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=7" target="_blank" rel="noopener">Notes.pdf · p. 7</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=8" target="_blank" rel="noopener">Notes.pdf · p. 8</a>
       </nav>
     </header>
 
@@ -745,6 +749,11 @@
           $$ W[x_1, x_2](t) = \det \begin{pmatrix} x_1(t) & x_2(t) \\ \dot{x}_1(t) & \dot{x}_2(t) \end{pmatrix} = x_1(t)\dot{x}_2(t) - x_2(t)\dot{x}_1(t) $$
           If $W[x_1, x_2](t_0) \neq 0$ at even a single point $t_0 \in I$, the functions $x_1(t)$ and $x_2(t)$ are strictly <strong>linearly independent</strong> on the interval $I$.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5</a>]</span></div>
+          <p>The notes define $W(x_1, x_2) = x_1x_2' - x_2x_1'$ and list the Wronskian of each pair of Cases 01 to 03: $(k_2 - k_1)e^{(k_1 + k_2)t}$ for $e^{k_1t}, e^{k_2t}$; $e^{2kt}$ for $e^{kt}, te^{kt}$; $\omega e^{2\rho t}$ for $e^{\rho t}\cos\omega t, e^{\rho t}\sin\omega t$. These are the three pairs of this problem. In (iii) the order is reversed (sine first), so the sign flips: $W = -\omega e^{2\rho t}$, still never zero for $\omega \neq 0$.</p>
+          <p>For solutions of $x'' + px' + qx = 0$ the notes also show that $W \equiv 0$ or $W$ never vanishes (Problem 3.2), so one point with $W \neq 0$ is enough.</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -835,6 +844,11 @@
           Let $x_1(t), x_2(t) \in C^2(I)$ be solutions of $L[x] = \ddot{x} + p_1\dot{x} + p_2 x = 0$.
           We compute the time derivative of $W(t) = x_1\dot{x}_2 - x_2\dot{x}_1$ and replace the second derivatives using the governing ODE.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5</a>]</span></div>
+          <p>This is the derivation of the notes: by the product rule $W' = x_1x_2'' - x_2x_1''$ (the terms $x_1'x_2'$ cancel); with $x_j'' = -px_j' - qx_j$ this is $W' = -p\,x_1x_2' + p\,x_2x_1' = -p\,W$, so $W(t) = Ce^{-\int p\,dt}$ and $W \equiv 0$ or $W$ never vanishes.</p>
+          <p>Discrepancy with the notes: their boxed result reads $W' = p\,W$, but their own previous line gives $-p\,W$ and their solution $Ce^{-\int p}$ solves $W' = -p\,W$, as this problem states. Check: $x'' + x' - 6x = 0$ with $x_1 = e^{-3t}$, $x_2 = e^{2t}$ gives $W = 5e^{-t}$ and $W' = -W$.</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -917,6 +931,10 @@
           The Wronskian is $W[f_1, f_2](t) = f_1(t)f_2'(t) - f_2(t)f_1'(t)$.
           This problem demonstrates why the condition "$W(t) \equiv 0 \implies \text{linearly dependent}$" fails for arbitrary functions that do not satisfy a common regular linear ODE.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Class notes and complement <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5</a>]</span></div>
+          <p>The notes state the dichotomy ($W \equiv 0$ or $W$ never zero) only for two solutions of $x'' + px' + qx = 0$ with continuous $p$, $q$. This counterexample (not in the class notes) shows that the hypothesis is needed: $t^2\lvert t\rvert$ and $t^3$ are independent with $W \equiv 0$, so they cannot both solve such an equation on an interval containing $0$.</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -1011,6 +1029,13 @@
           - $\Delta < 0$: $u(t) = e^{\rho t}(c_1 \cos\omega t + c_2 \sin\omega t)$ (Complex Conjugate $r = \rho \pm i\omega$).<br>
           Constants $c_1, c_2$ are uniquely determined by Cauchy conditions $u(0) = u_0, \dot{u}(0) = v_0$.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5</a>]</span></div>
+          <p>The notes divide by the leading coefficient to reach $x'' + px' + qx = 0$ (items 8 and 11 need it), try $x = e^{kt}$, get $k^2 + pk + q = 0$, $k = \frac{-p \pm \sqrt{p^2 - 4q}}{2}$, and read the case: Case 01, $k_1 \neq k_2$ real, $C_1e^{k_1t} + C_2e^{k_2t}$; Case 02, double root $k = -p/2$, $C_1e^{kt} + C_2te^{kt}$; Case 03, $\rho \pm \omega i$ with $\rho = -p/2$, $\omega = \sqrt{4q - p^2}/2$, $e^{\rho t}(A\cos\omega t + B\sin\omega t)$.</p>
+          <p>The initial data are then matched as in the example of the notes:</p>
+          $$ \begin{pmatrix} x_1(0) &amp; x_2(0) \\ x_1'(0) &amp; x_2'(0)\end{pmatrix}\begin{pmatrix} C_1 \\ C_2\end{pmatrix} = \begin{pmatrix} x(0) \\ x'(0)\end{pmatrix}, $$
+          <p>a system whose determinant is the Wronskian $W(0) \neq 0$, so every item has exactly one solution.</p>
+        </div>
       </div>
 
       <!-- Phase 3: ALL 15 SUBPROBLEMS -->
@@ -1226,6 +1251,12 @@
           Given $k_1 > 0$ and $k_2 > 0$, the mode $e^{k_1 t}$ diverges exponentially to $+\infty$, while $e^{-k_2 t} \to 0$ as $t \to \infty$.
           Therefore, $x(t) \to 0$ if and only if the unstable amplitude is strictly annihilated: $A = 0$.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5</a>]</span></div>
+          <p>Case 01 of the notes with $k_1$ and $-k_2$, and the initial data matched with the matrix of the notes:</p>
+          $$ \begin{pmatrix} 1 &amp; 1 \\ k_1 &amp; -k_2\end{pmatrix}\begin{pmatrix} A \\ B\end{pmatrix} = \begin{pmatrix} x_0 \\ y_0\end{pmatrix}, \qquad W(0) = -k_2 - k_1 \neq 0. $$
+          <p>Cramer's rule gives $A = \frac{-k_2x_0 - y_0}{-k_1 - k_2} = \frac{k_2x_0 + y_0}{k_1 + k_2}$, so $x(t) \to 0$ exactly when $A = 0$, that is $y_0 = -k_2x_0$.</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -1293,6 +1324,10 @@
         <p>
           Apply the angle subtraction identity $\cos(\alpha - \beta) = \cos\alpha\cos\beta + \sin\alpha\sin\beta$ with $\alpha = \omega t$ and $\beta = \phi$, and equate coefficients with the Cartesian basis $\{\cos\omega t, \sin\omega t\}$.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Class notes and complement <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5</a>]</span></div>
+          <p>Case 03 of the notes builds the real form from $C_1e^{i\omega t} + C_2e^{-i\omega t}$ with $C_1 = \frac12(A - iB)$, $C_2 = \overline{C_1}$ (here $\rho = 0$). Writing $A = M\cos\phi$, $B = M\sin\phi$ gives $C_1 = \frac12 Me^{-i\phi}$, and the sum is $\operatorname{Re}\big(Me^{i(\omega t - \phi)}\big) = M\cos(\omega t - \phi)$: the amplitude-phase form of this problem, which is a complement (not in the class notes).</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -1366,6 +1401,11 @@
           Velocity along arc: $v = L\dot{\theta}$. Total mechanical energy $E = T + V$.
           In the absence of dissipative friction, mechanical energy is conserved: $\frac{dE}{dt} = 0$.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5</a>]</span></div>
+          <p>The theorem of the notes applies to the full pendulum $\ddot\theta = f(\dot\theta, \theta) = -\frac{g}{L}\sin\theta$: $f$, $\partial f/\partial\theta = -\frac{g}{L}\cos\theta$ and $\partial f/\partial\dot\theta = 0$ are continuous everywhere, so each pair $\theta(0)$, $\dot\theta(0)$ gives one solution.</p>
+          <p>The small-oscillation equation is $x'' + px' + qx = 0$ with $p = 0$, $q = g/L$: $k^2 + g/L = 0$, Case 03 with $\rho = -p/2 = 0$ and $\omega = \frac{\sqrt{4q - p^2}}{2} = \sqrt{g/L}$, so $\theta = A\cos\omega t + B\sin\omega t$.</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -1437,6 +1477,11 @@
           The discriminant is $\Delta = \mu^2 - 4mk = \mu^2 - \mu_c^2$, where $\mu_c = 2\sqrt{mk}$.
           Roots are $r_{1,2} = -\frac{\mu}{2m} \pm \frac{\sqrt{\mu^2 - \mu_c^2}}{2m} = -\gamma \pm \sqrt{\gamma^2 - \omega_0^2}$.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5</a>]</span></div>
+          <p>The notes read $x'' + px' + qx = 0$ as a spring with friction $p$ and spring constant $q$: dividing by $m$, $p = \mu/m$ and $q = k/m$. The roots $k = \frac{-p \pm \sqrt{p^2 - 4q}}{2}$ depend on the sign of $p^2 - 4q = \frac{\mu^2 - 4mk}{m^2} = \frac{\mu^2 - \mu_c^2}{m^2}$:</p>
+          <p>Case 01 for $\mu &gt; \mu_c$ (two negative real roots); Case 02 for $\mu = \mu_c$ (double root $k = -p/2 = -\frac{\mu}{2m}$); Case 03 for $\mu &lt; \mu_c$, with $\rho = -\frac{\mu}{2m}$ and $\omega = \frac{\sqrt{4q - p^2}}{2} = \frac{\sqrt{4mk - \mu^2}}{2m}$.</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -1549,6 +1594,12 @@
           Because the table is frictionless and the entire chain of constant total mass $m$ accelerates together along its contour:
           $$ m \ddot{x} = \frac{m}{\ell} g x \implies \ddot{x} - \frac{g}{\ell} x = 0 $$
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5</a>]</span></div>
+          <p>$\ddot x - \frac{g}{\ell}x = 0$ is Case 01 of the notes with $p = 0$, $q = -g/\ell$: $k = \pm\alpha$, $\alpha = \sqrt{g/\ell}$, so $x = C_1e^{\alpha t} + C_2e^{-\alpha t}$. The data $x(0) = 1$, $\dot x(0) = 0$ are matched with the matrix of the notes:</p>
+          $$ \begin{pmatrix} 1 &amp; 1 \\ \alpha &amp; -\alpha\end{pmatrix}\begin{pmatrix} C_1 \\ C_2\end{pmatrix} = \begin{pmatrix} 1 \\ 0\end{pmatrix}, \qquad W(0) = -2\alpha \neq 0, $$
+          <p>which gives $C_1 = C_2 = \frac12$ and $x = \frac12(e^{\alpha t} + e^{-\alpha t}) = \cosh\alpha t$, the hyperbolic form used below.</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -1625,6 +1676,11 @@
           $$ \sum F = m \frac{dv}{dt} = mg - cv \implies \frac{dv}{dt} + \frac{c}{m} v = g $$
           With initial condition $v(0) = 0$.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener" title="Open Notes.pdf at page 6">6</a>]</span></div>
+          <p>Velocity: $v' + \frac{c}{m}v = g$, $v(0) = 0$, with the three-step algorithm of the notes (p. 3): $P(t) = \int_0^t \frac{c}{m}\,d\tau = \frac{c}{m}t$, $I = e^{ct/m}$, $I(0) = 1$, and $v(t) = \frac{1}{I(t)}\int_0^t e^{c\tau/m}g\,d\tau = \frac{mg}{c}\left(1 - e^{-ct/m}\right)$.</p>
+          <p>Position, as a second-order equation (p. 6): $x'' + \frac{c}{m}x' = g$, $x = x_H + x_N$. The roots of $k^2 + \frac{c}{m}k = 0$ are $0$ and $-\frac{c}{m}$ (Case 01), so $x_H = C_1 + C_2e^{-ct/m}$. The forcing $g = g\,e^{0t}$ has $\alpha = 0$, a root, so the educated guess of the notes is $x_N = At$: $\frac{c}{m}A = g$, $A = \frac{mg}{c}$, the terminal speed.</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -1705,6 +1761,11 @@
           Let $x = e^z \iff z = \ln x$ for $x > 0$. The derivative with respect to $x$ is $\frac{dz}{dx} = \frac{1}{x}$.
           By applying the chain and product rules to $\frac{dy}{dx}$ and $\frac{d^2 y}{dx^2}$, the power pre-factors $x$ and $x^2$ cancel identically, transforming the variable-coefficient ODE into a linear ODE with constant coefficients.
         </p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5–6</a>]</span></div>
+          <p>Part (ii) reduces to $\frac{d^2y}{dz^2} + 2\frac{dy}{dz} - 3y = 4e^z$, solved as in the notes: $y = y_H + y_N$. $k^2 + 2k - 3 = (k + 3)(k - 1)$ gives Case 01, $y_H = C_1e^{z} + C_2e^{-3z}$. The forcing $4e^{z}$ has $\alpha = 1$, a root, so the educated guess is $y_N = Aze^{z}$ (Case 2 of the guess).</p>
+          <p>With $(Aze^z)' = A(1 + z)e^z$ and $(Aze^z)'' = A(2 + z)e^z$: $A\big[(2 + z) + 2(1 + z) - 3z\big]e^z = 4Ae^z = 4e^z$, so $A = 1$ and, with $z = \ln x$, $y = C_1x + C_2x^{-3} + x\ln x$.</p>
+        </div>
       </div>
 
       <!-- Phase 3 -->

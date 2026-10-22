@@ -683,10 +683,27 @@
     [
      "am-book",
      "auto"
+    ],
+    [
+     "am-notes",
+     5
+    ],
+    [
+     "am-notes",
+     6
+    ],
+    [
+     "am-notes",
+     7
+    ],
+    [
+     "am-notes",
+     8
     ]
    ],
    "cite": {
-    "robinson": "am-book"
+    "robinson": "am-book",
+    "notes": "am-notes"
    },
    "cards": {
     "p1": [
@@ -2168,10 +2185,27 @@
     [
      "am-book",
      "auto"
+    ],
+    [
+     "am-notes",
+     5
+    ],
+    [
+     "am-notes",
+     6
+    ],
+    [
+     "am-notes",
+     7
+    ],
+    [
+     "am-notes",
+     8
     ]
    ],
    "cite": {
-    "robinson": "am-book"
+    "robinson": "am-book",
+    "notes": "am-notes"
    },
    "cards": {
     "e1": [

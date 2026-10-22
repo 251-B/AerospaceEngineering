@@ -651,6 +651,10 @@
         <span class="src-panel-label">Official material</span>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/probls_ch3-ii_2627.pdf" target="_blank" rel="noopener">probls_ch3-ii_2627.pdf</a>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=119" target="_blank" rel="noopener">Robinson (2004).pdf · p. 119</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener">Notes.pdf · p. 5</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener">Notes.pdf · p. 6</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=7" target="_blank" rel="noopener">Notes.pdf · p. 7</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=8" target="_blank" rel="noopener">Notes.pdf · p. 8</a>
       </nav>
     </header>
 
@@ -684,6 +688,7 @@
 <p>Applying the rule item by item (the roots of $P$ were found in Exercise 4 of part 1 for the homogeneous equations; the last column is $m_s$):</p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>$P(k)$</th><th>Roots of $P$</th><th>Exponent $s$ of $f$</th><th>$m_s$</th></tr></thead><tbody><tr><td>(i)</td><td>$k^{2} - 4$</td><td>$-2, 2$</td><td>$0$</td><td>0</td></tr><tr><td>(ii)</td><td>$k^{2} - 4 k$</td><td>$0, 4$</td><td>$0$</td><td>1</td></tr><tr><td>(iii)</td><td>$k^{2} + k - 2$</td><td>$-2, 1$</td><td>$-1$</td><td>0</td></tr><tr><td>(iv)</td><td>$k^{2} + k - 2$</td><td>$-2, 1$</td><td>$1$</td><td>1</td></tr><tr><td>(v)</td><td>$k^{2} + 2 k + 1$</td><td>$-1\ (\text{double})$</td><td>$-1$</td><td>2</td></tr><tr><td>(vi)</td><td>$k^{2} + \omega^{2}$</td><td>$- i \omega, i \omega$</td><td>$i \alpha$</td><td>0</td></tr><tr><td>(vii)</td><td>$k^{2} + \omega^{2}$</td><td>$- i \omega, i \omega$</td><td>$i \omega$</td><td>1</td></tr><tr><td>(viii)</td><td>$k^{2} + 2 k + 10$</td><td>$-1 - 3 i, -1 + 3 i$</td><td>$-1$</td><td>0</td></tr><tr><td>(ix)</td><td>$k^{2} + 2 k + 10$</td><td>$-1 - 3 i, -1 + 3 i$</td><td>$-1 + 3 i$</td><td>1</td></tr><tr><td>(x)</td><td>$k^{2} + 6 k + 10$</td><td>$-3 - i, -3 + i$</td><td>$-3 + i$</td><td>1</td></tr><tr><td>(xi)</td><td>$k^{2} + 4 k + 4$</td><td>$-2\ (\text{double})$</td><td>$2$</td><td>0</td></tr></tbody></table></div>
 <p>Items with $m_s \geq 1$ (resonant forcing, marked by a non-zero last column) need the extra factor $t^{m_s}$: (ii), (iv), (v), (vii), (ix), (x).</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener" title="Open Notes.pdf at page 6">6</a>]</div><p>The notes split the solution as $x = x_H + x_N$ (if $x_N$ is one solution, $\Phi = x - x_N$ solves the homogeneous equation) and choose $x_N$ by an educated guess: a polynomial of order $n$ gives a full polynomial; $Ce^{\alpha t}$ gives $Ae^{\alpha t}$ when $\alpha$ is not a root (Case 1) and $Ate^{\alpha t}$ when it is (Case 2); $\alpha\cos\omega t + \beta\sin\omega t$ gives $A\cos\omega t + B\sin\omega t$, times $t$ if it is already in $x_H$; sums are decomposed. The factor $t^{m_s}$ of the table above is the same rule, with $t^2$ for a double root (a complement: the notes treat the simple root).</p></div>
       </div>
 
       <div class="phase-section">
@@ -1174,6 +1179,7 @@
 <p>Rewrite the forcing in terms of the two forcings of Exercise 1:</p>
 <p>$$ f = 12e^{-t} - 6e^{t} = 4\,\underbrace{\left(3e^{-t}\right)}_{f_a\ \text{(item iii)}} - 6\,\underbrace{\left(e^{t}\right)}_{f_b\ \text{(item iv)}} $$</p>
 <p>Item (iii) found $x_a$ with $L[x_a] = 3e^{-t}$ and item (iv) found $x_b$ with $L[x_b] = e^{t}$. Then $x_p = 4x_a - 6x_b$.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener" title="Open Notes.pdf at page 6">6</a>]</div><p>This is the decomposition rule of the educated guess in the notes: if $L[x_a] = f_a$ and $L[x_b] = f_b$, then $L[\lambda x_a + \mu x_b] = \lambda f_a + \mu f_b$ by linearity, so each piece of the forcing is guessed separately and the results are added.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1223,6 +1229,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Method</div>
 <p>General solution $x = x_h + x_p$ (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=147" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 147">14.1</a>). For $x_p$ use the guess table of Topic 3, Sec. 5: $K_1\cos\alpha t + K_2\sin\alpha t$ when $P(i\alpha) \neq 0$ and $t(K_1\cos\omega t + K_2\sin\omega t)$ when $\alpha = \omega$.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener" title="Open Notes.pdf at page 6">6</a>]</div><p>$x = x_H + x_N$ as in the notes, with $x_H = C_1\cos\omega t + C_2\sin\omega t$ (Case 03 with $\rho = 0$). The guess $A\cos\alpha t + B\sin\alpha t$ of the notes works while $\alpha \neq \omega$; when $\alpha = \omega$ the forcing is already in $x_H$ and the notes multiply the guess by $t$, which is the resonant solution.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1369,6 +1376,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation: what has to be shown</div>
 <p>We must find constants $M$ and $\phi$ such that $x_p = M\cos(\alpha t - \phi)$ satisfies $L[x_p] = a\cos\alpha t$. Because $\cos(\alpha t - \phi)$ is a shifted cosine, the cosine and sine terms of the guess of Topic 3, Sec. 6.1 are packed in one amplitude and one phase. The subtraction formulas $\cos(\alpha t - \phi) = \cos\alpha t\cos\phi + \sin\alpha t\sin\phi$ and $\sin(\alpha t - \phi) = \sin\alpha t\cos\phi - \cos\alpha t\sin\phi$ will be used.</p>
+<div class="note-box"><div class="note-box-title">Class notes and complement [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener" title="Open Notes.pdf at page 6">6</a>]</div><p>The guess of the notes for $a\cos\alpha t$ is $A\cos\alpha t + B\sin\alpha t$ ($\pm i\alpha$ is not a root because $\lambda &gt; 0$), and $x = x_H + x_N$ with $x_H \to 0$ (Case 03 with $\rho = -\lambda/2 &lt; 0$). Packing $A$ and $B$ into one amplitude and one phase, $M\cos(\alpha t - \phi)$, is a complement (not in the class notes).</p></div>
       </div>
 
       <div class="phase-section">
@@ -1477,6 +1485,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Method</div>
 <p>Characteristic polynomial $P(k) = a_nk^n + \dots + a_0$. A root $k$ of multiplicity $m$ gives $t^je^{kt}$ for $j = 0, \dots, m - 1$; a complex pair $\rho \pm i\omega$ of multiplicity $m$ gives $t^je^{\rho t}\cos\omega t$ and $t^je^{\rho t}\sin\omega t$ for $j = 0, \dots, m - 1$ (Topic 3, Sec. 3 box, Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=166" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 166">16.1</a>). The particular integral uses the guess table of Topic 3, Sec. 5, with the factor $t^{m_s}$ when the exponent $s$ of the forcing is a root of $P$ of multiplicity $m_s$. The derivatives needed are now up to order $n$.</p>
+<div class="note-box"><div class="note-box-title">Class notes and complement [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener" title="Open Notes.pdf at page 6">6</a>]</div><p>The notes state that the educated guess works 'the same for higher order'. The homogeneous part, with $t^j$ factors for a root of multiplicity $m$, extends Cases 01 to 03 and is a complement (not in the class notes); the particular part uses the guess of the notes, times $t^{m_s}$ when the exponent of the forcing is a root.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1649,6 +1658,7 @@
 <p>Replace the constants of $x_h = c_1x_1 + c_2x_2$ by functions: $x = u_1x_1 + u_2x_2$. Choose $\dot u_1x_1 + \dot u_2x_2 = 0$ (18.7), so that $\dot x = u_1\dot x_1 + u_2\dot x_2$; substituting in the equation and using $L[x_1] = L[x_2] = 0$ leaves $\dot u_1\dot x_1 + \dot u_2\dot x_2 = g$. Cramer's rule on the system with determinant $W$ gives</p>
 <p>$$ \dot u_1 = -\frac{x_2\,g}{W}, \qquad \dot u_2 = \frac{x_1\,g}{W}, \qquad x_p = u_1x_1 + u_2x_2 $$</p>
 <p>Constants of integration only add multiples of $x_1, x_2$, so they may be dropped.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=8" target="_blank" rel="noopener" title="Open Notes.pdf at page 8">8</a>]</div><p>This is the derivation of the notes: $x = u_1x_1 + u_2x_2$, impose $u_1'x_1 + u_2'x_2 = 0$, so $u_1' = -u_2'x_2/x_1$ $(\ast)$; substituting in the equation leaves $u_1'x_1' + u_2'x_2' = f$, and with $(\ast)$ $u_2'(x_1x_2' - x_2x_1')/x_1 = f$, hence $u_2' = \frac{f\,x_1}{W}$ and $u_1' = -\frac{f\,x_2}{W}$. Cramer's rule gives the same without dividing by $x_1$.</p><p>Discrepancy with the notes: they print $u_1' = f\,x_2/W$ without the minus sign, but $(\ast)$ gives $-f\,x_2/W$. Check with $x'' + x' - 6x = 12$: the minus sign gives $x_N = -2$, which satisfies the equation; without it $x_N = -\frac25$ and $L[x_N] = \frac{12}{5} \neq 12$.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1751,6 +1761,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Let $y$ be the unique solution of the original IVP, $u$ the unique solution of the homogeneous IVP with the data of $y$, and $v$ the unique solution of the inhomogeneous IVP with zero data (both exist on $I$ by the theorem). The claim is $y = u + v$ on $I$. Proof strategy: show that $u + v$ solves the <strong>original</strong> IVP; uniqueness then forces $u + v = y$.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5–6</a>]</div><p>The theorem of the notes (p. 5) gives the three unique solutions $y$, $u$, $v$. The splitting is the argument the notes use for $x = x_H + x_N$ (p. 6): the difference of two solutions of the inhomogeneous equation solves the homogeneous one. Here the roles are fixed by the data: $u$ carries the initial values and $v$ carries the forcing.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1797,6 +1808,7 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>The idea is the same as in Topic 3, Sec. 7: promote the constant in $Ay_1$ to a function, $y = vy_1$. The product rule is used twice:</p>
 <p>$$ y' = v'y_1 + vy_1', \qquad y'' = v''y_1 + 2v'y_1' + vy_1'' $$</p>
+<div class="note-box"><div class="note-box-title">Class notes and complement [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=7" target="_blank" rel="noopener" title="Open Notes.pdf at page 7">7</a>]</div><p>The notes reduce the order of the homogeneous equation: with a known solution $u$, set $x = yu$; then $\big[u'' + pu' + qu\big]y + \big[2u' + pu\big]y' + uy'' = 0$, the first bracket is $0$, and $z = y'$ satisfies the first-order equation $uz' + (2u' + pu)z = 0$. Here the notes' $u$ is $y_1$ and their $y$ is $v$; keeping the forcing on the right side is a complement (not in the class notes).</p></div>
       </div>
 
       <div class="phase-section">
@@ -1849,6 +1861,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Apply Exercise 8 with $g = 0$: write $y = v\,y_1 = v/t$, so that $v$ must satisfy $y_1\ddot v + [2\dot y_1 + py_1]\dot v = 0$. A second independent solution is $y_2 = v\,y_1$ with $v$ non-constant.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=7" target="_blank" rel="noopener" title="Open Notes.pdf at page 7">7</a>]</div><p>Reduction of order as in the notes: with the known solution $u = y_1 = 1/t$, write $y = v\,u$; the bracket $u'' + pu' + qu$ vanishes and $z = v'$ satisfies $uz' + (2u' + pu)z = 0$, a first-order equation. The notes stop there; it is separable, and integrating it gives the second solution below.</p></div>
       </div>
 
       <div class="phase-section">

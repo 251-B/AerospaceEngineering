@@ -30,6 +30,9 @@ $$ y_1 = t^{-1},\ \ \dot y_1 = -t^{-2},\ \ \ddot y_1 = 2t^{-3} \;\Rightarrow\; t
 
 Apply Exercise 8 with $g = 0$: write $y = v\,y_1 = v/t$, so that $v$ must satisfy $y_1\ddot v + [2\dot y_1 + py_1]\dot v = 0$. A second independent solution is $y_2 = v\,y_1$ with $v$ non-constant.
 
+> [!info] Method of the class notes [Notes, p. 7]
+> Reduction of order as in the notes: with the known solution $u = y_1 = 1/t$, write $y = v\,u$; the bracket $u'' + pu' + qu$ vanishes and $z = v'$ satisfies $uz' + (2u' + pu)z = 0$, a first-order equation. The notes stop there; it is separable, and integrating it gives the second solution below.
+
 ## Phase 3: Derivation
 
 #### The equation for $v$

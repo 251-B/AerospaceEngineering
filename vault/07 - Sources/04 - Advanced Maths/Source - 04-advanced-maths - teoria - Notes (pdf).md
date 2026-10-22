@@ -19,7 +19,7 @@ bytes: 1597287
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 1.6 MB
-- **Status:** referenced by 43 note(s) below
+- **Status:** referenced by 54 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -63,6 +63,17 @@ bytes: 1597287
 - [[04 - Advanced Maths/Problem - Ch2-P7 Nonlinear Change of Variables]]
 - [[04 - Advanced Maths/Problem - Ch2-P8 General Bernoulli Equation Reduction]]
 - [[04 - Advanced Maths/Problem - Ch2-P9 Solution Uniqueness and Lipschitz Analysis]]
+- [[04 - Advanced Maths/Problem - Ch3-P1 Linear Independence via Wronskian]]
+- [[04 - Advanced Maths/Problem - Ch3-P10 Parachutist Linear Drag and Terminal Velocity]]
+- [[04 - Advanced Maths/Problem - Ch3-P11 Euler-Cauchy Equation via Exponential Transformation]]
+- [[04 - Advanced Maths/Problem - Ch3-P2 Abels Identity and Wronskian Dichotomy]]
+- [[04 - Advanced Maths/Problem - Ch3-P3 Peano Counterexample on Wronskian Vanishing]]
+- [[04 - Advanced Maths/Problem - Ch3-P4 Second Order Homogeneous Linear ODEs with IVPs]]
+- [[04 - Advanced Maths/Problem - Ch3-P5 Saddle Invariant Manifold and Asymptotic Decay]]
+- [[04 - Advanced Maths/Problem - Ch3-P6 Amplitude-Phase Transformation for Oscillations]]
+- [[04 - Advanced Maths/Problem - Ch3-P7 Simple Pendulum Energy and Small Oscillations]]
+- [[04 - Advanced Maths/Problem - Ch3-P8 Damped Harmonic Oscillator Regimes]]
+- [[04 - Advanced Maths/Problem - Ch3-P9 Falling Chain from Table and Hyperbolic Motion]]
 - [[04 - Advanced Maths/Topic 1 - Introduction, Modeling and Classification of ODEs]]
 - [[04 - Advanced Maths/Topic 2 - First-Order ODEs and Qualitative Dynamics]]
 - [[04 - Advanced Maths/Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients]]

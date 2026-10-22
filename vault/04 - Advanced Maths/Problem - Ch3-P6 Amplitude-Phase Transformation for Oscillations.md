@@ -43,6 +43,8 @@ with amplitude $M = (A^2 + B^2)^{1/2}$ and phase $\phi = \arctan(B/A)$.
    - Ratio of components to determine the phase angle $\phi$.
 4. **Geometric Interpretation:** Relate $(A, B)$ to Cartesian coordinates and $(M, \phi)$ to polar coordinates on the phasor plane.
 
+**Class notes and complement [Notes.pdf, p. 5].** Case 03 of the notes builds the real form from $C_1e^{i\omega t} + C_2e^{-i\omega t}$ with $C_1 = \frac12(A - iB)$, $C_2 = \overline{C_1}$ (here $\rho = 0$). Writing $A = M\cos\phi$, $B = M\sin\phi$ gives $C_1 = \frac12 Me^{-i\phi}$, and the sum is $\operatorname{Re}\big(Me^{i(\omega t - \phi)}\big) = M\cos(\omega t - \phi)$: the amplitude-phase form of this problem, which is a complement (not in the class notes).
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

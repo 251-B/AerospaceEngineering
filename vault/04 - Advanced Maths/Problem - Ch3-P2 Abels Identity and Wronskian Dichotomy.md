@@ -44,6 +44,10 @@ Deduce either that $W(t) = 0$ for all $t$, or that $W(t) \neq 0$ for all $t$.
 4. **Integrate to Abel's Formula:** Solve the first-order linear ODE for $W(t)$ using an integrating factor (no division by $W$, which may vanish).
 5. **Deduce the Wronskian Dichotomy:** Use the strict positivity of the exponential function $\exp(-\int p_1 ds) > 0$ to prove the binary behavior.
 
+**Method of the class notes [Notes.pdf, p. 5].** This is the derivation of the notes: by the product rule $W' = x_1x_2'' - x_2x_1''$ (the terms $x_1'x_2'$ cancel); with $x_j'' = -px_j' - qx_j$ this is $W' = -p\,x_1x_2' + p\,x_2x_1' = -p\,W$, so $W(t) = Ce^{-\int p\,dt}$ and $W \equiv 0$ or $W$ never vanishes.
+
+Discrepancy with the notes: their boxed result reads $W' = p\,W$, but their own previous line gives $-p\,W$ and their solution $Ce^{-\int p}$ solves $W' = -p\,W$, as this problem states. Check: $x'' + x' - 6x = 0$ with $x_1 = e^{-3t}$, $x_2 = e^{2t}$ gives $W = 5e^{-t}$ and $W' = -W$.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

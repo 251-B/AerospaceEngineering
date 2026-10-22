@@ -54,6 +54,10 @@ $$ \frac{d^2y}{dz^2} + (p - 1)\frac{dy}{dz} + q y = g(e^z) $$
 4. Combine into the general solution $y(z) = y_h(z) + y_p(z)$.
 5. Invert the coordinate transformation using $z = \ln x$ to express $y(x)$.
 
+**Method of the class notes [Notes.pdf, pp. 5–6].** Part (ii) reduces to $\frac{d^2y}{dz^2} + 2\frac{dy}{dz} - 3y = 4e^z$, solved as in the notes: $y = y_H + y_N$. $k^2 + 2k - 3 = (k + 3)(k - 1)$ gives Case 01, $y_H = C_1e^{z} + C_2e^{-3z}$. The forcing $4e^{z}$ has $\alpha = 1$, a root, so the educated guess is $y_N = Aze^{z}$ (Case 2 of the guess).
+
+With $(Aze^z)' = A(1 + z)e^z$ and $(Aze^z)'' = A(2 + z)e^z$: $A\big[(2 + z) + 2(1 + z) - 3z\big]e^z = 4Ae^z = 4e^z$, so $A = 1$ and, with $z = \ln x$, $y = C_1x + C_2x^{-3} + x\ln x$.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

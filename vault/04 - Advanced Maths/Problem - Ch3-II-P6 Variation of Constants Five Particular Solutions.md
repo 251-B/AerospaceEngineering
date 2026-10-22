@@ -48,6 +48,11 @@ $$ \dot u_1 = -\frac{x_2\,g}{W}, \qquad \dot u_2 = \frac{x_1\,g}{W}, \qquad x_p 
 
 Constants of integration only add multiples of $x_1, x_2$, so they may be dropped.
 
+> [!info] Method of the class notes [Notes, p. 8]
+> This is the derivation of the notes: $x = u_1x_1 + u_2x_2$, impose $u_1'x_1 + u_2'x_2 = 0$, so $u_1' = -u_2'x_2/x_1$ $(\ast)$; substituting in the equation leaves $u_1'x_1' + u_2'x_2' = f$, and with $(\ast)$ $u_2'(x_1x_2' - x_2x_1')/x_1 = f$, hence $u_2' = \frac{f\,x_1}{W}$ and $u_1' = -\frac{f\,x_2}{W}$. Cramer's rule gives the same without dividing by $x_1$.
+>
+> Discrepancy with the notes: they print $u_1' = f\,x_2/W$ without the minus sign, but $(\ast)$ gives $-f\,x_2/W$. Check with $x'' + x' - 6x = 12$: the minus sign gives $x_N = -2$, which satisfies the equation; without it $x_N = -\frac25$ and $L[x_N] = \frac{12}{5} \neq 12$.
+
 ## Phase 3: Derivation
 
 ### (i) $y'' - y' - 6y = e^x$

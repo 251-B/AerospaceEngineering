@@ -54,6 +54,10 @@ Write down an ODE to describe the motion of the parachutist, and determine the t
 5. **Physical Comparison with Free Fall:**
    Contrast the bounded drag trajectory with the uninhibited free-fall kinematics $v_{\text{free}}(t) = gt$, analyzing short-time ($t \ll \tau$) and long-time ($t \gg \tau$) asymptotic regimes.
 
+**Method of the class notes [Notes.pdf, pp. 3, 6].** Velocity: $v' + \frac{c}{m}v = g$, $v(0) = 0$, with the three-step algorithm of the notes (p. 3): $P(t) = \int_0^t \frac{c}{m}\,d\tau = \frac{c}{m}t$, $I = e^{ct/m}$, $I(0) = 1$, and $v(t) = \frac{1}{I(t)}\int_0^t e^{c\tau/m}g\,d\tau = \frac{mg}{c}\left(1 - e^{-ct/m}\right)$.
+
+Position, as a second-order equation (p. 6): $x'' + \frac{c}{m}x' = g$, $x = x_H + x_N$. The roots of $k^2 + \frac{c}{m}k = 0$ are $0$ and $-\frac{c}{m}$ (Case 01), so $x_H = C_1 + C_2e^{-ct/m}$. The forcing $g = g\,e^{0t}$ has $\alpha = 0$, a root, so the educated guess of the notes is $x_N = At$: $\frac{c}{m}A = g$, $A = \frac{mg}{c}$, the terminal speed.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
