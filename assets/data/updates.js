@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-22-maths-topic-3-class-notes",
+    "date": "2026-10-22",
+    "tag": "Advanced Maths",
+    "title": "Maths Topic 3 now follows the class notes",
+    "text": "Second-order equations in the order of the notes: the Wronskian, the three cases, x'' + x' - 6x for three forcings, and variation of constants with the sign of u1' corrected.",
+    "link": "subjects/advanced-maths/teoria/topic-3.html"
+  },
+  {
     "id": "2026-10-22-maths-topic-2-class-notes",
     "date": "2026-10-22",
     "tag": "Advanced Maths",

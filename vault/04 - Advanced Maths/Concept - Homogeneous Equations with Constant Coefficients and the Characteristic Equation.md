@@ -224,3 +224,7 @@ flowchart LR
 * [[04 - Advanced Maths/Concept - Abel's Identity and Properties of the Wronskian|Identidad de Abel]]
 * [[04 - Advanced Maths/Concept - Linear Operator and the Superposition Principle|Operador Lineal y Principio de Superposición]]
 * [[04 - Advanced Maths/Concept - Existence and Uniqueness Theorem for Second-Order ODEs|Teorema de Existencia y Unicidad]]
+
+## Class notes
+
+The class notes (Notes.pdf, p. 5) write the equation as $x'' + px' + qx = 0$ with characteristic polynomial $k^2 + pk + q = 0$ and call the three cases Case 01, 02 and 03; Case 03 is derived from Euler's formula with complex-conjugate constants. See [[04 - Advanced Maths/Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients|Topic 3]], Section 4.

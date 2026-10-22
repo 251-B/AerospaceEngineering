@@ -141,3 +141,7 @@ Since the matrix elements are continuous on $I$, the vector field satisfies a gl
 * [[04 - Advanced Maths/Concept - Linear Independence of Functions and the Wronskian Determinant|Independencia Lineal y Determinante Wronskiano]]
 * [[04 - Advanced Maths/Concept - Abel's Identity and Properties of the Wronskian|Identidad de Abel]]
 * [[04 - Advanced Maths/Concept - Well-Posed Problems and Picard Theorem|Picard-Lindelöf Theorem for 1st-Order ODEs]]
+
+## Class notes
+
+The class notes (Notes.pdf, p. 5) state the theorem with $f$, $\partial f/\partial x$, $\partial f/\partial\dot x$ continuous in a cube $(a_1, a_2)\times(b_1, b_2)\times(t_1, t_2)$. See [[04 - Advanced Maths/Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients|Topic 3]], Section 1.

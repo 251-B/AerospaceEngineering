@@ -172,3 +172,7 @@ By construction, $W[x_1, x_2](t) = \exp(-\int p ds) \neq 0$, guaranteeing that $
 * [[04 - Advanced Maths/Concept - Linear Operator and the Superposition Principle|Operador Lineal y Principio de Superposición]]
 * [[04 - Advanced Maths/Concept - Existence and Uniqueness Theorem for Second-Order ODEs|Teorema de Existencia y Unicidad]]
 * [[04 - Advanced Maths/Concept - Homogeneous Equations with Constant Coefficients and the Characteristic Equation|Ecuaciones con Coeficientes Constantes]]
+
+## Class notes
+
+The class notes (Notes.pdf, p. 5) derive $W' = -pW$ and $W = Ce^{-\int p\,dt}$, but box the intermediate result as $W' = pW$ (a dropped minus sign; their own previous line gives $-pW$). The correction and its check are in [[04 - Advanced Maths/Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients|Topic 3]], Section 3.

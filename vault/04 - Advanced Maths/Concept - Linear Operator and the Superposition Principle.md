@@ -168,3 +168,7 @@ $$ L\left[\sum_{k=1}^N x_{p,k}\right] = \sum_{k=1}^N L[x_{p,k}] = \sum_{k=1}^N f
 * [[04 - Advanced Maths/Concept - Linear Independence of Functions and the Wronskian Determinant|Independencia Lineal y Determinante Wronskiano]]
 * [[04 - Advanced Maths/Concept - Abel's Identity and Properties of the Wronskian|Identidad de Abel]]
 * [[04 - Advanced Maths/Concept - Linearity and Order of Differential Equations|Linearity and Order of Differential Equations]]
+
+## Class notes
+
+The class notes (Notes.pdf, p. 6) prove $x = x_H + x_N$ with $\Phi = x - x_N$ (their last line has a sign slip, $x = x_H - x_N$) and solve $x'' + x' - 6x = 12$, $36t$ and $4e^{-2t}$ by educated guesses. See [[04 - Advanced Maths/Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients|Topic 3]], Section 6.

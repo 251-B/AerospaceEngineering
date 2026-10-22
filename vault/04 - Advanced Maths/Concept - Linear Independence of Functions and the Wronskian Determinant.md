@@ -146,3 +146,7 @@ The vector space $S_H = \ker(L) = \{ x \in C^2(I) : x'' + p(t)x' + q(t)x = 0 \}$
 * [[04 - Advanced Maths/Concept - Linear Operator and the Superposition Principle|Operador Lineal y Principio de Superposición]]
 * [[04 - Advanced Maths/Concept - Abel's Identity and Properties of the Wronskian|Identidad de Abel]]
 * [[04 - Advanced Maths/Concept - Homogeneous Equations with Constant Coefficients and the Characteristic Equation|Ecuación Característica]]
+
+## Class notes
+
+The class notes (Notes.pdf, p. 5) motivate the Wronskian with the IVP system for $C_1$, $C_2$, solvable only when the determinant is non-zero. See [[04 - Advanced Maths/Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients|Topic 3]], Sections 2-3.
