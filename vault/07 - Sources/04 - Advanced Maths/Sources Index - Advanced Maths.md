@@ -10,8 +10,8 @@ tags:
 
 ## Coverage
 
-- Files: 80
-- Referenced by at least one note (a mention counts): 7
+- Files: 81
+- Referenced by at least one note (a mention counts): 8
 - Not referenced yet: 73
 - Build artifacts: 0
 - Working files: 0
@@ -106,6 +106,12 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - 04-advanced-maths - schedule - ODE_lecture_theory_to_Robinson_chapters (txt)\|ODE_lecture_theory_to_Robinson_chapters.txt]] | schedule | not-referenced |
 | [[Source - 04-advanced-maths - schedule - view (htm)\|view.htm]] | schedule | not-referenced |
+
+## teoria
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 04-advanced-maths - teoria - Notes (pdf)\|Notes.pdf]] | teoria | referenced |
 
 ## unit-01-introduction-ode-modeling/problemas
 

@@ -3,7 +3,7 @@
 > **Course Code:** `251-15331` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `c27033c3-5a64-403f-a517-5847831aabcb`  
 > **Portal Web:** `subjects/04-advanced-maths/` | **Obsidian Vault:** `vault/04-advanced-maths/`  
-> **Last Synchronized:** `2026-10-13 21:49` | **Total Official Files:** `77` (91.3 MB)
+> **Last Synchronized:** `2026-10-22 11:16` | **Total Official Files:** `81` (92.9 MB)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Category | File Count | Status | Notes |
 | :--- | :---: | :---: | :--- |
-| 📖 **Theory & Slides** | `2` | 🟢 Active | Consolidated Notes & Session Slides |
-| ✏️ **Problem Sheets & Solutions** | `4` | 🟢 Active | Official problem sets & step-by-step solutions |
+| 📖 **Theory & Slides** | `3` | 🟢 Active | Consolidated Notes & Session Slides |
+| ✏️ **Problem Sheets & Solutions** | `7` | 🟢 Active | Official problem sets & step-by-step solutions |
 | 📝 **Official Exams** | `67` | 🟢 Active | Partial midterms & final exams |
 | 📅 **Course Schedule** | `2` | 🟢 Available | Weekly lecture & evaluation calendar |
 
@@ -91,14 +91,18 @@
 | 67 | `MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` | 📝 Exam | 368.3 KB | `examenes/MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` |
 | 68 | `MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf` | 📝 Exam | 603.1 KB | `examenes/other-universities/MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf` |
 | 69 | `ODE_lecture_theory_to_Robinson_chapters.txt` | 📅 Schedule | 11.9 KB | `schedule/ODE_lecture_theory_to_Robinson_chapters.txt` |
-| 70 | `view.htm` | 📅 Schedule | 171.9 KB | `schedule/view.htm` |
-| 71 | `ProblemsCh1.pdf` | ✏️ Problems | 38.8 KB | `unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf` |
-| 72 | `ProblemsCh2.pdf` | ✏️ Problems | 43.3 KB | `unit-02-first-order-odes/problemas/ProblemsCh2.pdf` |
-| 73 | `ProblemsCh3.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf` |
-| 74 | `probls_ch3_2627.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf` |
-| 75 | `definition_linear_ODE.pdf` | 📖 Theory | 98.4 KB | `unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf` |
-| 76 | `BookPDE's.pdf` | 📖 Theory | 6.2 MB | `unit-05-fourier-series-pdes/teoria/BookPDE's.pdf` |
-| 77 | `.gitkeep` | Other | 0.0 B | `unit-06-heat-wave-laplace/.gitkeep` |
+| 70 | `view.htm` | 📅 Schedule | 174.0 KB | `schedule/view.htm` |
+| 71 | `Notes.pdf` | 📖 Theory | 1.5 MB | `teoria/Notes.pdf` |
+| 72 | `ProblemsCh1.pdf` | ✏️ Problems | 38.8 KB | `unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf` |
+| 73 | `ProblemsCh2.pdf` | ✏️ Problems | 43.3 KB | `unit-02-first-order-odes/problemas/ProblemsCh2.pdf` |
+| 74 | `ProblemsCh3.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf` |
+| 75 | `probls_ch3-ii_2627.pdf` | ✏️ Problems | 34.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3-ii_2627.pdf` |
+| 76 | `probls_ch3_2627.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf` |
+| 77 | `probls_ch4-i_2627_v2.pdf` | ✏️ Problems | 38.7 KB | `unit-04-systems-of-odes/problemas/probls_ch4-i_2627_v2.pdf` |
+| 78 | `probls_ch4-ii_2627.pdf` | ✏️ Problems | 32.7 KB | `unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf` |
+| 79 | `definition_linear_ODE.pdf` | 📖 Theory | 98.4 KB | `unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf` |
+| 80 | `BookPDE's.pdf` | 📖 Theory | 6.2 MB | `unit-05-fourier-series-pdes/teoria/BookPDE's.pdf` |
+| 81 | `.gitkeep` | Other | 0.0 B | `unit-06-heat-wave-laplace/.gitkeep` |
 
 ---
 
@@ -107,7 +111,7 @@
 This checklist tracks all academic materials required according to the official UC3M syllabus. It identifies existing items and highlights missing documents that should be uploaded when published.
 
 ### 1. Course Schedule & Organization
-- [x] **Official Syllabus & Calendar (`schedule/`):** Present (`view.htm`)
+- [x] **Official Syllabus & Calendar (`schedule/`):** Present (`ODE_lecture_theory_to_Robinson_chapters.txt`)
 
 ### 2. Syllabus Units & Weekly Topics
 
@@ -137,7 +141,7 @@ This checklist tracks all academic materials required according to the official 
     - [x] definition_linear_ODE.pdf
     - [ ] BookODE's.pdf (Ch 4)
   * **Problems & Solutions:**
-    - [ ] Systems of ODEs Problem Sheet (Ch 4)
+    - [x] Systems of ODEs Problem Sheet (Ch 4)
 
 #### Unit 5: Fourier Series & Boundary Value Problems (`unit-05-fourier-series-pdes/`)
   * **Theory / Slides:**

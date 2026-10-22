@@ -232,6 +232,11 @@
    "label": "definition_linear_ODE.pdf",
    "pages": 1
   },
+  "am-notes": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf",
+   "label": "Notes.pdf",
+   "pages": 10
+  },
   "am-p1": {
    "path": "sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf",
    "label": "ProblemsCh1.pdf",
@@ -719,12 +724,17 @@
      "auto"
     ],
     [
+     "am-notes",
+     2
+    ],
+    [
      "am-lin",
      1
     ]
    ],
    "cite": {
-    "robinson": "am-book"
+    "robinson": "am-book",
+    "notes": "am-notes"
    }
   },
   "subjects/advanced-maths/teoria/topic-2.html": {

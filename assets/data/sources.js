@@ -301,7 +301,13 @@ window.AE_SOURCES = {
         "problemas": [],
         "schedule": [],
         "slides": [],
-        "teoria": []
+        "teoria": [
+          {
+            "bytes": 1597287,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf",
+            "name": "Notes.pdf"
+          }
+        ]
       },
       "units": [
         {

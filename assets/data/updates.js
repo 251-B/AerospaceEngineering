@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-22-maths-topic-1-class-notes",
+    "date": "2026-10-22",
+    "tag": "Advanced Maths",
+    "title": "Maths Topic 1 now follows the class notes",
+    "text": "Sections 1 to 6 now follow page 2 of the class notes: the linearity test step by step, and the population and free-fall examples solved in full.",
+    "link": "subjects/advanced-maths/teoria/topic-1.html"
+  },
+  {
     "id": "2026-10-21-maths-chapter-3-4-new-sheets",
     "date": "2026-10-21",
     "tag": "Advanced Maths",

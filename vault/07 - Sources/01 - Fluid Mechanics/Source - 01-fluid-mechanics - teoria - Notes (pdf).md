@@ -20,7 +20,7 @@ bytes: 2126997
 - **Kind:** teoria
 - **Size:** 2.1 MB
 - **Status:** referenced by 67 note(s) below
-- **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
+- **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 

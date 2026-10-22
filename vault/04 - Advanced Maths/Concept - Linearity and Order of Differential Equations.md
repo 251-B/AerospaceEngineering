@@ -75,6 +75,9 @@ $$ L[c_1 y_1 + c_2 y_2] = c_1 L[y_1] + c_2 L[y_2] $$
 * **Homogeneous:** When $b(x) \equiv 0$ on $I$, so $L[y] = 0$. The **principle of superposition** applies: if $y_1(x)$ and $y_2(x)$ are solutions, any linear combination $c_1 y_1(x) + c_2 y_2(x)$ is also a solution.
 * **Nonhomogeneous (Inhomogeneous):** When $b(x) \not\equiv 0$. The general solution is $y(x) = y_h(x) + y_p(x)$, where $y_h$ is the general solution of the associated homogeneous equation and $y_p$ is a particular solution.
 
+### Superposition criterion of the class notes
+The class notes (`Notes.pdf`, p. 2) state linearity as a test: if $u_1$, $u_2$ are solutions, the ODE is linear when $\alpha u_1 + \beta u_2$ is a solution for all $\alpha, \beta \in \mathbb R$. This is the superposition property of the **homogeneous** form ($b \equiv 0$); for an inhomogeneous equation apply it to $L[y] = 0$. Both demonstrations of the notes ($u' = u$ passes, $u'' = (u')^2 + 1$ fails) are worked step by step in [[04 - Advanced Maths/Topic 1 - Introduction, Modeling and Classification of ODEs|Topic 1]], Sections 3.3-3.4.
+
 ---
 
 ## 🔍 3. Canonical Examples & Non-linear Counterexamples
