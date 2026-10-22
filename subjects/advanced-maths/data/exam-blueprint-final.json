@@ -1,0 +1,138 @@
+{
+  "subject": "advanced-maths",
+  "exam_id": "final",
+  "title": "Advanced Maths — Final Exam",
+  "short_title": "Final",
+  "generate_label": "Generate New Final Exam",
+  "note": "Four problems of 2.5 points, one per block of the course (ODE, system, Fourier/Sturm-Liouville, PDE), as in the finals of 2019 and 2020 (2.5 points each). The papers print 3 to 4 hours; 3 hours is the standard here.",
+  "provenance": {
+    "structure_source": "Read from MATHS_FINALEXAM_2019_ORD (4 h), 2020_ORD (3.5 h), 2021_ORD_SOL (3.5 h), 2022_EXTRA (3 h) and 2024_ORD in sources/cuatrimestre-1/04-advanced-maths/examenes/: four problems that cover the whole course, 2.5 points each in 2019 and 2020 (2+3+3+2 in 2021 and 2022).",
+    "verify_when": "The official duration of the current course's final exam is confirmed; update this file and drop this note."
+  },
+  "content_scope_source": "The whole course: second-order ODEs, systems of ODEs, Fourier series and Sturm-Liouville problems, and PDEs.",
+  "simulator_page": "subjects/advanced-maths/simulator/index.html",
+  "problem_bank": "subjects/advanced-maths/data/problems.json",
+  "total_points": 10.0,
+  "duration_minutes": 180,
+  "duration_options_minutes": [
+    150,
+    180,
+    240
+  ],
+  "parts": [
+    {
+      "id": "part-1",
+      "label": "Problem 1 — Second-order ODE",
+      "category": "final_problem",
+      "count": 1,
+      "points_each": 2.5,
+      "points_total": 2.5,
+      "description": "A second-order linear equation: reduction of order, Cauchy-Euler or constant coefficients with forcing.",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [
+          3
+        ],
+        "archetypes": [
+          "ode-second-order-reduction",
+          "ode-second-order-undetermined-params"
+        ]
+      },
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    {
+      "id": "part-2",
+      "label": "Problem 2 — System of ODEs",
+      "category": "final_problem",
+      "count": 1,
+      "points_each": 2.5,
+      "points_total": 2.5,
+      "description": "A linear or nonlinear planar system with its phase portrait.",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [
+          4
+        ],
+        "archetypes": [
+          "linear-systems-phase-portrait",
+          "nonlinear-systems-stability"
+        ]
+      },
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    {
+      "id": "part-3",
+      "label": "Problem 3 — Fourier and Sturm-Liouville",
+      "category": "final_problem",
+      "count": 1,
+      "points_each": 2.5,
+      "points_total": 2.5,
+      "description": "A Fourier series with convergence, or an eigenvalue problem with its orthogonality.",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [
+          5
+        ],
+        "archetypes": [
+          "fourier-series-convergence",
+          "sturm-liouville-eigenproblems"
+        ]
+      },
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    {
+      "id": "part-4",
+      "label": "Problem 4 — PDE",
+      "category": "final_problem",
+      "count": 1,
+      "points_each": 2.5,
+      "points_total": 2.5,
+      "description": "The heat, wave or Laplace equation by separation of variables.",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [
+          6
+        ],
+        "archetypes": [
+          "pde-separation-laplace",
+          "pde-separation-heat-wave"
+        ]
+      },
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    }
+  ],
+  "runner": {
+    "hide_hints_and_solutions_until_submit": true,
+    "allow_scratchpad_per_question": true,
+    "exclude_mastered_option": true,
+    "exclude_previous_attempt_option": true
+  }
+}

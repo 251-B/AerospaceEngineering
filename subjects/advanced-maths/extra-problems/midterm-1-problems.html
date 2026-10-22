@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="advanced-maths">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extra Problems — 1st Midterm Problems | Advanced Maths</title>
+  <meta name="description" content="Exam-style problems for the 1st midterm of Advanced Maths (UC3M Aerospace Engineering), solved step by step." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+    /* Extra problems: the 1st Midterm block, split into Theory and Problems */
+    .midterm-block { margin: 8px 0 0; }
+    .midterm-block > h2.midterm-title { font-size: 2rem; margin: 8px 0 6px; }
+    .midterm-lead { color: var(--text-body, var(--text-primary)); margin: 0 0 8px; }
+    .midterm-part { font-size: 1.6rem; margin: 44px 0 4px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); }
+    .midterm-part-lead { color: var(--text-body, var(--text-primary)); margin: 8px 0 18px; }
+    .midterm-part-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .phase-block .prompt { font-style: italic; }
+    .problem-title { scroll-margin-top: 90px; }
+    .diagram-card { background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle)); border-radius: 12px; padding: 16px; margin: 18px 0; text-align: center; }
+    .diagram-card svg { max-width: 100%; height: auto; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">1ST MIDTERM · PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Advanced Maths</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Extra problems · 1st Midterm · Problems</div>
+        <h1 class="article-title">1st Midterm: Exam-Style Problems</h1>
+        <div class="article-meta">
+          Exam-style problems on Units 1 to 4 (first- and second-order ODEs, linear systems), worth 5 points each, like the problems of the first partial, written for this portal and solved step by step. They are practice material, not official exercises; each one was checked with SymPy.
+        </div>
+      </header>
+
+
+<!-- EXTRA-PROBLEMS:START (generated by tools/build_maths_bank.py; edit the vault notes) -->
+      <p class="midterm-part-lead">7 exam-style problems on Units 1 to 4 (first- and second-order ODEs, linear systems), worth 5 points each. The first partials of 2019 to 2025 are 2 or 3 problems in 60 to 90 minutes; the <a href="../simulator/index.html">Exam simulator</a> draws one ODE problem and one linear-system problem.</p>
+      <section class="problem-box" id="P01">
+        <span class="problem-tag">1st Midterm · Unit 1 · First-order modelling · 5 points · 30 min · Standard exam level</span>
+        <h4 class="problem-title">P01 — Two brine tanks in cascade: separation for the first tank, integrating factor for the second, the equal-rate case and the peak of salt</h4>
+        <div class="statement-box">
+<p>Two well-stirred tanks are connected in series. Tank A holds $V_A=100$ L of brine containing $20$ kg of dissolved salt; tank B holds $V_B$ litres of fresh water. At $t=0$ three pumps are switched on, all with the same flow rate $r=10$ L/min: fresh water enters A, the mixture of A flows into B, and the mixture of B is drained to the outside. Time is measured in minutes. Let $x(t)$ and $y(t)$ be the masses of salt (kg) in A and in B, and write $k_A=r/V_A$, $k_B=r/V_B$ for the rate constants. Part (c) uses $V_B=100$ L and part (d) uses $V_B=50$ L.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknowns $x(t)$, $y(t)$ (kg), independent variable $t\ge0$ (min).</li><li>Hypotheses: perfect mixing (the concentration of the outflow of each tank is its mean concentration), equal inflow and outflow, so the volumes stay constant; salt is conserved (no reaction, no precipitation).</li><li>Operator: two first-order, linear equations with constant coefficients. The equation for $x$ is homogeneous and decoupled; the equation for $y$ is inhomogeneous, forced by $x$ (a triangular, one-way coupling).</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th>Value</th><th>Unit</th></tr></thead><tbody><tr><td>Flow rate</td><td>$r$</td><td>$10$</td><td>L/min</td></tr><tr><td>Volume of A</td><td>$V_A$</td><td>$100$</td><td>L</td></tr><tr><td>Volume of B</td><td>$V_B$</td><td>$100$ in (c), $50$ in (d)</td><td>L</td></tr><tr><td>Initial salt in A</td><td>$x_0$</td><td>$20$</td><td>kg</td></tr><tr><td>Initial salt in B</td><td>$y(0)$</td><td>$0$</td><td>kg</td></tr><tr><td>Rate constants</td><td>$k_A=r/V_A$, $k_B=r/V_B$</td><td>$0.1$; $0.1$ or $0.2$</td><td>min$^{-1}$</td></tr></tbody></table></div>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>The balance law (rate of change = rate in $-$ rate out) for each tank, in the linear standard form $y'+p(t)\,y=q(t)$ of Topic 2:</p>
+<div class="math-block">$$x'+k_A\,x=0,\qquad y'+k_B\,y=k_A\,x(t),\qquad x(0)=x_0,\quad y(0)=0.$$</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Model and dimensions</p>
+<p>Write the initial value problem satisfied by $x$ and $y$ and check its dimensions.</p></div>
+<h4 class="step-title">Step 1. Tank A</h4>
+<p>Fresh water carries no salt, so the rate in is $0$. The outflow carries $r$ L/min at concentration $x/V_A$ kg/L:</p>
+<div class="math-block">$$\frac{dx}{dt}=0-r\,\frac{x}{V_A}=-k_A\,x,\qquad k_A=\frac{r}{V_A}.$$</div>
+<h4 class="step-title">Step 2. Tank B</h4>
+<p>Its inflow is the outflow of A, with concentration $x/V_A$; its outflow has concentration $y/V_B$:</p>
+<div class="math-block">$$\frac{dy}{dt}=r\,\frac{x}{V_A}-r\,\frac{y}{V_B}=k_A\,x-k_B\,y,\qquad k_B=\frac{r}{V_B}.$$</div>
+<p>The initial data are $x(0)=x_0=20$ kg and $y(0)=0$ (fresh water).</p>
+<h4 class="step-title">Step 3. Dimensions</h4>
+<p>$[r]=$ L min$^{-1}$, $[V]=$ L, so $[k_A]=[k_B]=$ min$^{-1}$. Then $[k_Ax]=$ min$^{-1}\cdot$kg $=$ kg/min $=[dx/dt]$, and the same for every term of the second equation: both equations are dimensionally homogeneous. The exponents that will appear, $k_At$ and $k_Bt$, are dimensionless.</p>
+<p>Numerically $k_A=10/100=0.1$ min$^{-1}$; $k_B=10/100=0.1$ min$^{-1}$ for $V_B=100$ L and $k_B=10/50=0.2$ min$^{-1}$ for $V_B=50$ L.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$x'=-\dfrac{r}{V_A}x$, $\ y'=\dfrac{r}{V_A}x-\dfrac{r}{V_B}y$, $\ x(0)=20$ kg, $y(0)=0$.</li><li>$k_A=k_B=0.1$ min$^{-1}$ in (c); $k_A=0.1$, $k_B=0.2$ min$^{-1}$ in (d).</li><li>Every term has units kg/min.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.5 points</h3>
+          <div class="prompt"><p>Solution for different rate constants</p>
+<p>Solve for $x(t)$ by separation of variables and, for $k_A\neq k_B$, solve for $y(t)$ with an integrating factor.</p></div>
+<h4 class="step-title">Step 1. Tank A by separation</h4>
+<p>$x\equiv0$ is not the solution ($x_0\neq0$). For $x&gt;0$, separate: $\dfrac{dx}{x}=-k_A\,dt$. Integrate from $0$ to $t$:</p>
+<div class="math-block">$$\int_{x_0}^{x(t)}\frac{d\xi}{\xi}=\big[\ln\xi\big]_{x_0}^{x(t)}=\ln\frac{x(t)}{x_0},\qquad \int_0^t(-k_A)\,ds=-k_A\,t.$$</div>
+<p>Hence $\ln(x/x_0)=-k_At$ and</p>
+<div class="math-block">$$x(t)=x_0\,e^{-k_At}.$$</div>
+<h4 class="step-title">Step 2. Integrating factor for B</h4>
+<p>Substitute $x(t)$: $y'+k_By=k_Ax_0e^{-k_At}$. With $p=k_B$ the integrating factor (Notes, p. 3) is $\mu(t)=e^{\int_0^tk_B\,ds}=e^{k_Bt}$, with $\mu'=k_B\mu$. By the product rule, $(\mu y)'=\mu y'+\mu'y=e^{k_Bt}(y'+k_By)$, so</p>
+<div class="math-block">$$\frac{d}{dt}\big(e^{k_Bt}y\big)=k_Ax_0\,e^{(k_B-k_A)t}.$$</div>
+<h4 class="step-title">Step 3. Integration</h4>
+<p>For $k_B\neq k_A$ an antiderivative of $e^{(k_B-k_A)s}$ is $\dfrac{e^{(k_B-k_A)s}}{k_B-k_A}$. Integrating from $0$ to $t$ and using $y(0)=0$ (Barrow's rule on both sides):</p>
+<div class="math-block">$$e^{k_Bt}y(t)-e^{0}\,y(0)=k_Ax_0\left[\frac{e^{(k_B-k_A)s}}{k_B-k_A}\right]_0^t=\frac{k_Ax_0}{k_B-k_A}\Big(e^{(k_B-k_A)t}-1\Big).$$</div>
+<p>Multiplying by $e^{-k_Bt}$:</p>
+<div class="math-block">$$y(t)=\frac{k_A\,x_0}{k_B-k_A}\Big(e^{-k_At}-e^{-k_Bt}\Big).$$</div>
+<h4 class="step-title">Step 4. Check</h4>
+<p>$y(0)=\frac{k_Ax_0}{k_B-k_A}(1-1)=0$. Differentiating, $y'=\frac{k_Ax_0}{k_B-k_A}(-k_Ae^{-k_At}+k_Be^{-k_Bt})$ and $k_Ax-k_By=\frac{k_Ax_0}{k_B-k_A}\big[(k_B-k_A)e^{-k_At}-k_Be^{-k_At}+k_Be^{-k_Bt}\big]$, which is the same expression. The quotient $\frac{e^{-k_At}-e^{-k_Bt}}{k_B-k_A}$ does not change when $k_A$ and $k_B$ are exchanged (numerator and denominator both change sign), and it is positive for $t&gt;0$: $y(t)&gt;0$ whichever tank is faster.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$x(t)=x_0\,e^{-k_At}$.</li><li>$y(t)=\dfrac{k_A\,x_0}{k_B-k_A}\big(e^{-k_At}-e^{-k_Bt}\big)$, $k_A\neq k_B$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 1.5 points</h3>
+          <div class="prompt"><p>Equal volumes: the resonant case</p>
+<p>Take $V_B=100$ L. Solve the equation for $y$ directly, show that the result is the limit of (b) as $k_B\to k_A$, and find the time and value of the largest amount of salt in B.</p></div>
+<h4 class="step-title">Step 1. Direct solution</h4>
+<p>With $k_A=k_B=k=0.1$ min$^{-1}$, Step 2 of (b) gives $\frac{d}{dt}(e^{kt}y)=kx_0e^{0}=kx_0$. Integrating from $0$ to $t$: $e^{kt}y(t)-y(0)=kx_0\,[s]_0^t=kx_0\,t$, so</p>
+<div class="math-block">$$y(t)=k\,x_0\,t\,e^{-kt}=0.1\cdot20\,t\,e^{-t/10}=2\,t\,e^{-t/10}\ \text{kg}.$$</div>
+<p>The forcing $k x_0e^{-kt}$ decays at exactly the rate of the free response $e^{-kt}$ of tank B: the exponential guess fails and a factor $t$ appears, the first-order analogue of resonance.</p>
+<h4 class="step-title">Step 2. Limit of the general formula</h4>
+<p>Fix $k_A=k$. In $y=kx_0\,\dfrac{e^{-kt}-e^{-k_Bt}}{k_B-k}$ numerator and denominator vanish at $k_B=k$. By L'Hôpital's rule in the variable $k_B$, with $\frac{\partial}{\partial k_B}e^{-k_Bt}=-t\,e^{-k_Bt}$ (chain rule):</p>
+<div class="math-block">$$\lim_{k_B\to k}\frac{e^{-kt}-e^{-k_Bt}}{k_B-k}=\lim_{k_B\to k}\frac{t\,e^{-k_Bt}}{1}=t\,e^{-kt},$$</div>
+<p>so $y\to kx_0\,t\,e^{-kt}$, the result of Step 1. The two cases join continuously.</p>
+<h4 class="step-title">Step 3. Maximum</h4>
+<p>By the product rule, $y'(t)=kx_0\big(e^{-kt}+t(-k)e^{-kt}\big)=kx_0\,e^{-kt}(1-kt)$. It is positive for $t&lt;1/k$ and negative for $t&gt;1/k$, so $y$ has its maximum at $t^*=1/k=10$ min:</p>
+<div class="math-block">$$y_{\max}=kx_0\cdot\frac1k\,e^{-1}=\frac{x_0}{e}=\frac{20}{e}\approx7.358\ \text{kg},$$</div>
+<p>a concentration of $7.358/100\approx0.0736$ kg/L. At that moment tank A holds $x(10)=20e^{-1}$ kg as well.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$y(t)=k\,x_0\,t\,e^{-kt}=2\,t\,e^{-t/10}$ kg.</li><li>Maximum at $t^*=1/k=10$ min, $y_{\max}=x_0/e=20/e\approx7.358$ kg (concentration $0.0736$ kg/L).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 1 point</h3>
+          <div class="prompt"><p>Smaller second tank, peak and long-time behaviour</p>
+<p>Take $V_B=50$ L. Find the time and value of the largest amount of salt in B, compare the concentrations of both tanks then, give the limit $t\to\infty$ and the total salt that leaves the system.</p></div>
+<h4 class="step-title">Step 1. The formula</h4>
+<p>$k_A=0.1$, $k_B=0.2$ min$^{-1}$, so $\frac{k_Ax_0}{k_B-k_A}=\frac{0.1\cdot20}{0.1}=20$ kg and $y(t)=20\big(e^{-t/10}-e^{-t/5}\big)$.</p>
+<h4 class="step-title">Step 2. Maximum</h4>
+<p>$y'(t)=20\big(-\tfrac1{10}e^{-t/10}+\tfrac15e^{-t/5}\big)$. With $u=e^{-t/10}\in(0,1]$: $y'=20\big(-\tfrac{u}{10}+\tfrac{u^2}{5}\big)=\tfrac{20u}{10}(2u-1)$, which vanishes for $u=\tfrac12$, is positive for $u&gt;\tfrac12$ (early times) and negative after. Hence $e^{-t^*/10}=\tfrac12$, $t^*=10\ln2\approx6.93$ min, and</p>
+<div class="math-block">$$y_{\max}=20\Big(\frac12-\frac14\Big)=5\ \text{kg}.$$</div>
+<p>This agrees with the general time $t^*=\dfrac{\ln(k_B/k_A)}{k_B-k_A}=\dfrac{\ln2}{0.1}$.</p>
+<h4 class="step-title">Step 3. Concentrations at the peak</h4>
+<p>$x(t^*)=20\cdot\tfrac12=10$ kg, so A has $10/100=0.1$ kg/L and B has $5/50=0.1$ kg/L. This is general: $y'=0$ means $k_Ax=k_By$, i.e. $\frac{x}{V_A}=\frac{y}{V_B}$. Tank B stops gaining salt exactly when its concentration equals that of the brine coming in.</p>
+<h4 class="step-title">Step 4. Long time and total outflow</h4>
+<p>Both exponentials tend to $0$, so $x(t)\to0$ and $y(t)\to0$: all salt is washed out. The salt drained from B per minute is $k_By$; with the antiderivatives $-10e^{-t/10}$ and $-5e^{-t/5}$ and Barrow's rule on $[0,T]$, $T\to\infty$:</p>
+<div class="math-block">$$\int_0^\infty0.2\cdot20\big(e^{-t/10}-e^{-t/5}\big)dt=4\Big[-10e^{-t/10}+5e^{-t/5}\Big]_0^\infty=4\big(0-(-10+5)\big)=20\ \text{kg},$$</div>
+<p>the whole initial mass $x_0$, as conservation of salt requires.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$y(t)=20\big(e^{-t/10}-e^{-t/5}\big)$ kg.</li><li>$t^*=10\ln2\approx6.93$ min, $y_{\max}=5$ kg; at $t^*$ both concentrations equal $0.1$ kg/L.</li><li>$x,y\to0$; total outflow of salt $\int_0^\infty k_By\,dt=20$ kg.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $t\to0^+$: $y\approx k_Ax_0\,t$ (B starts filling at the rate A loses salt, $k_Ax_0=2$ kg/min). $t\to\infty$: $y\sim\frac{k_Ax_0}{k_B-k_A}e^{-k_At}$ when $k_A&lt;k_B$, so the slower tank sets the decay. $V_B\to0$ ($k_B\to\infty$): $y\to0$, B becomes a pipe.</li><li><strong>Checks:</strong> both formulas satisfy the ODEs and $y(0)=0$ by substitution; the equal-rate case is the limit of the general one; $\int_0^\infty k_By\,dt=x_0$. Dimensions: $k\,x_0\,t$ is (min$^{-1}$)(kg)(min) $=$ kg, $t^*=1/k$ and $\ln(k_B/k_A)/(k_B-k_A)$ are in minutes.</li><li><strong>Common mistakes in the exam:</strong> (1) using the volume of B in the inflow term of B (the inflow concentration is $x/V_A$); (2) applying the formula of (b) with $k_A=k_B$, which divides by zero, instead of noticing the factor $t$; (3) dropping the lower limit in the integrating-factor integral, which leaves $y(0)\neq0$; (4) reporting the maximum time without checking the sign of $y'$, or confusing the maximum of mass with the maximum of concentration.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P02">
+        <span class="problem-tag">1st Midterm · Unit 2 · First-order qualitative analysis · 5 points · 30 min · Conceptual / fast</span>
+        <h4 class="problem-title">P02 — Logistic population with constant harvesting: equilibria against the harvest rate, the critical rate 1/4, extinction times by partial fractions and by an arctangent</h4>
+        <div class="statement-box">
+<p>A fish population $P(t)$ grows logistically with intrinsic rate $r&gt;0$ and carrying capacity $K&gt;0$ and is fished at a constant rate $H\ge0$ (individuals per unit time), independent of the size of the stock:</p>
+<div class="math-block">$$\frac{dP}{dt}=rP\Big(1-\frac PK\Big)-H.$$</div>
+<p>With $p=P/K$, $\tau=rt$ and $h=H/(rK)$ the model becomes, writing again $t$ for $\tau$ and $'$ for $d/dt$,</p>
+<div class="math-block">$$p'=p(1-p)-h,\qquad h\ge0.$$</div>
+<p>The model is used only while $p\ge0$; if $p$ reaches $0$ the population is extinct (collapse). Part (c) uses $h=2/9$ and part (d) uses $h=1/2$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknown $p(t)\ge0$ (fraction of the carrying capacity), independent variable $t$ (dimensionless time, unit $1/r$); parameter $h\ge0$ (dimensionless harvest).</li><li>Operator: first order, <strong>nonlinear</strong> (quadratic in $p$), <strong>autonomous</strong> ($f$ does not depend on $t$). $f(p)=p(1-p)-h$ is a polynomial, so $f$ and $f'$ are continuous and Picard's theorem gives a unique local solution for every $p(0)$; distinct solutions never cross, and equilibria split the line into invariant intervals.</li><li>Separable: $\dfrac{dp}{f(p)}=dt$ wherever $f(p)\neq0$.</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<div class="math-block">$$p'=f(p),\qquad f(p)=-\big(p^2-p+h\big)=-\Big[\Big(p-\frac12\Big)^2+h-\frac14\Big].$$</div>
+<p>The completed square already shows that the sign of $h-\tfrac14$ decides everything.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Equilibria and the critical harvesting rate</p>
+<p>Find the equilibria as functions of $h$, the critical rate $h_c$ and its meaning.</p></div>
+<h4 class="step-title">Step 1. Equilibria</h4>
+<p>$f(p)=0\iff p^2-p+h=0$, with discriminant $1-4h$:</p>
+<div class="math-block">$$p_\pm=\frac{1\pm\sqrt{1-4h}}{2}\quad(h&lt;\tfrac14),\qquad p=\tfrac12\quad(h=\tfrac14),\qquad \text{none}\quad(h&gt;\tfrac14).$$</div>
+<p>For $0\le h&lt;\tfrac14$: $0\le p_-&lt;\tfrac12&lt;p_+\le1$, with $p_-=0$, $p_+=1$ when $h=0$ (the logistic equation). As $h$ grows the two equilibria approach each other, merge at $\tfrac12$ for $h=\tfrac14$ and disappear.</p>
+<h4 class="step-title">Step 2. Critical rate and meaning</h4>
+<p>$h_c=\tfrac14$. The natural growth $g(p)=p(1-p)$ has $g'(p)=1-2p=0$ at $p=\tfrac12$, with $g(\tfrac12)=\tfrac14$, its maximum. In original variables $h=H/(rK)$, so</p>
+<div class="math-block">$$H_c=\frac{rK}{4},$$</div>
+<p>the largest growth the stock can produce, reached at $P=K/2$. Any constant catch above it exceeds what the population can regenerate at any size (the "maximum sustainable yield"). The merging and disappearance of two equilibria as a parameter crosses a value is called a saddle-node bifurcation (extension: a name beyond the course; the course only needs the phase lines of (b)).</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$p_\pm=\dfrac{1\pm\sqrt{1-4h}}{2}$ for $h&lt;\tfrac14$; one equilibrium $p=\tfrac12$ for $h=\tfrac14$; none for $h&gt;\tfrac14$.</li><li>$h_c=\tfrac14$, i.e. $H_c=\dfrac{rK}{4}$, the maximum natural growth rate (reached at $P=K/2$).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.5 points</h3>
+          <div class="prompt"><p>Phase lines in the three regimes</p>
+<p>Describe the phase line and classify the equilibria for $h&lt;h_c$, $h=h_c$, $h&gt;h_c$, and say which initial populations survive.</p></div>
+<h4 class="step-title">Step 1. Case $0\le h&lt;\tfrac14$</h4>
+<p>$f(p)=-(p-p_-)(p-p_+)$: $f&lt;0$ for $p&lt;p_-$, $f&gt;0$ on $(p_-,p_+)$, $f&lt;0$ for $p&gt;p_+$. Phase line (arrows of $p'$):</p>
+<div class="math-block">$$0\ \ \longleftarrow\ \ p_-\ \ \longrightarrow\ \ p_+\ \ \longleftarrow$$</div>
+<p>With $f'(p)=1-2p$ (Notes, p. 3, linear stability test):</p>
+<div class="math-block">$$f'(p_\pm)=1-\big(1\pm\sqrt{1-4h}\big)=\mp\sqrt{1-4h},$$</div>
+<p>so $f'(p_-)&gt;0$: <strong>unstable</strong>; $f'(p_+)&lt;0$: <strong>asymptotically stable</strong>. Populations with $p(0)&gt;p_-$ tend to $p_+$; those with $p(0)&lt;p_-$ decrease and reach $0$ ($p_-$ is a survival threshold). For $h=0$, $p_-=0$ and nothing collapses.</p>
+<h4 class="step-title">Step 2. Case $h=\tfrac14$</h4>
+<p>$f(p)=-(p-\tfrac12)^2\le0$, with $f'(\tfrac12)=0$: the linear test is inconclusive and the sign of $f$ decides. $p'&lt;0$ on both sides:</p>
+<div class="math-block">$$\longleftarrow\ \ \tfrac12\ \ \longleftarrow$$</div>
+<p>From above, $p$ decreases to $\tfrac12$ (attracting side); from below, $p$ moves away towards $0$ (repelling side). The equilibrium is <strong>semi-stable</strong>: it is not stable, since an arbitrarily small loss pushes the stock into collapse.</p>
+<h4 class="step-title">Step 3. Case $h&gt;\tfrac14$</h4>
+<p>$f(p)=-(p-\tfrac12)^2-(h-\tfrac14)\le-(h-\tfrac14)&lt;0$ for every $p$. There is no equilibrium and every solution decreases at a rate at least $h-\tfrac14$, so from any $p(0)$ it reaches $0$ before the time $p(0)/(h-\tfrac14)$: collapse in finite time for every initial stock.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$h&lt;\tfrac14$: $p_-$ unstable ($f'(p_-)=\sqrt{1-4h}&gt;0$), $p_+$ asymptotically stable ($f'(p_+)=-\sqrt{1-4h}&lt;0$). Survival iff $p(0)\ge p_-$ (with $p(0)=p_-$ the equilibrium itself).</li><li>$h=\tfrac14$: $p=\tfrac12$ semi-stable ($f=-(p-\tfrac12)^2\le0$): attracts from above, repels below. Survival iff $p(0)\ge\tfrac12$.</li><li>$h&gt;\tfrac14$: $f\le\tfrac14-h&lt;0$ everywhere, every solution decreases and collapses in finite time.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 1.5 points</h3>
+          <div class="prompt"><p>Explicit solutions for h = 2/9</p>
+<p>Solve with $p(0)=1/2$ and with $p(0)=1/4$; in the second case find the time of collapse.</p></div>
+<h4 class="step-title">Step 1. Factorisation and partial fractions</h4>
+<p>With $h=\tfrac29$: $\sqrt{1-\tfrac89}=\tfrac13$, $p_\pm=\tfrac{1\pm1/3}{2}$, i.e. $p_-=\tfrac13$, $p_+=\tfrac23$, and $f(p)=-(p-\tfrac13)(p-\tfrac23)$. Write</p>
+<div class="math-block">$$\frac{1}{(p-\frac13)(p-\frac23)}=\frac{A}{p-\frac13}+\frac{B}{p-\frac23}\iff1=A\Big(p-\frac23\Big)+B\Big(p-\frac13\Big).$$</div>
+<p>At $p=\tfrac13$: $1=-\tfrac13A$, $A=-3$. At $p=\tfrac23$: $1=\tfrac13B$, $B=3$.</p>
+<h4 class="step-title">Step 2. Separation and integration</h4>
+<p>For $p\neq\tfrac13,\tfrac23$: $\dfrac{dp}{(p-\frac13)(p-\frac23)}=-dt$. With the antiderivatives $\int\frac{dp}{p-c}=\ln\lvert p-c\rvert$:</p>
+<div class="math-block">$$3\ln\Big\lvert p-\frac23\Big\rvert-3\ln\Big\lvert p-\frac13\Big\rvert=-t+C\ \Longrightarrow\ \ln\left\lvert\frac{p-\frac23}{p-\frac13}\right\rvert=-\frac t3+\frac C3.$$</div>
+<p>Exponentiating and absorbing the sign into the constant: $\dfrac{p-\frac23}{p-\frac13}=K\,e^{-t/3}$, with $K=\dfrac{p(0)-\frac23}{p(0)-\frac13}$ from $t=0$.</p>
+<h4 class="step-title">Step 3. Solving for p</h4>
+<p>Write $E=Ke^{-t/3}$: $p-\tfrac23=E\,p-\tfrac E3$, so $p(1-E)=\tfrac23-\tfrac E3$ and</p>
+<div class="math-block">$$p(t)=\frac{2-K\,e^{-t/3}}{3\big(1-K\,e^{-t/3}\big)}.$$</div>
+<h4 class="step-title">Step 4. The two initial data</h4>
+<ul><li>$p(0)=\tfrac12$: $K=\dfrac{-1/6}{1/6}=-1$, $\ p(t)=\dfrac{2+e^{-t/3}}{3(1+e^{-t/3})}$. Check $p(0)=\tfrac36=\tfrac12$. As $t\to\infty$, $e^{-t/3}\to0$ and $p\to\tfrac23=p_+$: the stock recovers to the stable equilibrium, as the phase line predicts.</li><li>$p(0)=\tfrac14$ (below the threshold $p_-=\tfrac13$): $K=\dfrac{\frac14-\frac23}{\frac14-\frac13}=\dfrac{-5/12}{-1/12}=5$. Multiplying numerator and denominator by $e^{t/3}$:</li></ul>
+<div class="math-block">$$p(t)=\frac{2e^{t/3}-5}{3\big(e^{t/3}-5\big)}.$$</div>
+<p>Check $p(0)=\tfrac{-3}{-12}=\tfrac14$. $p=0$ when $2e^{t/3}=5$:</p>
+<div class="math-block">$$T_0=3\ln\frac52\approx2.749.$$</div>
+<p>The formula has a pole at $t=3\ln5\approx4.83&gt;T_0$, but the model has already stopped: the population is extinct at $T_0$. In original time, $t_{\text{real}}=T_0/r$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Equilibria $p_-=\tfrac13$ (unstable), $p_+=\tfrac23$ (stable). General solution $\dfrac{p-\frac23}{p-\frac13}=K\,e^{-t/3}$, $p=\dfrac{2-Ke^{-t/3}}{3(1-Ke^{-t/3})}$.</li><li>$p(0)=\tfrac12$: $K=-1$, $p(t)=\dfrac{2+e^{-t/3}}{3(1+e^{-t/3})}\to\tfrac23$.</li><li>$p(0)=\tfrac14$: $K=5$, $p(t)=\dfrac{2e^{t/3}-5}{3(e^{t/3}-5)}$, collapse at $T_0=3\ln\tfrac52\approx2.749$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 1 point</h3>
+          <div class="prompt"><p>Collapse time for h = 1/2</p>
+<p>Take $h=1/2$ and $p(0)=1$. Find the collapse time $T$ and $p(t)$ on $[0,T]$.</p></div>
+<h4 class="step-title">Step 1. Antiderivative</h4>
+<p>$p'=-\big[(p-\tfrac12)^2+\tfrac14\big]&lt;0$. With $s=2p-1$, $ds=2\,dp$ and $(p-\tfrac12)^2+\tfrac14=\tfrac{s^2+1}{4}$:</p>
+<div class="math-block">$$\int\frac{dp}{(p-\frac12)^2+\frac14}=\int\frac{ds/2}{(s^2+1)/4}=2\int\frac{ds}{1+s^2}=2\arctan s=2\arctan(2p-1).$$</div>
+<h4 class="step-title">Step 2. Time to collapse</h4>
+<p>Separating, $dt=-\dfrac{dp}{(p-\frac12)^2+\frac14}$. As $t$ runs from $0$ to $T$, $p$ runs from $1$ down to $0$, so by Barrow's rule</p>
+<div class="math-block">$$T=\int_1^0\frac{-dp}{(p-\frac12)^2+\frac14}=\Big[2\arctan(2p-1)\Big]_0^1=2\arctan1-2\arctan(-1)=2\cdot\frac\pi4+2\cdot\frac\pi4=\pi.$$</div>
+<p>The same computation from a general $p(0)$ gives $T=2\arctan(2p(0)-1)-2\arctan(-1)=2\arctan(2p(0)-1)+\tfrac\pi2$; for example $p(0)=\tfrac12$ gives $\tfrac\pi2$.</p>
+<h4 class="step-title">Step 3. The solution</h4>
+<p>Integrating from $0$ to $t$: $2\arctan(2p-1)-2\arctan(1)=-t$, so $\arctan(2p-1)=\tfrac\pi4-\tfrac t2$ and</p>
+<div class="math-block">$$p(t)=\frac12+\frac12\tan\Big(\frac\pi4-\frac t2\Big),\qquad0\le t\le\pi.$$</div>
+<p>Check: $p(0)=\tfrac12+\tfrac12\tan\tfrac\pi4=1$; $p(\pi)=\tfrac12+\tfrac12\tan(-\tfrac\pi4)=0$. By the chain rule $p'=\tfrac12\sec^2(\tfrac\pi4-\tfrac t2)\cdot(-\tfrac12)=-\tfrac14(1+\tan^2)$, and $-\big[(p-\tfrac12)^2+\tfrac14\big]=-\tfrac14\tan^2-\tfrac14$: the same. In original time the collapse happens at $t_{\text{real}}=\pi/r$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\displaystyle T=\int_0^1\frac{dp}{(p-\frac12)^2+\frac14}=\big[2\arctan(2p-1)\big]_0^1=\pi$.</li><li>$p(t)=\dfrac12+\dfrac12\tan\Big(\dfrac\pi4-\dfrac t2\Big)$, $0\le t\le\pi$.</li><li>For a general start $p(0)\in[0,1]$: $T=2\arctan(2p(0)-1)+\dfrac\pi2$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $h=0$ recovers the logistic equation ($p_-=0$, $p_+=1$). For $h&gt;\tfrac14$ and $p(0)=1$, with $\omega=\sqrt{h-\frac14}$ the same arctangent integral gives $T=\frac2\omega\arctan\frac1{2\omega}$ ($=\pi$ for $\omega=\tfrac12$): $T\to\infty$ as $h\to\tfrac14^+$ (the stock lingers near $p=\tfrac12$, where $p'$ is almost zero) and $T\to0$ as $h\to\infty$.</li><li><strong>Checks:</strong> every explicit solution was substituted back into the equation and satisfies its initial value; the solutions agree with the phase lines of (b) (monotone, no crossing of equilibria). Dimensions: $h=H/(rK)$ is (individuals/time)/((1/time)(individuals)), dimensionless; real times are the dimensionless ones divided by $r$.</li><li><strong>Common mistakes in the exam:</strong> (1) applying the linear test $f'(p^*)$ at $h=\tfrac14$, where it gives $0$, and concluding "stable"; (2) forgetting that below $p_-$ the population collapses even for small harvesting; (3) reading the pole of the formula of (c) as the time of extinction instead of the first zero of $p$; (4) losing the factor $2$ from $ds=2\,dp$ in the arctangent integral.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P03">
+        <span class="problem-tag">1st Midterm · Unit 3 · Reduction of order · 5 points · 30 min · Standard exam level</span>
+        <h4 class="problem-title">P03 — A variable-coefficient equation with the solution x: reduction of order to x e^x, Abel&#x27;s identity against the direct Wronskian, variation of parameters for the forcing x^4 and an IVP</h4>
+        <div class="statement-box">
+<p>Consider, for $x&gt;0$, the equation</p>
+<div class="math-block">$$x^2y''-x(x+2)\,y'+(x+2)\,y=g_0(x).$$</div>
+<p>The homogeneous equation ($g_0=0$) has a solution that is a polynomial of degree one. In parts (c) and (d) the right-hand side is $g_0(x)=x^4$, and the initial data of (d) are</p>
+<div class="math-block">$$y(1)=\frac12,\qquad y'(1)=-\frac12.$$</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknown $y(x)$, independent variable $x$ on the interval $(0,\infty)$.</li><li>Operator: second order, <strong>linear</strong>, with <strong>variable</strong> coefficients; homogeneous in (a) and (b), inhomogeneous in (c) and (d).</li><li>The leading coefficient $x^2$ vanishes at $x=0$: $x=0$ is a singular point, so all statements are made on $x&gt;0$, where the coefficients of the standard form are continuous and the existence and uniqueness theorem holds (Topic 3, Concept - Existence and Uniqueness Theorem for Second-Order ODEs).</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>Dividing by $x^2\neq0$, with $\frac{x+2}{x^2}=\frac1x+\frac2{x^2}$, the standard form $y''+p(x)y'+q(x)y=g(x)$ is</p>
+<div class="math-block">$$y''-\Big(1+\frac2x\Big)y'+\Big(\frac1x+\frac2{x^2}\Big)y=\frac{g_0(x)}{x^2},\qquad p(x)=-\Big(1+\frac2x\Big),\quad g(x)=x^2\ \text{for}\ g_0=x^4.$$</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.5 points</h3>
+          <div class="prompt"><p>First solution and reduction of order</p>
+<p>Find the polynomial solution $y_1$ of degree one and, with $y=v\,y_1$, a second solution $y_2$ linearly independent of $y_1$.</p></div>
+<h4 class="step-title">Step 1. Polynomial solution</h4>
+<p>With $y=\alpha x+\beta$: $y'=\alpha$, $y''=0$, and</p>
+<div class="math-block">$$-x(x+2)\alpha+(x+2)(\alpha x+\beta)=(x+2)\big(-\alpha x+\alpha x+\beta\big)=\beta\,(x+2).$$</div>
+<p>This vanishes for all $x$ only if $\beta=0$. So $y_1=x$ (taking $\alpha=1$).</p>
+<h4 class="step-title">Step 2. Substitution y = v x</h4>
+<p>By the product rule, $y=vx$ gives $y'=v'x+v$ and $y''=v''x+v'+v'=v''x+2v'$. Substituting:</p>
+<div class="math-block">$$x^2\big(xv''+2v'\big)-x(x+2)\big(xv'+v\big)+(x+2)\,xv.$$</div>
+<p>Expanding term by term: $x^3v''+2x^2v'-(x^3+2x^2)v'-(x^2+2x)v+(x^2+2x)v=x^3v''-x^3v'$. The terms in $v$ cancel because $y_1$ solves the equation, as they must. Hence</p>
+<div class="math-block">$$x^3\big(v''-v'\big)=0\iff v''=v'\qquad(x&gt;0).$$</div>
+<h4 class="step-title">Step 3. First-order equation for w = v'</h4>
+<p>$w'=w$ is separable: $\frac{dw}{w}=dx$, $\ln\lvert w\rvert=x+C_1$, $w=Ce^x$. Integrating once more, $v=\int Ce^x\,dx=Ce^x+D$. Then $y=vx=C\,x\,e^x+D\,x$. The part $Dx$ is the old solution; the new one is</p>
+<div class="math-block">$$y_2=x\,e^x.$$</div>
+<p>Check: $y_2'=(1+x)e^x$, $y_2''=(2+x)e^x$; $x^2(2+x)-x(x+2)(1+x)+(x+2)x=x(x+2)\big[x-(1+x)+1\big]=0$, times $e^x$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$y_1=x$.</li><li>$y=v\,x$ gives $x^3(v''-v')=0$, so $v'=Ce^x$ and $y_2=x\,e^x$.</li><li>General homogeneous solution $y_h=c_1x+c_2\,x\,e^x$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Wronskian by Abel's identity and directly</p>
+<p>Compute the Wronskian of $\{y_1,y_2\}$ from Abel's identity and from the determinant, and conclude that they form a fundamental set on $x&gt;0$.</p></div>
+<h4 class="step-title">Step 1. Abel's identity</h4>
+<p>With $p=-(1+\frac2x)$, $W'=-pW=\big(1+\frac2x\big)W$. Separating, $\frac{dW}{W}=\big(1+\frac2x\big)dx$, and with the antiderivative $x+2\ln x$ ($x&gt;0$):</p>
+<div class="math-block">$$\ln\lvert W\rvert=x+2\ln x+C_1\ \Longrightarrow\ W(x)=C\,x^2e^x.$$</div>
+<h4 class="step-title">Step 2. Direct determinant</h4>
+<div class="math-block">$$W=\det\begin{pmatrix}y_1&amp;y_2\\y_1'&amp;y_2'\end{pmatrix}=\det\begin{pmatrix}x&amp;x\,e^x\\1&amp;(1+x)e^x\end{pmatrix}=x(1+x)e^x-x\,e^x\cdot1=x^2e^x.$$</div>
+<p>The two results agree with $C=1$.</p>
+<h4 class="step-title">Step 3. Conclusion</h4>
+<p>$x^2e^x&gt;0$ for $x&gt;0$, so $y_1$, $y_2$ are linearly independent there and $y_h=c_1x+c_2xe^x$ is the general solution of the homogeneous equation (Robinson Ch. 11). The dichotomy "either $W\equiv0$ or $W$ never vanishes" applies on intervals where $p$ is continuous; $W(0)=0$ happens at the singular point $x=0$ and is no contradiction.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Abel: $W=C\,x^2e^x$.</li><li>Determinant: $W=x(1+x)e^x-x\,e^x=x^2e^x$, so $C=1$.</li><li>$W\neq0$ on $(0,\infty)$: fundamental set; $W(0)=0$ only at the singular point.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 1.5 points</h3>
+          <div class="prompt"><p>Variation of parameters for the forcing x^4</p>
+<p>With $g_0(x)=x^4$, find a particular solution by variation of parameters and write the general solution.</p></div>
+<h4 class="step-title">Step 1. Formula</h4>
+<p>For $y''+py'+qy=g$ with fundamental set $\{y_1,y_2\}$ (Robinson Eq. 18.8, Notes, p. 8):</p>
+<div class="math-block">$$y_p=-y_1\int\frac{y_2\,g}{W}\,dx+y_2\int\frac{y_1\,g}{W}\,dx,\qquad g=\frac{x^4}{x^2}=x^2.$$</div>
+<h4 class="step-title">Step 2. The two integrands</h4>
+<div class="math-block">$$\frac{y_2\,g}{W}=\frac{x\,e^x\cdot x^2}{x^2e^x}=x,\qquad \frac{y_1\,g}{W}=\frac{x\cdot x^2}{x^2e^x}=x\,e^{-x}.$$</div>
+<h4 class="step-title">Step 3. The integrals</h4>
+<p>$\int x\,dx=\frac{x^2}2$. For the second, integrate by parts with $u=x$, $dv=e^{-x}dx$, so $du=dx$, $v=-e^{-x}$:</p>
+<div class="math-block">$$\int x\,e^{-x}dx=-x\,e^{-x}-\int(-e^{-x})\,dx=-x\,e^{-x}-e^{-x}=-(x+1)e^{-x}.$$</div>
+<p>(Integration constants are omitted: they only add multiples of $y_1$ and $y_2$.)</p>
+<h4 class="step-title">Step 4. Particular and general solution</h4>
+<div class="math-block">$$y_p=-x\cdot\frac{x^2}2+x\,e^x\cdot\big(-(x+1)e^{-x}\big)=-\frac{x^3}2-x^2-x.$$</div>
+<p>The term $-x$ is a multiple of $y_1$ and can be absorbed: $y_p=-\dfrac{x^3}2-x^2$. Check, with $y_p'=-\frac32x^2-2x$, $y_p''=-3x-2$:</p>
+<div class="math-block">$$x^2(-3x-2)-x(x+2)\Big(-\frac32x^2-2x\Big)+(x+2)\Big(-\frac{x^3}2-x^2\Big)$$</div>
+<div class="math-block">$$=\big(-3x^3-2x^2\big)+\Big(\frac32x^4+5x^3+4x^2\Big)+\Big(-\frac12x^4-2x^3-2x^2\Big)=x^4.\ \checkmark$$</div>
+<p>The general solution is $y=c_1x+c_2\,x\,e^x-\dfrac{x^3}2-x^2$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\displaystyle\int\frac{y_2\,g}{W}dx=\int x\,dx=\frac{x^2}2$, $\ \displaystyle\int\frac{y_1\,g}{W}dx=\int x\,e^{-x}dx=-(x+1)e^{-x}$.</li><li>$y_p=-\dfrac{x^3}2-x^2$ (after dropping the multiple $-x$ of $y_1$).</li><li>$y=c_1x+c_2xe^x-\dfrac{x^3}2-x^2$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 1 point</h3>
+          <div class="prompt"><p>Initial value problem</p>
+<p>Solve the IVP with $y(1)=\frac12$, $y'(1)=-\frac12$ and give the largest interval on which the solution is guaranteed to exist and be unique.</p></div>
+<h4 class="step-title">Step 1. Conditions</h4>
+<p>$y(1)=c_1+c_2e-\frac12-1=\frac12\Rightarrow c_1+e\,c_2=2$. $\ y'(1)=c_1+2e\,c_2-\frac32-2=-\frac12\Rightarrow c_1+2e\,c_2=3$.</p>
+<h4 class="step-title">Step 2. Constants</h4>
+<p>Subtracting the first equation from the second: $e\,c_2=1$, $c_2=e^{-1}$; then $c_1=2-1=1$. The system is uniquely solvable because its matrix is $\begin{pmatrix}y_1(1)&amp;y_2(1)\\y_1'(1)&amp;y_2'(1)\end{pmatrix}=\begin{pmatrix}1&amp;e\\1&amp;2e\end{pmatrix}$, whose determinant $2e-e=e$ is exactly $W(1)\neq0$.</p>
+<div class="math-block">$$y(x)=x+x\,e^{x-1}-\frac{x^3}2-x^2.$$</div>
+<h4 class="step-title">Step 3. Interval</h4>
+<p>$p$, $q$ and $g$ of the standard form are continuous on $(0,\infty)$, which contains $x_0=1$; the existence and uniqueness theorem gives a unique solution on the whole of $(0,\infty)$. Nothing is guaranteed at or across $x=0$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$c_1+e\,c_2=2$ and $c_1+2e\,c_2=3$, so $c_2=e^{-1}$, $c_1=1$.</li><li>$y(x)=x+x\,e^{x-1}-\dfrac{x^3}2-x^2$ on $(0,\infty)$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> as $x\to\infty$ the term $x\,e^{x-1}$ dominates and $y\to+\infty$; as $x\to0^+$, $y\to0$ and $y'(0^+)=1+e^{-1}$ (finite, though the theorem does not cover $x=0$).</li><li><strong>Checks:</strong> $y_1$, $y_2$ and $y_p$ were substituted back; Abel's $W$ and the determinant agree; $y(1)=1+1-\frac12-1=\frac12$ and $y'(1)=1+2-\frac32-2=-\frac12$.</li><li><strong>Common mistakes in the exam:</strong> (1) applying variation of parameters to $x^4$ without dividing by the leading coefficient $x^2$; (2) taking $p=-(x+2)$ instead of $-(x+2)/x$ in Abel's identity; (3) a sign slip in $\int xe^{-x}dx$; (4) keeping $-x$ in $y_p$ and still reporting $c_1=1$: with $y_p=-\frac{x^3}2-x^2-x$ the IVP gives $c_1=2$, and the solution $y(x)$ is the same.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P04">
+        <span class="problem-tag">1st Midterm · Unit 3 · Constant coefficients, Cauchy-Euler and forcing · 5 points · 30 min · High difficulty / trap</span>
+        <h4 class="problem-title">P04 — Inverse problem: rebuild y&#x27;&#x27; + a y&#x27; + b y = f from one homogeneous solution and one particular solution, then the resonant forcing e^{-x} sin 2x, an IVP and which forcings need the modified guess</h4>
+        <div class="statement-box">
+<p>The real constants $a$, $b$ of the equation</p>
+<div class="math-block">$$y''+a\,y'+b\,y=f(x)$$</div>
+<p>are unknown. Two facts are known about it:</p>
+<ul><li>the function $y=e^{-x}\cos2x$ solves the homogeneous equation ($f=0$);</li><li>when the right-hand side is $f(x)=k\,x$, for a certain constant $k$, the polynomial $y=5x-2$ is a solution.</li></ul>
+<p>Afterwards the equation is driven by $f(x)=8\,e^{-x}\sin2x$, with initial data $y(0)=1$, $y'(0)=-3$. Finally, consider forcings of the form $f(x)=e^{\alpha x}\cos\omega x$ or $e^{\alpha x}\sin\omega x$ with real $\alpha$ and $\omega\ge0$, and in particular the purely oscillatory forcing $f(x)=\cos\omega x$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknowns: first the parameters $a$, $b$, $k$ (inverse problem), then the function $y(x)$, $x\in\mathbb R$.</li><li>Operator: second order, linear, constant coefficients, $L[y]=y''+ay'+by$. Coefficients and forcings are continuous on $\mathbb R$, so every IVP has a unique solution on all of $\mathbb R$.</li><li>Superposition: $y=y_h+y_p$, with $y_h$ from the characteristic equation $r^2+ar+b=0$ and $y_p$ from undetermined coefficients.</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>The equation is already in standard form. Writing $y=e^{-x}u$ (exponential shift, used in (b)) turns $L$ into an operator on $u$ that will expose the resonance.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.5 points</h3>
+          <div class="prompt"><p>Reconstruction of the equation</p>
+<p>Find $a$, $b$ and $k$, and write the general solution of the homogeneous equation.</p></div>
+<h4 class="step-title">Step 1. Derivatives of the given solution</h4>
+<p>Product and chain rule on $y=e^{-x}\cos2x$:</p>
+<div class="math-block">$$y'=-e^{-x}\cos2x-2e^{-x}\sin2x=e^{-x}\big(-\cos2x-2\sin2x\big),$$</div>
+<div class="math-block">$$y''=-e^{-x}\big(-\cos2x-2\sin2x\big)+e^{-x}\big(2\sin2x-4\cos2x\big)=e^{-x}\big(-3\cos2x+4\sin2x\big).$$</div>
+<h4 class="step-title">Step 2. Conditions on a and b</h4>
+<div class="math-block">$$L[y]=e^{-x}\Big[\big(-3-a+b\big)\cos2x+\big(4-2a\big)\sin2x\Big]=0\quad\forall x.$$</div>
+<p>$e^{-x}\neq0$ and $\cos2x$, $\sin2x$ are linearly independent, so both brackets vanish: $4-2a=0\Rightarrow a=2$, and $-3-2+b=0\Rightarrow b=5$.</p>
+<p>Cross-check: $e^{-x}\cos2x=\operatorname{Re}e^{(-1+2i)x}$ requires the root $r=-1+2i$; real coefficients give also $-1-2i$, so $r^2+ar+b=(r+1-2i)(r+1+2i)=(r+1)^2+4=r^2+2r+5$.</p>
+<h4 class="step-title">Step 3. The constant k</h4>
+<p>$y=5x-2$: $y'=5$, $y''=0$, so $L[y]=0+2\cdot5+5(5x-2)=25x$. Hence $k=25$. Undetermined coefficients give the same: with $y_p=Ax+B$, $L[y_p]=2A+5Ax+5B=25x$, so $5A=25$, $A=5$, and $2A+5B=0$, $B=-2$. The second fact is consistent with $a=2$, $b=5$ (it imposes $5a=2b$ through the constant term, which they satisfy).</p>
+<h4 class="step-title">Step 4. Homogeneous solution</h4>
+<p>$r^2+2r+5=0$: $r=\dfrac{-2\pm\sqrt{4-20}}{2}=-1\pm2i$ (Robinson Ch. 12), so</p>
+<div class="math-block">$$y_h=e^{-x}\big(c_1\cos2x+c_2\sin2x\big).$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$a=2$, $b=5$; characteristic roots $r=-1\pm2i$.</li><li>$k=25$; $y_p=5x-2$ is recovered by the guess $Ax+B$.</li><li>$y_h=e^{-x}\big(c_1\cos2x+c_2\sin2x\big)$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.5 points</h3>
+          <div class="prompt"><p>Resonant forcing and the modified guess</p>
+<p>For $f(x)=8\,e^{-x}\sin2x$ explain why the usual guess fails and find a particular solution.</p></div>
+<h4 class="step-title">Step 1. Why the usual guess fails</h4>
+<p>The forcing is $\operatorname{Im}\big(8e^{(-1+2i)x}\big)$ and $-1+2i$ is a simple root of $r^2+2r+5$. The guess $e^{-x}(A\cos2x+B\sin2x)$ lies in $y_h$, so $L$ of it is $0$ for every $A$, $B$, never $8e^{-x}\sin2x$. The rule (Robinson Ch. 15) multiplies the guess by $x$ (once, because the root is simple).</p>
+<h4 class="step-title">Step 2. Exponential shift</h4>
+<p>Let $y=e^{-x}u$. By the product rule, $y'=e^{-x}(u'-u)$ and $y''=-e^{-x}(u'-u)+e^{-x}(u''-u')=e^{-x}(u''-2u'+u)$. Then</p>
+<div class="math-block">$$L[y]=e^{-x}\Big[(u''-2u'+u)+2(u'-u)+5u\Big]=e^{-x}\big(u''+4u\big).$$</div>
+<p>So $L[y]=8e^{-x}\sin2x$ becomes $u''+4u=8\sin2x$: an undamped oscillator forced exactly at its natural frequency $2$.</p>
+<h4 class="step-title">Step 3. Coefficients</h4>
+<p>With $u=x(A\cos2x+B\sin2x)$:</p>
+<div class="math-block">$$u'=(A\cos2x+B\sin2x)+x(-2A\sin2x+2B\cos2x),$$</div>
+<div class="math-block">$$u''=2(-2A\sin2x+2B\cos2x)+x(-4A\cos2x-4B\sin2x).$$</div>
+<p>The terms with $x$ cancel against $4u$: $u''+4u=4B\cos2x-4A\sin2x$. Matching with $8\sin2x$: $4B=0$ and $-4A=8$, so $A=-2$, $B=0$:</p>
+<div class="math-block">$$y_p=-2x\,e^{-x}\cos2x.$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$e^{-x}(A\cos2x+B\sin2x)$ is a homogeneous solution: $L$ annihilates it.</li><li>Modified guess $y_p=x\,e^{-x}(A\cos2x+B\sin2x)$; $L[y_p]=e^{-x}\big(4B\cos2x-4A\sin2x\big)$.</li><li>$A=-2$, $B=0$: $y_p=-2x\,e^{-x}\cos2x$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 1 point</h3>
+          <div class="prompt"><p>Initial value problem</p>
+<p>Solve the IVP with $f(x)=8e^{-x}\sin2x$, $y(0)=1$, $y'(0)=-3$, and describe its behaviour as $x\to\infty$.</p></div>
+<h4 class="step-title">Step 1. General solution and its derivative</h4>
+<p>$y=e^{-x}(c_1\cos2x+c_2\sin2x)-2xe^{-x}\cos2x$. Differentiating with the product rule and evaluating at $x=0$ ($\cos0=1$, $\sin0=0$):</p>
+<div class="math-block">$$\frac{d}{dx}\Big[e^{-x}(c_1\cos2x+c_2\sin2x)\Big]_{x=0}=-c_1+2c_2,\qquad \frac{d}{dx}\Big[-2xe^{-x}\cos2x\Big]_{x=0}=-2e^{0}\cos0=-2.$$</div>
+<h4 class="step-title">Step 2. Constants</h4>
+<p>$y(0)=c_1=1$; $y'(0)=-c_1+2c_2-2=-3\Rightarrow2c_2=0$, $c_2=0$:</p>
+<div class="math-block">$$y(x)=(1-2x)\,e^{-x}\cos2x.$$</div>
+<h4 class="step-title">Step 3. Long-time behaviour</h4>
+<p>$\lvert y\rvert\le\lvert1-2x\rvert e^{-x}\to0$, because $e^{-x}$ beats any polynomial. Here "resonance" does not mean unbounded growth: the factor $x$ only slows the decay, since the damping ($a=2&gt;0$) sets the envelope $e^{-x}$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$y'(0)=-c_1+2c_2-2$; $c_1=1$, $c_2=0$.</li><li>$y(x)=(1-2x)\,e^{-x}\cos2x\to0$ as $x\to\infty$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 1 point</h3>
+          <div class="prompt"><p>Which forcings need the modified guess</p>
+<p>For $f=e^{\alpha x}\cos\omega x$ or $e^{\alpha x}\sin\omega x$, when is the modified guess needed? For $f=\cos\omega x$, find the amplitude of the particular solution as a function of $\omega$ and the frequency that maximises it.</p></div>
+<h4 class="step-title">Step 1. The rule</h4>
+<p>The guess $e^{\alpha x}(A\cos\omega x+B\sin\omega x)$ fails only when it solves the homogeneous equation, i.e. when $\alpha+i\omega\in\{-1+2i,-1-2i\}$: $\alpha=-1$ and $\omega=2$. For a polynomial or $e^{\alpha x}$ ($\omega=0$) the guess would need a real root, and there is none. For $\cos\omega x$ ($\alpha=0$) the real part $0$ never equals $-1$: <strong>no frequency</strong> of a purely oscillatory forcing needs the modified guess.</p>
+<h4 class="step-title">Step 2. Coefficients for cos(omega x)</h4>
+<p>$y_p'=-A\omega\sin\omega x+B\omega\cos\omega x$, $y_p''=-\omega^2y_p$. Then</p>
+<div class="math-block">$$L[y_p]=\big[(5-\omega^2)A+2\omega B\big]\cos\omega x+\big[(5-\omega^2)B-2\omega A\big]\sin\omega x=\cos\omega x.$$</div>
+<p>From the second bracket $B=\frac{2\omega}{5-\omega^2}A$ (for $\omega^2\neq5$); substituting into the first, $A\,\frac{(5-\omega^2)^2+4\omega^2}{5-\omega^2}=1$. Hence $A=\frac{5-\omega^2}{D}$, $B=\frac{2\omega}{D}$ with $D=(5-\omega^2)^2+4\omega^2$ (the same formulas hold at $\omega^2=5$, solving directly).</p>
+<h4 class="step-title">Step 3. Amplitude and its maximum</h4>
+<p>$R=\sqrt{A^2+B^2}=\dfrac{\sqrt{(5-\omega^2)^2+4\omega^2}}{D}=\dfrac1{\sqrt D}$. Expanding, $D=\omega^4-10\omega^2+25+4\omega^2=\omega^4-6\omega^2+25=(\omega^2-3)^2+16\ge16$. $D$ is smallest, and $R$ largest, at $\omega^2=3$:</p>
+<div class="math-block">$$\omega=\sqrt3,\qquad R_{\max}=\frac1{\sqrt{16}}=\frac14.$$</div>
+<p>This "practical resonance" is a finite peak, not a failure of the guess: it is the damped counterpart of the undamped resonance, and it sits below the frequency $2$ of the free oscillation.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Modified guess only for $\alpha=-1$, $\omega=2$. Never for $\cos\omega x$ ($\alpha=0$), for polynomials or for real exponentials.</li><li>$A=\dfrac{5-\omega^2}{D}$, $B=\dfrac{2\omega}{D}$, $D=(5-\omega^2)^2+4\omega^2=(\omega^2-3)^2+16$; amplitude $R(\omega)=\dfrac1{\sqrt D}$.</li><li>Maximum at $\omega=\sqrt3$, with $R_{\max}=\dfrac14$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> as $x\to\infty$ every solution of the homogeneous equation decays like $e^{-x}$, so the long-time response to $\cos\omega x$ is $y_p$ alone; $R(0)=\frac15$ (static response $1/b$) and $R(\omega)\sim\omega^{-2}$ as $\omega\to\infty$.</li><li><strong>Checks:</strong> $L[e^{-x}\cos2x]=0$, $L[5x-2]=25x$, $L[-2xe^{-x}\cos2x]=8e^{-x}\sin2x$ and the IVP were verified by substitution. If $a$ were $0$ the factor $x$ would grow without bound (true resonance); here $a=2$ keeps it bounded.</li><li><strong>Common mistakes in the exam:</strong> (1) deducing only $b$ from the homogeneous solution and forgetting that the $\sin2x$ coefficient fixes $a$; (2) trying $e^{-x}(A\cos2x+B\sin2x)$ for the resonant forcing and getting $0=8$; (3) calling $\omega=2$ or $\omega=\sqrt3$ resonant for $\cos\omega x$: the guess never needs modifying there; (4) losing the term $-2$ from $\frac{d}{dx}(-2xe^{-x}\cos2x)$ at $x=0$.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P05">
+        <span class="problem-tag">1st Midterm · Unit 4 · Linear systems and phase portraits · 5 points · 30 min · Standard exam level</span>
+        <h4 class="problem-title">P05 — The system x&#x27; = A(a) x with A = (-4, a; 1, 0): type of the origin for every a, the stable node a = -3 with P, P^{-1}, P^{-1}AP, and the stable focus a = -8 in real form with its sense of rotation</h4>
+        <div class="statement-box">
+<p>For a real parameter $a$ consider the planar system</p>
+<div class="math-block">$$\dot{\mathbf x}=A(a)\,\mathbf x,\qquad A(a)=\begin{pmatrix}-4&amp;a\\1&amp;0\end{pmatrix},\qquad \mathbf x=\begin{pmatrix}x_1\\x_2\end{pmatrix}.$$</div>
+<p>The type of the origin changes with $a$. Afterwards two values are studied in detail: $a=-3$, with initial condition $\mathbf x(0)=(1,1)^T$, and $a=-8$, with initial condition $\mathbf x(0)=(0,1)^T$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknown $\mathbf x(t)\in\mathbb R^2$, $t\in\mathbb R$; parameter $a\in\mathbb R$.</li><li>Operator: first-order, linear, homogeneous, constant coefficients: solutions exist for all $t$, are unique, and $\mathbf x\equiv\mathbf0$ is always an equilibrium. It is the only one when $\det A\neq0$.</li><li>The type of $\mathbf 0$ is read from $\tau=\operatorname{tr}A$, $\delta=\det A$ and $\Delta=\tau^2-4\delta$ (Robinson Ch. 31).</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>$\tau=-4+0=-4$ for every $a$, $\ \delta=(-4)(0)-a\cdot1=-a$, $\ \Delta=16+4a$. With an invertible matrix $P$ of (generalised) eigenvectors, $\mathbf x=P\mathbf z$ turns the system into $\dot{\mathbf z}=(P^{-1}AP)\,\mathbf z$ with $P^{-1}AP$ diagonal, a Jordan block, or the rotation-dilation block $\begin{pmatrix}\rho&amp;\omega\\-\omega&amp;\rho\end{pmatrix}$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.5 points</h3>
+          <div class="prompt"><p>Classification for all a</p>
+<p>Classify the origin for every real $a$ (table with trace, determinant and discriminant) and describe the borderline cases.</p></div>
+<h4 class="step-title">Step 1. Characteristic polynomial</h4>
+<div class="math-block">$$\det(A-\lambda I)=\det\begin{pmatrix}-4-\lambda&amp;a\\1&amp;-\lambda\end{pmatrix}=(-4-\lambda)(-\lambda)-a=\lambda^2+4\lambda-a,$$</div>
+<div class="math-block">$$\lambda_\pm=\frac{-4\pm\sqrt{16+4a}}{2}=-2\pm\sqrt{4+a}.$$</div>
+<h4 class="step-title">Step 2. Table</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Range of $a$</th><th>$\tau$</th><th>$\delta=-a$</th><th>$\Delta=16+4a$</th><th>Eigenvalues</th><th>Origin</th></tr></thead><tbody><tr><td>$a&gt;0$</td><td>$-4$</td><td>$&lt;0$</td><td>$&gt;16$</td><td>real, opposite signs</td><td>saddle (unstable)</td></tr><tr><td>$a=0$</td><td>$-4$</td><td>$0$</td><td>$16$</td><td>$0$ and $-4$</td><td>line of equilibria $x_1=0$</td></tr><tr><td>$-4&lt;a&lt;0$</td><td>$-4$</td><td>$&gt;0$</td><td>$0&lt;\Delta&lt;16$</td><td>real, both negative</td><td>stable node</td></tr><tr><td>$a=-4$</td><td>$-4$</td><td>$4$</td><td>$0$</td><td>$-2$ double</td><td>degenerate stable node</td></tr><tr><td>$a&lt;-4$</td><td>$-4$</td><td>$&gt;4$</td><td>$&lt;0$</td><td>$-2\pm i\sqrt{-4-a}$</td><td>stable focus</td></tr></tbody></table></div>
+<p>For $-4&lt;a&lt;0$: $0&lt;\sqrt{4+a}&lt;2$, so both $-2\pm\sqrt{4+a}$ are negative. For $a&gt;0$: $\sqrt{4+a}&gt;2$, so $\lambda_+&gt;0&gt;\lambda_-$.</p>
+<h4 class="step-title">Step 3. Borderline values</h4>
+<ul><li>$a=0$: $A\mathbf x=\mathbf0$ means $-4x_1=0$ and $x_1=0$, so every point of the $x_2$-axis is an equilibrium (eigenvalue $0$, eigenvector $(0,1)^T$). For $\lambda=-4$, $(A+4I)\mathbf v=\mathbf0$ has rows $(0,0)$ and $(1,4)$: $v_1+4v_2=0$, $\mathbf v=(-4,1)^T$. Every other orbit is a half-line parallel to $(-4,1)^T$ that ends on the $x_2$-axis as $t\to\infty$.</li><li>$a=-4$: $A+2I=\begin{pmatrix}-2&amp;-4\\1&amp;2\end{pmatrix}\neq0$; its second row gives $v_1+2v_2=0$, a single eigenvector line through $(-2,1)^T$. The origin is a degenerate (improper) stable node: all orbits approach it tangent to that line.</li><li>$a&lt;-4$: $\rho=-2$, $\omega=\sqrt{-4-a}$. Sense of rotation from the test vector $(1,0)^T$: $A(1,0)^T=(-4,1)^T$, whose second component is positive on the positive $x_1$-axis, so orbits turn <strong>anticlockwise</strong> (equivalently $a_{12}=a&lt;0$).</li></ul>
+<p>Since $\tau=-4\neq0$ there is never a centre, and since $\tau&lt;0$ there is never an unstable node or focus: the only unstable case is the saddle.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\lambda^2+4\lambda-a=0$, $\lambda=-2\pm\sqrt{4+a}$.</li><li>$a&gt;0$ saddle; $a=0$ line of equilibria $x_1=0$; $-4&lt;a&lt;0$ stable node; $a=-4$ degenerate (improper) stable node, single eigenvector $(-2,1)^T$; $a&lt;-4$ stable focus, anticlockwise.</li><li>Never a centre and never unstable apart from the saddle.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.5 points</h3>
+          <div class="prompt"><p>The stable node a = -3</p>
+<p>For $a=-3$ find eigenvalues and eigenvectors, build $P$, $P^{-1}$, check $P^{-1}AP$, write the general solution, solve with $\mathbf x(0)=(1,1)^T$ and describe the phase portrait.</p></div>
+<h4 class="step-title">Step 1. Eigenvectors</h4>
+<p>$A=\begin{pmatrix}-4&amp;-3\\1&amp;0\end{pmatrix}$, $\lambda^2+4\lambda+3=(\lambda+1)(\lambda+3)$.</p>
+<ul><li>$\lambda_1=-1$: $A+I=\begin{pmatrix}-3&amp;-3\\1&amp;1\end{pmatrix}$. Row 1: $-3v_1-3v_2=0$; row 2: $v_1+v_2=0$ (the same line). $\mathbf v_1=(1,-1)^T$.</li><li>$\lambda_2=-3$: $A+3I=\begin{pmatrix}-1&amp;-3\\1&amp;3\end{pmatrix}$. Row 1: $-v_1-3v_2=0$; row 2: $v_1+3v_2=0$. $\mathbf v_2=(3,-1)^T$.</li></ul>
+<h4 class="step-title">Step 2. Change of basis</h4>
+<div class="math-block">$$P=\begin{pmatrix}1&amp;3\\-1&amp;-1\end{pmatrix},\qquad \det P=(1)(-1)-(3)(-1)=2,\qquad P^{-1}=\frac12\begin{pmatrix}-1&amp;-3\\1&amp;1\end{pmatrix}.$$</div>
+<p>Column by column, $AP=[A\mathbf v_1\mid A\mathbf v_2]$ with $A\mathbf v_1=(-4+3,\ 1)^T=(-1,1)^T=-\mathbf v_1$ and $A\mathbf v_2=(-12+3,\ 3)^T=(-9,3)^T=-3\mathbf v_2$:</p>
+<div class="math-block">$$AP=\begin{pmatrix}-1&amp;-9\\1&amp;3\end{pmatrix},\qquad P^{-1}AP=\frac12\begin{pmatrix}(-1)(-1)+(-3)(1)&amp;(-1)(-9)+(-3)(3)\\(1)(-1)+(1)(1)&amp;(1)(-9)+(1)(3)\end{pmatrix}=\frac12\begin{pmatrix}-2&amp;0\\0&amp;-6\end{pmatrix}=\begin{pmatrix}-1&amp;0\\0&amp;-3\end{pmatrix}.$$</div>
+<h4 class="step-title">Step 3. Solution</h4>
+<p>In $\mathbf z=P^{-1}\mathbf x$: $\dot z_1=-z_1$, $\dot z_2=-3z_2$, so $z_1=c_1e^{-t}$, $z_2=c_2e^{-3t}$ (each separable: $\frac{dz_i}{z_i}=\lambda_i\,dt$). Back with $\mathbf x=P\mathbf z$:</p>
+<div class="math-block">$$\mathbf x(t)=c_1e^{-t}\begin{pmatrix}1\\-1\end{pmatrix}+c_2e^{-3t}\begin{pmatrix}3\\-1\end{pmatrix}.$$</div>
+<p>For $\mathbf x(0)=(1,1)^T$: $(c_1,c_2)^T=P^{-1}(1,1)^T=\frac12(-1-3,\ 1+1)^T=(-2,1)^T$, so</p>
+<div class="math-block">$$\mathbf x(t)=\begin{pmatrix}-2e^{-t}+3e^{-3t}\\2e^{-t}-e^{-3t}\end{pmatrix},\qquad \mathbf x(0)=\begin{pmatrix}1\\1\end{pmatrix}.$$</div>
+<h4 class="step-title">Step 4. Phase portrait in words</h4>
+<p>Both eigenvalues are negative: <strong>stable node</strong>. The eigenlines through $(1,-1)^T$ and $(3,-1)^T$ are invariant, with arrows towards the origin. In the $\mathbf z$-plane the orbits are $z_2=K\lvert z_1\rvert^{3}$ (exponent $\lambda_2/\lambda_1=3$), tangent to the $z_1$-axis at the origin. Back in $\mathbf x$: every orbit not on the fast line enters the origin tangent to the <strong>slow</strong> eigenvector $\mathbf v_1=(1,-1)^T$ ($\lvert\lambda_1\rvert=1$), and far from the origin ($t\to-\infty$) it is parallel to the fast one $\mathbf v_2=(3,-1)^T$. The orbit of the IVP behaves like $-2e^{-t}\mathbf v_1=e^{-t}(-2,2)^T$ for large $t$: it enters from the second quadrant along $x_2=-x_1$. Nullclines: $\dot x_1=0$ on $x_2=-\frac43x_1$, $\dot x_2=0$ on $x_1=0$ (there the motion is horizontal, $\dot x_1=-3x_2$).</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\lambda_1=-1$, $\mathbf v_1=(1,-1)^T$; $\lambda_2=-3$, $\mathbf v_2=(3,-1)^T$.</li><li>$P=\begin{pmatrix}1&amp;3\\-1&amp;-1\end{pmatrix}$, $\det P=2$, $P^{-1}=\frac12\begin{pmatrix}-1&amp;-3\\1&amp;1\end{pmatrix}$, $P^{-1}AP=\operatorname{diag}(-1,-3)$.</li><li>$\mathbf x(t)=\big(-2e^{-t}+3e^{-3t},\ 2e^{-t}-e^{-3t}\big)^T$; stable node, tangent to $\mathbf v_1$ at the origin.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 2 points</h3>
+          <div class="prompt"><p>The stable focus a = -8</p>
+<p>For $a=-8$ find the complex eigenvalues and an eigenvector $\mathbf v=\mathbf u+i\mathbf w$, build $Q=[\mathbf u\mid\mathbf w]$, $Q^{-1}$ and check $Q^{-1}AQ$; write the real general solution, solve with $\mathbf x(0)=(0,1)^T$ and find the sense of rotation.</p></div>
+<h4 class="step-title">Step 1. Eigenvalues and eigenvector</h4>
+<p>$\lambda^2+4\lambda+8=0$: $\lambda=\frac{-4\pm\sqrt{16-32}}{2}=-2\pm2i$. For $\lambda=-2+2i$:</p>
+<div class="math-block">$$A-\lambda I=\begin{pmatrix}-2-2i&amp;-8\\1&amp;2-2i\end{pmatrix}.$$</div>
+<p>Row 2: $v_1+(2-2i)v_2=0$; with $v_2=1$, $v_1=-2+2i$. Row 1 checks: $(-2-2i)(-2+2i)-8=(4-4i+4i-4i^2)-8=8-8=0$. So $\mathbf v=(-2+2i,1)^T=\mathbf u+i\mathbf w$ with $\mathbf u=(-2,1)^T$, $\mathbf w=(2,0)^T$.</p>
+<h4 class="step-title">Step 2. Action of A on u and w</h4>
+<p>$A\mathbf u=(8-8,\ -2)^T=(0,-2)^T=\rho\mathbf u-\omega\mathbf w=(4,-2)^T-(4,0)^T$. $\ A\mathbf w=(-8,\ 2)^T=\omega\mathbf u+\rho\mathbf w=(-4,2)^T+(-4,0)^T$. Both agree with Robinson Eq. 29.3.</p>
+<h4 class="step-title">Step 3. Change of basis</h4>
+<div class="math-block">$$Q=\begin{pmatrix}-2&amp;2\\1&amp;0\end{pmatrix},\qquad \det Q=(-2)(0)-(2)(1)=-2,\qquad Q^{-1}=\frac1{-2}\begin{pmatrix}0&amp;-2\\-1&amp;-2\end{pmatrix}=\begin{pmatrix}0&amp;1\\\frac12&amp;1\end{pmatrix}.$$</div>
+<p>$AQ=[A\mathbf u\mid A\mathbf w]=\begin{pmatrix}0&amp;-8\\-2&amp;2\end{pmatrix}$ and</p>
+<div class="math-block">$$Q^{-1}AQ=\begin{pmatrix}0\cdot0+1\cdot(-2)&amp;0\cdot(-8)+1\cdot2\\\frac12\cdot0+1\cdot(-2)&amp;\frac12\cdot(-8)+1\cdot2\end{pmatrix}=\begin{pmatrix}-2&amp;2\\-2&amp;-2\end{pmatrix}=\begin{pmatrix}\rho&amp;\omega\\-\omega&amp;\rho\end{pmatrix}.$$</div>
+<h4 class="step-title">Step 4. Real general solution and the IVP</h4>
+<p>In $\mathbf z$: $\dot z_1=-2z_1+2z_2$, $\dot z_2=-2z_1-2z_2$; in polar form $\dot r=-2r$, $\dot\theta=-2$, so $r=r_0e^{-2t}$, $\theta=\theta_0-2t$ (Barrow: $[e^{2s}r(s)]_0^t=0$). Back in $\mathbf x$:</p>
+<div class="math-block">$$\mathbf x(t)=e^{-2t}\Big[(a_1\cos2t+b_1\sin2t)\,\mathbf u+(b_1\cos2t-a_1\sin2t)\,\mathbf w\Big],\qquad (a_1,b_1)^T=Q^{-1}\mathbf x(0).$$</div>
+<p>For $\mathbf x(0)=(0,1)^T$: $(a_1,b_1)^T=(0\cdot0+1\cdot1,\ \frac12\cdot0+1\cdot1)^T=(1,1)^T$. Then</p>
+<div class="math-block">$$\mathbf x(t)=e^{-2t}\Big[(\cos2t+\sin2t)\begin{pmatrix}-2\\1\end{pmatrix}+(\cos2t-\sin2t)\begin{pmatrix}2\\0\end{pmatrix}\Big]=e^{-2t}\begin{pmatrix}-4\sin2t\\\cos2t+\sin2t\end{pmatrix}.$$</div>
+<p>Check: $\mathbf x(0)=(0,1)^T$. By the product rule $\dot x_1=e^{-2t}(8\sin2t-8\cos2t)$, and $-4x_1-8x_2=e^{-2t}\big(16\sin2t-8\cos2t-8\sin2t\big)=e^{-2t}(8\sin2t-8\cos2t)$; $\dot x_2=e^{-2t}\big(-2\cos2t-2\sin2t-2\sin2t+2\cos2t\big)=-4e^{-2t}\sin2t=x_1$.</p>
+<h4 class="step-title">Step 5. Rotation and portrait</h4>
+<p>At $(1,0)^T$, $\dot{\mathbf x}=A(1,0)^T=(-4,1)^T$: the velocity on the positive $x_1$-axis points upward, so orbits turn <strong>anticlockwise</strong> in the $\mathbf x$-plane. In the $\mathbf z$-plane they turn clockwise ($\dot\theta=-2$); the sense flips because $\det Q=-2&lt;0$. The origin is a <strong>stable focus</strong>: spirals shrinking by the factor $e^{2\pi\rho/\omega}=e^{-2\pi}\approx0.0019$ each turn (one turn every $\pi$ time units). The IVP orbit starts at $(0,1)^T$, moves into the half-plane $x_1&lt;0$ and crosses the $x_2$-axis again at $t=\pi/2$, at $(0,-e^{-\pi})^T$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\lambda=-2\pm2i$ ($\rho=-2$, $\omega=2$); $\mathbf v=(-2+2i,\ 1)^T$, $\mathbf u=(-2,1)^T$, $\mathbf w=(2,0)^T$.</li><li>$Q=\begin{pmatrix}-2&amp;2\\1&amp;0\end{pmatrix}$, $\det Q=-2$, $Q^{-1}=\begin{pmatrix}0&amp;1\\\frac12&amp;1\end{pmatrix}$, $Q^{-1}AQ=\begin{pmatrix}-2&amp;2\\-2&amp;-2\end{pmatrix}$.</li><li>$\mathbf x(t)=e^{-2t}\big(-4\sin2t,\ \cos2t+\sin2t\big)^T$; stable focus, anticlockwise in $\mathbf x$ (clockwise in $\mathbf z$), radius factor $e^{-2\pi}$ per turn.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> for every $a&lt;0$ all solutions tend to $\mathbf0$ as $t\to\infty$ (asymptotic stability); for $a=0$ they tend to points of the $x_2$-axis; for $a&gt;0$ only the orbits on the stable eigenline reach the origin. As $a\to-4^\pm$ the node's two eigenlines merge (from $a&gt;-4$) or the spiral's rotation rate $\omega=\sqrt{-4-a}$ goes to $0$ (from $a&lt;-4$): the degenerate node is the common boundary.</li><li><strong>Checks:</strong> $P^{-1}AP$ and $Q^{-1}AQ$ were multiplied out; both IVP solutions satisfy the system and the initial data; $\operatorname{tr}(P^{-1}AP)=-4=\tau$ and $\det(P^{-1}AP)=3=\delta$ for $a=-3$, and the same for $a=-8$ ($-4$ and $8$).</li><li><strong>Common mistakes in the exam:</strong> (1) calling $a=0$ a node: the origin is not isolated; (2) ordering $Q=[\mathbf w\mid\mathbf u]$ and then expecting $\begin{pmatrix}\rho&amp;\omega\\-\omega&amp;\rho\end{pmatrix}$ (that order gives the transpose); (3) reading the sense of rotation from the $\mathbf z$-plane, which is always clockwise, instead of from a test vector in $\mathbf x$; (4) making the node's orbits tangent to the fast eigenvector at the origin.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P06">
+        <span class="problem-tag">1st Midterm · Unit 4 · Linear systems and phase portraits · 5 points · 30 min · High difficulty / trap</span>
+        <h4 class="problem-title">P06 — Inverse problem: rebuild the matrix of a spiral sink from one real solution, solve an IVP and measure the decay per turn</h4>
+        <div class="statement-box">
+<p>The real $2\times2$ matrix $A$ of the linear system $\mathbf x'=A\mathbf x$, $\mathbf x=(x,y)^T$, is unknown. The only information available is that the system has the real solution</p>
+<div class="math-block">$$\mathbf x_1(t)=e^{-t}\begin{pmatrix}\cos 2t-\sin 2t\\ \cos 2t-2\sin 2t\end{pmatrix}.$$</div>
+<p>(a) Reconstruct $A$. Show that its eigenvalues are $-1\pm 2i$, find a complex eigenvector, and check that $P^{-1}AP$ is the real canonical form, with $P$ the matrix whose columns are the real and imaginary parts of that eigenvector.</p>
+<p>(b) Find a second real solution, prove that the two solutions form a fundamental set, write the real general solution and solve the initial value problem $\mathbf x(0)=(1,0)^T$.</p>
+<p>(c) Classify the origin. Do the trajectories spiral in or out? Is the rotation clockwise or counter-clockwise? Justify with a test vector.</p>
+<p>(d) Let $V(x,y)=5x^2-6xy+2y^2$. Show that $V(\mathbf x)=\lvert P^{-1}\mathbf x\rvert^2$ and that $\frac{d}{dt}V(\mathbf x(t))=-2V(\mathbf x(t))$ along every solution. For the solution of (b), find the time needed for $\sqrt V$ to halve, and the first time $t&gt;0$ at which the solution is back on the positive $x$ axis, with the ratio of its distances to the origin there and at $t=0$. Is the Euclidean distance $\lvert\mathbf x(t)\rvert$ decreasing for every solution?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknowns: the four real entries of $A$; then the solutions $\mathbf x(t)\in\mathbb R^2$, $t\in\mathbb R$.</li><li>Operator: first-order, linear, homogeneous, constant coefficients, planar. Solutions exist for all $t$ and are unique for given $\mathbf x(0)$ (existence and uniqueness for linear systems).</li><li>Datum: one solution $\mathbf x_1$. Since $\mathbf x_1'(t)=A\mathbf x_1(t)$ for every $t$, evaluating at two instants where $\mathbf x_1$ takes independent values gives $A$ on a basis, hence $A$.</li><li>Course convention (Robinson Ch. 29): if $\lambda=\rho+i\omega$ ($\omega&gt;0$) has eigenvector $\boldsymbol\eta=\mathbf u+i\mathbf w$, the real solutions are $e^{\rho t}(\cos\omega t\,\mathbf u-\sin\omega t\,\mathbf w)$ and $e^{\rho t}(\sin\omega t\,\mathbf u+\cos\omega t\,\mathbf w)$.</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Value</th></tr></thead><tbody><tr><td>$\mathbf x_1(0)$</td><td>$(1,1)^T$</td></tr><tr><td>$\mathbf x_1(\pi/4)$</td><td>$e^{-\pi/4}(-1,-2)^T$</td></tr><tr><td>Initial condition (b)</td><td>$\mathbf x(0)=(1,0)^T$</td></tr></tbody></table></div>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>Matrix form $\mathbf x'=A\mathbf x$. The target canonical form ("frame" of the problem) is $\mathbf z'=J\mathbf z$ with $\mathbf x=P\mathbf z$, $P=[\mathbf u\mid\mathbf w]$ and $J=\begin{pmatrix}\rho&amp;\omega\\-\omega&amp;\rho\end{pmatrix}$, so that $A=PJP^{-1}$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.5 points</h3>
+          <div class="prompt"><p>Reconstruct A, its eigenvalues and eigenvector, and check the canonical form</p></div>
+<h4 class="step-title">Step 1. Derivative of the given solution</h4>
+<p>Write $c=\cos2t$, $s=\sin2t$. By the chain rule $\frac{d}{dt}\cos2t=-2\sin2t$, $\frac{d}{dt}\sin2t=2\cos2t$, and by the product rule $\frac{d}{dt}\big(e^{-t}g(t)\big)=-e^{-t}g(t)+e^{-t}g'(t)$:</p>
+<div class="math-block">$$\mathbf x_1'(t)=-e^{-t}\begin{pmatrix}c-s\\c-2s\end{pmatrix}+e^{-t}\begin{pmatrix}-2s-2c\\-2s-4c\end{pmatrix}=e^{-t}\begin{pmatrix}-3c-s\\-5c\end{pmatrix}$$</div>
+<h4 class="step-title">Step 2. Two instants give A on a basis</h4>
+<p>At $t=0$ ($c=1$, $s=0$): $\mathbf x_1(0)=(1,1)^T$, $\mathbf x_1'(0)=(-3,-5)^T$. At $t=\pi/4$ ($c=0$, $s=1$): $\mathbf x_1(\pi/4)=e^{-\pi/4}(-1,-2)^T$, $\mathbf x_1'(\pi/4)=e^{-\pi/4}(-1,0)^T$. Dividing the second relation by $-e^{-\pi/4}$:</p>
+<div class="math-block">$$A\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}-3\\-5\end{pmatrix},\qquad A\begin{pmatrix}1\\2\end{pmatrix}=\begin{pmatrix}1\\0\end{pmatrix}$$</div>
+<p>With $P=\begin{pmatrix}1&amp;1\\1&amp;2\end{pmatrix}$ this reads $AP=\begin{pmatrix}-3&amp;1\\-5&amp;0\end{pmatrix}$. $\det P=1\cdot2-1\cdot1=1\neq0$, and $P^{-1}=\frac{1}{1}\begin{pmatrix}2&amp;-1\\-1&amp;1\end{pmatrix}$, so $A=(AP)P^{-1}$ entry by entry:</p>
+<div class="math-block">$$\begin{aligned}A_{11}&amp;=(-3)(2)+(1)(-1)=-7, &amp; A_{12}&amp;=(-3)(-1)+(1)(1)=4,\\ A_{21}&amp;=(-5)(2)+(0)(-1)=-10, &amp; A_{22}&amp;=(-5)(-1)+(0)(1)=5.\end{aligned}$$</div>
+<div class="math-block">$$A=\begin{pmatrix}-7&amp;4\\-10&amp;5\end{pmatrix}$$</div>
+<h4 class="step-title">Step 3. Eigenvalues</h4>
+<div class="math-block">$$p(\lambda)=\det(A-\lambda I)=(-7-\lambda)(5-\lambda)-(4)(-10)=\lambda^2+2\lambda-35+40=\lambda^2+2\lambda+5$$</div>
+<p>$\lambda=\frac{-2\pm\sqrt{4-20}}{2}=-1\pm2i$, so $\rho=-1$, $\omega=2$. Check: $\operatorname{tr}A=-2=2\rho$, $\det A=-35+40=5=\rho^2+\omega^2$.</p>
+<h4 class="step-title">Step 4. Eigenvector from $(A-\lambda I)\boldsymbol\eta=\mathbf 0$</h4>
+<p>For $\lambda=-1+2i$, row 1: $(-7-(-1+2i))\eta_1+4\eta_2=0$, i.e. $(-6-2i)\eta_1+4\eta_2=0$, so $\eta_2=\frac{3+i}{2}\eta_1$. Taking $\eta_1=1+i$: $\eta_2=\frac{(3+i)(1+i)}{2}=\frac{3+3i+i-1}{2}=1+2i$. Row 2 as a check: $-10(1+i)+(5-(-1+2i))(1+2i)=-10-10i+(6-2i)(1+2i)=-10-10i+6+12i-2i+4=0$. Hence</p>
+<div class="math-block">$$\boldsymbol\eta=\begin{pmatrix}1+i\\1+2i\end{pmatrix}=\underbrace{\begin{pmatrix}1\\1\end{pmatrix}}_{\mathbf u}+i\underbrace{\begin{pmatrix}1\\2\end{pmatrix}}_{\mathbf w}$$</div>
+<p>and indeed $\mathbf x_1=e^{-t}(\cos2t\,\mathbf u-\sin2t\,\mathbf w)$: the given curve is the real part of $e^{\lambda t}\boldsymbol\eta$.</p>
+<h4 class="step-title">Step 5. Frame check $P^{-1}AP=J$</h4>
+<p>$P=[\mathbf u\mid\mathbf w]$ is the matrix of Step 2. With $AP=\begin{pmatrix}-3&amp;1\\-5&amp;0\end{pmatrix}$:</p>
+<div class="math-block">$$\begin{aligned}(P^{-1}AP)_{11}&amp;=2(-3)+(-1)(-5)=-1, &amp; (P^{-1}AP)_{12}&amp;=2(1)+(-1)(0)=2,\\ (P^{-1}AP)_{21}&amp;=(-1)(-3)+1(-5)=-2, &amp; (P^{-1}AP)_{22}&amp;=(-1)(1)+1(0)=-1.\end{aligned}$$</div>
+<div class="math-block">$$P^{-1}AP=\begin{pmatrix}-1&amp;2\\-2&amp;-1\end{pmatrix}=\begin{pmatrix}\rho&amp;\omega\\-\omega&amp;\rho\end{pmatrix}=J$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$A=\begin{pmatrix}-7&amp;4\\-10&amp;5\end{pmatrix}$, $\operatorname{tr}A=-2$, $\det A=5$, $p(\lambda)=\lambda^2+2\lambda+5$, $\lambda=-1\pm2i$.</li><li>$\boldsymbol\eta=(1+i,\ 1+2i)^T$, $\mathbf u=(1,1)^T$, $\mathbf w=(1,2)^T$.</li><li>$P=\begin{pmatrix}1&amp;1\\1&amp;2\end{pmatrix}$, $\det P=1$, $P^{-1}=\begin{pmatrix}2&amp;-1\\-1&amp;1\end{pmatrix}$, $P^{-1}AP=\begin{pmatrix}-1&amp;2\\-2&amp;-1\end{pmatrix}$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.5 points</h3>
+          <div class="prompt"><p>Second real solution, fundamental set, general solution and IVP</p></div>
+<h4 class="step-title">Step 1. Complex solution split into real and imaginary parts</h4>
+<p>With Euler's formula $e^{(-1+2i)t}=e^{-t}(\cos2t+i\sin2t)$:</p>
+<div class="math-block">$$e^{\lambda t}\boldsymbol\eta=e^{-t}(\cos2t+i\sin2t)(\mathbf u+i\mathbf w)=e^{-t}\big[(\cos2t\,\mathbf u-\sin2t\,\mathbf w)+i(\sin2t\,\mathbf u+\cos2t\,\mathbf w)\big]$$</div>
+<p>Since $A$ is real, real and imaginary parts are real solutions (Robinson Ch. 29). The real part is $\mathbf x_1$; the imaginary part is</p>
+<div class="math-block">$$\mathbf x_2(t)=e^{-t}(\sin2t\,\mathbf u+\cos2t\,\mathbf w)=e^{-t}\begin{pmatrix}\sin2t+\cos2t\\ \sin2t+2\cos2t\end{pmatrix}$$</div>
+<h4 class="step-title">Step 2. Fundamental set</h4>
+<p>$\mathbf x_1(0)=\mathbf u$, $\mathbf x_2(0)=\mathbf w$, so the Wronskian at $t=0$ is $W(0)=\det\begin{pmatrix}1&amp;1\\1&amp;2\end{pmatrix}=2-1=1\neq0$. By Abel's formula $W(t)=W(0)e^{(\operatorname{tr}A)t}=e^{-2t}\neq0$ for all $t$: the solutions are independent and the general real solution is</p>
+<div class="math-block">$$\mathbf x(t)=c_1e^{-t}\begin{pmatrix}\cos2t-\sin2t\\ \cos2t-2\sin2t\end{pmatrix}+c_2e^{-t}\begin{pmatrix}\sin2t+\cos2t\\ \sin2t+2\cos2t\end{pmatrix},\qquad c_1,c_2\in\mathbb R$$</div>
+<h4 class="step-title">Step 3. Initial condition</h4>
+<p>At $t=0$: $c_1\mathbf u+c_2\mathbf w=(1,0)^T$, i.e. $c_1+c_2=1$ and $c_1+2c_2=0$. Subtracting, $c_2=-1$, then $c_1=2$:</p>
+<div class="math-block">$$\mathbf x(t)=e^{-t}\begin{pmatrix}2(\cos2t-\sin2t)-(\sin2t+\cos2t)\\ 2(\cos2t-2\sin2t)-(\sin2t+2\cos2t)\end{pmatrix}=e^{-t}\begin{pmatrix}\cos2t-3\sin2t\\-5\sin2t\end{pmatrix}$$</div>
+<h4 class="step-title">Step 4. Check by substitution</h4>
+<p>$\mathbf x(0)=(1,0)^T$. With $c=\cos2t$, $s=\sin2t$, the product rule gives $\mathbf x'=e^{-t}\big(-(c-3s)+(-2s-6c),\ 5s-10c\big)^T=e^{-t}(-7c+s,\ -10c+5s)^T$, and $A\mathbf x=e^{-t}\big(-7(c-3s)+4(-5s),\ -10(c-3s)+5(-5s)\big)^T=e^{-t}(-7c+s,\ -10c+5s)^T$. They agree.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\mathbf x_2(t)=e^{-t}\begin{pmatrix}\sin2t+\cos2t\\ \sin2t+2\cos2t\end{pmatrix}$, $W(0)=1\neq0$.</li><li>$\mathbf x(t)=c_1\mathbf x_1(t)+c_2\mathbf x_2(t)$; IVP: $c_1=2$, $c_2=-1$.</li><li>$\mathbf x(t)=e^{-t}\begin{pmatrix}\cos2t-3\sin2t\\-5\sin2t\end{pmatrix}$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 1 point</h3>
+          <div class="prompt"><p>Classification, spiralling and sense of rotation</p></div>
+<h4 class="step-title">Step 1. Type</h4>
+<p>The eigenvalues are complex with negative real part, so every solution is $e^{-t}$ times a bounded $\pi$-periodic vector: it tends to $\mathbf 0$ while winding around it. The origin is a stable focus (Robinson Ch. 31; trace-determinant plane: $\operatorname{tr}&lt;0$, $\det&gt;0$, discriminant $&lt;0$).</p>
+<h4 class="step-title">Step 2. Test vector</h4>
+<p>At $(1,0)$, on the positive $x$ axis, $\mathbf x'=A(1,0)^T=(-7,-10)^T$: the $y$ component is negative, so the solution crosses the positive $x$ axis downwards. That is a <strong>clockwise</strong> rotation.</p>
+<h4 class="step-title">Step 3. Global confirmation</h4>
+<p>With $\theta$ the polar angle, $\theta'=\dfrac{xy'-yx'}{x^2+y^2}$. Here</p>
+<div class="math-block">$$xy'-yx'=x(-10x+5y)-y(-7x+4y)=-10x^2+12xy-4y^2=-2(5x^2-6xy+2y^2).$$</div>
+<p>The quadratic form $5x^2-6xy+2y^2$ has matrix $\begin{pmatrix}5&amp;-3\\-3&amp;2\end{pmatrix}$ with $5&gt;0$ and determinant $10-9=1&gt;0$: it is positive definite. So $\theta'&lt;0$ at every point except the origin: the rotation is clockwise everywhere. In the canonical plane $J$ with $\omega=2&gt;0$ rotates clockwise ($z_2'=-2z_1&lt;0$ at $(1,0)$), and $\det P=1&gt;0$ preserves orientation, which is consistent.</p>
+<h4 class="step-title">Step 4. Portrait in words</h4>
+<p>Trajectories are spirals that wind clockwise into the origin, one full turn every $T=2\pi/\omega=\pi$ time units. They are not circles: they are images under $P$ of logarithmic spirals of the $\mathbf z$ plane, so they are flattened along the directions fixed by $\mathbf u=(1,1)$ and $\mathbf w=(1,2)$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\rho=-1&lt;0$, $\omega=2\neq0$: <strong>stable focus</strong> (spiral sink); $\operatorname{tr}A=-2&lt;0$, $\det A=5&gt;0$, $(\operatorname{tr}A)^2-4\det A=-16&lt;0$.</li><li>$A(1,0)^T=(-7,-10)^T$: <strong>clockwise</strong> rotation.</li><li>$xy'-yx'=-2(5x^2-6xy+2y^2)&lt;0$ off the origin.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 1 point</h3>
+          <div class="prompt"><p>Decay of the canonical radius, return to the axis, Euclidean distance</p></div>
+<h4 class="step-title">Step 1. V is the canonical radius squared</h4>
+<p>$P^{-1}\mathbf x=\begin{pmatrix}2x-y\\-x+y\end{pmatrix}$, so $\lvert P^{-1}\mathbf x\rvert^2=(4x^2-4xy+y^2)+(x^2-2xy+y^2)=5x^2-6xy+2y^2=V$.</p>
+<h4 class="step-title">Step 2. Derivative along solutions</h4>
+<p>$V_x=10x-6y$, $V_y=-6x+4y$, $x'=-7x+4y$, $y'=-10x+5y$. By the chain rule</p>
+<div class="math-block">$$\begin{aligned}\frac{dV}{dt}&amp;=(10x-6y)(-7x+4y)+(-6x+4y)(-10x+5y)\\&amp;=(-70x^2+82xy-24y^2)+(60x^2-70xy+20y^2)=-10x^2+12xy-4y^2=-2V.\end{aligned}$$</div>
+<p>(Equivalently $\frac{d}{dt}\lvert\mathbf z\rvert^2=2\mathbf z^TJ\mathbf z=2\rho\lvert\mathbf z\rvert^2$, because the skew part of $J$ gives $\mathbf z^T\begin{pmatrix}0&amp;\omega\\-\omega&amp;0\end{pmatrix}\mathbf z=0$.)</p>
+<h4 class="step-title">Step 3. Integration</h4>
+<p>For $V\neq0$ separate variables: $\displaystyle\int_{V(0)}^{V(t)}\frac{dV}{V}=\int_0^t(-2)\,d\tau$, so by Barrow's rule $[\ln V]_{V(0)}^{V(t)}=[-2\tau]_0^t$, i.e. $\ln V(t)-\ln V(0)=-2t$ and $V(t)=V(0)e^{-2t}$. For the IVP $V(0)=5\cdot1^2-0+0=5$, so $V(t)=5e^{-2t}$ and $\sqrt{V(t)}=\sqrt5\,e^{-t}$. Halving: $e^{-t_{1/2}}=\tfrac12$, so $t_{1/2}=\ln2\approx0.693$.</p>
+<h4 class="step-title">Step 4. Return to the positive x axis</h4>
+<p>$y(t)=-5e^{-t}\sin2t=0$ for $t=k\pi/2$. At $t=\pi/2$: $x=e^{-\pi/2}\cos\pi=-e^{-\pi/2}&lt;0$ (negative axis). At $t=\pi$: $x=e^{-\pi}\cos2\pi=e^{-\pi}&gt;0$. So the first return is $t=\pi$, with $\mathbf x(\pi)=e^{-\pi}(1,0)^T$ and ratio $\lvert\mathbf x(\pi)\rvert/\lvert\mathbf x(0)\rvert=e^{-\pi}\approx0.0432$. This holds for every solution: the trigonometric factors have period $T=\pi$, so $\mathbf x(t+\pi)=e^{-\pi}\mathbf x(t)$.</p>
+<h4 class="step-title">Step 5. The Euclidean distance</h4>
+<p>$\frac{d}{dt}\lvert\mathbf x\rvert^2=2\mathbf x^TA\mathbf x=2(-7x^2+4xy-10xy+5y^2)=2(-7x^2-6xy+5y^2)$. At $(0,1)$ it equals $10&gt;0$: a solution through $(0,1)$ moves away from the origin at that instant. The Euclidean distance decays on average (by $e^{-\pi}$ per turn) but not monotonically; the quantity that decays monotonically, and exactly like $e^{-t}$, is $\sqrt V=\lvert P^{-1}\mathbf x\rvert$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$V=\lvert P^{-1}\mathbf x\rvert^2=5x^2-6xy+2y^2$, $\frac{dV}{dt}=-2V$, $V(t)=V(0)e^{-2t}$; for the IVP $V(t)=5e^{-2t}$.</li><li>$\sqrt V$ halves in $t_{1/2}=\ln2\approx0.693$.</li><li>Back on the positive $x$ axis at $t=\pi$ (negative axis at $t=\pi/2$); $\mathbf x(\pi)=e^{-\pi}(1,0)^T$, ratio $e^{-\pi}\approx0.0432$.</li><li>No: $\frac{d}{dt}\lvert\mathbf x\rvert^2=2(-7x^2-6xy+5y^2)$ is positive at $(0,1)$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $t\to+\infty$: $\mathbf x\to\mathbf 0$ like $e^{-t}$; $t\to-\infty$: the spirals grow without bound. If $\rho$ were $0$ the trajectories would be the closed ellipses $V=\text{const}$ (a centre); here they cut those ellipses inwards.</li><li><strong>Checks:</strong> $A\mathbf x_1=\mathbf x_1'$ for all $t$; $\operatorname{tr}A=2\rho$, $\det A=\rho^2+\omega^2$; $P^{-1}AP=J$; the IVP solution satisfies the system and $\mathbf x(0)=(1,0)^T$; Abel: $W(t)=e^{-2t}$.</li><li><strong>Common mistakes in the exam:</strong> (1) reading $\mathbf w$ with the wrong sign: the course writes the real part as $\cos\omega t\,\mathbf u-\sin\omega t\,\mathbf w$, so $\mathbf w=+(1,2)$; (2) deciding the sense of rotation from $\omega&gt;0$ alone: it must be checked with a test vector (it is clockwise here, and it would flip if $\det P&lt;0$); (3) claiming that the Euclidean distance halves after $\ln2$: only the canonical radius $\lvert P^{-1}\mathbf x\rvert$ does; (4) taking the return time to the same half-axis as $\pi/\omega$ instead of $2\pi/\omega$.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P07">
+        <span class="problem-tag">1st Midterm · Unit 4 · Linear systems and phase portraits · 5 points · 30 min · Standard exam level</span>
+        <h4 class="problem-title">P07 — Non-homogeneous planar system with a defective matrix: Jordan form, equilibrium shift, IVP and the improper node</h4>
+        <div class="statement-box">
+<p>Consider the system</p>
+<div class="math-block">$$x'=-x+y,\qquad y'=-x-3y+4.$$</div>
+<p>(a) Write it as $\mathbf x'=A\mathbf x+\mathbf f$. Show that $A$ has a repeated eigenvalue with only one independent eigenvector $\mathbf v$. Find a generalised eigenvector $\mathbf w$ with $(A-\lambda I)\mathbf w=\mathbf v$, build $P=[\mathbf v\mid\mathbf w]$, compute $P^{-1}$ and check that $P^{-1}AP$ is the Jordan form.</p>
+<p>(b) Find a particular solution by undetermined coefficients (a constant vector) and the general solution.</p>
+<p>(c) Solve the initial value problem $x(0)=3$, $y(0)=0$ and check your answer.</p>
+<p>(d) Classify the equilibrium and describe the phase portrait: invariant line, direction of tangency as $t\to\pm\infty$, sense of turning (test vector), nullclines, and the behaviour of the orbit of (c).</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknowns $x(t)$, $y(t)$, $t\in\mathbb R$. First-order, linear, constant coefficients, <strong>non-homogeneous</strong> with a constant forcing; solutions exist for all $t$ and are unique given $\mathbf x(0)$.</li><li>Structure of the general solution (superposition): $\mathbf x=\mathbf x_p+\mathbf x_h$, with $\mathbf x_h$ the general solution of $\mathbf x'=A\mathbf x$.</li><li>Since $\mathbf f$ is constant and $0$ will not be an eigenvalue ($\det A\neq0$), a constant $\mathbf x_p$ exists: it is the equilibrium, and $\mathbf u=\mathbf x-\mathbf x_p$ obeys the homogeneous system.</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<div class="math-block">$$\mathbf x'=A\mathbf x+\mathbf f,\qquad A=\begin{pmatrix}-1&amp;1\\-1&amp;-3\end{pmatrix},\qquad \mathbf f=\begin{pmatrix}0\\4\end{pmatrix}.$$</div>
+<p>Target frame: $\mathbf u=P\mathbf z$ with $P=[\mathbf v\mid\mathbf w]$, which turns $\mathbf u'=A\mathbf u$ into $\mathbf z'=J\mathbf z$, $J=\begin{pmatrix}\lambda&amp;1\\0&amp;\lambda\end{pmatrix}$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.5 points</h3>
+          <div class="prompt"><p>Repeated eigenvalue, generalised eigenvector and Jordan form</p></div>
+<h4 class="step-title">Step 1. Characteristic polynomial</h4>
+<div class="math-block">$$\det(A-\lambda I)=(-1-\lambda)(-3-\lambda)-(1)(-1)=\lambda^2+4\lambda+3+1=\lambda^2+4\lambda+4=(\lambda+2)^2$$</div>
+<p>so $\lambda=-2$ is a double root ($\operatorname{tr}A=-4=2\lambda$, $\det A=4=\lambda^2$).</p>
+<h4 class="step-title">Step 2. Eigenvectors</h4>
+<p>$N=A+2I=\begin{pmatrix}1&amp;1\\-1&amp;-1\end{pmatrix}$. Row 1: $v_1+v_2=0$; row 2: $-v_1-v_2=0$, the same equation. The rank of $N$ is 1, so the eigenspace is one-dimensional, spanned by $\mathbf v=(1,-1)^T$: $A$ is not diagonalisable. Also $N^2=\begin{pmatrix}1-1&amp;1-1\\-1+1&amp;-1+1\end{pmatrix}=0$, as the Cayley-Hamilton theorem predicts.</p>
+<h4 class="step-title">Step 3. Generalised eigenvector</h4>
+<p>$N\mathbf w=\mathbf v$: row 1 $w_1+w_2=1$, row 2 $-w_1-w_2=-1$ (the same). Any solution works; take $w_2=0$, $w_1=1$: $\mathbf w=(1,0)^T$. It is not a multiple of $\mathbf v$, as required.</p>
+<h4 class="step-title">Step 4. Change of basis and Jordan form</h4>
+<p>$P=[\mathbf v\mid\mathbf w]=\begin{pmatrix}1&amp;1\\-1&amp;0\end{pmatrix}$, $\det P=1\cdot0-1\cdot(-1)=1$, $P^{-1}=\frac11\begin{pmatrix}0&amp;-1\\1&amp;1\end{pmatrix}$.</p>
+<p>$A\mathbf v=-2\mathbf v=(-2,2)^T$ and $A\mathbf w=(-1,-1)^T=\mathbf v-2\mathbf w$, so $AP=\begin{pmatrix}-2&amp;-1\\2&amp;-1\end{pmatrix}$. Then</p>
+<div class="math-block">$$\begin{aligned}(P^{-1}AP)_{11}&amp;=0(-2)+(-1)(2)=-2, &amp; (P^{-1}AP)_{12}&amp;=0(-1)+(-1)(-1)=1,\\ (P^{-1}AP)_{21}&amp;=1(-2)+1(2)=0, &amp; (P^{-1}AP)_{22}&amp;=1(-1)+1(-1)=-2.\end{aligned}$$</div>
+<div class="math-block">$$P^{-1}AP=\begin{pmatrix}-2&amp;1\\0&amp;-2\end{pmatrix}=J.$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$p(\lambda)=\lambda^2+4\lambda+4=(\lambda+2)^2$, $\lambda=-2$ (double); $N=A+2I=\begin{pmatrix}1&amp;1\\-1&amp;-1\end{pmatrix}$, rank 1, $N^2=0$.</li><li>$\mathbf v=(1,-1)^T$, $\mathbf w=(1,0)^T$.</li><li>$P=\begin{pmatrix}1&amp;1\\-1&amp;0\end{pmatrix}$, $\det P=1$, $P^{-1}=\begin{pmatrix}0&amp;-1\\1&amp;1\end{pmatrix}$, $P^{-1}AP=\begin{pmatrix}-2&amp;1\\0&amp;-2\end{pmatrix}$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.5 points</h3>
+          <div class="prompt"><p>Particular solution and general solution</p></div>
+<h4 class="step-title">Step 1. Undetermined constant vector</h4>
+<p>With $\mathbf x_p=(p,q)^T$ constant, $\mathbf x_p'=\mathbf 0$ and the system gives $A\mathbf x_p=-\mathbf f$:</p>
+<div class="math-block">$$-p+q=0,\qquad -p-3q+4=0.$$</div>
+<p>The first gives $q=p$; substituting, $-4p+4=0$, so $p=q=1$. The solution is unique because $\det A=4\neq0$. So $\mathbf x^*=(1,1)^T$ is the only equilibrium.</p>
+<h4 class="step-title">Step 2. Homogeneous part in the Jordan frame</h4>
+<p>Let $\mathbf u=\mathbf x-\mathbf x^*$; then $\mathbf u'=\mathbf x'=A\mathbf x+\mathbf f=A\mathbf u+(A\mathbf x^*+\mathbf f)=A\mathbf u$. With $\mathbf u=P\mathbf z$ ($P$ constant): $\mathbf z'=P^{-1}AP\,\mathbf z=J\mathbf z$, i.e.</p>
+<div class="math-block">$$z_1'=-2z_1+z_2,\qquad z_2'=-2z_2.$$</div>
+<p>The second equation gives $z_2=c_2e^{-2t}$. The first becomes $z_1'+2z_1=c_2e^{-2t}$; multiply by the integrating factor $e^{2t}$: $(e^{2t}z_1)'=e^{2t}z_1'+2e^{2t}z_1=c_2$ (product rule). Integrating, $e^{2t}z_1=c_1+c_2t$, so $z_1=(c_1+c_2t)e^{-2t}$.</p>
+<h4 class="step-title">Step 3. Back to the original frame</h4>
+<p>$\mathbf u=P\mathbf z=z_1\mathbf v+z_2\mathbf w=c_1e^{-2t}\mathbf v+c_2e^{-2t}(t\mathbf v+\mathbf w)$, the formula of Robinson Ch. 30. Adding $\mathbf x^*$:</p>
+<div class="math-block">$$\mathbf x(t)=\begin{pmatrix}1+(c_1+c_2+c_2t)e^{-2t}\\ 1-(c_1+c_2t)e^{-2t}\end{pmatrix}.$$</div>
+<p>The fundamental matrix $\Phi=\big[e^{-2t}\mathbf v\mid e^{-2t}(t\mathbf v+\mathbf w)\big]$ has $\det\Phi=e^{-4t}\det[\mathbf v\mid t\mathbf v+\mathbf w]=e^{-4t}\det[\mathbf v\mid\mathbf w]=e^{-4t}\neq0$, in agreement with Abel's formula $W(t)=W(0)e^{(\operatorname{tr}A)t}$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\mathbf x_p=\mathbf x^*=(1,1)^T$.</li><li>$\mathbf x(t)=\begin{pmatrix}1\\1\end{pmatrix}+c_1e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix}+c_2e^{-2t}\left[t\begin{pmatrix}1\\-1\end{pmatrix}+\begin{pmatrix}1\\0\end{pmatrix}\right]$.</li><li>In components: $x=1+(c_1+c_2+c_2t)e^{-2t}$, $y=1-(c_1+c_2t)e^{-2t}$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 1 point</h3>
+          <div class="prompt"><p>Initial value problem x(0) = 3, y(0) = 0</p></div>
+<h4 class="step-title">Step 1. Constants</h4>
+<p>$x(0)=1+c_1+c_2=3$ and $y(0)=1-c_1=0$. Hence $c_1=1$ and $c_2=2-c_1=1$:</p>
+<div class="math-block">$$x(t)=1+(2+t)e^{-2t},\qquad y(t)=1-(1+t)e^{-2t}.$$</div>
+<h4 class="step-title">Step 2. Check</h4>
+<p>By the product rule, $x'=e^{-2t}-2(2+t)e^{-2t}=-(3+2t)e^{-2t}$ and $y'=-e^{-2t}+2(1+t)e^{-2t}=(1+2t)e^{-2t}$. Right-hand sides:</p>
+<div class="math-block">$$-x+y=-1-(2+t)e^{-2t}+1-(1+t)e^{-2t}=-(3+2t)e^{-2t},$$</div>
+<div class="math-block">$$-x-3y+4=-1-(2+t)e^{-2t}-3+3(1+t)e^{-2t}+4=(1+2t)e^{-2t}.$$</div>
+<p>Both equations hold, and $x(0)=3$, $y(0)=0$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$c_1=1$, $c_2=1$.</li><li>$x(t)=1+(2+t)e^{-2t}$, $y(t)=1-(1+t)e^{-2t}$.</li><li>$x'=-(3+2t)e^{-2t}$, $y'=(1+2t)e^{-2t}$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 1 point</h3>
+          <div class="prompt"><p>Classification and phase portrait</p></div>
+<h4 class="step-title">Step 1. Type</h4>
+<p>A double negative eigenvalue with a one-dimensional eigenspace gives a stable improper node (Robinson Ch. 31): it lies on the parabola $(\operatorname{tr})^2=4\det$ of the trace-determinant plane, at the border between the nodes and the foci.</p>
+<h4 class="step-title">Step 2. Eigen-direction and tangency</h4>
+<p>The line $\mathbf x^*+s\mathbf v$, i.e. $x+y=2$, is invariant ($c_2=0$: $\mathbf u=c_1e^{-2t}\mathbf v$ moves straight to $(1,1)$). For $c_2\neq0$, $\mathbf u=e^{-2t}\big[(c_1+c_2t)\mathbf v+c_2\mathbf w\big]$ and the term $c_2t\mathbf v$ dominates as $t\to\pm\infty$: the direction of $\mathbf u$ tends to $\pm\mathbf v$ at both ends. So every orbit enters $(1,1)$ tangent to the line $x+y=2$, and far away (as $t\to-\infty$) it is again parallel to that line, on the other side: each orbit turns half a revolution.</p>
+<h4 class="step-title">Step 3. Sense of turning</h4>
+<p>With $\mathbf u'=A\mathbf u$: $u_1'=-u_1+u_2$, $u_2'=-u_1-3u_2$, so</p>
+<div class="math-block">$$u_1u_2'-u_2u_1'=u_1(-u_1-3u_2)-u_2(-u_1+u_2)=-u_1^2-2u_1u_2-u_2^2=-(u_1+u_2)^2\le0,$$</div>
+<p>zero only on the invariant line. The polar angle around $(1,1)$ never increases: orbits turn <strong>clockwise</strong>. Test vector: at $(2,1)$, $\mathbf u=\mathbf w=(1,0)$, and $\mathbf u'=A\mathbf w=(-1,-1)^T$ points down, crossing the horizontal through $(1,1)$ downwards on its right: clockwise.</p>
+<h4 class="step-title">Step 4. Nullclines</h4>
+<p>$x'=0$ on the line $y=x$ (vertical slopes there); $y'=0$ on $x+3y=4$ (horizontal slopes). Both pass through $(1,1)$ and split the plane into four sectors where $(x',y')$ keeps its signs; e.g. at $(3,0)$: $x'=-3&lt;0$, $y'=1&gt;0$.</p>
+<h4 class="step-title">Step 5. The orbit of (c)</h4>
+<p>$u_1+u_2=(2+t)e^{-2t}-(1+t)e^{-2t}=e^{-2t}&gt;0$: the orbit never meets the invariant line and stays in the half-plane $x+y&gt;2$ (uniqueness forbids crossing an invariant line). For $t\ge0$, $x'=-(3+2t)e^{-2t}&lt;0$ and $y'=(1+2t)e^{-2t}&gt;0$: it moves monotonically from $(3,0)$ to $(1,1)$, with $u_2/u_1=-(1+t)/(2+t)\to-1$, i.e. arriving from the lower right tangent to $x+y=2$. Backwards in time it crosses $y=1$ at $t=-1$ and $x=1$ at $t=-2$, and escapes to infinity parallel to $(-1,1)$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$(1,1)$ is a <strong>stable improper (degenerate) node</strong>: $\operatorname{tr}A=-4&lt;0$, $\det A=4&gt;0$, $(\operatorname{tr}A)^2-4\det A=0$, one eigen-direction.</li><li>Invariant line $x+y=2$ (through $(1,1)$ along $\mathbf v=(1,-1)$); all other orbits are tangent to it at $(1,1)$ and parallel to it as $t\to-\infty$.</li><li>$u_1u_2'-u_2u_1'=-(u_1+u_2)^2\le0$: orbits turn <strong>clockwise</strong>; test vector $A\mathbf w=(-1,-1)^T$ at $(2,1)$.</li><li>Nullclines: $x'=0$ on $y=x$; $y'=0$ on $x+3y=4$. The orbit of (c) stays in $x+y&gt;2$; for $t\ge0$ $x$ decreases to 1 and $y$ increases to 1.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $t\to+\infty$: $\mathbf x\to(1,1)$ like $te^{-2t}$, slower than a pure $e^{-2t}$ because of the secular factor $t$. $t\to-\infty$: $\lvert\mathbf x\rvert\to\infty$. If $\mathbf f=\mathbf 0$ the portrait is the same, centred at the origin.</li><li><strong>Checks:</strong> $P^{-1}AP=J$ with $\det P=1$; $A\mathbf x^*+\mathbf f=\mathbf 0$; the IVP solution satisfies both equations and the initial data; $\det\Phi=e^{-4t}$ matches Abel's formula.</li><li><strong>Common mistakes in the exam:</strong> (1) writing $\mathbf x_h=c_1e^{-2t}\mathbf v+c_2te^{-2t}\mathbf v$, which forgets $\mathbf w$ and is not a fundamental set; (2) solving $(A-\lambda I)\mathbf w=\mathbf v$ with the wrong sign of $\lambda$ (using $A-2I$); (3) trying a particular solution $\mathbf c\,t$ or $\mathbf c\,e^{-2t}$ for a constant forcing: a constant vector suffices since $\det A\neq0$; (4) drawing a star node (all straight lines), or claiming orbits cross the eigenline.</li></ul>
+        </div>
+      </section>
+<!-- EXTRA-PROBLEMS:END -->
+
+      <footer class="topic-nav">
+        <a href="index.html">← Extra problems</a>
+        <a href="midterm-2-problems.html">2nd Midterm problems →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+{
+  "subject": "advanced-maths",
+  "exam_id": "midterm-2",
+  "title": "Advanced Maths — Second Partial (Midterm 2)",
+  "short_title": "Midterm 2",
+  "generate_label": "Generate New Midterm 2 Exam",
+  "note": "Two problems of 5 points, as in the 2020 second partials: one on a nonlinear system (equilibria, Jacobian, phase portrait) and one on Fourier series or a PDE solved by separation of variables. The papers print 1 hour (2019), 1.5 hours (2021) and 2 hours (2020); 90 minutes is the standard here.",
+  "provenance": {
+    "structure_source": "Read from MATHS_SECONDPARTIAL_2019_MT3 (4+6, 1 hour), 2020 G45/G46/G47 (5+5, 2 hours), 2021 G45 (1.5 hours), 2024, 2025 G46/G47 in sources/cuatrimestre-1/04-advanced-maths/examenes/: always a nonlinear-systems or Fourier-series problem and a PDE problem.",
+    "verify_when": "The official duration of the current course's Midterm 2 is confirmed; update this file and drop this note."
+  },
+  "content_scope_source": "Units 4 to 6: nonlinear systems, Fourier series, and the heat, wave and Laplace equations by separation of variables.",
+  "simulator_page": "subjects/advanced-maths/simulator/index.html",
+  "problem_bank": "subjects/advanced-maths/data/problems.json",
+  "total_points": 10.0,
+  "duration_minutes": 90,
+  "duration_options_minutes": [
+    60,
+    90,
+    120
+  ],
+  "parts": [
+    {
+      "id": "part-1",
+      "label": "Problem 1 — Nonlinear system",
+      "category": "midterm_2_problem",
+      "count": 1,
+      "points_each": 5.0,
+      "points_total": 5.0,
+      "description": "One problem of 5 points on a nonlinear planar system: equilibria, linearisation, classification and phase portrait.",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [
+          4
+        ],
+        "must_archetypes": [
+          "nonlinear-systems-stability"
+        ]
+      },
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    {
+      "id": "part-2",
+      "label": "Problem 2 — Fourier series and PDEs",
+      "category": "midterm_2_problem",
+      "count": 1,
+      "points_each": 5.0,
+      "points_total": 5.0,
+      "description": "One problem of 5 points on a Fourier series with its convergence, or on the heat, wave or Laplace equation by separation of variables.",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [
+          5,
+          6
+        ],
+        "archetypes": [
+          "fourier-series-convergence",
+          "pde-separation-heat-wave",
+          "pde-separation-laplace"
+        ]
+      },
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    }
+  ],
+  "runner": {
+    "hide_hints_and_solutions_until_submit": true,
+    "allow_scratchpad_per_question": true,
+    "exclude_mastered_option": true,
+    "exclude_previous_attempt_option": true
+  }
+}

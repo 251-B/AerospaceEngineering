@@ -1,0 +1,87 @@
+{
+  "subject": "advanced-maths",
+  "exam_id": "midterm-1",
+  "title": "Advanced Maths — First Partial (Midterm 1)",
+  "short_title": "Midterm 1",
+  "generate_label": "Generate New Midterm 1 Exam",
+  "note": "Two problems of 5 points, as in the 2019 and 2020 first partials: one on first- and second-order ODEs and one on a linear system with its phase portrait (always present in the papers). Durations printed on the papers: 1 hour (2019, 2020) and 1.5 hours (2021); 60 minutes is the standard here, 45 and 90 are options.",
+  "provenance": {
+    "structure_source": "Read from the text layer of MATHS_FIRSTPARTIAL_2019_MT1/MT2, 2020 (G45, G46, G47), 2021 (G45), 2024 and 2025 (G46, G47) in sources/cuatrimestre-1/04-advanced-maths/examenes/: two or three problems whose marks add up to 10 (4+6, 5+5, 3+4+3). Printed durations: 1 hour (2019, 2020 G46/G47) and 1.5 hours (2021 G45); 2024 and 2025 print none.",
+    "verify_when": "The official duration of the current course's Midterm 1 is confirmed; update this file and drop this note."
+  },
+  "content_scope_source": "Units 1 to 4: modelling, first- and second-order ODEs, linear systems and their phase portraits.",
+  "simulator_page": "subjects/advanced-maths/simulator/index.html",
+  "problem_bank": "subjects/advanced-maths/data/problems.json",
+  "total_points": 10.0,
+  "duration_minutes": 60,
+  "duration_options_minutes": [
+    45,
+    60,
+    90
+  ],
+  "parts": [
+    {
+      "id": "part-1",
+      "label": "Problem 1 — ODEs",
+      "category": "midterm_1_problem",
+      "count": 1,
+      "points_each": 5.0,
+      "points_total": 5.0,
+      "description": "One problem of 5 points on first-order modelling or qualitative analysis, or on second-order linear equations (reduction of order, constant coefficients, forcing).",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [
+          1,
+          2,
+          3
+        ],
+        "archetypes": [
+          "ode-first-order-modeling",
+          "ode-first-order-qualitative",
+          "ode-second-order-reduction",
+          "ode-second-order-undetermined-params"
+        ]
+      },
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    {
+      "id": "part-2",
+      "label": "Problem 2 — Linear system",
+      "category": "midterm_1_problem",
+      "count": 1,
+      "points_each": 5.0,
+      "points_total": 5.0,
+      "description": "One problem of 5 points on a linear system: eigen-data, general solution, classification of the origin and phase portrait. Always present in the Midterm 1 papers.",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [
+          4
+        ],
+        "must_archetypes": [
+          "linear-systems-phase-portrait"
+        ]
+      },
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    }
+  ],
+  "runner": {
+    "hide_hints_and_solutions_until_submit": true,
+    "allow_scratchpad_per_question": true,
+    "exclude_mastered_option": true,
+    "exclude_previous_attempt_option": true
+  }
+}

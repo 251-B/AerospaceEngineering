@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 81
-- Referenced by at least one note (a mention counts): 8
-- Not referenced yet: 73
+- Referenced by at least one note (a mention counts): 9
+- Not referenced yet: 72
 - Build artifacts: 0
 - Working files: 0
 
@@ -150,4 +150,4 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 04-advanced-maths - unit-05-fourier-series-pdes - teoria - BookPDE's (pdf)\|BookPDE's.pdf]] | teoria | not-referenced |
+| [[Source - 04-advanced-maths - unit-05-fourier-series-pdes - teoria - BookPDE's (pdf)\|BookPDE's.pdf]] | teoria | referenced |

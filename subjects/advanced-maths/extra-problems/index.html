@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="advanced-maths">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Maths — Extra Problems</title>
+  <meta name="description" content="Exam-style problems for the first midterm, second midterm and final exam of Advanced Maths (UC3M Aerospace Engineering), solved step by step and checked with SymPy.">
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(20, 30, 55, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.80);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-card: rgba(0, 0, 0, 0.10);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.75;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, .page-header h1, .page-hero h1, .topic-title, .card-title, .set-title, .framework-title, .ex-title, .block-header h2 {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .card-badge, .meta-tag, .ex-num {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 22%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+    /* Sticky Navigation */
+    .back-bar {
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      position: sticky; top: 0; z-index: 50;
+    }
+
+    .back-bar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; gap: 12px; flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .nav-tabs {
+      display: flex; gap: 8px; align-items: center;
+    }
+
+    .tab-link {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.86rem; font-weight: 500;
+      padding: 6px 12px; border-radius: 6px;
+      transition: all var(--transition);
+    }
+    .tab-link.active {
+      color: var(--accent); background: var(--accent-soft); font-weight: 600;
+    }
+
+    .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-primary); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+    /* Page header */
+    .page-header {
+      text-align: center;
+      padding: 48px 0 36px;
+    }
+
+    .page-header .icon { font-size: 2.8rem; margin-bottom: 12px; }
+
+    .page-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 8px;
+    }
+
+    .page-header p {
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.02rem;
+    }
+
+    /* Cards */
+    .problem-sets-grid {
+      display: grid; gap: 24px; margin-bottom: 56px;
+    }
+
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .problem-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-border);
+      background: var(--bg-card-hover);
+    }
+
+    .problem-card:hover::before { opacity: 1; }
+
+    .card-badge {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .card-title {
+      font-size: 1.38rem;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.90rem;
+      line-height: 1.58;
+      margin-bottom: 16px;
+    }
+
+    .exercise-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .exercise-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .ex-num {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .ex-title {
+      color: var(--text-primary);
+    }
+
+    .topic-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+    }
+
+    .meta-tag {
+      background: var(--bg-input);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    footer.site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+    /* Extra problems hub: one block per exam */
+    .exam-block-title { font-family: var(--font-display); font-size: 1.9rem; color: var(--text-heading, var(--text-primary)); margin: 8px 0 6px; }
+    .exam-block-lead { color: var(--text-body, var(--text-secondary)); margin: 0 0 22px; max-width: 760px; }
+    .exam-block-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <script src="../../../assets/js/theme.js"></script>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="back-bar">
+    <div class="container back-bar-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge" style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--accent-border);">UC3M 251-14169</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Advanced Maths sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html" aria-current="page">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../sources/index.html">Official PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <div class="icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M3 18c3-12 6-12 9 0s6 12 9 0"/><path d="M3 12h18"/></svg>
+      </div>
+      <h1>Advanced Maths — Extra Problems</h1>
+      <p>Exam-style problems for the first midterm, the second midterm and the final exam, written for this portal, grouped by exam and solved step by step. They are practice material, not official exercises: the official ones are on the Problems page.</p>
+    </header>
+
+<!-- EXTRA-HUB:START (generated by tools/build_maths_bank.py; edit the vault notes) -->
+    <section class="exam-block" id="midterm-1" aria-labelledby="midterm-1-title">
+      <h2 class="exam-block-title" id="midterm-1-title">1st Midterm</h2>
+      <p class="exam-block-lead">The first partial covers Units 1 to 4: first-order models and qualitative analysis, second-order linear equations and linear systems with their phase portraits. Practise the problems one by one or take a timed exam built from them in the <a href="../simulator/index.html">Exam simulator</a>.</p>
+      <div class="problem-sets-grid">
+      <a href="midterm-1-problems.html" class="problem-card">
+        <span class="card-badge">1st Midterm • Problems</span>
+        <h2 class="card-title">Exam-Style Problems P01 to P07</h2>
+        <p class="card-desc">7 problems solved step by step, with the key results of every part and the common mistakes of the exam.</p>
+
+        <ul class="exercise-list">
+          <li class="exercise-item">
+            <span class="ex-num">P01:</span>
+            <span class="ex-title">Two brine tanks in cascade: separation for the first tank, integrating factor for the second, the equal-rate case and the peak of salt</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P02:</span>
+            <span class="ex-title">Logistic population with constant harvesting: equilibria against the harvest rate, the critical rate 1/4, extinction times by partial fractions and by an arctangent</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P03:</span>
+            <span class="ex-title">A variable-coefficient equation with the solution x: reduction of order to x e^x, Abel&#x27;s identity against the direct Wronskian, variation of parameters for the forcing x^4 and an IVP</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P04:</span>
+            <span class="ex-title">Inverse problem: rebuild y&#x27;&#x27; + a y&#x27; + b y = f from one homogeneous solution and one particular solution, then the resonant forcing e^{-x} sin 2x, an IVP and which forcings need the modified guess</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P05:</span>
+            <span class="ex-title">The system x&#x27; = A(a) x with A = (-4, a; 1, 0): type of the origin for every a, the stable node a = -3 with P, P^{-1}, P^{-1}AP, and the stable focus a = -8 in real form with its sense of rotation</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P06:</span>
+            <span class="ex-title">Inverse problem: rebuild the matrix of a spiral sink from one real solution, solve an IVP and measure the decay per turn</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P07:</span>
+            <span class="ex-title">Non-homogeneous planar system with a defective matrix: Jordan form, equilibrium shift, IVP and the improper node</span>
+          </li>
+        </ul>
+
+        <div class="topic-meta">
+          <span class="meta-tag">7 Problems</span>
+          <span class="meta-tag">5 points each</span>
+          <span class="meta-tag">Units 1 to 4</span>
+          <span class="meta-tag">Verified with SymPy</span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="exam-block" id="midterm-2" aria-labelledby="midterm-2-title">
+      <h2 class="exam-block-title" id="midterm-2-title">2nd Midterm</h2>
+      <p class="exam-block-lead">The second partial covers nonlinear systems and their linearisation, Fourier series and the separation of variables for the heat, wave and Laplace equations. Practise the problems one by one or take a timed exam built from them in the <a href="../simulator/index.html?exam=midterm-2">Exam simulator</a>.</p>
+      <div class="problem-sets-grid">
+      <a href="midterm-2-problems.html" class="problem-card">
+        <span class="card-badge">2nd Midterm • Problems</span>
+        <h2 class="card-title">Exam-Style Problems P08 to P14</h2>
+        <p class="card-desc">7 problems solved step by step, with the key results of every part and the common mistakes of the exam.</p>
+
+        <ul class="exercise-list">
+          <li class="exercise-item">
+            <span class="ex-num">P08:</span>
+            <span class="ex-title">Two competing species with a competition parameter b: equilibria, Jacobians, the threshold b = 4/3 between coexistence and competitive exclusion</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P09:</span>
+            <span class="ex-title">Conservative double-well oscillator x&#x27;&#x27; = 4x - x^3: linearisation, first integral, true centres, the figure-eight separatrix and the orbit types by energy</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P10:</span>
+            <span class="ex-title">Full Fourier series on (-pi, pi) of the function equal to 0 on the left half and x^2 on the right half: coefficients, Dirichlet values and two numerical series</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P11:</span>
+            <span class="ex-title">Half-range sine and cosine series of f(x) = x^2 on (0, pi): continuity of the extensions, decay of the coefficients, values of the series and three numerical sums</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P12:</span>
+            <span class="ex-title">Heat equation with a constant source and fixed, different end temperatures: steady state, separation of variables for the deviation, series solution and the time constant of the slowest mode</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P13:</span>
+            <span class="ex-title">Laplace&#x27;s equation in a rectangle with Neumann conditions on the vertical sides and Dirichlet data given by finite cosine sums: the zero mode, cosh and sinh modes, flux balance and uniqueness</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P14:</span>
+            <span class="ex-title">Vibrating string with fixed ends started from the rest position with a parabolic initial velocity: modes, coefficients from the velocity, d&#x27;Alembert check at the midpoint, energy of each mode and periodicity</span>
+          </li>
+        </ul>
+
+        <div class="topic-meta">
+          <span class="meta-tag">7 Problems</span>
+          <span class="meta-tag">5 points each</span>
+          <span class="meta-tag">Units 4 to 6</span>
+          <span class="meta-tag">Verified with SymPy</span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="exam-block" id="final" aria-labelledby="final-title">
+      <h2 class="exam-block-title" id="final-title">Final exam</h2>
+      <p class="exam-block-lead">The final exam has four problems of about 2.5 points, one per block of the course. Practise the problems one by one or take a timed exam built from them in the <a href="../simulator/index.html?exam=final">Exam simulator</a>.</p>
+      <div class="problem-sets-grid">
+      <a href="final-problems.html" class="problem-card">
+        <span class="card-badge">Final exam • Problems</span>
+        <h2 class="card-title">Exam-Style Problems P15 to P22</h2>
+        <p class="card-desc">8 problems solved step by step, with the key results of every part and the common mistakes of the exam.</p>
+
+        <ul class="exercise-list">
+          <li class="exercise-item">
+            <span class="ex-num">P15:</span>
+            <span class="ex-title">x y&#x27;&#x27; - (x+2) y&#x27; + 2y = 0 with the known solution e^x: a polynomial second solution by reduction of order, the forced equation with x^3 e^x, and initial-value problems at the singular point x = 0</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P16:</span>
+            <span class="ex-title">x^2 y&#x27;&#x27; - x y&#x27; + 2y = x sin(ln x): reduction to constant coefficients by x = e^z, a resonant particular solution x ln x cos(ln x), and a boundary-value problem on [1, b] whose existence and uniqueness depend on b</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P17:</span>
+            <span class="ex-title">Predators and prey with logistic prey growth: equilibria, Jacobians, the focus-node threshold of the coexistence point and the long-time outcome</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P18:</span>
+            <span class="ex-title">Damped mass-spring as a first-order system: the origin in the trace-determinant plane as the damping grows, and the critically damped motion through a generalised eigenvector</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P19:</span>
+            <span class="ex-title">Sturm-Liouville problem with a Dirichlet end and a Robin end: positivity, the transcendental eigenvalue equation, large eigenvalues, orthogonality and norms</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P20:</span>
+            <span class="ex-title">Fourier series of the full-wave rectified sine |sin x|: coefficients by product-to-sum formulas, uniform convergence with an error bound, and two numerical series</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P21:</span>
+            <span class="ex-title">Laplace&#x27;s equation in a circular wedge with one edge held at zero and the other insulated: angular eigenfunctions, bounded radial powers and a datum that is a hidden finite sum</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P22:</span>
+            <span class="ex-title">Heat equation in a rod with insulated ends: conservation of the total heat, the zero eigenvalue, a cosine-power initial profile and the time for the midpoint to settle</span>
+          </li>
+        </ul>
+
+        <div class="topic-meta">
+          <span class="meta-tag">8 Problems</span>
+          <span class="meta-tag">2.5 points each</span>
+          <span class="meta-tag">Units 1 to 6</span>
+          <span class="meta-tag">Verified with SymPy</span>
+        </div>
+      </a>
+      </div>
+    </section>
+<!-- EXTRA-HUB:END -->
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

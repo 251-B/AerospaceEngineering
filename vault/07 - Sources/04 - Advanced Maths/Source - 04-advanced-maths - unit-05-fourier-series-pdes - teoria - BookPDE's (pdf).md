@@ -3,10 +3,10 @@ subject: "Advanced Maths"
 tags:
   - source
   - teoria
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/BookPDE's.pdf"
 kind: teoria
-status: not-referenced
+status: referenced
 bytes: 6536814
 ---
 
@@ -19,8 +19,16 @@ bytes: 6536814
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/BookPDE's.pdf`
 - **Kind:** teoria
 - **Size:** 6.5 MB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 9 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[04 - Advanced Maths/Problem Bank/Problem - Bank P10 - Fourier Series of a Half Parabola with a Jump]]
+- [[04 - Advanced Maths/Problem Bank/Problem - Bank P11 - Sine and Cosine Series of x Squared and a Sum of Reciprocal Cubes]]
+- [[04 - Advanced Maths/Problem Bank/Problem - Bank P12 - Rod with Fixed End Temperatures after a Heat Source Is Switched On]]
+- [[04 - Advanced Maths/Problem Bank/Problem - Bank P13 - Laplace Equation in a Plate with Insulated Sides]]
+- [[04 - Advanced Maths/Problem Bank/Problem - Bank P14 - String Struck from Rest with a Parabolic Velocity Profile]]
+- [[04 - Advanced Maths/Problem Bank/Problem - Bank P19 - Sturm-Liouville Problem with a Robin End Condition]]
+- [[04 - Advanced Maths/Problem Bank/Problem - Bank P20 - Fourier Series of the Rectified Sine Wave]]
+- [[04 - Advanced Maths/Problem Bank/Problem - Bank P21 - Laplace Equation in a Circular Wedge with Mixed Edges]]
+- [[04 - Advanced Maths/Problem Bank/Problem - Bank P22 - Heat Equation in a Rod with Insulated Ends]]

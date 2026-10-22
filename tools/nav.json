@@ -215,6 +215,20 @@
      "page": "topic-4-part-2.html",
      "label": "4 · Systems, part 2"
     }
+   ],
+   "extra-problems": [
+    {
+     "page": "midterm-1-problems.html",
+     "label": "1st Midterm · Problems"
+    },
+    {
+     "page": "midterm-2-problems.html",
+     "label": "2nd Midterm · Problems"
+    },
+    {
+     "page": "final-problems.html",
+     "label": "Final exam · Problems"
+    }
    ]
   },
   {

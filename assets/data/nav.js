@@ -300,9 +300,32 @@ window.AE_NAV = {
               "label": "4 · Systems, part 2"
             }
           ]
+        },
+        {
+          "id": "extra-problems",
+          "label": "Extra problems",
+          "href": "subjects/advanced-maths/extra-problems/index.html",
+          "pages": [
+            {
+              "href": "subjects/advanced-maths/extra-problems/midterm-1-problems.html",
+              "label": "1st Midterm · Problems"
+            },
+            {
+              "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html",
+              "label": "2nd Midterm · Problems"
+            },
+            {
+              "href": "subjects/advanced-maths/extra-problems/final-problems.html",
+              "label": "Final exam · Problems"
+            }
+          ]
         }
       ],
       "extras": [
+        {
+          "href": "subjects/advanced-maths/simulator/index.html",
+          "label": "Exam simulator"
+        },
         {
           "href": "subjects/advanced-maths/sources/index.html",
           "label": "Theory & exercise PDFs"

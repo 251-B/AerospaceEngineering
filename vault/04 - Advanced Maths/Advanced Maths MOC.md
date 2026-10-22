@@ -134,6 +134,12 @@ flowchart TD
 
 ---
 
+### Exam practice: problem bank and simulator
+* **Exam analysis:** [[04 - Advanced Maths/Exam Analysis - Official Papers 2011-2025|Exam Analysis - Official Papers 2011-2025]] - structure, theme frequencies and archetypes of the official first partials, second partials and finals.
+* **Problem bank (22 exam-style problems, SymPy-verified):** [[04 - Advanced Maths/Problem Bank/Problem Set - Advanced Maths Problem Bank|Problem Set - Advanced Maths Problem Bank]] - P01 to P07 first partial, P08 to P14 second partial, P15 to P22 final. Web pages: `subjects/advanced-maths/extra-problems/`; timed exams: `subjects/advanced-maths/simulator/index.html` (`?exam=midterm-1|midterm-2|final`).
+
+---
+
 ## 🔗 Cross-Subject Aerospace Connections
 * **Fluid Mechanics (`01 - Fluid Mechanics`):** Direct application of Navier-Stokes simplification to Hagen-Poiseuille pipe flow ([[04 - Advanced Maths/Concept - Navier-Stokes Poiseuille Flow Reduction|Navier-Stokes Reduction]] $\leftrightarrow$ [[01 - Fluid Mechanics/Fluid Mechanics MOC|Fluid Mechanics MOC]]).
 * **Engineering Mechanics (`03 - Engineering Mechanics`):** Pendulum and mass-spring dynamics ([[04 - Advanced Maths/Problem - Ch1-P8 Simple Pendulum Equation of Motion|Pendulum Equation]] $\leftrightarrow$ [[03 - Engineering Mechanics/Engineering Mechanics MOC|Engineering Mechanics MOC]]).

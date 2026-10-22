@@ -28,7 +28,11 @@
   var root = document.getElementById('examSimulator');
   if (!root) return;
   var BANK = window[root.getAttribute('data-bank') || 'AE_BM_BANK'];
-  var BP = window[root.getAttribute('data-blueprint') || 'AE_BM_BLUEPRINT'];
+  // A subject with several exams (Advanced Maths) lists them as data-blueprint-<exam> and picks one with ?exam=<exam>.
+  var examId = '';
+  try { examId = new URLSearchParams(window.location.search).get('exam') || ''; } catch (e) { examId = ''; }
+  var BP = window[(examId && /^[\w-]+$/.test(examId) && root.getAttribute('data-blueprint-' + examId)) ||
+                  root.getAttribute('data-blueprint') || 'AE_BM_BLUEPRINT'];
   var KEY = root.getAttribute('data-storage') || 'ae_bm_exams';
   // The Extra problems section: theory cases and practice problems live on two pages of their own.
   var BANK_DIR = root.getAttribute('data-bank-dir') || '../extra-problems/';
@@ -47,6 +51,15 @@
   }
   var BY_ID = {};
   BANK.items.forEach(function (i) { BY_ID[i.id] = i; });
+  // Texts that depend on the blueprint (title, structure note, button label), and the current exam link.
+  Array.prototype.forEach.call(root.querySelectorAll('[data-bp]'), function (n) {
+    var v = BP[n.getAttribute('data-bp')];
+    if (typeof v === 'string' && v) n.textContent = v;
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-exam-link]'), function (a) {
+    var cur = (a.getAttribute('data-exam-link') === (examId || root.getAttribute('data-default-exam')));
+    if (cur) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+  });
 
   // ---- Storage -----------------------------------------------------------------------
   function readJSON(key, fallback) {
@@ -144,11 +157,14 @@
   }
 
   // ---- Generation --------------------------------------------------------------------
+  // Items already drawn for an earlier part of the same exam (several parts can share a category).
+  var taken = {};
   function pickPart(part, excluded, archetype) {
     var rules = part.selection_rules || {};
     var pool = BANK.items.filter(function (i) {
-      return i.category === part.category &&
+      return i.category === part.category && !taken[i.id] &&
         (!rules.units || rules.units.indexOf(i.unit) >= 0) &&
+        (!rules.must_archetypes || rules.must_archetypes.indexOf(i.archetype) >= 0) &&
         (!archetype || archetype === 'any' || i.archetype === archetype);
     });
     var notes = [];
@@ -179,9 +195,10 @@
     }
     var minutes = Number((document.querySelector('input[name="simDuration"]:checked') || {}).value || BP.duration_minutes);
     var ids = [], notes = [];
+    taken = {};
     BP.parts.forEach(function (part) {
       var res = pickPart(part, excluded, part === part2 ? archSelect.value : null);
-      res.items.forEach(function (i) { ids.push({ id: i.id, part: part.id }); });
+      res.items.forEach(function (i) { taken[i.id] = 1; ids.push({ id: i.id, part: part.id }); });
       notes = notes.concat(res.notes);
     });
     var now = Date.now();
@@ -204,8 +221,11 @@
     var head = el('div', 'sim-question__head', null);
     var isCase = item.category === 'short_theory_case';
     head.appendChild(el('h2', null, (isCase ? 'Case ' : 'Problem ') + n));
-    var own = BP.parts.filter(function (p) { return p.category === item.category; })[0];
-    var partName = BP.parts.length > 1 ? (isCase ? 'Part I · short theory case' : 'Part II · practical problem') : (own ? own.label : 'Problem');
+    var entry = store.current && store.current.items.filter(function (e) { return e.id === item.id; })[0];
+    var own = BP.parts.filter(function (p) { return entry ? p.id === entry.part : p.category === item.category; })[0];
+    var partName = BP.parts.length > 1 && item.category === 'short_theory_case' ? 'Part I · short theory case'
+      : BP.parts.length > 1 && item.category === 'extra_practice_problem' ? 'Part II · practical problem'
+      : (own ? own.label : 'Problem');
     head.appendChild(el('span', null, partName + ' · ' + fmt(item.points) + ' points'));
     return head;
   }

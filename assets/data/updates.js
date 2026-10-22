@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-22-maths-extra-problems-simulator",
+    "date": "2026-10-22",
+    "tag": "Advanced Maths",
+    "title": "Maths extra problems and exam simulator",
+    "text": "22 solved exam-style problems for the two midterms and the final, plus a timed exam simulator for each of them that you grade yourself.",
+    "link": "subjects/advanced-maths/extra-problems/index.html"
+  },
+  {
     "id": "2026-10-22-maths-ch4-problems-class-method",
     "date": "2026-10-22",
     "tag": "Advanced Maths",

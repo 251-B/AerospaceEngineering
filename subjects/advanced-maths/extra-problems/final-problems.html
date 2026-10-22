@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="advanced-maths">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extra Problems — Final exam Problems | Advanced Maths</title>
+  <meta name="description" content="Exam-style problems for the final exam of Advanced Maths (UC3M Aerospace Engineering), solved step by step." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+    /* Extra problems: the 1st Midterm block, split into Theory and Problems */
+    .midterm-block { margin: 8px 0 0; }
+    .midterm-block > h2.midterm-title { font-size: 2rem; margin: 8px 0 6px; }
+    .midterm-lead { color: var(--text-body, var(--text-primary)); margin: 0 0 8px; }
+    .midterm-part { font-size: 1.6rem; margin: 44px 0 4px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); }
+    .midterm-part-lead { color: var(--text-body, var(--text-primary)); margin: 8px 0 18px; }
+    .midterm-part-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .phase-block .prompt { font-style: italic; }
+    .problem-title { scroll-margin-top: 90px; }
+    .diagram-card { background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle)); border-radius: 12px; padding: 16px; margin: 18px 0; text-align: center; }
+    .diagram-card svg { max-width: 100%; height: auto; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FINAL EXAM · PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Advanced Maths</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Extra problems · Final exam · Problems</div>
+        <h1 class="article-title">Final Exam: Exam-Style Problems</h1>
+        <div class="article-meta">
+          Exam-style problems on the whole course, worth 2.5 points each, like the four problems of the final exam, written for this portal and solved step by step. They are practice material, not official exercises; each one was checked with SymPy.
+        </div>
+      </header>
+
+
+<!-- EXTRA-PROBLEMS:START (generated by tools/build_maths_bank.py; edit the vault notes) -->
+      <p class="midterm-part-lead">8 final-exam problems of 2.5 points, one per block of the course (ODEs, systems, Fourier and Sturm-Liouville, PDEs), like the four problems of the finals of 2019 and 2020; the <a href="../simulator/index.html?exam=final">Exam simulator</a> draws one of each.</p>
+      <section class="problem-box" id="P15">
+        <span class="problem-tag">Final exam · Unit 3 · Reduction of order · 2.5 points · 50 min · Standard exam level</span>
+        <h4 class="problem-title">P15 — x y&#x27;&#x27; - (x+2) y&#x27; + 2y = 0 with the known solution e^x: a polynomial second solution by reduction of order, the forced equation with x^3 e^x, and initial-value problems at the singular point x = 0</h4>
+        <div class="statement-box">
+<p>Consider, for $x&gt;0$, the equation</p>
+<div class="math-block">$$x\,y''-(x+2)\,y'+2y=0 .$$</div>
+<p>(a) Check that $y_1(x)=e^x$ is a solution. Using $y=v(x)\,e^x$, find a second solution $y_2$, linearly independent of $y_1$, and compute the Wronskian $W(y_1,y_2)$.</p>
+<p>(b) Find the general solution of</p>
+<div class="math-block">$$x\,y''-(x+2)\,y'+2y=x^3e^x,\qquad x&gt;0,$$</div>
+<p>again with the substitution $y=v\,e^x$.</p>
+<p>(c) The solutions of (b) extend smoothly to $x=0$. Show that all of them satisfy $y'(0)=y(0)$. What does this say about the initial-value problems $y(0)=1,\ y'(0)=0$ and $y(0)=1,\ y'(0)=1$? Why does this not contradict Picard's theorem?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknown $y(x)$, independent variable $x$, domain $x&gt;0$ (the leading coefficient $x$ vanishes at $x=0$).</li><li>Operator: linear, second order, variable coefficients; (a) homogeneous, (b) non-homogeneous with $g=x^3e^x$.</li><li>One solution is known, so the order can be reduced: $v'$ satisfies a first-order linear equation.</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>Dividing by $x$ gives the standard form $y''+p(x)y'+q(x)y=f(x)$ with</p>
+<div class="math-block">$$p(x)=-\frac{x+2}{x}=-1-\frac2x,\qquad q(x)=\frac2x,\qquad f(x)=x^2e^x .$$</div>
+<p>$p$, $q$, $f$ are continuous on $x&gt;0$, so every initial-value problem posed at $x_0&gt;0$ has a unique solution there; at $x_0=0$ the hypotheses fail.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Second solution by reduction of order and the Wronskian</p></div>
+<h4 class="step-title">Step 1. Check of y1</h4>
+<p>$y_1=y_1'=y_1''=e^x$: $xe^x-(x+2)e^x+2e^x=(x-x-2+2)e^x=0$.</p>
+<h4 class="step-title">Step 2. Substitution</h4>
+<p>$y=ve^x$, product rule: $y'=e^x(v'+v)$, $y''=e^x(v''+2v'+v)$. Substituting:</p>
+<div class="math-block">$$xe^x(v''+2v'+v)-(x+2)e^x(v'+v)+2ve^x=e^x\big[xv''+(2x-x-2)v'+(x-x-2+2)v\big]=e^x\big[xv''+(x-2)v'\big]$$</div>
+<p>So the homogeneous equation becomes $xv''+(x-2)v'=0$.</p>
+<h4 class="step-title">Step 3. First-order equation for w = v'</h4>
+<p>$xw'=-(x-2)w$, separable: $\dfrac{dw}{w}=\Big(-1+\dfrac2x\Big)dx$. Integrating, $\ln\lvert w\rvert=-x+2\ln x+c$, so $w=Kx^2e^{-x}$; take $K=1$.</p>
+<h4 class="step-title">Step 4. Integrate w</h4>
+<p>By parts twice ($u=x^2$, $dv=e^{-x}dx$, $du=2x\,dx$, $v=-e^{-x}$; then $u=x$, $du=dx$):</p>
+<div class="math-block">$$\int x^2e^{-x}dx=-x^2e^{-x}+2\int xe^{-x}dx=-x^2e^{-x}+2\Big(-xe^{-x}+\int e^{-x}dx\Big)=-(x^2+2x+2)e^{-x}$$</div>
+<p>Then $y=ve^x=-(x^2+2x+2)$. Dropping the constant factor $-1$: $y_2=x^2+2x+2$. Check: $y_2'=2x+2$, $y_2''=2$: $2x-(x+2)(2x+2)+2(x^2+2x+2)=2x-(2x^2+6x+4)+2x^2+4x+4=0$.</p>
+<h4 class="step-title">Step 5. Wronskian</h4>
+<div class="math-block">$$W=\begin{vmatrix}e^x&amp;x^2+2x+2\\e^x&amp;2x+2\end{vmatrix}=e^x(2x+2)-e^x(x^2+2x+2)=-x^2e^x$$</div>
+<p>It never vanishes on $x&gt;0$, so $\{y_1,y_2\}$ is a fundamental set. Abel's formula agrees: $W=C\exp\Big(-\int p\,dx\Big)=C\exp\Big(x+2\ln x\Big)=Cx^2e^x$, with $C=-1$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$x v''+(x-2)v'=0$, so $w=v'=x^2e^{-x}$.</li><li>$v=-(x^2+2x+2)e^{-x}$, hence $y_2=x^2+2x+2$ (a polynomial).</li><li>$W(e^x,\ x^2+2x+2)=-x^2e^x\neq0$ for $x&gt;0$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>General solution of the forced equation</p></div>
+<h4 class="step-title">Step 1. Reduced equation</h4>
+<p>From Step 2 of (a), $L[ve^x]=e^x\big[xv''+(x-2)v'\big]=x^3e^x$, so $xv''+(x-2)v'=x^3$. With $w=v'$ and dividing by $x$:</p>
+<div class="math-block">$$w'+\Big(1-\frac2x\Big)w=x^2$$</div>
+<h4 class="step-title">Step 2. Integrating factor</h4>
+<p>$\mu=\exp\displaystyle\int\Big(1-\frac2x\Big)dx=\exp(x-2\ln x)=\frac{e^x}{x^2}$. Check: $\mu'=\dfrac{e^x}{x^2}-\dfrac{2e^x}{x^3}=\mu\Big(1-\dfrac2x\Big)$. Then $(\mu w)'=\mu w'+\mu'w=\mu\big[w'+(1-2/x)w\big]=\dfrac{e^x}{x^2}x^2=e^x$.</p>
+<h4 class="step-title">Step 3. Integrate twice</h4>
+<p>$\mu w=e^x+C$, so $w=x^2+Cx^2e^{-x}$. Integrating, with the antiderivative of (a) Step 4:</p>
+<div class="math-block">$$v=\frac{x^3}{3}-C(x^2+2x+2)e^{-x}+D$$</div>
+<p>and $y=ve^x$:</p>
+<div class="math-block">$$y=De^x-C(x^2+2x+2)+\frac{x^3e^x}{3}=C_1e^x+C_2(x^2+2x+2)+\frac{x^3e^x}{3}$$</div>
+<h4 class="step-title">Step 4. Check of the particular solution</h4>
+<p>$y_p=\tfrac13x^3e^x$: $y_p'=\big(x^2+\tfrac13x^3\big)e^x$, $y_p''=\big(2x+2x^2+\tfrac13x^3\big)e^x$. Then</p>
+<div class="math-block">$$xy_p''-(x+2)y_p'+2y_p=e^x\Big[2x^2+2x^3+\tfrac13x^4-\big(x^3+\tfrac13x^4+2x^2+\tfrac23x^3\big)+\tfrac23x^3\Big]=x^3e^x$$</div>
+<p>Variation of constants with $f=x^2e^x$ and $W=-x^2e^x$ gives $y_p-2e^x$, the same up to a homogeneous solution.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$w'+\Big(1-\dfrac2x\Big)w=x^2$, $\mu=\dfrac{e^x}{x^2}$, $(\mu w)'=e^x$.</li><li>$w=x^2+Cx^2e^{-x}$, $v=\dfrac{x^3}{3}-C(x^2+2x+2)e^{-x}+D$.</li><li>$y=C_1e^x+C_2(x^2+2x+2)+\dfrac{x^3e^x}{3}$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.5 points</h3>
+          <div class="prompt"><p>Initial conditions at the singular point x = 0</p></div>
+<h4 class="step-title">Step 1. Values at x = 0</h4>
+<p>$y=C_1e^x+C_2(x^2+2x+2)+\tfrac13x^3e^x$ gives $y(0)=C_1+2C_2$. $y'=C_1e^x+C_2(2x+2)+\big(x^2+\tfrac13x^3\big)e^x$ gives $y'(0)=C_1+2C_2$. So $y'(0)=y(0)$ always. Directly: at $x=0$ the equation reads $0\cdot y''(0)-2y'(0)+2y(0)=0$.</p>
+<h4 class="step-title">Step 2. The two initial-value problems</h4>
+<p>$y(0)=1$, $y'(0)=0$ violates $y'(0)=y(0)$: <strong>no solution</strong>. $y(0)=y'(0)=1$ only gives $C_1+2C_2=1$: a one-parameter family, <strong>no uniqueness</strong>.</p>
+<h4 class="step-title">Step 3. Picard</h4>
+<p>Picard's theorem needs the standard form $y''=f(x)-p(x)y'-q(x)y$ with coefficients continuous near $x_0$. At $x_0=0$, $p$ and $q$ blow up, so the theorem does not apply. Consistently, $W=-x^2e^x$ vanishes at $x=0$: the matrix $\begin{pmatrix}y_1(0)&amp;y_2(0)\\y_1'(0)&amp;y_2'(0)\end{pmatrix}=\begin{pmatrix}1&amp;2\\1&amp;2\end{pmatrix}$ is singular, so the constants cannot be fitted to arbitrary data.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$y(0)=C_1+2C_2=y'(0)$ for every solution.</li><li>$y(0)=1,\ y'(0)=0$: no solution. $y(0)=y'(0)=1$: infinitely many ($C_1=1-2C_2$, $C_2$ free).</li><li>No contradiction: $p=-1-2/x$ and $q=2/x$ are not continuous at $x=0$ (equivalently $W(0)=0$).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> as $x\to\infty$ the forced response $\tfrac13x^3e^x$ dominates both $e^x$ and the polynomial. As $x\to0^+$ every solution is smooth, but only data on the line $y'(0)=y(0)$ are reachable.</li><li><strong>Checks:</strong> $y_1$, $y_2$, $y_p$ substituted back (Steps (a)4 and (b)4); Abel's formula reproduces the Wronskian; $W\neq0$ on $x&gt;0$.</li><li><strong>Common mistakes in the exam:</strong> (1) forgetting to divide by $x$ before reading $p(x)$ for Abel's formula or variation of constants (with $f=x^2e^x$, not $x^3e^x$); (2) sign slips in $\int x^2e^{-x}dx$; (3) presenting $y_2=-(x^2+2x+2)e^{-x}$, i.e. $v$ instead of $y=ve^x$; (4) claiming uniqueness at $x_0=0$ by quoting Picard without checking continuity of $p$ and $q$.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P16">
+        <span class="problem-tag">Final exam · Unit 3 · Constant coefficients, Cauchy-Euler and forcing · 2.5 points · 50 min · High difficulty / trap</span>
+        <h4 class="problem-title">P16 — x^2 y&#x27;&#x27; - x y&#x27; + 2y = x sin(ln x): reduction to constant coefficients by x = e^z, a resonant particular solution x ln x cos(ln x), and a boundary-value problem on [1, b] whose existence and uniqueness depend on b</h4>
+        <div class="statement-box">
+<p>Consider, for $x\ge1$,</p>
+<div class="math-block">$$x^2y''-x\,y'+2y=x\sin(\ln x).$$</div>
+<p>(a) With the change of variable $x=e^z$, $Y(z)=y(e^z)$, write the chain rule for $y'$ and $y''$ explicitly and obtain a constant-coefficient equation for $Y$. Find the general solution of the homogeneous equation in terms of $x$.</p>
+<p>(b) Find a particular solution. Explain why the natural guess $x\big(A\cos\ln x+B\sin\ln x\big)$ fails.</p>
+<p>(c) Consider the boundary-value problem formed by the equation and $y(1)=0$, $y(b)=0$, with $b&gt;1$.</p>
+<ul><li>For which $b$ does it have exactly one solution? Write it, and simplify it for $b=e^{\pi/2}$.</li><li>Show that for $b=e^{n\pi}$ ($n=1,2,\dots$) it has no solution.</li><li>For $b=e^{\pi}$, replace $y(b)=0$ by $y(e^{\pi})=\beta$. For which $\beta$ are there solutions, and how many?</li></ul>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknown $y(x)$ on $[1,b]$; $x&gt;0$ so $\ln x$ is defined and the leading coefficient $x^2$ does not vanish.</li><li>Operator: linear, second order, variable coefficients of Cauchy-Euler type ($x^k y^{(k)}$), non-homogeneous with forcing $x\sin(\ln x)$.</li><li>Two conditions at <strong>different</strong> points: a boundary-value problem, for which Picard's theorem gives no existence or uniqueness guarantee.</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>Standard form: $y''-\dfrac1x\,y'+\dfrac{2}{x^2}\,y=\dfrac{\sin(\ln x)}{x}$. After $x=e^z$ the problem becomes a constant-coefficient equation on $0\le z\le\ln b$ with $Y(0)=0$, $Y(\ln b)=0$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.75 points</h3>
+          <div class="prompt"><p>Change of variable and homogeneous solution</p></div>
+<h4 class="step-title">Step 1. First derivative</h4>
+<p>$y(x)=Y(z(x))$ with $z=\ln x$. Chain rule: $y'=\dfrac{dY}{dz}\dfrac{dz}{dx}=\dfrac1x\,Y'(z)$.</p>
+<h4 class="step-title">Step 2. Second derivative</h4>
+<p>Product rule on $\dfrac1x\cdot Y'(z(x))$, and chain rule on the second factor, $\dfrac{d}{dx}Y'(z)=Y''(z)\dfrac1x$:</p>
+<div class="math-block">$$y''=-\frac1{x^2}Y'+\frac1x\cdot\frac1xY''=\frac{1}{x^2}\big(Y''-Y'\big)$$</div>
+<h4 class="step-title">Step 3. Transformed equation</h4>
+<p>$x^2y''=Y''-Y'$, $\ xy'=Y'$, $\ x=e^z$, $\ \sin(\ln x)=\sin z$:</p>
+<div class="math-block">$$Y''-Y'-Y'+2Y=e^z\sin z\ \Longrightarrow\ Y''-2Y'+2Y=e^z\sin z$$</div>
+<h4 class="step-title">Step 4. Homogeneous solution</h4>
+<p>Characteristic polynomial $r^2-2r+2=0$, $r=\dfrac{2\pm\sqrt{4-8}}{2}=1\pm i$. So $Y_h=e^z(C_1\cos z+C_2\sin z)$ and, back with $e^z=x$, $z=\ln x$:</p>
+<div class="math-block">$$y_h=x\big(C_1\cos(\ln x)+C_2\sin(\ln x)\big)$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$y'=\dfrac1x\dfrac{dY}{dz}$, $\ y''=\dfrac1{x^2}\Big(\dfrac{d^2Y}{dz^2}-\dfrac{dY}{dz}\Big)$.</li><li>$Y''-2Y'+2Y=e^z\sin z$; characteristic roots $r=1\pm i$.</li><li>$y_h=x\big(C_1\cos(\ln x)+C_2\sin(\ln x)\big)$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Resonant particular solution</p></div>
+<h4 class="step-title">Step 1. Why the natural guess fails</h4>
+<p>$\alpha+i\beta=1+i$ is a simple root of $r^2-2r+2$; $e^z\cos z$ and $e^z\sin z$ solve the homogeneous equation, so any $e^z(A\cos z+B\sin z)$ is mapped to $0$ and cannot produce $e^z\sin z$. The general rule (Robinson Sec. 14.5; Notes.pdf, the second case of the guess) multiplies the guess by $z$ once (simple root).</p>
+<h4 class="step-title">Step 2. Shift by e^z</h4>
+<p>Write $Y=e^zw(z)$. Product rule: $Y'=e^z(w'+w)$, $Y''=e^z(w''+2w'+w)$. Then</p>
+<div class="math-block">$$Y''-2Y'+2Y=e^z\big[w''+2w'+w-2w'-2w+2w\big]=e^z\big(w''+w\big)$$</div>
+<p>so the equation becomes $w''+w=\sin z$, and the guess is $w=z(A\cos z+B\sin z)$.</p>
+<h4 class="step-title">Step 3. Coefficients</h4>
+<p>$w'=A\cos z+B\sin z+z(-A\sin z+B\cos z)$ and</p>
+<div class="math-block">$$w''=2(-A\sin z+B\cos z)-z(A\cos z+B\sin z)$$</div>
+<p>Hence $w''+w=-2A\sin z+2B\cos z=\sin z$: $-2A=1$, $2B=0$, so $A=-\tfrac12$, $B=0$.</p>
+<h4 class="step-title">Step 4. Back to x</h4>
+<p>$Y_p=-\tfrac12ze^z\cos z$, and with $z=\ln x$, $e^z=x$:</p>
+<div class="math-block">$$y_p=-\frac12\,x\ln x\,\cos(\ln x)$$</div>
+<p>the $x^r\ln x$ structure typical of resonance in Euler equations (here $r=1\pm i$). General solution:</p>
+<div class="math-block">$$y=x\big(C_1\cos(\ln x)+C_2\sin(\ln x)\big)-\frac12x\ln x\cos(\ln x)$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>The guess $e^z(A\cos z+B\sin z)$ is a homogeneous solution: substituting gives $0=e^z\sin z$, impossible.</li><li>Corrected guess $Y_p=ze^z(A\cos z+B\sin z)$; $A=-\tfrac12$, $B=0$.</li><li>$y_p=-\tfrac12\,x\ln x\cos(\ln x)$; general solution $y=x\big(C_1\cos\ln x+C_2\sin\ln x\big)-\tfrac12x\ln x\cos\ln x$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 1 point</h3>
+          <div class="prompt"><p>Boundary-value problem on [1, b]</p></div>
+<h4 class="step-title">Step 1. Condition at x = 1</h4>
+<p>$\ln1=0$, $\cos0=1$, $\sin0=0$: $y(1)=C_1$. So $C_1=0$ and $y=C_2x\sin(\ln x)-\tfrac12x\ln x\cos(\ln x)$.</p>
+<h4 class="step-title">Step 2. Condition at x = b</h4>
+<p>$y(b)=b\Big(C_2\sin(\ln b)-\tfrac12\ln b\cos(\ln b)\Big)=0$, and $b&gt;0$, so</p>
+<div class="math-block">$$C_2\sin(\ln b)=\tfrac12\ln b\cos(\ln b)$$</div>
+<h4 class="step-title">Step 3. Unique case</h4>
+<p>If $\sin(\ln b)\neq0$, i.e. $b\neq e^{n\pi}$, then $C_2=\tfrac12\ln b\cot(\ln b)$ and</p>
+<div class="math-block">$$y=\frac x2\Big(\ln b\,\cot(\ln b)\sin(\ln x)-\ln x\cos(\ln x)\Big)$$</div>
+<p>For $b=e^{\pi/2}$: $\cot(\pi/2)=0$, so $C_2=0$ and the solution is $y_p$ itself, which already vanishes at $x=1$ and at $x=e^{\pi/2}$ (where $\cos(\ln x)=0$).</p>
+<h4 class="step-title">Step 4. b = e^{n pi}: no solution</h4>
+<p>$\sin(n\pi)=0$ and $\cos(n\pi)=(-1)^n$, so Step 2 reads $0=\tfrac12\,n\pi(-1)^n$, impossible. Equivalently $y(e^{n\pi})=(-1)^{n+1}\tfrac{n\pi}{2}e^{n\pi}$ whatever $C_2$ is. The reason: $x\sin(\ln x)$ is a non-trivial solution of the <strong>homogeneous</strong> boundary-value problem (in $z$, $\sin z$ vanishes at $z=0$ and $z=n\pi$, exactly as the eigenfunctions of Haberman Sec. 2.3), and the forcing is not orthogonal to it. Fredholm alternative (extension): the non-homogeneous problem is solvable if and only if the forcing, written for the self-adjoint form of the operator, is orthogonal to every solution of the homogeneous problem. Dividing the equation by $x^3$ gives the self-adjoint form $\Big(\dfrac{y'}{x}\Big)'+\dfrac{2}{x^3}y=\dfrac{\sin(\ln x)}{x^2}$, and with $z=\ln x$, $dz=dx/x$:</p>
+<div class="math-block">$$\int_1^{e^{n\pi}}\frac{\sin(\ln x)}{x^2}\,x\sin(\ln x)\,dx=\int_0^{n\pi}\sin^2z\,dz=\Big[\frac z2-\frac{\sin2z}{4}\Big]_0^{n\pi}=\frac{n\pi}{2}\neq0$$</div>
+<h4 class="step-title">Step 5. Changed data at b = e^pi</h4>
+<p>With $y(e^\pi)=\beta$: $e^\pi\big(C_2\cdot0-\tfrac12\pi(-1)\big)=\beta$, i.e. $\beta=\dfrac{\pi e^\pi}{2}\approx36.35$. If $\beta$ has this value, $C_2$ is free: infinitely many solutions $y=y_p+C_2x\sin(\ln x)$. For any other $\beta$, none.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$y(1)=0\Rightarrow C_1=0$. $y(b)=0\Rightarrow C_2\sin(\ln b)=\tfrac12\ln b\cos(\ln b)$.</li><li>Unique solution iff $b\ne e^{n\pi}$: $\ y=\dfrac x2\Big(\ln b\cot(\ln b)\sin(\ln x)-\ln x\cos(\ln x)\Big)$. For $b=e^{\pi/2}$: $y=y_p=-\tfrac12x\ln x\cos(\ln x)$.</li><li>$b=e^{n\pi}$: the condition reads $0=(-1)^{n+1}\dfrac{n\pi}{2}e^{n\pi}\neq0$: no solution.</li><li>$y(e^\pi)=\beta$: solvable iff $\beta=\dfrac{\pi e^{\pi}}{2}\approx36.35$, and then there are infinitely many solutions $y=y_p+C_2x\sin(\ln x)$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $b\to e^{n\pi}$ from either side: $\cot(\ln b)\to\pm\infty$, so the unique solution blows up, the signature of an approaching eigenvalue. $b\to1^+$: $\ln b\cot(\ln b)\to1$ and $y\to\tfrac x2\big(\sin(\ln x)-\ln x\cos(\ln x)\big)$ restricted to a shrinking interval, which tends to $0$.</li><li><strong>Checks:</strong> $y_p$ substituted back in the original variable: the script verifies $x^2y_p''-xy_p'+2y_p=x\sin(\ln x)$; the boundary values $y(1)=0$, $y(b)=0$ hold identically in $b$; the solution of Step 3 is the case $b=e$ with $C_2=\tfrac12\cot1\approx0.32105$.</li><li><strong>Common mistakes in the exam:</strong> (1) writing $y''=\dfrac1{x^2}Y''$, forgetting the $-Y'$ term produced by the product rule; (2) using the non-resonant guess and getting the contradiction $0=e^z\sin z$ without multiplying by $z$; (3) concluding "unique by Picard" for a boundary-value problem; (4) assuming that a boundary-value problem with a zero-determinant system always has infinitely many solutions: it has none unless the data satisfy the solvability condition.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P17">
+        <span class="problem-tag">Final exam · Unit 4 · Nonlinear systems and stability · 2.5 points · 50 min · Standard exam level</span>
+        <h4 class="problem-title">P17 — Predators and prey with logistic prey growth: equilibria, Jacobians, the focus-node threshold of the coexistence point and the long-time outcome</h4>
+        <div class="statement-box">
+<p>After scaling, the densities $x(t)\ge 0$ of a prey and $y(t)\ge 0$ of its predator obey</p>
+<div class="math-block">$$\dot x=x(1-x)-xy,\qquad \dot y=y\,(x-a),$$</div>
+<p>where the parameter $a$, with $0&lt;a&lt;1$, is the death rate of the predator measured against its rate of conversion of prey. Without predators the prey grows logistically with carrying capacity $1$.</p>
+<p>(a) Find all the equilibria in the closed first quadrant and the Jacobian matrix of the system. Classify the two equilibria that lie on the axes and give their eigen-directions.</p>
+<p>(b) Show that the coexistence equilibrium is asymptotically stable for every $a\in(0,1)$, and find the value $a^*$ that separates a stable focus from a stable node. Describe the phase portrait near this point for $a=\tfrac12$ (eigenvalues, sense of rotation) and for $a=\tfrac{9}{11}$ (eigenvalues, eigenvectors, the change of basis $P$ with $P^{-1}JP$, and the slow direction).</p>
+<p>(c) Describe the global phase portrait in the open quadrant (nullclines and the direction of the flow) and state the ecological long-time outcome. Hint for the global part: study $V(x,y)=x-a-a\ln\dfrac{x}{a}+y-b-b\ln\dfrac{y}{b}$ with $b=1-a$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknowns $x(t)$, $y(t)$, independent variable $t\ge 0$; state space the closed quadrant $x\ge0$, $y\ge0$ (densities).</li><li>Autonomous, nonlinear (quadratic) planar system $\dot{\mathbf x}=\mathbf f(\mathbf x)$ with $\mathbf f$ polynomial, hence $\mathbf f$ and $D\mathbf f$ are continuous: the existence and uniqueness theorem for systems (Robinson Thm 25.2) gives one solution through each point, and orbits cannot cross.</li><li>The axes are invariant: if $x=0$ then $\dot x=0$; if $y=0$ then $\dot y=0$. Hence the open quadrant is invariant and densities never become negative.</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>Range</th></tr></thead><tbody><tr><td>$x$</td><td>prey density (scaled by the carrying capacity)</td><td>$x\ge0$</td></tr><tr><td>$y$</td><td>predator density (scaled)</td><td>$y\ge0$</td></tr><tr><td>$a$</td><td>predator death rate / conversion rate</td><td>$0&lt;a&lt;1$</td></tr><tr><td>$b=1-a$</td><td>predator density at coexistence</td><td>$0&lt;b&lt;1$</td></tr></tbody></table></div>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<div class="math-block">$$\dot{\mathbf x}=\mathbf f(\mathbf x),\qquad \mathbf f(x,y)=\begin{pmatrix}x-x^2-xy\\ xy-ay\end{pmatrix}.$$</div>
+<p>Near an equilibrium $\mathbf x^*$, with $\boldsymbol\xi=\mathbf x-\mathbf x^*$, the linearised system is $\dot{\boldsymbol\xi}=J(\mathbf x^*)\,\boldsymbol\xi$ (Robinson Sec. 32.4.2). When no eigenvalue of $J(\mathbf x^*)$ has zero real part, the Hartman-Grobman theorem (Robinson Sec. 32.4.3) says the nonlinear portrait near $\mathbf x^*$ is the linear one, slightly deformed.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.8 points</h3>
+          <div class="prompt"><p>Equilibria, Jacobian and the boundary equilibria</p></div>
+<h4 class="step-title">Step 1. Equilibria</h4>
+<p>$\dot x=0\iff x=0$ or $y=1-x$; $\dot y=0\iff y=0$ or $x=a$. Combine one condition from each equation:</p>
+<ul><li>$x=0$ and $y=0$: $O=(0,0)$.</li><li>$x=0$ and $x=a$: impossible, since $a&gt;0$.</li><li>$y=1-x$ and $y=0$: $x=1$, so $E_1=(1,0)$.</li><li>$y=1-x$ and $x=a$: $E^*=(a,1-a)$, inside the open quadrant because $0&lt;a&lt;1$.</li></ul>
+<h4 class="step-title">Step 2. Jacobian</h4>
+<p>Differentiate each component with respect to each variable:</p>
+<div class="math-block">$$\frac{\partial}{\partial x}(x-x^2-xy)=1-2x-y,\quad \frac{\partial}{\partial y}(x-x^2-xy)=-x,\quad \frac{\partial}{\partial x}(xy-ay)=y,\quad \frac{\partial}{\partial y}(xy-ay)=x-a,$$</div>
+<div class="math-block">$$J(x,y)=\begin{pmatrix}1-2x-y&amp;-x\\ y&amp;x-a\end{pmatrix}.$$</div>
+<h4 class="step-title">Step 3. The origin</h4>
+<div class="math-block">$$J(0,0)=\begin{pmatrix}1&amp;0\\0&amp;-a\end{pmatrix}.$$</div>
+<p>The matrix is diagonal, so the eigenvalues are $\lambda_1=1$ with $\mathbf v_1=(1,0)$ and $\lambda_2=-a&lt;0$ with $\mathbf v_2=(0,1)$ (Robinson Example 27.2). Opposite signs: a <strong>saddle</strong> (Robinson Sec. 28.3), hyperbolic, so the nonlinear point is a saddle too. The $x$-axis is its unstable direction (prey alone grow), the $y$-axis its stable direction (predators alone die out as $y=y_0e^{-at}$, which is exact because the $y$-axis is invariant).</p>
+<h4 class="step-title">Step 4. The prey-only equilibrium</h4>
+<div class="math-block">$$J(1,0)=\begin{pmatrix}1-2-0&amp;-1\\0&amp;1-a\end{pmatrix}=\begin{pmatrix}-1&amp;-1\\0&amp;1-a\end{pmatrix}.$$</div>
+<p>It is upper triangular, so its eigenvalues are the diagonal entries (Robinson Example 27.3): $\lambda_1=-1$ and $\lambda_2=1-a&gt;0$. Eigenvectors from $(J-\lambda I)\mathbf v=\mathbf 0$:</p>
+<ul><li>$\lambda_1=-1$: $\begin{pmatrix}0&amp;-1\\0&amp;2-a\end{pmatrix}\mathbf v=\mathbf 0$. Row 1 gives $-v_2=0$, so $\mathbf v_1=(1,0)$.</li><li>$\lambda_2=1-a$: $\begin{pmatrix}-(2-a)&amp;-1\\0&amp;0\end{pmatrix}\mathbf v=\mathbf 0$. Row 1 gives $-(2-a)v_1-v_2=0$, so $v_2=(a-2)v_1$ and $\mathbf v_2=(1,a-2)$.</li></ul>
+<p>Opposite signs: $E_1$ is a <strong>saddle</strong>. Its unstable direction $\pm(1,a-2)$ enters the open quadrant along $(-1,\,2-a)$, up and to the left: a small number of predators introduced into a prey population at capacity grows.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Equilibria: $O=(0,0)$, $E_1=(1,0)$, $E^*=(a,\,1-a)$.</li><li>$J(x,y)=\begin{pmatrix}1-2x-y&amp;-x\\ y&amp;x-a\end{pmatrix}$.</li><li>$O$: eigenvalues $1$ (along $(1,0)$) and $-a$ (along $(0,1)$), saddle.</li><li>$E_1$: eigenvalues $-1$ (along $(1,0)$) and $1-a&gt;0$ (along $(1,a-2)$), saddle.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Stability of the coexistence point and the focus-node threshold</p></div>
+<h4 class="step-title">Step 1. Jacobian at the coexistence point</h4>
+<p>Substitute $x=a$, $y=1-a$ in $J$: $1-2a-(1-a)=-a$, $-x=-a$, $y=1-a$, $x-a=0$:</p>
+<div class="math-block">$$J^*=J(a,1-a)=\begin{pmatrix}-a&amp;-a\\1-a&amp;0\end{pmatrix}.$$</div>
+<h4 class="step-title">Step 2. Characteristic polynomial</h4>
+<div class="math-block">$$\det(J^*-\lambda I)=\begin{vmatrix}-a-\lambda&amp;-a\\1-a&amp;-\lambda\end{vmatrix}=(-a-\lambda)(-\lambda)-(-a)(1-a)=\lambda^2+a\lambda+a(1-a).$$</div>
+<p>So $\operatorname{tr}J^*=-a$, $\det J^*=a(1-a)$ and</p>
+<div class="math-block">$$\lambda=\frac{-a\pm\sqrt{a^2-4a(1-a)}}{2}=\frac{-a\pm\sqrt{a(5a-4)}}{2}.$$</div>
+<h4 class="step-title">Step 3. Stability for every $a\in(0,1)$</h4>
+<p>$\det J^*=a(1-a)&gt;0$ excludes a saddle, and $\operatorname{tr}J^*=-a&lt;0$ gives both eigenvalues negative real part: if they are real, their product is positive and their sum negative, so both are negative; if they are complex, the real part is $-a/2&lt;0$. Every eigenvalue has nonzero real part, so the point is hyperbolic and by Hartman-Grobman (Robinson Sec. 32.4.3) $E^*$ is <strong>asymptotically stable</strong> in the nonlinear system.</p>
+<h4 class="step-title">Step 4. The threshold</h4>
+<p>The type depends on the sign of $\Delta(a)=a(5a-4)$ (Robinson Ch. 31, summary of phase portraits):</p>
+<ul><li>$0&lt;a&lt;\tfrac45$: $\Delta&lt;0$, complex pair with real part $-a/2$: <strong>stable focus</strong> (spiral).</li><li>$a=\tfrac45$: $\Delta=0$, double eigenvalue $\lambda=-\tfrac25$; $J^*-\lambda I=\begin{pmatrix}-\frac25&amp;-\frac45\\ \frac15&amp;\frac25\end{pmatrix}\neq0$, so there is a single eigen-direction, $\mathbf v=(2,-1)$ from row 1: <strong>stable degenerate (improper) node</strong> (Robinson Ch. 30). The eigenvalue is still negative, so the point stays hyperbolic and asymptotically stable; only the fine shape (node or slow spiral) may be changed by the nonlinear terms in this borderline case.</li><li>$\tfrac45&lt;a&lt;1$: $\Delta&gt;0$, two distinct negative eigenvalues: <strong>stable node</strong>.</li></ul>
+<p>So $a^*=\tfrac45$: predators that die fast (large $a$) let the system settle without oscillating.</p>
+<h4 class="step-title">Step 5. Focus case $a=\tfrac12$</h4>
+<p>$\lambda^2+\tfrac12\lambda+\tfrac14=0$, so $\lambda=\dfrac{-\frac12\pm\sqrt{\frac14-1}}{2}=-\dfrac14\pm\dfrac{\sqrt3}{4}i$. Real part $-\tfrac14$ (decay rate), imaginary part $\tfrac{\sqrt3}4$ (angular frequency; period of the linear oscillation $2\pi/(\sqrt3/4)=8\pi/\sqrt3$).</p>
+<p>Sense of rotation from a test vector (Robinson Ch. 29): at $\boldsymbol\xi=(1,0)$ (more prey than at equilibrium), $\dot{\boldsymbol\xi}=J^*\boldsymbol\xi=(-\tfrac12,\ \tfrac12)$. The second component is positive: the orbit turns from the positive $\xi_1$ axis towards the positive $\xi_2$ axis, i.e. <strong>counter-clockwise</strong> in the $(x,y)$ plane. Ecologically: an excess of prey makes the predators grow, the predators then eat the prey down, and so on, with oscillations of decreasing amplitude.</p>
+<h4 class="step-title">Step 6. Node case $a=\tfrac9{11}$</h4>
+<div class="math-block">$$J^*=\begin{pmatrix}-\frac9{11}&amp;-\frac9{11}\\ \frac2{11}&amp;0\end{pmatrix},\qquad \lambda^2+\frac9{11}\lambda+\frac9{11}\cdot\frac2{11}=0,\qquad \lambda=\frac{-\frac9{11}\pm\sqrt{\frac{81}{121}-\frac{72}{121}}}{2}=\frac{-\frac9{11}\pm\frac3{11}}{2}.$$</div>
+<p>So $\lambda_1=-\tfrac3{11}$ and $\lambda_2=-\tfrac6{11}$ (check: sum $-\tfrac9{11}=\operatorname{tr}$, product $\tfrac{18}{121}=\det$). Eigenvectors from the first row of $(J^*-\lambda I)\mathbf v=\mathbf 0$ (the second row is proportional because $\det(J^*-\lambda I)=0$):</p>
+<ul><li>$\lambda_1=-\tfrac3{11}$: $\left(-\tfrac9{11}+\tfrac3{11}\right)v_1-\tfrac9{11}v_2=0\Rightarrow -6v_1-9v_2=0\Rightarrow \mathbf v_1=(3,-2)$. Second row check: $\tfrac2{11}\cdot3+\tfrac3{11}\cdot(-2)=0$.</li><li>$\lambda_2=-\tfrac6{11}$: $\left(-\tfrac9{11}+\tfrac6{11}\right)v_1-\tfrac9{11}v_2=0\Rightarrow -3v_1-9v_2=0\Rightarrow \mathbf v_2=(3,-1)$. Second row check: $\tfrac2{11}\cdot3+\tfrac6{11}\cdot(-1)=0$.</li></ul>
+<p>Change of basis (Robinson Sec. 28.2): $P=[\mathbf v_1\mid\mathbf v_2]=\begin{pmatrix}3&amp;3\\-2&amp;-1\end{pmatrix}$, $\det P=3(-1)-3(-2)=3$, and</p>
+<div class="math-block">$$P^{-1}=\frac13\begin{pmatrix}-1&amp;-3\\2&amp;3\end{pmatrix}.$$</div>
+<p>$J^*P=[\lambda_1\mathbf v_1\mid\lambda_2\mathbf v_2]=\begin{pmatrix}-\frac9{11}&amp;-\frac{18}{11}\\ \frac6{11}&amp;\frac6{11}\end{pmatrix}$, and entry by entry</p>
+<div class="math-block">$$\begin{aligned} (P^{-1}J^*P)_{11}&amp;=\tfrac13\left[(-1)(-\tfrac9{11})+(-3)\tfrac6{11}\right]=\tfrac13\cdot\left(-\tfrac9{11}\right)=-\tfrac3{11},\\ (P^{-1}J^*P)_{12}&amp;=\tfrac13\left[(-1)(-\tfrac{18}{11})+(-3)\tfrac6{11}\right]=0,\\ (P^{-1}J^*P)_{21}&amp;=\tfrac13\left[2(-\tfrac9{11})+3\cdot\tfrac6{11}\right]=0,\\ (P^{-1}J^*P)_{22}&amp;=\tfrac13\left[2(-\tfrac{18}{11})+3\cdot\tfrac6{11}\right]=-\tfrac6{11}. \end{aligned}$$</div>
+<p>So $P^{-1}J^*P=\operatorname{diag}(-\tfrac3{11},-\tfrac6{11})$. In $\mathbf z=P^{-1}\boldsymbol\xi$ coordinates $z_1=c_1e^{-3t/11}$, $z_2=c_2e^{-6t/11}$, and eliminating $t$, $z_2=K z_1^2$: parabola-like orbits. All orbits enter $E^*$ tangent to the <strong>slow</strong> eigenvector $\mathbf v_1=(3,-2)$ (smaller $\lvert\lambda\rvert$), and far from $E^*$ they run parallel to the fast one $\mathbf v_2=(3,-1)$ (Robinson Sec. 28.3-28.4).</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$J(E^*)=\begin{pmatrix}-a&amp;-a\\1-a&amp;0\end{pmatrix}$, $\operatorname{tr}=-a&lt;0$, $\det=a(1-a)&gt;0$: asymptotically stable for all $a\in(0,1)$.</li><li>Discriminant $a(5a-4)$: stable focus for $0&lt;a&lt;\tfrac45$, stable degenerate node at $a^*=\tfrac45$, stable node for $\tfrac45&lt;a&lt;1$.</li><li>$a=\tfrac12$: $\lambda=-\tfrac14\pm\tfrac{\sqrt3}{4}i$, counter-clockwise spiral.</li><li>$a=\tfrac9{11}$: $\lambda_1=-\tfrac3{11}$, $\mathbf v_1=(3,-2)$ (slow), $\lambda_2=-\tfrac6{11}$, $\mathbf v_2=(3,-1)$ (fast); $P^{-1}JP=\operatorname{diag}(-\tfrac3{11},-\tfrac6{11})$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.7 points</h3>
+          <div class="prompt"><p>Global portrait and long-time outcome</p></div>
+<h4 class="step-title">Step 1. Nullclines and direction field</h4>
+<p>In the open quadrant, $\dot x&gt;0$ below the line $x+y=1$ and $\dot x&lt;0$ above it; $\dot y&gt;0$ to the right of $x=a$ and $\dot y&lt;0$ to the left. The two lines cross at $E^*$ and cut the quadrant into four regions; the flow goes right-and-up (below the line, right of $x=a$), left-and-up (above, right), left-and-down (above, left) and right-and-down (below, left). Going round these four regions in that order is a counter-clockwise turn about $E^*$, consistent with (b). The axes are invariant: on the $x$ axis orbits run to $E_1$, on the $y$ axis to $O$.</p>
+<h4 class="step-title">Step 2. The function $V$ (extension)</h4>
+<p>A <strong>Lyapunov function</strong> (extension: not in the course; a $C^1$ function with a strict minimum at the equilibrium that does not increase along orbits) proves global statements that linearisation cannot. Here $V$ is defined in the open quadrant. Its derivatives are</p>
+<div class="math-block">$$V_x=1-\frac{a}{x}=\frac{x-a}{x},\qquad V_y=1-\frac{b}{y}=\frac{y-b}{y}.$$</div>
+<p>By the chain rule, $\dfrac{d}{dt}V(x(t),y(t))=V_x\dot x+V_y\dot y$:</p>
+<div class="math-block">$$\dot V=\frac{x-a}{x}\,x(1-x-y)+\frac{y-b}{y}\,y(x-a)=(x-a)\big[(1-x-y)+(y-b)\big]=(x-a)(1-b-x).$$</div>
+<p>With $1-b=a$: $\dot V=(x-a)(a-x)=-(x-a)^2\le0$.</p>
+<p>Also $V\ge0$ with equality only at $E^*$: the function $g(s)=s-c-c\ln(s/c)$ has $g'(s)=1-c/s$, negative for $s&lt;c$ and positive for $s&gt;c$, so its minimum is $g(c)=0$; $V$ is the sum of $g(x)$ with $c=a$ and $g(y)$ with $c=b$. $V\to\infty$ at the axes and at infinity, so every level set $V=\text{const}$ is a closed curve around $E^*$ and orbits stay bounded.</p>
+<h4 class="step-title">Step 3. Long-time outcome</h4>
+<p>$V$ decreases strictly except where $x=a$. On the line $x=a$ away from $E^*$, $\dot x=a(1-a-y)\neq0$, so the orbit leaves the line at once: no orbit other than $E^*$ stays where $\dot V=0$. Hence (LaSalle's invariance principle, extension) $V(x(t),y(t))\to0$ and every orbit starting in the open quadrant tends to $E^*$. The linearisation of (b) gives the final approach: spirals for $a&lt;\tfrac45$, tangent to the slow eigenvector for $a&gt;\tfrac45$.</p>
+<p><strong>Ecological outcome:</strong> neither species dies out; prey and predator settle to $x=a$, $y=1-a$. The prey density at coexistence equals the predator's death parameter; a less efficient predator (larger $a$) leaves more prey and fewer predators, and for $a\ge1$ (outside the data) $E^*$ leaves the quadrant and the predator goes extinct.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Nullclines: $\dot x=0$ on $x=0$ and on $x+y=1$; $\dot y=0$ on $y=0$ and on $x=a$.</li><li>$\dot V=-(x-a)^2\le0$ (extension: Lyapunov function).</li><li>Every orbit with $x(0)&gt;0$, $y(0)&gt;0$ tends to $E^*=(a,1-a)$: prey and predators coexist; with $a=\tfrac12$ through damped oscillations, with $a=\tfrac9{11}$ without them.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $a\to0^+$: $E^*\to(0,1)$, trace $\to0$, weakly damped oscillations (close to a centre). $a\to1^-$: $E^*\to E_1=(1,0)$ and the eigenvalue $1-a$ of $E_1$ tends to $0$: the two equilibria merge (transcritical bifurcation, extension). For all $a\in(0,1)$, $t\to\infty$ gives $(x,y)\to(a,1-a)$.</li><li><strong>Checks:</strong> $\mathbf f(a,1-a)=\big(a(1-a-(1-a)),\,(1-a)(a-a)\big)=\mathbf 0$; $\operatorname{tr}$ and $\det$ match sums and products of the eigenvalues in both cases; $P^{-1}J^*P$ is diagonal; numerical integration from $(0.2,0.2)$ ends at $E^*$ for $a=\tfrac12$ and $a=\tfrac9{11}$ (script). The model is dimensionless, so no units appear.</li><li><strong>Common mistakes in the exam:</strong> (1) writing the classical Lotka-Volterra centre: the logistic term $-x^2$ adds $-a$ to the trace and makes $E^*$ a sink; (2) concluding "stable" from $\det&gt;0$ alone, without the sign of the trace; (3) taking the fast eigenvector as the direction of approach of a node: orbits arrive tangent to the slow one, $(3,-2)$; (4) using the linearisation to claim global convergence: Hartman-Grobman is only local, the global statement needs $V$.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P18">
+        <span class="problem-tag">Final exam · Unit 4 · Linear systems and phase portraits · 2.5 points · 50 min · Standard exam level</span>
+        <h4 class="problem-title">P18 — Damped mass-spring as a first-order system: the origin in the trace-determinant plane as the damping grows, and the critically damped motion through a generalised eigenvector</h4>
+        <div class="statement-box">
+<p>A body of mass $m=1$ kg hangs from a spring of stiffness $k=4$ N/m and moves inside a dashpot of damping coefficient $c\ge0$ (N s/m). Its displacement $x(t)$ (m) from the equilibrium position obeys</p>
+<div class="math-block">$$m\ddot x+c\dot x+kx=0 .$$</div>
+<p>(a) Write the equation as a first-order system $\dot{\mathbf X}=A\mathbf X$ for $\mathbf X=(x,\,v)^T$ with $v=\dot x$, for general $m,k&gt;0$ and $c\ge0$. Locate $A$ in the trace-determinant plane and classify the origin as a function of $c$: undamped, under-damped, critically damped and over-damped motion. With $m=1$, $k=4$ give the critical value $c_{cr}$ and the eigenvalues for $c=0$, $c=2$ and $c=5$, and describe each phase portrait in words.</p>
+<p>(b) Take the critically damped case $c=c_{cr}$. Find the eigenvalue and eigenvector of $A$, a generalised eigenvector $\mathbf w$ with $(A-\lambda I)\mathbf w=\mathbf v$, the matrix $P=[\mathbf v\mid\mathbf w]$, and check explicitly that $P^{-1}AP$ is the Jordan form. Write the general solution. The body is released from $x(0)=1$ m with velocity $v(0)=v_0$: find $x(t)$, the values of $v_0$ for which the body crosses the equilibrium position, and the crossing time for $v_0=-6$ m/s. For $v_0=0$, find the largest speed reached.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknown $x(t)$ (m), independent variable $t\ge0$ (s). Linear, homogeneous, constant coefficients, second order; $m,k&gt;0$, $c\ge0$.</li><li>Units: $c/m$ and $\sqrt{k/m}$ are s$^{-1}$; $k/m$ is s$^{-2}$. Eigenvalues are rates in s$^{-1}$.</li><li>The coefficients are constant, so the existence and uniqueness theorem (Robinson Thm 11.1, Thm 25.2) gives a unique solution for every $(x(0),v(0))$, defined for all $t$.</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Value</th><th>Unit</th></tr></thead><tbody><tr><td>$m$</td><td>$1$</td><td>kg</td></tr><tr><td>$k$</td><td>$4$</td><td>N/m</td></tr><tr><td>$c$</td><td>$\ge0$, parameter</td><td>N s/m</td></tr><tr><td>$x(0)$</td><td>$1$</td><td>m</td></tr><tr><td>$v(0)$</td><td>$v_0$</td><td>m/s</td></tr></tbody></table></div>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>With $x_1=x$, $x_2=v=\dot x$ (Robinson Sec. 25.1): $\dot x_1=x_2$ and, dividing the equation by $m$, $\dot x_2=-\frac km x_1-\frac cm x_2$:</p>
+<div class="math-block">$$\frac{d}{dt}\begin{pmatrix}x\\v\end{pmatrix}=\begin{pmatrix}0&amp;1\\-\frac km&amp;-\frac cm\end{pmatrix}\begin{pmatrix}x\\v\end{pmatrix},\qquad A=\begin{pmatrix}0&amp;1\\-\frac km&amp;-\frac cm\end{pmatrix}.$$</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Classification of the origin as the damping varies</p></div>
+<h4 class="step-title">Step 1. Trace, determinant, characteristic polynomial</h4>
+<div class="math-block">$$\det(A-\lambda I)=\begin{vmatrix}-\lambda&amp;1\\-\frac km&amp;-\frac cm-\lambda\end{vmatrix}=(-\lambda)\left(-\frac cm-\lambda\right)-1\cdot\left(-\frac km\right)=\lambda^2+\frac cm\lambda+\frac km .$$</div>
+<p>It is the characteristic equation of the scalar ODE divided by $m$, as it must be. Hence $\operatorname{tr}A=-\frac cm\le0$, $\det A=\frac km&gt;0$ and</p>
+<div class="math-block">$$\lambda_\pm=\frac{-\frac cm\pm\sqrt{\frac{c^2}{m^2}-\frac{4k}m}}{2}=\frac{-c\pm\sqrt{c^2-4mk}}{2m}.$$</div>
+<h4 class="step-title">Step 2. The point $A$ in the trace-determinant plane</h4>
+<p>$\det A=k/m$ is fixed and positive, so the origin is never a saddle. As $c$ grows from $0$, the point $(\operatorname{tr},\det)=(-c/m,\,k/m)$ moves left along the horizontal line $\det=k/m$, starting on the $\det$ axis and crossing the parabola $\operatorname{tr}^2=4\det$ at $c/m=2\sqrt{k/m}$, i.e. $c_{cr}=2\sqrt{mk}$ (Robinson Ch. 31):</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Damping</th><th>Position</th><th>Eigenvalues</th><th>Origin</th></tr></thead><tbody><tr><td>$c=0$ (undamped)</td><td>on the $\det$ axis</td><td>$\pm i\sqrt{k/m}$</td><td>centre (stable, not asymptotically)</td></tr><tr><td>$0&lt;c&lt;c_{cr}$ (under-damped)</td><td>inside the parabola</td><td>$-\frac c{2m}\pm i\frac{\sqrt{4mk-c^2}}{2m}$</td><td>stable focus</td></tr><tr><td>$c=c_{cr}$ (critical)</td><td>on the parabola</td><td>$-\frac c{2m}$, double</td><td>stable degenerate node</td></tr><tr><td>$c&gt;c_{cr}$ (over-damped)</td><td>outside the parabola</td><td>two negative reals</td><td>stable node</td></tr></tbody></table></div>
+<p>With $m=1$, $k=4$: $c_{cr}=2\sqrt{1\cdot4}=4$ N s/m.</p>
+<h4 class="step-title">Step 3. The three sample values</h4>
+<ul><li>$c=0$: $\lambda^2+4=0$, $\lambda=\pm2i$. Energy $\tfrac12mv^2+\tfrac12kx^2$ is conserved, so the orbits are the ellipses $4x^2+v^2=\text{const}$ (period $\pi$ s). Test vector $\mathbf X=(1,0)$: $A\mathbf X=(0,-4)$ points down, so the motion is <strong>clockwise</strong>.</li><li>$c=2$: $\lambda^2+2\lambda+4=0$, $\lambda=\dfrac{-2\pm\sqrt{4-16}}{2}=-1\pm\sqrt3\,i$. Clockwise spirals into the origin (same test vector: $A(1,0)^T=(0,-4)^T$), amplitude decaying as $e^{-t}$.</li><li>$c=5$: $\lambda^2+5\lambda+4=(\lambda+1)(\lambda+4)=0$, $\lambda_1=-1$, $\lambda_2=-4$. Eigenvectors from row 1 of $(A-\lambda I)\mathbf v=\mathbf 0$, $-\lambda v_1+v_2=0$: $\mathbf v_1=(1,-1)$, $\mathbf v_2=(1,-4)$. Stable node; orbits reach the origin tangent to the slow direction $(1,-1)$ (smaller $\lvert\lambda\rvert$), and far away they are parallel to $(1,-4)$. The body returns to rest without oscillating, and it can cross $x=0$ at most once.</li></ul>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\lambda^2+\frac cm\lambda+\frac km=0$; discriminant $\dfrac{c^2-4mk}{m^2}$; $c_{cr}=2\sqrt{mk}=4$ N s/m.</li><li>$c=0$: centre, $\lambda=\pm2i$. $0&lt;c&lt;4$: stable focus ($c=2$: $\lambda=-1\pm\sqrt3\,i$). $c=4$: stable degenerate node, $\lambda=-2$ double. $c&gt;4$: stable node ($c=5$: $\lambda=-1,-4$).</li><li>Rotation in the $(x,v)$ plane is clockwise in every oscillating case.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.5 points</h3>
+          <div class="prompt"><p>Critically damped motion with a generalised eigenvector</p></div>
+<h4 class="step-title">Step 1. Eigenvalue and eigenvector</h4>
+<p>With $c=4$: $\lambda^2+4\lambda+4=(\lambda+2)^2=0$, so $\lambda=-2$ with algebraic multiplicity 2. Then</p>
+<div class="math-block">$$A+2I=\begin{pmatrix}2&amp;1\\-4&amp;-2\end{pmatrix}.$$</div>
+<p>Row 1: $2v_1+v_2=0$; row 2: $-4v_1-2v_2=-2(2v_1+v_2)=0$, the same equation. One free parameter: $\mathbf v=(1,-2)$. Since $A+2I\neq0$, there is no second independent eigenvector.</p>
+<h4 class="step-title">Step 2. Generalised eigenvector</h4>
+<p>Solve $(A+2I)\mathbf w=\mathbf v$: row 1 gives $2w_1+w_2=1$, row 2 gives $-4w_1-2w_2=-2$, which is row 1 times $-2$ (consistent). Choose $w_1=0$: $\mathbf w=(0,1)$. Check: $(A+2I)\mathbf w=(2\cdot0+1,\ -4\cdot0-2\cdot1)=(1,-2)=\mathbf v$. Also $(A+2I)^2=\begin{pmatrix}4-4&amp;2-2\\-8+8&amp;-4+4\end{pmatrix}=0$, so $(A+2I)^2\mathbf w=\mathbf 0$ as it must.</p>
+<h4 class="step-title">Step 3. Change of basis and Jordan form</h4>
+<div class="math-block">$$P=[\mathbf v\mid\mathbf w]=\begin{pmatrix}1&amp;0\\-2&amp;1\end{pmatrix},\qquad \det P=1\cdot1-0\cdot(-2)=1,\qquad P^{-1}=\frac11\begin{pmatrix}1&amp;0\\2&amp;1\end{pmatrix}.$$</div>
+<p>Columns of $AP$: $A\mathbf v=-2\mathbf v=(-2,4)$ and $A\mathbf w=-2\mathbf w+\mathbf v=(0,-2)+(1,-2)=(1,-4)$; check directly: $A\mathbf w=(0\cdot0+1\cdot1,\ -4\cdot0-4\cdot1)=(1,-4)$. So $AP=\begin{pmatrix}-2&amp;1\\4&amp;-4\end{pmatrix}$ and</p>
+<div class="math-block">$$\begin{aligned} (P^{-1}AP)_{11}&amp;=1\cdot(-2)+0\cdot4=-2, &amp; (P^{-1}AP)_{12}&amp;=1\cdot1+0\cdot(-4)=1,\\ (P^{-1}AP)_{21}&amp;=2\cdot(-2)+1\cdot4=0, &amp; (P^{-1}AP)_{22}&amp;=2\cdot1+1\cdot(-4)=-2, \end{aligned} \qquad P^{-1}AP=\begin{pmatrix}-2&amp;1\\0&amp;-2\end{pmatrix}=J .$$</div>
+<h4 class="step-title">Step 4. Solution in the canonical coordinates</h4>
+<p>With $\mathbf z=P^{-1}\mathbf X$: $\dot z_2=-2z_2$ and $\dot z_1=-2z_1+z_2$. The first gives $z_2=c_2e^{-2t}$. The second is linear: multiply by the integrating factor $e^{2t}$, so by the product rule $\frac d{dt}(e^{2t}z_1)=e^{2t}(\dot z_1+2z_1)=e^{2t}z_2=c_2$. Integrate from $0$ to $t$ with Barrow's rule: $e^{2t}z_1(t)-z_1(0)=c_2\,[s]_0^t=c_2t$, so $z_1=(c_1+c_2t)e^{-2t}$ with $c_1=z_1(0)$.</p>
+<h4 class="step-title">Step 5. General solution</h4>
+<p>$\mathbf X=P\mathbf z=z_1\mathbf v+z_2\mathbf w$:</p>
+<div class="math-block">$$\mathbf X(t)=c_1e^{-2t}\begin{pmatrix}1\\-2\end{pmatrix}+c_2e^{-2t}\left[t\begin{pmatrix}1\\-2\end{pmatrix}+\begin{pmatrix}0\\1\end{pmatrix}\right], \qquad x(t)=(c_1+c_2t)e^{-2t},\quad v(t)=(-2c_1+c_2-2c_2t)e^{-2t}.$$</div>
+<p>Check $v=\dot x$ by the product rule: $\dot x=c_2e^{-2t}+(c_1+c_2t)(-2)e^{-2t}=(c_2-2c_1-2c_2t)e^{-2t}$.</p>
+<h4 class="step-title">Step 6. Initial conditions</h4>
+<p>$x(0)=c_1=1$, $v(0)=-2c_1+c_2=v_0\Rightarrow c_2=v_0+2$:</p>
+<div class="math-block">$$x(t)=\big(1+(v_0+2)\,t\big)e^{-2t}.$$</div>
+<p>Substitution check: with $x=(1+\beta t)e^{-2t}$, $\beta=v_0+2$, $\dot x=(\beta-2-2\beta t)e^{-2t}$, $\ddot x=(-4\beta+4+4\beta t)e^{-2t}$, and $\ddot x+4\dot x+4x=e^{-2t}\big[(4-4\beta+4\beta t)+(4\beta-8-8\beta t)+(4+4\beta t)\big]=0$.</p>
+<h4 class="step-title">Step 7. Crossing the equilibrium</h4>
+<p>$e^{-2t}&gt;0$, so $x(t^*)=0\iff1+(v_0+2)t^*=0\iff t^*=-\dfrac1{v_0+2}$. This is a positive time only if $v_0+2&lt;0$: the body crosses $x=0$ (exactly once) iff $v_0&lt;-2$ m/s, i.e. it is thrown towards the equilibrium fast enough. For $v_0=-6$: $t^*=-\frac1{-4}=0.25$ s. For $v_0\ge-2$ it approaches $x=0$ from above without reaching it.</p>
+<h4 class="step-title">Step 8. Largest speed for $v_0=0$</h4>
+<p>$x=(1+2t)e^{-2t}$ and $v=\dot x=(2-2-4t)e^{-2t}=-4te^{-2t}$. Then $\dot v=(-4+8t)e^{-2t}=0$ at $t=\tfrac12$ s, a minimum of $v$ (sign of $\dot v$ changes from $-$ to $+$). $\lvert v\rvert_{\max}=4\cdot\tfrac12e^{-1}=\dfrac2e\approx0.736$ m/s.</p>
+<h4 class="step-title">Step 9. Phase portrait</h4>
+<p>Degenerate stable node (Robinson Ch. 30): the only straight-line orbits lie on the eigenline $v=-2x$, with arrows pointing to the origin. Every other orbit is dominated by $c_2te^{-2t}\mathbf v$ both as $t\to+\infty$ (it enters the origin tangent to $v=-2x$) and as $t\to-\infty$ (it comes from far away parallel to the same line). Test vector $(1,0)$: $A(1,0)^T=(0,-4)^T$, so orbits turn clockwise, and those that start above the eigenline with $v_0&lt;-2$ cross the $v$ axis ($x=0$) once before turning back towards the origin.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$A=\begin{pmatrix}0&amp;1\\-4&amp;-4\end{pmatrix}$, $\lambda=-2$ (double), $\mathbf v=(1,-2)$, $\mathbf w=(0,1)$.</li><li>$P=\begin{pmatrix}1&amp;0\\-2&amp;1\end{pmatrix}$, $P^{-1}=\begin{pmatrix}1&amp;0\\2&amp;1\end{pmatrix}$, $P^{-1}AP=\begin{pmatrix}-2&amp;1\\0&amp;-2\end{pmatrix}$.</li><li>$x(t)=\big(1+(v_0+2)t\big)e^{-2t}$; crosses $x=0$ once iff $v_0&lt;-2$ m/s, at $t^*=-\dfrac1{v_0+2}$; $v_0=-6$ m/s gives $t^*=0.25$ s.</li><li>$v_0=0$: $v(t)=-4te^{-2t}$, largest speed $2/e\approx0.736$ m/s at $t=0.5$ s.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $t\to\infty$: $\mathbf X\to\mathbf 0$ for all $c&gt;0$ (all eigenvalues have negative real part). Decay rate of the slowest mode, $\min\lvert\operatorname{Re}\lambda\rvert$: $c/(2m)$ below critical, $2$ s$^{-1}$ at $c=4$, and $\frac{c-\sqrt{c^2-16}}{2}\to0$ as $c\to\infty$ (very strong damping is slow). Critical damping gives the fastest return without oscillation. $c\to0$: focus $\to$ centre.</li><li><strong>Checks:</strong> dimensions: $c_{cr}=2\sqrt{mk}$ has $\sqrt{\text{kg}\cdot\text{N/m}}=\sqrt{\text{kg}^2\text{s}^{-2}}=$ kg/s = N s/m; $t^*=-1/(v_0+2)$: the $2$ is $2$ s$^{-1}\cdot1$ m, so $v_0+2$ is in m/s and $t^*=x(0)/\lvert v_0+2\rvert$ in s. Substitution of $x(t)$ in the ODE and of $\mathbf X$ in $\dot{\mathbf X}=A\mathbf X$ (script); $P^{-1}AP=J$.</li><li><strong>Common mistakes in the exam:</strong> (1) looking for a second eigenvector at $\lambda=-2$ and writing $c_1e^{-2t}\mathbf v+c_2e^{-2t}\mathbf v$, which is one solution twice; (2) writing the second solution as $te^{-2t}\mathbf v$ alone, without $\mathbf w$: it does not satisfy the system; (3) saying a critically damped body can never cross equilibrium: it can, once, when $v_0&lt;-2$ m/s; (4) placing the over-damped case inside the parabola: the parabola $\operatorname{tr}^2=4\det$ separates foci (inside) from nodes (outside).</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P19">
+        <span class="problem-tag">Final exam · Unit 5 · Sturm-Liouville eigenproblems · 2.5 points · 50 min · Standard exam level</span>
+        <h4 class="problem-title">P19 — Sturm-Liouville problem with a Dirichlet end and a Robin end: positivity, the transcendental eigenvalue equation, large eigenvalues, orthogonality and norms</h4>
+        <div class="statement-box">
+<p>A rod $0\le x\le1$ has its end $x=0$ kept at zero temperature, while its end $x=1$ exchanges heat with surroundings at zero temperature by Newton's law, with a dimensionless transfer coefficient $h&gt;0$. Separating variables in the heat equation leads to the eigenvalue problem</p>
+<div class="math-block">$$X''(x)+\lambda X(x)=0,\quad 0&lt;x&lt;1,\qquad X(0)=0,\qquad X'(1)+h\,X(1)=0 .$$</div>
+<p>(a) Prove that the problem has no eigenvalue $\lambda\le0$. For $\lambda=\mu^2&gt;0$ ($\mu&gt;0$) find the eigenfunctions and show that $\mu$ must satisfy $\tan\mu=-\mu/h$.</p>
+<p>(b) Show graphically that there are infinitely many eigenvalues $0&lt;\lambda_1&lt;\lambda_2&lt;\dots$, locate $\mu_n$ in an interval of length $\pi/2$, and obtain the asymptotic behaviour of $\mu_n$ and $\lambda_n$ for large $n$. For $h=1$, give $\lambda_1$ and $\lambda_2$ to four significant figures and compare with the asymptotic formula.</p>
+<p>(c) Prove, by integrating by parts (Green's identity), that eigenfunctions of different eigenvalues are orthogonal on $[0,1]$. Show that $\displaystyle\int_0^1\sin^2(\mu_nx)\,dx=\frac{\mu_n^2+h^2+h}{2(\mu_n^2+h^2)}$ and write the formula for the coefficients of the expansion $f(x)=\sum_n c_n\sin(\mu_nx)$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknowns: the eigenvalue $\lambda\in\mathbb R$ and the eigenfunction $X(x)\not\equiv0$ on $[0,1]$, of class $C^2$.</li><li>Linear, homogeneous, second-order ODE with constant coefficients; homogeneous boundary conditions: Dirichlet at $x=0$, Robin (third kind) at $x=1$ with $h&gt;0$.</li><li>Data: $h&gt;0$ (general); $h=1$ in the numerical questions.</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>Sturm-Liouville form (Haberman Sec. 5.3): $\dfrac{d}{dx}\Big(p\dfrac{dX}{dx}\Big)+qX+\lambda\sigma X=0$ with $p=1$, $q=0$, $\sigma=1$, and boundary conditions $\beta_1X(0)+\beta_2X'(0)=0$ with $(\beta_1,\beta_2)=(1,0)$, $\beta_3X(1)+\beta_4X'(1)=0$ with $(\beta_3,\beta_4)=(h,1)$. It is a regular Sturm-Liouville problem ($p,\sigma&gt;0$ on $[0,1]$), so it has real eigenvalues, one eigenfunction per eigenvalue, and orthogonal eigenfunctions with weight $\sigma=1$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.8 points</h3>
+          <div class="prompt"><p>No eigenvalues $\lambda\le0$ and the eigenvalue equation</p></div>
+<h4 class="step-title">Step 1. Case $\lambda=-\mu^2&lt;0$, $\mu&gt;0$</h4>
+<p>Characteristic equation $r^2-\mu^2=0$, $r=\pm\mu$, so $X=A\cosh(\mu x)+B\sinh(\mu x)$. $X(0)=A=0$. Then $X'=B\mu\cosh(\mu x)$ and</p>
+<div class="math-block">$$X'(1)+hX(1)=B\big(\mu\cosh\mu+h\sinh\mu\big)=0 .$$</div>
+<p>For $\mu&gt;0$ and $h&gt;0$ both terms in the bracket are positive, so $B=0$ and $X\equiv0$: no negative eigenvalues.</p>
+<h4 class="step-title">Step 2. Case $\lambda=0$</h4>
+<p>$X''=0$, so integrating twice $X=Ax+B$. $X(0)=B=0$; $X'(1)+hX(1)=A+hA=(1+h)A=0$ with $1+h&gt;0$, so $A=0$: $\lambda=0$ is not an eigenvalue.</p>
+<h4 class="step-title">Step 3. Cross-check with the Rayleigh quotient</h4>
+<p>Multiplying $X''=-\lambda X$ by $X$ and integrating by parts, $\int_0^1XX''dx=[XX']_0^1-\int_0^1(X')^2dx$, so (Haberman Sec. 5.6)</p>
+<div class="math-block">$$\lambda=\frac{-[XX']_0^1+\int_0^1(X')^2dx}{\int_0^1X^2dx}=\frac{h\,X(1)^2+\int_0^1(X')^2dx}{\int_0^1X^2dx},$$</div>
+<p>using $X(0)=0$ and $X'(1)=-hX(1)$. The numerator is $\ge0$, and it is $0$ only if $X'\equiv0$ and $X(1)=0$, i.e. $X\equiv0$. Hence $\lambda&gt;0$, in agreement with Steps 1-2.</p>
+<h4 class="step-title">Step 4. Case $\lambda=\mu^2&gt;0$</h4>
+<p>$r^2+\mu^2=0$, $r=\pm i\mu$, so $X=A\cos(\mu x)+B\sin(\mu x)$. $X(0)=A=0$, $X=B\sin(\mu x)$, $X'=B\mu\cos(\mu x)$:</p>
+<div class="math-block">$$X'(1)+hX(1)=B\big(\mu\cos\mu+h\sin\mu\big)=0 .$$</div>
+<p>A nontrivial solution needs $B\neq0$, so $\mu\cos\mu+h\sin\mu=0$. If $\cos\mu=0$ this would give $h\sin\mu=\pm h=0$, impossible; so we may divide by $h\cos\mu$:</p>
+<div class="math-block">$$\tan\mu=-\frac{\mu}{h},\qquad X_n(x)=\sin(\mu_nx),\qquad \lambda_n=\mu_n^2 .$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\lambda&lt;0$: $\mu\cosh\mu+h\sinh\mu&gt;0$ forces $X\equiv0$. $\lambda=0$: $(1+h)A=0$ forces $X\equiv0$.</li><li>$\lambda=\mu^2&gt;0$: $X_n=\sin(\mu_nx)$ with $\mu\cos\mu+h\sin\mu=0$, i.e. $\tan\mu=-\mu/h$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.8 points</h3>
+          <div class="prompt"><p>Infinitely many eigenvalues and their asymptotic behaviour</p></div>
+<h4 class="step-title">Step 1. Graphical argument</h4>
+<p>For $\mu&gt;0$ the line $y=-\mu/h$ is negative and decreasing. The function $\tan\mu$ has branches on $\big((n-\tfrac12)\pi,(n+\tfrac12)\pi\big)$, on each of which it increases continuously from $-\infty$ to $+\infty$; on the first piece $(0,\pi/2)$ it is positive, so there is no root there. On the branch $n\ge1$, $\tan\mu&lt;0$ exactly on $\big((n-\tfrac12)\pi,n\pi\big)$, and the difference $\tan\mu+\mu/h$ goes from $-\infty$ to $n\pi/h&gt;0$ there, increasing strictly (its derivative is $\sec^2\mu+1/h&gt;0$). By the intermediate value theorem it vanishes <strong>exactly once</strong>:</p>
+<div class="math-block">$$\Big(n-\frac12\Big)\pi&lt;\mu_n&lt;n\pi,\qquad n=1,2,3,\dots$$</div>
+<p>There are infinitely many branches, hence infinitely many eigenvalues $\lambda_n=\mu_n^2$, increasing to $+\infty$ (Haberman Sec. 5.3, property 2). Negative roots $-\mu_n$ give the same eigenfunctions up to sign and are not new.</p>
+<h4 class="step-title">Step 2. Large $n$</h4>
+<p>Write $p_n=(n-\tfrac12)\pi$ and $\mu_n=p_n+\varepsilon_n$ with $0&lt;\varepsilon_n&lt;\pi/2$. Since $\cos p_n=0$ and $\sin p_n=\pm1$, the addition formulas give $\tan(p_n+\varepsilon)=\dfrac{\sin(p_n+\varepsilon)}{\cos(p_n+\varepsilon)}=\dfrac{\sin p_n\cos\varepsilon}{-\sin p_n\sin\varepsilon}=-\cot\varepsilon$. The eigenvalue equation becomes</p>
+<div class="math-block">$$-\cot\varepsilon_n=-\frac{p_n+\varepsilon_n}{h}\iff\tan\varepsilon_n=\frac{h}{p_n+\varepsilon_n}.$$</div>
+<p>The right-hand side tends to $0$, so $\varepsilon_n\to0$ and $\tan\varepsilon_n=\varepsilon_n+O(\varepsilon_n^3)$: $\varepsilon_n=\dfrac h{p_n}+O(p_n^{-3})$. Squaring,</p>
+<div class="math-block">$$\lambda_n=\mu_n^2=p_n^2+2p_n\varepsilon_n+\varepsilon_n^2=\Big(n-\frac12\Big)^2\pi^2+2h+O(n^{-2}).$$</div>
+<p>Geometrically: the line becomes steeper relative to the branches, and the roots crowd towards the left asymptotes $(n-\tfrac12)\pi$ (Haberman Sec. 5.9). The leading term $(n-\frac12)^2\pi^2$ is the eigenvalue of the problem with $X(0)=0$, $X'(1)=0$: for large $n$ the eigenfunctions oscillate so fast that the Robin end looks like an insulated end.</p>
+<h4 class="step-title">Step 3. Numbers for $h=1$</h4>
+<p>Solving $\mu\cos\mu+\sin\mu=0$ numerically (Newton's method or bisection) inside $(\pi/2,\pi)$ and $(3\pi/2,2\pi)$:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>$n$</th><th>interval</th><th>$\mu_n$</th><th>$\lambda_n$</th><th>asymptotic $\mu_n$</th><th>asymptotic $\lambda_n$</th></tr></thead><tbody><tr><td>1</td><td>$(1.571,\,3.142)$</td><td>$2.029$</td><td>$4.116$</td><td>$\frac\pi2+\frac2\pi=2.207$</td><td>$\frac{\pi^2}4+2=4.467$</td></tr><tr><td>2</td><td>$(4.712,\,6.283)$</td><td>$4.913$</td><td>$24.14$</td><td>$\frac{3\pi}2+\frac2{3\pi}=4.925$</td><td>$\frac{9\pi^2}4+2=24.21$</td></tr></tbody></table></div>
+<p>The error of the asymptotic formula drops from about $9\%$ to $0.3\%$ between $n=1$ and $n=2$ for $\lambda_n$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>One root on each branch: $(n-\tfrac12)\pi&lt;\mu_n&lt;n\pi$, $n=1,2,\dots$</li><li>$\mu_n=(n-\tfrac12)\pi+\dfrac{h}{(n-\frac12)\pi}+O(n^{-3})$, $\ \lambda_n=(n-\tfrac12)^2\pi^2+2h+O(n^{-2})$.</li><li>$h=1$: $\mu_1=2.029$, $\lambda_1=4.116$; $\mu_2=4.913$, $\lambda_2=24.14$ (asymptotic: $\mu_1\approx2.207$, $\mu_2\approx4.925$).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.9 points</h3>
+          <div class="prompt"><p>Orthogonality and norms</p></div>
+<h4 class="step-title">Step 1. Green's identity</h4>
+<p>For $C^2$ functions $u,v$, the product rule gives $\dfrac{d}{dx}(uv'-vu')=u'v'+uv''-v'u'-vu''=uv''-vu''$. Integrating over $[0,1]$ with Barrow's rule (Haberman Sec. 5.5, Green's formula with $p=1$):</p>
+<div class="math-block">$$\int_0^1(uv''-vu'')\,dx=\big[uv'-vu'\big]_0^1=\big(u(1)v'(1)-v(1)u'(1)\big)-\big(u(0)v'(0)-v(0)u'(0)\big).$$</div>
+<h4 class="step-title">Step 2. The boundary terms vanish</h4>
+<p>Take $u=X_m$, $v=X_n$ with $m\neq n$. At $x=0$: $X_m(0)=X_n(0)=0$, so the bracket is $0$. At $x=1$: $X_m'(1)=-hX_m(1)$ and $X_n'(1)=-hX_n(1)$, so</p>
+<div class="math-block">$$X_m(1)X_n'(1)-X_n(1)X_m'(1)=X_m(1)\big(-hX_n(1)\big)-X_n(1)\big(-hX_m(1)\big)=0 .$$</div>
+<h4 class="step-title">Step 3. Orthogonality</h4>
+<p>With the ODE, $X_n''=-\lambda_nX_n$ and $X_m''=-\lambda_mX_m$:</p>
+<div class="math-block">$$\int_0^1(X_mX_n''-X_nX_m'')\,dx=(\lambda_m-\lambda_n)\int_0^1X_mX_n\,dx=0 .$$</div>
+<p>Since $\lambda_m\neq\lambda_n$ (the $\mu_n$ lie in disjoint intervals), $\displaystyle\int_0^1\sin(\mu_mx)\sin(\mu_nx)\,dx=0$. Note that the $\mu_n$ are not multiples of a common number, so this is not the elementary orthogonality of $\sin(n\pi x)$: it holds because of the boundary condition. (Direct check in the script: the integral $\frac{n\sin m\cos n-m\cos m\sin n}{m^2-n^2}$ vanishes after substituting $\cos\mu=-h\sin\mu/\mu$.)</p>
+<h4 class="step-title">Step 4. Norm</h4>
+<p>With $\sin^2s=\frac12(1-\cos2s)$ and the substitution $s=2\mu_nx$, $ds=2\mu_n\,dx$ for the cosine:</p>
+<div class="math-block">$$\int_0^1\sin^2(\mu_nx)\,dx=\Big[\frac x2-\frac{\sin(2\mu_nx)}{4\mu_n}\Big]_0^1=\frac12-\frac{\sin2\mu_n}{4\mu_n}=\frac12-\frac{\sin\mu_n\cos\mu_n}{2\mu_n}.$$</div>
+<p>From the eigenvalue equation $\cos\mu_n=-\dfrac{h\sin\mu_n}{\mu_n}$, so $-\dfrac{\sin\mu_n\cos\mu_n}{2\mu_n}=\dfrac{h\sin^2\mu_n}{2\mu_n^2}$. Squaring the same equation, $\mu_n^2\cos^2\mu_n=h^2\sin^2\mu_n$, i.e. $\mu_n^2(1-\sin^2\mu_n)=h^2\sin^2\mu_n$, so $\sin^2\mu_n=\dfrac{\mu_n^2}{\mu_n^2+h^2}$. Therefore</p>
+<div class="math-block">$$\int_0^1\sin^2(\mu_nx)\,dx=\frac12+\frac{h}{2(\mu_n^2+h^2)}=\frac{\mu_n^2+h^2+h}{2(\mu_n^2+h^2)}.$$</div>
+<p>For $h=1$, $n=1$: $\dfrac{4.1159+1+1}{2(4.1159+1)}=0.5977$. The norm is slightly above $\tfrac12$ and tends to $\tfrac12$ as $n\to\infty$.</p>
+<h4 class="step-title">Step 5. Expansion coefficients</h4>
+<p>If $f(x)=\sum_{n\ge1}c_n\sin(\mu_nx)$, multiply by $\sin(\mu_mx)$, integrate over $[0,1]$ and use Step 3 (only $n=m$ survives; Haberman Sec. 5.3):</p>
+<div class="math-block">$$c_m=\frac{\int_0^1f(x)\sin(\mu_mx)\,dx}{\int_0^1\sin^2(\mu_mx)\,dx}=\frac{2(\mu_m^2+h^2)}{\mu_m^2+h^2+h}\int_0^1f(x)\sin(\mu_mx)\,dx .$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\int_0^1(X_mX_n''-X_nX_m'')dx=\big[X_mX_n'-X_nX_m'\big]_0^1=0$, hence $(\lambda_m-\lambda_n)\int_0^1X_mX_n\,dx=0$.</li><li>$\int_0^1\sin^2(\mu_nx)dx=\dfrac12-\dfrac{\sin2\mu_n}{4\mu_n}=\dfrac{\mu_n^2+h^2+h}{2(\mu_n^2+h^2)}$; for $h=1$, $n=1$: $0.5977$.</li><li>$c_n=\dfrac{2(\mu_n^2+h^2)}{\mu_n^2+h^2+h}\displaystyle\int_0^1f(x)\sin(\mu_nx)\,dx$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $h\to0^+$ (insulated end): $\tan\mu=0^-$ pushes $\mu_n\to(n-\frac12)\pi$, the eigenvalues of $X(0)=0$, $X'(1)=0$, and the norm $\to\frac12$. $h\to\infty$ (end held at zero): the line becomes horizontal, $\tan\mu\to0^-$ from the left of $n\pi$, so $\mu_n\to n\pi$, the Dirichlet eigenvalues $n^2\pi^2$, and the norm $\to\frac12$. For every $h&gt;0$, $\lambda_n$ lies between these two Dirichlet-Neumann bounds.</li><li><strong>Checks:</strong> $\sin(\mu_nx)$ satisfies the ODE and both boundary conditions (script); the numerical roots lie in the predicted intervals; $\int_0^1\sin(\mu_1x)\sin(\mu_2x)dx=0$ numerically to 20 digits; the norm formula agrees with direct quadrature. In the heat problem the mode $n$ decays as $e^{-k\lambda_nt}$, so $\lambda_1=4.116$ (for $h=1$) sets the slowest decay rate.</li><li><strong>Common mistakes in the exam:</strong> (1) dropping the case $\lambda&lt;0$ or $\lambda=0$ without proof, or "proving" it with the wrong sign of $h$; (2) writing $\mu_n=n\pi$ or $(n-\tfrac12)\pi$, as for Dirichlet or Neumann ends; (3) placing the roots in $(n\pi,(n+\tfrac12)\pi)$, where $\tan\mu&gt;0$; (4) using $\int_0^1\sin^2=\tfrac12$ for the norm, which is false here because $\sin2\mu_n\neq0$.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P20">
+        <span class="problem-tag">Final exam · Unit 5 · Fourier series and convergence · 2.5 points · 50 min · Standard exam level</span>
+        <h4 class="problem-title">P20 — Fourier series of the full-wave rectified sine |sin x|: coefficients by product-to-sum formulas, uniform convergence with an error bound, and two numerical series</h4>
+        <div class="statement-box">
+<p>The output voltage of a full-wave rectifier fed with $\sin x$ is the $2\pi$-periodic function</p>
+<div class="math-block">$$f(x)=\lvert\sin x\rvert,\qquad -\pi&lt;x\le\pi,$$</div>
+<p>extended periodically to $\mathbb R$. Use the convention</p>
+<div class="math-block">$$f(x)\sim a_0+\sum_{n=1}^{\infty}\big(a_n\cos nx+b_n\sin nx\big),\qquad a_0=\frac1{2\pi}\int_{-\pi}^{\pi}f\,dx,\quad a_n=\frac1\pi\int_{-\pi}^{\pi}f\cos nx\,dx,\quad b_n=\frac1\pi\int_{-\pi}^{\pi}f\sin nx\,dx .$$</div>
+<p>(a) Compute all the Fourier coefficients of $f$, writing out the product-to-sum formula you use. Treat the case $n=1$ separately.</p>
+<p>(b) To which function does the series converge, and is the convergence uniform on $\mathbb R$? Justify both answers, and give an $N$ such that the partial sum $S_N$ (all terms with $n\le N$) differs from $f$ by less than $0.035$ everywhere.</p>
+<p>(c) Evaluating the series at suitable points, find</p>
+<div class="math-block">$$S=\sum_{k=1}^{\infty}\frac1{4k^2-1}\qquad\text{and}\qquad T=\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{4k^2-1}.$$</div>
+<p>Check the value of $S$ independently with partial fractions.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Data: $f(x)=\lvert\sin x\rvert$ on $(-\pi,\pi]$, period $2L=2\pi$ ($L=\pi$).</li><li>Regularity: $f$ is continuous on $\mathbb R$ (also across $x=\pm\pi$, where $\lvert\sin\pi\rvert=0=\lvert\sin(-\pi)\rvert$), and piecewise smooth: $f'(x)=\cos x$ on $(0,\pi)$ and $-\cos x$ on $(-\pi,0)$, with corners (jumps of $f'$) at $x=k\pi$.</li><li>Symmetry: $f(-x)=\lvert-\sin x\rvert=f(x)$, so $f$ is <strong>even</strong>. In fact $f$ has period $\pi$, which will kill the odd harmonics.</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>Even $f$ (Haberman Sec. 3.3): $b_n=0$ and the series is a cosine series with</p>
+<div class="math-block">$$a_0=\frac1\pi\int_0^{\pi}f\,dx,\qquad a_n=\frac2\pi\int_0^{\pi}f\cos nx\,dx ,$$</div>
+<p>and on $[0,\pi]$, $f(x)=\sin x$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.2 points</h3>
+          <div class="prompt"><p>Fourier coefficients</p></div>
+<h4 class="step-title">Step 1. Sine coefficients</h4>
+<p>$f(x)\sin nx$ is even times odd, i.e. odd, so its integral over the symmetric interval $(-\pi,\pi)$ vanishes: substituting $x=-s$, $dx=-ds$, $\int_{-\pi}^0f(x)\sin nx\,dx=\int_{\pi}^{0}f(s)(-\sin ns)(-ds)=-\int_0^{\pi}f(s)\sin ns\,ds$. Hence $b_n=0$ for all $n$.</p>
+<h4 class="step-title">Step 2. Mean value</h4>
+<div class="math-block">$$a_0=\frac1{2\pi}\int_{-\pi}^{\pi}\lvert\sin x\rvert\,dx=\frac1\pi\int_0^\pi\sin x\,dx=\frac1\pi\big[-\cos x\big]_0^\pi=\frac1\pi\big(-\cos\pi+\cos0\big)=\frac2\pi .$$</div>
+<h4 class="step-title">Step 3. The case $n=1$</h4>
+<p>$\sin x\cos x=\tfrac12\sin2x$, so</p>
+<div class="math-block">$$a_1=\frac2\pi\int_0^\pi\frac{\sin2x}{2}\,dx=\frac1\pi\Big[-\frac{\cos2x}{2}\Big]_0^\pi=\frac1\pi\Big(-\frac{\cos2\pi}2+\frac{\cos0}2\Big)=0 .$$</div>
+<h4 class="step-title">Step 4. The case $n\ge2$</h4>
+<p>Product-to-sum with $A=x$, $B=nx$: $\sin x\cos nx=\tfrac12\big[\sin(1+n)x+\sin(1-n)x\big]=\tfrac12\big[\sin(n+1)x-\sin(n-1)x\big]$. For an integer $m\ge1$, with the substitution $s=mx$, $ds=m\,dx$:</p>
+<div class="math-block">$$\int_0^\pi\sin mx\,dx=\Big[-\frac{\cos mx}{m}\Big]_0^\pi=\frac{1-\cos m\pi}{m}=\frac{1-(-1)^m}{m}.$$</div>
+<p>With $m=n+1$, $1-(-1)^{n+1}=1+(-1)^n$; with $m=n-1\ge1$, $1-(-1)^{n-1}=1+(-1)^n$. Therefore</p>
+<div class="math-block">$$a_n=\frac2\pi\cdot\frac12\Big[\frac{1+(-1)^n}{n+1}-\frac{1+(-1)^n}{n-1}\Big]=\frac{1+(-1)^n}{\pi}\cdot\frac{(n-1)-(n+1)}{n^2-1}=-\frac{2\big(1+(-1)^n\big)}{\pi(n^2-1)} .$$</div>
+<ul><li>$n$ odd: $1+(-1)^n=0$, so $a_n=0$ (consistent with Step 3 and with the period $\pi$ of $f$).</li><li>$n=2k$ even: $1+(-1)^n=2$ and $n^2-1=4k^2-1$, so $a_{2k}=-\dfrac{4}{\pi(4k^2-1)}$.</li></ul>
+<h4 class="step-title">Step 5. The series</h4>
+<div class="math-block">$$\lvert\sin x\rvert\sim\frac2\pi-\frac4\pi\sum_{k=1}^\infty\frac{\cos2kx}{4k^2-1}.$$</div>
+<p>First terms: $a_2=-\frac4{3\pi}$, $a_4=-\frac4{15\pi}$, $a_6=-\frac4{35\pi}$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$b_n=0$; $a_0=\dfrac2\pi$; $a_1=0$; $a_n=0$ for odd $n\ge3$; $a_{2k}=-\dfrac{4}{\pi(4k^2-1)}$.</li><li>$\lvert\sin x\rvert=\dfrac2\pi-\dfrac4\pi\displaystyle\sum_{k=1}^\infty\frac{\cos2kx}{4k^2-1}=\frac2\pi-\frac4\pi\Big(\frac{\cos2x}{3}+\frac{\cos4x}{15}+\frac{\cos6x}{35}+\cdots\Big)$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.6 points</h3>
+          <div class="prompt"><p>Convergence</p></div>
+<h4 class="step-title">Step 1. Pointwise limit</h4>
+<p>$f$ is piecewise smooth on $[-\pi,\pi]$, so by the Fourier convergence theorem (Haberman Sec. 3.2) its series converges at each $x$ to $\tfrac12\big[f(x^+)+f(x^-)\big]$ of the periodic extension. The periodic extension of $\lvert\sin x\rvert$ is $\lvert\sin x\rvert$ itself on all of $\mathbb R$, which is continuous, so the average equals $f(x)$: the series converges to $\lvert\sin x\rvert$ everywhere, including the corners $x=k\pi$. There is no Gibbs overshoot (Haberman Sec. 3.3: a continuous, piecewise smooth periodic extension gives a continuous limit).</p>
+<h4 class="step-title">Step 2. Uniform convergence</h4>
+<p>For all $x$, $\Big\lvert\dfrac{\cos2kx}{4k^2-1}\Big\rvert\le\dfrac{1}{4k^2-1}=M_k$ and $\sum M_k&lt;\infty$ (it behaves like $\sum\frac1{4k^2}$). By the Weierstrass M-test the series converges absolutely and uniformly on $\mathbb R$ (equivalently, Haberman Sec. 3.4: a continuous periodic extension with piecewise smooth derivative has a uniformly convergent Fourier series).</p>
+<h4 class="step-title">Step 3. Error bound</h4>
+<p>Partial fractions: $\dfrac{1}{4k^2-1}=\dfrac{1}{(2k-1)(2k+1)}=\dfrac12\Big(\dfrac1{2k-1}-\dfrac1{2k+1}\Big)$ (check: $\frac12\cdot\frac{(2k+1)-(2k-1)}{(2k-1)(2k+1)}=\frac{1}{4k^2-1}$). The tail telescopes:</p>
+<div class="math-block">$$\sum_{k=K+1}^{\infty}\frac{1}{4k^2-1}=\frac12\Big[\Big(\frac1{2K+1}-\frac1{2K+3}\Big)+\Big(\frac1{2K+3}-\frac1{2K+5}\Big)+\cdots\Big]=\frac{1}{2(2K+1)} .$$</div>
+<p>The partial sum with all harmonics $n\le N=2K$ keeps the terms $k\le K$, so</p>
+<div class="math-block">$$\lvert f(x)-S_{2K}(x)\rvert\le\frac4\pi\sum_{k&gt;K}\frac1{4k^2-1}=\frac{2}{\pi(2K+1)}\quad\text{for all }x .$$</div>
+<p>$\frac{2}{\pi(2K+1)}&lt;0.035\iff2K+1&gt;\frac{2}{0.035\pi}=18.19\iff K\ge9$. $K=9$ ($N=18$) already gives $\frac2{19\pi}=0.0335$; with $K=10$ ($N=20$) the bound is $\frac{2}{21\pi}\approx0.0303$. Any $N\ge18$ works. The bound is attained at $x=0$, where every cosine equals $1$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>The series converges to $\lvert\sin x\rvert$ at <strong>every</strong> $x\in\mathbb R$ (no jumps), and the convergence is uniform.</li><li>$\sup_x\lvert f-S_{2N}\rvert\le\dfrac4\pi\displaystyle\sum_{k&gt;N}\frac1{4k^2-1}=\frac{2}{\pi(2N+1)}$; any $N\ge18$ works; $N=18$ (terms up to $\cos18x$) gives $\le\dfrac{2}{19\pi}\approx0.0335&lt;0.035$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.7 points</h3>
+          <div class="prompt"><p>Two numerical series</p></div>
+<h4 class="step-title">Step 1. At $x=0$</h4>
+<p>By (b) the series equals $f(0)=\lvert\sin0\rvert=0$ there:</p>
+<div class="math-block">$$0=\frac2\pi-\frac4\pi\sum_{k=1}^\infty\frac{1}{4k^2-1}\ \Longrightarrow\ S=\frac{2/\pi}{4/\pi}=\frac12 .$$</div>
+<h4 class="step-title">Step 2. At $x=\pi/2$</h4>
+<p>$f(\pi/2)=1$ and $\cos(k\pi)=(-1)^k$:</p>
+<div class="math-block">$$1=\frac2\pi-\frac4\pi\sum_{k=1}^\infty\frac{(-1)^k}{4k^2-1}=\frac2\pi+\frac4\pi\sum_{k=1}^\infty\frac{(-1)^{k+1}}{4k^2-1}=\frac2\pi+\frac4\pi\,T .$$</div>
+<p>So $T=\dfrac\pi4\Big(1-\dfrac2\pi\Big)=\dfrac{\pi-2}{4}\approx0.2854$. Check with the first terms: $\frac13-\frac1{15}+\frac1{35}-\frac1{63}=0.2794$, approaching $0.2854$ with alternating error smaller than the next term $\frac1{99}$.</p>
+<h4 class="step-title">Step 3. Independent check of $S$</h4>
+<p>From the telescoping of (b), Step 3, with $K=0$: the partial sum is $S_K=\sum_{k=1}^K\frac1{4k^2-1}=\frac12\Big(1-\frac1{2K+1}\Big)=\frac12-\frac{1}{2(2K+1)}$, so $S=\lim_{K\to\infty}S_K=\frac12$, the same value as in Step 1.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$x=0$: $S=\dfrac12$.</li><li>$x=\pi/2$: $T=\dfrac{\pi-2}{4}\approx0.2854$.</li><li>Partial sums $S_K=\dfrac12-\dfrac1{2(2K+1)}\to\dfrac12$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> the coefficients decay like $1/n^2$, the rate expected for a continuous function with a jump in its derivative (a function with jumps would give $1/n$); the mean value $a_0=2/\pi\approx0.637$ is the DC output of the rectifier, the classical result for a full-wave rectifier of unit amplitude.</li><li><strong>Checks:</strong> every coefficient by direct integration over $(-\pi,0)$ and $(0,\pi)$ (script, $n\le11$); the series at $x=0.7$ and $x=-2.5$ matches $\lvert\sin x\rvert$; Parseval's identity (extension: $\frac1\pi\int_{-\pi}^{\pi}f^2dx=2a_0^2+\sum a_n^2$ in this convention) gives $\sum\frac{1}{(4k^2-1)^2}=\frac{\pi^2-8}{16}$, also checked. Term-by-term differentiation (Haberman Sec. 3.4) is allowed because $f$ is continuous and periodic: the derived series $\frac8\pi\sum\frac{k\sin2kx}{4k^2-1}$ converges to $f'$, and to $0$ (the average of the jump $\pm1$) at $x=k\pi$.</li><li><strong>Common mistakes in the exam:</strong> (1) using the formula for $a_n$ with $n=1$, which divides by $n-1=0$; (2) integrating $\sin x\cos nx$ over $(-\pi,\pi)$ without the absolute value, which gives $a_n=0$ for all $n$; (3) mixing conventions: with $\frac{a_0}{2}$ in front, $a_0=\frac4\pi$, not $\frac2\pi$; (4) claiming only "convergence in the mean" or a Gibbs overshoot at $x=0$: the extension is continuous, so convergence is uniform.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P21">
+        <span class="problem-tag">Final exam · Unit 6 · Laplace equation by separation · 2.5 points · 50 min · Standard exam level</span>
+        <h4 class="problem-title">P21 — Laplace&#x27;s equation in a circular wedge with one edge held at zero and the other insulated: angular eigenfunctions, bounded radial powers and a datum that is a hidden finite sum</h4>
+        <div class="statement-box">
+<p>A thin plate has the shape of the circular sector $D=\{(r,\theta):\ 0&lt;r&lt;a,\ 0&lt;\theta&lt;\alpha\}$, with $0&lt;\alpha\le2\pi$. Its faces are insulated, so its steady temperature $u(r,\theta)$ solves</p>
+<div class="math-block">$$\Delta u=u_{rr}+\frac1ru_r+\frac1{r^2}u_{\theta\theta}=0\quad\text{in }D,$$</div>
+<div class="math-block">$$u(r,0)=0,\qquad u_\theta(r,\alpha)=0\quad(0&lt;r&lt;a),\qquad \lvert u(r,\theta)\rvert\ \text{bounded as } r\to0^+,\qquad u(a,\theta)=f(\theta)\quad(0&lt;\theta&lt;\alpha).$$</div>
+<p>The straight edge $\theta=0$ is held at temperature $0$, the straight edge $\theta=\alpha$ is insulated, and the arc $r=a$ has a prescribed temperature.</p>
+<p>(a) Separate variables, $u=R(r)\Theta(\theta)$, and solve the angular eigenvalue problem, discussing the three possible signs of the separation constant. Show that the eigenfunctions are $\Theta_n=\sin\big(\nu_n\theta\big)$ with $\nu_n=\dfrac{(2n-1)\pi}{2\alpha}$, $n=1,2,\dots$</p>
+<p>(b) Solve the radial equation, justify which solutions are admissible, and write the general bounded solution together with the formula for its coefficients in terms of $f$.</p>
+<p>(c) Let $\alpha=\pi/2$ (a quarter disc) and $f(\theta)=\sin^3\theta$. Find $u(r,\theta)$ in closed form, check all the conditions, write it in Cartesian coordinates $x=r\cos\theta$, $y=r\sin\theta$, and give $u$ at $(r,\theta)=(a/2,\pi/2)$ and at $(a/2,\pi/6)$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknown $u(r,\theta)$, independent variables $r\in(0,a)$, $\theta\in(0,\alpha)$; $u\in C^2(D)$, continuous up to the boundary except possibly at corners.</li><li>Linear, homogeneous, second-order elliptic PDE (Laplace). Homogeneous conditions on the two straight edges (Dirichlet at $\theta=0$, Neumann at $\theta=\alpha$) and a boundedness condition at the vertex $r=0$; the only nonhomogeneous condition is on the arc $r=a$. This is the structure that allows separation of variables with eigenfunctions in $\theta$.</li><li>Data: $a&gt;0$ (radius), $\alpha$ (opening angle), $f$ (arc datum). In (c): $\alpha=\pi/2$, $f=\sin^3\theta$; $u$ is a dimensionless temperature.</li></ul>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>Multiplying the PDE by $r^2$: $r^2u_{rr}+ru_r+u_{\theta\theta}=0$. With $u=R(r)\Theta(\theta)$:</p>
+<div class="math-block">$$\frac{r^2R''+rR'}{R}=-\frac{\Theta''}{\Theta}=\lambda\quad(\text{constant}),$$</div>
+<div class="math-block">$$\Theta''+\lambda\Theta=0,\ \ \Theta(0)=0,\ \ \Theta'(\alpha)=0;\qquad r^2R''+rR'-\lambda R=0,\ \ \lvert R(0^+)\rvert&lt;\infty .$$</div>
+<p>The angular problem is a regular Sturm-Liouville problem with $p=\sigma=1$, $q=0$ (Haberman Sec. 5.3).</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Separation and the angular eigenvalue problem</p></div>
+<h4 class="step-title">Step 1. Separation</h4>
+<p>$u_{rr}=R''\Theta$, $u_r=R'\Theta$, $u_{\theta\theta}=R\Theta''$. Then $r^2R''\Theta+rR'\Theta+R\Theta''=0$; dividing by $R\Theta$ (where it is not zero),</p>
+<div class="math-block">$$\frac{r^2R''+rR'}{R}=-\frac{\Theta''}{\Theta}.$$</div>
+<p>The left side depends only on $r$ and the right only on $\theta$, so both equal a constant $\lambda$. The edge conditions become $R(r)\Theta(0)=0$ and $R(r)\Theta'(\alpha)=0$ for all $r$; for a nontrivial $R$, $\Theta(0)=0$ and $\Theta'(\alpha)=0$.</p>
+<h4 class="step-title">Step 2. Case $\lambda=-\mu^2&lt;0$</h4>
+<p>$\Theta=A\cosh\mu\theta+B\sinh\mu\theta$. $\Theta(0)=A=0$. $\Theta'(\alpha)=B\mu\cosh\mu\alpha=0$; since $\mu&gt;0$ and $\cosh\mu\alpha\ge1$, $B=0$. Trivial.</p>
+<h4 class="step-title">Step 3. Case $\lambda=0$</h4>
+<p>$\Theta''=0$, $\Theta=A\theta+B$. $\Theta(0)=B=0$, $\Theta'(\alpha)=A=0$. Trivial: unlike the full disc, the constant is not allowed (it would violate $u=0$ on $\theta=0$).</p>
+<h4 class="step-title">Step 4. Case $\lambda=\nu^2&gt;0$</h4>
+<p>$\Theta=A\cos\nu\theta+B\sin\nu\theta$. $\Theta(0)=A=0$. $\Theta'(\alpha)=B\nu\cos\nu\alpha=0$ with $B\neq0$, $\nu&gt;0$, so $\cos\nu\alpha=0$:</p>
+<div class="math-block">$$\nu\alpha=\frac{(2n-1)\pi}{2}\ \Longrightarrow\ \nu_n=\frac{(2n-1)\pi}{2\alpha},\qquad \Theta_n(\theta)=\sin\Big(\frac{(2n-1)\pi\theta}{2\alpha}\Big),\qquad n=1,2,\dots$$</div>
+<p>Each $\Theta_n$ vanishes at $\theta=0$ and has zero slope at $\theta=\alpha$: a quarter wave, three quarter waves, and so on across the opening.</p>
+<h4 class="step-title">Step 5. Orthogonality and norm</h4>
+<p>For $m\neq n$ the eigenvalues differ, so $\int_0^\alpha\Theta_m\Theta_n\,d\theta=0$ (Haberman Sec. 5.3; the boundary terms $[\Theta_m\Theta_n'-\Theta_n\Theta_m']_0^\alpha$ vanish because $\Theta(0)=0$ and $\Theta'(\alpha)=0$). For $m=n$, with $\sin^2s=\frac12(1-\cos2s)$:</p>
+<div class="math-block">$$\int_0^\alpha\sin^2\nu_n\theta\,d\theta=\Big[\frac\theta2-\frac{\sin2\nu_n\theta}{4\nu_n}\Big]_0^\alpha=\frac\alpha2-\frac{\sin\big((2n-1)\pi\big)}{4\nu_n}=\frac\alpha2 .$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\lambda&lt;0$ and $\lambda=0$: only $\Theta\equiv0$.</li><li>$\lambda=\nu^2&gt;0$: $\Theta=\sin\nu\theta$ with $\cos\nu\alpha=0$, so $\nu_n=\dfrac{(2n-1)\pi}{2\alpha}$, $\lambda_n=\nu_n^2$.</li><li>$\displaystyle\int_0^\alpha\sin\nu_m\theta\,\sin\nu_n\theta\,d\theta=\frac\alpha2\delta_{mn}$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.6 points</h3>
+          <div class="prompt"><p>Radial equation and the general bounded solution</p></div>
+<h4 class="step-title">Step 1. Euler equation</h4>
+<p>With $R=r^p$: $R'=pr^{p-1}$, $R''=p(p-1)r^{p-2}$, so $r^2R''+rR'-\nu^2R=\big[p(p-1)+p-\nu^2\big]r^p=(p^2-\nu^2)r^p$. Hence $p=\pm\nu_n$ and, since $\nu_n\neq0$, the two roots are distinct (Haberman Sec. 2.5):</p>
+<div class="math-block">$$R_n(r)=c_1r^{\nu_n}+c_2r^{-\nu_n}.$$</div>
+<h4 class="step-title">Step 2. Boundedness at the vertex</h4>
+<p>$\nu_n&gt;0$, so $r^{-\nu_n}\to\infty$ as $r\to0^+$ while $r^{\nu_n}\to0$. The condition $\lvert u\rvert&lt;\infty$ at $r=0$ forces $c_2=0$. (The $\lambda=0$ branch $c_1+c_2\ln r$ does not appear, because $\lambda=0$ is not an eigenvalue.)</p>
+<h4 class="step-title">Step 3. Superposition and coefficients</h4>
+<p>By linearity (Haberman Sec. 2.2), the sum of the product solutions is a solution of the PDE that satisfies the homogeneous conditions. Writing the constants as $A_n/a^{\nu_n}$ for convenience:</p>
+<div class="math-block">$$u(r,\theta)=\sum_{n=1}^\infty A_n\Big(\frac ra\Big)^{\nu_n}\sin\nu_n\theta .$$</div>
+<p>At $r=a$: $f(\theta)=\sum_nA_n\sin\nu_n\theta$. Multiplying by $\sin\nu_m\theta$, integrating over $(0,\alpha)$ and using (a), Step 5:</p>
+<div class="math-block">$$A_m=\frac{\int_0^\alpha f(\theta)\sin\nu_m\theta\,d\theta}{\alpha/2}=\frac2\alpha\int_0^\alpha f(\theta)\sin\nu_m\theta\,d\theta .$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$R=r^p$ gives $p^2-\nu_n^2=0$, $R=c_1r^{\nu_n}+c_2r^{-\nu_n}$; boundedness forces $c_2=0$.</li><li>$u(r,\theta)=\displaystyle\sum_{n=1}^\infty A_n\Big(\frac ra\Big)^{\nu_n}\sin\nu_n\theta$, $\ A_n=\frac2\alpha\int_0^\alpha f(\theta)\sin\nu_n\theta\,d\theta$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.9 points</h3>
+          <div class="prompt"><p>Quarter disc with $f=\sin^3\theta$</p></div>
+<h4 class="step-title">Step 1. Eigenvalues for the quarter disc</h4>
+<p>$\nu_n=\dfrac{(2n-1)\pi}{2\cdot\pi/2}=2n-1$: eigenfunctions $\sin\theta$, $\sin3\theta$, $\sin5\theta,\dots$, and radial factors $r$, $r^3$, $r^5,\dots$</p>
+<h4 class="step-title">Step 2. The datum as a finite sum</h4>
+<p>$\sin3\theta=\sin(2\theta+\theta)=\sin2\theta\cos\theta+\cos2\theta\sin\theta=2\sin\theta\cos^2\theta+(1-2\sin^2\theta)\sin\theta$. With $\cos^2\theta=1-\sin^2\theta$: $\sin3\theta=2\sin\theta-2\sin^3\theta+\sin\theta-2\sin^3\theta=3\sin\theta-4\sin^3\theta$. Solving for the cube:</p>
+<div class="math-block">$$\sin^3\theta=\frac34\sin\theta-\frac14\sin3\theta .$$</div>
+<p>Both terms are eigenfunctions, so by uniqueness of the coefficients (orthogonality) $A_1=\tfrac34$, $A_2=-\tfrac14$ and $A_n=0$ for $n\ge3$. Cross-check of $A_1$ with the formula of (b): $A_1=\frac4\pi\int_0^{\pi/2}\sin^3\theta\sin\theta\,d\theta=\frac4\pi\cdot\frac{3\pi}{16}=\frac34$, using $\int_0^{\pi/2}\sin^4\theta\,d\theta=\frac{3\pi}{16}$ (from $\sin^4=\frac38-\frac12\cos2\theta+\frac18\cos4\theta$).</p>
+<h4 class="step-title">Step 3. Solution</h4>
+<div class="math-block">$$u(r,\theta)=\frac34\,\frac ra\,\sin\theta-\frac14\Big(\frac ra\Big)^3\sin3\theta .$$</div>
+<p>Checks: $u(r,0)=0$ because $\sin0=0$; $u_\theta=\frac34\frac ra\cos\theta-\frac34\big(\frac ra\big)^3\cos3\theta$ vanishes at $\theta=\pi/2$ because $\cos\frac\pi2=\cos\frac{3\pi}2=0$; $u$ is bounded (a polynomial in $r$); $u(a,\theta)=\frac34\sin\theta-\frac14\sin3\theta=\sin^3\theta$. Each term $r^\nu\sin\nu\theta$ is harmonic by Step 1 of (b).</p>
+<h4 class="step-title">Step 4. Cartesian form</h4>
+<p>$r\sin\theta=y$, and $r^3\sin3\theta=r^3(3\sin\theta\cos^2\theta-\sin^3\theta)=3(r\cos\theta)^2(r\sin\theta)-(r\sin\theta)^3=3x^2y-y^3$ (using $\sin3\theta=3\sin\theta-4\sin^3\theta=3\sin\theta\cos^2\theta-\sin^3\theta$). Therefore</p>
+<div class="math-block">$$u(x,y)=\frac{3y}{4a}-\frac{3x^2y-y^3}{4a^3}.$$</div>
+<p>Direct check: $u_{xx}=-\dfrac{6y}{4a^3}$, $u_{yy}=\dfrac{6y}{4a^3}$, so $\Delta u=0$. On the insulated edge $x=0$ ($\theta=\pi/2$), $u_x=-\dfrac{6xy}{4a^3}=0$: the normal derivative vanishes, as required. On $y=0$ ($\theta=0$), $u=0$.</p>
+<h4 class="step-title">Step 5. Values</h4>
+<ul><li>$(r,\theta)=(a/2,\pi/2)$: $\sin\frac\pi2=1$, $\sin\frac{3\pi}2=-1$, so $u=\frac34\cdot\frac12+\frac14\cdot\frac18=\frac38+\frac1{32}=\frac{13}{32}\approx0.406$.</li><li>$(r,\theta)=(a/2,\pi/6)$: $\sin\frac\pi6=\frac12$, $\sin\frac\pi2=1$, so $u=\frac34\cdot\frac12\cdot\frac12-\frac14\cdot\frac18=\frac3{16}-\frac1{32}=\frac5{32}\approx0.156$.</li></ul>
+<p>Both lie between the minimum $0$ and the maximum $1$ of the boundary values, as the maximum principle for Laplace's equation requires (Haberman Sec. 2.5).</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\nu_n=2n-1$; $\sin^3\theta=\tfrac34\sin\theta-\tfrac14\sin3\theta$; $A_1=\tfrac34$, $A_2=-\tfrac14$, $A_n=0$ for $n\ge3$.</li><li>$u(r,\theta)=\dfrac34\,\dfrac ra\sin\theta-\dfrac14\Big(\dfrac ra\Big)^3\sin3\theta$; Cartesian: $u=\dfrac{3y}{4a}-\dfrac{3x^2y-y^3}{4a^3}$.</li><li>$u(a/2,\pi/2)=\dfrac{13}{32}$, $\ u(a/2,\pi/6)=\dfrac5{32}$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $r\to0$: $u\approx\frac34\frac ra\sin\theta\to0$, the vertex takes the temperature of the cold edge; the leading mode $r^{\nu_1}$ dominates near the vertex. For a general opening, $\nu_1=\pi/(2\alpha)&lt;1$ when $\alpha&gt;\pi/2$: $u$ stays bounded but $\lvert\nabla u\rvert\sim r^{\nu_1-1}\to\infty$ at the vertex (a corner singularity caused by the mixed conditions; with $u=0$ on both edges it would only appear for $\alpha&gt;\pi$). The quarter disc, $\nu_1=1$, is exactly the borderline case with a finite gradient. Along the insulated edge, $u(r,\pi/2)=\frac34s+\frac14s^3$ with $s=r/a$ increases monotonically from $0$ to $1$.</li><li><strong>Checks:</strong> the PDE, the two edge conditions, boundedness and the arc datum are satisfied (script, in polar and Cartesian form); the coefficient formula of (b) reproduces $A_1=\frac34$, $A_2=-\frac14$ and $A_n=0$ for $n=3,4,5$; the norm $\int_0^{\pi/2}\sin^23\theta\,d\theta=\frac\pi4=\frac\alpha2$. Dimensionless problem: $(r/a)^\nu$ is a pure number for any $a$.</li><li><strong>Common mistakes in the exam:</strong> (1) using the full-disc eigenfunctions $\cos n\theta,\sin n\theta$ or the half-disc ones $\sin n\theta$ ($\nu=n$): the insulated edge requires odd quarter-wave multiples; (2) keeping $r^{-\nu}$ or a $\ln r$ term, which blow up at the vertex; (3) computing the coefficients by integrals over $(0,\pi)$ or with norm $\pi/2$ instead of $\alpha/2=\pi/4$; (4) not recognising $\sin^3\theta$ as a finite sum and writing an infinite series with wrong integrals.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P22">
+        <span class="problem-tag">Final exam · Unit 6 · Heat and wave equations by separation · 2.5 points · 50 min · Standard exam level</span>
+        <h4 class="problem-title">P22 — Heat equation in a rod with insulated ends: conservation of the total heat, the zero eigenvalue, a cosine-power initial profile and the time for the midpoint to settle</h4>
+        <div class="statement-box">
+<p>A homogeneous metal rod of length $L=0.5$ m, with lateral surface and both ends thermally insulated, has thermal diffusivity $k=1.0\times10^{-4}$ m$^2$/s. Its temperature $u(x,t)$ (in $^\circ$C) obeys</p>
+<div class="math-block">$$u_t=k\,u_{xx},\quad 0&lt;x&lt;L,\ t&gt;0,\qquad u_x(0,t)=u_x(L,t)=0,\qquad u(x,0)=20+40\cos^4\Big(\frac{\pi x}{2L}\Big).$$</div>
+<p>(a) Without solving the equation, prove that the total heat $H(t)=\displaystyle\int_0^Lu(x,t)\,dx$ (proportional to the thermal energy, with constant $c\rho A$) does not change in time. Deduce the uniform temperature $u_\infty$ the rod tends to, assuming it tends to a uniform temperature.</p>
+<p>(b) Solve the problem by separation of variables. Discuss the three signs of the separation constant, including the zero eigenvalue, and write the initial profile as a finite cosine combination using a power-reduction identity.</p>
+<p>(c) Confirm $u_\infty$ from the solution. Find the time constant of the slowest decaying mode and the time $t_{10}$ after which the deviation of the midpoint temperature $u(L/2,t)$ from $u_\infty$ has fallen to one tenth of its initial value. Give the temperatures of both ends at $t_{10}$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup and canonical formulation</h3>
+<h4 class="step-title">Phase 1. Hypotheses and setup</h4>
+<ul><li>Unknown $u(x,t)$ ($^\circ$C), independent variables $x\in[0,L]$ (m) and $t\ge0$ (s); $u$ is $C^2$ in $x$ and $C^1$ in $t$ for $t&gt;0$.</li><li>Linear, homogeneous, second-order parabolic PDE with constant coefficient $k&gt;0$; homogeneous Neumann (insulated) conditions at both ends (Haberman Sec. 1.3); nonhomogeneous initial condition, smooth and compatible with the end conditions ($f'(0)=f'(L)=0$).</li><li>No heat sources and no flux through the boundary.</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Value</th><th>Unit</th></tr></thead><tbody><tr><td>$L$</td><td>$0.5$</td><td>m</td></tr><tr><td>$k$</td><td>$1.0\times10^{-4}$</td><td>m$^2$/s</td></tr><tr><td>$f(x)=u(x,0)$</td><td>$20+40\cos^4\frac{\pi x}{2L}$</td><td>$^\circ$C</td></tr><tr><td>$f(0)$, $f(L/2)$, $f(L)$</td><td>$60$, $30$, $20$</td><td>$^\circ$C</td></tr></tbody></table></div>
+<h4 class="step-title">Phase 2. Canonical formulation</h4>
+<p>Product solutions $u=X(x)T(t)$ lead to the Sturm-Liouville problem $X''+\lambda X=0$, $X'(0)=X'(L)=0$ ($p=\sigma=1$, $q=0$) and to $T'=-\lambda kT$. The initial profile is rewritten as</p>
+<div class="math-block">$$f(x)=A_0+\sum_{n\ge1}A_n\cos\frac{n\pi x}{L}.$$</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.6 points</h3>
+          <div class="prompt"><p>Conservation of the total heat and the final temperature</p></div>
+<h4 class="step-title">Step 1. Derivative of the total heat</h4>
+<p>The limits $0$ and $L$ do not depend on $t$ and $u_t$ is continuous, so we may differentiate under the integral (Haberman Sec. 1.2):</p>
+<div class="math-block">$$H'(t)=\frac{d}{dt}\int_0^Lu(x,t)\,dx=\int_0^Lu_t(x,t)\,dx=k\int_0^Lu_{xx}(x,t)\,dx .$$</div>
+<p>An antiderivative of $u_{xx}$ with respect to $x$ is $u_x$, so by Barrow's rule</p>
+<div class="math-block">$$H'(t)=k\big[u_x(x,t)\big]_{x=0}^{x=L}=k\big(u_x(L,t)-u_x(0,t)\big)=k(0-0)=0 .$$</div>
+<p>Hence $H(t)=H(0)$ for all $t$: insulated ends let no heat in or out (Haberman Sec. 1.4).</p>
+<h4 class="step-title">Step 2. Initial total heat</h4>
+<p>With $\cos^4\theta=\frac{3+4\cos2\theta+\cos4\theta}{8}$ (proved in (b), Step 4) and $\theta=\frac{\pi x}{2L}$, $f=35+20\cos\frac{\pi x}{L}+5\cos\frac{2\pi x}{L}$. For $n\ge1$, with $s=\frac{n\pi x}{L}$, $ds=\frac{n\pi}{L}dx$:</p>
+<div class="math-block">$$\int_0^L\cos\frac{n\pi x}L\,dx=\frac{L}{n\pi}\Big[\sin s\Big]_0^{n\pi}=\frac{L}{n\pi}\big(\sin n\pi-\sin0\big)=0 .$$</div>
+<p>So $H(0)=\int_0^L35\,dx=35L$.</p>
+<h4 class="step-title">Step 3. Final temperature</h4>
+<p>If $u\to u_\infty$ (a constant) as $t\to\infty$, then $H\to u_\infty L$; but $H=35L$ for all $t$, so</p>
+<div class="math-block">$$u_\infty=\frac1L\int_0^Lf(x)\,dx=35\ ^\circ\text{C},$$</div>
+<p>the mean of the initial temperature, not the mean $40\ ^\circ$C of the end values $60$ and $20$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$H'(t)=k\big[u_x(L,t)-u_x(0,t)\big]=0$, so $H(t)=H(0)$.</li><li>$H(0)=\int_0^Lf\,dx=35L$, so $u_\infty=\dfrac1L\int_0^Lf\,dx=35\ ^\circ$C.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.3 points</h3>
+          <div class="prompt"><p>Separation of variables and the solution</p></div>
+<h4 class="step-title">Step 1. Separation</h4>
+<p>With $u=X(x)T(t)$: $XT'=kX''T$; dividing by $kXT$,</p>
+<div class="math-block">$$\frac{T'}{kT}=\frac{X''}{X}=-\lambda .$$</div>
+<p>The end conditions give $X'(0)T(t)=0$ and $X'(L)T(t)=0$, so $X'(0)=X'(L)=0$ for a nontrivial $T$.</p>
+<h4 class="step-title">Step 2. The three cases for $X''+\lambda X=0$</h4>
+<ul><li>$\lambda=-\mu^2&lt;0$: $X=A\cosh\mu x+B\sinh\mu x$, $X'=\mu(A\sinh\mu x+B\cosh\mu x)$. $X'(0)=\mu B=0\Rightarrow B=0$. $X'(L)=\mu A\sinh\mu L=0$ with $\sinh\mu L&gt;0$, so $A=0$: trivial.</li><li>$\lambda=0$: $X=A+Bx$, $X'=B$; $X'(0)=B=0$ and $X'(L)=0$ holds for any $A$. Eigenvalue $\lambda_0=0$ with $X_0=1$: the constant temperature is an equilibrium of the insulated rod (Haberman Sec. 2.4).</li><li>$\lambda=\mu^2&gt;0$: $X=A\cos\mu x+B\sin\mu x$, $X'=\mu(-A\sin\mu x+B\cos\mu x)$. $X'(0)=\mu B=0\Rightarrow B=0$. $X'(L)=-\mu A\sin\mu L=0$ with $A\neq0$, so $\sin\mu L=0$, $\mu=\frac{n\pi}{L}$: $\lambda_n=\big(\frac{n\pi}L\big)^2$, $X_n=\cos\frac{n\pi x}L$, $n=1,2,\dots$</li></ul>
+<h4 class="step-title">Step 3. Time factors</h4>
+<p>$T'=-\lambda_nkT$ is separable: for $T\neq0$, $\frac{dT}{T}=-\lambda_nk\,dt$, integrate from $0$ to $t$ with Barrow's rule, $\ln\lvert T(t)\rvert-\ln\lvert T(0)\rvert=-\lambda_nkt$, so $T_n(t)=T_n(0)e^{-\lambda_nkt}$. For $n=0$, $T_0$ is constant. By superposition (Haberman Sec. 2.2):</p>
+<div class="math-block">$$u(x,t)=A_0+\sum_{n=1}^\infty A_n\,e^{-k(n\pi/L)^2t}\cos\frac{n\pi x}{L}.$$</div>
+<h4 class="step-title">Step 4. Initial profile as a finite cosine sum</h4>
+<p>With $\cos^2\theta=\frac{1+\cos2\theta}{2}$ applied twice:</p>
+<div class="math-block">$$\cos^4\theta=\Big(\frac{1+\cos2\theta}2\Big)^2=\frac{1+2\cos2\theta+\cos^22\theta}{4}=\frac14\Big(1+2\cos2\theta+\frac{1+\cos4\theta}2\Big)=\frac{3+4\cos2\theta+\cos4\theta}{8}.$$</div>
+<p>With $\theta=\frac{\pi x}{2L}$: $2\theta=\frac{\pi x}L$, $4\theta=\frac{2\pi x}L$, and</p>
+<div class="math-block">$$f(x)=20+40\cdot\frac{3+4\cos\frac{\pi x}L+\cos\frac{2\pi x}L}{8}=20+15+20\cos\frac{\pi x}{L}+5\cos\frac{2\pi x}{L}.$$</div>
+<p>Check: $f(0)=35+20+5=60$, $f(L/2)=35+0-5=30$, $f(L)=35-20+5=20$, as in the data table.</p>
+<h4 class="step-title">Step 5. Coefficients and solution</h4>
+<p>$f$ is already a combination of eigenfunctions, so matching $u(x,0)=f$ term by term (orthogonality of $\cos\frac{n\pi x}L$ on $[0,L]$, Haberman Sec. 2.4: $A_0=\frac1L\int_0^Lf$, $A_n=\frac2L\int_0^Lf\cos\frac{n\pi x}L$) gives $A_0=35$, $A_1=20$, $A_2=5$ and $A_n=0$ for $n\ge3$:</p>
+<div class="math-block">$$u(x,t)=35+20\,e^{-k\pi^2t/L^2}\cos\frac{\pi x}L+5\,e^{-4k\pi^2t/L^2}\cos\frac{2\pi x}L .$$</div>
+<p>Verification: $u_t=-\frac{20k\pi^2}{L^2}e^{-k\pi^2t/L^2}\cos\frac{\pi x}L-\frac{20k\pi^2}{L^2}e^{-4k\pi^2t/L^2}\cos\frac{2\pi x}L$ and, by the chain rule, $ku_{xx}=k\Big[-20\frac{\pi^2}{L^2}e^{-k\pi^2t/L^2}\cos\frac{\pi x}L-5\frac{4\pi^2}{L^2}e^{-4k\pi^2t/L^2}\cos\frac{2\pi x}L\Big]$, the same expression. $u_x$ contains only $\sin\frac{\pi x}L$ and $\sin\frac{2\pi x}L$, which vanish at $x=0$ and $x=L$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\lambda&lt;0$: trivial; $\lambda_0=0$: $X_0=1$; $\lambda_n=\big(\frac{n\pi}L\big)^2$: $X_n=\cos\frac{n\pi x}L$, $T_n=e^{-k(n\pi/L)^2t}$.</li><li>$f(x)=35+20\cos\dfrac{\pi x}{L}+5\cos\dfrac{2\pi x}{L}$.</li><li>$u(x,t)=35+20\,e^{-k\pi^2t/L^2}\cos\dfrac{\pi x}L+5\,e^{-4k\pi^2t/L^2}\cos\dfrac{2\pi x}L$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.6 points</h3>
+          <div class="prompt"><p>Final state and settling times</p></div>
+<h4 class="step-title">Step 1. Long-time limit</h4>
+<p>Both exponents are negative, so as $t\to\infty$ the two modes vanish and $u\to A_0=35\ ^\circ$C, the value predicted in (a) from conservation alone. The zero eigenvalue is the reason: its mode does not decay, and its amplitude is the mean of $f$.</p>
+<h4 class="step-title">Step 2. Time constants</h4>
+<p>Mode $n$ decays as $e^{-t/\tau_n}$ with $\tau_n=\dfrac{L^2}{k n^2\pi^2}$. The slowest is $n=1$:</p>
+<div class="math-block">$$\tau_1=\frac{(0.5)^2}{(1.0\times10^{-4})\pi^2}=\frac{0.25}{9.870\times10^{-4}}\approx253.3\ \text{s},\qquad \tau_2=\frac{\tau_1}4\approx63.3\ \text{s}.$$</div>
+<h4 class="step-title">Step 3. Midpoint</h4>
+<p>At $x=L/2$: $\cos\frac\pi2=0$ and $\cos\pi=-1$, so $u(L/2,t)=35-5e^{-4k\pi^2t/L^2}$. The midpoint starts at $30\ ^\circ$C and warms monotonically to $35\ ^\circ$C; its deviation $5e^{-4k\pi^2t/L^2}$ is governed by the faster mode only. One tenth of the initial deviation:</p>
+<div class="math-block">$$e^{-4k\pi^2t_{10}/L^2}=\frac1{10}\iff\frac{4k\pi^2t_{10}}{L^2}=\ln10\iff t_{10}=\frac{L^2\ln10}{4\pi^2k}=\frac{0.25\cdot2.3026}{4\pi^2\cdot10^{-4}}\approx145.8\ \text{s}.$$</div>
+<h4 class="step-title">Step 4. Ends at $t_{10}$</h4>
+<p>$t_{10}/\tau_1=\frac{\ln10}{4}$, so $e^{-t_{10}/\tau_1}=10^{-1/4}\approx0.5623$, and the second mode equals $5\cdot\frac1{10}=0.5$. At $x=0$ (both cosines $=1$): $u=35+20(0.5623)+0.5\approx46.75\ ^\circ$C. At $x=L$ ($\cos\pi=-1$, $\cos2\pi=1$): $u=35-11.25+0.5\approx24.25\ ^\circ$C. The ends are still far from equilibrium when the midpoint has almost settled: the midpoint is a node of the slow mode.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$u\to35\ ^\circ$C; slowest time constant $\tau_1=\dfrac{L^2}{k\pi^2}\approx253.3$ s ($\tau_2=\tau_1/4\approx63.3$ s).</li><li>$u(L/2,t)=35-5e^{-4k\pi^2t/L^2}$; $t_{10}=\dfrac{L^2\ln10}{4\pi^2k}\approx145.8$ s.</li><li>At $t_{10}$: $u(0)=35+20\cdot10^{-1/4}+0.5\approx46.75\ ^\circ$C, $u(L)\approx24.25\ ^\circ$C.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
+<ul><li><strong>Limits:</strong> $t\to0^+$ reproduces $f$ (Step 4 of (b)); $t\to\infty$ gives the mean $35\ ^\circ$C; for $t\gg\tau_2$, $u-35\approx20e^{-t/\tau_1}\cos\frac{\pi x}{L}$, a single half cosine with the hot end at $x=0$. Doubling $L$ multiplies all times by $4$ (diffusive scaling $t\sim L^2/k$).</li><li><strong>Checks:</strong> dimensions: $k\pi^2t/L^2$ has (m$^2$/s)(s)/m$^2$, dimensionless; $\tau_1=L^2/(k\pi^2)$ is in s. $H(t)=35L$ for all $t$ computed directly from the solution (script). The PDE, both Neumann conditions and the initial condition hold (script); the coefficients also follow from the integrals $\frac1L\int f$ and $\frac2L\int f\cos\frac{n\pi x}L$ with the original $\cos^4$ form.</li><li><strong>Common mistakes in the exam:</strong> (1) forgetting the $\lambda=0$ eigenvalue and its constant mode, which gives a rod that cools to $0\ ^\circ$C although no heat can leave; (2) using sines $\sin\frac{n\pi x}L$ (the Dirichlet eigenfunctions); (3) taking the final temperature as the average of the end values, $40\ ^\circ$C, instead of the spatial mean $35\ ^\circ$C; (4) computing $t_{10}$ with the slow rate $k\pi^2/L^2$ at the midpoint, where that mode is absent ($t$ would come out four times too large, $583$ s).</li></ul>
+        </div>
+      </section>
+<!-- EXTRA-PROBLEMS:END -->
+
+      <footer class="topic-nav">
+        <a href="midterm-2-problems.html">← Previous exam</a>
+        <a href="../simulator/index.html?exam=final">Exam simulator →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+
