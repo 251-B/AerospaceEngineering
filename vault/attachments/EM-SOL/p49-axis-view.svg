@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 430" width="100%" class="fig-kit" style="max-width:500px;margin:0 auto;display:block" role="img" aria-label="View along the axis OA with i1 out of the paper: j1 to the right and k1 up in grey, the unit vector u at angle theta from j1 and the unit vector e_theta perpendicular to it, both in orange, with the shaded right triangle of u, and the projection P' of the particle at distance a sin phi along u">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="81.0" y1="290.0" x2="416.2" y2="290.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M421.0,290.0 L413.6,293.1 L413.6,286.9 Z" fill="#8a94a6"/>
+<text x="435.0" y="295.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="200.0" y1="375.0" x2="200.0" y2="73.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M200.0,69.0 L203.1,76.4 L196.9,76.4 Z" fill="#8a94a6"/>
+<text x="214.0" y="73.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="200.0" cy="290.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="200.0" cy="290.0" r="2.6" fill="#4b5563"/>
+<text x="144.0" y="318.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> (towards A)</text>
+<line x1="200.0" y1="290.0" x2="292.6" y2="212.3" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M297.7,208.0 L292.7,217.8 L287.2,211.3 Z" fill="#f59e0b"/>
+<text x="293.7" y="196.0" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">u</tspan></text>
+<line x1="200.0" y1="290.0" x2="122.3" y2="197.4" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M118.0,192.3 L127.8,197.3 L121.3,202.8 Z" fill="#f59e0b"/>
+<text x="104.0" y="186.3" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<polygon points="200.0,290.0 297.7,290.0 297.7,208.0" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<polyline points="289.2,290.0 289.2,281.5 297.7,281.5" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="297.7" y1="208.0" x2="297.7" y2="290.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="248.8" y="310.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos θ</text>
+<text x="305.7" y="253.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin θ</text>
+<path d="M251.0,290.0 A51.0,51.0 0 0 0 239.1,257.2" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="267.1" y="270.6" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<line x1="297.7" y1="208.0" x2="362.8" y2="153.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="362.8" cy="153.4" r="4.5" fill="#4b5563"/>
+<text x="370.8" y="147.4" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P′</text>
+<text x="372.8" y="169.4" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">OP′ = a sin φ</text>
+</g></svg>

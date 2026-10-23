@@ -15,6 +15,30 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-23-mechanics-topic5-figures",
+    "date": "2026-10-23",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 5 problems rebuilt in the course order, with 47 drawings",
+    "text": "All 20 relative-motion problems now go frames, change of basis, kinematics, forces, answers. New drawings show each rotation and the triangle behind every sine and cosine.",
+    "link": "subjects/engineering-mechanics/problemas/topic-5.html"
+  },
+  {
+    "id": "2026-10-22-solutions-without-phase-labels",
+    "date": "2026-10-22",
+    "tag": "Portal",
+    "title": "Worked solutions drop the Phase 1 to 4 labels",
+    "text": "Generated solutions no longer show the Phase 1 to 4 labels. Each block keeps its own heading, so the solutions read as one continuous derivation.",
+    "link": "subjects/engineering-mechanics/problemas/topic-5.html"
+  },
+  {
+    "id": "2026-10-22-mechanics-bank-figure-lines",
+    "date": "2026-10-22",
+    "tag": "Engineering Mechanics",
+    "title": "Construction lines back in the extra problem figures",
+    "text": "The dashed guide lines, hatching and dimension lines of the Mechanics extra problem figures were invisible on the default palette. They now show in grey.",
+    "link": "subjects/engineering-mechanics/extra-problems/midterm-1-problems.html"
+  },
+  {
     "id": "2026-10-22-maths-extra-problems-simulator",
     "date": "2026-10-22",
     "tag": "Advanced Maths",

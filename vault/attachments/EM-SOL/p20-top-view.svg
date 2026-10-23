@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 480" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Top view with k0 = k1 out of the paper: inertial axes i0, j0 in grey, the trace of the wire plane along i1 turned by omega t, and j1 normal to the wire plane, with the dashed right triangles of their components">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="71.8" y1="468.8" x2="477.2" y2="184.9" stroke="#8a94a6" stroke-width="5.0"/>
+<text x="226.0" y="462.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">wire (seen edge-on)</text>
+<line x1="270.0" y1="330.0" x2="496.2" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M501.0,330.0 L493.6,333.1 L493.6,326.9 Z" fill="#8a94a6"/>
+<text x="517.0" y="336.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="270.0" y1="330.0" x2="270.0" y2="70.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M270.0,66.0 L273.1,73.4 L266.9,73.4 Z" fill="#8a94a6"/>
+<text x="286.0" y="70.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<polygon points="270.0,330.0 450.2,330.0 450.2,203.8" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="270.0,330.0 270.0,149.8 143.8,149.8" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="450.2" y1="330.0" x2="450.2" y2="203.8" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="270.0" y1="149.8" x2="143.8" y2="149.8" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="439.2,330.0 439.2,319.0 450.2,319.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polyline points="270.0,160.8 259.0,160.8 259.0,149.8" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="270.0" y1="330.0" x2="444.8" y2="207.6" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M450.2,203.8 L444.4,213.1 L439.5,206.1 Z" fill="#3b82f6"/>
+<text x="444.2" y="187.8" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="270.0" y1="330.0" x2="147.6" y2="155.2" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M143.8,149.8 L153.1,155.6 L146.1,160.5 Z" fill="#3b82f6"/>
+<text x="129.8" y="141.8" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<path d="M336.0,330.0 A66.0,66.0 0 0 0 324.1,292.1" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="360.2" y="306.6" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ωt</text>
+<path d="M270.0,264.0 A66.0,66.0 0 0 0 232.1,275.9" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="240.9" y="242.7" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ωt</text>
+<text x="360.1" y="352.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos ωt</text>
+<text x="460.2" y="290.8" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin ωt</text>
+<text x="206.9" y="139.8" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin ωt</text>
+<text x="278.0" y="255.9" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos ωt</text>
+<circle cx="270.0" cy="330.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="270.0" cy="330.0" r="2.6" fill="#4b5563"/>
+<text x="212.0" y="334.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan> = <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+</g></svg>

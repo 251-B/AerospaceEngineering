@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Vertical plane through C that contains e_h: e_h to the right and k1 up in grey, u_theta into the paper, the circle of radius R, the particle P at elevation phi, the shaded right triangle with legs R cos phi and R sin phi, the spherical vectors u_r and u_phi at P in orange, and the reaction N towards C">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="220.0" cy="250.0" r="150.0" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="32.5" y1="250.0" x2="410.2" y2="250.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M415.0,250.0 L407.6,253.1 L407.6,246.9 Z" fill="#8a94a6"/>
+<text x="429.0" y="255.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">h</tspan></text>
+<line x1="220.0" y1="437.5" x2="220.0" y2="52.3" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M220.0,47.5 L223.1,54.9 L216.9,54.9 Z" fill="#8a94a6"/>
+<text x="234.0" y="51.5" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="220.0" cy="250.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<path d="M214.4,244.4 L225.6,255.6 M214.4,255.6 L225.6,244.4" stroke="#4b5563" stroke-width="1.6" fill="none"/>
+<text x="194.0" y="238.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">u</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<polygon points="220.0,250.0 342.9,250.0 342.9,164.0" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<polyline points="333.9,250.0 333.9,241.0 342.9,241.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="220.0" y1="250.0" x2="342.9" y2="164.0" stroke="#4b5563" stroke-width="1.4"/>
+<line x1="342.9" y1="164.0" x2="342.9" y2="250.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="281.4" y="270.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R cos φ</text>
+<text x="336.9" y="213.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R sin φ</text>
+<text x="275.4" y="197.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R</text>
+<path d="M253.0,250.0 A33.0,33.0 0 0 0 247.0,231.1" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="267.2" y="240.1" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<line x1="342.9" y1="164.0" x2="392.8" y2="129.0" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M398.2,125.2 L392.3,134.6 L387.4,127.5 Z" fill="#f59e0b"/>
+<text x="408.2" y="119.2" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">u</tspan><tspan baseline-shift="sub" font-size="70%">r</tspan></text>
+<line x1="342.9" y1="164.0" x2="307.9" y2="114.1" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M304.2,108.7 L313.5,114.5 L306.5,119.4 Z" fill="#f59e0b"/>
+<text x="298.2" y="96.7" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">u</tspan><tspan baseline-shift="sub" font-size="70%">φ</tspan></text>
+<line x1="342.9" y1="164.0" x2="295.7" y2="197.0" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M291.3,200.1 L296.0,192.5 L300.1,198.2 Z" fill="#ec4899"/>
+<text x="287.3" y="186.1" fill="#ec4899" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">N</tspan></text>
+<circle cx="342.9" cy="164.0" r="7" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="366.9" y="170.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="210.0" y="272.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+</g></svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Horizontal section of the cone at height zeta seen from above: the ellipse with semi-axes zeta along i1 and 2 zeta along j1, the dashed auxiliary circle of radius zeta, the point B of the circle at polar angle beta, the shaded right triangle with legs zeta cos beta and zeta sin beta, the point P of the ellipse with the same x1 and twice the height, and the tangent vector e_beta at P">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polyline points="395.0,280.0 394.8,268.0 394.4,256.0 393.6,244.0 392.5,232.2 391.1,220.5 389.4,208.9 387.4,197.6 385.1,186.5 382.5,175.6 379.6,165.0 376.4,154.7 373.0,144.8 369.4,135.3 365.5,126.1 361.3,117.4 357.0,109.1 352.4,101.3 347.6,93.9 342.6,87.1 337.5,80.8 332.2,75.1 326.8,69.9 321.2,65.3 315.5,61.3 309.8,57.8 303.9,55.0 298.0,52.8 292.0,51.3 286.0,50.3 280.0,50.0 274.0,50.3 268.0,51.3 262.0,52.8 256.1,55.0 250.2,57.8 244.5,61.3 238.8,65.3 233.2,69.9 227.8,75.1 222.5,80.8 217.4,87.1 212.4,93.9 207.6,101.3 203.0,109.1 198.7,117.4 194.5,126.1 190.6,135.3 187.0,144.8 183.6,154.7 180.4,165.0 177.5,175.6 174.9,186.5 172.6,197.6 170.6,208.9 168.9,220.5 167.5,232.2 166.4,244.0 165.6,256.0 165.2,268.0 165.0,280.0 165.2,292.0 165.6,304.0 166.4,316.0 167.5,327.8 168.9,339.5 170.6,351.1 172.6,362.4 174.9,373.5 177.5,384.4 180.4,395.0 183.6,405.3 187.0,415.2 190.6,424.7 194.5,433.9 198.7,442.6 203.0,450.9 207.6,458.7 212.4,466.1 217.4,472.9 222.5,479.2 227.8,484.9 233.2,490.1 238.8,494.7 244.5,498.7 250.2,502.2 256.1,505.0 262.0,507.2 268.0,508.7 274.0,509.7 280.0,510.0 286.0,509.7 292.0,508.7 298.0,507.2 303.9,505.0 309.8,502.2 315.5,498.7 321.2,494.7 326.8,490.1 332.2,484.9 337.5,479.2 342.6,472.9 347.6,466.1 352.4,458.7 357.0,450.9 361.3,442.6 365.5,433.9 369.4,424.7 373.0,415.2 376.4,405.3 379.6,395.0 382.5,384.4 385.1,373.5 387.4,362.4 389.4,351.1 391.1,339.5 392.5,327.8 393.6,316.0 394.4,304.0 394.8,292.0 395.0,280.0" fill="none" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="280.0" cy="280.0" r="115.0" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5 4" stroke-linejoin="round"/>
+<line x1="124.8" y1="280.0" x2="436.2" y2="280.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M441.0,280.0 L433.6,283.1 L433.6,276.9 Z" fill="#8a94a6"/>
+<text x="457.0" y="285.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="280.0" y1="538.8" x2="280.0" y2="26.1" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M280.0,21.2 L283.1,28.6 L276.9,28.6 Z" fill="#8a94a6"/>
+<text x="296.0" y="25.2" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<polygon points="280.0,280.0 353.9,280.0 353.9,191.9" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="280.0" y1="280.0" x2="353.9" y2="191.9" stroke="#8a94a6" stroke-width="1.4"/>
+<polyline points="345.9,280.0 345.9,271.9 353.9,271.9" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="353.9" y1="280.0" x2="353.9" y2="103.8" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="353.9" y1="103.8" x2="280.0" y2="103.8" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<path d="M314.5,280.0 A34.5,34.5 0 0 0 302.2,253.6" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="324.8" y="264.1" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">β</text>
+<text x="317.0" y="300.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ζ cos β</text>
+<line x1="353.9" y1="191.9" x2="429.5" y2="191.9" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="2 3"/>
+<line x1="420.3" y1="280.0" x2="420.3" y2="191.9" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M420.3,280.0 L417.6,273.6 L423.0,273.6 Z" fill="#8a94a6"/>
+<path d="M420.3,191.9 L423.0,198.4 L417.6,198.4 Z" fill="#8a94a6"/>
+<text x="454.3" y="241.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ζ sin β</text>
+<text x="270.0" y="108.8" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">2ζ sin β</text>
+<circle cx="353.9" cy="191.9" r="4.0" fill="#4b5563"/>
+<text x="345.9" y="165.9" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">B</text>
+<line x1="353.9" y1="103.8" x2="324.9" y2="55.1" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M321.5,49.5 L330.4,56.0 L323.1,60.4 Z" fill="#f59e0b"/>
+<text x="315.5" y="37.5" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">β</tspan></text>
+<circle cx="353.9" cy="103.8" r="6" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="369.9" y="95.8" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="4.0" y="452.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">auxiliary circle, radius ζ</text>
+<text x="351.3" y="481.2" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">ellipse: semi-axes ζ and 2ζ</text>
+<circle cx="159.2" cy="55.8" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="159.2" cy="55.8" r="2.6" fill="#4b5563"/>
+<text x="185.2" y="61.8" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+</g></svg>

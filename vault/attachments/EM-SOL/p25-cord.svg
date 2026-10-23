@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470" width="100%" class="fig-kit" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="Moving frame Sx1y1 with k out of the paper: the astronaut P on the circle of radius L around S at the angle theta from x1, the right triangle with legs L cos theta and L sin theta, the cord basis e_c and e_theta, and the inertial direction i at the angle nu from i1">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="250.0" cy="270.0" r="150.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4" stroke-linejoin="round"/>
+<line x1="212.5" y1="270.0" x2="470.2" y2="270.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M475.0,270.0 L467.6,273.1 L467.6,266.9 Z" fill="#8a94a6"/>
+<text x="489.0" y="275.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="250.0" y1="307.5" x2="250.0" y2="72.3" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M250.0,67.5 L253.1,74.9 L246.9,74.9 Z" fill="#8a94a6"/>
+<text x="264.0" y="69.5" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">y<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="250.0" cy="270.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="250.0" cy="270.0" r="2.6" fill="#4b5563"/>
+<text x="230.0" y="294.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<line x1="250.0" y1="270.0" x2="352.6" y2="447.7" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M355.0,451.9 L348.6,447.0 L354.0,443.9 Z" fill="#8a94a6"/>
+<text x="367.0" y="459.9" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<path d="M287.5,335.0 A75.0,75.0 0 0 0 325.0,270.0" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="330.5" y="321.5" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ν</text>
+<text x="17.5" y="435.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">F lies along −i₁</text>
+<polygon points="250.0,270.0 346.4,270.0 346.4,155.1" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<polyline points="337.4,270.0 337.4,261.0 346.4,261.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="250.0" y1="270.0" x2="346.4" y2="155.1" stroke="#4b5563" stroke-width="2.6"/>
+<text x="288.2" y="206.5" fill="#6b7280" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">L</text>
+<line x1="346.4" y1="270.0" x2="346.4" y2="155.1" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="298.2" y="290.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">L cos θ</text>
+<text x="355.4" y="212.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">L sin θ</text>
+<path d="M292.0,270.0 A42.0,42.0 0 0 0 277.0,237.8" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="304.4" y="249.6" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<line x1="346.4" y1="155.1" x2="380.7" y2="114.2" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M385.0,109.1 L381.8,119.6 L375.2,114.1 Z" fill="#f59e0b"/>
+<text x="397.0" y="103.1" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">c</tspan></text>
+<line x1="346.4" y1="155.1" x2="305.5" y2="120.8" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M300.5,116.5 L311.0,119.8 L305.5,126.3 Z" fill="#f59e0b"/>
+<text x="286.5" y="108.5" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<circle cx="346.4" cy="155.1" r="7" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="372.4" y="151.1" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="238.0" y="260.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">S</text>
+</g></svg>

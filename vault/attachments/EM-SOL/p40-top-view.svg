@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 470" width="100%" class="fig-kit" style="max-width:520px;margin:0 auto;display:block" role="img" aria-label="Top view from +z0 with k0 out of the paper: fixed axes i0 to the right and j0 up in grey, the frame axes i1 and j1 turned counter-clockwise by Omega t in blue, j1 pointing to the ring centre D, and the shaded right triangles that give their components">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="250.0" y1="330.0" x2="425.2" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M430.0,330.0 L422.6,333.1 L422.6,326.9 Z" fill="#8a94a6"/>
+<text x="446.0" y="335.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="250.0" y1="330.0" x2="250.0" y2="154.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M250.0,150.0 L253.1,157.4 L246.9,157.4 Z" fill="#8a94a6"/>
+<text x="266.0" y="152.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="250.0" y1="330.0" x2="100.0" y2="330.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4 4"/>
+<text x="92.0" y="318.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−<tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="164.0" y1="207.1" x2="116.6" y2="139.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="116.6" cy="139.5" r="4.5" fill="#4b5563"/>
+<text x="106.6" y="133.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">D</text>
+<polygon points="250.0,330.0 372.9,330.0 372.9,244.0" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="250.0,330.0 250.0,207.1 164.0,207.1" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="372.9" y1="244.0" x2="372.9" y2="330.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="164.0" y1="207.1" x2="250.0" y2="207.1" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="363.9,330.0 363.9,321.0 372.9,321.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polyline points="250.0,216.1 241.0,216.1 241.0,207.1" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="250.0" y1="330.0" x2="367.5" y2="247.7" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M372.9,244.0 L367.0,253.3 L362.1,246.3 Z" fill="#3b82f6"/>
+<text x="386.9" y="240.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="250.0" y1="330.0" x2="167.7" y2="212.5" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M164.0,207.1 L173.3,213.0 L166.3,217.9 Z" fill="#3b82f6"/>
+<text x="148.0" y="213.1" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="311.4" y="350.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos Ωt</text>
+<text x="380.9" y="292.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin Ωt</text>
+<text x="207.0" y="198.1" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin Ωt</text>
+<text x="260.0" y="283.4" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos Ωt</text>
+<path d="M295.0,330.0 A45.0,45.0 0 0 0 286.9,304.2" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="312.9" y="315.2" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Ωt</text>
+<path d="M250.0,294.0 A36.0,36.0 0 0 0 229.4,300.5" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="233.3" y="282.1" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Ωt</text>
+<circle cx="250.0" cy="330.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="250.0" cy="330.0" r="2.6" fill="#4b5563"/>
+<text x="204.0" y="360.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan> = <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="332.5" y="420.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">view from +z₀</text>
+<text x="332.5" y="439.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">Ω > 0: counter-clockwise</text>
+</g></svg>

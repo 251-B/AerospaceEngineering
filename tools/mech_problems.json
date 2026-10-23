@@ -46,21 +46,21 @@
   "title": "Skater Towed by a Vehicle: Rotating Frame",
   "badge": "Rotating Frame + Inertia Forces",
   "source_note": "(PDF page 8); key on PDF page 72",
-  "structure": 2
+  "structure": 3
  },
  "08": {
   "topic": 5,
   "title": "Kinematics, Two Trains on Tracks",
   "badge": "Relative Motion",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "09": {
   "topic": 5,
   "title": "Artificial Gravity in a Rotating Cylinder",
   "badge": "Centrifugal + Coriolis Forces",
   "source_note": "(PDF page 8); no official key",
-  "structure": 2
+  "structure": 3
  },
  "10": {
   "topic": 2,
@@ -137,21 +137,21 @@
   "title": "Heavy Particle on a Rotating Circumference",
   "badge": "Energy in a Rotating Frame",
   "source_note": "(PDF page 10); no official key",
-  "structure": 2
+  "structure": 3
  },
  "21": {
   "topic": 5,
   "title": "Apparent Weight on a Spinning Planet",
   "badge": "Centrifugal Force",
   "source_note": "(PDF page 10); no official key",
-  "structure": 2
+  "structure": 3
  },
  "22": {
   "topic": 5,
   "title": "Particle on a Curve",
   "badge": "1D Curve Constraint",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "23": {
   "topic": 3,
@@ -172,28 +172,28 @@
   "title": "Ijon Tichy's Space Walk",
   "badge": "Orbiting Frame + Inertia Forces",
   "source_note": "(PDF page 13); key on PDF pages 73-74",
-  "structure": 2
+  "structure": 3
  },
  "26": {
   "topic": 5,
   "title": "Heavy Particle on a Rotating Half-Circumference (Moving-Frame Method)",
   "badge": "Rotating Wire + Inertia Forces",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "27": {
   "topic": 5,
   "title": "Bead on a Rotating Sine-Shaped Wire with a Spring",
   "badge": "Rotating Wire + Spring",
   "source_note": "(PDF page 15); key on PDF page 74",
-  "structure": 2
+  "structure": 3
  },
  "28": {
   "topic": 5,
   "title": "Spherical Pendulum with a Vertically Oscillating Suspension Point",
   "badge": "Translating Frame + Inertia Force",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "29": {
   "topic": 3,
@@ -207,7 +207,7 @@
   "title": "Particle on a Rotating Quarter Circumference with a Spring",
   "badge": "Rotating Frame + Path Variables",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "31": {
   "topic": 3,
@@ -228,14 +228,14 @@
   "title": "Two Repelling Particles on a Rotating Parabola",
   "badge": "Rotating Wire + Two Particles",
   "source_note": "(PDF page 21); key on PDF page 75",
-  "structure": 2
+  "structure": 3
  },
  "34": {
   "topic": 5,
   "title": "Particle on a Circular Wire in an Oscillating Vertical Plane",
   "badge": "Oscillating Plane + Euler Force",
   "source_note": "(PDF page 22); key on PDF page 75",
-  "structure": 2
+  "structure": 3
  },
  "35": {
   "topic": 3,
@@ -249,14 +249,14 @@
   "title": "Pendulum String Dragged by a Rotating Bar",
   "badge": "Rotating Frame + String Constraint",
   "source_note": "(PDF page 24); key on PDF page 75",
-  "structure": 2
+  "structure": 3
  },
  "37": {
   "topic": 5,
   "title": "Particle on a Spinning Elliptic Cone",
   "badge": "Rotating Constraint Surface",
   "source_note": "(PDF page 25); key on PDF page 75",
-  "structure": 2
+  "structure": 3
  },
  "38": {
   "topic": 3,
@@ -277,14 +277,14 @@
   "title": "Spring-Coupled Particles on a Vertical Axis and a Revolving Ring",
   "badge": "Two Particles in a Rotating Frame",
   "source_note": "(PDF page 28); key on PDF page 76",
-  "structure": 2
+  "structure": 3
  },
  "41": {
   "topic": 5,
   "title": "Satellite Solar Panel: Composition of Rotations",
   "badge": "Relative Kinematics",
   "source_note": "(PDF page 29); key on PDF page 76",
-  "structure": 2
+  "structure": 3
  },
  "42": {
   "topic": 4,
@@ -326,7 +326,7 @@
   "title": "Two Repelling Particles on Concentric Wires in a Rotating Plane",
   "badge": "Relative Equilibrium",
   "source_note": "(PDF page 32); key on PDF page 76",
-  "structure": 2
+  "structure": 3
  },
  "48": {
   "topic": 3,
@@ -340,7 +340,7 @@
   "title": "Particle on a Rotating Sphere Attracted to a Point",
   "badge": "Relative Equilibria & Bifurcation",
   "source_note": "(PDF page 34); no official key",
-  "structure": 2
+  "structure": 3
  },
  "50": {
   "topic": 3,
@@ -354,6 +354,6 @@
   "title": "Particle inside a Hollow Sphere in a Rotating Frame",
   "badge": "Non-Inertial Frame + Surface Constraint",
   "source_note": "(PDF page 36); no official key",
-  "structure": 2
+  "structure": 3
  }
 }
