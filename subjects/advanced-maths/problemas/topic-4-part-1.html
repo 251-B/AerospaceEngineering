@@ -671,19 +671,19 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>Unknown: $x(t)$, $n$ times differentiable on an interval $I$. Data: $f(x_n, \dots, x_1, t)$ defined on a region $\Omega \subset \mathbb R^{n+1}$. The initial value problem prescribes the $n$ numbers $x(t_0), \dot x(t_0), \dots, x^{(n-1)}(t_0)$. The tool for uniqueness is the existence and uniqueness theorem for first-order systems $\dot{\mathbf x} = \mathbf F(\mathbf x, t)$ (Robinson Thm 25.2, Topic 4 Sec. 1).</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation: the new variables</div>
+        <div class="phase-badge-title phase-2-badge">Formulation: the new variables</div>
 <p>Introduce one variable for the function and for each derivative below the highest order (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=267" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 267">25.1</a>):</p>
 <p>$$ x_1 = x,\quad x_2 = \frac{dx}{dt},\quad x_3 = \frac{d^2x}{dt^2},\quad \dots,\quad x_n = \frac{d^{n-1}x}{dt^{n-1}}, \qquad\text{i.e. } x_k = x^{(k-1)}\ (k = 1, \dots, n) $$</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The important point of the notes: an ODE of order $n \ge 2$ is a system of $n$ first-order ODEs; for $\ddot x = f(\dot x, x, t)$ they set $x_1 = x$, $x_2 = \dot x$, so that $\dot x_1 = x_2$ and $\dot x_2 = f(x_2, x_1, t)$. The variables above are the same choice for order $n$. Uniqueness then follows from the condition the notes state for systems: $\mathbf f$ and its Jacobian $D\mathbf f$ continuous near $(\mathbf x_0, t_0)$. Only the last component $f$ is not trivial, so the condition falls on $f$ and its partial derivatives $\partial f/\partial x_k$.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">The system</h4>
 <p>By construction $\dot x_k = x^{(k)} = x_{k+1}$ for $k = 1, \dots, n - 1$, and $\dot x_n = x^{(n)} = f(x_n, \dots, x_1, t)$ by the original equation:</p>
 <p>$$ \begin{aligned} \dot x_1 &amp;= x_2 \\ \dot x_2 &amp;= x_3 \\ &amp;\ \,\vdots \\ \dot x_{n-1} &amp;= x_n \\ \dot x_n &amp;= f(x_n, x_{n-1}, \dots, x_1, t) \end{aligned} \qquad\Longleftrightarrow\qquad \dot{\mathbf x} = \mathbf F(\mathbf x, t) = \begin{pmatrix} x_2 \\ x_3 \\ \vdots \\ x_n \\ f(x_n, \dots, x_1, t) \end{pmatrix} $$</p>
@@ -698,7 +698,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>For $n = 2$ the system is $\dot x_1 = x_2$, $\dot x_2 = f(x_2, x_1, t)$ and the condition is Theorem 11.1 of Topic 3 (continuity of $f$, $\partial f/\partial x_1$, $\partial f/\partial x_2$); for $n = 1$ it is Picard's theorem.</li><li>No condition on $\partial f/\partial t$ is needed: the theorem asks continuity in $t$ but no differentiability in $t$.</li><li>Dependence on the $n$ derivatives: continuity of the partial derivatives $\partial f/\partial x_j$ gives a local Lipschitz bound in $(x_1, \dots, x_n)$, which is what excludes branching solutions (compare Exercise 2.14 of Chapter 2, where the Lipschitz condition fails).</li><li>For a linear equation $x^{(n)} + a_{n-1}(t)x^{(n-1)} + \dots + a_0(t)x = g(t)$, $f = g - \sum a_{k}x_{k+1}$ and $\partial f/\partial x_{k+1} = -a_k(t)$: the conditions reduce to continuity of the $a_k$ and $g$. For linear equations the solution in fact exists on the whole interval of continuity of the coefficients (a standard result for linear systems, not in Robinson Thm 25.2, which is local; see the continuation argument in Exercise 4).</li><li>Check with the mass-spring-damper (Topic 4 Sec. 1.1): $n = 2$, $f = -\lambda x_2 - \omega^2x_1$ has constant partial derivatives $-\omega^2$ and $-\lambda$: unique solutions for all data.</li></ul>
       </div>
 
@@ -720,19 +720,19 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup</div>
+        <div class="phase-badge-title phase-1-badge">Setup</div>
 <p>Hypotheses: $a_i, b_i$ are functions of $t$ (not necessarily constant) defined on an interval $I$, and $(x_1, y_1)$, $(x_2, y_2)$ are differentiable on $I$ with</p>
 <p>$$ \dot x_j = a_1x_j + b_1y_j, \qquad \dot y_j = a_2x_j + b_2y_j \qquad (j = 1, 2) \tag{H} $$</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>To show: with $x = c_1x_1 + c_2x_2$ and $y = c_1y_1 + c_2y_2$ the two equations of (1) hold. Tool: differentiation is linear, $\frac{d}{dt}(c_1f + c_2g) = c_1\dot f + c_2\dot g$ for constants $c_1, c_2$. In vector notation: $\mathbf x = c_1\mathbf x_1 + c_2\mathbf x_2$ solves $\dot{\mathbf x} = A(t)\mathbf x$ because the right-hand side is linear in $\mathbf x$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=276" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 276">27.3</a>).</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The notes state superposition for $\dot{\mathbf x} = A(t)\mathbf x$: combinations of solutions are solutions. This exercise is that statement written out in components, with $A(t) = \begin{pmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2 \end{pmatrix}$.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <p>First equation. Differentiate $x = c_1x_1 + c_2x_2$ and use (H):</p>
 <p>$$ \dot x = c_1\dot x_1 + c_2\dot x_2 = c_1(a_1x_1 + b_1y_1) + c_2(a_1x_2 + b_1y_2) $$</p>
 <p>Regroup the terms with $a_1$ and with $b_1$:</p>
@@ -745,7 +745,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>Linearity and homogeneity are both used: homogeneity guarantees that the right-hand side of (1) vanishes when $x = y = 0$ (a forcing term $f(t)$ would be multiplied by $c_1 + c_2$ instead of by $1$, and the combination would not be a solution unless $c_1 + c_2 = 1$ and so on).</li><li>Constant coefficients were not needed: only linearity of the derivative and of $(x, y) \mapsto (a_1x + b_1y, a_2x + b_2y)$.</li><li>The set of solutions is therefore a vector space; Exercises 3 and 4 show that it has dimension $2$.</li><li>Quick example: $\dot x = y$, $\dot y = -x$ has $(\cos t, -\sin t)$ and $(\sin t, \cos t)$ as solutions, and so $(c_1\cos t + c_2\sin t,\ -c_1\sin t + c_2\cos t)$ does.</li></ul>
       </div>
 
@@ -767,19 +767,19 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup</div>
+        <div class="phase-badge-title phase-1-badge">Setup</div>
 <p>System (1) of Exercise 2 with $a_1, b_1, a_2, b_2$ continuous on $[a, b]$. For two solutions $(x_1, y_1)$ and $(x_2, y_2)$ the Wronskian is the determinant of the matrix whose columns are the solutions (Topic 4 Sec. 3):</p>
 <p>$$ W(t) = \begin{vmatrix} x_1 &amp; x_2 \\ y_1 &amp; y_2 \end{vmatrix} = x_1y_2 - x_2y_1 $$</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>Differentiate $W$ with the product rule, substitute the equations (H) of Exercise 2 for each derivative, and recognise $W$. The resulting scalar linear ODE is solved by an integrating factor.</p>
 <div class="note-box"><div class="note-box-title">Class notes and complement [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The notes state that $\mathbf x_1, \mathbf x_2$ are independent if and only if $W = \det(x_{ij}) \neq 0$ for all $t \in I$; the words for all $t$ are what this exercise proves. The equation $W' = (\operatorname{tr}A)\,W$ and its solution $W(t) = W(t_0)e^{\int_{t_0}^{t}\operatorname{tr}A}$ (Liouville's formula) are a complement (not in the class notes). For the system of a second-order equation $\operatorname{tr}A = -p$, and it becomes the $W' = -pW$ of Topic 3 (Exercise 6).</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">Step 1: the product rule</h4>
 <p>$$ \dot W = \dot x_1y_2 + x_1\dot y_2 - \dot x_2y_1 - x_2\dot y_1 $$</p>
 <h4 class="step-heading">Step 2: substitute the system</h4>
@@ -796,7 +796,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>Constant coefficients: $W(t) = W(0)e^{(a_1 + b_2)t} = W(0)e^{(\operatorname{tr}A)t}$ (Topic 4 Sec. 3, Liouville). Check with Example 28.1: eigenvalues $2$ and $-3$ have trace $-1$ and $W \propto e^{2t}e^{-3t} = e^{-t}$.</li><li>For the system of a second-order equation $\ddot x + p\dot x + qx = 0$, $a_1 = 0$ and $b_2 = -p$ and the result is Abel's identity $\dot W = -pW$ (Exercise 6).</li><li>Geometric meaning: $|W|$ is the area of the parallelogram spanned by the two solution vectors; $\operatorname{tr}A$ is the divergence of the flow, which rates the growth of areas. If $\operatorname{tr}A = 0$ areas are conserved ($W$ constant).</li><li>This dichotomy is what makes the Wronskian a test for independence: it is enough to evaluate it at a single instant (Exercise 4).</li></ul>
       </div>
 
@@ -818,18 +818,18 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>System (1) with coefficients continuous on $[a, b]$ (as in Exercise 3). $(x_1, y_1)$ and $(x_2, y_2)$ are solutions with $W(t) = x_1y_2 - x_2y_1 \neq 0$ for all $t \in [a, b]$. To show: for every solution $(x, y)$ of (1) there are constants $c_1, c_2$ with $x = c_1x_1 + c_2x_2$ and $y = c_1y_1 + c_2y_2$ on $[a, b]$. (By Exercise 2 every combination is a solution, so this shows that (3) describes all of them.)</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>Tools: (a) uniqueness for linear systems with continuous coefficients: two solutions with the same value at one instant $t_0 \in [a, b]$ coincide on all of $[a, b]$. Robinson Thm 25.2 gives this locally (near $t_0$); the extension to $[a, b]$ is a continuation argument: the set $S$ of instants where the two solutions agree contains $t_0$, is closed (the solutions are continuous) and is open in $[a, b]$ (at each point of $S$ the local uniqueness applies, since the coefficients are continuous), and an interval is connected, so $S = [a, b]$; (b) Cramer's rule: a $2\times 2$ linear system with non-zero determinant has exactly one solution. Plan: match the given solution at one instant with a combination, then invoke uniqueness.</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The notes: for $n = 2$ a fundamental set is a pair of solutions with $W(\mathbf x_1, \mathbf x_2) \neq 0$, and every solution is a combination of it. This exercise proves that statement. Matching the data at $t_0$ is the $2 \times 2$ system with determinant $W(t_0)$, as in the second-order example of the notes (p. 5), and uniqueness does the rest.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">Step 1: choose the constants at one instant</h4>
 <p>Let $(x, y)$ be any solution and fix $t_0 \in [a, b]$. We look for $c_1, c_2$ such that the combination equals $(x, y)$ at $t_0$:</p>
 <p>$$ \begin{pmatrix} x_1(t_0) &amp; x_2(t_0) \\ y_1(t_0) &amp; y_2(t_0) \end{pmatrix}\begin{pmatrix} c_1 \\ c_2 \end{pmatrix} = \begin{pmatrix} x(t_0) \\ y(t_0) \end{pmatrix} $$</p>
@@ -842,7 +842,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>The solution space is a 2-dimensional vector space with basis $\{(x_1, y_1), (x_2, y_2)\}$ (a <strong>fundamental set</strong>; $\Phi = [\mathbf x_1\ \mathbf x_2]$ is a fundamental matrix and $\mathbf c = \Phi(t_0)^{-1}\mathbf x(t_0)$, Topic 4 Sec. 3).</li><li>Example: for $\dot x = x + y$, $\dot y = 4x - 2y$ the solutions $e^{2t}(1, 1)$ and $e^{-3t}(1, -4)$ have $W = e^{2t}e^{-3t}(-4 - 1) = -5e^{-t} \neq 0$, hence form a fundamental set (Topic 4 Example 28.1).</li><li>Check: if $x_2 = kx_1$ and $y_2 = ky_1$ (parallel solutions) then $W = kx_1y_1 - kx_1y_1 = 0$ and the argument rightly fails.</li><li>The same proof works for $n \times n$ systems with $\det\Phi(t_0) \neq 0$.</li></ul>
       </div>
 
@@ -864,18 +864,18 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>Coefficients and forcings $f_1, f_2$ continuous on $[a, b]$. The homogeneous system is (1) of Exercise 2. $\mathbf x_1 = (x_1, y_1)$ and $\mathbf x_2 = (x_2, y_2)$ are linearly independent solutions of (1) (the statement writes "$x_1(t)$ and $x_2(t)$" for the two solution vectors). Their Wronskian is non-zero on $[a, b]$: by Exercise 3 it is either $\equiv 0$ or never zero, and if $W(t_0) = 0$ there would be $(c_1, c_2) \neq (0, 0)$ with $c_1\mathbf x_1(t_0) + c_2\mathbf x_2(t_0) = \mathbf 0$; the combination $c_1\mathbf x_1 + c_2\mathbf x_2$ solves (1) with zero data at $t_0$, so it is $\equiv \mathbf 0$ by uniqueness (Exercise 4, Step 2), contradicting independence. $\mathbf x_p = (x_p, y_p)$ solves (4).</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>Two claims: (A) every function of the displayed form solves (4); (B) every solution of (4) has that form. The key idea (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=147" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 147">14.1</a> for scalar equations, Topic 4 Sec. 3.1) is that the difference of two solutions of (4) solves the <strong>homogeneous</strong> system.</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The last theorem of the notes for linear systems: $\mathbf x = \mathbf x_h + \mathbf x_p$. The proof is the one of the scalar case (Topic 3, notes p. 6): the difference of two solutions of the inhomogeneous system solves the homogeneous one.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">(A) The family solves (4)</h4>
 <p>Write $\mathbf x = c_1\mathbf x_1 + c_2\mathbf x_2 + \mathbf x_p$ and $\dot{\mathbf x} = A\mathbf x + \mathbf f$ with $A = \begin{pmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2 \end{pmatrix}$, $\mathbf f = (f_1, f_2)^T$. Using $\dot{\mathbf x}_j = A\mathbf x_j$ and $\dot{\mathbf x}_p = A\mathbf x_p + \mathbf f$:</p>
 <p>$$ \dot{\mathbf x} = c_1A\mathbf x_1 + c_2A\mathbf x_2 + A\mathbf x_p + \mathbf f = A(c_1\mathbf x_1 + c_2\mathbf x_2 + \mathbf x_p) + \mathbf f = A\mathbf x + \mathbf f $$</p>
@@ -886,7 +886,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>The structure "general = complementary + particular" is the same as for scalar linear equations (Topic 3 Sec. 5 lemma). The two constants are fixed by an initial condition $\mathbf x(t_0) = \mathbf x_0$: $\mathbf c = \Phi(t_0)^{-1}\left[\mathbf x_0 - \mathbf x_p(t_0)\right]$.</li><li>Example (Topic 4 Example 26.1): $\dot x = x + y$, $\dot y = 4x - 2y + 4e^{-2t}$ has the particular solution $(-e^{-2t}, 3e^{-2t})$: check $\dot x_p = 2e^{-2t} = x_p + y_p = -e^{-2t} + 3e^{-2t}$ and $\dot y_p = -6e^{-2t} = 4(-e^{-2t}) - 2(3e^{-2t}) + 4e^{-2t} = -6e^{-2t}$.</li><li>A particular solution can be found by elimination (Exercise 7), undetermined coefficients, or variation of parameters $\mathbf x_p = \Phi\int\Phi^{-1}\mathbf f$ (Topic 4 Sec. 3.1).</li><li>Different particular solutions differ by a homogeneous solution, which is absorbed in $c_1, c_2$.</li></ul>
       </div>
 
@@ -908,12 +908,12 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup</div>
+        <div class="phase-badge-title phase-1-badge">Setup</div>
 <p>$p, q$ continuous on an interval $I$. Two definitions to compare: the scalar Wronskian $W_2[x_1, x_2] = x_1x_2' - x_2x_1'$ (Topic 3 Sec. 2.1) and the Wronskian of vector solutions $W_{sys} = \det[\mathbf x_1\ \mathbf x_2]$ (Topic 4 Sec. 3).</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation: the system</div>
+        <div class="phase-badge-title phase-2-badge">Formulation: the system</div>
 <p>Introduce $y = x'$ (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=267" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 267">25.1</a>: $x_1 \to x$, $x_2 \to x'$). Then $x' = y$ and, from the ODE, $y' = x'' = -p\,x' - q\,x = -q\,x - p\,y$:</p>
 <p>$$ \begin{cases} x' = 0\cdot x + 1\cdot y \\ y' = -q(t)\,x - p(t)\,y \end{cases} \qquad \dot{\mathbf x} = \begin{pmatrix} 0 &amp; 1 \\ -q &amp; -p \end{pmatrix}\mathbf x $$</p>
 <p>This has the form (1) with $a_1 = 0$, $b_1 = 1$, $a_2 = -q$, $b_2 = -p$ (continuous). A solution $x_j(t)$ of the ODE gives the solution $(x_j, y_j) = (x_j, x_j')$ of the system, and conversely the first component of a system solution solves the ODE.</p>
@@ -921,7 +921,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <p>The corresponding solutions of the system are $\mathbf x_1 = (x_1, x_1')^T$ and $\mathbf x_2 = (x_2, x_2')^T$, so $y_j = x_j'$. Their system Wronskian is</p>
 <p>$$ W_{sys} = \begin{vmatrix} x_1 &amp; x_2 \\ y_1 &amp; y_2 \end{vmatrix} = x_1y_2 - x_2y_1 = x_1x_2' - x_2x_1' = W_2[x_1, x_2] $$</p>
 <p>The two definitions coincide identically. $\blacksquare$</p>
@@ -930,7 +930,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>Therefore all the theory of systems (non-vanishing Wronskian $\Leftrightarrow$ independence, general solution, dichotomy) contains the scalar results of Topic 3 as the special case $A = \begin{pmatrix} 0 &amp; 1 \\ -q &amp; -p \end{pmatrix}$; the notation $\mathbf x(t_0) = (x(t_0), \dot x(t_0))$ for the initial data is the same pair as in Theorem 11.1.</li><li>Example: $\ddot x + x = 0$, $x_1 = \cos t$, $x_2 = \sin t$: $W_2 = \cos^2t + \sin^2t = 1$ and $W_{sys} = \begin{vmatrix} \cos t &amp; \sin t \\ -\sin t &amp; \cos t \end{vmatrix} = 1$; $p = 0$ so $W$ is constant, as Abel/Liouville predict.</li><li>The matrix $\begin{pmatrix} 0 &amp; 1 \\ -q &amp; -p \end{pmatrix}$ has trace $-p$ and determinant $q$; for constants it gives the characteristic polynomial $\mu^2 + p\mu + q$ of Topic 3.</li></ul>
       </div>
 
@@ -952,12 +952,12 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and classification</div>
+        <div class="phase-badge-title phase-1-badge">Setup and classification</div>
 <p>Each system is linear with constant coefficients, of the form $\dot x = ax + by + f(t)$, $\dot y = cx + dy + g(t)$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=269" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 269">26.1</a>), homogeneous when $f = g = 0$. In every item $b \neq 0$, so the first equation can be solved for $y$. Hypotheses: coefficients and forcings continuous on $\mathbb R$, so the IVP has a unique solution, which exists on all of $\mathbb R$ (linear system with continuous coefficients; Thm 25.2 gives local existence and uniqueness and the continuation argument of Exercise 4 extends it). Item (iii) gives $x(0)$ and $\dot x(0)$; the value of $y(0)$ then follows from the first equation.</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Method: elimination (Topic 4 Sec. 2.1)</div>
+        <div class="phase-badge-title phase-2-badge">Method: elimination (Topic 4 Sec. 2.1)</div>
 <p>Solve the first equation for $y = (\dot x - ax - f)/b$ (26.2), differentiate, and substitute in the second equation. The result is one second-order equation for $x$ (26.3):</p>
 <p>$$ \ddot x - (a + d)\dot x + (ad - bc)x = \dot f + bg - df $$</p>
 <p>Its coefficients are the trace and determinant of the matrix $\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}$, so its characteristic polynomial is the one of the eigenvalue method. It is solved by the methods of Topic 3 (complementary function plus undetermined coefficients). Then $y$ is recovered from (26.2) and the constants from the data.</p>
@@ -965,7 +965,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation of the seven solutions</div>
+        <div class="phase-badge-title phase-3-badge">Derivation of the seven solutions</div>
 <div class="sub-case-card"><div class="sub-case-header">(i) $\dot x = 4x - y,\quad \dot y = 2x + y + t^2$, $\ x(0) = 0,\ y(0) = 1$</div>
 <p>The system is linear with constant coefficients, in the form $\dot x = ax + by + f(t)$, $\dot y = cx + dy + g(t)$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=269" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 269">26.1</a>) with</p>
 <p>$$ a = 4,\quad b = -1,\quad c = 2,\quad d = 1,\quad f(t) = 0,\quad g(t) = t^{2} $$</p>
@@ -1409,7 +1409,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>$x(t)$</th><th>$y(t)$</th></tr></thead><tbody><tr><td>(i)</td><td>$- \frac{t^{2}}{6} - \frac{5 t}{18} - \frac{29 e^{3 t}}{27} + \frac{5 e^{2 t}}{4} - \frac{19}{108}$</td><td>$- \frac{2 t^{2}}{3} - \frac{7 t}{9} - \frac{29 e^{3 t}}{27} + \frac{5 e^{2 t}}{2} - \frac{23}{54}$</td></tr><tr><td>(ii)</td><td>$- \frac{32 e^{t} \sin{2 t}}{17} + \frac{26 e^{t} \cos{2 t}}{17} + \frac{2 \sin{2 t}}{17} - \frac{9 \cos{2 t}}{17}$</td><td>$\frac{13 e^{t} \sin{2 t}}{17} + \frac{16 e^{t} \cos{2 t}}{17} - \frac{4 \sin{2 t}}{17} + \frac{\cos{2 t}}{17}$</td></tr><tr><td>(iii)</td><td>$\frac{e^{6 t}}{5} - \frac{e^{t}}{5}$</td><td>$\frac{2 e^{6 t}}{5} + \frac{e^{t}}{10}$</td></tr><tr><td>(iv)</td><td>$t^{2} e^{3 t} + 7 t e^{3 t} + e^{3 t}$</td><td>$\frac{t^{2} e^{3 t}}{2} + 3 t e^{3 t} - e^{3 t}$</td></tr><tr><td>(v)</td><td>$- \frac{16 e^{t} \sin{3 t}}{111} + \frac{69 e^{t} \cos{3 t}}{37} - \frac{30 \sin{3 t}}{37} + \frac{5 \cos{3 t}}{37}$</td><td>$- \frac{121 e^{t} \sin{3 t}}{111} - \frac{17 e^{t} \cos{3 t}}{37} + \frac{9 \sin{3 t}}{37} - \frac{20 \cos{3 t}}{37}$</td></tr><tr><td>(vi)</td><td>$\frac{t e^{2 t}}{5} + \frac{62 e^{2 t}}{75} - \frac{e^{-t}}{6} + \frac{17 e^{-3 t}}{50}$</td><td>$\frac{t e^{2 t}}{5} + \frac{77 e^{2 t}}{75} - \frac{2 e^{-t}}{3} - \frac{34 e^{-3 t}}{25}$</td></tr><tr><td>(vii)</td><td>$\frac{4 e^{15 t}}{3} - \frac{e^{-6 t}}{3}$</td><td>$\frac{2 e^{15 t}}{3} + \frac{e^{-6 t}}{3}$</td></tr></tbody></table></div>
 <ul class="bullet-list"><li>Every pair $(x, y)$ was substituted in <strong>both</strong> original equations and in the initial data (shown in each item and re-checked symbolically in <code>scripts/verify_topic3_topic4.py</code>).</li><li>Characteristic exponents seen: (i) $2, 3$ (real); (ii) $1 \pm 2i$ (spiral) with the forcing $\cos 2t$ at a different frequency; (iii) $6, -1$ (saddle; the forcing $e^{t}$ has exponent $1$, which is <strong>not</strong> a root, so no extra factor $t$); (iv) $3$ double (improper-node type), and the forcing $e^{3t}$ resonates with the double root, giving $t^2e^{3t}$; (v) $1 \pm 3i$; (vi) $2, -3$ with the forcing exponent $2$ resonant (term $te^{2t}$) and $-1$ not; (vii) $15, -6$ (homogeneous saddle).</li><li>Cross-check of the homogeneous parts with Topic 4: (iv) and (v) have the same matrices as Examples 8.2 and 7.1; (vii) is the matrix of Exercise 9 (i).</li><li>Dimensions: with $t$ in seconds the matrix entries have units s$^{-1}$ and the forcings those of $\dot x$; the elimination keeps this consistent ($a + d$ in s$^{-1}$, $ad - bc$ in s$^{-2}$).</li></ul>
       </div>
@@ -1432,20 +1432,20 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and classification</div>
+        <div class="phase-badge-title phase-1-badge">Setup and classification</div>
 <p>In every item the two eigenvalues are real and distinct, with linearly independent eigenvectors (so $\det[\mathbf v_1\ \mathbf v_2] \neq 0$, checked in each item). The general solution is then $\mathbf x = c_1e^{\lambda_1t}\mathbf v_1 + c_2e^{\lambda_2t}\mathbf v_2$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=286" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 286">28.1</a>) and the portrait is determined by the signs of $\lambda_1, \lambda_2$ (Topic 4 Sec. 6 and 9):</p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Signs</th><th>Origin</th><th>Behaviour</th></tr></thead><tbody><tr><td>$\lambda_1, \lambda_2 &lt; 0$</td><td>stable node</td><td>all orbits tend to $\mathbf 0$, tangent to the eigenvector of the smaller $\vert \lambda\vert $</td></tr><tr><td>$\lambda_1, \lambda_2 &gt; 0$</td><td>unstable node</td><td>all orbits leave $\mathbf 0$, tangent to the eigenvector of the smaller $\vert \lambda\vert $</td></tr><tr><td>$\lambda_1\lambda_2 &lt; 0$</td><td>saddle</td><td>only the orbits on the stable eigenline reach $\mathbf 0$</td></tr></tbody></table></div>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>$\lambda_1, \lambda_2$</th><th>Type</th><th>Slow direction (smaller $\vert \lambda\vert $)</th></tr></thead><tbody><tr><td>(i)</td><td>$1, 2$</td><td>unstable node</td><td>$\mathbf v_1$ = $(1, 1)$</td></tr><tr><td>(ii)</td><td>$1, -2$</td><td>saddle</td><td>not applicable</td></tr><tr><td>(iii)</td><td>$-2, -3$</td><td>stable node</td><td>$\mathbf v_1$ = $(1, 2)$</td></tr><tr><td>(iv)</td><td>$3, -5$</td><td>saddle</td><td>not applicable</td></tr><tr><td>(v)</td><td>$3, 1$</td><td>unstable node</td><td>$\mathbf v_2$ = $(1, -3)$</td></tr><tr><td>(vi)</td><td>$2, -3$</td><td>saddle</td><td>not applicable</td></tr><tr><td>(vii)</td><td>$1, 2$</td><td>unstable node</td><td>$\mathbf v_1$ = $(1, 1)$</td></tr><tr><td>(viii)</td><td>$-3, -1$</td><td>stable node</td><td>$\mathbf v_2$ = $(-3, 2)$</td></tr></tbody></table></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation: how each item is treated</div>
+        <div class="phase-badge-title phase-2-badge">Formulation: how each item is treated</div>
 <p>For each item: (1) the general solution; (2) the matrix $A = Q\Lambda Q^{-1}$ reconstructed from the data, used to draw and to check; (3) the canonical system $\dot{\mathbf z} = \Lambda\mathbf z$ with $\mathbf z = Q^{-1}\mathbf x$ and its solution; (4) the portrait in the $\mathbf z$-plane and its image under $\mathbf x = Q\mathbf z$ in the $(x, y)$-plane, with the arrows and the tangent direction decided by the rules above.</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>Case 1 of the notes: $\mathbf x = C_1e^{\lambda_1t}\mathbf v_1 + C_2e^{\lambda_2t}\mathbf v_2$. With $P = (\mathbf v_1, \mathbf v_2)$ (the $Q$ of this page), $\mathbf z = P^{-1}\mathbf x$ gives $\dot{\mathbf z} = D\mathbf z$ and the orbits $z_2 = \tilde C z_1^{\lambda_2/\lambda_1}$. The table of the notes reads the portrait from $r = \lambda_2/\lambda_1$: eigenvalues of one sign give a node, tangent at the origin to the axis of the eigenvalue of smaller modulus ($z_1$-axis when $r &gt; 1$, $z_2$-axis when $0 &lt; r &lt; 1$); opposite signs give a saddle. Back in $\mathbf x$ the $z$-axes become the eigenvector lines.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation of the eight portraits</div>
+        <div class="phase-badge-title phase-3-badge">Derivation of the eight portraits</div>
 <div class="sub-case-card"><div class="sub-case-header">(i) $\lambda_1 = 1$, $\mathbf v_1 = (1, 1)^T$; $\lambda_2 = 2$, $\mathbf v_2 = (1, -1)^T$</div>
 <p>The statement gives the eigen-data, not the matrix. Since $A\mathbf v_j = \lambda_j\mathbf v_j$ for $j = 1, 2$ means $AQ = Q\Lambda$ with $Q = [\mathbf v_1 \mid \mathbf v_2]$, the matrix is $A = Q\Lambda Q^{-1}$ (it is needed to draw the portrait and to check the data):</p>
 <p>$$ Q = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}, \qquad \Lambda = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 2 \end{pmatrix}, \qquad \det Q = -2, \qquad Q^{-1} = \begin{pmatrix} \frac{1}{2} &amp; \frac{1}{2} \\ \frac{1}{2} &amp; - \frac{1}{2} \end{pmatrix} $$</p>
@@ -2855,7 +2855,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>General solution</th></tr></thead><tbody><tr><td>(i)</td><td>$\mathbf x = c_1e^{1t}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_2e^{2t}\begin{pmatrix} 1 \\ -1 \end{pmatrix}$</td></tr><tr><td>(ii)</td><td>$\mathbf x = c_1e^{1t}\begin{pmatrix} 1 \\ 0 \end{pmatrix} + c_2e^{-2t}\begin{pmatrix} 1 \\ 1 \end{pmatrix}$</td></tr><tr><td>(iii)</td><td>$\mathbf x = c_1e^{-2t}\begin{pmatrix} 1 \\ 2 \end{pmatrix} + c_2e^{-3t}\begin{pmatrix} 2 \\ -3 \end{pmatrix}$</td></tr><tr><td>(iv)</td><td>$\mathbf x = c_1e^{3t}\begin{pmatrix} 2 \\ 3 \end{pmatrix} + c_2e^{-5t}\begin{pmatrix} 0 \\ 1 \end{pmatrix}$</td></tr><tr><td>(v)</td><td>$\mathbf x = c_1e^{3t}\begin{pmatrix} 1 \\ 2 \end{pmatrix} + c_2e^{1t}\begin{pmatrix} 1 \\ -3 \end{pmatrix}$</td></tr><tr><td>(vi)</td><td>$\mathbf x = c_1e^{2t}\begin{pmatrix} 0 \\ 1 \end{pmatrix} + c_2e^{-3t}\begin{pmatrix} 1 \\ 5 \end{pmatrix}$</td></tr><tr><td>(vii)</td><td>$\mathbf x = c_1e^{1t}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_2e^{2t}\begin{pmatrix} 2 \\ 1 \end{pmatrix}$</td></tr><tr><td>(viii)</td><td>$\mathbf x = c_1e^{-3t}\begin{pmatrix} 1 \\ 3 \end{pmatrix} + c_2e^{-1t}\begin{pmatrix} -3 \\ 2 \end{pmatrix}$</td></tr></tbody></table></div>
 <ul class="bullet-list"><li>In every item the reconstructed $A$ satisfies $A\mathbf v_j = \lambda_j\mathbf v_j$ (checked in the text) and $\det A = \lambda_1\lambda_2$, $\operatorname{tr}A = \lambda_1 + \lambda_2$.</li><li>Nodes: the tangent direction at the origin is the eigenvector of the <strong>smaller</strong> $|\lambda|$ because $|z_2|/|z_1|^{\lambda_2/\lambda_1}$ is constant: if $|\lambda_2| &gt; |\lambda_1|$ the exponent $r = \lambda_2/\lambda_1$ exceeds $1$, so $z_2 = K|z_1|^{r}$ tends to $0$ faster than $z_1$ and the curve hugs the $z_1$-axis (the slower eigendirection) near the origin; if $r &lt; 1$ it hugs the $z_2$-axis, which is then the slower one. The phase portraits drawn above show this numerically (curves integrated from the matrix $A$ itself, not from the formula, so the tangency is a genuine check).</li><li>Saddles (ii), (iv), (vi): the stable manifold is the eigenline of the negative eigenvalue.</li><li>Items (ii), (iv) and (vi) have an eigenvector with a zero entry ((ii) $\mathbf v_1 = (1, 0)$, (iv) $\mathbf v_2 = (0, 1)$, (vi) $\mathbf v_1 = (0, 1)$): that eigenline is an axis of the $(x, y)$-plane.</li></ul>
       </div>
@@ -2878,18 +2878,18 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup</div>
+        <div class="phase-badge-title phase-1-badge">Setup</div>
 <p>Each system is $\dot{\mathbf x} = A\mathbf x$ with a constant $2\times 2$ matrix. Plan (Topic 4 Sec. 4 and 5): (a) characteristic equation $\det(A - \lambda I) = 0$; (b) eigenvectors from $(A - \lambda I)\mathbf v = \mathbf 0$; (c) if the eigenvalues are real and distinct the eigenvectors are independent and $Q = [\mathbf v_1\ \mathbf v_2]$ defines $\mathbf z = Q^{-1}\mathbf x$ with $\dot{\mathbf z} = Q^{-1}AQ\,\mathbf z$; (d) show $Q^{-1}AQ = \Lambda$ by explicit multiplication.</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>Since $\mathbf x = Q\mathbf z$ with $Q$ constant, $\dot{\mathbf x} = Q\dot{\mathbf z}$ and $A\mathbf x = AQ\mathbf z$, so $\dot{\mathbf z} = Q^{-1}AQ\,\mathbf z$. If $Q^{-1}AQ = \Lambda = \operatorname{diag}(\lambda_1, \lambda_2)$ the equations $\dot z_1 = \lambda_1z_1$, $\dot z_2 = \lambda_2z_2$ are uncoupled.</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The diagonalisation of the notes: $A = PDP^{-1}$ with $P = (\mathbf v_1, \mathbf v_2)$ and $D = \operatorname{diag}(\lambda_1, \lambda_2)$; with $\mathbf z = P^{-1}\mathbf x$, $\dot{\mathbf z} = P^{-1}A\mathbf x = DP^{-1}\mathbf x = D\mathbf z$, so $z_1 = C_1e^{\lambda_1t}$ and $z_2 = C_2e^{\lambda_2t}$ are uncoupled. The $Q$ and $\Lambda$ of this page are the notes' $P$ and $D$. Item (i) is the matrix of Exercise 7 (vii): elimination and eigenvalues give the same characteristic polynomial, $\lambda^2 - 9\lambda - 90$.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <div class="sub-case-card"><div class="sub-case-header">(i) $A = \begin{pmatrix} 8 &amp; 14 \\ 7 &amp; 1 \end{pmatrix}$</div>
 <p>Characteristic equation $\det(A - \lambda I) = 0$ (Topic 4, Eq. 27.8):</p>
 <p>$$ \det(A - \lambda I) = \begin{vmatrix} 8 - \lambda &amp; 14 \\ 7 &amp; 1 - \lambda \end{vmatrix} = (8 - \lambda)(1 - \lambda) - (14)(7) $$</p>
@@ -3669,7 +3669,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>Each $Q^{-1}AQ$ was multiplied out entry by entry above and equals $\Lambda$ exactly; the eigenvalues satisfy $\lambda_1 + \lambda_2 = \operatorname{tr}A$ and $\lambda_1\lambda_2 = \det A$.</li><li>(i) $15$ and $-6$: saddle; (ii) $2$ and $-3$ (lower-triangular matrix: the eigenvalues are the diagonal entries): saddle; (iii) $10$ and $5$: unstable node, tangent at the origin to the eigenvector of $5$; (iv) $21$ and $-39$: saddle with very different rates.</li><li>(i) is the homogeneous part of Exercise 7(vii) and (ii) shows that for a triangular matrix the eigenvalues can be read off the diagonal (Topic 4 Examples 27.2 and 27.3).</li><li>The change of coordinates is not the efficient way to solve the system (the general solution follows directly from the eigenpairs), but it is what justifies the portrait: it reduces every case to the uncoupled one (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=287" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 287">28.2</a>).</li><li>Dimensional check: with $t$ in seconds the eigenvalues have units s$^{-1}$, and $Q$ is dimensionless (it mixes coordinates of equal units).</li></ul>
       </div>
 
@@ -3691,18 +3691,18 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>Real constants $\lambda_1, \lambda_2$. The chain rule is valid where $x(t)$ is a differentiable function with $\dot x \neq 0$, so that $t \mapsto x$ is locally invertible and $y$ can be regarded as a function of $x$. Here $\dot x = \lambda_1x \neq 0$ requires $\lambda_1 \neq 0$ and $x \neq 0$. The cases $x = 0$ (the $y$-axis), $y = 0$ (the $x$-axis) and $\lambda_1 = 0$ are treated separately at the end.</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>The orbit equation $\frac{dy}{dx} = \frac{\lambda_2}{\lambda_1}\frac{y}{x}$ has no explicit $t$ and is <strong>separable</strong>: all the $y$ on the left and all the $x$ on the right.</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>This is the step of the notes that turns Case 1 into a portrait. From $z_1 = C_1e^{\lambda_1t}$ and $z_2 = C_2e^{\lambda_2t}$ they eliminate $t$ (for $C_1 &gt; 0$):</p><p>$$ z_2 = C_2\big(e^{\lambda_1t}\big)^{\lambda_2/\lambda_1} = C_2C_1^{-\lambda_2/\lambda_1}\big(C_1e^{\lambda_1t}\big)^{\lambda_2/\lambda_1} = \tilde C\,z_1^{\lambda_2/\lambda_1}. $$</p><p>The chain-rule route below reaches the same curves, $y = \tilde C\,\lvert x\rvert^{\lambda_2/\lambda_1}$ on each half-plane, without solving for $t$.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">Integration</h4>
 <p>Separate variables (for $y \neq 0$, $x \neq 0$) and integrate both sides with their antiderivatives, $\int\frac{dy}{y} = \ln|y|$:</p>
 <p>$$ \frac{dy}{y} = \frac{\lambda_2}{\lambda_1}\frac{dx}{x} \;\Longrightarrow\; \ln|y| = \frac{\lambda_2}{\lambda_1}\ln|x| + C $$</p>
@@ -3719,7 +3719,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>This is the derivation behind the canonical portraits of Topic 4 Sec. 6.1: replace $(x, y)$ by $(z_1, z_2)$ and $\lambda_1, \lambda_2$ by the two eigenvalues to get $z_2 = K|z_1|^{\lambda_2/\lambda_1}$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=292" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 292">28.12</a>).</li><li>Examples: $\lambda_1 = 1$, $\lambda_2 = 2$: $y = Kx^2$ (parabolas); $\lambda_1 = 1$, $\lambda_2 = -1$: $y = K/x$ (hyperbolas).</li><li>Direction along the orbits is <strong>not</strong> given by the orbit equation: it is read from $\dot x = \lambda_1x$, $\dot y = \lambda_2y$ (away from $0$ along an axis if $\lambda &gt; 0$, towards it if $\lambda &lt; 0$).</li><li>Differentiating the answer: $\frac{dy}{dx} = K\frac{\lambda_2}{\lambda_1}|x|^{\lambda_2/\lambda_1 - 1}\operatorname{sign}(x) = \frac{\lambda_2}{\lambda_1}\frac{y}{x}$, which recovers the ODE (using $|x|^{r}/x = |x|^{r-1}\operatorname{sign}x$).</li></ul>
       </div>
 
@@ -3741,18 +3741,18 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>$A$ is $2\times 2$ real with eigenvalues $0$ and $\lambda_2 \neq 0$ (both real: $\lambda_1 = 0$ is real and $\lambda_2 = \operatorname{tr}A$ is real because $A$ is real; being distinct, they have independent eigenvectors; $\det A = 0$). $A\mathbf v_1 = \mathbf 0$, $A\mathbf v_2 = \lambda_2\mathbf v_2$. Because $\det A = 0$ the origin is <strong>not</strong> an isolated equilibrium: every point of $\ker A = \operatorname{span}\{\mathbf v_1\}$ is an equilibrium ($A\mathbf x = \mathbf 0$).</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>Use the general result for distinct eigenvalues, $\mathbf x = c_1e^{\lambda_1t}\mathbf v_1 + c_2e^{\lambda_2t}\mathbf v_2$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=286" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 286">28.1</a>), valid whenever the eigenvalues differ, in particular if one of them is $0$; and $Q = [\mathbf v_1\ \mathbf v_2]$, $\mathbf z = Q^{-1}\mathbf x$.</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>Special case $\lambda_1 = 0$ of the notes: $A\mathbf v_1 = \mathbf 0$, so the line spanned by $\mathbf v_1$ is made of equilibria, and $\mathbf x = C_1\mathbf v_1 + C_2e^{\lambda_2t}\mathbf v_2$: straight orbits parallel to $\mathbf v_2$.</p><p>Reading of the handwriting: the notes write $\mathbf x(t) = C_2\mathbf v_2e^{\lambda_2t}$, which drops the line of equilibria $C_1\mathbf v_1$. The general solution needs both terms, since it must match any $\mathbf x(0)$.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <div class="sub-case-card"><div class="sub-case-header">(i) General solution</div>
 <p>With $\lambda_1 = 0$, $e^{\lambda_1t} = e^{0} = 1$:</p>
 <p>$$ \mathbf x(t) = c_1\mathbf v_1 + c_2e^{\lambda_2t}\mathbf v_2 $$</p>
@@ -4097,7 +4097,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>(iii): $\operatorname{tr}A = -3$ and $\det A = (-2)(-1) - 2\cdot 1 = 0$, so the eigenvalues are $0$ and $-3$: the general solution is $\mathbf x = c_1(1, 1)^T + c_2e^{-3t}(2, -1)^T$, every orbit converges to the equilibrium $c_1(1, 1)^T$, i.e. $\mathbf x(t) \to \mathbf x_\infty$ on the line $y = x$ along the direction $(2, -1)$.</li><li>Explicit limit for $\mathbf x(0) = (x_0, y_0)$: $\mathbf x_\infty = c_1(1, 1)^T$ with $c_1 = (x_0 + 2y_0)/3$ (from $Q^{-1}$ computed above, first row $(\tfrac13, \tfrac23)$). Example: $\mathbf x(0) = (2, -1)$ gives $c_1 = 0$ and the orbit is the line $\mathbf x = e^{-3t}(2, -1)$ going to the origin.</li><li>The origin is no longer an isolated equilibrium: the node/saddle/spiral classification of Topic 4 Sec. 9 assumes $\det A \neq 0$ (see the trace-determinant discussion), and here $\det A = 0$, which is the borderline between a stable node ($\lambda_2 &lt; 0$) and a saddle.</li><li>Conserved quantity: the combination $\tilde x = c_1$ is a first integral of the motion ($x + 2y$ in (iii), up to the factor $\tfrac13$): $\frac{d}{dt}(x + 2y) = (-2x + 2y) + 2(x - y) = 0$ $\checkmark$.</li></ul>
       </div>
 

@@ -477,4 +477,4 @@ This checklist condenses Slides 22, 26 and 28 into the order used in the solved 
 | Relative dynamics, inertia forces | Sec. 4.9, Eqs. 4.59–4.63 (pp. 52–53) | 27–28 |
 | Potentials, Euler and Coriolis forces | none | 29–31 |
 
-Worked problems (Problems 7, 9, 20, 21, 25, 26, 27, 28, 30, 33, 34, 36, 37, 40, 41, 47, 49, 51 of Problems.pdf) follow the four-phase protocol in [[Solution Set - Topic 5 Relative Motion]].
+Worked problems (Problems 7, 9, 20, 21, 25, 26, 27, 28, 30, 33, 34, 36, 37, 40, 41, 47, 49, 51 of Problems.pdf) are solved step by step, in the order of the course, in [[Solution Set - Topic 5 Relative Motion]].

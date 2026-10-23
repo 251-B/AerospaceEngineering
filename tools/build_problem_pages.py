@@ -36,6 +36,8 @@ VAULT = REPO / "vault" / "05 - Business Management"
 METHOD_NOTE = "Concept - Method to Build the Income Statement and Balance Sheet"
 EXTRA_PAGE = "subjects/business-management/problemas/topic-3-extra-exam-problems.html"
 STD_PAGE = "subjects/business-management/problemas/topic-3-financial-statements.html"
+# The notes still delimit their blocks with "## Phase N — ..." headings; the page shows the heading without that prefix
+NO_PHASE = re.compile(r"^Phase \d+[a-z]?\s*(?:[—:–-]\s*)?")
 
 PAGES = {
     STD_PAGE: (False, [
@@ -106,7 +108,7 @@ def card(note, card_id, tag):
     parts = sections(md)
     statement = render(parts[0][1])
     phases = "\n".join(
-        f'        <div class="phase-block">\n          <h3 class="phase-title">{bt.inline(t)}</h3>\n{render(b)}\n        </div>'
+        f'        <div class="phase-block">\n          <h3 class="phase-title">{bt.inline(NO_PHASE.sub("", t))}</h3>\n{render(b)}\n        </div>'
         for t, b in parts[1:])
     return f'''      <section class="problem-box" id="{card_id}">
         <span class="problem-tag">{html.escape(tag)}</span>
@@ -126,7 +128,7 @@ def method_section(full):
         return f'''      <section class="method-box" id="method">
         <h2>Method used in every solution</h2>
         <div class="callout"><p>{bt.inline(idea)}</p></div>
-        <p>The full step-by-step method (classification table, depreciation and interest rules, cash account and balance-sheet layout) is at the top of the <a href="topic-3-extra-exam-problems.html#method">exam-type problems page</a>. Each solution below follows the same four phases: setup, frames (period and classification of every operation), derivation, interpretation.</p>
+        <p>The full step-by-step method (classification table, depreciation and interest rules, cash account and balance-sheet layout) is at the top of the <a href="topic-3-extra-exam-problems.html#method">exam-type problems page</a>. Each solution below follows the same order: data and the classification of every operation, the income statement, the balance sheet, the cash account and the check against the official key.</p>
       </section>
 '''
     inner = "\n".join(f"        <h3>{bt.inline(t)}</h3>\n{render(b)}" for t, b in sections(md))

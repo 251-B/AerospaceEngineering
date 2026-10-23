@@ -22,7 +22,7 @@ Purpose, Architecture, Mandatory pipeline (Obsidian first, web second), Language
 - Study text is in English. Units are SI, with a dimensional check.
 - Generated files are never edited by hand: the theory, problem, sources and exam pages, the PDF deep links, `assets/data/sources.js`, `assets/pdf/` and `vault/07 - Sources/`.
 - Web pages use the back-link `../../../index.html`, KaTeX from the CDN and the `ae_theme` key only. They carry no laboratory material and no interactive simulators. Topic pages carry the Ask AI, PDF and responsive helpers.
-- Problems follow four phases with no algebraic skips, and each result cites its source.
+- Problems follow the lecturer's order of each subject, with no visible "Phase" labels, no algebraic skips, every sine, cosine and sign justified, deduction figures for every plane and rotation, and each result cites its source.
 - Official answers are never matched by adjusting data. A discrepancy gets a warning callout, and extensions are labelled as such.
 - The `review` gate runs after any single change. The `ultrareview` gate runs after a chapter, problem sheet or exam.
 - Every change that users can see on the portal adds one hand-written entry to `assets/data/updates.js`, which feeds the "What's new" bell, panel and toast: English, plain words, newest first, no laboratory material.

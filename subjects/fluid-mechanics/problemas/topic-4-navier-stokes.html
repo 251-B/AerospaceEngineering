@@ -638,22 +638,19 @@
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady planar flow of an incompressible liquid with constant $\rho$, $\mu$, $k$, $c$ (perfect liquid, Notes.pdf, Eq. 4.38): the equations to use are (4.40), (4.41) and (4.42).</li><li>Gravity acts along $-\bar{e}_z$ (the far-field pressure is $p + \rho g z = P_\infty$, so $\bar{f}_m = -g\,\bar{e}_z$).</li><li>Given: the fields depend only on the distance to the wall, $\partial/\partial x = \partial/\partial y = \partial/\partial t = 0$ for every variable, except that the pressure is allowed to depend on $x$ (it is determined below).</li><li>No chemical reaction and no radiation: $Q_c = Q_r = 0$.</li><li>The wall is at rest and porous: the tangential velocity is zero (no-slip) and the normal velocity is the suction velocity.</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ U_\infty,\ P_\infty,\ T_\infty,\ T_w,\ V_w,\ g]$ with $V_w &gt; 0$. Unknowns: $v_x(z)$, $v_z(z)$, $p(x,z)$, $T(z)$, the streamline, the wall stress and the wall heat flux.</li><li>Degrees of freedom: two velocity components, the pressure and the temperature, each a function of one coordinate (plus $x$ for the pressure): four unknown fields against continuity, two momentum components and the energy equation.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$\rho$, $\mu$, $\nu = \mu/\rho$</td><td>density, dynamic and kinematic viscosity</td><td>kg/m$^3$, Pa s, m$^2$/s</td></tr><tr><td>$k$, $c$, $\alpha = k/(\rho c)$</td><td>thermal conductivity, specific heat, thermal diffusivity</td><td>W/(m K), J/(kg K), m$^2$/s</td></tr><tr><td>$\mathrm{Pr} = \nu/\alpha = \mu c/k$</td><td>Prandtl number</td><td>1</td></tr><tr><td>$U_\infty$, $V_w$</td><td>free-stream velocity, suction velocity</td><td>m/s</td></tr><tr><td>$P_\infty$, $T_\infty$, $T_w$</td><td>far-field reduced pressure, far-field and wall temperatures</td><td>Pa, K, K</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cartesian frame $(x,y,z)$ with $x$ along the wall (in the direction of $U_\infty$), $z$ normal to it and pointing into the liquid, $y$ out of the plane. The basis $\{\bar{e}_x,\bar{e}_y,\bar{e}_z\}$ is orthonormal and right-handed, so no change of basis is needed ($\det R = 1$, $R R^T = I$ with $R = I$).</li><li>Field form: $\bar{v} = v_x(z)\,\bar{e}_x + v_z(z)\,\bar{e}_z$, $T = T(z)$, $p = p(x,z)$.</li><li>The wall is at $z = 0$ and the liquid occupies $z &gt; 0$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$z = 0$</td><td>$v_x = 0$</td><td>no-slip on the wall at rest</td></tr><tr><td>$z = 0$</td><td>$v_z = -V_w$</td><td>suction through the pores (statement)</td></tr><tr><td>$z = 0$</td><td>$T = T_w$</td><td>thermal equilibrium at the wall</td></tr><tr><td>$z \to \infty$</td><td>$v_x \to U_\infty$</td><td>free stream (statement)</td></tr><tr><td>$z \to \infty$</td><td>$p + \rho g z \to P_\infty$</td><td>free stream (statement)</td></tr><tr><td>$z \to \infty$</td><td>$T \to T_\infty$</td><td>free stream (statement)</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity and the normal velocity</h4>
 <div class="math-block">$$ \nabla\cdot\bar{v} = \frac{\partial v_x}{\partial x} + \frac{\partial v_z}{\partial z} = \underbrace{\cancel{\frac{\partial v_x}{\partial x}}}_{v_x = v_x(z)} + \frac{dv_z}{dz} = 0 \;\Longrightarrow\; \frac{dv_z}{dz} = 0 \;\Longrightarrow\; v_z = \text{const} \tag{1} $$</div>
@@ -711,7 +708,6 @@
 <p>The result does not depend on the Prandtl number.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> Suction pins the shear layer to the wall: the velocity reaches $99\%$ of $U_\infty$ at $z \approx 4.6\,\nu/V_w$ and the thickness $\nu/V_w$ does not grow with $x$. The liquid is pulled towards the wall by the pores, and the viscous diffusion away from the wall balances this convection (equation (6)).</li><li><strong>Limits.</strong> For $V_w \to 0$ the layer thickens without bound, consistent with the absence of a steady unidirectional solution. For $z \to \infty$, $v_x \to U_\infty$ and $T \to T_\infty$. At $z = 0$, $v_x = 0$ and $T = T_w$.</li><li><strong>Dimensional check.</strong> $V_wz/\nu$ and $V_wz/\alpha$ are dimensionless. In (23), $\rho cV_w\,\Delta T$ has units $(\mathrm{kg/m^3})(\mathrm{J/(kg\,K)})(\mathrm{m/s})\,\mathrm{K} = \mathrm{W/m^2}$, and $U_\infty^2/(2c)$ has units $(\mathrm{m^2/s^2})/(\mathrm{J/(kg\,K)}) = \mathrm{K}$. In (19), $\rho V_wU_\infty$ has units $\mathrm{kg/(m^2\,s)}\cdot\mathrm{m/s} = \mathrm{N/m^2}$.</li><li><strong>Energy check.</strong> Equation (23) is the heat that must flow into the wall in steady state: per unit area the suction brings in from the free stream the energy $\rho V_w(cT_\infty + U_\infty^2/2)$ and the pores take out $\rho V_w\,cT_w$; the pressure work and the work of gravity cancel, and the shear does no work on the wall because it is at rest. The difference is $\rho cV_w[T_\infty - T_w + U_\infty^2/(2c)]$, the result (23).</li><li><strong>Special case.</strong> For $U_\infty \to 0$ there is no dissipation and (23) reduces to $\rho cV_w(T_\infty - T_w)$, the advection-conduction balance of pure suction.</li></ul>
 </div>
@@ -740,22 +736,19 @@
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady planar motion ($v_z = 0$, $\partial/\partial z = 0$) of a perfect liquid with constant $\rho$, $\mu$, $k$, $c$: equations (4.40)-(4.42) in cylindrical coordinates.</li><li>Axisymmetric: $\partial/\partial\theta = 0$ for every variable.</li><li>No mass force enters the problem in the plane of motion (the statement lists none; gravity, if present, only shifts the pressure by a hydrostatic term and is absorbed in the reduced pressure of Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=48" target="_blank" rel="noopener" title="Open Notes.pdf at page 48">4.13</a>). No chemical reaction and no radiation: $Q_c = Q_r = 0$.</li><li>The cylinder surfaces are impermeable and move with their own angular velocity (no-slip).</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ R_1,\ R_2,\ \Omega_1,\ \Omega_2,\ T_1,\ T_2]$ with $R_2 &gt; R_1$. Unknowns: $v_r(r)$, $v_\theta(r)$, $p(r)$, the torques, the powers and $T(r)$.</li><li>Degrees of freedom: two velocity components, the pressure and the temperature, each a function of $r$ alone.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R_1$, $R_2$</td><td>inner and outer radii</td><td>m</td></tr><tr><td>$\Omega_1$, $\Omega_2$</td><td>angular velocities (positive counter-clockwise, towards increasing $\theta$)</td><td>rad/s</td></tr><tr><td>$T_1$, $T_2$</td><td>temperatures of the inner and outer surfaces</td><td>K</td></tr><tr><td>$\rho$, $\mu$, $k$</td><td>density, viscosity, thermal conductivity</td><td>kg/m$^3$, Pa s, W/(m K)</td></tr><tr><td>$C_1$, $C_2$</td><td>integration constants of $v_\theta$</td><td>1/s, m$^2$/s</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ centred on the common axis, with $\bar{e}_r$, $\bar{e}_\theta$, $\bar{e}_z$ orthonormal and right-handed ($\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_z$); the frame is attached to the laboratory, which is inertial.</li><li>Field form: $\bar{v} = v_r(r)\,\bar{e}_r + v_\theta(r)\,\bar{e}_\theta$, $p = p(r)$, $T = T(r)$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = R_1$</td><td>$v_r = 0$, $v_\theta = \Omega_1R_1$</td><td>impermeable inner cylinder, no-slip</td></tr><tr><td>$r = R_2$</td><td>$v_r = 0$, $v_\theta = \Omega_2R_2$</td><td>impermeable outer cylinder, no-slip</td></tr><tr><td>$r = R_1$</td><td>$T = T_1$</td><td>thermal equilibrium at the wall</td></tr><tr><td>$r = R_2$</td><td>$T = T_2$</td><td>thermal equilibrium at the wall</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity and the radial velocity</h4>
 <div class="math-block">$$ \frac{1}{r}\frac{d(rv_r)}{dr} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{\partial_\theta = 0} + \underbrace{\cancel{\frac{\partial v_z}{\partial z}}}_{v_z = 0} = 0 \;\Longrightarrow\; r\,v_r = \text{const} \tag{1} $$</div>
@@ -809,7 +802,6 @@
 <p>where $C_2(R_2^2 - R_1^2)/(R_1^2R_2^2) = \Omega_1 - \Omega_2$ from (6) was used. It coincides with (15): the power supplied by the cylinders is dissipated in the liquid and leaves as heat through the two walls.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> $v_\theta = C_1r + C_2/r$ is a rigid rotation (the $C_1r$ term) plus an irrotational vortex (the $C_2/r$ term). Only the vortex part is sheared, with $\tau'_{r\theta} \propto 1/r^2$, so the stress is larger on the inner cylinder.</li><li><strong>Limits.</strong> For $\Omega_1 = \Omega_2 = \Omega$ the liquid rotates as a rigid body, $v_\theta = \Omega r$, $C_2 = 0$, the torques and the power vanish and $p - p(R_1) = \rho\Omega^2(r^2 - R_1^2)/2$. For $\Omega_2 = 0$ and $R_2 \to \infty$, $v_\theta = \Omega_1R_1^2/r$ and $\bar{M}_1 = -4\pi\mu\Omega_1R_1^2\,\bar{e}_z$, the viscous torque on a spinning cylinder in an unbounded liquid.</li><li><strong>Dimensional check.</strong> $v_\theta = C_1r + C_2/r$: $C_1$ has units 1/s and $C_2$ has units m$^2$/s. The torque per unit length $4\pi\mu C_2$ has units $(\mathrm{Pa\,s})(\mathrm{m^2/s}) = \mathrm{N}$, that is N m per metre of length. The power per unit length is N m/s per metre $=$ W/m. In (21), $\mu C_2^2/(kr^2)$ has units $(\mathrm{Pa\,s})(\mathrm{m^4/s^2})/[(\mathrm{W/(m\,K)})\,\mathrm{m^2}] = \mathrm{K}$.</li><li><strong>Role of the dissipation.</strong> If the viscous heating is negligible ($a \to 0$) the temperature is the purely logarithmic conduction profile between $T_1$ and $T_2$.</li></ul>
 </div>
@@ -836,16 +828,14 @@
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Incompressible liquid with constant $\rho$ and $\mu$; equations (4.40) and (4.41) in spherical coordinates $(r,\theta,\phi)$.</li><li>Spherical symmetry: $\bar{v} = v_r(r,t)\,\bar{e}_r$, $v_\theta = v_\phi = 0$, and $\partial/\partial\theta = \partial/\partial\phi = 0$.</li><li>Buoyancy-free: the mass force is neglected (or absorbed in the reduced pressure of Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=48" target="_blank" rel="noopener" title="Open Notes.pdf at page 48">4.13</a>).</li><li>Unsteady: the balloon radius changes with time, so $\partial/\partial t \neq 0$.</li><li>The liquid occupies $r &gt; R(t)$; far from the balloon it is at rest with pressure $p_\infty$.</li><li>Data: $[\rho,\ \mu,\ p_\infty,\ R(t)]$. Unknowns: $v_r(r,t)$, $p(r,t)$ and the inflation power $\dot{W}$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R(t)$, $\dot{R}$, $\ddot{R}$</td><td>balloon radius, its rate of change and acceleration</td><td>m, m/s, m/s$^2$</td></tr><tr><td>$\rho$, $\mu$</td><td>liquid density and viscosity</td><td>kg/m$^3$, Pa s</td></tr><tr><td>$p_\infty$</td><td>pressure far from the balloon</td><td>Pa</td></tr><tr><td>$\dot{W}$</td><td>power delivered to the liquid by the balloon</td><td>W</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Spherical frame $(r,\theta,\phi)$ centred on the balloon centre, which stays fixed; $\bar{e}_r$ points away from the centre.</li><li>Field form: $\bar{v} = v_r(r,t)\,\bar{e}_r$, $p = p(r,t)$.</li></ul>
 <div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Spherical balloon of radius R(t) expanding in an infinite liquid: radial velocity field v_r(r,t), liquid at rest with pressure p_inf far away, and the control volume used in the energy balance">
@@ -876,7 +866,6 @@
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = R(t)$</td><td>$v_r = \dot{R}$</td><td>the liquid in contact with the balloon moves with its surface (kinematic condition)</td></tr><tr><td>$r \to \infty$</td><td>$v_r \to 0$</td><td>liquid at rest far from the balloon</td></tr><tr><td>$r \to \infty$</td><td>$p \to p_\infty$</td><td>statement</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity and the radial velocity</h4>
 <div class="math-block">$$ \nabla\cdot\bar{v} = \frac{1}{r^2}\frac{\partial(r^2v_r)}{\partial r} + \underbrace{\cancel{\frac{1}{r\sin\theta}\frac{\partial(v_\theta\sin\theta)}{\partial\theta}}}_{v_\theta = 0} + \underbrace{\cancel{\frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial\phi}}}_{v_\phi = 0} = 0 \;\Longrightarrow\; r^2\,v_r = C(t) \tag{1} $$</div>
@@ -919,7 +908,6 @@
 <p>The work supplied by the balloon increases the kinetic energy of the liquid, displaces the ambient pressure $p_\infty$ and is partly converted into internal energy by viscous dissipation. This agrees with the mechanical energy balance (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=50" target="_blank" rel="noopener" title="Open Notes.pdf at page 50">4.24</a>) applied to the liquid volume between the balloon and a distant material sphere.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The velocity decays as $1/r^2$ because the volume flux $4\pi r^2v_r$ through every sphere equals the rate of volume growth of the balloon. The motion is irrotational, so viscosity does not enter the pressure field (6); it appears only in the boundary traction (8) and the power (10).</li><li><strong>Limits.</strong> For $r \to \infty$, $v_r \to 0$ and $p \to p_\infty$. For a balloon at constant radius ($\dot{R} = 0$) every term vanishes: no flow, $p = p_\infty$ and no power. For a constant inflation rate ($\ddot{R} = 0$) the pressure is above $p_\infty$ near the balloon, by the amount $\rho\dot{R}^2(3/2)$ at $r = R$.</li><li><strong>Dimensional check.</strong> $v_r$: $\mathrm{m^2\cdot m/s}/\mathrm{m^2} = \mathrm{m/s}$. In (6), $\rho R\dot{R}^2/r$ has units $(\mathrm{kg/m^3})(\mathrm{m^2/s^2}) = \mathrm{Pa}$ and $\rho R^2\ddot{R}/r$ has units $(\mathrm{kg/m^3})\,\mathrm{m^2}\,(\mathrm{m/s^2})/\mathrm{m} = \mathrm{Pa}$. In (10), $p_\infty\,4\pi R^2\dot{R}$ is Pa $\cdot\,\mathrm{m^3/s} = \mathrm{W}$ and $16\pi\mu R\dot{R}^2$ is $(\mathrm{Pa\,s})\,\mathrm{m}\,(\mathrm{m^2/s^2}) = \mathrm{W}$.</li><li><strong>Consistency.</strong> Equation (15) is verified term by term: (12) equals the second term of (10) and (14) equals the third, so the power computed from the surface traction equals the power accounted for inside the liquid.</li></ul>
 </div>
@@ -952,22 +940,19 @@
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady planar flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$): equations (4.40)-(4.42).</li><li>Infinite horizontal walls, gravity along $-\bar{e}_z$; no chemical reaction and no radiation ($Q_c = Q_r = 0$).</li><li>The velocity and temperature depend only on the distance $z$ to the lower wall: $\partial/\partial x = \partial/\partial y = 0$ for them. The pressure may depend on $x$ and $z$ until it is determined.</li><li>The walls are impermeable. The lower wall ($z = 0$) is at rest at $T_l$; the upper wall ($z = h$) moves with $U\,\bar{e}_x$ at $T_u$ and the pressure on it is $p_u$.</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ h,\ U,\ T_l,\ T_u,\ p_u,\ g]$. Unknowns: $v_x(z)$, $v_z(z)$, $p(x,z)$, $T(z)$, the flow rate, the wall force and power, the wall heat fluxes.</li><li>Degrees of freedom: two velocity components, pressure and temperature, each a function of $z$ (the pressure also of $x$).</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$h$</td><td>gap between the walls</td><td>m</td></tr><tr><td>$U$</td><td>velocity of the upper wall</td><td>m/s</td></tr><tr><td>$T_l$, $T_u$</td><td>temperatures of the lower and upper walls</td><td>K</td></tr><tr><td>$p_u$</td><td>pressure on the upper wall</td><td>Pa</td></tr><tr><td>$\rho$, $\mu$, $k$, $c$</td><td>density, viscosity, conductivity, specific heat</td><td>kg/m$^3$, Pa s, W/(m K), J/(kg K)</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cartesian frame $(x,y,z)$: $x$ along the walls in the direction of $U$, $z$ normal to the walls and upward from the lower wall, $y$ out of the plane. The basis is orthonormal and right-handed (no change of basis).</li><li>Field form: $\bar{v} = v_x(z)\,\bar{e}_x + v_z(z)\,\bar{e}_z$, $T = T(z)$, $p = p(x,z)$.</li><li>Fixed control volume $V_o$ of the figure: the box $0 &lt; z &lt; h$ of unit length in $x$ and unit width in $y$; its surfaces are the lower wall $\Sigma_l$ ($\bar{n} = -\bar{e}_z$), the upper wall $\Sigma_u$ ($\bar{n} = +\bar{e}_z$) and the two vertical faces $\Sigma_1$ ($\bar{n} = -\bar{e}_x$) and $\Sigma_2$ ($\bar{n} = +\bar{e}_x$).</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$z = 0$</td><td>$v_x = 0$, $v_z = 0$, $T = T_l$</td><td>lower wall at rest, impermeable</td></tr><tr><td>$z = h$</td><td>$v_x = U$, $v_z = 0$, $T = T_u$</td><td>upper wall moving, impermeable</td></tr><tr><td>$z = h$</td><td>$p = p_u$</td><td>statement</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity and the normal velocity</h4>
 <div class="math-block">$$ \frac{\partial v_x}{\partial x} + \frac{dv_z}{dz} = \underbrace{\cancel{\frac{\partial v_x}{\partial x}}}_{v_x = v_x(z)} + \frac{dv_z}{dz} = 0 \;\Longrightarrow\; v_z = \text{const} \tag{1} $$</div>
@@ -1016,7 +1001,6 @@
 <p>Equations (11), (15) and (17) show the whole chain: the power spent moving the upper wall, $\mu U^2/h$ per unit area, equals the viscous dissipation in the liquid and leaves the volume as the heat conducted to the two walls.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The pressure is hydrostatic and the velocity is linear: viscous forces alone transmit the motion. The dissipation $\phi_v = \mu U^2/h^2$ is uniform, and it heats the liquid; the parabolic term of (9) is the temperature rise it produces, with its maximum in the middle of the gap.</li><li><strong>Limits.</strong> For $U \to 0$ there is no flow and no dissipation: $T$ is the linear conduction profile between $T_l$ and $T_u$ and $q_u = -q_l = k(T_l - T_u)/h$. For $T_u = T_l$, the temperature is symmetric about $z = h/2$ and each wall receives $\mu U^2/(2h)$.</li><li><strong>Dimensional check.</strong> $\mu U/h$: $(\mathrm{Pa\,s})(\mathrm{m/s})/\mathrm{m} = \mathrm{Pa}$. $\mu U^2/h$: $\mathrm{Pa\cdot m/s} = \mathrm{W/m^2}$. In (9), $\mu U^2/(2k)$ has units $(\mathrm{Pa\,s})(\mathrm{m^2/s^2})/[\mathrm{W/(m\,K)}] = \mathrm{K}$.</li><li><strong>Mean velocity.</strong> From (7), $\bar{v} = Q/h = U/2$, half the wall velocity.</li></ul>
 </div>
@@ -1078,22 +1062,19 @@
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady motion of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$): equations (4.40)-(4.42) in cylindrical coordinates.</li><li>Axisymmetric ($\partial/\partial\theta = 0$) with $v_r = v_\theta = 0$ (given). Gravity acts along $-\bar{e}_z$, opposite to the motion of the cylinder.</li><li>The layer has uniform thickness $h$ and is far from its ends: the thickness does not change along $z$ (fully developed). No chemical reaction and no radiation.</li><li>The air exerts no pressure variation on the liquid and a negligible viscous force: at the free surface $r = a + h$, $p = p_a$ and the shear stress of the liquid is zero.</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ a,\ h,\ U,\ g,\ p_a,\ T_c]$. Notation: $b = a + h$, $\nu = \mu/\rho$. Unknowns: $v_z(r)$, $p$, the force, $Q$, $U_0$ (the $U$ with $Q = 0$), $T(r)$ and the wall heat flux.</li><li>Degrees of freedom: one velocity component, the pressure and the temperature, each function of $r$ (and $z$ for the pressure until it is determined).</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$a$, $h$, $b = a + h$</td><td>cylinder radius, layer thickness, outer radius of the layer</td><td>m</td></tr><tr><td>$U$</td><td>velocity of the cylinder (upward)</td><td>m/s</td></tr><tr><td>$p_a$</td><td>air pressure</td><td>Pa</td></tr><tr><td>$T_c$</td><td>cylinder temperature</td><td>K</td></tr><tr><td>$\rho$, $\mu$, $k$, $c$</td><td>liquid properties</td><td>kg/m$^3$, Pa s, W/(m K), J/(kg K)</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ with $z$ along the axis, upward (direction of $U$). The basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_z\}$ is orthonormal and right-handed.</li><li>Field form: $\bar{v} = v_z\,\bar{e}_z$, $p = p(r,z)$, $T = T(r)$. The liquid occupies $a &lt; r &lt; b$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = a$</td><td>$v_z = U$</td><td>no-slip on the moving cylinder</td></tr><tr><td>$r = b$</td><td>$\tau'_{rz} = \mu\,\partial v_z/\partial r = 0$</td><td>negligible viscous force of the air</td></tr><tr><td>$r = b$</td><td>$p = p_a$</td><td>no significant pressure differences in the air</td></tr><tr><td>$r = a$</td><td>$T = T_c$</td><td>uniform temperature of the cylinder</td></tr><tr><td>$r = b$</td><td>$\partial T/\partial r = 0$</td><td>conductivity of the air much smaller than $k$: adiabatic free surface</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity</h4>
 <div class="math-block">$$ \frac{1}{r}\frac{\partial(rv_r)}{\partial r} + \frac{1}{r}\frac{\partial v_\theta}{\partial\theta} + \frac{\partial v_z}{\partial z} = \underbrace{\cancel{\frac{1}{r}\frac{\partial(rv_r)}{\partial r}}}_{v_r = 0} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{v_\theta = 0} + \frac{\partial v_z}{\partial z} = 0 \;\Longrightarrow\; \frac{\partial v_z}{\partial z} = 0 \tag{1} $$</div>
@@ -1141,7 +1122,6 @@
 <p>*Check.* The outer surface is adiabatic, so all the viscous heating generated in the layer must leave through the wall: $\dot{Q}_w = \int_a^b\phi_v\,2\pi r\,dr$. Evaluating both sides numerically for $\rho = 1000$ kg/m$^3$, $\mu = 0.1$ Pa s, $k = 0.6$ W/(m K), $a = 20$ mm, $h = 5$ mm, $U = 0.7$ m/s and $g = 9.81$ m/s$^2$ gives the same value, $6.344$ W/m, to the precision of the integration.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The velocity decreases from $U$ at the wall; the shear stress is largest at the wall and zero at the free surface. The cylinder must support the weight of the layer, which is what (9) says. The pressure plays no role because the free surface is at $p_a$ and the layer is fully developed.</li><li><strong>Limits.</strong> For $h \ll a$ the layer behaves as a flat film: (11) tends to $Q \simeq 2\pi a\left(Uh - gh^3/(3\nu)\right)$ and (12) to $U_0 \simeq gh^2/(3\nu)$. For $h \to 0$ the force and the flux vanish. For $g \to 0$ the profile is uniform, $v_z = U$.</li><li><strong>Dimensional check.</strong> $g/\nu$ has units $(\mathrm{m/s^2})/(\mathrm{m^2/s}) = 1/(\mathrm{m\,s})$; in (7) $(g/\nu)\,r^2$ has units m/s. The force per unit length $\rho g\pi b^2$ has units $(\mathrm{kg/m^3})(\mathrm{m/s^2})\,\mathrm{m^2} = \mathrm{N/m}$. In (16), $\Lambda r^4 = \rho^2g^2r^4/(\mu k)$ has units $(\mathrm{kg^2\,s^{-4}})/(\mathrm{kg^2\,s^{-4}\,K^{-1}}) = \mathrm{K}$, with $\mu k$ in $(\mathrm{kg\,m^{-1}s^{-1}})(\mathrm{kg\,m\,s^{-3}K^{-1}})$.</li><li><strong>Heat balance.</strong> The wall heat flux (17) equals the viscous dissipation of the layer (per unit area of the wall), because no heat leaves through the free surface.</li></ul>
 </div>
@@ -1172,22 +1152,19 @@
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady, spherically symmetric flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$): $\bar{v} = v_r(r)\,\bar{e}_r$, $v_\theta = v_\phi = 0$, $\partial/\partial\theta = \partial/\partial\phi = \partial/\partial t = 0$.</li><li>Buoyancy-free: the mass force is neglected. No chemical reaction and no radiation. The temperature depends only on $r$.</li><li>Suction: the porous sphere takes liquid in at the rate $4\pi a^2V_o$, with $V_o &gt; 0$. Far from the sphere the liquid is at rest at $p_\infty$ and $T_\infty$.</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ a,\ V_o,\ T_s,\ T_\infty,\ p_\infty,\ r_i]$ with $T_s &lt; T_\infty$. Unknowns: $v_r(r)$, $r(t)$, $t_i$, $p(r)$, $T(r)$ and the heat rate to the sphere.</li><li>Dimensionless numbers used: the suction Péclet number $\mathrm{Pe} = \rho c a V_o/k$ and the length $\beta = \rho c a^2V_o/k = a\,\mathrm{Pe}$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$a$</td><td>sphere radius</td><td>m</td></tr><tr><td>$V_o$</td><td>suction velocity at the sphere surface</td><td>m/s</td></tr><tr><td>$r_i$, $t_i$</td><td>initial position of the particle, time to reach the sphere</td><td>m, s</td></tr><tr><td>$T_s$, $T_\infty$</td><td>sphere and ambient temperatures</td><td>K</td></tr><tr><td>$\mathrm{Pe}$, $\beta$</td><td>suction Péclet number, length $\beta = a\,\mathrm{Pe}$</td><td>1, m</td></tr><tr><td>$\Delta T_d = 12\mu V_o/(\rho c a)$</td><td>temperature scale of the viscous heating</td><td>K</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Spherical frame $(r,\theta,\phi)$ centred on the sphere; $\bar{e}_r$ points away from the centre; the liquid occupies $r &gt; a$.</li><li>Field form: $\bar{v} = v_r(r)\,\bar{e}_r$, $p = p(r)$, $T = T(r)$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = a$</td><td>$v_r = -V_o$</td><td>suction through the porous surface</td></tr><tr><td>$r \to \infty$</td><td>$p \to p_\infty$</td><td>statement</td></tr><tr><td>$r = a$</td><td>$T = T_s$</td><td>temperature of the sphere</td></tr><tr><td>$r \to \infty$</td><td>$T \to T_\infty$</td><td>ambient temperature</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity and the radial velocity</h4>
 <div class="math-block">$$ \frac{1}{r^2}\frac{d(r^2v_r)}{dr} = 0 \;\Longrightarrow\; r^2v_r = \text{const} = -a^2V_o \tag{1} $$</div>
@@ -1229,7 +1206,6 @@
 <div class="math-block">$$ \boxed{\,\dot{Q}_s = \frac{4\pi\rho c\,a^2V_o\left[T_\infty - T_s + T_p(a)\right]}{1 - e^{-\mathrm{Pe}}} - 4\pi a\,k\,\Delta T_d\left(1 + \frac{2}{\mathrm{Pe}} + \frac{2}{\mathrm{Pe}^2}\right)\,} \tag{14} $$</div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The suction brings ambient liquid at $T_\infty$ towards the cold sphere, which compresses the thermal layer against the surface: $\beta = a\,\mathrm{Pe}$ is the length over which convection and conduction compete. Unlike the cylinder of NS9, the sphere has a regular solution for blowing too: for $V_o &lt; 0$ the exponent $\mathrm{Pe}\,a/r$ changes sign but $e^{\mathrm{Pe}\,a/r} \to 1$ at infinity, so (12) still holds.</li><li><strong>Limits.</strong> For negligible dissipation ($\Delta T_d \to 0$): $\dot{Q}_s = 4\pi\rho ca^2V_o\,(T_\infty - T_s)/(1 - e^{-\mathrm{Pe}})$. For $\mathrm{Pe} \gg 1$ this is $\dot{m}\,c\,(T_\infty - T_s)$ with $\dot{m} = 4\pi\rho a^2V_o$ the sucked mass flow: the sphere only has to cool the liquid it takes in. For $\mathrm{Pe} \to 0$ it tends to $4\pi a k\,(T_\infty - T_s)$, pure conduction to a sphere in an unbounded medium.</li><li><strong>Dimensional check.</strong> $a^2V_o/r^2$ is a velocity. $\rho v_r^2$ in (6) is a pressure. $\beta = \rho ca^2V_o/k$ has units $(\mathrm{J/(m^3K)})\,\mathrm{m^3/s}/(\mathrm{W/(m\,K)}) = \mathrm{m}$. $\Delta T_d = 12\mu V_o/(\rho ca)$ has units $\mathrm{Pa\,s\cdot m/s}/[(\mathrm{Pa/K})\,\mathrm{m}] = \mathrm{K}$. $\dot{Q}_s$ in (14): $\rho ca^2V_o\,\Delta T$ has units $(\mathrm{Pa/K})\,\mathrm{m^3/s}\cdot\mathrm{K} = \mathrm{W}$.</li><li><strong>Check of (11).</strong> Differentiating the three terms of (11) and substituting in (9) reproduces $-\Gamma/r^4$ term by term, as written in 3.4.</li></ul>
 </div>
@@ -1349,22 +1325,19 @@
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady planar flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$): equations (4.40)-(4.42).</li><li>The fields depend only on the distance $y$ to the plane: $\partial/\partial x = 0$ for $v_x$, $v_y$ and $T$. The pressure is determined below.</li><li>The plane is impermeable and fixed; the liquid layer has uniform thickness $h$; no chemical reaction and no radiation.</li><li>The air exerts no pressure variation and a negligible viscous force on the liquid, and its thermal conductivity is negligible: at the free surface $y = h$, $p = p_a$, $\tau'_{xy} = 0$ and $\partial T/\partial y = 0$.</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ h,\ \alpha,\ g,\ p_a,\ T_w]$. Unknowns: $v_y$, $p(x,y)$, $v_x(y)$, the wall force, $T(y)$, the wall heat flux and the three energy integrals.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$h$</td><td>layer thickness</td><td>m</td></tr><tr><td>$\alpha$</td><td>inclination of the plane</td><td>rad</td></tr><tr><td>$g\sin\alpha$, $g\cos\alpha$</td><td>components of gravity along and normal to the plane</td><td>m/s$^2$</td></tr><tr><td>$p_a$, $T_w$</td><td>air pressure, wall temperature</td><td>Pa, K</td></tr><tr><td>$\rho$, $\mu$, $k$, $c$</td><td>liquid properties</td><td>kg/m$^3$, Pa s, W/(m K), J/(kg K)</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cartesian frame $(x,y,z)$ attached to the plane: $x$ down the slope, $y$ normal to the plane and into the liquid, $z$ out of the plane; the basis is orthonormal and right-handed. Gravity has the components $g_x = g\sin\alpha$, $g_y = -g\cos\alpha$. The frame is rotated by $\alpha$ with respect to the horizontal-vertical frame; the rotation matrix between them is orthogonal with determinant $1$, since $\bar{e}_x = (\cos\alpha, -\sin\alpha)$ and $\bar{e}_y = (\sin\alpha, \cos\alpha)$ in horizontal-vertical components.</li><li>Field form: $\bar{v} = v_x(y)\,\bar{e}_x + v_y(y)\,\bar{e}_y$, $T = T(y)$, $p = p(x,y)$.</li><li>Fixed control volume $V_o$ of the figure: $0 &lt; y &lt; h$, unit length in $x$ and unit width; surfaces: the wall $\Sigma_w$ ($\bar{n} = -\bar{e}_y$), the free surface $\Sigma_s$ ($\bar{n} = +\bar{e}_y$) and the two faces normal to $x$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$y = 0$</td><td>$v_x = 0$, $v_y = 0$, $T = T_w$</td><td>fixed impermeable wall at $T_w$</td></tr><tr><td>$y = h$</td><td>$p = p_a$</td><td>no pressure variations in the air</td></tr><tr><td>$y = h$</td><td>$\tau'_{xy} = \mu\,dv_x/dy = 0$</td><td>negligible viscous force of the air</td></tr><tr><td>$y = h$</td><td>$dT/dy = 0$</td><td>$k_a \ll k$: adiabatic free surface</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity</h4>
 <div class="math-block">$$ \frac{\partial v_x}{\partial x} + \frac{dv_y}{dy} = \underbrace{\cancel{\frac{\partial v_x}{\partial x}}}_{v_x = v_x(y)} + \frac{dv_y}{dy} = 0 \;\Longrightarrow\; v_y = \text{const} \tag{1} $$</div>
@@ -1404,7 +1377,6 @@
 <p>Equations (10), (11) and (12) confirm it. The work of gravity on the liquid is entirely dissipated by viscosity and leaves through the wall as heat; the kinetic energy of the liquid in $V_o$ does not change.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The profile (6) is half a parabola: the weight component along the slope is balanced by the shear on the wall, $\tau_w = \rho gh\sin\alpha$, and the pressure is hydrostatic with the normal component of gravity. The wall carries the weight component normal to the plane as pressure.</li><li><strong>Limits.</strong> For $\alpha = 0$ the plane is horizontal and nothing drives the flow: $v_x = 0$, no dissipation, no heat flux. For $\alpha = 90^\circ$ (vertical wall) the pressure is uniform and equal to $p_a$ and the shear equals the weight of the layer per unit area. The mean velocity is $\bar{v} = gh^2\sin\alpha/(3\nu)$ (flux $Q = \int_0^hv_x\,dy = gh^3\sin\alpha/(3\nu)$).</li><li><strong>Dimensional check.</strong> $gh^2/\nu$ has units $(\mathrm{m/s^2})\,\mathrm{m^2}/(\mathrm{m^2/s}) = \mathrm{m/s}$. $\rho gh\sin\alpha$ is a pressure. $(\rho g)^2h^3/\mu$ has units $(\mathrm{N/m^3})^2\,\mathrm{m^3}/(\mathrm{Pa\,s}) = \mathrm{N^2\,m^{-3}}/(\mathrm{N\,m^{-2}\,s}) = \mathrm{N/(m\,s)} = \mathrm{W/m^2}$. In (9), $(\rho g)^2h^4/(\mu k)$ has units $\mathrm{K}$.</li><li><strong>Frame check.</strong> With $\bar{e}_X$ horizontal (towards the descending side) and $\bar{e}_Z$ vertical upward, $\bar{e}_x = \cos\alpha\,\bar{e}_X - \sin\alpha\,\bar{e}_Z$ and $\bar{e}_y = \sin\alpha\,\bar{e}_X + \cos\alpha\,\bar{e}_Z$. The matrix of components has $\det R = \cos^2\alpha + \sin^2\alpha = 1$ and $R\,R^T = I$. Then $\bar{g}\cdot\bar{e}_x = (-g\,\bar{e}_Z)\cdot\bar{e}_x = g\sin\alpha$ and $\bar{g}\cdot\bar{e}_y = -g\cos\alpha$, the components given in the statement.</li></ul>
 </div>
@@ -1498,22 +1470,19 @@
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady, axisymmetric flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$) around an infinitely long cylinder: the fields depend only on $r$, $\partial/\partial\theta = \partial/\partial z = \partial/\partial t = 0$, with $v_\theta = 0$. Gravity is neglected; no chemical reaction and no radiation; viscous dissipation is neglected in the temperature equation (item 6).</li><li>The cylinder surface is porous: it entrains liquid with $v_r(R) = -V$, $V &gt; 0$, and moves axially with velocity $U$.</li><li>Far from the cylinder the liquid is at rest at $p_\infty$ and $T_\infty$.</li><li>Data: $[\rho,\ \mu,\ c,\ k,\ R,\ U,\ V,\ p_\infty,\ T_c,\ T_\infty,\ r_o]$ with $T_\infty &gt; T_c$. Unknowns: $v_r(r)$, $p(r)$, $v_z(r)$, the force, the particle trajectory, $T(r)$ and the heat rate.</li><li>Dimensionless numbers: the suction Reynolds number $\mathrm{Re} = \rho VR/\mu$ and the Prandtl number $\mathrm{Pr} = \mu c/k$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R$</td><td>cylinder radius</td><td>m</td></tr><tr><td>$U$</td><td>axial velocity of the cylinder</td><td>m/s</td></tr><tr><td>$V$</td><td>suction velocity</td><td>m/s</td></tr><tr><td>$\mathrm{Re}$, $\mathrm{Pr}$</td><td>suction Reynolds number, Prandtl number</td><td>1</td></tr><tr><td>$T_c$, $T_\infty$</td><td>cylinder and ambient temperatures</td><td>K</td></tr><tr><td>$r_o$</td><td>initial radius of the fluid particle</td><td>m</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ with $z$ along the axis in the direction of $U$; the basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_z\}$ is orthonormal and right-handed. The liquid occupies $r &gt; R$.</li><li>Field form: $\bar{v} = v_r(r)\,\bar{e}_r + v_z(r)\,\bar{e}_z$, $p = p(r)$, $T = T(r)$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = R$</td><td>$v_r = -V$</td><td>suction through the porous surface</td></tr><tr><td>$r = R$</td><td>$v_z = U$</td><td>liquid in contact with the surface moves with the cylinder (no-slip)</td></tr><tr><td>$r \to \infty$</td><td>$v_z \to 0$, $p \to p_\infty$, $T \to T_\infty$</td><td>liquid at rest far away</td></tr><tr><td>$r = R$</td><td>$T = T_c$</td><td>uniform temperature of the cylinder</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity and the radial velocity</h4>
 <div class="math-block">$$ \frac{1}{r}\frac{d(rv_r)}{dr} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{v_\theta = 0} + \underbrace{\cancel{\frac{\partial v_z}{\partial z}}}_{\partial_z = 0} = 0 \;\Longrightarrow\; r\,v_r = \text{const} = -RV \tag{1} $$</div>
@@ -1560,7 +1529,6 @@
 <div class="math-block">$$ \boxed{\,\dot{Q} = 2\pi R\,\rho\,c\,V\,(T_\infty - T_c)\,} \tag{17} $$</div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The suction squeezes the momentum and thermal layers against the cylinder: the velocity decays as $r^{-\mathrm{Re}}$ and the temperature excess as $r^{-\mathrm{Pr}\,\mathrm{Re}}$, with the scales $R/\mathrm{Re}$ and $R/(\mathrm{Pr}\,\mathrm{Re})$ close to the wall for $\mathrm{Re} \gg 1$. The thermal layer is thinner than the viscous one when $\mathrm{Pr} &gt; 1$.</li><li><strong>Limits.</strong> For $V \to 0$ ($\mathrm{Re} \to 0$) the exponent vanishes and (8) tends to the uniform velocity $U$, which does not decay at infinity: a steady solution that vanishes far away needs the suction. For $U = 0$ there is no axial motion, the force vanishes and (17) remains: the heat is carried by the entrained liquid.</li><li><strong>Dimensional check.</strong> $\mathrm{Re} = \rho VR/\mu$ is dimensionless: $(\mathrm{kg/m^3})(\mathrm{m/s})\,\mathrm{m}/(\mathrm{Pa\,s}) = 1$. $\rho VU$ in (9) has units $\mathrm{kg/(m^2\,s)}\cdot\mathrm{m/s} = \mathrm{N/m^2}$, and the force per unit length (10) has units N/m. In (17), $\rho cV\,\Delta T$ is W/m$^2$, times $2\pi R$: W/m.</li><li><strong>Momentum check.</strong> On a cylindrical surface of any radius $r$ the axial momentum flux is $2\pi r\,\rho v_rv_z = -2\pi\rho RV\,v_z(r)$ and the viscous force is $2\pi r\,\mu\,dv_z/dr = -2\pi\mu\,\mathrm{Re}\,v_z(r) = -2\pi\rho RV\,v_z(r)$, using $r\,dv_z/dr = -\mathrm{Re}\,v_z$ from (8): the two are equal at every $r$, and at $r = R$ the viscous force is (10).</li></ul>
 </div>
@@ -1595,16 +1563,14 @@
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady, buoyancy-free flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$) around an infinitely long cylinder: the fields depend only on $r$ ($\partial/\partial\theta = \partial/\partial z = \partial/\partial t = 0$) and $v_\theta = 0$. No chemical reaction and no radiation.</li><li>The wall is porous: it sucks in the volume flow $q = 2\pi RV_w$ per unit length, uniformly, so $v_r(R) = -V_w$ with $V_w &gt; 0$, and it moves axially with $U_w$.</li><li>Far from the cylinder the liquid is at rest at $p_\infty$ and $T_\infty$.</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ R,\ U_w,\ V_w,\ p_\infty,\ T_\infty,\ T_w,\ R_i,\ z_i]$. Unknowns: $v_r$, $p$, $v_z$, the trajectory and $t_s$, the force, $T(r)$ and $q_w$.</li><li>Dimensionless numbers: the suction Reynolds number $\mathrm{Re} = \rho V_wR/\mu = \rho q/(2\pi\mu)$, the Prandtl number $\mathrm{Pr} = \mu c/k$ and the product $\Pi = \mathrm{Pr}\,\mathrm{Re} = \rho cV_wR/k$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R$</td><td>cylinder radius</td><td>m</td></tr><tr><td>$U_w$, $V_w$</td><td>axial velocity of the cylinder, suction velocity</td><td>m/s</td></tr><tr><td>$q = 2\pi RV_w$</td><td>suction flow rate per unit length</td><td>m$^2$/s</td></tr><tr><td>$\mathrm{Re}$, $\mathrm{Pr}$, $\Pi$</td><td>suction Reynolds number, Prandtl number, their product</td><td>1</td></tr><tr><td>$T_w$, $T_\infty$</td><td>wall and ambient temperatures</td><td>K</td></tr><tr><td>$R_i$, $z_i$</td><td>initial radial and axial position of the particle</td><td>m</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ with $z$ along the axis of the cylinder; the basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_z\}$ is orthonormal and right-handed. The liquid occupies $r &gt; R$.</li><li>Field form: $\bar{v} = v_r(r)\,\bar{e}_r + v_z(r)\,\bar{e}_z$, $p = p(r,z)$ until determined, $T = T(r)$.</li></ul>
 <div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="Infinitely long porous cylinder moving axially with velocity U_w while liquid is sucked through its wall with velocity V_w, with the fluid at rest at pressure p_inf and temperature T_inf far away, wall temperature T_w and axes r, z">
@@ -1671,7 +1637,6 @@
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = R$</td><td>$v_r = -V_w$</td><td>uniform suction through the porous wall</td></tr><tr><td>$r = R$</td><td>$v_z = U_w$</td><td>no-slip on the moving cylinder</td></tr><tr><td>$r \to \infty$</td><td>$v_z \to 0$, $p \to p_\infty$, $T \to T_\infty$</td><td>fluid at rest far away</td></tr><tr><td>$r = R$</td><td>$T = T_w$</td><td>uniform wall temperature</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity (item 1)</h4>
 <div class="math-block">$$ \frac{1}{r}\frac{d(rv_r)}{dr} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{v_\theta = 0} + \underbrace{\cancel{\frac{\partial v_z}{\partial z}}}_{\partial_z = 0} = 0 \;\Longrightarrow\; r\,v_r = \text{const} = -RV_w \;\Longrightarrow\; \boxed{\,v_r(r) = -\frac{RV_w}{r} = -\frac{q}{2\pi r}\,} \tag{1} $$</div>
@@ -1720,7 +1685,6 @@
 <p>If the liquid is blown, $V_w &lt; 0$ and $\mathrm{Re} &lt; 0$. Continuity still gives $v_r = -RV_w/r = R\lvert V_w\rvert/r &gt; 0$, and the equation for $v_z$ is (4) with $\mathrm{Re} &lt; 0$: $v_z = C_1 + C_2\,r^{\lvert\mathrm{Re}\rvert}$. The condition $v_z \to 0$ for $r \to \infty$ requires $C_2 = 0$ (the power grows) and then $C_1 = 0$, so $v_z(R) = U_w$ cannot be satisfied unless $U_w = 0$. Likewise $T = B + D\,r^{-\Pi}$ with $\Pi &lt; 0$ is unbounded unless $D = 0$, which cannot satisfy $T(R) = T_w \neq T_\infty$. Therefore there is no steady solution with the fluid at rest and at $T_\infty$ far away: the blown liquid carries momentum and heat outward and they cannot be balanced by diffusion towards the cylinder.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> Suction confines the axial momentum to a layer of thickness of order $R/\mathrm{Re}$ and the thermal layer to $R/\Pi$: the thermal layer is thinner than the momentum layer when $\mathrm{Pr} &gt; 1$. The cylinder pays for the entrained momentum with the force (8), and the wall receives the enthalpy, kinetic-energy and viscous-heating terms of (13).</li><li><strong>Limits.</strong> For $U_w = 0$, $a_2 = 0$ and $E$ contains only $a_1$; for negligible dissipation ($a_1 = a_2 = 0$) the solution is $T = T_\infty + (T_w - T_\infty)(R/r)^{\Pi}$ and $q_w = 2\pi R\rho cV_w(T_\infty - T_w)$, the result of NS8. For $V_w \to 0$ the axial profile is uniform and there is no steady solution that vanishes at infinity.</li><li><strong>Dimensional check.</strong> $\mathrm{Re} = \rho V_wR/\mu$ is dimensionless. $\rho V_wU_w$ has units N/m$^2$. $a_1$ and $a_2$ have units $\mathrm{Pr}\,V_w^2/c = \mathrm{m^2/s^2}/(\mathrm{J/(kg\,K)}) = \mathrm{K}$. In (13) every term is W/m: $\rho RV_wc\,\Delta T = (\mathrm{kg/m^3})\,\mathrm{m\cdot m/s\cdot J/(kg\,K)\cdot K} = \mathrm{W/m}$ and $\mu V_w^2 = (\mathrm{Pa\,s})(\mathrm{m^2/s^2}) = \mathrm{W/m}$.</li><li><strong>Energy check.</strong> A steady total-energy balance on the liquid between the wall and infinity gives the same result (13): the energy flux $\rho q\,cT_\infty$ and the pressure work $p_\infty q$ enter at infinity, and the viscous stresses at the wall do the work $4\pi\mu V_w^2 + \rho q\,U_w^2$ on the liquid (from $\tau'_{rr}(R) = 2\mu V_w/R$ and $\tau'_{rz}(R) = -\rho V_wU_w$); through the wall leave $\rho q\,[cT_w + (U_w^2 + V_w^2)/2]$, the pressure work $p(R)\,q$ with $p(R) = p_\infty - \rho V_w^2/2$, and the heat $q_w$. Hence $\rho q\,cT_\infty + p_\infty q + 4\pi\mu V_w^2 + \rho qU_w^2 = \rho q\,[cT_w + (U_w^2 + V_w^2)/2] + p(R)\,q + q_w$; the radial kinetic energy cancels against $(p_\infty - p(R))\,q = \rho qV_w^2/2$, and what remains is (13).</li></ul>
 </div>
@@ -1758,16 +1722,14 @@ Provide an explicit approximation for $\tau_{\max}$ in the limit $\Lambda \ll 1$
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Incompressible liquid with constant $\rho$ and $\mu$, spherically symmetric flow $\bar{v} = v_r(r,t)\,\bar{e}_r$ in $r &gt; R_c(t)$, gravity neglected. Equations (4.40) and (4.41) in spherical coordinates.</li><li>The cavity gas pressure is neglected compared with $p_\infty$: the liquid has no traction applied at the cavity wall (null stress). The liquid is at rest and at $p_\infty$ far away.</li><li>Initial conditions: $R_c(0) = R_0$, $\dot{R}_c(0) = V_0$.</li><li>Data: $[\rho,\ \mu,\ p_\infty,\ R_0,\ V_0]$. Unknowns: $v_r$, $p$, $p_R(t)$, the ODE for $R_c(t)$ and its non-dimensional limits.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R_c(t)$, $\dot{R}_c$, $\ddot{R}_c$</td><td>cavity radius, velocity and acceleration</td><td>m, m/s, m/s$^2$</td></tr><tr><td>$R_0$, $V_0$</td><td>initial radius and initial expansion velocity</td><td>m, m/s</td></tr><tr><td>$p_R(t)$</td><td>liquid pressure at the cavity wall</td><td>Pa</td></tr><tr><td>$\mathrm{Re} = \rho V_0R_0/\mu$, $\Lambda = p_\infty/(\rho V_0^2)$</td><td>dimensionless parameters</td><td>1</td></tr><tr><td>$R = R_c/R_0$, $\tau = tV_0/R_0$</td><td>dimensionless radius and time</td><td>1</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Spherical frame $(r,\theta,\phi)$ centred on the cavity centre, fixed; the liquid occupies $r &gt; R_c(t)$. The basis is orthonormal and right-handed.</li><li>Field form: $\bar{v} = v_r(r,t)\,\bar{e}_r$, $p = p(r,t)$.</li></ul>
 <div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 596 320" width="100%" class="fig-kit" style="max-width:596px;margin:0 auto;display:block" role="img" aria-label="Spherical cavity of radius R_c(t) expanding in the ocean with initial radius R_0 and initial radial velocity V_0, liquid at rest with pressure p_inf far away">
@@ -1797,7 +1759,6 @@ Provide an explicit approximation for $\tau_{\max}$ in the limit $\Lambda \ll 1$
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = R_c(t)$</td><td>$v_r = \dot{R}_c$</td><td>the liquid at the cavity wall moves with it</td></tr><tr><td>$r \to \infty$</td><td>$v_r \to 0$, $p \to p_\infty$</td><td>liquid at rest far away</td></tr><tr><td>$r = R_c(t)$</td><td>$\bar{\bar{\tau}}\cdot\bar{n} = 0$, $\bar{n} = \bar{e}_r$</td><td>cavity pressure neglected, no traction</td></tr><tr><td>$t = 0$</td><td>$R_c = R_0$, $\dot{R}_c = V_0$</td><td>statement</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Velocity and irrotationality (item 1)</h4>
 <div class="math-block">$$ \frac{1}{r^2}\frac{\partial(r^2v_r)}{\partial r} = 0 \;\Longrightarrow\; r^2v_r = A(t), \qquad v_r(R_c,t) = \dot{R}_c \;\Longrightarrow\; A(t) = R_c^2\dot{R}_c \tag{1} $$</div>
@@ -1850,7 +1811,6 @@ Provide an explicit approximation for $\tau_{\max}$ in the limit $\Lambda \ll 1$
 <p>It is not possible to satisfy both initial conditions: a first-order ODE admits only one, and (19) has $R'(0) = -\Lambda\mathrm{Re}/4 \neq 1$. The approximation is valid only after an initial transient, of duration of the order of $\mathrm{Re}$ in $\tau$, during which the inertial terms $R\,R'' + \tfrac{3}{2}R'^2$ cannot be neglected and the initial velocity is dissipated by viscosity. In this limit the ambient pressure $p_\infty$ crushes the cavity, which then collapses exponentially instead of expanding.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> (6) is the Rayleigh equation for the cavity with the viscous correction (8): the cavity decelerates because of the ambient pressure $p_\infty$ (term $\Lambda$) and the viscous normal stress (term $4/(\mathrm{Re}\,R)$). For $\mathrm{Re} \to \infty$ the cavity stops at $R_{\max}$ and then collapses; for $\mathrm{Re} \to 0$ viscosity dominates.</li><li><strong>Limits.</strong> For $\Lambda \to 0$ the right-hand side of (13) is $R^{-3/2}$ with no stopping point: the cavity expands for ever in the inviscid, pressureless case. For $\Lambda \to \infty$, $R_{\max} \to 1$: the cavity cannot expand.</li><li><strong>Dimensional check.</strong> $R_c\ddot{R}_c$ and $\dot{R}_c^2$ have units $\mathrm{m^2/s^2}$, as does $p_\infty/\rho$ (Pa/(kg/m$^3$)). $4\nu\dot{R}_c/R_c$ has units $(\mathrm{m^2/s})(\mathrm{m/s})/\mathrm{m} = \mathrm{m^2/s^2}$. $\mathrm{Re}$ and $\Lambda$ are dimensionless. $p_R = -4\mu\dot{R}_c/R_c$ has units Pa.</li><li><strong>Consistency.</strong> At $R = 1$ the bracket of (13) equals $1$ for every $\Lambda$, so $R'(0) = 1$: the solution keeps the initial velocity $V_0$.</li></ul>
 </div>
@@ -1886,22 +1846,19 @@ Provide an explicit approximation for $\tau_{\max}$ in the limit $\Lambda \ll 1$
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady planar flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$) between two porous plates, with $\partial/\partial x = \partial/\partial z = \partial/\partial t = 0$ for the velocity. Gravity neglected; no chemical reaction and no radiation.</li><li>The lower wall ($y = 0$) is at rest at $T_l$ and injects the liquid with the uniform normal velocity $v_l &gt; 0$; the upper wall ($y = h$) moves with $U\bar{e}_x$ at $T_u$ and the pressure on it is $p_u$. The tangential velocity of the liquid equals that of each wall (no-slip).</li><li>Data: $(\rho,\ \mu,\ k,\ c,\ h,\ U,\ v_l,\ p_u,\ T_l,\ T_u)$. Unknowns: $v_u$, $v(y)$, $p$, $u(y)$, $Q$, the pathline, the wall forces, $T(y)$ and the wall heat fluxes.</li><li>Dimensionless numbers: $\mathrm{Re} = \rho v_lh/\mu$ and $\mathrm{Pr} = \mu c/k$, so that $\rho cv_lh/k = \mathrm{Re}\,\mathrm{Pr}$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$h$</td><td>gap between the plates</td><td>m</td></tr><tr><td>$U$</td><td>velocity of the upper wall</td><td>m/s</td></tr><tr><td>$v_l$, $v_u$</td><td>injection and removal velocities</td><td>m/s</td></tr><tr><td>$p_u$</td><td>pressure on the upper wall</td><td>Pa</td></tr><tr><td>$T_l$, $T_u$</td><td>wall temperatures</td><td>K</td></tr><tr><td>$\mathrm{Re}$, $\mathrm{Pr}$</td><td>injection Reynolds number, Prandtl number</td><td>1</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cartesian frame $(x,y,z)$: $x$ along the plates in the direction of $U$, $y$ normal to the plates and upward from the lower wall, $z$ spanwise. The basis is orthonormal and right-handed (no change of basis).</li><li>Field form: $\bar{v} = u(y)\,\bar{e}_x + v(y)\,\bar{e}_y$, $T = T(y)$, $p = p(x,y)$.</li><li>Control volume for item 8: the box $0 &lt; y &lt; h$ and width $\Delta x$ in $x$ (unit spanwise length); surfaces: the lower wall $\Sigma_l$ ($\bar{n} = -\bar{e}_y$), the upper wall $\Sigma_u$ ($\bar{n} = +\bar{e}_y$) and the two faces $\Sigma_1$, $\Sigma_2$ ($\bar{n} = \mp\bar{e}_x$).</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$y = 0$</td><td>$u = 0$, $v = v_l$, $T = T_l$</td><td>lower wall at rest, injection</td></tr><tr><td>$y = h$</td><td>$u = U$, $v = v_u$, $T = T_u$</td><td>upper wall moving, removal</td></tr><tr><td>$y = h$</td><td>$p = p_u$</td><td>statement</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity: $v_u$ and $v(y)$ (item 1)</h4>
 <div class="math-block">$$ \underbrace{\cancel{\frac{\partial u}{\partial x}}}_{\partial_x = 0} + \frac{dv}{dy} = 0 \;\Longrightarrow\; v = \text{const} \tag{1} $$</div>
@@ -1958,7 +1915,6 @@ Provide an explicit approximation for $\tau_{\max}$ in the limit $\Lambda \ll 1$
 <p>which agrees with (17): the heat conducted into the liquid through the two walls, $-(q_u + q_l) = \rho cv_l(T_u - T_l)$, equals the net internal-energy flux convected across the control volume.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The injection convects momentum and heat across the channel: for $\mathrm{Re} &gt; 0$ the profiles are exponential, with the velocity gradient concentrated near the upper wall (towards which the liquid is carried), and the thermal profile has the same form with $\mathrm{Re}\,\mathrm{Pr}$.</li><li><strong>Limits.</strong> For $\mathrm{Re} \to 0$: $u = Uy/h$, $Q = Uh/2$, $\bar{f}_l = -\bar{f}_u = \mu U/h\,\bar{e}_x$ and the temperature is linear (Couette flow with conduction). For $\mathrm{Re} \gg 1$, $u \simeq U\,e^{\mathrm{Re}\,(y - h)/h}$: the horizontal velocity is confined to a layer of thickness $h/\mathrm{Re}$ at the upper wall and $Q \simeq Uh/\mathrm{Re} \to 0$, since the injected liquid, which starts at rest, is swept to the upper wall before it can be dragged.</li><li><strong>Dimensional check.</strong> $\rho v_lh/\mu$ is dimensionless; $Uh$ has units of a flux per unit span, m$^2$/s; $\mu U\,\mathrm{Re}/h$ is N/m$^2$; $\rho cv_l\,\Delta T$ is W/m$^2$.</li><li><strong>Consistency of the limits.</strong> At $\mathrm{Re} = 0$, (18) gives $0 = 0$ and (19) gives $q_u = -q_l$.</li></ul>
 </div>
@@ -1998,22 +1954,19 @@ where $C$ is a constant.</p>
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady flow of a very viscous incompressible liquid (constant $\rho$, $\mu$), gravity neglected. The liquid flows through the gap $\kappa R \leq r \leq R$ between two concentric spheres, from an entrance section (polar angle $0 \leq \theta \leq \epsilon$ of the outer sphere, pressure $p_i$) to an exit section ($\pi - \epsilon \leq \theta \leq \pi$, pressure $p_o$).</li><li>Away from the end regions the flow is unidirectional and symmetric: $\bar{v} = v_\theta(r,\theta)\,\bar{e}_\theta$, $v_r = v_\phi = 0$, $\partial/\partial\phi = 0$; the model domain is $\kappa R \leq r \leq R$, $\epsilon \leq \theta \leq \pi - \epsilon$.</li><li>Data: $[R,\ \kappa,\ \epsilon,\ \rho,\ \mu,\ \Delta p]$ with $0 &lt; \kappa &lt; 1$. Unknowns: $Q$, $v_\theta(r,\theta)$, $p(\theta)$.</li><li>The "viscous" regime is the limit in which the dimensionless group $\rho\,\Delta p\,R^2/\mu^2$ is small.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R$, $\kappa R$</td><td>outer and inner sphere radii</td><td>m</td></tr><tr><td>$\epsilon$</td><td>half-angle of the entrance and exit sections</td><td>rad</td></tr><tr><td>$\Delta p = p_i - p_o$</td><td>driving pressure difference</td><td>Pa</td></tr><tr><td>$Q$</td><td>volume flux through the gap</td><td>m$^3$/s</td></tr><tr><td>$V_\theta$</td><td>velocity scale, defined in item 5</td><td>m/s</td></tr><tr><td>$\rho$, $\mu$</td><td>density and viscosity</td><td>kg/m$^3$, Pa s</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Spherical frame $(r,\theta,\phi)$ centred on the common centre of the spheres, with the axis through the entrance and exit; the basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_\phi\}$ is orthonormal and right-handed.</li><li>Field form: $\bar{v} = v_\theta(r,\theta)\,\bar{e}_\theta$, $p = p(r,\theta)$ (reduced to $p(\theta)$ in item 4).</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = \kappa R$</td><td>$v_\theta = 0$</td><td>no-slip on the inner sphere</td></tr><tr><td>$r = R$</td><td>$v_\theta = 0$</td><td>no-slip on the outer sphere</td></tr><tr><td>$\theta = \epsilon$</td><td>$p = p_i$</td><td>entrance section</td></tr><tr><td>$\theta = \pi - \epsilon$</td><td>$p = p_o$</td><td>exit section</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Dimensional analysis (items 1 and 2)</h4>
 <p>The variables of the problem are $Q$, $R$, $\kappa$, $\epsilon$, $\rho$, $\mu$, $\Delta p$. The dimensional ones, $Q\ [\mathrm{L^3T^{-1}}]$, $R\ [\mathrm{L}]$, $\rho\ [\mathrm{ML^{-3}}]$, $\mu\ [\mathrm{ML^{-1}T^{-1}}]$ and $\Delta p\ [\mathrm{ML^{-1}T^{-2}}]$, are five and involve three fundamental dimensions (M, L, T), so by the Vaschy-Buckingham theorem there are $5 - 3 = 2$ dimensionless groups from them; $\kappa$ and $\epsilon$ are already dimensionless. Choosing $R$, $\mu$ and $\Delta p$ as repeated variables:</p>
@@ -2072,7 +2025,6 @@ where $C$ is a constant.</p>
 <div class="math-block">$$ \boxed{\,\tilde{Q} = \frac{\pi\,(1 - \kappa)^3}{6\,E(\epsilon)}, \qquad Q = \frac{\pi\,\Delta p\,R^3\,(1 - \kappa)^3}{6\,\mu\,E(\epsilon)}\,}, \qquad E(\epsilon) = \ln\frac{1 + \cos\epsilon}{1 - \cos\epsilon} \tag{20} $$</div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The flow in the gap is a Poiseuille-like flow along the meridians: the pressure drop $\Delta p$ is distributed as $\ln\tan(\theta/2)$ along $\theta$, and across the gap the velocity has the parabola-like shape (17) that vanishes at both spheres. The flux is proportional to $\Delta p/\mu$, as every Stokes flow, and to the cube of the gap, $(1 - \kappa)^3R^3$.</li><li><strong>Limits.</strong> For $\kappa \to 1$ the gap closes and $Q \to 0$ as $(1 - \kappa)^3$. For $\epsilon \to 0$ the end sections shrink and $E(\epsilon) \simeq 2\ln(2/\epsilon) \to \infty$, so $Q$ vanishes only logarithmically. For $\epsilon \to \pi/2$ the sections cover the whole hemispheres and $E \to 0$ makes $Q \to \infty$, which is the breakdown of the unidirectional model (the end effects it neglects then control the flow).</li><li><strong>Validity.</strong> The result requires $\rho\Delta pR^2/\mu^2 \ll 1$ (item 4).</li><li><strong>Dimensional check.</strong> $\Delta pR^3/\mu$ has units $(\mathrm{N/m^2})\,\mathrm{m^3}/(\mathrm{Pa\,s}) = \mathrm{m^3/s}$, the units of $Q$. $V_\theta = \Delta pR/\mu$ has units m/s. $E(\epsilon)$ and $\tilde{Q}$ are dimensionless.</li><li><strong>Consistency of the profile.</strong> The flux through the cone $\theta = \text{const}$ (area element $2\pi\tilde{r}\sin\theta\,d\tilde{r}$, normal velocity $\tilde{v}_\theta$) is $2\pi\int_\kappa^1\tilde{v}_\theta\sin\theta\,\tilde{r}\,d\tilde{r} = 2\pi\int_\kappa^1\tilde{u}\,\tilde{r}\,d\tilde{r}$, independent of $\theta$ as continuity requires; item 10 evaluates it at $\theta = \pi/2$, where the cone is the equatorial plane.</li></ul>
 </div>
@@ -2103,22 +2055,19 @@ where $C$ is a constant.</p>
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady, planar ($\partial/\partial z = 0$, $v_z = 0$), axisymmetric ($\partial/\partial\theta = 0$) flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$) between two porous cylinders: $\bar{v} = v_r(r)\,\bar{e}_r + v_\theta(r)\,\bar{e}_\theta$, $p = p(r)$, $T = T(r)$.</li><li>No mass force enters the plane of motion; no chemical reaction and no radiation.</li><li>The inner cylinder ($r = R_i$) injects the liquid with $v_r = V_i &gt; 0$ and the outer one removes it; both rotate rigidly with their angular velocities (no-slip).</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ R_i,\ R_o,\ \Omega_i,\ \Omega_o,\ V_i,\ T_i,\ T_o,\ p_i]$. Unknowns: $v_r$, $v_\theta$, $p - p_i$, $T$.</li><li>Dimensionless numbers: $\mathrm{Re} = \rho V_iR_i/\mu$ and $\mathrm{Pr} = \mu c/k$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R_i$, $R_o$</td><td>inner and outer radii</td><td>m</td></tr><tr><td>$\Omega_i$, $\Omega_o$</td><td>angular velocities of the cylinders</td><td>rad/s</td></tr><tr><td>$V_i$</td><td>injection velocity at the inner surface</td><td>m/s</td></tr><tr><td>$T_i$, $T_o$</td><td>surface temperatures</td><td>K</td></tr><tr><td>$\mathrm{Re}$, $\mathrm{Pr}$</td><td>injection Reynolds number, Prandtl number</td><td>1</td></tr><tr><td>$C_1$, $C_2$</td><td>integration constants of $v_\theta$</td><td>m$^2$/s, 1/s$\,\cdot\,$m$^{-\mathrm{Re}}$</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ centred on the common axis, with the orthonormal right-handed basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_z\}$ fixed to the laboratory (inertial).</li><li>Field form: $\bar{v} = v_r(r)\,\bar{e}_r + v_\theta(r)\,\bar{e}_\theta$, $p = p(r)$, $T = T(r)$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = R_i$</td><td>$v_r = V_i$, $v_\theta = \Omega_iR_i$</td><td>injection through the inner surface, no-slip</td></tr><tr><td>$r = R_o$</td><td>$v_\theta = \Omega_oR_o$</td><td>no-slip on the outer cylinder</td></tr><tr><td>$r = R_i$</td><td>$p = p_i$, $T = T_i$</td><td>reference pressure, inner temperature</td></tr><tr><td>$r = R_o$</td><td>$T = T_o$</td><td>outer temperature</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Continuity (item 1)</h4>
 <div class="math-block">$$ \frac{1}{r}\frac{d(rv_r)}{dr} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{\partial_\theta = 0} + \underbrace{\cancel{\frac{\partial v_z}{\partial z}}}_{v_z = 0} = 0 \;\Longrightarrow\; r\,v_r = \text{const} = R_iV_i \tag{1} $$</div>
@@ -2152,7 +2101,6 @@ where $C$ is a constant.</p>
 <div class="math-block">$$ \boxed{\,T(r) = T_i + (T_o - T_i)\,\frac{r^{\mathrm{Pr}\,\mathrm{Re}} - R_i^{\mathrm{Pr}\,\mathrm{Re}}}{R_o^{\mathrm{Pr}\,\mathrm{Re}} - R_i^{\mathrm{Pr}\,\mathrm{Re}}}\,} \tag{13} $$</div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The radial throughflow convects angular momentum and heat outwards: $C_1/r$ is a free vortex ($rv_\theta$ constant) and $C_2\,r^{\mathrm{Re}+1}$ is the term that the radial convection modifies: it reduces to the rigid rotation $C_2\,r$ for $\mathrm{Re} = 0$ and grows faster with $r$ for $\mathrm{Re} &gt; 0$. For $\mathrm{Re} \to 0$ (no injection) the solution reduces to the Couette profile between rotating cylinders, $v_\theta = C_1/r + C_2\,r$ with $C_1 = R_i^2R_o^2(\Omega_i - \Omega_o)/(R_o^2 - R_i^2)$ and $C_2 = (\Omega_oR_o^2 - \Omega_iR_i^2)/(R_o^2 - R_i^2)$, as in problem NS2 (with the roles of the two constants exchanged).</li><li><strong>Limits.</strong> For $\Omega_i = \Omega_o = 0$: $C_1 = C_2 = 0$, $v_\theta = 0$ and the pressure (10) is $\rho(R_iV_i)^2(1/R_i^2 - 1/r^2)/2$, the Bernoulli pressure recovery of the radial flow, $p - p_i = \tfrac{\rho}{2}\left(V_i^2 - v_r^2\right) &gt; 0$: the pressure rises outwards as the liquid slows down. For $\mathrm{Pr}\,\mathrm{Re} \to 0$, $r^{\mathrm{Pr}\,\mathrm{Re}} \simeq 1 + \mathrm{Pr}\,\mathrm{Re}\,\ln r$ and (13) tends to the pure conduction profile $T = T_i + (T_o - T_i)\ln(r/R_i)/\ln(R_o/R_i)$.</li><li><strong>Dimensional check.</strong> $R_iV_i/r$ is a velocity. $C_1$ has units m$^2$/s and $C_2\,r^{\mathrm{Re}+1}$ has units m/s. In (10) every term has units of $\rho\,\mathrm{(m/s)^2}$, that is Pa. $\mathrm{Pr}\,\mathrm{Re}$ is dimensionless, so the argument of (13) is dimensionless.</li><li><strong>Boundary check.</strong> From (6)-(8), $v_\theta(R_i) = \Omega_iR_i$ and $v_\theta(R_o) = \Omega_oR_o$; from (13), $T(R_i) = T_i$ and $T(R_o) = T_o$.</li></ul>
 </div>
@@ -2185,22 +2133,19 @@ where $C$ is a constant.</p>
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady, axisymmetric flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$) in the annulus, with the fields depending only on $r$: $\partial/\partial t = \partial/\partial\theta = \partial/\partial z = 0$.</li><li>The walls are impermeable. The inner cylinder ($r = R_i$) moves axially with $U$ and does not rotate; the outer cylinder ($r = R_o$) is at rest axially and rotates with $\Omega$. Mass forces are neglected (gravity would shift the pressure by a hydrostatic term); no chemical reaction and no radiation.</li><li>Data: $[\rho,\ \mu,\ c,\ k,\ R_i,\ R_o,\ U,\ \Omega,\ p_i,\ T_i,\ T_o,\ r_o,\ \theta_o,\ z_o]$. Unknowns: $v_r$, $v_z$, $v_\theta$, $p - p_i$, the pathline and $T(r)$.</li><li>Notation: $L = \ln(R_o/R_i)$ and $a = \Omega R_o^2/(R_o^2 - R_i^2)$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R_i$, $R_o$</td><td>inner and outer radii</td><td>m</td></tr><tr><td>$U$</td><td>axial velocity of the inner cylinder</td><td>m/s</td></tr><tr><td>$\Omega$</td><td>angular velocity of the outer cylinder</td><td>rad/s</td></tr><tr><td>$p_i$</td><td>pressure on the inner cylinder</td><td>Pa</td></tr><tr><td>$T_i$, $T_o$</td><td>temperatures of the inner and outer cylinders</td><td>K</td></tr><tr><td>$r_o$, $\theta_o$, $z_o$</td><td>initial position of the fluid particle</td><td>m, rad, m</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ with $z$ along the axis in the direction of $U$; the basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_z\}$ is orthonormal and right-handed.</li><li>Field form: $\bar{v} = v_r(r)\,\bar{e}_r + v_\theta(r)\,\bar{e}_\theta + v_z(r)\,\bar{e}_z$, $p = p(r)$, $T = T(r)$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = R_i$</td><td>$v_r = 0$, $v_\theta = 0$, $v_z = U$</td><td>impermeable inner cylinder moving axially, not rotating</td></tr><tr><td>$r = R_o$</td><td>$v_r = 0$, $v_\theta = \Omega R_o$, $v_z = 0$</td><td>impermeable outer cylinder rotating</td></tr><tr><td>$r = R_i$</td><td>$p = p_i$, $T = T_i$</td><td>known pressure, inner temperature</td></tr><tr><td>$r = R_o$</td><td>$T = T_o$</td><td>outer temperature</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Radial velocity (item 1)</h4>
 <div class="math-block">$$ \frac{1}{r}\frac{d(rv_r)}{dr} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{\partial_\theta = 0} + \underbrace{\cancel{\frac{\partial v_z}{\partial z}}}_{\partial_z = 0} = 0 \;\Longrightarrow\; r\,v_r = \text{const} \tag{1} $$</div>
@@ -2241,7 +2186,6 @@ where $C$ is a constant.</p>
 <p>Each viscous-heating term vanishes at both walls ($x = 0$ and $x = L$), so the boundary temperatures are $T_i$ and $T_o$; for $r = R_o$, $1 - R_i^2/R_o^2 - (1 - R_i^2/R_o^2) = 0$.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> Two independent shear flows are superposed: an axial one (logarithmic, from the inner cylinder's motion) and an azimuthal one (rigid rotation plus an irrotational vortex, from the outer cylinder's rotation). They do not interact in the velocity field because there is no radial velocity; they interact only through the pressure (centrifugal force of the azimuthal flow, (8)) and through the heating (sum of two dissipations in (11)).</li><li><strong>Limits.</strong> For $\Omega = 0$ ($a = 0$): axial flow only, pressure uniform, helix reduced to a straight line. For $U = 0$: pure rotation, and the pathlines are circles. For $R_i \to 0$ the azimuthal flow becomes rigid rotation, $v_\theta = \Omega r$. With the viscous heating neglected, (14) reduces to the logarithmic conduction profile $T_i + (T_o - T_i)\,x/L$.</li><li><strong>Dimensional check.</strong> $a$ has units 1/s and $a(r - R_i^2/r)$ has units m/s. $\rho a^2R_i^2$ has units $(\mathrm{kg/m^3})(\mathrm{m/s})^2 = \mathrm{Pa}$. $\mu U^2/k$ has units $\mathrm{K}$ and $\mu a^2R_i^2/k$ also $\mathrm{K}$.</li><li><strong>Check of the pressure.</strong> Differentiating (8): $dp/dr = \rho a^2R_i^2\left[\tfrac{r}{R_i^2} + \tfrac{R_i^2}{r^3} - \tfrac{2}{r}\right] = \rho a^2\left(r - \tfrac{2R_i^2}{r} + \tfrac{R_i^4}{r^3}\right)$, which is (7).</li></ul>
 </div>
@@ -2390,22 +2334,19 @@ where $C$ is a constant.</p>
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady planar flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$), buoyancy-free (mass forces neglected), in the half space $y &gt; 0$ above a porous wall. The fields depend only on the distance $y$ to the wall (the wall is infinitely long and the flow is the same at every $x$).</li><li>The wall at $y = 0$ moves in its own plane with $U_w$ and removes the liquid with the suction velocity $V_w &gt; 0$: $v_y(0) = -V_w$. No chemical reaction and no radiation.</li><li>Far from the wall ($y \to \infty$): $v_x \to 0$, $p \to p_\infty$, $T \to T_\infty$, with $T_\infty &gt; T_w$.</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ U_w,\ V_w,\ p_\infty,\ T_\infty,\ T_w]$. Unknowns: $v_x$, $v_y$, $p$, $T$, $\tau_w$ and $q_w$.</li><li>Notation: $\nu = \mu/\rho$, $\alpha = k/(\rho c)$, $\mathrm{Pr} = \nu/\alpha = \mu c/k$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$U_w$, $V_w$</td><td>wall velocity along itself, suction velocity</td><td>m/s</td></tr><tr><td>$p_\infty$, $T_\infty$, $T_w$</td><td>far-field pressure and temperature, wall temperature</td><td>Pa, K, K</td></tr><tr><td>$\tau_w$</td><td>viscous force per unit area on the wall, along $x$</td><td>Pa</td></tr><tr><td>$q_w$</td><td>heat flux from the liquid to the wall</td><td>W/m$^2$</td></tr><tr><td>$\mathrm{Pr}$</td><td>Prandtl number</td><td>1</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cartesian frame $(x,y,z)$ attached to the wall: $x$ along the wall in the direction of $U_w$, $y$ normal to the wall and into the liquid, $z$ out of the plane; the basis is orthonormal and right-handed. The normal $\bar{n}_w = +\bar{e}_y$ points from the wall into the liquid (figure).</li><li>Field form: $\bar{v} = v_x(y)\,\bar{e}_x + v_y(y)\,\bar{e}_y$, $p = p(x,y)$, $T = T(y)$.</li><li>Control volume $V_c$ of the figure: fixed, of unit length in $x$ ($\delta x = 1$) and unit width, from the wall to a plane $y = Y$ far from it; surfaces: the wall $\Sigma_w$ ($\bar{n} = -\bar{e}_y$), the top $\Sigma_t$ ($\bar{n} = +\bar{e}_y$) and the two vertical faces $\Sigma_1$ ($\bar{n} = -\bar{e}_x$) and $\Sigma_2$ ($\bar{n} = +\bar{e}_x$).</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$y = 0$</td><td>$v_x = U_w$, $v_y = -V_w$, $T = T_w$</td><td>moving porous wall, suction</td></tr><tr><td>$y \to \infty$</td><td>$v_x \to 0$, $p \to p_\infty$, $T \to T_\infty$</td><td>liquid at rest far from the wall</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Velocity and pressure (item 1)</h4>
 <div class="math-block">$$ \frac{\partial v_x}{\partial x} + \frac{dv_y}{dy} = \underbrace{\cancel{\frac{\partial v_x}{\partial x}}}_{v_x = v_x(y)} + \frac{dv_y}{dy} = 0 \;\Longrightarrow\; v_y = \text{const} = -V_w \tag{1} $$</div>
@@ -2445,7 +2386,6 @@ where $C$ is a constant.</p>
 <p>which is (10). The simplifications used are justified by the fact that all the fields are independent of $x$ (lateral faces), that the shear and the temperature gradient decay exponentially (top surface, placed at $Y \gg \nu/V_w, \alpha/V_w$), and that the liquid is at rest and at $p_\infty$ far away.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> Suction holds the moving layer of thickness $\nu/V_w$ (momentum) and $\alpha/V_w$ (thermal) against the wall. The wall pays for the momentum of the entrained liquid ((8)), and receives the enthalpy, the kinetic energy and the viscous work ((10)).</li><li><strong>Limits.</strong> For $U_w = 0$: no shear, no dissipation, $q_w = \rho cV_w(T_\infty - T_w)$ (pure advection-conduction). For $V_w \to 0$ the layer thickens and there is no steady solution. For $T_\infty = T_w$ the heat flux is $\tfrac{1}{2}\rho V_wU_w^2 &gt; 0$: the wall must remove the kinetic energy of the entrained liquid even when the temperatures are equal.</li><li><strong>Dimensional check.</strong> $V_wy/\nu$ and $\mathrm{Pr}\,V_wy/\nu$ are dimensionless. $\rho V_wU_w$ has units $\mathrm{N/m^2}$. $\rho V_wU_w^2$ and $\rho cV_w\Delta T$ have units $\mathrm{W/m^2}$.</li><li><strong>Relation to NS1.</strong> The problem is that of NS1 with the wall moving instead of the free stream: the profiles have the same form, and (10) is (23) of NS1 with $U_\infty \to U_w$.</li></ul>
 </div>
@@ -2484,22 +2424,19 @@ $$ \rho\frac{\partial v_y}{\partial t} + \rho v_x\frac{\partial v_y}{\partial x}
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady, two-dimensional flow of an incompressible fluid with constant $\rho$, $c$, $k$ and the viscosity $\mu(T)$ of (1), between two fixed infinite walls at $y = 0$ ($T = T_0$) and $y = h$ ($T = 2T_0$). The velocity and the temperature depend only on $y$.</li><li>The walls are impermeable and at rest: $u = v = 0$ at both. No chemical reaction and no radiation.</li><li>The mass force is conservative, $\bar{f}_m = -\nabla U$, and $P = p + \rho U$ is the reduced pressure (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=48" target="_blank" rel="noopener" title="Open Notes.pdf at page 48">4.13</a>): with $\rho$ constant, $-\partial p/\partial x_i + \rho f_{m,i} = -\partial P/\partial x_i$.</li><li>Data: $[\rho,\ c,\ k,\ \mu_0,\ T_0,\ h]$ and, for item 5, $\partial P/\partial x$. Unknowns: $v$, $T(y)$, $\bar{\bar{\tau}}'$, $u(y)$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$h$</td><td>distance between the walls</td><td>m</td></tr><tr><td>$\mu_0$, $T_0$</td><td>reference viscosity and temperature of (1)</td><td>Pa s, K</td></tr><tr><td>$\rho$, $c$, $k$</td><td>density, specific heat, thermal conductivity (constant)</td><td>kg/m$^3$, J/(kg K), W/(m K)</td></tr><tr><td>$P$</td><td>reduced pressure $p + \rho U$</td><td>Pa</td></tr><tr><td>$\xi = y/h$</td><td>dimensionless distance to the lower wall</td><td>1</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cartesian frame $(x,y,z)$: $x$ parallel to the walls, $y$ perpendicular to them and upward from the lower wall, $z$ spanwise; the basis is orthonormal and right-handed.</li><li>Field form: $\bar{v} = u(y)\,\bar{e}_x + v(y)\,\bar{e}_y$, $T = T(y)$, $P = P(x,y)$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$y = 0$</td><td>$u = 0$, $v = 0$, $T = T_0$</td><td>lower wall at rest</td></tr><tr><td>$y = h$</td><td>$u = 0$, $v = 0$, $T = 2T_0$</td><td>upper wall at rest</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Vertical velocity (item 1)</h4>
 <div class="math-block">$$ \frac{\partial u}{\partial x} + \frac{dv}{dy} = \underbrace{\cancel{\frac{\partial u}{\partial x}}}_{u = u(y)} + \frac{dv}{dy} = 0 \;\Longrightarrow\; v = \text{const} \tag{2} $$</div>
@@ -2536,7 +2473,6 @@ $$ \rho\frac{\partial v_y}{\partial t} + \rho v_x\frac{\partial v_y}{\partial x}
 <p>Equation (6) and the argument of item 4 still hold ($v = 0$, $P = P(x)$ with $dP/dx$ constant) because they do not depend on how $\mu$ varies with $y$. The two equations (13) are coupled and nonlinear: a more complex system that must be solved numerically.</p>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The temperature rises linearly from $T_0$ to $2T_0$ and the viscosity grows by the factor $2^{3/2} \simeq 2.83$ towards the hot wall. The liquid is therefore less viscous (faster) near the cold wall and the velocity maximum is displaced towards the cold wall, away from the centre of the channel.</li><li><strong>Limits.</strong> For constant viscosity ($\mu = \mu_0$) the profile would be the symmetric parabola $u = (1/(2\mu_0))(dP/dx)(y^2 - hy)$, with its maximum at $y = h/2$. The sign of (12): since $(s - 1) \geq 0$ and $(s - \sqrt{2}) \leq 0$, $u \geq 0$ for $dP/dx &lt; 0$ (flow towards $+x$), as it must be. The profile vanishes at $s = 1$ ($y = 0$) and at $s = \sqrt{2}$ ($y = h$).</li><li><strong>Dimensional check.</strong> $h^2\,(dP/dx)/\mu_0$ has units $\mathrm{m^2\cdot Pa/m}/(\mathrm{Pa\,s}) = \mathrm{m/s}$, a velocity. $C$ is dimensionless. The hint integral is dimensionless.</li><li><strong>Check of (11).</strong> With $C = 1 - \sqrt{2}$: $(6 - 2C)/\sqrt{2} = (4 + 2\sqrt{2})/\sqrt{2} = 2\sqrt{2} + 2$ and $4 - 2C = 2 + 2\sqrt{2}$, equal as required by $u(h) = 0$.</li></ul>
 </div>
@@ -2570,22 +2506,19 @@ $$ \rho\frac{\partial v_y}{\partial t} + \rho v_x\frac{\partial v_y}{\partial x}
       </div>
 
       <details class="solution-details">
-        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
 <ul class="bullet-list"><li>Steady, axisymmetric ($\partial/\partial\theta = 0$, $\partial/\partial t = 0$) flow of an incompressible liquid with constant $\rho$ and $\nu$ above an infinitely large rotating porous disk, without mass forces. Equations (4.40) and (4.41) in cylindrical coordinates.</li><li>The disk (plane $z = 0$, the liquid occupies $z &gt; 0$) rotates with the angular velocity $\Omega$ and sucks the liquid with the known axial velocity $v_z(0) = -2(\nu\Omega)^{1/2}\lambda_1$, with $\lambda_1$ a given constant.</li><li>Self-similar ansatz of the statement: $v_z = -2(\nu\Omega)^{1/2}f(\eta)$, $v_\theta = r\Omega\,g(\eta)$, with $\eta = (\Omega/\nu)^{1/2}z$; $v_r$ is to be obtained.</li><li>Far from the disk ($\eta \to \infty$): $v_r \to 0$, $v_\theta \to 0$ and the pressure tends to $p_\infty$.</li><li>Data: $[\rho,\ \nu,\ \Omega,\ \lambda_1,\ p_\infty]$. Unknowns: $v_r$, the ODEs for $f$ and $g$ with their boundary conditions, $p(r,z)$ and the constant $A$.</li><li>Derivatives used: $d\eta/dz = (\Omega/\nu)^{1/2}$, so that $\partial/\partial z = (\Omega/\nu)^{1/2}\,d/d\eta$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$\Omega$</td><td>angular velocity of the disk</td><td>rad/s</td></tr><tr><td>$\nu = \mu/\rho$</td><td>kinematic viscosity</td><td>m$^2$/s</td></tr><tr><td>$\eta = (\Omega/\nu)^{1/2}z$</td><td>similarity variable</td><td>1</td></tr><tr><td>$f(\eta)$, $g(\eta)$</td><td>dimensionless axial and azimuthal functions</td><td>1</td></tr><tr><td>$\lambda_1$</td><td>dimensionless suction parameter</td><td>1</td></tr><tr><td>$p_\infty$</td><td>pressure far from the disk</td><td>Pa</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
 <ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ with $z$ along the axis of rotation, normal to the disk and pointing into the liquid; the basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_z\}$ is orthonormal and right-handed (see the sketch of the statement).</li><li>Field form: $v_r = v_r(r,z)$, $v_\theta = r\Omega\,g(\eta)$, $v_z = -2(\nu\Omega)^{1/2}f(\eta)$, $p = p(r,z)$.</li></ul>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$z = 0$</td><td>$v_r = 0$, $v_\theta = r\Omega$</td><td>no-slip on the rotating disk</td></tr><tr><td>$z = 0$</td><td>$v_z = -2(\nu\Omega)^{1/2}\lambda_1$</td><td>known suction velocity</td></tr><tr><td>$z \to \infty$</td><td>$v_r \to 0$, $v_\theta \to 0$</td><td>liquid at rest far from the disk</td></tr><tr><td>$z \to \infty$</td><td>$p \to p_\infty$</td><td>pressure far from the disk</td></tr></tbody></table></div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Radial velocity from continuity (item 1)</h4>
 <div class="math-block">$$ \frac{1}{r}\frac{\partial(rv_r)}{\partial r} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{\partial_\theta = 0} + \frac{\partial v_z}{\partial z} = 0 \tag{1} $$</div>
@@ -2622,7 +2555,6 @@ $$ \rho\frac{\partial v_y}{\partial t} + \rho v_x\frac{\partial v_y}{\partial x}
 <div class="math-block">$$ \boxed{\,p(\eta) = p_\infty - 2\mu\Omega\left[f^2(\eta) - f^2(\infty) + f'(\eta)\right]\,} \tag{13} $$</div>
 </div>
 <div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
 <ul class="bullet-list"><li><strong>Physical meaning.</strong> The disk drags the liquid into rotation and the centrifugal force throws it outwards (the term $+g^2$ of (11)); continuity then draws liquid towards the disk (continuity, $\partial v_z/\partial z = -2\Omega f'$, and the axial velocity $v_z \propto -f$). With suction the axial flow is imposed at the disk ($f(0) = \lambda_1$). The velocity profile has the same form at every radius because $v_r$ and $v_\theta$ scale with $r$: that is the self-similarity.</li><li><strong>Limits.</strong> For $\lambda_1 = 0$ (impermeable disk) the equations (4) and (11) with the conditions (5) are those of the rotating disk of the classical similarity solution; for $\Omega \to 0$ the whole flow vanishes. The pressure (13) is independent of $r$: the pressure of the problem varies only across the layer.</li><li><strong>Dimensional check.</strong> $\eta = (\Omega/\nu)^{1/2}z$ is dimensionless ($\sqrt{\mathrm{s^{-1}}\,\mathrm{s/m^2}}\,\mathrm{m} = 1$). $(\nu\Omega)^{1/2}$ has units $\mathrm{m/s}$, so $v_z$ is a velocity; $r\Omega$ is a velocity. $\mu\Omega$ has units $\mathrm{Pa\,s\cdot s^{-1}} = \mathrm{Pa}$, so (8) and (13) are pressures.</li><li><strong>Consistency of (11).</strong> Differentiating (8) with respect to $r$ at fixed $\eta$ shows that $\partial p/\partial r = C'(r)$ and (11) makes the radial momentum balance independent of $r$, as the similarity ansatz requires.</li></ul>
 </div>

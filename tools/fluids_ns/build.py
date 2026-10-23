@@ -125,11 +125,12 @@ def card_html(P):
     s.append(f'<p class="source-line">{inline_html(P["source_line"])}</p>')
     s += ['      </div>', '',
           '      <details class="solution-details">',
-          '        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>',
+          '        <summary class="solution-summary"><span>Worked solution</span><span class="summary-hint">expand / collapse</span></summary>',
           '        <div class="solution-content">']
     for badge, head, blocks in P["phases"]:
         s.append('<div class="phase-block">')
-        s.append(f'<span class="phase-badge">{html.escape(badge)}</span>')
+        if not badge.startswith("Phase"):                      # never "Phase N" on the page
+            s.append(f'<span class="phase-badge">{html.escape(badge)}</span>')
         s.append(f'<h3 class="phase-heading">{inline_html(head)}</h3>')
         name = fig_name(P, "setup")
         s += with_figure(blocks, name, block_html) if badge == "Phase 2" and name else [block_html(b) for b in blocks]

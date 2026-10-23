@@ -43,7 +43,7 @@ Material taken from NotebookLM notebooks is structured in `vault/` first (see th
 Short descriptions for the Gemini subagent registration in section 0. The shared responsibilities are in `AGENTS.md`.
 
 - **`source_researcher`:** ingest and index official PDFs, slides, and problem sheets from `sources/`. Extract definitions, LaTeX formulas, problem statements, boundary conditions, and numerical data. Output clean Markdown without inventing anything.
-- **`aerospace_pedagogue`:** write theory with maximum pedagogical clarity and analytical rigour. Solve problems step by step, following the 4-phase method in `AGENTS.md`.
+- **`aerospace_pedagogue`:** write theory with maximum pedagogical clarity and analytical rigour. Solve problems step by step in the lecturer's order of each subject (`AGENTS.md`, "Problem-solving standard"); its verification checklist is silent and no solution shows "Phase" labels.
 - **`problem_step_mentor`:** check that every solution, class exercise, and exam follows the problem-solving standard: justify each equation before using it, cite its source, connect coordinate changes to their change-of-basis matrices, leave no algebraic skips, and develop every derivative and integral explicitly.
 - **`subject_web_builder`:** build clean, readable study pages in `subjects/` with editorial typography, KaTeX, a working dark/light theme, and the back-link `../../../index.html`.
 - **`web_qa_reviewer`:** audit relative links, KaTeX delimiter balance, responsive layout, and git state. Commits and pushes are governed by the git rules in `AGENTS.md`.

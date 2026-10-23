@@ -14,7 +14,7 @@ Esta habilidad coordina el desarrollo de material docente, teoría analítica, r
 
 1. **`source-researcher`**: Ingesta y consulta de fuentes oficiales locales (`sources/`). Extrae temario, fórmulas y problemas sin inventar datos.
 2. **`aerospace-pedagogue`**: Razonamiento analítico profundo (`pro` / `opus`). Redacta teoría rigurosa desde primeros principios en inglés.
-3. **`problem-step-mentor`**: Mentor Pedagógico de Problemas (`pro` / `opus`). Garantiza desarrollo exhaustivo paso a paso según la metodología de 4 fases:
+3. **`problem-step-mentor`**: Mentor Pedagógico de Problemas (`pro` / `opus`). Garantiza desarrollo exhaustivo paso a paso en el orden del profesor de cada asignatura (`AGENTS.md`, "Problem-solving standard"), sin etiquetas "Phase" visibles; la lista de verificación es interna:
    - Justificación pedagógica previa de cada ecuación o principio.
    - Matrices de cambio de base $[{}_0 R_1]$ y sistemas de coordenadas.
    - Cálculo explícito de derivadas (regla de la cadena temporal, implícitas) e integrales (sustitución, diferencial, Barrow) sin saltos algebraicos.

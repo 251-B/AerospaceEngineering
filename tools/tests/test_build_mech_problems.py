@@ -112,6 +112,38 @@ class ValidateTests(unittest.TestCase):
         phases[0] = (1, "Wrong heading", "* x")
         self.assertTrue(any("heading is" in e for e in self.check(phases)))
 
+    def v3(self, body):
+        errors = []
+        g.validate_v3("99", g.split_sections(body), body, errors)
+        return errors
+
+    def test_structure_3_follows_the_lecturers_order(self):
+        good = ("### Reference Frames, Bases and Coordinates\n* x\n### Change of Basis and Position Vector\n* x\n"
+                "### Kinematics\n* x\n### Forces and Equations of Motion\n* x\n### Answers and Checks\n"
+                "* Check against the official key: same.\n")
+        self.assertEqual(self.v3(good), [])
+        no_forces = good.replace("### Forces and Equations of Motion\n* x\n", "")
+        self.assertEqual(self.v3(no_forces), [])
+        swapped = good.replace("### Kinematics", "### Tmp").replace("### Change of Basis and Position Vector", "### Kinematics") \
+            .replace("### Tmp", "### Change of Basis and Position Vector")
+        self.assertTrue(any("expected" in e for e in self.v3(swapped)))
+        self.assertTrue(any("official key" in e for e in self.v3(good.replace("Check against the official key", "Key"))))
+        self.assertTrue(any("'Phase'" in e for e in self.v3(good.replace("* x", "* Phase 2 recap", 1))))
+
+    def test_solution_figures_become_numbered_diagram_cards(self):
+        errors = []
+        g.emsol.build()
+        name = next(iter(g.emsol.REG.web), None)
+        if name is None:
+            self.skipTest("no solution figure drawn yet")
+        figs = g.Figures("99", errors)
+        out = g.render_solution(f"* a\n\n![[attachments/EM-SOL/{name}.svg]]\n\n* b", figs)
+        self.assertIn('class="diagram-card"', out)
+        self.assertIn("Figure 1.", out)
+        self.assertEqual(errors, [])
+        g.render_solution("![[attachments/EM-SOL/no-such-figure.svg]]", figs)
+        self.assertTrue(any("unknown figure" in e for e in errors))
+
 
 class RepositoryTests(unittest.TestCase):
     def test_pages_are_up_to_date_with_their_notes(self):
@@ -123,14 +155,19 @@ class RepositoryTests(unittest.TestCase):
         for topic, n in g.EXPECTED.items():
             self.assertEqual(sum(1 for v in meta.values() if v["topic"] == topic), n)
 
-    def test_every_card_has_four_phases_and_the_pdf_links_are_not_in_the_generated_text(self):
+    def test_every_card_has_its_sections_no_phase_label_and_no_pdf_links_in_the_generated_text(self):
         total = 0
+        meta = g.load_meta()
         for topic in g.EXPECTED:
             page = sl.strip_links((g.SUBJECT / f"topic-{topic}.html").read_text(encoding="utf-8"))
             cards = re.split(r'<div class="problem-card"', page)[1:]
             total += len(cards)
             for c in cards:
-                self.assertEqual(c.count('class="phase-block"'), 4)
+                pid = re.search(r'id="prob-(\d+)"', c).group(1)
+                n = c.count('class="phase-block"')
+                self.assertIn(n, (4, 5) if meta[pid].get("structure", 1) >= 3 else (4,))
+                self.assertNotIn("phase-badge", c)
+                self.assertNotRegex(c[:c.find('class="problem-footer"')], r">\s*Phase \d")
                 self.assertIn("<details class=\"solution-details\">", c)
                 self.assertIn('class="problem-footer"', c)
         self.assertEqual(total, 51)

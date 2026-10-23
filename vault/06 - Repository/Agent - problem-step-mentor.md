@@ -10,7 +10,7 @@ source: ".claude/agents/problem-step-mentor.md"
 
 ## Role
 
-Pedagogical problem mentor and analytical rigour auditor. It enforces the four-phase method on problem solutions and leads the mathematical dimension of an ultrareview.
+Pedagogical problem mentor and analytical rigour auditor. It enforces the problem-solving standard (the lecturer's order of each subject, with no visible "Phase" labels) on problem solutions and leads the mathematical dimension of an ultrareview.
 
 ## Tools granted
 
@@ -22,11 +22,11 @@ The body asks it to write solutions into `vault/` and to store the core result i
 
 ## Rule it enforces
 
-The four phases of the problem-solving standard:
+The problem-solving standard of [[Rules - AGENTS.md]]. A solution is shown in the lecturer's order (in Engineering Mechanics: frames, bases and coordinates; change of basis and position vector, with figures; kinematics; forces and equations of motion; answers and checks). Behind it runs a silent checklist that is never written into the solution:
 
 1. Setup: hypotheses, degrees of freedom and an SI parameter table.
 2. Frames: coordinate systems and the change-of-basis matrix `[{}_0 R_1]`, with `det R = 1` and `R R^T = I`.
-3. Derivation: each law is justified before use. Chain rule, differentials and Barrow limits are explicit, with no algebraic jumps.
+3. Derivation: each law is justified before use; every sine, cosine and sign is explained. Chain rule, differentials and Barrow limits are explicit, with no algebraic jumps.
 4. Interpretation: SI units, limiting cases and physical meaning.
 
 ## Related

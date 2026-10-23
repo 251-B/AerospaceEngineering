@@ -486,12 +486,11 @@ $$ z = v_z t \tag{3} $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> an out-of-control rocket, modelled as a point particle $P$, ascends along a circular helix around the vertical $z$-axis.</li>
@@ -501,7 +500,6 @@ $$ z = v_z t \tag{3} $$
 <li><strong>Parameters:</strong> radius $a$ [m], angular frequency $\omega$ [rad/s], vertical velocity $v_z$ [m/s], time $t$ [s].</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, fixed to the launch site with $\mathbf{k}_0$ along the vertical $z$-axis.</li>
@@ -521,7 +519,6 @@ $$ z = v_z t \tag{3} $$
 <li><strong>Intrinsic basis:</strong> $\mathcal{B}_F = \{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$ (tangent, principal normal toward the centre of curvature, binormal $\mathbf{e}_b = \mathbf{e}_t\times\mathbf{e}_n$), obtained in 3.1 and related to $\mathcal{B}_{\text{cyl}}$ by a second change-of-basis matrix.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) Cartesian position, velocity and acceleration</h5>
@@ -584,7 +581,6 @@ $$ z = v_z t \tag{3} $$
 </ul>
 <div class="math-block">$$ \mathbf{r}_C = a\,\mathbf{i}_0 + \left(a + \frac{v_z^2}{a\omega^2}\right)\left(-\mathbf{i}_0\right) = -\frac{v_z^2}{a\omega^2}\,\mathbf{i}_0, \qquad \boxed{C = \left(-\frac{v_z^2}{a\omega^2},\ 0,\ 0\right)} $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $[a\omega] = \text{m}\cdot\text{s}^{-1}$ and $[v_z] = \text{m/s}$, so $V$ is in m/s. The offset $\left[\dfrac{v_z^2}{a\omega^2}\right] = \dfrac{(\text{m/s})^2}{\text{m}\cdot\text{s}^{-2}} = \text{m}$.</li>
@@ -639,12 +635,11 @@ $$ z = v_z t \tag{3} $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a particle $P$ moves along the planar spiral $r = \alpha e^{\beta\theta}$ with the prescribed angular motion $\theta(t) = \delta t^n$.</li>
@@ -654,7 +649,6 @@ $$ z = v_z t \tag{3} $$
 <li><strong>Parameters and units:</strong> $[r] = \text{m}$, so $[\alpha] = \text{m}$; $\beta$ is dimensionless; $[\theta] = \text{rad}$, so $[\delta] = \text{rad}\cdot\text{s}^{-n}$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial basis:</strong> $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.</li>
@@ -669,7 +663,6 @@ $$ z = v_z t \tag{3} $$
 <div class="math-block">$$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1 + \beta^2}}\begin{pmatrix} \beta &amp; -1 \\ 1 &amp; \beta \end{pmatrix}, \qquad \det = \frac{\beta^2 + 1}{1 + \beta^2} = 1, \qquad R R^T = I $$</div>
 <p style="margin-bottom: 10px;">(rows of norm $(\beta^2 + 1)/(1 + \beta^2) = 1$ and orthogonal, $(\beta - \beta)/(1 + \beta^2) = 0$). It is completed with $\mathbf{e}_b = \mathbf{k}_0$ as third row and column, $(0, 0, 1)$, so the full $3\times 3$ matrix is a rotation about $\mathbf{k}_0$. This is a planar rotation by the constant angle $\arctan(1/\beta)$: the tangent makes a constant angle with the radial direction (equiangular spiral).</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) Radial and transverse components of the velocity</h5>
@@ -721,7 +714,6 @@ $$ z = v_z t \tag{3} $$
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the radius of curvature follows from the normal acceleration, $a_n = v^2/\rho$:</div>
 <div class="math-block">$$ \rho = \frac{v^2}{a_n} = \frac{r^2\dot{\theta}^2\left(1 + \beta^2\right)}{r\dot{\theta}^2\sqrt{1 + \beta^2}} = \boxed{r\sqrt{1 + \beta^2}} $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Geometric invariance:</strong> on the spiral the angle $\psi$ between the radial line and the tangent satisfies $\tan\psi = r/(dr/d\theta) = 1/\beta$, a constant. The spiral is self-similar: $\lambda\,r(\theta) = r(\theta + \ln\lambda/\beta)$, so scaling it by a factor $\lambda$ gives the same curve rotated by an angle of magnitude $\ln\lambda/\beta$. Hence every length of the curve, $\rho$ included, scales with $r$.</li>
@@ -759,12 +751,11 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a particle $P$ moves on the astroid $x = a\cos^3\phi$, $y = a\sin^3\phi$ with constant tangential acceleration $a_t = k$ (the statement calls it $k$) and starts from rest at $\phi = 0$.</li>
@@ -773,7 +764,6 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <li><strong>Parameters and units:</strong> scale $a$ [m], tangential acceleration $k$ [m/s$^2$], time $t$ [s].</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with the curve in the $Oxy$ plane.</li>
@@ -781,7 +771,6 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 </ul>
 <div class="math-block">$$ \frac{dx}{d\phi} = 3a\cos^2\phi\,(-\sin\phi) = -3a\cos^2\phi\sin\phi, \qquad \frac{dy}{d\phi} = 3a\sin^2\phi\cos\phi $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> we use the arc length as the coordinate along the path. The differential arc length follows from the hint, $ds = \sqrt{dx^2 + dy^2}$:</div>
@@ -813,7 +802,6 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <div class="math-block">$$ \boxed{x(t) = a\cos^3\phi = a\left(1 - \frac{kt^2}{3a}\right)^{3/2}}, \qquad \boxed{y(t) = a\sin^3\phi = a\left(\frac{k}{3a}\right)^{3/2}t^3} $$</div>
 <p style="margin-bottom: 10px;">These hold for $0 \le t \le t_{\text{cusp}}$, where $t_{\text{cusp}}$ is defined in Phase 4.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $\left[\sqrt{\dfrac{k}{3a}}\,t\right] = \sqrt{\dfrac{\text{m}\,\text{s}^{-2}}{\text{m}}}\ \text{s} = \text{s}^{-1}\cdot\text{s} = 1$, so the argument of $\arcsin$ is dimensionless, as it must be.</li>
@@ -871,12 +859,11 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> an aircraft moves at constant altitude $y_0$ with velocity $v_0$ along $x$. At $t = 0$ it is at $x = 0$ and begins to accelerate along $x$ at a constant rate $a_x$. A fixed observer at the origin $O$ describes its position with polar coordinates.</li>
@@ -885,7 +872,6 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <li><strong>Coordinates:</strong> Cartesian $x(t)$ for the motion, and polar $(r, \theta)$ about $O$ for the description requested, with $\theta$ measured from $+\mathbf{i}$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ and $\mathbf{r} = x\,\mathbf{i} + y_0\,\mathbf{j}$.</li>
@@ -898,7 +884,6 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <li>The inverse relation $\mathbf{i} = \cos\theta\,\mathbf{e}_r - \sin\theta\,\mathbf{e}_\theta$ is the one used in 3.4.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the motion along $x$ is uniformly accelerated, so $x(t)$ and $v(t)$ follow by integrating $\ddot{x} = a_x$ with the initial conditions $\dot{x}(0) = v_0$ and $x(0) = 0$ (Barrow's rule):</div>
@@ -943,7 +928,6 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <div class="math-block">$$ \mathbf{v} = v\left(\frac{x}{r}\,\mathbf{e}_r - \frac{y_0}{r}\,\mathbf{e}_\theta\right), \qquad \mathbf{a} = a_x\left(\frac{x}{r}\,\mathbf{e}_r - \frac{y_0}{r}\,\mathbf{e}_\theta\right) $$</div>
 <p style="margin-bottom: 10px;">These equal the polar results of 3.1 identically.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $[\dot{r}] = [vx/r] = \text{m/s}$ and $[\dot{\theta}] = [vy_0/r^2] = \text{s}^{-1}$; $[\ddot{r}] = \dfrac{(\text{m/s})^2\text{m}^2}{\text{m}^3} = \text{m/s}^2$ and $[\ddot{\theta}] = \dfrac{\text{m}\cdot(\text{m/s})^2\cdot\text{m}}{\text{m}^4} = \text{s}^{-2}$.</li>
@@ -978,12 +962,11 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a tow plane $A$ flies horizontally at constant speed $v_A$ and tows a glider $B$ that gains altitude. The tow cable has length $r$ and forms an angle $\theta$ with the horizontal.</li>
@@ -993,7 +976,6 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <li><strong>Parameters and units:</strong> $v_A$ [m/s], $r$ [m], $\theta$ [rad], $\dot{\theta}$ [rad/s], $\ddot{\theta}$ [rad/s$^2$].</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$ with $\mathbf{i}_0$ horizontal in the direction of flight of $A$ and $\mathbf{j}_0$ vertical, upward.</li>
@@ -1002,7 +984,6 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <div class="math-block">$$ \mathbf{r}_{B/A} = -r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0 $$</div>
 <p style="margin-bottom: 10px;">This is the only reading compatible with the glider gaining altitude as $\theta$ increases ($r\sin\theta$ grows with $\theta$ for $0 \lt \theta \lt \pi/2$).</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Position of the glider</h5>
@@ -1035,7 +1016,6 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <li><strong>Constant rate of the statement.</strong> With $\dot{\theta}$ constant, $\ddot{\theta} = 0$ and $a_B^0 = r\dot{\theta}^2$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Decoupling from the cruise speed:</strong> the acceleration does not depend on $v_A$, because $\mathbf{a}_A = \mathbf{0}$ (uniform rectilinear translation). The glider accelerates only through its circular motion relative to $A$.</li>
@@ -1092,12 +1072,11 @@ $$ y = \sin x $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a particle $P$ travels along the curve $y = \sin x$ with horizontal velocity $\dot{x} = 1$.</li>
@@ -1106,7 +1085,6 @@ $$ y = \sin x $$
 <li><strong>Coordinates:</strong> $x$ (and the arc length $s$ along the curve).</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with the curve in the $Oxy$ plane.</li>
@@ -1123,7 +1101,6 @@ $$ y = \sin x $$
 <div class="math-block">$$ [{}_0 R_{\text{tnb}}] = \frac{1}{L}\begin{pmatrix} 1 &amp; \operatorname{sgn}(\sin x)\cos x &amp; 0 \\ \cos x &amp; -\operatorname{sgn}(\sin x) &amp; 0 \\ 0 &amp; 0 &amp; -L\operatorname{sgn}(\sin x) \end{pmatrix}, \qquad \det = \frac{1}{L^3}\left(-L\operatorname{sgn}(\sin x)\right)\left(-\operatorname{sgn}(\sin x) - \operatorname{sgn}(\sin x)\cos^2x\right) = 1, \qquad R R^T = I $$</div>
 <p style="margin-bottom: 10px;">With $L^2 = 1 + \cos^2x$ and $\operatorname{sgn}^2 = 1$, the rows have unit norm ($(1 + \cos^2x)/L^2 = 1$, $(\cos^2x + 1)/L^2 = 1$, $L^2/L^2 = 1$) and are orthogonal (rows 1 and 2: $(\cos x - \operatorname{sgn}^2\cos x)/L^2 = 0$; row 3 has no common nonzero entry with the others), so $RR^T = I$. For $\sin x \gt 0$, $\mathbf{e}_n$ is the right normal $-\mathbf{k}_0\times\mathbf{e}_t$ and $\mathbf{e}_b = -\mathbf{k}_0$; for $\sin x \lt 0$ it is the left normal and $\mathbf{e}_b = \mathbf{k}_0$. In both cases the triad is right-handed.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Velocity and acceleration</h5>
@@ -1166,7 +1143,6 @@ $$ y = \sin x $$
 <div class="math-block">$$ \rho(x) = \frac{v^2}{a_n} = \frac{1 + \cos^2x}{|\sin x|/\sqrt{1 + \cos^2x}} = \boxed{\frac{\left(1 + \cos^2x\right)^{3/2}}{|\sin x|}} $$</div>
 <p style="margin-bottom: 10px;">As a check (extension), this is the standard curvature formula of a plane graph, $\rho = \dfrac{\left(1 + y'^2\right)^{3/2}}{|y''|}$, for $y' = \cos x$ and $y'' = -\sin x$.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $[v] = \text{m/s}$, $[a_t] = [a_n] = \text{m/s}^2$, $[\rho] = [v^2/a_n] = \text{m}$ and $[s] = \left[\int\sqrt{1 + \cos^2u}\,du\right] = \text{m}$ (using the length scale $1$ m inside the sine).</li>

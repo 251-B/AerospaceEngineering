@@ -62,11 +62,12 @@ En este repositorio existen 5 roles clave definidos en `.claude/agents/*.md`, re
 
 3. **`problem-step-mentor`**:
    - **Misión:** Mentor Pedagógico de Problemas & Auditor de Rigor Analítico.
-   - **Metodología Obligatoria de 4 Fases:**
-     1. Planteamiento físico/matemático, grados de libertad, ligaduras e hipótesis.
-     2. Sistemas de coordenadas, bases vectoriales ($\mathcal{B}_0, \mathcal{B}_C$) y matrices de cambio de base $[{}_0 R_1]$.
-     3. Desarrollo algebraico y cálculo paso a paso sin omisiones. Justificación previa de cada fórmula. Derivadas explícitas (regla de la cadena) e integrales completas (cambio de variable, diferencial, Barrow).
-     4. Interpretación física, órdenes de magnitud y verificación dimensional en unidades SI.
+   - **Estructura visible: el orden del profesor de cada asignatura** (`AGENTS.md`, "Problem-solving standard"). Nunca aparecen "Phase 1..4" ni "four phases". En Mecánica: sistemas de referencia, bases y coordenadas → cambio de base y vector de posición (con figuras de deducción) → cinemática → fuerzas y ecuaciones del movimiento → respuestas y comprobaciones.
+   - **Lista de verificación interna (silenciosa):**
+     1. Hipótesis, grados de libertad, ligaduras y datos en SI.
+     2. Bases definidas y matrices de cambio de base $[{}_0 R_1]$ comprobadas.
+     3. Desarrollo paso a paso sin omisiones: cada seno o coseno con su triángulo, cada signo con la regla de la mano derecha, derivadas explícitas (regla de la cadena) e integrales completas (cambio de variable, diferencial, Barrow).
+     4. Interpretación física, casos límite y verificación dimensional en unidades SI.
 
 4. **`subject-web-builder`**:
    - **Misión:** Desarrollador Frontend del Portal (`subjects/`) y Bóveda Obsidian (`vault/`).
@@ -129,7 +130,7 @@ Have them populate the shared task list and coordinate findings.
 1. **Fase 1 (Ingesta y Bóveda):**
    `source-researcher` y `aerospace-pedagogue` estructuran primero las notas en `vault/<asignatura>/` usando las plantillas de `vault/Templates/` y actualizan los MOCs.
 2. **Fase 2 (Resolución de Problemas):**
-   `problem-step-mentor` desarrolla las soluciones completas paso a paso en inglés, asegurando la metodología de 4 fases y KaTeX impecable.
+   `problem-step-mentor` desarrolla las soluciones completas paso a paso en inglés, en el orden del profesor de cada asignatura, con sus figuras de deducción y KaTeX impecable.
 3. **Fase 3 (Construcción Web):**
    `subject-web-builder` genera las páginas en `subjects/<asignatura>/teoria/` y `problemas/` consumiendo la bóveda consolidada como única fuente de verdad.
 4. **Fase 4 (Auditoría de Cierre):**
@@ -146,7 +147,7 @@ El orquestador no espera órdenes manuales sobre qué plugin o rol invocar. Apli
 | **Nuevo módulo / Refactorización** | `superpowers:brainstorming` + `bm:plan-phase` | `aerospace-pedagogue` | Cuestionamiento socrático y diseño de arquitectura antes de tocar código. |
 | **Fallo de renderizado / Bug KaTeX / Enlace roto** | `superpowers:systematic-debugging` | `web-qa-reviewer` | Reproducción, hipótesis falsificable, arreglo de causa raíz y test de verificación. |
 | **Inspección de múltiples archivos o logs** | `context-mode` (`ctx_execute`, `ctx_search`) | `source-researcher` | Ejecución en sandbox para parsear y resumir sin saturar la ventana de contexto. |
-| **Desarrollo de problemas o exámenes** | Ninguno (Rigor analítico puro) | `problem-step-mentor` | Desglose estricto en 4 fases, derivadas e integrales explícitas en KaTeX. |
+| **Desarrollo de problemas o exámenes** | Ninguno (Rigor analítico puro) | `problem-step-mentor` | Orden del profesor sin etiquetas "Phase", cada paso justificado, derivadas e integrales explícitas en KaTeX, figuras de cambio de base. |
 | **Hitos de larga duración / Sprints temáticos** | `bm` (`/bm:plan-phase`, `/bm:execute-phase`) | Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) | Lanzamiento coordinado de 3–5 compañeros con lista de tareas compartida. |
 | **Cierre de tarea puntual** | `review-ultrareview` (Modo: `review`) | `web-qa-reviewer` | Checklist rápido: KaTeX delimitadores, link `../../../index.html`, idioma y YAML. |
 | **Cierre de capítulo o examen** | `review-ultrareview` (Modo: `ultrareview`) | Equipo Completo (Adversarial) | Auditoría 4D: comprobación algebraica sin saltos, Barrow, SI, fuentes oficiales. |

@@ -429,7 +429,7 @@
     </header>
 
     <div class="note-banner">
-      <strong>Statements and solutions:</strong> Each card gives the statement from the official collection (with the PDF page) and a worked solution in four phases: hypotheses and data, frames and change-of-basis matrices, step-by-step derivation, and interpretation with unit and limit checks. Only Problems 17 and 39 (part f) have an official key entry; the other results are derived here and checked numerically.
+      <strong>Statements and solutions:</strong> Each card gives the statement from the official collection (with the PDF page) and a worked solution in the order of the course: frames, bases and coordinates, the change of basis and the position vector, kinematics, forces and equations of motion, and the answers with unit and limit checks. Only Problems 17 and 39 (part f) have an official key entry; the other results are derived here and checked numerically.
     </div>
 
     <!-- Problem 42 -->
@@ -470,12 +470,11 @@ $$ F = \frac{m\mu}{r^\alpha} $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a particle $P$ of mass $m$ attracted to the fixed point $O$ by $\mathbf{F} = -\dfrac{m\mu}{r^\alpha}\mathbf{e}_r$, where $r = \|\overrightarrow{OP}\|$.</li>
@@ -487,7 +486,6 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 </ul>
 <div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">SI unit</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mu$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">force strength per unit mass, $F/m = \mu/r^\alpha$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^{\alpha+1}$/s$^2$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$h$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">specific angular momentum</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^2$/s</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">reciprocal radius</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^{-1}$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\xi$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">specific mechanical energy</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">J/kg = m$^2$/s$^2$</td></tr></tbody></table></div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with its origin at the attracting centre.</li>
@@ -501,7 +499,6 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 </ul>
 <div class="math-block">$$ \dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{k}\times\mathbf{e}_r = \dot{\theta}\,\mathbf{e}_\theta, \qquad \dot{\mathbf{e}}_\theta = \dot{\theta}\,\mathbf{k}\times\mathbf{e}_\theta = -\dot{\theta}\,\mathbf{e}_r $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the force acts along the line $OP$, so the position vector is simply $r\mathbf{e}_r$. The basis vector $\mathbf{e}_r$ is not constant in $S_0$, so each derivative uses the product rule and Poisson's formula. These planar polar formulas are valid for a motion contained in the plane of the basis; that the motion is indeed planar is proved in 3.3, and here it only fixes the choice of $\mathbf{k}$.</div>
@@ -606,7 +603,6 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <li><strong>(ii)</strong> A particle with $\dot{r}_0 \lt 0$ reaches $r = 0$ for every $\alpha$, since the acceleration is always inward. <strong>(i)</strong> Escape requires $\dot{r}_0 \gt 0$ and $\xi \ge \lim_{r\to\infty}V_0 = 0$, which exists only for $\alpha \gt 1$; for $\alpha \le 1$, $V_0 \to +\infty$ and the particle always turns back. <strong>(iii)</strong> Without angular momentum, a particle that turns back falls to the origin, so there is no oscillation between two values.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $[F/m] = \text{m/s}^2 = [\mu]/\text{m}^\alpha$ gives $[\mu] = \text{m}^{\alpha+1}/\text{s}^2$. With $[h^2] = \text{m}^4/\text{s}^2$ and $[u] = \text{m}^{-1}$, $\dfrac{\mu}{h^2}u^{\alpha - 2}$ has units $\text{m}^{\alpha - 3}\,\text{m}^{-(\alpha - 2)} = \text{m}^{-1}$, the same as $u$ and $u''$ ($\theta$ is dimensionless).</li>
@@ -672,12 +668,11 @@ $$ F = \frac{m\mu}{r^\alpha} $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> $P_1$ on a smooth horizontal plane at polar position $(r, \theta)$ and $P_2$ hanging on the vertical through the hole $O$, joined by an inextensible massless cord of length $2a$ that passes through $O$.</li>
@@ -689,7 +684,6 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 </ul>
 <div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">SI unit</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$m$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">mass of each particle</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">kg</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">half of the cord length</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$v_0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">initial speed of $P_1$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$g$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">gravitational acceleration</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s$^2$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mu$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">friction coefficient (part f)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">1</td></tr></tbody></table></div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$, horizontal plane $z = 0$, $\mathbf{k}$ up.</li>
@@ -701,7 +695,6 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <li>$\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so by Poisson $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$. $P_2$ moves along $\mathbf{k}$, so it needs no extra basis.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the constraints leave $r$ and $\theta$ free; the position of $P_2$ follows from the cord constraint $z_2 = r - 2a$. For $P_1$ we use the polar formulas of Problem 42 (product rule and Poisson).</div>
@@ -789,7 +782,6 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <li>Angular momentum and energy are no longer conserved (friction dissipates energy), so the problem cannot be reduced to the quadratures of (c).</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Tension at the turning points:</strong> $T(a) = mg\left(\tfrac{1}{2} + \tfrac{4}{3}\right) = \tfrac{11}{6}mg$ and $T(2a) = mg\left(\tfrac{1}{2} + \tfrac{4}{24}\right) = \tfrac{2}{3}mg$, both positive.</li>
@@ -828,12 +820,11 @@ $$ F = \frac{m\mu}{r^\alpha} $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a seed of mass $m \ll M$ launched from the surface ($r_0 = R$) with speed $v_0$ at $\gamma = 60^\circ$ above the local horizontal; it reaches the apocenter $r_a = 3R$.</li>
@@ -843,7 +834,6 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 </ul>
 <div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">SI unit</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$M$, $R$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">mass and radius of the asteroid</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">kg, m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$G$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">universal gravitational constant, $6.6743\times 10^{-11}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^3$/(kg s$^2$)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mu = GM$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">gravitational parameter</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^3$/s$^2$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\gamma$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">launch angle above the local horizontal (given: $60^\circ$)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">rad</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$r_a$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">apocenter radius (given: $3R$)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$v_0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">launch speed (unknown)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s</td></tr></tbody></table></div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $O$ at the centre of the asteroid.</li>
@@ -855,7 +845,6 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <li>$\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so by Poisson $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the product rule and Poisson's formula (as in Problem 42, 3.1) give the position, velocity and acceleration in the polar basis. The velocity is what the conservation laws need, and the acceleration is needed to write Newton's second law in 3.3.</div>
@@ -890,7 +879,6 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <div class="math-block">$$ \left(\frac{1}{2} - \frac{1}{72}\right)v_0^2 = \left(1 - \frac{1}{3}\right)\frac{GM}{R} \implies \frac{35}{72}v_0^2 = \frac{2}{3}\frac{GM}{R} \implies v_0^2 = \frac{2}{3}\cdot\frac{72}{35}\frac{GM}{R} = \frac{48}{35}\frac{GM}{R} $$</div>
 <div class="math-block">$$ \boxed{v_0 = \sqrt{\frac{48}{35}\,\frac{GM}{R}}} $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Bound orbit:</strong> the escape speed at the surface is $v_e = \sqrt{2GM/R}$, i.e. $v_e^2 = \tfrac{70}{35}GM/R$. Since $\tfrac{48}{35} \lt 2$, $v_0 \lt v_e$ and the orbit is an ellipse: the seed falls back.</li>

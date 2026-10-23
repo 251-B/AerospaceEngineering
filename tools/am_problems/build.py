@@ -102,7 +102,7 @@ def card_html(P, fig):
     s.append('      <div class="phase-section">\n        <div class="phase-badge-title phase-1-badge">Statement</div>\n'
              '        <div class="problem-statement-box">' + mdhtml.render(mdhtml.parse(P["statement"]), fig) + "</div>\n      </div>\n")
     for number, heading, md in P["phases"]:
-        s.append(section(f"phase-{number}-badge", f"Phase {number}: {heading}", md))
+        s.append(section(f"phase-{number}-badge", heading, md))       # never "Phase N" on the page
     s.append("    </article>\n")
     return "\n".join(s)
 

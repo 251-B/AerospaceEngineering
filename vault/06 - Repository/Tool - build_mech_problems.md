@@ -13,7 +13,7 @@ source: "tools/build_mech_problems.py"
 
 Generates the five Engineering Mechanics official problem pages (`subjects/engineering-mechanics/problemas/topic-1.html` to `topic-5.html`, 51 problems in all) from the notes `Problem Set - Topic N ...` (verbatim statements) and `Solution Set - Topic N ...` (worked solutions) in `vault/03 - Engineering Mechanics/`. What the notes do not hold (card title, badge, source note, structure version of each solution) lives in `tools/mech_problems.json`.
 
-Each solution has four phases. A solution with `"structure": 2` in the JSON must follow the course order of Notes.pdf chapter 7: Phase 1 constraints, degrees of freedom and coordinates; Phase 2 reference frames and bases; Phase 3 derivation with the sub-headings 3.1 Kinematics, 3.2 Forces, 3.3 Equations of Motion and 3.4 Integration and Answers; Phase 4 interpretation and checks, including "Check against the official key". Structure 1 only requires the four phases.
+A solution with `"structure": 3` in the JSON follows the lecturer's order: `### Reference Frames, Bases and Coordinates`, `### Change of Basis and Position Vector` (with its deduction figures from `tools/figures/em_solutions.py`, embedded with an Obsidian embed of `attachments/EM-SOL/<name>.svg`), `### Kinematics`, `### Forces and Equations of Motion` (optional) and `### Answers and Checks`, which must contain "Check against the official key". `"structure": 2` is the legacy `### Phase 1..4` layout, accepted only until a topic is migrated. The page never shows the word "Phase": the sections carry their own headings and no badge.
 
 ## Command
 

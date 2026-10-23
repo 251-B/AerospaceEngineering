@@ -26,7 +26,7 @@ Map of content for the repository's own tooling, agents and rules. The study con
 | [[Rules - CLAUDE.md]] | Rules | Claude Code framework: triggering pipeline, decision matrix, subagents and agent teams. |
 | [[Rules - GEMINI.md]] | Rules | Gemini session setup, NotebookLM scope and subagent definitions. |
 | [[Agent - aerospace-pedagogue]] | Agent | Writes theory from first principles, cited to the sources. |
-| [[Agent - problem-step-mentor]] | Agent | Enforces the four-phase method on problem solutions. |
+| [[Agent - problem-step-mentor]] | Agent | Enforces the problem-solving standard (lecturer's order, silent checklist) on problem solutions. |
 | [[Agent - source-researcher]] | Agent | Read-only extraction of formulas and statements from `sources/`. |
 | [[Agent - subject-web-builder]] | Agent | Builds `subjects/` pages and `vault/` notes. |
 | [[Agent - web-qa-reviewer]] | Agent | Runs the review gates and manages git. |

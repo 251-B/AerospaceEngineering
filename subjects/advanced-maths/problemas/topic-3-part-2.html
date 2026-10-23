@@ -674,7 +674,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup, classification and data</div>
+        <div class="phase-badge-title phase-1-badge">Setup, classification and data</div>
 <p>All eleven equations are <strong>linear, second-order, inhomogeneous equations with constant coefficients</strong>, $L[x] = \ddot x + b\dot x + cx = f(t)$ (the coefficient of $\ddot x$ is $1$). The forcing $f$ is built from polynomials, exponentials and sinusoids, so the method of undetermined coefficients applies (Robinson Ch. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=147" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 147">14</a>). Hypotheses: for (vi) and (vii) the parameters $\omega &gt; 0$ and $\alpha$ are real, with $\alpha \neq \omega$ in (vi) and $\alpha = \omega$ in (vii).</p>
 <p>The coefficients are continuous on all of $\mathbb R$, so for every pair of initial data there is exactly one solution, defined for all $t$ (existence and uniqueness, Robinson Thm 11.1 and Thm 16.1). The data of item $(n)$ are $x(0) = n$, $\dot x(0) = 0$, with $n$ the position of the item in the list:</p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Equation $L[x] = f$</th><th>$x(0)$</th><th>$\dot x(0)$</th></tr></thead><tbody><tr><td>(i)</td><td>$\ddot x - 4x = t^2$</td><td>1</td><td>0</td></tr><tr><td>(ii)</td><td>$\ddot x - 4\dot x = t^2$</td><td>2</td><td>0</td></tr><tr><td>(iii)</td><td>$\ddot x + \dot x - 2x = 3e^{-t}$</td><td>3</td><td>0</td></tr><tr><td>(iv)</td><td>$\ddot x + \dot x - 2x = e^{t}$</td><td>4</td><td>0</td></tr><tr><td>(v)</td><td>$\ddot x + 2\dot x + x = e^{-t}$</td><td>5</td><td>0</td></tr><tr><td>(vi)</td><td>$\ddot x + \omega^2 x = \sin(\alpha t)\ \text{ for } \alpha \neq \omega$</td><td>6</td><td>0</td></tr><tr><td>(vii)</td><td>$\ddot x + \omega^2 x = \sin(\alpha t)\ \text{ for } \alpha = \omega$</td><td>7</td><td>0</td></tr><tr><td>(viii)</td><td>$\ddot x + 2\dot x + 10x = e^{-t}$</td><td>8</td><td>0</td></tr><tr><td>(ix)</td><td>$\ddot x + 2\dot x + 10x = e^{-t}\cos(3t)$</td><td>9</td><td>0</td></tr><tr><td>(x)</td><td>$\ddot x + 6\dot x + 10x = e^{-3t}\cos t$</td><td>10</td><td>0</td></tr><tr><td>(xi)</td><td>$\ddot x + 4\dot x + 4x = e^{2t}$</td><td>11</td><td>0</td></tr></tbody></table></div>
@@ -682,7 +682,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Method, notation and the guess for each item</div>
+        <div class="phase-badge-title phase-2-badge">Method, notation and the guess for each item</div>
 <p>Write $P(k) = k^2 + bk + c$ for the characteristic polynomial. A forcing $c_0\,t^m e^{\sigma t}\{\cos\omega t, \sin\omega t\}$ is, for the purpose of the guess, the exponent $s = \sigma + i\omega$ (and $s = \sigma$ when there is no sinusoid; $s = 0$ for a polynomial). Rule of thumb (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=155" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 155">14.5</a>, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=155" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 155">139</a>): take the standard guess of the same form as $f$ with undetermined coefficients, and multiply it by $t^{m_s}$ where $m_s$ is the multiplicity of $s$ as a root of $P$ ($m_s = 0$ when $P(s) \neq 0$).</p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Forcing</th><th>Standard guess $x_p$</th><th>If $s$ is a root of $P$ of multiplicity $m_s$</th></tr></thead><tbody><tr><td>polynomial of degree $m$</td><td>$K_0 + K_1t + \dots + K_mt^m$</td><td>multiply by $t^{m_s}$</td></tr><tr><td>$e^{\sigma t}$</td><td>$Ke^{\sigma t}$</td><td>$Kt^{m_s}e^{\sigma t}$</td></tr><tr><td>$\sin\omega t$ or $\cos\omega t$</td><td>$K_1\cos\omega t + K_2\sin\omega t$ (both, always)</td><td>$t^{m_s}(K_1\cos\omega t + K_2\sin\omega t)$</td></tr><tr><td>$e^{\sigma t}\cos\omega t$</td><td>$e^{\sigma t}(K_1\cos\omega t + K_2\sin\omega t)$</td><td>$t^{m_s}e^{\sigma t}(K_1\cos\omega t + K_2\sin\omega t)$</td></tr></tbody></table></div>
 <p>Applying the rule item by item (the roots of $P$ were found in Exercise 4 of part 1 for the homogeneous equations; the last column is $m_s$):</p>
@@ -692,7 +692,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-step derivation of the eleven solutions</div>
+        <div class="phase-badge-title phase-3-badge">Step-by-step derivation of the eleven solutions</div>
 <div class="sub-case-card"><div class="sub-case-header">(i) $\ddot{x} - 4x = t^{2}$, with $x(0) = 1$, $\dot x(0) = 0$</div>
 <p>The homogeneous equation $\ddot{x} - 4x = 0$ has constant coefficients, so we try $x = e^{kt}$ (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=128" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 128">12.1</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=166" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 166">16.1</a>): by the chain rule each derivative multiplies by $k$, and dividing by $e^{kt} \neq 0$ leaves the characteristic equation</p>
 <p>$$ P(k) = k^{2} - 4 = 0 $$</p>
@@ -1143,7 +1143,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation, long-time behaviour and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation, long-time behaviour and checks</div>
 <p>Summary of the eleven solutions of the IVPs (item $(n)$ has $x(0) = n$, $\dot x(0) = 0$):</p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Solution $x(t)$</th></tr></thead><tbody><tr><td>(i)</td><td>$- \frac{t^{2}}{4} + \frac{9 e^{2 t}}{16} - \frac{1}{8} + \frac{9 e^{-2 t}}{16}$</td></tr><tr><td>(ii)</td><td>$- \frac{t^{3}}{12} - \frac{t^{2}}{16} - \frac{t}{32} + \frac{e^{4 t}}{128} + \frac{255}{128}$</td></tr><tr><td>(iii)</td><td>$\frac{5 e^{t}}{2} - \frac{3 e^{-t}}{2} + 2 e^{-2 t}$</td></tr><tr><td>(iv)</td><td>$\frac{t e^{t}}{3} + \frac{23 e^{t}}{9} + \frac{13 e^{-2 t}}{9}$</td></tr><tr><td>(v)</td><td>$\frac{t^{2} e^{-t}}{2} + 5 t e^{-t} + 5 e^{-t}$</td></tr><tr><td>(vi)</td><td>$6\cos\omega t + \dfrac{\sin\alpha t - (\alpha/\omega)\sin\omega t}{\omega^2 - \alpha^2}$</td></tr><tr><td>(vii)</td><td>$7 \cos{\omega t} - \frac{t \cos{\omega t}}{2 \omega} + \frac{\sin{\omega t}}{2 \omega^{2}}$</td></tr><tr><td>(viii)</td><td>$\frac{8 e^{-t} \sin{3 t}}{3} + \frac{71 e^{-t} \cos{3 t}}{9} + \frac{e^{-t}}{9}$</td></tr><tr><td>(ix)</td><td>$\frac{t e^{-t} \sin{3 t}}{6} + 3 e^{-t} \sin{3 t} + 9 e^{-t} \cos{3 t}$</td></tr><tr><td>(x)</td><td>$\frac{t e^{-3 t} \sin{t}}{2} + 30 e^{-3 t} \sin{t} + 10 e^{-3 t} \cos{t}$</td></tr><tr><td>(xi)</td><td>$\frac{87 t e^{-2 t}}{4} + \frac{e^{2 t}}{16} + \frac{175 e^{-2 t}}{16}$</td></tr></tbody></table></div>
 <h4 class="step-heading">Behaviour as $t \to \infty$</h4>
@@ -1170,12 +1170,12 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup</div>
+        <div class="phase-badge-title phase-1-badge">Setup</div>
 <p>The equation is $L[x] = \ddot x + \dot x - 2x = f$ with $f = 12e^{-t} - 6e^{t}$, the same operator $L$ as items (iii) and (iv) of Exercise 1. $L$ is linear (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=119" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 119">11.11</a>), so if $L[x_a] = f_a$ and $L[x_b] = f_b$ then $L[\alpha x_a + \beta x_b] = \alpha f_a + \beta f_b$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=155" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 155">14.7</a>). Hypothesis: nothing more is needed, since any single solution of $L[x] = f$ is a particular integral.</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>Rewrite the forcing in terms of the two forcings of Exercise 1:</p>
 <p>$$ f = 12e^{-t} - 6e^{t} = 4\,\underbrace{\left(3e^{-t}\right)}_{f_a\ \text{(item iii)}} - 6\,\underbrace{\left(e^{t}\right)}_{f_b\ \text{(item iv)}} $$</p>
 <p>Item (iii) found $x_a$ with $L[x_a] = 3e^{-t}$ and item (iv) found $x_b$ with $L[x_b] = e^{t}$. Then $x_p = 4x_a - 6x_b$.</p>
@@ -1183,7 +1183,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">The two particular integrals of Exercise 1</h4>
 <p>$P(k) = k^2 + k - 2 = (k - 1)(k + 2)$ has roots $1$ and $-2$. For $3e^{-t}$ the exponent is $s = -1$, $P(-1) = 1 - 1 - 2 = -2 \neq 0$, so $x_a = K e^{-t}$ and, since $\dot x_a = -Ke^{-t}$, $\ddot x_a = Ke^{-t}$: $L[x_a] = (K - K - 2K)e^{-t} = -2Ke^{-t} = 3e^{-t}$, hence $K = -\tfrac32$:</p>
 <p>$$ x_a(t) = -\tfrac32 e^{-t} $$</p>
@@ -1198,7 +1198,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <div class="result-box"><div class="result-box-title">Result</div><p>A particular solution is $x_p(t) = - 2 t e^{t} - 6 e^{-t}$.</p><p>The general solution is $x(t) = c_1e^{t} + c_2e^{-2t} - 6e^{-t} - 2te^{t}$ (the roots $1$ and $-2$ of $P$ give the complementary function).</p></div>
 <ul class="bullet-list"><li>The term $-2te^{t}$ carries the extra factor $t$ because $e^{t}$ solves the homogeneous equation (resonance); the term $-6e^{-t}$ does not.</li><li>Particular integrals are not unique: adding any multiple of $e^{t}$ or $e^{-2t}$ gives another one; the answer above is the one with no such terms.</li><li>Dimensions: with $[t] = $ s, each term of $L[x]$ has the units of $f$; both sides are exponentials of a dimensionless argument $t/(1\ \mathrm{s})$, so the check is purely numerical.</li></ul>
       </div>
@@ -1221,19 +1221,19 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and classification</div>
+        <div class="phase-badge-title phase-1-badge">Setup and classification</div>
 <p>Hypotheses: $\omega &gt; 0$ is the natural angular frequency (rad/s), $\alpha \geq 0$ the forcing frequency and $a$ the forcing amplitude per unit mass (m/s$^2$). The equation is linear, second-order, with constant coefficients and a sinusoidal forcing. Its characteristic polynomial $P(k) = k^2 + \omega^2$ has the imaginary roots $k = \pm i\omega$, so the complementary function is the simple harmonic motion $x_h = c_1\cos\omega t + c_2\sin\omega t$ (Topic 3, Sec. 4.2).</p>
 <p>The forcing $a\cos\alpha t$ has exponent $s = \pm i\alpha$. The whole discussion hinges on whether $s$ is a root of $P$, that is, on whether $\alpha = \omega$ (<strong>resonance</strong>) or $\alpha \neq \omega$. Both cases are solved below with the method of undetermined coefficients, then compared.</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Method</div>
+        <div class="phase-badge-title phase-2-badge">Method</div>
 <p>General solution $x = x_h + x_p$ (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=147" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 147">14.1</a>). For $x_p$ use the guess table of Topic 3, Sec. 5: $K_1\cos\alpha t + K_2\sin\alpha t$ when $P(i\alpha) \neq 0$ and $t(K_1\cos\omega t + K_2\sin\omega t)$ when $\alpha = \omega$.</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener" title="Open Notes.pdf at page 6">6</a>]</div><p>$x = x_H + x_N$ as in the notes, with $x_H = C_1\cos\omega t + C_2\sin\omega t$ (Case 03 with $\rho = 0$). The guess $A\cos\alpha t + B\sin\alpha t$ of the notes works while $\alpha \neq \omega$; when $\alpha = \omega$ the forcing is already in $x_H$ and the notes multiply the guess by $t$, which is the resonant solution.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <div class="sub-case-card"><div class="sub-case-header">Case A: $\alpha \neq \omega$ (non-resonant forcing)</div>
 <p>The homogeneous equation $\ddot{x} + \omega^{2}x = 0$ has constant coefficients, so we try $x = e^{kt}$ (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=128" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 128">12.1</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=166" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 166">16.1</a>): by the chain rule each derivative multiplies by $k$, and dividing by $e^{kt} \neq 0$ leaves the characteristic equation</p>
 <p>$$ P(k) = k^{2} + \omega^{2} = 0 $$</p>
@@ -1346,7 +1346,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <div class="table-container"><table class="data-table"><thead><tr><th>Frequency ratio</th><th>Particular integral</th><th>Behaviour of the general solution</th></tr></thead><tbody><tr><td>$\alpha \neq \omega$</td><td>$\dfrac{a}{\omega^2 - \alpha^2}\cos\alpha t$</td><td>bounded superposition of two sinusoids; beats if the data are those of rest; large amplitude near $\alpha \approx \omega$</td></tr><tr><td>$\alpha = \omega$</td><td>$\dfrac{a}{2\omega}t\sin\omega t$</td><td>amplitude grows linearly: resonance</td></tr><tr><td>$\alpha \to 0$</td><td>$\dfrac{a}{\omega^2}$</td><td>static deflection $a/\omega^2$ under a constant force (Hooke's law)</td></tr><tr><td>$\alpha \to \infty$</td><td>$\approx -\dfrac{a}{\alpha^2}\cos\alpha t$</td><td>response tends to $0$: inertia dominates</td></tr></tbody></table></div>
 <ul class="bullet-list"><li>There is no damping in this model, so the transient $x_h$ never dies: unlike Exercise 4, the steady state is not isolated from the initial data.</li><li>Dimensions: $[a] = \mathrm{m/s^2}$, $[\omega^2 - \alpha^2] = \mathrm{s^{-2}}$, so $[a/(\omega^2 - \alpha^2)] = \mathrm m$ and for the resonant term $[a\,t/(2\omega)] = (\mathrm{m/s^2})(\mathrm s)/(\mathrm{s^{-1}}) = \mathrm m$ (radians are dimensionless).</li><li>Engineering reading: a structure with natural frequency $\omega$ must not be forced at (or near) $\omega$ for long; real systems have damping, which keeps the amplitude finite (Exercise 4).</li></ul>
       </div>
@@ -1369,18 +1369,18 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>Parameters: $\lambda &gt; 0$ (damping rate, s$^{-1}$), $\omega &gt; 0$ (natural frequency), $\alpha &gt; 0$ (forcing frequency), $a &gt; 0$ (forcing amplitude per unit mass). Underdamped: $\lambda^2 &lt; 4\omega^2$, so the characteristic roots are $-\frac{\lambda}{2} \pm i\sigma$ with $\sigma = \frac12\sqrt{4\omega^2 - \lambda^2} &gt; 0$ (Topic 3, Sec. 4.3) and the complementary function is $x_h = e^{-\lambda t/2}(c_1\cos\sigma t + c_2\sin\sigma t)$, which decays. Only $x_p$ survives at long times.</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation: what has to be shown</div>
+        <div class="phase-badge-title phase-2-badge">Formulation: what has to be shown</div>
 <p>We must find constants $M$ and $\phi$ such that $x_p = M\cos(\alpha t - \phi)$ satisfies $L[x_p] = a\cos\alpha t$. Because $\cos(\alpha t - \phi)$ is a shifted cosine, the cosine and sine terms of the guess of Topic 3, Sec. 6.1 are packed in one amplitude and one phase. The subtraction formulas $\cos(\alpha t - \phi) = \cos\alpha t\cos\phi + \sin\alpha t\sin\phi$ and $\sin(\alpha t - \phi) = \sin\alpha t\cos\phi - \cos\alpha t\sin\phi$ will be used.</p>
 <div class="note-box"><div class="note-box-title">Class notes and complement [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener" title="Open Notes.pdf at page 6">6</a>]</div><p>The guess of the notes for $a\cos\alpha t$ is $A\cos\alpha t + B\sin\alpha t$ ($\pm i\alpha$ is not a root because $\lambda &gt; 0$), and $x = x_H + x_N$ with $x_H \to 0$ (Case 03 with $\rho = -\lambda/2 &lt; 0$). Packing $A$ and $B$ into one amplitude and one phase, $M\cos(\alpha t - \phi)$, is a complement (not in the class notes).</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">Substitution</h4>
 <p>Differentiate with the chain rule ($\frac{d}{dt}(\alpha t - \phi) = \alpha$):</p>
 <p>$$ \dot x_p = -M\alpha\sin(\alpha t - \phi), \qquad \ddot x_p = -M\alpha^2\cos(\alpha t - \phi) $$</p>
@@ -1454,7 +1454,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <div class="result-box"><div class="result-box-title">Result</div><p>$x_p(t) = M\cos(\alpha t - \phi)$ with $M = \dfrac{a}{\sqrt{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}}$ and $\phi = \operatorname{atan2}(\lambda\alpha, \omega^2 - \alpha^2) \in (0, \pi)$.</p><p>The general solution is $x = e^{-\lambda t/2}(c_1\cos\sigma t + c_2\sin\sigma t) + M\cos(\alpha t - \phi)$: the transient decays and the steady state at the forcing frequency remains, independent of the initial data.</p></div>
 <ul class="bullet-list"><li>Numerical check of (1) and (2) at $\omega = 2$, $\lambda = 1$, $\alpha = 1$, $a = 1$: $R = \sqrt{9 + 1} = \sqrt{10}$, $M = 1/\sqrt{10}$, $\cos\phi = 3/\sqrt{10}$, $\sin\phi = 1/\sqrt{10}$, and $M[3\cos\phi + 1\cdot\sin\phi] = \frac{1}{\sqrt{10}}\cdot\frac{9 + 1}{\sqrt{10}} = 1 = a$ (checked symbolically in <code>scripts/verify_topic3_topic4.py</code>).</li><li>Dimensions: $[\omega^2 - \alpha^2] = [\lambda\alpha] = \mathrm{s^{-2}}$, so $[R] = \mathrm{s^{-2}}$ and $[M] = [a]/[R] = \mathrm{m/s^2\cdot s^2} = \mathrm m$; $\phi$ is dimensionless.</li><li>Condition $\lambda^2 &lt; 4\omega^2$ is only needed for the form of $x_h$; the formulas for $M$ and $\phi$ hold for every $\lambda &gt; 0$.</li></ul>
       </div>
@@ -1477,19 +1477,19 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup, classification and a remark on the statement</div>
+        <div class="phase-badge-title phase-1-badge">Setup, classification and a remark on the statement</div>
 <p>All three are linear, constant-coefficient, inhomogeneous equations of order $3$, $3$ and $4$. By the higher-order theory (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=166" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 166">16.1</a>, Topic 3 Sec. 3 box), the general solution of $a_nx^{(n)} + \dots + a_0x = f$ is $x = x_h + x_p$, where $x_h$ contains $n$ arbitrary constants (the solution space of the homogeneous equation has dimension $n$) and the method of undetermined coefficients gives $x_p$ exactly as for $n = 2$. Hypotheses: coefficients constant, $f$ continuous.</p>
 <div class="warning-box"><div class="warning-box-title">Remark on the statement of (ii)</div><p>The sheet prints $y''' - 3y' + 2 = \sin x$. Read literally this is the linear equation $y''' - 3y' = \sin x - 2$ (the constant $2$ moves to the right-hand side), which is perfectly solvable. The other two items and the form $L[y] = \dots$ suggest that the term $2y$ may have been intended, but that is only a guess from the pattern of the sheet. We therefore solve <strong>both readings in full</strong>: $y''' - 3y' + 2y = \sin x$ (the guessed one) and the literal $y''' - 3y' = \sin x - 2$, each with its own general solution, so that the answer is complete whichever the author meant.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Method</div>
+        <div class="phase-badge-title phase-2-badge">Method</div>
 <p>Characteristic polynomial $P(k) = a_nk^n + \dots + a_0$. A root $k$ of multiplicity $m$ gives $t^je^{kt}$ for $j = 0, \dots, m - 1$; a complex pair $\rho \pm i\omega$ of multiplicity $m$ gives $t^je^{\rho t}\cos\omega t$ and $t^je^{\rho t}\sin\omega t$ for $j = 0, \dots, m - 1$ (Topic 3, Sec. 3 box, Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=166" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 166">16.1</a>). The particular integral uses the guess table of Topic 3, Sec. 5, with the factor $t^{m_s}$ when the exponent $s$ of the forcing is a root of $P$ of multiplicity $m_s$. The derivatives needed are now up to order $n$.</p>
 <div class="note-box"><div class="note-box-title">Class notes and complement [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=6" target="_blank" rel="noopener" title="Open Notes.pdf at page 6">6</a>]</div><p>The notes state that the educated guess works 'the same for higher order'. The homogeneous part, with $t^j$ factors for a root of multiplicity $m$, extends Cases 01 to 03 and is a complement (not in the class notes); the particular part uses the guess of the notes, times $t^{m_s}$ when the exponent of the forcing is a root.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <div class="sub-case-card"><div class="sub-case-header">(i) $x''' - 6x'' + 11x' - 6x = e^{-t}$</div>
 <p>The homogeneous equation $\dddot{x} - 6\ddot{x} + 11\dot{x} - 6x = 0$ has constant coefficients, so we try $x = e^{kt}$ (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=128" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 128">12.1</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=166" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 166">16.1</a>): by the chain rule each derivative multiplies by $k$, and dividing by $e^{kt} \neq 0$ leaves the characteristic equation</p>
 <p>$$ P(k) = k^{3} - 6 k^{2} + 11 k - 6 = 0 $$</p>
@@ -1624,7 +1624,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>General solution</th></tr></thead><tbody><tr><td>(i)</td><td>$c_{1} e^{t} + c_{2} e^{2 t} + c_{3} e^{3 t} - \frac{e^{-t}}{24}$</td></tr><tr><td>(ii), intended</td><td>$y(x) = c_{1} e^{-2 x} + c_{2} e^{x} + c_{3} x e^{x} + \frac{\sin{x}}{10} + \frac{\cos{x}}{5}$</td></tr><tr><td>(ii), literal reading</td><td>$y(x) = c_{1} e^{-\sqrt{3} x} + c_{2} + c_{3} e^{\sqrt{3} x} + \frac{2 x}{3} + \frac{\cos{x}}{4}$</td></tr><tr><td>(iii)</td><td>$c_{1} e^{t} \cos{t} + c_{2} e^{t} \sin{t} + c_{3} t e^{t} \cos{t} + c_{4} t e^{t} \sin{t} - \frac{3 \sin{t}}{25} + \frac{4 \cos{t}}{25}$</td></tr></tbody></table></div>
 <ul class="bullet-list"><li>The number of arbitrary constants equals the order ($3$, $3$, $4$), as the dimension of the solution space requires (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=168" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 168">16.2</a>).</li><li>(i): three distinct real roots $1, 2, 3$, none equal to the exponent $s = -1$ of the forcing, hence no factor $t$.</li><li>(ii): $P(k) = k^3 - 3k + 2 = (k - 1)^2(k + 2)$ has the <strong>double</strong> root $1$, giving $e^x$ and $xe^x$; the forcing exponent is $s = \pm i$, not a root.</li><li>(iii): $P(k) = k^4 - 4k^3 + 8k^2 - 8k + 4 = (k^2 - 2k + 2)^2 = ((k - 1)^2 + 1)^2$ has the <strong>double</strong> complex pair $1 \pm i$, giving $e^t\cos t, e^t\sin t, te^t\cos t, te^t\sin t$; the forcing exponent is $\pm i$, not a root.</li><li>Each particular integral was substituted back into its equation symbolically (script <code>scripts/verify_topic3_topic4.py</code>); the residual vanishes identically.</li></ul>
       </div>
@@ -1647,14 +1647,14 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>Each equation is linear, second-order, inhomogeneous. Variation of constants (Lagrange; Robinson Ch. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=180" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 180">18</a>, Topic 3 Sec. 8) needs: (a) the equation in <strong>standard form</strong> $\ddot x + p\dot x + qx = g$ with the coefficient of the highest derivative equal to $1$; (b) two linearly independent solutions $x_1, x_2$ of the homogeneous equation; (c) $g$ continuous on an interval $I$ where the coefficients are continuous. Then, on $I$,</p>
 <p>$$ x_p = -x_1\int\frac{x_2\,g}{W}\,dt + x_2\int\frac{x_1\,g}{W}\,dt, \qquad W = x_1\dot x_2 - x_2\dot x_1 \neq 0 \quad (\text{Robinson Eq. 18.8}) $$</p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Standard form</th><th>Interval $I$ where $g$ and the coefficients are continuous</th></tr></thead><tbody><tr><td>(i)</td><td>$y'' - y' - 6y = e^x$</td><td>$\mathbb R$</td></tr><tr><td>(ii)</td><td>$\ddot x - x = 1/t$</td><td>$t &gt; 0$ (or $t &lt; 0$)</td></tr><tr><td>(iii)</td><td>$y'' + 4y = \cot 2x$</td><td>$0 &lt; x &lt; \pi/2$ (between zeros of $\sin 2x$)</td></tr><tr><td>(iv)</td><td>$\ddot x - \dfrac{2}{t^2}x = t$ (divide by $t^2$)</td><td>$t &gt; 0$ (or $t &lt; 0$)</td></tr><tr><td>(v)</td><td>$\ddot x - 4\dot x = \tan t$</td><td>$-\pi/2 &lt; t &lt; \pi/2$</td></tr></tbody></table></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation: the derivation of the formula, recalled</div>
+        <div class="phase-badge-title phase-2-badge">Formulation: the derivation of the formula, recalled</div>
 <p>Replace the constants of $x_h = c_1x_1 + c_2x_2$ by functions: $x = u_1x_1 + u_2x_2$. Choose $\dot u_1x_1 + \dot u_2x_2 = 0$ (18.7), so that $\dot x = u_1\dot x_1 + u_2\dot x_2$; substituting in the equation and using $L[x_1] = L[x_2] = 0$ leaves $\dot u_1\dot x_1 + \dot u_2\dot x_2 = g$. Cramer's rule on the system with determinant $W$ gives</p>
 <p>$$ \dot u_1 = -\frac{x_2\,g}{W}, \qquad \dot u_2 = \frac{x_1\,g}{W}, \qquad x_p = u_1x_1 + u_2x_2 $$</p>
 <p>Constants of integration only add multiples of $x_1, x_2$, so they may be dropped.</p>
@@ -1662,7 +1662,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <div class="sub-case-card"><div class="sub-case-header">(i) $y'' - y' - 6y = e^x$</div>
 <p>Homogeneous equation: $y = e^{kx}$ gives $k^2 - k - 6 = (k - 3)(k + 2) = 0$, so $k = 3, -2$.</p>
 <p>The homogeneous solutions are $y_1 = e^{3 x}$ and $y_2 = e^{-2 x}$. Their Wronskian is</p>
@@ -1731,7 +1731,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Particular solution $x_p$</th><th>Domain</th></tr></thead><tbody><tr><td>(i)</td><td>$-\dfrac{e^{x}}{6}$</td><td>$\mathbb R$</td></tr><tr><td>(ii)</td><td>$\dfrac{e^{t}}{2}\displaystyle\int_{t_0}^{t}\frac{e^{-s}}{s}ds - \dfrac{e^{-t}}{2}\int_{t_0}^{t}\frac{e^{s}}{s}ds$</td><td>$t &gt; 0$</td></tr><tr><td>(iii)</td><td>$\dfrac14\sin 2x\,\ln\vert \csc 2x - \cot 2x\vert  = \dfrac14\sin 2x\,\ln\vert \tan x\vert $</td><td>$0 &lt; x &lt; \pi/2$</td></tr><tr><td>(iv)</td><td>$\dfrac{t^3}{4}$</td><td>$t &gt; 0$</td></tr><tr><td>(v)</td><td>$\dfrac14\ln\cos t + \dfrac{e^{4t}}{4}\displaystyle\int_{t_0}^{t}e^{-4s}\tan s\,ds$</td><td>$\vert t\vert  &lt; \pi/2$</td></tr></tbody></table></div>
 <ul class="bullet-list"><li>The general solution of each equation is $x_h + x_p$ with the two homogeneous solutions used above.</li><li>(i) and (iv) could also have been found by undetermined coefficients ($Ke^x$ and $Kt^3$); both methods agree ($-\frac16e^x$ and $\frac14t^3$), a useful cross-check of the Wronskian bookkeeping. (iii) and (v) have forcings ($\cot$, $\tan$) outside the family of undetermined coefficients, which is the reason for the method.</li><li>(iv) is an Euler equation: the substitution $x = t^k$ turns it into an algebraic equation for $k$, and its standard form needs the division by $t^2$ before applying the formula.</li><li>Wronskians: $-5e^{x}$ in (i) (consistent with Abel's identity, $W = W_0e^{x}$ since $p = -1$), $-2$ in (ii), $2$ in (iii), $-3$ in (iv) and $4e^{4t}$ in (v) (Abel: $p = -4$, $W = W_0e^{4t}$); none vanishes on its interval.</li><li>The sheet works in dimensionless variables, so no unit check is attached to the forcings ($t^3$, $e^{x}$, $\cot 2x$, $\tan t$ are pure numbers); the check that matters is that each particular solution reproduces its forcing exactly, which was done symbolically.</li><li>Every particular solution (and the integral forms, via the differentiation above) was verified symbolically in <code>scripts/verify_topic3_topic4.py</code>.</li></ul>
       </div>
@@ -1754,18 +1754,18 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>Hypotheses: $p, q, g$ are continuous on an open interval $I \ni t_0$. Under these hypotheses the existence and uniqueness theorem (Robinson Thm 11.1, Topic 3 Sec. 1; for linear equations the solution exists on the whole of $I$) states that every IVP $L[w] = h$, $w(t_0) = w_0$, $w'(t_0) = w_1$ has exactly one solution on $I$. Define $L[y] = y'' + p\,y' + q\,y$; $L$ is a <strong>linear operator</strong>: $L[\alpha y_1 + \beta y_2] = \alpha L[y_1] + \beta L[y_2]$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=119" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 119">11.11</a>).</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>Let $y$ be the unique solution of the original IVP, $u$ the unique solution of the homogeneous IVP with the data of $y$, and $v$ the unique solution of the inhomogeneous IVP with zero data (both exist on $I$ by the theorem). The claim is $y = u + v$ on $I$. Proof strategy: show that $u + v$ solves the <strong>original</strong> IVP; uniqueness then forces $u + v = y$.</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=5" target="_blank" rel="noopener" title="Open Notes.pdf at page 5">5–6</a>]</div><p>The theorem of the notes (p. 5) gives the three unique solutions $y$, $u$, $v$. The splitting is the argument the notes use for $x = x_H + x_N$ (p. 6): the difference of two solutions of the inhomogeneous equation solves the homogeneous one. Here the roles are fixed by the data: $u$ carries the initial values and $v$ carries the forcing.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">Step 1: $u + v$ solves the differential equation</h4>
 <p>$$ L[u + v] = L[u] + L[v] = 0 + g(t) = g(t) \quad \text{on } I, $$</p>
 <p>by linearity of $L$ (differentiation is linear: $(u + v)' = u' + v'$ and $(u + v)'' = u'' + v''$, so $L[u + v] = u'' + v'' + p(u' + v') + q(u + v) = (u'' + pu' + qu) + (v'' + pv' + qv)$).</p>
@@ -1778,7 +1778,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>Meaning: $u$ is the <strong>free response</strong> (the system left to itself with the given initial state) and $v$ the <strong>forced response</strong> from rest (zero state). This is the decomposition used in control and vibration analysis, e.g. $u$ = transient from initial displacement and velocity, $v$ = response to the external force from a state of rest.</li><li>It reduces any IVP with general data to two simpler ones: the homogeneous one with the data, and the inhomogeneous one with zero data. Variation of constants gives $v$ directly: with $x_1, x_2$ independent homogeneous solutions and $W$ their Wronskian, $v(t) = \int_{t_0}^{t}\dfrac{x_1(s)x_2(t) - x_1(t)x_2(s)}{W(s)}\,g(s)\,ds$ (check: $v(t_0) = 0$ and $v'(t_0) = 0$ because the integrand vanishes at $s = t$ and the extra boundary term is $0$).</li><li>Example (Exercise 1(ii) of this sheet, $\ddot x - 4\dot x = t^2$, $x(0) = 2$, $\dot x(0) = 0$): $u = 2$ (constant; it solves $\ddot u - 4\dot u = 0$ with $u(0) = 2$, $\dot u(0) = 0$) and $v = x_p + c_1 + c_2e^{4t}$ with $v(0) = \dot v(0) = 0$; their sum is the solution found there.</li></ul>
       </div>
 
@@ -1800,19 +1800,19 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>Hypotheses: $p, q, g$ continuous on an interval $I$; $y_1$ is a known solution of $L[y_1] = 0$ with $y_1 \neq 0$ on $I$ (so that we can divide by $y_1$). Unknown: $v(t)$, with $y = vy_1$.</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>The idea is the same as in Topic 3, Sec. 7: promote the constant in $Ay_1$ to a function, $y = vy_1$. The product rule is used twice:</p>
 <p>$$ y' = v'y_1 + vy_1', \qquad y'' = v''y_1 + 2v'y_1' + vy_1'' $$</p>
 <div class="note-box"><div class="note-box-title">Class notes and complement [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=7" target="_blank" rel="noopener" title="Open Notes.pdf at page 7">7</a>]</div><p>The notes reduce the order of the homogeneous equation: with a known solution $u$, set $x = yu$; then $\big[u'' + pu' + qu\big]y + \big[2u' + pu\big]y' + uy'' = 0$, the first bracket is $0$, and $z = y'$ satisfies the first-order equation $uz' + (2u' + pu)z = 0$. Here the notes' $u$ is $y_1$ and their $y$ is $v$; keeping the forcing on the right side is a complement (not in the class notes).</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">Step 1: substitute in $L[y]$</h4>
 <p>$$ L[y] = y'' + py' + qy = \left(v''y_1 + 2v'y_1' + vy_1''\right) + p\left(v'y_1 + vy_1'\right) + qvy_1 $$</p>
 <p>Group the terms by $v''$, $v'$ and $v$:</p>
@@ -1831,7 +1831,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <ul class="bullet-list"><li>The constant $c_2$ multiplies $y_1$ itself (the known solution) and $c_1$ multiplies $y_1\int\frac{dt}{y_1^2e^{P}}$, a second, independent homogeneous solution. Their Wronskian is $W = e^{-P}$, nowhere zero: consistent with Abel's identity $W = W_0\exp(-\int p)$.</li><li>Check of the Wronskian: $y_2 = y_1\int\frac{dt}{y_1^2e^{P}}$ gives $y_2' = y_1'\int\frac{dt}{y_1^2e^P} + \frac{1}{y_1e^{P}}$, hence $W = y_1y_2' - y_2y_1' = \frac{1}{e^{P}}$ (the $y_1y_1'\int\dots$ terms cancel).</li><li>Compared with variation of constants, reduction of order needs only <strong>one</strong> homogeneous solution, at the price of two nested integrations.</li><li>The method applies on any interval where $y_1 \neq 0$; where $y_1$ vanishes the division is not allowed and the intervals must be treated separately.</li></ul>
       </div>
 
@@ -1853,19 +1853,19 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-1-badge">Phase 1: Setup and hypotheses</div>
+        <div class="phase-badge-title phase-1-badge">Setup and hypotheses</div>
 <p>Domain $t &gt; 0$ (so $y_1 = 1/t \neq 0$). The equation $t^2\ddot y - 2t\dot y - 4y = 0$ is homogeneous with variable coefficients; dividing by $t^2$ gives the standard form $\ddot y + p\dot y + qy = 0$ with $p(t) = -\dfrac{2}{t}$, $q(t) = -\dfrac{4}{t^2}$, continuous for $t &gt; 0$. First check that $y_1$ is a solution:</p>
 <p>$$ y_1 = t^{-1},\ \ \dot y_1 = -t^{-2},\ \ \ddot y_1 = 2t^{-3} \;\Rightarrow\; t^2(2t^{-3}) - 2t(-t^{-2}) - 4t^{-1} = 2t^{-1} + 2t^{-1} - 4t^{-1} = 0\ \checkmark $$</p>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
+        <div class="phase-badge-title phase-2-badge">Formulation</div>
 <p>Apply Exercise 8 with $g = 0$: write $y = v\,y_1 = v/t$, so that $v$ must satisfy $y_1\ddot v + [2\dot y_1 + py_1]\dot v = 0$. A second independent solution is $y_2 = v\,y_1$ with $v$ non-constant.</p>
 <div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=7" target="_blank" rel="noopener" title="Open Notes.pdf at page 7">7</a>]</div><p>Reduction of order as in the notes: with the known solution $u = y_1 = 1/t$, write $y = v\,u$; the bracket $u'' + pu' + qu$ vanishes and $z = v'$ satisfies $uz' + (2u' + pu)z = 0$, a first-order equation. The notes stop there; it is separable, and integrating it gives the second solution below.</p></div>
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-3-badge">Phase 3: Derivation</div>
+        <div class="phase-badge-title phase-3-badge">Derivation</div>
 <h4 class="step-heading">The equation for $v$</h4>
 <p>Compute the coefficient: $2\dot y_1 + py_1 = 2(-t^{-2}) + \left(-\dfrac{2}{t}\right)\left(\dfrac1t\right) = -2t^{-2} - 2t^{-2} = -4t^{-2}$. The equation of Exercise 8 is</p>
 <p>$$ \frac1t\,\ddot v - \frac{4}{t^2}\,\dot v = 0 \quad\Longleftrightarrow\quad \ddot v = \frac4t\,\dot v \quad (\text{multiplying by } t) $$</p>
@@ -1883,7 +1883,7 @@
       </div>
 
       <div class="phase-section">
-        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation and checks</div>
+        <div class="phase-badge-title phase-4-badge">Interpretation and checks</div>
 <div class="result-box"><div class="result-box-title">Result</div><p>A second independent solution is $y_2 = t^4$, and the general solution on $t &gt; 0$ is $y = c_1t^{-1} + c_2t^{4}$.</p></div>
 <ul class="bullet-list"><li>Euler cross-check: for $t^2\ddot y - 2t\dot y - 4y = 0$ the trial $y = t^k$ gives $k(k - 1) - 2k - 4 = k^2 - 3k - 4 = (k - 4)(k + 1) = 0$, so $k = 4, -1$: the same two solutions, found by a different method.</li><li>Dimensional/scaling check: under $t \to \lambda t$ the Euler equation is invariant and the solutions are homogeneous power functions of degree $-1$ and $4$.</li><li>The general solution is not defined at $t = 0$ (where $y_1$ blows up and the equation is singular), consistent with the restriction $t &gt; 0$.</li></ul>
       </div>

@@ -38,8 +38,10 @@ VAULT = REPO / "vault" / "02 - Aerospace Materials I"
 PAGE = "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html"
 SHELL = "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html"
 SHEET = "Problems T5_MechanicalProperties.pdf"
-PHASES = {1: "Phase 1 · Hypotheses &amp; Parameters", 2: "Phase 2 · Frames &amp; Strategy",
-          3: "Phase 3 · Step-by-Step Derivation", 4: "Phase 4 · Checks &amp; Interpretation"}
+# Labels shown on the four solution blocks. The notes still use "## ... Phase k" headings to delimit them (internal
+# only): no page shows the word "Phase" (AGENTS.md, "Problem-solving standard").
+PHASES = {1: "Hypotheses &amp; Parameters", 2: "Model &amp; Strategy",
+          3: "Step-by-Step Calculation", 4: "Result &amp; Checks"}
 TOTAL = 15
 
 

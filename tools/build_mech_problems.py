@@ -4,18 +4,29 @@
 Per problem, two vault notes are the source of truth:
 
     vault/03 - Engineering Mechanics/Problem Set - Topic N ....md    statement (verbatim from Problems.pdf)
-    vault/03 - Engineering Mechanics/Solution Set - Topic N ....md   worked solution, "### Phase 1..4" sections
+    vault/03 - Engineering Mechanics/Solution Set - Topic N ....md   worked solution, one "### " section per step
 
 and tools/mech_problems.json holds what the notes do not: the card title, the badge, the credit line and the
-structure version of each solution (1 = legacy layout, 2 = the course order of Notes.pdf chapter 7).
+structure version of each solution (3 = the lecturer's order, 2 = legacy "### Phase N" layout kept until a topic is
+migrated, 1 = older legacy layout). The page never shows the word "Phase": each section is a block with its heading.
 
 Statement note ("## 📌 Problem NN: title"): paragraphs, one-line $$ formulas (consecutive ones share a block),
 "![[attachments/EM/<name>.png]]" followed by "*Figure: <caption> Source: Problems.pdf, p. N.*", "* **(a)** question"
 items and "> [!note]" callouts. "*(Taken from ...)*" lines are dropped (the credit is in the JSON).
 
-Solution note: "### Phase N: heading" sections; inside, "#### " and "##### " sub-headings, "* " bullets (a bullet that
+Solution note: "### heading" sections (structure 3) or "### Phase N: heading" (legacy); inside, "#### " and "##### " sub-headings, "* " bullets (a bullet that
 starts with **Pedagogical Justification:** becomes a justification box), one-line or multi-line $$ formulas, tables
-and "> [!warning] Title" callouts (shown as note banners).
+and "> [!warning] Title" callouts (shown as note banners). A line "![[attachments/EM-SOL/<name>.svg]]" embeds a deduction
+figure drawn by tools/figures/em_solutions.py (inline SVG in a diagram card, numbered per problem, with its caption);
+the vault copy is written to vault/attachments/EM-SOL/ by this tool.
+
+Structure 3 (the lecturer's order, AGENTS.md "Problem-solving standard") requires these "### " sections, in this order:
+    Reference Frames, Bases and Coordinates
+    Change of Basis and Position Vector
+    Kinematics
+    Forces and Equations of Motion        (optional: left out when the problem has no dynamics)
+    Answers and Checks                    (must contain "Check against the official key")
+and no "Phase" word anywhere in the solution.
 
 Structure 2 (course order, Notes.pdf chapter 7) requires:
     Phase 1: Constraints, Degrees of Freedom & Coordinates
@@ -45,6 +56,7 @@ sys.path.insert(0, str(TOOLS))
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 import build_topic_pages as bt  # noqa: E402
 import source_links as sl  # noqa: E402
+from figures import em_solutions as emsol  # noqa: E402
 
 VAULT = REPO / "vault" / "03 - Engineering Mechanics"
 SUBJECT = REPO / "subjects" / "engineering-mechanics" / "problemas"
@@ -67,6 +79,25 @@ PHASES_V2 = [
     "Interpretation & Checks",
 ]
 SUB_V2 = ["3.1 Kinematics", "3.2 Forces", "3.3 Equations of Motion", "3.4 Integration and Answers"]
+STEPS_V3 = [
+    "Reference Frames, Bases and Coordinates",
+    "Change of Basis and Position Vector",
+    "Kinematics",
+    "Forces and Equations of Motion",
+    "Answers and Checks",
+]
+OPTIONAL_V3 = {"Forces and Equations of Motion"}
+_SOLFIG = re.compile(r"!\[\[attachments/EM-SOL/([\w-]+)\.svg\]\]$")
+USED = set()          # figures embedded by the solutions of this run
+STYLE_ID = "em-solution-figures"
+STYLE = f"""  <style id="{STYLE_ID}">
+    /* Deduction figures of the worked solutions (written by tools/build_mech_problems.py) */
+    :root {{ --text-faint: #8a94a6; }}
+    .diagram-card {{ background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle)); border-radius: 12px; padding: 16px; margin: 18px 0; text-align: center; }}
+    .diagram-card svg {{ max-width: 100%; height: auto; }}
+    .diagram-caption {{ font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }}
+  </style>
+"""
 
 H4 = 'style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;"'
 H5 = 'style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;"'
@@ -164,7 +195,24 @@ def _callout(lines, i):
 _BULLET = re.compile(r"^(\s*)[-*] (.*)$")
 
 
-def render_solution(md):
+class Figures:
+    """Turns the figure embeds of one solution into diagram cards, numbered per problem."""
+
+    def __init__(self, pid, errors):
+        self.pid, self.errors, self.count, self.used = pid, errors, 0, []
+
+    def __call__(self, name):
+        if name not in emsol.REG.web:
+            self.errors.append(f"problem {self.pid}: unknown figure {name} (not drawn in tools/figures/em_solutions.py)")
+            return ""
+        self.count += 1
+        self.used.append(name)
+        cap = inl(html.unescape(emsol.REG.captions[name]))
+        return (f'<div class="diagram-card">\n{emsol.REG.web[name]}\n'
+                f'<div class="diagram-caption">Figure {self.count}. {cap}.</div>\n</div>')
+
+
+def render_solution(md, figs=None):
     lines = md.split("\n")
     out, i, n = [], 0, len(lines)
     ul = []
@@ -178,6 +226,12 @@ def render_solution(md):
         line = lines[i]
         s = line.strip()
         if not s or s == "---":
+            i += 1
+            continue
+        mf = _SOLFIG.match(s)
+        if mf:
+            flush()
+            out.append(figs(mf.group(1)) if figs else "")
             i += 1
             continue
         m = re.match(r"(#{4,6}) (.*)", line)
@@ -210,7 +264,8 @@ def render_solution(md):
             flush()
             items = []
             while i < n and re.match(r"^\d+\. ", lines[i]):
-                items.append(f"<li>{inl(re.sub(r'^\d+\. ', '', lines[i]).strip())}</li>")
+                item = re.sub(r"^\d+\. ", "", lines[i]).strip()
+                items.append(f"<li>{inl(item)}</li>")
                 i += 1
             out.append(f"<ol {UL}>\n" + "\n".join(items) + "\n</ol>")
             continue
@@ -401,6 +456,29 @@ def split_phases(body, pid):
     return out
 
 
+def split_sections(body):
+    """[(n, heading, markdown)] for the '### heading' sections of a structure-3 solution body."""
+    parts = re.split(r"\n(?=### )", "\n" + body)
+    out = []
+    for part in parts:
+        m = re.match(r"\s*### (.*)\n", part)
+        if m:
+            out.append((len(out) + 1, m.group(1).strip(), part[m.end():]))
+    return out
+
+
+def validate_v3(pid, sections, body, errors):
+    heads = [h for _, h, _ in sections]
+    want = [h for h in STEPS_V3 if h in heads or h not in OPTIONAL_V3]
+    if heads != want:
+        errors.append(f"problem {pid}: sections are {heads}, expected {want}")
+        return
+    if "Check against the official key" not in sections[-1][2]:
+        errors.append(f"problem {pid}: 'Answers and Checks' lacks 'Check against the official key'")
+    if re.search(r"\bPhase\b", body):
+        errors.append(f"problem {pid}: the word 'Phase' appears in a structure-3 solution")
+
+
 def validate(pid, phases, structure, errors):
     nums = [p[0] for p in phases]
     if nums != [1, 2, 3, 4]:
@@ -430,13 +508,20 @@ def card_html(pid, meta, stmt_md, sol_md, errors):
     statement, fig = render_statement(stmt_md, pid, errors)
     if fig and not (FIG_DIR / fig).exists():
         errors.append(f"problem {pid}: missing figure vault/attachments/EM/{fig}")
-    phases = split_phases(sol_md, pid)
-    validate(pid, phases, meta.get("structure", 1), errors)
+    if meta.get("structure", 1) >= 3:
+        phases = split_sections(sol_md)
+        validate_v3(pid, phases, sol_md, errors)
+    else:
+        phases = split_phases(sol_md, pid)
+        validate(pid, phases, meta.get("structure", 1), errors)
+    figs = Figures(pid, errors)
     blocks = []
     for n, head, md in phases:
+        # "phase-block" is an internal class (Ask AI, the close bar and the print layout use it); no label is shown
         blocks.append(
-            f'<div class="phase-block">\n<span class="phase-badge">Phase {n}</span>\n'
-            f'<h3 class="phase-heading">{inl(head)}</h3>\n{render_solution(md)}\n</div>')
+            f'<div class="phase-block">\n'
+            f'<h3 class="phase-heading">{inl(head)}</h3>\n{render_solution(md, figs)}\n</div>')
+    USED.update(figs.used)
     credit = f" {meta['source_note']}" if meta.get("source_note") else ""
     return f'''    <!-- Problem {pid} -->
     <div class="problem-card" id="prob-{pid}">
@@ -451,7 +536,7 @@ def card_html(pid, meta, stmt_md, sol_md, errors):
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
@@ -490,6 +575,8 @@ def build_page(topic, meta, errors):
     start = re.search(r"^[ \t]*<!-- Problem ", text, re.M).start()
     end = re.search(r'^[ \t]*<div class="article-nav">', text, re.M).start()
     page = text[:start] + "".join(cards) + text[end:]
+    if 'class="diagram-card"' in "".join(cards) and f'id="{STYLE_ID}"' not in page:
+        page = page.replace("</head>", STYLE + "</head>", 1)
     if EMOJI.search("".join(cards)):
         errors.append(f"topic {topic}: emoji in the generated cards")
     return path, page
@@ -501,6 +588,14 @@ def main(argv=None):
     args = ap.parse_args(argv)
     meta = load_meta()
     errors, stale = [], []
+    for name, warns in emsol.build().items():
+        errors += [f"figure {name}: {w}" for w in warns]
+    for rel in emsol.REG.stale(REPO):
+        if args.check:
+            errors.append(f"stale figure {rel} (run python tools/build_mech_problems.py)")
+    if not args.check:
+        for rel in emsol.REG.write(REPO):
+            print(f"build_mech_problems: wrote {rel}")
     for topic in sorted(EXPECTED):
         path, want = build_page(topic, meta, errors)
         have = sl.strip_links(path.read_text(encoding="utf-8"))
@@ -510,6 +605,9 @@ def main(argv=None):
         if not args.check and not errors:
             path.write_text(want, encoding="utf-8", newline="\n")
             print(f"build_mech_problems: wrote {path.relative_to(REPO)}")
+    unused = sorted(set(emsol.FIGURES) - USED)
+    if unused:
+        errors.append(f"figures drawn but not used by any solution: {', '.join(unused)}")
     for e in errors:
         print(f"build_mech_problems: {e}", file=sys.stderr)
     if args.check:

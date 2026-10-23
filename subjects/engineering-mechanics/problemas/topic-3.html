@@ -453,12 +453,11 @@ $$ z^2 = x^2 + y^2 $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a heavy particle of mass $m$ moves without friction on the interior of the cone $z^2 = x^2 + y^2$, $z \gt 0$. The frame $Oxyz$ is inertial and $Oz$ is the ascending vertical.</li>
@@ -468,7 +467,6 @@ $$ z^2 = x^2 + y^2 $$
 <li><strong>Parameters:</strong> $m$ [kg], $g$ [m/s$^2$], $a$ [m].</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{k}$ vertical upward.</li>
@@ -482,7 +480,6 @@ $$ z^2 = x^2 + y^2 $$
 </ul>
 <div class="math-block">$$ [{}_1 R_2] = \begin{pmatrix} 1/\sqrt{2} &amp; 0 &amp; -1/\sqrt{2} \\ 0 &amp; 1 &amp; 0 \\ 1/\sqrt{2} &amp; 0 &amp; 1/\sqrt{2} \end{pmatrix}, \qquad \det[{}_1 R_2] = \tfrac{1}{2} + \tfrac{1}{2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the position is written with the cylindrical coordinates and the constraint $z = r$ is applied before differentiating, so that only the free coordinates $(r, \theta)$ remain. The derivatives of $\mathbf{e}_r$ use Poisson's formula.</div>
@@ -529,7 +526,6 @@ $$ z^2 = x^2 + y^2 $$
 <div class="math-block">$$ \boxed{r(t) \equiv a, \qquad z_{\max} = z_{\min} = a} $$</div>
 <p style="margin-bottom: 10px;">The data of the problem are exactly those of a circular orbit at constant height.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Steady circular orbit:</strong> the initial speed $\sqrt{ag}$ is the circular-orbit speed on the cone, $v^2 = gr\tan\gamma$ with $\tan\gamma = dz/dr = 1$. The particle sits at the minimum of the effective potential $V_{\text{eff}}(r) = mgr + \dfrac{ma^3g}{2r^2}$ and describes a horizontal circle with $\dot{\theta} = \sqrt{g/a}$.</li>
@@ -568,12 +564,11 @@ $$ az = r^2 $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a heavy particle of mass $m$ moves without friction on the paraboloid of revolution $az = r^2$, with $a \gt 0$ and $r = \sqrt{x^2 + y^2}$.</li>
@@ -583,7 +578,6 @@ $$ az = r^2 $$
 <li><strong>Parameters:</strong> $m$ [kg], $a$ [m], $g$ [m/s$^2$], $v_0$ [m/s].</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{k}$ vertical upward.</li>
@@ -596,7 +590,6 @@ $$ az = r^2 $$
 </ul>
 <div class="math-block">$$ [{}_1 R_2] = \begin{pmatrix} 1/s &amp; 0 &amp; -2r/(as) \\ 0 &amp; 1 &amp; 0 \\ 2r/(as) &amp; 0 &amp; 1/s \end{pmatrix}, \qquad \det[{}_1 R_2] = \frac{1}{s^2} + \frac{4r^2}{a^2s^2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the constraint is used to write $z = r^2/a$ and its derivatives with the chain rule, so that only $(r, \theta)$ remain.</div>
@@ -647,7 +640,6 @@ $$ az = r^2 $$
 <li><strong>Case $v_0 \gt \sqrt{2ga}$:</strong> $r_2 \gt a$, so $r_{\min} = a$ and $r_{\max} = v_0\sqrt{a/(2g)}$. The particle climbs to $r_{\max}$ and falls back to $a$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Circular orbit (case $v_0^2 = 2ga$):</strong> the quadratic becomes $2gu^2 - 4ga^2u + 2ga^4 = 2g\left(u - a^2\right)^2$, a double root, so $\dot{r} \equiv 0$. This agrees with the circular-orbit condition $v^2 = gr\tan\gamma$ with $\tan\gamma = dz/dr = 2r/a = 2$ at $r = a$.</li>
@@ -683,12 +675,11 @@ $$ az = r^2 $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a particle of mass $m$ hangs from a string of length $L$ fixed at the pivot $O$, or equivalently moves along the smooth interior of a vertical circle of radius $L$. In part (b) the circle rotates about the vertical diameter with the constant angular velocity $\omega$.</li>
@@ -697,7 +688,6 @@ $$ az = r^2 $$
 <li><strong>Parameters:</strong> $m$ [kg], $L$ [m], $g$ [m/s$^2$], $v_0$ [m/s], $\omega \ge 0$ [rad/s].</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{k}$ vertical upward and the circle in the plane $Oxz$ for part (a).</li>
@@ -714,7 +704,6 @@ $$ az = r^2 $$
 <li><strong>For part (b)</strong>, the cylindrical basis $\{\mathbf{e}_\rho, \mathbf{e}_\varphi, \mathbf{k}\}$ is obtained from $\mathcal{B}_0$ by the simple rotation $\mathrm{R}_z(\omega t)$ about $\mathbf{k}$ (matrix $\begin{pmatrix}\cos \omega t &amp; -\sin \omega t &amp; 0\\ \sin \omega t &amp; \cos \omega t &amp; 0\\ 0 &amp; 0 &amp; 1\end{pmatrix}$, $\det = \cos^2\omega t + \sin^2\omega t = 1$; $RR^T$ has diagonal entries $\cos^2\omega t + \sin^2\omega t = 1$ (and $1$) and off-diagonal entries $\cos \omega t\sin \omega t - \sin \omega t\cos \omega t = 0$, so $RR^T = I$); the meridian plane of the circle is $\varphi = \omega t$ and the pair $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ is written with $\mathbf{e}_\rho$ in place of $\mathbf{i}$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Part (a): planar motion</h5>
@@ -770,7 +759,6 @@ $$ az = r^2 $$
 <li><strong>Stability</strong> (linearisation of $\ddot{\theta} = F(\theta)$ with $F = -\left(g/L - \omega^2\cos\theta\right)\sin\theta = -\frac{g}{L}\sin\theta + \frac{\omega^2}{2}\sin 2\theta$, so $F'(\theta) = -\frac{g}{L}\cos\theta + \omega^2\cos 2\theta$; at $\theta_0$ with $\cos\theta_0 = g/(\omega^2L)$, $F'(\theta_0) = -\omega^2\cos^2\theta_0 + \omega^2\left(2\cos^2\theta_0 - 1\right) = -\omega^2\sin^2\theta_0$): $F'(0) = -(g/L - \omega^2)$, so the bottom is stable for $\omega^2 \lt g/L$ and unstable for $\omega^2 \gt g/L$; near $\theta = \pi$, $\ddot{\theta} \approx (g/L + \omega^2)(\theta - \pi)$, always unstable; at $\theta_{3,4}$, $F'(\theta_0) = -\omega^2\sin^2\theta_0 \lt 0$, stable.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Supercritical pitchfork:</strong> for $\omega \lt \omega_c = \sqrt{g/L}$ the bottom is the only stable equilibrium. At $\omega_c$ it becomes unstable and two stable off-axis equilibria appear, at the angle where the horizontal circle of radius $L\sin\theta$ has the centripetal acceleration required by the balance with gravity. As $\omega \to \infty$, $\cos\theta_0 \to 0$ and $\theta_0 \to \pi/2$.</li>
@@ -841,12 +829,11 @@ $$ az = r^2 $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a heavy particle $P$ of mass $m$ slides on a vertical circular wire of radius $a$ centred at $O$. A linear spring of stiffness $k$ and zero natural length joins $P$ to the anchor $A = (0, \beta a)$ on the $y$-axis. Gravity acts along $-\mathbf{j}$.</li>
@@ -855,14 +842,12 @@ $$ az = r^2 $$
 <li><strong>Parameters:</strong> $m$, $a$, $k$, $g$, $\beta$, $v_0 \gt 0$. Parts (e) and (f) use $\beta = mg/(ka)$ (the case of part (d)), and the additional force has the constant $2m\mu$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{j}$ vertical upward.</li>
 <li><strong>Polar basis:</strong> $\mathbf{e}_r = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{j}$ and $\mathbf{e}_\theta = -\sin\theta\,\mathbf{i} + \cos\theta\,\mathbf{j}$, a rotation of $\mathcal{B}_0$ by $\theta$ about $\mathbf{k}$ (matrix $\begin{pmatrix}\cos \theta &amp; -\sin \theta &amp; 0\\ \sin \theta &amp; \cos \theta &amp; 0\\ 0 &amp; 0 &amp; 1\end{pmatrix}$, $\det = \cos^2\theta + \sin^2\theta = 1$; $RR^T$ has diagonal entries $\cos^2\theta + \sin^2\theta = 1$ (and $1$) and off-diagonal entries $\cos \theta\sin \theta - \sin \theta\cos \theta = 0$, so $RR^T = I$), with $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$ (Poisson).</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the position of $P$ and the anchor give the spring vector, and the polar formulas give the velocity and acceleration:</div>
@@ -923,7 +908,6 @@ $$ az = r^2 $$
 <div class="math-block">$$ \boxed{N(t) = ka - \frac{mv_0^2}{a}\,e^{4\mu t}} $$</div>
 <p style="margin-bottom: 10px;">$N$ is the outward component. It starts at $ka - mv_0^2/a$ and becomes more and more negative: the wire must push the particle inward with a force that grows as $e^{4\mu t}$.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $[ka] = \text{N}$ and $[mv_0^2/a] = \text{N}$; $\mu$ has units s$^{-1}$, so $2\mu t$ is dimensionless and $[v_0/(2\mu a)] = 1$ (rad).</li>
@@ -979,12 +963,11 @@ $$ az = r^2 $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a heavy particle of mass $m$ moves without friction on the surface of an infinitely long circular cylinder of radius $R$ whose axis $Oz$ forms the angle $\alpha$ with the vertical $Oz_1$.</li>
@@ -994,7 +977,6 @@ $$ az = r^2 $$
 <li><strong>Parameters:</strong> $m$, $R$, $\alpha$, $g$, $v_0$, $\omega_0$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Vertical frame:</strong> $S_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$ with $\mathbf{k}_1$ vertical upward.</li>
@@ -1008,7 +990,6 @@ $$ az = r^2 $$
 <div class="math-block">$$ -g\,\mathbf{k}_1 = g\sin\alpha\,\hat{\mathbf{x}} - g\cos\alpha\,\hat{\mathbf{z}} = g\sin\alpha\cos\theta\,\mathbf{e}_r - g\sin\alpha\sin\theta\,\mathbf{e}_\theta - g\cos\alpha\,\hat{\mathbf{z}} $$</div>
 <p style="margin-bottom: 10px;">so $\theta = 0$ is the lowest generator of the cylinder ($\mathbf{e}_r$ points downward there).</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> on the cylinder $r = R$ is constant, so the position uses the two free coordinates, and Poisson's formula gives the derivatives of $\mathbf{e}_r$:</div>
@@ -1058,7 +1039,6 @@ $$ az = r^2 $$
 <li><strong>Motion:</strong> the angular velocity never vanishes and keeps its sign, so the particle makes complete turns around the cylinder, in a helical-like trajectory whose pitch follows the axial velocity $\dot{z} = v_0 - g\cos\alpha\,t$, which decreases, vanishes at $t = v_0/(g\cos\alpha)$ and then reverses sign, so the pitch shrinks to zero and then changes sense. The reaction $N = mg\sin\alpha\left(4 + 3\cos\theta\right) \ge mg\sin\alpha \gt 0$ is always positive, so this motion is also admissible if the particle is inside a hollow cylinder.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Decoupling:</strong> the axial motion is a uniformly decelerated one-dimensional motion and the azimuthal motion is that of a nonlinear pendulum of length $R$ in the effective gravity $g\sin\alpha$ (the component of gravity in the cross-section).</li>
@@ -1119,12 +1099,11 @@ $$ az = r^2 $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> two heavy particles $P_1$ and $P_2$ of mass $m$ are joined by an inextensible massless string of length $\ell$ that passes without friction through the aperture at the vertex $O$ of a cone of semi-angle $\alpha$. $P_1$ moves without friction on the cone surface; $P_2$ hangs along the cone axis ($Oz$ vertical upward, the cone opens downward). The string stays taut and the particles do not reach $O$.</li>
@@ -1133,7 +1112,6 @@ $$ az = r^2 $$
 <li><strong>Parameters:</strong> $m$, $\ell$, $\alpha$, $g$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{k}$ vertical upward.</li>
@@ -1143,7 +1121,6 @@ $$ az = r^2 $$
 <div class="math-block">$$ [{}_1R_2] = \begin{pmatrix} \sin\alpha &amp; 0 &amp; \cos\alpha \\ 0 &amp; 1 &amp; 0 \\ -\cos\alpha &amp; 0 &amp; \sin\alpha \end{pmatrix}, \qquad \det[{}_1R_2] = \sin\alpha\cdot\sin\alpha + \cos\alpha\cdot\cos\alpha = \sin^2\alpha + \cos^2\alpha = 1 $$</div>
 <p style="margin-bottom: 10px;">and its columns have unit norm ($\sin^2\alpha + \cos^2\alpha = 1$) and are orthogonal ($\sin\alpha\cos\alpha - \cos\alpha\sin\alpha = 0$), so $[{}_1R_2][{}_1R_2]^T = I$.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) Position, velocity and acceleration</h5>
@@ -1201,7 +1178,6 @@ $$ az = r^2 $$
 <div class="math-block">$$ \boxed{2\dot{\xi}^2 + \xi^2\dot{\theta}^2\sin^2\alpha + 2g\xi\left(1 - \cos\alpha\right) = C_2} $$</div>
 <p style="margin-bottom: 10px;">where the constant $C_2$ absorbs $-2g\ell$ and the factor $2/m$.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Effective potential.</strong> With $\xi^2\dot{\theta} = C_1$ the energy becomes $2\dot{\xi}^2 + W(\xi) = C_2$ with $W(\xi) = \dfrac{C_1^2\sin^2\alpha}{\xi^2} + 2g\xi\left(1 - \cos\alpha\right)$. Its minimum is at $W'(\xi_c) = -\dfrac{2C_1^2\sin^2\alpha}{\xi_c^3} + 2g\left(1 - \cos\alpha\right) = 0$, i.e. $\xi_c\dot{\theta}^2\sin^2\alpha = g\left(1 - \cos\alpha\right)$, the circular parallel of (e); and $W'' = \dfrac{6C_1^2\sin^2\alpha}{\xi^4} \gt 0$, so it is a stable minimum.</li>
@@ -1261,12 +1237,11 @@ $$ az = r^2 $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a heavy particle $P$ of mass $m$ hangs from a string of length $l = 4\pi a$ that unwinds from a spool of radius $a$ and centre $O$, which rotates counterclockwise at the constant rate $\omega$. The string is massless, inextensible, thin and stays taut. One end is fixed to the spool at the point $A$ of its perimeter; $B$ is the point where the straight segment $BP$ leaves the spool, and $\phi$ is the angle between $Ox$ and $OB$. Initially $\overrightarrow{OA} = -a\,\mathbf{i}$ and $B$ never reaches $A$.</li>
@@ -1275,14 +1250,12 @@ $$ az = r^2 $$
 <li><strong>Parameters:</strong> $m$, $a$, $l = 4\pi a$, $\omega$, $g$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$ with $\mathbf{j}$ vertical upward.</li>
 <li><strong>Basis at $B$:</strong> $\mathbf{u}_r = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{j}$ (radial) and $\mathbf{u}_t = -\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}$ (counterclockwise tangent), a rotation of $\{\mathbf{i}, \mathbf{j}\}$ by $\phi$ (matrix $\begin{pmatrix}\cos \phi &amp; -\sin \phi &amp; 0\\ \sin \phi &amp; \cos \phi &amp; 0\\ 0 &amp; 0 &amp; 1\end{pmatrix}$, $\det = \cos^2\phi + \sin^2\phi = 1$; $RR^T$ has diagonal entries $\cos^2\phi + \sin^2\phi = 1$ (and $1$) and off-diagonal entries $\cos \phi\sin \phi - \sin \phi\cos \phi = 0$, so $RR^T = I$), with $\dot{\mathbf{u}}_r = \dot{\phi}\,\mathbf{u}_t$ and $\dot{\mathbf{u}}_t = -\dot{\phi}\,\mathbf{u}_r$. The straight segment leaves $B$ clockwise, toward the lower right in the figure, i.e. along $-\mathbf{u}_t$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) Degrees of freedom</h5>
@@ -1322,7 +1295,6 @@ $$ az = r^2 $$
 <div class="justification-box"><strong>Pedagogical Justification:</strong> with $\omega = 0$ the tension does no work and gravity is conservative, so the mechanical energy is a first integral that involves only $\phi$ and $\dot{\phi}$ (it contains no $\ddot{\phi}$). From $\mathbf{r}_P = a\,\mathbf{u}_r - s\,\mathbf{u}_t$ with $s = a(3\pi + \phi)$, the height is $y = a\sin\phi - a(3\pi + \phi)\cos\phi$, and $v^2 = s^2\dot{\phi}^2$ (from 3.1 with $\omega = 0$):</div>
 <div class="math-block">$$ \boxed{E = \tfrac{1}{2}m\left[a(3\pi + \phi)\right]^2\dot{\phi}^2 + mga\left[\sin\phi - (3\pi + \phi)\cos\phi\right] = \text{const}} $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Involute pendulum:</strong> the system behaves like a pendulum whose effective length $s = a(3\pi - \omega t + \phi)$ changes as the string unwinds.</li>
@@ -1382,12 +1354,11 @@ $$ az = r^2 $$
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> two heavy particles $P$ and $Q$ of mass $m$ are joined by an inextensible massless string of length $L$ that rests on a fixed smooth cylinder of radius $R$ and centre $O$, and by a spring of zero natural length and stiffness $k$. The motion is planar, in $Oxy$ with $Oy$ upward. $A$ (right) and $B$ (left) are the tangency points of the string with the cylinder. The string stays taut and the spring does not touch the cylinder.</li>
@@ -1400,7 +1371,6 @@ $$ az = r^2 $$
 <li><strong>Parameters:</strong> $m$ [kg], $L$ [m], $R$ [m], $k$ [N/m], $g$ [m/s$^2$]; $\ell_0 = (L - \pi R)/2$ [m] is defined in (e).</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ fixed to the cylinder.</li>
@@ -1418,7 +1388,6 @@ $$ az = r^2 $$
 </ul>
 <div class="math-block">$$ \dot{\mathbf{t}}_A = \dot{\alpha}\,\mathbf{n}_A, \quad \dot{\mathbf{n}}_A = -\dot{\alpha}\,\mathbf{t}_A, \qquad \dot{\mathbf{n}}_B = \dot{\beta}\,\mathbf{t}_B, \quad \dot{\mathbf{t}}_B = -\dot{\beta}\,\mathbf{n}_B $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(b) Position, velocity and acceleration</h5>
@@ -1483,7 +1452,6 @@ $$ az = r^2 $$
 </ul>
 <div class="math-block">$$ \ddot{\delta} + \frac{mg + 2k\ell_0}{m\ell_0}\,\delta = 0 \implies \omega^2 = \frac{g}{\ell_0} + \frac{2k}{m}, \qquad \boxed{\omega = \sqrt{\frac{g}{\ell_0} + \frac{2k}{m}}} $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Limit $k \to 0$:</strong> $\omega = \sqrt{g/\ell_0}$, the pendulum of length $\ell_0$ (the free length of each hanging segment).</li>
@@ -1552,12 +1520,11 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a heavy particle $P$ ($m_P = 1$) moves without friction on the vertical torus $x_0 = (2 + \cos\phi)\sin\theta$, $y_0 = \sin\phi$, $z_0 = 4 + (2 + \cos\phi)\cos\theta$, and cannot separate from its surface. A second particle $Q$ ($m_Q = 2$) is constrained to the plane $Ox_0y_0$ without friction. $P$ and $Q$ attract each other with a force proportional to their distance, with constant $k = 2$.</li>
@@ -1567,7 +1534,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 <li><strong>Parameters:</strong> $m_P = 1$, $m_Q = 2$, $k = 2$, $g = 9.81$ m/s$^2$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{k}_0$ vertical upward.</li>
@@ -1581,7 +1547,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 <div class="math-block">$$ [{}_1 R_2] = \begin{pmatrix} \cos\phi &amp; 0 &amp; -\sin\phi \\ 0 &amp; 1 &amp; 0 \\ \sin\phi &amp; 0 &amp; \cos\phi \end{pmatrix}, \qquad \det[{}_1 R_2] = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$</div>
 <p style="margin-bottom: 10px;">Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(b) Position, velocity and acceleration</h5>
@@ -1637,7 +1602,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 <li><strong>Answer:</strong> no. With $g = 9.81$ m/s$^2$, $E_0 = 58.74$ J and the summit needs at least $7g = 68.67$ J, a deficit of $9.93$ J.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Robustness:</strong> for a general stiffness $E_0 = 2.5 + 4g + 8.5k$. At the summit $z_P = 7$ and $z_Q = 0$, so $|\mathbf{r}_P - \mathbf{r}_Q| \ge 7$ and $V_{\text{spring}} \ge \tfrac12 k\cdot 49 = 24.5k$. Reaching it requires $2.5 + 4g + 8.5k \ge 7g + 24.5k$, i.e. $2.5 \ge 3g + 16k$, false for every $k \ge 0$: the conclusion does not depend on $k$. (With $k = 2$: $58.74$ J against at least $68.67 + 49 = 117.67$ J.)</li>
@@ -1702,12 +1666,11 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a heavy particle $P$ of mass $m$ hangs from a massless inextensible string of length $\ell$ anchored at the point $O$ of the upper surface of a thin horizontal plate. The string passes without friction over the straight edge of the plate, at perpendicular distance $d$ from $O$, at the contact point $Q$; it remains taut and in contact with the plate.</li>
@@ -1717,7 +1680,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 <li><strong>Parameters:</strong> $m$, $\ell$, $d$, $g$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{k}_0$ vertical upward; the plate in the plane $z_0 = 0$.</li>
@@ -1727,7 +1689,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 <div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\phi &amp; 0 &amp; -\sin\phi \\ 0 &amp; 1 &amp; 0 \\ \sin\phi &amp; 0 &amp; \cos\phi \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\phi + \sin^2\phi = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
 <p style="margin-bottom: 10px;">Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(b) Unit vector from $Q$ to $P$</h5>
@@ -1793,7 +1754,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 <div class="math-block">$$ \boxed{E_0 = \tfrac{1}{2}m\ell g - mg\left(\frac{\ell}{2} - d\right)\frac{1}{2} = \frac{mg\ell}{4} + \frac{mgd}{2}} $$</div>
 <p style="margin-bottom: 10px;">It is a conserved quantity of the motion.</p>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Variable-length spherical pendulum:</strong> the system acts as a spherical pendulum whose length changes as $Q$ slides along the edge.</li>
@@ -1862,12 +1822,11 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> two heavy particles $P$ and $Q$ of mass $m$ are joined by an inextensible massless cord of length $\ell$ that passes through a small hole at the origin $O$. $P$ moves without friction on the paraboloid $z = cR^2$ ($c \gt 0$, cylindrical coordinates $\{R, \theta, z\}$); $Q$ is restricted to hang along the vertical axis $Oz$. The frame $S_0$ is inertial, there is no friction, the cord is always taut and $Q$ never reaches $O$.</li>
@@ -1877,7 +1836,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 <li><strong>Parameters:</strong> $m$, $c$ [m$^{-1}$], $\ell$, $g$, $d$ [s$^{-1}$].</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.</li>
@@ -1890,7 +1848,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 </ul>
 <div class="math-block">$$ [{}_1 R_2] = \begin{pmatrix} 1/s &amp; 0 &amp; -2cR/s \\ 0 &amp; 1 &amp; 0 \\ 2cR/s &amp; 0 &amp; 1/s \end{pmatrix}, \qquad \det[{}_1 R_2] = \frac{1 + 4c^2R^2}{s^2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(b) Position, velocity and acceleration</h5>
@@ -1947,7 +1904,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 <li>The allowed radii are those with $f(R) \le 0$ (so that $\dot{R}^2 \ge 0$), and $R = 1/c$ is a root.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Limit $c \to 0$ (flat plane):</strong> $\rho = R$, $\rho' = 1$, $\rho'' = 0$, and the equation for $R$ becomes $2\ddot{R} - R\dot{\theta}^2 + g = 0$, that of two equal particles joined through a hole in a horizontal plane.</li>
@@ -2011,12 +1967,11 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
       <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Worked Solution (4-Phase Methodology)</span>
+          <span>Worked Solution</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
-<span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a double pendulum of two heavy particles $P$ and $Q$ of mass $m$ joined to $O$ and to each other by two rigid massless bars of length $\ell$. The motion is planar (the figure and the angles $\theta$ and $\phi$ describe a plane). The angle $\theta$ is that of the bar $OP$ with the downward vertical and $\phi$ that of the bar $PQ$ with the downward vertical.</li>
@@ -2024,7 +1979,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 <li><strong>Parameters:</strong> $m$, $\ell$, $g$.</li>
 </ul>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$, with $\mathbf{i}$ horizontal to the right and $\mathbf{j}$ vertical upward (the horizontal axis is $Ox$).</li>
@@ -2037,7 +1991,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 </ul>
 <div class="math-block">$$ \mathbf{e}_P\cdot\mathbf{e}_Q = \cos(\theta - \phi), \quad \mathbf{e}_\theta\cdot\mathbf{e}_Q = \sin(\phi - \theta), \quad \mathbf{e}_\theta\cdot\mathbf{e}_\phi = \cos(\theta - \phi), \quad \mathbf{e}_P\cdot\mathbf{e}_\phi = \sin(\theta - \phi) $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) Position, velocity and acceleration</h5>
@@ -2087,7 +2040,6 @@ $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (
 </ul>
 <div class="math-block">$$ \boxed{\omega_0 = \sqrt{\frac{3g}{5\ell}}} $$</div>
 </div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $[g/\ell] = \text{s}^{-2}$, so $[\omega_0] = \text{s}^{-1}$; $[T_1] = [T_2] = [mg] = \text{N}$.</li>

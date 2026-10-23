@@ -636,7 +636,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Uniaxial, uniform stress.</strong> The load acts along the axis of the cylinder, and up to the necking the stress is the same on every cross-section of the gauge length. Under this hypothesis the engineering stress and strain are defined with the original area and length [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Linear elastic start.</strong> For small loads the curve is a straight line through the origin, Hooke's law $\sigma = E\varepsilon$, and the slope of that line is the Young's modulus [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Conventional yield strength.</strong> The yield strength is the stress at which the curve crosses the line drawn parallel to the elastic line from the residual strain $0.002$ (0.2 % offset), as the statement asks [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Between table rows the curve is a straight segment.</strong> The table gives discrete points, so every reading between two of them is a linear interpolation.</li><li><strong>Elastic recovery.</strong> When the sample breaks the load disappears and the elastic strain is recovered, so the ductility is the plastic strain at fracture [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>].</li><li><strong>Safety factor.</strong> The statement gives none; the slide says that $N$ is usually 2, and that value is used for the working stress [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=29" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 29">29</a>].</li></ol>
 <p><strong>Data</strong></p>
@@ -644,14 +644,14 @@
 <p><strong>Unknowns:</strong> the curve (a), $E$ (b), $\sigma_y$ (c), $\sigma_{max}$ (d), the ductility (e), $U_r$ (f), $F_y$ and $\Delta l_y$ (g), $\sigma_w$ (h), and the load at $\Delta L = 0.1$ mm (i).</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>There is a single direction, the axis of the sample, and the stress state is uniaxial, so no change of basis and no rotation matrix are involved.</p>
 <p><strong>Strategy.</strong> Every item comes from the same table of engineering stress and strain, so the first thing to do is to build it:</p>
 <div class="math-block">$$\sigma_n = \frac{F}{A_0} \qquad \varepsilon_n = \frac{\Delta L}{l_0}$$</div>
 <ul><li>The Young's modulus is the slope of the straight initial part (Hooke's law). A straight line through the origin is fitted by least squares: it minimises $\sum(\sigma_i - E\varepsilon_i)^2$, which gives $E = \sum\sigma_i\varepsilon_i / \sum\varepsilon_i^2$.</li><li>The yield strength is found by the 0.2 % offset construction, solved algebraically on the segment of the table where the curve crosses the offset line.</li><li>The tensile strength is the maximum nominal stress, and since $A_0$ is constant it corresponds to the maximum load.</li><li>The ductility is the plastic strain at fracture, and the modulus of resilience is the area under the elastic line up to the yield point, $U_r = \sigma_y^2/(2E)$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=35" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 35">35</a>].</li><li>For the load at a given elongation the table is used again: Hooke's law only holds in the elastic zone.</li></ul>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Cross-section</strong></p>
 <div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(12.8\ \text{mm})^2}{4}$$</div>
 <p>The square is $12.8^2 = 163.84$, then $\pi \times 163.84 = 514.72$ and dividing by 4:</p>
@@ -782,7 +782,7 @@
 <div class="math-block">$$F = F_{8} + \frac{0.1 - 0.095}{0.127 - 0.095}\,(F_{9} - F_{8}) = 102\,500 + 0.15625\times(107\,800 - 102\,500) = \mathbf{103\,328\ N}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> $\sigma_n = F/A_0$ in N/mm² is MPa, $\varepsilon_n$ is a ratio of lengths and has no units, so $E = \sigma/\varepsilon$ is in MPa and $U_r = \sigma_y^2/2E$ is in MPa (energy per unit volume).</li><li><strong>Order.</strong> $\sigma_y = 742.6$ MPa $&lt; \sigma_{max} = 1246.5$ MPa, and the fracture stress ($969.1$ MPa) is below the maximum, as in a ductile sample that necks.</li><li><strong>The fit.</strong> The secant moduli of points 1 to 5 are within 4.8 % of the fitted $E$, and the offset line crosses the curve between points 7 and 8, inside the segment used.</li><li><strong>Item i.</strong> The interpolated load, 103.3 kN, is between the loads of the two rows and below the maximum load; the Hooke value, 202 kN, is not.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -826,7 +826,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Uniaxial, uniform stress.</strong> Up to the necking the stress is uniform along the gauge length, so the engineering quantities use the original area and length [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Linear elastic start.</strong> Hooke's law $\sigma = E\varepsilon$ holds on the first points of the curve [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Yield strength by the 0.2 % offset.</strong> The statement does not name a criterion; the conventional one for metals is the 0.2 % offset [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Straight segments between table rows</strong>, so readings between two rows are linear interpolations.</li><li><strong>Uniform deformation before the necking.</strong> The volume is constant, $A\,l = A_0 l_0$, until the maximum load, where the necking starts [Session 11 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=30" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 30">30</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=38" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 38">38</a>]. The true stress of item e is computed in that range.</li><li><strong>Elastic recovery after the fracture.</strong> The elastic strain disappears when the load does, and what is left is the plastic strain [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>]. The reduction of area uses the measured final diameter [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=33" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 33">33</a>].</li><li><strong>The Poisson ratio is not needed.</strong> $\nu = 0.25$ is a datum of the statement, but none of the six items uses it: the only lateral information is the final diameter, which is measured.</li></ol>
 <p><strong>Data</strong></p>
@@ -834,7 +834,7 @@
 <p><strong>Unknowns:</strong> $\sigma_{UTS}$ (a), $E$ (b), $\sigma_y$ (c), $U_r$ (d), $\sigma_r$ at $\varepsilon_n = 0.02$ (e), the elongation at fracture and the reduction of area (f).</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>The only direction is the axis of the cylinder and the stress is uniaxial, so there is no change of basis.</p>
 <p><strong>Strategy.</strong> As in any tensile test, the first step is to turn the table into engineering stress and strain,</p>
 <div class="math-block">$$\sigma_n = \frac{F}{A_0} \qquad \varepsilon_n = \frac{\Delta L}{l_0}$$</div>
@@ -844,7 +844,7 @@
 <p>which is the relation of the slide for the uniform deformation [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=38" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 38">38</a>].</p>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Cross-section</strong></p>
 <div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15\ \text{mm})^2}{4}$$</div>
 <p>The square is $15^2 = 225$, then $\pi\times225 = 706.86$ and dividing by 4:</p>
@@ -955,7 +955,7 @@
 <div class="math-block">$$RA\,(\%) = \frac{A_0 - A_f}{A_0}\times100 = \frac{176.71 - 121.74}{176.71}\times100 = \mathbf{31.1\ \%}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> Stresses in N/mm² = MPa, strains without units, $E$ and $U_r$ in MPa.</li><li><strong>Order.</strong> $\sigma_y = 923.9$ MPa $&lt;\sigma_{UTS} = 1318.5$ MPa, and the stress rises 395 MPa between the yield and the maximum load.</li><li><strong>True and engineering stress.</strong> The true stress of item e, 1024.5 MPa, is 2 % above the engineering one, 1004.4 MPa, as the factor $1 + \varepsilon_n$ says.</li><li><strong>Elongation against area reduction.</strong> $RA = 31.1$ % is larger than $EL = 14.5$ %, as expected when a ductile sample necks: the section shrinks much more at the neck than the length grows over the whole gauge length.</li><li><strong>Neck.</strong> The stress that acts on the neck at the fracture is $F_f/A_f = 220\,000\ \text{N}/121.74\ \text{mm}^2 = 1807$ MPa, far above the engineering fracture stress of 1244.9 MPa because the area is much smaller than $A_0$.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -996,7 +996,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Uniaxial, uniform stress</strong> up to the necking: engineering stress and strain with the original area and length [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Weight to force.</strong> The loads are masses in kilograms; the force is $F = m\,g$ with $g = 9.81$ m/s².</li><li><strong>Linear elastic start</strong> [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>] and <strong>0.2 % offset yield strength</strong> [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Calibrated length.</strong> The first row ($m = 0$) gives the initial length $l_0 = 5.148$ mm and the other rows the current length. The strain is a ratio, so only the proportion matters.</li><li><strong>True quantities from the measured diameters</strong> (item d). The true strain is $\varepsilon_r = \ln(A_0/A) = 2\ln(D_0/D)$ and the true stress is $\sigma_r = F/A$ with $A$ the instantaneous area [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=38" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 38">38</a>]. They are valid also after the necking, because they use the actual area at the neck.</li><li><strong>Design stress (item c).</strong> The statement does not give a safety factor. The minimum section is the one for which the cable does not yield, $\sigma = F/A_0 \leq \sigma_y$; with the usual factor $N = 2$ it would be larger [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=29" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 29">29</a>].</li></ol>
 <p><strong>Data</strong></p>
@@ -1004,13 +1004,13 @@
 <p><strong>Unknowns:</strong> the curve (a), $E$ and the length of the bar (b), the section of the cable (c), the true stress and strain at maximum load and at fracture (d), $U_r$ (e), the elastic strain before the fracture (f).</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>One direction (the axis) and uniaxial stress: there is no change of basis.</p>
 <p><strong>Strategy.</strong> The table is converted into $\sigma_n = F/A_0$ and $\varepsilon_n = (l - l_0)/l_0$. Then:</p>
 <ul><li>$E$ is the slope of the straight part (least squares through the origin), and the bar of item b is a direct application of Hooke's law, $\Delta l = (\sigma/E)\,l_b$.</li><li>$\sigma_y$ by the 0.2 % offset is needed twice: for the cable (c) and for the resilience (e).</li><li>The true values (d) are computed from the forces and the measured diameters, as the statement asks, and not from the engineering values.</li><li>The elastic strain before the fracture (f) is $\sigma/E$ with the stress that acts at that moment [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>].</li></ul>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Cross-section and conversions</strong></p>
 <div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(13\ \text{mm})^2}{4}$$</div>
 <p>With $13^2 = 169$ and $\pi\times169 = 530.93$:</p>
@@ -1116,7 +1116,7 @@
 <div class="math-block">$$\varepsilon_e = \frac{\sigma_n}{E} = \frac{266.1}{73273} = \mathbf{3.63\times 10^{-3}}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> Masses in kg and $g$ in m/s² give newtons, N/mm² is MPa, the strains have no units, and $A_0 \geq W/\sigma_y$ comes out in mm².</li><li><strong>Order.</strong> The true stress at maximum load (299.2 MPa) is above the engineering maximum (295.6 MPa) because the area has shrunk, and the true fracture stress (419.9 MPa) is much above the engineering one (266.1 MPa), while the engineering stress falls after the maximum.</li><li><strong>Limit.</strong> For $D = D_0$ the true strain $2\ln(D_0/D)$ is zero and the true stress is $F/A_0$, the engineering one.</li><li><strong>Bar.</strong> The elongation, 0.355 mm over 130 mm, is a strain of 0.27 %, well inside the elastic zone (the yield strain is 3.58 × 10⁻³ = 0.36 %).</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -1158,7 +1158,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Uniaxial, uniform stress.</strong> The section is a rectangle $3.2\times19.1$ mm, and up to the necking the stress is uniform: $\sigma_n = F/A_0$ and $\varepsilon_n = (l - l_0)/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Initial length.</strong> The first value of the length row, 63.50 mm (load 0), is $l_0$.</li><li><strong>Linear elastic start</strong>, Hooke's law, with the slope fitted by least squares through the origin [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>0.2 % offset yield strength</strong> [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Working stress</strong> $\sigma_w = \sigma_y/N$ with the usual $N = 2$, which the statement does not give [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=29" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 29">29</a>].</li><li><strong>Resolution of the length.</strong> The length is given to 0.01 mm, so the first elongations (0.03 and 0.08 mm) carry an error of 10 to 30 % of their value. This matters for the modulus, and it is analysed in item b.</li></ol>
 <p><strong>Data</strong></p>
@@ -1166,12 +1166,12 @@
 <p><strong>Unknowns:</strong> the curve (a), $E$ (b), $\sigma_y$ (c), $\sigma_{UTS}$ (d), $U_r$ (e), $\sigma_w$ (f).</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>One direction (the axis of the sample), uniaxial stress, no change of basis.</p>
 <p><strong>Strategy.</strong> The table is turned into $\sigma_n$ and $\varepsilon_n$. Then $E$ is the least-squares slope through the origin of the straight part, $\sigma_y$ comes from the offset construction on the segment that crosses the offset line, $\sigma_{UTS}$ is the maximum load over $A_0$, $U_r = \sigma_y^2/(2E)$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=35" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 35">35</a>] and $\sigma_w = \sigma_y/N$. Since the first points of this table are not perfectly straight, the result is also shown for different choices of points, to see how much it depends on the choice.</p>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Cross-section</strong></p>
 <div class="math-block">$$A_0 = b\,h = 19.1\ \text{mm}\times3.2\ \text{mm} = 61.12\ \text{mm}^2$$</div>
 <p>For point 1: $F_1 = 1\,380$ N and $l_1 = 63.53$ mm, so</p>
@@ -1266,7 +1266,7 @@
 <div class="math-block">$$\sigma_w = \frac{\sigma_y}{N} = \frac{141.9}{2} = \mathbf{71.0\ MPa}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> N/mm² is MPa, strains have no units, $E$ and $U_r$ are in MPa.</li><li><strong>Order.</strong> $\sigma_y = 141.9$ MPa $&lt; \sigma_{UTS} = 234.0$ MPa; after the maximum the load falls (point 11 has 12 500 N), the sample necks.</li><li><strong>Sensitivity to the points chosen for $E$.</strong> The modulus, and through it $\sigma_y$ and $U_r$, depend on how many of the first points are taken:</li></ul>
 <div class="table-container"><table class="data-table"><thead><tr><th>Points used for $E$</th><th style="text-align:right">$E$ (GPa)</th><th style="text-align:right">$\sigma_y$ (MPa)</th><th style="text-align:right">$U_r$ (MPa)</th><th style="text-align:right">$\sigma_w$ (MPa)</th></tr></thead><tbody><tr><td>1 to 3</td><td style="text-align:right">42.7</td><td style="text-align:right">139.3</td><td style="text-align:right">0.227</td><td style="text-align:right">69.6</td></tr><tr><td>1 to 4</td><td style="text-align:right">40.2</td><td style="text-align:right">140.4</td><td style="text-align:right">0.245</td><td style="text-align:right">70.2</td></tr><tr><td>1 to 5</td><td style="text-align:right">37.0</td><td style="text-align:right">141.9</td><td style="text-align:right">0.272</td><td style="text-align:right">71.0</td></tr></tbody></table></div>
@@ -1309,7 +1309,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Uniaxial, linear elastic wire.</strong> The wire is loaded only along its axis and it stays elastic, so $\sigma = E\varepsilon$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Constant length while heating.</strong> After the force is applied, the wire is held at a constant length: the total length, and therefore the total strain $\varepsilon$, does not change during the heating.</li><li><strong>Linear thermal expansion.</strong> A temperature rise $\Delta T$ produces a free thermal strain $\varepsilon_T = \alpha_l\,\Delta T$. This law is not in the slides of Session 11 and 12 (it belongs to the thermal properties of Topic 7); it is given by the sheet through the datum $\alpha_l$.</li><li><strong>Strains add.</strong> The total strain is the elastic (mechanical) strain plus the thermal strain, $\varepsilon = \sigma/E + \alpha_l\,\Delta T$, and $E$ and $\alpha_l$ are constant between 20 and 40 °C.</li><li><strong>"Compensates".</strong> The thermal stress compensates the applied stress when the net stress of the wire after heating is zero.</li><li><strong>Circular, uniform section.</strong> The area $A = \pi d^2/4$ is the same all along the wire and does not change with the temperature.</li></ol>
 <p><strong>Data</strong></p>
@@ -1317,7 +1317,7 @@
 <p><strong>Unknown:</strong> the diameter $d$ of the wire.</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>There is a single direction, the axis of the wire; no change of basis is involved.</p>
 <div class="diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Wire stretched and then heated at constant length">
@@ -1370,7 +1370,7 @@
 <p>This is better than thinking in terms of forces, because the wire does not "know" about the force: it only keeps its length, and the stress is whatever is needed to keep it.</p>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Stress after heating at constant length</strong></p>
 <p>Before heating, the strain is $\varepsilon_1 = \sigma_F/E$ with $\sigma_F = F/A$. After heating, the strain is the same, and it is the sum of the elastic and the thermal strain:</p>
 <div class="math-block">$$\varepsilon_2 = \frac{\sigma_2}{E} + \alpha_l\,\Delta T = \varepsilon_1 = \frac{\sigma_F}{E}$$</div>
@@ -1390,7 +1390,7 @@
 <div class="math-block">$$4A = 108.21\ \text{mm}^2 \qquad \frac{4A}{\pi} = 34.445\ \text{mm}^2 \qquad d = \sqrt{34.445\ \text{mm}^2} = \mathbf{5.869\ mm}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> $F/(E\alpha_l\Delta T)$: N divided by (N/mm² · °C⁻¹ · °C) = N/(N/mm²) = mm². The product $\alpha_l\Delta T$ has no units, so $E\alpha_l\Delta T$ is a stress.</li><li><strong>Direct check.</strong> With this area the applied stress is $F/A = 1400/27.053 = 51.75$ MPa, equal to the thermal stress 51.75 MPa, so $\sigma_2 = 0$.</li><li><strong>Strains.</strong> The thermal strain $\alpha_l\Delta T = 2.500\times 10^{-4}$ is the same as the elastic strain that the force produced, $\sigma_F/E = 2.500\times 10^{-4}$: heating gives back exactly the stretch that the force had imposed, and since the length cannot change the stress disappears.</li><li><strong>Length not needed.</strong> The initial length does not appear in the result. The free expansion of 1 m of wire would be $\alpha_l\Delta T\,l_0 = 0.25$ mm, the amount that the supports prevent.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -1427,7 +1427,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Elastic up to 8900 N.</strong> For loads below 8900 N the deformation is only elastic, so Hooke's law $\sigma = E\varepsilon$ holds [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>]. The load of 8900 N is therefore the largest load for which the sample is still elastic.</li><li><strong>Uniaxial, uniform stress</strong> along the sample: $\sigma = F/A_0$ and $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Worst case.</strong> The elongation grows with the load and with the length. The longest sample that does not exceed the allowed elongation is found for the largest load that is applied, 8900 N.</li><li>The cross-section is a circle of 10.2 mm, and it does not change appreciably in the elastic range.</li></ol>
 <p><strong>Data</strong></p>
@@ -1435,14 +1435,14 @@
 <p><strong>Unknown:</strong> the maximum initial length $l_0$.</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>One direction (the axis of the sample), no change of basis.</p>
 <p><strong>Strategy.</strong> Hooke's law relates the stress produced by the load to the strain, and the strain relates the elongation to the length. Combining the three relations,</p>
 <div class="math-block">$$\sigma = \frac{F}{A_0} \qquad \varepsilon = \frac{\sigma}{E} \qquad \Delta l = \varepsilon\,l_0$$</div>
 <p>the elongation is proportional to the initial length. The condition $\Delta l \leq 0.25$ mm is then an upper bound for $l_0$, and the maximum length is the one for which $\Delta l = 0.25$ mm.</p>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Area</strong></p>
 <div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(10.2\ \text{mm})^2}{4}$$</div>
 <p>The square is $10.2^2 = 104.04$, then $\pi\times104.04 = 326.85$ and dividing by 4:</p>
@@ -1457,7 +1457,7 @@
 <div class="math-block">$$l_0 = \frac{\Delta l\,A_0\,E}{F} = \frac{0.25\ \text{mm}\times81.71\ \text{mm}^2\times207000\ \text{N/mm}^2}{8900\ \text{N}} = 475.1\ \text{mm}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> $\Delta l\,A_0E/F$: mm · mm² · (N/mm²) / N = mm.</li><li><strong>Back substitution.</strong> For $l_0 = 475.1$ mm, $\Delta l = 5.2617\times 10^{-4}\times475.1 = 0.250$ mm, the allowed elongation.</li><li><strong>Elastic range.</strong> The strain, $5.2617\times 10^{-4}$, is of the order of $10^{-4}$, typical of the elastic deformation of a metal, so the use of Hooke's law is consistent with the statement.</li><li><strong>Limit.</strong> For a shorter sample the elongation is smaller (it is proportional to $l_0$) and the condition is satisfied with margin; for a longer one it is exceeded.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -1499,7 +1499,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Elastic and isotropic cable under a uniaxial load.</strong> When it holds the weight the cable is elastic (it recovers its diameter when the load is removed), the stress is uniform, and Hooke's law $\sigma = E\varepsilon$ and $\varepsilon_{lat} = -\nu\varepsilon_{ax}$ hold [Session 11 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li><strong>Lateral strain from the diameter.</strong> The change of 5.3·10⁻³ mm is a decrease of the diameter ($\Delta d &lt; 0$ under tension), and the strain is relative to the initial diameter, 15 mm.</li><li><strong>Yield load.</strong> "Plastic deformation begins when it holds a weight of 10 000 kg" means that the yield strength is the stress that this weight produces; the weight in newtons is $m\,g$ with $g = 9.81$ m/s² [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Safety factor.</strong> The working stress is $\sigma_w = \sigma_y/N$, and the cable works under safe conditions if the stress that it supports does not exceed $\sigma_w$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=29" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 29">29</a>].</li><li><strong>Replacement cable.</strong> Its stress-strain curve is the one printed on the sheet (a chart of ten points), with the modulus given, $E = 75$ GPa. The yield strength of the new material is taken with the 0.2 % offset [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>], and the readings of the chart are the values of the markers.</li></ol>
 <p><strong>Data</strong></p>
@@ -1507,13 +1507,13 @@
 <p><strong>Unknowns:</strong> the length under load (a), whether the cable is safe (b), $E$ (c), whether the new cable can replace it (d), and its length under load (e).</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>One direction (the axis of the cable) and the two equal transverse directions; no change of basis.</p>
 <p><strong>Strategy.</strong></p>
 <ul><li>(a) The measured change of the diameter gives the transverse strain; Poisson's ratio turns it into the axial strain, and the axial strain into the elongation.</li><li>(c) Once the axial strain is known, the modulus is the stress divided by it. Item c is solved before b and d because $E$ is used in the discussion.</li><li>(b) The weight of 10 000 kg gives the yield strength; the safety factor gives the working stress, which is compared with the stress in service.</li><li>(d), (e) The new cable is compared with the old one through the yield strength of the curve of the sheet: if the service stress exceeds it, the cable deforms permanently. The length (e) is read on the curve at the service stress, which is the same, since the section and the load are the same.</li></ul>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Cross-section and stress in service</strong></p>
 <div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15\ \text{mm})^2}{4}$$</div>
 <p>With $15^2 = 225$ and $\pi\times225 = 706.86$:</p>
@@ -1554,7 +1554,7 @@
 <div class="math-block">$$\Delta l = \varepsilon\,l_0 = 0.01486\times3000\ \text{mm} = 44.6\ \text{mm} \qquad l = 3000 + 44.6 = \mathbf{3044.6\ mm}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> $\Delta d/d_0$ and the strains have no units; N/mm² is MPa; $m\,g$ in kg·m/s² is N.</li><li><strong>Poisson.</strong> $\varepsilon_{lat}$ is negative and $\varepsilon_{ax}$ positive, and $|\varepsilon_{lat}| = 0.33\,\varepsilon_{ax}$, as the definition of $\nu$ demands.</li><li><strong>Elastic range of the old cable.</strong> The strain, $1.0707\times 10^{-3}$, is a small fraction of the one at which it yields, $\sigma_y/E = 555.1/258708 = 2.1\times10^{-3}$ (it works at about half of it, as the safety factor 2 says).</li><li><strong>Consistency of $E$.</strong> The modulus 258.7 GPa is larger than the one of steel in the table of the slide, 207 GPa [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=17" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 17">17</a>], by about 25 %. The text of the sheet speaks of "this kind of steel", so the value is plausible within the data of the problem.</li><li><strong>New cable.</strong> Its length under load, 3044.6 mm, is 14 times the elongation of the old one (3.2 mm against 44.6 mm), and permanent: on unloading it recovers $\sigma/E_{new} = 277.00/75\,000$ and keeps $\varepsilon_p = 0.01117$, that is, about 33.5 mm of permanent elongation.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -1597,7 +1597,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Yield strength.</strong> "Plastic deformation begins at 345 MPa" means that 345 MPa is the yield strength of the brass: below it the deformation is only elastic, above it part of it is permanent [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Linear elastic below the yield strength</strong>, $\sigma = E\varepsilon$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>], with the given modulus.</li><li><strong>Uniaxial, uniform stress</strong>: $\sigma = F/A_0$ and $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>]. The maximum values without plastic deformation are those that correspond to the stress $\sigma_y$.</li></ol>
 <p><strong>Data</strong></p>
@@ -1605,12 +1605,12 @@
 <p><strong>Unknowns:</strong> $\sigma_y$ (a), the maximum stress and load (b), the maximum length (c).</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>One direction (the axis of the sample), no change of basis.</p>
 <p><strong>Strategy.</strong> The three items are the same limit seen from three sides. The largest stress that does not cause plastic deformation is the yield strength (a, b). The largest load is that stress times the area, $F = \sigma_y A_0$ (b). The largest length is the initial length plus the elongation at the yield strength, and that elongation comes from Hooke's law, $\varepsilon_y = \sigma_y/E$ and $\Delta l = \varepsilon_y\,l_0$ (c).</p>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>a) Yield stress</strong></p>
 <p>By the hypothesis, plastic deformation begins when $\sigma = 345$ MPa, so</p>
 <div class="math-block">$$\sigma_y = \mathbf{345\ MPa}$$</div>
@@ -1628,7 +1628,7 @@
 <div class="math-block">$$l = l_0 + \Delta l = 76 + 0.2546 = \mathbf{76.255\ mm}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> (N/mm²)·mm² = N for the load; (N/mm²)/(N/mm²) has no units for the strain; strain × mm = mm for the elongation.</li><li><strong>Order of magnitude.</strong> $\varepsilon_y = 0.335$ %, a few tenths of a percent, the order of magnitude of the elastic strain of a metal.</li><li><strong>Limit.</strong> If the load were zero, $l = l_0 = 76$ mm. At the yield load, the sample is only 0.25 mm longer, that is, 0.33 % of its length.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -1665,7 +1665,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Elastic deformation.</strong> The statement says that the load produces only elastic deformation, so Hooke's law holds, $\sigma = E\varepsilon$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Uniaxial, uniform stress</strong> along the axis of the cylinder: $\sigma = F/A_0$ and $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Isotropic material.</strong> With a uniaxial stress, the transverse strain is $\varepsilon_{lat} = -\nu\,\varepsilon_{ax}$, equal in the two transverse directions [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li>The cross-section is circular and uniform, so that the diameter changes in the same proportion in every direction of the section.</li></ol>
 <p><strong>Data</strong></p>
@@ -1673,7 +1673,7 @@
 <p><strong>Unknowns:</strong> the elongation $\Delta l$ in the direction of the force and the change of the diameter $\Delta d$.</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>One direction for the load (the axis) and the two equal transverse directions of the cylinder; no change of basis.</p>
 <div class="diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Bar under axial tension">
@@ -1711,7 +1711,7 @@
 <p>The minus sign says that the diameter decreases when the sample is stretched.</p>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Cross-section</strong></p>
 <div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15.2\ \text{mm})^2}{4}$$</div>
 <p>The square is $15.2^2 = 231.04$, then $\pi\times231.04 = 725.83$ and dividing by 4:</p>
@@ -1728,7 +1728,7 @@
 <div class="math-block">$$\Delta d = \varepsilon_{lat}\,d_0 = -3.5150\times 10^{-4}\times15.2\ \text{mm} = \mathbf{-0.00534\ mm}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> (N/mm²)/(N/mm²) has no units for the strains, and strain × mm gives mm for $\Delta l$ and $\Delta d$.</li><li><strong>Elastic range.</strong> $\varepsilon_{ax} = 0.1302$ %, a small strain of the order of those of the elastic deformation of a metal, consistent with the statement.</li><li><strong>Volume.</strong> The relative change of volume is $\Delta V/V \approx \varepsilon_{ax} + 2\varepsilon_{lat} = \varepsilon_{ax}(1 - 2\nu) = 5.989\times 10^{-4}$, positive: a stretched elastic body increases its volume since $\nu &lt; 0.5$ (a perfectly incompressible material, $\nu = 0.5$, would give zero) [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li><strong>Sign.</strong> $\Delta l &gt; 0$ and $\Delta d &lt; 0$: the sample gets longer and thinner.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -1766,7 +1766,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Uniaxial, uniform stress</strong> in the wire: $\sigma = F/A_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>]. The weight of a mass $m$ is $F = m\,g$ with $g = 9.81$ m/s².</li><li><strong>Yield strength.</strong> "Plastic deformation begins when it is loaded with 15.3 kg" gives the yield strength, $\sigma_y = F_y/A_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Total strain under load.</strong> The strain 0.011 of item b is the total strain (elastic plus plastic) measured while the load of 29.6 kg is applied, relative to the initial length: $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Unloading is elastic.</strong> When the load is removed the elastic strain is recovered along a line of slope $E$, parallel to the elastic line, starting from the stress that the wire carried; what remains is the plastic strain [Session 11 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=21" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 21">21</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>].</li><li><strong>Resilience</strong> of the elastic range: $U_r = \sigma_y^2/(2E)$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=35" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 35">35</a>].</li></ol>
 <p><strong>Data</strong></p>
@@ -1774,7 +1774,7 @@
 <p><strong>Unknowns:</strong> $\sigma_y$ (a), the final length after unloading (b), $U_r$ (c).</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>One direction (the axis of the wire); no change of basis.</p>
 <p><strong>Strategy.</strong> (a) is a stress: weight over area. (c) follows from (a) and $E$. Item (b) is the delicate one, and it is solved by following the strain along the load path:</p>
 <ol><li>The wire is loaded up to $\sigma_2 = F_2/A_0$, above the yield strength, and the total strain there is 0.011.</li><li>It is unloaded along a straight line of slope $E$: the strain recovered is $\sigma_2/E$ (the stress that it carried, not the yield strength).</li><li>The strain that remains is permanent, and it gives the final length.</li></ol>
@@ -1819,7 +1819,7 @@
 </div>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Area of the wire</strong></p>
 <div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(1\ \text{mm})^2}{4} = 0.7854\ \text{mm}^2$$</div>
 <p><strong>a) Yield strength</strong></p>
@@ -1841,7 +1841,7 @@
 <p>($1\ \text{MPa} = 1\ \text{MJ/m}^3$.)</p>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> kg·m/s² = N; N/mm² = MPa; the strains have no units; $l_f$ in the unit of $l_0$ (cm).</li><li><strong>Order.</strong> $\varepsilon_e = 3.3611\times 10^{-3} &lt; \varepsilon = 0.011$, and $\varepsilon_p &gt; 0$: the wire does not return to 200 cm. If the load were removed from the yield point, the permanent strain would be zero; here the wire has gone beyond it.</li><li><strong>Elastic strain at yield.</strong> The strain of the yield point, $\sigma_y/E = 0.001737$, is smaller than the elastic strain recovered from $\sigma_2$ ($3.3611\times 10^{-3}$): the unloading starts from a higher stress, and the recovery is larger.</li><li><strong>Limits.</strong> If $\sigma_2 = \sigma_y$ the wire would be exactly at the yield point and $\varepsilon_p$ would be (almost) zero; the larger the stress reached, the larger the elastic recovery and the permanent strain.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -1880,7 +1880,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Elastic deformation.</strong> The statement says that the load produces only elastic deformation, so Hooke's law holds, $\sigma = E\varepsilon$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Uniaxial, uniform stress</strong> along the axis of the cylinder: $\sigma = F/A_0$ and $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Isotropic material.</strong> With a uniaxial stress, the transverse strain is $\varepsilon_{lat} = -\nu\,\varepsilon_{ax}$, equal in the two transverse directions [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li>The cross-section is circular and uniform, so that the diameter changes in the same proportion in every direction of the section.</li></ol>
 <p><strong>Data</strong></p>
@@ -1888,7 +1888,7 @@
 <p><strong>Unknowns:</strong> the elongation $\Delta l$ in the direction of the force and the change of the diameter $\Delta d$.</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>One direction for the load (the axis) and the two equal transverse directions of the cylinder; no change of basis.</p>
 <div class="diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Bar under axial tension">
@@ -1926,7 +1926,7 @@
 <p>The minus sign says that the diameter decreases when the sample is stretched.</p>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Cross-section</strong></p>
 <div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15.0\ \text{mm})^2}{4}$$</div>
 <p>The square is $15.0^2 = 225.00$, then $\pi\times225.00 = 706.86$ and dividing by 4:</p>
@@ -1943,7 +1943,7 @@
 <div class="math-block">$$\Delta d = \varepsilon_{lat}\,d_0 = -3.6905\times 10^{-4}\times15.0\ \text{mm} = \mathbf{-0.00554\ mm}$$</div>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> (N/mm²)/(N/mm²) has no units for the strains, and strain × mm gives mm for $\Delta l$ and $\Delta d$.</li><li><strong>Elastic range.</strong> $\varepsilon_{ax} = 0.1367$ %, a small strain of the order of those of the elastic deformation of a metal, consistent with the statement.</li><li><strong>Volume.</strong> The relative change of volume is $\Delta V/V \approx \varepsilon_{ax} + 2\varepsilon_{lat} = \varepsilon_{ax}(1 - 2\nu) = 6.288\times 10^{-4}$, positive: a stretched elastic body increases its volume since $\nu &lt; 0.5$ (a perfectly incompressible material, $\nu = 0.5$, would give zero) [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li><strong>Sign.</strong> $\Delta l &gt; 0$ and $\Delta d &lt; 0$: the sample gets longer and thinner.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -1980,7 +1980,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Fracture strength = engineering stress at fracture.</strong> The "fracture strength of 300 MPa" is the load at fracture divided by the <em>initial</em> area, $\sigma_f = F_f/A_0$, as in the engineering curve of the tensile test [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>]. The true fracture stress is that load divided by the area at fracture, $A_f$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=37" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 37">37</a>].</li><li><strong>Ductility as reduction in area.</strong> $RA\,(\%) = \dfrac{A_0 - A_f}{A_0}\times100$ is measured after fracture [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=33" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 33">33</a>], so $RA = 77\,\%$ means $A_f = 0.23\,A_0$.</li><li><strong>Uniform deformation.</strong> The statement asks to take the strain as uniform until fracture, so the volume of the wire is constant, $l_0A_0 = l_fA_f$ (the necking is not modelled) [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=38" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 38">38</a>].</li><li><strong>Real strain by integration.</strong> $\varepsilon_r = \int_{l_0}^{l}dl/l = \ln(l/l_0)$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=37" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 37">37</a>].</li></ol>
 <p><strong>Data</strong></p>
@@ -1988,13 +1988,13 @@
 <p><strong>Unknowns:</strong> the true fracture stress $\sigma_{f,r}$ and the true strain at fracture $\varepsilon_{r}$.</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>One direction (the axis of the wire); no change of basis.</p>
 <p><strong>Strategy.</strong></p>
 <ol><li>The reduction in area gives the ratio $A_f/A_0 = 1 - RA$.</li><li>The load at fracture is the same in both definitions of stress, $F_f = \sigma_f A_0 = \sigma_{f,r}A_f$, so $\sigma_{f,r} = \sigma_f\,A_0/A_f$ (the true stress is larger than the engineering one because the area has decreased) [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=38" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 38">38</a>].</li><li>With constant volume, the length ratio is the inverse of the area ratio, and the true strain follows from $\ln(l/l_0) = \ln(A_0/A_f)$.</li><li>The result is verified with the other route, $\sigma_r = \sigma(1+\varepsilon)$ and $\varepsilon_r = \ln(1+\varepsilon)$, through the engineering strain.</li></ol>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. Area ratio at fracture</strong></p>
 <div class="math-block">$$\frac{A_f}{A_0} = 1 - \frac{RA}{100} = 1 - 0.77 = 0.23$$</div>
 <p><strong>2. True fracture stress</strong></p>
@@ -2013,7 +2013,7 @@
 <p>in agreement with the two results above.</p>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> Stress in MPa; $A_f/A_0$ and the strains are dimensionless; the argument of the logarithm is a ratio of areas.</li><li><strong>Limits.</strong> If $RA \to 0$ (no necking) then $A_f \to A_0$, $\sigma_{f,r} \to \sigma_f$ and $\varepsilon_r \to 0$. As $RA \to 100\,\%$, both $\sigma_{f,r}$ and $\varepsilon_r$ grow without bound.</li><li><strong>Ordering.</strong> $\sigma_{f,r} &gt; \sigma_f$ and $\varepsilon_r &lt; \varepsilon$ ($1.4697 &lt; 3.348$), as stated in [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=37" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 37">37</a>].</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -2053,7 +2053,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li><strong>Vickers.</strong> The indenter is a diamond right pyramid with 136° between opposite faces; the hardness is the load divided by the lateral area of the impression, $HV = F/A_{imp}$, which depends only on the mean diagonal $d$ [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 26">26</a>]. The slide defines $d$ as the arithmetic mean of the two diagonals $d_1$ and $d_2$ of one impression; here the sheet gives one diagonal length for each of the three impressions, which are averaged first.</li><li><strong>Brinell.</strong> The hardness is the load divided by the area $S$ of the spherical cap left by the ball, $HB = P/S$ with $P$ in kg [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=19" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 19">19</a>]. The result is a number with no units attached by convention.</li><li>The tests are performed under their standard conditions (flat surface, indentation far from edges and from other impressions) [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=28" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 28">28</a>].</li></ol>
 <p><strong>Data</strong></p>
@@ -2061,7 +2061,7 @@
 <p><strong>Unknowns:</strong> $HV$ (a) and $HB$ (b). Both loads are kilogram-force, the unit used by the slides; the hardness numbers are quoted without units (kgf/mm² in the definition, $1\ \text{kgf} = 9.81$ N).</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>No frames are involved. Each hardness comes from the load and one measured length, through the formulas of the slides.</p>
 <p><strong>Strategy.</strong></p>
 <ul><li>(a) Average the three diagonals, as the slide does with $d_1$ and $d_2$, and use $HV = 2F\sin(136^\circ/2)/d^2 = 1.854\,F/d^2$. The expression is derived from the pyramid: the faces make 136° with each other, so the lateral area is $A = d^2/(2\sin 68^\circ)$ and $HV = F/A$.</li><li>(b) Use $HB = 2P/\big[\pi D\,(D - \sqrt{D^2 - D_i^2})\big]$, which is $P$ over the area of the cap, $S = \pi D h$ with $h = (D - \sqrt{D^2-D_i^2})/2$ the depth of the indentation.</li></ul>
@@ -2137,7 +2137,7 @@
 </div>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>a) Vickers hardness</strong></p>
 <p><strong>Mean diagonal.</strong></p>
 <div class="math-block">$$\bar d = \frac{d_1 + d_2 + d_3}{3} = \frac{0.527 + 0.481 + 0.497}{3} = \frac{1.505}{3} = 0.50167\ \text{mm}$$</div>
@@ -2155,7 +2155,7 @@
 <p>that is, about <strong>228 HB</strong> (equivalently $P/S = 3000/13.182 = 227.6$).</p>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> $F$ in kgf and $d$ in mm give kgf/mm², the unit of hardness; $D^2 - D_i^2$ in mm², and the Brinell denominator is an area (mm²), so $P/S$ is again kgf/mm².</li><li><strong>Load factor.</strong> $Q = P/D^2 = 3000/10^2 = 30$, one of the standard values of the table of [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=20" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 20">20</a>] for the ball of 10 mm.</li><li><strong>Order of magnitude.</strong> $HV\approx221$ and $HB\approx228$ are of the same order, since both scales are defined as a load in kgf over an area in mm²; but the slides remind us that there is no universal conversion between methods [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=15" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 15">15</a>].</li><li><strong>Limit.</strong> If $D_i \to 0$ then $D - \sqrt{D^2-D_i^2} \to D_i^2/(2D)$ and $HB \to 4P/(\pi D_i^2)$, the load over the area of the circle of the indentation, as it should for a very shallow cap.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -2194,7 +2194,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li>The indentation is a spherical cap left by a hard ball of diameter $D$ pressed with the load $P$, and the hardness is $HB = P/S$ [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=19" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 19">19</a>].</li><li>$P$ is in kilogram-force (kg in the slide) and the lengths in mm, so $HB$ is in kgf/mm² and is quoted as a number.</li><li>The test is standard: the load factor $Q = P/D^2$ of the test must be one of those of [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=20" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 20">20</a>].</li></ol>
 <p><strong>Data</strong></p>
@@ -2202,7 +2202,7 @@
 <p><strong>Unknown:</strong> the Brinell hardness $HB$.</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>No frames are involved: only one formula, applied directly.</p>
 <p><strong>Why this formula.</strong> The slide writes $HB = P/S$ with $S$ the area of the spherical cap. For a sphere of diameter $D$, the cap of height $h$ has area $S = \pi D h$ (Archimedes), and its base circle has radius $D_i/2$, so $h$ follows from $(D/2 - h)^2 + (D_i/2)^2 = (D/2)^2$:</p>
 <div class="math-block">$$h = \frac{D - \sqrt{D^2 - D_i^2}}{2} \quad\Rightarrow\quad S = \frac{\pi D}{2}\left(D - \sqrt{D^2 - D_i^2}\right) \quad\Rightarrow\quad HB = \frac{2P}{\pi D\left(D - \sqrt{D^2 - D_i^2}\right)}$$</div>
@@ -2279,7 +2279,7 @@
 </div>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p>Square of the indentation diameter and of the ball diameter:</p>
 <div class="math-block">$$D_i^2 = 2.5^2 = 6.25\ \text{mm}^2 \qquad D^2 = 10^2 = 100\ \text{mm}^2$$</div>
 <p>Difference and square root:</p>
@@ -2291,7 +2291,7 @@
 <p>The depth of the indentation is $h = 0.31754/2 = 0.1588$ mm and the area of the cap $S = \pi D h = 4.988$ mm², so $P/S = 1000/4.988 = 200.5$, the same.</p>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> $2P$ in kg (kgf) over an area in mm²: kgf/mm², the unit of hardness (no unit is attached to HB).</li><li><strong>Load factor.</strong> $Q = P/D^2 = 1000/10^2 = 10$, a value of the table of [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=20" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 20">20</a>] for $D = 10$ mm (load of 1000 kg), so the test is a standard one.</li><li><strong>Limit.</strong> For $D_i \ll D$, $D - \sqrt{D^2-D_i^2}\approx D_i^2/(2D)$ and $HB \approx 4P/(\pi D_i^2) = 203.7$, close to the exact value (the cap is almost flat); for $D_i \to D$, the cap becomes a hemisphere, $S\to\pi D^2/2$, and $HB \to 2P/(\pi D^2)$.</li><li><strong>Geometry.</strong> $D_i/D = 0.25$: the indentation is a small fraction of the ball, consistent with a hard steel.</li></ul>
 <p><strong>Interpretation</strong></p>
@@ -2328,7 +2328,7 @@
 
         <div class="phases-grid">
           <div class="phase-step phase-1">
-            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
 <p><strong>Hypotheses</strong></p>
 <ol><li>Same definition as in Problem 14: $HB = P/S$, with $S$ the area of the spherical cap, $HB = \dfrac{2P}{\pi D\left(D - \sqrt{D^2 - D_i^2}\right)}$ [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=19" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 19">19</a>].</li><li>$P$ in kilogram-force, lengths in mm; the hardness number has no unit attached.</li><li>Only the physically meaningful root is retained: the indentation diameter is positive and not larger than the ball, $0 &lt; D_i \leq D$.</li></ol>
 <p><strong>Data</strong></p>
@@ -2336,13 +2336,13 @@
 <p><strong>Unknown:</strong> the diameter of the indentation $D_i$ (called $d$ in the key).</p>
           </div>
           <div class="phase-step phase-2">
-            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+            <span class="phase-badge">Model &amp; Strategy</span>
 <p>This is the <em>inverse</em> of Problem 14: the hardness is known, and the indentation is the unknown. The formula of the slide is solved for $D_i$ before substituting numbers:</p>
 <ol><li>Isolate the bracket: $D - \sqrt{D^2 - D_i^2} = \dfrac{2P}{\pi D\,HB} \equiv k$.</li><li>Isolate the square root: $\sqrt{D^2 - D_i^2} = D - k$.</li><li>Square both sides, $D^2 - D_i^2 = (D - k)^2$, and solve: $D_i^2 = D^2 - (D-k)^2 = 2Dk - k^2 = k\,(2D - k)$.</li></ol>
 <p>The squaring step is allowed here because $D - k &gt; 0$ (the left side is a square root, and $k$ is a small fraction of $D$), so no spurious root is introduced.</p>
           </div>
           <div class="phase-step phase-3">
-            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+            <span class="phase-badge">Step-by-Step Calculation</span>
 <p><strong>1. The bracket $k$</strong></p>
 <div class="math-block">$$k = D - \sqrt{D^2 - D_i^2} = \frac{2P}{\pi D\,HB} = \frac{2\times500}{\pi\times10\times300} = \frac{1000}{9424.78} = 0.106103\ \text{mm}$$</div>
 <p><strong>2. The indentation diameter</strong></p>
@@ -2354,7 +2354,7 @@
 <p>which recovers the 300 of the statement.</p>
           </div>
           <div class="phase-step phase-4">
-            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+            <span class="phase-badge">Result &amp; Checks</span>
 <p><strong>Checks</strong></p>
 <ul><li><strong>Units.</strong> $k$ is a length (kg over kgf/mm² gives mm² and, divided by mm, a length); $D_i^2 = k(2D-k)$ is in mm².</li><li><strong>Load factor.</strong> $Q = P/D^2 = 500/10^2 = 5$, a standard value of [Session 12 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf#page=20" target="_blank" rel="noopener" title="Open Session 12 T5 Mechanical properties II.pdf at page 20">20</a>] for the ball of 10 mm.</li><li><strong>Limit.</strong> Since $k \ll D$ here, $D_i^2 \approx 2Dk = 4P/(\pi\,HB)$, so $D_i \approx \sqrt{4\times500/(\pi\times300)} = 1.4567$ mm: the approximation is within 0.3 % of the exact value (1.4529 mm).</li><li><strong>Direction.</strong> A harder material (larger $HB$) leaves a smaller indentation under the same load: $D_i \propto HB^{-1/2}$ for small indentations.</li></ul>
 <p><strong>Interpretation</strong></p>

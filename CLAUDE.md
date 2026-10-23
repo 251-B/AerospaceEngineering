@@ -23,7 +23,7 @@ Before editing, follow this five-stage pipeline:
   • claude-mem: recall past decisions           • Bug / Error ──► superpowers:systematic-debugging
   • context-mode: sandbox file scans            • New Feature ──► superpowers:brainstorming + bm:plan-phase
          │                                      • Theory Note ──► source-researcher ──► aerospace-pedagogue
-         ▼                                      • Problem Set ──► problem-step-mentor (4-Phase Protocol)
+         ▼                                      • Problem Set ──► problem-step-mentor (lecturer's order)
 [ Stage 3: Autonomous Routing & Execution ]     • Web Page    ──► subject-web-builder (Obsidian-First)
   • Single Agent / Subagent vs. Agent Teams     • Skill Work  ──► skill-creator + superpowers:writing-skills
   • Enforce Academic Standards (English, SI)    • Sprint/Milestone ──► Agent Teams + bm
@@ -48,7 +48,7 @@ Classify the prompt against this table and trigger the matching tool chain witho
 | **"Crea una página", "diseña", "nuevo tema", "nueva feature"** | `superpowers:brainstorming` + `bm:plan-phase` | `subject-web-builder` / `aerospace-pedagogue` | Socratic clarification before writing files. Check Obsidian first (`vault/`) before creating HTML in `subjects/`. |
 | **"Busca en los PDFs", "qué dice la cátedra", "temario", "fórmulas"** | `context-mode` (`ctx_search`, `ctx_execute`) | `source-researcher` | Read local PDFs in `sources/`. Zero hallucinations. Extract exact math in LaTeX and raw numerical data. Keep context lean. |
 | **"Explica la teoría", "desarrolla el tema", "apuntes"** | `aerospace-pedagogue` | `aerospace-study-team` | Derive equations from first principles in academic English. Cite official notes. Write notes to `vault/<asignatura>/` using templates. |
-| **"Resuelve el problema", "ejercicio", "hoja de problemas", "examen"** | `problem-step-mentor` | 4-phase protocol | 1. Hypotheses and degrees of freedom. 2. Frames and change-of-basis matrix $[{}_0 R_1]$. 3. Continuous derivation: explicit chain rule, differentials, Barrow's rule with limits. 4. SI units and asymptotic limits. |
+| **"Resuelve el problema", "ejercicio", "hoja de problemas", "examen"** | `problem-step-mentor` | Lecturer's order per subject (`AGENTS.md`) | Continuous development with no "Phase" labels. Mechanics: frames, bases and coordinates → change of basis and position vector, with figures → kinematics → forces and equations of motion → answers and checks. Every sine, cosine and sign justified; chain rule, differentials and Barrow's rule with limits explicit; SI units and limiting cases. The four-step verification checklist is silent. |
 | **"Maqueta la web", "pasa a HTML", "estilo", "tema oscuro"** | `subject-web-builder` | Frontend builder | Obsidian is source of truth. KaTeX CDN, dark/light switch via `assets/js/theme.js` (key `ae_theme`, no inline theme code), back-link `../../../index.html`. No lab pages. |
 | **"Haz todo el tema", "sprint paralelo", "desarrollo completo"** | Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) | `claude-agents` | Spawn 3–5 teammates with distinct scopes (`vault/`, `teoria/`, `problemas/`). Communicate via `SendMessage`. Coordinate shared tasks. |
 | **"Revisa lo hecho", "review", cierre de tarea unitaria** | `review-ultrareview` (mode `review`) | `web-qa-reviewer` | Standard checklist from `AGENTS.md`. |
