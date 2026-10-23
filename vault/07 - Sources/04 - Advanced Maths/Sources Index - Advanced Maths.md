@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 81
+- Files: 82
 - Referenced by at least one note (a mention counts): 9
-- Not referenced yet: 72
+- Not referenced yet: 73
 - Build artifacts: 0
 - Working files: 0
 
@@ -104,6 +104,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
+| [[Source - 04-advanced-maths - schedule - lecture_schedule_2026-27 (txt)\|lecture_schedule_2026-27.txt]] | schedule | not-referenced |
 | [[Source - 04-advanced-maths - schedule - ODE_lecture_theory_to_Robinson_chapters (txt)\|ODE_lecture_theory_to_Robinson_chapters.txt]] | schedule | not-referenced |
 | [[Source - 04-advanced-maths - schedule - view (htm)\|view.htm]] | schedule | not-referenced |
 

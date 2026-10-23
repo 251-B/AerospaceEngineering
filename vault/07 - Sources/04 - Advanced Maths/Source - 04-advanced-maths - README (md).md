@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/04-advanced-maths/README.md"
 kind: other
 status: not-referenced
-bytes: 13867
+bytes: 13959
 ---
 
 # Source: README.md
@@ -18,7 +18,7 @@ bytes: 13867
 
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/README.md`
 - **Kind:** other
-- **Size:** 13.9 kB
+- **Size:** 14.0 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 - **Shared name:** the file name is shared with 7 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

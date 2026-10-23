@@ -1,0 +1,155 @@
+ADVANCED MATHEMATICS 2026/27 - LECTURE SCHEDULE (ODE part)
+Copied from Aula Global, updated to Oct 22. view.htm is the older
+snapshot (up to Sep 22). Robinson chapters for every item:
+ODE_lecture_theory_to_Robinson_chapters.txt
+
+September 8th
+* Definition of differential equation
+* Some examples of ODEs and PDEs
+* Order of ODE
+* Linearity/nonlinearity of ODE (needs correction, see Aula Global)
+* Systems of ODEs
+* Exponential population growth
+* Logistic population growth
+* Free fall of a body under gravity
+
+September 10th
+* Corrected solution of linear/nonlinear ODE
+* Definition of IVP
+* Definition and philosophy of well-posed problem (existence and uniqueness)
+* Picard's theorem
+* Autonomous ODEs
+* Stable/unstable critical points
+* 1d drawings (phase portraits)
+* Example: logistic population ODE and interpretation
+* Definition of separable ODEs
+* How to solve
+* Solve logistic population ODE (unfinished, Exercise 1.9)
+
+September 14th
+* Exercise 1.1 (i), (ii), (iii)
+* Exercise 1.9
+* Exercise 1.4
+* Exercise 1.5 (with small error)
+
+September 15th
+* Correct Exercise 1.5
+* Exercise 1.6
+* Exercise 2.13
+* Exercise 2.14
+* Exercise 2.17 (need to finish)
+
+September 17th
+* Solving 1st-order, linear ODEs by integrating factor
+* Exercise 2.3 (ii)
+* Exact equations
+* Exercise on exact equations
+* Exercise 2.4 (ii) (unfinished)
+
+September 21st
+* Exercise 2.2 (iv), [try Exercise 2.2 (v) at home]
+* Exercise 2.3 (iii)
+* Exercise 2.3 (vi)
+* Exercise 2.6
+* Exercise 2.17
+
+September 22nd
+* Second order, linear ODEs
+* Example: mass-spring system
+* Homogeneous vs. nonhomogeneous
+* Existence and uniqueness theorem
+* Superposition principle for homogeneous equations
+* Linearly independent/dependent functions
+* Theorem: general solutions to the homogeneous problem are the linear combination of two linearly independent solutions
+* Proof (introduced Wronskian)
+* Solutions to homogeneous, second-order, linear ODEs with constant coefficients: case of two real roots, one repeated root, complex conjugate pair of roots
+
+September 24th
+* Inhomogeneous second-order linear ODEs with constant coefficients
+* Lemma: general solution is the sum of a general solution of the associated homogeneous ODE and a "particular solution" of the inhomogeneous ODE that needs to be found separately
+* Proof
+* Compute the particular solution if f is a polynomial
+* Examples
+* Compute the particular solution if f is exponential
+* Compute the particular solution if f is trigonometric
+* Same strategy works for higher-order equation
+* Linear second-order ODEs with variable coefficients
+* Reduction of order (didn't finish)
+
+September 29th
+* Finish reduction of order
+* Example
+* General formula for finding the particular solution using to the "method of indeterminate coefficients"
+* Examples
+* Exercise 3-1.4 (i), (ii), (iv), (vii)
+* Exercise 3-2.1 (iii), (vi) (need to finish)
+
+October 1st
+* Finish Exercise 3-2.1 (vi)
+* Method of variation of constants
+* Exercise 3-2.6 (i) (in two ways: indeterminate coefficients and variation of constants
+* Exercise 3-2.6 (ii)
+* Exercise 3-2.9
+
+October 5th
+* Exercise 3-1.5
+* Exercise 3-1.8
+* Exercise 3-1.9
+* Exercise 3-2.1(ix) (need to finish)
+
+October 6th
+* Finished 3-2.1 (ix)
+* Theory for systems of first-order ODEs
+* Nonlinear first order ODE systems, notation
+* Theorem: existence and uniqueness
+* How to convert a 2nd order ODE into a system of two first order ODEs
+* Definition: first order linear systems, homogeneous and inhomogeneous
+* Superposition principle
+* Linear independence
+* Solutions of the homogeneous problem are l.i. If and only if the Wronskian is not 0
+* Fundamental set of solutions of the homogeneous problem
+* General solution of the complete system is the sum of the general solution of the homogeneous solution plus a particular solution
+* Homogeneous system with constant coefficients
+* Solution method: convert back to a second order ODE with constant coefficients
+* Solution method (preferred): use linear algebra
+* Reduction of the problem to the eigenvalue problem from linear algebra
+
+October 8th
+* How to find eigenvalues and eigenvectors
+* Example: find eigenvalues and eigenvectors
+* Eigenvalues of upper-triangular matrices
+* Three cases: two distinct eigenvalues, two complex eigenvalues, one repeated real eigenvalue
+* Case 1)
+* Prove that the two solutions we found are linearly independent
+* General solution
+* Diagonalizable matrix and change of basis z=P^{-1}x
+* Phase portrait for z: stable nodes, unstable nodes, saddle nodes
+* Converting back to x
+* Example: found general solution, need to draw phase portrait
+
+October 13th
+* Draw phase portrait for example
+* General solution for complex eigenvalues via change of basis z=Q^{-1}x
+* Phase portrait for z: stable spiral, unstable spiral, center
+* Converting back to x
+
+October 15th
+* Exercise
+* Theory for repeated real eigenvalues
+* Subcase of two linearly independent eigenspaces: stable and unstable star
+* Subcase of only one linearly independent eigenspace: decomposing the matrix A
+* Change of variable z=Q^{-1}x and solving for z
+* General solution in x
+* Improper node: phase diagram in z, phase diagram in x (need to see a concrete example)
+
+October 20th
+* Exercise 4-1.3
+* Exercise 4-1.8 (i), (ii), (iii), (iv), (v), (viii)
+* Exercise 4-1.9 (i), (iv)
+* Exercise 4-1.11
+
+October 22nd
+* Exercise (mix of 4-2.1 (i) and (ii))
+* Exercise 4-2.1 (iii), (v), (vii) (plus solution)
+* Exercise 4-2.3 (i), (ii)
+* Exercise 4-2.5 (i)

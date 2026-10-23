@@ -2,8 +2,10 @@ ODE LECTURE THEORY -> ROBINSON CHAPTER MAP
 Book: J. C. Robinson, "An Introduction to Ordinary Differential Equations"
 (Cambridge University Press, 2004)
 
-Only theory is listed (no exercises). Page numbers are the book's printed
-pages (PDF page minus 16). Lectures covered: Sep 8 to Oct 8 (the Oct 8 date is assumed, see below).
+Parts I-IV map the theory. The section "EXERCISES SOLVED IN CLASS" maps
+every exercise of the course sheets to its Robinson exercise or section.
+Page numbers are the book's printed pages (PDF page minus 16). Lectures
+covered: Sep 8 to Oct 22 (full schedule in lecture_schedule_2026-27.txt).
 
 ======================================================================
 PART I - FIRST ORDER EQUATIONS
@@ -201,8 +203,7 @@ NOT IN THE BOOK (no section to point to):
   "homogeneous + particular" structure.
 
 ----------------------------------------------------------------------
-Oct 8 lecture (the date was not given; Oct 8 is assumed from the
-Tuesday/Thursday pattern of the other lectures)
+Oct 8 lecture
 ----------------------------------------------------------------------
 
 Ch. 27, Sec. 27.2 (p. 260-261)
@@ -269,7 +270,160 @@ Ch. 28, Example 28.3 (p. 279-280, Fig. 28.7-28.8)
     portrait. The book's version uses the same matrix as Examples
     28.1 and 28.2, A = [1 1; 4 -2] (lambda = 2 with v = (1, 1),
     lambda = -3 with v = (1, -4)), so the origin is a saddle
-  [Oct 8]
+  [Oct 8; the drawing was finished on Oct 13]
+
+----------------------------------------------------------------------
+Oct 13 lecture: complex eigenvalues
+----------------------------------------------------------------------
+
+Ch. 28, Sec. 28.4, Example 28.3 (p. 279-280, Fig. 28.7-28.8)
+  - Draw the phase portrait for the Oct 8 example (saddle: eigenvectors
+    first, then fill in the hyperbola-like trajectories)
+  [Oct 13]
+
+Ch. 29, Sec. 29.1 (p. 285-286)
+  - Complex pair lambda = rho +/- i omega, eigenvectors
+    eta = v1 +/- i v2. Real solution x(t) = 2 Re[C e^(lambda t) eta],
+    Eq. (29.1), which expands to
+    x(t) = e^(rho t)[(A cos wt + B sin wt) v1 + (B cos wt - A sin wt) v2],
+    Eq. (29.2). Example 29.1 (A = [2 5; -2 0], lambda = 1 +/- 3i)
+  [Oct 13]
+
+Ch. 29, Sec. 29.2 (p. 287-288)
+  - General solution via change of basis: taking real and imaginary
+    parts of A eta = lambda eta gives A v1 = rho v1 - omega v2 and
+    A v2 = omega v1 + rho v2, Eq. (29.3). With x = x~ v1 + y~ v2,
+    Eq. (29.4), i.e. x~ = [v1 v2]^(-1) x, the system becomes
+    dx~/dt = [rho omega; -omega rho] x~, Eq. (29.5). Example 29.2
+  [Oct 13]
+
+Ch. 29, Sec. 29.2 (p. 289-291, Fig. 29.1-29.4)
+  - Phase portrait in the new coordinates: in polar coordinates
+    (Eq. 29.6-29.8) r' = rho r and theta' = -omega, so
+    r = R e^(rho t), theta = T - omega t.
+    rho < 0: stable spiral (Fig. 29.2); rho > 0: unstable spiral
+    (Fig. 29.3); rho = 0: centre, closed orbits (Fig. 29.4)
+  [Oct 13]
+
+Ch. 29, Sec. 29.3 (p. 291-293, Fig. 29.5-29.6)
+  - Converting back to x: the type (spiral or centre) does not change;
+    the sense of rotation is read from the sign of x' on the positive
+    y-axis (x = 0, y > 0). Example 29.3, Eq. (29.9)
+  [Oct 13]
+
+----------------------------------------------------------------------
+Oct 15 lecture: a repeated real eigenvalue
+----------------------------------------------------------------------
+
+Ch. 30 (p. 295)
+  - Theory for a repeated real eigenvalue: two subcases. (A repeated
+    eigenvalue zero is only treated in Exercise 30.5.)
+  [Oct 15]
+
+Ch. 30, Sec. 30.1 (p. 295-296, Fig. 30.1)
+  - Two linearly independent eigenvectors: A = lambda I, every vector
+    is an eigenvector, x(t) = e^(lambda t) x(0); trajectories are rays.
+    Stable star (lambda < 0) or unstable star (lambda > 0)
+  [Oct 15]
+
+Ch. 30, Sec. 30.2 (p. 295-297)
+  - Only one independent eigenvector v: decomposing A. Choose any v2
+    not parallel to v; then v1 = (A - lambda I) v2 is an eigenvector,
+    so A v2 = v1 + lambda v2, Eq. (30.1). (The footnote points to the
+    Cayley-Hamilton route, Exercises 30.2-30.3.)
+  [Oct 15]
+
+Ch. 30, Sec. 30.2 (p. 297)
+  - Change of variable x~ = [v1 v2]^(-1) x (lecture: z = Q^(-1) x):
+    dx~/dt = [lambda 1; 0 lambda] x~, Eq. (30.2)-(30.3). Solve
+    y~ = A e^(lambda t) first, then x~ by the integrating factor
+    e^(-lambda t) (Ch. 9): x~ = B e^(lambda t) + A t e^(lambda t)
+  [Oct 15]
+
+Ch. 30, Sec. 30.2, Eq. (30.4) (p. 297)
+  - General solution in x:
+    x(t) = [A t e^(lambda t) + B e^(lambda t)] v1 + A e^(lambda t) v2,
+    with v1 = (A - lambda I) v2
+  [Oct 15]
+
+Ch. 30, Sec. 30.2 (p. 298, Fig. 30.2) and Example 30.1 (p. 298-299,
+Fig. 30.3)
+  - Improper node: phase diagram in x~ ('S'-shaped trajectories; x~'
+    changes sign on the line y~ = -lambda x~, Fig. 30.2), then in x.
+    Example 30.1 is the concrete example the lecture still owed:
+    A = [5 -4; 1 1], lambda = 3 (repeated), single eigenvector (2, 1),
+    Eq. (30.5); x' = -4y < 0 on the positive y-axis fixes the sense
+    of the 'S'. Stable if lambda < 0, unstable if lambda > 0
+  [Oct 15]
+
+Ch. 31 (p. 301-305)
+  - Not covered yet: summary of all linear phase portraits and the
+    Jordan canonical form (Sec. 31.1). Useful as a one-page review of
+    Oct 8-15.
+
+======================================================================
+EXERCISES SOLVED IN CLASS -> ROBINSON
+======================================================================
+
+Course sheets (sources/.../unit-0N-*/problemas/):
+  "1.n"   = ProblemsCh1.pdf          "2.n"   = ProblemsCh2.pdf
+  "3-1.n" = probls_ch3_2627.pdf      "3-2.n" = probls_ch3-ii_2627.pdf
+  "4-1.n" = probls_ch4-i_2627_v2.pdf "4-2.n" = probls_ch4-ii_2627.pdf
+"= Ex. R" means the sheet item is Robinson's exercise R word for word
+(same items and data); "-> Sec." gives the theory to read when the
+book has no matching exercise.
+
+Course ex.        Date          Robinson
+-------------------------------------------------------------------------
+1.1 (i)-(iii)     Sep 14        = Ex. 3.1 (i)-(iii); theory Sec. 3.1-3.3
+1.4               Sep 14        -> Sec. 9.4 Newton's law of cooling (p. 79)
+1.5               Sep 14-15     = Ex. 9.2; method in Sec. 9.4.1 (p. 80)
+1.6 (salt tank)   Sep 15        not in the book -> Ch. 9 (linear, integrating
+                                factor) or Ch. 8 (separable)
+1.9 (logistic)    Sep 10, 14    -> Sec. 8.5 (p. 66) and Sec. 8.6.1 partial
+                                fractions (p. 68)
+2.2 (iv), (v)     Sep 21        = Ex. 8.1 (iv), (v); theory Sec. 8.1
+2.3 (ii)          Sep 17        = Ex. 9.1 (ii); theory Sec. 9.2
+2.3 (iii), (vi)   Sep 21        = Ex. 9.1 (iii), (vi)
+2.4 (ii)          Sep 17        = Ex. 10.1 (ii); theory Sec. 10.1
+2.6               Sep 21        = Ex. 10.3; theory Sec. 10.1
+2.13              Sep 15        not in the book -> Sec. 6.2 (Theorem 6.2)
+                                and Sec. 7.1-7.2 (phase line of
+                                y' = y(y-2)(y-3))
+2.14 (3y^(2/3))   Sep 15        not in the book -> Sec. 6.1-6.2: same
+                                non-uniqueness as the book's
+                                x' = sqrt(x), x(0) = 0, Eq. (6.3); df/dy
+                                is not continuous at y = 0
+2.17              Sep 15, 21    not in the book -> closest Ex. 6.3 (T)
+                                (uniqueness via the difference
+                                z = x - y)
+3-1.4 (i), (ii),  Sep 29        = Ex. 12.1 (i), (ii), (iv), (vii);
+  (iv), (vii)                   theory Sec. 12.1-12.3
+3-1.5             Oct 5         = Ex. 12.2
+3-1.8 (damping)   Oct 5         -> Sec. 13.3 damped oscillations (p. 123):
+                                over-, critical and under-damping
+3-1.9 (chain)     Oct 5         not in the book -> Ch. 12 (two real roots)
+3-2.1 (iii), (vi) Sep 29-Oct 1  = Ex. 14.1 (iii), (vi); theory Sec. 14.3,
+                                14.4; (vi) also Sec. 15.1.1
+3-2.1 (ix)        Oct 5-6       = Ex. 14.1 (ix); theory Sec. 14.4-14.5
+3-2.6 (i), (ii)   Oct 1         = Ex. 18.1 (i), (ii); (i) also by Ch. 14
+3-2.9             Oct 1         not in the book -> Ch. 17 reduction of
+                                order (cf. Ex. 17.1-17.6)
+4-1.3             Oct 20        not in the book (Wronskian of a system)
+                                -> scalar version Ex. 11.2, Sec. 11.4
+4-1.8 (i)-(v),    Oct 20        = Ex. 28.1 (same items); theory
+  (viii)                        Sec. 28.1-28.4
+4-1.9 (i), (iv)   Oct 20        = Ex. 28.2 (i), (iv); theory Sec. 28.2
+4-1.11            Oct 20        = Ex. 28.6 (zero eigenvalue)
+4-2.1 (i), (ii)   Oct 22        = Ex. 29.1 (i), (ii) (class did a mix of
+                                the two); theory Sec. 29.2-29.3
+4-2.1 (iii), (v), Oct 22        = Ex. 29.1 (iii), (v), (vii); with the
+  (vii) + sol.                  solution = Ex. 29.2
+4-2.3 (i), (ii)   Oct 22        = Ex. 29.3 (i), (ii); theory Sec. 29.2
+4-2.5 (i)         Oct 22        = Ex. 29.5 (i) (T)
+
+Unnamed exercises: "Exercise on exact equations" (Sep 17) -> Sec. 10.1
+examples; "Exercise" (Oct 15) is not identified in the schedule.
 
 ======================================================================
 NOTES ON DIFFERENCES BETWEEN LECTURE AND BOOK
@@ -312,11 +466,25 @@ NOTES ON DIFFERENCES BETWEEN LECTURE AND BOOK
   eigenvalue problem; the explicit solutions by eigenvectors are in
   Ch. 28 (distinct real), Ch. 29 (complex) and Ch. 30 (repeated).
 
-- Eigenvalues and phase portraits (Oct 8): the lecture has reached
-  Case 1 (distinct real eigenvalues, Ch. 28). Still ahead are the
-  complex case (Ch. 29), the repeated eigenvalue (Ch. 30), the summary
-  of phase portraits (Ch. 31) and, within Ch. 28, Sec. 28.5 on stable
-  and unstable manifolds (p. 281).
+- Eigenvalues and phase portraits (Oct 8-15): the lecture has covered
+  the three cases, distinct real (Ch. 28), complex (Ch. 29) and
+  repeated (Ch. 30). Not seen yet: the summary of phase portraits and
+  the Jordan form (Ch. 31) and Sec. 28.5 on stable and unstable
+  manifolds (p. 281).
+
+- Change of basis (Oct 13, Oct 15): the lecture writes z = Q^(-1) x;
+  the book writes x~ = [v1 v2]^(-1) x, with v1, v2 the real and
+  imaginary parts of the eigenvector (Ch. 29) or v1 = (A - lambda I) v2
+  and v2 any vector not parallel to the eigenvector (Ch. 30). The
+  canonical matrices are [rho omega; -omega rho] (Eq. 29.5) and
+  [lambda 1; 0 lambda] (Eq. 30.2); if Q orders its columns differently
+  the off-diagonal entries move or change sign.
+
+- Exercises: most items of the course sheets copy Robinson's
+  end-of-chapter exercises (same items and data), so the book's
+  surrounding sections are the reading for each class exercise. The
+  items not taken from the book are listed as "not in the book" in
+  the exercises table.
 
 - Terminology (Oct 8): the book never says "diagonalizable" or
   "triangular". It describes the same ideas as "changing coordinates"
