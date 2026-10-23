@@ -11,7 +11,7 @@ difficulty: 2
 points: 5.0
 time_minutes: 30
 official: false
-origen: "Problem written for the bank in the style of MATHS_FIRSTPARTIAL_2020_G45_SOL, MATHS_FIRSTPARTIAL_2024_SOL; not an official exercise. Verified with scripts/am_bank/p03.py"
+origen: "Problem written for the bank in the style of MATHS_FIRSTPARTIAL_2019_MT1_SOL (problem 2: known solutions, variation of constants), MATHS_FIRSTPARTIAL_2020_G45_SOL, MATHS_FIRSTPARTIAL_2024_SOL; not an official exercise. Verified with scripts/am_bank/p03.py"
 tags:
   - problem-bank
   - midterm-1
@@ -24,7 +24,7 @@ tags:
 # Bank P03 — Reduction of order, Abel and variation of parameters
 
 > [!info] Practice item, not an official exercise
-> Written for the bank in the style of MATHS_FIRSTPARTIAL_2020_G45_SOL and MATHS_FIRSTPARTIAL_2024_SOL. Method: Topic 3 (general theory and the Wronskian, Robinson Ch. 11; Abel's identity, Notes, p. 5 and [[Concept - Abel's Identity and Properties of the Wronskian]]; reduction of order, Robinson Ch. 17 and Notes, p. 7; variation of constants, Robinson Ch. 18, Eq. 18.8 and Notes, p. 8). Every result was checked with SymPy (scripts/am_bank/p03.py).
+> Written for the bank in the style of MATHS_FIRSTPARTIAL_2019_MT1_SOL (problem 2: known solutions, variation of constants), MATHS_FIRSTPARTIAL_2020_G45_SOL and MATHS_FIRSTPARTIAL_2024_SOL. Method: Topic 3 (general theory and the Wronskian, Robinson Ch. 11; Abel's identity, Notes, p. 5 and [[Concept - Abel's Identity and Properties of the Wronskian]]; reduction of order, Robinson Ch. 17 and Notes, p. 7; variation of constants, Robinson Ch. 18, Eq. 18.8 and Notes, p. 8). Every result was checked with SymPy (scripts/am_bank/p03.py).
 
 ## Statement
 
@@ -165,6 +165,8 @@ $$y_p=-x\cdot\frac{x^2}2+x\,e^x\cdot\big(-(x+1)e^{-x}\big)=-\frac{x^3}2-x^2-x.$$
 The term $-x$ is a multiple of $y_1$ and can be absorbed: $y_p=-\dfrac{x^3}2-x^2$. Check, with $y_p'=-\frac32x^2-2x$, $y_p''=-3x-2$:
 
 $$x^2(-3x-2)-x(x+2)\Big(-\frac32x^2-2x\Big)+(x+2)\Big(-\frac{x^3}2-x^2\Big)$$
+
+The products are $x(x+2)\big(\tfrac32x^2+2x\big)=\tfrac32x^4+2x^3+3x^3+4x^2=\tfrac32x^4+5x^3+4x^2$ and $(x+2)\big(-\tfrac{x^3}2-x^2\big)=-\tfrac12x^4-x^3-x^3-2x^2=-\tfrac12x^4-2x^3-2x^2$, so
 
 $$=\big(-3x^3-2x^2\big)+\Big(\frac32x^4+5x^3+4x^2\Big)+\Big(-\frac12x^4-2x^3-2x^2\Big)=x^4.\ \checkmark$$
 

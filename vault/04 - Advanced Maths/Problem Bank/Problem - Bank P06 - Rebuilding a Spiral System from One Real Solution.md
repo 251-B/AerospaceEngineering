@@ -33,13 +33,13 @@ The real $2\times2$ matrix $A$ of the linear system $\mathbf x'=A\mathbf x$, $\m
 
 $$\mathbf x_1(t)=e^{-t}\begin{pmatrix}\cos 2t-\sin 2t\\ \cos 2t-2\sin 2t\end{pmatrix}.$$
 
-(a) Reconstruct $A$. Show that its eigenvalues are $-1\pm 2i$, find a complex eigenvector, and check that $P^{-1}AP$ is the real canonical form, with $P$ the matrix whose columns are the real and imaginary parts of that eigenvector.
+(a) Reconstruct $A$. Show that its eigenvalues are $-1\pm 2i$, find a complex eigenvector, and check that $P^{-1}AP$ is the real canonical form, with $P$ the matrix whose columns are the real and imaginary parts of that eigenvector, normalised so that the given solution is $\operatorname{Re}(e^{\lambda t}\boldsymbol\eta)$.
 
 (b) Find a second real solution, prove that the two solutions form a fundamental set, write the real general solution and solve the initial value problem $\mathbf x(0)=(1,0)^T$.
 
 (c) Classify the origin. Do the trajectories spiral in or out? Is the rotation clockwise or counter-clockwise? Justify with a test vector.
 
-(d) Let $V(x,y)=5x^2-6xy+2y^2$. Show that $V(\mathbf x)=\lvert P^{-1}\mathbf x\rvert^2$ and that $\frac{d}{dt}V(\mathbf x(t))=-2V(\mathbf x(t))$ along every solution. For the solution of (b), find the time needed for $\sqrt V$ to halve, and the first time $t>0$ at which the solution is back on the positive $x$ axis, with the ratio of its distances to the origin there and at $t=0$. Is the Euclidean distance $\lvert\mathbf x(t)\rvert$ decreasing for every solution?
+(d) (extension: the quadratic form $V$ is not in the course; it follows from the canonical form.) Let $V(x,y)=5x^2-6xy+2y^2$. Show that $V(\mathbf x)=\lvert P^{-1}\mathbf x\rvert^2$ and that $\frac{d}{dt}V(\mathbf x(t))=-2V(\mathbf x(t))$ along every solution. For the solution of (b), find the time needed for $\sqrt V$ to halve, and the first time $t>0$ at which the solution is back on the positive $x$ axis, with the ratio of its distances to the origin there and at $t=0$. Is the Euclidean distance $\lvert\mathbf x(t)\rvert$ decreasing for every solution?
 
 ## Setup
 
@@ -140,7 +140,7 @@ $$\mathbf x_2(t)=e^{-t}(\sin2t\,\mathbf u+\cos2t\,\mathbf w)=e^{-t}\begin{pmatri
 
 #### Step 2. Fundamental set
 
-$\mathbf x_1(0)=\mathbf u$, $\mathbf x_2(0)=\mathbf w$, so the Wronskian at $t=0$ is $W(0)=\det\begin{pmatrix}1&1\\1&2\end{pmatrix}=2-1=1\neq0$. By Abel's formula $W(t)=W(0)e^{(\operatorname{tr}A)t}=e^{-2t}\neq0$ for all $t$: the solutions are independent and the general real solution is
+$\mathbf x_1(0)=\mathbf u$, $\mathbf x_2(0)=\mathbf w$, so the Wronskian at $t=0$ is $W(0)=\det\begin{pmatrix}1&1\\1&2\end{pmatrix}=2-1=1\neq0$. $W(0)\neq0$ is enough for independence (Notes, p. 9). Abel's formula for systems (**extension**) adds $W(t)=W(0)e^{(\operatorname{tr}A)t}=e^{-2t}\neq0$ for all $t$. Hence the general real solution is
 
 $$\mathbf x(t)=c_1e^{-t}\begin{pmatrix}\cos2t-\sin2t\\ \cos2t-2\sin2t\end{pmatrix}+c_2e^{-t}\begin{pmatrix}\sin2t+\cos2t\\ \sin2t+2\cos2t\end{pmatrix},\qquad c_1,c_2\in\mathbb R$$
 
@@ -170,7 +170,7 @@ Sign of $\rho$; then compute $A\mathbf x$ at a point of the positive $x$ axis, o
 
 #### Step 1. Type
 
-The eigenvalues are complex with negative real part, so every solution is $e^{-t}$ times a bounded $\pi$-periodic vector: it tends to $\mathbf 0$ while winding around it. The origin is a stable focus (Robinson Ch. 31; trace-determinant plane: $\operatorname{tr}<0$, $\det>0$, discriminant $<0$).
+The eigenvalues are complex with negative real part, so every solution is $e^{-t}$ times a bounded $\pi$-periodic vector: it tends to $\mathbf 0$ while winding around it. The origin is a stable focus (Robinson Ch. 31).
 
 #### Step 2. Test vector
 
@@ -186,7 +186,7 @@ The quadratic form $5x^2-6xy+2y^2$ has matrix $\begin{pmatrix}5&-3\\-3&2\end{pma
 
 #### Step 4. Portrait in words
 
-Trajectories are spirals that wind clockwise into the origin, one full turn every $T=2\pi/\omega=\pi$ time units. They are not circles: they are images under $P$ of logarithmic spirals of the $\mathbf z$ plane, so they are flattened along the directions fixed by $\mathbf u=(1,1)$ and $\mathbf w=(1,2)$.
+Trajectories are spirals that wind clockwise into the origin, one full turn every $T=2\pi/\omega=\pi$ time units. They are not circles: they are images under $P$ of logarithmic spirals of the $\mathbf z$ plane, so $\mathbf u=(1,1)$ and $\mathbf w=(1,2)$ are conjugate semi-diameters of the ellipses $V=\text{const}$ that the spirals cross.
 
 ## (d) Decay of the canonical radius, return to the axis, Euclidean distance [1.0 pts]
 

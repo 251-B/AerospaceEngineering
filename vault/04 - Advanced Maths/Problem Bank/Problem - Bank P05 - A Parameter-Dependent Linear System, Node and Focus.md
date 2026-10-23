@@ -41,7 +41,7 @@ The type of the origin changes with $a$. Afterwards two values are studied in de
 
 - Unknown $\mathbf x(t)\in\mathbb R^2$, $t\in\mathbb R$; parameter $a\in\mathbb R$.
 - Operator: first-order, linear, homogeneous, constant coefficients: solutions exist for all $t$, are unique, and $\mathbf x\equiv\mathbf0$ is always an equilibrium. It is the only one when $\det A\neq0$.
-- The type of $\mathbf 0$ is read from $\tau=\operatorname{tr}A$, $\delta=\det A$ and $\Delta=\tau^2-4\delta$ (Robinson Ch. 31).
+- The type of $\mathbf 0$ is read from $\tau=\operatorname{tr}A$, $\delta=\det A$ and $\Delta=\tau^2-4\delta$ (**extension**: the $(\tau,\delta,\Delta)$ table is derived from $\lambda^2-\tau\lambda+\delta=0$; Robinson Ch. 31 lists the cases by type of eigenvalue).
 
 #### Phase 2. Canonical formulation
 
@@ -58,7 +58,7 @@ $\det(A-\lambda I)=\lambda^2-\tau\lambda+\delta$. The trace never changes: which
 ### Checkpoint
 
 - $\lambda^2+4\lambda-a=0$, $\lambda=-2\pm\sqrt{4+a}$.
-- $a>0$ saddle; $a=0$ line of equilibria $x_1=0$; $-4<a<0$ stable node; $a=-4$ degenerate (improper) stable node, single eigenvector $(-2,1)^T$; $a<-4$ stable focus, anticlockwise.
+- $a>0$ saddle; $a=0$ line of equilibria $x_1=0$; $-4<a<0$ stable node; $a=-4$ improper stable node, single eigenvector $(-2,1)^T$; $a<-4$ stable focus, anticlockwise.
 - Never a centre and never unstable apart from the saddle.
 
 ### Solution
@@ -76,7 +76,7 @@ $$\lambda_\pm=\frac{-4\pm\sqrt{16+4a}}{2}=-2\pm\sqrt{4+a}.$$
 | $a>0$ | $-4$ | $<0$ | $>16$ | real, opposite signs | saddle (unstable) |
 | $a=0$ | $-4$ | $0$ | $16$ | $0$ and $-4$ | line of equilibria $x_1=0$ |
 | $-4<a<0$ | $-4$ | $>0$ | $0<\Delta<16$ | real, both negative | stable node |
-| $a=-4$ | $-4$ | $4$ | $0$ | $-2$ double | degenerate stable node |
+| $a=-4$ | $-4$ | $4$ | $0$ | $-2$ double | improper stable node |
 | $a<-4$ | $-4$ | $>4$ | $<0$ | $-2\pm i\sqrt{-4-a}$ | stable focus |
 
 For $-4<a<0$: $0<\sqrt{4+a}<2$, so both $-2\pm\sqrt{4+a}$ are negative. For $a>0$: $\sqrt{4+a}>2$, so $\lambda_+>0>\lambda_-$.
@@ -84,7 +84,7 @@ For $-4<a<0$: $0<\sqrt{4+a}<2$, so both $-2\pm\sqrt{4+a}$ are negative. For $a>0
 #### Step 3. Borderline values
 
 - $a=0$: $A\mathbf x=\mathbf0$ means $-4x_1=0$ and $x_1=0$, so every point of the $x_2$-axis is an equilibrium (eigenvalue $0$, eigenvector $(0,1)^T$). For $\lambda=-4$, $(A+4I)\mathbf v=\mathbf0$ has rows $(0,0)$ and $(1,4)$: $v_1+4v_2=0$, $\mathbf v=(-4,1)^T$. Every other orbit is a half-line parallel to $(-4,1)^T$ that ends on the $x_2$-axis as $t\to\infty$.
-- $a=-4$: $A+2I=\begin{pmatrix}-2&-4\\1&2\end{pmatrix}\neq0$; its second row gives $v_1+2v_2=0$, a single eigenvector line through $(-2,1)^T$. The origin is a degenerate (improper) stable node: all orbits approach it tangent to that line.
+- $a=-4$: $A+2I=\begin{pmatrix}-2&-4\\1&2\end{pmatrix}\neq0$; its second row gives $v_1+2v_2=0$, a single eigenvector line through $(-2,1)^T$. The origin is an improper stable node: all orbits approach it tangent to that line.
 - $a<-4$: $\rho=-2$, $\omega=\sqrt{-4-a}$. Sense of rotation from the test vector $(1,0)^T$: $A(1,0)^T=(-4,1)^T$, whose second component is positive on the positive $x_1$-axis, so orbits turn **anticlockwise** (equivalently $a_{12}=a<0$).
 
 Since $\tau=-4\neq0$ there is never a centre, and since $\tau<0$ there is never an unstable node or focus: the only unstable case is the saddle.
@@ -172,7 +172,7 @@ $$Q^{-1}AQ=\begin{pmatrix}0\cdot0+1\cdot(-2)&0\cdot(-8)+1\cdot2\\\frac12\cdot0+1
 
 #### Step 4. Real general solution and the IVP
 
-In $\mathbf z$: $\dot z_1=-2z_1+2z_2$, $\dot z_2=-2z_1-2z_2$; in polar form $\dot r=-2r$, $\dot\theta=-2$, so $r=r_0e^{-2t}$, $\theta=\theta_0-2t$ (Barrow: $[e^{2s}r(s)]_0^t=0$). Back in $\mathbf x$:
+In $\mathbf z$: $\dot z_1=-2z_1+2z_2$, $\dot z_2=-2z_1-2z_2$; with $r^2=z_1^2+z_2^2$: $r\dot r=z_1\dot z_1+z_2\dot z_2=z_1(-2z_1+2z_2)+z_2(-2z_1-2z_2)=-2r^2$ and $r^2\dot\theta=z_1\dot z_2-z_2\dot z_1=z_1(-2z_1-2z_2)-z_2(-2z_1+2z_2)=-2r^2$, i.e. $\dot r=-2r$, $\dot\theta=-2$, so $r=r_0e^{-2t}$, $\theta=\theta_0-2t$ (Barrow: $[e^{2s}r(s)]_0^t=0$). Back in $\mathbf x$:
 
 $$\mathbf x(t)=e^{-2t}\Big[(a_1\cos2t+b_1\sin2t)\,\mathbf u+(b_1\cos2t-a_1\sin2t)\,\mathbf w\Big],\qquad (a_1,b_1)^T=Q^{-1}\mathbf x(0).$$
 
@@ -190,7 +190,7 @@ At $(1,0)^T$, $\dot{\mathbf x}=A(1,0)^T=(-4,1)^T$: the velocity on the positive 
 
 #### Phase 4. Asymptotic and physical checks
 
-- **Limits:** for every $a<0$ all solutions tend to $\mathbf0$ as $t\to\infty$ (asymptotic stability); for $a=0$ they tend to points of the $x_2$-axis; for $a>0$ only the orbits on the stable eigenline reach the origin. As $a\to-4^\pm$ the node's two eigenlines merge (from $a>-4$) or the spiral's rotation rate $\omega=\sqrt{-4-a}$ goes to $0$ (from $a<-4$): the degenerate node is the common boundary.
+- **Limits:** for every $a<0$ all solutions tend to $\mathbf0$ as $t\to\infty$ (asymptotic stability); for $a=0$ they tend to points of the $x_2$-axis; for $a>0$ only the orbits on the stable eigenline reach the origin. As $a\to-4^\pm$ the node's two eigenlines merge (from $a>-4$) or the spiral's rotation rate $\omega=\sqrt{-4-a}$ goes to $0$ (from $a<-4$): the improper node is the common boundary.
 - **Checks:** $P^{-1}AP$ and $Q^{-1}AQ$ were multiplied out; both IVP solutions satisfy the system and the initial data; $\operatorname{tr}(P^{-1}AP)=-4=\tau$ and $\det(P^{-1}AP)=3=\delta$ for $a=-3$, and the same for $a=-8$ ($-4$ and $8$).
 - **Common mistakes in the exam:** (1) calling $a=0$ a node: the origin is not isolated; (2) ordering $Q=[\mathbf w\mid\mathbf u]$ and then expecting $\begin{pmatrix}\rho&\omega\\-\omega&\rho\end{pmatrix}$ (that order gives the transpose); (3) reading the sense of rotation from the $\mathbf z$-plane, which is always clockwise, instead of from a test vector in $\mathbf x$; (4) making the node's orbits tangent to the fast eigenvector at the origin.
 

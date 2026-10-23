@@ -34,6 +34,7 @@
   var BP = window[(examId && /^[\w-]+$/.test(examId) && root.getAttribute('data-blueprint-' + examId)) ||
                   root.getAttribute('data-blueprint') || 'AE_BM_BLUEPRINT'];
   var KEY = root.getAttribute('data-storage') || 'ae_bm_exams';
+  var examKey = examId || root.getAttribute('data-default-exam') || '';
   // The Extra problems section: theory cases and practice problems live on two pages of their own.
   var BANK_DIR = root.getAttribute('data-bank-dir') || '../extra-problems/';
   function itemHref(id) {
@@ -75,6 +76,12 @@
   if (!Array.isArray(store.history)) store.history = [];
   if (store.current && !store.current.items) store.current = null;
   function save() { writeJSON(KEY, store); }
+  // One storage key serves every exam of a subject: an exam in progress belongs to its own blueprint, so go back to it.
+  if (store.current && (store.current.exam || '') !== examKey && store.current.exam) {
+    window.location.replace('?exam=' + encodeURIComponent(store.current.exam));
+    return;
+  }
+  function history() { return store.history.filter(function (h) { return (h.exam || '') === examKey || (!h.exam && examKey === (root.getAttribute('data-default-exam') || '')); }); }
 
   // ---- Helpers -----------------------------------------------------------------------
   function el(tag, cls, text) {
@@ -144,15 +151,16 @@
   function renderHistory() {
     var box = document.getElementById('simHistory');
     if (!box) return;
-    if (!store.history.length) { box.innerHTML = '<p class="sim-muted">No simulated exam yet. Your grades will appear here.</p>'; return; }
-    var rows = store.history.slice().reverse().slice(0, 10).map(function (h) {
+    var hist = history();
+    if (!hist.length) { box.innerHTML = '<p class="sim-muted">No simulated exam yet. Your grades will appear here.</p>'; return; }
+    var rows = hist.slice().reverse().slice(0, 10).map(function (h) {
       var d = new Date(h.finishedAt);
       var links = h.items.map(function (r) { return '<a href="' + itemHref(r.id) + '">' + r.id + '</a> ' + fmt(r.score) + '/' + fmt(r.points); }).join(' · ');
       return '<tr><td>' + d.toLocaleDateString('en-GB') + ' ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) +
         '</td><td>' + links + '</td><td class="num"><strong>' + fmt1(h.total) + '</strong> / ' + fmt1(h.max) + '</td></tr>';
     }).join('');
-    var avg = store.history.reduce(function (s, h) { return s + h.total; }, 0) / store.history.length;
-    box.innerHTML = '<p class="sim-muted">' + store.history.length + ' exam(s) graded · average ' + fmt1(avg) + ' / ' + fmt1(BP.total_points) + '</p>' +
+    var avg = hist.reduce(function (s, h) { return s + h.total; }, 0) / hist.length;
+    box.innerHTML = '<p class="sim-muted">' + hist.length + ' exam(s) graded · average ' + fmt1(avg) + ' / ' + fmt1(BP.total_points) + '</p>' +
       '<div class="sim-table-wrap"><table class="sim-history"><thead><tr><th>Date</th><th>Items and points</th><th class="num">Grade</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
   }
 
@@ -190,8 +198,9 @@
 
   function generate() {
     var excluded = {};
-    if (document.getElementById('simSkipPrevious').checked && store.history.length) {
-      store.history[store.history.length - 1].items.forEach(function (r) { excluded[r.id] = 1; });
+    var hist = history();
+    if (document.getElementById('simSkipPrevious').checked && hist.length) {
+      hist[hist.length - 1].items.forEach(function (r) { excluded[r.id] = 1; });
     }
     var minutes = Number((document.querySelector('input[name="simDuration"]:checked') || {}).value || BP.duration_minutes);
     var ids = [], notes = [];
@@ -202,7 +211,7 @@
       notes = notes.concat(res.notes);
     });
     var now = Date.now();
-    store.current = { items: ids, minutes: minutes, startedAt: now, endAt: now + minutes * 60000, drafts: {}, notes: notes, phase: 'running' };
+    store.current = { items: ids, minutes: minutes, startedAt: now, endAt: now + minutes * 60000, drafts: {}, notes: notes, phase: 'running', exam: examKey };
     save();
     startRunner();
   }
@@ -480,7 +489,7 @@
       return { id: item.id, part: entry.part, score: score, points: item.points };
     });
     store.history.push({ startedAt: cur.startedAt, finishedAt: cur.finishedAt || Date.now(), minutes: cur.minutes,
-                         timeUp: !!cur.timeUp, items: items, total: t.total, max: BP.total_points });
+                         timeUp: !!cur.timeUp, items: items, total: t.total, max: BP.total_points, exam: examKey });
     store.current = null;
     save();
     var box = document.getElementById('simSaved');

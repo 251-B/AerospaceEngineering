@@ -523,9 +523,9 @@
 <div class="math-block">$$\frac{1}{(p-\frac13)(p-\frac23)}=\frac{A}{p-\frac13}+\frac{B}{p-\frac23}\iff1=A\Big(p-\frac23\Big)+B\Big(p-\frac13\Big).$$</div>
 <p>At $p=\tfrac13$: $1=-\tfrac13A$, $A=-3$. At $p=\tfrac23$: $1=\tfrac13B$, $B=3$.</p>
 <h4 class="step-title">Step 2. Separation and integration</h4>
-<p>For $p\neq\tfrac13,\tfrac23$: $\dfrac{dp}{(p-\frac13)(p-\frac23)}=-dt$. With the antiderivatives $\int\frac{dp}{p-c}=\ln\lvert p-c\rvert$:</p>
+<p>For $p\neq\tfrac13,\tfrac23$: $\dfrac{dp}{(p-\frac13)(p-\frac23)}=-dt$. By Step 1, $\displaystyle\int\Big(-\frac{3}{p-\frac13}+\frac{3}{p-\frac23}\Big)dp=-\int dt$. With the antiderivatives $\int\frac{dp}{p-c}=\ln\lvert p-c\rvert$:</p>
 <div class="math-block">$$3\ln\Big\lvert p-\frac23\Big\rvert-3\ln\Big\lvert p-\frac13\Big\rvert=-t+C\ \Longrightarrow\ \ln\left\lvert\frac{p-\frac23}{p-\frac13}\right\rvert=-\frac t3+\frac C3.$$</div>
-<p>Exponentiating and absorbing the sign into the constant: $\dfrac{p-\frac23}{p-\frac13}=K\,e^{-t/3}$, with $K=\dfrac{p(0)-\frac23}{p(0)-\frac13}$ from $t=0$.</p>
+<p>Exponentiating and absorbing the sign into the constant: $\dfrac{p-\frac23}{p-\frac13}=K\,e^{-t/3}$, with $K=\dfrac{p(0)-\frac23}{p(0)-\frac13}$ from $t=0$. The constant solutions $p\equiv\tfrac13$ and $p\equiv\tfrac23$, lost when dividing by $(p-\tfrac13)(p-\tfrac23)$, correspond to $K=\infty$ and $K=0$.</p>
 <h4 class="step-title">Step 3. Solving for p</h4>
 <p>Write $E=Ke^{-t/3}$: $p-\tfrac23=E\,p-\tfrac E3$, so $p(1-E)=\tfrac23-\tfrac E3$ and</p>
 <div class="math-block">$$p(t)=\frac{2-K\,e^{-t/3}}{3\big(1-K\,e^{-t/3}\big)}.$$</div>
@@ -627,6 +627,7 @@
 <div class="math-block">$$y_p=-x\cdot\frac{x^2}2+x\,e^x\cdot\big(-(x+1)e^{-x}\big)=-\frac{x^3}2-x^2-x.$$</div>
 <p>The term $-x$ is a multiple of $y_1$ and can be absorbed: $y_p=-\dfrac{x^3}2-x^2$. Check, with $y_p'=-\frac32x^2-2x$, $y_p''=-3x-2$:</p>
 <div class="math-block">$$x^2(-3x-2)-x(x+2)\Big(-\frac32x^2-2x\Big)+(x+2)\Big(-\frac{x^3}2-x^2\Big)$$</div>
+<p>The products are $x(x+2)\big(\tfrac32x^2+2x\big)=\tfrac32x^4+2x^3+3x^3+4x^2=\tfrac32x^4+5x^3+4x^2$ and $(x+2)\big(-\tfrac{x^3}2-x^2\big)=-\tfrac12x^4-x^3-x^3-2x^2=-\tfrac12x^4-2x^3-2x^2$, so</p>
 <div class="math-block">$$=\big(-3x^3-2x^2\big)+\Big(\frac32x^4+5x^3+4x^2\Big)+\Big(-\frac12x^4-2x^3-2x^2\Big)=x^4.\ \checkmark$$</div>
 <p>The general solution is $y=c_1x+c_2\,x\,e^x-\dfrac{x^3}2-x^2$.</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\displaystyle\int\frac{y_2\,g}{W}dx=\int x\,dx=\frac{x^2}2$, $\ \displaystyle\int\frac{y_1\,g}{W}dx=\int x\,e^{-x}dx=-(x+1)e^{-x}$.</li><li>$y_p=-\dfrac{x^3}2-x^2$ (after dropping the multiple $-x$ of $y_1$).</li><li>$y=c_1x+c_2xe^x-\dfrac{x^3}2-x^2$.</li></ul></div>
@@ -665,7 +666,7 @@
 <h4 class="step-title">Phase 1. Hypotheses and setup</h4>
 <ul><li>Unknowns: first the parameters $a$, $b$, $k$ (inverse problem), then the function $y(x)$, $x\in\mathbb R$.</li><li>Operator: second order, linear, constant coefficients, $L[y]=y''+ay'+by$. Coefficients and forcings are continuous on $\mathbb R$, so every IVP has a unique solution on all of $\mathbb R$.</li><li>Superposition: $y=y_h+y_p$, with $y_h$ from the characteristic equation $r^2+ar+b=0$ and $y_p$ from undetermined coefficients.</li></ul>
 <h4 class="step-title">Phase 2. Canonical formulation</h4>
-<p>The equation is already in standard form. Writing $y=e^{-x}u$ (exponential shift, used in (b)) turns $L$ into an operator on $u$ that will expose the resonance.</p>
+<p>The equation is already in standard form. Writing $y=e^{-x}u$ (an exponential shift, <strong>extension</strong>: not in the course, it only organises the computation of (b)) turns $L$ into an operator on $u$ that will expose the resonance.</p>
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Part (a) · 1.5 points</h3>
@@ -691,7 +692,7 @@
           <div class="prompt"><p>Resonant forcing and the modified guess</p>
 <p>For $f(x)=8\,e^{-x}\sin2x$ explain why the usual guess fails and find a particular solution.</p></div>
 <h4 class="step-title">Step 1. Why the usual guess fails</h4>
-<p>The forcing is $\operatorname{Im}\big(8e^{(-1+2i)x}\big)$ and $-1+2i$ is a simple root of $r^2+2r+5$. The guess $e^{-x}(A\cos2x+B\sin2x)$ lies in $y_h$, so $L$ of it is $0$ for every $A$, $B$, never $8e^{-x}\sin2x$. The rule (Robinson Ch. 15) multiplies the guess by $x$ (once, because the root is simple).</p>
+<p>The forcing is $\operatorname{Im}\big(8e^{(-1+2i)x}\big)$ and $-1+2i$ is a simple root of $r^2+2r+5$. The guess $e^{-x}(A\cos2x+B\sin2x)$ lies in $y_h$, so $L$ of it is $0$ for every $A$, $B$, never $8e^{-x}\sin2x$. The rule (Robinson 14.5) multiplies the guess by $x$ (once, because the root is simple).</p>
 <h4 class="step-title">Step 2. Exponential shift</h4>
 <p>Let $y=e^{-x}u$. By the product rule, $y'=e^{-x}(u'-u)$ and $y''=-e^{-x}(u'-u)+e^{-x}(u''-u')=e^{-x}(u''-2u'+u)$. Then</p>
 <div class="math-block">$$L[y]=e^{-x}\Big[(u''-2u'+u)+2(u'-u)+5u\Big]=e^{-x}\big(u''+4u\big).$$</div>
@@ -700,7 +701,7 @@
 <p>With $u=x(A\cos2x+B\sin2x)$:</p>
 <div class="math-block">$$u'=(A\cos2x+B\sin2x)+x(-2A\sin2x+2B\cos2x),$$</div>
 <div class="math-block">$$u''=2(-2A\sin2x+2B\cos2x)+x(-4A\cos2x-4B\sin2x).$$</div>
-<p>The terms with $x$ cancel against $4u$: $u''+4u=4B\cos2x-4A\sin2x$. Matching with $8\sin2x$: $4B=0$ and $-4A=8$, so $A=-2$, $B=0$:</p>
+<p>The terms with $x$ cancel against $4u$: $x(-4A\cos2x-4B\sin2x)+4x(A\cos2x+B\sin2x)=0$, so $u''+4u=4B\cos2x-4A\sin2x$. Matching with $8\sin2x$: $4B=0$ and $-4A=8$, so $A=-2$, $B=0$:</p>
 <div class="math-block">$$y_p=-2x\,e^{-x}\cos2x.$$</div>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$e^{-x}(A\cos2x+B\sin2x)$ is a homogeneous solution: $L$ annihilates it.</li><li>Modified guess $y_p=x\,e^{-x}(A\cos2x+B\sin2x)$; $L[y_p]=e^{-x}\big(4B\cos2x-4A\sin2x\big)$.</li><li>$A=-2$, $B=0$: $y_p=-2x\,e^{-x}\cos2x$.</li></ul></div>
         </div>
@@ -737,7 +738,7 @@
         <div class="phase-block">
           <h3 class="phase-title">Interpretation and checks</h3>
 <h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
-<ul><li><strong>Limits:</strong> as $x\to\infty$ every solution of the homogeneous equation decays like $e^{-x}$, so the long-time response to $\cos\omega x$ is $y_p$ alone; $R(0)=\frac15$ (static response $1/b$) and $R(\omega)\sim\omega^{-2}$ as $\omega\to\infty$.</li><li><strong>Checks:</strong> $L[e^{-x}\cos2x]=0$, $L[5x-2]=25x$, $L[-2xe^{-x}\cos2x]=8e^{-x}\sin2x$ and the IVP were verified by substitution. If $a$ were $0$ the factor $x$ would grow without bound (true resonance); here $a=2$ keeps it bounded.</li><li><strong>Common mistakes in the exam:</strong> (1) deducing only $b$ from the homogeneous solution and forgetting that the $\sin2x$ coefficient fixes $a$; (2) trying $e^{-x}(A\cos2x+B\sin2x)$ for the resonant forcing and getting $0=8$; (3) calling $\omega=2$ or $\omega=\sqrt3$ resonant for $\cos\omega x$: the guess never needs modifying there; (4) losing the term $-2$ from $\frac{d}{dx}(-2xe^{-x}\cos2x)$ at $x=0$.</li></ul>
+<ul><li><strong>Limits:</strong> as $x\to\infty$ every solution of the homogeneous equation decays like $e^{-x}$, so the long-time response to $\cos\omega x$ is $y_p$ alone; $R(0)=\frac15$ (static response $1/b$) and $R(\omega)\sim\omega^{-2}$ as $\omega\to\infty$.</li><li><strong>Checks:</strong> $L[e^{-x}\cos2x]=0$, $L[5x-2]=25x$, $L[-2xe^{-x}\cos2x]=8e^{-x}\sin2x$ and the IVP were verified by substitution. With zero damping and forcing at the natural frequency (for example $y''+4y=8\sin2x$) the factor $x$ would grow without bound (true resonance); here $a=2$ gives the envelope $e^{-x}$, so $xe^{-x}\to0$.</li><li><strong>Common mistakes in the exam:</strong> (1) deducing only $b$ from the homogeneous solution and forgetting that the $\sin2x$ coefficient fixes $a$; (2) trying $e^{-x}(A\cos2x+B\sin2x)$ for the resonant forcing and getting $0=8$; (3) calling $\omega=2$ or $\omega=\sqrt3$ resonant for $\cos\omega x$: the guess never needs modifying there; (4) losing the term $-2$ from $\frac{d}{dx}(-2xe^{-x}\cos2x)$ at $x=0$.</li></ul>
         </div>
       </section>
       <section class="problem-box" id="P05">
@@ -751,7 +752,7 @@
         <div class="phase-block">
           <h3 class="phase-title">Setup and canonical formulation</h3>
 <h4 class="step-title">Phase 1. Hypotheses and setup</h4>
-<ul><li>Unknown $\mathbf x(t)\in\mathbb R^2$, $t\in\mathbb R$; parameter $a\in\mathbb R$.</li><li>Operator: first-order, linear, homogeneous, constant coefficients: solutions exist for all $t$, are unique, and $\mathbf x\equiv\mathbf0$ is always an equilibrium. It is the only one when $\det A\neq0$.</li><li>The type of $\mathbf 0$ is read from $\tau=\operatorname{tr}A$, $\delta=\det A$ and $\Delta=\tau^2-4\delta$ (Robinson Ch. 31).</li></ul>
+<ul><li>Unknown $\mathbf x(t)\in\mathbb R^2$, $t\in\mathbb R$; parameter $a\in\mathbb R$.</li><li>Operator: first-order, linear, homogeneous, constant coefficients: solutions exist for all $t$, are unique, and $\mathbf x\equiv\mathbf0$ is always an equilibrium. It is the only one when $\det A\neq0$.</li><li>The type of $\mathbf 0$ is read from $\tau=\operatorname{tr}A$, $\delta=\det A$ and $\Delta=\tau^2-4\delta$ (<strong>extension</strong>: the $(\tau,\delta,\Delta)$ table is derived from $\lambda^2-\tau\lambda+\delta=0$; Robinson Ch. 31 lists the cases by type of eigenvalue).</li></ul>
 <h4 class="step-title">Phase 2. Canonical formulation</h4>
 <p>$\tau=-4+0=-4$ for every $a$, $\ \delta=(-4)(0)-a\cdot1=-a$, $\ \Delta=16+4a$. With an invertible matrix $P$ of (generalised) eigenvectors, $\mathbf x=P\mathbf z$ turns the system into $\dot{\mathbf z}=(P^{-1}AP)\,\mathbf z$ with $P^{-1}AP$ diagonal, a Jordan block, or the rotation-dilation block $\begin{pmatrix}\rho&amp;\omega\\-\omega&amp;\rho\end{pmatrix}$.</p>
         </div>
@@ -763,12 +764,12 @@
 <div class="math-block">$$\det(A-\lambda I)=\det\begin{pmatrix}-4-\lambda&amp;a\\1&amp;-\lambda\end{pmatrix}=(-4-\lambda)(-\lambda)-a=\lambda^2+4\lambda-a,$$</div>
 <div class="math-block">$$\lambda_\pm=\frac{-4\pm\sqrt{16+4a}}{2}=-2\pm\sqrt{4+a}.$$</div>
 <h4 class="step-title">Step 2. Table</h4>
-<div class="table-container"><table class="data-table"><thead><tr><th>Range of $a$</th><th>$\tau$</th><th>$\delta=-a$</th><th>$\Delta=16+4a$</th><th>Eigenvalues</th><th>Origin</th></tr></thead><tbody><tr><td>$a&gt;0$</td><td>$-4$</td><td>$&lt;0$</td><td>$&gt;16$</td><td>real, opposite signs</td><td>saddle (unstable)</td></tr><tr><td>$a=0$</td><td>$-4$</td><td>$0$</td><td>$16$</td><td>$0$ and $-4$</td><td>line of equilibria $x_1=0$</td></tr><tr><td>$-4&lt;a&lt;0$</td><td>$-4$</td><td>$&gt;0$</td><td>$0&lt;\Delta&lt;16$</td><td>real, both negative</td><td>stable node</td></tr><tr><td>$a=-4$</td><td>$-4$</td><td>$4$</td><td>$0$</td><td>$-2$ double</td><td>degenerate stable node</td></tr><tr><td>$a&lt;-4$</td><td>$-4$</td><td>$&gt;4$</td><td>$&lt;0$</td><td>$-2\pm i\sqrt{-4-a}$</td><td>stable focus</td></tr></tbody></table></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Range of $a$</th><th>$\tau$</th><th>$\delta=-a$</th><th>$\Delta=16+4a$</th><th>Eigenvalues</th><th>Origin</th></tr></thead><tbody><tr><td>$a&gt;0$</td><td>$-4$</td><td>$&lt;0$</td><td>$&gt;16$</td><td>real, opposite signs</td><td>saddle (unstable)</td></tr><tr><td>$a=0$</td><td>$-4$</td><td>$0$</td><td>$16$</td><td>$0$ and $-4$</td><td>line of equilibria $x_1=0$</td></tr><tr><td>$-4&lt;a&lt;0$</td><td>$-4$</td><td>$&gt;0$</td><td>$0&lt;\Delta&lt;16$</td><td>real, both negative</td><td>stable node</td></tr><tr><td>$a=-4$</td><td>$-4$</td><td>$4$</td><td>$0$</td><td>$-2$ double</td><td>improper stable node</td></tr><tr><td>$a&lt;-4$</td><td>$-4$</td><td>$&gt;4$</td><td>$&lt;0$</td><td>$-2\pm i\sqrt{-4-a}$</td><td>stable focus</td></tr></tbody></table></div>
 <p>For $-4&lt;a&lt;0$: $0&lt;\sqrt{4+a}&lt;2$, so both $-2\pm\sqrt{4+a}$ are negative. For $a&gt;0$: $\sqrt{4+a}&gt;2$, so $\lambda_+&gt;0&gt;\lambda_-$.</p>
 <h4 class="step-title">Step 3. Borderline values</h4>
-<ul><li>$a=0$: $A\mathbf x=\mathbf0$ means $-4x_1=0$ and $x_1=0$, so every point of the $x_2$-axis is an equilibrium (eigenvalue $0$, eigenvector $(0,1)^T$). For $\lambda=-4$, $(A+4I)\mathbf v=\mathbf0$ has rows $(0,0)$ and $(1,4)$: $v_1+4v_2=0$, $\mathbf v=(-4,1)^T$. Every other orbit is a half-line parallel to $(-4,1)^T$ that ends on the $x_2$-axis as $t\to\infty$.</li><li>$a=-4$: $A+2I=\begin{pmatrix}-2&amp;-4\\1&amp;2\end{pmatrix}\neq0$; its second row gives $v_1+2v_2=0$, a single eigenvector line through $(-2,1)^T$. The origin is a degenerate (improper) stable node: all orbits approach it tangent to that line.</li><li>$a&lt;-4$: $\rho=-2$, $\omega=\sqrt{-4-a}$. Sense of rotation from the test vector $(1,0)^T$: $A(1,0)^T=(-4,1)^T$, whose second component is positive on the positive $x_1$-axis, so orbits turn <strong>anticlockwise</strong> (equivalently $a_{12}=a&lt;0$).</li></ul>
+<ul><li>$a=0$: $A\mathbf x=\mathbf0$ means $-4x_1=0$ and $x_1=0$, so every point of the $x_2$-axis is an equilibrium (eigenvalue $0$, eigenvector $(0,1)^T$). For $\lambda=-4$, $(A+4I)\mathbf v=\mathbf0$ has rows $(0,0)$ and $(1,4)$: $v_1+4v_2=0$, $\mathbf v=(-4,1)^T$. Every other orbit is a half-line parallel to $(-4,1)^T$ that ends on the $x_2$-axis as $t\to\infty$.</li><li>$a=-4$: $A+2I=\begin{pmatrix}-2&amp;-4\\1&amp;2\end{pmatrix}\neq0$; its second row gives $v_1+2v_2=0$, a single eigenvector line through $(-2,1)^T$. The origin is an improper stable node: all orbits approach it tangent to that line.</li><li>$a&lt;-4$: $\rho=-2$, $\omega=\sqrt{-4-a}$. Sense of rotation from the test vector $(1,0)^T$: $A(1,0)^T=(-4,1)^T$, whose second component is positive on the positive $x_1$-axis, so orbits turn <strong>anticlockwise</strong> (equivalently $a_{12}=a&lt;0$).</li></ul>
 <p>Since $\tau=-4\neq0$ there is never a centre, and since $\tau&lt;0$ there is never an unstable node or focus: the only unstable case is the saddle.</p>
-          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\lambda^2+4\lambda-a=0$, $\lambda=-2\pm\sqrt{4+a}$.</li><li>$a&gt;0$ saddle; $a=0$ line of equilibria $x_1=0$; $-4&lt;a&lt;0$ stable node; $a=-4$ degenerate (improper) stable node, single eigenvector $(-2,1)^T$; $a&lt;-4$ stable focus, anticlockwise.</li><li>Never a centre and never unstable apart from the saddle.</li></ul></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\lambda^2+4\lambda-a=0$, $\lambda=-2\pm\sqrt{4+a}$.</li><li>$a&gt;0$ saddle; $a=0$ line of equilibria $x_1=0$; $-4&lt;a&lt;0$ stable node; $a=-4$ improper stable node, single eigenvector $(-2,1)^T$; $a&lt;-4$ stable focus, anticlockwise.</li><li>Never a centre and never unstable apart from the saddle.</li></ul></div>
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Part (b) · 1.5 points</h3>
@@ -805,7 +806,7 @@
 <p>$AQ=[A\mathbf u\mid A\mathbf w]=\begin{pmatrix}0&amp;-8\\-2&amp;2\end{pmatrix}$ and</p>
 <div class="math-block">$$Q^{-1}AQ=\begin{pmatrix}0\cdot0+1\cdot(-2)&amp;0\cdot(-8)+1\cdot2\\\frac12\cdot0+1\cdot(-2)&amp;\frac12\cdot(-8)+1\cdot2\end{pmatrix}=\begin{pmatrix}-2&amp;2\\-2&amp;-2\end{pmatrix}=\begin{pmatrix}\rho&amp;\omega\\-\omega&amp;\rho\end{pmatrix}.$$</div>
 <h4 class="step-title">Step 4. Real general solution and the IVP</h4>
-<p>In $\mathbf z$: $\dot z_1=-2z_1+2z_2$, $\dot z_2=-2z_1-2z_2$; in polar form $\dot r=-2r$, $\dot\theta=-2$, so $r=r_0e^{-2t}$, $\theta=\theta_0-2t$ (Barrow: $[e^{2s}r(s)]_0^t=0$). Back in $\mathbf x$:</p>
+<p>In $\mathbf z$: $\dot z_1=-2z_1+2z_2$, $\dot z_2=-2z_1-2z_2$; with $r^2=z_1^2+z_2^2$: $r\dot r=z_1\dot z_1+z_2\dot z_2=z_1(-2z_1+2z_2)+z_2(-2z_1-2z_2)=-2r^2$ and $r^2\dot\theta=z_1\dot z_2-z_2\dot z_1=z_1(-2z_1-2z_2)-z_2(-2z_1+2z_2)=-2r^2$, i.e. $\dot r=-2r$, $\dot\theta=-2$, so $r=r_0e^{-2t}$, $\theta=\theta_0-2t$ (Barrow: $[e^{2s}r(s)]_0^t=0$). Back in $\mathbf x$:</p>
 <div class="math-block">$$\mathbf x(t)=e^{-2t}\Big[(a_1\cos2t+b_1\sin2t)\,\mathbf u+(b_1\cos2t-a_1\sin2t)\,\mathbf w\Big],\qquad (a_1,b_1)^T=Q^{-1}\mathbf x(0).$$</div>
 <p>For $\mathbf x(0)=(0,1)^T$: $(a_1,b_1)^T=(0\cdot0+1\cdot1,\ \frac12\cdot0+1\cdot1)^T=(1,1)^T$. Then</p>
 <div class="math-block">$$\mathbf x(t)=e^{-2t}\Big[(\cos2t+\sin2t)\begin{pmatrix}-2\\1\end{pmatrix}+(\cos2t-\sin2t)\begin{pmatrix}2\\0\end{pmatrix}\Big]=e^{-2t}\begin{pmatrix}-4\sin2t\\\cos2t+\sin2t\end{pmatrix}.$$</div>
@@ -817,7 +818,7 @@
         <div class="phase-block">
           <h3 class="phase-title">Interpretation and checks</h3>
 <h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
-<ul><li><strong>Limits:</strong> for every $a&lt;0$ all solutions tend to $\mathbf0$ as $t\to\infty$ (asymptotic stability); for $a=0$ they tend to points of the $x_2$-axis; for $a&gt;0$ only the orbits on the stable eigenline reach the origin. As $a\to-4^\pm$ the node's two eigenlines merge (from $a&gt;-4$) or the spiral's rotation rate $\omega=\sqrt{-4-a}$ goes to $0$ (from $a&lt;-4$): the degenerate node is the common boundary.</li><li><strong>Checks:</strong> $P^{-1}AP$ and $Q^{-1}AQ$ were multiplied out; both IVP solutions satisfy the system and the initial data; $\operatorname{tr}(P^{-1}AP)=-4=\tau$ and $\det(P^{-1}AP)=3=\delta$ for $a=-3$, and the same for $a=-8$ ($-4$ and $8$).</li><li><strong>Common mistakes in the exam:</strong> (1) calling $a=0$ a node: the origin is not isolated; (2) ordering $Q=[\mathbf w\mid\mathbf u]$ and then expecting $\begin{pmatrix}\rho&amp;\omega\\-\omega&amp;\rho\end{pmatrix}$ (that order gives the transpose); (3) reading the sense of rotation from the $\mathbf z$-plane, which is always clockwise, instead of from a test vector in $\mathbf x$; (4) making the node's orbits tangent to the fast eigenvector at the origin.</li></ul>
+<ul><li><strong>Limits:</strong> for every $a&lt;0$ all solutions tend to $\mathbf0$ as $t\to\infty$ (asymptotic stability); for $a=0$ they tend to points of the $x_2$-axis; for $a&gt;0$ only the orbits on the stable eigenline reach the origin. As $a\to-4^\pm$ the node's two eigenlines merge (from $a&gt;-4$) or the spiral's rotation rate $\omega=\sqrt{-4-a}$ goes to $0$ (from $a&lt;-4$): the improper node is the common boundary.</li><li><strong>Checks:</strong> $P^{-1}AP$ and $Q^{-1}AQ$ were multiplied out; both IVP solutions satisfy the system and the initial data; $\operatorname{tr}(P^{-1}AP)=-4=\tau$ and $\det(P^{-1}AP)=3=\delta$ for $a=-3$, and the same for $a=-8$ ($-4$ and $8$).</li><li><strong>Common mistakes in the exam:</strong> (1) calling $a=0$ a node: the origin is not isolated; (2) ordering $Q=[\mathbf w\mid\mathbf u]$ and then expecting $\begin{pmatrix}\rho&amp;\omega\\-\omega&amp;\rho\end{pmatrix}$ (that order gives the transpose); (3) reading the sense of rotation from the $\mathbf z$-plane, which is always clockwise, instead of from a test vector in $\mathbf x$; (4) making the node's orbits tangent to the fast eigenvector at the origin.</li></ul>
         </div>
       </section>
       <section class="problem-box" id="P06">
@@ -826,10 +827,10 @@
         <div class="statement-box">
 <p>The real $2\times2$ matrix $A$ of the linear system $\mathbf x'=A\mathbf x$, $\mathbf x=(x,y)^T$, is unknown. The only information available is that the system has the real solution</p>
 <div class="math-block">$$\mathbf x_1(t)=e^{-t}\begin{pmatrix}\cos 2t-\sin 2t\\ \cos 2t-2\sin 2t\end{pmatrix}.$$</div>
-<p>(a) Reconstruct $A$. Show that its eigenvalues are $-1\pm 2i$, find a complex eigenvector, and check that $P^{-1}AP$ is the real canonical form, with $P$ the matrix whose columns are the real and imaginary parts of that eigenvector.</p>
+<p>(a) Reconstruct $A$. Show that its eigenvalues are $-1\pm 2i$, find a complex eigenvector, and check that $P^{-1}AP$ is the real canonical form, with $P$ the matrix whose columns are the real and imaginary parts of that eigenvector, normalised so that the given solution is $\operatorname{Re}(e^{\lambda t}\boldsymbol\eta)$.</p>
 <p>(b) Find a second real solution, prove that the two solutions form a fundamental set, write the real general solution and solve the initial value problem $\mathbf x(0)=(1,0)^T$.</p>
 <p>(c) Classify the origin. Do the trajectories spiral in or out? Is the rotation clockwise or counter-clockwise? Justify with a test vector.</p>
-<p>(d) Let $V(x,y)=5x^2-6xy+2y^2$. Show that $V(\mathbf x)=\lvert P^{-1}\mathbf x\rvert^2$ and that $\frac{d}{dt}V(\mathbf x(t))=-2V(\mathbf x(t))$ along every solution. For the solution of (b), find the time needed for $\sqrt V$ to halve, and the first time $t&gt;0$ at which the solution is back on the positive $x$ axis, with the ratio of its distances to the origin there and at $t=0$. Is the Euclidean distance $\lvert\mathbf x(t)\rvert$ decreasing for every solution?</p>
+<p>(d) (extension: the quadratic form $V$ is not in the course; it follows from the canonical form.) Let $V(x,y)=5x^2-6xy+2y^2$. Show that $V(\mathbf x)=\lvert P^{-1}\mathbf x\rvert^2$ and that $\frac{d}{dt}V(\mathbf x(t))=-2V(\mathbf x(t))$ along every solution. For the solution of (b), find the time needed for $\sqrt V$ to halve, and the first time $t&gt;0$ at which the solution is back on the positive $x$ axis, with the ratio of its distances to the origin there and at $t=0$. Is the Euclidean distance $\lvert\mathbf x(t)\rvert$ decreasing for every solution?</p>
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Setup and canonical formulation</h3>
@@ -873,7 +874,7 @@
 <p>Since $A$ is real, real and imaginary parts are real solutions (Robinson Ch. 29). The real part is $\mathbf x_1$; the imaginary part is</p>
 <div class="math-block">$$\mathbf x_2(t)=e^{-t}(\sin2t\,\mathbf u+\cos2t\,\mathbf w)=e^{-t}\begin{pmatrix}\sin2t+\cos2t\\ \sin2t+2\cos2t\end{pmatrix}$$</div>
 <h4 class="step-title">Step 2. Fundamental set</h4>
-<p>$\mathbf x_1(0)=\mathbf u$, $\mathbf x_2(0)=\mathbf w$, so the Wronskian at $t=0$ is $W(0)=\det\begin{pmatrix}1&amp;1\\1&amp;2\end{pmatrix}=2-1=1\neq0$. By Abel's formula $W(t)=W(0)e^{(\operatorname{tr}A)t}=e^{-2t}\neq0$ for all $t$: the solutions are independent and the general real solution is</p>
+<p>$\mathbf x_1(0)=\mathbf u$, $\mathbf x_2(0)=\mathbf w$, so the Wronskian at $t=0$ is $W(0)=\det\begin{pmatrix}1&amp;1\\1&amp;2\end{pmatrix}=2-1=1\neq0$. $W(0)\neq0$ is enough for independence (Notes, p. 9). Abel's formula for systems (<strong>extension</strong>) adds $W(t)=W(0)e^{(\operatorname{tr}A)t}=e^{-2t}\neq0$ for all $t$. Hence the general real solution is</p>
 <div class="math-block">$$\mathbf x(t)=c_1e^{-t}\begin{pmatrix}\cos2t-\sin2t\\ \cos2t-2\sin2t\end{pmatrix}+c_2e^{-t}\begin{pmatrix}\sin2t+\cos2t\\ \sin2t+2\cos2t\end{pmatrix},\qquad c_1,c_2\in\mathbb R$$</div>
 <h4 class="step-title">Step 3. Initial condition</h4>
 <p>At $t=0$: $c_1\mathbf u+c_2\mathbf w=(1,0)^T$, i.e. $c_1+c_2=1$ and $c_1+2c_2=0$. Subtracting, $c_2=-1$, then $c_1=2$:</p>
@@ -886,7 +887,7 @@
           <h3 class="phase-title">Part (c) · 1 point</h3>
           <div class="prompt"><p>Classification, spiralling and sense of rotation</p></div>
 <h4 class="step-title">Step 1. Type</h4>
-<p>The eigenvalues are complex with negative real part, so every solution is $e^{-t}$ times a bounded $\pi$-periodic vector: it tends to $\mathbf 0$ while winding around it. The origin is a stable focus (Robinson Ch. 31; trace-determinant plane: $\operatorname{tr}&lt;0$, $\det&gt;0$, discriminant $&lt;0$).</p>
+<p>The eigenvalues are complex with negative real part, so every solution is $e^{-t}$ times a bounded $\pi$-periodic vector: it tends to $\mathbf 0$ while winding around it. The origin is a stable focus (Robinson Ch. 31).</p>
 <h4 class="step-title">Step 2. Test vector</h4>
 <p>At $(1,0)$, on the positive $x$ axis, $\mathbf x'=A(1,0)^T=(-7,-10)^T$: the $y$ component is negative, so the solution crosses the positive $x$ axis downwards. That is a <strong>clockwise</strong> rotation.</p>
 <h4 class="step-title">Step 3. Global confirmation</h4>
@@ -894,7 +895,7 @@
 <div class="math-block">$$xy'-yx'=x(-10x+5y)-y(-7x+4y)=-10x^2+12xy-4y^2=-2(5x^2-6xy+2y^2).$$</div>
 <p>The quadratic form $5x^2-6xy+2y^2$ has matrix $\begin{pmatrix}5&amp;-3\\-3&amp;2\end{pmatrix}$ with $5&gt;0$ and determinant $10-9=1&gt;0$: it is positive definite. So $\theta'&lt;0$ at every point except the origin: the rotation is clockwise everywhere. In the canonical plane $J$ with $\omega=2&gt;0$ rotates clockwise ($z_2'=-2z_1&lt;0$ at $(1,0)$), and $\det P=1&gt;0$ preserves orientation, which is consistent.</p>
 <h4 class="step-title">Step 4. Portrait in words</h4>
-<p>Trajectories are spirals that wind clockwise into the origin, one full turn every $T=2\pi/\omega=\pi$ time units. They are not circles: they are images under $P$ of logarithmic spirals of the $\mathbf z$ plane, so they are flattened along the directions fixed by $\mathbf u=(1,1)$ and $\mathbf w=(1,2)$.</p>
+<p>Trajectories are spirals that wind clockwise into the origin, one full turn every $T=2\pi/\omega=\pi$ time units. They are not circles: they are images under $P$ of logarithmic spirals of the $\mathbf z$ plane, so $\mathbf u=(1,1)$ and $\mathbf w=(1,2)$ are conjugate semi-diameters of the ellipses $V=\text{const}$ that the spirals cross.</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\rho=-1&lt;0$, $\omega=2\neq0$: <strong>stable focus</strong> (spiral sink); $\operatorname{tr}A=-2&lt;0$, $\det A=5&gt;0$, $(\operatorname{tr}A)^2-4\det A=-16&lt;0$.</li><li>$A(1,0)^T=(-7,-10)^T$: <strong>clockwise</strong> rotation.</li><li>$xy'-yx'=-2(5x^2-6xy+2y^2)&lt;0$ off the origin.</li></ul></div>
         </div>
         <div class="phase-block">
@@ -970,7 +971,7 @@
 <h4 class="step-title">Step 3. Back to the original frame</h4>
 <p>$\mathbf u=P\mathbf z=z_1\mathbf v+z_2\mathbf w=c_1e^{-2t}\mathbf v+c_2e^{-2t}(t\mathbf v+\mathbf w)$, the formula of Robinson Ch. 30. Adding $\mathbf x^*$:</p>
 <div class="math-block">$$\mathbf x(t)=\begin{pmatrix}1+(c_1+c_2+c_2t)e^{-2t}\\ 1-(c_1+c_2t)e^{-2t}\end{pmatrix}.$$</div>
-<p>The fundamental matrix $\Phi=\big[e^{-2t}\mathbf v\mid e^{-2t}(t\mathbf v+\mathbf w)\big]$ has $\det\Phi=e^{-4t}\det[\mathbf v\mid t\mathbf v+\mathbf w]=e^{-4t}\det[\mathbf v\mid\mathbf w]=e^{-4t}\neq0$, in agreement with Abel's formula $W(t)=W(0)e^{(\operatorname{tr}A)t}$.</p>
+<p>The fundamental matrix $\Phi=\big[e^{-2t}\mathbf v\mid e^{-2t}(t\mathbf v+\mathbf w)\big]$ has $\det\Phi=e^{-4t}\det[\mathbf v\mid t\mathbf v+\mathbf w]=e^{-4t}\det[\mathbf v\mid\mathbf w]=e^{-4t}\neq0$, in agreement with Abel's formula for systems (<strong>extension</strong>) $W(t)=W(0)e^{(\operatorname{tr}A)t}$.</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\mathbf x_p=\mathbf x^*=(1,1)^T$.</li><li>$\mathbf x(t)=\begin{pmatrix}1\\1\end{pmatrix}+c_1e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix}+c_2e^{-2t}\left[t\begin{pmatrix}1\\-1\end{pmatrix}+\begin{pmatrix}1\\0\end{pmatrix}\right]$.</li><li>In components: $x=1+(c_1+c_2+c_2t)e^{-2t}$, $y=1-(c_1+c_2t)e^{-2t}$.</li></ul></div>
         </div>
         <div class="phase-block">
@@ -1001,12 +1002,12 @@
 <p>$x'=0$ on the line $y=x$ (vertical slopes there); $y'=0$ on $x+3y=4$ (horizontal slopes). Both pass through $(1,1)$ and split the plane into four sectors where $(x',y')$ keeps its signs; e.g. at $(3,0)$: $x'=-3&lt;0$, $y'=1&gt;0$.</p>
 <h4 class="step-title">Step 5. The orbit of (c)</h4>
 <p>$u_1+u_2=(2+t)e^{-2t}-(1+t)e^{-2t}=e^{-2t}&gt;0$: the orbit never meets the invariant line and stays in the half-plane $x+y&gt;2$ (uniqueness forbids crossing an invariant line). For $t\ge0$, $x'=-(3+2t)e^{-2t}&lt;0$ and $y'=(1+2t)e^{-2t}&gt;0$: it moves monotonically from $(3,0)$ to $(1,1)$, with $u_2/u_1=-(1+t)/(2+t)\to-1$, i.e. arriving from the lower right tangent to $x+y=2$. Backwards in time it crosses $y=1$ at $t=-1$ and $x=1$ at $t=-2$, and escapes to infinity parallel to $(-1,1)$.</p>
-          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$(1,1)$ is a <strong>stable improper (degenerate) node</strong>: $\operatorname{tr}A=-4&lt;0$, $\det A=4&gt;0$, $(\operatorname{tr}A)^2-4\det A=0$, one eigen-direction.</li><li>Invariant line $x+y=2$ (through $(1,1)$ along $\mathbf v=(1,-1)$); all other orbits are tangent to it at $(1,1)$ and parallel to it as $t\to-\infty$.</li><li>$u_1u_2'-u_2u_1'=-(u_1+u_2)^2\le0$: orbits turn <strong>clockwise</strong>; test vector $A\mathbf w=(-1,-1)^T$ at $(2,1)$.</li><li>Nullclines: $x'=0$ on $y=x$; $y'=0$ on $x+3y=4$. The orbit of (c) stays in $x+y&gt;2$; for $t\ge0$ $x$ decreases to 1 and $y$ increases to 1.</li></ul></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$(1,1)$ is a <strong>stable improper node</strong>: $\operatorname{tr}A=-4&lt;0$, $\det A=4&gt;0$, $(\operatorname{tr}A)^2-4\det A=0$, one eigen-direction.</li><li>Invariant line $x+y=2$ (through $(1,1)$ along $\mathbf v=(1,-1)$); all other orbits are tangent to it at $(1,1)$ and parallel to it as $t\to-\infty$.</li><li>$u_1u_2'-u_2u_1'=-(u_1+u_2)^2\le0$: orbits turn <strong>clockwise</strong>; test vector $A\mathbf w=(-1,-1)^T$ at $(2,1)$.</li><li>Nullclines: $x'=0$ on $y=x$; $y'=0$ on $x+3y=4$. The orbit of (c) stays in $x+y&gt;2$; for $t\ge0$ $x$ decreases to 1 and $y$ increases to 1.</li></ul></div>
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Interpretation and checks</h3>
 <h4 class="step-title">Phase 4. Asymptotic and physical checks</h4>
-<ul><li><strong>Limits:</strong> $t\to+\infty$: $\mathbf x\to(1,1)$ like $te^{-2t}$, slower than a pure $e^{-2t}$ because of the secular factor $t$. $t\to-\infty$: $\lvert\mathbf x\rvert\to\infty$. If $\mathbf f=\mathbf 0$ the portrait is the same, centred at the origin.</li><li><strong>Checks:</strong> $P^{-1}AP=J$ with $\det P=1$; $A\mathbf x^*+\mathbf f=\mathbf 0$; the IVP solution satisfies both equations and the initial data; $\det\Phi=e^{-4t}$ matches Abel's formula.</li><li><strong>Common mistakes in the exam:</strong> (1) writing $\mathbf x_h=c_1e^{-2t}\mathbf v+c_2te^{-2t}\mathbf v$, which forgets $\mathbf w$ and is not a fundamental set; (2) solving $(A-\lambda I)\mathbf w=\mathbf v$ with the wrong sign of $\lambda$ (using $A-2I$); (3) trying a particular solution $\mathbf c\,t$ or $\mathbf c\,e^{-2t}$ for a constant forcing: a constant vector suffices since $\det A\neq0$; (4) drawing a star node (all straight lines), or claiming orbits cross the eigenline.</li></ul>
+<ul><li><strong>Limits:</strong> $t\to+\infty$: $\mathbf x\to(1,1)$ like $te^{-2t}$, slower than a pure $e^{-2t}$ because of the secular factor $t$. $t\to-\infty$: $\lvert\mathbf x\rvert\to\infty$. If $\mathbf f=\mathbf 0$ the portrait is the same, centred at the origin.</li><li><strong>Checks:</strong> $P^{-1}AP=J$ with $\det P=1$; $A\mathbf x^*+\mathbf f=\mathbf 0$; the IVP solution satisfies both equations and the initial data; $\det\Phi=e^{-4t}$ matches Abel's formula for systems (extension).</li><li><strong>Common mistakes in the exam:</strong> (1) writing $\mathbf x_h=c_1e^{-2t}\mathbf v+c_2te^{-2t}\mathbf v$, which forgets $\mathbf w$ and is not a fundamental set; (2) solving $(A-\lambda I)\mathbf w=\mathbf v$ with the wrong sign of $\lambda$ (using $A-2I$); (3) trying a particular solution $\mathbf c\,t$ or $\mathbf c\,e^{-2t}$ for a constant forcing: a constant vector suffices since $\det A\neq0$; (4) drawing a star node (all straight lines), or claiming orbits cross the eigenline.</li></ul>
         </div>
       </section>
 <!-- EXTRA-PROBLEMS:END -->

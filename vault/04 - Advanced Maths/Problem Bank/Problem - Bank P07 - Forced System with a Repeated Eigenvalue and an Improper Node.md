@@ -11,7 +11,7 @@ difficulty: 2
 points: 5.0
 time_minutes: 30
 official: false
-origen: "Problem written for the bank in the style of MATHS_FIRSTPARTIAL_2020_G46_SOL and MATHS_FIRSTPARTIAL_2021_G45_SOL; not an official exercise. Verified with scripts/am_bank/p07.py"
+origen: "Problem written for the bank in the format of MATHS_FIRSTPARTIAL_2019_MT2 (problem 1: a planar system with the repeated eigenvalue -2; its matrix has the same trace and determinant as this one, and this item adds a constant forcing, the equilibrium shift and the Jordan-form solution) and of the systems problems of MATHS_FIRSTPARTIAL_2020_G46_SOL; not an official exercise. Verified with scripts/am_bank/p07.py"
 tags:
   - problem-bank
   - midterm-1
@@ -25,7 +25,7 @@ tags:
 # Bank P07 — Forced system with a repeated eigenvalue and an improper node
 
 > [!info] Practice item, not an official exercise
-> Written for the bank in the style of MATHS_FIRSTPARTIAL_2020_G46_SOL and MATHS_FIRSTPARTIAL_2021_G45_SOL. Method: Robinson Ch. 30 (repeated eigenvalue, $\mathbf x=c_1e^{\lambda t}\mathbf v+c_2e^{\lambda t}(t\mathbf v+\mathbf w)$), Ch. 31 (Jordan form and classification), undetermined coefficients for constant forcing, and [[Concept - Planar Systems with a Repeated Eigenvalue]]. Every result was checked with SymPy (scripts/am_bank/p07.py).
+> Written for the bank in the format of MATHS_FIRSTPARTIAL_2019_MT2 (problem 1: a planar system with the repeated eigenvalue -2; its matrix has the same trace and determinant as this one, and this item adds a constant forcing, the equilibrium shift and the Jordan-form solution) and of the systems problems of MATHS_FIRSTPARTIAL_2020_G46_SOL. Method: Robinson Ch. 30 (repeated eigenvalue, $\mathbf x=c_1e^{\lambda t}\mathbf v+c_2e^{\lambda t}(t\mathbf v+\mathbf w)$), Ch. 31 (Jordan form and classification), undetermined coefficients for constant forcing, and [[Concept - Planar Systems with a Repeated Eigenvalue]]. Every result was checked with SymPy (scripts/am_bank/p07.py).
 
 ## Statement
 
@@ -129,7 +129,7 @@ $\mathbf u=P\mathbf z=z_1\mathbf v+z_2\mathbf w=c_1e^{-2t}\mathbf v+c_2e^{-2t}(t
 
 $$\mathbf x(t)=\begin{pmatrix}1+(c_1+c_2+c_2t)e^{-2t}\\ 1-(c_1+c_2t)e^{-2t}\end{pmatrix}.$$
 
-The fundamental matrix $\Phi=\big[e^{-2t}\mathbf v\mid e^{-2t}(t\mathbf v+\mathbf w)\big]$ has $\det\Phi=e^{-4t}\det[\mathbf v\mid t\mathbf v+\mathbf w]=e^{-4t}\det[\mathbf v\mid\mathbf w]=e^{-4t}\neq0$, in agreement with Abel's formula $W(t)=W(0)e^{(\operatorname{tr}A)t}$.
+The fundamental matrix $\Phi=\big[e^{-2t}\mathbf v\mid e^{-2t}(t\mathbf v+\mathbf w)\big]$ has $\det\Phi=e^{-4t}\det[\mathbf v\mid t\mathbf v+\mathbf w]=e^{-4t}\det[\mathbf v\mid\mathbf w]=e^{-4t}\neq0$, in agreement with Abel's formula for systems (**extension**) $W(t)=W(0)e^{(\operatorname{tr}A)t}$.
 
 ## (c) Initial value problem x(0) = 3, y(0) = 0 [1.0 pts]
 
@@ -169,7 +169,7 @@ Work with $\mathbf u=\mathbf x-\mathbf x^*$. For the sense of turning compute $u
 
 ### Checkpoint
 
-- $(1,1)$ is a **stable improper (degenerate) node**: $\operatorname{tr}A=-4<0$, $\det A=4>0$, $(\operatorname{tr}A)^2-4\det A=0$, one eigen-direction.
+- $(1,1)$ is a **stable improper node**: $\operatorname{tr}A=-4<0$, $\det A=4>0$, $(\operatorname{tr}A)^2-4\det A=0$, one eigen-direction.
 - Invariant line $x+y=2$ (through $(1,1)$ along $\mathbf v=(1,-1)$); all other orbits are tangent to it at $(1,1)$ and parallel to it as $t\to-\infty$.
 - $u_1u_2'-u_2u_1'=-(u_1+u_2)^2\le0$: orbits turn **clockwise**; test vector $A\mathbf w=(-1,-1)^T$ at $(2,1)$.
 - Nullclines: $x'=0$ on $y=x$; $y'=0$ on $x+3y=4$. The orbit of (c) stays in $x+y>2$; for $t\ge0$ $x$ decreases to 1 and $y$ increases to 1.
@@ -205,7 +205,7 @@ $u_1+u_2=(2+t)e^{-2t}-(1+t)e^{-2t}=e^{-2t}>0$: the orbit never meets the invaria
 #### Phase 4. Asymptotic and physical checks
 
 - **Limits:** $t\to+\infty$: $\mathbf x\to(1,1)$ like $te^{-2t}$, slower than a pure $e^{-2t}$ because of the secular factor $t$. $t\to-\infty$: $\lvert\mathbf x\rvert\to\infty$. If $\mathbf f=\mathbf 0$ the portrait is the same, centred at the origin.
-- **Checks:** $P^{-1}AP=J$ with $\det P=1$; $A\mathbf x^*+\mathbf f=\mathbf 0$; the IVP solution satisfies both equations and the initial data; $\det\Phi=e^{-4t}$ matches Abel's formula.
+- **Checks:** $P^{-1}AP=J$ with $\det P=1$; $A\mathbf x^*+\mathbf f=\mathbf 0$; the IVP solution satisfies both equations and the initial data; $\det\Phi=e^{-4t}$ matches Abel's formula for systems (extension).
 - **Common mistakes in the exam:** (1) writing $\mathbf x_h=c_1e^{-2t}\mathbf v+c_2te^{-2t}\mathbf v$, which forgets $\mathbf w$ and is not a fundamental set; (2) solving $(A-\lambda I)\mathbf w=\mathbf v$ with the wrong sign of $\lambda$ (using $A-2I$); (3) trying a particular solution $\mathbf c\,t$ or $\mathbf c\,e^{-2t}$ for a constant forcing: a constant vector suffices since $\det A\neq0$; (4) drawing a star node (all straight lines), or claiming orbits cross the eigenline.
 
 **Back to:** [[Problem Set - Advanced Maths Problem Bank]]

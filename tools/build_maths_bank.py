@@ -138,7 +138,8 @@ def check_blueprint(name, blueprint, items):
         raise bpb.BankError(f"{name}: parts add up to {total}, not {blueprint.get('total_points')}")
     for part in parts:
         rules = part.get("selection_rules", {})
-        pool = [i for i in items if i["category"] == part["category"] and i["unit"] in rules.get("units", UNITS)]
+        pool = [i for i in items if i["category"] == part["category"] and i["unit"] in rules.get("units", UNITS)
+                and (not rules.get("must_archetypes") or i["archetype"] in rules["must_archetypes"])]
         if any(i["points"] != part["points_each"] for i in pool):
             raise bpb.BankError(f"{name}: {part['id']} expects {part['points_each']}-point items")
         if len(pool) < 2 * part["count"]:
@@ -283,7 +284,9 @@ def main(argv=None):
     try:
         if args.lint:
             items = load_items()
-            print(f"build_maths_bank: {len(items)} notes valid")
+            for _, _, _, fname, _v in EXAMS.values():
+                check_blueprint(fname, json.loads((OUT_DIR / fname).read_text(encoding="utf-8")), items)
+            print(f"build_maths_bank: {len(items)} notes and 3 blueprints valid")
             return 0
         outputs, data = build()
     except bpb.BankError as exc:

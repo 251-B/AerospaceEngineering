@@ -11,7 +11,7 @@ difficulty: 2
 points: 5.0
 time_minutes: 30
 official: false
-origen: "Problem written for the bank in the style of MATHS_FIRSTPARTIAL_2020_G45_SOL, MATHS_FIRSTPARTIAL_2025_G47_SOL; not an official exercise. Verified with scripts/am_bank/p01.py"
+origen: "Problem written for the bank in the style of MATHS_FIRSTPARTIAL_2019_MT1_SOL (problem 1) and MATHS_FIRSTPARTIAL_2020_G47_SOL (problem 1); not an official exercise. Verified with scripts/am_bank/p01.py"
 tags:
   - problem-bank
   - midterm-1
@@ -25,7 +25,7 @@ tags:
 # Bank P01 — Two brine tanks in cascade
 
 > [!info] Practice item, not an official exercise
-> Written for the bank in the style of MATHS_FIRSTPARTIAL_2020_G45_SOL and MATHS_FIRSTPARTIAL_2025_G47_SOL. Method: Topic 1 (modelling by a balance law, the mixing tank of Ch1-P6), Topic 2 (separable equations, Robinson Ch. 8; the integrating factor, Robinson Ch. 9 and Notes, p. 3). Every result was checked with SymPy (scripts/am_bank/p01.py).
+> Written for the bank in the style of MATHS_FIRSTPARTIAL_2019_MT1_SOL (problem 1) and MATHS_FIRSTPARTIAL_2020_G47_SOL (problem 1). Method: Topic 1 (modelling by a balance law, the mixing tank of Ch1-P6), Topic 2 (separable equations, Robinson Ch. 8; the integrating factor, Robinson Ch. 9 and Notes, p. 3). Every result was checked with SymPy (scripts/am_bank/p01.py).
 
 ## Statement
 

@@ -11,7 +11,7 @@ difficulty: 2
 points: 5.0
 time_minutes: 30
 official: false
-origen: "Problem written for the bank in the style of MATHS_FIRSTPARTIAL_2019_MT1_SOL, MATHS_FIRSTPARTIAL_2025_G47_SOL; not an official exercise. Verified with scripts/am_bank/p02.py"
+origen: "Problem written for the bank in the style of MATHS_FIRSTPARTIAL_2021_G45_SOL (problem 1: autonomous logistic equation, equilibria, partial fractions); not an official exercise. Verified with scripts/am_bank/p02.py"
 tags:
   - problem-bank
   - midterm-1
@@ -25,7 +25,7 @@ tags:
 # Bank P02 — Logistic population with constant harvesting
 
 > [!info] Practice item, not an official exercise
-> Written for the bank in the style of MATHS_FIRSTPARTIAL_2019_MT1_SOL and MATHS_FIRSTPARTIAL_2025_G47_SOL. Method: Topic 2 (autonomous equations, equilibria and their stability through $f'(p^*)$, Notes, p. 3; separable equations, Robinson Ch. 8) and the logistic model of [[Concept - Logistic Equation and Carrying Capacity]]. Every result was checked with SymPy (scripts/am_bank/p02.py).
+> Written for the bank in the style of MATHS_FIRSTPARTIAL_2021_G45_SOL (problem 1: autonomous logistic equation, equilibria, partial fractions). Method: Topic 2 (autonomous equations, equilibria and their stability through $f'(p^*)$, Notes, p. 3; separable equations, Robinson Ch. 8) and the logistic model of [[Concept - Logistic Equation and Carrying Capacity]]. Every result was checked with SymPy (scripts/am_bank/p02.py).
 
 ## Statement
 
@@ -150,11 +150,11 @@ At $p=\tfrac13$: $1=-\tfrac13A$, $A=-3$. At $p=\tfrac23$: $1=\tfrac13B$, $B=3$.
 
 #### Step 2. Separation and integration
 
-For $p\neq\tfrac13,\tfrac23$: $\dfrac{dp}{(p-\frac13)(p-\frac23)}=-dt$. With the antiderivatives $\int\frac{dp}{p-c}=\ln\lvert p-c\rvert$:
+For $p\neq\tfrac13,\tfrac23$: $\dfrac{dp}{(p-\frac13)(p-\frac23)}=-dt$. By Step 1, $\displaystyle\int\Big(-\frac{3}{p-\frac13}+\frac{3}{p-\frac23}\Big)dp=-\int dt$. With the antiderivatives $\int\frac{dp}{p-c}=\ln\lvert p-c\rvert$:
 
 $$3\ln\Big\lvert p-\frac23\Big\rvert-3\ln\Big\lvert p-\frac13\Big\rvert=-t+C\ \Longrightarrow\ \ln\left\lvert\frac{p-\frac23}{p-\frac13}\right\rvert=-\frac t3+\frac C3.$$
 
-Exponentiating and absorbing the sign into the constant: $\dfrac{p-\frac23}{p-\frac13}=K\,e^{-t/3}$, with $K=\dfrac{p(0)-\frac23}{p(0)-\frac13}$ from $t=0$.
+Exponentiating and absorbing the sign into the constant: $\dfrac{p-\frac23}{p-\frac13}=K\,e^{-t/3}$, with $K=\dfrac{p(0)-\frac23}{p(0)-\frac13}$ from $t=0$. The constant solutions $p\equiv\tfrac13$ and $p\equiv\tfrac23$, lost when dividing by $(p-\tfrac13)(p-\tfrac23)$, correspond to $K=\infty$ and $K=0$.
 
 #### Step 3. Solving for p
 
