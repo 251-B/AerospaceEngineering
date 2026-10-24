@@ -233,6 +233,10 @@ window.AE_NAV = {
           "label": "Exam simulator"
         },
         {
+          "href": "subjects/engineering-mechanics/formula-sheet/index.html",
+          "label": "Formula sheet"
+        },
+        {
           "href": "subjects/engineering-mechanics/sources/index.html",
           "label": "Theory & exercise PDFs"
         },

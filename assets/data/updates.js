@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-24-mechanics-formula-sheet",
+    "date": "2026-10-24",
+    "tag": "Engineering Mechanics",
+    "title": "Formula sheet: kinematics to relative motion, step by step",
+    "text": "A new formula sheet covers Topics 1 to 5 with the reason for each step, the solving order of the course and exam traps. A compact view prints it in a few A4 pages.",
+    "link": "subjects/engineering-mechanics/formula-sheet/index.html"
+  },
+  {
     "id": "2026-10-24-maths-formula-sheet",
     "date": "2026-10-24",
     "tag": "Advanced Maths",

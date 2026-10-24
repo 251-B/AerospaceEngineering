@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="engineering-mechanics">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Mechanics — Formula Sheet</title>
+  <meta name="description" content="Formula sheet and solving compendium for Engineering Mechanics (UC3M Aerospace Engineering): kinematics, dynamics, constraints, central forces and relative motion, with step-by-step derivations, hypotheses, solving recipes and exam traps, printable in a few A4 pages.">
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #10b981;
+      --accent-soft: rgba(16, 185, 129, 0.12);
+      --accent-border: rgba(16, 185, 129, 0.28);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      /* card kinds: used for borders and fills only, never for text */
+      --kind-pattern: #6366f1;
+      --kind-theorem: #a855f7;
+      --kind-derivation: #14b8a6;
+      --kind-algorithm: #22c55e;
+      --kind-trap: #f59e0b;
+      --kind-prereq: #94a3b8;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(20, 30, 55, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.80);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-card: rgba(0, 0, 0, 0.10);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.02rem;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    h1, h2, .page-header h1 {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code { font-family: var(--font-mono); font-size: 0.88em; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* Sticky header: only the portal link */
+    .back-bar {
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .back-bar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; gap: 12px; flex-wrap: wrap;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--text-primary); border-color: var(--accent-border); }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+      color: var(--text-secondary); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px; border: 1px solid var(--accent-border);
+    }
+    .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-primary); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+    /* Page header */
+    .page-header { text-align: center; padding: 40px 0 24px; }
+    .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 8px; }
+    .page-header p { color: var(--text-secondary); max-width: 760px; margin: 0 auto; font-size: 1.02rem; }
+
+    /* Toolbar: view mode and print */
+    .fs-toolbar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 10px 12px; margin: 0 0 18px;
+      border: 1px solid var(--border-card); border-radius: 14px; background: var(--bg-card);
+    }
+    .fs-modes { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+    .fs-btn {
+      font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600;
+      color: var(--text-secondary); background: var(--bg-input);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+      padding: 8px 14px; cursor: pointer; transition: all var(--transition);
+    }
+    .fs-btn:hover { color: var(--text-primary); border-color: var(--accent-border); }
+    .fs-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .fs-btn[aria-pressed="true"] { color: var(--text-primary); background: var(--accent-soft); border-color: var(--accent-border); }
+    .fs-mode-note { font-family: var(--font-sans); font-size: 0.82rem; color: var(--text-secondary); }
+
+    /* Legend */
+    .fs-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0 0 18px; font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-secondary); }
+    .fs-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .fs-legend i { width: 14px; height: 10px; border-radius: 3px; border-left: 4px solid var(--k); background: color-mix(in srgb, var(--k) 18%, transparent); }
+
+    /* Contents */
+    .fs-toc { margin: 0 0 28px; padding: 14px 18px; border: 1px solid var(--border-card); border-radius: 14px; background: var(--bg-card); }
+    .fs-toc ol { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px 18px; counter-reset: toc; }
+    .fs-toc li { font-family: var(--font-sans); font-size: 0.88rem; }
+    .fs-toc a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dotted var(--border-card); }
+    .fs-toc a:hover { border-bottom-color: var(--accent); }
+
+    /* Units */
+    .fs-unit { margin: 0 0 40px; }
+    .fs-unit-title { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 0 0 4px; padding-bottom: 6px; border-bottom: 2px solid var(--accent-border); scroll-margin-top: 80px; }
+    .fs-unit-links { font-family: var(--font-sans); font-size: 0.84rem; color: var(--text-secondary); margin: 0 0 14px; }
+    .fs-unit-links a { color: var(--text-primary); text-underline-offset: 3px; }
+    .fs-unit-intro { color: var(--text-secondary); margin: 0 0 14px; max-width: 900px; }
+
+    /* Cards in a dense masonry of columns */
+    .fs-grid { column-gap: 18px; }
+    @media (min-width: 1100px) { .fs-grid { column-count: 2; } }
+    .fs-card {
+      --k: var(--kind-pattern);
+      break-inside: avoid; page-break-inside: avoid;
+      display: inline-block; width: 100%;
+      margin: 0 0 16px; padding: 14px 16px 12px;
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-left: 4px solid var(--k); border-radius: 12px; box-shadow: var(--shadow-card);
+      font-size: 0.97rem;
+    }
+    .fs-theorem { --k: var(--kind-theorem); }
+    .fs-derivation { --k: var(--kind-derivation); }
+    .fs-algorithm { --k: var(--kind-algorithm); }
+    .fs-trap { --k: var(--kind-trap); }
+    .fs-prereq { --k: var(--kind-prereq); }
+    .fs-card-title { font-family: var(--font-serif); font-size: 1.08rem; font-weight: 700; line-height: 1.35; margin: 0 0 8px; }
+    .fs-kind {
+      display: inline-block; vertical-align: 2px; margin-right: 6px;
+      font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-primary); background: color-mix(in srgb, var(--k) 18%, transparent);
+      border: 1px solid color-mix(in srgb, var(--k) 55%, transparent); border-radius: 5px; padding: 1px 6px;
+    }
+    .fs-card p { margin: 6px 0; }
+    .fs-card ul, .fs-card ol { margin: 6px 0 6px 1.25em; }
+    .fs-card li { margin: 3px 0; }
+    .fs-lead { color: var(--text-secondary); font-style: italic; }
+    .fs-eq { margin: 8px 0; overflow-x: auto; overflow-y: hidden; }
+    .katex-display { margin: 0.4em 0; overflow-x: auto; overflow-y: hidden; }
+
+    /* Derivations fold to their one-line summary */
+    .fs-deriv > summary {
+      cursor: pointer; list-style: none; color: var(--text-primary);
+      padding: 6px 10px; border-radius: 8px; background: var(--bg-input); border: 1px dashed var(--border-card);
+    }
+    .fs-deriv > summary::-webkit-details-marker { display: none; }
+    .fs-deriv > summary::before { content: '+'; font-family: var(--font-mono); font-weight: 700; margin-right: 8px; color: var(--text-secondary); }
+    .fs-deriv[open] > summary::before { content: '\2212'; }
+    .fs-deriv > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .fs-short { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+    .fs-deriv-body { padding-top: 6px; }
+
+    /* Step grid: math on the left, the reason beside it */
+    .fs-steps { display: grid; gap: 0; margin: 8px 0; border-top: 1px solid var(--border-subtle); }
+    .fs-step { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); align-items: center; }
+    .fs-step-math { overflow-x: auto; overflow-y: hidden; }
+    .fs-why { font-size: 0.86rem; line-height: 1.45; color: var(--text-secondary); padding-left: 10px; border-left: 2px solid color-mix(in srgb, var(--k) 45%, transparent); }
+    @media (max-width: 640px) {
+      .fs-step { grid-template-columns: 1fr; gap: 4px; }
+      .fs-why { padding-left: 8px; }
+    }
+
+    /* Tables */
+    .table-wrapper { overflow-x: auto; margin: 8px 0; }
+    .fs-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .fs-table th, .fs-table td { text-align: left; vertical-align: top; padding: 5px 8px; border-bottom: 1px solid var(--border-subtle); }
+    .fs-table th { font-family: var(--font-sans); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); }
+
+    /* Compact (exam) view: summaries, final formulas and recipes only */
+    html[data-fs-mode="compact"] .fs-why,
+    html[data-fs-mode="compact"] .fs-unit-intro,
+    html[data-fs-mode="compact"] .fs-lead { display: none; }
+    html[data-fs-mode="compact"] .fs-step { grid-template-columns: 1fr; padding: 3px 0; }
+    html[data-fs-mode="compact"] .fs-card { padding: 10px 12px 8px; margin-bottom: 12px; font-size: 0.93rem; }
+
+    footer.site-footer { border-top: 1px solid var(--border-subtle); padding: 32px 0; text-align: center; color: var(--text-muted); font-size: 0.86rem; }
+
+    /* Print: A4 portrait, two columns, black on white, like a typeset LaTeX sheet */
+    .fs-print-head { display: none; }
+    @media print {
+      @page { size: A4; margin: 8mm; }
+      /* doubled attribute: outranks study-surface.css, which paints html[data-theme] body with !important */
+      html[data-theme][data-theme], html[data-theme][data-theme] body { background: #fff !important; color: #000 !important; }
+      html[data-theme] body .katex-display { background: transparent !important; border: 0 !important; }
+      /* rem-based sizes of the screen layout scale with the root size */
+      html { font-size: 8.4pt !important; }
+      html[data-fs-mode="compact"] { font-size: 7.4pt !important; }
+      body { font-size: 1rem; line-height: 1.3; }
+      .back-bar, .subject-tabs, .fs-toolbar, .fs-legend, .fs-toc, .page-header, footer.site-footer, #quoteContainer { display: none !important; }
+      .container { max-width: none; padding: 0; }
+      html[data-theme] body main, html[data-theme] body main * { color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+      html[data-theme] body main *:not(.katex *) { background: transparent !important; }
+      .fs-print-head { display: block; margin: 0 0 2mm; padding-bottom: 1mm; border-bottom: 0.8pt solid #000; font-family: var(--font-serif); }
+      .fs-print-head strong { font-family: var(--font-display); font-weight: 400; font-size: 13pt; }
+      .fs-print-head span { float: right; font-size: 7.5pt; padding-top: 4pt; }
+      .fs-unit { margin: 0 0 2mm; break-before: auto; }
+      .fs-unit-title { font-size: 11pt; margin: 2mm 0 1.5mm; padding-bottom: 0.6mm; border-bottom: 0.6pt solid #000; break-after: avoid; }
+      .fs-unit-links, .fs-unit-intro { display: none; }
+      .fs-grid { column-count: 2; column-gap: 4mm; column-rule: 0.3pt solid #bbb; }
+      .fs-card { display: block; border: 0.4pt solid #777 !important; border-left: 2.2pt solid #000 !important; border-radius: 1.5mm; padding: 1.4mm 2mm 1.2mm !important; margin: 0 0 2mm !important; font-size: 1rem !important; }
+      .fs-trap { border-left-style: double !important; border-left-width: 3pt !important; }
+      .fs-card-title { font-size: 1.08em; margin: 0 0 0.8mm; break-after: avoid; }
+      .fs-kind { border: 0.5pt solid #000 !important; font-size: 0.7em; padding: 0 1.2mm; }
+      .fs-card p, .fs-card li { margin: 0.6mm 0; }
+      .fs-eq, .fs-steps, .table-wrapper { margin: 0.8mm 0; }
+      .fs-eq, .fs-step-math, .table-wrapper, .katex-display { overflow: visible !important; }
+      .katex-display { margin: 0.4mm 0; }
+      .katex { font-size: 1.04em; }
+      .fs-step { padding: 0.5mm 0; gap: 2mm; border-bottom: 0.3pt solid #ccc; break-inside: avoid; }
+      .fs-why { font-size: 0.9em; border-left: 0.5pt solid #888; padding-left: 1.5mm; }
+      .fs-deriv > summary { border: 0.4pt dashed #888; padding: 0.6mm 1.4mm; border-radius: 1mm; }
+      .fs-deriv > summary::before, .fs-deriv[open] > summary::before { content: none; }
+      .fs-table { font-size: 0.95em; }
+      .fs-table th, .fs-table td { padding: 0.5mm 1mm; border-bottom: 0.3pt solid #bbb; }
+      .fs-table th { font-size: 0.82em; }
+      a { text-decoration: none; }
+    }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <script src="../../../assets/js/theme.js"></script>
+</head>
+<body>
+  <header class="back-bar">
+    <div class="container back-bar-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14169</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Engineering Mechanics sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../formula-sheet/index.html" aria-current="page">Formula sheet</a>
+      <a class="subject-tab" href="../sources/index.html">Official PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <h1>Engineering Mechanics — Formula Sheet</h1>
+      <p>Every formula of the course with where it comes from, in the notation of the class notes, why each step is taken, when it applies and how to use it in an exam. Deep study shows every derivation; Compact folds them to one line so the whole sheet prints in a few A4 pages.</p>
+    </header>
+
+    <div class="fs-toolbar" role="toolbar" aria-label="Formula sheet view">
+      <div class="fs-modes">
+        <button type="button" class="fs-btn" data-fs-set="deep" aria-pressed="true">Deep study</button>
+        <button type="button" class="fs-btn" data-fs-set="compact" aria-pressed="false">Compact (exam)</button>
+      </div>
+      <span class="fs-mode-note" id="fsModeNote" aria-live="polite">All derivations open, with the reason for each step.</span>
+      <button type="button" class="fs-btn" id="fsPrint">Print / Save PDF</button>
+    </div>
+
+    <div class="fs-legend" aria-label="Card types">
+      <span><i style="--k: var(--kind-pattern)"></i>Pattern, table</span>
+      <span><i style="--k: var(--kind-theorem)"></i>Theorem, definition</span>
+      <span><i style="--k: var(--kind-derivation)"></i>Derivation</span>
+      <span><i style="--k: var(--kind-algorithm)"></i>Algorithm</span>
+      <span><i style="--k: var(--kind-trap)"></i>Exam trap</span>
+      <span><i style="--k: var(--kind-prereq)"></i>Prerequisite</span>
+    </div>
+
+    <div class="fs-print-head"><strong>Engineering Mechanics — Formula Sheet</strong><span>UC3M Aerospace Engineering · Topics 1 to 5</span></div>
+
+<!-- FORMULA-SHEET:START (generated by tools/build_formula_sheet.py; edit the vault note) -->
+<nav class="fs-toc" aria-label="Formula sheet contents"><ol><li><a href="#how-to-solve-a-mechanics-problem">How to solve a mechanics problem</a></li><li><a href="#topic-1-fundamentals-and-particle-kinematics">Topic 1 — Fundamentals and particle kinematics</a></li><li><a href="#topic-2-point-particle-dynamics">Topic 2 — Point particle dynamics</a></li><li><a href="#topic-3-constraints-and-reaction-forces">Topic 3 — Constraints and reaction forces</a></li><li><a href="#topic-4-angular-momentum-and-central-forces">Topic 4 — Angular momentum and central forces</a></li><li><a href="#topic-5-relative-motion">Topic 5 — Relative motion</a></li><li><a href="#pocket-prerequisites">Pocket prerequisites</a></li></ol></nav>
+<section class="fs-unit" id="how-to-solve-a-mechanics-problem" aria-labelledby="how-to-solve-a-mechanics-problem-title">
+<h2 class="fs-unit-title" id="how-to-solve-a-mechanics-problem-title">How to solve a mechanics problem</h2>
+<p class="fs-unit-links"><a href="../problemas/index.html">Problems</a> · <a href="../extra-problems/midterm-1-problems.html">Extra problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-algorithm" id="the-lecturer-s-order">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">The lecturer's order</span></h3>
+<ol><li><strong>Frames, bases and coordinates.</strong> Fixed frame $S_0 = \{O;\ \mathcal B_0\}$, moving frames $S_1 = \{A;\ \mathcal B_1\}, \dots$, intrinsic basis $\{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$ if useful. Count degrees of freedom, write the constraints, list the parameters with SI units.</li><li><strong>Change of basis and position vector.</strong> Deduce every $[{}_0R_1]$ from a drawing of each rotation (axis out of the paper ⊙ or into it ⊗); build $\mathbf r_0^P$ as a chain of vectors, e.g. $\overrightarrow{OC} + \overrightarrow{CP}$.</li><li><strong>Kinematics.</strong> Velocity and acceleration: chain rule, product rule, $\boldsymbol\omega \times$ for rotating unit vectors, composition of motions and Coriolis.</li><li><strong>Forces and equations of motion.</strong> Free-body diagram: applied forces, constraint reactions (normal to the constraint), inertia forces if the frame is not inertial; project $m\mathbf a = \sum\mathbf F$ on the chosen basis. Tangent projections give the motion, normal projections the reactions.</li><li><strong>Answers and checks.</strong> Answer every part; limiting cases ($\theta = 0$, $\Omega = 0$), dimensions, $\det R = 1$, orthogonality, energy if it is conserved.</li></ol>
+</article>
+<article class="fs-card fs-pattern" id="notation-of-the-course">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Notation of the course</span></h3>
+<ul><li>$\mathbf r_0^P$, $\mathbf v_0^P$, $\mathbf a_0^P$: position, velocity, acceleration of the point $P$ (superscript) seen from $S_0$ (subscript).</li><li>$\left.\dfrac{d\mathbf b}{dt}\right|_0$: derivative of a vector seen from $S_0$; it differs from $\left.\dfrac{d\mathbf b}{dt}\right|_1$ when $S_1$ rotates.</li><li>$[{}_0R_1]$: change-of-basis matrix; its <strong>columns</strong> are $\mathbf i_1, \mathbf j_1, \mathbf k_1$ written in $\mathcal B_0$, and $[\mathbf b]_0 = [{}_0R_1][\mathbf b]_1$ [Notes Eqs. 1.12–1.13].</li><li>$\boldsymbol\omega_{10}$, $\boldsymbol\alpha_{10}$: angular velocity and acceleration of $S_1$ relative to $S_0$.</li><li>$T_0$ kinetic energy, $V_0$ potential, $E_0 = T_0 + V_0$, all measured in $S_0$.</li></ul>
+</article>
+<article class="fs-card fs-trap" id="mistakes-that-cost-the-most-marks">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Mistakes that cost the most marks</span></h3>
+<ul><li>Differentiating a unit vector of a moving basis as if it were constant: $\dot{\mathbf e}_R = \dot\theta\,\mathbf e_\theta \neq \mathbf 0$.</li><li>A sign in $[{}_0R_1]$ guessed instead of deduced: draw the view along the rotation axis and apply the right-hand rule.</li><li>Writing a reaction with a tangent component on a smooth constraint (it has none), or forgetting that friction is applied force when sliding.</li><li>Adding inertia forces when working in the inertial frame $S_0$ (they exist only in the equation written in $S_1$).</li><li>Missing the factor 2 of Coriolis, or the minus sign of the centripetal term $-R\dot\theta^2\mathbf e_R$.</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="topic-1-fundamentals-and-particle-kinematics" aria-labelledby="topic-1-fundamentals-and-particle-kinematics-title">
+<h2 class="fs-unit-title" id="topic-1-fundamentals-and-particle-kinematics-title">Topic 1 — Fundamentals and particle kinematics</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-1.html">Theory</a> · <a href="../problemas/topic-1.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-theorem" id="rotation-matrices">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Rotation matrices</span></h3>
+<ul><li><strong>Orthogonal, proper:</strong> $[{}_1R_0] = [{}_0R_1]^{-1} = [{}_0R_1]^T$, $\det[{}_0R_1] = +1$ [Notes Eqs. 1.14–1.15].</li><li><strong>Composition:</strong> $[{}_0R_2] = [{}_0R_1][{}_1R_2]$, not commutative [Notes Eq. 1.16].</li><li><strong>Axis and angle:</strong> eigenvalues $1, e^{\pm i\beta}$; the axis is the eigenvector of $\lambda = 1$ and $\operatorname{tr}R = 1 + 2\cos\beta$ [Slide 6].</li></ul>
+<div class="fs-eq">$$[{}_0R_1(z,\theta)] = \begin{pmatrix}\cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}$$</div>
+<p>About $x$: rows $(1,0,0)$, $(0,\cos,-\sin)$, $(0,\sin,\cos)$. About $y$: rows $(\cos,0,\sin)$, $(0,1,0)$, $(-\sin,0,\cos)$: the minus moves to the lower row because $\mathbf k \times \mathbf i = \mathbf j$ [Notes Eqs. 1.18–1.20].</p>
+</article>
+<article class="fs-card fs-derivation" id="building-from-a-drawing">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Building $[{}_0R_1]$ from a drawing</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> write each new unit vector in the old basis using the right triangle of the rotation angle; those components are the columns.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">rotation $\theta$ about $\mathbf k_0$ (⊙, out of the paper)</div><div class="fs-why">the view along the axis shows $\mathbf i_0$, $\mathbf j_0$ in the plane; positive $\theta$ is counterclockwise</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf i_1 = \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0$</div><div class="fs-why">unit hypotenuse: adjacent side $\cos\theta$ on $\mathbf i_0$, opposite side $\sin\theta$ on $\mathbf j_0$</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf j_1 = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0$</div><div class="fs-why">$\mathbf j_1$ is $\mathbf i_1$ turned $90°$ more: its $\mathbf i_0$ component points backwards</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf k_1 = \mathbf k_0$</div><div class="fs-why">the axis of rotation does not move</div></div><div class="fs-step"><div class="fs-step-math">check $\det = \cos^2\theta + \sin^2\theta = 1$</div><div class="fs-why">a right-handed orthonormal basis</div></div></div>
+<p>If the axis points into the paper (⊗) in the view drawn, the positive angle is clockwise there and the signs of the $\sin$ terms swap.</p>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="cylindrical-coordinates">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Cylindrical coordinates</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> the polar unit vectors rotate with $\theta$, $\dot{\mathbf e}_R = \dot\theta\,\mathbf e_\theta$ and $\dot{\mathbf e}_\theta = -\dot\theta\,\mathbf e_R$, and the product rule does the rest.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\mathbf e_R = \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0,\ \mathbf e_\theta = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0$</div><div class="fs-why">$\mathbf e_R$ along $OP$ projected on $Oxy$; $\mathbf e_\theta$ at $+90°$</div></div><div class="fs-step"><div class="fs-step-math">$\dot{\mathbf e}_R = \dot\theta(-\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0) = \dot\theta\,\mathbf e_\theta$</div><div class="fs-why">chain rule: $\frac{d}{dt}\cos\theta = -\sin\theta\,\dot\theta$</div></div><div class="fs-step"><div class="fs-step-math">$\dot{\mathbf e}_\theta = -\dot\theta\,\mathbf e_R$</div><div class="fs-why">same calculation</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf r = R\,\mathbf e_R + z\,\mathbf k_0 \Rightarrow \mathbf v = \dot R\,\mathbf e_R + R\dot\theta\,\mathbf e_\theta + \dot z\,\mathbf k_0$</div><div class="fs-why">product rule on $R\,\mathbf e_R$</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf a = (\ddot R - R\dot\theta^2)\,\mathbf e_R + (R\ddot\theta + 2\dot R\dot\theta)\,\mathbf e_\theta + \ddot z\,\mathbf k_0$</div><div class="fs-why">differentiate again; $\dot R\dot\theta$ appears twice</div></div></div>
+<p>$-R\dot\theta^2$ is the centripetal term; $2\dot R\dot\theta$ vanishes if the radius or the angle is constant. Also $R\ddot\theta + 2\dot R\dot\theta = \frac1R\frac{d}{dt}(R^2\dot\theta)$.</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="spherical-coordinates-latitude">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Spherical coordinates (latitude $\phi$)</span></h3>
+<p>$x = r\cos\phi\cos\theta$, $y = r\cos\phi\sin\theta$, $z = r\sin\phi$, with $\theta$ the azimuth in $Oxy$ and $\phi \in [-\pi/2, \pi/2]$ measured up from the equator.</p>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Quantity</th><th>Expression</th></tr></thead><tbody><tr><td>basis rates</td><td>$\dot{\mathbf e}_r = \dot\theta\cos\phi\,\mathbf e_\theta + \dot\phi\,\mathbf e_\phi$; $\dot{\mathbf e}_\theta = -\dot\theta\cos\phi\,\mathbf e_r + \dot\theta\sin\phi\,\mathbf e_\phi$; $\dot{\mathbf e}_\phi = -\dot\phi\,\mathbf e_r - \dot\theta\sin\phi\,\mathbf e_\theta$</td></tr><tr><td>velocity</td><td>$\dot r\,\mathbf e_r + r\dot\theta\cos\phi\,\mathbf e_\theta + r\dot\phi\,\mathbf e_\phi$</td></tr><tr><td>$a_r$</td><td>$\ddot r - r\dot\phi^2 - r\dot\theta^2\cos^2\phi$</td></tr><tr><td>$a_\theta$</td><td>$2\dot r\dot\theta\cos\phi + r\ddot\theta\cos\phi - 2r\dot\theta\dot\phi\sin\phi$</td></tr><tr><td>$a_\phi$</td><td>$2\dot r\dot\phi + r\ddot\phi + r\dot\theta^2\sin\phi\cos\phi$</td></tr></tbody></table></div>
+<p><strong>Trap:</strong> with the colatitude convention ($\phi$ measured from $+z$) every $\cos\phi$ becomes $\sin\phi$; check which angle the statement uses.</p>
+</article>
+<article class="fs-card fs-derivation" id="intrinsic-frenet-acceleration">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Intrinsic (Frenet) acceleration</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> $\mathbf v = \dot s\,\mathbf e_t$; differentiating, the turning of $\mathbf e_t$ gives the normal term $\dot s^2/\rho$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\mathbf v = \dfrac{d\mathbf r}{ds}\dfrac{ds}{dt} = \dot s\,\mathbf e_t$</div><div class="fs-why">chain rule; $d\mathbf r/ds$ is the unit tangent</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf a = \ddot s\,\mathbf e_t + \dot s\,\dfrac{d\mathbf e_t}{ds}\dfrac{ds}{dt}$</div><div class="fs-why">product rule, then chain rule on $\mathbf e_t(s(t))$</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{d\mathbf e_t}{ds} = \dfrac{1}{\rho}\,\mathbf e_n$</div><div class="fs-why">first Frenet formula: definition of curvature $\kappa = 1/\rho$</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf a = \ddot s\,\mathbf e_t + \dfrac{\dot s^2}{\rho}\,\mathbf e_n$</div><div class="fs-why">$a_b = 0$: $\mathbf v$ and $\mathbf a$ lie in the osculating plane</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf v \times \mathbf a = \dfrac{\dot s^3}{\rho}\,\mathbf e_b \Rightarrow \kappa = \dfrac{\lVert\mathbf v \times \mathbf a\rVert}{v^3}$</div><div class="fs-why">$\mathbf e_t \times \mathbf e_t = \mathbf 0$, $\mathbf e_t \times \mathbf e_n = \mathbf e_b$</div></div></div>
+<p>Then $\mathbf e_t = \mathbf v/v$, $\mathbf e_b = \mathbf v \times \mathbf a/\lVert\mathbf v \times \mathbf a\rVert$, $\mathbf e_n = \mathbf e_b \times \mathbf e_t$, $a_t = \dot v = \mathbf a\cdot\mathbf e_t$, $a_n = \sqrt{a^2 - a_t^2}$. Centre of curvature: $\mathbf r_C = \mathbf r + \rho\,\mathbf e_n$.</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="frenet-serret-formulas">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Frenet-Serret formulas</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Formula</th><th>Meaning</th></tr></thead><tbody><tr><td>$\dfrac{d\mathbf e_t}{ds} = \kappa\,\mathbf e_n$</td><td>the tangent turns towards the centre of curvature</td></tr><tr><td>$\dfrac{d\mathbf e_n}{ds} = -\kappa\,\mathbf e_t + \tau\,\mathbf e_b$</td><td>the normal turns in the osculating plane and leaves it with the torsion</td></tr><tr><td>$\dfrac{d\mathbf e_b}{ds} = -\tau\,\mathbf e_n$</td><td>a plane curve has $\tau = 0$ and a fixed binormal</td></tr><tr><td>$\tau = \dfrac{(\mathbf v \times \mathbf a)\cdot\dot{\mathbf a}}{\lVert\mathbf v \times \mathbf a\rVert^2}$</td><td>torsion from time derivatives</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-trap" id="intrinsic-kinematics">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Intrinsic kinematics</span></h3>
+<ul><li>$v_n = v_b = 0$ always; $a_b = 0$ always.</li><li>$a_t = 0$ means constant speed, not zero acceleration (uniform circular motion has $a_n = v^2/\rho$).</li><li>Arc length: $s(t) = \int_{t_0}^{t}\lVert\mathbf v(\tau)\rVert\,d\tau$; for a helix $v$ is constant and $s = vt$.</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="topic-2-point-particle-dynamics" aria-labelledby="topic-2-point-particle-dynamics-title">
+<h2 class="fs-unit-title" id="topic-2-point-particle-dynamics-title">Topic 2 — Point particle dynamics</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-2.html">Theory</a> · <a href="../problemas/topic-2.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-theorem" id="newton-s-laws-and-momentum">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Newton's laws and momentum</span></h3>
+<ul><li><strong>Second law</strong> in an inertial frame: $\mathbf F = \left.\dfrac{d\mathbf p_0}{dt}\right|_0 = m\,\mathbf a_0^P$, $\mathbf p_0 = m\,\mathbf v_0^P$ [Slides 4–6].</li><li><strong>Projected</strong> on any basis: Cartesian $m\ddot x = F_x$; cylindrical $m(\ddot R - R\dot\theta^2) = F_R$, $m(R\ddot\theta + 2\dot R\dot\theta) = F_\theta$, $m\ddot z = F_z$ [Slide 9].</li><li><strong>State form:</strong> with $\mathbf v = \dot{\mathbf r}$, six first-order equations and six initial conditions $\mathbf r(0)$, $\mathbf v(0)$ [Slide 10].</li><li><strong>Isolated system:</strong> $\sum\mathbf F^{ext} = \mathbf 0 \Rightarrow \sum m_i\mathbf v_i = $ const [Slides 7–8].</li></ul>
+</article>
+<article class="fs-card fs-derivation" id="kinetic-energy-theorem">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Kinetic energy theorem</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> dot Newton's law with $\mathbf v$: $m\,\mathbf a\cdot\mathbf v = \frac{d}{dt}(\tfrac12mv^2)$, so power equals the rate of change of kinetic energy.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$m\,\mathbf a\cdot\mathbf v = \mathbf F\cdot\mathbf v$</div><div class="fs-why">dot product of $m\mathbf a = \mathbf F$ with $\mathbf v$</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{d}{dt}\big(\tfrac12m\,\mathbf v\cdot\mathbf v\big) = m\,\dot{\mathbf v}\cdot\mathbf v$</div><div class="fs-why">product rule; the dot product is symmetric</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{dT_0}{dt} = P = \mathbf F\cdot\mathbf v_0^P$</div><div class="fs-why">power of the force [Slide 13]</div></div><div class="fs-step"><div class="fs-step-math">$T_0(t_2) - T_0(t_1) = \int_{t_1}^{t_2}P\,dt = \int_{\mathbf r_1}^{\mathbf r_2}\mathbf F\cdot d\mathbf r = W_{12}$</div><div class="fs-why">integrate with Barrow's rule; $\mathbf v\,dt = d\mathbf r$</div></div></div>
+<p>A force normal to the velocity (a smooth fixed constraint, the Coriolis force) does no work.</p>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="potential-energy-and-energy-conservation">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Potential energy and energy conservation</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> if $\mathbf F = -\nabla V_0$, then $\mathbf F\cdot\mathbf v = -\frac{dV_0}{dt}$, so $T_0 + V_0$ is constant when only conservative forces work.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dfrac{d}{dt}V_0(\mathbf r(t)) = \nabla V_0\cdot\dot{\mathbf r}$</div><div class="fs-why">chain rule in three variables</div></div><div class="fs-step"><div class="fs-step-math">$P = \mathbf F\cdot\mathbf v = -\nabla V_0\cdot\mathbf v = -\dfrac{dV_0}{dt}$</div><div class="fs-why">definition of potential</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{d}{dt}(T_0 + V_0) = P_{NC}$</div><div class="fs-why">add the kinetic energy theorem; only non-conservative forces remain</div></div><div class="fs-step"><div class="fs-step-math">$E_0 = T_0 + V_0 = $ const if $P_{NC} = 0$</div><div class="fs-why">non-conservative forces absent or normal to $\mathbf v$ [Slides 19–20]</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="potentials-of-the-course">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Potentials of the course</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Force</th><th>Potential $V_0$</th></tr></thead><tbody><tr><td>uniform gravity $-mg\,\mathbf k_0$</td><td>$mgz$</td></tr><tr><td>linear spring, stiffness $k$, natural length $\ell_0$</td><td>$\tfrac12k(\ell - \ell_0)^2$</td></tr><tr><td>inverse square $-\dfrac{GMm}{r^2}\mathbf e_r$</td><td>$-\dfrac{GMm}{r}$</td></tr><tr><td>central $F(r)\,\mathbf e_r$</td><td>$V_0(r) = -\int F(r)\,dr$</td></tr><tr><td>$aR\,\mathbf e_R$ (Slide 17)</td><td>$-\tfrac12aR^2$</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-pattern" id="is-the-force-conservative">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Is the force conservative?</span></h3>
+<ul><li>Cartesian test: $\nabla \times \mathbf F = \mathbf 0$ on a simply connected domain, equivalently $\oint\mathbf F\cdot d\mathbf r = 0$ [Slides 14–16].</li><li>Plane polar test for $\mathbf F = F_R\,\mathbf e_R + F_\theta\,\mathbf e_\theta$: $\dfrac{\partial(RF_\theta)}{\partial R} - \dfrac{\partial F_R}{\partial\theta} = 0$.</li><li>Slide 18: $\mathbf F = bR^2\,\mathbf e_\theta$ gives $\partial_R(bR^3) = 3bR^2 \neq 0$: not conservative (a full turn does work $2\pi bR^3$).</li><li>Friction, drag and any force that depends on the velocity are not conservative.</li></ul>
+</article>
+<article class="fs-card fs-derivation" id="one-dimensional-motion-from-the-energy">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">One-dimensional motion from the energy</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> $\tfrac12m\dot x^2 + V_0(x) = E_0$ gives the speed at each $x$, the allowed regions and, by separation, the time.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\ddot x = \dfrac{d\dot x}{dt} = \dfrac{d\dot x}{dx}\dfrac{dx}{dt} = \dot x\dfrac{d\dot x}{dx} = \dfrac{d}{dx}\big(\tfrac12\dot x^2\big)$</div><div class="fs-why">chain rule: the standard trick to integrate $m\ddot x = F(x)$ once</div></div><div class="fs-step"><div class="fs-step-math">$\tfrac12m\dot x^2 = \int F\,dx = -V_0(x) + E_0$</div><div class="fs-why">integrate in $x$; the constant is the energy</div></div><div class="fs-step"><div class="fs-step-math">$v(x) = \sqrt{2(E_0 - V_0(x))/m}$</div><div class="fs-why">real only where $E_0 \ge V_0(x)$ (allowed region)</div></div><div class="fs-step"><div class="fs-step-math">$t = \int_{x_0}^{x}\dfrac{dx'}{\sqrt{2(E_0 - V_0(x'))/m}}$</div><div class="fs-why">separable: $dt = dx/v$</div></div></div>
+<p>Turning points: $V_0(x) = E_0$. Between two turning points the motion is periodic.</p>
+</div></details>
+</article>
+<article class="fs-card fs-theorem" id="equilibrium-and-stability">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Equilibrium and stability</span></h3>
+<ul><li>Equilibrium: $F(x^*) = -V_0'(x^*) = 0$ [Slides 21–22].</li><li>Stable if $V_0''(x^*) &gt; 0$ (minimum), unstable if $V_0''(x^*) &lt; 0$ (maximum); if $V_0'' = 0$ look at higher derivatives.</li><li>Small oscillations about a minimum: $m\ddot\xi + V_0''(x^*)\,\xi = 0$, $\omega = \sqrt{V_0''(x^*)/m}$ (Taylor: $V_0'(x^* + \xi) \approx V_0''(x^*)\xi$).</li></ul>
+</article>
+<article class="fs-card fs-derivation" id="simple-pendulum">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Simple pendulum</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> in the polar basis of the rod, the transverse equation gives $\ddot\theta + (g/\ell)\sin\theta = 0$ and the radial one the tension $T = m(g\cos\theta + \ell\dot\theta^2)$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\mathbf r = \ell\,\mathbf e_r$, $\theta$ from the downward vertical</div><div class="fs-why">one degree of freedom; $\ell$ fixed by the rod</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf a = -\ell\dot\theta^2\,\mathbf e_r + \ell\ddot\theta\,\mathbf e_\theta$</div><div class="fs-why">cylindrical formulas with $\dot R = \ddot R = 0$</div></div><div class="fs-step"><div class="fs-step-math">$m\mathbf g = mg\cos\theta\,\mathbf e_r - mg\sin\theta\,\mathbf e_\theta$</div><div class="fs-why">gravity is adjacent to $\theta$ along the rod, opposite across it, and pulls back towards $\theta = 0$</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf e_\theta$: $m\ell\ddot\theta = -mg\sin\theta$</div><div class="fs-why">the tension $-T\,\mathbf e_r$ has no transverse component</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf e_r$: $-m\ell\dot\theta^2 = mg\cos\theta - T$</div><div class="fs-why">gives the tension (a reaction)</div></div><div class="fs-step"><div class="fs-step-math">$E_0 = \tfrac12m\ell^2\dot\theta^2 + mg\ell(1 - \cos\theta)$</div><div class="fs-why">first integral: multiply the $\mathbf e_\theta$ equation by $\dot\theta$ and integrate</div></div></div>
+<p>Small angles: $\sin\theta \approx \theta$, $\omega_0 = \sqrt{g/\ell}$, period $2\pi\sqrt{\ell/g}$. Equilibria $\theta = 0$ (stable) and $\theta = \pi$ (unstable).</p>
+</div></details>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="topic-3-constraints-and-reaction-forces" aria-labelledby="topic-3-constraints-and-reaction-forces-title">
+<h2 class="fs-unit-title" id="topic-3-constraints-and-reaction-forces-title">Topic 3 — Constraints and reaction forces</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-3.html">Theory</a> · <a href="../problemas/topic-3.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-pattern" id="degrees-of-freedom-and-reactions">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Degrees of freedom and reactions</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Constraint</th><th>Equations</th><th>DOF</th><th>Normal space</th><th>Unknown reactions</th></tr></thead><tbody><tr><td>free particle</td><td>none</td><td>3</td><td>—</td><td>0</td></tr><tr><td>surface</td><td>$f(\mathbf r) = 0$</td><td>2</td><td>$\nabla f$</td><td>1</td></tr><tr><td>curve</td><td>$f = 0,\ g = 0$</td><td>1</td><td>$\nabla f$, $\nabla g$</td><td>2</td></tr></tbody></table></div>
+<p>Normal of a surface: $\nabla f$, or $\mathbf t_\alpha \times \mathbf t_\beta$ with $\mathbf t_\alpha = \partial\mathbf r/\partial\alpha$ from a parametrisation. Tangent of a curve: $d\mathbf r/d\alpha$, or $\nabla f \times \nabla g$ [Slides 7–12, Notes 6.3].</p>
+</article>
+<article class="fs-card fs-derivation" id="why-a-smooth-fixed-constraint-does-no-work">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Why a smooth fixed constraint does no work</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> differentiating $f(\mathbf r(t)) = 0$ shows $\mathbf v \perp \nabla f$; the reaction is along $\nabla f$, so $\mathbf N\cdot\mathbf v = 0$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dfrac{d}{dt}f(\mathbf r(t), t) = \nabla f\cdot\mathbf v + \dfrac{\partial f}{\partial t} = 0$</div><div class="fs-why">chain rule along the motion; the constraint holds at all times</div></div><div class="fs-step"><div class="fs-step-math">scleronomic, $\partial f/\partial t = 0$: $\nabla f\cdot\mathbf v = 0$</div><div class="fs-why">the velocity is tangent to the constraint</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf N = N_1\nabla f \Rightarrow P_N = \mathbf N\cdot\mathbf v = 0$</div><div class="fs-why">smooth constraint: the reaction lies in the normal space [Notes Eq. 6.12]</div></div><div class="fs-step"><div class="fs-step-math">rheonomic: $P_N = -N_1\,\partial f/\partial t \neq 0$</div><div class="fs-why">a moving constraint can do work (spool, Slide 22)</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-algorithm" id="dynamical-decoupling">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Dynamical decoupling</span></h3>
+<ol><li>Write $m\,\mathbf a_0^P = \mathbf F_{applied} + \mathbf N$ with $\mathbf N = N_1\mathbf n$ (surface) or $N_1\mathbf n_f + N_2\mathbf n_g$ (curve) [Slide 13].</li><li>Project on the <strong>tangent</strong> vectors: $\mathbf N$ disappears and the equations of motion of the free coordinates remain [Slide 14].</li><li>Project on the <strong>normal</strong> vectors: each projection gives one reaction once the motion is known.</li><li>Along a curve use the intrinsic frame: $F_t = m\ddot s$, $F_n + N_n = m\dot s^2/\rho$, $F_b + N_b = 0$ [Notes Eqs. 6.17–6.19].</li><li>Conservative applied forces and fixed smooth constraints: use $E_0 = $ const as a first integral to get $\dot s^2$ (or $\dot\theta^2$) in the normal equation.</li></ol>
+</article>
+<article class="fs-card fs-pattern" id="coulomb-friction">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Coulomb friction</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Regime</th><th>Friction force</th><th>Power</th></tr></thead><tbody><tr><td>sliding, $\mathbf v^* \neq \mathbf 0$</td><td>applied force $\mathbf F_R = -\mu N\,\dfrac{\mathbf v^*}{\lVert\mathbf v^*\rVert}$</td><td>$-\mu Nv^* &lt; 0$</td></tr><tr><td>sticking, $\mathbf v^* = \mathbf 0$</td><td>constraint force in the tangent space, $\lVert\mathbf F_R\rVert \le \mu N$</td><td>$0$</td></tr></tbody></table></div>
+<p>$\mathbf v^*$ is the velocity relative to the surface and $N$ the magnitude of the normal reaction. Switch to sliding when the tangential force needed to stay at rest exceeds $\mu N$; switch back to rest when $\mathbf v^* = \mathbf 0$ and the applied tangential force is at most $\mu N$ [Slides 18–19, Notes 6.6].</p>
+</article>
+<article class="fs-card fs-derivation" id="atwood-machine">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Atwood machine</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> the inextensible string gives $\ddot x_2 = -\ddot x_1$; subtracting the two equations of motion eliminates the tension.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$x_1 + x_2 = $ const $\Rightarrow \ddot x_2 = -\ddot x_1$</div><div class="fs-why">string length fixed, $x_i$ measured downwards, ideal pulley</div></div><div class="fs-step"><div class="fs-step-math">$m_1\ddot x_1 = m_1g - T,\ m_2\ddot x_2 = m_2g - T$</div><div class="fs-why">same tension on both sides of a massless frictionless pulley</div></div><div class="fs-step"><div class="fs-step-math">$(m_1 + m_2)\ddot x_1 = (m_1 - m_2)g$</div><div class="fs-why">subtract the second equation from the first</div></div><div class="fs-step"><div class="fs-step-math">$T = \dfrac{2m_1m_2}{m_1 + m_2}\,g$</div><div class="fs-why">back into the first equation</div></div></div>
+<p>Checks: $m_1 = m_2$ gives rest or uniform motion and $T = m_1g$; $m_2 = 0$ gives free fall.</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="classification-of-constraints">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Classification of constraints</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Type</th><th>Form</th><th>Consequence</th></tr></thead><tbody><tr><td>holonomic</td><td>$f(\mathbf r, t) = 0$</td><td>removes one coordinate</td></tr><tr><td>non-holonomic</td><td>$\sum A_i\dot x_i + B = 0$, not integrable</td><td>removes a velocity, not a coordinate</td></tr><tr><td>scleronomic</td><td>$\partial f/\partial t = 0$</td><td>no work if smooth</td></tr><tr><td>rheonomic</td><td>$\partial f/\partial t \neq 0$</td><td>the reaction can do work</td></tr><tr><td>unilateral</td><td>$f \ge 0$, $N \ge 0$</td><td>the particle leaves the constraint when $N = 0$</td></tr></tbody></table></div>
+<p><strong>Trap:</strong> for a unilateral contact (a bead on the outside of a sphere, an aircraft on the runway) compute $N$ as a function of the position and find where it reaches zero; beyond that point the equations with $N$ are no longer valid.</p>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="topic-4-angular-momentum-and-central-forces" aria-labelledby="topic-4-angular-momentum-and-central-forces-title">
+<h2 class="fs-unit-title" id="topic-4-angular-momentum-and-central-forces-title">Topic 4 — Angular momentum and central forces</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-4.html">Theory</a> · <a href="../problemas/topic-4.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-derivation" id="angular-momentum-about-a-moving-point">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Angular momentum about a moving point</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> differentiating $\mathbf H_{A0}^P = \overrightarrow{AP} \times m\mathbf v_0^P$ gives $\dot{\mathbf H}_{A0} = \mathbf M_A - \mathbf v_0^A \times m\mathbf v_0^P$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\mathbf H_{A0}^P = (\mathbf r_0^P - \mathbf r_0^A) \times m\,\mathbf v_0^P$</div><div class="fs-why">definition [Slide 3, Notes 4.8]</div></div><div class="fs-step"><div class="fs-step-math">$\dot{\mathbf H}_{A0}^P = (\mathbf v_0^P - \mathbf v_0^A) \times m\mathbf v_0^P + \overrightarrow{AP} \times m\,\mathbf a_0^P$</div><div class="fs-why">product rule for the cross product (order kept)</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf v_0^P \times m\mathbf v_0^P = \mathbf 0$</div><div class="fs-why">parallel vectors</div></div><div class="fs-step"><div class="fs-step-math">$\overrightarrow{AP} \times m\mathbf a_0^P = \overrightarrow{AP} \times \mathbf F = \mathbf M_A$</div><div class="fs-why">Newton's second law</div></div><div class="fs-step"><div class="fs-step-math">$\dot{\mathbf H}_{A0}^P = \mathbf M_A - \mathbf v_0^A \times m\,\mathbf v_0^P$</div><div class="fs-why">the extra term vanishes if $A$ is fixed or $\mathbf v_0^A \parallel \mathbf v_0^P$ [Slide 4]</div></div></div>
+<p>Conservation: $\mathbf M_A = \mathbf 0$ about a fixed point $\Rightarrow \mathbf H_{A0} = $ const (three scalar first integrals).</p>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="central-forces-planar-motion-and-kepler-s-second-law">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Central forces: planar motion and Kepler's second law</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> $\mathbf M_O = \mathbf r \times F(r)\mathbf e_r = \mathbf 0$, so $\mathbf H_O$ is constant, the motion is planar and $h = r^2\dot\theta$ is constant.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\mathbf r \times F(r)\,\mathbf e_r = \mathbf 0$</div><div class="fs-why">$\mathbf r$ and $\mathbf e_r$ are parallel</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf H_O = $ const, $\mathbf r \perp \mathbf H_O$</div><div class="fs-why">$\mathbf H_O = \mathbf r \times m\mathbf v$ is normal to $\mathbf r$: $\mathbf r$ stays in a fixed plane</div></div><div class="fs-step"><div class="fs-step-math">$m(r\ddot\theta + 2\dot r\dot\theta) = 0$</div><div class="fs-why">transverse equation: a central force has no $\mathbf e_\theta$ component</div></div><div class="fs-step"><div class="fs-step-math">$r\ddot\theta + 2\dot r\dot\theta = \dfrac1r\dfrac{d}{dt}(r^2\dot\theta) = 0$</div><div class="fs-why">product rule backwards</div></div><div class="fs-step"><div class="fs-step-math">$h = r^2\dot\theta = $ const, $\dfrac{dA}{dt} = \tfrac12r^2\dot\theta = \dfrac h2$</div><div class="fs-why">the area swept in $dt$ is the triangle $\tfrac12r\cdot r\,d\theta$ [Slide 12]</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="binet-s-equation">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Binet's equation</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> with $u = 1/r$ and $d/dt = hu^2\,d/d\theta$, the radial equation becomes $u'' + u = -F/(mh^2u^2)$; for gravity $u'' + u = \mu/h^2$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dot\theta = hu^2$</div><div class="fs-why">$h = r^2\dot\theta$ with $r = 1/u$</div></div><div class="fs-step"><div class="fs-step-math">$\dot r = -\dfrac{\dot u}{u^2} = -\dfrac{u'\dot\theta}{u^2} = -h\,u'$</div><div class="fs-why">chain rule twice; $' = d/d\theta$</div></div><div class="fs-step"><div class="fs-step-math">$\ddot r = -h\,u''\,\dot\theta = -h^2u^2u''$</div><div class="fs-why">$h$ is constant</div></div><div class="fs-step"><div class="fs-step-math">$m(\ddot r - r\dot\theta^2) = F$ with $r\dot\theta^2 = h^2u^3$</div><div class="fs-why">radial equation [Slide 13, Notes 8.4]</div></div><div class="fs-step"><div class="fs-step-math">$u'' + u = -\dfrac{F(1/u)}{mh^2u^2}$</div><div class="fs-why">divide by $-mh^2u^2$</div></div><div class="fs-step"><div class="fs-step-math">$F = -\dfrac{\mu m}{r^2}$: $u = \dfrac{\mu}{h^2} + C\cos(\theta - \theta_0)$</div><div class="fs-why">constant forcing: particular solution plus harmonic part</div></div><div class="fs-step"><div class="fs-step-math">$r = \dfrac{p}{1 + e\cos(\theta - \theta_0)},\ p = \dfrac{h^2}{\mu},\ e = \dfrac{Ch^2}{\mu}$</div><div class="fs-why">a conic with focus at $O$ (Kepler's first law); periapsis at $\theta = \theta_0$</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="conics-and-energy">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Conics and energy</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Orbit</th><th>$e$</th><th>$a$</th><th>$\xi = \tfrac12v^2 - \mu/r$</th></tr></thead><tbody><tr><td>circle</td><td>$0$</td><td>$p$</td><td>$-\mu/(2a) &lt; 0$</td></tr><tr><td>ellipse</td><td>$0 &lt; e &lt; 1$</td><td>$p/(1 - e^2) &gt; 0$</td><td>$-\mu/(2a) &lt; 0$</td></tr><tr><td>parabola</td><td>$1$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>hyperbola</td><td>$e &gt; 1$</td><td>$&lt; 0$</td><td>$-\mu/(2a) &gt; 0$</td></tr></tbody></table></div>
+<p>Ellipse: $r_p = a(1 - e)$, $r_a = a(1 + e)$, $b = a\sqrt{1 - e^2}$, $p = a(1 - e^2) = b^2/a$, $h = \sqrt{\mu p}$, $v_p/v_a = r_a/r_p$.</p>
+</article>
+<article class="fs-card fs-derivation" id="vis-viva-and-kepler-s-third-law">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Vis-viva and Kepler's third law</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> evaluate $\xi$ at periapsis with $h = r_pv_p$ to get $\xi = -\mu/(2a)$; the area rate $h/2$ gives the period $\tau = 2\pi\sqrt{a^3/\mu}$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$v_p = h/r_p,\ r_p = \dfrac{p}{1 + e},\ h^2 = \mu p$</div><div class="fs-why">at periapsis $\dot r = 0$, so $v = r\dot\theta = h/r$</div></div><div class="fs-step"><div class="fs-step-math">$\xi = \dfrac{\mu(1 + e)^2}{2p} - \dfrac{\mu(1 + e)}{p} = -\dfrac{\mu(1 - e^2)}{2p}$</div><div class="fs-why">substitute and factor $\mu(1 + e)/(2p)$</div></div><div class="fs-step"><div class="fs-step-math">$\xi = -\dfrac{\mu}{2a} \Rightarrow v^2 = \mu\Big(\dfrac2r - \dfrac1a\Big)$</div><div class="fs-why">$p = a(1 - e^2)$; vis-viva [Notes Eq. 8.19]</div></div><div class="fs-step"><div class="fs-step-math">$\tau = \dfrac{\pi ab}{h/2} = \dfrac{2\pi ab}{\sqrt{\mu a(1 - e^2)}} = 2\pi\sqrt{\dfrac{a^3}{\mu}}$</div><div class="fs-why">ellipse area over areal velocity; $b = a\sqrt{1 - e^2}$ [Notes Eqs. 8.16–8.18]</div></div></div>
+<p>Circular speed $v_c = \sqrt{\mu/r}$, escape speed $v_e = \sqrt{2\mu/r} = \sqrt2\,v_c$ [Notes Eqs. 8.20–8.21].</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="two-body-reduction">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Two-body reduction</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Quantity</th><th>Formula</th></tr></thead><tbody><tr><td>barycentre</td><td>$\mathbf r_G = \dfrac{m_P\mathbf r_P + m_S\mathbf r_S}{m_P + m_S}$, $\ddot{\mathbf r}_G = \mathbf 0$</td></tr><tr><td>relative vector</td><td>$\mathbf r = \mathbf r_P - \mathbf r_S$, $\ddot{\mathbf r} = -\dfrac{\mu}{r^3}\mathbf r$, $\mu = G(m_P + m_S)$</td></tr><tr><td>bodies about $G$</td><td>$\mathbf r_P - \mathbf r_G = \dfrac{m_S}{m_P + m_S}\mathbf r$, $\mathbf r_S - \mathbf r_G = -\dfrac{m_P}{m_P + m_S}\mathbf r$</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-pattern" id="effective-potential-in">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Effective potential in $u$</span></h3>
+<p>For any central force, $(u')^2 + W_{eff}(u) = 2\xi/h^2$ with $W_{eff}(u) = u^2 + 2V_0(1/u)/h^2$ ($V_0$ per unit mass). Motion only where $W_{eff} \le 2\xi/h^2$; the roots give $r_{min}$ and $r_{max}$. For gravity, $W_{eff} = u^2 - 2\mu u/h^2$.</p>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="topic-5-relative-motion" aria-labelledby="topic-5-relative-motion-title">
+<h2 class="fs-unit-title" id="topic-5-relative-motion-title">Topic 5 — Relative motion</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-5.html">Theory</a> · <a href="../problemas/topic-5.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-derivation" id="the-coriolis-theorem">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">The Coriolis theorem</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> write $\mathbf b$ in the moving basis; the derivative of each moving unit vector seen from $S_0$ is $\boldsymbol\omega_{10} \times$ that vector.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\mathbf b = b_x\mathbf i_1 + b_y\mathbf j_1 + b_z\mathbf k_1$</div><div class="fs-why">components in $\mathcal B_1$</div></div><div class="fs-step"><div class="fs-step-math">$\left.\dfrac{d\mathbf b}{dt}\right\rvert_0 = (\dot b_x\mathbf i_1 + \dot b_y\mathbf j_1 + \dot b_z\mathbf k_1) + b_x\dot{\mathbf i}_1 + b_y\dot{\mathbf j}_1 + b_z\dot{\mathbf k}_1$</div><div class="fs-why">product rule; seen from $S_0$ the unit vectors move</div></div><div class="fs-step"><div class="fs-step-math">$\left.\dfrac{d\mathbf i_1}{dt}\right\rvert_0 = \boldsymbol\omega_{10} \times \mathbf i_1$ (same for $\mathbf j_1$, $\mathbf k_1$)</div><div class="fs-why">Poisson: a unit vector only rotates [Notes Eqs. 3.3–3.5, Slide 14]</div></div><div class="fs-step"><div class="fs-step-math">$\left.\dfrac{d\mathbf b}{dt}\right\rvert_0 = \left.\dfrac{d\mathbf b}{dt}\right\rvert_1 + \boldsymbol\omega_{10} \times \mathbf b$</div><div class="fs-why">the bracket is the derivative seen from $S_1$ [Notes Eq. 3.8]</div></div></div>
+<p>Consequence: $\boldsymbol\alpha_{10} = \dot{\boldsymbol\omega}_{10}\rvert_0 = \dot{\boldsymbol\omega}_{10}\rvert_1$ because $\boldsymbol\omega_{10} \times \boldsymbol\omega_{10} = \mathbf 0$ [Notes Eq. 3.9].</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="composition-of-angular-motions">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Composition of angular motions</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Result</th><th>Formula</th></tr></thead><tbody><tr><td>velocities add</td><td>$\boldsymbol\omega_{20} = \boldsymbol\omega_{21} + \boldsymbol\omega_{10}$ [Notes Eq. 3.14]</td></tr><tr><td>accelerations do not</td><td>$\boldsymbol\alpha_{20} = \boldsymbol\alpha_{21} + \boldsymbol\omega_{10} \times \boldsymbol\omega_{21} + \boldsymbol\alpha_{10}$ [Notes Eq. 3.15]</td></tr><tr><td>inverse</td><td>$\boldsymbol\omega_{01} = -\boldsymbol\omega_{10}$, $\boldsymbol\alpha_{01} = -\boldsymbol\alpha_{10}$</td></tr><tr><td>simple rotation</td><td>$\psi(t)$ about $\mathbf k_0$: $\boldsymbol\omega_{10} = \dot\psi\,\mathbf k_0$ [Slide 16]</td></tr><tr><td>Euler 3-1-3</td><td>$\boldsymbol\omega_{30} = \dot\psi\,\mathbf k_0 + \dot\theta\,\mathbf i_1 + \dot\varphi\,\mathbf k_2$ [Slides 20–21]</td></tr></tbody></table></div>
+<p>The $\boldsymbol\omega_{10} \times \boldsymbol\omega_{21}$ term comes from differentiating $\boldsymbol\omega_{21}$ (known in $S_1$) from $S_0$ with the Coriolis theorem.</p>
+</article>
+<article class="fs-card fs-derivation" id="relative-velocity-and-acceleration">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Relative velocity and acceleration</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> differentiate $\mathbf r_0^P = \mathbf r_0^A + \mathbf r_1^P$ twice in $S_0$, applying the Coriolis theorem to every vector known in $S_1$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\mathbf r_0^P = \mathbf r_0^A + \mathbf r_1^P$</div><div class="fs-why">vector chain $\overrightarrow{OA} + \overrightarrow{AP}$ [Notes Eq. 3.16]</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf v_0^P = \mathbf v_0^A + \mathbf v_1^P + \boldsymbol\omega_{10} \times \mathbf r_1^P$</div><div class="fs-why">Coriolis theorem on $\mathbf r_1^P$ [Notes Eq. 3.26]</div></div><div class="fs-step"><div class="fs-step-math">$\left.\dfrac{d\mathbf v_1^P}{dt}\right\rvert_0 = \mathbf a_1^P + \boldsymbol\omega_{10} \times \mathbf v_1^P$</div><div class="fs-why">Coriolis theorem on $\mathbf v_1^P$</div></div><div class="fs-step"><div class="fs-step-math">$\left.\dfrac{d}{dt}(\boldsymbol\omega_{10} \times \mathbf r_1^P)\right\rvert_0 = \boldsymbol\alpha_{10} \times \mathbf r_1^P + \boldsymbol\omega_{10} \times (\mathbf v_1^P + \boldsymbol\omega_{10} \times \mathbf r_1^P)$</div><div class="fs-why">product rule, then Coriolis on $\mathbf r_1^P$</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf a_0^P = \mathbf a_0^A + \mathbf a_1^P + \boldsymbol\alpha_{10} \times \mathbf r_1^P + \boldsymbol\omega_{10} \times (\boldsymbol\omega_{10} \times \mathbf r_1^P) + 2\boldsymbol\omega_{10} \times \mathbf v_1^P$</div><div class="fs-why">the two $\boldsymbol\omega_{10} \times \mathbf v_1^P$ make the Coriolis term [Notes Eq. 3.27]</div></div></div>
+<p>Names: $\mathbf a_0^A$ origin, $\mathbf a_1^P$ relative, $\boldsymbol\alpha \times \mathbf r$ Euler, $\boldsymbol\omega \times (\boldsymbol\omega \times \mathbf r) = -\omega^2\mathbf r_\perp$ centripetal, $2\boldsymbol\omega \times \mathbf v_1^P$ Coriolis. Pure translation: $\mathbf a_0^P = \mathbf a_0^A + \mathbf a_1^P$.</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="inertia-forces-in-a-non-inertial-frame">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Inertia forces in a non-inertial frame</span></h3>
+<p>$m\,\mathbf a_1^P = \mathbf F + \mathbf F_i$ [Notes Eq. 4.63], with $\mathbf F_i = -m(\mathbf a_0^P - \mathbf a_1^P)$:</p>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Term</th><th>Force</th><th>Potential, work</th></tr></thead><tbody><tr><td>origin</td><td>$-m\,\mathbf a_0^A$</td><td>$V_1 = m\,\mathbf a_0^A\cdot\mathbf r_1^P$ if $\mathbf a_0^A$ is constant</td></tr><tr><td>Euler</td><td>$-m\,\boldsymbol\alpha_{10} \times \mathbf r_1^P$</td><td>no potential</td></tr><tr><td>centrifugal</td><td>$-m\,\boldsymbol\omega_{10} \times (\boldsymbol\omega_{10} \times \mathbf r_1^P) = m\omega^2\mathbf r_\perp$</td><td>$V_1 = -\tfrac12m\omega^2r_\perp^2$ if $\boldsymbol\omega_{10}$ is constant</td></tr><tr><td>Coriolis</td><td>$-2m\,\boldsymbol\omega_{10} \times \mathbf v_1^P$</td><td>never works: $\perp \mathbf v_1^P$</td></tr></tbody></table></div>
+<p>$\mathbf r_\perp$ is the component of $\mathbf r_1^P$ perpendicular to the rotation axis through $A$. Energy in $S_1$: $E_1 = \tfrac12m(v_1^P)^2 + V - \tfrac12m\omega^2r_\perp^2$ is conserved if $\mathbf a_0^A = \mathbf 0$, $\boldsymbol\omega_{10}$ constant, actual forces conservative and constraints fixed in $S_1$ [Slide 29].</p>
+</article>
+<article class="fs-card fs-algorithm" id="relative-motion-problem">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Relative-motion problem</span></h3>
+<ol><li>Choose $S_1$ attached to the moving body (tube, disc, platform) so that the particle's motion in $S_1$ is simple.</li><li>Write $\boldsymbol\omega_{10}$, $\boldsymbol\alpha_{10}$, $\mathbf a_0^A$ in $\mathcal B_1$; deduce $[{}_0R_1]$ from the drawing.</li><li>Relative kinematics: $\mathbf r_1^P$, $\mathbf v_1^P$, $\mathbf a_1^P$ in $\mathcal B_1$.</li><li>Either absolute route ($m\mathbf a_0^P = \mathbf F$ with the composition formula) or relative route ($m\mathbf a_1^P = \mathbf F + \mathbf F_i$): both give the same equations.</li><li>Project: the directions free for the particle give its equation of motion; the constrained directions give the reactions.</li><li>Checks: $\Omega = 0$ recovers the fixed-frame problem; units of every term m/s²; $E_1$ conserved if the conditions above hold.</li></ol>
+</article>
+<article class="fs-card fs-trap" id="relative-motion-traps">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Relative-motion traps</span></h3>
+<ul><li>$\mathbf v_1^P$ is the velocity seen from $S_1$, not the component of $\mathbf v_0^P$ in $\mathcal B_1$.</li><li>$\boldsymbol\alpha_{10} \neq \mathbf 0$ whenever the direction of $\boldsymbol\omega_{10}$ changes, even with constant magnitude.</li><li>The centrifugal force points away from the axis, not away from $A$.</li><li>Both routes at once: inertia forces belong only to the equation written in $S_1$.</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="pocket-prerequisites" aria-labelledby="pocket-prerequisites-title">
+<h2 class="fs-unit-title" id="pocket-prerequisites-title">Pocket prerequisites</h2>
+<p class="fs-unit-links"><a href="../teoria/index.html">Theory index</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-prereq" id="vector-algebra">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Vector algebra</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Identity</th><th>Use</th></tr></thead><tbody><tr><td>$\mathbf a \times (\mathbf b \times \mathbf c) = \mathbf b\,(\mathbf a\cdot\mathbf c) - \mathbf c\,(\mathbf a\cdot\mathbf b)$</td><td>centripetal term $\boldsymbol\omega \times (\boldsymbol\omega \times \mathbf r) = \boldsymbol\omega(\boldsymbol\omega\cdot\mathbf r) - \omega^2\mathbf r$</td></tr><tr><td>$\mathbf a \times \mathbf b = -\mathbf b \times \mathbf a$, $\mathbf a \times \mathbf a = \mathbf 0$</td><td>order in torques and Coriolis</td></tr><tr><td>$\mathbf i \times \mathbf j = \mathbf k,\ \mathbf j \times \mathbf k = \mathbf i,\ \mathbf k \times \mathbf i = \mathbf j$</td><td>cyclic order of a right-handed basis</td></tr><tr><td>$\mathbf a\cdot(\mathbf b \times \mathbf c) = \det[\mathbf a, \mathbf b, \mathbf c]$</td><td>torsion, volumes, coplanarity</td></tr><tr><td>$\dfrac{d}{dt}(\mathbf a \times \mathbf b) = \dot{\mathbf a} \times \mathbf b + \mathbf a \times \dot{\mathbf b}$</td><td>angular momentum, relative kinematics</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-prereq" id="calculus-tools">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Calculus tools</span></h3>
+<ul><li>Chain rule: $\dfrac{d}{dt}f(\theta(t)) = f'(\theta)\,\dot\theta$, so $\dfrac{d}{dt}\cos\theta = -\dot\theta\sin\theta$ and $\dfrac{d}{dt}(\dot\theta^2) = 2\dot\theta\ddot\theta$.</li><li>Integrating $\ddot\theta = g(\theta)$ once: $\ddot\theta = \dfrac{d}{d\theta}\big(\tfrac12\dot\theta^2\big)$, so $\tfrac12\dot\theta^2 - \tfrac12\dot\theta_0^2 = \int_{\theta_0}^{\theta}g(s)\,ds$.</li><li>Barrow's rule: $\int_a^b f(x)\,dx = F(b) - F(a)$; write the antiderivative before substituting the limits.</li><li>Small angles: $\sin\theta \approx \theta$, $\cos\theta \approx 1 - \theta^2/2$, $\tan\theta \approx \theta$.</li></ul>
+</article>
+<article class="fs-card fs-prereq" id="trigonometry">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Trigonometry</span></h3>
+<ul><li>$\cos(\theta - \pi/2) = \sin\theta$, $\sin(\theta - \pi/2) = -\cos\theta$: relating an angle from the vertical to the polar angle.</li><li>$\sin(a \pm b) = \sin a\cos b \pm \cos a\sin b$, $\cos(a \pm b) = \cos a\cos b \mp \sin a\sin b$.</li><li>$\cos^2\theta = \tfrac12(1 + \cos 2\theta)$, $\sin\theta\cos\theta = \tfrac12\sin 2\theta$.</li><li>In every right triangle: adjacent $=$ hypotenuse $\times\cos$, opposite $=$ hypotenuse $\times\sin$.</li></ul>
+</article>
+<article class="fs-card fs-prereq" id="units-and-dimensions">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Units and dimensions</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Quantity</th><th>SI unit</th></tr></thead><tbody><tr><td>force, $m\mathbf a$, $m\omega^2r$, $m\omega v$</td><td>$\mathrm{N = kg\,m\,s^{-2}}$</td></tr><tr><td>energy, work, $V_0$, $\tfrac12mv^2$</td><td>$\mathrm{J = N\,m}$</td></tr><tr><td>power $\mathbf F\cdot\mathbf v$</td><td>$\mathrm{W = J\,s^{-1}}$</td></tr><tr><td>angular momentum $\mathbf r \times m\mathbf v$; torque</td><td>$\mathrm{kg\,m^2\,s^{-1}}$; $\mathrm{N\,m}$</td></tr><tr><td>$h = r^2\dot\theta$; $\mu = GM$</td><td>$\mathrm{m^2\,s^{-1}}$; $\mathrm{m^3\,s^{-2}}$</td></tr><tr><td>$\omega$, $\alpha$, curvature $\kappa$</td><td>$\mathrm{s^{-1}}$, $\mathrm{s^{-2}}$, $\mathrm{m^{-1}}$</td></tr></tbody></table></div>
+</article>
+</div>
+</section>
+<!-- FORMULA-SHEET:END -->
+
+    <section style="max-width: 920px; margin: 48px auto 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    (function () {
+      var KEY = 'ae_formula_mode';
+      var NOTES = {
+        deep: 'All derivations open, with the reason for each step.',
+        compact: 'Derivations folded to one line; open any of them with a click.'
+      };
+      function apply(mode) {
+        document.documentElement.setAttribute('data-fs-mode', mode);
+        document.querySelectorAll('.fs-deriv').forEach(function (d) { d.open = mode === 'deep'; });
+        document.querySelectorAll('[data-fs-set]').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-fs-set') === mode));
+        });
+        var note = document.getElementById('fsModeNote');
+        if (note) note.textContent = NOTES[mode];
+      }
+      var mode = 'deep';
+      try { if (localStorage.getItem(KEY) === 'compact') mode = 'compact'; } catch (e) {}
+      var asked = new URLSearchParams(location.search).get('mode');
+      if (asked === 'deep' || asked === 'compact') mode = asked;
+      apply(mode);
+      document.querySelectorAll('[data-fs-set]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var m = b.getAttribute('data-fs-set');
+          apply(m);
+          try { localStorage.setItem(KEY, m); } catch (e) {}
+        });
+      });
+      var print = document.getElementById('fsPrint');
+      if (print) print.addEventListener('click', function () { window.print(); });
+    })();
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.initAerospaceQuote) initAerospaceQuote('#quoteContainer');
+    });
+  </script>
+</body>
+</html>

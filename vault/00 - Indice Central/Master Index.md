@@ -35,6 +35,7 @@ the vault currently reaches.
 * **Vault notes:** topics 1-5 with solved problems and formula sheets.
 * **NotebookLM notebook:** `473546c3-3716-4426-b0c4-58de530f91c8`
 * **Web pages:** `subjects/engineering-mechanics/`
+* **Formula sheet:** [[03 - Engineering Mechanics/Formula Sheet - Engineering Mechanics|Formula Sheet - Engineering Mechanics]]
 
 ### 📐 [[04 - Advanced Maths/Advanced Maths MOC|Advanced Mathematics]]
 * **Units (6):** introduction to ODE modelling, first-order ODEs, second-order linear ODEs, systems of ODEs, Fourier series and PDEs, heat/wave/Laplace equations.
