@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="advanced-maths">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Maths — Formula Sheet</title>
+  <meta name="description" content="Formula sheet and solving compendium for Advanced Maths (UC3M Aerospace Engineering): every key formula with its step-by-step derivation, hypotheses, solving recipe and exam traps, printable in a few A4 pages.">
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      /* card kinds: used for borders and fills only, never for text */
+      --kind-pattern: #6366f1;
+      --kind-theorem: #a855f7;
+      --kind-derivation: #14b8a6;
+      --kind-algorithm: #22c55e;
+      --kind-trap: #f59e0b;
+      --kind-prereq: #94a3b8;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(20, 30, 55, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.80);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-card: rgba(0, 0, 0, 0.10);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.02rem;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    h1, h2, .page-header h1 {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code { font-family: var(--font-mono); font-size: 0.88em; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* Sticky header: only the portal link */
+    .back-bar {
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .back-bar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; gap: 12px; flex-wrap: wrap;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--text-primary); border-color: var(--accent-border); }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+      color: var(--text-secondary); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px; border: 1px solid var(--accent-border);
+    }
+    .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-primary); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+    /* Page header */
+    .page-header { text-align: center; padding: 40px 0 24px; }
+    .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 8px; }
+    .page-header p { color: var(--text-secondary); max-width: 760px; margin: 0 auto; font-size: 1.02rem; }
+
+    /* Toolbar: view mode and print */
+    .fs-toolbar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 10px 12px; margin: 0 0 18px;
+      border: 1px solid var(--border-card); border-radius: 14px; background: var(--bg-card);
+    }
+    .fs-modes { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+    .fs-btn {
+      font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600;
+      color: var(--text-secondary); background: var(--bg-input);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+      padding: 8px 14px; cursor: pointer; transition: all var(--transition);
+    }
+    .fs-btn:hover { color: var(--text-primary); border-color: var(--accent-border); }
+    .fs-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .fs-btn[aria-pressed="true"] { color: var(--text-primary); background: var(--accent-soft); border-color: var(--accent-border); }
+    .fs-mode-note { font-family: var(--font-sans); font-size: 0.82rem; color: var(--text-secondary); }
+
+    /* Legend */
+    .fs-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0 0 18px; font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-secondary); }
+    .fs-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .fs-legend i { width: 14px; height: 10px; border-radius: 3px; border-left: 4px solid var(--k); background: color-mix(in srgb, var(--k) 18%, transparent); }
+
+    /* Contents */
+    .fs-toc { margin: 0 0 28px; padding: 14px 18px; border: 1px solid var(--border-card); border-radius: 14px; background: var(--bg-card); }
+    .fs-toc ol { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px 18px; counter-reset: toc; }
+    .fs-toc li { font-family: var(--font-sans); font-size: 0.88rem; }
+    .fs-toc a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dotted var(--border-card); }
+    .fs-toc a:hover { border-bottom-color: var(--accent); }
+
+    /* Units */
+    .fs-unit { margin: 0 0 40px; }
+    .fs-unit-title { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 0 0 4px; padding-bottom: 6px; border-bottom: 2px solid var(--accent-border); scroll-margin-top: 80px; }
+    .fs-unit-links { font-family: var(--font-sans); font-size: 0.84rem; color: var(--text-secondary); margin: 0 0 14px; }
+    .fs-unit-links a { color: var(--text-primary); text-underline-offset: 3px; }
+    .fs-unit-intro { color: var(--text-secondary); margin: 0 0 14px; max-width: 900px; }
+
+    /* Cards in a dense masonry of columns */
+    .fs-grid { column-gap: 18px; }
+    @media (min-width: 1100px) { .fs-grid { column-count: 2; } }
+    .fs-card {
+      --k: var(--kind-pattern);
+      break-inside: avoid; page-break-inside: avoid;
+      display: inline-block; width: 100%;
+      margin: 0 0 16px; padding: 14px 16px 12px;
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-left: 4px solid var(--k); border-radius: 12px; box-shadow: var(--shadow-card);
+      font-size: 0.97rem;
+    }
+    .fs-theorem { --k: var(--kind-theorem); }
+    .fs-derivation { --k: var(--kind-derivation); }
+    .fs-algorithm { --k: var(--kind-algorithm); }
+    .fs-trap { --k: var(--kind-trap); }
+    .fs-prereq { --k: var(--kind-prereq); }
+    .fs-card-title { font-family: var(--font-serif); font-size: 1.08rem; font-weight: 700; line-height: 1.35; margin: 0 0 8px; }
+    .fs-kind {
+      display: inline-block; vertical-align: 2px; margin-right: 6px;
+      font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-primary); background: color-mix(in srgb, var(--k) 18%, transparent);
+      border: 1px solid color-mix(in srgb, var(--k) 55%, transparent); border-radius: 5px; padding: 1px 6px;
+    }
+    .fs-card p { margin: 6px 0; }
+    .fs-card ul, .fs-card ol { margin: 6px 0 6px 1.25em; }
+    .fs-card li { margin: 3px 0; }
+    .fs-lead { color: var(--text-secondary); font-style: italic; }
+    .fs-eq { margin: 8px 0; overflow-x: auto; overflow-y: hidden; }
+    .katex-display { margin: 0.4em 0; overflow-x: auto; overflow-y: hidden; }
+
+    /* Derivations fold to their one-line summary */
+    .fs-deriv > summary {
+      cursor: pointer; list-style: none; color: var(--text-primary);
+      padding: 6px 10px; border-radius: 8px; background: var(--bg-input); border: 1px dashed var(--border-card);
+    }
+    .fs-deriv > summary::-webkit-details-marker { display: none; }
+    .fs-deriv > summary::before { content: '+'; font-family: var(--font-mono); font-weight: 700; margin-right: 8px; color: var(--text-secondary); }
+    .fs-deriv[open] > summary::before { content: '\2212'; }
+    .fs-deriv > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .fs-short { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+    .fs-deriv-body { padding-top: 6px; }
+
+    /* Step grid: math on the left, the reason beside it */
+    .fs-steps { display: grid; gap: 0; margin: 8px 0; border-top: 1px solid var(--border-subtle); }
+    .fs-step { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); align-items: center; }
+    .fs-step-math { overflow-x: auto; overflow-y: hidden; }
+    .fs-why { font-size: 0.86rem; line-height: 1.45; color: var(--text-secondary); padding-left: 10px; border-left: 2px solid color-mix(in srgb, var(--k) 45%, transparent); }
+    @media (max-width: 640px) {
+      .fs-step { grid-template-columns: 1fr; gap: 4px; }
+      .fs-why { padding-left: 8px; }
+    }
+
+    /* Tables */
+    .table-wrapper { overflow-x: auto; margin: 8px 0; }
+    .fs-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .fs-table th, .fs-table td { text-align: left; vertical-align: top; padding: 5px 8px; border-bottom: 1px solid var(--border-subtle); }
+    .fs-table th { font-family: var(--font-sans); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); }
+
+    /* Compact (exam) view: summaries, final formulas and recipes only */
+    html[data-fs-mode="compact"] .fs-why,
+    html[data-fs-mode="compact"] .fs-unit-intro,
+    html[data-fs-mode="compact"] .fs-lead { display: none; }
+    html[data-fs-mode="compact"] .fs-step { grid-template-columns: 1fr; padding: 3px 0; }
+    html[data-fs-mode="compact"] .fs-card { padding: 10px 12px 8px; margin-bottom: 12px; font-size: 0.93rem; }
+
+    footer.site-footer { border-top: 1px solid var(--border-subtle); padding: 32px 0; text-align: center; color: var(--text-muted); font-size: 0.86rem; }
+
+    /* Print: A4 portrait, two columns, black on white, like a typeset LaTeX sheet */
+    .fs-print-head { display: none; }
+    @media print {
+      @page { size: A4; margin: 8mm; }
+      /* doubled attribute: outranks study-surface.css, which paints html[data-theme] body with !important */
+      html[data-theme][data-theme], html[data-theme][data-theme] body { background: #fff !important; color: #000 !important; }
+      html[data-theme] body .katex-display { background: transparent !important; border: 0 !important; }
+      /* rem-based sizes of the screen layout scale with the root size */
+      html { font-size: 8.4pt !important; }
+      html[data-fs-mode="compact"] { font-size: 7.4pt !important; }
+      body { font-size: 1rem; line-height: 1.3; }
+      .back-bar, .subject-tabs, .fs-toolbar, .fs-legend, .fs-toc, .page-header, footer.site-footer, #quoteContainer { display: none !important; }
+      .container { max-width: none; padding: 0; }
+      html[data-theme] body main, html[data-theme] body main * { color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+      html[data-theme] body main *:not(.katex *) { background: transparent !important; }
+      .fs-print-head { display: block; margin: 0 0 2mm; padding-bottom: 1mm; border-bottom: 0.8pt solid #000; font-family: var(--font-serif); }
+      .fs-print-head strong { font-family: var(--font-display); font-weight: 400; font-size: 13pt; }
+      .fs-print-head span { float: right; font-size: 7.5pt; padding-top: 4pt; }
+      .fs-unit { margin: 0 0 2mm; break-before: auto; }
+      .fs-unit-title { font-size: 11pt; margin: 2mm 0 1.5mm; padding-bottom: 0.6mm; border-bottom: 0.6pt solid #000; break-after: avoid; }
+      .fs-unit-links, .fs-unit-intro { display: none; }
+      .fs-grid { column-count: 2; column-gap: 4mm; column-rule: 0.3pt solid #bbb; }
+      .fs-card { display: block; border: 0.4pt solid #777 !important; border-left: 2.2pt solid #000 !important; border-radius: 1.5mm; padding: 1.4mm 2mm 1.2mm !important; margin: 0 0 2mm !important; font-size: 1rem !important; }
+      .fs-trap { border-left-style: double !important; border-left-width: 3pt !important; }
+      .fs-card-title { font-size: 1.08em; margin: 0 0 0.8mm; break-after: avoid; }
+      .fs-kind { border: 0.5pt solid #000 !important; font-size: 0.7em; padding: 0 1.2mm; }
+      .fs-card p, .fs-card li { margin: 0.6mm 0; }
+      .fs-eq, .fs-steps, .table-wrapper { margin: 0.8mm 0; }
+      .fs-eq, .fs-step-math, .table-wrapper, .katex-display { overflow: visible !important; }
+      .katex-display { margin: 0.4mm 0; }
+      .katex { font-size: 1.04em; }
+      .fs-step { padding: 0.5mm 0; gap: 2mm; border-bottom: 0.3pt solid #ccc; break-inside: avoid; }
+      .fs-why { font-size: 0.9em; border-left: 0.5pt solid #888; padding-left: 1.5mm; }
+      .fs-deriv > summary { border: 0.4pt dashed #888; padding: 0.6mm 1.4mm; border-radius: 1mm; }
+      .fs-deriv > summary::before, .fs-deriv[open] > summary::before { content: none; }
+      .fs-table { font-size: 0.95em; }
+      .fs-table th, .fs-table td { padding: 0.5mm 1mm; border-bottom: 0.3pt solid #bbb; }
+      .fs-table th { font-size: 0.82em; }
+      a { text-decoration: none; }
+    }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <script src="../../../assets/js/theme.js"></script>
+</head>
+<body>
+  <header class="back-bar">
+    <div class="container back-bar-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14169</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Advanced Maths sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../formula-sheet/index.html" aria-current="page">Formula sheet</a>
+      <a class="subject-tab" href="../sources/index.html">Official PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <h1>Advanced Maths — Formula Sheet</h1>
+      <p>Every formula of the course with where it comes from, why each step is taken, when it applies and how to use it in an exam. Deep study shows every derivation; Compact folds them to one line so the whole sheet prints in a few A4 pages.</p>
+    </header>
+
+    <div class="fs-toolbar" role="toolbar" aria-label="Formula sheet view">
+      <div class="fs-modes">
+        <button type="button" class="fs-btn" data-fs-set="deep" aria-pressed="true">Deep study</button>
+        <button type="button" class="fs-btn" data-fs-set="compact" aria-pressed="false">Compact (exam)</button>
+      </div>
+      <span class="fs-mode-note" id="fsModeNote" aria-live="polite">All derivations open, with the reason for each step.</span>
+      <button type="button" class="fs-btn" id="fsPrint">Print / Save PDF</button>
+    </div>
+
+    <div class="fs-legend" aria-label="Card types">
+      <span><i style="--k: var(--kind-pattern)"></i>Pattern, table</span>
+      <span><i style="--k: var(--kind-theorem)"></i>Theorem, definition</span>
+      <span><i style="--k: var(--kind-derivation)"></i>Derivation</span>
+      <span><i style="--k: var(--kind-algorithm)"></i>Algorithm</span>
+      <span><i style="--k: var(--kind-trap)"></i>Exam trap</span>
+      <span><i style="--k: var(--kind-prereq)"></i>Prerequisite</span>
+    </div>
+
+    <div class="fs-print-head"><strong>Advanced Maths — Formula Sheet</strong><span>UC3M Aerospace Engineering · Units 1 to 6</span></div>
+
+<!-- FORMULA-SHEET:START (generated by tools/build_formula_sheet.py; edit the vault note) -->
+<nav class="fs-toc" aria-label="Formula sheet contents"><ol><li><a href="#unit-1-modelling-and-classification">Unit 1 — Modelling and classification</a></li><li><a href="#unit-2-first-order-odes">Unit 2 — First-order ODEs</a></li><li><a href="#unit-3-second-order-linear-odes-and-vibrations">Unit 3 — Second-order linear ODEs and vibrations</a></li><li><a href="#unit-4-linear-systems-and-the-phase-plane">Unit 4 — Linear systems and the phase plane</a></li><li><a href="#units-5-and-6-nonlinear-systems-fourier-series-and-pdes-exte">Units 5 and 6 — Nonlinear systems, Fourier series and PDEs (extension)</a></li><li><a href="#pocket-prerequisites">Pocket prerequisites</a></li></ol></nav>
+<section class="fs-unit" id="unit-1-modelling-and-classification" aria-labelledby="unit-1-modelling-and-classification-title">
+<h2 class="fs-unit-title" id="unit-1-modelling-and-classification-title">Unit 1 — Modelling and classification</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-1.html">Theory</a> · <a href="../problemas/topic-1-problems.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-pattern" id="order-linearity-and-autonomy-in-five-seconds">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Order, linearity and autonomy in five seconds</span></h3>
+<ul><li><strong>Order</strong> = highest derivative that appears. <strong>ODE</strong>: one independent variable $t$; <strong>PDE</strong>: partial derivatives in two or more.</li><li><strong>Linear</strong> of order $n$: $a_n(t)x^{(n)} + \dots + a_1(t)\dot x + a_0(t)x = f(t)$. The unknown and its derivatives appear only to the first power, never multiplied together, never inside $\sin$, $e^{(\cdot)}$, $\sqrt{\ }$. The coefficients may depend on $t$ in any way.</li><li><strong>Homogeneous</strong> if $f \equiv 0$. <strong>Autonomous</strong> if $t$ does not appear explicitly: $\dot x = f(x)$.</li><li>Nonlinear red flags: $x\dot x$, $(\dot x)^2$, $x^2$, $\sin x$, $e^{x}$, $1/x$.</li></ul>
+</article>
+<article class="fs-card fs-theorem" id="the-superposition-test">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">The superposition test</span></h3>
+<p class="fs-lead">an equation is linear and homogeneous exactly when any combination of two solutions is again a solution.</p>
+<p>Write the equation as $L[x] = 0$. It is linear when $L[\alpha x_1 + \beta x_2] = \alpha L[x_1] + \beta L[x_2]$ for all constants $\alpha, \beta$.</p>
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$L[x] = \ddot x + p(t)\dot x + q(t)x$</div><div class="fs-why">the general homogeneous linear operator of order 2</div></div><div class="fs-step"><div class="fs-step-math">$L[\alpha x_1 + \beta x_2] = \alpha(\ddot x_1 + p\dot x_1 + qx_1) + \beta(\ddot x_2 + p\dot x_2 + qx_2)$</div><div class="fs-why">the derivative of a sum is the sum of derivatives, constants come out</div></div><div class="fs-step"><div class="fs-step-math">$= \alpha\cdot 0 + \beta\cdot 0 = 0$</div><div class="fs-why">each bracket vanishes because $x_1$, $x_2$ are solutions</div></div></div>
+<p>To prove an equation is <strong>not</strong> linear, one counterexample is enough: for $\ddot u = (\dot u)^2 + 1$, the square of $\dot u_1 + \dot u_2$ produces the cross term $2\dot u_1\dot u_2$, which does not cancel.</p>
+</article>
+<article class="fs-card fs-pattern" id="the-models-of-the-course">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">The models of the course</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Model</th><th>Equation</th><th>Solution</th></tr></thead><tbody><tr><td>Growth / decay</td><td>$\dot N = kN$</td><td>$N = N_0e^{kt}$; half-life $t_{1/2} = \ln 2/\lvert k\rvert$</td></tr><tr><td>Logistic</td><td>$\dot N = rN(1 - N/K)$</td><td>$N = \dfrac{KN_0}{N_0 + (K - N_0)e^{-rt}}$</td></tr><tr><td>Newton cooling</td><td>$\dot T = -k(T - T_a)$</td><td>$T = T_a + (T_0 - T_a)e^{-kt}$</td></tr><tr><td>Mixing tank</td><td>$\dot Q = r_{in}c_{in} - r_{out}\,Q/V(t)$</td><td>linear, integrating factor</td></tr><tr><td>Free fall</td><td>$m\ddot x = -mg$</td><td>$x = x_0 + v_0t - \tfrac12gt^2$</td></tr><tr><td>Pendulum</td><td>$\ddot\theta + (g/l)\sin\theta = 0$</td><td>small angles, from rest: $\theta = \theta_0\cos\sqrt{g/l}\,t$</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-derivation" id="newton-s-law-of-cooling">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Newton's law of cooling</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> shift the unknown by the room temperature, $u = T - T_a$, and the equation becomes pure decay $\dot u = -ku$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$u = T - T_a \Rightarrow \dot u = \dot T$</div><div class="fs-why">$T_a$ is constant, its derivative is zero</div></div><div class="fs-step"><div class="fs-step-math">$\dot u = -ku \Rightarrow u = u_0e^{-kt}$</div><div class="fs-why">the decay law, solved by separation</div></div><div class="fs-step"><div class="fs-step-math">$T(t) = T_a + (T_0 - T_a)e^{-kt}$</div><div class="fs-why">undo the shift, $u_0 = T_0 - T_a$</div></div><div class="fs-step"><div class="fs-step-math">$k = \dfrac1{t_1}\ln\dfrac{T_0 - T_a}{T_1 - T_a}$</div><div class="fs-why">one extra reading $T(t_1) = T_1$ fixes $k$ (time-of-death problems)</div></div></div>
+<p>Units: $[k] = \mathrm{s^{-1}}$, so $kt$ is dimensionless, as the exponent must be.</p>
+</div></details>
+</article>
+<article class="fs-card fs-algorithm" id="building-a-model">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Building a model</span></h3>
+<ol><li>Name the unknown, its unit and the independent variable.</li><li>Write the balance: rate of change = rate in − rate out (mass, salt, population) or $m\ddot x = \sum F$ (mechanics).</li><li>For a tank write the volume first: $V(t) = V_0 + (r_{in} - r_{out})t$; concentration $= Q/V$.</li><li>Classify the equation (order, linear, autonomous) and pick the method from Unit 2 or 3.</li><li>Check units term by term and the limits $t \to 0$, $t \to \infty$.</li></ol>
+</article>
+<article class="fs-card fs-trap" id="typical-modelling-slips">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Typical modelling slips</span></h3>
+<ul><li>Using $V_0$ instead of $V(t)$ when inflow and outflow rates differ.</li><li>Forgetting that $\dot N = kN$ grows for $k &gt; 0$ and decays for $k &lt; 0$: read the sign from the physics.</li><li>Linearising $\sin\theta \approx \theta$ outside small angles.</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="unit-2-first-order-odes" aria-labelledby="unit-2-first-order-odes-title">
+<h2 class="fs-unit-title" id="unit-2-first-order-odes-title">Unit 2 — First-order ODEs</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-2.html">Theory</a> · <a href="../problemas/topic-2-problems.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-theorem" id="picard-existence-and-uniqueness">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Picard: existence and uniqueness</span></h3>
+<p class="fs-lead">if $f$ and $\partial f/\partial x$ are continuous around $(t_0, x_0)$, the IVP $\dot x = f(t,x)$, $x(t_0) = x_0$ has exactly one solution near $t_0$.</p>
+<ul><li><strong>Hypotheses:</strong> $f$ continuous and $\partial f/\partial x$ continuous on a rectangle containing $(t_0, x_0)$; enough is Lipschitz in $x$: $\lvert f(t,x) - f(t,y)\rvert \le L\lvert x - y\rvert$.</li><li><strong>Conclusion:</strong> a unique solution on some interval $(t_0 - h, t_0 + h)$; it depends continuously on $x_0$.</li><li><strong>Consequence:</strong> two solution curves never cross, and a non-equilibrium solution never reaches an equilibrium in finite time.</li></ul>
+</article>
+<article class="fs-card fs-trap" id="when-picard-fails-or-stops-short">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">When Picard fails or stops short</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Equation</th><th>What goes wrong</th></tr></thead><tbody><tr><td>$\dot x = \sqrt{x}$, $x(0) = 0$</td><td>$\partial f/\partial x = 1/(2\sqrt x)$ blows up at $0$: both $x \equiv 0$ and $x = t^2/4$ solve it (no uniqueness)</td></tr><tr><td>$\dot x = x^2$, $x(0) = x_0 &gt; 0$</td><td>$x = \dfrac{1}{1/x_0 - t}$ blows up at $t = 1/x_0$: the theorem is only local</td></tr><tr><td>$\dot x = f(t,x)$ with $f$ discontinuous</td><td>existence itself may fail</td></tr></tbody></table></div>
+<p>Uniqueness check in an exam: compute $\partial f/\partial x$ and find where it is not continuous; outside those points the solution is unique.</p>
+</article>
+<article class="fs-card fs-pattern" id="autonomous-equations-and-the-phase-line">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Autonomous equations and the phase line</span></h3>
+<p>$\dot x = f(x)$. Equilibria: $f(x^*) = 0$. Draw the $x$-axis, mark the zeros of $f$, and put an arrow to the right where $f &gt; 0$ and to the left where $f &lt; 0$.</p>
+<ul><li><strong>Stable</strong> (sink): arrows point in on both sides; $f'(x^*) &lt; 0$.</li><li><strong>Unstable</strong> (source): arrows point out; $f'(x^*) &gt; 0$.</li><li><strong>Semi-stable</strong>: same sign of $f$ on both sides; $f'(x^*) = 0$ and $f$ does not change sign.</li><li>If $f'(x^*) = 0$, the derivative test is silent: read the sign of $f$ on each side.</li></ul>
+</article>
+<article class="fs-card fs-derivation" id="stability-from-the-linearisation">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Stability from the linearisation</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> near $x^*$, $\dot\xi \approx f'(x^*)\xi$ for $\xi = x - x^*$, so small perturbations behave like $e^{f'(x^*)t}$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$x = x^* + \xi \Rightarrow \dot x = \dot\xi$</div><div class="fs-why">$x^*$ is constant</div></div><div class="fs-step"><div class="fs-step-math">$f(x^* + \xi) = f(x^*) + f'(x^*)\xi + O(\xi^2)$</div><div class="fs-why">Taylor expansion of $f$ around $x^*$</div></div><div class="fs-step"><div class="fs-step-math">$\dot\xi \approx f'(x^*)\xi$</div><div class="fs-why">$f(x^*) = 0$ at an equilibrium; drop $O(\xi^2)$ for small $\xi$</div></div><div class="fs-step"><div class="fs-step-math">$\xi(t) \approx \xi_0e^{f'(x^*)t}$</div><div class="fs-why">decays if $f'(x^*) &lt; 0$, grows if $f'(x^*) &gt; 0$</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="bifurcations-of-the-notes">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Bifurcations of the notes</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Normal form</th><th>What happens at $r = 0$</th></tr></thead><tbody><tr><td>$\dot x = r + x^2$ (saddle-node)</td><td>two equilibria $\pm\sqrt{-r}$ for $r &lt; 0$ merge and vanish</td></tr><tr><td>$\dot x = rx - x^2$ (transcritical)</td><td>$0$ and $r$ exchange stability</td></tr><tr><td>$\dot x = rx - x^3$ (pitchfork)</td><td>$0$ stable for $r &lt; 0$; for $r &gt; 0$, $0$ unstable and $\pm\sqrt r$ stable</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-derivation" id="separable-equations">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Separable equations</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> divide by $h(x)$, recognise the chain rule on the left and integrate both sides: $\int dx/h(x) = \int g(t)\,dt$.</summary>
+<div class="fs-deriv-body">
+<p>Form: $\dot x = g(t)\,h(x)$ (the right-hand side factors into a function of $t$ times a function of $x$).</p>
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dfrac{1}{h(x)}\dfrac{dx}{dt} = g(t)$</div><div class="fs-why">divide where $h(x) \neq 0$; the zeros of $h$ are kept apart</div></div><div class="fs-step"><div class="fs-step-math">$H(x) = \int\dfrac{dx}{h(x)} \Rightarrow \dfrac{d}{dt}H(x(t)) = H'(x)\,\dot x = \dfrac{\dot x}{h(x)}$</div><div class="fs-why">chain rule: this is what makes "separating $dx$ and $dt$" legitimate</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{d}{dt}H(x(t)) = g(t) \Rightarrow H(x(t)) = \int g(t)\,dt + C$</div><div class="fs-why">integrate both sides in $t$</div></div><div class="fs-step"><div class="fs-step-math">$H(x) - H(x_0) = \int_{t_0}^{t}g(s)\,ds$</div><div class="fs-why">with the initial condition, by Barrow's rule $[F]_{a}^{b} = F(b) - F(a)$</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="the-logistic-equation-solved">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">The logistic equation solved</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> separate, split $1/(N(K - N))$ by partial fractions, integrate to logarithms and solve for $N$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dfrac{K\,dN}{N(K - N)} = r\,dt$</div><div class="fs-why">separation of $\dot N = rN(K - N)/K$</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{K}{N(K - N)} = \dfrac1N + \dfrac{1}{K - N}$</div><div class="fs-why">partial fractions: $K = (K - N) + N$</div></div><div class="fs-step"><div class="fs-step-math">$\ln\lvert N\rvert - \ln\lvert K - N\rvert = rt + c$</div><div class="fs-why">$\int\frac{dN}{K - N} = -\ln\lvert K - N\rvert$ (inner derivative $-1$)</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{N}{K - N} = Ae^{rt},\ A = \dfrac{N_0}{K - N_0}$</div><div class="fs-why">exponentiate; $\pm e^c$ and the initial value fix $A$</div></div><div class="fs-step"><div class="fs-step-math">$N(t) = \dfrac{KN_0}{N_0 + (K - N_0)e^{-rt}}$</div><div class="fs-why">solve for $N$, multiply top and bottom by $e^{-rt}$</div></div></div>
+<p>Limits: $N \to K$ as $t \to \infty$ for any $N_0 &gt; 0$; $N \equiv 0$ and $N \equiv K$ are the equilibria lost when dividing.</p>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="the-integrating-factor">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">The integrating factor</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> multiply $\dot x + p(t)x = q(t)$ by $\mu = e^{\int p\,dt}$, so the left side becomes $(\mu x)'$; integrate.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\mu\dot x + \mu p\,x = \mu q$</div><div class="fs-why">multiply by an unknown positive function $\mu(t)$</div></div><div class="fs-step"><div class="fs-step-math">want $\mu\dot x + \mu p\,x = (\mu x)' = \mu\dot x + \dot\mu x$</div><div class="fs-why">product rule backwards: the left side should be one derivative</div></div><div class="fs-step"><div class="fs-step-math">$\dot\mu = p\mu \Rightarrow \mu(t) = e^{\int p(t)\,dt}$</div><div class="fs-why">compare the two left sides; a separable equation for $\mu$ (no constant needed)</div></div><div class="fs-step"><div class="fs-step-math">$(\mu x)' = \mu q \Rightarrow \mu x = \int\mu q\,dt + C$</div><div class="fs-why">integrate both sides</div></div><div class="fs-step"><div class="fs-step-math">$x(t) = e^{-P(t)}\Big[x_0 + \int_{t_0}^{t}e^{P(s)}q(s)\,ds\Big]$</div><div class="fs-why">with $P(t) = \int_{t_0}^{t}p(s)\,ds$, so $P(t_0) = 0$ and Barrow gives $x(t_0) = x_0$</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-algorithm" id="linear-first-order-ivp-in-three-steps">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Linear first-order IVP in three steps</span></h3>
+<ol><li>Put it in standard form $\dot x + p(t)x = q(t)$: divide by the coefficient of $\dot x$ (note where it vanishes: the solution lives on an interval without those points).</li><li>$\mu = e^{\int p\,dt}$; check $\dot\mu = p\mu$.</li><li>$x = \frac1\mu\big(\int\mu q\,dt + C\big)$; impose $x(t_0) = x_0$ last.</li></ol>
+</article>
+<article class="fs-card fs-derivation" id="exact-equations">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Exact equations</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> if $M\,dx + N\,dy = 0$ has $M_y = N_x$, there is $F(x,y)$ with $F_x = M$, $F_y = N$, and the solutions are the level curves $F(x,y) = C$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dfrac{d}{dx}F(x, y(x)) = F_x + F_y\,y'$</div><div class="fs-why">chain rule along a solution curve $y(x)$</div></div><div class="fs-step"><div class="fs-step-math">$= M + N\,y' = 0$</div><div class="fs-why">this is the equation itself, so $F$ is constant on solutions</div></div><div class="fs-step"><div class="fs-step-math">$F_{xy} = F_{yx} \Rightarrow M_y = N_x$</div><div class="fs-why">equality of mixed partials (Schwarz): the exactness test</div></div><div class="fs-step"><div class="fs-step-math">$F = \int M\,dx + g(y)$</div><div class="fs-why">integrate $F_x = M$ in $x$; the "constant" may depend on $y$</div></div><div class="fs-step"><div class="fs-step-math">$F_y = N \Rightarrow g'(y) = N - \partial_y\!\int M\,dx$</div><div class="fs-why">the right side must depend on $y$ only (a check of the work)</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="integrating-factor-for-a-non-exact-equation">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Integrating factor for a non-exact equation</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> look for $\mu(x)$ with $(\mu M)_y = (\mu N)_x$; it exists when $(M_y - N_x)/N$ depends on $x$ only.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$(\mu M)_y = (\mu N)_x$</div><div class="fs-why">the new equation $\mu M\,dx + \mu N\,dy = 0$ must be exact</div></div><div class="fs-step"><div class="fs-step-math">$\mu M_y = \mu' N + \mu N_x$</div><div class="fs-why">$\mu = \mu(x)$: no $y$-derivative of $\mu$; product rule in $x$</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{\mu'}{\mu} = \dfrac{M_y - N_x}{N}$</div><div class="fs-why">rearrange; must be a function of $x$ alone</div></div><div class="fs-step"><div class="fs-step-math">$\mu(x) = \exp\!\int\dfrac{M_y - N_x}{N}\,dx$</div><div class="fs-why">integrate $(\ln\mu)' $</div></div><div class="fs-step"><div class="fs-step-math">$\mu(y) = \exp\!\int\dfrac{N_x - M_y}{M}\,dy$</div><div class="fs-why">the same argument with $\mu = \mu(y)$</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="substitutions-homogeneous-and-bernoulli">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Substitutions: homogeneous and Bernoulli</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> $y = vx$ turns $y' = F(y/x)$ into a separable equation; $v = y^{1-n}$ turns Bernoulli into a linear one.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$y = vx \Rightarrow y' = v + xv'$</div><div class="fs-why">product rule</div></div><div class="fs-step"><div class="fs-step-math">$v + xv' = F(v) \Rightarrow \dfrac{dv}{F(v) - v} = \dfrac{dx}{x}$</div><div class="fs-why">separable in $v$ and $x$</div></div><div class="fs-step"><div class="fs-step-math">$y' + p(x)y = q(x)y^n,\ n \ne 0, 1$</div><div class="fs-why">Bernoulli form</div></div><div class="fs-step"><div class="fs-step-math">$v = y^{1-n} \Rightarrow v' = (1 - n)y^{-n}y'$</div><div class="fs-why">chain rule</div></div><div class="fs-step"><div class="fs-step-math">$v' + (1 - n)p\,v = (1 - n)q$</div><div class="fs-why">multiply Bernoulli by $(1 - n)y^{-n}$: linear in $v$</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-algorithm" id="choosing-the-method">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Choosing the method</span></h3>
+<ol><li>Autonomous? Phase line first (equilibria, stability), then solve if asked.</li><li>Can the right side be written $g(t)h(x)$? Separable.</li><li>Linear in $x$: $\dot x + p(t)x = q(t)$? Integrating factor.</li><li>Written as $M\,dx + N\,dy = 0$: test $M_y = N_x$; if not, try $\mu(x)$ or $\mu(y)$.</li><li>$y' = F(y/x)$: $y = vx$. A power $y^n$ on the right of a linear equation: Bernoulli.</li><li>Always add back the constant solutions removed by a division.</li></ol>
+</article>
+<article class="fs-card fs-trap" id="lost-and-singular-solutions">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Lost and singular solutions</span></h3>
+<ul><li>Dividing by $h(x)$ removes the equilibria $h(x^*) = 0$: check whether they are solutions and whether the general formula recovers them for some constant.</li><li>Writing $\ln\lvert x\rvert = \dots$ then $x = Ce^{\dots}$: $C = \pm e^{c}$ can take any sign, and $C = 0$ recovers $x \equiv 0$.</li><li>Domain: a solution through $(t_0, x_0)$ lives on the largest interval containing $t_0$ where the formula is defined (look for zero denominators and logs of zero).</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="unit-3-second-order-linear-odes-and-vibrations" aria-labelledby="unit-3-second-order-linear-odes-and-vibrations-title">
+<h2 class="fs-unit-title" id="unit-3-second-order-linear-odes-and-vibrations-title">Unit 3 — Second-order linear ODEs and vibrations</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-3.html">Theory</a> · <a href="../problemas/topic-3-problems.html">Problems I</a> · <a href="../problemas/topic-3-part-2.html">Problems II</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-theorem" id="existence-uniqueness-and-the-general-solution">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Existence, uniqueness and the general solution</span></h3>
+<p>$\ddot x + p(t)\dot x + q(t)x = f(t)$ with $p, q, f$ continuous on an interval $I$, $t_0 \in I$: for any $x(t_0) = x_0$, $\dot x(t_0) = v_0$ there is exactly one solution, and it exists on all of $I$ (linear equations do not blow up inside $I$).</p>
+<ul><li>Two conditions are needed because the equation fixes $\ddot x$ once $x$ and $\dot x$ are known.</li><li>If $x_1, x_2$ solve the homogeneous equation and $W(x_1, x_2) \neq 0$, every solution is $x = C_1x_1 + C_2x_2$; the constants come from</li></ul>
+<div class="fs-eq">$$\begin{pmatrix} x_1(t_0) &amp; x_2(t_0) \\ \dot x_1(t_0) &amp; \dot x_2(t_0)\end{pmatrix}\begin{pmatrix} C_1 \\ C_2\end{pmatrix} = \begin{pmatrix} x_0 \\ v_0\end{pmatrix},$$</div>
+<p>solvable for every datum exactly when the determinant $W(t_0) \neq 0$.</p>
+</article>
+<article class="fs-card fs-derivation" id="the-wronskian-and-abel-s-identity">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">The Wronskian and Abel's identity</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> differentiate $W = x_1\dot x_2 - x_2\dot x_1$, use the equation to remove $\ddot x_1$, $\ddot x_2$, and get $\dot W = -pW$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dot W = (\dot x_1\dot x_2 + x_1\ddot x_2) - (\dot x_2\dot x_1 + x_2\ddot x_1)$</div><div class="fs-why">product rule on each term</div></div><div class="fs-step"><div class="fs-step-math">$= x_1\ddot x_2 - x_2\ddot x_1$</div><div class="fs-why">the $\dot x_1\dot x_2$ terms cancel</div></div><div class="fs-step"><div class="fs-step-math">$= x_1(-p\dot x_2 - qx_2) - x_2(-p\dot x_1 - qx_1)$</div><div class="fs-why">each $x_i$ solves $\ddot x = -p\dot x - qx$</div></div><div class="fs-step"><div class="fs-step-math">$= -p\,(x_1\dot x_2 - x_2\dot x_1) = -p\,W$</div><div class="fs-why">the $q$ terms cancel</div></div><div class="fs-step"><div class="fs-step-math">$W(t) = W(t_0)\exp\!\Big(-\int_{t_0}^{t}p(s)\,ds\Big)$</div><div class="fs-why">linear first-order equation for $W$ (separable)</div></div></div>
+<p><strong>Dichotomy:</strong> the exponential never vanishes, so for two solutions $W \equiv 0$ on $I$ or $W \neq 0$ everywhere on $I$.</p>
+</div></details>
+</article>
+<article class="fs-card fs-trap" id="the-wronskian-of-functions-that-are-not-solutions">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">The Wronskian of functions that are not solutions</span></h3>
+<p>$W \equiv 0$ implies dependence only for solutions of one linear equation. Counterexample (Peano): $x_1 = t^2$, $x_2 = t\lvert t\rvert$ have $W \equiv 0$ but are independent on $(-1, 1)$; they cannot both solve a second-order linear equation with continuous coefficients there. Conversely, $W(t_0) \neq 0$ at one point always proves independence.</p>
+</article>
+<article class="fs-card fs-derivation" id="constant-coefficients-the-characteristic-equation">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Constant coefficients: the characteristic equation</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> try $x = e^{kt}$; every derivative brings out a factor $k$, so $e^{kt}$ solves $\ddot x + p\dot x + qx = 0$ exactly when $k^2 + pk + q = 0$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$(e^{kt})' = ke^{kt},\ (e^{kt})'' = k^2e^{kt}$</div><div class="fs-why">chain rule on $e^{kt}$</div></div><div class="fs-step"><div class="fs-step-math">$(k^2 + pk + q)\,e^{kt} = 0$</div><div class="fs-why">substitute; $e^{kt}$ is a common factor</div></div><div class="fs-step"><div class="fs-step-math">$k^2 + pk + q = 0,\ k = \dfrac{-p \pm \sqrt{p^2 - 4q}}{2}$</div><div class="fs-why">$e^{kt} \neq 0$ never, so the bracket must vanish</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="the-three-cases">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">The three cases</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Roots</th><th>Condition</th><th>Fundamental pair</th></tr></thead><tbody><tr><td>real $k_1 \neq k_2$</td><td>$p^2 &gt; 4q$</td><td>$e^{k_1t},\ e^{k_2t}$</td></tr><tr><td>double $k = -p/2$</td><td>$p^2 = 4q$</td><td>$e^{kt},\ t\,e^{kt}$</td></tr><tr><td>$\rho \pm \omega i$</td><td>$p^2 &lt; 4q$</td><td>$e^{\rho t}\cos\omega t,\ e^{\rho t}\sin\omega t$</td></tr></tbody></table></div>
+<p>With $\rho = -p/2$ and $\omega = \sqrt{4q - p^2}/2$. Higher order: a root of multiplicity $m$ gives $e^{kt}, te^{kt}, \dots, t^{m-1}e^{kt}$.</p>
+</article>
+<article class="fs-card fs-derivation" id="why-for-a-double-root">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Why $te^{kt}$ for a double root</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> substituting $te^{kt}$ leaves $[(k^2 + pk + q)t + (2k + p)]e^{kt}$, and both brackets vanish at a double root.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$(te^{kt})' = (1 + kt)e^{kt}$</div><div class="fs-why">product rule</div></div><div class="fs-step"><div class="fs-step-math">$(te^{kt})'' = (2k + k^2t)e^{kt}$</div><div class="fs-why">product rule again</div></div><div class="fs-step"><div class="fs-step-math">$L[te^{kt}] = \big[(k^2 + pk + q)t + (2k + p)\big]e^{kt}$</div><div class="fs-why">collect powers of $t$</div></div><div class="fs-step"><div class="fs-step-math">$k^2 + pk + q = 0$ and $2k + p = 0$</div><div class="fs-why">a double root of $P(k)$ is also a root of $P'(k) = 2k + p$</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="real-solutions-from-complex-roots">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Real solutions from complex roots</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> Euler's formula splits $e^{(\rho + \omega i)t}$ into $e^{\rho t}(\cos\omega t + i\sin\omega t)$; real and imaginary parts are real solutions.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$e^{(\rho \pm \omega i)t} = e^{\rho t}(\cos\omega t \pm i\sin\omega t)$</div><div class="fs-why">Euler: $e^{i\theta} = \cos\theta + i\sin\theta$; $\cos$ is even, $\sin$ odd</div></div><div class="fs-step"><div class="fs-step-math">$\tfrac12(x_+ + x_-) = e^{\rho t}\cos\omega t$</div><div class="fs-why">superposition with $C_1 = C_2 = \tfrac12$</div></div><div class="fs-step"><div class="fs-step-math">$\tfrac{1}{2i}(x_+ - x_-) = e^{\rho t}\sin\omega t$</div><div class="fs-why">superposition with $C_{1,2} = \pm\tfrac1{2i}$</div></div><div class="fs-step"><div class="fs-step-math">$x = e^{\rho t}(A\cos\omega t + B\sin\omega t)$</div><div class="fs-why">general real solution, $A, B$ real</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="amplitude-and-phase">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Amplitude and phase</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> $A\cos\omega t + B\sin\omega t = M\cos(\omega t - \phi)$ with $M = \sqrt{A^2 + B^2}$, $\cos\phi = A/M$, $\sin\phi = B/M$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$M\cos(\omega t - \phi) = M\cos\phi\cos\omega t + M\sin\phi\sin\omega t$</div><div class="fs-why">$\cos(a - b) = \cos a\cos b + \sin a\sin b$</div></div><div class="fs-step"><div class="fs-step-math">$A = M\cos\phi,\ B = M\sin\phi$</div><div class="fs-why">match the coefficients of $\cos\omega t$ and $\sin\omega t$</div></div><div class="fs-step"><div class="fs-step-math">$M^2 = A^2 + B^2$</div><div class="fs-why">square and add, $\cos^2 + \sin^2 = 1$</div></div></div>
+<p><strong>Trap:</strong> $\tan\phi = B/A$ alone loses the quadrant; read it from the signs of $\cos\phi = A/M$ and $\sin\phi = B/M$.</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="mass-spring-damper">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Mass-spring-damper $\ddot x + \lambda\dot x + \omega^2x = 0$</span></h3>
+<p>$\lambda = \mu/m$ (damping per unit mass), $\omega^2 = k/m$ (natural frequency squared). Roots $-\lambda/2 \pm \sqrt{\lambda^2/4 - \omega^2}$.</p>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Regime</th><th>Condition</th><th>Motion</th></tr></thead><tbody><tr><td>undamped</td><td>$\lambda = 0$</td><td>$M\cos(\omega t - \phi)$, period $2\pi/\omega$</td></tr><tr><td>underdamped</td><td>$\lambda &lt; 2\omega$</td><td>$Me^{-\lambda t/2}\cos(\sigma t - \phi)$, $\sigma = \sqrt{\omega^2 - \lambda^2/4}$</td></tr><tr><td>critical</td><td>$\lambda = 2\omega$</td><td>$(A + Bt)e^{-\lambda t/2}$: fastest return without oscillation</td></tr><tr><td>overdamped</td><td>$\lambda &gt; 2\omega$</td><td>$Ae^{k_1t} + Be^{k_2t}$, $k_{1,2} &lt; 0$</td></tr></tbody></table></div>
+<p>$\sigma &lt; \omega$: damping slows the oscillation; the envelope $\pm Me^{-\lambda t/2}$ bounds it. Over- and critical damping cross zero at most once.</p>
+</article>
+<article class="fs-card fs-derivation" id="structure-of-the-inhomogeneous-solution">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Structure of the inhomogeneous solution</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> the difference of two solutions of $L[x] = f$ solves $L[x] = 0$, so $x = x_H + x_N$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$L[x - x_N] = L[x] - L[x_N] = f - f = 0$</div><div class="fs-why">linearity of $L$</div></div><div class="fs-step"><div class="fs-step-math">$x - x_N = C_1x_1 + C_2x_2$</div><div class="fs-why">general solution of the homogeneous equation</div></div><div class="fs-step"><div class="fs-step-math">$x = C_1x_1 + C_2x_2 + x_N$</div><div class="fs-why">impose the initial conditions on this sum, never on $x_H$ alone</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="the-educated-guess-undetermined-coefficients">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">The educated guess (undetermined coefficients)</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Forcing $f(t)$</th><th>Try $x_N$</th></tr></thead><tbody><tr><td>polynomial of degree $n$</td><td>general polynomial of degree $n$</td></tr><tr><td>$ae^{\alpha t}$</td><td>$Ce^{\alpha t}$</td></tr><tr><td>$a\cos\alpha t$ or $a\sin\alpha t$</td><td>$C\cos\alpha t + D\sin\alpha t$</td></tr><tr><td>$P_n(t)e^{\alpha t}\cos\beta t$</td><td>$e^{\alpha t}\big(Q_n(t)\cos\beta t + R_n(t)\sin\beta t\big)$</td></tr><tr><td>sum $f_1 + f_2$</td><td>sum of the two guesses (superposition)</td></tr></tbody></table></div>
+<p><strong>Resonance rule:</strong> if the exponent of the forcing ($\alpha$, $i\alpha$ or $\alpha + i\beta$) is a root of the characteristic equation of multiplicity $s$, multiply the guess by $t^s$. Example of the notes: $\ddot x + \dot x - 6x = 5e^{-3t}$ with $k = -3$ a simple root gives $x_N = Cte^{-3t}$, $C = -1$.</p>
+</article>
+<article class="fs-card fs-derivation" id="undamped-resonance">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Undamped resonance</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> for $\ddot x + \omega^2x = a\cos\omega t$ the guess $t(C\cos\omega t + D\sin\omega t)$ gives $x_N = \dfrac{a}{2\omega}t\sin\omega t$, an amplitude growing linearly.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$x_N = t\,g(t),\ g = C\cos\omega t + D\sin\omega t$</div><div class="fs-why">$i\omega$ is a simple root of $k^2 + \omega^2$: multiply by $t$</div></div><div class="fs-step"><div class="fs-step-math">$\ddot x_N = 2\dot g + t\ddot g = 2\dot g - \omega^2tg$</div><div class="fs-why">product rule twice; $\ddot g = -\omega^2g$</div></div><div class="fs-step"><div class="fs-step-math">$\ddot x_N + \omega^2x_N = 2\dot g = 2\omega(D\cos\omega t - C\sin\omega t)$</div><div class="fs-why">the $t$ terms cancel</div></div><div class="fs-step"><div class="fs-step-math">$C = 0,\ D = \dfrac{a}{2\omega}$</div><div class="fs-why">match with $a\cos\omega t$</div></div></div>
+<p>Off resonance ($\alpha \neq \omega$): $x_N = \dfrac{a\cos\alpha t}{\omega^2 - \alpha^2}$. Starting from rest, $x = \dfrac{2a}{\omega^2 - \alpha^2}\sin\dfrac{(\omega - \alpha)t}{2}\sin\dfrac{(\omega + \alpha)t}{2}$: <strong>beats</strong>, a fast oscillation inside a slow envelope.</p>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="damped-forced-response">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Damped forced response</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> $\ddot x + \lambda\dot x + \omega^2x = a\cos\alpha t$ has the steady state $R\cos(\alpha t - \delta)$ with $R = a/\sqrt{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$x_N = C\sin\alpha t + D\cos\alpha t$</div><div class="fs-why">$i\alpha$ is not a root when $\lambda &gt; 0$</div></div><div class="fs-step"><div class="fs-step-math">$C(\omega^2 - \alpha^2) = D\lambda\alpha,\ D(\omega^2 - \alpha^2) + C\lambda\alpha = a$</div><div class="fs-why">substitute and match $\sin\alpha t$, $\cos\alpha t$</div></div><div class="fs-step"><div class="fs-step-math">$C = \dfrac{a\lambda\alpha}{\Delta},\ D = \dfrac{a(\omega^2 - \alpha^2)}{\Delta}$</div><div class="fs-why">Cramer, $\Delta = (\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2$</div></div><div class="fs-step"><div class="fs-step-math">$R = \sqrt{C^2 + D^2} = a/\sqrt{\Delta}$</div><div class="fs-why">amplitude; $\tan\delta = \lambda\alpha/(\omega^2 - \alpha^2)$</div></div><div class="fs-step"><div class="fs-step-math">$\alpha_r = \sqrt{\omega^2 - \lambda^2/2}$</div><div class="fs-why">minimise $\Delta$ in $s = \alpha^2$: $-2(\omega^2 - s) + \lambda^2 = 0$; exists if $\lambda^2 &lt; 2\omega^2$</div></div></div>
+<p>The homogeneous part decays like $e^{-\lambda t/2}$ (transient); only $R\cos(\alpha t - \delta)$ remains (steady state).</p>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="reduction-of-order">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Reduction of order</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> if $u$ is one solution, $x = uy$ makes the equation first order in $z = \dot y$, giving $x_2 = u\int\dfrac{e^{-\int p\,dt}}{u^2}\,dt$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dot x = \dot uy + u\dot y,\ \ddot x = \ddot uy + 2\dot u\dot y + u\ddot y$</div><div class="fs-why">product rule</div></div><div class="fs-step"><div class="fs-step-math">$[\ddot u + p\dot u + qu]\,y + [2\dot u + pu]\,\dot y + u\ddot y = 0$</div><div class="fs-why">substitute and group by $y$, $\dot y$, $\ddot y$</div></div><div class="fs-step"><div class="fs-step-math">$u\dot z + (2\dot u + pu)z = 0,\ z = \dot y$</div><div class="fs-why">the first bracket is zero because $u$ is a solution; no $y$ left</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{\dot z}{z} = -\dfrac{2\dot u}{u} - p \Rightarrow z = \dfrac{A\,e^{-\int p\,dt}}{u^2}$</div><div class="fs-why">separable; $\int 2\dot u/u = 2\ln\lvert u\rvert$</div></div><div class="fs-step"><div class="fs-step-math">$x_2 = u\int z\,dt$</div><div class="fs-why">$y = \int z$; take $A = 1$ and no constant (it only adds $u$ again)</div></div></div>
+<p>For the inhomogeneous equation the same substitution gives the linear equation $u\dot z + (2\dot u + pu)z = f$.</p>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="variation-of-constants">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Variation of constants</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> look for $x_N = u_1x_1 + u_2x_2$ with $\dot u_1x_1 + \dot u_2x_2 = 0$; then $\dot u_1 = -x_2f/W$, $\dot u_2 = x_1f/W$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dot x_N = u_1\dot x_1 + u_2\dot x_2 + (\dot u_1x_1 + \dot u_2x_2)$</div><div class="fs-why">product rule</div></div><div class="fs-step"><div class="fs-step-math">$\dot u_1x_1 + \dot u_2x_2 = 0$</div><div class="fs-why">free choice (two unknowns, one equation so far): keeps $\ddot x_N$ free of $\ddot u_i$</div></div><div class="fs-step"><div class="fs-step-math">$L[x_N] = u_1L[x_1] + u_2L[x_2] + \dot u_1\dot x_1 + \dot u_2\dot x_2 = f$</div><div class="fs-why">differentiate again and substitute; $L[x_i] = 0$</div></div><div class="fs-step"><div class="fs-step-math">$\begin{pmatrix} x_1 &amp; x_2 \\ \dot x_1 &amp; \dot x_2\end{pmatrix}\begin{pmatrix}\dot u_1 \\ \dot u_2\end{pmatrix} = \begin{pmatrix} 0 \\ f\end{pmatrix}$</div><div class="fs-why">the two conditions together; the determinant is $W$</div></div><div class="fs-step"><div class="fs-step-math">$x_N = -x_1\int\dfrac{x_2f}{W}\,dt + x_2\int\dfrac{x_1f}{W}\,dt$</div><div class="fs-why">Cramer's rule, then integrate</div></div></div>
+<p>$f$ is the forcing of the <strong>normalised</strong> equation (coefficient of $\ddot x$ equal to $1$).</p>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="euler-cauchy-equations">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Euler-Cauchy equations</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> $t^2\ddot x + at\dot x + bx = 0$ becomes constant-coefficient with $t = e^s$ ($t &gt; 0$), or directly with $x = t^m$: $m(m - 1) + am + b = 0$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dfrac{dx}{dt} = \dfrac{dx}{ds}\dfrac{ds}{dt} = \dfrac1t\,x_s$</div><div class="fs-why">chain rule, $s = \ln t$</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{d^2x}{dt^2} = -\dfrac{1}{t^2}x_s + \dfrac{1}{t^2}x_{ss}$</div><div class="fs-why">product rule on $\frac1t x_s$, chain rule again</div></div><div class="fs-step"><div class="fs-step-math">$x_{ss} + (a - 1)x_s + bx = 0$</div><div class="fs-why">multiply by $t^2$ and substitute</div></div><div class="fs-step"><div class="fs-step-math">$x = t^m$: $m(m - 1) + am + b = 0$</div><div class="fs-why">same as $e^{ms}$ in the $s$-equation</div></div></div>
+<p>Double root $m$: $t^m$, $t^m\ln t$. Complex $m = \alpha \pm i\beta$: $t^\alpha\cos(\beta\ln t)$, $t^\alpha\sin(\beta\ln t)$.</p>
+</div></details>
+</article>
+<article class="fs-card fs-algorithm" id="second-order-ivp-from-start-to-finish">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Second-order IVP from start to finish</span></h3>
+<ol><li>Normalise: divide by the coefficient of $\ddot x$; note where $p$, $q$, $f$ are continuous (the interval of the solution).</li><li>Homogeneous part: constant coefficients, characteristic equation; Euler-Cauchy, $t^m$; one solution known, reduction of order.</li><li>Particular part: guess (with the resonance rule) for exponential, polynomial or trigonometric forcing; otherwise variation of constants.</li><li>$x = C_1x_1 + C_2x_2 + x_N$; differentiate the whole sum.</li><li>Impose $x(t_0)$ and $\dot x(t_0)$; solve the $2\times 2$ system.</li><li>Check: substitute back, check the initial values, units and the limit $t \to \infty$.</li></ol>
+</article>
+<article class="fs-card fs-trap" id="second-order-exam-traps">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Second-order exam traps</span></h3>
+<ul><li>Initial conditions imposed on $x_H$ before adding $x_N$.</li><li>Forgetting the factor $t^s$ when the forcing resonates with a root.</li><li>Using variation of constants with $f$ of the non-normalised equation.</li><li>$e^{kt}$ and $te^{kt}$ written for complex roots, or $\cos$ and $\sin$ without the factor $e^{\rho t}$.</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="unit-4-linear-systems-and-the-phase-plane" aria-labelledby="unit-4-linear-systems-and-the-phase-plane-title">
+<h2 class="fs-unit-title" id="unit-4-linear-systems-and-the-phase-plane-title">Unit 4 — Linear systems and the phase plane</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-4.html">Theory</a> · <a href="../problemas/topic-4-part-1.html">Problems I</a> · <a href="../problemas/topic-4-part-2.html">Problems II</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-pattern" id="from-an-th-order-equation-to-a-system">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">From an $n$-th order equation to a system</span></h3>
+<p>Set $x_1 = x$, $x_2 = \dot x$, ..., $x_n = x^{(n-1)}$. Then $\dot x_1 = x_2$, ..., $\dot x_n = $ the equation solved for $x^{(n)}$. The damped oscillator becomes</p>
+<div class="fs-eq">$$\frac{d}{dt}\begin{pmatrix} x_1 \\ x_2\end{pmatrix} = \begin{pmatrix} 0 &amp; 1 \\ -\omega^2 &amp; -\lambda\end{pmatrix}\begin{pmatrix} x_1 \\ x_2\end{pmatrix}.$$</div>
+<p>Its trace is $-\lambda$ and its determinant $\omega^2$: the characteristic equations of the scalar equation and of the system coincide.</p>
+</article>
+<article class="fs-card fs-theorem" id="linear-systems-structure-and-liouville">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Linear systems: structure and Liouville</span></h3>
+<p>$\dot{\mathbf x} = A(t)\mathbf x + \mathbf f(t)$ with continuous entries has a unique solution on the whole interval for each $\mathbf x(t_0)$.</p>
+<ul><li>$n$ independent solutions form the <strong>fundamental matrix</strong> $\Phi = [\mathbf x_1 \mid \cdots \mid \mathbf x_n]$; general solution $\mathbf x = \Phi\mathbf c + \mathbf x_p$.</li><li><strong>Liouville:</strong> $W = \det\Phi$ satisfies $\dot W = (\operatorname{tr}A)W$, so $W(t) = W(t_0)\exp\int_{t_0}^{t}\operatorname{tr}A(s)\,ds$: zero everywhere or nowhere.</li><li><strong>Variation of constants:</strong> $\mathbf x_p = \Phi\int\Phi^{-1}\mathbf f\,dt$, from $\mathbf x = \Phi\mathbf c(t)$: $\dot\Phi\mathbf c + \Phi\dot{\mathbf c} = A\Phi\mathbf c + \mathbf f$ and $\dot\Phi = A\Phi$ leave $\Phi\dot{\mathbf c} = \mathbf f$.</li></ul>
+</article>
+<article class="fs-card fs-derivation" id="elimination">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Elimination</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> from $\dot x = ax + by$, $\dot y = cx + dy$ with $b \neq 0$, eliminating $y$ gives $\ddot x - (\operatorname{tr}A)\dot x + (\det A)x = 0$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$y = (\dot x - ax)/b$</div><div class="fs-why">first equation solved for $y$</div></div><div class="fs-step"><div class="fs-step-math">$\ddot x = a\dot x + b\dot y = a\dot x + b(cx + dy)$</div><div class="fs-why">differentiate the first equation, insert the second</div></div><div class="fs-step"><div class="fs-step-math">$\ddot x = a\dot x + bcx + d(\dot x - ax)$</div><div class="fs-why">replace $by = \dot x - ax$</div></div><div class="fs-step"><div class="fs-step-math">$\ddot x - (a + d)\dot x + (ad - bc)x = 0$</div><div class="fs-why">collect: a Unit 3 equation</div></div><div class="fs-step"><div class="fs-step-math">$y = (\dot x - ax)/b$</div><div class="fs-why">recover $y$ by differentiating $x$; never integrate a second time</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="the-eigenvalue-method">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">The eigenvalue method</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> try $\mathbf x = e^{\lambda t}\mathbf v$; it solves $\dot{\mathbf x} = A\mathbf x$ exactly when $A\mathbf v = \lambda\mathbf v$, so $\lambda^2 - \tau\lambda + \Delta = 0$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dot{\mathbf x} = \lambda e^{\lambda t}\mathbf v,\ A\mathbf x = e^{\lambda t}A\mathbf v$</div><div class="fs-why">$\mathbf v$ is constant</div></div><div class="fs-step"><div class="fs-step-math">$(A - \lambda I)\mathbf v = \mathbf 0,\ \mathbf v \neq \mathbf 0$</div><div class="fs-why">equate and divide by $e^{\lambda t} \neq 0$</div></div><div class="fs-step"><div class="fs-step-math">$\det(A - \lambda I) = 0$</div><div class="fs-why">a homogeneous system has non-zero solutions only if singular</div></div><div class="fs-step"><div class="fs-step-math">$\lambda^2 - \tau\lambda + \Delta = 0,\ \tau = \operatorname{tr}A,\ \Delta = \det A$</div><div class="fs-why">expand the $2\times 2$ determinant</div></div><div class="fs-step"><div class="fs-step-math">$\lambda = \dfrac{\tau}{2} \pm \sqrt{\dfrac{\tau^2}{4} - \Delta}$</div><div class="fs-why">quadratic formula; $\lambda_1 + \lambda_2 = \tau$, $\lambda_1\lambda_2 = \Delta$</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="distinct-real-eigenvalues">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Distinct real eigenvalues</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> $\mathbf x = C_1e^{\lambda_1t}\mathbf v_1 + C_2e^{\lambda_2t}\mathbf v_2$; in $\mathbf z = P^{-1}\mathbf x$ with $P = [\mathbf v_1 \mid \mathbf v_2]$ the system decouples and orbits are $z_2 = Kz_1^{\lambda_2/\lambda_1}$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$AP = [\lambda_1\mathbf v_1 \mid \lambda_2\mathbf v_2] = PD$</div><div class="fs-why">column by column, $A\mathbf v_i = \lambda_i\mathbf v_i$</div></div><div class="fs-step"><div class="fs-step-math">$\dot{\mathbf z} = P^{-1}AP\mathbf z = D\mathbf z$</div><div class="fs-why">$\mathbf x = P\mathbf z$, $P$ constant</div></div><div class="fs-step"><div class="fs-step-math">$z_1 = C_1e^{\lambda_1t},\ z_2 = C_2e^{\lambda_2t}$</div><div class="fs-why">two uncoupled decay or growth laws</div></div><div class="fs-step"><div class="fs-step-math">$z_2 = C_2\big(e^{\lambda_1t}\big)^{\lambda_2/\lambda_1} = Kz_1^{\lambda_2/\lambda_1}$</div><div class="fs-why">eliminate $t$: the orbits</div></div><div class="fs-step"><div class="fs-step-math">$\mathbf x = P\mathbf z = C_1e^{\lambda_1t}\mathbf v_1 + C_2e^{\lambda_2t}\mathbf v_2$</div><div class="fs-why">back to the original variables</div></div></div>
+<p><strong>Node</strong> ($\lambda_1, \lambda_2$ same sign): orbits leave or enter tangent to the eigenvector of smaller $\lvert\lambda\rvert$ (the slow direction) and become parallel to the fast one far away. <strong>Saddle</strong> (opposite signs): the line of $\mathbf v$ with $\lambda &lt; 0$ is the stable manifold, the one with $\lambda &gt; 0$ the unstable manifold. <strong>Zero eigenvalue:</strong> $\mathbf x = C_1\mathbf v_1 + C_2e^{\lambda_2t}\mathbf v_2$, a line of equilibria along $\mathbf v_1$ and straight orbits parallel to $\mathbf v_2$.</p>
+</div></details>
+</article>
+<article class="fs-card fs-derivation" id="complex-eigenvalues-canonical-form">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Complex eigenvalues: canonical form</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> with $\lambda = \rho + i\omega$, $\mathbf v = \mathbf u + i\mathbf w$ and $Q = [\mathbf u \mid \mathbf w]$, $Q^{-1}AQ = J = \begin{pmatrix}\rho &amp; \omega \\ -\omega &amp; \rho\end{pmatrix}$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$A(\mathbf u + i\mathbf w) = (\rho + i\omega)(\mathbf u + i\mathbf w)$</div><div class="fs-why">eigenvector for $\rho + i\omega$ (not $\rho - i\omega$)</div></div><div class="fs-step"><div class="fs-step-math">$A\mathbf u = \rho\mathbf u - \omega\mathbf w,\ A\mathbf w = \omega\mathbf u + \rho\mathbf w$</div><div class="fs-why">expand, $i^2 = -1$; real and imaginary parts separately</div></div><div class="fs-step"><div class="fs-step-math">$AQ = [\mathbf u \mid \mathbf w]\begin{pmatrix}\rho &amp; \omega \\ -\omega &amp; \rho\end{pmatrix} = QJ$</div><div class="fs-why">the two lines above, written column by column</div></div><div class="fs-step"><div class="fs-step-math">$\dot z_1 = \rho z_1 + \omega z_2,\ \dot z_2 = -\omega z_1 + \rho z_2$</div><div class="fs-why">$\mathbf z = Q^{-1}\mathbf x$</div></div><div class="fs-step"><div class="fs-step-math">$r = r_0e^{\rho t},\ \theta = \theta_0 - \omega t$</div><div class="fs-why">polar coordinates: $\dot r = \rho r$, $\dot\theta = -\omega$ (clockwise in the $\mathbf z$-plane)</div></div></div>
+<p>Real general solution:</p>
+<div class="fs-eq">$$\mathbf x = e^{\rho t}\big[(C_1\cos\omega t + C_2\sin\omega t)\mathbf u + (C_2\cos\omega t - C_1\sin\omega t)\mathbf w\big],$$</div>
+<p>that is $C_1\operatorname{Re}(\mathbf ve^{\lambda t}) + C_2\operatorname{Im}(\mathbf ve^{\lambda t})$.</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="spirals-and-centres">
+<h3 class="fs-card-title"><span class="fs-kind">Interpretation</span> <span class="fs-name">Spirals and centres</span></h3>
+<ul><li>$\rho &lt; 0$: stable spiral (sink); $\rho &gt; 0$: unstable spiral (source); $\rho = 0$: centre, closed ellipses of period $2\pi/\omega$.</li><li>Every turn multiplies the distance by $e^{2\pi\rho/\omega}$.</li><li><strong>Sense of rotation in the $\mathbf x$-plane:</strong> compute $\dot{\mathbf x} = A\mathbf x$ at $\mathbf x = (1, 0)^T$: it is $(a, c)^T$. If $c &gt; 0$ the orbit turns counterclockwise, if $c &lt; 0$ clockwise (the sense is the sign of the entry $c$ of $A$).</li></ul>
+</article>
+<article class="fs-card fs-derivation" id="repeated-eigenvalue-stars-and-improper-nodes">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Repeated eigenvalue: stars and improper nodes</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> if $A \neq \lambda I$, take $\mathbf v_1$ with $(A - \lambda I)\mathbf v_1 = 0$ and $\mathbf v_2$ with $(A - \lambda I)\mathbf v_2 = \mathbf v_1$; then $\mathbf x = e^{\lambda t}[c_1\mathbf v_1 + c_2(t\mathbf v_1 + \mathbf v_2)]$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\lambda = \tau/2$, $\tau^2 = 4\Delta$</div><div class="fs-why">double root of $\lambda^2 - \tau\lambda + \Delta$</div></div><div class="fs-step"><div class="fs-step-math">$A = \lambda I$: every vector is an eigenvector</div><div class="fs-why">geometric multiplicity 2: <strong>star</strong>, $\mathbf x = e^{\lambda t}\mathbf x_0$, straight rays</div></div><div class="fs-step"><div class="fs-step-math">$A\mathbf v_2 = \lambda\mathbf v_2 + \mathbf v_1 \Rightarrow Q^{-1}AQ = \begin{pmatrix}\lambda &amp; 1 \\ 0 &amp; \lambda\end{pmatrix}$</div><div class="fs-why">$Q = [\mathbf v_1 \mid \mathbf v_2]$, column by column</div></div><div class="fs-step"><div class="fs-step-math">$\dot z_2 = \lambda z_2 \Rightarrow z_2 = c_2e^{\lambda t}$</div><div class="fs-why">the second row is uncoupled</div></div><div class="fs-step"><div class="fs-step-math">$\dot z_1 = \lambda z_1 + c_2e^{\lambda t} \Rightarrow (e^{-\lambda t}z_1)' = c_2$</div><div class="fs-why">integrating factor $e^{-\lambda t}$</div></div><div class="fs-step"><div class="fs-step-math">$z_1 = (c_1 + c_2t)e^{\lambda t}$</div><div class="fs-why">integrate, multiply back by $e^{\lambda t}$</div></div></div>
+<p><strong>Improper node:</strong> all orbits are tangent to $\mathbf v_1$ at the origin (for $\lambda &lt; 0$, as $t \to +\infty$). $\mathbf v_2$ is not unique: $\mathbf v_2 + \alpha\mathbf v_1$ works too.</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="classification-by-trace-and-determinant">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Classification by trace and determinant</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Condition</th><th>Type of the origin</th></tr></thead><tbody><tr><td>$\Delta &lt; 0$</td><td>saddle (always unstable)</td></tr><tr><td>$\Delta &gt; 0$, $\tau^2 &gt; 4\Delta$</td><td>node: stable if $\tau &lt; 0$, unstable if $\tau &gt; 0$</td></tr><tr><td>$\Delta &gt; 0$, $\tau^2 = 4\Delta$</td><td>star ($A = \lambda I$) or improper node</td></tr><tr><td>$\Delta &gt; 0$, $\tau^2 &lt; 4\Delta$, $\tau \neq 0$</td><td>spiral: stable if $\tau &lt; 0$</td></tr><tr><td>$\Delta &gt; 0$, $\tau = 0$</td><td>centre</td></tr><tr><td>$\Delta = 0$</td><td>a line of equilibria (zero eigenvalue)</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-prereq" id="matrix-exponential-complement">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Matrix exponential (complement)</span></h3>
+<p>The fundamental matrix with $\Phi(0) = I$ is $e^{At}$, and $\mathbf x(t) = e^{At}\mathbf x_0$. From the canonical forms:</p>
+<ul><li>$A = PDP^{-1}$: $e^{At} = P\operatorname{diag}(e^{\lambda_1t}, e^{\lambda_2t})P^{-1}$.</li><li>$J = \begin{pmatrix}\lambda &amp; 1 \\ 0 &amp; \lambda\end{pmatrix}$: $e^{Jt} = e^{\lambda t}\begin{pmatrix} 1 &amp; t \\ 0 &amp; 1\end{pmatrix}$.</li><li>$J = \begin{pmatrix}\rho &amp; \omega \\ -\omega &amp; \rho\end{pmatrix}$: $e^{Jt} = e^{\rho t}\begin{pmatrix}\cos\omega t &amp; \sin\omega t \\ -\sin\omega t &amp; \cos\omega t\end{pmatrix}$.</li><li>Then $e^{At} = Qe^{Jt}Q^{-1}$. This packaging is an extension; the notes reach the same solutions through $\mathbf z = Q^{-1}\mathbf x$.</li></ul>
+</article>
+<article class="fs-card fs-algorithm" id="planar-system-from-start-to-finish">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Planar system from start to finish</span></h3>
+<ol><li>$\tau = \operatorname{tr}A$, $\Delta = \det A$; classify the origin with the table before computing anything.</li><li>Eigenvalues from $\lambda^2 - \tau\lambda + \Delta = 0$.</li><li>Eigenvectors: for the row $(a - \lambda,\ b)$ with $b \neq 0$ take $\mathbf v = (b,\ \lambda - a)^T$.</li><li>Build $P$ or $Q$ and <strong>check</strong> $Q^{-1}AQ$ equals the expected $D$ or $J$.</li><li>Write the general solution; impose $\mathbf x(0) = \mathbf x_0$ by solving $Q\mathbf c = \mathbf x_0$.</li><li>Phase portrait: eigenvector lines, slow and fast directions, sense of rotation from $\dot{\mathbf x}$ at one point.</li><li>Constant forcing $\dot{\mathbf x} = A\mathbf x + \mathbf b$: equilibrium $\mathbf x^* = -A^{-1}\mathbf b$, then $\mathbf y = \mathbf x - \mathbf x^*$ solves $\dot{\mathbf y} = A\mathbf y$.</li></ol>
+</article>
+<article class="fs-card fs-trap" id="phase-plane-traps">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Phase-plane traps</span></h3>
+<ul><li>Taking the eigenvector of $\rho - i\omega$: $J$ comes out with $\omega$ and $-\omega$ swapped and the rotation reversed.</li><li>Forgetting that eigenvectors can be scaled: different-looking answers may be the same.</li><li>Calling a repeated eigenvalue with $A \neq \lambda I$ a star: it is an improper node with only one eigenvector line.</li><li>Reading a node's tangent direction from the fast eigenvector instead of the slow one.</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="units-5-and-6-nonlinear-systems-fourier-series-and-pdes-exte" aria-labelledby="units-5-and-6-nonlinear-systems-fourier-series-and-pdes-exte-title">
+<h2 class="fs-unit-title" id="units-5-and-6-nonlinear-systems-fourier-series-and-pdes-exte-title">Units 5 and 6 — Nonlinear systems, Fourier series and PDEs (extension)</h2>
+<p class="fs-unit-links"><a href="../extra-problems/midterm-2-problems.html">Extra problems 2nd midterm</a> · <a href="../extra-problems/final-problems.html">Extra problems final</a></p>
+<div class="fs-unit-intro"><p>No class notes for these units are in the repository yet. The cards below collect the standard results used in the solved Extra problems P08 to P22; check them against the official notes when they arrive.</p></div>
+<div class="fs-grid">
+<article class="fs-card fs-algorithm" id="nonlinear-planar-systems">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Nonlinear planar systems</span></h3>
+<ol><li>Equilibria: solve $f(x, y) = 0$, $g(x, y) = 0$ together (factor first; check every branch).</li><li>Jacobian $D\mathbf F = \begin{pmatrix} f_x &amp; f_y \\ g_x &amp; g_y\end{pmatrix}$ at each equilibrium.</li><li>Classify each Jacobian with the trace-determinant table of Unit 4.</li><li><strong>Linearisation theorem:</strong> if no eigenvalue has zero real part (hyperbolic point), the nonlinear system has the same type nearby. A linear centre is inconclusive.</li><li>Nullclines $f = 0$ (vertical flow) and $g = 0$ (horizontal flow) to join the local pictures.</li></ol>
+</article>
+<article class="fs-card fs-derivation" id="conservative-systems-and-energy">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Conservative systems and energy</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> for $\ddot x = -V'(x)$, $E = \tfrac12\dot x^2 + V(x)$ is constant, so orbits are level curves of $E$: minima of $V$ are centres, maxima saddles.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\dot x = y,\ \dot y = -V'(x)$</div><div class="fs-why">first-order system</div></div><div class="fs-step"><div class="fs-step-math">$\dfrac{dE}{dt} = E_x\dot x + E_y\dot y = V'(x)y + y(-V'(x)) = 0$</div><div class="fs-why">chain rule along an orbit</div></div><div class="fs-step"><div class="fs-step-math">$y = \pm\sqrt{2(E - V(x))}$</div><div class="fs-why">each level curve, real where $V(x) \le E$</div></div></div>
+<p>This settles the centres that the linearisation leaves undecided.</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="fourier-series-on">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Fourier series on $(-L, L)$</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Item</th><th>Formula</th></tr></thead><tbody><tr><td>Series</td><td>$f \sim \dfrac{a_0}{2} + \sum_{n\ge 1}\Big(a_n\cos\dfrac{n\pi x}{L} + b_n\sin\dfrac{n\pi x}{L}\Big)$</td></tr><tr><td>Cosine coefficients</td><td>$a_n = \dfrac1L\int_{-L}^{L}f(x)\cos\dfrac{n\pi x}{L}\,dx$</td></tr><tr><td>Sine coefficients</td><td>$b_n = \dfrac1L\int_{-L}^{L}f(x)\sin\dfrac{n\pi x}{L}\,dx$</td></tr><tr><td>$f$ even</td><td>$b_n = 0$, $a_n = \frac2L\int_0^L f\cos\frac{n\pi x}{L}\,dx$</td></tr><tr><td>$f$ odd</td><td>$a_n = 0$, $b_n = \frac2L\int_0^L f\sin\frac{n\pi x}{L}\,dx$</td></tr><tr><td>Half range on $(0, L)$</td><td>sine series = odd extension, cosine series = even extension</td></tr><tr><td>Convergence (Dirichlet)</td><td>piecewise smooth $f$: the series gives $\tfrac12\big(f(x^+) + f(x^-)\big)$, also at $\pm L$ via the periodic extension</td></tr></tbody></table></div>
+<p>With $L = \pi$ the arguments are $nx$. Evaluating the series at a point where $f$ is known gives sums such as $\sum 1/n^2 = \pi^2/6$ and $\sum (-1)^{n+1}/n^2 = \pi^2/12$.</p>
+</article>
+<article class="fs-card fs-derivation" id="why-the-coefficient-formulas-work">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Why the coefficient formulas work</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> multiply the series by $\cos(m\pi x/L)$ and integrate; orthogonality kills every term except $n = m$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\cos a\cos b = \tfrac12[\cos(a - b) + \cos(a + b)]$</div><div class="fs-why">product-to-sum</div></div><div class="fs-step"><div class="fs-step-math">$\int_{-L}^{L}\cos\dfrac{n\pi x}{L}\cos\dfrac{m\pi x}{L}\,dx = L\,\delta_{nm}$</div><div class="fs-why">each cosine of a non-zero multiple integrates to $0$ over a full period ($n, m \ge 1$)</div></div><div class="fs-step"><div class="fs-step-math">$\int_{-L}^{L}\sin\dfrac{n\pi x}{L}\cos\dfrac{m\pi x}{L}\,dx = 0$</div><div class="fs-why">odd integrand on a symmetric interval</div></div><div class="fs-step"><div class="fs-step-math">$\int_{-L}^{L}f\cos\dfrac{m\pi x}{L}\,dx = a_mL$</div><div class="fs-why">only the $n = m$ term survives</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="eigenvalue-problems-on">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Eigenvalue problems $X'' + \lambda X = 0$ on $(0, L)$</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Boundary conditions</th><th>Eigenvalues</th><th>Eigenfunctions</th></tr></thead><tbody><tr><td>$X(0) = X(L) = 0$</td><td>$(n\pi/L)^2,\ n \ge 1$</td><td>$\sin(n\pi x/L)$</td></tr><tr><td>$X'(0) = X'(L) = 0$</td><td>$(n\pi/L)^2,\ n \ge 0$</td><td>$\cos(n\pi x/L)$, with the constant for $n = 0$</td></tr><tr><td>$X(0) = 0,\ X'(L) = 0$</td><td>$\big((2n - 1)\pi/(2L)\big)^2$</td><td>$\sin\big((2n - 1)\pi x/(2L)\big)$</td></tr><tr><td>Robin, e.g. $X'(L) + hX(L) = 0$</td><td>roots of a transcendental equation, e.g. $\tan\sqrt\lambda L = -\sqrt\lambda/h$</td><td>$\sin\sqrt\lambda x$</td></tr></tbody></table></div>
+<p>Always test $\lambda &lt; 0$, $\lambda = 0$ and $\lambda &gt; 0$ separately: a zero mode appears only with Neumann conditions at both ends.</p>
+</article>
+<article class="fs-card fs-algorithm" id="separation-of-variables">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Separation of variables</span></h3>
+<ol><li>Homogeneous boundary conditions first: subtract a steady state $u_s(x)$ that carries the non-zero boundary values or the source.</li><li>$u = X(x)T(t)$; divide by $XT$; both sides equal a constant $-\lambda$.</li><li>Solve the eigenvalue problem for $X$ (table above).</li><li>Time (or $y$) factor: heat $T' + k\lambda T = 0 \Rightarrow e^{-k\lambda t}$; wave $T'' + c^2\lambda T = 0 \Rightarrow \cos\omega_nt$, $\sin\omega_nt$ with $\omega_n = c\sqrt{\lambda_n}$; Laplace $Y'' - \lambda Y = 0 \Rightarrow \cosh$, $\sinh$ (and $A_0 + B_0y$ for $\lambda = 0$).</li><li>Superpose all modes and fit the remaining data with the Fourier coefficient formulas.</li><li>Checks: boundary values, initial values, $t \to \infty$ (heat tends to $u_s$), units of $k$ and $c$.</li></ol>
+</article>
+<article class="fs-card fs-pattern" id="the-three-classical-equations-on-with-at-both-ends">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">The three classical equations on $(0, L)$ with $u = 0$ at both ends</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Equation</th><th>Solution</th></tr></thead><tbody><tr><td>Heat $u_t = ku_{xx}$</td><td>$\sum c_n\sin\dfrac{n\pi x}{L}\,e^{-kn^2\pi^2t/L^2}$, $c_n = \frac2L\int_0^L u(x,0)\sin\frac{n\pi x}{L}\,dx$</td></tr><tr><td>Wave $u_{tt} = c^2u_{xx}$</td><td>$\sum\big(A_n\cos\omega_nt + B_n\sin\omega_nt\big)\sin\dfrac{n\pi x}{L}$, $\omega_n = \frac{n\pi c}{L}$; $A_n$ from $u(x,0)$, $\omega_nB_n$ from $u_t(x,0)$</td></tr><tr><td>Laplace in a rectangle</td><td>$\sum\sin\dfrac{n\pi x}{L}\Big(A_n\cosh\dfrac{n\pi y}{L} + B_n\sinh\dfrac{n\pi y}{L}\Big)$</td></tr><tr><td>Laplace in a disc or wedge</td><td>$r^n$ and $r^{-n}$ times $\cos n\theta$, $\sin n\theta$; keep only $r^n$ if bounded at $r = 0$</td></tr></tbody></table></div>
+<p>The slowest heat mode decays with the time constant $\tau_1 = L^2/(k\pi^2)$. The wave equation also has d'Alembert's form $u = \tfrac12[F(x - ct) + F(x + ct)] + \frac{1}{2c}\int_{x - ct}^{x + ct}g(s)\,ds$.</p>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="pocket-prerequisites" aria-labelledby="pocket-prerequisites-title">
+<h2 class="fs-unit-title" id="pocket-prerequisites-title">Pocket prerequisites</h2>
+<p class="fs-unit-links"><a href="../teoria/index.html">Theory index</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-prereq" id="integrals-that-keep-coming-back">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Integrals that keep coming back</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Integral</th><th>Result</th></tr></thead><tbody><tr><td>$\int\dfrac{f'(x)}{f(x)}\,dx$</td><td>$\ln\lvert f(x)\rvert + C$</td></tr><tr><td>$\int\dfrac{dx}{a^2 + x^2}$</td><td>$\dfrac1a\arctan\dfrac xa + C$</td></tr><tr><td>$\int\dfrac{dx}{x^2 - a^2}$</td><td>$\dfrac{1}{2a}\ln\left\lvert\dfrac{x - a}{x + a}\right\rvert + C$</td></tr><tr><td>$\int te^{at}\,dt$</td><td>$e^{at}\Big(\dfrac ta - \dfrac{1}{a^2}\Big) + C$</td></tr><tr><td>$\int e^{at}\cos bt\,dt$</td><td>$\dfrac{e^{at}(a\cos bt + b\sin bt)}{a^2 + b^2} + C$</td></tr><tr><td>$\int e^{at}\sin bt\,dt$</td><td>$\dfrac{e^{at}(a\sin bt - b\cos bt)}{a^2 + b^2} + C$</td></tr><tr><td>$\int x\cos nx\,dx$</td><td>$\dfrac{x\sin nx}{n} + \dfrac{\cos nx}{n^2} + C$</td></tr><tr><td>$\int x\sin nx\,dx$</td><td>$-\dfrac{x\cos nx}{n} + \dfrac{\sin nx}{n^2} + C$</td></tr><tr><td>$\int x^2\cos nx\,dx$</td><td>$\dfrac{x^2\sin nx}{n} + \dfrac{2x\cos nx}{n^2} - \dfrac{2\sin nx}{n^3} + C$</td></tr><tr><td>$\int\tan x\,dx$</td><td>$-\ln\lvert\cos x\rvert + C$</td></tr></tbody></table></div>
+<p>Integration by parts: $\int u\,dv = uv - \int v\,du$; with limits $\int_a^b u\,dv = [uv]_a^b - \int_a^b v\,du$.</p>
+</article>
+<article class="fs-card fs-prereq" id="values-at-multiples-of">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Values at multiples of $\pi$</span></h3>
+<ul><li>$\sin n\pi = 0$, $\cos n\pi = (-1)^n$, $1 - (-1)^n = 0$ for even $n$ and $2$ for odd $n$.</li><li>$\sin\dfrac{n\pi}{2} = 0, 1, 0, -1, \dots$ for $n = 0, 1, 2, 3$; $\cos\dfrac{(2k + 1)\pi}{2} = 0$.</li></ul>
+</article>
+<article class="fs-card fs-prereq" id="partial-fractions">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Partial fractions</span></h3>
+<ul><li>Distinct linear factors: $\dfrac{1}{(x - a)(x - b)} = \dfrac{1}{a - b}\Big(\dfrac{1}{x - a} - \dfrac{1}{x - b}\Big)$.</li><li>Logistic: $\dfrac{K}{x(K - x)} = \dfrac1x + \dfrac{1}{K - x}$.</li><li>Repeated factor: $\dfrac{A}{x - a} + \dfrac{B}{(x - a)^2}$. Irreducible quadratic: $\dfrac{Ax + B}{x^2 + px + q}$.</li><li>Cover-up rule: the coefficient of $\frac{1}{x - a}$ is the rest of the fraction evaluated at $x = a$.</li></ul>
+</article>
+<article class="fs-card fs-prereq" id="trigonometric-and-hyperbolic-identities">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Trigonometric and hyperbolic identities</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Identity</th><th>Use</th></tr></thead><tbody><tr><td>$e^{i\theta} = \cos\theta + i\sin\theta$</td><td>complex roots and eigenvalues</td></tr><tr><td>$\cos^2x = \tfrac12(1 + \cos 2x),\ \sin^2x = \tfrac12(1 - \cos 2x)$</td><td>integrals of squares, energies</td></tr><tr><td>$\sin a\cos b = \tfrac12[\sin(a + b) + \sin(a - b)]$</td><td>Fourier coefficients</td></tr><tr><td>$\cos a - \cos b = -2\sin\tfrac{a + b}{2}\sin\tfrac{a - b}{2}$</td><td>beats</td></tr><tr><td>$\cosh x = \tfrac12(e^x + e^{-x}),\ \sinh x = \tfrac12(e^x - e^{-x})$</td><td>real roots $\pm k$, Laplace modes</td></tr><tr><td>$\cosh^2x - \sinh^2x = 1,\ (\cosh x)' = \sinh x,\ (\sinh x)' = \cosh x$</td><td>checks of hyperbolic solutions</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-prereq" id="linear-algebra">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">$2\times 2$ linear algebra</span></h3>
+<ul><li>$A = \begin{pmatrix} a &amp; b \\ c &amp; d\end{pmatrix}$: $\tau = a + d$, $\Delta = ad - bc$, $A^{-1} = \dfrac1\Delta\begin{pmatrix} d &amp; -b \\ -c &amp; a\end{pmatrix}$.</li><li>Eigenvalues: $\lambda = \tfrac\tau2 \pm \sqrt{\tfrac{\tau^2}{4} - \Delta}$; $\lambda_1 + \lambda_2 = \tau$, $\lambda_1\lambda_2 = \Delta$.</li><li>Eigenvector shortcut: $\mathbf v = (b,\ \lambda - a)^T$ if $b \neq 0$, or $(\lambda - d,\ c)^T$ if $c \neq 0$; check with the first row: $(a - \lambda)b + b(\lambda - a) = 0$.</li><li>Always verify $Q^{-1}AQ$ by multiplying out: it catches swapped columns and sign slips.</li></ul>
+</article>
+<article class="fs-card fs-prereq" id="complex-numbers-and-logarithms">
+<h3 class="fs-card-title"><span class="fs-kind">Prerequisite</span> <span class="fs-name">Complex numbers and logarithms</span></h3>
+<ul><li>$z = a + ib = re^{i\theta}$, $r = \sqrt{a^2 + b^2}$, $\theta$ from $\cos\theta = a/r$, $\sin\theta = b/r$ (mind the quadrant).</li><li>$\operatorname{Re}(e^{(\rho + i\omega)t}) = e^{\rho t}\cos\omega t$, $\operatorname{Im}(e^{(\rho + i\omega)t}) = e^{\rho t}\sin\omega t$.</li><li>$e^{\ln x} = x$ for $x &gt; 0$; $\ln\lvert x\rvert = g + c \Rightarrow x = Ce^{g}$ with $C = \pm e^{c}$, and $C = 0$ when $x \equiv 0$ is a solution.</li></ul>
+</article>
+</div>
+</section>
+<!-- FORMULA-SHEET:END -->
+
+    <section style="max-width: 920px; margin: 48px auto 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    (function () {
+      var KEY = 'ae_formula_mode';
+      var NOTES = {
+        deep: 'All derivations open, with the reason for each step.',
+        compact: 'Derivations folded to one line; open any of them with a click.'
+      };
+      function apply(mode) {
+        document.documentElement.setAttribute('data-fs-mode', mode);
+        document.querySelectorAll('.fs-deriv').forEach(function (d) { d.open = mode === 'deep'; });
+        document.querySelectorAll('[data-fs-set]').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-fs-set') === mode));
+        });
+        var note = document.getElementById('fsModeNote');
+        if (note) note.textContent = NOTES[mode];
+      }
+      var mode = 'deep';
+      try { if (localStorage.getItem(KEY) === 'compact') mode = 'compact'; } catch (e) {}
+      var asked = new URLSearchParams(location.search).get('mode');
+      if (asked === 'deep' || asked === 'compact') mode = asked;
+      apply(mode);
+      document.querySelectorAll('[data-fs-set]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var m = b.getAttribute('data-fs-set');
+          apply(m);
+          try { localStorage.setItem(KEY, m); } catch (e) {}
+        });
+      });
+      var print = document.getElementById('fsPrint');
+      if (print) print.addEventListener('click', function () { window.print(); });
+    })();
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.initAerospaceQuote) initAerospaceQuote('#quoteContainer');
+    });
+  </script>
+</body>
+</html>

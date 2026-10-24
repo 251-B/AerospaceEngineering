@@ -41,6 +41,7 @@ the vault currently reaches.
 * **Vault notes:** chapters 1-3. The web page for Topic 4 (`subjects/advanced-maths/teoria/topic-4.html`) has no vault note yet.
 * **NotebookLM notebook:** `c27033c3-5a64-403f-a517-5847831aabcb`
 * **Web pages:** `subjects/advanced-maths/`
+* **Formula sheet:** [[04 - Advanced Maths/Formula Sheet - Advanced Maths|Formula Sheet - Advanced Maths]]
 
 ### 📊 [[05 - Business Management/Business Management MOC|Business Management]]
 * **Units (6):** the firm (types and objectives), value creation and environment, financial statements, financial analysis and ratios, operations and marketing, business plan.

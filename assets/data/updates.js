@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-24-maths-formula-sheet",
+    "date": "2026-10-24",
+    "tag": "Advanced Maths",
+    "title": "Formula sheet: every formula with its derivation and recipe",
+    "text": "A new formula sheet covers all units, with the reason for each step, exam traps and solving recipes. A compact view prints the whole sheet in six A4 pages.",
+    "link": "subjects/advanced-maths/formula-sheet/index.html"
+  },
+  {
     "id": "2026-10-23-mechanics-topic5-figures",
     "date": "2026-10-23",
     "tag": "Engineering Mechanics",

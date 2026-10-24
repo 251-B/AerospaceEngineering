@@ -327,6 +327,10 @@ window.AE_NAV = {
           "label": "Exam simulator"
         },
         {
+          "href": "subjects/advanced-maths/formula-sheet/index.html",
+          "label": "Formula sheet"
+        },
+        {
           "href": "subjects/advanced-maths/sources/index.html",
           "label": "Theory & exercise PDFs"
         },

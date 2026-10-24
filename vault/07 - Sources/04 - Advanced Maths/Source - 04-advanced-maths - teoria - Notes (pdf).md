@@ -19,7 +19,7 @@ bytes: 1597287
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 1.6 MB
-- **Status:** referenced by 56 note(s) below
+- **Status:** referenced by 57 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -36,6 +36,7 @@ bytes: 1597287
 - [[04 - Advanced Maths/Concept - Planar Systems with Complex Eigenvalues]]
 - [[04 - Advanced Maths/Concept - Planar Systems with a Repeated Eigenvalue]]
 - [[04 - Advanced Maths/Concept - Well-Posed Problems and Picard Theorem]]
+- [[04 - Advanced Maths/Formula Sheet - Advanced Maths]]
 - [[04 - Advanced Maths/Problem - Ch1-P1 Classification of Differential Equations]]
 - [[04 - Advanced Maths/Problem - Ch1-P10 Laminar Viscous Poiseuille Flow]]
 - [[04 - Advanced Maths/Problem - Ch1-P2 Malthusian Population Dynamics]]
