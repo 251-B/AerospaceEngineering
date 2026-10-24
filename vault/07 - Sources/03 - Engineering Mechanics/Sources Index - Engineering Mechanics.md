@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 181
-- Referenced by at least one note (a mention counts): 13
-- Not referenced yet: 168
+- Files: 184
+- Referenced by at least one note (a mention counts): 14
+- Not referenced yet: 170
 - Build artifacts: 0
 - Working files: 0
 
@@ -76,6 +76,7 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1-Ismael - AnaliticSolutionLab1Mech2ndTry (pdf)\|AnaliticSolutionLab1Mech2ndTry.pdf]] | laboratorio | referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1-Ismael - HANDOVER_Lab1_to_Lab2 (md)\|HANDOVER_Lab1_to_Lab2.md]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1-Ismael - Lab1_notes (pptx)\|Lab1_notes.pptx]] | laboratorio | referenced |
 
 ## laboratorios/lab-1/Lab1-Ismael/deliverable
@@ -247,6 +248,12 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_notes (pdf)\|Lab2_notes.pdf]] | laboratorio | not-referenced |
 
+## laboratorios/lab-2/Lab2-Ismael/code_LB_Martin_Martin_Ranz
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - code_LB_Martin_Martin_Ranz - main (m)\|main.m]] | laboratorio | referenced |
+
 ## laboratorios/lab-2/Lab2_Hector
 
 | File | Kind | Status |
@@ -279,6 +286,12 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 03-engineering-mechanics - problemas - Problems (pdf)\|Problems.pdf]] | problemas | referenced |
+
+## schedule
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - schedule - weekly-planning-mechanics_G46 (pdf)\|weekly-planning-mechanics_G46.pdf]] | schedule | not-referenced |
 
 ## teoria
 

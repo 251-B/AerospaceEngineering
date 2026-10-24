@@ -1208,7 +1208,13 @@ window.AE_SOURCES = {
             "name": "Problems.pdf"
           }
         ],
-        "schedule": [],
+        "schedule": [
+          {
+            "bytes": 47808,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/schedule/weekly-planning-mechanics_G46.pdf",
+            "name": "weekly-planning-mechanics_G46.pdf"
+          }
+        ],
         "slides": [],
         "teoria": [
           {

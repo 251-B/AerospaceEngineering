@@ -20,7 +20,7 @@ bytes: 6025
 - **Kind:** laboratorio
 - **Size:** 6.0 kB
 - **Status:** referenced by 3 note(s) below
-- **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
+- **Shared name:** the file name is shared with 3 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
