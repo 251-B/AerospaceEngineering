@@ -153,3 +153,8 @@ October 22nd
 * Exercise 4-2.1 (iii), (v), (vii) (plus solution)
 * Exercise 4-2.3 (i), (ii)
 * Exercise 4-2.5 (i)
+
+October 27th
+* Exercise 4-2.6 (i), (ii), (iii), (iv), (v)
+* Exercise 4-2.7
+* Exercise 4-2.8 (i), (ii)
