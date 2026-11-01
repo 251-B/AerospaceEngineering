@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 176
+- Files: 177
 - Referenced by at least one note (a mention counts): 67
-- Not referenced yet: 109
+- Not referenced yet: 110
 - Build artifacts: 0
 - Working files: 0
 
@@ -201,6 +201,7 @@ tags:
 | [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL20 (pdf)\|CL20.pdf]] | problemas | referenced |
 | [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL21 (pdf)\|CL21.pdf]] | problemas | referenced |
 | [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL22 (pdf)\|CL22.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - examen_midterm_2014 (pdf)\|examen_midterm_2014.pdf]] | problemas | not-referenced |
 
 ## unit-04-navier-stokes/problemas
 

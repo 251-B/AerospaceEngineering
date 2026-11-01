@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 82
+- Files: 83
 - Referenced by at least one note (a mention counts): 9
-- Not referenced yet: 73
+- Not referenced yet: 74
 - Build artifacts: 0
 - Working files: 0
 
@@ -112,7 +112,9 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
+| [[Source - 04-advanced-maths - teoria - definition_linear_ODE (pdf)\|definition_linear_ODE.pdf]] | teoria | referenced |
 | [[Source - 04-advanced-maths - teoria - Notes (pdf)\|Notes.pdf]] | teoria | referenced |
+| [[Source - 04-advanced-maths - teoria - question-about-Wronskian (pdf)\|question-about-Wronskian.pdf]] | teoria | not-referenced |
 
 ## unit-01-introduction-ode-modeling/problemas
 
@@ -140,12 +142,6 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch4-i_2627_v2 (pdf)\|probls_ch4-i_2627_v2.pdf]] | problemas | referenced |
 | [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch4-ii_2627 (pdf)\|probls_ch4-ii_2627.pdf]] | problemas | referenced |
-
-## unit-04-systems-of-odes/teoria
-
-| File | Kind | Status |
-| :--- | :--- | :--- |
-| [[Source - 04-advanced-maths - unit-04-systems-of-odes - teoria - definition_linear_ODE (pdf)\|definition_linear_ODE.pdf]] | teoria | referenced |
 
 ## unit-05-fourier-series-pdes/teoria
 

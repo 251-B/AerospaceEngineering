@@ -4,7 +4,7 @@ tags:
   - source
   - teoria
   - referenced
-path: "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf"
+path: "sources/cuatrimestre-1/04-advanced-maths/teoria/definition_linear_ODE.pdf"
 kind: teoria
 status: referenced
 bytes: 100773
@@ -16,7 +16,7 @@ bytes: 100773
 
 ## Record
 
-- **Path:** `sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf`
+- **Path:** `sources/cuatrimestre-1/04-advanced-maths/teoria/definition_linear_ODE.pdf`
 - **Kind:** teoria
 - **Size:** 100.8 kB
 - **Status:** referenced by 1 note(s) below

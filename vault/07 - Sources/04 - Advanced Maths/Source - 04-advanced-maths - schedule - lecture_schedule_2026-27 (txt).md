@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/04-advanced-maths/schedule/lecture_schedule_2026-27.txt"
 kind: schedule
 status: not-referenced
-bytes: 5459
+bytes: 5562
 ---
 
 # Source: lecture_schedule_2026-27.txt
@@ -18,7 +18,7 @@ bytes: 5459
 
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/schedule/lecture_schedule_2026-27.txt`
 - **Kind:** schedule
-- **Size:** 5.5 kB
+- **Size:** 5.6 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by
