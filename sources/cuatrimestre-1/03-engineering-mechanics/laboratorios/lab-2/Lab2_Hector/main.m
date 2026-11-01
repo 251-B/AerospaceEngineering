@@ -4,7 +4,7 @@
 clear; clc; close all;
 
 % default style of the plots (Script 6 of the Laboratory Guidelines). The figures are made
-% with the size they have in the report (16 cm wide) and saved at 300 dpi, so the 10 pt
+% with the size they have in the report (17 cm wide) and saved at 300 dpi, so the 10 pt
 % labels appear at 10 pt in the report and stay sharp
 set(groot, 'defaultLegendFontSize', 9);
 set(groot, 'defaultTextFontSize', 10);
@@ -156,141 +156,242 @@ for k = 1:3
             ws(k), max(abs(dfull{k})), err{k}(i5), max(err{k}), max(abs(dlin{k} - dexact)));
 end
 
-%% Figure 2 of the report: angle, reaction forces and inertia forces
-figure('Units', 'centimeters', 'Position', [2 2 16 13.5])
-subplot(3,2,1)
-plot(t, phi, 'b'); grid on
-xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('$\varphi$ (rad)'); title('(a) Angle, $t \in [0, 3T]$')
+%% Common settings of the figures
+% colours (checked for colour-blind readers), and a light tone of each one for the bands
+cBlue   = [0.043 0.361 0.678];
+cRed    = [0.820 0.271 0.047];
+cPurple = [0.416 0.239 0.604];
+cBand   = [0.780 0.855 0.930];
+cGrey   = [0.55 0.55 0.55];
 
-subplot(3,2,2)
-plot(t, phi, 'b'); grid on
-xlim([0 10])
+% over [0, 3T] there are 79 swings, too many to draw one by one. For those plots each swing
+% is reduced to its largest and smallest value (see swingrange at the end of the file), and
+% the time axis is marked in units of T: at T/2, T, 3T/2... the plane is at rest
+iswing = [1; ip; numel(t)];        % limits of the swings (maxima of phi)
+Tticks = 0:Tper/2:3*Tper;
+Tnames = {'0', '$T/2$', '$T$', '$3T/2$', '$2T$', '$5T/2$', '$3T$'};
+Tlabel = '$t$ ($T = 62.83$ s)';
+phiticks = [-pi -pi/2 0];
+phinames = {'$-\pi$', '$-\pi/2$', '$0$'};
+
+%% Figure 2 of the report: angle, reaction forces and inertia forces
+figure('Units', 'centimeters', 'Position', [2 2 17 12])
+tiledlayout(3, 2, 'TileSpacing', 'compact', 'Padding', 'compact')
+
+% (a) angle over the whole interval: largest and smallest angle of each swing
+nexttile
+[ts, ymax, ymin] = swingrange(t, phi, iswing);
+fill([ts; flipud(ts)], [ymax; flipud(ymin)], cBand, 'EdgeColor', 'none'); hold on
+plot(ts, ymax, 'Color', cBlue, 'LineWidth', 1.4); plot(ts, ymin, 'Color', cBlue, 'LineWidth', 1.4)
+grid on; xlim([0 3*Tper]); ylim([-3.6 0.5])
+xticks(Tticks); xticklabels(Tnames); set(gca, 'XMinorTick', 'off'); yticks(phiticks); yticklabels(phinames); set(gca, 'YMinorTick', 'off')
+xlabel(Tlabel); ylabel('$\varphi$ (rad)'); title('(a) Limits of each swing, $t \in [0, 3T]$')
+
+% (b) angle in the first 10 s
+nexttile
+plot(t, phi, 'Color', cBlue, 'LineWidth', 1.4); grid on
+xlim([0 10]); ylim([-3.6 0.5])
+yticks(phiticks); yticklabels(phinames); set(gca, 'YMinorTick', 'off')
 xlabel('$t$ (s)'); ylabel('$\varphi$ (rad)'); title('(b) Angle, first 10 s')
 
-subplot(3,2,3)
-plot(t, Nr, 'b'); grid on
-xlim([0 10])
-xlabel('$t$ (s)'); ylabel('$N_r$ (N)'); title('(c) $N_r$ (along $\mathbf{e}_r$), first 10 s')
+% (c) radial reaction in the first 10 s
+nexttile
+plot(t, Nr, 'Color', cBlue, 'LineWidth', 1.4); grid on
+xlim([0 10]); ylim([-32 2])
+xlabel('$t$ (s)'); ylabel('$N_r$ (N)'); title('(c) Reaction along $\mathbf{e}_r$, first 10 s')
 
-subplot(3,2,4)
-plot(t, Nz, 'b'); grid on
-xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('$N_z$ (N)'); title('(d) $N_z$ (along $\mathbf{k}$)')
+% (d) normal reaction over the whole interval: largest and smallest value of each swing
+nexttile
+[ts, ymax, ymin] = swingrange(t, Nz, iswing);
+fill([ts; flipud(ts)], [ymax; flipud(ymin)], cBand, 'EdgeColor', 'none'); hold on
+plot(ts, ymax, 'Color', cBlue, 'LineWidth', 1.4); plot(ts, ymin, 'Color', cBlue, 'LineWidth', 1.4)
+grid on; xlim([0 3*Tper]); ylim([-3.5 3.5])
+xticks(Tticks); xticklabels(Tnames); set(gca, 'XMinorTick', 'off')
+xlabel(Tlabel); ylabel('$N_z$ (N)'); title('(d) Limits of $N_z$ in each swing, $t \in [0, 3T]$')
 
-subplot(3,2,5)
-plot(t, Fcf, 'b', t, Feul, 'r--'); grid on
-xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('force (N)'); title('(e) Centrifugal and Euler')
-ylim([-0.1 0.4])
-legend('centrifugal', 'Euler', 'Location', 'north', 'Orientation', 'horizontal')
+% (e) normal reaction and Coriolis force around t = T/4: they mirror each other
+nexttile
+plot(t, Nz, 'Color', cBlue, 'LineWidth', 1.4); hold on
+plot(t, Fcor, '--', 'Color', cRed, 'LineWidth', 1.4); grid on
+xlim([12 20]); ylim([-3.5 4.8])
+xlabel('$t$ (s)'); ylabel('force (N)'); title('(e) $N_z$ and Coriolis force, around $t = T/4$')
+legend('$N_z$', '$F_{Cor}$', 'Location', 'north', 'Orientation', 'horizontal')
 
-subplot(3,2,6)
-plot(t, Fcor, 'b'); grid on
-xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('force (N)'); title('(f) Coriolis (along $\mathbf{k}$)')
+% (f) the three inertia forces differ by two orders of magnitude: logarithmic scale
+nexttile
+[ts, ymax] = swingrange(t, abs(Fcor), iswing);
+semilogy(ts, ymax, '-', 'Color', cRed, 'LineWidth', 1.4); hold on
+[ts, ymax] = swingrange(t, abs(Fcf), iswing);
+semilogy(ts, ymax, '--', 'Color', cBlue, 'LineWidth', 1.4)
+[ts, ymax] = swingrange(t, abs(Feul), iswing);
+semilogy(ts, ymax, '-.', 'Color', cPurple, 'LineWidth', 1.4); grid on
+xlim([0 3*Tper]); ylim([1e-3 60]); yticks(10.^(-3:1)); set(gca, 'YMinorGrid', 'off')
+xticks(Tticks); xticklabels(Tnames); set(gca, 'XMinorTick', 'off')
+xlabel(Tlabel); ylabel('largest force (N)'); title('(f) Inertia forces, largest value in each swing')
+lg = legend('Coriolis', 'centrifugal', 'Euler', 'Location', 'north', 'Orientation', 'horizontal');
+set(lg, 'ItemTokenSize', [15 18])   % short line samples, so the legend fits inside the plot
 exportgraphics(gcf, 'Fig_2.png', 'Resolution', 300)   % 300 dpi, white margins cropped
 
 %% Figure 3 of the report: energies
-% Ek and Ep repeat the same shape in every oscillation of phi, so they are shown in the first 10 s
-figure('Units', 'centimeters', 'Position', [2 2 16 8.5])
-subplot(2,1,1)
-plot(t, Ek, 'b', t, Ep, 'r--'); grid on
-xlim([0 10])
-xlabel('$t$ (s)'); ylabel('energy (J)'); title('(a) $E_k$ and $E_p$, first 10 s')
-legend('$E_k$', '$E_p$', 'Location', 'eastoutside')
+figure('Units', 'centimeters', 'Position', [2 2 17 8.2])
+tiledlayout(2, 2, 'TileSpacing', 'compact', 'Padding', 'compact')
 
-subplot(2,1,2)
-plot(t, E - E(1), 'b', t, W, 'r--'); grid on
-xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('energy (J)'); title('(b) $E - E_0$ and work of the wire')
-legend('$E - E_0$', '$W = \int -\Omega x N_z\, dt$', 'Location', 'eastoutside')
-exportgraphics(gcf, 'Fig_3.png', 'Resolution', 300)   % 300 dpi, white margins cropped
+% (a) Ek and Ep repeat the same shape in every swing, so the first 10 s are enough
+nexttile
+plot(t, Ek, 'Color', cBlue, 'LineWidth', 1.4); hold on
+plot(t, Ep, '--', 'Color', cRed, 'LineWidth', 1.4); grid on
+xlim([0 10]); ylim([-11 15])
+xlabel('$t$ (s)'); ylabel('energy (J)'); title('(a) $E_k$ and $E_p$, first 10 s')
+legend('$E_k$', '$E_p$', 'Location', 'north', 'Orientation', 'horizontal')
+
+% (b) mechanical energy over the whole interval: limits of each swing
+nexttile
+[ts, ymax, ymin] = swingrange(t, E - E(1), iswing);
+fill([ts; flipud(ts)], [ymax; flipud(ymin)], cBand, 'EdgeColor', 'none'); hold on
+plot(ts, ymax, 'Color', cBlue, 'LineWidth', 1.4); plot(ts, ymin, 'Color', cBlue, 'LineWidth', 1.4)
+grid on; xlim([0 3*Tper]); ylim([-0.15 0.4])
+xticks(Tticks); xticklabels(Tnames); set(gca, 'XMinorTick', 'off')
+xlabel(Tlabel); ylabel('$E - E_0$ (J)'); title('(b) Limits of $E - E_0$ in each swing, $t \in [0, 3T]$')
+
+% (c) energy and work in the first half period: the points of W fall on the line of E
+nexttile
+ik = find(t <= Tper/2);
+plot(t(ik), E(ik) - E(1), 'Color', cBlue, 'LineWidth', 1.4); hold on
+plot(t(ik(1:9:end)), W(ik(1:9:end)), 'o', 'Color', cRed, 'MarkerSize', 2.2, 'MarkerFaceColor', cRed); grid on
+xlim([0 Tper/2]); ylim([-0.15 0.45])
+xlabel('$t$ (s)'); ylabel('energy (J)'); title('(c) $E - E_0$ and work of the wire, $t \in [0, T/2]$')
+legend('$E - E_0$', '$W$', 'Location', 'north', 'Orientation', 'horizontal')
+
+% (d) difference between the two, in its own (logarithmic) scale
+nexttile
+[ts, ymax] = swingrange(t, abs(E - E(1) - W), iswing);
+semilogy(ts, ymax, 'Color', cBlue, 'LineWidth', 1.4); grid on
+xlim([0 3*Tper]); ylim([1e-6 1e-2]); yticks(10.^(-6:-2)); set(gca, 'YMinorGrid', 'off')
+xticks(Tticks); xticklabels(Tnames); set(gca, 'XMinorTick', 'off')
+xlabel(Tlabel); ylabel('$|E - E_0 - W|$ (J)'); title('(d) Largest difference in each swing')
+exportgraphics(gcf, 'Fig_3.png', 'Resolution', 300)
 
 %% Figure 4 of the report: trajectory of P in the fixed frame
 s  = linspace(0, 2*pi, 200);
 xw = R*(1 + cos(s));   % wire in the rotating frame
 yw = R*sin(s);
+ik = find(t <= Tper/2);     % first half period: the plane makes one turn
 
-figure('Units', 'centimeters', 'Position', [2 2 16 7])
-subplot(1,2,1)
-plot3(x1, z1, y1, 'b'); hold on
-plot3(xw, 0*s, yw, 'k--')                                    % wire at t = 0
-plot3([0 0], [0 0], [-1.2*R 1.2*R], 'k-.')                   % axis of rotation
-plot3(x1(1), z1(1), y1(1), 'ko', 'MarkerFaceColor', 'k')     % start
-axis equal; grid on; view(35, 20)
-xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); zlabel('$y_1$ (m)')
-title('(a) Trajectory of P')   % no legend, so the 3D view keeps its size; the caption explains the lines
+figure('Units', 'centimeters', 'Position', [2 2 17 8.2])
+tiledlayout(1, 2, 'TileSpacing', 'compact', 'Padding', 'compact')
 
-subplot(1,2,2)
-plot(x1, z1, 'b'); hold on
-plot(x1(1), z1(1), 'ko', 'MarkerFaceColor', 'k')
-axis equal; grid on
+nexttile
+h1 = plot3(x1(ik), z1(ik), y1(ik), 'Color', cBlue, 'LineWidth', 1.2); hold on
+h2 = plot3(xw, 0*s, yw, 'k--', 'LineWidth', 1.2);                   % wire at t = 0
+h3 = plot3([0 0], [0 0], [-1.3*R 1.3*R], 'k-.');                    % axis of rotation
+plot3(x1(1), z1(1), y1(1), 'ko', 'MarkerFaceColor', 'k', 'MarkerSize', 6)   % start
+axis equal; grid on; view(35, 25)
+xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); zlabel('$y_1$ (m)'); title('(a) Path of P seen from the ground')
+legend([h1 h2 h3], '$t \in [0, T/2]$', 'wire at $t = 0$', 'axis', 'Location', 'northwest')
+
+nexttile
+h0 = plot(x1, z1, 'Color', cBand); hold on
+h1 = plot(x1(ik), z1(ik), 'Color', cBlue, 'LineWidth', 1.2);
+plot(2*R*cos(s), 2*R*sin(s), ':', 'Color', cGrey)                   % reach of P, x = 2R
+plot(x1(1), z1(1), 'ko', 'MarkerFaceColor', 'k', 'MarkerSize', 6)
+axis equal; grid on; xlim([-2.3 2.3]); ylim([-2.3 2.3])
 xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); title('(b) View from above')
-exportgraphics(gcf, 'Fig_4.png', 'Resolution', 300)   % 300 dpi, white margins cropped
+legend([h1 h0], '$t \in [0, T/2]$', '$t \in [0, 3T]$', 'Location', 'eastoutside')
+exportgraphics(gcf, 'Fig_4.png', 'Resolution', 300)
 
 %% Figure 5 of the report: phase portrait for A = 0
-figure('Units', 'centimeters', 'Position', [2 2 16 7.2])
-subplot(1,3,[1 2])
-hold on
-for i = 1:3
-    for j = 1:3
-        plot(phi7{i,j}, dphi7{i,j}, [colors{i} styles{j}])
-        names{3*(i-1)+j} = ['$\varphi_0 = ' phinames{i} '$, $\dot\varphi_0 = ' num2str(dphi0v(j)) '$'];
-    end
-end
-pp = linspace(-3*pi/2, 3*pi, 1000);
+% each case gets its number at its starting point; the colour says what the bead does
+figure('Units', 'centimeters', 'Position', [2 2 17 10])
+tiledlayout(2, 3, 'TileSpacing', 'compact', 'Padding', 'compact')
+pp = linspace(-3*pi/2, 5*pi/2, 1000);
 sp = sqrt(2*g/R*(1 - sin(pp)));
-plot([pp NaN pp], [sp NaN -sp], 'k-.')          % separatrix (both branches)
-plot(-pi/2, 0, 'ko', 'MarkerFaceColor', 'k')    % stable equilibrium
-plot(pi/2, 0, 'ko')                             % unstable equilibrium
-grid on
-xlim([-3*pi/2 3*pi])
-xlabel('$\varphi$ (rad)'); ylabel('$\dot\varphi$ (rad/s)'); title('(a) Phase portrait ($A = 0$)')
-legend([names {'separatrix', 'stable equilibrium', 'unstable equilibrium'}], 'Location', 'eastoutside', 'FontSize', 8)
 
-subplot(1,3,3)
-plot(tv{1}, phiv{1}, 'b', tv{2}, phiv{2}, 'r--'); hold on
-plot([0 tend7], [pi/2 pi/2], 'k:')
-grid on
-xlabel('$t$ (s)'); ylabel('$\varphi$ (rad)'); title('(b) $\varphi_0 = \pi/4$, near $\dot\varphi_c$')
-legend('$0.99\,\dot\varphi_c$', '$1.01\,\dot\varphi_c$', '$\varphi = \pi/2$', 'Location', 'northwest')
-exportgraphics(gcf, 'Fig_5.png', 'Resolution', 300)   % 300 dpi, white margins cropped
+for panel = 1:2
+    if panel == 1
+        nexttile(1, [2 2])
+    else
+        nexttile(3)
+    end
+    hold on
+    hs = plot([pp NaN pp], [sp NaN -sp], 'k-.', 'LineWidth', 1.4);            % separatrix
+    for i = 1:3
+        for j = 1:3
+            n = 3*(i-1) + j;
+            if n <= 5
+                ho = plot(phi7{i,j}, dphi7{i,j}, 'Color', cBlue, 'LineWidth', 1.2);
+            elseif n ~= 7
+                hr = plot(phi7{i,j}, dphi7{i,j}, 'Color', cRed, 'LineWidth', 1.2);
+            end
+        end
+    end
+    for i = 1:3
+        for j = 1:3
+            text(phi0v(i), dphi0v(j), num2str(3*(i-1) + j), 'FontSize', 8, 'HorizontalAlignment', 'center', ...
+                 'BackgroundColor', 'w', 'EdgeColor', 'k', 'Margin', 1, 'Clipping', 'on')
+        end
+    end
+    grid on
+    set(gca, 'XMinorTick', 'off')
+    if panel == 1
+        plot([-pi/2 3*pi/2], [0 0], 'ko', 'MarkerFaceColor', 'k', 'MarkerSize', 6)   % stable equilibria
+        xlim([-3*pi/2 5*pi/2]); ylim([-8 8])
+        xticks(-3*pi/2:pi/2:5*pi/2)
+        xticklabels({'$-3\pi/2$', '$-\pi$', '$-\pi/2$', '$0$', '$\pi/2$', '$\pi$', '$3\pi/2$', '$2\pi$', '$5\pi/2$'})
+        title('(a) Phase portrait ($A = 0$), start of each case numbered')
+        legend([ho hr hs], 'oscillates', 'goes over the top', 'separatrix', 'Location', 'south', 'Orientation', 'horizontal')
+    else
+        xlim([0.5 2.7]); ylim([-0.2 3.6])
+        xticks([pi/4 pi/2 3*pi/4]); xticklabels({'$\pi/4$', '$\pi/2$', '$3\pi/4$'})
+        title('(b) Zoom on the top')
+    end
+    xlabel('$\varphi$ (rad)'); ylabel('$\dot\varphi$ (rad/s)')
+end
+
+nexttile(6)
+plot(tv{1}, phiv{1}, 'Color', cBlue, 'LineWidth', 1.4); hold on
+plot(tv{2}, phiv{2}, '--', 'Color', cRed, 'LineWidth', 1.4)
+plot([0 tend7], [pi/2 pi/2], 'k:'); grid on
+ylim([-5 10])
+xlabel('$t$ (s)'); ylabel('$\varphi$ (rad)'); title('(c) $\varphi_0 = \pi/4$, near $\dot\varphi_c$')
+legend('$0.99\,\dot\varphi_c$', '$1.01\,\dot\varphi_c$', 'top', 'Location', 'northwest')
+exportgraphics(gcf, 'Fig_5.png', 'Resolution', 300)
 
 %% Figure 6 of the report: linearized vs full equation
-figure('Units', 'centimeters', 'Position', [2 2 16 6.8])
-% the error oscillates fast and touches zero, so the largest error reached up to each time
-% (envelope) is drawn as a thick line on top of the error itself (thin, light line)
-colors8 = {'b', 'r', 'm'};
-light8  = {[0.65 0.65 1], [1 0.65 0.65], [1 0.65 1]};
-subplot(1,2,1)
-for k = 1:3
-    semilogy(t8, err{k} + eps, 'Color', light8{k}, 'LineWidth', 0.4); hold on
-end
-for k = 1:3
-    emax = err{k};
-    for i = 2:numel(emax)
-        emax(i) = max(emax(i-1), err{k}(i));
-    end
-    he(k) = semilogy(t8, emax, colors8{k}, 'LineWidth', 1.8);
-end
-grid on
-ylim([1e-2 1e2])
-xlabel('$t$ (s)'); ylabel('error (\%)'); title('(a) Error of the linearized equation')
-lg = legend(he, '$\omega = \omega_n$', '$\omega = \omega_n/2$', '$\omega = \omega_n/4$', 'Location', 'southoutside', 'Orientation', 'horizontal');
-set(lg, 'ItemTokenSize', [15 18])   % shorter line samples, so the legend fits under the plot
+figure('Units', 'centimeters', 'Position', [2 2 17 7.9])
+tiledlayout(2, 2, 'TileSpacing', 'compact', 'Padding', 'compact')
 
-% at resonance the two solutions make 50 oscillations in 10 s, so only the last 3 s are drawn,
-% together with the envelope of the linear solution at resonance, +-F0*t/(2*wn) (see the report)
-F0 = As^2*ws(2)^2/2;
-subplot(1,2,2)
-plot(t8, dfull{2}, 'b', t8, dlin{2}, 'r--'); hold on
-plot(t8, F0*t8/(2*wn), 'k:', t8, -F0*t8/(2*wn), 'k:'); grid on
-xlim([7 10]); ylim([-0.3 0.3])
-xlabel('$t$ (s)'); ylabel('$\delta$ (rad)'); title('(b) $\omega = \frac{1}{2}\sqrt{g/R}$ (resonance), last 3 s')
-lg = legend('full', 'linearized', 'envelope', 'Location', 'southoutside', 'Orientation', 'horizontal');
-set(lg, 'ItemTokenSize', [15 18])
-exportgraphics(gcf, 'Fig_6.png', 'Resolution', 300)   % 300 dpi, white margins cropped
+% (a) the error oscillates fast and touches zero, so each natural period (2*pi/wn = 0.2 s)
+% is reduced to its largest error, in logarithmic scale
+nexttile(1, [1 2])
+nw = ceil(2*pi/wn/(t8(2) - t8(1)));
+iw = (1:nw:numel(t8))';
+[ts, ymax] = swingrange(t8, err{1}, iw);
+semilogy(ts, ymax, 'Color', cBlue, 'LineWidth', 1.4); hold on
+[ts, ymax] = swingrange(t8, err{2}, iw);
+semilogy(ts, ymax, '--', 'Color', cRed, 'LineWidth', 1.4)
+[ts, ymax] = swingrange(t8, err{3}, iw);
+semilogy(ts, ymax, '-.', 'Color', cPurple, 'LineWidth', 1.4); grid on
+xlim([0 10]); ylim([1e-2 1e2]); yticks(10.^(-2:2)); set(gca, 'YMinorGrid', 'off')
+xlabel('$t$ (s)'); ylabel('error (\%)'); title('(a) Percentage error of the linearized equation, largest value in each natural period')
+legend('$\omega = \omega_n$', '$\omega = \omega_n/2$', '$\omega = \omega_n/4$', 'Location', 'south', 'Orientation', 'horizontal')
+
+% (b) and (c) the two solutions in the last second: five oscillations can be followed by eye
+for k = 1:2
+    nexttile
+    plot(t8, dfull{k}, 'Color', cBlue, 'LineWidth', 1.4); hold on
+    plot(t8, dlin{k}, '--', 'Color', cRed, 'LineWidth', 1.4); grid on
+    xlim([9 10])
+    xlabel('$t$ (s)'); ylabel('$\delta$ (rad)')
+    if k == 1
+        title('(b) $\omega = \omega_n$: phase lag')
+        ylim([-0.006 0.022])
+    else
+        title('(c) $\omega = \omega_n/2$: resonance')
+        ylim([-0.25 0.42])
+    end
+    legend('full', 'linearized', 'Location', 'north', 'Orientation', 'horizontal')
+end
+exportgraphics(gcf, 'Fig_6.png', 'Resolution', 300)
 
 %% Animation of the motion in the fixed frame (video saved as trajectory_P.avi)
 % only the first period T is animated, because the motion repeats in the next two (Figure 4b of the report).
@@ -341,4 +442,16 @@ function Xdot = diffeqlin(t, X, g, w, R, A)
     ddelta = X(2);
     Om = A*w*sin(w*t);
     Xdot = [ddelta; -g/R*delta + Om^2];                    % linearized equation
+end
+
+function [ts, ymax, ymin] = swingrange(t, y, limits)
+    % largest and smallest value of y between each pair of limits (one swing), at its mid time
+    n = numel(limits) - 1;
+    ts = zeros(n, 1); ymax = ts; ymin = ts;
+    for k = 1:n
+        idx = limits(k):limits(k+1);
+        ts(k)   = 0.5*(t(idx(1)) + t(idx(end)));
+        ymax(k) = max(y(idx));
+        ymin(k) = min(y(idx));
+    end
 end

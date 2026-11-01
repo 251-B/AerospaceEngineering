@@ -179,9 +179,15 @@ Gravity makes the bead swing around the wire like a pendulum, while the turning 
 %==============================================================
 \section{Methodology}\label{sec:method}
 \subsection{Kinematics and degree of freedom}
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[scale=0.75,>=latex]
+\noindent\begin{minipage}[t]{0.57\textwidth}
+Two reference frames are used. $Oxyz$ turns with the plane of the wire: $\ii$ is horizontal along the diameter through $C$, $\jj$ points up along the axis and $\kk=\ii\times\jj$ is normal to the plane. $Ox_1y_1z_1$ is fixed to the ground and coincides with $Oxyz$ at $t=0$. In \cref{fig:geom} the axis $Oy$ touches the wire at $O$, so $\overrightarrow{OC}=R\,\ii$.
+
+\smallskip
+\textbf{Degree of freedom.} A free particle needs three coordinates. The wire takes two of them away: the bead must stay in the plane $Oxy$ and at a distance $R$ from $C$. One degree of freedom is left, and $\varphi$ describes it. Since the plane turns with a given law, the position of the bead seen from the ground depends on $\varphi$ and also directly on $t$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.40\textwidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[scale=1.08,>=latex]
 \def\R{1.5}\def\ph{40}
 \pgfmathsetmacro{\px}{\R+\R*cos(\ph)}\pgfmathsetmacro{\py}{\R*sin(\ph)}
 \draw[thick] (\R,0) circle (\R);
@@ -197,11 +203,9 @@ Gravity makes the bead swing around the wire like a pendulum, while the turning 
 \draw[->] (0.4,1.95) arc (0:300:0.4 and 0.13); \node at (-0.85,2.1) {$\bm\Omega(t)$};
 \draw[->] (4.3,1.6) -- (4.3,0.7) node[midway,right] {$\bm g$};
 \end{tikzpicture}
-\caption{Geometry of the problem. The plane $Oxy$ turns about $Oy$; $\kk=\ii\times\jj$ points out of the page. The polar basis $\{\er,\ephi\}$ moves with the bead.}\label{fig:geom}
-\end{figure}
-Two reference frames are used. $Oxyz$ turns with the plane of the wire: $\ii$ is horizontal along the diameter through $C$, $\jj$ points up along the axis and $\kk=\ii\times\jj$ is normal to the plane. $Ox_1y_1z_1$ is fixed to the ground and coincides with $Oxyz$ at $t=0$. In the figure the axis $Oy$ touches the wire at $O$, so $\overrightarrow{OC}=R\,\ii$.
-
-\textbf{Degree of freedom.} A free particle needs three coordinates. The wire takes two of them away: the bead must stay in the plane $Oxy$ and at a distance $R$ from $C$. One degree of freedom is left, and $\varphi$ describes it. Since the plane turns with a given law, the position of the bead seen from the ground depends on $\varphi$ and also directly on $t$.
+\captionof{figure}{Geometry of the problem. The plane $Oxy$ turns about $Oy$; $\kk=\ii\times\jj$ points out of the page.}\label{fig:geom}
+\end{minipage}
+\medskip
 
 \textbf{How the plane turns.} The angle $\theta$ turned by the plane grows at the rate $\dt\theta=\Omega$, starting from $\theta(0)=0$. Integrating with the change $u=\omega\tau$, $\dd u=\omega\,\dd\tau$, and Barrow's rule,
 \begin{equation}
@@ -302,14 +306,14 @@ which is $E/(mR^2)$ = constant. The potential energy is highest at the top, $\va
 When both sides are equal the bead is on the separatrix $\dt\varphi=\pm\sqrt{(2g/R)(1-\sin\varphi)}$: it creeps up to the top but needs an infinite time to get there. Below the separatrix $\varphi$ oscillates between the two angles where $\dt\varphi=0$, given by $\sin\varphi=\sin\varphi_0+R\dt\varphi_0^2/(2g)$. \Cref{tab:crit} applies the criterion to the nine initial conditions of item 7.
 \begin{table}[htbp]
 \centering
-\caption{Critical rate of \cref{eq:crit} ($g/R=\SI{9.81}{s^{-2}}$) and predicted motion for the nine initial conditions.}\label{tab:crit}
+\caption{Critical rate of \cref{eq:crit} ($g/R=\SI{9.81}{s^{-2}}$) and predicted motion for the nine initial conditions, numbered as in \cref{fig:phase}.}\label{tab:crit}
 \begin{tabular}{ccccc}
 \toprule
 $\varphi_0$ (rad) & $\dt\varphi_c$ (rad/s) & $\dt\varphi_0=0$ & $\dt\varphi_0=1.5$ rad/s & $\dt\varphi_0=3$ rad/s\\
 \midrule
-$0$ & 4.429 & oscillates & oscillates & oscillates\\
-$\pi/4$ & 2.397 & oscillates & oscillates & goes over the top\\
-$\pi/2$ & 0 & rest at the top (unstable) & goes over the top & goes over the top\\
+$0$ & 4.429 & 1: oscillates & 2: oscillates & 3: oscillates\\
+$\pi/4$ & 2.397 & 4: oscillates & 5: oscillates & 6: goes over the top\\
+$\pi/2$ & 0 & 7: rest at the top (unstable) & 8: goes over the top & 9: goes over the top\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -354,49 +358,49 @@ and compared with $E-E_0$. The position in the fixed frame comes from \cref{eq:t
 \subsection{Oscillating loop: angle, reaction and inertia forces}
 At $t=0$ the plane is at rest, and \cref{eq:eom} gives $\ddt\varphi(0)=-g/R=\SI{-9.81}{rad/s^2}$, as the code prints. The bead falls from the end of the horizontal diameter and swings between $\varphi=0$ and $\varphi=-\pi$ (\cref{fig:loop}a,b); at $\varphi=-\pi$ it passes through $O$, on the axis. One swing takes \SI{2.37}{s}, longer than the small-oscillation period $2\pi\sqrt{R/g}=\SI{2.006}{s}$, because an amplitude of $90^\circ$ around the bottom is far from small. Over the three periods of the plane the amplitude does not change, as expected from a centrifugal term of only 1\% of gravity. The highest angle reached is $\varphi=\SI{0.0118}{rad}$: the energy given by the wire lifts the bead about \SI{1}{cm} above its starting point.
 
-The radial reaction (\cref{fig:loop}c) is zero at the turning points and reaches \SI{-29.43}{N}, that is $-3mg$, at the bottom. There \cref{eq:first} gives $\dt\varphi^2=2g/R$, and \cref{eq:Nr} gives $N_r=-2mg-mg$: the wire holds the weight and also pulls the bead towards $C$ to make it turn. The normal reaction (\cref{fig:loop}d) reaches $\pm\SI{2.78}{N}$, and almost all of it balances the Coriolis force (\cref{fig:loop}f), whose largest value is $2mA\omega R\dt\varphi_{\max}=2\pi(0.1)(4.43)=\SI{2.78}{N}$. It is large because the bead runs fast along the wire ($\dt\varphi$ up to \SI{4.4}{rad/s}) while the plane turns, and it almost disappears at $t=0,\,T/2,\,T,\dots$, when the plane stops to turn back. The centrifugal force (\cref{fig:loop}e) always points away from the axis and peaks at $m(A\omega)^2(2R)=\SI{0.197}{N}$ when the plane turns fastest, at $t=T/4,\,3T/4,\dots$ The Euler force stays below \SI{0.063}{N}, because the plane changes its rate slowly ($|\dt\Omega|\le A\omega^2=\SI{0.031}{rad/s^2}$).
+The radial reaction (\cref{fig:loop}c) is zero at the turning points and reaches \SI{-29.43}{N}, that is $-3mg$, at the bottom. There \cref{eq:first} gives $\dt\varphi^2=2g/R$, and \cref{eq:Nr} gives $N_r=-2mg-mg$: the wire holds the weight and also pulls the bead towards $C$ to make it turn. The normal reaction reaches $\pm\SI{2.78}{N}$ (\cref{fig:loop}d) and is almost the mirror image of the Coriolis force (\cref{fig:loop}e): the wire has to balance it. The largest value of that force is $2mA\omega R\dt\varphi_{\max}=2\pi(0.1)(4.43)=\SI{2.78}{N}$. It is large because the bead runs fast along the wire ($\dt\varphi$ up to \SI{4.4}{rad/s}) while the plane turns, and it almost disappears at $t=0,\,T/2,\,T,\dots$, when the plane stops to turn back. \Cref{fig:loop}f compares the three inertia forces in a logarithmic scale, because they differ by two orders of magnitude. The centrifugal force peaks at $m(A\omega)^2(2R)=\SI{0.197}{N}$ when the plane turns fastest, at $t=T/4,\,3T/4,\dots$ The Euler force stays below \SI{0.063}{N} and peaks when the plane stops, because the plane changes its rate slowly ($|\dt\Omega|\le A\omega^2=\SI{0.031}{rad/s^2}$).
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.8\textwidth]{Fig_2.png}
-\caption{Oscillating loop, item 5. (a) Angle in $[0,3T]$ and (b) in the first \SI{10}{s}. (c) Reaction along $\er$, first \SI{10}{s}. (d) Reaction along $\kk$. (e) Centrifugal ($\ii$) and Euler ($\kk$) forces. (f) Coriolis force ($\kk$).}\label{fig:loop}
+\includegraphics[width=\textwidth]{Fig_2.png}
+\caption{Oscillating loop, item 5. Over $[0,3T]$ there are 79 swings, so (a), (d) and (f) show only the extreme values of each swing; (b), (c) and (e) show the actual curves in a short window.}\label{fig:loop}
 \end{figure}
 
 \subsection{Energy}
 In every swing $E_k$ and $E_p$ exchange about \SI{9.8}{J} (\cref{fig:energy}a), as in any pendulum. Their sum is not constant (\cref{fig:energy}b): $E-E_0$ moves between \SI{-0.082}{J} and \SI{0.313}{J}, oscillating with each swing inside an envelope that follows $\Omega^2$. While the plane speeds up, the wire pushes the bead along with it and gives it energy; while the plane slows down, the wire takes that energy back. The plane changes its speed slowly compared with a swing ($T=\SI{62.8}{s}$ against \SI{2.37}{s}), so the energy comes back to $E_0$ each time the plane stops, and after $3T$ the net gain is only \SI{0.0006}{J}. This is why the amplitude in \cref{fig:loop}a does not drift.
 
-The work of the wire from \cref{eq:W} falls on top of $E-E_0$; the largest difference, \SI{1.5e-4}{J} (0.05\% of the range of $E$), comes from the trapezoidal rule. This confirms \cref{eq:Edot} and the expressions of $N_z$ and $E$ in the code. Tighter tolerances ($10^{-11}$, $10^{-12}$) change $\varphi$ by at most \SI{1.4e-4}{rad}.
+The work of the wire from \cref{eq:W} falls on $E-E_0$ (\cref{fig:energy}c); the largest difference, \SI{1.5e-4}{J} (\cref{fig:energy}d, 0.05\% of the range of $E$), comes from the trapezoidal rule. This confirms \cref{eq:Edot} and the expressions of $N_z$ and $E$ in the code. Tighter tolerances ($10^{-11}$, $10^{-12}$) change $\varphi$ by at most \SI{1.4e-4}{rad}.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.8\textwidth]{Fig_3.png}
-\caption{Energy, item 5. (a) $E_k$ and $E_p$ in the first \SI{10}{s} (the pattern repeats over $[0,3T]$). (b) $E-E_0$ and work of the wire, \cref{eq:W}, in $[0,3T]$.}\label{fig:energy}
+\includegraphics[width=\textwidth]{Fig_3.png}
+\caption{Energy, item 5. (a) $E_k$ and $E_p$ in the first \SI{10}{s}; the pattern repeats over $[0,3T]$. (b) Extreme values of $E-E_0$ in each swing. (c) $E-E_0$ (line) and work of the wire, \cref{eq:W} (points), in the first half period. (d) Their difference in each swing, in logarithmic scale.}\label{fig:energy}
 \end{figure}
 
 \subsection{Trajectory in the fixed frame}
-Seen from the ground, the bead always stays on the surface swept by the wire as it turns about $Oy$: a torus without a hole, because the circle touches the axis at $O$ (\cref{fig:traj}a). From above (\cref{fig:traj}b) each swing draws one petal: the bead goes out to $x=2R$ when $\varphi=0$ and back to the axis when $\varphi=-\pi$. The petals spread around the axis because the plane turns to $\theta=2\pi$ at $t=T/2$ and back to 0 at $t=T$ (\cref{eq:theta}). The three periods draw almost the same flower; the curves do not match exactly because \SI{2.37}{s} does not divide $T$. As a check, $\sqrt{x_1^2+z_1^2}$ equals $x$ to \SI{2e-16}{m}, since a rotation about the axis cannot change the distance to it.
+Seen from the ground, the bead always stays on the surface swept by the wire as it turns about $Oy$: a torus without a hole, because the circle touches the axis at $O$ (\cref{fig:traj}a). From above (\cref{fig:traj}b) each swing draws one petal: the bead goes out to $x=2R$ when $\varphi=0$ and back to the axis when $\varphi=-\pi$. The petals spread around the axis because the plane turns to $\theta=2\pi$ at $t=T/2$ and back to 0 at $t=T$ (\cref{eq:theta}). The dark line is that first turn, 13 swings; the rest of $[0,3T]$ (light line) fills the gaps between its petals, because \SI{2.37}{s} does not divide $T$. As a check, $\sqrt{x_1^2+z_1^2}$ equals $x$ to \SI{2e-16}{m}, since a rotation about the axis cannot change the distance to it.
 
 The script also writes an animation of the first period, \texttt{trajectory\_P.avi}, with the wire turned by $\theta(t)$ and about 20 frames per swing. Each frame is printed to a fixed size with \texttt{print(gcf,'-RGBImage')}, because \texttt{getframe} \cite{guidelines} sometimes returned frames of different sizes, which \texttt{VideoWriter} rejects.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.8\textwidth]{Fig_4.png}
-\caption{Path of $P$ in the fixed frame for $t\in[0,3T]$. (a) 3D view with the wire at $t=0$ (dashed), the axis (dash-dot) and the start (dot). (b) View from above.}\label{fig:traj}
+\includegraphics[width=\textwidth]{Fig_4.png}
+\caption{Path of $P$ in the fixed frame. (a) First turn of the plane, $t\in[0,T/2]$, with the start (dot). (b) View from above: first turn (dark) and whole interval (light); the dotted circle is the reach of the wire, $x=2R$.}\label{fig:traj}
 \end{figure}
 
 \subsection{Fixed loop: phase portrait}
-\Cref{fig:phase}a shows the nine cases of \cref{tab:crit} with the separatrix of \cref{eq:crit}. Five of them, $(0,0)$, $(0,1.5)$, $(0,3)$, $(\pi/4,0)$ and $(\pi/4,1.5)$, are closed curves around the stable equilibrium $(-\pi/2,0)$, so the bead oscillates. The period grows from \SI{2.37}{s} to \SI{3.36}{s} as the curve gets closer to the separatrix, because the bead slows down near the top. The cases $(\pi/4,3)$, $(\pi/2,1.5)$ and $(\pi/2,3)$ start above the separatrix and give open curves: the bead goes round and round, slowest at the top and fastest at the bottom. The case $(\pi/2,0)$ sits on the unstable equilibrium and stays there as a single point; numerically $\cos(\pi/2)\approx6\times10^{-17}$, far too small to move it in \SI{4}{s}. All nine cases behave as \cref{tab:crit} predicts.
+\Cref{fig:phase}a shows the nine cases of \cref{tab:crit}, each numbered at its starting point, with the separatrix of \cref{eq:crit}. Cases 1 to 5 (blue) are closed curves around the stable equilibrium at the bottom, so the bead oscillates. The period grows from \SI{2.37}{s} to \SI{3.36}{s} as the curve gets closer to the separatrix, because the bead slows down near the top. Cases 6, 8 and 9 (red) start above the separatrix and give open curves: the bead goes round and round, slowest at the top and fastest at the bottom. Case 7 sits on the unstable equilibrium and stays there as a single point; numerically $\cos(\pi/2)\approx6\times10^{-17}$, far too small to move it in \SI{4}{s}. The zoom of \cref{fig:phase}b shows where the outcome is decided: at the top the blue curves have already turned back and the red ones still have speed. All nine cases behave as \cref{tab:crit} predicts.
 
-To test the threshold itself, $\varphi_0=\pi/4$ was also run with $\dt\varphi_0$ 1\% below and 1\% above $\dt\varphi_c$ (\cref{fig:phase}b). Both runs climb towards the top and hang there for almost a second, which shows how slowly the bead moves near the separatrix. The first one reaches $\varphi=\SI{1.463}{rad}$, just short of $\pi/2$, and falls back; the second one goes over. In all the runs \cref{eq:first} holds to better than $2\times10^{-7}\,mgR$.
+To test the threshold itself, $\varphi_0=\pi/4$ was also run with $\dt\varphi_0$ 1\% below and 1\% above $\dt\varphi_c$ (\cref{fig:phase}c). Both runs climb towards the top and hang there for almost a second, which shows how slowly the bead moves near the separatrix. The first one reaches $\varphi=\SI{1.463}{rad}$, just short of $\pi/2$, and falls back; the second one goes over. In all the runs \cref{eq:first} holds to better than $2\times10^{-7}\,mgR$.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.8\textwidth]{Fig_5.png}
-\caption{Fixed loop ($A=0$), item 7. (a) Phase portrait for the nine initial conditions, with the separatrix and the two equilibria. (b) $\varphi_0=\pi/4$ with $\dt\varphi_0$ 1\% below and above the critical rate of \cref{eq:crit}.}\label{fig:phase}
+\includegraphics[width=\textwidth]{Fig_5.png}
+\caption{Fixed loop ($A=0$), item 7. (a) Phase portrait; the numbers are the cases of \cref{tab:crit} at their starting points and the black dots the stable equilibria. (b) Zoom around the top, $\varphi=\pi/2$. (c) $\varphi_0=\pi/4$ with $\dt\varphi_0$ 1\% below and above the critical rate.}\label{fig:phase}
 \end{figure}
 
 \subsection{Linearized and full equation}
-\Cref{fig:lin}a shows the percentage error $100\,|\delta_{\text{lin}}-\delta_{\text{full}}|/\max|\delta_{\text{full}}|$. It is divided by the amplitude of $\delta$ and not by $\delta$ itself, because $\delta$ crosses zero and the error would blow up there. The \texttt{ode45} solution of \cref{eq:lin} matches the closed forms \cref{eq:linsol,eq:res} to \SI{2e-8}{rad}, so every difference in the figure comes from the model and not from the integration. \Cref{tab:lin} gives the numbers, and each frequency shows a different way in which the linearization can fail.
+\Cref{fig:lin}a shows the percentage error $100\,|\delta_{\text{lin}}-\delta_{\text{full}}|/\max|\delta_{\text{full}}|$. It is divided by the amplitude of $\delta$ and not by $\delta$ itself, because $\delta$ crosses zero and the error would blow up there. The error oscillates fast, so the figure shows its largest value in each natural period, in a logarithmic scale. The \texttt{ode45} solution of \cref{eq:lin} matches the closed forms \cref{eq:linsol,eq:res} to \SI{2e-8}{rad}, so every difference in the figure comes from the model and not from the integration. \Cref{tab:lin} gives the numbers, and each frequency shows a different way in which the linearization can fail.
 \begin{table}[htbp]
 \centering
 \caption{Linearized against full equation, $t\in[0,10]$ s, with $\omega_n=\sqrt{g/R}$.}\label{tab:lin}
@@ -411,27 +415,25 @@ $\omega_n/4$ & 0.0008 & 0.32\% & 1.86\%\\
 \end{tabular}
 \end{table}
 
-For $\omega=\omega_n$, $\delta$ stays small but the error grows steadily up to 21\%. The cause is the term $\Omega^2\delta$ dropped in \cref{sec:lin}. It lowers the stiffness of the full equation from $g/R=\SI{981}{s^{-2}}$ by about $A^2\omega^2/2=\SI{4.9}{s^{-2}}$ on average, so the full solution oscillates 0.25\% slower and falls behind the linear one, by about \SI{0.8}{rad} of phase after \SI{10}{s}.
+For $\omega=\omega_n$, $\delta$ stays small but the error grows steadily up to 21\%. The cause is the term $\Omega^2\delta$ dropped in \cref{sec:lin}. It lowers the stiffness of the full equation from $g/R=\SI{981}{s^{-2}}$ by about $A^2\omega^2/2=\SI{4.9}{s^{-2}}$ on average, so the full solution oscillates 0.25\% slower and falls behind the linear one, by about \SI{0.8}{rad} of phase after \SI{10}{s} (\cref{fig:lin}b).
 
-For $\omega=\omega_n/2$ the forcing frequency $2\omega$ equals $\omega_n$: this is the resonance of \cref{eq:res} \cite{notes}. Both solutions grow along the envelope $F_0t/(2\omega_n)$ (\cref{fig:lin}b) and reach \SI{0.196}{rad} ($11^\circ$) after \SI{10}{s}. At first they agree, but as $\delta$ grows, $\sin\delta\approx\delta$ gets worse, the full pendulum slows down with the amplitude and drifts out of step with the forcing, and the error reaches 27.8\%.
+For $\omega=\omega_n/2$ the forcing frequency $2\omega$ equals $\omega_n$: this is the resonance of \cref{eq:res} \cite{notes}. Both solutions grow along the envelope $F_0t/(2\omega_n)$ and reach \SI{0.196}{rad} ($11^\circ$) after \SI{10}{s} (\cref{fig:lin}c). At first they agree, but as $\delta$ grows, $\sin\delta\approx\delta$ gets worse, the full pendulum slows down with the amplitude and drifts out of step with the forcing, and the error reaches 27.8\%.
 
 For $\omega=\omega_n/4$ the forcing is far from resonance and 16 times weaker than in the first case. $\delta$ stays below \SI{8e-4}{rad}, the dropped term is negligible and the error stays below 2\%. This is the only case of the three where the linearization really works.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.8\textwidth]{Fig_6.png}
-\caption{Item 8, $R=\SI{0.01}{m}$, $A=0.1$, $\omega_n=\sqrt{g/R}$. (a) Percentage error of the linearized equation; light lines: error, thick lines: largest error up to each time. (b) Full and linearized solutions at resonance in the last \SI{3}{s}, with the envelope $\pm F_0t/(2\omega_n)$ of \cref{eq:res}.}\label{fig:lin}
+\includegraphics[width=\textwidth]{Fig_6.png}
+\caption{Item 8, with $\omega_n=\sqrt{g/R}$. (a) Largest percentage error in each natural period. (b), (c) Both solutions in the last second.}\label{fig:lin}
 \end{figure}
 
 %==============================================================
 \section{Discussion}\label{sec:discussion}
-Two points concern the whole model rather than one figure. First, energy. In the fixed frame it is not conserved because the wire moves (\cref{eq:Edot}). In the turning frame the reaction, the Euler force and the Coriolis force do no work, since they are perpendicular to $\bm v_{\text{rel}}$, but the centrifugal potential $-\tfrac12m\Omega^2x^2$ changes with time, so $\tfrac12mR^2\dt\varphi^2+E_p-\tfrac12m\Omega^2x^2$ is not conserved either. Only a constant $\Omega$ (in particular $A=0$) gives a conserved energy, which item 7 uses.
-
-Second, the initial conditions of item 8, which we had to choose. Starting with $\delta(0)\neq0$ would add a free oscillation and change the size of the errors, but not the two mechanisms behind them, the phase lag and the resonance.
+In the fixed frame the energy is not conserved because the wire moves (\cref{eq:Edot}). In the turning frame the reaction and the Euler and Coriolis forces are perpendicular to $\bm v_{\text{rel}}$ and do no work, but the centrifugal potential $-\tfrac12m\Omega^2x^2$ changes with time, so $\tfrac12mR^2\dt\varphi^2+E_p-\tfrac12m\Omega^2x^2$ is not conserved either. Only a constant $\Omega$ (in particular $A=0$) gives a conserved energy, which item 7 uses. In item 8 we had to choose the initial conditions: starting with $\delta(0)\neq0$ would add a free oscillation and change the size of the errors, but not the phase lag or the resonance.
 
 %==============================================================
 \section{Conclusions}\label{sec:conclusions}
-The bead on an oscillating loop has one degree of freedom, $\varphi$, and in the turning frame its equation of motion contains only gravity and the centrifugal force; the wire balances the Euler and Coriolis forces. For the data of item 5 the plane turns slowly and gently, so the bead swings like a pendulum of $90^\circ$ amplitude with a period of \SI{2.37}{s}. The wire supplies up to $3mg$ in its plane and up to \SI{2.78}{N} across it, almost all against the Coriolis force. That push does work, so the mechanical energy is not conserved, but the work cancels out every time the plane stops.
+The bead on an oscillating loop has one degree of freedom, $\varphi$, and in the turning frame its equation of motion contains only gravity and the centrifugal force. For the data of item 5 the plane turns slowly and gently, so the bead swings like a pendulum of $90^\circ$ amplitude with a period of \SI{2.37}{s}. The wire supplies up to $3mg$ in its plane and up to \SI{2.78}{N} across it, almost all against the Coriolis force. That push does work, so the mechanical energy is not conserved, but the work cancels out every time the plane stops.
 
 With the loop fixed, energy conservation gives the critical rate $\dt\varphi_c=\sqrt{(2g/R)(1-\sin\varphi_0)}$, and all the simulated cases follow it. The linearized equation is a forced oscillator: it works when the forcing is weak and far from resonance, drifts in phase when the dropped term $\Omega^2\delta$ is not small enough, and fails at resonance, $\omega=\omega_n/2$, where the amplitude grows until $\delta\ll1$ is no longer true.
 
@@ -439,11 +441,11 @@ With the loop fixed, energy conservation gives the critical rate $\dt\varphi_c=\
 \begin{thebibliography}{9}
   \setlength{\itemsep}{0pt}
   \bibitem{guidelines}
-  Aerospace Engineering Department (UC3M), \emph{Mechanics Applied to Aerospace Engineering: Laboratory Guidelines}, 2026.
+  UC3M Aerospace Engineering, \emph{Mechanics Applied to Aerospace Engineering: Laboratory Guidelines}, 2026.
   \bibitem{notes}
-  Aerospace Engineering Department (UC3M), \emph{Mechanics Applied to Aerospace Engineering: course notes}, Sec.~5.4.
+  UC3M Aerospace Engineering, \emph{Mechanics Applied to Aerospace Engineering: course notes}, Sec.~5.4.
   \bibitem{problems}
-  Aerospace Engineering Department (UC3M), \emph{Particle exercises and problems}, Problem 34.
+  UC3M Aerospace Engineering, \emph{Particle exercises and problems}, Problem 34.
   \bibitem{matlab}
   The MathWorks, Inc., \emph{MATLAB documentation: ode45, odeset, VideoWriter, print}.
 \end{thebibliography}}
