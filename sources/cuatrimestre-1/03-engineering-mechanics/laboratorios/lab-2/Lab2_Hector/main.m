@@ -165,7 +165,7 @@ subplot(3,1,3)
 plot(t, Nz, 'b'); grid on
 xlim([0 3*Tper])
 xlabel('$t$ (s)'); ylabel('$N_z$ (N)'); title('(c) Reaction along $\mathbf{k}$')
-exportgraphics(gcf, 'Fig_2.png', 'Resolution', 300)
+exportgraphics(gcf, 'Fig_2.png', 'Resolution', 600)
 
 %% Figure 3: inertia forces
 figure('Units', 'centimeters', 'Position', [2 2 17 11.2])
@@ -183,7 +183,7 @@ subplot(3,1,3)
 plot(t, Fcor, 'b'); grid on
 xlim([0 3*Tper])
 xlabel('$t$ (s)'); ylabel('$F_{Cor}$ (N)'); title('(c) Coriolis force (along $\mathbf{k}$)')
-exportgraphics(gcf, 'Fig_3.png', 'Resolution', 300)
+exportgraphics(gcf, 'Fig_3.png', 'Resolution', 600)
 
 %% Figure 4: kinetic and potential energy
 figure('Units', 'centimeters', 'Position', [2 2 17 6])
@@ -192,7 +192,7 @@ plot(t, Ep, 'r--'); grid on
 xlim([0 3*Tper]); ylim([-12 14])
 xlabel('$t$ (s)'); ylabel('energy (J)')
 legend('$E_k$', '$E_p$', 'Location', 'north', 'Orientation', 'horizontal')
-exportgraphics(gcf, 'Fig_4.png', 'Resolution', 300)
+exportgraphics(gcf, 'Fig_4.png', 'Resolution', 600)
 
 %% Figure 5: trajectory of P in the fixed frame
 s  = linspace(0, 2*pi, 200);
@@ -207,7 +207,7 @@ plot3(x1(1), z1(1), y1(1), 'ko', 'MarkerFaceColor', 'k')   % start
 axis equal; grid on; view(35, 25)
 xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); zlabel('$y_1$ (m)')
 legend('trajectory of P, $t \in [0, 3T]$', 'wire at $t = 0$', 'axis $Oy_1$', 'start, $t = 0$', 'Location', 'eastoutside')
-exportgraphics(gcf, 'Fig_5.png', 'Resolution', 300)
+exportgraphics(gcf, 'Fig_5.png', 'Resolution', 600)
 
 %% Figure 6: phase portrait for A = 0
 % colour: phi(0), line style: dphi(0), dot: start
@@ -231,7 +231,7 @@ grid on
 xlim([-3*pi/2 5*pi/2]); ylim([-8 8])
 xlabel('$\varphi$ (rad)'); ylabel('$\dot\varphi$ (rad/s)')
 legend(h7, [names {'separatrix'}], 'Location', 'eastoutside', 'FontSize', 10)
-exportgraphics(gcf, 'Fig_6.png', 'Resolution', 300)
+exportgraphics(gcf, 'Fig_6.png', 'Resolution', 600)
 
 %% Figure 7: percentage error of the linearized equation
 % error from 0.01 % to 30 %, so log axis
@@ -243,7 +243,7 @@ xlim([0 10]); ylim([1e-3 1e2])
 yticks([1e-3 1e-2 1e-1 1 10 100]); set(gca, 'YMinorGrid', 'off')
 xlabel('$t$ (s)'); ylabel('error (\%)')
 legend('$\omega = \sqrt{g/R}$', '$\omega = \frac{1}{2}\sqrt{g/R}$', '$\omega = \frac{1}{4}\sqrt{g/R}$', 'Location', 'northoutside', 'Orientation', 'horizontal')
-exportgraphics(gcf, 'Fig_7.png', 'Resolution', 300)
+exportgraphics(gcf, 'Fig_7.png', 'Resolution', 600)
 
 %% Video of the first period (trajectory_P.avi)
 video = VideoWriter('trajectory_P.avi', 'Motion JPEG AVI');
