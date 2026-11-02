@@ -1,6 +1,6 @@
 %% Lab 2 - Particle on oscillating loop
 % Mechanics Applied to Aerospace Engineering (UC3M)
-% Group LA: Alvarez Iglesias, Gonzalez Rodriguez, Hernandez Bejarano
+% Group LA: Álvarez Iglesias, González Rodríguez, Hernández Bejarano
 clear; clc; close all;
 
 % plot style (Script 6 of the guidelines)
@@ -36,7 +36,7 @@ tspan = linspace(0, 3*Tper, 10000);
 phi  = stateSol(:,1);
 dphi = stateSol(:,2);
 
-Om    = A*w*sin(w*t);       % angular rate of the loop
+Om    = A*w*sin(w*t);       % angular velocity of the loop
 Omdot = A*w^2*cos(w*t);     % angular acceleration of the loop
 x     = R*(1 + cos(phi));   % distance to the axis
 y     = R*sin(phi);         % height of P
@@ -89,7 +89,7 @@ fprintf('Item 6: max |sqrt(x1^2 + z1^2) - x| = %.2e m\n', max(abs(sqrt(x1.^2 + z
 phi0v    = [0 pi/4 pi/2];
 dphi0v   = [0 1.5 3];
 phinames = {'0', '\pi/4', '\pi/2'};
-tend7    = 4;   % longest closed orbit is 3.36 s
+tend7    = 4;   % longest closed curve is 3.36 s
 
 for i = 1:3
     for j = 1:3
@@ -115,7 +115,7 @@ for i = 1:3
         fprintf('Item 7: phi0 = %.3f, dphi0 = %.1f, critical = %.3f -> predicted: %s; numerical: %s; max |E - E0|/(mgR) = %.1e\n', ...
                 phi0v(i), dphi0v(j), dcrit, predicted, observed, max(abs(E7 - E7(1)))/(m*g*R));
 
-        % period of the closed orbits: longer run, times where dphi goes from + to -
+        % period of the closed curves: 30 s run, times where dphi goes from + to -
         if dphi0v(j) < dcrit
             [tl, Sl] = ode45(@(t,X) diffeq(t, X, g, w, R, 0), linspace(0, 30, 30000), [phi0v(i); dphi0v(j)], options);
             n = 0;
@@ -136,7 +136,7 @@ As  = 0.1;                   % amplitude (rad)
 wn  = sqrt(g/Rs);            % natural frequency (rad/s)
 ws  = wn*[1 1/2 1/4];        % frequencies of the loop (rad/s)
 t8  = linspace(0, 10, 4000)';
-% ICs not given: P at rest at the bottom, delta(0) = 0, deltadot(0) = 0
+% initial conditions not given: P at rest at the bottom, delta(0) = 0, deltadot(0) = 0
 
 for k = 1:3
     % full equation (phi = delta - pi/2) and linearized one
@@ -157,7 +157,7 @@ for k = 1:3
                  + (F0/(wn^2 - 4*ws(k)^2) - F0/wn^2)*cos(wn*t8);
     end
     i5 = find(t8 >= 5, 1);
-    fprintf('Item 8: w = %.3f rad/s: max|delta| = %.5f rad, error at 5 s = %.2f %%, max error = %.2f %%, max |delta_lin - closed form| = %.1e rad\n', ...
+    fprintf('Item 8: w = %.3f rad/s: max|delta| = %.5f rad, error at 5 s = %.2f %%, max error = %.2f %%, max |delta_lin - exact| = %.1e rad\n', ...
             ws(k), max(abs(dfull{k})), err{k}(i5), max(err{k}), max(abs(dlin{k} - dexact)));
 end
 
@@ -254,7 +254,7 @@ for i = 1:3
         names{3*(i-1)+j} = ['$\varphi_0 = ' phinames{i} '$, $\dot\varphi_0 = ' num2str(dphi0v(j)) '$ rad/s'];
     end
 end
-% separatrix, Eq. (21)
+% limit curve between oscillating and going over the top, Eq. (21)
 pp = linspace(-3*pi/2, 5*pi/2, 1000);
 sp = sqrt(2*g/R*(1 - sin(pp)));
 h7(10) = plot(pp, sp, 'k-.', 'LineWidth', 1.3);
@@ -262,7 +262,7 @@ plot(pp, -sp, 'k-.', 'LineWidth', 1.3)
 grid on
 xlim([-3*pi/2 5*pi/2]); ylim([-8 8])
 xlabel('$\varphi$ (rad)'); ylabel('$\dot\varphi$ (rad/s)')
-legend(h7, [names {'separatrix'}], 'Location', 'eastoutside', 'FontSize', 10)
+legend(h7, [names {'limit curve'}], 'Location', 'eastoutside', 'FontSize', 10)
 exportgraphics(gcf, 'Fig_6.png', 'Resolution', 600)
 
 %% Figure 7: percentage error of the linearized equation
@@ -278,29 +278,26 @@ legend('$\omega = \sqrt{g/R}$', '$\omega = \frac{1}{2}\sqrt{g/R}$', '$\omega = \
 exportgraphics(gcf, 'Fig_7.png', 'Resolution', 600)
 
 %% Video of the first period (trajectory_P.avi)
-video = VideoWriter('trajectory_P.avi', 'Motion JPEG AVI');
+video = VideoWriter('trajectory_P.avi');
 video.FrameRate = 30;
 open(video)
 
 figure('Position', [50 50 700 600], 'Color', 'w')
-plot3([0 0], [0 0], [-1.2*R 1.2*R], 'k-.'); hold on                 % axis of rotation
-hw = plot3(xw, 0*s, yw, 'k', 'LineWidth', 1.5);                     % wire
-ht = plot3(x1(1), z1(1), y1(1), 'b');                               % trail of P
-hp = plot3(x1(1), z1(1), y1(1), 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 8);   % particle
-axis equal; grid on; view(35, 20)
-xlim([-2.2*R 2.2*R]); ylim([-2.2*R 2.2*R]); zlim([-1.2*R 1.2*R])
-xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); zlabel('$y_1$ (m)')
-set(gca, 'FontSize', 14)
-% same frame size every time (560 x 480 px)
-set(gcf, 'PaperUnits', 'inches', 'PaperPosition', [0 0 7 6]);
-
 for k = 1:6:find(t <= Tper, 1, 'last')   % one frame every 6 points
-    set(hw, 'XData', xw*cos(theta(k)), 'YData', -xw*sin(theta(k)), 'ZData', yw)   % wire turned by theta
-    set(ht, 'XData', x1(1:k), 'YData', z1(1:k), 'ZData', y1(1:k))
-    set(hp, 'XData', x1(k), 'YData', z1(k), 'ZData', y1(k))
+    clf
+    plot3([0 0], [0 0], [-1.2*R 1.2*R], 'k-.'); hold on                      % axis of rotation
+    plot3(xw*cos(theta(k)), -xw*sin(theta(k)), yw, 'k', 'LineWidth', 1.5)    % wire turned by theta
+    plot3(x1(1:k), z1(1:k), y1(1:k), 'b')                                    % trail of P
+    plot3(x1(k), z1(k), y1(k), 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 8)   % particle
+    axis equal; grid on; view(35, 20)
+    xlim([-2.2*R 2.2*R]); ylim([-2.2*R 2.2*R]); zlim([-1.2*R 1.2*R])
+    xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); zlabel('$y_1$ (m)')
     title(['$t = ' num2str(t(k), '%.1f') '$ s, $\theta = ' num2str(theta(k), '%.2f') '$ rad'])
-    frame = print(gcf, '-RGBImage', '-r80');
-    if size(frame,1) == 480 && size(frame,2) == 560   % skip a bad frame
+    frame = getframe(gcf);
+    if k == 1
+        sz = size(frame.cdata);   % size of the first frame
+    end
+    if isequal(size(frame.cdata), sz)   % skip a frame of another size
         writeVideo(video, frame);
     end
 end
@@ -311,7 +308,7 @@ fprintf('Animation saved in trajectory_P.avi\n');
 function Xdot = diffeq(t, X, g, w, R, A)
     phi  = X(1);
     dphi = X(2);
-    Om   = A*w*sin(w*t);                                   % angular rate of the loop
+    Om   = A*w*sin(w*t);                                   % angular velocity of the loop
     ddphi = -g/R*cos(phi) - Om^2*(1 + cos(phi))*sin(phi);  % equation of motion
     Xdot = [dphi; ddphi];
 end

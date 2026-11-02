@@ -206,7 +206,7 @@ The main objective is to obtain the equation of motion of $P$ and solve it with 
 \end{figure}
 We use two reference frames. $Oxyz$ turns with the plane of the wire: $\ii$ is horizontal along the diameter through $C$, $\jj$ points up along the axis and $\kk=\ii\times\jj$ is normal to the plane. $Ox_1y_1z_1$ is fixed to the ground and coincides with $Oxyz$ at $t=0$. As shown in \cref{fig:geom}, the axis $Oy$ touches the wire at $O$, so $\overrightarrow{OC}=R\,\ii$.
 
-\textbf{Degrees of freedom.} A free particle has three coordinates. The wire removes two of them, since the bead has to stay in the plane $Oxy$ and at a distance $R$ from $C$. So there is $3-2=1$ degree of freedom, and we parametrise it with $\varphi$. The plane turns with a known law, so the position of the bead seen from the ground depends on $\varphi$ and also explicitly on $t$.
+\textbf{Degrees of freedom.} A free particle has three coordinates. The wire removes two of them, since the bead has to stay in the plane $Oxy$ and at a distance $R$ from $C$. So there is $3-2=1$ degree of freedom, and we describe it with $\varphi$. The plane turns with a known law, so the position of the bead seen from the ground depends on $\varphi$ and also explicitly on $t$.
 
 \textbf{How the plane turns.} The angle $\theta$ turned by the plane satisfies $\dt\theta=\Omega$ with $\theta(0)=0$. Integrating with the change $u=\omega\tau$, $\dd u=\omega\,\dd\tau$, and applying Barrow's rule,
 \begin{equation}
@@ -304,7 +304,7 @@ which is $E/(mR^2)$ = constant. The highest potential energy is at the top, $\va
 |\dt\varphi_0|>\dt\varphi_c=\sqrt{\frac{2g}{R}\big(1-\sin\varphi_0\big)} .
 \label{eq:crit}
 \end{equation}
-If both sides are equal, the bead is on the point $\dt\varphi=\pm\sqrt{(2g/R)(1-\sin\varphi)}$, so it moves up to the top but takes an infinite time to reach it. Below the point $\varphi$ oscillates between the two angles where $\dt\varphi=0$, which are given by $\sin\varphi=\sin\varphi_0+R\dt\varphi_0^2/(2g)$. \Cref{tab:crit} applies the criterion to the nine initial conditions studied.
+If both sides are equal, the bead is on the limit curve $\dt\varphi=\pm\sqrt{(2g/R)(1-\sin\varphi)}$, so it moves up to the top but takes an infinite time to reach it. Below the limit curve $\varphi$ oscillates between the two angles where $\dt\varphi=0$, which are given by $\sin\varphi=\sin\varphi_0+R\dt\varphi_0^2/(2g)$. \Cref{tab:crit} applies the criterion to the nine initial conditions studied.
 \begin{table}[htbp]
 \centering\small
 \caption{Critical rate of \cref{eq:crit} ($g/R=\SI{9.81}{s^{-2}}$) and predicted motion for the nine initial conditions.}\label{tab:crit}
@@ -347,7 +347,7 @@ Since \texttt{ode45} only integrates first order systems \cite{matlab}, \cref{eq
 \frac{\dd\bm X}{\dd t}=\begin{pmatrix}X_2\\[2pt] -\dfrac gR\cos X_1-\Omega(t)^2\,(1+\cos X_1)\sin X_1\end{pmatrix},\qquad \bm X(0)=\begin{pmatrix}\varphi_0\\ \dt\varphi_0\end{pmatrix},\qquad \Omega(t)=A\omega\sin(\omega t).
 \label{eq:system}
 \end{equation}
-This system is the MATLAB function \texttt{diffeq(t,X,g,w,R,A)}, and \cref{eq:lin} is \texttt{diffeqlin}, with the state $[\delta,\dt\delta]^T$. The tolerances are $10^{-8}$ (relative) and $10^{-10}$ (absolute). For the oscillating loop, the solution is stored at \num{10000} instants of $[0,3T]$, which is about 125 points per swing \cite{guidelines}. Forces and energies are computed afterwards from the stored $\varphi$ and $\dt\varphi$ with exactly \cref{eq:Fcf,eq:Feul,eq:Fcor,eq:Nr,eq:Nz,eq:E}. The position in the fixed frame comes from \cref{eq:theta,eq:rot}, $x_1=x\cos\theta$, $y_1=R\sin\varphi$, $z_1=-x\sin\theta$. In all the cases $g=\SI{9.81}{m/s^2}$ and $m=\SI{1}{kg}$. The oscillating loop uses $A=\pi$, $R=\SI{1}{m}$, $\omega=\SI{0.1}{rad/s}$ and $\varphi_0=\dt\varphi_0=0$ over $[0,3T]$, with $T=\SI{62.83}{s}$. The fixed loop uses $A=0$, $R=\SI{1}{m}$ and the nine conditions of \cref{tab:crit}, over \SI{4}{s}, which is longer than the longest period of the closed curves (\SI{3.36}{s}). The linearized study uses $A=0.1$, $R=\SI{0.01}{m}$, $\omega=\omega_n,\ \omega_n/2,\ \omega_n/4$ with $\omega_n=\SI{31.32}{rad/s}$, and $\delta_0=\dt\delta_0=0$, over \SI{10}{s}.
+This system is the MATLAB function \texttt{diffeq(t,X,g,w,R,A)}, and \cref{eq:lin} is \texttt{diffeqlin}, with the state $[\delta,\dt\delta]^T$. The tolerances are $10^{-8}$ (relative) and $10^{-10}$ (absolute). For the oscillating loop, the solution is stored at \num{10000} instants of $[0,3T]$, which is about 125 points per swing \cite{guidelines}. Forces and energies are computed afterwards from the stored $\varphi$ and $\dt\varphi$ with exactly \cref{eq:Fcf,eq:Feul,eq:Fcor,eq:Nr,eq:Nz,eq:E}. The position in the fixed frame comes from \cref{eq:theta,eq:rot}, $x_1=x\cos\theta$, $y_1=R\sin\varphi$, $z_1=-x\sin\theta$. In all the cases $g=\SI{9.81}{m/s^2}$ and $m=\SI{1}{kg}$. The oscillating loop uses $A=\pi$, $R=\SI{1}{m}$, $\omega=\SI{0.1}{rad/s}$ and $\varphi_0=\dt\varphi_0=0$ over $[0,3T]$, with $T=\SI{62.83}{s}$. The fixed loop uses $A=0$, $R=\SI{1}{m}$ and the nine conditions of \cref{tab:crit}, over \SI{4}{s}, which is longer than the longest period of the closed curves (\SI{3.36}{s}). The linearized study uses $A=0.1$, $R=\SI{0.01}{m}$, $\omega=\omega_n,\ \omega_n/2,\ \omega_n/4$ with $\omega_n=\SI{31.32}{rad/s}$, and $\delta_0=\dt\delta_0=0$, over \SI{10}{s}. The period of a swing is measured between the instants where $\dt\varphi$ changes from positive to negative; for the fixed loop this is done in a longer run of \SI{30}{s}.
 
 %==============================================================
 \section{Results}\label{sec:results}
@@ -389,12 +389,12 @@ Seen from the ground (\cref{fig:traj}), the bead always stays on the surface swe
 \end{figure}
 
 \subsection{Phase portrait of the fixed loop}
-\Cref{fig:phase} shows the nine cases of \cref{tab:crit} together with the separatrix of \cref{eq:crit}. The colour gives $\varphi_0$, the line style $\dt\varphi_0$, and a dot marks where each curve starts. The five cases $(0,0)$, $(0,1.5)$, $(0,3)$, $(\pi/4,0)$ and $(\pi/4,1.5)$ are closed curves inside the separatrix, around the stable equilibrium $(-\pi/2,0)$, so the bead oscillates. The period goes from \SI{2.37}{s} to \SI{3.36}{s} as the curve gets closer to the separatrix, because the bead slows down near the top. The cases $(\pi/4,3)$, $(\pi/2,1.5)$ and $(\pi/2,3)$ start above the separatrix and give open curves: the bead keeps going round, slowest at the top and fastest at the bottom, and the figure is cut at $\varphi=5\pi/2$, since the curves repeat every $2\pi$. The case $(\pi/2,0)$ starts on the unstable equilibrium and stays there as a single point, since numerically $\cos(\pi/2)\approx6\times10^{-17}$ is far too small to move it in \SI{4}{s}. In short, all nine cases behave as \cref{tab:crit} predicts, and in all of them \cref{eq:first} holds to better than $2\times10^{-7}\,mgR$.
+\Cref{fig:phase} shows the nine cases of \cref{tab:crit} together with the limit curve of \cref{eq:crit}. The colour gives $\varphi_0$, the line style $\dt\varphi_0$, and a dot marks where each curve starts. The five cases $(0,0)$, $(0,1.5)$, $(0,3)$, $(\pi/4,0)$ and $(\pi/4,1.5)$ are closed curves inside the limit curve, around the stable equilibrium $(-\pi/2,0)$, so the bead oscillates. The period goes from \SI{2.37}{s} to \SI{3.36}{s} as the curve gets closer to the limit curve, because the bead slows down near the top. The cases $(\pi/4,3)$, $(\pi/2,1.5)$ and $(\pi/2,3)$ start above the limit curve and give open curves: the bead keeps going round, slowest at the top and fastest at the bottom, and the figure is cut at $\varphi=5\pi/2$, since the curves repeat every $2\pi$. The case $(\pi/2,0)$ starts on the unstable equilibrium and stays there as a single point, since numerically $\cos(\pi/2)\approx6\times10^{-17}$ is far too small to move it in \SI{4}{s}. In short, all nine cases behave as \cref{tab:crit} predicts, and in all of them \cref{eq:first} holds to better than $2\times10^{-7}\,mgR$.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.9\textwidth]{Fig_6.png}
-\caption{Phase portrait of the fixed loop ($A=0$), for the nine initial conditions, with the separatrix of \cref{eq:crit}. The open curves repeat every $2\pi$.}\label{fig:phase}
+\caption{Phase portrait of the fixed loop ($A=0$), for the nine initial conditions, with the limit curve of \cref{eq:crit}. The open curves repeat every $2\pi$.}\label{fig:phase}
 \end{figure}
 
 \subsection{Linearized against full equation}\label{sec:linres}
@@ -413,7 +413,7 @@ $\omega_n/4$ & 0.00083 & 0.32\% & 1.86\%\\
 \end{tabular}
 \end{table}
 
-For $\omega=\omega_n$ (solid line), $\delta$ stays small but the error grows steadily from the start, up to 21\%. The cause is the term $\Omega^2\delta$ dropped in \cref{sec:lin}, which lowers the stiffness of the full equation from $g/R=\SI{981}{s^{-2}}$ by about $A^2\omega^2/2=\SI{4.9}{s^{-2}}$ on average. So the full solution oscillates 0.25\% slower and falls behind, by about \SI{0.8}{rad} of phase after \SI{10}{s}.
+For $\omega=\omega_n$ (solid line), $\delta$ stays small but the error grows steadily from the start, up to 21\%. The cause is the term $\Omega^2\delta$ dropped in \cref{sec:lin}, which in the full equation reduces $g/R=\SI{981}{s^{-2}}$ by about $A^2\omega^2/2=\SI{4.9}{s^{-2}}$ on average. So the full solution oscillates 0.25\% slower and falls behind, by about \SI{0.8}{rad} of phase after \SI{10}{s}.
 
 For $\omega=\omega_n/2$ (dashed line), $2\omega=\omega_n$, which is the resonance of \cref{eq:res} \cite{notes}. Both solutions grow like $F_0t/(2\omega_n)$, up to \SI{0.196}{rad} ($11^\circ$) at \SI{10}{s}. At first they agree, so the error starts as the smallest of the three, but as $\delta$ grows $\sin\delta\approx\delta$ gets worse, the full pendulum slows down and gets out of phase with the forcing, and the error ends as the largest, 27.8\%.
 
@@ -427,11 +427,11 @@ For $\omega=\omega_n/4$ (dotted line), the forcing is far from resonance and 16 
 
 %==============================================================
 \section{Discussion}\label{sec:discussion}
-Seen from the ground, $E$ is not conserved since the wire moves and its reaction does work  (\cref{eq:Edot}). But in the turning frame the reaction and the Euler and Coriolis forces are perpendicular to $\bm v_{\text{rel}}$, so they do not produce work. However, the centrifugal potential $-\tfrac12m\Omega^2x^2$ depends on time. And due to this  $\tfrac12mR^2\dt\varphi^2+E_p-\tfrac12m\Omega^2x^2$ is not conserved. If $\Omega$ were constant and different from zero, this energy of the turning frame would be conserved. Still $E$ of \cref{eq:E} would change, as the Coriolis force makes $N_z\neq0$. So the only case where  $E$ is  conserved is for $A=0$. The case of the loop being fixed and not moving.
+Seen from the ground, $E$ is not conserved since the wire moves and its reaction does work  (\cref{eq:Edot}). But in the turning frame the reaction and the Euler and Coriolis forces are perpendicular to $\bm v_{\text{rel}}$, so they do not produce work. However, the centrifugal potential $-\tfrac12m\Omega^2x^2$ depends on time. And due to this  $\tfrac12mR^2\dt\varphi^2+E_p-\tfrac12m\Omega^2x^2$ is also not conserved. If $\Omega$ were constant and different from zero, this energy of the turning frame would be conserved. Still $E$ of \cref{eq:E} would change, because of the Coriolis force, that makes $N_z\neq0$. So the only case where  $E$ is  conserved is for $A=0$. The case of the loop being fixed and not moving.
 
 %==============================================================
 \section{Conclusions}\label{sec:conclusions}
-The bead has a single degree of freedom, $\varphi$, and in the turning frame its equation of motion only contains gravity and the centrifugal force. On the oscillating loop the bead acts like a pendulum. The wire has to provide up to $3mg$ in its plane and up to \SI{2.78}{N} normal to it. This normal component mostly balances the Coriolis force. Due to this push doing work, the energy cannot be conserved.
+The bead has a single degree of freedom, $\varphi$, and in the turning frame its equation of motion only contains gravity and centrifugal force. On the oscillating loop the bead acts like a pendulum. The wire has to provide up to $3mg$ in its plane and up to \SI{2.78}{N} normal to it. This normal component mostly balances the Coriolis force. Due to this doing work, the energy cannot be conserved.
 
 When the loop is fixed, energy conservation gives the critical rate $\dt\varphi_c=\sqrt{(2g/R)(1-\sin\varphi_0)}$, and the nine simulated cases agree with it. The linearized equation behaves as a forced oscillator. It works well for weak forcing far from resonance, it drifts in phase because of the dropped term $\Omega^2\delta$, and it fails at resonance ($\omega=\omega_n/2$), where $\delta$ keeps growing.
 
