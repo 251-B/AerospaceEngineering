@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/Report_LA_Alvarez_Gonzalez_Hernandez.pdf"
 kind: laboratorio
 status: not-referenced
-bytes: 2785508
+bytes: 2730776
 ---
 
 # Source: Report_LA_Alvarez_Gonzalez_Hernandez.pdf
@@ -18,7 +18,7 @@ bytes: 2785508
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/Report_LA_Alvarez_Gonzalez_Hernandez.pdf`
 - **Kind:** laboratorio
-- **Size:** 2.8 MB
+- **Size:** 2.7 MB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

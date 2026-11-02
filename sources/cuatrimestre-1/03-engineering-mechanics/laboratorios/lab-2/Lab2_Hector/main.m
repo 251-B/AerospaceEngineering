@@ -163,21 +163,32 @@ end
 
 %% Figure 2: angle and reaction forces
 % one panel per magnitude, saved at the report width (17 cm)
+% 79 swings in 3T look like a solid band, so phi and Nr also get a zoom of the first 10 s
 figure('Units', 'centimeters', 'Position', [2 2 17 11.2])
-subplot(3,1,1)
+subplot(3,2,1)
 plot(t, phi, 'b'); grid on
 xlim([0 3*Tper])
 xlabel('$t$ (s)'); ylabel('$\varphi$ (rad)'); title('(a) Angle')
 
-subplot(3,1,2)
+subplot(3,2,2)
+plot(t, phi, 'b'); grid on
+xlim([0 10])
+xlabel('$t$ (s)'); ylabel('$\varphi$ (rad)'); title('(b) Angle, first 10 s')
+
+subplot(3,2,3)
 plot(t, Nr, 'b'); grid on
 xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('$N_r$ (N)'); title('(b) Reaction along $\mathbf{e}_r$')
+xlabel('$t$ (s)'); ylabel('$N_r$ (N)'); title('(c) Reaction along $\mathbf{e}_r$')
 
-subplot(3,1,3)
+subplot(3,2,4)
+plot(t, Nr, 'b'); grid on
+xlim([0 10])
+xlabel('$t$ (s)'); ylabel('$N_r$ (N)'); title('(d) Reaction along $\mathbf{e}_r$, first 10 s')
+
+subplot(3,2,[5 6])
 plot(t, Nz, 'b'); grid on
 xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('$N_z$ (N)'); title('(c) Reaction along $\mathbf{k}$')
+xlabel('$t$ (s)'); ylabel('$N_z$ (N)'); title('(e) Reaction along $\mathbf{k}$')
 exportgraphics(gcf, 'Fig_2.png', 'Resolution', 600)
 
 %% Figure 3: inertia forces
@@ -199,12 +210,20 @@ xlabel('$t$ (s)'); ylabel('$F_{Cor}$ (N)'); title('(c) Coriolis force (along $\m
 exportgraphics(gcf, 'Fig_3.png', 'Resolution', 600)
 
 %% Figure 4: kinetic and potential energy
+% full time and zoom of the first 10 s
 figure('Units', 'centimeters', 'Position', [2 2 17 6])
+subplot(1,2,1)
 plot(t, Ek, 'b'); hold on
 plot(t, Ep, 'r--'); grid on
 xlim([0 3*Tper]); ylim([-12 14])
-xlabel('$t$ (s)'); ylabel('energy (J)')
+xlabel('$t$ (s)'); ylabel('energy (J)'); title('(a) $t \in [0, 3T]$')
 legend('$E_k$', '$E_p$', 'Location', 'north', 'Orientation', 'horizontal')
+
+subplot(1,2,2)
+plot(t, Ek, 'b'); hold on
+plot(t, Ep, 'r--'); grid on
+xlim([0 10]); ylim([-12 14])
+xlabel('$t$ (s)'); ylabel('energy (J)'); title('(b) First 10 s')
 exportgraphics(gcf, 'Fig_4.png', 'Resolution', 600)
 
 %% Figure 5: trajectory of P in the fixed frame
