@@ -89,7 +89,7 @@ fprintf('Item 6: max |sqrt(x1^2 + z1^2) - x| = %.2e m\n', max(abs(sqrt(x1.^2 + z
 phi0v    = [0 pi/4 pi/2];
 dphi0v   = [0 1.5 3];
 phinames = {'0', '\pi/4', '\pi/2'};
-tend7    = 4;   % longest closed orbit is 3.4 s
+tend7    = 4;   % longest closed orbit is 3.36 s
 
 for i = 1:3
     for j = 1:3
@@ -106,7 +106,7 @@ for i = 1:3
         else
             predicted = 'oscillates';
         end
-        if max(phi7{i,j}) > pi
+        if max(phi7{i,j}) > pi/2 + 1e-3   % top of the loop
             observed = 'goes over the top';
         else
             observed = 'does not go over the top';
@@ -114,6 +114,19 @@ for i = 1:3
         E7 = 0.5*m*R^2*dphi7{i,j}.^2 + m*g*R*sin(phi7{i,j});
         fprintf('Item 7: phi0 = %.3f, dphi0 = %.1f, critical = %.3f -> predicted: %s; numerical: %s; max |E - E0|/(mgR) = %.1e\n', ...
                 phi0v(i), dphi0v(j), dcrit, predicted, observed, max(abs(E7 - E7(1)))/(m*g*R));
+
+        % period of the closed orbits: longer run, times where dphi goes from + to -
+        if dphi0v(j) < dcrit
+            [tl, Sl] = ode45(@(t,X) diffeq(t, X, g, w, R, 0), linspace(0, 30, 30000), [phi0v(i); dphi0v(j)], options);
+            n = 0;
+            for k = 1:length(tl)-1
+                if Sl(k,2) > 0 && Sl(k+1,2) <= 0
+                    n = n + 1;
+                    tp7(n) = tl(k);
+                end
+            end
+            fprintf('Item 7: phi0 = %.3f, dphi0 = %.1f -> period %.3f s\n', phi0v(i), dphi0v(j), (tp7(n) - tp7(1))/(n - 1));
+        end
     end
 end
 
@@ -144,7 +157,7 @@ for k = 1:3
                  + (F0/(wn^2 - 4*ws(k)^2) - F0/wn^2)*cos(wn*t8);
     end
     i5 = find(t8 >= 5, 1);
-    fprintf('Item 8: w = %.3f rad/s: max|delta| = %.4f rad, error at 5 s = %.2f %%, max error = %.2f %%, max |delta_lin - closed form| = %.1e rad\n', ...
+    fprintf('Item 8: w = %.3f rad/s: max|delta| = %.5f rad, error at 5 s = %.2f %%, max error = %.2f %%, max |delta_lin - closed form| = %.1e rad\n', ...
             ws(k), max(abs(dfull{k})), err{k}(i5), max(err{k}), max(abs(dlin{k} - dexact)));
 end
 
