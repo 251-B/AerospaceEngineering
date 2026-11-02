@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/latex_source/report.pdf"
 kind: laboratorio
 status: not-referenced
-bytes: 2731251
+bytes: 2730520
 ---
 
 # Source: report.pdf
