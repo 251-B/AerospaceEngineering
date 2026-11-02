@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 192
-- Referenced by at least one note (a mention counts): 15
-- Not referenced yet: 177
+- Files: 185
+- Referenced by at least one note (a mention counts): 14
+- Not referenced yet: 171
 - Build artifacts: 0
 - Working files: 0
 
@@ -258,17 +258,10 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - Fig_2 (png)\|Fig_2.png]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - Fig_3 (png)\|Fig_3.png]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - Fig_4 (png)\|Fig_4.png]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - Fig_5 (png)\|Fig_5.png]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - Fig_6 (png)\|Fig_6.png]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - Fig_7 (png)\|Fig_7.png]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - Group_LA_Alvarez_Gonzalez_Hernandez (zip)\|Group_LA_Alvarez_Gonzalez_Hernandez.zip]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - main (m)\|main.m]] | laboratorio | referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - README (md)\|README.md]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - Report_LA_Alvarez_Gonzalez_Hernandez (pdf)\|Report_LA_Alvarez_Gonzalez_Hernandez.pdf]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - trajectory_P (avi)\|trajectory_P.avi]] | laboratorio | referenced |
 
 ## laboratorios/lab-2/Lab2_Hector/latex_source
 
