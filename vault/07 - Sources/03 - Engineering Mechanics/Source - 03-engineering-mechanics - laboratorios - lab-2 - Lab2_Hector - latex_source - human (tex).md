@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/latex_source/human.tex"
 kind: laboratorio
 status: not-referenced
-bytes: 34017
+bytes: 33561
 ---
 
 # Source: human.tex
@@ -18,7 +18,7 @@ bytes: 34017
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/latex_source/human.tex`
 - **Kind:** laboratorio
-- **Size:** 34.0 kB
+- **Size:** 33.6 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by
