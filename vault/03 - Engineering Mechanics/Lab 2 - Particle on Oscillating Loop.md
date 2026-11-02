@@ -161,7 +161,7 @@ For the nine initial conditions of the lab ($g/R = 9.81\ \text{s}^{-2}$):
 
 At $(\pi/2, 0)$ the bead stays at rest analytically; numerically $\cos(\pi/2)\approx 6\cdot10^{-17}$, and over the 4 s of integration it does not move.
 
-Numerical check (integration over 4 s, longer than the longest closed orbit): the periods of the closed orbits are 2.37, 2.43, 2.71, 3.07 and 3.36 s, and every one of the nine cases behaves as predicted. With $\phi_0 = \pi/4$, $0.99\,\dot\phi_c$ gives $\max\phi = 1.463 < \pi/2$ (oscillation) and $1.01\,\dot\phi_c$ goes over the top. The energy drift is below $2\cdot10^{-7}\,mgR$ in all cases.
+Numerical check (integration over 4 s, longer than the longest closed orbit): the periods of the closed orbits are 2.37, 2.43, 2.71, 3.07 and 3.36 s, and every one of the nine cases behaves as predicted. The report plots only what the statement asks for (one phase portrait with the nine curves and the separatrix). The energy drift is below $2\cdot10^{-7}\,mgR$ in all cases.
 
 ### 4.3 Linearization for small oscillations (item 8)
 

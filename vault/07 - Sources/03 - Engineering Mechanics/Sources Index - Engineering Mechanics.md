@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 184
+- Files: 185
 - Referenced by at least one note (a mention counts): 14
-- Not referenced yet: 170
+- Not referenced yet: 171
 - Build artifacts: 0
 - Working files: 0
 
@@ -280,6 +280,7 @@ tags:
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - latex_source - figures - Fig_4 (png)\|Fig_4.png]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - latex_source - figures - Fig_5 (png)\|Fig_5.png]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - latex_source - figures - Fig_6 (png)\|Fig_6.png]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - latex_source - figures - Fig_7 (png)\|Fig_7.png]] | laboratorio | not-referenced |
 
 ## problemas
 
