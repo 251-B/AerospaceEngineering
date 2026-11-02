@@ -18,6 +18,14 @@ Por qué pesa tanto este tema: el problema CL sale en 9 de 10 primeros parciales
 8. Bernoulli solo donde se cumplen sus 4 hipótesis (estacionario, ρ constante, sin viscosidad, fuerzas másicas conservativas), escrito como ecuación aparte y numerado.
 9. En transitorios lentos compara órdenes de magnitud del término no estacionario y del convectivo para justificar "casi estacionario".
 
+## Lista oficial de clase (recibida el 2026-11-01) y orden que queda
+
+Ejercicios hechos o recomendados en clase. Cinemática: K7, K4, K1. **Conservation Laws: CL3, CL6, CL1, CL8, CL5, CL4, CL2, CL11, CL13.** Navier-Stokes: NS1, NS3, NS7, NS5.
+
+Hechos en este hilo: CL6, CL20, CL3 y el inyector 2014. En curso: CL16 (no está en la lista de clase, pero es casi el parcial 2016).
+
+**Orden que queda (prioridad a la lista de clase):** CL8, CL5, CL4, CL11, CL13, CL1, CL2 (todos de la lista de clase); después CL10, CL12, CL15, CL7, CL22 (fuera de la lista de clase); y los exámenes con reloj. Reserva sin cambios.
+
 ## Lista ordenada (núcleo: hacer todos)
 
 **Nivel 1: el paquete básico con VC fijo e incompresible**
@@ -44,7 +52,7 @@ Por qué pesa tanto este tema: el problema CL sale en 9 de 10 primeros parciales
 15. **CL2 Resalto hidráulico.** VC móvil (cambio a sistema que se mueve con el resalto) y presión hidrostática.
 16. **CL22 Agua en cilindro que se estrecha.** VC deformable: h(t), v_z(z,t), fuerzas y potencia.
 
-17. **Extra exercise de clase: jeringa con pistón.** VC deformable con L(t), continuidad v_s = v_p (D/d)^2, argumento casi estacionario (término no estacionario / convectivo ~ (d/D)^4 << 1), F_p + F_c, Bernoulli para p_p. **Terminar los apartados 3 (momento respecto a O) y 5 (F_p y F_c por separado)**, que quedaron para casa.
+17. **PRIORITARIO: inyector del parcial 2014, problema 1 (el "Extra exercise" de clase; `unit-03-conservation-laws/problemas/examen_midterm_2014.pdf`, el mismo enunciado que `FLUIDS_FIRSTPARTIAL_2014_SOL.pdf`).** Pistón con velocidad V dentro de una carcasa con contracción de diámetro d, soportado en O, d/D << 1 (casi estacionario). Seis apartados: (1) V_s por continuidad con VC deformable, (2) fuerza del fluido sobre pistón + carcasa, (3) momento respecto a O, (4) p_P con Bernoulli y su rango de validez, (5) fuerzas por separado, fuerza del actuador y reacción en O, (6) T(t) del líquido con calor Q constante y sin disipación (energía con VC deformable, no estacionario). En clase se hicieron 1, 2 y 4; **quedaron para casa 3 y 5; el 6 es nuevo** y es el único no estacionario de energía de toda la lista. Se hace justo después del CL3, porque el apartado 3 es un momento respecto a un punto.
 
 ## Problemas de examen (después del núcleo, a reloj)
 
@@ -53,7 +61,7 @@ Por qué pesa tanto este tema: el problema CL sale en 9 de 10 primeros parciales
 - **Parcial 2016 P1, chorro sobre placa articulada** (U1, U2, reacción en la bisagra, h1 y h2, momento → α, temperatura).
 - **Parcial 2020 P1, doble codo + llenado transitorio** (t1, t2, fuerza y par durante el llenado).
 - **Parcial 2021 P1, cámara 2D con pistones** (VC deformable; apartados 1-4; el resto es NS).
-- **Parcial 2014 P1, inyector.**
+- (El inyector 2014 P1 pasó al núcleo, punto 17.)
 - Parcial 2017 P1 (caudalímetro con cuña): apartados 1-5 si sobra tiempo.
 
 ## Descartados por equivalentes (reserva)
