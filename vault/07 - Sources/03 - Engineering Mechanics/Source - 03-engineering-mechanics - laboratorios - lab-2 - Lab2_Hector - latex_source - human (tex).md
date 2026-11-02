@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/latex_source/human.tex"
 kind: laboratorio
 status: not-referenced
-bytes: 35199
+bytes: 35175
 ---
 
 # Source: human.tex
