@@ -55,13 +55,6 @@ Ek = 0.5*m*(R^2*dphi.^2 + Om.^2.*x.^2);
 Ep = m*g*y;
 E  = Ek + Ep;
 
-% work of the wire, trapezoidal rule
-P = -Om.*x.*Nz;
-W = zeros(size(t));
-for i = 2:length(t)
-    W(i) = W(i-1) + 0.5*(P(i) + P(i-1))*(t(i) - t(i-1));
-end
-
 % position of P in the fixed frame
 theta = A*(1 - cos(w*t));   % angle turned by the loop
 x1 = x.*cos(theta);
@@ -75,7 +68,6 @@ fprintf('Item 5: phi in [%.4f, %.4f] rad\n', min(phi), max(phi));
 fprintf('Item 5: Nr in [%.3f, %.3f] N (-3mg = %.3f N), Nz in [%.3f, %.3f] N\n', min(Nr), max(Nr), -3*m*g, min(Nz), max(Nz));
 fprintf('Item 5: max centrifugal %.4f N, Euler in [%.4f, %.4f] N, Coriolis in [%.3f, %.3f] N\n', max(Fcf), min(Feul), max(Feul), min(Fcor), max(Fcor));
 fprintf('Item 5: Ek max %.3f J, Ep in [%.3f, %.3f] J, E in [%.4f, %.4f] J, E(3T) - E(0) = %.4f J\n', max(Ek), min(Ep), max(Ep), min(E), max(E), E(end) - E(1));
-fprintf('Item 5: max |E - E0 - W| = %.2e J\n', max(abs(E - E(1) - W)));
 
 % period of the swing: times where dphi goes from + to -
 n = 0;

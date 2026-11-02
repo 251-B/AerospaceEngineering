@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/Group_LA_Alvarez_Gonzalez_Hernandez.zip"
 kind: laboratorio
 status: not-referenced
-bytes: 12863816
+bytes: 12861425
 ---
 
 # Source: Group_LA_Alvarez_Gonzalez_Hernandez.zip

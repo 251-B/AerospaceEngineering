@@ -346,12 +346,7 @@ Since \texttt{ode45} only integrates first order systems \cite{matlab}, \cref{eq
 \frac{\dd\bm X}{\dd t}=\begin{pmatrix}X_2\\[2pt] -\dfrac gR\cos X_1-\Omega(t)^2\,(1+\cos X_1)\sin X_1\end{pmatrix},\qquad \bm X(0)=\begin{pmatrix}\varphi_0\\ \dt\varphi_0\end{pmatrix},\qquad \Omega(t)=A\omega\sin(\omega t).
 \label{eq:system}
 \end{equation}
-This system is the MATLAB function \texttt{diffeq(t,X,g,w,R,A)}, and \cref{eq:lin} is \texttt{diffeqlin}, with the state $[\delta,\dt\delta]^T$. The tolerances are $10^{-8}$ (relative) and $10^{-10}$ (absolute). For the oscillating loop, the solution is stored at \num{10000} instants of $[0,3T]$, which is about 125 points per swing \cite{guidelines}. Forces and energies are computed afterwards from the stored $\varphi$ and $\dt\varphi$ with exactly \cref{eq:Fcf,eq:Feul,eq:Fcor,eq:Nr,eq:Nz,eq:E}. To check \cref{eq:Edot} without adding a third state, the work of the wire is computed from the power $P_i=-\Omega_ix_iN_{z,i}$ with the trapezoidal rule,
-\begin{equation}
-W_n=\sum_{i=1}^{n-1}\tfrac12\,(P_i+P_{i+1})(t_{i+1}-t_i),
-\label{eq:W}
-\end{equation}
-and compared with $E-E_0$. The position in the fixed frame comes from \cref{eq:theta,eq:rot}, $x_1=x\cos\theta$, $y_1=R\sin\varphi$, $z_1=-x\sin\theta$. In all the cases $g=\SI{9.81}{m/s^2}$ and $m=\SI{1}{kg}$. The oscillating loop uses $A=\pi$, $R=\SI{1}{m}$, $\omega=\SI{0.1}{rad/s}$ and $\varphi_0=\dt\varphi_0=0$ over $[0,3T]$, with $T=\SI{62.83}{s}$. The fixed loop uses $A=0$, $R=\SI{1}{m}$ and the nine conditions of \cref{tab:crit}, over \SI{4}{s}, which is longer than the longest period of the closed curves (\SI{3.36}{s}). The linearized study uses $A=0.1$, $R=\SI{0.01}{m}$, $\omega=\omega_n,\ \omega_n/2,\ \omega_n/4$ with $\omega_n=\SI{31.32}{rad/s}$, and $\delta_0=\dt\delta_0=0$, over \SI{10}{s}.
+This system is the MATLAB function \texttt{diffeq(t,X,g,w,R,A)}, and \cref{eq:lin} is \texttt{diffeqlin}, with the state $[\delta,\dt\delta]^T$. The tolerances are $10^{-8}$ (relative) and $10^{-10}$ (absolute). For the oscillating loop, the solution is stored at \num{10000} instants of $[0,3T]$, which is about 125 points per swing \cite{guidelines}. Forces and energies are computed afterwards from the stored $\varphi$ and $\dt\varphi$ with exactly \cref{eq:Fcf,eq:Feul,eq:Fcor,eq:Nr,eq:Nz,eq:E}. The position in the fixed frame comes from \cref{eq:theta,eq:rot}, $x_1=x\cos\theta$, $y_1=R\sin\varphi$, $z_1=-x\sin\theta$. In all the cases $g=\SI{9.81}{m/s^2}$ and $m=\SI{1}{kg}$. The oscillating loop uses $A=\pi$, $R=\SI{1}{m}$, $\omega=\SI{0.1}{rad/s}$ and $\varphi_0=\dt\varphi_0=0$ over $[0,3T]$, with $T=\SI{62.83}{s}$. The fixed loop uses $A=0$, $R=\SI{1}{m}$ and the nine conditions of \cref{tab:crit}, over \SI{4}{s}, which is longer than the longest period of the closed curves (\SI{3.36}{s}). The linearized study uses $A=0.1$, $R=\SI{0.01}{m}$, $\omega=\omega_n,\ \omega_n/2,\ \omega_n/4$ with $\omega_n=\SI{31.32}{rad/s}$, and $\delta_0=\dt\delta_0=0$, over \SI{10}{s}.
 
 %==============================================================
 \section{Results}\label{sec:results}
@@ -375,7 +370,7 @@ The radial reaction (\cref{fig:loop}b) is zero at the turning points and reaches
 \subsection{Mechanical energy}
 In every swing $E_k$ and $E_p$ exchange about \SI{9.8}{J} (\cref{fig:energy}), as in any pendulum. Their sum is not constant, but its changes are too small to see at the scale of the figure; the code gives $E-E_0$ between \SI{-0.082}{J} and \SI{0.313}{J}. While the plane speeds up, the wire pushes the bead with it and gives it energy, and while the plane slows down the wire takes that energy back. The plane changes its speed slowly compared with one swing ($T=\SI{62.8}{s}$ against \SI{2.37}{s}), so the energy goes back to $E_0$ every time the plane stops, and after $3T$ the net gain is only \SI{0.0006}{J}. This explains why the amplitude in \cref{fig:loop}a does not drift.
 
-The work of the wire computed with \cref{eq:W} agrees with $E-E_0$ within \SI{1.5e-4}{J}, 0.05\% of the range of $E$, which is the error of the trapezoidal rule. With this, we can conclude that \cref{eq:Edot} and the expressions of $N_z$ and $E$ in the code are consistent. With tighter tolerances ($10^{-11}$, $10^{-12}$), $\varphi$ changes by at most \SI{1.4e-4}{rad}.
+With tighter tolerances ($10^{-11}$, $10^{-12}$), $\varphi$ changes by at most \SI{1.4e-4}{rad}.
 
 \begin{figure}[!htb]
 \centering

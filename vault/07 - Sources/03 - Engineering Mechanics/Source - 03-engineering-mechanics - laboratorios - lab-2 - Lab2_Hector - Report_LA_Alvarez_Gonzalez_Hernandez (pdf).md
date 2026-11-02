@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/Report_LA_Alvarez_Gonzalez_Hernandez.pdf"
 kind: laboratorio
 status: not-referenced
-bytes: 1614286
+bytes: 1611689
 ---
 
 # Source: Report_LA_Alvarez_Gonzalez_Hernandez.pdf
