@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/Group_LA_Alvarez_Gonzalez_Hernandez.zip"
 kind: laboratorio
 status: not-referenced
-bytes: 12837371
+bytes: 12864154
 ---
 
 # Source: Group_LA_Alvarez_Gonzalez_Hernandez.zip
@@ -18,7 +18,7 @@ bytes: 12837371
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/Group_LA_Alvarez_Gonzalez_Hernandez.zip`
 - **Kind:** laboratorio
-- **Size:** 12.8 MB
+- **Size:** 12.9 MB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

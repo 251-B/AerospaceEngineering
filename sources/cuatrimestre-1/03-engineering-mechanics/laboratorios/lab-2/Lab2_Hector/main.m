@@ -158,7 +158,7 @@ end
 
 %% Figure 2: angle and reaction forces
 % one panel per magnitude, saved at the report width (17 cm)
-figure('Units', 'centimeters', 'Position', [2 2 17 11.5])
+figure('Units', 'centimeters', 'Position', [2 2 17 11.2])
 subplot(3,1,1)
 plot(t, phi, 'b'); grid on
 xlim([0 3*Tper])
@@ -176,7 +176,7 @@ xlabel('$t$ (s)'); ylabel('$N_z$ (N)'); title('(c) Reaction along $\mathbf{k}$')
 exportgraphics(gcf, 'Fig_2.png', 'Resolution', 300)
 
 %% Figure 3: inertia forces
-figure('Units', 'centimeters', 'Position', [2 2 17 11.5])
+figure('Units', 'centimeters', 'Position', [2 2 17 11.2])
 subplot(3,1,1)
 plot(t, Fcf, 'b'); grid on
 xlim([0 3*Tper])

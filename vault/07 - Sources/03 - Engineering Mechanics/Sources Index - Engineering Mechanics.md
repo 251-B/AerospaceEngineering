@@ -267,9 +267,9 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - latex_source - human (tex)\|human.tex]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - latex_source - logo_uc3m (png)\|logo_uc3m.png]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - latex_source - report (pdf)\|report.pdf]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - latex_source - report (tex)\|report.tex]] | laboratorio | not-referenced |
 
 ## laboratorios/lab-2/Lab2_Hector/latex_source/figures
 

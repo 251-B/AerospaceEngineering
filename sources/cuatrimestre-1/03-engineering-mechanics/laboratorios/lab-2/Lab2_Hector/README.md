@@ -40,7 +40,7 @@ It takes about 2.5 minutes (most of it writing the video) and needs no input.
 ## 3. Report Summary (`Report_LA_Alvarez_Gonzalez_Hernandez.pdf`)
 
 - **Length:** 10 pages including the cover (limit: 10).
-- **Source:** `latex_source/report.tex` (same template as Lab 1), figures in `latex_source/figures/`.
+- **Source:** `latex_source/human.tex` (same template as Lab 1), figures in `latex_source/figures/`.
 - **Structure:**
   - 1 Introduction (problem, aims, plan of the report).
   - 2 Methodology: kinematics and degree of freedom (rotation matrix, all cross products), forces and equation of motion, mechanical energy, criterion to go over the top of a fixed loop, linearized equation with its closed-form solution, numerical method.
