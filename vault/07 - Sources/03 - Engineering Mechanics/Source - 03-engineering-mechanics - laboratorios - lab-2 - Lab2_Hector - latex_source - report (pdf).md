@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/latex_source/report.pdf"
 kind: laboratorio
 status: not-referenced
-bytes: 1753342
+bytes: 1586668
 ---
 
 # Source: report.pdf
@@ -18,7 +18,7 @@ bytes: 1753342
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/latex_source/report.pdf`
 - **Kind:** laboratorio
-- **Size:** 1.8 MB
+- **Size:** 1.6 MB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

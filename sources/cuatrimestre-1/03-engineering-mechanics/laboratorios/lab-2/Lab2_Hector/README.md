@@ -33,7 +33,7 @@ It takes about 2.5 minutes (most of it writing the video) and needs no input.
 - Forces, energies and the work of the wire (trapezoidal rule) are computed from the stored solution with the same equations as the report.
 - Prints the numerical checks: `ddphi(0) = -g/R`, `Nr = -3mg` at the bottom, `E - E0 = W`, energy conservation for `A = 0`, the analytical criterion of item 7 against the numerical result, and the linear solution against its closed form.
 - Saves `Fig_2.png` to `Fig_7.png` (Figures 2 to 7 of the report; Figure 1 is the TikZ sketch) and `trajectory_P.avi`. The figures plot exactly what items 5 to 8 ask for, following the plotting rules of the Laboratory Guidelines: magnitude and units on every axis, Script 6 style, one panel per magnitude when sizes differ by orders of magnitude, and a logarithmic axis for the percentage error of item 8. They are drawn at their printed size (17 cm wide) and exported at 300 dpi with `exportgraphics`. The animation frames use `print(gcf,'-RGBImage')` instead of `getframe`, which returned frames of different sizes in batch runs.
-- Item 8 initial conditions: the statement gives none, so the particle starts at rest at the bottom, `delta(0) = 0`, `ddelta(0) = 0` (stated in the report, Section 2.5).
+- Item 8 initial conditions: the statement gives none, so the particle starts at rest at the bottom, `delta(0) = 0`, `deltadot(0) = 0` (stated in the report, Section 2.5).
 
 ---
 
