@@ -303,9 +303,19 @@ window.AE_SOURCES = {
         "slides": [],
         "teoria": [
           {
+            "bytes": 100773,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/teoria/definition_linear_ODE.pdf",
+            "name": "definition_linear_ODE.pdf"
+          },
+          {
             "bytes": 1597287,
             "href": "sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf",
             "name": "Notes.pdf"
+          },
+          {
+            "bytes": 29595,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/teoria/question-about-Wronskian.pdf",
+            "name": "question-about-Wronskian.pdf"
           }
         ]
       },
@@ -382,13 +392,7 @@ window.AE_SOURCES = {
             }
           ],
           "slides": [],
-          "teoria": [
-            {
-              "bytes": 100773,
-              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf",
-              "name": "definition_linear_ODE.pdf"
-            }
-          ],
+          "teoria": [],
           "title": "Systems Of Odes"
         },
         {
@@ -1339,6 +1343,11 @@ window.AE_SOURCES = {
       "general": {
         "examenes": [
           {
+            "bytes": 28940,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/ExamInstructionsMidterm/exam_instructions_midterm.pdf",
+            "name": "exam_instructions_midterm.pdf"
+          },
+          {
             "bytes": 1423652,
             "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2012_EXTRA.pdf",
             "name": "FLUIDS_FINALEXAM_2012_EXTRA.pdf"
@@ -1793,6 +1802,11 @@ window.AE_SOURCES = {
               "bytes": 824721,
               "href": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL22.pdf",
               "name": "CL22.pdf"
+            },
+            {
+              "bytes": 481097,
+              "href": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/examen_midterm_2014.pdf",
+              "name": "examen_midterm_2014.pdf"
             }
           ],
           "slides": [],
