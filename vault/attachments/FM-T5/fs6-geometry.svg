@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="Similar triangles of the deduction: the air triangle of height a = L sqrt3/2 + h - H above the inner level, its half base a/sqrt3 from the 30 degree half-angle at the apex, the emerged triangle A_T above the outer free surface and the displaced area A_d between the two levels">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="119.7,214.0 280.3,214.0 200.0,74.8" fill="#f59e0b" fill-opacity="0.18" stroke="#f59e0b" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="139.3,180.0 260.7,180.0 280.3,214.0 119.7,214.0" fill="#10b981" fill-opacity="0.35" stroke="#10b981" stroke-width="0" stroke-linejoin="round"/>
+<polyline points="70.0,300.0 200.0,74.8 330.0,300.0" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="20.0" y1="180.0" x2="139.3" y2="180.0" stroke="#3b82f6" stroke-width="1.6"/>
+<line x1="260.7" y1="180.0" x2="310.7" y2="180.0" stroke="#3b82f6" stroke-width="1.6"/>
+<line x1="119.7" y1="214.0" x2="280.3" y2="214.0" stroke="#3b82f6" stroke-width="1.4"/>
+<line x1="200.0" y1="74.8" x2="200.0" y2="300.0" stroke="#8a94a6" stroke-width="0.9" stroke-dasharray="4,4"/>
+<line x1="400.0" y1="74.8" x2="400.0" y2="214.0" stroke="#f59e0b" stroke-width="1.1"/>
+<path d="M400.0,74.8 L402.7,81.3 L397.3,81.3 Z" fill="#f59e0b"/>
+<path d="M400.0,214.0 L397.3,207.6 L402.7,207.6 Z" fill="#f59e0b"/>
+<text x="408.0" y="162.4" fill="#f59e0b" font-size="15" font-weight="400" text-anchor="start">a = L√3/2 + h − H</text>
+<line x1="200.0" y1="74.8" x2="406.0" y2="74.8" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="280.3" y1="214.0" x2="406.0" y2="214.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="600.0" y1="74.8" x2="600.0" y2="180.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M600.0,74.8 L602.7,81.3 L597.3,81.3 Z" fill="#10b981"/>
+<path d="M600.0,180.0 L597.3,173.6 L602.7,173.6 Z" fill="#10b981"/>
+<text x="608.0" y="132.4" fill="#10b981" font-size="15" font-weight="400" text-anchor="start">L√3/2 − H</text>
+<line x1="406.0" y1="74.8" x2="606.0" y2="74.8" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="260.7" y1="180.0" x2="606.0" y2="180.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="119.7" y1="232.0" x2="200.0" y2="232.0" stroke="#f59e0b" stroke-width="1.1"/>
+<path d="M119.7,232.0 L126.1,229.3 L126.1,234.7 Z" fill="#f59e0b"/>
+<path d="M200.0,232.0 L193.6,234.7 L193.6,229.3 Z" fill="#f59e0b"/>
+<text x="159.8" y="250.0" fill="#f59e0b" font-size="14" font-weight="400" text-anchor="middle">a/√3</text>
+<path d="M200.0,108.8 A34.0,34.0 0 0 1 183.0,104.3" fill="none" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="183.0" y="132.8" fill="#4b5563" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">30°</text>
+<text x="200.0" y="166.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">A<tspan baseline-shift="sub" font-size="72%">T</tspan></text>
+<text x="230.0" y="204.0" fill="#10b981" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">A<tspan baseline-shift="sub" font-size="72%">d</tspan></text>
+<line x1="70.0" y1="312.0" x2="330.0" y2="312.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M70.0,312.0 L76.4,309.3 L76.4,314.7 Z" fill="#6b7280"/>
+<path d="M330.0,312.0 L323.6,314.7 L323.6,309.3 Z" fill="#6b7280"/>
+<text x="170.0" y="328.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle">L</text>
+<text x="20.0" y="172.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">outer free surface</text>
+</g></svg>

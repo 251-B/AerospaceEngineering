@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 5: Hydrostatics — Fluid Mechanics</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 33, 62, 0.88);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --border-subtle: #e2e8f0;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --border-strong: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, .article-title, .section-heading, .walkthrough-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+      color: var(--text-primary);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .step-badge {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Header */
+    header.site-header {
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 9px;
+      border-radius: 5px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 11px;
+      border-radius: 7px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .theme-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Subchapter Sticky Pill Bar */
+    .subchapter-nav-bar {
+      position: sticky;
+      top: 49px;
+      z-index: 95;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-wrapper {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+
+    .pill-link {
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .pill-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .pill-link.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
+    }
+
+    /* Article Hero */
+    .article-header {
+      padding: 36px 0 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Typography & Blocks */
+    h2.section-heading {
+      font-size: 1.5rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans) !important;
+      font-size: 1.18rem;
+      font-weight: 600 !important;
+      color: var(--text-primary);
+      margin: 26px 0 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      text-align: center;
+      overflow-x: auto;
+      box-shadow: var(--shadow-card);
+    }
+
+    .math-caption {
+      font-size: 0.80rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-family: var(--font-mono);
+    }
+
+    .callout-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 22px 0;
+      font-size: 0.98rem;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Canonical Walkthrough Box */
+    .walkthrough-box {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .walkthrough-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .walkthrough-title {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .step-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .step-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #070b14;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.98rem;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 0 64px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .bottom-nav-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .bottom-nav-btn.center {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+
+    :root { --text-heading: var(--text-primary); --text-faint: var(--text-muted); }
+    .table-wrapper { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border-card); border-radius: 10px; background: var(--bg-card); }
+    table.fm-table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+    .fm-table th, .fm-table td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-subtle); }
+    .fm-table th { font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
+    .fm-table tr:last-child td { border-bottom: none; }
+    h4.sub-heading { font-family: var(--font-sans); font-size: 1.02rem; font-weight: 700; color: var(--text-primary); margin: 22px 0 8px; }
+    article ul, article ol { margin: 8px 0 14px 1.4rem; }
+    article li { margin: 4px 0; }
+    .callout-box p:last-child, .callout-box .math-block:last-child { margin-bottom: 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.10); border-left-color: #f59e0b; }
+    .diagram-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 16px; margin: 22px 0; }
+    .diagram-card svg { max-width: 100%; height: auto; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+    section[id] { scroll-margin-top: 80px; }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Canvas Background -->
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 5 · Hydrostatics</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Main Article Container -->
+  <main class="container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Topic 05 · Hydrostatics</div>
+        <h1 class="article-title">Hydrostatics</h1>
+        <p class="article-meta">Equilibrium equations, liquids in inertial and accelerated frames, the hydrostatic law and manometers, forces and centres of pressure on plane and curved surfaces, Archimedes' principle, stability, and the standard atmosphere.</p>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=60" target="_blank" rel="noopener">Notes.pdf, Chapter 5 · p. 60</a>
+        </nav>
+      </header>
+
+      <section id="section-0">
+        <div class="callout-box"><p><strong>Central idea.</strong> When the fluid is at rest in some reference frame, the convective and viscous terms of the Navier-Stokes equations vanish and momentum conservation reduces to a balance between the pressure gradient and the mass forces, $-\nabla p + \rho\vec{f}_m = 0$. For a liquid under gravity this gives $p + \rho g z = p_a$; integrating that pressure over a surface gives the forces on gates, walls and submerged bodies (Archimedes' principle), and for a gas it gives the pressure distribution of the standard atmosphere.</p></div>
+
+      </section>
+
+      <section id="section-1">
+        <h2 class="section-heading">1. The Equilibrium Equations</h2>
+<h3 class="sub-heading">Fluid at rest</h3>
+<p>A fluid is at rest with respect to a reference frame when $\vec{v} = 0$ at every point. Putting $\vec{v} = 0$ in the continuity, momentum and energy equations of Chapter 4 cancels every convective term, every viscous stress and the viscous dissipation, and leaves (Notes.pdf, Eqs. 5.1-5.3):</p>
+<div class="math-block">$$ \frac{\partial \rho}{\partial t} = 0 \tag{5.1} $$</div>
+<div class="math-block">$$ -\nabla p + \rho\vec{f}_m = 0 \tag{5.2} $$</div>
+<div class="math-block">$$ \rho\frac{\partial e}{\partial t} = \nabla\cdot(k\nabla T) + Q_r + Q_c \tag{5.3} $$</div>
+<ul><li>(5.1): in a fluid at rest the density cannot change in time, although it may change from point to point.</li><li>(5.2): with no motion, the net pressure force on each fluid particle, $-\nabla p\,dV$, balances the mass force $\rho\vec{f}_m\,dV$. This is the equation used in the whole chapter.</li><li>(5.3): the internal energy changes only by heat conduction, radiation and chemical reaction.</li></ul>
+<h3 class="sub-heading">Mass forces in a non-inertial frame</h3>
+<p>If the fluid is at rest in a frame that moves with acceleration $\vec{a}_o$ and angular velocity $\vec{\Omega}$, the mass force includes the inertial forces of that frame (Notes.pdf, Eq. 5.4):</p>
+<div class="math-block">$$ \vec{f}_m(\vec{x},t) = \vec{g} - \vec{a}_o - \vec{\Omega}\times(\vec{\Omega}\times\vec{x}) - \frac{d\vec{\Omega}}{dt}\times\vec{x} \tag{5.4} $$</div>
+<p>The Coriolis force $-2\vec{\Omega}\times\vec{v}$ does not appear because $\vec{v} = 0$ in this frame.</p>
+<h3 class="sub-heading">Initial, boundary and interface conditions</h3>
+<p>The only initial velocity compatible with equilibrium is $\vec{v} = 0$, and the no-slip condition then requires every solid boundary to be at rest. Integrating (5.1) gives $\rho(\vec{x},t) = \rho_i(\vec{x})$, the initial distribution. With surface tension neglected, mechanical equilibrium at the interface between two immiscible fluids requires <strong>equal pressure on both sides</strong>, and thermodynamic equilibrium requires equal temperature (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=61" target="_blank" rel="noopener" title="Open Notes.pdf at page 61">52</a>).</p>
+      </section>
+
+      <section id="section-2">
+        <h2 class="section-heading">2. Hydrostatics of Liquids</h2>
+<h3 class="sub-heading">Only conservative mass forces allow equilibrium</h3>
+<p>For a perfect liquid ($\rho$ constant), (5.1) holds identically and (5.2) can be divided by $\rho$ (Notes.pdf, Eq. 5.5):</p>
+<div class="math-block">$$ -\nabla\left(\frac{p}{\rho}\right) + \vec{f}_m = 0 \tag{5.5} $$</div>
+<p>The first term is a gradient, so $\vec{f}_m$ must be a gradient too: equilibrium is possible only if the mass force derives from a potential $U$,</p>
+<div class="math-block">$$ \vec{f}_m = -\nabla U \tag{5.6} $$</div>
+<p>The first three terms of (5.4) do derive from a potential (Notes.pdf, Eq. 5.7):</p>
+<div class="math-block">$$ U = -\vec{g}\cdot\vec{x} + \vec{a}_o\cdot\vec{x} - \frac{(\vec{\Omega}\times\vec{x})\cdot(\vec{\Omega}\times\vec{x})}{2} \tag{5.7} $$</div>
+<p>Each term can be checked by taking its gradient: $\nabla(-\vec{g}\cdot\vec{x}) = -\vec{g}$ and $\nabla(\vec{a}_o\cdot\vec{x}) = \vec{a}_o$ because $\nabla(\vec{c}\cdot\vec{x}) = \vec{c}$ for a constant vector; and for $\vec{\Omega} = \Omega\vec{e}_z$, $\lvert\vec{\Omega}\times\vec{x}\rvert^2 = \Omega^2(x^2+y^2) = \Omega^2 r^2$, whose gradient is $2\Omega^2 r\,\vec{e}_r$, so $-\nabla(\Omega^2 r^2/2) = -\Omega^2 r\,\vec{e}_r$ and $\vec{f}_m = -\nabla U$ contains $+\Omega^2 r\,\vec{e}_r = -\vec{\Omega}\times(\vec{\Omega}\times\vec{x})$, the centrifugal force. The last term of (5.4), $-(d\vec{\Omega}/dt)\times\vec{x}$, has a non-zero curl ($\nabla\times(\dot{\vec{\Omega}}\times\vec{x}) = 2\dot{\vec{\Omega}}$), so it is not conservative: <strong>a liquid can be at rest in a rotating frame only if $\vec{\Omega}$ is constant</strong>.</p>
+<h3 class="sub-heading">The pressure field</h3>
+<p>Substituting (5.6) in (5.5) gives $\nabla(p/\rho + U) = 0$; with $\rho$ constant, $\nabla(p + \rho U) = 0$, so $p + \rho U$ does not depend on position (Notes.pdf, Eq. 5.8):</p>
+<div class="math-block">$$ p + \rho U = C(t) \tag{5.8} $$</div>
+<p>where $C(t)$ is the value of $p + \rho U$ at any point where the pressure is known, usually a free surface. The temperature follows from (5.3); with no radiation or reaction and constant $k$, it is the heat equation $\partial T/\partial t = \alpha\nabla^2 T$, $\alpha = k/(\rho c_p)$ (Notes.pdf, Eq. 5.9).</p>
+<h3 class="sub-heading">Worked consequences of (5.7) and (5.8)</h3>
+<p>These two examples are applications of Eqs. (5.7)-(5.8), written out here; they are not worked in the notes.</p>
+<ul><li><strong>Uniform horizontal acceleration</strong> $\vec{a}_o = a\vec{e}_x$, gravity $-g\vec{e}_z$: $U = gz + ax$, so $p = C - \rho(gz + ax)$. The free surface is the isobar $p = p_a$: $gz + ax = \text{const}$, a plane with slope $dz/dx = -a/g$. Its angle with the horizontal is $\beta = \arctan(a/g)$: in the right triangle formed by a horizontal run $\Delta x$ and the drop $\Delta z$, the leg opposite to $\beta$ is $\Delta z = (a/g)\Delta x$ and the adjacent leg is $\Delta x$, so $\tan\beta = a/g$.</li><li><strong>Rigid-body rotation</strong> $\vec{\Omega} = \Omega\vec{e}_z$ (constant): $U = gz - \Omega^2r^2/2$, so $p = C - \rho g z + \rho\Omega^2 r^2/2$. The free surface $p = p_a$ is the paraboloid $z = z_0 + \Omega^2 r^2/(2g)$, where $z_0$ is its height on the axis.</li></ul>
+      </section>
+
+      <section id="section-3">
+        <h2 class="section-heading">3. A Liquid at Rest under Gravity</h2>
+<h3 class="sub-heading">The hydrostatic law</h3>
+<p>Under gravity alone, $U = gz$ with $z$ the vertical coordinate pointing up ($\vec{g} = -g\vec{e}_z$). If the liquid is bounded by a gas at pressure $p_a$ and $z$ is measured from that free surface ($z = 0$ on it, $z &lt; 0$ in the liquid), (5.8) evaluated on the surface gives $C = p_a$ and (Notes.pdf, Eq. 5.10):</p>
+<div class="math-block">$$ p + \rho g z = p_a \tag{5.10} $$</div>
+<p>so $p = p_a + \rho g(-z)$: the pressure grows linearly with the depth $-z$, at the rate $\rho g \approx 9.81\times10^{3}$ Pa/m for water. The gas pressure itself is uniform over heights of a few metres, because the density of a gas is about a thousand times smaller (Section 7).</p>
+<h3 class="sub-heading">Several immiscible liquids</h3>
+<p>Layers of different densities stack with the heaviest at the bottom, each layer obeys (5.10) with its own $\rho_i$, and the pressure is continuous across every interface (Section 1). The walking rule below is a direct consequence of (5.10) and the interface condition, written out here (it is not stated in the notes). Walking from a point where $p$ is known to another point, each vertical step adds $+\rho_i g\,\Delta d$ when going <strong>down</strong> a depth $\Delta d$ in liquid $i$ and $-\rho_i g\,\Delta d$ when going <strong>up</strong>; horizontal steps inside one connected liquid add nothing.</p>
+<h3 class="sub-heading">Manometers</h3>
+<p>The manometer is not in Chapter 5 of the notes: this subsection is an <strong>extension</strong>, a direct use of (5.10) and of the walking rule.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 657 330" width="100%" class="fig-kit" style="max-width:657px;margin:0 auto;display:block" role="img" aria-label="U-tube manometer: pipe at pressure p_A filled with a liquid of density rho, manometric liquid rho_m, column h_1 from A down to the interface and difference of levels h_2 in the two branches, right branch open to p_a">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<rect x="30.0" y="70.0" width="150.0" height="40.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.1" stroke="var(--text-heading)" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="60.0" y="96.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">A</text>
+<circle cx="80.0" cy="90.0" r="3.5" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="105.0" y="62.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">A</tspan>, ρ</text>
+<line x1="160.0" y1="110.0" x2="160.0" y2="290.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<line x1="180.0" y1="110.0" x2="180.0" y2="270.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<line x1="160.0" y1="290.0" x2="350.0" y2="290.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<line x1="180.0" y1="270.0" x2="330.0" y2="270.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<line x1="330.0" y1="270.0" x2="330.0" y2="40.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<line x1="350.0" y1="290.0" x2="350.0" y2="40.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<rect x="160.0" y="110.0" width="20.0" height="90.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.18" stroke="var(--fig-blue, #3b82f6)" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="160.0,200.0 180.0,200.0 180.0,270.0 330.0,270.0 330.0,120.0 350.0,120.0 350.0,290.0 160.0,290.0" fill="var(--fig-pink, #ec4899)" fill-opacity="0.22" stroke="var(--fig-pink, #ec4899)" stroke-width="0" stroke-linejoin="round"/>
+<line x1="154.0" y1="200.0" x2="186.0" y2="200.0" stroke="var(--fig-pink, #ec4899)" stroke-width="1.4"/>
+<line x1="324.0" y1="120.0" x2="356.0" y2="120.0" stroke="var(--fig-pink, #ec4899)" stroke-width="1.4"/>
+<text x="358.0" y="52.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="250.0" y="260.0" fill="var(--fig-pink, #ec4899)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">m</tspan></text>
+<line x1="188.0" y1="200.0" x2="322.0" y2="200.0" stroke="var(--text-faint)" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="188.0" y1="120.0" x2="322.0" y2="120.0" stroke="var(--text-faint)" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="390.0" y1="120.0" x2="390.0" y2="200.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M390.0,120.0 L392.7,126.4 L387.3,126.4 Z" fill="var(--text-muted)"/>
+<path d="M390.0,200.0 L387.3,193.6 L392.7,193.6 Z" fill="var(--text-muted)"/>
+<text x="398.0" y="165.0" fill="var(--text-muted)" font-size="16" font-weight="400" text-anchor="start">h<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="120.0" y1="90.0" x2="120.0" y2="200.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M120.0,90.0 L122.7,96.4 L117.3,96.4 Z" fill="var(--text-muted)"/>
+<path d="M120.0,200.0 L117.3,193.6 L122.7,193.6 Z" fill="var(--text-muted)"/>
+<text x="112.0" y="150.0" fill="var(--text-muted)" font-size="16" font-weight="400" text-anchor="end">h<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="110.0" y1="200.0" x2="160.0" y2="200.0" stroke="var(--text-faint)" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="440.0" y="120.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">walk from A to the open end:</text>
+<text x="440.0" y="146.0" fill="var(--fig-blue, #3b82f6)" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">down h₁ in ρ:  + ρg h₁</text>
+<text x="440.0" y="170.0" fill="var(--fig-pink, #ec4899)" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">up h₂ in ρₘ:  − ρₘg h₂</text>
+<text x="440.0" y="194.0" fill="var(--text-heading)" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">arrive at the level: pₐ</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. U-tube manometer (extension): walking from $A$ down the column $h_1$ of the pipe liquid adds $\rho g h_1$, climbing the difference of levels $h_2$ in the manometric liquid subtracts $\rho_m g h_2$, and the open end is at $p_a$.</div>
+</div>
+<p>For the U-tube of the figure, walking from the point $A$ of the pipe down the column $h_1$ of the pipe liquid, then up the level difference $h_2$ of the manometric liquid, and ending at the open level where $p = p_a$:</p>
+<div class="math-block">$$ p_A + \rho g h_1 - \rho_m g h_2 = p_a \quad\Longrightarrow\quad p_A - p_a = \rho_m g h_2 - \rho g h_1 $$</div>
+<p>Check: with the same liquid in both ($\rho_m = \rho$) and $h_1 = h_2$, the pipe point is at the open level and $p_A = p_a$, as it must.</p>
+      </section>
+
+      <section id="section-4">
+        <h2 class="section-heading">4. Forces and Moments on a Surface</h2>
+<h3 class="sub-heading">The general expressions</h3>
+<p>The pressure force on a surface element $d\sigma$ of unit normal $\vec{n}$ <strong>oriented towards the fluid</strong> is $-p\vec{n}\,d\sigma$: it pushes the wall away from the fluid. Adding over a surface $\Sigma$ gives the force and the moment about a point $\vec{x}_o$ (Notes.pdf, Eq. 5.11):</p>
+<div class="math-block">$$ \vec{F} = -\int_\Sigma p\,\vec{n}\,d\sigma, \qquad \vec{M} = -\int_\Sigma (\vec{x}-\vec{x}_o)\times p\,\vec{n}\,d\sigma \tag{5.11} $$</div>
+<p>With (5.10), $p = p_a - \rho g z$ and the two integrals split into the contribution of the gas pressure and the weight of the liquid column above each element (Notes.pdf, Eqs. 5.12-5.13):</p>
+<div class="math-block">$$ \vec{F} = -\int_\Sigma p_a\vec{n}\,d\sigma + \rho g\int_\Sigma z\,\vec{n}\,d\sigma \tag{5.12} $$</div>
+<div class="math-block">$$ \vec{M} = -\int_\Sigma (\vec{x}-\vec{x}_o)\times p_a\vec{n}\,d\sigma + \rho g\int_\Sigma (\vec{x}-\vec{x}_o)\times z\,\vec{n}\,d\sigma \tag{5.13} $$</div>
+<p>When the gas pressure $p_a$ also acts on the other side of the wall (a gate with air behind it), the first terms cancel against the gas side, and only the <strong>gauge pressure</strong> $p - p_a = -\rho g z = \rho g\times\text{depth}$ counts.</p>
+<h3 class="sub-heading">Projection rule</h3>
+<p>The component of the force along a fixed unit vector $\vec{m}$ is (Notes.pdf, Eq. 5.14):</p>
+<div class="math-block">$$ F_m = \vec{F}\cdot\vec{m} = -\int_\Sigma (p_a - \rho g z)\,\vec{n}\cdot\vec{m}\,d\sigma = -\int_{\Sigma_m}(p_a - \rho g z)\,d\sigma_m \tag{5.14} $$</div>
+<p>where $d\sigma_m = \vec{n}\cdot\vec{m}\,d\sigma$ is the projection of $d\sigma$ on a plane normal to $\vec{m}$. Two consequences are used in every problem:</p>
+<ul><li><strong>Horizontal component</strong>: with $\vec{m}$ horizontal, every element keeps its depth $-z$ when projected horizontally, so the horizontal force on any surface equals the force on its <strong>projection on a vertical plane</strong>.</li><li><strong>Vertical component</strong>: with $\vec{m} = \vec{e}_z$, $d\sigma_z$ is the horizontal footprint of the element, and $-\rho g z\,d\sigma_z$ is the weight of the liquid column of height $-z$ above it. The vertical force equals the <strong>weight of the liquid (real or virtual) between the surface and the free surface</strong>, downward when the liquid is above the surface and upward when it is below.</li></ul>
+<h3 class="sub-heading">4.1 Plane surfaces: resultant and centre of pressure</h3>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810 360" width="100%" class="fig-kit" style="max-width:810px;margin:0 auto;display:block" role="img" aria-label="Plane surface inclined at theta: side view with the pressure prism, the depth triangle and the resultant at the centre of pressure, and front view with the strip dA = w ds, the centroid C and the centre of pressure CP">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<polygon points="70.0,70.0 420.0,70.0 420.0,299.8 262.8,299.8" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="var(--fig-blue, #3b82f6)" stroke-width="0" stroke-linejoin="round"/>
+<line x1="40.0" y1="70.0" x2="420.0" y2="70.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<polygon points="386.0,58.0 398.0,58.0 392.0,68.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="382.0" y1="75.0" x2="402.0" y2="75.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.0"/>
+<line x1="386.0" y1="79.0" x2="398.0" y2="79.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.0"/>
+<text x="300.0" y="62.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="70.0" y1="70.0" x2="262.8" y2="299.8" stroke="var(--text-faint)" stroke-width="2.0"/>
+<line x1="70.0" y1="70.0" x2="62.0" y2="69.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="77.1" y1="78.4" x2="69.1" y2="77.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="84.1" y1="86.9" x2="76.2" y2="86.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="91.2" y1="95.3" x2="83.2" y2="94.6" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="98.3" y1="103.7" x2="90.3" y2="103.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="105.4" y1="112.1" x2="97.4" y2="111.4" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="112.4" y1="120.6" x2="104.5" y2="119.9" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="119.5" y1="129.0" x2="111.5" y2="128.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="126.6" y1="137.4" x2="118.6" y2="136.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="133.6" y1="145.8" x2="125.7" y2="145.1" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="140.7" y1="154.3" x2="132.7" y2="153.6" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="147.8" y1="162.7" x2="139.8" y2="162.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="154.8" y1="171.1" x2="146.9" y2="170.4" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="161.9" y1="179.5" x2="153.9" y2="178.8" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="169.0" y1="188.0" x2="161.0" y2="187.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="176.1" y1="196.4" x2="168.1" y2="195.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="183.1" y1="204.8" x2="175.2" y2="204.1" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="190.2" y1="213.3" x2="182.2" y2="212.6" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="197.3" y1="221.7" x2="189.3" y2="221.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="204.3" y1="230.1" x2="196.4" y2="229.4" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="211.4" y1="238.5" x2="203.4" y2="237.8" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="218.5" y1="247.0" x2="210.5" y2="246.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="225.6" y1="255.4" x2="217.6" y2="254.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="232.6" y1="263.8" x2="224.7" y2="263.1" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="239.7" y1="272.2" x2="231.7" y2="271.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="246.8" y1="280.7" x2="238.8" y2="280.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="253.8" y1="289.1" x2="245.9" y2="288.4" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="260.9" y1="297.5" x2="252.9" y2="296.8" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="140.7" y1="154.3" x2="237.1" y2="269.2" stroke="var(--fig-acc, #f59e0b)" stroke-width="5.0"/>
+<line x1="166.0" y1="133.1" x2="143.9" y2="151.6" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M140.7,154.3 L143.9,148.0 L147.4,152.2 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="179.1" y1="141.7" x2="153.6" y2="163.1" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M150.3,165.8 L153.5,159.5 L157.0,163.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="192.2" y1="150.2" x2="163.2" y2="174.5" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M160.0,177.2 L163.2,171.0 L166.7,175.2 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="205.3" y1="158.8" x2="172.8" y2="186.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M169.6,188.7 L172.8,182.5 L176.3,186.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="218.3" y1="167.4" x2="182.5" y2="197.5" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M179.3,200.2 L182.5,194.0 L186.0,198.2 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="231.4" y1="176.0" x2="192.1" y2="209.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M188.9,211.7 L192.1,205.5 L195.6,209.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="244.5" y1="184.6" x2="201.8" y2="220.5" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M198.6,223.2 L201.7,217.0 L205.2,221.2 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="257.6" y1="193.2" x2="211.4" y2="232.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M208.2,234.7 L211.4,228.5 L214.9,232.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="270.7" y1="201.8" x2="221.1" y2="243.5" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M217.8,246.2 L221.0,240.0 L224.5,244.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="283.8" y1="210.4" x2="230.7" y2="255.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M227.5,257.7 L230.7,251.4 L234.2,255.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="296.9" y1="219.0" x2="240.3" y2="266.5" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M237.1,269.2 L240.3,262.9 L243.8,267.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<polyline points="140.7,154.3 166.0,133.1 296.9,219.0 237.1,269.2" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="201.8" y1="70.0" x2="201.8" y2="227.0" stroke="var(--fig-green, #10b981)" stroke-width="1.4" stroke-dasharray="5,4"/>
+<text x="231.8" y="96.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">s sin θ</text>
+<line x1="227.8" y1="92.0" x2="205.8" y2="100.0" stroke="var(--fig-green, #10b981)" stroke-width="0.9"/>
+<path d="M104.0,70.0 A34.0,34.0 0 0 1 91.9,96.0" fill="none" stroke="var(--text-heading)" stroke-width="1.3" stroke-linejoin="round"/>
+<text x="114.0" y="94.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">θ</text>
+<text x="64.0" y="72.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">O</text>
+<line x1="50.1" y1="86.7" x2="239.8" y2="312.8" stroke="var(--text-heading)" stroke-width="1.2"/>
+<path d="M242.9,316.5 L235.8,312.9 L240.6,308.9 Z" fill="var(--text-heading)"/>
+<text x="230.9" y="320.5" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">s</text>
+<circle cx="188.9" cy="211.7" r="3.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="195.4" cy="219.5" r="3.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="162.4" y="209.7" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">C</text>
+<line x1="191.6" y1="222.7" x2="128.2" y2="275.9" stroke="var(--fig-acc, #f59e0b)" stroke-width="3.0"/>
+<path d="M122.7,280.5 L128.1,269.9 L134.1,277.0 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="118.7" y="300.5" fill="var(--fig-acc, #f59e0b)" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">R</tspan></text>
+<text x="199.1" y="252.5" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">CP</text>
+<text x="250.0" y="345.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">Side view: pressure prism, p − pₐ = ρg s sin θ</text>
+<line x1="500.0" y1="40.0" x2="770.0" y2="40.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.4" stroke-dasharray="6,4"/>
+<text x="770.0" y="32.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">line s = 0 (free surface)</text>
+<line x1="520.0" y1="40.0" x2="520.0" y2="306.2" stroke="var(--text-heading)" stroke-width="1.2"/>
+<path d="M520.0,311.0 L516.9,303.6 L523.1,303.6 Z" fill="var(--text-heading)"/>
+<text x="512.0" y="309.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">s</text>
+<rect x="560.0" y="144.5" width="140.0" height="142.5" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.08" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<rect x="560.0" y="256.6" width="140.0" height="9.0" fill="var(--fig-green, #10b981)" fill-opacity="0.35" stroke="var(--fig-green, #10b981)" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="710.0" y="265.6" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">dA = w ds</text>
+<line x1="560.0" y1="303.0" x2="700.0" y2="303.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M560.0,303.0 L566.4,300.3 L566.4,305.7 Z" fill="var(--text-muted)"/>
+<path d="M700.0,303.0 L693.6,305.7 L693.6,300.3 Z" fill="var(--text-muted)"/>
+<text x="630.0" y="321.0" fill="var(--text-muted)" font-size="16" font-weight="400" text-anchor="middle">w</text>
+<line x1="560.0" y1="293.0" x2="560.0" y2="309.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="700.0" y1="293.0" x2="700.0" y2="309.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<circle cx="630.0" cy="215.8" r="3.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="618.0" y="217.8" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">C</text>
+<circle cx="630.0" cy="225.4" r="3.6" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<text x="642.0" y="237.4" fill="var(--fig-acc, #f59e0b)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">CP</text>
+<line x1="516.0" y1="215.8" x2="560.0" y2="215.8" stroke="var(--text-faint)" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="516.0" y1="225.4" x2="560.0" y2="225.4" stroke="var(--text-faint)" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="508.0" y="213.8" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">s<tspan baseline-shift="sub" font-size="72%">C</tspan></text>
+<text x="508.0" y="239.4" fill="var(--fig-acc, #f59e0b)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">s<tspan baseline-shift="sub" font-size="72%">CP</tspan></text>
+<text x="650.0" y="345.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">Front view (folded down): strip, C and CP</text>
+</g></svg>
+<div class="diagram-caption">Figure 2. Plane surface inclined at $\theta$. Left: side view with the linear pressure distribution $p - p_a = \rho g s\sin\theta$, the right triangle that turns the distance $s$ along the plate into the depth $s\sin\theta$ (hypotenuse $s$, leg opposite to $\theta$), and the resultant $F_R$ normal to the plate at the centre of pressure CP. Right: the plate folded down onto the paper, with the strip $dA = w\,ds$ and CP below the centroid C.</div>
+</div>
+<p>Chapter 5 of the notes stops at the general expressions (5.11)-(5.14). This subsection is an <strong>extension</strong>: it evaluates (5.11) for a plane surface, which is what the problem sheets need.</p>
+<p><strong>Coordinates.</strong> Let a plane surface of area $A$ make an angle $\theta$ with the horizontal free surface. Its plane cuts the free surface along a horizontal line through $O$; take $s$ as the distance from that line measured down the plane, and $x$ along the line. A point at distance $s$ is at depth $s\sin\theta$: in the right triangle with the hypotenuse $s$ along the plate and one leg vertical, the vertical leg is opposite to the angle $\theta$, so it equals $s\sin\theta$ (the horizontal leg, adjacent to $\theta$, is $s\cos\theta$).</p>
+<p><strong>Element.</strong> The strip between $s$ and $s + ds$ has width $w(s)$ and area $dA = w(s)\,ds$; its gauge pressure is $p - p_a = \rho g s\sin\theta$ and its normal is the same for the whole plate, so all the elementary forces are parallel:</p>
+<div class="math-block">$$ dF = \rho g\sin\theta\, s\, dA $$</div>
+<p><strong>Resultant.</strong> Integrating over the plate, with $\theta$ constant and the definition of the centroid, $\int_A s\,dA = s_C A$:</p>
+<div class="math-block">$$ F_R = \rho g\sin\theta\int_A s\,dA = \rho g\sin\theta\, s_C A = (p_C - p_a)\,A $$</div>
+<p>The resultant equals the gauge pressure <strong>at the centroid</strong> times the area; it is normal to the plate.</p>
+<p><strong>Centre of pressure.</strong> The moment of the elementary forces about the line $O$ is $\int_A s\,dF = \rho g\sin\theta\int_A s^2\,dA = \rho g\sin\theta\, I_O$, with $I_O$ the second moment of area about the line through $O$. The resultant gives the same moment when applied at $s_{CP}$, so $F_R\,s_{CP} = \rho g\sin\theta\, I_O$ and</p>
+<div class="math-block">$$ s_{CP} = \frac{I_O}{s_C A} $$</div>
+<p>Steiner's theorem relates $I_O$ to the second moment $I_C$ about the parallel axis through the centroid: writing $s = s_C + \xi$ with $\int_A \xi\,dA = 0$,</p>
+<div class="math-block">$$ I_O = \int_A (s_C + \xi)^2 dA = s_C^2 A + 2s_C\int_A\xi\,dA + \int_A \xi^2 dA = I_C + s_C^2 A $$</div>
+<p>and therefore</p>
+<div class="math-block">$$ s_{CP} = s_C + \frac{I_C}{s_C A} $$</div>
+<p>The centre of pressure is always <strong>below</strong> the centroid (the deeper half of the plate carries more pressure), and it approaches the centroid as the plate goes deeper ($s_C\to\infty$). For a shape symmetric about the line $x = x_C$, the lateral position is $x_{CP} = x_C$.</p>
+<p><strong>Moment about the centroidal axis.</strong> The moment of the pressure about the horizontal axis through $C$ is $F_R(s_{CP} - s_C) = \rho g\sin\theta\, s_C A\cdot I_C/(s_C A) = \rho g\sin\theta\, I_C$: it <strong>does not depend on the depth</strong>. A gate pivoting about its own centroidal axis needs the same holding moment at any water level (problem FS4).</p>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Shape (lower edge horizontal)</th><th>$A$</th><th>Centroid from the lower edge</th><th>$I_C$ about the horizontal centroidal axis</th></tr></thead><tbody><tr><td>Rectangle $b\times L$ ($L$ along $s$)</td><td>$bL$</td><td>$L/2$</td><td>$bL^3/12$</td></tr><tr><td>Triangle, base $b$ at the bottom, height $L$</td><td>$bL/2$</td><td>$L/3$</td><td>$bL^3/36$</td></tr><tr><td>Circle of diameter $D$</td><td>$\pi D^2/4$</td><td>$D/2$</td><td>$\pi D^4/64$</td></tr></tbody></table></div>
+<p>These three second moments are computed with $I_C = \int \xi^2\,dA$ in <code>tools/fluids_fs/verify_fluid_statics.py</code>.</p>
+<h3 class="sub-heading">4.2 Curved surfaces</h3>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 330" width="100%" class="fig-kit" style="max-width:800px;margin:0 auto;display:block" role="img" aria-label="Quarter-cylinder gate of radius R with the liquid above it: radial pressure element dF at angle theta, vertical force equal to the weight of the real column above the arc, horizontal force on the vertical projection">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<polygon points="110.0,60.0 280.0,60.0 279.8,68.9 279.1,77.8 277.9,86.6 276.3,95.3 274.2,104.0 271.7,112.5 268.7,120.9 265.3,129.1 261.5,137.2 257.2,145.0 252.6,152.6 247.5,159.9 242.1,167.0 236.3,173.8 230.2,180.2 223.8,186.3 217.0,192.1 209.9,197.5 202.6,202.6 195.0,207.2 187.2,211.5 179.1,215.3 170.9,218.7 162.5,221.7 154.0,224.2 145.3,226.3 136.6,227.9 127.8,229.1 118.9,229.8 110.0,230.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.14" stroke="var(--fig-blue, #3b82f6)" stroke-width="0" stroke-linejoin="round"/>
+<line x1="40.0" y1="60.0" x2="340.0" y2="60.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<polygon points="306.0,48.0 318.0,48.0 312.0,58.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="302.0" y1="65.0" x2="322.0" y2="65.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.0"/>
+<line x1="306.0" y1="69.0" x2="318.0" y2="69.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.0"/>
+<text x="44.0" y="52.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<polyline points="280.0,60.0 279.8,68.9 279.1,77.8 277.9,86.6 276.3,95.3 274.2,104.0 271.7,112.5 268.7,120.9 265.3,129.1 261.5,137.2 257.2,145.0 252.6,152.6 247.5,159.9 242.1,167.0 236.3,173.8 230.2,180.2 223.8,186.3 217.0,192.1 209.9,197.5 202.6,202.6 195.0,207.2 187.2,211.5 179.1,215.3 170.9,218.7 162.5,221.7 154.0,224.2 145.3,226.3 136.6,227.9 127.8,229.1 118.9,229.8 110.0,230.0" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="4.5" stroke-linejoin="round"/>
+<line x1="280.0" y1="60.0" x2="288.0" y2="60.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="280.0" y1="60.0" x2="285.1" y2="55.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="279.8" y1="68.9" x2="285.1" y2="64.4" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="279.1" y1="77.8" x2="284.6" y2="73.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="277.9" y1="86.6" x2="283.7" y2="82.6" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="276.3" y1="95.3" x2="282.3" y2="91.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="274.2" y1="104.0" x2="280.4" y2="100.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="271.7" y1="112.5" x2="278.0" y2="109.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="268.7" y1="120.9" x2="275.2" y2="118.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="265.3" y1="129.1" x2="271.9" y2="126.8" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="261.5" y1="137.2" x2="268.2" y2="135.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="257.2" y1="145.0" x2="264.0" y2="143.4" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="252.6" y1="152.6" x2="259.5" y2="151.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="247.5" y1="159.9" x2="254.5" y2="159.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="242.1" y1="167.0" x2="249.1" y2="166.4" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="236.3" y1="173.8" x2="243.3" y2="173.6" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="230.2" y1="180.2" x2="237.2" y2="180.4" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="223.8" y1="186.3" x2="230.7" y2="186.9" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="217.0" y1="192.1" x2="223.9" y2="193.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="209.9" y1="197.5" x2="216.8" y2="198.8" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="202.6" y1="202.6" x2="209.4" y2="204.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="195.0" y1="207.2" x2="201.7" y2="209.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="187.2" y1="211.5" x2="193.8" y2="213.8" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="179.1" y1="215.3" x2="185.6" y2="218.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="170.9" y1="218.7" x2="177.2" y2="221.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="162.5" y1="221.7" x2="168.7" y2="225.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="154.0" y1="224.2" x2="160.0" y2="227.9" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="145.3" y1="226.3" x2="151.1" y2="230.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="136.6" y1="227.9" x2="142.1" y2="232.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="127.8" y1="229.1" x2="133.1" y2="233.6" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="118.9" y1="229.8" x2="124.0" y2="234.6" stroke="var(--text-faint)" stroke-width="1.0"/>
+<circle cx="110.0" cy="60.0" r="3.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="102.0" y="52.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">O</text>
+<line x1="110.0" y1="60.0" x2="195.0" y2="207.2" stroke="var(--fig-green, #10b981)" stroke-width="1.3" stroke-dasharray="5,4"/>
+<path d="M154.0,60.0 A44.0,44.0 0 0 1 132.0,98.1" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.3" stroke-linejoin="round"/>
+<text x="160.0" y="94.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">θ</text>
+<text x="142.5" y="139.6" fill="var(--fig-green, #10b981)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R</text>
+<line x1="195.0" y1="207.2" x2="226.7" y2="262.1" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.4"/>
+<path d="M230.0,267.8 L221.2,261.2 L228.6,256.9 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="238.0" y="275.3" fill="var(--fig-acc, #f59e0b)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">dF</text>
+<text x="202.0" y="112.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R sin θ</text>
+<line x1="195.0" y1="60.0" x2="195.0" y2="207.2" stroke="var(--fig-green, #10b981)" stroke-width="1.0" stroke-dasharray="3,3"/>
+<line x1="182.2" y1="80.0" x2="182.2" y2="152.8" stroke="var(--fig-acc, #f59e0b)" stroke-width="3.0"/>
+<path d="M182.2,160.0 L177.5,148.9 L186.8,148.9 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="174.2" y="128.0" fill="var(--fig-acc, #f59e0b)" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">V</tspan></text>
+<text x="210.0" y="300.0" fill="var(--fig-blue, #3b82f6)" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">real column above the arc: weight ρg b πR²/4</text>
+<rect x="540.0" y="60.0" width="12.0" height="170.0" fill="var(--text-faint)" fill-opacity="0.25" stroke="var(--text-heading)" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="540.0" y1="60.0" x2="450.0" y2="230.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<line x1="525.0" y1="88.3" x2="536.4" y2="88.3" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M540.0,88.3 L534.5,90.7 L534.5,86.0 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="510.0" y1="116.7" x2="536.4" y2="116.7" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M540.0,116.7 L534.5,119.0 L534.5,114.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="495.0" y1="145.0" x2="536.4" y2="145.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M540.0,145.0 L534.5,147.3 L534.5,142.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="173.3" x2="536.4" y2="173.3" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M540.0,173.3 L534.5,175.7 L534.5,171.0 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="465.0" y1="201.7" x2="536.4" y2="201.7" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M540.0,201.7 L534.5,204.0 L534.5,199.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="450.0" y1="230.0" x2="536.4" y2="230.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M540.0,230.0 L534.5,232.3 L534.5,227.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="540.0" y1="230.0" x2="450.0" y2="230.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<line x1="558.0" y1="173.3" x2="640.8" y2="173.3" stroke="var(--fig-acc, #f59e0b)" stroke-width="3.0"/>
+<path d="M648.0,173.3 L636.9,178.0 L636.9,168.7 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="600.0" y="161.3" fill="var(--fig-acc, #f59e0b)" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">H</tspan></text>
+<line x1="690.0" y1="60.0" x2="690.0" y2="173.3" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M690.0,60.0 L692.7,66.4 L687.3,66.4 Z" fill="var(--text-muted)"/>
+<path d="M690.0,173.3 L687.3,166.9 L692.7,166.9 Z" fill="var(--text-muted)"/>
+<text x="698.0" y="120.7" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="start">2R/3</text>
+<line x1="750.0" y1="60.0" x2="750.0" y2="230.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M750.0,60.0 L752.7,66.4 L747.3,66.4 Z" fill="var(--text-muted)"/>
+<path d="M750.0,230.0 L747.3,223.6 L752.7,223.6 Z" fill="var(--text-muted)"/>
+<text x="758.0" y="149.0" fill="var(--text-muted)" font-size="16" font-weight="400" text-anchor="start">R</text>
+<text x="540.0" y="300.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">vertical projection of the arc, height R</text>
+</g></svg>
+<div class="diagram-caption">Figure 3. Quarter-cylinder gate of radius $R$ and width $b$, centre $O$ on the free surface, liquid above the arc. The element $dF$ at angle $\theta$ is radial (depth $R\sin\theta$); $F_V$ is the weight of the real column above the arc, applied at $4R/(3\pi)$ from $O$; $F_H$ is the force on the vertical projection of height $R$, applied at $2R/3$ below the surface.</div>
+</div>
+<p>On a curved surface the elementary forces change direction from point to point, so the force is found component by component: by direct integration or by the projection rule (5.14). This subsection is an <strong>extension</strong> with worked examples of (5.11) and (5.14); the examples are not in the notes. Both methods are shown on the quarter-cylinder gate of the figure: radius $R$, width $b$, centre $O$ on the free surface, liquid above the arc and air at $p_a$ below it.</p>
+<p><strong>Direct integration.</strong> Measure $\theta$ from the horizontal radius $OB$ down to the radius of the element. In the right triangle with hypotenuse $R$ (the radius), the vertical leg is opposite to $\theta$ and the horizontal leg is adjacent: the element is at $x = R\cos\theta$, depth $R\sin\theta$. The arc length of the element is $R\,d\theta$ and its area is $d\sigma = bR\,d\theta$. The normal towards the liquid points from the arc to $O$, $\vec{n} = -(\cos\theta\,\vec{e}_x - \sin\theta\,\vec{e}_z)$, so with the gauge pressure $\rho g R\sin\theta$:</p>
+<div class="math-block">$$ d\vec{F} = -(p - p_a)\vec{n}\,d\sigma = \rho g R\sin\theta\,(\cos\theta\,\vec{e}_x - \sin\theta\,\vec{e}_z)\,bR\,d\theta $$</div>
+<p>Horizontal component, with $\int\sin\theta\cos\theta\,d\theta = \sin^2\theta/2$ (substitution $u = \sin\theta$, $du = \cos\theta\,d\theta$) and Barrow's rule:</p>
+<div class="math-block">$$ F_H = \rho g b R^2\int_0^{\pi/2}\sin\theta\cos\theta\,d\theta = \rho g b R^2\left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2} = \rho g b R^2\left(\frac{1}{2} - 0\right) = \frac{\rho g b R^2}{2} $$</div>
+<p>Vertical component, with $\sin^2\theta = (1 - \cos 2\theta)/2$ and $\int\cos 2\theta\,d\theta = \sin 2\theta/2$:</p>
+<div class="math-block">$$ F_V = -\rho g b R^2\int_0^{\pi/2}\sin^2\theta\,d\theta = -\rho g b R^2\left[\frac{\theta}{2} - \frac{\sin 2\theta}{4}\right]_0^{\pi/2} = -\rho g b R^2\left(\frac{\pi}{4} - 0\right) = -\frac{\pi\rho g b R^2}{4} $$</div>
+<p><strong>Projection method.</strong> The vertical projection of the arc is a rectangle of height $R$ and width $b$ with its centroid at depth $R/2$, so $F_H = \rho g (R/2)(bR) = \rho g b R^2/2$, applied at $2R/3$ below the surface (the centre of pressure of a rectangle starting at the surface, from Section 4.1). The liquid above the arc is a quarter disc of area $\pi R^2/4$, so $F_V$ is its weight, $\rho g b\pi R^2/4$, downward, through its centroid at $4R/(3\pi)$ from $O$. Both methods agree.</p>
+<p><strong>Line of action.</strong> Every $d\vec{F}$ is radial, so it passes through $O$; the resultant of forces through one point passes through that point. The magnitude is $\rho g b R^2\sqrt{1/4 + \pi^2/16}$ (Pythagoras on the two components). The angle $\gamma$ below the horizontal comes from the right triangle of the force components: the leg opposite to $\gamma$ is $\lvert F_V\rvert = \pi\rho g b R^2/4$, the adjacent leg is $F_H = \rho g b R^2/2$, so $\tan\gamma = (\pi/4)/(1/2) = \pi/2$ and $\gamma \approx 57.5^\circ$.</p>
+<p><strong>Areas made of a sector and a triangle.</strong> When the free surface cuts a circular wall at a general height, the area that gives $F_V$ is a circular sector plus or minus a right triangle. For a circle of radius $R$ resting on the floor with the liquid up to height $h$ on one side, call $\beta$ the angle at the centre between the downward vertical and the radius to the waterline point, so $R - h = R\cos\beta$ (adjacent leg of the right triangle with hypotenuse $R$). The wetted half-disc area below the waterline is</p>
+<div class="math-block">$$ A(h) = \frac{R^2\beta}{2} - \frac{1}{2}(R - h)\,R\sin\beta $$</div>
+<p>the sector of angle $\beta$ minus the triangle with legs $R - h$ and $R\sin\beta$ (for $h &gt; R$ the leg $R - h$ is negative and the triangle is added). The same result follows by integration: a horizontal strip at the height $y = R - R\cos u$ has the half-width $R\sin u$ and the thickness $dy = R\sin u\,du$, so, with $\sin^2 u = (1 - \cos 2u)/2$ and Barrow's rule,</p>
+<div class="math-block">$$ A = R^2\int_0^\beta \sin^2 u\,du = R^2\left[\frac{u}{2} - \frac{\sin 2u}{4}\right]_0^\beta = \frac{R^2\beta}{2} - \frac{R^2\sin\beta\cos\beta}{2} = \frac{R^2\beta}{2} - \frac{1}{2}(R - h)\,R\sin\beta $$</div>
+<p>using $\sin 2\beta = 2\sin\beta\cos\beta$ and $R\cos\beta = R - h$ (checked in <code>verify_fluid_statics.py</code>). Problem FS10 and its simulator use this decomposition.</p>
+      </section>
+
+      <section id="section-5">
+        <h2 class="section-heading">5. Archimedes' Principle</h2>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Submerged body of volume V: the pressure on its surface adds up to the buoyancy rho g V applied at the centroid x_g of the displaced liquid; the weight W acts at the centre of gravity G of the body">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<polygon points="40.0,60.0 520.0,60.0 520.0,280.0 40.0,280.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="var(--fig-blue, #3b82f6)" stroke-width="0" stroke-linejoin="round"/>
+<line x1="40.0" y1="60.0" x2="520.0" y2="60.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<polygon points="486.0,48.0 498.0,48.0 492.0,58.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="482.0" y1="65.0" x2="502.0" y2="65.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.0"/>
+<line x1="486.0" y1="69.0" x2="498.0" y2="69.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.0"/>
+<text x="44.0" y="52.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<ellipse cx="270" cy="175" rx="120" ry="62" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.10" stroke="var(--text-heading)" stroke-width="2"/>
+<line x1="422.4" y1="175.0" x2="393.6" y2="175.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M390.0,175.0 L395.5,172.7 L395.5,177.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="398.8" y1="233.8" x2="376.3" y2="208.7" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M373.9,206.0 L379.3,208.6 L375.9,211.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="341.7" y1="268.0" x2="331.0" y2="232.1" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M330.0,228.7 L333.8,233.3 L329.3,234.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="270.0" y1="279.3" x2="270.0" y2="240.6" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M270.0,237.0 L272.3,242.5 L267.7,242.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="198.3" y1="268.0" x2="209.0" y2="232.1" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M210.0,228.7 L210.7,234.7 L206.2,233.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="141.2" y1="233.8" x2="163.7" y2="208.7" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M166.1,206.0 L164.1,211.7 L160.7,208.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="117.6" y1="175.0" x2="146.4" y2="175.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M150.0,175.0 L144.5,177.3 L144.5,172.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="147.8" y1="123.6" x2="163.7" y2="141.3" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M166.1,144.0 L160.7,141.4 L164.1,138.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="203.2" y1="98.5" x2="209.0" y2="117.9" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M210.0,121.3 L206.2,116.7 L210.7,115.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="270.0" y1="90.5" x2="270.0" y2="109.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M270.0,113.0 L267.7,107.5 L272.3,107.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="336.8" y1="98.5" x2="331.0" y2="117.9" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M330.0,121.3 L329.3,115.3 L333.8,116.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="392.2" y1="123.6" x2="376.3" y2="141.3" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M373.9,144.0 L375.9,138.3 L379.3,141.4 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="240.0" y1="185.0" x2="240.0" y2="112.2" stroke="var(--fig-acc, #f59e0b)" stroke-width="3.0"/>
+<path d="M240.0,105.0 L244.7,116.1 L235.3,116.1 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="230.0" y="145.0" fill="var(--fig-acc, #f59e0b)" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρgV</text>
+<circle cx="240.0" cy="185.0" r="3.6" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<text x="230.0" y="201.0" fill="var(--fig-acc, #f59e0b)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x<tspan baseline-shift="sub" font-size="72%">g</tspan></text>
+<line x1="304.0" y1="177.0" x2="304.0" y2="239.8" stroke="var(--fig-pink, #ec4899)" stroke-width="3.0"/>
+<path d="M304.0,247.0 L299.3,235.9 L308.7,235.9 Z" fill="var(--fig-pink, #ec4899)"/>
+<circle cx="304.0" cy="177.0" r="3.6" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="314.0" y="221.0" fill="var(--fig-pink, #ec4899)" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">W</text>
+<text x="314.0" y="173.0" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">G</text>
+<text x="400.0" y="117.0" fill="var(--text-heading)" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V</text>
+</g></svg>
+<div class="diagram-caption">Figure 4. Submerged body of volume $V$: the pressure on the closed surface adds up to the buoyancy $\rho g V\,\vec{e}_z$, applied at the centroid $\vec{x}_g$ of the displaced liquid (Eqs. 5.15 and 5.16); the weight $W$ acts at the centre of gravity $G$ of the body, which need not coincide with $\vec{x}_g$.</div>
+</div>
+<p>For a <strong>closed</strong> surface $\Sigma$ enclosing a submerged body of volume $V$, the pressure on the body is the one the liquid would have if it filled $V$, so the Gauss formula $\oint_\Sigma f\vec{n}\,d\sigma = \int_V \nabla f\,dV$ can be applied to (5.12). With $\nabla p_a = 0$ and $\nabla(\rho g z) = \rho g\,\vec{e}_z$ (Notes.pdf, Eq. 5.15):</p>
+<div class="math-block">$$ \vec{F} = -\int_V \nabla p_a\,dV + \rho g\int_V \nabla z\,dV = \rho g V\,\vec{e}_z \tag{5.15} $$</div>
+<p>The moment follows from $\oint_\Sigma \vec{n}\times\vec{A}\,d\sigma = \int_V\nabla\times\vec{A}\,dV$ with $\vec{A} = p(\vec{x}-\vec{x}_o)$. Since $-(\vec{x}-\vec{x}_o)\times p\vec{n} = \vec{n}\times p(\vec{x}-\vec{x}_o)$ and $\nabla\times[p(\vec{x}-\vec{x}_o)] = \nabla p\times(\vec{x}-\vec{x}_o) + p\,\nabla\times\vec{x}$ with $\nabla\times\vec{x} = 0$ and $\nabla p = -\rho g\,\vec{e}_z$ (Notes.pdf, Eq. 5.16):</p>
+<div class="math-block">$$ \vec{M} = -\rho g\,\vec{e}_z\times\int_V(\vec{x}-\vec{x}_o)\,dV = (\vec{x}_g - \vec{x}_o)\times\rho g V\,\vec{e}_z \tag{5.16} $$</div>
+<p>where $\vec{x}_g = V^{-1}\int_V\vec{x}\,dV$ is the centroid of the displaced liquid. Equations (5.15) and (5.16) are <strong>Archimedes' principle</strong>: the buoyancy force on a submerged body equals the weight of the displaced liquid and acts at the centroid of the displaced volume (also called the centre of buoyancy), which in general is not the centre of gravity of the body.</p>
+<p>The two consequences below are an <strong>extension</strong> of (5.15), used in the problem sheets.</p>
+<ul><li><strong>Floating bodies.</strong> For a body that floats, the same argument applies to the submerged part, closed by the waterline plane where $p = p_a$: the buoyancy is the weight of the liquid displaced below the waterline (problems FS1, FS3, FS6).</li><li><strong>Trapped gas.</strong> When a gas pocket inside an open-bottom body is part of the floating system, the displaced volume includes the gas below the free surface (problems FS3 and FS6).</li></ul>
+      </section>
+
+      <section id="section-6">
+        <h2 class="section-heading">6. Stability of Submerged and Floating Bodies</h2>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" width="100%" class="fig-kit" style="max-width:820px;margin:0 auto;display:block" role="img" aria-label="Stability of a submerged body, as in Fig. 5.1 of the notes: A, centroid of the displaced liquid, above B, centre of gravity, gives a restoring torque; B above A overturns. Right: a floating body heeled, with G, the shifted centre of buoyancy B prime and the metacentre M">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<polygon points="155.0,160.0 154.7,171.1 153.8,182.0 152.3,192.5 150.3,202.5 147.8,211.7 144.7,220.1 141.3,227.4 137.5,233.6 133.4,238.5 129.1,242.1 124.6,244.3 120.0,245.0 115.4,244.3 110.9,242.1 106.6,238.5 102.5,233.6 98.7,227.4 95.3,220.1 92.2,211.7 89.7,202.5 87.7,192.5 86.2,182.0 85.3,171.1 85.0,160.0 85.3,148.9 86.2,138.0 87.7,127.5 89.7,117.5 92.2,108.3 95.3,99.9 98.7,92.6 102.5,86.4 106.6,81.5 110.9,77.9 115.4,75.7 120.0,75.0 124.6,75.7 129.1,77.9 133.4,81.5 137.5,86.4 141.3,92.6 144.7,99.9 147.8,108.3 150.3,117.5 152.3,127.5 153.8,138.0 154.7,148.9" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.08" stroke="var(--text-heading)" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="120.0" y1="65.0" x2="120.0" y2="255.0" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="4,4"/>
+<circle cx="120.0" cy="132.0" r="4" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="120.0" cy="188.0" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="110.0" y="137.0" fill="var(--fig-acc, #f59e0b)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">A</text>
+<text x="130.0" y="193.0" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">B</text>
+<line x1="120.0" y1="132.0" x2="120.0" y2="68.6" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6"/>
+<path d="M120.0,62.0 L124.3,72.1 L115.7,72.1 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="108.0" y="80.0" fill="var(--fig-acc, #f59e0b)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρgV</text>
+<line x1="120.0" y1="188.0" x2="120.0" y2="251.4" stroke="var(--fig-pink, #ec4899)" stroke-width="2.6"/>
+<path d="M120.0,258.0 L115.7,247.9 L124.3,247.9 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="126.0" y="266.0" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">W</text>
+<text x="120.0" y="312.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">upright: A above B</text>
+<polygon points="322.5,173.1 318.0,183.3 313.1,193.1 307.8,202.3 302.2,210.8 296.4,218.4 290.4,225.0 284.5,230.5 278.7,234.8 273.0,237.8 267.6,239.5 262.7,239.8 258.2,238.8 254.2,236.4 250.8,232.7 248.2,227.8 246.2,221.7 245.0,214.5 244.5,206.5 244.9,197.6 246.0,188.1 247.8,178.0 250.4,167.7 253.7,157.3 257.5,146.9 262.0,136.7 266.9,126.9 272.2,117.7 277.8,109.2 283.6,101.6 289.6,95.0 295.5,89.5 301.3,85.2 307.0,82.2 312.4,80.5 317.3,80.2 321.8,81.2 325.8,83.6 329.2,87.3 331.8,92.2 333.8,98.3 335.0,105.5 335.5,113.5 335.1,122.4 334.0,131.9 332.2,142.0 329.6,152.3 326.3,162.7" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.08" stroke="var(--text-heading)" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="325.6" y1="71.9" x2="254.4" y2="248.1" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="4,4"/>
+<circle cx="300.5" cy="134.0" r="4" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="279.5" cy="186.0" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="290.5" y="139.0" fill="var(--fig-acc, #f59e0b)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">A</text>
+<text x="289.5" y="191.0" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">B</text>
+<line x1="300.5" y1="134.0" x2="300.5" y2="70.6" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6"/>
+<path d="M300.5,64.0 L304.8,74.2 L296.2,74.2 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="288.5" y="82.0" fill="var(--fig-acc, #f59e0b)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρgV</text>
+<line x1="279.5" y1="186.0" x2="279.5" y2="249.4" stroke="var(--fig-pink, #ec4899)" stroke-width="2.6"/>
+<path d="M279.5,256.0 L275.2,245.8 L283.8,245.8 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="285.5" y="264.0" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">W</text>
+<path d="M240.1,266.9 A118.0,118.0 0 0 0 320.5,274.0" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M320.5,274.0 L314.2,278.9 L312.6,272.9 Z" fill="var(--fig-green, #10b981)"/>
+<text x="290.0" y="312.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">tilted: restoring torque</text>
+<polygon points="492.5,173.1 488.0,183.3 483.1,193.1 477.8,202.3 472.2,210.8 466.4,218.4 460.4,225.0 454.5,230.5 448.7,234.8 443.0,237.8 437.6,239.5 432.7,239.8 428.2,238.8 424.2,236.4 420.8,232.7 418.2,227.8 416.2,221.7 415.0,214.5 414.5,206.5 414.9,197.6 416.0,188.1 417.8,178.0 420.4,167.7 423.7,157.3 427.5,146.9 432.0,136.7 436.9,126.9 442.2,117.7 447.8,109.2 453.6,101.6 459.6,95.0 465.5,89.5 471.3,85.2 477.0,82.2 482.4,80.5 487.3,80.2 491.8,81.2 495.8,83.6 499.2,87.3 501.8,92.2 503.8,98.3 505.0,105.5 505.5,113.5 505.1,122.4 504.0,131.9 502.2,142.0 499.6,152.3 496.3,162.7" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.08" stroke="var(--text-heading)" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="495.6" y1="71.9" x2="424.4" y2="248.1" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="4,4"/>
+<circle cx="449.5" cy="186.0" r="4" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="470.5" cy="134.0" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="439.5" y="191.0" fill="var(--fig-acc, #f59e0b)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">A</text>
+<text x="480.5" y="139.0" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">B</text>
+<line x1="449.5" y1="186.0" x2="449.5" y2="122.6" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6"/>
+<path d="M449.5,116.0 L453.8,126.1 L445.2,126.1 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="437.5" y="134.0" fill="var(--fig-acc, #f59e0b)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρgV</text>
+<line x1="470.5" y1="134.0" x2="470.5" y2="197.4" stroke="var(--fig-pink, #ec4899)" stroke-width="2.6"/>
+<path d="M470.5,204.0 L466.2,193.9 L474.8,193.9 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="476.5" y="212.0" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">W</text>
+<path d="M509.9,266.9 A118.0,118.0 0 0 1 429.5,274.0" fill="none" stroke="var(--fig-pink, #ec4899)" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M429.5,274.0 L437.4,272.9 L435.8,278.9 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="460.0" y="312.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">B above A: overturns</text>
+<polygon points="570.0,150.0 810.0,150.0 810.0,290.0 570.0,290.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="var(--fig-blue, #3b82f6)" stroke-width="0" stroke-linejoin="round"/>
+<line x1="570.0" y1="150.0" x2="810.0" y2="150.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<polygon points="631.8,94.3 767.6,128.1 745.8,215.4 610.0,181.6" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.08" stroke="var(--text-heading)" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="706.9" y1="82.1" x2="675.5" y2="208.2" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="4,4"/>
+<circle cx="684.0" cy="174.3" r="3.6" fill="var(--text-faint)" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="675.0" y="179.3" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">B</text>
+<line x1="702.1" y1="178.0" x2="702.1" y2="105.5" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="702.1" y1="178.0" x2="702.1" y2="158.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.4"/>
+<path d="M702.1,152.0 L706.0,161.2 L698.2,161.2 Z" fill="var(--fig-acc, #f59e0b)"/>
+<circle cx="702.1" cy="178.0" r="4" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<text x="711.1" y="190.0" fill="var(--fig-acc, #f59e0b)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">B′</text>
+<circle cx="691.2" cy="145.1" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="682.2" y="147.1" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">G</text>
+<circle cx="702.1" cy="101.5" r="4" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="711.1" y="105.5" fill="var(--fig-green, #10b981)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">M</text>
+<text x="690.0" y="312.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">floating: M above G (extension)</text>
+</g></svg>
+<div class="diagram-caption">Figure 5. Stability (Notes.pdf, Fig. 5.1, redrawn): for a submerged body the buoyancy acts at the centroid $A$ of the displaced liquid and the weight at the centre of gravity $B$; with $A$ above $B$ a tilt produces a restoring torque, with $B$ above $A$ it overturns the body. Right (extension): a heeled floating body, where the centre of buoyancy moves to $B&#x27;$ and the vertical through $B&#x27;$ cuts the symmetry line at the metacentre $M$; the body is stable when $M$ lies above $G$.</div>
+</div>
+<p>A body in equilibrium is <strong>stable</strong> if, after a small perturbation, the forces bring it back. For a submerged body (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=62" target="_blank" rel="noopener" title="Open Notes.pdf at page 62">53</a>, and Fig. 5.1 on p. 54), the buoyancy $\rho g V\vec{e}_z$ acts at the centroid $A$ of the displaced liquid and the weight $-W\vec{e}_z$ at the centre of gravity $B$ of the body; in equilibrium $W = \rho g V$ and $A$, $B$ are on the same vertical. If the body is tilted, $A$ and $B$ turn with it (the displaced volume is the body itself): with $A$ above $B$ the pair of forces is a restoring torque, with $B$ above $A$ it turns the body over. <strong>A submerged body is stable when the centre of buoyancy lies above the centre of gravity</strong>, so the centre of gravity should be as low as possible.</p>
+<p><strong>Floating bodies and the metacentre (extension).</strong> For a floating body the displaced volume changes shape when it heels, so the centre of buoyancy moves sideways, from $B$ to $B'$, towards the side that goes down. The vertical through $B'$ cuts the symmetry line of the body at the <strong>metacentre</strong> $M$. For a small heel angle $\alpha$, the wedge of volume that emerges on one side and sinks on the other moves the centre of buoyancy by $BB' = I_{wl}\,\alpha/V$, where $I_{wl}$ is the second moment of the waterline area about the heel axis, so the metacentric radius is</p>
+<div class="math-block">$$ BM = \frac{BB'}{\alpha} = \frac{I_{wl}}{V}, \qquad GM = BM - BG $$</div>
+<p>The body is stable when $M$ is above the centre of gravity $G$ ($GM &gt; 0$): then the buoyancy at $B'$ and the weight at $G$ form a restoring torque even if $G$ is above $B$. This is why ships can carry their centre of gravity above the centre of buoyancy, while submarines cannot. Notation: the notes call the centroid $A$ and the centre of gravity $B$; ship stability uses $B$ for the centre of buoyancy and $G$ for the centre of gravity.</p>
+      </section>
+
+      <section id="section-7">
+        <h2 class="section-heading">7. Gases at Rest: the Standard Atmosphere</h2>
+<h3 class="sub-heading">Hydrostatics of a gas</h3>
+<p>For a gas in equilibrium under gravity, (5.2) gives $\partial p/\partial x = \partial p/\partial y = 0$ and (Notes.pdf, Eq. 5.17):</p>
+<div class="math-block">$$ \frac{dp}{dz} = -\rho g \tag{5.17} $$</div>
+<p>Because the density of air is small, $dp/dz$ is only about $12$ Pa per metre at sea level ($\rho_0 g = 1.225\times 9.81$, computed here), so over heights of a few metres the pressure of a gas at rest can be taken as uniform. Appreciable changes appear over kilometres, across the atmosphere. Air is a mixture of about 78 % N$_2$, 21 % O$_2$ and 1 % Ar, well mixed by turbulence, with $W_{air} = 0.029$ kg/mol and $R_g = R/W = 287$ J/(kg K) in the equation of state (Notes.pdf, Eq. 5.18):</p>
+<div class="math-block">$$ p = \rho R_g T \tag{5.18} $$</div>
+<p>Solving (5.18) for $\rho$ and substituting in (5.17) (Notes.pdf, Eq. 5.19):</p>
+<div class="math-block">$$ \frac{dp}{dz} = -\frac{p\,g}{R_g T} \quad\Longleftrightarrow\quad \frac{dp}{p} + \frac{g}{R_g T}\,dz = 0 \tag{5.19} $$</div>
+<p>The temperature profile $T(z)$ must be given before integrating.</p>
+<h3 class="sub-heading">Temperature model</h3>
+<p>The standard atmosphere uses a linear decrease of temperature in the troposphere and a constant temperature in the stratosphere (Notes.pdf, Eq. 5.20):</p>
+<div class="math-block">$$ T = \begin{cases} T_0 - \lambda z, &amp; 0 &lt; z &lt; 11000\ \text{m (troposphere)} \\ T_{11} = T_0 - 11000\,\lambda, &amp; 11000 &lt; z &lt; 20000\ \text{m (stratosphere)} \end{cases} \tag{5.20} $$</div>
+<p>with the internationally accepted values $T_0 = 288.16$ K and $\lambda = 6.5\times10^{-3}$ K/m. The notes call the temperature gradient $\alpha$; here it is $\lambda$, because $\alpha$ already denotes the thermal diffusivity in (5.9). Then $T_{11} = 288.16 - 6.5\times 11 = 216.66$ K.</p>
+<h3 class="sub-heading">Troposphere</h3>
+<p>With $T = T_0 - \lambda z$, (5.19) becomes (Notes.pdf, Eq. 5.21)</p>
+<div class="math-block">$$ \frac{dp}{p} = -\frac{g}{R_g}\frac{dz}{T_0 - \lambda z} \tag{5.21} $$</div>
+<p>The left side integrates to $\ln p$. On the right, substitute $u = T_0 - \lambda z$, $du = -\lambda\,dz$, so $dz/(T_0 - \lambda z) = -du/(\lambda u)$ and $\int dz/(T_0 - \lambda z) = -\ln(T_0 - \lambda z)/\lambda$. Hence (Notes.pdf, Eq. 5.22)</p>
+<div class="math-block">$$ \ln p - \frac{g}{R_g\lambda}\ln(T_0 - \lambda z) = C \tag{5.22} $$</div>
+<p>At sea level, $z = 0$ and $p = p_a = 1$ atm, so (Notes.pdf, Eq. 5.23) $C = \ln p_a - (g/(R_g\lambda))\ln T_0$. Substituting $C$ and grouping the logarithms, $\ln(p/p_a) = (g/(R_g\lambda))\ln[(T_0 - \lambda z)/T_0]$, and taking exponentials (Notes.pdf, Eq. 5.24):</p>
+<div class="math-block">$$ p = p_a\left(1 - \frac{\lambda z}{T_0}\right)^{g/(R_g\lambda)}, \qquad 0 &lt; z &lt; 11000\ \text{m} \tag{5.24} $$</div>
+<p>The exponent is $g/(R_g\lambda) = 9.81/(287\times6.5\times10^{-3}) = 5.2586$ (dimensionless: $[\text{m s}^{-2}]/([\text{J kg}^{-1}\text{K}^{-1}][\text{K m}^{-1}]) = [\text{m s}^{-2}]/[\text{m s}^{-2}]$). At $z = 11$ km it gives $p_{11} = p_a(T_{11}/T_0)^{g/(R_g\lambda)} = 0.2232\,p_a \approx 22.6$ kPa.</p>
+<h3 class="sub-heading">Stratosphere</h3>
+<p>With $T = T_{11}$ constant, (5.19) integrates directly between $11000$ m, where $p = p_{11}$, and $z$: $[\ln p]_{p_{11}}^{p} = -\frac{g}{R_g T_{11}}[z]_{11000}^{z}$, that is (Notes.pdf, Eq. 5.25)</p>
+<div class="math-block">$$ p = p_{11}\exp\left[-\frac{g\,(z - 11000)}{R_g T_{11}}\right], \qquad 11000 &lt; z &lt; 20000\ \text{m} \tag{5.25} $$</div>
+<p>an exponential decay with the scale height $R_g T_{11}/g \approx 6.34$ km. At 20 km, $p \approx 0.054\,p_a \approx 5.5$ kPa.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 794 330" width="100%" class="fig-kit" style="max-width:794px;margin:0 auto;display:block" role="img" aria-label="Standard atmosphere from 0 to 20 km: temperature, pressure ratio and density ratio, troposphere in pink and stratosphere in blue, with the height of Everest dashed">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="40.0" y1="280.0" x2="240.0" y2="280.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="40.0" y1="280.0" x2="40.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="36.0" y1="280.0" x2="40.0" y2="280.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="32.0" y="284.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">0</text>
+<line x1="36.0" y1="217.5" x2="40.0" y2="217.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="32.0" y="221.5" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">5</text>
+<line x1="36.0" y1="155.0" x2="40.0" y2="155.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="32.0" y="159.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">10</text>
+<line x1="36.0" y1="92.5" x2="40.0" y2="92.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="32.0" y="96.5" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">15</text>
+<line x1="36.0" y1="30.0" x2="40.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="32.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">20</text>
+<text x="40.0" y="298.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">200</text>
+<text x="140.0" y="298.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">250</text>
+<text x="240.0" y="298.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">300</text>
+<text x="140.0" y="320.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">T (K)</text>
+<polyline points="216.3,280.0 213.1,276.9 209.8,273.8 206.6,270.6 203.3,267.5 200.1,264.4 196.8,261.2 193.6,258.1 190.3,255.0 187.1,251.9 183.8,248.8 180.6,245.6 177.3,242.5 174.1,239.4 170.8,236.2 167.6,233.1 164.3,230.0 161.1,226.9 157.8,223.8 154.6,220.6 151.3,217.5 148.1,214.4 144.8,211.2 141.6,208.1 138.3,205.0 135.1,201.9 131.8,198.8 128.6,195.6 125.3,192.5 122.1,189.4 118.8,186.2 115.6,183.1 112.3,180.0 109.1,176.9 105.8,173.8 102.6,170.6 99.3,167.5 96.1,164.4 92.8,161.2 89.6,158.1 86.3,155.0 83.1,151.9 79.8,148.8 76.6,145.6 73.3,142.5" fill="none" stroke="var(--fig-pink, #ec4899)" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="73.3,142.5 73.3,139.4 73.3,136.2 73.3,133.1 73.3,130.0 73.3,126.9 73.3,123.8 73.3,120.6 73.3,117.5 73.3,114.4 73.3,111.2 73.3,108.1 73.3,105.0 73.3,101.9 73.3,98.8 73.3,95.6 73.3,92.5 73.3,89.4 73.3,86.2 73.3,83.1 73.3,80.0 73.3,76.9 73.3,73.8 73.3,70.6 73.3,67.5 73.3,64.4 73.3,61.2 73.3,58.1 73.3,55.0 73.3,51.9 73.3,48.8 73.3,45.6 73.3,42.5 73.3,39.4 73.3,36.2 73.3,33.1 73.3,30.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="40.0" y1="169.4" x2="240.0" y2="169.4" stroke="var(--text-faint)" stroke-width="0.8" stroke-dasharray="4,4"/>
+<line x1="300.0" y1="280.0" x2="500.0" y2="280.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="300.0" y1="280.0" x2="300.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="296.0" y1="280.0" x2="300.0" y2="280.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="296.0" y1="217.5" x2="300.0" y2="217.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="296.0" y1="155.0" x2="300.0" y2="155.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="296.0" y1="92.5" x2="300.0" y2="92.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="296.0" y1="30.0" x2="300.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="300.0" y="298.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">0</text>
+<text x="400.0" y="298.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">0.5</text>
+<text x="500.0" y="298.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">1</text>
+<text x="400.0" y="320.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">p / pₐ</text>
+<polyline points="500.0,280.0 494.1,276.9 488.4,273.8 482.8,270.6 477.4,267.5 472.1,264.4 466.9,261.2 461.8,258.1 456.9,255.0 452.1,251.9 447.4,248.8 442.8,245.6 438.4,242.5 434.0,239.4 429.8,236.2 425.7,233.1 421.6,230.0 417.7,226.9 413.9,223.8 410.2,220.6 406.6,217.5 403.1,214.4 399.7,211.2 396.3,208.1 393.1,205.0 389.9,201.9 386.9,198.8 383.9,195.6 381.0,192.5 378.2,189.4 375.5,186.2 372.8,183.1 370.2,180.0 367.7,176.9 365.3,173.8 362.9,170.6 360.6,167.5 358.4,164.4 356.3,161.2 354.2,158.1 352.1,155.0 350.2,151.9 348.3,148.8 346.4,145.6 344.6,142.5" fill="none" stroke="var(--fig-pink, #ec4899)" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="344.6,142.5 342.9,139.4 341.3,136.2 339.7,133.1 338.1,130.0 336.7,126.9 335.2,123.8 333.9,120.6 332.6,117.5 331.3,114.4 330.1,111.2 328.9,108.1 327.8,105.0 326.7,101.9 325.7,98.8 324.7,95.6 323.7,92.5 322.8,89.4 321.9,86.2 321.1,83.1 320.3,80.0 319.5,76.9 318.7,73.8 318.0,70.6 317.3,67.5 316.7,64.4 316.0,61.2 315.4,58.1 314.8,55.0 314.2,51.9 313.7,48.8 313.1,45.6 312.6,42.5 312.1,39.4 311.7,36.2 311.2,33.1 310.8,30.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="300.0" y1="169.4" x2="500.0" y2="169.4" stroke="var(--text-faint)" stroke-width="0.8" stroke-dasharray="4,4"/>
+<line x1="540.0" y1="280.0" x2="740.0" y2="280.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="540.0" y1="280.0" x2="540.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="536.0" y1="280.0" x2="540.0" y2="280.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="536.0" y1="217.5" x2="540.0" y2="217.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="536.0" y1="155.0" x2="540.0" y2="155.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="536.0" y1="92.5" x2="540.0" y2="92.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="536.0" y1="30.0" x2="540.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="540.0" y="298.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">0</text>
+<text x="640.0" y="298.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">0.5</text>
+<text x="740.0" y="298.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">1</text>
+<text x="640.0" y="320.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">ρ / ρ₀</text>
+<polyline points="740.0,280.0 735.2,276.9 730.6,273.8 726.0,270.6 721.5,267.5 717.1,264.4 712.7,261.2 708.5,258.1 704.3,255.0 700.2,251.9 696.2,248.8 692.3,245.6 688.4,242.5 684.6,239.4 680.9,236.2 677.3,233.1 673.7,230.0 670.2,226.9 666.8,223.8 663.4,220.6 660.1,217.5 656.9,214.4 653.8,211.2 650.7,208.1 647.7,205.0 644.7,201.9 641.8,198.8 639.0,195.6 636.2,192.5 633.5,189.4 630.8,186.2 628.2,183.1 625.7,180.0 623.2,176.9 620.8,173.8 618.4,170.6 616.1,167.5 613.8,164.4 611.6,161.2 609.4,158.1 607.3,155.0 605.3,151.9 603.3,148.8 601.3,145.6 599.4,142.5" fill="none" stroke="var(--fig-pink, #ec4899)" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="599.4,142.5 597.1,139.4 594.9,136.2 592.7,133.1 590.7,130.0 588.7,126.9 586.9,123.8 585.0,120.6 583.3,117.5 581.6,114.4 580.0,111.2 578.5,108.1 577.0,105.0 575.6,101.9 574.2,98.8 572.9,95.6 571.6,92.5 570.4,89.4 569.2,86.2 568.1,83.1 567.0,80.0 565.9,76.9 564.9,73.8 564.0,70.6 563.0,67.5 562.1,64.4 561.3,61.2 560.5,58.1 559.7,55.0 558.9,51.9 558.2,48.8 557.5,45.6 556.8,42.5 556.2,39.4 555.5,36.2 554.9,33.1 554.4,30.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="540.0" y1="169.4" x2="740.0" y2="169.4" stroke="var(--text-faint)" stroke-width="0.8" stroke-dasharray="4,4"/>
+<text x="12.0" y="22.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">z (km)</text>
+<text x="788.0" y="163.4" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">Everest</text>
+</g></svg>
+<div class="diagram-caption">Figure 6. Standard atmosphere recomputed from Eqs. (5.20), (5.24), (5.25) and (5.18) with $T_0 = 288.16$ K and $\lambda = 6.5\times10^{-3}$ K/m: temperature, $p/p_a$ and $\rho/\rho_0$ against the height $z$ (troposphere in pink, stratosphere in blue; dashed: Everest, 8848 m, where $\rho/\rho_0 \approx 0.39$), as in Notes.pdf, Fig. 5.2.</div>
+</div>
+<p>The density follows from (5.18), $\rho/\rho_0 = (p/p_a)(T_0/T)$, with $\rho_0 = p_a/(R_g T_0) = 1.225$ kg/m$^3$. The values below are computed from (5.20), (5.24), (5.25) and (5.18); the four places are those marked in Fig. 5.2 of the notes.</p>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Place</th><th style="text-align:right">$z$ (m)</th><th style="text-align:right">$T$ (K)</th><th style="text-align:right">$p/p_a$</th><th style="text-align:right">$\rho/\rho_0$</th></tr></thead><tbody><tr><td>Madrid</td><td style="text-align:right">650</td><td style="text-align:right">283.94</td><td style="text-align:right">0.925</td><td style="text-align:right">0.94</td></tr><tr><td>Navacerrada</td><td style="text-align:right">1780</td><td style="text-align:right">276.59</td><td style="text-align:right">0.806</td><td style="text-align:right">0.84</td></tr><tr><td>Teide</td><td style="text-align:right">3718</td><td style="text-align:right">263.99</td><td style="text-align:right">0.631</td><td style="text-align:right">0.69</td></tr><tr><td>Everest</td><td style="text-align:right">8848</td><td style="text-align:right">230.65</td><td style="text-align:right">0.310</td><td style="text-align:right">0.39</td></tr><tr><td>Tropopause</td><td style="text-align:right">11000</td><td style="text-align:right">216.66</td><td style="text-align:right">0.223</td><td style="text-align:right">0.30</td></tr><tr><td>Top of the model</td><td style="text-align:right">20000</td><td style="text-align:right">216.66</td><td style="text-align:right">0.054</td><td style="text-align:right">0.07</td></tr></tbody></table></div>
+<p>At the top of Everest the density is only 39 % of its sea-level value (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=65" target="_blank" rel="noopener" title="Open Notes.pdf at page 65">56</a>).</p>
+      </section>
+
+      <section id="section-8">
+        <h2 class="section-heading">8. Practical Formulary of Topic 5</h2>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Situation</th><th>Result</th><th>Source</th></tr></thead><tbody><tr><td>Fluid at rest</td><td>$-\nabla p + \rho\vec{f}_m = 0$</td><td>Eq. (5.2)</td></tr><tr><td>Liquid, conservative mass force</td><td>$p + \rho U = C(t)$, $U = -\vec{g}\cdot\vec{x} + \vec{a}_o\cdot\vec{x} - \lvert\vec{\Omega}\times\vec{x}\rvert^2/2$</td><td>Eqs. (5.7)-(5.8)</td></tr><tr><td>Liquid under gravity, $z$ up from the free surface</td><td>$p = p_a - \rho g z$</td><td>Eq. (5.10)</td></tr><tr><td>Walking through layers</td><td>$+\rho_i g\,\Delta d$ going down, $-\rho_i g\,\Delta d$ going up</td><td>Eq. (5.10)</td></tr><tr><td>Force and moment on a surface ($\vec{n}$ towards the fluid)</td><td>$\vec{F} = -\int p\vec{n}\,d\sigma$, $\vec{M} = -\int(\vec{x}-\vec{x}_o)\times p\vec{n}\,d\sigma$</td><td>Eq. (5.11)</td></tr><tr><td>Plane surface</td><td>$F_R = (p_C - p_a)A = \rho g\sin\theta\,s_C A$, normal to the plate</td><td>Section 4.1 (extension of Eq. 5.11)</td></tr><tr><td>Centre of pressure</td><td>$s_{CP} = s_C + I_C/(s_C A)$; moment about $C$: $\rho g\sin\theta\,I_C$</td><td>Section 4.1 (extension, Steiner)</td></tr><tr><td>Curved surface, horizontal</td><td>force on the vertical projection</td><td>Eq. (5.14)</td></tr><tr><td>Curved surface, vertical</td><td>weight of the real or virtual column above it</td><td>Eq. (5.14)</td></tr><tr><td>Submerged body</td><td>$\vec{F} = \rho g V\vec{e}_z$ at the centroid $\vec{x}_g$ of the displaced volume</td><td>Eqs. (5.15)-(5.16)</td></tr><tr><td>Stability, submerged</td><td>centre of buoyancy above the centre of gravity</td><td>Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=62" target="_blank" rel="noopener" title="Open Notes.pdf at page 62">53</a>, Fig. 5.1</td></tr><tr><td>Stability, floating (extension)</td><td>$GM = I_{wl}/V - BG &gt; 0$</td><td>Section 6</td></tr><tr><td>Gas at rest</td><td>$dp/dz = -\rho g$, $p = \rho R_g T$</td><td>Eqs. (5.17)-(5.18)</td></tr><tr><td>Troposphere</td><td>$p = p_a(1 - \lambda z/T_0)^{g/(R_g\lambda)}$, exponent 5.2586</td><td>Eq. (5.24)</td></tr><tr><td>Stratosphere</td><td>$p = p_{11}\exp[-g(z - 11000)/(R_g T_{11})]$</td><td>Eq. (5.25)</td></tr><tr><td>Isothermal gas pocket (problems FS3, FS6)</td><td>$p\,V = p_a V_0$ (constant temperature)</td><td>extension: Eq. (5.18) at constant mass and $T$</td></tr></tbody></table></div>
+      </section>
+
+      <nav class="bottom-nav">
+        <a href="topic-4.html" class="bottom-nav-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Topic 4: The Navier-Stokes equations</span></a>
+        <a href="index.html" class="bottom-nav-btn center"><span>Theory index</span></a>
+        <a href="../problemas/topic-5-hydrostatics.html" class="bottom-nav-btn"><span>Problems: Hydrostatics</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Celestial Sky Engine -->
+</body>
+</html>

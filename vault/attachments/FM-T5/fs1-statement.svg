@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Ice cube of density rho_h and volume V_h floating in a liquid of density rho_f, with the submerged part V_s">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="60.0,110.0 330.0,110.0 330.0,270.0 60.0,270.0" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="50.0" y1="60.0" x2="50.0" y2="280.0" stroke="#4b5563" stroke-width="6"/>
+<line x1="340.0" y1="60.0" x2="340.0" y2="280.0" stroke="#4b5563" stroke-width="6"/>
+<line x1="50.0" y1="280.0" x2="340.0" y2="280.0" stroke="#4b5563" stroke-width="6"/>
+<line x1="53.0" y1="110.0" x2="337.0" y2="110.0" stroke="#3b82f6" stroke-width="1.6"/>
+<rect x="150.0" y="70.0" width="80.0" height="80.0" fill="#f59e0b" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="150.0" y1="110.0" x2="230.0" y2="110.0" stroke="#4b5563" stroke-width="1.0" stroke-dasharray="4,3"/>
+<text x="190.0" y="98.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">h</tspan>, ρ<tspan baseline-shift="sub" font-size="72%">h</tspan></text>
+<text x="190.0" y="135.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<text x="195.0" y="215.0" fill="#3b82f6" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">f</tspan></text>
+<text x="400.0" y="90.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">ice cube: ρ<tspan baseline-shift="sub" font-size="72%">h</tspan> < ρ<tspan baseline-shift="sub" font-size="72%">f</tspan></text>
+<text x="400.0" y="115.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">melt water: ρ<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="400.0" y="140.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">ρ<tspan baseline-shift="sub" font-size="72%">h</tspan> < ρ<tspan baseline-shift="sub" font-size="72%">a</tspan> < ρ<tspan baseline-shift="sub" font-size="72%">f</tspan></text>
+</g></svg>

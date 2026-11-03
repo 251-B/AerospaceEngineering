@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 177
-- Referenced by at least one note (a mention counts): 67
-- Not referenced yet: 110
+- Files: 178
+- Referenced by at least one note (a mention counts): 75
+- Not referenced yet: 103
 - Build artifacts: 0
 - Working files: 0
 
@@ -68,6 +68,12 @@ tags:
 | [[Source - 01-fluid-mechanics - examenes - FLUIDS_SECONDPARTIAL_2021_RETAKE (pdf)\|FLUIDS_SECONDPARTIAL_2021_RETAKE.pdf]] | examenes | not-referenced |
 | [[Source - 01-fluid-mechanics - examenes - FLUIDS_SECONDPARTIAL_2022 (pdf)\|FLUIDS_SECONDPARTIAL_2022.pdf]] | examenes | not-referenced |
 | [[Source - 01-fluid-mechanics - examenes - FLUIDS_SECONDPARTIAL_2025 (pdf)\|FLUIDS_SECONDPARTIAL_2025.pdf]] | examenes | not-referenced |
+
+## examenes/ExamInstructionsMidterm
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 01-fluid-mechanics - examenes - ExamInstructionsMidterm - exam_instructions_midterm (pdf)\|exam_instructions_midterm.pdf]] | examenes | not-referenced |
 
 ## examenes/other-universities
 
@@ -230,14 +236,14 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_1 (pdf)\|fluid_statics_1.pdf]] | problemas | referenced |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_2 (pdf)\|fluid_statics_2.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_3 (pdf)\|fluid_statics_3.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_4 (pdf)\|fluid_statics_4.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_5 (pdf)\|fluid_statics_5.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_6 (pdf)\|fluid_statics_6.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_7 (pdf)\|fluid_statics_7.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_8 (pdf)\|fluid_statics_8.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_9 (pdf)\|fluid_statics_9.pdf]] | problemas | not-referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_2 (pdf)\|fluid_statics_2.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_3 (pdf)\|fluid_statics_3.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_4 (pdf)\|fluid_statics_4.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_5 (pdf)\|fluid_statics_5.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_6 (pdf)\|fluid_statics_6.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_7 (pdf)\|fluid_statics_7.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_8 (pdf)\|fluid_statics_8.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_9 (pdf)\|fluid_statics_9.pdf]] | problemas | referenced |
 | [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_10 (pdf)\|fluid_statics_10.pdf]] | problemas | referenced |
 
 ## unit-06-dimensional-analysis/problemas

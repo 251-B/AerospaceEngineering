@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Hollow cube of side L floating with an orifice in its base; outer free surface, inner interface H_1 below it and inner water layer H_2, air at p_c inside and p_a outside">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="110.0" y="80.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<polygon points="40.0,130.0 190.0,130.0 190.0,280.0 40.0,280.0" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="370.0,130.0 520.0,130.0 520.0,280.0 370.0,280.0" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="40.0" y1="130.0" x2="190.0" y2="130.0" stroke="#3b82f6" stroke-width="1.6"/>
+<line x1="370.0" y1="130.0" x2="520.0" y2="130.0" stroke="#3b82f6" stroke-width="1.6"/>
+<polygon points="190.0,230.0 370.0,230.0 370.0,280.0 190.0,280.0" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="190.0,160.0 370.0,160.0 370.0,230.0 190.0,230.0" fill="#3b82f6" fill-opacity="0.22" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<rect x="190.0" y="50.0" width="180.0" height="180.0" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="190.0" y1="160.0" x2="370.0" y2="160.0" stroke="#3b82f6" stroke-width="1.4"/>
+<line x1="272.0" y1="230.0" x2="288.0" y2="230.0" stroke="#3b82f6" stroke-width="4"/>
+<text x="280.0" y="110.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<line x1="420.0" y1="130.0" x2="420.0" y2="160.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M420.0,130.0 L422.7,136.4 L417.3,136.4 Z" fill="#6b7280"/>
+<path d="M420.0,160.0 L417.3,153.6 L422.7,153.6 Z" fill="#6b7280"/>
+<text x="430.0" y="150.0" fill="#6b7280" font-size="17" font-weight="400" text-anchor="start">H<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="420.0" y1="160.0" x2="420.0" y2="230.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M420.0,160.0 L422.7,166.4 L417.3,166.4 Z" fill="#6b7280"/>
+<path d="M420.0,230.0 L417.3,223.6 L422.7,223.6 Z" fill="#6b7280"/>
+<text x="430.0" y="200.0" fill="#6b7280" font-size="17" font-weight="400" text-anchor="start">H<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="370.0" y1="160.0" x2="430.0" y2="160.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="370.0" y1="230.0" x2="430.0" y2="230.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="190.0" y1="36.0" x2="370.0" y2="36.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M190.0,36.0 L196.4,33.3 L196.4,38.7 Z" fill="#6b7280"/>
+<path d="M370.0,36.0 L363.6,38.7 L363.6,33.3 Z" fill="#6b7280"/>
+<text x="280.0" y="30.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle">L</text>
+<text x="280.0" y="250.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">orifice</text>
+</g></svg>

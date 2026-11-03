@@ -50,4 +50,4 @@ Short descriptions for the Gemini subagent registration in section 0. The shared
 
 ## 4. Scope notes
 
-- The simulator agent is removed and inactive by the user's decision; the effort goes into the solidity of theory and analysis. No interactive simulators are built.
+- The simulator agent is removed and inactive by the user's decision; the effort goes into the solidity of theory and analysis. Interactive simulators are allowed only as SVG widgets inside their exercise card (see "Exercise simulators" in `AGENTS.md`).

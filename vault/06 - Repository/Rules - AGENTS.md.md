@@ -21,7 +21,7 @@ Purpose, Architecture, Mandatory pipeline (Obsidian first, web second), Language
 - Content flows from `sources/` to `vault/`, then to `subjects/`, then to `index.html`. No web page exists without its vault note.
 - Study text is in English. Units are SI, with a dimensional check.
 - Generated files are never edited by hand: the theory, problem, sources and exam pages, the PDF deep links, `assets/data/sources.js`, `assets/pdf/` and `vault/07 - Sources/`.
-- Web pages use the back-link `../../../index.html`, KaTeX from the CDN and the `ae_theme` key only. They carry no laboratory material and no interactive simulators. Topic pages carry the Ask AI, PDF and responsive helpers.
+- Web pages use the back-link `../../../index.html`, KaTeX from the CDN and the `ae_theme` key only. They carry no laboratory material; an interactive simulator is allowed only as an SVG widget inside its own exercise card (no canvas). Topic pages carry the Ask AI, PDF and responsive helpers.
 - Problems follow the lecturer's order of each subject, with no visible "Phase" labels, no algebraic skips, every sine, cosine and sign justified, deduction figures for every plane and rotation, and each result cites its source.
 - Official answers are never matched by adjusting data. A discrepancy gets a warning callout, and extensions are labelled as such.
 - The `review` gate runs after any single change. The `ultrareview` gate runs after a chapter, problem sheet or exam.

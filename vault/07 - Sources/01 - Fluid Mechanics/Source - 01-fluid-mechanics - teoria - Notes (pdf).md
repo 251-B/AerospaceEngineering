@@ -19,7 +19,7 @@ bytes: 2126997
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.1 MB
-- **Status:** referenced by 67 note(s) below
+- **Status:** referenced by 77 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -60,6 +60,15 @@ bytes: 2126997
 - [[01 - Fluid Mechanics/Problem - CL7 Industrial Dryer]]
 - [[01 - Fluid Mechanics/Problem - CL8 Jet on a Wall with an Orifice]]
 - [[01 - Fluid Mechanics/Problem - CL9 Submarine Propulsion Device]]
+- [[01 - Fluid Mechanics/Problem - FS1 Melting Ice Cube]]
+- [[01 - Fluid Mechanics/Problem - FS10 Horizontal Force on a Cylinder]]
+- [[01 - Fluid Mechanics/Problem - FS2 Hemispherical Station on the Sea Floor]]
+- [[01 - Fluid Mechanics/Problem - FS3 Hollow Cube with Trapped Air]]
+- [[01 - Fluid Mechanics/Problem - FS4 Square Valve on its Centre Axis]]
+- [[01 - Fluid Mechanics/Problem - FS5 Gate between Two Liquids]]
+- [[01 - Fluid Mechanics/Problem - FS6 Equilateral Triangle with Trapped Air]]
+- [[01 - Fluid Mechanics/Problem - FS7 Wedge between Two Liquids]]
+- [[01 - Fluid Mechanics/Problem - FS9 Hinged Gate Opening Height]]
 - [[01 - Fluid Mechanics/Problem - K1 Flow over an Oscillating Porous Wall]]
 - [[01 - Fluid Mechanics/Problem - K10 Plane Flow with Exponential Shear]]
 - [[01 - Fluid Mechanics/Problem - K2 Plane Couette Flow]]
@@ -91,3 +100,4 @@ bytes: 2126997
 - [[01 - Fluid Mechanics/Topic 2 - Flow Kinematics]]
 - [[01 - Fluid Mechanics/Topic 3 - Conservation Laws]]
 - [[01 - Fluid Mechanics/Topic 4 - The Navier-Stokes Equations]]
+- [[01 - Fluid Mechanics/Topic 5 - Hydrostatics]]

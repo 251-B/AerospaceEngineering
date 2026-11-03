@@ -23,7 +23,7 @@ source: "GEMINI.md"
 - NotebookLM: consult only the `2ndYear` notebooks listed in the file. The four first-year exam-prep notebooks are excluded unless the user asks for them.
 - NotebookLM material is structured in `vault/` before it is used on the web.
 - The Gemini subagent names use underscores. They correspond to the Claude agent notes: [[Agent - source-researcher]], [[Agent - aerospace-pedagogue]], [[Agent - problem-step-mentor]], [[Agent - subject-web-builder]] and [[Agent - web-qa-reviewer]].
-- The simulator agent has been removed by the user's decision, so no interactive simulators are built.
+- The simulator agent has been removed by the user's decision, and interactive simulators are built only as SVG widgets inside their exercise card.
 - Commits and pushes follow the git rules in [[Rules - AGENTS.md]].
 
 ## Related

@@ -47,6 +47,10 @@
     {
      "page": "topic-4.html",
      "label": "4 · Navier-Stokes equations"
+    },
+    {
+     "page": "topic-5.html",
+     "label": "5 · Hydrostatics"
     }
    ],
    "problemas": [
@@ -61,6 +65,10 @@
     {
      "page": "topic-4-navier-stokes.html",
      "label": "4 · Navier-Stokes (NS1–NS17)"
+    },
+    {
+     "page": "topic-5-hydrostatics.html",
+     "label": "5 · Hydrostatics (FS1–FS10)"
     }
    ]
   },

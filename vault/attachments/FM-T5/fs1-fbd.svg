@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 651 300" width="100%" class="fig-kit" style="max-width:651px;margin:0 auto;display:block" role="img" aria-label="Left: free-body diagram of the floating cube, weight rho_h g V_h and buoyancy rho_f g V_s. Right: the volume V_s displaced by the cube and the volume V_a of its melt water; the difference V_d is the extra volume of liquid">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="30.0,120.0 290.0,120.0 290.0,280.0 30.0,280.0" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="30.0" y1="120.0" x2="290.0" y2="120.0" stroke="#3b82f6" stroke-width="1.6"/>
+<text x="36.0" y="112.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<rect x="110.0" y="60.0" width="100.0" height="100.0" fill="#f59e0b" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<rect x="110.0" y="120.0" width="100.0" height="40.0" fill="#10b981" fill-opacity="0.25" stroke="#10b981" stroke-width="0" stroke-linejoin="round"/>
+<circle cx="160.0" cy="110.0" r="3.6" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<line x1="160.0" y1="110.0" x2="160.0" y2="193.4" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M160.0,200.0 L155.7,189.9 L164.3,189.9 Z" fill="#ec4899"/>
+<text x="168.0" y="200.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">h</tspan>gV<tspan baseline-shift="sub" font-size="72%">h</tspan></text>
+<circle cx="140.0" cy="140.0" r="3.6" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<line x1="140.0" y1="140.0" x2="140.0" y2="46.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M140.0,40.0 L144.3,50.1 L135.7,50.1 Z" fill="#f59e0b"/>
+<text x="130.0" y="60.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">f</tspan>gV<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<text x="232.0" y="146.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<text x="160.0" y="296.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">(a) floating cube: weight and buoyancy</text>
+<line x1="360.0" y1="270.0" x2="620.0" y2="270.0" stroke="#8a94a6" stroke-width="2.0"/>
+<line x1="620.0" y1="270.0" x2="625.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="608.0" y1="270.0" x2="613.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="596.0" y1="270.0" x2="601.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="584.0" y1="270.0" x2="589.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="572.0" y1="270.0" x2="577.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="560.0" y1="270.0" x2="565.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="548.0" y1="270.0" x2="553.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="536.0" y1="270.0" x2="541.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="524.0" y1="270.0" x2="529.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="512.0" y1="270.0" x2="517.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="500.0" y1="270.0" x2="505.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="488.0" y1="270.0" x2="493.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="476.0" y1="270.0" x2="481.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="464.0" y1="270.0" x2="469.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="452.0" y1="270.0" x2="457.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="440.0" y1="270.0" x2="445.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="428.0" y1="270.0" x2="433.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="416.0" y1="270.0" x2="421.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="404.0" y1="270.0" x2="409.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="392.0" y1="270.0" x2="397.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="380.0" y1="270.0" x2="385.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="368.0" y1="270.0" x2="373.7" y2="264.3" stroke="#8a94a6" stroke-width="1.0"/>
+<rect x="390.0" y="200.0" width="70.0" height="70.0" fill="#10b981" fill-opacity="0.25" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="425.0" y="192.0" fill="#10b981" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">s</tspan> = ρ<tspan baseline-shift="sub" font-size="72%">h</tspan>V<tspan baseline-shift="sub" font-size="72%">h</tspan>/ρ<tspan baseline-shift="sub" font-size="72%">f</tspan></text>
+<rect x="510.0" y="175.0" width="70.0" height="95.0" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="545.0" y="167.0" fill="#3b82f6" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">a</tspan> = ρ<tspan baseline-shift="sub" font-size="72%">h</tspan>V<tspan baseline-shift="sub" font-size="72%">h</tspan>/ρ<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="600.0" y1="175.0" x2="600.0" y2="200.0" stroke="#f59e0b" stroke-width="1.1"/>
+<path d="M600.0,175.0 L602.7,181.4 L597.3,181.4 Z" fill="#f59e0b"/>
+<path d="M600.0,200.0 L597.3,193.6 L602.7,193.6 Z" fill="#f59e0b"/>
+<text x="608.0" y="192.5" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="start">V<tspan baseline-shift="sub" font-size="72%">d</tspan></text>
+<line x1="390.0" y1="200.0" x2="610.0" y2="200.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="490.0" y="296.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">(b) after melting: V<tspan baseline-shift="sub" font-size="72%">d</tspan> = V<tspan baseline-shift="sub" font-size="72%">a</tspan> − V<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+</g></svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 763 330" width="100%" class="fig-kit" style="max-width:763px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the wedge: forces F_1 and F_2 normal to the two faces at the centres of pressure, a distance h_i / (3 cos alpha) from O along each face; weight W on the symmetry line; reaction R at the vertex O">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="169.9,40.0 470.1,40.0 320.0,300.0" fill="#f59e0b" fill-opacity="0.06" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="190.1" y1="295.0" x2="279.1" y2="243.6" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M285.4,240.0 L278.1,249.6 L273.5,241.5 Z" fill="#f59e0b"/>
+<text x="182.1" y="299.0" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="440.3" y1="311.7" x2="351.3" y2="260.3" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M345.0,256.7 L356.9,258.1 L352.3,266.2 Z" fill="#f59e0b"/>
+<text x="448.3" y="315.7" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<circle cx="320.0" cy="126.7" r="4" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<line x1="320.0" y1="126.7" x2="320.0" y2="190.1" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M320.0,196.7 L315.7,186.5 L324.3,186.5 Z" fill="#ec4899"/>
+<text x="328.0" y="186.7" fill="#ec4899" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">W</text>
+<line x1="390.0" y1="320.0" x2="329.8" y2="303.6" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M324.0,302.0 L333.9,300.7 L331.9,308.2 Z" fill="#ec4899"/>
+<text x="394.0" y="326.0" fill="#ec4899" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R</text>
+<circle cx="320.0" cy="300.0" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="312.0" y="320.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">O</text>
+<text x="490.0" y="70.0" fill="#10b981" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">green: arms from O along the faces,</text>
+<text x="490.0" y="90.0" fill="#10b981" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">h<tspan baseline-shift="sub" font-size="72%">1</tspan>/(3 cos α) and h<tspan baseline-shift="sub" font-size="72%">2</tspan>/(3 cos α)</text>
+<line x1="320.0" y1="300.0" x2="285.4" y2="240.0" stroke="#10b981" stroke-width="2.0"/>
+<line x1="320.0" y1="300.0" x2="345.0" y2="256.7" stroke="#10b981" stroke-width="2.0"/>
+</g></svg>

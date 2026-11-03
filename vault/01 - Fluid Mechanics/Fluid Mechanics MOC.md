@@ -101,8 +101,18 @@ tags:
     * [[01 - Fluid Mechanics/Problem - NS17 Rotating Porous Disk with Suction|Problem NS17: Rotating Porous Disk with Suction]]
 
 ### Block III: Hydrostatics & Applications
-* Topic 5: Hydrostatics (Fluid Statics) (planned)
-  * Official sources: `fluid_statics_1.pdf` to `fluid_statics_10.pdf` (10 problems).
+* [[01 - Fluid Mechanics/Topic 5 - Hydrostatics|Topic 5: Hydrostatics]]
+  * Official sources: `Notes.pdf` Chapter 5 and the problem sheets `fluid_statics_1.pdf` to `fluid_statics_10.pdf` (9 problems: sheet 8 is a second scan of sheet 2).
+  * **Solved Hydrostatics Problems (Official Problem Sheet FS):**
+    * [[01 - Fluid Mechanics/Problem - FS1 Melting Ice Cube|Problem FS1: Melting Ice Cube]]
+    * [[01 - Fluid Mechanics/Problem - FS2 Hemispherical Station on the Sea Floor|Problem FS2: Hemispherical Station on the Sea Floor]]
+    * [[01 - Fluid Mechanics/Problem - FS3 Hollow Cube with Trapped Air|Problem FS3: Hollow Cube with Trapped Air]]
+    * [[01 - Fluid Mechanics/Problem - FS4 Square Valve on its Centre Axis|Problem FS4: Square Valve on its Centre Axis]]
+    * [[01 - Fluid Mechanics/Problem - FS5 Gate between Two Liquids|Problem FS5: Gate between Two Liquids]]
+    * [[01 - Fluid Mechanics/Problem - FS6 Equilateral Triangle with Trapped Air|Problem FS6: Equilateral Triangle with Trapped Air]]
+    * [[01 - Fluid Mechanics/Problem - FS7 Wedge between Two Liquids|Problem FS7: Wedge between Two Liquids]]
+    * [[01 - Fluid Mechanics/Problem - FS9 Hinged Gate Opening Height|Problem FS9: Hinged Gate Opening Height]]
+    * [[01 - Fluid Mechanics/Problem - FS10 Horizontal Force on a Cylinder|Problem FS10: Horizontal Force on a Cylinder]]
 * Topic 6: Dimensional Analysis (Buckingham Pi Theorem) (planned)
   * Official sources: `DA1.pdf` to `DA14.pdf` (14 solved problems).
 * Topic 7: Viscous Flows & Boundary Layer Theory (planned)

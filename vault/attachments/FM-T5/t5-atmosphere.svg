@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 794 330" width="100%" class="fig-kit" style="max-width:794px;margin:0 auto;display:block" role="img" aria-label="Standard atmosphere from 0 to 20 km: temperature, pressure ratio and density ratio, troposphere in pink and stratosphere in blue, with the height of Everest dashed">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="40.0" y1="280.0" x2="240.0" y2="280.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="40.0" y1="280.0" x2="40.0" y2="30.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="36.0" y1="280.0" x2="40.0" y2="280.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="32.0" y="284.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">0</text>
+<line x1="36.0" y1="217.5" x2="40.0" y2="217.5" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="32.0" y="221.5" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">5</text>
+<line x1="36.0" y1="155.0" x2="40.0" y2="155.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="32.0" y="159.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">10</text>
+<line x1="36.0" y1="92.5" x2="40.0" y2="92.5" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="32.0" y="96.5" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">15</text>
+<line x1="36.0" y1="30.0" x2="40.0" y2="30.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="32.0" y="34.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">20</text>
+<text x="40.0" y="298.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">200</text>
+<text x="140.0" y="298.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">250</text>
+<text x="240.0" y="298.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">300</text>
+<text x="140.0" y="320.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">T (K)</text>
+<polyline points="216.3,280.0 213.1,276.9 209.8,273.8 206.6,270.6 203.3,267.5 200.1,264.4 196.8,261.2 193.6,258.1 190.3,255.0 187.1,251.9 183.8,248.8 180.6,245.6 177.3,242.5 174.1,239.4 170.8,236.2 167.6,233.1 164.3,230.0 161.1,226.9 157.8,223.8 154.6,220.6 151.3,217.5 148.1,214.4 144.8,211.2 141.6,208.1 138.3,205.0 135.1,201.9 131.8,198.8 128.6,195.6 125.3,192.5 122.1,189.4 118.8,186.2 115.6,183.1 112.3,180.0 109.1,176.9 105.8,173.8 102.6,170.6 99.3,167.5 96.1,164.4 92.8,161.2 89.6,158.1 86.3,155.0 83.1,151.9 79.8,148.8 76.6,145.6 73.3,142.5" fill="none" stroke="#ec4899" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="73.3,142.5 73.3,139.4 73.3,136.2 73.3,133.1 73.3,130.0 73.3,126.9 73.3,123.8 73.3,120.6 73.3,117.5 73.3,114.4 73.3,111.2 73.3,108.1 73.3,105.0 73.3,101.9 73.3,98.8 73.3,95.6 73.3,92.5 73.3,89.4 73.3,86.2 73.3,83.1 73.3,80.0 73.3,76.9 73.3,73.8 73.3,70.6 73.3,67.5 73.3,64.4 73.3,61.2 73.3,58.1 73.3,55.0 73.3,51.9 73.3,48.8 73.3,45.6 73.3,42.5 73.3,39.4 73.3,36.2 73.3,33.1 73.3,30.0" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="40.0" y1="169.4" x2="240.0" y2="169.4" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="4,4"/>
+<line x1="300.0" y1="280.0" x2="500.0" y2="280.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="300.0" y1="280.0" x2="300.0" y2="30.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="296.0" y1="280.0" x2="300.0" y2="280.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="296.0" y1="217.5" x2="300.0" y2="217.5" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="296.0" y1="155.0" x2="300.0" y2="155.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="296.0" y1="92.5" x2="300.0" y2="92.5" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="296.0" y1="30.0" x2="300.0" y2="30.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="300.0" y="298.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">0</text>
+<text x="400.0" y="298.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">0.5</text>
+<text x="500.0" y="298.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">1</text>
+<text x="400.0" y="320.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">p / pₐ</text>
+<polyline points="500.0,280.0 494.1,276.9 488.4,273.8 482.8,270.6 477.4,267.5 472.1,264.4 466.9,261.2 461.8,258.1 456.9,255.0 452.1,251.9 447.4,248.8 442.8,245.6 438.4,242.5 434.0,239.4 429.8,236.2 425.7,233.1 421.6,230.0 417.7,226.9 413.9,223.8 410.2,220.6 406.6,217.5 403.1,214.4 399.7,211.2 396.3,208.1 393.1,205.0 389.9,201.9 386.9,198.8 383.9,195.6 381.0,192.5 378.2,189.4 375.5,186.2 372.8,183.1 370.2,180.0 367.7,176.9 365.3,173.8 362.9,170.6 360.6,167.5 358.4,164.4 356.3,161.2 354.2,158.1 352.1,155.0 350.2,151.9 348.3,148.8 346.4,145.6 344.6,142.5" fill="none" stroke="#ec4899" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="344.6,142.5 342.9,139.4 341.3,136.2 339.7,133.1 338.1,130.0 336.7,126.9 335.2,123.8 333.9,120.6 332.6,117.5 331.3,114.4 330.1,111.2 328.9,108.1 327.8,105.0 326.7,101.9 325.7,98.8 324.7,95.6 323.7,92.5 322.8,89.4 321.9,86.2 321.1,83.1 320.3,80.0 319.5,76.9 318.7,73.8 318.0,70.6 317.3,67.5 316.7,64.4 316.0,61.2 315.4,58.1 314.8,55.0 314.2,51.9 313.7,48.8 313.1,45.6 312.6,42.5 312.1,39.4 311.7,36.2 311.2,33.1 310.8,30.0" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="300.0" y1="169.4" x2="500.0" y2="169.4" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="4,4"/>
+<line x1="540.0" y1="280.0" x2="740.0" y2="280.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="540.0" y1="280.0" x2="540.0" y2="30.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="536.0" y1="280.0" x2="540.0" y2="280.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="536.0" y1="217.5" x2="540.0" y2="217.5" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="536.0" y1="155.0" x2="540.0" y2="155.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="536.0" y1="92.5" x2="540.0" y2="92.5" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="536.0" y1="30.0" x2="540.0" y2="30.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="540.0" y="298.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">0</text>
+<text x="640.0" y="298.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">0.5</text>
+<text x="740.0" y="298.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">1</text>
+<text x="640.0" y="320.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">ρ / ρ₀</text>
+<polyline points="740.0,280.0 735.2,276.9 730.6,273.8 726.0,270.6 721.5,267.5 717.1,264.4 712.7,261.2 708.5,258.1 704.3,255.0 700.2,251.9 696.2,248.8 692.3,245.6 688.4,242.5 684.6,239.4 680.9,236.2 677.3,233.1 673.7,230.0 670.2,226.9 666.8,223.8 663.4,220.6 660.1,217.5 656.9,214.4 653.8,211.2 650.7,208.1 647.7,205.0 644.7,201.9 641.8,198.8 639.0,195.6 636.2,192.5 633.5,189.4 630.8,186.2 628.2,183.1 625.7,180.0 623.2,176.9 620.8,173.8 618.4,170.6 616.1,167.5 613.8,164.4 611.6,161.2 609.4,158.1 607.3,155.0 605.3,151.9 603.3,148.8 601.3,145.6 599.4,142.5" fill="none" stroke="#ec4899" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="599.4,142.5 597.1,139.4 594.9,136.2 592.7,133.1 590.7,130.0 588.7,126.9 586.9,123.8 585.0,120.6 583.3,117.5 581.6,114.4 580.0,111.2 578.5,108.1 577.0,105.0 575.6,101.9 574.2,98.8 572.9,95.6 571.6,92.5 570.4,89.4 569.2,86.2 568.1,83.1 567.0,80.0 565.9,76.9 564.9,73.8 564.0,70.6 563.0,67.5 562.1,64.4 561.3,61.2 560.5,58.1 559.7,55.0 558.9,51.9 558.2,48.8 557.5,45.6 556.8,42.5 556.2,39.4 555.5,36.2 554.9,33.1 554.4,30.0" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="540.0" y1="169.4" x2="740.0" y2="169.4" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="4,4"/>
+<text x="12.0" y="22.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">z (km)</text>
+<text x="788.0" y="163.4" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">Everest</text>
+</g></svg>

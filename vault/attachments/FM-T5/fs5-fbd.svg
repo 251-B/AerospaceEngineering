@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the gate: triangular pressure distributions of the two liquids, their resultants F_1 and F_2 at H_1/3 and H_2/3 above the hinge, reaction R of the stop at the top and the hinge O">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="320.0" y1="50.0" x2="320.0" y2="290.0" stroke="#f59e0b" stroke-width="5"/>
+<circle cx="320.0" cy="290.0" r="5" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="330.0" y="308.0" fill="#4b5563" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">hinge O</text>
+<line x1="188.0" y1="290.0" x2="313.4" y2="290.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,290.0 L311.5,292.3 L311.5,287.7 Z" fill="#3b82f6"/>
+<line x1="201.2" y1="266.0" x2="313.4" y2="266.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,266.0 L311.5,268.3 L311.5,263.7 Z" fill="#3b82f6"/>
+<line x1="214.4" y1="242.0" x2="313.4" y2="242.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,242.0 L311.5,244.3 L311.5,239.7 Z" fill="#3b82f6"/>
+<line x1="227.6" y1="218.0" x2="313.4" y2="218.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,218.0 L311.5,220.3 L311.5,215.7 Z" fill="#3b82f6"/>
+<line x1="240.8" y1="194.0" x2="313.4" y2="194.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,194.0 L311.5,196.3 L311.5,191.7 Z" fill="#3b82f6"/>
+<line x1="254.0" y1="170.0" x2="313.4" y2="170.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,170.0 L311.5,172.3 L311.5,167.7 Z" fill="#3b82f6"/>
+<line x1="267.2" y1="146.0" x2="313.4" y2="146.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,146.0 L311.5,148.3 L311.5,143.7 Z" fill="#3b82f6"/>
+<line x1="280.4" y1="122.0" x2="313.4" y2="122.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,122.0 L311.5,124.3 L311.5,119.7 Z" fill="#3b82f6"/>
+<line x1="293.6" y1="98.0" x2="313.4" y2="98.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,98.0 L311.5,100.3 L311.5,95.7 Z" fill="#3b82f6"/>
+<line x1="306.8" y1="74.0" x2="313.4" y2="74.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M317.0,74.0 L311.5,76.3 L311.5,71.7 Z" fill="#3b82f6"/>
+<polyline points="320.0,290.0 188.0,290.0 320.0,50.0" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="426.3" y1="278.0" x2="326.6" y2="278.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M323.0,278.0 L328.5,275.7 L328.5,280.3 Z" fill="#10b981"/>
+<line x1="407.8" y1="254.0" x2="326.6" y2="254.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M323.0,254.0 L328.5,251.7 L328.5,256.3 Z" fill="#10b981"/>
+<line x1="389.3" y1="230.0" x2="326.6" y2="230.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M323.0,230.0 L328.5,227.7 L328.5,232.3 Z" fill="#10b981"/>
+<line x1="370.8" y1="206.0" x2="326.6" y2="206.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M323.0,206.0 L328.5,203.7 L328.5,208.3 Z" fill="#10b981"/>
+<line x1="352.3" y1="182.0" x2="326.6" y2="182.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M323.0,182.0 L328.5,179.7 L328.5,184.3 Z" fill="#10b981"/>
+<line x1="333.9" y1="158.0" x2="326.6" y2="158.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M323.0,158.0 L328.5,155.7 L328.5,160.3 Z" fill="#10b981"/>
+<polyline points="320.0,290.0 435.5,290.0 320.0,140.0" fill="none" stroke="#10b981" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="250.0" y1="210.0" x2="306.8" y2="210.0" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M314.0,210.0 L302.9,214.7 L302.9,205.3 Z" fill="#f59e0b"/>
+<text x="270.0" y="232.0" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="470.0" y1="240.0" x2="333.2" y2="240.0" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M326.0,240.0 L337.1,235.3 L337.1,244.7 Z" fill="#f59e0b"/>
+<text x="474.0" y="245.0" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="380.0" y1="50.0" x2="330.6" y2="50.0" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M324.0,50.0 L334.1,45.7 L334.1,54.3 Z" fill="#ec4899"/>
+<text x="384.0" y="55.0" fill="#ec4899" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R (stop)</text>
+<line x1="120.0" y1="210.0" x2="120.0" y2="290.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M120.0,210.0 L122.7,216.4 L117.3,216.4 Z" fill="#6b7280"/>
+<path d="M120.0,290.0 L117.3,283.6 L122.7,283.6 Z" fill="#6b7280"/>
+<text x="112.0" y="255.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end">H<tspan baseline-shift="sub" font-size="72%">1</tspan>/3</text>
+<line x1="115.0" y1="210.0" x2="244.0" y2="210.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="550.0" y1="240.0" x2="550.0" y2="290.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M550.0,240.0 L552.7,246.4 L547.3,246.4 Z" fill="#6b7280"/>
+<path d="M550.0,290.0 L547.3,283.6 L552.7,283.6 Z" fill="#6b7280"/>
+<text x="558.0" y="270.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start">H<tspan baseline-shift="sub" font-size="72%">2</tspan>/3</text>
+<line x1="480.0" y1="240.0" x2="555.0" y2="240.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="115.0" y1="290.0" x2="555.0" y2="290.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="320.0" y1="292.0" x2="320.0" y2="260.8" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M320.0,256.0 L323.1,263.4 L316.9,263.4 Z" fill="#4b5563"/>
+<text x="312.0" y="254.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+<text x="200.0" y="170.0" fill="#3b82f6" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">1</tspan>g(H<tspan baseline-shift="sub" font-size="72%">1</tspan> − z)</text>
+<text x="420.0" y="220.0" fill="#10b981" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">2</tspan>g(H<tspan baseline-shift="sub" font-size="72%">2</tspan> − z)</text>
+</g></svg>

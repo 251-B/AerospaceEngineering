@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 593 300" width="100%" class="fig-kit" style="max-width:593px;margin:0 auto;display:block" role="img" aria-label="Check by the projection rule: the vertical force is the weight of the water column of radius R and height H above the floor minus the hemisphere, which is not water">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="40.0,40.0 520.0,40.0 520.0,260.0 40.0,260.0" fill="#3b82f6" fill-opacity="0.06" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="40.0" y1="40.0" x2="520.0" y2="40.0" stroke="#3b82f6" stroke-width="2.0"/>
+<polygon points="486.0,28.0 498.0,28.0 492.0,38.0" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="482.0" y1="45.0" x2="502.0" y2="45.0" stroke="#3b82f6" stroke-width="1.0"/>
+<line x1="486.0" y1="49.0" x2="498.0" y2="49.0" stroke="#3b82f6" stroke-width="1.0"/>
+<line x1="40.0" y1="260.0" x2="520.0" y2="260.0" stroke="#8a94a6" stroke-width="2.0"/>
+<line x1="520.0" y1="260.0" x2="525.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="508.0" y1="260.0" x2="513.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="496.0" y1="260.0" x2="501.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="484.0" y1="260.0" x2="489.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="472.0" y1="260.0" x2="477.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="460.0" y1="260.0" x2="465.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="448.0" y1="260.0" x2="453.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="436.0" y1="260.0" x2="441.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="424.0" y1="260.0" x2="429.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="412.0" y1="260.0" x2="417.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="400.0" y1="260.0" x2="405.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="388.0" y1="260.0" x2="393.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="376.0" y1="260.0" x2="381.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="364.0" y1="260.0" x2="369.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="352.0" y1="260.0" x2="357.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="340.0" y1="260.0" x2="345.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="328.0" y1="260.0" x2="333.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="316.0" y1="260.0" x2="321.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="304.0" y1="260.0" x2="309.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="292.0" y1="260.0" x2="297.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="280.0" y1="260.0" x2="285.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="268.0" y1="260.0" x2="273.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="256.0" y1="260.0" x2="261.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="244.0" y1="260.0" x2="249.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="232.0" y1="260.0" x2="237.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="220.0" y1="260.0" x2="225.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="208.0" y1="260.0" x2="213.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="196.0" y1="260.0" x2="201.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="184.0" y1="260.0" x2="189.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="172.0" y1="260.0" x2="177.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="160.0" y1="260.0" x2="165.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="148.0" y1="260.0" x2="153.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="136.0" y1="260.0" x2="141.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="124.0" y1="260.0" x2="129.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="112.0" y1="260.0" x2="117.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="100.0" y1="260.0" x2="105.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="88.0" y1="260.0" x2="93.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="76.0" y1="260.0" x2="81.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="64.0" y1="260.0" x2="69.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="52.0" y1="260.0" x2="57.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="40.0" y1="260.0" x2="45.7" y2="254.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M190,40 L190,260 A90,90 0 0 1 370,260 L370,40 Z" fill="#3b82f6" fill-opacity="0.22" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M190,260 A90,90 0 0 1 370,260 Z" fill="#f59e0b" fill-opacity="0.15" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="280.0" y1="70.0" x2="280.0" y2="142.8" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M280.0,150.0 L275.3,138.9 L284.7,138.9 Z" fill="#f59e0b"/>
+<text x="290.0" y="120.0" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">z</tspan></text>
+<text x="384.0" y="120.0" fill="#3b82f6" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">column πR²H</text>
+<text x="384.0" y="140.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">minus hemisphere (2/3)πR³</text>
+<line x1="160.0" y1="40.0" x2="160.0" y2="260.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M160.0,40.0 L162.7,46.4 L157.3,46.4 Z" fill="#6b7280"/>
+<path d="M160.0,260.0 L157.3,253.6 L162.7,253.6 Z" fill="#6b7280"/>
+<text x="150.0" y="155.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="end">H</text>
+</g></svg>

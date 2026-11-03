@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-03-fluids-hydrostatics",
+    "date": "2026-11-03",
+    "tag": "Fluid Mechanics",
+    "title": "Topic 5: hydrostatics theory and 9 solved problems",
+    "text": "New theory page on fluids at rest, gates, Archimedes and the standard atmosphere, plus the official sheets solved step by step. Three solutions have an interactive simulator.",
+    "link": "subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html"
+  },
+  {
     "id": "2026-10-24-mechanics-formula-sheet",
     "date": "2026-10-24",
     "tag": "Engineering Mechanics",

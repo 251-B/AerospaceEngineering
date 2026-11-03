@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Tank of depth h with a square valve of side L in the right wall at the bottom, pivoting about a horizontal axis O through its centre; F is the water force and F_A the force applied at the base of the valve">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="80.0,70.0 330.0,70.0 330.0,260.0 80.0,260.0" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="80.0" y1="40.0" x2="80.0" y2="260.0" stroke="#4b5563" stroke-width="2.0"/>
+<line x1="80.0" y1="260.0" x2="440.0" y2="260.0" stroke="#4b5563" stroke-width="2.0"/>
+<line x1="330.0" y1="40.0" x2="330.0" y2="196.0" stroke="#4b5563" stroke-width="2.0"/>
+<line x1="330.0" y1="196.0" x2="440.0" y2="196.0" stroke="#4b5563" stroke-width="2.0"/>
+<line x1="84.0" y1="70.0" x2="326.0" y2="70.0" stroke="#3b82f6" stroke-width="1.6"/>
+<line x1="180.0" y1="64.0" x2="192.0" y2="64.0" stroke="#3b82f6" stroke-width="1.0"/>
+<line x1="194.0" y1="64.0" x2="206.0" y2="64.0" stroke="#3b82f6" stroke-width="1.0"/>
+<line x1="208.0" y1="64.0" x2="220.0" y2="64.0" stroke="#3b82f6" stroke-width="1.0"/>
+<line x1="330.0" y1="196.0" x2="330.0" y2="260.0" stroke="#f59e0b" stroke-width="5"/>
+<circle cx="330.0" cy="228.0" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="340.0" y="222.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">O</text>
+<line x1="280.0" y1="228.0" x2="320.0" y2="228.0" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M326.0,228.0 L316.8,231.9 L316.8,224.1 Z" fill="#f59e0b"/>
+<text x="290.0" y="220.0" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F</text>
+<line x1="370.0" y1="256.0" x2="341.4" y2="256.0" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M336.0,256.0 L344.3,252.5 L344.3,259.5 Z" fill="#ec4899"/>
+<text x="378.0" y="252.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">A</tspan></text>
+<line x1="60.0" y1="70.0" x2="60.0" y2="260.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M60.0,70.0 L62.7,76.4 L57.3,76.4 Z" fill="#6b7280"/>
+<path d="M60.0,260.0 L57.3,253.6 L62.7,253.6 Z" fill="#6b7280"/>
+<text x="50.0" y="170.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="end">h</text>
+<line x1="460.0" y1="196.0" x2="460.0" y2="260.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M460.0,196.0 L462.7,202.4 L457.3,202.4 Z" fill="#6b7280"/>
+<path d="M460.0,260.0 L457.3,253.6 L462.7,253.6 Z" fill="#6b7280"/>
+<text x="470.0" y="233.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="start">L</text>
+<line x1="200.0" y1="258.0" x2="200.0" y2="220.8" stroke="#4b5563" stroke-width="1.4"/>
+<path d="M200.0,216.0 L203.1,223.4 L196.9,223.4 Z" fill="#4b5563"/>
+<text x="208.0" y="222.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+</g></svg>

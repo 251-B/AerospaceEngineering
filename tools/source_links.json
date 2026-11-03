@@ -228,7 +228,7 @@
    "body_start": 17
   },
   "am-lin": {
-   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf",
+   "path": "sources/cuatrimestre-1/04-advanced-maths/teoria/definition_linear_ODE.pdf",
    "label": "definition_linear_ODE.pdf",
    "pages": 1
   },
@@ -511,6 +511,56 @@
    "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf",
    "label": "probls_ch4-ii_2627.pdf",
    "pages": 3
+  },
+  "fm-fs1": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_1.pdf",
+   "label": "fluid_statics_1.pdf",
+   "pages": 1
+  },
+  "fm-fs2": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_2.pdf",
+   "label": "fluid_statics_2.pdf",
+   "pages": 1
+  },
+  "fm-fs3": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_3.pdf",
+   "label": "fluid_statics_3.pdf",
+   "pages": 1
+  },
+  "fm-fs4": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_4.pdf",
+   "label": "fluid_statics_4.pdf",
+   "pages": 1
+  },
+  "fm-fs5": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_5.pdf",
+   "label": "fluid_statics_5.pdf",
+   "pages": 1
+  },
+  "fm-fs6": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_6.pdf",
+   "label": "fluid_statics_6.pdf",
+   "pages": 2
+  },
+  "fm-fs7": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_7.pdf",
+   "label": "fluid_statics_7.pdf",
+   "pages": 2
+  },
+  "fm-fs8": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_8.pdf",
+   "label": "fluid_statics_8.pdf",
+   "pages": 1
+  },
+  "fm-fs9": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_9.pdf",
+   "label": "fluid_statics_9.pdf",
+   "pages": 1
+  },
+  "fm-fs10": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_10.pdf",
+   "label": "fluid_statics_10.pdf",
+   "pages": 1
   }
  },
  "pages": {
@@ -2364,6 +2414,68 @@
      "am-p4b",
      2
     ]
+   }
+  },
+  "subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html": {
+   "panel": [
+    [
+     "fm-notes",
+     60,
+     "Notes.pdf, Chapter 5"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   },
+   "cards": {
+    "fs1": [
+     "fm-fs1",
+     1
+    ],
+    "fs2": [
+     "fm-fs2",
+     1
+    ],
+    "fs3": [
+     "fm-fs3",
+     1
+    ],
+    "fs4": [
+     "fm-fs4",
+     1
+    ],
+    "fs5": [
+     "fm-fs5",
+     1
+    ],
+    "fs6": [
+     "fm-fs6",
+     1
+    ],
+    "fs7": [
+     "fm-fs7",
+     1
+    ],
+    "fs9": [
+     "fm-fs9",
+     1
+    ],
+    "fs10": [
+     "fm-fs10",
+     1
+    ]
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-5.html": {
+   "panel": [
+    [
+     "fm-notes",
+     60,
+     "Notes.pdf, Chapter 5"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
    }
   }
  }

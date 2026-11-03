@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" width="100%" class="fig-kit" style="max-width:820px;margin:0 auto;display:block" role="img" aria-label="Stability of a submerged body, as in Fig. 5.1 of the notes: A, centroid of the displaced liquid, above B, centre of gravity, gives a restoring torque; B above A overturns. Right: a floating body heeled, with G, the shifted centre of buoyancy B prime and the metacentre M">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="155.0,160.0 154.7,171.1 153.8,182.0 152.3,192.5 150.3,202.5 147.8,211.7 144.7,220.1 141.3,227.4 137.5,233.6 133.4,238.5 129.1,242.1 124.6,244.3 120.0,245.0 115.4,244.3 110.9,242.1 106.6,238.5 102.5,233.6 98.7,227.4 95.3,220.1 92.2,211.7 89.7,202.5 87.7,192.5 86.2,182.0 85.3,171.1 85.0,160.0 85.3,148.9 86.2,138.0 87.7,127.5 89.7,117.5 92.2,108.3 95.3,99.9 98.7,92.6 102.5,86.4 106.6,81.5 110.9,77.9 115.4,75.7 120.0,75.0 124.6,75.7 129.1,77.9 133.4,81.5 137.5,86.4 141.3,92.6 144.7,99.9 147.8,108.3 150.3,117.5 152.3,127.5 153.8,138.0 154.7,148.9" fill="#f59e0b" fill-opacity="0.08" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="120.0" y1="65.0" x2="120.0" y2="255.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4,4"/>
+<circle cx="120.0" cy="132.0" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="120.0" cy="188.0" r="4" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="110.0" y="137.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">A</text>
+<text x="130.0" y="193.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">B</text>
+<line x1="120.0" y1="132.0" x2="120.0" y2="68.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M120.0,62.0 L124.3,72.1 L115.7,72.1 Z" fill="#f59e0b"/>
+<text x="108.0" y="80.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρgV</text>
+<line x1="120.0" y1="188.0" x2="120.0" y2="251.4" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M120.0,258.0 L115.7,247.9 L124.3,247.9 Z" fill="#ec4899"/>
+<text x="126.0" y="266.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">W</text>
+<text x="120.0" y="312.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">upright: A above B</text>
+<polygon points="322.5,173.1 318.0,183.3 313.1,193.1 307.8,202.3 302.2,210.8 296.4,218.4 290.4,225.0 284.5,230.5 278.7,234.8 273.0,237.8 267.6,239.5 262.7,239.8 258.2,238.8 254.2,236.4 250.8,232.7 248.2,227.8 246.2,221.7 245.0,214.5 244.5,206.5 244.9,197.6 246.0,188.1 247.8,178.0 250.4,167.7 253.7,157.3 257.5,146.9 262.0,136.7 266.9,126.9 272.2,117.7 277.8,109.2 283.6,101.6 289.6,95.0 295.5,89.5 301.3,85.2 307.0,82.2 312.4,80.5 317.3,80.2 321.8,81.2 325.8,83.6 329.2,87.3 331.8,92.2 333.8,98.3 335.0,105.5 335.5,113.5 335.1,122.4 334.0,131.9 332.2,142.0 329.6,152.3 326.3,162.7" fill="#f59e0b" fill-opacity="0.08" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="325.6" y1="71.9" x2="254.4" y2="248.1" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4,4"/>
+<circle cx="300.5" cy="134.0" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="279.5" cy="186.0" r="4" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="290.5" y="139.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">A</text>
+<text x="289.5" y="191.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">B</text>
+<line x1="300.5" y1="134.0" x2="300.5" y2="70.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M300.5,64.0 L304.8,74.2 L296.2,74.2 Z" fill="#f59e0b"/>
+<text x="288.5" y="82.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρgV</text>
+<line x1="279.5" y1="186.0" x2="279.5" y2="249.4" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M279.5,256.0 L275.2,245.8 L283.8,245.8 Z" fill="#ec4899"/>
+<text x="285.5" y="264.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">W</text>
+<path d="M240.1,266.9 A118.0,118.0 0 0 0 320.5,274.0" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M320.5,274.0 L314.2,278.9 L312.6,272.9 Z" fill="#10b981"/>
+<text x="290.0" y="312.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">tilted: restoring torque</text>
+<polygon points="492.5,173.1 488.0,183.3 483.1,193.1 477.8,202.3 472.2,210.8 466.4,218.4 460.4,225.0 454.5,230.5 448.7,234.8 443.0,237.8 437.6,239.5 432.7,239.8 428.2,238.8 424.2,236.4 420.8,232.7 418.2,227.8 416.2,221.7 415.0,214.5 414.5,206.5 414.9,197.6 416.0,188.1 417.8,178.0 420.4,167.7 423.7,157.3 427.5,146.9 432.0,136.7 436.9,126.9 442.2,117.7 447.8,109.2 453.6,101.6 459.6,95.0 465.5,89.5 471.3,85.2 477.0,82.2 482.4,80.5 487.3,80.2 491.8,81.2 495.8,83.6 499.2,87.3 501.8,92.2 503.8,98.3 505.0,105.5 505.5,113.5 505.1,122.4 504.0,131.9 502.2,142.0 499.6,152.3 496.3,162.7" fill="#f59e0b" fill-opacity="0.08" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="495.6" y1="71.9" x2="424.4" y2="248.1" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4,4"/>
+<circle cx="449.5" cy="186.0" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="470.5" cy="134.0" r="4" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="439.5" y="191.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">A</text>
+<text x="480.5" y="139.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">B</text>
+<line x1="449.5" y1="186.0" x2="449.5" y2="122.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M449.5,116.0 L453.8,126.1 L445.2,126.1 Z" fill="#f59e0b"/>
+<text x="437.5" y="134.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρgV</text>
+<line x1="470.5" y1="134.0" x2="470.5" y2="197.4" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M470.5,204.0 L466.2,193.9 L474.8,193.9 Z" fill="#ec4899"/>
+<text x="476.5" y="212.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">W</text>
+<path d="M509.9,266.9 A118.0,118.0 0 0 1 429.5,274.0" fill="none" stroke="#ec4899" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M429.5,274.0 L437.4,272.9 L435.8,278.9 Z" fill="#ec4899"/>
+<text x="460.0" y="312.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">B above A: overturns</text>
+<polygon points="570.0,150.0 810.0,150.0 810.0,290.0 570.0,290.0" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="570.0" y1="150.0" x2="810.0" y2="150.0" stroke="#3b82f6" stroke-width="1.8"/>
+<polygon points="631.8,94.3 767.6,128.1 745.8,215.4 610.0,181.6" fill="#f59e0b" fill-opacity="0.08" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="706.9" y1="82.1" x2="675.5" y2="208.2" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4,4"/>
+<circle cx="684.0" cy="174.3" r="3.6" fill="#8a94a6" stroke="#8a94a6" stroke-width="1"/>
+<text x="675.0" y="179.3" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">B</text>
+<line x1="702.1" y1="178.0" x2="702.1" y2="105.5" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="702.1" y1="178.0" x2="702.1" y2="158.0" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M702.1,152.0 L706.0,161.2 L698.2,161.2 Z" fill="#f59e0b"/>
+<circle cx="702.1" cy="178.0" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<text x="711.1" y="190.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">B′</text>
+<circle cx="691.2" cy="145.1" r="4" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="682.2" y="147.1" fill="#ec4899" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">G</text>
+<circle cx="702.1" cy="101.5" r="4" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="711.1" y="105.5" fill="#10b981" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">M</text>
+<text x="690.0" y="312.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">floating: M above G (extension)</text>
+</g></svg>

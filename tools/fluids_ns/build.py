@@ -260,7 +260,11 @@ def sync(root, probs):
     nav = json.loads((root / NAV).read_text(encoding="utf-8"))
     fm = next(x for x in nav["subjects"] if x["slug"] == "fluid-mechanics")
     item = {"page": "topic-4-navier-stokes.html", "label": f"4 · Navier-Stokes (NS1–{last})"}
-    fm["problemas"] = [x for x in fm["problemas"] if x["page"] != item["page"]] + [item]
+    pages = [x["page"] for x in fm["problemas"]]
+    if item["page"] in pages:                                  # keep the place of the entry (Topic 5 follows it)
+        fm["problemas"][pages.index(item["page"])] = item
+    else:
+        fm["problemas"].append(item)
     write(root, NAV, json.dumps(nav, indent=1, ensure_ascii=False) + "\n")
 
     s = (root / PROBLEMS_INDEX).read_text(encoding="utf-8")
@@ -297,9 +301,10 @@ def sync(root, probs):
     j = s.index('<span class="area-badge available">', i)
     k = s.index("</span>", j)
     before = int(re.search(r"(\d+) problems", s[j:k]).group(1))
-    s = s[:j] + f'<span class="area-badge available">{OTHER_PROBLEMS + n} problems' + s[k:]
+    fs = len(list((root / VAULT).glob("Problem - FS*.md")))     # the hydrostatics problems (tools/fluids_fs) share the card
+    s = s[:j] + f'<span class="area-badge available">{OTHER_PROBLEMS + n + fs} problems' + s[k:]
     hero = re.search(r'(<span class="stat-value"[^>]*>)(\d+)(</span>\s*<span class="stat-label">Solved problems)', s)
-    s = s[:hero.start(2)] + str(int(hero.group(2)) + OTHER_PROBLEMS + n - before) + s[hero.end(2):]
+    s = s[:hero.start(2)] + str(int(hero.group(2)) + OTHER_PROBLEMS + n + fs - before) + s[hero.end(2):]
     write(root, PORTAL, s)
 
 
@@ -333,8 +338,9 @@ def check():
         root = pathlib.Path(tmp)
         for rel in INPUTS:
             write(root, rel, (ROOT / rel).read_text(encoding="utf-8"))
-        for path in (ROOT / VAULT).glob("Problem - NS*.md"):
-            write(root, f"{VAULT}/{path.name}", path.read_text(encoding="utf-8"))
+        for pat in ("Problem - NS*.md", "Problem - FS*.md"):     # the FS notes only count for the root badge
+            for path in (ROOT / VAULT).glob(pat):
+                write(root, f"{VAULT}/{path.name}", path.read_text(encoding="utf-8"))
         for rel in generate(root):
             have = ROOT / rel
             if not have.is_file() or have.read_text(encoding="utf-8") != (root / rel).read_text(encoding="utf-8"):

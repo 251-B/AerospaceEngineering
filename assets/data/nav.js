@@ -51,6 +51,10 @@ window.AE_NAV = {
             {
               "href": "subjects/fluid-mechanics/teoria/topic-4.html",
               "label": "4 · Navier-Stokes equations"
+            },
+            {
+              "href": "subjects/fluid-mechanics/teoria/topic-5.html",
+              "label": "5 · Hydrostatics"
             }
           ]
         },
@@ -70,6 +74,10 @@ window.AE_NAV = {
             {
               "href": "subjects/fluid-mechanics/problemas/topic-4-navier-stokes.html",
               "label": "4 · Navier-Stokes (NS1–NS17)"
+            },
+            {
+              "href": "subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html",
+              "label": "5 · Hydrostatics (FS1–FS10)"
             }
           ]
         }

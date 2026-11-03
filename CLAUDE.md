@@ -92,7 +92,7 @@ These rules apply to every session that builds or changes a subject's Extra prob
 - Theme and reading palette through `assets/js/theme.js` only (`#themeToggle` hosts the palette picker; keys `ae_theme`, `ae_surface`); no inline theme code. The light/dark toggle itself was removed: palettes carry their own polarity.
 - Keyboard shortcuts on the Simulator: `T` moves to the next reading palette via `AESurface.list()` / `AESurface.set()` (Default → Cream → Sepia → Slate paper → Sage → Charcoal → Default) and announces it in an `aria-live` region, `Esc` closes the help dialog, `?` opens the shortcuts help dialog. They are ignored while focus is in an input, textarea, select or contenteditable, and never fire with Ctrl/Alt/Meta held.
 - Simulator history in `localStorage` under `ae_bm_exams` (never a key containing "theme"), always wrapped in try/catch, with the page still working when storage is blocked. There is no per-item progress (no Mastered / Review status).
-- The simulator is DOM forms and a timer only: no `<canvas>`, no Three.js (the "no interactive simulators" rule targets physics simulators). Print view through a page `@media print` block; `assets/css/print.css` is not touched.
+- The simulator is DOM forms and a timer only: no `<canvas>`, no Three.js (physics simulators live only inside their exercise card, SVG only: see "Exercise simulators" in `AGENTS.md`). Print view through a page `@media print` block; `assets/css/print.css` is not touched.
 
 ### Problem banks: real structural variety
 

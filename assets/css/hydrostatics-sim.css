@@ -1,0 +1,104 @@
+/* Hydrostatics exercise simulators (assets/js/hydrostatics-sim.js), inside the problem cards of
+   subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html. Colours come from the page variables
+   (text) and the figure variables of assets/css/print.css (--fig-blue, --fig-acc, ...), so the reading
+   palettes of study-surface.css and the black-and-white print layout apply unchanged. */
+
+.hs-sim {
+  margin: 22px 0;
+  padding: 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+.hs-sim-fallback { margin: 0; color: var(--text-muted); font-size: 0.92rem; }
+.hs-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-heading);
+  margin-bottom: 6px;
+}
+.hs-intro { margin: 0 0 10px; font-size: 0.95rem; color: var(--text-body); }
+.hs-figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.hs-svg { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; }
+.hs-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 16px; margin-top: 12px; }
+@media (max-width: 720px) {
+  .hs-panel { grid-template-columns: minmax(0, 1fr); }
+  .hs-svg { min-width: 520px; }
+}
+
+/* controls */
+.hs-control { margin-bottom: 10px; }
+.hs-control label { display: block; font-family: var(--font-sans); font-size: 0.86rem; color: var(--text-body); margin-bottom: 3px; }
+.hs-control output { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-heading); }
+.hs-control input[type="range"] { width: 100%; accent-color: var(--accent); }
+.hs-control select {
+  width: 100%;
+  padding: 5px 8px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--text-heading);
+  background: var(--bg-input, var(--bg-surface));
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+}
+
+/* readouts */
+.hs-readouts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 4px 12px;
+  font-size: 0.86rem;
+  align-content: start;
+}
+.hs-readouts dt { font-family: var(--font-sans); color: var(--text-body); }
+.hs-readouts dd { margin: 0; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-heading); overflow-wrap: anywhere; }
+.hs-readouts dd.hs-note { font-family: var(--font-sans); font-weight: 600; }
+
+/* drawing */
+.hs-svg text, .hs-t { fill: var(--text-heading); font-family: var(--font-sans); font-size: 14px; }
+.hs-svg .hs-small { font-size: 12px; fill: var(--text-body); }
+.hs-svg .hs-big { font-size: 17px; font-weight: 600; }
+.hs-line { stroke: var(--text-muted); stroke-width: 1.4; fill: none; }
+.hs-head { fill: var(--text-muted); stroke: none; }
+.hs-thin { stroke-width: 1; }
+.hs-dash { stroke-dasharray: 4 3; }
+.hs-axis { stroke-dasharray: 8 4; stroke-width: 1.1; }
+.hs-surface { stroke: var(--fig-blue, #3b82f6); stroke-width: 2; }
+.hs-floor { stroke: var(--text-muted); stroke-width: 2.2; }
+.hs-wall { stroke: var(--text-muted); stroke-width: 2; stroke-dasharray: 5 4; }
+.hs-gate { stroke: var(--fig-acc, #f59e0b); stroke-width: 6; }
+.hs-shell { stroke: var(--text-heading); stroke-width: 2.4; }
+.hs-gap { stroke: var(--bg-surface); stroke-width: 4; }
+.hs-water { fill: var(--fig-blue, #3b82f6); fill-opacity: 0.12; stroke: none; }
+.hs-water.hs-inner { fill-opacity: 0.26; }
+.hs-air { fill: var(--bg-surface); stroke: none; }
+.hs-body { fill: var(--bg-surface); stroke: var(--text-heading); stroke-width: 2.4; }
+.hs-plate { fill: var(--fig-acc, #f59e0b); fill-opacity: 0.12; stroke: var(--fig-acc, #f59e0b); stroke-width: 2; }
+.hs-strip { fill: var(--fig-green, #10b981); fill-opacity: 0.45; stroke: var(--fig-green, #10b981); stroke-width: 1; }
+.hs-proj { fill: var(--text-muted); fill-opacity: 0.3; stroke: var(--text-muted); stroke-width: 1; }
+.hs-sector { fill: var(--fig-green, #10b981); fill-opacity: 0.3; stroke: var(--fig-green, #10b981); stroke-width: 1.2; }
+.hs-tri-minus { fill: var(--fig-pink, #ec4899); fill-opacity: 0.35; stroke: var(--fig-pink, #ec4899); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.hs-tri-plus { fill: var(--fig-acc, #f59e0b); fill-opacity: 0.25; stroke: var(--fig-acc, #f59e0b); stroke-width: 1.6; }
+.hs-nofill { fill: none; }
+.hs-dot { fill: var(--text-heading); stroke: none; }
+.hs-dot.hs-acc { fill: var(--fig-acc, #f59e0b); }
+.hs-dot.hs-green { fill: var(--fig-green, #10b981); }
+.hs-line.hs-blue { stroke: var(--fig-blue, #3b82f6); }
+.hs-head.hs-blue { fill: var(--fig-blue, #3b82f6); }
+.hs-line.hs-acc { stroke: var(--fig-acc, #f59e0b); stroke-width: 3; }
+.hs-head.hs-acc { fill: var(--fig-acc, #f59e0b); }
+.hs-line.hs-pink { stroke: var(--fig-pink, #ec4899); stroke-width: 3; }
+.hs-head.hs-pink { fill: var(--fig-pink, #ec4899); }
+.hs-line.hs-green { stroke: var(--fig-green, #10b981); }
+.hs-line.hs-dim { stroke: var(--text-muted); stroke-width: 1; }
+.hs-head.hs-dim { fill: var(--text-muted); }
+
+@media print {
+  .hs-sim { break-inside: avoid; border-color: #999; }
+  .hs-panel .hs-controls, .hs-intro { display: none !important; }
+  .hs-panel { grid-template-columns: minmax(0, 1fr); }
+  .hs-svg { min-width: 0; }
+}

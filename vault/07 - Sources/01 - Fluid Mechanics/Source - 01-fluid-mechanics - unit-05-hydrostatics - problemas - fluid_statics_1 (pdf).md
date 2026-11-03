@@ -19,8 +19,9 @@ bytes: 114279
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_1.pdf`
 - **Kind:** problemas
 - **Size:** 114.3 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
+- [[01 - Fluid Mechanics/Problem - FS1 Melting Ice Cube]]

@@ -98,10 +98,10 @@
   "assets/pdf/advanced-maths/problemas/topic-4-part-2/e6.pdf": "5bb7352d387cbebe42648ccea22260c2fd596c461ff9123705223b3139f2d2ed",
   "assets/pdf/advanced-maths/problemas/topic-4-part-2/e7.pdf": "f6a507f41846386f6b5a8807b7e3b1620ad64ba1b07ce5d689f2d22c6f48ca51",
   "assets/pdf/advanced-maths/problemas/topic-4-part-2/e8.pdf": "73e330fde83b623a66e385e4be4b6b896a1bd081a01069cd9d1b4d8a791e5c0b",
-  "assets/pdf/advanced-maths/teoria/topic-1.pdf": "ed09d87b710d06f55f62477f9da838655e403fdfeeac7b0314b6a068f3b74d7e",
+  "assets/pdf/advanced-maths/teoria/topic-1.pdf": "e6d6382692b030ec11c4712384ca0140ecd1b45c551148e37b42b40cb55ecd4d",
   "assets/pdf/advanced-maths/teoria/topic-2.pdf": "9a4fa37395d5fe95f3efa5243335a663496168030e11807d433c6a6e33341748",
   "assets/pdf/advanced-maths/teoria/topic-3.pdf": "a7bed66aa77bf1f97dfd2cee1113906adb3a061d85e15a5cca1ac62d9cb3cbeb",
-  "assets/pdf/advanced-maths/teoria/topic-4.pdf": "8b6229b3a18036102db2ab1ffaf70d5da20462d18503dbc13aa3db695ccf1713",
+  "assets/pdf/advanced-maths/teoria/topic-4.pdf": "2902455bf6b992aef1e1c794d298d6697ef3fdcbc24938cd0984045da8d82c51",
   "assets/pdf/aerospace-materials-1/problemas/topic-2-problems.pdf": "8edda476fe7ba9a79efba071a98d1b8e741ab206d62dafa04d205fabb8917e86",
   "assets/pdf/aerospace-materials-1/problemas/topic-2-problems/p1.pdf": "5c7b358e56dedfe94a06f6eb059c8cbd8fcefda858b70b8d646554c489d5ee69",
   "assets/pdf/aerospace-materials-1/problemas/topic-2-problems/p10.pdf": "936286bf892007394ab3d5e8c6e048520445b33c10d340ae651bec7ddcffdc57",
@@ -370,6 +370,16 @@
   "assets/pdf/fluid-mechanics/problemas/topic-4-navier-stokes/ns7.pdf": "4f2aad7f2805687327e6f68ec25fd51e20a5777da5c94b8119e76b2480d2e3a4",
   "assets/pdf/fluid-mechanics/problemas/topic-4-navier-stokes/ns8.pdf": "46907a8173295cbb3097f69ee1a32a2a19febc24ccbbafe6765204b344c4ac88",
   "assets/pdf/fluid-mechanics/problemas/topic-4-navier-stokes/ns9.pdf": "f10de2778f489d670ddb9f999cd17d7db43d9d439e1e4b52e4b690981a438405",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics.pdf": "12b2a2d935c7db9b92a30336f22529f9e0811c4e17f5a9d81d225226b04c32d6",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics/fs1.pdf": "146410a2ee6ac2f0e7bb19c11b267c62888cff1bd4e392866d10cb87f8b5fc95",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics/fs10.pdf": "32c33cdfd250d6fc4a4e638265d0484231df20ae8dc29ab87ac5d382231c9949",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics/fs2.pdf": "79b372b58c977f668f7bb2d60fccfeae9e4fd9fcd5ceb1a0e17ebfaf74a9d25e",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics/fs3.pdf": "2d60b250fb1022e2100acdce88e0454486d05a6b1d4f4cd86e3c8335218c97c3",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics/fs4.pdf": "7d7e817f496718c6def66aeb594b258a26960975f11e07be88835215f21c0675",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics/fs5.pdf": "0faae6935c9275546f63ef2d28e738a5addff9bfa90fc03726fac9b0c3d24e37",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics/fs6.pdf": "418b80b9c3fa91f96be08932d1e61c545606f477be7503e0556165de82ea7665",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics/fs7.pdf": "f6defdeab8bc39e141a8c4492181681a5f7b2661c46ea7d3610de5ae3e552f77",
+  "assets/pdf/fluid-mechanics/problemas/topic-5-hydrostatics/fs9.pdf": "b1c134359485315146d0518b9753f1ac161efd0babf9176d9abc600f44fac112",
   "assets/pdf/fluid-mechanics/teoria/topic-1.pdf": "08a986fb27d9f3240129df4f1390ad0092a3425d2919680c22ebef8222c77ba6",
   "assets/pdf/fluid-mechanics/teoria/topic-2.pdf": "72365be2916862e194b071548cd4ad66321db6855b4599e0e8d5d6bb0a5cd044",
   "assets/pdf/fluid-mechanics/teoria/topic-3-1-rtt.pdf": "786ff8ea83e361feea6918a8f2f39978753014e94ea3a74ce87b2f0c82c6ce4f",
@@ -379,6 +389,7 @@
   "assets/pdf/fluid-mechanics/teoria/topic-3-5-energy.pdf": "244b5f9b72305e9ecdfbd161f6d3c1166548453c3c795f30626d02f1c534c2dd",
   "assets/pdf/fluid-mechanics/teoria/topic-3-6-stresses.pdf": "51f83471f46f64508449164388d67999ca8b84ccc31e8ba86f346955a54dbd6b",
   "assets/pdf/fluid-mechanics/teoria/topic-3.pdf": "69e288ad34594203c22a1f71187d2a5716555b410c81925c91ff0db80e64701b",
-  "assets/pdf/fluid-mechanics/teoria/topic-4.pdf": "dee94cabf4dac1da3e9655e0f19cbf5dc297f917ab30e5b26062435ffe76fa47"
+  "assets/pdf/fluid-mechanics/teoria/topic-4.pdf": "ec82a4db7ad475d6970dbbd06d847910eb1cf1ae99fb58f158f0858eb5431b38",
+  "assets/pdf/fluid-mechanics/teoria/topic-5.pdf": "b32c1fbe5424b2056502d129c2ad0a70bea6682bef2faa54509048276f425bba"
  }
 }
