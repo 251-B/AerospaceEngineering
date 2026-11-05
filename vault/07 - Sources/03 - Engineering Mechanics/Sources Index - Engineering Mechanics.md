@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 185
-- Referenced by at least one note (a mention counts): 14
-- Not referenced yet: 171
+- Files: 196
+- Referenced by at least one note (a mention counts): 16
+- Not referenced yet: 180
 - Build artifacts: 0
 - Working files: 0
 
@@ -248,11 +248,42 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_notes (pdf)\|Lab2_notes.pdf]] | laboratorio | not-referenced |
 
+## laboratorios/lab-2/Lab2-Ismael
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - Overleaf_Lab2_LB (zip)\|Overleaf_Lab2_LB.zip]] | laboratorio | not-referenced |
+
 ## laboratorios/lab-2/Lab2-Ismael/code_LB_Martin_Martin_Ranz
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - code_LB_Martin_Martin_Ranz - main (m)\|main.m]] | laboratorio | referenced |
+
+## laboratorios/lab-2/Lab2-Ismael/deliverable
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - deliverable - Group_LB_Martin_Martin_Ranz (zip)\|Group_LB_Martin_Martin_Ranz.zip]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - deliverable - Report_LB_Martin_Martin_Ranz (pdf)\|Report_LB_Martin_Martin_Ranz.pdf]] | laboratorio | not-referenced |
+
+## laboratorios/lab-2/Lab2-Ismael/overleaf
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - main (tex)\|main.tex]] | laboratorio | referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - references (bib)\|references.bib]] | laboratorio | referenced |
+
+## laboratorios/lab-2/Lab2-Ismael/overleaf/figures
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - figures - angle_reactions (png)\|angle_reactions.png]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - figures - energies (png)\|energies.png]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - figures - inertia_forces (png)\|inertia_forces.png]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - figures - linearized_error (png)\|linearized_error.png]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - figures - phase_portrait (png)\|phase_portrait.png]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - figures - trajectory (png)\|trajectory.png]] | laboratorio | not-referenced |
 
 ## laboratorios/lab-2/Lab2_Hector
 
