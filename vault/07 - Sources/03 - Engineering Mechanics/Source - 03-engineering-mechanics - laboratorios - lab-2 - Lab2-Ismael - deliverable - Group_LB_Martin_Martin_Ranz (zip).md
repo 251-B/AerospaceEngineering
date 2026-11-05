@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/deliverable/Group_LB_Martin_Martin_Ranz.zip"
 kind: laboratorio
 status: not-referenced
-bytes: 7051692
+bytes: 7052298
 ---
 
 # Source: Group_LB_Martin_Martin_Ranz.zip
