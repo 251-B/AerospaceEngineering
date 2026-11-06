@@ -40,9 +40,9 @@
 
 \newcommand{\er}{\mathbf{e}_r}
 \newcommand{\ephi}{\mathbf{e}_\varphi}
-\newcommand{\ii}{\mathbf{i}}
-\newcommand{\jj}{\mathbf{j}}
-\newcommand{\kk}{\mathbf{k}}
+\newcommand{\ii}{\mathbf{i}_1}
+\newcommand{\jj}{\mathbf{j}_1}
+\newcommand{\kk}{\mathbf{k}_1}
 \newcommand{\rr}{\mathbf{r}}
 \newcommand{\vv}{\mathbf{v}}
 \newcommand{\aaa}{\mathbf{a}}
@@ -88,7 +88,7 @@ In Section~\ref{sec:model} we derive the analytical model and in Section~\ref{se
 
 \section{Analytical Model}\label{sec:model}
 \subsection{Reference Frames and Degrees of Freedom}
-$Oxyz$ rotates with the plane of the wire: $\ii$ is horizontal along the diameter through $C$, $\jj$ is vertical and upward (the rotation axis) and $\kk=\ii\times\jj$ is normal to the plane, pointing out of the paper in Fig.~\ref{fig:sketch}. $Ox_1y_1z_1$ is a stationary frame, assumed inertial, that coincides with $Oxyz$ at $t=0$, with $\jj_1=\jj$. The axis $Oy$ is tangent to the wire at $O$, so $\overrightarrow{OC}=R\,\ii$.
+$S_1=Oxyz$ rotates with the plane of the wire: $\ii$ is horizontal along the diameter through $C$, $\jj$ is vertical and upward (the rotation axis) and $\kk=\ii\times\jj$ is normal to the plane, pointing out of the paper in Fig.~\ref{fig:sketch}. $S_0=Ox_0y_0z_0$ is a stationary frame, assumed inertial, that coincides with $S_1$ at $t=0$, with $\mathbf{j}_0=\jj$. The axis $Oy$ is tangent to the wire at $O$, so $\overrightarrow{OC}=R\,\ii$.
 
 In space, $P$ needs three coordinates. The wire removes two of them, since $P$ has to stay in the plane $Oxy$ and at a distance $R$ from $C$, which means that the problem only has $3-2=1$ configuration degree of freedom ($\varphi$). The position of $P$ seen from the stationary frame depends on $\varphi$ and also explicitly on $t$.
 
@@ -102,9 +102,9 @@ The angle $\theta$ turned by the plane satisfies $\dot\theta=\Omega$ with $\thet
 \begin{equation}
 \theta(t)=\int_0^t A\omega\sin(\omega\tau)\,d\tau=A\int_0^{\omega t}\sin u\,du=A\big[-\cos u\big]_0^{\omega t}=A\,(1-\cos\omega t),\label{eq:theta}
 \end{equation}
-so $\theta$ oscillates between $\theta=0$ and $\theta=2A$ with period $T=2\pi/\omega$. Using this angle $\theta$ to get the rotating reference frame $Oxyz$, we obtain these unit vectors in function of the stationary frame's unit vectors:
+so $\theta$ oscillates between $\theta=0$ and $\theta=2A$ with period $T=2\pi/\omega$. Using this angle $\theta$ to get the rotating reference frame $S_1$, we obtain these unit vectors in function of the stationary frame's unit vectors:
 \begin{equation}
-\ii=\cos\theta\,\ii_1-\sin\theta\,\kk_1,\quad \jj=\jj_1,\quad \kk=\sin\theta\,\ii_1+\cos\theta\,\kk_1,\qquad
+\ii=\cos\theta\,\mathbf{i}_0-\sin\theta\,\mathbf{k}_0,\quad \jj=\mathbf{j}_0,\quad \kk=\sin\theta\,\mathbf{i}_0+\cos\theta\,\mathbf{k}_0,\qquad
 \end{equation}
 
 
@@ -125,7 +125,7 @@ Also,
 \begin{equation}
 \ii = \cos\varphi\,\er - \sin\varphi\,\ephi,\quad \jj = \sin\varphi\,\er + \cos\varphi\,\ephi,\qquad
 \end{equation}
-Differentiating in the $Oxyz$ reference frame applying the chain rule, we get the velocity and acceleration:
+Differentiating in the $S_1$ reference frame applying the chain rule, we get the velocity and acceleration:
 \begin{align}
 \vv_{rel}&=-R\dph\sin\varphi\,\ii+R\dph\cos\varphi\,\jj=R\dph\,\ephi,\label{eq:vrel}\\
 \aaa_{rel}&=-R(\ddph\sin\varphi+\dph^2\cos\varphi)\,\ii+R(\ddph\cos\varphi-\dph^2\sin\varphi)\,\jj=R\ddph\,\ephi-R\dph^2\,\er .\label{eq:arel}
@@ -135,7 +135,7 @@ Two real forces act on $P$: its weight and the reaction of the wire. The wire is
 \begin{equation}
 m\mathbf{g}=-mg\,\jj=-mg\,(\sin\varphi\,\er+\cos\varphi\,\ephi),\qquad \NN=N_1\,\er+N_2\,\kk .\label{eq:real}
 \end{equation}
-Since $Oxyz$ is not inertial, we have to add the inertia forces. With $\jj\times\ii=-\kk$, $\jj\times\jj=\mathbf 0$ and $\jj\times\kk=\ii$ we get $\Om\times\rr=-\Omega x\,\kk$, $\dOm\times\rr=-\dot\Omega x\,\kk$, $\Om\times(\Om\times\rr)=-\Omega^2x\,\ii$ and $\Om\times\vv_{rel}=\Omega R\dph\sin\varphi\,\kk$, and we also use $\ii=\cos\varphi\,\er-\sin\varphi\,\ephi$:
+Since $S_1$ is not inertial, we have to add the inertia forces. With $\jj\times\ii=-\kk$, $\jj\times\jj=\mathbf 0$ and $\jj\times\kk=\ii$ we get $\Om\times\rr=-\Omega x\,\kk$, $\dOm\times\rr=-\dot\Omega x\,\kk$, $\Om\times(\Om\times\rr)=-\Omega^2x\,\ii$ and $\Om\times\vv_{rel}=\Omega R\dph\sin\varphi\,\kk$, and we also use $\ii=\cos\varphi\,\er-\sin\varphi\,\ephi$:
 \begin{align}
 \FF_{cent}&=-m\Om\times(\Om\times\rr)=m\Omega^2x\,\ii=mA^2\omega^2R\sin^2(\omega t)(1+\cos\varphi)\,[\cos\varphi\,\er-\sin\varphi\,\ephi],\label{eq:Fcent}\\
 \FF_{Euler}&=-m\dOm\times\rr=m\dot\Omega x\,\kk=mA\omega^2R\cos(\omega t)(1+\cos\varphi)\,\kk,\label{eq:Feul}\\
@@ -143,7 +143,7 @@ Since $Oxyz$ is not inertial, we have to add the inertia forces. With $\jj\times
 \end{align}
 
 \subsection{Equation of Motion and Reaction Forces}
-In $Oxyz$, $m\aaa_{rel}=m\mathbf{g}+\NN+\FF_{cent}+\FF_{Euler}+\FF_{Cor}$. The direction $\ephi$ contains no reaction, and the Euler and Coriolis forces are along $\kk$, so projecting on $\ephi$ gives $mR\ddph=-mg\cos\varphi-m\Omega^2x\sin\varphi$, that is
+In $S_1$, $m\aaa_{rel}=m\mathbf{g}+\NN+\FF_{cent}+\FF_{Euler}+\FF_{Cor}$. The direction $\ephi$ contains no reaction, and the Euler and Coriolis forces are along $\kk$, so projecting on $\ephi$ gives $mR\ddph=-mg\cos\varphi-m\Omega^2x\sin\varphi$, that is
 \begin{equation}
 \boxed{\ddph=-\frac{g}{R}\cos\varphi-A^2\omega^2\sin^2(\omega t)\,(1+\cos\varphi)\sin\varphi}\label{eq:eom}
 \end{equation}
@@ -153,27 +153,27 @@ N_1&=-mR\dph^2+mg\sin\varphi-mA^2\omega^2R\sin^2(\omega t)(1+\cos\varphi)\cos\va
 N_2&=mA\omega R\big[2\dph\sin(\omega t)\sin\varphi-\omega\cos(\omega t)(1+\cos\varphi)\big].\label{eq:N2}
 \end{align}
 \subsection{Mechanical Energy and Work of the Wire}
-The absolute velocity is $\vv=\dot{\rr}+\Om\times\rr=\vv_{rel}+\Om\times\rr=R\dph\,\ephi-\Omega x\,\kk$. Since $\ephi\perp\kk$, $|\vv|^2=R^2\dph^2+\Omega^2x^2$, so the kinetic energy is $E_k=\tfrac12m|\vv|^2$, and taking the height of $O$ as the reference for the potential energy,
+The absolute velocity is $\vv=\dot{\rr}+\Om\times\rr=\vv_{rel}+\Om\times\rr=R\dph\,\ephi-\Omega x\,\kk$. Since $\ephi\perp\kk$, $|\vv|^2=R^2\dph^2+\Omega^2x^2$, so the kinetic energy is $K_0^P=\tfrac12m|\vv|^2$, and taking the height of $O$ as the reference for the potential energy,
 \begin{equation}
-E_k=\tfrac12 m\big(R^2\dph^2+\Omega^2x^2\big),\qquad E_p=mgR\sin\varphi,\qquad E=E_k+E_p .\label{eq:E}
+K_0^P=\tfrac12 m\big(R^2\dph^2+\Omega^2x^2\big),\qquad V_0^P=mgR\sin\varphi,\qquad E_0^P=K_0^P+V_0^P .\label{eq:E}
 \end{equation}
-By the work--energy theorem $dE_k/dt=(m\mathbf{g}+\NN)\cdot\vv$, because in the stationary frame they are the only forces acting on $P$, and the weight is conservative, $m\mathbf{g}\cdot\vv=-dE_p/dt$. Only the power of the reaction is left, and since $\er\perp\ephi$ and $\er\perp\kk$,
+By the work--energy theorem $dK_0^P/dt=(m\mathbf{g}+\NN)\cdot\vv$, because in the stationary frame they are the only forces acting on $P$, and the weight is conservative, $m\mathbf{g}\cdot\vv=-dV_0^P/dt$. Only the power of the reaction is left, and since $\er\perp\ephi$ and $\er\perp\kk$,
 \begin{equation}
-\frac{dE}{dt}=\NN\cdot\vv=(N_1\er+N_2\kk)\cdot(R\dph\,\ephi-\Omega x\,\kk)=-\Omega x N_2 .\label{eq:Edot}
+\frac{dE_0^P}{dt}=\NN\cdot\vv=(N_1\er+N_2\kk)\cdot(R\dph\,\ephi-\Omega x\,\kk)=-\Omega x N_2 .\label{eq:Edot}
 \end{equation}
-On a fixed wire the reaction is perpendicular to the velocity. Here the wire moves with the plane, so $N_2$ does work and $E$ is conserved if and only if $A=0$.
+On a fixed wire the reaction is perpendicular to the velocity. Here the wire moves with the plane, so $N_2$ does work and $E_0^P$ is conserved if and only if $A=0$.
 \subsection{Fixed Loop: Criterion for the Motion}
-When the wire is fixed ($A = 0$), the plane does not rotate ($\Omega = 0$), so the reaction $N_2$ does no work and the mechanical energy from Eq.~\eqref{eq:E} is strictly conserved ($dE/dt = 0$):
+When the wire is fixed ($A = 0$), the plane does not rotate ($\Omega = 0$), so the reaction $N_2$ does no work and the mechanical energy from Eq.~\eqref{eq:E} is strictly conserved ($dE_0^P/dt = 0$):
 \begin{equation}
-\frac{1}{2}\dot{\varphi}^2 + \frac{g}{R}\sin\varphi = \frac{1}{2}\dot{\varphi}_0^2 + \frac{g}{R}\sin\varphi_0 = \frac{E_0}{mR^2}.
+\frac{1}{2}\dot{\varphi}^2 + \frac{g}{R}\sin\varphi = \frac{1}{2}\dot{\varphi}_0^2 + \frac{g}{R}\sin\varphi_0 = \frac{E_0^P}{mR^2}.
 \label{eq:energy_fixed}
 \end{equation}
-The potential energy has its maximum, $mgR$, at the top of the loop ($\varphi = \pi/2$). If $E_0 > mgR$, $P$ reaches the top with $\dot{\varphi} \neq 0$, so $\dot{\varphi}$ never changes sign and $\varphi$ grows (or decreases) steadily. If $E_0 < mgR$, $P$ stops before the top and oscillates. Imposing $E_0 > mgR$ in Eq.~\eqref{eq:energy_fixed}, $P$ rotates if
+The potential energy has its maximum, $mgR$, at the top of the loop ($\varphi = \pi/2$). If $E_0^P > mgR$, $P$ reaches the top with $\dot{\varphi} \neq 0$, so $\dot{\varphi}$ never changes sign and $\varphi$ grows (or decreases) steadily. If $E_0^P < mgR$, $P$ stops before the top and oscillates. Imposing $E_0^P > mgR$ in Eq.~\eqref{eq:energy_fixed}, $P$ rotates if
 \begin{equation}
 |\dot{\varphi}_0| > \dot{\varphi}_c(\varphi_0) = \sqrt{\frac{2g}{R}(1 - \sin\varphi_0)},
 \label{eq:crit_rate}
 \end{equation}
-with $\dot{\varphi}_0 > 0$ for a growing $\varphi$. Otherwise, $\dot{\varphi} = 0$ in Eq.~\eqref{eq:energy_fixed} gives the turning points, $\varphi_{\max} = \arcsin(\sin\varphi_0 + R\dot{\varphi}_0^2 / (2g))$ and $\varphi_{\min} = -\pi - \varphi_{\max}$. The limit $E_0 = mgR$ is the separatrix $\dot{\varphi} = \pm\sqrt{(2g/R)(1 - \sin\varphi)}$ shown in Fig.~\ref{fig:phase}.
+with $\dot{\varphi}_0 > 0$ for a growing $\varphi$. Otherwise, $\dot{\varphi} = 0$ in Eq.~\eqref{eq:energy_fixed} gives the turning points, $\varphi_{\max} = \arcsin(\sin\varphi_0 + R\dot{\varphi}_0^2 / (2g))$ and $\varphi_{\min} = -\pi - \varphi_{\max}$. The limit $E_0^P = mgR$ is the separatrix $\dot{\varphi} = \pm\sqrt{(2g/R)(1 - \sin\varphi)}$ shown in Fig.~\ref{fig:phase}.
 
 \subsection{Linearized Equation}\label{sec:lin}
 With $\varphi=\delta-\pi/2$, $\cos\varphi=\sin\delta$, $\sin\varphi=-\cos\delta$ and $\ddph=\ddot\delta$, so Eq.~\eqref{eq:eom} becomes the exact $\ddot\delta=-(g/R)\sin\delta+\Omega^2(1+\sin\delta)\cos\delta$. For $\delta\ll1$, $\sin\delta\approx\delta$ and $\cos\delta\approx1$, which gives $\ddot\delta=-(g/R)\delta+\Omega^2(1+\delta)$. The hypothesis $A^2\ll g/(R\omega^2)$ means $\Omega^2\le A^2\omega^2\ll g/R$, so $\Omega^2\delta$ is dropped against $(g/R)\delta$. Using $\sin^2\omega t=\tfrac12(1-\cos2\omega t)$:
@@ -187,7 +187,7 @@ Equation~\eqref{eq:eom} has to be written for the state vector $X=[\varphi,\dph]
 \begin{equation}
 \frac{d}{dt}\begin{pmatrix}X_1\\X_2\end{pmatrix}=f(t,X)=\begin{pmatrix}X_2\\[2pt]-\dfrac gR\cos X_1-A^2\omega^2\sin^2(\omega t)\,(1+\cos X_1)\sin X_1\end{pmatrix} .\label{eq:state}
 \end{equation}
-This is the function \texttt{diffeq(t,X,g,omega,R,A)} of \texttt{main.m}, and Eq.~\eqref{eq:lin} is \texttt{diffeqlin}, with $X=[\delta,\dot\delta]^T$. The options are \texttt{RelTol} $=10^{-8}$, \texttt{AbsTol} $=10^{-10}$ (the default $10^{-6}$ is not small against $\delta\sim10^{-3}$) and \texttt{MaxStep} $=\SI{0.01}{s}$, so every swing has many points. We compute the forces and energies afterwards from $\varphi$ and $\dph$ with Eqs.~\eqref{eq:Fcent}--\eqref{eq:N2} and \eqref{eq:E}. The position in the stationary frame follows from Eqs.~\eqref{eq:theta}--\eqref{eq:r}: $x_1=x\cos\theta$, $y_1=R\sin\varphi$, $z_1=-x\sin\theta$. A fixed-loop case counts as rotating if $\dph$ never changes sign and as oscillating otherwise, and the periods come from the times of the extrema of $\varphi$.
+This is the function \texttt{diffeq(t,X,g,omega,R,A)} of \texttt{main.m}, and Eq.~\eqref{eq:lin} is \texttt{diffeqlin}, with $X=[\delta,\dot\delta]^T$. The options are \texttt{RelTol} $=10^{-8}$, \texttt{AbsTol} $=10^{-10}$ (the default $10^{-6}$ is not small against $\delta\sim10^{-3}$) and \texttt{MaxStep} $=\SI{0.01}{s}$, so every swing has many points. We compute the forces and energies afterwards from $\varphi$ and $\dph$ with Eqs.~\eqref{eq:Fcent}--\eqref{eq:N2} and \eqref{eq:E}. The position in the stationary frame follows from Eqs.~\eqref{eq:theta}--\eqref{eq:r}: $x_0=x\cos\theta$, $y_0=R\sin\varphi$, $z_0=-x\sin\theta$. A fixed-loop case counts as rotating if $\dph$ never changes sign and as oscillating otherwise, and the periods come from the times of the extrema of $\varphi$.
 
 In all cases $g=\SI{9.81}{m/s^2}$ and $m=\SI{1}{kg}$. The oscillating loop uses $A=\pi$, $R=\SI{1}{m}$, $\omega=\SI{0.1}{rad/s}$, $\varphi(0)=\dph(0)=0$ and $t\in[0,3T]$ with $T=\SI{62.83}{s}$. The fixed loop uses $A=0$ and $R=\SI{1}{m}$, and the linearized study $A=0.1$, $R=\SI{0.01}{m}$ and $\omega_n=\SI{31.32}{rad/s}$. The guidelines do not fix the duration of these two studies, so we take $t\in[0,10]$~s, which is longer than any period of the fixed loop.
 
@@ -215,7 +215,7 @@ Figure~\ref{fig:inertia} shows the three inertia forces. Each has its own axis b
 Only the centrifugal force has a component along $\ephi$ and enters the equation of motion, Eq.~\eqref{eq:eom}, which is why $\varphi$ moves almost as in a pendulum. The Euler and Coriolis forces are along $\kk$, normal to the plane of the wire, so they do not move $P$ along the wire. They are balanced by $N_2$ (Eq.~\eqref{eq:N2}), and this is why $N_2$ in Fig.~\ref{fig:inertia}d is almost the opposite of $F_{Cor}$, the Euler force being small.
 
 \subsection{Energy}\label{sec:energy}
-In Fig.~\ref{fig:energy}(a, b), $E_k$ and $E_p$ are exchanged in each swing: $E_k$ goes from zero at the turning points to its maximum, \SI{9.83}{J}, at the bottom, where $E_p$ is minimum (\SI{-9.81}{J}), as in a pendulum. The total energy is not constant (Fig.~\ref{fig:energy}c, d): $E-E_0$ varies between \SI{-0.08}{J} and \SI{0.31}{J}. The reason is Eq.~\eqref{eq:Edot}. The wire moves with the plane, so $N_2$ does work: when $P$ moves away from the rotation axis the wire gives energy to $P$, and when $P$ goes back to the axis the wire takes it back, so $E$ is high when $P$ is far from the axis and low when it is near (Fig.~\ref{fig:energy}d). When the plane stops, $\Omega=0$ and $E$ is again almost its initial value: $E-E_0$ is \SI{0.001}{J}, \SI{0.000}{J} and \SI{0.001}{J} at $T$, $2T$ and $3T$. This is why the amplitude of $\varphi$ does not change in Fig.~\ref{fig:angle}a.
+In Fig.~\ref{fig:energy}(a, b), $K_0^P$ and $V_0^P$ are exchanged in each swing: $K_0^P$ goes from zero at the turning points to its maximum, \SI{9.83}{J}, at the bottom, where $V_0^P$ is minimum (\SI{-9.81}{J}), as in a pendulum. The total energy is not constant (Fig.~\ref{fig:energy}c, d): $E_0^P-E_{0,1}^P$ varies between \SI{-0.08}{J} and \SI{0.31}{J}. The reason is Eq.~\eqref{eq:Edot}. The wire moves with the plane, so $N_2$ does work: when $P$ moves away from the rotation axis the wire gives energy to $P$, and when $P$ goes back to the axis the wire takes it back, so $E_0^P$ is high when $P$ is far from the axis and low when it is near (Fig.~\ref{fig:energy}d). When the plane stops, $\Omega=0$ and $E_0^P$ is again almost its initial value: $E_0^P-E_{0,1}^P$ is \SI{0.001}{J}, \SI{0.000}{J} and \SI{0.001}{J} at $T$, $2T$ and $3T$. This is why the amplitude of $\varphi$ does not change in Fig.~\ref{fig:angle}a.
 
 \begin{figure}[!htb]
 \centering
@@ -224,12 +224,12 @@ In Fig.~\ref{fig:energy}(a, b), $E_k$ and $E_p$ are exchanged in each swing: $E_
 \end{figure}
 
 \subsection{Trajectory in the Stationary Frame}
-Figure~\ref{fig:traj} shows the trajectory of $P$ seen from the stationary frame. $P$ always stays on the surface swept by the wire when it turns about the vertical axis, which is a torus without a hole because the wire touches the axis at $O$. Each swing draws one petal, from the axis ($x=0$, $\varphi=-\pi$) to $x=2R$ ($\varphi=0$) and back. The petals are spread around the axis because the plane turns from $\theta=0$ to $\theta=2\pi$ at $t=T/2$ and back to $0$ at $t=T$ (Eq.~\eqref{eq:theta}). Near $\theta=0$ and $\theta=2\pi$ the plane stops and reverses its rotation, so many petals accumulate in the same direction ($+x_1$ in Fig.~\ref{fig:traj}b), while near $\theta=\pi$ the plane turns fastest ($\Omega$ is maximum) and the petals are more separated. The three periods of the plane draw almost the same figure, with slightly displaced petals because $T$ is not a multiple of the swing period. The video \texttt{trajectory\_video.avi}, generated by \texttt{main.m}, shows the first period.
+Figure~\ref{fig:traj} shows the trajectory of $P$ seen from the stationary frame. $P$ always stays on the surface swept by the wire when it turns about the vertical axis, which is a torus without a hole because the wire touches the axis at $O$. Each swing draws one petal, from the axis ($x=0$, $\varphi=-\pi$) to $x=2R$ ($\varphi=0$) and back. The petals are spread around the axis because the plane turns from $\theta=0$ to $\theta=2\pi$ at $t=T/2$ and back to $0$ at $t=T$ (Eq.~\eqref{eq:theta}). Near $\theta=0$ and $\theta=2\pi$ the plane stops and reverses its rotation, so many petals accumulate in the same direction ($+x_0$ in Fig.~\ref{fig:traj}b), while near $\theta=\pi$ the plane turns fastest ($\Omega$ is maximum) and the petals are more separated. The three periods of the plane draw almost the same figure, with slightly displaced petals because $T$ is not a multiple of the swing period. The video \texttt{trajectory\_video.avi}, generated by \texttt{main.m}, shows the first period.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\textwidth]{trajectory.png}
-\caption{Trajectory of $P$ in $Ox_1y_1z_1$ for $t\in[0,3T]$, with the start marked by a dot. (a) Three-dimensional view with the wire at $t=0$ (dashed) and the rotation axis (dash-dot). (b) View from above.}\label{fig:traj}
+\caption{Trajectory of $P$ in $S_0$ for $t\in[0,3T]$, with the start marked by a dot. (a) Three-dimensional view with the wire at $t=0$ (dashed) and the rotation axis (dash-dot). (b) View from above.}\label{fig:traj}
 \end{figure}
 
 \subsection{Fixed Loop: Phase Portrait and Validation of the Criterion}
@@ -261,7 +261,7 @@ $\pi/2$ & 3 & 0.000 & rotates & rotates\\
 \end{tabular}
 \end{table}
 
-The closed curves, around the stable equilibrium $(-\pi/2,\,0)$, are oscillations. The open curves are the cases that start above the separatrix, $(\pi/4,\,3)$, $(\pi/2,\,1.5)$ and $(\pi/2,\,3)$. In these cases $P$ has enough energy to pass the top of the loop ($E_0>mgR$), $\dph$ never becomes zero and $\varphi$ increases steadily, with $P$ going slowest at the top and fastest at the bottom. The speed alone is not enough: $(0,\,3)$ has the same $\dph_0$ as $(\pi/4,\,3)$ but less potential energy, and it oscillates. The period of the oscillations grows from \SI{2.37}{s} to \SI{3.36}{s} as the curves get closer to the separatrix, because $P$ spends more time near the top, where it moves slowly. The case $(\pi/2,\,0)$ starts at rest at the top of the loop, which is an unstable equilibrium position ($\ddph=0$), so it stays at rest in the simulation, although any disturbance would make it fall.
+The closed curves, around the stable equilibrium $(-\pi/2,\,0)$, are oscillations. The open curves are the cases that start above the separatrix, $(\pi/4,\,3)$, $(\pi/2,\,1.5)$ and $(\pi/2,\,3)$. In these cases $P$ has enough energy to pass the top of the loop ($E_0^P>mgR$), $\dph$ never becomes zero and $\varphi$ increases steadily, with $P$ going slowest at the top and fastest at the bottom. The speed alone is not enough: $(0,\,3)$ has the same $\dph_0$ as $(\pi/4,\,3)$ but less potential energy, and it oscillates. The period of the oscillations grows from \SI{2.37}{s} to \SI{3.36}{s} as the curves get closer to the separatrix, because $P$ spends more time near the top, where it moves slowly. The case $(\pi/2,\,0)$ starts at rest at the top of the loop, which is an unstable equilibrium position ($\ddph=0$), so it stays at rest in the simulation, although any disturbance would make it fall.
 
 \subsection{Linearized Against Full Equation}
 Figure~\ref{fig:lin}a shows the percentage error between the linearized and the full solution for the three values of $\omega$,
@@ -283,7 +283,7 @@ Outside resonance, the error is much smaller for $\omega=\omega_n/4$ (below 2\%)
 \section{Conclusions}\label{sec:conc}
 \begin{itemize}[noitemsep,topsep=2pt]
 \item The particle has one degree of freedom, $\varphi$, and Eq.~\eqref{eq:eom} contains only gravity and the centrifugal force. The Coriolis force is the largest inertia force, but it only loads the wire, through $N_2$. For $\omega=\SI{0.1}{rad/s}$ the rotation is slow, so $P$ swings as a pendulum of \ang{90} amplitude and the wire carries up to $3mg$ in its plane.
-\item As we have derived in Eq.~\eqref{eq:Edot}, $dE/dt=-\Omega xN_2$. This means that the mechanical energy is not conserved, because the moving wire does work, and it is conserved only for $A=0$. $E$ changes in each swing but returns almost to its initial value when the plane stops.
+\item As we have derived in Eq.~\eqref{eq:Edot}, $dE_0^P/dt=-\Omega xN_2$. This means that the mechanical energy is not conserved, because the moving wire does work, and it is conserved only for $A=0$. $E_0^P$ changes in each swing but returns almost to its initial value when the plane stops.
 \item On a fixed loop, the energy gives the critical rate $\dph_c=\sqrt{(2g/R)(1-\sin\varphi_0)}$, and all the simulated cases confirm it. Only three of the nine initial conditions rotate.
 \item We have seen that the linearized equation is a forced oscillator with a resonance at $\omega=\tfrac12\sqrt{g/R}$, where $\delta\ll1$ fails. Away from resonance it also loses accuracy with time, and the error is below 2\% only for $\omega=\omega_n/4$.
 \end{itemize}

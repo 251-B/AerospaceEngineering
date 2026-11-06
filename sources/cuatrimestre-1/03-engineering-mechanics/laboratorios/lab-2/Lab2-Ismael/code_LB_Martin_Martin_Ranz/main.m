@@ -45,9 +45,9 @@ Feul = m*Omdot.*x;
 Fcor = -2*m*Om*R.*phidot.*sin(phi);
 N1 = -m*R*phidot.^2 + m*g*sin(phi) - m*Om.^2.*x.*cos(phi);
 N2 = 2*m*Om*R.*phidot.*sin(phi) - m*Omdot.*x;
-Ek = 0.5*m*(R^2*phidot.^2 + Om.^2.*x.^2);
-Ep = m*g*R*sin(phi);
-E = Ek + Ep;
+K = 0.5*m*(R^2*phidot.^2 + Om.^2.*x.^2);
+V = m*g*R*sin(phi);
+E = K + V;
 
 Tsw = mean(diff(t(islocalmin(phi))));
 
@@ -58,9 +58,9 @@ fprintf('swing period = %.2f s, small oscillations = %.2f s\n', Tsw, 2*pi*sqrt(R
 fprintf('N1 in [%.2f, %.2f] N, -3mg = %.2f N\n', min(N1), max(N1), -3*m*g);
 fprintf('max|N2| = %.2f N\n', max(abs(N2)));
 fprintf('max F_cent = %.2f N, max|F_Euler| = %.2f N, max|F_Cor| = %.2f N\n', max(abs(Fcent)), max(abs(Feul)), max(abs(Fcor)));
-fprintf('max Ek = %.2f J, Ep in [%.2f, %.2f] J\n', max(Ek), min(Ep), max(Ep));
-fprintf('E - E0 in [%.2f, %.2f] J\n', min(E - E(1)), max(E - E(1)));
-fprintf('E - E0 at T, 2T, 3T = %.3f, %.3f, %.3f J\n', interp1(t, E, T) - E(1), interp1(t, E, 2*T) - E(1), E(end) - E(1));
+fprintf('max K = %.2f J, V in [%.2f, %.2f] J\n', max(K), min(V), max(V));
+fprintf('E - E(0) in [%.2f, %.2f] J\n', min(E - E(1)), max(E - E(1)));
+fprintf('E - E(0) at T, 2T, 3T = %.3f, %.3f, %.3f J\n', interp1(t, E, T) - E(1), interp1(t, E, 2*T) - E(1), E(end) - E(1));
 
 zoom5 = [T/4 - 5, T/4 + 5];
 
@@ -123,32 +123,32 @@ try
     theme(fig, 'light');
 end
 subplot(2, 2, 1)
-plot(t, Ek, 'b', 'LineWidth', 0.5); hold on
-plot(t, Ep, 'r', 'LineWidth', 0.5)
+plot(t, K, 'b', 'LineWidth', 0.5); hold on
+plot(t, V, 'r', 'LineWidth', 0.5)
 xlabel('$t$ (s)'); ylabel('Energy (J)'); title('(a)')
-legend('$E_k$', '$E_p$', 'Location', 'north', 'Orientation', 'horizontal')
+legend('$K_0^P$', '$V_0^P$', 'Location', 'north', 'Orientation', 'horizontal')
 xlim([0 3*T]); ylim([-12 20]); grid on
 subplot(2, 2, 2)
-plot(t, Ek, 'b'); hold on
-plot(t, Ep, 'r')
+plot(t, K, 'b'); hold on
+plot(t, V, 'r')
 xlabel('$t$ (s)'); ylabel('Energy (J)'); title('(b)')
-legend('$E_k$', '$E_p$', 'Location', 'north', 'Orientation', 'horizontal')
+legend('$K_0^P$', '$V_0^P$', 'Location', 'north', 'Orientation', 'horizontal')
 xlim(zoom5); ylim([-12 20]); grid on
 subplot(2, 2, 3)
 plot(t, E - E(1), 'k', 'LineWidth', 0.5)
-xlabel('$t$ (s)'); ylabel('$E-E_0$ (J)'); title('(c)')
+xlabel('$t$ (s)'); ylabel('$E_0^P-E_{0,1}^P$ (J)'); title('(c)')
 xlim([0 3*T]); ylim([-0.1 0.35]); grid on
 subplot(2, 2, 4)
 plot(t, E - E(1), 'k')
-xlabel('$t$ (s)'); ylabel('$E-E_0$ (J)'); title('(d)')
+xlabel('$t$ (s)'); ylabel('$E_0^P-E_{0,1}^P$ (J)'); title('(d)')
 xlim(zoom5); ylim([-0.1 0.35]); grid on
 exportgraphics(fig, 'figures/energies.png', 'Resolution', 300)
 
 %% Point 6: trajectory in the fixed frame
 th = A*(1 - cos(w*t));
-x1 = x.*cos(th);
-y1 = R*sin(phi);
-z1 = -x.*sin(th);
+x0 = x.*cos(th);
+y0 = R*sin(phi);
+z0 = -x.*sin(th);
 
 ang = linspace(0, 2*pi, 200);
 fig = figure('Units', 'centimeters', 'Position', [2 2 17 7], 'Color', 'w');
@@ -156,17 +156,17 @@ try
     theme(fig, 'light');
 end
 subplot(1, 2, 1)
-plot3(x1, z1, y1, 'b', 'LineWidth', 0.35); hold on
+plot3(x0, z0, y0, 'b', 'LineWidth', 0.35); hold on
 plot3(R*(1 + cos(ang)), 0*ang, R*sin(ang), 'k--')
 plot3([0 0], [0 0], [-1.3 1.3]*R, 'k-.')
-plot3(x1(1), z1(1), y1(1), 'ko', 'MarkerFaceColor', 'k')
-xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); zlabel('$y_1$ (m)'); title('(a)')
+plot3(x0(1), z0(1), y0(1), 'ko', 'MarkerFaceColor', 'k')
+xlabel('$x_0$ (m)'); ylabel('$z_0$ (m)'); zlabel('$y_0$ (m)'); title('(a)')
 axis equal; grid on; view(35, 20)
 set(gca, 'YDir', 'reverse')     % right-handed axes
 subplot(1, 2, 2)
-plot(x1, z1, 'b', 'LineWidth', 0.35); hold on
-plot(x1(1), z1(1), 'ko', 'MarkerFaceColor', 'k')
-xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); title('(b)')
+plot(x0, z0, 'b', 'LineWidth', 0.35); hold on
+plot(x0(1), z0(1), 'ko', 'MarkerFaceColor', 'k')
+xlabel('$x_0$ (m)'); ylabel('$z_0$ (m)'); title('(b)')
 axis equal; grid on
 set(gca, 'YDir', 'reverse')
 exportgraphics(fig, 'figures/trajectory.png', 'Resolution', 300)
@@ -183,17 +183,17 @@ try
 end
 plot3([0 0], [0 0], [-1.3 1.3]*R, 'k-.'); hold on
 hWire = plot3(R*(1 + cos(ang)), 0*ang, R*sin(ang), 'k', 'LineWidth', 1.5);
-hPath = plot3(x1(1), z1(1), y1(1), 'b', 'LineWidth', 0.5);
-hP = plot3(x1(1), z1(1), y1(1), 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 7);
+hPath = plot3(x0(1), z0(1), y0(1), 'b', 'LineWidth', 0.5);
+hP = plot3(x0(1), z0(1), y0(1), 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 7);
 axis equal; grid on; view(35, 20)
 axis([-2.1 2.1 -2.1 2.1 -1.3 1.3]*R)
 set(gca, 'YDir', 'reverse')
-xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); zlabel('$y_1$ (m)')
+xlabel('$x_0$ (m)'); ylabel('$z_0$ (m)'); zlabel('$y_0$ (m)')
 for k = 1:length(tv)
     n = find(t <= tv(k), 1, 'last');
     set(hWire, 'XData', R*(1 + cos(ang))*cos(th(n)), 'YData', -R*(1 + cos(ang))*sin(th(n)))
-    set(hPath, 'XData', x1(1:n), 'YData', z1(1:n), 'ZData', y1(1:n))
-    set(hP, 'XData', x1(n), 'YData', z1(n), 'ZData', y1(n))
+    set(hPath, 'XData', x0(1:n), 'YData', z0(1:n), 'ZData', y0(1:n))
+    set(hP, 'XData', x0(n), 'YData', z0(n), 'ZData', y0(n))
     title(sprintf('$t$ = %.1f s, $\\theta$ = %.2f rad', t(n), th(n)))
     writeVideo(vid, print(fig, '-RGBImage', '-r0'))     % same frame size
 end

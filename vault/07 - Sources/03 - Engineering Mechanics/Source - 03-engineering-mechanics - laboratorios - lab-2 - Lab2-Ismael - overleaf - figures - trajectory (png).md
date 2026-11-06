@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/trajectory.png"
 kind: laboratorio
 status: not-referenced
-bytes: 227434
+bytes: 229243
 ---
 
 # Source: trajectory.png
@@ -18,7 +18,7 @@ bytes: 227434
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/trajectory.png`
 - **Kind:** laboratorio
-- **Size:** 227.4 kB
+- **Size:** 229.2 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by
