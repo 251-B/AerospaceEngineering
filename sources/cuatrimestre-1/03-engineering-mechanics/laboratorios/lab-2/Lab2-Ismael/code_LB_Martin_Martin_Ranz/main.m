@@ -238,9 +238,13 @@ for i = 1:3
         end
         fprintf('%.2f %.1f %.3f %s %s %.2f\n', p0, pd0, pdc, pred, sim_result, Tosc);
         % phi wrapped to one turn
-        pw = mod(X7(:, 1) + 3*pi/2, 2*pi) - 3*pi/2;
+        ip = true(size(t7));
+        if ~isnan(Tosc)
+            ip = t7 <= Tosc;           % one period
+        end
+        pw = mod(X7(ip, 1) + 3*pi/2, 2*pi) - 3*pi/2;
         pw([false; abs(diff(pw)) > pi]) = NaN;
-        plot(pw, X7(:, 2), styles{j}, 'Color', colors{i}, 'DisplayName', sprintf('$\\varphi_0=%s$, $\\dot\\varphi_0=%.1f$', phi_names(i), pd0))
+        plot(pw, X7(ip, 2), styles{j}, 'Color', colors{i}, 'DisplayName', sprintf('$\\varphi_0=%s$, $\\dot\\varphi_0=%.1f$', phi_names(i), pd0))
         plot(p0, pd0, 'o', 'Color', colors{i}, 'MarkerFaceColor', colors{i}, 'HandleVisibility', 'off')
     end
 end
