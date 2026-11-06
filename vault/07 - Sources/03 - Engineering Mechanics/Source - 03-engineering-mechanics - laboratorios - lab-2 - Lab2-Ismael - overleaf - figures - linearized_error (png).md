@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/linearized_error.png"
 kind: laboratorio
 status: not-referenced
-bytes: 248085
+bytes: 197128
 ---
 
 # Source: linearized_error.png
@@ -18,7 +18,7 @@ bytes: 248085
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/linearized_error.png`
 - **Kind:** laboratorio
-- **Size:** 248.1 kB
+- **Size:** 197.1 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

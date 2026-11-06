@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/angle_reactions.png"
 kind: laboratorio
 status: not-referenced
-bytes: 159533
+bytes: 170020
 ---
 
 # Source: angle_reactions.png
@@ -18,7 +18,7 @@ bytes: 159533
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/angle_reactions.png`
 - **Kind:** laboratorio
-- **Size:** 159.5 kB
+- **Size:** 170.0 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

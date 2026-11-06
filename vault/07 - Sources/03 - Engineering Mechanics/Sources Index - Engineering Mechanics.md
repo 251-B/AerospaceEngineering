@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 196
+- Files: 198
 - Referenced by at least one note (a mention counts): 16
-- Not referenced yet: 180
+- Not referenced yet: 182
 - Build artifacts: 0
 - Working files: 0
 
@@ -252,6 +252,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - Lab2Mecánica (pdf)\|Lab2Mecánica.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - Overleaf_Lab2_LB (zip)\|Overleaf_Lab2_LB.zip]] | laboratorio | not-referenced |
 
 ## laboratorios/lab-2/Lab2-Ismael/code_LB_Martin_Martin_Ranz
@@ -273,6 +274,7 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - main (tex)\|main.tex]] | laboratorio | referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - references (bib)\|references.bib]] | laboratorio | referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - overleaf - sketch (png)\|sketch.png]] | laboratorio | not-referenced |
 
 ## laboratorios/lab-2/Lab2-Ismael/overleaf/figures
 

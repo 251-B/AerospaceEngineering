@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/inertia_forces.png"
 kind: laboratorio
 status: not-referenced
-bytes: 135166
+bytes: 144522
 ---
 
 # Source: inertia_forces.png
@@ -18,7 +18,7 @@ bytes: 135166
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/inertia_forces.png`
 - **Kind:** laboratorio
-- **Size:** 135.2 kB
+- **Size:** 144.5 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

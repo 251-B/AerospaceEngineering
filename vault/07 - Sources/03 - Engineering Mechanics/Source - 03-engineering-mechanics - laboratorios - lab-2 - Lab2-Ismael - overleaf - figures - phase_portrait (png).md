@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/phase_portrait.png"
 kind: laboratorio
 status: not-referenced
-bytes: 179502
+bytes: 187016
 ---
 
 # Source: phase_portrait.png
@@ -18,7 +18,7 @@ bytes: 179502
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/phase_portrait.png`
 - **Kind:** laboratorio
-- **Size:** 179.5 kB
+- **Size:** 187.0 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/energies.png"
 kind: laboratorio
 status: not-referenced
-bytes: 129133
+bytes: 137733
 ---
 
 # Source: energies.png
@@ -18,7 +18,7 @@ bytes: 129133
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/figures/energies.png`
 - **Kind:** laboratorio
-- **Size:** 129.1 kB
+- **Size:** 137.7 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by
