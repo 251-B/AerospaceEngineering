@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/overleaf/main.tex"
 kind: laboratorio
 status: referenced
-bytes: 29961
+bytes: 29966
 ---
 
 # Source: main.tex
