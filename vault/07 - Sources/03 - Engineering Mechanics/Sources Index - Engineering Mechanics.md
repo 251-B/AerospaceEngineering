@@ -253,7 +253,7 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - Lab2Mecánica (pdf)\|Lab2Mecánica.pdf]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - Overleaf_Lab2_LB (zip)\|Overleaf_Lab2_LB.zip]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2-Ismael - Lab2Mejorado2_0 (zip)\|Lab2Mejorado2_0.zip]] | laboratorio | not-referenced |
 
 ## laboratorios/lab-2/Lab2-Ismael/code_LB_Martin_Martin_Ranz
 

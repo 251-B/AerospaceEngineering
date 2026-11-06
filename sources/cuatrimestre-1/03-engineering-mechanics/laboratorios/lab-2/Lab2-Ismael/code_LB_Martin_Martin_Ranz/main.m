@@ -249,9 +249,8 @@ for i = 1:3
     end
 end
 ps = linspace(-3*pi/2, pi/2, 400);
-plot(ps, sqrt(2*g/R*(1 - sin(ps))), 'k-.', 'DisplayName', 'separatrix')
+plot(ps, sqrt(2*g/R*(1 - sin(ps))), 'k-.', 'DisplayName', '$|\dot\varphi_0|=\sqrt{(2g/R)(1-\sin\varphi_0)}$')
 plot(ps, -sqrt(2*g/R*(1 - sin(ps))), 'k-.', 'HandleVisibility', 'off')
-plot(-pi/2, 0, 'k+', 'MarkerSize', 8, 'DisplayName', 'stable equilibrium')
 xlabel('$\varphi$ (rad)'); ylabel('$\dot\varphi$ (rad/s)')
 xlim([-3*pi/2 pi/2]); ylim([-8 8]); grid on
 xticks(-3*pi/2:pi/2:pi/2); xticklabels({'$-3\pi/2$', '$-\pi$', '$-\pi/2$', '$0$', '$\pi/2$'})
