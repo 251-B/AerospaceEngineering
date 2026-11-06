@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" width="100%" class="fig-kit" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="Classification of materials by electrical conductivity">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="40.0" y1="212.0" x2="40.0" y2="218.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="40.0" y="234.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10<tspan baseline-shift="super" font-size="72%">−20</tspan></text>
+<line x1="124.0" y1="212.0" x2="124.0" y2="218.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="124.0" y="234.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10<tspan baseline-shift="super" font-size="72%">−16</tspan></text>
+<line x1="208.0" y1="212.0" x2="208.0" y2="218.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="208.0" y="234.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10<tspan baseline-shift="super" font-size="72%">−12</tspan></text>
+<line x1="292.0" y1="212.0" x2="292.0" y2="218.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="292.0" y="234.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10<tspan baseline-shift="super" font-size="72%">−8</tspan></text>
+<line x1="376.0" y1="212.0" x2="376.0" y2="218.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="376.0" y="234.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10<tspan baseline-shift="super" font-size="72%">−4</tspan></text>
+<line x1="460.0" y1="212.0" x2="460.0" y2="218.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="460.0" y="234.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="544.0" y1="212.0" x2="544.0" y2="218.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="544.0" y="234.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10<tspan baseline-shift="super" font-size="72%">4</tspan></text>
+<line x1="628.0" y1="212.0" x2="628.0" y2="218.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="628.0" y="234.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10<tspan baseline-shift="super" font-size="72%">8</tspan></text>
+<line x1="30.0" y1="212.0" x2="649.0" y2="212.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M649.0,212.0 L640.7,215.5 L640.7,208.5 Z" fill="#8a94a6"/>
+<text x="653.0" y="250.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">σ in (Ω·m)⁻¹ (logarithmic scale)</text>
+<rect x="40.0" y="66.0" width="210.0" height="28.0" fill="#f59e0b" fill-opacity="0.35" stroke="#f59e0b" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="334.0" y="116.0" width="210.0" height="28.0" fill="#10b981" fill-opacity="0.35" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="596.5" y="166.0" width="21.0" height="28.0" fill="#ec4899" fill-opacity="0.35" stroke="#ec4899" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="260.0" y="85.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Insulators: 10⁻²⁰ to 10⁻¹⁰, e.g. polyethylene</text>
+<text x="324.0" y="135.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">Semiconductors: 10⁻⁶ to 10⁴, e.g. Si, Ge</text>
+<text x="586.5" y="185.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">Conductors: about 10⁷, e.g. metals</text>
+</g></svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="BaTiO3 unit cell above and below the Curie temperature">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="60.0" y1="100.0" x2="170.0" y2="100.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="60.0" y1="100.0" x2="104.0" y2="56.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="170.0" y1="100.0" x2="170.0" y2="210.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="170.0" y1="100.0" x2="214.0" y2="56.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="170.0" y1="210.0" x2="60.0" y2="210.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="170.0" y1="210.0" x2="214.0" y2="166.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="60.0" y1="210.0" x2="60.0" y2="100.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="60.0" y1="210.0" x2="104.0" y2="166.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="104.0" y1="56.0" x2="214.0" y2="56.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="214.0" y1="56.0" x2="214.0" y2="166.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="214.0" y1="166.0" x2="104.0" y2="166.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="104.0" y1="166.0" x2="104.0" y2="56.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<circle cx="60.0" cy="100.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="170.0" cy="100.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="170.0" cy="210.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="60.0" cy="210.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="104.0" cy="56.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="214.0" cy="56.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="214.0" cy="166.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="104.0" cy="166.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="115.0" cy="155.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="159.0" cy="111.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="82.0" cy="133.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="192.0" cy="133.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="137.0" cy="78.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="137.0" cy="188.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="137.0" cy="133.0" r="6.5" fill="#4b5563" fill-opacity="0.9" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="137.0" y="262.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">T > 120 °C: cubic</text>
+<text x="160.0" y="288.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">no permanent dipole</text>
+<line x1="400.0" y1="92.0" x2="510.0" y2="92.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="400.0" y1="92.0" x2="444.0" y2="48.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="510.0" y1="92.0" x2="510.0" y2="216.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="510.0" y1="92.0" x2="554.0" y2="48.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="510.0" y1="216.0" x2="400.0" y2="216.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="510.0" y1="216.0" x2="554.0" y2="172.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="400.0" y1="216.0" x2="400.0" y2="92.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="400.0" y1="216.0" x2="444.0" y2="172.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="444.0" y1="48.0" x2="554.0" y2="48.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="554.0" y1="48.0" x2="554.0" y2="172.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="554.0" y1="172.0" x2="444.0" y2="172.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="444.0" y1="172.0" x2="444.0" y2="48.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<circle cx="400.0" cy="92.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="510.0" cy="92.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="510.0" cy="216.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="400.0" cy="216.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="444.0" cy="48.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="554.0" cy="48.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="554.0" cy="172.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="444.0" cy="172.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="455.0" cy="160.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="499.0" cy="116.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="422.0" cy="138.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="532.0" cy="138.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="477.0" cy="76.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="477.0" cy="200.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="477.0" cy="120.0" r="6.5" fill="#4b5563" fill-opacity="0.9" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="477.0" y="268.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">T < 120 °C: tetragonal</text>
+<text x="480.0" y="286.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Ti and O displaced: permanent dipole</text>
+<line x1="610.0" y1="200.0" x2="610.0" y2="127.2" stroke="#10b981" stroke-width="3.0"/>
+<path d="M610.0,120.0 L614.7,131.1 L605.3,131.1 Z" fill="#10b981"/>
+<text x="622.0" y="164.0" fill="#10b981" font-size="15" font-weight="700" text-anchor="start">P<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<circle cx="60.0" cy="322.0" r="7.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="74.0" y="326.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">Ba²⁺</text>
+<circle cx="140.0" cy="322.0" r="6.0" fill="#4b5563" fill-opacity="0.9" stroke="#4b5563" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="152.0" y="326.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">Ti⁴⁺</text>
+<circle cx="220.0" cy="322.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="232.0" y="326.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">O²⁻</text>
+<text x="360.0" y="24.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">BaTiO<tspan baseline-shift="sub" font-size="72%">3</tspan>: spontaneous polarisation below the Curie temperature</text>
+</g></svg>

@@ -26,7 +26,7 @@ the vault currently reaches.
 
 ### 🔬 [[02 - Aerospace Materials I/Aerospace Materials I MOC|Aerospace Materials I]]
 * **Units (11):** bonding, crystal structures and defects, diffusion, phase diagrams, mechanical properties, electrical properties, magnetic and thermal properties, ceramics, polymers, composites, adhesives.
-* **Vault notes:** units 1-4 (Topic 4 complete: Sessions 7-10, with all 26 problems of the two phase-diagram sheets).
+* **Vault notes:** units 1-6 (Topic 4: Sessions 7-10 with all 26 problems of the two phase-diagram sheets; Topic 5: Sessions 11-12 with the 15 sheet problems; Topic 6: Session 13 with the 10 electrical problems of the Topic 6 and 7 sheet).
 * **NotebookLM notebook:** `9b324478-69e9-482c-813c-5709ec031820`
 * **Web pages:** `subjects/aerospace-materials-1/`
 

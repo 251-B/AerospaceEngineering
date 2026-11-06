@@ -30,3 +30,17 @@ class MaterialsProblemsTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Topic6ProblemsTests(unittest.TestCase):
+    def test_every_t6_note_is_a_card_with_four_blocks(self):
+        page, _ = bmp.build_page(6)
+        n = len(list(bmp.VAULT.glob("Problem - T6-*.md")))
+        self.assertEqual(n, bmp.TOPICS[6]["total"])
+        self.assertEqual(page.count('class="problem-card"'), n)
+        self.assertEqual(page.count('class="phase-step phase-'), 4 * n)
+        self.assertNotIn("Phase 1", page)
+
+    def test_t6_notes_do_not_show_the_word_phase(self):
+        for path in bmp.VAULT.glob("Problem - T6-*.md"):
+            self.assertNotIn("Phase", path.read_text(encoding="utf-8"), path.name)

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 641 446" width="100%" class="fig-kit" style="max-width:641px;margin:0 auto;display:block" role="img" aria-label="Ranking of the semiconductors of problem 10">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="124.0" y="32.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">a) Eg of the compound (eV)</text>
+<line x1="26.0" y1="160.0" x2="222.0" y2="160.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="26.0" y1="48.0" x2="26.0" y2="160.0" stroke="#8a94a6" stroke-width="1.2"/>
+<rect x="43.6" y="153.2" width="30.1" height="6.8" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="58.7" y="147.2" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.17</text>
+<text x="58.7" y="175.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">InSb</text>
+<circle cx="58.7" cy="194.0" r="10.0" fill="#3b82f6" fill-opacity="0.18" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="58.7" y="198.5" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">1</text>
+<rect x="109.0" y="103.2" width="30.1" height="56.8" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="124.0" y="97.2" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">1.42</text>
+<text x="124.0" y="175.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">GaAs</text>
+<circle cx="124.0" cy="194.0" r="10.0" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="124.0" y="198.5" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">2</text>
+<rect x="174.3" y="62.0" width="30.1" height="98.0" fill="#ec4899" fill-opacity="0.3" stroke="#ec4899" stroke-width="1.6" stroke-dasharray="4,3" stroke-linejoin="round"/>
+<text x="189.3" y="56.0" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">2.45</text>
+<text x="189.3" y="175.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">AlP</text>
+<circle cx="189.3" cy="194.0" r="10.0" fill="#ec4899" fill-opacity="0.18" stroke="#ec4899" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="189.3" y="198.5" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">3</text>
+<text x="124.0" y="218.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">AlP ≈ 2.45: extension</text>
+<text x="340.0" y="32.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">b) Eg (eV)</text>
+<line x1="242.0" y1="160.0" x2="438.0" y2="160.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="242.0" y1="48.0" x2="242.0" y2="160.0" stroke="#8a94a6" stroke-width="1.2"/>
+<rect x="268.5" y="153.2" width="45.1" height="6.8" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="291.0" y="147.2" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.17</text>
+<text x="291.0" y="175.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">InSb</text>
+<circle cx="291.0" cy="194.0" r="10.0" fill="#3b82f6" fill-opacity="0.18" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="291.0" y="198.5" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">1</text>
+<rect x="366.5" y="100.0" width="45.1" height="60.0" fill="#ec4899" fill-opacity="0.3" stroke="#ec4899" stroke-width="1.6" stroke-dasharray="4,3" stroke-linejoin="round"/>
+<text x="389.0" y="94.0" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">1.5</text>
+<text x="389.0" y="175.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">CdTe</text>
+<circle cx="389.0" cy="194.0" r="10.0" fill="#ec4899" fill-opacity="0.18" stroke="#ec4899" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="389.0" y="198.5" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">2</text>
+<text x="340.0" y="218.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">CdTe ≈ 1.5: extension</text>
+<text x="556.0" y="32.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">c) Ed in Ge (eV)</text>
+<line x1="458.0" y1="160.0" x2="654.0" y2="160.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="458.0" y1="48.0" x2="458.0" y2="160.0" stroke="#8a94a6" stroke-width="1.2"/>
+<rect x="484.5" y="88.3" width="45.1" height="71.7" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="507.0" y="82.3" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.0096</text>
+<text x="507.0" y="175.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Sb</text>
+<circle cx="507.0" cy="194.0" r="10.0" fill="#3b82f6" fill-opacity="0.18" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="507.0" y="198.5" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">1</text>
+<rect x="582.5" y="70.4" width="45.1" height="89.6" fill="#ec4899" fill-opacity="0.3" stroke="#ec4899" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="605.0" y="64.4" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.012</text>
+<text x="605.0" y="175.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">P</text>
+<circle cx="605.0" cy="194.0" r="10.0" fill="#ec4899" fill-opacity="0.18" stroke="#ec4899" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="605.0" y="198.5" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">2</text>
+<text x="124.0" y="237.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">d) Ed of P (eV)</text>
+<line x1="26.0" y1="365.0" x2="222.0" y2="365.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="26.0" y1="253.0" x2="26.0" y2="365.0" stroke="#8a94a6" stroke-width="1.2"/>
+<rect x="52.5" y="340.6" width="45.1" height="24.4" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="75.0" y="334.6" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.012</text>
+<text x="75.0" y="380.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Ge</text>
+<circle cx="75.0" cy="399.0" r="10.0" fill="#3b82f6" fill-opacity="0.18" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="75.0" y="403.5" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">1</text>
+<rect x="150.5" y="273.4" width="45.1" height="91.6" fill="#ec4899" fill-opacity="0.3" stroke="#ec4899" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="173.0" y="267.4" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.045</text>
+<text x="173.0" y="380.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Si</text>
+<circle cx="173.0" cy="399.0" r="10.0" fill="#ec4899" fill-opacity="0.18" stroke="#ec4899" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="173.0" y="403.5" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">2</text>
+<text x="124.0" y="423.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">μe: Ge 0.39, Si 0.135</text>
+<text x="340.0" y="237.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">e) Ea in Si (eV)</text>
+<line x1="242.0" y1="365.0" x2="438.0" y2="365.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="242.0" y1="253.0" x2="242.0" y2="365.0" stroke="#8a94a6" stroke-width="1.2"/>
+<rect x="268.5" y="338.5" width="45.1" height="26.5" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="291.0" y="332.5" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.045</text>
+<text x="291.0" y="380.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">B</text>
+<circle cx="291.0" cy="399.0" r="10.0" fill="#3b82f6" fill-opacity="0.18" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="291.0" y="403.5" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">1</text>
+<rect x="366.5" y="270.7" width="45.1" height="94.3" fill="#ec4899" fill-opacity="0.3" stroke="#ec4899" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="389.0" y="264.7" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.16</text>
+<text x="389.0" y="380.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">In</text>
+<circle cx="389.0" cy="399.0" r="10.0" fill="#ec4899" fill-opacity="0.18" stroke="#ec4899" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="389.0" y="403.5" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">2</text>
+<text x="556.0" y="237.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">f) Ed in Ge (eV)</text>
+<line x1="458.0" y1="365.0" x2="654.0" y2="365.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="458.0" y1="253.0" x2="458.0" y2="365.0" stroke="#8a94a6" stroke-width="1.2"/>
+<rect x="484.5" y="293.3" width="45.1" height="71.7" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="507.0" y="287.3" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.0096</text>
+<text x="507.0" y="380.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Sb</text>
+<circle cx="507.0" cy="399.0" r="10.0" fill="#3b82f6" fill-opacity="0.18" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="507.0" y="403.5" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">1</text>
+<rect x="582.5" y="270.2" width="45.1" height="94.8" fill="#ec4899" fill-opacity="0.3" stroke="#ec4899" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="605.0" y="264.2" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">0.0127</text>
+<text x="605.0" y="380.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">As</text>
+<circle cx="605.0" cy="399.0" r="10.0" fill="#ec4899" fill-opacity="0.18" stroke="#ec4899" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="605.0" y="403.5" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">2</text>
+<text x="320.0" y="436.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">badge 1 = highest conductivity; smaller gap or ionisation energy means more carriers (S31-S33, S40)</text>
+</g></svg>

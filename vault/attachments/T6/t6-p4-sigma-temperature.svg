@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 676 330" width="100%" class="fig-kit" style="max-width:676px;margin:0 auto;display:block" role="img" aria-label="Conductivity against temperature for a metal and an intrinsic semiconductor">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="60.0" y1="270.0" x2="350.2" y2="270.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M350.2,270.0 L342.0,273.5 L342.0,266.5 Z" fill="#8a94a6"/>
+<line x1="60.0" y1="270.0" x2="60.0" y2="45.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M60.0,45.0 L63.5,53.3 L56.5,53.3 Z" fill="#8a94a6"/>
+<line x1="60.0" y1="270.0" x2="60.0" y2="275.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="60.0" y="289.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="195.0" y1="270.0" x2="195.0" y2="275.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="195.0" y="289.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100</text>
+<line x1="330.0" y1="270.0" x2="330.0" y2="275.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="330.0" y="289.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">200</text>
+<line x1="55.0" y1="195.0" x2="60.0" y2="195.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="52.0" y="199.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">0.5</text>
+<line x1="55.0" y1="120.0" x2="60.0" y2="120.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="52.0" y="124.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1.0</text>
+<text x="350.2" y="304.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">T (°C)</text>
+<text x="68.0" y="49.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ / σ(25 °C)</text>
+<polyline points="60.0,105.4 66.8,108.5 73.5,111.6 80.2,114.5 87.0,117.3 93.8,120.0 100.5,122.6 107.2,125.1 114.0,127.6 120.8,130.0 127.5,132.2 134.2,134.5 141.0,136.6 147.8,138.7 154.5,140.7 161.2,142.6 168.0,144.5 174.8,146.4 181.5,148.1 188.2,149.9 195.0,151.6 201.8,153.2 208.5,154.8 215.2,156.3 222.0,157.9 228.8,159.3 235.5,160.8 242.2,162.2 249.0,163.5 255.8,164.8 262.5,166.1 269.2,167.4 276.0,168.6 282.8,169.8 289.5,171.0 296.2,172.2 303.0,173.3 309.8,174.4 316.5,175.4 323.2,176.5 330.0,177.5" fill="none" stroke="#3b82f6" stroke-width="2.6" stroke-linejoin="round"/>
+<circle cx="93.8" cy="120.0" r="4" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="161.2" cy="142.6" r="4" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<text x="169.2" y="132.6" fill="#3b82f6" font-size="12" font-weight="700" text-anchor="start">0.849 at 75 °C</text>
+<text x="150.0" y="14.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">metal (Cu): ρ = ρ0 (1 + αT)</text>
+<text x="150.0" y="30.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">σ decreases</text>
+<line x1="380.0" y1="270.0" x2="670.2" y2="270.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M670.2,270.0 L662.0,273.5 L662.0,266.5 Z" fill="#8a94a6"/>
+<line x1="380.0" y1="270.0" x2="380.0" y2="39.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M380.0,39.0 L383.5,47.3 L376.5,47.3 Z" fill="#8a94a6"/>
+<line x1="380.0" y1="270.0" x2="380.0" y2="275.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="380.0" y="289.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="515.0" y1="270.0" x2="515.0" y2="275.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="515.0" y="289.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100</text>
+<line x1="650.0" y1="270.0" x2="650.0" y2="275.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="650.0" y="289.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">200</text>
+<line x1="375.0" y1="187.5" x2="380.0" y2="187.5" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="372.0" y="191.5" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">50</text>
+<line x1="375.0" y1="105.0" x2="380.0" y2="105.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="372.0" y="109.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">100</text>
+<text x="670.2" y="304.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">T (°C)</text>
+<text x="388.0" y="43.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ / σ(25 °C)</text>
+<polyline points="380.0,269.5 386.8,269.4 393.5,269.2 400.2,269.0 407.0,268.7 413.8,268.4 420.5,268.0 427.2,267.5 434.0,266.9 440.8,266.3 447.5,265.5 454.2,264.6 461.0,263.5 467.8,262.3 474.5,260.9 481.2,259.3 488.0,257.4 494.8,255.3 501.5,253.0 508.2,250.3 515.0,247.3 521.8,244.0 528.5,240.3 535.2,236.1 542.0,231.5 548.8,226.4 555.5,220.8 562.2,214.6 569.0,207.9 575.8,200.5 582.5,192.4 589.2,183.6 596.0,174.1 602.8,163.8 609.5,152.6 616.2,140.5 623.0,127.5 629.8,113.5 636.5,98.5 643.2,82.4 650.0,65.2" fill="none" stroke="#ec4899" stroke-width="2.6" stroke-linejoin="round"/>
+<circle cx="413.8" cy="268.4" r="4" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<circle cx="481.2" cy="259.3" r="4" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="491.2" y="245.3" fill="#ec4899" font-size="12" font-weight="700" text-anchor="start">6.50 at 75 °C</text>
+<text x="470.0" y="14.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">intrinsic Ge: σ ∝ exp(−Eg / 2kT)</text>
+<text x="470.0" y="30.0" fill="#ec4899" font-size="12" font-weight="400" text-anchor="middle">σ increases</text>
+</g></svg>

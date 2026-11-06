@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 661 340" width="100%" class="fig-kit" style="max-width:661px;margin:0 auto;display:block" role="img" aria-label="Groups 13, 14 and 15 of the periodic table">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="117.0" y="34.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">group 13</text>
+<text x="117.0" y="50.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">3 valence e⁻</text>
+<rect x="80.0" y="60.0" width="74.0" height="46.0" rx="6" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="117.0" y="89.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle">B</text>
+<rect x="80.0" y="114.0" width="74.0" height="46.0" rx="6" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="117.0" y="143.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle">Al</text>
+<rect x="80.0" y="168.0" width="74.0" height="46.0" rx="6" fill="#3b82f6" fill-opacity="0.25" stroke="#3b82f6" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="117.0" y="197.0" fill="#4b5563" font-size="18" font-weight="700" text-anchor="middle">Ga</text>
+<rect x="80.0" y="222.0" width="74.0" height="46.0" rx="6" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="117.0" y="251.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle">In</text>
+<text x="203.0" y="34.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">group 14</text>
+<text x="203.0" y="50.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">4 valence e⁻</text>
+<rect x="166.0" y="60.0" width="74.0" height="46.0" rx="6" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="203.0" y="89.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle">C</text>
+<rect x="166.0" y="114.0" width="74.0" height="46.0" rx="6" fill="#10b981" fill-opacity="0.22" stroke="#10b981" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="203.0" y="143.0" fill="#4b5563" font-size="18" font-weight="700" text-anchor="middle">Si</text>
+<rect x="166.0" y="168.0" width="74.0" height="46.0" rx="6" fill="#10b981" fill-opacity="0.22" stroke="#10b981" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="203.0" y="197.0" fill="#4b5563" font-size="18" font-weight="700" text-anchor="middle">Ge</text>
+<rect x="166.0" y="222.0" width="74.0" height="46.0" rx="6" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="203.0" y="251.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle">Sn</text>
+<text x="289.0" y="34.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">group 15</text>
+<text x="289.0" y="50.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">5 valence e⁻</text>
+<rect x="252.0" y="60.0" width="74.0" height="46.0" rx="6" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="289.0" y="89.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle">N</text>
+<rect x="252.0" y="114.0" width="74.0" height="46.0" rx="6" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="289.0" y="143.0" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle">P</text>
+<rect x="252.0" y="168.0" width="74.0" height="46.0" rx="6" fill="#ec4899" fill-opacity="0.25" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="289.0" y="197.0" fill="#4b5563" font-size="18" font-weight="700" text-anchor="middle">As</text>
+<rect x="252.0" y="222.0" width="74.0" height="46.0" rx="6" fill="#ec4899" fill-opacity="0.25" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="289.0" y="251.0" fill="#4b5563" font-size="18" font-weight="700" text-anchor="middle">Sb</text>
+<rect x="372.0" y="62.0" width="240.0" height="66.0" rx="6" fill="#ec4899" fill-opacity="0.08" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="384.0" y="84.0" fill="#ec4899" font-size="13" font-weight="700" text-anchor="start">Sb, As: 5 valence e⁻ (group 15)</text>
+<text x="384.0" y="102.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">one more than Si: donors, n-type</text>
+<text x="384.0" y="118.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">(a) Si + Sb, (b) Si + As</text>
+<rect x="372.0" y="144.0" width="240.0" height="54.0" rx="6" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="384.0" y="166.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="start">Ga: 3 valence e⁻ (group 13)</text>
+<text x="384.0" y="184.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">one less: acceptor, p-type: (c) Si + Ga</text>
+<rect x="372.0" y="214.0" width="240.0" height="54.0" rx="6" fill="#10b981" fill-opacity="0.08" stroke="#10b981" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="384.0" y="236.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="start">Si, Ge: 4 valence e⁻ (group 14)</text>
+<text x="384.0" y="254.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">the host lattices of the problem</text>
+</g></svg>

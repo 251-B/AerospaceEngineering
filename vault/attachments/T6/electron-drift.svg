@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 310" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Free electron in a metal under an electric field">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="160.0" y="24.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Electron path under a field E</text>
+<line x1="260.0" y1="52.0" x2="66.6" y2="52.0" stroke="#10b981" stroke-width="2.4"/>
+<path d="M60.0,52.0 L70.1,47.7 L70.1,56.3 Z" fill="#10b981"/>
+<text x="160.0" y="44.0" fill="#10b981" font-size="15" font-weight="700" text-anchor="middle">E</text>
+<polyline points="40.0,200.0 90.0,130.0 125.0,205.0 185.0,105.0 215.0,210.0 270.0,150.0 300.0,195.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="90.0" cy="130.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="125.0" cy="205.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="185.0" cy="105.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="215.0" cy="210.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="270.0" cy="150.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="40.0" cy="200.0" r="5" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<text x="150.0" y="235.0" fill="#f59e0b" font-size="12" font-weight="400" text-anchor="middle">scattering events</text>
+<line x1="50.0" y1="268.0" x2="284.0" y2="268.0" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M290.0,268.0 L280.8,271.9 L280.8,264.1 Z" fill="#ec4899"/>
+<text x="170.0" y="290.0" fill="#ec4899" font-size="12" font-weight="400" text-anchor="middle">net electron motion</text>
+<line x1="400.0" y1="250.0" x2="650.0" y2="250.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M650.0,250.0 L641.7,253.5 L641.7,246.5 Z" fill="#8a94a6"/>
+<line x1="400.0" y1="250.0" x2="400.0" y2="40.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M400.0,40.0 L403.5,48.3 L396.5,48.3 Z" fill="#8a94a6"/>
+<text x="650.0" y="274.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">Time</text>
+<text x="408.0" y="44.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Drift velocity</text>
+<polyline points="420.0,250.0 500.0,100.0" fill="none" stroke="#ec4899" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="500.0,100.0 500.0,250.0" fill="none" stroke="#ec4899" stroke-width="1.4" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<polyline points="500.0,250.0 580.0,100.0" fill="none" stroke="#ec4899" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="580.0,100.0 580.0,250.0" fill="none" stroke="#ec4899" stroke-width="1.4" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<polyline points="580.0,250.0 660.0,100.0" fill="none" stroke="#ec4899" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="400.0" y1="100.0" x2="670.0" y2="100.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5,4"/>
+<line x1="400.0" y1="175.0" x2="670.0" y2="175.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5,4"/>
+<text x="394.0" y="104.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">v<tspan baseline-shift="sub" font-size="72%">max</tspan></text>
+<text x="394.0" y="179.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">v<tspan baseline-shift="sub" font-size="72%">av</tspan></text>
+<line x1="420.0" y1="272.0" x2="500.0" y2="272.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M420.0,272.0 L426.4,269.3 L426.4,274.7 Z" fill="#6b7280"/>
+<path d="M500.0,272.0 L493.6,274.7 L493.6,269.3 Z" fill="#6b7280"/>
+<text x="460.0" y="290.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle">2τ</text>
+<text x="520.0" y="92.0" fill="#f59e0b" font-size="12" font-weight="400" text-anchor="start">collisions</text>
+</g></svg>

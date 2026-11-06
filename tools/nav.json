@@ -96,9 +96,17 @@
     {
      "page": "topic-5-mechanical-properties.html",
      "label": "5 · Mechanical properties"
+    },
+    {
+     "page": "topic-6-electrical-properties.html",
+     "label": "6 · Electrical properties"
     }
    ],
    "problemas": [
+    {
+     "page": "topic-6-electrical-properties.html",
+     "label": "6 · Electrical properties"
+    },
     {
      "page": "topic-5-mechanical-properties.html",
      "label": "5 · Mechanical properties"

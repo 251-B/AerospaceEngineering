@@ -19,9 +19,19 @@ bytes: 220780
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf`
 - **Kind:** problemas
 - **Size:** 220.8 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 11 note(s) below
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem - T6-01 Silver and Aluminium Wires with the Same Resistivity]]
+- [[02 - Aerospace Materials I/Problem - T6-02 Strategies to Strengthen an Aluminium Wire and Their Effect on its Conductivity]]
+- [[02 - Aerospace Materials I/Problem - T6-03 Ionic Ceramic against Metal Defects Temperature and Doping]]
+- [[02 - Aerospace Materials I/Problem - T6-04 Effect of Temperature on a Metal and on an Intrinsic Semiconductor]]
+- [[02 - Aerospace Materials I/Problem - T6-05 Extrinsic Type of Silicon Doped with Sb As and Ga]]
+- [[02 - Aerospace Materials I/Problem - T6-06 Phosphorus-Doped Silicon Type and Conductivity]]
+- [[02 - Aerospace Materials I/Problem - T6-07 Conductivity of Intrinsic Germanium at 75 C]]
+- [[02 - Aerospace Materials I/Problem - T6-08 Carrier Concentrations of Intrinsic Silicon from its Conductivity]]
+- [[02 - Aerospace Materials I/Problem - T6-09 Ranking Semiconductors by Conductivity Temperature Doping and Concentration]]
+- [[02 - Aerospace Materials I/Problem - T6-10 Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels]]

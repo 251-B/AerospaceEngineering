@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 310" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Ohm's law and the geometry of a conductor">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="150.0" y="110.0" width="300.0" height="80.0" fill="#f59e0b" fill-opacity="0.18" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<ellipse cx="450" cy="150" rx="16" ry="40" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="60.0" y1="150.0" x2="139.4" y2="150.0" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M146.0,150.0 L135.9,154.3 L135.9,145.7 Z" fill="#3b82f6"/>
+<line x1="466.0" y1="150.0" x2="553.4" y2="150.0" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M560.0,150.0 L549.9,154.3 L549.9,145.7 Z" fill="#3b82f6"/>
+<text x="100.0" y="140.0" fill="#3b82f6" font-size="15" font-weight="700" text-anchor="middle">I</text>
+<text x="520.0" y="140.0" fill="#3b82f6" font-size="15" font-weight="700" text-anchor="middle">I</text>
+<line x1="175.0" y1="132.0" x2="394.0" y2="132.0" stroke="#10b981" stroke-width="2.2"/>
+<path d="M400.0,132.0 L390.8,135.9 L390.8,128.1 Z" fill="#10b981"/>
+<text x="288.0" y="125.0" fill="#10b981" font-size="14" font-weight="700" text-anchor="middle">E</text>
+<line x1="175.0" y1="170.0" x2="394.0" y2="170.0" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M400.0,170.0 L390.8,173.9 L390.8,166.1 Z" fill="#ec4899"/>
+<text x="288.0" y="187.0" fill="#ec4899" font-size="14" font-weight="700" text-anchor="middle">J</text>
+<line x1="150.0" y1="80.0" x2="450.0" y2="80.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M150.0,80.0 L156.4,77.3 L156.4,82.7 Z" fill="#6b7280"/>
+<path d="M450.0,80.0 L443.6,82.7 L443.6,77.3 Z" fill="#6b7280"/>
+<text x="300.0" y="72.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle">V = E l</text>
+<line x1="150.0" y1="222.0" x2="450.0" y2="222.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M150.0,222.0 L156.4,219.3 L156.4,224.7 Z" fill="#6b7280"/>
+<path d="M450.0,222.0 L443.6,224.7 L443.6,219.3 Z" fill="#6b7280"/>
+<text x="300.0" y="240.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle">l</text>
+<text x="490.0" y="106.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">A</text>
+<line x1="486.0" y1="110.0" x2="466.0" y2="128.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="320.0" y="264.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">J = σ E,   σ = 1/ρ,   R = V / I = ρ l / A</text>
+<text x="320.0" y="286.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">(I = J A and V = E l give R = l / (σ A))</text>
+</g></svg>

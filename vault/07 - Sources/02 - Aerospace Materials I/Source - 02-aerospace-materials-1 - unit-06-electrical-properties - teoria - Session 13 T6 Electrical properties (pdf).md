@@ -19,8 +19,9 @@ bytes: 3468575
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/teoria/Session 13 T6 Electrical properties.pdf`
 - **Kind:** teoria
 - **Size:** 3.5 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Topic 6 - Electrical Properties]]

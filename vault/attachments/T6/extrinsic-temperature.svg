@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 350" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Effect of temperature on an extrinsic semiconductor">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="60.0" y1="300.0" x2="650.0" y2="300.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M650.0,300.0 L641.7,303.5 L641.7,296.5 Z" fill="#8a94a6"/>
+<line x1="60.0" y1="300.0" x2="60.0" y2="30.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M60.0,30.0 L63.5,38.3 L56.5,38.3 Z" fill="#8a94a6"/>
+<text x="650.0" y="324.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">1/T</text>
+<text x="68.0" y="34.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">ln σ</text>
+<polyline points="80.0,50.0 175.0,225.0" fill="none" stroke="#ec4899" stroke-width="2.8" stroke-linejoin="round"/>
+<polyline points="175.0,225.0 193.0,200.0 220.0,190.0 255.0,192.0" fill="none" stroke="#ec4899" stroke-width="2.4" stroke-dasharray="5,4" stroke-linejoin="round"/>
+<polyline points="255.0,192.0 520.0,262.0" fill="none" stroke="#3b82f6" stroke-width="2.8" stroke-linejoin="round"/>
+<line x1="175.0" y1="120.0" x2="175.0" y2="300.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="3,4"/>
+<line x1="255.0" y1="120.0" x2="255.0" y2="300.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="3,4"/>
+<text x="80.0" y="322.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">high T</text>
+<text x="560.0" y="322.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">low T</text>
+<text x="340.0" y="54.0" fill="#ec4899" font-size="13" font-weight="700" text-anchor="start">Intrinsic range: slope = −E<tspan baseline-shift="sub" font-size="72%">g</tspan> / 2k</text>
+<line x1="335.0" y1="50.0" x2="125.0" y2="130.0" stroke="#ec4899" stroke-width="0.9"/>
+<text x="340.0" y="118.0" fill="#6b7280" font-size="12" font-weight="700" text-anchor="start">Exhaustion (n) / saturation (p) range:</text>
+<text x="340.0" y="134.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">all impurities ionised, σ almost constant</text>
+<line x1="335.0" y1="128.0" x2="222.0" y2="192.0" stroke="#8a94a6" stroke-width="0.9"/>
+<text x="340.0" y="186.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="start">Extrinsic range: slope = −(E<tspan baseline-shift="sub" font-size="72%">c</tspan> − E<tspan baseline-shift="sub" font-size="72%">d</tspan>) / 2k</text>
+<text x="340.0" y="203.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="start">(p-type: −(E<tspan baseline-shift="sub" font-size="72%">a</tspan> − E<tspan baseline-shift="sub" font-size="72%">v</tspan>) / 2k)</text>
+<line x1="420.0" y1="216.0" x2="420.0" y2="234.0" stroke="#3b82f6" stroke-width="0.9"/>
+</g></svg>

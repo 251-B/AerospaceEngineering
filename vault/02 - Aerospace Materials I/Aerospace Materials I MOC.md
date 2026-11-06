@@ -209,16 +209,28 @@ tags:
 
 ### ⚡ Block IV: Functional Properties: Electrical, Magnetic and Thermal
 
-#### Topic 6: Electrical Properties (planned)
+#### [[02 - Aerospace Materials I/Topic 6 - Electrical Properties|Topic 6: Electrical Properties]] (complete: Session 13 and the 10 electrical problems of the sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html`
 * **Official Sources:**
-  * Theory: `Session 13 T6 Electrical properties.pdf`
-  * Problems: `Problems T6andT7_Electric and Magnetic Properties.pdf`
+  * Theory: `Session 13 T6 Electrical properties.pdf` (Slides 1-60)
+  * Problems: `Problems T6andT7_Electric and Magnetic Properties.pdf` (problems 1-10 are electrical and are solved here; problems 11-12 are magnetic and belong to Topic 7)
 * **Main Content:**
-  * Classical Drude conduction model and the microscopic Ohm's law ($\vec{J} = \sigma \vec{E}$).
-  * Quantum band theory: metallic conductors, insulators and semiconductors.
-  * Intrinsic and extrinsic semiconductors ($n$-type and $p$-type doping). Conduction in ceramics and polymers.
+  * Energy bands and the classification of solids; the free-electron model, drift velocity, mobility and $\sigma = n\lvert q\rvert\mu$.
+  * Resistivity of metals: Matthiessen's rule, thermal, impurity and deformation resistivity, and the link with strengthening.
+  * Non-metallic conductors; intrinsic and extrinsic ($n$-type and $p$-type) semiconductors, donor and acceptor levels, effect of temperature and applications.
+  * Dielectrics, capacitance, loss factor, ferroelectrics (hysteresis, Curie temperature) and piezoelectrics.
+* **Official Solved Problems (10 of 10):**
+  * [[02 - Aerospace Materials I/Problem - T6-01 Silver and Aluminium Wires with the Same Resistivity|Problem T6-01: Silver and Aluminium Wires with the Same Resistivity]]
+  * [[02 - Aerospace Materials I/Problem - T6-02 Strategies to Strengthen an Aluminium Wire and Their Effect on its Conductivity|Problem T6-02: Strategies to Strengthen an Aluminium Wire and Their Effect on its Conductivity]]
+  * [[02 - Aerospace Materials I/Problem - T6-03 Ionic Ceramic against Metal Defects Temperature and Doping|Problem T6-03: Ionic Ceramic against Metal Defects Temperature and Doping]]
+  * [[02 - Aerospace Materials I/Problem - T6-04 Effect of Temperature on a Metal and on an Intrinsic Semiconductor|Problem T6-04: Effect of Temperature on a Metal and on an Intrinsic Semiconductor]]
+  * [[02 - Aerospace Materials I/Problem - T6-05 Extrinsic Type of Silicon Doped with Sb As and Ga|Problem T6-05: Extrinsic Type of Silicon Doped with Sb As and Ga]]
+  * [[02 - Aerospace Materials I/Problem - T6-06 Phosphorus-Doped Silicon Type and Conductivity|Problem T6-06: Phosphorus-Doped Silicon Type and Conductivity]]
+  * [[02 - Aerospace Materials I/Problem - T6-07 Conductivity of Intrinsic Germanium at 75 C|Problem T6-07: Conductivity of Intrinsic Germanium at 75 C]]
+  * [[02 - Aerospace Materials I/Problem - T6-08 Carrier Concentrations of Intrinsic Silicon from its Conductivity|Problem T6-08: Carrier Concentrations of Intrinsic Silicon from its Conductivity]]
+  * [[02 - Aerospace Materials I/Problem - T6-09 Ranking Semiconductors by Conductivity Temperature Doping and Concentration|Problem T6-09: Ranking Semiconductors by Conductivity Temperature Doping and Concentration]]
+  * [[02 - Aerospace Materials I/Problem - T6-10 Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels|Problem T6-10: Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels]]
 
 #### Topic 7: Magnetic and Thermal Properties (planned)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html`

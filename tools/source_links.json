@@ -561,6 +561,16 @@
    "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_10.pdf",
    "label": "fluid_statics_10.pdf",
    "pages": 1
+  },
+  "mat-s13": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/teoria/Session 13 T6 Electrical properties.pdf",
+   "label": "Session 13 T6 Electrical properties.pdf",
+   "pages": 60
+  },
+  "mat-t67": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf",
+   "label": "Problems T6andT7_Electric and Magnetic Properties.pdf",
+   "pages": 3
   }
  },
  "pages": {
@@ -2476,6 +2486,76 @@
    ],
    "cite": {
     "notes": "fm-notes"
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html": {
+   "panel": [
+    [
+     "mat-s13",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s13",
+    "sessions": {
+     "13": "mat-s13"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html": {
+   "panel": [
+    [
+     "mat-t67",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s13",
+    "sessions": {
+     "13": "mat-s13"
+    }
+   },
+   "cards": {
+    "prob-1": [
+     "mat-t67",
+     1
+    ],
+    "prob-2": [
+     "mat-t67",
+     1
+    ],
+    "prob-3": [
+     "mat-t67",
+     1
+    ],
+    "prob-4": [
+     "mat-t67",
+     2
+    ],
+    "prob-5": [
+     "mat-t67",
+     2
+    ],
+    "prob-6": [
+     "mat-t67",
+     2
+    ],
+    "prob-7": [
+     "mat-t67",
+     2
+    ],
+    "prob-8": [
+     "mat-t67",
+     2
+    ],
+    "prob-9": [
+     "mat-t67",
+     2
+    ],
+    "prob-10": [
+     "mat-t67",
+     2
+    ]
    }
   }
  }

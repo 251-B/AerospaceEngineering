@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Resistivity of silver and aluminium against temperature">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="80.0" y1="280.0" x2="593.0" y2="280.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M593.0,280.0 L584.7,283.5 L584.7,276.5 Z" fill="#8a94a6"/>
+<line x1="80.0" y1="280.0" x2="80.0" y2="54.5" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M80.0,54.5 L83.5,62.8 L76.5,62.8 Z" fill="#8a94a6"/>
+<line x1="80.0" y1="280.0" x2="80.0" y2="285.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="80.0" y="299.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="215.0" y1="280.0" x2="215.0" y2="285.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="215.0" y="299.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100</text>
+<line x1="350.0" y1="280.0" x2="350.0" y2="285.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="350.0" y="299.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">200</text>
+<line x1="485.0" y1="280.0" x2="485.0" y2="285.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="485.0" y="299.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">300</text>
+<line x1="75.0" y1="225.0" x2="80.0" y2="225.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="72.0" y="229.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1</text>
+<line x1="75.0" y1="170.0" x2="80.0" y2="170.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="72.0" y="174.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">2</text>
+<line x1="75.0" y1="115.0" x2="80.0" y2="115.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="72.0" y="119.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">3</text>
+<line x1="75.0" y1="60.0" x2="80.0" y2="60.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="72.0" y="64.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">4</text>
+<text x="593.0" y="320.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">T (°C)</text>
+<text x="88.0" y="58.5" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">ρ (10⁻⁶ Ω·cm)</text>
+<polyline points="80.0,131.5 86.8,128.6 93.5,125.7 100.2,122.8 107.0,119.9 113.8,117.0 120.5,114.1 127.2,111.2 134.0,108.3 140.8,105.4 147.5,102.5 154.2,99.6 161.0,96.8 167.8,93.9 174.5,91.0 181.2,88.1 188.0,85.2 194.8,82.3 201.5,79.4 208.2,76.5 215.0,73.6" fill="none" stroke="#3b82f6" stroke-width="2.6" stroke-linejoin="round"/>
+<polyline points="80.0,199.2 93.5,196.1 107.0,193.0 120.5,189.9 134.0,186.9 147.5,183.8 161.0,180.7 174.5,177.6 188.0,174.6 201.5,171.5 215.0,168.4 228.5,165.4 242.0,162.3 255.5,159.2 269.0,156.1 282.5,153.1 296.0,150.0 309.5,146.9 323.0,143.8 336.5,140.8 350.0,137.7 363.5,134.6 377.0,131.6 390.5,128.5 404.0,125.4 417.5,122.3 431.0,119.3 444.5,116.2 458.0,113.1 471.5,110.1 485.0,107.0 498.5,103.9 512.0,100.8 525.5,97.8 539.0,94.7 552.5,91.6 566.0,88.5 579.5,85.5 593.0,82.4" fill="none" stroke="#ec4899" stroke-width="2.6" stroke-linejoin="round"/>
+<line x1="140.8" y1="280.0" x2="140.8" y2="105.4" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="140.8" y1="105.4" x2="491.8" y2="105.4" stroke="#10b981" stroke-width="1.6" stroke-dasharray="6,4"/>
+<line x1="491.8" y1="105.4" x2="491.8" y2="280.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<circle cx="140.8" cy="105.4" r="5" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="491.8" cy="105.4" r="5" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="140.8" y="314.0" fill="#3b82f6" font-size="12" font-weight="700" text-anchor="middle">45</text>
+<text x="491.8" y="314.0" fill="#ec4899" font-size="12" font-weight="700" text-anchor="middle">305.0</text>
+<text x="152.8" y="129.4" fill="#3b82f6" font-size="12" font-weight="700" text-anchor="start">ρ(Al, 45 °C) = 3.174</text>
+<text x="493.8" y="93.4" fill="#ec4899" font-size="12" font-weight="700" text-anchor="middle">same ρ in Ag</text>
+<line x1="372.0" y1="205.0" x2="398.0" y2="205.0" stroke="#3b82f6" stroke-width="2.6"/>
+<text x="406.0" y="209.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">Al: ρ = 2.70 (1 + 0.0039 T)</text>
+<line x1="372.0" y1="229.0" x2="398.0" y2="229.0" stroke="#ec4899" stroke-width="2.6"/>
+<text x="406.0" y="233.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">Ag: ρ = 1.47 (1 + 0.0038 T)</text>
+</g></svg>

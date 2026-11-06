@@ -122,6 +122,10 @@ window.AE_NAV = {
             {
               "href": "subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html",
               "label": "5 · Mechanical properties"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+              "label": "6 · Electrical properties"
             }
           ]
         },
@@ -130,6 +134,10 @@ window.AE_NAV = {
           "label": "Problems",
           "href": "subjects/aerospace-materials-1/problemas/index.html",
           "pages": [
+            {
+              "href": "subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html",
+              "label": "6 · Electrical properties"
+            },
             {
               "href": "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html",
               "label": "5 · Mechanical properties"

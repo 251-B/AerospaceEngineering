@@ -153,6 +153,20 @@
      "next"
     ]
    ]
+  },
+  "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 6 - Electrical Properties.md",
+   "figures": "materials_t6",
+   "template": "subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html",
+   "html_title": "Topic 6: Electrical Properties — Aerospace Materials I",
+   "category": "Topic 06 · Electrical Properties",
+   "title": "Electrical Properties",
+   "subtitle": "Energy bands and the classification of solids, conduction in metals and its resistivity, non-metallic conductors, intrinsic and extrinsic semiconductors and their applications, and insulating, dielectric, ferroelectric and piezoelectric materials.",
+   "source": "Universidad Carlos III de Madrid · Session 13 T6 Electrical properties.pdf",
+   "problems": {
+    "href": "../problemas/topic-6-electrical-properties.html",
+    "label": "10 solved problems for this topic (Problems T6andT7, problems 1-10, the electrical part of the sheet)"
+   }
   }
  }
 }

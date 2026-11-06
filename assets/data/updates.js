@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-06-materials-topic-6",
+    "date": "2026-11-06",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 6: electrical properties and 10 solved problems",
+    "text": "New theory page on energy bands, metals, semiconductors, dielectrics and piezoelectrics, with 10 official problems solved step by step and drawings for every slide.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html"
+  },
+  {
     "id": "2026-11-03-fluids-hydrostatics",
     "date": "2026-11-03",
     "tag": "Fluid Mechanics",

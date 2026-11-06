@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Arrhenius plot of an intrinsic semiconductor">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="70.0" y1="270.0" x2="540.0" y2="270.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M540.0,270.0 L531.7,273.5 L531.7,266.5 Z" fill="#8a94a6"/>
+<line x1="70.0" y1="270.0" x2="70.0" y2="30.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M70.0,30.0 L73.5,38.3 L66.5,38.3 Z" fill="#8a94a6"/>
+<text x="540.0" y="294.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">1/T</text>
+<text x="78.0" y="34.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">ln σ</text>
+<line x1="110.0" y1="80.0" x2="500.0" y2="232.0" stroke="#ec4899" stroke-width="2.8"/>
+<line x1="200.0" y1="116.0" x2="400.0" y2="116.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="400.0" y1="116.0" x2="400.0" y2="196.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5,4"/>
+<circle cx="200.0" cy="116.0" r="4" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<circle cx="400.0" cy="196.0" r="4" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="300.0" y="108.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Δ(1/T)</text>
+<text x="410.0" y="160.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">Δ ln σ</text>
+<text x="190.0" y="205.0" fill="#ec4899" font-size="14" font-weight="700" text-anchor="middle">slope = −E<tspan baseline-shift="sub" font-size="72%">g</tspan> / 2k</text>
+<text x="100.0" y="52.0" fill="#4b5563" font-size="15" font-weight="700" text-anchor="start">ln σ = ln σ<tspan baseline-shift="sub" font-size="72%">0</tspan> − E<tspan baseline-shift="sub" font-size="72%">g</tspan> / (2kT)</text>
+<text x="110.0" y="292.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">high T</text>
+<text x="500.0" y="292.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">low T</text>
+</g></svg>

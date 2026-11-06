@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
-"""Build the Aerospace Materials I Topic 5 problems page from its vault notes (Obsidian first, web second).
+"""Build the Aerospace Materials I problem pages (Topics 5 and 6) from their vault notes (Obsidian first, web second).
 
     subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html
         Problem - T5-01 ... T5-15 (Problems T5_MechanicalProperties.pdf), in
         vault/02 - Aerospace Materials I/
+    subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html
+        Problem - T6-01 ... T6-10 (Problems T6andT7_Electric and Magnetic Properties.pdf, problems 1-10;
+        problems 11-12 of the sheet belong to Topic 7), same folder
 
 Per note (same layout as the Topic 4 notes):
     - frontmatter key `badge` is the second chip of the card header;
     - `# ✏️ Problem: T5-NN — Title` gives the card number and title;
     - `## 📄 Official Statement` is a blockquote: the statement (paragraphs, lists, tables, figure embeds)
       and a last line `*(Solution: ...)*` with the key printed on the sheet (the `.solution-box`);
-    - the four `## ... Phase k` sections fill the four phase blocks; `### ` headings become bold paragraphs;
+    - the four numbered sections (`## ... 1. Title` to `## ... 4. Title`; the older notes write `## ... Phase k`)
+      fill the four solution blocks; `### ` headings become bold paragraphs;
     - `## ✅ Check against the official solution` closes phase 4 (callouts `> [!warning]` are kept);
     - `## 🔗 Related Links` is not rendered.
-Figure embeds `![[attachments/T5/<name>.svg]]` come from tools/figures/materials_t5.py (the SVG files are
-written to vault/attachments/T5 together with the page). The head, header and footer are those of the
+Figure embeds `![[attachments/T<k>/<name>.svg]]` come from tools/figures/materials_t<k>.py (the SVG files are
+written to vault/attachments/T<k> together with the page). The head, header and footer are those of the
 Topic 4 problems page. The PDF deep links of tools/source_links.py are applied before writing.
 
 Usage:
@@ -35,17 +39,30 @@ import build_topic_pages as bt  # noqa: E402
 import source_links as sl  # noqa: E402
 
 VAULT = REPO / "vault" / "02 - Aerospace Materials I"
-PAGE = "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html"
 SHELL = "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html"
-SHEET = "Problems T5_MechanicalProperties.pdf"
 # Labels shown on the four solution blocks. The notes still use "## ... Phase k" headings to delimit them (internal
 # only): no page shows the word "Phase" (AGENTS.md, "Problem-solving standard").
 PHASES = {1: "Hypotheses &amp; Parameters", 2: "Model &amp; Strategy",
           3: "Step-by-Step Calculation", 4: "Result &amp; Checks"}
-TOTAL = 15
+TOPICS = {
+    5: {
+        "code": "T5", "figures": "materials_t5", "total": 15,
+        "page": "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html",
+        "sheet": "Problems T5_MechanicalProperties.pdf",
+        "title": "Topic 5: Solved Problems (Mechanical Properties) — Aerospace Materials I",
+        "scope_of": "of the official sheet on mechanical properties (Problems T5_MechanicalProperties: the tensile test, the elastic modulus, yield and tensile strength, ductility, resilience, true stress and strain, thermal stress and hardness, from Sessions 11 and 12), written in four phases. The sheet has no worked solutions, only a numeric key for most items, so every solution is derived here and compared with that key.",
+    },
+    6: {
+        "code": "T6", "figures": "materials_t6", "total": 10,
+        "page": "subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html",
+        "sheet": "Problems T6andT7_Electric and Magnetic Properties.pdf",
+        "title": "Topic 6: Solved Problems (Electrical Properties) — Aerospace Materials I",
+        "scope_of": "of the electrical part of the official sheet (Problems T6andT7_Electric and Magnetic Properties, problems 1 to 10: resistivity and temperature, conductivity and strengthening, ionic and metallic conductors, intrinsic and extrinsic semiconductors, from Session 13). Problems 11 and 12 of the sheet are magnetic and belong to Topic 7. The sheet has a numeric key for some items and none for the reasoning questions, so every solution is derived here and compared with that key where it exists.",
+    },
+}
 
 
-def read_note(path):
+def read_note(path, code):
     text = path.read_text(encoding="utf-8")
     fm = {}
     m = re.match(r"---\n(.*?)\n---", text, re.S)
@@ -54,9 +71,9 @@ def read_note(path):
             k, _, v = line.partition(":")
             fm[k.strip()] = v.strip().strip('"')
     body = bt.strip_frontmatter(text)
-    head = re.search(r"^# ✏️ Problem: T5-(\d+) — (.*)$", body, re.M)
+    head = re.search(rf"^# ✏️ Problem: {code}-(\d+) — (.*)$", body, re.M)
     if not head:
-        raise SystemExit(f"{path.name}: missing '# ✏️ Problem: T5-NN — Title' heading")
+        raise SystemExit(f"{path.name}: missing '# ✏️ Problem: {code}-NN — Title' heading")
     sections = {}
     for chunk in re.split(r"\n(?=## )", body[head.end():]):
         chunk = chunk.strip("\n")
@@ -82,7 +99,7 @@ def steps(lines, figure):
     return "\n".join(x for x in out if x)
 
 
-def card(note, figure):
+def card(note, figure, cfg):
     n = note["n"]
     sec = note["sections"]
     stmt_key = next(k for k in sec if "Official Statement" in k)
@@ -96,9 +113,9 @@ def card(note, figure):
             stmt.append(line)
     phases = {}
     for k, lines in sec.items():
-        m = re.search(r"Phase (\d)", k)
+        m = re.search(r"Phase (\d)|^\D*?([1-4])\.\s", k)
         if m:
-            phases[int(m.group(1))] = list(lines)
+            phases[int(m.group(1) or m.group(2))] = list(lines)
     check = next((v for k, v in sec.items() if "Check against" in k), None)
     if sorted(phases) != [1, 2, 3, 4]:
         raise SystemExit(f"{note['name']}: expected phases 1-4, found {sorted(phases)}")
@@ -128,7 +145,7 @@ def card(note, figure):
         <div class="problem-header">
           <div class="problem-badge-group">
             <span class="prob-num-badge">Problem {n}</span>
-            <span class="prob-source-badge">{SHEET} #{n}</span>
+            <span class="prob-source-badge">{cfg["sheet"]} #{n}</span>
             <span class="prob-source-badge">{html.escape(note["badge"], quote=False)}</span>
           </div>
           <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
@@ -147,64 +164,71 @@ def card(note, figure):
 '''
 
 
-def build_page():
-    notes = sorted((read_note(p) for p in VAULT.glob("Problem - T5-*.md")), key=lambda x: x["n"])
+def build_page(k=5):
+    cfg = TOPICS[k]
+    code, total, page_rel = cfg["code"], cfg["total"], cfg["page"]
+    notes = sorted((read_note(p, code) for p in VAULT.glob(f"Problem - {code}-*.md")), key=lambda x: x["n"])
     if not notes:
-        raise SystemExit("no Problem - T5-NN notes found")
-    figure = bt.FigureSet("materials_t5")
+        raise SystemExit(f"no Problem - {code}-NN notes found")
+    figure = bt.FigureSet(cfg["figures"])
     shell = sl.strip_links((REPO / SHELL).read_text(encoding="utf-8")).replace("Â·", "·")
     head = shell[:shell.index('<main class="problems-container">')]
     tail = shell[shell.index("  <!-- Page Footer -->"):]
-    head = re.sub(r"<title>.*?</title>", "<title>Topic 5: Solved Problems (Mechanical Properties) — Aerospace Materials I</title>",
-                  head, count=1, flags=re.S)
-    head = head.replace("MAT-I · Topic 4", "MAT-I · Topic 5")
+    head = re.sub(r"<title>.*?</title>", f"<title>{cfg['title']}</title>", head, count=1, flags=re.S)
+    head = head.replace("MAT-I · Topic 4", f"MAT-I · Topic {k}")
     tail = re.sub(r"\s*<!-- Scripts: i18n -->", "", tail)
     n = len(notes)
     nums = [x["n"] for x in notes]
-    if n == TOTAL:
-        scope = f"all {TOTAL} problems"
+    if n == total:
+        scope = f"all {total} problems"
     elif nums == list(range(nums[0], nums[-1] + 1)):
-        scope = f"problems {nums[0]} to {nums[-1]} of the {TOTAL}"
+        scope = f"problems {nums[0]} to {nums[-1]} of the {total}"
     else:
-        scope = f"problems {', '.join(str(k) for k in nums)} of the {TOTAL}"
+        scope = f"problems {', '.join(str(j) for j in nums)} of the {total}"
     intro = f'''<main class="problems-container">
 
     <!-- Page Intro Header -->
     <header class="page-intro">
-      <h1>Topic 5: Solved Problems</h1>
+      <h1>Topic {k}: Solved Problems</h1>
       <p>
-        Step-by-step solutions of {scope} of the official sheet on mechanical properties (Problems T5_MechanicalProperties: the tensile test, the elastic modulus, yield and tensile strength, ductility, resilience, true stress and strain, thermal stress and hardness, from Sessions 11 and 12), written in four phases. The sheet has no worked solutions, only a numeric key for most items, so every solution is derived here and compared with that key.
+        Step-by-step solutions of {scope} {cfg["scope_of"]}
       </p>
     </header>
 
 '''
-    cards = "\n".join(card(x, figure) for x in notes)
+    cards = "\n".join(card(x, figure, cfg) for x in notes)
     page = head + intro + cards + "\n  </main>\n\n" + tail
     cfg_links = json.loads(sl.CONFIG.read_text(encoding="utf-8"))
-    if PAGE in cfg_links["pages"]:
-        page = sl.build_page(PAGE, page, cfg_links, sl.load_json(sl.ANCHORS, {}), {})
+    if page_rel in cfg_links["pages"]:
+        page = sl.build_page(page_rel, page, cfg_links, sl.load_json(sl.ANCHORS, {}), {})
     return page, figure
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--check", action="store_true", help="exit 1 if the page or a figure is out of date")
+    ap.add_argument("--check", action="store_true", help="exit 1 if a page or a figure is out of date")
+    ap.add_argument("--topic", type=int, choices=sorted(TOPICS), help="only this topic (default: all)")
     args = ap.parse_args(argv)
-    page, figs = build_page()
-    path = REPO / PAGE
-    current = path.read_text(encoding="utf-8") if path.exists() else None
-    stale = [PAGE] if current != page else []
+    stale = []
+    for k in ([args.topic] if args.topic else sorted(TOPICS)):
+        page_rel = TOPICS[k]["page"]
+        page, figs = build_page(k)
+        path = REPO / page_rel
+        current = path.read_text(encoding="utf-8") if path.exists() else None
+        page_stale = current != page
+        if args.check:
+            stale += ([page_rel] if page_stale else []) + figs.reg.stale(REPO)
+            continue
+        for rel in figs.reg.write(REPO):
+            print(f"build_materials_problems: wrote {rel}")
+        if page_stale:
+            path.write_text(page, encoding="utf-8", newline="\n")
+            print(f"build_materials_problems: wrote {page_rel}")
     if args.check:
-        stale += figs.reg.stale(REPO)
-        for s in stale:
-            print(f"build_materials_problems: stale {s} (run python tools/build_materials_problems.py)", file=sys.stderr)
+        for s_ in stale:
+            print(f"build_materials_problems: stale {s_} (run python tools/build_materials_problems.py)", file=sys.stderr)
         return 1 if stale else 0
-    for rel in figs.reg.write(REPO):
-        print(f"build_materials_problems: wrote {rel}")
-    if stale:
-        path.write_text(page, encoding="utf-8", newline="\n")
-        print(f"build_materials_problems: wrote {PAGE}")
-    print("build_materials_problems: page up to date")
+    print("build_materials_problems: pages up to date")
     return 0
 
 
