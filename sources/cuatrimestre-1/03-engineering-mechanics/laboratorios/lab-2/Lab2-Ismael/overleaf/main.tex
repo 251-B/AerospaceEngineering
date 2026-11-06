@@ -77,108 +77,65 @@
 \setlength{\belowdisplayskip}{5pt plus 1pt minus 1pt}
 \setlength{\abovedisplayshortskip}{2pt plus 1pt minus 1pt}
 \setlength{\belowdisplayshortskip}{3pt plus 1pt minus 1pt}
-\tableofcontents
+
 
 \section{Introduction}
-In this laboratory report, we will investigate the dynamics of a heavy point particle $P$ of mass $m$ that slides without friction on a circular wire of centre $C$ and radius $R$ \cite{guidelines}. The wire is on a vertical plane $Oxy$ that rotates about the vertical axis $Oy$ with a known angular velocity $\Om(t)=A\omega\sin(\omega t)\,\jj$, and the position of $P$ on the wire is given by the angle $\varphi$ between $\overrightarrow{CP}$ and $Ox$ (Fig.~\ref{fig:sketch}a). It is the same system as Problem 34 of the course \cite{problems}, but here we solve it numerically.
+In this laboratory report, we will investigate the dynamics of a heavy point particle $P$ of mass $m$ that slides without friction on a circular wire of centre $C$ and radius $R$. The wire is on a vertical plane $Oxy$ that rotates about the vertical axis $Oy$ with a known angular velocity $\Om(t)=A\omega\sin(\omega t)\,\jj$, and the position of $P$ on the wire is given by the angle $\varphi$ between $\overrightarrow{CP}$ and $Ox$ (Fig.~\ref{fig:sketch}a).
 
-The main difficulty is that the frame where the motion is simple, the one attached to the wire, is not inertial and does not rotate at a constant rate, so the centrifugal, Euler and Coriolis forces all act on the particle. Our objectives are to derive the equation of motion and the reaction of the wire, to integrate it in Matlab with \texttt{ode45} and explain the forces and the energy we obtain, to find an analytical criterion that tells if the particle oscillates or rotates on a fixed loop and check it with simulations, and to see how far we can trust a linearized equation around the lowest point of the wire, where a resonance appears.
+The main difficulty is that the frame where the motion can be easily described, the one attached to the wire, is not inertial and does not rotate at a constant rate, so the centrifugal, Euler and Coriolis forces all act on the particle. Our objective is to derive the equation of motion and the reaction of the wire, to integrate it in Matlab with \texttt{ode45} and explain the forces and the energy we obtain, to find a condition that tells if the particle oscillates or rotates on a fixed loop and check it with simulations, and to see how far we can trust a linearized equation around the lowest point of the wire, where resonance appears.
 
-In Section~\ref{sec:model} we derive the analytical model and in Section~\ref{sec:num} we explain how we have implemented it in Matlab. In Section~\ref{sec:results} we present the results and discuss each of them next to its figure, and Section~\ref{sec:conc} gathers the conclusions.
+In Section~\ref{sec:model} we derive the analytical model and in Section~\ref{sec:num} we explain how we have implemented it in Matlab. In Section~\ref{sec:results} we present the results and discuss each of them next to its figure, and Section~\ref{sec:conc} are the conclusions .
 
 \section{Analytical Model}\label{sec:model}
 \subsection{Reference Frames and Degrees of Freedom}
-We use the notation of the guidelines \cite{guidelines}. $Oxyz$ rotates with the plane of the wire: $\ii$ is horizontal along the diameter through $C$, $\jj$ is vertical and upward (the rotation axis) and $\kk=\ii\times\jj$ is normal to the plane, pointing out of the paper in Fig.~\ref{fig:sketch}a. $Ox_1y_1z_1$ is a stationary frame, assumed inertial, that coincides with $Oxyz$ at $t=0$, with $\jj_1=\jj$. The axis $Oy$ is tangent to the wire at $O$, so $\overrightarrow{OC}=R\,\ii$.
+$Oxyz$ rotates with the plane of the wire: $\ii$ is horizontal along the diameter through $C$, $\jj$ is vertical and upward (the rotation axis) and $\kk=\ii\times\jj$ is normal to the plane, pointing out of the paper in Fig.~\ref{fig:sketch}a. $Ox_1y_1z_1$ is a stationary frame, assumed inertial, that coincides with $Oxyz$ at $t=0$, with $\jj_1=\jj$. The axis $Oy$ is tangent to the wire at $O$, so $\overrightarrow{OC}=R\,\ii$.
 
-In space, $P$ needs three coordinates. The wire removes two of them, since $P$ has to stay in the plane $Oxy$ and at a distance $R$ from $C$, which means that the problem only has $3-2=1$ configuration degree of freedom, $\varphi$. The first constraint is reonomic because the plane moves with a known law, so the position of $P$ seen from the stationary frame depends on $\varphi$ and also explicitly on $t$.
+In space, $P$ needs three coordinates. The wire removes two of them, since $P$ has to stay in the plane $Oxy$ and at a distance $R$ from $C$, which means that the problem only has $3-2=1$ configuration degree of freedom ($\varphi$). The position of $P$ seen from the stationary frame depends on $\varphi$ and also explicitly on $t$.
 
 \begin{figure}[!htb]
-\centering
-\begin{subfigure}[b]{0.53\textwidth}\centering
-\begin{tikzpicture}[scale=0.95,>=latex]
-\def\R{1.6}\def\ph{42}
-\pgfmathsetmacro{\px}{\R+\R*cos(\ph)}\pgfmathsetmacro{\py}{\R*sin(\ph)}
-\fill[blue!12] (\R,0) -- (\px,0) -- (\px,\py) -- cycle;
-\draw[thick] (\R,0) circle (\R);
-\draw[->,gray] (-0.3,0) -- (4.1,0) node[right,black] {$x$};
-\draw[->,gray] (0,-1.9) -- (0,2.45) node[above,black] {$y$};
-\fill (0,0) circle (1.2pt) node[below left] {$O$};
-\fill (\R,0) circle (1.2pt) node[below] {$C$};
-\draw (\R,0) -- (\px,\py) node[pos=0.55,above left=-1pt] {$R$};
-\draw[dashed] (\px,\py) -- (\px,0);
-\draw[gray,thin] (\px,0.5) -- (3.4,0.5) node[right,black] {\small $R\sin\varphi$};
-\draw[|<->|,gray] (0,-2.15) -- (\px,-2.15) node[midway,below,black] {\small $x=R(1+\cos\varphi)$};
-\fill (\px,\py) circle (1.8pt) node[left=3pt] {$P$};
-\draw (\R+0.42,0) arc (0:\ph:0.42); \node at ({\R+0.68*cos(\ph/2)},{0.68*sin(\ph/2)}) {$\varphi$};
-\draw[->,thick,blue!70!black] (\px,\py) -- ++({0.75*cos(\ph)},{0.75*sin(\ph)}) node[right] {$\er$};
-\draw[->,thick,blue!70!black] (\px,\py) -- ++({-0.75*sin(\ph)},{0.75*cos(\ph)}) node[above] {$\ephi$};
-\draw[->] (0.35,1.95) arc (0:300:0.35 and 0.11); \node at (-0.75,2.05) {$\Om(t)$};
-\draw[->] (4.5,2.0) -- (4.5,1.1) node[midway,right] {$\mathbf{g}$};
-\node at (-0.25,-1.6) {$\odot\,\kk$};
-\end{tikzpicture}
-\caption{Plane of the wire, $\kk$ points out of the paper.}
-\end{subfigure}\hfill
-\begin{subfigure}[b]{0.43\textwidth}\centering
-\begin{tikzpicture}[scale=1.25,>=latex]
-\def\th{35}
-\draw[->,thick,gray] (0,0) -- (1.8,0) node[right,black] {$\ii_1$};
-\draw[->,thick,gray] (0,0) -- (0,-1.8) node[below,black] {$\kk_1$};
-\draw[->,thick,blue!70!black] (0,0) -- ({1.8*cos(\th)},{1.8*sin(\th)}) node[right] {$\ii$};
-\draw[->,thick,blue!70!black] (0,0) -- ({1.8*sin(\th)},{-1.8*cos(\th)}) node[right] {$\kk$};
-\draw[dashed] ({1.8*cos(\th)},{1.8*sin(\th)}) -- ({1.8*cos(\th)},0);
-\node[right] at ({1.8*cos(\th)},0.45) {\small $\sin\theta$};
-\node[below] at (0.85,0) {\small $\cos\theta$};
-\draw (0.7,0) arc (0:\th:0.7); \node at ({0.95*cos(\th/2)},{0.95*sin(\th/2)}) {$\theta$};
-\draw (0,-0.7) arc (-90:{\th-90}:0.7); \node at ({0.95*sin(\th/2)},{-0.95*cos(\th/2)}) {$\theta$};
-\draw (0,0) circle (0.07); \fill (0,0) circle (0.02);
-\node[left] at (-0.07,0.08) {$\jj=\jj_1$};
-\end{tikzpicture}
-\caption{View from above, $\jj$ points out of the paper.}
-\end{subfigure}
-\caption{Geometry of the problem. The angle $\theta$ is the rotation of the plane about the vertical axis.}\label{fig:sketch}
+    \centering
+    \includegraphics[width=0.45\textwidth]{sketch.png}
+    \caption{Geometry of the problem and reference frames.}\label{fig:sketch}
 \end{figure}
 
-The angle $\theta$ turned by the plane satisfies $\dot\theta=\Omega$ with $\theta(0)=0$, where $\Omega=A\omega\sin\omega t$. Integrating with the change $u=\omega\tau$, $du=\omega\,d\tau$, and Barrow's rule:
+The angle $\theta$ turned by the plane satisfies $\dot\theta=\Omega$ with $\theta(0)=0$, where $\Omega=A\omega\sin\omega t$. Integrating with the change $u=\omega\tau$, $du=\omega\,d\tau$:
 \begin{equation}
 \theta(t)=\int_0^t A\omega\sin(\omega\tau)\,d\tau=A\int_0^{\omega t}\sin u\,du=A\big[-\cos u\big]_0^{\omega t}=A\,(1-\cos\omega t),\label{eq:theta}
 \end{equation}
-so the plane swings between $\theta=0$ and $\theta=2A$ with period $T=2\pi/\omega$; it does not spin. For the change of basis the plane is viewed from above (Fig.~\ref{fig:sketch}b), with $\jj$ pointing towards the reader. Since $\kk_1\times\ii_1=\jj_1$, a positive rotation about $\jj_1$ takes $\kk_1$ towards $\ii_1$ and $\ii_1$ towards $-\kk_1$. The vector $\ii$ is the hypotenuse of the dashed right triangle: its leg adjacent to $\theta$ lies along $\ii_1$ and measures $\cos\theta$, and its opposite leg lies along $-\kk_1$ and measures $\sin\theta$, and this is where the minus sign comes from. The same triangle applied to $\kk$ gives
+so $\theta$ oscillates between $\theta=0$ and $\theta=2A$ with period $T=2\pi/\omega$. Using this angle $\theta$ to get the rotating reference frame $Oxyz$, we obtain these unit vectors in function of the stationary frame's unit vectors:
 \begin{equation}
 \ii=\cos\theta\,\ii_1-\sin\theta\,\kk_1,\quad \jj=\jj_1,\quad \kk=\sin\theta\,\ii_1+\cos\theta\,\kk_1,\qquad
-[Q]=\begin{pmatrix}\cos\theta&0&\sin\theta\\0&1&0\\-\sin\theta&0&\cos\theta\end{pmatrix},\label{eq:rot}
 \end{equation}
-where the columns of $[Q]$ are the components of $\ii,\jj,\kk$ in the stationary basis, $\det[Q]=\cos^2\theta+\sin^2\theta=1$ and $[Q][Q]^T=I$. As a check, the chain rule gives $d\ii/dt=-\dot\theta\,(\sin\theta\,\ii_1+\cos\theta\,\kk_1)=-\Omega\,\kk$, which is $\Om\times\ii$.
+
 
 \subsection{Position, Velocity and Acceleration of $P$}
-In the shaded right triangle at $C$ (Fig.~\ref{fig:sketch}a) the hypotenuse is $R$, the leg adjacent to $\varphi$ is $R\cos\varphi$ along $\ii$ and the opposite one is $R\sin\varphi$ along $\jj$. Then, with $x\equiv R(1+\cos\varphi)$ the distance from $P$ to the rotation axis,
+The side adjacent to $\varphi$ is $R\cos\varphi$ along $\ii$ and the opposite one is $R\sin\varphi$ along $\jj$. Then, with $x = R(1+\cos\varphi)$ the distance from $P$ to the rotation axis,
 \begin{equation}
 \rr=\overrightarrow{OC}+\overrightarrow{CP}=R(1+\cos\varphi)\,\ii+R\sin\varphi\,\jj=x\,\ii+R\sin\varphi\,\jj .\label{eq:r}
 \end{equation}
-We define the polar basis $\er=\cos\varphi\,\ii+\sin\varphi\,\jj$, $\ephi=-\sin\varphi\,\ii+\cos\varphi\,\jj$. In $Oxyz$ the vectors $\ii,\jj$ are constant and only $\varphi$ depends on time. The chain rule, $\frac{d}{dt}\cos\varphi=-\dph\sin\varphi$ and $\frac{d}{dt}\sin\varphi=\dph\cos\varphi$, gives the relative velocity, and the product rule, $\frac{d}{dt}(\dph\sin\varphi)=\ddph\sin\varphi+\dph^2\cos\varphi$ and $\frac{d}{dt}(\dph\cos\varphi)=\ddph\cos\varphi-\dph^2\sin\varphi$, the relative acceleration:
+Using the auxiliary polar reference frame defined as:
+\begin{equation}
+\hat{\mathbf{e}}_r = \cos\phi\,\hat{\mathbf{i}} + \sin\phi\,\hat{\mathbf{j}},\quad \hat{\mathbf{e}}_\phi = -\sin\phi\,\hat{\mathbf{i}} + \cos\phi\,\hat{\mathbf{j}},\qquad
+\end{equation}
+With the time derivatives of the unit vectors being:
+\begin{equation}
+\dot{\hat{\mathbf{e}}}_r = \dot{\phi}\,\hat{\mathbf{e}}_\phi,\quad \dot{\hat{\mathbf{e}}}_\phi = -\dot{\phi}\,\hat{\mathbf{e}}_r,\qquad
+\end{equation}
+Also,
+\begin{equation}
+\hat{\mathbf{i}} = \cos\phi\,\hat{\mathbf{e}}_r - \sin\phi\,\hat{\mathbf{e}}_\phi,\quad \hat{\mathbf{j}} = \sin\phi\,\hat{\mathbf{e}}_r + \cos\phi\,\hat{\mathbf{e}}_\phi,\qquad
+\end{equation}
+Differentiating in the $Oxyz$ reference frame applying the chain rule, we get the velocity and acceleration:
 \begin{align}
 \vv_{rel}&=-R\dph\sin\varphi\,\ii+R\dph\cos\varphi\,\jj=R\dph\,\ephi,\label{eq:vrel}\\
 \aaa_{rel}&=-R(\ddph\sin\varphi+\dph^2\cos\varphi)\,\ii+R(\ddph\cos\varphi-\dph^2\sin\varphi)\,\jj=R\ddph\,\ephi-R\dph^2\,\er .\label{eq:arel}
 \end{align}
-For the motion of the frame, $O$ is fixed, $\Om=\Omega\,\jj$ and $\dOm=\dot\Omega\,\jj$ with $\dot\Omega=A\omega^2\cos\omega t$, because $\jj$ does not change. With $\jj\times\ii=-\kk$, $\jj\times\jj=\mathbf{0}$ and $\jj\times\kk=\ii$:
-\begin{equation}
-\begin{aligned}
-\Om\times\rr&=\Omega\,\jj\times(x\,\ii+R\sin\varphi\,\jj)=-\Omega x\,\kk,\qquad \dOm\times\rr=-\dot\Omega x\,\kk,\\
-\Om\times(\Om\times\rr)&=\Omega\,\jj\times(-\Omega x\,\kk)=-\Omega^2x\,\ii,\\
-2\Om\times\vv_{rel}&=2\Omega R\dph\,\jj\times(-\sin\varphi\,\ii+\cos\varphi\,\jj)=2\Omega R\dph\sin\varphi\,\kk .
-\end{aligned}\label{eq:cross}
-\end{equation}
-The composition of motions \cite[Eqs.~3.26--3.27]{notes} gives the velocity and acceleration in the stationary frame:
-\begin{align}
-\vv&=\vv_{rel}+\Om\times\rr=R\dph\,\ephi-\Omega x\,\kk,\label{eq:vabs}\\
-\aaa&=\big[-R(\ddph\sin\varphi+\dph^2\cos\varphi)-\Omega^2x\big]\ii+R(\ddph\cos\varphi-\dph^2\sin\varphi)\,\jj+\big[2\Omega R\dph\sin\varphi-\dot\Omega x\big]\kk .\label{eq:aabs}
-\end{align}
-
 \subsection{Forces on the Particle}
-Two real forces act on $P$: its weight and the reaction of the wire. The wire is smooth, so the reaction has no component along the tangent $\ephi$:
+Two real forces act on $P$: its weight and the reaction of the wire. The wire is frictionless, so the reaction has no component along the tangent $\ephi$:
 \begin{equation}
 m\mathbf{g}=-mg\,\jj=-mg\,(\sin\varphi\,\er+\cos\varphi\,\ephi),\qquad \NN=N_1\,\er+N_2\,\kk .\label{eq:real}
 \end{equation}
-Since $Oxyz$ is not inertial, we have to add the inertia forces \cite[Eqs.~4.62--4.63]{notes}. From Eq.~\eqref{eq:cross} and $\ii=\cos\varphi\,\er-\sin\varphi\,\ephi$:
+Since $Oxyz$ is not inertial, we have to add the inertia forces. $\ii=\cos\varphi\,\er-\sin\varphi\,\ephi$:
 \begin{align}
 \FF_{cent}&=-m\Om\times(\Om\times\rr)=m\Omega^2x\,\ii=mA^2\omega^2R\sin^2(\omega t)(1+\cos\varphi)\,[\cos\varphi\,\er-\sin\varphi\,\ephi],\label{eq:Fcent}\\
 \FF_{Euler}&=-m\dOm\times\rr=m\dot\Omega x\,\kk=mA\omega^2R\cos(\omega t)(1+\cos\varphi)\,\kk,\label{eq:Feul}\\
@@ -190,19 +147,17 @@ In $Oxyz$, $m\aaa_{rel}=m\mathbf{g}+\NN+\FF_{cent}+\FF_{Euler}+\FF_{Cor}$. The d
 \begin{equation}
 \boxed{\ddph=-\frac{g}{R}\cos\varphi-A^2\omega^2\sin^2(\omega t)\,(1+\cos\varphi)\sin\varphi}\label{eq:eom}
 \end{equation}
-The other two projections give the reactions. On $\er$, $-mR\dph^2=N_1-mg\sin\varphi+m\Omega^2x\cos\varphi$, and on $\kk$, $0=N_2+m\dot\Omega x-2m\Omega R\dph\sin\varphi$:
+The other two projections give the reactions. On $\er$: $-mR\dph^2=N_1-mg\sin\varphi+m\Omega^2x\cos\varphi$, and on $\kk$: $0=N_2+m\dot\Omega x-2m\Omega R\dph\sin\varphi$:
 \begin{align}
 N_1&=-mR\dph^2+mg\sin\varphi-mA^2\omega^2R\sin^2(\omega t)(1+\cos\varphi)\cos\varphi,\label{eq:N1}\\
 N_2&=mA\omega R\big[2\dph\sin(\omega t)\sin\varphi-\omega\cos(\omega t)(1+\cos\varphi)\big].\label{eq:N2}
-\end{align}
-All the terms are homogeneous: $[g/R]=[\Omega^2]=\si{s^{-2}}=[\ddph]$ in Eq.~\eqref{eq:eom}, and $[mR\dph^2]=[mg]=[mA\omega^2R]=\si{N}$ in the reactions. Equations~\eqref{eq:eom}--\eqref{eq:N2} agree with the official key of Problem 34 \cite{problems} and with the slides \cite{slides}. For $A=0$, Eq.~\eqref{eq:eom} is a pendulum with its stable equilibrium at the bottom, $\varphi=-\pi/2$, and the unstable one at the top, $\varphi=\pi/2$.
-
+\end{align}.
 \subsection{Mechanical Energy and Work of the Wire}
-With Eq.~\eqref{eq:vabs}, where $\ephi\perp\kk$, and taking the height of $O$ as the reference,
+$\ephi\perp\kk$, and taking the height of $O$ as the reference,
 \begin{equation}
 E_k=\tfrac12 m\big(R^2\dph^2+\Omega^2x^2\big),\qquad E_p=mgR\sin\varphi,\qquad E=E_k+E_p .\label{eq:E}
 \end{equation}
-By the work--energy theorem $dE_k/dt=(m\mathbf{g}+\NN)\cdot\vv$, and the weight is conservative, $m\mathbf{g}\cdot\vv=-dE_p/dt$. Only the power of the reaction is left, and since $\er\perp\ephi$ and $\er\perp\kk$,
+By the work--energy theorem $dE_k/dt=(m\mathbf{g}+\NN)\cdot\vv$, because they are the only forces (real and fictitious) that are not perpendicular to the velocity vector, and the weight is conservative, $m\mathbf{g}\cdot\vv=-dE_p/dt$. Only the power of the reaction is left, and since $\er\perp\ephi$ and $\er\perp\kk$,
 \begin{equation}
 \frac{dE}{dt}=\NN\cdot\vv=(N_1\er+N_2\kk)\cdot(R\dph\,\ephi-\Omega x\,\kk)=-\Omega x N_2 .\label{eq:Edot}
 \end{equation}
@@ -214,17 +169,18 @@ the rate of change of the angular momentum of $P$ about the axis, $L=m\Omega x^2
 \begin{equation}
 J=E-\Omega L=\tfrac12mR^2\dph^2+E_p-\tfrac12m\Omega^2x^2,\qquad \frac{dJ}{dt}=-\dot\Omega L,\qquad E=J+m\Omega^2x^2 .\label{eq:J}
 \end{equation}
-
-\subsection{Fixed Loop: Criterion for the Motion}\label{sec:crit}
-For $A=0$, multiplying Eq.~\eqref{eq:eom} by $\dph$ gives $\dph\ddph+(g/R)\cos\varphi\,\dph=0$. By the chain rule this is a total derivative, $\frac{d}{dt}\big[\tfrac12\dph^2+\tfrac{g}{R}\sin\varphi\big]=0$, and applying Barrow's rule between $0$ and $t$:
+\subsection{Fixed Loop: Criterion for the Motion}
+When the wire is fixed ($A = 0$), the plane does not rotate ($\Omega = 0$), so the reaction $N_2$ does no work and the mechanical energy from Eq.~(2.16) is strictly conserved ($dE/dt = 0$):
 \begin{equation}
-\tfrac12\dph^2+\frac gR\sin\varphi=\tfrac12\dph_0^2+\frac gR\sin\varphi_0=\frac{E_0}{mR^2} .\label{eq:first}
+\frac{1}{2}\dot{\varphi}^2 + \frac{g}{R}\sin\varphi = \frac{1}{2}\dot{\varphi}_0^2 + \frac{g}{R}\sin\varphi_0 = \frac{E_0}{mR^2}.
+\label{eq:energy_fixed}
 \end{equation}
-The potential energy has its maximum, $mgR$, at the top of the loop, $\varphi=\pi/2$. If $E_0>mgR$, $P$ reaches the top with $\dph\neq0$, $\dph$ never changes sign and $\varphi$ grows (or decreases) steadily. If $E_0<mgR$, $\dph$ vanishes before the top and $\varphi$ oscillates. Imposing $E_0>mgR$ in Eq.~\eqref{eq:first}, $\varphi$ rotates if
+The potential energy has its maximum, $mgR$, at the top of the loop ($\varphi = \pi/2$). If $E_0 > mgR$, $P$ reaches the top with $\dot{\varphi} \neq 0$, so $\dot{\varphi}$ never changes sign and $\varphi$ grows (or decreases) steadily. If $E_0 < mgR$, $P$ stops before the top and oscillates. Imposing $E_0 > mgR$ in Eq.~\eqref{eq:energy_fixed}, $P$ rotates if
 \begin{equation}
-|\dph_0|>\dph_c(\varphi_0)=\sqrt{\frac{2g}{R}\big(1-\sin\varphi_0\big)} ,\label{eq:crit}
+|\dot{\varphi}_0| > \dot{\varphi}_c(\varphi_0) = \sqrt{\frac{2g}{R}(1 - \sin\varphi_0)},
+\label{eq:crit_rate}
 \end{equation}
-with $\dph_0>0$ for a growing $\varphi$. Otherwise $\dph=0$ in Eq.~\eqref{eq:first} gives the turning points, $\varphi_{max}=\arcsin\big(\sin\varphi_0+R\dph_0^2/(2g)\big)$ and $\varphi_{min}=-\pi-\varphi_{max}$. The limit $E_0=mgR$ is the separatrix $\dph=\pm\sqrt{(2g/R)(1-\sin\varphi)}$, along which the top is only approached in an infinite time: near it $\epsilon=\pi/2-\varphi$ follows $\dot\epsilon\approx-\sqrt{g/R}\,\epsilon$.
+with $\dot{\varphi}_0 > 0$ for a growing $\varphi$. Otherwise, $\dot{\varphi} = 0$ in Eq.~\eqref{eq:energy_fixed} gives the turning points, $\varphi_{\max} = \arcsin(\sin\varphi_0 + R\dot{\varphi}_0^2 / (2g))$ and $\varphi_{\min} = -\pi - \varphi_{\max}$. The limit $E_0 = mgR$ is the separatrix $\dot{\varphi} = \pm\sqrt{(2g/R)(1 - \sin\varphi)}$ shown in Fig.~6.
 
 \subsection{Linearized Equation}\label{sec:lin}
 With $\varphi=\delta-\pi/2$, $\cos\varphi=\sin\delta$, $\sin\varphi=-\cos\delta$ and $\ddph=\ddot\delta$, so Eq.~\eqref{eq:eom} becomes the exact $\ddot\delta=-(g/R)\sin\delta+\Omega^2(1+\sin\delta)\cos\delta$. For $\delta\ll1$, $\sin\delta\approx\delta$ and $\cos\delta\approx1$, which gives $\ddot\delta=-(g/R)\delta+\Omega^2(1+\delta)$. The hypothesis $A^2\ll g/(R\omega^2)$ means $\Omega^2\le A^2\omega^2\ll g/R$, so $\Omega^2\delta$ is dropped against $(g/R)\delta$ \cite{slides}. Using $\sin^2\omega t=\tfrac12(1-\cos2\omega t)$:
