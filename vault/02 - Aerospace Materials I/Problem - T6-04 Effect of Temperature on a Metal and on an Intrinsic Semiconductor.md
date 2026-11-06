@@ -125,7 +125,7 @@ $$\frac{4.372\times10^{-2}\ \text{K}^{-1}}{3.554\times10^{-3}\ \text{K}^{-1}}=12
 ### Checks
 - **Units of both logarithmic rates.**
 
-$$\left[\frac{\alpha_T}{1+\alpha_TT}\right]=\frac{{}^{\circ}\text{C}^{-1}}{1}=\text{K}^{-1}\qquad\left[\frac{E_g}{2k_BT^2}\right]=\frac{\text{eV}}{\text{eV}\,\text{K}^{-1}\,\text{K}^2}=\text{K}^{-1}$$
+$$\left[\frac{\alpha_T}{1+\alpha_TT}\right]=\frac{ {}^{\circ}\text{C}^{-1}}{1}=\text{K}^{-1}\qquad\left[\frac{E_g}{2k_BT^2}\right]=\frac{\text{eV}}{\text{eV}\,\text{K}^{-1}\,\text{K}^2}=\text{K}^{-1}$$
 
 - **Interval.** A temperature difference of 1 °C equals 1 K, so the coefficient in °C⁻¹ can be read in K⁻¹.
 - **Signs.** Metal: negative rate; semiconductor: positive rate.

@@ -98,7 +98,7 @@ $$\rho_{\text{Al}}(45\ {}^{\circ}\text{C})-\rho_{0,\text{Ag}}=3.17385\times10^{-
 
 Denominator, in ohm-metres per degree:
 
-$$\rho_{0,\text{Ag}}\,\alpha_{\text{Ag}}=1.47\times10^{-8}\ \Omega\,\text{m}\times0.0038\ {}^{\circ}\text{C}^{-1}=5.586\times10^{-11}\ \frac{\Omega\,\text{m}}{{}^{\circ}\text{C}}$$
+$$\rho_{0,\text{Ag}}\,\alpha_{\text{Ag}}=1.47\times10^{-8}\ \Omega\,\text{m}\times0.0038\ {}^{\circ}\text{C}^{-1}=5.586\times10^{-11}\ \frac{\Omega\,\text{m}}{ {}^{\circ}\text{C}}$$
 
 Quotient:
 
