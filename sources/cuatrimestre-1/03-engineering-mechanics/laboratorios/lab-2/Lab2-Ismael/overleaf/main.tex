@@ -43,9 +43,9 @@
 \newcommand{\ii}{\mathbf{i}_1}
 \newcommand{\jj}{\mathbf{j}_1}
 \newcommand{\kk}{\mathbf{k}_1}
-\newcommand{\rr}{\mathbf{r}}
-\newcommand{\vv}{\mathbf{v}}
-\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\rr}{\mathbf{r}_1^P}
+\newcommand{\vv}{\mathbf{v}_0^P}
+\newcommand{\aaa}{\mathbf{a}_0^P}
 \newcommand{\NN}{\mathbf{N}}
 \newcommand{\FF}{\mathbf{F}}
 \newcommand{\Om}{\boldsymbol{\Omega}}
@@ -127,23 +127,23 @@ Also,
 \end{equation}
 Differentiating in the $S_1$ reference frame applying the chain rule, we get the velocity and acceleration:
 \begin{align}
-\vv_{rel}&=-R\dph\sin\varphi\,\ii+R\dph\cos\varphi\,\jj=R\dph\,\ephi,\label{eq:vrel}\\
-\aaa_{rel}&=-R(\ddph\sin\varphi+\dph^2\cos\varphi)\,\ii+R(\ddph\cos\varphi-\dph^2\sin\varphi)\,\jj=R\ddph\,\ephi-R\dph^2\,\er .\label{eq:arel}
+\mathbf{v}_1^P&=-R\dph\sin\varphi\,\ii+R\dph\cos\varphi\,\jj=R\dph\,\ephi,\label{eq:vrel}\\
+\mathbf{a}_1^P&=-R(\ddph\sin\varphi+\dph^2\cos\varphi)\,\ii+R(\ddph\cos\varphi-\dph^2\sin\varphi)\,\jj=R\ddph\,\ephi-R\dph^2\,\er .\label{eq:arel}
 \end{align}
 \subsection{Forces on the Particle}
 Two real forces act on $P$: its weight and the reaction of the wire. The wire is frictionless, so the reaction has no component along the tangent $\ephi$:
 \begin{equation}
 m\mathbf{g}=-mg\,\jj=-mg\,(\sin\varphi\,\er+\cos\varphi\,\ephi),\qquad \NN=N_1\,\er+N_2\,\kk .\label{eq:real}
 \end{equation}
-Since $S_1$ is not inertial, we have to add the inertia forces. With $\jj\times\ii=-\kk$, $\jj\times\jj=\mathbf 0$ and $\jj\times\kk=\ii$ we get $\Om\times\rr=-\Omega x\,\kk$, $\dOm\times\rr=-\dot\Omega x\,\kk$, $\Om\times(\Om\times\rr)=-\Omega^2x\,\ii$ and $\Om\times\vv_{rel}=\Omega R\dph\sin\varphi\,\kk$, and we also use $\ii=\cos\varphi\,\er-\sin\varphi\,\ephi$:
+Since $S_1$ is not inertial, we have to add the inertia forces. With $\jj\times\ii=-\kk$, $\jj\times\jj=\mathbf 0$ and $\jj\times\kk=\ii$ we get $\Om\times\rr=-\Omega x\,\kk$, $\dOm\times\rr=-\dot\Omega x\,\kk$, $\Om\times(\Om\times\rr)=-\Omega^2x\,\ii$ and $\Om\times\mathbf{v}_1^P=\Omega R\dph\sin\varphi\,\kk$, and we also use $\ii=\cos\varphi\,\er-\sin\varphi\,\ephi$:
 \begin{align}
 \FF_{cent}&=-m\Om\times(\Om\times\rr)=m\Omega^2x\,\ii=mA^2\omega^2R\sin^2(\omega t)(1+\cos\varphi)\,[\cos\varphi\,\er-\sin\varphi\,\ephi],\label{eq:Fcent}\\
 \FF_{Euler}&=-m\dOm\times\rr=m\dot\Omega x\,\kk=mA\omega^2R\cos(\omega t)(1+\cos\varphi)\,\kk,\label{eq:Feul}\\
-\FF_{Cor}&=-2m\Om\times\vv_{rel}=-2mA\omega R\dph\sin(\omega t)\sin\varphi\,\kk .\label{eq:Fcor}
+\FF_{Cor}&=-2m\Om\times\mathbf{v}_1^P=-2mA\omega R\dph\sin(\omega t)\sin\varphi\,\kk .\label{eq:Fcor}
 \end{align}
 
 \subsection{Equation of Motion and Reaction Forces}
-In $S_1$, $m\aaa_{rel}=m\mathbf{g}+\NN+\FF_{cent}+\FF_{Euler}+\FF_{Cor}$. The direction $\ephi$ contains no reaction, and the Euler and Coriolis forces are along $\kk$, so projecting on $\ephi$ gives $mR\ddph=-mg\cos\varphi-m\Omega^2x\sin\varphi$, that is
+In $S_1$, $m\mathbf{a}_1^P=m\mathbf{g}+\NN+\FF_{cent}+\FF_{Euler}+\FF_{Cor}$. The direction $\ephi$ contains no reaction, and the Euler and Coriolis forces are along $\kk$, so projecting on $\ephi$ gives $mR\ddph=-mg\cos\varphi-m\Omega^2x\sin\varphi$, that is
 \begin{equation}
 \boxed{\ddph=-\frac{g}{R}\cos\varphi-A^2\omega^2\sin^2(\omega t)\,(1+\cos\varphi)\sin\varphi}\label{eq:eom}
 \end{equation}
@@ -153,7 +153,7 @@ N_1&=-mR\dph^2+mg\sin\varphi-mA^2\omega^2R\sin^2(\omega t)(1+\cos\varphi)\cos\va
 N_2&=mA\omega R\big[2\dph\sin(\omega t)\sin\varphi-\omega\cos(\omega t)(1+\cos\varphi)\big].\label{eq:N2}
 \end{align}
 \subsection{Mechanical Energy and Work of the Wire}
-The absolute velocity is $\vv=\dot{\rr}+\Om\times\rr=\vv_{rel}+\Om\times\rr=R\dph\,\ephi-\Omega x\,\kk$. Since $\ephi\perp\kk$, $|\vv|^2=R^2\dph^2+\Omega^2x^2$, so the kinetic energy is $K_0^P=\tfrac12m|\vv|^2$, and taking the height of $O$ as the reference for the potential energy,
+The absolute velocity is $\vv=\dot{\mathbf{r}}_1^P+\Om\times\rr=\mathbf{v}_1^P+\Om\times\rr=R\dph\,\ephi-\Omega x\,\kk$. Since $\ephi\perp\kk$, $|\vv|^2=R^2\dph^2+\Omega^2x^2$, so the kinetic energy is $K_0^P=\tfrac12m|\vv|^2$, and taking the height of $O$ as the reference for the potential energy,
 \begin{equation}
 K_0^P=\tfrac12 m\big(R^2\dph^2+\Omega^2x^2\big),\qquad V_0^P=mgR\sin\varphi,\qquad E_0^P=K_0^P+V_0^P .\label{eq:E}
 \end{equation}

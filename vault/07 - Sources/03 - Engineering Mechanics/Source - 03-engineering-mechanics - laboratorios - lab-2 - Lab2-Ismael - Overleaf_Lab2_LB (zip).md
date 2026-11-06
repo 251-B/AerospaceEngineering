@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/Overleaf_Lab2_LB.zip"
 kind: laboratorio
 status: not-referenced
-bytes: 1061917
+bytes: 1061928
 ---
 
 # Source: Overleaf_Lab2_LB.zip
