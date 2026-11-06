@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/Lab2Mecánica.pdf"
 kind: laboratorio
 status: not-referenced
-bytes: 1526972
+bytes: 1493282
 ---
 
 # Source: Lab2Mecánica.pdf

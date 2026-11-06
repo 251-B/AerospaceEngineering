@@ -70,7 +70,7 @@
 \hspace{1.2cm}David Mart\'in Garc\'ia\\
 \hspace{1.2cm}Alejandro Ranz Remart\'inez
 \end{flushleft}
-\vspace{1cm}{\large\textbf{Report date:} \today\par}\vfill
+\vspace{1cm}{\large\textbf{Report date:} November 6, 2026}\vfill
 \end{titlepage}
 
 \setlength{\abovedisplayskip}{5pt plus 1pt minus 1pt}
@@ -80,7 +80,7 @@
 
 
 \section{Introduction}
-In this laboratory report, we will investigate the dynamics of a heavy point particle $P$ of mass $m$ that slides without friction on a circular wire of centre $C$ and radius $R$. The wire is on a vertical plane $Oxy$ that rotates about the vertical axis $Oy$ with a known angular velocity $\Om(t)=A\omega\sin(\omega t)\,\jj$, and the position of $P$ on the wire is given by the angle $\varphi$ between $\overrightarrow{CP}$ and $Ox$ (Fig.~\ref{fig:sketch}).
+In this laboratory report, we will investigate the dynamics of a heavy point particle $P$ of mass $m$ that slides without friction on a circular wire of centre $C$ and radius $R$. The wire is on a vertical plane $Oxy$ that rotates about the vertical axis $Oy$ with a known angular velocity $\Om(t)=A\omega\sin(\omega t)\,\jj$, and the position of $P$ on the wire is given by the angle $\varphi$ between $\overrightarrow{CP}$ and $Ox$ (Fig.~\ref{fig:sketch})~\cite{slides}.
 
 The main difficulty is that the frame where the motion can be easily described, the one attached to the wire, is not inertial and does not rotate at a constant rate, so the centrifugal, Euler and Coriolis forces all act on the particle. Our objective is to derive the equation of motion and the reaction of the wire, to integrate it in Matlab with \texttt{ode45} and explain the forces and the energy we obtain, to find a condition that tells if the particle oscillates or rotates on a fixed loop and check it with simulations, and to see how far we can trust a linearized equation around the lowest point of the wire, where resonance appears.
 
@@ -112,7 +112,7 @@ so $\theta$ oscillates between $\theta=0$ and $\theta=2A$ with period $T=2\pi/\o
 
 
 \subsection{Position, Velocity and Acceleration of $P$}
-The side adjacent to $\varphi$ is $R\cos\varphi$ along $\ii$ and the opposite one is $R\sin\varphi$ along $\jj$. Then,
+The side adjacent to $\varphi$ is $R\cos\varphi$ along $\ii$ and the opposite one is $R\sin\varphi$ along $\jj$. Then,~\cite{notes}
 \begin{equation}
 \rr=\overrightarrow{OC}+\overrightarrow{CP}=R(1+\cos\varphi)\,\ii+R\sin\varphi\,\jj .\label{eq:r}
 \end{equation}
@@ -189,28 +189,46 @@ With $\varphi=\delta-\pi/2$, $\cos\varphi=\sin\delta$, $\sin\varphi=-\cos\delta$
 This is an undamped harmonic oscillator of natural frequency $\omega_n$ that is forced at the frequency $2\omega$ by the centrifugal force, which reaches its maximum twice per period of the plane. We assume $P$ at rest at the bottom, $\delta(0)=\dot\delta(0)=0$. When the forcing frequency is equal to the natural one, $2\omega=\omega_n$, that is $\omega=\tfrac12\sqrt{g/R}$, we have resonance: the centrifugal force pushes the particle at the same rhythm as its natural oscillation. This makes the oscillation get larger and larger, so $\delta$ grows with time and the hypothesis $\delta\ll1$ stops being true.
 
 \section{Numerical Implementation in Matlab}\label{sec:num}
-Equation~\eqref{eq:eom} has to be written for the state vector $X=[\varphi,\dph]^T=[X_1,X_2]^T$ because \texttt{ode45} only integrates first-order systems:
+The function \texttt{ode45}~\cite{matlab} only integrates first-order systems, so we write Eq.~\eqref{eq:eom} with the state vector $X=[\varphi,\dph]^T$:
 \begin{equation}
-\frac{d}{dt}\begin{pmatrix}X_1\\X_2\end{pmatrix}=f(t,X)=\begin{pmatrix}X_2\\[2pt]-\dfrac gR\cos X_1-A^2\omega^2\sin^2(\omega t)\,(1+\cos X_1)\sin X_1\end{pmatrix} .\label{eq:state}
+\dot X=\big[\dph,\ \ddph(t,\varphi)\big]^T ,\label{eq:state}
 \end{equation}
-This is the function \texttt{diffeq(t,X,g,omega,R,A)} of \texttt{main.m}, and Eq.~\eqref{eq:lin} is \texttt{diffeqlin}, with $X=[\delta,\dot\delta]^T$. The options are \texttt{RelTol} $=10^{-8}$, \texttt{AbsTol} $=10^{-10}$ (the default $10^{-6}$ is not small against $\delta\sim10^{-3}$) and \texttt{MaxStep} $=\SI{0.01}{s}$, so every swing has sufficient points. We compute the forces and energies afterwards from $\varphi$ and $\dph$ with Eqs.~\eqref{eq:Fcent}--\eqref{eq:N2} and \eqref{eq:E}. The position in the stationary frame follows from Eqs.~\eqref{eq:theta}--\eqref{eq:r}: $x_0=R(1+\cos\varphi)\cos\theta$, $y_0=R\sin\varphi$, $z_0=-R(1+\cos\varphi)\sin\theta$. A fixed-loop case counts as rotating if $\dph$ never changes sign and as oscillating otherwise, and the periods come from the times of the extrema of $\varphi$.
+where $\ddph$ is the right-hand side of Eq.~\eqref{eq:eom}. This is the function \texttt{diffeq} of \texttt{main.m}. The function \texttt{diffeqlin} does the same for Eq.~\eqref{eq:lin}, with $X=[\delta,\dot\delta]^T$.
 
-In all cases $g=\SI{9.81}{m/s^2}$ and $m=\SI{1}{kg}$. The oscillating loop uses $A=\pi$, $R=\SI{1}{m}$, $\omega=\SI{0.1}{rad/s}$, $\varphi(0)=\dph(0)=0$ and $t\in[0,3T]$ with $T=\SI{62.83}{s}$. The fixed loop uses $A=0$ and $R=\SI{1}{m}$, and the linearized study $A=0.1$, $R=\SI{0.01}{m}$ and $\omega_n=\SI{31.32}{rad/s}$. The guide do not fix the duration of these two studies, so we take $t\in[0,10]$~s, which is longer than any period of the fixed loop.
+We use \texttt{RelTol} $=10^{-8}$ and \texttt{AbsTol} $=10^{-10}$, because the default \texttt{AbsTol} of $10^{-6}$ is not small against $\delta\sim10^{-3}$, and \texttt{MaxStep} $=\SI{0.01}{s}$, so every swing has sufficient points.
+
+The forces and energies are computed afterwards from $\varphi$ and $\dph$ with Eqs.~\eqref{eq:Fcent}--\eqref{eq:N2} and \eqref{eq:E}, and the position in $S_0$ from Eqs.~\eqref{eq:theta}--\eqref{eq:r}. A fixed-loop case counts as rotating if $\dph$ never changes sign and as oscillating otherwise, and the periods come from the times of the extrema of $\varphi$.
+
+Table~\ref{tab:params} gives the data of each study, with $g=\SI{9.81}{m/s^2}$ and $m=\SI{1}{kg}$ in all of them. For the last two we take \SI{10}{s}, which is longer than any period of the fixed loop.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Parameters of the simulations.}\label{tab:params}
+\begin{tabular}{lcccc}
+\toprule
+Study & $A$ & $R$ (m) & $\omega$ (rad/s) & $t$ (s)\\
+\midrule
+Oscillating loop & $\pi$ & 1 & 0.1 & $[0,\,3T]$, $T=2\pi/\omega=62.83$\\
+Fixed loop & 0 & 1 & -- & $[0,\,10]$\\
+Linearized & 0.1 & 0.01 & $\omega_n/4,\ \omega_n/2,\ \omega_n$ & $[0,\,10]$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Results and Discussion}\label{sec:results}
 \subsection{Angle and Reaction Forces}
-Figure~\ref{fig:angle} shows $\varphi$, $N_1$ and $N_2$ for $t\in[0,3T]$, with $T=\SI{62.83}{s}$. There are too many swings in that interval to tell them apart, so the right panels zoom into a window of \SI{10}{s} around $t=T/4$. At $t=0$ the particle is at rest at the end of the horizontal diameter, so it falls and swings around the bottom of the wire, between $\varphi\approx0$ and $\varphi\approx-\pi$ ($\varphi\in[-3.14,\,0.01]$ rad), passing through $O$ at the left end. The motion is almost the one of a simple pendulum, and its amplitude does not change during the three periods of the plane, because $\omega=\SI{0.1}{rad/s}$ is small: the plane turns slowly and the centrifugal term of Eq.~\eqref{eq:eom} is small compared with $g/R$. For the same reason the period of the swing, \SI{2.37}{s}, is the one of a pendulum with a large amplitude (\ang{90} to each side of the bottom), and it is longer than the period of small oscillations, $2\pi\sqrt{R/g}=\SI{2.01}{s}$, because for a large amplitude the restoring force grows less than proportionally to the angle from the bottom, so the pendulum is slower.
+Figure~\ref{fig:angle} shows $\varphi$, $N_1$ and $N_2$ for $t\in[0,3T]$, with $T=2\pi/\omega=\SI{62.83}{s}$. As there are too many swings in that interval to tell them apart, the right panels zoom them into a window of \SI{10}{s} around $t=T/4$. At $t=0$ the particle is at rest at the end of the horizontal diameter, so it falls and swings around the bottom of the wire, between $\varphi\approx0$ and $\varphi\approx-\pi$, passing through $O$ at the left end. The motion is almost the one of a simple pendulum, and its amplitude does not change during the three periods of the plane, because $\omega=\SI{0.1}{rad/s}$ is small: the plane turns slowly and the centrifugal term of Eq.~\eqref{eq:eom} is small compared with $g/R$.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\textwidth]{angle_reactions.png}
-\caption{Oscillating loop. Left: $t\in[0,3T]$. Right: window around $t=T/4$. (a, b) Angle; (c, d) reaction along $\er$; (e, f) reaction along $\kk$.}\label{fig:angle}
+\caption{Oscillating loop. Left: $t\in[0,3T]$. Right: interval around $t=T/4$. (a, b) $\varphi(t)$; (c, d) reaction along $\er$; (e, f) reaction along $\kk$.}\label{fig:angle}
 \end{figure}
 
-$N_1$ is always negative, between \SI{-29.43}{N} and \SI{0.00}{N}, so the wire pulls $P$ towards the centre $C$. It is zero at the turning points, where $P$ stops, and it has its minimum at the bottom, where the speed is largest ($\dph=\SI{4.43}{rad/s}$). As the rotation is weak, Eq.~\eqref{eq:energy_fixed} is approximately valid and gives $\dph^2\approx2g/R$ at the bottom, so Eq.~\eqref{eq:N1} gives $N_1\approx-2mg-mg=-3mg$: the wire balances the weight and also pulls $P$ towards $C$ to make it turn. The particle crosses the bottom twice per swing, so $N_1$ oscillates at twice the frequency of $\varphi$ (Fig.~\ref{fig:angle}d). $N_2$ is smaller, with a maximum of \SI{2.78}{N}, and its sign changes from one crossing of the bottom to the next because $P$ goes through it in opposite directions (Fig.~\ref{fig:angle}f). Its amplitude changes with a period $T/2$ and it is small when the plane stops and turns back ($\Omega\approx0$). We explain where $N_2$ comes from in the next section.
+$N_1$ is always negative, so the wire pulls $P$ towards the center $C$. It is zero at the turning points, where $P$ stops, and it has its minimum at the bottom, where the speed is largest. The particle crosses the bottom twice per swing, so $N_1$ oscillates at twice the frequency of $\varphi$ (Fig.~\ref{fig:angle}d). $N_2$ is smaller than $N_1$, and its sign changes from one crossing of the bottom to the next because $P$ goes through it in opposite directions (Fig.~\ref{fig:angle}f). Its amplitude changes with a period $T/2$ and it is small when the plane stops and turns back ($\Omega\approx0$). We explain where $N_2$ comes from in the next section.
 
 \subsection{Inertia Forces}\label{sec:inertia}
-Figure~\ref{fig:inertia} shows the three inertia forces. Each has its own axis because their sizes are different, as the guidelines recommend. The centrifugal force (a) always points away from the rotation axis and its maximum is \SI{0.20}{N}, reached when the plane turns fastest and $P$ is far from the axis. The Euler force (b) is proportional to $\dot\Omega$, so it follows $\cos\omega t$, and its maximum (\SI{0.06}{N}) is when the plane stops and changes its direction, which is when the centrifugal and Coriolis forces vanish. The Coriolis force (c) is the largest, up to \SI{2.78}{N}, because it depends on the velocity of $P$ along the wire, $\dph$, which is large while the plane turns slowly. It vanishes when the plane stops and at the turning points, where $\dph=0$.
+Figure~\ref{fig:inertia} shows the three inertia forces. The centrifugal force (a) always points away from the rotation axis, and it is largest when the plane turns fastest and $P$ is far from the axis. The Euler force (b) is proportional to $\dot\Omega$, so it follows $\cos\omega t$, and its maximum value is when the plane stops and changes its direction, which is when the centrifugal and Coriolis forces vanish. The Coriolis force (c) is the largest, up to nearly 3 {N} because it depends on the velocity of $P$ along the wire, $\dph$, which is large while the plane turns slowly. It vanishes when the plane stops and at the turning points, where $\dph=0$.
 
 \begin{figure}[!htb]
 \centering
@@ -218,38 +236,37 @@ Figure~\ref{fig:inertia} shows the three inertia forces. Each has its own axis b
 \caption{Inertia forces of the oscillating loop. (a) Centrifugal (along $\ii$), (b) Euler and (c) Coriolis (along $\kk$) for $t\in[0,3T]$. (d) Coriolis force and reaction $N_2$ around $t=T/4$.}\label{fig:inertia}
 \end{figure}
 
-Only the centrifugal force has a component along $\ephi$ and enters the equation of motion, Eq.~\eqref{eq:eom}, which is why $\varphi$ moves almost as in a pendulum. The Euler and Coriolis forces are along $\kk$, normal to the plane of the wire, so they do not move $P$ along the wire. They are balanced by $N_2$ (Eq.~\eqref{eq:N2}), and this is why $N_2$ in Fig.~\ref{fig:inertia}d is almost the opposite of $F_{Cor}$, the Euler force being small.
+Only the centrifugal force has a component along $\ephi$ and enters the equation of motion, Eq.~\eqref{eq:eom}. The Euler and Coriolis forces act along $\kk$, normal to the plane of the wire, so they do not move $P$ along the wire. They are balanced by $N_2$ (Eq.~\eqref{eq:N2}), and this is why $N_2$ in Fig.~\ref{fig:inertia}d is almost the opposite of $F_{Cor}$.
 
 \subsection{Energy}\label{sec:energy}
-In Fig.~\ref{fig:energy}(a, b), $K_0^P$ and $V_0^P$ are exchanged in each swing: $K_0^P$ goes from almost zero at the turning points to its maximum, \SI{9.83}{J}, at the bottom, where $V_0^P$ is minimum (\SI{-9.81}{J}), as in a pendulum. The total energy is not constant (Fig.~\ref{fig:energy}c, d): $E_0^P-E_0^P(0)$ varies between \SI{-0.08}{J} and \SI{0.31}{J}. The reason is Eq.~\eqref{eq:Edot}. The wire moves with the plane, so $N_2$ does work: when $P$ moves away from the rotation axis the wire gives energy to $P$, and when $P$ goes back to the axis the wire takes it back, so $E_0^P$ is high when $P$ is far from the axis and low when it is near (Fig.~\ref{fig:energy}d). More precisely, $E_0^P-E_0^P(0)$ follows $m\Omega^2 R^2(1+\cos\varphi)^2$ minus an offset of at most \SI{0.08}{J}, which is the energy that the wire has spent speeding up the plane, and this is why $E_0^P$ is below its initial value when $P$ is near the axis. When the plane stops, $\Omega=0$ and $E_0^P$ is again almost its initial value: $E_0^P-E_0^P(0)$ is \SI{0.001}{J}, \SI{0.000}{J} and \SI{0.001}{J} at $T$, $2T$ and $3T$. This is why the amplitude of $\varphi$ does not change in Fig.~\ref{fig:angle}a.
+In Fig.~\ref{fig:energy}(a, b), $K_0^P$ and $V_0^P$ are exchanged in each swing: $K_0^P$ goes from almost zero at the turning points to its maximum, where $V_0^P$ is minimum (around $\pm\SI{10}{J}$ respectively). The total energy is not constant (Fig.~\ref{fig:energy}c, d): $E_0^P-E_0^P(0)$ varies between \SI{-0.1}{J} and \SI{0.3}{J} approximately. The reason is Eq.~\eqref{eq:Edot}. The wire moves with the plane, so $N_2$ does work: when $P$ moves away from the rotation axis, the wire gives energy to $P$, and when $P$ goes back to the axis the wire takes it back, so $E_0^P$ is high when $P$ is far from the axis and low when it is near (Fig.~\ref{fig:energy}d).
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{energies.png}
-\caption{Energy of the oscillating loop. (a, b) Kinetic and gravitational potential energy; (c, d) change of the mechanical energy. Left: $t\in[0,3T]$. Right: window around $t=T/4$.}\label{fig:energy}
+\caption{Energy of the oscillating loop. Left: $t\in[0,3T]$. Right: interval around $t=T/4$.\label{fig:energy}(a, b) Kinetic and gravitational potential energy; (c, d) change of the mechanical energy.} 
 \end{figure}
 
 \subsection{Trajectory in the Stationary Frame}
-Figure~\ref{fig:traj} shows the trajectory of $P$ seen from the stationary frame. $P$ always stays on the surface swept by the wire when it turns about the vertical axis, which is a torus without a hole because the wire touches the axis at $O$. Each swing draws one petal, from the axis ($\varphi=-\pi$) to the outer edge $2R$ ($\varphi=0$) and back. The petals are spread around the axis because the plane turns from $\theta=0$ to $\theta=2\pi$ at $t=T/2$ and back to $0$ at $t=T$ (Eq.~\eqref{eq:theta}). Near $\theta=0$ and $\theta=2\pi$ the plane stops and reverses its rotation, so many petals accumulate in the same direction ($+x_0$ in Fig.~\ref{fig:traj}b), while near $\theta=\pi$ the plane turns fastest ($\Omega$ is maximum) and the petals are more separated. The three periods of the plane draw almost the same figure, with slightly displaced petals because $T$ is not a multiple of the swing period. The video \texttt{trajectory\_video.avi}, generated by \texttt{main.m}, shows the first period.
-
-\begin{figure}[!htb]
+Figure~\ref{fig:traj} shows the trajectory of $P$ seen from the stationary frame. $P$ always stays on the surface swept by the wire when it turns about the vertical axis, which is a torus without a hole because the wire touches the axis at $O$. Each swing draws one petal, from the axis ($\varphi=-\pi$) to the outer edge $2R$ ($\varphi=0$) and back. The petals are spread around the axis because the plane turns from $\theta=0$ to $\theta=2\pi$ at $t=T/2$ and back to $0$ at $t=T$ (Eq.~\eqref{eq:theta}). Near $\theta=0$ and $\theta=2\pi$ the plane stops and reverses its rotation, so many petals accumulate in the same direction ($+x_0$ in Fig.~\ref{fig:traj}b), while near $\theta=\pi$ the plane turns fastest ($\Omega$ is maximum) and the petals are more separated. The three periods of the plane draw almost the same figure, with slightly displaced petals because $T$ is not a multiple of the swing period.
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{trajectory.png}
 \caption{Trajectory of $P$ in $S_0$ for $t\in[0,3T]$, with the start marked by a dot. (a) Three-dimensional view with the wire at $t=0$ (dashed) and the rotation axis (dash-dot). (b) View from above.}\label{fig:traj}
 \end{figure}
 
 \subsection{Fixed Loop: Phase Portrait and Validation of the Criterion}
-Figure~\ref{fig:phase} shows $\dph$ as a function of $\varphi$ for the nine initial conditions, together with the limit curve of Eq.~\eqref{eq:crit_rate}, which separates the two kinds of motion. Since $\varphi$ is plotted modulo $2\pi$, both ends of the horizontal axis are the top of the loop. Table~\ref{tab:phase} compares the criterion of Eq.~\eqref{eq:crit_rate} with the simulation (we consider that $P$ rotates if $\dph$ never changes sign), and they agree in all nine cases.
+Figure~\ref{fig:phase} shows $\dph$ as a function of $\varphi$ for the nine initial conditions, together with the limit curve of Eq.~\eqref{eq:crit_rate}, which separates the two kinds of motion. Table~\ref{tab:phase} compares the criterion of Eq.~\eqref{eq:crit_rate} with the simulation (we consider that $P$ rotates if $\dph$ never changes sign), and they agree in all nine cases.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{phase_portrait.png}
+\includegraphics[width=0.75\textwidth]{phase_portrait.png}
 \caption{Phase portrait of the fixed loop ($A=0$), with $\varphi_0$ in rad and $\dph_0$ in rad/s. Dots mark the initial conditions and the dash-dot line is the limit case $E_0^P=mgR$. Closed curves are oscillations and open curves are rotations.}\label{fig:phase}
 \end{figure}
 
-\begin{table}[!htb]
+\begin{table}[H]
 \centering\small
-\caption{Criterion of Eq.~\eqref{eq:crit_rate} against the simulation of the fixed loop.}\label{tab:phase}
+\caption{Criterion of Eq.~\eqref{eq:crit_rate} against the simulation of the fixed loop with $\dot\varphi_c=\sqrt{(2g/R)(1-\sin\varphi_0)}$.}\label{tab:phase}
 \begin{tabular}{ccccc}
 \toprule
 $\varphi_0$ (rad) & $\dph_0$ (rad/s) & $\dph_c$ (rad/s) & Prediction & Simulation\\
@@ -267,12 +284,12 @@ $\pi/2$ & 3 & 0.000 & rotates & rotates\\
 \end{tabular}
 \end{table}
 
-The closed curves, around the stable equilibrium $(-\pi/2,\,0)$, are oscillations. The open curves are the cases that start above the dash-dot curve, $(\pi/4,\,3)$, $(\pi/2,\,1.5)$ and $(\pi/2,\,3)$. In these cases $P$ has enough energy to pass the top of the loop ($E_0^P>mgR$), $\dph$ never becomes zero and $\varphi$ increases steadily, with $P$ going slowest at the top and fastest at the bottom. The speed alone is not enough: $(0,\,3)$ has the same $\dph_0$ as $(\pi/4,\,3)$ but less potential energy, and it oscillates. The period of the oscillations grows from \SI{2.37}{s} to \SI{3.36}{s} as the curves get closer to the dash-dot curve, because $P$ spends more time near the top, where it moves slowly. The case $(\pi/2,\,0)$ starts at rest at the top of the loop, which is an unstable equilibrium position ($\ddph=0$), so it stays at rest in the simulation, although any disturbance would make it fall.
+The closed curves, around the stable equilibrium $(-\pi/2,\,0)$, are oscillations. The open curves are the cases that start above the dash-dot curve, $(\pi/4,\,3)$, $(\pi/2,\,1.5)$ and $(\pi/2,\,3)$. In these cases $P$ has enough energy to pass the top of the loop ($E_0^P>mgR$), $\dph$ never becomes zero and $\varphi$ increases steadily, with $P$ going slowest at the top and fastest at the bottom. The speed alone is not enough to determine the particle's motion: $(0,\,3)$ has the same $\dph_0$ as $(\pi/4,\,3)$ but less potential energy, and it oscillates. The period of the oscillations grows as the curves get closer to the dash-dot curve, because $P$ spends more time near the top, where it moves slowly. The case $(\pi/2,\,0)$ starts at rest at the top of the loop, which is an unstable equilibrium position ($\ddph=0$), so it stays at rest in the simulation, although any disturbance would make it fall.
 
 \subsection{Linearized Against Full Equation}
 Figure~\ref{fig:lin}a shows the percentage error between the linearized and the full solution for the three values of $\omega$,
 \[
-\text{Error}=100\,\frac{|\delta_{lin}-\delta_{full}|}{\max|\delta_{full}|}.
+\text{Error}=100\,\frac{|\delta_{lin}-\delta_{full}|}{\max(|\delta_{full}|)}.
 \]
 We divide by the maximum of $\delta_{full}$ and not by $\delta(t)$ because $\delta$ crosses zero. The error oscillates fast, so the thick lines show its envelope. Figure~\ref{fig:lin}b shows $\delta(t)$ for $\omega=\omega_n/2$.
 
@@ -282,9 +299,9 @@ We divide by the maximum of $\delta_{full}$ and not by $\delta(t)$ because $\del
 \caption{(a) Percentage error between the linearized and the full solutions (thin: error; thick: its envelope). (b) $\delta(t)$ of the full (solid) and linearized (dashed) solutions for $\omega=\omega_n/2$.}\label{fig:lin}
 \end{figure}
 
-For $\omega=\omega_n/2$ there is resonance: the frequency of the centrifugal force, $2\omega$, is equal to the natural frequency, $\omega_n=\sqrt{g/R}$, so each push is in phase with the oscillation and the amplitude of $\delta$ grows linearly with time (Fig.~\ref{fig:lin}b), up to \SI{0.20}{rad} ($\approx\ang{11}$) at \SI{10}{s}. Then the hypothesis $\delta\ll1$ is not true any more, $\sin\delta\approx\delta$ fails and the error grows up to 27.8\%. In the full equation the pendulum is slower when its amplitude is larger, so it gets out of phase with the forcing and the two solutions separate.
+For $\omega=\omega_n/2$ there is resonance in the system: the frequency of the centrifugal force, $2\omega$, is equal to the natural frequency, $\omega_n=\sqrt{g/R}$, so the amplitude of $\delta$ grows constantly with time (Fig.~\ref{fig:lin}b), up to approximately \SI{0.20}{rad} at \SI{10}{s}. Then the hypothesis $\delta\ll1$ is not true any more, $\sin\delta\approx\delta$ fails and the error grows up to around 28\%. In the full equation, the pendulum is slower when its amplitude is larger, so it gets out of phase with the forcing and the two solutions separate.
 
-Outside resonance, the error is smaller for $\omega=\omega_n/4$ (below 2\%) than for $\omega=\omega_n$ (21.4\%), although $\delta$ stays small in both cases (at most about \SI{0.013}{rad}). In the linearization we neglected $\Omega^2\delta$ against $(g/R)\delta$ using the hypothesis $A^2\ll g/(R\omega^2)$, that is $A^2\omega^2\ll g/R$. Since $\Omega^2\propto\omega^2$, $\Omega^2$ is 16 times larger at $\omega_n$ than at $\omega_n/4$, and $\delta$ is also larger, so the neglected term $\Omega^2\delta$ is even larger and it accumulates a larger phase difference between the two solutions as time passes.
+Outside resonance, the error is smaller for $\omega=\omega_n/4$ (around 2\%) than for $\omega=\omega_n$ (around 20\%). In the linearization, we neglected $\Omega^2\delta$ compared to $(g/R)\delta$ using the hypothesis $A^2\ll g/(R\omega^2)$, that is $A^2\omega^2\ll g/R$. Since $\Omega^2\propto\omega^2$, $\Omega^2$ is 16 times larger at $\omega_n$ than at $\omega_n/4$, and $\delta$ is also larger, so the neglected term $\Omega^2\delta$ is even larger and it accumulates a larger phase difference between the two solutions as time passes.
 
 \section{Conclusions}\label{sec:conc}
 \begin{itemize}[noitemsep,topsep=2pt]
@@ -296,9 +313,9 @@ Outside resonance, the error is smaller for $\omega=\omega_n/4$ (below 2\%) than
 
 \item On a stationary loop ($A = 0$), the $\dph$ and $\varphi$ diagram depending on their initial values confirms the condition $|\dph_0|> \sqrt{(2g/R)(1-\sin\varphi_0)}$ we got analytically for the relation between $\dph$ and $\varphi$ that determines whether the particle will oscillate or rotate around the wire. Rotation happens when $|\dph_0|> \sqrt{(2g/R)(1-\sin\varphi_0)}$. Oscillation happens when $|\dph_0|< \sqrt{(2g/R)(1-\sin\varphi_0)}$. When $|\dph_0|= \sqrt{(2g/R)(1-\sin\varphi_0)}$, the point reaches the top of the wire and stays there. As observed in our simulations, initial speed is not the only factor that determines the point's motion. For example, the particle that starts at $\varphi_0=0$ oscillates, while the one that starts at $\varphi_0=\pi/4$ rotates, despite having the same initial velocity $\dph_0 = \SI{3}{rad/s}$. This is due to the second one starting higher up (with more potential energy).
 
-\item The linearized equation for the motion of the particle around its equilibrium position is accurate only when the value of the angle displacement with respect to the equilibrium position is low ($\delta \ll 1$) and when the system is not at resonance ($\omega \ne \omega_n/2 = \tfrac{1}{2}\sqrt{g/R}$). At resonance, the angular displacement amplitude grows bigger and bigger, causing the condition $\delta \ll 1$ to not be satisfied and causing the linear and full non-linear solutions to diverge by up to $27.8\%$ at $t = \SI{10}{s}$.
+\item The linearized equation for the motion of the particle around its equilibrium position is accurate only when the value of the angle displacement with respect to the equilibrium position is low ($\delta \ll 1$) and when the system is not at resonance ($\omega \ne \omega_n/2 = \tfrac{1}{2}\sqrt{g/R}$). At resonance, the angular displacement amplitude grows bigger and bigger, causing the condition $\delta \ll 1$ to not be satisfied and causing the linear and full non-linear solutions to diverge by around $28\%$ at $t = \SI{10}{s}$.
 
-\item We have found particularly surprising that even though Coriolis force does not influence the motion of the particle at all, (which is determined by gravity and the centrifugal force), as we have seen in \ref{sec:inertia}, Coriolis force is the inertia force with the biggest magnitude. The reason why this happens is that Coriolis force acts perpendicular to the plane where the wire is contained (where the particle is constrained to stay), only causing a reaction force in the wire of equal magnitude and opposite direction, as can be seen in Fig.~\ref{fig:inertia}d.
+\item We have found particularly surprising that even though Coriolis force does not influence the motion of the particle at all (which is determined by gravity and the centrifugal force), as we have seen in Section~\ref{sec:inertia}, Coriolis force is the inertia force with the biggest magnitude. The reason why this happens is that Coriolis force acts perpendicular to the plane where the wire is contained (where the particle is constrained to stay), only causing a reaction force in the wire of almost equal magnitude and opposite direction, as can be seen in Fig.~\ref{fig:inertia}d.
 
 \end{itemize}
 

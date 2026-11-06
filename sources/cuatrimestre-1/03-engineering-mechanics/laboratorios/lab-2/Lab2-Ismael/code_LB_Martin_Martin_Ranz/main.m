@@ -49,16 +49,8 @@ K = 0.5*m*(R^2*phidot.^2 + Om.^2.*x.^2);
 V = m*g*R*sin(phi);
 E = K + V;
 
-Tsw = mean(diff(t(islocalmin(phi))));
-
 fprintf('\n=== Point 5 ===\n');
 fprintf('T = %.2f s\n', T);
-fprintf('phi in [%.2f, %.2f] rad, max|phidot| = %.2f rad/s\n', min(phi), max(phi), max(abs(phidot)));
-fprintf('swing period = %.2f s, small oscillations = %.2f s\n', Tsw, 2*pi*sqrt(R/g));
-fprintf('N1 in [%.2f, %.2f] N, -3mg = %.2f N\n', min(N1), max(N1), -3*m*g);
-fprintf('max|N2| = %.2f N\n', max(abs(N2)));
-fprintf('max F_cent = %.2f N, max|F_Euler| = %.2f N, max|F_Cor| = %.2f N\n', max(abs(Fcent)), max(abs(Feul)), max(abs(Fcor)));
-fprintf('max K = %.2f J, V in [%.2f, %.2f] J\n', max(K), min(V), max(V));
 fprintf('E - E(0) in [%.2f, %.2f] J\n', min(E - E(1)), max(E - E(1)));
 fprintf('E - E(0) at T, 2T, 3T = %.3f, %.3f, %.3f J\n', interp1(t, E, T) - E(1), interp1(t, E, 2*T) - E(1), E(end) - E(1));
 
@@ -208,7 +200,7 @@ colors = {'b', 'r', [0 0.5 0]};
 styles = {'-', '--', ':'};
 
 fprintf('\n=== Point 7 ===\n');
-fprintf('phi0 phidot0 phidot_c prediction simulation period\n');
+fprintf('phi0 phidot0 phidot_c prediction simulation\n');
 fig = figure('Units', 'centimeters', 'Position', [2 2 17 7.5], 'Color', 'w');
 try
     theme(fig, 'light');
@@ -236,7 +228,7 @@ for i = 1:3
             sim_result = 'oscillates';
             Tosc = mean(diff(t7(islocalmax(X7(:, 1)))));
         end
-        fprintf('%.2f %.1f %.3f %s %s %.2f\n', p0, pd0, pdc, pred, sim_result, Tosc);
+        fprintf('%.2f %.1f %.3f %s %s\n', p0, pd0, pdc, pred, sim_result);
         % phi wrapped to one turn
         ip = true(size(t7));
         if ~isnan(Tosc)
@@ -268,7 +260,6 @@ light8 = 0.3*col8 + 0.7;
 names = ["$\omega=\omega_n$", "$\omega=\omega_n/2$", "$\omega=\omega_n/4$"];
 
 fprintf('\n=== Point 8 ===\n');
-fprintf('omega_n = %.2f rad/s\n', wn);
 fig = figure('Units', 'centimeters', 'Position', [2 2 17 6.5], 'Color', 'w');
 try
     theme(fig, 'light');
@@ -280,7 +271,7 @@ for k = 1:3
     df = Xf(:, 1) + pi/2;
     dl = Xl(:, 1);
     err = 100*abs(dl - df)/max(abs(df));
-    fprintf('omega = %.2f rad/s: max|delta| = %.3f rad = %.1f deg, max error = %.1f %%\n', w, max(abs(df)), max(abs(df))*180/pi, max(err));
+    fprintf('omega = %.2f rad/s: max|delta| = %.3f rad, max error = %.1f %%\n', w, max(abs(df)), max(err));
 
     subplot(1, 2, 1)
     semilogy(t8, err, 'Color', light8(k, :), 'LineWidth', 0.5, 'HandleVisibility', 'off'); hold on
