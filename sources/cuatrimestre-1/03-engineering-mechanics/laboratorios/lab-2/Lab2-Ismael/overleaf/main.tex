@@ -84,7 +84,7 @@ In this laboratory report, we will investigate the dynamics of a heavy point par
 
 The main difficulty is that the frame where the motion can be easily described, the one attached to the wire, is not inertial and does not rotate at a constant rate, so the centrifugal, Euler and Coriolis forces all act on the particle. Our objective is to derive the equation of motion and the reaction of the wire, to integrate it in Matlab with \texttt{ode45} and explain the forces and the energy we obtain, to find a condition that tells if the particle oscillates or rotates on a fixed loop and check it with simulations, and to see how far we can trust a linearized equation around the lowest point of the wire, where resonance appears.
 
-In Section~\ref{sec:model} we derive the analytical model and in Section~\ref{sec:num} we explain how we have implemented it in Matlab. In Section~\ref{sec:results} we present the results and discuss each of them next to its figure, and Section~\ref{sec:conc} are the conclusions .
+In Section~\ref{sec:model} we derive the analytical model and in Section~\ref{sec:num} we explain how we have implemented it in Matlab. In Section~\ref{sec:results} we present the results and discuss each of them next to its figure, and Section~\ref{sec:conc} gives the conclusions.
 
 \section{Analytical Model}\label{sec:model}
 \subsection{Reference Frames and Degrees of Freedom}
@@ -95,14 +95,14 @@ In space, $P$ needs three coordinates. The wire removes two of them, since $P$ h
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.45\textwidth]{sketch.png}
-    \caption{Geometry of the problem and reference frames.}\label{fig:sketch}
+    \caption{Geometry of the problem.}\label{fig:sketch}
 \end{figure}
 
 The angle $\theta$ turned by the plane satisfies $\dot\theta=\Omega$ with $\theta(0)=0$, where $\Omega=A\omega\sin\omega t$. Integrating with the change $u=\omega\tau$, $du=\omega\,d\tau$:
 \begin{equation}
 \theta(t)=\int_0^t A\omega\sin(\omega\tau)\,d\tau=A\int_0^{\omega t}\sin u\,du=A\big[-\cos u\big]_0^{\omega t}=A\,(1-\cos\omega t),\label{eq:theta}
 \end{equation}
-so $\theta$ oscillates between $\theta=0$ and $\theta=2A$ with period $T=2\pi/\omega$. Using this angle $\theta$ to get the rotating reference frame $S_1$, we obtain these unit vectors in function of the stationary frame's unit vectors:
+so $\theta$ oscillates between $\theta=0$ and $\theta=2A$ with period $T=2\pi/\omega$. Using this angle $\theta$ to get the rotating reference frame $S_1$, we obtain these unit vectors as functions of the stationary frame's unit vectors:
 \begin{equation}
 \ii=\cos\theta\,\mathbf{i}_0-\sin\theta\,\mathbf{k}_0,\quad \jj=\mathbf{j}_0,\quad \kk=\sin\theta\,\mathbf{i}_0+\cos\theta\,\mathbf{k}_0,\qquad
 \end{equation}
@@ -113,7 +113,7 @@ The side adjacent to $\varphi$ is $R\cos\varphi$ along $\ii$ and the opposite on
 \begin{equation}
 \rr=\overrightarrow{OC}+\overrightarrow{CP}=R(1+\cos\varphi)\,\ii+R\sin\varphi\,\jj=x\,\ii+R\sin\varphi\,\jj .\label{eq:r}
 \end{equation}
-Using the auxiliary polar reference frame defined as:
+Using the auxiliary polar basis defined as:
 \begin{equation}
 \er = \cos\varphi\,\ii + \sin\varphi\,\jj,\quad \ephi = -\sin\varphi\,\ii + \cos\varphi\,\jj,\qquad
 \end{equation}
@@ -193,7 +193,7 @@ In all cases $g=\SI{9.81}{m/s^2}$ and $m=\SI{1}{kg}$. The oscillating loop uses 
 
 \section{Results and Discussion}\label{sec:results}
 \subsection{Angle and Reaction Forces}
-Figure~\ref{fig:angle} shows $\varphi$, $N_1$ and $N_2$ for $t\in[0,3T]$, with $T=\SI{62.83}{s}$. There are too many swings in that interval to tell them apart, so the right panels zoom into a window of \SI{10}{s} around $t=T/4$. At $t=0$ the particle is at rest at the end of the horizontal diameter, so it falls and swings around the bottom of the wire, between $\varphi\approx0$ and $\varphi\approx-\pi$ ($\varphi\in[-3.14,\,0.01]$ rad), passing through $O$ at the left end. The motion is almost the one of a simple pendulum, and its amplitude does not change during the three periods of the plane, because $\omega=\SI{0.1}{rad/s}$ is small: the plane turns slowly and the centrifugal term of Eq.~\eqref{eq:eom} is very small compared with $g/R$. For the same reason the period of the swing, \SI{2.37}{s}, is the one of a pendulum with a large amplitude (\ang{90} to each side of the bottom), and it is longer than the period of small oscillations, $2\pi\sqrt{R/g}=\SI{2.01}{s}$, because a pendulum is slower when the amplitude is large.
+Figure~\ref{fig:angle} shows $\varphi$, $N_1$ and $N_2$ for $t\in[0,3T]$, with $T=\SI{62.83}{s}$. There are too many swings in that interval to tell them apart, so the right panels zoom into a window of \SI{10}{s} around $t=T/4$. At $t=0$ the particle is at rest at the end of the horizontal diameter, so it falls and swings around the bottom of the wire, between $\varphi\approx0$ and $\varphi\approx-\pi$ ($\varphi\in[-3.14,\,0.01]$ rad), passing through $O$ at the left end. The motion is almost the one of a simple pendulum, and its amplitude does not change during the three periods of the plane, because $\omega=\SI{0.1}{rad/s}$ is small: the plane turns slowly and the centrifugal term of Eq.~\eqref{eq:eom} is small compared with $g/R$. For the same reason the period of the swing, \SI{2.37}{s}, is the one of a pendulum with a large amplitude (\ang{90} to each side of the bottom), and it is longer than the period of small oscillations, $2\pi\sqrt{R/g}=\SI{2.01}{s}$, because for a large amplitude the restoring force grows less than proportionally to the angle from the bottom, so the pendulum is slower.
 
 \begin{figure}[!htb]
 \centering
@@ -215,7 +215,7 @@ Figure~\ref{fig:inertia} shows the three inertia forces. Each has its own axis b
 Only the centrifugal force has a component along $\ephi$ and enters the equation of motion, Eq.~\eqref{eq:eom}, which is why $\varphi$ moves almost as in a pendulum. The Euler and Coriolis forces are along $\kk$, normal to the plane of the wire, so they do not move $P$ along the wire. They are balanced by $N_2$ (Eq.~\eqref{eq:N2}), and this is why $N_2$ in Fig.~\ref{fig:inertia}d is almost the opposite of $F_{Cor}$, the Euler force being small.
 
 \subsection{Energy}\label{sec:energy}
-In Fig.~\ref{fig:energy}(a, b), $K_0^P$ and $V_0^P$ are exchanged in each swing: $K_0^P$ goes from zero at the turning points to its maximum, \SI{9.83}{J}, at the bottom, where $V_0^P$ is minimum (\SI{-9.81}{J}), as in a pendulum. The total energy is not constant (Fig.~\ref{fig:energy}c, d): $E_0^P-E_{0,1}^P$ varies between \SI{-0.08}{J} and \SI{0.31}{J}. The reason is Eq.~\eqref{eq:Edot}. The wire moves with the plane, so $N_2$ does work: when $P$ moves away from the rotation axis the wire gives energy to $P$, and when $P$ goes back to the axis the wire takes it back, so $E_0^P$ is high when $P$ is far from the axis and low when it is near (Fig.~\ref{fig:energy}d). When the plane stops, $\Omega=0$ and $E_0^P$ is again almost its initial value: $E_0^P-E_{0,1}^P$ is \SI{0.001}{J}, \SI{0.000}{J} and \SI{0.001}{J} at $T$, $2T$ and $3T$. This is why the amplitude of $\varphi$ does not change in Fig.~\ref{fig:angle}a.
+In Fig.~\ref{fig:energy}(a, b), $K_0^P$ and $V_0^P$ are exchanged in each swing: $K_0^P$ goes from almost zero at the turning points to its maximum, \SI{9.83}{J}, at the bottom, where $V_0^P$ is minimum (\SI{-9.81}{J}), as in a pendulum. The total energy is not constant (Fig.~\ref{fig:energy}c, d): $E_0^P-E_0^P(0)$ varies between \SI{-0.08}{J} and \SI{0.31}{J}. The reason is Eq.~\eqref{eq:Edot}. The wire moves with the plane, so $N_2$ does work: when $P$ moves away from the rotation axis the wire gives energy to $P$, and when $P$ goes back to the axis the wire takes it back, so $E_0^P$ is high when $P$ is far from the axis and low when it is near (Fig.~\ref{fig:energy}d). More precisely, $E_0^P-E_0^P(0)$ follows $m\Omega^2x^2$ minus an offset of at most \SI{0.08}{J}, which is the energy that the wire has spent speeding up the plane, and this is why $E_0^P$ is below its initial value when $P$ is near the axis. When the plane stops, $\Omega=0$ and $E_0^P$ is again almost its initial value: $E_0^P-E_0^P(0)$ is \SI{0.001}{J}, \SI{0.000}{J} and \SI{0.001}{J} at $T$, $2T$ and $3T$. This is why the amplitude of $\varphi$ does not change in Fig.~\ref{fig:angle}a.
 
 \begin{figure}[!htb]
 \centering
@@ -278,7 +278,7 @@ We divide by the maximum of $\delta_{full}$ and not by $\delta(t)$ because $\del
 
 For $\omega=\omega_n/2$ there is resonance: the frequency of the centrifugal force, $2\omega$, is equal to the natural frequency, $\omega_n=\sqrt{g/R}$, so each push is in phase with the oscillation and the amplitude of $\delta$ grows linearly with time (Fig.~\ref{fig:lin}b), up to \SI{0.20}{rad} ($\approx\ang{11}$) at \SI{10}{s}. Then the hypothesis $\delta\ll1$ is not true any more, $\sin\delta\approx\delta$ fails and the error grows up to 27.8\%. In the full equation the pendulum is slower when its amplitude is larger, so it gets out of phase with the forcing and the two solutions separate.
 
-Outside resonance, the error is much smaller for $\omega=\omega_n/4$ (below 2\%) than for $\omega=\omega_n$ (21.4\%), although $\delta$ stays small in both cases (below \SI{0.013}{rad}). In the linearization we neglected $\Omega^2\delta$ against $(g/R)\delta$ using the hypothesis $A^2\ll g/(R\omega^2)$, that is $A^2\omega^2\ll g/R$. Since $\Omega^2\propto\omega^2$, both the forcing and the neglected term are 16 times larger at $\omega_n$ than at $\omega_n/4$, so the neglected term accumulates a larger phase difference between the two solutions as time passes.
+Outside resonance, the error is smaller for $\omega=\omega_n/4$ (below 2\%) than for $\omega=\omega_n$ (21.4\%), although $\delta$ stays small in both cases (at most about \SI{0.013}{rad}). In the linearization we neglected $\Omega^2\delta$ against $(g/R)\delta$ using the hypothesis $A^2\ll g/(R\omega^2)$, that is $A^2\omega^2\ll g/R$. Since $\Omega^2\propto\omega^2$, $\Omega^2$ is 16 times larger at $\omega_n$ than at $\omega_n/4$, and $\delta$ is also larger, so the neglected term $\Omega^2\delta$ is even larger and it accumulates a larger phase difference between the two solutions as time passes.
 
 \section{Conclusions}\label{sec:conc}
 \begin{itemize}[noitemsep,topsep=2pt]

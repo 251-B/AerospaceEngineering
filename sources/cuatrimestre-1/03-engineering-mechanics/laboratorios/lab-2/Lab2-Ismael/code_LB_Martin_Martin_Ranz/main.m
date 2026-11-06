@@ -136,11 +136,11 @@ legend('$K_0^P$', '$V_0^P$', 'Location', 'north', 'Orientation', 'horizontal')
 xlim(zoom5); ylim([-12 20]); grid on
 subplot(2, 2, 3)
 plot(t, E - E(1), 'k', 'LineWidth', 0.5)
-xlabel('$t$ (s)'); ylabel('$E_0^P-E_{0,1}^P$ (J)'); title('(c)')
+xlabel('$t$ (s)'); ylabel('$E_0^P-E_0^P(0)$ (J)'); title('(c)')
 xlim([0 3*T]); ylim([-0.1 0.35]); grid on
 subplot(2, 2, 4)
 plot(t, E - E(1), 'k')
-xlabel('$t$ (s)'); ylabel('$E_0^P-E_{0,1}^P$ (J)'); title('(d)')
+xlabel('$t$ (s)'); ylabel('$E_0^P-E_0^P(0)$ (J)'); title('(d)')
 xlim(zoom5); ylim([-0.1 0.35]); grid on
 exportgraphics(fig, 'figures/energies.png', 'Resolution', 300)
 

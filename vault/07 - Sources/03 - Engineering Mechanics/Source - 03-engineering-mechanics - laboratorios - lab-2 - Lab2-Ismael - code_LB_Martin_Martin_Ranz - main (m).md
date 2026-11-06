@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2-Ismael/code_LB_Martin_Martin_Ranz/main.m"
 kind: laboratorio
 status: referenced
-bytes: 11398
+bytes: 11396
 ---
 
 # Source: main.m
