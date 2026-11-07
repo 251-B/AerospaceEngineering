@@ -232,12 +232,15 @@ tags:
   * [[02 - Aerospace Materials I/Problem - T6-09 Ranking Semiconductors by Conductivity Temperature Doping and Concentration|Problem T6-09: Ranking Semiconductors by Conductivity Temperature Doping and Concentration]]
   * [[02 - Aerospace Materials I/Problem - T6-10 Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels|Problem T6-10: Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels]]
 
-#### [[02 - Aerospace Materials I/Topic 7 - Magnetic and Thermal Properties|Topic 7: Magnetic and Thermal Properties]] (theory complete: Session 15; problems 11-12 of the sheet are still planned)
+#### [[02 - Aerospace Materials I/Topic 7 - Magnetic and Thermal Properties|Topic 7: Magnetic and Thermal Properties]] (complete: Session 15 and the 2 magnetic problems of the sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html`
-* **Problems Web Page (planned):** `subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html`
+* **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html`
 * **Official Sources:**
   * Theory: `Session 15 T7 Magnetic and thermal properties.pdf` (Slides 1-48)
-  * Problems: `Problems T6andT7_Electric and Magnetic Properties.pdf` (problems 11-12 are the magnetic ones, still to be solved)
+  * Problems: `Problems T6andT7_Electric and Magnetic Properties.pdf` (problems 11-12 are the magnetic ones and are solved here; problems 1-10 belong to Topic 6)
+* **Official Solved Problems (2 of 2):**
+  * [[02 - Aerospace Materials I/Problem - T7-11 Hysteresis Loops of Soft and Hard Magnetic Materials|Problem T7-11: Hysteresis Loops of Soft and Hard Magnetic Materials]]
+  * [[02 - Aerospace Materials I/Problem - T7-12 Effect of Grain Size Impurities and Porosity on a Ferromagnetic Material|Problem T7-12: Effect of Grain Size, Impurities and Porosity on a Ferromagnetic Material]]
 * **Main Content:**
   * Atomic origin of the magnetic moment (spin and orbital). Diamagnetism, paramagnetism, ferromagnetism, antiferromagnetism and ferrimagnetism.
   * Magnetic domains, Bloch walls, $B\text{-}H$ hysteresis loops, soft and hard magnetic materials, Curie and Néel temperatures, and superconductivity (Meissner effect, Type I and II, Josephson effect).

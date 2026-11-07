@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-07-materials-topic-7-problems",
+    "date": "2026-11-07",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 7: 2 solved problems",
+    "text": "The two magnetic problems of the Topic 6 and 7 sheet are solved step by step: the loops of soft and hard magnets, and how grain size, impurities and pores change a ferromagnet.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html"
+  },
+  {
     "id": "2026-11-07-materials-topic-5-wording",
     "date": "2026-11-07",
     "tag": "Aerospace Materials I",

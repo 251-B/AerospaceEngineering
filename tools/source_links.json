@@ -2521,6 +2521,31 @@
     }
    }
   },
+  "subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html": {
+   "panel": [
+    [
+     "mat-t67",
+     3
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s15",
+    "sessions": {
+     "13": "mat-s13",
+     "15": "mat-s15"
+    }
+   },
+   "cards": {
+    "prob-11": [
+     "mat-t67",
+     3
+    ],
+    "prob-12": [
+     "mat-t67",
+     3
+    ]
+   }
+  },
   "subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html": {
    "panel": [
     [

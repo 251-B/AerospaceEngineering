@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="aerospace-materials-1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 7: Solved Problems (Magnetic Properties) — Aerospace Materials I</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for pristine mathematical typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+      --accent-glow: rgba(245, 158, 11, 0.2);
+
+      --phase-1: #38bdf8;
+      --phase-1-bg: rgba(56, 189, 248, 0.08);
+      --phase-1-border: rgba(56, 189, 248, 0.25);
+
+      --phase-2: #f59e0b;
+      --phase-2-bg: rgba(245, 158, 11, 0.08);
+      --phase-2-border: rgba(245, 158, 11, 0.25);
+
+      --phase-3: #34d399;
+      --phase-3-bg: rgba(52, 211, 153, 0.08);
+      --phase-3-border: rgba(52, 211, 153, 0.25);
+
+      --phase-4: #c084fc;
+      --phase-4-bg: rgba(192, 132, 252, 0.08);
+      --phase-4-border: rgba(192, 132, 252, 0.25);
+
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(20, 30, 55, 0.95);
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.45);
+      --statement-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+      --shadow-elevation: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --statement-bg: #f8fafc;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, h4, .brand-title, .problem-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      color: var(--text-heading);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .nav-pill, .phase-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Header */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      width: 42px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* Sticky Navigation Bar with Pills */
+    nav.pills-bar,
+    .pills-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 58px;
+      z-index: 90;
+      padding: 10px 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill-group-title {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+    }
+
+    .nav-pill {
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-pill:hover, .nav-pill.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    main.problems-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px 96px;
+    }
+
+    /* Page Header */
+    .page-intro {
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .page-intro h1 {
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    .page-intro p {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Collapsible Problem Card */
+    details.problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-elevation);
+      transition: border-color var(--transition);
+      scroll-margin-top: 120px;
+    }
+
+    details.problem-card[open] {
+      border-color: var(--accent-border);
+    }
+
+    summary.problem-summary {
+      cursor: pointer;
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    summary.problem-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .problem-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .prob-num-badge {
+      background: var(--accent);
+      color: #070b14;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .prob-source-badge {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .problem-title {
+      font-size: 1.45rem;
+      color: var(--text-heading);
+      margin-top: 8px;
+    }
+
+    .card-body {
+      margin-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 20px;
+    }
+
+    /* Statement Box */
+    .statement-box {
+      background: var(--statement-bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-style: italic;
+      color: var(--text-heading);
+      font-size: 1.04rem;
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .solution-box {
+      margin-top: 10px;
+      font-style: normal;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid var(--accent-border);
+    }
+
+    /* 4-Phase Grid */
+    .phases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .phase-step {
+      background: var(--bg-surface);
+      border-radius: 10px;
+      padding: 20px 24px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .phase-1 .phase-badge { color: var(--phase-1); background: var(--phase-1-bg); border: 1px solid var(--phase-1-border); }
+    .phase-2 .phase-badge { color: var(--phase-2); background: var(--phase-2-bg); border: 1px solid var(--phase-2-border); }
+    .phase-3 .phase-badge { color: var(--phase-3); background: var(--phase-3-bg); border: 1px solid var(--phase-3-border); }
+    .phase-4 .phase-badge { color: var(--phase-4); background: var(--phase-4-bg); border: 1px solid var(--phase-4-border); }
+
+    .phase-step p {
+      margin-bottom: 14px;
+      color: var(--text-body);
+    }
+
+    .phase-step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .phase-step ul, .phase-step ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .phase-step li {
+      margin-bottom: 6px;
+    }
+
+    /* Reference Table Card */
+    .reference-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+
+    .reference-title {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .table-container {
+      position: relative;
+      overflow-x: auto;
+    }
+
+    table.ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    table.ref-table th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table.ref-table td {
+      padding: 6px 8px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    /* Footer */
+    footer.page-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 10px 16px; }
+      nav.pills-bar,
+      .pills-bar {
+        padding: 8px 16px;
+        top: 96px;
+      }
+      main.problems-container { padding: 24px 16px 64px; }
+      details.problem-card { padding: 20px 18px; }
+    }
+  
+    /* Topic 4: blocks generated from the vault notes */
+    .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin: 18px 0; border-top: 1px solid var(--accent-border);
+      border-right: 1px solid var(--accent-border); border-bottom: 1px solid var(--accent-border); }
+    .callout-warning { border-left-color: #ef4444; border-top-color: rgba(239, 68, 68, 0.3);
+      border-right-color: rgba(239, 68, 68, 0.3); border-bottom-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.06); }
+    .callout-title { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+    .math-block { overflow-x: auto; margin: 14px 0; }
+    .phase-step .table-container { overflow-x: auto; margin: 14px 0; border: 1px solid var(--border-subtle); border-radius: 8px; }
+    table.data-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; text-align: left; }
+    table.data-table th { background: var(--bg-subtle); color: var(--text-heading); padding: 9px 12px; font-weight: 600;
+      border-bottom: 1px solid var(--border-strong); }
+    table.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--text-body); }
+    table.data-table tr:last-child td { border-bottom: none; }
+    .sheet-intro { margin-top: 56px; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: 12px;
+      padding: 16px; margin: 18px 0; text-align: center; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <!-- Universal Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">MAT-I · Topic 7</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="problems-container">
+
+    <!-- Page Intro Header -->
+    <header class="page-intro">
+      <h1>Topic 7: Solved Problems</h1>
+      <p>
+        Step-by-step solutions of all 2 problems of the magnetic part of the official sheet (Problems T6andT7_Electric and Magnetic Properties, problems 11 and 12: the hysteresis loops of soft and hard magnetic materials and the effect of the microstructure on a ferromagnetic material, from Session 15). Problems 1 to 10 of the sheet are electrical and belong to Topic 6. The sheet prints no solution for these two, so both are derived here.
+      </p>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/problemas/Problems%20T6andT7_Electric%20and%20Magnetic%20Properties.pdf#page=3" target="_blank" rel="noopener">Problems T6andT7_Electric and Magnetic Properties.pdf · p. 3</a>
+      </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 11 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-11">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 11</span>
+            <span class="prob-source-badge">Problems T6andT7_Electric and Magnetic Properties.pdf #11</span>
+            <span class="prob-source-badge">Soft and hard magnets · B-H loop</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Hysteresis Loops of Soft and Hard Magnetic Materials</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/problemas/Problems%20T6andT7_Electric%20and%20Magnetic%20Properties.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T6andT7_Electric and Magnetic Properties.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="11"><li>Draw the hysteresis curve of a soft magnetic material and a hard magnetic material and indicated in both cases the most significant features. What are the main differences between these two materials?</li></ol>
+<p>The sheet prints no solution for this problem.</p>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Saturated loop, quasi-static.</strong> The loop is the one obtained by cycling the field slowly between $+H_{max}$ and $-H_{max}$, with $H_{max}$ large enough to reach saturation. The drawing is a schematic, as the statement asks for a sketch and gives no numbers.</li><li><strong>Features to indicate.</strong> The features of the slides are the saturation induction $B_s$ (saturation magnetization $M_s$), the remanence $B_r$, the coercivity $H_c$ and the permeabilities $\mu_i$ and $\mu_{max}$ [Session 15 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=16" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 16">16-17</a>].</li><li><strong>Soft and hard.</strong> The two classes are separated by the coercivity, $H_c = 10\,000$ A/m [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=18" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 18">18</a>].</li><li><strong>Illustration with data.</strong> The numbers come from the tables of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=24" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 24">24</a> of Session 15: Table 20-4 (soft materials, with $H_c$ in A/m) and Table 20-6 (hard materials, with $\mu_0 H_c$ in tesla). $\mu_0 = 1.257\times10^{-6}$ H/m [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=4" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 4">4</a>].</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Soft material</th><th style="text-align:right">$\mu_{r,max}$</th><th style="text-align:right">$H_c$ in A/m</th><th style="text-align:right">$B_r$ in T</th></tr></thead><tbody><tr><td>Ingot iron (99.8 % Fe)</td><td style="text-align:right">5000</td><td style="text-align:right">80</td><td style="text-align:right">0.77</td></tr><tr><td>Fe-3 % Si, grain-oriented</td><td style="text-align:right">50 000</td><td style="text-align:right">7</td><td style="text-align:right">1.20</td></tr><tr><td>Superalloy (Fe-5 % Mo-80 % Ni)</td><td style="text-align:right">450 000</td><td style="text-align:right">0.4</td><td style="text-align:right">not printed</td></tr></tbody></table></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Hard material</th><th style="text-align:right">$\mu_0 M_r$ in T</th><th style="text-align:right">$\mu_0 H_c$ in T</th></tr></thead><tbody><tr><td>Co-steel (Fe-Co)</td><td style="text-align:right">1.07</td><td style="text-align:right">0.02</td></tr><tr><td>Alnico-5 (Fe-Co-Al-Ni)</td><td style="text-align:right">1.05</td><td style="text-align:right">0.06</td></tr><tr><td>Ferrite (BaFe₁₂O₁₉)</td><td style="text-align:right">0.42</td><td style="text-align:right">0.31</td></tr><tr><td>Sm-Co (SmCo₅)</td><td style="text-align:right">0.87</td><td style="text-align:right">0.80</td></tr><tr><td>Nd-Fe-B (Nd₂Fe₁₄B)</td><td style="text-align:right">1.23</td><td style="text-align:right">1.21</td></tr></tbody></table></div>
+<p><strong>Unknown:</strong> the two loops with their features, and the differences between the materials.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>The loop comes from the motion of the Bloch walls. In a soft material the walls move easily, so a small field is enough to magnetize the material and to demagnetize it again. In a hard material the walls are difficult to move, so a large field is needed in both directions [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=18" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 18">18</a>].</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" width="100%" class="fig-kit" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="Hysteresis loops of soft and hard magnetic materials">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="60.0" y1="190.0" x2="650.0" y2="190.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M650.0,190.0 L641.7,193.5 L641.7,186.5 Z" fill="var(--text-faint)"/>
+<line x1="350.0" y1="360.0" x2="350.0" y2="20.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M350.0,20.0 L353.5,28.3 L346.5,28.3 Z" fill="var(--text-faint)"/>
+<text x="650.0" y="214.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="end">H</text>
+<text x="360.0" y="28.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="start">B</text>
+<polyline points="50.0,320.4 54.0,319.5 58.0,318.6 62.0,317.5 66.0,316.4 70.0,315.2 74.0,313.9 78.0,312.6 82.0,311.0 86.0,309.4 90.0,307.6 94.0,305.7 98.0,303.7 102.0,301.5 106.0,299.1 110.0,296.6 114.0,293.9 118.0,291.0 122.0,288.0 126.0,284.7 130.0,281.2 134.0,277.5 138.0,273.6 142.0,269.5 146.0,265.2 150.0,260.7 154.0,255.9 158.0,251.0 162.0,245.8 166.0,240.5 170.0,235.0 174.0,229.4 178.0,223.6 182.0,217.6 186.0,211.6 190.0,205.5 194.0,199.3 198.0,193.1 202.0,186.9 206.0,180.7 210.0,174.5 214.0,168.4 218.0,162.4 222.0,156.4 226.0,150.6 230.0,145.0 234.0,139.5 238.0,134.2 242.0,129.0 246.0,124.1 250.0,119.3 254.0,114.8 258.0,110.5 262.0,106.4 266.0,102.5 270.0,98.8 274.0,95.3 278.0,92.0 282.0,89.0 286.0,86.1 290.0,83.4 294.0,80.9 298.0,78.5 302.0,76.3 306.0,74.3 310.0,72.4 314.0,70.6 318.0,69.0 322.0,67.4 326.0,66.1 330.0,64.8 334.0,63.6 338.0,62.5 342.0,61.4 346.0,60.5 350.0,59.6 354.0,58.9 358.0,58.1 362.0,57.4 366.0,56.8 370.0,56.3 374.0,55.7 378.0,55.3 382.0,54.8 386.0,54.4 390.0,54.0 394.0,53.7 398.0,53.4 402.0,53.1 406.0,52.8 410.0,52.6 414.0,52.4 418.0,52.2 422.0,52.0 426.0,51.8 430.0,51.7 434.0,51.5 438.0,51.4 442.0,51.3 446.0,51.2 450.0,51.1 454.0,51.0 458.0,50.9 462.0,50.8 466.0,50.8 470.0,50.7 474.0,50.6 478.0,50.6 482.0,50.5 486.0,50.5 490.0,50.4 494.0,50.4 498.0,50.4 502.0,50.3 506.0,50.3 510.0,50.3 514.0,50.3 518.0,50.2 522.0,50.2 526.0,50.2 530.0,50.2 534.0,50.2 538.0,50.2 542.0,50.1 546.0,50.1 550.0,50.1 554.0,50.1 558.0,50.1 562.0,50.1 566.0,50.1 570.0,50.1 574.0,50.1 578.0,50.1 582.0,50.1 586.0,50.1 590.0,50.0 594.0,50.0 598.0,50.0 602.0,50.0 606.0,50.0 610.0,50.0 614.0,50.0 618.0,50.0 622.0,50.0 626.0,50.0 630.0,50.0 634.0,50.0 638.0,50.0 642.0,50.0 646.0,50.0 650.0,50.0" fill="none" stroke="var(--fig-pink, #ec4899)" stroke-width="2.6" stroke-linejoin="round"/>
+<polyline points="50.0,330.0 54.0,330.0 58.0,330.0 62.0,330.0 66.0,330.0 70.0,330.0 74.0,330.0 78.0,330.0 82.0,330.0 86.0,330.0 90.0,330.0 94.0,330.0 98.0,330.0 102.0,330.0 106.0,330.0 110.0,330.0 114.0,329.9 118.0,329.9 122.0,329.9 126.0,329.9 130.0,329.9 134.0,329.9 138.0,329.9 142.0,329.9 146.0,329.9 150.0,329.9 154.0,329.9 158.0,329.9 162.0,329.8 166.0,329.8 170.0,329.8 174.0,329.8 178.0,329.8 182.0,329.8 186.0,329.7 190.0,329.7 194.0,329.7 198.0,329.7 202.0,329.6 206.0,329.6 210.0,329.6 214.0,329.5 218.0,329.5 222.0,329.4 226.0,329.4 230.0,329.3 234.0,329.2 238.0,329.2 242.0,329.1 246.0,329.0 250.0,328.9 254.0,328.8 258.0,328.7 262.0,328.6 266.0,328.5 270.0,328.3 274.0,328.2 278.0,328.0 282.0,327.8 286.0,327.6 290.0,327.4 294.0,327.2 298.0,326.9 302.0,326.6 306.0,326.3 310.0,326.0 314.0,325.6 318.0,325.2 322.0,324.7 326.0,324.3 330.0,323.7 334.0,323.2 338.0,322.6 342.0,321.9 346.0,321.1 350.0,320.4 354.0,319.5 358.0,318.6 362.0,317.5 366.0,316.4 370.0,315.2 374.0,313.9 378.0,312.6 382.0,311.0 386.0,309.4 390.0,307.6 394.0,305.7 398.0,303.7 402.0,301.5 406.0,299.1 410.0,296.6 414.0,293.9 418.0,291.0 422.0,288.0 426.0,284.7 430.0,281.2 434.0,277.5 438.0,273.6 442.0,269.5 446.0,265.2 450.0,260.7 454.0,255.9 458.0,251.0 462.0,245.8 466.0,240.5 470.0,235.0 474.0,229.4 478.0,223.6 482.0,217.6 486.0,211.6 490.0,205.5 494.0,199.3 498.0,193.1 502.0,186.9 506.0,180.7 510.0,174.5 514.0,168.4 518.0,162.4 522.0,156.4 526.0,150.6 530.0,145.0 534.0,139.5 538.0,134.2 542.0,129.0 546.0,124.1 550.0,119.3 554.0,114.8 558.0,110.5 562.0,106.4 566.0,102.5 570.0,98.8 574.0,95.3 578.0,92.0 582.0,89.0 586.0,86.1 590.0,83.4 594.0,80.9 598.0,78.5 602.0,76.3 606.0,74.3 610.0,72.4 614.0,70.6 618.0,69.0 622.0,67.4 626.0,66.1 630.0,64.8 634.0,63.6 638.0,62.5 642.0,61.4 646.0,60.5 650.0,59.6" fill="none" stroke="var(--fig-pink, #ec4899)" stroke-width="2.6" stroke-linejoin="round"/>
+<polyline points="50.0,295.0 54.0,295.0 58.0,295.0 62.0,295.0 66.0,295.0 70.0,295.0 74.0,295.0 78.0,295.0 82.0,295.0 86.0,295.0 90.0,295.0 94.0,295.0 98.0,295.0 102.0,295.0 106.0,295.0 110.0,295.0 114.0,295.0 118.0,295.0 122.0,295.0 126.0,295.0 130.0,295.0 134.0,295.0 138.0,295.0 142.0,295.0 146.0,295.0 150.0,295.0 154.0,295.0 158.0,295.0 162.0,295.0 166.0,295.0 170.0,295.0 174.0,295.0 178.0,295.0 182.0,295.0 186.0,295.0 190.0,295.0 194.0,295.0 198.0,295.0 202.0,295.0 206.0,295.0 210.0,295.0 214.0,295.0 218.0,295.0 222.0,295.0 226.0,295.0 230.0,295.0 234.0,295.0 238.0,295.0 242.0,295.0 246.0,295.0 250.0,295.0 254.0,295.0 258.0,295.0 262.0,295.0 266.0,295.0 270.0,294.9 274.0,294.9 278.0,294.8 282.0,294.7 286.0,294.5 290.0,294.1 294.0,293.4 298.0,292.1 302.0,290.0 306.0,286.3 310.0,280.1 314.0,270.0 318.0,254.4 322.0,232.4 326.0,204.9 330.0,175.1 334.0,147.6 338.0,125.6 342.0,110.0 346.0,99.9 350.0,93.7 354.0,90.0 358.0,87.9 362.0,86.6 366.0,85.9 370.0,85.5 374.0,85.3 378.0,85.2 382.0,85.1 386.0,85.1 390.0,85.0 394.0,85.0 398.0,85.0 402.0,85.0 406.0,85.0 410.0,85.0 414.0,85.0 418.0,85.0 422.0,85.0 426.0,85.0 430.0,85.0 434.0,85.0 438.0,85.0 442.0,85.0 446.0,85.0 450.0,85.0 454.0,85.0 458.0,85.0 462.0,85.0 466.0,85.0 470.0,85.0 474.0,85.0 478.0,85.0 482.0,85.0 486.0,85.0 490.0,85.0 494.0,85.0 498.0,85.0 502.0,85.0 506.0,85.0 510.0,85.0 514.0,85.0 518.0,85.0 522.0,85.0 526.0,85.0 530.0,85.0 534.0,85.0 538.0,85.0 542.0,85.0 546.0,85.0 550.0,85.0 554.0,85.0 558.0,85.0 562.0,85.0 566.0,85.0 570.0,85.0 574.0,85.0 578.0,85.0 582.0,85.0 586.0,85.0 590.0,85.0 594.0,85.0 598.0,85.0 602.0,85.0 606.0,85.0 610.0,85.0 614.0,85.0 618.0,85.0 622.0,85.0 626.0,85.0 630.0,85.0 634.0,85.0 638.0,85.0 642.0,85.0 646.0,85.0 650.0,85.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.6" stroke-linejoin="round"/>
+<polyline points="50.0,295.0 54.0,295.0 58.0,295.0 62.0,295.0 66.0,295.0 70.0,295.0 74.0,295.0 78.0,295.0 82.0,295.0 86.0,295.0 90.0,295.0 94.0,295.0 98.0,295.0 102.0,295.0 106.0,295.0 110.0,295.0 114.0,295.0 118.0,295.0 122.0,295.0 126.0,295.0 130.0,295.0 134.0,295.0 138.0,295.0 142.0,295.0 146.0,295.0 150.0,295.0 154.0,295.0 158.0,295.0 162.0,295.0 166.0,295.0 170.0,295.0 174.0,295.0 178.0,295.0 182.0,295.0 186.0,295.0 190.0,295.0 194.0,295.0 198.0,295.0 202.0,295.0 206.0,295.0 210.0,295.0 214.0,295.0 218.0,295.0 222.0,295.0 226.0,295.0 230.0,295.0 234.0,295.0 238.0,295.0 242.0,295.0 246.0,295.0 250.0,295.0 254.0,295.0 258.0,295.0 262.0,295.0 266.0,295.0 270.0,295.0 274.0,295.0 278.0,295.0 282.0,295.0 286.0,295.0 290.0,295.0 294.0,295.0 298.0,295.0 302.0,295.0 306.0,295.0 310.0,295.0 314.0,294.9 318.0,294.9 322.0,294.8 326.0,294.7 330.0,294.5 334.0,294.1 338.0,293.4 342.0,292.1 346.0,290.0 350.0,286.3 354.0,280.1 358.0,270.0 362.0,254.4 366.0,232.4 370.0,204.9 374.0,175.1 378.0,147.6 382.0,125.6 386.0,110.0 390.0,99.9 394.0,93.7 398.0,90.0 402.0,87.9 406.0,86.6 410.0,85.9 414.0,85.5 418.0,85.3 422.0,85.2 426.0,85.1 430.0,85.1 434.0,85.0 438.0,85.0 442.0,85.0 446.0,85.0 450.0,85.0 454.0,85.0 458.0,85.0 462.0,85.0 466.0,85.0 470.0,85.0 474.0,85.0 478.0,85.0 482.0,85.0 486.0,85.0 490.0,85.0 494.0,85.0 498.0,85.0 502.0,85.0 506.0,85.0 510.0,85.0 514.0,85.0 518.0,85.0 522.0,85.0 526.0,85.0 530.0,85.0 534.0,85.0 538.0,85.0 542.0,85.0 546.0,85.0 550.0,85.0 554.0,85.0 558.0,85.0 562.0,85.0 566.0,85.0 570.0,85.0 574.0,85.0 578.0,85.0 582.0,85.0 586.0,85.0 590.0,85.0 594.0,85.0 598.0,85.0 602.0,85.0 606.0,85.0 610.0,85.0 614.0,85.0 618.0,85.0 622.0,85.0 626.0,85.0 630.0,85.0 634.0,85.0 638.0,85.0 642.0,85.0 646.0,85.0 650.0,85.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.6" stroke-linejoin="round"/>
+<line x1="450.0" y1="50.0" x2="640.0" y2="50.0" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="5,4"/>
+<text x="640.0" y="44.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">B<tspan baseline-shift="sub" font-size="72%">s</tspan> (hard)</text>
+<circle cx="350.0" cy="59.6" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="342.0" y="53.6" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="end">B<tspan baseline-shift="sub" font-size="72%">r</tspan> (hard)</text>
+<circle cx="200.0" cy="190.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="210.0" y="210.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">−H<tspan baseline-shift="sub" font-size="72%">c</tspan> (hard)</text>
+<circle cx="372.0" cy="190.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="380.0" y="210.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">H<tspan baseline-shift="sub" font-size="72%">c</tspan> (soft)</text>
+<text x="160.0" y="90.0" fill="var(--fig-pink, #ec4899)" font-size="13" font-weight="700" text-anchor="middle">Hard magnetic material</text>
+<text x="160.0" y="108.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">wide loop, high B<tspan baseline-shift="sub" font-size="72%">r</tspan> and H<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<text x="540.0" y="290.0" fill="var(--fig-blue, #3b82f6)" font-size="13" font-weight="700" text-anchor="middle">Soft magnetic material</text>
+<text x="540.0" y="308.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">narrow loop, low H<tspan baseline-shift="sub" font-size="72%">c</tspan>, high μ<tspan baseline-shift="sub" font-size="72%">i</tspan></text>
+<text x="540.0" y="340.0" fill="var(--fig-acc, #f59e0b)" font-size="12" font-weight="700" text-anchor="middle">limit between them: H<tspan baseline-shift="sub" font-size="72%">c</tspan> = 10 000 A/m</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. B-H hysteresis loops: a soft material has a narrow loop (low coercivity Hc, high initial permeability), a hard material a wide one (high remanence Br, saturation Bs and Hc); the slide fixes the limit at Hc = 10 000 A/m (schematic).</div>
+</div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Follow the loop step by step and mark where each feature appears.</li><li>Put numbers on the features with the tables of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=24" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 24">24</a>, converting the hard-material coercivity to A/m so that both classes are compared with the same unit and with the limit of 10 000 A/m.</li><li>Compare the two classes feature by feature.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Path of the loop [Session 15 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=16" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 16">16-17</a>]</strong></p>
+<ul><li>Starting from the demagnetized state ($H = 0$, domains at random) the initial curve rises to saturation: $B = B_s$.</li><li>Reducing $H$ to zero does not bring $B$ back to zero: the induction left is the <strong>remanence</strong> $B_r$.</li><li>A field in the opposite direction, of magnitude $H_c$, brings $B$ to zero: the <strong>coercivity</strong>.</li><li>Going on to $-H_{max}$ gives $-B_s$, and the return branch is the mirror image through the origin.</li></ul>
+<p>The slope of the initial curve is the initial permeability $\mu_i$, and the line from the origin tangent to the curve gives the maximum permeability $\mu_{max}$.</p>
+<p><strong>2. Features on each loop</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Feature</th><th>Where</th><th>Soft material</th><th>Hard material</th></tr></thead><tbody><tr><td>$\mu_i$, $\mu_{max}$</td><td>slope of the initial curve</td><td>high</td><td>low $\mu_i$</td></tr><tr><td>$H_c$</td><td>crossing of the $H$ axis</td><td>low, below 10 000 A/m</td><td>high, above 10 000 A/m</td></tr><tr><td>$B_r$</td><td>crossing of the $B$ axis</td><td>printed as a feature, not as a rule</td><td>high, printed on Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=18" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 18">18</a></td></tr><tr><td>$B_s$</td><td>plateau</td><td>reached with a small field</td><td>reached only with a large field</td></tr><tr><td>Loop area</td><td>enclosed by the loop</td><td>small</td><td>large</td></tr></tbody></table></div>
+<p><strong>3. Hard-material coercivity in A/m</strong></p>
+<p>From $\mu_0 H_c$ in tesla, with $\mu_0 = 1.257\times10^{-6}$ H/m:</p>
+<div class="math-block">$$H_c = \frac{\mu_0 H_c}{\mu_0}$$</div>
+<p>For Nd-Fe-B:</p>
+<div class="math-block">$$H_c = \frac{1.21\ \text{T}}{1.257\times10^{-6}\ \text{H/m}} = 9.626\times10^{5}\ \text{A/m}$$</div>
+<p>The same division for the others:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Hard material</th><th style="text-align:right">$H_c$ in A/m</th><th>Above 10 000 A/m?</th></tr></thead><tbody><tr><td>Co-steel</td><td style="text-align:right">$1.59\times10^{4}$</td><td>yes</td></tr><tr><td>Alnico-5</td><td style="text-align:right">$4.77\times10^{4}$</td><td>yes</td></tr><tr><td>Ferrite</td><td style="text-align:right">$2.47\times10^{5}$</td><td>yes</td></tr><tr><td>Sm-Co</td><td style="text-align:right">$6.36\times10^{5}$</td><td>yes</td></tr><tr><td>Nd-Fe-B</td><td style="text-align:right">$9.63\times10^{5}$</td><td>yes</td></tr></tbody></table></div>
+<p>Ratio of the strongest hard material to the soft ones of the table:</p>
+<div class="math-block">$$\frac{9.626\times10^{5}\ \text{A/m}}{80\ \text{A/m}} = 1.2\times10^{4} \qquad \frac{9.626\times10^{5}\ \text{A/m}}{7\ \text{A/m}} = 1.4\times10^{5}$$</div>
+<p><strong>4. Energy lost per cycle (extension, order of magnitude)</strong></p>
+<p>The energy dissipated per unit volume in one cycle is the area enclosed by the loop, $W = \oint H\,dB$ (this relation is not printed on the slides). For an idealized rectangular loop of width $2H_c$ and height $2B_r$ the area is</p>
+<div class="math-block">$$W \approx 2H_c \times 2B_r = 4\,H_c\,B_r$$</div>
+<p>For the grain-oriented Fe-3 % Si and for Nd-Fe-B:</p>
+<div class="math-block">$$W_{soft} \approx 4\times7\ \text{A/m}\times1.20\ \text{T} = 33.6\ \text{J/m}^3 \qquad W_{hard} \approx 4\times9.626\times10^{5}\ \text{A/m}\times1.23\ \text{T} = 4.74\times10^{6}\ \text{J/m}^3$$</div>
+<p>The ratio is about $1.4\times10^{5}$, the same as the ratio of coercivities, because the two remanences are similar. This is why the soft materials are the ones used under alternating fields, where the cycle repeats many times per second, and the hard ones are used as permanent magnets, where it never repeats [Session 15 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=18" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 18">18-19</a>].</p>
+<p><strong>5. Main differences</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th></th><th>Soft magnetic material</th><th>Hard magnetic material</th></tr></thead><tbody><tr><td>Bloch walls</td><td>easy to move</td><td>difficult to move</td></tr><tr><td>Loop</td><td>narrow</td><td>wide</td></tr><tr><td>Coercivity</td><td>$H_c &lt; 10\,000$ A/m</td><td>$H_c &gt; 10\,000$ A/m</td></tr><tr><td>Permeability</td><td>high initial permeability</td><td>low initial permeability</td></tr><tr><td>Losses per cycle</td><td>low</td><td>high</td></tr><tr><td>Demagnetization</td><td>easy</td><td>resistant</td></tr><tr><td>Use</td><td>cores of transformers, generators and motors; materials under alternating fields</td><td>permanent magnets</td></tr></tbody></table></div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units of $H_c$.</strong> $[\mu_0 H_c]/[\mu_0] = \text{T}/(\text{H/m}) = (\text{Wb/m}^2)/(\text{Wb/(A}\cdot\text{m)}) = \text{A/m}$.</li><li><strong>Units of the energy.</strong> $[H\,B] = (\text{A/m})(\text{T}) = \text{A}\cdot\text{T/m}$, and with $\text{T} = \text{N/(A}\cdot\text{m)}$ this is $\text{N/m}^2 = \text{J/m}^3$, an energy per unit volume.</li><li><strong>The limit of the slide.</strong> All the soft materials of the table are below 10 000 A/m (the highest is 100 A/m for the low-carbon steel of Table 20-4) and all the hard ones above it. Co-steel, at $1.59\times10^{4}$ A/m, is the closest to the limit.</li><li><strong>Limit $H_c \to 0$.</strong> The loop collapses into a single line with no area and no loss, the ideal soft material. For a very large $H_c$ the loop is so wide that the material keeps its magnetization against the fields it meets in use, the ideal permanent magnet.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The decisive difference is the coercivity, and everything else follows from the mobility of the Bloch walls: the width of the loop, the losses and the use. The remanence alone does not separate the classes. The grain-oriented Fe-3 % Si has $B_r = 1.20$ T, more than the ferrite magnet (0.42 T) and about the same as Nd-Fe-B (1.23 T). Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=18" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 18">18</a> lists a high remanence among the properties of the hard materials; in the data of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=24" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 24">24</a> it is the coercivity that is orders of magnitude apart ($7$ to $100$ A/m against $10^4$ to $10^6$ A/m), not the remanence.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Loops and features</td><td>not printed on the sheet</td><td>$B_s$, $B_r$, $H_c$, $\mu_i$, $\mu_{max}$ on both loops</td><td>consistent with Session 15 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=16" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 16">16-18</a></td></tr><tr><td>Differences</td><td>not printed on the sheet</td><td>coercivity, loop width, permeability, losses and use</td><td>consistent with Session 15 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=18" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 18">18-19</a>; the energy per cycle and the numbers of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=24" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 24">24</a> are an extension</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 12 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-12">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 12</span>
+            <span class="prob-source-badge">Problems T6andT7_Electric and Magnetic Properties.pdf #12</span>
+            <span class="prob-source-badge">Microstructure · ferromagnetic properties</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Effect of Grain Size, Impurities and Porosity on a Ferromagnetic Material</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/problemas/Problems%20T6andT7_Electric%20and%20Magnetic%20Properties.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T6andT7_Electric and Magnetic Properties.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="12"><li>Specify in the following table how the increase in the following microstructural parameters affect the listed properties of a ferromagnetic material</li></ol>
+<div class="table-container"><table class="data-table"><thead><tr><th></th><th>Grain size</th><th>Impurities</th><th>Porosity</th></tr></thead><tbody><tr><td>Hysteresis losses</td><td></td><td></td><td></td></tr><tr><td>Conductivity</td><td></td><td></td><td></td></tr><tr><td>Permeability</td><td></td><td></td><td></td></tr><tr><td>Coercitivity</td><td></td><td></td><td></td></tr><tr><td>Saturation Magnetization</td><td></td><td></td><td></td></tr><tr><td>Curie Temperature</td><td></td><td></td><td></td></tr></tbody></table></div>
+<p>The sheet prints no solution for this problem.</p>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>One parameter at a time.</strong> Each column is an increase of that parameter with the composition of the ferromagnetic material and the other parameters kept constant.</li><li><strong>Domain walls control the loop.</strong> A larger grain gives the Bloch walls more mobility, and inclusions, dislocations and pores reduce it. With a larger mobility the permeability grows and the coercivity and the remanence fall; with a smaller mobility the opposite happens [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=21" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 21">21</a>].</li><li><strong>Impurities and porosity as obstacles.</strong> The slide groups inclusions, dislocations and pores as obstacles to the walls, so impurities (as particles of a second phase) and pores act in the same way on the loop. The effect of dissolved atoms is the same in direction (extension).</li><li><strong>Intrinsic properties.</strong> The saturation magnetization is constant for a material of a given composition [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=20" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 20">20</a>]. The Curie temperature is the temperature at which the saturation magnetization falls to zero, and the table of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=23" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 23">23</a> gives a different value for each element; both are fixed by the composition and the bonding, not by the microstructure (the link between $T_c$ and the composition is an extension).</li><li><strong>Conductivity.</strong> The electrical resistivity grows with the structural imperfections (grain boundaries, dislocations) and with the impurities [Session 13 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/teoria/Session%2013%20T6%20Electrical%20properties.pdf#page=16" target="_blank" rel="noopener" title="Open Session 13 T6 Electrical properties.pdf at page 16">16-17</a>]; the effect of pores is an extension.</li><li><strong>Hysteresis losses.</strong> The energy lost per cycle is the area of the loop (extension, as in Problem - T7-11 Hysteresis Loops of Soft and Hard Magnetic Materials): a wider loop (higher $H_c$) means higher losses.</li></ol>
+<p><strong>Unknown:</strong> the effect (increase, decrease or none) of each parameter on each of the six properties.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>Two chains separate the properties. The first goes from the microstructure to the mobility of the Bloch walls, and from the mobility to the permeability, the coercivity and the area of the loop. The second contains the properties that the microstructure does not change at all: the saturation magnetization and the Curie temperature, set by the composition. The conductivity follows its own chain, the scattering of the conduction electrons.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Parameter</th><th>Mobility of the Bloch walls</th><th>Permeability</th><th>Coercivity</th><th>Loop area (losses)</th></tr></thead><tbody><tr><td>Larger grain size</td><td>increases</td><td>increases</td><td>decreases</td><td>decreases</td></tr><tr><td>More impurities, pores</td><td>decreases</td><td>decreases</td><td>increases</td><td>increases</td></tr></tbody></table></div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Fill the first chain from Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=21" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 21">21</a>.</li><li>Decide the conductivity from the scattering of the electrons, with Session 13.</li><li>State why the saturation magnetization and the Curie temperature do not change with the microstructure.</li><li>Collect the answers in the table of the statement.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Grain size [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=21" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 21">21</a>]</strong></p>
+<p>A larger grain size increases the mobility of the Bloch walls, because there are fewer grain boundaries to stop them. So:</p>
+<ul><li>permeability $\mu$: <strong>increases</strong>;</li><li>coercivity $H_c$: <strong>decreases</strong> (and the remanence $B_r$ too);</li><li>hysteresis losses: <strong>decrease</strong>, since a narrower loop has a smaller area;</li><li>conductivity: <strong>increases</strong>, because the grain boundaries are structural imperfections that scatter the electrons and raise the resistivity [Session 13 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/teoria/Session%2013%20T6%20Electrical%20properties.pdf#page=16" target="_blank" rel="noopener" title="Open Session 13 T6 Electrical properties.pdf at page 16">16-17</a>].</li></ul>
+<p><strong>2. Impurities [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=21" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 21">21</a>]</strong></p>
+<p>Inclusions of another phase are obstacles that pin the walls, and the mobility decreases. So:</p>
+<ul><li>permeability: <strong>decreases</strong>;</li><li>coercivity: <strong>increases</strong> (and the remanence too);</li><li>hysteresis losses: <strong>increase</strong>;</li><li>conductivity: <strong>decreases</strong>, because foreign atoms and particles raise the residual resistivity $\rho_i$ [Session 13 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/teoria/Session%2013%20T6%20Electrical%20properties.pdf#page=16" target="_blank" rel="noopener" title="Open Session 13 T6 Electrical properties.pdf at page 16">16</a>].</li></ul>
+<p><strong>3. Porosity [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=21" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 21">21</a>]</strong></p>
+<p>Pores are listed on the slide with the inclusions, so the loop changes as for the impurities:</p>
+<ul><li>permeability: <strong>decreases</strong>;</li><li>coercivity: <strong>increases</strong>;</li><li>hysteresis losses: <strong>increase</strong>;</li><li>conductivity: <strong>decreases</strong> (extension): the pores remove conducting section and scatter the electrons, so the same direction as for the impurities.</li></ul>
+<p><strong>4. Saturation magnetization [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=20" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 20">20</a>]</strong></p>
+<p>The saturation magnetization is constant for a material of a given composition: it is reached when all the dipoles of the solid are aligned, and the number and the intensity of the dipoles are fixed by the composition. Therefore:</p>
+<ul><li>grain size: <strong>no effect</strong>;</li><li>impurities: <strong>no effect</strong> while they are only inclusions; if an impurity dissolves and changes the composition the value changes (extension);</li><li>porosity: <strong>no effect</strong> on the material itself. Per unit of total volume the pores only dilute the magnetization (extension).</li></ul>
+<p><strong>5. Curie temperature [Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=23" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 23">23</a>]</strong></p>
+<p>$T_c$ is the temperature at which the saturation magnetization falls abruptly to zero. Each material has its own value (Fe 1043 K, Co 1404 K, Ni 631 K, Gd 289 K), which depends on the elements, not on the size of the grains or on the pores. Grain size and porosity have <strong>no effect</strong>. Impurities have <strong>no effect</strong> as inclusions; dissolved elements that change the composition can shift it (extension).</p>
+<p><strong>6. Result</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Property</th><th>Grain size increases</th><th>Impurities increase</th><th>Porosity increases</th></tr></thead><tbody><tr><td>Hysteresis losses</td><td>decrease</td><td>increase</td><td>increase</td></tr><tr><td>Conductivity</td><td>increases</td><td>decreases</td><td>decreases</td></tr><tr><td>Permeability</td><td>increases</td><td>decreases</td><td>decreases</td></tr><tr><td>Coercivity</td><td>decreases</td><td>increases</td><td>increases</td></tr><tr><td>Saturation magnetization</td><td>no effect</td><td>no effect as inclusions</td><td>no effect</td></tr><tr><td>Curie temperature</td><td>no effect</td><td>no effect as inclusions</td><td>no effect</td></tr></tbody></table></div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Consistency of the table.</strong> Permeability and coercivity move in opposite directions in every column, as the slide says ($\mu$ up with $H_c$ and $B_r$ down for a larger grain, and the reverse for the obstacles). The losses follow the coercivity.</li><li><strong>Impurities and porosity act alike.</strong> Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=21" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 21">21</a> puts inclusions, dislocations and pores in the same line, and the table gives the same entries for both columns, except for the properties that depend on the composition.</li><li><strong>Limits.</strong> For no obstacles (a pure, dense, coarse-grained material) the walls move freely: the highest permeability and the lowest coercivity and losses. For a very porous material the loop widens and the section that carries the flux and the current shrinks.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>One rule explains the table: whatever stops the Bloch walls raises the coercivity and the losses and lowers the permeability, and whatever frees them does the opposite. The saturation magnetization and the Curie temperature are properties of the composition, so no change in the microstructure alone moves them. The same rule is used on purpose in the two classes of Problem T7-11: soft magnetic materials are made pure, dense and with large grains, and hard magnetic materials are made with obstacles (fine grains, precipitates), which is an extension of the slide. A higher conductivity also raises the currents induced in a core under alternating fields, which adds to the losses; this is an extension, and the table asks only for the effects listed.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>All 18 entries of the table</td><td>not printed on the sheet</td><td>table of Section 3</td><td>permeability, coercivity: Session 15 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=21" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 21">21</a>; saturation magnetization: Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf#page=20" target="_blank" rel="noopener" title="Open Session 15 T7 Magnetic and thermal properties.pdf at page 20">20</a>; conductivity: Session 13 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/teoria/Session%2013%20T6%20Electrical%20properties.pdf#page=16" target="_blank" rel="noopener" title="Open Session 13 T6 Electrical properties.pdf at page 16">16-17</a>; the entries marked extension (porosity and conductivity, effect of composition on $M_s$ and $T_c$, losses as loop area) are not printed on the slides</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 24px;">
+      Aerospace Materials I · Department of Materials Science and Engineering · Universidad Carlos III de Madrid (UC3M)
+    </div>
+  </footer>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+
+

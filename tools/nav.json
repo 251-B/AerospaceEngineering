@@ -108,6 +108,10 @@
    ],
    "problemas": [
     {
+     "page": "topic-7-magnetic-thermal.html",
+     "label": "7 · Magnetic properties"
+    },
+    {
      "page": "topic-6-electrical-properties.html",
      "label": "6 · Electrical properties"
     },

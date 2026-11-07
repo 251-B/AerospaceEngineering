@@ -176,7 +176,11 @@
    "category": "Topic 07 · Magnetic and Thermal Properties",
    "title": "Magnetic and Thermal Properties",
    "subtitle": "The origin and types of magnetism, domains and hysteresis, superconductivity, and the thermal properties: heat capacity, thermal expansion, thermal conductivity, thermal stress and thermal shock.",
-   "source": "Universidad Carlos III de Madrid · Session 15 T7 Magnetic and thermal properties.pdf"
+   "source": "Universidad Carlos III de Madrid · Session 15 T7 Magnetic and thermal properties.pdf",
+   "problems": {
+    "href": "../problemas/topic-7-magnetic-thermal.html",
+    "label": "2 solved problems for this topic (Problems T6andT7, problems 11-12, the magnetic part of the sheet)"
+   }
   }
  }
 }

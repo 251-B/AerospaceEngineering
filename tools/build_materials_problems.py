@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Aerospace Materials I problem pages (Topics 5 and 6) from their vault notes (Obsidian first, web second).
+"""Build the Aerospace Materials I problem pages (Topics 5, 6 and 7) from their vault notes (Obsidian first, web second).
 
     subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html
         Problem - T5-01 ... T5-15 (Problems T5_MechanicalProperties.pdf), in
@@ -7,6 +7,8 @@
     subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html
         Problem - T6-01 ... T6-10 (Problems T6andT7_Electric and Magnetic Properties.pdf, problems 1-10;
         problems 11-12 of the sheet belong to Topic 7), same folder
+    subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html
+        Problem - T7-11 and T7-12 (the magnetic problems of the same sheet), same folder
 
 Per note (same layout as the Topic 4 notes):
     - frontmatter key `badge` is the second chip of the card header;
@@ -58,6 +60,13 @@ TOPICS = {
         "sheet": "Problems T6andT7_Electric and Magnetic Properties.pdf",
         "title": "Topic 6: Solved Problems (Electrical Properties) — Aerospace Materials I",
         "scope_of": "of the electrical part of the official sheet (Problems T6andT7_Electric and Magnetic Properties, problems 1 to 10: resistivity and temperature, conductivity and strengthening, ionic and metallic conductors, intrinsic and extrinsic semiconductors, from Session 13). Problems 11 and 12 of the sheet are magnetic and belong to Topic 7. The sheet has a numeric key for some items and none for the reasoning questions, so every solution is derived here and compared with that key where it exists.",
+    },
+    7: {
+        "code": "T7", "figures": "materials_t7", "total": 2,
+        "page": "subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html",
+        "sheet": "Problems T6andT7_Electric and Magnetic Properties.pdf",
+        "title": "Topic 7: Solved Problems (Magnetic Properties) — Aerospace Materials I",
+        "scope_of": "of the magnetic part of the official sheet (Problems T6andT7_Electric and Magnetic Properties, problems 11 and 12: the hysteresis loops of soft and hard magnetic materials and the effect of the microstructure on a ferromagnetic material, from Session 15). Problems 1 to 10 of the sheet are electrical and belong to Topic 6. The sheet prints no solution for these two, so both are derived here.",
     },
 }
 

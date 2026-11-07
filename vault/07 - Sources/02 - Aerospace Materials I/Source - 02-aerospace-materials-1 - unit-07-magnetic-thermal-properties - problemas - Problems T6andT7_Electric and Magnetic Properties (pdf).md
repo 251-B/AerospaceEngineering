@@ -19,7 +19,7 @@ bytes: 220780
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf`
 - **Kind:** problemas
 - **Size:** 220.8 kB
-- **Status:** referenced by 11 note(s) below
+- **Status:** referenced by 13 note(s) below
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -35,3 +35,5 @@ bytes: 220780
 - [[02 - Aerospace Materials I/Problem - T6-08 Carrier Concentrations of Intrinsic Silicon from its Conductivity]]
 - [[02 - Aerospace Materials I/Problem - T6-09 Ranking Semiconductors by Conductivity Temperature Doping and Concentration]]
 - [[02 - Aerospace Materials I/Problem - T6-10 Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels]]
+- [[02 - Aerospace Materials I/Problem - T7-11 Hysteresis Loops of Soft and Hard Magnetic Materials]]
+- [[02 - Aerospace Materials I/Problem - T7-12 Effect of Grain Size Impurities and Porosity on a Ferromagnetic Material]]
