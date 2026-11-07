@@ -21,7 +21,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Elastic deformation.** The statement says that the load produces only elastic deformation, so Hooke's law holds, $\sigma = E\varepsilon$ [Session 11 Slide 13].
@@ -42,7 +42,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 One direction for the load (the axis) and the two equal transverse directions of the cylinder; no change of basis.
 
@@ -56,7 +56,7 @@ The minus sign says that the diameter decreases when the sample is stretched.
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Cross-section
 $$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15.0\ \text{mm})^2}{4}$$
@@ -84,7 +84,7 @@ $$\Delta d = \varepsilon_{lat}\,d_0 = -3.6905\times 10^{-4}\times15.0\ \text{mm}
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** (N/mm²)/(N/mm²) has no units for the strains, and strain × mm gives mm for $\Delta l$ and $\Delta d$.

@@ -23,7 +23,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Uniaxial, linear elastic wire.** The wire is loaded only along its axis and it stays elastic, so $\sigma = E\varepsilon$ [Session 11 Slide 13].
@@ -47,7 +47,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 There is a single direction, the axis of the wire; no change of basis is involved.
 
@@ -63,7 +63,7 @@ This is better than thinking in terms of forces, because the wire does not "know
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Stress after heating at constant length
 Before heating, the strain is $\varepsilon_1 = \sigma_F/E$ with $\sigma_F = F/A$. After heating, the strain is the same, and it is the sum of the elastic and the thermal strain:
@@ -97,7 +97,7 @@ $$4A = 108.21\ \text{mm}^2 \qquad \frac{4A}{\pi} = 34.445\ \text{mm}^2 \qquad d 
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** $F/(E\alpha_l\Delta T)$: N divided by (N/mm² · °C⁻¹ · °C) = N/(N/mm²) = mm². The product $\alpha_l\Delta T$ has no units, so $E\alpha_l\Delta T$ is a stress.
@@ -111,7 +111,7 @@ For a wire thinner than 5.87 mm the applied stress is larger than the thermal on
 ## ✅ Check against the official solution
 | Item | Official | Computed | Comment |
 | :--- | :--- | :--- | :--- |
-| Diameter | 5.86 mm | 5.869 mm | agrees (0.15 %): the key is truncated, 5.869 rounds to 5.87 |
+| Diameter | 5.86 mm | 5.869 mm | agrees (0.15 %). The key is not a truncation: the hidden text of Slide 46 of Session 15 rounds the radius to 2.93 mm (exact 2.9345 mm) and then doubles it, 5.86 mm; the unrounded diameter is 5.869 mm, which rounds to 5.87 mm |
 
 ## 🔗 Related Links
 * [[Topic 5 - Mechanical Properties]]

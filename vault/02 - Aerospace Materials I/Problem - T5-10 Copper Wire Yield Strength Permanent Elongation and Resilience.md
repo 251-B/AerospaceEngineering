@@ -26,7 +26,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Uniaxial, uniform stress** in the wire: $\sigma = F/A_0$ [Session 11 Slide 9]. The weight of a mass $m$ is $F = m\,g$ with $g = 9.81$ m/s².
@@ -49,7 +49,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 One direction (the axis of the wire); no change of basis.
 
@@ -63,7 +63,7 @@ One direction (the axis of the wire); no change of basis.
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Area of the wire
 $$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(1\ \text{mm})^2}{4} = 0.7854\ \text{mm}^2$$
@@ -101,7 +101,7 @@ $$U_r = \frac{\sigma_y^2}{2E} = \frac{(191.1\ \text{MPa})^2}{2\times110000\ \tex
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** kg·m/s² = N; N/mm² = MPa; the strains have no units; $l_f$ in the unit of $l_0$ (cm).

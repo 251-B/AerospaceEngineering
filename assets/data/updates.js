@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-07-materials-topic-5-wording",
+    "date": "2026-11-07",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 5: clearer problem page and wire note",
+    "text": "The Topic 5 problems page no longer describes its solutions as phases, and the thermal stress wire problem now explains where the 5.86 mm of the official key comes from.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html"
+  },
+  {
     "id": "2026-11-07-materials-topic-7-review",
     "date": "2026-11-07",
     "tag": "Aerospace Materials I",

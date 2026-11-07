@@ -44,7 +44,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Uniaxial, uniform stress** up to the necking: engineering stress and strain with the original area and length [Session 11 Slide 9].
@@ -68,7 +68,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 One direction (the axis) and uniaxial stress: there is no change of basis.
 
@@ -80,7 +80,7 @@ One direction (the axis) and uniaxial stress: there is no change of basis.
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Cross-section and conversions
 $$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(13\ \text{mm})^2}{4}$$
@@ -172,7 +172,7 @@ $$\varepsilon_e = \frac{\sigma_n}{E} = \frac{266.1}{73273} = \mathbf{3.63\times 
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** Masses in kg and $g$ in m/s² give newtons, N/mm² is MPa, the strains have no units, and $A_0 \geq W/\sigma_y$ comes out in mm².

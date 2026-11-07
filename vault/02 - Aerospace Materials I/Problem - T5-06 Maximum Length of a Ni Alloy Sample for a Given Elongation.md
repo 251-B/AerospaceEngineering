@@ -21,7 +21,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Elastic up to 8900 N.** For loads below 8900 N the deformation is only elastic, so Hooke's law $\sigma = E\varepsilon$ holds [Session 11 Slide 13]. The load of 8900 N is therefore the largest load for which the sample is still elastic.
@@ -41,7 +41,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 One direction (the axis of the sample), no change of basis.
 
@@ -53,7 +53,7 @@ the elongation is proportional to the initial length. The condition $\Delta l \l
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Area
 $$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(10.2\ \text{mm})^2}{4}$$
@@ -78,7 +78,7 @@ $$l_0 = \frac{\Delta l\,A_0\,E}{F} = \frac{0.25\ \text{mm}\times81.71\ \text{mm}
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** $\Delta l\,A_0E/F$: mm · mm² · (N/mm²) / N = mm.

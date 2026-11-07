@@ -21,7 +21,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. Same definition as in Problem 14: $HB = P/S$, with $S$ the area of the spherical cap, $HB = \dfrac{2P}{\pi D\left(D - \sqrt{D^2 - D_i^2}\right)}$ [Session 12 Slide 19].
@@ -39,7 +39,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 This is the *inverse* of Problem 14: the hardness is known, and the indentation is the unknown. The formula of the slide is solved for $D_i$ before substituting numbers:
 
@@ -51,7 +51,7 @@ The squaring step is allowed here because $D - k > 0$ (the left side is a square
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. The bracket $k$
 $$k = D - \sqrt{D^2 - D_i^2} = \frac{2P}{\pi D\,HB} = \frac{2\times500}{\pi\times10\times300} = \frac{1000}{9424.78} = 0.106103\ \text{mm}$$
@@ -70,7 +70,7 @@ which recovers the 300 of the statement.
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** $k$ is a length (kg over kgf/mm² gives mm² and, divided by mm, a length); $D_i^2 = k(2D-k)$ is in mm².

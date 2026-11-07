@@ -55,7 +55,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Uniaxial, uniform stress.** The load acts along the axis of the cylinder, and up to the necking the stress is the same on every cross-section of the gauge length. Under this hypothesis the engineering stress and strain are defined with the original area and length [Session 11 Slide 9].
@@ -78,7 +78,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 There is a single direction, the axis of the sample, and the stress state is uniaxial, so no change of basis and no rotation matrix are involved.
 
@@ -94,7 +94,7 @@ $$\sigma_n = \frac{F}{A_0} \qquad \varepsilon_n = \frac{\Delta L}{l_0}$$
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Cross-section
 $$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(12.8\ \text{mm})^2}{4}$$
@@ -218,7 +218,7 @@ $$F = F_{8} + \frac{0.1 - 0.095}{0.127 - 0.095}\,(F_{9} - F_{8}) = 102\,500 + 0.
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** $\sigma_n = F/A_0$ in N/mm² is MPa, $\varepsilon_n$ is a ratio of lengths and has no units, so $E = \sigma/\varepsilon$ is in MPa and $U_r = \sigma_y^2/2E$ is in MPa (energy per unit volume).

@@ -25,7 +25,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Vickers.** The indenter is a diamond right pyramid with 136° between opposite faces; the hardness is the load divided by the lateral area of the impression, $HV = F/A_{imp}$, which depends only on the mean diagonal $d$ [Session 12 Slide 26]. The slide defines $d$ as the arithmetic mean of the two diagonals $d_1$ and $d_2$ of one impression; here the sheet gives one diagonal length for each of the three impressions, which are averaged first.
@@ -47,7 +47,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 No frames are involved. Each hardness comes from the load and one measured length, through the formulas of the slides.
 
@@ -59,7 +59,7 @@ No frames are involved. Each hardness comes from the load and one measured lengt
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### a) Vickers hardness
 **Mean diagonal.**
@@ -91,7 +91,7 @@ that is, about **228 HB** (equivalently $P/S = 3000/13.182 = 227.6$).
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** $F$ in kgf and $d$ in mm give kgf/mm², the unit of hardness; $D^2 - D_i^2$ in mm², and the Brinell denominator is an area (mm²), so $P/S$ is again kgf/mm².

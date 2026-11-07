@@ -21,7 +21,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. The indentation is a spherical cap left by a hard ball of diameter $D$ pressed with the load $P$, and the hardness is $HB = P/S$ [Session 12 Slide 19].
@@ -39,7 +39,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 No frames are involved: only one formula, applied directly.
 
@@ -53,7 +53,7 @@ which is the expression of [Session 12 Slide 19].
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 Square of the indentation diameter and of the ball diameter:
 
@@ -75,7 +75,7 @@ The depth of the indentation is $h = 0.31754/2 = 0.1588$ mm and the area of the 
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** $2P$ in kg (kgf) over an area in mm²: kgf/mm², the unit of hardness (no unit is attached to HB).

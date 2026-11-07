@@ -25,7 +25,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Yield strength.** "Plastic deformation begins at 345 MPa" means that 345 MPa is the yield strength of the brass: below it the deformation is only elastic, above it part of it is permanent [Session 11 Slide 28].
@@ -44,7 +44,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 One direction (the axis of the sample), no change of basis.
 
@@ -52,7 +52,7 @@ One direction (the axis of the sample), no change of basis.
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### a) Yield stress
 By the hypothesis, plastic deformation begins when $\sigma = 345$ MPa, so
@@ -83,7 +83,7 @@ $$l = l_0 + \Delta l = 76 + 0.2546 = \mathbf{76.255\ mm}$$
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** (N/mm²)·mm² = N for the load; (N/mm²)/(N/mm²) has no units for the strain; strain × mm = mm for the elongation.

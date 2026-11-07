@@ -31,7 +31,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Elastic and isotropic cable under a uniaxial load.** When it holds the weight the cable is elastic (it recovers its diameter when the load is removed), the stress is uniform, and Hooke's law $\sigma = E\varepsilon$ and $\varepsilon_{lat} = -\nu\varepsilon_{ax}$ hold [Session 11 Slides 13 and 19].
@@ -56,7 +56,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 One direction (the axis of the cable) and the two equal transverse directions; no change of basis.
 
@@ -68,7 +68,7 @@ One direction (the axis of the cable) and the two equal transverse directions; n
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Cross-section and stress in service
 $$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15\ \text{mm})^2}{4}$$
@@ -141,7 +141,7 @@ $$\Delta l = \varepsilon\,l_0 = 0.01486\times3000\ \text{mm} = 44.6\ \text{mm} \
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** $\Delta d/d_0$ and the strains have no units; N/mm² is MPa; $m\,g$ in kg·m/s² is N.

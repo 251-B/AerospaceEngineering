@@ -22,7 +22,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Fracture strength = engineering stress at fracture.** The "fracture strength of 300 MPa" is the load at fracture divided by the *initial* area, $\sigma_f = F_f/A_0$, as in the engineering curve of the tensile test [Session 11 Slide 9]. The true fracture stress is that load divided by the area at fracture, $A_f$ [Session 11 Slide 37].
@@ -40,7 +40,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 One direction (the axis of the wire); no change of basis.
 
@@ -52,7 +52,7 @@ One direction (the axis of the wire); no change of basis.
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Area ratio at fracture
 $$\frac{A_f}{A_0} = 1 - \frac{RA}{100} = 1 - 0.77 = 0.23$$
@@ -84,7 +84,7 @@ in agreement with the two results above.
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** Stress in MPa; $A_f/A_0$ and the strains are dimensionless; the argument of the logarithm is a ratio of areas.

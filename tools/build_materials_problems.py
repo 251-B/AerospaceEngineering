@@ -50,7 +50,7 @@ TOPICS = {
         "page": "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html",
         "sheet": "Problems T5_MechanicalProperties.pdf",
         "title": "Topic 5: Solved Problems (Mechanical Properties) — Aerospace Materials I",
-        "scope_of": "of the official sheet on mechanical properties (Problems T5_MechanicalProperties: the tensile test, the elastic modulus, yield and tensile strength, ductility, resilience, true stress and strain, thermal stress and hardness, from Sessions 11 and 12), written in four phases. The sheet has no worked solutions, only a numeric key for most items, so every solution is derived here and compared with that key.",
+        "scope_of": "of the official sheet on mechanical properties (Problems T5_MechanicalProperties: the tensile test, the elastic modulus, yield and tensile strength, ductility, resilience, true stress and strain, thermal stress and hardness, from Sessions 11 and 12), written step by step. The sheet has no worked solutions, only a numeric key for most items, so every solution is derived here and compared with that key.",
     },
     6: {
         "code": "T6", "figures": "materials_t6", "total": 10,

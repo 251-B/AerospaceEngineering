@@ -41,6 +41,6 @@ class Topic6ProblemsTests(unittest.TestCase):
         self.assertEqual(page.count('class="phase-step phase-'), 4 * n)
         self.assertNotIn("Phase 1", page)
 
-    def test_t6_notes_do_not_show_the_word_phase(self):
-        for path in bmp.VAULT.glob("Problem - T6-*.md"):
+    def test_t5_and_t6_notes_do_not_show_the_word_phase(self):
+        for path in [*bmp.VAULT.glob("Problem - T5-*.md"), *bmp.VAULT.glob("Problem - T6-*.md")]:
             self.assertNotIn("Phase", path.read_text(encoding="utf-8"), path.name)

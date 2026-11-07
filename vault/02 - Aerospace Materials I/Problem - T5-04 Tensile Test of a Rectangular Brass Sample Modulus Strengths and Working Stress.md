@@ -46,7 +46,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Uniaxial, uniform stress.** The section is a rectangle $3.2\times19.1$ mm, and up to the necking the stress is uniform: $\sigma_n = F/A_0$ and $\varepsilon_n = (l - l_0)/l_0$ [Session 11 Slide 9].
@@ -68,7 +68,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 One direction (the axis of the sample), uniaxial stress, no change of basis.
 
@@ -76,7 +76,7 @@ One direction (the axis of the sample), uniaxial stress, no change of basis.
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Cross-section
 $$A_0 = b\,h = 19.1\ \text{mm}\times3.2\ \text{mm} = 61.12\ \text{mm}^2$$
@@ -145,7 +145,7 @@ $$\sigma_w = \frac{\sigma_y}{N} = \frac{141.9}{2} = \mathbf{71.0\ MPa}$$
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** N/mm² is MPa, strains have no units, $E$ and $U_r$ are in MPa.

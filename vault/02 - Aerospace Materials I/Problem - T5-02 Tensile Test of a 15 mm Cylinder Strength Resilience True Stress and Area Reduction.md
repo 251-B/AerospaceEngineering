@@ -46,7 +46,7 @@ tags:
 
 ---
 
-## 📊 1. Phase 1: Hypotheses and Parameters
+## 📊 1. Hypotheses and Parameters
 
 ### Hypotheses
 1. **Uniaxial, uniform stress.** Up to the necking the stress is uniform along the gauge length, so the engineering quantities use the original area and length [Session 11 Slide 9].
@@ -70,7 +70,7 @@ tags:
 
 ---
 
-## 🧠 2. Phase 2: Frames and Strategy
+## 🧠 2. Frames and Strategy
 
 The only direction is the axis of the cylinder and the stress is uniaxial, so there is no change of basis.
 
@@ -88,7 +88,7 @@ which is the relation of the slide for the uniform deformation [Session 11 Slide
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation
+## 🔢 3. Step-by-Step Derivation
 
 ### 1. Cross-section
 $$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15\ \text{mm})^2}{4}$$
@@ -159,7 +159,7 @@ $$F = F_{5} + \frac{1.00 - 0.75}{1.75 - 0.75}\,(F_{6} - F_{5}) = 170 + \frac{1.0
 
 $$\sigma_n = \frac{177\,500\ \text{N}}{176.71\ \text{mm}^2} = 1004.4\ \text{MPa}$$
 
-This strain is below the one of the maximum load ($\varepsilon_n = 0.100$), so the deformation is still uniform and the relation of Phase 2 applies:
+This strain is below the one of the maximum load ($\varepsilon_n = 0.100$), so the deformation is still uniform and the relation of section 2 applies:
 
 $$\sigma_r = \sigma_n\,(1 + \varepsilon_n) = 1004.4\times(1 + 0.02) = \mathbf{1024.5\ MPa}$$
 
@@ -180,7 +180,7 @@ $$RA\,(\%) = \frac{A_0 - A_f}{A_0}\times100 = \frac{176.71 - 121.74}{176.71}\tim
 
 ---
 
-## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
+## 🔍 4. Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
 - **Units.** Stresses in N/mm² = MPa, strains without units, $E$ and $U_r$ in MPa.

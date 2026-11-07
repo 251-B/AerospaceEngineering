@@ -600,7 +600,7 @@
     <header class="page-intro">
       <h1>Topic 5: Solved Problems</h1>
       <p>
-        Step-by-step solutions of all 15 problems of the official sheet on mechanical properties (Problems T5_MechanicalProperties: the tensile test, the elastic modulus, yield and tensile strength, ductility, resilience, true stress and strain, thermal stress and hardness, from Sessions 11 and 12), written in four phases. The sheet has no worked solutions, only a numeric key for most items, so every solution is derived here and compared with that key.
+        Step-by-step solutions of all 15 problems of the official sheet on mechanical properties (Problems T5_MechanicalProperties: the tensile test, the elastic modulus, yield and tensile strength, ductility, resilience, true stress and strain, thermal stress and hardness, from Sessions 11 and 12), written step by step. The sheet has no worked solutions, only a numeric key for most items, so every solution is derived here and compared with that key.
       </p>
       <nav class="src-panel" data-srclink aria-label="Official material">
         <span class="src-panel-label">Official material</span>
@@ -943,7 +943,7 @@
 <p>The elongation that corresponds to $\varepsilon_n = 0.02$ is $\Delta L = 0.02\times50 = 1.00$ mm, which is not a row of the table. It is between points 5 ($\Delta L = 0.75$ mm, $F = 170$ kN) and 6 ($\Delta L = 1.75$ mm, $F = 200$ kN):</p>
 <div class="math-block">$$F = F_{5} + \frac{1.00 - 0.75}{1.75 - 0.75}\,(F_{6} - F_{5}) = 170 + \frac{1.00 - 0.75}{1.75 - 0.75}\,(200 - 170) = 177.5\ \text{kN}$$</div>
 <div class="math-block">$$\sigma_n = \frac{177\,500\ \text{N}}{176.71\ \text{mm}^2} = 1004.4\ \text{MPa}$$</div>
-<p>This strain is below the one of the maximum load ($\varepsilon_n = 0.100$), so the deformation is still uniform and the relation of Phase 2 applies:</p>
+<p>This strain is below the one of the maximum load ($\varepsilon_n = 0.100$), so the deformation is still uniform and the relation of section 2 applies:</p>
 <div class="math-block">$$\sigma_r = \sigma_n\,(1 + \varepsilon_n) = 1004.4\times(1 + 0.02) = \mathbf{1024.5\ MPa}$$</div>
 <p><strong>f) Elongation at fracture and reduction of area</strong></p>
 <p>The last row of the table is the fracture: $\Delta L = 8.00$ mm and $F = 220\,000$ N, so</p>
@@ -1396,7 +1396,7 @@
 <p><strong>Interpretation</strong></p>
 <p>For a wire thinner than 5.87 mm the applied stress is larger than the thermal one, and some tension remains after the heating. For a thicker wire the applied stress is smaller, and the heating leaves the wire in compression (it could buckle). The result depends on $F/A$, not on the length, because only the strain matters. As $\Delta T \to 0$ the required area tends to infinity: without temperature rise the force cannot be compensated.</p>
 <p><strong>Check against the official solution</strong></p>
-<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Diameter</td><td>5.86 mm</td><td>5.869 mm</td><td>agrees (0.15 %): the key is truncated, 5.869 rounds to 5.87</td></tr></tbody></table></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Diameter</td><td>5.86 mm</td><td>5.869 mm</td><td>agrees (0.15 %). The key is not a truncation: the hidden text of Slide 46 of Session 15 rounds the radius to 2.93 mm (exact 2.9345 mm) and then doubles it, 5.86 mm; the unrounded diameter is 5.869 mm, which rounds to 5.87 mm</td></tr></tbody></table></div>
           </div>
         </div>
       </div>
