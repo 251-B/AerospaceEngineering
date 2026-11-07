@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Orbital and spin magnetic moments of an electron">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="170.0" y="28.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Orbital magnetic moment</text>
+<circle cx="170.0" cy="150.0" r="62.0" fill="none" stroke="#8a94a6" stroke-width="1.4" stroke-dasharray="5,4" stroke-linejoin="round"/>
+<circle cx="170.0" cy="150.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="232.0" cy="150.0" r="6" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<text x="246.0" y="130.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="start">electron</text>
+<text x="160.0" y="168.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">nucleus</text>
+<line x1="170.0" y1="150.0" x2="170.0" y2="56.6" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M170.0,50.0 L174.3,60.1 L165.7,60.1 Z" fill="#ec4899"/>
+<text x="180.0" y="62.0" fill="#ec4899" font-size="14" font-weight="700" text-anchor="start">m<tspan baseline-shift="sub" font-size="72%">l</tspan> μ<tspan baseline-shift="sub" font-size="72%">B</tspan></text>
+<text x="170.0" y="250.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">moment from the motion of the charge</text>
+<text x="170.0" y="268.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">around the nucleus</text>
+<text x="490.0" y="28.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Spin magnetic moment</text>
+<circle cx="490.0" cy="150.0" r="34.0" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M470,150 A20,20 0 1 1 490,170" fill="none" stroke="#3b82f6" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="490.0" y1="150.0" x2="490.0" y2="56.6" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M490.0,50.0 L494.3,60.1 L485.7,60.1 Z" fill="#ec4899"/>
+<text x="500.0" y="62.0" fill="#ec4899" font-size="14" font-weight="700" text-anchor="start">±μ<tspan baseline-shift="sub" font-size="72%">B</tspan></text>
+<text x="490.0" y="250.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">moment from the spin of the electron</text>
+<text x="490.0" y="268.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">(two possible directions)</text>
+<text x="330.0" y="292.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">μ<tspan baseline-shift="sub" font-size="72%">B</tspan> = 9.27×10<tspan baseline-shift="super" font-size="72%">−24</tspan> A·m² (Bohr magneton)</text>
+</g></svg>

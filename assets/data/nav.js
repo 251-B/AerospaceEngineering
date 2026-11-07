@@ -126,6 +126,10 @@ window.AE_NAV = {
             {
               "href": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
               "label": "6 · Electrical properties"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html",
+              "label": "7 · Magnetic and thermal properties"
             }
           ]
         },

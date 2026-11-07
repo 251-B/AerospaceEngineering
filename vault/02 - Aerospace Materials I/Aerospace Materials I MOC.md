@@ -232,16 +232,16 @@ tags:
   * [[02 - Aerospace Materials I/Problem - T6-09 Ranking Semiconductors by Conductivity Temperature Doping and Concentration|Problem T6-09: Ranking Semiconductors by Conductivity Temperature Doping and Concentration]]
   * [[02 - Aerospace Materials I/Problem - T6-10 Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels|Problem T6-10: Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels]]
 
-#### Topic 7: Magnetic and Thermal Properties (planned)
+#### [[02 - Aerospace Materials I/Topic 7 - Magnetic and Thermal Properties|Topic 7: Magnetic and Thermal Properties]] (theory complete: Session 15; problems 11-12 of the sheet are still planned)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html`
-* **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html`
+* **Problems Web Page (planned):** `subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html`
 * **Official Sources:**
-  * Theory: `Session 15 T7 Magnetic and thermal properties.pdf`
-  * Problems: `Problems T6andT7_Electric and Magnetic Properties.pdf`
+  * Theory: `Session 15 T7 Magnetic and thermal properties.pdf` (Slides 1-48)
+  * Problems: `Problems T6andT7_Electric and Magnetic Properties.pdf` (problems 11-12 are the magnetic ones, still to be solved)
 * **Main Content:**
   * Atomic origin of the magnetic moment (spin and orbital). Diamagnetism, paramagnetism, ferromagnetism, antiferromagnetism and ferrimagnetism.
-  * Magnetic domains, $B\text{-}H$ hysteresis loops, soft and hard magnetic materials.
-  * Thermal properties: heat capacity ($C_p, C_v$), coefficient of thermal expansion ($\alpha_L$), thermal conductivity ($k$) and thermal shock.
+  * Magnetic domains, Bloch walls, $B\text{-}H$ hysteresis loops, soft and hard magnetic materials, Curie and Néel temperatures, and superconductivity (Meissner effect, Type I and II, Josephson effect).
+  * Thermal properties: heat capacity, thermal expansion ($\alpha_l$), thermal conductivity ($k$, Fourier and Wiedemann-Franz laws), thermal stress and thermal shock.
 
 ---
 

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="Origin of magnetic domains">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="95.0" y="30.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">One domain</text>
+<rect x="40.0" y="60.0" width="110.0" height="110.0" fill="#f59e0b" fill-opacity="0.1" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="95.0" y1="150.0" x2="95.0" y2="84.8" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M95.0,80.0 L98.1,87.4 L91.9,87.4 Z" fill="#ec4899"/>
+<path d="M41,60 C5,30 5,200 41,170" fill="none" stroke="#8a94a6" stroke-width="0.9" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<path d="M95,60 C95,30 95,200 95,170" fill="none" stroke="#8a94a6" stroke-width="0.9" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<path d="M149,60 C185,30 185,200 149,170" fill="none" stroke="#8a94a6" stroke-width="0.9" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<text x="95.0" y="214.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">high magnetostatic energy</text>
+<text x="270.0" y="30.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Two domains</text>
+<rect x="215.0" y="60.0" width="110.0" height="110.0" fill="#f59e0b" fill-opacity="0.1" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="270.0" y1="60.0" x2="270.0" y2="170.0" stroke="#f59e0b" stroke-width="1.8"/>
+<line x1="243.0" y1="145.0" x2="243.0" y2="89.8" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M243.0,85.0 L246.1,92.4 L239.9,92.4 Z" fill="#ec4899"/>
+<line x1="298.0" y1="85.0" x2="298.0" y2="140.2" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M298.0,145.0 L294.9,137.6 L301.1,137.6 Z" fill="#ec4899"/>
+<text x="270.0" y="214.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">lower than one domain</text>
+<text x="445.0" y="30.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Four domains</text>
+<rect x="390.0" y="60.0" width="110.0" height="110.0" fill="#f59e0b" fill-opacity="0.1" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="417.5" y1="60.0" x2="417.5" y2="170.0" stroke="#f59e0b" stroke-width="1.6"/>
+<line x1="445.0" y1="60.0" x2="445.0" y2="170.0" stroke="#f59e0b" stroke-width="1.6"/>
+<line x1="472.5" y1="60.0" x2="472.5" y2="170.0" stroke="#f59e0b" stroke-width="1.6"/>
+<line x1="404.0" y1="145.0" x2="404.0" y2="89.8" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M404.0,85.0 L407.1,92.4 L400.9,92.4 Z" fill="#ec4899"/>
+<line x1="431.5" y1="85.0" x2="431.5" y2="140.2" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M431.5,145.0 L428.4,137.6 L434.6,137.6 Z" fill="#ec4899"/>
+<line x1="459.0" y1="145.0" x2="459.0" y2="89.8" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M459.0,85.0 L462.1,92.4 L455.9,92.4 Z" fill="#ec4899"/>
+<line x1="486.5" y1="85.0" x2="486.5" y2="140.2" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M486.5,145.0 L483.4,137.6 L489.6,137.6 Z" fill="#ec4899"/>
+<text x="445.0" y="214.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">lower than two domains</text>
+<text x="620.0" y="30.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Closure domains</text>
+<rect x="565.0" y="60.0" width="110.0" height="110.0" fill="#f59e0b" fill-opacity="0.1" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="565.0" y1="60.0" x2="592.5" y2="87.5" stroke="#f59e0b" stroke-width="1.6"/>
+<line x1="675.0" y1="60.0" x2="647.5" y2="87.5" stroke="#f59e0b" stroke-width="1.6"/>
+<line x1="565.0" y1="170.0" x2="592.5" y2="142.5" stroke="#f59e0b" stroke-width="1.6"/>
+<line x1="675.0" y1="170.0" x2="647.5" y2="142.5" stroke="#f59e0b" stroke-width="1.6"/>
+<line x1="592.5" y1="87.5" x2="592.5" y2="142.5" stroke="#f59e0b" stroke-width="1.6"/>
+<line x1="647.5" y1="87.5" x2="647.5" y2="142.5" stroke="#f59e0b" stroke-width="1.6"/>
+<line x1="592.5" y1="87.5" x2="647.5" y2="87.5" stroke="#f59e0b" stroke-width="1.0" stroke-dasharray="3,3"/>
+<line x1="592.5" y1="142.5" x2="647.5" y2="142.5" stroke="#f59e0b" stroke-width="1.0" stroke-dasharray="3,3"/>
+<line x1="579.0" y1="135.0" x2="579.0" y2="99.8" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M579.0,95.0 L582.1,102.4 L575.9,102.4 Z" fill="#ec4899"/>
+<line x1="620.0" y1="95.0" x2="620.0" y2="130.2" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M620.0,135.0 L616.9,127.6 L623.1,127.6 Z" fill="#ec4899"/>
+<line x1="661.0" y1="135.0" x2="661.0" y2="99.8" stroke="#ec4899" stroke-width="2.2"/>
+<path d="M661.0,95.0 L664.1,102.4 L657.9,102.4 Z" fill="#ec4899"/>
+<line x1="625.0" y1="75.0" x2="609.8" y2="75.0" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M605.0,75.0 L612.4,71.9 L612.4,78.1 Z" fill="#3b82f6"/>
+<line x1="615.0" y1="156.0" x2="630.2" y2="156.0" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M635.0,156.0 L627.6,159.1 L627.6,152.9 Z" fill="#3b82f6"/>
+<text x="620.0" y="214.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">zero magnetostatic energy</text>
+<text x="360.0" y="262.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Domains form spontaneously because each split lowers the magnetostatic energy of the stray field;</text>
+<text x="360.0" y="280.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">orange lines are domain (Bloch) walls, arrows are the magnetization of each domain</text>
+</g></svg>

@@ -167,6 +167,16 @@
     "href": "../problemas/topic-6-electrical-properties.html",
     "label": "10 solved problems for this topic (Problems T6andT7, problems 1-10, the electrical part of the sheet)"
    }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 7 - Magnetic and Thermal Properties.md",
+   "figures": "materials_t7",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 7: Magnetic and Thermal Properties — Aerospace Materials I",
+   "category": "Topic 07 · Magnetic and Thermal Properties",
+   "title": "Magnetic and Thermal Properties",
+   "subtitle": "The origin and types of magnetism, domains and hysteresis, superconductivity, and the thermal properties: heat capacity, thermal expansion, thermal conductivity, thermal stress and thermal shock.",
+   "source": "Universidad Carlos III de Madrid · Session 15 T7 Magnetic and thermal properties.pdf"
   }
  }
 }

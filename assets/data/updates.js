@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-07-materials-topic-7",
+    "date": "2026-11-07",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 7: magnetic and thermal properties",
+    "text": "New theory page on magnetism, domains and hysteresis, superconductors, heat capacity, thermal expansion and conductivity, and thermal stress and shock, with drawings.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html"
+  },
+  {
     "id": "2026-11-06-materials-topic-6",
     "date": "2026-11-06",
     "tag": "Aerospace Materials I",
