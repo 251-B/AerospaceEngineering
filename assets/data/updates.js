@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-07-materials-topic-7-review",
+    "date": "2026-11-07",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 7: corrected drawings and notes",
+    "text": "A full review fixed the thermal shock and magnetic domain drawings and the wire example, and added notes where the slides disagree. Long links no longer widen the page on phones.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html"
+  },
+  {
     "id": "2026-11-07-materials-topic-7",
     "date": "2026-11-07",
     "tag": "Aerospace Materials I",

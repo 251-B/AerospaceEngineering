@@ -41,11 +41,11 @@ Slide 1 is the title and the agenda of the magnetic part: introduction, basic co
 - **Orbital magnetic moment** $= m_l\,\mu_B$, from its motion around the nucleus.
 - **Spin magnetic moment** $= \pm\mu_B$, from its spin (two possible directions).
 
-Here $m_l$ is the magnetic quantum number of the electron and $\mu_B$ is the **Bohr magneton**:
+Here $m_l$ is the magnetic quantum number of the electron (the slide writes "magnetic quantum moment") and $\mu_B$ is the **Bohr magneton**:
 
 $$\mu_B = 9.27\times10^{-24}\ \text{A}\cdot\text{m}^2$$
 
-The magnetic moment of an atom is the sum of the magnetic moments of all its electrons. If the net moment of the atom is not null, the atom behaves like a **magnetic dipole**. The slide tabulates the net moment of the 3d transition elements, which comes from their unpaired electron spins:
+The magnetic moment of an atom is the sum of the magnetic moments of all its electrons. If the net moment of the atom is not null, the atom behaves like a **magnetic dipole**. The slide tabulates the moment of the 3d transition elements from the electronic structure of their 3d shell, which counts its unpaired spins (the 4s electrons are not counted, and the moment of an atom is not the moment per atom of the solid metal: compare Fe, Co and Ni here with the values of Section 4.3):
 
 | Element | Sc | Ti | V | Cr | Mn | Fe | Co | Ni | Cu |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -59,10 +59,10 @@ The magnetic moment of an atom is the sum of the magnetic moments of all its ele
 
 ## 3. Basic concepts: field, induction, magnetization [Session 15 Slide 4]
 
-The slide defines the quantities of the magnetic response of a material, in SI units (no cgs system is used):
+Slide 4 defines the quantities of the magnetic response of a material in SI units. Some later slides also print other units: gauss (Slide 23), emu/cm³ and Oe (Slide 24), cal (Slides 35 and 41) and Btu (Slide 43).
 
 - $H$ is the **magnetic field strength**, in A/m.
-- $B$ is the **magnetic induction**, also called magnetic flux density, in Wb/m² or tesla.
+- $B$ is the **magnetic induction**, also called magnetic flux density (the slides also write "inductance"), in Wb/m² or tesla.
 - $\mu$ is the **permeability** of the medium through which $H$ passes and in which $B$ is measured, in H/m (or Wb/(A·m)).
 - $M$ is the **magnetization** (the magnetic moment per unit volume), in A/m.
 - $\chi_m$ is the **magnetic susceptibility** (dimensionless).
@@ -75,7 +75,7 @@ The relative permeability $\mu_r$ is the ratio of the permeability of the materi
 
 $$\mu_r = 1 + \chi_m \qquad\Rightarrow\qquad \chi_m = \mu_r - 1$$
 
-(derived here from the two printed relations). The figure of the slide plots the induction against the field: in vacuum $B = \mu_0 H$, and in a material the line is higher by the term $\mu_0 M$, which is the contribution of the material.
+(derived here from the two printed relations). The figure of the slide plots the induction against the field: in vacuum $B = \mu_0 H$, and in a material the line differs by the term $\mu_0 M$, which is the contribution of the material (higher for $M > 0$, lower for the diamagnetic $M < 0$).
 
 > [!note] Dimensional check
 > $[\mu_0 H] = (\text{H/m})(\text{A/m}) = \text{V}\cdot\text{s/m}^2 = \text{T}$, the unit of $B$. $\chi_m$ and $\mu_r$ have no units, because $M$ and $H$ are both in A/m.
@@ -91,11 +91,16 @@ Slide 5 gives the overview. Materials are grouped by the value of $\mu_r$: the *
 > [!note] Printed sign of the diamagnetic susceptibility
 > The text of Slide 5 writes the diamagnetic susceptibility as $\chi \approx 10^{-5}$ without the sign, while the chart on the same slide and Slide 6 give $\chi_m < 0$. The sign is negative.
 
+> [!note] Chromium in two lists
+> Cr is listed as paramagnetic on Slide 5 and as antiferromagnetic on Slide 10. Slide 23 resolves it: its Néel temperature is 310 K, so it is antiferromagnetic below 310 K and paramagnetic above. By the same table MnO (116 K) and α-Mn (100 K) are paramagnetic at room temperature (this reading is an extension).
+
 ### 4.1 Diamagnetism [Session 15 Slides 6-7]
 
 In a diamagnetic material there are no dipoles in the absence of an external field. In the presence of a field, dipoles are induced that are aligned **opposite** to the field direction. The external field induces a change in the speed of the orbital movement of the electrons, so the effect is **not permanent**: it exists only while the field is applied. The induced moment is very small and opposite to the applied field [Session 15 Slide 6]:
 
 $$\mu_r < 1 \qquad \chi_m < 0 \qquad B_{dia} \cong \mu_0 H \qquad B_{dia} < B_0$$
+
+where $B_0 = \mu_0 H$ is the induction in vacuum.
 
 Examples on the slide: gold, silver and copper.
 
@@ -113,7 +118,7 @@ Examples on the slide: aluminium and titanium.
 
 ### 4.3 Ferromagnetism [Session 15 Slide 9]
 
-A ferromagnetic material has magnetic dipoles **permanently oriented** (parallel) in the absence of an external field, so it shows a large permanent magnetization. The slide states that the permanent magnetic moment of ferromagnetic materials is due fundamentally to the **spin** magnetic moments, with a small contribution from the orbital moments [Session 15 Slide 9]. The susceptibility is very large, up to $10^6$:
+A ferromagnetic material has magnetic dipoles **permanently oriented** (parallel) in the absence of an external field, so it shows a large permanent magnetization (within each domain: Section 5 explains why a piece that was never magnetized has no net magnetization). The slide states that the permanent magnetic moment of ferromagnetic materials is due fundamentally to the **spin** magnetic moments, with a small contribution from the orbital moments [Session 15 Slide 9]. The susceptibility is very large, up to $10^6$:
 
 $$\chi_m \gg 1 \quad (\text{up to } 10^6) \qquad\Rightarrow\qquad M \gg H \qquad\Rightarrow\qquad B \cong \mu_0 M$$
 
@@ -186,7 +191,7 @@ When a magnetic field is applied to a magnetic material the magnetization increa
 4. **Rotation of domains** towards the field direction.
 5. **Saturation.**
 
-The two permeabilities of the slide are the slopes of the curve: $\mu_i$ is the **initial permeability** (slope at the start) and $\mu_{max}$ is the **maximum permeability** (steepest slope, in the stage of domain growth); the permeability varies with $H$. The **saturation magnetization** $M_s$ is the magnetization that results when all the magnetic dipoles of the solid are aligned with the external field; the corresponding induction is the saturation flux density $B_s$.
+The two permeabilities of the slide are the slopes of the curve: $\mu_i$ is the **initial permeability** (slope at the start) and $\mu_{max}$ is the **maximum permeability** (the line from the origin tangent to the curve, that is, the largest value of $B/H$); the permeability varies with $H$. The slide's axis reads "magnetization $M$ or inductance $B$": strictly these slopes are permeabilities on the $B$ curve. The **saturation magnetization** $M_s$ is the magnetization that results when all the magnetic dipoles of the solid are aligned with the external field; the corresponding induction is the saturation flux density $B_s$.
 
 ![[attachments/T7/initial-magnetization.svg]]
 
@@ -194,7 +199,7 @@ The two permeabilities of the slide are the slopes of the curve: $\mu_i$ is the 
 
 ### 7.1 The hysteresis loop [Session 15 Slide 17]
 
-When the field is reduced from saturation, the magnetization does not follow the initial curve back, because the domains do not return to their random arrangement. The loop of $B$ against $H$ defines two quantities:
+The slide draws the loop with the domains at each point. When the field is reduced from saturation, the magnetization does not follow the initial curve back, because the domains do not return to their random arrangement (the author's reading of the sketches). The loop of $B$ against $H$ defines two quantities:
 
 - $B_r$ is the **remanence**: the induction that remains when the field is brought back to zero.
 - $H_c$ is the **coercivity**: the reverse field needed to bring the induction to zero. It is a measure of the opposition to a change in orientation of the dipoles: the slide writes it as 1/(how easy it is to change the orientation of the dipoles).
@@ -211,6 +216,9 @@ The materials are classified by the shape of their loop, with the limit $H_c = 1
 
 ![[attachments/T7/hysteresis-soft-hard.svg]]
 
+> [!note] Saturation of soft and hard materials
+> Slide 18 lists a high $B_s$ for the hard materials, and Slide 19 asks for a high saturation magnetization in the soft ones. The data favour the soft side: on the chart of Slide 19 CoFe and Fe reach about 2 T or more against about 1.5 T for NdFeB, and on Slide 24 soft $B_{max}$ goes up to 2.30 T against 1.23 T for the best hard $\mu_0 M_r$. Both statements are kept as printed; the drawing follows Slide 18.
+
 ### 7.3 Applications [Session 15 Slide 19]
 
 The slide matches each type of loop with its use [Session 15 Slide 19]:
@@ -219,7 +227,10 @@ The slide matches each type of loop with its use [Session 15 Slide 19]:
 - **Materials under alternating electrical fields** (cores of electromagnets, transformers, generators and electric motors, to increase the magnetic flux in coils and circuits): soft magnetic materials, to minimize energy losses, with high saturation magnetization, small coercive field and high permeability.
 - **Magnetic memories** in computers, magnetic amplifiers and pulse transformers (data storage): materials with a **rectangular** hysteresis loop, with low remanence, low saturation magnetization and low coercive field (soft magnetic materials modified by a thermal treatment in the presence of a magnetic field).
 
-The slide also plots the saturation magnetization against the coercivity of many materials, from the soft ferrites and iron alloys at low coercivity to the hard ferrites and rare-earth magnets at about $10^5$ A/m and above, with the regions labelled soft, semihard and hard; the same data are in the tables of Slide 24 (Section 9).
+The slide also plots the saturation magnetization against the coercivity of many materials, from the soft ferrites and iron alloys at low coercivity to the hard ferrites and rare-earth magnets at about $10^5$ A/m and above, with the regions labelled soft, semihard and hard. A second figure compares three loops: the soft magnet for electrical applications, the hard magnet for permanent magnets and the square loop for computer applications.
+
+> [!note] Rectangular loop as printed
+> Slide 19 prints "low remanance" for the rectangular loop. A rectangular loop has $B_r$ close to $B_s$, so "low" can only mean low in absolute value, not low relative to $B_s$. The recording powders of Slide 24 also have $H_c$ of 22 to 240 kA/m, above the 10 kA/m limit of soft materials, so the slide's description does not fit them.
 
 ## 8. Factors that control the hysteresis cycle [Session 15 Slides 20-22]
 
@@ -229,7 +240,7 @@ The shape of the loop depends on [Session 15 Slide 20]:
 - **Processing:** its microstructure (grain size, pores, impurities, etc.) and the presence of strains due to mechanical deformations.
 - **Working conditions:** working temperature, radiation and electrical currents.
 
-The **coercivity** is a strongly microstructure-dependent property (crystallographic direction, grain boundaries, pores, shape of the particles), while the **saturation magnetization** is constant for a material of a given composition.
+The **coercivity** is a strongly microstructure-dependent property (crystallographic direction, grain boundaries, pores, shape of the particles), while the **saturation magnetization** is constant for a material of a given composition (at a given temperature, as the next paragraph shows).
 
 **Microstructure** [Session 15 Slide 21]. The Bloch walls move more easily in larger grains, and obstacles stop them:
 
@@ -267,7 +278,7 @@ Slide 24 reproduces three tables of typical properties: selected **soft** magnet
 
 ### 10.1 Zero resistivity and critical temperature [Session 15 Slide 25]
 
-The electrical resistivity of a **superconductor** becomes **zero** below some critical temperature $T_c$. Superconductors can be pure metals and alloys, ceramics (typically with copper oxide) and organic compounds (based, for example, on Se or S). $T_c$ ranges between 0.01 and 165 K, which is the practical limitation, and it is usually lower for metals than for ceramics. The slide gives the critical temperatures (read from the slide):
+The electrical resistivity of a **superconductor** becomes **zero** below some critical temperature $T_c$. Superconductors can be pure metals and alloys, ceramics (typically with copper oxide) and organic compounds (based, for example, on Se or S). $T_c$ ranges between 0.01 and 165 K (the text of the slide; its chart marks 163 K), which is the practical limitation, and it is usually lower for metals than for ceramics. This $T_c$ is the critical temperature of a superconductor, not the Curie temperature of Section 9, and likewise $H_c$ below is the critical field, not the coercivity. The slide gives the critical temperatures (read from the slide):
 
 | Material | $T_c$ in K | Material | $T_c$ in K |
 | :--- | ---: | :--- | ---: |
@@ -284,13 +295,13 @@ The slide also plots the resistivity against the temperature (the superconductor
 
 ### 10.2 Critical field and critical current density [Session 15 Slide 26]
 
-At temperatures below $T_c$ the superconducting state stops when a sufficiently large magnetic field ($H_c$) or current density ($J_c$) is applied, and $H_c$ and $J_c$ **decrease with increasing temperature**. The **superconducting envelope** is the surface in the $(T, H, J)$ space that bounds the superconducting state; the slide shows it for Nb₃Sn, with $B_{c2} = 24.5$ T, $T_c = 18$ K and $J_c = 10^7$ A/cm².
+At temperatures below $T_c$ the superconducting state stops when a sufficiently large magnetic field ($H_c$) or current density ($J_c$) is applied, and $H_c$ and $J_c$ **decrease with increasing temperature**. The **superconducting envelope** is the surface in the $(T, H, J)$ space that bounds the superconducting state; the slide shows it for Nb₃Sn, with $B_{c2} = 24.5$ T, $T_c = 18$ K and $J_c = 10^7$ A/cm² ($= 10^{11}$ A/m²).
 
 ![[attachments/T7/s15-superconducting-envelope.png]]
 
 ### 10.3 Meissner effect and levitation [Session 15 Slide 27]
 
-The **Meissner-Ochsenfeld effect** is the expulsion of the magnetic field from a material when it is in the superconducting state. Above $T_c$ the field lines go through the material; below $T_c$ they are pushed around it, and the material becomes diamagnetic. Superconductors in the Meissner state exhibit **perfect diamagnetism** (superdiamagnetism): the total magnetic field is very close to zero deep inside. The expelled field repels a permanent magnet, which is how a magnet **levitates** above a superconductor cooled by liquid nitrogen [Session 15 Slide 27].
+The **Meissner-Ochsenfeld effect** is the expulsion of the magnetic field from a material when it is in the superconducting state. Above $T_c$ the field lines go through the material; below $T_c$ they are pushed around it, and the material becomes diamagnetic. Superconductors in the Meissner state exhibit **perfect diamagnetism** (superdiamagnetism): the total magnetic field is very close to zero deep inside. A permanent magnet **levitates** above a superconductor cooled by liquid nitrogen: the slide's drawing shows the repulsion of the Meissner effect, an attraction from the trapped magnetic flux, and gravity [Session 15 Slide 27].
 
 > [!note] Printed words
 > Slide 27 writes "semiconductor state" and "Oschsenfeld". The effect belongs to the superconducting state, and the name is Meissner-Ochsenfeld.
@@ -330,9 +341,12 @@ Slide 33 is the title and the agenda of the thermal part: introduction, heat cap
 
 **Thermal energy in solids** is the increase in the vibrational energy of the atoms, and the vibrations produce travelling lattice waves. A **phonon** is a packet of elastic waves (thermal vibrational energy), with energy
 
-$$E = \frac{h v}{\lambda} = \hbar\omega$$
+$$E = \frac{h v}{\lambda} = h\omega$$
 
-where $h$ is Planck's constant, $v$ the speed of sound, $\lambda$ the wavelength and $\omega$ the frequency (the slide's notation: $v/\lambda$ is the frequency).
+where $h$ is Planck's constant, $v$ the speed of sound, $\lambda$ the wavelength and $\omega$ the frequency, as printed.
+
+> [!note] Printed form of the phonon energy
+> On the slide $\omega$ is the ordinary frequency $v/\lambda$. With the usual angular frequency $\omega = 2\pi v/\lambda$ the same energy is written $\hbar\omega$, with $\hbar = h/2\pi$ (extension).
 
 The **heat capacity** is the energy required to raise the temperature of **one mole** of a material by one degree (the ability of the material to absorb heat):
 
@@ -348,9 +362,11 @@ The heat capacity **increases with temperature**, because the lattice waves can 
 
 $$C \approx 3R \approx 6\ \text{cal/(mol}\cdot\text{K)}$$
 
-with $R$ the gas constant. In SI units, $3R = 3\times8.314 = 24.9$ J/(mol·K) (the conversion is an extension, with 1 cal = 4.184 J, and it gives 25.1 J/(mol·K) for 6 cal/(mol·K)). The limit of $3R$ per mole is the Dulong-Petit value.
+with $R$ the gas constant. In SI units, $3R = 3\times8.314 = 24.9$ J/(mol·K) (the conversion is an extension, with 1 cal = 4.184 J, and it gives 25.1 J/(mol·K) for 6 cal/(mol·K)). The limit of $3R$ per mole is known as the Dulong-Petit value (the name is an extension).
 
 ![[attachments/T7/s15-heat-capacity-chart.png]]
+
+In the chart the metals reach the plateau at a lower temperature than the ceramics.
 
 The heat capacity and the specific heat of most materials **do not depend significantly on the structure** of the material (dislocations, vacancies, grain size). The exception is the **ferromagnetic materials**, such as iron, which show a high specific heat at the Curie temperature (the change from ferromagnetic to paramagnetic) [Session 15 Slide 35].
 
@@ -358,11 +374,11 @@ The heat capacity and the specific heat of most materials **do not depend signif
 
 ### 13.1 Linear coefficient [Session 15 Slide 36]
 
-The **linear coefficient of thermal expansion** $\alpha$ is the amount by which the unit length of a material changes when its temperature changes:
+The **linear coefficient of thermal expansion** $\alpha$ is the amount by which the unit length of a material changes when its temperature changes by one degree:
 
 $$\frac{l_f - l_0}{l_0} = \alpha\,(T_f - T_0) \qquad\text{that is}\qquad \frac{\Delta l}{l_0} = \alpha\,\Delta T$$
 
-$\alpha$ is in °C⁻¹ (or K⁻¹, since only differences of temperature enter). For an isotropic solid, $V = l^3$ gives $\Delta V/V_0 \approx 3\,\Delta l/l_0$ for small changes, so the volume coefficient is $\alpha_v \approx 3\alpha$ (an extension, not printed on the slides).
+$\alpha$ is in °C⁻¹ (or K⁻¹, since only differences of temperature enter). Here $\Delta T = T_f - T_0$. For an isotropic solid (an extension, not printed on the slides), with $\varepsilon = \Delta l/l_0$, $V = l^3$ gives $\Delta V/V_0 = (1+\varepsilon)^3 - 1 = 3\varepsilon + 3\varepsilon^2 + \varepsilon^3 \approx 3\varepsilon$ for small $\varepsilon$, so the volume coefficient is $\alpha_v \approx 3\alpha$.
 
 ### 13.2 Atomic origin [Session 15 Slide 36]
 
@@ -398,7 +414,7 @@ The **thermal conductivity** is a microstructure-sensitive property that measure
 
 $$q = \frac{Q}{A} = -k\,\frac{\Delta T}{\Delta x}$$
 
-$q$ is the heat flux per unit area in W/m², $Q$ the heat flow in W, $k$ the thermal conductivity in W/(m·K) and $\Delta T/\Delta x$ the temperature gradient. The minus sign says that heat flows from hot to cold. This is the same structure as the steady-state diffusion law of [[Concept - Fick's First Law, Steady-State Diffusion]]: a flux proportional to a gradient, with a transport coefficient ($k$ here, $D$ there); that parallel is an extension.
+$q$ is the heat flux per unit area in W/m², $Q$ the heat flow in W (the slide calls it heat flux), $k$ the thermal conductivity in W/(m·K) and $\Delta T/\Delta x$ the temperature gradient. The minus sign says that heat flows from hot to cold. This is the same structure as the steady-state diffusion law of [[Concept - Fick's First Law, Steady-State Diffusion]]: a flux proportional to a gradient, with a transport coefficient ($k$ here, $D$ there); that parallel is an extension.
 
 ![[attachments/T7/heat-flux-bar.svg]]
 
@@ -410,17 +426,25 @@ In **conductive materials** the transfer is by free electrons, $k \approx k_e$; 
 
 ### 14.2 Link with the electrical conductivity [Session 15 Slide 41]
 
-The thermal and the electrical conductivity of a metal are related by the **Wiedemann-Franz law**:
+The slide gives the relation between the thermal and the electrical conductivity (the **Wiedemann-Franz law**, a name that is an extension):
 
 $$L = \frac{k}{\sigma T}$$
 
 where $L$ is the **Lorenz number** (a constant), $L = 2.44\times10^{-8}$ W·Ω/K² (or $5.5\times10^{-9}$ cal·Ω/(s·K²)); the slide calls it the Lorentz number. The units are consistent: $k/(\sigma T)$ is $[\text{W}/(\text{m}\cdot\text{K})]/[(\Omega\cdot\text{m})^{-1}\cdot\text{K}] = \text{W}\cdot\Omega/\text{K}^2$. The slide also gives a table of the thermal conductivity of pure metals, alloys, ceramics and polymers (1 cal/(cm·s·K) = 418.4 W/(m·K)).
 
+> [!warning] Discrepancy in the printed Lorenz number
+> The two values of the slide are not the same number: with 1 cal = 4.184 J, $2.44\times10^{-8}$ W·Ω/K² is $5.83\times10^{-9}$ cal·Ω/(s·K²), not $5.5\times10^{-9}$ (a difference of about 6 %). Both are kept as printed; the SI value is the one used on this page.
+
 ![[attachments/T7/s15-conductivity-table.png]]
+
+> [!warning] Discrepancy between the tables
+> Some values of this table contradict Slides 38 and 43, where alloying lowers $k$: the 3003 aluminium alloy (280) is above pure Al (238 here, 247 on Slide 38), the 1020 steel (100) is above pure Fe (79) and against 51.9 for the 1025 steel of Slide 38, and yellow brass (221) stands against 120 for 70Cu-30Zn on Slide 38. The values are kept as printed; use them with care.
 
 ### 14.3 Effect of temperature [Session 15 Slide 42]
 
 For the metals, two effects compete. A higher temperature **increases** the contribution of the lattice vibrations $k_{ph}$, so the thermal conductivity increases; and it **decreases** the electron mobility (more scattering of the electrons), so the thermal conductivity decreases. The chart of the slide shows platinum, aluminium, iron, SiC, Al₂O₃, glass and a firebrick with porosity.
+
+Two remarks on the chart are extensions. The Wiedemann-Franz law gives $k_e = L\sigma T$, and since $\sigma$ of a metal falls roughly as $1/T$, $k_e$ stays nearly constant, which fits the flat curve of aluminium. And the phonon conductors SiC and Al₂O₃ fall with temperature on the chart, so the statement of the slide that $k_{ph}$ grows with $T$ does not hold for every material.
 
 ![[attachments/T7/s15-conductivity-temperature.png]]
 
@@ -435,7 +459,7 @@ Alloying, defects and porosity **reduce** the thermal conductivity, because they
 A **thermocouple** is a temperature-measuring device made of two dissimilar conductors that contact each other at one or more spots. It produces a voltage when the temperature of one of the spots differs from the reference temperature of the other parts of the circuit. The slide shows a junction at 300 °C that gives 12.2 mV.
 
 > [!note] Printed legs
-> The slide labels the two conductors Ni-Cr and Al-Cr. The second label is kept as printed; the usual pair for this combination is Ni-Cr against Ni-Al.
+> The slide labels the two conductors Ni-Cr and Al-Cr. The second label is kept as printed; the usual pair for this combination is Ni-Cr against Ni-Al (extension).
 
 ## 15. Thermal stresses in constrained bodies [Session 15 Slides 45-46]
 
@@ -443,19 +467,19 @@ A **thermocouple** is a temperature-measuring device made of two dissimilar cond
 
 $$\sigma = E\,\alpha\,(T_0 - T_f) = E\,\alpha\,\Delta T$$
 
-where $E$ is Young's modulus (MPa), $\alpha$ the linear coefficient of thermal expansion (°C⁻¹) and $\sigma$ the thermal stress (MPa). The slide calls $\Delta T$ the thermal gradient; in this expression it stands for $T_0 - T_f$, the initial minus the final temperature. The slide states the signs:
+where $E$ is Young's modulus (MPa), $\alpha$ the linear coefficient of thermal expansion (°C⁻¹) and $\sigma$ the thermal stress (MPa). The slide calls $\Delta T$ the thermal gradient; in this expression it stands for $T_0 - T_f$, the initial minus the final temperature, which is the opposite sign of the $\Delta T = T_f - T_0$ of Section 13. The slide states the signs:
 
 - **Heating**, $T_f > T_0$: the stress is **compressive** ($\sigma < 0$).
 - **Cooling**, $T_f < T_0$: the stress is **tensile** ($\sigma > 0$).
 
-The origin is the free expansion that the walls prevent: a bar of length $l_0$ would change by $\alpha\,l_0\,\Delta T$, and holding the length means producing the elastic strain that cancels it, $\varepsilon = \alpha\,\Delta T$, so $\sigma = E\varepsilon$ (this link with Hooke's law is an extension). Dimensionally $[E\alpha\Delta T] = \text{MPa}\cdot{}^{\circ}\text{C}^{-1}\cdot{}^{\circ}\text{C} = \text{MPa}$.
+The origin is the free expansion that the walls prevent (this link with Hooke's law is an extension). A free bar would have the thermal strain $\alpha(T_f - T_0)$. Held at constant length, the total strain is zero, $0 = \sigma/E + \alpha(T_f - T_0)$, and therefore $\sigma = E\alpha(T_0 - T_f)$. Dimensionally $[E\alpha\Delta T] = \text{MPa}\cdot{}^{\circ}\text{C}^{-1}\cdot{}^{\circ}\text{C} = \text{MPa}$.
 
 ![[attachments/T7/constrained-bar.svg]]
 
-Slide 46 applies the law to problem 5 of the Topic 5 sheet. A steel wire, initially 1 m long, is stretched by a force of 1400 N at 20 °C. After the force is applied the wire is held at constant length and heated to 40 °C, and the diameter is asked for that makes the thermal expansion stress compensate the applied stress. With the data of the sheet ($E = 207$ GPa, $\alpha_l = 12.5\times10^{-6}$ °C⁻¹) the thermal stress is $E\alpha_l\Delta T = 51.75$ MPa, the area $A = F/\sigma = 1400\ \text{N}/51.75\ \text{N/mm}^2 = 27.05\ \text{mm}^2$ and the diameter about 5.86 mm. The full step-by-step solution, with the check against the official key, is in [[Problem - T5-05 Thermal Stress in a Constrained Steel Wire]].
+Slide 46 ("Problem 5. Topic Mechanical properties") applies the law to problem 5 of the Topic 5 sheet. A steel wire, initially 1 m long, is stretched by a force of 1400 N at 20 °C. After the force is applied the wire is held at constant length and heated to 40 °C, and the diameter is asked for that makes the thermal expansion stress compensate the applied stress. With the data of the sheet ($E = 207$ GPa, $\alpha_l = 12.5\times10^{-6}$ °C⁻¹) the magnitude of the thermal stress is $E\alpha_l\lvert T_f - T_0\rvert = 51.75$ MPa (compressive, because the wire is heated), the area is $A = F/\sigma = 1400\ \text{N}/51.75\ \text{N/mm}^2 = 27.053\ \text{mm}^2$ and the diameter is $d = \sqrt{4A/\pi} = 5.87$ mm (5.869 mm; the official key prints 5.86 mm). The full step-by-step solution, with the check against the official key, is in [[Problem - T5-05 Thermal Stress in a Constrained Steel Wire]].
 
 > [!note] Slide 46
-> On the rendered slide the box under the statement is empty, so the data of the sheet are used here and not the slide's solution box.
+> On the rendered slide the box under the statement is empty, so the data of the sheet are used here. The PDF does keep a solution in its hidden text layer, with slips: it prints $\alpha = 12.5\times10^{-3}$ °C⁻¹ although its 51.75 MPa needs $12.5\times10^{-6}$, it writes the area in mm, and it rounds $r$ to 2.93 mm before doubling it, which is where the 5.86 mm comes from.
 
 ## 16. Thermal shock [Session 15 Slides 47-48]
 
@@ -497,10 +521,10 @@ Everything below is taken from the sections above; it is a quick reference, not 
 | Bohr magneton | $\mu_B = 9.27\times10^{-24}$ A·m² | Section 2 |
 | Hysteresis limit between soft and hard | $H_c = 10\,000$ A/m | Section 7 |
 | Heat capacity | $C = dQ/dT$, $\ C \approx 3R$ above $\theta_D$ | Section 12 |
-| Thermal expansion | $\Delta l/l_0 = \alpha\,\Delta T$ | Section 13 |
+| Thermal expansion | $\Delta l/l_0 = \alpha\,\Delta T$, with $\Delta T = T_f - T_0$ | Section 13 |
 | Fourier's law | $q = Q/A = -k\,\Delta T/\Delta x$, $\ k = k_e + k_{ph}$ | Section 14 |
-| Wiedemann-Franz law | $L = k/(\sigma T)$, $\ L = 2.44\times10^{-8}$ W·Ω/K² | Section 14 |
-| Thermal stress | $\sigma = E\alpha(T_0 - T_f) = E\alpha\Delta T$ | Section 15 |
+| Wiedemann-Franz law (name: extension) | $L = k/(\sigma T)$, $\ L = 2.44\times10^{-8}$ W·Ω/K² | Section 14 |
+| Thermal stress | $\sigma = E\alpha(T_0 - T_f) = E\alpha\Delta T$, with $\Delta T = T_0 - T_f$ | Section 15 |
 | Thermal shock resistance | $TSR = \sigma_f k/(E\alpha_l)$ | Section 16 |
 
 ---

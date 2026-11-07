@@ -5,30 +5,26 @@
 <line x1="60.0" y1="270.0" x2="60.0" y2="40.0" stroke="#8a94a6" stroke-width="1.3"/>
 <path d="M60.0,40.0 L63.5,48.3 L56.5,48.3 Z" fill="#8a94a6"/>
 <text x="320.0" y="294.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">H</text>
-<text x="68.0" y="44.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">−M</text>
+<text x="68.0" y="44.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">ρ</text>
 <text x="190.0" y="28.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Type I (soft superconductor)</text>
-<polyline points="60.0,270.0 210.0,90.0 210.0,270.0" fill="none" stroke="#ec4899" stroke-width="2.8" stroke-linejoin="round"/>
-<line x1="210.0" y1="90.0" x2="210.0" y2="270.0" stroke="#ec4899" stroke-width="2.8"/>
-<text x="210.0" y="292.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">H<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
-<text x="120.0" y="90.0" fill="#3b82f6" font-size="12" font-weight="700" text-anchor="middle">Meissner state</text>
-<text x="120.0" y="106.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">(perfect diamagnet)</text>
-<text x="275.0" y="230.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">normal state</text>
-<text x="190.0" y="304.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">sharp transition at a low H<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<polyline points="60.0,270.0 190.0,270.0 190.0,130.0 300.0,130.0" fill="none" stroke="#ec4899" stroke-width="2.8" stroke-linejoin="round"/>
+<text x="190.0" y="292.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">H<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<text x="125.0" y="200.0" fill="#3b82f6" font-size="12" font-weight="700" text-anchor="middle">superconducting</text>
+<text x="250.0" y="114.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">normal state</text>
+<text x="190.0" y="318.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">sharp transition at a very low H<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
 <line x1="400.0" y1="270.0" x2="660.0" y2="270.0" stroke="#8a94a6" stroke-width="1.3"/>
 <path d="M660.0,270.0 L651.7,273.5 L651.7,266.5 Z" fill="#8a94a6"/>
 <line x1="400.0" y1="270.0" x2="400.0" y2="40.0" stroke="#8a94a6" stroke-width="1.3"/>
 <path d="M400.0,40.0 L403.5,48.3 L396.5,48.3 Z" fill="#8a94a6"/>
 <text x="660.0" y="294.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">H</text>
-<text x="408.0" y="44.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">−M</text>
+<text x="408.0" y="44.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">ρ</text>
 <text x="530.0" y="28.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Type II (hard superconductor)</text>
-<polyline points="400.0,270.0 470.0,120.0 470.0,120.0 477.0,121.2 484.0,123.8 491.0,127.2 498.0,131.4 505.0,136.3 512.0,141.9 519.0,148.0 526.0,154.6 533.0,161.8 540.0,169.5 547.0,177.6 554.0,186.2 561.0,195.3 568.0,204.8 575.0,214.7 582.0,225.0 589.0,235.7 596.0,246.7 603.0,258.2 610.0,270.0" fill="none" stroke="#ec4899" stroke-width="2.8" stroke-linejoin="round"/>
-<line x1="470.0" y1="120.0" x2="470.0" y2="270.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4,4"/>
-<line x1="610.0" y1="120.0" x2="610.0" y2="270.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4,4"/>
-<text x="470.0" y="292.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">H<tspan baseline-shift="sub" font-size="72%">c1</tspan></text>
-<text x="610.0" y="292.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">H<tspan baseline-shift="sub" font-size="72%">c2</tspan></text>
-<text x="435.0" y="100.0" fill="#3b82f6" font-size="12" font-weight="700" text-anchor="middle">Meissner</text>
-<text x="540.0" y="100.0" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="middle">mixed state</text>
-<text x="540.0" y="116.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">(flux lines penetrate)</text>
-<text x="640.0" y="230.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">normal</text>
-<text x="530.0" y="304.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">gradual transition between H<tspan baseline-shift="sub" font-size="72%">c1</tspan> and H<tspan baseline-shift="sub" font-size="72%">c2</tspan></text>
+<polyline points="400.0,270.0 460.0,270.0 570.0,130.0 640.0,130.0" fill="none" stroke="#ec4899" stroke-width="2.8" stroke-linejoin="round"/>
+<line x1="570.0" y1="130.0" x2="570.0" y2="270.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4,4"/>
+<text x="460.0" y="292.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">H<tspan baseline-shift="sub" font-size="72%">c1</tspan></text>
+<text x="570.0" y="292.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">H<tspan baseline-shift="sub" font-size="72%">c2</tspan></text>
+<text x="472.0" y="150.0" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="middle">mixed state</text>
+<text x="472.0" y="166.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">(flux lines penetrate)</text>
+<text x="605.0" y="114.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">normal state</text>
+<text x="530.0" y="318.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">gradual transition between H<tspan baseline-shift="sub" font-size="72%">c1</tspan> and H<tspan baseline-shift="sub" font-size="72%">c2</tspan></text>
 </g></svg>

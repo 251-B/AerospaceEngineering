@@ -15,4 +15,7 @@
   /* Wide tables scroll inside their own box. */
   main table, article table { display: block; max-width: 100%; overflow-x: auto; }
   .table-wrapper, .table-container, .table-scroll { max-width: 100%; overflow-x: auto; }
+
+  /* Long URLs printed in the text break instead of widening the page. */
+  main p, main li { overflow-wrap: break-word; }
 }

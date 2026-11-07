@@ -41,18 +41,19 @@ def dip(c, x, y, ang, length, col="BLUE", w=2.2):
 def orbital_spin():
     c = Canvas(660, 300)
     txt(c, 170, 28, "Orbital magnetic moment", "HEAD", "middle", 14, "700")
-    circle(c, (170, 150), 62, "EDGE", 1.4, "5,4")
+    c.add('<ellipse cx="170" cy="150" rx="62" ry="22" fill="none" stroke="EDGE" stroke-width="1.4" stroke-dasharray="5,4"/>')
     dot(c, (170, 150), 5, "ATOM", "ATOM")
     dot(c, (232, 150), 6, "BLUE", "BLUE")
-    txt(c, 246, 130, "electron", "BLUE", "start", 12)
-    txt(c, 160, 168, "nucleus", "TEXT", "end", 12)
+    txt(c, 246, 154, "electron", "BLUE", "start", 12)
+    line(c, (170, 156), (170, 190), "EDGE", 0.9)
+    txt(c, 170, 206, "nucleus", "TEXT", "middle", 12)
     arrow(c, (170, 150), (170, 50), "PINK", 2.6, 11)
     txt(c, 180, 62, sub("m", "l") + " " + sub("μ", "B"), "PINK", "start", 14, "700")
     txt(c, 170, 250, "moment from the motion of the charge", "TEXT", "middle", 12)
     txt(c, 170, 268, "around the nucleus", "TEXT", "middle", 12)
     txt(c, 490, 28, "Spin magnetic moment", "HEAD", "middle", 14, "700")
     circle(c, (490, 150), 34, "BLUE", 1.8, None, "BLUE", 0.15)
-    pathd(c, "M470,150 A20,20 0 1 1 490,170", "BLUE", 2.0)
+    pathd(c, "M456,150 A34,12 0 0 0 524,150", "BLUE", 2.0)
     arrow(c, (490, 150), (490, 50), "PINK", 2.6, 11)
     txt(c, 500, 62, "±" + sub("μ", "B"), "PINK", "start", 14, "700")
     txt(c, 490, 250, "moment from the spin of the electron", "TEXT", "middle", 12)
@@ -126,19 +127,17 @@ def domain_closure():
             for i in range(4):
                 dip(c, x + 14 + i * 27.5, 115, 0 if i % 2 == 0 else 180, 60, "PINK", 2.2)
         else:
-            line(c, (x, 60), (x + 27.5, 87.5), "ACC", 1.6)
-            line(c, (x + 110, 60), (x + 82.5, 87.5), "ACC", 1.6)
-            line(c, (x, 170), (x + 27.5, 142.5), "ACC", 1.6)
-            line(c, (x + 110, 170), (x + 82.5, 142.5), "ACC", 1.6)
-            line(c, (x + 27.5, 87.5), (x + 27.5, 142.5), "ACC", 1.6)
-            line(c, (x + 82.5, 87.5), (x + 82.5, 142.5), "ACC", 1.6)
-            line(c, (x + 27.5, 87.5), (x + 82.5, 87.5), "ACC", 1.0, "3,3")
-            line(c, (x + 27.5, 142.5), (x + 82.5, 142.5), "ACC", 1.0, "3,3")
-            dip(c, x + 14, 115, 0, 40, "PINK", 2.2)
-            dip(c, x + 55, 115, 180, 40, "PINK", 2.2)
-            dip(c, x + 96, 115, 0, 40, "PINK", 2.2)
-            arrow(c, (x + 60, 75), (x + 40, 75), "BLUE", 2.0, 8)
-            arrow(c, (x + 50, 156), (x + 70, 156), "BLUE", 2.0, 8)
+            # two flux-closed units: M circulates clockwise, so its normal component is continuous across every wall
+            line(c, (x + 55, 60), (x + 55, 170), "ACC", 1.6)
+            for ux in (x, x + 55):
+                for a, b in (((ux, 60), (ux + 27.5, 87.5)), ((ux + 55, 60), (ux + 27.5, 87.5)),
+                             ((ux, 170), (ux + 27.5, 142.5)), ((ux + 55, 170), (ux + 27.5, 142.5)),
+                             ((ux + 27.5, 87.5), (ux + 27.5, 142.5))):
+                    line(c, a, b, "ACC", 1.6)
+                dip(c, ux + 10, 115, 0, 34, "PINK", 2.0)
+                dip(c, ux + 45, 115, 180, 34, "PINK", 2.0)
+                arrow(c, (ux + 18, 71), (ux + 37, 71), "BLUE", 2.0, 8)
+                arrow(c, (ux + 37, 159), (ux + 18, 159), "BLUE", 2.0, 8)
         txt(c, x + 55, 214, energy[k], "TEXT", "middle", 11)
     txt(c, 360, 262, "Domains form spontaneously because each split lowers the magnetostatic energy of the stray field;", "TEXT", "middle", 12)
     txt(c, 360, 280, "orange lines are domain (Bloch) walls, arrows are the magnetization of each domain", "TEXT", "middle", 12)
@@ -159,15 +158,17 @@ def initial_magnetization():
     poly(c, pts, "PINK", 2.8)
     line(c, (o[0], o[1] - Y), (o[0] + X + 60, o[1] - Y), "EDGE", 1.0, "5,4")
     txt(c, o[0] + X + 64, o[1] - Y + 4, sub("M", "s"), "HEAD", "start", 14, "700")
-    s_max = 0.10 + 0.90 * 1.5
-    line(c, o, (o[0] + 190, o[1] - 190 * Y * s_max / X), "ACC", 1.6, "6,4")
+    # line from the origin tangent to the curve (maximum of M/H): f(t)/t = f'(t) at t = 0.75, as drawn on the slide
+    s_max = f(0.75) / 0.75
+    line(c, o, (o[0] + 0.85 * X, o[1] - 0.85 * Y * s_max), "ACC", 1.6, "6,4")
+    dot(c, (o[0] + 0.75 * X, o[1] - Y * f(0.75)), 4, "ACC", "ACC")
     line(c, o, (o[0] + 130, o[1] - 130 * Y * 0.10 / X), "BLUE", 2.4)
-    txt(c, o[0] + 190, o[1] - 190 * Y * s_max / X - 12, "slope = maximum permeability " + sub("μ", "max"), "ACC", "end", 12, "700")
+    txt(c, o[0] + 285, o[1] - 285 * Y * s_max / X - 16, "slope = maximum permeability " + sub("μ", "max"), "ACC", "end", 12, "700")
     txt(c, o[0] + 140, o[1] - 130 * Y * 0.10 / X - 6, "slope = initial permeability " + sub("μ", "i"), "BLUE", "start", 12, "700")
     for t in (0.12, 0.35, 0.62, 0.86):
         dot(c, (o[0] + t * X, o[1] - Y * f(t)), 4, "HEAD", "HEAD")
     txt(c, o[0] + 0.62 * X + 12, o[1] - Y * f(0.62) + 22, "growth of favourable domains", "TEXT", "start", 11)
-    txt(c, o[0] + 0.86 * X, o[1] - Y * f(0.86) + 28, "rotation of domains: saturation", "TEXT", "middle", 11)
+    txt(c, o[0] + 0.96 * X, o[1] - Y * f(0.86) + 48, "rotation of domains: saturation", "TEXT", "middle", 11)
     txt(c, o[0] + 0.12 * X + 6, o[1] + 20, "random domains", "TEXT", "start", 11)
     REG.put("initial-magnetization", c, "Initial magnetization curve",
             "Magnetization against field starting from the demagnetized state: slow growth (initial permeability), fast growth of favourable domains (maximum permeability), rotation of domains and saturation Ms (schematic)")
@@ -180,30 +181,30 @@ def hysteresis_soft_hard():
     line(c, (o[0], 360), (o[0], 20), "EDGE", 1.3, head=True)
     txt(c, 650, o[1] + 24, "H", "HEAD", "end", 14, "700")
     txt(c, o[0] + 10, 28, "B", "HEAD", "start", 14, "700")
-    Bs = 140.0
 
-    def loop(hc, w, col, wd):
+    def loop(amp, hc, w, col, wd):
         es = [-300 + 4 * i for i in range(151)]
-        up = [(o[0] + e, o[1] - Bs * math.tanh((e + hc) / w)) for e in es]
-        dn = [(o[0] + e, o[1] - Bs * math.tanh((e - hc) / w)) for e in es]
+        up = [(o[0] + e, o[1] - amp * math.tanh((e + hc) / w)) for e in es]
+        dn = [(o[0] + e, o[1] - amp * math.tanh((e - hc) / w)) for e in es]
         poly(c, up, col, wd)
         poly(c, dn, col, wd)
-        return Bs * math.tanh(hc / w)
-    br_h = loop(150, 60, "PINK", 2.6)
-    br_s = loop(22, 14, "BLUE", 2.6)
-    line(c, (60, o[1] - Bs), (640, o[1] - Bs), "EDGE", 1.0, "5,4")
-    txt(c, 640, o[1] - Bs - 6, sub("B", "s"), "HEAD", "end", 13, "700")
+        return amp * math.tanh(hc / w)
+    Bs = 140.0
+    br_h = loop(Bs, 150, 90, "PINK", 2.6)
+    loop(105.0, 22, 14, "BLUE", 2.6)
+    line(c, (o[0] + 100, o[1] - Bs), (640, o[1] - Bs), "EDGE", 1.0, "5,4")
+    txt(c, 640, o[1] - Bs - 6, sub("B", "s") + " (hard)", "HEAD", "end", 13, "700")
     dot(c, (o[0], o[1] - br_h), 4, "HEAD", "HEAD")
     txt(c, o[0] - 8, o[1] - br_h - 6, sub("B", "r") + " (hard)", "HEAD", "end", 12, "700")
     dot(c, (o[0] - 150, o[1]), 4, "HEAD", "HEAD")
-    txt(c, o[0] - 150, o[1] + 20, "−" + sub("H", "c") + " (hard)", "HEAD", "middle", 12, "700")
+    txt(c, o[0] - 140, o[1] + 20, "−" + sub("H", "c") + " (hard)", "HEAD", "start", 12, "700")
     dot(c, (o[0] + 22, o[1]), 4, "HEAD", "HEAD")
     txt(c, o[0] + 30, o[1] + 20, sub("H", "c") + " (soft)", "HEAD", "start", 12, "700")
     txt(c, 160, 90, "Hard magnetic material", "PINK", "middle", 13, "700")
     txt(c, 160, 108, "wide loop, high " + sub("B", "r") + " and " + sub("H", "c"), "TEXT", "middle", 11)
     txt(c, 540, 290, "Soft magnetic material", "BLUE", "middle", 13, "700")
     txt(c, 540, 308, "narrow loop, low " + sub("H", "c") + ", high " + sub("μ", "i"), "TEXT", "middle", 11)
-    txt(c, 350, 360, "limit between them: " + sub("H", "c") + " = 10 000 A/m", "ACC", "middle", 12, "700")
+    txt(c, 540, 340, "limit between them: " + sub("H", "c") + " = 10 000 A/m", "ACC", "middle", 12, "700")
     REG.put("hysteresis-soft-hard", c, "Hysteresis loops of soft and hard magnetic materials",
             "B-H hysteresis loops: a soft material has a narrow loop (low coercivity Hc, high initial permeability), a hard material a wide one (high remanence Br, saturation Bs and Hc); the slide fixes the limit at Hc = 10 000 A/m (schematic)")
 
@@ -214,36 +215,28 @@ def superconductor_types():
     c = Canvas(720, 330)
     for k, ox in enumerate((60, 400)):
         o = (ox, 270)
-        axes(c, o, ox + 260, 40, "H", "−M")
+        axes(c, o, ox + 260, 40, "H", "ρ")
         if k == 0:
             txt(c, ox + 130, 28, "Type I (soft superconductor)", "HEAD", "middle", 14, "700")
-            hc = ox + 150
-            poly(c, [o, (hc, 90), (hc, o[1])], "PINK", 2.8)
-            line(c, (hc, 90), (hc, o[1]), "PINK", 2.8)
+            hc = ox + 130
+            poly(c, [o, (hc, o[1]), (hc, 130), (ox + 240, 130)], "PINK", 2.8)
             txt(c, hc, o[1] + 22, sub("H", "c"), "HEAD", "middle", 13, "700")
-            txt(c, ox + 60, 90, "Meissner state", "BLUE", "middle", 12, "700")
-            txt(c, ox + 60, 106, "(perfect diamagnet)", "TEXT", "middle", 11)
-            txt(c, ox + 215, 230, "normal state", "TEXT", "middle", 12)
-            txt(c, ox + 130, 304, "sharp transition at a low " + sub("H", "c"), "TEXT", "middle", 11)
+            txt(c, ox + 65, 200, "superconducting", "BLUE", "middle", 12, "700")
+            txt(c, ox + 190, 114, "normal state", "TEXT", "middle", 12)
+            txt(c, ox + 130, 318, "sharp transition at a very low " + sub("H", "c"), "TEXT", "middle", 11)
         else:
             txt(c, ox + 130, 28, "Type II (hard superconductor)", "HEAD", "middle", 14, "700")
-            h1, h2 = ox + 70, ox + 210
-            pts = [o, (h1, 120)]
-            for i in range(0, 21):
-                t = i / 20
-                pts.append((h1 + t * (h2 - h1), 120 + (o[1] - 120) * (t ** 1.6)))
-            poly(c, pts, "PINK", 2.8)
-            line(c, (h1, 120), (h1, o[1]), "EDGE", 1.0, "4,4")
-            line(c, (h2, 120), (h2, o[1]), "EDGE", 1.0, "4,4")
+            h1, h2 = ox + 60, ox + 170
+            poly(c, [o, (h1, o[1]), (h2, 130), (ox + 240, 130)], "PINK", 2.8)
+            line(c, (h2, 130), (h2, o[1]), "EDGE", 1.0, "4,4")
             txt(c, h1, o[1] + 22, sub("H", "c1"), "HEAD", "middle", 13, "700")
             txt(c, h2, o[1] + 22, sub("H", "c2"), "HEAD", "middle", 13, "700")
-            txt(c, ox + 35, 100, "Meissner", "BLUE", "middle", 12, "700")
-            txt(c, ox + 140, 100, "mixed state", "ACC", "middle", 12, "700")
-            txt(c, ox + 140, 116, "(flux lines penetrate)", "TEXT", "middle", 11)
-            txt(c, ox + 240, 230, "normal", "TEXT", "middle", 12)
-            txt(c, ox + 130, 304, "gradual transition between " + sub("H", "c1") + " and " + sub("H", "c2"), "TEXT", "middle", 11)
+            txt(c, ox + 72, 150, "mixed state", "ACC", "middle", 12, "700")
+            txt(c, ox + 72, 166, "(flux lines penetrate)", "TEXT", "middle", 11)
+            txt(c, ox + 205, 114, "normal state", "TEXT", "middle", 12)
+            txt(c, ox + 130, 318, "gradual transition between " + sub("H", "c1") + " and " + sub("H", "c2"), "TEXT", "middle", 11)
     REG.put("superconductor-types", c, "Type I and Type II superconductors in a magnetic field",
-            "Type I: perfect diamagnetism up to Hc and then an abrupt return to the normal state. Type II: the field starts to penetrate at Hc1 and penetration is complete at Hc2, with a mixed state in between (schematic, not to scale)")
+            "Type I: resistivity zero up to Hc and then an abrupt return to the normal state. Type II: the field starts to penetrate at Hc1 and penetration is complete at Hc2, with a mixed state in between. Redrawn from Slides 28 and 29; the axis of the Type II plot has no label on the slide and is read here as resistivity (schematic, not to scale)")
 
 
 # ---------------------------------------------------------------- thermal expansion (S36, S39)
@@ -257,16 +250,17 @@ def asymmetric_well():
     o = (70, 320)
     axes(c, o, 660, 30, "Interatomic distance r", "Potential energy")
     X0, X1 = 110.0, 600.0
-    r_lo, r_hi = 0.62, 2.7
+    r_lo, r_hi = 0.27, 2.7
     PX = lambda r: X0 + (r - r_lo) / (r_hi - r_lo) * (X1 - X0)
     PY = lambda v: 300 - v * 215
-    rs = [r_lo + i * (r_hi - r_lo) / 160 for i in range(161)]
-    poly(c, [(PX(r), PY(_morse(r))) for r in rs if _morse(r) <= 1.35], "PINK", 2.8)
-    k = 3.2
-    poly(c, [(PX(r), PY(k * (r - 1) ** 2 * 0.62)) for r in rs if k * (r - 1) ** 2 * 0.62 <= 1.35], "BLUE", 1.8, "6,4")
+    rs = [r_lo + i * (r_hi - r_lo) / 320 for i in range(321)]
+    poly(c, [(PX(r), PY(_morse(r))) for r in rs if _morse(r) <= 1.25], "PINK", 2.8)
+    # the harmonic approximation of this well: its second-order expansion at r0, a^2 (r - r0)^2 with a = 1.6
+    harmonic = lambda r: 2.56 * (r - 1) ** 2
+    poly(c, [(PX(r), PY(harmonic(r))) for r in rs if harmonic(r) <= 1.25], "BLUE", 1.8, "6,4")
     r0x = PX(1.0)
     line(c, (r0x, 36), (r0x, 308), "EDGE", 1.0, "4,4")
-    txt(c, r0x, 328, sub("r", "0"), "HEAD", "middle", 13, "700")
+    txt(c, r0x, 338, sub("r", "0"), "HEAD", "middle", 13, "700")
     means = []
     for v, col in ((0.18, "GREEN"), (0.45, "ACC"), (0.78, "PINK")):
         lo = [r for r in rs if r < 1.0 and _morse(r) <= v][0]
@@ -297,19 +291,19 @@ def bimetal_strip():
     txt(c, 250, 123, "metal 1, " + sub("α", "1"), "ACC", "start", 12, "700")
     txt(c, 250, 141, "metal 2, " + sub("α", "2"), "BLUE", "start", 12, "700")
     txt(c, 150, 190, sub("α", "1") + " &gt; " + sub("α", "2"), "HEAD", "middle", 13, "700")
-    line(c, (45, 98), (45, 160), "HEAD", 3)
+    line(c, (58, 102), (58, 154), "HEAD", 3)
     txt(c, 150, 220, "clamped at the left end", "TEXT", "middle", 11)
     # bent strip
     txt(c, 500, 28, "Heated, " + sub("T", "2") + " &gt; " + sub("T", "1"), "HEAD", "middle", 13, "700")
     R, t = 260.0, 18.0
     cx, cy = 420, 110 + R
-    th = 0.55
+    th = 180 / R  # arc length of the mid line = the 180 px of the straight strip
     outer = [(cx + (R + t) * math.sin(a * th / 30), cy - (R + t) * math.cos(a * th / 30)) for a in range(31)]
     mid = [(cx + R * math.sin(a * th / 30), cy - R * math.cos(a * th / 30)) for a in range(31)]
     inner = [(cx + (R - t) * math.sin(a * th / 30), cy - (R - t) * math.cos(a * th / 30)) for a in range(31)]
     poly(c, outer + list(reversed(mid)), "ACC", 1.6, None, "ACC", True, 0.35)
     poly(c, mid + list(reversed(inner)), "BLUE", 1.6, None, "BLUE", True, 0.30)
-    line(c, (410, 98), (410, 160), "HEAD", 3)
+    line(c, (418, 84), (418, 136), "HEAD", 3)
     txt(c, 500, 250, "the metal with the larger α expands more", "TEXT", "middle", 12)
     txt(c, 500, 268, "and the strip bends towards the other metal", "TEXT", "middle", 12)
     txt(c, 350, 306, "A bimetallic strip turns a temperature change into a mechanical displacement", "TEXT", "middle", 12)
@@ -370,8 +364,9 @@ def thermal_shock():
     for k, ox in enumerate((40, 400)):
         txt(c, ox + 140, 28, "Rapid heating" if k == 0 else "Rapid cooling", "HEAD", "middle", 14, "700")
         rect(c, ox, 60, 110, 190, "HEAD", 1.6, None, "ATOM", 0.12)
-        txt(c, ox + 55, 100, "surface", "TEXT", "middle", 11)
+        txt(c, ox + 55, 76, "surface", "TEXT", "middle", 11)
         txt(c, ox + 55, 160, "interior", "TEXT", "middle", 11)
+        txt(c, ox + 55, 242, "surface", "TEXT", "middle", 11)
         # stress profile across the width, zero axis at x = ox + 210
         ax = ox + 210
         line(c, (ax, 56), (ax, 254), "EDGE", 1.2)
@@ -382,13 +377,13 @@ def thermal_shock():
             s = sign * (1 - 3 * x * x) / 2.0
             pts.append((ax + s * 70, 155 + x * 95))
         poly(c, pts, "ACC", 2.6)
-        txt(c, ax + 70, 276, "tensile" if k == 0 else "compressive", "TEXT", "middle", 11)
-        txt(c, ax - 70, 276, "compressive" if k == 0 else "tensile", "TEXT", "middle", 11)
+        txt(c, ax + 70, 276, "tensile", "TEXT", "middle", 11)
+        txt(c, ax - 70, 276, "compressive", "TEXT", "middle", 11)
         txt(c, ax, 48, "σ", "HEAD", "middle", 13, "700")
         txt(c, ox + 140, 300, ("outside hotter and expanded: compressive surface," if k == 0 else "outside colder and contracted: tensile surface,"), "TEXT", "middle", 11)
         txt(c, ox + 140, 316, ("tensile interior" if k == 0 else "compressive interior"), "TEXT", "middle", 11)
     REG.put("thermal-shock", c, "Thermal stresses from a temperature gradient",
-            "Rapid heating makes the surface compressive and the interior tensile; rapid cooling reverses the signs, and the tensile surface of a brittle material is where thermal shock cracks start (schematic)")
+            "Rapid heating makes the surface compressive and the interior tensile; rapid cooling reverses the signs. The stress profile is an extension, not printed on Slide 47 (schematic)")
 
 
 # ---------------------------------------------------------------- slide crops (not generated here)
