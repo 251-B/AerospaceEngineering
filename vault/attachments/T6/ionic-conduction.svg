@@ -53,6 +53,6 @@
 <path d="M526.0,129.0 L516.8,132.9 L516.8,125.1 Z" fill="#f59e0b"/>
 <line x1="543.0" y1="129.0" x2="566.0" y2="129.0" stroke="#f59e0b" stroke-width="2.4"/>
 <path d="M572.0,129.0 L562.8,132.9 L562.8,125.1 Z" fill="#f59e0b"/>
-<text x="530.0" y="236.0" fill="#ec4899" font-size="12" font-weight="400" text-anchor="middle">pink: interstitial cation, r<tspan baseline-shift="sub" font-size="72%">i</tspan> < r<tspan baseline-shift="sub" font-size="72%">atom</tspan></text>
+<text x="530.0" y="236.0" fill="#ec4899" font-size="12" font-weight="400" text-anchor="middle">pink: interstitial cation, r<tspan baseline-shift="sub" font-size="72%">i</tspan> &lt; r<tspan baseline-shift="sub" font-size="72%">atom</tspan></text>
 <text x="530.0" y="264.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">a small cation moves through the interstitial voids</text>
 </g></svg>

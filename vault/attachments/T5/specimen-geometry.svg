@@ -16,7 +16,7 @@
 <line x1="360.0" y1="97.0" x2="360.0" y2="133.0" stroke="#6b7280" stroke-width="1.1"/>
 <path d="M360.0,97.0 L362.7,103.4 L357.3,103.4 Z" fill="#6b7280"/>
 <path d="M360.0,133.0 L357.3,126.6 L362.7,126.6 Z" fill="#6b7280"/>
-<text x="408.0" y="119.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start">0.505 D</text>
+<text x="408.0" y="119.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start">0.505 in.</text>
 <text x="220.0" y="66.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">radius 10 mm</text>
 <text x="120.0" y="178.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">grip</text>
 <text x="620.0" y="178.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">grip</text>

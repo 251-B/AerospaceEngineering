@@ -177,7 +177,7 @@ def band_types():
     band(c, x, 50, 120, 80, "GREEN", 0.25)
     band(c, x, 170, 120, 80, "ATOM", 0.45)
     dim(c, (x + 60, 132), (x + 60, 168), "", "TEXT")
-    txt(c, x + 68, 154, sub("E", "g") + " < 2 eV", "HEAD", "start", 12, "700")
+    txt(c, x + 68, 154, sub("E", "g") + " &lt; 2 eV", "HEAD", "start", 12, "700")
     txt(c, x + 60, 90, "conduction band", "TEXT", "middle", 11)
     txt(c, x + 60, 215, "valence band", "TEXT", "middle", 11)
     txt(c, x + 60, 275, "Si: 1.1 eV", "TEXT", "middle", 12)
@@ -187,7 +187,7 @@ def band_types():
     band(c, x, 50, 120, 50, "GREEN", 0.25)
     band(c, x, 200, 120, 50, "ATOM", 0.45)
     dim(c, (x + 60, 102), (x + 60, 198), "", "TEXT")
-    txt(c, x + 68, 154, sub("E", "g") + " > 2 eV", "HEAD", "start", 12, "700")
+    txt(c, x + 68, 154, sub("E", "g") + " &gt; 2 eV", "HEAD", "start", 12, "700")
     txt(c, x + 60, 80, "conduction band", "TEXT", "middle", 11)
     txt(c, x + 60, 230, "valence band", "TEXT", "middle", 11)
     txt(c, x + 60, 275, "Diamond:", "TEXT", "middle", 12)
@@ -383,7 +383,7 @@ def ionic_conduction():
     dot(c, p1, 5, "PINK", "PINK")
     arrow(c, (p1[0] + 8, p1[1]), (p2[0] - 9, p2[1]), "ACC", 2.4, 10)
     arrow(c, (p2[0] + 8, p2[1]), (p3[0] - 9, p3[1]), "ACC", 2.4, 10)
-    txt(c, 530, 236, "pink: interstitial cation, " + sub("r", "i") + " < " + sub("r", "atom"), "PINK", "middle", 12)
+    txt(c, 530, 236, "pink: interstitial cation, " + sub("r", "i") + " &lt; " + sub("r", "atom"), "PINK", "middle", 12)
     txt(c, 530, 264, "a small cation moves through the interstitial voids", "TEXT", "middle", 11)
     REG.put("ionic-conduction", c, "Ionic conduction in ceramics",
             "Ionic conduction: an ion hops into a neighbouring vacancy (left), or a small interstitial cation moves through the interstitial voids (right) (schematic)")
@@ -515,7 +515,7 @@ def donor_level():
     txt(c, 500, 280, "P: 5 valence electrons, one is free", "BLUE", "middle", 12, "700")
     txt(c, 500, 24, "n-type: donor impurity (P)", "HEAD", "middle", 13, "700")
     REG.put("donor-level", c, "Donor level in an n-type semiconductor",
-            "n-type semiconductor: a P atom (5 valence electrons) in Si gives an extra electron in a donor level Ed just below the conduction band, so little energy is needed to free it (schematic, not to scale)")
+            "n-type semiconductor: a P atom (5 valence electrons) in Si gives an extra electron in a donor level just below the conduction band, so little energy is needed to free it (schematic, not to scale)")
 
 
 def acceptor_level():
@@ -544,7 +544,7 @@ def acceptor_level():
     txt(c, 500, 280, "B: 3 valence electrons, one bond lacks an electron", "PINK", "middle", 12, "700")
     txt(c, 500, 24, "p-type: acceptor impurity (B)", "HEAD", "middle", 13, "700")
     REG.put("acceptor-level", c, "Acceptor level in a p-type semiconductor",
-            "p-type semiconductor: a B atom (3 valence electrons) in Si creates an acceptor level Ea just above the valence band; an electron that jumps into it leaves a hole in the valence band (schematic, not to scale)")
+            "p-type semiconductor: a B atom (3 valence electrons) in Si creates an acceptor level just above the valence band; an electron that jumps into it leaves a hole in the valence band (schematic, not to scale)")
 
 
 def extrinsic_temperature():
@@ -844,9 +844,9 @@ def batio3_cell():
         circle(c, ctr, 6.5, "HEAD", 1.6, None, "HEAD", 0.9)
         txt(c, x0 + s / 2 + dx / 2, y0 + h + 52, title, "HEAD", "middle", 13, "700")
         return ctr
-    cube(60, 100, 110, 110, 44, -44, 0, 0, "T > 120 °C: cubic")
+    cube(60, 100, 110, 110, 44, -44, 0, 0, "T &gt; 120 °C: cubic")
     txt(c, 160, 288, "no permanent dipole", "TEXT", "middle", 12)
-    ctr = cube(400, 92, 110, 124, 44, -44, -12, 6, "T < 120 °C: tetragonal")
+    ctr = cube(400, 92, 110, 124, 44, -44, -12, 6, "T &lt; 120 °C: tetragonal")
     txt(c, 480, 286, "Ti and O displaced: permanent dipole", "TEXT", "middle", 12)
     arrow(c, (610, 200), (610, 120), "GREEN", 3.0, 12)
     txt(c, 622, 164, sub("P", "s"), "GREEN", "start", 15, "700")
@@ -929,6 +929,10 @@ def rasters():
                "Dependence of the room-temperature electron and hole mobilities on the dopant concentration for Si, copied from Session 13 Slide 42", 480)
     REG.raster("s13-thermistor", "Conductivity of aluminium and germanium against temperature",
                "Electrical conductivity against temperature of aluminium (reducing mobility) and germanium (increasing charge carriers), the basis of thermistors, copied from Session 13 Slide 48", 420)
+    REG.raster("s13-pn-depletion-bands", "The p-n junction: carriers, depletion layer and energy bands",
+               "The p-n junction as drawn on Session 13 Slide 45: (1) holes and electrons on both sides, (2) the depletion layer with its internal electric field, (3) the band bending with the diffusion potential, copied from the slide", 440)
+    REG.raster("s13-batio3-dimensions", "BaTiO3 cell dimensions and ion displacements",
+               "BaTiO3 unit cell with its dimensions (0.403 nm by 0.398 nm) and, on the right, the displacements of the ions in the tetragonal phase (0.006 nm and 0.009 nm), copied from Session 13 Slide 56", 480)
 
 
 def theory():

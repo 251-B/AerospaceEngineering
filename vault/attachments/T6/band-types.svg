@@ -29,7 +29,7 @@
 <path d="M450.0,132.0 L452.7,138.4 L447.3,138.4 Z" fill="#6b7280"/>
 <path d="M450.0,168.0 L447.3,161.6 L452.7,161.6 Z" fill="#6b7280"/>
 <text x="450.0" y="150.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle"></text>
-<text x="458.0" y="154.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="start">E<tspan baseline-shift="sub" font-size="72%">g</tspan> < 2 eV</text>
+<text x="458.0" y="154.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="start">E<tspan baseline-shift="sub" font-size="72%">g</tspan> &lt; 2 eV</text>
 <text x="450.0" y="90.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">conduction band</text>
 <text x="450.0" y="215.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">valence band</text>
 <text x="450.0" y="275.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Si: 1.1 eV</text>
@@ -40,7 +40,7 @@
 <path d="M620.0,102.0 L622.7,108.4 L617.3,108.4 Z" fill="#6b7280"/>
 <path d="M620.0,198.0 L617.3,191.6 L622.7,191.6 Z" fill="#6b7280"/>
 <text x="620.0" y="150.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle"></text>
-<text x="628.0" y="154.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="start">E<tspan baseline-shift="sub" font-size="72%">g</tspan> > 2 eV</text>
+<text x="628.0" y="154.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="start">E<tspan baseline-shift="sub" font-size="72%">g</tspan> &gt; 2 eV</text>
 <text x="620.0" y="80.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">conduction band</text>
 <text x="620.0" y="230.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">valence band</text>
 <text x="620.0" y="275.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Diamond:</text>

@@ -946,6 +946,7 @@ def scheme(c, x0, y0, kind):
         left_end(); down_v()
         if kind == "peritectic":
             smooth(c, [(x0 + w - 30, y0 - 22), (x0 + w - 22, y0 - 6), (x0 + w - 18, y0)], "ACC", 2)
+            smooth(c, [(x0 + w - 18, y0), (x0 + w - 8, y0 + 8), (x0 + w - 2, y0 + 26)], "ACC", 2)   # L / (L + β) boundary below the line
             lab((x0 + w + 2, y0 + 5), "L", "start"); lab((mid, y0 - 10), "α + L"); lab((mid, y0 + 38), "β")
         else:
             right_end()
@@ -954,6 +955,7 @@ def scheme(c, x0, y0, kind):
     else:  # monotectic
         smooth(c, [(x0 + 18, y0), (x0 + 50, y0 - 32), (x0 + 95, y0 - 34), (mid, y0)], "ACC", 2)
         smooth(c, [(mid, y0), (mid + 40, y0 - 18), (mid + 80, y0 - 24)], "ACC", 2)
+        smooth(c, [(x0 + 18, y0), (x0 + 12, y0 + 8), (x0 + 4, y0 + 26)], "ACC", 2)   # L2 / (α + L2) boundary below the line
         right_end()
         lab((x0 + 10, y0 - 4), sub("L", "2"), "end"); lab((mid + 6, y0 - 14), sub("L", "1"), "start")
         lab((x0 + w + 2, y0 + 5), "α", "start"); lab((mid, y0 + 20), "α + " + sub("L", "2"))
@@ -1261,7 +1263,7 @@ def fec_full():
     c = Canvas(700, 500)
     P = Plot(c, (80, 30, 600, 360), (0, 6.7), (400, 1600))
     fec_diagram(c, P, "fecfull")
-    P.frame([(x, str(x)) for x in range(7)] + [(6.67, "")], [(t, str(t)) for t in range(400, 1601, 200)],
+    P.frame([(x, str(x)) for x in range(7)] + [(6.67, "6.67")], [(t, str(t)) for t in range(400, 1601, 200)],
             "Composition (wt% C)", "Temperature (°C)", xl_dy=34)
     P.text(4.5, 1400, "L", size=14)
     P.text(1.7, 1330, "γ + L", size=12.5)
@@ -1278,7 +1280,7 @@ def fec_full():
     yb = P.y1 + 62
     for xa, xb, s, row, dy in ((0, 0.76, "hypo-", 0, 16), (0.76, 2.14, "hypereutectoid", 0, -6), (2.14, 4.30, "hypoeutectic", 0, -6),
                                (4.30, 6.67, "hypereutectic", 0, -6), (0, 2.14, "steels", 1, -6), (2.14, 6.67, "cast irons", 1, -6)):
-        y = yb + row * 40
+        y = yb + row * 52   # the second row sits below the two-line "hypo- / eutectoid" label of the first one
         a, b = (P.p(xa, 400)[0], y), (P.p(xb, 400)[0], y)
         bracket(c, a, b, s, "BLUE" if row else "GREEN", dy=dy)
     text(c, (P.p(0.38, 400)[0], yb + 30), "eutectoid", "GREEN", "middle", 13, "700")
@@ -1490,11 +1492,12 @@ def ternary_scheme():
     pt = tern_grid(c, 260, 250, 380, ("A", "C", "B"))
     for k in range(1, 10):
         f = k / 10
-        text(c, pt(f, 1 - f, 0), f"{k * 10}", "TEXT", "end", 11, dx=-8, dy=4)      # % A on the left side
-        text(c, pt(0, 1 - f, f), f"{k * 10}", "TEXT", "middle", 11, dy=18)         # % B on the bottom
+        text(c, pt(f, 1 - f, 0), f"{100 - k * 10}", "TEXT", "end", 11, dx=-8, dy=4)   # % C on the left side (grows downwards, as on Slide 5)
+        text(c, pt(0, 1 - f, f), f"{k * 10}", "TEXT", "middle", 11, dy=18)           # % B on the bottom
         text(c, pt(1 - f, 0, f), f"{100 - k * 10}", "TEXT", "start", 11, dx=8, dy=4)  # % A on the right side
-    text(c, (95, 200), "% A", "TEXT", "middle", 12.5, "700")
+    text(c, (95, 200), "% C", "TEXT", "middle", 12.5, "700")
     text(c, (260, 432), "% B", "TEXT", "middle", 12.5, "700")
+    text(c, (430, 200), "% A", "TEXT", "middle", 12.5, "700")
     REG.put("ternary-scheme", c, "Composition triangle of a ternary system",
             "Ternary diagram: three components A, B, C; the corners are the pure components and the sides are the "
             "binary systems A-B, A-C and B-C; each point inside is one composition, with the three percentages adding "

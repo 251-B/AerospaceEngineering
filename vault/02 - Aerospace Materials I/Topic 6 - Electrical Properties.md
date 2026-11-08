@@ -411,6 +411,9 @@ so $\ln\sigma = \ln\sigma_0 - \dfrac{E_c-E_d}{2kT}$ for the n-type and the same 
 > [!note] Printed energy for the p-type
 > Slide 43 prints $E_a - E_c$ for the p-type. The ionisation energy of an acceptor is the distance from the acceptor level to the top of the valence band, $E_a - E_v$ (Slide 37), and that is the form used here.
 
+> [!note] Slope label of the chart
+> The chart on the right of Slide 43 labels the extrinsic slope as $-(E_c - E_d)/k$, without the factor 2 that the equations on the left of the same slide carry, $-(E_c - E_d)/2k$. The factor 2 is the one that follows from $\sigma \propto \exp[-(E_c - E_d)/2kT]$, and it is the one used on this page.
+
 At **intermediate temperature** all the impurities have been ionised and $\sigma$ is almost constant: the **exhaustion range** for the n-type (all the donor electrons have been lost) and the **saturation range** for the p-type (all the atoms are ionised). At **high temperature** the intrinsic generation across the gap takes over, with slope $-E_g/2k$: the **intrinsic range** [Session 13 Slide 43]. Slide 44 summarises it: at low and moderate $T$ the material behaves as an extrinsic conductor and $\sigma$ is governed by the number of ionised atoms; at high $T$ the conductivity slightly decreases, because the number of carriers stays constant and the disordering effect of the temperature (lower mobility) becomes visible; at very high $T$ the material behaves as an intrinsic conductor.
 
 ![[attachments/T6/extrinsic-temperature.svg]]
@@ -422,6 +425,10 @@ At **intermediate temperature** all the impurities have been ionised and $\sigma
 A **p-n junction** is a boundary or interface between two types of semiconductor material, p-type and n-type, inside a single crystal. It is the basis of the diode, the photovoltaic cell and the LED of the next sections (the slide links two videos, listed at the end of this page).
 
 ![[attachments/T6/pn-junction.svg]]
+
+The slide draws the junction in three steps: the carriers on both sides, the **depletion layer** (fixed negative charge on the p side and positive on the n side, with the internal electric field) and the **band diagram** with the diffusion potential $V_{bi}$ between the two sides.
+
+![[attachments/T6/s13-pn-depletion-bands.png]]
 
 ### 15.2 Photoconductivity and photovoltaic cells [Session 13 Slide 46]
 
@@ -530,6 +537,10 @@ The **Curie temperature** $T_c$ is the temperature above which the material lose
 
 ![[attachments/T6/batio3-cell.svg]]
 
+The slide gives the dimensions of the cell, 0.403 nm for the vertical edge and 0.398 nm for the horizontal ones, and the displacements of the ions in the tetragonal phase (0.006 nm and 0.009 nm).
+
+![[attachments/T6/s13-batio3-dimensions.png]]
+
 ### 17.3 Dielectric constants [Session 13 Slide 57]
 
 | Material | Class | $\varepsilon_r$ |
@@ -582,14 +593,14 @@ Everything below is taken from the sections above; it is a quick reference, not 
 
 ---
 
-## Videos linked in the slides
+### Videos linked in the slides
 
 These are references printed on the slides, not content of the portal:
 
 - Session 13, Slide 45 (p-n junction): https://www.youtube.com/watch?v=btOIDQeMrMg
 - Session 13, Slide 45 (p-n junction): https://www.youtube.com/watch?v=ar7xDMR4P_U
 
-See also the solved problems of this topic: [[Problem - T6-01 Silver and Aluminium Wires with the Same Resistivity]], [[Problem - T6-02 Strategies to Strengthen an Aluminium Wire and Their Effect on its Conductivity]], [[Problem - T6-03 Ionic Ceramic against Metal Defects Temperature and Doping]], [[Problem - T6-04 Effect of Temperature on a Metal and on an Intrinsic Semiconductor]], [[Problem - T6-05 Extrinsic Type of Silicon Doped with Sb As and Ga]], [[Problem - T6-06 Phosphorus-Doped Silicon Type and Conductivity]], [[Problem - T6-07 Conductivity of Intrinsic Germanium at 75 C]], [[Problem - T6-08 Carrier Concentrations of Intrinsic Silicon from its Conductivity]], [[Problem - T6-09 Ranking Semiconductors by Conductivity Temperature Doping and Concentration]], [[Problem - T6-10 Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels]].
+See also [[Problem - T6-01 Silver and Aluminium Wires with the Same Resistivity]], [[Problem - T6-02 Strategies to Strengthen an Aluminium Wire and Their Effect on its Conductivity]], [[Problem - T6-03 Ionic Ceramic against Metal Defects Temperature and Doping]], [[Problem - T6-04 Effect of Temperature on a Metal and on an Intrinsic Semiconductor]], [[Problem - T6-05 Extrinsic Type of Silicon Doped with Sb As and Ga]], [[Problem - T6-06 Phosphorus-Doped Silicon Type and Conductivity]], [[Problem - T6-07 Conductivity of Intrinsic Germanium at 75 C]], [[Problem - T6-08 Carrier Concentrations of Intrinsic Silicon from its Conductivity]], [[Problem - T6-09 Ranking Semiconductors by Conductivity Temperature Doping and Concentration]], [[Problem - T6-10 Ranking Semiconductors by Conductivity Band Gap and Donor and Acceptor Levels]].
 
 See also [[Concept - Metallic Bonding and Energy Band Theory]], [[Concept - Covalent Bonding and Polar Character]], [[Concept - Substitutional and Interstitial Solid Solutions, Hume-Rothery Rules]], [[Concept - Point Defects, Thermal Vacancies, Schottky and Frenkel]], [[Concept - Strain Hardening and Percent Cold Work]], [[Concept - Solid Solution Strengthening]], [[Concept - Grain Size Strengthening]], [[Concept - Precipitation Strengthening]].
 

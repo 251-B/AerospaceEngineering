@@ -24,5 +24,5 @@
 <line x1="300.0" y1="192.0" x2="300.0" y2="200.0" stroke="#ec4899" stroke-width="2.5"/>
 <text x="310.0" y="118.0" fill="#ec4899" font-size="12" font-weight="400" text-anchor="start">Δd/2</text>
 <text x="150.0" y="272.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">dashed: undeformed</text>
-<text x="300.0" y="272.0" fill="#ec4899" font-size="13" font-weight="400" text-anchor="start">Δd < 0: |Δd| = ν ε d0</text>
+<text x="300.0" y="272.0" fill="#ec4899" font-size="13" font-weight="400" text-anchor="start">Δd &lt; 0: |Δd| = ν ε d0</text>
 </g></svg>

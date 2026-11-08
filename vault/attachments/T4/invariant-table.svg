@@ -23,6 +23,7 @@
 <path d="M502.0,170.0 C504.0,167.3 511.0,158.0 514.0,154.0 C517.0,150.0 519.0,147.3 520.0,146.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
 <path d="M538.0,170.0 C536.0,167.3 529.0,158.0 526.0,154.0 C523.0,150.0 521.0,147.3 520.0,146.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
 <path d="M610.0,124.0 C611.3,126.7 616.0,136.3 618.0,140.0 C620.0,143.7 621.3,145.0 622.0,146.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M622.0,146.0 C623.7,147.3 629.3,149.7 632.0,154.0 C634.7,158.3 637.0,169.0 638.0,172.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
 <text x="642.0" y="151.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">L</text>
 <text x="520.0" y="136.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">α + L</text>
 <text x="520.0" y="184.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">β</text>
@@ -33,6 +34,7 @@
 <line x1="418.0" y1="236.0" x2="622.0" y2="236.0" stroke="#f59e0b" stroke-width="2.2"/>
 <path d="M418.0,236.0 C423.3,230.7 437.2,209.7 450.0,204.0 C462.8,198.3 483.3,196.7 495.0,202.0 C506.7,207.3 515.8,230.3 520.0,236.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
 <path d="M520.0,236.0 C526.7,233.0 546.7,222.0 560.0,218.0 C573.3,214.0 593.3,213.0 600.0,212.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M418.0,236.0 C417.0,237.3 414.3,239.7 412.0,244.0 C409.7,248.3 405.3,259.0 404.0,262.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
 <path d="M636.0,212.0 C634.7,214.7 630.3,224.0 628.0,228.0 C625.7,232.0 623.0,234.7 622.0,236.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
 <path d="M636.0,260.0 C634.7,257.3 630.3,248.0 628.0,244.0 C625.7,240.0 623.0,237.3 622.0,236.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
 <text x="410.0" y="232.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">L<tspan baseline-shift="sub" font-size="72%">2</tspan></text>

@@ -43,7 +43,7 @@
 <line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="#8a94a6" stroke-width="1.2"/>
 <text x="545.7" y="379.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">6</text>
 <line x1="597.7" y1="360.0" x2="597.7" y2="365.0" stroke="#8a94a6" stroke-width="1.2"/>
-<text x="597.7" y="379.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle"></text>
+<text x="597.7" y="379.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">6.67</text>
 <line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="#8a94a6" stroke-width="1.2"/>
 <text x="72.0" y="364.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
 <line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="#8a94a6" stroke-width="1.2"/>
@@ -96,13 +96,13 @@
 <path d="M413.7,422.0 L420.2,419.3 L420.2,424.7 Z" fill="#10b981"/>
 <path d="M597.7,422.0 L591.2,424.7 L591.2,419.3 Z" fill="#10b981"/>
 <text x="505.7" y="416.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">hypereutectic</text>
-<line x1="80.0" y1="462.0" x2="246.1" y2="462.0" stroke="#3b82f6" stroke-width="1.4"/>
-<path d="M80.0,462.0 L86.4,459.3 L86.4,464.7 Z" fill="#3b82f6"/>
-<path d="M246.1,462.0 L239.6,464.7 L239.6,459.3 Z" fill="#3b82f6"/>
-<text x="163.0" y="456.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">steels</text>
-<line x1="246.1" y1="462.0" x2="597.7" y2="462.0" stroke="#3b82f6" stroke-width="1.4"/>
-<path d="M246.1,462.0 L252.5,459.3 L252.5,464.7 Z" fill="#3b82f6"/>
-<path d="M597.7,462.0 L591.2,464.7 L591.2,459.3 Z" fill="#3b82f6"/>
-<text x="421.9" y="456.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">cast irons</text>
+<line x1="80.0" y1="474.0" x2="246.1" y2="474.0" stroke="#3b82f6" stroke-width="1.4"/>
+<path d="M80.0,474.0 L86.4,471.3 L86.4,476.7 Z" fill="#3b82f6"/>
+<path d="M246.1,474.0 L239.6,476.7 L239.6,471.3 Z" fill="#3b82f6"/>
+<text x="163.0" y="468.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">steels</text>
+<line x1="246.1" y1="474.0" x2="597.7" y2="474.0" stroke="#3b82f6" stroke-width="1.4"/>
+<path d="M246.1,474.0 L252.5,471.3 L252.5,476.7 Z" fill="#3b82f6"/>
+<path d="M597.7,474.0 L591.2,476.7 L591.2,471.3 Z" fill="#3b82f6"/>
+<text x="421.9" y="468.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">cast irons</text>
 <text x="109.5" y="452.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">eutectoid</text>
 </g></svg>

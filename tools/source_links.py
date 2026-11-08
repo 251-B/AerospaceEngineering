@@ -215,7 +215,15 @@ class Linker:
                 out.append(word + linked)
                 i = end if end > m.end() else m.end()
             elif kind == "slide" and self.slide_pdf(pos_in_page):
-                linked, end = self.chain(seg, m.start(), lambda k: self.slide_pdf(pos_in_page) if k == "slide" else None)
+                pdf = self.slide_pdf(pos_in_page)
+                saved = (self.count, len(self.unresolved))
+                _, end = self.chain(seg, m.start(), lambda k: pdf if k == "slide" else None)
+                self.count, del_from = saved[0], saved[1]
+                del self.unresolved[del_from:]  # the dry run only finds where the citation ends
+                after = re.match(r"\s+of\s+Session\s+(\d+)", seg[end:])  # "Slide 15 of Session 8": the session names the deck
+                if after and rules.get("sessions", {}).get(after.group(1)):
+                    pdf = rules["sessions"][after.group(1)]
+                linked, end = self.chain(seg, m.start(), lambda k: pdf if k == "slide" else None)
                 if end > m.start():
                     out.append(linked)
                     i = end

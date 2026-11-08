@@ -16,10 +16,10 @@ tags:
 
 ## 📄 Official Statement
 > 8. For a particular kind of brass, plastic deformation begins at 345 MPa, and its elastic modulus is 103 GPa.
-> >
-> > - a. What is the value of the yield stress?
-> > - b. What is the maximum stress that can be applied to a sample of this brass with a cross-section 130 mm² without plastic deformation taking place? And the maximum load?
-> > - c. If the initial length of the sample is 76 mm, what is the maximum length that it can reach without plastic deformation?
+>
+> - a. What is the value of the yield stress?
+> - b. What is the maximum stress that can be applied to a sample of this brass with a cross-section 130 mm² without plastic deformation taking place? And the maximum load?
+> - c. If the initial length of the sample is 76 mm, what is the maximum length that it can reach without plastic deformation?
 >
 > *(Solution: a. $\sigma_y = 345$ MPa; b. $\sigma_{max} = 345$ MPa, $F_{max} = 44850$ N; c. $l = 76.25$ mm)*
 

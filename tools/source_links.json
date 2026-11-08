@@ -576,6 +576,11 @@
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session 15 T7 Magnetic and thermal properties.pdf",
    "label": "Session 15 T7 Magnetic and thermal properties.pdf",
    "pages": 48
+  },
+  "mat-t7p": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf",
+   "label": "Problems T6andT7_Electric and Magnetic Properties.pdf",
+   "pages": 3
   }
  },
  "pages": {
@@ -1906,7 +1911,24 @@
     ]
    ],
    "cite": {
-    "slides": "mat-s7",
+    "slides": [
+     [
+      "mat-s7",
+      0
+     ],
+     [
+      "mat-s8",
+      "id=\"section-9\""
+     ],
+     [
+      "mat-s9",
+      "id=\"section-13\""
+     ],
+     [
+      "mat-s10",
+      "id=\"section-17\""
+     ]
+    ],
     "sessions": {
      "7": "mat-s7",
      "8": "mat-s8",
@@ -2175,7 +2197,8 @@
     "slides": "mat-s11",
     "sessions": {
      "11": "mat-s11",
-     "12": "mat-s12"
+     "12": "mat-s12",
+     "15": "mat-s15"
     }
    },
    "cards": {
@@ -2524,7 +2547,7 @@
   "subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html": {
    "panel": [
     [
-     "mat-t67",
+     "mat-t7p",
      3
     ]
    ],
@@ -2537,11 +2560,11 @@
    },
    "cards": {
     "prob-11": [
-     "mat-t67",
+     "mat-t7p",
      3
     ],
     "prob-12": [
-     "mat-t67",
+     "mat-t7p",
      3
     ]
    }

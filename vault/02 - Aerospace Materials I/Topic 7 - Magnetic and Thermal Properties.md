@@ -382,7 +382,7 @@ $\alpha$ is in °C⁻¹ (or K⁻¹, since only differences of temperature enter)
 
 ### 13.2 Atomic origin [Session 15 Slide 36]
 
-The slide states that materials with a **high bonding energy** (strong atomic bonding) have **low** coefficients of thermal expansion, and plots the interatomic energy against the separation: when the material is heated, the vibration energy rises and the equilibrium spacing between the atoms increases; the increase is smaller for the deep, narrow well of strong bonding than for the shallow well of weak bonding (the same reading as in [[Concept - Interatomic Potential Energy Curves and Macroscopic Properties]]).
+The slide states that materials with a **high bonding energy** (strong atomic bonding) have **low** coefficients of thermal expansion, and plots the interatomic energy against the separation: when the material is heated, the vibration energy rises and the equilibrium spacing between the atoms increases; the increase is smaller for the deep, narrow well of strong bonding than for the shallow well of weak bonding (the same reading as in [[Concept - Interatomic Potential Energy Curves and Macroscopic Properties|the note on interatomic potential energy curves]]).
 
 ![[attachments/T7/s15-expansion-bonding-curves.png]]
 
@@ -414,7 +414,7 @@ The **thermal conductivity** is a microstructure-sensitive property that measure
 
 $$q = \frac{Q}{A} = -k\,\frac{\Delta T}{\Delta x}$$
 
-$q$ is the heat flux per unit area in W/m², $Q$ the heat flow in W (the slide calls it heat flux), $k$ the thermal conductivity in W/(m·K) and $\Delta T/\Delta x$ the temperature gradient. The minus sign says that heat flows from hot to cold. This is the same structure as the steady-state diffusion law of [[Concept - Fick's First Law, Steady-State Diffusion]]: a flux proportional to a gradient, with a transport coefficient ($k$ here, $D$ there); that parallel is an extension.
+$q$ is the heat flux per unit area in W/m², $Q$ the heat flow in W (the slide calls it heat flux), $k$ the thermal conductivity in W/(m·K) and $\Delta T/\Delta x$ the temperature gradient. The minus sign says that heat flows from hot to cold. This is the same structure as the steady-state diffusion law of [[Concept - Fick's First Law, Steady-State Diffusion|the note on Fick's first law]]: a flux proportional to a gradient, with a transport coefficient ($k$ here, $D$ there); that parallel is an extension.
 
 ![[attachments/T7/heat-flux-bar.svg]]
 
@@ -476,7 +476,7 @@ The origin is the free expansion that the walls prevent (this link with Hooke's 
 
 ![[attachments/T7/constrained-bar.svg]]
 
-Slide 46 ("Problem 5. Topic Mechanical properties") applies the law to problem 5 of the Topic 5 sheet. A steel wire, initially 1 m long, is stretched by a force of 1400 N at 20 °C. After the force is applied the wire is held at constant length and heated to 40 °C, and the diameter is asked for that makes the thermal expansion stress compensate the applied stress. With the data of the sheet ($E = 207$ GPa, $\alpha_l = 12.5\times10^{-6}$ °C⁻¹) the magnitude of the thermal stress is $E\alpha_l\lvert T_f - T_0\rvert = 51.75$ MPa (compressive, because the wire is heated), the area is $A = F/\sigma = 1400\ \text{N}/51.75\ \text{N/mm}^2 = 27.053\ \text{mm}^2$ and the diameter is $d = \sqrt{4A/\pi} = 5.87$ mm (5.869 mm; the official key prints 5.86 mm). The full step-by-step solution, with the check against the official key, is in [[Problem - T5-05 Thermal Stress in a Constrained Steel Wire]].
+Slide 46 ("Problem 5. Topic Mechanical properties") applies the law to problem 5 of the Topic 5 sheet. A steel wire, initially 1 m long, is stretched by a force of 1400 N at 20 °C. After the force is applied the wire is held at constant length and heated to 40 °C, and the diameter is asked for that makes the thermal expansion stress compensate the applied stress. With the data of the sheet ($E = 207$ GPa, $\alpha_l = 12.5\times10^{-6}$ °C⁻¹) the magnitude of the thermal stress is $E\alpha_l\lvert T_f - T_0\rvert = 51.75$ MPa (compressive, because the wire is heated), the area is $A = F/\sigma = 1400\ \text{N}/51.75\ \text{N/mm}^2 = 27.053\ \text{mm}^2$ and the diameter is $d = \sqrt{4A/\pi} = 5.87$ mm (5.869 mm; the official key prints 5.86 mm). The full step-by-step solution, with the check against the official key, is in [[Problem - T5-05 Thermal Stress in a Constrained Steel Wire|Problem T5-05]].
 
 > [!note] Slide 46
 > On the rendered slide the box under the statement is empty, so the data of the sheet are used here. The PDF does keep a solution in its hidden text layer, with slips: it prints $\alpha = 12.5\times10^{-3}$ °C⁻¹ although its 51.75 MPa needs $12.5\times10^{-6}$, it writes the area in mm, and it rounds $r$ to 2.93 mm before doubling it, which is where the 5.86 mm comes from.

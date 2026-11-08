@@ -55,6 +55,10 @@ The loop comes from the motion of the Bloch walls. In a soft material the walls 
 
 ![[attachments/T7/hysteresis-soft-hard.svg]]
 
+The permeabilities are read on the initial magnetization curve, which starts from the demagnetized state before the loop is traced:
+
+![[attachments/T7/initial-magnetization.svg]]
+
 **Strategy.**
 1. Follow the loop step by step and mark where each feature appears.
 2. Put numbers on the features with the tables of Slide 24, converting the hard-material coercivity to A/m so that both classes are compared with the same unit and with the limit of 10 000 A/m.
@@ -142,7 +146,7 @@ The decisive difference is the coercivity, and everything else follows from the 
 ## ✅ Check against the official solution
 | Item | Official | Computed | Comment |
 | :--- | :--- | :--- | :--- |
-| Loops and features | not printed on the sheet | $B_s$, $B_r$, $H_c$, $\mu_i$, $\mu_{max}$ on both loops | consistent with Session 15 Slides 16-18 |
+| Loops and features | not printed on the sheet | $B_s$, $B_r$ and $H_c$ marked on both loops; $\mu_i$ and $\mu_{max}$ on the initial magnetization curve | consistent with Session 15 Slides 16-18 |
 | Differences | not printed on the sheet | coercivity, loop width, permeability, losses and use | consistent with Session 15 Slides 18-19; the energy per cycle and the numbers of Slide 24 are an extension |
 
 ## 🔗 Related Links

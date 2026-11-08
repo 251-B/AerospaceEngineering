@@ -16,8 +16,8 @@ tags:
 
 ## 📄 Official Statement
 > 5. A steel wire, initially 1 meter in length, is stretched by a force of 1400 N at a temperature of 20 ºC. After the force is applied, the wire is held at a constant length and then heated to 40 ºC. Determine the required diameter of the wire to ensure that the thermal expansion stress compensates for the applied stress.
-> >
-> > Data: E = 207 GPa; $\alpha_l = 12.5\times10^{-6}$ ºC⁻¹;
+>
+> Data: E = 207 GPa; $\alpha_l = 12.5\times10^{-6}$ ºC⁻¹;
 >
 > *(Solution: 5.86 mm)*
 
@@ -111,7 +111,7 @@ For a wire thinner than 5.87 mm the applied stress is larger than the thermal on
 ## ✅ Check against the official solution
 | Item | Official | Computed | Comment |
 | :--- | :--- | :--- | :--- |
-| Diameter | 5.86 mm | 5.869 mm | agrees (0.15 %). The key is not a truncation: the hidden text of Slide 46 of Session 15 rounds the radius to 2.93 mm (exact 2.9345 mm) and then doubles it, 5.86 mm; the unrounded diameter is 5.869 mm, which rounds to 5.87 mm |
+| Diameter | 5.86 mm | 5.869 mm | agrees (0.15 %). The key is not a truncation: the hidden text of Slide 46 of Session 15 (the thermal-properties deck of Topic 7, which repeats this problem) rounds the radius to 2.93 mm (exact 2.9345 mm) and then doubles it, 5.86 mm; the unrounded diameter is 5.869 mm, which rounds to 5.87 mm |
 
 ## 🔗 Related Links
 * [[Topic 5 - Mechanical Properties]]

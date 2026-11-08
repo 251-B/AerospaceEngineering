@@ -27,7 +27,7 @@
 <circle cx="137.0" cy="78.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
 <circle cx="137.0" cy="188.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
 <circle cx="137.0" cy="133.0" r="6.5" fill="#4b5563" fill-opacity="0.9" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
-<text x="137.0" y="262.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">T > 120 °C: cubic</text>
+<text x="137.0" y="262.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">T &gt; 120 °C: cubic</text>
 <text x="160.0" y="288.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">no permanent dipole</text>
 <line x1="400.0" y1="92.0" x2="510.0" y2="92.0" stroke="#4b5563" stroke-width="1.8"/>
 <line x1="400.0" y1="92.0" x2="444.0" y2="48.0" stroke="#8a94a6" stroke-width="1.2"/>
@@ -56,7 +56,7 @@
 <circle cx="477.0" cy="76.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
 <circle cx="477.0" cy="200.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
 <circle cx="477.0" cy="120.0" r="6.5" fill="#4b5563" fill-opacity="0.9" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
-<text x="477.0" y="268.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">T < 120 °C: tetragonal</text>
+<text x="477.0" y="268.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">T &lt; 120 °C: tetragonal</text>
 <text x="480.0" y="286.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Ti and O displaced: permanent dipole</text>
 <line x1="610.0" y1="200.0" x2="610.0" y2="127.2" stroke="#10b981" stroke-width="3.0"/>
 <path d="M610.0,120.0 L614.7,131.1 L605.3,131.1 Z" fill="#10b981"/>

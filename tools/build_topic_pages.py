@@ -48,6 +48,7 @@ def inline(t):
 
     t = re.sub(r"\$\$.*?\$\$|\$[^$]+\$", keep, t)
     t = html.escape(t, quote=False)
+    t = re.sub(r"https?://[^\s<)]*[^\s<).,;]", lambda m: f'<a href="{m.group(0)}" target="_blank" rel="noopener">{m.group(0)}</a>', t)
     t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
     t = re.sub(r"(?<![\w*])\*(?!\s)([^*\n]+?)\*(?![\w*])", r"<em>\1</em>", t)
     t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)

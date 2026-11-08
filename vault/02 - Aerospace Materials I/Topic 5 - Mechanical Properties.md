@@ -44,7 +44,7 @@ This page follows the two official sessions of Topic 5 in order. Part I (Session
 
 ### 2.1 The specimen [Session 11 Slide 4]
 
-The **uniaxial tension test** is the normalised, destructive test for the evaluation of mechanical properties under a tensile load. The material is tested as a **specimen** with a uniform cross-section. The **calibration** (gauge) **length** is the length needed so that the stress is transmitted uniformly along the specimen. The norm for metals is **ASTM E8**. The slide's standard specimen has a gauge length of 50 mm, a reduced section of 60 mm, a reduced diameter printed as $0.505 \cdot D$, a grip diameter of 18 mm and a radius of 10 mm at the shoulders.
+The **uniaxial tension test** is the normalised, destructive test for the evaluation of mechanical properties under a tensile load. The material is tested as a **specimen** with a uniform cross-section. The **calibration** (gauge) **length** is the length needed so that the stress is transmitted uniformly along the specimen. The norm for metals is **ASTM E8**. The slide's standard specimen has a gauge length of 50 mm, a reduced section of 60 mm, a reduced diameter of 0.505 in. ($\approx 12.8$ mm; the slide prints 0.505" Diameter), a grip diameter of 18 mm and a radius of 10 mm at the shoulders.
 
 ![[attachments/T5/specimen-geometry.svg]]
 
@@ -88,6 +88,20 @@ $E$ is the **Young's modulus** or elastic modulus. It measures the **stiffness**
 - The ranking is $E_{\text{ceramics}} > E_{\text{metals}} > E_{\text{polymers}}$ [Session 11 Slide 13].
 
 ![[attachments/T5/bond-force-curves.svg]]
+
+Slide 13 also gives the **specific modulus** $E/\rho$, the modulus per unit of density [Session 11 Slide 13]:
+
+| Material | Modulus $E$ in GPa | Density $\rho$ in Mg/m³ | Specific modulus $E/\rho$ in GPa/(Mg/m³) |
+| :--- | ---: | ---: | ---: |
+| Steels | 210 | 7.8 | 27 |
+| Al alloys | 70 | 2.7 | 26 |
+| Alumina, Al₂O₃ | 390 | 3.9 | 100 |
+| Silica, SiO₂ | 69 | 2.6 | 27 |
+| Cement | 45 | 2.4 | 19 |
+
+Slide 14 shows how the atomic curves give the macroscopic one: the atoms sit at the minimum of the bonding energy (and at the zero of the bonding force), a small elongation moves them along the nearly straight part of the force curve, and that straight part is the straight line of the load against the elongation of the specimen, and of the stress against the strain [Session 11 Slide 14].
+
+![[attachments/T5/s11-energy-force-stress.png]]
 
 ### 3.3 Values of E [Session 11 Slides 17-18]
 
@@ -332,7 +346,7 @@ $$\sigma_r = \sigma_{\text{eng}}\,(1 + \varepsilon_{\text{eng}}) \qquad \varepsi
 
 $$\sigma = \frac{F_i}{A_i} = \sigma_{\text{eng}}\,\frac{A_0}{A_i} \qquad \varepsilon_r = \ln\frac{A_0}{A} = 2\ln\frac{D_0}{D}$$
 
-where $A_0$ and $D_0$ are the initial area and diameter, and $A$ and $D$ the instantaneous ones [Session 11 Slide 38].
+where $A_0$ and $D_0$ are the initial area and diameter, and $A$ and $D$ the instantaneous ones [Session 11 Slide 38]. The chart of Slide 37 plots the engineering curve, the true curve and a third, dashed curve labelled **Corrected** that departs from the true curve after the maximum (M′): the necking makes the stress state in the neck triaxial, and the corrected curve is the true curve once that is taken into account (the explanation is an extension; the slide only labels the curve).
 
 ![[attachments/T5/true-stress.svg]]
 
@@ -577,9 +591,11 @@ The slide's summary of the scales [Session 12 Slide 29]:
 | Brinell | 10 mm sphere of steel or tungsten carbide | $\text{BHN} = \dfrac{2P}{\pi D\left[D - \sqrt{D^2 - d^2}\right]}$ | $P$ |
 | Vickers | Diamond pyramid, 136° | $\text{VHN} = 1.854\,P/d^2$ | $P$ |
 | Knoop | Diamond pyramid | $\text{KHN} = 14.2\,P/l^2$ | $P$ |
-| Rockwell A, C, D | Diamond cone, 120° | $R_A$, $R_C$, $R_D$ (100 to 500 t) | 60, 150, 100 kg |
-| Rockwell B, F, G | 1/16 in steel sphere | $R_B$, $R_F$, $R_G$ (130 to 500 t) | 100, 60, 150 kg |
+| Rockwell A, C, D | Diamond cone, 120° | $R_A$, $R_C$, $R_D$ ($100 - 500\,t$) | 60, 150, 100 kg |
+| Rockwell B, F, G | 1/16 in steel sphere | $R_B$, $R_F$, $R_G$ ($130 - 500\,t$) | 100, 60, 150 kg |
 | Rockwell E, H | 1/8 in steel sphere | $R_E$, $R_H$ | 100, 60 kg |
+
+In the Rockwell formulas $t$ is the depth of penetration of the indenter under the main load, in mm (the slide's drawings mark it as $t$).
 
 ## 19. Hardness tests: precautions and typical values [Session 12 Slide 28]
 
@@ -632,7 +648,7 @@ The tensile strength and the hardness are both indicators of plastic deformation
 
 ---
 
-## Videos linked in the slides
+### Videos linked in the slides
 
 These are references printed on the slides, not content of the portal:
 

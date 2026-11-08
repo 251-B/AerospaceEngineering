@@ -39,7 +39,7 @@ The sheet prints no solution for this problem.
 3. **Impurities and porosity as obstacles.** The slide groups inclusions, dislocations and pores as obstacles to the walls, so impurities (as particles of a second phase) and pores act in the same way on the loop. The effect of dissolved atoms is the same in direction (extension).
 4. **Intrinsic properties.** The saturation magnetization is constant for a material of a given composition [Session 15 Slide 20]. The Curie temperature is the temperature at which the saturation magnetization falls to zero, and the table of Slide 23 gives a different value for each element; both are fixed by the composition and the bonding, not by the microstructure (the link between $T_c$ and the composition is an extension).
 5. **Conductivity.** The electrical resistivity grows with the structural imperfections (grain boundaries, dislocations) and with the impurities [Session 13 Slides 16-17]; the effect of pores is an extension.
-6. **Hysteresis losses.** The energy lost per cycle is the area of the loop (extension, as in [[Problem - T7-11 Hysteresis Loops of Soft and Hard Magnetic Materials]]): a wider loop (higher $H_c$) means higher losses.
+6. **Hysteresis losses.** The energy lost per cycle is the area of the loop (extension, as in [[Problem - T7-11 Hysteresis Loops of Soft and Hard Magnetic Materials|Problem T7-11]]): a wider loop (higher $H_c$) means higher losses.
 
 **Unknown:** the effect (increase, decrease or none) of each parameter on each of the six properties.
 
@@ -119,9 +119,9 @@ One rule explains the table: whatever stops the Bloch walls raises the coercivit
 ## ✅ Check against the official solution
 | Item | Official | Computed | Comment |
 | :--- | :--- | :--- | :--- |
-| All 18 entries of the table | not printed on the sheet | table of Section 3 | permeability, coercivity: Session 15 Slide 21; saturation magnetization: Slide 20; conductivity: Session 13 Slides 16-17; the entries marked extension (porosity and conductivity, effect of composition on $M_s$ and $T_c$, losses as loop area) are not printed on the slides |
+| All 18 entries of the table | not printed on the sheet | the result table above | permeability, coercivity: Session 15 Slide 21; saturation magnetization: Slide 20; conductivity: Session 13 Slides 16-17; the entries marked extension (porosity and conductivity, effect of composition on $M_s$ and $T_c$, losses as loop area) are not printed on the slides |
 
 ## 🔗 Related Links
 * [[Topic 7 - Magnetic and Thermal Properties]]
 * [[Topic 6 - Electrical Properties]]
-* [[Problem - T7-11 Hysteresis Loops of Soft and Hard Magnetic Materials]]
+* [[Problem - T7-11 Hysteresis Loops of Soft and Hard Magnetic Materials|Problem T7-11]]

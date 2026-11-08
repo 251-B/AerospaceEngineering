@@ -27,7 +27,7 @@ The sheet prints no solution for this problem.
 1. **Conductivity is carriers times mobility.** For any conductor $\sigma=n|q|\mu$; for an intrinsic semiconductor both electrons and holes count, $\sigma=n|q|(\mu_e+\mu_h)$ [Session 13 Slides 12, 27-28].
 2. **Metal.** The conduction electrons are the non-bonded electrons of the atoms, so their number does not depend on temperature in the range considered; only the mobility changes, through the thermal resistivity $\rho_T=\rho_0(1+\alpha_TT)$ [Session 13 Slides 13-14].
 3. **Intrinsic semiconductor.** The carriers are created by thermal excitation across the gap, so $n=p=n_i$ grows with the temperature as $n_i\propto\exp(-E_g/2kT)$ and the exponential factor is the one that dominates the conductivity [Session 13 Slide 29]. The temperature also disorders the lattice, but that effect "is masked by the increase of the number of charge carriers" (Slide 29).
-4. **Numerical illustration.** Copper with $\alpha_T=0.0039$ °C⁻¹ [Session 13 Slide 14] and germanium with $E_g=0.67$ eV [Session 13 Slide 8], both from 25 °C to 75 °C, the interval of [[Problem - T6-07 Conductivity of Intrinsic Germanium at 75 C]]. $k_B=8.62\times10^{-5}$ eV/K.
+4. **Numerical illustration.** Copper with $\alpha_T=0.0039$ °C⁻¹ [Session 13 Slide 14] and germanium with $E_g=0.67$ eV [Session 13 Slide 8], both from 25 °C to 75 °C, the interval of [[Problem - T6-07 Conductivity of Intrinsic Germanium at 75 C|Problem T6-07]]. $k_B=8.62\times10^{-5}$ eV/K.
 
 ### Data
 | Quantity | Symbol | Value |
@@ -142,4 +142,4 @@ In the metal the carriers are already all there; heat only agitates the ions, th
 ## 🔗 Related Links
 * [[Topic 6 - Electrical Properties]]
 * [[Concept - Metallic Bonding and Energy Band Theory]]
-* [[Problem - T6-07 Conductivity of Intrinsic Germanium at 75 C]]
+* [[Problem - T6-07 Conductivity of Intrinsic Germanium at 75 C|Problem T6-07]]

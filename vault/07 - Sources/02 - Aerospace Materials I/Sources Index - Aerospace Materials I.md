@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 76
+- Files: 77
 - Referenced by at least one note (a mention counts): 40
-- Not referenced yet: 36
+- Not referenced yet: 37
 - Build artifacts: 0
 - Working files: 0
 
@@ -20,6 +20,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
+| [[Source - 02-aerospace-materials-1 - Auditoría Temas 4 A 7 (md)\|Auditoría Temas 4 A 7.md]] | other | not-referenced |
 | [[Source - 02-aerospace-materials-1 - README (md)\|README.md]] | other | not-referenced |
 
 ## examenes

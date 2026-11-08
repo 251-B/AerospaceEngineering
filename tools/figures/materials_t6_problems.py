@@ -258,7 +258,7 @@ def p6():
     arrow(c, (bx + 40, by - 34), (bx + 190, by - 34), "ACC", 2.4, 11)
     text(c, (bx + 40, by - 42), "E", "ACC", "start", 15, "700")
     arrow(c, (bx + 400, by - 34), (bx + 250, by - 34), "BLUE", 2.4, 11)
-    text(c, (bx + 400, by - 42), "v_d (electrons)", "BLUE", "end", 13, "700")
+    text(c, (bx + 400, by - 42), sub("v", "d") + " (electrons)", "BLUE", "end", 13, "700")
     arrow(c, (bx + 40, by + bh + 44), (bx + 190, by + bh + 44), "GREEN", 2.4, 11)
     text(c, (bx + 200, by + bh + 49), "J = n q μe E", "GREEN", "start", 14, "700")
     # data box
@@ -328,7 +328,7 @@ def p8():
         circle(c, (bx + 48 + i * 40, 216 + (i % 2) * 20), 6, "PINK", 2.0, fill="PINK", opacity=0.05)
     line(c, (bx + 238, 100), (bx + 238, 190), "EDGE", 1.2)
     text(c, (bx + 246, 148), "Eg", "HEAD", "start", 14, "700")
-    text(c, (bx + 110, 154), "n = p = n_i", "HEAD", "middle", 14, "700")
+    text(c, (bx + 110, 154), "n = p = " + sub("n", "i"), "HEAD", "middle", 14, "700")
     arrow(c, (bx + 160, 188), (bx + 160, 104), "GREEN", 1.8, 9)
     text(c, (bx + 168, 130), "excitation", "GREEN", "start", 11)
     # share bar
@@ -341,11 +341,11 @@ def p8():
     text(c, (sx + we / 2, sy - 10), "electrons", "BLUE", "middle", 12, "700")
     text(c, (sx + we + (sw - we) / 2, sy - 10), "holes", "PINK", "middle", 12, "700")
     text(c, (sx + sw / 2, sy + 70), "σ = 4×10⁻⁴ Ω⁻¹m⁻¹ = σe + σh", "HEAD", "middle", 13, "700")
-    text(c, (sx + we / 2, sy + 98), f"σe = {se:.3e}", "BLUE", "middle", 12)
-    text(c, (sx + sw - 50, sy + 98), f"σh = {sh:.3e}", "PINK", "middle", 12)
+    text(c, (sx + we / 2, sy + 98), sub("σ", "e") + " = " + sci_sub(se), "BLUE", "middle", 12)
+    text(c, (sx + sw - 50, sy + 98), sub("σ", "h") + " = " + sci_sub(sh), "PINK", "middle", 12)
     text(c, (sx + sw / 2, sy + 130), "shares in the ratio μe : μh = 0.14 : 0.048", "TEXT", "middle", 12)
     REG.put("t6-p8-carriers", c, "Electrons and holes of intrinsic silicon",
-            "Problem 8: an intrinsic semiconductor has as many electrons as holes (n = p = n_i); the conductivity splits in the ratio of the mobilities, 0.14 to 0.048 (schematic band diagram, bar to scale)")
+            "Problem 8: an intrinsic semiconductor has as many electrons as holes (n = p = ni, the intrinsic concentration); the conductivity splits in the ratio of the mobilities, 0.14 to 0.048 (schematic band diagram, bar to scale)")
 
 
 # ---------------------------------------------------------------- problem 9
@@ -368,6 +368,12 @@ def logbar_panel(c, x0, y0, w, h, title, bars, lo, hi, fmt, ref=None):
         yy = y0 + h - (math.log10(ref[0]) - lo) * scale
         line(c, (x0, yy), (x0 + w, yy), "ACC", 1.4, "5,4")
         pass
+
+
+def sci_sub(v, nd=3):
+    """A x 10^n label with a real superscript (SVG markup)."""
+    e = int(math.floor(math.log10(abs(v))))
+    return f"{v / 10 ** e:.{nd}f}×" + sub("10", ("−" if e < 0 else "") + str(abs(e)), True)
 
 
 def sci(v):
@@ -397,9 +403,9 @@ def p9():
     n_ge1 = 5.32e6 * 6.022e23 / 72.63 * 1e-6
     logbar_panel(c, 470, 70, 150, 180, "c) Ge, N donors, n (m⁻³)",
                  [("100 ppb", n_ge1 / 10, "BLUE", 2), ("1 ppm", n_ge1, "PINK", 1)], 18, 23,
-                 sci, ref=(2.4e19, "n_i"))
+                 sci, ref=(2.4e19, sub("n", "i")))
     text(c, (320, 324), "badge 1 = highest conductivity; panel b: bar = upper bound (μe = 0.135), tick = lower bound (μe = 0.001)", "TEXT", "middle", 11)
-    text(c, (320, 342), "orange dashed line in c: n_i of intrinsic Ge = 2.4×10¹⁹ m⁻³ (S31)", "ACC", "middle", 11, "700")
+    text(c, (320, 342), "orange dashed line in c: " + sub("n", "i") + " of intrinsic Ge = 2.4×10¹⁹ m⁻³ (S31)", "ACC", "middle", 11, "700")
     REG.put("t6-p9-ordering", c, "Ranking of the semiconductors of problem 9",
             "Problem 9: (a) germanium against temperature, (b) pure and phosphorus-doped silicon, (c) germanium with 100 ppb and 1 ppm of N; bars are computed with the data of the solution (logarithmic scale in b and c), 1 marks the highest conductivity")
 
@@ -411,10 +417,10 @@ def p10():
     panels = [
         ("a) Eg of the compound (eV)", [("InSb", 0.17, "BLUE", 1), ("GaAs", 1.42, "GREEN", 2), ("AlP", 2.45, "PINK", 3)], 2.8, "e", "AlP ≈ 2.45: extension"),
         ("b) Eg (eV)", [("InSb", 0.17, "BLUE", 1), ("CdTe", 1.5, "PINK", 2)], 2.8, "e", "CdTe ≈ 1.5: extension"),
-        ("c) Ed in Ge (eV)", [("Sb", 0.0096, "BLUE", 1), ("P", 0.0120, "PINK", 2)], 0.0150, "d", ""),
-        ("d) Ed of P (eV)", [("Ge", 0.0120, "BLUE", 1), ("Si", 0.045, "PINK", 2)], 0.055, "d", "μe: Ge 0.39, Si 0.135"),
-        ("e) Ea in Si (eV)", [("B", 0.045, "BLUE", 1), ("In", 0.160, "PINK", 2)], 0.19, "d", ""),
-        ("f) Ed in Ge (eV)", [("Sb", 0.0096, "BLUE", 1), ("As", 0.0127, "PINK", 2)], 0.0150, "d", ""),
+        ("c) " + sub("E", "d") + " in Ge (eV)", [("Sb", 0.0096, "BLUE", 1), ("P", 0.0120, "PINK", 2)], 0.0150, "d", ""),
+        ("d) " + sub("E", "d") + " of P (eV)", [("Ge", 0.0120, "BLUE", 1), ("Si", 0.045, "PINK", 2)], 0.055, "d", "μe: Ge 0.39, Si 0.135"),
+        ("e) " + sub("E", "a") + " in Si (eV)", [("B", 0.045, "BLUE", 1), ("In", 0.160, "PINK", 2)], 0.19, "d", ""),
+        ("f) " + sub("E", "d") + " in Ge (eV)", [("Sb", 0.0096, "BLUE", 1), ("As", 0.0127, "PINK", 2)], 0.0150, "d", ""),
     ]
     for idx, (title, bars, vmax, kind, note) in enumerate(panels):
         col, row = idx % 3, idx // 3

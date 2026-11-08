@@ -124,7 +124,7 @@ Metal: a solute is an impurity, whatever its valence [Session 13 Slide 16]:
 
 $$\text{solute}\ \Rightarrow\ \rho_i\uparrow\ \Rightarrow\ \sigma\downarrow$$
 
-Ionic ceramic: an ion of another valence must be compensated to keep the crystal neutral. Two $\text{Al}^{3+}$ replacing two $\text{Mg}^{2+}$ in MgO bring an excess charge that a cation vacancy removes (the case of [[Problem - T2-DEF03 Cationic Vacancies in MgO from Dissolving Al2O3 and TiO2]]):
+Ionic ceramic: an ion of another valence must be compensated to keep the crystal neutral. Two $\text{Al}^{3+}$ replacing two $\text{Mg}^{2+}$ in MgO bring an excess charge that a cation vacancy removes (the case of [[Problem - T2-DEF03 Cationic Vacancies in MgO from Dissolving Al2O3 and TiO2|Problem T2-DEF03]]):
 
 $$2\times(+3)-2\times(+2)=+2\ \Rightarrow\ \text{one cation vacancy of charge}\ -2$$
 
@@ -165,6 +165,6 @@ The same defect has opposite meaning in the two conductors: it is an obstacle fo
 ## 🔗 Related Links
 * [[Topic 6 - Electrical Properties]]
 * [[Concept - Metallic Bonding and Energy Band Theory]]
-* [[Problem - T2-DEF03 Cationic Vacancies in MgO from Dissolving Al2O3 and TiO2]]
+* [[Problem - T2-DEF03 Cationic Vacancies in MgO from Dissolving Al2O3 and TiO2|Problem T2-DEF03]]
 * [[Concept - Point Defects, Thermal Vacancies, Schottky and Frenkel]]
 * [[Concept - The Arrhenius Equation and Factors Influencing Diffusivity]]

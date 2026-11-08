@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-08-materials-audit-fixes",
+    "date": "2026-11-08",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topics 4 to 7: audit corrections",
+    "text": "Fixed slide links in Topic 4, two formula slips in Topic 5, drawings in Topics 4, 6 and 7 and plain-text links, and added missing slide figures and problem counts.",
+    "link": "subjects/aerospace-materials-1/teoria/index.html"
+  },
+  {
     "id": "2026-11-07-materials-topic-7-problems",
     "date": "2026-11-07",
     "tag": "Aerospace Materials I",

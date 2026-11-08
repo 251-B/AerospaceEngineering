@@ -231,7 +231,7 @@ def axial_bar():
     line(c, (300, 192), (300, 200), "PINK", 2.5)
     text(c, (310, 118), "Δd/2", "PINK", "start", 12)
     text(c, (150, 272), "dashed: undeformed", "TEXT", "start", 12)
-    text(c, (300, 272), "Δd < 0: |Δd| = ν ε d0", "PINK", "start", 13)
+    text(c, (300, 272), "Δd &lt; 0: |Δd| = ν ε d0", "PINK", "start", 13)
     REG.put("t5-axial-bar", c, "Bar under axial tension",
             "Cylindrical bar under an axial load F: it elongates by Δl and its diameter shrinks by Δd (schematic, exaggerated)")
 
@@ -346,7 +346,7 @@ def specimen_geometry():
     dim(c, (290, 168), (430, 168), "gauge length 50 mm", lab_off=(0, -10))
     dim(c, (240, 200), (480, 200), "reduced section 60 mm", lab_off=(0, -10))
     dim(c, (70, 80), (70, 150), "18 mm", lab_off=(12, 4), anchor="start")
-    dim(c, (360, 97), (360, 133), "0.505 D", lab_off=(48, 4), anchor="start")
+    dim(c, (360, 97), (360, 133), "0.505 in.", lab_off=(48, 4), anchor="start")
     text(c, (220, 66), "radius 10 mm", "TEXT", "middle", 12)
     text(c, (120, 178), "grip", "TEXT", "middle", 12)
     text(c, (620, 178), "grip", "TEXT", "middle", 12)
@@ -670,6 +670,8 @@ def true_stress():
 
     m.poly(c, sample(stress_strain, 0, 0.11, 200), "ACC", 2.4)
     m.poly(c, sample(true, 0, 0.11, 200), "BLUE", 2.4)
+    m.poly(c, [(0.06, 848), (0.085, 910), (0.11, 970)], "BLUE", 2.0, "6,4")   # "Corrected" (Slide 37): the true curve after necking
+    m.text(c, 0.0875, 850, "corrected", "BLUE", "start", 12, "700")
     m.guide(c, (0.06, 0), (0.06, 848))
     m.dot(c, 0.06, 800, "HEAD", "ACC")
     m.dot(c, 0.06, 848, "HEAD", "BLUE")
@@ -681,7 +683,7 @@ def true_stress():
            xt=[(0.02, "0.02"), (0.04, "0.04"), (0.06, "0.06"), (0.08, "0.08"), (0.10, "0.10"), (0.12, "0.12")],
            yt=[(200, "200"), (400, "400"), (600, "600"), (800, "800"), (1000, "1000")])
     REG.put("true-stress", c, "Engineering and true stress-strain curves",
-            "Engineering curve (orange) and true curve (blue) up to the maximum, M and M′; schematic, not to scale")
+            "Engineering curve (orange) and true curve (blue) up to the maximum, M and M′; the dashed curve is the true curve corrected for the necking, as on Slide 37; schematic, not to scale")
 
 
 def strain_hardening():
@@ -811,6 +813,8 @@ def rockwell_steps():
 
 
 def rasters():
+    REG.raster("s11-energy-force-stress", "From the bonding energy and force to the stress-strain line",
+               "The bonding energy, the bonding force, the load against the elongation and the stress against the strain of the elastic zone, as drawn on Session 11 Slide 14, copied from the slide", 560)
     REG.raster("s11-bubble-chart", "Bubble chart of Young's modulus against density",
                "Bubble chart of Young's modulus against density by material family, copied from Session 11 Slide 18", 620)
     REG.raster("s12-strain-hardening-charts", "Yield strength and ductility against percent cold work",

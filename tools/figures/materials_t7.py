@@ -115,17 +115,24 @@ def domain_closure():
         rect(c, x, 60, 110, 110, "HEAD", 1.6, None, "ATOM", 0.10)
         if k == 0:
             dip(c, x + 55, 115, 0, 70, "PINK", 2.6)
-            for dx in (-18, 0, 18):
-                pathd(c, f"M{x + 55 + dx * 3},60 C{x + 55 + dx * 5},30 {x + 55 + dx * 5},{200} {x + 55 + dx * 3},170", "EDGE", 0.9, "3,3")
+            for sgn in (-1, 1):   # stray field: leaves the north pole, goes round the sample and re-enters at the south pole
+                for r in (1.0, 0.6):
+                    pathd(c, f"M{x + 55},58 C{x + 55 + sgn * 95 * r},{58 - 50 * r} {x + 55 + sgn * 105 * r},{172 + 50 * r} {x + 55},172", "EDGE", 0.9, "3,3")
         elif k == 1:
             line(c, (x + 55, 60), (x + 55, 170), "ACC", 1.8)
             dip(c, x + 28, 115, 0, 60, "PINK", 2.4)
             dip(c, x + 83, 115, 180, 60, "PINK", 2.4)
+            pathd(c, f"M{x + 28},58 C{x + 28},34 {x + 83},34 {x + 83},58", "EDGE", 0.9, "3,3")
+            pathd(c, f"M{x + 83},172 C{x + 83},196 {x + 28},196 {x + 28},172", "EDGE", 0.9, "3,3")
         elif k == 2:
             for i in range(1, 4):
                 line(c, (x + i * 27.5, 60), (x + i * 27.5, 170), "ACC", 1.6)
             for i in range(4):
                 dip(c, x + 14 + i * 27.5, 115, 0 if i % 2 == 0 else 180, 60, "PINK", 2.2)
+            for i in range(3):
+                a, b = x + 14 + i * 27.5, x + 14 + (i + 1) * 27.5
+                pathd(c, f"M{a},58 C{a},42 {b},42 {b},58", "EDGE", 0.9, "3,3")
+                pathd(c, f"M{b},172 C{b},188 {a},188 {a},172", "EDGE", 0.9, "3,3")
         else:
             # two flux-closed units: M circulates clockwise, so its normal component is continuous across every wall
             line(c, (x + 55, 60), (x + 55, 170), "ACC", 1.6)
@@ -184,20 +191,25 @@ def hysteresis_soft_hard():
 
     def loop(amp, hc, w, col, wd):
         es = [-300 + 4 * i for i in range(151)]
-        up = [(o[0] + e, o[1] - amp * math.tanh((e + hc) / w)) for e in es]
-        dn = [(o[0] + e, o[1] - amp * math.tanh((e - hc) / w)) for e in es]
+        shift = lambda e: hc * (1 - (e / 300) ** 2)   # the coercive shift fades out so both branches meet at saturation
+        up = [(o[0] + e, o[1] - amp * math.tanh((e + shift(e)) / w)) for e in es]
+        dn = [(o[0] + e, o[1] - amp * math.tanh((e - shift(e)) / w)) for e in es]
         poly(c, up, col, wd)
         poly(c, dn, col, wd)
         return amp * math.tanh(hc / w)
     Bs = 140.0
     br_h = loop(Bs, 150, 90, "PINK", 2.6)
-    loop(105.0, 22, 14, "BLUE", 2.6)
+    br_s = loop(105.0, 22, 14, "BLUE", 2.6)
     line(c, (o[0] + 100, o[1] - Bs), (640, o[1] - Bs), "EDGE", 1.0, "5,4")
     txt(c, 640, o[1] - Bs - 6, sub("B", "s") + " (hard)", "HEAD", "end", 13, "700")
+    line(c, (o[0] + 100, o[1] - 105), (640, o[1] - 105), "EDGE", 1.0, "5,4")
+    txt(c, 640, o[1] - 105 + 16, sub("B", "s") + " (soft)", "HEAD", "end", 13, "700")
+    dot(c, (o[0], o[1] - br_s), 4, "HEAD", "HEAD")
+    txt(c, o[0] + 8, o[1] - br_s + 16, sub("B", "r") + " (soft)", "HEAD", "start", 12, "700")
     dot(c, (o[0], o[1] - br_h), 4, "HEAD", "HEAD")
     txt(c, o[0] - 8, o[1] - br_h - 6, sub("B", "r") + " (hard)", "HEAD", "end", 12, "700")
     dot(c, (o[0] - 150, o[1]), 4, "HEAD", "HEAD")
-    txt(c, o[0] - 140, o[1] + 20, "−" + sub("H", "c") + " (hard)", "HEAD", "start", 12, "700")
+    txt(c, o[0] - 150, o[1] + 40, "−" + sub("H", "c") + " (hard)", "HEAD", "middle", 12, "700")
     dot(c, (o[0] + 22, o[1]), 4, "HEAD", "HEAD")
     txt(c, o[0] + 30, o[1] + 20, sub("H", "c") + " (soft)", "HEAD", "start", 12, "700")
     txt(c, 160, 90, "Hard magnetic material", "PINK", "middle", 13, "700")

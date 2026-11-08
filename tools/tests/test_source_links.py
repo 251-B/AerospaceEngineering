@@ -39,6 +39,10 @@ class CitationTests(unittest.TestCase):
         out, _ = link("<p>[Session 4 Slide 22]</p>", sessions={"4": "s4"})
         self.assertIn("Session%204.pdf#page=22", out)
 
+    def test_bare_slide_followed_by_of_session_goes_to_that_deck(self):
+        out, _ = link("<p>Slide 15 of Session 4 shows it.</p>", slides="slides", sessions={"4": "s4"})
+        self.assertIn("Session%204.pdf#page=15", out)
+
     def test_slide_beyond_the_deck_is_left_alone(self):
         out, linker = link("<p>(Slide 99)</p>", slides="slides")
         self.assertNotIn("<a", out.split("<body>")[1])

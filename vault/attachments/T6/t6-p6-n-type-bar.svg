@@ -49,7 +49,7 @@
 <text x="100.0" y="58.0" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="start">E</text>
 <line x1="460.0" y1="66.0" x2="316.6" y2="66.0" stroke="#3b82f6" stroke-width="2.4"/>
 <path d="M310.0,66.0 L320.1,61.7 L320.1,70.3 Z" fill="#3b82f6"/>
-<text x="460.0" y="58.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="end">v_d (electrons)</text>
+<text x="460.0" y="58.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="end">v<tspan baseline-shift="sub" font-size="72%">d</tspan> (electrons)</text>
 <line x1="100.0" y1="254.0" x2="243.4" y2="254.0" stroke="#10b981" stroke-width="2.4"/>
 <path d="M250.0,254.0 L239.9,258.3 L239.9,249.7 Z" fill="#10b981"/>
 <text x="260.0" y="259.0" fill="#10b981" font-size="14" font-weight="700" text-anchor="start">J = n q μe E</text>
