@@ -19,7 +19,7 @@ bytes: 2126997
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.1 MB
-- **Status:** referenced by 77 note(s) below
+- **Status:** referenced by 92 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -60,6 +60,20 @@ bytes: 2126997
 - [[01 - Fluid Mechanics/Problem - CL7 Industrial Dryer]]
 - [[01 - Fluid Mechanics/Problem - CL8 Jet on a Wall with an Orifice]]
 - [[01 - Fluid Mechanics/Problem - CL9 Submarine Propulsion Device]]
+- [[01 - Fluid Mechanics/Problem - DA1 Power of a Marine Freighter]]
+- [[01 - Fluid Mechanics/Problem - DA10 Two-Belt Viscous Pump]]
+- [[01 - Fluid Mechanics/Problem - DA11 Power of a Wave Generator]]
+- [[01 - Fluid Mechanics/Problem - DA12 Supersonic Missile Drag and Shock Standoff]]
+- [[01 - Fluid Mechanics/Problem - DA13 Mars Lander Parachute]]
+- [[01 - Fluid Mechanics/Problem - DA14 Torque in an Impulsively Rotated Cavity]]
+- [[01 - Fluid Mechanics/Problem - DA2 Vortex Shedding behind a Wire]]
+- [[01 - Fluid Mechanics/Problem - DA3 Stirrer in a Tar Tank]]
+- [[01 - Fluid Mechanics/Problem - DA4 Terminal Velocity of Slime Particles]]
+- [[01 - Fluid Mechanics/Problem - DA5 Power of a Wind Turbine]]
+- [[01 - Fluid Mechanics/Problem - DA6 Tsunami against a Protection Wall]]
+- [[01 - Fluid Mechanics/Problem - DA7 Thrust of a Submarine Shrouded Fan]]
+- [[01 - Fluid Mechanics/Problem - DA8 Lift of a Flapping Fly Wing]]
+- [[01 - Fluid Mechanics/Problem - DA9 Power of an Airplane Propeller]]
 - [[01 - Fluid Mechanics/Problem - FS1 Melting Ice Cube]]
 - [[01 - Fluid Mechanics/Problem - FS10 Horizontal Force on a Cylinder]]
 - [[01 - Fluid Mechanics/Problem - FS2 Hemispherical Station on the Sea Floor]]
@@ -101,3 +115,4 @@ bytes: 2126997
 - [[01 - Fluid Mechanics/Topic 3 - Conservation Laws]]
 - [[01 - Fluid Mechanics/Topic 4 - The Navier-Stokes Equations]]
 - [[01 - Fluid Mechanics/Topic 5 - Hydrostatics]]
+- [[01 - Fluid Mechanics/Topic 6 - Dimensional Analysis]]

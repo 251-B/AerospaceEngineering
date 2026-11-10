@@ -2,7 +2,7 @@
 materia: Fluid Mechanics
 tema: "Topic 6: Dimensional Analysis"
 fuentes:
-  - "Notes.pdf (Sánchez & Rodríguez-Rodríguez, UC3M), Chapter 6, pp. 57-72 (PDF pages 66-81)"
+  - "Notes.pdf (Sánchez & Rodríguez-Rodríguez, UC3M), Chapter 6, pp. 57-71 (PDF pages 66-80)"
 tags:
   - moc-topic
   - fluid-mechanics
@@ -68,7 +68,7 @@ $$ \Pi_2 = \frac{v_c(m,h,g)}{(gh)^{1/2}} = \Pi_2(m, h, g) \tag{6.5} $$
 The key argument of the whole chapter (Notes.pdf, p. 59):
 
 1. Change **only the unit of mass**. The number $m$ changes arbitrarily while $h$ and $g$ stay fixed, and $\Pi_1$, $\Pi_2$ (dimensionless) cannot change. So $\Pi_1$ and $\Pi_2$ do not depend on $m$: $\Pi_1 = \Pi_1(h, g)$, $\Pi_2 = \Pi_2(h, g)$.
-2. Change **only the unit of time**. The number $g$ is multiplied by $T^{2}$ while $h$ stays fixed; again $\Pi_1$, $\Pi_2$ do not change, so they do not depend on $g$.
+2. Change **only the unit of time**. The number $g$ is multiplied by $T^{-2}$ while $h$ stays fixed; again $\Pi_1$, $\Pi_2$ do not change, so they do not depend on $g$.
 3. Change **the unit of length**. $h$ changes arbitrarily and the $\Pi$'s do not, so they do not depend on $h$ either.
 
 What is left is (Notes.pdf, Eqs. 6.6-6.7)
@@ -192,7 +192,7 @@ $$ \Pi_0 = \frac{f(Q, D, \rho, \Pi_1\rho Q/D)}{\rho Q^2/D^5} = F(Q, D, \rho, \Pi
 Now the argument of Section 1, repeated:
 
 1. Make the unit of mass $M$ times smaller: $\rho$ grows by $M$, while $\Pi_0$, $\Pi_1$, $Q$, $D$ do not change. So $F$ does not depend on $\rho$: $\Pi_0 = F(Q, D, \Pi_1)$.
-2. Make the unit of time $T$ times smaller: $Q$ grows by $T$ ($[Q] = L^3T^{-1}$, so its number is multiplied by $T^{1}$), while $D$, $\Pi_0$, $\Pi_1$ do not change: $\Pi_0 = F(D, \Pi_1)$.
+2. Make the unit of time $T$ times smaller: the number $Q$ changes by the factor $T^{-1}$ (since $[Q] = L^3T^{-1}$), while $D$, $\Pi_0$, $\Pi_1$ do not change: $\Pi_0 = F(D, \Pi_1)$.
 3. Change the unit of length: $\Pi_0 = F(\Pi_1)$.
 
 The result (Notes.pdf, Eq. 6.24):

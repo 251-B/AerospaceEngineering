@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 178
-- Referenced by at least one note (a mention counts): 75
-- Not referenced yet: 103
+- Referenced by at least one note (a mention counts): 87
+- Not referenced yet: 91
 - Build artifacts: 0
 - Working files: 0
 
@@ -251,18 +251,18 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA1 (pdf)\|DA1.pdf]] | problemas | referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA2 (pdf)\|DA2.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA3 (pdf)\|DA3.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA4 (pdf)\|DA4.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA5 (pdf)\|DA5.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA6 (pdf)\|DA6.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA7 (pdf)\|DA7.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA8 (pdf)\|DA8.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA9 (pdf)\|DA9.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA10 (pdf)\|DA10.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA11 (pdf)\|DA11.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA12 (pdf)\|DA12.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA13 (pdf)\|DA13.pdf]] | problemas | not-referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA2 (pdf)\|DA2.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA3 (pdf)\|DA3.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA4 (pdf)\|DA4.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA5 (pdf)\|DA5.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA6 (pdf)\|DA6.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA7 (pdf)\|DA7.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA8 (pdf)\|DA8.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA9 (pdf)\|DA9.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA10 (pdf)\|DA10.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA11 (pdf)\|DA11.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA12 (pdf)\|DA12.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA13 (pdf)\|DA13.pdf]] | problemas | referenced |
 | [[Source - 01-fluid-mechanics - unit-06-dimensional-analysis - problemas - DA14 (pdf)\|DA14.pdf]] | problemas | referenced |
 
 ## unit-07-viscous-flow/problemas

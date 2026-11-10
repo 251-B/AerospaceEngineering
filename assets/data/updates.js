@@ -15,6 +15,22 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-10-fluids-t6-problems",
+    "date": "2026-11-10",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics Topic 6: 14 solved problems",
+    "text": "The dimensional-analysis sheets DA1 to DA14 are solved step by step after their keys: ships, turbines, wings, propellers, a missile and a Mars parachute.",
+    "link": "subjects/fluid-mechanics/problemas/topic-6-dimensional-analysis.html"
+  },
+  {
+    "id": "2026-11-10-fluids-t6-theory",
+    "date": "2026-11-10",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics Topic 6: dimensional analysis",
+    "text": "New theory page for Chapter 6: the Pi theorem, Taylor's explosion, the nondimensional Navier-Stokes equations, the limits of large and small Reynolds number and scale models.",
+    "link": "subjects/fluid-mechanics/teoria/topic-6.html"
+  },
+  {
     "id": "2026-11-08-materials-audit-fixes",
     "date": "2026-11-08",
     "tag": "Aerospace Materials I",

@@ -55,6 +55,10 @@ window.AE_NAV = {
             {
               "href": "subjects/fluid-mechanics/teoria/topic-5.html",
               "label": "5 · Hydrostatics"
+            },
+            {
+              "href": "subjects/fluid-mechanics/teoria/topic-6.html",
+              "label": "6 · Dimensional analysis"
             }
           ]
         },
@@ -78,6 +82,10 @@ window.AE_NAV = {
             {
               "href": "subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html",
               "label": "5 · Hydrostatics (FS1–FS10)"
+            },
+            {
+              "href": "subjects/fluid-mechanics/problemas/topic-6-dimensional-analysis.html",
+              "label": "6 · Dimensional analysis (DA1–DA14)"
             }
           ]
         }

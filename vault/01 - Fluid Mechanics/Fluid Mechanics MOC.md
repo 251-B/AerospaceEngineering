@@ -125,6 +125,11 @@ tags:
     * [[01 - Fluid Mechanics/Problem - DA7 Thrust of a Submarine Shrouded Fan|Problem DA7: Thrust of a Submarine Shrouded Fan]]
     * [[01 - Fluid Mechanics/Problem - DA8 Lift of a Flapping Fly Wing|Problem DA8: Lift of a Flapping Fly Wing]]
     * [[01 - Fluid Mechanics/Problem - DA9 Power of an Airplane Propeller|Problem DA9: Power of an Airplane Propeller]]
+    * [[01 - Fluid Mechanics/Problem - DA10 Two-Belt Viscous Pump|Problem DA10: Two-Belt Viscous Pump]]
+    * [[01 - Fluid Mechanics/Problem - DA11 Power of a Wave Generator|Problem DA11: Power of a Wave Generator]]
+    * [[01 - Fluid Mechanics/Problem - DA12 Supersonic Missile Drag and Shock Standoff|Problem DA12: Supersonic Missile Drag and Shock Standoff]]
+    * [[01 - Fluid Mechanics/Problem - DA13 Mars Lander Parachute|Problem DA13: Mars Lander Parachute]]
+    * [[01 - Fluid Mechanics/Problem - DA14 Torque in an Impulsively Rotated Cavity|Problem DA14: Torque in an Impulsively Rotated Cavity]]
 * Topic 7: Viscous Flows & Boundary Layer Theory (planned)
   * Official sources: `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 solved problems).
 

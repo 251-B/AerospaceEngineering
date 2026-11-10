@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA3.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 637150
 ---
 
@@ -19,8 +19,8 @@ bytes: 637150
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA3.pdf`
 - **Kind:** problemas
 - **Size:** 637.1 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Problem - DA3 Stirrer in a Tar Tank]]

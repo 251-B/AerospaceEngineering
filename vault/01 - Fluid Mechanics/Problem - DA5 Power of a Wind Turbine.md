@@ -100,7 +100,7 @@ $$ U = \frac{n}{n_1}\,U_1 = \frac{200}{n_1}\times 10\ \text{m/s}, \qquad W = \le
 | $n_1$ (rpm) | $W_1$ (kW) | $U$ (m/s) | $(U/U_1)^3$ | $W$ (kW) |
 | ---: | ---: | ---: | ---: | ---: |
 | 125 | 4 | 16 | 4.096 | 16.38 |
-| 150 | 5.5 | 13.33 | 2.370 | 13.03 |
+| 150 | 5.5 | 13.33 | 2.370 | 13.04 |
 | 175 | 6.5 | 11.43 | 1.493 | 9.70 |
 | 200 | 7 | 10 | 1 | 7 |
 | 225 | 6 | 8.89 | 0.702 | 4.21 |
@@ -121,4 +121,4 @@ $$ W = \left(\frac{U}{U_1}\right)^3\left(\frac{D}{D_1}\right)^2 W_1 = 2^3\times 
 - At $n = 200$ rpm: the table above, from 16.4 kW at 16 m/s to 2.3 kW at 8 m/s.
 - Turbine of 10 m at 175 rpm and 20 m/s: $W = 208$ kW.
 - Dimensions: $\rho U^3D^2$ is $ML^{-3}\cdot L^3T^{-3}\cdot L^2 = ML^2T^{-3}$; $nD/U$ is $T^{-1}L/(LT^{-1}) = 1$, so rpm can be used on both sides without conversion.
-- Check against the official key: DA5.pdf gives $n = 300$ rpm and $W = 23.625$ kW, the table $U$ = 16, 13.3, 11.43, 10, 8.89, 8 m/s with $W$ = 16.38, 13.03, 9.7, 7, 4.2, 2.3 kW, and $W = 208$ kW for the 10 m turbine, the same results.
+- Check against the official key: DA5.pdf gives $n = 300$ rpm and $W = 23.625$ kW, the table $U$ = 16, 13.3, 11.43, 10, 8.89, 8 m/s with $W$ = 16.38, 13.03, 9.7, 7, 4.2, 2.3 kW, and $W = 208$ kW for the 10 m turbine, the same results (the key truncates $2.370\times 5.5 = 13.037$ to 13.03; rounded, 13.04).
