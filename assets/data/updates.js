@@ -15,6 +15,22 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-10-fluids-t7-problems",
+    "date": "2026-11-10",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics Topic 7: 19 solved problems",
+    "text": "The viscous-flow sheets VF2 to VF20 are solved step by step: annular flows, belt pumps, a journal bearing, squeeze films and a levitated cylinder. Slips of the keys are flagged.",
+    "link": "subjects/fluid-mechanics/problemas/topic-7-viscous-flow.html"
+  },
+  {
+    "id": "2026-11-10-fluids-t7-theory",
+    "date": "2026-11-10",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics Topic 7: viscous flows",
+    "text": "New theory page for Chapter 7: Couette and Poiseuille flows, Stokes layers, slender films, the wedge effect and the criteria for viscous dominance, with a practical formulary.",
+    "link": "subjects/fluid-mechanics/teoria/topic-7.html"
+  },
+  {
     "id": "2026-11-10-fluids-t6-problems",
     "date": "2026-11-10",
     "tag": "Fluid Mechanics",

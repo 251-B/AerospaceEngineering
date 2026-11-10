@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 370" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Vertical conical pipe">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="270.0" y1="310.0" x2="200.0" y2="50.0" stroke="#4b5563" stroke-width="3.0"/>
+<line x1="290.0" y1="310.0" x2="360.0" y2="50.0" stroke="#4b5563" stroke-width="3.0"/>
+<polygon points="270.0,310.0 218.8,120.0 341.2,120.0 290.0,310.0" fill="#3b82f6" fill-opacity="0.16" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="218.8" y1="120.0" x2="341.2" y2="120.0" stroke="#3b82f6" stroke-width="1.8"/>
+<line x1="150.0" y1="310.0" x2="150.0" y2="50.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M150.0,310.0 L147.3,303.6 L152.7,303.6 Z" fill="#10b981"/>
+<path d="M150.0,50.0 L152.7,56.4 L147.3,56.4 Z" fill="#10b981"/>
+<text x="134.0" y="186.0" fill="#10b981" font-size="18" font-weight="400" text-anchor="middle">L</text>
+<line x1="400.0" y1="310.0" x2="400.0" y2="120.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M400.0,310.0 L397.3,303.6 L402.7,303.6 Z" fill="#10b981"/>
+<path d="M400.0,120.0 L402.7,126.4 L397.3,126.4 Z" fill="#10b981"/>
+<text x="424.0" y="220.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle">h(t)</text>
+<text x="280.0" y="338.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">2a</text>
+<text x="280.0" y="38.0" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="330.0" y="318.0" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="470.0" y1="70.0" x2="470.0" y2="134.0" stroke="#4b5563" stroke-width="2.0"/>
+<path d="M470.0,140.0 L466.1,130.8 L473.9,130.8 Z" fill="#4b5563"/>
+<text x="480.0" y="111.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+<line x1="240.0" y1="304.0" x2="240.0" y2="268.8" stroke="#4b5563" stroke-width="1.2"/>
+<path d="M240.0,264.0 L243.1,271.4 L236.9,271.4 Z" fill="#4b5563"/>
+<text x="230.0" y="286.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+<line x1="280.0" y1="240.0" x2="280.0" y2="257.8" stroke="#3b82f6" stroke-width="1.3"/>
+<path d="M280.0,262.0 L277.3,255.6 L282.7,255.6 Z" fill="#3b82f6"/>
+<line x1="280.0" y1="270.0" x2="280.0" y2="287.8" stroke="#3b82f6" stroke-width="1.3"/>
+<path d="M280.0,292.0 L277.3,285.6 L282.7,285.6 Z" fill="#3b82f6"/>
+<line x1="280.0" y1="298.0" x2="280.0" y2="315.8" stroke="#3b82f6" stroke-width="1.3"/>
+<path d="M280.0,320.0 L277.3,313.6 L282.7,313.6 Z" fill="#3b82f6"/>
+<text x="410.0" y="352.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">a(z) = a₀(1 + αz/L)</text>
+</g></svg>

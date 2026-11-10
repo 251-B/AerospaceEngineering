@@ -132,6 +132,26 @@ tags:
     * [[01 - Fluid Mechanics/Problem - DA14 Torque in an Impulsively Rotated Cavity|Problem DA14: Torque in an Impulsively Rotated Cavity]]
 * [[01 - Fluid Mechanics/Topic 7 - Viscous Flows|Topic 7: Viscous Flows]]
   * Official sources: `Notes.pdf` Chapter 7 and the problem sheets `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 problems, each with the handwritten key).
+  * **Solved Viscous Flow Problems (Official Problem Sheets VF):**
+    * [[01 - Fluid Mechanics/Problem - VF2 Oscillating Wall under a Liquid Layer|Problem VF2: Oscillating Wall under a Liquid Layer]]
+    * [[01 - Fluid Mechanics/Problem - VF3 Annular Flow with a Moving Outer Cylinder|Problem VF3: Annular Flow with a Moving Outer Cylinder]]
+    * [[01 - Fluid Mechanics/Problem - VF4 Pipe with a Partly Inserted Bar|Problem VF4: Pipe with a Partly Inserted Bar]]
+    * [[01 - Fluid Mechanics/Problem - VF5 Discharge of Two Immiscible Liquids from a Tube|Problem VF5: Discharge of Two Immiscible Liquids from a Tube]]
+    * [[01 - Fluid Mechanics/Problem - VF6 Oil Rising in a Vertical Tube|Problem VF6: Oil Rising in a Vertical Tube]]
+    * [[01 - Fluid Mechanics/Problem - VF7 Discharge from a Conical Pipe|Problem VF7: Discharge from a Conical Pipe]]
+    * [[01 - Fluid Mechanics/Problem - VF8 Lifting a Cylinder from an Oil Film|Problem VF8: Lifting a Cylinder from an Oil Film]]
+    * [[01 - Fluid Mechanics/Problem - VF9 Conveyor Belt Pumping on an Incline|Problem VF9: Conveyor Belt Pumping on an Incline]]
+    * [[01 - Fluid Mechanics/Problem - VF10 Pulsatile Flow in a Pipe|Problem VF10: Pulsatile Flow in a Pipe]]
+    * [[01 - Fluid Mechanics/Problem - VF11 Windshield Wiper|Problem VF11: Windshield Wiper]]
+    * [[01 - Fluid Mechanics/Problem - VF12 Journal Bearing|Problem VF12: Journal Bearing]]
+    * [[01 - Fluid Mechanics/Problem - VF13 Rotating Plate over a Wall|Problem VF13: Rotating Plate over a Wall]]
+    * [[01 - Fluid Mechanics/Problem - VF14 Arm Approaching a Wall|Problem VF14: Arm Approaching a Wall]]
+    * [[01 - Fluid Mechanics/Problem - VF15 Belt Pump Forces Power and Efficiency|Problem VF15: Belt Pump: Forces, Power and Efficiency]]
+    * [[01 - Fluid Mechanics/Problem - VF16 Piston Falling over a Liquid Layer|Problem VF16: Piston Falling over a Liquid Layer]]
+    * [[01 - Fluid Mechanics/Problem - VF17 Thin Plate in a Couette Channel|Problem VF17: Thin Plate in a Couette Channel]]
+    * [[01 - Fluid Mechanics/Problem - VF18 Liquid Dragged up a Gap by a Moving Wall|Problem VF18: Liquid Dragged up a Gap by a Moving Wall]]
+    * [[01 - Fluid Mechanics/Problem - VF19 Viscous Pump with a Moving Rod|Problem VF19: Viscous Pump with a Moving Rod]]
+    * [[01 - Fluid Mechanics/Problem - VF20 Cylinder Levitated by a Jet|Problem VF20: Cylinder Levitated by a Jet]]
 
 ### 🧪 Experimental Sessions & Laboratory Practicals
 * **Official structure:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/`

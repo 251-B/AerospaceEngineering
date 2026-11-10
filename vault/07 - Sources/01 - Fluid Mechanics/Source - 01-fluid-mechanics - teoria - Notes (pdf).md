@@ -19,7 +19,7 @@ bytes: 2126997
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.1 MB
-- **Status:** referenced by 92 note(s) below
+- **Status:** referenced by 112 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -110,9 +110,29 @@ bytes: 2126997
 - [[01 - Fluid Mechanics/Problem - NS7 Liquid Film on an Inclined Plane]]
 - [[01 - Fluid Mechanics/Problem - NS8 Porous Cylinder Moving Axially with Suction]]
 - [[01 - Fluid Mechanics/Problem - NS9 Porous Cylinder Quiz with Viscous Heating]]
+- [[01 - Fluid Mechanics/Problem - VF10 Pulsatile Flow in a Pipe]]
+- [[01 - Fluid Mechanics/Problem - VF11 Windshield Wiper]]
+- [[01 - Fluid Mechanics/Problem - VF12 Journal Bearing]]
+- [[01 - Fluid Mechanics/Problem - VF13 Rotating Plate over a Wall]]
+- [[01 - Fluid Mechanics/Problem - VF14 Arm Approaching a Wall]]
+- [[01 - Fluid Mechanics/Problem - VF15 Belt Pump Forces Power and Efficiency]]
+- [[01 - Fluid Mechanics/Problem - VF16 Piston Falling over a Liquid Layer]]
+- [[01 - Fluid Mechanics/Problem - VF17 Thin Plate in a Couette Channel]]
+- [[01 - Fluid Mechanics/Problem - VF18 Liquid Dragged up a Gap by a Moving Wall]]
+- [[01 - Fluid Mechanics/Problem - VF19 Viscous Pump with a Moving Rod]]
+- [[01 - Fluid Mechanics/Problem - VF2 Oscillating Wall under a Liquid Layer]]
+- [[01 - Fluid Mechanics/Problem - VF20 Cylinder Levitated by a Jet]]
+- [[01 - Fluid Mechanics/Problem - VF3 Annular Flow with a Moving Outer Cylinder]]
+- [[01 - Fluid Mechanics/Problem - VF4 Pipe with a Partly Inserted Bar]]
+- [[01 - Fluid Mechanics/Problem - VF5 Discharge of Two Immiscible Liquids from a Tube]]
+- [[01 - Fluid Mechanics/Problem - VF6 Oil Rising in a Vertical Tube]]
+- [[01 - Fluid Mechanics/Problem - VF7 Discharge from a Conical Pipe]]
+- [[01 - Fluid Mechanics/Problem - VF8 Lifting a Cylinder from an Oil Film]]
+- [[01 - Fluid Mechanics/Problem - VF9 Conveyor Belt Pumping on an Incline]]
 - [[01 - Fluid Mechanics/Topic 1 - Introductory Remarks and Starting Assumptions]]
 - [[01 - Fluid Mechanics/Topic 2 - Flow Kinematics]]
 - [[01 - Fluid Mechanics/Topic 3 - Conservation Laws]]
 - [[01 - Fluid Mechanics/Topic 4 - The Navier-Stokes Equations]]
 - [[01 - Fluid Mechanics/Topic 5 - Hydrostatics]]
 - [[01 - Fluid Mechanics/Topic 6 - Dimensional Analysis]]
+- [[01 - Fluid Mechanics/Topic 7 - Viscous Flows]]

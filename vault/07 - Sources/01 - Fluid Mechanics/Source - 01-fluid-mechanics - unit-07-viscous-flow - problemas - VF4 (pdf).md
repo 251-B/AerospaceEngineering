@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF4.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 362898
 ---
 
@@ -19,8 +19,8 @@ bytes: 362898
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF4.pdf`
 - **Kind:** problemas
 - **Size:** 362.9 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Problem - VF4 Pipe with a Partly Inserted Bar]]

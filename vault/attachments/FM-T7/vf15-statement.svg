@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Two-belt viscous pump">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="150.0" y="75.0" width="330.0" height="40.0" rx="20" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="170.0" cy="95.0" r="16.0" fill="none" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="460.0" cy="95.0" r="16.0" fill="none" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<rect x="150.0" y="175.0" width="330.0" height="40.0" rx="20" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="170.0" cy="195.0" r="16.0" fill="none" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="460.0" cy="195.0" r="16.0" fill="none" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="280.0" y1="124.0" x2="324.6" y2="124.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M330.0,124.0 L321.7,127.5 L321.7,120.5 Z" fill="#3b82f6"/>
+<text x="338.0" y="129.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">u</tspan></text>
+<line x1="280.0" y1="166.0" x2="324.6" y2="166.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M330.0,166.0 L321.7,169.5 L321.7,162.5 Z" fill="#3b82f6"/>
+<text x="338.0" y="171.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">l</tspan></text>
+<line x1="330.0" y1="76.0" x2="284.8" y2="76.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M280.0,76.0 L287.4,72.9 L287.4,79.1 Z" fill="#8a94a6"/>
+<line x1="330.0" y1="214.0" x2="284.8" y2="214.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M280.0,214.0 L287.4,210.9 L287.4,217.1 Z" fill="#8a94a6"/>
+<line x1="400.0" y1="115.0" x2="400.0" y2="175.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M400.0,115.0 L402.7,121.4 L397.3,121.4 Z" fill="#10b981"/>
+<path d="M400.0,175.0 L397.3,168.6 L402.7,168.6 Z" fill="#10b981"/>
+<text x="414.0" y="151.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle">h</text>
+<line x1="130.0" y1="28.0" x2="130.0" y2="262.0" stroke="#4b5563" stroke-width="1.4"/>
+<line x1="500.0" y1="28.0" x2="500.0" y2="262.0" stroke="#4b5563" stroke-width="1.4"/>
+<line x1="150.0" y1="258.0" x2="480.0" y2="258.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M150.0,258.0 L156.4,255.3 L156.4,260.7 Z" fill="#10b981"/>
+<path d="M480.0,258.0 L473.6,260.7 L473.6,255.3 Z" fill="#10b981"/>
+<text x="315.0" y="278.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle">L</text>
+<text x="70.0" y="150.0" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<text x="594.0" y="150.0" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">0</tspan> + ΔP</text>
+<text x="70.0" y="60.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ, μ</text>
+<line x1="560.0" y1="250.0" x2="590.0" y2="250.0" stroke="#4b5563" stroke-width="1.2"/>
+<path d="M590.0,250.0 L581.7,253.5 L581.7,246.5 Z" fill="#4b5563"/>
+<line x1="560.0" y1="250.0" x2="560.0" y2="220.0" stroke="#4b5563" stroke-width="1.2"/>
+<path d="M560.0,220.0 L563.5,228.3 L556.5,228.3 Z" fill="#4b5563"/>
+<text x="594.0" y="255.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<text x="554.0" y="218.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+</g></svg>

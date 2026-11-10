@@ -90,6 +90,10 @@ window.AE_NAV = {
             {
               "href": "subjects/fluid-mechanics/problemas/topic-6-dimensional-analysis.html",
               "label": "6 · Dimensional analysis (DA1–DA14)"
+            },
+            {
+              "href": "subjects/fluid-mechanics/problemas/topic-7-viscous-flow.html",
+              "label": "7 · Viscous flow (VF2–VF20)"
             }
           ]
         }

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 676 290" width="100%" class="fig-kit" style="max-width:676px;margin:0 auto;display:block" role="img" aria-label="Pipe with a partly inserted bar">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="60.0,90.0 150.0,90.0 150.0,95.0 600.0,95.0 600.0,205.0 150.0,205.0 150.0,230.0 60.0,230.0" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="150.0" y1="95.0" x2="600.0" y2="95.0" stroke="#4b5563" stroke-width="3.0"/>
+<line x1="150.0" y1="205.0" x2="600.0" y2="205.0" stroke="#4b5563" stroke-width="3.0"/>
+<line x1="150.0" y1="70.0" x2="150.0" y2="95.0" stroke="#4b5563" stroke-width="3.0"/>
+<line x1="150.0" y1="205.0" x2="150.0" y2="250.0" stroke="#4b5563" stroke-width="3.0"/>
+<rect x="430.0" y="126.0" width="190.0" height="48.0" fill="#8a94a6" fill-opacity="0.3" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="430.0" y1="126.0" x2="424.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="439.0" y1="126.0" x2="433.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="448.0" y1="126.0" x2="442.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="457.0" y1="126.0" x2="451.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="466.0" y1="126.0" x2="460.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="475.0" y1="126.0" x2="469.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="484.0" y1="126.0" x2="478.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="493.0" y1="126.0" x2="487.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="502.0" y1="126.0" x2="496.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="511.0" y1="126.0" x2="505.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="520.0" y1="126.0" x2="514.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="529.0" y1="126.0" x2="523.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="538.0" y1="126.0" x2="532.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="547.0" y1="126.0" x2="541.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="556.0" y1="126.0" x2="550.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="565.0" y1="126.0" x2="559.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="574.0" y1="126.0" x2="568.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="583.0" y1="126.0" x2="577.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="592.0" y1="126.0" x2="586.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="601.0" y1="126.0" x2="595.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="610.0" y1="126.0" x2="604.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="619.0" y1="126.0" x2="613.3" y2="131.7" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="100.0" y="120.0" fill="#f59e0b" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<text x="424.0" y="61.0" fill="#f59e0b" font-size="19" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+<line x1="426.0" y1="67.0" x2="436.0" y2="122.0" stroke="#f59e0b" stroke-width="1.0"/>
+<text x="626.0" y="142.0" fill="#f59e0b" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="128.0" y1="95.0" x2="128.0" y2="205.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M128.0,95.0 L130.7,101.4 L125.3,101.4 Z" fill="#10b981"/>
+<path d="M128.0,205.0 L125.3,198.6 L130.7,198.6 Z" fill="#10b981"/>
+<text x="114.0" y="156.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle">D</text>
+<line x1="430.0" y1="44.0" x2="600.0" y2="44.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M430.0,44.0 L436.4,41.3 L436.4,46.7 Z" fill="#10b981"/>
+<path d="M600.0,44.0 L593.6,46.7 L593.6,41.3 Z" fill="#10b981"/>
+<text x="515.0" y="36.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle">βL</text>
+<line x1="150.0" y1="258.0" x2="600.0" y2="258.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M150.0,258.0 L156.4,255.3 L156.4,260.7 Z" fill="#10b981"/>
+<path d="M600.0,258.0 L593.6,260.7 L593.6,255.3 Z" fill="#10b981"/>
+<text x="375.0" y="276.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle">L</text>
+<line x1="560.0" y1="126.0" x2="560.0" y2="174.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M560.0,126.0 L562.7,132.4 L557.3,132.4 Z" fill="#10b981"/>
+<path d="M560.0,174.0 L557.3,167.6 L562.7,167.6 Z" fill="#10b981"/>
+<text x="538.0" y="155.0" fill="#10b981" font-size="15" font-weight="400" text-anchor="middle">αD</text>
+<line x1="200.0" y1="226.0" x2="236.0" y2="226.0" stroke="#4b5563" stroke-width="1.2"/>
+<path d="M236.0,226.0 L227.7,229.5 L227.7,222.5 Z" fill="#4b5563"/>
+<line x1="200.0" y1="226.0" x2="200.0" y2="190.0" stroke="#4b5563" stroke-width="1.2"/>
+<path d="M200.0,190.0 L203.5,198.3 L196.5,198.3 Z" fill="#4b5563"/>
+<text x="240.0" y="231.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<text x="194.0" y="188.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">r</text>
+</g></svg>

@@ -19,7 +19,7 @@ the vault currently reaches.
 
 ### 🌊 [[01 - Fluid Mechanics/Fluid Mechanics MOC|Fluid Mechanics]]
 * **Units (7):** introductory remarks, flow kinematics, conservation laws, Navier-Stokes equations, hydrostatics, dimensional analysis, viscous flow.
-* **Vault notes:** units 1-6 (one theory note per topic) and the solved problems of each sheet: K1-K10, CL1-CL22, NS1-NS17, FS1-FS10 (FS8 solved in FS2) and DA1-DA14, 72 in all.
+* **Vault notes:** units 1-7 (one theory note per topic) and the solved problems of each sheet: K1-K10, CL1-CL22, NS1-NS17, FS1-FS10 (FS8 solved in FS2), DA1-DA14 and VF2-VF20, 91 in all.
 * **Laboratory:** [[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Lab 1: Jet Impact on Surfaces (RTT and momentum)]] (private note; labs are not published on the web).
 * **NotebookLM notebook:** `3080c1f2-5689-4a39-90c3-091d58f39684`
 * **Web pages:** `subjects/fluid-mechanics/`

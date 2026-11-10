@@ -651,6 +651,101 @@
    "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA14.pdf",
    "label": "DA14.pdf",
    "pages": 3
+  },
+  "fm-vf2": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF2_w_solution.pdf",
+   "label": "VF2_w_solution.pdf",
+   "pages": 5
+  },
+  "fm-vf3": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF3.pdf",
+   "label": "VF3.pdf",
+   "pages": 1
+  },
+  "fm-vf4": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF4.pdf",
+   "label": "VF4.pdf",
+   "pages": 1
+  },
+  "fm-vf5": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF5.pdf",
+   "label": "VF5.pdf",
+   "pages": 1
+  },
+  "fm-vf6": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF6.pdf",
+   "label": "VF6.pdf",
+   "pages": 1
+  },
+  "fm-vf7": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF7.pdf",
+   "label": "VF7.pdf",
+   "pages": 1
+  },
+  "fm-vf8": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF8.pdf",
+   "label": "VF8.pdf",
+   "pages": 1
+  },
+  "fm-vf9": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF9.pdf",
+   "label": "VF9.pdf",
+   "pages": 1
+  },
+  "fm-vf10": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF10.pdf",
+   "label": "VF10.pdf",
+   "pages": 1
+  },
+  "fm-vf11": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF11.pdf",
+   "label": "VF11.pdf",
+   "pages": 1
+  },
+  "fm-vf12": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF12.pdf",
+   "label": "VF12.pdf",
+   "pages": 1
+  },
+  "fm-vf13": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF13.pdf",
+   "label": "VF13.pdf",
+   "pages": 1
+  },
+  "fm-vf14": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF14.pdf",
+   "label": "VF14.pdf",
+   "pages": 1
+  },
+  "fm-vf15": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF15.pdf",
+   "label": "VF15.pdf",
+   "pages": 3
+  },
+  "fm-vf16": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF16.pdf",
+   "label": "VF16.pdf",
+   "pages": 2
+  },
+  "fm-vf17": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF17.pdf",
+   "label": "VF17.pdf",
+   "pages": 1
+  },
+  "fm-vf18": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF18.pdf",
+   "label": "VF18.pdf",
+   "pages": 1
+  },
+  "fm-vf19": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF19.pdf",
+   "label": "VF19.pdf",
+   "pages": 1
+  },
+  "fm-vf20": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF20.pdf",
+   "label": "VF20.pdf",
+   "pages": 3
   }
  },
  "pages": {
@@ -2787,6 +2882,96 @@
    ],
    "cite": {
     "notes": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/problemas/topic-7-viscous-flow.html": {
+   "panel": [
+    [
+     "fm-notes",
+     82,
+     "Notes.pdf, Chapter 7"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   },
+   "cards": {
+    "vf2": [
+     "fm-vf2",
+     1
+    ],
+    "vf3": [
+     "fm-vf3",
+     1
+    ],
+    "vf4": [
+     "fm-vf4",
+     1
+    ],
+    "vf5": [
+     "fm-vf5",
+     1
+    ],
+    "vf6": [
+     "fm-vf6",
+     1
+    ],
+    "vf7": [
+     "fm-vf7",
+     1
+    ],
+    "vf8": [
+     "fm-vf8",
+     1
+    ],
+    "vf9": [
+     "fm-vf9",
+     1
+    ],
+    "vf10": [
+     "fm-vf10",
+     1
+    ],
+    "vf11": [
+     "fm-vf11",
+     1
+    ],
+    "vf12": [
+     "fm-vf12",
+     1
+    ],
+    "vf13": [
+     "fm-vf13",
+     1
+    ],
+    "vf14": [
+     "fm-vf14",
+     1
+    ],
+    "vf15": [
+     "fm-vf15",
+     1
+    ],
+    "vf16": [
+     "fm-vf16",
+     1
+    ],
+    "vf17": [
+     "fm-vf17",
+     1
+    ],
+    "vf18": [
+     "fm-vf18",
+     1
+    ],
+    "vf19": [
+     "fm-vf19",
+     1
+    ],
+    "vf20": [
+     "fm-vf20",
+     1
+    ]
    }
   }
  }
