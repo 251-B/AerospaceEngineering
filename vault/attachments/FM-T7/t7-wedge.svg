@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="The wedge effect (Fig. 7.6 of the notes)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M110,20 C130,40 260,70 540,88 L560,20" fill="none" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="90.0" y1="140.0" x2="580.0" y2="140.0" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="90.0" y1="142.0" x2="84.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="102.0" y1="142.0" x2="96.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="114.0" y1="142.0" x2="108.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="126.0" y1="142.0" x2="120.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="138.0" y1="142.0" x2="132.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="150.0" y1="142.0" x2="144.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="162.0" y1="142.0" x2="156.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="174.0" y1="142.0" x2="168.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="186.0" y1="142.0" x2="180.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="198.0" y1="142.0" x2="192.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="210.0" y1="142.0" x2="204.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="222.0" y1="142.0" x2="216.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="234.0" y1="142.0" x2="228.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="246.0" y1="142.0" x2="240.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="258.0" y1="142.0" x2="252.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="270.0" y1="142.0" x2="264.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="282.0" y1="142.0" x2="276.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="294.0" y1="142.0" x2="288.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="306.0" y1="142.0" x2="300.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="318.0" y1="142.0" x2="312.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="330.0" y1="142.0" x2="324.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="342.0" y1="142.0" x2="336.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="354.0" y1="142.0" x2="348.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="366.0" y1="142.0" x2="360.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="378.0" y1="142.0" x2="372.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="390.0" y1="142.0" x2="384.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="402.0" y1="142.0" x2="396.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="414.0" y1="142.0" x2="408.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="426.0" y1="142.0" x2="420.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="438.0" y1="142.0" x2="432.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="450.0" y1="142.0" x2="444.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="462.0" y1="142.0" x2="456.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="474.0" y1="142.0" x2="468.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="486.0" y1="142.0" x2="480.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="498.0" y1="142.0" x2="492.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="510.0" y1="142.0" x2="504.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="522.0" y1="142.0" x2="516.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="534.0" y1="142.0" x2="528.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="546.0" y1="142.0" x2="540.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="558.0" y1="142.0" x2="552.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="570.0" y1="142.0" x2="564.3" y2="136.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="170.0" y1="140.0" x2="214.4" y2="140.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M218.0,140.0 L212.5,142.3 L212.5,137.7 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="120.0" x2="204.8" y2="120.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M208.4,120.0 L202.9,122.3 L202.9,117.7 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="100.0" x2="195.2" y2="100.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M198.8,100.0 L193.3,102.3 L193.3,97.7 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="80.0" x2="185.6" y2="80.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M189.2,80.0 L183.7,82.3 L183.7,77.7 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="60.0" x2="176.0" y2="60.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M179.6,60.0 L174.1,62.3 L174.1,57.7 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="40.0" x2="166.4" y2="40.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M170.0,40.0 L164.5,42.3 L164.5,37.7 Z" fill="#3b82f6"/>
+<path d="M218.0,140.0 L215.6,135.0 L213.2,130.0 L210.8,125.0 L208.4,120.0 L206.0,115.0 L203.6,110.0 L201.2,105.0 L198.8,100.0 L196.4,95.0 L194.0,90.0 L191.6,85.0 L189.2,80.0 L186.8,75.0 L184.4,70.0 L182.0,65.0 L179.6,60.0 L177.2,55.0 L174.8,50.0 L172.4,45.0 L170.0,40.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="170.0" y1="140.0" x2="170.0" y2="40.0" stroke="#8a94a6" stroke-width="0.7" stroke-dasharray="3,3"/>
+<line x1="330.0" y1="140.0" x2="374.4" y2="140.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M378.0,140.0 L372.5,142.3 L372.5,137.7 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="124.8" x2="364.8" y2="124.8" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M368.4,124.8 L362.9,127.1 L362.9,122.5 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="109.6" x2="355.2" y2="109.6" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M358.8,109.6 L353.3,111.9 L353.3,107.3 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="94.4" x2="345.6" y2="94.4" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M349.2,94.4 L343.7,96.7 L343.7,92.1 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="79.2" x2="336.0" y2="79.2" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M339.6,79.2 L334.1,81.5 L334.1,76.9 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="64.0" x2="326.4" y2="64.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M330.0,64.0 L324.5,66.3 L324.5,61.7 Z" fill="#3b82f6"/>
+<path d="M378.0,140.0 L375.6,136.2 L373.2,132.4 L370.8,128.6 L368.4,124.8 L366.0,121.0 L363.6,117.2 L361.2,113.4 L358.8,109.6 L356.4,105.8 L354.0,102.0 L351.6,98.2 L349.2,94.4 L346.8,90.6 L344.4,86.8 L342.0,83.0 L339.6,79.2 L337.2,75.4 L334.8,71.6 L332.4,67.8 L330.0,64.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="330.0" y1="140.0" x2="330.0" y2="64.0" stroke="#8a94a6" stroke-width="0.7" stroke-dasharray="3,3"/>
+<line x1="490.0" y1="140.0" x2="534.4" y2="140.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M538.0,140.0 L532.5,142.3 L532.5,137.7 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="128.8" x2="524.8" y2="128.8" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M528.4,128.8 L522.9,131.1 L522.9,126.5 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="117.6" x2="515.2" y2="117.6" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M518.8,117.6 L513.3,119.9 L513.3,115.3 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="106.4" x2="505.6" y2="106.4" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M509.2,106.4 L503.7,108.7 L503.7,104.1 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="95.2" x2="496.0" y2="95.2" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M499.6,95.2 L494.1,97.5 L494.1,92.9 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="84.0" x2="486.4" y2="84.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M490.0,84.0 L484.5,86.3 L484.5,81.7 Z" fill="#3b82f6"/>
+<path d="M538.0,140.0 L535.6,137.2 L533.2,134.4 L530.8,131.6 L528.4,128.8 L526.0,126.0 L523.6,123.2 L521.2,120.4 L518.8,117.6 L516.4,114.8 L514.0,112.0 L511.6,109.2 L509.2,106.4 L506.8,103.6 L504.4,100.8 L502.0,98.0 L499.6,95.2 L497.2,92.4 L494.8,89.6 L492.4,86.8 L490.0,84.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="490.0" y1="140.0" x2="490.0" y2="84.0" stroke="#8a94a6" stroke-width="0.7" stroke-dasharray="3,3"/>
+<line x1="260.0" y1="164.0" x2="373.4" y2="164.0" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M380.0,164.0 L369.9,168.3 L369.9,159.7 Z" fill="#f59e0b"/>
+<text x="320.0" y="184.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V(t)</text>
+<path d="M110,210 C130,230 260,260 540,278 L560,210" fill="none" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="90.0" y1="330.0" x2="580.0" y2="330.0" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="90.0" y1="332.0" x2="84.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="102.0" y1="332.0" x2="96.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="114.0" y1="332.0" x2="108.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="126.0" y1="332.0" x2="120.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="138.0" y1="332.0" x2="132.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="150.0" y1="332.0" x2="144.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="162.0" y1="332.0" x2="156.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="174.0" y1="332.0" x2="168.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="186.0" y1="332.0" x2="180.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="198.0" y1="332.0" x2="192.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="210.0" y1="332.0" x2="204.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="222.0" y1="332.0" x2="216.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="234.0" y1="332.0" x2="228.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="246.0" y1="332.0" x2="240.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="258.0" y1="332.0" x2="252.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="270.0" y1="332.0" x2="264.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="282.0" y1="332.0" x2="276.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="294.0" y1="332.0" x2="288.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="306.0" y1="332.0" x2="300.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="318.0" y1="332.0" x2="312.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="330.0" y1="332.0" x2="324.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="342.0" y1="332.0" x2="336.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="354.0" y1="332.0" x2="348.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="366.0" y1="332.0" x2="360.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="378.0" y1="332.0" x2="372.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="390.0" y1="332.0" x2="384.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="402.0" y1="332.0" x2="396.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="414.0" y1="332.0" x2="408.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="426.0" y1="332.0" x2="420.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="438.0" y1="332.0" x2="432.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="450.0" y1="332.0" x2="444.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="462.0" y1="332.0" x2="456.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="474.0" y1="332.0" x2="468.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="486.0" y1="332.0" x2="480.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="498.0" y1="332.0" x2="492.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="510.0" y1="332.0" x2="504.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="522.0" y1="332.0" x2="516.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="534.0" y1="332.0" x2="528.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="546.0" y1="332.0" x2="540.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="558.0" y1="332.0" x2="552.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="570.0" y1="332.0" x2="564.3" y2="326.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="170.0" y1="330.0" x2="214.4" y2="330.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M218.0,330.0 L212.5,332.3 L212.5,327.7 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="310.0" x2="179.2" y2="310.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M182.8,310.0 L177.3,312.3 L177.3,307.7 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="290.0" x2="164.0" y2="290.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M160.4,290.0 L165.9,287.7 L165.9,292.3 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="270.0" x2="154.4" y2="270.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M150.8,270.0 L156.3,267.7 L156.3,272.3 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="250.0" x2="157.6" y2="250.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M154.0,250.0 L159.5,247.7 L159.5,252.3 Z" fill="#3b82f6"/>
+<line x1="170.0" y1="230.0" x2="166.4" y2="230.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M170.0,230.0 L164.5,232.3 L164.5,227.7 Z" fill="#3b82f6"/>
+<path d="M218.0,330.0 L208.0,325.0 L198.8,320.0 L190.4,315.0 L182.8,310.0 L176.0,305.0 L170.0,300.0 L164.8,295.0 L160.4,290.0 L156.8,285.0 L154.0,280.0 L152.0,275.0 L150.8,270.0 L150.4,265.0 L150.8,260.0 L152.0,255.0 L154.0,250.0 L156.8,245.0 L160.4,240.0 L164.8,235.0 L170.0,230.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="170.0" y1="330.0" x2="170.0" y2="230.0" stroke="#8a94a6" stroke-width="0.7" stroke-dasharray="3,3"/>
+<line x1="330.0" y1="330.0" x2="374.4" y2="330.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M378.0,330.0 L372.5,332.3 L372.5,327.7 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="314.8" x2="364.8" y2="314.8" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M368.4,314.8 L362.9,317.1 L362.9,312.5 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="299.6" x2="355.2" y2="299.6" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M358.8,299.6 L353.3,301.9 L353.3,297.3 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="284.4" x2="345.6" y2="284.4" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M349.2,284.4 L343.7,286.7 L343.7,282.1 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="269.2" x2="336.0" y2="269.2" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M339.6,269.2 L334.1,271.5 L334.1,266.9 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="254.0" x2="326.4" y2="254.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M330.0,254.0 L324.5,256.3 L324.5,251.7 Z" fill="#3b82f6"/>
+<path d="M378.0,330.0 L375.6,326.2 L373.2,322.4 L370.8,318.6 L368.4,314.8 L366.0,311.0 L363.6,307.2 L361.2,303.4 L358.8,299.6 L356.4,295.8 L354.0,292.0 L351.6,288.2 L349.2,284.4 L346.8,280.6 L344.4,276.8 L342.0,273.0 L339.6,269.2 L337.2,265.4 L334.8,261.6 L332.4,257.8 L330.0,254.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="330.0" y1="330.0" x2="330.0" y2="254.0" stroke="#8a94a6" stroke-width="0.7" stroke-dasharray="3,3"/>
+<line x1="490.0" y1="330.0" x2="534.4" y2="330.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M538.0,330.0 L532.5,332.3 L532.5,327.7 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="318.8" x2="550.4" y2="318.8" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M554.0,318.8 L548.5,321.1 L548.5,316.5 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="307.6" x2="553.6" y2="307.6" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M557.2,307.6 L551.7,309.9 L551.7,305.3 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="296.4" x2="544.0" y2="296.4" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M547.6,296.4 L542.1,298.7 L542.1,294.1 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="285.2" x2="521.6" y2="285.2" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M525.2,285.2 L519.7,287.5 L519.7,282.9 Z" fill="#3b82f6"/>
+<line x1="490.0" y1="274.0" x2="486.4" y2="274.0" stroke="#3b82f6" stroke-width="1.2"/>
+<path d="M490.0,274.0 L484.5,276.3 L484.5,271.7 Z" fill="#3b82f6"/>
+<path d="M538.0,330.0 L543.2,327.2 L547.6,324.4 L551.2,321.6 L554.0,318.8 L556.0,316.0 L557.2,313.2 L557.6,310.4 L557.2,307.6 L556.0,304.8 L554.0,302.0 L551.2,299.2 L547.6,296.4 L543.2,293.6 L538.0,290.8 L532.0,288.0 L525.2,285.2 L517.6,282.4 L509.2,279.6 L500.0,276.8 L490.0,274.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="490.0" y1="330.0" x2="490.0" y2="274.0" stroke="#8a94a6" stroke-width="0.7" stroke-dasharray="3,3"/>
+<line x1="260.0" y1="354.0" x2="373.4" y2="354.0" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M380.0,354.0 L369.9,358.3 L369.9,349.7 Z" fill="#f59e0b"/>
+<text x="320.0" y="374.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V(t)</text>
+<text x="40.0" y="92.0" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">l</tspan> = 0</text>
+<text x="40.0" y="282.0" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">l</tspan> ≠ 0</text>
+<path d="M110,488 C220,462 300,452 340,452 C400,452 490,468 560,488" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="100.0" y1="488.0" x2="570.0" y2="488.0" stroke="#4b5563" stroke-width="1.2"/>
+<text x="104.0" y="508.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+<text x="566.0" y="508.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+<text x="342.0" y="442.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">max</tspan></text>
+</g></svg>

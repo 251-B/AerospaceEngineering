@@ -2776,6 +2776,18 @@
      1
     ]
    }
+  },
+  "subjects/fluid-mechanics/teoria/topic-7.html": {
+   "panel": [
+    [
+     "fm-notes",
+     82,
+     "Notes.pdf, Chapter 7"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   }
   }
  }
 }

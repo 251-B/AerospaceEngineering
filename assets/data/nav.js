@@ -59,6 +59,10 @@ window.AE_NAV = {
             {
               "href": "subjects/fluid-mechanics/teoria/topic-6.html",
               "label": "6 · Dimensional analysis"
+            },
+            {
+              "href": "subjects/fluid-mechanics/teoria/topic-7.html",
+              "label": "7 · Viscous flows"
             }
           ]
         },

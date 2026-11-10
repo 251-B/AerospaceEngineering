@@ -38,7 +38,7 @@ PORTAL = "index.html"
 INPUTS = (SOURCE_LINKS, MOC, PROBLEMS_INDEX, THEORY_INDEX, PORTAL)   # edited in place by sync(): read from the repo first
 BASE = "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/"
 KINEMATICS_PROBLEMS = 10                               # K1 to K10 share the root card with the CL problems
-FLUID_SETS = ("CL", "NS", "FS", "DA")                 # problem notes counted on the root card (fluid_problem_count)
+FLUID_SETS = ("CL", "NS", "FS", "DA", "VF")                 # problem notes counted on the root card (fluid_problem_count)
 
 EXTRA_CSS = """
     .balance-block { border-left: 3px solid var(--accent-border, var(--border-subtle)); padding: 4px 0 4px 14px; margin: 18px 0; }

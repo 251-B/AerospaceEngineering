@@ -130,8 +130,8 @@ tags:
     * [[01 - Fluid Mechanics/Problem - DA12 Supersonic Missile Drag and Shock Standoff|Problem DA12: Supersonic Missile Drag and Shock Standoff]]
     * [[01 - Fluid Mechanics/Problem - DA13 Mars Lander Parachute|Problem DA13: Mars Lander Parachute]]
     * [[01 - Fluid Mechanics/Problem - DA14 Torque in an Impulsively Rotated Cavity|Problem DA14: Torque in an Impulsively Rotated Cavity]]
-* Topic 7: Viscous Flows & Boundary Layer Theory (planned)
-  * Official sources: `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 solved problems).
+* [[01 - Fluid Mechanics/Topic 7 - Viscous Flows|Topic 7: Viscous Flows]]
+  * Official sources: `Notes.pdf` Chapter 7 and the problem sheets `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 problems, each with the handwritten key).
 
 ### 🧪 Experimental Sessions & Laboratory Practicals
 * **Official structure:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/`

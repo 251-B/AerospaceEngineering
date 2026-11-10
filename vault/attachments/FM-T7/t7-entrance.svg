@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="The entrance region in pipe flows dominated by viscosity (Fig. 7.4 of the notes)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="170.0" y1="60.0" x2="620.0" y2="60.0" stroke="#4b5563" stroke-width="2.2"/>
+<line x1="170.0" y1="140.0" x2="620.0" y2="140.0" stroke="#4b5563" stroke-width="2.2"/>
+<path d="M60,56 C130,75 160,92 190,92" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,144 C130,125 160,108 190,108" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,12 C130,50 160,84 190,84" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,188 C130,150 160,116 190,116" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,-31 C130,25 160,76 190,76" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,231 C130,175 160,124 190,124" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<text x="110.0" y="103.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">entrance region</text>
+<text x="430.0" y="46.0" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">ρ v<tspan baseline-shift="sub" font-size="72%">L</tspan> D / μ ≲ 1</text>
+<path d="M300.0,60.0 L303.3,62.0 L306.5,64.0 L309.4,66.0 L312.2,68.0 L314.9,70.0 L317.3,72.0 L319.6,74.0 L321.8,76.0 L323.7,78.0 L325.5,80.0 L327.1,82.0 L328.6,84.0 L329.8,86.0 L330.9,88.0 L331.9,90.0 L332.6,92.0 L333.2,94.0 L333.7,96.0 L333.9,98.0 L334.0,100.0 L333.9,102.0 L333.7,104.0 L333.2,106.0 L332.6,108.0 L331.9,110.0 L330.9,112.0 L329.8,114.0 L328.6,116.0 L327.1,118.0 L325.5,120.0 L323.7,122.0 L321.8,124.0 L319.6,126.0 L317.3,128.0 L314.9,130.0 L312.2,132.0 L309.4,134.0 L306.5,136.0 L303.3,138.0 L300.0,140.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="300.0" y1="68.0" x2="308.6" y2="68.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M312.2,68.0 L306.7,70.3 L306.7,65.7 Z" fill="#3b82f6"/>
+<line x1="300.0" y1="84.0" x2="325.0" y2="84.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M328.6,84.0 L323.0,86.3 L323.0,81.7 Z" fill="#3b82f6"/>
+<line x1="300.0" y1="100.0" x2="330.4" y2="100.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M334.0,100.0 L328.5,102.3 L328.5,97.7 Z" fill="#3b82f6"/>
+<line x1="300.0" y1="116.0" x2="325.0" y2="116.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M328.6,116.0 L323.0,118.3 L323.0,113.7 Z" fill="#3b82f6"/>
+<line x1="300.0" y1="132.0" x2="308.6" y2="132.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M312.2,132.0 L306.7,134.3 L306.7,129.7 Z" fill="#3b82f6"/>
+<line x1="300.0" y1="60.0" x2="300.0" y2="140.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<path d="M500.0,60.0 L503.3,62.0 L506.5,64.0 L509.4,66.0 L512.2,68.0 L514.9,70.0 L517.3,72.0 L519.6,74.0 L521.8,76.0 L523.7,78.0 L525.5,80.0 L527.1,82.0 L528.6,84.0 L529.8,86.0 L530.9,88.0 L531.9,90.0 L532.6,92.0 L533.2,94.0 L533.7,96.0 L533.9,98.0 L534.0,100.0 L533.9,102.0 L533.7,104.0 L533.2,106.0 L532.6,108.0 L531.9,110.0 L530.9,112.0 L529.8,114.0 L528.6,116.0 L527.1,118.0 L525.5,120.0 L523.7,122.0 L521.8,124.0 L519.6,126.0 L517.3,128.0 L514.9,130.0 L512.2,132.0 L509.4,134.0 L506.5,136.0 L503.3,138.0 L500.0,140.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="500.0" y1="68.0" x2="508.6" y2="68.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M512.2,68.0 L506.7,70.3 L506.7,65.7 Z" fill="#3b82f6"/>
+<line x1="500.0" y1="84.0" x2="525.0" y2="84.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M528.6,84.0 L523.0,86.3 L523.0,81.7 Z" fill="#3b82f6"/>
+<line x1="500.0" y1="100.0" x2="530.4" y2="100.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M534.0,100.0 L528.5,102.3 L528.5,97.7 Z" fill="#3b82f6"/>
+<line x1="500.0" y1="116.0" x2="525.0" y2="116.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M528.6,116.0 L523.0,118.3 L523.0,113.7 Z" fill="#3b82f6"/>
+<line x1="500.0" y1="132.0" x2="508.6" y2="132.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M512.2,132.0 L506.7,134.3 L506.7,129.7 Z" fill="#3b82f6"/>
+<line x1="500.0" y1="60.0" x2="500.0" y2="140.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<line x1="185.0" y1="156.0" x2="255.0" y2="156.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M185.0,156.0 L191.4,153.3 L191.4,158.7 Z" fill="#10b981"/>
+<path d="M255.0,156.0 L248.6,158.7 L248.6,153.3 Z" fill="#10b981"/>
+<text x="220.0" y="172.0" fill="#10b981" font-size="15" font-weight="400" text-anchor="middle">D</text>
+<line x1="170.0" y1="175.0" x2="620.0" y2="175.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M170.0,175.0 L176.4,172.3 L176.4,177.7 Z" fill="#10b981"/>
+<path d="M620.0,175.0 L613.6,177.7 L613.6,172.3 Z" fill="#10b981"/>
+<text x="395.0" y="193.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle">L</text>
+<line x1="170.0" y1="250.0" x2="620.0" y2="250.0" stroke="#4b5563" stroke-width="2.2"/>
+<line x1="170.0" y1="330.0" x2="620.0" y2="330.0" stroke="#4b5563" stroke-width="2.2"/>
+<path d="M60,246 C130,265 160,282 190,282" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,334 C130,315 160,298 190,298" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,202 C130,240 160,274 190,274" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,378 C130,340 160,306 190,306" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,159 C130,215 160,266 190,266" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<path d="M60,421 C130,365 160,314 190,314" fill="none" stroke="#3b82f6" stroke-width="1.0" stroke-linejoin="round"/>
+<text x="110.0" y="293.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">entrance region</text>
+<text x="430.0" y="236.0" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">ρ v<tspan baseline-shift="sub" font-size="72%">L</tspan> D / μ ≫ 1</text>
+<path d="M200.0,250.0 L225.6,252.0 L234.0,254.0 L234.0,256.0 L234.0,258.0 L234.0,260.0 L234.0,262.0 L234.0,264.0 L234.0,266.0 L234.0,268.0 L234.0,270.0 L234.0,272.0 L234.0,274.0 L234.0,276.0 L234.0,278.0 L234.0,280.0 L234.0,282.0 L234.0,284.0 L234.0,286.0 L234.0,288.0 L234.0,290.0 L234.0,292.0 L234.0,294.0 L234.0,296.0 L234.0,298.0 L234.0,300.0 L234.0,302.0 L234.0,304.0 L234.0,306.0 L234.0,308.0 L234.0,310.0 L234.0,312.0 L234.0,314.0 L234.0,316.0 L234.0,318.0 L234.0,320.0 L234.0,322.0 L234.0,324.0 L234.0,326.0 L225.6,328.0 L200.0,330.0" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M260.0,250.0 L271.9,252.0 L279.3,254.0 L285.6,256.0 L291.3,258.0 L294.0,260.0 L294.0,262.0 L294.0,264.0 L294.0,266.0 L294.0,268.0 L294.0,270.0 L294.0,272.0 L294.0,274.0 L294.0,276.0 L294.0,278.0 L294.0,280.0 L294.0,282.0 L294.0,284.0 L294.0,286.0 L294.0,288.0 L294.0,290.0 L294.0,292.0 L294.0,294.0 L294.0,296.0 L294.0,298.0 L294.0,300.0 L294.0,302.0 L294.0,304.0 L294.0,306.0 L294.0,308.0 L294.0,310.0 L294.0,312.0 L294.0,314.0 L294.0,316.0 L294.0,318.0 L294.0,320.0 L291.3,322.0 L285.6,324.0 L279.3,326.0 L271.9,328.0 L260.0,330.0" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M330.0,250.0 L337.6,252.0 L342.3,254.0 L346.4,256.0 L350.1,258.0 L353.5,260.0 L356.6,262.0 L359.7,264.0 L362.6,266.0 L364.0,268.0 L364.0,270.0 L364.0,272.0 L364.0,274.0 L364.0,276.0 L364.0,278.0 L364.0,280.0 L364.0,282.0 L364.0,284.0 L364.0,286.0 L364.0,288.0 L364.0,290.0 L364.0,292.0 L364.0,294.0 L364.0,296.0 L364.0,298.0 L364.0,300.0 L364.0,302.0 L364.0,304.0 L364.0,306.0 L364.0,308.0 L364.0,310.0 L364.0,312.0 L362.6,314.0 L359.7,316.0 L356.6,318.0 L353.5,320.0 L350.1,322.0 L346.4,324.0 L342.3,326.0 L337.6,328.0 L330.0,330.0" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M400.0,250.0 L405.8,252.0 L409.4,254.0 L412.5,256.0 L415.3,258.0 L417.9,260.0 L420.3,262.0 L422.7,264.0 L424.9,266.0 L427.0,268.0 L429.1,270.0 L431.1,272.0 L433.0,274.0 L434.0,276.0 L434.0,278.0 L434.0,280.0 L434.0,282.0 L434.0,284.0 L434.0,286.0 L434.0,288.0 L434.0,290.0 L434.0,292.0 L434.0,294.0 L434.0,296.0 L434.0,298.0 L434.0,300.0 L434.0,302.0 L434.0,304.0 L433.0,306.0 L431.1,308.0 L429.1,310.0 L427.0,312.0 L424.9,314.0 L422.7,316.0 L420.3,318.0 L417.9,320.0 L415.3,322.0 L412.5,324.0 L409.4,326.0 L405.8,328.0 L400.0,330.0" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M470.0,250.0 L474.8,252.0 L477.8,254.0 L480.3,256.0 L482.6,258.0 L484.7,260.0 L486.7,262.0 L488.7,264.0 L490.5,266.0 L492.2,268.0 L493.9,270.0 L495.6,272.0 L497.2,274.0 L498.8,276.0 L500.3,278.0 L501.8,280.0 L503.3,282.0 L504.0,284.0 L504.0,286.0 L504.0,288.0 L504.0,290.0 L504.0,292.0 L504.0,294.0 L504.0,296.0 L503.3,298.0 L501.8,300.0 L500.3,302.0 L498.8,304.0 L497.2,306.0 L495.6,308.0 L493.9,310.0 L492.2,312.0 L490.5,314.0 L488.7,316.0 L486.7,318.0 L484.7,320.0 L482.6,322.0 L480.3,324.0 L477.8,326.0 L474.8,328.0 L470.0,330.0" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M540.0,250.0 L543.3,252.0 L546.5,254.0 L549.4,256.0 L552.2,258.0 L554.9,260.0 L557.3,262.0 L559.6,264.0 L561.8,266.0 L563.7,268.0 L565.5,270.0 L567.1,272.0 L568.6,274.0 L569.8,276.0 L570.9,278.0 L571.9,280.0 L572.6,282.0 L573.2,284.0 L573.7,286.0 L573.9,288.0 L574.0,290.0 L573.9,292.0 L573.7,294.0 L573.2,296.0 L572.6,298.0 L571.9,300.0 L570.9,302.0 L569.8,304.0 L568.6,306.0 L567.1,308.0 L565.5,310.0 L563.7,312.0 L561.8,314.0 L559.6,316.0 L557.3,318.0 L554.9,320.0 L552.2,322.0 L549.4,324.0 L546.5,326.0 L543.3,328.0 L540.0,330.0" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="round"/>
+<line x1="200.0" y1="344.0" x2="470.0" y2="344.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M200.0,344.0 L206.4,341.3 L206.4,346.7 Z" fill="#10b981"/>
+<path d="M470.0,344.0 L463.6,346.7 L463.6,341.3 Z" fill="#10b981"/>
+<text x="335.0" y="344.0" fill="#10b981" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="338.0" y="366.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">L<tspan baseline-shift="sub" font-size="72%">E</tspan></text>
+<line x1="200.0" y1="336.0" x2="200.0" y2="352.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="470.0" y1="336.0" x2="470.0" y2="352.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="170.0" y1="370.0" x2="620.0" y2="370.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M170.0,370.0 L176.4,367.3 L176.4,372.7 Z" fill="#10b981"/>
+<path d="M620.0,370.0 L613.6,372.7 L613.6,367.3 Z" fill="#10b981"/>
+<text x="395.0" y="388.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle">L</text>
+</g></svg>

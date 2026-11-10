@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 300" width="100%" class="fig-kit" style="max-width:704px;margin:0 auto;display:block" role="img" aria-label="Discharge flow through a pipe of variable section (Fig. 7.3 of the notes)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M60,110 L150,130 C260,125 380,150 470,140 L600,150" fill="none" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M60,210 L150,190 C260,195 380,190 470,180 L600,170" fill="none" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<polygon points="60.0,110.0 150.0,130.0 260.0,128.0 380.0,142.0 470.0,140.0 600.0,150.0 600.0,170.0 470.0,180.0 380.0,188.0 260.0,193.0 150.0,190.0 60.0,210.0" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<path d="M60,110 L60,60 L40,60" fill="none" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M60,210 L60,260 L40,260" fill="none" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="30.0" y="165.0" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">c</tspan>(t)</text>
+<path d="M170,160 C300,155 420,162 600,160" fill="none" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="8,4,2,4" stroke-linejoin="round"/>
+<line x1="150.0" y1="120.0" x2="150.0" y2="200.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M150.0,120.0 L152.7,126.4 L147.3,126.4 Z" fill="#10b981"/>
+<path d="M150.0,200.0 L147.3,193.6 L152.7,193.6 Z" fill="#10b981"/>
+<text x="136.0" y="165.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle">D</text>
+<line x1="150.0" y1="235.0" x2="600.0" y2="235.0" stroke="#10b981" stroke-width="1.2"/>
+<path d="M600.0,235.0 L591.7,238.5 L591.7,231.5 Z" fill="#10b981"/>
+<line x1="600.0" y1="235.0" x2="150.0" y2="235.0" stroke="#10b981" stroke-width="1.2"/>
+<path d="M150.0,235.0 L158.3,231.5 L158.3,238.5 Z" fill="#10b981"/>
+<text x="375.0" y="258.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">L ≫ D</text>
+<text x="664.0" y="140.0" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+<line x1="606.0" y1="155.0" x2="645.8" y2="155.0" stroke="#3b82f6" stroke-width="1.4"/>
+<path d="M650.0,155.0 L643.6,157.7 L643.6,152.3 Z" fill="#3b82f6"/>
+<line x1="606.0" y1="160.0" x2="645.8" y2="160.0" stroke="#3b82f6" stroke-width="1.4"/>
+<path d="M650.0,160.0 L643.6,162.7 L643.6,157.3 Z" fill="#3b82f6"/>
+<line x1="606.0" y1="165.0" x2="645.8" y2="165.0" stroke="#3b82f6" stroke-width="1.4"/>
+<path d="M650.0,165.0 L643.6,167.7 L643.6,162.3 Z" fill="#3b82f6"/>
+<line x1="480.0" y1="52.0" x2="403.4" y2="107.5" stroke="#4b5563" stroke-width="1.0"/>
+<path d="M400.0,110.0 L403.6,104.0 L406.8,108.4 Z" fill="#4b5563"/>
+<text x="490.0" y="50.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R ≫ D (curvature radius)</text>
+</g></svg>
