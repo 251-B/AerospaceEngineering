@@ -51,6 +51,10 @@
     {
      "page": "topic-5.html",
      "label": "5 · Hydrostatics"
+    },
+    {
+     "page": "topic-6.html",
+     "label": "6 · Dimensional analysis"
     }
    ],
    "problemas": [

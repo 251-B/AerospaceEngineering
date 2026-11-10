@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Fluid motion around a sphere (Fig. 6.2 of the notes)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="380.0" cy="170.0" r="62.0" fill="#8a94a6" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="380.0" y1="170.0" x2="336.0" y2="214.0" stroke="#10b981" stroke-width="1.4"/>
+<text x="346.0" y="190.0" fill="#10b981" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R</text>
+<line x1="380.0" y1="170.0" x2="413.2" y2="170.0" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M418.0,170.0 L410.6,173.1 L410.6,166.9 Z" fill="#4b5563"/>
+<text x="422.0" y="186.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<line x1="380.0" y1="170.0" x2="380.0" y2="136.8" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M380.0,132.0 L383.1,139.4 L376.9,139.4 Z" fill="#4b5563"/>
+<text x="374.0" y="128.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+<line x1="380.0" y1="170.0" x2="398.6" y2="156.5" stroke="#4b5563" stroke-width="1.1"/>
+<path d="M402.0,154.0 L398.4,160.0 L395.2,155.6 Z" fill="#4b5563"/>
+<text x="406.0" y="152.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+<line x1="60.0" y1="90.0" x2="144.0" y2="90.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M150.0,90.0 L140.8,93.9 L140.8,86.1 Z" fill="#3b82f6"/>
+<line x1="60.0" y1="150.0" x2="144.0" y2="150.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M150.0,150.0 L140.8,153.9 L140.8,146.1 Z" fill="#3b82f6"/>
+<line x1="60.0" y1="210.0" x2="144.0" y2="210.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M150.0,210.0 L140.8,213.9 L140.8,206.1 Z" fill="#3b82f6"/>
+<line x1="60.0" y1="270.0" x2="144.0" y2="270.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M150.0,270.0 L140.8,273.9 L140.8,266.1 Z" fill="#3b82f6"/>
+<text x="105.0" y="76.0" fill="#3b82f6" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<text x="60.0" y="40.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p + ρgz = P<tspan baseline-shift="sub" font-size="72%">∞</tspan></text>
+<text x="60.0" y="305.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">liquid of density ρ and viscosity μ</text>
+<line x1="585.0" y1="50.0" x2="585.0" y2="113.4" stroke="#4b5563" stroke-width="2.0"/>
+<path d="M585.0,120.0 L580.7,109.9 L589.3,109.9 Z" fill="#4b5563"/>
+<text x="597.0" y="96.0" fill="#4b5563" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+<line x1="448.0" y1="220.0" x2="511.4" y2="220.0" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M518.0,220.0 L507.9,224.3 L507.9,215.7 Z" fill="#f59e0b"/>
+<text x="524.0" y="226.0" fill="#f59e0b" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">x</tspan></text>
+</g></svg>

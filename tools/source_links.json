@@ -2624,6 +2624,18 @@
      2
     ]
    }
+  },
+  "subjects/fluid-mechanics/teoria/topic-6.html": {
+   "panel": [
+    [
+     "fm-notes",
+     66,
+     "Notes.pdf, Chapter 6"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   }
   }
  }
 }

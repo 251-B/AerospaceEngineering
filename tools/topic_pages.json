@@ -148,8 +148,8 @@
      "center"
     ],
     [
-     "../problemas/topic-5-hydrostatics.html",
-     "Problems: Hydrostatics",
+     "topic-6.html",
+     "Topic 6: Dimensional analysis",
      "next"
     ]
    ]
@@ -181,6 +181,34 @@
     "href": "../problemas/topic-7-magnetic-thermal.html",
     "label": "2 solved problems for this topic (Problems T6andT7, problems 11-12, the magnetic part of the sheet)"
    }
+  },
+  "subjects/fluid-mechanics/teoria/topic-6.html": {
+   "flavor": "fluids",
+   "template": "subjects/fluid-mechanics/teoria/topic-3-2-mass.html",
+   "note": "vault/01 - Fluid Mechanics/Topic 6 - Dimensional Analysis.md",
+   "figures": "fluids_t6",
+   "html_title": "Topic 6: Dimensional Analysis — Fluid Mechanics",
+   "brand": "Topic 6 · Dimensional analysis",
+   "category": "Topic 06 · Dimensional Analysis",
+   "title": "Dimensional Analysis",
+   "subtitle": "Dimensions and independent dimensions, the Π theorem, Taylor's explosion, the parameters read from the equations, the nondimensional Navier-Stokes equations, the limits Re ≫ 1 and Re ≪ 1, physical similarity, and a practical formulary.",
+   "nav": [
+    [
+     "topic-5.html",
+     "Topic 5: Hydrostatics",
+     "prev"
+    ],
+    [
+     "index.html",
+     "Theory index",
+     "center"
+    ],
+    [
+     "../problemas/topic-6-dimensional-analysis.html",
+     "Problems: Dimensional analysis",
+     "next"
+    ]
+   ]
   }
  }
 }
