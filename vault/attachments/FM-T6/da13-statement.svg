@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 360" width="100%" class="fig-kit" style="max-width:460px;margin:0 auto;display:block" role="img" aria-label="Module descending under a parachute">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M110,150 A120,110 0 0 1 350,150" fill="#8a94a6" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="110.0" y1="150.0" x2="350.0" y2="150.0" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="110.0" y1="150.0" x2="230.0" y2="310.0" stroke="#4b5563" stroke-width="1.0"/>
+<line x1="180.0" y1="150.0" x2="230.0" y2="310.0" stroke="#4b5563" stroke-width="1.0"/>
+<line x1="230.0" y1="150.0" x2="230.0" y2="310.0" stroke="#4b5563" stroke-width="1.0"/>
+<line x1="280.0" y1="150.0" x2="230.0" y2="310.0" stroke="#4b5563" stroke-width="1.0"/>
+<line x1="350.0" y1="150.0" x2="230.0" y2="310.0" stroke="#4b5563" stroke-width="1.0"/>
+<circle cx="230.0" cy="310.0" r="10" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="248.0" y="316.0" fill="#4b5563" font-size="20" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">m</text>
+<line x1="110.0" y1="28.0" x2="350.0" y2="28.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M110.0,28.0 L116.4,25.3 L116.4,30.7 Z" fill="#10b981"/>
+<path d="M350.0,28.0 L343.6,30.7 L343.6,25.3 Z" fill="#10b981"/>
+<text x="230.0" y="20.0" fill="#10b981" font-size="18" font-weight="400" text-anchor="middle">D</text>
+<line x1="60.0" y1="190.0" x2="60.0" y2="254.0" stroke="#4b5563" stroke-width="2.0"/>
+<path d="M60.0,260.0 L56.1,250.8 L63.9,250.8 Z" fill="#4b5563"/>
+<text x="72.0" y="236.0" fill="#4b5563" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+<line x1="380.0" y1="250.0" x2="380.0" y2="314.0" stroke="#3b82f6" stroke-width="2.2"/>
+<path d="M380.0,320.0 L376.1,310.8 L383.9,310.8 Z" fill="#3b82f6"/>
+<text x="392.0" y="290.0" fill="#3b82f6" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V</text>
+</g></svg>

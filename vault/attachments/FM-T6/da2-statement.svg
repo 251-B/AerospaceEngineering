@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 693 240" width="100%" class="fig-kit" style="max-width:693px;margin:0 auto;display:block" role="img" aria-label="Wind over a circular wire">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="40.0" y1="70.0" x2="124.0" y2="70.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M130.0,70.0 L120.8,73.9 L120.8,66.1 Z" fill="#3b82f6"/>
+<line x1="40.0" y1="120.0" x2="124.0" y2="120.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M130.0,120.0 L120.8,123.9 L120.8,116.1 Z" fill="#3b82f6"/>
+<line x1="40.0" y1="170.0" x2="124.0" y2="170.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M130.0,170.0 L120.8,173.9 L120.8,166.1 Z" fill="#3b82f6"/>
+<text x="85.0" y="58.0" fill="#3b82f6" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<text x="85.0" y="200.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ, μ</text>
+<circle cx="250.0" cy="120.0" r="50.0" fill="#8a94a6" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="200.0" y1="120.0" x2="300.0" y2="120.0" stroke="#10b981" stroke-width="1.2"/>
+<path d="M300.0,120.0 L291.7,123.5 L291.7,116.5 Z" fill="#10b981"/>
+<line x1="300.0" y1="120.0" x2="200.0" y2="120.0" stroke="#10b981" stroke-width="1.2"/>
+<path d="M200.0,120.0 L208.3,116.5 L208.3,123.5 Z" fill="#10b981"/>
+<text x="250.0" y="112.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">2R</text>
+<path d="M342.0,70.0 A18.0,18.0 0 1 1 360.0,88.0" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M452.0,70.0 A18.0,18.0 0 1 1 470.0,88.0" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M392.0,170.0 A18.0,18.0 0 1 0 410.0,152.0" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M512.0,170.0 A18.0,18.0 0 1 0 530.0,152.0" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="450.0" y="225.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">vortices shed alternately from the top and the bottom, U > U<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+</g></svg>

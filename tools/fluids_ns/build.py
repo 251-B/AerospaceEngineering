@@ -48,9 +48,8 @@ MOC = CL.MOC
 PROBLEMS_INDEX = CL.PROBLEMS_INDEX
 PORTAL = CL.PORTAL
 NAV = "tools/nav.json"
-INPUTS = (SOURCE_LINKS, MOC, PROBLEMS_INDEX, PORTAL, NAV)   # edited in place by sync(): read from the repo first
+INPUTS = (SOURCE_LINKS, MOC, PROBLEMS_INDEX, CL.THEORY_INDEX, PORTAL, NAV)   # edited in place by sync(): read from the repo first
 BASE = "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/"
-OTHER_PROBLEMS = 10 + 22                               # K1 to K10 and CL1 to CL22 share the root card with NS
 PDF_PAGES = {10: 3, 11: 3, 12: 4, 16: 2, 17: 2}        # pages of the sheets with more than one page
 MOC_HEAD = "  * **Solved Navier-Stokes Problems (Official Problem Sheet NS):**\n"
 
@@ -296,16 +295,7 @@ def sync(root, probs):
         s = s[:j] + "\n" + card + s[j:]
     write(root, PROBLEMS_INDEX, s)
 
-    s = (root / PORTAL).read_text(encoding="utf-8")
-    i = s.index('href="subjects/fluid-mechanics/problemas/index.html"')
-    j = s.index('<span class="area-badge available">', i)
-    k = s.index("</span>", j)
-    before = int(re.search(r"(\d+) problems", s[j:k]).group(1))
-    fs = len(list((root / VAULT).glob("Problem - FS*.md")))     # the hydrostatics problems (tools/fluids_fs) share the card
-    s = s[:j] + f'<span class="area-badge available">{OTHER_PROBLEMS + n + fs} problems' + s[k:]
-    hero = re.search(r'(<span class="stat-value"[^>]*>)(\d+)(</span>\s*<span class="stat-label">Solved problems)', s)
-    s = s[:hero.start(2)] + str(int(hero.group(2)) + OTHER_PROBLEMS + n + fs - before) + s[hero.end(2):]
-    write(root, PORTAL, s)
+    CL.sync_portal(root)
 
 
 def link_sources(root, text):

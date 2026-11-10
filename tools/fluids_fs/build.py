@@ -53,7 +53,7 @@ MOC = CL.MOC
 PROBLEMS_INDEX = CL.PROBLEMS_INDEX
 PORTAL = CL.PORTAL
 NAV = "tools/nav.json"
-INPUTS = (SOURCE_LINKS, MOC, PROBLEMS_INDEX, PORTAL, NAV)   # edited in place by sync(): read from the repo first
+INPUTS = (SOURCE_LINKS, MOC, PROBLEMS_INDEX, CL.THEORY_INDEX, PORTAL, NAV)   # edited in place by sync(): read from the repo first
 BASE = "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/"
 SHEET_PAGES = {6: 2, 7: 2}                          # sheets with more than one page
 SIMS = ("plane-gate", "curved-surface", "buoyancy-cube")
@@ -239,12 +239,6 @@ def write(root, rel, text):
     path.write_text(text, encoding="utf-8", newline="\n")
 
 
-def fluid_problem_count(root):
-    """K1-K10 are written by hand; CL, NS and FS are counted from their notes."""
-    vault = root / VAULT
-    return 10 + sum(len(list(vault.glob(f"Problem - {p}[0-9]*.md"))) for p in ("CL", "NS", "FS"))
-
-
 def sync(root, probs):
     n = len(probs)
     d = json.loads((root / SOURCE_LINKS).read_text(encoding="utf-8"))
@@ -318,16 +312,7 @@ def sync(root, probs):
         s = s[:j] + "\n" + card + s[j:]
     write(root, PROBLEMS_INDEX, s)
 
-    s = (root / PORTAL).read_text(encoding="utf-8")
-    i = s.index('href="subjects/fluid-mechanics/problemas/index.html"')
-    j = s.index('<span class="area-badge available">', i)
-    k = s.index("</span>", j)
-    before = int(re.search(r"(\d+) problems", s[j:k]).group(1))
-    total = fluid_problem_count(root)
-    s = s[:j] + f'<span class="area-badge available">{total} problems' + s[k:]
-    hero = re.search(r'(<span class="stat-value"[^>]*>)(\d+)(</span>\s*<span class="stat-label">Solved problems)', s)
-    s = s[:hero.start(2)] + str(int(hero.group(2)) + total - before) + s[hero.end(2):]
-    write(root, PORTAL, s)
+    CL.sync_portal(root)
 
 
 def link_sources(root, text):

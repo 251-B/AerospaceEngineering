@@ -581,6 +581,76 @@
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf",
    "label": "Problems T6andT7_Electric and Magnetic Properties.pdf",
    "pages": 3
+  },
+  "fm-da1": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA1.pdf",
+   "label": "DA1.pdf",
+   "pages": 1
+  },
+  "fm-da2": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA2.pdf",
+   "label": "DA2.pdf",
+   "pages": 1
+  },
+  "fm-da3": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA3.pdf",
+   "label": "DA3.pdf",
+   "pages": 1
+  },
+  "fm-da4": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA4.pdf",
+   "label": "DA4.pdf",
+   "pages": 1
+  },
+  "fm-da5": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA5.pdf",
+   "label": "DA5.pdf",
+   "pages": 1
+  },
+  "fm-da6": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA6.pdf",
+   "label": "DA6.pdf",
+   "pages": 1
+  },
+  "fm-da7": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA7.pdf",
+   "label": "DA7.pdf",
+   "pages": 1
+  },
+  "fm-da8": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA8.pdf",
+   "label": "DA8.pdf",
+   "pages": 1
+  },
+  "fm-da9": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA9.pdf",
+   "label": "DA9.pdf",
+   "pages": 1
+  },
+  "fm-da10": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA10.pdf",
+   "label": "DA10.pdf",
+   "pages": 2
+  },
+  "fm-da11": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA11.pdf",
+   "label": "DA11.pdf",
+   "pages": 2
+  },
+  "fm-da12": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA12.pdf",
+   "label": "DA12.pdf",
+   "pages": 1
+  },
+  "fm-da13": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA13.pdf",
+   "label": "DA13.pdf",
+   "pages": 1
+  },
+  "fm-da14": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA14.pdf",
+   "label": "DA14.pdf",
+   "pages": 3
   }
  },
  "pages": {
@@ -2635,6 +2705,56 @@
    ],
    "cite": {
     "notes": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/problemas/topic-6-dimensional-analysis.html": {
+   "panel": [
+    [
+     "fm-notes",
+     66,
+     "Notes.pdf, Chapter 6"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   },
+   "cards": {
+    "da1": [
+     "fm-da1",
+     1
+    ],
+    "da2": [
+     "fm-da2",
+     1
+    ],
+    "da3": [
+     "fm-da3",
+     1
+    ],
+    "da4": [
+     "fm-da4",
+     1
+    ],
+    "da5": [
+     "fm-da5",
+     1
+    ],
+    "da6": [
+     "fm-da6",
+     1
+    ],
+    "da7": [
+     "fm-da7",
+     1
+    ],
+    "da8": [
+     "fm-da8",
+     1
+    ],
+    "da9": [
+     "fm-da9",
+     1
+    ]
    }
   }
  }

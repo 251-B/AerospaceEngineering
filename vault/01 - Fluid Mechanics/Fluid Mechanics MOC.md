@@ -113,8 +113,18 @@ tags:
     * [[01 - Fluid Mechanics/Problem - FS7 Wedge between Two Liquids|Problem FS7: Wedge between Two Liquids]]
     * [[01 - Fluid Mechanics/Problem - FS9 Hinged Gate Opening Height|Problem FS9: Hinged Gate Opening Height]]
     * [[01 - Fluid Mechanics/Problem - FS10 Horizontal Force on a Cylinder|Problem FS10: Horizontal Force on a Cylinder]]
-* Topic 6: Dimensional Analysis (Buckingham Pi Theorem) (planned)
-  * Official sources: `DA1.pdf` to `DA14.pdf` (14 solved problems).
+* [[01 - Fluid Mechanics/Topic 6 - Dimensional Analysis|Topic 6: Dimensional Analysis]]
+  * Official sources: `Notes.pdf` Chapter 6 and the problem sheets `DA1.pdf` to `DA14.pdf` (14 problems, each with the handwritten key).
+  * **Solved Dimensional Analysis Problems (Official Problem Sheets DA):**
+    * [[01 - Fluid Mechanics/Problem - DA1 Power of a Marine Freighter|Problem DA1: Power of a Marine Freighter]]
+    * [[01 - Fluid Mechanics/Problem - DA2 Vortex Shedding behind a Wire|Problem DA2: Vortex Shedding behind a Wire]]
+    * [[01 - Fluid Mechanics/Problem - DA3 Stirrer in a Tar Tank|Problem DA3: Stirrer in a Tar Tank]]
+    * [[01 - Fluid Mechanics/Problem - DA4 Terminal Velocity of Slime Particles|Problem DA4: Terminal Velocity of Slime Particles]]
+    * [[01 - Fluid Mechanics/Problem - DA5 Power of a Wind Turbine|Problem DA5: Power of a Wind Turbine]]
+    * [[01 - Fluid Mechanics/Problem - DA6 Tsunami against a Protection Wall|Problem DA6: Tsunami against a Protection Wall]]
+    * [[01 - Fluid Mechanics/Problem - DA7 Thrust of a Submarine Shrouded Fan|Problem DA7: Thrust of a Submarine Shrouded Fan]]
+    * [[01 - Fluid Mechanics/Problem - DA8 Lift of a Flapping Fly Wing|Problem DA8: Lift of a Flapping Fly Wing]]
+    * [[01 - Fluid Mechanics/Problem - DA9 Power of an Airplane Propeller|Problem DA9: Power of an Airplane Propeller]]
 * Topic 7: Viscous Flows & Boundary Layer Theory (planned)
   * Official sources: `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 solved problems).
 

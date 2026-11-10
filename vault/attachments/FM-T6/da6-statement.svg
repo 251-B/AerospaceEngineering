@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Tsunami against a protection wall">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M40,250 L380,250 C470,248 540,200 560,170 L660,170" fill="none" stroke="#8a94a6" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M40,170 L120,170 C170,170 190,60 250,60 C300,58 300,96 282,100 C300,140 330,170 380,170 L555,170" fill="none" stroke="#3b82f6" stroke-width="2.0" stroke-linejoin="round"/>
+<polygon points="40.0,170.0 120.0,170.0 180.0,100.0 250.0,62.0 290.0,100.0 330.0,160.0 380.0,170.0 555.0,170.0 540.0,200.0 470.0,248.0 380.0,250.0 40.0,250.0" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="120.0" y1="62.0" x2="120.0" y2="170.0" stroke="#10b981" stroke-width="1.2"/>
+<path d="M120.0,170.0 L116.5,161.7 L123.5,161.7 Z" fill="#10b981"/>
+<line x1="120.0" y1="170.0" x2="120.0" y2="62.0" stroke="#10b981" stroke-width="1.2"/>
+<path d="M120.0,62.0 L123.5,70.3 L116.5,70.3 Z" fill="#10b981"/>
+<line x1="112.0" y1="62.0" x2="250.0" y2="62.0" stroke="#10b981" stroke-width="0.8" stroke-dasharray="4,4"/>
+<text x="110.0" y="122.0" fill="#10b981" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">h</text>
+<line x1="320.0" y1="90.0" x2="382.8" y2="90.0" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M390.0,90.0 L378.9,94.7 L378.9,85.3 Z" fill="#f59e0b"/>
+<text x="355.0" y="78.0" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<polygon points="560.0,170.0 585.0,80.0 625.0,80.0 625.0,170.0" fill="#8a94a6" fill-opacity="0.15" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="645.0" y1="80.0" x2="645.0" y2="170.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M645.0,80.0 L647.7,86.4 L642.3,86.4 Z" fill="#10b981"/>
+<path d="M645.0,170.0 L642.3,163.6 L647.7,163.6 Z" fill="#10b981"/>
+<text x="659.0" y="131.0" fill="#10b981" font-size="18" font-weight="400" text-anchor="middle">H</text>
+<line x1="440.0" y1="30.0" x2="440.0" y2="64.0" stroke="#4b5563" stroke-width="2.0"/>
+<path d="M440.0,70.0 L436.1,60.8 L443.9,60.8 Z" fill="#4b5563"/>
+<text x="452.0" y="56.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+<text x="340.0" y="290.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">tsunami of height h and velocity U against a coastal wall of height H</text>
+</g></svg>
