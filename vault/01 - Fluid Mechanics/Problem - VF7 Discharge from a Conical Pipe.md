@@ -100,6 +100,6 @@ The key stops at $t_d = \frac{8}{3\alpha}\frac{\mu L}{\rho ga_o^2}\int_0^L\frac{
 - Viscous dominance: $\rho^2ga_o^4/(\mu^2L)\ll 1$.
 - Evolution: $\frac{3\alpha\rho ga_o^2}{8\mu L}t = S(\alpha) - S(\alpha h/L)$, $S(s) = s^2/2 + 2s + \ln(1 + s)$; the flux is $Q = -\pi a_o^2(1 + \alpha h/L)^2\,dh/dt$.
 - Discharge time: $t_d = \frac{8\mu L}{3\alpha\rho ga_o^2}\left[\frac{\alpha^2}{2} + 2\alpha + \ln(1 + \alpha)\right]$.
-- Limit $\alpha\to 0$ (cylindrical pipe): $\frac{\alpha^2}{2} + 2\alpha + \ln(1 + \alpha) = 3\alpha + \alpha^3/3 + \dots$, so $t_d\to\frac{8\mu L}{\rho ga_o^2}$; directly, the column of constant length $h$ has $P_l = \rho g$ and $Q = \pi a_o^4\rho g/(8\mu)$, a constant mean velocity $a_o^2\rho g/(8\mu)$, and $L$ divided by it is the same.
+- Limit $\alpha\to 0$ (cylindrical pipe): $\frac{\alpha^2}{2} + 2\alpha + \ln(1 + \alpha) = 3\alpha + \alpha^3/3 + \dots$, so $t_d\to\frac{8\mu L}{\rho ga_o^2}$; directly, the column of constant radius $a_o$ and length $h$ has $P_l = \rho g$ and $Q = \pi a_o^4\rho g/(8\mu)$, a constant mean velocity $a_o^2\rho g/(8\mu)$, and $L$ divided by it is the same.
 - Dimensions: $\mu L/(\rho ga_o^2)$ is $ML^{-1}T^{-1}\cdot L/(ML^{-3}\cdot LT^{-2}\cdot L^2) = T$; $\alpha$ and $S$ are dimensionless.
 - Check against the official key: VF7.pdf gives the same criterion, pressure relation (with $\alpha$ in its denominator after the factor the scan strikes), differential equation and integral relations for $h(t)$ and $t_d$, without evaluating the integral.

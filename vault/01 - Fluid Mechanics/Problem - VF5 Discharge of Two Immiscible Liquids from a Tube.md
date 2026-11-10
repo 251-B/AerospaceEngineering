@@ -82,7 +82,7 @@ This gives $Q$ as a function of the position $h$ of the lower interface. The low
 
 $$ \left(\rho_1 l_1 + \rho_2 h\right)g = -\frac{8}{a^2}\left(\mu_1 l_1 + \mu_2 h\right)\frac{dh}{dt} $$
 
-Separating variables and integrating from $h = l_2$ at $t = 0$ (Barrow's rule on the left, with $\int_0^t dt' = t$):
+Separating variables and integrating from $h = l_2$ at $t = 0$ (Barrow's rule on the right, with $\int_0^t dt' = t$):
 
 $$ \int_{l_2}^{h}\frac{\mu_1 l_1 + \mu_2 h'}{\rho_1 l_1 + \rho_2 h'}\,dh' = -\frac{g a^2}{8}\,t $$
 

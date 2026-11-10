@@ -97,7 +97,7 @@ The pressure on the underside of the arm acts upward, $+(p - p_a)\,dx\,\bar{e}_y
 
 $$ \bar{M}_A = \int_0^L(x - L)\,(p - p_a)\,dx\;\bar{e}_z = -\frac{6\mu V}{h^2}\int_0^L(L - x)^2dx\;\bar{e}_z = -\frac{6\mu V}{h^2}\,\frac{L^3}{3}\,\bar{e}_z = -\frac{2\mu VL^3}{h^2}\,\bar{e}_z $$
 
-(since $\bar{e}_x\times\bar{e}_y = \bar{e}_z$ and $\int_0^L(L - x)^2dx = \left[-(L - x)^3/3\right]_0^L = L^3/3$). The shear forces on the arm act at the level of $A$ and give no moment; the pressure on the leg and the shear on it give a moment of order $\mu VL/h$, a factor $(h/L)^2$ smaller than the one above, and are neglected (the key strikes out the viscous integral).
+(since $\bar{e}_x\times\bar{e}_y = \bar{e}_z$ and $\int_0^L(L - x)^2dx = \left[-(L - x)^3/3\right]_0^L = L^3/3$). The shear forces on the arm act at the level of $A$ and give no moment; the pressure on the leg and the shear on it give a moment of order $\mu VL$ (a force of order $6\mu VL/h$ acting with a lever arm of order $h$), a factor $(h/L)^2$ smaller than the one above, and are neglected (the key strikes out the viscous integral).
 
 ## Critical Velocity
 

@@ -55,11 +55,11 @@ Source: VF20.pdf (page 1: statement; pages 2 and 3: handwritten key; exam of 16-
 
 ## Criterion for Viscous Dominance
 
-The convective acceleration is negligible against the viscous force (Eq. 7.41) when $\frac{\rho V_zch}{\mu}\frac{h}{R}\ll 1$, with $V_{zc}$ the velocity scale of the jet, of radius $\sim h$, so $V_{zc}\sim Q/h^2$. Continuity in the gap, $V_{rc}/R\sim V_{zc}/h$, gives $V_{rc}\sim V_{zc}h/R\ll V_{zc}$, and the radial velocity in the gap is $v_r\sim Q/(2\pi rh)$, equal to $\sim Q/h^2$ at $r\sim h$. Then
+The convective acceleration is negligible against the viscous force (Eq. 7.41) when $\frac{\rho V_{zc}h}{\mu}\frac{h}{R}\ll 1$, with $V_{zc}$ the velocity scale of the jet, of radius $\sim h$, so $V_{zc}\sim Q/h^2$. The radial velocity in the gap follows from the flux, $v_r = Q/(2\pi rh)$, which is $\sim Q/h^2\sim V_{zc}$ at the entrance $r\sim h$. Then
 
 $$ \frac{\rho V_{zc}h}{\mu}\,\frac{h}{R}\sim\frac{\rho Q}{\mu h}\,\frac{h}{R} = \frac{\rho Q}{\mu R}\ll 1 $$
 
-(the key states $V_r\sim Q/h^2$ for $r\sim h$ and boxes the result; at larger $r$ the velocity is smaller, so the condition is the most demanding at the entrance of the gap).
+(the key states $V_r\sim Q/h^2$ for $r\sim h$ and boxes the result). This is the estimate of the key, with the global slenderness $h/R$. More locally, at a radius $r$ the ratio of convective to viscous terms is $\rho v_rh^2/(\mu r) = \rho Qh/(2\pi\mu r^2)$, which decreases with $r$: it is largest near the entrance, where it is of order $\rho Q/(\mu h)$ (stricter than the boxed $\rho Q/(\mu R)$ by $R/h$), and the slender-film solution below is valid for $r\gg h$ when $\rho Qh/(\mu r^2)\ll 1$ there.
 
 ## Velocity Profile and Flux
 

@@ -105,7 +105,7 @@ $$ Q = \frac{\pi P_l\Delta^2}{8\mu} + \frac{\pi}{2}\left(U - \frac{P_l\Delta}{4\
 > [!warning] Discrepancy with the official solution
 > The key gives $Q = -2\pi\left\{\frac{P_l}{16\mu}\left(R_2^4 - R_1^4\right) + \frac{U - P_l\Delta/(4\mu)}{4\ln(R_2/R_1)}\left[R_2^2\left(2\ln R_2 - 1\right) - R_1^2\left(2\ln R_1 - 1\right)\right]\right\}$, which is not the integral of its own velocity profile. The first term should have $\left(R_2^2 - R_1^2\right)^2$ (the integral of $r(R_2^2 - r^2)$, as above), not $R_2^4 - R_1^4$; and the second keeps only the antiderivative of $r\ln r$ and drops the constant term that comes from $\ln R_2$ (a logarithm of a dimensional length appears, which is dimensionally meaningless); the overall sign is also the opposite. As a consequence the key's minimum velocity, solved from its own $Q = 0$, is not the one of the integral. The results above are used.
 
-Checks of $Q$: for $R_1\to 0$, $\Delta\to R_2^2$, $R_1^2\Lambda\to 0$, $\Lambda\to\infty$ and the second term vanishes: $Q\to\frac{\pi P_lR_2^4}{8\mu}$, the Poiseuille flux (7.15). For a thin gap $g = R_2 - R_1\ll R_1$, $(\Delta - 2R_1^2\Lambda)/\Lambda\simeq 2R_1g\cdot\frac{g}{R_1}\cdot R_1$ (to first order $2R_1^2\epsilon$ with $\epsilon = g/R_1$), so the second term is $\pi R_1^2\epsilon U = \pi R_1gU$, the Couette flux $\frac{Ug}{2}\cdot2\pi R_1$.
+Checks of $Q$: for $R_1\to 0$, $\Delta\to R_2^2$, $R_1^2\Lambda\to 0$, $\Lambda\to\infty$ and the second term vanishes: $Q\to\frac{\pi P_lR_2^4}{8\mu}$, the Poiseuille flux (7.15). For a thin gap $g = R_2 - R_1\ll R_1$, $(\Delta - 2R_1^2\Lambda)/\Lambda\simeq 2R_1^2\epsilon = 2R_1g$ to first order in $\epsilon = g/R_1$, so the second term is $\pi R_1^2\epsilon U = \pi R_1gU$, the Couette flux $\frac{Ug}{2}\cdot2\pi R_1$.
 
 **Minimum velocity.** Setting $Q = 0$: $\left(U - \frac{P_l\Delta}{4\mu}\right) = -\frac{P_l\Delta^2}{4\mu}\frac{\Lambda}{\Delta - 2R_1^2\Lambda}$, so
 
@@ -119,5 +119,5 @@ positive, since $\frac{\Delta\Lambda}{\Delta - 2R_1^2\Lambda}>1$. For $U>U_{min}
 - Velocity: $v_z = \frac{P_l}{4\mu}(R_2^2 - r^2) + \left[U - \frac{P_l}{4\mu}(R_2^2 - R_1^2)\right]\frac{\ln(R_2/r)}{\ln(R_2/R_1)}$; $P_l = -\rho g(H + L)/L$.
 - Force on the rod: $F_z = 2\pi R_1L\tau_w$ with $\tau_w$ above; power supplied: $W = -2\pi R_1LU\tau_w>0$.
 - Flux: $Q = \frac{\pi P_l\Delta^2}{8\mu} + \frac{\pi}{2}\left(U - \frac{P_l\Delta}{4\mu}\right)\frac{\Delta - 2R_1^2\Lambda}{\Lambda}$; $U_{min}$ as above.
-- Dimensions: $\rho g(H + L)\Delta/(\mu L)$ is $ML^{-3}\cdot LT^{-2}\cdot L^2/(ML^{-1}T^{-1}) = LT^{-1}$, a velocity; $\Delta^2P_l/\mu$ is $L^4\cdot ML^{-2}T^{-2}/(ML^{-1}T^{-1}) = L^3T^{-1}\cdot L^{-1}$, a flux per unit length times $L$ (as in (7.15)).
+- Dimensions: $\rho g(H + L)\Delta/(\mu L)$ is $ML^{-3}\cdot LT^{-2}\cdot L^2/(ML^{-1}T^{-1}) = LT^{-1}$, a velocity; $\Delta^2P_l/\mu$ is $L^4\cdot ML^{-2}T^{-2}/(ML^{-1}T^{-1}) = L^3T^{-1}$, a volume flux (as in (7.15)).
 - Check against the official key: VF19.pdf gives the same criterion, profile, $P_l$ and shear; its $Q$ and $U_{min}$ differ, as noted, and it does not write the final value of the power.

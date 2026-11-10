@@ -39,7 +39,7 @@ Source: VF2_w_solution.pdf (page 1: statement and first solution; pages 2 to 5: 
 - The liquid has constant $\rho$ and $\mu$. The flow is parallel to the wall: $\bar{v} = v_x(y, t)\,\bar{e}_x$, because continuity gives $\partial v_x/\partial x = 0$ (Notes.pdf, Eq. 7.1).
 - **Pressure.** The $y$ component of the momentum equation gives $0 = -\partial P/\partial y$ with $P = p + \rho g y$, so $P$ is the same at every height. At the free surface $p = p_a$ and $y = h$, hence $P = p_a + \rho g h$, a constant: $\partial P/\partial x = 0$ and $P_l = 0$ (the free surface stays flat).
 - **Free surface.** The air above exerts a negligible shear stress (its viscosity is neglected), so the shear stress of the liquid vanishes at $y = h$: $\partial v_x/\partial y = 0$.
-- **Periodic solution.** The wall velocity is periodic and the sought solution is the permanent one, so no initial condition is needed (Notes.pdf, p. 78). With a forcing $V\sin\omega t$ one could impose $v_x = 0$ at $t = 0$, which is compatible.
+- **Periodic solution.** The wall velocity is periodic and the sought solution is the permanent one, so no initial condition is needed (Notes.pdf, p. 78). A start from rest ($v_x = 0$ at $t = 0$) only matches the wall condition: because of the phase lag the periodic solution has $v_x(y, 0)\ne 0$ for $y>0$, so the start-up transient, which dies out after a time of order $h^2/\nu$, has to be added; afterwards the periodic solution is all that remains and no initial condition is needed.
 
 Equation (7.6) with $P_l = 0$ and $\nu = \mu/\rho$, and its boundary conditions:
 
