@@ -27,6 +27,6 @@ Full explanation: [[Topic 2 - Structure of Materials and Crystalline Defects]].
 | BCC ($n = 2$) | 6 faces × 4 × ½ = 12, radius $0.291\,r$ | 6 face centres × ½ + 12 edges × ¼ = 6, radius $0.15\,r$ |
 | HCP ($n = 6$) | 12, radius $0.225\,r$ | 6, radius $0.41\,r$ |
 
-![[attachments/T2/interstitial.svg]]
+![[attachments/T2/interstitial.png]]
 
 **Back to:** [[Topic 2 - Structure of Materials and Crystalline Defects]] · [[Aerospace Materials I MOC]]

@@ -21,7 +21,7 @@ Full explanation: [[Topic 3 - Diffusion in Solids and Mass Transport]].
 $$D = D_0\,e^{-E_D/RT}, \qquad \ln D = \ln D_0 - \frac{E_D}{R}\cdot\frac{1}{T}$$
 $\ln D$ vs $1/T$ is a straight line of slope $-E_D/R$.
 
-![[attachments/T3/arrhenius.svg]]
+![[attachments/T3/arrhenius.png]]
 
 ## Factors [Session 5 Slides 23-25]
 - **Mechanism / atom size:** C in γ-Fe $3\times10^{-11}$ vs Fe in γ-Fe $2\times10^{-16}$ m²/s at 1000 °C.

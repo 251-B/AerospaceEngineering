@@ -74,7 +74,7 @@ Vacancies are equilibrium defects, so they are always present. The rate of vacan
 
 $$T\uparrow \;\Rightarrow\; [\text{defects}]\uparrow \text{ and } E_{thermal}\uparrow \;\Rightarrow\; \text{diffusion}\uparrow$$
 
-![[attachments/T3/barriers.svg]]
+![[attachments/T3/barriers.png]]
 
 ### 3.1 Self-diffusion [Session 5 Slides 7-9]
 
@@ -148,9 +148,11 @@ Across a layer between positions $x_1$ and $x_2$, with concentrations $C_{ext}$ 
 
 $$\frac{\Delta C}{\Delta x} = \frac{C_{ext} - C_{int}}{x_1 - x_2}$$
 
+The figure of the same slide labels the two faces $x_A$ and $x_B$ and their concentrations $C_A$ and $C_B$: $C_A = C_{ext}$ at $x_A = x_1$ and $C_B = C_{int}$ at $x_B = x_2$.
+
 The flux at a given temperature is constant **only if the compositions on both sides are kept constant**, that is, if the concentration gradient is constant.
 
-![[attachments/T3/fick1.svg]]
+![[attachments/T3/fick1.png]]
 
 ## 7. Non-steady-state diffusion: Fick's second law [Session 5 Slides 18-21]
 
@@ -188,7 +190,9 @@ How to read it:
 - deep inside ($x \to \infty$): erf → 1, so $C_x = C_0$;
 - the profile depends on $x$ and $t$ only through $x/(2\sqrt{Dt})$: a given concentration reaches a depth that grows with $\sqrt{Dt}$.
 
-![[attachments/T3/fick2.svg]]
+![[attachments/T3/fick2-b.png]]
+
+![[attachments/T3/fick2-a.png]]
 
 Values of the error function:
 
@@ -280,7 +284,7 @@ $$\ln D = \ln D_0 - \frac{E_D}{R}\cdot\frac{1}{T}$$
 
 A plot of $\ln D$ against $1/T$ is therefore a straight line with **slope $-E_D/R$**: the steeper the line, the larger the activation energy.
 
-![[attachments/T3/arrhenius.svg]]
+![[attachments/T3/arrhenius.png]]
 
 ## 9. Summary: what makes diffusion fast or slow [Session 5 Slide 27]
 

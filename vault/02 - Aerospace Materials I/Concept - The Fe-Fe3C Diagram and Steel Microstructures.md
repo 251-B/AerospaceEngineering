@@ -30,8 +30,7 @@ Full explanation: [[Topic 4 - Phase Diagrams and Solidification]].
 | Peritectic | 1493 °C: δ (0.09) + L (0.53) → γ (0.16) |
 | Cementite | 6.67 % C, hard and brittle, metastable |
 
-![[attachments/T4/fec-full.svg]]
-
+![[attachments/T4/fec-full.png]]
 ## Microconstituents of steels just below 727 °C [Session 9 Slides 12-20]
 - Eutectoid (0.76 %): 100 % pearlite (89 % α, 11 % Fe₃C).
 - Hypoeutectoid: proeutectoid α $= (0.76 - C_0)/(0.76 - 0.022)$, the rest pearlite.

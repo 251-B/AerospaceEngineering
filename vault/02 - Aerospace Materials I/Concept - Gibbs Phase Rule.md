@@ -23,8 +23,9 @@ $$F = C - P + N$$
 - $F$: degrees of freedom; $C$: components; $P$: phases; $N$: non-compositional variables (pressure, temperature).
 - Pressure and temperature free: $F = C - P + 2$. Pressure fixed at 1 atm (routine processing): $F = C - P + 1$.
 
-![[attachments/T4/gibbs.svg]]
+![[attachments/T4/gibbs-a.png]]
 
+![[attachments/T4/gibbs-b.png]]
 ## Typical values
 - One component: one phase $F = 2$, a two-phase line $F = 1$, the triple point $F = 0$.
 - Two components at 1 atm: L or solid solution $F = 2$; L + solid $F = 1$ (choosing $T$ fixes both phase compositions, the tie line); three phases (eutectic) $F = 0$; a pure metal melting $F = 1 - 2 + 1 = 0$.

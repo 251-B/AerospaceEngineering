@@ -31,6 +31,6 @@ Full explanation: [[Topic 3 - Diffusion in Solids and Mass Transport]].
 - Small atoms (C, H, O, N in metals) jump between interstitial sites.
 - Lower activation energy ($E_i < E_v$), faster, more available sites.
 
-![[attachments/T3/barriers.svg]]
+![[attachments/T3/barriers.png]]
 
 **Back to:** [[Topic 3 - Diffusion in Solids and Mass Transport]] · [[Aerospace Materials I MOC]]

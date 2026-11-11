@@ -96,7 +96,7 @@ Stacking **close-packed** layers can be done in two ways, because the third laye
 - **A B A B …** : the third layer sits exactly over the first. This is the **hexagonal close-packed (HCP)** structure.
 - **A B C A B C …** : the third layer sits over neither of the first two; only the fourth repeats the first. This is the **face-centred cubic (FCC)** structure.
 
-![[attachments/T2/stacking.svg]]
+![[attachments/T2/stacking.png]]
 
 ## 7. Main metallic structures [Session 3 Slides 24-28]
 
@@ -111,7 +111,7 @@ About **90 % of metals** crystallize in one of three densely packed structures. 
 | Face-centred cubic (FCC) | Al, Cu, Pb, Ni, Pt, Ag |
 | Hexagonal close-packed (HCP) | Ti, Mg, Cd, Co, Zn |
 
-![[attachments/T2/cells.svg]]
+![[attachments/T2/cells.png]]
 
 To compare them we use three numbers: how many atoms belong to one cell, how many neighbours each atom touches (the **coordination number**), and how much of the cell volume the atoms fill:
 
@@ -133,7 +133,9 @@ $$APF = \frac{2\cdot\frac43\pi R^3}{\left(\frac{4R}{\sqrt3}\right)^3} = \frac{\f
 
 68 % of the cell is occupied by atoms.
 
-![[attachments/T2/touching.svg]]
+![[attachments/T2/touching-a.png]]
+
+![[attachments/T2/touching-b.png]]
 
 ### 7.2 Face-centred cubic (FCC) [Session 3 Slide 27]
 
@@ -195,7 +197,7 @@ BCC is not close-packed, so the rule $2n$ / $n$ does not apply to it.
 > [!warning] Note on the official material
 > For BCC, the 3 octahedral sites counted as "6 × ½" are labelled "center"; they are the centres of the 6 faces (each shared by 2 cells), not the centre of the cube.
 
-![[attachments/T2/interstitial.svg]]
+![[attachments/T2/interstitial.png]]
 
 ## 9. Atomic positions [Session 3 Slide 37]
 
@@ -205,7 +207,7 @@ $$\text{position} = (x, y, z), \qquad 0 \le x, y, z \le 1$$
 
 The origin is $(0,0,0)$; the corner along $y$ is $(0,1,0)$; the top corner above the origin is $(0,0,1)$; the corner opposite the origin is $(1,1,1)$; the centre of the cube is $(\tfrac12, \tfrac12, \tfrac12)$.
 
-![[attachments/T2/positions.svg]]
+![[attachments/T2/positions.png]]
 
 ## 10. Directions in the cubic cell [Session 3 Slides 39-42]
 
@@ -226,7 +228,7 @@ Negative components are written with a bar over the number: $[\bar u\,v\,w]$ mea
 
 **Example 1: $[1\,0\,0]$, $[1\,1\,0]$, $[1\,1\,1]$.** The largest index is already 1, so the tips are directly $(1,0,0)$, $(1,1,0)$ and $(1,1,1)$: a cube edge, a face diagonal and the body diagonal.
 
-![[attachments/T2/dir-basic.svg]]
+![[attachments/T2/dir-basic.png]]
 
 **Example 2: $[0\,1\,2]$.**
 1. Origin $O = (0,0,0)$ (no negative indices).
@@ -234,11 +236,13 @@ Negative components are written with a bar over the number: $[\bar u\,v\,w]$ mea
 3. Tip at $x = 0$, $y = \tfrac12$, $z = 1$: the middle of the top edge on the back face.
 4. Arrow from $(0,0,0)$ to $(0, \tfrac12, 1)$.
 
-**Example 3: $[2\,1\,0]$.** Divide by 2: $[1, \tfrac12, 0]$. The arrow goes from the origin to the middle of the bottom edge on the front face, $(1, \tfrac12, 0)$. It lies in the bottom face because $w = 0$.
+**Example 3: $[2\,1\,0]$.** Divide by 2: $[1, \tfrac12, 0]$. The arrow goes from the origin to the middle of the bottom edge on the front face, $(1, \tfrac12, 0)$. It lies in the bottom face because $w = 0$. It is the third small cube of the Slide 39 figure shown under Example 1.
 
 **Example 4: $[1\,2\,2]$.** Divide by 2: $[\tfrac12, 1, 1]$. The tip is at the middle of the top edge on the right face, $(\tfrac12, 1, 1)$.
 
-![[attachments/T2/dir-reduce.svg]]
+![[attachments/T2/dir-reduce-a.png]]
+
+![[attachments/T2/dir-reduce-extra.svg]]
 
 ### 10.3 Directions with negative indices
 
@@ -252,7 +256,7 @@ If an index is negative, the arrow would leave the cell when drawn from $(0,0,0)
 
 **Example 5: $[\bar1\,2\,2]$.** The $u$ index is negative, so $O' = (1,0,0)$. Scale by ½: $[-\tfrac12, 1, 1]$. Tip $= (1-\tfrac12,\ 0+1,\ 0+1) = (\tfrac12, 1, 1)$. The arrow goes from the front-bottom-left corner $(1,0,0)$ up to the middle of the top edge on the right face.
 
-![[attachments/T2/dir-negative.svg]]
+![[attachments/T2/dir-negative.png]]
 
 ### 10.4 How to read the indices of a drawn direction
 
@@ -261,13 +265,15 @@ If an index is negative, the arrow would leave the cell when drawn from $(0,0,0)
 3. **Multiply or divide** by a common factor to reach the **smallest integers**.
 4. Write them in square brackets without commas, with a bar over any negative number.
 
-**Example 6.** A vector goes from the tail $(1,0,0)$ to the head $(0,1,1)$. Head − tail $= (0-1,\ 1-0,\ 1-0) = (-1, 1, 1)$. They are already the smallest integers, so the direction is $[\bar1\,1\,1]$.
+**Example 6** [Session 3 Slide 41]. A vector goes from the tail $(0,1,0)$ to the head $(1,0,1)$. Head − tail $= (1-0,\ 0-1,\ 1-0) = (1, -1, 1)$. They are already the smallest integers, so the direction is $[1\,\bar1\,1]$.
 
-**Example 7.** A vector goes from $(0,1,1)$ to $(0,0,0)$. Head − tail $= (0, -1, -1)$: the direction is $[0\,\bar1\,\bar1]$. Its opposite, from $(0,0,0)$ to $(0,1,1)$, is $[0\,1\,1]$: reversing an arrow changes the sign of every index.
+**Example 7** [Session 3 Slide 41]. A vector goes from $(0,1,1)$ to $(0,0,0)$. Head − tail $= (0, -1, -1)$: the direction is $[0\,\bar1\,\bar1]$. Its opposite, from $(0,0,0)$ to $(0,1,1)$, is $[0\,1\,1]$: reversing an arrow changes the sign of every index.
 
 **Example 8.** A vector goes from $(0,0,0)$ to $(\tfrac12, 1, 0)$. Head − tail $= (\tfrac12, 1, 0)$. Multiply by 2 to clear the fraction: $[1\,2\,0]$.
 
-![[attachments/T2/dir-read.svg]]
+![[attachments/T2/dir-read-a.png]]
+
+![[attachments/T2/dir-read-b.png]]
 
 ### 10.5 Families of directions
 
@@ -276,7 +282,9 @@ Directions that are **equivalent** in the lattice (the atoms are spaced the same
 - **Face diagonals:** $\langle 110\rangle$.
 - **Body diagonals:** $\langle 111\rangle$: the four diagonals $[111], [\bar111], [1\bar11], [11\bar1]$ (each with its opposite).
 
-![[attachments/T2/dir-family.svg]]
+![[attachments/T2/dir-family-a.png]]
+
+![[attachments/T2/dir-family-extra.svg]]
 
 ## 11. Planes in the cubic cell [Session 3 Slides 44-50]
 
@@ -312,14 +320,20 @@ Example: a plane that cuts $x$ at 1 and $y$ at 1 and is parallel to $z$ has inte
 - $(1\,1\,0)$ cuts $x$ at 1 and $y$ at 1 and is parallel to $z$: a **vertical diagonal plane** through two opposite vertical edges.
 - $(1\,1\,1)$ cuts all three axes at 1: the **triangle** joining $(1,0,0)$, $(0,1,0)$ and $(0,0,1)$.
 
-![[attachments/T2/plane-basic.svg]]
+![[attachments/T2/plane-basic-extra.svg]]
+
+![[attachments/T2/plane-basic-a.png]]
+
+![[attachments/T2/plane-basic-b.png]]
 
 **Example 2: $(2\,0\,0)$, $(2\,1\,0)$, $(0\,1\,1)$.**
 - $(2\,0\,0)$: intercept on $x$ is $\tfrac12$, parallel to $y$ and $z$. It has the same orientation as $(1\,0\,0)$ but cuts the cell **half way**; here the index is kept as 2 to show that position.
 - $(2\,1\,0)$: intercepts $x = \tfrac12$, $y = 1$, parallel to $z$. A vertical plane that cuts the left face ($y = 0$) along the line $x = \tfrac12$ and reaches the back-right vertical edge ($x = 0$, $y = 1$).
 - $(0\,1\,1)$: parallel to $x$, cuts $y$ and $z$ at 1. A tilted plane that runs along $x$, from the top edge of the left face ($y = 0$, $z = 1$) down to the bottom edge of the right face ($y = 1$, $z = 0$).
 
-![[attachments/T2/plane-more.svg]]
+![[attachments/T2/plane-more-a.png]]
+
+![[attachments/T2/plane-more-extra.svg]]
 
 ### 11.3 How to draw a plane from its indices
 
@@ -357,7 +371,7 @@ To draw a plane with a negative index inside the cell, **move the origin** in th
 3. From $(1,0,0)$: half a unit back in $x$ gives $(\tfrac12,0,0)$; one unit in $y$ gives $(1,1,0)$; one unit in $z$ gives $(1,0,1)$.
 4. Join the three points.
 
-![[attachments/T2/plane-negative.svg]]
+![[attachments/T2/plane-negative.png]]
 
 ### 11.5 Families of planes
 
@@ -368,7 +382,9 @@ $$(100)(010)(001)(\bar100)(0\bar10)(00\bar1) = \{100\}\quad\text{(the six cube f
 
 $$(111)(\bar111)(1\bar11)(11\bar1)(\bar1\bar11)(\bar11\bar1)(1\bar1\bar1)(\bar1\bar1\bar1) = \{111\}$$
 
-![[attachments/T2/plane-family.svg]]
+![[attachments/T2/plane-family.png]]
+
+![[attachments/T2/plane-family-extra.svg]]
 
 ### 11.6 Directions and planes with the same indices
 
@@ -386,7 +402,7 @@ $$i = -(h + k)$$
 
 So a plane written with three indices $(h'\,k'\,l')$ becomes $(h\,k\,i\,l)$ by adding $i$. Example: $(0\,1\,0) \equiv (0\,1\,\bar1\,0)$, since $i = -(0 + 1) = -1$. This plane is a side face of the prism, parallel to $a_1$ and to $c$.
 
-![[attachments/T2/hex-axes.svg]]
+![[attachments/T2/hex-axes.png]]
 
 **Directions.** A direction $[h'\,k'\,l']$ written in three indices becomes $[h\,k\,i\,l]$ with
 
@@ -400,7 +416,7 @@ and the result is then reduced to integers.
 
 **Example: $[0\,0\,1]$.** $h = k = i = 0$ and $l = 1$: $[0\,0\,0\,1]$, along $c$.
 
-![[attachments/T2/hex-dirs.svg]]
+![[attachments/T2/hex-dirs.png]]
 
 > [!warning] Note on the official material
 > The conversion rule for the fourth index is printed as $l = -l'$. With that sign, the vertical direction $[0\,0\,1]$ would become $[0\,0\,0\,\bar1]$, pointing down, while the same material labels it $[0\,0\,0\,1]$. The rule is $l = l'$.
@@ -421,7 +437,7 @@ $$\frac{1}{d_{hkl}^2} = \frac{h^2}{a^2} + \frac{k^2}{b^2} + \frac{l^2}{c^2}$$
 
 With $a = b = c$ this reduces to the cubic formula.
 
-![[attachments/T2/spacing.svg]]
+![[attachments/T2/spacing.png]]
 
 ---
 
@@ -466,7 +482,9 @@ $$\rho_{(hkl)} = \frac{\text{number of atoms whose centre lies on the plane}}{\t
 
 $$\rho_{(100)} = \frac{2\ \text{atoms}}{a^2} = \frac{2}{(2\sqrt2\cdot1.28\times10^{-8}\ \text{cm})^2} = 1.5\times10^{15}\ \text{atoms/cm}^2$$
 
-![[attachments/T2/density.svg]]
+![[attachments/T2/density-b.png]]
+
+![[attachments/T2/density-extra.svg]]
 
 ### 14.4 Summary of the three structures [Session 4 Slide 10]
 

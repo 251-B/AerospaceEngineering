@@ -14,8 +14,8 @@
 <text x="62.0" y="165.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
 <line x1="65.0" y1="91.6" x2="70.0" y2="91.6" stroke="#8a94a6" stroke-width="1.1"/>
 <text x="62.0" y="95.6" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">300</text>
-<text x="370.0" y="338.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
-<text x="78.0" y="74.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<text x="370.0" y="338.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain Îµ</text>
+<text x="78.0" y="74.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Ïƒ (MPa)</text>
 <polyline points="70.0,300.0 71.6,274.3 74.3,223.0 77.0,171.7 79.6,120.3 111.3,107.5 180.4,97.2 235.6,94.6 290.8,94.6 353.0,115.2" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
 <circle cx="71.6" cy="274.3" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
 <circle cx="74.3" cy="223.0" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
@@ -46,8 +46,8 @@
 <text x="442.0" y="150.7" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
 <line x1="445.0" y1="70.0" x2="450.0" y2="70.0" stroke="#8a94a6" stroke-width="1.1"/>
 <text x="442.0" y="74.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">300</text>
-<text x="720.0" y="338.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
-<text x="458.0" y="74.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<text x="720.0" y="338.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain Îµ</text>
+<text x="458.0" y="74.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Ïƒ (MPa)</text>
 <polyline points="450.0,300.0 463.1,271.7 485.0,215.0 506.8,158.3 528.7,101.7 720.0,91.2" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
 <circle cx="463.1" cy="271.7" r="2.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
 <circle cx="485.0" cy="215.0" r="2.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
@@ -57,7 +57,7 @@
 <polyline points="450.0,300.0 531.0,97.8" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
 <polyline points="495.0,300.0 589.0,65.4" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
 <circle cx="575.5" cy="99.1" r="5" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
-<text x="583.6" y="117.5" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">σy = 262 MPa</text>
+<text x="583.6" y="117.5" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Ïƒy = 262 MPa</text>
 <text x="531.0" y="90.9" fill="#10b981" font-size="12" font-weight="400" text-anchor="end">E (elastic line)</text>
 <text x="507.8" y="281.6" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="start">0.2 % offset</text>
 <text x="450.0" y="24.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">zoom on the elastic part</text>

@@ -10,7 +10,7 @@ Llevar el Tema 4 completo (teoría + los 26 problemas oficiales) al portal sigui
 Reglas que se aplican en todas las fases:
 
 1. **Solo el contenido de las slides.** La teoría sigue las cuatro sesiones diapositiva a diapositiva, en su orden, y cada sección cita su origen (`[Session 7 Slide 16]`). No se añade teoría que no esté en las slides; si algo hace falta para entender un paso, se marca como *extension* (regla de `AGENTS.md`), y se intenta evitar.
-2. **Las mismas figuras que las slides.** Cada figura explicativa de una slide aparece en la página, redibujada como SVG o copiada (ver §4). Las figuras decorativas (logos, portadas) no se copian.
+2. **Las mismas figuras que las slides.** Cada figura explicativa de una slide aparece en la página como **recorte PNG de la slide original**, nunca redibujada (política "Screenshot-First", ver §4). Las figuras decorativas (logos, portadas) no se copian.
 3. **Ejemplos resueltos solo con datos de las slides.** Un ejemplo usa un diagrama, una aleación o un punto que ya aparecen en las slides; si hay que leer un valor de un diagrama, se indica "reading of the figure". Ningún dato inventado ni de fuentes externas.
 4. **Problemas: los 26 oficiales**, resueltos con el método de cuatro fases y contrastados con `Solution problems Phase diagrams I/II.pdf`. Si el resultado no coincide con la clave oficial, se mantiene el valor calculado y se añade un aviso de discrepancia; nunca se ajustan datos para cuadrar.
 
@@ -76,10 +76,15 @@ Notas de concepto (como en T1–T3), enlazadas desde la nota de tema y el MOC:
 
 ## 4. Figuras
 
-Criterio (híbrido, recomendado):
+Criterio vigente (**Screenshot-First**, Aerospace Materials I; sustituye al criterio híbrido anterior "simple → SVG redibujado, complejo → recorte"):
 
-- **Diagramas de fases, curvas de enfriamiento, tie lines, esquemas** → **SVG redibujado** en `tools/figures/materials_t4.py` con `svgkit` (como T1–T3). Motivo: se leen valores sobre ellos, deben verse bien en los seis palettes de lectura y en el PDF en blanco y negro. Los puntos clave (temperaturas y composiciones) se toman del texto de las slides y se comprueban superponiendo el SVG sobre el render de la slide.
-- **Micrografías y fotos** (núcleos de coring, eutécticos, perlita, precipitados, analogías de leche/queso/patata) → **copia** del bitmap original con `pdfimages -png` (resolución nativa, sin recomprimir) en `vault/attachments/T4/`, con pie que cita la slide. Se cubren con las reglas de imágenes raster de `study-surface.css` §7–11.
+- **Toda figura que reproduce una imagen, diagrama, gráfica, esquema o tabla presente en los PDFs oficiales del curso** (diagramas de fases, curvas de enfriamiento, esquemas, micrografías, fotos, tablas) es un **recorte PNG a 200 DPI del PDF original**, tomado con `pymupdf` (`page.get_pixmap(dpi=200, clip=...)`), sobre fondo blanco, sin cabecera, pie ni número de slide, guardado en `vault/attachments/T4/` y registrado con `REG.raster(name, title, caption, width)` en `tools/figures/materials_t4.py`; el pie cita la slide. Se cubren con las reglas de imágenes raster de `study-surface.css` §7–11 y de `print.css`.
+- **Se conserva el SVG generado solo en dos casos:**
+  1. **EXTRA:** la figura no existe en ningún PDF oficial y es una ayuda pedagógica o un paso de la solución (circunferencias esquemáticas de microestructura, curvas dibujadas desde tablas numéricas, la respuesta dibujada a un "dibuja este plano/dirección/diagrama/curva", superposiciones de tie lines de un problema resuelto).
+  2. **INVIABLE:** recortar la figura del PDF es imposible o empeora la lectura (tinta a mano superpuesta, escaneo ilegible, figura ausente del PDF).
+- Los puntos clave leídos sobre una figura se siguen tomando del texto de las slides, y cualquier lectura de un valor se marca como "reading of the figure".
+
+Nota (2026-11-10): el listado "Lista inicial" de abajo describe el reparto SVG/PNG del plan original; con la política Screenshot-First las filas marcadas SVG pasan a PNG salvo que sean EXTRA o INVIABLE.
 
 Lista inicial:
 
@@ -110,7 +115,7 @@ Lista inicial:
 | Al₂O₃-Cr₂O₃, Al₂O₃-SiO₂ (mullita) | S10 2–4 | SVG |
 | Triángulo ternario, Ag-Cu-Zn, Fe-Cr-Ni, arcilla-feldespato-cuarzo | S10 5–8 | SVG |
 
-Figuras de problemas (en `vault/attachments/T4-problems/`, como `T2-problems/`): Pb-Sn, Ag-Cu, Al-Ni, Cu-Sn, Ni-Mo, Ti-Si, Ti-B, diagramas hipotéticos A-B (P1, P8, P11, P14), Fe-Fe₃C con las temperaturas $T_1$–$T_5$ de cada problema, triángulo ternario del P11 (hoja II). Se redibujan en SVG con las coordenadas que dan el enunciado y la solución oficial.
+Figuras de problemas (en `vault/attachments/T4-problems/`, como `T2-problems/`): Pb-Sn, Ag-Cu, Al-Ni, Cu-Sn, Ni-Mo, Ti-Si, Ti-B, diagramas hipotéticos A-B (P1, P8, P11, P14), Fe-Fe₃C con las temperaturas $T_1$–$T_5$ de cada problema, triángulo ternario del P11 (hoja II). Con la política Screenshot-First, el diagrama que ya trae la hoja oficial se recorta (PNG a 200 DPI) en el recuadro del enunciado; se mantienen como SVG EXTRA solo las superposiciones de la solución (tie lines, zooms), las microestructuras esquemáticas y los diagramas que el enunciado pide dibujar (P8, P11), con las coordenadas que dan el enunciado y la solución oficial.
 
 ## 5. Ejemplos resueltos dentro de la teoría
 
@@ -185,6 +190,6 @@ Orden sugerido de entrega si se prefiere ir por partes: Parte I + problemas PD01
 
 ## 10. Decisiones abiertas
 
-1. **Figuras:** híbrido SVG + PNG (recomendado) / todo copiado de las slides / todo redibujado.
+1. **Figuras:** decidido el 2026-11-10: Screenshot-First (todo lo que está en los PDFs oficiales se copia como recorte PNG a 200 DPI; SVG solo para figuras EXTRA o INVIABLES). Antes: híbrido SVG + PNG.
 2. **Página de teoría:** una página con cuatro partes (recomendado, ya prevista en el MOC) / cuatro páginas, una por sesión.
 3. **Entrega:** todo de una vez con equipo de agentes / por partes (§8).

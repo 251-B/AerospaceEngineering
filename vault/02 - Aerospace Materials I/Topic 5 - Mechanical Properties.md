@@ -25,7 +25,7 @@ prerrequisitos:
 
 > **Central idea:** a mechanical property is how a material responds to a force. The uniaxial tension test turns the load and the elongation of a standard specimen into a stress-strain curve; from that one curve come the stiffness, the strength, the ductility, the toughness and the resilience. The microstructure decides where the curve lies, and the strengthening mechanisms are the ways of moving it up by making dislocations harder to move.
 
-This page follows the two official sessions of Topic 5 in order. Part I (Session 11) covers the basic concepts, the tension test, the elastic and plastic zones, the slip systems, the parameters read from the curve and the true stress-strain curve, and it also covers the other mechanical tests of the same session. Part II (Session 12) covers the strengthening mechanisms and the hardness tests. Every section names the slides it comes from. Figures are redrawn from the slides where a clean redraw is possible; the charts whose values cannot be redrawn faithfully are copied from the slides as PNG crops, and this is stated in each caption.
+This page follows the two official sessions of Topic 5 in order. Part I (Session 11) covers the basic concepts, the tension test, the elastic and plastic zones, the slip systems, the parameters read from the curve and the true stress-strain curve, and it also covers the other mechanical tests of the same session. Part II (Session 12) covers the strengthening mechanisms and the hardness tests. Every section names the slides it comes from. Every figure is copied from the slides as a PNG crop, and each caption names its slide.
 
 ---
 
@@ -46,7 +46,7 @@ This page follows the two official sessions of Topic 5 in order. Part I (Session
 
 The **uniaxial tension test** is the normalised, destructive test for the evaluation of mechanical properties under a tensile load. The material is tested as a **specimen** with a uniform cross-section. The **calibration** (gauge) **length** is the length needed so that the stress is transmitted uniformly along the specimen. The norm for metals is **ASTM E8**. The slide's standard specimen has a gauge length of 50 mm, a reduced section of 60 mm, a reduced diameter of 0.505 in. ($\approx 12.8$ mm; the slide prints 0.505" Diameter), a grip diameter of 18 mm and a radius of 10 mm at the shoulders.
 
-![[attachments/T5/specimen-geometry.svg]]
+![[attachments/T5/specimen-geometry.png]]
 
 ### 2.2 The output of the test: the stress-strain curve [Session 11 Slide 9]
 
@@ -58,9 +58,9 @@ $$\sigma_n = \frac{F}{A_0} \qquad \varepsilon_n = \frac{l - l_0}{l_0}$$
 - $\varepsilon_n$ is the **nominal** (engineering) strain. It is non-dimensional.
 - $F$ is the applied load, $A_0$ the original cross-section, $l$ the length of the specimen and $l_0$ its initial length [Session 11 Slide 9].
 
-The curve has an elastic part and a plastic part, with the characteristic points named in the sections below. The figure is schematic and not to scale.
+The curve has an elastic part and a plastic part, with the characteristic points named in the sections below. The slide's chart marks the linear-elastic region, the yield strength point, the 0.2 % offset line, the ultimate tensile strength (UTS) and the breaking strength, and below it the specimen at each stage of the test (uniform elastic deformation, uniform plastic deformation, necking and fracture).
 
-![[attachments/T5/curve-regions.svg]]
+![[attachments/T5/curve-regions.png]]
 
 ---
 
@@ -87,7 +87,7 @@ $E$ is the **Young's modulus** or elastic modulus. It measures the **stiffness**
 - A higher bond force goes with a higher melting temperature [Session 11 Slide 13].
 - The ranking is $E_{\text{ceramics}} > E_{\text{metals}} > E_{\text{polymers}}$ [Session 11 Slide 13].
 
-![[attachments/T5/bond-force-curves.svg]]
+![[attachments/T5/bond-force-curves.png]]
 
 Slide 13 also gives the **specific modulus** $E/\rho$, the modulus per unit of density [Session 11 Slide 13]:
 
@@ -161,13 +161,15 @@ Some materials (some polymers, concrete, grey cast irons) do not follow a straig
 - **secant** $E$, for $\varepsilon = 2\,\%$, measured between the origin and the chosen point;
 - **tangent** $E$, at the strain of interest.
 
-![[attachments/T5/modulus-types.svg]]
+![[attachments/T5/modulus-types-a.png]]
+
+![[attachments/T5/modulus-types-b.png]]
 
 ### 3.5 Tensile curves of different materials [Session 11 Slide 16]
 
 The slide shows four qualitative tensile curves. A **metal** rises, reaches a maximum and breaks with necking. A **thermoplastic above its glass transition** $T_g$ has a long plateau before a final rise. An **elastomer** has a strongly curved response up to a high strain. **Ceramics, glasses and concrete** are steep and break at a low strain, with almost no plastic zone.
 
-![[attachments/T5/material-curves.svg]]
+![[attachments/T5/material-curves.png]]
 
 ---
 
@@ -183,7 +185,9 @@ For a uniaxial stress on an isotropic material, $\nu = -\varepsilon_x/\varepsilo
 - The slide also states that $\nu = -1$ means no change in the aspect ratio.
 - Real materials have $\nu = 0.2$ to $0.4$. The slide's table gives natural rubber 0.499-0.49, polymers 0.3-0.45 and metals 0.25-0.4 [Session 11 Slide 19].
 
-![[attachments/T5/poisson.svg]]
+![[attachments/T5/poisson-a.png]]
+
+![[attachments/T5/poisson-b.png]]
 
 In the elastic regime of shear, $\tau = G\,\gamma$, where $G$ is the **shear modulus**, and the two elastic constants are related by [Session 11 Slide 7]:
 
@@ -212,7 +216,7 @@ $$\text{MOR} = \frac{3\,F\,L}{2\,b\,h^2}$$
 
 where $F$ is the load, $L$ the span between supports, $b$ the width and $h$ the thickness. The slide notes that this test removes the dispersion of results obtained from separate tensile and compression tests, because the specimen is subjected to both.
 
-![[attachments/T5/bend-test.svg]]
+![[attachments/T5/bend-test.png]]
 
 ### 5.4 Shear test [Session 11 Slide 7]
 
@@ -220,7 +224,7 @@ A shear test applies stress so that the specimen fails by sliding along a plane 
 
 $$\tau = \frac{F}{A_0} \qquad \gamma = \frac{a}{h} = \tan\theta \qquad \tau = G\,\gamma \;\;\text{(elastic regime)}$$
 
-![[attachments/T5/shear-test.svg]]
+![[attachments/T5/shear-test.png]]
 
 ### 5.5 Torsion test [Session 11 Slide 7]
 
@@ -234,7 +238,7 @@ The torsion test is a variant of the shear test. A twisting force is applied to 
 
 In the plastic zone $\varepsilon$ is not proportional to $\sigma$, and the deformation is permanent. If $F = 0$ after the yield point, the strain stays positive. The bonds break and form again, so the specimen does not recover its original shape. The atoms are displaced permanently to new positions, and the mechanism is the **movement of dislocations**, which forms the material through deformation. The slide states that in the majority of metals the maximum plastic strain is $\varepsilon_{\text{plastic,max}} = 0.5\,\%$.
 
-![[attachments/T5/load-unload.svg]]
+![[attachments/T5/load-unload.png]]
 
 ### 6.2 Slipping of dislocations [Session 11 Slide 23]
 
@@ -251,7 +255,7 @@ The dislocation moves parallel to the direction of maximum packing. In that dire
 - **compact direction** FCC [110]: $b = 2R$, so $E_b \propto 4R^2$;
 - **non-compact direction** FCC [100]: $b^2 + b^2 = (4R)^2$, so $b = 2\sqrt{2}\,R$ and $E_b \propto 8R^2$.
 
-![[attachments/T5/dislocation-directions.svg]]
+![[attachments/T5/dislocation-directions.png]]
 
 ### 6.4 Slip systems [Session 11 Slide 25]
 
@@ -281,7 +285,9 @@ The **yield strength** $\sigma_y$ is the stress above which permanent deformatio
 - The **conventional yield stress** is the most used in metals. It is the stress at a plastic strain of about $0.2\,\%$: the stress where the curve crosses the line drawn parallel to the elastic slope from $\varepsilon = 0.002$ (the 0.2 % offset line).
 - Materials with a **discontinuous yield point** (low-carbon steels, some polymers) show an upper and a lower yield point, and the yield stress is taken as $\sigma_y = \dfrac{\sigma_{\max} + \sigma_{\min}}{2}$.
 
-![[attachments/T5/yield-offset.svg]]
+![[attachments/T5/yield-offset-a.png]]
+
+![[attachments/T5/yield-offset-b.png]]
 
 ### 7.2 Working stress [Session 11 Slide 29]
 
@@ -306,13 +312,13 @@ where $\sigma_y$ is the yield strength and $N$ is the safety factor, with values
 - **Percent reduction in area**: $RA\,(\%) = \dfrac{A_0 - A_f}{A_0} \times 100$, where $A_0$ is the initial cross-section and $A_f$ the final cross-section after fracture. Normally $\varepsilon\,(\%) \neq AR\,(\%)$ [Session 11 Slide 33].
 - Ductility shows how many forming operations, such as lamination, can be performed one after the other [Session 11 Slide 33].
 
-![[attachments/T5/ductility-recovery.svg]]
+![[attachments/T5/ductility-recovery.png]]
 
 ### 7.5 Toughness [Session 11 Slide 34]
 
 **Toughness** is the ability of a material to absorb energy up to fracture, by elastic and plastic deformation. It is the energy per unit volume (Pa or J/m³), and it is the **area under the stress-strain curve**. Toughness is important in structural applications and in protection and security systems, and the slide links it to the type of fracture (ductile or brittle) and to the fracture toughness.
 
-![[attachments/T5/toughness.svg]]
+![[attachments/T5/toughness.png]]
 
 ### 7.6 Modulus of resilience [Session 11 Slide 35]
 
@@ -326,7 +332,7 @@ $$U_r = \frac{1}{2}\,\frac{\sigma_y^2}{E}$$
 
 Materials with a high resilience have a high $\sigma_y$ and a low $E$. The slide's application is the alloys used to make springs [Session 11 Slide 35].
 
-![[attachments/T5/resilience.svg]]
+![[attachments/T5/resilience.png]]
 
 ---
 
@@ -348,7 +354,7 @@ $$\sigma = \frac{F_i}{A_i} = \sigma_{\text{eng}}\,\frac{A_0}{A_i} \qquad \vareps
 
 where $A_0$ and $D_0$ are the initial area and diameter, and $A$ and $D$ the instantaneous ones [Session 11 Slide 38]. The chart of Slide 37 plots the engineering curve, the true curve and a third, dashed curve labelled **Corrected** that departs from the true curve after the maximum (M′): the necking makes the stress state in the neck triaxial, and the corrected curve is the true curve once that is taken into account (the explanation is an extension; the slide only labels the curve).
 
-![[attachments/T5/true-stress.svg]]
+![[attachments/T5/true-stress.png]]
 
 ---
 
@@ -387,7 +393,7 @@ where $A_0$ is the original cross-section and $A_d$ the cross-section after defo
 
 The slide's charts show the yield strength of a 1040 steel (Fe-0.3-0.4 %C), an α-brass (Cu-Zn) and copper as a function of the percent cold work, and the ductility (%EL) of the same materials. The yield strength rises with the cold work and levels off, and the ductility falls [Session 12 Slide 7].
 
-![[attachments/T5/strain-hardening.svg]]
+![[attachments/T5/strain-hardening.png]]
 
 ![[attachments/T5/s12-strain-hardening-charts.png]]
 
@@ -414,7 +420,7 @@ The strength of a material increases when impurities are introduced as **substit
 - The slide's plot of the yield strength against $d^{-1/2}$ (with the grain size $d$ on a second axis) is a straight line over the range shown [Session 12 Slide 10].
 - The slide's micrograph shows grain boundaries blocking the dislocations [Session 12 Slide 11].
 
-![[attachments/T5/grain-boundary.svg]]
+![[attachments/T5/grain-boundary.png]]
 
 ![[attachments/T5/s12-grain-size-plot.png]]
 
@@ -430,9 +436,9 @@ The slide illustrates how a dislocation passes a row of particles:
 - **(d) escape**: the dislocation passes the particles and leaves a loop around each one.
 
 > [!note] Printed labels
-> The slide labels both the critical and the escape situations as "c". Here they are labelled (c) and (d).
+> The slide labels both the critical and the escape situations as "c", and the copied figure keeps those labels. In the list above they are (c) and (d).
 
-![[attachments/T5/precip-stages.svg]]
+![[attachments/T5/precip-stages.png]]
 
 **Application** (aluminium alloys for aircraft, series 2xxx and 7xxx). The slide compares the UTS of five materials [Session 12 Slide 13]:
 
@@ -488,7 +494,11 @@ The indentation tests are classified by the load and the indentation:
 
 The hardness is the measure of the indentation made by an indenter under a load, and it reflects a localised plastic deformation.
 
-![[attachments/T5/indenters.svg]]
+![[attachments/T5/indenters-a.png]]
+
+![[attachments/T5/indenters-b.png]]
+
+![[attachments/T5/indenters-c.png]]
 
 ## 16. Brinell hardness [Session 12 Slides 18-20]
 
@@ -568,7 +578,7 @@ The slide's table of scales, with the applications printed for each one, is summ
 | 30-T | Superficial | 1/16 in ball | 3 | 30 | Bronze, brass and soft steel |
 | 45-T | Superficial | 1/16 in ball | 3 | 45 | Bronze, brass and soft steel |
 
-![[attachments/T5/rockwell-steps.svg]]
+![[attachments/T5/rockwell-steps.png]]
 
 ## 18. Vickers and Knoop hardness [Session 12 Slides 25-27, 29]
 

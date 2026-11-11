@@ -63,5 +63,5 @@
 <line x1="338.0" y1="190.0" x2="338.0" y2="208.0" stroke="#6b7280" stroke-width="1.4"/>
 <text x="346.0" y="204.0" fill="#6b7280" font-size="14" font-weight="700" text-anchor="start">h</text>
 <text x="440.0" y="208.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">surface</text>
-<text x="30.0" y="276.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Cap area S = π D h  with  h = (D − √(D² − Di²)) / 2   ⇒   HB = P / S</text>
+<text x="30.0" y="276.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Cap area S = Ï€ D h  with  h = (D âˆ’ âˆš(DÂ² âˆ’ DiÂ²)) / 2   â‡’   HB = P / S</text>
 </g></svg>

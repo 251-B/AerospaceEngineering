@@ -30,6 +30,8 @@ $$\rho = \frac{n\,M}{V_{cell}\,N_A}, \qquad \rho_{[uvw]} = \frac{\text{atoms cen
 > [!warning] Note on the official material
 > The official $[111]$ example counts a central atom, which FCC does not have; the correct count is 1 atom, $\rho_{[111]} = 1/(\sqrt3\,a)$.
 
-![[attachments/T2/density.svg]]
+![[attachments/T2/density-b.png]]
+
+![[attachments/T2/density-extra.svg]]
 
 **Back to:** [[Topic 2 - Structure of Materials and Crystalline Defects]] · [[Aerospace Materials I MOC]]

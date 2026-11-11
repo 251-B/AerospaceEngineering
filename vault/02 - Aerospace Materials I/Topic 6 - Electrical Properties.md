@@ -25,7 +25,7 @@ prerrequisitos:
 
 > **Central idea:** the electrical behaviour of a solid is decided by how its electrons fill the energy bands that the atoms form when they come together. A half-filled (or overlapping) band gives a **conductor**; a full valence band separated by a small gap $E_g$ from an empty conduction band gives a **semiconductor**; a large gap gives an **insulator**. In every case the conductivity is carriers times charge times mobility, $\sigma = n\,\lvert q\rvert\,\mu$, and the whole topic is about what controls $n$ (temperature, doping, band gap) and $\mu$ (collisions with vibrations, impurities and defects). Insulators that can be polarised (dielectrics, ferroelectrics, piezoelectrics) close the unit.
 
-This page follows the single official session of Topic 6 (Session 13) slide by slide. Slide 1 is the title and agenda (band structure and electrical properties; conducting materials, metallic and non-metallic; semiconducting materials, intrinsic and extrinsic of types n and p; insulating and dielectric materials). Slides 9, 24 and 50 repeat this agenda as section dividers. Every section names the slides it comes from. Figures are redrawn from the slides where a clean redraw is possible, and the charts and tables whose values cannot be redrawn faithfully are copied from the slides as PNG crops; each caption says which. The questions printed on the slides (Q1 to Q5 and Q10) are problems 1 to 5 and 10 of the official sheet, and they are solved on the problems page of this topic.
+This page follows the single official session of Topic 6 (Session 13) slide by slide. Slide 1 is the title and agenda (band structure and electrical properties; conducting materials, metallic and non-metallic; semiconducting materials, intrinsic and extrinsic of types n and p; insulating and dielectric materials). Slides 9, 24 and 50 repeat this agenda as section dividers. Every section names the slides it comes from. Figures that appear on the slides are copied from them as PNG crops, and each caption names its slide. The few drawings that have no figure on the slides (the conductivity scale built from the table of Slide 5, the bar of Ohm's law, the band-gap trends and the cubic BaTiO3 cell) are drawn for this page, and their captions say so. The questions printed on the slides (Q1 to Q5 and Q10) are problems 1 to 5 and 10 of the official sheet, and they are solved on the problems page of this topic.
 
 ---
 
@@ -57,7 +57,7 @@ The reciprocal of the conductivity is the **resistivity** $\rho = 1/\sigma$, in 
 
 An isolated atom has discrete energy levels. When atoms come within close proximity, their orbitals interact and **each atomic level splits**: two atoms give two levels, a few atoms give a few close levels, and a large number of atoms (a solid) gives so many levels, so close in energy, that they form a **continuous energy band**. The slide plots the electron energy against the interatomic separation for an aggregate of atoms, with the core-level electrons staying almost unchanged and the outer levels broadening into bands. Between bands a **band gap** $E_g$ may remain, where no electron states exist.
 
-![[attachments/T6/band-formation.svg]]
+![[attachments/T6/band-formation.png]]
 
 ### 2.2 Valence band, conduction band and gap [Session 13 Slide 4]
 
@@ -67,7 +67,7 @@ The electron energy band structure of a solid is given by its **interatomic sepa
 - **Conduction band:** the band located immediately above the valence band.
 - **Band gap** $E_g$: the energy range between them where there are no states.
 
-![[attachments/T6/bands-vs-spacing.svg]]
+![[attachments/T6/bands-vs-spacing.png]]
 
 ## 3. Band structure of conductors, semiconductors and insulators [Session 13 Slides 5-8]
 
@@ -96,7 +96,9 @@ For a metal, the occupancy of the electron states changes by an electron excitat
 - In a **semiconductor** the filled valence band is separated from the empty conduction band by a relatively **narrow** gap, $E_g < 2$ eV (pure silicon: $E_g = 1.1$ eV; pure germanium: $E_g = 0.67$ eV).
 - In an **insulator** the gap is relatively **large**, $E_g > 2$ eV (pure diamond: $E_g = 6$ to $7$ eV).
 
-![[attachments/T6/band-types.svg]]
+![[attachments/T6/band-types-a.png]]
+
+![[attachments/T6/band-types-b.png]]
 
 ## 4. Metallic conductors: Ohm's law and the free-electron model [Session 13 Slides 10-13]
 
@@ -125,7 +127,9 @@ $$v_d = \frac{\tau\,\lvert q_e\rvert\,E}{m_e} = \mu\,E \qquad\text{with}\qquad \
 
 $\tau$ is the **relaxation time** (the mean time between collisions) and $\mu$ is the **electron mobility**, in m²/(V·s).
 
-![[attachments/T6/electron-drift.svg]]
+![[attachments/T6/electron-drift-a.png]]
+
+![[attachments/T6/electron-drift-b.png]]
 
 ### 4.4 Current density, conductivity and resistivity [Session 13 Slides 12-13]
 
@@ -145,7 +149,7 @@ $$\rho_{total} = \rho_T + \rho_r$$
 
 $\rho_T$ is the **thermal resistivity**, produced by the vibrations of the lattice, and $\rho_r$ is the **residual resistivity**, produced by impurities and defects (next section). The slide's plot of resistivity against temperature shows $\rho_r$ as a constant floor (the curve tends to it at low temperature) and $\rho_T$ as the temperature component added on top.
 
-![[attachments/T6/matthiessen.svg]]
+![[attachments/T6/matthiessen.png]]
 
 ### 5.2 Thermal resistivity [Session 13 Slide 14]
 
@@ -188,7 +192,7 @@ So $\rho_r = \rho_i + \rho_d$ and, with Matthiessen's rule, $\rho_{total} = \rho
 
 A conduction electron moves through a **perfect crystal** without scattering. In a crystal **heated to a high temperature** the atoms vibrate and displace from their sites, and in a crystal containing **atomic-level defects** (foreign atoms, vacancies, dislocations) the periodicity is broken too. In both cases the electron is scattered, which reduces its mobility and therefore the conductivity. The chart of the slide shows copper with different nickel contents and deformed copper: the curves are parallel, separated by the constant residual terms $\rho_i$ and $\rho_d$, while the temperature component $\rho_T$ is the same.
 
-![[attachments/T6/scattering-sources.svg]]
+![[attachments/T6/scattering-sources.png]]
 
 ![[attachments/T6/s13-matthiessen-copper.png]]
 
@@ -222,7 +226,9 @@ Graphene is a single layer of a hexagonal lattice formed by hexagons with an ato
 > [!note] Printed symbol
 > The slide writes these values with the symbol $\rho$, but the unit $(\Omega\cdot\text{m})^{-1}$ is the unit of conductivity, so they are $\sigma$.
 
-![[attachments/T6/graphene-lattice.svg]]
+![[attachments/T6/graphene-lattice-a.png]]
+
+![[attachments/T6/graphene-lattice-b.png]]
 
 ### 8.3 Conductive ceramics [Session 13 Slide 22]
 
@@ -231,7 +237,9 @@ Ceramics are traditionally insulators, but some advanced ceramics are good elect
 - **Electronic:** movement of electrons due to impurities with a different valence, or rare-earth elements. Uses: resistors, electrodes or heating elements.
 - **Ionic:** movement of anions or cations through vacancies or interstitial voids at high temperatures. Uses: gas sensors, fuel cells or batteries. The slide shows two pictures: the movement of ions or, equivalently, the movement of vacancies, and the movement of small interstitial cations ($r_i < r_{atom}$), and a solid oxide fuel cell (anode, electrolyte with oxygen ions, cathode).
 
-![[attachments/T6/ionic-conduction.svg]]
+![[attachments/T6/ionic-conduction-a.png]]
+
+![[attachments/T6/ionic-conduction-b.png]]
 
 Q3 on Slide 23 compares the effect of vacancies, interstitial cations, interstitial anions, temperature, disorder of the lattice and doping with other valences on an ionic ceramic and on a metal. It is problem 3 of the sheet.
 
@@ -250,7 +258,7 @@ Two types depending on the origin of the carriers [Session 13 Slide 26]:
 
 In an intrinsic semiconductor an electric or thermal excitation makes an electron pass from the valence band to the conduction band. This generates a **hole** in the valence band, and **both the free electron and the hole** are charge carriers. In the covalent crystal a bonding valence electron cannot move unless it receives enough energy to leave its bonding position; once a critical amount of energy has been supplied, it becomes a free conduction electron and leaves a **positively charged hole** in the lattice.
 
-![[attachments/T6/intrinsic-excitation.svg]]
+![[attachments/T6/intrinsic-excitation.png]]
 
 There are two types of carriers: **electrons** in the conduction band (charge $-1.6\times10^{-19}$ C, density $n_e$) and **holes** in the valence band (charge $+1.6\times10^{-19}$ C, density $n_H$). The conductivity is the sum of both contributions:
 
@@ -269,8 +277,6 @@ $k$ is Boltzmann's constant (the sheet gives $k_B = 8.62\times10^{-5}$ eV/K), $T
 $$\sigma = \sigma_0\exp\!\left(-\frac{E_g}{2kT}\right) \qquad\Rightarrow\qquad \ln\sigma = \ln\sigma_0 - \frac{E_g}{2kT}$$
 
 Plotted as $\ln\sigma$ against $1/T$ the law is a straight line of slope $-E_g/2k$, as the slide's chart shows. Temperature also disorders the crystal and lowers the mobility, **but this effect is masked by the increase in the number of carriers** [Session 13 Slide 29]. Compare with a metal, where $n$ is fixed and only the mobility changes, so that $\sigma$ falls with temperature.
-
-![[attachments/T6/intrinsic-arrhenius.svg]]
 
 ![[attachments/T6/s13-intrinsic-charts.png]]
 
@@ -330,7 +336,7 @@ The impurity atoms have more valence electrons than the atoms of the network, so
 
 $$\sigma \approx n_e\,\lvert q_e\rvert\,\mu_e$$
 
-![[attachments/T6/donor-level.svg]]
+![[attachments/T6/donor-level.png]]
 
 ### 12.3 Type p [Session 13 Slide 37]
 
@@ -341,7 +347,7 @@ $$\sigma \cong p\,\lvert q_e\rvert\,\mu_H$$
 > [!note] Printed group
 > Slide 37 writes "B, Al, Ga (group VA)", but the table printed on the same slide places B, Al, Ga and In in group 3A (IIIA); group VA is the one of the donors. The acceptors are IIIA.
 
-![[attachments/T6/acceptor-level.svg]]
+![[attachments/T6/acceptor-level.png]]
 
 ### 12.4 Excitation and majority and minority carriers [Session 13 Slide 38]
 
@@ -416,15 +422,13 @@ so $\ln\sigma = \ln\sigma_0 - \dfrac{E_c-E_d}{2kT}$ for the n-type and the same 
 
 At **intermediate temperature** all the impurities have been ionised and $\sigma$ is almost constant: the **exhaustion range** for the n-type (all the donor electrons have been lost) and the **saturation range** for the p-type (all the atoms are ionised). At **high temperature** the intrinsic generation across the gap takes over, with slope $-E_g/2k$: the **intrinsic range** [Session 13 Slide 43]. Slide 44 summarises it: at low and moderate $T$ the material behaves as an extrinsic conductor and $\sigma$ is governed by the number of ionised atoms; at high $T$ the conductivity slightly decreases, because the number of carriers stays constant and the disordering effect of the temperature (lower mobility) becomes visible; at very high $T$ the material behaves as an intrinsic conductor.
 
-![[attachments/T6/extrinsic-temperature.svg]]
+![[attachments/T6/extrinsic-temperature.png]]
 
 ## 15. Applications of semiconductors [Session 13 Slides 45-49]
 
 ### 15.1 The p-n junction [Session 13 Slide 45]
 
 A **p-n junction** is a boundary or interface between two types of semiconductor material, p-type and n-type, inside a single crystal. It is the basis of the diode, the photovoltaic cell and the LED of the next sections (the slide links two videos, listed at the end of this page).
-
-![[attachments/T6/pn-junction.svg]]
 
 The slide draws the junction in three steps: the carriers on both sides, the **depletion layer** (fixed negative charge on the p side and positive on the n side, with the internal electric field) and the **band diagram** with the diffusion potential $V_{bi}$ between the two sides.
 
@@ -434,7 +438,9 @@ The slide draws the junction in three steps: the carriers on both sides, the **d
 
 Electrons jump from the valence to the conduction band due to **thermal excitation**, due to **intense electric fields** or due to **exposure to radiation of a given wavelength**. **Photoconductivity** is the phenomenon in which a material becomes more conductive due to the absorption of electromagnetic radiation, such as visible light, whose photon energy must be at least $E_g$. The same effect used to generate electricity gives the **photovoltaic cells**; solar light has $E_g \sim 1.5$ eV. The slide's absorption figure marks that silicon absorbs photons above $1.1$ eV, gallium arsenide above $1.43$ eV and aluminium gallium arsenide above $1.7$ eV, while photons of lower energy go through.
 
-![[attachments/T6/photoconductivity.svg]]
+![[attachments/T6/photoconductivity-a.png]]
+
+![[attachments/T6/photoconductivity-b.png]]
 
 ### 15.3 LED [Session 13 Slide 47]
 
@@ -450,7 +456,7 @@ A **light-emitting diode** is a semiconductor doped to create a p-n junction tha
 | SiC | blue |
 | Diamond | ultra-violet |
 
-![[attachments/T6/led-recombination.svg]]
+![[attachments/T6/led-recombination.png]]
 
 ### 15.4 Thermistors [Session 13 Slide 48]
 
@@ -472,7 +478,9 @@ $$p = q\cdot d$$
 
 Without field the dipoles of the material are randomly oriented and the net polarisation is zero (unpolarised); an applied electric field **polarises** the material by aligning the dipoles, and opposite charges appear on the faces next to the plates.
 
-![[attachments/T6/dipole-polarization.svg]]
+![[attachments/T6/dipole-polarization-a.png]]
+
+![[attachments/T6/dipole-polarization-b.png]]
 
 ### 16.2 Insulators, dielectrics and capacitance [Session 13 Slide 52]
 
@@ -487,7 +495,7 @@ $$C = \varepsilon_r\,\varepsilon_0\,\frac{A}{d} \qquad\text{and}\qquad C = \vare
 
 $\varepsilon_0 = 8.85\times10^{-12}$ F/m is the permittivity of vacuum, $\varepsilon_r$ the dielectric constant (relative permittivity) and $C_0$ the capacitance with vacuum between the plates. The dielectric polarises, so the net charge at its surfaces ($-Q'$ and $+Q'$) lets the plates store more charge, $Q_0 + Q'$, for the same voltage.
 
-![[attachments/T6/capacitor-dielectric.svg]]
+![[attachments/T6/capacitor-dielectric.png]]
 
 ### 16.3 Loss factor and dielectric strength [Session 13 Slide 53]
 
@@ -499,7 +507,7 @@ $$E_{break} = \frac{U_{break}}{d}$$
 
 $U_{break}$ is the breakdown voltage and $d$ the separation between the conductors (in mm on the slide).
 
-![[attachments/T6/loss-factor.svg]]
+![[attachments/T6/loss-factor.png]]
 
 ### 16.4 What an insulator should have [Session 13 Slide 54]
 
@@ -533,9 +541,9 @@ The electric-field hysteresis cycles are similar to those of ferromagnetic mater
 
 The **Curie temperature** $T_c$ is the temperature above which the material loses its ferroelectric properties and becomes a plain dielectric; typically $-200\,{}^{\circ}\text{C} < T_c < 640\,{}^{\circ}\text{C}$. Example: BaTiO₃ has $T_c = 120\,{}^{\circ}\text{C}$. Below 120 °C the structure is **tetragonal**; above 120 °C the crystal structure of BaTiO₃ is **cubic** and the permanent dipoles disappear.
 
-![[attachments/T6/ferro-hysteresis.svg]]
+![[attachments/T6/ferro-hysteresis.png]]
 
-![[attachments/T6/batio3-cell.svg]]
+![[attachments/T6/batio3-cell-extra.svg]]
 
 The slide gives the dimensions of the cell, 0.403 nm for the vertical edge and 0.398 nm for the horizontal ones, and the displacements of the ions in the tetragonal phase (0.006 nm and 0.009 nm).
 
@@ -569,7 +577,9 @@ $\varepsilon_r(\text{ferroelectric}) \gg \varepsilon_r(\text{common dielectric})
 | $\downarrow$ dipole alteration | $\downarrow$ crystalline structure deformation |
 | Electric field (voltage) generation | Dimensional change of the material |
 
-![[attachments/T6/piezo-effects.svg]]
+![[attachments/T6/piezo-effects-a.png]]
+
+![[attachments/T6/piezo-effects-b.png]]
 
 They are used to transform electrical energy into mechanical energy and vice versa [Session 13 Slide 59], for example in **lighters** (a mechanical shock converted into a spark), **transducers in speakers**, **inkjet printers** (a piezoelectric actuator pushes the ink droplet out of the nozzle with a pulsed voltage), and **microphones and hydrophones** [Session 13 Slide 60].
 

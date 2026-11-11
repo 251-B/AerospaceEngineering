@@ -26,6 +26,8 @@ Conditions: $C = C_0$ for all $x$ at $t = 0$; $C = C_s$ at $x = 0$ and $C = C_0$
 $$\frac{C_x - C_0}{C_s - C_0} = 1 - \text{erf}\left(\frac{x}{2\sqrt{Dt}}\right)$$
 Examples: carbon into steel, a metal absorbing atmospheric gases. erf values are tabulated (e.g. erf(0.5) = 0.5205, erf(1.0) = 0.8427).
 
-![[attachments/T3/fick2.svg]]
+![[attachments/T3/fick2-b.png]]
+
+![[attachments/T3/fick2-a.png]]
 
 **Back to:** [[Topic 3 - Diffusion in Solids and Mass Transport]] · [[Aerospace Materials I MOC]]

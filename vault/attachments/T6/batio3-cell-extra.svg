@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" width="100%" class="fig-kit" style="max-width:340px;margin:0 auto;display:block" role="img" aria-label="BaTiO3 cubic cell above the Curie temperature">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="60.0" y1="100.0" x2="170.0" y2="100.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="60.0" y1="100.0" x2="104.0" y2="56.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="170.0" y1="100.0" x2="170.0" y2="210.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="170.0" y1="100.0" x2="214.0" y2="56.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="170.0" y1="210.0" x2="60.0" y2="210.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="170.0" y1="210.0" x2="214.0" y2="166.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="60.0" y1="210.0" x2="60.0" y2="100.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="60.0" y1="210.0" x2="104.0" y2="166.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="104.0" y1="56.0" x2="214.0" y2="56.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="214.0" y1="56.0" x2="214.0" y2="166.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="214.0" y1="166.0" x2="104.0" y2="166.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="104.0" y1="166.0" x2="104.0" y2="56.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,3"/>
+<circle cx="60.0" cy="100.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="170.0" cy="100.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="170.0" cy="210.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="60.0" cy="210.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="104.0" cy="56.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="214.0" cy="56.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="214.0" cy="166.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="104.0" cy="166.0" r="8.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="115.0" cy="155.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="159.0" cy="111.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="82.0" cy="133.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="192.0" cy="133.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="137.0" cy="78.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="137.0" cy="188.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="137.0" cy="133.0" r="6.5" fill="#4b5563" fill-opacity="0.9" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="137.0" y="262.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">T &gt; 120 °C: cubic</text>
+<text x="160.0" y="288.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">no permanent dipole</text>
+<circle cx="60.0" cy="322.0" r="7.0" fill="#f59e0b" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="74.0" y="326.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">Ba²⁺</text>
+<circle cx="140.0" cy="322.0" r="6.0" fill="#4b5563" fill-opacity="0.9" stroke="#4b5563" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="152.0" y="326.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">Ti⁴⁺</text>
+<circle cx="220.0" cy="322.0" r="5.0" fill="#ec4899" fill-opacity="0.8" stroke="#ec4899" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="232.0" y="326.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">O²⁻</text>
+<text x="170.0" y="24.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">BaTiO<tspan baseline-shift="sub" font-size="72%">3</tspan> above the Curie temperature</text>
+</g></svg>

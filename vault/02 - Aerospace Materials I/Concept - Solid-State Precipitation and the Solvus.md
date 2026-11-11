@@ -22,8 +22,9 @@ Full explanation: [[Topic 4 - Phase Diagrams and Solidification]].
 - Alloy that never crosses the solvus (Pb-1 wt% Sn): liquid → α + L → single-phase α down to room temperature.
 - Alloy that crosses it (Pb-16 wt% Sn): liquid → α + L → α → α + β; the β particles form inside and at the boundaries of the α grains and grow as $T$ decreases.
 
-![[attachments/T4/precip-pbsn.svg]]
+![[attachments/T4/precip-pbsn-a.png]]
 
+![[attachments/T4/precip-pbsn-b.png]]
 ## Amount of precipitate
 Lever rule between the solvus of α and the β boundary at the temperature of interest, e.g. $W_\beta = (16 - 6)/(99 - 6) = 0.11$ at 121 °C for Pb-16 wt% Sn (readings of the figure).
 

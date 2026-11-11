@@ -27,6 +27,5 @@ Full explanation: [[Topic 4 - Phase Diagrams and Solidification]].
 - Congruent: the liquid keeps the composition of the solid; a maximum of the liquidus (MgNi₂, pure metals).
 - Incongruent: the solid gives a liquid of another composition plus a different solid; it ends at a peritectic line (Mg₂Ni).
 
-![[attachments/T4/mgni-melting.svg]]
-
+![[attachments/T4/mgni-melting.png]]
 **Back to:** [[Topic 4 - Phase Diagrams and Solidification]] · [[Aerospace Materials I MOC]]

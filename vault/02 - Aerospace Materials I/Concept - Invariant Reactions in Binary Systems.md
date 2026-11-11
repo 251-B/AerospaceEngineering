@@ -35,8 +35,7 @@ The compositions of the examples are in % of the second element, as Session 8 pr
 
 Eutectoid and peritectoid are solid-state reactions. At 1 atm, $F = 2 - 3 + 1 = 0$.
 
-![[attachments/T4/invariant-table.svg]]
-
+![[attachments/T4/invariant-table.png]]
 ## Non-equilibrium peritectic [Session 8 Slide 10]
 The β formed surrounds the primary α (encasement) and acts as a diffusion barrier, so fast cooling leaves cored, incomplete structures.
 

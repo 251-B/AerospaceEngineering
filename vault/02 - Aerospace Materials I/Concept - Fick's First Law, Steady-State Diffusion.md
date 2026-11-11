@@ -22,7 +22,7 @@ $$J = -D\,\frac{\Delta C}{\Delta x}, \qquad \frac{\Delta C}{\Delta x} = \frac{C_
 - $J$: flux (kg/(m²·s) or at/(m²·s)); $D$: diffusivity (m²/s); the minus sign: atoms move down the gradient.
 - $J$ is constant only if the compositions on both sides are kept constant.
 
-![[attachments/T3/fick1.svg]]
+![[attachments/T3/fick1.png]]
 
 ## Example [Session 5 Slide 35]
 Pd plate, 0.2 m², $1.733\times10^{-3}$ kg/h of H₂, $C$ = 1.5 and 0.3 kg/m³, $D = 10^{-8}$ m²/s: $J = 2.4\times10^{-6}$ kg/(m²·s) and $\Delta x = D\,\Delta C/J = 5$ mm.

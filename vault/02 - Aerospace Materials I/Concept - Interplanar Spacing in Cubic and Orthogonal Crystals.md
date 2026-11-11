@@ -21,6 +21,6 @@ Full explanation: [[Topic 2 - Structure of Materials and Crystalline Defects]].
 - Orthogonal: $$\frac{1}{d_{hkl}^2} = \frac{h^2}{a^2} + \frac{k^2}{b^2} + \frac{l^2}{c^2}$$
 - Example: $d_{110} = a/\sqrt2$.
 
-![[attachments/T2/spacing.svg]]
+![[attachments/T2/spacing.png]]
 
 **Back to:** [[Topic 2 - Structure of Materials and Crystalline Defects]] · [[Aerospace Materials I MOC]]

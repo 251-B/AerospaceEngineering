@@ -24,7 +24,7 @@ prerrequisitos:
 
 > **Central idea:** every magnetic property comes from the magnetic moments of electrons, and the type of magnetism depends on whether those moments exist in the atom, whether they are permanent, and how neighbouring moments are arranged: induced and opposite (diamagnetic), permanent and random (paramagnetic), parallel (ferromagnetic), antiparallel and equal (antiferromagnetic) or antiparallel and unequal (ferrimagnetic). In the ferromagnetic and ferrimagnetic materials the moments group into domains, and the motion of the domain walls sets the shape of the hysteresis loop, so a material is a soft magnet or a hard one. The thermal properties follow from what heat does to the lattice: it raises the vibrational energy (heat capacity), it increases the mean interatomic distance (thermal expansion), it is carried by electrons and phonons (thermal conductivity), and when expansion is restrained or uneven it creates stresses (thermal stress and thermal shock).
 
-This page follows the single official session of Topic 7 (Session 15) slide by slide. Part I covers the magnetic properties (Slides 1 to 32) and Part II the thermal properties (Slides 33 to 48). Every section names the slides it comes from. Figures are redrawn from the slides where a clean redraw is possible, and the charts, tables and micrographs whose values cannot be redrawn faithfully are copied from the slides as PNG crops; each caption says which. Anything that is not printed on the slides is marked as an extension. The photographs of the slides (uses of magnets, levitation, trains, thermocouples) are not reproduced. Problems 11 and 12 of the sheet `Problems T6andT7` are the magnetic problems of this topic, and they are solved on the problems page of this topic.
+This page follows the single official session of Topic 7 (Session 15) slide by slide. Part I covers the magnetic properties (Slides 1 to 32) and Part II the thermal properties (Slides 33 to 48). Every section names the slides it comes from. Figures that appear on the slides are copied from them as PNG crops, and each caption names its slide; the two drawings that are not on the slides (the asymmetric potential well and the thermal-shock stress profile) are extensions and their captions say so. Anything that is not printed on the slides is marked as an extension. The photographs of the slides (uses of magnets, levitation, trains, thermocouples) are not reproduced. Problems 11 and 12 of the sheet `Problems T6andT7` are the magnetic problems of this topic, and they are solved on the problems page of this topic.
 
 ---
 
@@ -52,7 +52,7 @@ The magnetic moment of an atom is the sum of the magnetic moments of all its ele
 | Atomic number | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 |
 | Moment in $\mu_B$ | 1 | 2 | 3 | 5 | 5 | 4 | 3 | 2 | 0 |
 
-![[attachments/T7/orbital-spin.svg]]
+![[attachments/T7/orbital-spin.png]]
 
 > [!note] Definition of the Bohr magneton
 > The slide gives only the value of $\mu_B$. The definition $\mu_B = e\hbar/2m_e$ is an extension, and it reproduces the value above.
@@ -106,7 +106,7 @@ Examples on the slide: gold, silver and copper.
 
 Slide 7 is titled "The frog incident" and only prints the link of a video (listed at the end of Part I). The slide does not describe it. The title points to the well-known demonstration of the diamagnetic levitation of a living frog in a very strong magnetic field; this reading is outside the slide.
 
-![[attachments/T7/dipole-orderings.svg]]
+![[attachments/T7/dipole-orderings-a.png]]
 
 ### 4.2 Paramagnetism [Session 15 Slide 8]
 
@@ -115,6 +115,8 @@ A paramagnetic material has atoms with **permanent** magnetic dipoles that are *
 $$\mu_r > 1 \qquad 10^{-5} \le \chi_m < 10^{-2} \qquad B_{para} \cong \mu_0 H \qquad B_{para} > B_0$$
 
 Examples on the slide: aluminium and titanium.
+
+![[attachments/T7/dipole-orderings-b.png]]
 
 ### 4.3 Ferromagnetism [Session 15 Slide 9]
 
@@ -130,9 +132,13 @@ The slide tabulates the magnetic moment at 0 K of the ferromagnetic metals:
 
 The examples of the slide are iron, nickel and cobalt; gadolinium appears in this table and in the table of Curie temperatures (Section 9).
 
+![[attachments/T7/dipole-orderings-c.png]]
+
 ### 4.4 Antiferromagnetism [Session 15 Slide 10]
 
 In an antiferromagnetic material the permanent magnetic dipoles are oriented in an **antiparallel** way, so the solid as a whole has no net magnetic moment. The examples are Cr, Mn and MnO. The slide shows the antiparallel alignment of the spin moments of the Mn²⁺ ions in manganese oxide, with the O²⁻ ions in between [Session 15 Slide 10].
+
+![[attachments/T7/dipole-orderings-d.png]]
 
 ### 4.5 Ferrimagnetism [Session 15 Slides 11-12]
 
@@ -141,6 +147,8 @@ Ferrimagnetism is present in **ceramic** materials with permanent dipoles of **d
 | Cation | Fe³⁺ | Fe²⁺ | Mn²⁺ | Co²⁺ | Ni²⁺ | Cu²⁺ |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Net spin moment in $\mu_B$ | 5 | 4 | 5 | 3 | 2 | 1 |
+
+![[attachments/T7/dipole-orderings-e.png]]
 
 **Magnetite, Fe₃O₄ (extension, built from the table above).** Magnetite is the ferrite Fe³⁺(Fe²⁺Fe³⁺)O₄: one Fe³⁺ ion in a tetrahedral site and one Fe²⁺ and one Fe³⁺ ion in octahedral sites per formula unit. The two Fe³⁺ moments are antiparallel and cancel, $5\,\mu_B - 5\,\mu_B = 0$, so the net moment per formula unit is that of the Fe²⁺ ion, $4\,\mu_B$.
 
@@ -159,6 +167,8 @@ Slide 13 draws the dipoles of the five types and groups them by when they are or
 | Ferromagnetic | permanent, parallel without a field | $\mu_r \gg 1$, $\chi_m$ up to $10^6$ | Fe, Co, Ni, Gd |
 | Antiferromagnetic | permanent, antiparallel and equal | no net moment, non-magnetizable | Cr, Mn, MnO |
 | Ferrimagnetic | permanent, antiparallel and unequal | $\mu_r \gg 1$, $\chi_m$ about $10^5$ to $10^6$ | ferrites, garnets, Fe₃O₄ |
+
+![[attachments/T7/dipole-orderings-f.png]]
 
 ## 5. Magnetic domains and Bloch walls [Session 15 Slides 14-15]
 
@@ -179,7 +189,7 @@ The domains are usually smaller than the grains: a small grain can be a single d
 
 Slide 15 gives the reason for the domains: the magnetic domain structure is generated **spontaneously to decrease the magnetostatic energy** of the material. A single domain has a high magnetostatic energy (the stray field closes through the air around it); two domains have a lower one, four domains a lower one still, and the closure domains of the last panel have zero magnetostatic energy [Session 15 Slide 15].
 
-![[attachments/T7/domain-closure.svg]]
+![[attachments/T7/domain-closure.png]]
 
 ## 6. Magnetization curve and permeability [Session 15 Slide 16]
 
@@ -193,7 +203,7 @@ When a magnetic field is applied to a magnetic material the magnetization increa
 
 The two permeabilities of the slide are the slopes of the curve: $\mu_i$ is the **initial permeability** (slope at the start) and $\mu_{max}$ is the **maximum permeability** (the line from the origin tangent to the curve, that is, the largest value of $B/H$); the permeability varies with $H$. The slide's axis reads "magnetization $M$ or inductance $B$": strictly these slopes are permeabilities on the $B$ curve. The **saturation magnetization** $M_s$ is the magnetization that results when all the magnetic dipoles of the solid are aligned with the external field; the corresponding induction is the saturation flux density $B_s$.
 
-![[attachments/T7/initial-magnetization.svg]]
+![[attachments/T7/s15-initial-magnetization.png]]
 
 ## 7. Hysteresis cycles and applications [Session 15 Slides 17-19]
 
@@ -214,10 +224,10 @@ The materials are classified by the shape of their loop, with the limit $H_c = 1
 | Properties | high initial permeability, low $H_c$ | high remanence, high $B_s$ and $H_c$, low $\mu_i$ |
 | Use | materials under alternating fields, to increase $B$ and produce fast flux changes in coils and circuits with minimum energy losses | permanent magnets, because of their high resistance to demagnetization |
 
-![[attachments/T7/hysteresis-soft-hard.svg]]
+![[attachments/T7/s15-hysteresis-loops.png]]
 
 > [!note] Saturation of soft and hard materials
-> Slide 18 lists a high $B_s$ for the hard materials, and Slide 19 asks for a high saturation magnetization in the soft ones. The data favour the soft side: on the chart of Slide 19 CoFe and Fe reach about 2 T or more against about 1.5 T for NdFeB, and on Slide 24 soft $B_{max}$ goes up to 2.30 T against 1.23 T for the best hard $\mu_0 M_r$. Both statements are kept as printed; the drawing follows Slide 18.
+> Slide 18 lists a high $B_s$ for the hard materials, and Slide 19 asks for a high saturation magnetization in the soft ones. The data favour the soft side: on the chart of Slide 19 CoFe and Fe reach about 2 T or more against about 1.5 T for NdFeB, and on Slide 24 soft $B_{max}$ goes up to 2.30 T against 1.23 T for the best hard $\mu_0 M_r$. Both statements are kept as printed; the loops above are the ones of Slide 18.
 
 ### 7.3 Applications [Session 15 Slide 19]
 
@@ -314,7 +324,9 @@ The **Meissner-Ochsenfeld effect** is the expulsion of the magnetic field from a
 > [!note] Printed words
 > Slides 28 and 29 write "Type I semiconductors" and "Type II semiconductors" for the lists of materials. They are superconductors.
 
-![[attachments/T7/superconductor-types.svg]]
+![[attachments/T7/superconductor-types-a.png]]
+
+![[attachments/T7/superconductor-types-b.png]]
 
 ### 10.5 Josephson effect and applications [Session 15 Slides 31-32]
 
@@ -404,7 +416,7 @@ Slide 38 gives the specific heat $c_p$, the expansion coefficient $\alpha_l$ and
 
 A **bimetal** is made of two metals bonded together with different expansion coefficients. A **bimetallic strip** converts a temperature change into a mechanical displacement: on heating, the metal with the larger coefficient lengthens more and the strip bends towards the other metal (the slide shows copper and iron). Uses: thermostats, thermometers, clocks and electrical devices [Session 15 Slide 39].
 
-![[attachments/T7/bimetal-strip.svg]]
+![[attachments/T7/bimetal-strip.png]]
 
 ## 14. Thermal conductivity [Session 15 Slides 40-44]
 
@@ -416,7 +428,7 @@ $$q = \frac{Q}{A} = -k\,\frac{\Delta T}{\Delta x}$$
 
 $q$ is the heat flux per unit area in W/m², $Q$ the heat flow in W (the slide calls it heat flux), $k$ the thermal conductivity in W/(m·K) and $\Delta T/\Delta x$ the temperature gradient. The minus sign says that heat flows from hot to cold. This is the same structure as the steady-state diffusion law of [[Concept - Fick's First Law, Steady-State Diffusion|the note on Fick's first law]]: a flux proportional to a gradient, with a transport coefficient ($k$ here, $D$ there); that parallel is an extension.
 
-![[attachments/T7/heat-flux-bar.svg]]
+![[attachments/T7/heat-flux-bar.png]]
 
 The thermal energy is transferred by two mechanisms: the transfer of **free electrons** ($k_e$) and the **lattice vibrations or phonons** ($k_{ph}$):
 
@@ -474,7 +486,7 @@ where $E$ is Young's modulus (MPa), $\alpha$ the linear coefficient of thermal e
 
 The origin is the free expansion that the walls prevent (this link with Hooke's law is an extension). A free bar would have the thermal strain $\alpha(T_f - T_0)$. Held at constant length, the total strain is zero, $0 = \sigma/E + \alpha(T_f - T_0)$, and therefore $\sigma = E\alpha(T_0 - T_f)$. Dimensionally $[E\alpha\Delta T] = \text{MPa}\cdot{}^{\circ}\text{C}^{-1}\cdot{}^{\circ}\text{C} = \text{MPa}$.
 
-![[attachments/T7/constrained-bar.svg]]
+![[attachments/T7/constrained-bar.png]]
 
 Slide 46 ("Problem 5. Topic Mechanical properties") applies the law to problem 5 of the Topic 5 sheet. A steel wire, initially 1 m long, is stretched by a force of 1400 N at 20 °C. After the force is applied the wire is held at constant length and heated to 40 °C, and the diameter is asked for that makes the thermal expansion stress compensate the applied stress. With the data of the sheet ($E = 207$ GPa, $\alpha_l = 12.5\times10^{-6}$ °C⁻¹) the magnitude of the thermal stress is $E\alpha_l\lvert T_f - T_0\rvert = 51.75$ MPa (compressive, because the wire is heated), the area is $A = F/\sigma = 1400\ \text{N}/51.75\ \text{N/mm}^2 = 27.053\ \text{mm}^2$ and the diameter is $d = \sqrt{4A/\pi} = 5.87$ mm (5.869 mm; the official key prints 5.86 mm). The full step-by-step solution, with the check against the official key, is in [[Problem - T5-05 Thermal Stress in a Constrained Steel Wire|Problem T5-05]].
 

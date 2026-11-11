@@ -8,10 +8,10 @@
 <circle cx="145.3" cy="196.2" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
 <circle cx="546.7" cy="89.9" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
 <circle cx="401.0" cy="310.0" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
-<text x="83.0" y="185.5" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">σy = 191.1 MPa</text>
-<text x="83.0" y="105.4" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">σ = 369.7 MPa</text>
-<text x="533.7" y="79.2" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="end">ε = 0.011</text>
-<text x="418.4" y="295.1" fill="#3b82f6" font-size="12.5" font-weight="700" text-anchor="start">εp = 0.00764</text>
+<text x="83.0" y="185.5" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Ïƒy = 191.1 MPa</text>
+<text x="83.0" y="105.4" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Ïƒ = 369.7 MPa</text>
+<text x="533.7" y="79.2" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="end">Îµ = 0.011</text>
+<text x="418.4" y="295.1" fill="#3b82f6" font-size="12.5" font-weight="700" text-anchor="start">Îµp = 0.00764</text>
 <text x="338.7" y="196.9" fill="#3b82f6" font-size="12.5" font-weight="700" text-anchor="start">unloading: slope E</text>
 <line x1="70.0" y1="310.0" x2="590.0" y2="310.0" stroke="#8a94a6" stroke-width="1.3"/>
 <path d="M590.0,310.0 L581.7,313.5 L581.7,306.5 Z" fill="#8a94a6"/>
@@ -31,6 +31,6 @@
 <text x="62.0" y="135.4" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">300</text>
 <line x1="65.0" y1="71.9" x2="70.0" y2="71.9" stroke="#8a94a6" stroke-width="1.1"/>
 <text x="62.0" y="75.9" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
-<text x="590.0" y="348.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
-<text x="78.0" y="64.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<text x="590.0" y="348.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain Îµ</text>
+<text x="78.0" y="64.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Ïƒ (MPa)</text>
 </g></svg>

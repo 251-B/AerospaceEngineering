@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-11-materials-slide-figures",
+    "date": "2026-11-11",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topics 1 to 7: figures now copied from the slides",
+    "text": "Theory figures that appear on the official slides are now exact copies of them instead of redrawings. Drawings made for the page, such as worked examples, stay as they were.",
+    "link": "subjects/aerospace-materials-1/teoria/index.html"
+  },
+  {
     "id": "2026-11-08-materials-audit-fixes",
     "date": "2026-11-08",
     "tag": "Aerospace Materials I",

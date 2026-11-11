@@ -15,14 +15,14 @@
 <line x1="390.0" y1="222.0" x2="406.0" y2="222.0" stroke="#6b7280" stroke-width="1.1"/>
 <path d="M390.0,222.0 L396.4,219.3 L396.4,224.7 Z" fill="#6b7280"/>
 <path d="M406.0,222.0 L399.6,224.7 L399.6,219.3 Z" fill="#6b7280"/>
-<text x="398.0" y="240.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle">Δl</text>
+<text x="398.0" y="240.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle">Î”l</text>
 <line x1="200.0" y1="120.0" x2="200.0" y2="200.0" stroke="#6b7280" stroke-width="1.1"/>
 <path d="M200.0,120.0 L202.7,126.4 L197.3,126.4 Z" fill="#6b7280"/>
 <path d="M200.0,200.0 L197.3,193.6 L202.7,193.6 Z" fill="#6b7280"/>
 <text x="190.0" y="164.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end">d0</text>
 <line x1="300.0" y1="120.0" x2="300.0" y2="128.0" stroke="#ec4899" stroke-width="2.5"/>
 <line x1="300.0" y1="192.0" x2="300.0" y2="200.0" stroke="#ec4899" stroke-width="2.5"/>
-<text x="310.0" y="118.0" fill="#ec4899" font-size="12" font-weight="400" text-anchor="start">Δd/2</text>
+<text x="310.0" y="118.0" fill="#ec4899" font-size="12" font-weight="400" text-anchor="start">Î”d/2</text>
 <text x="150.0" y="272.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">dashed: undeformed</text>
-<text x="300.0" y="272.0" fill="#ec4899" font-size="13" font-weight="400" text-anchor="start">Δd &lt; 0: |Δd| = ν ε d0</text>
+<text x="300.0" y="272.0" fill="#ec4899" font-size="13" font-weight="400" text-anchor="start">Î”d &lt; 0: |Î”d| = Î½ Îµ d0</text>
 </g></svg>

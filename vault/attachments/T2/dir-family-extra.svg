@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 255" width="100%" class="fig-kit" style="max-width:300px;margin:0 auto;display:block" role="img" aria-label="The family &lt;100&gt;">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="125.0" y1="180.0" x2="125.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="125.0" y1="180.0" x2="235.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="125.0" y1="180.0" x2="78.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="125.0" y1="70.0" x2="235.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="125.0" y1="70.0" x2="78.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="235.0" y1="180.0" x2="235.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="235.0" y1="180.0" x2="188.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="235.0" y1="70.0" x2="188.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="78.8" y1="208.6" x2="78.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="78.8" y1="208.6" x2="188.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="78.8" y1="98.6" x2="188.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="188.8" y1="208.6" x2="188.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="78.8" y1="208.6" x2="53.4" y2="224.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M53.4,224.3 L58.6,217.0 L62.3,222.9 Z" fill="#8a94a6"/>
+<text x="45.4" y="228.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="235.0" y1="180.0" x2="284.5" y2="180.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M284.5,180.0 L276.2,183.5 L276.2,176.5 Z" fill="#8a94a6"/>
+<text x="290.5" y="184.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="125.0" y1="70.0" x2="125.0" y2="26.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M125.0,26.0 L128.5,34.3 L121.5,34.3 Z" fill="#8a94a6"/>
+<text x="125.0" y="20.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="125.0" y1="180.0" x2="78.8" y2="208.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M78.8,208.6 L84.0,201.3 L87.7,207.2 Z" fill="#f59e0b"/>
+<line x1="125.0" y1="180.0" x2="235.0" y2="180.0" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M235.0,180.0 L226.7,183.5 L226.7,176.5 Z" fill="#3b82f6"/>
+<line x1="125.0" y1="180.0" x2="125.0" y2="70.0" stroke="#10b981" stroke-width="2.6"/>
+<path d="M125.0,70.0 L128.5,78.3 L121.5,78.3 Z" fill="#10b981"/>
+<text x="130.0" y="245.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">the cube edges &lt;1 0 0&gt;</text>
+</g></svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 330" width="100%" class="fig-kit" style="max-width:400px;margin:0 auto;display:block" role="img" aria-label="Cooling curves of five A-B alloys">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="30.0" y1="280.0" x2="90.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="30.0" y1="40.0" x2="30.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M32.0,47.2 L46.0,203.2 L68.0,203.2 L88.0,256.0" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="46.0" cy="203.2" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="68.0" cy="203.2" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="60.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">0 % B</text>
+<line x1="102.0" y1="280.0" x2="162.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="102.0" y1="40.0" x2="102.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M104.0,47.2 L116.0,162.5 L142.0,198.0 L160.0,246.0" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="116.0" cy="162.5" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="142.0" cy="198.0" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="132.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">20 % B</text>
+<line x1="174.0" y1="280.0" x2="234.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="174.0" y1="40.0" x2="174.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M176.0,47.2 L188.0,131.4 L214.0,173.6 L232.0,221.6" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="188.0" cy="131.4" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="214.0" cy="173.6" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="204.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">50 % B</text>
+<line x1="246.0" y1="280.0" x2="306.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="246.0" y1="40.0" x2="246.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M248.0,47.2 L260.0,107.1 L286.0,130.9 L304.0,178.9" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="260.0" cy="107.1" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="286.0" cy="130.9" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="276.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">80 % B</text>
+<line x1="318.0" y1="280.0" x2="378.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="318.0" y1="40.0" x2="318.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M320.0,47.2 L334.0,92.8 L356.0,92.8 L376.0,145.6" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="334.0" cy="92.8" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="356.0" cy="92.8" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="348.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">100 % B</text>
+<text x="30.0" y="30.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">cooling curves (T against time)</text>
+</g></svg>

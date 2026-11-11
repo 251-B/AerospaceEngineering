@@ -23,8 +23,7 @@ Full explanation: [[Topic 4 - Phase Diagrams and Solidification]].
 $$L \rightarrow \alpha + \beta \quad \text{at the eutectic temperature and composition}$$
 Invariant reaction: fixed temperature and fixed compositions ($F = 2 - 3 + 1 = 0$ at 1 atm); the cooling curve shows a plateau like a pure metal. Lines: liquidus, solidus, solvus (solubility limit in the solid).
 
-![[attachments/T4/eutectic-generic.svg]]
-
+![[attachments/T4/eutectic-generic.png]]
 ## Pb-Sn [Session 7 Slides 28, 32]
 Eutectic 61.9 wt% Sn at 183 °C; α 18.3 and β 97.8 wt% Sn at 183 °C (the problem sheet's diagram uses 19.2 and 97.5). The eutectic product is 45.2 % α and 54.8 % β.
 

@@ -51,8 +51,7 @@ An **equilibrium phase diagram** (also called a **stability map**) is a map of t
 
 The slide uses the phase diagram of CO₂ as an example:
 
-![[attachments/T4/co2.svg]]
-
+![[attachments/T4/co2.png]]
 - There is no liquid CO₂ at room temperature and ambient pressure.
 - The slope of the solid-liquid line, $dP/dT$, is positive, as it is in almost all substances.
 - At the **triple point** (5.1 atm, −56.6 °C) gas, liquid and solid are in equilibrium.
@@ -74,14 +73,12 @@ With a single component the composition is fixed, so the diagram is drawn with *
 
 The P-T diagram of water has three lines that meet at the **triple point** $P_T$: the sublimation line (A to $P_T$), the melting line ($P_T$ to B) and the vaporisation line ($P_T$ to C). Cooling at constant pressure along the dashed line, the water vapour first crosses the vaporisation line at $T_v$ and then the melting line at $T_m$.
 
-![[attachments/T4/water.svg]]
-
+![[attachments/T4/water.png]]
 The **cooling curve** on the right records the temperature against time along that path. In the stretches 1, 3 and 5 a single phase cools down. In the plateaus 2 (condensation at $T_v$) and 4 (solidification at $T_m$) the temperature stays constant while two phases coexist, because the heat released by the transformation compensates the heat that is lost.
 
 On a diagram with pressure on a log scale, the vertical line at 1 atm meets the melting line at 0 °C (water/ice) and the vaporisation line at 100 °C (steam/water):
 
-![[attachments/T4/water-logp.svg]]
-
+![[attachments/T4/water-logp.png]]
 At very high pressures (up to several GPa) water has many different solid phases, the different crystal structures of ice:
 
 ![[attachments/T4/s7-water-high-pressure.png]]
@@ -90,16 +87,14 @@ At very high pressures (up to several GPa) water has many different solid phases
 
 Solid iron has **three different crystal structures**, each a different phase: **α-Fe (BCC)** below 910 °C, **γ-Fe (FCC)** between 910 and 1394 °C, and **δ-Fe (BCC)** from 1394 °C up to the melting point, 1538 °C. Different phases coexist at the **triple points**. The slide compares the three solid structures with three varieties of potato (yellow, red and purple) and the liquid with potato purée: the same "substance" in different forms.
 
-![[attachments/T4/iron-pt.svg]]
-
+![[attachments/T4/iron-pt.png]]
 ## 4. Binary isomorphous diagrams [Session 7 Slides 8-11]
 
 ### 4.1 Cooling curves [Session 7 Slide 8]
 
 **Cooling curves** are used to determine the temperatures of the phase transitions: the temperature of a cooling molten metal is recorded against time and plotted.
 
-![[attachments/T4/cooling-curves.svg]]
-
+![[attachments/T4/cooling-curves.png]]
 - **Thermal arrest:** while a pure metal solidifies, the heat lost to the surroundings equals the heat supplied by the solidifying metal, so the temperature stays constant (a plateau). Pure iron shows one plateau for solidification and one for each change of crystal structure. (This slide prints 912 °C for the γ → α change; Slide 6 prints 910 °C.)
 - **Alloys** solidify over a range of temperatures: they show no thermal arrest, only changes of slope.
 
@@ -107,16 +102,16 @@ Solid iron has **three different crystal structures**, each a different phase: *
 
 A **binary isomorphous** system has two components with **complete solid solubility**. Its diagram is built from the cooling curves of several compositions: each curve gives the temperature where solidification starts and the one where it ends. Joining the start points gives the **liquidus**; joining the end points gives the **solidus**. Above the liquidus everything is liquid (L), below the solidus everything is a single solid solution (SS), and between them liquid and solid coexist (L + SS).
 
-![[attachments/T4/iso-construction.svg]]
+![[attachments/T4/iso-construction-extra.svg]]
 
+![[attachments/T4/iso-construction.png]]
 The slide compares the series of compositions with milk: whole, semi-skimmed and skimmed milk are mixtures of water and skim solids in different proportions, just as the alloys are mixtures of A and B.
 
 ### 4.3 Microstructure along the cooling [Session 7 Slide 10]
 
 For an alloy of a given composition (the vertical line), the diagram tells what the microstructure is at each temperature:
 
-![[attachments/T4/iso-micro.svg]]
-
+![[attachments/T4/iso-micro.png]]
 - above the liquidus: **all liquid**;
 - at a temperature $T_1$ between the liquidus and the solidus: **crystallites of the solid solution SS₁ in a matrix of liquid L₁**; the compositions of L₁ and SS₁ are read on the liquidus and the solidus at $T_1$;
 - below the solidus: a **polycrystalline solid** of a single phase, the solid solution, with the composition of the alloy.
@@ -131,8 +126,9 @@ With complete solubility in the solid state:
 - when solute is added, the melting temperature $T_m$ is modified;
 - the alloy **does not solidify at a constant temperature** but over a range of temperatures, between the liquidus and the solidus.
 
-![[attachments/T4/complete-solubility.svg]]
+![[attachments/T4/complete-solubility-a.png]]
 
+![[attachments/T4/complete-solubility-b.png]]
 ## 5. Gibbs phase rule [Session 7 Slide 13]
 
 The **Gibbs phase rule** counts how many variables can be changed independently while keeping the same phases in equilibrium:
@@ -148,8 +144,9 @@ With pressure and temperature both free, $N = 2$ and $F = C - P + 2$. For routin
 
 $$F = C - P + 1$$
 
-![[attachments/T4/gibbs.svg]]
+![[attachments/T4/gibbs-a.png]]
 
+![[attachments/T4/gibbs-b.png]]
 > [!example] Worked example 2 — Counting degrees of freedom on the slide diagrams
 > **One component (water), $F = 1 - P + 2$ [Session 7 Slide 13]:**
 > - inside a single-phase region (liquid): $F = 1 - 1 + 2 = 2$; temperature and pressure can both change without leaving the region;
@@ -170,8 +167,7 @@ In a two-phase region two questions are answered with two tools [Session 7 Slide
 - **Phase composition: the tie line.** Draw a horizontal line (constant temperature) through the point of the alloy across the two-phase region. Its intersections with the phase boundaries give, on the composition axis, the composition of each phase.
 - **Phase amounts: the lever rule.** The fraction of each phase is computed by taking the length of the tie line from the overall alloy composition to the phase boundary of the **other** phase, and dividing by the total length of the tie line [Session 7 Slide 16].
 
-![[attachments/T4/tie-line.svg]]
-
+![[attachments/T4/tie-line-a.png]]
 For the alloy B, with overall composition $C_0$ and the arms $R = C_0 - C_L$ and $S = C_\alpha - C_0$:
 
 $$W_L = \frac{S}{R + S} = \frac{C_\alpha - C_0}{C_\alpha - C_L} \qquad W_\alpha = \frac{R}{R + S} = \frac{C_0 - C_L}{C_\alpha - C_L} \qquad W_L + W_\alpha = 1$$
@@ -208,14 +204,12 @@ where $W_L$ is the mass fraction of liquid and $W_\alpha$ the mass fraction of �
 
 When the alloy goes down through the phase diagram too quickly (high cooling rates), solid-state diffusion has no time to keep the whole solid at the equilibrium composition. Only the surface of each growing crystal has the composition of the solidus; the inside keeps the composition it had when it formed. The result is a microstructure of **heterogeneous composition**, called **microsegregation** (or **cored structure**).
 
-![[attachments/T4/coring.svg]]
-
+![[attachments/T4/coring.png]]
 In the Cu-35 wt% Ni alloy the first solid is α of 46 wt% Ni (b′). At c′ the new layer is α of 40 wt% Ni, but the crystal still has its 46 % core, so its **average** composition is 42 wt% Ni instead of 40; at d′ the average is 38 instead of 35; at e′ it is 35. The average compositions follow a **non-equilibrium solidus** (dashed) that lies to the right of the equilibrium solidus, so liquid survives below the equilibrium solidus and solidification ends only at e′. The final grains are cored: 46 wt% Ni at the centre and 31 wt% Ni at the edge (f′).
 
 The same behaviour in an alloy of Ni-30 wt% Cu (Slide 24): with fast cooling the solid follows the non-equilibrium solidus α′₂ … α′₇ and solidification ends at $T_7$ instead of $T_5$:
 
-![[attachments/T4/coring-nicu.svg]]
-
+![[attachments/T4/coring-nicu.png]]
 ![[attachments/T4/s7-coring-sketches.png]]
 
 ![[attachments/T4/s7-coring-micrograph.png]]
@@ -240,24 +234,21 @@ When the two components have only **partial solid solubility**, two solid soluti
 - the **solidus**, below which there is no liquid;
 - the **solvus**, which gives the maximum solubility of B in α (and of A in β) at each temperature in the solid state.
 
-![[attachments/T4/eutectic-generic.svg]]
-
+![[attachments/T4/eutectic-generic.png]]
 The two liquidus lines meet at the **eutectic point**, defined by the **eutectic temperature** and the **eutectic composition**. A liquid of eutectic composition does not pass through a two-phase L + solid region: at the eutectic temperature it transforms at once into **two** solids, in a fine microstructure of alternating layers of α and β.
 
 **Invariant reactions** are produced at a fixed composition and a fixed temperature for a given system, and the result also remains fixed. In a system of two partially soluble components, a solidification reaction occurs at a fixed composition and temperature, with a cooling curve similar to that of a pure solid [Session 7 Slide 27]. This is the **eutectic reaction**:
 
 $$L \;\rightarrow\; \alpha + \beta \quad \text{(on cooling, at the eutectic temperature)}$$
 
-![[attachments/T4/eutectic-cooling.svg]]
-
+![[attachments/T4/eutectic-cooling.png]]
 With the phase rule of §5 at 1 atm: at the eutectic point three phases (L, α, β) coexist in a two-component system, so $F = 2 - 3 + 1 = 0$. Temperature and the compositions of the three phases are all fixed, which is why the reaction is invariant and the cooling curve shows a plateau.
 
 ### 8.2 The Pb-Sn system and the eutectic microstructure [Session 7 Slides 28-29]
 
 The Pb-Sn diagram is the example of the slides. Its eutectic point is at **61.9 wt% Sn and 183 °C**. At 183 °C, α can dissolve at most **18.3 wt% Sn** and β contains **97.8 wt% Sn** [Session 7 Slides 27, 32]. The melting points of the pure metals are 327 °C (Pb) and 232 °C (Sn) (Problems T4_PhaseDiagrams I.pdf, p. 1).
 
-![[attachments/T4/pbsn.svg]]
-
+![[attachments/T4/pbsn.png]]
 A liquid of 61.9 wt% Sn, cooled to 183 °C, forms colonies of α and β layers that grow together into the liquid until the whole structure is eutectic (the **eutectic product**). The layers alternate with a spacing λ:
 
 ![[attachments/T4/s7-eutectic-sketches.png]]
@@ -291,8 +282,9 @@ An alloy between the α limit and the eutectic composition is **hypoeutectic**; 
 
 **Hypoeutectic alloy** (the slide uses Pb-Sn with about 30 wt% Sn, a reading of the figure):
 
-![[attachments/T4/hypoeutectic.svg]]
+![[attachments/T4/hypoeutectic-a.png]]
 
+![[attachments/T4/hypoeutectic-b.png]]
 1. Above the liquidus the alloy is liquid. The cooling curve shows the liquidus at 260 °C, where crystals of α start to form.
 2. Between 260 and 183 °C, α and liquid coexist; α grows, and the liquid becomes richer in Sn along the liquidus.
 3. Just above 183 °C the solid is α of 18.3 wt% Sn and the liquid has reached the eutectic composition, 61.9 wt% Sn.
@@ -309,20 +301,20 @@ In a casting, the primary α grows from the mould wall, and the liquid trapped b
 
 **Hypereutectic alloy:** the same sequence with the roles of the solids exchanged. Primary β forms between the liquidus and the eutectic temperature, the remaining liquid gives the eutectic at the eutectic temperature, and the final structure is **primary β plus eutectic**.
 
-![[attachments/T4/hypereutectic.svg]]
+![[attachments/T4/hypereutectic-a.png]]
 
+![[attachments/T4/hypereutectic-b.png]]
 ![[attachments/T4/s7-hypereutectic-sketches.png]]
 
 ![[attachments/T4/s7-hypereutectic-micrograph.png]]
 
-(The cooling curve of Slide 31 repeats the temperature labels of the hypoeutectic curve, 260 and 183 °C; for a hypereutectic Pb-Sn alloy the liquidus is below 232 °C, so the curve is drawn here with generic labels $T_L$ and $T_E$.)
+(The cooling curve of Slide 31 repeats the temperature labels of the hypoeutectic curve, 260 and 183 °C; for a hypereutectic Pb-Sn alloy the liquidus is below 232 °C, so read them only as the liquidus temperature $T_L$ and the eutectic temperature $T_E$ of the alloy.)
 
 ### 8.4 Lever rule in binary eutectic diagrams [Session 7 Slide 32]
 
 Just below the eutectic temperature, the tie line of a hypoeutectic alloy $C'_4$ is cut by the alloy and by the eutectic composition into three segments, $P$, $Q$ and $R$:
 
-![[attachments/T4/eutectic-lever.svg]]
-
+![[attachments/T4/eutectic-lever.png]]
 $$W_{\alpha'} = \frac{Q}{P + Q} \qquad W_e = W_L = \frac{P}{P + Q} \qquad W_\alpha = \frac{Q + R}{P + Q + R} \qquad W_\beta = \frac{P}{P + Q + R}$$
 
 - $W_e$: fraction of eutectic microconstituent, equal to $W_L$, the fraction of liquid just above the eutectic temperature (all that liquid becomes eutectic);
@@ -361,14 +353,14 @@ An alloy whose composition stays inside the α region all the way down to room t
 - (b) at about 330 °C, on the liquidus: the solid phase α begins to form (α + L);
 - (c) only α at 270 °C, and it stays α on further cooling.
 
-![[attachments/T4/precip-pbsn.svg]]
+![[attachments/T4/precip-pbsn-a.png]]
 
+![[attachments/T4/precip-pbsn-b.png]]
 ### 9.2 Above the solid solubility limit: precipitation [Session 8 Slides 3-4]
 
 **Precipitation in the solid state:** when an alloy crosses the **solvus** line on cooling, the solid solubility of α is exceeded, and small particles of the β phase form; they **grow as the temperature decreases** [Session 8 Slide 3].
 
-![[attachments/T4/precip-generic.svg]]
-
+![[attachments/T4/precip-generic.png]]
 For the alloy of 20 % B of the slide: all liquid; α₁ crystals in a matrix of liquid L₁; 100 % α with the composition of the alloy; and, below the solvus, small β₂ particles in a matrix of α₂ (mostly at the grain boundaries), which become more and grow at lower temperatures (α₃ + β₃).
 
 ![[attachments/T4/s8-precipitation-micrograph.png]]
@@ -398,8 +390,7 @@ The Pb-Sn example of Slide 4 uses a Pb-16 wt% Sn alloy ($C_2$, also in the figur
 
 An invariant reaction happens at a fixed temperature, with fixed compositions of the three phases involved ($F = 2 - 3 + 1 = 0$ at constant pressure, §5). The slides list five types; the eutectoid and the peritectoid happen entirely in the **solid state**:
 
-![[attachments/T4/invariant-table.svg]]
-
+![[attachments/T4/invariant-table.png]]
 | Reaction | On cooling | Shape on the diagram |
 | :--- | :--- | :--- |
 | Eutectic | $L \rightarrow \alpha + \beta$ | a liquid region ends in a V on the horizontal line |
@@ -416,8 +407,7 @@ Example, Cu-Zn at 560 °C (74 % Zn; here and in the next examples the slides pri
 
 $$\delta\,(74\%\,\text{Zn}) \;\underset{\text{heating}}{\overset{\text{cooling}}{\rightleftharpoons}}\; \gamma\,(70\%\,\text{Zn}) + \varepsilon\,(78\%\,\text{Zn})$$
 
-![[attachments/T4/cuzn-eutectoid.svg]]
-
+![[attachments/T4/cuzn-eutectoid.png]]
 ![[attachments/T4/s8-cuzn-micrograph.png]]
 
 > [!example] Worked example 9 — The Cu-Zn eutectoid product [Session 8 Slide 7]
@@ -432,14 +422,12 @@ $$\delta\,(74\%\,\text{Zn}) \;\underset{\text{heating}}{\overset{\text{cooling}}
 
 **Peritectic reaction:** an invariant reaction where **a solid and a liquid phase transform into a different solid phase**, $\alpha + L \rightarrow \beta$. The **peritectic point** is the invariant point where this happens [Session 8 Slide 8].
 
-![[attachments/T4/peritectic-generic.svg]]
-
+![[attachments/T4/peritectic-generic.png]]
 Example, Fe-Ni at 1517 °C and 4.3 % Ni:
 
 $$\delta\,(4.0\%\,\text{Ni}) + L\,(5.4\%\,\text{Ni}) \;\xrightarrow[\text{cooling}]{1517^\circ\text{C}}\; \gamma\,(4.3\%\,\text{Ni})$$
 
-![[attachments/T4/feni-peritectic.svg]]
-
+![[attachments/T4/feni-peritectic.png]]
 > [!example] Worked example 10 — Fe-4.3 wt% Ni around 1517 °C [Session 8 Slide 8]
 > **Just above 1517 °C** the alloy is δ (4.0 % Ni) + L (5.4 % Ni); tie line length $5.4 - 4.0 = 1.4$:
 > $$W_\delta = \frac{5.4 - 4.3}{5.4 - 4.0} = \frac{1.1}{1.4} = 0.786 \qquad W_L = \frac{4.3 - 4.0}{1.4} = \frac{0.3}{1.4} = 0.214$$
@@ -450,8 +438,7 @@ $$\delta\,(4.0\%\,\text{Ni}) + L\,(5.4\%\,\text{Ni}) \;\xrightarrow[\text{coolin
 
 Second example, Pt-Ag at 1186 °C (42.4 % Ag) [Session 8 Slide 9]:
 
-![[attachments/T4/ptag-peritectic.svg]]
-
+![[attachments/T4/ptag-peritectic.png]]
 ![[attachments/T4/s8-ptag-sequence.png]]
 
 > [!example] Worked example 11 — The Pt-Ag peritectic, alloys 1 and 2 [Session 8 Slide 9]
@@ -484,8 +471,7 @@ Second example, Pt-Ag at 1186 °C (42.4 % Ag) [Session 8 Slide 9]:
 
 **Peritectoid reaction:** an invariant reaction where **two solid phases transform into a new solid phase**, $\beta + \alpha \rightarrow \gamma$. The **peritectoid point** is the invariant point where it happens.
 
-![[attachments/T4/peritectoid-generic.svg]]
-
+![[attachments/T4/peritectoid-generic.png]]
 ![[attachments/T4/s8-cow-peritectoid.png]]
 
 ### 10.5 Monotectic reaction [Session 8 Slide 12]
@@ -496,8 +482,7 @@ Example, Cu-Pb at 955 °C (36 % Pb):
 
 $$L\,(36\%\,\text{Pb}) \;\underset{\text{heating}}{\overset{\text{cooling}}{\rightleftharpoons}}\; L_2\,(87\%\,\text{Pb}) + \alpha\,(0\%\,\text{Pb})$$
 
-![[attachments/T4/monotectic-cupb.svg]]
-
+![[attachments/T4/monotectic-cupb.png]]
 > [!example] Worked example 12 — Cu-36 wt% Pb just below 955 °C [Session 8 Slide 12]
 > **Tie line** from α (0 % Pb) to $L_2$ (87 % Pb), length 87:
 > $$W_\alpha = \frac{87 - 36}{87 - 0} = \frac{51}{87} = 0.586 \qquad W_{L_2} = \frac{36 - 0}{87} = \frac{36}{87} = 0.414$$
@@ -529,8 +514,7 @@ Two kinds of compound [Session 8 Slide 15]:
 - **Congruent melting:** an intermetallic compound melts congruently when the liquid formed on melting (solid → liquid) **keeps its composition**. Examples: $\text{MgNi}_2$ and the pure metals.
 - **Incongruent melting:** the composition is **not kept** on melting, and a **different solid** appears: the compound gives a liquid plus another solid. Example: $\text{Mg}_2\text{Ni}$, which is formed on cooling by a peritectic reaction of the type $\alpha + L \rightarrow \beta$.
 
-![[attachments/T4/mgni-melting.svg]]
-
+![[attachments/T4/mgni-melting.png]]
 On the diagram, a congruently melting compound sits at a **maximum of the liquidus** (it melts at a single temperature, like a pure metal), while an incongruently melting one ends at a **horizontal peritectic line**.
 
 > [!example] Worked example 13 — Classifying the Ti-B compounds [Session 8 Slides 15, 17]
@@ -557,8 +541,7 @@ On the diagram, a congruently melting compound sits at a **maximum of the liquid
 
 **Allotropy** is the existence of a chemical element in two or more forms, which may differ in the arrangement of the atoms in the crystalline solid (Topic 2). Iron undergoes **two changes of crystal structure before it melts**:
 
-![[attachments/T4/fe-allotropy.svg]]
-
+![[attachments/T4/fe-allotropy.png]]
 ![[attachments/T4/s9-iron-cells.png]]
 
 The temperatures on the scale of Slide 3 (910, 1390 and 1535 °C) differ by a few degrees from those printed on the Fe-C diagram of the same session (912, 1394 and 1538 °C, Slide 4); the diagram values are used in the rest of this page.
@@ -567,8 +550,7 @@ The temperatures on the scale of Slide 3 (910, 1390 and 1535 °C) differ by a fe
 
 The diagram used in practice is **metastable**: its right-hand end is **6.67 wt% C**, the stoichiometric composition of **Fe₃C**, iron carbide or **cementite**. So the diagram is in fact **Fe-Fe₃C**. It has three invariant points (a peritectic, a eutectic and a eutectoid), and its composition axis is split into four ranges:
 
-![[attachments/T4/fec-full.svg]]
-
+![[attachments/T4/fec-full.png]]
 | Range | Name |
 | :--- | :--- |
 | up to 0.76 % C | hypoeutectoid steels |
@@ -623,8 +605,7 @@ The microconstituents of the system are **pearlite**, proeutectoid **ferrite** a
 
 **Pearlitic transformation:** austenite of 0.76 % C gives a single microconstituent, **pearlite**, formed by layers (lamellae) of two phases, α + Fe₃C [Slide 12].
 
-![[attachments/T4/fec-eutectoid.svg]]
-
+![[attachments/T4/fec-eutectoid.png]]
 ![[attachments/T4/s9-pearlite-micrograph.png]]
 
 Ferrite nucleates on the grain boundaries of the austenite and displaces the carbon to the neighbouring zones by diffusion; there cementite forms. **Decreasing the spacing of the pearlite lamellae increases its hardness** [Slide 12].
@@ -641,8 +622,7 @@ Ferrite nucleates on the grain boundaries of the austenite and displaces the car
 
 Two microconstituents: **pearlite** and **proeutectoid (primary) ferrite**, $\alpha_P$ [Slide 14].
 
-![[attachments/T4/fec-hypo.svg]]
-
+![[attachments/T4/fec-hypo.png]]
 ![[attachments/T4/s9-hypoeutectoid-micrograph.png]]
 
 On cooling a steel of 0.3 % C: at c it is only γ; between the $A_3$ line (M-O) and 727 °C ferrite nucleates at the austenite grain boundaries and grows (d, e) while the austenite becomes richer in carbon along $A_3$; at 727 °C the remaining austenite, now of 0.76 % C, becomes pearlite (f).
@@ -666,8 +646,7 @@ On cooling a steel of 0.3 % C: at c it is only γ; between the $A_3$ line (M-O) 
 
 Two microconstituents: **pearlite** and **proeutectoid cementite**, $(\text{Fe}_3\text{C})_P$, which forms a network along the boundaries of the former austenite grains when the steel crosses the $A_{cm}$ line.
 
-![[attachments/T4/fec-hyper.svg]]
-
+![[attachments/T4/fec-hyper.png]]
 ![[attachments/T4/s9-hypereutectoid-micrograph.png]]
 
 ![[attachments/T4/s9-microstructures.png]]
@@ -714,8 +693,7 @@ Ceramic systems are read with the same tools as metallic ones: the components ar
 
 Al₂O₃ and Cr₂O₃ form a **complete interval of solid solution**, Al₂₋ₓCrₓO₃, below the solidus temperature (about 2100 °C) and down to 950 °C: the diagram has the lens shape of an isomorphous system (§4), between the melting points of Al₂O₃ (2045 ± 5 °C) and Cr₂O₃ (2275 ± 25 °C).
 
-![[attachments/T4/alcr.svg]]
-
+![[attachments/T4/alcr.png]]
 Below 950 °C there is **immiscibility**: two crystalline phases, or solid solutions, exist (the dome at the bottom of the second diagram of the slide).
 
 ![[attachments/T4/s10-alcr-wide.png]]
@@ -724,8 +702,7 @@ Below 950 °C there is **immiscibility**: two crystalline phases, or solid solut
 
 The Al₂O₃-SiO₂ system has an **intermediate phase**, **mullite**, which includes the compound 3Al₂O₃·2SiO₂ and exists as a solid solution over a small range of compositions. The other solid phases are **alumina** (Al₂O₃) and **cristobalite** (SiO₂).
 
-![[attachments/T4/alsi.svg]]
-
+![[attachments/T4/alsi.png]]
 - **Invariant eutectic reaction at 1587 °C:**
 $$L\,(7.7\ \text{wt\% Al}_2\text{O}_3) \rightarrow 3\text{Al}_2\text{O}_3\cdot 2\text{SiO}_2 + \text{SiO}_2$$
 - **Invariant peritectic reaction at 1828 °C:**
@@ -733,7 +710,7 @@ $$L\,(77\ \text{wt\% Al}_2\text{O}_3) + \text{Al}_2\text{O}_3 \rightarrow 3\text
 - **Mullite (ss) has an incongruent melting point at 1828 °C:** $3\text{Al}_2\text{O}_3\cdot 2\text{SiO}_2 \rightarrow L\,(77\ \text{wt\% Al}_2\text{O}_3) + \text{Al}_2\text{O}_3$, the same reaction read on heating (§12).
 
 > [!warning] Temperatures of the Al₂O₃-SiO₂ diagrams
-> The text of Slide 3 gives 1828 °C for the peritectic, while the diagram on the same slide marks that line at 1890 ± 10 °C; the diagram of Slide 4, from another source, gives 1840 °C and about 1850 °C, and 1590 °C for the eutectic. They are different measurements of the same system; the figure above follows the diagram of Slide 3. Slide 4 also writes "Al₂O₂ - SiO₂" for Al₂O₃-SiO₂.
+> The text of Slide 3 gives 1828 °C for the peritectic, while the diagram on the same slide marks that line at 1890 ± 10 °C; the diagram of Slide 4, from another source, gives 1840 °C and about 1850 °C, and 1590 °C for the eutectic. They are different measurements of the same system; the figure above is the diagram of Slide 3. Slide 4 also writes "Al₂O₂ - SiO₂" for Al₂O₃-SiO₂.
 
 The diagram of Slide 4 (composition in wt% SiO₂, reversed with respect to Slide 3) shows the refractories made in this system and their microstructures: alumina refractory, mullite refractory, firebrick and silica brick.
 
@@ -757,8 +734,7 @@ A **ternary** diagram has **3 components** (A, B, C). The compositions are drawn
 - the **sides** represent the **binary compositions** A-B, A-C and B-C;
 - each point inside is one composition, and its three percentages add up to 100 %.
 
-![[attachments/T4/ternary-scheme.svg]]
-
+![[attachments/T4/ternary-scheme.png]]
 With temperature added as a vertical axis the diagram becomes a solid: the binary diagrams are its side faces, and the liquidus and solidus become surfaces.
 
 ![[attachments/T4/s10-ternary-3d.png]]

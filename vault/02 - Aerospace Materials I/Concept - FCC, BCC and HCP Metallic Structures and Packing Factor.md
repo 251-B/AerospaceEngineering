@@ -22,7 +22,7 @@ Full explanation: [[Topic 2 - Structure of Materials and Crystalline Defects]].
 ## 1. Packing of layers [Session 3 Slides 16-22]
 - Close-packed planes stack as **ABAB** (HCP) or **ABCABC** (FCC).
 
-![[attachments/T2/stacking.svg]]
+![[attachments/T2/stacking.png]]
 
 ## 2. The three structures [Session 3 Slides 24-28]
 $$APF = \frac{V_{atoms}}{V_{cell}}$$
@@ -37,6 +37,8 @@ $$APF = \frac{V_{atoms}}{V_{cell}}$$
 
 For HCP: base area $B = 3\frac{\sqrt3}{2}a^2$, height $c = \frac{2\sqrt2}{\sqrt3}a$, $V_{cell} = 24\sqrt2\,R^3$.
 
-![[attachments/T2/touching.svg]]
+![[attachments/T2/touching-a.png]]
+
+![[attachments/T2/touching-b.png]]
 
 **Back to:** [[Topic 2 - Structure of Materials and Crystalline Defects]] · [[Aerospace Materials I MOC]]

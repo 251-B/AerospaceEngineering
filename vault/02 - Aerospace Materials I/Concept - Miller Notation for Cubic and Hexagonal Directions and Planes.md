@@ -23,8 +23,10 @@ Full explanation: [[Topic 2 - Structure of Materials and Crystalline Defects]].
 - **Read:** head − tail, reduce to the smallest integers, square brackets, bar over negatives.
 - **Family** $\langle u\,v\,w\rangle$: $\langle100\rangle$ cube edges, $\langle110\rangle$ face diagonals, $\langle111\rangle$ body diagonals.
 
-![[attachments/T2/dir-reduce.svg]]
-![[attachments/T2/dir-negative.svg]]
+![[attachments/T2/dir-reduce-a.png]]
+
+![[attachments/T2/dir-reduce-extra.svg]]
+![[attachments/T2/dir-negative.png]]
 
 ## 2. Planes [Session 3 Slides 44-50]
 - **Indices:** $h = 1/x$, $k = 1/y$, $l = 1/z$ (intercepts); a plane parallel to an axis has index 0.
@@ -32,8 +34,12 @@ Full explanation: [[Topic 2 - Structure of Materials and Crystalline Defects]].
 - **Family** $\{h\,k\,l\}$: equivalent planes, e.g. $\{100\}$ = the six cube faces.
 - In cubic cells $[h\,k\,l] \perp (h\,k\,l)$.
 
-![[attachments/T2/plane-basic.svg]]
-![[attachments/T2/plane-negative.svg]]
+![[attachments/T2/plane-basic-extra.svg]]
+
+![[attachments/T2/plane-basic-a.png]]
+
+![[attachments/T2/plane-basic-b.png]]
+![[attachments/T2/plane-negative.png]]
 
 ## 3. Hexagonal cell [Session 3 Slides 51-52]
 - Four axes $a_1, a_2, a_3, c$; planes $(h\,k\,i\,l)$ with $i = -(h + k)$.

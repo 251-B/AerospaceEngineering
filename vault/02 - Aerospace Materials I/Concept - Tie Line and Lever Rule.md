@@ -27,8 +27,7 @@ $$W_L = \frac{C_\alpha - C_0}{C_\alpha - C_L} \qquad W_\alpha = \frac{C_0 - C_L}
 
 These are mass fractions on a wt% axis; on an at.% axis the same rule gives atom (mole) fractions (extension).
 
-![[attachments/T4/tie-line.svg]]
-
+![[attachments/T4/tie-line-a.png]]
 ## Example [Session 7 Slides 16-21]
 Cu-35 wt% Ni at about 1250 °C (a reading of the figure), $C_L = 32$, $C_\alpha = 43$: $W_L = 8/11 = 0.727$, $W_\alpha = 3/11 = 0.273$ (the slide writes 0.72 and 0.28). Check: $0.727 \times 32 + 0.273 \times 43 = 35$.
 

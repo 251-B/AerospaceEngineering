@@ -7,7 +7,7 @@ to write the SVG files to vault/attachments/T7.
 """
 import math
 
-from figures.svgkit import (Canvas, Registry, arrow, circle, dim, dot, line, pathd, poly, rect, sub, text)
+from figures.svgkit import (Canvas, Registry, dot, line, poly, rect, sub, text)
 
 REG = Registry("T7")
 
@@ -27,130 +27,11 @@ def axes(c, o, xend, yend, xl=None, yl=None, xdy=24):
         text(c, (o[0] + 8, yend + 4), yl, "HEAD", "start", 13, "700")
 
 
-def dip(c, x, y, ang, length, col="BLUE", w=2.2):
-    """Dipole arrow centred at (x, y); ang in degrees measured clockwise from 'up'."""
-    a = math.radians(ang)
-    ux, uy = math.sin(a), -math.cos(a)
-    tail = (x - ux * length / 2, y - uy * length / 2)
-    head = (x + ux * length / 2, y + uy * length / 2)
-    arrow(c, tail, head, col, w, 8)
-
-
 # ---------------------------------------------------------------- origin of magnetism (S3)
-
-def orbital_spin():
-    c = Canvas(660, 300)
-    txt(c, 170, 28, "Orbital magnetic moment", "HEAD", "middle", 14, "700")
-    c.add('<ellipse cx="170" cy="150" rx="62" ry="22" fill="none" stroke="EDGE" stroke-width="1.4" stroke-dasharray="5,4"/>')
-    dot(c, (170, 150), 5, "ATOM", "ATOM")
-    dot(c, (232, 150), 6, "BLUE", "BLUE")
-    txt(c, 246, 154, "electron", "BLUE", "start", 12)
-    line(c, (170, 156), (170, 190), "EDGE", 0.9)
-    txt(c, 170, 206, "nucleus", "TEXT", "middle", 12)
-    arrow(c, (170, 150), (170, 50), "PINK", 2.6, 11)
-    txt(c, 180, 62, sub("m", "l") + " " + sub("μ", "B"), "PINK", "start", 14, "700")
-    txt(c, 170, 250, "moment from the motion of the charge", "TEXT", "middle", 12)
-    txt(c, 170, 268, "around the nucleus", "TEXT", "middle", 12)
-    txt(c, 490, 28, "Spin magnetic moment", "HEAD", "middle", 14, "700")
-    circle(c, (490, 150), 34, "BLUE", 1.8, None, "BLUE", 0.15)
-    pathd(c, "M456,150 A34,12 0 0 0 524,150", "BLUE", 2.0)
-    arrow(c, (490, 150), (490, 50), "PINK", 2.6, 11)
-    txt(c, 500, 62, "±" + sub("μ", "B"), "PINK", "start", 14, "700")
-    txt(c, 490, 250, "moment from the spin of the electron", "TEXT", "middle", 12)
-    txt(c, 490, 268, "(two possible directions)", "TEXT", "middle", 12)
-    txt(c, 330, 292, sub("μ", "B") + " = 9.27×" + sub("10", "−24", True) + " A·m² (Bohr magneton)", "HEAD", "middle", 13, "700")
-    REG.put("orbital-spin", c, "Orbital and spin magnetic moments of an electron",
-            "The magnetic moment of an atom is the sum of the orbital moments (ml μB) and the spin moments (±μB) of its electrons; μB is the Bohr magneton (schematic)")
-
 
 # ---------------------------------------------------------------- types of magnetism (S5-S13)
 
-def dipole_orderings():
-    c = Canvas(770, 400)
-    xs = [150, 290, 430, 570, 710]
-    names = ["Diamagnetic", "Paramagnetic", "Ferromagnetic", "Antiferromagnetic", "Ferrimagnetic"]
-    notes = [("induced dipoles,", "opposite to the field"), ("permanent dipoles,", "aligned by the field"),
-             ("permanent dipoles,", "aligned without a field"), ("equal dipoles,", "antiparallel: no net moment"),
-             ("unequal dipoles,", "antiparallel: net moment")]
-    txt(c, 40, 122, "H = 0", "HEAD", "middle", 13, "700")
-    txt(c, 40, 270, "H applied", "HEAD", "middle", 13, "700")
-    arrow(c, (40, 345), (40, 290), "GREEN", 2.6, 10)
-    txt(c, 56, 322, "H", "GREEN", "start", 14, "700")
-    for k, x in enumerate(xs):
-        txt(c, x, 34, names[k], "HEAD", "middle", 13, "700")
-        offs = (-45, -15, 15, 45)
-        for j, dx in enumerate(offs):
-            xx = x + dx
-            if k == 0:
-                circle(c, (xx, 120), 7, "EDGE", 1.2, "3,3")
-                dip(c, xx, 270, 180, 18, "BLUE")
-            elif k == 1:
-                dip(c, xx, 120, (40, -130, 150, -60)[j], 26, "BLUE")
-                dip(c, xx, 270, (14, -10, 20, -16)[j], 26, "BLUE")
-            elif k == 2:
-                dip(c, xx, 120, 0, 30, "PINK")
-                dip(c, xx, 270, 0, 30, "PINK")
-            elif k == 3:
-                dip(c, xx, 120, 0 if j % 2 == 0 else 180, 30, "ATOM")
-                dip(c, xx, 270, 0 if j % 2 == 0 else 180, 30, "ATOM")
-            else:
-                dip(c, xx, 120, 0 if j % 2 == 0 else 180, 40 if j % 2 == 0 else 18, "GREEN")
-                dip(c, xx, 270, 0 if j % 2 == 0 else 180, 40 if j % 2 == 0 else 18, "GREEN")
-        txt(c, x, 336, notes[k][0], "TEXT", "middle", 11)
-        txt(c, x, 352, notes[k][1], "TEXT", "middle", 11)
-    line(c, (90, 190), (750, 190), "EDGE", 1.0, "4,4")
-    REG.put("dipole-orderings", c, "Dipole arrangements of the five types of magnetism",
-            "Dipoles without and with an applied field H in diamagnetic, paramagnetic, ferromagnetic, antiferromagnetic and ferrimagnetic materials (schematic)")
-
-
 # ---------------------------------------------------------------- domains (S15) and magnetization (S16-S18)
-
-def domain_closure():
-    c = Canvas(720, 320)
-    xs = [40, 215, 390, 565]
-    heads = ["One domain", "Two domains", "Four domains", "Closure domains"]
-    energy = ["high magnetostatic energy", "lower than one domain", "lower than two domains", "zero magnetostatic energy"]
-    for k, x in enumerate(xs):
-        txt(c, x + 55, 30, heads[k], "HEAD", "middle", 13, "700")
-        rect(c, x, 60, 110, 110, "HEAD", 1.6, None, "ATOM", 0.10)
-        if k == 0:
-            dip(c, x + 55, 115, 0, 70, "PINK", 2.6)
-            for sgn in (-1, 1):   # stray field: leaves the north pole, goes round the sample and re-enters at the south pole
-                for r in (1.0, 0.6):
-                    pathd(c, f"M{x + 55},58 C{x + 55 + sgn * 95 * r},{58 - 50 * r} {x + 55 + sgn * 105 * r},{172 + 50 * r} {x + 55},172", "EDGE", 0.9, "3,3")
-        elif k == 1:
-            line(c, (x + 55, 60), (x + 55, 170), "ACC", 1.8)
-            dip(c, x + 28, 115, 0, 60, "PINK", 2.4)
-            dip(c, x + 83, 115, 180, 60, "PINK", 2.4)
-            pathd(c, f"M{x + 28},58 C{x + 28},34 {x + 83},34 {x + 83},58", "EDGE", 0.9, "3,3")
-            pathd(c, f"M{x + 83},172 C{x + 83},196 {x + 28},196 {x + 28},172", "EDGE", 0.9, "3,3")
-        elif k == 2:
-            for i in range(1, 4):
-                line(c, (x + i * 27.5, 60), (x + i * 27.5, 170), "ACC", 1.6)
-            for i in range(4):
-                dip(c, x + 14 + i * 27.5, 115, 0 if i % 2 == 0 else 180, 60, "PINK", 2.2)
-            for i in range(3):
-                a, b = x + 14 + i * 27.5, x + 14 + (i + 1) * 27.5
-                pathd(c, f"M{a},58 C{a},42 {b},42 {b},58", "EDGE", 0.9, "3,3")
-                pathd(c, f"M{b},172 C{b},188 {a},188 {a},172", "EDGE", 0.9, "3,3")
-        else:
-            # two flux-closed units: M circulates clockwise, so its normal component is continuous across every wall
-            line(c, (x + 55, 60), (x + 55, 170), "ACC", 1.6)
-            for ux in (x, x + 55):
-                for a, b in (((ux, 60), (ux + 27.5, 87.5)), ((ux + 55, 60), (ux + 27.5, 87.5)),
-                             ((ux, 170), (ux + 27.5, 142.5)), ((ux + 55, 170), (ux + 27.5, 142.5)),
-                             ((ux + 27.5, 87.5), (ux + 27.5, 142.5))):
-                    line(c, a, b, "ACC", 1.6)
-                dip(c, ux + 10, 115, 0, 34, "PINK", 2.0)
-                dip(c, ux + 45, 115, 180, 34, "PINK", 2.0)
-                arrow(c, (ux + 18, 71), (ux + 37, 71), "BLUE", 2.0, 8)
-                arrow(c, (ux + 37, 159), (ux + 18, 159), "BLUE", 2.0, 8)
-        txt(c, x + 55, 214, energy[k], "TEXT", "middle", 11)
-    txt(c, 360, 262, "Domains form spontaneously because each split lowers the magnetostatic energy of the stray field;", "TEXT", "middle", 12)
-    txt(c, 360, 280, "orange lines are domain (Bloch) walls, arrows are the magnetization of each domain", "TEXT", "middle", 12)
-    REG.put("domain-closure", c, "Origin of magnetic domains",
-            "Splitting a single domain into two, four and closure domains lowers the magnetostatic energy of the material, down to zero for closure domains (schematic)")
-
 
 def initial_magnetization():
     c = Canvas(700, 360)
@@ -223,34 +104,6 @@ def hysteresis_soft_hard():
 
 # ---------------------------------------------------------------- superconductors (S28-S29)
 
-def superconductor_types():
-    c = Canvas(720, 330)
-    for k, ox in enumerate((60, 400)):
-        o = (ox, 270)
-        axes(c, o, ox + 260, 40, "H", "ρ")
-        if k == 0:
-            txt(c, ox + 130, 28, "Type I (soft superconductor)", "HEAD", "middle", 14, "700")
-            hc = ox + 130
-            poly(c, [o, (hc, o[1]), (hc, 130), (ox + 240, 130)], "PINK", 2.8)
-            txt(c, hc, o[1] + 22, sub("H", "c"), "HEAD", "middle", 13, "700")
-            txt(c, ox + 65, 200, "superconducting", "BLUE", "middle", 12, "700")
-            txt(c, ox + 190, 114, "normal state", "TEXT", "middle", 12)
-            txt(c, ox + 130, 318, "sharp transition at a very low " + sub("H", "c"), "TEXT", "middle", 11)
-        else:
-            txt(c, ox + 130, 28, "Type II (hard superconductor)", "HEAD", "middle", 14, "700")
-            h1, h2 = ox + 60, ox + 170
-            poly(c, [o, (h1, o[1]), (h2, 130), (ox + 240, 130)], "PINK", 2.8)
-            line(c, (h2, 130), (h2, o[1]), "EDGE", 1.0, "4,4")
-            txt(c, h1, o[1] + 22, sub("H", "c1"), "HEAD", "middle", 13, "700")
-            txt(c, h2, o[1] + 22, sub("H", "c2"), "HEAD", "middle", 13, "700")
-            txt(c, ox + 72, 150, "mixed state", "ACC", "middle", 12, "700")
-            txt(c, ox + 72, 166, "(flux lines penetrate)", "TEXT", "middle", 11)
-            txt(c, ox + 205, 114, "normal state", "TEXT", "middle", 12)
-            txt(c, ox + 130, 318, "gradual transition between " + sub("H", "c1") + " and " + sub("H", "c2"), "TEXT", "middle", 11)
-    REG.put("superconductor-types", c, "Type I and Type II superconductors in a magnetic field",
-            "Type I: resistivity zero up to Hc and then an abrupt return to the normal state. Type II: the field starts to penetrate at Hc1 and penetration is complete at Hc2, with a mixed state in between. Redrawn from Slides 28 and 29; the axis of the Type II plot has no label on the slide and is read here as resistivity (schematic, not to scale)")
-
-
 # ---------------------------------------------------------------- thermal expansion (S36, S39)
 
 def _morse(r, r0=1.0, a=1.6):
@@ -294,82 +147,9 @@ def asymmetric_well():
             "Extension, not printed on the slides: because the real potential well is asymmetric, the mean interatomic distance grows with the vibration energy; a symmetric parabola would keep it at r0 (schematic)")
 
 
-def bimetal_strip():
-    c = Canvas(700, 330)
-    # straight strips
-    txt(c, 150, 28, "Room temperature", "HEAD", "middle", 13, "700")
-    rect(c, 60, 110, 180, 18, "ACC", 1.6, None, "ACC", 0.35)
-    rect(c, 60, 128, 180, 18, "BLUE", 1.6, None, "BLUE", 0.30)
-    txt(c, 250, 123, "metal 1, " + sub("α", "1"), "ACC", "start", 12, "700")
-    txt(c, 250, 141, "metal 2, " + sub("α", "2"), "BLUE", "start", 12, "700")
-    txt(c, 150, 190, sub("α", "1") + " &gt; " + sub("α", "2"), "HEAD", "middle", 13, "700")
-    line(c, (58, 102), (58, 154), "HEAD", 3)
-    txt(c, 150, 220, "clamped at the left end", "TEXT", "middle", 11)
-    # bent strip
-    txt(c, 500, 28, "Heated, " + sub("T", "2") + " &gt; " + sub("T", "1"), "HEAD", "middle", 13, "700")
-    R, t = 260.0, 18.0
-    cx, cy = 420, 110 + R
-    th = 180 / R  # arc length of the mid line = the 180 px of the straight strip
-    outer = [(cx + (R + t) * math.sin(a * th / 30), cy - (R + t) * math.cos(a * th / 30)) for a in range(31)]
-    mid = [(cx + R * math.sin(a * th / 30), cy - R * math.cos(a * th / 30)) for a in range(31)]
-    inner = [(cx + (R - t) * math.sin(a * th / 30), cy - (R - t) * math.cos(a * th / 30)) for a in range(31)]
-    poly(c, outer + list(reversed(mid)), "ACC", 1.6, None, "ACC", True, 0.35)
-    poly(c, mid + list(reversed(inner)), "BLUE", 1.6, None, "BLUE", True, 0.30)
-    line(c, (418, 84), (418, 136), "HEAD", 3)
-    txt(c, 500, 250, "the metal with the larger α expands more", "TEXT", "middle", 12)
-    txt(c, 500, 268, "and the strip bends towards the other metal", "TEXT", "middle", 12)
-    txt(c, 350, 306, "A bimetallic strip turns a temperature change into a mechanical displacement", "TEXT", "middle", 12)
-    REG.put("bimetal-strip", c, "Bimetallic strip",
-            "Two metals with different expansion coefficients bonded together: on heating the strip bends towards the metal with the smaller coefficient (schematic)")
-
-
 # ---------------------------------------------------------------- thermal conductivity (S40)
 
-def heat_flux_bar():
-    c = Canvas(700, 330)
-    rect(c, 120, 70, 380, 70, "HEAD", 1.8, None, "ATOM", 0.12)
-    txt(c, 100, 110, "hot end", "PINK", "end", 12, "700")
-    txt(c, 520, 110, "cold end", "BLUE", "start", 12, "700")
-    arrow(c, (160, 105), (460, 105), "PINK", 2.8, 12)
-    txt(c, 310, 96, "q = Q / A", "PINK", "middle", 14, "700")
-    dim(c, (160, 170), (460, 170), "Δx", "TEXT", (0, 18))
-    txt(c, 140, 62, sub("T", "hot"), "PINK", "middle", 13, "700")
-    txt(c, 480, 62, sub("T", "cold"), "BLUE", "middle", 13, "700")
-    txt(c, 310, 214, "q = −k ΔT / Δx", "HEAD", "middle", 16, "700")
-    txt(c, 310, 234, "heat flows towards the cold end, down the temperature gradient", "TEXT", "middle", 12)
-    rect(c, 40, 262, 250, 46, "GREEN", 1.5, None, "GREEN", 0.14, 6)
-    txt(c, 165, 290, "free electrons: " + sub("k", "e"), "GREEN", "middle", 13, "700")
-    rect(c, 330, 262, 250, 46, "BLUE", 1.5, None, "BLUE", 0.14, 6)
-    txt(c, 455, 290, "lattice vibrations (phonons): " + sub("k", "ph"), "BLUE", "middle", 12, "700")
-    txt(c, 605, 280, "k = " + sub("k", "e") + " + " + sub("k", "ph"), "HEAD", "start", 13, "700")
-    REG.put("heat-flux-bar", c, "Heat flux through a bar (Fourier's law)",
-            "A bar heated at one end carries a heat flux q = Q/A towards the cold end, proportional to the temperature gradient; the heat is carried by free electrons and by phonons, k = ke + kph (schematic)")
-
-
 # ---------------------------------------------------------------- thermal stresses (S45, S47)
-
-def constrained_bar():
-    c = Canvas(700, 300)
-    for k, ox in enumerate((30, 370)):
-        title = ("Heating: " + sub("T", "f") + " &gt; " + sub("T", "0")) if k == 0 else ("Cooling: " + sub("T", "f") + " &lt; " + sub("T", "0"))
-        txt(c, ox + 150, 28, title, "HEAD", "middle", 14, "700")
-        rect(c, ox, 60, 26, 130, "EDGE", 1.4, None, "EDGE", 0.35)
-        rect(c, ox + 274, 60, 26, 130, "EDGE", 1.4, None, "EDGE", 0.35)
-        rect(c, ox + 26, 105, 248, 40, "HEAD", 1.8, None, "ATOM", 0.25)
-        if k == 0:
-            arrow(c, (ox + 30, 125), (ox + 75, 125), "PINK", 2.6, 10)
-            arrow(c, (ox + 270, 125), (ox + 225, 125), "PINK", 2.6, 10)
-            txt(c, ox + 150, 80, "wall forces push on the bar", "TEXT", "middle", 12)
-            txt(c, ox + 150, 232, "compressive stress, σ &lt; 0", "PINK", "middle", 14, "700")
-        else:
-            arrow(c, (ox + 75, 125), (ox + 30, 125), "BLUE", 2.6, 10)
-            arrow(c, (ox + 225, 125), (ox + 270, 125), "BLUE", 2.6, 10)
-            txt(c, ox + 150, 80, "wall forces pull on the bar", "TEXT", "middle", 12)
-            txt(c, ox + 150, 232, "tensile stress, σ &gt; 0", "BLUE", "middle", 14, "700")
-    txt(c, 350, 270, "σ = E α (" + sub("T", "0") + " − " + sub("T", "f") + ") = E α ΔT   (bar held at constant length)", "HEAD", "middle", 14, "700")
-    REG.put("constrained-bar", c, "Thermal stress in a bar between two rigid walls",
-            "A bar that cannot expand or contract: heating gives a compressive stress and cooling a tensile stress, σ = E α (T0 − Tf) (schematic)")
-
 
 def thermal_shock():
     c = Canvas(720, 340)
@@ -401,6 +181,36 @@ def thermal_shock():
 # ---------------------------------------------------------------- slide crops (not generated here)
 
 def rasters():
+    REG.raster('orbital-spin', 'Orbital and spin magnetic moments',
+               'Origin of the magnetic moment of an atom: the orbital moment of the electron moving around the nucleus and the spin moment of the electron spinning about its axis, copied from Session 15 Slide 3', 440)
+    REG.raster('dipole-orderings-a', 'Diamagnetic material',
+               'Diamagnetic material: no dipoles without a field (H = 0) and induced dipoles opposite to an applied field H, copied from Session 15 Slide 6', 460)
+    REG.raster('dipole-orderings-b', 'Paramagnetic material',
+               'Paramagnetic material: permanent dipoles randomly oriented without a field (H = 0) and aligned with an applied field H, copied from Session 15 Slide 8', 460)
+    REG.raster('dipole-orderings-c', 'Ferromagnetic material',
+               'Ferromagnetic material: dipoles parallel to each other with no applied field (H = 0), copied from Session 15 Slide 9', 260)
+    REG.raster('dipole-orderings-d', 'Antiferromagnetic MnO',
+               'Antiparallel alignment of the spin moments of the Mn2+ ions in manganese oxide, with the O2- ions in between, copied from Session 15 Slide 10', 280)
+    REG.raster('dipole-orderings-e', 'Cations of a ferrite',
+               'Ferrimagnetic ferrite: spin moments of the Fe2+ and Fe3+ ions in octahedral sites and of the Fe3+ ions in tetrahedral sites of the oxygen lattice, copied from Session 15 Slide 11', 340)
+    REG.raster('dipole-orderings-f', 'Ferro-, antiferro- and ferrimagnetic dipoles',
+               'Dipoles of the ferromagnetic (parallel), antiferromagnetic (antiparallel and equal) and ferrimagnetic (antiparallel and unequal) arrangements, copied from Session 15 Slide 13', 600)
+    REG.raster('domain-closure', 'Origin of magnetic domains',
+               'One domain (high magnetostatic energy), two domains, four domains and closure domains (zero magnetostatic energy), with the magnetic domain walls, copied from Session 15 Slide 15', 680)
+    REG.raster('s15-initial-magnetization', 'Initial magnetization curve',
+               'Magnetization M or induction B against the field H from the demagnetized state: initial permeability μi, maximum permeability μmax, growth of domains, rotation of domains and saturation, copied from Session 15 Slide 16', 400)
+    REG.raster('s15-hysteresis-loops', 'Hysteresis loops of soft and hard materials',
+               'B-H hysteresis loops of a soft magnetic material (narrow loop) and a hard magnetic material (wide loop), copied from Session 15 Slide 18', 320)
+    REG.raster('superconductor-types-a', 'Type I superconductor',
+               'Type I superconductor: resistivity zero in the superconducting state up to the critical field Hc, then an abrupt return to the normal state, copied from Session 15 Slide 28', 340)
+    REG.raster('superconductor-types-b', 'Type II superconductor',
+               'Type II superconductor: gradual transition between the lower critical field Hc1 and the upper critical field Hc2 (the vertical axis has no label on the slide), copied from Session 15 Slide 29', 320)
+    REG.raster('bimetal-strip', 'Bimetallic strip',
+               'Bimetallic strip of two metals with expansion coefficients α1 > α2: straight at T1 and bent at T2 > T1, copied from Session 15 Slide 39', 360)
+    REG.raster('heat-flux-bar', 'Heat flux through a bar',
+               'A bar heated at one end by a heat source: the heat flow Q crosses the area A down the temperature difference ΔT over the length Δx, copied from Session 15 Slide 40', 480)
+    REG.raster('constrained-bar', 'Bar confined between two walls',
+               'Bar confined between two rigid walls, so that its thermal expansion or contraction under a temperature change T is restrained, copied from Session 15 Slide 45', 380)
     REG.raster("s15-ferrite-garnet-tables", "Commercial ferrite and garnet compositions",
                "Some commercial ferrite and garnet compositions, copied from Session 15 Slide 12", 560)
     REG.raster("s15-domains-grains-bloch", "Domains in a grain and a Bloch wall",
@@ -430,16 +240,9 @@ def rasters():
 
 
 def theory():
-    orbital_spin()
-    dipole_orderings()
-    domain_closure()
     initial_magnetization()
     hysteresis_soft_hard()
-    superconductor_types()
     asymmetric_well()
-    bimetal_strip()
-    heat_flux_bar()
-    constrained_bar()
     thermal_shock()
     rasters()
 
