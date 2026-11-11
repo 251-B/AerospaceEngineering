@@ -19,8 +19,9 @@ bytes: 1943201
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF2_w_solution.pdf`
 - **Kind:** problemas
 - **Size:** 1.9 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
+- [[01 - Fluid Mechanics/Problem - VF2 Oscillating Wall under a Liquid Layer]]

@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF8.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 233985
 ---
 
@@ -19,8 +19,8 @@ bytes: 233985
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF8.pdf`
 - **Kind:** problemas
 - **Size:** 234.0 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Problem - VF8 Lifting a Cylinder from an Oil Film]]

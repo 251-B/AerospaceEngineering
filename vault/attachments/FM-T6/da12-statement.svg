@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 280" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Supersonic missile with its bow shock">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="300.0,140.0 330.0,115.0 520.0,115.0 520.0,165.0 330.0,165.0" fill="#8a94a6" fill-opacity="0.12" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<polygon points="470.0,115.0 520.0,80.0 540.0,80.0 520.0,115.0" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="470.0,165.0 520.0,200.0 540.0,200.0 520.0,165.0" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="345.0" y1="115.0" x2="345.0" y2="165.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M345.0,115.0 L347.7,121.4 L342.3,121.4 Z" fill="#10b981"/>
+<path d="M345.0,165.0 L342.3,158.6 L347.7,158.6 Z" fill="#10b981"/>
+<text x="359.0" y="146.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle">D</text>
+<path d="M430,20 C300,60 250,110 250,140 C250,170 300,220 430,260" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="440.0" y="30.0" fill="#f59e0b" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">bow shock</text>
+<line x1="250.0" y1="185.0" x2="300.0" y2="185.0" stroke="#10b981" stroke-width="1.2"/>
+<path d="M300.0,185.0 L291.7,188.5 L291.7,181.5 Z" fill="#10b981"/>
+<line x1="300.0" y1="185.0" x2="250.0" y2="185.0" stroke="#10b981" stroke-width="1.2"/>
+<path d="M250.0,185.0 L258.3,181.5 L258.3,188.5 Z" fill="#10b981"/>
+<text x="275.0" y="205.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">d</text>
+<line x1="70.0" y1="140.0" x2="153.4" y2="140.0" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M160.0,140.0 L149.9,144.3 L149.9,135.7 Z" fill="#3b82f6"/>
+<text x="115.0" y="128.0" fill="#3b82f6" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<text x="115.0" y="90.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ, μ</text>
+<text x="115.0" y="175.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">c</text>
+<line x1="610.0" y1="30.0" x2="610.0" y2="74.0" stroke="#4b5563" stroke-width="2.0"/>
+<path d="M610.0,80.0 L606.1,70.8 L613.9,70.8 Z" fill="#4b5563"/>
+<text x="622.0" y="60.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+</g></svg>

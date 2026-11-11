@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Liquid dragged into a gap by a moving wall">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="150.0,60.0 190.0,60.0 190.0,280.0 150.0,280.0" fill="#3b82f6" fill-opacity="0.0" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="150.0,90.0 190.0,90.0 190.0,280.0 150.0,280.0" fill="#3b82f6" fill-opacity="0.22" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="190.0,200.0 480.0,200.0 480.0,320.0 150.0,320.0 150.0,280.0 190.0,280.0" fill="#3b82f6" fill-opacity="0.14" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<line x1="190.0" y1="200.0" x2="480.0" y2="200.0" stroke="#3b82f6" stroke-width="1.8"/>
+<line x1="150.0" y1="40.0" x2="150.0" y2="320.0" stroke="#4b5563" stroke-width="5.0"/>
+<line x1="190.0" y1="40.0" x2="190.0" y2="280.0" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="150.0" y1="320.0" x2="480.0" y2="320.0" stroke="#4b5563" stroke-width="3.0"/>
+<line x1="480.0" y1="180.0" x2="480.0" y2="320.0" stroke="#4b5563" stroke-width="3.0"/>
+<line x1="100.0" y1="250.0" x2="100.0" y2="157.8" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M100.0,150.0 L105.1,162.0 L94.9,162.0 Z" fill="#f59e0b"/>
+<text x="88.0" y="205.0" fill="#f59e0b" font-size="19" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V</text>
+<line x1="150.0" y1="56.0" x2="190.0" y2="56.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M150.0,56.0 L156.4,53.3 L156.4,58.7 Z" fill="#10b981"/>
+<path d="M190.0,56.0 L183.6,58.7 L183.6,53.3 Z" fill="#10b981"/>
+<text x="170.0" y="48.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle">d</text>
+<line x1="300.0" y1="200.0" x2="300.0" y2="280.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M300.0,200.0 L302.7,206.4 L297.3,206.4 Z" fill="#10b981"/>
+<path d="M300.0,280.0 L297.3,273.6 L302.7,273.6 Z" fill="#10b981"/>
+<text x="318.0" y="245.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle">H</text>
+<line x1="232.0" y1="200.0" x2="232.0" y2="90.0" stroke="#10b981" stroke-width="1.1"/>
+<path d="M232.0,200.0 L229.3,193.6 L234.7,193.6 Z" fill="#10b981"/>
+<path d="M232.0,90.0 L234.7,96.4 L229.3,96.4 Z" fill="#10b981"/>
+<text x="260.0" y="150.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle">h(t)</text>
+<text x="170.0" y="78.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="400.0" y="190.0" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="196.0" y1="300.0" x2="196.0" y2="260.0" stroke="#4b5563" stroke-width="1.2"/>
+<path d="M196.0,260.0 L199.5,268.3 L192.5,268.3 Z" fill="#4b5563"/>
+<text x="206.0" y="270.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+<line x1="520.0" y1="50.0" x2="520.0" y2="114.0" stroke="#4b5563" stroke-width="2.0"/>
+<path d="M520.0,120.0 L516.1,110.8 L523.9,110.8 Z" fill="#4b5563"/>
+<text x="530.0" y="91.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+</g></svg>

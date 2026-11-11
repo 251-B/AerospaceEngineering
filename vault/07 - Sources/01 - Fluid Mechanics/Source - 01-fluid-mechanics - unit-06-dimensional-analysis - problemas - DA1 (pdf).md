@@ -19,8 +19,9 @@ bytes: 818625
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA1.pdf`
 - **Kind:** problemas
 - **Size:** 818.6 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
+- [[01 - Fluid Mechanics/Problem - DA1 Power of a Marine Freighter]]

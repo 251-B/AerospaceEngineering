@@ -33,10 +33,12 @@ PAGE = "subjects/fluid-mechanics/problemas/topic-3-conservation-laws.html"
 SOURCE_LINKS = "tools/source_links.json"
 MOC = VAULT + "/Fluid Mechanics MOC.md"
 PROBLEMS_INDEX = "subjects/fluid-mechanics/problemas/index.html"
+THEORY_INDEX = "subjects/fluid-mechanics/teoria/index.html"
 PORTAL = "index.html"
-INPUTS = (SOURCE_LINKS, MOC, PROBLEMS_INDEX, PORTAL)   # edited in place by sync(): read from the repo first
+INPUTS = (SOURCE_LINKS, MOC, PROBLEMS_INDEX, THEORY_INDEX, PORTAL)   # edited in place by sync(): read from the repo first
 BASE = "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/"
 KINEMATICS_PROBLEMS = 10                               # K1 to K10 share the root card with the CL problems
+FLUID_SETS = ("CL", "NS", "FS", "DA", "VF")                 # problem notes counted on the root card (fluid_problem_count)
 
 EXTRA_CSS = """
     .balance-block { border-left: 3px solid var(--accent-border, var(--border-subtle)); padding: 4px 0 4px 14px; margin: 18px 0; }
@@ -338,15 +340,32 @@ def sync(root, probs):
     s = re.sub(r'(<a href="topic-3-conservation-laws.html".*?</svg>)\d+ Solved Problems', lambda m: m.group(1) + f"{n} Solved Problems", s, flags=re.S)
     write(root, PROBLEMS_INDEX, s)
 
-    # root card of the fluid mechanics subject: its kinematics problems plus the CL problems
+    sync_portal(root)
+
+
+def fluid_problem_count():
+    """Every solved fluid problem: K1-K10 (written by hand) plus the CL, NS, FS and DA notes of the repository vault."""
+    vault = ROOT / VAULT
+    return KINEMATICS_PROBLEMS + sum(len(list(vault.glob(f"Problem - {p}[0-9]*.md"))) for p in FLUID_SETS)
+
+
+def sync_portal(root):
+    """The root card of the subject, the hero total of the portal and the "Problem Sets (N Solved)" label of both
+    subject indexes. Shared by tools/fluids_cl, fluids_ns, fluids_fs and fluids_da, so that all four write the same
+    count."""
     s = (root / PORTAL).read_text(encoding="utf-8")
     i = s.index('href="subjects/fluid-mechanics/problemas/index.html"')
     j = s.index('<span class="area-badge available">', i)
     k = s.index("</span>", j)
-    ns = len(list((ROOT / VAULT).glob("Problem - NS*.md")))     # the Navier-Stokes problems (tools/fluids_ns) share the card
-    fs = len(list((ROOT / VAULT).glob("Problem - FS*.md")))     # and so do the hydrostatics problems (tools/fluids_fs)
-    s = s[:j] + f'<span class="area-badge available">{KINEMATICS_PROBLEMS + n + ns + fs} problems' + s[k:]
+    before = int(re.search(r"(\d+) problems", s[j:k]).group(1))
+    total = fluid_problem_count()
+    s = s[:j] + f'<span class="area-badge available">{total} problems' + s[k:]
+    hero = re.search(r'(<span class="stat-value"[^>]*>)(\d+)(</span>\s*<span class="stat-label">Solved problems)', s)
+    s = s[:hero.start(2)] + str(int(hero.group(2)) + total - before) + s[hero.end(2):]
     write(root, PORTAL, s)
+    for rel in (PROBLEMS_INDEX, THEORY_INDEX):
+        s = (root / rel).read_text(encoding="utf-8")
+        write(root, rel, re.sub(r"Problem Sets \(\d+ Solved\)", f"Problem Sets ({total} Solved)", s))
 
 
 def link_sources(root, text):

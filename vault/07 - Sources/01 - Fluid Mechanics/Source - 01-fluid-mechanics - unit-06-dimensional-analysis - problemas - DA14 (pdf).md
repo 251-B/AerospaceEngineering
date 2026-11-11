@@ -19,8 +19,9 @@ bytes: 806382
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA14.pdf`
 - **Kind:** problemas
 - **Size:** 806.4 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
+- [[01 - Fluid Mechanics/Problem - DA14 Torque in an Impulsively Rotated Cavity]]

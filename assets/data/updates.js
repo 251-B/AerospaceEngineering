@@ -23,6 +23,38 @@ window.AE_UPDATES = [
     "link": "subjects/aerospace-materials-1/teoria/index.html"
   },
   {
+    "id": "2026-11-10-fluids-t7-problems",
+    "date": "2026-11-10",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics Topic 7: 19 solved problems",
+    "text": "The viscous-flow sheets VF2 to VF20 are solved step by step: annular flows, belt pumps, a journal bearing, squeeze films and a levitated cylinder. Slips of the keys are flagged.",
+    "link": "subjects/fluid-mechanics/problemas/topic-7-viscous-flow.html"
+  },
+  {
+    "id": "2026-11-10-fluids-t7-theory",
+    "date": "2026-11-10",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics Topic 7: viscous flows",
+    "text": "New theory page for Chapter 7: Couette and Poiseuille flows, Stokes layers, slender films, the wedge effect and the criteria for viscous dominance, with a practical formulary.",
+    "link": "subjects/fluid-mechanics/teoria/topic-7.html"
+  },
+  {
+    "id": "2026-11-10-fluids-t6-problems",
+    "date": "2026-11-10",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics Topic 6: 14 solved problems",
+    "text": "The dimensional-analysis sheets DA1 to DA14 are solved step by step after their keys: ships, turbines, wings, propellers, a missile and a Mars parachute.",
+    "link": "subjects/fluid-mechanics/problemas/topic-6-dimensional-analysis.html"
+  },
+  {
+    "id": "2026-11-10-fluids-t6-theory",
+    "date": "2026-11-10",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics Topic 6: dimensional analysis",
+    "text": "New theory page for Chapter 6: the Pi theorem, Taylor's explosion, the nondimensional Navier-Stokes equations, the limits of large and small Reynolds number and scale models.",
+    "link": "subjects/fluid-mechanics/teoria/topic-6.html"
+  },
+  {
     "id": "2026-11-08-materials-audit-fixes",
     "date": "2026-11-08",
     "tag": "Aerospace Materials I",

@@ -113,10 +113,45 @@ tags:
     * [[01 - Fluid Mechanics/Problem - FS7 Wedge between Two Liquids|Problem FS7: Wedge between Two Liquids]]
     * [[01 - Fluid Mechanics/Problem - FS9 Hinged Gate Opening Height|Problem FS9: Hinged Gate Opening Height]]
     * [[01 - Fluid Mechanics/Problem - FS10 Horizontal Force on a Cylinder|Problem FS10: Horizontal Force on a Cylinder]]
-* Topic 6: Dimensional Analysis (Buckingham Pi Theorem) (planned)
-  * Official sources: `DA1.pdf` to `DA14.pdf` (14 solved problems).
-* Topic 7: Viscous Flows & Boundary Layer Theory (planned)
-  * Official sources: `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 solved problems).
+* [[01 - Fluid Mechanics/Topic 6 - Dimensional Analysis|Topic 6: Dimensional Analysis]]
+  * Official sources: `Notes.pdf` Chapter 6 and the problem sheets `DA1.pdf` to `DA14.pdf` (14 problems, each with the handwritten key).
+  * **Solved Dimensional Analysis Problems (Official Problem Sheets DA):**
+    * [[01 - Fluid Mechanics/Problem - DA1 Power of a Marine Freighter|Problem DA1: Power of a Marine Freighter]]
+    * [[01 - Fluid Mechanics/Problem - DA2 Vortex Shedding behind a Wire|Problem DA2: Vortex Shedding behind a Wire]]
+    * [[01 - Fluid Mechanics/Problem - DA3 Stirrer in a Tar Tank|Problem DA3: Stirrer in a Tar Tank]]
+    * [[01 - Fluid Mechanics/Problem - DA4 Terminal Velocity of Slime Particles|Problem DA4: Terminal Velocity of Slime Particles]]
+    * [[01 - Fluid Mechanics/Problem - DA5 Power of a Wind Turbine|Problem DA5: Power of a Wind Turbine]]
+    * [[01 - Fluid Mechanics/Problem - DA6 Tsunami against a Protection Wall|Problem DA6: Tsunami against a Protection Wall]]
+    * [[01 - Fluid Mechanics/Problem - DA7 Thrust of a Submarine Shrouded Fan|Problem DA7: Thrust of a Submarine Shrouded Fan]]
+    * [[01 - Fluid Mechanics/Problem - DA8 Lift of a Flapping Fly Wing|Problem DA8: Lift of a Flapping Fly Wing]]
+    * [[01 - Fluid Mechanics/Problem - DA9 Power of an Airplane Propeller|Problem DA9: Power of an Airplane Propeller]]
+    * [[01 - Fluid Mechanics/Problem - DA10 Two-Belt Viscous Pump|Problem DA10: Two-Belt Viscous Pump]]
+    * [[01 - Fluid Mechanics/Problem - DA11 Power of a Wave Generator|Problem DA11: Power of a Wave Generator]]
+    * [[01 - Fluid Mechanics/Problem - DA12 Supersonic Missile Drag and Shock Standoff|Problem DA12: Supersonic Missile Drag and Shock Standoff]]
+    * [[01 - Fluid Mechanics/Problem - DA13 Mars Lander Parachute|Problem DA13: Mars Lander Parachute]]
+    * [[01 - Fluid Mechanics/Problem - DA14 Torque in an Impulsively Rotated Cavity|Problem DA14: Torque in an Impulsively Rotated Cavity]]
+* [[01 - Fluid Mechanics/Topic 7 - Viscous Flows|Topic 7: Viscous Flows]]
+  * Official sources: `Notes.pdf` Chapter 7 and the problem sheets `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 problems, each with the handwritten key).
+  * **Solved Viscous Flow Problems (Official Problem Sheets VF):**
+    * [[01 - Fluid Mechanics/Problem - VF2 Oscillating Wall under a Liquid Layer|Problem VF2: Oscillating Wall under a Liquid Layer]]
+    * [[01 - Fluid Mechanics/Problem - VF3 Annular Flow with a Moving Outer Cylinder|Problem VF3: Annular Flow with a Moving Outer Cylinder]]
+    * [[01 - Fluid Mechanics/Problem - VF4 Pipe with a Partly Inserted Bar|Problem VF4: Pipe with a Partly Inserted Bar]]
+    * [[01 - Fluid Mechanics/Problem - VF5 Discharge of Two Immiscible Liquids from a Tube|Problem VF5: Discharge of Two Immiscible Liquids from a Tube]]
+    * [[01 - Fluid Mechanics/Problem - VF6 Oil Rising in a Vertical Tube|Problem VF6: Oil Rising in a Vertical Tube]]
+    * [[01 - Fluid Mechanics/Problem - VF7 Discharge from a Conical Pipe|Problem VF7: Discharge from a Conical Pipe]]
+    * [[01 - Fluid Mechanics/Problem - VF8 Lifting a Cylinder from an Oil Film|Problem VF8: Lifting a Cylinder from an Oil Film]]
+    * [[01 - Fluid Mechanics/Problem - VF9 Conveyor Belt Pumping on an Incline|Problem VF9: Conveyor Belt Pumping on an Incline]]
+    * [[01 - Fluid Mechanics/Problem - VF10 Pulsatile Flow in a Pipe|Problem VF10: Pulsatile Flow in a Pipe]]
+    * [[01 - Fluid Mechanics/Problem - VF11 Windshield Wiper|Problem VF11: Windshield Wiper]]
+    * [[01 - Fluid Mechanics/Problem - VF12 Journal Bearing|Problem VF12: Journal Bearing]]
+    * [[01 - Fluid Mechanics/Problem - VF13 Rotating Plate over a Wall|Problem VF13: Rotating Plate over a Wall]]
+    * [[01 - Fluid Mechanics/Problem - VF14 Arm Approaching a Wall|Problem VF14: Arm Approaching a Wall]]
+    * [[01 - Fluid Mechanics/Problem - VF15 Belt Pump Forces Power and Efficiency|Problem VF15: Belt Pump: Forces, Power and Efficiency]]
+    * [[01 - Fluid Mechanics/Problem - VF16 Piston Falling over a Liquid Layer|Problem VF16: Piston Falling over a Liquid Layer]]
+    * [[01 - Fluid Mechanics/Problem - VF17 Thin Plate in a Couette Channel|Problem VF17: Thin Plate in a Couette Channel]]
+    * [[01 - Fluid Mechanics/Problem - VF18 Liquid Dragged up a Gap by a Moving Wall|Problem VF18: Liquid Dragged up a Gap by a Moving Wall]]
+    * [[01 - Fluid Mechanics/Problem - VF19 Viscous Pump with a Moving Rod|Problem VF19: Viscous Pump with a Moving Rod]]
+    * [[01 - Fluid Mechanics/Problem - VF20 Cylinder Levitated by a Jet|Problem VF20: Cylinder Levitated by a Jet]]
 
 ### 🧪 Experimental Sessions & Laboratory Practicals
 * **Official structure:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/`

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 6: Dimensional Analysis — Fluid Mechanics</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 33, 62, 0.88);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --border-subtle: #e2e8f0;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --border-strong: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, .article-title, .section-heading, .walkthrough-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+      color: var(--text-primary);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .step-badge {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Header */
+    header.site-header {
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 9px;
+      border-radius: 5px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 11px;
+      border-radius: 7px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .theme-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Subchapter Sticky Pill Bar */
+    .subchapter-nav-bar {
+      position: sticky;
+      top: 49px;
+      z-index: 95;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-wrapper {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+
+    .pill-link {
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .pill-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .pill-link.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
+    }
+
+    /* Article Hero */
+    .article-header {
+      padding: 36px 0 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Typography & Blocks */
+    h2.section-heading {
+      font-size: 1.5rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans) !important;
+      font-size: 1.18rem;
+      font-weight: 600 !important;
+      color: var(--text-primary);
+      margin: 26px 0 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      text-align: center;
+      overflow-x: auto;
+      box-shadow: var(--shadow-card);
+    }
+
+    .math-caption {
+      font-size: 0.80rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-family: var(--font-mono);
+    }
+
+    .callout-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 22px 0;
+      font-size: 0.98rem;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Canonical Walkthrough Box */
+    .walkthrough-box {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .walkthrough-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .walkthrough-title {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .step-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .step-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #070b14;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.98rem;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 0 64px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .bottom-nav-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .bottom-nav-btn.center {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+
+    :root { --text-heading: var(--text-primary); --text-faint: var(--text-muted); }
+    .table-wrapper { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border-card); border-radius: 10px; background: var(--bg-card); }
+    table.fm-table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+    .fm-table th, .fm-table td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-subtle); }
+    .fm-table th { font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
+    .fm-table tr:last-child td { border-bottom: none; }
+    h4.sub-heading { font-family: var(--font-sans); font-size: 1.02rem; font-weight: 700; color: var(--text-primary); margin: 22px 0 8px; }
+    article ul, article ol { margin: 8px 0 14px 1.4rem; }
+    article li { margin: 4px 0; }
+    .callout-box p:last-child, .callout-box .math-block:last-child { margin-bottom: 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.10); border-left-color: #f59e0b; }
+    .diagram-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 16px; margin: 22px 0; }
+    .diagram-card svg { max-width: 100%; height: auto; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+    section[id] { scroll-margin-top: 80px; }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Canvas Background -->
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 6 · Dimensional analysis</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Main Article Container -->
+  <main class="container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Topic 06 · Dimensional Analysis</div>
+        <h1 class="article-title">Dimensional Analysis</h1>
+        <p class="article-meta">Dimensions and independent dimensions, the Π theorem, Taylor's explosion, the parameters read from the equations, the nondimensional Navier-Stokes equations, the limits Re ≫ 1 and Re ≪ 1, physical similarity, and a practical formulary.</p>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=66" target="_blank" rel="noopener">Notes.pdf, Chapter 6 · p. 66</a>
+        </nav>
+      </header>
+
+      <section id="section-0">
+        <div class="callout-box"><p><strong>Central idea.</strong> A physical law cannot depend on the units chosen to measure its quantities. If an unknown $a_0$ depends on $n$ governing parameters, of which $k$ have independent dimensions, the $\Pi$ theorem reduces the law to a relation between $n-k+1$ dimensionless groups, $\Pi_0 = F(\Pi_1,\dots,\Pi_{n-k})$. In fluid mechanics the list of parameters is read from the conservation equations and their boundary conditions; the limits $\mathrm{Re}\gg 1$ and $\mathrm{Re}\ll 1$ remove one more parameter; and equal dimensionless groups in a model and in the real system (physical similarity) let a laboratory test predict the full-scale result.</p></div>
+
+      </section>
+
+      <section id="section-1">
+        <h2 class="section-heading">1. Dimensions of a Physical Magnitude</h2>
+<h3 class="sub-heading">The falling body</h3>
+<p>The chapter opens with a mass $m$ released from rest at a height $h$ under gravity $g$ (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=66" target="_blank" rel="noopener" title="Open Notes.pdf at page 66">57</a>, Fig. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=66" target="_blank" rel="noopener" title="Open Notes.pdf at page 66">6.1</a>). The unknowns are the collision time $t_c$ and the collision velocity $v_c$.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" width="100%" class="fig-kit" style="max-width:520px;margin:0 auto;display:block" role="img" aria-label="The fall of a point mass (Fig. 6.1 of the notes)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="60.0" y1="250.0" x2="460.0" y2="250.0" stroke="var(--text-faint)" stroke-width="2.0"/>
+<line x1="60.0" y1="250.0" x2="54.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="72.0" y1="250.0" x2="66.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="84.0" y1="250.0" x2="78.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="96.0" y1="250.0" x2="90.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="108.0" y1="250.0" x2="102.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="120.0" y1="250.0" x2="114.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="132.0" y1="250.0" x2="126.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="144.0" y1="250.0" x2="138.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="156.0" y1="250.0" x2="150.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="168.0" y1="250.0" x2="162.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="180.0" y1="250.0" x2="174.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="192.0" y1="250.0" x2="186.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="204.0" y1="250.0" x2="198.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="216.0" y1="250.0" x2="210.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="228.0" y1="250.0" x2="222.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="240.0" y1="250.0" x2="234.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="252.0" y1="250.0" x2="246.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="264.0" y1="250.0" x2="258.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="276.0" y1="250.0" x2="270.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="288.0" y1="250.0" x2="282.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="300.0" y1="250.0" x2="294.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="312.0" y1="250.0" x2="306.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="324.0" y1="250.0" x2="318.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="336.0" y1="250.0" x2="330.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="348.0" y1="250.0" x2="342.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="360.0" y1="250.0" x2="354.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="372.0" y1="250.0" x2="366.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="384.0" y1="250.0" x2="378.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="396.0" y1="250.0" x2="390.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="408.0" y1="250.0" x2="402.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="420.0" y1="250.0" x2="414.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="432.0" y1="250.0" x2="426.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="444.0" y1="250.0" x2="438.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="456.0" y1="250.0" x2="450.3" y2="255.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<circle cx="200.0" cy="60.0" r="13.0" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.25" stroke="var(--text-heading)" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="222.0" y="66.0" fill="var(--text-heading)" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">m</text>
+<line x1="130.0" y1="60.0" x2="130.0" y2="250.0" stroke="var(--fig-green, #10b981)" stroke-width="1.2"/>
+<line x1="122.0" y1="60.0" x2="138.0" y2="60.0" stroke="var(--fig-green, #10b981)" stroke-width="1.2"/>
+<text x="118.0" y="161.0" fill="var(--fig-green, #10b981)" font-size="19" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">h</text>
+<line x1="200.0" y1="76.0" x2="200.0" y2="244.0" stroke="var(--text-heading)" stroke-width="1.0" stroke-dasharray="5,5"/>
+<line x1="390.0" y1="70.0" x2="390.0" y2="143.4" stroke="var(--text-heading)" stroke-width="2.0"/>
+<path d="M390.0,150.0 L385.7,139.9 L394.3,139.9 Z" fill="var(--text-heading)"/>
+<text x="402.0" y="118.0" fill="var(--text-heading)" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+<circle cx="200.0" cy="250.0" r="4" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<line x1="232.0" y1="180.0" x2="232.0" y2="230.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2"/>
+<path d="M232.0,236.0 L228.1,226.8 L235.9,226.8 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="242.0" y="214.0" fill="var(--fig-acc, #f59e0b)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">v<tspan baseline-shift="sub" font-size="72%">c</tspan>  at  t = t<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<text x="260.0" y="290.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">unknowns t<tspan baseline-shift="sub" font-size="72%">c</tspan> and v<tspan baseline-shift="sub" font-size="72%">c</tspan>, functions of (m, h, g): Eq. (6.1)</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. The fall of a point mass, Fig. 6.1 of the notes: a mass m released from rest at a height h falls under gravity g; the unknowns are the collision time t_c and the collision velocity v_c.</div>
+</div>
+<p>The exact solution is quick, and it will be used to check the dimensional result. Newton's second law $m\,d^2z/dt^2 = -mg$ with $z = h$ and $dz/dt = 0$ at $t = 0$ is integrated once, from $0$ to $t$, using Barrow's rule:</p>
+<div class="math-block">$$ \frac{dz}{dt}(t) - \frac{dz}{dt}(0) = \int_0^t (-g)\,dt' = \big[-g t'\big]_0^t = -g t \quad\Longrightarrow\quad \frac{dz}{dt} = -g t $$</div>
+<p>and once more:</p>
+<div class="math-block">$$ z(t) - z(0) = \int_0^t (-g t')\,dt' = \left[-\frac{g t'^2}{2}\right]_0^t = -\frac{g t^2}{2} \quad\Longrightarrow\quad z = h - \frac{g t^2}{2} $$</div>
+<p>Setting $z(t_c) = 0$ gives $t_c = \sqrt{2h/g}$, and then $v_c = g t_c = \sqrt{2gh}$ (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=66" target="_blank" rel="noopener" title="Open Notes.pdf at page 66">57</a>).</p>
+<h3 class="sub-heading">What we would guess before solving</h3>
+<p>Before any integration, one guesses which quantities can influence the answer: the mass, the height and gravity (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=67" target="_blank" rel="noopener" title="Open Notes.pdf at page 67">6.1</a>):</p>
+<div class="math-block">$$ t_c = t_c(m, h, g), \qquad v_c = v_c(m, h, g) \tag{6.1} $$</div>
+<h3 class="sub-heading">Units and dimensions</h3>
+<p>The numbers $t_c$, $v_c$, $h$, $m$, $g$ are the result of comparing each quantity with a unit. If the unit of length is made $L$ times smaller, the unit of time $T$ times smaller and the unit of mass $M$ times smaller, the numbers $h$, $t_c$ and $m$ grow by the factors $L$, $T$ and $M$, the velocity $v_c$ by $LT^{-1}$ and the acceleration $g$ by $LT^{-2}$. These factors are the <strong>dimensions</strong> of the quantities:</p>
+<div class="math-block">$$ [h] = L, \qquad [t_c] = T, \qquad [m] = M, \qquad [v_c] = LT^{-1}, \qquad [g] = LT^{-2} $$</div>
+<p>The dimensions are always power-law monomials $L^{\alpha}T^{\beta}M^{\gamma}$, with $\alpha$, $\beta$, $\gamma$ rational numbers (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=67" target="_blank" rel="noopener" title="Open Notes.pdf at page 67">58</a>).</p>
+<h3 class="sub-heading">The two dimensionless ratios</h3>
+<p>Changing the units of length and time changes $(h/g)^{1/2}$ by a factor $T$ and $(gh)^{1/2}$ by a factor $LT^{-1}$; check: $[(h/g)^{1/2}] = (L\cdot L^{-1}T^{2})^{1/2} = T$ and $[(gh)^{1/2}] = (LT^{-2}\cdot L)^{1/2} = LT^{-1}$. Hence the ratios (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=67" target="_blank" rel="noopener" title="Open Notes.pdf at page 67">6.2-6.3</a>)</p>
+<div class="math-block">$$ \Pi_1 = \frac{t_c}{(h/g)^{1/2}} \tag{6.2} $$</div>
+<div class="math-block">$$ \Pi_2 = \frac{v_c}{(gh)^{1/2}} \tag{6.3} $$</div>
+<p>have dimension $[\Pi_1] = [\Pi_2] = 1$: their value is the same in every system of units. With (6.1) they become (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=68" target="_blank" rel="noopener" title="Open Notes.pdf at page 68">6.4-6.5</a>)</p>
+<div class="math-block">$$ \Pi_1 = \frac{t_c(m,h,g)}{(h/g)^{1/2}} = \Pi_1(m, h, g) \tag{6.4} $$</div>
+<div class="math-block">$$ \Pi_2 = \frac{v_c(m,h,g)}{(gh)^{1/2}} = \Pi_2(m, h, g) \tag{6.5} $$</div>
+<h3 class="sub-heading">Removing the parameters one by one</h3>
+<p>The key argument of the whole chapter (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=68" target="_blank" rel="noopener" title="Open Notes.pdf at page 68">59</a>):</p>
+<ol><li>Change <strong>only the unit of mass</strong>. The number $m$ changes arbitrarily while $h$ and $g$ stay fixed, and $\Pi_1$, $\Pi_2$ (dimensionless) cannot change. So $\Pi_1$ and $\Pi_2$ do not depend on $m$: $\Pi_1 = \Pi_1(h, g)$, $\Pi_2 = \Pi_2(h, g)$.</li><li>Change <strong>only the unit of time</strong>. The number $g$ is multiplied by $T^{-2}$ while $h$ stays fixed; again $\Pi_1$, $\Pi_2$ do not change, so they do not depend on $g$.</li><li>Change <strong>the unit of length</strong>. $h$ changes arbitrarily and the $\Pi$'s do not, so they do not depend on $h$ either.</li></ol>
+<p>What is left is (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=68" target="_blank" rel="noopener" title="Open Notes.pdf at page 68">6.6-6.7</a>)</p>
+<div class="math-block">$$ \frac{t_c}{(h/g)^{1/2}} = C_1 \tag{6.6} $$</div>
+<div class="math-block">$$ \frac{v_c}{(gh)^{1/2}} = C_2 \tag{6.7} $$</div>
+<p>Dimensional analysis gives the form of the law, not the constants. The integration above gives $C_1 = C_2 = \sqrt{2}$; a <strong>single experiment</strong> (drop one object, measure $t_c$ and $v_c$) would give them too, and then (6.6)-(6.7) hold for any mass, any height and any planet.</p>
+      </section>
+
+      <section id="section-2">
+        <h2 class="section-heading">2. Physical Quantities with Independent Dimensions</h2>
+<h3 class="sub-heading">How many fundamental units</h3>
+<p>A geometric problem needs one unit (length), a kinematic problem two (length, time), mechanics three (mass, length, time); thermal problems add temperature $\Theta$, electromagnetic ones electric charge. The chapter works with mechanical problems, $[a] = L^{\alpha}T^{\beta}M^{\gamma}$ (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=69" target="_blank" rel="noopener" title="Open Notes.pdf at page 69">60</a>).</p>
+<h3 class="sub-heading">Definition</h3>
+<p>The quantities $a_1,\dots,a_k$ have <strong>independent dimensions</strong> when the dimension of none of them can be written as a product of powers of the dimensions of the other $k-1$.</p>
+<h3 class="sub-heading">Example: $\rho$, $U$, $\mu$</h3>
+<p>Take $[\rho] = ML^{-3}$, $[U] = LT^{-1}$, $[\mu] = ML^{-1}T^{-1}$. Assume the opposite: that two numbers $x$, $y$ exist with $[\rho] = [U]^x[\mu]^y$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=69" target="_blank" rel="noopener" title="Open Notes.pdf at page 69">6.8</a>). Written with the exponents of $(L, M, T)$:</p>
+<div class="math-block">$$ L^{-3}M^{1}T^{0} = \left(L^{1}M^{0}T^{-1}\right)^{x}\left(L^{-1}M^{1}T^{-1}\right)^{y} \tag{6.8} $$</div>
+<p>Equating the exponents of $L$, $M$ and $T$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=69" target="_blank" rel="noopener" title="Open Notes.pdf at page 69">6.9</a>):</p>
+<div class="math-block">$$ -3 = x - y, \qquad 1 = y, \qquad 0 = -x - y \tag{6.9} $$</div>
+<p>The second equation gives $y = 1$; the first then gives $x = -3 + 1 = -2$; the third requires $0 = -x - y = 2 - 1 = 1$, which is false. No pair $(x, y)$ exists, so $\rho$, $U$, $\mu$ have independent dimensions. By contrast, $p$, $\rho$, $U$ do not: $[\rho][U]^2 = ML^{-3}\cdot L^{2}T^{-2} = ML^{-1}T^{-2} = [p]$, that is $x = 1$, $y = 2$.</p>
+<h3 class="sub-heading">The rank test</h3>
+<p>The equations (6.9) say that the exponent vector of $\rho$ is a combination of those of $U$ and $\mu$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=69" target="_blank" rel="noopener" title="Open Notes.pdf at page 69">6.10</a>):</p>
+<div class="math-block">$$ (-3, 1, 0) = x\,(1, 0, -1) + y\,(-1, 1, -1) \tag{6.10} $$</div>
+<p>so $a_1,\dots,a_k$ have independent dimensions if and only if <strong>the rank of the matrix of exponents equals $k$</strong>. Rows $\rho$, $U$, $\mu$; columns $L$, $M$, $T$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=69" target="_blank" rel="noopener" title="Open Notes.pdf at page 69">6.11</a>):</p>
+<div class="math-block">$$ \begin{pmatrix} -3 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; -1 \\ -1 &amp; 1 &amp; -1 \end{pmatrix} \tag{6.11} $$</div>
+<p>Expanding along the first row: $\det = -3\,[0\cdot(-1) - (-1)\cdot 1] - 1\,[1\cdot(-1) - (-1)\cdot(-1)] + 0 = -3(1) - 1(-2) = -1 \neq 0$, so the rank is 3. For $\rho$, $U$, $p$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=69" target="_blank" rel="noopener" title="Open Notes.pdf at page 69">6.12</a>):</p>
+<div class="math-block">$$ \begin{pmatrix} -3 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; -1 \\ -1 &amp; 1 &amp; -2 \end{pmatrix} \tag{6.12} $$</div>
+<p>$\det = -3\,[0\cdot(-2) - (-1)\cdot 1] - 1\,[1\cdot(-2) - (-1)\cdot(-1)] = -3(1) - 1(-3) = 0$, and the first two rows are clearly not proportional, so the rank is 2: the three quantities are not independent.</p>
+<div class="callout-box"><div class="callout-title">Exam practice</div><p>With three fundamental units the matrix has three columns, so <strong>at most three</strong> quantities can have independent dimensions. To find $k$, look for the largest set of rows with a non-zero determinant (a $3\times 3$ minor first; if all vanish, a $2\times 2$ one).</p></div>
+      </section>
+
+      <section id="section-3">
+        <h2 class="section-heading">3. The Π Theorem (Vaschy-Buckingham Theorem)</h2>
+<h3 class="sub-heading">The general problem</h3>
+<p>We look for an unknown quantity $a_0$ that depends on $n$ governing parameters (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=69" target="_blank" rel="noopener" title="Open Notes.pdf at page 69">6.13</a>):</p>
+<div class="math-block">$$ a_0 = f(a_1,\dots,a_k,a_{k+1},\dots,a_n) \tag{6.13} $$</div>
+<p>Let $k \le n$ be the largest number of parameters with independent dimensions, and $a_1,\dots,a_k$ one such set. The dimensions of every other parameter are products of powers of theirs (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=70" target="_blank" rel="noopener" title="Open Notes.pdf at page 70">6.14</a>):</p>
+<div class="math-block">$$ [a_{k+1}] = [a_1]^{\alpha_{k+1}}\cdots[a_k]^{\gamma_{k+1}}, \quad [a_{k+2}] = [a_1]^{\alpha_{k+2}}\cdots[a_k]^{\gamma_{k+2}}, \quad \dots, \quad [a_n] = [a_1]^{\alpha_{n}}\cdots[a_k]^{\gamma_{n}} \tag{6.14} $$</div>
+<p>In general $0 &lt; k &lt; n$; $k = n$ happens in the falling body. The same holds for the unknown (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=70" target="_blank" rel="noopener" title="Open Notes.pdf at page 70">6.15</a>):</p>
+<div class="math-block">$$ [a_0] = [a_1]^{\alpha_0}\cdots[a_k]^{\gamma_0} \tag{6.15} $$</div>
+<div class="callout-box"><div class="callout-title">Two typing slips in the notes (p. 61)</div><p>In (6.14) the notes print the exponent of $[a_k]$ in the second line as $\gamma_{k+1}$; it must be $\gamma_{k+2}$, as written above. The sentence after (6.14) reads "or $k = n$, as occurs if all parameters $a_1,\dots,a_n$ are dimensionless"; for dimensionless parameters no unit can change them, so the intended case is $k = 0$.</p></div>
+<h3 class="sub-heading">The dimensionless groups</h3>
+<p>Dividing each quantity by the product of powers with its own dimensions gives $n - k + 1$ dimensionless numbers (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=70" target="_blank" rel="noopener" title="Open Notes.pdf at page 70">6.16</a>):</p>
+<div class="math-block">$$ \Pi_0 = \frac{a_0}{a_1^{\alpha_0}\cdots a_k^{\gamma_0}}, \quad \Pi_1 = \frac{a_{k+1}}{a_1^{\alpha_{k+1}}\cdots a_k^{\gamma_{k+1}}}, \quad \Pi_2 = \frac{a_{k+2}}{a_1^{\alpha_{k+2}}\cdots a_k^{\gamma_{k+2}}}, \quad \dots, \quad \Pi_{n-k} = \frac{a_n}{a_1^{\alpha_n}\cdots a_k^{\gamma_n}} \tag{6.16} $$</div>
+<p>Dividing (6.13) by $a_1^{\alpha_0}\cdots a_k^{\gamma_0}$ and writing $a_{k+1},\dots,a_n$ through the $\Pi$'s, $a_{k+j} = \Pi_j\,a_1^{\alpha_{k+j}}\cdots a_k^{\gamma_{k+j}}$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=70" target="_blank" rel="noopener" title="Open Notes.pdf at page 70">6.17</a>):</p>
+<div class="math-block">$$ \Pi_0 = \frac{f(a_1,\dots,a_k,a_{k+1},\dots,a_n)}{a_1^{\alpha_0}\cdots a_k^{\gamma_0}} = \frac{f\left(a_1,\dots,a_k,\Pi_1 a_1^{\alpha_{k+1}}\cdots a_k^{\gamma_{k+1}},\dots,\Pi_{n-k}a_1^{\alpha_n}\cdots a_k^{\gamma_n}\right)}{a_1^{\alpha_0}\cdots a_k^{\gamma_0}} \tag{6.17} $$</div>
+<p>that is, $\Pi_0$ is a function of $a_1,\dots,a_k$ and of the $\Pi$'s (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=70" target="_blank" rel="noopener" title="Open Notes.pdf at page 70">6.18</a>):</p>
+<div class="math-block">$$ \Pi_0 = \Pi_0(a_1,\dots,a_k,\Pi_1,\dots,\Pi_{n-k}) \tag{6.18} $$</div>
+<h3 class="sub-heading">Worked example: pressure loss in a pipe</h3>
+<p>The pressure loss per unit length of a liquid flowing along a long circular pipe depends on the volume flux $Q$, the diameter $D$, the density $\rho$ and the viscosity $\mu$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=70" target="_blank" rel="noopener" title="Open Notes.pdf at page 70">6.19</a>):</p>
+<div class="math-block">$$ P_l = -\frac{\partial p}{\partial x} = f(Q, D, \rho, \mu) \tag{6.19} $$</div>
+<p>Here $n = 4$. Dimensions: $[Q] = L^3T^{-1}$, $[D] = L$, $[\rho] = ML^{-3}$, $[\mu] = ML^{-1}T^{-1}$, $[P_l] = [p]/L = ML^{-2}T^{-2}$. The set $(Q, D, \rho)$ is independent: $\rho$ is the only one with $M$, $Q$ the only one with $T$, and $D$ adds $L$; so $k = 3$.</p>
+<p><strong>Exponents of $\mu$.</strong> Write $[\mu] = [Q]^{a}[D]^{b}[\rho]^{c}$ and equate exponents:</p>
+<div class="math-block">$$ M:\; 1 = c, \qquad T:\; -1 = -a, \qquad L:\; -1 = 3a + b - 3c $$</div>
+<p>so $c = 1$, $a = 1$ and $b = -1 - 3(1) + 3(1) = -1$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=70" target="_blank" rel="noopener" title="Open Notes.pdf at page 70">6.20</a>):</p>
+<div class="math-block">$$ [\mu] = [Q]^{1}[D]^{-1}[\rho]^{1} \tag{6.20} $$</div>
+<p><strong>Exponents of $P_l$.</strong> With $[P_l] = [Q]^{a}[D]^{b}[\rho]^{c}$:</p>
+<div class="math-block">$$ M:\; 1 = c, \qquad T:\; -2 = -a, \qquad L:\; -2 = 3a + b - 3c $$</div>
+<p>so $c = 1$, $a = 2$ and $b = -2 - 6 + 3 = -5$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=70" target="_blank" rel="noopener" title="Open Notes.pdf at page 70">6.21</a>):</p>
+<div class="math-block">$$ [P_l] = [Q]^{2}[D]^{-5}[\rho]^{1} \tag{6.21} $$</div>
+<p>The two dimensionless groups are (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=71" target="_blank" rel="noopener" title="Open Notes.pdf at page 71">6.22</a>)</p>
+<div class="math-block">$$ \Pi_0 = \frac{P_l}{\rho Q^2/D^5} \qquad\text{and}\qquad \Pi_1 = \frac{\mu}{\rho Q/D} \tag{6.22} $$</div>
+<p>and substituting $\mu = \Pi_1\,\rho Q/D$ into (6.19) gives the form (6.18) (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=71" target="_blank" rel="noopener" title="Open Notes.pdf at page 71">6.23</a>):</p>
+<div class="math-block">$$ \Pi_0 = \frac{f(Q, D, \rho, \Pi_1\rho Q/D)}{\rho Q^2/D^5} = F(Q, D, \rho, \Pi_1) \tag{6.23} $$</div>
+<p>Now the argument of Section 1, repeated:</p>
+<ol><li>Make the unit of mass $M$ times smaller: $\rho$ grows by $M$, while $\Pi_0$, $\Pi_1$, $Q$, $D$ do not change. So $F$ does not depend on $\rho$: $\Pi_0 = F(Q, D, \Pi_1)$.</li><li>Make the unit of time $T$ times smaller: the number $Q$ changes by the factor $T^{-1}$ (since $[Q] = L^3T^{-1}$), while $D$, $\Pi_0$, $\Pi_1$ do not change: $\Pi_0 = F(D, \Pi_1)$.</li><li>Change the unit of length: $\Pi_0 = F(\Pi_1)$.</li></ol>
+<p>The result (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=71" target="_blank" rel="noopener" title="Open Notes.pdf at page 71">6.24</a>):</p>
+<div class="math-block">$$ \frac{P_l}{\rho Q^2/D^5} = F\left(\frac{\mu}{\rho Q/D}\right) \tag{6.24} $$</div>
+<h3 class="sub-heading">The theorem</h3>
+<p>Repeating the argument on (6.18): a change of units can always modify $a_1$ alone, leaving $a_2,\dots,a_k$ and all the $\Pi$'s fixed, so $\Pi_0$ does not depend on $a_1$; one by one, it does not depend on $a_2,\dots,a_k$ either (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=71" target="_blank" rel="noopener" title="Open Notes.pdf at page 71">6.25</a>):</p>
+<div class="math-block">$$ \Pi_0 = F(\Pi_1,\dots,\Pi_{n-k}) \tag{6.25} $$</div>
+<div class="callout-box"><div class="callout-title">The Π theorem (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=71" target="_blank" rel="noopener" title="Open Notes.pdf at page 71">62</a>)</div><p>If an unknown $a_0$ depends on $n$ governing parameters $a_1,\dots,a_n$, the number of parameters can always be reduced to $n - k$, where $k$ is the number of governing parameters with independent dimensions. The $k$ quantities with independent dimensions are used to write the other $n-k$ parameters and the unknown in dimensionless form, which gives (6.25).</p></div>
+<h3 class="sub-heading">Why it matters: fewer experiments</h3>
+<p>For the pipe, the theorem reduces four parameters to one. A single series of experiments in one pipe with one fluid, varying $Q$ and measuring $P_l$, plotted as $\Pi_0$ against $\Pi_1$, gives the law for <strong>any fluid in any pipe</strong>. For a new case ($Q^*$, $\rho^*$, $\mu^*$, $D^*$): compute $\Pi_1^* = \mu^*/(\rho^*Q^*/D^*)$, read $\Pi_0^*$ on the curve, and solve $P_l^* = \Pi_0^*\,\rho^*(Q^*)^2/(D^*)^5$ (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=72" target="_blank" rel="noopener" title="Open Notes.pdf at page 72">63</a>).</p>
+      </section>
+
+      <section id="section-4">
+        <h2 class="section-heading">4. Taylor's Analysis of a Nuclear Explosion</h2>
+<h3 class="sub-heading">Governing parameters</h3>
+<p>An atomic explosion releases a large energy $E$ almost instantaneously at one point; a strong spherical shock of radius $r_o$ grows with time $t$. In the first stages the pressure $p_o$ behind the shock is thousands of times the ambient pressure, so the ambient pressure does not enter, and (6.13) becomes (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=72" target="_blank" rel="noopener" title="Open Notes.pdf at page 72">6.26</a>):</p>
+<div class="math-block">$$ r_o = f_1(E, \rho_a, t) \qquad\text{and}\qquad p_o = f_2(E, \rho_a, t) \tag{6.26} $$</div>
+<h3 class="sub-heading">Rank</h3>
+<p>Rows $E$, $\rho_a$, $t$; columns $L$, $M$, $T$, from $[E] = ML^2T^{-2}$, $[\rho_a] = ML^{-3}$, $[t] = T$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=72" target="_blank" rel="noopener" title="Open Notes.pdf at page 72">6.27</a>):</p>
+<div class="math-block">$$ \begin{pmatrix} 2 &amp; 1 &amp; -2 \\ -3 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \tag{6.27} $$</div>
+<p>Expanding along the third row: $\det = 1\cdot(2\cdot 1 - 1\cdot(-3)) = 5 \neq 0$. So $k = 3 = n$ and <strong>no governing parameter is left</strong>: $n - k = 0$.</p>
+<h3 class="sub-heading">The exponents</h3>
+<p><strong>Radius.</strong> $[r_o] = L = [E]^{a}[\rho_a]^{b}[t]^{c}$:</p>
+<div class="math-block">$$ M:\; 0 = a + b, \qquad L:\; 1 = 2a - 3b, \qquad T:\; 0 = -2a + c $$</div>
+<p>From the first, $b = -a$; the second becomes $1 = 2a + 3a = 5a$, so $a = 1/5$, $b = -1/5$; the third gives $c = 2a = 2/5$.</p>
+<p><strong>Pressure.</strong> $[p_o] = ML^{-1}T^{-2} = [E]^{a}[\rho_a]^{b}[t]^{c}$:</p>
+<div class="math-block">$$ M:\; 1 = a + b, \qquad L:\; -1 = 2a - 3b, \qquad T:\; -2 = -2a + c $$</div>
+<p>With $b = 1 - a$: $-1 = 2a - 3 + 3a$, so $a = 2/5$, $b = 3/5$, and $c = -2 + 2a = -6/5$.</p>
+<p>The solution is therefore (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=72" target="_blank" rel="noopener" title="Open Notes.pdf at page 72">6.28-6.29</a>)</p>
+<div class="math-block">$$ \frac{r_o}{E^{1/5}\rho_a^{-1/5}t^{2/5}} = C_1 \qquad\text{and}\qquad \frac{p_o}{E^{2/5}\rho_a^{3/5}t^{-6/5}} = C_2 \tag{6.28} $$</div>
+<div class="math-block">$$ r_o = C_1 E^{1/5}\rho_a^{-1/5}t^{2/5} \qquad\text{and}\qquad p_o = C_2 E^{2/5}\rho_a^{3/5}t^{-6/5} \tag{6.29} $$</div>
+<p>$C_1$ and $C_2$ come from integrating the compressible-flow equations, or from measurements.</p>
+<h3 class="sub-heading">The shock slows down, and when the law stops holding</h3>
+<p>The shock speed is the time derivative of (6.29), with the power rule $\frac{d}{dt}t^{2/5} = \frac{2}{5}t^{2/5-1} = \frac{2}{5}t^{-3/5}$:</p>
+<div class="math-block">$$ \frac{dr_o}{dt} = \frac{2}{5}\,C_1 E^{1/5}\rho_a^{-1/5}t^{-3/5} $$</div>
+<p>Both the speed and $p_o$ decrease with time. The law fails when $p_o$ falls to the order of the ambient pressure $p_a$. Setting $E^{2/5}\rho_a^{3/5}t^{-6/5} \sim p_a$ and solving for $t$: $t^{6/5} \sim E^{2/5}\rho_a^{3/5}/p_a$, and raising to $5/6$,</p>
+<div class="math-block">$$ t \sim \frac{E^{1/3}\rho_a^{1/2}}{p_a^{5/6}} $$</div>
+<p>(Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=73" target="_blank" rel="noopener" title="Open Notes.pdf at page 73">64</a>). The same reasoning applies to the cylindrical shock of a lightning stroke, with $E$ the energy per unit length, $[E] = MLT^{-2}$.</p>
+      </section>
+
+      <section id="section-5">
+        <h2 class="section-heading">5. Parametric Dependence of the Solution</h2>
+<h3 class="sub-heading">The hard step is the list of parameters</h3>
+<p>Missing an important parameter, or adding spurious ones, gives a wrong result. In fluid mechanics the list need not be a guess: <strong>write the conservation equations with their initial and boundary conditions</strong>, and read the parameters from them (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=73" target="_blank" rel="noopener" title="Open Notes.pdf at page 73">64</a>).</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Fluid motion around a sphere (Fig. 6.2 of the notes)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<circle cx="380.0" cy="170.0" r="62.0" fill="var(--text-faint)" fill-opacity="0.1" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="380.0" y1="170.0" x2="336.0" y2="214.0" stroke="var(--fig-green, #10b981)" stroke-width="1.4"/>
+<text x="346.0" y="190.0" fill="var(--fig-green, #10b981)" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R</text>
+<line x1="380.0" y1="170.0" x2="413.2" y2="170.0" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M418.0,170.0 L410.6,173.1 L410.6,166.9 Z" fill="var(--text-heading)"/>
+<text x="422.0" y="186.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<line x1="380.0" y1="170.0" x2="380.0" y2="136.8" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M380.0,132.0 L383.1,139.4 L376.9,139.4 Z" fill="var(--text-heading)"/>
+<text x="374.0" y="128.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+<line x1="380.0" y1="170.0" x2="398.6" y2="156.5" stroke="var(--text-heading)" stroke-width="1.1"/>
+<path d="M402.0,154.0 L398.4,160.0 L395.2,155.6 Z" fill="var(--text-heading)"/>
+<text x="406.0" y="152.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+<line x1="60.0" y1="90.0" x2="144.0" y2="90.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M150.0,90.0 L140.8,93.9 L140.8,86.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="150.0" x2="144.0" y2="150.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M150.0,150.0 L140.8,153.9 L140.8,146.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="210.0" x2="144.0" y2="210.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M150.0,210.0 L140.8,213.9 L140.8,206.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="270.0" x2="144.0" y2="270.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M150.0,270.0 L140.8,273.9 L140.8,266.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="105.0" y="76.0" fill="var(--fig-blue, #3b82f6)" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<text x="60.0" y="40.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p + ρgz = P<tspan baseline-shift="sub" font-size="72%">∞</tspan></text>
+<text x="60.0" y="305.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">liquid of density ρ and viscosity μ</text>
+<line x1="585.0" y1="50.0" x2="585.0" y2="113.4" stroke="var(--text-heading)" stroke-width="2.0"/>
+<path d="M585.0,120.0 L580.7,109.9 L589.3,109.9 Z" fill="var(--text-heading)"/>
+<text x="597.0" y="96.0" fill="var(--text-heading)" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+<line x1="448.0" y1="220.0" x2="511.4" y2="220.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6"/>
+<path d="M518.0,220.0 L507.9,224.3 L507.9,215.7 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="524.0" y="226.0" fill="var(--fig-acc, #f59e0b)" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">x</tspan></text>
+</g></svg>
+<div class="diagram-caption">Figure 2. Fluid motion around a sphere, Fig. 6.2 of the notes, seen from the sphere: far away the liquid moves with velocity U and its pressure is hydrostatic, p + ρgz = P_∞; the unknown is the drag F_x.</div>
+</div>
+<h3 class="sub-heading">A first guess for the sphere</h3>
+<p>A sphere of radius $R$ moves with constant velocity $U$ in a stagnant liquid of density $\rho$ and viscosity $\mu$; far away the pressure is hydrostatic, $p + \rho g z = P_\infty$. A first guess for the drag (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=73" target="_blank" rel="noopener" title="Open Notes.pdf at page 73">6.30</a>):</p>
+<div class="math-block">$$ F_x = F_x(R, U, \rho, \mu, P_\infty, g) \tag{6.30} $$</div>
+<p>Exponent matrix, rows $R$, $U$, $\rho$, $\mu$, $P_\infty$, $g$; columns $L$, $M$, $T$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=73" target="_blank" rel="noopener" title="Open Notes.pdf at page 73">6.31</a>):</p>
+<div class="math-block">$$ \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 1 &amp; 0 &amp; -1 \\ -3 &amp; 1 &amp; 0 \\ -1 &amp; 1 &amp; -1 \\ -1 &amp; 1 &amp; -2 \\ 1 &amp; 0 &amp; -2 \end{pmatrix} \tag{6.31} $$</div>
+<p>The rank of a $6\times 3$ matrix is at most 3, and the first three rows give $\det = 1\cdot(0\cdot 0 - (-1)\cdot 1) - 0 + 0 = 1 \neq 0$, so $k = 3$ with $(R, U, \rho)$. Since $[F_x] = MLT^{-2} = [\rho][U]^2[R]^2$, the dimensionless force is (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=74" target="_blank" rel="noopener" title="Open Notes.pdf at page 74">6.32</a>)</p>
+<div class="math-block">$$ \Pi_0 = \frac{F_x}{\rho U^2 R^2} \tag{6.32} $$</div>
+<p>Check the other three: $[\rho][U][R] = ML^{-3}\cdot LT^{-1}\cdot L = ML^{-1}T^{-1} = [\mu]$; $[\rho][U]^2 = ML^{-1}T^{-2} = [P_\infty]$; $[U]^2[R]^{-1} = LT^{-2} = [g]$. So (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=74" target="_blank" rel="noopener" title="Open Notes.pdf at page 74">6.33</a>)</p>
+<div class="math-block">$$ \Pi_1 = \frac{\mu}{\rho U R}, \qquad \Pi_2 = \frac{P_\infty}{\rho U^2}, \qquad \Pi_3 = \frac{g}{U^2/R} \tag{6.33} $$</div>
+<p>and the theorem gives (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=74" target="_blank" rel="noopener" title="Open Notes.pdf at page 74">6.34</a>)</p>
+<div class="math-block">$$ \frac{F_x}{\rho U^2 R^2} = f\left(\frac{\mu}{\rho U R}, \frac{P_\infty}{\rho U^2}, \frac{g}{U^2/R}\right) \tag{6.34} $$</div>
+<p>Six parameters became three, but <strong>(6.34) is wrong</strong>: $P_\infty$ and $g$ do not influence the drag. With the correct list $F_x = F_x(R, U, \rho, \mu)$ the result is (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=74" target="_blank" rel="noopener" title="Open Notes.pdf at page 74">6.35</a>)</p>
+<div class="math-block">$$ \frac{F_x}{\rho U^2 R^2} = f\left(\frac{\mu}{\rho U R}\right) \tag{6.35} $$</div>
+<h3 class="sub-heading">Reading the parameters from the equations</h3>
+<p>In the frame of the sphere the liquid satisfies (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=74" target="_blank" rel="noopener" title="Open Notes.pdf at page 74">6.36</a>)</p>
+<div class="math-block">$$ \nabla\cdot\bar{v} = 0, \quad \rho\,\bar{v}\cdot\nabla\bar{v} = -\nabla p + \mu\nabla^2\bar{v} - \rho g\,\bar{e}_z; \qquad \lvert\bar{x}\rvert\to\infty:\; p = P_\infty - \rho g z,\; \bar{v} = U\bar{e}_x; \qquad \lvert\bar{x}\rvert = R:\; \bar{v} = 0 \tag{6.36} $$</div>
+<p>and the force on the sphere is the integral of the pressure and of the viscous stress $\bar{\bar{\tau}}' = \mu(\nabla\bar{v} + \nabla\bar{v}^T)$ over its surface (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=74" target="_blank" rel="noopener" title="Open Notes.pdf at page 74">6.37-6.38</a>):</p>
+<div class="math-block">$$ \bar{F} = -\int_{\lvert\bar{x}\rvert = R} p\,\bar{n}\,d\sigma + \int_{\lvert\bar{x}\rvert = R}\mu(\nabla\bar{v} + \nabla\bar{v}^T)\cdot\bar{n}\,d\sigma \tag{6.37} $$</div>
+<div class="math-block">$$ F_x = \bar{F}\cdot\bar{e}_x = -\int_{\lvert\bar{x}\rvert = R} p\,n_x\,d\sigma + \int_{\lvert\bar{x}\rvert = R}\mu\left[(\nabla\bar{v} + \nabla\bar{v}^T)\cdot\bar{n}\right]\cdot\bar{e}_x\,d\sigma \tag{6.38} $$</div>
+<p>At first sight $P_\infty$ and $g$ do appear. Two observations remove them:</p>
+<ol><li>Gravity is a gradient, $-\nabla p - \rho g\bar{e}_z = -\nabla(p + \rho g z)$, so it can be absorbed in the <strong>reduced pressure</strong>.</li><li>Only pressure differences move the fluid; the level $P_\infty$ does not matter.</li></ol>
+<p>Both suggest $P' = p + \rho g z - P_\infty$. In terms of $P'$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=75" target="_blank" rel="noopener" title="Open Notes.pdf at page 75">6.39</a>):</p>
+<div class="math-block">$$ \nabla\cdot\bar{v} = 0, \quad \rho\,\bar{v}\cdot\nabla\bar{v} = -\nabla P' + \mu\nabla^2\bar{v}; \qquad \lvert\bar{x}\rvert\to\infty:\; P' = 0,\; \bar{v} = U\bar{e}_x; \qquad \lvert\bar{x}\rvert = R:\; \bar{v} = 0 \tag{6.39} $$</div>
+<p>Neither $P_\infty$ nor $g$ appears, so $P'(\bar{x})$ and $\bar{v}(\bar{x})$ do not depend on them. Substituting $p = P' + P_\infty - \rho g z$ in (6.37), and using $\int P_\infty\bar{n}\,d\sigma = 0$ (a constant pressure on a closed surface gives no force) (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=75" target="_blank" rel="noopener" title="Open Notes.pdf at page 75">6.40</a>):</p>
+<div class="math-block">$$ \bar{F} = -\int_{\lvert\bar{x}\rvert = R} P'\,\bar{n}\,d\sigma + \int_{\lvert\bar{x}\rvert = R}\mu(\nabla\bar{v} + \nabla\bar{v}^T)\cdot\bar{n}\,d\sigma + \int_{\lvert\bar{x}\rvert = R}\rho g z\,\bar{n}\,d\sigma \tag{6.40} $$</div>
+<p>The last term is Archimedes' buoyancy. By the Gauss theorem over the volume $V$ of the sphere ($\bar{n}$ pointing out of the sphere) and $\nabla(\rho g z) = \rho g\,\bar{e}_z$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=75" target="_blank" rel="noopener" title="Open Notes.pdf at page 75">6.41</a>):</p>
+<div class="math-block">$$ \int_{\lvert\bar{x}\rvert = R}\rho g z\,\bar{n}\,d\sigma = \int_V \nabla(\rho g z)\,dV = \rho g\,\frac{4}{3}\pi R^3\,\bar{e}_z \tag{6.41} $$</div>
+<p>It is vertical, so it does not contribute to the drag (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=75" target="_blank" rel="noopener" title="Open Notes.pdf at page 75">6.42</a>):</p>
+<div class="math-block">$$ F_x = \bar{F}\cdot\bar{e}_x = -\int_{\lvert\bar{x}\rvert = R} P'\,n_x\,d\sigma + \int_{\lvert\bar{x}\rvert = R}\mu\left[(\nabla\bar{v} + \nabla\bar{v}^T)\cdot\bar{n}\right]\cdot\bar{e}_x\,d\sigma \tag{6.42} $$</div>
+<p>This proves that $F_x = F_x(R, U, \rho, \mu)$ and that (6.35), not (6.34), is the right result.</p>
+<h3 class="sub-heading">When pressure level and gravity do matter</h3>
+<ul><li><strong>Gases</strong>: the absolute pressure enters through the equation of state $p = \rho R_g T$.</li><li><strong>Liquids with a free surface that is not flat</strong> (waves): the condition $p = p_a$ on the unknown surface $z_s(x, y)$ brings $g$ back. A sphere moving at a depth of order $R$ below the surface feels a drag that depends on $g$ and on the depth, and the reduced pressure no longer removes $g$ (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=75" target="_blank" rel="noopener" title="Open Notes.pdf at page 75">66</a>). This is why $g$ appears in the ship, tsunami and wave-maker problems (DA1, DA6, DA11).</li></ul>
+<h3 class="sub-heading">The repeating set is not unique</h3>
+<p>Choosing $(U, R, \mu)$ instead of $(U, R, \rho)$ gives (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=75" target="_blank" rel="noopener" title="Open Notes.pdf at page 75">6.43</a>)</p>
+<div class="math-block">$$ \frac{F_x}{\mu U R} = f\left(\frac{\rho U R}{\mu}\right) \tag{6.43} $$</div>
+<p>Both (6.35) and (6.43) are valid. In both, the dimensionless force depends on the <strong>Reynolds number</strong> (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=75" target="_blank" rel="noopener" title="Open Notes.pdf at page 75">6.44</a>):</p>
+<div class="math-block">$$ \mathrm{Re} = \frac{\rho U R}{\mu} \tag{6.44} $$</div>
+      </section>
+
+      <section id="section-6">
+        <h2 class="section-heading">6. Nondimensionalization of the Navier-Stokes Equations</h2>
+<h3 class="sub-heading">Scales from the boundary conditions</h3>
+<p>Instead of the $\Pi$ theorem, the problem itself can be written in dimensionless variables. For the sphere, the boundary conditions give the velocity scale $U$ and the length scale $R$: $\bar{v}^* = \bar{v}/U$, $\bar{x}^* = \bar{x}/R$, hence $\nabla^* = R\nabla$ and $d\sigma^* = R^{-2}d\sigma$ (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=76" target="_blank" rel="noopener" title="Open Notes.pdf at page 76">67</a>). The scale $\Delta p$ of $P'$ is not obvious: it depends on the kind of motion.</p>
+<h3 class="sub-heading">Order of magnitude of each term</h3>
+<p>Velocities are of order $U$ and change by $O(U)$ over distances $O(R)$, so $O(\nabla\bar{v}) \sim U/R$ and $O(\nabla^2\bar{v}) \sim U/R^2$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=76" target="_blank" rel="noopener" title="Open Notes.pdf at page 76">6.45</a>):</p>
+<div class="math-block">$$ \underbrace{\rho\,\bar{v}\cdot\nabla\bar{v}}_{\rho U^2/R} = \underbrace{-\nabla P'}_{\Delta p/R} + \underbrace{\mu\nabla^2\bar{v}}_{\mu U/R^2} \tag{6.45} $$</div>
+<p>The pressure gradient is almost always essential: without it, (6.39) would have three unknowns (the velocity components) and four equations (continuity and three momentum components). The ratio of the other two terms is (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=76" target="_blank" rel="noopener" title="Open Notes.pdf at page 76">6.46</a>)</p>
+<div class="math-block">$$ \frac{O(\rho\,\bar{v}\cdot\nabla\bar{v})}{O(\mu\nabla^2\bar{v})} = \frac{\rho U^2/R}{\mu U/R^2} = \frac{\rho U R}{\mu} \tag{6.46} $$</div>
+<p>the Reynolds number (6.44). Three regimes (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=76" target="_blank" rel="noopener" title="Open Notes.pdf at page 76">67</a>):</p>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Regime</th><th>Balance in (6.45)</th><th>Pressure scale</th></tr></thead><tbody><tr><td>$\mathrm{Re}\sim 1$</td><td>all three terms</td><td>either estimate</td></tr><tr><td>$\mathrm{Re}\gg 1$</td><td>$\rho\,\bar{v}\cdot\nabla\bar{v} = -\nabla P'$ (viscosity negligible)</td><td>$\Delta p \sim \rho U^2$</td></tr><tr><td>$\mathrm{Re}\ll 1$</td><td>$0 = -\nabla P' + \mu\nabla^2\bar{v}$ (acceleration negligible)</td><td>$\Delta p \sim \mu U/R$</td></tr></tbody></table></div>
+<h3 class="sub-heading">Scaling for $\mathrm{Re}\gtrsim 1$</h3>
+<p>With $p^* = (p + \rho g z - P_\infty)/(\rho U^2)$, substitute $\bar{v} = U\bar{v}^*$, $\bar{x} = R\bar{x}^*$, $\nabla = \nabla^*/R$, $P' = \rho U^2 p^*$ in each term of (6.39):</p>
+<div class="math-block">$$ \rho\,\bar{v}\cdot\nabla\bar{v} = \frac{\rho U^2}{R}\,\bar{v}^*\cdot\nabla^*\bar{v}^*, \qquad \nabla P' = \frac{\rho U^2}{R}\nabla^* p^*, \qquad \mu\nabla^2\bar{v} = \frac{\mu U}{R^2}\nabla^{*2}\bar{v}^* $$</div>
+<p>Dividing by $\rho U^2/R$, the viscous term carries $\mu U/R^2 \div \rho U^2/R = \mu/(\rho U R) = 1/\mathrm{Re}$. The problem (6.39) becomes (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">6.47</a>)</p>
+<div class="math-block">$$ \nabla^*\cdot\bar{v}^* = 0, \quad \bar{v}^*\cdot\nabla^*\bar{v}^* = -\nabla^* p^* + \frac{1}{\mathrm{Re}}\nabla^{*2}\bar{v}^*; \qquad \lvert\bar{x}^*\rvert\to\infty:\; p^* = 0,\; \bar{v}^* = \bar{e}_x; \qquad \lvert\bar{x}^*\rvert = 1:\; \bar{v}^* = 0 \tag{6.47} $$</div>
+<p>In the force (6.42), $P'\,d\sigma = \rho U^2 R^2\,p^*\,d\sigma^*$ and the viscous stress is $\mu(U/R)(\nabla^*\bar{v}^* + \nabla^*\bar{v}^{*T})$, which times $d\sigma = R^2 d\sigma^*$ gives $\mu U R\,(\dots)\,d\sigma^*$. Dividing by $\rho U^2 R^2$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">6.48</a>):</p>
+<div class="math-block">$$ \frac{F_x}{\rho U^2 R^2} = -\int_{\lvert\bar{x}^*\rvert = 1} p^*\,\bar{n}\cdot\bar{e}_x\,d\sigma^* + \frac{1}{\mathrm{Re}}\int_{\lvert\bar{x}^*\rvert = 1}\left[(\nabla^*\bar{v}^* + \nabla^*\bar{v}^{*T})\cdot\bar{n}\right]\cdot\bar{e}_x\,d\sigma^* \tag{6.48} $$</div>
+<p>The only parameter left is $\mathrm{Re}$: $F_x/(\rho U^2R^2)$ is a function of $\mathrm{Re}$ alone, exactly (6.35).</p>
+<div class="callout-box"><div class="callout-title">Reference in the notes (p. 68)</div><p>The notes say that this scaling reduces "(6.40)"; the problem being scaled is the system (6.39) (the field equations and boundary conditions), while the force is (6.42). The same applies to the sentence before (6.49).</p></div>
+<h3 class="sub-heading">Scaling for $\mathrm{Re}\lesssim 1$</h3>
+<p>With $p^* = (p + \rho g z - P_\infty)/(\mu U/R)$, now $\nabla P' = (\mu U/R^2)\nabla^* p^*$; dividing every term by $\mu U/R^2$, the convective term carries $\rho U^2/R \div \mu U/R^2 = \mathrm{Re}$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">6.49</a>):</p>
+<div class="math-block">$$ \nabla^*\cdot\bar{v}^* = 0, \quad \mathrm{Re}\,\bar{v}^*\cdot\nabla^*\bar{v}^* = -\nabla^* p^* + \nabla^{*2}\bar{v}^*; \qquad \lvert\bar{x}^*\rvert\to\infty:\; p^* = 0,\; \bar{v}^* = \bar{e}_x; \qquad \lvert\bar{x}^*\rvert = 1:\; \bar{v}^* = 0 \tag{6.49} $$</div>
+<p>and the force, divided by $\mu U R$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">6.50</a>):</p>
+<div class="math-block">$$ \frac{F_x}{\mu U R} = -\int_{\lvert\bar{x}^*\rvert = 1} p^*\,\bar{n}\cdot\bar{e}_x\,d\sigma^* + \int_{\lvert\bar{x}^*\rvert = 1}\left[(\nabla^*\bar{v}^* + \nabla^*\bar{v}^{*T})\cdot\bar{n}\right]\cdot\bar{e}_x\,d\sigma^* \tag{6.50} $$</div>
+<p>so $F_x/(\mu U R)$ is a function of $\mathrm{Re}$ only, the result (6.43).</p>
+<div class="callout-box"><div class="callout-title">Π theorem or nondimensional equations?</div><p>Both give the same groups, but the equations tell you <strong>which parameters really enter</strong> (no spurious $P_\infty$ or $g$) and <strong>which terms are small</strong> in each limit. The $\Pi$ theorem alone cannot do either. Problem DA14 compares the two methods on the rotating cavity.</p></div>
+      </section>
+
+      <section id="section-7">
+        <h2 class="section-heading">7. Selection of Parameters with Independent Dimensions</h2>
+<h3 class="sub-heading">The rule</h3>
+<p>The set $a_1,\dots,a_k$ should contain parameters with a <strong>significant influence</strong> for the flow considered (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">68</a>). For the sphere, $R$ and $U$ obviously matter. The third one:</p>
+<ul><li>if viscosity is important, $\mu$, which leads to (6.43);</li><li>if viscosity is not expected to matter, $\rho$, which leads to (6.35).</li></ul>
+<p>Evaluate $\mathrm{Re} = \rho U_c L_c/\mu$ with the characteristic velocity and size: $\mathrm{Re}\lesssim 1$ suggests $(U_c, L_c, \mu)$; $\mathrm{Re}\gtrsim 1$ suggests $(U_c, L_c, \rho)$.</p>
+<h3 class="sub-heading">The two extreme limits</h3>
+<p>For $\mathrm{Re}\gg 1$ the $1/\mathrm{Re}$ term of (6.47)-(6.48) disappears, so the dimensionless force no longer depends on $\mathrm{Re}$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">6.51</a>):</p>
+<div class="math-block">$$ \lim_{\mathrm{Re}\gg 1}\frac{F_x}{\rho U^2 R^2} = C_1 \tag{6.51} $$</div>
+<p>For $\mathrm{Re}\ll 1$ the $\mathrm{Re}$ term of (6.49) disappears (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">6.52</a>):</p>
+<div class="math-block">$$ \lim_{\mathrm{Re}\ll 1}\frac{F_x}{\mu U R} = C_2 \tag{6.52} $$</div>
+<p>With the "wrong" set, the limit still depends on $\mathrm{Re}$. Since $\frac{F_x}{\rho U^2R^2} = \frac{F_x}{\mu U R}\cdot\frac{\mu U R}{\rho U^2 R^2} = \frac{F_x}{\mu U R}\cdot\frac{1}{\mathrm{Re}}$, (6.52) gives (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">6.53</a>)</p>
+<div class="math-block">$$ \lim_{\mathrm{Re}\ll 1}\frac{F_x}{\rho U^2 R^2} = C_2\,\mathrm{Re}^{-1} \tag{6.53} $$</div>
+<p>and, since $\frac{F_x}{\mu U R} = \frac{F_x}{\rho U^2R^2}\cdot\mathrm{Re}$, (6.51) gives (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">6.54</a>)</p>
+<div class="math-block">$$ \lim_{\mathrm{Re}\gg 1}\frac{F_x}{\mu U R} = C_1\,\mathrm{Re} \tag{6.54} $$</div>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 656 360" width="100%" class="fig-kit" style="max-width:656px;margin:0 auto;display:block" role="img" aria-label="The two limits of the drag law of the sphere">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="90.0" y1="300.0" x2="600.0" y2="300.0" stroke="var(--text-heading)" stroke-width="1.4"/>
+<path d="M600.0,300.0 L591.7,303.5 L591.7,296.5 Z" fill="var(--text-heading)"/>
+<line x1="90.0" y1="300.0" x2="90.0" y2="40.0" stroke="var(--text-heading)" stroke-width="1.4"/>
+<path d="M90.0,40.0 L93.5,48.3 L86.5,48.3 Z" fill="var(--text-heading)"/>
+<text x="596.0" y="330.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">log Re</text>
+<text x="80.0" y="46.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif">log</text>
+<text x="100.0" y="46.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">F<tspan baseline-shift="sub" font-size="72%">x</tspan> / (ρU² R²)</text>
+<line x1="330.0" y1="300.0" x2="330.0" y2="70.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0" stroke-dasharray="4,5"/>
+<text x="330.0" y="320.0" fill="var(--fig-green, #10b981)" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">Re ∼ 1</text>
+<line x1="190.0" y1="70.0" x2="400.0" y2="280.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="240.0" y1="210.0" x2="580.0" y2="210.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.4" stroke-dasharray="7,5"/>
+<path d="M188.3,67.7 L196.2,75.4 L204.0,83.1 L211.8,90.7 L219.7,98.2 L227.5,105.7 L235.3,113.1 L243.2,120.4 L251.0,127.6 L258.8,134.6 L266.7,141.5 L274.5,148.1 L282.3,154.5 L290.2,160.6 L298.0,166.4 L305.8,171.8 L313.7,176.8 L321.5,181.4 L329.3,185.6 L337.2,189.3 L345.0,192.6 L352.8,195.5 L360.7,198.0 L368.5,200.1 L376.3,201.9 L384.2,203.4 L392.0,204.6 L399.8,205.6 L407.7,206.5 L415.5,207.2 L423.3,207.7 L431.2,208.2 L439.0,208.5 L446.8,208.8 L454.7,209.1 L462.5,209.2 L470.3,209.4 L478.2,209.5 L486.0,209.6 L493.8,209.7 L501.7,209.8 L509.5,209.8 L517.3,209.8 L525.2,209.9 L533.0,209.9 L540.8,209.9 L548.7,209.9 L556.5,209.9 L564.3,210.0 L572.2,210.0 L580.0,210.0" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6" stroke-linejoin="round"/>
+<text x="120.0" y="240.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif">slope −1:</text>
+<text x="120.0" y="260.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">C<tspan baseline-shift="sub" font-size="72%">2</tspan> Re⁻¹, Eq. (6.53)</text>
+<text x="576.0" y="196.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">C<tspan baseline-shift="sub" font-size="72%">1</tspan>, Eq. (6.51)</text>
+<text x="345.0" y="350.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif">Sketch of the two limits only: the constants C₁ and C₂ are not given in the notes</text>
+</g></svg>
+<div class="diagram-caption">Figure 3. Sketch, on logarithmic axes, of the two limits of Eq. (6.35): for Re ≪ 1 the dimensionless drag falls as C₂/Re, Eq. (6.53); for Re ≫ 1 it tends to the constant C₁, Eq. (6.51). Only the slopes are drawn: the constants and the shape of the curve in between are not in the notes.</div>
+</div>
+<p>In dimensional terms: for $\mathrm{Re}\ll 1$, $F_x = C_2\,\mu U R$ (drag linear in $U$, independent of $\rho$); for $\mathrm{Re}\gg 1$, $F_x = C_1\,\rho U^2 R^2$ (drag quadratic in $U$, independent of $\mu$).</p>
+<div class="callout-box"><div class="callout-title">Typing slip in the notes (p. 69)</div><p>Before (6.51) the notes write "$F_x/(\rho U R^2)$ becomes independent of $Re$"; the quantity is $F_x/(\rho U^2 R^2)$, as in (6.51).</p></div>
+<h3 class="sub-heading">General form of the limits</h3>
+<p>When one group of (6.25) takes extreme values, say $\Pi_1\gg 1$, two things can happen (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">6.55-6.56</a>):</p>
+<div class="math-block">$$ \lim_{\Pi_1\gg 1}\Pi_0(\Pi_1,\dots,\Pi_{n-k}) = f(\Pi_2,\dots,\Pi_{n-k}) \tag{6.55} $$</div>
+<div class="math-block">$$ \lim_{\Pi_1\gg 1}\Pi_0(\Pi_1,\dots,\Pi_{n-k}) = \Pi_1^{\lambda}\,f(\Pi_2,\dots,\Pi_{n-k}) \tag{6.56} $$</div>
+<p>In (6.55) one parameter disappears; in (6.56) it survives only as a power, with $\lambda$ to be found. A good choice of $a_1,\dots,a_k$ usually gives the simpler form (6.55).</p>
+<div class="callout-box"><div class="callout-title">Exam practice</div><p>In the problems, "simplify assuming the viscosity has a negligible effect" means: use $\rho$ (not $\mu$) in the repeating set, then drop the group that contains $\mu$. Always finish by <strong>checking</strong> the assumption with numbers: $\mathrm{Re}\gg 1$ for both the model and the real system (DA1, DA6, DA12).</p></div>
+      </section>
+
+      <section id="section-8">
+        <h2 class="section-heading">8. Physical Similarity</h2>
+<h3 class="sub-heading">Designing an experiment</h3>
+<p>A full-scale phenomenon often cannot be reproduced in the laboratory. Example of the notes: the drag $F_1$ on a sphere of radius $R_1$ moving at $U_1$ in an oil ($\rho_1$, $\mu_1$), to be measured in a water tunnel ($\rho_2$, $\mu_2$) with the only available spheres, of radius $R_2 \neq R_1$ (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=79" target="_blank" rel="noopener" title="Open Notes.pdf at page 79">70</a>).</p>
+<p>By (6.35), $F_x/(\rho U^2R^2)$ depends only on $\mathrm{Re}$. If the experiment has the same Reynolds number, $\rho_2U_2R_2/\mu_2 = \rho_1U_1R_1/\mu_1$, solving for $U_2$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=79" target="_blank" rel="noopener" title="Open Notes.pdf at page 79">6.57</a>):</p>
+<div class="math-block">$$ U_2 = \frac{\mu_2}{\mu_1}\,\frac{\rho_1}{\rho_2}\,\frac{R_1}{R_2}\,U_1 \tag{6.57} $$</div>
+<p>Then the dimensionless forces are equal (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=79" target="_blank" rel="noopener" title="Open Notes.pdf at page 79">6.58</a>):</p>
+<div class="math-block">$$ \frac{F_1}{\rho_1U_1^2R_1^2} = \frac{F_2}{\rho_2U_2^2R_2^2} \tag{6.58} $$</div>
+<p>and the measured $F_2$ gives the real force (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=79" target="_blank" rel="noopener" title="Open Notes.pdf at page 79">6.59</a>):</p>
+<div class="math-block">$$ F_1 = \frac{\rho_1U_1^2R_1^2}{\rho_2U_2^2R_2^2}\,F_2 \tag{6.59} $$</div>
+<h3 class="sub-heading">The general rule</h3>
+<p>For $\Pi_0 = F(\Pi_1,\dots,\Pi_{n-k})$, the model does not have to reproduce $a_1,\dots,a_n$. It is <strong>physically similar</strong> to the real system when every governing group $\Pi_1,\dots,\Pi_{n-k}$ takes the same value in both; then $\Pi_0$ is equal too, and the measured $a_0$ is converted to the real one by equating $\Pi_0$ (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=80" target="_blank" rel="noopener" title="Open Notes.pdf at page 80">71</a>).</p>
+<p>When not all groups can be matched, similarity is <strong>partial</strong>: match the groups that dominate the problem and accept different values of the secondary ones (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=80" target="_blank" rel="noopener" title="Open Notes.pdf at page 80">71</a>).</p>
+<h3 class="sub-heading">Extension: why Reynolds and Froude cannot both be matched with the same fluid</h3>
+<p>This subsection is an <strong>extension</strong> used in problems DA1 and DA3. A ship or a stirred free surface depends on $\mathrm{Re} = UL/\nu$ (with $\nu = \mu/\rho$) and on the Froude number $\mathrm{Fr} = U/\sqrt{gL}$. Model $m$, prototype $p$, scale $\lambda = L_m/L_p$, same $g$:</p>
+<div class="math-block">$$ \mathrm{Fr}_m = \mathrm{Fr}_p \;\Longrightarrow\; \frac{U_m}{U_p} = \sqrt{\frac{L_m}{L_p}} = \lambda^{1/2}, \qquad \mathrm{Re}_m = \mathrm{Re}_p \;\Longrightarrow\; \frac{U_m}{U_p} = \frac{\nu_m}{\nu_p}\,\frac{L_p}{L_m} = \frac{\nu_m}{\nu_p}\,\lambda^{-1} $$</div>
+<p>Equating both velocity ratios: $\nu_m/\nu_p = \lambda^{3/2}$. With the same fluid ($\nu_m = \nu_p$) this forces $\lambda = 1$: no scaled model can match both. The two ways out are those of the problems:</p>
+<ul><li><strong>neglect viscosity</strong> when $\mathrm{Re}\gg 1$ in model and prototype, and match only Froude (DA1, DA6, DA11);</li><li><strong>change the fluid</strong> so that $\nu_m = \lambda^{3/2}\nu_p$ (DA3, tar replaced by water).</li></ul>
+      </section>
+
+      <section id="section-9">
+        <h2 class="section-heading">9. Practical Formulary of Topic 6</h2>
+<h3 class="sub-heading">Dimensions in $[M, L, T, \Theta]$</h3>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Quantity</th><th>Symbol</th><th>Dimensions</th></tr></thead><tbody><tr><td>Velocity</td><td>$U$</td><td>$LT^{-1}$</td></tr><tr><td>Acceleration, gravity</td><td>$g$</td><td>$LT^{-2}$</td></tr><tr><td>Angular velocity, frequency</td><td>$\Omega$, $f$</td><td>$T^{-1}$</td></tr><tr><td>Volume flux (3-D); per unit width (2-D)</td><td>$Q$; $q$</td><td>$L^3T^{-1}$; $L^2T^{-1}$</td></tr><tr><td>Density</td><td>$\rho$</td><td>$ML^{-3}$</td></tr><tr><td>Dynamic viscosity</td><td>$\mu$</td><td>$ML^{-1}T^{-1}$</td></tr><tr><td>Kinematic viscosity</td><td>$\nu = \mu/\rho$</td><td>$L^2T^{-1}$</td></tr><tr><td>Pressure, stress</td><td>$p$, $\tau$</td><td>$ML^{-1}T^{-2}$</td></tr><tr><td>Pressure gradient</td><td>$P_l = -\partial p/\partial x$</td><td>$ML^{-2}T^{-2}$</td></tr><tr><td>Force; force per unit length</td><td>$F$; $F/L$</td><td>$MLT^{-2}$; $MT^{-2}$</td></tr><tr><td>Energy, torque</td><td>$E$, $M$</td><td>$ML^2T^{-2}$</td></tr><tr><td>Power</td><td>$W$</td><td>$ML^2T^{-3}$</td></tr><tr><td>Speed of sound</td><td>$c$</td><td>$LT^{-1}$</td></tr><tr><td>Temperature (extension)</td><td>$T$</td><td>$\Theta$</td></tr><tr><td>Thermal conductivity (extension)</td><td>$k$</td><td>$MLT^{-3}\Theta^{-1}$</td></tr><tr><td>Specific heat (extension)</td><td>$c_p$</td><td>$L^2T^{-2}\Theta^{-1}$</td></tr></tbody></table></div>
+<h3 class="sub-heading">Dimensionless numbers</h3>
+<p>Only the Reynolds number is defined in Chapter 6; the others are <strong>extensions</strong>, given here because the problems use them.</p>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Number</th><th>Definition</th><th>Measures</th><th>Where</th></tr></thead><tbody><tr><td>Reynolds</td><td>$\mathrm{Re} = \rho U L/\mu = UL/\nu$</td><td>convection / viscous forces</td><td>Eq. (6.44), (6.46)</td></tr><tr><td>Froude (extension)</td><td>$\mathrm{Fr} = U/\sqrt{gL}$</td><td>inertia / gravity</td><td>DA1, DA3, DA6, DA11, DA13</td></tr><tr><td>Mach (extension)</td><td>$\mathrm{Ma} = U/c$</td><td>flow speed / speed of sound</td><td>DA9, DA12</td></tr><tr><td>Strouhal (extension)</td><td>$\mathrm{St} = fL/U$</td><td>unsteadiness / convection</td><td>DA2 (shedding period)</td></tr><tr><td>Euler (extension)</td><td>$\mathrm{Eu} = \Delta p/(\rho U^2)$</td><td>pressure differences / dynamic pressure</td><td>scaling of (6.47)</td></tr><tr><td>Prandtl (extension)</td><td>$\mathrm{Pr} = \mu c_p/k$</td><td>momentum / heat diffusion</td><td>energy equation</td></tr><tr><td>Eckert (extension)</td><td>$\mathrm{Ec} = U^2/(c_p\,\Delta T)$</td><td>kinetic energy / enthalpy differences</td><td>energy equation</td></tr></tbody></table></div>
+<h3 class="sub-heading">Key results</h3>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Situation</th><th>Result</th><th>Source</th></tr></thead><tbody><tr><td>Independent dimensions</td><td>rank of the exponent matrix $= k$</td><td>Eqs. (6.10)-(6.12)</td></tr><tr><td>Π theorem</td><td>$a_0 = f(a_1,\dots,a_n) \;\Rightarrow\; \Pi_0 = F(\Pi_1,\dots,\Pi_{n-k})$</td><td>Eqs. (6.13)-(6.25)</td></tr><tr><td>$k = n$ (no group left)</td><td>$\Pi_0 = C$, constant</td><td>Eqs. (6.6)-(6.7), (6.28)</td></tr><tr><td>Pipe flow</td><td>$P_l D^5/(\rho Q^2) = F\left(\mu D/(\rho Q)\right)$</td><td>Eq. (6.24)</td></tr><tr><td>Strong explosion</td><td>$r_o = C_1E^{1/5}\rho_a^{-1/5}t^{2/5}$, $p_o = C_2E^{2/5}\rho_a^{3/5}t^{-6/5}$</td><td>Eq. (6.29)</td></tr><tr><td>Reduced pressure removes $g$ and $P_\infty$</td><td>$P' = p + \rho g z - P_\infty$ (not with a free surface)</td><td>Eq. (6.39)</td></tr><tr><td>Sphere drag</td><td>$F_x/(\rho U^2R^2) = f(\mathrm{Re})$, or $F_x/(\mu UR) = f(\mathrm{Re})$</td><td>Eqs. (6.35), (6.43)</td></tr><tr><td>$\mathrm{Re}\gg 1$</td><td>$F_x = C_1\rho U^2R^2$; pressure scale $\rho U^2$</td><td>Eqs. (6.47), (6.51)</td></tr><tr><td>$\mathrm{Re}\ll 1$</td><td>$F_x = C_2\mu UR$; pressure scale $\mu U/R$</td><td>Eqs. (6.49), (6.52)</td></tr><tr><td>Similarity</td><td>equal $\Pi_1,\dots,\Pi_{n-k}$ $\Rightarrow$ equal $\Pi_0$</td><td>Eqs. (6.57)-(6.59)</td></tr><tr><td>Re and Fr with the same $g$ (extension)</td><td>needs $\nu_m/\nu_p = (L_m/L_p)^{3/2}$</td><td>Section 8</td></tr></tbody></table></div>
+<h3 class="sub-heading">Exam recipe</h3>
+<ol><li><strong>List the parameters.</strong> Write the unknown $a_0$ and everything it depends on. In doubt, write the equations and boundary conditions: geometry, velocities or rotation rates imposed at the boundaries, fluid properties that appear ($\rho$, $\mu$; $c$ for a gas at high speed; $g$ only with a free surface or a weight). Count $n$.</li><li><strong>Build the exponent matrix</strong> (rows: parameters; columns: $M$, $L$, $T$) and find $k$ with a non-zero determinant.</li><li><strong>Choose the repeating set</strong> of $k$ parameters: those that clearly matter. Use $\rho$ if viscosity is expected to be negligible ($\mathrm{Re}\gg 1$), $\mu$ if inertia is ($\mathrm{Re}\ll 1$). Never put the unknown in the set.</li><li><strong>Form each Π</strong> by solving the system of exponents, one equation per fundamental unit, and check that each group is dimensionless.</li><li><strong>Simplify with the limits</strong> stated in the problem: drop the group that contains the negligible parameter (6.55), or keep it as a power (6.56) when the set was not the natural one.</li><li><strong>Similarity.</strong> Equate every remaining governing group between model and prototype to get the test conditions (velocity, rotation rate, fluid, mass). Equate $\Pi_0$ to convert the measurement. If two groups cannot both be matched, match the dominant one and check numerically that the neglected group is extreme in both systems.</li><li><strong>Tables of measurements.</strong> Each row of a model table maps to a prototype row through the same scale factors (one for the independent variable, one for the unknown).</li><li><strong>Check</strong> the dimensions of the final formula and its limits.</li></ol>
+      </section>
+
+      <nav class="bottom-nav">
+        <a href="topic-5.html" class="bottom-nav-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Topic 5: Hydrostatics</span></a>
+        <a href="index.html" class="bottom-nav-btn center"><span>Theory index</span></a>
+        <a href="topic-7.html" class="bottom-nav-btn"><span>Topic 7: Viscous flows</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Celestial Sky Engine -->
+</body>
+</html>

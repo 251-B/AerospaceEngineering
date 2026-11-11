@@ -19,8 +19,9 @@ bytes: 278267
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF3.pdf`
 - **Kind:** problemas
 - **Size:** 278.3 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
+- [[01 - Fluid Mechanics/Problem - VF3 Annular Flow with a Moving Outer Cylinder]]
