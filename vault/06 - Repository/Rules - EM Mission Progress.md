@@ -5,7 +5,7 @@ tags:
   - rules
   - engineering-mechanics
 source: "Mission brief of 2026-11-14 (Engineering Mechanics complete)"
-status: "blocked"
+status: "in progress"
 ---
 
 # Rules - EM Mission Progress
@@ -19,9 +19,9 @@ Related: [[Repository MOC]], [[Rules - AGENTS.md]], [[Rules - CLAUDE.md]], [[Too
 | Milestone | Scope | State | Commit |
 | :--- | :--- | :--- | :--- |
 | Start-up | Skills read, rules read, inventory, this log | done | see `git log` (`docs(mechanics): open the EM mission progress log`) |
-| Sources | Copy Lectures 6 to 10 into `sources/`, regenerate inventory, manifest, source notes and PDF pages | **blocked** (decks not available) | |
+| Sources | Copy Lectures 6 to 10 into `sources/`, regenerate inventory, manifest, source notes and PDF pages | done (decks received 2026-11-14) | `feat(mechanics): add Lectures 6 to 10 to the sources` |
 | Simulator engine | `assets/js/mechanics-3d-sim.js`, `assets/css/mechanics-3d-sim.css`, eight archetypes, `tools/tests/test_mechanics_sim.py` | not started | |
-| H1 | Theory Topics 1 to 8, flavor `mechanics` in `build_topic_pages.py` | not started (Topics 2, 6, 7 need the decks) | |
+| H1 | Theory Topics 1 to 8, flavor `mechanics` in `build_topic_pages.py` | not started | |
 | H2 | `no-inline-calc` gate, migration of the structure 2 problems, badges, extra-problems bank | not started | |
 | H3 | 42 rigid body problems (`rb-01` to `rb-42`, structure 4) | not started | |
 | H4 | `sim` block in the 93 notes, one commit per topic | not started | |
@@ -43,7 +43,7 @@ Related: [[Repository MOC]], [[Rules - AGENTS.md]], [[Rules - CLAUDE.md]], [[Too
 
 ## Conflicts between the brief and the repository (not resolved silently)
 
-1. **Unit folder names.** The brief copies the decks to `unit-02-dynamics-point-particle/`, `unit-06-kinematics-rigid-bodies-inertia/` and `unit-07-dynamics-rigid-bodies/`. The repository has `unit-02-particle-dynamics/`, `unit-06-particle-systems/` (empty), `unit-07-rigid-body-kinematics/` (empty) and `unit-08-rigid-body-dynamics/` (empty). Options: reuse the existing folders, or rename them to the names of the brief (which regenerates the inventory, the manifest and the source notes). Waiting for the decision.
+1. **Unit folder names.** The brief copies the decks to `unit-02-dynamics-point-particle/`, `unit-06-kinematics-rigid-bodies-inertia/` and `unit-07-dynamics-rigid-bodies/`. The repository has `unit-02-dynamics-point-particle/`, `unit-06-particle-systems/` (empty), `unit-07-rigid-body-kinematics/` (empty) and `unit-08-rigid-body-dynamics/` (empty). Options: reuse the existing folders, or rename them to the names of the brief (which regenerates the inventory, the manifest and the source notes). Waiting for the decision.
 2. **Deck numbering.** The brief cites "deck 07-relative-motion" and calls angular momentum "Lecture 5"; on disk the decks are `04_-_Angular_momentum.pdf` and `05_-_Relative_motion.pdf`. Citations will follow the numbering printed on the slides once the new decks can be read.
 3. **Theory note names.** The brief names `Topic 1 - Kinematics of a Point Particle` and `Topic 2 - Dynamics of a Point Particle, Equilibrium and Oscillations`; the vault has `Topic 1 - Fundamentals and Particle Kinematics` and `Topic 2 - Point Particle Dynamics`. They will be renamed with `tools/vault_rename.py` (wikilinks rewritten), which is consistent with `AGENTS.md`.
 4. **Model routing.** `CLAUDE.md` has three tiers; the brief adds a fourth (orchestration and highest-risk code in the main session) and asks to pass `model` on every spawn even where the agent frontmatter differs. This is an explicit addition of the brief and will be written into `CLAUDE.md`.
@@ -55,3 +55,22 @@ Related: [[Repository MOC]], [[Rules - AGENTS.md]], [[Rules - CLAUDE.md]], [[Too
 - Point particle in-class sessions: Session 2 (Problem 1), Session 4 (11, 16, 17), Session 6 (29, 32), Session 8 (19, 43), Session 10 (7, 27), Session 12 (34, 38), Session 13 (35, 49). The fourteen problems of the brief match the schedule.
 - Rigid body in-class sessions: Session 17 (1, 3, 4 only the letter T, 5 only the cone), Session 19 (6, 8), Session 20 (20), Session 21 (17, 24), Session 22 (13), Session 23 (11, 15), Session 25 (28, 32), Session 26 (41).
 - The schedule does not list the problems of the badge `Oscillations - Lecture 6` (12, 24, 34f, 35f, 45, 46, 50f); it only places "Equilibrium and oscillations" in Session 11. That list has to be checked against the Lecture 6 deck.
+
+## Update 2026-11-14: decks and earlier brief received
+
+- The five decks were uploaded and copied to the paths of the brief. The folders were renamed to the names of the brief (conflict 1 closed): `unit-02-particle-dynamics` to `unit-02-dynamics-point-particle`, the empty `unit-06-particle-systems` to `unit-06-kinematics-rigid-bodies-inertia` and the empty `unit-07-rigid-body-kinematics` to `unit-07-dynamics-rigid-bodies`. `unit-08-rigid-body-dynamics` stays empty (Topic 8 has no deck). The decks print their own numbers on the title slide ("6. Oscillations" to "10. Rigid body dynamics"), so citations use `[Lecture N, Slide M]` with those numbers.
+- `update_inventory.py` also rewrote the README of the other four subjects (drift from before this mission); those changes were left out of the commit.
+- The earlier brief was provided. Its split of the 42 rigid body problems (to be verified page by page against `Problems.pdf`):
+
+| Page | Group | Problems (`rb-NN` = number in `Problems.pdf` section 2) |
+| :--- | :--- | :--- |
+| `topic-6.html` (8) | A, rigid body kinematics, Euler angles, instantaneous axis (Lecture 7, Ch. 9) | 01, 02, 03, 11, 34, 35 |
+| | B, mass geometry, Steiner, principal axes (Lecture 8, Ch. 10) | 04, 05 |
+| `topic-7.html` (8) | C, linear and angular momentum, kinetic energy (Lecture 9, Ch. 11) | 06, 07 |
+| | D, planar and 3D dynamics, equilibrium, linearized oscillations (Lectures 10 and 6, Ch. 5 and 12) | 08, 09, 10, 24, 25, 38 |
+| `topic-8.html` (26) | E, rolling with and without slip, unilateral constraints (Ch. 13.1 to 13.3) | 12, 13, 14, 15, 16, 18, 19, 22, 23, 28, 33, 37, 39, 40, 41 |
+| | F, multibody systems and exploded views (Ch. 13.4) | 17, 20, 21, 26, 27, 29, 31, 36, 42 |
+| | G, torque-free motion, Poinsot, gyroscopes (Ch. 15) | 30, 32 |
+
+- In-class badges of the rigid body problems, as checked against the schedule: Session 17 (01, 03, 04 letter T, 05 cone), 19 (06, 08), 20 (20), 21 (17, 24), 22 (13), 23 (11, 15), 25 (28, 32), 26 (41). They match the earlier brief.
+- Theory breakdown per topic: as listed in the earlier brief (Topic 6: orthogonal matrices, Euler angles 3-1-3 and 3-2-1, additivity of the angular velocity, velocity and acceleration fields, helical motion, instantaneous axis, centre of mass, inertia tensor, change of basis of the tensor, Steiner, principal values and directions, the three symmetry theorems, flat plate. Topic 7: linear momentum, angular momentum about an arbitrary point, change of pole, kinetic energy, Koenig, moment equation, Euler equations, gravity reduced at G, work and energy, planar dynamics. Topic 8: rigid body constraints, rolling with and without slip, indeterminate reactions, exploded views, the ten-step recipe of Ch. 14, torque-free motion of Ch. 15).

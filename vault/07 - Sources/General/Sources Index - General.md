@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 3
-- Referenced by at least one note (a mention counts): 1
-- Not referenced yet: 2
+- Referenced by at least one note (a mention counts): 2
+- Not referenced yet: 1
 - Build artifacts: 0
 - Working files: 0
 
@@ -22,4 +22,4 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - README (md)\|README.md]] | other | referenced |
 | [[Source - update_inventory (ps1)\|update_inventory.ps1]] | other | not-referenced |
-| [[Source - update_inventory (py)\|update_inventory.py]] | other | not-referenced |
+| [[Source - update_inventory (py)\|update_inventory.py]] | other | referenced |

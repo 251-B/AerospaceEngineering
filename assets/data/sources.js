@@ -1250,19 +1250,24 @@ window.AE_SOURCES = {
           "title": "Particle Kinematics"
         },
         {
-          "id": "unit-02-particle-dynamics",
+          "id": "unit-02-dynamics-point-particle",
           "number": 2,
           "other": [],
           "problemas": [],
           "slides": [
             {
               "bytes": 2273981,
-              "href": "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf",
+              "href": "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/02.PointParticleDynamics.pdf",
               "name": "02.PointParticleDynamics.pdf"
+            },
+            {
+              "bytes": 2088977,
+              "href": "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/06-oscillations-and-linearization.pdf",
+              "name": "06-oscillations-and-linearization.pdf"
             }
           ],
           "teoria": [],
-          "title": "Particle Dynamics"
+          "title": "Dynamics Point Particle"
         },
         {
           "id": "unit-03-constraints-reactions",
@@ -1310,22 +1315,44 @@ window.AE_SOURCES = {
           "title": "Relative Motion"
         },
         {
-          "id": "unit-06-particle-systems",
+          "id": "unit-06-kinematics-rigid-bodies-inertia",
           "number": 6,
           "other": [],
           "problemas": [],
-          "slides": [],
+          "slides": [
+            {
+              "bytes": 1905570,
+              "href": "sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf",
+              "name": "07-rigid-body-kinematics.pdf"
+            },
+            {
+              "bytes": 2072314,
+              "href": "sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf",
+              "name": "08-inertia-properties.pdf"
+            }
+          ],
           "teoria": [],
-          "title": "Particle Systems"
+          "title": "Kinematics Rigid Bodies Inertia"
         },
         {
-          "id": "unit-07-rigid-body-kinematics",
+          "id": "unit-07-dynamics-rigid-bodies",
           "number": 7,
           "other": [],
           "problemas": [],
-          "slides": [],
+          "slides": [
+            {
+              "bytes": 1907301,
+              "href": "sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf",
+              "name": "09-momentum-and-energy.pdf"
+            },
+            {
+              "bytes": 2131356,
+              "href": "sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf",
+              "name": "10-rigid-body-dynamics.pdf"
+            }
+          ],
           "teoria": [],
-          "title": "Rigid Body Kinematics"
+          "title": "Dynamics Rigid Bodies"
         },
         {
           "id": "unit-08-rigid-body-dynamics",

@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 196
+- Files: 201
 - Referenced by at least one note (a mention counts): 20
-- Not referenced yet: 176
+- Not referenced yet: 181
 - Build artifacts: 0
 - Working files: 0
 
@@ -338,11 +338,12 @@ tags:
 | [[Source - 03-engineering-mechanics - unit-01-particle-kinematics - slides - 00 (pdf)\|00.pdf]] | slides | referenced |
 | [[Source - 03-engineering-mechanics - unit-01-particle-kinematics - slides - 01_-_Point_particle_kinematics (pdf)\|01_-_Point_particle_kinematics.pdf]] | slides | referenced |
 
-## unit-02-particle-dynamics/slides
+## unit-02-dynamics-point-particle/slides
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - unit-02-particle-dynamics - slides - 02.PointParticleDynamics (pdf)\|02.PointParticleDynamics.pdf]] | slides | referenced |
+| [[Source - 03-engineering-mechanics - unit-02-dynamics-point-particle - slides - 02.PointParticleDynamics (pdf)\|02.PointParticleDynamics.pdf]] | slides | referenced |
+| [[Source - 03-engineering-mechanics - unit-02-dynamics-point-particle - slides - 06-oscillations-and-linearization (pdf)\|06-oscillations-and-linearization.pdf]] | slides | not-referenced |
 
 ## unit-03-constraints-reactions/slides
 
@@ -361,3 +362,17 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 03-engineering-mechanics - unit-05-relative-motion - slides - 05_-_Relative_motion (pdf)\|05_-_Relative_motion.pdf]] | slides | referenced |
+
+## unit-06-kinematics-rigid-bodies-inertia/slides
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - unit-06-kinematics-rigid-bodies-inertia - slides - 07-rigid-body-kinematics (pdf)\|07-rigid-body-kinematics.pdf]] | slides | not-referenced |
+| [[Source - 03-engineering-mechanics - unit-06-kinematics-rigid-bodies-inertia - slides - 08-inertia-properties (pdf)\|08-inertia-properties.pdf]] | slides | not-referenced |
+
+## unit-07-dynamics-rigid-bodies/slides
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - unit-07-dynamics-rigid-bodies - slides - 09-momentum-and-energy (pdf)\|09-momentum-and-energy.pdf]] | slides | not-referenced |
+| [[Source - 03-engineering-mechanics - unit-07-dynamics-rigid-bodies - slides - 10-rigid-body-dynamics (pdf)\|10-rigid-body-dynamics.pdf]] | slides | not-referenced |

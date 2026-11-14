@@ -4,7 +4,7 @@ tags:
   - source
   - slides
   - referenced
-path: "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf"
+path: "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/02.PointParticleDynamics.pdf"
 kind: slides
 status: referenced
 bytes: 2273981
@@ -16,7 +16,7 @@ bytes: 2273981
 
 ## Record
 
-- **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf`
+- **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/02.PointParticleDynamics.pdf`
 - **Kind:** slides
 - **Size:** 2.3 MB
 - **Status:** referenced by 1 note(s) below

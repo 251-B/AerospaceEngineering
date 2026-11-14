@@ -3,10 +3,10 @@ subject: "General"
 tags:
   - source
   - other
-  - not-referenced
+  - referenced
 path: "sources/update_inventory.py"
 kind: other
-status: not-referenced
+status: referenced
 bytes: 32172
 ---
 
@@ -19,8 +19,8 @@ bytes: 32172
 - **Path:** `sources/update_inventory.py`
 - **Kind:** other
 - **Size:** 32.2 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[06 - Repository/Rules - EM Mission Progress]]

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-14-mechanics-lectures-6-10",
+    "date": "2026-11-14",
+    "tag": "Engineering Mechanics",
+    "title": "Five new lecture decks: oscillations and rigid bodies",
+    "text": "Lectures 6 to 10 (oscillations, rigid body kinematics, inertia, momentum and energy, rigid body dynamics) are now on the PDFs page.",
+    "link": "subjects/engineering-mechanics/sources/index.html"
+  },
+  {
     "id": "2026-11-11-materials-slide-figures",
     "date": "2026-11-11",
     "tag": "Aerospace Materials I",
