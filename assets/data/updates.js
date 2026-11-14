@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-14-mechanics-class-badges",
+    "date": "2026-11-14",
+    "tag": "Engineering Mechanics",
+    "title": "Problems solved in class are now marked",
+    "text": "Each mechanics problem done in a class session shows its session number, and the oscillation problems of Lecture 6 are marked too.",
+    "link": "subjects/engineering-mechanics/problemas/index.html"
+  },
+  {
     "id": "2026-11-14-mechanics-lectures-6-10",
     "date": "2026-11-14",
     "tag": "Engineering Mechanics",

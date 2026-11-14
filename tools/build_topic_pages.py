@@ -12,6 +12,9 @@ Each page configured in tools/topic_pages.json is generated from one vault note:
     - an optional "questions" list renders problem notes (statement, answer, interpretation) as cards
       in the section whose title starts with "Questions";
     - an optional "problems" {href, label} adds a closing link to the topic's problems page.
+Flavor "mechanics" (Engineering Mechanics; "template" = a sibling hand-written theory page) renders the callout
+`> [!derivation] Title` with tools/derivation.py (syntax errors and the no-inline-calc gate fail the build and
+`--check`); a callout titled "Extension..." gets a dashed accent border, `[!example]` an example card.
 The page keeps its own <head>, site header and footer (or those of "template", when given), and
 the PDF deep links of tools/source_links.py are applied before writing, so the output is the final page.
 
@@ -32,8 +35,20 @@ TOOLS = pathlib.Path(__file__).resolve().parent
 REPO = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import source_links as sl  # noqa: E402
+import derivation  # noqa: E402
 
 CONFIG = TOOLS / "topic_pages.json"
+
+
+class NoteError(Exception):
+    """A note that breaks a rule of its flavor (derivation box syntax, no-inline-calc gate); `.messages` lists them."""
+
+    def __init__(self, messages):
+        super().__init__("; ".join(messages))
+        self.messages = list(messages)
+
+
+_DERIVATION_ERRORS = []
 
 
 # --------------------------------------------------------------------------- inline and block Markdown
@@ -128,6 +143,22 @@ def blocks(lines, figure=None):
                 i += 1
             out.append(table(rows))
             continue
+        if derivation.is_start(line):
+            block, i = derivation.take(lines, i)
+            box, errs = derivation.parse(block)
+            _DERIVATION_ERRORS.extend(errs)
+
+            def box_figure(ref, _fig=figure):
+                try:
+                    if _fig is None:
+                        raise ValueError("the page has no figure module")
+                    return _fig(pathlib.PurePosixPath(ref[1]).stem)
+                except (KeyError, ValueError) as err:
+                    _DERIVATION_ERRORS.append(f"box '{box['title']}': figure embed {ref[1]}: {err}")
+                    return ""
+
+            out.append(derivation.render(box, inline, box_figure))
+            continue
         if line.startswith("> [!"):
             kind, title = re.match(r"> \[!(\w+)\]\s*(.*)", line).groups()
             inner = []
@@ -135,6 +166,9 @@ def blocks(lines, figure=None):
             while i < len(lines) and lines[i].startswith(">"):
                 inner.append(lines[i][2:] if lines[i].startswith("> ") else lines[i][1:])
                 i += 1
+            if STYLE.get("callout_fn"):
+                out.append(STYLE["callout_fn"](kind.lower(), title, blocks(inner, figure)))
+                continue
             cls = STYLE["callout"].get(kind.lower(), "callout")
             out.append(f'<div class="{cls}"><div class="callout-title">{inline(title)}</div>{blocks(inner, figure)}</div>')
             continue
@@ -166,16 +200,17 @@ def strip_frontmatter(md):
 
 
 class FigureSet:
-    def __init__(self, module):
+    def __init__(self, module, css_class="diagram-card"):
         self.reg = importlib.import_module(f"figures.{module}").build() if module else None
         self.count = 0
+        self.css_class = css_class
 
     def __call__(self, name):
         if self.reg is None or name not in self.reg.web:
             raise KeyError(f"unknown figure '{name}'")
         self.count += 1
         cap = html.escape(html.unescape(self.reg.captions[name]))
-        return (f'<div class="diagram-card">\n{self.reg.web[name]}\n'
+        return (f'<div class="{self.css_class}">\n{self.reg.web[name]}\n'
                 f'<div class="diagram-caption">Figure {self.count}. {cap}.</div>\n</div>')
 
 
@@ -323,7 +358,165 @@ def build_fluids_page(page_rel, spec, cfg_links, anchors):
     return page, figure
 
 
+MECH_CSS = """
+    .callout-extension { border-style: dashed; border-left: 4px solid var(--accent); }
+    .example-card h4.example-title { margin: 0; font-size: 1.05rem; color: var(--text-heading); }
+    .callout p:last-child, .example-card p:last-child { margin-bottom: 0; }
+    .diagram-container.diagram-card { margin: 22px 0; }
+    section[id], h2[id], h3[id] { scroll-margin-top: 80px; }
+"""
+_MECH_TABLE = ('<div class="table-wrapper"><table>', "</table></div>")
+
+
+def mech_callout(kind, title, inner):
+    """Callout of a mechanics note: extension box, warning, worked example or plain information box."""
+    t = inline(title)
+    if kind == "example":
+        return (f'<div class="example-card"><div class="example-header"><h4 class="example-title">{t}</h4>'
+                f'<span class="example-badge">Example</span></div>{inner}</div>')
+    cls = "callout callout-warning" if kind == "warning" else "callout callout-key" if kind == "key" else "callout callout-info"
+    if title.strip().lower().startswith("extension"):
+        cls += " callout-extension"
+    return f'<div class="{cls}"><div class="callout-title">{t}</div>{inner}</div>'
+
+
+def slug(text, used):
+    base = re.sub(r"[^a-z0-9]+", "-", re.sub(r"<[^>]+>|\$[^$]*\$", "", text.lower())).strip("-")[:48] or "part"
+    name, k = base, 2
+    while name in used:
+        name, k = f"{base}-{k}", k + 1
+    used.add(name)
+    return name
+
+
+_MECH_NAV = {"prev": ("← Previous Topic", ""),
+             "center": ("Practice Problems", ' style="text-align: center; border-color: var(--accent-border);"'),
+             "next": ("Next Topic →", ' style="text-align: right;"')}
+
+
+def mech_nav(items):
+    out = []
+    for href, label, kind in items:
+        cap, style = _MECH_NAV[kind]
+        if kind == "next" and href.startswith("index.html"):
+            cap = "Back to Syllabus →"
+        title = html.escape(label, quote=False)
+        color = ' style="color: var(--accent);"' if kind == "center" else ""
+        out.append(f'      <a href="{href}" class="nav-btn"{style}>\n        <span class="nav-btn-label">{cap}</span>\n'
+                   f'        <span class="nav-btn-title"{color}>{title}</span>\n      </a>')
+    return '    <div class="article-nav">\n' + "\n".join(out) + "\n    </div>"
+
+
+QUOTE_TAIL = """    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+"""
+
+
+def build_mechanics_page(page_rel, spec, cfg_links, anchors):
+    """An Engineering Mechanics theory page: shell of a sibling page, body from the vault note, derivation boxes and gate."""
+    global STYLE
+    vault = REPO / spec["note"]
+    md = strip_frontmatter(vault.read_text(encoding="utf-8"))
+    figure = FigureSet(spec.get("figures"), "diagram-container diagram-card")
+    shell = sl.strip_links((REPO / spec.get("template", page_rel)).read_text(encoding="utf-8"))
+    head = shell[:shell.index('<main class="article-container">')]
+    tail = shell[shell.index("  </main>"):]
+    head = re.sub(r"<title>.*?</title>", f"<title>{html.escape(spec['html_title'], quote=False)}</title>", head, count=1, flags=re.S)
+    head = head.replace("  </style>", MECH_CSS + "  </style>", 1)
+    head = re.sub(r'\n[ \t]*<link rel="stylesheet" href="[^"]*assets/css/derivation-box\.css">', "", head)
+    resp = re.search(r'\n([ \t]*)<link\b[^>]*assets/css/responsive\.css[^>]*>', head)
+    if not resp:
+        raise NoteError([f"the template of {page_rel} has no responsive.css link"])
+    head = (head[:resp.start()] + f'\n{resp.group(1)}<link rel="stylesheet" href="../../../assets/css/derivation-box.css">'
+            + head[resp.start():])
+
+    end = md.find("**Back to:**")
+    md = md[:end] if end >= 0 else md
+    idea = re.search(r"^> (?!\[!).*(?:\n> (?!\[!).*)*", md, re.M)
+    first_section = re.search(r"^## \d+\.", md, re.M)
+    if not idea or not first_section:
+        raise NoteError(["the note needs a first blockquote (central idea) and '## N. Title' sections"])
+    idea_text = " ".join(x[2:].strip() for x in idea.group(0).split("\n"))
+    intro_rest = [x for x in md[idea.end():first_section.start()].split("\n") if x.strip() != "---"]
+
+    saved = STYLE
+    STYLE = {"callout": _CALLOUT, "table": _MECH_TABLE, "callout_fn": mech_callout}
+    _DERIVATION_ERRORS.clear()
+    try:
+        parts, toc, used = [], [], set()
+        for ch in re.split(r"\n(?=## \d+\.)", md[first_section.start():].strip()):
+            lines = ch.split("\n")
+            num, rest = re.match(r"## (\d+)\.\s+(.*)", lines[0]).groups()
+            toc.append((num, rest))
+            out, chunk = [], []
+            for line in lines[1:]:
+                hm = re.match(r"(#{3,4}) (.*)", line)
+                if hm:
+                    out.append(blocks(chunk, figure))
+                    chunk = []
+                    if len(hm.group(1)) == 3:
+                        out.append(f'<h3 class="sub-heading" id="{slug(hm.group(2), used)}">{inline(hm.group(2))}</h3>')
+                    else:
+                        out.append(f'<h4 class="minor-heading">{inline(hm.group(2))}</h4>')
+                elif line.strip() == "---" or line.startswith("See also [["):
+                    continue
+                else:
+                    chunk.append(line)
+            out.append(blocks(chunk, figure))
+            parts.append(f'    <section>\n      <h2 class="section-heading" id="sec-{num}"><span>{num}.</span> {inline(rest)}</h2>\n'
+                         + "\n".join(x for x in out if x) + "\n    </section>")
+        extra = blocks(intro_rest, figure)
+    finally:
+        STYLE = saved
+    idea_html = (f'    <div class="callout callout-key">\n      <div class="callout-title">Central idea of the topic</div>\n'
+                 f'      <p>{inline(idea_text)}</p>\n    </div>')
+    if extra.strip():
+        idea_html += "\n" + extra
+    body = idea_html + "\n\n" + "\n\n".join(parts)
+
+    messages = list(_DERIVATION_ERRORS) + derivation.gate(body)
+    if messages:
+        raise NoteError(messages)
+
+    toc_html = "\n".join(f'        <a href="#sec-{n}" class="toc-item"><span>{n}.</span> {inline(t)}</a>' for n, t in toc)
+    source = f'      <div class="source-box">\n        {inline(spec["source"])}\n      </div>\n' if spec.get("source") else ""
+    header = f'''<main class="article-container">
+    <header class="article-header">
+      <div class="article-category">{html.escape(spec["category"], quote=False)}</div>
+      <h1 class="article-title">{html.escape(spec["title"], quote=False)}</h1>
+      <div class="article-meta">
+        {html.escape(spec["subtitle"], quote=False)}
+      </div>
+{source}    </header>
+
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title"><span>Topic Outline</span></div>
+      <div class="toc-grid">
+{toc_html}
+      </div>
+    </nav>
+
+'''
+    nav = mech_nav([tuple(x) for x in spec["nav"]])
+    page = head + header + body + f"\n\n{nav}\n\n{QUOTE_TAIL}" + tail
+    if page_rel in cfg_links["pages"]:
+        page = sl.build_page(page_rel, page, cfg_links, anchors, {})
+    return page, figure
+
+
 def build_page(page_rel, spec, cfg_links, anchors):
+    if spec.get("flavor") == "mechanics":
+        return build_mechanics_page(page_rel, spec, cfg_links, anchors)
+    _DERIVATION_ERRORS.clear()
+    result = _build_page(page_rel, spec, cfg_links, anchors)
+    if _DERIVATION_ERRORS:
+        raise NoteError(list(_DERIVATION_ERRORS))
+    return result
+
+
+def _build_page(page_rel, spec, cfg_links, anchors):
     if spec.get("flavor") == "fluids":
         return build_fluids_page(page_rel, spec, cfg_links, anchors)
     vault = REPO / spec["note"]
@@ -390,11 +583,17 @@ def main(argv=None):
     cfg_links = json.loads(sl.CONFIG.read_text(encoding="utf-8"))
     anchors = sl.load_json(sl.ANCHORS, {})
     targets = args.pages or list(cfg["pages"])
-    stale = []
+    stale, failed = [], False
     for page_rel in targets:
         page_rel = pathlib.PurePosixPath(page_rel).as_posix()
         spec = cfg["pages"][page_rel]
-        page, figs = build_page(page_rel, spec, cfg_links, anchors)
+        try:
+            page, figs = build_page(page_rel, spec, cfg_links, anchors)
+        except NoteError as err:
+            for msg in err.messages:
+                print(f"build_topic_pages: {pathlib.Path(spec['note']).name}: {msg}", file=sys.stderr)
+            failed = True
+            continue
         if figs.reg is not None:
             if args.check:
                 stale += figs.reg.stale(REPO)
@@ -411,9 +610,9 @@ def main(argv=None):
     if args.check:
         for s in stale:
             print(f"build_topic_pages: stale {s} (run python tools/build_topic_pages.py)", file=sys.stderr)
-        return 1 if stale else 0
+        return 1 if stale or failed else 0
     print(f"build_topic_pages: {len(targets)} page(s) checked")
-    return 0
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

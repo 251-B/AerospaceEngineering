@@ -145,6 +145,41 @@ class CardAndPanelTests(unittest.TestCase):
         self.assertEqual(rep["missing_cards"], ["p2"])
 
 
+class LectureCitationTests(unittest.TestCase):
+    EM = "subjects/engineering-mechanics/teoria/topic-7.html"
+    CFG = {"pdfs": {**PDFS, "em-s7": {"path": "sources/cuatrimestre-1/03/07-rigid.pdf", "label": "07", "pages": 14},
+                    "em-p": {"path": "sources/cuatrimestre-1/03/Problems.pdf", "label": "Problems.pdf", "pages": 81}},
+           "lectures": {"engineering-mechanics": {"7": "em-s7"}},
+           "pages": {EM: {"cite": {"problems": "em-p"}}, "subjects/fluid-mechanics/teoria/topic-1.html": {"cite": {}}}}
+
+    def build(self, body, page=None):
+        page = page or self.EM
+        html_ = "<html><head>\n</head><body>" + body + "</body></html>"
+        return sl.build_page(page, html_, self.CFG, ANCHORS, {})
+
+    def test_lecture_slide_links_to_that_page_of_the_deck(self):
+        out = self.build("<p>[Lecture 7, Slide 12] and [Lecture 7, Slides 3\u20135]</p>")
+        self.assertEqual(pages_in(out), [("12", "12"), ("3", "3\u20135")])
+        self.assertIn("07-rigid.pdf", out)
+        self.assertIn("[Lecture 7, Slide <a", out)
+
+    def test_derivation_source_span_is_linked(self):
+        out = self.build('<span class="derivation-source"><strong>Source:</strong> Problems.pdf, p. 9; [Lecture 7, Slide 2]</span>')
+        self.assertEqual(pages_in(out), [("9", "9"), ("2", "2")])
+
+    def test_inside_math_it_is_not_linked(self):
+        out = self.build("<p>$[Lecture 7, Slide 12]$</p>")
+        self.assertEqual(pages_in(out), [])
+
+    def test_unknown_lecture_or_slide_beyond_the_deck_is_left_alone(self):
+        out = self.build("<p>[Lecture 3, Slide 2] [Lecture 7, Slide 99]</p>")
+        self.assertEqual(pages_in(out), [])
+
+    def test_other_subjects_are_not_affected(self):
+        out = self.build("<p>[Lecture 7, Slide 12] Problems.pdf, p. 9</p>", "subjects/fluid-mechanics/teoria/topic-1.html")
+        self.assertEqual(pages_in(out), [])
+
+
 class RepositoryTests(unittest.TestCase):
     def test_portal_pages_are_up_to_date(self):
         proc = subprocess.run([sys.executable, str(TOOLS / "source_links.py"), "--check"],

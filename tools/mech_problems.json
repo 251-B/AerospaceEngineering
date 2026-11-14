@@ -4,7 +4,10 @@
   "title": "Rocket Helical Trajectory",
   "badge": "MIT OCW Benchmark",
   "source_note": "(Taken from MIT OCW)",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 2"
+  ]
  },
  "02": {
   "topic": 1,
@@ -46,21 +49,27 @@
   "title": "Skater Towed by a Vehicle: Rotating Frame",
   "badge": "Rotating Frame + Inertia Forces",
   "source_note": "(PDF page 8); key on PDF page 72",
-  "structure": 3
+  "structure": 3,
+  "boxed": false,
+  "badges": [
+   "In-Class Session 10"
+  ]
  },
  "08": {
   "topic": 5,
   "title": "Kinematics, Two Trains on Tracks",
   "badge": "Relative Motion",
   "source_note": "",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "09": {
   "topic": 5,
   "title": "Artificial Gravity in a Rotating Cylinder",
   "badge": "Centrifugal + Coriolis Forces",
   "source_note": "(PDF page 8); no official key",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "10": {
   "topic": 2,
@@ -74,14 +83,20 @@
   "title": "Conservative Force and Potential II",
   "badge": "1D Energy Landscapes",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 4"
+  ]
  },
  "12": {
   "topic": 2,
   "title": "Conservative Force and Potential III",
   "badge": "Oscillation Period",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "Oscillations - Lecture 6"
+  ]
  },
  "13": {
   "topic": 2,
@@ -109,14 +124,20 @@
   "title": "Drag on Falling Football",
   "badge": "Quadratic Drag",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 4"
+  ]
  },
  "17": {
   "topic": 2,
   "title": "Linear Central Force",
   "badge": "Newtonian Restoring Force",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 4"
+  ]
  },
  "18": {
   "topic": 3,
@@ -130,28 +151,34 @@
   "title": "Heavy Particle on a Paraboloid",
   "badge": "Paraboloid Surface",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 8"
+  ]
  },
  "20": {
   "topic": 5,
   "title": "Heavy Particle on a Rotating Circumference",
   "badge": "Energy in a Rotating Frame",
   "source_note": "(PDF page 10); no official key",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "21": {
   "topic": 5,
   "title": "Apparent Weight on a Spinning Planet",
   "badge": "Centrifugal Force",
   "source_note": "(PDF page 10); no official key",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "22": {
   "topic": 5,
   "title": "Particle on a Curve",
   "badge": "1D Curve Constraint",
   "source_note": "",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "23": {
   "topic": 3,
@@ -165,49 +192,63 @@
   "title": "Particle on a Circumference with a Spring",
   "badge": "Wire & Elastic Potential",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "Oscillations - Lecture 6"
+  ]
  },
  "25": {
   "topic": 5,
   "title": "Ijon Tichy's Space Walk",
   "badge": "Orbiting Frame + Inertia Forces",
   "source_note": "(PDF page 13); key on PDF pages 73-74",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "26": {
   "topic": 5,
   "title": "Heavy Particle on a Rotating Half-Circumference (Moving-Frame Method)",
   "badge": "Rotating Wire + Inertia Forces",
   "source_note": "",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "27": {
   "topic": 5,
   "title": "Bead on a Rotating Sine-Shaped Wire with a Spring",
   "badge": "Rotating Wire + Spring",
   "source_note": "(PDF page 15); key on PDF page 74",
-  "structure": 3
+  "structure": 3,
+  "boxed": false,
+  "badges": [
+   "In-Class Session 10"
+  ]
  },
  "28": {
   "topic": 5,
   "title": "Spherical Pendulum with a Vertically Oscillating Suspension Point",
   "badge": "Translating Frame + Inertia Force",
   "source_note": "",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "29": {
   "topic": 3,
   "title": "Heavy Particle on a Tilted Cylinder",
   "badge": "Unilateral Liftoff",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 6"
+  ]
  },
  "30": {
   "topic": 5,
   "title": "Particle on a Rotating Quarter Circumference with a Spring",
   "badge": "Rotating Frame + Path Variables",
   "source_note": "",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "31": {
   "topic": 3,
@@ -221,49 +262,67 @@
   "title": "Particle with String on Spool",
   "badge": "Rheonomic Spool Constraint",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 6"
+  ]
  },
  "33": {
   "topic": 5,
   "title": "Two Repelling Particles on a Rotating Parabola",
   "badge": "Rotating Wire + Two Particles",
   "source_note": "(PDF page 21); key on PDF page 75",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "34": {
   "topic": 5,
   "title": "Particle on a Circular Wire in an Oscillating Vertical Plane",
   "badge": "Oscillating Plane + Euler Force",
   "source_note": "(PDF page 22); key on PDF page 75",
-  "structure": 3
+  "structure": 3,
+  "boxed": false,
+  "badges": [
+   "In-Class Session 12",
+   "Oscillations - Lecture 6 (part f)"
+  ]
  },
  "35": {
   "topic": 3,
   "title": "String with Two Particles on a Cylinder",
   "badge": "Multi-Particle Cylinder Contact",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 13",
+   "Oscillations - Lecture 6 (part f)"
+  ]
  },
  "36": {
   "topic": 5,
   "title": "Pendulum String Dragged by a Rotating Bar",
   "badge": "Rotating Frame + String Constraint",
   "source_note": "(PDF page 24); key on PDF page 75",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "37": {
   "topic": 5,
   "title": "Particle on a Spinning Elliptic Cone",
   "badge": "Rotating Constraint Surface",
   "source_note": "(PDF page 25); key on PDF page 75",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "38": {
   "topic": 3,
   "title": "Particle on Torus",
   "badge": "Toroidal Geometry",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 12"
+  ]
  },
  "39": {
   "topic": 3,
@@ -277,14 +336,16 @@
   "title": "Spring-Coupled Particles on a Vertical Axis and a Revolving Ring",
   "badge": "Two Particles in a Rotating Frame",
   "source_note": "(PDF page 28); key on PDF page 76",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "41": {
   "topic": 5,
   "title": "Satellite Solar Panel: Composition of Rotations",
   "badge": "Relative Kinematics",
   "source_note": "(PDF page 29); key on PDF page 76",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "42": {
   "topic": 4,
@@ -298,7 +359,10 @@
   "title": "Two Connected Particles through a Hole",
   "badge": "Angular Momentum + Energy",
   "source_note": "(PDF page 30); no key available",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "In-Class Session 8"
+  ]
  },
  "44": {
   "topic": 4,
@@ -312,21 +376,28 @@
   "title": "Vibrating Rotor (Unbalanced Turbojet)",
   "badge": "Forced Oscillations",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "Oscillations - Lecture 6"
+  ]
  },
  "46": {
   "topic": 2,
   "title": "Bumpy Taxiway",
   "badge": "Resonance & Damping",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "Oscillations - Lecture 6"
+  ]
  },
  "47": {
   "topic": 5,
   "title": "Two Repelling Particles on Concentric Wires in a Rotating Plane",
   "badge": "Relative Equilibrium",
   "source_note": "(PDF page 32); key on PDF page 76",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
  },
  "48": {
   "topic": 3,
@@ -340,20 +411,409 @@
   "title": "Particle on a Rotating Sphere Attracted to a Point",
   "badge": "Relative Equilibria & Bifurcation",
   "source_note": "(PDF page 34); no official key",
-  "structure": 3
+  "structure": 3,
+  "boxed": false,
+  "badges": [
+   "In-Class Session 13"
+  ]
  },
  "50": {
   "topic": 3,
   "title": "Double Pendulum",
   "badge": "Kinematic Linkage",
   "source_note": "",
-  "structure": 2
+  "structure": 2,
+  "badges": [
+   "Oscillations - Lecture 6 (part f)"
+  ]
  },
  "51": {
   "topic": 5,
   "title": "Particle inside a Hollow Sphere in a Rotating Frame",
   "badge": "Non-Inertial Frame + Surface Constraint",
   "source_note": "(PDF page 36); no official key",
-  "structure": 3
+  "structure": 3,
+  "boxed": false
+ },
+ "rb-01": {
+  "topic": 6,
+  "title": "Kinematics (3 points)",
+  "badge": "Group A: Kinematics",
+  "source_note": "",
+  "structure": 4,
+  "group": "A",
+  "badges": [
+   "In-Class Session 17"
+  ]
+ },
+ "rb-02": {
+  "topic": 6,
+  "title": "Kinematics (3 conditions)",
+  "badge": "Group A: Kinematics",
+  "source_note": "",
+  "structure": 4,
+  "group": "A"
+ },
+ "rb-03": {
+  "topic": 6,
+  "title": "Flywheel kinematics (Euler angles)",
+  "badge": "Group A: Kinematics",
+  "source_note": "",
+  "structure": 4,
+  "group": "A",
+  "badges": [
+   "In-Class Session 17"
+  ]
+ },
+ "rb-11": {
+  "topic": 6,
+  "title": "Rolling disk (3D pure rolling kinematics)",
+  "badge": "Group A: Kinematics",
+  "source_note": "",
+  "structure": 4,
+  "group": "A",
+  "badges": [
+   "In-Class Session 23"
+  ]
+ },
+ "rb-34": {
+  "topic": 6,
+  "title": "Velocity field of a rigid body 1",
+  "badge": "Group A: Kinematics",
+  "source_note": "",
+  "structure": 4,
+  "group": "A"
+ },
+ "rb-35": {
+  "topic": 6,
+  "title": "Velocity field of a rigid body 2 (Spaceship)",
+  "badge": "Group A: Kinematics",
+  "source_note": "",
+  "structure": 4,
+  "group": "A"
+ },
+ "rb-04": {
+  "topic": 6,
+  "title": "Moments of inertia (planar shapes: T, I, C)",
+  "badge": "Group B: Inertia",
+  "source_note": "",
+  "structure": 4,
+  "group": "B",
+  "badges": [
+   "In-Class Session 17 (letter T)"
+  ]
+ },
+ "rb-05": {
+  "topic": 6,
+  "title": "Moments of inertia (3D shapes a-j)",
+  "badge": "Group B: Inertia",
+  "source_note": "",
+  "structure": 4,
+  "group": "B",
+  "badges": [
+   "In-Class Session 17 (cone)"
+  ]
+ },
+ "rb-06": {
+  "topic": 7,
+  "title": "Blade Runner (Spinner)",
+  "badge": "Group C: Momentum and Energy",
+  "source_note": "",
+  "structure": 4,
+  "group": "C",
+  "badges": [
+   "In-Class Session 19"
+  ]
+ },
+ "rb-07": {
+  "topic": 7,
+  "title": "One problem to rule them all (One Ring)",
+  "badge": "Group C: Momentum and Energy",
+  "source_note": "",
+  "structure": 4,
+  "group": "C"
+ },
+ "rb-08": {
+  "topic": 7,
+  "title": "Triangle with spring and vertical constraint",
+  "badge": "Group D: Dynamics",
+  "source_note": "",
+  "structure": 4,
+  "group": "D",
+  "badges": [
+   "In-Class Session 19"
+  ]
+ },
+ "rb-09": {
+  "topic": 7,
+  "title": "Rectangle with spring hanging from a corner",
+  "badge": "Group D: Dynamics",
+  "source_note": "",
+  "structure": 4,
+  "group": "D"
+ },
+ "rb-10": {
+  "topic": 7,
+  "title": "Firedoor motion",
+  "badge": "Group D: Dynamics",
+  "source_note": "",
+  "structure": 4,
+  "group": "D"
+ },
+ "rb-24": {
+  "topic": 7,
+  "title": "Lagrange's top (Heavy axisymmetric pegtop)",
+  "badge": "Group D: Dynamics",
+  "source_note": "",
+  "structure": 4,
+  "group": "D",
+  "badges": [
+   "In-Class Session 21"
+  ]
+ },
+ "rb-25": {
+  "topic": 7,
+  "title": "Cylinder hanging from the ceiling by two strings",
+  "badge": "Group D: Dynamics",
+  "source_note": "",
+  "structure": 4,
+  "group": "D"
+ },
+ "rb-38": {
+  "topic": 7,
+  "title": "Disk on hanging axle",
+  "badge": "Group D: Dynamics",
+  "source_note": "",
+  "structure": 4,
+  "group": "D"
+ },
+ "rb-12": {
+  "topic": 8,
+  "title": "Box rolling on cylinder",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-13": {
+  "topic": 8,
+  "title": "Rolling disk with cavity",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E",
+  "badges": [
+   "In-Class Session 22"
+  ]
+ },
+ "rb-14": {
+  "topic": 8,
+  "title": "Rocking semicircumference",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-15": {
+  "topic": 8,
+  "title": "Rocking hollow hemisphere",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E",
+  "badges": [
+   "In-Class Session 23"
+  ]
+ },
+ "rb-16": {
+  "topic": 8,
+  "title": "Sphere on inclined plane with central attraction",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-18": {
+  "topic": 8,
+  "title": "Bowling ball (Jesús Quintana)",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-19": {
+  "topic": 8,
+  "title": "Sphere on the floor with spring",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-22": {
+  "topic": 8,
+  "title": "Ball with bar on inclined plane",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-23": {
+  "topic": 8,
+  "title": "Rectangle with a hole on knob",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-28": {
+  "topic": 8,
+  "title": "Euler's disk",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E",
+  "badges": [
+   "In-Class Session 25"
+  ]
+ },
+ "rb-33": {
+  "topic": 8,
+  "title": "Axle with two wheels",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-37": {
+  "topic": 8,
+  "title": "Disk rolling without slip over a bigger cylinder",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-39": {
+  "topic": 8,
+  "title": "Yo-yo",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-40": {
+  "topic": 8,
+  "title": "Disk on parabolic groove",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E"
+ },
+ "rb-41": {
+  "topic": 8,
+  "title": "Sail sledge",
+  "badge": "Group E: Rolling and Constraints",
+  "source_note": "",
+  "structure": 4,
+  "group": "E",
+  "badges": [
+   "In-Class Session 26"
+  ]
+ },
+ "rb-17": {
+  "topic": 8,
+  "title": "Constrained pizza cutter (Fork and disc)",
+  "badge": "Group F: Multibody",
+  "source_note": "",
+  "structure": 4,
+  "group": "F",
+  "badges": [
+   "In-Class Session 21"
+  ]
+ },
+ "rb-20": {
+  "topic": 8,
+  "title": "Pioneer III spacecraft (Yo-yo de-spin)",
+  "badge": "Group F: Multibody",
+  "source_note": "",
+  "structure": 4,
+  "group": "F",
+  "badges": [
+   "In-Class Session 20"
+  ]
+ },
+ "rb-21": {
+  "topic": 8,
+  "title": "Reaction wheel spacecraft attitude control",
+  "badge": "Group F: Multibody",
+  "source_note": "",
+  "structure": 4,
+  "group": "F"
+ },
+ "rb-26": {
+  "topic": 8,
+  "title": "Unbalanced planetary bearings",
+  "badge": "Group F: Multibody",
+  "source_note": "",
+  "structure": 4,
+  "group": "F"
+ },
+ "rb-27": {
+  "topic": 8,
+  "title": "Rectangle with weight, pulleys, and string",
+  "badge": "Group F: Multibody",
+  "source_note": "",
+  "structure": 4,
+  "group": "F"
+ },
+ "rb-29": {
+  "topic": 8,
+  "title": "Disk-bar train",
+  "badge": "Group F: Multibody",
+  "source_note": "",
+  "structure": 4,
+  "group": "F"
+ },
+ "rb-31": {
+  "topic": 8,
+  "title": "Ball bearing between cylinder and cone",
+  "badge": "Group F: Multibody",
+  "source_note": "",
+  "structure": 4,
+  "group": "F"
+ },
+ "rb-36": {
+  "topic": 8,
+  "title": "Mars rolling rover",
+  "badge": "Group F: Multibody",
+  "source_note": "",
+  "structure": 4,
+  "group": "F"
+ },
+ "rb-42": {
+  "topic": 8,
+  "title": "Gyro on inclined plane",
+  "badge": "Group F: Multibody",
+  "source_note": "",
+  "structure": 4,
+  "group": "F"
+ },
+ "rb-30": {
+  "topic": 8,
+  "title": "Free spinning asteroid (Poinsot's construction)",
+  "badge": "Group G: Torque-Free Motion",
+  "source_note": "",
+  "structure": 4,
+  "group": "G"
+ },
+ "rb-32": {
+  "topic": 8,
+  "title": "Rate gyro on aircraft",
+  "badge": "Group G: Torque-Free Motion",
+  "source_note": "",
+  "structure": 4,
+  "group": "G",
+  "badges": [
+   "In-Class Session 25"
+  ]
  }
 }

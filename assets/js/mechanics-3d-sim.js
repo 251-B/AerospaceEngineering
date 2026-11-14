@@ -17,7 +17,7 @@
  *
  * Left: orbitable axonometric view (drag, arrow keys, sliders, quick views). Right: the plane normal to the active
  * rotation axis folded down on the paper, with the angle, the right triangle (L cos, L sin) and the live change of
- * basis matrix [0R1] (columns: the rotated unit vectors written in the fixed basis, as in Notes.pdf, chapter 8).
+ * basis matrix [0R1] (columns: the rotated unit vectors written in the fixed basis, as in Notes.pdf, chapter 1).
  * Inline SVG only: no canvas, no WebGL, no storage. The default state is the data of the statement; the readouts
  * declared in the configuration are the formulas of that solution, evaluated by a small arithmetic parser (no eval).
  */

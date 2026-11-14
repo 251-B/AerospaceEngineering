@@ -17,7 +17,7 @@ Geometry simulator of the Engineering Mechanics problem cards: `assets/js/mechan
 One figure with the view box 760 by 360:
 
 - **Left, orbitable axonometric view.** Camera azimuth and elevation by dragging, arrow keys or two sliders, and five quick views: `3D Isometric`, `Top XY`, `Front XZ`, `Side YZ`, `Plane normal to ω` (the camera looks along the active rotation axis). World axes: i0 = x, j0 = y, k0 = z (up).
-- **Right, fold-down view.** The plane normal to the active rotation axis, with the symbol of the axis (out of or into the paper), the fixed pair of axes in grey, the rotated pair in blue, the arc of the angle, the shaded right triangle (L cos, L sin) and the live matrix (columns: the rotated unit vectors written in the fixed basis, the matrix written [0R1] in `Notes.pdf`, chapter 8).
+- **Right, fold-down view.** The plane normal to the active rotation axis, with the symbol of the axis (out of or into the paper), the fixed pair of axes in grey, the rotated pair in blue, the arc of the angle, the shaded right triangle (L cos, L sin) and the live matrix (columns: the rotated unit vectors written in the fixed basis, the matrix written [0R1] in `Notes.pdf`, chapter 1).
 
 ## How a problem connects to it
 

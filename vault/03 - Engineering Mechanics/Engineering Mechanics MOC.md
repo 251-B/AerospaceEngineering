@@ -33,13 +33,13 @@ The *Mechanics Applied to Aerospace Engineering* course provides the core physic
 Entries shown as plain text with "(planned)" do not have a note in the vault yet.
 
 ### 🚀 Part I: Mechanics of the Point Particle
-* [[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]] *(unit-01-particle-kinematics; Fully Developed)*
+* [[Topic 1 - Kinematics of a Point Particle|Topic 1: Fundamentals and Particle Kinematics]] *(unit-01-particle-kinematics; Fully Developed)*
   * [[Concept - Mechanical Modeling and Physical Quantities|Concept: Mechanical Modeling and Physical Quantities (Scalars, Vectors, Tensors)]]
   * [[Concept - Vector Bases Rotation Matrices and Poisson Theorem|Concept: Vector Bases, Rotation Matrices, and Poisson's Theorem]]
   * [[Concept - Cartesian Cylindrical and Spherical Coordinate Systems|Concept: Cartesian, Cylindrical, and Spherical Coordinate Systems]]
   * [[Concept - Intrinsic Frenet-Serret Frame and Intrinsic Acceleration|Concept: Intrinsic Frenet-Serret Frame and Intrinsic Acceleration]]
   * [[Concept - Degrees of Freedom Generalized Coordinates and Constraints|Concept: Degrees of Freedom, Generalized Coordinates, and Constraints]]
-* [[Topic 2 - Point Particle Dynamics|Topic 2: Point Particle Dynamics]] *(unit-02-dynamics-point-particle; Fully Developed)*
+* [[Topic 2 - Dynamics of a Point Particle, Equilibrium and Oscillations|Topic 2: Point Particle Dynamics]] *(unit-02-dynamics-point-particle; Fully Developed)*
   * [[Concept - Newton Laws and Equations of Motion|Concept: Newton's Laws and Equations of Motion]]
   * [[Concept - Work Power and Kinetic Energy Theorem|Concept: Work, Power, and the Kinetic Energy Theorem]]
   * [[Concept - Conservative Forces and Potential Energy|Concept: Conservative Forces and Potential Energy]]
@@ -67,9 +67,9 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
   * [[Concept - Inertia Forces and Dynamics in Non-Inertial Frames|Concept: Inertia Forces and Dynamics in Non-Inertial Frames]]
 
 ### 🛰️ Part II: Particle Systems and Rigid Bodies
-* Topic 6: Particle Systems *(unit-06-particle-systems; planned)*
-* Topic 7: Rigid Body Kinematics and Euler Angles *(unit-07-rigid-body-kinematics; planned)*
-* Topic 8: Rigid Body Dynamics *(unit-08-rigid-body-dynamics; planned)*
+* Topic 6: Kinematics of Rigid Bodies and Inertia Properties *(unit-06-kinematics-rigid-bodies-inertia, Lectures 7 and 8; theory note in preparation)*
+* Topic 7: Momentum, Kinetic Energy and Rigid Body Dynamics *(unit-07-dynamics-rigid-bodies, Lectures 9 and 10; theory note in preparation)*
+* Topic 8: Constraints, Rolling Motion, Multibody Systems and Torque-Free Motion *(Notes.pdf chapters 13 to 15; theory note in preparation)*
 
 ---
 
@@ -79,6 +79,10 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
 * [[Problem Set - Topic 3 Constraints and Reaction Forces|Problems: Topic 3 Constraints and Reaction Forces (12 Problems)]] • [[Solution Set - Topic 3 Constraints and Reaction Forces|✅ Full Solutions]]
 * [[Problem Set - Topic 4 Angular Momentum and Central Forces|Problems: Topic 4 Angular Momentum and Central Forces (3 Problems)]] • [[Solution Set - Topic 4 Angular Momentum and Central Forces|⏳ In Progress]]
 * [[Problem Set - Topic 5 Relative Motion|Problems: Topic 5 Relative Motion (20 Problems)]] • [[Solution Set - Topic 5 Relative Motion|✅ Full Solutions]]
+* [[Problem Set - Topic 6 Rigid Body Kinematics and Inertia|Problems: Topic 6 Rigid Body Kinematics and Inertia (8 Problems)]] • solutions in preparation
+* [[Problem Set - Topic 7 Rigid Body Momentum, Energy and Dynamics|Problems: Topic 7 Rigid Body Momentum, Energy and Dynamics (8 Problems)]] • solutions in preparation
+* [[Problem Set - Topic 8 Constraints, Rolling, Multibody and Torque-Free Motion|Problems: Topic 8 Constraints, Rolling, Multibody and Torque-Free Motion (26 Problems)]] • solutions in preparation
+* [[Problem Set - Rigid Body Official Key|Rigid body problems: official key (transcription of Problems.pdf, pp. 77-81)]]
 
 ---
 
