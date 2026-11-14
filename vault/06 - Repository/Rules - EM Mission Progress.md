@@ -20,10 +20,10 @@ Related: [[Repository MOC]], [[Rules - AGENTS.md]], [[Rules - CLAUDE.md]], [[Too
 | :--- | :--- | :--- | :--- |
 | Start-up | Skills read, rules read, inventory, this log | done | see `git log` (`docs(mechanics): open the EM mission progress log`) |
 | Sources | Copy Lectures 6 to 10 into `sources/`, regenerate inventory, manifest, source notes and PDF pages | done (decks received 2026-11-14) | `feat(mechanics): add Lectures 6 to 10 to the sources` |
-| Simulator engine | `assets/js/mechanics-3d-sim.js`, `assets/css/mechanics-3d-sim.css`, eight archetypes, `tools/tests/test_mechanics_sim.py` | not started | |
-| H1 | Theory Topics 1 to 8, flavor `mechanics` in `build_topic_pages.py` | not started | |
-| H2 | `no-inline-calc` gate, migration of the structure 2 problems, badges, extra-problems bank | not started | |
-| H3 | 42 rigid body problems (`rb-01` to `rb-42`, structure 4) | not started | |
+| Simulator engine | `assets/js/mechanics-3d-sim.js`, `assets/css/mechanics-3d-sim.css`, eight archetypes, `tools/tests/test_mechanics_sim.py` (19 tests), guide in [[Tool - mechanics-3d-sim]] | done | `7a177a1`, `43a8cd9` |
+| H1 | Theory Topics 1 to 8, flavor `mechanics` in `build_topic_pages.py` | in progress: flavor and lecture citations being implemented (agent `tool-theory`); notes not started | |
+| H2 | `no-inline-calc` gate, migration of the structure 2 problems, badges, extra-problems bank | in progress: contract in `tools/derivation.py` and `assets/css/derivation-box.css` done (`7a177a1`); builder upgrade in progress (agent `tool-problems`); solutions not started | |
+| H3 | 42 rigid body problems (`rb-01` to `rb-42`, structure 4) | in progress: statements and keys being extracted (six agents, output in the session scratchpad `rb/`, figure crops in `vault/attachments/EM/T{6,7,8}-RB*.png`) | |
 | H4 | `sim` block in the 93 notes, one commit per topic | not started | |
 | H5 | Indexes, links, PDFs, updates, ultrareview | not started | |
 
@@ -74,3 +74,21 @@ Related: [[Repository MOC]], [[Rules - AGENTS.md]], [[Rules - CLAUDE.md]], [[Too
 
 - In-class badges of the rigid body problems, as checked against the schedule: Session 17 (01, 03, 04 letter T, 05 cone), 19 (06, 08), 20 (20), 21 (17, 24), 22 (13), 23 (11, 15), 25 (28, 32), 26 (41). They match the earlier brief.
 - Theory breakdown per topic: as listed in the earlier brief (Topic 6: orthogonal matrices, Euler angles 3-1-3 and 3-2-1, additivity of the angular velocity, velocity and acceleration fields, helical motion, instantaneous axis, centre of mass, inertia tensor, change of basis of the tensor, Steiner, principal values and directions, the three symmetry theorems, flat plate. Topic 7: linear momentum, angular momentum about an arbitrary point, change of pole, kinetic energy, Koenig, moment equation, Euler equations, gravity reduced at G, work and energy, planar dynamics. Topic 8: rigid body constraints, rolling with and without slip, indeterminate reactions, exploded views, the ten-step recipe of Ch. 14, torque-free motion of Ch. 15).
+
+## Update 2026-11-14 (evening): decisions taken while building
+
+- **Scope of the derivation-box rule.** The 20 Topic 5 solutions already in structure 3 are full of calculations in prose, so the rule means rewriting all 51 particle solutions, not only the 31 in structure 2. Until each is rewritten it carries `"boxed": false` in `tools/mech_problems.json`, which exempts it from the gate; the mission ends with no such flag.
+- **Gate, as implemented** (`derivation.gate`): outside a box, inline maths in a paragraph or list item may not contain `=`, `\dot`, `\ddot`, `\times`, `\frac` or `\int`, and no display formula stands outside a box. Table cells are not checked (definitions go in tables). Statements are not checked (they are verbatim).
+- **Simulator configuration.** The brief puts `sim` in the note frontmatter; the Solution Set notes hold many problems each, so the configuration is a callout inside each problem (`> [!example] Interactive simulator` and a `> sim: {...}` line). Readouts are arithmetic expressions evaluated by the script (no `eval`), so each problem shows the formulas of its own solution.
+- **Matrix notation.** The brief writes the matrix as [B1B0]; `Notes.pdf` (chapter 8) writes it with a left and a right subscript, 0 and 1 around R, columns being the rotated unit vectors in the fixed basis. The simulator and the solutions follow `Notes.pdf`.
+- **Page numbers of `Problems.pdf`.** The brief gives printed footer numbers; the repository cites the PDF page index (footer plus one), which is what the deep links open. Rigid body statements are on PDF pages 37 to 71 and the keys on 77 to 81.
+- **Unit folders.** All three renames of the brief were done (see the first update).
+- **Browser in cloud sessions.** `/usr/bin/google-chrome` hangs in the cloud container; the tools find a browser by name, so a wrapper named `msedge` on the PATH that runs the preinstalled `chrome-headless-shell` with `--no-sandbox` makes `build_pdfs`, `render_check` and the browser tests work (full suite: 367 tests in about two minutes). KaTeX for the PDFs comes from the npm package (`npm pack katex@0.16.8`), passed with `--katex`.
+- **Usage limits.** The subagents stopped once on the account's five-hour usage limit and were resumed after the reset. The mission needs several such windows; this log and `git log` are the resume points.
+
+## Work plan from here (per batch of 4 to 6 problems)
+
+1. A solver (Opus) writes each solution as a part file with derivation boxes, the figure briefs and the simulator line.
+2. A figure agent (Sonnet) writes one module per problem under `tools/figures/em_sol/`, renders and inspects every figure.
+3. The auditor (`problem-step-mentor`, Opus) reads the batch; findings are verified by the orchestrator before they are fixed.
+4. The orchestrator assembles the part files into the Solution Set note, runs the builders and gates, prints the PDFs and commits (one commit per topic).
