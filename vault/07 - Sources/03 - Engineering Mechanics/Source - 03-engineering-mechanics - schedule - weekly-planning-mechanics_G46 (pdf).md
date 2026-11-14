@@ -3,10 +3,10 @@ subject: "Engineering Mechanics"
 tags:
   - source
   - schedule
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/03-engineering-mechanics/schedule/weekly-planning-mechanics_G46.pdf"
 kind: schedule
-status: not-referenced
+status: referenced
 bytes: 47808
 ---
 
@@ -19,8 +19,8 @@ bytes: 47808
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/schedule/weekly-planning-mechanics_G46.pdf`
 - **Kind:** schedule
 - **Size:** 47.8 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[06 - Repository/Rules - EM Mission Progress]]

@@ -19,9 +19,10 @@ bytes: 3215430
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf`
 - **Kind:** slides
 - **Size:** 3.2 MB
-- **Status:** referenced by 2 note(s) below
+- **Status:** referenced by 3 note(s) below
 
 ## Referenced by
 
 - [[03 - Engineering Mechanics/Formula Sheet - Topic 5 Relative Motion]]
 - [[03 - Engineering Mechanics/Topic 5 - Relative Motion]]
+- [[06 - Repository/Rules - EM Mission Progress]]

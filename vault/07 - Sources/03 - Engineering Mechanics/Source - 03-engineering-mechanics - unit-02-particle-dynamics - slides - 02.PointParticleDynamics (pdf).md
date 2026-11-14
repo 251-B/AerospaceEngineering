@@ -3,10 +3,10 @@ subject: "Engineering Mechanics"
 tags:
   - source
   - slides
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf"
 kind: slides
-status: not-referenced
+status: referenced
 bytes: 2273981
 ---
 
@@ -19,8 +19,8 @@ bytes: 2273981
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf`
 - **Kind:** slides
 - **Size:** 2.3 MB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[06 - Repository/Rules - EM Mission Progress]]

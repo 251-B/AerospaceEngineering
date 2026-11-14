@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 196
-- Referenced by at least one note (a mention counts): 16
-- Not referenced yet: 180
+- Referenced by at least one note (a mention counts): 20
+- Not referenced yet: 176
 - Build artifacts: 0
 - Working files: 0
 
@@ -323,7 +323,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - schedule - weekly-planning-mechanics_G46 (pdf)\|weekly-planning-mechanics_G46.pdf]] | schedule | not-referenced |
+| [[Source - 03-engineering-mechanics - schedule - weekly-planning-mechanics_G46 (pdf)\|weekly-planning-mechanics_G46.pdf]] | schedule | referenced |
 
 ## teoria
 
@@ -335,14 +335,14 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - unit-01-particle-kinematics - slides - 00 (pdf)\|00.pdf]] | slides | not-referenced |
-| [[Source - 03-engineering-mechanics - unit-01-particle-kinematics - slides - 01_-_Point_particle_kinematics (pdf)\|01_-_Point_particle_kinematics.pdf]] | slides | not-referenced |
+| [[Source - 03-engineering-mechanics - unit-01-particle-kinematics - slides - 00 (pdf)\|00.pdf]] | slides | referenced |
+| [[Source - 03-engineering-mechanics - unit-01-particle-kinematics - slides - 01_-_Point_particle_kinematics (pdf)\|01_-_Point_particle_kinematics.pdf]] | slides | referenced |
 
 ## unit-02-particle-dynamics/slides
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - unit-02-particle-dynamics - slides - 02.PointParticleDynamics (pdf)\|02.PointParticleDynamics.pdf]] | slides | not-referenced |
+| [[Source - 03-engineering-mechanics - unit-02-particle-dynamics - slides - 02.PointParticleDynamics (pdf)\|02.PointParticleDynamics.pdf]] | slides | referenced |
 
 ## unit-03-constraints-reactions/slides
 

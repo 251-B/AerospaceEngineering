@@ -19,7 +19,7 @@ bytes: 2981832
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf`
 - **Kind:** slides
 - **Size:** 3.0 MB
-- **Status:** referenced by 8 note(s) below
+- **Status:** referenced by 9 note(s) below
 
 ## Referenced by
 
@@ -31,3 +31,4 @@ bytes: 2981832
 - [[03 - Engineering Mechanics/Concept - Work and Power of Constraint Forces and Energy Preservation]]
 - [[03 - Engineering Mechanics/Formula Sheet - Topic 3 Constraints and Reaction Forces]]
 - [[03 - Engineering Mechanics/Topic 3 - Constraints and Reaction Forces]]
+- [[06 - Repository/Rules - EM Mission Progress]]
