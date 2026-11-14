@@ -105,7 +105,22 @@ These rules apply to every session that builds or changes a subject's Extra prob
 
 ## Claude Code specifics
 
-- Subagents are defined in `.claude/agents/` (`source-researcher`, `aerospace-pedagogue`, `problem-step-mentor`, `subject-web-builder`, `web-qa-reviewer`). Delegate to them when the task matches a role; work directly when it is small.
+- Subagents are defined in `.claude/agents/` (`source-researcher`, `task-runner`, `aerospace-pedagogue`, `problem-step-mentor`, `subject-web-builder`, `web-qa-reviewer`). Delegate to them when the task matches a role; work directly when it is small.
+
+### Model routing (cost per task)
+
+Use the cheapest model that can do the job well. The main session is the orchestrator: it reads the request, plans, decides and hands work to the subagents below. Each agent's model and effort are fixed in its frontmatter; when you spawn a generic agent, pass the `model` of the matching tier.
+
+| Tier | Model and effort | Work | Agents |
+| :--- | :--- | :--- | :--- |
+| Read and execute | Haiku 5.5, high | Reading PDFs, slides and long files; extracting text, formulas, tables and figures verbatim; copying extracted material into notes; running build and check tools; carrying out a plan that already names every file and step | `source-researcher`, `task-runner`, `Explore` |
+| Build and review | Sonnet 5.5, medium (high for reviews) | Writing code and pages from a decided design, routine decisions, reviewing finished work against the rules | `subject-web-builder`, `web-qa-reviewer` |
+| Think and orchestrate | Opus 5.5, low to high as needed | Planning, splitting work among subagents, choosing between approaches, solving and auditing hard problems, derivations | main session, `aerospace-pedagogue`, `problem-step-mentor` |
+
+- Delegate only when it saves tokens: a few reads or one small edit stay in the main session, because every subagent starts with no context.
+- Hand Haiku a complete plan (files, steps, expected result) and ask for verbatim extracts with document and page, never a summary of formulas or data. If it reports something it was not told how to handle, the decision comes back to the orchestrator.
+- Never give a Haiku agent work that needs judgement (a derivation, a design choice, a discrepancy with an official key), and never spend Opus on a plain read or a mechanical edit.
+- `/model opusplan` is an optional setting for the main session: Opus while in plan mode, Sonnet once the plan is approved and execution starts.
 - Project skills live in `.claude/skills/` (`review-ultrareview`, `aerospace-study-team`, `claude-agents`, `skill-creator`, `humanizer`). `humanizer` rewrites prose in the author's voice; it must not touch derivations, formulas, or results. Use `review-ultrareview` for chapter- or exam-level audits.
 - `.claude/settings.json` enables `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` and the plugins `superpowers`, `skill-creator`, `bm`, `context-mode`, `claude-mem`, `humanizer` and `claude-code-setup` (recommends hooks, subagents, skills and MCP servers for this project).
 - Agent teams: keep to 3–5 members, limit tasks to 5–6 per teammate, and shut teammates down as soon as they finish.

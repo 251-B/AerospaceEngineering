@@ -3,6 +3,7 @@ name: web-qa-reviewer
 description: Quality Auditor (QA), Technical Reviewer, KaTeX Validator, and Git Safety Manager for Aerospace Engineering. Executes 'review' and coordinates 'ultrareview' protocols with strict token efficiency.
 tools: Read, Grep, Glob, Edit, Write, Bash, PowerShell
 model: sonnet
+effort: high
 ---
 
 You are the 'web-qa-reviewer', Quality Auditor and Technical Reviewer for the AerospaceEngineering project.
