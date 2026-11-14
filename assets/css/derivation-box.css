@@ -1,0 +1,66 @@
+/* Derivation boxes of Engineering Mechanics (theory pages and worked solutions), rendered by tools/derivation.py from
+   the "> [!derivation]" callouts of the vault notes. Every calculation lives in one of these boxes: a head (step title,
+   law invoked, official citation), the development row by row, the boxed result, the SI check and the physical
+   meaning. Colours come from the page variables, so the reading palettes of study-surface.css apply unchanged. */
+
+.derivation-box {
+  margin: 18px 0;
+  border: 1px solid var(--border-strong, var(--border-subtle));
+  border-left: 4px solid var(--text-heading);
+  border-radius: 10px;
+  background: var(--bg-subtle, var(--bg-surface));
+  overflow: hidden;
+}
+.derivation-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  align-items: baseline;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+.derivation-title {
+  flex: 1 1 100%;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+.derivation-law, .derivation-source {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: var(--text-main, var(--text-body));
+}
+.derivation-body { padding: 12px 16px 4px; }
+.derivation-body > p { margin: 0 0 10px; }
+.derivation-body > ul { margin: 0 0 10px 20px; }
+.derivation-steps, .derivation-result {
+  margin: 8px 0 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.derivation-steps .katex-display, .derivation-result .katex-display { margin: 0.4em 0; }
+.derivation-result { text-align: center; }
+.derivation-units, .derivation-foot {
+  margin: 0;
+  padding: 8px 16px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.92rem;
+  color: var(--text-main, var(--text-body));
+}
+.derivation-foot { background: var(--bg-surface); }
+.derivation-box .diagram-card, .derivation-box figure { margin: 8px 0 12px; }
+
+@media (max-width: 640px) {
+  .derivation-head, .derivation-body, .derivation-units, .derivation-foot { padding-left: 12px; padding-right: 12px; }
+}
+
+@media print {
+  .derivation-box { border: 1px solid #777; border-left: 3px solid #000; background: none; overflow: visible; }
+  .derivation-head, .derivation-foot { background: none; }
+  .derivation-head { break-after: avoid; }
+  .derivation-result, .derivation-units, .derivation-foot { break-inside: avoid; }
+  .derivation-steps, .derivation-result { overflow: visible; }
+}
