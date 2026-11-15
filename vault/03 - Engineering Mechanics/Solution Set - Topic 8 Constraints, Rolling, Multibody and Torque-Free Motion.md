@@ -293,12 +293,12 @@ The forces on the box, in the inertial frame (no inertia forces):
 > $$\boxed{\ddot\varphi + \frac{g\left(R - h/2\right)}{b^2/12 + h^2/3}\,\varphi = 0, \qquad \text{stable if } R \gt \frac h2, \qquad \Omega = \sqrt{\frac{12\,g\left(R - h/2\right)}{b^2 + 4h^2}}}$$
 >
 > **Units:** $[\mathrm{L\,T^{-2}}][\mathrm L]/[\mathrm L^2] = [\mathrm{T^{-2}}]$, so the frequency is in rad/s
-> **Meaning:** the box rocks back to the top when the centre of mass is below the centre of curvature of the path of the contact point, that is when $h/2$ is smaller than $R$; if $G$ is higher it falls off.
+> **Meaning:** the height of $G$ has a minimum at the top position, so the box rocks back, when the height $h/2$ of $G$ above the contact is smaller than the radius $R$ of the cylinder; if $G$ is higher than that, its height has a maximum there and the box falls off.
 
 **Limiting cases and consistency:**
 
 * **Knife edge.** For a vanishing radius the equation becomes the one of an inverted pendulum pivoting about $M$: the coefficient of the angular acceleration is the moment of inertia about $M$ divided by the mass, and the only torque is the overturning one of the weight; the top position is then unstable, as expected.
-* **Thin plank.** For a vanishing height the overturning term disappears and the box is stable on any cylinder: the contact point moves under the raised side and the weight always pulls it back.
+* **Thin plank.** For a vanishing height the overturning term disappears and the box is stable on any cylinder: the contact point moves under the lowered side, which leaves $G$ on the raised side, so the weight always pulls it back.
 * **Contact force at rest.** At the initial position with zero velocity the friction is zero and the normal reaction equals the weight.
 * **Dimensions.** Every term of the equation of motion is in m$^2$/s$^2$; the frequency is in rad/s.
 
@@ -917,7 +917,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{T_0\big|_{\theta = 0} = \frac2\pi M g R_0\left(1 - \cos\theta_0\right), \qquad T_{\mathrm{tr}} = \frac{\pi - 2}{\pi^2}M g R_0\left(1 - \cos\theta_0\right), \qquad T_{\mathrm{rot}} = \frac{\pi + 2}{\pi^2}M g R_0\left(1 - \cos\theta_0\right)}$$
 >
 > **Units:** J in every term
-> **Meaning:** about 22 percent of the energy is translation of $G$ and 78 percent rotation about $G$ at the lowest position; at that instant $G$ moves horizontally, straight above the contact point.
+> **Meaning:** about 18 percent of the energy is translation of $G$ and 82 percent rotation about $G$ at the lowest position; at that instant $G$ moves horizontally, straight above the contact point.
 
 ### Answers and Checks
 
@@ -1117,7 +1117,9 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > &= \left[u - \frac{u^3}{3}\right]_0^1 = \frac23 \quad &\text{(antiderivative; Barrow)} \\
 > I_{Oz} &= \sigma a^4\cdot 2\pi\cdot\frac23 = \frac{m}{2\pi a^2}\cdot\frac{4\pi a^4}{3} = \frac23\,m a^2 \quad &\text{(value of $\sigma$)} \\
 > I_{Ox} + I_{Oy} + I_{Oz} &= 2\int\left(x^2 + y^2 + z^2\right)dm = 2\int a^2\,dm = 2ma^2 \quad &\text{(Eq. 10.13; every point is at distance $a$ from $O$)} \\
-> \int x^2\,dm &= \sigma a^4\int_0^{\pi/2}\sin^3\beta\,d\beta\int_0^{2\pi}\cos^2\alpha\,d\alpha = \int y^2\,dm \quad &\text{(the integrals of $\cos^2\alpha$ and $\sin^2\alpha$ are both $\pi$)} \\
+> \int_0^{2\pi}\cos^2\alpha\,d\alpha &= \left[\frac\alpha2 + \frac{\sin2\alpha}{4}\right]_0^{2\pi} = \pi - 0 = \pi \quad &\text{(half-angle identity, antiderivative, Barrow's rule)} \\
+> \int_0^{2\pi}\sin^2\alpha\,d\alpha &= \left[\frac\alpha2 - \frac{\sin2\alpha}{4}\right]_0^{2\pi} = \pi - 0 = \pi \quad &\text{(same steps, opposite sign of the second term)} \\
+> \int x^2\,dm &= \sigma a^4\int_0^{\pi/2}\sin^3\beta\,d\beta\int_0^{2\pi}\cos^2\alpha\,d\alpha = \int y^2\,dm \quad &\text{(the two angular integrals are both $\pi$)} \\
 > I_{Ox} &= I_{Oy} = \frac12\left(2ma^2 - \frac23\,ma^2\right) = \frac23\,ma^2 \quad &\text{(equal moments; subtract the axial one)} \\
 > P_{xy},\ P_{xz},\ P_{yz} &\propto \int_0^{2\pi}\cos\alpha\sin\alpha\,d\alpha,\ \int_0^{2\pi}\cos\alpha\,d\alpha,\ \int_0^{2\pi}\sin\alpha\,d\alpha = 0,\ 0,\ 0 \quad &\text{(antiderivatives $\tfrac12\sin^2\alpha$, $\sin\alpha$, $-\cos\alpha$; Barrow over a full turn)} \\
 > [R]\left(\tfrac23 ma^2[U]\right)[R]^T &= \tfrac23 ma^2\,[R][R]^T = \tfrac23 ma^2\,[U] \quad &\text{(change of basis by any rotation, Eq. 10.41)}
@@ -1231,7 +1233,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{n = \dot\psi\cos\theta + \dot\varphi = n_0 \ \text{(constant)}, \qquad \mathbf H_{G,0}\cdot\mathbf k = \frac23\,ma^2\,n_0}$$
 >
 > **Units:** N m for the moment equation; $[\mathrm{T^{-1}}]$ for $n$
-> **Meaning:** first integral (b): the reaction is vertical through the contact point, so its line passes through the centre $O$, which lies on the axis of revolution; a force whose line meets an axis has no moment about it, and the total spin about that axis is conserved.
+> **Meaning:** first integral (b): the reaction is vertical through the contact point, so its line passes through the centre $O$, which lies on the axis of revolution; a force whose line meets an axis has no moment about it. Because the axis $Gz$ itself turns, that alone is not enough: the gyroscopic term along it also vanishes, since the two transverse moments of inertia are equal (axial symmetry), and so the total spin about that axis is conserved.
 
 > [!derivation] Part (h): integral of the angular momentum about the vertical through G
 > **Law:** moment equation about $G$ projected on a fixed direction
