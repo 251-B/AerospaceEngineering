@@ -98,6 +98,45 @@ html:root body :is(header, section, div):is(.page-header, .page-hero) { border: 
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; line-height: 1.35;
 }
 
+/* ---------------------------------------------------------------- Extra problems hub: one chip per item
+   The generators (build_problem_bank, build_mechanics_bank, build_maths_bank) write every item as a
+   link with its code and its full title; only the code is shown, the title stays as the tooltip and
+   for screen readers. Chips are centred, so a short last row sits in the middle. */
+.problem-sets-grid:has(.ex-link) { display: flex !important; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 16px; }
+.problem-sets-grid:has(.ex-link) > .problem-card {
+  flex: 1 1 420px; max-width: 580px; box-sizing: border-box; padding: 20px 22px 22px !important; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 12px; transform: none !important;
+}
+.problem-sets-grid:has(.ex-link) > .problem-card:only-child { max-width: 760px; }
+.exam-block:has(.ex-link) { margin-top: 10px; }
+.exam-block:has(.ex-link) .exam-block-title { text-align: center; margin: 0 0 10px; }
+.problem-card:has(.ex-link) .card-badge { margin: 0; }
+.problem-sets-grid:has(.ex-link) > .problem-card:only-child { padding: 16px 22px 18px !important; gap: 10px; }
+.problem-sets-grid:has(.ex-link) > .problem-card:only-child .card-badge { display: none; }
+.problem-card:has(.ex-link) .card-title { margin: 0 !important; }
+.problem-card .card-title a { color: inherit; text-decoration: none; }
+.problem-card .card-title a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+.problem-card .exercise-list:has(.ex-link) {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin: 0; padding: 0; list-style: none;
+}
+.problem-card .exercise-list:has(.ex-link) .exercise-item { padding: 0 !important; margin: 0; border: 0; display: block; }
+.ex-link {
+  display: flex; align-items: center; justify-content: center; min-width: 68px; min-height: 44px; padding: 0 12px; box-sizing: border-box;
+  border: 1px solid var(--border-card, rgba(127, 127, 127, .3)); border-radius: var(--radius-sm, 10px);
+  background: var(--bg-input, transparent); color: var(--text-primary, inherit) !important; text-decoration: none;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.ex-link:hover, .ex-link:focus-visible { border-color: var(--accent); transform: translateY(-2px); }
+.ex-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ex-link .ex-num {
+  font-family: var(--font-mono, "JetBrains Mono", monospace); font-size: .92rem; font-weight: 600; letter-spacing: .04em;
+  color: inherit !important; min-width: 0; margin: 0;
+}
+.ex-link .ex-title {
+  position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap; display: block !important;
+}
+
 /* ---------------------------------------------------------------- no neon: flat title, plain shadows */
 :is(.page-header, .page-hero)::before, :is(.page-header, .page-hero)::after { display: none !important; }
 :is(.page-header, .page-hero), :is(.page-header, .page-hero) * { text-shadow: none !important; filter: none !important; }
@@ -117,4 +156,19 @@ section.container:has(#quoteContainer), section:has(> #quoteContainer) { display
 }
 @media print {
   :is(.topic-card, .set-card) :is(.topic-desc, .set-desc) { display: block !important; }
+}
+
+/* ---------------------------------------------------------------- syllabuses split in three parts
+   (Engineering Mechanics and Advanced Maths theory): tighter part titles and lower cards, so the
+   three groups still fit on one 1440 x 900 screen. Other indexes are not matched. */
+@media (min-width: 1001px) {
+  body:has(.block-header ~ .topics-list ~ .block-header ~ .topics-list ~ .block-header) {
+    & :is(.page-header, .page-hero) { margin-bottom: 18px; padding-top: 22px; }
+    & .block-header { margin: 12px 0 10px; padding-bottom: 0; border-bottom: 0 !important; }
+    & .block-header h2 { font-size: 1.05rem; }
+    & :is(.topics-list, .topics-grid) { --idx-gap: 12px; margin-bottom: 12px; }
+    & .topic-card { min-height: 78px; padding-top: 12px !important; padding-bottom: 12px !important; }
+    & .topic-card .topic-title { font-size: 1.12rem; }
+    & :is(.page-footer, .site-footer) { margin-top: 8px; padding: 8px 0 10px; }
+  }
 }

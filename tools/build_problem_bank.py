@@ -401,20 +401,24 @@ def render_problems(page, items):
 
 
 def _hub_card(href, badge, title, desc, items, tags):
+    """One card per page: its title links to the page and every item is a short chip (its code) that
+    links to that item; the full title of the item stays as the tooltip and as hidden text."""
     rows = "\n".join(
         '          <li class="exercise-item">\n'
-        f'            <span class="ex-num">{html.escape(i["id"])}:</span>\n'
-        f'            <span class="ex-title">{html.escape(i["title"])}</span>\n'
+        f'            <a class="ex-link" href="{href}#{html.escape(i["id"])}" title="{html.escape(i["title"])}">\n'
+        f'              <span class="ex-num">{html.escape(i["id"])}</span>\n'
+        f'              <span class="ex-title">{html.escape(i["title"])}</span>\n'
+        "            </a>\n"
         "          </li>" for i in items)
     chips = "\n".join(f'          <span class="meta-tag">{html.escape(t)}</span>' for t in tags)
     return "\n".join([
-        f'      <a href="{href}" class="problem-card">',
+        '      <div class="problem-card">',
         f'        <span class="card-badge">{html.escape(badge)}</span>',
-        f'        <h2 class="card-title">{html.escape(title)}</h2>',
+        f'        <h2 class="card-title"><a href="{href}">{html.escape(title)}</a></h2>',
         f'        <p class="card-desc">{desc}</p>',
         "", '        <ul class="exercise-list">', rows, "        </ul>", "",
         '        <div class="topic-meta">', chips, "        </div>",
-        "      </a>"])
+        "      </div>"])
 
 
 def render_hub(page, items):

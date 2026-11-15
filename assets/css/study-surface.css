@@ -770,3 +770,27 @@ html[data-theme="print"] .surface-panel {
     -webkit-text-fill-color: var(--study-bg);
   }
 }
+
+/* ==========================================================================
+   13. NO NEON ON STUDY PAGES
+   Topic pages still carried coloured glows of their own: a halo around a
+   problem card on hover, tinted shadows under result boxes and active pills,
+   glowing text. On a flat reading surface they become plain neutral shadows.
+   Screen only, so the PDF layout (print.css) is unaffected.
+   ========================================================================== */
+@media screen {
+  html:not([data-theme="print"]) body :is(main, article, header, section, nav) :is(h1, h2, h3, h4, a, span, p, div, li, td, th, strong, summary, button) {
+    text-shadow: none !important;
+  }
+
+  html:not([data-theme="print"]) :is(.problem-card, .problem-box, .card, .subject-card, .topic-card, .set-card, .concept-card, .theory-card):hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28) !important;
+  }
+  html[data-theme="light"]:not([data-theme="print"]) :is(.problem-card, .problem-box, .card, .subject-card, .topic-card, .set-card, .concept-card, .theory-card):hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10) !important;
+  }
+
+  html:not([data-theme="print"]) :is(.result-box, .final-result, .formula-box, .nav-pill.active, .switch-btn.active, .theme-toggle::after, .section-number, .phase-number, .badge) {
+    box-shadow: none !important;
+  }
+}

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-tabs-extra-index-flat-pages",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "Clearer tab icons, short Extra problems index, no glow",
+    "text": "New icons for Extra problems, Exam simulator and PDFs. The Extra problems index shows one short button per item. Topic pages no longer glow on hover.",
+    "link": "subjects/advanced-maths/extra-problems/index.html"
+  },
+  {
     "id": "2026-11-15-section-tabs-icons",
     "date": "2026-11-15",
     "tag": "Portal",
