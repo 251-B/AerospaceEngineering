@@ -144,14 +144,14 @@
   "title": "Heavy Particle on a Cone",
   "badge": "Conical Surface",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "19": {
   "topic": 3,
   "title": "Heavy Particle on a Paraboloid",
   "badge": "Paraboloid Surface",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 8"
   ]
@@ -185,14 +185,14 @@
   "title": "Simple Pendulum (Unilateral Constraint)",
   "badge": "Pendulum & Liftoff",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "24": {
   "topic": 3,
   "title": "Particle on a Circumference with a Spring",
   "badge": "Wire & Elastic Potential",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6"
   ]
@@ -237,7 +237,7 @@
   "title": "Heavy Particle on a Tilted Cylinder",
   "badge": "Unilateral Liftoff",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 6"
   ]
@@ -255,7 +255,7 @@
   "title": "Two Particles on Cone with String",
   "badge": "Multi-Particle Cable Constraint",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "32": {
   "topic": 3,
