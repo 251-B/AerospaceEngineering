@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 470" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="View along the bearing axis CD showing the inner gimbal rotation by gamma.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="260.0" y1="330.0" x2="514.4" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M519.2,330.0 L511.8,333.1 L511.8,326.9 Z" fill="#8a94a6"/>
+<text x="535.2" y="336.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="260.0" y1="330.0" x2="260.0" y2="75.6" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M260.0,70.8 L263.1,78.2 L256.9,78.2 Z" fill="#8a94a6"/>
+<text x="276.0" y="74.8" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<polygon points="260.0,330.0 398.6,330.0 398.6,250.0" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="398.6" y1="330.0" x2="398.6" y2="250.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="387.4,330.0 387.4,318.8 398.6,318.8" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polygon points="260.0,330.0 260.0,191.4 180.0,191.4" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="260.0" y1="191.4" x2="180.0" y2="191.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="260.0,202.6 248.8,202.6 248.8,191.4" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="260.0" y1="330.0" x2="392.8" y2="253.3" stroke="#10b981" stroke-width="2.6"/>
+<path d="M398.6,250.0 L391.9,258.8 L387.6,251.4 Z" fill="#10b981"/>
+<text x="416.6" y="240.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<line x1="260.0" y1="330.0" x2="183.3" y2="197.2" stroke="#10b981" stroke-width="2.6"/>
+<path d="M180.0,191.4 L188.8,198.1 L181.4,202.4 Z" fill="#10b981"/>
+<text x="174.0" y="177.4" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<text x="329.3" y="354.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos γ</text>
+<text x="407.6" y="295.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin γ</text>
+<text x="220.0" y="183.4" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin γ</text>
+<text x="269.0" y="278.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos γ</text>
+<path d="M340.0,330.0 A80.0,80.0 0 0 0 329.3,290.0" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M327.8,287.4 L335.0,292.8 L328.9,296.3 Z" fill="#10b981"/>
+<path d="M260.0,250.0 A80.0,80.0 0 0 0 220.0,260.7" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M217.4,262.2 L222.8,255.0 L226.3,261.1 Z" fill="#10b981"/>
+<text x="333.3" y="327.3" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<text x="253.3" y="274.7" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<circle cx="260.0" cy="330.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="260.0" cy="330.0" r="2.6" fill="#4b5563"/>
+<text x="244.0" y="358.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> = <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan> (CD)</text>
+<text x="332.0" y="250.0" fill="#10b981" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">axle EF</text>
+</g></svg>
