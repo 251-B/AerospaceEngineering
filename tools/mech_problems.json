@@ -76,14 +76,14 @@
   "title": "Conservative Force and Potential I",
   "badge": "Work & Potential Energy",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "11": {
   "topic": 2,
   "title": "Conservative Force and Potential II",
   "badge": "1D Energy Landscapes",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 4"
   ]
@@ -93,7 +93,7 @@
   "title": "Conservative Force and Potential III",
   "badge": "Oscillation Period",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6"
   ]
@@ -103,14 +103,14 @@
   "title": "Conservative Force and Potential IV",
   "badge": "Quadratures & Trajectory",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "14": {
   "topic": 2,
   "title": "Conservative Force and Potential V",
   "badge": "Phase Analysis",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "15": {
   "topic": 2,
