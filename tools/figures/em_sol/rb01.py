@@ -64,8 +64,18 @@ def arrow_px(sc, p0, p1, col, size=9):
     arrow_head(sc.c, sc.P(p0), sc.P(p1), col, size)
 
 
+def ring(centre, u, v, r, t0=0.0, t1=360.0, n=72):
+    """Screen points (cabinet view) of the circle arc centre + r (cos t u + sin t v), t in degrees."""
+    pts = []
+    for i in range(n + 1):
+        t = math.radians(t0 + (t1 - t0) * i / n)
+        q = tuple(centre[m] + r * (math.cos(t) * u[m] + math.sin(t) * v[m]) for m in range(3))
+        pts.append(p3v(q))
+    return pts
+
+
 def rotation_view(w, h, o, k, ang, right, up, m1, m2, out, hdr, col="BLUE", tri="ACC", pre=None, post=None,
-                  out_off=(-16, 26), out_kind="out", note=None, note_pos=(-0.75, -0.42)):
+                  out_off=(-16, 26), out_kind="out", note=None, note_pos=(-0.75, -0.42), L=1.0):
     """Flat view of one elementary rotation by `ang` degrees (counterclockwise positive in the view).
 
     right, up: names (SVG text) of the two old axes; m1, m2: names of the rotated copies of `right` and `up`;
@@ -76,7 +86,7 @@ def rotation_view(w, h, o, k, ang, right, up, m1, m2, out, hdr, col="BLUE", tri=
     O = (0.0, 0.0)
     c, s = math.cos(math.radians(ang)), math.sin(math.radians(ang))
     ccw = ang > 0
-    L, Lf = 1.0, 1.62
+    Lf = 1.62
     if pre:
         pre(sc)
     fixed_axis(sc, O, 0, Lf, right, off=(16, 6))

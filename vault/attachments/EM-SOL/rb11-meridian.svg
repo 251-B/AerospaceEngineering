@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 540" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="Meridian plane with the right triangle O1, G, C, the instantaneous axis along its hypotenuse and the acceleration of the contact point of the disc.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="150.0,250.0 330.0,250.0 330.0,430.0" fill="#3b82f6" fill-opacity="0.14" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="150.0" y1="430.0" x2="150.0" y2="83.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M150.0,79.0 L153.1,86.4 L146.9,86.4 Z" fill="#8a94a6"/>
+<text x="150.0" y="71.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">z</tspan> (<tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan>)</text>
+<line x1="87.0" y1="430.0" x2="573.0" y2="430.0" stroke="#8a94a6" stroke-width="1.4"/>
+<text x="573.0" y="448.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">plane Oxy</text>
+<line x1="330.0" y1="430.0" x2="330.0" y2="70.0" stroke="#f59e0b" stroke-width="6.0"/>
+<line x1="150.0" y1="250.0" x2="330.0" y2="250.0" stroke="#4b5563" stroke-width="1.6"/>
+<polyline points="313.8,250.0 313.8,266.2 330.0,266.2" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="393.0" y1="493.0" x2="87.0" y2="187.0" stroke="#10b981" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="81.0" y="187.0" fill="#10b981" font-size="13" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">instantaneous axis</text>
+<path d="M276.5,376.5 A75.6,75.6 0 0 0 254.4,430.0" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="230.2" y="393.7" fill="#10b981" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">45°</text>
+<line x1="330.0" y1="430.0" x2="249.0" y2="430.0" stroke="#10b981" stroke-width="1.1" stroke-dasharray="4 3"/>
+<line x1="249.0" y1="430.0" x2="249.0" y2="349.0" stroke="#10b981" stroke-width="1.1" stroke-dasharray="4 3"/>
+<line x1="330.0" y1="349.0" x2="249.0" y2="349.0" stroke="#10b981" stroke-width="1.1" stroke-dasharray="4 3"/>
+<line x1="330.0" y1="430.0" x2="254.1" y2="354.1" stroke="#10b981" stroke-width="3.2"/>
+<path d="M249.0,349.0 L260.1,353.5 L253.5,360.1 Z" fill="#10b981"/>
+<text x="237.0" y="375.0" fill="#10b981" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">ω</tspan><tspan baseline-shift="sub" font-size="70%">B0</tspan> = ω(−<tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> + <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan>)</text>
+<text x="289.5" y="414.0" fill="#10b981" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−ω <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="338.0" y="389.5" fill="#10b981" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ω <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="330.0" y1="430.0" x2="389.0" y2="371.0" stroke="#ec4899" stroke-width="3.0"/>
+<path d="M393.6,366.4 L389.5,376.6 L383.4,370.5 Z" fill="#ec4899"/>
+<text x="403.6" y="360.4" fill="#ec4899" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">a</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">C</tspan>(B) = ω²R(<tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> + <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan>)</text>
+<line x1="330.0" y1="250.0" x2="246.6" y2="250.0" stroke="#3b82f6" stroke-width="3.0"/>
+<path d="M240.0,250.0 L250.1,245.7 L250.1,254.3 Z" fill="#3b82f6"/>
+<text x="285.0" y="238.0" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">a</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">G</tspan> = −ω²R <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="240.0" y="272.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R</text>
+<text x="322.0" y="345.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R</text>
+<text x="248.0" y="334.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R√2</text>
+<circle cx="441.6" cy="187.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<path d="M436.0,181.4 L447.2,192.6 M436.0,192.6 L447.2,181.4" stroke="#4b5563" stroke-width="1.6" fill="none"/>
+<text x="455.6" y="192.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="150.0" cy="430.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="136.0" y="448.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<circle cx="150.0" cy="250.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="132.0" y="246.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">O</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="330.0" cy="250.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="316.0" y="238.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<circle cx="330.0" cy="430.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="344.0" y="448.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+</g></svg>
