@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" width="100%" class="fig-kit" style="max-width:920px;margin:0 auto;display:block" role="img" aria-label="A star, a T-shape and a plate with a hole, decomposed into simple parts with their own centres of mass.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="140.0,75.0 114.7,145.2 40.1,147.6 99.1,193.3 78.3,264.9 140.0,223.0 201.7,264.9 180.9,193.3 239.9,147.6 165.3,145.2" fill="#3b82f6" fill-opacity="0.14" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="140.0,75.0 114.7,145.2 40.1,147.6 99.1,193.3 78.3,264.9 140.0,223.0 201.7,264.9 180.9,193.3 239.9,147.6 165.3,145.2" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<polygon points="114.7,145.2 99.1,193.3 140.0,223.0 180.9,193.3 165.3,145.2" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5 4" stroke-linejoin="round"/>
+<circle cx="140.0" cy="180.0" r="4.5" fill="#ec4899"/>
+<text x="140.0" y="204.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<text x="55.0" y="325.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">star: pentagon + 5 triangles</text>
+<polygon points="280.0,125.0 460.0,125.0 460.0,175.0 280.0,175.0" fill="#3b82f6" fill-opacity="0.14" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="345.0,175.0 395.0,175.0 395.0,295.0 345.0,295.0" fill="#3b82f6" fill-opacity="0.22" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polyline points="280.0,125.0 460.0,125.0 460.0,175.0 280.0,175.0 280.0,125.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="345.0,175.0 395.0,175.0 395.0,295.0 345.0,295.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="345.0" y1="175.0" x2="395.0" y2="175.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5 4"/>
+<circle cx="370.0" cy="235.0" r="3.5" fill="#3b82f6"/>
+<text x="380.0" y="240.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="370.0" cy="150.0" r="3.5" fill="#3b82f6"/>
+<text x="308.0" y="155.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G<tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<circle cx="370.0" cy="201.0" r="5" fill="#ec4899"/>
+<text x="404.0" y="195.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<text x="280.0" y="325.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">T-shape: two bars</text>
+<polygon points="680.0,250.0 880.0,250.0 880.0,110.0 680.0,110.0" fill="#3b82f6" fill-opacity="0.14" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="680.0,250.0 880.0,250.0 880.0,110.0 680.0,110.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="820.0" cy="170.0" r="45.0" fill="#ec4899" fill-opacity="0.1" stroke="#ec4899" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="780.0" cy="180.0" r="3.5" fill="#3b82f6"/>
+<text x="772.0" y="172.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="820.0" cy="170.0" r="3.5" fill="#ec4899"/>
+<text x="820.0" y="117.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G<tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<circle cx="768.2" cy="182.9" r="5" fill="#4b5563"/>
+<text x="760.2" y="206.9" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<text x="689.0" y="102.0" fill="#3b82f6" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">D<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="839.0" y="237.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">D<tspan baseline-shift="sub" font-size="70%">2</tspan> (−)</text>
+<text x="680.0" y="325.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">plate with a hole: D1 − D2</text>
+</g></svg>
