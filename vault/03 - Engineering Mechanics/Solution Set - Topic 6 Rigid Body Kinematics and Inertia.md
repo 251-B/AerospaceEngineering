@@ -540,3 +540,242 @@ This section does not apply: the statement gives the motion at one instant and n
 * **Speeds against distances to the axis.** $B$ and $C$ are at the distances $a$ and $a\sqrt2$ from the axis; their perpendicular speeds, $v_0$ and $v_0\sqrt2$, are the angular speed times those distances.
 * **Without the common second component.** If the three given velocities had no component along $\mathbf j$, the differences between them, and therefore the angular velocity, would be the same, and the same axis would be one of pure rotation with $A$ at rest.
 * **Dimensions.** The angular velocity is a speed divided by a length, in rad/s.
+
+---
+
+## Problem RB-02: Kinematics (3 conditions)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** one rigid body whose position and attitude are tied to a single angle $\theta$ by the three geometric conditions of the statement.
+* **Fixed frame:** $S_0\{O; \mathcal B_0\}$ is the frame $Oxyz$ of the statement, with right-handed basis $\{\mathbf i, \mathbf j, \mathbf k\}$.
+* **Body frame:** $S_B\{P; \mathcal B_B\}$ is the frame $Px_By_Bz_B$ of the statement, with origin at the body point $P$ and right-handed basis $\{\mathbf i_B, \mathbf j_B, \mathbf k_B\}$ along the axes $Px_B$, $Py_B$, $Pz_B$.
+* **Intermediate basis:** $\mathcal B_1\{\mathbf i_1, \mathbf j_1, \mathbf k_1\}$, obtained from $\mathcal B_0$ by the first elementary rotation, about $\mathbf k$; the body basis is obtained from $\mathcal B_1$ by the second one, about $\mathbf i_1$.
+* **How each condition is read:**
+  1. *The point $P$ is located along $Oy$.* Its first and third coordinates are zero, so $P$ lies in the plane $Oxy$ at a distance from $O$ that changes with time.
+  2. *The axis $Px_B$ passes through $A(a, 0, 0)$.* Both $P$ and $A$ lie in the plane $Oxy$, so the whole line $Px_B$ lies in that plane: $\mathbf i_B$ is horizontal. Its sense is read as pointing from $P$ towards $A$.
+  3. *The angle between $Py_B$ and the plane $Oxy$ equals the angle between $Ox$ and $Px_B$, and both are $\theta$.* The first angle fixes how far $\mathbf j_B$ is lifted out of the plane $Oxy$; since $\mathbf i_B$ stays in that plane, the lift is a rotation about $\mathbf i_B$ itself. The second angle fixes the direction of the horizontal line $Px_B$.
+* **Senses chosen (reading of the statement, which gives only the size of the angles):** for positive $\theta$ the point $P$ is on the positive half of $Oy$, so the axis $Px_B$, going from $P$ down to $A$, is turned clockwise from $Ox$ when seen from the positive end of $Oz$; and $\mathbf j_B$ is lifted towards positive $z$. The official key confirms both choices (see Answers and Checks).
+* **Degrees of freedom:** a free rigid body has six (Notes.pdf, Sec. 9.3). Condition 1 removes two (two coordinates of $P$), condition 2 removes two (the direction of $Px_B$ is that of the segment from $P$ to $A$), and condition 3 removes one (the rotation about $Px_B$ is tied to the direction of $Px_B$). One degree of freedom is left, the angle $\theta$.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Position of the fixed point $A$ | $(a, 0, 0)$ | m |
+| Coordinate of the body | $\theta(t)$ | rad |
+| Its rate | $\dot\theta(t)$ | rad/s |
+
+* **Unknowns:** the angular velocity of the body and the velocity of $P$, as functions of $\theta$ and its rate.
+* **Plan:** the position of $P$ comes from the right triangle $OPA$; the body basis comes from two elementary rotations, each drawn looking down its axis; the angular velocity is the sum of the angular velocities of the two rotations (additivity, Notes.pdf, Eq. 3.14); the velocity of $P$ is the time derivative of its position vector.
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+#### Position of the point P
+
+![[attachments/EM-SOL/rb02-triangle-opa.svg]]
+
+> [!derivation] Position of P from the right triangle OPA
+> **Law:** right-triangle trigonometry in the plane $Oxy$ (conditions 1, 2 and the second half of condition 3)
+> **Source:** Problems.pdf, p. 37; Notes.pdf, Sec. 9.3
+>
+> The triangle $OPA$ has its right angle at $O$, because $A$ is on $Ox$ and $P$ is on $Oy$. The line $AP$ is the axis $Px_B$, so the interior angle at $A$, between $Ox$ and $Px_B$, is $\theta$. With respect to that angle the leg $OA$ is adjacent, the leg $OP$ is opposite and $PA$ is the hypotenuse.
+>
+> $$\begin{aligned}
+> \lvert OA\rvert &= a \quad &\text{(adjacent leg: $A$ is on $Ox$ at the distance $a$ from $O$)} \\
+> \lvert OP\rvert &= y_P \quad &\text{(opposite leg: $P$ is on $Oy$, at the coordinate $y_P$)} \\
+> \tan\theta &= \frac{\lvert OP\rvert}{\lvert OA\rvert} = \frac{y_P}{a} \quad &\text{(tangent: opposite leg over adjacent leg)} \\
+> y_P &= a\tan\theta \quad &\text{(solve for $y_P$)} \\
+> \lvert PA\rvert &= \frac{\lvert OA\rvert}{\cos\theta} = \frac{a}{\cos\theta} \quad &\text{(cosine: adjacent leg over hypotenuse, solved for the hypotenuse)} \\
+> \mathbf r_0^P &= y_P\,\mathbf j = a\tan\theta\,\mathbf j \quad &\text{(condition 1: only the second coordinate is non-zero)} \\
+> \mathbf{PA} &= \mathbf r_0^A - \mathbf r_0^P = a\,\mathbf i - a\tan\theta\,\mathbf j \quad &\text{(head minus tail)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = a\tan\theta\,\mathbf j, \qquad \mathbf{PA} = a\,\mathbf i - a\tan\theta\,\mathbf j, \qquad \lvert PA\rvert = \frac{a}{\cos\theta}}$$
+>
+> **Units:** $[\mathrm L]$ in every term; $\tan\theta$ and $\cos\theta$ are dimensionless
+> **Meaning:** as the angle grows from zero towards a right angle, $P$ slides along $Oy$ from $O$ to infinity, so that the line from $P$ to the fixed point $A$ turns away from $Ox$.
+
+#### First elementary rotation: about k
+
+![[attachments/EM-SOL/rb02-rotation-k.svg]]
+
+> [!derivation] First rotation: about k by the angle minus theta
+> **Law:** simple rotation about the third axis; the rotated first axis is the unit vector of the segment from $P$ to $A$
+> **Source:** Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]
+>
+> View with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up. The unit vector $\mathbf i_1$ points from $P$ to $A$; it is turned by $\theta$ clockwise from $\mathbf i$, which is the negative sense of the right-hand rule about $\mathbf k$ (thumb out of the paper, fingers counterclockwise). The rotation angle is therefore minus $\theta$.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \frac{\mathbf{PA}}{\lvert PA\rvert} = \frac{\cos\theta}{a}\,(a\,\mathbf i - a\tan\theta\,\mathbf j) \quad &\text{(unit vector: divide by the hypotenuse of the previous box)} \\
+> &= \cos\theta\,\mathbf i - \sin\theta\,\mathbf j \quad &\text{(right triangle of hypotenuse 1: adjacent leg along $\mathbf i$, opposite leg along $-\mathbf j$ because the turn is clockwise)} \\
+> \mathbf k_1 &= \mathbf k \quad &\text{(the rotation axis does not move)} \\
+> \mathbf j_1 &= \mathbf k_1\times\mathbf i_1 = \cos\theta\,(\mathbf k\times\mathbf i) - \sin\theta\,(\mathbf k\times\mathbf j) \quad &\text{(right-handed basis; distribute the product)} \\
+> &= \sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{($\mathbf k\times\mathbf i = \mathbf j$ and $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> [{}_0R_1] &= \begin{bmatrix} \cos\theta & \sin\theta & 0 \cr -\sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot(\cos\theta\cos\theta - \sin\theta\,(-\sin\theta)) = \cos^2\theta + \sin^2\theta = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & -\cos\theta\sin\theta + \sin\theta\cos\theta & 0 \cr -\sin\theta\cos\theta + \cos\theta\sin\theta & \sin^2\theta + \cos^2\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = [{}_0R_1(z, -\theta)] = \begin{bmatrix} \cos\theta & \sin\theta & 0 \cr -\sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{bmatrix}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** this is Eq. 1.20 with the angle minus $\theta$: the minus sign of the sine moves to the first column, because the rotated first axis leans towards $-\mathbf j$ in a clockwise turn. The axis $\mathbf i_1$ already has the final direction of $Px_B$.
+
+#### Second elementary rotation: about i1
+
+![[attachments/EM-SOL/rb02-rotation-i1.svg]]
+
+> [!derivation] Second rotation: about i1 by the angle theta
+> **Law:** simple rotation about the first axis; angle between a line and a plane
+> **Source:** Notes.pdf, Eq. 1.18; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]
+>
+> View with $\mathbf i_1$ out of the paper (⊙), $\mathbf j_1$ to the right and $\mathbf k_1$ up (since $\mathbf j_1\times\mathbf k_1 = \mathbf i_1$); the trace of the plane $Oxy$ is the horizontal line along $\mathbf j_1$. Turning about $\mathbf i_1$ keeps $\mathbf i_B$ horizontal, as condition 2 requires; a counterclockwise turn (positive by the right-hand rule) lifts $\mathbf j_B$ towards positive $z$.
+>
+> $$\begin{aligned}
+> \mathbf i_B &= \mathbf i_1 \quad &\text{(the rotation axis does not move)} \\
+> \mathbf j_B &= \cos\theta\,\mathbf j_1 + \sin\theta\,\mathbf k_1 \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf j_1$, opposite leg along $\mathbf k_1$)} \\
+> \mathbf k_B &= -\sin\theta\,\mathbf j_1 + \cos\theta\,\mathbf k_1 \quad &\text{($\mathbf k_1$ turned counterclockwise leans towards $-\mathbf j_1$: opposite leg $\sin\theta$ along $-\mathbf j_1$)} \\
+> \mathbf j_B\cdot\mathbf k &= \sin\theta \quad &\text{(component of $\mathbf j_B$ along the normal $\mathbf k = \mathbf k_1$ of the plane $Oxy$)} \\
+> \widehat{(Py_B,\,Oxy)} &= \arcsin\lvert\mathbf j_B\cdot\mathbf k\rvert = \theta \quad &\text{(the angle between a line and a plane is the complement of the angle with the normal: condition 3 holds)} \\
+> [{}_1R_B] &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\theta & -\sin\theta \cr 0 & \sin\theta & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_B$, $\mathbf j_B$, $\mathbf k_B$ in $\mathcal B_1$)} \\
+> \det[{}_1R_B] &= 1\cdot(\cos^2\theta + \sin^2\theta) = 1 \quad &\text{(expand along the first row)} \\
+> [{}_1R_B][{}_1R_B]^T &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos^2\theta + \sin^2\theta & \cos\theta\sin\theta - \sin\theta\cos\theta \cr 0 & \sin\theta\cos\theta - \cos\theta\sin\theta & \sin^2\theta + \cos^2\theta \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_1R_B] = [{}_1R_B(x, \theta)] = \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\theta & -\sin\theta \cr 0 & \sin\theta & \cos\theta \end{bmatrix}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the same angle appears in both rotations because condition 3 makes the lift of $Py_B$ equal to the turn of $Px_B$; the body attitude is a one-parameter family.
+
+> [!derivation] Composed matrix and check of condition 3
+> **Law:** composition of changes of basis; matrix product row by column
+> **Source:** Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.15
+>
+> Abbreviations: $c$ and $s$ stand for the cosine and sine of $\theta$.
+>
+> $$\begin{aligned}
+> [{}_0R_B] &= [{}_0R_1][{}_1R_B] \quad &\text{(Eq. 1.16: first rotation on the left)} \\
+> [\mathbf i_B]_0 &= \text{column 1 of } [{}_0R_1] = (c,\ -s,\ 0) \quad &\text{(first column of $[{}_1R_B]$ is $(1, 0, 0)$)} \\
+> [\mathbf j_B]_0 &= c\,(s,\ c,\ 0) + s\,(0,\ 0,\ 1) = (cs,\ c^2,\ s) \quad &\text{($c$ times column 2 plus $s$ times column 3 of $[{}_0R_1]$)} \\
+> [\mathbf k_B]_0 &= -s\,(s,\ c,\ 0) + c\,(0,\ 0,\ 1) = (-s^2,\ -sc,\ c) \quad &\text{($-s$ times column 2 plus $c$ times column 3)} \\
+> \det[{}_0R_B] &= \det[{}_0R_1]\,\det[{}_1R_B] = 1\cdot 1 = 1 \quad &\text{(determinant of a product)} \\
+> \mathbf i_B\cdot\mathbf i &= c \quad &\text{(first component of $\mathbf i_B$: the angle between $Ox$ and $Px_B$ is $\theta$)} \\
+> \mathbf i_B\cdot\mathbf k &= 0 \quad &\text{(third component: $Px_B$ stays in the plane $Oxy$)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_B] = \begin{bmatrix} \cos\theta & \sin\theta\cos\theta & -\sin^2\theta \cr -\sin\theta & \cos^2\theta & -\sin\theta\cos\theta \cr 0 & \sin\theta & \cos\theta \end{bmatrix}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the three columns satisfy the three conditions of the statement at every instant, so the basis built is the body basis of the problem.
+
+#### Angular velocity by additivity
+
+> [!derivation] Angular velocity of the first rotation, checked with the derivative of i1
+> **Law:** a simple rotation has the angular velocity of the rate of its angle along its axis; Poisson formula
+> **Source:** Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 9.16; [Lecture 7, Slide 12]
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \frac{d(-\theta)}{dt}\,\mathbf k = -\dot\theta\,\mathbf k \quad &\text{(rotation angle minus $\theta$ about $\mathbf k$)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \frac{d}{dt}(\cos\theta\,\mathbf i - \sin\theta\,\mathbf j) \quad &\text{(the vectors $\mathbf i$, $\mathbf j$ are fixed in $S_0$)} \\
+> &= -\sin\theta\,\dot\theta\,\mathbf i - \cos\theta\,\dot\theta\,\mathbf j \quad &\text{(chain rule: derivative with respect to $\theta$ times $\dot\theta$)} \\
+> &= -\dot\theta\,\mathbf j_1 \quad &\text{(compare with $\mathbf j_1$ of the first rotation)} \\
+> \boldsymbol\omega_{10}\times\mathbf i_1 &= -\dot\theta\,\mathbf k_1\times\mathbf i_1 = -\dot\theta\,\mathbf j_1 \quad &\text{($\mathbf k = \mathbf k_1$; right-handed $\mathcal B_1$: $\mathbf k_1\times\mathbf i_1 = \mathbf j_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{10} = -\dot\theta\,\mathbf k, \qquad \boldsymbol\omega_{B1} = \dot\theta\,\mathbf i_1}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$
+> **Meaning:** the Poisson formula holds with this vector. In the same way the second rotation, by $\theta$ about $\mathbf i_1$, contributes $\dot\theta$ along its own axis.
+
+> [!derivation] Angular velocity of the body in both bases
+> **Law:** additivity of angular velocities; change of basis
+> **Source:** Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 1.14; [Lecture 7, Slide 12]
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{B0} &= \boldsymbol\omega_{B1} + \boldsymbol\omega_{10} \quad &\text{(Eq. 3.14 with the intermediate basis $\mathcal B_1$)} \\
+> &= \dot\theta\,\mathbf i_1 - \dot\theta\,\mathbf k \quad &\text{(previous box)} \\
+> &= \dot\theta\,(\cos\theta\,\mathbf i - \sin\theta\,\mathbf j) - \dot\theta\,\mathbf k \quad &\text{(substitute $\mathbf i_1$ in $\mathcal B_0$)} \\
+> \mathbf k &= \mathbf k_1 = \sin\theta\,\mathbf j_B + \cos\theta\,\mathbf k_B \quad &\text{(third row of $[{}_1R_B]$: inverse of the second rotation, Eq. 1.14)} \\
+> \boldsymbol\omega_{B0} &= \dot\theta\,\mathbf i_B - \dot\theta\,(\sin\theta\,\mathbf j_B + \cos\theta\,\mathbf k_B) \quad &\text{(substitute $\mathbf i_1 = \mathbf i_B$ and $\mathbf k$)} \\
+> [\boldsymbol\omega_{B0}]_B &= [{}_0R_B]^T[\boldsymbol\omega_{B0}]_0 \quad &\text{(cross-check with the composed matrix)} \\
+> \omega_{x_B} &= \cos\theta\,(\dot\theta\cos\theta) + (-\sin\theta)(-\dot\theta\sin\theta) + 0\cdot(-\dot\theta) = \dot\theta \quad &\text{(first column of $[{}_0R_B]$ times the fixed components)} \\
+> \omega_{y_B} &= \sin\theta\cos\theta\,(\dot\theta\cos\theta) + \cos^2\theta\,(-\dot\theta\sin\theta) + \sin\theta\,(-\dot\theta) = -\dot\theta\sin\theta \quad &\text{(second column)} \\
+> \omega_{z_B} &= -\sin^2\theta\,(\dot\theta\cos\theta) + (-\sin\theta\cos\theta)(-\dot\theta\sin\theta) + \cos\theta\,(-\dot\theta) = -\dot\theta\cos\theta \quad &\text{(third column)} \\
+> \lvert\boldsymbol\omega_{B0}\rvert^2 &= \dot\theta^2(\cos^2\theta + \sin^2\theta + 1) = \dot\theta^2(1 + \sin^2\theta + \cos^2\theta) = 2\dot\theta^2 \quad &\text{(same modulus in both bases)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{B0} = \dot\theta\,(\cos\theta\,\mathbf i - \sin\theta\,\mathbf j - \mathbf k) = \dot\theta\,(\mathbf i_B - \sin\theta\,\mathbf j_B - \cos\theta\,\mathbf k_B)}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in every term
+> **Meaning:** the body turns at $\sqrt2\,\lvert\dot\theta\rvert$ about a direction that is the sum of the horizontal axis $Px_B$ and the downward vertical; the vertical part is the turn of $Px_B$ in the plane $Oxy$, the horizontal part is the lift of $Py_B$.
+
+#### Velocity of P
+
+> [!derivation] Velocity of P from its position vector
+> **Law:** time derivative of the position vector in $S_0$; chain rule; quotient rule
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 1.14
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \left.\frac{d\mathbf r_0^P}{dt}\right|_0 = \frac{d}{dt}(a\tan\theta)\,\mathbf j \quad &\text{($\mathbf j$ is fixed in $S_0$ and $a$ is constant)} \\
+> \frac{d}{dt}\tan\theta &= \frac{d\tan\theta}{d\theta}\,\dot\theta \quad &\text{(chain rule)} \\
+> \frac{d\tan\theta}{d\theta} &= \frac{d}{d\theta}\frac{\sin\theta}{\cos\theta} = \frac{\cos\theta\cos\theta - \sin\theta\,(-\sin\theta)}{\cos^2\theta} \quad &\text{(quotient rule)} \\
+> &= \frac{1}{\cos^2\theta} \quad &\text{($\cos^2\theta + \sin^2\theta = 1$)} \\
+> \mathbf v_0^P &= \frac{a\dot\theta}{\cos^2\theta}\,\mathbf j \quad &\text{(substitute)} \\
+> [\mathbf j]_B &= (-\sin\theta,\ \cos^2\theta,\ -\sin\theta\cos\theta) \quad &\text{(second row of $[{}_0R_B]$, Eq. 1.14)} \\
+> \mathbf v_0^P &= \frac{a\dot\theta}{\cos^2\theta}\,(-\sin\theta\,\mathbf i_B + \cos^2\theta\,\mathbf j_B - \sin\theta\cos\theta\,\mathbf k_B) \quad &\text{(substitute $\mathbf j$ in $\mathcal B_B$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \frac{a\dot\theta}{\cos^2\theta}\,\mathbf j = a\dot\theta\left(-\frac{\sin\theta}{\cos^2\theta}\,\mathbf i_B + \mathbf j_B - \tan\theta\,\mathbf k_B\right)}$$
+>
+> **Units:** $[\mathrm L][\mathrm{T^{-1}}] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** $P$ slides along $Oy$, slowly near zero angle and ever faster as the axis $Px_B$ approaches the direction of $Oy$, where no point of $Oy$ can see $A$ along it.
+
+### Center of Mass and Inertia Tensor
+
+This section does not apply: the problem is purely kinematic, and no mass property enters the angular velocity or the velocity of a point.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+This section does not apply: no momentum or energy is asked for.
+
+### Free-Body Diagram and Equations of Motion
+
+This section does not apply: the motion is described by the geometric conditions alone and no force is asked for.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| Angular velocity, fixed basis | $\boldsymbol\omega_{B0} = \dot\theta\,(\cos\theta\,\mathbf i - \sin\theta\,\mathbf j - \mathbf k)$ |
+| Angular velocity, body basis | $\boldsymbol\omega_{B0} = \dot\theta\,(\mathbf i_B - \sin\theta\,\mathbf j_B - \cos\theta\,\mathbf k_B)$ |
+| Velocity of $P$ | $\mathbf v_0^P = \dfrac{a\dot\theta}{\cos^2\theta}\,\mathbf j$ |
+
+**Check against the official key:** the key (Problems.pdf, p. 77) prints the angular velocity as the rate times $\mathbf i_B$ minus sine times $\mathbf j_B$ minus cosine times $\mathbf k_B$, equal to the rate times $\mathbf i$ cosine minus $\mathbf j$ sine minus $\mathbf k$, and the velocity of $P$ as $a$ times the rate over the squared cosine along $\mathbf j$. The two bases and the velocity coincide term by term with the results above, which also confirms the senses read from the statement ($P$ on the positive half of $Oy$, $Py_B$ lifted towards positive $z$).
+
+> [!derivation] Check: the body point at A slides along the axis Px_B
+> **Law:** velocity field of a rigid body from $P$ to the body point $A(B)$ that coincides with the fixed point $A$
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 9.14; Notes.pdf, Eq. 9.15
+>
+> Condition 2 holds at every instant, so the body line $Px_B$ always passes through the fixed point $A$: the body point that is at $A$ may only move along that line. Its velocity must then be parallel to $\mathbf i_B$.
+>
+> $$\begin{aligned}
+> \mathbf v_0^{A(B)} &= \mathbf v_0^P + \boldsymbol\omega_{B0}\times\mathbf{PA} \quad &\text{(Eq. 9.3 between two body points)} \\
+> \boldsymbol\omega_{B0}\times\mathbf{PA} &= (\dot\theta\,\mathbf i_1 - \dot\theta\,\mathbf k_1)\times\frac{a}{\cos\theta}\,\mathbf i_1 \quad &\text{($\mathbf{PA}$ is the hypotenuse along $\mathbf i_1$)} \\
+> &= -\frac{a\dot\theta}{\cos\theta}\,\mathbf k_1\times\mathbf i_1 = -\frac{a\dot\theta}{\cos\theta}\,\mathbf j_1 \quad &\text{($\mathbf i_1\times\mathbf i_1 = \mathbf 0$; $\mathbf k_1\times\mathbf i_1 = \mathbf j_1$)} \\
+> &= -a\dot\theta\tan\theta\,\mathbf i - a\dot\theta\,\mathbf j \quad &\text{(substitute $\mathbf j_1 = \sin\theta\,\mathbf i + \cos\theta\,\mathbf j$)} \\
+> \mathbf v_0^{A(B)} &= -a\dot\theta\tan\theta\,\mathbf i + a\dot\theta\left(\frac{1}{\cos^2\theta} - 1\right)\mathbf j \quad &\text{(add the velocity of $P$)} \\
+> &= -a\dot\theta\tan\theta\,\mathbf i + a\dot\theta\tan^2\theta\,\mathbf j \quad &\text{($1/\cos^2\theta - 1 = \tan^2\theta$)} \\
+> &= -\frac{a\dot\theta\tan\theta}{\cos\theta}\,(\cos\theta\,\mathbf i - \sin\theta\,\mathbf j) \quad &\text{(take out the common factor)} \\
+> &= -\frac{a\dot\theta\sin\theta}{\cos^2\theta}\,\mathbf i_B \quad &\text{($\cos\theta\,\mathbf i - \sin\theta\,\mathbf j = \mathbf i_1 = \mathbf i_B$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^{A(B)} = -\frac{a\dot\theta\sin\theta}{\cos^2\theta}\,\mathbf i_B \parallel \mathbf i_B}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** the body slides through the fixed point $A$ along its own axis $Px_B$ and never leaves it, so the angular velocity found is consistent with condition 2. The distance from $P$ to $A$ grows at the rate $a\dot\theta\sin\theta/\cos^2\theta$, the time derivative of the hypotenuse.
+
+**Limiting cases and consistency:**
+
+* **Zero angle.** $P$ is at $O$, the body basis coincides with the fixed basis, the speed of $P$ is $a$ times the rate, along $\mathbf j$ (the leg $OA$ swinging about $A$), and the angular velocity is the rate times the difference of $\mathbf i$ and $\mathbf k$.
+* **Angle approaching a right angle.** The squared cosine in the denominator makes the speed of $P$ grow without bound: $P$ must run to infinity along $Oy$ to keep the line to $A$ nearly parallel to $Oy$.
+* **Slip velocity.** The scalar product of the velocity of $P$ with the angular velocity is minus $a$ times the squared rate times the sine over the squared cosine, which is not zero for a non-zero angle: the instantaneous motion is a screw motion, not a pure rotation.
+* **Dimensions.** The angular velocity has the dimensions of the rate, $[\mathrm{T^{-1}}]$; the velocity of $P$ is a length times a rate.
