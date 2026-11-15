@@ -121,7 +121,7 @@ html[data-theme="light"] .fl-launcher, html[data-theme="light"] .fl-panel {
 }
 .fl-card:hover, .fl-card:focus-visible { border-color: color-mix(in srgb, var(--fl-accent) 70%, var(--fl-border)); outline: none; }
 .fl-card[aria-pressed="true"] {
-  border-color: var(--fl-accent); background: var(--fl-tint);
+  border-color: var(--fl-accent); background: var(--fl-inset); box-shadow: 0 0 0 1px var(--fl-accent);
 }
 .fl-card__name { font: 600 15px/1.3 var(--fl-serif); color: var(--fl-text); }
 .fl-card__band {
