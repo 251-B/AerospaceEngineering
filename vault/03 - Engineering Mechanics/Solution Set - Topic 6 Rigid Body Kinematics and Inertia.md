@@ -1350,3 +1350,805 @@ This section does not apply: the motion of the centre is prescribed and no force
 * **Speeds against distances to the axis.** $G$ is at the distance $R/\sqrt2$ from the axis (half the diagonal of the square of side $R$ built on the meridian triangle), and its speed $\omega R$ equals the modulus $\sqrt2\,\omega$ of the angular velocity times that distance.
 * **Contact velocity versus the geometric point.** The geometric contact point moves on the plane with speed $\omega R$ along $\mathbf j_1$, while the body point that occupies it is at rest: the two velocities differ, as Eq. 9.15 warns.
 * **Dimensions.** Angular velocity in rad/s, angular acceleration in rad/s², accelerations in m/s².
+
+---
+
+## Problem RB-04: Moments of inertia (planar shapes: T, I, C)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** three homogeneous plates of negligible thickness shaped as the letters T, I and C, with uniform surface density $\sigma$ (mass per unit area, kg/m²).
+* **Dimensions (read from the figure):** every horizontal bar has length $w$, every letter has overall height $h$, and every bar, horizontal or vertical, has thickness $t$. The figure dimensions $h$ only on the T and $t$ only on the I (stem and lower bar) and on the C (upper bar); the three letters are drawn with equal heights and equal bar thicknesses, so the same $h$ and $t$ are used for all of them. The official key makes the same reading for the T.
+* **Basis:** for every shape the plate lies in the plane of the paper; $\mathbf i$ is horizontal to the right, $\mathbf j$ vertical upwards and $\mathbf k$ normal to the plate, out of the paper, so that $\{\mathbf i, \mathbf j, \mathbf k\}$ is right-handed. All the frames of one shape share this basis.
+* **Frames of the T:** the auxiliary frame $S_O$ has its origin $O$ at the midpoint of the lower edge of the top bar (the frame of the official key); $S_G$ is parallel to it with origin at the centre of mass $G$.
+* **Frame of the I:** the letter has two symmetry lines, so the frame $S_G$ is placed directly at their intersection.
+* **Frames of the C:** the auxiliary frame $S_{O'}$ has its origin $O'$ at the midpoint of the outer vertical edge (the back of the C, on the left; read from the figure: the C opens to the right); $S_G$ is parallel to it at the centre of mass.
+* **Degrees of freedom:** each plate is a rigid body with six degrees of freedom, but no motion is involved: only its mass geometry is asked.
+* **Mass element:** dm equals $\sigma$ times dA, with dA the product dx dy in Cartesian coordinates (jacobian 1); every point of a plate has zero third coordinate.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Length of the horizontal bars | $w$ | m |
+| Overall height | $h$ | m |
+| Thickness of every bar | $t$ | m |
+| Surface density (uniform) | $\sigma$ | kg/m² |
+
+* **Unknowns:** for each shape (a) the area and the centre of mass $G$; (b) the moment of inertia $I_{Gx}$ about the axis $Gx$; (c) the moment of inertia $I_{Gy}$ about the axis $Gy$; and the product of inertia $P_{xz,yz}$ with respect to the planes $Gxz$ and $Gyz$.
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+No rotation of the basis is needed: every frame of a shape has the basis $\{\mathbf i, \mathbf j, \mathbf k\}$. The only operation between frames is a translation of the origin from an auxiliary point to $G$, handled with Steiner's theorem, written once here in components for a translation in the plane of the plate.
+
+> [!derivation] Steiner's theorem for a translation in the plane of the plate
+> **Law:** Steiner's theorem; components of the tensor of inertia
+> **Source:** Notes.pdf, Eq. 10.48; Notes.pdf, Eq. 10.36; Notes.pdf, Eq. 10.37; Notes.pdf, Eq. 10.38
+>
+> Let the centre of mass have the position vector $\mathbf r_O^G$ with components $x_G$, $y_G$ and zero along $\mathbf k$ in the frame with origin $O$.
+>
+> $$\begin{aligned}
+> \bar{\bar I}_O &= \bar{\bar I}_G + m\left[(\mathbf r_O^G)^2\,U - \mathbf r_O^G\otimes\mathbf r_O^G\right] \quad &\text{(Steiner's theorem, Eq. 10.48; both tensors in the same basis)} \\
+> (\mathbf r_O^G)^2\,U &= \begin{bmatrix} x_G^2+y_G^2 & 0 & 0 \cr 0 & x_G^2+y_G^2 & 0 \cr 0 & 0 & x_G^2+y_G^2 \end{bmatrix} \quad &\text{(squared modulus times the unit tensor, Eq. 10.36, third component zero)} \\
+> \mathbf r_O^G\otimes\mathbf r_O^G &= \begin{bmatrix} x_G^2 & x_G y_G & 0 \cr x_G y_G & y_G^2 & 0 \cr 0 & 0 & 0 \end{bmatrix} \quad &\text{(dyad, Eq. 10.37, third component zero)} \\
+> (\mathbf r_O^G)^2\,U - \mathbf r_O^G\otimes\mathbf r_O^G &= \begin{bmatrix} y_G^2 & -x_G y_G & 0 \cr -x_G y_G & x_G^2 & 0 \cr 0 & 0 & x_G^2+y_G^2 \end{bmatrix} \quad &\text{(subtract element by element)} \\
+> I_{Ox} &= I_{Gx} + m\,y_G^2 \quad &\text{(element 11; Eq. 10.38 puts $I_x$ there)} \\
+> I_{Oy} &= I_{Gy} + m\,x_G^2 \quad &\text{(element 22)} \\
+> -P^O_{xz,yz} &= -P^G_{xz,yz} - m\,x_G\,y_G \quad &\text{(element 12; Eq. 10.38 puts minus the product there)} \\
+> P^O_{xz,yz} &= P^G_{xz,yz} + m\,x_G\,y_G \quad &\text{(change the sign of both sides)}
+> \end{aligned}$$
+>
+> $$\boxed{I_{Gx} = I_{Ox} - m\,y_G^2, \qquad I_{Gy} = I_{Oy} - m\,x_G^2, \qquad P^G_{xz,yz} = P^O_{xz,yz} - m\,x_G\,y_G}$$
+>
+> **Units:** every term in $[\mathrm M][\mathrm L^2]$, kg·m²
+> **Meaning:** the moment about an axis through $O$ exceeds the moment about the parallel axis through $G$ by the mass times the squared distance between the two axes: $y_G$ for the axes parallel to $\mathbf i$, $x_G$ for the axes parallel to $\mathbf j$. The moment about a central axis is therefore the smallest of its family.
+
+### Center of Mass and Inertia Tensor
+
+#### Shape T
+
+The T is the union of two rectangles in $S_O$: the top bar, with abscissa between minus and plus half of $w$ and ordinate between 0 and $t$; and the stem, with abscissa between minus and plus half of $t$ and ordinate between minus $(h-t)$ and 0.
+
+![[attachments/EM-SOL/rb04-t-shape.svg]]
+
+> [!derivation] Area and centre of mass of the T
+> **Law:** total mass and centre of mass as zeroth and first moments of the mass distribution; the centre of mass lies on a plane of symmetry
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.7; Notes.pdf, Eq. 10.8; Notes.pdf, Sec. 10.3; Problems.pdf, p. 38
+>
+> $$\begin{aligned}
+> A_T &= \int_{-w/2}^{w/2}\!\int_0^{t} dy\,dx + \int_{-t/2}^{t/2}\!\int_{-(h-t)}^{0} dy\,dx \quad &\text{(area of the two rectangles, $dA = dx\,dy$)} \\
+> &= \big[x\big]_{-w/2}^{w/2}\big[y\big]_0^{t} + \big[x\big]_{-t/2}^{t/2}\big[y\big]_{-(h-t)}^{0} \quad &\text{(constant limits: the double integrals split; antiderivative of 1)} \\
+> &= \Big(\tfrac w2 + \tfrac w2\Big)(t - 0) + \Big(\tfrac t2 + \tfrac t2\Big)\big(0 + (h-t)\big) \quad &\text{(Barrow's rule, both limits)} \\
+> &= t\,(w + h - t) \quad &\text{(multiply and take the common factor $t$)} \\
+> m &= \sigma\,t\,(w + h - t) \quad &\text{(Eq. 10.6 with $dm = \sigma\,dA$ and constant $\sigma$)} \\
+> x_G &= 0 \quad &\text{(the plane $Oyz$ is a plane of symmetry of the T: $G$ lies on it, Sec. 10.3)} \\
+> m\,y_G &= \sigma\int_{-w/2}^{w/2}\!\int_0^{t} y\,dy\,dx + \sigma\int_{-t/2}^{t/2}\!\int_{-(h-t)}^{0} y\,dy\,dx \quad &\text{(first moment, second component of Eq. 10.7)} \\
+> &= \sigma\,w\Big[\tfrac{y^2}{2}\Big]_0^{t} + \sigma\,t\Big[\tfrac{y^2}{2}\Big]_{-(h-t)}^{0} \quad &\text{(the $x$ integrals give $w$ and $t$ as above; antiderivative of $y$)} \\
+> &= \sigma\,w\Big(\tfrac{t^2}{2} - 0\Big) + \sigma\,t\Big(0 - \tfrac{(h-t)^2}{2}\Big) \quad &\text{(Barrow's rule, both limits)} \\
+> &= \tfrac{\sigma\,t}{2}\big[w\,t - (h-t)^2\big] \quad &\text{(common factor)} \\
+> y_G &= \frac{w\,t - (h-t)^2}{2\,(w + h - t)} \quad &\text{(divide by the mass; $\sigma\,t$ cancels)}
+> \end{aligned}$$
+>
+> $$\boxed{A_T = t\,(w+h-t), \qquad m = \sigma\,t\,(w+h-t), \qquad \mathbf r_O^G = \frac{w\,t - (h-t)^2}{2\,(w+h-t)}\,\mathbf j}$$
+>
+> **Units:** area $[\mathrm L^2]$; $y_G$ is $[\mathrm L^2]/[\mathrm L] = [\mathrm L]$
+> **Meaning:** $G$ is on the vertical symmetry line. It lies above the lower edge of the top bar when the first moment of the bar, proportional to $w\,t$, beats that of the stem, proportional to the square of $h-t$, and below it otherwise.
+
+> [!derivation] Moment of inertia of the T about the axis Gx
+> **Law:** moment of inertia about a coordinate axis; Steiner's theorem for the parallel axis
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.48; Notes.pdf, Sec. 10.8
+>
+> $$\begin{aligned}
+> I_{Ox} &= \int (y^2 + z^2)\,dm \quad &\text{(Eq. 10.11, axis $Ox$)} \\
+> &= \sigma\int_{-w/2}^{w/2}\!\int_0^{t} y^2\,dy\,dx + \sigma\int_{-t/2}^{t/2}\!\int_{-(h-t)}^{0} y^2\,dy\,dx \quad &\text{(the plate has zero third coordinate; two rectangles)} \\
+> &= \sigma\,w\Big[\tfrac{y^3}{3}\Big]_0^{t} + \sigma\,t\Big[\tfrac{y^3}{3}\Big]_{-(h-t)}^{0} \quad &\text{(the $x$ integrals give $w$ and $t$; antiderivative of $y^2$)} \\
+> &= \sigma\,w\Big(\tfrac{t^3}{3} - 0\Big) + \sigma\,t\Big(0 - \tfrac{-(h-t)^3}{3}\Big) \quad &\text{(Barrow's rule; the cube of a negative number is negative)} \\
+> &= \tfrac{\sigma}{3}\big[w\,t^3 + t\,(h-t)^3\big] \quad &\text{(common factor)} \\
+> I_{Gx} &= I_{Ox} - m\,y_G^2 \quad &\text{(Steiner: the axes $Ox$ and $Gx$ are parallel, at the distance $y_G$)} \\
+> &= \tfrac{\sigma}{3}\big[w\,t^3 + t\,(h-t)^3\big] - \sigma\,t\,(w+h-t)\,\frac{\big[w\,t - (h-t)^2\big]^2}{4\,(w+h-t)^2} \quad &\text{(substitute the mass and the ordinate of $G$)} \\
+> &= \sigma\,t\,\frac{4\,(w+h-t)\big[w\,t^2 + (h-t)^3\big] - 3\big[w\,t - (h-t)^2\big]^2}{12\,(w+h-t)} \quad &\text{(common denominator)} \\
+> &= \sigma\,t\,\frac{(h-t)^4 + 4w(h-t)^3 + 6wt(h-t)^2 + 4wt^2(h-t) + w^2t^2}{12\,(w+h-t)} \quad &\text{(expand: the terms in $w^2t^2$ and $(h-t)^4$ partly cancel)}
+> \end{aligned}$$
+>
+> $$\boxed{I_{Gx}^{T} = \frac{\sigma}{3}\big[w\,t^3 + t\,(h-t)^3\big] - m\,y_G^2 = \frac{\sigma\,t\,\big[(h-t)^4 + 4w(h-t)^3 + 6wt(h-t)^2 + 4wt^2(h-t) + w^2t^2\big]}{12\,(w+h-t)}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^{-2}][\mathrm L^4] = [\mathrm M\,\mathrm L^2]$ in every term
+> **Meaning:** the bar and the stem first contribute their second moments about the line $Ox$; moving the axis to $G$ removes the mass times the squared distance, which makes the result the smallest moment about a horizontal axis.
+
+> [!derivation] Moment of inertia of the T about the axis Gy
+> **Law:** moment of inertia about a coordinate axis
+> **Source:** Notes.pdf, Eq. 10.11
+>
+> The abscissa of $G$ is zero, so the axis $Gy$ is the same line as $Oy$ and no translation is needed.
+>
+> $$\begin{aligned}
+> I_{Gy} &= \int (x^2 + z^2)\,dm \quad &\text{(Eq. 10.11, axis $Gy$)} \\
+> &= \sigma\int_0^{t}\!\int_{-w/2}^{w/2} x^2\,dx\,dy + \sigma\int_{-(h-t)}^{0}\!\int_{-t/2}^{t/2} x^2\,dx\,dy \quad &\text{(zero third coordinate; two rectangles)} \\
+> &= \sigma\,t\Big[\tfrac{x^3}{3}\Big]_{-w/2}^{w/2} + \sigma\,(h-t)\Big[\tfrac{x^3}{3}\Big]_{-t/2}^{t/2} \quad &\text{(the $y$ integrals give $t$ and $h-t$; antiderivative of $x^2$)} \\
+> &= \sigma\,t\Big(\tfrac{w^3}{24} + \tfrac{w^3}{24}\Big) + \sigma\,(h-t)\Big(\tfrac{t^3}{24} + \tfrac{t^3}{24}\Big) \quad &\text{(Barrow's rule, both limits)} \\
+> &= \tfrac{\sigma\,t}{12}\big[w^3 + (h-t)\,t^2\big] \quad &\text{(add and take the common factor)}
+> \end{aligned}$$
+>
+> $$\boxed{I_{Gy}^{T} = \frac{\sigma\,t}{12}\big[w^3 + (h-t)\,t^2\big]}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^{-2}][\mathrm L^4] = [\mathrm M\,\mathrm L^2]$
+> **Meaning:** the wide top bar dominates: its contribution grows with the cube of $w$, while the narrow stem adds only the cube of $t$ times its length.
+
+> [!derivation] Products of inertia of the T
+> **Law:** definition of the products of inertia; a product of inertia vanishes when one of its planes is a plane of symmetry
+> **Source:** Notes.pdf, Eq. 10.15; Notes.pdf, Sec. 10.4; Notes.pdf, Eq. 10.38
+>
+> In $S_G$ the ordinate of a point is its ordinate in $S_O$ minus $y_G$.
+>
+> $$\begin{aligned}
+> P^G_{xy,xz} &= \int z\,(y - y_G)\,dm \quad &\text{(Eq. 10.15)} \\
+> &= 0 \quad &\text{(every point of the plate has zero third coordinate)} \\
+> P^G_{xy,yz} &= \int z\,x\,dm = 0 \quad &\text{(same reason)} \\
+> P^G_{xz,yz} &= \sigma\int_0^{t}\!(y-y_G)\,dy\int_{-w/2}^{w/2} x\,dx + \sigma\int_{-(h-t)}^{0}\!(y-y_G)\,dy\int_{-t/2}^{t/2} x\,dx \quad &\text{(Eq. 10.15; the double integrals split)} \\
+> \int_{-w/2}^{w/2} x\,dx &= \Big[\tfrac{x^2}{2}\Big]_{-w/2}^{w/2} = \tfrac{w^2}{8} - \tfrac{w^2}{8} = 0 \quad &\text{(antiderivative and Barrow's rule; likewise for the stem)} \\
+> P^G_{xz,yz} &= 0 \quad &\text{(both terms carry a vanishing factor)} \\
+> I_{Gz} &= \int \big[x^2 + (y-y_G)^2\big]\,dm = I_{Gy} + I_{Gx} \quad &\text{(Eq. 10.11 about $Gz$ with zero third coordinate)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G^{T} = \begin{bmatrix} I_{Gx}^{T} & 0 & 0 \cr 0 & I_{Gy}^{T} & 0 \cr 0 & 0 & I_{Gx}^{T} + I_{Gy}^{T} \end{bmatrix}, \qquad P^G_{xz,yz} = 0}$$
+>
+> **Units:** every element in $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** the plane $Gyz$ is a plane of symmetry of the T (each point with abscissa $x$ has a twin with abscissa $-x$ and the same ordinate), so the products that involve it vanish, as Sec. 10.4 states; the products that involve the plane $Gxy$ vanish because the plate lies in it. The axes $Gx$, $Gy$, $Gz$ are principal axes.
+
+#### Shape I
+
+The I is the union of three rectangles in $S_G$: the top bar (abscissa between minus and plus half of $w$, ordinate between half of $h$ minus $t$ and half of $h$), the bottom bar (its mirror image in the plane $Gxz$) and the stem (abscissa between minus and plus half of $t$, ordinate between minus and plus the quantity half of $h$ minus $t$).
+
+![[attachments/EM-SOL/rb04-i-shape.svg]]
+
+> [!derivation] Area and centre of mass of the I
+> **Law:** total mass; the centre of mass lies on every plane of symmetry
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Sec. 10.3; Problems.pdf, p. 38
+>
+> $$\begin{aligned}
+> A_I &= 2\int_{-w/2}^{w/2}\!\int_{h/2-t}^{h/2} dy\,dx + \int_{-t/2}^{t/2}\!\int_{-(h/2-t)}^{h/2-t} dy\,dx \quad &\text{(two equal bars and the stem, $dA = dx\,dy$)} \\
+> &= 2\,\big[x\big]_{-w/2}^{w/2}\big[y\big]_{h/2-t}^{h/2} + \big[x\big]_{-t/2}^{t/2}\big[y\big]_{-(h/2-t)}^{h/2-t} \quad &\text{(antiderivative of 1)} \\
+> &= 2\,w\,t + t\,(h - 2t) \quad &\text{(Barrow's rule, both limits)} \\
+> m &= \sigma\,t\,(2w + h - 2t) \quad &\text{(Eq. 10.6 with constant $\sigma$)} \\
+> x_G &= 0 \quad &\text{(the plane $Gyz$ is a plane of symmetry, Sec. 10.3)} \\
+> y_G &= 0 \quad &\text{(the plane $Gxz$ is a plane of symmetry, Sec. 10.3)}
+> \end{aligned}$$
+>
+> $$\boxed{A_I = 2\,w\,t + t\,(h-2t), \qquad m = \sigma\,t\,(2w + h - 2t), \qquad G \text{ at the centre of the letter}}$$
+>
+> **Units:** $[\mathrm L^2]$ for the area, $[\mathrm M]$ for the mass
+> **Meaning:** the two symmetry lines of the letter meet at its geometric centre, which is therefore $G$; no integral of first moments is needed.
+
+> [!derivation] Moments of inertia of the I about Gx and Gy
+> **Law:** moment of inertia about a coordinate axis
+> **Source:** Notes.pdf, Eq. 10.11
+>
+> $$\begin{aligned}
+> I_{Gx} &= \sigma\int y^2\,dA \quad &\text{(Eq. 10.11 with zero third coordinate)} \\
+> &= \sigma\,w\Big[\tfrac{y^3}{3}\Big]_{h/2-t}^{h/2} + \sigma\,w\Big[\tfrac{y^3}{3}\Big]_{-h/2}^{-(h/2-t)} + \sigma\,t\Big[\tfrac{y^3}{3}\Big]_{-(h/2-t)}^{h/2-t} \quad &\text{(top bar, bottom bar, stem; the $x$ integrals give $w$, $w$, $t$)} \\
+> &= \tfrac{\sigma w}{3}\Big[\tfrac{h^3}{8} - \big(\tfrac h2 - t\big)^3\Big] + \tfrac{\sigma w}{3}\Big[-\big(\tfrac h2 - t\big)^3 + \tfrac{h^3}{8}\Big] + \tfrac{\sigma t}{3}\,2\big(\tfrac h2 - t\big)^3 \quad &\text{(Barrow's rule, both limits each time)} \\
+> &= \tfrac{\sigma}{3}\Big[\tfrac{w\,h^3}{4} - 2\,(w - t)\big(\tfrac h2 - t\big)^3\Big] \quad &\text{(collect the terms)} \\
+> &= \tfrac{\sigma}{12}\big[w\,h^3 - (w - t)(h - 2t)^3\big] \quad &\text{(the cube of half of $h-2t$ is the cube of $h-2t$ over 8)} \\
+> I_{Gy} &= \sigma\int x^2\,dA \quad &\text{(Eq. 10.11 with zero third coordinate)} \\
+> &= 2\,\sigma\,t\Big[\tfrac{x^3}{3}\Big]_{-w/2}^{w/2} + \sigma\,(h-2t)\Big[\tfrac{x^3}{3}\Big]_{-t/2}^{t/2} \quad &\text{(the $y$ integrals give $t$, $t$ and $h-2t$)} \\
+> &= 2\,\sigma\,t\,\tfrac{w^3}{12} + \sigma\,(h-2t)\,\tfrac{t^3}{12} \quad &\text{(Barrow's rule: each bracket is twice the cube of the half width over 3)} \\
+> &= \tfrac{\sigma}{12}\big[2\,t\,w^3 + (h-2t)\,t^3\big] \quad &\text{(common factor)}
+> \end{aligned}$$
+>
+> $$\boxed{I_{Gx}^{I} = \frac{\sigma}{12}\big[w\,h^3 - (w-t)(h-2t)^3\big], \qquad I_{Gy}^{I} = \frac{\sigma}{12}\big[2\,t\,w^3 + (h-2t)\,t^3\big]}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^{-2}][\mathrm L^4] = [\mathrm M\,\mathrm L^2]$
+> **Meaning:** about $Gx$ the I behaves as the full rectangle $w$ by $h$ minus the two empty rectangles beside the stem, of total width $w-t$ and height $h-2t$; the bars, far from the axis, carry most of the moment, which is why I-beams resist bending so well.
+
+> [!derivation] Products of inertia of the I
+> **Law:** a product of inertia vanishes when one of its planes is a plane of symmetry
+> **Source:** Notes.pdf, Eq. 10.15; Notes.pdf, Sec. 10.4
+>
+> $$\begin{aligned}
+> P^G_{xy,xz} &= \int z\,y\,dm = 0 \quad &\text{(zero third coordinate)} \\
+> P^G_{xy,yz} &= \int z\,x\,dm = 0 \quad &\text{(zero third coordinate)} \\
+> P^G_{xz,yz} &= \sigma\int x\,y\,dA = 0 \quad &\text{(each rectangle is symmetric in $x$: $\int x\,dx$ between opposite limits is zero)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G^{I} = \begin{bmatrix} I_{Gx}^{I} & 0 & 0 \cr 0 & I_{Gy}^{I} & 0 \cr 0 & 0 & I_{Gx}^{I} + I_{Gy}^{I} \end{bmatrix}, \qquad P^G_{xz,yz} = 0}$$
+>
+> **Units:** every element in $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** both planes $Gxz$ and $Gyz$ are planes of symmetry of the I; either of them alone is enough to cancel the product $P_{xz,yz}$.
+
+#### Shape C
+
+The C is the union of three rectangles in $S_{O'}$: the top bar (abscissa between 0 and $w$, ordinate between half of $h$ minus $t$ and half of $h$), the bottom bar (its mirror image in the plane $O'xz$) and the back (abscissa between 0 and $t$, ordinate between minus and plus the quantity half of $h$ minus $t$).
+
+![[attachments/EM-SOL/rb04-c-shape.svg]]
+
+> [!derivation] Area and centre of mass of the C
+> **Law:** total mass and first moment of the mass distribution; the centre of mass lies on a plane of symmetry
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.7; Notes.pdf, Eq. 10.8; Notes.pdf, Sec. 10.3; Problems.pdf, p. 38
+>
+> $$\begin{aligned}
+> A_C &= 2\,\big[x\big]_0^{w}\big[y\big]_{h/2-t}^{h/2} + \big[x\big]_0^{t}\big[y\big]_{-(h/2-t)}^{h/2-t} \quad &\text{(two bars and the back; antiderivative of 1)} \\
+> &= 2\,w\,t + t\,(h-2t) \quad &\text{(Barrow's rule, both limits)} \\
+> m &= \sigma\,t\,(2w + h - 2t) \quad &\text{(Eq. 10.6 with constant $\sigma$)} \\
+> y_G &= 0 \quad &\text{(the plane $O'xz$ is a plane of symmetry of the C, Sec. 10.3)} \\
+> m\,x_G &= 2\,\sigma\,t\int_0^{w} x\,dx + \sigma\,(h-2t)\int_0^{t} x\,dx \quad &\text{(first moment, Eq. 10.7; the $y$ integrals give $t$, $t$ and $h-2t$)} \\
+> &= 2\,\sigma\,t\Big[\tfrac{x^2}{2}\Big]_0^{w} + \sigma\,(h-2t)\Big[\tfrac{x^2}{2}\Big]_0^{t} \quad &\text{(antiderivative of $x$)} \\
+> &= \sigma\,t\,w^2 + \sigma\,(h-2t)\,\tfrac{t^2}{2} \quad &\text{(Barrow's rule, lower limit zero)} \\
+> x_G &= \frac{2\,w^2 + t\,(h-2t)}{2\,(2w + h - 2t)} \quad &\text{(divide by the mass; $\sigma\,t$ cancels)}
+> \end{aligned}$$
+>
+> $$\boxed{A_C = 2\,w\,t + t\,(h-2t), \qquad m = \sigma\,t\,(2w+h-2t), \qquad \mathbf r_{O'}^G = \frac{2\,w^2 + t\,(h-2t)}{2\,(2w+h-2t)}\,\mathbf i}$$
+>
+> **Units:** $x_G$ is $[\mathrm L^2]/[\mathrm L] = [\mathrm L]$
+> **Meaning:** $G$ is on the horizontal symmetry line, between the back and the middle of the bars; it does not lie on the plate when the bars are thin and long.
+
+> [!derivation] Moments of inertia of the C about Gx and Gy
+> **Law:** moment of inertia about a coordinate axis; Steiner's theorem for the parallel axis
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.48; Notes.pdf, Sec. 10.8
+>
+> The ordinate of $G$ is zero, so the axis $Gx$ is the same line as $O'x$.
+>
+> $$\begin{aligned}
+> I_{Gx} &= \sigma\,w\Big[\tfrac{y^3}{3}\Big]_{h/2-t}^{h/2} + \sigma\,w\Big[\tfrac{y^3}{3}\Big]_{-h/2}^{-(h/2-t)} + \sigma\,t\Big[\tfrac{y^3}{3}\Big]_{-(h/2-t)}^{h/2-t} \quad &\text{(Eq. 10.11; the $x$ integrals give $w$, $w$, $t$)} \\
+> &= \tfrac{\sigma}{12}\big[w\,h^3 - (w-t)(h-2t)^3\big] \quad &\text{(Barrow's rule and the same collection of terms as for the I)} \\
+> I_{O'y} &= 2\,\sigma\,t\Big[\tfrac{x^3}{3}\Big]_0^{w} + \sigma\,(h-2t)\Big[\tfrac{x^3}{3}\Big]_0^{t} \quad &\text{(Eq. 10.11 about $O'y$; the $y$ integrals give $t$, $t$, $h-2t$)} \\
+> &= \tfrac{\sigma}{3}\big[2\,t\,w^3 + (h-2t)\,t^3\big] \quad &\text{(Barrow's rule, lower limit zero)} \\
+> I_{Gy} &= I_{O'y} - m\,x_G^2 \quad &\text{(Steiner: the axes $O'y$ and $Gy$ are parallel, at the distance $x_G$)} \\
+> &= \tfrac{\sigma t}{3}\big[2\,w^3 + (h-2t)\,t^2\big] - \sigma\,t\,(2w+h-2t)\,\frac{\big[2w^2 + t(h-2t)\big]^2}{4\,(2w+h-2t)^2} \quad &\text{(substitute the mass and the abscissa of $G$)} \\
+> &= \sigma\,t\,\frac{4\,(2w+h-2t)\big[2w^3 + (h-2t)t^2\big] - 3\big[2w^2 + t(h-2t)\big]^2}{12\,(2w+h-2t)} \quad &\text{(common denominator)} \\
+> &= \sigma\,t\,\frac{4w^4 + 8(h-2t)w^3 - 12(h-2t)w^2t + 8(h-2t)wt^2 + (h-2t)^2t^2}{12\,(2w+h-2t)} \quad &\text{(expand and collect)}
+> \end{aligned}$$
+>
+> $$\boxed{I_{Gx}^{C} = \frac{\sigma}{12}\big[w\,h^3 - (w-t)(h-2t)^3\big], \qquad I_{Gy}^{C} = \frac{\sigma}{3}\big[2\,t\,w^3 + (h-2t)\,t^3\big] - m\,x_G^2}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$ in every term
+> **Meaning:** about the horizontal axis the C equals the I: sliding a bar sideways does not change any ordinate, and $I_{Gx}$ depends only on the ordinates. About the vertical axis the C is less compact than the I, because its bars sit on one side of the back instead of being centred on it.
+
+> [!derivation] Products of inertia of the C
+> **Law:** a product of inertia vanishes when one of its planes is a plane of symmetry; Steiner's theorem for products
+> **Source:** Notes.pdf, Eq. 10.15; Notes.pdf, Sec. 10.4; Notes.pdf, Eq. 10.48
+>
+> $$\begin{aligned}
+> P^G_{xy,xz} &= \int z\,y\,dm = 0 \quad &\text{(zero third coordinate)} \\
+> P^G_{xy,yz} &= \int z\,(x - x_G)\,dm = 0 \quad &\text{(zero third coordinate)} \\
+> P^G_{xz,yz} &= \sigma\int (x - x_G)\,y\,dA \quad &\text{(Eq. 10.15 in $S_G$)} \\
+> \int_{h/2-t}^{h/2} y\,dy + \int_{-h/2}^{-(h/2-t)} y\,dy &= \Big[\tfrac{y^2}{2}\Big]_{h/2-t}^{h/2} + \Big[\tfrac{y^2}{2}\Big]_{-h/2}^{-(h/2-t)} = 0 \quad &\text{(Barrow: the two brackets are opposite; the bars share the same $x$ integral)} \\
+> \int_{-(h/2-t)}^{h/2-t} y\,dy &= 0 \quad &\text{(back: symmetric limits)} \\
+> P^G_{xz,yz} &= 0 \quad &\text{(sum of the three rectangles)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G^{C} = \begin{bmatrix} I_{Gx}^{C} & 0 & 0 \cr 0 & I_{Gy}^{C} & 0 \cr 0 & 0 & I_{Gx}^{C} + I_{Gy}^{C} \end{bmatrix}, \qquad P^G_{xz,yz} = 0}$$
+>
+> **Units:** every element in $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** for the C the plane of symmetry is $Gxz$ (each point at ordinate $y$ has a twin at $-y$), not $Gyz$; one plane of symmetry is enough to cancel $P_{xz,yz}$. The product with respect to $O'$ is also zero, because the Steiner correction is the mass times the product of the two coordinates of $G$ and the ordinate of $G$ is zero.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+This section does not apply: the plates are not moving, and only their mass geometry is asked.
+
+### Free-Body Diagram and Equations of Motion
+
+This section does not apply: no force acts in the statement and no equation of motion is written.
+
+### Answers and Checks
+
+| Asked | T | I | C |
+| :--- | :--- | :--- | :--- |
+| Area | $t(w+h-t)$ | $2wt + t(h-2t)$ | $2wt + t(h-2t)$ |
+| Centre of mass | on the symmetry line, at $\frac{wt-(h-t)^2}{2(w+h-t)}$ above the lower edge of the top bar | centre of the letter | on the symmetry line, at $\frac{2w^2+t(h-2t)}{2(2w+h-2t)}$ from the back |
+| $I_{Gx}$ | $\frac{\sigma}{3}[wt^3+t(h-t)^3] - m y_G^2$ | $\frac{\sigma}{12}[wh^3-(w-t)(h-2t)^3]$ | $\frac{\sigma}{12}[wh^3-(w-t)(h-2t)^3]$ |
+| $I_{Gy}$ | $\frac{\sigma t}{12}[w^3+(h-t)t^2]$ | $\frac{\sigma}{12}[2tw^3+(h-2t)t^3]$ | $\frac{\sigma}{3}[2tw^3+(h-2t)t^3] - m x_G^2$ |
+| $P_{xz,yz}$ | 0 (plane $Gyz$ of symmetry) | 0 (planes $Gxz$ and $Gyz$ of symmetry) | 0 (plane $Gxz$ of symmetry) |
+
+The masses are $\sigma$ times the areas; the moments about $Gz$ are the sums of the moments about $Gx$ and $Gy$, and all the products of inertia vanish, so $Gx$, $Gy$, $Gz$ are principal axes of each plate. The product of inertia can be inferred from the geometry without any integral: each letter has a symmetry line in its plane, and the plane through that line normal to the plate is one of the two planes of $P_{xz,yz}$.
+
+**Check against the official key:** the key (Problems.pdf, p. 77) uses the same auxiliary frame for the T (vertical axis on the symmetry line, horizontal axis on the lower edge of the top bar). It prints the same position of $G$, the moment about $Gx$ as one third of $\sigma$ times the bracket with $w\,t^3$ and $(h-t)^3\,t$ minus $m\,r^2$, with $r$ the opposite of the ordinate of $G$ (the square removes the sign, so this is the Steiner line of the box above), the same moment about $Gy$, and a zero product of inertia. All four coincide with the results above. The key prints nothing for the I and the C, which are checked below.
+
+**Limiting cases and consistency:**
+
+> [!derivation] Check: the letters collapse into one rectangle, and thin walls
+> **Law:** moments of inertia of the limiting shapes, from the results above
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.24; Notes.pdf, Eq. 10.25
+>
+> With bars as long as they are thick, each letter becomes one rectangle of width $t$ and height $h$, centred at its middle.
+>
+> $$\begin{aligned}
+> y_G^{T}\big|_{w=t} &= \frac{t^2 - (h-t)^2}{2h} = t - \tfrac h2 \quad &\text{(difference of squares; this is the middle of the rectangle from $-(h-t)$ to $t$)} \\
+> I_{Gx}^{T}\big|_{w=t} &= \frac{\sigma\,t\,\big[(h-t) + t\big]^4}{12\,h} = \frac{\sigma\,t\,h^3}{12} \quad &\text{(the numerator becomes the binomial expansion of the fourth power)} \\
+> I_{Gx}^{I}\big|_{w=t} &= I_{Gx}^{C}\big|_{w=t} = \frac{\sigma\,t\,h^3}{12} \quad &\text{(the bracket with $w-t$ vanishes)} \\
+> I_{Gy}^{T}\big|_{w=t} &= I_{Gy}^{I}\big|_{w=t} = \frac{\sigma\,h\,t^3}{12} \quad &\text{(substitute and add)} \\
+> x_G^{C}\big|_{w=t} &= \frac{2t^2 + th - 2t^2}{2h} = \frac t2, \qquad I_{Gy}^{C}\big|_{w=t} = \frac{\sigma\,t\,t^2h^2}{12\,h} = \frac{\sigma\,h\,t^3}{12} \quad &\text{(the numerator becomes the square of $t(2t + h - 2t)$)} \\
+> I_{Gx}^{I} &\approx \frac{\sigma\,t\,h^3}{12} + 2\,(\sigma\,w\,t)\Big(\frac h2\Big)^2 \quad &\text{(thin walls: keep the terms linear in $t$; stem plus two bars at the distance half of $h$)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{all three letters give } \frac{\sigma\,t\,h^3}{12} \text{ and } \frac{\sigma\,h\,t^3}{12} \text{ when } w \to t}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** the limits are the central moments of a rectangle (the form of Eqs. 10.25 and 10.26 of the notes, with mass $\sigma t h$), so the three general results are consistent; in the thin-walled I the bars act as two point masses at the distance half of $h$ from the axis, plus the stem as a slender bar.
+
+* **Equal moments about the horizontal axis.** The I and the C have the same moment about $Gx$, as they must: they differ only by a horizontal shift of the bars.
+* **Ordering about the vertical axis.** The moment of the C about $Gy$ is larger than that of the I with the same dimensions, because its mass is spread on one side of the back. Subtracting the two closed forms (checked with a computer algebra system) leaves $\sigma$ times $t\,w\,(h-2t)(w-t)^2$ over twice $(2w+h-2t)$, which is positive and vanishes for bars as long as they are thick, where both letters become the same rectangle.
+* **Dimensions.** Areas in m², positions in m, moments of inertia in kg·m² (surface density times the fourth power of a length).
+
+---
+
+## Problem RB-05: Moments of inertia (3D shapes a-j)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** ten homogeneous rigid bodies. Bodies with volume have uniform density $\rho$ (kg/m³); the thin disk, the semicircular plate and the flat sheet are modelled as plates of uniform surface density $\sigma$ (kg/m²), the slender bar and the wire as lines of uniform linear density $\lambda$ (kg/m). Each density is replaced by the mass at the end of its calculation.
+* **Frames:** each body has its central frame $S_G$, with origin at its centre of mass $G$ and the right-handed basis $\{\mathbf i, \mathbf j, \mathbf k\}$ along the axes $x$, $y$, $z$ of the statement figures, so that the tensors are written in the same axes as the official key. Where $G$ is not the natural origin of the integral, an auxiliary frame $S_O$ (or $S_V$, $S_A$) parallel to $S_G$ is used and the result is translated to $G$ with Steiner's theorem.
+* **Degrees of freedom:** each body is a rigid body with six degrees of freedom, but no motion is involved: only mass properties are asked.
+* **Coordinates and volume elements:** Cartesian, cylindrical or the spherical coordinates of the notes (radius $r$, longitude $\theta$ measured in a coordinate plane, latitude $\varphi$ measured from that plane), with the jacobians of Eq. 10.5 of the notes.
+
+| Part | Body | Axes (read from the figures) | Auxiliary origin |
+| :--- | :--- | :--- | :--- |
+| (a) | slender bar, length $L$, cross-section $A$ negligible | $x$ along the bar | none |
+| (b) | cylinder, radius $R$, length $L$ | $z$ along the axis of the cylinder; $x$, $y$ in the middle cross-section | none |
+| (c) | rectangular parallelepiped, edges $a$, $b$, $c$ | edge $a$ parallel to $x$, $b$ parallel to $y$, $c$ parallel to $z$ | none |
+| (d) | sphere, radius $R$ | any three orthogonal axes through the centre | none |
+| (e) | hemisphere, radius $R$ | flat face horizontal; $z$ normal to it, pointing from the face into the body (downwards in the figure) | $O$: centre of the flat face, $G$ at $3R/8$ from it |
+| (f) | right circular cone, base radius $R$, height $L$ | $x$ along the axis, pointing from the apex towards the base | $V$: the apex, $G$ at $3L/4$ from it |
+| (g) | thin disk, radius $R$, thickness $h \ll R$ | $z$ along the axis; $x$, $y$ in the mid-plane | none |
+| (h) | semicircular plate, radius $R$, thickness $h \ll R$ | $z$ normal to the plate; diameter parallel to $y$; $x$ along the symmetry axis, pointing from the diameter towards the arc | $O$: centre of the diameter, $G$ at $4R/(3\pi)$ from it |
+| (i) | semicircular wire, radius $R$, cross-section $A$ negligible | $z$ normal to the plane of the arc; $x$ parallel to the diameter through the two ends; $y$ along the symmetry axis, towards the arc | $O$: centre of the circle, $G$ at $2R/\pi$ from it |
+| (j) | flat sheet, length $L$, width $w$ (no figure) | $x$ along the edge of length $L$, $y$ along the edge of width $w$, $z$ normal to the sheet | $A$: the vertex where those two edges meet |
+
+* **Unknowns:** the tensor of inertia $\bar{\bar I}_G$ of each body in its central frame (Eq. 10.38 of the notes: moments on the diagonal, minus the products off the diagonal); for (j) also the tensor $\bar{\bar I}_A$ at the vertex.
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+No rotation of the basis is needed: each auxiliary frame is parallel to the central frame of its body. The only operation between frames is a translation of the origin by the position vector of $G$, handled with Steiner's theorem, written once here in components.
+
+> [!derivation] Steiner's theorem in components for a translation of the origin
+> **Law:** Steiner's theorem; components of the tensor of inertia
+> **Source:** Notes.pdf, Eq. 10.48; Notes.pdf, Eq. 10.36; Notes.pdf, Eq. 10.37; Notes.pdf, Eq. 10.38
+>
+> Let the centre of mass have the position vector $\mathbf r_O^G$ with components $x_G$, $y_G$, $z_G$ in the auxiliary frame with origin $O$.
+>
+> $$\begin{aligned}
+> \bar{\bar I}_O &= \bar{\bar I}_G + m\left[(\mathbf r_O^G)^2\,U - \mathbf r_O^G\otimes\mathbf r_O^G\right] \quad &\text{(Steiner's theorem, Eq. 10.48; both tensors in the same basis)} \\
+> (\mathbf r_O^G)^2\,U &= (x_G^2 + y_G^2 + z_G^2)\begin{bmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(squared modulus times the unit tensor, Eq. 10.36)} \\
+> \mathbf r_O^G\otimes\mathbf r_O^G &= \begin{bmatrix} x_G^2 & x_Gy_G & x_Gz_G \cr x_Gy_G & y_G^2 & y_Gz_G \cr x_Gz_G & y_Gz_G & z_G^2 \end{bmatrix} \quad &\text{(dyad, Eq. 10.37)} \\
+> (\mathbf r_O^G)^2\,U - \mathbf r_O^G\otimes\mathbf r_O^G &= \begin{bmatrix} y_G^2+z_G^2 & -x_Gy_G & -x_Gz_G \cr -x_Gy_G & x_G^2+z_G^2 & -y_Gz_G \cr -x_Gz_G & -y_Gz_G & x_G^2+y_G^2 \end{bmatrix} \quad &\text{(subtract element by element)} \\
+> I_{Ox} &= I_{Gx} + m\,(y_G^2 + z_G^2) \quad &\text{(element 11, and likewise 22 and 33 with the other two coordinates)} \\
+> P^O_{xz,yz} &= P^G_{xz,yz} + m\,x_G\,y_G \quad &\text{(element 12 is minus the product; likewise for the other pairs)}
+> \end{aligned}$$
+>
+> $$\boxed{I_{Gx} = I_{Ox} - m\,(y_G^2 + z_G^2), \quad I_{Gy} = I_{Oy} - m\,(x_G^2 + z_G^2), \quad I_{Gz} = I_{Oz} - m\,(x_G^2 + y_G^2), \quad P^G_{xz,yz} = P^O_{xz,yz} - m\,x_G\,y_G}$$
+>
+> **Units:** every term in $[\mathrm M\,\mathrm L^2]$, kg·m²
+> **Meaning:** each moment changes by the mass times the squared distance between the two parallel axes (the distance from $G$ to the axis through $O$); an axis that contains both $O$ and $G$ keeps its moment. When $G$ lies on one coordinate axis of the auxiliary frame, every Steiner correction of the products vanishes.
+
+### Center of Mass and Inertia Tensor
+
+For every body, the products of inertia are found from the planes of symmetry: by Sec. 10.4 of the notes, a product of inertia vanishes whenever one of its two planes is a plane of symmetry of the body. The three products are $P_{xy,xz}$, $P_{xy,yz}$ and $P_{xz,yz}$ (Eq. 10.15).
+
+#### Part (a): slender bar
+
+![[attachments/EM-SOL/rb05-a-bar.svg]]
+
+> [!derivation] Inertia tensor of the slender bar
+> **Law:** total mass, moments of inertia about the coordinate axes, line density
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.15; Notes.pdf, Sec. 10.4; Problems.pdf, p. 38
+>
+> The bar occupies the segment of the axis $x$ between minus and plus half of $L$; its section is negligible, so every point has zero $y$ and $z$ and the mass element is $\lambda\,dx$, with $\lambda$ equal to $\rho A$.
+>
+> $$\begin{aligned}
+> m &= \int_{-L/2}^{L/2} \lambda\,dx = \lambda\big[x\big]_{-L/2}^{L/2} = \lambda\Big(\tfrac L2 + \tfrac L2\Big) = \lambda\,L \quad &\text{(Eq. 10.6, antiderivative of 1 and Barrow's rule)} \\
+> \lambda &= \frac mL \quad &\text{(solve for the density)} \\
+> x_G &= 0 \quad &\text{(the plane $x$ equal to zero bisects the bar and is a plane of symmetry, Sec. 10.3)} \\
+> I_{Gx} &= \int (y^2 + z^2)\,dm = 0 \quad &\text{(Eq. 10.11; every point of the bar has zero $y$ and $z$)} \\
+> I_{Gy} &= \int (x^2 + z^2)\,dm = \lambda\int_{-L/2}^{L/2} x^2\,dx \quad &\text{(Eq. 10.11 with zero $z$)} \\
+> &= \lambda\Big[\tfrac{x^3}{3}\Big]_{-L/2}^{L/2} \quad &\text{(antiderivative of $x^2$)} \\
+> &= \lambda\Big(\tfrac{L^3}{24} + \tfrac{L^3}{24}\Big) = \frac{\lambda\,L^3}{12} \quad &\text{(Barrow's rule, both limits)} \\
+> &= \frac{m\,L^2}{12} \quad &\text{(substitute the density)} \\
+> I_{Gz} &= \int (x^2 + y^2)\,dm = \frac{m\,L^2}{12} \quad &\text{(same integral, since $y$ is zero as $z$ was)} \\
+> P_{xy,xz} &= \int z\,y\,dm = 0, \quad P_{xy,yz} = \int z\,x\,dm = 0, \quad P_{xz,yz} = \int y\,x\,dm = 0 \quad &\text{(Eq. 10.15: each integrand has the factor $y$ or $z$)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac{m\,L^2}{12}\begin{bmatrix} 0 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** all the mass is on the axis $x$, so it has no moment about that axis; about any transverse axis through $G$ the bar has the same moment, one twelfth of the mass times the squared length.
+
+#### Part (b): cylinder
+
+![[attachments/EM-SOL/rb05-b-cylinder.svg]]
+
+> [!derivation] Mass and moment of the cylinder about its axis
+> **Law:** total mass and moment of inertia in cylindrical coordinates
+> **Source:** Notes.pdf, Eq. 10.5; Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.11; Problems.pdf, p. 38
+>
+> Cylindrical coordinates about $z$: the abscissa is $r\cos\theta$ and the ordinate $r\sin\theta$, with $r$ from 0 to $R$, $\theta$ from 0 to $2\pi$ and $z$ from minus to plus half of $L$; the volume element is $r\,dr\,d\theta\,dz$ (jacobian $r$, Eq. 10.5). The limits are constant, so each triple integral is the product of three simple integrals.
+>
+> $$\begin{aligned}
+> m &= \rho\int_{-L/2}^{L/2}\!\int_0^{2\pi}\!\int_0^{R} r\,dr\,d\theta\,dz \quad &\text{(Eq. 10.6 with $dm = \rho\,dV$)} \\
+> &= \rho\Big[\tfrac{r^2}{2}\Big]_0^{R}\big[\theta\big]_0^{2\pi}\big[z\big]_{-L/2}^{L/2} \quad &\text{(antiderivatives)} \\
+> &= \rho\,\tfrac{R^2}{2}\,(2\pi)\,L = \rho\,\pi\,R^2L \quad &\text{(Barrow's rule, both limits each time)} \\
+> I_{Gz} &= \rho\int (x^2 + y^2)\,r\,dr\,d\theta\,dz = \rho\int_{-L/2}^{L/2}\!\int_0^{2\pi}\!\int_0^{R} r^3\,dr\,d\theta\,dz \quad &\text{(Eq. 10.11; $x^2 + y^2$ equals $r^2(\cos^2\theta + \sin^2\theta) = r^2$)} \\
+> &= \rho\Big[\tfrac{r^4}{4}\Big]_0^{R}(2\pi)\,L = \frac{\rho\,\pi\,R^4L}{2} \quad &\text{(antiderivative of $r^3$ and Barrow's rule)} \\
+> &= \frac{m\,R^2}{2} \quad &\text{(divide by the mass and multiply by it)}
+> \end{aligned}$$
+>
+> $$\boxed{m = \rho\,\pi\,R^2L, \qquad I_{Gz} = \frac{m\,R^2}{2}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^{-3}][\mathrm L^5] = [\mathrm M\,\mathrm L^2]$
+> **Meaning:** the moment about the axis depends only on the distances to the axis, so it does not depend on the length; it is half that of a thin ring of the same mass and radius, since much of the mass is close to the axis.
+
+> [!derivation] Transverse moments and products of the cylinder
+> **Law:** moments of inertia about the coordinate axes; vanishing products for planes of symmetry
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.15; Notes.pdf, Sec. 10.4
+>
+> $$\begin{aligned}
+> \int y^2\,dm &= \rho\int_{-L/2}^{L/2}\!\int_0^{2\pi}\!\int_0^{R} r^3\sin^2\theta\,dr\,d\theta\,dz \quad &\text{(ordinate $r\sin\theta$, element $r\,dr\,d\theta\,dz$)} \\
+> \int_0^{2\pi}\sin^2\theta\,d\theta &= \Big[\tfrac{\theta}{2} - \tfrac{\sin 2\theta}{4}\Big]_0^{2\pi} = \pi - 0 = \pi \quad &\text{(identity $\sin^2\theta = (1 - \cos 2\theta)/2$, antiderivative and Barrow)} \\
+> \int y^2\,dm &= \rho\,\tfrac{R^4}{4}\,\pi\,L = \frac{m\,R^2}{4} \quad &\text{(the $r$ and $z$ integrals give $R^4/4$ and $L$; substitute the mass)} \\
+> \int x^2\,dm &= \rho\,\tfrac{R^4}{4}\Big[\tfrac{\theta}{2} + \tfrac{\sin 2\theta}{4}\Big]_0^{2\pi} L = \frac{m\,R^2}{4} \quad &\text{(same with $\cos^2\theta = (1 + \cos 2\theta)/2$; the bracket is again $\pi$)} \\
+> \int z^2\,dm &= \rho\Big[\tfrac{r^2}{2}\Big]_0^{R}(2\pi)\Big[\tfrac{z^3}{3}\Big]_{-L/2}^{L/2} \quad &\text{(antiderivatives)} \\
+> &= \rho\,\tfrac{R^2}{2}\,(2\pi)\Big(\tfrac{L^3}{24} + \tfrac{L^3}{24}\Big) = \frac{\rho\,\pi\,R^2L^3}{12} = \frac{m\,L^2}{12} \quad &\text{(Barrow's rule and the mass)} \\
+> I_{Gx} &= \int y^2\,dm + \int z^2\,dm = \frac{m}{12}\,(3R^2 + L^2) \quad &\text{(Eq. 10.11)} \\
+> I_{Gy} &= \int x^2\,dm + \int z^2\,dm = \frac{m}{12}\,(3R^2 + L^2) \quad &\text{(Eq. 10.11)} \\
+> P_{xy,xz} &= P_{xy,yz} = P_{xz,yz} = 0 \quad &\text{(the planes $Gxy$, $Gxz$, $Gyz$ are planes of symmetry, Sec. 10.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac{m}{12}\begin{bmatrix} 3R^2 + L^2 & 0 & 0 \cr 0 & 3R^2 + L^2 & 0 \cr 0 & 0 & 6R^2 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$ in every element
+> **Meaning:** a transverse moment adds the spread across the axis (a quarter of the mass times the squared radius) and the spread along it (one twelfth of the mass times the squared length). Each plane through $G$ normal to an axis maps the cylinder onto itself, so every product contains a plane of symmetry.
+
+#### Part (c): rectangular parallelepiped
+
+![[attachments/EM-SOL/rb05-c-box.svg]]
+
+> [!derivation] Inertia tensor of the rectangular parallelepiped
+> **Law:** moments of inertia with respect to the coordinate planes and axes; vanishing products for planes of symmetry
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.12; Notes.pdf, Sec. 10.4; Problems.pdf, p. 38
+>
+> Cartesian coordinates with volume element $dx\,dy\,dz$ (jacobian 1) and limits plus and minus half of $a$, $b$, $c$ for $x$, $y$, $z$. The moments with respect to the coordinate planes (Eq. 10.12) are found first.
+>
+> $$\begin{aligned}
+> m &= \rho\big[x\big]_{-a/2}^{a/2}\big[y\big]_{-b/2}^{b/2}\big[z\big]_{-c/2}^{c/2} = \rho\,a\,b\,c \quad &\text{(Eq. 10.6, antiderivative of 1 and Barrow's rule)} \\
+> \int x^2\,dm &= \rho\Big[\tfrac{x^3}{3}\Big]_{-a/2}^{a/2}\,b\,c = \rho\Big(\tfrac{a^3}{24} + \tfrac{a^3}{24}\Big)b\,c \quad &\text{(the $y$ and $z$ integrals give $b$ and $c$; Barrow's rule)} \\
+> &= \frac{\rho\,a^3\,b\,c}{12} = \frac{m\,a^2}{12} \quad &\text{(add and substitute the mass)} \\
+> \int y^2\,dm &= \frac{m\,b^2}{12}, \qquad \int z^2\,dm = \frac{m\,c^2}{12} \quad &\text{(same integral with $b$ or $c$ in place of $a$)} \\
+> I_{Gx} &= \int (y^2 + z^2)\,dm = \frac{m}{12}\,(b^2 + c^2) \quad &\text{(Eq. 10.11)} \\
+> I_{Gy} &= \int (x^2 + z^2)\,dm = \frac{m}{12}\,(a^2 + c^2) \quad &\text{(Eq. 10.11)} \\
+> I_{Gz} &= \int (x^2 + y^2)\,dm = \frac{m}{12}\,(a^2 + b^2) \quad &\text{(Eq. 10.11)} \\
+> P_{xy,xz} &= P_{xy,yz} = P_{xz,yz} = 0 \quad &\text{(the three coordinate planes through $G$ are planes of symmetry, Sec. 10.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac{m}{12}\begin{bmatrix} b^2 + c^2 & 0 & 0 \cr 0 & a^2 + c^2 & 0 \cr 0 & 0 & a^2 + b^2 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** the moment about each axis involves only the two edges perpendicular to it; the edge along the axis does not matter.
+
+#### Part (d): sphere
+
+![[attachments/EM-SOL/rb05-d-sphere.svg]]
+
+> [!derivation] Inertia tensor of the sphere
+> **Law:** total mass and moments of inertia in spherical coordinates; polar moment and Eq. 10.13 as a check
+> **Source:** Notes.pdf, Eq. 10.5; Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.10; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.13; Notes.pdf, Sec. 10.4; Problems.pdf, p. 38
+>
+> Spherical coordinates of the notes: the coordinates of a point are $r\cos\varphi\cos\theta$, $r\cos\varphi\sin\theta$ and $r\sin\varphi$, with $r$ from 0 to $R$, longitude $\theta$ from 0 to $2\pi$ and latitude $\varphi$ from minus to plus half of $\pi$; the volume element is $r^2\cos\varphi\,dr\,d\theta\,d\varphi$ (Eq. 10.5). The latitude integrals use the substitution $u$ equal to $\sin\varphi$, with $du$ equal to $\cos\varphi\,d\varphi$, which carries the limits to minus 1 and plus 1.
+>
+> $$\begin{aligned}
+> m &= \rho\Big[\tfrac{r^3}{3}\Big]_0^{R}\big[\theta\big]_0^{2\pi}\big[\sin\varphi\big]_{-\pi/2}^{\pi/2} = \rho\,\tfrac{R^3}{3}\,(2\pi)\,(1+1) = \tfrac43\,\rho\,\pi\,R^3 \quad &\text{(Eq. 10.6; antiderivatives and Barrow's rule)} \\
+> I_{Gz} &= \rho\int (x^2 + y^2)\,r^2\cos\varphi\,dr\,d\theta\,d\varphi = \rho\int_0^{R} r^4\,dr\int_0^{2\pi} d\theta\int_{-\pi/2}^{\pi/2}\cos^3\varphi\,d\varphi \quad &\text{(Eq. 10.11; $x^2+y^2$ equals $r^2\cos^2\varphi$)} \\
+> \int_{-\pi/2}^{\pi/2}\cos^3\varphi\,d\varphi &= \int_{-1}^{1}(1 - u^2)\,du = \Big[u - \tfrac{u^3}{3}\Big]_{-1}^{1} = \tfrac23 + \tfrac23 = \tfrac43 \quad &\text{(substitution: $\cos^2\varphi = 1 - u^2$; Barrow's rule)} \\
+> I_{Gz} &= \rho\,\tfrac{R^5}{5}\,(2\pi)\,\tfrac43 = \tfrac{8}{15}\,\rho\,\pi\,R^5 = \tfrac25\,m\,R^2 \quad &\text{(antiderivative of $r^4$, Barrow's rule, substitute the mass)} \\
+> I_{Gx} &= I_{Gy} = \tfrac25\,m\,R^2 \quad &\text{(a rotation that carries $z$ onto $x$ or $y$ maps the sphere onto itself)} \\
+> I_G &= \rho\int r^2\,r^2\cos\varphi\,dr\,d\theta\,d\varphi = \rho\,\tfrac{R^5}{5}\,(2\pi)\,(2) = \tfrac35\,m\,R^2 \quad &\text{(check: polar moment, Eq. 10.10)} \\
+> I_{Gx} + I_{Gy} + I_{Gz} &= \tfrac65\,m\,R^2 = 2\,I_G \quad &\text{(Eq. 10.13 holds)} \\
+> P_{xy,xz} &= P_{xy,yz} = P_{xz,yz} = 0 \quad &\text{(every plane through $G$ is a plane of symmetry, Sec. 10.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac{2\,m\,R^2}{5}\begin{bmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^{-3}][\mathrm L^5] = [\mathrm M\,\mathrm L^2]$
+> **Meaning:** the tensor is spherical: every axis through the centre is a principal axis with the same moment, two fifths of the mass times the squared radius.
+
+#### Part (e): hemisphere
+
+![[attachments/EM-SOL/rb05-e-hemisphere.svg]]
+
+> [!derivation] Mass and centre of mass of the hemisphere
+> **Law:** total mass and first moment in spherical coordinates; the centre of mass lies on the planes of symmetry
+> **Source:** Notes.pdf, Eq. 10.5; Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.7; Notes.pdf, Eq. 10.8; Notes.pdf, Sec. 10.3; Problems.pdf, p. 39
+>
+> In the auxiliary frame $S_O$, at the centre of the flat face and parallel to $S_G$, the body is the half of the ball on the side of positive $z$ (the side of the dome, below the face in the figure). In the spherical coordinates of the notes this is the latitude $\varphi$ from 0 to half of $\pi$, with $r$ from 0 to $R$ and $\theta$ from 0 to $2\pi$; the third coordinate is $r\sin\varphi$.
+>
+> $$\begin{aligned}
+> m &= \rho\Big[\tfrac{r^3}{3}\Big]_0^{R}\big[\theta\big]_0^{2\pi}\big[\sin\varphi\big]_0^{\pi/2} = \rho\,\tfrac{R^3}{3}\,(2\pi)\,(1 - 0) = \tfrac23\,\rho\,\pi\,R^3 \quad &\text{(Eq. 10.6; antiderivatives and Barrow's rule)} \\
+> x_G &= y_G = 0 \quad &\text{(the planes $Oxz$ and $Oyz$ are planes of symmetry, Sec. 10.3)} \\
+> m\,z_G &= \rho\int_0^{R} r^3\,dr\int_0^{2\pi} d\theta\int_0^{\pi/2}\sin\varphi\cos\varphi\,d\varphi \quad &\text{(Eq. 10.7: $z\,dV$ is $r\sin\varphi\;r^2\cos\varphi\,dr\,d\theta\,d\varphi$)} \\
+> \int_0^{\pi/2}\sin\varphi\cos\varphi\,d\varphi &= \int_0^{1} u\,du = \Big[\tfrac{u^2}{2}\Big]_0^{1} = \tfrac12 \quad &\text{(substitution $u = \sin\varphi$, $du = \cos\varphi\,d\varphi$, limits 0 and 1)} \\
+> m\,z_G &= \rho\,\tfrac{R^4}{4}\,(2\pi)\,\tfrac12 = \tfrac14\,\rho\,\pi\,R^4 \quad &\text{(antiderivative of $r^3$ and Barrow's rule)} \\
+> z_G &= \frac{\rho\,\pi\,R^4/4}{2\rho\,\pi\,R^3/3} = \frac{3R}{8} \quad &\text{(divide by the mass)}
+> \end{aligned}$$
+>
+> $$\boxed{m = \tfrac23\,\rho\,\pi\,R^3, \qquad \mathbf r_O^G = \frac{3R}{8}\,\mathbf k}$$
+>
+> **Units:** $z_G$ in $[\mathrm M\,\mathrm L][\mathrm M^{-1}] = [\mathrm L]$
+> **Meaning:** $G$ is on the symmetry axis, at three eighths of the radius from the flat face towards the dome, as the figure of the statement shows.
+
+> [!derivation] Inertia tensor of the hemisphere at O and at G
+> **Law:** moments of inertia in spherical coordinates; Steiner's theorem; vanishing products for planes of symmetry
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.12; Notes.pdf, Eq. 10.48; Notes.pdf, Sec. 10.4
+>
+> The latitude integrals use the substitution $u$ equal to $\sin\varphi$ (limits 0 and 1); the longitude integrals of the squared cosine and sine over a full turn are $\pi$, from the identities that write them as one half plus or minus half of the cosine of $2\theta$.
+>
+> $$\begin{aligned}
+> \int z^2\,dm &= \rho\int_0^{R} r^4\,dr\int_0^{2\pi}d\theta\int_0^{\pi/2}\sin^2\varphi\cos\varphi\,d\varphi \quad &\text{(Eq. 10.12: $z^2\,dV$ is $r^2\sin^2\varphi\;r^2\cos\varphi\,dr\,d\theta\,d\varphi$)} \\
+> &= \rho\,\tfrac{R^5}{5}\,(2\pi)\Big[\tfrac{u^3}{3}\Big]_0^{1} = \tfrac{2}{15}\,\rho\,\pi\,R^5 = \tfrac15\,m\,R^2 \quad &\text{(antiderivatives, Barrow's rule, substitute the mass)} \\
+> \int x^2\,dm &= \rho\int_0^{R} r^4\,dr\int_0^{2\pi}\cos^2\theta\,d\theta\int_0^{\pi/2}\cos^3\varphi\,d\varphi \quad &\text{(Eq. 10.12: $x^2$ is $r^2\cos^2\varphi\cos^2\theta$)} \\
+> &= \rho\,\tfrac{R^5}{5}\,\pi\Big[u - \tfrac{u^3}{3}\Big]_0^{1} = \rho\,\tfrac{R^5}{5}\,\pi\,\tfrac23 = \tfrac15\,m\,R^2 \quad &\text{(the longitude integral is $\pi$; Barrow's rule)} \\
+> \int y^2\,dm &= \tfrac15\,m\,R^2 \quad &\text{(same with $\sin^2\theta$, whose integral over a turn is also $\pi$)} \\
+> I_{Ox} &= \int (y^2 + z^2)\,dm = \tfrac25\,m\,R^2, \quad I_{Oy} = \int (x^2 + z^2)\,dm = \tfrac25\,m\,R^2 \quad &\text{(Eq. 10.11)} \\
+> I_{Oz} &= \int (x^2 + y^2)\,dm = \tfrac25\,m\,R^2 \quad &\text{(Eq. 10.11)} \\
+> I_{Gx} &= I_{Ox} - m\,(y_G^2 + z_G^2) = \tfrac25\,m\,R^2 - m\Big(\tfrac{3R}{8}\Big)^2 \quad &\text{(Steiner: $Ox$ and $Gx$ are parallel, at the distance $z_G$)} \\
+> &= \Big(\tfrac25 - \tfrac{9}{64}\Big)m\,R^2 = \tfrac{83}{320}\,m\,R^2 \quad &\text{(common denominator 320)} \\
+> I_{Gy} &= I_{Oy} - m\,(x_G^2 + z_G^2) = \Big(\tfrac25 - \tfrac{9}{64}\Big)m\,R^2 \quad &\text{(Steiner, same distance)} \\
+> I_{Gz} &= I_{Oz} - m\,(x_G^2 + y_G^2) = \tfrac25\,m\,R^2 \quad &\text{(Steiner: $Oz$ and $Gz$ are the same line)} \\
+> P_{xy,xz} &= P_{xy,yz} = P_{xz,yz} = 0 \quad &\text{(each involves $Gxz$ or $Gyz$, planes of symmetry, Sec. 10.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = m\,R^2\begin{bmatrix} \tfrac25 - \tfrac{9}{64} & 0 & 0 \cr 0 & \tfrac25 - \tfrac{9}{64} & 0 \cr 0 & 0 & \tfrac25 \end{bmatrix} = m\,R^2\begin{bmatrix} \tfrac{83}{320} & 0 & 0 \cr 0 & \tfrac{83}{320} & 0 \cr 0 & 0 & \tfrac25 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** at the centre of the flat face every axis has the moment of the full sphere per unit mass, because the missing half would be the mirror image of this one. Moving to $G$ reduces only the two transverse moments; the plane $Gxy$ is not a plane of symmetry, but no product needs it.
+
+#### Part (f): right circular cone
+
+![[attachments/EM-SOL/rb05-f-cone.svg]]
+
+> [!derivation] Mass and centre of mass of the cone
+> **Law:** total mass and first moment in cylindrical coordinates about the axis of the cone; similar triangles for the radius of a section
+> **Source:** Notes.pdf, Eq. 10.5; Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.7; Notes.pdf, Eq. 10.8; Notes.pdf, Sec. 10.3; Problems.pdf, p. 39
+>
+> In the auxiliary frame $S_V$, at the apex and parallel to $S_G$, a point has the coordinates $s$ (distance from the apex along the axis, towards the base), $r\cos\theta$ and $r\sin\theta$; the volume element is $r\,dr\,d\theta\,ds$ (cylindrical coordinates about the axis, Eq. 10.5). The meridian section is a right triangle with the axis $L$ as one leg, the base radius $R$ as the other leg and the slant side as hypotenuse; the section at the distance $s$ cuts a smaller similar triangle with legs $s$ and $R_s$, so the ratio of the legs is the same.
+>
+> $$\begin{aligned}
+> \frac{R_s}{s} &= \frac RL \quad &\text{(similar right triangles: opposite leg over adjacent leg at the apex angle)} \\
+> R_s &= \frac{R\,s}{L} \quad &\text{(upper limit of $r$ at the distance $s$)} \\
+> m &= \rho\int_0^{L}\!\int_0^{2\pi}\!\int_0^{Rs/L} r\,dr\,d\theta\,ds \quad &\text{(Eq. 10.6 with $dm = \rho\,dV$; $r$ runs from the axis to $R_s$)} \\
+> &= \rho\int_0^{L} 2\pi\Big[\tfrac{r^2}{2}\Big]_0^{Rs/L} ds = \rho\,\frac{\pi R^2}{L^2}\int_0^{L} s^2\,ds \quad &\text{(inner integrals: antiderivatives and Barrow's rule)} \\
+> &= \rho\,\frac{\pi R^2}{L^2}\Big[\tfrac{s^3}{3}\Big]_0^{L} = \tfrac13\,\rho\,\pi\,R^2L \quad &\text{(antiderivative of $s^2$ and Barrow's rule)} \\
+> y_G &= z_G = 0 \quad &\text{(the planes $Vxy$ and $Vxz$ contain the axis and are planes of symmetry, Sec. 10.3)} \\
+> m\,s_G &= \rho\int_0^{L} s\,2\pi\Big[\tfrac{r^2}{2}\Big]_0^{Rs/L} ds = \rho\,\frac{\pi R^2}{L^2}\Big[\tfrac{s^4}{4}\Big]_0^{L} = \tfrac14\,\rho\,\pi\,R^2L^2 \quad &\text{(Eq. 10.7, first component; same inner integrals)} \\
+> s_G &= \frac{\rho\,\pi\,R^2L^2/4}{\rho\,\pi\,R^2L/3} = \frac{3L}{4} \quad &\text{(divide by the mass)}
+> \end{aligned}$$
+>
+> $$\boxed{m = \tfrac13\,\rho\,\pi\,R^2L, \qquad \mathbf r_V^G = \frac{3L}{4}\,\mathbf i}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^{-3}][\mathrm L^3] = [\mathrm M]$; $s_G$ in $[\mathrm L]$
+> **Meaning:** most of the volume is near the base, so $G$ is at three quarters of the height from the apex, a quarter from the base, as the figure shows.
+
+> [!derivation] Inertia tensor of the cone at the apex and at G
+> **Law:** moments of inertia about the coordinate axes; Steiner's theorem; vanishing products for planes of symmetry
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.12; Notes.pdf, Eq. 10.48; Notes.pdf, Sec. 10.4
+>
+> $$\begin{aligned}
+> I_{Gx} &= I_{Vx} = \rho\int_0^{L}\!\int_0^{2\pi}\!\int_0^{Rs/L} r^2\,r\,dr\,d\theta\,ds \quad &\text{(Eq. 10.11; the axis $Vx$ contains $G$, so no translation; $y^2+z^2$ is $r^2$)} \\
+> &= \rho\int_0^{L} 2\pi\Big[\tfrac{r^4}{4}\Big]_0^{Rs/L} ds = \rho\,\frac{\pi R^4}{2L^4}\Big[\tfrac{s^5}{5}\Big]_0^{L} \quad &\text{(antiderivatives and Barrow's rule)} \\
+> &= \tfrac{1}{10}\,\rho\,\pi\,R^4L = \tfrac{3}{10}\,m\,R^2 \quad &\text{(substitute the mass)} \\
+> \int s^2\,dm &= \rho\int_0^{L} s^2\,2\pi\Big[\tfrac{r^2}{2}\Big]_0^{Rs/L} ds = \rho\,\frac{\pi R^2}{L^2}\Big[\tfrac{s^5}{5}\Big]_0^{L} = \tfrac15\,\rho\,\pi\,R^2L^3 = \tfrac35\,m\,L^2 \quad &\text{(Eq. 10.12 with respect to the plane through $V$ normal to the axis)} \\
+> \int z^2\,dm &= \rho\int_0^{L}\Big[\tfrac{r^4}{4}\Big]_0^{Rs/L}ds\int_0^{2\pi}\sin^2\theta\,d\theta \quad &\text{(Eq. 10.12: $z^2$ is $r^2\sin^2\theta$)} \\
+> &= \rho\,\frac{R^4}{4L^4}\,\frac{L^5}{5}\Big[\tfrac\theta2 - \tfrac{\sin 2\theta}{4}\Big]_0^{2\pi} = \rho\,\frac{R^4L}{20}\,\pi = \tfrac{3}{20}\,m\,R^2 \quad &\text{(Barrow's rule: the bracket is $\pi$; substitute the mass)} \\
+> \int y^2\,dm &= \tfrac{3}{20}\,m\,R^2 \quad &\text{(same with $\cos^2\theta$; the bracket is again $\pi$)} \\
+> I_{Vy} &= \int (s^2 + z^2)\,dm = \tfrac35\,m\,L^2 + \tfrac{3}{20}\,m\,R^2 \quad &\text{(Eq. 10.11 about the axis through $V$ parallel to $y$)} \\
+> I_{Gy} &= I_{Vy} - m\,(x_G^2 + z_G^2) = \tfrac35\,m\,L^2 + \tfrac{3}{20}\,m\,R^2 - m\Big(\tfrac{3L}{4}\Big)^2 \quad &\text{(Steiner: the axes are parallel, at the distance $3L/4$)} \\
+> &= \Big(\tfrac{48}{80} - \tfrac{45}{80}\Big)m\,L^2 + \tfrac{12}{80}\,m\,R^2 = \tfrac{3m}{80}\,(4R^2 + L^2) \quad &\text{(common denominator 80)} \\
+> I_{Gz} &= I_{Vz} - m\,(x_G^2 + y_G^2) = \tfrac{3m}{80}\,(4R^2 + L^2) \quad &\text{(same steps with $\int y^2\,dm$ in place of $\int z^2\,dm$)} \\
+> P_{xy,xz} &= P_{xy,yz} = P_{xz,yz} = 0 \quad &\text{(each involves $Gxy$ or $Gxz$, which contain the axis and are planes of symmetry, Sec. 10.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac{3m}{80}\begin{bmatrix} 8R^2 & 0 & 0 \cr 0 & 4R^2 + L^2 & 0 \cr 0 & 0 & 4R^2 + L^2 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** about its axis the cone has less inertia than a cylinder of the same mass and radius (three tenths against one half), because its mass gathers near the axis at the apex end. The transverse moment at $G$ is much smaller than at the apex: the large term in the squared height is almost cancelled by Steiner.
+
+#### Part (g): thin disk
+
+![[attachments/EM-SOL/rb05-g-disk.svg]]
+
+> [!derivation] Inertia tensor of the thin disk
+> **Law:** plate model with surface density; moments of inertia in polar coordinates; vanishing products
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.29; Notes.pdf, Sec. 10.4; Problems.pdf, p. 39
+>
+> Since the thickness is much smaller than the radius, the disk is modelled as a plate in the plane $Gxy$ with surface density $\sigma$ equal to $\rho h$; the third coordinate of its points is neglected. Polar coordinates: the abscissa is $r\cos\theta$, the ordinate $r\sin\theta$, $r$ from 0 to $R$, $\theta$ from 0 to $2\pi$, and the area element is $r\,dr\,d\theta$ (jacobian $r$, Eq. 10.29).
+>
+> $$\begin{aligned}
+> m &= \sigma\Big[\tfrac{r^2}{2}\Big]_0^{R}\big[\theta\big]_0^{2\pi} = \sigma\,\pi\,R^2 \quad &\text{(Eq. 10.6; antiderivatives and Barrow's rule)} \\
+> \int y^2\,dm &= \sigma\int_0^{R} r^3\,dr\int_0^{2\pi}\sin^2\theta\,d\theta = \sigma\,\tfrac{R^4}{4}\Big[\tfrac\theta2 - \tfrac{\sin2\theta}{4}\Big]_0^{2\pi} = \sigma\,\tfrac{\pi R^4}{4} = \tfrac14\,m\,R^2 \quad &\text{(ordinate squared times $r\,dr\,d\theta$; Barrow's rule)} \\
+> \int x^2\,dm &= \sigma\,\tfrac{R^4}{4}\Big[\tfrac\theta2 + \tfrac{\sin2\theta}{4}\Big]_0^{2\pi} = \tfrac14\,m\,R^2 \quad &\text{(same with $\cos^2\theta$)} \\
+> I_{Gx} &= \int (y^2 + z^2)\,dm = \tfrac14\,m\,R^2 \quad &\text{(Eq. 10.11 with the third coordinate neglected)} \\
+> I_{Gy} &= \int (x^2 + z^2)\,dm = \tfrac14\,m\,R^2 \quad &\text{(Eq. 10.11)} \\
+> I_{Gz} &= \int (x^2 + y^2)\,dm = \tfrac12\,m\,R^2 \quad &\text{(Eq. 10.11: sum of the two integrals)} \\
+> P_{xy,xz} &= P_{xy,yz} = 0, \quad P_{xz,yz} = 0 \quad &\text{(the plate lies in $Gxy$; and $Gxz$, $Gyz$ are planes of symmetry, Sec. 10.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac{m\,R^2}{4}\begin{bmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 2 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^{-2}][\mathrm L^4] = [\mathrm M\,\mathrm L^2]$
+> **Meaning:** for a flat body the moment about the normal axis is the sum of the two in-plane moments, and the disk's rotational symmetry splits it equally between $Gx$ and $Gy$.
+
+#### Part (h): semicircular plate
+
+![[attachments/EM-SOL/rb05-h-half-plate.svg]]
+
+> [!derivation] Mass and centre of mass of the semicircular plate
+> **Law:** plate model; total mass and first moment in polar coordinates; the centre of mass lies on the plane of symmetry
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.7; Notes.pdf, Eq. 10.8; Notes.pdf, Eq. 10.29; Notes.pdf, Sec. 10.3; Problems.pdf, p. 39
+>
+> Plate of surface density $\sigma$ equal to $\rho h$ in the plane $Oxy$ of the auxiliary frame $S_O$, with $O$ at the centre of the diameter. The half disk on the side of positive $x$ (towards the arc) is described by $r$ from 0 to $R$ and the polar angle $\theta$, measured from $x$, from minus to plus half of $\pi$; abscissa $r\cos\theta$, ordinate $r\sin\theta$, area element $r\,dr\,d\theta$.
+>
+> $$\begin{aligned}
+> m &= \sigma\Big[\tfrac{r^2}{2}\Big]_0^{R}\big[\theta\big]_{-\pi/2}^{\pi/2} = \sigma\,\tfrac{R^2}{2}\,\pi = \tfrac12\,\sigma\,\pi\,R^2 \quad &\text{(Eq. 10.6; antiderivatives and Barrow's rule)} \\
+> y_G &= 0 \quad &\text{(the plane $Oxz$ is a plane of symmetry, Sec. 10.3)} \\
+> m\,x_G &= \sigma\int_0^{R} r^2\,dr\int_{-\pi/2}^{\pi/2}\cos\theta\,d\theta = \sigma\Big[\tfrac{r^3}{3}\Big]_0^{R}\big[\sin\theta\big]_{-\pi/2}^{\pi/2} \quad &\text{(Eq. 10.7: abscissa $r\cos\theta$ times $r\,dr\,d\theta$)} \\
+> &= \sigma\,\tfrac{R^3}{3}\,\big(1 - (-1)\big) = \tfrac23\,\sigma\,R^3 \quad &\text{(Barrow's rule, both limits)} \\
+> x_G &= \frac{2\sigma R^3/3}{\sigma\pi R^2/2} = \frac{4R}{3\pi} \quad &\text{(divide by the mass)}
+> \end{aligned}$$
+>
+> $$\boxed{m = \tfrac12\,\sigma\,\pi\,R^2, \qquad \mathbf r_O^G = \frac{4R}{3\pi}\,\mathbf i}$$
+>
+> **Units:** $x_G$ in $[\mathrm L]$
+> **Meaning:** $G$ is on the symmetry axis at about 0.424 of the radius from the diameter, as Eq. 10.31 of the notes also finds for the half disk with other axes.
+
+> [!derivation] Inertia tensor of the semicircular plate at O and at G
+> **Law:** moments of inertia in polar coordinates; Steiner's theorem; vanishing products
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.12; Notes.pdf, Eq. 10.48; Notes.pdf, Sec. 10.4
+>
+> $$\begin{aligned}
+> \int y^2\,dm &= \sigma\int_0^{R} r^3\,dr\int_{-\pi/2}^{\pi/2}\sin^2\theta\,d\theta = \sigma\,\tfrac{R^4}{4}\Big[\tfrac\theta2 - \tfrac{\sin2\theta}{4}\Big]_{-\pi/2}^{\pi/2} \quad &\text{(Eq. 10.12; identity for $\sin^2\theta$)} \\
+> &= \sigma\,\tfrac{R^4}{4}\Big[\Big(\tfrac\pi4 - 0\Big) - \Big(-\tfrac\pi4 - 0\Big)\Big] = \sigma\,\tfrac{\pi R^4}{8} = \tfrac14\,m\,R^2 \quad &\text{(Barrow's rule: $\sin(\pm\pi)$ is zero; substitute the mass)} \\
+> \int x^2\,dm &= \sigma\,\tfrac{R^4}{4}\Big[\tfrac\theta2 + \tfrac{\sin2\theta}{4}\Big]_{-\pi/2}^{\pi/2} = \sigma\,\tfrac{\pi R^4}{8} = \tfrac14\,m\,R^2 \quad &\text{(same with $\cos^2\theta$)} \\
+> I_{Ox} &= \tfrac14\,m\,R^2, \quad I_{Oy} = \tfrac14\,m\,R^2, \quad I_{Oz} = \tfrac12\,m\,R^2 \quad &\text{(Eq. 10.11 with the third coordinate neglected)} \\
+> I_{Gx} &= I_{Ox} - m\,(y_G^2 + z_G^2) = \tfrac14\,m\,R^2 \quad &\text{(Steiner: $Ox$ and $Gx$ are the same line)} \\
+> I_{Gy} &= I_{Oy} - m\,(x_G^2 + z_G^2) = \tfrac14\,m\,R^2 - m\,\frac{16R^2}{9\pi^2} \quad &\text{(Steiner: parallel axes at the distance $x_G$)} \\
+> I_{Gz} &= I_{Oz} - m\,(x_G^2 + y_G^2) = \tfrac12\,m\,R^2 - m\,\frac{16R^2}{9\pi^2} \quad &\text{(Steiner: parallel axes at the distance $x_G$)} \\
+> P_{xy,xz} &= P_{xy,yz} = 0, \quad P_{xz,yz} = 0 \quad &\text{(the plate lies in $Gxy$; $Gxz$ is a plane of symmetry, Sec. 10.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = m\,R^2\begin{bmatrix} \tfrac14 & 0 & 0 \cr 0 & \tfrac14 - \tfrac{16}{9\pi^2} & 0 \cr 0 & 0 & \tfrac12 - \tfrac{16}{9\pi^2} \end{bmatrix} \approx m\,R^2\begin{bmatrix} 0.2500 & 0 & 0 \cr 0 & 0.0699 & 0 \cr 0 & 0 & 0.3199 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** at the centre of the diameter each moment equals that of the full disk per unit mass (the missing half is a mirror image). At $G$ only the axes parallel to the diameter and normal to the plate shrink, because $G$ moved along $x$.
+
+#### Part (i): semicircular wire arc
+
+![[attachments/EM-SOL/rb05-i-wire.svg]]
+
+> [!derivation] Mass and centre of mass of the semicircular wire
+> **Law:** line density; total mass and first moment with the arc parametrised by its angle
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.7; Notes.pdf, Eq. 10.17; Notes.pdf, Sec. 10.3; Problems.pdf, p. 39
+>
+> The cross-section is negligible, so the wire is a line of density $\lambda$ equal to $\rho A$. In the auxiliary frame $S_O$ at the centre of the circle, its points are $R\cos\theta$, $R\sin\theta$, 0 with $\theta$ from 0 to $\pi$ (from the end on the positive $x$ side, through the top of the arc on the $y$ axis, to the other end). The arc length element is $R\,d\theta$ (radius times the angle), so the mass element is $\lambda R\,d\theta$.
+>
+> $$\begin{aligned}
+> m &= \int_0^{\pi}\lambda\,R\,d\theta = \lambda\,R\big[\theta\big]_0^{\pi} = \pi\,\lambda\,R \quad &\text{(Eq. 10.6; Barrow's rule)} \\
+> x_G &= 0 \quad &\text{(the plane $Oyz$ is a plane of symmetry, Sec. 10.3)} \\
+> m\,y_G &= \lambda\,R^2\int_0^{\pi}\sin\theta\,d\theta = \lambda\,R^2\big[-\cos\theta\big]_0^{\pi} \quad &\text{(Eq. 10.7: ordinate $R\sin\theta$ times $\lambda R\,d\theta$)} \\
+> &= \lambda\,R^2\big(1 - (-1)\big) = 2\,\lambda\,R^2 \quad &\text{(Barrow's rule: $-\cos\pi = 1$, $-\cos 0 = -1$)} \\
+> y_G &= \frac{2\lambda R^2}{\pi\lambda R} = \frac{2R}{\pi} \quad &\text{(divide by the mass)}
+> \end{aligned}$$
+>
+> $$\boxed{m = \pi\,\lambda\,R, \qquad \mathbf r_O^G = \frac{2R}{\pi}\,\mathbf j}$$
+>
+> **Units:** $y_G$ in $[\mathrm L]$
+> **Meaning:** $G$ is on the symmetry axis at about 0.637 of the radius from the centre, off the wire, between the diameter and the arc.
+
+> [!derivation] Inertia tensor of the semicircular wire at O and at G
+> **Law:** moments of inertia along the arc; Steiner's theorem; vanishing products
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.12; Notes.pdf, Eq. 10.48; Notes.pdf, Sec. 10.4
+>
+> $$\begin{aligned}
+> \int x^2\,dm &= \lambda\,R^3\int_0^{\pi}\cos^2\theta\,d\theta = \lambda\,R^3\Big[\tfrac\theta2 + \tfrac{\sin2\theta}{4}\Big]_0^{\pi} = \tfrac{\pi}{2}\,\lambda\,R^3 = \tfrac12\,m\,R^2 \quad &\text{(Eq. 10.12; identity for $\cos^2\theta$, Barrow's rule)} \\
+> \int y^2\,dm &= \lambda\,R^3\Big[\tfrac\theta2 - \tfrac{\sin2\theta}{4}\Big]_0^{\pi} = \tfrac{\pi}{2}\,\lambda\,R^3 = \tfrac12\,m\,R^2 \quad &\text{(same with $\sin^2\theta$)} \\
+> \int z^2\,dm &= 0 \quad &\text{(the wire lies in the plane $Oxy$)} \\
+> I_{Ox} &= \tfrac12\,m\,R^2, \quad I_{Oy} = \tfrac12\,m\,R^2, \quad I_{Oz} = m\,R^2 \quad &\text{(Eq. 10.11: sums of two of the integrals above)} \\
+> I_{Gx} &= I_{Ox} - m\,(y_G^2 + z_G^2) = \tfrac12\,m\,R^2 - m\,\frac{4R^2}{\pi^2} \quad &\text{(Steiner: parallel axes at the distance $y_G$)} \\
+> I_{Gy} &= I_{Oy} - m\,(x_G^2 + z_G^2) = \tfrac12\,m\,R^2 \quad &\text{(Steiner: $Oy$ and $Gy$ are the same line)} \\
+> I_{Gz} &= I_{Oz} - m\,(x_G^2 + y_G^2) = m\,R^2 - m\,\frac{4R^2}{\pi^2} \quad &\text{(Steiner: parallel axes at the distance $y_G$)} \\
+> P_{xy,xz} &= 0, \quad P_{xy,yz} = P_{xz,yz} = 0 \quad &\text{(the wire lies in $Gxy$; $Gyz$ is a plane of symmetry, Sec. 10.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = m\,R^2\begin{bmatrix} \tfrac12 - \tfrac{4}{\pi^2} & 0 & 0 \cr 0 & \tfrac12 & 0 \cr 0 & 0 & 1 - \tfrac{4}{\pi^2} \end{bmatrix} \approx m\,R^2\begin{bmatrix} 0.0947 & 0 & 0 \cr 0 & 0.5 & 0 \cr 0 & 0 & 0.5947 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** at the centre of the circle every point of the wire is at the distance $R$ from the normal axis, which gives the full moment of a point mass at that distance; at $G$ the axes normal to the symmetry line lose the Steiner term.
+
+#### Part (j): flat sheet, at a vertex and at the centre of mass
+
+![[attachments/EM-SOL/rb05-j-sheet.svg]]
+
+> [!derivation] Inertia tensor of the flat sheet at the vertex A
+> **Law:** plate model; moments and products of inertia in Cartesian coordinates
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.15; Notes.pdf, Eq. 10.38; Problems.pdf, p. 38
+>
+> The statement has no figure for this part: the frame $S_A$ is chosen with origin at the vertex $A$, $x$ along the edge of length $L$, $y$ along the edge of width $w$ and $z$ normal to the sheet, which occupies the rectangle with $x$ from 0 to $L$ and $y$ from 0 to $w$. Area element $dx\,dy$, surface density $\sigma$, third coordinate zero.
+>
+> $$\begin{aligned}
+> m &= \sigma\big[x\big]_0^{L}\big[y\big]_0^{w} = \sigma\,L\,w \quad &\text{(Eq. 10.6; Barrow's rule)} \\
+> \int x^2\,dm &= \sigma\Big[\tfrac{x^3}{3}\Big]_0^{L}\big[y\big]_0^{w} = \sigma\,\tfrac{L^3}{3}\,w = \tfrac13\,m\,L^2 \quad &\text{(antiderivatives and Barrow's rule; substitute the mass)} \\
+> \int y^2\,dm &= \sigma\,L\Big[\tfrac{y^3}{3}\Big]_0^{w} = \tfrac13\,m\,w^2 \quad &\text{(same steps)} \\
+> P^A_{xz,yz} &= \int x\,y\,dm = \sigma\Big[\tfrac{x^2}{2}\Big]_0^{L}\Big[\tfrac{y^2}{2}\Big]_0^{w} = \sigma\,\tfrac{L^2w^2}{4} = \tfrac14\,m\,L\,w \quad &\text{(Eq. 10.15; constant limits split the integral)} \\
+> P^A_{xy,xz} &= P^A_{xy,yz} = 0 \quad &\text{(Eq. 10.15: the integrands contain the zero third coordinate)} \\
+> I_{Ax} &= \tfrac13\,m\,w^2, \quad I_{Ay} = \tfrac13\,m\,L^2, \quad I_{Az} = \tfrac13\,m\,(L^2 + w^2) \quad &\text{(Eq. 10.11)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_A = m\begin{bmatrix} \tfrac{w^2}{3} & -\tfrac{Lw}{4} & 0 \cr -\tfrac{Lw}{4} & \tfrac{L^2}{3} & 0 \cr 0 & 0 & \tfrac{L^2 + w^2}{3} \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** at the vertex the sheet lies entirely in the first quadrant, so the product $P_{xz,yz}$ is positive and the axes along the edges are not principal axes (Eq. 10.38 puts minus the product off the diagonal).
+
+> [!derivation] Inertia tensor of the flat sheet at G by Steiner's theorem
+> **Law:** centre of mass on the planes of symmetry; Steiner's theorem in components
+> **Source:** Notes.pdf, Eq. 10.7; Notes.pdf, Eq. 10.48; Notes.pdf, Sec. 10.3; Notes.pdf, Sec. 10.4
+>
+> $$\begin{aligned}
+> m\,x_G &= \sigma\Big[\tfrac{x^2}{2}\Big]_0^{L}\big[y\big]_0^{w} = \sigma\,\tfrac{L^2}{2}\,w \quad &\text{(Eq. 10.7; Barrow's rule)} \\
+> x_G &= \frac L2, \qquad y_G = \frac w2, \qquad z_G = 0 \quad &\text{(divide by the mass; same steps for $y_G$; the sheet lies in $Axy$)} \\
+> (\mathbf r_A^G)^2\,U - \mathbf r_A^G\otimes\mathbf r_A^G &= \begin{bmatrix} \tfrac{w^2}{4} & -\tfrac{Lw}{4} & 0 \cr -\tfrac{Lw}{4} & \tfrac{L^2}{4} & 0 \cr 0 & 0 & \tfrac{L^2 + w^2}{4} \end{bmatrix} \quad &\text{(Steiner matrix of the previous section with the coordinates of $G$)} \\
+> \bar{\bar I}_G &= \bar{\bar I}_A - m\left[(\mathbf r_A^G)^2\,U - \mathbf r_A^G\otimes\mathbf r_A^G\right] \quad &\text{(Eq. 10.48 solved for the central tensor)} \\
+> I_{Gx} &= \tfrac13\,m\,w^2 - \tfrac14\,m\,w^2 = \tfrac{1}{12}\,m\,w^2 \quad &\text{(element 11)} \\
+> I_{Gy} &= \tfrac13\,m\,L^2 - \tfrac14\,m\,L^2 = \tfrac{1}{12}\,m\,L^2 \quad &\text{(element 22)} \\
+> I_{Gz} &= \tfrac13\,m\,(L^2 + w^2) - \tfrac14\,m\,(L^2 + w^2) = \tfrac{1}{12}\,m\,(L^2 + w^2) \quad &\text{(element 33)} \\
+> -P^G_{xz,yz} &= -\tfrac14\,m\,L\,w - \Big(-\tfrac14\,m\,L\,w\Big) = 0 \quad &\text{(element 12: the product at the vertex is exactly the Steiner term)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac{m}{12}\begin{bmatrix} w^2 & 0 & 0 \cr 0 & L^2 & 0 \cr 0 & 0 & L^2 + w^2 \end{bmatrix}}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2]$
+> **Meaning:** the product of inertia vanishes at $G$ as it must, because the planes $Gxz$ and $Gyz$ are planes of symmetry of the sheet (Sec. 10.4); this confirms both tensors. Each central moment is a quarter of the one at the vertex.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+This section does not apply: the bodies are not moving, and only their mass geometry is asked.
+
+### Free-Body Diagram and Equations of Motion
+
+This section does not apply: no force acts in the statement and no equation of motion is written.
+
+### Answers and Checks
+
+| Part | Body | $\bar{\bar I}_G$ in the axes of the figure (diagonal; all products zero unless stated) |
+| :--- | :--- | :--- |
+| (a) | slender bar | $\frac{mL^2}{12}\,\mathrm{diag}(0, 1, 1)$ |
+| (b) | cylinder | $\frac{m}{12}\,\mathrm{diag}(3R^2+L^2,\ 3R^2+L^2,\ 6R^2)$ |
+| (c) | parallelepiped | $\frac{m}{12}\,\mathrm{diag}(b^2+c^2,\ a^2+c^2,\ a^2+b^2)$ |
+| (d) | sphere | $\frac{2mR^2}{5}\,\mathrm{diag}(1, 1, 1)$ |
+| (e) | hemisphere | $mR^2\,\mathrm{diag}(\frac25-\frac{9}{64},\ \frac25-\frac{9}{64},\ \frac25)$, that is $\frac{83}{320}$, $\frac{83}{320}$, $\frac25$; $G$ at $3R/8$ from the flat face |
+| (f) | cone | $\frac{3m}{80}\,\mathrm{diag}(8R^2,\ 4R^2+L^2,\ 4R^2+L^2)$; $G$ at $3L/4$ from the apex |
+| (g) | thin disk | $\frac{mR^2}{4}\,\mathrm{diag}(1, 1, 2)$ |
+| (h) | semicircular plate | $mR^2\,\mathrm{diag}(\frac14,\ \frac14-\frac{16}{9\pi^2},\ \frac12-\frac{16}{9\pi^2})$; $G$ at $4R/(3\pi)$ from the diameter |
+| (i) | semicircular wire | $mR^2\,\mathrm{diag}(\frac12-\frac{4}{\pi^2},\ \frac12,\ 1-\frac{4}{\pi^2})$; $G$ at $2R/\pi$ from the centre |
+| (j) | flat sheet | at $A$: moments $\frac{mw^2}{3}$, $\frac{mL^2}{3}$, $\frac{m(L^2+w^2)}{3}$ and $P_{xz,yz} = \frac{mLw}{4}$; at $G$: $\frac{m}{12}\,\mathrm{diag}(w^2,\ L^2,\ L^2+w^2)$ |
+
+**Check against the official key:** the key (Problems.pdf, pp. 77-78) prints parts (a) to (g), in the axes of the statement figures used here. It gives the slender bar with zero moment about its axis and one twelfth of the mass times the squared length about the other two, the cylinder with the third diagonal element 6R² over 12, the parallelepiped with b² + c², a² + c² and a² + b², the sphere with two fifths, the hemisphere with two fifths minus nine sixty-fourths on the two transverse axes and two fifths on the axis, the cone with 3m/80 times 8R², 4R² + L² and 4R² + L², and the thin disk with one quarter, one quarter and one half of the mass times the squared radius; all products are zero. All seven tensors coincide with the results above. The key prints nothing for (h), (i) and (j), which are checked below.
+
+**Limiting cases and consistency:**
+
+> [!derivation] Check: flat bodies, mirror halves and a thin cylinder
+> **Law:** Eq. 10.13 for a plate with zero thickness; the results above in limiting cases
+> **Source:** Notes.pdf, Eq. 10.13; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.21
+>
+> $$\begin{aligned}
+> I_{Gz} &= I_{Gx} + I_{Gy} \quad &\text{(flat body in the plane $Gxy$: $x^2 + y^2$ is the sum of the two integrands of Eq. 10.11)} \\
+> \text{(g)}: \ \tfrac12 &= \tfrac14 + \tfrac14 \quad &\text{(holds)} \\
+> \text{(h)}: \ \tfrac12 - \tfrac{16}{9\pi^2} &= \tfrac14 + \Big(\tfrac14 - \tfrac{16}{9\pi^2}\Big) \quad &\text{(holds)} \\
+> \text{(i)}: \ 1 - \tfrac{4}{\pi^2} &= \Big(\tfrac12 - \tfrac{4}{\pi^2}\Big) + \tfrac12 \quad &\text{(holds; the wire is also flat)} \\
+> \text{(j)}: \ \tfrac{L^2 + w^2}{12} &= \tfrac{w^2}{12} + \tfrac{L^2}{12} \quad &\text{(holds at $G$, and with thirds at $A$)} \\
+> \text{(b) with } L \to h \ll R: \ \tfrac{m}{12}\,(3R^2 + h^2) &\to \tfrac14\,m\,R^2 \quad &\text{(the thick disk tends to the plate of part (g))} \\
+> \text{(e) at } O: \ 2\cdot\tfrac25\,\tfrac m2\,R^2 &= \tfrac25\,m\,R^2 \quad &\text{(two hemispheres of mass $m/2$ make the sphere of part (d))} \\
+> \text{(h) at } O: \ 2\cdot\tfrac14\,\tfrac m2\,R^2 &= \tfrac14\,m\,R^2 \quad &\text{(two half plates make the disk of part (g))} \\
+> \text{(i) at } O: \ I_{Ox} &= \tfrac12\,m\,R^2 \quad &\text{(same value as Eq. 10.21 of the notes for this wire)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{every flat body satisfies } I_{Gz} = I_{Gx} + I_{Gy}, \text{ and every half body matches its whole body at the centre}}$$
+>
+> **Units:** dimensionless coefficients of $m\,R^2$ or $m\,L^2$
+> **Meaning:** the moments of the half bodies (e), (h) and (i) about axes through the centre of the full body are those of the full body per unit mass, which checks the integrals before Steiner; the perpendicular-axis relation checks the plates and the wire after Steiner.
+
+* **Positive moments after Steiner.** The smallest central coefficients, 0.0699 for the semicircular plate and 0.0947 for the wire, are positive, as every moment of inertia must be (Sec. 10.4); a wrong distance in Steiner would easily make them negative.
+* **Triangle inequality.** In every tensor each moment is not larger than the sum of the other two, with equality only for the flat bodies and the slender bar.
+* **Dimensions.** Every element is a mass times a squared length, kg·m².
