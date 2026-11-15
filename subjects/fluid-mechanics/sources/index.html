@@ -3,191 +3,266 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fluid Mechanics - Theory &amp; Exercise PDFs</title>
-  <meta name="description" content="Original course PDFs for Fluid Mechanics (UC3M): theory, slides and problem sheets.">
+  <title>Fluid Mechanics - PDFs</title>
+  <meta name="description" content="Official course PDFs for Fluid Mechanics (UC3M): theory, slides, problem sheets and past exams.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
   <script src="../../../assets/js/theme.js"></script>
   <link rel="stylesheet" href="../../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/pdf-library.css">
   <style>
-    :root { --accent: var(--accent-fluid); }
-    body { margin: 0; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); font-size: 1.06rem; line-height: 1.6; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 64px; }
-    .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .back { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.02em; }
-    .back:hover { text-decoration: underline; }
-    .top-actions { display: flex; align-items: center; gap: 10px; }
-    .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
-    h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
-    .lead { color: var(--text-secondary); margin: 0 0 24px; }
-    h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
-    h3 { font-family: var(--font-mono); font-weight: 600; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 4px; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    li { padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    li a { color: var(--text-primary); text-decoration: none; word-break: break-word; }
-    li a:hover { color: var(--accent); text-decoration: underline; }
-    .size { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap; }
-    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
-    .jump a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); text-decoration: none; padding: 4px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
-    .jump a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
-    .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-left: 8px; letter-spacing: 0.04em; }
-    .year { display: grid; grid-template-columns: 5.2rem 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); }
-    .year-label { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--accent); }
-    .year ul li { border-bottom: 0; padding: 2px 0; }
-    .year ul li a .tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; margin-left: 6px; }
-    .note { margin-top: 36px; padding: 12px 16px; background: var(--bg-glass); border: 1px solid var(--border-card); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.95rem; }
-    @media (max-width: 520px) {
-      .year { grid-template-columns: 1fr; }
-      .year-label { font-size: 1.15rem; }
-    }
+    :root { --accent: var(--accent-fluid); --accent-soft: color-mix(in srgb, var(--accent-fluid) 12%, transparent); }
   </style>
+  <link rel="stylesheet" href="../../../assets/css/subject-index.css">
 </head>
-<body>
-  <div class="wrap">
-    <div class="top">
-      <a class="back" href="../../../index.html">&larr; Study Portal</a>
-      <div class="top-actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div>
+<body class="pdf-library">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a class="back-link" href="../../../index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Main Portal</span></a>
+      </div>
+      <div class="header-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button></div>
     </div>
-    <h1>Fluid Mechanics: Theory &amp; Exercise PDFs</h1>
-    <p class="lead">97 original PDFs from the course (theory, slides and problem sheets), grouped by unit.</p>
-<h2>Course-wide material</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf">Notes.pdf</a><span class="size">2.0 MB</span></li>
-</ul>
-<h3>Slides</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/slides/slides_Chapters1-2.pdf">slides_Chapters1-2.pdf</a><span class="size">991 KB</span></li>
-</ul>
-<h2>Unit 1: Introductory Remarks</h2>
-<h3>Slides</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-01-introductory-remarks/slides/slides_Chapters1-2.pdf">slides_Chapters1-2.pdf</a><span class="size">991 KB</span></li>
-</ul>
-<h2>Unit 2: Flow Kinematics</h2>
-<h3>Slides</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/slides/slides_Chapters1-2.pdf">slides_Chapters1-2.pdf</a><span class="size">991 KB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K1.pdf">K1.pdf</a><span class="size">591 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K2.pdf">K2.pdf</a><span class="size">299 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K3.pdf">K3.pdf</a><span class="size">293 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K4.pdf">K4.pdf</a><span class="size">397 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K5.pdf">K5.pdf</a><span class="size">323 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K6.pdf">K6.pdf</a><span class="size">183 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K7.pdf">K7.pdf</a><span class="size">261 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K8.pdf">K8.pdf</a><span class="size">426 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K9.pdf">K9.pdf</a><span class="size">419 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K10.pdf">K10.pdf</a><span class="size">317 KB</span></li>
-</ul>
-<h2>Unit 3: Conservation Laws</h2>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL1.pdf">CL1.pdf</a><span class="size">449 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL2.pdf">CL2.pdf</a><span class="size">320 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL3.pdf">CL3.pdf</a><span class="size">449 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL4.pdf">CL4.pdf</a><span class="size">258 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL5.pdf">CL5.pdf</a><span class="size">443 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL6.pdf">CL6.pdf</a><span class="size">401 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL7.pdf">CL7.pdf</a><span class="size">354 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL8.pdf">CL8.pdf</a><span class="size">333 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL9.pdf">CL9.pdf</a><span class="size">381 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL10.pdf">CL10.pdf</a><span class="size">368 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL11.pdf">CL11.pdf</a><span class="size">412 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL12.pdf">CL12.pdf</a><span class="size">297 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL13.pdf">CL13.pdf</a><span class="size">371 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL14.pdf">CL14.pdf</a><span class="size">152 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL15.pdf">CL15.pdf</a><span class="size">579 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL16.pdf">CL16.pdf</a><span class="size">436 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL17.pdf">CL17.pdf</a><span class="size">111 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL18.pdf">CL18.pdf</a><span class="size">393 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL19.pdf">CL19.pdf</a><span class="size">303 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL20.pdf">CL20.pdf</a><span class="size">296 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL21.pdf">CL21.pdf</a><span class="size">151 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL22.pdf">CL22.pdf</a><span class="size">805 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/examen_midterm_2014.pdf">examen_midterm_2014.pdf</a><span class="size">470 KB</span></li>
-</ul>
-<h2>Unit 4: Navier Stokes</h2>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS1.pdf">NS1.pdf</a><span class="size">326 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS2.pdf">NS2.pdf</a><span class="size">391 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS3.pdf">NS3.pdf</a><span class="size">348 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS4.pdf">NS4.pdf</a><span class="size">469 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS5.pdf">NS5.pdf</a><span class="size">306 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS6.pdf">NS6.pdf</a><span class="size">264 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS7.pdf">NS7.pdf</a><span class="size">445 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS8.pdf">NS8.pdf</a><span class="size">379 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS9.pdf">NS9.pdf</a><span class="size">26 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS10.pdf">NS10.pdf</a><span class="size">577 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS11.pdf">NS11.pdf</a><span class="size">633 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS12.pdf">NS12.pdf</a><span class="size">904 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS13.pdf">NS13.pdf</a><span class="size">380 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS14.pdf">NS14.pdf</a><span class="size">370 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS15.pdf">NS15.pdf</a><span class="size">366 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS16.pdf">NS16.pdf</a><span class="size">570 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS17.pdf">NS17.pdf</a><span class="size">276 KB</span></li>
-</ul>
-<h2>Unit 5: Hydrostatics</h2>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_1.pdf">fluid_statics_1.pdf</a><span class="size">112 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_2.pdf">fluid_statics_2.pdf</a><span class="size">94 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_3.pdf">fluid_statics_3.pdf</a><span class="size">109 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_4.pdf">fluid_statics_4.pdf</a><span class="size">116 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_5.pdf">fluid_statics_5.pdf</a><span class="size">76 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_6.pdf">fluid_statics_6.pdf</a><span class="size">210 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_7.pdf">fluid_statics_7.pdf</a><span class="size">174 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_8.pdf">fluid_statics_8.pdf</a><span class="size">94 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_9.pdf">fluid_statics_9.pdf</a><span class="size">95 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_10.pdf">fluid_statics_10.pdf</a><span class="size">267 KB</span></li>
-</ul>
-<h2>Unit 6: Dimensional Analysis</h2>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA1.pdf">DA1.pdf</a><span class="size">799 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA2.pdf">DA2.pdf</a><span class="size">706 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA3.pdf">DA3.pdf</a><span class="size">622 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA4.pdf">DA4.pdf</a><span class="size">709 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA5.pdf">DA5.pdf</a><span class="size">1.0 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA6.pdf">DA6.pdf</a><span class="size">302 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA7.pdf">DA7.pdf</a><span class="size">370 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA8.pdf">DA8.pdf</a><span class="size">411 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA9.pdf">DA9.pdf</a><span class="size">409 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA10.pdf">DA10.pdf</a><span class="size">334 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA11.pdf">DA11.pdf</a><span class="size">349 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA12.pdf">DA12.pdf</a><span class="size">461 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA13.pdf">DA13.pdf</a><span class="size">310 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA14.pdf">DA14.pdf</a><span class="size">787 KB</span></li>
-</ul>
-<h2>Unit 7: Viscous Flow</h2>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF2_w_solution.pdf">VF2_w_solution.pdf</a><span class="size">1.9 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF3.pdf">VF3.pdf</a><span class="size">272 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF4.pdf">VF4.pdf</a><span class="size">354 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF5.pdf">VF5.pdf</a><span class="size">211 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF6.pdf">VF6.pdf</a><span class="size">273 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF7.pdf">VF7.pdf</a><span class="size">375 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF8.pdf">VF8.pdf</a><span class="size">229 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF9.pdf">VF9.pdf</a><span class="size">264 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF10.pdf">VF10.pdf</a><span class="size">405 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF11.pdf">VF11.pdf</a><span class="size">264 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF12.pdf">VF12.pdf</a><span class="size">302 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF13.pdf">VF13.pdf</a><span class="size">390 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF14.pdf">VF14.pdf</a><span class="size">281 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF15.pdf">VF15.pdf</a><span class="size">532 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF16.pdf">VF16.pdf</a><span class="size">284 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF17.pdf">VF17.pdf</a><span class="size">117 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF18.pdf">VF18.pdf</a><span class="size">386 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF19.pdf">VF19.pdf</a><span class="size">346 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF20.pdf">VF20.pdf</a><span class="size">1.0 MB</span></li>
-</ul>
-    <p class="note">These are the course documents as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
-  </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Fluid Mechanics sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <span class="subject-tab" aria-disabled="true">Extra problems <span class="subject-tab__soon">Soon</span></span>
+      <span class="subject-tab" aria-disabled="true">Exam simulator <span class="subject-tab__soon">Soon</span></span>
+      <a class="subject-tab" href="../sources/index.html" aria-current="page">PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <div class="icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.2c3-3.2 8-4.3 12.5-3.1 2.4.6 4.3 1.7 5.5 3.1-2 .8-5 1.2-8.5 1.2-4 0-7.5-.4-9.5-1.2z" fill="currentColor" fill-opacity="0.18"/><path d="M2 7.6c4-2.2 9-2.6 13.5-1.2 2.5.8 4.6 2 6.5 3.5"/><path d="M2 18.4c4 .9 9 1 13.5.4 2.4-.3 4.6-.9 6.5-1.6"/></svg></div>
+      <h1>Fluid Mechanics — PDFs</h1>
+    </header>
+
+    <section class="lib-tools" id="libTools" aria-label="Search and filters" hidden>
+      <label class="lib-search"><input type="search" id="libSearch" placeholder="Search by file name, unit or year" aria-label="Search the PDFs" autocomplete="off"></label>
+      <div class="lib-row" role="group" aria-label="Type"><span class="lib-label">Type</span><button type="button" class="lib-chip" data-filter="kind" data-value="all" aria-pressed="true">All<span class="n">146</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="teoria" aria-pressed="false">Theory<span class="n">1</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="slides" aria-pressed="false">Slides<span class="n">3</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="problemas" aria-pressed="false">Problem sheets<span class="n">93</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="exam" aria-pressed="false">Exams<span class="n">49</span></button></div>
+      <div class="lib-row" data-only="material"><label class="lib-label" for="libUnit">Unit</label><select class="lib-select" id="libUnit" data-filter="unit"><option value="all">All units</option><option value="general">Course-wide material</option><option value="1">Unit 1: Introductory Remarks</option><option value="2">Unit 2: Flow Kinematics</option><option value="3">Unit 3: Conservation Laws</option><option value="4">Unit 4: Navier Stokes</option><option value="5">Unit 5: Hydrostatics</option><option value="6">Unit 6: Dimensional Analysis</option><option value="7">Unit 7: Viscous Flow</option></select></div>
+      <div class="lib-row" data-only="exam" role="group" aria-label="Exam" hidden><span class="lib-label">Exam</span><button type="button" class="lib-chip" data-filter="exam" data-value="all" aria-pressed="true">All</button><button type="button" class="lib-chip" data-filter="exam" data-value="first" aria-pressed="false">First partial</button><button type="button" class="lib-chip" data-filter="exam" data-value="second" aria-pressed="false">Second partial</button><button type="button" class="lib-chip" data-filter="exam" data-value="final" aria-pressed="false">Final exam</button><button type="button" class="lib-chip" data-filter="exam" data-value="other" aria-pressed="false">Other universities and degrees</button></div>
+      <div class="lib-row" data-only="exam" hidden><label class="lib-label" for="libYear">Year</label><select class="lib-select" id="libYear" data-filter="year"><option value="all">All years</option><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="Undated">Undated</option></select></div>
+      <div class="lib-status"><p class="lib-count" id="libCount" aria-live="polite">146 files</p><button type="button" class="lib-reset" id="libReset" hidden>Clear filters</button></div>
+    </section>
+    <section class="lib-group">
+      <h2>Course-wide material<span class="count">2 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="general" data-name="notes.pdf theory course-wide material"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf"><span class="lib-name">Notes.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.0 MB</span></a></li>
+        <li class="lib-item" data-kind="slides" data-unit="general" data-name="slides_chapters1-2.pdf slides course-wide material"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/slides/slides_Chapters1-2.pdf"><span class="lib-name">slides_Chapters1-2.pdf</span><span class="lib-meta">Slides</span><span class="lib-size">991 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 1 · Introductory Remarks<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="slides" data-unit="1" data-name="slides_chapters1-2.pdf slides unit 1 · introductory remarks"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-01-introductory-remarks/slides/slides_Chapters1-2.pdf"><span class="lib-name">slides_Chapters1-2.pdf</span><span class="lib-meta">Slides</span><span class="lib-size">991 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 2 · Flow Kinematics<span class="count">11 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="slides" data-unit="2" data-name="slides_chapters1-2.pdf slides unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/slides/slides_Chapters1-2.pdf"><span class="lib-name">slides_Chapters1-2.pdf</span><span class="lib-meta">Slides</span><span class="lib-size">991 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k1.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K1.pdf"><span class="lib-name">K1.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">591 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k2.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K2.pdf"><span class="lib-name">K2.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">299 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k3.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K3.pdf"><span class="lib-name">K3.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">293 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k4.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K4.pdf"><span class="lib-name">K4.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">397 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k5.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K5.pdf"><span class="lib-name">K5.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">323 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k6.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K6.pdf"><span class="lib-name">K6.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">183 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k7.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K7.pdf"><span class="lib-name">K7.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">261 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k8.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K8.pdf"><span class="lib-name">K8.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">426 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k9.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K9.pdf"><span class="lib-name">K9.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">419 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="k10.pdf problem sheets unit 2 · flow kinematics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K10.pdf"><span class="lib-name">K10.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">317 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 3 · Conservation Laws<span class="count">23 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl1.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL1.pdf"><span class="lib-name">CL1.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">449 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl2.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL2.pdf"><span class="lib-name">CL2.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">320 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl3.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL3.pdf"><span class="lib-name">CL3.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">449 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl4.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL4.pdf"><span class="lib-name">CL4.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">258 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl5.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL5.pdf"><span class="lib-name">CL5.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">443 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl6.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL6.pdf"><span class="lib-name">CL6.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">401 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl7.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL7.pdf"><span class="lib-name">CL7.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">354 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl8.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL8.pdf"><span class="lib-name">CL8.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">333 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl9.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL9.pdf"><span class="lib-name">CL9.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">381 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl10.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL10.pdf"><span class="lib-name">CL10.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">368 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl11.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL11.pdf"><span class="lib-name">CL11.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">412 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl12.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL12.pdf"><span class="lib-name">CL12.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">297 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl13.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL13.pdf"><span class="lib-name">CL13.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">371 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl14.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL14.pdf"><span class="lib-name">CL14.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">152 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl15.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL15.pdf"><span class="lib-name">CL15.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">579 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl16.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL16.pdf"><span class="lib-name">CL16.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">436 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl17.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL17.pdf"><span class="lib-name">CL17.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">111 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl18.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL18.pdf"><span class="lib-name">CL18.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">393 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl19.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL19.pdf"><span class="lib-name">CL19.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">303 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl20.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL20.pdf"><span class="lib-name">CL20.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">296 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl21.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL21.pdf"><span class="lib-name">CL21.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">151 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="cl22.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL22.pdf"><span class="lib-name">CL22.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">805 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="examen_midterm_2014.pdf problem sheets unit 3 · conservation laws"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/examen_midterm_2014.pdf"><span class="lib-name">examen_midterm_2014.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">470 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 4 · Navier Stokes<span class="count">17 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns1.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS1.pdf"><span class="lib-name">NS1.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">326 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns2.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS2.pdf"><span class="lib-name">NS2.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">391 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns3.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS3.pdf"><span class="lib-name">NS3.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">348 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns4.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS4.pdf"><span class="lib-name">NS4.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">469 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns5.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS5.pdf"><span class="lib-name">NS5.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">306 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns6.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS6.pdf"><span class="lib-name">NS6.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">264 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns7.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS7.pdf"><span class="lib-name">NS7.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">445 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns8.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS8.pdf"><span class="lib-name">NS8.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">379 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns9.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS9.pdf"><span class="lib-name">NS9.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">26 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns10.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS10.pdf"><span class="lib-name">NS10.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">577 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns11.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS11.pdf"><span class="lib-name">NS11.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">633 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns12.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS12.pdf"><span class="lib-name">NS12.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">904 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns13.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS13.pdf"><span class="lib-name">NS13.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">380 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns14.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS14.pdf"><span class="lib-name">NS14.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">370 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns15.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS15.pdf"><span class="lib-name">NS15.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">366 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns16.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS16.pdf"><span class="lib-name">NS16.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">570 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="ns17.pdf problem sheets unit 4 · navier stokes"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS17.pdf"><span class="lib-name">NS17.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">276 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 5 · Hydrostatics<span class="count">10 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_1.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_1.pdf"><span class="lib-name">fluid_statics_1.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">112 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_2.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_2.pdf"><span class="lib-name">fluid_statics_2.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">94 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_3.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_3.pdf"><span class="lib-name">fluid_statics_3.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">109 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_4.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_4.pdf"><span class="lib-name">fluid_statics_4.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">116 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_5.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_5.pdf"><span class="lib-name">fluid_statics_5.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">76 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_6.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_6.pdf"><span class="lib-name">fluid_statics_6.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">210 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_7.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_7.pdf"><span class="lib-name">fluid_statics_7.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">174 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_8.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_8.pdf"><span class="lib-name">fluid_statics_8.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">94 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_9.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_9.pdf"><span class="lib-name">fluid_statics_9.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">95 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="fluid_statics_10.pdf problem sheets unit 5 · hydrostatics"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_10.pdf"><span class="lib-name">fluid_statics_10.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">267 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 6 · Dimensional Analysis<span class="count">14 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da1.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA1.pdf"><span class="lib-name">DA1.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">799 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da2.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA2.pdf"><span class="lib-name">DA2.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">706 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da3.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA3.pdf"><span class="lib-name">DA3.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">622 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da4.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA4.pdf"><span class="lib-name">DA4.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">709 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da5.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA5.pdf"><span class="lib-name">DA5.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">1.0 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da6.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA6.pdf"><span class="lib-name">DA6.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">302 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da7.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA7.pdf"><span class="lib-name">DA7.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">370 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da8.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA8.pdf"><span class="lib-name">DA8.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">411 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da9.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA9.pdf"><span class="lib-name">DA9.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">409 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da10.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA10.pdf"><span class="lib-name">DA10.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">334 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da11.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA11.pdf"><span class="lib-name">DA11.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">349 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da12.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA12.pdf"><span class="lib-name">DA12.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">461 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da13.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA13.pdf"><span class="lib-name">DA13.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">310 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="da14.pdf problem sheets unit 6 · dimensional analysis"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-06-dimensional-analysis/problemas/DA14.pdf"><span class="lib-name">DA14.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">787 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 7 · Viscous Flow<span class="count">19 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf2_w_solution.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF2_w_solution.pdf"><span class="lib-name">VF2_w_solution.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">1.9 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf3.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF3.pdf"><span class="lib-name">VF3.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">272 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf4.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF4.pdf"><span class="lib-name">VF4.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">354 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf5.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF5.pdf"><span class="lib-name">VF5.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">211 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf6.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF6.pdf"><span class="lib-name">VF6.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">273 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf7.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF7.pdf"><span class="lib-name">VF7.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">375 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf8.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF8.pdf"><span class="lib-name">VF8.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">229 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf9.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF9.pdf"><span class="lib-name">VF9.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">264 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf10.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF10.pdf"><span class="lib-name">VF10.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">405 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf11.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF11.pdf"><span class="lib-name">VF11.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">264 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf12.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF12.pdf"><span class="lib-name">VF12.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">302 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf13.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF13.pdf"><span class="lib-name">VF13.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">390 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf14.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF14.pdf"><span class="lib-name">VF14.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">281 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf15.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF15.pdf"><span class="lib-name">VF15.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">532 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf16.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF16.pdf"><span class="lib-name">VF16.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">284 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf17.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF17.pdf"><span class="lib-name">VF17.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">117 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf18.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF18.pdf"><span class="lib-name">VF18.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">386 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf19.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF19.pdf"><span class="lib-name">VF19.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">346 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="vf20.pdf problem sheets unit 7 · viscous flow"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF20.pdf"><span class="lib-name">VF20.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">1.0 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="first">
+      <h2>Exams · First partials<span class="count">12 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2025" data-name="2025 exam first partial exam fluids_firstpartial_2025.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2025.pdf"><span class="lib-name">2025 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">1.6 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2024" data-name="2024 exam first partial exam fluids_firstpartial_2024.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2024.pdf"><span class="lib-name">2024 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">2.1 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2022" data-name="2022 exam first partial exam fluids_firstpartial_2022.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2022.pdf"><span class="lib-name">2022 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">2.0 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2021" data-name="2021 exam first partial exam fluids_firstpartial_2021.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2021.pdf"><span class="lib-name">2021 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">992 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2020" data-name="2020 exam first partial exam fluids_firstpartial_2020.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2020.pdf"><span class="lib-name">2020 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">880 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2017" data-name="2017 solutions first partial exam fluids_firstpartial_2017_sol.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2017_SOL.pdf"><span class="lib-name">2017 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">1.1 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2016" data-name="2016 exam first partial exam fluids_firstpartial_2016.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2016.pdf"><span class="lib-name">2016 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">492 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2014" data-name="2014 solutions first partial exam fluids_firstpartial_2014_sol.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2014_SOL.pdf"><span class="lib-name">2014 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">470 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2014" data-name="2014 quiz · exam first partial exam fluids_firstpartial_2014_quiz.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2014_QUIZ.pdf"><span class="lib-name">2014 · Quiz · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">120 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2013" data-name="2013 exam first partial exam fluids_firstpartial_2013.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2013.pdf"><span class="lib-name">2013 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">786 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2013" data-name="2013 quiz · exam first partial exam fluids_firstpartial_2013_quiz.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2013_QUIZ.pdf"><span class="lib-name">2013 · Quiz · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">344 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2011" data-name="2011 exam first partial exam fluids_firstpartial_2011.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2011.pdf"><span class="lib-name">2011 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">412 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="second">
+      <h2>Exams · Second partials<span class="count">18 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2025" data-name="2025 exam second partial exam fluids_secondpartial_2025.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2025.pdf"><span class="lib-name">2025 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">1.7 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2022" data-name="2022 exam second partial exam fluids_secondpartial_2022.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2022.pdf"><span class="lib-name">2022 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">903 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2021" data-name="2021 exam second partial exam fluids_secondpartial_2021.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2021.pdf"><span class="lib-name">2021 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">546 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2021" data-name="2021 retake · exam second partial exam fluids_secondpartial_2021_retake.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2021_RETAKE.pdf"><span class="lib-name">2021 · Retake · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">537 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2018" data-name="2018 retake · solutions, problem 1 second partial exam fluids_secondpartial_2018_retake_sol_p1.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P1.pdf"><span class="lib-name">2018 · Retake · Solutions, problem 1</span><span class="lib-meta">Second partial</span><span class="lib-size">1.1 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2018" data-name="2018 retake · solutions, problem 2 second partial exam fluids_secondpartial_2018_retake_sol_p2.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P2.pdf"><span class="lib-name">2018 · Retake · Solutions, problem 2</span><span class="lib-meta">Second partial</span><span class="lib-size">1.8 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2017" data-name="2017 exam second partial exam fluids_secondpartial_2017.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2017.pdf"><span class="lib-name">2017 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">739 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2017" data-name="2017 retake · exam second partial exam fluids_secondpartial_2017_retake.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2017_RETAKE.pdf"><span class="lib-name">2017 · Retake · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">2.1 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2016" data-name="2016 exam second partial exam fluids_secondpartial_2016.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2016.pdf"><span class="lib-name">2016 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">105 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2016" data-name="2016 solutions second partial exam fluids_secondpartial_2016_sol.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2016_SOL.pdf"><span class="lib-name">2016 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">77 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2016" data-name="2016 retake · exam second partial exam fluids_secondpartial_2016_retake.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2016_RETAKE.pdf"><span class="lib-name">2016 · Retake · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">151 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2015" data-name="2015 exam second partial exam fluids_secondpartial_2015.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2015.pdf"><span class="lib-name">2015 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">702 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2014" data-name="2014 solutions second partial exam fluids_secondpartial_2014_sol.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2014_SOL.pdf"><span class="lib-name">2014 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">1.2 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2013" data-name="2013 solutions, problem 1 second partial exam fluids_secondpartial_2013_sol_p1.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P1.pdf"><span class="lib-name">2013 · Solutions, problem 1</span><span class="lib-meta">Second partial</span><span class="lib-size">303 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2013" data-name="2013 solutions, problem 2 second partial exam fluids_secondpartial_2013_sol_p2.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P2.pdf"><span class="lib-name">2013 · Solutions, problem 2</span><span class="lib-meta">Second partial</span><span class="lib-size">370 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2013" data-name="2013 solutions, problem 3 second partial exam fluids_secondpartial_2013_sol_p3.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P3.pdf"><span class="lib-name">2013 · Solutions, problem 3</span><span class="lib-meta">Second partial</span><span class="lib-size">461 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2013" data-name="2013 solutions, problem 4 second partial exam fluids_secondpartial_2013_sol_p4.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P4.pdf"><span class="lib-name">2013 · Solutions, problem 4</span><span class="lib-meta">Second partial</span><span class="lib-size">386 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2011" data-name="2011 exam second partial exam fluids_secondpartial_2011.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2011.pdf"><span class="lib-name">2011 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">445 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="final">
+      <h2>Exams · Final exams<span class="count">12 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2022" data-name="2022 ordinary call · exam final exam exam fluids_finalexam_2022_ord.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2022_ORD.pdf"><span class="lib-name">2022 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">4.4 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2022" data-name="2022 extraordinary call · exam final exam exam fluids_finalexam_2022_extra.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2022_EXTRA.pdf"><span class="lib-name">2022 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">2.5 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2021" data-name="2021 ordinary call · exam final exam exam fluids_finalexam_2021_ord.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2021_ORD.pdf"><span class="lib-name">2021 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">2.0 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2017" data-name="2017 ordinary call · exam final exam exam fluids_finalexam_2017_ord.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2017_ORD.pdf"><span class="lib-name">2017 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">963 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2015" data-name="2015 extraordinary call · solutions final exam exam fluids_finalexam_2015_extra_sol.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2015_EXTRA_SOL.pdf"><span class="lib-name">2015 · Extraordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">1.0 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 ordinary call · solutions, problem 1 final exam exam fluids_finalexam_2014_ord_sol_p1.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P1.pdf"><span class="lib-name">2014 · Ordinary call · Solutions, problem 1</span><span class="lib-meta">Final exam</span><span class="lib-size">296 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 ordinary call · solutions, problem 2 final exam exam fluids_finalexam_2014_ord_sol_p2.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P2.pdf"><span class="lib-name">2014 · Ordinary call · Solutions, problem 2</span><span class="lib-meta">Final exam</span><span class="lib-size">366 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 ordinary call · solutions, problem 3 final exam exam fluids_finalexam_2014_ord_sol_p3.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P3.pdf"><span class="lib-name">2014 · Ordinary call · Solutions, problem 3</span><span class="lib-meta">Final exam</span><span class="lib-size">310 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 ordinary call · solutions, problem 4 final exam exam fluids_finalexam_2014_ord_sol_p4.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P4.pdf"><span class="lib-name">2014 · Ordinary call · Solutions, problem 4</span><span class="lib-meta">Final exam</span><span class="lib-size">346 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2012" data-name="2012 ordinary call · exam final exam exam fluids_finalexam_2012_ord.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2012_ORD.pdf"><span class="lib-name">2012 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">1.4 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2012" data-name="2012 extraordinary call · exam final exam exam fluids_finalexam_2012_extra.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2012_EXTRA.pdf"><span class="lib-name">2012 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">1.4 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="Undated" data-name="undated exam_instructions_midterm.pdf final exam exam exam_instructions_midterm.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/ExamInstructionsMidterm/exam_instructions_midterm.pdf"><span class="lib-name">Undated · exam_instructions_midterm.pdf</span><span class="lib-meta">Final exam</span><span class="lib-size">28 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="other">
+      <h2>Exams · Other universities and degrees<span class="count">7 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="other" data-year="2026" data-name="2026 ordinary call · cordoba · mechanical · engineering · solutions other universities and degrees exam fluids_otheruni_2026_cordoba_mechanical_engineering_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2026_CORDOBA_MECHANICAL_ENGINEERING_ORD_SOL.pdf"><span class="lib-name">2026 · Ordinary call · Cordoba · Mechanical · Engineering · Solutions</span><span class="lib-meta">Other universities and degrees</span><span class="lib-size">1.1 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="other" data-year="2025" data-name="2025 ordinary call · sevilla · exam other universities and degrees exam fluids_otheruni_2025_sevilla_ord.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2025_SEVILLA_ORD.pdf"><span class="lib-name">2025 · Ordinary call · Sevilla · Exam</span><span class="lib-meta">Other universities and degrees</span><span class="lib-size">3.8 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="other" data-year="2025" data-name="2025 extraordinary call · sevilla · exam, problem 2 other universities and degrees exam fluids_otheruni_2025_sevilla_extra_p2.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2025_SEVILLA_EXTRA_P2.pdf"><span class="lib-name">2025 · Extraordinary call · Sevilla · Exam, problem 2</span><span class="lib-meta">Other universities and degrees</span><span class="lib-size">3.4 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="other" data-year="2025" data-name="2025 extraordinary call · sevilla · exam, problem 3 other universities and degrees exam fluids_otheruni_2025_sevilla_extra_p3.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2025_SEVILLA_EXTRA_P3.pdf"><span class="lib-name">2025 · Extraordinary call · Sevilla · Exam, problem 3</span><span class="lib-meta">Other universities and degrees</span><span class="lib-size">3.1 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="other" data-year="2024" data-name="2024 practice exam · sevilla · exam, problem 2 other universities and degrees exam fluids_otheruni_2024_sevilla_practice_p2.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2024_SEVILLA_PRACTICE_P2.pdf"><span class="lib-name">2024 · Practice exam · Sevilla · Exam, problem 2</span><span class="lib-meta">Other universities and degrees</span><span class="lib-size">1.3 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="other" data-year="2023" data-name="2023 extraordinary call · sevilla · exam, problem 2 other universities and degrees exam fluids_otheruni_2023_sevilla_extra_p2.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2023_SEVILLA_EXTRA_P2.pdf"><span class="lib-name">2023 · Extraordinary call · Sevilla · Exam, problem 2</span><span class="lib-meta">Other universities and degrees</span><span class="lib-size">2.9 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="other" data-year="Undated" data-name="undated extraordinary call · sevilla · solutions other universities and degrees exam fluids_otheruni_undated_sevilla_extra_sol.pdf"><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_UNDATED_SEVILLA_EXTRA_SOL.pdf"><span class="lib-name">Undated · Extraordinary call · Sevilla · Solutions</span><span class="lib-meta">Other universities and degrees</span><span class="lib-size">12.1 MB</span></a></li>
+      </ul>
+    </section>
+    <p class="lib-empty" id="libEmpty" hidden>No file matches these filters.</p>
+    <p class="lib-note">These are the course documents and exams as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</div>
+  </footer>
+  <script defer src="../../../assets/js/pdf-library.js"></script>
 </body>
 </html>

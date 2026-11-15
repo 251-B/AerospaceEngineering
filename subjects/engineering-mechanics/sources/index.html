@@ -3,95 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Engineering Mechanics - Theory &amp; Exercise PDFs</title>
-  <meta name="description" content="Original course PDFs for Engineering Mechanics (UC3M): theory, slides and problem sheets.">
+  <title>Engineering Mechanics - PDFs</title>
+  <meta name="description" content="Official course PDFs for Engineering Mechanics (UC3M): theory, slides, problem sheets and past exams.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
   <script src="../../../assets/js/theme.js"></script>
   <link rel="stylesheet" href="../../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/pdf-library.css">
   <style>
-    :root { --accent: var(--accent-mechanics); }
-    body { margin: 0; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); font-size: 1.06rem; line-height: 1.6; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 64px; }
-    .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .back { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.02em; }
-    .back:hover { text-decoration: underline; }
-    .top-actions { display: flex; align-items: center; gap: 10px; }
-    .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
-    h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
-    .lead { color: var(--text-secondary); margin: 0 0 24px; }
-    h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
-    h3 { font-family: var(--font-mono); font-weight: 600; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 4px; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    li { padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    li a { color: var(--text-primary); text-decoration: none; word-break: break-word; }
-    li a:hover { color: var(--accent); text-decoration: underline; }
-    .size { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap; }
-    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
-    .jump a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); text-decoration: none; padding: 4px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
-    .jump a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
-    .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-left: 8px; letter-spacing: 0.04em; }
-    .year { display: grid; grid-template-columns: 5.2rem 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); }
-    .year-label { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--accent); }
-    .year ul li { border-bottom: 0; padding: 2px 0; }
-    .year ul li a .tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; margin-left: 6px; }
-    .note { margin-top: 36px; padding: 12px 16px; background: var(--bg-glass); border: 1px solid var(--border-card); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.95rem; }
-    @media (max-width: 520px) {
-      .year { grid-template-columns: 1fr; }
-      .year-label { font-size: 1.15rem; }
-    }
+    :root { --accent: var(--accent-mechanics); --accent-soft: color-mix(in srgb, var(--accent-mechanics) 12%, transparent); }
   </style>
+  <link rel="stylesheet" href="../../../assets/css/subject-index.css">
 </head>
-<body>
-  <div class="wrap">
-    <div class="top">
-      <a class="back" href="../../../index.html">&larr; Study Portal</a>
-      <div class="top-actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div>
+<body class="pdf-library">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a class="back-link" href="../../../index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Main Portal</span></a>
+      </div>
+      <div class="header-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button></div>
     </div>
-    <h1>Engineering Mechanics: Theory &amp; Exercise PDFs</h1>
-    <p class="lead">9 original PDFs from the course (theory, slides and problem sheets), grouped by unit.</p>
-<h2>Course-wide material</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf">Notes.pdf</a><span class="size">2.6 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf">Problems.pdf</a><span class="size">4.6 MB</span></li>
-</ul>
-<h3>Schedule</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/schedule/weekly-planning-mechanics_G46.pdf">weekly-planning-mechanics_G46.pdf</a><span class="size">47 KB</span></li>
-</ul>
-<h2>Unit 1: Particle Kinematics</h2>
-<h3>Slides</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/00.pdf">00.pdf</a><span class="size">1.4 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf">01_-_Point_particle_kinematics.pdf</a><span class="size">2.9 MB</span></li>
-</ul>
-<h2>Unit 2: Particle Dynamics</h2>
-<h3>Slides</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf">02.PointParticleDynamics.pdf</a><span class="size">2.2 MB</span></li>
-</ul>
-<h2>Unit 3: Constraints Reactions</h2>
-<h3>Slides</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf">03_-_Constraints.pdf</a><span class="size">2.8 MB</span></li>
-</ul>
-<h2>Unit 4: Angular Momentum Central Forces</h2>
-<h3>Slides</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-04-angular-momentum-central-forces/slides/04_-_Angular_momentum.pdf">04_-_Angular_momentum.pdf</a><span class="size">2.3 MB</span></li>
-</ul>
-<h2>Unit 5: Relative Motion</h2>
-<h3>Slides</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf">05_-_Relative_motion.pdf</a><span class="size">3.1 MB</span></li>
-</ul>
-    <p class="note">These are the course documents as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
-  </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Engineering Mechanics sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../formula-sheet/index.html">Formula sheet</a>
+      <a class="subject-tab" href="../sources/index.html" aria-current="page">PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <div class="icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10.26 5.01L10.42 2.53L13.58 2.53L13.74 5.01L15.71 5.83L17.58 4.19L19.81 6.42L18.17 8.29L18.99 10.26L21.47 10.42L21.47 13.58L18.99 13.74L18.17 15.71L19.81 17.58L17.58 19.81L15.71 18.17L13.74 18.99L13.58 21.47L10.42 21.47L10.26 18.99L8.29 18.17L6.42 19.81L4.19 17.58L5.83 15.71L5.01 13.74L2.53 13.58L2.53 10.42L5.01 10.26L5.83 8.29L4.19 6.42L6.42 4.19L8.29 5.83z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h1>Engineering Mechanics — PDFs</h1>
+    </header>
+
+    <section class="lib-tools" id="libTools" aria-label="Search and filters" hidden>
+      <label class="lib-search"><input type="search" id="libSearch" placeholder="Search by file name, unit or year" aria-label="Search the PDFs" autocomplete="off"></label>
+      <div class="lib-row" role="group" aria-label="Type"><span class="lib-label">Type</span><button type="button" class="lib-chip" data-filter="kind" data-value="all" aria-pressed="true">All<span class="n">43</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="teoria" aria-pressed="false">Theory<span class="n">1</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="slides" aria-pressed="false">Slides<span class="n">6</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="problemas" aria-pressed="false">Problem sheets<span class="n">1</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="schedule" aria-pressed="false">Schedule<span class="n">1</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="exam" aria-pressed="false">Exams<span class="n">34</span></button></div>
+      <div class="lib-row" data-only="material"><label class="lib-label" for="libUnit">Unit</label><select class="lib-select" id="libUnit" data-filter="unit"><option value="all">All units</option><option value="general">Course-wide material</option><option value="1">Unit 1: Particle Kinematics</option><option value="2">Unit 2: Particle Dynamics</option><option value="3">Unit 3: Constraints Reactions</option><option value="4">Unit 4: Angular Momentum Central Forces</option><option value="5">Unit 5: Relative Motion</option></select></div>
+      <div class="lib-row" data-only="exam" role="group" aria-label="Exam" hidden><span class="lib-label">Exam</span><button type="button" class="lib-chip" data-filter="exam" data-value="all" aria-pressed="true">All</button><button type="button" class="lib-chip" data-filter="exam" data-value="first" aria-pressed="false">First partial</button><button type="button" class="lib-chip" data-filter="exam" data-value="second" aria-pressed="false">Second partial</button><button type="button" class="lib-chip" data-filter="exam" data-value="final" aria-pressed="false">Final exam</button></div>
+      <div class="lib-row" data-only="exam" hidden><label class="lib-label" for="libYear">Year</label><select class="lib-select" id="libYear" data-filter="year"><option value="all">All years</option><option value="2024">2024</option><option value="2022">2022</option><option value="2021">2021</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option></select></div>
+      <div class="lib-status"><p class="lib-count" id="libCount" aria-live="polite">43 files</p><button type="button" class="lib-reset" id="libReset" hidden>Clear filters</button></div>
+    </section>
+    <section class="lib-group">
+      <h2>Course-wide material<span class="count">3 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="general" data-name="notes.pdf theory course-wide material"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf"><span class="lib-name">Notes.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.6 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="general" data-name="problems.pdf problem sheets course-wide material"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"><span class="lib-name">Problems.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">4.6 MB</span></a></li>
+        <li class="lib-item" data-kind="schedule" data-unit="general" data-name="weekly-planning-mechanics_g46.pdf schedule course-wide material"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/schedule/weekly-planning-mechanics_G46.pdf"><span class="lib-name">weekly-planning-mechanics_G46.pdf</span><span class="lib-meta">Schedule</span><span class="lib-size">47 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 1 · Particle Kinematics<span class="count">2 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="slides" data-unit="1" data-name="00.pdf slides unit 1 · particle kinematics"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/00.pdf"><span class="lib-name">00.pdf</span><span class="lib-meta">Slides</span><span class="lib-size">1.4 MB</span></a></li>
+        <li class="lib-item" data-kind="slides" data-unit="1" data-name="01_-_point_particle_kinematics.pdf slides unit 1 · particle kinematics"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf"><span class="lib-name">01_-_Point_particle_kinematics.pdf</span><span class="lib-meta">Slides</span><span class="lib-size">2.9 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 2 · Particle Dynamics<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="slides" data-unit="2" data-name="02.pointparticledynamics.pdf slides unit 2 · particle dynamics"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf"><span class="lib-name">02.PointParticleDynamics.pdf</span><span class="lib-meta">Slides</span><span class="lib-size">2.2 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 3 · Constraints Reactions<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="slides" data-unit="3" data-name="03_-_constraints.pdf slides unit 3 · constraints reactions"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf"><span class="lib-name">03_-_Constraints.pdf</span><span class="lib-meta">Slides</span><span class="lib-size">2.8 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 4 · Angular Momentum Central Forces<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="slides" data-unit="4" data-name="04_-_angular_momentum.pdf slides unit 4 · angular momentum central forces"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-04-angular-momentum-central-forces/slides/04_-_Angular_momentum.pdf"><span class="lib-name">04_-_Angular_momentum.pdf</span><span class="lib-meta">Slides</span><span class="lib-size">2.3 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 5 · Relative Motion<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="slides" data-unit="5" data-name="05_-_relative_motion.pdf slides unit 5 · relative motion"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf"><span class="lib-name">05_-_Relative_motion.pdf</span><span class="lib-meta">Slides</span><span class="lib-size">3.1 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="first">
+      <h2>Exams · First partials<span class="count">11 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2024" data-name="2024 exam first partial exam mechanics_firstpartial_2024.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2024.pdf"><span class="lib-name">2024 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">95 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2022" data-name="2022 exam first partial exam mechanics_firstpartial_2022.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2022.pdf"><span class="lib-name">2022 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">824 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2019" data-name="2019 exam first partial exam mechanics_firstpartial_2019.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2019.pdf"><span class="lib-name">2019 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">861 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2019" data-name="2019 version 2 · exam first partial exam mechanics_firstpartial_2019_v2.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2019_V2.pdf"><span class="lib-name">2019 · Version 2 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">468 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2018" data-name="2018 exam first partial exam mechanics_firstpartial_2018.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2018.pdf"><span class="lib-name">2018 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">476 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2017" data-name="2017 exam first partial exam mechanics_firstpartial_2017.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2017.pdf"><span class="lib-name">2017 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">109 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2017" data-name="2017 exercise · solutions first partial exam mechanics_firstpartial_2017_exercise_sol.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2017_EXERCISE_SOL.pdf"><span class="lib-name">2017 · Exercise · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">143 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2016" data-name="2016 exam first partial exam mechanics_firstpartial_2016.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2016.pdf"><span class="lib-name">2016 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">121 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2015" data-name="2015 exam first partial exam mechanics_firstpartial_2015.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2015.pdf"><span class="lib-name">2015 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">107 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2013" data-name="2013 exam first partial exam mechanics_firstpartial_2013.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2013.pdf"><span class="lib-name">2013 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">83 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2011" data-name="2011 exam first partial exam mechanics_firstpartial_2011.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2011.pdf"><span class="lib-name">2011 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">68 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="second">
+      <h2>Exams · Second partials<span class="count">10 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2024" data-name="2024 exam second partial exam mechanics_secondpartial_2024.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2024.pdf"><span class="lib-name">2024 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">3.6 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2019" data-name="2019 exam second partial exam mechanics_secondpartial_2019.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2019.pdf"><span class="lib-name">2019 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">123 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2019" data-name="2019 version 2 · exam second partial exam mechanics_secondpartial_2019_v2.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2019_V2.pdf"><span class="lib-name">2019 · Version 2 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">485 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2018" data-name="2018 exam second partial exam mechanics_secondpartial_2018.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2018.pdf"><span class="lib-name">2018 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">1.0 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2018" data-name="2018 version 2 · exam second partial exam mechanics_secondpartial_2018_v2.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2018_V2.pdf"><span class="lib-name">2018 · Version 2 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">580 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2017" data-name="2017 exam second partial exam mechanics_secondpartial_2017.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2017.pdf"><span class="lib-name">2017 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">124 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2015" data-name="2015 exam second partial exam mechanics_secondpartial_2015.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2015.pdf"><span class="lib-name">2015 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">104 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2014" data-name="2014 exam second partial exam mechanics_secondpartial_2014.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2014.pdf"><span class="lib-name">2014 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">1.3 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2013" data-name="2013 exam second partial exam mechanics_secondpartial_2013.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2013.pdf"><span class="lib-name">2013 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">997 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2011" data-name="2011 exam second partial exam mechanics_secondpartial_2011.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2011.pdf"><span class="lib-name">2011 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">208 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="final">
+      <h2>Exams · Final exams<span class="count">13 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2024" data-name="2024 ordinary call · problems part · exam final exam exam mechanics_finalexam_2024_ord_problems.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2024_ORD_PROBLEMS.pdf"><span class="lib-name">2024 · Ordinary call · Problems part · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">7.6 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2021" data-name="2021 ordinary call · exam final exam exam mechanics_finalexam_2021_ord.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2021_ORD.pdf"><span class="lib-name">2021 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">111 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2019" data-name="2019 ordinary call · exam final exam exam mechanics_finalexam_2019_ord.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2019_ORD.pdf"><span class="lib-name">2019 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">187 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2019" data-name="2019 ordinary call · version 2 · exam final exam exam mechanics_finalexam_2019_ord_v2.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2019_ORD_V2.pdf"><span class="lib-name">2019 · Ordinary call · Version 2 · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">558 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2018" data-name="2018 ordinary call · exam final exam exam mechanics_finalexam_2018_ord.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2018_ORD.pdf"><span class="lib-name">2018 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">293 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2016" data-name="2016 ordinary call · exam final exam exam mechanics_finalexam_2016_ord.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2016_ORD.pdf"><span class="lib-name">2016 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">211 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2016" data-name="2016 extraordinary call · exam final exam exam mechanics_finalexam_2016_extra.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2016_EXTRA.pdf"><span class="lib-name">2016 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">337 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2015" data-name="2015 ordinary call · exam final exam exam mechanics_finalexam_2015_ord.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2015_ORD.pdf"><span class="lib-name">2015 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">226 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2015" data-name="2015 extraordinary call · exam final exam exam mechanics_finalexam_2015_extra.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2015_EXTRA.pdf"><span class="lib-name">2015 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">347 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 ordinary call · exam final exam exam mechanics_finalexam_2014_ord.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2014_ORD.pdf"><span class="lib-name">2014 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">357 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2013" data-name="2013 ordinary call · exam final exam exam mechanics_finalexam_2013_ord.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2013_ORD.pdf"><span class="lib-name">2013 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">947 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2012" data-name="2012 extraordinary call · exam final exam exam mechanics_finalexam_2012_extra.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2012_EXTRA.pdf"><span class="lib-name">2012 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">251 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2011" data-name="2011 ordinary call · exam final exam exam mechanics_finalexam_2011_ord.pdf"><a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2011_ORD.pdf"><span class="lib-name">2011 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">245 KB</span></a></li>
+      </ul>
+    </section>
+    <p class="lib-empty" id="libEmpty" hidden>No file matches these filters.</p>
+    <p class="lib-note">These are the course documents and exams as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</div>
+  </footer>
+  <script defer src="../../../assets/js/pdf-library.js"></script>
 </body>
 </html>

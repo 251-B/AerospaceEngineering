@@ -3,95 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Management - Theory &amp; Exercise PDFs</title>
-  <meta name="description" content="Original course PDFs for Business Management (UC3M): theory, slides and problem sheets.">
+  <title>Business Management - PDFs</title>
+  <meta name="description" content="Official course PDFs for Business Management (UC3M): theory, slides, problem sheets and past exams.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
   <script src="../../../assets/js/theme.js"></script>
   <link rel="stylesheet" href="../../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/pdf-library.css">
   <style>
-    :root { --accent: var(--accent-business); }
-    body { margin: 0; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); font-size: 1.06rem; line-height: 1.6; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 64px; }
-    .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .back { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.02em; }
-    .back:hover { text-decoration: underline; }
-    .top-actions { display: flex; align-items: center; gap: 10px; }
-    .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
-    h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
-    .lead { color: var(--text-secondary); margin: 0 0 24px; }
-    h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
-    h3 { font-family: var(--font-mono); font-weight: 600; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 4px; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    li { padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    li a { color: var(--text-primary); text-decoration: none; word-break: break-word; }
-    li a:hover { color: var(--accent); text-decoration: underline; }
-    .size { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap; }
-    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
-    .jump a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); text-decoration: none; padding: 4px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
-    .jump a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
-    .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-left: 8px; letter-spacing: 0.04em; }
-    .year { display: grid; grid-template-columns: 5.2rem 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); }
-    .year-label { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--accent); }
-    .year ul li { border-bottom: 0; padding: 2px 0; }
-    .year ul li a .tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; margin-left: 6px; }
-    .note { margin-top: 36px; padding: 12px 16px; background: var(--bg-glass); border: 1px solid var(--border-card); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.95rem; }
-    @media (max-width: 520px) {
-      .year { grid-template-columns: 1fr; }
-      .year-label { font-size: 1.15rem; }
-    }
+    :root { --accent: var(--accent-business); --accent-soft: color-mix(in srgb, var(--accent-business) 12%, transparent); }
   </style>
+  <link rel="stylesheet" href="../../../assets/css/subject-index.css">
 </head>
-<body>
-  <div class="wrap">
-    <div class="top">
-      <a class="back" href="../../../index.html">&larr; Study Portal</a>
-      <div class="top-actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div>
+<body class="pdf-library">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a class="back-link" href="../../../index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Main Portal</span></a>
+      </div>
+      <div class="header-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button></div>
     </div>
-    <h1>Business Management: Theory &amp; Exercise PDFs</h1>
-    <p class="lead">14 original PDFs from the course (theory, slides and problem sheets), grouped by unit.</p>
-<h2>Unit 1: The Firm Types Objectives</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf">Topic 1_The Firm_Types  Objectives.pdf</a><span class="size">2.9 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/problemas/W1%20Pr_Elevator%20Pitch%20%20Governance.pdf">W1 Pr_Elevator Pitch  Governance.pdf</a><span class="size">632 KB</span></li>
-</ul>
-<h2>Unit 2: Value Creation Environment</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-02-value-creation-environment/teoria/Topic%202_%20Value%20creation.pdf">Topic 2_ Value creation.pdf</a><span class="size">559 KB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-02-value-creation-environment/problemas/W2%20Practice_2_Business%20Environment.pdf">W2 Practice_2_Business Environment.pdf</a><span class="size">847 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-02-value-creation-environment/problemas/W3%20Practice_3_Int_Analysis_Strategy_Resources.pdf">W3 Practice_3_Int_Analysis_Strategy_Resources.pdf</a><span class="size">2.5 MB</span></li>
-</ul>
-<h2>Unit 3: Financial Management Statements</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf">Topic 3_Financial Management (I).pdf</a><span class="size">1.4 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/Background%20for%20Practice%20Financial%20Statements.pdf">Background for Practice Financial Statements.pdf</a><span class="size">577 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf">T3_Additional_EXERCISES.pdf</a><span class="size">324 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_SOLUTIONS.pdf">T3_Additional_SOLUTIONS.pdf</a><span class="size">621 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial%20Statements_EXERCISES.pdf">T3_Financial Statements_EXERCISES.pdf</a><span class="size">213 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial%20Statements_SOLUTIONS.pdf">T3_Financial Statements_SOLUTIONS.pdf</a><span class="size">227 KB</span></li>
-</ul>
-<h2>Unit 6: Business Plan</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-06-business-plan/teoria/BUSINESS%20PLAN_guide_26_27.pdf">BUSINESS PLAN_guide_26_27.pdf</a><span class="size">210 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-06-business-plan/teoria/Engineers%20%20Managing_Business%20Plan_26-27%20W1.pdf">Engineers  Managing_Business Plan_26-27 W1.pdf</a><span class="size">1.1 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/05-business-management/unit-06-business-plan/teoria/how-to-write-a-business-plan.pdf">how-to-write-a-business-plan.pdf</a><span class="size">191 KB</span></li>
-</ul>
-    <p class="note">These are the course documents as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
-  </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Business Management sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../sources/index.html" aria-current="page">PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <div class="icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5h16"/><path d="M6.5 20.5v-4.5M11 20.5v-7.5M15.5 20.5v-10.5"/><path d="M4.5 10l5-3.6 3.5 2L19 3.8"/><path d="M15.6 3.6h3.6v3.6"/></svg></div>
+      <h1>Business Management — PDFs</h1>
+    </header>
+
+    <section class="lib-tools" id="libTools" aria-label="Search and filters" hidden>
+      <label class="lib-search"><input type="search" id="libSearch" placeholder="Search by file name, unit or year" aria-label="Search the PDFs" autocomplete="off"></label>
+      <div class="lib-row" role="group" aria-label="Type"><span class="lib-label">Type</span><button type="button" class="lib-chip" data-filter="kind" data-value="all" aria-pressed="true">All<span class="n">14</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="teoria" aria-pressed="false">Theory<span class="n">6</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="problemas" aria-pressed="false">Problem sheets<span class="n">8</span></button></div>
+      <div class="lib-row" data-only="material"><label class="lib-label" for="libUnit">Unit</label><select class="lib-select" id="libUnit" data-filter="unit"><option value="all">All units</option><option value="1">Unit 1: The Firm Types Objectives</option><option value="2">Unit 2: Value Creation Environment</option><option value="3">Unit 3: Financial Management Statements</option><option value="6">Unit 6: Business Plan</option></select></div>
+      <div class="lib-status"><p class="lib-count" id="libCount" aria-live="polite">14 files</p><button type="button" class="lib-reset" id="libReset" hidden>Clear filters</button></div>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 1 · The Firm Types Objectives<span class="count">2 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="1" data-name="topic 1_the firm_types objectives.pdf theory unit 1 · the firm types objectives"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf"><span class="lib-name">Topic 1_The Firm_Types  Objectives.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.9 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="1" data-name="w1 pr_elevator pitch governance.pdf problem sheets unit 1 · the firm types objectives"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/problemas/W1%20Pr_Elevator%20Pitch%20%20Governance.pdf"><span class="lib-name">W1 Pr_Elevator Pitch  Governance.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">632 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 2 · Value Creation Environment<span class="count">3 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="2" data-name="topic 2_ value creation.pdf theory unit 2 · value creation environment"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-02-value-creation-environment/teoria/Topic%202_%20Value%20creation.pdf"><span class="lib-name">Topic 2_ Value creation.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">559 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="w2 practice_2_business environment.pdf problem sheets unit 2 · value creation environment"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-02-value-creation-environment/problemas/W2%20Practice_2_Business%20Environment.pdf"><span class="lib-name">W2 Practice_2_Business Environment.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">847 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="w3 practice_3_int_analysis_strategy_resources.pdf problem sheets unit 2 · value creation environment"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-02-value-creation-environment/problemas/W3%20Practice_3_Int_Analysis_Strategy_Resources.pdf"><span class="lib-name">W3 Practice_3_Int_Analysis_Strategy_Resources.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">2.5 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 3 · Financial Management Statements<span class="count">6 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="3" data-name="topic 3_financial management (i).pdf theory unit 3 · financial management statements"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf"><span class="lib-name">Topic 3_Financial Management (I).pdf</span><span class="lib-meta">Theory</span><span class="lib-size">1.4 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="background for practice financial statements.pdf problem sheets unit 3 · financial management statements"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/Background%20for%20Practice%20Financial%20Statements.pdf"><span class="lib-name">Background for Practice Financial Statements.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">577 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="t3_additional_exercises.pdf problem sheets unit 3 · financial management statements"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf"><span class="lib-name">T3_Additional_EXERCISES.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">324 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="t3_additional_solutions.pdf problem sheets unit 3 · financial management statements"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_SOLUTIONS.pdf"><span class="lib-name">T3_Additional_SOLUTIONS.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">621 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="t3_financial statements_exercises.pdf problem sheets unit 3 · financial management statements"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial%20Statements_EXERCISES.pdf"><span class="lib-name">T3_Financial Statements_EXERCISES.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">213 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="t3_financial statements_solutions.pdf problem sheets unit 3 · financial management statements"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial%20Statements_SOLUTIONS.pdf"><span class="lib-name">T3_Financial Statements_SOLUTIONS.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">227 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 6 · Business Plan<span class="count">3 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="6" data-name="business plan_guide_26_27.pdf theory unit 6 · business plan"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-06-business-plan/teoria/BUSINESS%20PLAN_guide_26_27.pdf"><span class="lib-name">BUSINESS PLAN_guide_26_27.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">210 KB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="6" data-name="engineers managing_business plan_26-27 w1.pdf theory unit 6 · business plan"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-06-business-plan/teoria/Engineers%20%20Managing_Business%20Plan_26-27%20W1.pdf"><span class="lib-name">Engineers  Managing_Business Plan_26-27 W1.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">1.1 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="6" data-name="how-to-write-a-business-plan.pdf theory unit 6 · business plan"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-06-business-plan/teoria/how-to-write-a-business-plan.pdf"><span class="lib-name">how-to-write-a-business-plan.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">191 KB</span></a></li>
+      </ul>
+    </section>
+    <p class="lib-empty" id="libEmpty" hidden>No file matches these filters.</p>
+    <p class="lib-note">These are the course documents and exams as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</div>
+  </footer>
+  <script defer src="../../../assets/js/pdf-library.js"></script>
 </body>
 </html>

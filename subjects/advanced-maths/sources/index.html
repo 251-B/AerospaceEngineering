@@ -3,95 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced Mathematics - Theory &amp; Exercise PDFs</title>
-  <meta name="description" content="Original course PDFs for Advanced Mathematics (UC3M): theory, slides and problem sheets.">
+  <title>Advanced Mathematics - PDFs</title>
+  <meta name="description" content="Official course PDFs for Advanced Mathematics (UC3M): theory, slides, problem sheets and past exams.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
   <script src="../../../assets/js/theme.js"></script>
   <link rel="stylesheet" href="../../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/pdf-library.css">
   <style>
-    :root { --accent: var(--accent-maths); }
-    body { margin: 0; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); font-size: 1.06rem; line-height: 1.6; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 64px; }
-    .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .back { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.02em; }
-    .back:hover { text-decoration: underline; }
-    .top-actions { display: flex; align-items: center; gap: 10px; }
-    .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
-    h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
-    .lead { color: var(--text-secondary); margin: 0 0 24px; }
-    h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
-    h3 { font-family: var(--font-mono); font-weight: 600; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 4px; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    li { padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    li a { color: var(--text-primary); text-decoration: none; word-break: break-word; }
-    li a:hover { color: var(--accent); text-decoration: underline; }
-    .size { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap; }
-    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
-    .jump a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); text-decoration: none; padding: 4px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
-    .jump a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
-    .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-left: 8px; letter-spacing: 0.04em; }
-    .year { display: grid; grid-template-columns: 5.2rem 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); }
-    .year-label { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--accent); }
-    .year ul li { border-bottom: 0; padding: 2px 0; }
-    .year ul li a .tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; margin-left: 6px; }
-    .note { margin-top: 36px; padding: 12px 16px; background: var(--bg-glass); border: 1px solid var(--border-card); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.95rem; }
-    @media (max-width: 520px) {
-      .year { grid-template-columns: 1fr; }
-      .year-label { font-size: 1.15rem; }
-    }
+    :root { --accent: var(--accent-maths); --accent-soft: color-mix(in srgb, var(--accent-maths) 12%, transparent); }
   </style>
+  <link rel="stylesheet" href="../../../assets/css/subject-index.css">
 </head>
-<body>
-  <div class="wrap">
-    <div class="top">
-      <a class="back" href="../../../index.html">&larr; Study Portal</a>
-      <div class="top-actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div>
+<body class="pdf-library">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a class="back-link" href="../../../index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Main Portal</span></a>
+      </div>
+      <div class="header-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button></div>
     </div>
-    <h1>Advanced Mathematics: Theory &amp; Exercise PDFs</h1>
-    <p class="lead">12 original PDFs from the course (theory, slides and problem sheets), grouped by unit.</p>
-<h2>Course-wide material</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/definition_linear_ODE.pdf">definition_linear_ODE.pdf</a><span class="size">98 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf">Notes.pdf</a><span class="size">1.5 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/question-about-Wronskian.pdf">question-about-Wronskian.pdf</a><span class="size">29 KB</span></li>
-</ul>
-<h3>Other</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf">J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf</a><span class="size">4.6 MB</span></li>
-</ul>
-<h2>Unit 1: Introduction Ode Modeling</h2>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf">ProblemsCh1.pdf</a><span class="size">39 KB</span></li>
-</ul>
-<h2>Unit 2: First Order Odes</h2>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf">ProblemsCh2.pdf</a><span class="size">43 KB</span></li>
-</ul>
-<h2>Unit 3: Second Order Linear Odes</h2>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf">ProblemsCh3.pdf</a><span class="size">41 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/probls_ch3-ii_2627.pdf">probls_ch3-ii_2627.pdf</a><span class="size">34 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf">probls_ch3_2627.pdf</a><span class="size">41 KB</span></li>
-</ul>
-<h2>Unit 4: Systems Of Odes</h2>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-i_2627_v2.pdf">probls_ch4-i_2627_v2.pdf</a><span class="size">39 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf">probls_ch4-ii_2627.pdf</a><span class="size">33 KB</span></li>
-</ul>
-<h2>Unit 5: Fourier Series Pdes</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/BookPDE%27s.pdf">BookPDE&#x27;s.pdf</a><span class="size">6.2 MB</span></li>
-</ul>
-    <p class="note">These are the course documents as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
-  </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Advanced Maths sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../formula-sheet/index.html">Formula sheet</a>
+      <a class="subject-tab" href="../sources/index.html" aria-current="page">PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <div class="icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15.6 4.3c-2-.9-3.3.2-3.5 2.3l-.5 10.8c-.2 2.1-1.5 3.2-3.5 2.3"/><path d="M15.8 13.2c.9-1.3 2.2-1.3 2.9 0l.6 1.6c.6 1.3 1.6 1.3 2.2.2"/><path d="M21.2 12.4l-5.2 5.2"/><path d="M3 9.5h4.2M5.1 7.4v4.2"/></svg></div>
+      <h1>Advanced Mathematics — PDFs</h1>
+    </header>
+
+    <section class="lib-tools" id="libTools" aria-label="Search and filters" hidden>
+      <label class="lib-search"><input type="search" id="libSearch" placeholder="Search by file name, unit or year" aria-label="Search the PDFs" autocomplete="off"></label>
+      <div class="lib-row" role="group" aria-label="Type"><span class="lib-label">Type</span><button type="button" class="lib-chip" data-filter="kind" data-value="all" aria-pressed="true">All<span class="n">69</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="teoria" aria-pressed="false">Theory<span class="n">4</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="problemas" aria-pressed="false">Problem sheets<span class="n">7</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="other" aria-pressed="false">Other<span class="n">1</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="exam" aria-pressed="false">Exams<span class="n">57</span></button></div>
+      <div class="lib-row" data-only="material"><label class="lib-label" for="libUnit">Unit</label><select class="lib-select" id="libUnit" data-filter="unit"><option value="all">All units</option><option value="general">Course-wide material</option><option value="1">Unit 1: Introduction Ode Modeling</option><option value="2">Unit 2: First Order Odes</option><option value="3">Unit 3: Second Order Linear Odes</option><option value="4">Unit 4: Systems Of Odes</option><option value="5">Unit 5: Fourier Series Pdes</option></select></div>
+      <div class="lib-row" data-only="exam" role="group" aria-label="Exam" hidden><span class="lib-label">Exam</span><button type="button" class="lib-chip" data-filter="exam" data-value="all" aria-pressed="true">All</button><button type="button" class="lib-chip" data-filter="exam" data-value="first" aria-pressed="false">First partial</button><button type="button" class="lib-chip" data-filter="exam" data-value="second" aria-pressed="false">Second partial</button><button type="button" class="lib-chip" data-filter="exam" data-value="final" aria-pressed="false">Final exam</button><button type="button" class="lib-chip" data-filter="exam" data-value="other" aria-pressed="false">Other universities and degrees</button></div>
+      <div class="lib-row" data-only="exam" hidden><label class="lib-label" for="libYear">Year</label><select class="lib-select" id="libYear" data-filter="year"><option value="all">All years</option><option value="2025">2025</option><option value="2024">2024</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2016">2016</option><option value="2015">2015</option><option value="2011–2014">2011–2014</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2006">2006</option></select></div>
+      <div class="lib-status"><p class="lib-count" id="libCount" aria-live="polite">69 files</p><button type="button" class="lib-reset" id="libReset" hidden>Clear filters</button></div>
+    </section>
+    <section class="lib-group">
+      <h2>Course-wide material<span class="count">4 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="general" data-name="definition_linear_ode.pdf theory course-wide material"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/definition_linear_ODE.pdf"><span class="lib-name">definition_linear_ODE.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">98 KB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="general" data-name="notes.pdf theory course-wide material"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf"><span class="lib-name">Notes.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">1.5 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="general" data-name="question-about-wronskian.pdf theory course-wide material"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/question-about-Wronskian.pdf"><span class="lib-name">question-about-Wronskian.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">29 KB</span></a></li>
+        <li class="lib-item" data-kind="other" data-unit="general" data-name="j__c__robinson__an_introduction_to_ordinary_differential_equations__cambridge_university_press__2004__2_.pdf other course-wide material"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf"><span class="lib-name">J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf</span><span class="lib-meta">Other</span><span class="lib-size">4.6 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 1 · Introduction Ode Modeling<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="problemas" data-unit="1" data-name="problemsch1.pdf problem sheets unit 1 · introduction ode modeling"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf"><span class="lib-name">ProblemsCh1.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">39 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 2 · First Order Odes<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="problemsch2.pdf problem sheets unit 2 · first order odes"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf"><span class="lib-name">ProblemsCh2.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">43 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 3 · Second Order Linear Odes<span class="count">3 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="problemsch3.pdf problem sheets unit 3 · second order linear odes"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf"><span class="lib-name">ProblemsCh3.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">41 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="probls_ch3-ii_2627.pdf problem sheets unit 3 · second order linear odes"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/probls_ch3-ii_2627.pdf"><span class="lib-name">probls_ch3-ii_2627.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">34 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="probls_ch3_2627.pdf problem sheets unit 3 · second order linear odes"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf"><span class="lib-name">probls_ch3_2627.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">41 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 4 · Systems Of Odes<span class="count">2 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="probls_ch4-i_2627_v2.pdf problem sheets unit 4 · systems of odes"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-i_2627_v2.pdf"><span class="lib-name">probls_ch4-i_2627_v2.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">39 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="probls_ch4-ii_2627.pdf problem sheets unit 4 · systems of odes"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf"><span class="lib-name">probls_ch4-ii_2627.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">33 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 5 · Fourier Series Pdes<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="5" data-name="bookpde&#x27;s.pdf theory unit 5 · fourier series pdes"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/BookPDE%27s.pdf"><span class="lib-name">BookPDE&#x27;s.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">6.2 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="first">
+      <h2>Exams · First partials<span class="count">20 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2025" data-name="2025 group 46 · exam first partial exam maths_firstpartial_2025_g46.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2025_G46.pdf"><span class="lib-name">2025 · Group 46 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">161 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2025" data-name="2025 group 47 · solutions first partial exam maths_firstpartial_2025_g47_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2025_G47_SOL.pdf"><span class="lib-name">2025 · Group 47 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">150 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2024" data-name="2024 exam first partial exam maths_firstpartial_2024.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2024.pdf"><span class="lib-name">2024 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">97 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2024" data-name="2024 solutions first partial exam maths_firstpartial_2024_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2024_SOL.pdf"><span class="lib-name">2024 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">20.9 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2021" data-name="2021 group 45 · solutions first partial exam maths_firstpartial_2021_g45_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2021_G45_SOL.pdf"><span class="lib-name">2021 · Group 45 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">180 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2020" data-name="2020 group 45 · solutions first partial exam maths_firstpartial_2020_g45_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2020_G45_SOL.pdf"><span class="lib-name">2020 · Group 45 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">194 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2020" data-name="2020 group 46 · solutions first partial exam maths_firstpartial_2020_g46_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2020_G46_SOL.pdf"><span class="lib-name">2020 · Group 46 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">188 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2020" data-name="2020 group 47 · solutions first partial exam maths_firstpartial_2020_g47_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2020_G47_SOL.pdf"><span class="lib-name">2020 · Group 47 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">123 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2019" data-name="2019 midterm 1 · exam first partial exam maths_firstpartial_2019_mt1.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT1.pdf"><span class="lib-name">2019 · Midterm 1 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">84 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2019" data-name="2019 midterm 1 · solutions first partial exam maths_firstpartial_2019_mt1_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT1_SOL.pdf"><span class="lib-name">2019 · Midterm 1 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">861 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2019" data-name="2019 midterm 2 · exam first partial exam maths_firstpartial_2019_mt2.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT2.pdf"><span class="lib-name">2019 · Midterm 2 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">93 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2019" data-name="2019 midterm 2 · solutions first partial exam maths_firstpartial_2019_mt2_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT2_SOL.pdf"><span class="lib-name">2019 · Midterm 2 · Solutions</span><span class="lib-meta">First partial</span><span class="lib-size">706 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2016" data-name="2016 exam first partial exam maths_firstpartial_2016.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2016.pdf"><span class="lib-name">2016 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">402 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2016" data-name="2016 practice exam · exam first partial exam maths_firstpartial_2016_practice.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2016_PRACTICE.pdf"><span class="lib-name">2016 · Practice exam · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">82 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2015" data-name="2015 exam first partial exam maths_firstpartial_2015.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2015.pdf"><span class="lib-name">2015 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">431 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2015" data-name="2015 version 2 · exam first partial exam maths_firstpartial_2015_v2.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2015_V2.pdf"><span class="lib-name">2015 · Version 2 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">132 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2014" data-name="2014 exam first partial exam maths_firstpartial_2014.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2014.pdf"><span class="lib-name">2014 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">136 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2013" data-name="2013 exam first partial exam maths_firstpartial_2013.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2013.pdf"><span class="lib-name">2013 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">66 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2012" data-name="2012 exam first partial exam maths_firstpartial_2012.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2012.pdf"><span class="lib-name">2012 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">129 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2011" data-name="2011 exam first partial exam maths_firstpartial_2011.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2011.pdf"><span class="lib-name">2011 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">151 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="second">
+      <h2>Exams · Second partials<span class="count">13 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2025" data-name="2025 group 46 · solutions second partial exam maths_secondpartial_2025_g46_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2025_G46_SOL.pdf"><span class="lib-name">2025 · Group 46 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">202 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2025" data-name="2025 group 47 · solutions second partial exam maths_secondpartial_2025_g47_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2025_G47_SOL.pdf"><span class="lib-name">2025 · Group 47 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">368 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2024" data-name="2024 exam second partial exam maths_secondpartial_2024.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2024.pdf"><span class="lib-name">2024 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">99 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2024" data-name="2024 version 2 · solutions second partial exam maths_secondpartial_2024_sol_v2.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2024_SOL_V2.pdf"><span class="lib-name">2024 · Version 2 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">26.9 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2021" data-name="2021 group 45 · solutions second partial exam maths_secondpartial_2021_g45_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2021_G45_SOL.pdf"><span class="lib-name">2021 · Group 45 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">185 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2020" data-name="2020 group 45 · solutions second partial exam maths_secondpartial_2020_g45_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2020_G45_SOL.pdf"><span class="lib-name">2020 · Group 45 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">172 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2020" data-name="2020 group 46 · solutions second partial exam maths_secondpartial_2020_g46_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2020_G46_SOL.pdf"><span class="lib-name">2020 · Group 46 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">184 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2020" data-name="2020 group 47 · solutions second partial exam maths_secondpartial_2020_g47_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2020_G47_SOL.pdf"><span class="lib-name">2020 · Group 47 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">191 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2019" data-name="2019 midterm 3 · exam second partial exam maths_secondpartial_2019_mt3.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2019_MT3.pdf"><span class="lib-name">2019 · Midterm 3 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">88 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2019" data-name="2019 midterm 3 · solutions second partial exam maths_secondpartial_2019_mt3_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2019_MT3_SOL.pdf"><span class="lib-name">2019 · Midterm 3 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">554 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2018" data-name="2018 midterm 3 · exam second partial exam maths_secondpartial_2018_mt3.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2018_MT3.pdf"><span class="lib-name">2018 · Midterm 3 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">186 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2018" data-name="2018 midterm 3 · group 45 · solutions second partial exam maths_secondpartial_2018_mt3_g45_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2018_MT3_G45_SOL.pdf"><span class="lib-name">2018 · Midterm 3 · Group 45 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">1.0 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2018" data-name="2018 midterm 3 · group 46 · solutions second partial exam maths_secondpartial_2018_mt3_g46_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2018_MT3_G46_SOL.pdf"><span class="lib-name">2018 · Midterm 3 · Group 46 · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">885 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="final">
+      <h2>Exams · Final exams<span class="count">23 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2024" data-name="2024 ordinary call · exam final exam exam maths_finalexam_2024_ord.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2024_ORD.pdf"><span class="lib-name">2024 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">97 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2022" data-name="2022 ordinary call · solutions final exam exam maths_finalexam_2022_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2022_ORD_SOL.pdf"><span class="lib-name">2022 · Ordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">211 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2022" data-name="2022 extraordinary call · exam final exam exam maths_finalexam_2022_extra.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2022_EXTRA.pdf"><span class="lib-name">2022 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">108 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2021" data-name="2021 ordinary call · solutions final exam exam maths_finalexam_2021_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2021_ORD_SOL.pdf"><span class="lib-name">2021 · Ordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">359 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2020" data-name="2020 ordinary call · exam final exam exam maths_finalexam_2020_ord.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2020_ORD.pdf"><span class="lib-name">2020 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">102 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2019" data-name="2019 ordinary call · exam final exam exam maths_finalexam_2019_ord.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2019_ORD.pdf"><span class="lib-name">2019 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">112 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2019" data-name="2019 ordinary call · solutions final exam exam maths_finalexam_2019_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2019_ORD_SOL.pdf"><span class="lib-name">2019 · Ordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">4.7 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2018" data-name="2018 ordinary call · solutions final exam exam maths_finalexam_2018_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2018_ORD_SOL.pdf"><span class="lib-name">2018 · Ordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">1.4 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2018" data-name="2018 extraordinary call · solutions final exam exam maths_finalexam_2018_extra_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2018_EXTRA_SOL.pdf"><span class="lib-name">2018 · Extraordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">3.6 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2018" data-name="2018 practice exam · exam final exam exam maths_finalexam_2018_practice.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2018_PRACTICE.pdf"><span class="lib-name">2018 · Practice exam · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">87 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2016" data-name="2016 ordinary call · model a · exam final exam exam maths_finalexam_2016_ord_a.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_ORD_A.pdf"><span class="lib-name">2016 · Ordinary call · Model A · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">131 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2016" data-name="2016 ordinary call · model b · exam final exam exam maths_finalexam_2016_ord_b.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_ORD_B.pdf"><span class="lib-name">2016 · Ordinary call · Model B · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">543 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2016" data-name="2016 ordinary call · model c · solutions final exam exam maths_finalexam_2016_ord_c_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_ORD_C_SOL.pdf"><span class="lib-name">2016 · Ordinary call · Model C · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">374 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2016" data-name="2016 practice exam · exam final exam exam maths_finalexam_2016_practice.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_PRACTICE.pdf"><span class="lib-name">2016 · Practice exam · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">93 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2011–2014" data-name="2011–2014 compilation · solutions final exam exam maths_finalexam_compilation_2011-2014_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_COMPILATION_2011-2014_SOL.pdf"><span class="lib-name">2011–2014 · Compilation · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">989 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2011–2014" data-name="2011–2014 compilation · solutions (highlighted) final exam exam maths_finalexam_compilation_2011-2014_sol_highlighted.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_COMPILATION_2011-2014_SOL_HIGHLIGHTED.pdf"><span class="lib-name">2011–2014 · Compilation · Solutions (highlighted)</span><span class="lib-meta">Final exam</span><span class="lib-size">924 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 ordinary call · model a · exam final exam exam maths_finalexam_2014_ord_a.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2014_ORD_A.pdf"><span class="lib-name">2014 · Ordinary call · Model A · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">222 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 ordinary call · model b · exam final exam exam maths_finalexam_2014_ord_b.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2014_ORD_B.pdf"><span class="lib-name">2014 · Ordinary call · Model B · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">163 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 extraordinary call · exam final exam exam maths_finalexam_2014_extra.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2014_EXTRA.pdf"><span class="lib-name">2014 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">73 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2013" data-name="2013 ordinary call · exam final exam exam maths_finalexam_2013_ord.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2013_ORD.pdf"><span class="lib-name">2013 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">80 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2013" data-name="2013 extraordinary call · exam final exam exam maths_finalexam_2013_extra.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2013_EXTRA.pdf"><span class="lib-name">2013 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">204 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2012" data-name="2012 ordinary call · exam final exam exam maths_finalexam_2012_ord.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2012_ORD.pdf"><span class="lib-name">2012 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">95 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2012" data-name="2012 extraordinary call · exam final exam exam maths_finalexam_2012_extra.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2012_EXTRA.pdf"><span class="lib-name">2012 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">161 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="other">
+      <h2>Exams · Other universities and degrees<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="other" data-year="2006" data-name="2006 uc3m · industrial · engineering · numerical · methods · solutions other universities and degrees exam maths_otheruni_2006_uc3m_industrial_engineering_numerical_methods_sol.pdf"><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/other-universities/MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf"><span class="lib-name">2006 · Uc3m · Industrial · Engineering · Numerical · Methods · Solutions</span><span class="lib-meta">Other universities and degrees</span><span class="lib-size">603 KB</span></a></li>
+      </ul>
+    </section>
+    <p class="lib-empty" id="libEmpty" hidden>No file matches these filters.</p>
+    <p class="lib-note">These are the course documents and exams as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</div>
+  </footer>
+  <script defer src="../../../assets/js/pdf-library.js"></script>
 </body>
 </html>

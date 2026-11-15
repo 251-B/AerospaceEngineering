@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-pdf-library",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "One PDF page per subject, with search and filters",
+    "text": "Course PDFs and past exams are now on the same page. Search by name, or filter by type, unit, exam and year. The Exams page will hold solved exams soon.",
+    "link": "subjects/fluid-mechanics/sources/index.html"
+  },
+  {
     "id": "2026-11-15-delta-v-name",
     "date": "2026-11-15",
     "tag": "Portal",

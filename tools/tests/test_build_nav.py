@@ -44,7 +44,7 @@ class BuildNavTests(unittest.TestCase):
         self.assertEqual(subject["groups"][0]["href"], "subjects/demo/teoria/index.html")
         self.assertEqual(subject["groups"][0]["pages"][0], {"href": "subjects/demo/teoria/topic-1.html", "label": "1 · One"})
         # sources/ exists, exams/ does not
-        self.assertEqual([x["label"] for x in subject["extras"]], ["Theory & exercise PDFs"])
+        self.assertEqual([x["label"] for x in subject["extras"]], ["PDFs"])
 
     def test_a_page_on_disk_that_is_not_listed_is_an_error(self):
         (self.tmp / "subjects/demo/teoria/topic-2.html").write_text("x", encoding="utf-8")

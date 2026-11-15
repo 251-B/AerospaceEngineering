@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
-"""Generate the two PDF pages of each subject from the scan behind assets/data/sources.js:
+"""Generate the PDF library and the solved-exams placeholder of each subject from the scan behind
+assets/data/sources.js:
 
-    subjects/<slug>/sources/index.html   "Theory & exercise PDFs": theory, slides, problem sheets
-                                         and schedule, grouped by unit (no exams)
-    subjects/<slug>/exams/index.html     "Exams": past partials and finals, grouped by exam
-                                         (first, second, third partial, final) and sorted by
-                                         year, newest first (only for subjects with exams)
+    subjects/<slug>/sources/index.html   "PDFs": every official PDF of the subject on one page:
+                                         theory, slides, problem sheets and schedule grouped by unit,
+                                         then the past exams grouped by exam (first, second, third
+                                         partial, final, other universities), newest year first.
+                                         A search box and filters (type, unit; for exams, exam and
+                                         year) are added by assets/js/pdf-library.js; without
+                                         JavaScript the page lists everything.
+    subjects/<slug>/exams/index.html     "Solved exams": a "Coming soon" placeholder that points at
+                                         the exam PDFs of the library. It will hold the solved exams.
 
-The pages are static (no JavaScript needed to list files), so every link points at a PDF that
-exists in sources/cuatrimestre-1/. Laboratory material is never listed (sources_manifest
-excludes it). Exam files are classified from their names, SUBJECT_KIND_YEAR[_DETAILS].pdf
+Both pages carry the subject's tab strip and header icon, copied from its teoria/index.html, and
+are styled by assets/css/pdf-library.css. Every link points at a PDF that exists in
+sources/cuatrimestre-1/. Laboratory material is never listed (sources_manifest excludes it). Exam
+files are classified from their names, SUBJECT_KIND_YEAR[_DETAILS].pdf
 (e.g. FLUIDS_FINALEXAM_2014_ORD_SOL_P1.pdf); byte-identical copies are listed once.
 
     python tools/build_sources_pages.py          # (re)write the pages
@@ -23,6 +29,7 @@ import html
 import pathlib
 import re
 import sys
+import unicodedata
 from urllib.parse import unquote
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -41,6 +48,7 @@ KIND_LABEL = {
     "teoria": "Theory", "slides": "Slides", "problemas": "Problem sheets",
     "schedule": "Schedule", "other": "Other",
 }
+KIND_ONE = {"teoria": "Theory", "slides": "Slides", "problemas": "Problem sheet", "schedule": "Schedule", "other": "Other"}
 KIND_ORDER = ("teoria", "slides", "problemas", "schedule", "other")
 
 # Same families as the root index.html.
@@ -50,47 +58,28 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;'
          '1,6..72,700&display=swap" rel="stylesheet">')
 
-CSS = """
-    body { margin: 0; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); font-size: 1.06rem; line-height: 1.6; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 64px; }
-    .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .back { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.02em; }
-    .back:hover { text-decoration: underline; }
-    .top-actions { display: flex; align-items: center; gap: 10px; }
-    .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
-    h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
-    .lead { color: var(--text-secondary); margin: 0 0 24px; }
-    h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
-    h3 { font-family: var(--font-mono); font-weight: 600; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 4px; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    li { padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    li a { color: var(--text-primary); text-decoration: none; word-break: break-word; }
-    li a:hover { color: var(--accent); text-decoration: underline; }
-    .size { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap; }
-    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
-    .jump a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); text-decoration: none; padding: 4px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
-    .jump a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
-    .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-left: 8px; letter-spacing: 0.04em; }
-    .year { display: grid; grid-template-columns: 5.2rem 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); }
-    .year-label { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--accent); }
-    .year ul li { border-bottom: 0; padding: 2px 0; }
-    .year ul li a .tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; margin-left: 6px; }
-    .note { margin-top: 36px; padding: 12px 16px; background: var(--bg-glass); border: 1px solid var(--border-card); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.95rem; }
-    @media (max-width: 520px) {
-      .year { grid-template-columns: 1fr; }
-      .year-label { font-size: 1.15rem; }
-    }
-"""
-
 
 def _size(n: int) -> str:
     return f"{n / 1024 / 1024:.1f} MB" if n >= 1024 * 1024 else f"{max(1, round(n / 1024))} KB"
 
 
-def _link(item: dict, label_html: str) -> str:
+def _files(n: int) -> str:
+    return f"{n} file" if n == 1 else f"{n} files"
+
+
+def _fold(text: str) -> str:
+    """Lower case without accents: what the search box of pdf-library.js matches against."""
+    text = unicodedata.normalize("NFD", text.lower())
+    return " ".join("".join(c for c in text if not unicodedata.combining(c)).split())
+
+
+def _item(item: dict, name: str, meta: str, attrs: dict, search: str) -> str:
     href = "../../../" + item["href"]
-    return (f'<li><a href="{html.escape(href, quote=True)}">{label_html}</a>'
-            f'<span class="size">{_size(item["bytes"])}</span></li>')
+    data = "".join(f' data-{k}="{html.escape(str(v), quote=True)}"' for k, v in attrs.items())
+    return (f'<li class="lib-item"{data} data-name="{html.escape(_fold(search), quote=True)}">'
+            f'<a href="{html.escape(href, quote=True)}"><span class="lib-name">{html.escape(name)}</span>'
+            f'<span class="lib-meta">{html.escape(meta)}</span>'
+            f'<span class="lib-size">{_size(item["bytes"])}</span></a></li>')
 
 
 # --------------------------------------------------------------------------- exam classification
@@ -206,67 +195,140 @@ def exam_entries(root: pathlib.Path, data: dict) -> list[dict]:
     return list(seen.values())
 
 
-def render_exams(slug: str, entries: list[dict]) -> str:
-    name, accent = SUBJECTS[slug]
-    sections, jumps = [], []
-    for kind in EXAM_ORDER:
-        group = [e for e in entries if e["kind"] == kind]
-        if not group:
-            continue
-        years = sorted({(e["year"] or 0, e["year_label"]) for e in group}, key=lambda y: (-y[0], y[1]))
-        rows = []
-        for y, ylabel in years:
-            files = sorted((e for e in group if (e["year"] or 0) == y and e["year_label"] == ylabel), key=lambda e: e["sort"])
-            lis = "\n".join(_link(e["item"], html.escape(e["label"])) for e in files)
-            rows.append(f'<div class="year"><div class="year-label">{html.escape(ylabel)}</div>\n<ul>\n{lis}\n</ul></div>')
-        title = EXAM_SECTION[kind]
-        sections.append(f'<h2 id="{kind}">{title}<span class="count">{len(group)} files</span></h2>\n' + "\n".join(rows))
-        jumps.append(f'<a href="#{kind}">{EXAM_SECTION[kind]}</a>')
-    body = '<nav class="jump" aria-label="Exams">' + "".join(jumps) + "</nav>\n" + "\n".join(sections)
-    lead = (f"{len(entries)} past exams and solutions, grouped by exam and sorted by year, newest first. "
-            "Ordinary and extraordinary calls are listed together under each year.")
-    return _page(slug, f"{name}: Exams", f"{name} - Exams",
-                 f"Past partial and final exams of {name} (UC3M), sorted by year.", lead, body,
-                 "These are the exams as published by the lecturers at Universidad Carlos III de Madrid. "
-                 "They are linked here for personal study.", accent)
-
-
-# --------------------------------------------------------------------------- theory & exercises
-def _group(title: str, bucket: dict) -> str:
-    kinds = [k for k in KIND_ORDER if bucket.get(k)]
-    if not kinds:
-        return ""
-    out = [f"<h2>{html.escape(title)}</h2>"]
-    for kind in kinds:
-        out.append(f"<h3>{KIND_LABEL[kind]}</h3>\n<ul>")
-        for item in bucket[kind]:
-            out.append(_link(item, html.escape(item["name"])))
-        out.append("</ul>")
-    return "\n".join(out)
-
-
+# --------------------------------------------------------------------------- the PDF library
 def material_count(data: dict) -> int:
     general = data.get("general", {})
     return sum(len(general.get(k, [])) for k in KIND_ORDER) + \
         sum(len(unit.get(k, [])) for unit in data["units"] for k in KIND_ORDER)
 
 
-def render_material(slug: str, data: dict) -> str:
+def _material_group(title: str, unit_id: str, bucket: dict) -> str:
+    rows = [_item(item, unquote(item["name"]), KIND_ONE[kind], {"kind": kind, "unit": unit_id},
+                  f'{unquote(item["name"])} {KIND_LABEL[kind]} {title}')
+            for kind in KIND_ORDER for item in bucket.get(kind, [])]
+    if not rows:
+        return ""
+    return (f'    <section class="lib-group">\n      <h2>{html.escape(title)}<span class="count">{_files(len(rows))}</span></h2>\n'
+            '      <ul class="lib-list">\n        ' + "\n        ".join(rows) + "\n      </ul>\n    </section>")
+
+
+def _exam_group(kind: str, group: list[dict]) -> str:
+    group = sorted(group, key=lambda e: (-(e["year"] or 0), e["year_label"], e["sort"]))
+    rows = [_item(e["item"], f'{e["year_label"]} · {e["label"]}', EXAM_TITLE[kind],
+                  {"kind": "exam", "exam": kind, "year": e["year_label"]},
+                  f'{e["year_label"]} {e["label"]} {EXAM_TITLE[kind]} exam {unquote(e["item"]["name"])}')
+            for e in group]
+    return (f'    <section class="lib-group" id="{kind}">\n      <h2>Exams · {EXAM_SECTION[kind]}'
+            f'<span class="count">{_files(len(rows))}</span></h2>\n'
+            '      <ul class="lib-list">\n        ' + "\n        ".join(rows) + "\n      </ul>\n    </section>")
+
+
+def _chip(name: str, value: str, label: str, n: int | None = None, pressed: bool = False) -> str:
+    count = f'<span class="n">{n}</span>' if n is not None else ""
+    return (f'<button type="button" class="lib-chip" data-filter="{name}" data-value="{value}" '
+            f'aria-pressed="{"true" if pressed else "false"}">{html.escape(label)}{count}</button>')
+
+
+def _tools(data: dict, exams: list[dict], total: int) -> str:
+    general = data.get("general", {})
+    per_kind = {k: len(general.get(k, [])) + sum(len(u.get(k, [])) for u in data["units"]) for k in KIND_ORDER}
+    kinds = [_chip("kind", "all", "All", total, True)]
+    kinds += [_chip("kind", k, KIND_LABEL[k], per_kind[k]) for k in KIND_ORDER if per_kind[k]]
+    if exams:
+        kinds.append(_chip("kind", "exam", "Exams", len(exams)))
+    units = ['<option value="all">All units</option>']
+    if any(general.get(k) for k in KIND_ORDER):
+        units.append('<option value="general">Course-wide material</option>')
+    units += [f'<option value="{u["number"]}">Unit {u["number"]}: {html.escape(u["title"])}</option>'
+              for u in data["units"] if any(u.get(k) for k in KIND_ORDER)]
+    out = ['    <section class="lib-tools" id="libTools" aria-label="Search and filters" hidden>',
+           '      <label class="lib-search"><input type="search" id="libSearch" placeholder="Search by file name, unit or year" '
+           'aria-label="Search the PDFs" autocomplete="off"></label>',
+           '      <div class="lib-row" role="group" aria-label="Type"><span class="lib-label">Type</span>' + "".join(kinds) + "</div>",
+           '      <div class="lib-row" data-only="material"><label class="lib-label" for="libUnit">Unit</label>'
+           '<select class="lib-select" id="libUnit" data-filter="unit">' + "".join(units) + "</select></div>"]
+    if exams:
+        present = [k for k in EXAM_ORDER if any(e["kind"] == k for e in exams)]
+        parts = [_chip("exam", "all", "All", None, True)] + [_chip("exam", k, EXAM_TITLE[k]) for k in present]
+        years = sorted({(e["year"] or 0, e["year_label"]) for e in exams}, key=lambda y: (-y[0], y[1]))
+        opts = '<option value="all">All years</option>' + "".join(
+            f'<option value="{html.escape(label, quote=True)}">{html.escape(label)}</option>' for _, label in years)
+        out += ['      <div class="lib-row" data-only="exam" role="group" aria-label="Exam" hidden><span class="lib-label">Exam</span>'
+                + "".join(parts) + "</div>",
+                '      <div class="lib-row" data-only="exam" hidden><label class="lib-label" for="libYear">Year</label>'
+                f'<select class="lib-select" id="libYear" data-filter="year">{opts}</select></div>']
+    out += [f'      <div class="lib-status"><p class="lib-count" id="libCount" aria-live="polite">{total} files</p>'
+            '<button type="button" class="lib-reset" id="libReset" hidden>Clear filters</button></div>',
+            "    </section>"]
+    return "\n".join(out)
+
+
+def render_library(slug: str, data: dict, exams: list[dict], root: pathlib.Path = REPO) -> str:
     name, accent = SUBJECTS[slug]
-    sections = [_group("Course-wide material", data.get("general", {}))]
+    total = material_count(data) + len(exams)
+    sections = [_material_group("Course-wide material", "general", data.get("general", {}))]
     for unit in data["units"]:
-        sections.append(_group(f"Unit {unit['number']}: {unit['title']}", unit))
-    body = "\n".join(s for s in sections if s)
-    count = material_count(data)
-    lead = f"{count} original PDFs from the course (theory, slides and problem sheets), grouped by unit."
-    return _page(slug, f"{name}: Theory &amp; Exercise PDFs", f"{name} - Theory & Exercise PDFs",
-                 f"Original course PDFs for {name} (UC3M): theory, slides and problem sheets.", lead, body,
-                 "These are the course documents as published by the lecturers at Universidad Carlos III de Madrid. "
-                 "They are linked here for personal study; the notes and solutions elsewhere in this portal are "
-                 "written independently from them.", accent)
+        sections.append(_material_group(f"Unit {unit['number']} · {unit['title']}", str(unit["number"]), unit))
+    for kind in EXAM_ORDER:
+        group = [e for e in exams if e["kind"] == kind]
+        if group:
+            sections.append(_exam_group(kind, group))
+    body = "\n".join([_tools(data, exams, total)] + [s for s in sections if s] +
+                     ['    <p class="lib-empty" id="libEmpty" hidden>No file matches these filters.</p>',
+                      '    <p class="lib-note">These are the course documents and exams as published by the lecturers at '
+                      "Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions "
+                      "elsewhere in this portal are written independently from them.</p>"])
+    return _page(root, slug, "sources", f"{name} — PDFs", f"{name} - PDFs",
+                 f"Official course PDFs for {name} (UC3M): theory, slides, problem sheets and past exams.", body, accent,
+                 script=True)
 
 
-def _page(slug, h1, title, description, lead, body, note, accent) -> str:
+def render_exams(slug: str, exams: list[dict], root: pathlib.Path = REPO) -> str:
+    """The "Solved exams" placeholder. The exam PDFs themselves are listed in the PDF library."""
+    name, accent = SUBJECTS[slug]
+    if exams:
+        text = (f"Past exams of {name} solved step by step will be published here. "
+                f"Until then, the {len(exams)} exam papers and official solutions are in the PDF library.")
+        link = '<a class="soon-link" href="../sources/index.html?type=exam">Open the exam PDFs</a>'
+    else:
+        text = (f"Past exams of {name} solved step by step will be published here. "
+                "The course material is in the PDF library.")
+        link = '<a class="soon-link" href="../sources/index.html">Open the PDF library</a>'
+    body = ('    <section class="soon-card">\n      <p class="soon-badge">Coming soon</p>\n      <h2>Solved exams</h2>\n'
+            f"      <p>{html.escape(text)}</p>\n      {link}\n    </section>")
+    return _page(root, slug, "exams", f"{name} — Solved exams", f"{name} - Solved exams",
+                 f"Solved past exams of {name} (UC3M): coming soon.", body, accent)
+
+
+_TABS = re.compile(r'<nav class="subject-tabs"[^>]*>.*?</nav>', re.S)
+_ICON = re.compile(r'<(?:div|span) class="(?:icon|page-header-icon)"[^>]*>\s*(<svg\b.*?</svg>)', re.S)
+_FALLBACK_TABS = ('<nav class="subject-tabs" aria-label="{name} sections">\n'
+                  '      <a class="subject-tab" href="../teoria/index.html">Theory</a>\n'
+                  '      <a class="subject-tab" href="../problemas/index.html">Problems</a>\n'
+                  '      <span class="subject-tab" aria-disabled="true">Extra problems <span class="subject-tab__soon">Soon</span></span>\n'
+                  '      <span class="subject-tab" aria-disabled="true">Exam simulator <span class="subject-tab__soon">Soon</span></span>\n'
+                  '      <a class="subject-tab" href="../sources/index.html">PDFs</a>\n'
+                  "    </nav>")
+
+
+def _chrome(root: pathlib.Path, slug: str, area: str) -> tuple[str, str]:
+    """The tab strip and the header icon of the subject, copied from its theory index so the two
+    generated pages match the hand-written ones. The PDFs tab is marked current on the library."""
+    index = pathlib.Path(root, "subjects", slug, "teoria", "index.html")
+    text = index.read_text(encoding="utf-8") if index.is_file() else ""
+    tabs = _TABS.search(text)
+    tabs = tabs.group(0) if tabs else _FALLBACK_TABS.format(name=html.escape(SUBJECTS[slug][0]))
+    tabs = tabs.replace(' aria-current="page"', "")
+    if area == "sources":
+        tabs = tabs.replace('href="../sources/index.html"', 'href="../sources/index.html" aria-current="page"')
+    icon = _ICON.search(text)
+    return tabs, (icon.group(1) if icon else "")
+
+
+def _page(root, slug, area, h1, title, description, body, accent, script=False) -> str:
+    tabs, icon = _chrome(root, slug, area)
+    icon = f'\n      <div class="icon" aria-hidden="true">{icon}</div>' if icon else ""
+    tail = '\n  <script defer src="../../../assets/js/pdf-library.js"></script>' if script else ""
     return f"""<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -278,20 +340,36 @@ def _page(slug, h1, title, description, lead, body, note, accent) -> str:
   <script src="../../../assets/js/theme.js"></script>
   <link rel="stylesheet" href="../../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/pdf-library.css">
   <style>
-    :root {{ --accent: var({accent}); }}{CSS}  </style>
+    :root {{ --accent: var({accent}); --accent-soft: color-mix(in srgb, var({accent}) 12%, transparent); }}
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/subject-index.css">
 </head>
-<body>
-  <div class="wrap">
-    <div class="top">
-      <a class="back" href="../../../index.html">&larr; Study Portal</a>
-      <div class="top-actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div>
+<body class="pdf-library">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a class="back-link" href="../../../index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Main Portal</span></a>
+      </div>
+      <div class="header-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button></div>
     </div>
-    <h1>{h1}</h1>
-    <p class="lead">{html.escape(lead)}</p>
+  </header>
+
+  <main class="container">
+    {tabs}
+
+    <header class="page-header">{icon}
+      <h1>{html.escape(h1)}</h1>
+    </header>
+
 {body}
-    <p class="note">{html.escape(note)}</p>
-  </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</div>
+  </footer>{tail}
 </body>
 </html>
 """
@@ -299,9 +377,14 @@ def _page(slug, h1, title, description, lead, body, note, accent) -> str:
 
 # --------------------------------------------------------------------------- driver
 def counts(root: pathlib.Path = REPO) -> dict[str, tuple[int, int]]:
-    """(theory & exercise PDFs, exam files) per subject, as the index badges must show them."""
+    """(files in the PDF library, of which exam files) per subject. The first number is the one the
+    PDFs badge of the landing page must show: course material plus exams, each file once."""
     manifest = build_manifest(root)
-    return {slug: (material_count(d), len(exam_entries(root, d))) for slug, d in manifest["subjects"].items()}
+    out = {}
+    for slug, d in manifest["subjects"].items():
+        exams = len(exam_entries(root, d))
+        out[slug] = (material_count(d) + exams, exams)
+    return out
 
 
 def build(root: pathlib.Path = REPO) -> dict[pathlib.Path, str]:
@@ -312,9 +395,8 @@ def build(root: pathlib.Path = REPO) -> dict[pathlib.Path, str]:
             continue
         data = manifest["subjects"][slug]
         exams = exam_entries(root, data)
-        pages[pathlib.Path(root, "subjects", slug, "sources", "index.html")] = render_material(slug, data)
-        if exams:
-            pages[pathlib.Path(root, "subjects", slug, "exams", "index.html")] = render_exams(slug, exams)
+        pages[pathlib.Path(root, "subjects", slug, "sources", "index.html")] = render_library(slug, data, exams, root)
+        pages[pathlib.Path(root, "subjects", slug, "exams", "index.html")] = render_exams(slug, exams, root)
     return pages
 
 

@@ -51,13 +51,30 @@ class DuplicateTests(unittest.TestCase):
 
 
 class PageTests(unittest.TestCase):
-    def test_pages_load_the_index_fonts_and_exams_are_not_on_the_theory_page(self):
+    def test_pages_load_the_index_fonts_and_exam_pdfs_live_in_the_library(self):
         pages = bs.build()
+        counts = bs.counts()
         for path, text in pages.items():
+            slug = path.parent.parent.name
             self.assertIn("family=Abril+Fatface", text, path)
             self.assertIn("family=Newsreader", text, path)
+            self.assertIn('class="subject-tabs"', text, path)
+            self.assertNotIn('class="tabs"', text, path)
+            self.assertNotRegex(text.lower(), r"laborator", path)
             if path.parent.name == "sources":
-                self.assertNotIn("_FINALEXAM_", text, path)
+                # one row per file of the library, exams included
+                self.assertEqual(text.count('class="lib-item"'), counts[slug][0], path)
+                self.assertEqual(text.count('data-kind="exam"'), counts[slug][1], path)
+                self.assertIn("pdf-library.js", text, path)
+                self.assertIn('href="../sources/index.html" aria-current="page"', text, path)
+            else:
+                # the exams page is the "Coming soon" placeholder: it links no PDF
+                self.assertIn("Coming soon", text, path)
+                self.assertNotIn(".pdf", text, path)
+                self.assertNotIn('aria-current="page"', text, path)
+
+    def test_every_subject_has_both_pages(self):
+        self.assertEqual(len(bs.build()), 2 * len(bs.SUBJECTS))
 
     def test_generated_pages_are_up_to_date(self):
         proc = subprocess.run([sys.executable, str(TOOLS / "build_sources_pages.py"), "--check"],

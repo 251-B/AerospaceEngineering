@@ -101,11 +101,11 @@ window.AE_NAV = {
       "extras": [
         {
           "href": "subjects/fluid-mechanics/sources/index.html",
-          "label": "Theory & exercise PDFs"
+          "label": "PDFs"
         },
         {
           "href": "subjects/fluid-mechanics/exams/index.html",
-          "label": "Exams"
+          "label": "Solved exams"
         }
       ]
     },
@@ -184,11 +184,11 @@ window.AE_NAV = {
       "extras": [
         {
           "href": "subjects/aerospace-materials-1/sources/index.html",
-          "label": "Theory & exercise PDFs"
+          "label": "PDFs"
         },
         {
           "href": "subjects/aerospace-materials-1/exams/index.html",
-          "label": "Exams"
+          "label": "Solved exams"
         }
       ]
     },
@@ -278,11 +278,11 @@ window.AE_NAV = {
         },
         {
           "href": "subjects/engineering-mechanics/sources/index.html",
-          "label": "Theory & exercise PDFs"
+          "label": "PDFs"
         },
         {
           "href": "subjects/engineering-mechanics/exams/index.html",
-          "label": "Exams"
+          "label": "Solved exams"
         }
       ]
     },
@@ -376,11 +376,11 @@ window.AE_NAV = {
         },
         {
           "href": "subjects/advanced-maths/sources/index.html",
-          "label": "Theory & exercise PDFs"
+          "label": "PDFs"
         },
         {
           "href": "subjects/advanced-maths/exams/index.html",
-          "label": "Exams"
+          "label": "Solved exams"
         }
       ]
     },
@@ -446,7 +446,11 @@ window.AE_NAV = {
         },
         {
           "href": "subjects/business-management/sources/index.html",
-          "label": "Theory & exercise PDFs"
+          "label": "PDFs"
+        },
+        {
+          "href": "subjects/business-management/exams/index.html",
+          "label": "Solved exams"
         }
       ]
     }

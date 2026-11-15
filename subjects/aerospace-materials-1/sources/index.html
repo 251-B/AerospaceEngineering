@@ -3,165 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aerospace Materials I - Theory &amp; Exercise PDFs</title>
-  <meta name="description" content="Original course PDFs for Aerospace Materials I (UC3M): theory, slides and problem sheets.">
+  <title>Aerospace Materials I - PDFs</title>
+  <meta name="description" content="Official course PDFs for Aerospace Materials I (UC3M): theory, slides, problem sheets and past exams.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
   <script src="../../../assets/js/theme.js"></script>
   <link rel="stylesheet" href="../../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/pdf-library.css">
   <style>
-    :root { --accent: var(--accent-materials); }
-    body { margin: 0; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); font-size: 1.06rem; line-height: 1.6; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 64px; }
-    .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .back { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.02em; }
-    .back:hover { text-decoration: underline; }
-    .top-actions { display: flex; align-items: center; gap: 10px; }
-    .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
-    h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
-    .lead { color: var(--text-secondary); margin: 0 0 24px; }
-    h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
-    h3 { font-family: var(--font-mono); font-weight: 600; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 4px; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    li { padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    li a { color: var(--text-primary); text-decoration: none; word-break: break-word; }
-    li a:hover { color: var(--accent); text-decoration: underline; }
-    .size { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap; }
-    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
-    .jump a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); text-decoration: none; padding: 4px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
-    .jump a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
-    .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-left: 8px; letter-spacing: 0.04em; }
-    .year { display: grid; grid-template-columns: 5.2rem 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); }
-    .year-label { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--accent); }
-    .year ul li { border-bottom: 0; padding: 2px 0; }
-    .year ul li a .tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; margin-left: 6px; }
-    .note { margin-top: 36px; padding: 12px 16px; background: var(--bg-glass); border: 1px solid var(--border-card); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.95rem; }
-    @media (max-width: 520px) {
-      .year { grid-template-columns: 1fr; }
-      .year-label { font-size: 1.15rem; }
-    }
+    :root { --accent: var(--accent-materials); --accent-soft: color-mix(in srgb, var(--accent-materials) 12%, transparent); }
   </style>
+  <link rel="stylesheet" href="../../../assets/css/subject-index.css">
 </head>
-<body>
-  <div class="wrap">
-    <div class="top">
-      <a class="back" href="../../../index.html">&larr; Study Portal</a>
-      <div class="top-actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div>
+<body class="pdf-library">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a class="back-link" href="../../../index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Main Portal</span></a>
+      </div>
+      <div class="header-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button></div>
     </div>
-    <h1>Aerospace Materials I: Theory &amp; Exercise PDFs</h1>
-    <p class="lead">34 original PDFs from the course (theory, slides and problem sheets), grouped by unit.</p>
-<h2>Course-wide material</h2>
-<h3>Schedule</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/schedule/Schedule_MAT%20AERO%20I%202026%20-%2027.pdf">Schedule_MAT AERO I 2026 - 27.pdf</a><span class="size">293 KB</span></li>
-</ul>
-<h2>Unit 1: Atomic Bonding</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf">Session 2 T1 Bonding_2025.pdf</a><span class="size">2.7 MB</span></li>
-</ul>
-<h2>Unit 2: Crystal Structures Defects</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf">Session 3 T2 Structure of Materials I_2025.pdf</a><span class="size">3.7 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf">Session 4 T2 Structure of Materials II_2025.pdf</a><span class="size">3.6 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/problemas/Problems%20T2%20defects.pdf">Problems T2 defects.pdf</a><span class="size">217 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/problemas/Problems%20T2_CrystStruct.pdf">Problems T2_CrystStruct.pdf</a><span class="size">276 KB</span></li>
-</ul>
-<h2>Unit 3: Diffusion In Solids</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf">Session 5 T3  Difussion_2025.pdf</a><span class="size">3.5 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/problemas/Problems%20T3_Diffusion.pdf">Problems T3_Diffusion.pdf</a><span class="size">193 KB</span></li>
-</ul>
-<h2>Unit 4: Phase Diagrams</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf">Session 7 T4 Phase diagrams I_2025.pdf</a><span class="size">2.1 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%208%20T4%20Phase%20diagrams%20II.pdf">Session 8 T4 Phase diagrams II.pdf</a><span class="size">1.4 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf">Session 9 T4 Phase diagrams III.pdf</a><span class="size">1.8 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%2010%20T4%20Phase%20diagrams%20IV.pdf">Session 10 T4 Phase diagrams IV.pdf</a><span class="size">1.2 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20I.pdf">Problems T4_PhaseDiagrams I.pdf</a><span class="size">612 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf">Problems T4_PhaseDiagrams II.pdf</a><span class="size">279 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution%20problems%20Phase%20diagrams%20I.pdf">Solution problems Phase diagrams I.pdf</a><span class="size">1.2 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution%20problems%20Phase%20diagrams%20II.pdf">Solution problems Phase diagrams II.pdf</a><span class="size">899 KB</span></li>
-</ul>
-<h2>Unit 5: Mechanical Properties</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf">Session 11 T5 Mechanical properties I.pdf</a><span class="size">2.2 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf">Session 12 T5 Mechanical properties II.pdf</a><span class="size">2.0 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf">Problems T5_MechanicalProperties.pdf</a><span class="size">259 KB</span></li>
-</ul>
-<h2>Unit 6: Electrical Properties</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/teoria/Session%2013%20T6%20Electrical%20properties.pdf">Session 13 T6 Electrical properties.pdf</a><span class="size">3.3 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/problemas/Problems%20T6andT7_Electric%20and%20Magnetic%20Properties.pdf">Problems T6andT7_Electric and Magnetic Properties.pdf</a><span class="size">216 KB</span></li>
-</ul>
-<h2>Unit 7: Magnetic Thermal Properties</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf">Session 15 T7 Magnetic and thermal properties.pdf</a><span class="size">2.9 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/problemas/Problems%20T6andT7_Electric%20and%20Magnetic%20Properties.pdf">Problems T6andT7_Electric and Magnetic Properties.pdf</a><span class="size">216 KB</span></li>
-</ul>
-<h2>Unit 8: Ceramic Materials</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf">Session 16 T8 Ceramic materials.pdf</a><span class="size">4.0 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2018%20T8%20Processing%20of%20ceramic%20materials.pdf">Session 18 T8 Processing of ceramic materials.pdf</a><span class="size">3.6 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf">Problems T8_CeramicMaterials.pdf</a><span class="size">235 KB</span></li>
-</ul>
-<h2>Unit 9: Polymers</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf">Session 19 T9 Polymers.pdf</a><span class="size">4.1 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf">Session 20 T9 Classification and Polymer Processing.pdf</a><span class="size">2.6 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf">Problems T9_Polymers.pdf</a><span class="size">228 KB</span></li>
-</ul>
-<h2>Unit 10: Composite Materials</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf">Session 21 T10 Composites I.pdf</a><span class="size">4.1 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf">Session 22 T10 Composites II.pdf</a><span class="size">1.1 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2023%20T10%20Composites%20III.pdf">Session 23 T10 Composites III.pdf</a><span class="size">4.8 MB</span></li>
-</ul>
-<h3>Problem sheets</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf">Problems T10_CompositeMaterials.pdf</a><span class="size">229 KB</span></li>
-</ul>
-<h2>Unit 11: Adhesives</h2>
-<h3>Theory</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf">Session 24 T11 Adhesives.pdf</a><span class="size">2.8 MB</span></li>
-</ul>
-    <p class="note">These are the course documents as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
-  </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Aerospace Materials I sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <span class="subject-tab" aria-disabled="true">Extra problems <span class="subject-tab__soon">Soon</span></span>
+      <span class="subject-tab" aria-disabled="true">Exam simulator <span class="subject-tab__soon">Soon</span></span>
+      <a class="subject-tab" href="../sources/index.html" aria-current="page">PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <div class="icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 4.3v8.6L12 20.2l-7.5-4.3V7.3z"/><path d="M12 11.6l7.5-4.3M12 11.6L4.5 7.3M12 11.6v8.6"/><circle cx="12" cy="3" r="1.3" fill="currentColor"/><circle cx="19.5" cy="7.3" r="1.3" fill="currentColor"/><circle cx="4.5" cy="7.3" r="1.3" fill="currentColor"/><circle cx="12" cy="11.6" r="1.3" fill="currentColor"/><circle cx="12" cy="20.2" r="1.3" fill="currentColor"/></svg></div>
+      <h1>Aerospace Materials I — PDFs</h1>
+    </header>
+
+    <section class="lib-tools" id="libTools" aria-label="Search and filters" hidden>
+      <label class="lib-search"><input type="search" id="libSearch" placeholder="Search by file name, unit or year" aria-label="Search the PDFs" autocomplete="off"></label>
+      <div class="lib-row" role="group" aria-label="Type"><span class="lib-label">Type</span><button type="button" class="lib-chip" data-filter="kind" data-value="all" aria-pressed="true">All<span class="n">63</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="teoria" aria-pressed="false">Theory<span class="n">20</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="problemas" aria-pressed="false">Problem sheets<span class="n">13</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="schedule" aria-pressed="false">Schedule<span class="n">1</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="exam" aria-pressed="false">Exams<span class="n">29</span></button></div>
+      <div class="lib-row" data-only="material"><label class="lib-label" for="libUnit">Unit</label><select class="lib-select" id="libUnit" data-filter="unit"><option value="all">All units</option><option value="general">Course-wide material</option><option value="1">Unit 1: Atomic Bonding</option><option value="2">Unit 2: Crystal Structures Defects</option><option value="3">Unit 3: Diffusion In Solids</option><option value="4">Unit 4: Phase Diagrams</option><option value="5">Unit 5: Mechanical Properties</option><option value="6">Unit 6: Electrical Properties</option><option value="7">Unit 7: Magnetic Thermal Properties</option><option value="8">Unit 8: Ceramic Materials</option><option value="9">Unit 9: Polymers</option><option value="10">Unit 10: Composite Materials</option><option value="11">Unit 11: Adhesives</option></select></div>
+      <div class="lib-row" data-only="exam" role="group" aria-label="Exam" hidden><span class="lib-label">Exam</span><button type="button" class="lib-chip" data-filter="exam" data-value="all" aria-pressed="true">All</button><button type="button" class="lib-chip" data-filter="exam" data-value="first" aria-pressed="false">First partial</button><button type="button" class="lib-chip" data-filter="exam" data-value="second" aria-pressed="false">Second partial</button><button type="button" class="lib-chip" data-filter="exam" data-value="third" aria-pressed="false">Third partial</button><button type="button" class="lib-chip" data-filter="exam" data-value="final" aria-pressed="false">Final exam</button></div>
+      <div class="lib-row" data-only="exam" hidden><label class="lib-label" for="libYear">Year</label><select class="lib-select" id="libYear" data-filter="year"><option value="all">All years</option><option value="2023">2023</option><option value="2022">2022</option><option value="2020">2020</option><option value="2019">2019</option><option value="2013–2017">2013–2017</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="Undated">Undated</option></select></div>
+      <div class="lib-status"><p class="lib-count" id="libCount" aria-live="polite">63 files</p><button type="button" class="lib-reset" id="libReset" hidden>Clear filters</button></div>
+    </section>
+    <section class="lib-group">
+      <h2>Course-wide material<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="schedule" data-unit="general" data-name="schedule_mat aero i 2026 - 27.pdf schedule course-wide material"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/schedule/Schedule_MAT%20AERO%20I%202026%20-%2027.pdf"><span class="lib-name">Schedule_MAT AERO I 2026 - 27.pdf</span><span class="lib-meta">Schedule</span><span class="lib-size">293 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 1 · Atomic Bonding<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="1" data-name="session 2 t1 bonding_2025.pdf theory unit 1 · atomic bonding"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf"><span class="lib-name">Session 2 T1 Bonding_2025.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.7 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 2 · Crystal Structures Defects<span class="count">4 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="2" data-name="session 3 t2 structure of materials i_2025.pdf theory unit 2 · crystal structures defects"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf"><span class="lib-name">Session 3 T2 Structure of Materials I_2025.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">3.7 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="2" data-name="session 4 t2 structure of materials ii_2025.pdf theory unit 2 · crystal structures defects"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf"><span class="lib-name">Session 4 T2 Structure of Materials II_2025.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">3.6 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="problems t2 defects.pdf problem sheets unit 2 · crystal structures defects"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/problemas/Problems%20T2%20defects.pdf"><span class="lib-name">Problems T2 defects.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">217 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="2" data-name="problems t2_cryststruct.pdf problem sheets unit 2 · crystal structures defects"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/problemas/Problems%20T2_CrystStruct.pdf"><span class="lib-name">Problems T2_CrystStruct.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">276 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 3 · Diffusion In Solids<span class="count">2 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="3" data-name="session 5 t3 difussion_2025.pdf theory unit 3 · diffusion in solids"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf"><span class="lib-name">Session 5 T3  Difussion_2025.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">3.5 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="3" data-name="problems t3_diffusion.pdf problem sheets unit 3 · diffusion in solids"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/problemas/Problems%20T3_Diffusion.pdf"><span class="lib-name">Problems T3_Diffusion.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">193 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 4 · Phase Diagrams<span class="count">8 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="4" data-name="session 7 t4 phase diagrams i_2025.pdf theory unit 4 · phase diagrams"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf"><span class="lib-name">Session 7 T4 Phase diagrams I_2025.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.1 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="4" data-name="session 8 t4 phase diagrams ii.pdf theory unit 4 · phase diagrams"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%208%20T4%20Phase%20diagrams%20II.pdf"><span class="lib-name">Session 8 T4 Phase diagrams II.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">1.4 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="4" data-name="session 9 t4 phase diagrams iii.pdf theory unit 4 · phase diagrams"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf"><span class="lib-name">Session 9 T4 Phase diagrams III.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">1.8 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="4" data-name="session 10 t4 phase diagrams iv.pdf theory unit 4 · phase diagrams"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%2010%20T4%20Phase%20diagrams%20IV.pdf"><span class="lib-name">Session 10 T4 Phase diagrams IV.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">1.2 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="problems t4_phasediagrams i.pdf problem sheets unit 4 · phase diagrams"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20I.pdf"><span class="lib-name">Problems T4_PhaseDiagrams I.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">612 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="problems t4_phasediagrams ii.pdf problem sheets unit 4 · phase diagrams"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf"><span class="lib-name">Problems T4_PhaseDiagrams II.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">279 KB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="solution problems phase diagrams i.pdf problem sheets unit 4 · phase diagrams"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution%20problems%20Phase%20diagrams%20I.pdf"><span class="lib-name">Solution problems Phase diagrams I.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">1.2 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="4" data-name="solution problems phase diagrams ii.pdf problem sheets unit 4 · phase diagrams"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution%20problems%20Phase%20diagrams%20II.pdf"><span class="lib-name">Solution problems Phase diagrams II.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">899 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 5 · Mechanical Properties<span class="count">3 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="5" data-name="session 11 t5 mechanical properties i.pdf theory unit 5 · mechanical properties"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf"><span class="lib-name">Session 11 T5 Mechanical properties I.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.2 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="5" data-name="session 12 t5 mechanical properties ii.pdf theory unit 5 · mechanical properties"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2012%20T5%20Mechanical%20properties%20II.pdf"><span class="lib-name">Session 12 T5 Mechanical properties II.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.0 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="5" data-name="problems t5_mechanicalproperties.pdf problem sheets unit 5 · mechanical properties"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf"><span class="lib-name">Problems T5_MechanicalProperties.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">259 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 6 · Electrical Properties<span class="count">2 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="6" data-name="session 13 t6 electrical properties.pdf theory unit 6 · electrical properties"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/teoria/Session%2013%20T6%20Electrical%20properties.pdf"><span class="lib-name">Session 13 T6 Electrical properties.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">3.3 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="6" data-name="problems t6andt7_electric and magnetic properties.pdf problem sheets unit 6 · electrical properties"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-06-electrical-properties/problemas/Problems%20T6andT7_Electric%20and%20Magnetic%20Properties.pdf"><span class="lib-name">Problems T6andT7_Electric and Magnetic Properties.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">216 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 7 · Magnetic Thermal Properties<span class="count">2 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="7" data-name="session 15 t7 magnetic and thermal properties.pdf theory unit 7 · magnetic thermal properties"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/teoria/Session%2015%20T7%20Magnetic%20and%20thermal%20properties.pdf"><span class="lib-name">Session 15 T7 Magnetic and thermal properties.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.9 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="7" data-name="problems t6andt7_electric and magnetic properties.pdf problem sheets unit 7 · magnetic thermal properties"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/problemas/Problems%20T6andT7_Electric%20and%20Magnetic%20Properties.pdf"><span class="lib-name">Problems T6andT7_Electric and Magnetic Properties.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">216 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 8 · Ceramic Materials<span class="count">3 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="8" data-name="session 16 t8 ceramic materials.pdf theory unit 8 · ceramic materials"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf"><span class="lib-name">Session 16 T8 Ceramic materials.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">4.0 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="8" data-name="session 18 t8 processing of ceramic materials.pdf theory unit 8 · ceramic materials"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2018%20T8%20Processing%20of%20ceramic%20materials.pdf"><span class="lib-name">Session 18 T8 Processing of ceramic materials.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">3.6 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="8" data-name="problems t8_ceramicmaterials.pdf problem sheets unit 8 · ceramic materials"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf"><span class="lib-name">Problems T8_CeramicMaterials.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">235 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 9 · Polymers<span class="count">3 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="9" data-name="session 19 t9 polymers.pdf theory unit 9 · polymers"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf"><span class="lib-name">Session 19 T9 Polymers.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">4.1 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="9" data-name="session 20 t9 classification and polymer processing.pdf theory unit 9 · polymers"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf"><span class="lib-name">Session 20 T9 Classification and Polymer Processing.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.6 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="9" data-name="problems t9_polymers.pdf problem sheets unit 9 · polymers"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf"><span class="lib-name">Problems T9_Polymers.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">228 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 10 · Composite Materials<span class="count">4 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="10" data-name="session 21 t10 composites i.pdf theory unit 10 · composite materials"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf"><span class="lib-name">Session 21 T10 Composites I.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">4.1 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="10" data-name="session 22 t10 composites ii.pdf theory unit 10 · composite materials"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf"><span class="lib-name">Session 22 T10 Composites II.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">1.1 MB</span></a></li>
+        <li class="lib-item" data-kind="teoria" data-unit="10" data-name="session 23 t10 composites iii.pdf theory unit 10 · composite materials"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2023%20T10%20Composites%20III.pdf"><span class="lib-name">Session 23 T10 Composites III.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">4.8 MB</span></a></li>
+        <li class="lib-item" data-kind="problemas" data-unit="10" data-name="problems t10_compositematerials.pdf problem sheets unit 10 · composite materials"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf"><span class="lib-name">Problems T10_CompositeMaterials.pdf</span><span class="lib-meta">Problem sheet</span><span class="lib-size">229 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group">
+      <h2>Unit 11 · Adhesives<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="teoria" data-unit="11" data-name="session 24 t11 adhesives.pdf theory unit 11 · adhesives"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf"><span class="lib-name">Session 24 T11 Adhesives.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">2.8 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="first">
+      <h2>Exams · First partials<span class="count">4 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2023" data-name="2023 exam first partial exam materials_firstpartial_undated.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FIRSTPARTIAL_UNDATED.pdf"><span class="lib-name">2023 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">993 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="2022" data-name="2022 exam first partial exam 1stpartial2022.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/first-partial/1stPartial2022.pdf"><span class="lib-name">2022 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">21.7 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="Undated" data-name="undated version 2 · exam first partial exam materials_firstpartial_undated_v2.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FIRSTPARTIAL_UNDATED_V2.pdf"><span class="lib-name">Undated · Version 2 · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">21.9 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="first" data-year="Undated" data-name="undated compilation · quiz · exam first partial exam materials_firstpartial_compilation_quiz.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FIRSTPARTIAL_COMPILATION_QUIZ.pdf"><span class="lib-name">Undated · Compilation · Quiz · Exam</span><span class="lib-meta">First partial</span><span class="lib-size">1.2 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="second">
+      <h2>Exams · Second partials<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2019" data-name="2019 exam second partial exam materials_secondpartial_2019.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2019.pdf"><span class="lib-name">2019 · Exam</span><span class="lib-meta">Second partial</span><span class="lib-size">2.5 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="third">
+      <h2>Exams · Third partials<span class="count">2 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="third" data-year="2020" data-name="2020 exam third partial exam materials_thirdpartial_2020.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_THIRDPARTIAL_2020.pdf"><span class="lib-name">2020 · Exam</span><span class="lib-meta">Third partial</span><span class="lib-size">832 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="third" data-year="2020" data-name="2020 version 2 · exam third partial exam materials_thirdpartial_2020_v2.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_THIRDPARTIAL_2020_V2.pdf"><span class="lib-name">2020 · Version 2 · Exam</span><span class="lib-meta">Third partial</span><span class="lib-size">16.4 MB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="final">
+      <h2>Exams · Final exams<span class="count">22 files</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2013–2017" data-name="2013–2017 compilation · exam final exam exam materials_finalexam_compilation_2013-2017.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf"><span class="lib-name">2013–2017 · Compilation · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">1.3 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2017" data-name="2017 ordinary call · exam final exam exam materials_finalexam_2017_ord.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2017_ORD.pdf"><span class="lib-name">2017 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">808 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2017" data-name="2017 extraordinary call · exam final exam exam materials_finalexam_2017_extra.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2017_EXTRA.pdf"><span class="lib-name">2017 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">336 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2016" data-name="2016 ordinary call · solutions final exam exam materials_finalexam_2016_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_ORD_SOL.pdf"><span class="lib-name">2016 · Ordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">337 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2016" data-name="2016 ordinary call · solutions (handwritten) final exam exam materials_finalexam_2016_ord_sol_handwritten.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_ORD_SOL_HANDWRITTEN.pdf"><span class="lib-name">2016 · Ordinary call · Solutions (handwritten)</span><span class="lib-meta">Final exam</span><span class="lib-size">1.9 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2016" data-name="2016 extraordinary call · solutions final exam exam materials_finalexam_2016_extra_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf"><span class="lib-name">2016 · Extraordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">349 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2015" data-name="2015 ordinary call · exam final exam exam materials_finalexam_2015_ord.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_ORD.pdf"><span class="lib-name">2015 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">941 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2015" data-name="2015 ordinary call · solutions final exam exam materials_finalexam_2015_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_ORD_SOL.pdf"><span class="lib-name">2015 · Ordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">2.1 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2015" data-name="2015 extraordinary call · exam final exam exam materials_finalexam_2015_extra.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_EXTRA.pdf"><span class="lib-name">2015 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">808 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2015" data-name="2015 extraordinary call · solutions final exam exam materials_finalexam_2015_extra_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_EXTRA_SOL.pdf"><span class="lib-name">2015 · Extraordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">2.5 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 ordinary call · exam final exam exam materials_finalexam_2014_ord.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_ORD.pdf"><span class="lib-name">2014 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">96 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 ordinary call · solutions final exam exam materials_finalexam_2014_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_ORD_SOL.pdf"><span class="lib-name">2014 · Ordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">2.5 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 extraordinary call · exam final exam exam materials_finalexam_2014_extra.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_EXTRA.pdf"><span class="lib-name">2014 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">109 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2014" data-name="2014 extraordinary call · solutions final exam exam materials_finalexam_2014_extra_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_EXTRA_SOL.pdf"><span class="lib-name">2014 · Extraordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">2.0 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2013" data-name="2013 ordinary call · exam final exam exam materials_finalexam_2013_ord.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_ORD.pdf"><span class="lib-name">2013 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">123 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2013" data-name="2013 ordinary call · solutions final exam exam materials_finalexam_2013_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_ORD_SOL.pdf"><span class="lib-name">2013 · Ordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">1.3 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2013" data-name="2013 extraordinary call · exam final exam exam materials_finalexam_2013_extra.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_EXTRA.pdf"><span class="lib-name">2013 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">122 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2013" data-name="2013 extraordinary call · solutions final exam exam materials_finalexam_2013_extra_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_EXTRA_SOL.pdf"><span class="lib-name">2013 · Extraordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">1.3 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2012" data-name="2012 ordinary call · exam final exam exam materials_finalexam_2012_ord.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_ORD.pdf"><span class="lib-name">2012 · Ordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">127 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2012" data-name="2012 ordinary call · solutions final exam exam materials_finalexam_2012_ord_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_ORD_SOL.pdf"><span class="lib-name">2012 · Ordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">1.3 MB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2012" data-name="2012 extraordinary call · exam final exam exam materials_finalexam_2012_extra.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_EXTRA.pdf"><span class="lib-name">2012 · Extraordinary call · Exam</span><span class="lib-meta">Final exam</span><span class="lib-size">78 KB</span></a></li>
+        <li class="lib-item" data-kind="exam" data-exam="final" data-year="2012" data-name="2012 extraordinary call · solutions final exam exam materials_finalexam_2012_extra_sol.pdf"><a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_EXTRA_SOL.pdf"><span class="lib-name">2012 · Extraordinary call · Solutions</span><span class="lib-meta">Final exam</span><span class="lib-size">893 KB</span></a></li>
+      </ul>
+    </section>
+    <p class="lib-empty" id="libEmpty" hidden>No file matches these filters.</p>
+    <p class="lib-note">These are the course documents and exams as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study; the notes and solutions elsewhere in this portal are written independently from them.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</div>
+  </footer>
+  <script defer src="../../../assets/js/pdf-library.js"></script>
 </body>
 </html>

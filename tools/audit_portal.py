@@ -12,7 +12,7 @@ Checks (all severity "error"):
     lab-reference        links to, or files of, laboratory pages (labs are not on the web)
     theme-key            localStorage theme key other than 'ae_theme'
     badge-drift          index.html badge counts that differ from the pages on disk (topics, problems,
-                         theory & exercise PDFs, exams, and the hero's solved-problem and official PDF totals)
+                         the files of the PDF library, and the hero's solved-problem and official PDF totals)
     missing-source-link  problem card (problem-card / problem-box) without its "Original statement"
                          link to the official PDF (add it with python tools/source_links.py)
     missing-ask-ai       theory or problem page (teoria/, problemas/ or extra-problems/, not index.html) that does not
@@ -355,7 +355,8 @@ def check_badges(root):
 
 
 def _pdf_counts(root):
-    """(theory & exercise PDFs, exam files) per subject, from tools/build_sources_pages.py; {} without sources/."""
+    """(files in the PDF library, of which exams) per subject, from tools/build_sources_pages.py; {} without sources/.
+    The PDFs badge shows the first number. The exams page is a placeholder and carries no file count."""
     if not (root / "sources").is_dir():
         return {}
     try:
