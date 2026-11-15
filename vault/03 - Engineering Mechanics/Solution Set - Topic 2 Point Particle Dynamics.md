@@ -1413,16 +1413,16 @@ The sphere is modelled as a point particle $P$ of mass $m$ that falls along a ve
 | Data | $r$ [m] radius; $\rho_0$ [kg m$^{-3}$] density of the fluid; $\rho_s = 2\rho_0$ density of the sphere; $\mu$ [kg m$^{-1}$ s$^{-1}$] dynamic viscosity; $\nu = \mu/\rho_0$ [m$^2$ s$^{-1}$] kinematic viscosity; $g$ [m s$^{-2}$] gravity |
 | Derived data | volume $V = \tfrac43\pi r^3$; mass $m = \rho_s V = \tfrac83\pi\rho_0 r^3$ |
 | Applied forces | weight $m g\,\mathbf i$; buoyancy, the weight of the displaced fluid, $-\rho_0 V g\,\mathbf i$; Stokes drag of magnitude $6\pi\mu r v$, opposite to the velocity (statement) |
-| Initial conditions | $x(0) = 0$, $\dot x(0) = 0$ (released from rest at $O$) |
+| Initial conditions | $\mathbf r_0^P(0) = \mathbf 0$, $\mathbf v_0^P(0) = \mathbf 0$ (released from rest at $O$): $x$, $y$, $z$ and their rates are zero at $t = 0$ |
 | Hypotheses | the fluid is unbounded and at rest, so the speed in the drag law is the speed of $P$ in $S_0$; the sphere does not rotate or drift sideways; the buoyancy is the hydrostatic one (Archimedes' principle, imposed by the statement, not derived in Notes.pdf); unsteady fluid forces (added mass, history force) are not considered, as the statement gives only the three forces |
 | Constraints | none: the sphere is free; the horizontal coordinates stay zero because every force is vertical (proved in the box of Newton's law) |
-| Degrees of freedom | 3 Cartesian coordinates, of which only $x$ changes: 1 |
+| Degrees of freedom | 3 (free particle, no constraint); with these forces and the release from rest only $x$ varies, so the motion is rectilinear |
 
 ![[attachments/EM-SOL/p15-fall-axis.svg]]
 
 ### Change of Basis and Position Vector
 
-The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the left, so $\mathbf k$ points out of the paper (⊙).
+The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the right, so $\mathbf k = \mathbf i\times\mathbf j$ points out of the paper (⊙).
 
 > [!derivation] The only basis and its change of basis matrix
 > **Law:** change of basis matrix between two bases; orthonormality and unit determinant
@@ -1539,22 +1539,27 @@ The free-body diagram shows the weight, the buoyancy and the drag, drawn for a s
 > **Meaning:** the terminal velocity grows with the square of the radius and falls with the viscosity; the rate constant is the inverse of the time scale on which the speed approaches it.
 
 > [!derivation] Sign of the velocity during the fall
-> **Law:** uniqueness of the solution of a first-order differential equation with a smooth right-hand side
-> **Source:** Notes.pdf, Eq. 4.6; [Lecture 6, Slide 3]
+> **Law:** Newton's second law with the drag written for either sign of the velocity; uniqueness for a smooth right-hand side (extension, not in Notes.pdf)
+> **Source:** Notes.pdf, Eq. 4.6; Problems.pdf, p. 9
 >
-> The constant function equal to $v_t$ solves the rate equation (it makes the right-hand side vanish). Two different solutions cannot cross, so the solution that starts below it stays below it.
+> The drag of the statement is minus its magnitude times the unit vector of the velocity, so for a velocity $v\,\mathbf i$ of either sign it is minus the factor $\tfrac12\rho S C_D$ times $|v|$ times $v$ along $\mathbf i$. The law below uses no assumption on the sign of $v$.
 >
 > $$\begin{aligned}
-> \frac{dv}{dt}\Big|_{t = 0} &= \gamma\left(v_t - 0\right) = \frac{g}{2} \gt 0 \quad &\text{(initial condition $v(0) = 0$)} \\
-> v(t) &\lt v_t \quad &\text{(no crossing of the constant solution $v_t$)} \\
-> \frac{dv}{dt} &= \gamma\left(v_t - v\right) \gt 0 \quad &\text{(the right-hand side is positive while $v \lt v_t$)} \\
-> 0 &\lt v(t) \lt v_t \quad \text{for } t \gt 0 \quad &\text{(the speed grows from zero and stays below $v_t$)}
+> m\,\frac{dv}{dt} &= m g - \tfrac12\rho S C_D\,|v|\,v \quad &\text{($\mathbf i$ component of the second law; $\mathbf F_D = -\tfrac12\rho v^2 S C_D\,v\,\mathbf i/|v|$)} \\
+> \frac{dv}{dt} &= g - \frac{\rho S C_D}{2m}\,|v|\,v \quad &\text{(division by $m$)} \\
+> v \le 0 \ \Rightarrow\ \frac{dv}{dt} &= g + \frac{\rho S C_D}{2m}\,v^2 \ge g \gt 0 \quad &\text{($|v|\,v = -v^2$; the velocity cannot become or stay non-positive)} \\
+> v(0) = 0,\ \ \frac{dv}{dt}\Big|_{t = 0} &= g \gt 0 \ \Rightarrow\ v(t) \gt 0 \ \text{for small}\ t \gt 0 \quad &\text{(initial condition; positive initial rate)} \\
+> v(t_1) = 0,\ t_1 \gt 0 \ \Rightarrow\ \frac{dv}{dt}\Big|_{t_1} &\le 0 \quad &\text{(a first return to zero from positive values; contradicts the third line)} \\
+> v(t) \gt 0 \ \Rightarrow\ |v|\,v &= v^2, \quad \frac{dv}{dt} = g - \frac{\rho S C_D}{2m}\,v^2 = \frac{g}{v_t^2}\left(v_t^2 - v^2\right) \quad &\text{(only now the $v^2$ form; terminal speed box)} \\
+> v(t) &\equiv v_t \ \text{solves this equation} \quad &\text{(zero right-hand side)} \\
+> v(0) = 0 \lt v_t \ \Rightarrow\ v(t) &\lt v_t \ \text{for every}\ t \quad &\text{(two solutions of the same equation cannot cross: uniqueness, extension)} \\
+> \frac{dv}{dt} &= \frac{g}{v_t^2}\left(v_t^2 - v^2\right) \gt 0 \quad &\text{(positive right-hand side for $0 \lt v \lt v_t$: the speed grows)}
 > \end{aligned}$$
 >
 > $$\boxed{0 \lt v(t) \lt v_t \quad \text{for every } t \gt 0}$$
 >
-> **Units:** $[\mathrm{L\,T^{-1}}]$ for $v$ and $v_t$; $[\mathrm{L\,T^{-2}}]$ for the initial acceleration
-> **Meaning:** the sphere always moves down, so the drag always points up as written in the box of the forces.
+> **Units:** $[\mathrm{L\,T^{-1}}]$ for $v$ and $v_t$; $[\mathrm{L\,T^{-2}}]$ for $g$ and every rate $dv/dt$
+> **Meaning:** the ball always falls, so the drag always points up as written in the box of the forces, and the ratio of $v$ to $v_t$ stays inside the interval where the inverse hyperbolic tangent is defined.
 
 ### Answers and Checks
 
@@ -1659,17 +1664,17 @@ The football is modelled as a point particle $P$ of mass $m$ that falls along a 
 | Coordinate | $s(t)$, distance fallen along $\mathbf i$; $v = \dot s$ its rate |
 | Data | $m$ [kg] mass; $S$ [m$^2$] frontal area; $C_D$ [-] drag coefficient; $\rho$ [kg m$^{-3}$] density of the air; $g$ [m s$^{-2}$] gravity |
 | Applied forces | weight $m g\,\mathbf i$; drag of magnitude $D = \tfrac12\rho v^2 S C_D$ opposite to the velocity (statement) |
-| Initial conditions | $s(0) = 0$, $v(0) = 0$ (reading of "falls": released from rest, the initial condition of the official key) |
+| Initial conditions | $\mathbf r_0^P(0) = \mathbf 0$, $\mathbf v_0^P(0) = \mathbf 0$, so $s(0) = 0$ and $v(0) = 0$ (reading of "falls": released from rest, the initial condition of the official key) |
 | Given integrals | $\int dx/(x_0^2 - x^2) = \operatorname{atanh}(x/x_0)/x_0$ and $\int\tanh x\,dx = \ln\cosh x$ (statement; both checked below) |
 | Hypotheses | the air is unbounded and at rest, so the speed in the drag law is the speed of $P$ in $S_0$; $\rho$, $S$ and $C_D$ are constant; no buoyancy and no lift (statement: only gravity and drag) |
 | Constraints | none: the ball is free; the horizontal coordinates stay zero because both forces are vertical (box of Newton's law) |
-| Degrees of freedom | 1, the coordinate $s$ |
+| Degrees of freedom | 3 (free particle); only $s$ varies (rectilinear fall) |
 
 ![[attachments/EM-SOL/p16-fall-axis.svg]]
 
 ### Change of Basis and Position Vector
 
-The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the left, so $\mathbf k$ points out of the paper (⊙).
+The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the right, so $\mathbf k = \mathbf i\times\mathbf j$ points out of the paper (⊙).
 
 > [!derivation] The only basis and its change of basis matrix
 > **Law:** change of basis matrix between two bases; orthonormality and unit determinant
@@ -1772,7 +1777,7 @@ The free-body diagram shows the weight and the drag, drawn for a ball that moves
 > 0 &= g - \frac{\rho S C_D}{2m}\,v_t^2 \quad &\text{(zero acceleration at the constant speed $v_t$)} \\
 > v_t^2 &= \frac{2 m g}{\rho S C_D} \quad &\text{(solution for the square of the speed)} \\
 > v_t &= +\sqrt{\frac{2 m g}{\rho S C_D}} \quad &\text{(positive root: downward velocity)} \\
-> \frac{\rho S C_D}{2m} &= \frac{g}{v_t^2} \quad &\text{(the second line divided by $v_t^2$, inverted)} \\
+> \frac{\rho S C_D}{2m} &= \frac{g}{v_t^2} \quad &\text{(first line rearranged: $\tfrac{\rho S C_D}{2m}\,v_t^2 = g$, divided by $v_t^2$)} \\
 > \frac{dv}{dt} &= g - \frac{g}{v_t^2}\,v^2 = \frac{g}{v_t^2}\left(v_t^2 - v^2\right) \quad &\text{(substitution in the equation of motion; common factor)}
 > \end{aligned}$$
 >
@@ -1912,9 +1917,12 @@ The free-body diagram shows the weight and the drag, drawn for a ball that moves
 > $$\begin{aligned}
 > \frac{dv}{dt} &= \frac{dv}{ds}\,\frac{ds}{dt} = v\,\frac{dv}{ds} = \frac12\,\frac{d(v^2)}{ds} \quad &\text{(chain rule twice)} \\
 > \frac{d(v^2)}{ds} &= \frac{2g}{v_t^2}\left(v_t^2 - v^2\right) \quad &\text{(equation of motion with the terminal speed)} \\
-> w &= v^2; \quad \int_0^{v^2}\frac{dw}{v_t^2 - w} = \frac{2g}{v_t^2}\int_0^{s}ds' \quad &\text{(separation; limits $s' = 0$, $w = 0$)} \\
+> w &= v^2 \quad &\text{(definition of the new unknown)} \\
+> \frac{dw}{v_t^2 - w} &= \frac{2g}{v_t^2}\,ds \quad &\text{(separation of variables; $v_t^2 - w \gt 0$ by the sign box)} \\
+> \int_0^{v^2}\frac{dw}{v_t^2 - w} &= \frac{2g}{v_t^2}\int_0^{s}ds' \quad &\text{(integrals from $s' = 0$, $w = 0$ to the current state)} \\
 > q &= v_t^2 - w, \ dq = -dw; \quad -\Big[\ln q\Big]_{v_t^2}^{v_t^2 - v^2} = \frac{2g\,s}{v_t^2} \quad &\text{(change of variable with its limits; Barrow's rule on the right)} \\
 > \ln\frac{v_t^2}{v_t^2 - v^2} &= \frac{2g\,s}{v_t^2} \quad &\text{(Barrow's rule on the left)} \\
+> v_t^2 - v^2 = v_t^2\,e^{-2 g s/v_t^2} \ \Rightarrow\ v^2 &= v_t^2\left(1 - e^{-2 g s/v_t^2}\right) \quad &\text{(exponential of both sides; solved for $v^2$)} \\
 > \frac{v_t^2}{v_t^2 - v^2} &= \frac{1}{1 - \tanh^2 u} = \cosh^2 u \quad &\text{(time laws, $u = g t/v_t$)} \\
 > \ln\cosh^2 u &= 2\ln\cosh u = \frac{2g}{v_t^2}\,s(t) \quad &\text{(the boxed position law: both sides agree)}
 > \end{aligned}$$
@@ -1938,7 +1946,7 @@ The free-body diagram shows the weight and the drag, drawn for a ball that moves
 
 ### Reference Frames, Bases and Coordinates
 
-The heavy particle $M$ moves freely in space under two forces: the attraction towards the fixed point $O$, proportional to its mass and to the distance with coefficient $k^2$, and its weight. The statement places the origin at the centre of attraction and the axis $Oz$ vertical, and asks for the shape of the path and for the velocity as a function of time (Problems.pdf, p. 9).
+The heavy particle $M$ moves freely in space under two forces: the attraction towards the fixed point $O$, proportional to its mass and to the distance with coefficient $k^2$, and its weight. The statement places the origin at the centre of attraction and the axis $Oz$ vertical, and asks for the shape of the path and for the velocity as a function of time (Problems.pdf, p. 9; parts on p. 10).
 
 | Item | Definition |
 | :--- | :--- |
@@ -2056,7 +2064,7 @@ The free-body diagram shows the attraction towards $O$ and the weight. The parti
 > **Source:** Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.8; Notes.pdf, Eq. 5.9; [Lecture 6, Slide 6]
 >
 > $$\begin{aligned}
-> p^2 + k^2 &= 0 \Rightarrow p = \pm i k \quad &\text{(trial $e^{pt}$ in $\ddot x + k^2 x = 0$)} \\
+> p^2 + k^2 &= 0 \Rightarrow p = \pm \mathrm{i}\, k \quad &\text{(trial $e^{pt}$ in $\ddot x + k^2 x = 0$)} \\
 > x &= C_1\cos kt + C_2\sin kt \quad &\text{(real form of the general solution)} \\
 > \dot x &= -k C_1\sin kt + k C_2\cos kt \quad &\text{(chain rule: $\tfrac{d}{dt}\cos kt = -k\sin kt$, $\tfrac{d}{dt}\sin kt = k\cos kt$)} \\
 > x(0) &= C_1 = \frac{\sqrt3\,g}{k^2}, \qquad \dot x(0) = k C_2 = 0 \quad &\text{(initial data of $x$)} \\
@@ -2143,7 +2151,7 @@ The free-body diagram shows the attraction towards $O$ and the weight. The parti
 > **Units:** $[g/k] = [\mathrm{L\,T^{-2}}]/[\mathrm{T^{-1}}] = [\mathrm{L\,T^{-1}}]$
 > **Meaning:** the speed is constant: the motion is uniform circular motion; at the start the velocity equals the data $(2g/k)\,\mathbf j$.
 
-> [!derivation] Independent check: energy integral derived from the equation of motion
+> [!derivation] Consistency check: energy integral derived from the equation of motion
 > **Law:** the equation of motion multiplied by the velocity is an exact time derivative
 > **Source:** Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31
 >
@@ -2163,12 +2171,12 @@ The free-body diagram shows the attraction towards $O$ and the weight. The parti
 
 > [!derivation] Consistency of the circular motion
 > **Law:** acceleration of a uniform circular motion compared with the force per unit mass
-> **Source:** Notes.pdf, Eq. 2.7; Notes.pdf, Eq. 4.4
+> **Source:** Notes.pdf, Eq. 2.17; Notes.pdf, Eq. 4.4
 >
 > $$\begin{aligned}
 > \mathbf a_0^M &= -k^2\,\mathbf r_0^M - g\,\mathbf k = -k^2\left(\mathbf r_0^M + \frac{g}{k^2}\,\mathbf k\right) = -k^2\,\overrightarrow{CM} \quad &\text{(equation of motion; $\overrightarrow{OC} = -(g/k^2)\,\mathbf k$)} \\
 > |\mathbf a_0^M| &= k^2 R = k^2\,\frac{2g}{k^2} = 2g \quad &\text{(modulus on the circle)} \\
-> \frac{|\mathbf v_0^M|^2}{R} &= \frac{4g^2/k^2}{2g/k^2} = 2g \quad &\text{(centripetal value of a uniform circular motion)}
+> \frac{|\mathbf v_0^M|^2}{R} &= \frac{4g^2/k^2}{2g/k^2} = 2g \quad &\text{(normal acceleration $\dot s^2/\rho$ of the intrinsic decomposition with $\rho = R$ and $\ddot s = 0$)}
 > \end{aligned}$$
 >
 > $$\boxed{|\mathbf a_0^M| = \frac{|\mathbf v_0^M|^2}{R} = 2g, \qquad \text{angular rate } \frac{|\mathbf v_0^M|}{R} = k}$$

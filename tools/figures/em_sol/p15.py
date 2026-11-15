@@ -30,9 +30,9 @@ def fall_axis():
     # line of fall
     sc.line((0.0, 0.0), (0.0, -6.7), "EDGE", 1.2, "6 4")
     # basis at O
-    axis_out(sc, (0.0, 0.0), bold("k"), off=(18, -14))
+    axis_out(sc, (0.0, 0.0), bold("k"), off=(-30, -16))
     sc.vec((0.0, 0.0), (0.0, -1.2), bold("i"), "BLUE", 2.6, name_off=(-14, 4), size=17, head=11)
-    sc.vec((0.0, 0.0), (-1.2, 0.0), bold("j"), "BLUE", 2.6, name_off=(0, 24), size=17, head=11)
+    sc.vec((0.0, 0.0), (1.2, 0.0), bold("j"), "BLUE", 2.6, name_off=(0, 24), size=17, head=11)
     # sphere at release
     sc.circle((0.0, 0.0), 0.35, "HEAD", 1.3, "3 3")
     sc.label((0.0, 0.0), "t = 0, v = 0", "TEXT", "end", 14, dx=-24, dy=48)
@@ -82,6 +82,6 @@ def fbd():
     C = (-2.9, -1.0)
     axis_out(sc, C, bold("k"), off=(-16, -12))
     sc.vec(C, (C[0], C[1] - 0.8), bold("i"), "BLUE", 2.4, name_off=(-14, 4), size=16, head=10)
-    sc.vec(C, (C[0] - 0.8, C[1]), bold("j"), "BLUE", 2.4, name_off=(0, 22), size=16, head=10)
+    sc.vec(C, (C[0] + 0.8, C[1]), bold("j"), "BLUE", 2.4, name_off=(0, 22), size=16, head=10)
     sc.note((0.0, -3.9), "free sphere: no reaction; inertial frame: no inertia forces", "TEXT", "middle", 13)
     return sc

@@ -6,6 +6,7 @@ from figures.mech import S, Scene, bold
 
 ORANGE = "#f97316"          # drag (no kit token: a fixed colour, readable on every palette)
 RED = "#ef4444"             # weight
+PURPLE = "#8b5cf6"          # late-time asymptote of the distance fallen
 
 
 def _r0p():
@@ -20,9 +21,9 @@ def fall_axis():
     W, H, K = 520, 470, 56
     sc = Scene(W, H, (250, 60), K)
     sc.line((0.0, 0.0), (0.0, -6.9), "EDGE", 1.2, "6 4")
-    axis_out(sc, (0.0, 0.0), bold("k"), off=(18, -14))
+    axis_out(sc, (0.0, 0.0), bold("k"), off=(-30, -16))
     sc.vec((0.0, 0.0), (0.0, -1.2), bold("i"), "BLUE", 2.6, name_off=(-14, 4), size=17, head=11)
-    sc.vec((0.0, 0.0), (-1.2, 0.0), bold("j"), "BLUE", 2.6, name_off=(0, 24), size=17, head=11)
+    sc.vec((0.0, 0.0), (1.2, 0.0), bold("j"), "BLUE", 2.6, name_off=(0, 24), size=17, head=11)
     sc.circle((0.0, 0.0), 0.3, "HEAD", 1.3, "3 3")
     sc.label((0.0, 0.0), "t = 0, v = 0", "TEXT", "end", 14, dx=-24, dy=48)
     sc.circle((0.0, -5.0), 0.3, "HEAD", 1.8, fill="HEAD", opacity=0.35)
@@ -47,21 +48,21 @@ def fall_axis():
         r"velocity, along $-\mathbf i$ with magnitude $\tfrac12\rho S C_D v^2$; they balance at the terminal speed.")
 def fbd():
     K = 70
-    sc = Scene(600, 430, (290, 135), K)
+    sc = Scene(600, 480, (290, 180), K)
     O = (0.0, 0.0)
     sc.circle(O, 1.0, "HEAD", 2.0, fill="HEAD", opacity=0.14)
     sc.vec((0.0, 0.0), (0.0, -3.0), None, RED, 3.0, head=12)
     sc.label((0.0, -3.0), "m g " + bold("i"), RED, "start", 17, dx=14, dy=5)
-    # drag at v = 0.6 v_t: 0.36 of the weight
-    sc.vec((0.0, 0.0), (0.0, 3 * 0.36), None, ORANGE, 3.0, head=12)
-    sc.label((0.0, 3 * 0.36), "−(1/2) ρ S " + S("C", "D") + " " + S("v", None, "2") + " " + bold("i"), ORANGE, "end", 17, dx=-16, dy=-2)
+    # drag at v = 0.8 v_t: 0.64 of the weight, so the arrowhead lies clearly outside the outline
+    sc.vec((0.0, 0.0), (0.0, 3 * 0.64), None, ORANGE, 3.0, head=12)
+    sc.label((0.0, 3 * 0.64), "−(1/2) ρ S " + S("C", "D") + " " + S("v", None, "2") + " " + bold("i"), ORANGE, "end", 17, dx=-16, dy=-2)
     sc.dotp(O, 4.0)
     sc.vec((2.0, 0.5), (2.0, -0.7), None, "GREEN", 2.2, head=10)
     sc.label((2.0, -0.7), "v " + bold("i") + ", v > 0", "GREEN", "middle", 16, dy=24)
     C = (-3.0, -1.0)
     axis_out(sc, C, bold("k"), off=(-16, -12))
     sc.vec(C, (C[0], C[1] - 0.8), bold("i"), "BLUE", 2.4, name_off=(-14, 4), size=16, head=10)
-    sc.vec(C, (C[0] - 0.8, C[1]), bold("j"), "BLUE", 2.4, name_off=(0, 22), size=16, head=10)
+    sc.vec(C, (C[0] + 0.8, C[1]), bold("j"), "BLUE", 2.4, name_off=(0, 22), size=16, head=10)
     sc.note((0.0, -3.9), "free ball: no reaction; inertial frame: no inertia forces", "TEXT", "middle", 13)
     return sc
 
@@ -93,12 +94,12 @@ def time_laws():
     # free-fall distance u^2/2
     sc.curve(lambda u: (u, u * u / 2), 0.0, 1.6, 60, col="HEAD", w=1.4, dash="1.5 3")
     sc.label((1.6, 1.28), "free fall: u²/2", "HEAD", "end", 15, dx=-2, dy=-34)
-    # late-time asymptote
-    sc.line((1.5, 1.5 - math.log(2)), (4.0, 4.0 - math.log(2)), "HEAD", 1.3, "6 4")
-    sc.label((4.0, 4.0 - math.log(2)), "u − ln 2", "HEAD", "start", 15, dx=12, dy=22)
     # curves
     sc.curve(lambda u: (u, tanh(u)), 0.0, 4.0, 160, col="GREEN", w=2.8)
     sc.curve(lambda u: (u, lncosh(u)), 0.0, 4.0, 160, col="HEAD", w=2.8)
+    # late-time asymptote, drawn over the curves in its own colour; label below it, above the line v / v_t = 1
+    sc.line((1.0, 1.0 - math.log(2)), (4.0, 4.0 - math.log(2)), PURPLE, 1.8, "6 4")
+    sc.label((2.1, 1.12), "u − ln 2", PURPLE, "start", 15)
     sc.label((3.0, 1.0), "v / " + S("v", "t") + " = tanh u", "GREEN", "middle", 16, dy=26)
     sc.label((3.0, lncosh(3.0)), "s g / " + S("v", "t", "2") + " = ln cosh u", "HEAD", "end", 16, dx=-14, dy=-14)
     return sc
