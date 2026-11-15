@@ -1422,7 +1422,7 @@ The sphere is modelled as a point particle $P$ of mass $m$ that falls along a ve
 
 ### Change of Basis and Position Vector
 
-The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the right, so $\mathbf k = \mathbf i\times\mathbf j$ points out of the paper (⊙).
+The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the right, so $\mathbf k$, the cross product of $\mathbf i$ and $\mathbf j$ (right-hand rule), points out of the paper (⊙).
 
 > [!derivation] The only basis and its change of basis matrix
 > **Law:** change of basis matrix between two bases; orthonormality and unit determinant
@@ -1674,7 +1674,7 @@ The football is modelled as a point particle $P$ of mass $m$ that falls along a 
 
 ### Change of Basis and Position Vector
 
-The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the right, so $\mathbf k = \mathbf i\times\mathbf j$ points out of the paper (⊙).
+The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the right, so $\mathbf k$, the cross product of $\mathbf i$ and $\mathbf j$ (right-hand rule), points out of the paper (⊙).
 
 > [!derivation] The only basis and its change of basis matrix
 > **Law:** change of basis matrix between two bases; orthonormality and unit determinant
@@ -2291,9 +2291,9 @@ Hypotheses and degrees of freedom:
 >
 > $$\begin{aligned}
 > \boldsymbol\omega_{1,0} &= \omega\,\mathbf k_0 \quad &\text{(the disk turns about $\mathbf k_0$ at the rate of the angle $\omega t$)} \\
-> \dot{\mathbf i}_1 &= \omega\,\mathbf k_0 \times \left(\cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0\right) \quad &\text{(Notes Eq. 1.62)} \\
+> \dot{\mathbf i}_1 &= \omega\,\mathbf k_0 \times \left(\cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0\right) \quad &\text{(derivative of a turning unit vector, $\boldsymbol\omega\times\mathbf u$)} \\
 > &= \omega\cos\omega t\,\mathbf j_0 - \omega\sin\omega t\,\mathbf i_0 = \omega\,\mathbf j_1 \quad &\text{(right-handed products; components of $\mathbf j_1$)} \\
-> \dot{\mathbf j}_1 &= \omega\,\mathbf k_0 \times \left(-\sin\omega t\,\mathbf i_0 + \cos\omega t\,\mathbf j_0\right) \quad &\text{(Notes Eq. 1.62)} \\
+> \dot{\mathbf j}_1 &= \omega\,\mathbf k_0 \times \left(-\sin\omega t\,\mathbf i_0 + \cos\omega t\,\mathbf j_0\right) \quad &\text{(derivative of a turning unit vector, $\boldsymbol\omega\times\mathbf u$)} \\
 > &= -\omega\sin\omega t\,\mathbf j_0 - \omega\cos\omega t\,\mathbf i_0 = -\omega\,\mathbf i_1 \quad &\text{(right-handed products; components of $\mathbf i_1$)}
 > \end{aligned}$$
 >
@@ -2459,7 +2459,7 @@ Hypotheses and degrees of freedom:
 > 2D\omega_0 &= \omega_0^2\ell \Rightarrow D = \frac{\omega_0\ell}{2} \quad &\text{(coefficients of $\cos\omega_0 t$ equated)}
 > \end{aligned}$$
 >
-> $$\boxed{\omega = \omega_0:\quad x_0^G(t) = \frac{\omega_0\ell}{2}\,t\sin\omega_0 t\ \text{(grows without bound)}}$$
+> $$\boxed{\omega = \omega_0:\quad x_p(t) = \frac{\omega_0\ell}{2}\,t\sin\omega_0 t\ \text{(particular solution; grows without bound; the free oscillation is added to it)}}$$
 >
 > **Units:** $[\mathrm{T^{-1}}][\mathrm{L}][\mathrm{T}] = [\mathrm{L}]$
 > **Meaning:** at the critical speed the undamped whirl grows linearly in time; the ratio of radii of the previous box is not defined there, so the question concerns the speeds above it.
@@ -2487,7 +2487,8 @@ Hypotheses and degrees of freedom:
 > **Source:** Notes.pdf, Eq. 4.4; Problems.pdf, p. 76
 >
 > $$\begin{aligned}
-> m\left(\ddot{\mathbf r}_0^C - \ell\omega^2\,\mathbf i_1\right) &= -k\,\mathbf r_0^C \quad &\text{(acceleration of $G$ written with that of $C$; force at $C$)} \\
+> m\left(\ddot{\mathbf r}_0^C - \ell\omega^2\,\mathbf i_1\right) &= -k\,\mathbf r_0^C + R_z\,\mathbf k_0 \quad &\text{(acceleration of $G$ written with that of $C$; every external force)} \\
+> \mathbf k_0:\quad R_z &= 0 \quad &\text{(dot product with $\mathbf k_0$, as before: planar motion)} \\
 > \ddot x_0^C + \omega_0^2 x_0^C &= \omega^2\ell\cos\omega t \quad &\text{(projection on $\mathbf i_0$, division by $m$)} \\
 > x_0^C &= c_1\cos\omega t,\quad \ddot x_0^C = -c_1\omega^2\cos\omega t \quad &\text{(trial function; chain rule twice)} \\
 > c_1\left(\omega_0^2 - \omega^2\right) &= \omega^2\ell \quad &\text{(coefficients of $\cos\omega t$ equated)}
@@ -2525,7 +2526,7 @@ The airplane is modelled as a heavy particle $P$ of mass $m$ carried by a landin
 | Profile | $y_1 = h\sin(\kappa x)$ with $h = 1$ m and $\kappa = 1$ rad/m: the statement writes $\sin x$ with lengths in metres, and the two symbols only keep the units visible |
 | Data | $m$ [kg]; $k$ [N/m]; $L$ [m]; $c$ [m/s]; $\lambda$ [N s/m] (part c); $g$ [m s$^{-2}$] |
 | Derived data | $\Omega = \kappa c$ [rad/s], angular frequency of the excitation; $\omega_0 = \sqrt{k/m}$ [rad/s]; $\gamma = \lambda/(2m)$ [s$^{-1}$] (Notes.pdf, Eq. 5.23) |
-| Hypotheses | the wheel is a point that never leaves the runway (the unilateral contact is assumed active); the gear stays vertical, below $P$; the spring and the damper are linear; the horizontal speed is constant (thrust balances the rolling resistance); gravity acts on $P$ |
+| Hypotheses | the wheel is a point that never leaves the runway (the unilateral contact is assumed active); the gear stays vertical, below $P$; the spring and the damper are linear; the gear (spring, damper and wheel) is massless, so the force it exerts on $P$ equals the contact force at $B$; the horizontal speed is constant: the net horizontal force $F_x\,\mathbf i$ (engine thrust, which acts on the airframe, minus the rolling resistance transmitted by the gear) vanishes; gravity acts on $P$ |
 | Constraints | $x_P = c\,t$ (prescribed, rheonomic); $z_P = 0$; $B$ on the profile under $P$ |
 | Degrees of freedom | 1, the height $y$ |
 
@@ -2584,7 +2585,7 @@ The airplane is modelled as a heavy particle $P$ of mass $m$ carried by a landin
 
 ### Forces and Equations of Motion
 
-The free-body diagram of $P$ shows the weight, the force of the spring and the force of the damper (both along the gear), and the horizontal resultant transmitted by the gear (thrust minus rolling resistance). $S_0$ is inertial, so no inertia force acts.
+The free-body diagram of $P$ shows the weight, the force of the spring and the force of the damper (both along the gear), and the net horizontal force (engine thrust, acting on the airframe, minus the rolling resistance transmitted by the gear). $S_0$ is inertial, so no inertia force acts.
 
 ![[attachments/EM-SOL/p46-fbd.svg]]
 
@@ -2598,7 +2599,7 @@ The free-body diagram of $P$ shows the weight, the force of the spring and the f
 > \mathbf F_g &= -m g\,\mathbf j \quad &\text{(weight)} \\
 > \mathbf F_k &= -k\left(\ell_s - L\right)\mathbf j = -k\left(y - y_b - L\right)\mathbf j \quad &\text{(spring: minus the stiffness times the elongation)} \\
 > \mathbf F_\lambda &= -\lambda\,\dot\ell_s\,\mathbf j = -\lambda\left(\dot y - \dot y_b\right)\mathbf j \quad &\text{(damper: minus its constant times the rate of elongation)} \\
-> \mathbf F_x &= F_x\,\mathbf i \quad &\text{(horizontal resultant transmitted by the gear, unknown)}
+> \mathbf F_x &= F_x\,\mathbf i \quad &\text{(net horizontal force: engine thrust minus the rolling resistance transmitted by the gear, unknown)}
 > \end{aligned}$$
 >
 > $$\boxed{\mathbf F_g = -m g\,\mathbf j, \quad \mathbf F_k = -k\left(y - y_b - L\right)\mathbf j, \quad \mathbf F_\lambda = -\lambda\left(\dot y - \dot y_b\right)\mathbf j, \quad \mathbf F_x = F_x\,\mathbf i}$$
@@ -2650,7 +2651,7 @@ The free-body diagram of $P$ shows the weight, the force of the spring and the f
 
 > [!derivation] Resonant taxiing speed
 > **Law:** resonance: the forcing frequency equals the natural frequency; particular solution with a factor $t$
-> **Source:** Notes.pdf, Sec. 5.4.1; [Lecture 6, Slide 14]
+> **Source:** Notes.pdf, Sec. 5.4; [Lecture 6, Slide 3] (trial with a factor $t$, as for a double root; extension of the damped analysis of Sec. 5.4.1)
 >
 > At equal frequencies the trial of the previous box solves the homogeneous equation and fails; the trial with a factor $t$ is used, with the product rule and the chain rule.
 >
@@ -2667,6 +2668,25 @@ The free-body diagram of $P$ shows the weight, the force of the spring and the f
 >
 > **Units:** $[c_{\text{res}}] = [\mathrm{L}][\mathrm{T^{-1}}] = [\mathrm{L\,T^{-1}}]$; $[D] = [\mathrm{T^{-1}}][\mathrm{L}]$, so $D\,t$ and $z_p$ are in $[\mathrm{L}]$
 > **Meaning:** at this speed one bump arrives every natural period of the airplane on its gear, and without damping the oscillation grows linearly in time.
+
+Contact requires the force of the gear on the airplane to stay compressive, that is, to push $P$ upward. Near the undamped resonance the amplitude grows until this condition fails, and from then on the hypothesis of permanent contact breaks down: the wheel would have to pull on the runway.
+
+> [!derivation] Permanent contact of the wheel
+> **Law:** unilateral contact: the runway can only push the wheel; the massless gear transmits the contact force to $P$
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 5.23; Problems.pdf, p. 31
+>
+> $$\begin{aligned}
+> N &= k\left(L - \ell_s\right) + \lambda\left(\dot y_b - \dot y\right) \ge 0 \quad &\text{(upward component of $\mathbf F_k + \mathbf F_\lambda$: compressive gear)} \\
+> \ell_s - L &= y_e + z - y_b - L = z - y_b - \frac{m g}{k} \quad &\text{(box of the position vectors; $y = y_e + z$ with $y_e = L - m g/k$)} \\
+> N &= m g - k\left(z - y_b\right) - \lambda\left(\dot z - \dot y_b\right) \quad &\text{(substitution; $\dot y = \dot z$ because $y_e$ is constant)} \\
+> \lambda = 0,\ \Omega = \omega_0:\quad N &= m g - k\left(z_h - \frac{\omega_0 h}{2}\,t\cos\omega_0 t - h\sin\omega_0 t\right) \quad &\text{(undamped resonance: $z = z_h + z_p$ of the previous box)} \\
+> \frac{\omega_0 h}{2}\,t &\gt \frac{g}{\omega_0^2} + h + \max|z_h| \ \Rightarrow\ N \lt 0 \ \text{where}\ \cos\omega_0 t = -1 \quad &\text{(the secular term exceeds every bounded term; $k/m = \omega_0^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{N = m g - k\left(z - y_b\right) - \lambda\left(\dot z - \dot y_b\right) \ge 0 \ \text{required; it fails at undamped resonance once}\ t \gt \frac{2}{\omega_0 h}\left(\frac{g}{\omega_0^2} + h + \max|z_h|\right)}$$
+>
+> **Units:** $[N] = [m g] = [k][\mathrm{L}] = [\lambda][\mathrm{L\,T^{-1}}] = [\mathrm{M\,L\,T^{-2}}]$; $\left[\frac{g}{\omega_0^2}\right] = [\mathrm{L}]$; $\left[\frac{2}{\omega_0 h}\right][\mathrm{L}] = [\mathrm{T}]$
+> **Meaning:** the static deflection $m g/k$ is the margin of the contact: while the dynamic compression stays below it the wheel keeps touching the runway; at undamped resonance the growing oscillation exhausts this margin in finite time, so the linear model of part (a) is valid only for the first cycles.
 
 #### (b) Amplitude at very high taxiing speed
 
@@ -2691,13 +2711,14 @@ The free-body diagram of $P$ shows the weight, the force of the spring and the f
 
 > [!derivation] Transient: the three damping regimes
 > **Law:** characteristic equation of the damped oscillator; underdamped, critical and overdamped solutions
-> **Source:** Notes.pdf, Eq. 5.22; Notes.pdf, Eq. 5.26; Notes.pdf, Eq. 5.30; Notes.pdf, Eq. 5.31; [Lecture 6, Slide 8]
+> **Source:** Notes.pdf, Eq. 5.22; Notes.pdf, Eq. 5.23; Notes.pdf, Eq. 5.26; Notes.pdf, Eq. 5.30; Notes.pdf, Eq. 5.31; [Lecture 6, Slide 8]; [Lecture 6, Slide 9]; [Lecture 6, Slide 10]
 >
 > $$\begin{aligned}
 > p^2 + 2\gamma p + \omega_0^2 &= 0 \Rightarrow p = -\gamma \pm \sqrt{\gamma^2 - \omega_0^2} \quad &\text{(trial $e^{pt}$ in the homogeneous equation)} \\
 > \gamma \lt \omega_0:\quad z_h &= a\,e^{-\gamma t}\cos\left(\omega t + \phi\right), \quad \omega = \sqrt{\omega_0^2 - \gamma^2} \quad &\text{(underdamped: complex roots)} \\
 > \gamma = \omega_0:\quad z_h &= \left(a + b\,t\right)e^{-\gamma t} \quad &\text{(critical: double root)} \\
-> \gamma \gt \omega_0:\quad z_h &= A_+ e^{-\gamma_+ t} + A_- e^{-\gamma_- t}, \quad \gamma_\pm = \gamma \pm \sqrt{\gamma^2 - \omega_0^2} \quad &\text{(overdamped: two negative real roots)}
+> \gamma \gt \omega_0:\quad z_h &= A_+ e^{-\gamma_+ t} + A_- e^{-\gamma_- t}, \quad \gamma_\pm = \gamma \pm \sqrt{\gamma^2 - \omega_0^2} \quad &\text{(overdamped: two negative real roots)} \\
+> \gamma = \frac{\lambda}{2m} \lesseqgtr \omega_0 = \sqrt{\frac{k}{m}} \ &\Leftrightarrow\ \lambda \lesseqgtr 2\sqrt{k m} \quad &\text{(definitions of $\gamma$ and $\omega_0$; multiplication by $2m$)}
 > \end{aligned}$$
 >
 > $$\boxed{\lambda \lt 2\sqrt{k m}:\ \text{underdamped}; \quad \lambda = 2\sqrt{k m}:\ \text{critical}; \quad \lambda \gt 2\sqrt{k m}:\ \text{overdamped}; \quad z_h \to 0 \text{ in the three cases}}$$
@@ -2709,14 +2730,14 @@ The free-body diagram of $P$ shows the weight, the force of the spring and the f
 > **Law:** complex representation of the forced oscillator; the imaginary part of a complex solution is a solution
 > **Source:** Notes.pdf, Eq. 5.18; Notes.pdf, Eq. 5.35; Notes.pdf, Eq. 5.37; [Lecture 6, Slide 11]
 >
-> The forcing is the imaginary part of $(\omega_0^2 + 2i\gamma\Omega)\,h\,e^{i\Omega t}$, because $\mathrm{Im}\,e^{i\Omega t} = \sin\Omega t$ and $\mathrm{Im}\,(i\,e^{i\Omega t}) = \cos\Omega t$. The complex equation is solved and its imaginary part taken.
+> The forcing is the imaginary part of $(\omega_0^2 + 2\mathrm{i}\gamma\Omega)\,h\,e^{\mathrm{i}\Omega t}$, because $\mathrm{Im}\,e^{\mathrm{i}\Omega t} = \sin\Omega t$ and $\mathrm{Im}\,(\mathrm{i}\,e^{\mathrm{i}\Omega t}) = \cos\Omega t$. The complex equation is solved and its imaginary part taken.
 >
 > $$\begin{aligned}
-> \ddot{\tilde z} + 2\gamma\dot{\tilde z} + \omega_0^2\tilde z &= \left(\omega_0^2 + 2i\gamma\Omega\right)h\,e^{i\Omega t} \quad &\text{(complex equation)} \\
-> \tilde z &= H\,h\,e^{i\Omega t}, \quad \dot{\tilde z} = i\Omega\,\tilde z, \quad \ddot{\tilde z} = -\Omega^2\tilde z \quad &\text{(trial at the forcing frequency; chain rule)} \\
-> \left(\omega_0^2 - \Omega^2 + 2i\gamma\Omega\right)H &= \omega_0^2 + 2i\gamma\Omega \quad &\text{(substitution; division by $h\,e^{i\Omega t}$)} \\
+> \ddot{\tilde z} + 2\gamma\dot{\tilde z} + \omega_0^2\tilde z &= \left(\omega_0^2 + 2\mathrm{i}\gamma\Omega\right)h\,e^{\mathrm{i}\Omega t} \quad &\text{(complex equation)} \\
+> \tilde z &= H\,h\,e^{\mathrm{i}\Omega t}, \quad \dot{\tilde z} = \mathrm{i}\Omega\,\tilde z, \quad \ddot{\tilde z} = -\Omega^2\tilde z \quad &\text{(trial at the forcing frequency; chain rule)} \\
+> \left(\omega_0^2 - \Omega^2 + 2\mathrm{i}\gamma\Omega\right)H &= \omega_0^2 + 2\mathrm{i}\gamma\Omega \quad &\text{(substitution; division by $h\,e^{\mathrm{i}\Omega t}$)} \\
 > |H|^2 &= \frac{\omega_0^4 + 4\gamma^2\Omega^2}{\left(\omega_0^2 - \Omega^2\right)^2 + 4\gamma^2\Omega^2} \quad &\text{(modulus of a quotient: quotient of the moduli)} \\
-> z_p &= \mathrm{Im}\,\tilde z = |H|\,h\sin\left(\Omega t + \arg H\right) \quad &\text{(imaginary part; $H = |H|e^{i\arg H}$)}
+> z_p &= \mathrm{Im}\,\tilde z = |H|\,h\sin\left(\Omega t + \arg H\right) \quad &\text{(imaginary part; $H = |H|e^{\mathrm{i}\arg H}$)}
 > \end{aligned}$$
 >
 > $$\boxed{z_p = |H|\,h\sin\left(\Omega t + \arg H\right), \qquad |H| = \sqrt{\frac{\omega_0^4 + 4\gamma^2\Omega^2}{\left(\omega_0^2 - \Omega^2\right)^2 + 4\gamma^2\Omega^2}}, \qquad \Omega = \kappa c}$$
@@ -2728,14 +2749,15 @@ The free-body diagram of $P$ shows the weight, the force of the spring and the f
 > **Law:** value of the amplitude factor at resonance, its maximum and its high-speed limit
 > **Source:** Notes.pdf, Eq. 5.41; Notes.pdf, Eq. 5.46; [Lecture 6, Slide 14]
 >
-> With the ratios $r = \Omega/\omega_0$ and $\zeta = \gamma/\omega_0$ (notation of this solution; critical damping is $\zeta = 1$) and $u = r^2$, the amplitude factor is a function of $u$ whose derivative is taken with the quotient rule.
+> With the ratios $r = \Omega/\omega_0$ and $\zeta = \gamma/\omega_0$ (notation of this solution; critical damping is $\zeta = 1$) and $u = r^2$, the amplitude factor is a function of $u$ whose derivative is taken with the quotient rule. Unlike the force-driven peak of Notes.pdf, Eq. 5.46, which disappears for $\gamma \ge \omega_0/\sqrt2$, the base-excitation factor $|H|$ keeps a maximum for every damping ($u_p \gt 0$); the analysis of $|H|$ is an extension built with the method of Notes.pdf, Sec. 5.4.
 >
 > $$\begin{aligned}
 > |H|^2 &= \frac{1 + 4\zeta^2 u}{\left(1 - u\right)^2 + 4\zeta^2 u} \quad &\text{(numerator and denominator divided by $\omega_0^4$)} \\
 > r = 1:\quad |H|^2 &= \frac{1 + 4\zeta^2}{4\zeta^2} = 1 + \frac{1}{4\zeta^2} \quad &\text{(finite at the former resonance)} \\
 > \frac{d|H|^2}{du} &= \frac{4\zeta^2\left[(1 - u)^2 + 4\zeta^2 u\right] - \left(1 + 4\zeta^2 u\right)\left[-2(1 - u) + 4\zeta^2\right]}{\left[(1 - u)^2 + 4\zeta^2 u\right]^2} \quad &\text{(quotient rule; chain rule on $(1 - u)^2$)} \\
 > &= \frac{2\left(1 - u - 2\zeta^2 u^2\right)}{\left[(1 - u)^2 + 4\zeta^2 u\right]^2} \quad &\text{(numerator expanded: the terms in $\zeta^2$, $\zeta^2 u$ and $\zeta^4 u$ cancel)} \\
-> u_p &= \frac{\sqrt{1 + 8\zeta^2} - 1}{4\zeta^2} \lt 1 \quad &\text{(positive root of $2\zeta^2 u^2 + u - 1 = 0$: the maximum)} \\
+> u_p &= \frac{\sqrt{1 + 8\zeta^2} - 1}{4\zeta^2} \gt 0 \quad &\text{(positive root of $2\zeta^2 u^2 + u - 1 = 0$: the derivative changes from positive to negative there, a maximum)} \\
+> \left.\left(2\zeta^2 u^2 + u - 1\right)\right|_{u = 0} &= -1, \quad \left.\left(2\zeta^2 u^2 + u - 1\right)\right|_{u = 1} = 2\zeta^2 \gt 0 \ \Rightarrow\ u_p \lt 1 \quad &\text{(change of sign between $u = 0$ and $u = 1$, so its positive root lies below 1)} \\
 > u = 2:\quad |H|^2 &= \frac{1 + 8\zeta^2}{1 + 8\zeta^2} = 1 \quad &\text{(the same value for every damping)} \\
 > \Omega \gg \omega_0,\ \Omega \gg \frac{\omega_0^2}{2\gamma}:\quad |H| &\approx \frac{2\gamma\Omega}{\Omega^2} = \frac{2\gamma}{\Omega} = \frac{\lambda}{m\kappa c} \quad &\text{(the damping terms dominate the numerator, $\Omega^4$ the denominator)}
 > \end{aligned}$$
@@ -2750,9 +2772,9 @@ The free-body diagram of $P$ shows the weight, the force of the spring and the f
 > **Source:** Notes.pdf, Eq. 5.41
 >
 > $$\begin{aligned}
-> \zeta = 0.5:\quad u_p &= \sqrt3 - 1 = 0.732, \quad |H|_{\max} = 1.468, \quad |H(\omega_0)| = 1.414 \quad &\text{(underdamped)} \\
+> \zeta = 0.5:\quad u_p &= \sqrt3 - 1 = 0.732, \quad |H|_{\max}^2 = \frac{1.732}{0.8038} = 2.1547, \quad |H|_{\max} = 1.468, \quad |H(\omega_0)| = 1.414 \quad &\text{(underdamped)} \\
 > \zeta = 1:\quad u_p &= \frac{3 - 1}{4} = 0.5, \quad |H|_{\max} = \sqrt{\frac{3}{2.25}} = 1.155, \quad |H(\omega_0)| = 1.118 \quad &\text{(critical)} \\
-> \zeta = 2:\quad u_p &= \frac{\sqrt{33} - 1}{16} = 0.297, \quad |H|_{\max} = 1.047, \quad |H(\omega_0)| = 1.031 \quad &\text{(overdamped)}
+> \zeta = 2:\quad u_p &= \frac{\sqrt{33} - 1}{16} = 0.297, \quad |H|_{\max}^2 = \frac{5.7446}{5.2394} = 1.0964, \quad |H|_{\max} = 1.047, \quad |H(\omega_0)| = 1.031 \quad &\text{(overdamped)}
 > \end{aligned}$$
 >
 > $$\boxed{|H|_{\max} = 1.468,\ 1.155,\ 1.047 \ \text{ for } \zeta = 0.5,\ 1,\ 2}$$

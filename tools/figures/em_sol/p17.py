@@ -130,9 +130,9 @@ def fbd():
     # position vector
     sc.vec(O, (O[0] + 0.93 * (M[0] - O[0]), O[1] + 0.93 * (M[1] - O[1])), None, "HEAD", 2.2, head=10)
     sc.label(((O[0] + M[0]) / 2, (O[1] + M[1]) / 2), _r0m(), "HEAD", "start", 17, dx=12, dy=-6)
-    # attraction: from M towards O, 1.6 units long, drawn slightly to the side of the position vector
-    n = math.sqrt(sum(v * v for v in M3))
-    t = 1.6 / n
+    # attraction: from M to O, the full vector -k^2 r_0^M (same scale as the weight, 1 unit = m g),
+    # drawn slightly to the side of the position vector
+    t = 1.0
     tip3 = tuple(M3[i] * (1 - t) for i in range(3))
     off = (-0.16, 0.10)
     A0 = (M[0] + off[0], M[1] + off[1])
@@ -222,7 +222,10 @@ def path_plane():
     sc.label(P(add(Cw, mul(0.5 * math.cos(ph / 2), e1), mul(0.5 * math.sin(ph / 2), j))), "kt", "GREEN", "middle", 16, dy=5)
     sc.label(P(Mp), "CM = (2g/" + S("k", None, "2") + ")(cos kt " + S(bold("e"), "1") + " + sin kt " + bold("j") + ")", "HEAD", "end", 15, dx=-14, dy=34)
     # triangle labels
-    sc.label(((C[0] + P(M0)[0]) / 2, (C[1] + P(M0)[1]) / 2), "R = 2g/" + S("k", None, "2"), "TEXT", "middle", 15, dy=-62)
+    # R labels the segment C-M(0): placed above it (outside the shaded triangle, clear of e1) with a short leader
+    Q = (P(M0)[0] + 0.30 * (C[0] - P(M0)[0]), P(M0)[1] + 0.30 * (C[1] - P(M0)[1]))
+    sc.line((Q[0], Q[1] + 4 / K), (Q[0], Q[1] + 40 / K), "EDGE", 0.9)
+    sc.label(Q, "R = 2g/" + S("k", None, "2"), "TEXT", "middle", 15, dy=-46)
     _side(sc, C, P(foot), "√3 g/" + S("k", None, "2"), "TEXT", 0.5, 18, -1, size=15)
     sc.label(((P(foot)[0] + P(M0)[0]) / 2, (P(foot)[1] + P(M0)[1]) / 2), "g/" + S("k", None, "2"), "TEXT", "end", 15, dx=-8, dy=5)
     a0 = 0.0

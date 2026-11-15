@@ -66,21 +66,20 @@ def disk_plane():
     sc.dashed(C, (0.0, CY))
     sc.label((CX, 0.0), _coord("x", "C"), "TEXT", "middle", 16, dy=24)
     sc.label((0.0, CY), _coord("y", "C"), "TEXT", "end", 16, dx=-12, dy=5)
-    # spring on the line O-C
-    sc.spring(O, C, coils=8, amp=7.0, col="HEAD", lead=0.10)
-    nx, ny = -(CY) / math.hypot(CX, CY), CX / math.hypot(CX, CY)       # unit normal, up-left
-    # position vectors: r_0^G on its own line, r_0^C drawn a little below the spring
-    sc.vec(O, (G[0] - 0.12 * math.cos(math.atan2(G[1], G[0])), G[1] - 0.12 * math.sin(math.atan2(G[1], G[0]))), None, "HEAD", 2.2, head=10)
-    off = 0.30
-    ux, uy = CX / math.hypot(CX, CY), CY / math.hypot(CX, CY)
-    tail = (-nx * off, -ny * off)
-    head = (C[0] - nx * off - 0.10 * ux, C[1] - ny * off - 0.10 * uy)
-    sc.dashed(O, tail)
-    sc.dashed(C, (C[0] - nx * off, C[1] - ny * off))
-    sc.vec(tail, head, None, "HEAD", 2.2, head=10)
+    # position vectors: r_0^C from O to C and r_0^G from O to G, both ending exactly at their points
+    nx, ny = -(CY) / math.hypot(CX, CY), CX / math.hypot(CX, CY)       # unit normal of OC, up-left
+    sc.vec(O, C, None, "HEAD", 2.2, head=10)
+    sc.vec(O, G, None, "HEAD", 2.2, head=10)
     sc.label((G[0] / 2, G[1] / 2), _vec("r", "G"), "HEAD", "end", 17, dx=-10, dy=-8)
-    sc.label((CX / 2 - nx * off, CY / 2 - ny * off), _vec("r", "C"), "HEAD", "start", 17, dx=10, dy=22)
-    sc.label((CX / 2 + 0.05, CY / 2 + 0.05), "k", "TEXT", "end", 17, dx=-4, dy=-10)
+    sc.label((CX / 2 - nx * 0.25, CY / 2 - ny * 0.25), _vec("r", "C"), "HEAD", "middle", 17, dy=6)
+    # spring between O and C, drawn offset below-right of r_0^C, joined to O and C by dashed leaders
+    off = 0.52
+    s0 = (-nx * off, -ny * off)
+    s1 = (C[0] - nx * off, C[1] - ny * off)
+    sc.dashed(O, s0)
+    sc.dashed(C, s1)
+    sc.spring(s0, s1, coils=8, amp=7.0, col="HEAD", lead=0.10)
+    sc.label((0.6 * CX - nx * (off + 0.22), 0.6 * CY - ny * (off + 0.22)), "k", "TEXT", "middle", 17, dy=6)
     # unbalance segment, reference line, angle, right triangle
     cw, sw = LL * math.cos(math.radians(WT)), LL * math.sin(math.radians(WT))
     triangle(sc, [C, (CX + cw, CY), G], YELLOW, 0.30)
@@ -165,7 +164,7 @@ def free_body():
     sc.dotp(G, 2.6, PURPLE)
     sc.line(G, (RD + CX + 0.25, G[1]), PURPLE, 1.0)
     sc.label((CX + RD + 0.3, G[1]), "R = " + S("R", "z") + " " + S(bold("k"), "0"), PURPLE, "start", 17, dx=4, dy=5)
-    sc.note((CX + RD + 0.3, G[1]), "(normal to the plane)", PURPLE, "start", 13, dx=4, dy=22)
+    sc.note((CX + RD + 0.3, G[1]), "(normal to the plane)", PURPLE, "start", 13, dx=4, dy=34)
     # motor couple
     sc.arc(C, 0.5, 250, 540, BROWN, 2.2, head=True)
     sc.label((CX, CY - 0.95), "motor couple (zero resultant)", BROWN, "middle", 16, dy=5)

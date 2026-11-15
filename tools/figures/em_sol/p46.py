@@ -33,7 +33,7 @@ def taxiway_plane():
     sc.line((1.5, 0.0), (4 * math.pi + 0.3, 0.0), "EDGE", 1.0, "6 4")
     sc.curve(lambda x: (x, H * math.sin(KAPPA * x)), 0.0, 4 * math.pi, 300, col=RUNWAY, w=2.6)
     # axes
-    fixed_axis(sc, O, 0, 1.4, bold("i"), off=(14, 5))
+    fixed_axis(sc, O, 0, 1.4, bold("i"), off=(0, 24))
     fixed_axis(sc, O, 90, 1.4, bold("j"), off=(0, -10))
     axis_out(sc, O, bold("k"), off=(-16, 22))
     # projections of B (and P) on the axes
@@ -63,8 +63,8 @@ def taxiway_plane():
     sc.label((xd, (ys0 + ys1) / 2), "λ (part c)", "TEXT", "start", 16, dx=20, dy=5)
     # position vectors
     ang = math.atan2(YP, XB)
+    sc.vec(O, (XB, YP), None, "HEAD", 2.2, head=10)       # arrowhead ends exactly at P
     ex = 2.03
-    sc.vec(O, (ex, ex * YP / XB - 0.0), None, "HEAD", 2.2, head=10)
     sc.label((ex / 2, ex * YP / XB / 2), _vecs("r", "P"), "HEAD", "end", 17, dx=-8, dy=-8)
     angb = math.atan2(yb, XB)
     eb = XB - 0.30
