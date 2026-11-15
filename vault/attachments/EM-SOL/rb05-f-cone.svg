@@ -16,7 +16,6 @@
 <text x="624.0" y="16.5" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">y</tspan></text>
 <line x1="340.0" y1="305.0" x2="340.0" y2="26.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="6 4"/>
 <text x="340.0" y="20.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Gy</text>
-<circle cx="610.0" cy="170.0" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
 <text x="624.0" y="196.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">V</text>
 <circle cx="340.0" cy="170.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
 <text x="348.0" y="156.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
@@ -35,6 +34,6 @@
 <path d="M218.5,170.0 L215.8,163.6 L221.2,163.6 Z" fill="#8a94a6"/>
 <path d="M218.5,62.0 L221.2,68.4 L215.8,68.4 Z" fill="#8a94a6"/>
 <text x="204.5" y="121.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R</text>
-<text x="391.0" y="92.5" fill="#6b7280" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">R</tspan><tspan baseline-shift="sub" font-size="70%">s</tspan></text>
+<text x="393.0" y="90.5" fill="#6b7280" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R<tspan baseline-shift="sub" font-size="70%">s</tspan></text>
 <text x="497.5" y="192.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">s</text>
 </g></svg>
