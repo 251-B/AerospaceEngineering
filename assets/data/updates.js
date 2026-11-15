@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-delta-v-name",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "The portal is now called Delta V",
+    "text": "New name and a new icon. The browser tab now shows the name and the subject you are in, for example Delta V Fluids."
+  },
+  {
     "id": "2026-11-15-tabs-extra-index-flat-pages",
     "date": "2026-11-15",
     "tag": "Portal",

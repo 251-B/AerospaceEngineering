@@ -23,6 +23,11 @@
  * API: window.AESurface = { get(), set(id), list(), KEY }
  * Event: document 'ae-surface-change' with detail { surface }.
  *
+ * Site name (fourth concern): SITE_NAME below is the only place where the name of the portal is
+ * written. This script sets the browser-tab title from it ("<name>" on the landing page,
+ * "<name> <short subject>" on subject pages) and fills every [data-site-name] element.
+ * API: window.AESite = { name, subjects, title() }
+ *
  * Focus Lab, the study timer and the "What's new" panel (third concern, loaded from here for the
  * same reason): appends <script src="assets/js/focus-lab.js">, <script src="assets/js/pomodoro.js">,
  * <script src="assets/data/updates.js"> (reached as ../data/updates.js from this file),
@@ -34,6 +39,37 @@
  */
 (function () {
   'use strict';
+
+  // ---- Site name: the one place to change it ------------------------------------------------
+  // The browser tab reads SITE_NAME on the landing page and SITE_NAME + ' ' + short subject name
+  // on every page under subjects/<slug>/. Elements marked data-site-name get the name as text.
+  var SITE_NAME = 'Delta V';
+  var SUBJECT_SHORT = {
+    'fluid-mechanics': 'Fluids',
+    'aerospace-materials-1': 'Materials',
+    'engineering-mechanics': 'Mechanics',
+    'advanced-maths': 'Maths',
+    'business-management': 'Management'
+  };
+  var PRINT_MODE = /[?&]print=/.test(location.search);
+
+  function siteTitle() {
+    var match = /\/subjects\/([^\/]+)\//.exec(location.pathname);
+    if (match) return SUBJECT_SHORT[match[1]] ? SITE_NAME + ' ' + SUBJECT_SHORT[match[1]] : null;
+    // the landing page marks itself with <html data-celestial-subject="portal">
+    return document.documentElement.getAttribute('data-celestial-subject') === 'portal' ? SITE_NAME : null;
+  }
+
+  // Set now, in <head>: the study timer (loaded below) reads document.title as its base title and
+  // adds the time left in front of it. The page's own <title> stays in the file (search engines,
+  // PDF metadata: the print mode keeps it).
+  function applySiteName() {
+    var title = PRINT_MODE ? null : siteTitle();
+    if (title && document.title !== title && document.title.indexOf(' \u2014 ' + title) === -1) document.title = title;
+    var marks = document.querySelectorAll('[data-site-name]');
+    for (var i = 0; i < marks.length; i++) marks[i].textContent = SITE_NAME;
+  }
+  applySiteName();
 
   var KEY = 'ae_theme';
   var LEGACY_KEYS = ['aero-portal-theme', 'theme'];
@@ -308,6 +344,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     render(root.getAttribute('data-theme'));
+    applySiteName();
     var button = document.getElementById('themeToggle');
     if (button) {
       if (document.querySelector('link[href*="study-surface.css"]')) {
@@ -349,6 +386,7 @@
     document.head.appendChild(link);
   })();
 
+  window.AESite = { name: SITE_NAME, subjects: SUBJECT_SHORT, title: siteTitle };
   window.AETheme = { get: get, set: set, toggle: toggle, KEY: KEY };
   window.AESurface = {
     get: function () { return root.getAttribute('data-surface') || getSurface(); },
