@@ -356,8 +356,7 @@
       <div class="icon" aria-hidden="true">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5h16"/><path d="M6.5 20.5v-4.5M11 20.5v-7.5M15.5 20.5v-10.5"/><path d="M4.5 10l5-3.6 3.5 2L19 3.8"/><path d="M15.6 3.6h3.6v3.6"/></svg>
       </div>
-      <h1>Business Management — Exam Simulator</h1>
-      <p>A simulated first partial exam (Midterm 1) drawn from the Extra problems: three short theory cases from different units and one Extra Practice problem, against the clock. Hints and solutions stay hidden until you finish; then you grade yourself with the key results and the full solutions.</p>
+      <h1>Business Management — Exam simulator</h1>
     </header>
 
     <div id="examSimulator" data-bank="AE_BM_BANK" data-blueprint="AE_BM_BLUEPRINT" data-storage="ae_bm_exams" data-bank-dir="../extra-problems/">
@@ -366,11 +365,11 @@
         <div class="sim-card">
           <h2 id="simSetupTitle">Midterm 1 structure</h2>
           <div class="sim-table-wrap"><table class="sim-structure" id="simStructure"></table></div>
-          <p class="sim-muted">The structure comes from the exam blueprint of the subject; it has not yet been checked against an official Midterm 1 paper, because none is available among the course PDFs.</p>
+          <details class="sim-about"><summary>About this structure</summary><p class="sim-muted">The structure comes from the exam blueprint of the subject; it has not yet been checked against an official Midterm 1 paper, because none is available among the course PDFs.</p></details>
         </div>
 
         <div class="sim-card">
-          <h2>Generate an exam</h2>
+          <h2>New exam</h2>
           <div class="sim-options">
             <fieldset>
               <legend>Duration</legend>
@@ -380,14 +379,16 @@
               <label class="sim-label" for="simArchetype">Type of the 4-point problem</label>
               <select class="sim-select" id="simArchetype"><option value="any">Any type (random)</option></select>
             </div>
-            <label class="sim-check"><input type="checkbox" id="simSkipPrevious" checked> <span>Do not repeat the items of my previous simulated exam</span></label>
+            <label class="sim-check"><input type="checkbox" id="simSkipPrevious" checked> <span>No repeats from my last exam</span></label>
           </div>
-          <button class="bank-btn sim-primary" type="button" id="simGenerate">Generate New Midterm 1 Exam</button>
-          <button class="bank-btn" type="button" id="simHelpOpen" aria-haspopup="dialog">Keyboard shortcuts <kbd class="bank-kbd" aria-hidden="true">?</kbd></button>
+          <div class="sim-actions">
+            <button class="bank-btn sim-primary" type="button" id="simGenerate">Generate New Midterm 1 Exam</button>
+            <button class="bank-btn sim-icon-btn" type="button" id="simHelpOpen" aria-haspopup="dialog">Shortcuts <kbd class="bank-kbd" aria-hidden="true">?</kbd></button>
+          </div>
         </div>
 
-        <div class="sim-card">
-          <h2>Your simulated exams</h2>
+        <div class="sim-card sim-history-card">
+          <h2>History</h2>
           <div id="simHistory"></div>
         </div>
       </section>
@@ -444,10 +445,6 @@
     <div class="bank-sr" id="simLive" aria-live="polite"></div>
     <div class="bank-toast" id="simToast" role="status" hidden></div>
 
-    <!-- Aerospace Motivational Quote Component -->
-    <section class="container sim-no-print" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
-      <div id="quoteContainer"></div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -456,14 +453,7 @@
     </div>
   </footer>
 
-  <script src="../../../assets/js/quotes.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.initAerospaceQuote) {
-        initAerospaceQuote('#quoteContainer');
-      }
-    });
-
     document.addEventListener('ae:languageChange', function() {
       if (typeof renderMathInElement === 'function') {
         renderMathInElement(document.body, {

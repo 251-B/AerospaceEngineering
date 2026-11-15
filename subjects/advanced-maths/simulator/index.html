@@ -357,8 +357,7 @@
       <div class="icon" aria-hidden="true">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15.6 4.3c-2-.9-3.3.2-3.5 2.3l-.5 10.8c-.2 2.1-1.5 3.2-3.5 2.3"/><path d="M15.8 13.2c.9-1.3 2.2-1.3 2.9 0l.6 1.6c.6 1.3 1.6 1.3 2.2.2"/><path d="M21.2 12.4l-5.2 5.2"/><path d="M3 9.5h4.2M5.1 7.4v4.2"/></svg>
       </div>
-      <h1>Advanced Maths — Exam Simulator</h1>
-      <p>A simulated exam drawn from the Extra problems and timed against the clock: first midterm, second midterm or final. Hints and solutions stay hidden until you finish; then you grade yourself part by part with the key results and the full solutions.</p>
+      <h1>Advanced Maths — Exam simulator</h1>
     </header>
 
     <div id="examSimulator" data-bank="AE_AM_BANK" data-blueprint="AE_AM_BLUEPRINT" data-blueprint-midterm-1="AE_AM_BLUEPRINT" data-blueprint-midterm-2="AE_AM_BLUEPRINT_MT2" data-blueprint-final="AE_AM_BLUEPRINT_FINAL" data-default-exam="midterm-1" data-storage="ae_am_exams" data-bank-dir="../extra-problems/">
@@ -372,11 +371,11 @@
         <div class="sim-card">
           <h2 id="simSetupTitle"><span data-bp="short_title">Midterm 1</span> structure</h2>
           <div class="sim-table-wrap"><table class="sim-structure" id="simStructure"></table></div>
-          <p class="sim-muted" data-bp="note">The structure comes from the official papers in the course PDFs.</p>
+          <details class="sim-about"><summary>About this structure</summary><p class="sim-muted" data-bp="note">The structure comes from the official papers in the course PDFs.</p></details>
         </div>
 
         <div class="sim-card">
-          <h2>Generate an exam</h2>
+          <h2>New exam</h2>
           <div class="sim-options">
             <fieldset>
               <legend>Duration</legend>
@@ -386,14 +385,16 @@
               <label class="sim-label" for="simArchetype">Topic of the selectable problem</label>
               <select class="sim-select" id="simArchetype"><option value="any">Any type (random)</option></select>
             </div>
-            <label class="sim-check"><input type="checkbox" id="simSkipPrevious" checked> <span>Do not repeat the items of my previous simulated exam</span></label>
+            <label class="sim-check"><input type="checkbox" id="simSkipPrevious" checked> <span>No repeats from my last exam</span></label>
           </div>
-          <button class="bank-btn sim-primary" type="button" id="simGenerate"><span data-bp="generate_label">Generate New Midterm 1 Exam</span></button>
-          <button class="bank-btn" type="button" id="simHelpOpen" aria-haspopup="dialog">Keyboard shortcuts <kbd class="bank-kbd" aria-hidden="true">?</kbd></button>
+          <div class="sim-actions">
+            <button class="bank-btn sim-primary" type="button" id="simGenerate"><span data-bp="generate_label">Generate New Midterm 1 Exam</span></button>
+            <button class="bank-btn sim-icon-btn" type="button" id="simHelpOpen" aria-haspopup="dialog">Shortcuts <kbd class="bank-kbd" aria-hidden="true">?</kbd></button>
+          </div>
         </div>
 
-        <div class="sim-card">
-          <h2>Your simulated exams</h2>
+        <div class="sim-card sim-history-card">
+          <h2>History</h2>
           <div id="simHistory"></div>
         </div>
       </section>
@@ -450,10 +451,6 @@
     <div class="bank-sr" id="simLive" aria-live="polite"></div>
     <div class="bank-toast" id="simToast" role="status" hidden></div>
 
-    <!-- Aerospace Motivational Quote Component -->
-    <section class="container sim-no-print" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
-      <div id="quoteContainer"></div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -462,14 +459,7 @@
     </div>
   </footer>
 
-  <script src="../../../assets/js/quotes.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.initAerospaceQuote) {
-        initAerospaceQuote('#quoteContainer');
-      }
-    });
-
     document.addEventListener('ae:languageChange', function() {
       if (typeof renderMathInElement === 'function') {
         renderMathInElement(document.body, {

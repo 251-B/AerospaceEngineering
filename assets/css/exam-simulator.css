@@ -159,7 +159,7 @@
 .sim-statement { padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-subtle); background: var(--bg-input); }
 .sim-sub { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--border-card); }
 .sim-sub__prompt { display: flex; gap: 10px; align-items: baseline; }
-.sim-sub__label { font-family: var(--font-mono); font-weight: 700; color: var(--text-primary); }
+.sim-sub__label { font-family: var(--font-body); font-weight: 700; color: var(--text-primary); }
 .sim-sub__pts { margin-left: auto; white-space: nowrap; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); }
 .sim-draft { margin-top: 14px; }
 .sim-draft textarea {
@@ -170,7 +170,7 @@
   border-radius: 10px;
   background: var(--bg-input);
   color: var(--text-primary);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.92rem;
   line-height: 1.5;
   resize: vertical;
@@ -180,7 +180,7 @@
   padding: 10px 12px;
   border: 1px dashed var(--border-card);
   border-radius: 10px;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--text-primary);
 }
@@ -253,3 +253,69 @@
   .sim-question table th, .sim-question table td { border-bottom: 1px solid #555 !important; }
   .katex-display { overflow: visible !important; }
 }
+
+/* ==========================================================================
+   Portal look (same fonts, header and icons as the subject indexes)
+   Newsreader for every label, button and table, Abril Fatface for titles,
+   JetBrains Mono only for figures and the clock. The page and
+   problem-bank.css ask for --font-sans, so re-pointing it here is enough.
+   ========================================================================== */
+body:has(#examSimulator) { --font-sans: var(--font-body); }
+body:has(#examSimulator) .container { max-width: 1180px; }
+body:has(#examSimulator) :is(.bank-btn, .sim-radio, .sim-select, .sim-check, .sim-nav a) { font-size: 1rem; }
+body:has(#examSimulator) :is(.sim-muted, .sim-notice, .sim-history, .sim-structure, .sim-points, .sim-grade) { font-size: 1rem; }
+body:has(#examSimulator) :is(.sim-options legend, .sim-label, .sim-structure th, .sim-history th, .sim-question th) {
+  font-family: var(--font-mono); font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+}
+
+/* title block: icon in a circle and a one-line title, as on the indexes */
+body:has(#examSimulator) .page-header {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 16px;
+  margin: 0 auto 26px; padding: 30px 0 0; border: 0 !important; text-align: left;
+  background: transparent !important; box-shadow: none !important;
+}
+body:has(#examSimulator) .page-header::before, body:has(#examSimulator) .page-header::after { display: none !important; }
+body:has(#examSimulator) .page-header > .icon {
+  display: flex; align-items: center; justify-content: center; flex: none; width: 52px; height: 52px; margin: 0;
+  border-radius: 50%; color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+}
+body:has(#examSimulator) .page-header > .icon svg { width: 28px; height: 28px; }
+body:has(#examSimulator) .page-header h1 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.15; text-shadow: none; }
+body:has(#examSimulator) .page-header > p { display: none; }
+
+/* setup screen: structure and new exam side by side, history below */
+#simSetup { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: stretch; margin-bottom: 26px; }
+#simSetup[hidden] { display: none; }
+#simSetup > .sim-card { margin: 0; }
+#simSetup > :is(.sim-exam-tabs, .sim-history-card) { grid-column: 1 / -1; }
+.sim-card h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; }
+.sim-exam-tabs.sim-card {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; width: fit-content; max-width: 100%;
+  justify-self: center; padding: 6px; border-radius: 999px;
+}
+.sim-exam-tabs .bank-btn { border-radius: 999px; border-color: transparent; background: transparent; padding: 8px 18px; }
+.sim-exam-tabs .bank-btn[aria-current="page"], .sim-exam-tabs .bank-btn[aria-pressed="true"], .sim-exam-tabs .bank-btn.is-active {
+  background: var(--accent-soft); border-color: var(--accent);
+}
+.sim-about { margin-top: 10px; color: var(--text-secondary); }
+.sim-about summary { cursor: pointer; width: fit-content; color: var(--text-primary); font-size: .95rem; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.sim-about summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sim-about p { margin: 8px 0 0; }
+.sim-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.sim-actions .sim-primary { border-radius: 999px; border-color: var(--accent); background: var(--accent-soft); padding: 11px 22px; }
+.sim-icon-btn { border-radius: 999px !important; }
+
+/* button icons: masks on the 24 px grid of the tab strip, tinted with the accent */
+:is(#simGenerate, #simHelpOpen, #simPrint, #simFinish, #simNew)::before {
+  content: ""; flex: none; width: 18px; height: 18px; background-color: var(--accent);
+  -webkit-mask: var(--sim-ico) center / contain no-repeat; mask: var(--sim-ico) center / contain no-repeat;
+}
+#simGenerate, #simNew { --sim-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7.5 4.5v15l12-7.5z'/%3E%3C/svg%3E"); }
+#simHelpOpen { --sim-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='6' width='19' height='12' rx='2'/%3E%3Cpath d='M6.5 10h.01M10 10h.01M13.5 10h.01M17 10h.01M8 14h8'/%3E%3C/svg%3E"); }
+#simPrint { --sim-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 8V3.5h10V8'/%3E%3Crect x='3' y='8' width='18' height='9' rx='2'/%3E%3Cpath d='M7 14h10v6.5H7z'/%3E%3C/svg%3E"); }
+#simFinish { --sim-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Cpath d='M8.2 12.3l2.6 2.6 5-5.3'/%3E%3C/svg%3E"); }
+
+@media (max-width: 900px) { #simSetup { grid-template-columns: minmax(0, 1fr); } }
+@media print { :is(#simGenerate, #simHelpOpen, #simPrint, #simFinish, #simNew)::before { display: none; } }

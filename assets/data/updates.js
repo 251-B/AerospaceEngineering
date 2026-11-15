@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-exam-simulator-look",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "Cleaner exam simulator",
+    "text": "The exam simulator now uses the same fonts and icons as the rest of the portal, with less text. The exam structure and the options fit on one screen.",
+    "link": "subjects/advanced-maths/simulator/index.html"
+  },
+  {
     "id": "2026-11-15-pdf-library",
     "date": "2026-11-15",
     "tag": "Portal",

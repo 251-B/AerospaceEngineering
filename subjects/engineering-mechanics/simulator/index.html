@@ -357,8 +357,7 @@
       <div class="icon" aria-hidden="true">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10.26 5.01L10.42 2.53L13.58 2.53L13.74 5.01L15.71 5.83L17.58 4.19L19.81 6.42L18.17 8.29L18.99 10.26L21.47 10.42L21.47 13.58L18.99 13.74L18.17 15.71L19.81 17.58L17.58 19.81L15.71 18.17L13.74 18.99L13.58 21.47L10.42 21.47L10.26 18.99L8.29 18.17L6.42 19.81L4.19 17.58L5.83 15.71L5.01 13.74L2.53 13.58L2.53 10.42L5.01 10.26L5.83 8.29L4.19 6.42L6.42 4.19L8.29 5.83z"/><circle cx="12" cy="12" r="3"/></svg>
       </div>
-      <h1>Engineering Mechanics — Exam Simulator</h1>
-      <p>A simulated first partial exam (Midterm 1) drawn from the Extra problems: one particle-mechanics problem of 10 points with 5 to 7 parts, against the clock. Hints and solutions stay hidden until you finish; then you grade yourself part by part with the key results and the full solutions.</p>
+      <h1>Engineering Mechanics — Exam simulator</h1>
     </header>
 
     <div id="examSimulator" data-bank="AE_EM_BANK" data-blueprint="AE_EM_BLUEPRINT" data-storage="ae_em_exams" data-bank-dir="../extra-problems/">
@@ -367,11 +366,11 @@
         <div class="sim-card">
           <h2 id="simSetupTitle">Midterm 1 structure</h2>
           <div class="sim-table-wrap"><table class="sim-structure" id="simStructure"></table></div>
-          <p class="sim-muted">The structure comes from the Midterm 1 papers of 2011 to 2024 in the course PDFs (mostly one problem of 10 points). None of them prints its duration, so 60 minutes (the time of the 2015 second-partial quiz) is an assumption; you can choose 45 or 90 minutes.</p>
+          <details class="sim-about"><summary>About this structure</summary><p class="sim-muted">The structure comes from the Midterm 1 papers of 2011 to 2024 in the course PDFs (mostly one problem of 10 points). None of them prints its duration, so 60 minutes (the time of the 2015 second-partial quiz) is an assumption; you can choose 45 or 90 minutes.</p></details>
         </div>
 
         <div class="sim-card">
-          <h2>Generate an exam</h2>
+          <h2>New exam</h2>
           <div class="sim-options">
             <fieldset>
               <legend>Duration</legend>
@@ -381,14 +380,16 @@
               <label class="sim-label" for="simArchetype">Topic of the 10-point problem</label>
               <select class="sim-select" id="simArchetype"><option value="any">Any type (random)</option></select>
             </div>
-            <label class="sim-check"><input type="checkbox" id="simSkipPrevious" checked> <span>Do not repeat the items of my previous simulated exam</span></label>
+            <label class="sim-check"><input type="checkbox" id="simSkipPrevious" checked> <span>No repeats from my last exam</span></label>
           </div>
-          <button class="bank-btn sim-primary" type="button" id="simGenerate">Generate New Midterm 1 Exam</button>
-          <button class="bank-btn" type="button" id="simHelpOpen" aria-haspopup="dialog">Keyboard shortcuts <kbd class="bank-kbd" aria-hidden="true">?</kbd></button>
+          <div class="sim-actions">
+            <button class="bank-btn sim-primary" type="button" id="simGenerate">Generate New Midterm 1 Exam</button>
+            <button class="bank-btn sim-icon-btn" type="button" id="simHelpOpen" aria-haspopup="dialog">Shortcuts <kbd class="bank-kbd" aria-hidden="true">?</kbd></button>
+          </div>
         </div>
 
-        <div class="sim-card">
-          <h2>Your simulated exams</h2>
+        <div class="sim-card sim-history-card">
+          <h2>History</h2>
           <div id="simHistory"></div>
         </div>
       </section>
@@ -445,10 +446,6 @@
     <div class="bank-sr" id="simLive" aria-live="polite"></div>
     <div class="bank-toast" id="simToast" role="status" hidden></div>
 
-    <!-- Aerospace Motivational Quote Component -->
-    <section class="container sim-no-print" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
-      <div id="quoteContainer"></div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -457,14 +454,7 @@
     </div>
   </footer>
 
-  <script src="../../../assets/js/quotes.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.initAerospaceQuote) {
-        initAerospaceQuote('#quoteContainer');
-      }
-    });
-
     document.addEventListener('ae:languageChange', function() {
       if (typeof renderMathInElement === 'function') {
         renderMathInElement(document.body, {
