@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-folded-problems",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "Problems start folded, shorter page headers",
+    "text": "Every problem page now lists its problems folded: click one to open it, or use Open all. Page titles share one colour and the long intro texts are gone.",
+    "link": "subjects/engineering-mechanics/problemas/topic-5.html"
+  },
+  {
     "id": "2026-11-15-exam-simulator-look",
     "date": "2026-11-15",
     "tag": "Portal",

@@ -197,7 +197,7 @@
 
     .topic-accent-bar {
       width: 5px; flex-shrink: 0;
-      background: #10b981;
+      background: var(--accent);
       opacity: 0.6; transition: opacity var(--transition);
     }
     .topic-card:hover .topic-accent-bar { opacity: 1; }
@@ -209,7 +209,7 @@
 
     .topic-number {
       font-family: var(--font-mono); font-size: 0.72rem;
-      font-weight: 600; color: #10b981;
+      font-weight: 600; color: var(--accent);
       text-transform: uppercase; letter-spacing: 0.06em;
     }
 
@@ -229,7 +229,7 @@
       font-size: 0.68rem; font-weight: 600; padding: 2px 9px;
       border-radius: 10px;
     }
-    .cbadge.problems { background: rgba(16, 185, 129, 0.12); color: #34d399; }
+    .cbadge.problems { background: var(--accent-soft); color: var(--accent); }
     .cbadge.interactive { background: rgba(245, 158, 11, 0.12); color: #fbbf24; }
 
     .topic-tags {
