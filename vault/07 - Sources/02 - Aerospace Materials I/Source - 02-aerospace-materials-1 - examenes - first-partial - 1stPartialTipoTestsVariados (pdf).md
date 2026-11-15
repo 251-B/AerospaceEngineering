@@ -19,8 +19,9 @@ bytes: 1292659
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/first-partial/1stPartialTipoTestsVariados.pdf`
 - **Kind:** examenes
 - **Size:** 1.3 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]

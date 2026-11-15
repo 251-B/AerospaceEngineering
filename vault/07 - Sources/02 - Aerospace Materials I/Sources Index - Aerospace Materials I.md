@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 77
-- Referenced by at least one note (a mention counts): 40
-- Not referenced yet: 37
+- Referenced by at least one note (a mention counts): 49
+- Not referenced yet: 28
 - Build artifacts: 0
 - Working files: 0
 
@@ -20,7 +20,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 02-aerospace-materials-1 - Auditoría Temas 4 A 7 (md)\|Auditoría Temas 4 A 7.md]] | other | not-referenced |
+| [[Source - 02-aerospace-materials-1 - Auditoría Temas 4 A 7 (md)\|Auditoría Temas 4 A 7.md]] | other | referenced |
 | [[Source - 02-aerospace-materials-1 - README (md)\|README.md]] | other | not-referenced |
 
 ## examenes
@@ -44,19 +44,19 @@ tags:
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2015_ORD (pdf)\|MATERIALS_FINALEXAM_2015_ORD.pdf]] | examenes | not-referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2015_ORD_SOL (pdf)\|MATERIALS_FINALEXAM_2015_ORD_SOL.pdf]] | examenes | not-referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2016_EXTRA_SOL (pdf)\|MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2016_ORD_SOL (pdf)\|MATERIALS_FINALEXAM_2016_ORD_SOL.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2016_ORD_SOL (pdf)\|MATERIALS_FINALEXAM_2016_ORD_SOL.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2016_ORD_SOL_HANDWRITTEN (pdf)\|MATERIALS_FINALEXAM_2016_ORD_SOL_HANDWRITTEN.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2017_EXTRA (pdf)\|MATERIALS_FINALEXAM_2017_EXTRA.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2017_ORD (pdf)\|MATERIALS_FINALEXAM_2017_ORD.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_COMPILATION_2013-2017 (pdf)\|MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2017_EXTRA (pdf)\|MATERIALS_FINALEXAM_2017_EXTRA.pdf]] | examenes | referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2017_ORD (pdf)\|MATERIALS_FINALEXAM_2017_ORD.pdf]] | examenes | referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_COMPILATION_2013-2017 (pdf)\|MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FIRSTPARTIAL_COMPILATION_QUIZ (pdf)\|MATERIALS_FIRSTPARTIAL_COMPILATION_QUIZ.pdf]] | examenes | not-referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FIRSTPARTIAL_UNDATED (pdf)\|MATERIALS_FIRSTPARTIAL_UNDATED.pdf]] | examenes | not-referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FIRSTPARTIAL_UNDATED_QUIZ_BONDING (docx)\|MATERIALS_FIRSTPARTIAL_UNDATED_QUIZ_BONDING.docx]] | examenes | not-referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FIRSTPARTIAL_UNDATED_V2 (pdf)\|MATERIALS_FIRSTPARTIAL_UNDATED_V2.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_SECONDPARTIAL_2018 (docx)\|MATERIALS_SECONDPARTIAL_2018.docx]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_SECONDPARTIAL_2019 (pdf)\|MATERIALS_SECONDPARTIAL_2019.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_SECONDPARTIAL_2018 (docx)\|MATERIALS_SECONDPARTIAL_2018.docx]] | examenes | referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_SECONDPARTIAL_2019 (pdf)\|MATERIALS_SECONDPARTIAL_2019.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_THIRDPARTIAL_2020 (pdf)\|MATERIALS_THIRDPARTIAL_2020.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_THIRDPARTIAL_2020_V2 (pdf)\|MATERIALS_THIRDPARTIAL_2020_V2.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_THIRDPARTIAL_2020_V2 (pdf)\|MATERIALS_THIRDPARTIAL_2020_V2.pdf]] | examenes | referenced |
 
 ## examenes/first-partial
 
@@ -93,7 +93,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 02-aerospace-materials-1 - schedule - Schedule_MAT AERO I 2026 - 27 (pdf)\|Schedule_MAT AERO I 2026 - 27.pdf]] | schedule | not-referenced |
+| [[Source - 02-aerospace-materials-1 - schedule - Schedule_MAT AERO I 2026 - 27 (pdf)\|Schedule_MAT AERO I 2026 - 27.pdf]] | schedule | referenced |
 
 ## unit-01-atomic-bonding/teoria
 

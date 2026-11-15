@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - other
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/Auditoría Temas 4 A 7.md"
 kind: other
-status: not-referenced
+status: referenced
 bytes: 29333
 ---
 
@@ -19,8 +19,8 @@ bytes: 29333
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/Auditoría Temas 4 A 7.md`
 - **Kind:** other
 - **Size:** 29.3 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
