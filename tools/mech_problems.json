@@ -117,14 +117,14 @@
   "title": "Stokes Drag and Terminal Velocity",
   "badge": "Viscous Aerodynamics",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "16": {
   "topic": 2,
   "title": "Drag on Falling Football",
   "badge": "Quadratic Drag",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 4"
   ]
@@ -134,7 +134,7 @@
   "title": "Linear Central Force",
   "badge": "Newtonian Restoring Force",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 4"
   ]
@@ -376,7 +376,7 @@
   "title": "Vibrating Rotor (Unbalanced Turbojet)",
   "badge": "Forced Oscillations",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6"
   ]
@@ -386,7 +386,7 @@
   "title": "Bumpy Taxiway",
   "badge": "Resonance & Damping",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6"
   ]

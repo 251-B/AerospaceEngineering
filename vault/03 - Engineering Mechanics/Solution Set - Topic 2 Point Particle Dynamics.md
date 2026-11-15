@@ -1398,278 +1398,1385 @@ The free-body diagram (figure above) shows the applied force along $\mathbf i$, 
 
 ---
 
-## 📌 Problem 15: Stokes Drag and Terminal Velocity
+## Problem 15: Stokes Drag and Terminal Velocity
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a sphere of radius $r$ and density $\rho_s = 2\rho_0$ falls vertically from rest in a fluid at rest of density $\rho_0$ and dynamic viscosity $\mu$. The forces are the weight, the buoyancy and the Stokes drag $F_D = 6\pi\mu rv$ (as the statement says; unsteady and added-mass effects are not considered).
-* **Constraints:** the motion is vertical (the sphere does not rotate or drift sideways); $\text{CDOF} = 1$, with the coordinate $x$ measured downward from the release point.
-* **Initial conditions:** $x(0) = 0$, $\dot{x}(0) = 0$.
-* **Relations:** volume $V = \tfrac{4}{3}\pi r^3$; mass $m = \rho_sV = \tfrac{8}{3}\pi\rho_0r^3$; kinematic viscosity $\nu = \mu/\rho_0$, so $\mu = \rho_0\nu$.
+### Reference Frames, Bases and Coordinates
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $\mathcal{F}_0$ fixed to the fluid, with $Ox$ pointing downward along gravity ($\mathbf{i}$ downward); constant unit vectors.
+The sphere is modelled as a point particle $P$ of mass $m$ that falls along a vertical line through a fluid at rest in an inertial frame. Three forces act on it, as the statement imposes: its weight, the buoyancy of the fluid and the Stokes drag. The statement asks for the terminal velocity and for the position as a function of time when the sphere starts from rest (Problems.pdf, p. 9). The axis of the fall points downward, the convention of the official key, so that the velocity component stays positive.
 
-### Phase 3: Derivation
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$ attached to the fluid at rest, origin $O$ at the release point (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$: $\mathbf i$ vertical **downward**, $\mathbf j$ and $\mathbf k$ horizontal, right-handed ($\mathbf i \times \mathbf j = \mathbf k$) |
+| Moving frames | none: the only basis used is $\mathcal B_0$ |
+| Coordinate | $x(t)$, distance fallen, measured along $\mathbf i$ from $O$; $v = \dot x$ its rate |
+| Data | $r$ [m] radius; $\rho_0$ [kg m$^{-3}$] density of the fluid; $\rho_s = 2\rho_0$ density of the sphere; $\mu$ [kg m$^{-1}$ s$^{-1}$] dynamic viscosity; $\nu = \mu/\rho_0$ [m$^2$ s$^{-1}$] kinematic viscosity; $g$ [m s$^{-2}$] gravity |
+| Derived data | volume $V = \tfrac43\pi r^3$; mass $m = \rho_s V = \tfrac83\pi\rho_0 r^3$ |
+| Applied forces | weight $m g\,\mathbf i$; buoyancy, the weight of the displaced fluid, $-\rho_0 V g\,\mathbf i$; Stokes drag of magnitude $6\pi\mu r v$, opposite to the velocity (statement) |
+| Initial conditions | $x(0) = 0$, $\dot x(0) = 0$ (released from rest at $O$) |
+| Hypotheses | the fluid is unbounded and at rest, so the speed in the drag law is the speed of $P$ in $S_0$; the sphere does not rotate or drift sideways; the buoyancy is the hydrostatic one (Archimedes' principle, imposed by the statement, not derived in Notes.pdf); unsteady fluid forces (added mass, history force) are not considered, as the statement gives only the three forces |
+| Constraints | none: the sphere is free; the horizontal coordinates stay zero because every force is vertical (proved in the box of Newton's law) |
+| Degrees of freedom | 3 Cartesian coordinates, of which only $x$ changes: 1 |
 
-#### 3.1 Kinematics
-$$ \mathbf{r} = x\,\mathbf{i}, \qquad \mathbf{v} = \dot{x}\,\mathbf{i}, \qquad \mathbf{a} = \ddot{x}\,\mathbf{i} $$
+![[attachments/EM-SOL/p15-fall-axis.svg]]
 
-#### 3.2 Forces
-* **Pedagogical Justification:** three forces act along $Ox$ (positive downward). The drag opposes the motion, which is downward ($\dot{x} \gt 0$), so it points upward.
-$$ W = mg = \tfrac{8}{3}\pi\rho_0r^3g \ (\downarrow), \qquad F_B = \rho_0Vg = \tfrac{4}{3}\pi\rho_0r^3g = \tfrac{1}{2}W \ (\uparrow), \qquad F_D = 6\pi\mu r\dot{x} = 6\pi\rho_0\nu r\dot{x} \ (\uparrow) $$
-* **Net weight corrected by buoyancy:** $W - F_B = \tfrac{4}{3}\pi\rho_0r^3g = \tfrac{1}{2}mg$. **Inertia forces:** none.
+### Change of Basis and Position Vector
 
-#### 3.3 Equations of Motion
-* **Newton's second law along $Ox$:** $m\ddot{x} = W - F_B - F_D$:
-$$ \tfrac{8}{3}\pi\rho_0r^3\,\ddot{x} = \tfrac{4}{3}\pi\rho_0r^3g - 6\pi\rho_0\nu r\,\dot{x} $$
-Dividing by $\tfrac{8}{3}\pi\rho_0r^3$: the first term gives $\dfrac{4/3}{8/3}g = \dfrac{g}{2}$ and the second $\dfrac{6\pi\rho_0\nu r}{(8/3)\pi\rho_0r^3} = 6\cdot\dfrac{3}{8}\cdot\dfrac{\nu}{r^2} = \dfrac{9\nu}{4r^2}$, so
-$$ \ddot{x} + \frac{9\nu}{4r^2}\dot{x} = \frac{g}{2} \quad\Longleftrightarrow\quad \boxed{4r^2\ddot{x} + 9\nu\dot{x} = 2r^2g} $$
-* One unknown, $x(t)$, and one linear equation with constant coefficients.
+The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the left, so $\mathbf k$ points out of the paper (⊙).
 
-#### 3.4 Integration and Answers
-##### (a) Terminal velocity
-* **Pedagogical Justification:** the terminal velocity is reached when the acceleration vanishes ($\ddot{x} = 0$), i.e. when the drag balances the buoyancy-corrected weight:
-$$ 9\nu v_t = 2r^2g \implies \boxed{v_t = \frac{2r^2g}{9\nu}} $$
+> [!derivation] The only basis and its change of basis matrix
+> **Law:** change of basis matrix between two bases; orthonormality and unit determinant
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15
+>
+> The matrix that writes $\mathcal B_0$ in itself has as columns the components of $\mathbf i$, $\mathbf j$, $\mathbf k$ in $\mathcal B_0$, so it is the identity; it is checked like any rotation matrix.
+>
+> $$\begin{aligned}
+> \mathbf i &= 1\,\mathbf i + 0\,\mathbf j + 0\,\mathbf k \quad &\text{(first column: components of $\mathbf i$ in $\mathcal B_0$)} \\
+> \mathbf j &= 0\,\mathbf i + 1\,\mathbf j + 0\,\mathbf k \quad &\text{(second column)} \\
+> \mathbf k &= 0\,\mathbf i + 0\,\mathbf j + 1\,\mathbf k \quad &\text{(third column)} \\
+> \det[{}_0R_0] &= 1\cdot(1\cdot 1 - 0\cdot 0) - 0 + 0 = 1 \quad &\text{(expansion along the first row)} \\
+> [{}_0R_0][{}_0R_0]^T &= I\,I = I \quad &\text{(the identity is symmetric and equal to its square)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_0] = \begin{pmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_0] = 1, \quad [{}_0R_0][{}_0R_0]^T = I}$$
+>
+> **Units:** every entry is a direction cosine, dimensionless: $[1]$
+> **Meaning:** no rotation is involved; $\mathcal B_0$ is orthonormal and right-handed even though its first axis points down, and every vector of the problem is written in it.
 
-##### (b) Position as a function of time
-* **Velocity.** Let $\gamma = \dfrac{9\nu}{4r^2}$ ($[\gamma] = \text{s}^{-1}$). Then $\dot{v} + \gamma v = \dfrac{g}{2} = \gamma v_t$, i.e. $\dfrac{dv}{v - v_t} = -\gamma\,dt$. Integrating from $v(0) = 0$ with the substitution $w = v' - v_t$, $dw = dv'$, whose antiderivative is $\int dw/w = \ln|w|$ (Barrow):
-$$ \int_0^v\frac{dv'}{v' - v_t} = -\gamma\int_0^tdt' \implies \left[\ln|v' - v_t|\right]_0^v = \ln|v - v_t| - \ln|0 - v_t| = \ln\frac{v_t - v}{v_t} = -\gamma t $$
-(the absolute value is removed because $v \lt v_t$: the net force $m\gamma(v_t - v)$ is positive while $v \lt v_t$, so $v$ increases from $0$, and it cannot reach $v_t$ in finite time because $v \equiv v_t$ is itself a solution and the solutions of this linear equation are unique). Exponentiating, $1 - v/v_t = e^{-\gamma t}$:
-$$ v(t) = v_t\left(1 - e^{-\gamma t}\right) \gt 0 \quad \text{for } t \gt 0 $$
-so $\dot{x} \gt 0$ at all times and the drag indeed points upward, as assumed in 3.2.
-* **Position.** Integrating the velocity with $x(0) = 0$:
-With $u = -\gamma t'$, $du = -\gamma\,dt'$, the antiderivative is $\int e^{-\gamma t'}dt' = -\frac{1}{\gamma}\int e^u\,du = -\frac{1}{\gamma}e^{-\gamma t'}$, so
-$$ x(t) = \int_0^tv_t\left(1 - e^{-\gamma t'}\right)dt' = v_t\left[t' + \frac{1}{\gamma}e^{-\gamma t'}\right]_0^t = v_t\left(t + \frac{1}{\gamma}e^{-\gamma t} - \frac{1}{\gamma}\right) = \frac{v_t}{\gamma}\left[\gamma t - 1 + e^{-\gamma t}\right] $$
-* Substituting $\dfrac{v_t}{\gamma} = \dfrac{2r^2g}{9\nu}\cdot\dfrac{4r^2}{9\nu} = \dfrac{8r^4g}{81\nu^2}$ and $\gamma = \dfrac{9\nu}{4r^2}$, and writing $\dfrac{8r^4g}{81\nu^2} = \dfrac{2r^2g}{81\nu^2}\cdot 4r^2$ so that $4r^2$ multiplies the bracket (with $4r^2\cdot\gamma t = 4r^2\cdot\frac{9\nu}{4r^2}t = 9\nu t$):
-$$ \boxed{x(t) = \frac{2r^2g}{81\nu^2}\left[-4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}t\right) + 9\nu t\right]} $$
+> [!derivation] Position vector of the sphere
+> **Law:** position vector of a point in Cartesian components
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.5
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OP} \quad &\text{(definition of the position vector; $O$ is the release point)} \\
+> &= x\,\mathbf i + y\,\mathbf j + z\,\mathbf k \quad &\text{(Cartesian components in $\mathcal B_0$)} \\
+> &= x\,\mathbf i \quad &\text{(vertical fall: $y = z = 0$, see the box of Newton's law)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = x(t)\,\mathbf i, \qquad x(0) = 0}$$
+>
+> **Units:** $[\mathrm{L}]$
+> **Meaning:** a single function of time, the distance fallen, describes the whole motion.
 
-### Phase 4: Interpretation & Checks
-* **Short times ($t \ll \gamma^{-1}$):** with $e^{-\gamma t} \approx 1 - \gamma t + \tfrac{1}{2}\gamma^2t^2$, $x \approx \dfrac{v_t}{\gamma}\cdot\dfrac{1}{2}\gamma^2t^2 = \tfrac{1}{2}(\gamma v_t)t^2 = \tfrac{1}{4}gt^2$: free fall under the effective gravity $g\left(1 - \rho_0/\rho_s\right) = g/2$.
-* **Long times ($t \gg \gamma^{-1}$):** $x \approx v_tt - v_t/\gamma$, uniform descent at $v_t$ with an offset $v_t/\gamma$.
-* **Dimensional check:** $[v_t] = \dfrac{\text{m}^2\cdot\text{m s}^{-2}}{\text{m}^2\text{s}^{-1}} = \text{m/s}$ and $[\gamma] = \text{m}^2\text{s}^{-1}/\text{m}^2 = \text{s}^{-1}$.
-* **Check against the official key:** the key of `Problems.pdf` gives the equation of motion $4r^2\ddot{x} + 9\nu\dot{x} = 2r^2g$ (with $x$ positive downward, initial conditions $x(0) = \dot{x}(0) = 0$) and $x = \frac{2r^2g}{81\nu^2}\left[-4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}t\right) + 9\nu t\right]$. Both are identical to the results above. Numerical integration (DOP853, $g = r = \nu = 1$) gives $x(2) = 0.3467762$, equal to the closed form.
+### Kinematics
+
+> [!derivation] Velocity and acceleration of the sphere
+> **Law:** velocity and acceleration as time derivatives of the position vector in $S_0$; derivative of a unit vector of a basis that does not rotate
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.7
+>
+> $$\begin{aligned}
+> \frac{d\mathbf i}{dt} &= \boldsymbol\omega_{B0}\times\mathbf i = \mathbf 0\times\mathbf i = \mathbf 0 \quad &\text{($\mathcal B_0$ is attached to $S_0$, its angular velocity is zero)} \\
+> \mathbf v_0^P &= \frac{d}{dt}\left(x\,\mathbf i\right) = \dot x\,\mathbf i + x\,\frac{d\mathbf i}{dt} \quad &\text{(definition of velocity; product rule)} \\
+> &= \dot x\,\mathbf i \quad &\text{($\mathbf i$ is constant)} \\
+> \mathbf a_0^P &= \frac{d}{dt}\left(\dot x\,\mathbf i\right) = \ddot x\,\mathbf i + \dot x\,\frac{d\mathbf i}{dt} = \ddot x\,\mathbf i \quad &\text{(definition of acceleration; product rule; $\mathbf i$ constant)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \dot x\,\mathbf i, \qquad \mathbf a_0^P = \ddot x\,\mathbf i}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ for the derivative of the unit vector (zero); $[\mathrm{L\,T^{-1}}]$ for the velocity; $[\mathrm{L\,T^{-2}}]$ for the acceleration
+> **Meaning:** velocity and acceleration are vertical; a positive rate of the coordinate means the sphere moves down.
+
+### Forces and Equations of Motion
+
+The free-body diagram shows the weight, the buoyancy and the drag, drawn for a sphere that moves down. The sphere is free, so no reaction acts, and $S_0$ is inertial, so no inertia force acts.
+
+![[attachments/EM-SOL/p15-fbd.svg]]
+
+> [!derivation] Forces on the sphere
+> **Law:** weight in a uniform gravity field; hydrostatic buoyancy; Stokes drag opposite to the velocity relative to the fluid
+> **Source:** Problems.pdf, p. 9; Notes.pdf, Eq. 4.4
+>
+> The drag points along minus the unit vector of the velocity. The box of the sign of the velocity, below, proves that the velocity component is positive for every positive time, so that unit vector is $\mathbf i$.
+>
+> $$\begin{aligned}
+> \mathbf F_g &= m\,g\,\mathbf i = \tfrac83\pi\rho_0 r^3 g\,\mathbf i \quad &\text{(weight; mass $\rho_s V$ with $\rho_s = 2\rho_0$)} \\
+> \mathbf F_B &= -\rho_0 V g\,\mathbf i = -\tfrac43\pi\rho_0 r^3 g\,\mathbf i \quad &\text{(buoyancy: weight of the displaced fluid, upward)} \\
+> \mathbf F_D &= -6\pi\mu r\,|\dot x|\,\frac{\dot x\,\mathbf i}{|\dot x|} = -6\pi\mu r\,\dot x\,\mathbf i \quad &\text{(magnitude of the statement times minus the unit vector of the velocity)} \\
+> &= -6\pi\rho_0\nu r\,\dot x\,\mathbf i \quad &\text{(dynamic viscosity written as $\rho_0\nu$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_g = \tfrac83\pi\rho_0 r^3 g\,\mathbf i, \qquad \mathbf F_B = -\tfrac43\pi\rho_0 r^3 g\,\mathbf i, \qquad \mathbf F_D = -6\pi\rho_0\nu r\,\dot x\,\mathbf i}$$
+>
+> **Units:** $\mathbf F_g$ and $\mathbf F_B$: $[\mathrm{M\,L^{-3}}][\mathrm{L^3}][\mathrm{L\,T^{-2}}] = [\mathrm{M\,L\,T^{-2}}]$; $\mathbf F_D$: $[\mathrm{M\,L^{-3}}][\mathrm{L^2\,T^{-1}}][\mathrm{L}][\mathrm{L\,T^{-1}}] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the buoyancy cancels half of the weight, because the sphere is twice as dense as the fluid; the drag grows linearly with the speed and opposes the fall.
+
+> [!derivation] Newton's second law projected on the fixed basis
+> **Law:** Newton's second law in an inertial frame; projection on $\mathcal B_0$
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.5
+>
+> The sphere is free: the constraint reaction is the zero vector. The general position has horizontal components, which are carried here to show that they stay zero.
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^P &= \mathbf F_g + \mathbf F_B + \mathbf F_D + \mathbf R, \quad \mathbf R = \mathbf 0 \quad &\text{(second law in $S_0$; no constraint)} \\
+> m\left(\ddot x\,\mathbf i + \ddot y\,\mathbf j + \ddot z\,\mathbf k\right) &= \left(\tfrac83 - \tfrac43\right)\pi\rho_0 r^3 g\,\mathbf i - 6\pi\rho_0\nu r\left(\dot x\,\mathbf i + \dot y\,\mathbf j + \dot z\,\mathbf k\right) \quad &\text{(general motion; the drag is minus the velocity times $6\pi\mu r$)} \\
+> \mathbf j, \mathbf k:\quad m\,\ddot y &= -6\pi\rho_0\nu r\,\dot y, \qquad m\,\ddot z = -6\pi\rho_0\nu r\,\dot z \quad &\text{(dot products with $\mathbf j$ and $\mathbf k$)} \\
+> y(t) &= z(t) = 0 \quad &\text{(zero initial data solve these linear equations; uniqueness)} \\
+> \mathbf i:\quad \tfrac83\pi\rho_0 r^3\,\ddot x &= \tfrac43\pi\rho_0 r^3 g - 6\pi\rho_0\nu r\,\dot x \quad &\text{(dot product with $\mathbf i$; mass written out)} \\
+> \ddot x &= \frac{4/3}{8/3}\,g - \frac{6\pi\rho_0\nu r}{\tfrac83\pi\rho_0 r^3}\,\dot x \quad &\text{(division by the mass)} \\
+> &= \frac{g}{2} - \frac{9\nu}{4r^2}\,\dot x \quad &\text{($\tfrac{4/3}{8/3} = \tfrac12$; $6\cdot\tfrac38 = \tfrac94$; $\rho_0$, $\pi$ and one $r$ cancel)} \\
+> 4r^2\,\ddot x + 9\nu\,\dot x &= 2r^2 g \quad &\text{(multiplication by $4r^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{4r^2\,\ddot x + 9\nu\,\dot x = 2r^2 g, \qquad x(0) = 0, \quad \dot x(0) = 0}$$
+>
+> **Units:** $[\mathrm{L^2}][\mathrm{L\,T^{-2}}] = [\mathrm{L^2\,T^{-1}}][\mathrm{L\,T^{-1}}] = [\mathrm{L^2}][\mathrm{L\,T^{-2}}]$, all $[\mathrm{L^3\,T^{-2}}]$; the reaction $\mathbf R$ would be $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** one linear equation with constant coefficients for the one unknown; the mass and the fluid density have dropped out, only the radius, the kinematic viscosity and gravity remain, and the effective gravity is half of the real one.
+
+> [!derivation] Rate constant and terminal velocity
+> **Law:** the terminal state is the motion with zero acceleration, where the net force vanishes
+> **Source:** Notes.pdf, Eq. 4.4; Problems.pdf, p. 9
+>
+> $$\begin{aligned}
+> \gamma &\equiv \frac{9\nu}{4r^2} \quad &\text{(coefficient of the rate in the equation divided by $4r^2$)} \\
+> 0 &= \frac{g}{2} - \gamma\,v_t \quad &\text{(zero acceleration at the constant speed $v_t$)} \\
+> v_t &= \frac{g}{2\gamma} = \frac{g}{2}\cdot\frac{4r^2}{9\nu} = \frac{2r^2 g}{9\nu} \quad &\text{(solution for $v_t$; $\gamma$ substituted)} \\
+> \ddot x &= \gamma\left(v_t - \dot x\right) \quad &\text{(equation of motion written with $\gamma$ and $v_t$, since $g/2 = \gamma v_t$)}
+> \end{aligned}$$
+>
+> $$\boxed{\gamma = \frac{9\nu}{4r^2}, \qquad v_t = \frac{2r^2 g}{9\nu}, \qquad \frac{dv}{dt} = \gamma\left(v_t - v\right)}$$
+>
+> **Units:** $[\gamma] = [\mathrm{L^2\,T^{-1}}]/[\mathrm{L^2}] = [\mathrm{T^{-1}}]$; $[v_t] = [\mathrm{L^2}][\mathrm{L\,T^{-2}}]/[\mathrm{L^2\,T^{-1}}] = [\mathrm{L\,T^{-1}}]$; the rate equation $[\mathrm{T^{-1}}][\mathrm{L\,T^{-1}}] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the terminal velocity grows with the square of the radius and falls with the viscosity; the rate constant is the inverse of the time scale on which the speed approaches it.
+
+> [!derivation] Sign of the velocity during the fall
+> **Law:** uniqueness of the solution of a first-order differential equation with a smooth right-hand side
+> **Source:** Notes.pdf, Eq. 4.6; [Lecture 6, Slide 3]
+>
+> The constant function equal to $v_t$ solves the rate equation (it makes the right-hand side vanish). Two different solutions cannot cross, so the solution that starts below it stays below it.
+>
+> $$\begin{aligned}
+> \frac{dv}{dt}\Big|_{t = 0} &= \gamma\left(v_t - 0\right) = \frac{g}{2} \gt 0 \quad &\text{(initial condition $v(0) = 0$)} \\
+> v(t) &\lt v_t \quad &\text{(no crossing of the constant solution $v_t$)} \\
+> \frac{dv}{dt} &= \gamma\left(v_t - v\right) \gt 0 \quad &\text{(the right-hand side is positive while $v \lt v_t$)} \\
+> 0 &\lt v(t) \lt v_t \quad \text{for } t \gt 0 \quad &\text{(the speed grows from zero and stays below $v_t$)}
+> \end{aligned}$$
+>
+> $$\boxed{0 \lt v(t) \lt v_t \quad \text{for every } t \gt 0}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$ for $v$ and $v_t$; $[\mathrm{L\,T^{-2}}]$ for the initial acceleration
+> **Meaning:** the sphere always moves down, so the drag always points up as written in the box of the forces.
+
+### Answers and Checks
+
+#### (a) Terminal velocity
+
+The terminal velocity is the boxed $v_t$ above: the asymptotic state in which drag balances the weight minus the buoyancy.
+
+#### (b) Position as a function of time
+
+> [!derivation] Integration of the velocity
+> **Law:** separation of variables, change of variable and Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.6; [Lecture 6, Slide 3]
+>
+> $$\begin{aligned}
+> \frac{dv}{v_t - v} &= \gamma\,dt \quad &\text{(separation of variables; $v_t - v \gt 0$ by the sign box)} \\
+> \int_0^{v}\frac{dv'}{v_t - v'} &= \gamma\int_0^{t}dt' \quad &\text{(from the release, $t' = 0$ and $v' = 0$, to the current state)} \\
+> w &= v_t - v', \quad dw = -dv'; \quad v' = 0 \Rightarrow w = v_t, \quad v' = v \Rightarrow w = v_t - v \quad &\text{(change of variable, its differential and its limits)} \\
+> -\int_{v_t}^{v_t - v}\frac{dw}{w} &= \gamma\Big[t'\Big]_0^{t} \quad &\text{(substitution)} \\
+> -\Big[\ln w\Big]_{v_t}^{v_t - v} &= \gamma\left(t - 0\right) \quad &\text{(antiderivative $\ln w$, valid for $w \gt 0$; Barrow's rule on the right)} \\
+> -\ln\left(v_t - v\right) + \ln v_t &= \gamma t \quad &\text{(Barrow's rule on the left: upper limit minus lower limit)} \\
+> \ln\frac{v_t - v}{v_t} &= -\gamma t \quad &\text{(difference of logarithms; sign changed)} \\
+> v &= v_t\left(1 - e^{-\gamma t}\right) \quad &\text{(exponential of both sides; solution for $v$)}
+> \end{aligned}$$
+>
+> $$\boxed{v(t) = v_t\left(1 - e^{-\gamma t}\right)}$$
+>
+> **Units:** $[\gamma t] = [\mathrm{T^{-1}}][\mathrm{T}] = [1]$; $[v] = [v_t] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** the speed starts at zero and approaches the terminal velocity exponentially; after one time $1/\gamma$ it has reached about 63 % of it.
+
+> [!derivation] Integration of the position
+> **Law:** definition of velocity; change of variable and Barrow's rule
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 4.6
+>
+> $$\begin{aligned}
+> x(t) - x(0) &= \int_0^t v_t\left(1 - e^{-\gamma t'}\right)dt' \quad &\text{(the velocity is the rate of the position)} \\
+> &= v_t\Big[t'\Big]_0^t - v_t\int_0^t e^{-\gamma t'}\,dt' \quad &\text{(linearity of the integral)} \\
+> u &= -\gamma t', \quad du = -\gamma\,dt'; \quad t' = 0 \Rightarrow u = 0, \quad t' = t \Rightarrow u = -\gamma t \quad &\text{(change of variable, its differential and its limits)} \\
+> \int_0^t e^{-\gamma t'}\,dt' &= -\frac{1}{\gamma}\int_0^{-\gamma t}e^{u}\,du = -\frac{1}{\gamma}\Big[e^{u}\Big]_0^{-\gamma t} \quad &\text{(substitution; antiderivative $e^u$)} \\
+> &= -\frac{1}{\gamma}\left(e^{-\gamma t} - 1\right) = \frac{1 - e^{-\gamma t}}{\gamma} \quad &\text{(Barrow's rule)} \\
+> x(t) &= v_t\,t - \frac{v_t}{\gamma}\left(1 - e^{-\gamma t}\right) \quad &\text{($x(0) = 0$; both integrals substituted)} \\
+> &= \frac{v_t}{\gamma}\left(\gamma t - 1 + e^{-\gamma t}\right) \quad &\text{(common factor $v_t/\gamma$)}
+> \end{aligned}$$
+>
+> $$\boxed{x(t) = \frac{v_t}{\gamma}\left(\gamma t - 1 + e^{-\gamma t}\right), \qquad \gamma = \frac{9\nu}{4r^2}, \quad v_t = \frac{2r^2 g}{9\nu}}$$
+>
+> **Units:** $[v_t/\gamma] = [\mathrm{L\,T^{-1}}]/[\mathrm{T^{-1}}] = [\mathrm{L}]$; the bracket and $\gamma t$ are dimensionless; $[x] = [\mathrm{L}]$
+> **Meaning:** the distance fallen grows first as in a free fall and then linearly at the terminal velocity, with a constant lag of $v_t/\gamma$.
+
+> [!derivation] The position in the form of the official key
+> **Law:** algebraic substitution of the rate constant and of the terminal velocity
+> **Source:** Problems.pdf, p. 73
+>
+> $$\begin{aligned}
+> \frac{v_t}{\gamma} &= \frac{2r^2 g}{9\nu}\cdot\frac{4r^2}{9\nu} = \frac{2r^2 g}{81\nu^2}\cdot 4r^2 \quad &\text{(product of the two data; $4r^2$ kept apart)} \\
+> 4r^2\left(\gamma t - 1 + e^{-\gamma t}\right) &= 9\nu t - 4r^2 + 4r^2 e^{-\gamma t} \quad &\text{($4r^2\gamma = 9\nu$)} \\
+> x(t) &= \frac{2r^2 g}{81\nu^2}\left[-4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}t\right) + 9\nu t\right] \quad &\text{(the two lines combined)}
+> \end{aligned}$$
+>
+> $$\boxed{x(t) = \frac{2r^2 g}{81\nu^2}\left[-4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}\,t\right) + 9\nu t\right]}$$
+>
+> **Units:** $[\mathrm{L^2}][\mathrm{L\,T^{-2}}]/[\mathrm{L^4\,T^{-2}}] = [\mathrm{L^{-1}}]$ for the prefactor, $[\mathrm{L^2}]$ for each term of the bracket, $[\mathrm{L}]$ for $x$; the exponent is dimensionless
+> **Meaning:** the same law as above, written term by term as the key prints it.
+
+> [!derivation] Limiting cases: short and long times
+> **Law:** Taylor expansion of the exponential; asymptotic behaviour for a large argument
+> **Source:** Notes.pdf, Eq. 4.5
+>
+> $$\begin{aligned}
+> e^{-\gamma t} &= 1 - \gamma t + \tfrac12\gamma^2 t^2 + O\!\left(\gamma^3 t^3\right) \quad &\text{(Taylor series for $\gamma t \ll 1$)} \\
+> x &\approx \frac{v_t}{\gamma}\cdot\tfrac12\gamma^2 t^2 = \tfrac12\gamma v_t\,t^2 = \tfrac14 g\,t^2 \quad &\text{(the constant and linear terms cancel; $\gamma v_t = g/2$)} \\
+> e^{-\gamma t} &\to 0 \quad &\text{($\gamma t \gg 1$)} \\
+> x &\approx v_t\,t - \frac{v_t}{\gamma} \quad &\text{(uniform descent with a constant lag)}
+> \end{aligned}$$
+>
+> $$\boxed{\gamma t \ll 1:\ x \approx \tfrac14 g t^2; \qquad \gamma t \gg 1:\ x \approx v_t t - \frac{v_t}{\gamma}}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}][\mathrm{T^2}] = [\mathrm{L}]$ and $[\mathrm{L\,T^{-1}}][\mathrm{T}] = [\mathrm{L}]$
+> **Meaning:** at first the drag is negligible and the sphere falls freely under the effective gravity $g/2$ (weight minus buoyancy, over the mass); at long times it falls at the terminal velocity.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| Equation of motion ($x$ positive downward) | $4r^2\ddot x + 9\nu\dot x = 2r^2 g$ |
+| (a) Terminal velocity | $v_t = \dfrac{2r^2 g}{9\nu}$, downward |
+| (b) Velocity | $v(t) = v_t\left(1 - e^{-9\nu t/(4r^2)}\right)$ |
+| (b) Position, from rest at $O$ | $x(t) = \dfrac{2r^2 g}{81\nu^2}\left[-4r^2 + 4r^2 e^{-9\nu t/(4r^2)} + 9\nu t\right]$ |
+
+**Check against the official key:** Problems.pdf, p. 73, item 15, takes the axis positive downward and the release from rest at the origin, and prints the equation of motion and the trajectory written in the last two rows of the table, term by term: **match**. The terminal velocity, not printed in the key, is the slope of that trajectory at long times. A Runge-Kutta integration of the equation of motion with unit values of the radius, the kinematic viscosity and gravity gives a distance of 0.34678 m at the time 2 s, equal to the closed form.
 
 ---
 
-## 📌 Problem 16: Drag on Falling Football
+## Problem 16: Drag on Falling Football
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a football of mass $m$, frontal area $S$ and drag coefficient $C_D$ falls vertically through air of density $\rho$. Only gravity and the quadratic drag $D = \tfrac{1}{2}\rho v^2SC_D$ act.
-* **Constraints:** vertical motion; $\text{CDOF} = 1$, with the coordinate $s$ measured downward from the release point.
-* **Initial conditions:** $s(0) = 0$, $v(0) = 0$. The statement gives $\displaystyle\int\frac{dx}{x_0^2 - x^2} = \frac{1}{x_0}\operatorname{atanh}\frac{x}{x_0}$ and $\int\tanh x\,dx = \ln\cosh x$.
+### Reference Frames, Bases and Coordinates
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** fixed to the air, with $Os$ pointing vertically downward.
+The football is modelled as a point particle $P$ of mass $m$ that falls along a vertical line through air at rest in an inertial frame. Only two forces act on it, as the statement imposes: its weight and the aerodynamic drag of quadratic law. The statement asks for the terminal speed and for the position as a function of time (Problems.pdf, p. 9). The axis of the fall points downward, the convention of the official key, so that the velocity component stays positive and the drag law needs no absolute value.
 
-### Phase 3: Derivation
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$ attached to the still air, origin $O$ at the release point (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$: $\mathbf i$ vertical **downward**, $\mathbf j$ and $\mathbf k$ horizontal, right-handed |
+| Moving frames | none |
+| Coordinate | $s(t)$, distance fallen along $\mathbf i$; $v = \dot s$ its rate |
+| Data | $m$ [kg] mass; $S$ [m$^2$] frontal area; $C_D$ [-] drag coefficient; $\rho$ [kg m$^{-3}$] density of the air; $g$ [m s$^{-2}$] gravity |
+| Applied forces | weight $m g\,\mathbf i$; drag of magnitude $D = \tfrac12\rho v^2 S C_D$ opposite to the velocity (statement) |
+| Initial conditions | $s(0) = 0$, $v(0) = 0$ (reading of "falls": released from rest, the initial condition of the official key) |
+| Given integrals | $\int dx/(x_0^2 - x^2) = \operatorname{atanh}(x/x_0)/x_0$ and $\int\tanh x\,dx = \ln\cosh x$ (statement; both checked below) |
+| Hypotheses | the air is unbounded and at rest, so the speed in the drag law is the speed of $P$ in $S_0$; $\rho$, $S$ and $C_D$ are constant; no buoyancy and no lift (statement: only gravity and drag) |
+| Constraints | none: the ball is free; the horizontal coordinates stay zero because both forces are vertical (box of Newton's law) |
+| Degrees of freedom | 1, the coordinate $s$ |
 
-#### 3.1 Kinematics
-$$ \mathbf{r} = s\,\mathbf{i}, \qquad \mathbf{v} = \dot{s}\,\mathbf{i} = v\,\mathbf{i}, \qquad \mathbf{a} = \dot{v}\,\mathbf{i} $$
+![[attachments/EM-SOL/p16-fall-axis.svg]]
 
-#### 3.2 Forces
-* **Weight:** $mg$ downward. **Drag:** $D = \tfrac{1}{2}\rho v^2SC_D$, upward because it opposes the downward velocity ($v \gt 0$). **Inertia forces:** none.
+### Change of Basis and Position Vector
 
-#### 3.3 Equations of Motion
-* **Newton's second law:**
-$$ m\frac{dv}{dt} = mg - \tfrac{1}{2}\rho SC_Dv^2 $$
-One unknown, $v(t)$ (and then $s(t)$ by integration), and one first-order equation.
+The only basis is $\mathcal B_0$. In the view of the figure $\mathbf i$ points down the page and $\mathbf j$ to the left, so $\mathbf k$ points out of the paper (⊙).
 
-#### 3.4 Integration and Answers
-##### Terminal velocity
-* **Pedagogical Justification:** at the terminal velocity the net force vanishes: $mg = \tfrac{1}{2}\rho SC_Dv_t^2$:
-$$ \boxed{v_t = \sqrt{\frac{2mg}{\rho SC_D}}} $$
+> [!derivation] The only basis and its change of basis matrix
+> **Law:** change of basis matrix between two bases; orthonormality and unit determinant
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15
+>
+> The matrix that writes $\mathcal B_0$ in itself has as columns the components of $\mathbf i$, $\mathbf j$, $\mathbf k$ in $\mathcal B_0$, so it is the identity; it is checked like any rotation matrix.
+>
+> $$\begin{aligned}
+> \mathbf i &= 1\,\mathbf i + 0\,\mathbf j + 0\,\mathbf k \quad &\text{(first column: components of $\mathbf i$ in $\mathcal B_0$)} \\
+> \mathbf j &= 0\,\mathbf i + 1\,\mathbf j + 0\,\mathbf k \quad &\text{(second column)} \\
+> \mathbf k &= 0\,\mathbf i + 0\,\mathbf j + 1\,\mathbf k \quad &\text{(third column)} \\
+> \det[{}_0R_0] &= 1\cdot(1\cdot 1 - 0\cdot 0) - 0 + 0 = 1 \quad &\text{(expansion along the first row)} \\
+> [{}_0R_0][{}_0R_0]^T &= I\,I = I \quad &\text{(the identity is symmetric and equal to its square)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_0] = \begin{pmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_0] = 1, \quad [{}_0R_0][{}_0R_0]^T = I}$$
+>
+> **Units:** every entry is a direction cosine, dimensionless: $[1]$
+> **Meaning:** no rotation is involved; $\mathcal B_0$ is orthonormal and right-handed, and the weight has a positive component along its first axis.
 
-##### Velocity as a function of time
-* **Pedagogical Justification:** using $\tfrac{1}{2}\rho SC_D = mg/v_t^2$ writes the equation in terms of $v_t$ and allows the given integral:
-$$ \frac{dv}{dt} = g\left(1 - \frac{v^2}{v_t^2}\right) = \frac{g}{v_t^2}\left(v_t^2 - v^2\right) \implies \frac{dv}{v_t^2 - v^2} = \frac{g}{v_t^2}\,dt $$
-* Integrating from $v = 0$ at $t = 0$ (Barrow, with $\operatorname{atanh}0 = 0$):
-$$ \left[\frac{1}{v_t}\operatorname{atanh}\frac{v'}{v_t}\right]_0^v = \frac{g}{v_t^2}\int_0^tdt' \implies \operatorname{atanh}\frac{v}{v_t} = \frac{gt}{v_t} \implies \boxed{v(t) = v_t\tanh\left(\frac{gt}{v_t}\right)} $$
-The speed increases from $0$ (the net force is positive while $v \lt v_t$) and cannot reach $v_t$ in finite time, because $v \equiv v_t$ is a solution (the terminal state) and solutions are unique; so $\left|v/v_t\right| \lt 1$ and $\operatorname{atanh}(v/v_t)$ is defined for all $t$; consistently, $\tanh \lt 1$.
+> [!derivation] Position vector of the ball
+> **Law:** position vector of a point in Cartesian components
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.5
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OP} \quad &\text{(definition; $O$ is the release point)} \\
+> &= s\,\mathbf i + y\,\mathbf j + z\,\mathbf k \quad &\text{(Cartesian components in $\mathcal B_0$)} \\
+> &= s\,\mathbf i \quad &\text{(vertical fall: $y = z = 0$, see the box of Newton's law)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = s(t)\,\mathbf i, \qquad s(0) = 0}$$
+>
+> **Units:** $[\mathrm{L}]$
+> **Meaning:** a single function of time, the distance fallen from the release point, describes the whole motion.
 
-##### Position as a function of time
-* **Pedagogical Justification:** $s(t) = \int_0^tv\,dt'$. With the substitution $u = gt'/v_t$, $du = (g/v_t)\,dt'$, the limits are $u = 0$ at $t' = 0$ and $u = gt/v_t$ at $t' = t$:
-$$ s(t) = v_t\cdot\frac{v_t}{g}\int_0^{gt/v_t}\tanh u\,du = \frac{v_t^2}{g}\Big[\ln\cosh u\Big]_0^{gt/v_t} = \frac{v_t^2}{g}\left[\ln\cosh\frac{gt}{v_t} - \ln\cosh 0\right] $$
-$$ \boxed{s(t) = \frac{v_t^2}{g}\ln\left[\cosh\left(\frac{gt}{v_t}\right)\right]} \qquad (\ln\cosh 0 = \ln 1 = 0) $$
+### Kinematics
 
-### Phase 4: Interpretation & Checks
-* **Early times ($t \ll v_t/g$):** $\tanh u \approx u$ gives $v \approx gt$; and $\cosh u \approx 1 + u^2/2$, $\ln\cosh u \approx u^2/2$ give $s \approx \tfrac{1}{2}gt^2$: free fall, the drag is negligible.
-* **Late times ($t \gg v_t/g$):** $\tanh u \to 1$, so $v \to v_t$; and $\cosh u \approx \tfrac{1}{2}e^u$ gives $\ln\cosh u \approx u - \ln 2$, so $s \approx v_tt - \dfrac{v_t^2}{g}\ln 2$: uniform descent with a constant delay.
-* **Dimensional check:** $[v_t] = \sqrt{\dfrac{\text{kg m s}^{-2}}{\text{kg m}^{-3}\text{m}^2}} = \text{m/s}$; $gt/v_t$ is dimensionless; $[v_t^2/g] = \text{m}$.
-* **Check against the official key:** the key of `Problems.pdf` gives the terminal velocity $v_t = \sqrt{2mg/(\rho SC_D)}$, $v(t) = v_t\tanh\left(\frac{g}{v_t}t\right)$ and $s(t) = \frac{v_t^2}{g}\ln\left[\cosh\left(\frac{g}{v_t}t\right)\right]$, identical to the results above. Numerical integration of $\dot{v} = 1 - v^2$, $\dot{s} = v$ (units $g = v_t = 1$) up to $t = 1$ gives $v = 0.761594 = \tanh 1$ and $s = 0.433781 = \ln\cosh 1$.
+> [!derivation] Velocity and acceleration of the ball
+> **Law:** velocity and acceleration as time derivatives of the position vector in $S_0$; derivative of a unit vector of a basis that does not rotate
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.7
+>
+> $$\begin{aligned}
+> \frac{d\mathbf i}{dt} &= \boldsymbol\omega_{B0}\times\mathbf i = \mathbf 0\times\mathbf i = \mathbf 0 \quad &\text{($\mathcal B_0$ is attached to $S_0$)} \\
+> \mathbf v_0^P &= \frac{d}{dt}\left(s\,\mathbf i\right) = \dot s\,\mathbf i + s\,\frac{d\mathbf i}{dt} = \dot s\,\mathbf i = v\,\mathbf i \quad &\text{(definition of velocity; product rule; notation $v = \dot s$)} \\
+> \mathbf a_0^P &= \frac{d}{dt}\left(v\,\mathbf i\right) = \dot v\,\mathbf i + v\,\frac{d\mathbf i}{dt} = \frac{dv}{dt}\,\mathbf i \quad &\text{(definition of acceleration; product rule; $\mathbf i$ constant)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = v\,\mathbf i, \qquad \mathbf a_0^P = \frac{dv}{dt}\,\mathbf i}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ for the derivative of the unit vector (zero); $[\mathrm{L\,T^{-1}}]$ and $[\mathrm{L\,T^{-2}}]$ for velocity and acceleration
+> **Meaning:** velocity and acceleration are vertical; the speed of the ball is the absolute value of $v$, which equals $v$ while the ball falls.
+
+### Forces and Equations of Motion
+
+The free-body diagram shows the weight and the drag, drawn for a ball that moves down. The ball is free, so no reaction acts, and $S_0$ is inertial, so no inertia force acts.
+
+![[attachments/EM-SOL/p16-fbd.svg]]
+
+> [!derivation] Forces on the ball
+> **Law:** weight in a uniform gravity field; quadratic drag opposite to the velocity relative to the air
+> **Source:** Problems.pdf, p. 9; Notes.pdf, Eq. 4.4
+>
+> The drag points along minus the unit vector of the velocity. The sign box below proves that the velocity component is positive for every positive time, so that unit vector is $\mathbf i$.
+>
+> $$\begin{aligned}
+> \mathbf F_g &= m\,g\,\mathbf i \quad &\text{(gravity points down, along $+\mathbf i$)} \\
+> \mathbf F_D &= -D\,\frac{\mathbf v_0^P}{|\mathbf v_0^P|} = -\tfrac12\rho v^2 S C_D\,\frac{v\,\mathbf i}{|v|} \quad &\text{(drag opposite to the velocity; law of the statement)} \\
+> &= -\tfrac12\rho S C_D\,v^2\,\mathbf i \quad &\text{($v \gt 0$ during the fall, so $v/|v| = 1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_g = m g\,\mathbf i, \qquad \mathbf F_D = -\tfrac12\rho S C_D\,v^2\,\mathbf i}$$
+>
+> **Units:** $\mathbf F_g$: $[\mathrm{M}][\mathrm{L\,T^{-2}}] = [\mathrm{M\,L\,T^{-2}}]$; $\mathbf F_D$: $[\mathrm{M\,L^{-3}}][\mathrm{L^2}][1][\mathrm{L^2\,T^{-2}}] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the weight is constant; the drag grows with the square of the speed and points up while the ball falls.
+
+> [!derivation] Newton's second law projected on the fixed basis
+> **Law:** Newton's second law in an inertial frame; projection on $\mathcal B_0$
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.5
+>
+> The ball is free: the constraint reaction is the zero vector. In a general motion the drag would be minus the factor $\tfrac12\rho S C_D$ times the speed times the velocity vector, so its horizontal components are proportional to the horizontal rates.
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^P &= \mathbf F_g + \mathbf F_D + \mathbf R, \quad \mathbf R = \mathbf 0 \quad &\text{(second law in $S_0$; no constraint)} \\
+> \mathbf j, \mathbf k:\quad m\,\ddot y &= -\tfrac12\rho S C_D\,|\mathbf v_0^P|\,\dot y, \qquad m\,\ddot z = -\tfrac12\rho S C_D\,|\mathbf v_0^P|\,\dot z \quad &\text{(dot products with $\mathbf j$ and $\mathbf k$)} \\
+> y(t) &= z(t) = 0 \quad &\text{(zero initial data; the zero functions solve both equations; uniqueness)} \\
+> \mathbf i:\quad m\,\frac{dv}{dt} &= m g - \tfrac12\rho S C_D\,v^2 \quad &\text{(dot product with $\mathbf i$)} \\
+> \frac{dv}{dt} &= g - \frac{\rho S C_D}{2m}\,v^2 \quad &\text{(division by $m$)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{dv}{dt} = g - \frac{\rho S C_D}{2m}\,v^2, \qquad v(0) = 0, \quad s(0) = 0}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$ on both sides: $\frac{[\mathrm{M\,L^{-3}}][\mathrm{L^2}]}{[\mathrm{M}]}[\mathrm{L^2\,T^{-2}}] = [\mathrm{L\,T^{-2}}]$; the reaction $\mathbf R$ would be $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** one first-order equation for the one unknown $v$; the position follows from a second integration.
+
+> [!derivation] Terminal speed and the equation written with it
+> **Law:** the terminal state is the motion with zero acceleration, where the net force vanishes
+> **Source:** Notes.pdf, Eq. 4.4; Problems.pdf, p. 9
+>
+> $$\begin{aligned}
+> 0 &= g - \frac{\rho S C_D}{2m}\,v_t^2 \quad &\text{(zero acceleration at the constant speed $v_t$)} \\
+> v_t^2 &= \frac{2 m g}{\rho S C_D} \quad &\text{(solution for the square of the speed)} \\
+> v_t &= +\sqrt{\frac{2 m g}{\rho S C_D}} \quad &\text{(positive root: downward velocity)} \\
+> \frac{\rho S C_D}{2m} &= \frac{g}{v_t^2} \quad &\text{(the second line divided by $v_t^2$, inverted)} \\
+> \frac{dv}{dt} &= g - \frac{g}{v_t^2}\,v^2 = \frac{g}{v_t^2}\left(v_t^2 - v^2\right) \quad &\text{(substitution in the equation of motion; common factor)}
+> \end{aligned}$$
+>
+> $$\boxed{v_t = \sqrt{\frac{2 m g}{\rho S C_D}}, \qquad \frac{dv}{dt} = \frac{g}{v_t^2}\left(v_t^2 - v^2\right)}$$
+>
+> **Units:** $[v_t] = \left(\frac{[\mathrm{M}][\mathrm{L\,T^{-2}}]}{[\mathrm{M\,L^{-3}}][\mathrm{L^2}]}\right)^{1/2} = [\mathrm{L\,T^{-1}}]$; the rate equation $\frac{[\mathrm{L\,T^{-2}}]}{[\mathrm{L^2\,T^{-2}}]}[\mathrm{L^2\,T^{-2}}] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** heavy, small and streamlined balls have a high terminal speed; the acceleration is downward while the speed is below it and vanishes at it.
+
+> [!derivation] Sign of the velocity during the fall
+> **Law:** uniqueness of the solution of a first-order differential equation with a smooth right-hand side
+> **Source:** Notes.pdf, Eq. 4.6; [Lecture 6, Slide 3]
+>
+> The constant functions equal to $v_t$ and to minus $v_t$ solve the rate equation (they make the right-hand side vanish). Two different solutions cannot cross, so a solution that starts between them stays between them.
+>
+> $$\begin{aligned}
+> \frac{dv}{dt}\Big|_{t = 0} &= \frac{g}{v_t^2}\left(v_t^2 - 0\right) = g \gt 0 \quad &\text{(initial condition $v(0) = 0$)} \\
+> -v_t \lt v(t) &\lt v_t \quad &\text{(no crossing of the two constant solutions)} \\
+> \frac{dv}{dt} &= \frac{g}{v_t^2}\left(v_t^2 - v^2\right) \gt 0 \quad &\text{(positive right-hand side inside that interval)} \\
+> 0 &\lt v(t) \lt v_t \quad \text{for } t \gt 0 \quad &\text{(the speed grows from zero)}
+> \end{aligned}$$
+>
+> $$\boxed{0 \lt v(t) \lt v_t \quad \text{for every } t \gt 0}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$ for $v$ and $v_t$; $[\mathrm{L\,T^{-2}}]$ for the initial acceleration
+> **Meaning:** the ball always falls, so the drag always points up as written, and the ratio of $v$ to $v_t$ stays inside the interval where the inverse hyperbolic tangent is defined.
+
+### Answers and Checks
+
+#### Terminal speed and velocity as a function of time
+
+> [!derivation] Check of the first given antiderivative
+> **Law:** derivative of the inverse hyperbolic tangent and chain rule
+> **Source:** Problems.pdf, p. 9
+>
+> $$\begin{aligned}
+> \frac{d}{dw}\operatorname{atanh}w &= \frac{1}{1 - w^2} \quad &\text{(derivative of the inverse of $\tanh$, for $|w| \lt 1$)} \\
+> \frac{d}{dx}\left[\frac{1}{x_0}\operatorname{atanh}\frac{x}{x_0}\right] &= \frac{1}{x_0}\cdot\frac{1}{1 - x^2/x_0^2}\cdot\frac{1}{x_0} \quad &\text{(chain rule with $w = x/x_0$, $dw/dx = 1/x_0$)} \\
+> &= \frac{1}{x_0^2 - x^2} \quad &\text{(numerator and denominator multiplied by $x_0^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\int\frac{dx}{x_0^2 - x^2} = \frac{1}{x_0}\operatorname{atanh}\frac{x}{x_0} + C, \qquad |x| \lt x_0}$$
+>
+> **Units:** both sides have the dimension of the inverse of $x$; $x/x_0$ and $w$ are dimensionless
+> **Meaning:** the antiderivative of the statement is correct on the interval where the velocity lives.
+
+> [!derivation] Integration of the velocity
+> **Law:** separation of variables and Barrow's rule
+> **Source:** Problems.pdf, p. 9; Notes.pdf, Eq. 4.6
+>
+> $$\begin{aligned}
+> \frac{dv}{v_t^2 - v^2} &= \frac{g}{v_t^2}\,dt \quad &\text{(separation of variables; $v_t^2 - v^2 \gt 0$ by the sign box)} \\
+> \int_0^{v}\frac{dv'}{v_t^2 - v'^2} &= \frac{g}{v_t^2}\int_0^{t}dt' \quad &\text{(from $t' = 0$, $v' = 0$ to the current state)} \\
+> \left[\frac{1}{v_t}\operatorname{atanh}\frac{v'}{v_t}\right]_0^{v} &= \frac{g}{v_t^2}\Big[t'\Big]_0^{t} \quad &\text{(antiderivatives: given integral with $x_0 = v_t$)} \\
+> \frac{1}{v_t}\operatorname{atanh}\frac{v}{v_t} - \frac{1}{v_t}\operatorname{atanh}0 &= \frac{g}{v_t^2}\left(t - 0\right) \quad &\text{(Barrow's rule: upper limit minus lower limit)} \\
+> \operatorname{atanh}\frac{v}{v_t} &= \frac{g\,t}{v_t} \quad &\text{($\operatorname{atanh}0 = 0$; multiplication by $v_t$)} \\
+> v &= v_t\tanh\frac{g\,t}{v_t} \quad &\text{($\tanh$ applied to both sides)}
+> \end{aligned}$$
+>
+> $$\boxed{v(t) = v_t\tanh\left(\frac{g}{v_t}\,t\right)}$$
+>
+> **Units:** $\left[\frac{g\,t}{v_t}\right] = \frac{[\mathrm{L\,T^{-2}}][\mathrm{T}]}{[\mathrm{L\,T^{-1}}]} = [1]$; $[v] = [v_t] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** the velocity starts at zero and tends to the terminal speed without reaching it; the time scale of the approach is $v_t/g$.
+
+> [!derivation] Check: the velocity law satisfies the equation of motion
+> **Law:** time derivative with the chain rule
+> **Source:** Notes.pdf, Eq. 2.7
+>
+> $$\begin{aligned}
+> u &= \frac{g\,t}{v_t}, \qquad \frac{du}{dt} = \frac{g}{v_t} \quad &\text{(argument and its rate)} \\
+> \frac{dv}{dt} &= v_t\,\frac{1}{\cosh^2 u}\,\frac{du}{dt} = \frac{g}{\cosh^2 u} \quad &\text{(chain rule; the derivative of $\tanh$ is $1/\cosh^2$)} \\
+> &= g\left(1 - \tanh^2 u\right) = \frac{g}{v_t^2}\left(v_t^2 - v^2\right) \quad &\text{(identity $1/\cosh^2 = 1 - \tanh^2$; $v = v_t\tanh u$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \frac{g}{\cosh^2(g t/v_t)}\,\mathbf i = g\left(1 - \frac{v^2}{v_t^2}\right)\mathbf i}$$
+>
+> **Units:** $u$ dimensionless, its rate $[\mathrm{T^{-1}}]$; the acceleration $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** the second form is the equation of motion itself; the acceleration starts at $g$ and decays to zero.
+
+#### Position as a function of time
+
+> [!derivation] Check of the second given antiderivative
+> **Law:** derivative of a logarithm and chain rule
+> **Source:** Problems.pdf, p. 9
+>
+> $$\begin{aligned}
+> \frac{d}{du}\ln\cosh u &= \frac{1}{\cosh u}\,\frac{d}{du}\cosh u \quad &\text{(chain rule; $\cosh u \gt 0$)} \\
+> &= \frac{\sinh u}{\cosh u} = \tanh u \quad &\text{(the derivative of $\cosh$ is $\sinh$)}
+> \end{aligned}$$
+>
+> $$\boxed{\int\tanh u\,du = \ln\cosh u + C}$$
+>
+> **Units:** $u$, $\tanh u$ and $\ln\cosh u$ are dimensionless
+> **Meaning:** the antiderivative of the statement is correct for every real argument.
+
+> [!derivation] Integration of the position
+> **Law:** definition of velocity; change of variable and Barrow's rule
+> **Source:** Problems.pdf, p. 9; Notes.pdf, Eq. 2.6
+>
+> $$\begin{aligned}
+> s(t) - s(0) &= \int_0^{t} v_t\tanh\frac{g\,t'}{v_t}\,dt' \quad &\text{(the velocity is the rate of the position)} \\
+> u &= \frac{g\,t'}{v_t}, \quad du = \frac{g}{v_t}\,dt', \quad dt' = \frac{v_t}{g}\,du \quad &\text{(change of variable and its differential)} \\
+> t' &= 0 \Rightarrow u = 0; \qquad t' = t \Rightarrow u = \frac{g\,t}{v_t} \quad &\text{(new limits)} \\
+> s(t) &= v_t\,\frac{v_t}{g}\int_0^{g t/v_t}\tanh u\,du \quad &\text{($s(0) = 0$; substitution)} \\
+> &= \frac{v_t^2}{g}\Big[\ln\cosh u\Big]_0^{g t/v_t} \quad &\text{(second given antiderivative)} \\
+> &= \frac{v_t^2}{g}\left[\ln\cosh\frac{g\,t}{v_t} - \ln\cosh 0\right] \quad &\text{(Barrow's rule)} \\
+> &= \frac{v_t^2}{g}\ln\cosh\frac{g\,t}{v_t} \quad &\text{($\cosh 0 = 1$, $\ln 1 = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{s(t) = \frac{v_t^2}{g}\ln\left[\cosh\left(\frac{g}{v_t}\,t\right)\right], \qquad \mathbf r_0^P = s(t)\,\mathbf i}$$
+>
+> **Units:** $\left[\frac{v_t^2}{g}\right] = \frac{[\mathrm{L^2\,T^{-2}}]}{[\mathrm{L\,T^{-2}}]} = [\mathrm{L}]$, times a dimensionless logarithm; $u$ dimensionless
+> **Meaning:** the distance fallen grows first as in free fall and then linearly at the terminal speed; the length scale is $v_t^2/g$.
+
+![[attachments/EM-SOL/p16-time-laws.svg]]
+
+> [!derivation] Limiting cases: early and late times
+> **Law:** Taylor expansions about zero; asymptotic behaviour for a large argument
+> **Source:** Notes.pdf, Eq. 4.5
+>
+> $$\begin{aligned}
+> \tanh u &= u + O(u^3), \qquad v \approx v_t\,\frac{g t}{v_t} = g t \quad &\text{(first term of the series, $u \ll 1$)} \\
+> \ln\cosh u &= \ln\left(1 + \tfrac{u^2}{2} + O(u^4)\right) = \tfrac{u^2}{2} + O(u^4), \qquad s \approx \frac{v_t^2}{g}\,\frac{g^2 t^2}{2 v_t^2} = \tfrac12 g t^2 \quad &\text{(series of $\cosh$, then $\ln(1 + \epsilon) \approx \epsilon$)} \\
+> \tanh u &\to 1, \qquad v \to v_t \quad &\text{($u \to \infty$)} \\
+> \cosh u &= \tfrac12\left(e^{u} + e^{-u}\right) \approx \tfrac12 e^{u}, \qquad \ln\cosh u \approx u - \ln 2 \quad &\text{($e^{-u}$ negligible; logarithm of a product)} \\
+> s &\approx \frac{v_t^2}{g}\left(\frac{g t}{v_t} - \ln 2\right) = v_t\,t - \frac{v_t^2}{g}\ln 2 \quad &\text{(substitution)}
+> \end{aligned}$$
+>
+> $$\boxed{t \ll \frac{v_t}{g}:\ v \approx g t,\ s \approx \tfrac12 g t^2; \qquad t \gg \frac{v_t}{g}:\ v \to v_t,\ s \approx v_t t - \frac{v_t^2}{g}\ln 2}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$ for the velocities, $[\mathrm{L}]$ for the distances; $u$ and $\ln 2$ dimensionless
+> **Meaning:** at first the drag is negligible and the ball falls freely; at late times it falls uniformly at the terminal speed, a constant distance behind a ball that had fallen at that speed from the start.
+
+> [!derivation] Independent check: speed as a function of the distance fallen
+> **Law:** chain rule to change the independent variable from time to position; separation of variables and Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.22; Notes.pdf, Eq. 4.23
+>
+> $$\begin{aligned}
+> \frac{dv}{dt} &= \frac{dv}{ds}\,\frac{ds}{dt} = v\,\frac{dv}{ds} = \frac12\,\frac{d(v^2)}{ds} \quad &\text{(chain rule twice)} \\
+> \frac{d(v^2)}{ds} &= \frac{2g}{v_t^2}\left(v_t^2 - v^2\right) \quad &\text{(equation of motion with the terminal speed)} \\
+> w &= v^2; \quad \int_0^{v^2}\frac{dw}{v_t^2 - w} = \frac{2g}{v_t^2}\int_0^{s}ds' \quad &\text{(separation; limits $s' = 0$, $w = 0$)} \\
+> q &= v_t^2 - w, \ dq = -dw; \quad -\Big[\ln q\Big]_{v_t^2}^{v_t^2 - v^2} = \frac{2g\,s}{v_t^2} \quad &\text{(change of variable with its limits; Barrow's rule on the right)} \\
+> \ln\frac{v_t^2}{v_t^2 - v^2} &= \frac{2g\,s}{v_t^2} \quad &\text{(Barrow's rule on the left)} \\
+> \frac{v_t^2}{v_t^2 - v^2} &= \frac{1}{1 - \tanh^2 u} = \cosh^2 u \quad &\text{(time laws, $u = g t/v_t$)} \\
+> \ln\cosh^2 u &= 2\ln\cosh u = \frac{2g}{v_t^2}\,s(t) \quad &\text{(the boxed position law: both sides agree)}
+> \end{aligned}$$
+>
+> $$\boxed{v^2 = v_t^2\left(1 - e^{-2 g s/v_t^2}\right)\ \text{holds identically for the two time laws}}$$
+>
+> **Units:** $\left[\frac{g\,s}{v_t^2}\right] = \frac{[\mathrm{L\,T^{-2}}][\mathrm{L}]}{[\mathrm{L^2\,T^{-2}}]} = [1]$; $w$ and $q$ in $[\mathrm{L^2\,T^{-2}}]$
+> **Meaning:** a route that never uses the time gives the same relation between speed and distance as the two time laws, so they are consistent; the work of the drag is what keeps the kinetic energy below the work of the weight.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| Terminal speed | $v_t = \sqrt{2mg/(\rho S C_D)}$ |
+| Velocity (downward) | $v(t) = v_t\tanh(g t/v_t)$ |
+| Position (distance fallen from rest at $O$) | $s(t) = (v_t^2/g)\ln\cosh(g t/v_t)$ |
+
+**Check against the official key:** Problems.pdf, p. 73, item 16, prints the same terminal velocity and, with the release from rest at the origin and the axis positive downward, the same velocity and position laws as the table above: **match**. A Runge-Kutta integration of the equation of motion with unit gravity and unit terminal speed gives, at the time 1 s, a speed of 0.761594 m/s and a distance of 0.433781 m, the values of the hyperbolic tangent and of the logarithm of the hyperbolic cosine of 1.
 
 ---
 
-## 📌 Problem 17: Linear Central Force
+## Problem 17: Linear Central Force
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a heavy particle $M$ of mass $m$ is attracted to the fixed point $O$ by a force proportional to its mass and to the distance, with coefficient $k^2$: $\mathbf{F}_c = -mk^2\mathbf{r}$. The axis $Oz$ is vertical (upward) and gravity acts along $-Oz$.
-* **Constraints:** none; the particle is free in space, so $\text{CDOF} = 3$, with the Cartesian coordinates $(x, y, z)$.
-* **Initial state:** $(x_0, y_0, z_0) = \left(\sqrt{3}g/k^2,\ 0,\ 0\right)$ and $(\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0,\ 2g/k,\ 0\right)$.
-* **Parameters:** $m$ [kg], $g$ [m/s$^2$], $k$ [s$^{-1}$].
+### Reference Frames, Bases and Coordinates
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with its origin at the centre of attraction and $\mathbf{k}$ vertical upward (constant unit vectors).
+The heavy particle $M$ moves freely in space under two forces: the attraction towards the fixed point $O$, proportional to its mass and to the distance with coefficient $k^2$, and its weight. The statement places the origin at the centre of attraction and the axis $Oz$ vertical, and asks for the shape of the path and for the velocity as a function of time (Problems.pdf, p. 9).
 
-### Phase 3: Derivation
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, origin at the centre of attraction (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$, $\mathbf k$ vertical **upward**, $\mathbf i$ and $\mathbf j$ horizontal, right-handed |
+| Auxiliary basis (part a) | $\mathcal B_1 = \{\mathbf e_1, \mathbf j, \mathbf e_3\}$, the basis of the plane of the path, obtained from $\mathcal B_0$ by a rotation about $\mathbf j$ (defined in the next section) |
+| Coordinates | $x(t)$, $y(t)$, $z(t)$, Cartesian coordinates of $M$ in $S_0$ |
+| Data | $m$ [kg] mass; $k$ [s$^{-1}$] so that $k^2$ is in s$^{-2}$; $g$ [m s$^{-2}$] gravity |
+| Applied forces | attraction $-m k^2\,\mathbf r_0^M$ (proportional to the mass and to the distance $OM$, towards $O$); weight $-m g\,\mathbf k$ |
+| Initial conditions | position $(\sqrt3\,g/k^2,\ 0,\ 0)$; velocity $(0,\ 2g/k,\ 0)$ |
+| Hypotheses | "vertically oriented" is read as $\mathbf k$ pointing up, so the weight is $-mg\,\mathbf k$ (the reading of the official key, whose orbit lies below $O$) |
+| Constraints | none: the particle is free |
+| Degrees of freedom | 3, the three Cartesian coordinates |
 
-#### 3.1 Kinematics
-$$ \mathbf{r} = x\,\mathbf{i} + y\,\mathbf{j} + z\,\mathbf{k}, \qquad \mathbf{v} = \dot{x}\,\mathbf{i} + \dot{y}\,\mathbf{j} + \dot{z}\,\mathbf{k}, \qquad \mathbf{a} = \ddot{x}\,\mathbf{i} + \ddot{y}\,\mathbf{j} + \ddot{z}\,\mathbf{k} $$
+### Change of Basis and Position Vector
 
-#### 3.2 Forces
-* **Applied forces:** the linear central attraction $\mathbf{F}_c = -mk^2\mathbf{r}$ and the weight $\mathbf{F}_g = -mg\,\mathbf{k}$. **Constraint forces:** none. **Inertia forces:** none.
+The basis $\mathcal B_0$ needs only the identity check. The auxiliary basis $\mathcal B_1$ is the one in which part (a) reads most simply: its first axis $\mathbf e_1$ lies in the vertical plane $Oxz$, raised by the angle of 30 degrees above $\mathbf i$, and its second axis is $\mathbf j$. The answer of part (a) shows that the path lies in the plane spanned by $\mathbf e_1$ and $\mathbf j$; the basis is built here so that every basis of the problem is defined before the kinematics.
 
-#### 3.3 Equations of Motion
-* **Newton's second law in $S_0$:** $m\ddot{\mathbf{r}} = -mk^2\mathbf{r} - mg\,\mathbf{k}$.
-* **Pedagogical Justification:** the system is linear and the basis is Cartesian and constant, so the vector equation decouples into three independent scalar equations with constant coefficients: three unknowns, three equations.
-$$ \ddot{x} + k^2x = 0, \qquad \ddot{y} + k^2y = 0, \qquad \ddot{z} + k^2z = -g $$
+![[attachments/EM-SOL/p17-rotation-j.svg]]
 
-#### 3.4 Integration and Answers
-##### Integration of each component
-* **$x$ and $y$ (homogeneous oscillators):** the equation $\ddot{x} + k^2x = 0$ is linear with constant coefficients and its characteristic equation $r^2 + k^2 = 0$ has the roots $\pm ik$ (the characteristic-equation method of Notes Eq. 5.20, Sec. 5.3), so the general solution is $A\cos kt + B\sin kt$ (Notes Sec. 5.1, Eq. 5.7). Its velocity follows from the chain rule, $\frac{d}{dt}\cos kt = -k\sin kt$ and $\frac{d}{dt}\sin kt = k\cos kt$: $\dot{x} = -kA\sin kt + kB\cos kt$. The initial conditions give
-$$ x(0) = A_x = \frac{\sqrt{3}g}{k^2},\ \ \dot{x}(0) = kB_x = 0 \implies x(t) = \frac{\sqrt{3}g}{k^2}\cos kt $$
-$$ y(0) = A_y = 0,\ \ \dot{y}(0) = kB_y = \frac{2g}{k} \implies B_y = \frac{2g}{k^2} \implies y(t) = \frac{2g}{k^2}\sin kt $$
-* **$z$ (forced by gravity):** a particular solution of $\ddot{z} + k^2z = -g$ is the constant $z_p = -g/k^2$, so $z(t) = -\dfrac{g}{k^2} + A_z\cos kt + B_z\sin kt$. The initial conditions give $z(0) = -\dfrac{g}{k^2} + A_z = 0$, so $A_z = \dfrac{g}{k^2}$, and $\dot{z}(0) = kB_z = 0$:
-$$ z(t) = \frac{g}{k^2}\left(\cos kt - 1\right) $$
-* **Trajectory:** $\displaystyle\mathbf{r}(t) = \frac{\sqrt{3}g}{k^2}\cos kt\,\mathbf{i} + \frac{2g}{k^2}\sin kt\,\mathbf{j} + \frac{g}{k^2}\left(\cos kt - 1\right)\mathbf{k}$.
+> [!derivation] The fixed basis and its change of basis matrix
+> **Law:** change of basis matrix between two bases; orthonormality and unit determinant
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15
+>
+> $$\begin{aligned}
+> \mathbf i &= 1\,\mathbf i + 0\,\mathbf j + 0\,\mathbf k, \quad \mathbf j = 0\,\mathbf i + 1\,\mathbf j + 0\,\mathbf k, \quad \mathbf k = 0\,\mathbf i + 0\,\mathbf j + 1\,\mathbf k \quad &\text{(columns: components of $\mathbf i$, $\mathbf j$, $\mathbf k$ in $\mathcal B_0$)} \\
+> \det[{}_0R_0] &= 1\cdot(1\cdot 1 - 0\cdot 0) - 0 + 0 = 1 \quad &\text{(expansion along the first row)} \\
+> [{}_0R_0][{}_0R_0]^T &= I\,I = I \quad &\text{(the identity is symmetric and equal to its square)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_0] = \begin{pmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_0] = 1, \quad [{}_0R_0][{}_0R_0]^T = I}$$
+>
+> **Units:** every entry is a direction cosine: $[1]$
+> **Meaning:** $\mathcal B_0$ is orthonormal and right-handed, and its unit vectors are constant in $S_0$.
 
-##### (a) Shape of the path
-* **Pedagogical Justification:** a linear relation among the coordinates indicates a plane, and a constant distance to a point indicates a sphere; their intersection is a circle.
-* **Plane.** From $x = \frac{\sqrt{3}g}{k^2}\cos kt$ we have $\cos kt = \frac{k^2}{\sqrt{3}g}x$, so $z = \frac{g}{k^2}\cos kt - \frac{g}{k^2} = \frac{x}{\sqrt{3}} - \frac{g}{k^2}$, i.e.
-$$ x - \sqrt{3}\,z = \frac{\sqrt{3}g}{k^2} $$
-* **Sphere.** The squared distance to the point $C = \left(0, 0, -g/k^2\right)$ is
-$$ x^2 + y^2 + \left(z + \frac{g}{k^2}\right)^2 = \frac{3g^2}{k^4}\cos^2kt + \frac{4g^2}{k^4}\sin^2kt + \frac{g^2}{k^4}\cos^2kt = \frac{4g^2}{k^4}\left(\cos^2kt + \sin^2kt\right) = \frac{4g^2}{k^4} $$
-a sphere of centre $C$ and radius $R = 2g/k^2$.
-* **Circle.** The centre $C$ lies on the plane: $0 - \sqrt{3}\left(-g/k^2\right) = \sqrt{3}g/k^2$. The intersection of a sphere with a plane through its centre is a **great circle** of radius $R = 2g/k^2$.
+> [!derivation] Basis of the plane of the path: rotation about j
+> **Law:** elementary rotation about the second axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19
+>
+> View of the plane $Oxz$ with $\mathbf i$ to the right and $\mathbf k$ up. Since $\mathbf k\times\mathbf i = \mathbf j$, the axis $\mathbf j$ points into the paper (⊗) in this view, and a positive rotation about $\mathbf j$ (right-hand rule, thumb into the paper) is clockwise as seen. The vector $\mathbf e_1$ is $\mathbf i$ turned counterclockwise by 30 degrees, so it is the rotation of Notes.pdf, Eq. 1.19 with the negative angle $\theta_y = -\pi/6$. Its right triangle has hypotenuse 1, adjacent leg $\cos(\pi/6)$ along $\mathbf i$ and opposite leg $\sin(\pi/6)$ along $\mathbf k$. The vector $\mathbf e_3$ is $\mathbf k$ turned by the same angle: its adjacent leg $\cos(\pi/6)$ lies along $\mathbf k$ and its opposite leg $\sin(\pi/6)$ along minus $\mathbf i$, because turning counterclockwise from the upward vertical leans it to the left; that is the origin of the minus sign.
+>
+> $$\begin{aligned}
+> \mathbf e_1 &= \cos\tfrac{\pi}{6}\,\mathbf i + \sin\tfrac{\pi}{6}\,\mathbf k = \tfrac{\sqrt3}{2}\,\mathbf i + \tfrac12\,\mathbf k \quad &\text{(adjacent leg on $\mathbf i$, opposite leg on $\mathbf k$)} \\
+> \mathbf e_2 &= \mathbf j \quad &\text{(axis of the rotation, unchanged)} \\
+> \mathbf e_3 &= -\sin\tfrac{\pi}{6}\,\mathbf i + \cos\tfrac{\pi}{6}\,\mathbf k = -\tfrac12\,\mathbf i + \tfrac{\sqrt3}{2}\,\mathbf k \quad &\text{(adjacent leg on $\mathbf k$, opposite leg on $-\mathbf i$)} \\
+> \mathbf e_1\times\mathbf j &= \tfrac{\sqrt3}{2}\,\mathbf i\times\mathbf j + \tfrac12\,\mathbf k\times\mathbf j = \tfrac{\sqrt3}{2}\,\mathbf k - \tfrac12\,\mathbf i = \mathbf e_3 \quad &\text{(right-handed: $\mathbf i\times\mathbf j = \mathbf k$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> \det[{}_0R_1] &= \tfrac{\sqrt3}{2}\left(1\cdot\tfrac{\sqrt3}{2} - 0\cdot 0\right) - 0 + \left(-\tfrac12\right)\left(0\cdot 0 - 1\cdot\tfrac12\right) \quad &\text{(expansion along the first row)} \\
+> &= \tfrac34 + \tfrac14 = 1 \quad &\text{(sum of the two minors)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \tfrac34 + 0 + \tfrac14 = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{33} = \tfrac14 + 0 + \tfrac34 = 1 \quad &\text{(rows 1 and 3 times themselves)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{13} &= \tfrac{\sqrt3}{2}\cdot\tfrac12 + 0 - \tfrac12\cdot\tfrac{\sqrt3}{2} = 0 \quad &\text{(row 1 times row 3; row 2 is the unit row of $\mathbf j$)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \tfrac{\sqrt3}{2} & 0 & -\tfrac12 \cr 0 & 1 & 0 \cr \tfrac12 & 0 & \tfrac{\sqrt3}{2} \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** every entry is a direction cosine: $[1]$; the angle $\pi/6$ is in radians, dimensionless
+> **Meaning:** the columns are $\mathbf e_1$, $\mathbf j$, $\mathbf e_3$ written in $\mathcal B_0$; $\mathcal B_1$ is a proper rotation of $\mathcal B_0$, and $\mathbf e_3$ will be the normal of the plane of the path.
 
-##### (b) Velocity as a function of time
-* Differentiating each component with the chain rule:
-$$ \dot{x} = \frac{\sqrt{3}g}{k^2}\left(-k\sin kt\right), \qquad \dot{y} = \frac{2g}{k^2}\left(k\cos kt\right), \qquad \dot{z} = \frac{g}{k^2}\left(-k\sin kt\right) $$
-$$ \mathbf{v}(t) = -\frac{\sqrt{3}g}{k}\sin kt\,\mathbf{i} + \frac{2g}{k}\cos kt\,\mathbf{j} - \frac{g}{k}\sin kt\,\mathbf{k} $$
-* **Modulus:** $\|\mathbf{v}\|^2 = \dfrac{g^2}{k^2}\left[3\sin^2kt + 4\cos^2kt + \sin^2kt\right] = \dfrac{g^2}{k^2}\cdot 4\left(\sin^2kt + \cos^2kt\right) = \dfrac{4g^2}{k^2}$, so $\|\mathbf{v}\| = \dfrac{2g}{k}$: the speed is constant.
+> [!derivation] Position vector of the particle
+> **Law:** position vector of a point in Cartesian components
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.5
+>
+> $$\begin{aligned}
+> \mathbf r_0^M &= \overrightarrow{OM} \quad &\text{(definition of the position vector)} \\
+> &= x\,\mathbf i + y\,\mathbf j + z\,\mathbf k \quad &\text{(Cartesian components in $\mathcal B_0$)} \\
+> \mathbf r_0^M(0) &= \frac{\sqrt3\,g}{k^2}\,\mathbf i \quad &\text{(initial position of the statement)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^M = x\,\mathbf i + y\,\mathbf j + z\,\mathbf k, \qquad \mathbf r_0^M(0) = \frac{\sqrt3\,g}{k^2}\,\mathbf i}$$
+>
+> **Units:** $[\mathrm{L}]$; $[g/k^2] = [\mathrm{L\,T^{-2}}]/[\mathrm{T^{-2}}] = [\mathrm{L}]$
+> **Meaning:** the particle starts on the horizontal axis $Ox$, at the distance $\sqrt3\,g/k^2$ from the centre of attraction.
 
-### Phase 4: Interpretation & Checks
-* **Uniform circular motion:** the particle describes a great circle of radius $R = 2g/k^2$ at constant speed $v = 2g/k$, with angular frequency $\omega = v/R = k$.
-* **Shifted centre:** the linear central force plus the uniform gravity is equivalent to a spring centred at the equilibrium point $C$ where $k^2z_{\text{eq}} = -g$, i.e. $z_{\text{eq}} = -g/k^2$.
-* **Consistency:** the centripetal acceleration $v^2/R = (4g^2/k^2)/(2g/k^2) = 2g$ equals the effective spring acceleration $k^2R = 2g$.
-* **Role of $k$:** the initial data are themselves multiples of $g/k^2$ ($x_0 = \sqrt{3}\,g/k^2$, $\dot{y}_0 = 2g/k$), so the solution is self-similar: $R$, $|z_{\text{eq}}|$ and $x_0$ all scale with $g/k^2$, the angular frequency is $k$, and the geometry (offset over radius $|z_{\text{eq}}|/R = 1/2$, tilt of the plane, ratio $1/2$ of gravity to central force on the orbit) does not depend on $k$. A larger $k$ only shrinks the same orbit; gravity never becomes negligible for these data.
-* **Dimensional check:** $[g/k^2] = \dfrac{\text{m s}^{-2}}{\text{s}^{-2}} = \text{m}$, $[g/k] = \text{m/s}$, $[R] = \text{m}$ and $\omega = v/R = k$ in s$^{-1}$.
-* **Check against the official key:** the key of `Problems.pdf` gives $\mathbf{r}_0^M = \frac{\sqrt{3}g}{k^2}\cos kt\,\mathbf{i} + \frac{2g}{k^2}\sin kt\,\mathbf{j} + \frac{g}{k^2}\left(\cos kt - 1\right)\mathbf{k}$, the circle as the intersection of the sphere $x^2 + y^2 + (z + g/k^2)^2 = 4g^2/k^4$ with the plane $x - \sqrt{3}z = \sqrt{3}g/k^2$, and the constant speed $2g/k$. All coincide with the results above. Sympy confirms $\ddot{\mathbf{r}} + k^2\mathbf{r} + g\mathbf{k} = \mathbf{0}$, the initial data, $\|\mathbf{v}\|^2 = 4g^2/k^2$, the plane and the sphere with zero residual.
+### Kinematics
+
+> [!derivation] Velocity and acceleration of the particle
+> **Law:** velocity and acceleration as time derivatives of the position vector in $S_0$
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.7
+>
+> $$\begin{aligned}
+> \frac{d\mathbf i}{dt} &= \frac{d\mathbf j}{dt} = \frac{d\mathbf k}{dt} = \mathbf 0\times(\cdot) = \mathbf 0 \quad &\text{($\mathcal B_0$ does not rotate in $S_0$)} \\
+> \mathbf v_0^M &= \frac{d}{dt}\left(x\,\mathbf i + y\,\mathbf j + z\,\mathbf k\right) = \dot x\,\mathbf i + \dot y\,\mathbf j + \dot z\,\mathbf k \quad &\text{(product rule on each term; constant unit vectors)} \\
+> \mathbf a_0^M &= \ddot x\,\mathbf i + \ddot y\,\mathbf j + \ddot z\,\mathbf k \quad &\text{(the same rule once more)} \\
+> \mathbf v_0^M(0) &= \frac{2g}{k}\,\mathbf j \quad &\text{(initial velocity of the statement)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^M = \dot x\,\mathbf i + \dot y\,\mathbf j + \dot z\,\mathbf k, \qquad \mathbf a_0^M = \ddot x\,\mathbf i + \ddot y\,\mathbf j + \ddot z\,\mathbf k}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ for the derivatives of the unit vectors (zero); $[\mathrm{L\,T^{-1}}]$, $[\mathrm{L\,T^{-2}}]$; $[g/k] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** the initial velocity is horizontal and perpendicular to the initial position vector.
+
+### Forces and Equations of Motion
+
+The free-body diagram shows the attraction towards $O$ and the weight. The particle is free, so no reaction acts, and $S_0$ is inertial, so no inertia force acts.
+
+![[attachments/EM-SOL/p17-fbd.svg]]
+
+> [!derivation] Newton's second law projected on the fixed basis
+> **Law:** Newton's second law in an inertial frame; projection on $\mathcal B_0$
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.5; Problems.pdf, p. 9
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^M &= \mathbf F_c + \mathbf F_g + \mathbf R \quad &\text{(second law in $S_0$)} \\
+> \mathbf F_c &= -m k^2\,\mathbf r_0^M, \quad \mathbf F_g = -m g\,\mathbf k, \quad \mathbf R = \mathbf 0 \quad &\text{(attraction towards $O$; weight; free particle)} \\
+> m\left(\ddot x\,\mathbf i + \ddot y\,\mathbf j + \ddot z\,\mathbf k\right) &= -m k^2\left(x\,\mathbf i + y\,\mathbf j + z\,\mathbf k\right) - m g\,\mathbf k \quad &\text{(kinematics and forces in $\mathcal B_0$)} \\
+> \mathbf i:\ \ddot x + k^2 x &= 0, \quad \mathbf j:\ \ddot y + k^2 y = 0, \quad \mathbf k:\ \ddot z + k^2 z = -g \quad &\text{(dot products with $\mathbf i$, $\mathbf j$, $\mathbf k$; division by $m$)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot x + k^2 x = 0, \qquad \ddot y + k^2 y = 0, \qquad \ddot z + k^2 z = -g}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$ in every term: $[k^2][\mathrm{L}] = [\mathrm{T^{-2}}][\mathrm{L}]$; the forces $[\mathrm{M}][\mathrm{T^{-2}}][\mathrm{L}] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** three uncoupled harmonic oscillators of angular frequency $k$ (Notes.pdf, Eq. 5.6 with $\omega_0$ equal to $k$); gravity only adds a constant force to the vertical one.
+
+> [!derivation] Horizontal coordinates: free oscillators
+> **Law:** characteristic equation of a linear equation with constant coefficients; general solution of the undamped oscillator and its constants
+> **Source:** Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.8; Notes.pdf, Eq. 5.9; [Lecture 6, Slide 6]
+>
+> $$\begin{aligned}
+> p^2 + k^2 &= 0 \Rightarrow p = \pm i k \quad &\text{(trial $e^{pt}$ in $\ddot x + k^2 x = 0$)} \\
+> x &= C_1\cos kt + C_2\sin kt \quad &\text{(real form of the general solution)} \\
+> \dot x &= -k C_1\sin kt + k C_2\cos kt \quad &\text{(chain rule: $\tfrac{d}{dt}\cos kt = -k\sin kt$, $\tfrac{d}{dt}\sin kt = k\cos kt$)} \\
+> x(0) &= C_1 = \frac{\sqrt3\,g}{k^2}, \qquad \dot x(0) = k C_2 = 0 \quad &\text{(initial data of $x$)} \\
+> y(0) &= C_1' = 0, \qquad \dot y(0) = k C_2' = \frac{2g}{k} \Rightarrow C_2' = \frac{2g}{k^2} \quad &\text{(the same solution for $y$, constants $C_1'$, $C_2'$)}
+> \end{aligned}$$
+>
+> $$\boxed{x(t) = \frac{\sqrt3\,g}{k^2}\cos kt, \qquad y(t) = \frac{2g}{k^2}\sin kt}$$
+>
+> **Units:** $[\mathrm{L}]$; $[kt] = [\mathrm{T^{-1}}][\mathrm{T}] = [1]$; $p$ in $[\mathrm{T^{-1}}]$
+> **Meaning:** seen from above, the particle describes an ellipse of semi-axes $\sqrt3\,g/k^2$ and $2g/k^2$ centred on the vertical through $O$.
+
+> [!derivation] Vertical coordinate: oscillator under a constant force
+> **Law:** general solution of the complete equation as homogeneous plus particular solution
+> **Source:** Notes.pdf, Sec. 5.4; [Lecture 6, Slide 3]
+>
+> $$\begin{aligned}
+> z_p &= -\frac{g}{k^2} \quad &\text{(constant particular solution: $0 + k^2 z_p = -g$)} \\
+> z &= -\frac{g}{k^2} + C_1''\cos kt + C_2''\sin kt \quad &\text{(particular plus homogeneous solution)} \\
+> z(0) &= -\frac{g}{k^2} + C_1'' = 0 \Rightarrow C_1'' = \frac{g}{k^2} \quad &\text{(initial height)} \\
+> \dot z(0) &= k C_2'' = 0 \Rightarrow C_2'' = 0 \quad &\text{(initial vertical rate, chain rule as above)}
+> \end{aligned}$$
+>
+> $$\boxed{z(t) = \frac{g}{k^2}\left(\cos kt - 1\right)}$$
+>
+> **Units:** $[\mathrm{L}]$
+> **Meaning:** the weight shifts the centre of the vertical oscillation to the equilibrium height $-g/k^2$, where the attraction balances the weight; the particle oscillates between the height of $O$ and twice that depth.
+
+### Answers and Checks
+
+#### (a) Shape of the path
+
+> [!derivation] The path is a great circle of a sphere
+> **Law:** a linear relation among the coordinates is a plane; a constant distance to a point is a sphere; their intersection is a circle
+> **Source:** Notes.pdf, Eq. 2.5; Problems.pdf, p. 73
+>
+> $$\begin{aligned}
+> \cos kt &= \frac{k^2 x}{\sqrt3\,g} \quad &\text{(from the law of $x$)} \\
+> z &= \frac{g}{k^2}\cdot\frac{k^2 x}{\sqrt3\,g} - \frac{g}{k^2} = \frac{x}{\sqrt3} - \frac{g}{k^2} \quad &\text{(substitution in the law of $z$)} \\
+> x - \sqrt3\,z &= \frac{\sqrt3\,g}{k^2} \quad &\text{(multiplication by $\sqrt3$; the plane)} \\
+> x^2 + y^2 + \left(z + \frac{g}{k^2}\right)^2 &= \frac{g^2}{k^4}\left(3\cos^2 kt + 4\sin^2 kt + \cos^2 kt\right) \quad &\text{(squares of the three laws, with $z + g/k^2 = (g/k^2)\cos kt$)} \\
+> &= \frac{4g^2}{k^4}\left(\cos^2 kt + \sin^2 kt\right) = \frac{4g^2}{k^4} \quad &\text{(common factor 4; Pythagorean identity)} \\
+> 0 - \sqrt3\left(-\frac{g}{k^2}\right) &= \frac{\sqrt3\,g}{k^2} \quad &\text{(the centre $C = (0, 0, -g/k^2)$ satisfies the plane)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{plane } x - \sqrt3\,z = \frac{\sqrt3\,g}{k^2}; \quad \text{sphere } x^2 + y^2 + \left(z + \frac{g}{k^2}\right)^2 = \frac{4g^2}{k^4}; \quad \text{path: circle of centre } C,\ R = \frac{2g}{k^2}}$$
+>
+> **Units:** every term of the plane in $[\mathrm{L}]$; every term of the sphere in $[\mathrm{L^2}]$; $[R] = [\mathrm{L}]$
+> **Meaning:** the plane passes through the centre of the sphere, so the path is a great circle, of radius $2g/k^2$, centred at the equilibrium point $C$ below $O$.
+
+![[attachments/EM-SOL/p17-path-plane.svg]]
+
+> [!derivation] The motion written in the basis of the plane
+> **Law:** change of basis of the position vector relative to the centre $C$
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 2.2
+>
+> $$\begin{aligned}
+> \overrightarrow{CM} &= \mathbf r_0^M - \overrightarrow{OC} = x\,\mathbf i + y\,\mathbf j + \left(z + \frac{g}{k^2}\right)\mathbf k \quad &\text{($\overrightarrow{OC} = -(g/k^2)\,\mathbf k$)} \\
+> &= \frac{g}{k^2}\left(\sqrt3\cos kt\,\mathbf i + \cos kt\,\mathbf k\right) + \frac{2g}{k^2}\sin kt\,\mathbf j \quad &\text{(the three laws)} \\
+> &= \frac{2g}{k^2}\cos kt\left(\tfrac{\sqrt3}{2}\,\mathbf i + \tfrac12\,\mathbf k\right) + \frac{2g}{k^2}\sin kt\,\mathbf j \quad &\text{(factor 2 taken out of the first bracket)} \\
+> &= \frac{2g}{k^2}\left(\cos kt\,\mathbf e_1 + \sin kt\,\mathbf j\right) \quad &\text{(first column of $[{}_0R_1]$)} \\
+> \overrightarrow{CM}\cdot\mathbf e_3 &= \frac{2g}{k^2}\cos kt\left(-\tfrac{\sqrt3}{4} + \tfrac{\sqrt3}{4}\right) = 0 \quad &\text{(the path has no component along the normal $\mathbf e_3$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^M = -\frac{g}{k^2}\,\mathbf k + \frac{2g}{k^2}\left(\cos kt\,\mathbf e_1 + \sin kt\,\mathbf j\right)}$$
+>
+> **Units:** $[\mathrm{L}]$; the trigonometric arguments are dimensionless
+> **Meaning:** the particle moves round the circle of centre $C$ and radius $2g/k^2$ in the plane spanned by $\mathbf e_1$ and $\mathbf j$, which is tilted by 30 degrees from the horizontal about $\mathbf j$; it starts at the end of $\mathbf e_1$ and sweeps the angle $kt$ uniformly, once every period $2\pi/k$.
+
+#### (b) Velocity as a function of time
+
+> [!derivation] Velocity and speed
+> **Law:** time derivative of each coordinate with the chain rule; modulus from the components
+> **Source:** Notes.pdf, Eq. 2.6
+>
+> $$\begin{aligned}
+> \dot x &= \frac{\sqrt3\,g}{k^2}\left(-k\sin kt\right), \quad \dot y = \frac{2g}{k^2}\left(k\cos kt\right), \quad \dot z = \frac{g}{k^2}\left(-k\sin kt\right) \quad &\text{(chain rule on each law)} \\
+> \mathbf v_0^M &= -\frac{\sqrt3\,g}{k}\sin kt\,\mathbf i + \frac{2g}{k}\cos kt\,\mathbf j - \frac{g}{k}\sin kt\,\mathbf k \quad &\text{(components assembled)} \\
+> &= \frac{2g}{k}\left(-\sin kt\,\mathbf e_1 + \cos kt\,\mathbf j\right) \quad &\text{(first and third components grouped as $-\sin kt$ times $2\mathbf e_1$)} \\
+> |\mathbf v_0^M|^2 &= \frac{g^2}{k^2}\left(3\sin^2 kt + 4\cos^2 kt + \sin^2 kt\right) = \frac{4g^2}{k^2} \quad &\text{(sum of squares; Pythagorean identity)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^M(t) = -\frac{\sqrt3\,g}{k}\sin kt\,\mathbf i + \frac{2g}{k}\cos kt\,\mathbf j - \frac{g}{k}\sin kt\,\mathbf k, \qquad |\mathbf v_0^M| = \frac{2g}{k}}$$
+>
+> **Units:** $[g/k] = [\mathrm{L\,T^{-2}}]/[\mathrm{T^{-1}}] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** the speed is constant: the motion is uniform circular motion; at the start the velocity equals the data $(2g/k)\,\mathbf j$.
+
+> [!derivation] Independent check: energy integral derived from the equation of motion
+> **Law:** the equation of motion multiplied by the velocity is an exact time derivative
+> **Source:** Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31
+>
+> $$\begin{aligned}
+> \mathbf v_0^M\cdot\left(m\,\mathbf a_0^M + m k^2\,\mathbf r_0^M + m g\,\mathbf k\right) &= 0 \quad &\text{(equation of motion, dot product with the velocity)} \\
+> m\,\mathbf v_0^M\cdot\mathbf a_0^M &= \frac{d}{dt}\left(\tfrac12 m\,\mathbf v_0^M\cdot\mathbf v_0^M\right) \quad &\text{(product rule on the dot product)} \\
+> m k^2\,\mathbf r_0^M\cdot\mathbf v_0^M &= \frac{d}{dt}\left(\tfrac12 m k^2\,\mathbf r_0^M\cdot\mathbf r_0^M\right), \quad m g\,\mathbf k\cdot\mathbf v_0^M = \frac{d}{dt}\left(m g z\right) \quad &\text{(product rule; chain rule with $\dot z = \mathbf k\cdot\mathbf v_0^M$)} \\
+> \tfrac12 m |\mathbf v_0^M|^2 + \tfrac12 m k^2\left(x^2 + y^2 + z^2\right) + m g z &= E_0 \quad &\text{(the sum of the three derivatives vanishes)} \\
+> \tfrac12 m k^2\left[x^2 + y^2 + \left(z + \frac{g}{k^2}\right)^2\right] - \frac{m g^2}{2k^2} &= \tfrac12 m k^2\left(x^2 + y^2 + z^2\right) + m g z \quad &\text{(square completed in $z$)} \\
+> \tfrac12 m |\mathbf v_0^M|^2 &= E_0 - \tfrac12 m k^2\,\frac{4g^2}{k^4} + \frac{m g^2}{2k^2} \quad &\text{(on the sphere of part (a))}
+> \end{aligned}$$
+>
+> $$\boxed{|\mathbf v_0^M| = \text{const} = |\mathbf v_0^M(0)| = \frac{2g}{k}}$$
+>
+> **Units:** every energy term $[\mathrm{M\,L^2\,T^{-2}}]$; the speed $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** the force is conservative; on a sphere centred at the equilibrium point the potential energy is constant, so the kinetic energy and the speed are constant, as found by differentiation.
+
+> [!derivation] Consistency of the circular motion
+> **Law:** acceleration of a uniform circular motion compared with the force per unit mass
+> **Source:** Notes.pdf, Eq. 2.7; Notes.pdf, Eq. 4.4
+>
+> $$\begin{aligned}
+> \mathbf a_0^M &= -k^2\,\mathbf r_0^M - g\,\mathbf k = -k^2\left(\mathbf r_0^M + \frac{g}{k^2}\,\mathbf k\right) = -k^2\,\overrightarrow{CM} \quad &\text{(equation of motion; $\overrightarrow{OC} = -(g/k^2)\,\mathbf k$)} \\
+> |\mathbf a_0^M| &= k^2 R = k^2\,\frac{2g}{k^2} = 2g \quad &\text{(modulus on the circle)} \\
+> \frac{|\mathbf v_0^M|^2}{R} &= \frac{4g^2/k^2}{2g/k^2} = 2g \quad &\text{(centripetal value of a uniform circular motion)}
+> \end{aligned}$$
+>
+> $$\boxed{|\mathbf a_0^M| = \frac{|\mathbf v_0^M|^2}{R} = 2g, \qquad \text{angular rate } \frac{|\mathbf v_0^M|}{R} = k}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$ for the accelerations; $[\mathrm{T^{-1}}]$ for the angular rate
+> **Meaning:** the resultant of attraction and weight points from $M$ to the centre $C$ and has exactly the centripetal value of the circle; the particle turns at the angular rate $k$.
+
+> [!derivation] Limiting case: no gravity
+> **Law:** behaviour of the laws when the constant force vanishes
+> **Source:** Notes.pdf, Eq. 5.7
+>
+> If gravity is switched off while the initial data keep the same numerical values $X_0$ and $V_0$ (initial distance and initial speed), the vertical oscillation disappears and the horizontal laws remain.
+>
+> $$\begin{aligned}
+> z_p &= -\frac{g}{k^2} \to 0, \qquad z(t) \to 0 \quad &\text{(the vertical equation becomes homogeneous with zero data)} \\
+> x &= X_0\cos kt, \qquad y = \frac{V_0}{k}\sin kt \quad &\text{(horizontal laws unchanged)}
+> \end{aligned}$$
+>
+> $$\boxed{g \to 0:\ \text{a horizontal ellipse centred at } O \text{ with semi-axes } X_0 \text{ and } V_0/k}$$
+>
+> **Units:** $X_0$ and $V_0/k$ in $[\mathrm{L}]$
+> **Meaning:** without weight the linear attraction alone gives the classical centred ellipse; the weight is what moves the centre to $C$ and tilts the plane of the path, which with the given data is a circle.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| Motion | $\mathbf r_0^M = \frac{\sqrt3 g}{k^2}\cos kt\,\mathbf i + \frac{2g}{k^2}\sin kt\,\mathbf j + \frac{g}{k^2}(\cos kt - 1)\,\mathbf k$ |
+| (a) Shape of the path | great circle of centre $C = (0, 0, -g/k^2)$ and radius $2g/k^2$: intersection of the sphere $x^2 + y^2 + (z + g/k^2)^2 = 4g^2/k^4$ with the plane $x - \sqrt3 z = \sqrt3 g/k^2$ (tilted 30 degrees about $\mathbf j$); uniform motion at the angular rate $k$ |
+| (b) Velocity | $\mathbf v_0^M = -\frac{\sqrt3 g}{k}\sin kt\,\mathbf i + \frac{2g}{k}\cos kt\,\mathbf j - \frac{g}{k}\sin kt\,\mathbf k$, constant speed $2g/k$ |
+
+**Check against the official key:** Problems.pdf, p. 73, item 17, prints the same position vector, the same sphere and plane (and notes that other pairs of surfaces describe the same curve) and the same constant speed: **match**. A Runge-Kutta integration of the three equations with unit values of gravity and of the constant, over one period, keeps the distance to the centre equal to 2 m and the speed equal to 2 m/s within the error of the method.
 
 ---
 
-## 📌 Problem 45: Vibrating Rotor (Unbalanced Turbojet)
+## Problem 45: Vibrating Rotor (Unbalanced Turbojet)
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a rigid disk of mass $m$ rotates at the constant angular velocity $\omega$. Its geometric centre $C$ is held near the design position $O$ by an elastic restoring force with constant $k$; its centre of mass $G$ is at the fixed distance $\ell$ from $C$ (unbalance).
-* **Hypotheses:** planar motion in $Oxy$; the weight is negligible; the spring has zero natural length and acts at $C$, so its force is $-k\,\mathbf{r}_C$. As the statement asks, the dynamics is that of the centre of mass $G$, treated as a particle of mass $m$ under the resultant external force (the particle model of Topic 2). The drive that keeps $\omega$ constant applies a pure couple, with zero resultant force, so it does not enter the equation of $G$. The statement also assumes that the homogeneous solution of the equation of $G$ decays, which implies some damping that the model leaves out.
-* **Constraints and degrees of freedom:** the disk rotates at the prescribed rate, so its orientation is $\omega t$ (a time-dependent, rheonomic constraint) and the segment $CG$ has the fixed length $\ell$ and the angle $\omega t$. The only free coordinates are the two coordinates of $C$ (or of $G$): $\text{CDOF} = 2$.
-* **Unknowns:** $x_0^G(t)$, $y_0^G(t)$, $x_0^C(t)$, $y_0^C(t)$.
-* **Parameters:** $m$ [kg], $k$ [N/m], $\ell$ [m], $\omega$ [rad/s]; natural frequency $\omega_0 = \sqrt{k/m}$.
+### Reference Frames, Bases and Coordinates
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, with $\mathbf{r}_C = x_0^C\,\mathbf{i}_0 + y_0^C\,\mathbf{j}_0$ and $\mathbf{r}_G = x_0^G\,\mathbf{i}_0 + y_0^G\,\mathbf{j}_0$.
-* **Disk-fixed basis.** It is the inertial basis rotated by $\omega t$ about $\mathbf{k}_0$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = \begin{pmatrix} \cos^2\omega t + \sin^2\omega t & 0 & 0 \\ 0 & \sin^2\omega t + \cos^2\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix} = I $$
-Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
-* **Unbalance vector.** The segment $CG$ is fixed in the disk, at the angle $\omega t$ from $\mathbf{i}_0$ (first column of the matrix):
-$$ \mathbf{r}_G = \mathbf{r}_C + \ell\,\mathbf{e}(t), \qquad \mathbf{e}(t) = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0 $$
+The rotor is a rigid disk that turns at the prescribed rate $\omega$ about an axis normal to the plane of the figure. Its geometric centre $C$ is pulled toward the design position $O$ by an elastic force, and its centre of mass $G$ is offset from $C$ by the fixed distance $\ell$. The statement asks for the dynamics of $G$, so $G$ is treated as a point particle of mass $m$ that carries the resultant of the external forces (the particle model of chapter 4 of Notes.pdf; the rotation of the disk is prescribed, so its own dynamics is not needed). The tools are those of chapters 1, 2, 4 and 5 of Notes.pdf and of Lecture 6.
 
-### Phase 3: Derivation
+| Symbol | Meaning | Units |
+| :--- | :--- | :--- |
+| $S_0 = \{O;\ \mathbf i_0, \mathbf j_0, \mathbf k_0\}$ | fixed (inertial) frame; $O$ the design position of $C$; $\mathbf i_0$ the $x$ axis of the figure (right), $\mathbf j_0$ the $y$ axis (up), $\mathbf k_0$ the rotation axis, out of the paper (⊙) | - |
+| $S_1 = \{C;\ \mathbf i_1, \mathbf j_1, \mathbf k_0\}$ | frame attached to the disk; $\mathbf i_1$ the unit vector from $C$ to $G$; $\mathbf j_1 = \mathbf k_0 \times \mathbf i_1$ | - |
+| $\omega t$ | angle from $\mathbf i_0$ to $\mathbf i_1$, counterclockwise seen with $\mathbf k_0$ ⊙ (figure of the statement) | rad |
+| $m$ | mass of the disk | kg |
+| $k$ | constant of the elastic restoring force acting on $C$ | N/m |
+| $\ell$ | fixed distance from $C$ to $G$ (unbalance) | m |
+| $\omega$ | constant angular velocity of the disk | rad/s |
+| $\omega_0 = \sqrt{k/m}$ | natural angular frequency of the undamped oscillator (Notes.pdf, Eq. 5.6) | rad/s |
+| $(x_0^C, y_0^C)$, $(x_0^G, y_0^G)$ | Cartesian coordinates of $C$ and $G$ in $S_0$ (unknowns) | m |
 
-#### 3.1 Kinematics
-* **Pedagogical Justification:** the dynamics refers to $G$, but the force depends on $C$, so we express $\mathbf{r}_C$ with the geometry of the rotating segment. The acceleration of $G$ in $S_0$ is $\ddot{\mathbf{r}}_G = \ddot{x}_0^G\,\mathbf{i}_0 + \ddot{y}_0^G\,\mathbf{j}_0$, and
-$$ \mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t) $$
+Hypotheses and degrees of freedom:
 
-#### 3.2 Forces
-* **Applied force:** the spring force $-k\,\mathbf{r}_C$, which depends on the position of $C$, not on that of $G$. **Constraint forces:** none that affect the centre of mass (the weight is neglected and the drive is a pure couple). **Inertia forces:** none, $S_0$ is inertial.
+- The motion is planar, in the plane $Oxy$; the weight is negligible (statement).
+- The elastic force has zero natural length and acts at $C$, directed toward $O$ and proportional to the distance $OC$: the restoring force of Notes.pdf, Eq. 5.1 in two dimensions.
+- The motor that keeps the rate $\omega$ constant applies a pure couple; its resultant force is zero, so it does not enter the equation of $G$.
+- The disk stays in the plane $Oxy$; whatever holds it there (bearings, guides) can only exert a reaction along $\mathbf k_0$, written as an unknown in Newton's law.
+- The orientation of the disk is prescribed (a time-dependent constraint), so the segment $CG$ is known at every instant; the free coordinates are the two coordinates of $C$, or equivalently of $G$: two degrees of freedom.
+- The statement assumes that the homogeneous solution dies out in time. This implies a small dissipation that the model does not write down; the answer is the particular (steady) solution.
 
-#### 3.3 Equations of Motion
-* **Pedagogical Justification:** Newton's second law for $G$ with $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$ gives a forced linear equation (Notes Sec. 5.4, oscillator under a periodic force):
-$$ m\ddot{\mathbf{r}}_G = -k\,\mathbf{r}_C = -k\left[\mathbf{r}_G - \ell\,\mathbf{e}(t)\right] $$
-* Dividing by $m$ with $\omega_0^2 = k/m$, and eliminating $\mathbf{r}_C$ through the geometric relation of 3.1 (so the unknowns reduce to the two coordinates of $G$), the two components decouple (two unknowns, two equations):
-$$ \ddot{x}_0^G + \omega_0^2x_0^G = \omega_0^2\ell\cos\omega t, \qquad \ddot{y}_0^G + \omega_0^2y_0^G = \omega_0^2\ell\sin\omega t $$
+![[attachments/EM-SOL/p45-disk-plane.svg]]
 
-#### 3.4 Integration and Answers
-##### Particular solution for $G$
-* **Pedagogical Justification:** the general solution is the homogeneous one, $A\cos\omega_0t + B\sin\omega_0t$, which the statement assumes damped out, plus a particular solution. Since the forcing is harmonic at $\omega$, we try the same harmonic with an unknown amplitude (undetermined coefficients): $x_0^G = a\cos\omega t$, so $\ddot{x}_0^G = -\omega^2a\cos\omega t$.
-$$ -\omega^2a + \omega_0^2a = \omega_0^2\ell \implies a = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2} \qquad (\omega \ne \omega_0) $$
-* The same steps with $y_0^G = b\sin\omega t$, $\ddot{y}_0^G = -\omega^2b\sin\omega t$, give $-\omega^2b + \omega_0^2b = \omega_0^2\ell$, so $b = a$:
-$$ \boxed{x_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\cos\omega t}, \qquad y_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\sin\omega t $$
+### Change of Basis and Position Vector
 
-##### Position of the geometric centre
-* From $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$, component by component:
-$$ \boxed{x_0^C(t) = \left[\frac{\omega_0^2}{\omega_0^2 - \omega^2} - 1\right]\ell\cos\omega t = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\cos\omega t}, \qquad y_0^C(t) = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\sin\omega t $$
+![[attachments/EM-SOL/p45-rotation-view.svg]]
 
-##### Is $|OC| \gt |OG|$ for $\omega \gt \sqrt{k/m}$?
-* Both points describe circles about $O$ at the rotation rate $\omega$, with radii
-$$ |OG| = \frac{\omega_0^2\ell}{\left|\omega_0^2 - \omega^2\right|}, \qquad |OC| = \frac{\omega^2\ell}{\left|\omega_0^2 - \omega^2\right|}, \qquad \frac{|OC|}{|OG|} = \frac{\omega^2}{\omega_0^2} = \frac{m\omega^2}{k} $$
-* **Yes.** The ratio exceeds $1$ exactly when $\omega \gt \omega_0 = \sqrt{k/m}$ (the case $\omega = \omega_0$ is excluded: the bounded harmonic particular solution $a\cos\omega t$ does not exist there, and the response grows linearly in time, $x_0^G = \tfrac{1}{2}\omega_0\ell\,t\sin\omega_0t$, which is the resonance: with $x_p = Dt\sin\omega_0t$, $\ddot{x}_p = 2D\omega_0\cos\omega_0t - D\omega_0^2t\sin\omega_0t$, so $\ddot{x}_p + \omega_0^2x_p = 2D\omega_0\cos\omega_0t = \omega_0^2\ell\cos\omega_0t$ and $D = \omega_0\ell/2$). For $\omega \lt \omega_0$ the opposite holds.
+> [!derivation] Disk basis and the change of basis matrix
+> **Law:** rotation of a basis about $\mathbf k_0$; definition of the change of basis matrix and its orthogonality
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.15; Problems.pdf, p. 31
+>
+> In the view along $\mathbf k_0$ (out of the paper, ⊙), the unit vector $\mathbf i_1$ is the hypotenuse (length 1) of a right triangle whose leg adjacent to the angle lies along $\mathbf i_0$ and whose opposite leg lies along $\mathbf j_0$. The vector $\mathbf j_1$ is $\mathbf i_1$ turned a right angle counterclockwise about $\mathbf k_0$ (right-hand rule, thumb out of the paper). Turning the triangle of $\mathbf i_1$ by that right angle sends its adjacent leg to the vertical and its opposite leg to the horizontal pointing toward minus $\mathbf i_0$: this is the origin of the minus sign.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0 \quad &\text{(adjacent leg $\cos\omega t$ on $\mathbf i_0$, opposite leg $\sin\omega t$ on $\mathbf j_0$)} \\
+> \mathbf j_1 &= \mathbf k_0 \times \mathbf i_1 = \cos\omega t\,(\mathbf k_0 \times \mathbf i_0) + \sin\omega t\,(\mathbf k_0 \times \mathbf j_0) \quad &\text{(distributive property of the vector product)} \\
+> &= \cos\omega t\,\mathbf j_0 - \sin\omega t\,\mathbf i_0 \quad &\text{(right-handed products: $\mathbf k_0 \times \mathbf i_0 = \mathbf j_0$, $\mathbf k_0 \times \mathbf j_0 = -\mathbf i_0$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos\omega t\cos\omega t - (-\sin\omega t)\sin\omega t\right) \quad &\text{(expansion along the third row)} \\
+> &= \cos^2\omega t + \sin^2\omega t = 1 \quad &\text{(Pythagorean identity)} \\
+> ([{}_0R_1][{}_0R_1]^T)_{11} &= \cos^2\omega t + \sin^2\omega t = 1 \quad &\text{(row 1 times row 1)} \\
+> ([{}_0R_1][{}_0R_1]^T)_{12} &= \cos\omega t\sin\omega t - \sin\omega t\cos\omega t = 0 \quad &\text{(row 1 times row 2)} \\
+> ([{}_0R_1][{}_0R_1]^T)_{22} &= \sin^2\omega t + \cos^2\omega t = 1 \quad &\text{(row 2 times row 2; third row and column as the identity)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \cr \sin\omega t & \cos\omega t & 0 \cr 0 & 0 & 1 \end{pmatrix},\qquad \det[{}_0R_1] = 1,\qquad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** $[1]$ for every entry; $[\omega t] = [\mathrm{T^{-1}}][\mathrm{T}] = [1]$
+> **Meaning:** the columns are the disk unit vectors written in the fixed basis; the matrix is the elementary rotation about the $z$ axis of Notes.pdf, Eq. 1.20 with the angle $\omega t$.
 
-### Phase 4: Interpretation & Checks
-* **Slow rotation ($\omega \to 0$):** $x_0^G \to \ell$ and $x_0^C \to 0$: $C$ sits at $O$ and $G$ at distance $\ell$, as for a static unbalanced disk.
-* **Fast rotation ($\omega \gg \omega_0$):** $|OG| \to \ell\omega_0^2/\omega^2 \to 0$ and $|OC| \to \ell$: above the critical speed the disk self-centres and spins about its centre of mass, with $C$ circling $G$ at radius $\ell$ and in antiphase with the unbalance (the factor $\omega_0^2 - \omega^2$ is negative).
-* **Resonance ($\omega = \omega_0$):** the amplitudes diverge in this undamped model.
-* **Dimensional check:** $\left[\omega_0^2\ell/(\omega_0^2 - \omega^2)\right] = \text{m}$ and $[k/m] = \text{N m}^{-1}\text{kg}^{-1} = \text{s}^{-2} = [\omega^2]$.
-* **Check against the official key:** the key of `Problems.pdf` gives, for $\omega \ne \omega_0$, $x_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\cos\omega t$ and $x_0^C(t) = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\cos\omega t$, with $\omega_0 = \sqrt{k/m}$, identical to the results above. Sympy confirms that the particular solution satisfies the equations with zero residual.
+> [!derivation] Position vectors of the geometric centre and of the centre of mass
+> **Law:** definition of the position vector as a sum of segments
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.5; Problems.pdf, p. 31
+>
+> The segment from $C$ to $G$ is fixed in the disk, of length $\ell$ along $\mathbf i_1$. In the right triangle with hypotenuse $CG$, the leg adjacent to the angle is horizontal and the opposite leg vertical.
+>
+> $$\begin{aligned}
+> \mathbf r_0^C &= \overrightarrow{OC} = x_0^C\,\mathbf i_0 + y_0^C\,\mathbf j_0 \quad &\text{(Cartesian coordinates of $C$)} \\
+> \overrightarrow{CG} &= \ell\,\mathbf i_1 = \ell\cos\omega t\,\mathbf i_0 + \ell\sin\omega t\,\mathbf j_0 \quad &\text{(adjacent leg $\ell\cos\omega t$, opposite leg $\ell\sin\omega t$)} \\
+> \mathbf r_0^G &= \overrightarrow{OC} + \overrightarrow{CG} \quad &\text{(sum of segments)} \\
+> &= \left(x_0^C + \ell\cos\omega t\right)\mathbf i_0 + \left(y_0^C + \ell\sin\omega t\right)\mathbf j_0 \quad &\text{(components added)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G = \mathbf r_0^C + \ell\,\mathbf i_1,\qquad x_0^G = x_0^C + \ell\cos\omega t,\qquad y_0^G = y_0^C + \ell\sin\omega t}$$
+>
+> **Units:** $[\mathrm{L}]$ in every term
+> **Meaning:** the centre of mass sits at the geometric centre displaced by the unbalance, which turns with the disk.
+
+### Kinematics
+
+> [!derivation] Derivatives of the disk unit vectors
+> **Law:** derivative of a unit vector of constant magnitude turning with angular velocity $\boldsymbol\omega$; vector products written out
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 1.56
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{1,0} &= \omega\,\mathbf k_0 \quad &\text{(the disk turns about $\mathbf k_0$ at the rate of the angle $\omega t$)} \\
+> \dot{\mathbf i}_1 &= \omega\,\mathbf k_0 \times \left(\cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0\right) \quad &\text{(Notes Eq. 1.62)} \\
+> &= \omega\cos\omega t\,\mathbf j_0 - \omega\sin\omega t\,\mathbf i_0 = \omega\,\mathbf j_1 \quad &\text{(right-handed products; components of $\mathbf j_1$)} \\
+> \dot{\mathbf j}_1 &= \omega\,\mathbf k_0 \times \left(-\sin\omega t\,\mathbf i_0 + \cos\omega t\,\mathbf j_0\right) \quad &\text{(Notes Eq. 1.62)} \\
+> &= -\omega\sin\omega t\,\mathbf j_0 - \omega\cos\omega t\,\mathbf i_0 = -\omega\,\mathbf i_1 \quad &\text{(right-handed products; components of $\mathbf i_1$)}
+> \end{aligned}$$
+>
+> As a check, the chain rule on the components gives the same result: the derivative of $\cos\omega t$ is $-\omega\sin\omega t$ and that of $\sin\omega t$ is $\omega\cos\omega t$.
+>
+> $$\boxed{\dot{\mathbf i}_1 = \omega\,\mathbf j_1,\qquad \dot{\mathbf j}_1 = -\omega\,\mathbf i_1}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$
+> **Meaning:** the tip of each disk unit vector moves on the unit circle at the rate of the disk, a right angle ahead of the vector.
+
+> [!derivation] Velocity of the centre of mass
+> **Law:** definition of velocity as the time derivative of the position vector in $S_0$; product rule
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 1.62
+>
+> $$\begin{aligned}
+> \mathbf v_0^G &= \frac{d}{dt}\left(\mathbf r_0^C + \ell\,\mathbf i_1\right) \quad &\text{(definition of velocity)} \\
+> &= \dot{\mathbf r}_0^C + \dot\ell\,\mathbf i_1 + \ell\,\dot{\mathbf i}_1 \quad &\text{(product rule)} \\
+> &= \dot x_0^C\,\mathbf i_0 + \dot y_0^C\,\mathbf j_0 + \ell\omega\,\mathbf j_1 \quad &\text{($\ell$ constant; previous box; fixed unit vectors have zero derivative)} \\
+> &= \left(\dot x_0^C - \ell\omega\sin\omega t\right)\mathbf i_0 + \left(\dot y_0^C + \ell\omega\cos\omega t\right)\mathbf j_0 \quad &\text{(components of $\mathbf j_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^G = \mathbf v_0^C + \ell\omega\,\mathbf j_1}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$ and $[\mathrm{L}][\mathrm{T^{-1}}]$
+> **Meaning:** the centre of mass moves with the geometric centre plus a velocity of magnitude the unbalance times the rate, perpendicular to the segment from $C$ to $G$.
+
+> [!derivation] Acceleration of the centre of mass
+> **Law:** definition of acceleration as the time derivative of the velocity in $S_0$; product rule
+> **Source:** Notes.pdf, Eq. 2.7; Notes.pdf, Eq. 1.62
+>
+> $$\begin{aligned}
+> \mathbf a_0^G &= \frac{d}{dt}\left(\mathbf v_0^C + \ell\omega\,\mathbf j_1\right) \quad &\text{(definition of acceleration)} \\
+> &= \ddot{\mathbf r}_0^C + \ell\dot\omega\,\mathbf j_1 + \ell\omega\,\dot{\mathbf j}_1 \quad &\text{(product rule; $\ell$ constant)} \\
+> &= \ddot{\mathbf r}_0^C - \ell\omega^2\,\mathbf i_1 \quad &\text{($\omega$ constant; derivative of $\mathbf j_1$)} \\
+> &= \left(\ddot x_0^C - \ell\omega^2\cos\omega t\right)\mathbf i_0 + \left(\ddot y_0^C - \ell\omega^2\sin\omega t\right)\mathbf j_0 \quad &\text{(components of $\mathbf i_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^G = \ddot x_0^G\,\mathbf i_0 + \ddot y_0^G\,\mathbf j_0 = \mathbf a_0^C - \ell\omega^2\,\mathbf i_1}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$ and $[\mathrm{L}][\mathrm{T^{-2}}]$
+> **Meaning:** the acceleration of $G$ is that of $C$ plus the centripetal acceleration of the turning unbalance, pointing from $G$ back toward $C$.
+
+### Forces and Equations of Motion
+
+![[attachments/EM-SOL/p45-free-body.svg]]
+
+> [!derivation] Forces on the disk
+> **Law:** inventory of the external forces; elastic restoring force proportional to the displacement of $C$
+> **Source:** Notes.pdf, Eq. 5.1; [Lecture 6, Slide 5]; Problems.pdf, p. 31
+>
+> The frame $S_0$ is inertial, so no inertia force appears. The weight is neglected and the motor acts through a couple of zero resultant. The elastic force acts at $C$ and points from $C$ toward $O$; the reaction that keeps the disk in its plane is normal to it. The position of $C$ is then written with the position of $G$ (box of the position vectors), so that the unknowns are the coordinates of $G$ only.
+>
+> $$\begin{aligned}
+> \mathbf F_k &= -k\,\mathbf r_0^C \quad &\text{(restoring force of zero natural length, acting at $C$)} \\
+> \mathbf R &= R_z\,\mathbf k_0 \quad &\text{(reaction of the plane of motion, unknown)} \\
+> \mathbf r_0^C &= \mathbf r_0^G - \ell\,\mathbf i_1 \quad &\text{(position vector of $G$ solved for $C$)} \\
+> \mathbf F_k &= -k\,\mathbf r_0^G + k\ell\,\mathbf i_1 \quad &\text{(substitution)} \\
+> &= \left(-k x_0^G + k\ell\cos\omega t\right)\mathbf i_0 + \left(-k y_0^G + k\ell\sin\omega t\right)\mathbf j_0 \quad &\text{(components of $\mathbf i_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_k = -k\,\mathbf r_0^G + k\ell\cos\omega t\,\mathbf i_0 + k\ell\sin\omega t\,\mathbf j_0, \qquad \mathbf R = R_z\,\mathbf k_0}$$
+>
+> **Units:** $[k][\mathrm{L}] = [\mathrm{M\,T^{-2}}][\mathrm{L}] = [\mathrm{M\,L\,T^{-2}}]$ for $\mathbf F_k$ and each of its terms; $[R_z] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** seen from $G$, the spring acts as a restoring force toward $O$ plus a force of constant magnitude $k\ell$ that turns with the unbalance: the excitation of the rotor.
+
+> [!derivation] Equation of the dynamics of the centre of mass
+> **Law:** Newton's second law for the particle $G$ in the inertial frame $S_0$, projected on $\mathcal B_0$
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.5; Notes.pdf, Eq. 5.32
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^G &= \mathbf F_k + \mathbf R \quad &\text{(Newton's second law with every external force)} \\
+> m\ddot x_0^G\,\mathbf i_0 + m\ddot y_0^G\,\mathbf j_0 &= \left(-k x_0^G + k\ell\cos\omega t\right)\mathbf i_0 + \left(-k y_0^G + k\ell\sin\omega t\right)\mathbf j_0 + R_z\,\mathbf k_0 \quad &\text{(acceleration and forces in $\mathcal B_0$)} \\
+> \mathbf k_0:\quad 0 &= R_z \quad &\text{(dot product with $\mathbf k_0$: planar motion, weight neglected)} \\
+> \mathbf i_0:\quad m\ddot x_0^G &= -k x_0^G + k\ell\cos\omega t \quad &\text{(dot product with $\mathbf i_0$)} \\
+> \mathbf j_0:\quad m\ddot y_0^G &= -k y_0^G + k\ell\sin\omega t \quad &\text{(dot product with $\mathbf j_0$)} \\
+> \ddot x_0^G + \omega_0^2 x_0^G &= \omega_0^2\ell\cos\omega t \quad &\text{(division by $m$; $\omega_0^2$ is $k/m$)} \\
+> \ddot y_0^G + \omega_0^2 y_0^G &= \omega_0^2\ell\sin\omega t \quad &\text{(the same for the second component)}
+> \end{aligned}$$
+>
+> $$\boxed{m\ddot{\mathbf r}_0^G + k\,\mathbf r_0^G = k\ell\,\mathbf i_1, \qquad \ddot x_0^G + \omega_0^2 x_0^G = \omega_0^2\ell\cos\omega t, \qquad \ddot y_0^G + \omega_0^2 y_0^G = \omega_0^2\ell\sin\omega t, \qquad R_z = 0}$$
+>
+> **Units:** $[\mathrm{M\,L\,T^{-2}}]$ for the vector equation and for $R_z$; $[\mathrm{L\,T^{-2}}]$ on both sides of the scalar equations; $[\omega_0^2] = [k/m] = [\mathrm{M\,T^{-2}}][\mathrm{M^{-1}}] = [\mathrm{T^{-2}}]$
+> **Meaning:** each coordinate of $G$ is an undamped harmonic oscillator of natural frequency $\omega_0$ under a harmonic force at the rate of the disk (Notes.pdf, Eq. 5.32 with zero damping); the two equations are uncoupled, and the plane of motion carries no load.
+
+### Answers and Checks
+
+#### Particular solution for the centre of mass
+
+> [!derivation] Steady motion of the centre of mass
+> **Law:** general solution of a linear equation as homogeneous plus particular solution; method of undetermined coefficients for a harmonic forcing
+> **Source:** Notes.pdf, Eq. 5.7; Notes.pdf, Sec. 5.4; [Lecture 6, Slide 3]; [Lecture 6, Slide 11]
+>
+> The homogeneous solution is the free oscillation at $\omega_0$ (Notes.pdf, Eq. 5.7); the statement assumes it has died out. The forcing is harmonic at $\omega$, so the particular solution is sought as the same harmonic with an unknown amplitude, for $\omega \neq \omega_0$.
+>
+> $$\begin{aligned}
+> x_0^G &= x_h + x_p,\quad x_h = C_1\cos\omega_0 t + C_2\sin\omega_0 t \to 0 \quad &\text{(general solution; homogeneous part damped out, hypothesis)} \\
+> x_p &= a\cos\omega t \quad &\text{(trial function at the forcing frequency)} \\
+> \dot x_p &= -a\omega\sin\omega t \quad &\text{(chain rule: derivative of $\cos u$ times the derivative of $u = \omega t$)} \\
+> \ddot x_p &= -a\omega^2\cos\omega t \quad &\text{(chain rule again)} \\
+> -a\omega^2\cos\omega t + \omega_0^2 a\cos\omega t &= \omega_0^2\ell\cos\omega t \quad &\text{(substitution in the equation of $x_0^G$)} \\
+> a\left(\omega_0^2 - \omega^2\right) &= \omega_0^2\ell \quad &\text{(coefficients of $\cos\omega t$ equated)} \\
+> a &= \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2} \quad &\text{(division, valid for $\omega \neq \omega_0$)} \\
+> y_p &= b\sin\omega t,\quad \ddot y_p = -b\omega^2\sin\omega t \quad &\text{(same trial for the second component; chain rule twice)} \\
+> b\left(\omega_0^2 - \omega^2\right) &= \omega_0^2\ell \Rightarrow b = a \quad &\text{(coefficients of $\sin\omega t$ equated)}
+> \end{aligned}$$
+>
+> $$\boxed{x_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\cos\omega t,\qquad y_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\sin\omega t,\qquad \omega_0 = \sqrt{k/m}}$$
+>
+> **Units:** $[a] = [b] = [\mathrm{T^{-2}}][\mathrm{L}]/[\mathrm{T^{-2}}] = [\mathrm{L}]$, so $x_0^G$, $y_0^G$, $x_h$, $x_p$ and $y_p$ are in $[\mathrm{L}]$; $[\omega_0] = ([\mathrm{M\,T^{-2}}]/[\mathrm{M}])^{1/2} = [\mathrm{T^{-1}}]$; $\omega t$ dimensionless
+> **Meaning:** in steady state $G$ describes a circle about $O$ at the rate of the disk, and stays on the line through $O$ along the unbalance direction: the position vector of $G$ is the amplitude times $\mathbf i_1$.
+
+#### Position of the geometric centre
+
+> [!derivation] Steady motion of the geometric centre
+> **Law:** position vector of $C$ from that of $G$ and the unbalance
+> **Source:** Notes.pdf, Eq. 2.2; Problems.pdf, p. 31
+>
+> $$\begin{aligned}
+> x_0^C &= x_0^G - \ell\cos\omega t \quad &\text{(box of the position vectors, first component)} \\
+> &= \left(\frac{\omega_0^2}{\omega_0^2 - \omega^2} - 1\right)\ell\cos\omega t \quad &\text{(common factor $\ell\cos\omega t$)} \\
+> &= \frac{\omega_0^2 - \omega_0^2 + \omega^2}{\omega_0^2 - \omega^2}\,\ell\cos\omega t \quad &\text{(common denominator)} \\
+> &= \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\cos\omega t \quad &\text{(the squares of $\omega_0$ cancel)} \\
+> y_0^C &= y_0^G - \ell\sin\omega t = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\sin\omega t \quad &\text{(same steps for the second component)}
+> \end{aligned}$$
+>
+> $$\boxed{x_0^C(t) = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\cos\omega t,\qquad y_0^C(t) = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\sin\omega t}$$
+>
+> **Units:** $[\mathrm{T^{-2}}][\mathrm{L}]/[\mathrm{T^{-2}}] = [\mathrm{L}]$
+> **Meaning:** the geometric centre also whirls in a circle about $O$ at the rate of the disk; $O$, $C$ and $G$ stay on one line, the line of $\mathbf i_1$.
+
+#### Is the distance OC larger than OG above the natural frequency?
+
+![[attachments/EM-SOL/p45-sub-super.svg]]
+
+> [!derivation] Radii of the two circles and their ratio
+> **Law:** magnitude of a position vector from its Cartesian components
+> **Source:** Notes.pdf, Eq. 2.5; Problems.pdf, p. 31
+>
+> $$\begin{aligned}
+> |OG| &= \sqrt{\left(x_0^G\right)^2 + \left(y_0^G\right)^2} = \frac{\omega_0^2\ell}{\left|\omega_0^2 - \omega^2\right|}\sqrt{\cos^2\omega t + \sin^2\omega t} \quad &\text{(common factor; square root of a square is the absolute value)} \\
+> &= \frac{\omega_0^2\ell}{\left|\omega_0^2 - \omega^2\right|} \quad &\text{(Pythagorean identity)} \\
+> |OC| &= \frac{\omega^2\ell}{\left|\omega_0^2 - \omega^2\right|} \quad &\text{(same steps with the components of $C$)} \\
+> \frac{|OC|}{|OG|} &= \frac{\omega^2}{\omega_0^2} = \frac{m\omega^2}{k} \quad &\text{(quotient; the common factor cancels)} \\
+> \omega \gt \omega_0 &\Leftrightarrow \frac{\omega^2}{\omega_0^2} \gt 1 \Leftrightarrow |OC| \gt |OG| \quad &\text{(both rates positive, squaring keeps the order)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{|OC|}{|OG|} = \frac{m\omega^2}{k},\qquad \omega \gt \sqrt{k/m} \Rightarrow |OC| \gt |OG|\ \text{(yes)}}$$
+>
+> **Units:** $[\mathrm{M}][\mathrm{T^{-2}}]/[\mathrm{M\,T^{-2}}] = [1]$
+> **Meaning:** above the natural frequency the amplitude of $G$ has the opposite sign to the unbalance, so $G$ lies between $O$ and $C$: the rotor turns about a point closer to its centre of mass than to its geometric centre. Below it, $C$ lies between $O$ and $G$ and the opposite inequality holds.
+
+> [!derivation] The excluded case of resonance
+> **Law:** particular solution when the forcing frequency equals the natural frequency (secular term)
+> **Source:** Notes.pdf, Sec. 5.4; [Lecture 6, Slide 3]
+>
+> At equal rates the trial function solves the homogeneous equation and gives no amplitude. A trial with a factor $t$ is used; the derivatives are written with the product rule and the chain rule.
+>
+> $$\begin{aligned}
+> x_p &= D\,t\sin\omega_0 t \quad &\text{(trial function with a factor $t$)} \\
+> \dot x_p &= D\sin\omega_0 t + D\omega_0 t\cos\omega_0 t \quad &\text{(product rule; chain rule on $\sin\omega_0 t$)} \\
+> \ddot x_p &= 2D\omega_0\cos\omega_0 t - D\omega_0^2 t\sin\omega_0 t \quad &\text{(product rule on the second term; chain rule)} \\
+> \ddot x_p + \omega_0^2 x_p &= 2D\omega_0\cos\omega_0 t \quad &\text{(the terms in $t\sin\omega_0 t$ cancel)} \\
+> 2D\omega_0 &= \omega_0^2\ell \Rightarrow D = \frac{\omega_0\ell}{2} \quad &\text{(coefficients of $\cos\omega_0 t$ equated)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega = \omega_0:\quad x_0^G(t) = \frac{\omega_0\ell}{2}\,t\sin\omega_0 t\ \text{(grows without bound)}}$$
+>
+> **Units:** $[\mathrm{T^{-1}}][\mathrm{L}][\mathrm{T}] = [\mathrm{L}]$
+> **Meaning:** at the critical speed the undamped whirl grows linearly in time; the ratio of radii of the previous box is not defined there, so the question concerns the speeds above it.
+
+#### Limiting cases
+
+> [!derivation] Slow and fast rotation
+> **Law:** limits of the steady solution
+> **Source:** Notes.pdf, Eq. 5.47; [Lecture 6, Slide 13]
+>
+> $$\begin{aligned}
+> \omega \to 0 &: \quad x_0^G \to \ell\cos\omega t,\quad x_0^C \to 0 \quad &\text{($\omega^2$ negligible against $\omega_0^2$)} \\
+> \omega \gg \omega_0 &: \quad x_0^G \to -\frac{\omega_0^2}{\omega^2}\,\ell\cos\omega t \to 0,\quad x_0^C \to -\ell\cos\omega t \quad &\text{($\omega_0^2$ negligible against $\omega^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega \ll \omega_0:\ |OC| \to 0,\ |OG| \to \ell;\qquad \omega \gg \omega_0:\ |OG| \to 0,\ |OC| \to \ell}$$
+>
+> **Units:** $[\mathrm{L}]$
+> **Meaning:** a slow rotor turns about its geometric centre, held at the design position; a fast rotor self-centres and turns about its centre of mass, the geometric centre then circling it at the distance of the unbalance. This is the out-of-phase regime of a fast forcing described in Notes.pdf, Eq. 5.47 and the text after it.
+
+#### Independent check and answers
+
+> [!derivation] Independent check through the equation of the geometric centre
+> **Law:** Newton's second law written with the acceleration of $C$ as the unknown
+> **Source:** Notes.pdf, Eq. 4.4; Problems.pdf, p. 76
+>
+> $$\begin{aligned}
+> m\left(\ddot{\mathbf r}_0^C - \ell\omega^2\,\mathbf i_1\right) &= -k\,\mathbf r_0^C \quad &\text{(acceleration of $G$ written with that of $C$; force at $C$)} \\
+> \ddot x_0^C + \omega_0^2 x_0^C &= \omega^2\ell\cos\omega t \quad &\text{(projection on $\mathbf i_0$, division by $m$)} \\
+> x_0^C &= c_1\cos\omega t,\quad \ddot x_0^C = -c_1\omega^2\cos\omega t \quad &\text{(trial function; chain rule twice)} \\
+> c_1\left(\omega_0^2 - \omega^2\right) &= \omega^2\ell \quad &\text{(coefficients of $\cos\omega t$ equated)}
+> \end{aligned}$$
+>
+> $$\boxed{x_0^C(t) = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\cos\omega t\ \text{(the same as above, from the other unknown)}}$$
+>
+> **Units:** $[\mathrm{L}]$
+> **Meaning:** the forcing on $C$ is the centrifugal effect of the unbalance, of amplitude proportional to the square of the rate; solving for $C$ first and then adding the unbalance gives back the result for $G$.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| Equation of the dynamics of $G$ | $m\ddot{\mathbf r}_0^G + k\,\mathbf r_0^G = k\ell\,\mathbf i_1$, i.e. $\ddot x_0^G + \omega_0^2 x_0^G = \omega_0^2\ell\cos\omega t$ and $\ddot y_0^G + \omega_0^2 y_0^G = \omega_0^2\ell\sin\omega t$, with $\omega_0 = \sqrt{k/m}$ |
+| Steady motion of $G$ ($\omega \ne \omega_0$) | $x_0^G(t) = \dfrac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\cos\omega t$ (and $y_0^G$ with $\sin\omega t$) |
+| Steady motion of $C$ | $x_0^C(t) = \dfrac{\omega^2\ell}{\omega_0^2 - \omega^2}\cos\omega t$ (and $y_0^C$ with $\sin\omega t$) |
+| Is $\lvert OC\rvert \gt \lvert OG\rvert$ for $\omega \gt \sqrt{k/m}$? | Yes: $\lvert OC\rvert/\lvert OG\rvert = m\omega^2/k \gt 1$; for $\omega \lt \sqrt{k/m}$ the opposite holds, and at $\omega = \sqrt{k/m}$ the undamped response grows without bound |
+
+**Check against the official key:** Problems.pdf, p. 76, item 45, gives, for a rate different from the natural frequency, the particular solutions of the coordinates of $G$ and $C$ along $\mathbf i_0$ with the same amplitudes as the table above: **match**. The second components, the ratio of the radii and the answer to the last question follow from them and are not printed in the key. A Runge-Kutta integration of the equation of $G$ with a small added damping (natural frequency 1 rad/s, rate 1.5 rad/s, unbalance 1 m) settles on a circle of radius 0.80 m for $G$ and 1.80 m for $C$, the values of the two formulas.
 
 ---
 
-## 📌 Problem 46: Bumpy Taxiway
+## Problem 46: Bumpy Taxiway
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** the airplane is modelled as a heavy particle $P$ of mass $m$ on a landing gear of stiffness $k$ and nominal (unloaded) length $L$ that rolls at the horizontal speed $c$ on the runway $y_1 = \sin x$. In part (c) a damper of constant $\lambda$ acts between the fuselage and the wheel.
-* **Constraints:** the particle moves only vertically (the horizontal motion at speed $c$ is prescribed and does not enter the vertical dynamics), and the wheel stays on the ground: $y_b(t) = \sin(ct)$ with $x = ct$. This is a prescribed, time-dependent (rheonomic) base motion. The wheel contact is a unilateral constraint, assumed to remain active.
-* **Degrees of freedom:** $\text{CDOF} = 1$, with the height $y$ of $P$.
-* **Hypotheses:** the profile is written with unit wavenumber ($1\ \text{m}^{-1}$), so the excitation has angular frequency $\Omega = c$ (rad/s when $c$ is in m/s); gravity acts on $m$; the gear is linear.
-* **Parameters:** $m$ [kg], $k$ [N/m], $L$ [m], $c$ [m/s], $g$ [m/s$^2$], $\omega_0 = \sqrt{k/m}$ [rad/s], $\lambda$ [N s/m].
+### Reference Frames, Bases and Coordinates
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$ with $Oy$ vertical upward (constant unit vectors).
+The airplane is modelled as a heavy particle $P$ of mass $m$ carried by a landing gear: a spring of stiffness $k$ and natural length $L$ (and, in part (c), a damper of constant $\lambda$) whose lower end rolls on the runway. The airplane advances at the constant horizontal speed $c$, so the lower end of the gear follows the profile of the runway and moves up and down in time: the vertical motion of $P$ is that of an oscillator excited through its base. The tools are those of chapters 4 and 5 of Notes.pdf and of Lecture 6 (Problems.pdf, p. 31).
 
-### Phase 3: Derivation
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$ attached to the runway, $O$ on the mean level of the profile, below the position of the wheel at $t = 0$ (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$: $\mathbf i$ horizontal along the runway in the sense of taxiing, $\mathbf j$ vertical upward, $\mathbf k = \mathbf i\times\mathbf j$ out of the paper (⊙) in the figure |
+| Moving frames | none |
+| Points | $P$ the airplane; $B$ the lower end of the gear, in contact with the runway |
+| Coordinates | $x_P = c\,t$ (prescribed horizontal motion); $y(t)$ height of $P$, the unknown; $y_b(t)$ height of $B$ |
+| Profile | $y_1 = h\sin(\kappa x)$ with $h = 1$ m and $\kappa = 1$ rad/m: the statement writes $\sin x$ with lengths in metres, and the two symbols only keep the units visible |
+| Data | $m$ [kg]; $k$ [N/m]; $L$ [m]; $c$ [m/s]; $\lambda$ [N s/m] (part c); $g$ [m s$^{-2}$] |
+| Derived data | $\Omega = \kappa c$ [rad/s], angular frequency of the excitation; $\omega_0 = \sqrt{k/m}$ [rad/s]; $\gamma = \lambda/(2m)$ [s$^{-1}$] (Notes.pdf, Eq. 5.23) |
+| Hypotheses | the wheel is a point that never leaves the runway (the unilateral contact is assumed active); the gear stays vertical, below $P$; the spring and the damper are linear; the horizontal speed is constant (thrust balances the rolling resistance); gravity acts on $P$ |
+| Constraints | $x_P = c\,t$ (prescribed, rheonomic); $z_P = 0$; $B$ on the profile under $P$ |
+| Degrees of freedom | 1, the height $y$ |
 
-#### 3.1 Kinematics
-* **Pedagogical Justification:** the particle moves along the vertical, and the length of the spring is the distance between $P$ and the ground point under the wheel:
-$$ \mathbf{r}_P = y\,\mathbf{j}, \qquad \mathbf{a}_P = \ddot{y}\,\mathbf{j}, \qquad y_b(t) = \sin(ct), \qquad \dot{y}_b = c\cos(ct), \qquad \ell_s = y - y_b $$
+![[attachments/EM-SOL/p46-taxiway-plane.svg]]
 
-#### 3.2 Forces
-* **Weight:** $-mg\,\mathbf{j}$. **Spring force:** $-k\left(\ell_s - L\right)\mathbf{j}$ (upward when compressed). **Damper (part c):** $-\lambda\left(\dot{y} - \dot{y}_b\right)\mathbf{j}$, proportional to the relative velocity between the fuselage and the wheel. **Inertia forces:** none.
+### Change of Basis and Position Vector
 
-#### 3.3 Equations of Motion
-* **Newton's second law along $Oy$:**
-$$ m\ddot{y} = -k\left[y - \sin(ct) - L\right] - mg $$
-* The constant weight only shifts the equilibrium. With $y = z + L - mg/k$ (so $\ddot{y} = \ddot{z}$ and $-k(y - L) - mg = -kz$), $z$ measures the motion about the static equilibrium over flat ground:
-$$ m\ddot{z} = -kz + k\sin(ct) \implies \ddot{z} + \omega_0^2z = \omega_0^2\sin(ct) $$
+> [!derivation] The only basis and its change of basis matrix
+> **Law:** change of basis matrix between two bases; orthonormality and unit determinant
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15
+>
+> $$\begin{aligned}
+> \mathbf i &= 1\,\mathbf i + 0\,\mathbf j + 0\,\mathbf k, \quad \mathbf j = 0\,\mathbf i + 1\,\mathbf j + 0\,\mathbf k, \quad \mathbf k = 0\,\mathbf i + 0\,\mathbf j + 1\,\mathbf k \quad &\text{(columns: components of $\mathbf i$, $\mathbf j$, $\mathbf k$ in $\mathcal B_0$)} \\
+> \det[{}_0R_0] &= 1\cdot(1\cdot 1 - 0\cdot 0) - 0 + 0 = 1 \quad &\text{(expansion along the first row)} \\
+> [{}_0R_0][{}_0R_0]^T &= I\,I = I \quad &\text{(the identity is symmetric and equal to its square)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_0] = \begin{pmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_0] = 1, \quad [{}_0R_0][{}_0R_0]^T = I}$$
+>
+> **Units:** every entry is a direction cosine: $[1]$
+> **Meaning:** no rotation is involved; the unit vectors of $\mathcal B_0$ are constant in $S_0$.
 
-#### 3.4 Integration and Answers
-##### (a) Resonance
-* **Pedagogical Justification:** this is a harmonic oscillator forced at the angular frequency $\Omega = c$ by the base motion (Notes Sec. 5.4). Resonance occurs when the forcing frequency equals the natural frequency: the amplitude of the forced response, $A = \omega_0^2/(\omega_0^2 - c^2)$ derived in (b) below, diverges at $c = \omega_0$. There the trial $A\sin(ct)$ fails (it solves the homogeneous equation) and the particular solution is $z_p = -\tfrac{1}{2}\omega_0t\cos(\omega_0t)$ (check: $\ddot z_p + \omega_0^2z_p = \omega_0^2\sin(\omega_0t)$), which grows linearly in time, as in Problem 45.
-$$ \boxed{c_{\text{res}} = \omega_0 = \sqrt{\frac{k}{m}}} $$
-For a profile of general wavelength $\Lambda$ the resonant speed would be $c = \omega_0\Lambda/2\pi$ (here $\Lambda = 2\pi$).
+> [!derivation] Position vectors of the airplane and of the wheel; length of the gear
+> **Law:** position vector in Cartesian components; composition of a function of the abscissa with the prescribed motion
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.5; Problems.pdf, p. 31
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= x_P\,\mathbf i + y\,\mathbf j = c\,t\,\mathbf i + y\,\mathbf j \quad &\text{(prescribed abscissa, unknown height)} \\
+> \mathbf r_0^B &= c\,t\,\mathbf i + y_b\,\mathbf j, \quad y_b(t) = h\sin\left(\kappa\,x_P(t)\right) = h\sin\left(\kappa c\,t\right) = h\sin\Omega t \quad &\text{($B$ on the profile, vertically below $P$)} \\
+> \overrightarrow{BP} &= \mathbf r_0^P - \mathbf r_0^B = \left(y - y_b\right)\mathbf j \quad &\text{(difference of the two position vectors)} \\
+> \ell_s &= \left|\overrightarrow{BP}\right| = y - y_b \quad &\text{($P$ above $B$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = c\,t\,\mathbf i + y\,\mathbf j, \qquad y_b = h\sin\Omega t, \qquad \ell_s = y - h\sin\Omega t}$$
+>
+> **Units:** $[\mathrm{L}]$ for the position vectors, $y$, $y_b$, $h$ and $\ell_s$; $[\kappa c\,t] = [\mathrm{L^{-1}}][\mathrm{L\,T^{-1}}][\mathrm{T}] = [1]$; $[\Omega] = [\mathrm{T^{-1}}]$
+> **Meaning:** the wheel rises and falls with the bumps at the angular frequency $\Omega$, which grows with the taxiing speed; the gear is compressed when its length is below $L$.
 
-##### (b) Amplitude at very high speed
-* **Pedagogical Justification:** the motion is the free oscillation at $\omega_0$ plus the forced response; with negligible damping the free part does not decay and depends only on the initial conditions. The amplitude asked for is that of the forced part, the particular solution $z_p = A\sin(ct)$ for $c \ne \omega_0$ (in units of the bump height, $1$ m):
-$$ \ddot{z}_p = -c^2A\sin ct \implies \left(\omega_0^2 - c^2\right)A = \omega_0^2 \implies A = \frac{\omega_0^2}{\omega_0^2 - c^2} $$
-$$ \boxed{|A(c)| = \frac{\omega_0^2}{\left|\omega_0^2 - c^2\right|} \xrightarrow[c \gg \omega_0]{} \frac{\omega_0^2}{c^2} = \frac{k}{mc^2}} $$
-For very high speed the amplitude decays as $1/c^2$: the mass cannot follow the fast bumps, and $z_p$ is in antiphase with the road ($A \lt 0$ for $c \gt \omega_0$).
+### Kinematics
 
-##### (c) Landing gear with damping $\lambda$
-* **Pedagogical Justification:** the damper adds $-\lambda\left(\dot{y} - \dot{y}_b\right)$. With $a = \lambda/m = 2\zeta\omega_0$ and the damping ratio $\zeta = \lambda/\left(2\sqrt{km}\right)$:
-$$ \ddot{z} + a\dot{z} + \omega_0^2z = \omega_0^2\sin(ct) + ac\cos(ct) $$
-* **Transient (homogeneous solution).** The characteristic equation $r^2 + ar + \omega_0^2 = 0$ has the roots $r = -\zeta\omega_0 \pm \omega_0\sqrt{\zeta^2 - 1}$:
-  - Underdamped, $\lambda \lt 2\sqrt{km}$ ($\zeta \lt 1$): $z_h = e^{-\zeta\omega_0t}\left(C_1\cos\omega_dt + C_2\sin\omega_dt\right)$ with $\omega_d = \omega_0\sqrt{1 - \zeta^2}$.
-  - Critical, $\lambda = 2\sqrt{km}$ ($\zeta = 1$): $z_h = (C_1 + C_2t)e^{-\omega_0t}$, the fastest return without oscillation.
-  - Overdamped, $\lambda \gt 2\sqrt{km}$ ($\zeta \gt 1$): $z_h = C_1e^{r_1t} + C_2e^{r_2t}$ with $r_{1,2} \lt 0$ real, a slower return (the three regimes of Notes Sec. 5.3).
-* **Steady state.** The forcing is the imaginary part of $\left(\omega_0^2 + iac\right)e^{ict}$, so with $z_p = \operatorname{Im}\left[He^{ict}\right]$. Substituting $\tilde z = He^{ict}$, the chain rule gives $\dot{\tilde z} = ic\,\tilde z$ and $\ddot{\tilde z} = -c^2\tilde z$, so the equation becomes $\left(\omega_0^2 - c^2 + iac\right)H = \omega_0^2 + iac$ (Notes Sec. 5.2, complex representation):
-$$ H = \frac{\omega_0^2 + iac}{\omega_0^2 - c^2 + iac}, \qquad |H|^2 = \frac{\omega_0^4 + a^2c^2}{\left(\omega_0^2 - c^2\right)^2 + a^2c^2} $$
-The steady amplitude is $|H|$ and it is always finite. At resonance, $c = \omega_0$: $|H(\omega_0)| = \sqrt{1 + \dfrac{\omega_0^2}{a^2}} = \sqrt{1 + \dfrac{1}{4\zeta^2}}$. For $c \gg \max\left(a, \omega_0^2/a\right)$ (so that the damping term dominates both the numerator and the denominator), $|H| \approx ac/c^2 = a/c = \lambda/(mc)$: it decays only as $1/c$, slower than the undamped $1/c^2$ of part (b).
-* **The steady state is the same in the three cases.** The formula $|H|$ does not depend on whether the gear is underdamped, critical or overdamped; only the transient $z_h$ differs, and it dies out in all three.
-* **Effect on the results of (a) and (b).** With $r = c/\omega_0$ and $a = 2\zeta\omega_0$ (extension notation; the notes use $\gamma = \lambda/(2m)$, with $\zeta = \gamma/\omega_0$), $|H|^2 = \dfrac{1 + 4\zeta^2r^2}{\left(1 - r^2\right)^2 + 4\zeta^2r^2}$. The resonance is no longer infinite: the maximum of $|H|$ moves below $\omega_0$, to $r_p^2 = \dfrac{\sqrt{1 + 8\zeta^2} - 1}{4\zeta^2} \lt 1$ (with $u = r^2$, $N = 1 + 4\zeta^2u$ and $D = (1 - u)^2 + 4\zeta^2u$, the quotient rule gives $N'D - ND' = 4\zeta^2\left[(1 - u)^2 + 4\zeta^2u\right] - (1 + 4\zeta^2u)\left[-2(1 - u) + 4\zeta^2\right] = 2(1 - u - 2\zeta^2u^2)$, so $d|H|^2/du = 0$ means $2\zeta^2r^4 + r^2 - 1 = 0$), with $|H|_{\max} = 1.47$ for $\zeta = 0.5$ ($r_p = 0.856$) and $1.28$ for $\zeta = 0.7$ ($r_p = 0.788$). At $c = \omega_0$ the value is $|H(\omega_0)| = \sqrt{1 + 1/(4\zeta^2)}$, i.e. $1.41$ and $1.23$.
-* **A fixed point of the curve.** At $c = \sqrt{2}\,\omega_0$ ($r^2 = 2$), $|H|^2 = \dfrac{1 + 8\zeta^2}{1 + 8\zeta^2} = 1$ for every $\zeta$: below this speed damping reduces the transmitted amplitude, above it damping increases it. The high-speed decay is only $1/c$.
-* **Choice of $\lambda$.** Critical damping gives the fastest return of the transient without oscillation, but a larger $\lambda$ transmits more amplitude above $c = \sqrt{2}\,\omega_0$ and attenuates the bumps at high speed only as $1/c$. A compromise is $\zeta$ somewhat below $1$ (underdamped): it keeps the resonant peak moderate ($1.28$ to $1.47$ for $\zeta = 0.7$ to $0.5$) without overdamping.
-* **Effect of the payload.** The mass changes $\omega_0 = \sqrt{k/m}$, so the resonant speed $c_{\text{res}} = \sqrt{k/m}$ is lower for a heavier aircraft, and $\zeta = \lambda/\left(2\sqrt{km}\right) \propto m^{-1/2}$, so a heavier aircraft is less damped. Since $\lambda$ is fixed hardware, it must be chosen so that $\zeta$ stays below $1$ for the lightest payload (to avoid overdamping) and is still large enough to limit the resonant peak for the heaviest one; the lightest payload then has a larger $\zeta$ and a higher resonant speed.
+> [!derivation] Velocities and accelerations
+> **Law:** velocity and acceleration as time derivatives in $S_0$; chain rule
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.7
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \frac{d}{dt}\left(c\,t\,\mathbf i + y\,\mathbf j\right) = c\,\mathbf i + \dot y\,\mathbf j \quad &\text{(constant $c$ and constant unit vectors)} \\
+> \mathbf a_0^P &= \ddot y\,\mathbf j \quad &\text{(derivative once more)} \\
+> \dot y_b &= h\cos\left(\Omega t\right)\frac{d}{dt}\left(\Omega t\right) = h\,\Omega\cos\Omega t \quad &\text{(chain rule)} \\
+> \dot\ell_s &= \dot y - \dot y_b = \dot y - h\,\Omega\cos\Omega t \quad &\text{(rate of the length of the gear)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = c\,\mathbf i + \dot y\,\mathbf j, \qquad \mathbf a_0^P = \ddot y\,\mathbf j, \qquad \dot y_b = h\,\Omega\cos\Omega t}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$ for $\mathbf v_0^P$, $c$, $\dot y$, $\dot y_b$ and $\dot\ell_s$; $[\mathrm{L\,T^{-2}}]$ for $\mathbf a_0^P$
+> **Meaning:** the horizontal motion is uniform, so all the acceleration is vertical; the wheel moves vertically faster when the airplane taxies faster.
 
-### Phase 4: Interpretation & Checks
-* **Dimensional check:** the profile is $y_b = h\sin(\kappa ct)$ with $h = 1$ m and $\kappa = 1$ m$^{-1}$ (Hypotheses), so $\Omega = \kappa c$ is in s$^{-1}$, $[\omega_0^2] = [k/m] = \text{s}^{-2} = [\Omega^2]$, and the forcing $\omega_0^2h\sin(\Omega t)$ is in m/s$^2$; $[a] = [\lambda/m] = \text{N s m}^{-1}\text{kg}^{-1} = \text{s}^{-1}$, so $\zeta = a/(2\omega_0)$ is dimensionless.
-* **Limits:** $c \to 0$ gives $|A| \to 1$ (the airplane follows the road quasi-statically); $\lambda \to 0$ in $|H|$ recovers $|A|$; for $\zeta \to \infty$ at fixed $c$, $|H| \to 1$ for every speed (the gear locks and the airplane follows the road); the $|H| \approx \lambda/(mc)$ regime needs $c \gg \max\left(\lambda/m,\ \omega_0^2m/\lambda\right)$ (otherwise the response still decays as $\omega_0^2/c^2$).
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 46 in its solution keys, so the results are verified by independent derivation. Sympy confirms that the undamped particular solution and the damped steady state satisfy their equations with zero residual; numerical integration of the damped equation ($\omega_0 = 1.7$, $a = 0.6$, $c = 2.3$, over $120$ s) gives a steady amplitude of $1.156806$, equal to $|H| = 1.156806$, and $|H(\omega_0)|^2 = 9.0278 = 1 + \omega_0^2/a^2$.
+### Forces and Equations of Motion
+
+The free-body diagram of $P$ shows the weight, the force of the spring and the force of the damper (both along the gear), and the horizontal resultant transmitted by the gear (thrust minus rolling resistance). $S_0$ is inertial, so no inertia force acts.
+
+![[attachments/EM-SOL/p46-fbd.svg]]
+
+> [!derivation] Forces on the airplane
+> **Law:** linear spring and linear damper along the gear; weight
+> **Source:** Notes.pdf, Eq. 5.19; [Lecture 6, Slide 5]
+>
+> The spring pushes $P$ up when it is compressed (length below $L$) and pulls it down when it is stretched; the damper opposes the rate of change of the length of the gear.
+>
+> $$\begin{aligned}
+> \mathbf F_g &= -m g\,\mathbf j \quad &\text{(weight)} \\
+> \mathbf F_k &= -k\left(\ell_s - L\right)\mathbf j = -k\left(y - y_b - L\right)\mathbf j \quad &\text{(spring: minus the stiffness times the elongation)} \\
+> \mathbf F_\lambda &= -\lambda\,\dot\ell_s\,\mathbf j = -\lambda\left(\dot y - \dot y_b\right)\mathbf j \quad &\text{(damper: minus its constant times the rate of elongation)} \\
+> \mathbf F_x &= F_x\,\mathbf i \quad &\text{(horizontal resultant transmitted by the gear, unknown)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_g = -m g\,\mathbf j, \quad \mathbf F_k = -k\left(y - y_b - L\right)\mathbf j, \quad \mathbf F_\lambda = -\lambda\left(\dot y - \dot y_b\right)\mathbf j, \quad \mathbf F_x = F_x\,\mathbf i}$$
+>
+> **Units:** $[\mathrm{M\,L\,T^{-2}}]$ for every force: $[k][\mathrm{L}] = [\mathrm{M\,T^{-2}}][\mathrm{L}]$, $[\lambda][\mathrm{L\,T^{-1}}] = [\mathrm{M\,T^{-1}}][\mathrm{L\,T^{-1}}]$
+> **Meaning:** the road acts on the airplane only through the gear: through the spring by the position of the wheel and through the damper by its vertical speed.
+
+> [!derivation] Newton's second law and the equation about the static equilibrium
+> **Law:** Newton's second law in an inertial frame; projection on $\mathcal B_0$; change of variable to the static equilibrium
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.5; Notes.pdf, Eq. 5.32
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^P &= \mathbf F_g + \mathbf F_k + \mathbf F_\lambda + \mathbf F_x \quad &\text{(second law with every force)} \\
+> \mathbf i:\quad 0 &= F_x \quad &\text{(dot product with $\mathbf i$: no horizontal acceleration)} \\
+> \mathbf j:\quad m\ddot y &= -m g - k\left(y - y_b - L\right) - \lambda\left(\dot y - \dot y_b\right) \quad &\text{(dot product with $\mathbf j$)} \\
+> y_e &= L - \frac{m g}{k} \quad &\text{(static equilibrium on flat ground: $0 = -m g - k(y_e - L)$)} \\
+> y &= y_e + z, \quad \dot y = \dot z, \quad \ddot y = \ddot z \quad &\text{(new unknown $z$; $y_e$ is constant)} \\
+> m\ddot z + \lambda\dot z + k z &= k\,y_b + \lambda\,\dot y_b \quad &\text{(substitution: the weight and $k(y_e - L)$ cancel)} \\
+> \ddot z + 2\gamma\dot z + \omega_0^2 z &= \omega_0^2 h\sin\Omega t + 2\gamma h\,\Omega\cos\Omega t \quad &\text{(division by $m$; $k/m = \omega_0^2$, $\lambda/m = 2\gamma$)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot z + 2\gamma\dot z + \omega_0^2 z = \omega_0^2 h\sin\Omega t + 2\gamma h\,\Omega\cos\Omega t, \qquad y = L - \frac{m g}{k} + z, \qquad F_x = 0}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$ for every term of the scalar equation ($[\gamma] = [\Omega] = [\omega_0] = [\mathrm{T^{-1}}]$, $[h] = [\mathrm{L}]$); $[y_e] = [\mathrm{L}]$; $[F_x] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** about its static position the airplane is a damped harmonic oscillator forced at the frequency of the bumps; the weight only lowers the equilibrium by the static deflection $mg/k$.
+
+### Answers and Checks
+
+#### (a) Resonance without damping
+
+> [!derivation] Forced response without damping
+> **Law:** particular solution of the forced oscillator by undetermined coefficients
+> **Source:** Notes.pdf, Sec. 5.4; [Lecture 6, Slide 3]; [Lecture 6, Slide 11]
+>
+> With the damping negligible the equation is the undamped one, and the general solution is the free oscillation at $\omega_0$ plus a particular solution at the frequency of the forcing.
+>
+> $$\begin{aligned}
+> \ddot z + \omega_0^2 z &= \omega_0^2 h\sin\Omega t \quad &\text{(equation with $\gamma = 0$)} \\
+> z_p &= A\sin\Omega t, \quad \dot z_p = A\Omega\cos\Omega t, \quad \ddot z_p = -A\Omega^2\sin\Omega t \quad &\text{(trial function; chain rule twice)} \\
+> \left(\omega_0^2 - \Omega^2\right)A\sin\Omega t &= \omega_0^2 h\sin\Omega t \quad &\text{(substitution)} \\
+> A &= \frac{\omega_0^2 h}{\omega_0^2 - \Omega^2} \quad &\text{(coefficients equated, $\Omega \neq \omega_0$)} \\
+> z &= C_1\cos\omega_0 t + C_2\sin\omega_0 t + A\sin\Omega t \quad &\text{(free plus forced oscillation)}
+> \end{aligned}$$
+>
+> $$\boxed{z_p = \frac{\omega_0^2 h}{\omega_0^2 - \Omega^2}\sin\Omega t, \qquad \Omega = \kappa c}$$
+>
+> **Units:** $[A] = [\mathrm{T^{-2}}][\mathrm{L}]/[\mathrm{T^{-2}}] = [\mathrm{L}]$; $C_1$, $C_2$ and $z$ in $[\mathrm{L}]$
+> **Meaning:** the forced amplitude grows without limit as the frequency of the bumps approaches the natural frequency of the airplane on its gear.
+
+> [!derivation] Resonant taxiing speed
+> **Law:** resonance: the forcing frequency equals the natural frequency; particular solution with a factor $t$
+> **Source:** Notes.pdf, Sec. 5.4.1; [Lecture 6, Slide 14]
+>
+> At equal frequencies the trial of the previous box solves the homogeneous equation and fails; the trial with a factor $t$ is used, with the product rule and the chain rule.
+>
+> $$\begin{aligned}
+> \Omega &= \omega_0 \Leftrightarrow \kappa c = \sqrt{k/m} \quad &\text{(denominator of the amplitude equal to zero)} \\
+> z_p &= D\,t\cos\omega_0 t \quad &\text{(trial function with a factor $t$)} \\
+> \dot z_p &= D\cos\omega_0 t - D\omega_0 t\sin\omega_0 t \quad &\text{(product rule; chain rule)} \\
+> \ddot z_p &= -2D\omega_0\sin\omega_0 t - D\omega_0^2 t\cos\omega_0 t \quad &\text{(the same rules once more)} \\
+> \ddot z_p + \omega_0^2 z_p &= -2D\omega_0\sin\omega_0 t = \omega_0^2 h\sin\omega_0 t \quad &\text{(the terms in $t\cos\omega_0 t$ cancel)} \\
+> D &= -\frac{\omega_0 h}{2} \quad &\text{(coefficients of $\sin\omega_0 t$ equated)}
+> \end{aligned}$$
+>
+> $$\boxed{c_{\text{res}} = \frac{1}{\kappa}\sqrt{\frac{k}{m}}\ \ (\text{numerically } \sqrt{k/m} \text{ in m/s}), \qquad z_p = -\frac{\omega_0 h}{2}\,t\cos\omega_0 t}$$
+>
+> **Units:** $[c_{\text{res}}] = [\mathrm{L}][\mathrm{T^{-1}}] = [\mathrm{L\,T^{-1}}]$; $[D] = [\mathrm{T^{-1}}][\mathrm{L}]$, so $D\,t$ and $z_p$ are in $[\mathrm{L}]$
+> **Meaning:** at this speed one bump arrives every natural period of the airplane on its gear, and without damping the oscillation grows linearly in time.
+
+#### (b) Amplitude at very high taxiing speed
+
+> [!derivation] Forced amplitude for a very high speed
+> **Law:** limit of the forced amplitude when the forcing frequency is much larger than the natural one
+> **Source:** Notes.pdf, Sec. 5.4.1; [Lecture 6, Slide 13]
+>
+> Without damping the free part keeps the amplitude fixed by the initial conditions and does not depend on the speed; the amplitude asked for is that of the forced part.
+>
+> $$\begin{aligned}
+> |A| &= \frac{\omega_0^2 h}{\left|\omega_0^2 - \kappa^2 c^2\right|} \quad &\text{(previous box with $\Omega = \kappa c$)} \\
+> &= \frac{\omega_0^2 h}{\kappa^2 c^2 - \omega_0^2} = \frac{\omega_0^2 h}{\kappa^2 c^2}\cdot\frac{1}{1 - \omega_0^2/(\kappa^2 c^2)} \quad &\text{($\kappa c \gt \omega_0$; factor $\kappa^2 c^2$ taken out)} \\
+> &\approx \frac{\omega_0^2 h}{\kappa^2 c^2} = \frac{k\,h}{m\,\kappa^2 c^2} \quad &\text{($\omega_0^2/(\kappa^2 c^2) \ll 1$)}
+> \end{aligned}$$
+>
+> $$\boxed{|A| \approx \frac{k\,h}{m\,\kappa^2 c^2}\ \ (\text{numerically } \frac{k}{m c^2} \text{ in metres}), \qquad A \lt 0}$$
+>
+> **Units:** $\frac{[\mathrm{M\,T^{-2}}][\mathrm{L}]}{[\mathrm{M}][\mathrm{L^{-2}}][\mathrm{L^2\,T^{-2}}]} = [\mathrm{L}]$
+> **Meaning:** the airplane cannot follow fast bumps: its forced amplitude decays as the inverse square of the speed and moves in opposition to the road, as a free mass shaken through a soft spring.
+
+#### (c) Landing gear with damping
+
+> [!derivation] Transient: the three damping regimes
+> **Law:** characteristic equation of the damped oscillator; underdamped, critical and overdamped solutions
+> **Source:** Notes.pdf, Eq. 5.22; Notes.pdf, Eq. 5.26; Notes.pdf, Eq. 5.30; Notes.pdf, Eq. 5.31; [Lecture 6, Slide 8]
+>
+> $$\begin{aligned}
+> p^2 + 2\gamma p + \omega_0^2 &= 0 \Rightarrow p = -\gamma \pm \sqrt{\gamma^2 - \omega_0^2} \quad &\text{(trial $e^{pt}$ in the homogeneous equation)} \\
+> \gamma \lt \omega_0:\quad z_h &= a\,e^{-\gamma t}\cos\left(\omega t + \phi\right), \quad \omega = \sqrt{\omega_0^2 - \gamma^2} \quad &\text{(underdamped: complex roots)} \\
+> \gamma = \omega_0:\quad z_h &= \left(a + b\,t\right)e^{-\gamma t} \quad &\text{(critical: double root)} \\
+> \gamma \gt \omega_0:\quad z_h &= A_+ e^{-\gamma_+ t} + A_- e^{-\gamma_- t}, \quad \gamma_\pm = \gamma \pm \sqrt{\gamma^2 - \omega_0^2} \quad &\text{(overdamped: two negative real roots)}
+> \end{aligned}$$
+>
+> $$\boxed{\lambda \lt 2\sqrt{k m}:\ \text{underdamped}; \quad \lambda = 2\sqrt{k m}:\ \text{critical}; \quad \lambda \gt 2\sqrt{k m}:\ \text{overdamped}; \quad z_h \to 0 \text{ in the three cases}}$$
+>
+> **Units:** $[p] = [\gamma] = [\gamma_\pm] = [\omega] = [\mathrm{T^{-1}}]$; $a$, $A_\pm$, $z_h$ in $[\mathrm{L}]$, $b$ in $[\mathrm{L\,T^{-1}}]$; $[\lambda] = [\sqrt{k m}] = [\mathrm{M\,T^{-1}}]$
+> **Meaning:** with any damping the free oscillation dies out: oscillating within the time $1/\gamma$ when underdamped, fastest without oscillation when critical, slowly (time $1/\gamma_-$) when overdamped; afterwards only the forced response remains.
+
+> [!derivation] Steady response with damping
+> **Law:** complex representation of the forced oscillator; the imaginary part of a complex solution is a solution
+> **Source:** Notes.pdf, Eq. 5.18; Notes.pdf, Eq. 5.35; Notes.pdf, Eq. 5.37; [Lecture 6, Slide 11]
+>
+> The forcing is the imaginary part of $(\omega_0^2 + 2i\gamma\Omega)\,h\,e^{i\Omega t}$, because $\mathrm{Im}\,e^{i\Omega t} = \sin\Omega t$ and $\mathrm{Im}\,(i\,e^{i\Omega t}) = \cos\Omega t$. The complex equation is solved and its imaginary part taken.
+>
+> $$\begin{aligned}
+> \ddot{\tilde z} + 2\gamma\dot{\tilde z} + \omega_0^2\tilde z &= \left(\omega_0^2 + 2i\gamma\Omega\right)h\,e^{i\Omega t} \quad &\text{(complex equation)} \\
+> \tilde z &= H\,h\,e^{i\Omega t}, \quad \dot{\tilde z} = i\Omega\,\tilde z, \quad \ddot{\tilde z} = -\Omega^2\tilde z \quad &\text{(trial at the forcing frequency; chain rule)} \\
+> \left(\omega_0^2 - \Omega^2 + 2i\gamma\Omega\right)H &= \omega_0^2 + 2i\gamma\Omega \quad &\text{(substitution; division by $h\,e^{i\Omega t}$)} \\
+> |H|^2 &= \frac{\omega_0^4 + 4\gamma^2\Omega^2}{\left(\omega_0^2 - \Omega^2\right)^2 + 4\gamma^2\Omega^2} \quad &\text{(modulus of a quotient: quotient of the moduli)} \\
+> z_p &= \mathrm{Im}\,\tilde z = |H|\,h\sin\left(\Omega t + \arg H\right) \quad &\text{(imaginary part; $H = |H|e^{i\arg H}$)}
+> \end{aligned}$$
+>
+> $$\boxed{z_p = |H|\,h\sin\left(\Omega t + \arg H\right), \qquad |H| = \sqrt{\frac{\omega_0^4 + 4\gamma^2\Omega^2}{\left(\omega_0^2 - \Omega^2\right)^2 + 4\gamma^2\Omega^2}}, \qquad \Omega = \kappa c}$$
+>
+> **Units:** $[\omega_0^4] = [\gamma^2\Omega^2] = [\mathrm{T^{-4}}]$, so $H$ is dimensionless and $z_p$, $\tilde z$ are in $[\mathrm{L}]$
+> **Meaning:** the steady amplitude is the height of the bumps times the factor $|H|$, finite for every speed; it is the same formula in the three damping regimes, which differ only in the transient.
+
+> [!derivation] How the results of (a) and (b) change
+> **Law:** value of the amplitude factor at resonance, its maximum and its high-speed limit
+> **Source:** Notes.pdf, Eq. 5.41; Notes.pdf, Eq. 5.46; [Lecture 6, Slide 14]
+>
+> With the ratios $r = \Omega/\omega_0$ and $\zeta = \gamma/\omega_0$ (notation of this solution; critical damping is $\zeta = 1$) and $u = r^2$, the amplitude factor is a function of $u$ whose derivative is taken with the quotient rule.
+>
+> $$\begin{aligned}
+> |H|^2 &= \frac{1 + 4\zeta^2 u}{\left(1 - u\right)^2 + 4\zeta^2 u} \quad &\text{(numerator and denominator divided by $\omega_0^4$)} \\
+> r = 1:\quad |H|^2 &= \frac{1 + 4\zeta^2}{4\zeta^2} = 1 + \frac{1}{4\zeta^2} \quad &\text{(finite at the former resonance)} \\
+> \frac{d|H|^2}{du} &= \frac{4\zeta^2\left[(1 - u)^2 + 4\zeta^2 u\right] - \left(1 + 4\zeta^2 u\right)\left[-2(1 - u) + 4\zeta^2\right]}{\left[(1 - u)^2 + 4\zeta^2 u\right]^2} \quad &\text{(quotient rule; chain rule on $(1 - u)^2$)} \\
+> &= \frac{2\left(1 - u - 2\zeta^2 u^2\right)}{\left[(1 - u)^2 + 4\zeta^2 u\right]^2} \quad &\text{(numerator expanded: the terms in $\zeta^2$, $\zeta^2 u$ and $\zeta^4 u$ cancel)} \\
+> u_p &= \frac{\sqrt{1 + 8\zeta^2} - 1}{4\zeta^2} \lt 1 \quad &\text{(positive root of $2\zeta^2 u^2 + u - 1 = 0$: the maximum)} \\
+> u = 2:\quad |H|^2 &= \frac{1 + 8\zeta^2}{1 + 8\zeta^2} = 1 \quad &\text{(the same value for every damping)} \\
+> \Omega \gg \omega_0,\ \Omega \gg \frac{\omega_0^2}{2\gamma}:\quad |H| &\approx \frac{2\gamma\Omega}{\Omega^2} = \frac{2\gamma}{\Omega} = \frac{\lambda}{m\kappa c} \quad &\text{(the damping terms dominate the numerator, $\Omega^4$ the denominator)}
+> \end{aligned}$$
+>
+> $$\boxed{|H(\omega_0)| = \sqrt{1 + \frac{\omega_0^2}{4\gamma^2}}, \qquad \Omega_p = \omega_0\sqrt{u_p} \lt \omega_0, \qquad |H(\sqrt2\,\omega_0)| = 1, \qquad |H| \approx \frac{\lambda}{m\kappa c}\ \text{at very high speed}}$$
+>
+> **Units:** $r$, $\zeta$, $u$, $u_p$ and $|H|$ dimensionless; $[\Omega_p] = [\mathrm{T^{-1}}]$; $\frac{[\mathrm{M\,T^{-1}}]}{[\mathrm{M}][\mathrm{L^{-1}}][\mathrm{L\,T^{-1}}]} = [1]$
+> **Meaning:** damping removes the infinite resonance and moves the peak below the natural frequency; below $\sqrt2\,\omega_0$ it reduces the transmitted amplitude, above it increases it, and at very high speed the amplitude decays only as the inverse of the speed, through the force the damper transmits.
+
+> [!derivation] Numerical values of the amplitude factor
+> **Law:** evaluation of the formulas of the previous box
+> **Source:** Notes.pdf, Eq. 5.41
+>
+> $$\begin{aligned}
+> \zeta = 0.5:\quad u_p &= \sqrt3 - 1 = 0.732, \quad |H|_{\max} = 1.468, \quad |H(\omega_0)| = 1.414 \quad &\text{(underdamped)} \\
+> \zeta = 1:\quad u_p &= \frac{3 - 1}{4} = 0.5, \quad |H|_{\max} = \sqrt{\frac{3}{2.25}} = 1.155, \quad |H(\omega_0)| = 1.118 \quad &\text{(critical)} \\
+> \zeta = 2:\quad u_p &= \frac{\sqrt{33} - 1}{16} = 0.297, \quad |H|_{\max} = 1.047, \quad |H(\omega_0)| = 1.031 \quad &\text{(overdamped)}
+> \end{aligned}$$
+>
+> $$\boxed{|H|_{\max} = 1.468,\ 1.155,\ 1.047 \ \text{ for } \zeta = 0.5,\ 1,\ 2}$$
+>
+> **Units:** every quantity dimensionless
+> **Meaning:** the more damping, the lower and flatter the peak; but every curve passes through $|H| = 1$ at $\Omega = \sqrt2\,\omega_0$ and decays more slowly beyond it when the damping is larger.
+
+> [!derivation] Choice of the damping and effect of the payload
+> **Law:** critical damping gives the shortest response time; dependence of the damping ratio on the mass
+> **Source:** Notes.pdf, Sec. 5.3.3; Notes.pdf, Eq. 5.23
+>
+> The choice is a design judgement built on the results above: the critical value kills the transient fastest without oscillation (Notes.pdf, Sec. 5.3.3) and keeps the resonant peak low; more damping would lower the peak only slightly further while transmitting more of the fast bumps. The damper is fixed hardware, so its ratio to the critical value changes with the mass.
+>
+> $$\begin{aligned}
+> \lambda_c &= 2 m\omega_0 = 2m\sqrt{\frac{k}{m}} = 2\sqrt{k m} \quad &\text{(critical: $\gamma = \omega_0$, with $\gamma = \lambda/(2m)$)} \\
+> \zeta &= \frac{\gamma}{\omega_0} = \frac{\lambda}{2m}\sqrt{\frac{m}{k}} = \frac{\lambda}{2\sqrt{k m}} \propto m^{-1/2} \quad &\text{(damping ratio of a given damper)} \\
+> c_{\text{res}} &= \frac{1}{\kappa}\sqrt{\frac{k}{m}} \propto m^{-1/2} \quad &\text{(resonant speed of part (a))} \\
+> \lambda &= 2\sqrt{k\,m_{\max}} \Rightarrow \zeta = \sqrt{\frac{m_{\max}}{m}} \ge 1 \quad &\text{(damper critical at the largest mass)}
+> \end{aligned}$$
+>
+> $$\boxed{\lambda = 2\sqrt{k\,m_{\max}}: \ \text{critical at full load, slightly overdamped for lighter loads}}$$
+>
+> **Units:** $[\lambda_c] = [\mathrm{M\,T^{-1}}]$; $\zeta$ dimensionless; $[c_{\text{res}}] = [\mathrm{L\,T^{-1}}]$; $m$ and $m_{\max}$ in $[\mathrm{M}]$
+> **Meaning:** yes, the payload matters: a heavier airplane has a lower resonant speed and a smaller damping ratio. A damper sized at the critical value of the largest mass never lets the transient oscillate; a lighter airplane is then overdamped, with a slower return and somewhat more transmission at high speed, which is the price of never being underdamped.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| Equation of motion (about the static equilibrium $y_e = L - mg/k$) | $\ddot z + 2\gamma\dot z + \omega_0^2 z = \omega_0^2 h\sin\Omega t + 2\gamma h\Omega\cos\Omega t$, with $\Omega = \kappa c$ |
+| (a) Resonant taxiing speed | $c_{\text{res}} = \sqrt{k/m}/\kappa$, numerically $\sqrt{k/m}$ in m/s |
+| (b) Amplitude at very high speed (undamped) | $\lvert A\rvert \approx k h/(m\kappa^2 c^2)$, numerically $k/(mc^2)$ in metres, in opposition to the road |
+| (c) Transient | underdamped for $\lambda \lt 2\sqrt{km}$, critical for $\lambda = 2\sqrt{km}$, overdamped above; it dies out in the three cases |
+| (c) Steady amplitude | $h\lvert H\rvert$, finite for every speed; at $c_{\text{res}}$ it is $h\sqrt{1 + \omega_0^2/(4\gamma^2)}$; peak below $c_{\text{res}}$; equal to $h$ at $\sqrt2\,c_{\text{res}}$; about $\lambda h/(m\kappa c)$ at very high speed |
+| (c) Choice of $\lambda$ and payload | critical damping, $\lambda = 2\sqrt{k m_{\max}}$; the payload changes $\zeta$ and $c_{\text{res}}$ as $m^{-1/2}$, so the damper is sized for the heaviest airplane |
+
+**Check against the official key:** the solution keys of the course (Problems.pdf, p. 76) print no answer for Problem 46: the entry is empty. The results above are checked independently: a Runge-Kutta integration of the damped equation (natural frequency 1.7 rad/s, damping rate 0.3 1/s, excitation 2.3 rad/s, bump height 1 m, 120 s) settles on the amplitude 1.1568 m given by the formula of the amplitude factor; the undamped integration at the resonant frequency grows linearly, as the secular solution predicts; and the maxima of the amplitude factor in the table of numerical values agree with a direct scan of the formula.
