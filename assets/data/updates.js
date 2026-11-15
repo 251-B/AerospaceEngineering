@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-mechanics-rigid-body-theory",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "Rigid body theory: Topics 6, 7 and 8",
+    "text": "Three new theory pages cover rigid body kinematics and inertia, momentum, energy and dynamics, and rolling, multibody systems and torque-free motion.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
     "id": "2026-11-14-mechanics-class-badges",
     "date": "2026-11-14",
     "tag": "Engineering Mechanics",

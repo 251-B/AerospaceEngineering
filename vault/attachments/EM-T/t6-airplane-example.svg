@@ -17,7 +17,7 @@
 <line x1="381.6" y1="518.0" x2="574.2" y2="287.0" stroke="#8a94a6" stroke-width="1.4" stroke-dasharray="7 5"/>
 <line x1="389.1" y1="509.0" x2="422.4" y2="469.1" stroke="#10b981" stroke-width="3.2"/>
 <path d="M426.6,464.0 L423.4,474.5 L416.9,469.0 Z" fill="#10b981"/>
-<text x="456.6" y="476.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">ω</tspan><tspan baseline-shift="sub" font-size="70%">B0</tspan></text>
+<text x="396.6" y="480.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">ω</tspan><tspan baseline-shift="sub" font-size="70%">B0</tspan></text>
 <line x1="446.6" y1="440.0" x2="475.4" y2="405.5" stroke="#f59e0b" stroke-width="2.8"/>
 <path d="M479.7,400.4 L476.5,410.9 L469.9,405.4 Z" fill="#f59e0b"/>
 <text x="489.7" y="422.4" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0∥</tspan></text>
@@ -33,11 +33,11 @@
 <path d="M306.7,99.4 L316.7,99.2 L313.8,106.5 Z" fill="#3b82f6"/>
 <text x="300.7" y="87.4" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">C</tspan></text>
 <circle cx="290.0" cy="400.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
-<text x="276.0" y="416.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<text x="274.0" y="388.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
 <circle cx="525.0" cy="365.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
 <text x="539.0" y="379.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
 <circle cx="469.9" cy="165.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
 <text x="461.9" y="185.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
 <circle cx="446.6" cy="440.0" r="4.5" fill="#4b5563"/>
-<text x="432.6" y="460.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">I</text>
+<text x="462.6" y="462.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">I</text>
 </g></svg>

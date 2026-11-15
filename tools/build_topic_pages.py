@@ -359,6 +359,7 @@ def build_fluids_page(page_rel, spec, cfg_links, anchors):
 
 
 MECH_CSS = """
+    :root { --text-faint: #8a94a6; }
     .callout-extension { border-style: dashed; border-left: 4px solid var(--accent); }
     .example-card h4.example-title { margin: 0; font-size: 1.05rem; color: var(--text-heading); }
     .callout p:last-child, .example-card p:last-child { margin-bottom: 0; }

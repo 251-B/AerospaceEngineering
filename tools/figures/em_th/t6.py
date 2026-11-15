@@ -1,7 +1,7 @@
 """Theory figures of Topic 6 (Kinematics of Rigid Bodies and Inertia Properties)."""
 import math
 
-from figures.em_theory import axis_in, axis_out, figure, fixed_axis, right_angle, triangle, unit
+from figures.em_theory import axis_out, figure, fixed_axis, right_angle, triangle, unit
 from figures.mech import S, Scene, bold
 
 ORANGE = "ACC"
@@ -253,7 +253,7 @@ def airplane_example():
     # axis (dashed) and the velocity of its points: the slip velocity
     d = _p3(1, 1, 1)
     sc.line(_add(I, d, -1.3), _add(I, d, 2.55), "EDGE", 1.4, "7 5")
-    sc.vec(_add(I, d, -1.15), _add(I, d, -0.4), S(bold("ω"), "B0"), "GREEN", 3.2, name_off=(30, 12), size=17, head=11)
+    sc.vec(_add(I, d, -1.15), _add(I, d, -0.4), S(bold("ω"), "B0"), "GREEN", 3.2, name_off=(-30, 16), size=17, head=11)
     sc.vec(I, _add(I, d, 0.55 * 2 * 0.6), None, ORANGE, 2.8, head=11)
     sc.label(_add(I, d, 0.66), S(bold("v"), "0∥"), ORANGE, "start", 16, dx=10, dy=22)
     sc.note(_add(I, d, 2.55), "IAR", "TEXT", "start", 14, dx=8, dy=-2)
@@ -263,11 +263,11 @@ def airplane_example():
     sc.vec(G, _add(G, vG, kv), S(bold("v"), "0", "G"), "BLUE", 2.6, name_off=(34, 6), size=16, head=10)
     sc.vec(A, _add(A, vA, kv), S(bold("v"), "0", "A"), "BLUE", 2.6, name_off=(26, -2), size=16, head=10)
     sc.vec(C, _add(C, vC, kv), S(bold("v"), "0", "C"), "BLUE", 2.6, name_off=(-6, -12), size=16, head=10)
-    for pt, nm, off in ((G, "G", (-14, 16)), (A, "A", (14, 14)), (C, "C", (-8, 20))):
+    for pt, nm, off in ((G, "G", (-16, -12)), (A, "A", (14, 14)), (C, "C", (-8, 20))):
         sc.mass(pt, None, r=5, col="BLUE")
         sc.label(pt, nm, "HEAD", "middle", 17, dx=off[0], dy=off[1])
     sc.dotp(I, 4.5)
-    sc.label(I, "I", "HEAD", "middle", 17, dx=-14, dy=20)
+    sc.label(I, "I", "HEAD", "middle", 17, dx=16, dy=22)
     return sc
 
 

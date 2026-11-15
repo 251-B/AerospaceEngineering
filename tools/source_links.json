@@ -1817,6 +1817,63 @@
     "bare_eq": "em-notes"
    }
   },
+  "subjects/engineering-mechanics/teoria/topic-6.html": {
+   "panel": [
+    [
+     "em-s7",
+     1
+    ],
+    [
+     "em-s8",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s7",
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-7.html": {
+   "panel": [
+    [
+     "em-s9",
+     1
+    ],
+    [
+     "em-s10",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s9",
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-8.html": {
+   "panel": [
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
+  },
   "subjects/fluid-mechanics/problemas/topic-2-kinematics.html": {
    "panel": [
     [

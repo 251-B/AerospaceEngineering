@@ -534,6 +534,7 @@
       box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 25%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
     }
 
+    :root { --text-faint: #8a94a6; }
     .callout-extension { border-style: dashed; border-left: 4px solid var(--accent); }
     .example-card h4.example-title { margin: 0; font-size: 1.05rem; color: var(--text-heading); }
     .callout p:last-child, .example-card p:last-child { margin-bottom: 0; }
@@ -547,6 +548,7 @@
   <script defer src="../../../assets/js/ask-ai.js"></script>
   <script defer src="../../../assets/js/pdf-export.js"></script>
   <link rel="stylesheet" href="../../../assets/css/derivation-box.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
   <link rel="stylesheet" href="../../../assets/css/responsive.css">
 </head>
 <body>
@@ -579,6 +581,12 @@
       <div class="source-box">
         Sources: Notes.pdf, chapters 11 and 12; Lectures 9 and 10.
       </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf" target="_blank" rel="noopener">09 Momentum and energy.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf" target="_blank" rel="noopener">10 Rigid body dynamics.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener">Notes.pdf · p. 20</a>
+      </nav>
     </header>
 
     <nav class="toc-card" aria-label="Table of Contents">
@@ -605,7 +613,7 @@
     <section>
       <h2 class="section-heading" id="sec-1"><span>1.</span> Linear momentum of a rigid body</h2>
 <p>The notes treat a general material system $B$ first and only use the rigidity of the body when the velocity field is needed. The symbols of the whole topic are collected here.</p>
-<div class="table-wrapper"><table><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$S_0\{O; B_0\}$</td><td>inertial (fixed) reference frame, basis $B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$</td><td>-</td></tr><tr><td>$S_A\{A; B_0\}$, $S_G\{G; B_0\}$</td><td>frames with origin at a point $A$ or at the centre of mass $G$, axes parallel to those of $S_0$ (they translate, they do not rotate)</td><td>-</td></tr><tr><td>$S_B\{A; B_B\}$</td><td>body-fixed frame, basis $B_B = \{\mathbf e_1, \mathbf e_2, \mathbf e_3\}$</td><td>-</td></tr><tr><td>$\mathcal D(\mathbf r_0^P)$, $dm$</td><td>mass distribution of the body and mass of one material element at $P$</td><td>kg</td></tr><tr><td>$m = \int_{\mathcal D} dm$</td><td>total mass (Notes Eq. 10.6)</td><td>kg</td></tr><tr><td>$\mathbf r_0^P$, $\mathbf r_A^P = \overrightarrow{AP}$, $\mathbf r_G^P = \overrightarrow{GP}$</td><td>position of $P$ seen from $O$, $A$, $G$</td><td>m</td></tr><tr><td>$\mathbf v_0^P$, $\mathbf v_0^{A(B)}$</td><td>velocity in $S_0$ of $P$ and of the body point $A(B)$ that coincides with $A$ at the instant</td><td>m/s</td></tr><tr><td>$\boldsymbol\omega_{B0}$, $\boldsymbol\alpha_{B0}$</td><td>angular velocity and angular acceleration of the body relative to $S_0$</td><td>rad/s, rad/s$^2$</td></tr><tr><td>$\overline{\overline{\mathcal I}}_A$, $\overline{\overline{\mathcal U}}$</td><td>tensor of inertia about $A$ (Notes Eq. 10.35) and unit tensor</td><td>kg m$^2$, -</td></tr><tr><td>$\mathbf p_0$, $\mathbf H_{A,0}$, $T_0$</td><td>linear momentum, angular momentum about $A$ and kinetic energy, all in $S_0$</td><td>kg m/s, kg m$^2$/s, J</td></tr><tr><td>$\mathbf F$, $\mathbf M_A$, $\mathbf Q_k$</td><td>resultant external force, resultant external moment about $A$, external torques</td><td>N, N m, N m</td></tr></tbody></table></div>
+<div class="table-wrapper"><table><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$S_0\{O; B_0\}$</td><td>inertial (fixed) reference frame, basis $B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$</td><td>-</td></tr><tr><td>$S_A\{A; B_0\}$, $S_G\{G; B_0\}$</td><td>frames with origin at a point $A$ or at the centre of mass $G$, axes parallel to those of $S_0$ (they translate, they do not rotate)</td><td>-</td></tr><tr><td>$S_B\{A; B_B\}$</td><td>body-fixed frame, basis $B_B = \{\mathbf e_1, \mathbf e_2, \mathbf e_3\}$</td><td>-</td></tr><tr><td>$\mathcal D(\mathbf r_0^P)$, $dm$</td><td>mass distribution of the body and mass of one material element at $P$</td><td>kg</td></tr><tr><td>$m = \int_{\mathcal D} dm$</td><td>total mass (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=84" target="_blank" rel="noopener" title="Open Notes.pdf at page 84">10.6</a>)</td><td>kg</td></tr><tr><td>$\mathbf r_0^P$, $\mathbf r_A^P = \overrightarrow{AP}$, $\mathbf r_G^P = \overrightarrow{GP}$</td><td>position of $P$ seen from $O$, $A$, $G$</td><td>m</td></tr><tr><td>$\mathbf v_0^P$, $\mathbf v_0^{A(B)}$</td><td>velocity in $S_0$ of $P$ and of the body point $A(B)$ that coincides with $A$ at the instant</td><td>m/s</td></tr><tr><td>$\boldsymbol\omega_{B0}$, $\boldsymbol\alpha_{B0}$</td><td>angular velocity and angular acceleration of the body relative to $S_0$</td><td>rad/s, rad/s$^2$</td></tr><tr><td>$\overline{\overline{\mathcal I}}_A$, $\overline{\overline{\mathcal U}}$</td><td>tensor of inertia about $A$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.35</a>) and unit tensor</td><td>kg m$^2$, -</td></tr><tr><td>$\mathbf p_0$, $\mathbf H_{A,0}$, $T_0$</td><td>linear momentum, angular momentum about $A$ and kinetic energy, all in $S_0$</td><td>kg m/s, kg m$^2$/s, J</td></tr><tr><td>$\mathbf F$, $\mathbf M_A$, $\mathbf Q_k$</td><td>resultant external force, resultant external moment about $A$, external torques</td><td>N, N m, N m</td></tr></tbody></table></div>
 <div class="diagram-container diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470" width="100%" class="fig-kit" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="A rigid body with its centre of mass G, a material element P and a generic point A, with the position vectors from O, A and G.">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
@@ -672,12 +680,12 @@
 </g></svg>
 <div class="diagram-caption">Figure 1. Material system $B$ moving in the fixed frame $S_0$. The frames $S_A$ and $S_G$ have origins at $A$ and $G$ and axes parallel to $S_0$, so they translate without rotating..</div>
 </div>
-<p>The linear momentum of an element of mass $dm$ is the momentum of a point particle (Notes Eq. 4.1) with that mass; the momentum of the body is the integral over $\mathcal D$.</p>
+<p>The linear momentum of an element of mass $dm$ is the momentum of a point particle (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">4.1</a>) with that mass; the momentum of the body is the integral over $\mathcal D$.</p>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Linear momentum of a material system</span>
-    <span class="derivation-law"><strong>Law:</strong> momentum of each material element (Eq. 4.1) summed over the mass distribution</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.1; [Lecture 9, Slide 3]</span>
+    <span class="derivation-law"><strong>Law:</strong> momentum of each material element (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">4.1</a>) summed over the mass distribution</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.1</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=3" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 3">3</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -690,12 +698,12 @@ d\mathbf p_0 &amp;= \mathbf v_0^P\,dm \quad &amp;\text{(momentum of an element o
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{L\,T^{-1}}]\,[\mathrm{M}] = [\mathrm{M\,L\,T^{-1}}]$, kg m/s</p>
   <p class="derivation-foot"><strong>Meaning:</strong> the momentum of the body is the vector sum of the momenta of all its material elements.</p>
 </div>
-<p>The definition of the centre of mass (Notes Eq. 10.8) is differentiated in time. The mass of each material element does not change while the body moves, so the time derivative can be taken inside the integral over the material elements.</p>
+<p>The definition of the centre of mass (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=84" target="_blank" rel="noopener" title="Open Notes.pdf at page 84">10.8</a>) is differentiated in time. The mass of each material element does not change while the body moves, so the time derivative can be taken inside the integral over the material elements.</p>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Momentum equals mass times the velocity of the centre of mass</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the centre of mass, differentiated in $S_0$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.2; Notes.pdf, Eq. 11.3; [Lecture 9, Slide 3]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.2</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=3" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 3">3</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -708,7 +716,7 @@ m\,\mathbf r_0^G &amp;= \int_{\mathcal D} \mathbf r_0^P\,dm \quad &amp;\text{(No
     <div class="derivation-result">$$\boxed{m\,\mathbf v_0^G = \int_{\mathcal D} \mathbf v_0^P\,dm = \mathbf p_0}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{M}]\,[\mathrm{L\,T^{-1}}] = [\mathrm{M\,L\,T^{-1}}]$ on both sides</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the momentum of the body equals that of a point particle with the total mass $m$ located at $G$ and moving like $G$ (Notes Eq. 11.3).</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the momentum of the body equals that of a point particle with the total mass $m$ located at $G$ and moving like $G$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>).</p>
 </div>
     </section>
 
@@ -718,8 +726,8 @@ m\,\mathbf r_0^G &amp;= \int_{\mathcal D} \mathbf r_0^P\,dm \quad &amp;\text{(No
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Angular momentum about a point A</span>
-    <span class="derivation-law"><strong>Law:</strong> angular momentum of each material element (Eq. 4.48) summed over the body</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.4; [Lecture 9, Slide 4]</span>
+    <span class="derivation-law"><strong>Law:</strong> angular momentum of each material element (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=50" target="_blank" rel="noopener" title="Open Notes.pdf at page 50">4.48</a>) summed over the body</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.4</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=4" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -733,12 +741,12 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{L}]\,[\mathrm{L\,T^{-1}}]\,[\mathrm{M}] = [\mathrm{M\,L^2\,T^{-1}}]$, kg m$^2$/s</p>
   <p class="derivation-foot"><strong>Meaning:</strong> the arm is measured from $A$, but the velocity is the absolute velocity in $S_0$, not the velocity relative to $A$.</p>
 </div>
-<p>The point $A$ may or may not belong to the body. The notes write $A(B)$ for the point of the body that occupies the position of $A$ at the instant considered (Notes Sec. 9.1.4): both have the same position, but in general not the same velocity.</p>
+<p>The point $A$ may or may not belong to the body. The notes write $A(B)$ for the point of the body that occupies the position of $A$ at the instant considered (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=79" target="_blank" rel="noopener" title="Open Notes.pdf at page 79">9.1.4</a>): both have the same position, but in general not the same velocity.</p>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Velocity field written from the body point A(B)</span>
     <span class="derivation-law"><strong>Law:</strong> velocity field of the rigid body between two body points</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.5; Notes.pdf, Eq. 9.3; [Lecture 9, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.5</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=4" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -755,7 +763,7 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
   <div class="derivation-head">
     <span class="derivation-title">First expansion of the angular momentum</span>
     <span class="derivation-law"><strong>Law:</strong> velocity field substituted in the definition; centre of mass</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.6; Notes.pdf, Eq. 11.7; [Lecture 9, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.6</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.7</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=4" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -775,8 +783,8 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Double vector product of the rotational term</span>
-    <span class="derivation-law"><strong>Law:</strong> expansion of the double vector product, Notes Eq. 1.37</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.8; Notes.pdf, Eq. 11.9; [Lecture 9, Slide 4]</span>
+    <span class="derivation-law"><strong>Law:</strong> expansion of the double vector product, Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener" title="Open Notes.pdf at page 20">1.37</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.9</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=4" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -792,8 +800,8 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Rotational term written with the tensor of inertia</span>
-    <span class="derivation-law"><strong>Law:</strong> unit tensor, dyadic product (Eq. 1.36) and tensor of inertia (Eq. 10.35)</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.10; Notes.pdf, Eq. 10.35; [Lecture 9, Slide 4]</span>
+    <span class="derivation-law"><strong>Law:</strong> unit tensor, dyadic product (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener" title="Open Notes.pdf at page 20">1.36</a>) and tensor of inertia (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.35</a>)</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.10</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.35</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=4" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -813,7 +821,7 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
   <div class="derivation-head">
     <span class="derivation-title">Angular momentum about A, first form</span>
     <span class="derivation-law"><strong>Law:</strong> sum of the translational and the rotational terms</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.11; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.13; [Lecture 9, Slide 5]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.11</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.13</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=5" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 5">5</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -827,12 +835,12 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
   <p class="derivation-foot"><strong>Meaning:</strong> the expression is short when $A$ is $G$ or a fixed point of the body; for any other point the extra term must be kept.</p>
 </div>
 <h3 class="sub-heading" id="2-2-second-expansion-about-the-centre-of-mass-ch">2.2 Second expansion about the centre of mass: change of pole</h3>
-<p>The frame $S_G\{G; B_0\}$ has its origin at $G$ and axes parallel to those of $S_0$: it translates with $G$ and does not rotate, so it is not body-fixed in general [Lecture 9, Slide 4]. The velocity of an element seen from $S_G$ is written $\mathbf v_G^P$.</p>
+<p>The frame $S_G\{G; B_0\}$ has its origin at $G$ and axes parallel to those of $S_0$: it translates with $G$ and does not rotate, so it is not body-fixed in general [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=4" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 4">4</a>]. The velocity of an element seen from $S_G$ is written $\mathbf v_G^P$.</p>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Four integrals of the second expansion</span>
-    <span class="derivation-law"><strong>Law:</strong> position split through G, velocity field from G, first moment about G (Eq. 10.44)</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.14; Notes.pdf, Eq. 11.15; Notes.pdf, Eq. 11.16; [Lecture 9, Slide 6]</span>
+    <span class="derivation-law"><strong>Law:</strong> position split through G, velocity field from G, first moment about G (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.44</a>)</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.14</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.15</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.16</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=6" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 6">6</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -853,7 +861,7 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
   <div class="derivation-head">
     <span class="derivation-title">The remaining integral is the angular momentum seen from S_G</span>
     <span class="derivation-law"><strong>Law:</strong> composition of velocities between $S_0$ and the translating frame $S_G$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.17; Notes.pdf, Eq. 11.18; Notes.pdf, Eq. 11.19; [Lecture 9, Slide 7]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.17</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.18</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.19</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=7" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 7">7</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -873,7 +881,7 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
   <div class="derivation-head">
     <span class="derivation-title">Change of pole from G to any point A</span>
     <span class="derivation-law"><strong>Law:</strong> second expansion combined with the result about G</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.20; Notes.pdf, Eq. 11.21; [Lecture 9, Slide 7]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.21</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=7" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 7">7</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -886,12 +894,12 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{M\,L^2\,T^{-1}}]$ in every term</p>
   <p class="derivation-foot"><strong>Meaning:</strong> the angular momentum about $A$ is the angular momentum of the rotation about $G$ plus that of a point mass $m$ at $G$ moving with $\mathbf v_0^G$, seen from $A$.</p>
 </div>
-<div class="callout callout-info callout-extension"><div class="callout-title">Extension: change of pole between two arbitrary points</div><p>The notes give the change of pole from $G$ to $A$ only. Applying Eq. 11.20 twice gives the rule between any two points $A$ and $C$; it is the same rule as the change of reduction point of a system of forces (Notes Eq. 12.15), with the momentum $\mathbf p_0$ in the place of the force. This box is an extension.</p></div>
+<div class="callout callout-info callout-extension"><div class="callout-title">Extension: change of pole between two arbitrary points</div><p>The notes give the change of pole from $G$ to $A$ only. Applying Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.20</a> twice gives the rule between any two points $A$ and $C$; it is the same rule as the change of reduction point of a system of forces (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a>), with the momentum $\mathbf p_0$ in the place of the force. This box is an extension.</p></div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Change of pole between A and C (extension)</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 11.20 written about two points and subtracted</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.20; Notes.pdf, Eq. 11.3</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.20</a> written about two points and subtracted</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -912,8 +920,8 @@ d\mathbf H_{A,0} &amp;= \mathbf r_A^P \times \mathbf v_0^P\,dm \quad &amp;\text{
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Kinetic energy of a material system</span>
-    <span class="derivation-law"><strong>Law:</strong> kinetic energy of each element (Eq. 4.2) summed over the mass distribution</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.22; [Lecture 9, Slide 8]</span>
+    <span class="derivation-law"><strong>Law:</strong> kinetic energy of each element (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">4.2</a>) summed over the mass distribution</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.22</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=8" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 8">8</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -930,8 +938,8 @@ T_0 &amp;= \int_{\mathcal D} dT_0 \quad &amp;\text{(sum over the elements)} \\
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Kinetic energy expanded from the body point A(B)</span>
-    <span class="derivation-law"><strong>Law:</strong> velocity field Eq. 11.5 and the square of a sum</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.23; Notes.pdf, Eq. 11.24; [Lecture 9, Slide 8]</span>
+    <span class="derivation-law"><strong>Law:</strong> velocity field Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.5</a> and the square of a sum</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.23</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.24</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=8" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 8">8</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -948,8 +956,8 @@ T_0 &amp;= \frac{1}{2}\int_{\mathcal D} \left(\mathbf v_0^{A(B)} + \boldsymbol\o
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Rotational term of the kinetic energy</span>
-    <span class="derivation-law"><strong>Law:</strong> dot product of two vector products, Notes Eq. 1.38; unit tensor and dyadic product</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.25; Notes.pdf, Eq. 11.26; Notes.pdf, Eq. 11.27; Notes.pdf, Eq. 11.28; Notes.pdf, Eq. 11.29; [Lecture 9, Slide 8]</span>
+    <span class="derivation-law"><strong>Law:</strong> dot product of two vector products, Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener" title="Open Notes.pdf at page 20">1.38</a>; unit tensor and dyadic product</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.25</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.26</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.27</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.28</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.29</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=8" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 8">8</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -970,7 +978,7 @@ T_0 &amp;= \frac{1}{2}\int_{\mathcal D} \left(\mathbf v_0^{A(B)} + \boldsymbol\o
   <div class="derivation-head">
     <span class="derivation-title">Kinetic energy about A(B), and its two simple cases</span>
     <span class="derivation-law"><strong>Law:</strong> sum of the three terms; particular choices of A</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.30; Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 11.32; [Lecture 9, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.30</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.32</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=9" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -987,8 +995,8 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Kinetic energy split into translation of G and rotation about G</span>
-    <span class="derivation-law"><strong>Law:</strong> velocity field from G, square of a sum, first moment about G (Eq. 10.44)</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.33; Notes.pdf, Eq. 11.34; Notes.pdf, Eq. 11.35; Notes.pdf, Eq. 11.36; Notes.pdf, Eq. 11.37; [Lecture 9, Slide 10]</span>
+    <span class="derivation-law"><strong>Law:</strong> velocity field from G, square of a sum, first moment about G (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.44</a>)</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.33</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.34</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.35</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.36</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.37</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=10" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1002,16 +1010,16 @@ T_0 &amp;= \frac{1}{2}m\left(v_0^G\right)^2 + 0 + T_G \quad &amp;\text{(the thre
     <div class="derivation-result">$$\boxed{T_0 = T_G + \frac{1}{2}m\left(v_0^G\right)^2}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{M\,L^2\,T^{-2}}]$ on both sides</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the kinetic energy is the energy of the rotation about $G$ (seen from the translating frame $S_G$) plus that of a point mass $m$ moving with $G$; comparing with Eq. 11.31, the energy seen from $S_G$ is one half of the quadratic form of the tensor of inertia about $G$.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the kinetic energy is the energy of the rotation about $G$ (seen from the translating frame $S_G$) plus that of a point mass $m$ moving with $G$; comparing with Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>, the energy seen from $S_G$ is one half of the quadratic form of the tensor of inertia about $G$.</p>
 </div>
-<div class="callout callout-info"><div class="callout-title"></div><p>In the literature Eq. 11.37 is known as Koenig's theorem for the kinetic energy, and Eq. 11.20 as the corresponding theorem for the angular momentum. The notes do not use the name; the results are those of the notes.</p></div>
+<div class="callout callout-info"><div class="callout-title"></div><p>In the literature Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.37</a> is known as Koenig's theorem for the kinetic energy, and Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.20</a> as the corresponding theorem for the angular momentum. The notes do not use the name; the results are those of the notes.</p></div>
 <h3 class="sub-heading" id="3-3-kinetic-energy-and-the-instantaneous-axis-of">3.3 Kinetic energy and the instantaneous axis of rotation</h3>
-<div class="callout callout-info callout-extension"><div class="callout-title">Extension: kinetic energy as one half of the moment of inertia about the axis of rotation times the angular speed squared</div><p>The notes write the kinetic energy with the tensor of inertia (Eqs. 11.31 and 11.32). The scalar form below follows from them and from the moment of inertia about a line (Notes Eq. 10.39); it is not printed in chapter 11, so it is marked as an extension. Two cases are covered: a body with a fixed point $A$, and a body whose instantaneous axis of rotation has zero slip velocity (Notes Eq. 9.8), the case of every plane motion. The unit vector of the axis is $\mathbf e_\omega$ and the angular speed is $\omega$.</p></div>
+<div class="callout callout-info callout-extension"><div class="callout-title">Extension: kinetic energy as one half of the moment of inertia about the axis of rotation times the angular speed squared</div><p>The notes write the kinetic energy with the tensor of inertia (Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.32</a>). The scalar form below follows from them and from the moment of inertia about a line (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.39</a>); it is not printed in chapter 11, so it is marked as an extension. Two cases are covered: a body with a fixed point $A$, and a body whose instantaneous axis of rotation has zero slip velocity (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.8</a>), the case of every plane motion. The unit vector of the axis is $\mathbf e_\omega$ and the angular speed is $\omega$.</p></div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">T as one half of I times omega squared (extension)</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 11.32 (or Eq. 11.30 at a point of zero velocity) with the moment of inertia about a line, Eq. 10.39</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.32; Notes.pdf, Eq. 10.39; Notes.pdf, Eq. 9.8</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.32</a> (or Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.30</a> at a point of zero velocity) with the moment of inertia about a line, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.39</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.32</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.39</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.8</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1031,8 +1039,8 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Moment of inertia about the axis from the parallel axis through G (extension)</span>
-    <span class="derivation-law"><strong>Law:</strong> Steiner's theorem, Notes Eq. 10.48, projected on the unit vector of the axis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.48; Notes.pdf, Eq. 10.39</span>
+    <span class="derivation-law"><strong>Law:</strong> Steiner's theorem, Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.48</a>, projected on the unit vector of the axis</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.48</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.39</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1049,7 +1057,7 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
 
     <section>
       <h2 class="section-heading" id="sec-4"><span>4.</span> Equations of motion of a material system</h2>
-<p>A material system is regarded as a collection of point particles $P_i$, $i$ from 1 to $N$ (for a continuous body the sums become integrals without changing the results). Two kinds of forces act on it (Notes Fig. 12.1):</p>
+<p>A material system is regarded as a collection of point particles $P_i$, $i$ from 1 to $N$ (for a continuous body the sums become integrals without changing the results). Two kinds of forces act on it (Notes Fig. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=95" target="_blank" rel="noopener" title="Open Notes.pdf at page 95">12.1</a>):</p>
 <div class="table-wrapper"><table><thead><tr><th>Symbol</th><th>Meaning</th></tr></thead><tbody><tr><td>$\mathbf f_{P_j}^{P_i}$</td><td>internal force on $P_i$ caused by the particle $P_j$ of the same system</td></tr><tr><td>$\mathbf F^{P_i}$</td><td>external force on $P_i$ caused by the environment</td></tr><tr><td>$\mathbf F$</td><td>resultant of the external forces</td></tr><tr><td>$\mathbf M_A$</td><td>resultant moment of the external forces about $A$</td></tr></tbody></table></div>
 <div class="diagram-container diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 673 470" width="100%" class="fig-kit" style="max-width:673px;margin:0 auto;display:block" role="img" aria-label="Particles of a material system acted on by external forces and by equal and opposite collinear internal forces.">
@@ -1117,12 +1125,12 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
 </g></svg>
 <div class="diagram-caption">Figure 2. External forces come from the environment; internal forces act in equal, opposite and collinear pairs, so their resultant and their moment about any point vanish..</div>
 </div>
-<p>A system of $N$ free particles has $3N$ degrees of freedom and needs the $3N$ scalar equations of Newton's second law. A rigid body is an infinite collection of particles, but the rigidity constraint leaves only 6 degrees of freedom, so 6 independent scalar equations are enough [Lecture 10, Slide 3]. These are the two vector equations derived in this section.</p>
+<p>A system of $N$ free particles has $3N$ degrees of freedom and needs the $3N$ scalar equations of Newton's second law. A rigid body is an infinite collection of particles, but the rigidity constraint leaves only 6 degrees of freedom, so 6 independent scalar equations are enough [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=3" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 3">3</a>]. These are the two vector equations derived in this section.</p>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Internal forces: action and reaction, and their moment</span>
     <span class="derivation-law"><strong>Law:</strong> Newton's third law with collinear internal forces</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.1; Notes.pdf, Eq. 12.2; [Lecture 10, Slide 3]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=95" target="_blank" rel="noopener" title="Open Notes.pdf at page 95">12.1</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.2</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=3" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 3">3</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1141,7 +1149,7 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
   <div class="derivation-head">
     <span class="derivation-title">Resultant force equation</span>
     <span class="derivation-law"><strong>Law:</strong> Newton's second law for every particle, summed</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.3; Notes.pdf, Eq. 12.4; [Lecture 10, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.4</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1158,7 +1166,7 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
   <div class="derivation-head">
     <span class="derivation-title">Resultant moment equation</span>
     <span class="derivation-law"><strong>Law:</strong> moment of Newton's second law about A for every particle, summed</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.5; [Lecture 10, Slide 5]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.5</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=5" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 5">5</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1175,7 +1183,7 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
   <div class="derivation-head">
     <span class="derivation-title">Motion of the centre of mass</span>
     <span class="derivation-law"><strong>Law:</strong> constant particle masses; definition of the centre of mass differentiated twice</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.6; Notes.pdf, Eq. 12.7; Notes.pdf, Eq. 12.8; [Lecture 10, Slide 4]; [Lecture 9, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.6</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.7</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=12" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1193,8 +1201,8 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Inertia term of the moment equation</span>
-    <span class="derivation-law"><strong>Law:</strong> angular momentum of a particle about a moving point A (Eq. 4.52) and the product rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.9; Notes.pdf, Eq. 12.10; Notes.pdf, Eq. 12.11; [Lecture 10, Slide 5]</span>
+    <span class="derivation-law"><strong>Law:</strong> angular momentum of a particle about a moving point A (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=52" target="_blank" rel="noopener" title="Open Notes.pdf at page 52">4.52</a>) and the product rule</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.9</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.10</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.11</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=5" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 5">5</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1212,7 +1220,7 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
   <div class="derivation-head">
     <span class="derivation-title">Angular momentum equation of a material system</span>
     <span class="derivation-law"><strong>Law:</strong> sum over the particles; definition of the centre of mass</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.12; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 5]; [Lecture 9, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=5" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 5">5</a>]; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=13" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1223,15 +1231,15 @@ T_0 &amp;= \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal 
     <div class="derivation-result">$$\boxed{\left.\frac{d\mathbf H_{A,0}}{dt}\right|_0 = \mathbf M_A - m\,\mathbf v_0^A \times \mathbf v_0^G}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{M\,L^2\,T^{-2}}]$ in each term</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the particle law of Notes Eq. 4.52 holds for any material system with its total angular momentum; $\mathbf v_0^A$ is the velocity of the geometric point $A$, which may or may not belong to the body.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the particle law of Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=52" target="_blank" rel="noopener" title="Open Notes.pdf at page 52">4.52</a> holds for any material system with its total angular momentum; $\mathbf v_0^A$ is the velocity of the geometric point $A$, which may or may not belong to the body.</p>
 </div>
-<p>Equations 12.8 and 12.13 are the evolution equations of the total linear and angular momentum. For a deformable body with $N$ particles they are not enough ($3N$ degrees of freedom), and the individual equations 12.3 are needed. For a free rigid body (6 degrees of freedom) Eqs. 12.8 and 12.13 solve the dynamics completely (Notes Sec. 12.1).</p>
+<p>Equations 12.8 and 12.13 are the evolution equations of the total linear and angular momentum. For a deformable body with $N$ particles they are not enough ($3N$ degrees of freedom), and the individual equations 12.3 are needed. For a free rigid body (6 degrees of freedom) Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> solve the dynamics completely (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=95" target="_blank" rel="noopener" title="Open Notes.pdf at page 95">12.1</a>).</p>
 <h3 class="sub-heading" id="4-1-energy-equation-of-a-material-system">4.1 Energy equation of a material system</h3>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Kinetic energy equation of a system of particles</span>
     <span class="derivation-law"><strong>Law:</strong> dot product of Newton's second law with the velocity of each particle; chain rule</span>
-    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide 6]; [Lecture 9, Slide 14]; Notes.pdf, Eq. 4.11</span>
+    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=6" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 6">6</a>]; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=14" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 14">14</a>]; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">4.11</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1249,7 +1257,7 @@ m^{P_i}\,\mathbf v_0^{P_i} \cdot \mathbf a_0^{P_i} &amp;= \frac{1}{2}m^{P_i}\lef
   <div class="derivation-head">
     <span class="derivation-title">The internal forces of a rigid body do no work</span>
     <span class="derivation-law"><strong>Law:</strong> third law, collinearity and the velocity field of a rigid body</span>
-    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide 6]; [Lecture 10, Slide 8]; Notes.pdf, Eq. 9.3</span>
+    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=6" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 6">6</a>]; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=8" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 8">8</a>]; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1261,9 +1269,9 @@ m^{P_i}\,\mathbf v_0^{P_i} \cdot \mathbf a_0^{P_i} &amp;= \frac{1}{2}m^{P_i}\lef
     <div class="derivation-result">$$\boxed{\dot w_0 = 0 \quad\Rightarrow\quad \left.\frac{dT_0}{dt}\right|_0 = \dot W_0}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{M\,L^2\,T^{-3}}]$ on both sides</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the distance between two points of a rigid body never changes, so each internal pair does equal and opposite powers; the energy equation of a rigid body is not independent of Eqs. 12.8 and 12.13.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the distance between two points of a rigid body never changes, so each internal pair does equal and opposite powers; the energy equation of a rigid body is not independent of Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>.</p>
 </div>
-<div class="example-card"><div class="example-header"><h4 class="example-title">Interlude of the slides: a spring between two particles</h4><span class="example-badge">Example</span></div><p>Internal forces, like external ones, can be conservative: there is then a function $V$ of the positions of the two particles whose partial derivatives give the pair of forces [Lecture 10, Slide 7]. The slide takes two particles $P_1$ and $P_2$ joined by a spring of stiffness $k$ and natural length zero. Each internal potential energy term appears only once in the energy equation, not once per particle.</p></div>
+<div class="example-card"><div class="example-header"><h4 class="example-title">Interlude of the slides: a spring between two particles</h4><span class="example-badge">Example</span></div><p>Internal forces, like external ones, can be conservative: there is then a function $V$ of the positions of the two particles whose partial derivatives give the pair of forces [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=7" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 7">7</a>]. The slide takes two particles $P_1$ and $P_2$ joined by a spring of stiffness $k$ and natural length zero. Each internal potential energy term appears only once in the energy equation, not once per particle.</p></div>
 <div class="diagram-container diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" class="fig-kit" style="max-width:800px;margin:0 auto;display:block" role="img" aria-label="Two particles joined by a spring of stiffness k, with their position vectors and the pair of spring forces.">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
@@ -1302,8 +1310,8 @@ m^{P_i}\,\mathbf v_0^{P_i} \cdot \mathbf a_0^{P_i} &amp;= \frac{1}{2}m^{P_i}\lef
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Forces of the spring from its potential energy</span>
-    <span class="derivation-law"><strong>Law:</strong> conservative internal pair, force as minus the gradient (Eq. 4.19) with respect to the position of each particle</span>
-    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide 7]; Notes.pdf, Eq. 4.19</span>
+    <span class="derivation-law"><strong>Law:</strong> conservative internal pair, force as minus the gradient (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=45" target="_blank" rel="noopener" title="Open Notes.pdf at page 45">4.19</a>) with respect to the position of each particle</span>
+    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=7" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 7">7</a>]; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=45" target="_blank" rel="noopener" title="Open Notes.pdf at page 45">4.19</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1328,8 +1336,8 @@ V &amp;= \frac{1}{2}k\left|\mathbf r_0^{P_1} - \mathbf r_0^{P_2}\right|^2 = \fra
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">The two convenient choices of the point of moments</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 12.13 with the extra term made zero; Eqs. 11.12 and 11.13</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; [Lecture 10, Slide 8]</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> with the extra term made zero; Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.13</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=8" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 8">8</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1343,14 +1351,14 @@ m\,\mathbf 0 \times \mathbf v_0^G &amp;= \mathbf 0 \quad &amp;\text{(choice 2: A
   <p class="derivation-units"><strong>Units:</strong> N on the left equation, N m on the right equation</p>
   <p class="derivation-foot"><strong>Meaning:</strong> the translation depends only on the resultant force and the mass; the rotation only on the resultant moment and the tensor of inertia.</p>
 </div>
-<p>The centre of mass is the point used for a general motion. When the body has a fixed point, that point is preferable: the reaction that keeps it fixed is unknown, but it has no moment about the pivot, so it does not appear in the rotational equations (Notes Sec. 12.2). The translational and rotational equations are coupled in general; the six scalar equations are of second order, so 12 initial conditions are needed, for example the coordinates of $G$, three Euler angles and their first derivatives at the initial instant.</p>
+<p>The centre of mass is the point used for a general motion. When the body has a fixed point, that point is preferable: the reaction that keeps it fixed is unknown, but it has no moment about the pivot, so it does not appear in the rotational equations (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.2</a>). The translational and rotational equations are coupled in general; the six scalar equations are of second order, so 12 initial conditions are needed, for example the coordinates of $G$, three Euler angles and their first derivatives at the initial instant.</p>
 <h3 class="sub-heading" id="5-2-external-torques">5.2 External torques</h3>
 <p>When two external forces are equal and opposite but have different lines of action, their resultant is zero and they produce a torque $\mathbf Q_k$, the same about every point. It is convenient to replace such pairs by their torques.</p>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Resultant moment with external torques</span>
     <span class="derivation-law"><strong>Law:</strong> moment of the external forces plus the free vectors of the torques</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.14; [Lecture 10, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=12" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1360,10 +1368,10 @@ m\,\mathbf 0 \times \mathbf v_0^G &amp;= \mathbf 0 \quad &amp;\text{(choice 2: A
     <div class="derivation-result">$$\boxed{\mathbf M_A = \sum_{i=1}^{N} \mathbf r_A^{P_i} \times \mathbf F^{P_i} + \sum_{k=1}^{M} \mathbf Q_k}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> N m in every term</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> with this definition Eq. 12.13 stays unchanged; internal torques, if any, cancel in pairs and do not affect a rigid body.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> with this definition Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> stays unchanged; internal torques, if any, cancel in pairs and do not affect a rigid body.</p>
 </div>
 <h3 class="sub-heading" id="5-3-equivalence-and-reduction-of-systems-of-forc">5.3 Equivalence and reduction of systems of forces and moments</h3>
-<p>The external forces on a rigid body are sliding vectors and the torques are free vectors, so the dynamics depend only on the pair $\{\mathbf F; \mathbf M_A\}$, the reduction of the system at $A$. Two systems are equivalent when they have the same resultant force and the same resultant moment about one point [Lecture 10, Slide 9]. These ideas apply to rigid bodies only.</p>
+<p>The external forces on a rigid body are sliding vectors and the torques are free vectors, so the dynamics depend only on the pair $\{\mathbf F; \mathbf M_A\}$, the reduction of the system at $A$. Two systems are equivalent when they have the same resultant force and the same resultant moment about one point [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=9" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 9">9</a>]. These ideas apply to rigid bodies only.</p>
 <div class="diagram-container diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 836 300" width="100%" class="fig-kit" style="max-width:836px;margin:0 auto;display:block" role="img" aria-label="Three equivalent load systems on a bar: individual forces, the reduction at A and the reduction at B.">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
@@ -1404,13 +1412,13 @@ m\,\mathbf 0 \times \mathbf v_0^G &amp;= \mathbf 0 \quad &amp;\text{(choice 2: A
 <circle cx="25.0" cy="45.0" r="2.6" fill="var(--text-heading)"/>
 <text x="43.0" y="50.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
 </g></svg>
-<div class="diagram-caption">Figure 4. Three equivalent force systems on a rigid bar. The resultant force is the same; the moment changes with the reduction point following Eq. 12.15..</div>
+<div class="diagram-caption">Figure 4. Three equivalent force systems on a rigid bar. The resultant force is the same; the moment changes with the reduction point following Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a>..</div>
 </div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Conditions of equivalence of two load systems</span>
     <span class="derivation-law"><strong>Law:</strong> definition of equivalence through the reduction at A</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 12.2; [Lecture 10, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.2</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=9" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1426,7 +1434,7 @@ m\,\mathbf 0 \times \mathbf v_0^G &amp;= \mathbf 0 \quad &amp;\text{(choice 2: A
   <div class="derivation-head">
     <span class="derivation-title">Change of the reduction point</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the resultant moment with the arms split through A</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.15; [Lecture 10, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=10" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1439,13 +1447,13 @@ m\,\mathbf 0 \times \mathbf v_0^G &amp;= \mathbf 0 \quad &amp;\text{(choice 2: A
     <div class="derivation-result">$$\boxed{\mathbf M_B = \mathbf M_A + \overrightarrow{BA} \times \mathbf F = \mathbf M_A + \mathbf F \times \overrightarrow{AB}}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> N m in every term</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the same law as the velocity field of a rigid body (Notes Eq. 9.3), with the moment in the place of the velocity and the force in the place of the angular velocity.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the same law as the velocity field of a rigid body (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>), with the moment in the place of the velocity and the force in the place of the angular velocity.</p>
 </div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Invariant of the system and central axis</span>
-    <span class="derivation-law"><strong>Law:</strong> dot product of Eq. 12.15 with the force; analogy with the instantaneous axis (Eq. 9.10)</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.15; Notes.pdf, Eq. 9.10</span>
+    <span class="derivation-law"><strong>Law:</strong> dot product of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a> with the force; analogy with the instantaneous axis (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">9.10</a>)</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">9.10</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1465,8 +1473,8 @@ M_\parallel &amp;\equiv \frac{\mathbf M_A \cdot \mathbf F}{F} \quad &amp;\text{(
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Couple of forces and moment about the centre of mass</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 12.15 with zero resultant; Eqs. 12.8 and 12.13 with A at G</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.15; Notes.pdf, Eq. 12.16</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a> with zero resultant; Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> with A at G</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.16</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1480,12 +1488,12 @@ M_\parallel &amp;\equiv \frac{\mathbf M_A \cdot \mathbf F}{F} \quad &amp;\text{(
   <p class="derivation-units"><strong>Units:</strong> N m in every term</p>
   <p class="derivation-foot"><strong>Meaning:</strong> the moment about $G$ may be computed at any convenient point $C$ and moved to $G$.</p>
 </div>
-<div class="callout callout-info callout-extension"><div class="callout-title">Extension: reduction of gravity at the centre of mass</div><p>The notes give the potential energy of the weight (Eq. 12.34, Section 8) but do not reduce the weight itself. The reduction below follows from the definition of the centre of mass and Eq. 12.15; it is marked as an extension. The gravitational acceleration $\mathbf g$ is uniform over the body.</p></div>
+<div class="callout callout-info callout-extension"><div class="callout-title">Extension: reduction of gravity at the centre of mass</div><p>The notes give the potential energy of the weight (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a>, Section 8) but do not reduce the weight itself. The reduction below follows from the definition of the centre of mass and Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a>; it is marked as an extension. The gravitational acceleration $\mathbf g$ is uniform over the body.</p></div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Weight of a rigid body reduced at G (extension)</span>
-    <span class="derivation-law"><strong>Law:</strong> resultant and moment of the distributed weight; first moment about G is zero (Eq. 10.44)</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.44; Notes.pdf, Eq. 12.15</span>
+    <span class="derivation-law"><strong>Law:</strong> resultant and moment of the distributed weight; first moment about G is zero (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.44</a>)</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.44</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1508,8 +1516,8 @@ d\mathbf F_g &amp;= \mathbf g\,dm \quad &amp;\text{(weight of an element)} \\
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">The tensor of inertia is not constant in S_0</span>
-    <span class="derivation-law"><strong>Law:</strong> product rule for a tensor times a vector, Eqs. 11.12 and 11.13</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.17; Notes.pdf, Eq. 12.18; Notes.pdf, Eq. 12.19</span>
+    <span class="derivation-law"><strong>Law:</strong> product rule for a tensor times a vector, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.13</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.17</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.18</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.19</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1526,8 +1534,8 @@ d\mathbf F_g &amp;= \mathbf g\,dm \quad &amp;\text{(weight of an element)} \\
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Derivative computed in the body-fixed frame</span>
-    <span class="derivation-law"><strong>Law:</strong> Coriolis theorem (Eq. 3.8) between $S_0$ and the body frame $S_B\{A; B_B\}$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.20; Notes.pdf, Eq. 12.21; Notes.pdf, Eq. 12.22; [Lecture 10, Slide 13]</span>
+    <span class="derivation-law"><strong>Law:</strong> Coriolis theorem (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>) between $S_0$ and the body frame $S_B\{A; B_B\}$</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.21</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.22</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=13" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1543,7 +1551,7 @@ d\mathbf F_g &amp;= \mathbf g\,dm \quad &amp;\text{(weight of an element)} \\
   <p class="derivation-foot"><strong>Meaning:</strong> a body-fixed basis is the natural one: the tensor has constant components there, and the change of direction of the angular momentum appears as the gyroscopic term.</p>
 </div>
 <h3 class="sub-heading" id="6-2-euler-s-equations-in-principal-axes">6.2 Euler's equations in principal axes</h3>
-<p>The basis $B_B$, with unit vectors $\mathbf e_1$, $\mathbf e_2$, $\mathbf e_3$, is now chosen along the principal axes of inertia at $A$ (Notes Sec. 10.7.1), with principal moments $I_1$, $I_2$, $I_3$. The components of the angular velocity and of the angular acceleration in this basis are written $\omega_i$ and $\alpha_i$.</p>
+<p>The basis $B_B$, with unit vectors $\mathbf e_1$, $\mathbf e_2$, $\mathbf e_3$, is now chosen along the principal axes of inertia at $A$ (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.7.1</a>), with principal moments $I_1$, $I_2$, $I_3$. The components of the angular velocity and of the angular acceleration in this basis are written $\omega_i$ and $\alpha_i$.</p>
 <div class="diagram-container diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 430" width="100%" class="fig-kit" style="max-width:780px;margin:0 auto;display:block" role="img" aria-label="A block spinning about a principal axis with parallel angular velocity and angular momentum, and spinning off the axis with the two vectors apart.">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
@@ -1615,8 +1623,8 @@ d\mathbf F_g &amp;= \mathbf g\,dm \quad &amp;\text{(weight of an element)} \\
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Euler's equations</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 12.21 written in components in the principal basis (Eqs. 10.42 and 10.43)</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.23; Notes.pdf, Eq. 10.42; [Lecture 10, Slide 14]</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.21</a> written in components in the principal basis (Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.42</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.43</a>)</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.23</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.42</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=14" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 14">14</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1638,7 +1646,7 @@ d\mathbf F_g &amp;= \mathbf g\,dm \quad &amp;\text{(weight of an element)} \\
   <div class="derivation-head">
     <span class="derivation-title">Euler's equations with the applied moment</span>
     <span class="derivation-law"><strong>Law:</strong> rotational equation (A is G or a fixed body point) projected on the principal basis</span>
-    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide 13]; [Lecture 10, Slide 14]; Notes.pdf, Eq. 12.23</span>
+    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=13" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 13">13</a>]; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=14" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 14">14</a>]; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.23</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1651,13 +1659,13 @@ I_1\alpha_1 &amp;= M_1 - \left(I_3 - I_2\right)\omega_2\omega_3 = M_1 + \left(I_
   <p class="derivation-units"><strong>Units:</strong> N m in every term</p>
   <p class="derivation-foot"><strong>Meaning:</strong> $M_i$ and $\omega_i$ are components in the body-fixed principal basis; the products of angular velocities couple the three rotations.</p>
 </div>
-<p>The notes add that the principal axes of an asymmetric body are laborious to find, and that the orientation of $B_B$ also affects how easily $\boldsymbol\omega_{B0}$ and $\boldsymbol\alpha_{B0}$ are written. The body-fixed basis is therefore chosen for overall convenience, and Eqs. 12.23 are used only when it is principal.</p>
-<div class="example-card"><div class="example-header"><h4 class="example-title">Slides: clean and dirty rotations of a block</h4><span class="example-badge">Example</span></div><p>Lecture 10 shows a rectangular block with centre of mass $G$ and principal axes $\mathbf e_1$, $\mathbf e_2$, $\mathbf e_3$, all principal moments different [Lecture 10, Slide 15] [Lecture 10, Slide 16]. In the clean rotation the angular velocity lies along a principal axis and the angular momentum about $G$ is parallel to it. In the dirty rotation the angular velocity has components on two principal axes and the angular momentum is no longer parallel to it. The boxes below derive both pictures from Euler's equations, taking moments about $G$.</p></div>
+<p>The notes add that the principal axes of an asymmetric body are laborious to find, and that the orientation of $B_B$ also affects how easily $\boldsymbol\omega_{B0}$ and $\boldsymbol\alpha_{B0}$ are written. The body-fixed basis is therefore chosen for overall convenience, and Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.23</a> are used only when it is principal.</p>
+<div class="example-card"><div class="example-header"><h4 class="example-title">Slides: clean and dirty rotations of a block</h4><span class="example-badge">Example</span></div><p>Lecture 10 shows a rectangular block with centre of mass $G$ and principal axes $\mathbf e_1$, $\mathbf e_2$, $\mathbf e_3$, all principal moments different [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=15" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 15">15</a>] [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=16" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 16">16</a>]. In the clean rotation the angular velocity lies along a principal axis and the angular momentum about $G$ is parallel to it. In the dirty rotation the angular velocity has components on two principal axes and the angular momentum is no longer parallel to it. The boxes below derive both pictures from Euler's equations, taking moments about $G$.</p></div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Clean rotation about a principal axis</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 11.12 and Euler's equations with two components of omega equal to zero</span>
-    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide 14]; [Lecture 10, Slide 15]; Notes.pdf, Eq. 11.12</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a> and Euler's equations with two components of omega equal to zero</span>
+    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=14" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 14">14</a>]; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=15" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 15">15</a>]; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1674,8 +1682,8 @@ I_1\alpha_1 &amp;= M_1, \quad I_2\alpha_2 = M_2, \quad I_3\alpha_3 = M_3 \quad &
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Dirty rotation: angular velocity off the principal axes</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 11.12 and Euler's equations with two non-zero components of omega</span>
-    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide 14]; [Lecture 10, Slide 16]; Notes.pdf, Eq. 11.12</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a> and Euler's equations with two non-zero components of omega</span>
+    <span class="derivation-source"><strong>Source:</strong> [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=14" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 14">14</a>]; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=16" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 16">16</a>]; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1698,8 +1706,8 @@ M_2 &amp;= \left(I_1 - I_3\right)\omega_1\omega_3 \quad &amp;\text{(moment neede
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Equilibrium conditions</span>
-    <span class="derivation-law"><strong>Law:</strong> Eqs. 12.8 and 12.13 with the body at rest for all times</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.24; Notes.pdf, Eq. 12.25; [Lecture 10, Slide 19]</span>
+    <span class="derivation-law"><strong>Law:</strong> Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> with the body at rest for all times</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.24</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.25</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=19" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 19">19</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1714,7 +1722,7 @@ M_2 &amp;= \left(I_1 - I_3\right)\omega_1\omega_3 \quad &amp;\text{(moment neede
   <p class="derivation-units"><strong>Units:</strong> N and N m</p>
   <p class="derivation-foot"><strong>Meaning:</strong> a configuration is an equilibrium if and only if the resultant force and the resultant moment about one point vanish there; a body in equilibrium under a system of forces is also in equilibrium under any equivalent system.</p>
 </div>
-<p>The definition of stability carries over from the particle [Lecture 10, Slide 19]. Taking a body point $C$ and 3-1-3 Euler angles, the configuration with $C$ at $\mathbf r_0^*$ and angles $\psi_0$, $\theta_0$, $\varphi_0$ is stable when small perturbations stay small:</p>
+<p>The definition of stability carries over from the particle [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=19" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 19">19</a>]. Taking a body point $C$ and 3-1-3 Euler angles, the configuration with $C$ at $\mathbf r_0^*$ and angles $\psi_0$, $\theta_0$, $\varphi_0$ is stable when small perturbations stay small:</p>
 <div class="table-wrapper"><table><thead><tr><th>Condition</th><th>Statement</th></tr></thead><tbody><tr><td>for all tolerances</td><td>$\forall\,\varepsilon_r, \varepsilon_v, \varepsilon_a, \varepsilon_\omega \gt 0$ there exist $\delta_r, \delta_v, \delta_a, \delta_\omega \gt 0$ such that</td></tr><tr><td>initial perturbation</td><td>$\lvert\mathbf r_0^C - \mathbf r_0^*\rvert \lt \delta_r$, $\lvert\mathbf v_0^C\rvert \lt \delta_v$, $\lvert\psi - \psi_0\rvert, \lvert\theta - \theta_0\rvert, \lvert\varphi - \varphi_0\rvert \lt \delta_a$, $\lvert\boldsymbol\omega_{B0}\rvert \lt \delta_\omega$</td></tr><tr><td>implies, for all $t \gt 0$</td><td>$\lvert\mathbf r_0^C - \mathbf r_0^*\rvert \lt \varepsilon_r$, $\lvert\mathbf v_0^C\rvert \lt \varepsilon_v$, $\lvert\psi - \psi_0\rvert, \lvert\theta - \theta_0\rvert, \lvert\varphi - \varphi_0\rvert \lt \varepsilon_a$, $\lvert\boldsymbol\omega_{B0}\rvert \lt \varepsilon_\omega$</td></tr></tbody></table></div>
     </section>
 
@@ -1724,8 +1732,8 @@ M_2 &amp;= \left(I_1 - I_3\right)\omega_1\omega_3 \quad &amp;\text{(moment neede
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Power of the external forces and torques</span>
-    <span class="derivation-law"><strong>Law:</strong> power of each force at its point of application (Eq. 4.10) plus the power of each torque</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.26; Notes.pdf, Eq. 12.27; Notes.pdf, Eq. 12.28; Notes.pdf, Eq. 12.29; [Lecture 10, Slide 11]; [Lecture 10, Slide 12]</span>
+    <span class="derivation-law"><strong>Law:</strong> power of each force at its point of application (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">4.10</a>) plus the power of each torque</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.26</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.27</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.28</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.29</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=11" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 11">11</a>]; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=12" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1740,15 +1748,15 @@ M_2 &amp;= \left(I_1 - I_3\right)\omega_1\omega_3 \quad &amp;\text{(moment neede
     <div class="derivation-result">$$\boxed{\dot W_0 = \mathbf F \cdot \mathbf v_0^A + \mathbf M_A \cdot \boldsymbol\omega_{B0}}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{M\,L\,T^{-2}}]\,[\mathrm{L\,T^{-1}}] = [\mathrm{M\,L^2\,T^{-3}}]$ and $[\mathrm{M\,L^2\,T^{-2}}]\,[\mathrm{T^{-1}}] = [\mathrm{M\,L^2\,T^{-3}}]$, W</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the power of a load system equals the power of its reduction at any body point $A$, so two equivalent systems do the same work [Lecture 10, Slide 11].</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the power of a load system equals the power of its reduction at any body point $A$, so two equivalent systems do the same work [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=11" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 11">11</a>].</p>
 </div>
-<p>Two remarks of [Lecture 10, Slide 17]: an external force perpendicular to the velocity of its point of application (of any point on its line of action) does no work, and an external torque perpendicular to $\boldsymbol\omega_{B0}$ does no work.</p>
+<p>Two remarks of [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=17" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 17">17</a>]: an external force perpendicular to the velocity of its point of application (of any point on its line of action) does no work, and an external torque perpendicular to $\boldsymbol\omega_{B0}$ does no work.</p>
 <h3 class="sub-heading" id="8-2-work-and-energy-theorem">8.2 Work and energy theorem</h3>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Work and energy theorem for a rigid body</span>
     <span class="derivation-law"><strong>Law:</strong> power as the rate of the kinetic energy (chain rule) integrated with Barrow's rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.31; Notes.pdf, Eq. 12.32; [Lecture 10, Slide 17]; [Lecture 10, Slide 18]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.30</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.31</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.32</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=17" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 17">17</a>]; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1768,8 +1776,8 @@ T_0 &amp;= \frac{1}{2}m\left(v_0^G\right)^2 + \frac{1}{2}\boldsymbol\omega_{B0} 
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Conservation of mechanical energy</span>
-    <span class="derivation-law"><strong>Law:</strong> work of conservative loads as minus the change of a potential (Eq. 4.14)</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.33; [Lecture 10, Slide 18]</span>
+    <span class="derivation-law"><strong>Law:</strong> work of conservative loads as minus the change of a potential (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">4.14</a>)</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1785,8 +1793,8 @@ T_{0,2} + V_{0,2} &amp;= T_{0,1} + V_{0,1} \quad &amp;\text{(terms of each insta
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Potential energy of the weight of a rigid body</span>
-    <span class="derivation-law"><strong>Law:</strong> potential of the weight of each element (Eq. 4.14) summed over the body; definition of the centre of mass</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.34; Notes.pdf, Eq. 4.14; [Lecture 10, Slide 18]</span>
+    <span class="derivation-law"><strong>Law:</strong> potential of the weight of each element (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">4.14</a>) summed over the body; definition of the centre of mass</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">4.14</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1804,8 +1812,8 @@ V_0 &amp;= \int_{\mathcal D} g\,z_0^P\,dm = g\int_{\mathcal D} z_0^P\,dm \quad &
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Work of the resultant force and translational energy</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 12.8 dotted with the velocity of G; chain rule; Barrow's rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.35; Notes.pdf, Eq. 12.8</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a> dotted with the velocity of G; chain rule; Barrow's rule</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.35</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1816,13 +1824,13 @@ V_0 &amp;= \int_{\mathcal D} g\,z_0^P\,dm = g\int_{\mathcal D} z_0^P\,dm \quad &
     <div class="derivation-result">$$\boxed{\int_{t_1}^{t_2} \mathbf F \cdot \mathbf v_0^G\,dt = \frac{1}{2}m\left(v_0^G\right)^2\Big|_2 - \frac{1}{2}m\left(v_0^G\right)^2\Big|_1}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> J on both sides</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the resultant force, applied at $G$, changes only the translational part of the kinetic energy (first term of Eq. 12.32).</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the resultant force, applied at $G$, changes only the translational part of the kinetic energy (first term of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.32</a>).</p>
 </div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Work of the moment about G and rotational energy</span>
-    <span class="derivation-law"><strong>Law:</strong> power reduced at G (Eq. 12.29), energy theorem (Eq. 12.30) and the previous box</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.36; Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.32</span>
+    <span class="derivation-law"><strong>Law:</strong> power reduced at G (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.29</a>), energy theorem (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.30</a>) and the previous box</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.36</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.29</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.32</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1834,15 +1842,15 @@ V_0 &amp;= \int_{\mathcal D} g\,z_0^P\,dm = g\int_{\mathcal D} z_0^P\,dm \quad &
     <div class="derivation-result">$$\boxed{\int_{t_1}^{t_2} \mathbf M_G \cdot \boldsymbol\omega_{B0}\,dt = \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_G \cdot \boldsymbol\omega_{B0}\Big|_2 - \frac{1}{2}\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_G \cdot \boldsymbol\omega_{B0}\Big|_1}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{M\,L^2\,T^{-2}}]\,[\mathrm{T^{-1}}]\,[\mathrm{T}] = [\mathrm{M\,L^2\,T^{-2}}]$, J</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the moment about $G$ changes only the rotational kinetic energy (second term of Eq. 12.32): translation and rotation can be treated separately.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the moment about $G$ changes only the rotational kinetic energy (second term of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.32</a>): translation and rotation can be treated separately.</p>
 </div>
     </section>
 
     <section>
       <h2 class="section-heading" id="sec-9"><span>9.</span> Planar dynamics of a rigid body</h2>
-<div class="callout callout-info callout-extension"><div class="callout-title">Extension: plane motion</div><p>The notes and the slides treat the general three-dimensional motion only. The particular cases below (translation, rotation about a fixed axis and general plane motion) are obtained from Eqs. 12.8, 12.13 and 12.21 and are marked as an extension; they introduce no new law.</p></div>
+<div class="callout callout-info callout-extension"><div class="callout-title">Extension: plane motion</div><p>The notes and the slides treat the general three-dimensional motion only. The particular cases below (translation, rotation about a fixed axis and general plane motion) are obtained from Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.21</a> and are marked as an extension; they introduce no new law.</p></div>
 <p>In a plane motion every point of the body moves parallel to the fixed plane spanned by $\mathbf i_0$ and $\mathbf j_0$, and $\mathbf k_0$ points out of the paper (⊙) in the figures. The body frame $S_1\{G; \mathbf i_1, \mathbf j_1, \mathbf k_1\}$ keeps $\mathbf k_1$ along $\mathbf k_0$ and turns by the angle $\theta$ measured from $\mathbf i_0$ to $\mathbf i_1$, counterclockwise about $\mathbf k_0$.</p>
-<div class="table-wrapper"><table><thead><tr><th>Symbol</th><th>Meaning</th></tr></thead><tbody><tr><td>$\theta$</td><td>angle from $\mathbf i_0$ to $\mathbf i_1$, positive counterclockwise about $\mathbf k_0$ (right-hand rule, ⊙)</td></tr><tr><td>$\omega$, $\alpha$</td><td>scalar angular velocity and angular acceleration about $\mathbf k_0$ (rad/s, rad/s$^2$)</td></tr><tr><td>$I_{13}$, $I_{23}$, $I_{33}$</td><td>components of the third column of the matrix of the tensor of inertia about $G$ in $B_1$ (kg m$^2$)</td></tr><tr><td>$\rho$, $\mathbf e_t$, $\mathbf e_n$</td><td>radius of curvature and intrinsic unit vectors of the path of $G$ (Notes Eq. 2.17)</td></tr></tbody></table></div>
+<div class="table-wrapper"><table><thead><tr><th>Symbol</th><th>Meaning</th></tr></thead><tbody><tr><td>$\theta$</td><td>angle from $\mathbf i_0$ to $\mathbf i_1$, positive counterclockwise about $\mathbf k_0$ (right-hand rule, ⊙)</td></tr><tr><td>$\omega$, $\alpha$</td><td>scalar angular velocity and angular acceleration about $\mathbf k_0$ (rad/s, rad/s$^2$)</td></tr><tr><td>$I_{13}$, $I_{23}$, $I_{33}$</td><td>components of the third column of the matrix of the tensor of inertia about $G$ in $B_1$ (kg m$^2$)</td></tr><tr><td>$\rho$, $\mathbf e_t$, $\mathbf e_n$</td><td>radius of curvature and intrinsic unit vectors of the path of $G$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>)</td></tr></tbody></table></div>
 <div class="diagram-container diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="A lamina in plane motion with its body axes turned by theta about the normal axis that points out of the paper.">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
@@ -1889,7 +1897,7 @@ V_0 &amp;= \int_{\mathcal D} g\,z_0^P\,dm = g\int_{\mathcal D} z_0^P\,dm \quad &
   <div class="derivation-head">
     <span class="derivation-title">Basis change and angular velocity of a plane motion (extension)</span>
     <span class="derivation-law"><strong>Law:</strong> rotation about the axis k0; right-hand rule; Poisson derivative of the unit vectors</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 3.9</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=80" target="_blank" rel="noopener" title="Open Notes.pdf at page 80">9.16</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.9</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1909,8 +1917,8 @@ V_0 &amp;= \int_{\mathcal D} g\,z_0^P\,dm = g\int_{\mathcal D} z_0^P\,dm \quad &
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Moment equation about G in a plane motion (extension)</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 12.21 about G with omega and alpha along the body axis k1</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.21; Notes.pdf, Eq. 12.16</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.21</a> about G with omega and alpha along the body axis k1</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.21</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.16</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1928,8 +1936,8 @@ I_{13} &amp;= I_{23} = 0 \quad &amp;\text{(if the plane of motion through G is a
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Particular plane motions (extension)</span>
-    <span class="derivation-law"><strong>Law:</strong> Eqs. 12.8, 12.13 and the acceleration field (Eq. 9.4) in each case</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 9.4; Notes.pdf, Eq. 2.17</span>
+    <span class="derivation-law"><strong>Law:</strong> Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> and the acceleration field (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.4</a>) in each case</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.4</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2036,7 +2044,7 @@ I_{13} &amp;= I_{23} = 0 \quad &amp;\text{(if the plane of motion through G is a
   <div class="derivation-head">
     <span class="derivation-title">Kinematics of the rod</span>
     <span class="derivation-law"><strong>Law:</strong> position vector of G and Poisson derivatives of the body basis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 9.4</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.4</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2053,8 +2061,8 @@ I_{13} &amp;= I_{23} = 0 \quad &amp;\text{(if the plane of motion through G is a
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Moment of inertia of the rod about the pin</span>
-    <span class="derivation-law"><strong>Law:</strong> moment of inertia as the integral of the squared distance (Eq. 10.11) for a slender rod</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.38</span>
+    <span class="derivation-law"><strong>Law:</strong> moment of inertia as the integral of the squared distance (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=85" target="_blank" rel="noopener" title="Open Notes.pdf at page 85">10.11</a>) for a slender rod</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=85" target="_blank" rel="noopener" title="Open Notes.pdf at page 85">10.11</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.38</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2067,13 +2075,13 @@ I_{O,13} &amp;= -\int_{\mathcal D} x_1 z_1\,dm = 0, \quad I_{O,23} = -\int_{\mat
     <div class="derivation-result">$$\boxed{\mathbf H_{O,0} = \overline{\overline{\mathcal I}}_O \cdot \boldsymbol\omega_{B0} = \frac{1}{3}m L^2\,\dot\theta\,\mathbf k_1}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{M}]\,[\mathrm{L^2}]\,[\mathrm{T^{-1}}] = [\mathrm{M\,L^2\,T^{-1}}]$</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> $O$ is a fixed body point, so Eq. 11.13 applies, and the angular momentum is parallel to the angular velocity.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> $O$ is a fixed body point, so Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.13</a> applies, and the angular momentum is parallel to the angular velocity.</p>
 </div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Equation of motion from the moment about the pin</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 12.13 about the fixed body point O; weight reduced at G</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.15</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> about the fixed body point O; weight reduced at G</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2086,13 +2094,13 @@ I_{O,13} &amp;= -\int_{\mathcal D} x_1 z_1\,dm = 0, \quad I_{O,23} = -\int_{\mat
     <div class="derivation-result">$$\boxed{\ddot\theta + \frac{3g}{2L}\sin\theta = 0}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{T^{-2}}]$ and $[\mathrm{L\,T^{-2}}]/[\mathrm{L}] = [\mathrm{T^{-2}}]$</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> for small angles the rod oscillates with angular frequency the square root of three g over two L, like a simple pendulum (Notes Eq. 4.38) of length two thirds of $L$.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> for small angles the rod oscillates with angular frequency the square root of three g over two L, like a simple pendulum (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=49" target="_blank" rel="noopener" title="Open Notes.pdf at page 49">4.38</a>) of length two thirds of $L$.</p>
 </div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Reaction at the pin</span>
-    <span class="derivation-law"><strong>Law:</strong> Eq. 12.8 projected on the body basis B1</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8</span>
+    <span class="derivation-law"><strong>Law:</strong> Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a> projected on the body basis B1</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2109,8 +2117,8 @@ R_2 &amp;= m g\sin\theta - \frac{3}{4}m g\sin\theta = \frac{1}{4}m g\sin\theta \
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Energy check of the compound pendulum</span>
-    <span class="derivation-law"><strong>Law:</strong> Eqs. 12.31, 12.34 and 12.33</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.31; Notes.pdf, Eq. 12.34; Notes.pdf, Eq. 12.33</span>
+    <span class="derivation-law"><strong>Law:</strong> Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.31</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.31</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2128,7 +2136,7 @@ V_0 &amp;= m g\left(-\frac{L}{2}\cos\theta\right) \quad &amp;\text{(Eq. 12.34: G
 
     <section>
       <h2 class="section-heading" id="sec-10"><span>10.</span> Practical formulary</h2>
-<div class="table-wrapper"><table><thead><tr><th>Quantity</th><th>Result</th><th>Source</th></tr></thead><tbody><tr><td>Linear momentum</td><td>$\mathbf p_0 = \int_{\mathcal D} \mathbf v_0^P\,dm = m\,\mathbf v_0^G$</td><td>Eqs. 11.1, 11.3</td></tr><tr><td>Angular momentum about $A$</td><td>$\mathbf H_{A,0} = \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0} + m\,\mathbf r_A^G \times \mathbf v_0^{A(B)}$</td><td>Eq. 11.11</td></tr><tr><td>About $G$ or a fixed body point</td><td>$\mathbf H_{G,0} = \overline{\overline{\mathcal I}}_G \cdot \boldsymbol\omega_{B0}$, $\mathbf H_{A,0} = \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0}$</td><td>Eqs. 11.12, 11.13</td></tr><tr><td>Change of pole</td><td>$\mathbf H_{A,0} = \mathbf H_{G,0} + m\,\mathbf r_A^G \times \mathbf v_0^G$, $\mathbf H_{G,G} \equiv \mathbf H_{G,0}$</td><td>Eqs. 11.19, 11.20, 11.21</td></tr><tr><td>Kinetic energy</td><td>$T_0 = \tfrac12\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0} + \tfrac12 m (v_0^{A(B)})^2 + m(\boldsymbol\omega_{B0} \times \mathbf r_A^G) \cdot \mathbf v_0^{A(B)}$</td><td>Eq. 11.30</td></tr><tr><td>About $G$; fixed point</td><td>$T_0 = \tfrac12\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_G \cdot \boldsymbol\omega_{B0} + \tfrac12 m (v_0^G)^2$; $T_0 = \tfrac12\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0}$</td><td>Eqs. 11.31, 11.32</td></tr><tr><td>Koenig</td><td>$T_0 = T_G + \tfrac12 m (v_0^G)^2$</td><td>Eq. 11.37</td></tr><tr><td>Axis of rotation (extension)</td><td>$T_0 = \tfrac12 I_\ell\,\omega^2$, $I_\ell = \mathbf e_\omega \cdot \overline{\overline{\mathcal I}}_A \cdot \mathbf e_\omega = I_{\ell G} + m d^2$</td><td>Eqs. 10.39, 10.48</td></tr><tr><td>Force equation</td><td>$\left.\dfrac{d\mathbf p_0}{dt}\right\vert_0 = \mathbf F = m\,\mathbf a_0^G$</td><td>Eq. 12.8</td></tr><tr><td>Moment equation</td><td>$\left.\dfrac{d\mathbf H_{A,0}}{dt}\right\vert_0 = \mathbf M_A - m\,\mathbf v_0^A \times \mathbf v_0^G$</td><td>Eq. 12.13</td></tr><tr><td>Resultant moment with torques</td><td>$\mathbf M_A = \sum_i \mathbf r_A^{P_i} \times \mathbf F^{P_i} + \sum_k \mathbf Q_k$</td><td>Eq. 12.14</td></tr><tr><td>Change of reduction point</td><td>$\mathbf M_B = \mathbf M_A + \mathbf F \times \overrightarrow{AB}$; $\mathbf M_G = \mathbf M_C - \overrightarrow{CG} \times \mathbf F$</td><td>Eqs. 12.15, 12.16</td></tr><tr><td>Weight (extension)</td><td>$\{m\,\mathbf g; \mathbf 0\}$ at $G$</td><td>Eq. 10.44</td></tr><tr><td>Rotational equation in $S_B$</td><td>$\left.\dfrac{d\mathbf H_{A,0}}{dt}\right\vert_0 = \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\alpha_{B0} + \boldsymbol\omega_{B0} \times (\overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0})$</td><td>Eq. 12.21</td></tr><tr><td>Euler's equations</td><td>$I_1\alpha_1 - (I_2 - I_3)\omega_2\omega_3 = M_1$ and cyclic</td><td>Eq. 12.23</td></tr><tr><td>Equilibrium</td><td>$\mathbf F = \mathbf 0$, $\mathbf M_A = \mathbf 0$</td><td>Eqs. 12.24, 12.25</td></tr><tr><td>Power</td><td>$\dot W_0 = \mathbf F \cdot \mathbf v_0^A + \mathbf M_A \cdot \boldsymbol\omega_{B0}$</td><td>Eq. 12.29</td></tr><tr><td>Work and energy</td><td>$W_0(t_1, t_2) = T_{0,2} - T_{0,1}$; $T_0 + V_0 = E_0$</td><td>Eqs. 12.30, 12.33</td></tr><tr><td>Weight potential</td><td>$V_0 = m g z_0^G$</td><td>Eq. 12.34</td></tr><tr><td>Split of the work</td><td>$\int \mathbf F \cdot \mathbf v_0^G\,dt = \Delta(\tfrac12 m (v_0^G)^2)$; $\int \mathbf M_G \cdot \boldsymbol\omega_{B0}\,dt = \Delta(\tfrac12\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_G \cdot \boldsymbol\omega_{B0})$</td><td>Eqs. 12.35, 12.36</td></tr><tr><td>Plane motion (extension)</td><td>$\mathbf F = m\,\mathbf a_0^G$, $\mathbf M_G \cdot \mathbf k_0 = I_{33}\,\alpha$; fixed axis $\mathbf M_O \cdot \mathbf k_0 = I_{O,33}\,\alpha$</td><td>Eqs. 12.8, 12.21</td></tr></tbody></table></div>
+<div class="table-wrapper"><table><thead><tr><th>Quantity</th><th>Result</th><th>Source</th></tr></thead><tbody><tr><td>Linear momentum</td><td>$\mathbf p_0 = \int_{\mathcal D} \mathbf v_0^P\,dm = m\,\mathbf v_0^G$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.1</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a></td></tr><tr><td>Angular momentum about $A$</td><td>$\mathbf H_{A,0} = \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0} + m\,\mathbf r_A^G \times \mathbf v_0^{A(B)}$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.11</a></td></tr><tr><td>About $G$ or a fixed body point</td><td>$\mathbf H_{G,0} = \overline{\overline{\mathcal I}}_G \cdot \boldsymbol\omega_{B0}$, $\mathbf H_{A,0} = \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0}$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.13</a></td></tr><tr><td>Change of pole</td><td>$\mathbf H_{A,0} = \mathbf H_{G,0} + m\,\mathbf r_A^G \times \mathbf v_0^G$, $\mathbf H_{G,G} \equiv \mathbf H_{G,0}$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.19</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.20</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.21</a></td></tr><tr><td>Kinetic energy</td><td>$T_0 = \tfrac12\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0} + \tfrac12 m (v_0^{A(B)})^2 + m(\boldsymbol\omega_{B0} \times \mathbf r_A^G) \cdot \mathbf v_0^{A(B)}$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.30</a></td></tr><tr><td>About $G$; fixed point</td><td>$T_0 = \tfrac12\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_G \cdot \boldsymbol\omega_{B0} + \tfrac12 m (v_0^G)^2$; $T_0 = \tfrac12\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0}$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.32</a></td></tr><tr><td>Koenig</td><td>$T_0 = T_G + \tfrac12 m (v_0^G)^2$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.37</a></td></tr><tr><td>Axis of rotation (extension)</td><td>$T_0 = \tfrac12 I_\ell\,\omega^2$, $I_\ell = \mathbf e_\omega \cdot \overline{\overline{\mathcal I}}_A \cdot \mathbf e_\omega = I_{\ell G} + m d^2$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.39</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.48</a></td></tr><tr><td>Force equation</td><td>$\left.\dfrac{d\mathbf p_0}{dt}\right\vert_0 = \mathbf F = m\,\mathbf a_0^G$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a></td></tr><tr><td>Moment equation</td><td>$\left.\dfrac{d\mathbf H_{A,0}}{dt}\right\vert_0 = \mathbf M_A - m\,\mathbf v_0^A \times \mathbf v_0^G$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a></td></tr><tr><td>Resultant moment with torques</td><td>$\mathbf M_A = \sum_i \mathbf r_A^{P_i} \times \mathbf F^{P_i} + \sum_k \mathbf Q_k$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a></td></tr><tr><td>Change of reduction point</td><td>$\mathbf M_B = \mathbf M_A + \mathbf F \times \overrightarrow{AB}$; $\mathbf M_G = \mathbf M_C - \overrightarrow{CG} \times \mathbf F$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.16</a></td></tr><tr><td>Weight (extension)</td><td>$\{m\,\mathbf g; \mathbf 0\}$ at $G$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.44</a></td></tr><tr><td>Rotational equation in $S_B$</td><td>$\left.\dfrac{d\mathbf H_{A,0}}{dt}\right\vert_0 = \overline{\overline{\mathcal I}}_A \cdot \boldsymbol\alpha_{B0} + \boldsymbol\omega_{B0} \times (\overline{\overline{\mathcal I}}_A \cdot \boldsymbol\omega_{B0})$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.21</a></td></tr><tr><td>Euler's equations</td><td>$I_1\alpha_1 - (I_2 - I_3)\omega_2\omega_3 = M_1$ and cyclic</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.23</a></td></tr><tr><td>Equilibrium</td><td>$\mathbf F = \mathbf 0$, $\mathbf M_A = \mathbf 0$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.24</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.25</a></td></tr><tr><td>Power</td><td>$\dot W_0 = \mathbf F \cdot \mathbf v_0^A + \mathbf M_A \cdot \boldsymbol\omega_{B0}$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.29</a></td></tr><tr><td>Work and energy</td><td>$W_0(t_1, t_2) = T_{0,2} - T_{0,1}$; $T_0 + V_0 = E_0$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.30</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a></td></tr><tr><td>Weight potential</td><td>$V_0 = m g z_0^G$</td><td>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a></td></tr><tr><td>Split of the work</td><td>$\int \mathbf F \cdot \mathbf v_0^G\,dt = \Delta(\tfrac12 m (v_0^G)^2)$; $\int \mathbf M_G \cdot \boldsymbol\omega_{B0}\,dt = \Delta(\tfrac12\boldsymbol\omega_{B0} \cdot \overline{\overline{\mathcal I}}_G \cdot \boldsymbol\omega_{B0})$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.35</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.36</a></td></tr><tr><td>Plane motion (extension)</td><td>$\mathbf F = m\,\mathbf a_0^G$, $\mathbf M_G \cdot \mathbf k_0 = I_{33}\,\alpha$; fixed axis $\mathbf M_O \cdot \mathbf k_0 = I_{O,33}\,\alpha$</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.21</a></td></tr></tbody></table></div>
     </section>
 
     <div class="article-nav">
@@ -2136,9 +2144,9 @@ V_0 &amp;= m g\left(-\frac{L}{2}\cos\theta\right) \quad &amp;\text{(Eq. 12.34: G
         <span class="nav-btn-label">← Previous Topic</span>
         <span class="nav-btn-title">Topic 6</span>
       </a>
-      <a href="../problemas/topic-7.html" class="nav-btn" style="text-align: center; border-color: var(--accent-border);">
+      <a href="../problemas/index.html" class="nav-btn" style="text-align: center; border-color: var(--accent-border);">
         <span class="nav-btn-label">Practice Problems</span>
-        <span class="nav-btn-title" style="color: var(--accent);">Topic 7 Problems (8)</span>
+        <span class="nav-btn-title" style="color: var(--accent);">Problem Sets</span>
       </a>
       <a href="topic-8.html" class="nav-btn" style="text-align: right;">
         <span class="nav-btn-label">Next Topic →</span>

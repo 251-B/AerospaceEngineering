@@ -202,7 +202,7 @@ A case of special interest is rolling without slipping, as a rough rubber wheel 
 > $$\begin{aligned}
 > \left(\mathbf v_0^{C(B_1)} - \mathbf v_0^{C(B_2)}\right)\cdot\mathbf e_{t1} &= 0,\quad \left(\mathbf v_0^{C(B_1)} - \mathbf v_0^{C(B_2)}\right)\cdot\mathbf e_{t2} = 0 \quad &\text{(no sliding along the tangent plane)} \\
 > \left(\mathbf v_0^{C(B_1)} - \mathbf v_0^{C(B_2)}\right)\cdot\mathbf e_{n} &= 0 \quad &\text{(Eq. 13.1)} \\
-> \mathbf v_0^{C(B_1)} - \mathbf v_0^{C(B_2)} &= \mathbf 0 \quad &\text{(a vector with zero components in the basis B_C is zero)} \\
+> \mathbf v_0^{C(B_1)} - \mathbf v_0^{C(B_2)} &= \mathbf 0 \quad &\text{(a vector with zero components in the basis $B_C$ is zero)} \\
 > \dot s_1 &= \dot s_2 \quad &\text{(the contact point advances at the same rate along both perimeters)} \\
 > \int_0^t \dot s_1\,dt' &= \int_0^t \dot s_2\,dt' \quad &\text{(integration of equal rates from 0 to t)} \\
 > \left[s_1\right]_0^t &= \left[s_2\right]_0^t \quad &\text{(antiderivative of each rate is its arc length)} \\
@@ -993,10 +993,10 @@ Two equal moments give an axisymmetric tensor: prolate (javelin-shaped) when the
 > $$\begin{aligned}
 > \dot\omega_x &= \frac{(A - B)\,\omega_z}{A}\,\omega_y = \lambda\,\omega_y \quad &\text{(Eq. 15.23 divided by Ix equal to A)} \\
 > \dot\omega_y &= -\frac{(A - B)\,\omega_z}{A}\,\omega_x = -\lambda\,\omega_x \quad &\text{(Eq. 15.24 divided by Iy equal to A)} \\
-> \lambda &= \frac{(A - B)\,\omega_z}{A} \quad &\text{(constant, since omega_z is constant; corrected definition)} \\
+> \lambda &= \frac{(A - B)\,\omega_z}{A} \quad &\text{(constant, since $\omega_z$ is constant; corrected definition)} \\
 > \omega_x &= c_1\cos\lambda t + c_2\sin\lambda t \quad &\text{(trial solution, Eq. 15.26)} \\
 > \dot\omega_x &= -\lambda c_1\sin\lambda t + \lambda c_2\cos\lambda t \quad &\text{(chain rule: derivative of cos of lambda t is minus lambda sin of lambda t)} \\
-> &= \lambda\left(-c_1\sin\lambda t + c_2\cos\lambda t\right) = \lambda\,\omega_y \quad &\text{(with Eq. 15.27 for omega_y)} \\
+> &= \lambda\left(-c_1\sin\lambda t + c_2\cos\lambda t\right) = \lambda\,\omega_y \quad &\text{(with Eq. 15.27 for $\omega_y$)} \\
 > \dot\omega_y &= -\lambda c_1\cos\lambda t - \lambda c_2\sin\lambda t = -\lambda\,\omega_x \quad &\text{(chain rule on Eq. 15.27)} \\
 > c_1 &= \omega_x(0),\quad c_2 = \omega_y(0) \quad &\text{(values at t equal to 0)}
 > \end{aligned}$$
@@ -1013,7 +1013,7 @@ Two equal moments give an axisymmetric tensor: prolate (javelin-shaped) when the
 > $$\begin{aligned}
 > \omega_x^2 + \omega_y^2 &= c_1^2\left(\cos^2\lambda t + \sin^2\lambda t\right) + c_2^2\left(\sin^2\lambda t + \cos^2\lambda t\right) + 2c_1c_2\left(\cos\lambda t\sin\lambda t - \sin\lambda t\cos\lambda t\right) \quad &\text{(squares of Eqs. 15.26 and 15.27 added)} \\
 > &= c_1^2 + c_2^2 \quad &\text{(Pythagorean identity; the cross terms cancel)} \\
-> |\boldsymbol\omega_{b0}|^2 &= c_1^2 + c_2^2 + \omega_z^2 = \text{const} \quad &\text{(omega_z constant)} \\
+> |\boldsymbol\omega_{b0}|^2 &= c_1^2 + c_2^2 + \omega_z^2 = \text{const} \quad &\text{($\omega_z$ constant)} \\
 > c_1 &= c\cos\beta,\quad c_2 = c\sin\beta \quad &\text{(polar form of the constants)} \\
 > \omega_x &= c\left(\cos\beta\cos\lambda t + \sin\beta\sin\lambda t\right) = c\cos\left(\beta - \lambda t\right) \quad &\text{(cosine of a difference)} \\
 > \omega_y &= c\left(\sin\beta\cos\lambda t - \cos\beta\sin\lambda t\right) = c\sin\left(\beta - \lambda t\right) \quad &\text{(sine of a difference)} \\
@@ -1230,11 +1230,11 @@ Rotation about the major or minor axis is therefore marginally stable (small dev
 > Steady rotation at rate $\Omega$ about one principal axis; the other two components are small and their products are neglected.
 >
 > $$\begin{aligned}
-> \text{major axis: } B\dot\omega_y &= (C - A)\,\Omega\,\omega_z,\quad C\dot\omega_z = (A - B)\,\Omega\,\omega_y \quad &\text{(Eqs. 15.12 and 15.13 with omega_x equal to Omega)} \\
+> \text{major axis: } B\dot\omega_y &= (C - A)\,\Omega\,\omega_z,\quad C\dot\omega_z = (A - B)\,\Omega\,\omega_y \quad &\text{(Eqs. 15.12 and 15.13 with $\omega_x$ equal to $\Omega$)} \\
 > \ddot\omega_y &= \frac{(C - A)\,\Omega}{B}\,\dot\omega_z = -\frac{(A - C)(A - B)}{BC}\,\Omega^2\,\omega_y \quad &\text{(time derivative and substitution)} \\
-> \text{intermediate axis: } A\dot\omega_x &= (B - C)\,\Omega\,\omega_z,\quad C\dot\omega_z = (A - B)\,\Omega\,\omega_x \quad &\text{(Eqs. 15.11 and 15.13 with omega_y equal to Omega)} \\
+> \text{intermediate axis: } A\dot\omega_x &= (B - C)\,\Omega\,\omega_z,\quad C\dot\omega_z = (A - B)\,\Omega\,\omega_x \quad &\text{(Eqs. 15.11 and 15.13 with $\omega_y$ equal to $\Omega$)} \\
 > \ddot\omega_x &= \frac{(B - C)\,\Omega}{A}\,\dot\omega_z = +\frac{(B - C)(A - B)}{AC}\,\Omega^2\,\omega_x \quad &\text{(time derivative and substitution)} \\
-> \text{minor axis: } A\dot\omega_x &= (B - C)\,\Omega\,\omega_y,\quad B\dot\omega_y = (C - A)\,\Omega\,\omega_x \quad &\text{(Eqs. 15.11 and 15.12 with omega_z equal to Omega)} \\
+> \text{minor axis: } A\dot\omega_x &= (B - C)\,\Omega\,\omega_y,\quad B\dot\omega_y = (C - A)\,\Omega\,\omega_x \quad &\text{(Eqs. 15.11 and 15.12 with $\omega_z$ equal to $\Omega$)} \\
 > \ddot\omega_x &= \frac{(B - C)\,\Omega}{A}\,\dot\omega_y = -\frac{(B - C)(A - C)}{AB}\,\Omega^2\,\omega_x \quad &\text{(time derivative and substitution)}
 > \end{aligned}$$
 >
