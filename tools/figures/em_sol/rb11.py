@@ -18,7 +18,7 @@ def _ax(sym, s=None):
         r"The disc, its centre $G$ on the circle of centre $O_1$, the contact point $C$ and the basis "
         r"$\{\mathbf i_1, \mathbf j_1, \mathbf k_1\}$ of the key; the instantaneous axis is the line $CO_1$.")
 def overview():
-    sc = Scene(720, 560, (270, 420), 185)
+    sc = Scene(720, 610, (270, 420), 185)
     R = 1.0
     cp, sp = math.cos(math.radians(PHI)), math.sin(math.radians(PHI))
     i1, j1, k1 = (cp, sp, 0.0), (-sp, cp, 0.0), (0.0, 0.0, 1.0)
@@ -58,7 +58,7 @@ def overview():
     arrow_px(sc, pts[-3], pts[-1], "GREEN", 9)
     sc.label(p3v(vadd(O, vadd(vscale(ex, 0.60 * math.cos(math.radians(PHI / 2))), ey, 0.60 * math.sin(math.radians(PHI / 2))))),
              "φ", "GREEN", "middle", 17, dy=6)
-    for pt, nm, off2 in ((O1, sub("O", "1"), (-18, 4)), (G, "G", (-16, -10)), (C, "C", (14, 18))):
+    for pt, nm, off2 in ((O1, sub("O", "1"), (-18, 4)), (G, "G", (-16, 20)), (C, "C", (14, 18))):
         sc.mass(p3v(pt), None, r=5, col="BLUE")
         sc.label(p3v(pt), nm, "HEAD", "middle", 17, dx=off2[0], dy=off2[1])
     sc.dotp((0.0, 0.0), 3.5)
@@ -84,10 +84,10 @@ def rotation_phi():
     def post(sc):
         G = (R * c, R * s)
         sc.mass(G, None, r=5, col="BLUE")
-        sc.label(G, "G", "HEAD", "middle", 17, dx=-16, dy=-8)
+        sc.label(G, "G", "HEAD", "middle", 17, dx=-20, dy=18)
         G2 = add(G, d(PHI), 0.12)
-        sc.vec(G2, add(G2, d(PHI + 90), 0.55), sub("v", "0", "G"), "ACC", 2.6, name_off=(-30, -6), size=17, head=10)
-        sc.note((-1.45, 0.95), "disc seen edge-on", "TEXT", "start", 13, dx=0, dy=0)
+        sc.vec(G2, add(G2, d(PHI + 90), 0.55), sub("v", "0", "G"), "ACC", 2.6, name_off=(30, -10), size=17, head=10)
+        sc.note(add(G, d(PHI + 90), R), "disc seen edge-on", "TEXT", "start", 13, dx=8, dy=-6)
 
     return rotation_view(620, 520, (230, 360), 170, PHI, _ax("i"), _ax("j"), _ax("i", "1"), _ax("j", "1"),
                          _ax("k") + " (⊙)", ("φ", ""), pre=pre, post=post, L=0.6, out_off=(-16, 28))
@@ -117,9 +117,9 @@ def rotation_psi():
         sc.vec(C, (-0.62, -1.0), None, "PINK", 2.6, head=10)
         sc.label((-0.62, -1.0), "ω × GC", "PINK", "end", 15, dx=-6, dy=-8)
         sc.note((0.0, -1.0), sub("v", "0", "C") + "(B) = 0", "HEAD", "middle", 15, dy=26)
-        sc.vec((0.0, 0.05), (1.0, 0.05), None, "ACC", 2.0, head=9)
-        sc.label((1.0, 0.05), sub("v", "0", "G") + " = ωR " + _ax("j", "1"), "ACC", "start", 15, dx=6, dy=-12)
-        sc.spin((0.0, 0.0), 1.32, 150, 40, "ψ̇ = −ω", name_r=1.55)
+        sc.vec((0.0, 0.05), (1.3, 0.05), None, "ACC", 2.0, head=9)
+        sc.label((1.3, 0.05), sub("v", "0", "G") + " = ωR " + _ax("j", "1"), "ACC", "start", 15, dx=2, dy=-30)
+        sc.spin((0.0, 0.0), 1.32, 160, 50, "ψ̇ = −ω", name_r=1.62)
 
     return rotation_view(700, 560, (300, 300), 150, PSI, _ax("j", "1"), _ax("k", "1"), _ax("j", "B"), _ax("k", "B"),
                          _ax("i", "1") + " (⊙)", ("ψ", ""), pre=pre, post=post, out_off=(-16, 28))
@@ -146,9 +146,9 @@ def meridian():
     # instantaneous axis
     ux, uy = -1.0, 1.0
     sc.line((1.35, -0.35), (-0.35, 1.35), "GREEN", 1.6, "7 5")
-    sc.note((-0.35, 1.35), "instantaneous axis", "GREEN", "end", 13, dx=-6, dy=0)
+    sc.note((1.35, -0.35), "instantaneous axis", "GREEN", "start", 13, dx=8, dy=8)
     sc.arc(C, 0.42, 135, 180, "GREEN", 1.6)
-    sc.label(add(C, d(157.5), 0.60), "45°", "GREEN", "middle", 15, dy=5)
+    sc.label(add(C, d(157.5), 0.74), "45°", "GREEN", "middle", 15, dy=5)
     # omega_B0 and its two legs
     kw = 0.45
     tip = (1.0 - kw, kw)
@@ -156,8 +156,8 @@ def meridian():
     sc.line((1.0 - kw, 0.0), tip, "GREEN", 1.1, "4 3")
     sc.line((1.0, kw), tip, "GREEN", 1.1, "4 3")
     sc.vec(C, tip, None, "GREEN", 3.2, head=12)
-    sc.label(tip, sub("ω", "B0") + " = ω(−" + _ax("i", "1") + " + " + _ax("k", "1") + ")", "GREEN", "end", 16,
-             weight="700", dx=-12, dy=26)
+    sc.label((0.95, 0.0), sub("ω", "B0") + " = ω(−" + _ax("i", "1") + " + " + _ax("k", "1") + ")", "GREEN", "end", 16,
+             weight="700", dx=0, dy=44)
     sc.label((1.0 - kw / 2, 0.0), "−ω " + _ax("i", "1"), "GREEN", "middle", 14, dy=-16)
     sc.label((1.0, kw / 2), "ω " + _ax("k", "1"), "GREEN", "start", 14, dx=8, dy=0)
     # accelerations
@@ -166,15 +166,15 @@ def meridian():
     sc.label((1.0 + ka * 0.7071, ka * 0.7071), sub("a", "0", "C") + "(B) = ω²R(" + _ax("i", "1") + " + " + _ax("k", "1") + ")",
              "PINK", "start", 16, weight="700", dx=10, dy=-6)
     sc.vec(G, (1.0 - ka, 1.0), None, "BLUE", 3.0, head=11)
-    sc.label((1.0 - ka / 2, 1.0), sub("a", "0", "G") + " = −ω²R " + _ax("i", "1"), "BLUE", "middle", 16, weight="700",
-             dy=-12)
+    sc.label((1.0 - ka / 2, 1.0), sub("a", "0", "G") + " = −ω²R " + _ax("i", "1"), "BLUE", "end", 16, weight="700",
+             dx=34, dy=-14)
     # legs and hypotenuse
     sc.label((0.5, 1.0), "R", "TEXT", "middle", 16, dy=22)
     sc.label((1.0, 0.5), "R", "TEXT", "end", 16, dx=-8, dy=5)
     sc.label((0.5, 0.5), "R√2", "TEXT", "start", 16, dx=8, dy=-6)
     axis_in(sc, (1.62, 1.35), None, "HEAD")
     sc.label((1.62, 1.35), _ax("j", "1"), "HEAD", "start", 16, weight="700", dx=14, dy=5)
-    for pt, nm, off in ((O, "O", (-14, 18)), (O1, sub("O", "1"), (-18, -4)), (G, "G", (-14, -12)), (C, "C", (14, 18))):
+    for pt, nm, off in ((O, "O", (-14, 18)), (O1, sub("O", "1"), (-18, -4)), (G, "G", (18, -12)), (C, "C", (14, 18))):
         sc.mass(pt, None, r=5, col="BLUE")
         sc.label(pt, nm, "HEAD", "middle", 17, dx=off[0], dy=off[1])
     return sc

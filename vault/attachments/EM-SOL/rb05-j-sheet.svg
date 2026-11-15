@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 460" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Rectangular sheet with its frame at the vertex A, the centre of mass G at the middle and the vector from A to G used in Steiner's theorem.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="150.0,330.0 510.0,330.0 510.0,105.0 150.0,105.0" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="150.0,330.0 510.0,330.0 510.0,105.0 150.0,105.0" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="150.0" y1="330.0" x2="559.2" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M564.0,330.0 L556.6,333.1 L556.6,326.9 Z" fill="#8a94a6"/>
+<text x="578.0" y="336.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">x</tspan></text>
+<line x1="150.0" y1="330.0" x2="150.0" y2="64.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M150.0,60.0 L153.1,67.4 L146.9,67.4 Z" fill="#8a94a6"/>
+<text x="164.0" y="64.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">y</tspan></text>
+<circle cx="150.0" cy="330.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="150.0" cy="330.0" r="2.6" fill="#4b5563"/>
+<text x="136.0" y="320.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">z</tspan></text>
+<text x="136.0" y="352.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<line x1="132.0" y1="217.5" x2="537.0" y2="217.5" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="6 4"/>
+<text x="543.0" y="222.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Gx</text>
+<line x1="330.0" y1="348.0" x2="330.0" y2="78.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="6 4"/>
+<text x="330.0" y="72.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Gy</text>
+<line x1="330.0" y1="330.0" x2="330.0" y2="217.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="338.0" y="278.8" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">w/2</text>
+<line x1="150.0" y1="330.0" x2="323.9" y2="221.3" stroke="#10b981" stroke-width="3.0"/>
+<path d="M330.0,217.5 L323.1,227.3 L318.2,219.4 Z" fill="#10b981"/>
+<text x="232.0" y="263.8" fill="#10b981" font-size="17" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">A</tspan><tspan baseline-shift="super" font-size="70%">G</tspan></text>
+<text x="240.0" y="209.5" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">L/2</text>
+<circle cx="330.0" cy="217.5" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="340.0" y="207.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<circle cx="150.0" cy="330.0" r="3.5" fill="#4b5563"/>
+<polygon points="421.8,166.2 436.2,166.2 436.2,151.8 421.8,151.8" fill="#f59e0b" fill-opacity="0.95" stroke="#f59e0b" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="429.0" y1="159.0" x2="150.0" y2="159.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="429.0" y1="159.0" x2="429.0" y2="330.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="240.0" y="151.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x</text>
+<text x="435.0" y="249.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">y</text>
+<text x="441.0" y="151.0" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dx dy</text>
+<line x1="150.0" y1="375.0" x2="510.0" y2="375.0" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M150.0,375.0 L156.4,372.3 L156.4,377.7 Z" fill="#8a94a6"/>
+<path d="M510.0,375.0 L503.6,377.7 L503.6,372.3 Z" fill="#8a94a6"/>
+<text x="330.0" y="393.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">L</text>
+<line x1="150.0" y1="334.5" x2="150.0" y2="379.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="510.0" y1="334.5" x2="510.0" y2="379.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="100.5" y1="330.0" x2="100.5" y2="105.0" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M100.5,330.0 L97.8,323.6 L103.2,323.6 Z" fill="#8a94a6"/>
+<path d="M100.5,105.0 L103.2,111.4 L97.8,111.4 Z" fill="#8a94a6"/>
+<text x="86.5" y="222.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">w</text>
+<line x1="145.5" y1="105.0" x2="96.0" y2="105.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+</g></svg>

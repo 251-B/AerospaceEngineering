@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 661 520" width="100%" class="fig-kit" style="max-width:661px;margin:0 auto;display:block" role="img" aria-label="Tangent plane of the cylinder at P with the velocity triangle that gives the unit tangent and the binormal at the helix angle gamma">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="112.0" y1="400.0" x2="616.0" y2="400.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="6 4"/>
+<line x1="210.0" y1="456.0" x2="210.0" y2="64.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="6 4"/>
+<line x1="133.9" y1="435.5" x2="552.6" y2="240.3" stroke="#f59e0b" stroke-width="1.1" stroke-dasharray="6 4"/>
+<polygon points="210.0,400.0 490.0,400.0 490.0,269.4" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="490.0" y1="400.0" x2="490.0" y2="269.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="476.0,400.0 476.0,386.0 490.0,386.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="210.0" y1="400.0" x2="490.0" y2="269.4" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="210.0" y1="400.0" x2="371.4" y2="400.0" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M378.0,400.0 L367.9,404.3 L367.9,395.7 Z" fill="#3b82f6"/>
+<text x="380.0" y="422.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<line x1="210.0" y1="400.0" x2="210.0" y2="238.6" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M210.0,232.0 L214.3,242.1 L205.7,242.1 Z" fill="#3b82f6"/>
+<text x="194.0" y="230.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">z</tspan></text>
+<line x1="210.0" y1="400.0" x2="407.0" y2="308.1" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M413.0,305.3 L405.6,313.5 L402.0,305.7 Z" fill="#f59e0b"/>
+<text x="407.0" y="289.3" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<line x1="210.0" y1="400.0" x2="141.8" y2="253.7" stroke="#8b5cf6" stroke-width="2.6"/>
+<path d="M139.0,247.7 L147.2,255.1 L139.4,258.7 Z" fill="#8b5cf6"/>
+<text x="125.0" y="241.7" fill="#8b5cf6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan></text>
+<path d="M266.0,400.0 A56.0,56.0 0 0 0 260.8,376.3" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M259.5,373.6 L266.2,379.6 L259.8,382.6 Z" fill="#10b981"/>
+<text x="303.3" y="387.4" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<path d="M210.0,344.0 A56.0,56.0 0 0 0 186.3,349.2" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M183.6,350.5 L189.6,343.8 L192.6,350.2 Z" fill="#10b981"/>
+<text x="184.4" y="323.7" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<text x="350.0" y="424.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">a ω</text>
+<text x="500.0" y="339.7" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">v<tspan baseline-shift="sub" font-size="70%">z</tspan></text>
+<text x="336.0" y="310.7" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">V = √(a²ω² + v<tspan baseline-shift="sub" font-size="70%">z</tspan>²)</text>
+<circle cx="210.0" cy="400.0" r="5" fill="#4b5563" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="200.0" y="422.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<circle cx="36.4" cy="176.0" r="9" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+<circle cx="36.4" cy="176.0" r="2.6" fill="#3b82f6"/>
+<text x="52.4" y="181.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">R</tspan></text>
+<circle cx="36.4" cy="288.0" r="9" fill="none" stroke="#10b981" stroke-width="1.8"/>
+<path d="M30.8,282.4 L42.0,293.6 M30.8,293.6 L42.0,282.4" stroke="#10b981" stroke-width="1.6" fill="none"/>
+<text x="52.4" y="293.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">n</tspan> = −<tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">R</tspan></text>
+<text x="490.0" y="170.4" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">helix trace (unrolled)</text>
+</g></svg>
