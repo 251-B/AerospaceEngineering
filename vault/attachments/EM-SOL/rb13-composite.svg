@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" width="100%" class="fig-kit" style="max-width:920px;margin:0 auto;display:block" role="img" aria-label="The sheet as a full disc minus a hole, with the polar mass element and the positions of O, O_h and G.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="130.0" cy="180.0" r="124.0" fill="#8a94a6" fill-opacity="0.14" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="130.0" y1="180.0" x2="182.3" y2="180.0" stroke="#3b82f6" stroke-width="2.8"/>
+<path d="M188.9,180.0 L178.8,184.3 L178.8,175.7 Z" fill="#3b82f6"/>
+<text x="190.9" y="166.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<circle cx="130.0" cy="180.0" r="80.6" fill="none" stroke="#f59e0b" stroke-width="1.3" stroke-dasharray="5 3" stroke-linejoin="round"/>
+<circle cx="130.0" cy="180.0" r="100.4" fill="none" stroke="#f59e0b" stroke-width="1.3" stroke-dasharray="5 3" stroke-linejoin="round"/>
+<circle cx="130.0" cy="180.0" r="90.5" fill="none" fill-opacity="0.25" stroke="#f59e0b" stroke-width="10.0" stroke-linejoin="round"/>
+<line x1="130.0" y1="180.0" x2="91.7" y2="98.0" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="100.3" y="137.9" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r</text>
+<text x="202.1" y="271.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dr</text>
+<text x="130.0" y="232.7" fill="#f59e0b" font-size="14" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dm = σ r dr dα</text>
+<circle cx="130.0" cy="180.0" r="3.5" fill="#4b5563"/>
+<text x="118.0" y="198.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<text x="130.0" y="330.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">D: mass 4m/3</text>
+<circle cx="440.0" cy="180.0" r="62.0" fill="#8a94a6" fill-opacity="0.14" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<circle cx="440.0" cy="180.0" r="3.5" fill="#4b5563"/>
+<text x="436.0" y="164.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">O</tspan><tspan baseline-shift="sub" font-size="70%">h</tspan></text>
+<text x="440.0" y="330.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">H: mass m/3</text>
+<path d="M626.0,180.0 A124.0,124.0 0 1 0 874.0,180.0 A124.0,124.0 0 1 0 626.0,180.0 Z M750.0,180.0 A62.0,62.0 0 1 0 874.0,180.0 A62.0,62.0 0 1 0 750.0,180.0 Z" fill="#f59e0b" fill-opacity="0.2" fill-rule="evenodd" stroke="#4b5563" stroke-width="2.2"/>
+<circle cx="750.0" cy="180.0" r="4.2" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="740.0" y="166.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<circle cx="812.0" cy="180.0" r="4.2" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="812.0" y="166.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">O</tspan><tspan baseline-shift="sub" font-size="70%">h</tspan></text>
+<circle cx="729.3" cy="180.0" r="4.2" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="723.3" y="202.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<line x1="729.3" y1="338.1" x2="750.0" y2="338.1" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M729.3,338.1 L735.8,335.4 L735.8,340.8 Z" fill="#8a94a6"/>
+<path d="M750.0,338.1 L743.6,340.8 L743.6,335.4 Z" fill="#8a94a6"/>
+<text x="739.7" y="338.1" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="722.2" y="343.1" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R/6</text>
+<line x1="750.0" y1="338.1" x2="812.0" y2="338.1" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M750.0,338.1 L756.4,335.4 L756.4,340.8 Z" fill="#8a94a6"/>
+<path d="M812.0,338.1 L805.6,340.8 L805.6,335.4 Z" fill="#8a94a6"/>
+<text x="781.0" y="356.1" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R/2</text>
+<line x1="729.3" y1="180.0" x2="729.3" y2="345.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="750.0" y1="180.0" x2="750.0" y2="345.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="812.0" y1="180.0" x2="812.0" y2="345.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="285.0" y="192.0" fill="#6b7280" font-size="36" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">−</text>
+<text x="595.0" y="192.0" fill="#6b7280" font-size="36" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">=</text>
+</g></svg>

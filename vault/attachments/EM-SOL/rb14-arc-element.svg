@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Mass element of the semicircular wire at angle alpha and the centre of mass on its axis of symmetry.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polyline points="545.0,130.0 544.9,137.9 544.5,145.7 543.8,153.5 542.8,161.3 541.6,169.1 540.1,176.8 538.3,184.4 536.3,192.0 534.0,199.5 531.4,207.0 528.6,214.3 525.5,221.5 522.2,228.6 518.7,235.6 514.9,242.5 510.8,249.2 506.5,255.8 502.0,262.3 497.3,268.5 492.4,274.6 487.2,280.6 481.9,286.3 476.3,291.9 470.6,297.2 464.6,302.4 458.5,307.3 452.3,312.0 445.8,316.5 439.2,320.8 432.5,324.9 425.6,328.7 418.6,332.2 411.5,335.5 404.3,338.6 397.0,341.4 389.5,344.0 382.0,346.3 374.4,348.3 366.8,350.1 359.1,351.6 351.3,352.8 343.5,353.8 335.7,354.5 327.9,354.9 320.0,355.0 312.1,354.9 304.3,354.5 296.5,353.8 288.7,352.8 280.9,351.6 273.2,350.1 265.6,348.3 258.0,346.3 250.5,344.0 243.0,341.4 235.7,338.6 228.5,335.5 221.4,332.2 214.4,328.7 207.5,324.9 200.8,320.8 194.2,316.5 187.7,312.0 181.5,307.3 175.4,302.4 169.4,297.2 163.7,291.9 158.1,286.3 152.8,280.6 147.6,274.6 142.7,268.5 138.0,262.3 133.5,255.8 129.2,249.2 125.1,242.5 121.3,235.6 117.8,228.6 114.5,221.5 111.4,214.3 108.6,207.0 106.0,199.5 103.7,192.0 101.7,184.4 99.9,176.8 98.4,169.1 97.2,161.3 96.2,153.5 95.5,145.7 95.1,137.9 95.0,130.0" fill="none" stroke="#4b5563" stroke-width="2.6" stroke-linejoin="round"/>
+<line x1="72.5" y1="130.0" x2="567.5" y2="130.0" stroke="#8a94a6" stroke-width="1.3" stroke-dasharray="5 4"/>
+<line x1="320.0" y1="130.0" x2="320.0" y2="381.2" stroke="#8a94a6" stroke-width="1.3"/>
+<line x1="320.0" y1="130.0" x2="388.4" y2="130.0" stroke="#3b82f6" stroke-width="2.8"/>
+<path d="M395.0,130.0 L384.9,134.3 L384.9,125.7 Z" fill="#3b82f6"/>
+<text x="411.0" y="136.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<line x1="320.0" y1="130.0" x2="320.0" y2="61.6" stroke="#3b82f6" stroke-width="2.8"/>
+<path d="M320.0,55.0 L324.3,65.1 L315.7,65.1 Z" fill="#3b82f6"/>
+<text x="306.0" y="53.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<polyline points="463.1,303.6 459.7,306.4 456.2,309.1 452.6,311.7 449.1,314.3 445.4,316.8 441.7,319.2 438.0,321.6 434.2,323.9" fill="none" stroke="#f59e0b" stroke-width="7.0" stroke-linejoin="round"/>
+<line x1="320.0" y1="130.0" x2="449.1" y2="314.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="392.5" y="220.2" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R<tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<path d="M395.0,130.0 A75.0,75.0 0 0 1 363.0,191.4" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M360.6,193.2 L365.3,185.5 L369.4,191.3 Z" fill="#10b981"/>
+<text x="409.2" y="180.3" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">α</text>
+<text x="463.1" y="336.3" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dm = (M/π) dα</text>
+<circle cx="320.0" cy="273.2" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="304.0" y="291.2" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<line x1="278.8" y1="130.0" x2="278.8" y2="273.2" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M278.8,130.0 L281.5,136.4 L276.0,136.4 Z" fill="#8a94a6"/>
+<path d="M278.8,273.2 L276.0,266.8 L281.5,266.8 Z" fill="#8a94a6"/>
+<text x="254.8" y="205.6" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R<tspan baseline-shift="sub" font-size="70%">G</tspan></text>
+<line x1="320.0" y1="130.0" x2="271.2" y2="130.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="320.0" y1="273.2" x2="271.2" y2="273.2" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="320.0" cy="130.0" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="306.0" y="120.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+</g></svg>
