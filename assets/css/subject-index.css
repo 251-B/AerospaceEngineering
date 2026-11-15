@@ -8,7 +8,7 @@ body .container { max-width: 1180px; }
 
 :is(.page-header, .page-hero) {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 16px;
-  margin: 0 auto 22px; padding: 22px 0 0; border: 0; text-align: left;
+  margin: 0 auto 44px; padding: 34px 0 0; border: 0 !important; text-align: left;
 }
 :is(.page-header, .page-hero) > :is(.icon, .page-header-icon) {
   display: flex !important; align-items: center; justify-content: center; flex: none;
@@ -29,20 +29,30 @@ body .container { max-width: 1180px; }
 body:has(.subject-tabs) :is(.view-switcher, .section-nav) { display: none !important; }
 :is(.page-header, .page-hero) > .view-switcher { flex-basis: 100%; justify-content: center; margin: 10px 0 0; }
 
+html:root body :is(header, section, div):is(.page-header, .page-hero) { border: 0 none transparent !important; }
+
 /* ---------------------------------------------------------------- section titles */
-.block-header { margin: 18px 0 10px; padding-bottom: 8px; }
+.block-header { margin: 26px 0 16px; padding-bottom: 10px; justify-content: center; gap: 12px; text-align: center; }
 .block-header h2, .exam-block-title { font-size: 1.15rem; margin: 0; }
 .exam-block { margin-top: 18px; }
 .exam-block-lead { display: none; }
 
 /* ---------------------------------------------------------------- the cards: a grid, not a column */
 :is(.topics-list, .topics-grid, .sets-list, .problem-sets-grid) {
-  display: grid !important; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 12px; margin-top: 0; margin-bottom: 18px;
+  --idx-gap: 16px;
+  display: flex !important; flex-direction: row !important; flex-wrap: wrap; justify-content: center; align-items: stretch;
+  gap: var(--idx-gap); margin-top: 0; margin-bottom: 26px;
+}
+/* three cards per row; a last row with one or two cards is centred, as on the landing page */
+:is(.topics-list, .topics-grid, .sets-list) > :is(.topic-card, .set-card) {
+  flex: 0 1 calc((100% - 2 * var(--idx-gap)) / 3); width: auto; max-width: none; box-sizing: border-box;
+}
+@media (max-width: 1000px) {
+  :is(.topics-list, .topics-grid, .sets-list) > :is(.topic-card, .set-card) { flex-basis: calc((100% - var(--idx-gap)) / 2); }
 }
 :is(.topic-card, .set-card) {
   position: relative; display: flex !important; flex-direction: row; align-items: center; gap: 12px;
-  min-height: 78px; margin: 0 !important; padding: 14px 16px 14px 18px !important;
+  min-height: 104px; margin: 0 !important; padding: 20px 20px 20px 24px !important;
   border-radius: var(--radius-md, 14px); overflow: hidden;
 }
 :is(.topic-card, .set-card) :is(.topic-desc, .set-desc, .topic-tags, .content-badges, .topic-meta .meta-tag, .badge-status, .topic-badge.available, .set-badge) { display: none !important; }
@@ -50,10 +60,10 @@ body:has(.subject-tabs) :is(.view-switcher, .section-nav) { display: none !impor
   flex: 1; min-width: 0; padding: 0 !important; display: flex; flex-direction: column; gap: 3px;
 }
 :is(.topic-card, .set-card) :is(.topic-title, .set-title) {
-  margin: 0 !important; font-size: 1.08rem; line-height: 1.25;
+  margin: 0 !important; font-size: 1.22rem; line-height: 1.25;
 }
 :is(.topic-card, .set-card) :is(.topic-number, .topic-code, .set-code, .topic-badge, .topic-num) {
-  margin: 0 !important; font-family: var(--font-mono, "JetBrains Mono", monospace); font-size: .7rem; letter-spacing: .06em;
+  margin: 0 !important; font-family: var(--font-mono, "JetBrains Mono", monospace); font-size: .74rem; letter-spacing: .06em;
 }
 :is(.topic-card, .set-card) :is(.topic-meta, .set-meta, .topic-top) { margin: 0 !important; display: flex; align-items: center; gap: 8px; }
 :is(.topic-card, .set-card) :is(.topic-arrow, .topic-action, .set-action) {
@@ -78,7 +88,7 @@ body:has(.subject-tabs) :is(.view-switcher, .section-nav) { display: none !impor
 .problem-card .card-title { margin: 0 0 8px !important; font-size: 1.1rem; }
 .problem-card .exercise-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 2px 14px; margin: 0; }
 .problem-card .exercise-item { padding: 5px 0 !important; }
-.problem-sets-grid:has(.exercise-list) { grid-template-columns: 1fr; }
+.problem-sets-grid { display: grid !important; grid-template-columns: 1fr; gap: 16px; }
 /* the exercise names of a problem sheet are listed on its own page */
 .set-card .exercise-pills-list { display: none !important; }
 
@@ -88,15 +98,22 @@ body:has(.subject-tabs) :is(.view-switcher, .section-nav) { display: none !impor
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; line-height: 1.35;
 }
 
+/* ---------------------------------------------------------------- no neon: flat title, plain shadows */
+:is(.page-header, .page-hero)::before, :is(.page-header, .page-hero)::after { display: none !important; }
+:is(.page-header, .page-hero), :is(.page-header, .page-hero) * { text-shadow: none !important; filter: none !important; }
+:is(.page-header, .page-hero) > :is(.icon, .page-header-icon) { box-shadow: none; }
+:is(.topic-card, .set-card, .problem-card),
+:is(.topic-card, .set-card, .problem-card):hover { box-shadow: var(--shadow-card, 0 4px 24px rgba(0, 0, 0, .35)) !important; }
+:is(.topic-card, .set-card):hover { border-color: var(--accent) !important; transform: translateY(-2px); }
+
 /* ---------------------------------------------------------------- less air around the page */
-.subject-tabs { margin-bottom: 0; }
 body :is(.page-footer, .site-footer) { margin-top: 18px; padding: 14px 0 18px; }
 section.container:has(#quoteContainer), section:has(> #quoteContainer) { display: none; }
 
 @media (max-width: 700px) {
-  :is(.page-header, .page-hero) { padding-top: 14px; margin-bottom: 16px; }
+  :is(.page-header, .page-hero) { padding-top: 18px; margin-bottom: 24px; }
   :is(.page-header, .page-hero) > :is(.icon, .page-header-icon) { width: 44px; height: 44px; }
-  :is(.topics-list, .topics-grid, .sets-list, .problem-sets-grid) { grid-template-columns: 1fr; }
+  :is(.topics-list, .topics-grid, .sets-list) > :is(.topic-card, .set-card) { flex-basis: 100%; min-height: 84px; }
 }
 @media print {
   :is(.topic-card, .set-card) :is(.topic-desc, .set-desc) { display: block !important; }

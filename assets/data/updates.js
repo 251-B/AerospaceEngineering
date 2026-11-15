@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-section-tabs-icons",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "Section tabs with icons and tidier subject indexes",
+    "text": "The tabs to move between theory, problems, exams and PDFs now have icons. Index cards are larger and centred, with more room under the title and no glow."
+  },
+  {
     "id": "2026-11-15-compact-subject-indexes",
     "date": "2026-11-15",
     "tag": "Portal",
