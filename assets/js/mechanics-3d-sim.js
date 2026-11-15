@@ -356,13 +356,15 @@
     spiral: function (P, u) { var r = P.a + P.c * u; return [r * Math.cos(u), r * Math.sin(u), 0]; },
     logspiral: function (P, u) { var r = P.a * Math.exp(P.c * u); return [r * Math.cos(u), r * Math.sin(u), 0]; },
     conical: function (P, u) { return [P.c * u * Math.cos(u), P.c * u * Math.sin(u), P.b * u]; },
+    astroid: function (P, u) { return [P.a * Math.pow(Math.cos(u), 3), P.a * Math.pow(Math.sin(u), 3), 0]; },
     cardioid: function (P, u) { var r = P.a * (1 + Math.cos(u)); return [r * Math.cos(u), r * Math.sin(u), 0]; },
     cycloid: function (P, u) { return [P.R * (u - Math.sin(u)), 0, P.R * (1 - Math.cos(u))]; },
     parabola: function (P, u) { return [u, 0, P.k * u * u]; },
+    sine: function (P, u) { return [u, 0, P.a * Math.sin(P.k * u)]; },
     line: function (P, u) { return [P.x0 + P.vx * u, P.y0 + P.vy * u, P.z0 + P.vz * u]; },
     projectile: function (P, u) { return [P.v0 * Math.cos(P.elev * DEG) * u, 0, P.v0 * Math.sin(P.elev * DEG) * u - 0.5 * P.g * u * u]; }
   };
-  var LINEAR = { parabola: 1, line: 1, projectile: 1 };
+  var LINEAR = { parabola: 1, sine: 1, line: 1, projectile: 1 };
 
   /* planar outlines of the body shapes, in body axes with the origin at the centre of mass */
   function outline(P) {

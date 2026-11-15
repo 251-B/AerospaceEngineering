@@ -28,12 +28,10 @@ def main_plane():
     sc.label((2.0, 1.5), bold("r"), "HEAD", "middle", 18, dx=-12, dy=-12)
     sc.angle(O, 0.9, 0, th, "θ", "HEAD", name_r=1.18)
     sc.label((2.0, 0.0), "x = r cos θ", "TEXT", "middle", 15, dy=24)
-    sc.label((4.0, 1.5), "y<tspan font-size=\"11\" dy=\"4\">0</tspan><tspan dy=\"-4\"> = r sin θ</tspan>", "TEXT",
-             "start", 15, dx=10, dy=5)
+    sc.label((4.0, 1.5), S("y", "0") + " = r sin θ", "TEXT", "start", 15, dx=10, dy=5)
     # faint earlier position
     sc.circle((0.0, 3.0), 0.07, "EDGE", 1.4, fill="EDGE", opacity=0.5)
-    sc.label((0.0, 3.0), "P<tspan font-size=\"11\" dy=\"4\">0</tspan><tspan dy=\"-4\"> (t = 0)</tspan>", "TEXT",
-             "start", 15, dx=14, dy=-12)
+    sc.label((0.0, 3.0), S("P", "0") + " (t = 0)", "TEXT", "start", 15, dx=14, dy=-12)
     sc.dashed((0.0, 0.0), (0.0, 3.0))
     # velocity and acceleration at P
     sc.vec(P, (5.7, 3.0), bold("v") + " " + bold("i") + S("", "0"), "GREEN", 2.6, name_off=(-2, -14), size=16, head=11)
@@ -46,7 +44,7 @@ def main_plane():
     sc.vec(P, (4.0 - 0.6 * 0.8, 3.0 + 0.8 * 0.8), None, "BLUE", 2.6, head=11)
     sc.label((3.52, 3.64), bold("e") + S("", "θ"), "BLUE", "end", 17, weight="700", dx=-4, dy=-4)
     sc.mass(P, None, r=7)
-    sc.label(P, "P", "HEAD", "middle", 17, dx=-16, dy=26)
+    sc.label(P, "P", "HEAD", "middle", 17, dx=-8, dy=36)
     sc.dotp(O, 4.0)
     sc.label(O, "O", "HEAD", "end", 17, dx=-8, dy=20)
     sc.dotp(H, 3.5)
@@ -86,9 +84,9 @@ def rotation_view():
     sc.label((c, s / 2), "sin θ", "TEXT", "start", 15, dx=10, dy=5)
     sc.label((-s / 2, 0.0), "−sin θ", "TEXT", "middle", 15, dy=22)
     sc.label((-s * 0.35, c), "cos θ", "TEXT", "middle", 15, dy=-10)
-    sc.spin(O, 0.62, 200, 330, "", "GREEN")
+    sc.spin(O, 0.2, 200, 340, "", "GREEN")
     axis_out(sc, O, None)
-    sc.label(O, bold("k") + S("", "0") + " (⊙)", "HEAD", "middle", 15, dx=2, dy=40)
+    sc.label(O, bold("k") + S("", "0") + " (⊙)", "HEAD", "middle", 15, dx=2, dy=64)
     return sc
 
 
@@ -113,25 +111,23 @@ def acceleration_projection():
     tip_a = (ax, 0.0)
     tip_t = (ax * s * s, -ax * s * c)       # tip of a_theta along -e_theta
     triangle(sc, [P, tip_r, tip_a], "ACC", 0.14)
-    right_angle(sc, tip_r, s * -1 * 0 + (TH + 180), TH + 270, 0.22)
+    right_angle(sc, tip_r, TH + 180, TH + 270, 0.22)
     sc.dashed(tip_r, tip_a)
+    sc.dashed(tip_a, tip_t)
     sc.vec(P, tip_a, bold("a") + S("", "x") + " " + bold("i") + S("", "0"), "ACC", 2.8, name_off=(8, 24), size=17, head=12)
     sc.vec(P, tip_r, None, "ACC", 2.0, head=10)
     sc.vec(P, tip_t, None, "ACC", 2.0, head=10)
-    fixed_axis(sc, (-1.6, -0.9), 0, 1.0, bold("i") + S("", "0"), off=(2, 20))
-    fixed_axis(sc, (-1.6, -0.9), 90, 1.0, bold("j") + S("", "0"), off=(14, 4))
+    K = (5.3, 2.0)
+    fixed_axis(sc, K, 0, 0.9, bold("i") + S("", "0"), off=(4, 20))
+    fixed_axis(sc, K, 90, 0.9, bold("j") + S("", "0"), off=(14, 4))
     sc.arc(P, 1.3, 0, TH, "HEAD", 1.6)
     sc.label((1.65 * math.cos(t / 2), 1.65 * math.sin(t / 2)), "θ", "HEAD", "middle", 16, dy=5)
-    sc.label((tip_r[0] * 0.5, tip_r[1] * 0.5), "a<tspan font-size=\"11\" dy=\"4\">r</tspan><tspan dy=\"-4\"> = a</tspan>"
-             "<tspan font-size=\"11\" dy=\"4\">x</tspan><tspan dy=\"-4\"> x / r = a</tspan>"
-             "<tspan font-size=\"11\" dy=\"4\">x</tspan><tspan dy=\"-4\"> cos θ</tspan>", "ACC", "end", 15,
-             dx=-12, dy=-14)
-    sc.label((tip_t[0] * 0.5, tip_t[1] * 0.5), "a<tspan font-size=\"11\" dy=\"4\">θ</tspan><tspan dy=\"-4\"> = −a</tspan>"
-             "<tspan font-size=\"11\" dy=\"4\">x</tspan><tspan dy=\"-4\"> y</tspan>"
-             "<tspan font-size=\"11\" dy=\"4\">0</tspan><tspan dy=\"-4\"> / r = −a</tspan>"
-             "<tspan font-size=\"11\" dy=\"4\">x</tspan><tspan dy=\"-4\"> sin θ</tspan>", "ACC", "end", 15,
-             dx=-14, dy=22)
+    sc.label((0.5, 2.7), S("a", "r") + " = " + S("a", "x") + " x / r", "ACC", "start", 15)
+    sc.label((0.5, 2.7), "= " + S("a", "x") + " cos θ", "ACC", "start", 15, dy=20)
+    sc.label((tip_t[0] * 0.5, tip_t[1] * 0.5), S("a", "θ") + " = −" + S("a", "x") + " " + S("y", "0") + " / r",
+             "ACC", "start", 15, dx=16, dy=-2)
+    sc.label((tip_t[0] * 0.5, tip_t[1] * 0.5), "= −" + S("a", "x") + " sin θ", "ACC", "start", 15, dx=16, dy=18)
     sc.mass(P, None, r=7)
     sc.label(P, "P", "HEAD", "middle", 17, dx=-14, dy=24)
-    axis_out(sc, (-1.6, -0.9), None, r_px=7)
+    axis_out(sc, K, bold("k") + S("", "0"), r_px=7, off=(-16, 20))
     return sc

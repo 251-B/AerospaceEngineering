@@ -49,7 +49,7 @@ Sliders are given as `id (meaning, range)`; "vars" are the variables an expressi
 
 ### `curvilinear-3d`: particle on a space curve
 
-- params: `curve` = `helix` (R, b: z = b θ) | `circle` (R) | `ellipse` (a, b) | `spiral` (ρ = a + c θ) | `logspiral` (ρ = a e^{cθ}) | `conical` (ρ = c θ, z = b θ) | `cardioid` (ρ = a(1 + cos θ)) | `cycloid` (R, in the plane xz) | `parabola` (z = k x², plane xz) | `line` (x0, y0, z0, vx, vy, vz) | `projectile` (v0, elev in degrees, g); `rate` (du/dt, default 1), `accel` (d²u/dt², default 0), `umin`, `umax` (range of the parameter: degrees for angular curves, metres or seconds for `parabola`, `line`, `projectile`), `extent` (half-size of the view in metres).
+- params: `curve` = `helix` (R, b: z = b θ) | `circle` (R) | `ellipse` (a, b) | `spiral` (ρ = a + c θ) | `logspiral` (ρ = a e^{cθ}) | `conical` (ρ = c θ, z = b θ) | `cardioid` (ρ = a(1 + cos θ)) | `cycloid` (R, in the plane xz) | `parabola` (z = k x², plane xz) | `sine` (z = a sin(k x), plane xz) | `astroid` (x = a cos³θ, y = a sin³θ) | `line` (x0, y0, z0, vx, vy, vz) | `projectile` (v0, elev in degrees, g); `rate` (du/dt, default 1), `accel` (d²u/dt², default 0), `umin`, `umax` (range of the parameter: degrees for angular curves, metres or seconds for `parabola`, `sine`, `line`, `projectile`), `extent` (half-size of the view in metres).
 - slider: `u` (the parameter: angle θ, abscissa x or time t).
 - drawn: fixed basis, path, r, intrinsic basis (e_t, e_n, e_b), cylindrical basis (e_ρ, e_θ) and its triangle.
 - vars: `u, x, y, z, rho, theta, v, at, an, rhoc`.

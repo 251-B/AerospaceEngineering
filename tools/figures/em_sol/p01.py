@@ -143,6 +143,92 @@ def helix_3d():
     sc.label(((O[0] + Q[0]) / 2, (O[1] + Q[1]) / 2), "a " + _e("R"), "HEAD", "end", 16, dx=-8, dy=20)
     sc.label(((Q[0] + P[0]) / 2, (Q[1] + P[1]) / 2), "v" + S("", "z") + " t " + bold("k") + S("", "0"), "HEAD",
              "start", 16, dx=14, dy=26)
-    sc.label(((O[0] + P[0]) / 2, (O[1] + P[1]) / 2), "r" + S("", "0") + "ᴾ".replace("ᴾ", "") + S("", ""), "HEAD",
-             "end", 1, dx=-1000, dy=-1000)
+    sc.label(((O[0] + P[0]) / 2, (O[1] + P[1]) / 2), bold("r") + S("0", None, "P"), "HEAD", "end", 17, dx=-10, dy=-8)
+    # cylindrical basis at P
+    for (vx, vy, vz), nm, off in (((math.cos(th), math.sin(th), 0.0), "R", (16, 14)),
+                                  ((-math.sin(th), math.cos(th), 0.0), "θ", (16, -4)),
+                                  ((0.0, 0.0, 1.0), "z", (0, -12))):
+        tip = _proj(math.cos(th) + 0.5 * vx, math.sin(th) + 0.5 * vy, zP + 0.5 * vz)
+        sc.vec(P, tip, _e(nm), "BLUE", 2.6, name_off=off, size=17, head=11)
+    return sc
+
+
+@figure("p01-tangent-plane",
+        "Tangent plane of the cylinder at P with the velocity triangle that gives the unit tangent and the binormal at "
+        "the helix angle gamma",
+        r"Fold-down of the plane tangent to the cylinder. The velocity triangle (legs $a\omega$ and $v_z$, "
+        r"hypotenuse $V$) fixes the helix angle $\gamma$; $\mathbf e_b$ is $\mathbf e_t$ turned a right angle; "
+        r"$\mathbf e_n$ points into the paper, toward the axis")
+def tangent_plane():
+    sc = Scene(640, 520, (210, 400), 280)
+    P = (0.0, 0.0)
+    g = math.radians(GAMMA)
+    L = 1.0
+    H = (L, L * math.tan(g))
+    V = math.hypot(*H)
+    sc.line((-0.35, 0.0), (1.45, 0.0), "EDGE", 1.0, "6 4")
+    sc.line((0.0, -0.2), (0.0, 1.2), "EDGE", 1.0, "6 4")
+    sc.line((-0.3 * math.cos(g), -0.3 * math.sin(g)), (1.35 * math.cos(g), 1.35 * math.sin(g)), "ACC", 1.1, "6 4")
+    triangle(sc, [P, (L, 0.0), H], "BLUE", 0.10)
+    sc.dashed((L, 0.0), H)
+    right_angle(sc, (L, 0.0), 180, 90, 0.05)
+    sc.line(P, H, "EDGE", 1.2)
+    unit(sc, P, 0, 0.6, _e("θ"), off=(2, 22))
+    unit(sc, P, 90, 0.6, _e("z"), off=(-16, -2))
+    unit(sc, P, GAMMA, 0.8, _e("t"), "ACC", off=(-16, -8))
+    unit(sc, P, GAMMA + 90, 0.6, _e("b"), PURPLE, off=(-14, -6))
+    sc.arc(P, 0.20, 0, GAMMA, "GREEN", 1.6, head=True)
+    sc.label((0.29 * math.cos(g / 2), 0.29 * math.sin(g / 2)), "γ", "GREEN", "middle", 16, dx=14, dy=5)
+    sc.arc(P, 0.20, 90, 90 + GAMMA, "GREEN", 1.6, head=True)
+    sc.label((0.29 * math.cos(math.radians(90 + GAMMA / 2)), 0.29 * math.sin(math.radians(90 + GAMMA / 2))), "γ",
+             "GREEN", "middle", 16, dx=-8, dy=3)
+    sc.label((L / 2, 0.0), "a ω", "TEXT", "middle", 16, dy=24)
+    sc.label((L, H[1] / 2), "v" + S("", "z"), "TEXT", "start", 16, dx=10, dy=5)
+    sc.label((H[0] / 2, H[1] / 2), "V = √(a²ω² + v" + S("", "z") + "²)", "HEAD", "end", 15, dx=-14, dy=-34)
+    sc.mass(P, None, r=5, col="HEAD")
+    sc.label(P, "P", "HEAD", "end", 17, dx=-10, dy=22)
+    axis_out(sc, (-0.28, 0.62), _e("R"), "BLUE", off=(0, 30))
+    axis_in(sc, (-0.28, 0.30), _e("n") + " = −" + _e("R"), "GREEN", off=(0, 30))
+    sc.note((1.0, 0.82), "helix trace (unrolled)", "TEXT", "start", 13)
+    return sc
+
+
+@figure("p01-curvature-center",
+        "Section through the axis at t = 0 showing P at (a,0,0), the normal toward the axis and the centre of "
+        "curvature beyond the axis",
+        r"At $t = 0$ the normal at $P$ points along $-\mathbf i_0$ and the centre of curvature lies at distance $\rho$ "
+        r"from $P$, beyond the axis, at $x = -v_z^2/(a\omega^2)$")
+def curvature_center():
+    sc = Scene(640, 520, (300, 420), 200)
+    O = (0.0, 0.0)
+    P = (1.0, 0.0)
+    C = (-0.6, 0.0)
+    for x in (-1.0, 1.0):
+        sc.line((x, -0.1), (x, 1.9), "EDGE", 1.2, "6 4")
+    sc.line((0.0, -0.1), (0.0, 1.9), "EDGE", 1.0, "2 4")
+    fixed_axis(sc, (-1.2, 0.0), 0, 2.7, bold("i") + S("", "0"), off=(14, 5))
+    fixed_axis(sc, (0.0, -0.1), 90, 2.15, bold("k") + S("", "0"), off=(14, 2))
+    # osculating circle, faint
+    sc.arc(C, 1.6, 40, 150, "EDGE", 1.0, dash="3 4")
+    sc.arc(C, 1.6, -150, -40, "EDGE", 1.0, dash="3 4")
+    sc.note((-1.55, 1.05), "osculating circle", "TEXT", "start", 12)
+    sc.note((-1.55, 0.97), "(edge-on, in the plane", "TEXT", "start", 12)
+    sc.note((-1.55, 0.89), "of e_t and e_n)", "TEXT", "start", 12)
+    unit(sc, P, 180, 0.45, _e("n") + " = −" + bold("i") + S("", "0"), "GREEN", off=(-6, -14))
+    sc.vec(P, (1.0, 0.45), None, "ACC", 2.4, head=10)
+    sc.label((1.0, 0.45), "v" + S("", "z") + "/V " + bold("k") + S("", "0"), "ACC", "start", 15, dx=10, dy=4)
+    axis_in(sc, (1.0, 0.0), None, "ACC", r_px=9)
+    sc.note((1.0, 0.0), "e_t component a ω/V", "ACC", "start", 13, dx=14, dy=38)
+    sc.note((1.0, 0.0), "along j₀ (into the paper)", "ACC", "start", 13, dx=14, dy=54)
+    sc.dotp(P, 4.0)
+    sc.dotp(C, 5.0)
+    sc.dotp(O, 3.5)
+    sc.label(P, "P = (a, 0, 0)", "HEAD", "start", 16, dx=12, dy=-16)
+    sc.label(C, "C", "HEAD", "middle", 17, dx=-12, dy=-12)
+    sc.label(O, "O", "HEAD", "middle", 17, dx=-10, dy=-12)
+    # dimension lines
+    sc.dim((1.0, -0.22), (-0.6, -0.22), "ρ = a + v" + S("", "z") + "² / (a ω²)", off=(0, 24))
+    sc.dim((0.0, -0.58), (-0.6, -0.58), "v" + S("", "z") + "² / (a ω²)", off=(0, 24))
+    sc.dim((0.0, -0.58), (1.0, -0.58), "a", off=(0, 24))
+    axis_in(sc, (-1.05, 1.75), bold("j") + S("", "0"), "HEAD", off=(24, 5))
     return sc
