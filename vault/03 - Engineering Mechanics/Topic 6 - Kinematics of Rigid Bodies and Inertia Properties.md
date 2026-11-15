@@ -705,7 +705,7 @@ The notes only name the 3-2-1 sequence. Its matrices follow directly from the si
 > $$\boxed{[{}_1R_2(y,\theta)] = \begin{bmatrix} \cos\theta & 0 & \sin\theta \\ 0 & 1 & 0 \\ -\sin\theta & 0 & \cos\theta \end{bmatrix}}$$
 >
 > **Units:** dimensionless
-> **Meaning:** for a rotation about the second axis the minus sign moves below the diagonal, because the cyclic order is $z \to x$ (the pair $\mathbf k_1$, $\mathbf i_1$ is the right-handed pair in this view); a positive pitch raises the nose axis $\mathbf i$ above the horizontal plane only when $\mathbf k$ points down, as in aircraft axes.
+> **Meaning:** for a rotation about the second axis the minus sign moves below the diagonal, because the cyclic order is $z \to x$ (the pair $\mathbf k_1$, $\mathbf i_1$ is the right-handed pair in this view); a positive pitch turns the first axis towards the negative third axis, which is nose-up in aircraft axes, where the third axis points down.
 
 ![[attachments/EM-T/t6-euler-321-phi.svg]]
 

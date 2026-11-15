@@ -32,13 +32,7 @@ def cable_plane():
     # position vectors (black)
     sc.vec(O, A, None, "HEAD", 2.0, head=10)
     sc.vec(O, B, None, "HEAD", 2.0, head=10)
-    sc.label(B, bold("r") + S("", "0") + S("", "") , "HEAD", "middle", 1)  # placeholder removed below
-    sc.boxes.pop()
-    sc.c.parts.pop()
-    sc.label((VT * 0.5 * 0.0 + 1.3, 0.0), "v" + S("", "A") + " t", "HEAD", "middle", 16, dy=22)
-    sc.label((B[0] / 2, B[1] / 2), bold("r") + S("", "0") + S("", "", "B"), "HEAD", "middle", 1)
-    sc.boxes.pop()
-    sc.c.parts.pop()
+    sc.label((1.3, 0.0), "v" + S("", "A") + " t", "HEAD", "middle", 16, dy=22)
     sc.label((B[0] / 2, B[1] / 2), bold("r") + '<tspan baseline-shift="super" font-size="70%">B</tspan>'
              '<tspan baseline-shift="sub" font-size="70%" dx="-6">0</tspan>', "HEAD", "end", 16, dx=-8, dy=-8)
     # cable
@@ -53,7 +47,7 @@ def cable_plane():
     sc.dotp(H, 3.0)
     sc.label(H, "H", "HEAD", "middle", 16, dy=22)
     # cable basis at A (blue) and flight velocity (green)
-    unit(sc, A, 180 - TH, 1.0, bold("i") + S("", "1"), off=(-14, -10))
+    unit(sc, A, 180 - TH, 1.0, bold("i") + S("", "1"), off=(-6, 20))
     unit(sc, A, 180 - TH + 90, 1.0, bold("j") + S("", "1"), off=(-14, 14))
     sc.vec(A, (A[0] + 1.0, 0.0), "v" + S("", "A") + " " + bold("i") + S("", "0"), "GREEN", 2.6, name_off=(0, -14),
            size=16, head=11)
@@ -83,10 +77,6 @@ def rotation_view():
     axis_out(sc, O, bold("k") + S("", "0") + " (⊙)", off=(36, 24))
     # arcs
     sc.arc(O, 0.30, 180, 180 - TH, "GREEN", 1.6, head=True)
-    sc.label((0.0, 0.0), "θ", "GREEN", "middle", 16, dx=-0.43 * 170 * math.cos(math.radians(165)) * -1 * -1 - 0,
-             dy=0)
-    sc.boxes.pop()
-    sc.c.parts.pop()
     mid = math.radians(180 - TH / 2)
     sc.label((0.43 * math.cos(mid), 0.43 * math.sin(mid)), "θ", "GREEN", "middle", 16, dy=5)
     sc.arc(O, 0.50, 0, 180 - TH, "GREEN", 1.6, head=True)

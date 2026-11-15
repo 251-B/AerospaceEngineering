@@ -139,10 +139,10 @@ def helix_3d():
     sc.label(O, "O", "HEAD", "end", 17, dx=-10, dy=-8)
     sc.label(((O[0] + Q[0]) / 2, (O[1] + Q[1]) / 2), "a " + _e("R"), "HEAD", "end", 16, dx=-8, dy=20)
     sc.label(((Q[0] + P[0]) / 2, (Q[1] + P[1]) / 2), "v" + S("", "z") + " t " + bold("k") + S("", "0"), "HEAD",
-             "start", 16, dx=14, dy=26)
+             "start", 16, dx=12, dy=16)
     sc.label(((O[0] + P[0]) / 2, (O[1] + P[1]) / 2), bold("r") + S("", "0", "P"), "HEAD", "end", 17, dx=-10, dy=-8)
     # cylindrical basis at P
-    for (vx, vy, vz), nm, off in (((math.cos(th), math.sin(th), 0.0), "R", (16, 14)),
+    for (vx, vy, vz), nm, off in (((math.cos(th), math.sin(th), 0.0), "R", (18, 2)),
                                   ((-math.sin(th), math.cos(th), 0.0), "θ", (16, -4)),
                                   ((0.0, 0.0, 1.0), "z", (0, -12))):
         tip = _proj(math.cos(th) + 0.45 * vx, math.sin(th) + 0.45 * vy, zP + 0.45 * vz)
