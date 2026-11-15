@@ -29,6 +29,7 @@ the vault currently reaches.
 * **Vault notes:** units 1-7 (Topic 4: Sessions 7-10 with all 26 problems of the two phase-diagram sheets; Topic 5: Sessions 11-12 with the 15 sheet problems; Topic 6: Session 13 with the 10 electrical problems of the Topic 6 and 7 sheet; Topic 7: Session 15 theory with problems 11-12 of that sheet, the magnetic ones).
 * **NotebookLM notebook:** `9b324478-69e9-482c-813c-5709ec031820`
 * **Web pages:** `subjects/aerospace-materials-1/`
+* **Problem bank:** [[02 - Aerospace Materials I/Problem Bank/Problem Set - Aerospace Materials I Problem Bank|Midterm 2 test blocks and Part II problems]] for the Extra problems pages and the Midterm 2 simulator.
 
 ### 🏗️ [[03 - Engineering Mechanics/Engineering Mechanics MOC|Mechanics Applied to Aerospace Engineering]]
 * **Units on disk (8):** particle kinematics, particle dynamics, constraints and reactions, angular momentum and central forces, relative motion, systems of particles, rigid-body kinematics, rigid-body dynamics.

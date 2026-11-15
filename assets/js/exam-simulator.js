@@ -18,6 +18,12 @@
  * the grade out of the blueprint total is saved in the history, and every item below half of its points is listed,
  * linked to its worked solution on the Extra problems page.
  *
+ * Multiple-choice parts (Aerospace Materials I, Assessment Test II): a blueprint part with "type": "multiple_choice"
+ * draws items of kind "multiple_choice" (statement, four options, one answer, one explanation per wrong option). They
+ * are answered with radio buttons ("Leave blank" is the default), corrected automatically with the part's
+ * points_correct / points_wrong / points_blank, and the mark of the part never goes below its floor. A bank that lists
+ * its blocks (BANK.blocks) also gets "Practise a block": the ten questions of one block, corrected as you answer.
+ *
  * Storage (never a key containing "theme"): ae_bm_exams = { current: {...} | null, history: [...] }
  * Shortcuts (ignored while typing or with Ctrl/Alt/Meta): T next reading palette, Esc close the help,
  * ? shortcuts help.
@@ -106,12 +112,79 @@
     for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
     return a;
   }
+  var blockEl = null;   // the "Practise a block" screen, created on demand
   function show(screen) {
-    [setupEl, runnerEl, resultsEl].forEach(function (s) { s.hidden = s !== screen; });
+    [setupEl, runnerEl, resultsEl, blockEl].forEach(function (s) { if (s) s.hidden = s !== screen; });
     window.scrollTo(0, 0);
   }
   var live = document.getElementById('simLive');
   function announce(msg) { if (live) { live.textContent = ''; window.setTimeout(function () { live.textContent = msg; }, 30); } }
+
+  // ---- Multiple choice ---------------------------------------------------------------
+  function isMC(item) { return !!item && item.kind === 'multiple_choice'; }
+  function partOf(entry) { return BP.parts.filter(function (p) { return p.id === entry.part; })[0]; }
+  var mcPart = BP.parts.filter(function (p) { return p.type === 'multiple_choice'; })[0] || null;
+  function signed(x) { return (x > 0 ? '+' : '') + fmt(x); }
+  // Points of one answer under the rules of its part: right, wrong or blank.
+  function mcPoints(part, item, choice) {
+    if (!choice) return part.points_blank || 0;
+    return choice === item.answer ? part.points_correct : part.points_wrong;
+  }
+  // Mark of a multiple-choice part: the sum of its answers, never below the floor of the part.
+  function mcPartScore(part, entries, answers) {
+    var raw = 0, right = 0, wrong = 0, blank = 0;
+    entries.forEach(function (e) {
+      var item = BY_ID[e.id], c = answers[e.id] || '';
+      raw += mcPoints(part, item, c);
+      if (!c) blank++; else if (c === item.answer) right++; else wrong++;
+    });
+    raw = Math.round(raw * 100) / 100;
+    var floor = typeof part.floor === 'number' ? part.floor : -Infinity;
+    return { raw: raw, score: Math.max(floor, raw), right: right, wrong: wrong, blank: blank };
+  }
+  function mcOptions(item, name, chosen, onChange, withBlank) {
+    var box = el('fieldset', 'sim-mcq', null);
+    var lg = el('legend', 'bank-sr', 'Options'); box.appendChild(lg);
+    var list = item.options.slice();
+    if (withBlank) list.push({ label: '', html: 'Leave blank' });
+    list.forEach(function (o) {
+      var lab = el('label', 'sim-mcq__opt' + (o.label ? '' : ' sim-mcq__opt--blank'), null);
+      var input = document.createElement('input');
+      input.type = 'radio'; input.name = name; input.value = o.label;
+      input.checked = (chosen || '') === o.label;
+      input.addEventListener('change', function () { if (input.checked) onChange(o.label); });
+      lab.appendChild(input);
+      if (o.label) lab.appendChild(el('span', 'sim-mcq__letter', o.label + ')'));
+      var t = el('span', 'sim-mcq__text', null); t.innerHTML = o.html; lab.appendChild(t);
+      box.appendChild(lab);
+    });
+    return box;
+  }
+  // The corrected view of one question: every option marked, the reason for the answer and for each wrong option.
+  function mcReview(item, choice) {
+    var box = el('div', 'sim-mcq sim-mcq--review', null);
+    item.options.forEach(function (o) {
+      var state = o.label === item.answer ? 'right' : (o.label === choice ? 'wrong' : 'other');
+      var row = el('div', 'sim-mcq__opt', null);
+      row.setAttribute('data-state', state);
+      row.appendChild(el('span', 'sim-mcq__letter', o.label + ')'));
+      var t = el('span', 'sim-mcq__text', null); t.innerHTML = o.html; row.appendChild(t);
+      row.appendChild(el('span', 'sim-mcq__mark', state === 'right' ? (choice === o.label ? 'Right answer (yours)' : 'Right answer') : (state === 'wrong' ? 'Your answer' : '')));
+      box.appendChild(row);
+    });
+    var why = el('div', 'bank-panel bank-panel--solution', null);
+    why.appendChild(el('p', 'bank-panel__title', 'Why ' + item.answer + ') is right'));
+    var c = el('div', null, null); c.innerHTML = item.explanation_html; why.appendChild(c);
+    var ul = el('ul', 'sim-mcq__why', null);
+    Object.keys(item.distractors || {}).sort().forEach(function (k) {
+      var li = el('li', null, null); li.innerHTML = '<strong>' + k + ')</strong> ' + item.distractors[k]; ul.appendChild(li);
+    });
+    why.appendChild(el('p', 'bank-panel__title', 'Why the other options are wrong'));
+    why.appendChild(ul);
+    if (item.source_html) { var s = el('div', 'sim-muted', null); s.innerHTML = item.source_html; why.appendChild(s); }
+    box.appendChild(why);
+    return box;
+  }
 
   // ---- Setup screen ------------------------------------------------------------------
   // The part whose problem type can be chosen: the one that lists archetypes (Business Management: the Extra Practice problem).
@@ -142,7 +215,8 @@
   var structure = document.getElementById('simStructure');
   if (structure) {
     var rows = BP.parts.map(function (p) {
-      return '<tr><td>' + p.label + '</td><td class="num">' + p.count + ' × ' + fmt1(p.points_each) + '</td><td class="num">' + fmt1(p.points_total) + '</td></tr>';
+      var rule = p.type === 'multiple_choice' ? '<br><span class="sim-muted">right ' + signed(p.points_correct) + ' · wrong ' + signed(p.points_wrong) + ' · blank ' + fmt(p.points_blank || 0) + ' · never below ' + fmt(p.floor) + '</span>' : '';
+      return '<tr><td>' + p.label + rule + '</td><td class="num">' + p.count + ' × ' + fmt1(p.points_each) + '</td><td class="num">' + fmt1(p.points_total) + '</td></tr>';
     }).join('');
     structure.innerHTML = '<thead><tr><th>Part</th><th class="num">Items × points</th><th class="num">Points</th></tr></thead><tbody>' + rows +
       '<tr><td><strong>Total</strong></td><td class="num">' + BP.duration_minutes + ' min</td><td class="num"><strong>' + fmt1(BP.total_points) + '</strong></td></tr></tbody>';
@@ -155,7 +229,9 @@
     if (!hist.length) { box.innerHTML = '<p class="sim-muted">No simulated exam yet. Your grades will appear here.</p>'; return; }
     var rows = hist.slice().reverse().slice(0, 10).map(function (h) {
       var d = new Date(h.finishedAt);
-      var links = h.items.map(function (r) { return '<a href="' + itemHref(r.id) + '">' + r.id + '</a> ' + fmt(r.score) + '/' + fmt(r.points); }).join(' · ');
+      var links = h.items.filter(function (r) { return !isMC(BY_ID[r.id]); }).map(function (r) { return '<a href="' + itemHref(r.id) + '">' + r.id + '</a> ' + fmt(r.score) + '/' + fmt(r.points); });
+      (h.parts || []).forEach(function (pr) { links.unshift(pr.label + ': ' + pr.right + ' right, ' + pr.wrong + ' wrong, ' + pr.blank + ' blank = ' + fmt(pr.score) + '/' + fmt(pr.max)); });
+      links = links.join(' · ');
       return '<tr><td>' + d.toLocaleDateString('en-GB') + ' ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) +
         '</td><td>' + links + '</td><td class="num"><strong>' + fmt1(h.total) + '</strong> / ' + fmt1(h.max) + '</td></tr>';
     }).join('');
@@ -182,6 +258,21 @@
       free = pool;
     }
     shuffle(free);
+    if (rules.per_unit) {
+      // A fixed number of items per unit (the mix of the real paper), each on a different concept when possible.
+      var picked = [], seenTheme = {};
+      Object.keys(rules.per_unit).forEach(function (u) {
+        var want = rules.per_unit[u], got = 0, mine = free.filter(function (i) { return String(i.unit) === String(u); });
+        [true, false].forEach(function (strict) {
+          mine.forEach(function (it) {
+            if (got >= want || picked.indexOf(it) >= 0 || (strict && seenTheme[it.theme])) return;
+            picked.push(it); seenTheme[it.theme] = 1; got++;
+          });
+        });
+      });
+      free.forEach(function (it) { if (picked.length < part.count && picked.indexOf(it) < 0) picked.push(it); });
+      return { items: shuffle(picked.slice(0, part.count)), notes: notes };
+    }
     var tiers = [[rules.distinct_units, rules.distinct_themes], [false, rules.distinct_themes], [false, false]];
     for (var t = 0; t < tiers.length; t++) {
       var chosen = [], units = {}, themes = {};
@@ -211,7 +302,7 @@
       notes = notes.concat(res.notes);
     });
     var now = Date.now();
-    store.current = { items: ids, minutes: minutes, startedAt: now, endAt: now + minutes * 60000, drafts: {}, notes: notes, phase: 'running', exam: examKey };
+    store.current = { items: ids, minutes: minutes, startedAt: now, endAt: now + minutes * 60000, drafts: {}, answers: {}, notes: notes, phase: 'running', exam: examKey };
     save();
     startRunner();
   }
@@ -223,15 +314,20 @@
   function labelFor(entry, n) {
     var item = BY_ID[entry.id];
     var isCase = item.category === 'short_theory_case';
+    if (isMC(item)) return 'Q' + n;
     return (isCase ? 'Case ' : 'Problem ') + n + ' [' + fmt(item.points) + 'p]';
   }
 
   function questionHead(item, n) {
     var head = el('div', 'sim-question__head', null);
     var isCase = item.category === 'short_theory_case';
-    head.appendChild(el('h2', null, (isCase ? 'Case ' : 'Problem ') + n));
+    head.appendChild(el('h2', null, (isMC(item) ? 'Question ' : isCase ? 'Case ' : 'Problem ') + n));
     var entry = store.current && store.current.items.filter(function (e) { return e.id === item.id; })[0];
     var own = BP.parts.filter(function (p) { return entry ? p.id === entry.part : p.category === item.category; })[0];
+    if (isMC(item)) {
+      head.appendChild(el('span', null, (own ? own.label : 'Test') + ' · right ' + signed(own.points_correct) + ', wrong ' + signed(own.points_wrong)));
+      return head;
+    }
     var partName = BP.parts.length > 1 && item.category === 'short_theory_case' ? 'Part I · short theory case'
       : BP.parts.length > 1 && item.category === 'extra_practice_problem' ? 'Part II · practical problem'
       : (own ? own.label : 'Problem');
@@ -264,6 +360,20 @@
       var st = el('div', 'sim-statement', null);
       st.innerHTML = item.statement_html;
       q.appendChild(st);
+      if (!cur.answers) cur.answers = {};
+      if (isMC(item)) {
+        q.className += ' sim-question--mcq';
+        var navLink = el('a', null, labelFor(entry, n));
+        navLink.href = '#q' + n;
+        if (cur.answers[entry.id]) navLink.setAttribute('data-answered', 'true');
+        q.appendChild(mcOptions(item, 'mc-' + n, cur.answers[entry.id] || '', function (v) {
+          cur.answers[entry.id] = v; save();
+          if (v) navLink.setAttribute('data-answered', 'true'); else navLink.removeAttribute('data-answered');
+        }, true));
+        list.appendChild(q);
+        nav.appendChild(navLink);
+        return;
+      }
       item.subquestions.forEach(function (sub) {
         var s = el('div', 'sim-sub', null);
         var p = el('div', 'sim-sub__prompt', null);
@@ -372,8 +482,13 @@
 
   function totals() {
     var cur = store.current, total = 0, done = true;
+    BP.parts.forEach(function (part) {
+      if (part.type !== 'multiple_choice') return;
+      total += mcPartScore(part, cur.items.filter(function (e) { return e.part === part.id; }), cur.answers || {}).score;
+    });
     cur.items.forEach(function (entry) {
       var item = BY_ID[entry.id], sc = cur.scores[entry.id];
+      if (isMC(item)) return;
       if (item.category === 'short_theory_case') {
         if (typeof sc !== 'number') done = false; else total += sc;
       } else {
@@ -401,6 +516,18 @@
     document.getElementById('simTimeUp').hidden = !cur.timeUp;
     var used = Math.min(cur.minutes * 60, Math.round(((cur.finishedAt || Date.now()) - cur.startedAt) / 1000));
     document.getElementById('simUsed').textContent = 'Time used: ' + Math.floor(used / 60) + ' min ' + String(used % 60).padStart(2, '0') + ' s of ' + cur.minutes + ' min.';
+    BP.parts.forEach(function (part) {
+      if (part.type !== 'multiple_choice') return;
+      var r = mcPartScore(part, cur.items.filter(function (e) { return e.part === part.id; }), cur.answers || {});
+      var card = el('section', 'sim-card sim-mcq-summary', null);
+      card.appendChild(el('h2', null, part.label + ' · corrected automatically'));
+      card.appendChild(el('p', null, r.right + ' right × ' + signed(part.points_correct) + ', ' + r.wrong + ' wrong × ' + signed(part.points_wrong) +
+        ', ' + r.blank + ' blank × ' + fmt(part.points_blank || 0) + ' = ' + fmt1(r.raw) + (r.score !== r.raw ? ' → ' + fmt1(r.score) + ' (the mark of the test never goes below ' + fmt(part.floor) + ')' : '') + '.'));
+      var strong = el('p', 'sim-mcq-summary__score', null);
+      strong.innerHTML = 'Mark of the test: <strong>' + fmt1(r.score) + '</strong> / ' + fmt1(part.points_total);
+      card.appendChild(strong);
+      list.appendChild(card);
+    });
     cur.items.forEach(function (entry, idx) {
       var item = BY_ID[entry.id];
       var n = idx + 1;
@@ -408,6 +535,22 @@
       var q = el('section', 'sim-question', null);
       q.id = 'g' + n;
       var head = questionHead(item, n);
+      if (isMC(item)) {
+        var mcp = partOf(entry), ch = (cur.answers || {})[entry.id] || '';
+        var mlink = el('a', null, item.id + ' · ' + item.title);
+        mlink.href = itemHref(item.id);
+        head.appendChild(mlink);
+        q.appendChild(head);
+        q.className += ' sim-question--mcq';
+        q.setAttribute('data-result', !ch ? 'blank' : ch === item.answer ? 'right' : 'wrong');
+        var stm = el('div', 'sim-statement', null);
+        stm.innerHTML = item.statement_html;
+        q.appendChild(stm);
+        q.appendChild(el('p', 'sim-mcq__verdict', (!ch ? 'Left blank' : ch === item.answer ? 'Right' : 'Wrong: you chose ' + ch + '), the answer is ' + item.answer + ')') + ' · ' + signed(mcPoints(mcp, item, ch)) + ' points'));
+        q.appendChild(mcReview(item, ch));
+        list.appendChild(q);
+        return;
+      }
       var link = el('a', null, item.id + ' · ' + item.title);
       link.href = itemHref(item.id);
       head.appendChild(link);
@@ -474,7 +617,7 @@
     renderMath(list);
     show(resultsEl);
     updateTotal();
-    announce('Exam finished. Grade each question with the key results.');
+    announce(mcPart ? 'Exam finished. The test is corrected; grade the problem with the key results.' : 'Exam finished. Grade each question with the key results.');
   }
 
   function saveResult() {
@@ -484,18 +627,27 @@
     var low = [];
     var items = cur.items.map(function (entry) {
       var item = BY_ID[entry.id], sc = cur.scores[entry.id];
+      if (isMC(item)) {
+        var ch = (cur.answers || {})[entry.id] || '';
+        if (ch !== item.answer) low.push(item.id);
+        return { id: item.id, part: entry.part, score: mcPoints(partOf(entry), item, ch), points: item.points, choice: ch };
+      }
       var score = typeof sc === 'number' ? sc : item.subquestions.reduce(function (s, sub) { return s + (sc[sub.label] || 0); }, 0);
       if (score < item.points / 2) low.push(item.id);
       return { id: item.id, part: entry.part, score: score, points: item.points };
     });
+    var partResults = BP.parts.filter(function (p) { return p.type === 'multiple_choice'; }).map(function (p) {
+      var r = mcPartScore(p, cur.items.filter(function (e) { return e.part === p.id; }), cur.answers || {});
+      return { id: p.id, label: p.label.split(' — ')[0], right: r.right, wrong: r.wrong, blank: r.blank, raw: r.raw, score: r.score, max: p.points_total };
+    });
     store.history.push({ startedAt: cur.startedAt, finishedAt: cur.finishedAt || Date.now(), minutes: cur.minutes,
-                         timeUp: !!cur.timeUp, items: items, total: t.total, max: BP.total_points, exam: examKey });
+                         timeUp: !!cur.timeUp, items: items, parts: partResults, total: t.total, max: BP.total_points, exam: examKey });
     store.current = null;
     save();
     var box = document.getElementById('simSaved');
     var html = '<p><strong>Grade saved: ' + fmt1(t.total) + ' / ' + fmt1(BP.total_points) + '.</strong></p>';
     html += low.length
-      ? '<p>Below half of their points, worth practising again on the Extra problems page:</p><ul class="sim-result-list">' +
+      ? '<p>' + (mcPart ? 'Wrong or blank test questions and items below half of their points' : 'Below half of their points') + ', worth practising again on the Extra problems page:</p><ul class="sim-result-list">' +
         low.map(function (id) { return '<li><a href="' + itemHref(id) + '">' + id + ' · ' + BY_ID[id].title + '</a></li>'; }).join('') + '</ul>'
       : '<p>Every item reached at least half of its points.</p>';
     box.innerHTML = html;
@@ -505,6 +657,111 @@
     renderHistory();
     announce('Grade saved: ' + fmt1(t.total) + ' out of ' + fmt1(BP.total_points) + '.');
   }
+
+  // ---- Practise a block (multiple choice, corrected as you answer) --------------------
+  function setupBlockPractice() {
+    if (!mcPart || !Array.isArray(BANK.blocks) || !BANK.blocks.length) return;
+    var card = el('div', 'sim-card sim-block-card', null);
+    card.appendChild(el('h2', null, 'Practise a block'));
+    card.appendChild(el('p', 'sim-muted', 'Ten questions of one block, corrected as you answer, with the reason for every option. No timer and nothing is saved.'));
+    var row = el('div', 'sim-options', null);
+    function field(id, text) {
+      var w = el('div', null, null), lab = el('label', 'sim-label', text), sel = document.createElement('select');
+      lab.setAttribute('for', id); sel.id = id; sel.className = 'sim-select';
+      w.appendChild(lab); w.appendChild(sel); row.appendChild(w);
+      return sel;
+    }
+    var unitSel = field('simBlockUnit', 'Unit'), blockSel = field('simBlockSelect', 'Block');
+    var units = [];
+    BANK.blocks.forEach(function (b) { if (units.indexOf(b.unit) < 0) units.push(b.unit); });
+    units.forEach(function (u) {
+      var o = document.createElement('option');
+      o.value = String(u); o.textContent = (BANK.units && BANK.units[String(u)]) || ('Unit ' + u);
+      unitSel.appendChild(o);
+    });
+    function fillBlocks() {
+      blockSel.innerHTML = '';
+      BANK.blocks.filter(function (b) { return String(b.unit) === unitSel.value; }).forEach(function (b) {
+        var o = document.createElement('option');
+        o.value = b.id; o.textContent = b.id + ' · ' + b.title;
+        blockSel.appendChild(o);
+      });
+    }
+    unitSel.addEventListener('change', fillBlocks);
+    fillBlocks();
+    card.appendChild(row);
+    var actions = el('div', 'sim-actions', null);
+    var go = el('button', 'bank-btn sim-primary', 'Practise this block');
+    go.type = 'button'; go.id = 'simBlockStart';
+    go.addEventListener('click', function () { startBlock(blockSel.value); });
+    actions.appendChild(go);
+    card.appendChild(actions);
+    var hist = setupEl.querySelector('.sim-history-card');
+    setupEl.insertBefore(card, hist || null);
+    blockEl = el('section', null, null);
+    blockEl.id = 'simBlock'; blockEl.hidden = true;
+    blockEl.setAttribute('aria-label', 'Block practice');
+    resultsEl.parentNode.insertBefore(blockEl, resultsEl.nextSibling);
+  }
+
+  function startBlock(blockId) {
+    var block = BANK.blocks.filter(function (b) { return b.id === blockId; })[0];
+    if (!block || !blockEl) return;
+    var entries = block.items.map(function (id) { return { id: id, part: mcPart.id }; });
+    var answers = {};
+    blockEl.innerHTML = '';
+    var top = el('div', 'sim-card', null);
+    top.appendChild(el('h2', null, block.id + ' · ' + block.title));
+    var tally = el('p', 'sim-block-tally', null);
+    tally.id = 'simBlockTally';
+    tally.setAttribute('aria-live', 'polite');
+    top.appendChild(tally);
+    var back = el('button', 'bank-btn', 'Back to the simulator');
+    back.type = 'button'; back.id = 'simBlockBack';
+    back.addEventListener('click', function () { show(setupEl); });
+    var pageLink = el('a', 'bank-btn', 'Open this block on the Extra problems page');
+    pageLink.href = BANK_DIR + ((BANK.pages || {})[mcPart.category] || '') + '#' + block.id;
+    var acts = el('div', 'sim-actions', null);
+    acts.appendChild(back); acts.appendChild(pageLink);
+    top.appendChild(acts);
+    blockEl.appendChild(top);
+    function updateTally() {
+      var done = Object.keys(answers).length;
+      var r = mcPartScore(mcPart, entries.filter(function (e) { return answers[e.id]; }), answers);
+      tally.textContent = done + ' of ' + entries.length + ' answered · ' + r.right + ' right, ' + r.wrong + ' wrong · with the exam rule: ' +
+        fmt1(r.score) + ' / ' + fmt1(entries.length * mcPart.points_correct) + (r.score !== r.raw ? ' (' + fmt1(r.raw) + ' before the floor)' : '');
+    }
+    entries.forEach(function (entry, idx) {
+      var item = BY_ID[entry.id], n = idx + 1;
+      var q = el('section', 'sim-question sim-question--mcq', null);
+      q.id = 'b' + n;
+      var head = el('div', 'sim-question__head', null);
+      head.appendChild(el('h2', null, 'Question ' + n));
+      head.appendChild(el('span', null, item.id));
+      q.appendChild(head);
+      var st = el('div', 'sim-statement', null);
+      st.innerHTML = item.statement_html;
+      q.appendChild(st);
+      var opts = mcOptions(item, 'blk-' + n, '', function (v) {
+        answers[entry.id] = v;
+        q.setAttribute('data-result', v === item.answer ? 'right' : 'wrong');
+        var review = mcReview(item, v);
+        var verdict = el('p', 'sim-mcq__verdict', v === item.answer ? 'Right' : 'Wrong: you chose ' + v + '), the answer is ' + item.answer + ')');
+        q.replaceChild(review, opts);
+        q.insertBefore(verdict, review);
+        renderMath(review);
+        updateTally();
+        announce('Question ' + n + ': ' + (v === item.answer ? 'right' : 'wrong, the answer is ' + item.answer));
+      }, false);
+      q.appendChild(opts);
+      blockEl.appendChild(q);
+    });
+    updateTally();
+    renderMath(blockEl);
+    show(blockEl);
+    announce('Block ' + block.id + ': ten questions, corrected as you answer.');
+  }
+  setupBlockPractice();
 
   // ---- Wiring ------------------------------------------------------------------------
   document.getElementById('simGenerate').addEventListener('click', generate);

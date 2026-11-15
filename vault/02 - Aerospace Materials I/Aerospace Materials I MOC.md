@@ -308,6 +308,8 @@ tags:
 * **Test 1 (First Partial):** Topics 1, 2 and 3.
   * Sources: `1stPartial2022.pdf`, `1stPartial2023.pdf`, `1stPartialTipoTestsVariados.pdf`, `First Partial Aerospace Materials.pdf`.
 * **Test 2 (Second Partial):** Topics 4, 5, 6 and 7.
+  * Sources: `MATERIALS_SECONDPARTIAL_2019.pdf`, `MATERIALS_SECONDPARTIAL_2018.docx`.
+  * **Midterm 2 bank (practice items, not official exercises):** [[02 - Aerospace Materials I/Problem Bank/Problem Set - Aerospace Materials I Problem Bank|Problem Set - Aerospace Materials I Problem Bank]] - blocks of ten test questions and Part II problems, specified by [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis|Rules - Midterm 2 Exam Style Analysis]]. Web pages: `subjects/aerospace-materials-1/extra-problems/`; timed exams: `subjects/aerospace-materials-1/simulator/index.html`.
 * **Test 3 (Third Partial):** Topics 8, 9, 10 and 11.
 * **Final Exam:** Ordinary and extraordinary sittings.
 

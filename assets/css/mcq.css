@@ -1,0 +1,26 @@
+/* Test questions of the Extra problems pages (blocks of ten multiple-choice questions, tools/build_materials_bank.py).
+   Colours come from the page's own text variables, so every reading palette keeps its contrast. */
+.mcq-unit-title { margin: 44px 0 18px; font-size: 1.5rem; }
+.mcq-unit-count { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; color: var(--text-secondary, inherit); margin-left: 10px; }
+.mcq-item { scroll-margin-top: 90px; }
+.mcq-options { list-style: none; margin: 12px 0 14px; padding: 0; display: grid; gap: 6px; }
+.mcq-option { display: flex; align-items: flex-start; gap: 10px; padding: 7px 12px; border: 1px solid var(--border-subtle); border-radius: 8px; }
+.mcq-letter { font-family: var(--font-mono); font-weight: 700; flex: none; }
+.mcq-text { flex: 1; min-width: 0; }
+.mcq-figure { display: inline-block; vertical-align: middle; }
+.mcq-figure svg, .mcq-figure img { max-width: 220px !important; }
+.mcq-answer { margin: 8px 0 0; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0 14px; }
+.mcq-answer > summary { cursor: pointer; padding: 10px 0; font-family: var(--font-sans, inherit); font-weight: 600; }
+.mcq-answer[open] { padding-bottom: 10px; }
+.mcq-right { margin: 6px 0; }
+.mcq-why { margin: 12px 0 4px; font-weight: 600; }
+.mcq-distractors { margin: 4px 0 10px 1.2em; }
+.mcq-distractors li { margin: 4px 0; }
+.mcq-source { font-size: 0.92em; }
+.mcq-source p { display: inline; }
+.mcq-source__label { font-weight: 700; }
+@media print {
+  .mcq-item { break-inside: avoid; }
+  .mcq-option { border: 0; padding: 1px 0; }
+  .mcq-answer { border: 0; padding: 0; }
+}

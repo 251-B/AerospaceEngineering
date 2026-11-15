@@ -37,6 +37,7 @@ Map of content for the repository's own tooling, agents and rules. The study con
 | [[Tool - build_problem_pages]] | Tool | Generates the two Business Management Topic 3 problem pages. |
 | [[Tool - build_mech_problems]] | Tool | Generates the five Engineering Mechanics official problem pages (51 problems). |
 | [[Tool - build_maths_bank]] | Tool | Builds the Advanced Maths problem bank, its three exam blueprints and the Extra problems pages. |
+| [[Tool - build_materials_bank]] | Tool | Builds the Aerospace Materials I Midterm 2 bank: blocks of ten test questions, Part II problems, the blueprint data and the Extra problems pages. |
 | [[Tool - source_links]] | Tool | Adds deep links to the official PDFs. |
 | [[Tool - build_sources_pages]] | Tool | Generates the sources and exams index pages per subject. |
 | [[Tool - sources_manifest]] | Tool | Regenerates `assets/data/sources.js` from `sources/`. |
