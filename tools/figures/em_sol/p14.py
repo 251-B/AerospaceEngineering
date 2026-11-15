@@ -76,13 +76,13 @@ def potential():
     sc.line((xl, 0.0), (1.0, 0.0), "EDGE", 1.2, "6 4")
     sc.note((-3.9, 0.0), "V → 0 as x → −∞", "TEXT", "start", 12, dy=16)
     # the three levels
-    Ea, Eg, Er = 0.5, 1.0, 1.2
-    xs = 0.768
+    Ea, Eg, Er = 0.72, 1.0, 1.2      # case 1: the example of the solution, v0 = 1.2 (m = K = a = 1)
+    xs = 0.608                      # (1 - u) e^u = 0.72
     sc.line((xl, Ea), (1.15, Ea), "ACC", 1.8, "7 4")
     sc.line((xl, Eg), (1.15, Eg), "GREEN", 1.8, "7 4")
     sc.line((xl, Er), (1.15, Er), RED, 1.8, "7 4")
-    sc.note((-3.85, Ea), "case 1: v₀ < a√(2K)", "ACC", "start", 13, dy=-8)
-    sc.note((-3.85, Eg), "case 2: v₀ = a√(2K)", "GREEN", "start", 13, dy=22)
+    sc.note((-3.85, Ea), "case 1: v₀ < a√(2K)", "ACC", "start", 13, dy=20)
+    sc.note((-3.85, Eg), "case 2: v₀ = a√(2K)", "GREEN", "start", 13, dy=-8)
     sc.note((-3.85, Er), "case 3: v₀ > a√(2K)", RED, "start", 13, dy=-8)
     # potential curve, clipped at the bottom of the plot
     sc.curve(lambda u: (u, V(u)), xl, 1.32, 240, col="BLUE", w=2.8)

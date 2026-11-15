@@ -3,7 +3,7 @@ title: "Solution Set - Topic 2: Point Particle Dynamics"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
-type: "Full Analytical Solutions (course order, Notes chapter 7)"
+type: "Full solutions with derivation boxes (lecturer's order)"
 language: "English"
 tags:
   - solutions
@@ -12,7 +12,7 @@ tags:
 
 # Topic 2: Point Particle Dynamics - Full Analytical Solutions
 
-Step-by-step analytical solutions for the 10 problems of Topic 2 (**Point Particle Dynamics**) of *Mechanics Applied to Aerospace Engineering* (UC3M). Every solution follows the systematic approach of `Notes.pdf`, chapter 7, inside four phases: constraints, degrees of freedom and coordinates (7.1, 7.2); reference frames (7.3); the derivation in the order kinematics (7.4), forces (7.5), equations of motion (7.6) and integration with the answers to the questions (7.7); and the interpretation and checks. Each formula is preceded by the reason for using it, with explicit derivatives (product and chain rules) and explicit integrals (primitive, substitution and Barrow's rule).
+Full step-by-step solutions, with derivation boxes, for the 10 problems of Topic 2 (**Point Particle Dynamics**) of *Mechanics Applied to Aerospace Engineering* (UC3M). Every solution follows the order of the lecturer: reference frames, bases and coordinates; change of basis and position vector; kinematics; forces and equations of motion; answers and checks. Each development sits in a derivation box with the law it uses, its source, explicit derivatives (product and chain rules) and explicit integrals (primitive, substitution and Barrow's rule), the SI check and the physical meaning.
 
 ---
 
@@ -259,7 +259,7 @@ The potential well and the energy level of the release are drawn below; the turn
 >
 > $$\boxed{\text{the turning points are } \pm a \text{ and the speed at } O \text{ scales as } a^2}$$
 >
-> **Units:** each limit keeps the dimensions $[\mathrm{L\,T^{-1}}]$ of the speed
+> **Units:** $E_0$ in $[\mathrm{M\,L^2\,T^{-2}}]$, $v_1$ in $[\mathrm{L\,T^{-1}}]$; each limit keeps these dimensions
 > **Meaning:** unlike a linear spring (speed proportional to $a$), the cubic force gives a speed at the origin proportional to $a^2$.
 
 | Part of the statement | Answer |
@@ -276,7 +276,7 @@ The potential well and the energy level of the release are drawn below; the turn
 
 ### Reference Frames, Bases and Coordinates
 
-The particle moves along the axis $Ox$ of an inertial frame and its potential energy is given. The study follows the energy method of Notes.pdf, Sec. 4.5 and Sec. 4.6 and [Lecture 2, Slide 20]: the force and the equilibrium points come from the derivatives of the potential, the sketch from its extrema and limits, and the types of motion from the allowed regions where the potential does not exceed the mechanical energy.
+The particle moves along the axis $Ox$ of an inertial frame and its potential energy is given. The study follows the energy method of Notes.pdf, Sec. 4.5 and Notes.pdf, Sec. 4.6 and [Lecture 2, Slide 20]: the force and the equilibrium points come from the derivatives of the potential, the sketch from its extrema and limits, and the types of motion from the allowed regions where the potential does not exceed the mechanical energy.
 
 | Item | Definition |
 | :--- | :--- |
@@ -363,7 +363,7 @@ The free-body diagram of the figure above shows the conservative force along $\m
 > $$\boxed{\mathbf F = 2c\,x\left(x^2 - a^2\right)\mathbf i}$$
 >
 > **Units:** $[\mathrm{M\,L^{-2}\,T^{-2}}][\mathrm{L}][\mathrm{L^2}] = [\mathrm{M\,L\,T^{-2}}]$
-> **Meaning:** for $0 \lt x \lt a$ the force is negative (towards the origin) and for $x \gt a$ it is positive (away from it): the origin attracts, the points beyond $\pm a$ repel.
+> **Meaning:** for $0 \lt x \lt a$ the force is negative (towards the origin) and for $x \gt a$ it is positive (away from it): inside the barriers the force pulls towards $O$, outside them it pushes away from $O$ (symmetrically for negative $x$).
 
 > [!derivation] Equation of motion and energy integral
 > **Law:** Newton's second law along $\mathbf i$; multiplication by the velocity and chain rule
@@ -384,7 +384,7 @@ The free-body diagram of the figure above shows the conservative force along $\m
 
 > [!derivation] Equilibrium points and their stability
 > **Law:** equilibrium where the force vanishes; stable at a minimum of the potential, unstable at a maximum
-> **Source:** Notes.pdf, Eq. 4.32; [Lecture 2, Slide 22]
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Sec. 4.6; [Lecture 2, Slide 22]
 >
 > $$\begin{aligned}
 > \frac{dV}{dx} &= -2c\,x\left(x - a\right)\left(x + a\right) = 0 \iff x = 0,\ a,\ -a \quad &\text{(difference of squares; product equal to zero)} \\
@@ -592,14 +592,15 @@ The particle moves along the axis $Ox$ of an inertial frame under a conservative
 
 ### Forces and Equations of Motion
 
-The force along $\mathbf i$ is the conservative one; the normal forces balance (Notes.pdf, Eq. 4.5). $S_0$ is inertial: no inertia forces.
+The force along $\mathbf i$ is the conservative one; the normal forces balance (figure above; Notes.pdf, Eq. 4.5). $S_0$ is inertial: no inertia forces.
 
 > [!derivation] Equation of motion and energy integral
-> **Law:** Newton's second law along $\mathbf i$; multiplication by the velocity and chain rule
+> **Law:** Newton's second law in $\mathcal B_0$; multiplication by the velocity and chain rule
 > **Source:** Notes.pdf, Eq. 4.21; Notes.pdf, Eq. 4.22; Notes.pdf, Eq. 4.26; Notes.pdf, Eq. 4.27
 >
 > $$\begin{aligned}
-> m\,\ddot x &= -\frac{dV}{dx} \quad &\text{(second law along $\mathbf i$, force from the potential)} \\
+> m\,\ddot x\,\mathbf i &= -\frac{dV}{dx}\,\mathbf i + R_y\,\mathbf j + R_z\,\mathbf k \quad &\text{(second law in $\mathcal B_0$, force from the potential)} \\
+> m\,\ddot x &= -\frac{dV}{dx},\quad R_y = R_z = 0 \quad &\text{(components along $\mathbf i$, $\mathbf j$ and $\mathbf k$)} \\
 > \frac{d}{dt}\left(\frac12 m\dot x^2 + V(x)\right) &= m\dot x\ddot x + \frac{dV}{dx}\dot x = \dot x\left(m\ddot x + \frac{dV}{dx}\right) = 0 \quad &\text{(chain rule on both terms)} \\
 > \frac12 m\dot x^2 + V(x) &= E = V(x_2) \quad &\text{(constant; at the turning point $x_2$ the velocity is zero)} \\
 > \dot x^2 &= \frac{2}{m}\left[V(x_2) - V(x)\right] \quad &\text{(solved for the square of the velocity)}
@@ -725,7 +726,7 @@ The force along $\mathbf i$ is the conservative one; the normal forces balance (
 > a^4 - x^4 &= \left(a^2 - x^2\right)\left(a^2 + x^2\right) \quad &\text{(difference of squares)} \\
 > V(a) - V(x) &= \frac12 m\omega_0^2\left(a^2 - x^2\right)\left[1 - b\left(a^2 + x^2\right)\right] \quad &\text{(common factor $a^2 - x^2$)} \\
 > \frac{m}{2\left[V(a) - V(x)\right]} &= \frac{m}{m\omega_0^2\left(a^2 - x^2\right)\left[1 - b\left(a^2 + x^2\right)\right]} = \frac{1}{\omega_0^2\left(a^2 - x^2\right)\left[1 - b\left(a^2 + x^2\right)\right]} \quad &\text{(the mass cancels)} \\
-> \sqrt{\frac{m}{2\left[V(a) - V(x)\right]}} &= \frac{1}{\omega_0\sqrt{a^2 - x^2}\,\sqrt{1 - b\left(a^2 + x^2\right)}} \quad &\text{(both brackets positive for $\lvert x\rvert \lt a$, since $b(a^2 + x^2) \lt 2b\,a^2 \lt 1$)} \\
+> \sqrt{\frac{m}{2\left[V(a) - V(x)\right]}} &= \frac{1}{\omega_0\sqrt{a^2 - x^2}\,\sqrt{1 - b\left(a^2 + x^2\right)}} \quad &\text{(both brackets positive for $\lvert x\rvert \lt a$: for $b \gt 0$, $b(a^2+x^2) \lt 2ba^2 \lt 1$; for $b \le 0$ the bracket is at least 1)} \\
 > \tau &= 2\int_{-a}^{a}\frac{dx}{\omega_0\sqrt{a^2 - x^2}\,\sqrt{1 - b\left(a^2 + x^2\right)}} \quad &\text{(period formula with $x_1 = -a$, $x_2 = a$)}
 > \end{aligned}$$
 >
@@ -764,6 +765,7 @@ The force along $\mathbf i$ is the conservative one; the normal forces balance (
 > $$\begin{aligned}
 > \tau &= \frac{2}{\omega_0}\int_{-\pi/2}^{\pi/2}\frac{d\varphi}{\sqrt{1 - b\,a^2\left(1 + \sin^2\varphi\right)}} \quad &\text{(exact; the factor $a\cos\varphi$ cancels as before)} \\
 > \left(1 - \epsilon\right)^{-1/2} &\approx 1 + \frac{\epsilon}{2} \quad &\text{(first-order expansion, derivative of the power at $\epsilon = 0$ equal to $1/2$)} \\
+> \int\cos 2\varphi\,d\varphi &= \frac12\int\cos u\,du = \frac{\sin 2\varphi}{2} \quad &\text{(substitution $u = 2\varphi$, $du = 2\,d\varphi$)} \\
 > \int_{-\pi/2}^{\pi/2}\sin^2\varphi\,d\varphi &= \left[\frac{\varphi}{2} - \frac{\sin 2\varphi}{4}\right]_{-\pi/2}^{\pi/2} = \left(\frac{\pi}{4} - 0\right) - \left(-\frac{\pi}{4} - 0\right) = \frac{\pi}{2} \quad &\text{(antiderivative from $\sin^2\varphi = (1 - \cos 2\varphi)/2$; Barrow's rule)} \\
 > \tau &\approx \frac{2}{\omega_0}\left[\pi + \frac{b\,a^2}{2}\left(\pi + \frac{\pi}{2}\right)\right] \quad &\text{(term by term, with $\int d\varphi = \pi$)} \\
 > &= \frac{2\pi}{\omega_0}\left(1 + \frac{3}{4}\,b\,a^2\right) \quad &\text{(common factor $\pi$)}
@@ -807,6 +809,7 @@ A particle of mass $m$ moves along the axis $Ox$ of an inertial frame under a fo
 | $x(t)$ | coordinate of the particle on $Ox$ (the only degree of freedom) | m |
 | $y = x/a$ | dimensionless coordinate | - |
 | $x_0 = a$, $\dot x(0) = v_0 = \sqrt{8ga}$ | initial conditions (statement), velocity along $+\mathbf i$ | m, m/s |
+| $\mathbf R_\perp = R_y\,\mathbf j + R_z\,\mathbf k$ | resultant of the forces normal to the axis (unknown) | N |
 | $E$ | mechanical energy, kinetic plus potential | J |
 | $\lambda = \sqrt{3g/(2a)}$ | rate that appears in the time law | 1/s |
 | $\alpha = \operatorname{arctanh}(1/\sqrt 3)$ | constant offset of the time law | - |
@@ -885,7 +888,7 @@ Only one basis is needed: $\mathcal B_0$ is fixed in the inertial frame. The box
 > \mathbf v_0^P &= \frac{d}{dt}\left(x\,\mathbf i\right) \quad &\text{(definition of velocity)} \\
 > &= \dot x\,\mathbf i + x\,\dot{\mathbf i} \quad &\text{(product rule)} \\
 > &= \dot x\,\mathbf i \quad &\text{(the unit vector is constant)} \\
-> &= a\,\dot y\,\mathbf i \quad &\text{(chain rule with $x$ equal to $a$ times $y$, $a$ constant)} \\
+> &= a\,\dot y\,\mathbf i \quad &\text{($x = a\,y$ with $a$ constant: constant-factor rule)} \\
 > \mathbf a_0^P &= \frac{d}{dt}\left(\dot x\,\mathbf i\right) = \ddot x\,\mathbf i + \dot x\,\dot{\mathbf i} \quad &\text{(definition of acceleration; product rule)} \\
 > &= \ddot x\,\mathbf i = a\,\ddot y\,\mathbf i \quad &\text{(constant unit vector)}
 > \end{aligned}$$
@@ -918,7 +921,7 @@ Only one basis is needed: $\mathcal B_0$ is fixed in the inertial frame. The box
 
 > [!derivation] Equilibrium points and their stability
 > **Law:** equilibrium where the force vanishes; stable at a minimum of the potential, unstable at a maximum
-> **Source:** Notes.pdf, Eq. 4.32
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Sec. 4.6; [Lecture 2, Slide 22]
 >
 > $$\begin{aligned}
 > \frac{dV}{dy} &= mga\left(3y^2 - 3\right) = 3mga\left(y^2 - 1\right) \quad &\text{(derivative term by term)} \\
@@ -936,11 +939,12 @@ Only one basis is needed: $\mathcal B_0$ is fixed in the inertial frame. The box
 ![[attachments/EM-SOL/p13-potential.svg]]
 
 > [!derivation] Equation of motion
-> **Law:** Newton's second law along $\mathbf i$ in the inertial frame
+> **Law:** Newton's second law in the inertial frame, projected on $\mathbf i$, $\mathbf j$ and $\mathbf k$
 > **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.21
 >
 > $$\begin{aligned}
-> m\,\mathbf a_0^P &= \mathbf F \quad &\text{(Newton's second law)} \\
+> m\,\mathbf a_0^P &= \mathbf F + \mathbf R_\perp \quad &\text{(Newton's second law; $\mathbf R_\perp = R_y\,\mathbf j + R_z\,\mathbf k$)} \\
+> 0 &= R_y, \qquad 0 = R_z \quad &\text{(dot products with $\mathbf j$ and $\mathbf k$)} \\
 > m\,a\,\ddot y &= -3mg\left(y^2 - 1\right) \quad &\text{(projection on $\mathbf i$, with the kinematics above)} \\
 > \ddot y &= -\frac{3g}{a}\left(y^2 - 1\right) \quad &\text{(division by $m\,a$)}
 > \end{aligned}$$
@@ -955,7 +959,8 @@ Only one basis is needed: $\mathcal B_0$ is fixed in the inertial frame. The box
 > **Source:** Notes.pdf, Eq. 4.26; Notes.pdf, Eq. 4.27
 >
 > $$\begin{aligned}
-> E &= \tfrac{1}{2}m\dot x^2 + V(x) \quad &\text{(definition: kinetic plus potential energy)} \\
+> \frac{d}{dt}\left(\tfrac12 m\dot x^2 + V(x)\right) &= \dot x\left(m\ddot x + \frac{dV}{dx}\right) = 0 \quad &\text{(chain rule on both terms; equation of motion)} \\
+> E &= \tfrac{1}{2}m\dot x^2 + V(x) \quad &\text{(definition: kinetic plus potential energy, constant)} \\
 > &= \tfrac{1}{2}m(8ga) + mga\left(1^3 - 3\cdot 1\right) \quad &\text{(initial state, $y$ equal to 1)} \\
 > &= 4mga - 2mga = 2mga \quad &\text{(arithmetic)} \\
 > E - V(-a) &= 2mga - 2mga = 0 \quad &\text{(comparison with the barrier top)}
@@ -982,7 +987,7 @@ Only one basis is needed: $\mathcal B_0$ is fixed in the inertial frame. The box
 > $$\boxed{\dot y^2 = \frac{2g}{a}\,(y + 1)^2\,(2 - y)}$$
 >
 > **Units:** $[\mathrm{T^{-2}}]$ on both sides
-> **Meaning:** the allowed region is the set of points with a non-negative right-hand side, every point with $y$ up to 2; the right end $x = 2a$ is a simple turning point and the left end $x = -a$ a double root (the barrier top).
+> **Meaning:** the allowed region is every $y$ up to 2, past the barrier top too; $x = 2a$ is a simple root (a turning point reached in finite time), while $x = -a$ is a double root: the speed vanishes there, but a particle coming from the right reaches it only as $t \to \infty$, so it never goes beyond it.
 
 > [!derivation] Verification of the integral of the tip
 > **Law:** an antiderivative is checked by differentiating it; chain rule
@@ -1045,7 +1050,7 @@ Only one basis is needed: $\mathcal B_0$ is fixed in the inertial frame. The box
 > **Law:** separation of variables and Barrow's rule, restarted at the turning point
 > **Source:** Notes.pdf, Eq. 4.27; Problems.pdf, p. 9
 >
-> After the turning point the velocity is negative, so the negative square root is taken; it cannot change sign again before the left end of the allowed region, which is the barrier top.
+> After the turning point the velocity is negative, so the negative square root is taken; it cannot change sign again before the next zero of the right-hand side, the double root $y = -1$ (the barrier top), which the boxes below show is approached only as $t \to \infty$.
 >
 > $$\begin{aligned}
 > \frac{dy}{dt} &= -\sqrt{\frac{2g}{a}}\,(y + 1)\sqrt{2 - y} \quad &\text{(negative root)} \\
@@ -1140,7 +1145,7 @@ Only one basis is needed: $\mathcal B_0$ is fixed in the inertial frame. The box
 | Explicit law, all $t \ge 0$ | $x(t) = a\left[2 - 3\tanh^2\left(\sqrt{3g/(2a)}\,t - \operatorname{arctanh}(1/\sqrt3)\right)\right]$ |
 | Long times | $x \to -a$ and $\dot x \to 0$: the particle approaches the unstable equilibrium without reaching it |
 
-**Check against the official key:** Problems.pdf, p. 72, item 13, gives the two legs in exactly the implicit form of the boxes above, the first one for times up to the turning instant (written there as the square root of $2a/(3g)$ times the arctanh of one over root three, as here) and the second one after it: **match**. The key also states that "the terminal velocity is" the square root of $8ga$; the warning and the box below explain that this value is the initial and largest speed. A Runge-Kutta integration of the equation of motion with unit values of $g$ and $a$ reproduces the explicit law ($y$ equal to 1.759553 at $t$ equal to 0.3 s, the turning point at 0.537646 s, $y$ equal to -0.683994 at 2 s).
+**Check against the official key:** Problems.pdf, p. 72, item 13, gives the two legs in exactly the implicit form of the boxes above, the first one for times up to the turning instant (written there as the square root of $2a/(3g)$ times the arctanh of one over root three, as here) and the second one after it: **match** (the key does not define $y$; it is read as $x/a$, the only reading that makes its expressions dimensionless). The key also states that "the terminal velocity is" the square root of $8ga$; the warning and the box below explain that this value is the initial and largest speed. A Runge-Kutta integration of the equation of motion with unit values of $g$ and $a$ reproduces the explicit law ($y$ equal to 1.759553 at $t$ equal to 0.3 s, the turning point at 0.537646 s, $y$ equal to -0.683994 at 2 s).
 
 > [!warning] Discrepancy with the official solution
 > The key calls the root of $8ga$ "the terminal velocity". In this motion the velocity tends to zero at long times (the particle approaches the barrier top, the unstable equilibrium at minus $a$), so there is no terminal velocity in the usual sense; the root of $8ga$ is the initial speed and the largest speed, reached at the bottom of the well, at the launch point. The position law of the key agrees with the computed one. The box below supports the reading.
@@ -1166,7 +1171,7 @@ Only one basis is needed: $\mathcal B_0$ is fixed in the inertial frame. The box
 
 ### Reference Frames, Bases and Coordinates
 
-The particle moves along the axis $Ox$ of an inertial frame under a force that depends only on its abscissa, so the force is conservative and the mechanical energy is constant. The types of motion follow from the shape of the potential and from the level of the energy fixed by the initial velocity (Notes.pdf, Sec. 4.5 and Sec. 4.6; [Lecture 2, Slide 20]).
+The particle moves along the axis $Ox$ of an inertial frame under a force that depends only on its abscissa, so the force is conservative and the mechanical energy is constant. The types of motion follow from the shape of the potential and from the level of the energy fixed by the initial velocity (Notes.pdf, Sec. 4.5 and Notes.pdf, Sec. 4.6; [Lecture 2, Slide 20]).
 
 | Item | Definition |
 | :--- | :--- |
@@ -1255,12 +1260,13 @@ The free-body diagram (figure above) shows the applied force along $\mathbf i$, 
 > **Law:** potential of a one-dimensional force, defined by its work; integration by parts and Barrow's rule
 > **Source:** Notes.pdf, Eq. 4.15; Notes.pdf, Eq. 4.16; [Lecture 2, Slide 14]
 >
-> The force depends only on $x$, so the potential exists. The reference is the initial point, $V(a) = 0$. In the integral take the factor $x'$ to differentiate and the exponential to integrate: the antiderivative of the exponential is $a\,e^{x'/a}$.
+> The force depends only on $x$, so the potential exists. The reference is the initial point, $V(a) = 0$. In the integral take the factor $x'$ to differentiate and the exponential to integrate: the exponential is integrated with the substitution of the next rows.
 >
 > $$\begin{aligned}
 > V(x) &= -\int_a^x mK x'\,e^{x'/a}\,dx' \quad &\text{(definition of the potential, reference at $x' = a$)} \\
-> \int_a^x x'\,e^{x'/a}\,dx' &= \left[a\,x'\,e^{x'/a}\right]_a^x - \int_a^x a\,e^{x'/a}\,dx' \quad &\text{(integration by parts)} \\
-> &= \left(a\,x\,e^{x/a} - a^2 e\right) - \left[a^2 e^{x'/a}\right]_a^x \quad &\text{(Barrow's rule on the first term; antiderivative of the second)} \\
+> \int_a^x a\,e^{x'/a}\,dx' &= a^2\int_1^{x/a} e^{u}\,du = a^2\left[e^u\right]_1^{x/a} \quad &\text{(substitution $u = x'/a$, $du = dx'/a$; limits $1$ and $x/a$)} \\
+> \int_a^x x'\,e^{x'/a}\,dx' &= \left[a\,x'\,e^{x'/a}\right]_a^x - \int_a^x a\,e^{x'/a}\,dx' \quad &\text{(integration by parts; $a\,e^{x'/a}$ has derivative $e^{x'/a}$ by the chain rule)} \\
+> &= \left(a\,x\,e^{x/a} - a^2 e\right) - a^2\left[e^u\right]_1^{x/a} \quad &\text{(Barrow's rule on the first term; the substitution above for the second)} \\
 > &= a\,x\,e^{x/a} - a^2 e - a^2 e^{x/a} + a^2 e = a\left(x - a\right)e^{x/a} \quad &\text{(Barrow's rule; the constants cancel)} \\
 > V(x) &= -mKa\left(x - a\right)e^{x/a} = mKa\left(a - x\right)e^{x/a} \quad &\text{(times $-mK$)} \\
 > -\frac{dV}{dx} &= -mKa\left[-e^{x/a} + \left(a - x\right)\frac{1}{a}e^{x/a}\right] = mK x\,e^{x/a} \quad &\text{(check by the product and chain rules)}
@@ -1273,7 +1279,7 @@ The free-body diagram (figure above) shows the applied force along $\mathbf i$, 
 
 > [!derivation] Shape of the potential: the barrier at the origin
 > **Law:** equilibrium where the force vanishes; stability from the second derivative; limits at infinity
-> **Source:** Notes.pdf, Eq. 4.32; [Lecture 2, Slide 22]
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Sec. 4.6; [Lecture 2, Slide 22]
 >
 > $$\begin{aligned}
 > \frac{dV}{dx} &= -mK x\,e^{x/a} = 0 \iff x = 0 \quad &\text{(the exponential never vanishes)} \\
@@ -1346,7 +1352,7 @@ The free-body diagram (figure above) shows the applied force along $\mathbf i$, 
 > $$\boxed{v_0 = a\sqrt{2K}:\ \text{the particle tends to } x = 0 \text{ but needs an infinite time to reach it}}$$
 >
 > **Units:** $[\mathrm{T^{-2}}]^{-1/2} = [\mathrm{T}]$ for the factor in front of the logarithm
-> **Meaning:** the particle creeps up to the unstable equilibrium at the barrier top. The linearised equation there, $\ddot\xi$ equal to $K\xi$, gives the exponential approach $\xi$ proportional to $e^{-\sqrt K\,t}$ on the separatrix.
+> **Meaning:** the particle creeps up to the unstable equilibrium at the barrier top. The linearised equation there, $\ddot x$ equal to $K x$, gives the exponential approach $x$ proportional to $e^{-\sqrt K\,t}$ on the separatrix.
 
 > [!derivation] Case 3: initial speed above the critical one
 > **Law:** energy integral; lower bound of the speed
@@ -1379,7 +1385,7 @@ The free-body diagram (figure above) shows the applied force along $\mathbf i$, 
 >
 > $$\boxed{x^* \to a \ (v_0 \to 0), \qquad x^* \to 0 \ (v_0 \to v_c), \qquad x^* = 0.6080\,\mathrm{m} \ \text{in the example}}$$
 >
-> **Units:** $[\mathrm{L}]$ for the turning point
+> **Units:** $[\mathrm{L}]$ for the turning point, $[\mathrm{L\,T^{-1}}]$ for $v_c$
 > **Meaning:** the three regimes join continuously: the turning point moves from the launch point to the barrier top as the launch speed grows to its critical value.
 
 | Initial speed | Type of motion |

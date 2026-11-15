@@ -2,7 +2,7 @@
 import math
 
 from figures.em_solutions import axis_out, figure, fixed_axis
-from figures.mech import S, Scene, bold
+from figures.mech import S, Scene, bold, dot1
 
 PURPLE = "#8b5cf6"          # normal resultant R_perp (no kit token: a fixed colour, readable on every palette)
 
@@ -19,7 +19,7 @@ def _r0p():
 def axis_forces():
     sc = Scene(720, 350, (350, 190), 70)
     O = (0.0, 0.0)
-    x1, x2, xp = -3.0, 3.5, 1.0
+    x1, x2, xp = -3.0, 4.2, 1.8
     sc.line((-4.6, 0.0), (4.9, 0.0), "EDGE", 1.2)
     sc.poly([(x1, -0.07), (x2, -0.07), (x2, 0.07), (x1, 0.07)], "ACC", 0.0, fill="ACC", close=True, opacity=0.40)
     for x, nm in ((x1, S("x", "1")), (x2, S("x", "2"))):
@@ -45,9 +45,9 @@ def axis_forces():
     sc.label((x2, 0.0), bold("F") + "(" + S("x", "2") + ") = −V′(" + S("x", "2") + ") < 0", "PINK", "end", 16, dy=-30)
     # velocity on each leg
     sc.vec((-2.0, 1.7), (2.0, 1.7), None, "GREEN", 2.6, head=11)
-    sc.label((0.0, 1.7), "outward leg: x′ > 0, from " + S("t", "A") + " to " + S("t", "B"), "GREEN", "middle", 16, dy=-12)
+    sc.label((0.0, 1.7), "outward leg: " + dot1("x") + " > 0, from " + S("t", "A") + " to " + S("t", "B"), "GREEN", "middle", 16, dy=-12)
     sc.vec((2.0, -1.4), (-2.0, -1.4), None, "GREEN", 2.6, head=11)
-    sc.label((0.0, -1.4), "return leg: x′ < 0, from " + S("t", "B") + " to " + S("t", "C"), "GREEN", "middle", 16, dy=26)
+    sc.label((0.0, -1.4), "return leg: " + dot1("x") + " < 0, from " + S("t", "B") + " to " + S("t", "C"), "GREEN", "middle", 16, dy=26)
     return sc
 
 

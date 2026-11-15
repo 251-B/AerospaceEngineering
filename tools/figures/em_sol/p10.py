@@ -53,8 +53,8 @@ def axis_basis():
 
 @figure("p10-fbd",
         "Free-body diagram of the particle: the applied force along the axis and the resultant of the normal forces.",
-        r"Free-body diagram. Only $\mathbf F$ has a component along $\mathbf i$; the normal resultant "
-        r"$\mathbf R_\perp$ balances to zero.")
+        r"Free-body diagram. Only $\mathbf F$ has a component along $\mathbf i$; $\mathbf R_\perp$ is drawn as an "
+        r"unknown, and the $\mathbf j$, $\mathbf k$ equations give $R_y = R_z = 0$.")
 def fbd():
     sc = Scene(640, 320, (270, 205), 60)
     O = (0.0, 0.0)
@@ -103,10 +103,11 @@ def potential():
         sc.label((x, 0.0), nm, "TEXT", "middle", 16, dy=24)
         sc.note((x, 0.0), "(" + sub + ")", "TEXT", "middle", 12, dy=40)
     # kinetic energy at the origin
-    sc.vec((0.0, 0.0), (0.0, SY * E), None, "ACC", 2.2, head=9)
-    sc.vec((0.0, SY * E), (0.0, 0.0), None, "ACC", 2.2, head=9)
-    sc.label((0.0, SY * E / 2), S("T", "0") + " = c a" + S("", "", "4") + " / 4", "ACC", "start", 15, dx=12, dy=-2)
-    sc.note((0.0, SY * E / 2), "(largest)", "ACC", "start", 12, dx=12, dy=16)
+    XT = 0.06                      # just right of the V0 axis
+    sc.vec((XT, 0.0), (XT, SY * E), None, "ACC", 2.2, head=9)
+    sc.vec((XT, SY * E), (XT, 0.0), None, "ACC", 2.2, head=9)
+    sc.label((XT, SY * E / 2), S("T", "0") + " = c a" + S("", "", "4") + " / 4", "ACC", "start", 15, dx=12, dy=-2)
+    sc.note((XT, SY * E / 2), "(largest)", "ACC", "start", 12, dx=12, dy=16)
     # sense of the first motion
     sc.vec((-0.6, -0.30), (0.6, -0.30), None, "GREEN", 2.2, head=10)
     sc.note((0.0, -0.30), "first motion", "GREEN", "middle", 12, dy=18)

@@ -100,7 +100,7 @@ def potential():
         sc.dotp((x, W(0.0)), 4.5, "BLUE")
         sc.label((x, W(0.0)), "unstable", "TEXT", "middle", 14, dy=-12)
     sc.dotp((0.0, W(-0.5)), 4.5, "BLUE")
-    sc.label((0.0, W(-0.5)), "stable, −c a" + S("", "", "4") + "/2", "TEXT", "middle", 14, dy=24)
+    sc.label((0.0, W(-0.5)), "stable, −c a" + S("", "", "4") + "/2", "TEXT", "start", 14, dx=10, dy=24)
     for x in (-1 / math.sqrt(3), 1 / math.sqrt(3)):
         sc.circle((x, W(V(x))), 4.0 / sc.k, "BLUE", 1.6, fill="none")
     # turning points of case (c)
@@ -111,7 +111,7 @@ def potential():
     # oscillation in the well
     sc.vec((-0.33, W(Ec) - 0.07), (0.33, W(Ec) - 0.07), None, "GREEN", 2.0, head=9)
     sc.vec((0.33, W(Ec) - 0.07), (-0.33, W(Ec) - 0.07), None, "GREEN", 2.0, head=9)
-    sc.note((0.0, W(Ec) - 0.07), "oscillation", "GREEN", "middle", 13, dy=20)
+    sc.note((0.0, W(Ec) - 0.07), "oscillation", "GREEN", "start", 13, dx=10, dy=20)
     # turning points of case (b)
     for x, nm, anc, dx in ((-xb, "−x" + S("", "out(b)"), "start", 6), (xb, "x" + S("", "out(b)"), "end", -6)):
         sc.dotp((x, W(Eb)), 4.0, RED)
