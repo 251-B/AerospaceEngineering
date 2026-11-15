@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-mechanics-inertia-theory",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 6 theory now covers inertia properties",
+    "text": "Centre of mass, moments and products of inertia, the inertia tensor, principal axes and Steiner's theorem, with four worked examples.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
     "id": "2026-11-15-mechanics-rigid-body-problems-6",
     "date": "2026-11-15",
     "tag": "Engineering Mechanics",

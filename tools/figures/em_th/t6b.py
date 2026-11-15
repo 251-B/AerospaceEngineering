@@ -189,7 +189,7 @@ def _poly_label(sc, p, s, col="HEAD", anchor="middle", dx=0, dy=0, size=16):
         r"Divide and conquer: a composite body is the sum of simple parts, and a hole is a part of negative mass "
         r"([Lecture 8, Slide 17]).")
 def composite_bodies():
-    sc = Scene(920, 360, (20, 180), 100)
+    sc = Scene(1080, 420, (30, 210), 118)
     # ---- star: outer radius 1.05, inner 0.45, centred at (1.2, 0)
     c = (1.2, 0.0)
     outer = [_add(c, _d(90 + 72 * k), 1.05) for k in range(5)]
@@ -329,7 +329,7 @@ def flat_plate():
         r"Half-circumference wire, $\theta$ from $0$ to $\pi$; $G$ lies on the axis of symmetry at $2R/\pi$ "
         r"(Notes.pdf Fig. 10.2(a)).")
 def half_wire():
-    sc = Scene(700, 520, (300, 340), 220)
+    sc = Scene(700, 610, (300, 330), 220)
     R, th = 1.0, 40.0
     O = (0.0, 0.0)
     up = [(R * math.cos(math.radians(t)), R * math.sin(math.radians(t))) for t in range(0, 181, 3)]
@@ -425,7 +425,7 @@ def half_disk():
     sc.label(add_pol(r * 0.5, th), "r", "HEAD", "end", 16, dx=-4, dy=-10)
     sc.arc(O, 0.25, 0, th, "GREEN", 1.7, head=True)
     sc.label(add_pol(0.37, th / 2), "θ", "GREEN", "middle", 16, dy=6)
-    sc.label(add_pol(r + dr, th), "dA = r dr dθ", ORANGE, "start", 16, weight="700", dx=20, dy=-14)
+    sc.label(add_pol(r + dr, th), "dA = r dr dθ", ORANGE, "middle", 17, weight="700", dx=0, dy=-34)
     yg = 4 * R / (3 * math.pi)
     sc.mass((0.0, yg), None, r=5, col="PINK")
     sc.label((0.0, yg), "G", "HEAD", "start", 17, dx=10, dy=-8)
@@ -668,11 +668,11 @@ def parallel_axis():
     sc.dashed(O, L1)
     sc.dashed(L1, L2)
     sc.vec(O, Gp, None, "HEAD", 2.2, head=10)
-    sc.label(_mid(O, L1), S("x", "0", "G"), "TEXT", "end", 15, dx=-6, dy=18)
-    sc.label(_mid(L1, L2), S("y", "0", "G"), "TEXT", "start", 15, dx=8, dy=18)
+    sc.label(_mid(O, L1), S("x", "0", "G"), "TEXT", "start", 17, dx=14, dy=10)
+    sc.label(_mid(L1, L2), S("y", "0", "G"), "TEXT", "middle", 17, dx=0, dy=-10)
     sc.label(Gp, "√((x" + '<tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" '
              'font-size="70%">G</tspan>)² + (y<tspan baseline-shift="sub" font-size="70%">0</tspan>'
-             '<tspan baseline-shift="super" font-size="70%">G</tspan>)²)', "HEAD", "start", 15, dx=16, dy=-84)
+             '<tspan baseline-shift="super" font-size="70%">G</tspan>)²)', "HEAD", "start", 17, dx=16, dy=-90)
     sc.mass(Gp, None, r=5, col="PINK")
     sc.label(Gp, "G", "HEAD", "start", 17, dx=-24, dy=-10)
     sc.dotp(O, 3.5)

@@ -18,7 +18,7 @@
 <path d="M357.5,340.0 A57.5,57.5 0 0 0 340.7,299.3" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
 <path d="M338.5,297.2 L346.9,300.6 L341.9,305.6 Z" fill="#10b981"/>
 <text x="378.6" y="313.4" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
-<text x="433.8" y="212.2" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dA = r dr dθ</text>
+<text x="413.8" y="192.2" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dA = r dr dθ</text>
 <circle cx="300.0" cy="242.4" r="5" fill="#ec4899" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
 <text x="310.0" y="234.4" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
 <line x1="254.0" y1="340.0" x2="254.0" y2="242.4" stroke="#8a94a6" stroke-width="1.1"/>
