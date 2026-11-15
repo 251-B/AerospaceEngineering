@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="The segment between the turning points x1 and x2, with the sense of the velocity on each leg and the force at each turning point.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="28.0" y1="190.0" x2="693.0" y2="190.0" stroke="#8a94a6" stroke-width="1.2"/>
+<polygon points="140.0,194.9 644.0,194.9 644.0,185.1 140.0,185.1" fill="#f59e0b" fill-opacity="0.4" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="140.0" y1="199.8" x2="140.0" y2="180.2" stroke="#8a94a6" stroke-width="1.6"/>
+<text x="140.0" y="218.0" fill="#6b7280" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="644.0" y1="199.8" x2="644.0" y2="180.2" stroke="#8a94a6" stroke-width="1.6"/>
+<text x="644.0" y="218.0" fill="#6b7280" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<line x1="350.0" y1="190.0" x2="429.2" y2="190.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M434.0,190.0 L426.6,193.1 L426.6,186.9 Z" fill="#8a94a6"/>
+<text x="436.0" y="178.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="350.0" y1="190.0" x2="350.0" y2="110.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M350.0,106.0 L353.1,113.4 L346.9,113.4 Z" fill="#8a94a6"/>
+<text x="364.0" y="110.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<circle cx="350.0" cy="190.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="350.0" cy="190.0" r="2.6" fill="#4b5563"/>
+<text x="330.0" y="176.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<line x1="350.0" y1="190.0" x2="350.0" y2="225.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="476.0" y1="190.0" x2="476.0" y2="225.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="350.0" y1="225.0" x2="470.0" y2="225.0" stroke="#4b5563" stroke-width="2.2"/>
+<path d="M476.0,225.0 L466.8,228.9 L466.8,221.1 Z" fill="#4b5563"/>
+<text x="413.0" y="247.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="super" font-size="70%">P</tspan><tspan baseline-shift="sub" font-size="70%" dx="-6">0</tspan></text>
+<circle cx="476.0" cy="190.0" r="6.0" fill="#4b5563"/>
+<text x="484.0" y="216.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<line x1="476.0" y1="190.0" x2="476.0" y2="126.6" stroke="#8b5cf6" stroke-width="2.8"/>
+<path d="M476.0,120.0 L480.3,130.1 L471.7,130.1 Z" fill="#8b5cf6"/>
+<text x="486.0" y="125.0" fill="#8b5cf6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">R</tspan><tspan baseline-shift="sub" font-size="70%">⊥</tspan></text>
+<line x1="140.0" y1="190.0" x2="224.4" y2="190.0" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M231.0,190.0 L220.9,194.3 L220.9,185.7 Z" fill="#ec4899"/>
+<text x="140.0" y="160.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan>(x<tspan baseline-shift="sub" font-size="70%">1</tspan>) = −V′(x<tspan baseline-shift="sub" font-size="70%">1</tspan>) > 0</text>
+<line x1="644.0" y1="190.0" x2="559.6" y2="190.0" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M553.0,190.0 L563.1,185.7 L563.1,194.3 Z" fill="#ec4899"/>
+<text x="644.0" y="160.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan>(x<tspan baseline-shift="sub" font-size="70%">2</tspan>) = −V′(x<tspan baseline-shift="sub" font-size="70%">2</tspan>) < 0</text>
+<line x1="210.0" y1="71.0" x2="483.4" y2="71.0" stroke="#10b981" stroke-width="2.6"/>
+<path d="M490.0,71.0 L479.9,75.3 L479.9,66.7 Z" fill="#10b981"/>
+<text x="350.0" y="59.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">outward leg: ẋ > 0, from t<tspan baseline-shift="sub" font-size="70%">A</tspan> to t<tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<line x1="490.0" y1="288.0" x2="216.6" y2="288.0" stroke="#10b981" stroke-width="2.6"/>
+<path d="M210.0,288.0 L220.1,283.7 L220.1,292.3 Z" fill="#10b981"/>
+<text x="350.0" y="314.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">return leg: ẋ < 0, from t<tspan baseline-shift="sub" font-size="70%">B</tspan> to t<tspan baseline-shift="sub" font-size="70%">C</tspan></text>
+</g></svg>

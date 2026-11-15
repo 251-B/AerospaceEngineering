@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 600" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the particle M with the attraction towards O, the weight, and their resultant pointing to the centre C.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="330.0" y1="300.0" x2="330.0" y2="429.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5 4"/>
+<line x1="330.0" y1="300.0" x2="217.7" y2="438.2" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M214.6,441.9 L216.9,434.2 L221.7,438.2 Z" fill="#8a94a6"/>
+<text x="202.6" y="455.9" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="330.0" y1="300.0" x2="572.8" y2="364.9" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M577.4,366.2 L569.5,367.3 L571.1,361.3 Z" fill="#8a94a6"/>
+<text x="591.4" y="380.2" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="330.0" y1="300.0" x2="330.0" y2="115.6" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M330.0,110.8 L333.1,118.1 L326.9,118.1 Z" fill="#8a94a6"/>
+<text x="330.0" y="100.8" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<line x1="330.0" y1="300.0" x2="401.6" y2="436.7" stroke="#4b5563" stroke-width="2.2"/>
+<path d="M404.4,442.0 L396.7,435.7 L403.6,432.1 Z" fill="#4b5563"/>
+<text x="382.0" y="370.4" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="super" font-size="70%">M</tspan><tspan baseline-shift="sub" font-size="70%" dx="-8">0</tspan></text>
+<line x1="393.2" y1="442.2" x2="316.3" y2="295.3" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M313.2,289.5 L321.7,296.5 L314.1,300.5 Z" fill="#ec4899"/>
+<text x="299.2" y="265.5" fill="#ec4899" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m k<tspan baseline-shift="super" font-size="70%">2</tspan> <tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="super" font-size="70%">M</tspan><tspan baseline-shift="sub" font-size="70%" dx="-8">0</tspan></text>
+<line x1="410.0" y1="452.7" x2="410.0" y2="532.2" stroke="#ef4444" stroke-width="2.8"/>
+<path d="M410.0,538.8 L405.7,528.6 L414.3,528.6 Z" fill="#ef4444"/>
+<text x="422.0" y="546.8" fill="#ef4444" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g <tspan font-weight="700" font-style="normal">k</tspan></text>
+<line x1="410.0" y1="452.7" x2="336.4" y2="391.3" stroke="#8b5cf6" stroke-width="2.6" stroke-dasharray="7 4"/>
+<path d="M336.4,391.3 L346.9,394.6 L341.4,401.1 Z" fill="#8b5cf6"/>
+<text x="394.0" y="478.7" fill="#8b5cf6" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">resultant −m k<tspan baseline-shift="super" font-size="70%">2</tspan> CM</text>
+<circle cx="410.0" cy="452.7" r="5.0" fill="#4b5563"/>
+<text x="422.0" y="446.7" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">M</text>
+<circle cx="330.0" cy="386.0" r="6.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="316.0" y="391.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C (0, 0, −g/k<tspan baseline-shift="super" font-size="70%">2</tspan>)</text>
+<text x="9.8" y="583.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">free particle: no reaction; inertial frame: no inertia forces</text>
+</g></svg>

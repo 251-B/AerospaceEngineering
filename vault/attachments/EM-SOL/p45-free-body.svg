@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the disk: the spring force at C, the reaction normal to the plane and the motor couple.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="350.0" cy="210.0" r="160.0" fill="#4b5563" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="350.0" y1="210.0" x2="395.0" y2="132.1" stroke="#1d4ed8" stroke-width="2.4"/>
+<circle cx="350.0" cy="210.0" r="4.0" fill="#4b5563"/>
+<text x="358.0" y="232.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<line x1="350.0" y1="210.0" x2="234.5" y2="294.0" stroke="#ec4899" stroke-width="3.0"/>
+<path d="M228.7,298.2 L234.9,287.9 L240.4,295.5 Z" fill="#ec4899"/>
+<text x="279.3" y="238.1" fill="#ec4899" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−k <tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="super" font-size="70%">C</tspan><tspan baseline-shift="sub" font-size="70%" dx="-6">0</tspan></text>
+<circle cx="395.0" cy="132.1" r="10" fill="none" stroke="#8b5cf6" stroke-width="1.8"/>
+<circle cx="395.0" cy="132.1" r="2.6" fill="#8b5cf6"/>
+<circle cx="395.0" cy="132.1" r="2.6" fill="#8b5cf6"/>
+<line x1="395.0" y1="132.1" x2="535.0" y2="132.1" stroke="#8b5cf6" stroke-width="1.0"/>
+<text x="544.0" y="137.1" fill="#8b5cf6" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R = R<tspan baseline-shift="sub" font-size="70%">z</tspan> <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<text x="544.0" y="166.1" fill="#8b5cf6" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">(normal to the plane)</text>
+<path d="M332.9,257.0 A50.0,50.0 0 1 0 300.0,210.0" fill="none" stroke="#a16207" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M300.0,213.0 L296.5,204.7 L303.5,204.7 Z" fill="#a16207"/>
+<text x="350.0" y="310.0" fill="#a16207" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">motor couple (zero resultant)</text>
+<text x="371.0" y="122.1" fill="#1d4ed8" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<line x1="100.0" y1="410.0" x2="185.2" y2="410.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M190.0,410.0 L182.6,413.1 L182.6,406.9 Z" fill="#8a94a6"/>
+<text x="204.0" y="415.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="100.0" y1="410.0" x2="100.0" y2="324.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M100.0,320.0 L103.1,327.4 L96.9,327.4 Z" fill="#8a94a6"/>
+<text x="100.0" y="310.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<circle cx="100.0" cy="410.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="100.0" cy="410.0" r="2.6" fill="#4b5563"/>
+<text x="86.0" y="428.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<text x="350.0" y="465.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">weight neglected; inertial frame: no inertia forces</text>
+</g></svg>
