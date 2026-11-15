@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-portal-new-home",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "A cleaner home page",
+    "text": "The home page is simpler: compact subject cards with direct buttons to theory, problems, PDFs and exams, new icons and a working dark and light switch.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-11-materials-slide-figures",
     "date": "2026-11-11",
     "tag": "Aerospace Materials I",

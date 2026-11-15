@@ -309,7 +309,18 @@
   document.addEventListener('DOMContentLoaded', function () {
     render(root.getAttribute('data-theme'));
     var button = document.getElementById('themeToggle');
-    if (button) { button.hidden = true; button.style.display = 'none'; }   // palettes own the polarity
+    if (button) {
+      if (document.querySelector('link[href*="study-surface.css"]')) {
+        button.hidden = true; button.style.display = 'none';   // palettes own the polarity
+      } else {
+        // The landing page has no reading palettes: its button switches dark and light.
+        button.setAttribute('aria-pressed', String(root.getAttribute('data-theme') === 'light'));
+        button.addEventListener('click', function () {
+          toggle();
+          button.setAttribute('aria-pressed', String(root.getAttribute('data-theme') === 'light'));
+        });
+      }
+    }
     buildPicker();
   });
 
@@ -325,6 +336,17 @@
       script.src = self.src.replace(/theme\.js(\?.*)?$/, name);
       (document.head || document.documentElement).appendChild(script);
     });
+  })();
+
+  // Favicon for the pages that do not link one themselves (resolved next to this file).
+  (function addFavicon() {
+    var self = document.currentScript;
+    if (!self || !self.src || document.querySelector('link[rel~="icon"]')) return;
+    var link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/svg+xml';
+    link.href = self.src.replace(/js\/theme\.js(\?.*)?$/, 'img/favicon.svg');
+    document.head.appendChild(link);
   })();
 
   window.AETheme = { get: get, set: set, toggle: toggle, KEY: KEY };

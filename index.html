@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study Portal — 2nd Year Aerospace Engineering</title>
+  <title>Aero Study</title>
   <meta name="description" content="Centralized study portal for the 2nd Year of the Bachelor's Degree in Aerospace Engineering.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 
   <!-- Google Fonts: Abril Fatface, Newsreader, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +21,51 @@
 </head>
 <body>
 
+  <!-- Shared icon set: one 24 px grid, one stroke weight -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-theory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 6.5C10.2 5.2 7.6 4.5 4 4.5v13c3.6 0 6.2.7 8 2 1.8-1.3 4.4-2 8-2v-13c-3.6 0-6.2.7-8 2z"/>
+        <path d="M12 6.5v13"/>
+      </symbol>
+      <symbol id="i-problems" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 20l1-4.5L15.5 5a2.1 2.1 0 0 1 3 3L8 18.5 4 20z"/>
+        <path d="M13.5 7l3 3"/>
+        <path d="M13 20h7"/>
+      </symbol>
+      <symbol id="i-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+        <path d="M14 3v5h5"/>
+        <path d="M12 11.5V17m0 0l-2.5-2.5M12 17l2.5-2.5"/>
+      </symbol>
+      <symbol id="i-exams" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="4.5" width="14" height="16.5" rx="2"/>
+        <path d="M9 4.5v-.7a.8.8 0 0 1 .8-.8h4.4a.8.8 0 0 1 .8.8v.7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
+        <path d="M8.8 13.2l2.2 2.2 4.4-4.6"/>
+      </symbol>
+      <symbol id="i-formula" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="3" width="16" height="18" rx="2"/>
+        <path d="M15.5 8.5H9l3.6 3.5L9 15.5h6.5"/>
+      </symbol>
+      <symbol id="i-extra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="3.5" width="12" height="14" rx="2"/>
+        <path d="M16 20.5H6a2 2 0 0 1-2-2V8"/>
+        <path d="M14 8v5M11.5 10.5h5"/>
+      </symbol>
+      <symbol id="i-sim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="13.5" r="7.5"/>
+        <path d="M12 9.5v4l2.5 2"/>
+        <path d="M9.5 2.5h5M12 2.5V6"/>
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <!-- ============================================
        ANIMATED CELESTIAL CANVAS BACKGROUND
        ============================================ -->
@@ -28,31 +74,11 @@
   <div class="app-wrapper">
 
     <!-- ============================================
-         HEADER
+         UTILITY BAR: menu (added by sidebar.js), "What's new" bell (updates.js) and theme
          ============================================ -->
-    <header class="site-header">
+    <header class="utility-bar">
       <div class="container header-inner">
-        <div class="header-brand">
-          <!-- Minimalist orbital trajectory / satellite SVG -->
-          <div class="brand-icon" aria-hidden="true">
-            <svg class="brand-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3.5" fill="currentColor" fill-opacity="0.25"/>
-              <ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(-30 12 12)"/>
-              <circle cx="19.2" cy="7.8" r="1.5" fill="currentColor"/>
-              <line x1="17.8" y1="6.4" x2="20.6" y2="9.2"/>
-            </svg>
-          </div>
-          <div class="brand-text">
-            <h1 class="brand-title">
-              Aerospace Engineering
-              <span class="course-badge">2nd Year</span>
-            </h1>
-            <span class="subtitle">Study Portal</span>
-          </div>
-        </div>
         <div class="header-actions">
-          <span class="theme-toggle-label" id="themeLabel">Dark</span>
-          <!-- Theme Toggle with Crisp Geometric Sun & Moon SVGs -->
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme (T)">
             <span class="theme-toggle-track">
               <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -82,66 +108,64 @@
     <main>
       <!-- HERO -->
       <section class="hero container">
-        <h2><span class="gradient-text">Your study hub</span><br><span>for Aerospace Engineering</span></h2>
-        <p>Theory notes, step-by-step solved problems and the original course PDFs for each subject.</p>
-        <div class="stats-bar">
-          <div class="stat-item">
-            <span class="stat-value" style="color: var(--accent-fluid);">5</span>
-            <span class="stat-label">Q1 Subjects</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-value" style="color: var(--accent-maths);">303</span>
-            <span class="stat-label">Solved problems</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-value" style="color: var(--accent-mechanics);">335</span>
-            <span class="stat-label">Official PDFs</span>
-          </div>
-        </div>
-      </section>
+        <!-- Orbits and stars behind the title -->
+        <svg class="hero-orbits" viewBox="0 0 900 320" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="orbitGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#06b6d4" stop-opacity="0"/>
+              <stop offset="0.3" stop-color="#06b6d4"/>
+              <stop offset="0.7" stop-color="#6366f1"/>
+              <stop offset="1" stop-color="#a855f7" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g transform="rotate(-7 450 160)">
+            <ellipse cx="450" cy="160" rx="420" ry="118" stroke="url(#orbitGradient)" stroke-width="1.2"/>
+            <ellipse cx="450" cy="160" rx="330" ry="150" stroke="url(#orbitGradient)" stroke-width="1" stroke-dasharray="2 7" transform="rotate(11 450 160)"/>
+            <circle class="orbit-body" cx="747" cy="243" r="5"/>
+            <circle class="orbit-body orbit-body--small" cx="126" cy="85" r="3"/>
+          </g>
+          <use class="hero-star" href="#i-star" x="96" y="212" width="14" height="14"/>
+          <use class="hero-star hero-star--late" href="#i-star" x="790" y="52" width="18" height="18"/>
+          <use class="hero-star" href="#i-star" x="672" y="18" width="9" height="9"/>
+          <use class="hero-star hero-star--late" href="#i-star" x="212" y="30" width="10" height="10"/>
+        </svg>
 
-      <!-- TOOLBAR -->
-      <section class="container">
-        <div class="toolbar">
-          <div class="search-box">
-            <!-- Minimalist vector lens SVG -->
-            <span class="search-icon" aria-hidden="true">
-              <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="7"/>
-                <line x1="21" y1="21" x2="16.2" y2="16.2"/>
-              </svg>
-            </span>
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search subject, topic, or concept…"
-              aria-label="Search subjects"
-              autocomplete="off"
-            >
-            <kbd class="search-kbd" aria-hidden="true">/</kbd>
-          </div>
-          <div class="semester-tabs" role="tablist" aria-label="Filter by semester">
-            <button class="semester-tab active" role="tab" data-semester="all" aria-selected="true">All</button>
-            <button class="semester-tab" role="tab" data-semester="q1" aria-selected="false">1st Semester</button>
-            <button class="semester-tab" role="tab" data-semester="q2" aria-selected="false">2nd Semester</button>
-          </div>
+        <p class="hero-eyebrow">
+          <svg class="eyebrow-star" aria-hidden="true"><use href="#i-star"/></svg>
+          <span>2nd Year · 2026 – 2027</span>
+          <svg class="eyebrow-star" aria-hidden="true"><use href="#i-star"/></svg>
+        </p>
+        <h1><span class="gradient-text">Your study hub</span><br><span>for Aerospace Engineering</span></h1>
+        <p class="hero-lead">Theory notes, step-by-step solved problems and the original course PDFs for each subject.</p>
+
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">
+            <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"/>
+              <line x1="21" y1="21" x2="16.2" y2="16.2"/>
+            </svg>
+          </span>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search subject, topic, or concept…"
+            aria-label="Search subjects"
+            aria-describedby="searchStatus"
+            autocomplete="off"
+          >
+          <kbd class="search-kbd" aria-hidden="true">/</kbd>
         </div>
+        <p class="sr-only" id="searchStatus" role="status" aria-live="polite"></p>
       </section>
 
       <!-- ============================================
-           Q1 SUBJECTS
+           SUBJECTS
            ============================================ -->
-      <section class="container" id="sectionQ1" data-semester-section="q1">
-        <div class="section-title">
-          <h3>First Semester</h3>
-          <span class="count-badge">5 subjects</span>
-          <span class="semester-badge active-sem">● Active</span>
-        </div>
-
-        <div class="subjects-grid" id="subjectsGridQ1">
+      <section class="container" id="subjects" aria-label="Subjects">
+        <div class="subjects-grid" id="subjectsGrid">
 
           <!-- ——— 1. Fluid Mechanics ——— -->
-          <article class="subject-card fade-in" style="--card-accent: var(--accent-fluid);" data-subject="fluid-mechanics" data-keywords="fluidos mecánica flujo navier stokes bernoulli capa límite compresibilidad estática cinemática presión viscosidad reynolds fluids mechanics flow boundary layer compressibility statics kinematics pressure viscosity">
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-fluid);" data-subject="fluid-mechanics" data-keywords="fluidos mecánica flujo navier stokes bernoulli capa límite compresibilidad estática cinemática presión viscosidad reynolds fluids mechanics flow boundary layer compressibility statics kinematics pressure viscosity fluid eulerian lagrangian descriptions streamlines material lines fluxes integral conservation laws transport theorem differential navier-stokes equations conditions hydrostatics solved problems">
             <!-- Fluid Streamlines Watermark -->
             <svg class="card-watermark" viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden="true">
               <path d="M0 25 C30 15, 60 20, 100 35" stroke-width="1.5" stroke-dasharray="2 4"/>
@@ -151,84 +175,33 @@
             </svg>
 
             <div class="card-header">
-              <!-- Aerodynamic streamline / vortex SVG -->
               <div class="card-icon" aria-hidden="true">
-                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 7c4-2.5 8-2.5 12 0s8 2 8 2"/>
-                  <path d="M2 12c5-3 10-3 14 0s6 2 6 2"/>
-                  <path d="M2 17c3-1 6-1 9 0s7 3 11 1"/>
-                  <circle cx="16" cy="11.5" r="1.5" fill="currentColor" fill-opacity="0.3"/>
-                </svg>
+                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.2c3-3.2 8-4.3 12.5-3.1 2.4.6 4.3 1.7 5.5 3.1-2 .8-5 1.2-8.5 1.2-4 0-7.5-.4-9.5-1.2z" fill="currentColor" fill-opacity="0.18"/><path d="M2 7.6c4-2.2 9-2.6 13.5-1.2 2.5.8 4.6 2 6.5 3.5"/><path d="M2 18.4c4 .9 9 1 13.5.4 2.4-.3 4.6-.9 6.5-1.6"/></svg>
               </div>
-              <div class="card-title-group">
-                <h4 class="card-title">Fluid Mechanics</h4>
-                <span class="card-subtitle">Fluid Mechanics</span>
-              </div>
+              <h2 class="card-title">Fluid Mechanics</h2>
             </div>
-            <p class="card-description">Flow kinematics (Eulerian and Lagrangian descriptions, streamlines, material lines and fluxes) the integral conservation laws from the Reynolds transport theorem, the differential Navier-Stokes equations with their boundary conditions, and hydrostatics, with 58 solved problems (kinematics, conservation laws, Navier-Stokes and hydrostatics).</p>
-            <div class="area-list">
+            <div class="area-grid">
               <a class="area-link" href="subjects/fluid-mechanics/teoria/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    <line x1="8" y1="6" x2="16" y2="6"/>
-                    <line x1="8" y1="10" x2="14" y2="10"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-theory"/></svg><span class="area-name">Theory</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">7 of 7 units</span>
               </a>
               <a class="area-link" href="subjects/fluid-mechanics/problemas/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="5" r="2.2"/>
-                    <path d="M10.5 7L4 21m9.5-14L20 21"/>
-                    <path d="M7 15h10"/>
-                    <circle cx="12" cy="15" r="1" fill="currentColor"/>
-                  </svg>
-                </span>
-                <span class="area-name">Solved Problems</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-problems"/></svg><span class="area-name">Problems</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">91 problems</span>
               </a>
-              <span class="area-link" aria-disabled="true">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="3" width="16" height="18" rx="2"/>
-                    <path d="M8 8h8l-5 4 5 4H8"/>
-                  </svg>
-                </span>
-                <span class="area-name">Formula Sheets</span>
-                <span class="area-badge soon">Soon</span>
-              </span>
               <a class="area-link" href="subjects/fluid-mechanics/sources/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory &amp; Exercise PDFs</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-pdf"/></svg><span class="area-name">PDFs</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">97 files</span>
               </a>
               <a class="area-link" href="subjects/fluid-mechanics/exams/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="3" width="14" height="18" rx="2"/>
-                    <path d="M9 3.5h6v2.5H9z"/>
-                    <path d="M8.5 12l2.2 2.2L15.5 9.5"/>
-                    <path d="M8.5 17.5h7"/>
-                  </svg>
-                </span>
-                <span class="area-name">Exams</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-exams"/></svg><span class="area-name">Exams</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">49 files</span>
               </a>
             </div>
           </article>
 
           <!-- ——— 2. Aerospace Materials I ——— -->
-          <article class="subject-card fade-in" style="--card-accent: var(--accent-materials);" data-subject="aerospace-materials-1" data-keywords="materiales cristalino diagrama fase aleación aluminio titanio níquel fatiga fractura tratamiento térmico corrosión compuestos propiedades mecánicas materials crystal structure phase diagram alloys aluminum titanium nickel fatigue fracture heat treatment corrosion composites">
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-materials);" data-subject="aerospace-materials-1" data-keywords="materiales cristalino diagrama fase aleación aluminio titanio níquel fatiga fractura tratamiento térmico corrosión compuestos propiedades mecánicas materials crystal structure phase diagram alloys aluminum titanium nickel fatigue fracture heat treatment corrosion composites aerospace atomic bonding structures defects diffusion solids diagrams solved numerical problems lattices directions planes fick's laws lever rule">
             <!-- Crystal Lattice Watermark -->
             <svg class="card-watermark" viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden="true">
               <polygon points="50,5 85,25 85,65 50,85 15,65 15,25" stroke-width="1.5"/>
@@ -242,89 +215,33 @@
             </svg>
 
             <div class="card-header">
-              <!-- Hexagonal crystal lattice / molecular bond SVG -->
               <div class="card-icon" aria-hidden="true">
-                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2l8 4.6v9.2L12 21l-8-4.6V6.6L12 2z"/>
-                  <path d="M12 11.5L20 6.8M12 11.5L4 6.8M12 11.5V20.5"/>
-                  <circle cx="12" cy="11.5" r="1.8" fill="currentColor" fill-opacity="0.3"/>
-                  <circle cx="12" cy="2" r="1.2" fill="currentColor"/>
-                  <circle cx="20" cy="6.6" r="1.2" fill="currentColor"/>
-                  <circle cx="20" cy="15.8" r="1.2" fill="currentColor"/>
-                  <circle cx="12" cy="21" r="1.2" fill="currentColor"/>
-                  <circle cx="4" cy="15.8" r="1.2" fill="currentColor"/>
-                  <circle cx="4" cy="6.6" r="1.2" fill="currentColor"/>
-                </svg>
+                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 4.3v8.6L12 20.2l-7.5-4.3V7.3z"/><path d="M12 11.6l7.5-4.3M12 11.6L4.5 7.3M12 11.6v8.6"/><circle cx="12" cy="3" r="1.3" fill="currentColor"/><circle cx="19.5" cy="7.3" r="1.3" fill="currentColor"/><circle cx="4.5" cy="7.3" r="1.3" fill="currentColor"/><circle cx="12" cy="11.6" r="1.3" fill="currentColor"/><circle cx="12" cy="20.2" r="1.3" fill="currentColor"/></svg>
               </div>
-              <div class="card-title-group">
-                <h4 class="card-title">Aerospace Materials I</h4>
-                <span class="card-subtitle">Aerospace Materials I</span>
-              </div>
+              <h2 class="card-title">Aerospace Materials I</h2>
             </div>
-            <p class="card-description">Atomic bonding, crystal structures and defects, diffusion in solids and phase diagrams, with solved numerical problems on lattices, directions and planes, Fick's laws and the lever rule.</p>
-            <div class="area-list">
+            <div class="area-grid">
               <a class="area-link" href="subjects/aerospace-materials-1/teoria/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    <line x1="8" y1="6" x2="16" y2="6"/>
-                    <line x1="8" y1="10" x2="14" y2="10"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-theory"/></svg><span class="area-name">Theory</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">7 of 11 units</span>
               </a>
               <a class="area-link" href="subjects/aerospace-materials-1/problemas/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="5" r="2.2"/>
-                    <path d="M10.5 7L4 21m9.5-14L20 21"/>
-                    <path d="M7 15h10"/>
-                    <circle cx="12" cy="15" r="1" fill="currentColor"/>
-                  </svg>
-                </span>
-                <span class="area-name">Solved Problems</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-problems"/></svg><span class="area-name">Problems</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">85 problems</span>
               </a>
-              <span class="area-link" aria-disabled="true">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="3" width="16" height="18" rx="2"/>
-                    <path d="M8 8h8l-5 4 5 4H8"/>
-                  </svg>
-                </span>
-                <span class="area-name">Formula Sheets</span>
-                <span class="area-badge soon">Soon</span>
-              </span>
               <a class="area-link" href="subjects/aerospace-materials-1/sources/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory &amp; Exercise PDFs</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-pdf"/></svg><span class="area-name">PDFs</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">34 files</span>
               </a>
               <a class="area-link" href="subjects/aerospace-materials-1/exams/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="3" width="14" height="18" rx="2"/>
-                    <path d="M9 3.5h6v2.5H9z"/>
-                    <path d="M8.5 12l2.2 2.2L15.5 9.5"/>
-                    <path d="M8.5 17.5h7"/>
-                  </svg>
-                </span>
-                <span class="area-name">Exams</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-exams"/></svg><span class="area-name">Exams</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">29 files</span>
               </a>
             </div>
           </article>
 
           <!-- ——— 3. Engineering Mechanics ——— -->
-          <article class="subject-card fade-in" style="--card-accent: var(--accent-mechanics);" data-subject="engineering-mechanics" data-keywords="mecánica ingenieros aplicada aeroespacial punto material cinemática dinámica coordenadas cilíndricas esféricas frenet serret sólido rígido inercia euler kepler vuelo atmosférico mechanics applied aerospace point particle kinematics dynamics cylindrical spherical coordinates frenet serret rigid body inertia euler kepler atmospheric flight">
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-mechanics);" data-subject="engineering-mechanics" data-keywords="mecánica ingenieros aplicada aeroespacial punto material cinemática dinámica coordenadas cilíndricas esféricas frenet serret sólido rígido inercia euler kepler vuelo atmosférico mechanics applied aerospace point particle kinematics dynamics cylindrical spherical coordinates frenet serret rigid body inertia euler kepler atmospheric flight engineering constraints reactions angular momentum central forces binet's equation orbits relative motion coriolis theorem solved problems">
             <!-- Orbital Ellipses Watermark -->
             <svg class="card-watermark" viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden="true">
               <ellipse cx="50" cy="50" rx="42" ry="20" transform="rotate(-30 50 50)" stroke-width="1.8"/>
@@ -334,109 +251,44 @@
             </svg>
 
             <div class="card-header">
-              <!-- Gyroscopic orbital triad SVG -->
               <div class="card-icon" aria-hidden="true">
-                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9"/>
-                  <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(45 12 12)"/>
-                  <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(-45 12 12)"/>
-                  <circle cx="12" cy="12" r="2.2" fill="currentColor" fill-opacity="0.3"/>
-                  <path d="M12 3v3m0 12v3"/>
-                </svg>
+                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.6" fill="currentColor" fill-opacity="0.22"/><ellipse cx="12" cy="12" rx="9.6" ry="4.2" transform="rotate(-28 12 12)"/><circle cx="20.4" cy="7.5" r="1.5" fill="currentColor"/><path d="M4.2 14.6l-1.4 3.2 3.4-.4"/></svg>
               </div>
-              <div class="card-title-group">
-                <h4 class="card-title">Engineering Mechanics</h4>
-                <span class="card-subtitle">Mechanics Applied to Aerospace Engineering</span>
-              </div>
+              <h2 class="card-title">Engineering Mechanics</h2>
             </div>
-            <p class="card-description">Particle kinematics and dynamics, constraints and reactions, and angular momentum with central forces (Binet's equation, Kepler orbits), and relative motion (Coriolis theorem, inertia forces), with 51 solved problems.</p>
-            <div class="area-list">
+            <div class="area-grid">
               <a class="area-link" href="subjects/engineering-mechanics/teoria/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    <line x1="8" y1="6" x2="16" y2="6"/>
-                    <line x1="8" y1="10" x2="14" y2="10"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-theory"/></svg><span class="area-name">Theory</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">5 of 8 units</span>
               </a>
               <a class="area-link" href="subjects/engineering-mechanics/problemas/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="5" r="2.2"/>
-                    <path d="M10.5 7L4 21m9.5-14L20 21"/>
-                    <path d="M7 15h10"/>
-                    <circle cx="12" cy="15" r="1" fill="currentColor"/>
-                  </svg>
-                </span>
-                <span class="area-name">Solved Problems</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-problems"/></svg><span class="area-name">Problems</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">51 problems</span>
               </a>
-              <a class="area-link" href="subjects/engineering-mechanics/formula-sheet/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="3" width="16" height="18" rx="2"/>
-                    <path d="M8 8h8l-5 4 5 4H8"/>
-                  </svg>
-                </span>
-                <span class="area-name">Formula Sheets</span>
-                <span class="area-badge available">Topics 1 to 5</span>
-              </a>
               <a class="area-link" href="subjects/engineering-mechanics/sources/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory &amp; Exercise PDFs</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-pdf"/></svg><span class="area-name">PDFs</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">9 files</span>
               </a>
               <a class="area-link" href="subjects/engineering-mechanics/exams/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="3" width="14" height="18" rx="2"/>
-                    <path d="M9 3.5h6v2.5H9z"/>
-                    <path d="M8.5 12l2.2 2.2L15.5 9.5"/>
-                    <path d="M8.5 17.5h7"/>
-                  </svg>
-                </span>
-                <span class="area-name">Exams</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-exams"/></svg><span class="area-name">Exams</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">34 files</span>
               </a>
-              <a class="area-link" href="subjects/engineering-mechanics/extra-problems/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="4" width="16" height="16" rx="2"/>
-                    <path d="M8 9h8"/>
-                    <path d="M8 13h8"/>
-                    <path d="M8 17h5"/>
-                  </svg>
-                </span>
-                <span class="area-name">Extra Problems</span>
-                <span class="area-badge available">24 items</span>
+            </div>
+            <div class="area-extras">
+              <a class="area-chip" href="subjects/engineering-mechanics/formula-sheet/index.html" aria-label="Formula sheet: Topics 1 to 5" title="Formula sheet: Topics 1 to 5">
+                <svg class="area-icon" aria-hidden="true"><use href="#i-formula"/></svg><span class="area-name">Formulas</span>
               </a>
-              <a class="area-link" href="subjects/engineering-mechanics/simulator/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="13" r="8"/>
-                    <path d="M12 9v4l2.5 2.5"/>
-                    <path d="M9 2h6"/>
-                    <path d="M12 2v3"/>
-                  </svg>
-                </span>
-                <span class="area-name">Exam Simulator</span>
-                <span class="area-badge available">Midterm 1</span>
+              <a class="area-chip" href="subjects/engineering-mechanics/extra-problems/index.html" aria-label="Extra problems: 24 items" title="Extra problems: 24 items">
+                <svg class="area-icon" aria-hidden="true"><use href="#i-extra"/></svg><span class="area-name">Extra</span>
+              </a>
+              <a class="area-chip" href="subjects/engineering-mechanics/simulator/index.html" aria-label="Exam simulator: Midterm 1" title="Exam simulator: Midterm 1">
+                <svg class="area-icon" aria-hidden="true"><use href="#i-sim"/></svg><span class="area-name">Simulator</span>
               </a>
             </div>
           </article>
 
           <!-- ——— 4. Advanced Maths ——— -->
-          <article class="subject-card fade-in" style="--card-accent: var(--accent-maths);" data-subject="advanced-maths" data-keywords="matemáticas EDO EDP ecuaciones diferenciales fourier laplace variable compleja series transformada calor onda residuos integral mathematics ODE PDE differential equations fourier laplace complex variable series transform heat wave residues integral">
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-maths);" data-subject="advanced-maths" data-keywords="matemáticas EDO EDP ecuaciones diferenciales fourier laplace variable compleja series transformada calor onda residuos integral mathematics ODE PDE differential equations fourier laplace complex variable series transform heat wave residues integral advanced modelling ordinary first-order odes phase lines separable linear exact existence uniqueness second-order vibrations systems phase-plane analysis">
             <!-- Isometric Manifold Grid Watermark -->
             <svg class="card-watermark" viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden="true">
               <path d="M10 30 Q30 10, 50 30 T90 30" stroke-width="1.5"/>
@@ -448,109 +300,44 @@
             </svg>
 
             <div class="card-header">
-              <!-- Integral / coordinate manifold SVG -->
               <div class="card-icon" aria-hidden="true">
-                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 4c-2.5 0-3.5 1.8-3.5 3.5 0 3 4 5 4 8.5 0 2-1 3.5-3.5 3.5-1.5 0-2.5-.8-3-1.5"/>
-                  <path d="M19 4c-2 2-6 3-10 3"/>
-                  <path d="M21 11c-3 1.5-7 2-12 1.5"/>
-                  <path d="M21 18c-3 1-7 1-11-.5"/>
-                  <circle cx="17" cy="11.5" r="1.5" fill="currentColor" fill-opacity="0.3"/>
-                </svg>
+                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15.6 4.3c-2-.9-3.3.2-3.5 2.3l-.5 10.8c-.2 2.1-1.5 3.2-3.5 2.3"/><path d="M15.8 13.2c.9-1.3 2.2-1.3 2.9 0l.6 1.6c.6 1.3 1.6 1.3 2.2.2"/><path d="M21.2 12.4l-5.2 5.2"/><path d="M3 9.5h4.2M5.1 7.4v4.2"/></svg>
               </div>
-              <div class="card-title-group">
-                <h4 class="card-title">Advanced Maths</h4>
-                <span class="card-subtitle">Advanced Mathematics</span>
-              </div>
+              <h2 class="card-title">Advanced Maths</h2>
             </div>
-            <p class="card-description">Modelling with ordinary differential equations, first-order ODEs (phase lines, separable, linear, exact, existence and uniqueness), second-order linear ODEs and vibrations, and systems of ODEs with phase-plane analysis.</p>
-            <div class="area-list">
+            <div class="area-grid">
               <a class="area-link" href="subjects/advanced-maths/teoria/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    <line x1="8" y1="6" x2="16" y2="6"/>
-                    <line x1="8" y1="10" x2="14" y2="10"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-theory"/></svg><span class="area-name">Theory</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">4 of 6 units</span>
               </a>
               <a class="area-link" href="subjects/advanced-maths/problemas/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="5" r="2.2"/>
-                    <path d="M10.5 7L4 21m9.5-14L20 21"/>
-                    <path d="M7 15h10"/>
-                    <circle cx="12" cy="15" r="1" fill="currentColor"/>
-                  </svg>
-                </span>
-                <span class="area-name">Solved Problems</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-problems"/></svg><span class="area-name">Problems</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">66 problems</span>
               </a>
-              <a class="area-link" href="subjects/advanced-maths/formula-sheet/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="3" width="16" height="18" rx="2"/>
-                    <path d="M8 8h8l-5 4 5 4H8"/>
-                  </svg>
-                </span>
-                <span class="area-name">Formula Sheets</span>
-                <span class="area-badge available">Units 1 to 6</span>
-              </a>
               <a class="area-link" href="subjects/advanced-maths/sources/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory &amp; Exercise PDFs</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-pdf"/></svg><span class="area-name">PDFs</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">12 files</span>
               </a>
               <a class="area-link" href="subjects/advanced-maths/exams/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="3" width="14" height="18" rx="2"/>
-                    <path d="M9 3.5h6v2.5H9z"/>
-                    <path d="M8.5 12l2.2 2.2L15.5 9.5"/>
-                    <path d="M8.5 17.5h7"/>
-                  </svg>
-                </span>
-                <span class="area-name">Exams</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-exams"/></svg><span class="area-name">Exams</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">57 files</span>
               </a>
-              <a class="area-link" href="subjects/advanced-maths/extra-problems/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="4" width="16" height="16" rx="2"/>
-                    <path d="M8 9h8"/>
-                    <path d="M8 13h8"/>
-                    <path d="M8 17h5"/>
-                  </svg>
-                </span>
-                <span class="area-name">Extra Problems</span>
-                <span class="area-badge available">22 problems</span>
+            </div>
+            <div class="area-extras">
+              <a class="area-chip" href="subjects/advanced-maths/formula-sheet/index.html" aria-label="Formula sheet: Units 1 to 6" title="Formula sheet: Units 1 to 6">
+                <svg class="area-icon" aria-hidden="true"><use href="#i-formula"/></svg><span class="area-name">Formulas</span>
               </a>
-              <a class="area-link" href="subjects/advanced-maths/simulator/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="13" r="8"/>
-                    <path d="M12 9v4l2.5 2.5"/>
-                    <path d="M9 2h6"/>
-                    <path d="M12 2v3"/>
-                  </svg>
-                </span>
-                <span class="area-name">Exam Simulator</span>
-                <span class="area-badge available">Midterms and final</span>
+              <a class="area-chip" href="subjects/advanced-maths/extra-problems/index.html" aria-label="Extra problems: 22 problems" title="Extra problems: 22 problems">
+                <svg class="area-icon" aria-hidden="true"><use href="#i-extra"/></svg><span class="area-name">Extra</span>
+              </a>
+              <a class="area-chip" href="subjects/advanced-maths/simulator/index.html" aria-label="Exam simulator: Midterms and final" title="Exam simulator: Midterms and final">
+                <svg class="area-icon" aria-hidden="true"><use href="#i-sim"/></svg><span class="area-name">Simulator</span>
               </a>
             </div>
           </article>
 
           <!-- ——— 5. Business Management ——— -->
-          <article class="subject-card fade-in" style="--card-accent: var(--accent-business);" data-subject="business-management" data-keywords="gestión empresas organización industrial proyecto gantt pert costes contabilidad finanzas viabilidad estrategia dirección business management industrial organization project gantt pert costs accounting finance feasibility strategy operations">
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-business);" data-subject="business-management" data-keywords="gestión empresas organización industrial proyecto gantt pert costes contabilidad finanzas viabilidad estrategia dirección business management industrial organization project gantt pert costs accounting finance feasibility strategy operations firm objectives environment financial balance sheet income statement cash flow solved financial-statement problems">
             <!-- Pareto Graph & Trendline Watermark -->
             <svg class="card-watermark" viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden="true">
               <line x1="15" y1="85" x2="85" y2="85" stroke-width="1.5"/>
@@ -563,170 +350,38 @@
             </svg>
 
             <div class="card-header">
-              <!-- Analytical growth node / Pareto graph SVG -->
               <div class="card-icon" aria-hidden="true">
-                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 20h18"/>
-                  <path d="M4 19V4"/>
-                  <path d="M4 16l5-5 4 3 7-8"/>
-                  <circle cx="9" cy="11" r="1.8" fill="currentColor" fill-opacity="0.3"/>
-                  <circle cx="13" cy="14" r="1.8" fill="currentColor" fill-opacity="0.3"/>
-                  <circle cx="20" cy="6" r="2" fill="currentColor"/>
-                  <path d="M16 6h4v4"/>
-                </svg>
+                <svg class="card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5h16"/><path d="M6.5 20.5v-4.5M11 20.5v-7.5M15.5 20.5v-10.5"/><path d="M4.5 10l5-3.6 3.5 2L19 3.8"/><path d="M15.6 3.6h3.6v3.6"/></svg>
               </div>
-              <div class="card-title-group">
-                <h4 class="card-title">Business Management</h4>
-                <span class="card-subtitle">Business Management & Industrial Organization</span>
-              </div>
+              <h2 class="card-title">Business Management</h2>
             </div>
-            <p class="card-description">The firm, its objectives and its environment, and financial management: balance sheet, income statement and cash flow, with solved financial-statement problems.</p>
-            <div class="area-list">
+            <div class="area-grid">
               <a class="area-link" href="subjects/business-management/teoria/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    <line x1="8" y1="6" x2="16" y2="6"/>
-                    <line x1="8" y1="10" x2="14" y2="10"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-theory"/></svg><span class="area-name">Theory</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">3 of 6 units</span>
               </a>
               <a class="area-link" href="subjects/business-management/problemas/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="5" r="2.2"/>
-                    <path d="M10.5 7L4 21m9.5-14L20 21"/>
-                    <path d="M7 15h10"/>
-                    <circle cx="12" cy="15" r="1" fill="currentColor"/>
-                  </svg>
-                </span>
-                <span class="area-name">Solved Problems</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-problems"/></svg><span class="area-name">Problems</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">10 problems</span>
               </a>
-              <span class="area-link" aria-disabled="true">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="3" width="16" height="18" rx="2"/>
-                    <path d="M8 8h8l-5 4 5 4H8"/>
-                  </svg>
-                </span>
-                <span class="area-name">Formula Sheets</span>
-                <span class="area-badge soon">Soon</span>
-              </span>
               <a class="area-link" href="subjects/business-management/sources/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
-                  </svg>
-                </span>
-                <span class="area-name">Theory &amp; Exercise PDFs</span>
+                <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-pdf"/></svg><span class="area-name">PDFs</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                 <span class="area-badge available">14 files</span>
               </a>
-              <span class="area-link" aria-disabled="true">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="3" width="14" height="18" rx="2"/>
-                    <path d="M9 3.5h6v2.5H9z"/>
-                    <path d="M8.5 12l2.2 2.2L15.5 9.5"/>
-                    <path d="M8.5 17.5h7"/>
-                  </svg>
-                </span>
-                <span class="area-name">Exams</span>
-                <span class="area-badge soon">Soon</span>
-              </span>
-              <a class="area-link" href="subjects/business-management/extra-problems/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="4" width="16" height="16" rx="2"/>
-                    <path d="M8 9h8"/>
-                    <path d="M8 13h8"/>
-                    <path d="M8 17h5"/>
-                  </svg>
-                </span>
-                <span class="area-name">Extra Problems</span>
-                <span class="area-badge available">30 items</span>
+            </div>
+            <div class="area-extras">
+              <a class="area-chip" href="subjects/business-management/extra-problems/index.html" aria-label="Extra problems: 30 items" title="Extra problems: 30 items">
+                <svg class="area-icon" aria-hidden="true"><use href="#i-extra"/></svg><span class="area-name">Extra</span>
               </a>
-              <a class="area-link" href="subjects/business-management/simulator/index.html">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="13" r="8"/>
-                    <path d="M12 9v4l2.5 2.5"/>
-                    <path d="M9 2h6"/>
-                    <path d="M12 2v3"/>
-                  </svg>
-                </span>
-                <span class="area-name">Exam Simulator</span>
-                <span class="area-badge available">Midterm 1</span>
+              <a class="area-chip" href="subjects/business-management/simulator/index.html" aria-label="Exam simulator: Midterm 1" title="Exam simulator: Midterm 1">
+                <svg class="area-icon" aria-hidden="true"><use href="#i-sim"/></svg><span class="area-name">Simulator</span>
               </a>
             </div>
           </article>
 
         </div><!-- /subjects-grid -->
-      </section>
 
-      <!-- ============================================
-           Q2 SUBJECTS & SUPERNOVA CARD
-           ============================================ -->
-      <section class="container" id="sectionQ2" data-semester-section="q2">
-        <div class="section-title">
-          <h3>Second Semester</h3>
-          <span class="semester-badge upcoming-sem">◯ Coming Soon</span>
-        </div>
-
-        <!-- Dedicated Q2 Supernova Card -->
-        <div class="supernova-card">
-          <div class="supernova-nebula-glow" aria-hidden="true"></div>
-          <div class="supernova-content">
-            <div class="supernova-header">
-              <!-- Radiating Supernova Pulsar SVG -->
-              <div class="supernova-icon-box" aria-hidden="true">
-                <svg class="supernova-icon-svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="24" cy="24" r="5" fill="currentColor" fill-opacity="0.3"/>
-                  <circle cx="24" cy="24" r="1.8" fill="currentColor"/>
-                  <line x1="24" y1="3" x2="24" y2="11"/>
-                  <line x1="24" y1="37" x2="24" y2="45"/>
-                  <line x1="3" y1="24" x2="11" y2="24"/>
-                  <line x1="37" y1="24" x2="45" y2="24"/>
-                  <line x1="9.2" y1="9.2" x2="14.8" y2="14.8"/>
-                  <line x1="33.2" y1="33.2" x2="38.8" y2="38.8"/>
-                  <line x1="9.2" y1="38.8" x2="14.8" y2="33.2"/>
-                  <line x1="33.2" y1="14.8" x2="38.8" y2="9.2"/>
-                  <circle cx="24" cy="24" r="11" stroke-dasharray="2 3"/>
-                </svg>
-              </div>
-              <div class="supernova-badge">
-                <span class="pulsar-dot" aria-hidden="true"></span>
-                <span>In Preparation</span>
-                <span class="supernova-countdown-badge">T-Minus Q2</span>
-              </div>
-            </div>
-            <h4 class="supernova-title">In preparation: the best is yet to come ;)</h4>
-            <p class="supernova-witty-text">In preparation: the best is yet to come ;) — Collapsing cosmic dust into upcoming courses</p>
-            <div class="supernova-meta">
-              <span class="supernova-meta-pill">
-                <span class="meta-label">STATUS:</span>
-                <span class="meta-val">STELLAR COLLAPSE</span>
-              </span>
-              <span class="supernova-meta-pill">
-                <span class="meta-label">EPOCH:</span>
-                <span class="meta-val">Q2 · 2026/27</span>
-              </span>
-              <span class="supernova-meta-pill">
-                <span class="meta-label">IGNITION:</span>
-                <span class="meta-val">FEB 2027</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Empty state -->
-      <div class="container">
+        <!-- Empty state -->
         <div class="empty-state" id="emptyState">
           <!-- Minimalist Celestial Telescope / Sensor Sweep SVG -->
           <div class="empty-icon" aria-hidden="true">
@@ -739,15 +394,21 @@
               <circle cx="31" cy="17" r="1.5" fill="currentColor"/>
             </svg>
           </div>
-          <h4>No results found</h4>
+          <h2>No results found</h2>
           <p>No subjects matching your search criteria were found.</p>
         </div>
+      </section>
+
+      <div class="star-divider container" aria-hidden="true">
+        <span></span>
+        <svg><use href="#i-star"/></svg>
+        <span></span>
       </div>
 
       <!-- ============================================
            AEROSPACE QUOTES COMPONENT
            ============================================ -->
-      <section class="container" id="quoteSection" style="margin-bottom: 48px;">
+      <section class="container quote-section" id="quoteSection">
         <div id="quoteContainer"></div>
       </section>
 
@@ -758,19 +419,11 @@
          ============================================ -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <!-- Minimalist compass rose SVG -->
-        <span style="display: inline-flex; align-items: center;">
-          <svg class="footer-compass-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="9.5" stroke-dasharray="1.5 2.5"/>
-            <polygon points="12,3 14.5,10 21,12 14.5,14 12,21 9.5,14 3,12 9.5,10" fill="currentColor" fill-opacity="0.18"/>
-            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-          </svg>
-          <span>Study Portal — 2nd Year Aerospace Engineering</span>
-        </span>
+        <span>Aero Study</span>
+        <span class="footer-separator" aria-hidden="true"></span>
+        <span>2nd Year Aerospace Engineering</span>
         <span class="footer-separator" aria-hidden="true"></span>
         <span>Academic Year 2026 – 2027</span>
-        <span class="footer-separator" aria-hidden="true"></span>
-        <span>Built with precision and determination</span>
       </div>
     </footer>
 
@@ -779,6 +432,7 @@
   <!-- Keyboard Shortcuts hint -->
   <div class="shortcuts-hint" id="shortcutsHint">
     <div class="shortcut-row"><kbd>/</kbd> <span>Search</span></div>
+    <div class="shortcut-row"><kbd>Enter</kbd> <span>Go to first result</span></div>
     <div class="shortcut-row"><kbd>T</kbd> <span>Toggle theme</span></div>
     <div class="shortcut-row"><kbd>Esc</kbd> <span>Clear search</span></div>
     <div class="shortcut-row"><kbd>?</kbd> <span>Show shortcuts</span></div>
@@ -797,91 +451,60 @@
     (function () {
       'use strict';
 
-      /* ——————————————————————————————————————————
-         DOM REFERENCES
-         —————————————————————————————————————————— */
-      const html = document.documentElement;
       const themeToggle = document.getElementById('themeToggle');
       const searchInput = document.getElementById('searchInput');
-      const semesterTabs = document.querySelectorAll('.semester-tab');
-      const sectionQ1 = document.getElementById('sectionQ1');
-      const sectionQ2 = document.getElementById('sectionQ2');
-      const subjectCards = document.querySelectorAll('.subject-card');
+      const searchStatus = document.getElementById('searchStatus');
+      const subjectCards = Array.from(document.querySelectorAll('.subject-card'));
       const emptyState = document.getElementById('emptyState');
       const shortcutsHint = document.getElementById('shortcutsHint');
 
       /* ——————————————————————————————————————————
-         SEMESTER FILTER
+         SEARCH: subject title + keywords (accent-insensitive, every word must match)
          —————————————————————————————————————————— */
-      let activeSemester = 'all';
-
-      semesterTabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          semesterTabs.forEach(function (t) {
-            t.classList.remove('active');
-            t.setAttribute('aria-selected', 'false');
-          });
-          this.classList.add('active');
-          this.setAttribute('aria-selected', 'true');
-          activeSemester = this.getAttribute('data-semester');
-          applyFilters();
-        });
-      });
-
-      /* ——————————————————————————————————————————
-         SEARCH FILTER
-         —————————————————————————————————————————— */
-      if (searchInput) {
-        searchInput.addEventListener('input', applyFilters);
+      function normalizeText(text) {
+        return (text || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
       }
 
-      function normalizeText(text) {
-        return (text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      const haystacks = subjectCards.map(function (card) {
+        const title = card.querySelector('.card-title');
+        return normalizeText((title ? title.textContent : '') + ' ' + (card.getAttribute('data-keywords') || ''));
+      });
+
+      function visibleCards() {
+        return subjectCards.filter(function (card) { return !card.hidden; });
       }
 
       function applyFilters() {
         if (!searchInput) return;
-        const query = normalizeText(searchInput.value.trim());
-        let visibleQ1 = 0;
+        const words = normalizeText(searchInput.value).split(/\s+/).filter(Boolean);
+        let visible = 0;
 
-        // Semester section visibility
-        if (activeSemester === 'q2') {
-          if (sectionQ1) sectionQ1.style.display = 'none';
-          if (sectionQ2) sectionQ2.style.display = '';
-          if (emptyState) emptyState.classList.remove('visible');
-          return;
-        } else if (activeSemester === 'q1') {
-          if (sectionQ1) sectionQ1.style.display = '';
-          if (sectionQ2) sectionQ2.style.display = 'none';
-        } else {
-          if (sectionQ1) sectionQ1.style.display = '';
-          if (sectionQ2) sectionQ2.style.display = '';
-        }
-
-        // Filter cards
-        subjectCards.forEach(function (card) {
-          const title = normalizeText(card.querySelector('.card-title')?.textContent || '');
-          const subtitle = normalizeText(card.querySelector('.card-subtitle')?.textContent || '');
-          const description = normalizeText(card.querySelector('.card-description')?.textContent || '');
-          const keywords = normalizeText(card.getAttribute('data-keywords') || '');
-          const haystack = title + ' ' + subtitle + ' ' + description + ' ' + keywords;
-
-          if (!query || haystack.includes(query)) {
-            card.style.display = '';
-            visibleQ1++;
-          } else {
-            card.style.display = 'none';
-          }
+        subjectCards.forEach(function (card, i) {
+          const match = words.every(function (word) { return haystacks[i].includes(word); });
+          card.hidden = !match;
+          if (match) visible++;
         });
 
-        // Show/hide empty state
-        if (emptyState) {
-          if (visibleQ1 === 0 && (activeSemester === 'all' || activeSemester === 'q1')) {
-            emptyState.classList.add('visible');
-          } else {
-            emptyState.classList.remove('visible');
-          }
+        if (emptyState) emptyState.classList.toggle('visible', visible === 0);
+        if (searchStatus) {
+          searchStatus.textContent = !words.length ? '' :
+            visible === 0 ? 'No subjects found' :
+            visible + (visible === 1 ? ' subject found' : ' subjects found');
         }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', applyFilters);
+        searchInput.addEventListener('keydown', function (e) {
+          if (e.key !== 'Enter' || !searchInput.value.trim()) return;
+          const first = visibleCards()[0];
+          const link = first && first.querySelector('a[href]');
+          if (link) {
+            e.preventDefault();
+            link.focus();
+            first.scrollIntoView({ block: 'nearest' });
+          }
+        });
       }
 
       /* ——————————————————————————————————————————
@@ -891,13 +514,7 @@
 
       document.addEventListener('keydown', function (e) {
         const tag = e.target.tagName;
-        const isInput = tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable;
-
-        if (e.key === '/' && !isInput) {
-          e.preventDefault();
-          if (searchInput) searchInput.focus();
-          return;
-        }
+        const isInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target.isContentEditable;
 
         if (e.key === 'Escape') {
           if (searchInput && document.activeElement === searchInput) {
@@ -909,13 +526,21 @@
           return;
         }
 
-        if ((e.key === 't' || e.key === 'T') && !isInput) {
+        if (isInput || e.ctrlKey || e.altKey || e.metaKey) return;
+
+        if (e.key === '/') {
+          e.preventDefault();
+          if (searchInput) searchInput.focus();
+          return;
+        }
+
+        if (e.key === 't' || e.key === 'T') {
           e.preventDefault();
           if (themeToggle) themeToggle.click();
           return;
         }
 
-        if (e.key === '?' && !isInput) {
+        if (e.key === '?') {
           e.preventDefault();
           if (shortcutsHint) {
             shortcutsHint.classList.toggle('visible');
@@ -926,13 +551,12 @@
               }, 5000);
             }
           }
-          return;
         }
       });
 
       /* ——————————————————————————————————————————
          INITIALIZE AEROSPACE QUOTES ENGINE
-         ————————————————————————————————————————— */
+         —————————————————————————————————————————— */
       if (typeof window.initAerospaceQuote === 'function') {
         window.initAerospaceQuote('#quoteContainer');
       }
@@ -942,5 +566,3 @@
 
 </body>
 </html>
-
-
