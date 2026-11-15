@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 859 470" width="100%" class="fig-kit" style="max-width:859px;margin:0 auto;display:block" role="img" aria-label="Screw motion velocity field: left, the perpendicular velocities in a plane normal to the angular velocity form concentric circles about the axis; right, a 3D sketch where every point also has the same slip velocity along the axis.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="215.0" cy="240.0" r="54.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="4 4" stroke-linejoin="round"/>
+<circle cx="215.0" cy="240.0" r="114.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="4 4" stroke-linejoin="round"/>
+<circle cx="215.0" cy="240.0" r="174.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="4 4" stroke-linejoin="round"/>
+<line x1="318.3" y1="191.8" x2="294.5" y2="140.8" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M292.0,135.4 L299.4,142.1 L292.4,145.4 Z" fill="#3b82f6"/>
+<circle cx="318.3" cy="191.8" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="168.2" y1="213.0" x2="152.7" y2="239.9" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M149.7,245.1 L150.9,235.2 L157.7,239.1 Z" fill="#3b82f6"/>
+<circle cx="168.2" cy="213.0" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="155.5" y1="403.5" x2="232.1" y2="431.4" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M237.7,433.4 L227.7,433.9 L230.4,426.6 Z" fill="#3b82f6"/>
+<circle cx="155.5" cy="403.5" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="215.0" y1="240.0" x2="318.3" y2="191.8" stroke="#8a94a6" stroke-width="1.3" stroke-dasharray="5 4"/>
+<text x="278.8" y="230.1" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">d<tspan baseline-shift="sub" font-size="70%">A</tspan></text>
+<text x="336.3" y="207.8" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<text x="302.0" y="133.4" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0⊥</tspan><tspan baseline-shift="super" font-size="70%">A</tspan></text>
+<circle cx="215.0" cy="240.0" r="4.5" fill="#4b5563"/>
+<text x="229.0" y="262.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">I</text>
+<circle cx="41.0" cy="54.0" r="9" fill="none" stroke="#10b981" stroke-width="1.8"/>
+<circle cx="41.0" cy="54.0" r="2.6" fill="#10b981"/>
+<text x="71.0" y="59.0" fill="#10b981" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">ω</tspan><tspan baseline-shift="sub" font-size="70%">B0</tspan></text>
+<text x="95.0" y="465.6" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">view along the axis</text>
+<polygon points="797.0,222.0 796.7,218.7 795.7,215.3 794.0,212.0 791.7,208.8 788.7,205.6 785.1,202.5 780.8,199.5 776.0,196.6 770.6,193.8 764.7,191.1 758.3,188.7 751.3,186.3 744.0,184.2 736.2,182.2 728.0,180.4 719.5,178.9 710.7,177.5 701.6,176.3 692.4,175.4 683.0,174.7 673.4,174.3 663.8,174.0 654.2,174.0 644.6,174.3 635.0,174.7 625.6,175.4 616.4,176.3 607.3,177.5 598.5,178.9 590.0,180.4 581.8,182.2 574.0,184.2 566.7,186.3 559.7,188.7 553.3,191.1 547.4,193.8 542.0,196.6 537.2,199.5 532.9,202.5 529.3,205.6 526.3,208.8 524.0,212.0 522.3,215.3 521.3,218.7 521.0,222.0 521.3,225.3 522.3,228.7 524.0,232.0 526.3,235.2 529.3,238.4 532.9,241.5 537.2,244.5 542.0,247.4 547.4,250.2 553.3,252.9 559.7,255.3 566.7,257.7 574.0,259.8 581.8,261.8 590.0,263.6 598.5,265.1 607.3,266.5 616.4,267.7 625.6,268.6 635.0,269.3 644.6,269.7 654.2,270.0 663.8,270.0 673.4,269.7 683.0,269.3 692.4,268.6 701.6,267.7 710.7,266.5 719.5,265.1 728.0,263.6 736.2,261.8 744.0,259.8 751.3,257.7 758.3,255.3 764.7,252.9 770.6,250.2 776.0,247.4 780.8,244.5 785.1,241.5 788.7,238.4 791.7,235.2 794.0,232.0 795.7,228.7 796.7,225.3" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="797.0,222.0 796.7,218.7 795.7,215.3 794.0,212.0 791.7,208.8 788.7,205.6 785.1,202.5 780.8,199.5 776.0,196.6 770.6,193.8 764.7,191.1 758.3,188.7 751.3,186.3 744.0,184.2 736.2,182.2 728.0,180.4 719.5,178.9 710.7,177.5 701.6,176.3 692.4,175.4 683.0,174.7 673.4,174.3 663.8,174.0 654.2,174.0 644.6,174.3 635.0,174.7 625.6,175.4 616.4,176.3 607.3,177.5 598.5,178.9 590.0,180.4 581.8,182.2 574.0,184.2 566.7,186.3 559.7,188.7 553.3,191.1 547.4,193.8 542.0,196.6 537.2,199.5 532.9,202.5 529.3,205.6 526.3,208.8 524.0,212.0 522.3,215.3 521.3,218.7 521.0,222.0 521.3,225.3 522.3,228.7 524.0,232.0 526.3,235.2 529.3,238.4 532.9,241.5 537.2,244.5 542.0,247.4 547.4,250.2 553.3,252.9 559.7,255.3 566.7,257.7 574.0,259.8 581.8,261.8 590.0,263.6 598.5,265.1 607.3,266.5 616.4,267.7 625.6,268.6 635.0,269.3 644.6,269.7 654.2,270.0 663.8,270.0 673.4,269.7 683.0,269.3 692.4,268.6 701.6,267.7 710.7,266.5 719.5,265.1 728.0,263.6 736.2,261.8 744.0,259.8 751.3,257.7 758.3,255.3 764.7,252.9 770.6,250.2 776.0,247.4 780.8,244.5 785.1,241.5 788.7,238.4 791.7,235.2 794.0,232.0 795.7,228.7 796.7,225.3" fill="none" stroke="#3b82f6" stroke-width="1.3" stroke-linejoin="round"/>
+<line x1="659.0" y1="336.0" x2="659.0" y2="42.0" stroke="#8a94a6" stroke-width="1.3" stroke-dasharray="6 4"/>
+<line x1="659.0" y1="120.0" x2="659.0" y2="48.6" stroke="#10b981" stroke-width="3.0"/>
+<path d="M659.0,42.0 L663.3,52.1 L654.7,52.1 Z" fill="#10b981"/>
+<text x="669.0" y="54.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">ω</tspan><tspan baseline-shift="sub" font-size="70%">B0</tspan></text>
+<text x="651.0" y="46.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">IAR</text>
+<line x1="579.8" y1="261.3" x2="638.1" y2="275.5" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M644.0,276.9 L634.1,278.5 L635.9,271.0 Z" fill="#3b82f6"/>
+<line x1="579.8" y1="261.3" x2="579.8" y2="177.3" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M579.8,171.3 L583.7,180.5 L576.0,180.5 Z" fill="#f59e0b"/>
+<circle cx="579.8" cy="261.3" r="4" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="778.5" y1="246.0" x2="829.9" y2="215.0" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M835.0,211.9 L829.2,220.0 L825.1,213.4 Z" fill="#3b82f6"/>
+<line x1="778.5" y1="246.0" x2="778.5" y2="162.0" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M778.5,156.0 L782.4,165.2 L774.6,165.2 Z" fill="#f59e0b"/>
+<circle cx="778.5" cy="246.0" r="4" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="590.0" y1="180.4" x2="531.2" y2="192.2" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M525.3,193.4 L533.6,187.8 L535.1,195.4 Z" fill="#3b82f6"/>
+<line x1="590.0" y1="180.4" x2="590.0" y2="96.4" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M590.0,90.4 L593.9,99.6 L586.1,99.6 Z" fill="#f59e0b"/>
+<circle cx="590.0" cy="180.4" r="4" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="788.5" y="158.0" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0∥</tspan></text>
+<text x="573.8" y="289.3" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0⊥</tspan></text>
+<circle cx="659.0" cy="222.0" r="4" fill="#4b5563"/>
+<text x="645.0" y="240.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">I</text>
+<text x="635.0" y="465.6" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">3D view</text>
+</g></svg>

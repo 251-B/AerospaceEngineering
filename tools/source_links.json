@@ -201,7 +201,7 @@
    }
   },
   "em-s2": {
-   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf",
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/02.PointParticleDynamics.pdf",
    "label": "02 Point particle dynamics.pdf",
    "pages": 24
   },
@@ -746,6 +746,45 @@
    "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-07-viscous-flow/problemas/VF20.pdf",
    "label": "VF20.pdf",
    "pages": 3
+  },
+  "em-s6": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/06-oscillations-and-linearization.pdf",
+   "label": "06 Oscillations and linearization.pdf",
+   "pages": 16
+  },
+  "em-s7": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf",
+   "label": "07 Rigid body kinematics.pdf",
+   "pages": 14
+  },
+  "em-s8": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf",
+   "label": "08 Inertia properties.pdf",
+   "pages": 22
+  },
+  "em-s9": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf",
+   "label": "09 Momentum and energy.pdf",
+   "pages": 15
+  },
+  "em-s10": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf",
+   "label": "10 Rigid body dynamics.pdf",
+   "pages": 20
+  }
+ },
+ "lectures": {
+  "engineering-mechanics": {
+   "1": "em-s1",
+   "2": "em-s2",
+   "3": "em-s3",
+   "4": "em-s4",
+   "5": "em-s5",
+   "6": "em-s6",
+   "7": "em-s7",
+   "8": "em-s8",
+   "9": "em-s9",
+   "10": "em-s10"
   }
  },
  "pages": {
@@ -1691,6 +1730,53 @@
     ]
    }
   },
+  "subjects/engineering-mechanics/problemas/topic-6.html": {
+   "panel": [
+    [
+     "em-problems",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes",
+    "slides": "em-s7",
+    "bare_eq": "em-notes"
+   },
+   "cards": {
+    "rb-01": [
+     "em-problems",
+     37
+    ],
+    "rb-02": [
+     "em-problems",
+     37
+    ],
+    "rb-03": [
+     "em-problems",
+     37
+    ],
+    "rb-11": [
+     "em-problems",
+     44
+    ],
+    "rb-34": [
+     "em-problems",
+     64
+    ],
+    "rb-35": [
+     "em-problems",
+     64
+    ],
+    "rb-04": [
+     "em-problems",
+     37
+    ],
+    "rb-05": [
+     "em-problems",
+     38
+    ]
+   }
+  },
   "subjects/engineering-mechanics/teoria/topic-1.html": {
    "panel": [
     [
@@ -1774,6 +1860,63 @@
    ],
    "cite": {
     "slides": "em-s5",
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-6.html": {
+   "panel": [
+    [
+     "em-s7",
+     1
+    ],
+    [
+     "em-s8",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s7",
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-7.html": {
+   "panel": [
+    [
+     "em-s9",
+     1
+    ],
+    [
+     "em-s10",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s9",
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-8.html": {
+   "panel": [
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
     "notes": "em-notes",
     "bare_eq": "em-notes"
    }

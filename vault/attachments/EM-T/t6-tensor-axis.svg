@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="A line through O with unit vector u, a mass element at P, and the right triangle formed by its position vector, its projection on the line and its distance d to the line.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="240.0" y1="400.0" x2="123.1" y2="491.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M119.3,493.9 L123.2,487.0 L127.0,491.9 Z" fill="#8a94a6"/>
+<text x="107.3" y="507.9" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">x</tspan></text>
+<line x1="240.0" y1="400.0" x2="580.2" y2="400.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M585.0,400.0 L577.6,403.1 L577.6,396.9 Z" fill="#8a94a6"/>
+<text x="599.0" y="408.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">y</tspan></text>
+<line x1="240.0" y1="400.0" x2="240.0" y2="119.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M240.0,115.0 L243.1,122.4 L236.9,122.4 Z" fill="#8a94a6"/>
+<text x="228.0" y="115.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">z</tspan></text>
+<line x1="194.1" y1="435.4" x2="542.6" y2="166.3" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="7 5"/>
+<text x="550.6" y="166.3" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ℓ</text>
+<polygon points="240.0,400.0 387.5,286.1 511.4,446.2" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="387.5" y1="286.1" x2="511.4" y2="446.2" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="375.7,295.2 384.8,307.1 396.7,297.9" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="240.0" y1="400.0" x2="326.0" y2="333.6" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M331.7,329.2 L325.8,339.6 L320.1,332.2 Z" fill="#f59e0b"/>
+<text x="319.7" y="317.2" fill="#f59e0b" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">u</tspan></text>
+<line x1="240.0" y1="400.0" x2="504.9" y2="445.1" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M511.4,446.2 L500.7,448.8 L502.1,440.3 Z" fill="#3b82f6"/>
+<polygon points="500.9,456.7 521.9,456.7 521.9,435.7 500.9,435.7" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.0" stroke-linejoin="round"/>
+<text x="523.4" y="438.2" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="523.4" y="458.2" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dm</text>
+<circle cx="387.5" cy="286.1" r="3.5" fill="#4b5563"/>
+<text x="363.5" y="278.1" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">H</text>
+<text x="375.7" y="447.1" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">P</tspan></text>
+<text x="327.8" y="365.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">P</tspan>·<tspan font-weight="700" font-style="normal">u</tspan></text>
+<text x="459.5" y="370.2" fill="#6b7280" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">d</text>
+<circle cx="240.0" cy="400.0" r="3.5" fill="#4b5563"/>
+<text x="230.0" y="392.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+</g></svg>

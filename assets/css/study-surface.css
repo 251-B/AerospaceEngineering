@@ -682,6 +682,16 @@ html[data-theme="print"] .surface-panel {
   html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill*="--fig-green"] :is(text, tspan) {
     fill: oklch(from #10b981 clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
   }
+
+  /* Geometry simulator of the Engineering Mechanics problem cards (assets/js/mechanics-3d-sim.js):
+     its labels, matrix entries and readouts are text, never accent, so they take the palette's own
+     text colour; colour stays in the strokes and fills of the drawing. */
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .m3-svg :is(text, tspan) {
+    fill: var(--study-text);
+  }
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.m3-readouts dd, .m3-title, .m3-control output) {
+    color: var(--study-text);
+  }
 }
 
 /* ==========================================================================

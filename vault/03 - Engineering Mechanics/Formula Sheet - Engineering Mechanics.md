@@ -13,7 +13,7 @@ web: "subjects/engineering-mechanics/formula-sheet/index.html"
 
 # Formula Sheet - Engineering Mechanics
 
-Every key formula of the course with its short derivation, the reason for each step, its hypotheses and the recipe to use it in an exam. It gathers the five topic sheets ([[Formula Sheet - Topic 1 Particle Kinematics]], [[Formula Sheet - Topic 2 Point Particle Dynamics]], [[Formula Sheet - Topic 3 Constraints and Reaction Forces]], [[Formula Sheet - Topic 4 Angular Momentum]], [[Formula Sheet - Topic 5 Relative Motion]]) and the theory notes [[Topic 1 - Fundamentals and Particle Kinematics]] to [[Topic 5 - Relative Motion]], and keeps their notation and citations (Notes = `Notes.pdf`, Slide = the topic's lecture slides).
+Every key formula of the course with its short derivation, the reason for each step, its hypotheses and the recipe to use it in an exam. It gathers the five topic sheets ([[Formula Sheet - Topic 1 Particle Kinematics]], [[Formula Sheet - Topic 2 Point Particle Dynamics]], [[Formula Sheet - Topic 3 Constraints and Reaction Forces]], [[Formula Sheet - Topic 4 Angular Momentum]], [[Formula Sheet - Topic 5 Relative Motion]]) and the theory notes [[Topic 1 - Kinematics of a Point Particle]] to [[Topic 5 - Relative Motion]], and keeps their notation and citations (Notes = `Notes.pdf`, Slide = the topic's lecture slides).
 
 The page `subjects/engineering-mechanics/formula-sheet/index.html` is generated from this note by `python tools/build_formula_sheet.py`; edit this note, never the page. Card headings are `### <Kind>: <title>`; a derivation card opens with an `In short:` line; tables headed `| Step | Why |` become the step grid.
 

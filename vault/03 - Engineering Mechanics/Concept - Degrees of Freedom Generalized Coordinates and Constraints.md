@@ -59,4 +59,4 @@ $$ \text{DOF} = 3N - k $$
 ---
 
 ## 🔗 Related Concepts
-* [[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]]
+* [[Topic 1 - Kinematics of a Point Particle|Topic 1: Fundamentals and Particle Kinematics]]

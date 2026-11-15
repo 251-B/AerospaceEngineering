@@ -13,6 +13,10 @@ source: "tools/source_links.py"
 
 Adds deep links from the study pages to the official PDFs in `sources/`. It inserts three kinds of link: an "Official material" strip in the page header (panel), an "Original statement" link in each problem card (card), and inline citations such as "[Slide 14]" or "Eq. 2.26" (cite). Every inserted element carries `data-srclink`, so a re-run removes and rebuilds only its own links.
 
+## Lecture citations
+
+`[Lecture N, Slide M]` (also `[Lecture N, Slides M-K]`, linked to M) becomes a link to page M of the deck of lecture N. The decks per subject are the `lectures` key of `tools/source_links.json` (Engineering Mechanics, Lectures 1 to 10, ids `em-s1` to `em-s10`); other subjects are unaffected. `Problems.pdf, p. N` is linked on pages whose `cite` rules name a `problems` PDF. Both work inside the `derivation-source` span of a derivation box. Where a deck has a `slide_map` (Lecture 1) the printed slide number is mapped to the PDF page.
+
 ## Command
 
 `python tools/source_links.py [--check] [--refresh-anchors] [-v]`

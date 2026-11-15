@@ -221,6 +221,18 @@ window.AE_NAV = {
             {
               "href": "subjects/engineering-mechanics/teoria/topic-5.html",
               "label": "5 · Relative motion"
+            },
+            {
+              "href": "subjects/engineering-mechanics/teoria/topic-6.html",
+              "label": "6 · Rigid body kinematics, inertia"
+            },
+            {
+              "href": "subjects/engineering-mechanics/teoria/topic-7.html",
+              "label": "7 · Momentum, energy, dynamics"
+            },
+            {
+              "href": "subjects/engineering-mechanics/teoria/topic-8.html",
+              "label": "8 · Rolling, multibody, torque-free"
             }
           ]
         },
@@ -248,6 +260,10 @@ window.AE_NAV = {
             {
               "href": "subjects/engineering-mechanics/problemas/topic-5.html",
               "label": "5 · Relative motion"
+            },
+            {
+              "href": "subjects/engineering-mechanics/problemas/topic-6.html",
+              "label": "6 · Rigid body kinematics, inertia"
             }
           ]
         },

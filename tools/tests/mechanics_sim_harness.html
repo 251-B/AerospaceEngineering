@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<title>mechanics geometry simulator harness</title>
+<!-- Driven by test_mechanics_sim.py (headless Edge/Chrome, --dump-dom). It mounts every archetype of
+     assets/js/mechanics-3d-sim.js with the page variables of an Engineering Mechanics problem page, moves every
+     control, and reports one JSON object in #results. The colour audit loads the reading palettes of study-surface.css. -->
+<style>
+  :root { --font-sans: 'Inter', sans-serif; --font-serif: 'Newsreader', Georgia, serif; --font-mono: 'JetBrains Mono', monospace; --accent: #38bdf8; }
+  [data-theme="dark"] { --bg-primary: #0a0e17; --bg-surface: #111827; --bg-subtle: #1e293b; --bg-card: rgba(17, 24, 39, 0.75); --bg-input: #0f172a;
+    --text-main: #e2e8f0; --text-heading: #f8fafc; --text-muted: #94a3b8; --border-subtle: #1e293b; --border-strong: #334155; --border-card: #273549; }
+  [data-theme="light"] { --bg-primary: #f8fafc; --bg-surface: #ffffff; --bg-subtle: #f1f5f9; --bg-card: #ffffff; --bg-input: #e2e8f0;
+    --text-main: #1e293b; --text-heading: #0f172a; --text-muted: #64748b; --border-subtle: #e2e8f0; --border-strong: #cbd5e1; --border-card: #cbd5e1; }
+  body { background: var(--bg-primary); color: var(--text-main); font-family: var(--font-sans); margin: 16px; }
+  .problem-card { max-width: 860px; margin: 0 auto 24px; }
+</style>
+<link rel="stylesheet" href="../../assets/css/study-surface.css">
+<link rel="stylesheet" href="../../assets/css/mechanics-3d-sim.css">
+<script>
+  /* count every write to web storage: the simulator must make none */
+  window.__storage = 0;
+  ['localStorage', 'sessionStorage'].forEach(function (n) {
+    try { var st = window[n], set = st.setItem; st.setItem = function () { window.__storage++; return set.apply(st, arguments); }; } catch (e) { /* blocked storage */ }
+  });
+</script>
+</head>
+<body>
+<main id="host"></main>
+<pre id="results">PENDING</pre>
+<script src="../../assets/js/mechanics-3d-sim.js"></script>
+<script>
+(function () {
+  var out = { archetypes: {}, errors: [] };
+  var CASES = {
+    'curvilinear-3d': { params: { curve: 'helix', R: 2, b: 0.5, umax: 540, extent: 4.2 }, defaults: { u: 90 },
+      readouts: [{ label: 'Height b theta', expr: 'b*u', unit: 'm', digits: 4 }, { label: 'Speed', expr: 'sqrt(R^2+b^2)*rate', unit: 'm/s', digits: 4 }, { label: 'Not arithmetic', expr: 'alert(1)' }, { label: 'Prototype', expr: 'constructor' }] },
+    'rotating-wire-groove': { params: { wire: 'hoop', R: 1, Omega: 2 }, defaults: { psi: 30, q: 60 }, readouts: [{ label: 'rho', expr: 'R*sin(q)', digits: 4 }] },
+    'oscillator-phase': { params: { mode: 'forced', wn: 2, zeta: 0.2, r: 1, delta: 0.5, x0: 0, v0: 0 }, defaults: { t: 3 }, readouts: [{ label: 'M', expr: '1/sqrt((1-r^2)^2+(2*zeta*r)^2)', digits: 4 }] },
+    'rb-euler-kinematics': { params: { sequence: '321' }, defaults: { psi: 20, theta: 35, phi: -50 } },
+    'rb-inertia-principal': { params: { shape: 'rects', m: 3, rects: [[0, 0, 0.2, 1], [0, 0, 0.8, 0.2]], extent: 1.2 }, defaults: { alpha: 0 } },
+    'rb-planar-dynamics': { params: { shape: 'bar', L: 2, zero: 'down', thetadot: 3 }, defaults: { theta: 30 }, readouts: [{ label: 'xG', expr: 'L/2*sin(theta)', digits: 4 }, { label: 'yG', expr: '-L/2*cos(theta)', digits: 4 }],
+      vectors: [{ label: 'N', at: ['0', '0', '0'], comp: ['0', '1', '0'], scale: 0.5 }] },
+    'rb-rolling-contact': { params: { surface: 'outer', r: 0.4, R: 1.2 }, defaults: { s: 30 } },
+    'rb-gyro-multibody': { params: { L: 1, a: 0.5 }, defaults: { psi: 30, theta: 60, phi: 40 } }
+  };
+  function state(node) { return JSON.parse(node.getAttribute('data-state')); }
+  function ortho(R) {
+    var worst = 0, i, j, k, sum, d;
+    for (i = 0; i < 3; i++) for (j = 0; j < 3; j++) { sum = 0; for (k = 0; k < 3; k++) sum += R[i][k] * R[j][k]; worst = Math.max(worst, Math.abs(sum - (i === j ? 1 : 0))); }
+    d = R[0][0] * (R[1][1] * R[2][2] - R[1][2] * R[2][1]) - R[0][1] * (R[1][0] * R[2][2] - R[1][2] * R[2][0]) + R[0][2] * (R[1][0] * R[2][1] - R[1][1] * R[2][0]);
+    return Math.max(worst, Math.abs(d - 1));
+  }
+  function fire(el, type, init) { el.dispatchEvent(new Event(type, init || { bubbles: true })); }
+  function bad(node) { return /NaN|undefined|Infinity/.test(node.querySelector('svg').innerHTML); }
+
+  Object.keys(CASES).forEach(function (name) {
+    var rep = { mounted: false }, card, node;
+    try {
+      card = document.createElement('article'); card.className = 'problem-card'; card.id = 'card-' + name;
+      node = document.createElement('div'); node.className = 'm3-sim';
+      node.setAttribute('data-archetype', name); node.setAttribute('data-config', JSON.stringify(CASES[name]));
+      card.appendChild(node); document.getElementById('host').appendChild(card);
+      window.AEMechanicsSim.init();
+      var st0 = state(node), svg = node.querySelector('svg');
+      rep.mounted = node.classList.contains('m3-ready');
+      rep.viewBox = svg.getAttribute('viewBox');
+      rep.canvas = node.querySelectorAll('canvas').length;
+      rep.texts = svg.querySelectorAll('text').length;
+      rep.shapes = svg.querySelectorAll('line, path, circle').length;
+      rep.insideCard = !!node.closest('.problem-card');
+      rep.default = st0;
+      rep.badDefault = bad(node);
+      rep.matrixRows = svg.querySelectorAll('.m3-right .m3-mono').length;
+      /* accessibility of the controls */
+      var inputs = [].slice.call(node.querySelectorAll('input[type=range], select')), buttons = [].slice.call(node.querySelectorAll('button'));
+      rep.unlabelled = inputs.filter(function (e) { return !e.getAttribute('aria-label') || !node.querySelector('label[for="' + e.id + '"]'); }).length;
+      rep.buttons = buttons.map(function (b) { return b.textContent; });
+      rep.svgFocusable = svg.getAttribute('tabindex') === '0' && !!svg.getAttribute('aria-label');
+      /* every rotation of the selector and every slider at its ends and in between */
+      var worst = ortho(st0.matrix), worstTotal = ortho(st0.total), nan = false, sel = node.querySelector('select'), moved = 0;
+      rep.rotations = sel.options.length;
+      for (var o = 0; o < sel.options.length; o++) {
+        sel.selectedIndex = o; fire(sel, 'change');
+        [].slice.call(node.querySelectorAll('input[data-control]')).forEach(function (inp) {
+          if (/^cam-/.test(inp.getAttribute('data-control'))) return;
+          var lo = parseFloat(inp.min), hi = parseFloat(inp.max), keep = inp.value;
+          [lo, hi, lo + 0.37 * (hi - lo), lo + 0.81 * (hi - lo)].forEach(function (v) {
+            inp.value = v; fire(inp, 'input'); moved++;
+            var stv = state(node);
+            worst = Math.max(worst, ortho(stv.matrix)); worstTotal = Math.max(worstTotal, ortho(stv.total));
+            nan = nan || bad(node);
+          });
+          inp.value = keep; fire(inp, 'input');
+        });
+      }
+      sel.selectedIndex = 0; fire(sel, 'change');
+      rep.worstOrtho = worst; rep.worstTotal = worstTotal; rep.nan = nan; rep.moved = moved;
+      rep.backToDefault = JSON.stringify(state(node).vars) === JSON.stringify(st0.vars);
+      /* quick views, keyboard and drag */
+      rep.views = {};
+      buttons.forEach(function (b) { b.click(); var s2 = state(node); rep.views[b.getAttribute('data-view')] = { cam: s2.cam, pressed: b.getAttribute('aria-pressed'), view: s2.view }; nan = nan || bad(node); });
+      rep.nanViews = nan;
+      buttons[0].click();
+      var c0 = state(node).cam;
+      svg.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+      svg.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true }));
+      var c1 = state(node).cam;
+      rep.keyboard = [c1[0] - c0[0], c1[1] - c0[1]];
+      var box = svg.getBoundingClientRect(), px = box.left + 0.25 * box.width, py = box.top + 0.5 * box.height;
+      svg.dispatchEvent(new PointerEvent('pointerdown', { clientX: px, clientY: py, pointerId: 1, bubbles: true }));
+      svg.dispatchEvent(new PointerEvent('pointermove', { clientX: px + 40, clientY: py + 20, pointerId: 1, bubbles: true }));
+      svg.dispatchEvent(new PointerEvent('pointerup', { clientX: px + 40, clientY: py + 20, pointerId: 1, bubbles: true }));
+      var c2 = state(node).cam;
+      rep.drag = [c2[0] - c1[0], c2[1] - c1[1]];
+      buttons[0].click();
+    } catch (err) { rep.error = String(err && err.stack || err); out.errors.push(name + ': ' + rep.error); }
+    out.archetypes[name] = rep;
+  });
+
+  /* the inertia tensor keeps its trace and loses its product of inertia at the principal angle */
+  try {
+    var ni = document.querySelector('[data-archetype="rb-inertia-principal"]'), si = state(ni), inp = ni.querySelector('input[data-control="alpha"]');
+    inp.step = 'any'; inp.value = si.vars.alphap * 180 / Math.PI; fire(inp, 'input');
+    var sp = state(ni);
+    out.inertia = { trace0: si.tensor[0][0] + si.tensor[1][1] + si.tensor[2][2], trace1: sp.tensor[0][0] + sp.tensor[1][1] + sp.tensor[2][2],
+      productAtPrincipal: sp.tensor[0][1], symmetric: Math.abs(si.tensor[0][1] - si.tensor[1][0]), principal: [si.vars.I1, si.vars.I2, si.vars.I3], G: [si.vars.xG, si.vars.yG] };
+    inp.value = 0; fire(inp, 'input');
+  } catch (err) { out.errors.push('inertia: ' + err); }
+
+  /* colours: every text against the simulator's own background, under the page themes and the six palettes */
+  var cv = document.createElement('canvas'); cv.width = cv.height = 1;
+  var cx = cv.getContext('2d', { willReadFrequently: true });
+  function rgb(css) { cx.clearRect(0, 0, 1, 1); cx.fillStyle = '#000'; cx.fillStyle = css; cx.fillRect(0, 0, 1, 1); var d = cx.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2]]; }
+  function lin(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+  function lum(c) { return 0.2126 * lin(c[0]) + 0.7152 * lin(c[1]) + 0.0722 * lin(c[2]); }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  out.contrast = {};
+  [['', 'dark'], ['', 'light'], ['default', 'dark'], ['cream', 'light'], ['sepia', 'light'], ['slate-paper', 'light'], ['sage', 'light'], ['charcoal', 'dark']].forEach(function (stt) {
+    var root = document.documentElement, worst = 99, where = '', n = 0;
+    if (stt[0]) root.setAttribute('data-surface', stt[0]); else root.removeAttribute('data-surface');
+    root.setAttribute('data-theme', stt[1]);
+    [].slice.call(document.querySelectorAll('.m3-sim')).forEach(function (sim) {
+      var bg = rgb(getComputedStyle(sim).backgroundColor);
+      [].slice.call(sim.querySelectorAll('svg text, .m3-title, .m3-intro, dt, dd, label, output, button, select')).forEach(function (el) {
+        var cs = getComputedStyle(el), own = el.closest('button, select') ? rgb(getComputedStyle(el.closest('button, select')).backgroundColor) : bg;
+        var r = ratio(rgb(el instanceof SVGElement ? cs.fill : cs.color), own);
+        n++;
+        if (r < worst) { worst = r; where = sim.getAttribute('data-archetype') + ' ' + el.tagName + ' "' + el.textContent.slice(0, 24) + '"'; }
+      });
+    });
+    out.contrast[(stt[0] || 'page') + '/' + stt[1]] = { worst: Math.round(worst * 100) / 100, where: where, texts: n };
+  });
+  document.documentElement.removeAttribute('data-surface'); document.documentElement.setAttribute('data-theme', 'dark');
+
+  out.storageWrites = window.__storage;
+  out.api = { archetypes: window.AEMechanicsSim.archetypes, views: window.AEMechanicsSim.views };
+  document.getElementById('results').textContent = JSON.stringify(out);
+})();
+</script>
+</body>
+</html>

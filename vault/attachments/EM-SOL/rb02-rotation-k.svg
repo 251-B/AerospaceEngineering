@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 470" width="100%" class="fig-kit" style="max-width:540px;margin:0 auto;display:block" role="img" aria-label="View along k showing the first rotation, clockwise by theta, that takes i and j to i1 and j1.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="200.0" y1="300.0" x2="454.4" y2="300.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M459.2,300.0 L451.8,303.1 L451.8,296.9 Z" fill="#8a94a6"/>
+<text x="475.2" y="306.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="200.0" y1="300.0" x2="200.0" y2="45.6" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M200.0,40.8 L203.1,48.2 L196.9,48.2 Z" fill="#8a94a6"/>
+<text x="216.0" y="44.8" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<polygon points="200.0,300.0 331.1,300.0 331.1,391.8" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="331.1" y1="300.0" x2="331.1" y2="391.8" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="319.9,300.0 319.9,311.2 331.1,311.2" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polygon points="200.0,300.0 200.0,168.9 291.8,168.9" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="200.0" y1="168.9" x2="291.8" y2="168.9" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="200.0,180.1 211.2,180.1 211.2,168.9" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="200.0" y1="300.0" x2="325.7" y2="388.0" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M331.1,391.8 L320.3,389.5 L325.2,382.5 Z" fill="#3b82f6"/>
+<text x="349.1" y="409.8" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="200.0" y1="300.0" x2="288.0" y2="174.3" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M291.8,168.9 L289.5,179.7 L282.5,174.8 Z" fill="#3b82f6"/>
+<text x="297.8" y="154.9" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="265.5" y="292.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos θ</text>
+<text x="340.1" y="350.9" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin θ</text>
+<text x="245.9" y="160.9" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin θ</text>
+<text x="191.0" y="252.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos θ</text>
+<path d="M280.0,300.0 A80.0,80.0 0 0 1 265.5,345.9" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M263.8,348.3 L265.7,339.5 L271.4,343.6 Z" fill="#10b981"/>
+<path d="M200.0,220.0 A80.0,80.0 0 0 1 245.9,234.5" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M248.3,236.2 L239.5,234.3 L243.6,228.6 Z" fill="#10b981"/>
+<text x="274.3" y="316.1" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<text x="210.1" y="245.7" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<circle cx="200.0" cy="300.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="200.0" cy="300.0" r="2.6" fill="#4b5563"/>
+<text x="182.0" y="326.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan> (⊙)</text>
+<text x="24.0" y="420.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">rotation −θ about k</text>
+</g></svg>

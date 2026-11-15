@@ -173,6 +173,18 @@
     {
      "page": "topic-5.html",
      "label": "5 · Relative motion"
+    },
+    {
+     "page": "topic-6.html",
+     "label": "6 · Rigid body kinematics, inertia"
+    },
+    {
+     "page": "topic-7.html",
+     "label": "7 · Momentum, energy, dynamics"
+    },
+    {
+     "page": "topic-8.html",
+     "label": "8 · Rolling, multibody, torque-free"
     }
    ],
    "problemas": [
@@ -195,6 +207,10 @@
     {
      "page": "topic-5.html",
      "label": "5 · Relative motion"
+    },
+    {
+     "page": "topic-6.html",
+     "label": "6 · Rigid body kinematics, inertia"
     }
    ],
    "extra-problems": [

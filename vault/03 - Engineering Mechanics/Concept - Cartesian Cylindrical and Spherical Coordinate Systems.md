@@ -92,5 +92,5 @@ $$ \dot{\mathbf{e}}_r = \dot{\theta}\cos\phi\,\mathbf{e}_\theta + \dot{\phi}\,\m
 ---
 
 ## 🔗 Related Concepts
-* [[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]]
+* [[Topic 1 - Kinematics of a Point Particle|Topic 1: Fundamentals and Particle Kinematics]]
 * [[Concept - Intrinsic Frenet-Serret Frame and Intrinsic Acceleration|Concept: Intrinsic Frenet-Serret Frame]]

@@ -25,6 +25,7 @@ Map of content for the repository's own tooling, agents and rules. The study con
 | [[Rules - AGENTS.md]] | Rules | Shared rules for every agent: architecture, web and problem standards, review gates and git. |
 | [[Rules - CLAUDE.md]] | Rules | Claude Code framework: triggering pipeline, decision matrix, subagents and agent teams. |
 | [[Rules - GEMINI.md]] | Rules | Gemini session setup, NotebookLM scope and subagent definitions. |
+| [[Rules - EM Mission Progress]] | Rules | Progress log of the Engineering Mechanics mission: milestones, inventory, blockers and conflicts with the brief. |
 | [[Agent - aerospace-pedagogue]] | Agent | Writes theory from first principles, cited to the sources. |
 | [[Agent - problem-step-mentor]] | Agent | Enforces the problem-solving standard (lecturer's order, silent checklist) on problem solutions. |
 | [[Agent - source-researcher]] | Agent | Read-only extraction of formulas and statements from `sources/`. |
@@ -33,6 +34,7 @@ Map of content for the repository's own tooling, agents and rules. The study con
 | [[Tool - vault_lint]] | Tool | Lints `vault/` notes; fixes links and ampersands with `--fix`. |
 | [[Tool - audit_portal]] | Tool | Static gate for `index.html` and `subjects/` pages. |
 | [[Tool - build_topic_pages]] | Tool | Generates seven theory pages from vault notes and figures. |
+| [[Tool - mechanics-3d-sim]] | Tool | Geometry simulator of the Engineering Mechanics problem cards: archetypes, configuration keys and readout variables. |
 | [[Tool - fluids_ns]] | Tool | Generates the Fluid Mechanics Topic 4 problem page (NS1 to NS17) from the vault notes. |
 | [[Tool - build_problem_pages]] | Tool | Generates the two Business Management Topic 3 problem pages. |
 | [[Tool - build_mech_problems]] | Tool | Generates the five Engineering Mechanics official problem pages (51 problems). |

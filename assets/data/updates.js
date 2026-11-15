@@ -15,6 +15,30 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-mechanics-inertia-theory",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 6 theory now covers inertia properties",
+    "text": "Centre of mass, moments and products of inertia, the inertia tensor, principal axes and Steiner's theorem, with four worked examples.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
+    "id": "2026-11-15-mechanics-rigid-body-problems-6",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "Rigid body problems: Topic 6 solved step by step",
+    "text": "Eight official problems on rigid body kinematics and moments of inertia, each worked from first principles with its own figures.",
+    "link": "subjects/engineering-mechanics/problemas/topic-6.html"
+  },
+  {
+    "id": "2026-11-15-mechanics-rigid-body-theory",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "Rigid body theory: Topics 6, 7 and 8",
+    "text": "Three new theory pages cover rigid body kinematics and inertia, momentum, energy and dynamics, and rolling, multibody systems and torque-free motion.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
     "id": "2026-11-15-card-watermarks",
     "date": "2026-11-15",
     "tag": "Portal",
@@ -89,6 +113,22 @@ window.AE_UPDATES = [
     "title": "A cleaner home page",
     "text": "The home page is simpler: compact subject cards with direct buttons to theory, problems, PDFs and exams, new icons and a working dark and light switch.",
     "link": "index.html"
+  },
+  {
+    "id": "2026-11-14-mechanics-class-badges",
+    "date": "2026-11-14",
+    "tag": "Engineering Mechanics",
+    "title": "Problems solved in class are now marked",
+    "text": "Each mechanics problem done in a class session shows its session number, and the oscillation problems of Lecture 6 are marked too.",
+    "link": "subjects/engineering-mechanics/problemas/index.html"
+  },
+  {
+    "id": "2026-11-14-mechanics-lectures-6-10",
+    "date": "2026-11-14",
+    "tag": "Engineering Mechanics",
+    "title": "Five new lecture decks: oscillations and rigid bodies",
+    "text": "Lectures 6 to 10 (oscillations, rigid body kinematics, inertia, momentum and energy, rigid body dynamics) are now on the PDFs page.",
+    "link": "subjects/engineering-mechanics/sources/index.html"
   },
   {
     "id": "2026-11-11-materials-slide-figures",
