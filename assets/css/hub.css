@@ -485,7 +485,6 @@ kbd {
 }
 
 kbd,
-.area-badge,
 .hero-eyebrow {
   font-family: var(--font-mono);
 }
@@ -747,9 +746,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
-  min-height: 68px;
-  padding: 11px 13px;
+  min-height: 54px;
+  padding: 10px 14px;
   border-radius: var(--radius-md);
   background: var(--bg-glass);
   border: 1px solid var(--border-subtle);
@@ -798,14 +796,16 @@ main {
   transform: translateX(0);
 }
 
+/* The counts stay in the markup (audit_portal and the problem builders read them, screen readers
+   announce them) but are not shown. */
 .area-badge {
-  font-size: 0.72rem;
-  letter-spacing: 0.02em;
-  color: var(--text-secondary);
-}
-
-.area-link .area-badge {
-  padding-left: 27px;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 
 /* Secondary entries, only where the section exists */
