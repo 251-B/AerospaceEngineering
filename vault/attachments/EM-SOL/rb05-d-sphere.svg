@@ -22,8 +22,8 @@
 <path d="M459.3,345.6 L465.7,351.9 L459.2,354.6 Z" fill="#10b981"/>
 <text x="497.8" y="358.9" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
 <text x="462.1" y="331.3" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r</text>
-<text x="466.1" y="419.3" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r cos φ</text>
-<text x="659.4" y="339.3" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r sin φ</text>
+<text x="500.1" y="425.3" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r cos φ</text>
+<text x="661.4" y="325.3" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r sin φ</text>
 <polygon points="509.7,294.1 523.4,326.8 551.1,314.6 570.5,303.3 556.8,270.6 529.1,282.8" fill="#f59e0b" fill-opacity="0.9" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
 <line x1="523.4" y1="326.8" x2="542.8" y2="315.5" stroke="#4b5563" stroke-width="1.0"/>
 <line x1="523.4" y1="326.8" x2="551.1" y2="314.6" stroke="#4b5563" stroke-width="1.0"/>
@@ -38,7 +38,7 @@
 <line x1="529.1" y1="282.8" x2="556.8" y2="270.6" stroke="#4b5563" stroke-width="1.0"/>
 <line x1="570.5" y1="303.3" x2="556.8" y2="270.6" stroke="#4b5563" stroke-width="1.0"/>
 <text x="570.1" y="272.7" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dr</text>
-<text x="580.1" y="298.7" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r cos φ dθ</text>
+<text x="584.1" y="296.7" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r cos φ dθ</text>
 <text x="518.1" y="280.7" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r dφ</text>
 <circle cx="400.0" cy="380.0" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
 <text x="410.0" y="398.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>

@@ -97,7 +97,7 @@ def t_shape():
     sc.dashed((0.2, -2.6), (0.0, -2.6))
     sc.dashed((0.2, -2.6), (0.2, 0.0))
     sc.label((0.2, -1.3), "y", "TEXT", "start", 15, dx=5, dy=5)
-    sc.label((0.2, -2.6), "dA", "HEAD", "start", 15, dx=14, dy=5)
+    sc.label((0.2, -2.6), "dA", "HEAD", "start", 15, dx=22, dy=5)
     return sc
 
 

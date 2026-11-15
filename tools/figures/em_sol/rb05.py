@@ -71,7 +71,8 @@ def _box_hull(sc, P, c, dirs, halves, col="ACC", opacity=0.9):
 
 # ------------------------------------------------------------------------------------------------------------ a: bar
 def _pa(x, y, z):
-    return (x + y * DEPTH[0], y * DEPTH[1] + z)
+    # x right, z up, y = z cross x points into the paper: it recedes to the upper right
+    return (x - y * DEPTH[0], -y * DEPTH[1] + z)
 
 
 @figure("rb05-a-bar",
@@ -84,7 +85,7 @@ def a_bar():
     sc.vec(P(0, 0, 0), P(2.75, 0, 0), None, "EDGE", 1.4, head=8)
     sc.label(P(2.75, 0, 0), bold("x"), "TEXT", "middle", 16, weight="700", dx=14, dy=5)
     sc.vec(P(0, 0, 0), P(0, 1.4, 0), None, "EDGE", 1.4, head=8)
-    sc.label(P(0, 1.4, 0), bold("y"), "TEXT", "middle", 16, weight="700", dx=-10, dy=14)
+    sc.label(P(0, 1.4, 0), bold("y"), "TEXT", "middle", 16, weight="700", dx=12, dy=-6)
     sc.vec(P(0, 0, 0), P(0, 0, 1.3), None, "EDGE", 1.4, head=8)
     sc.label(P(0, 0, 1.3), bold("z"), "TEXT", "middle", 16, weight="700", dx=-12, dy=0)
     sc.line(P(-L / 2, 0, 0), P(L / 2, 0, 0), "BLUE", 8.0)
@@ -139,7 +140,7 @@ def b_cylinder():
     sc.vec(P(0, 0, 0), P(0, 0, 2.4), None, "EDGE", 1.4, head=8)
     sc.label(P(0, 0, 2.4), bold("z"), "TEXT", "middle", 16, weight="700", dx=-12, dy=14)
     sc.mass(P(0, 0, 0), None, r=4.5, col="BLUE")
-    sc.label(P(0, 0, 0), "G", "HEAD", "start", 17, dx=8, dy=18)
+    sc.label(P(0, 0, 0), "G", "HEAD", "end", 17, dx=-12, dy=22)
     # dimensions L/2 along the axis, R on the near face
     for za, zb in ((-L / 2, 0.0), (0.0, L / 2)):
         sc.dim(P(1.35, 0, za), P(1.35, 0, zb), "L/2", off=(24, 4))
@@ -170,8 +171,8 @@ def b_cylinder():
     arrow_px(sc, arc[-3], arc[-1], "GREEN", 9)
     sc.label(corner(0.55, th / 2, zf), "θ", "GREEN", "middle", 16, dx=8, dy=14)
     sc.label(corner(r * 0.5, th + dth / 2, zf), "r", "TEXT", "end", 15, dx=-10, dy=-8)
-    sc.label(corner(r + dr, th + dth, zf), "dr", ORANGE, "start", 15, weight="700", dx=4, dy=-30)
-    sc.label(corner(r + dr / 2, th + dth, zf), "r dθ", ORANGE, "end", 15, weight="700", dx=-10, dy=-12)
+    sc.label(corner(r + dr, th + dth, zf), "dr", ORANGE, "start", 15, weight="700", dx=10, dy=-40)
+    sc.label(corner(r + dr / 2, th + dth, zf), "r dθ", ORANGE, "end", 15, weight="700", dx=-26, dy=-24)
     sc.label(corner(r + dr, th, z0), "dz", ORANGE, "start", 15, weight="700", dx=22, dy=-8)
     return sc
 
@@ -267,16 +268,16 @@ def d_sphere():
     sc.label(P(0.78 * ct * math.cos(math.radians(ph / 2)), 0.78 * st * math.cos(math.radians(ph / 2)),
                0.78 * math.sin(math.radians(ph / 2))), "φ", "GREEN", "middle", 16, dx=4, dy=-4)
     sc.label(add(G, Pt, 0.5), "r", "HEAD", "end", 16, dx=-8, dy=-8)
-    sc.label(add(G, F, 0.5), "r cos φ", "TEXT", "middle", 14, dx=-4, dy=28)
-    sc.label(add(F, Pt, 0.78), "r sin φ", "TEXT", "start", 14, dx=10, dy=0)
+    sc.label(add(G, F, 0.5), "r cos φ", "TEXT", "middle", 16, dx=30, dy=34)
+    sc.label(add(F, Pt, 0.5), "r sin φ", "TEXT", "start", 16, dx=14, dy=30)
     # volume element at P
     er = (cp * ct, cp * st, sp)
     et = (-st, ct, 0.0)
     ef = (-sp * ct, -sp * st, cp)
     c0 = (r * er[0], r * er[1], r * er[2])
     _box_hull(sc, P, c0, [er, et, ef], (0.09, 0.11, 0.11))
-    sc.label(Pt, "dr", ORANGE, "start", 15, weight="700", dx=30, dy=-26)
-    sc.label(Pt, "r cos φ dθ", ORANGE, "start", 15, weight="700", dx=40, dy=0)
+    sc.label(Pt, "dr", ORANGE, "start", 15, weight="700", dx=-6, dy=-36)
+    sc.label(Pt, "r cos φ dθ", ORANGE, "start", 16, weight="700", dx=26, dy=-56)
     sc.label(Pt, "r dφ", ORANGE, "end", 15, weight="700", dx=-22, dy=-18)
     sc.mass(G, None, r=4.5, col="BLUE")
     sc.label(G, "G", "HEAD", "start", 17, dx=10, dy=18)
@@ -303,7 +304,7 @@ def e_hemisphere():
     sc.line((-R, 0.0), (R, 0.0), "HEAD", 3.2)
     fixed_axis(sc, O, 0, 2.55, _ax("x"), off=(14, 6))
     fixed_axis(sc, O, 270, 2.5, _ax("z"), off=(14, 4))
-    axis_in(sc, O, None, "HEAD")
+    axis_out(sc, O, None, "HEAD")
     sc.label(O, _ax("y"), "HEAD", "end", 16, weight="700", dx=-14, dy=-8)
     sc.label(O, "O", "HEAD", "start", 17, dx=14, dy=-12)
     G = (0.0, -3 * R / 8)
@@ -354,14 +355,13 @@ def f_cone():
     right_angle(sc, (-s, 0.0), 0, 90, 0.12)
     sc.vec(V, (-L - 0.85, 0.0), None, "EDGE", 1.4, head=8)
     sc.label((-L - 0.85, 0.0), _ax("x"), "TEXT", "middle", 16, weight="700", dx=-2, dy=-10)
-    axis_out(sc, V, None, "HEAD")
+    axis_in(sc, V, None, "HEAD")
     sc.label(V, _ax("z"), "HEAD", "start", 16, weight="700", dx=14, dy=-12)
     G = (-3 * L / 4, 0.0)
-    for xv, nm in ((0.0, "Vy"), (G[0], "Gy")):
-        sc.line((xv, -1.5), (xv, 1.6), "EDGE", 1.2, "6 4")
-        sc.label((xv, 1.6), nm, "TEXT", "middle", 15, dy=-6)
-    sc.mass(V, None, r=4.5, col="BLUE")
-    sc.label(V, "V", "HEAD", "start", 17, dx=14, dy=24)
+    fixed_axis(sc, V, 90, 1.75, _ax("y"), off=(14, 4))
+    sc.line((G[0], -1.5), (G[0], 1.6), "EDGE", 1.2, "6 4")
+    sc.label((G[0], 1.6), "Gy", "TEXT", "middle", 15, dy=-6)
+    sc.label(V, "V", "HEAD", "start", 17, dx=14, dy=26)
     sc.mass(G, None, r=5, col="BLUE")
     sc.label(G, "G", "HEAD", "start", 17, dx=8, dy=-14)
     sc.dim((0.0, -1.75), (G[0], -1.75), "3L/4", off=(0, 18))
@@ -370,7 +370,7 @@ def f_cone():
     sc.dim((0.0, -2.3), (-L, -2.3), "L", off=(0, 18))
     sc.dashed((-L, -R - 0.05), (-L, -2.35))
     sc.dim((-L - 0.35, 0.0), (-L - 0.35, R), "R", off=(-14, 5))
-    sc.label((-s, Rs / 2), sub("R", "s"), "TEXT", "end", 15, dx=-8, dy=5)
+    sc.label((-s, Rs), S("R", "s"), "TEXT", "start", 18, dx=8, dy=-12)
     sc.label((-s / 2, 0.0), "s", "TEXT", "middle", 15, dy=22)
     return sc
 
@@ -383,7 +383,7 @@ def f_cone():
 def g_disk():
     sc = Scene(720, 540, (340, 260), 105)
     P = p3
-    R, h, r, th = 2.0, 0.12, 1.3, 50.0
+    R, h, r, th = 2.0, 0.12, 1.0, 50.0
     ex, ey = (1, 0, 0), (0, 1, 0)
     top = _ring(P, (0, 0, 0), ex, ey, R)
     bot = _ring(P, (0, 0, -h), ex, ey, R)
@@ -422,8 +422,8 @@ def g_disk():
     sc.dashed((q[0], q[1] - h), (q[0] + 0.18, q[1] - h))
     sc.vec((q[0] + 0.15, q[1] + 0.2), (q[0] + 0.15, q[1] + 0.01), None, "TEXT", 1.2, head=7)
     sc.vec((q[0] + 0.15, q[1] - h - 0.2), (q[0] + 0.15, q[1] - h - 0.01), None, "TEXT", 1.2, head=7)
-    sc.label((q[0] + 0.15, q[1] - h / 2), "h", "TEXT", "start", 15, dx=12, dy=5)
-    sc.note((q[0] + 0.15, q[1] - h / 2), "h ≪ R", "TEXT", "start", 13, dx=34, dy=5)
+    sc.label((q[0] + 0.15, q[1] - h / 2), "h", "TEXT", "start", 15, dx=12, dy=-2)
+    sc.note((q[0] + 0.15, q[1] - h / 2), "h ≪ R", "TEXT", "start", 14, dx=12, dy=28)
     return sc
 
 

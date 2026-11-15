@@ -87,9 +87,9 @@ def rotation_phi():
         sc.label(G, "G", "HEAD", "middle", 17, dx=-20, dy=18)
         G2 = add(G, d(PHI), 0.12)
         sc.vec(G2, add(G2, d(PHI + 90), 0.55), sub("v", "0", "G"), "ACC", 2.6, name_off=(30, -10), size=17, head=10)
-        sc.note(add(G, d(PHI + 90), R), "disc seen edge-on", "TEXT", "start", 13, dx=8, dy=-6)
+        sc.note(add(G, d(PHI + 90), -R), "disc seen edge-on", "TEXT", "start", 14, dx=12, dy=24)
 
-    return rotation_view(620, 520, (230, 360), 170, PHI, _ax("i"), _ax("j"), _ax("i", "1"), _ax("j", "1"),
+    return rotation_view(780, 740, (320, 480), 230, PHI, _ax("i"), _ax("j"), _ax("i", "1"), _ax("j", "1"),
                          _ax("k") + " (⊙)", ("φ", ""), pre=pre, post=post, L=0.6, out_off=(-16, 28))
 
 

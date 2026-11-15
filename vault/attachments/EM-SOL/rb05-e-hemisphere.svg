@@ -10,7 +10,7 @@
 <path d="M340.0,360.0 L336.9,352.6 L343.1,352.6 Z" fill="#8a94a6"/>
 <text x="354.0" y="364.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">z</tspan></text>
 <circle cx="340.0" cy="110.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
-<path d="M334.4,104.4 L345.6,115.6 M334.4,115.6 L345.6,104.4" stroke="#4b5563" stroke-width="1.6" fill="none"/>
+<circle cx="340.0" cy="110.0" r="2.6" fill="#4b5563"/>
 <text x="326.0" y="102.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">y</tspan></text>
 <text x="354.0" y="98.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
 <line x1="180.0" y1="185.0" x2="500.0" y2="185.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="6 4"/>

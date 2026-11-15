@@ -3,9 +3,9 @@
 <line x1="340.0" y1="230.0" x2="596.5" y2="230.0" stroke="#8a94a6" stroke-width="1.4"/>
 <path d="M601.2,230.0 L593.9,233.1 L593.9,226.9 Z" fill="#8a94a6"/>
 <text x="615.2" y="235.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">x</tspan></text>
-<line x1="340.0" y1="230.0" x2="280.8" y2="276.0" stroke="#8a94a6" stroke-width="1.4"/>
-<path d="M277.0,279.0 L280.9,272.0 L284.8,276.9 Z" fill="#8a94a6"/>
-<text x="267.0" y="293.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">y</tspan></text>
+<line x1="340.0" y1="230.0" x2="399.2" y2="184.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M403.0,181.0 L399.1,188.0 L395.2,183.1 Z" fill="#8a94a6"/>
+<text x="415.0" y="175.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">y</tspan></text>
 <line x1="340.0" y1="230.0" x2="340.0" y2="111.3" stroke="#8a94a6" stroke-width="1.4"/>
 <path d="M340.0,106.5 L343.1,113.9 L336.9,113.9 Z" fill="#8a94a6"/>
 <text x="328.0" y="106.5" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">z</tspan></text>

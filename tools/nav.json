@@ -207,6 +207,10 @@
     {
      "page": "topic-5.html",
      "label": "5 · Relative motion"
+    },
+    {
+     "page": "topic-6.html",
+     "label": "6 · Rigid body kinematics, inertia"
     }
    ],
    "extra-problems": [

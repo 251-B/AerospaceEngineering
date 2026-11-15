@@ -145,6 +145,6 @@ def rotation_theta():
     def pre(sc):
         sc.circle((0.0, 0.0), 1.0, "ACC", 1.6, fill="ACC", opacity=0.10)
 
-    return rotation_view(620, 470, (300, 330), 160, THETA, _ax("k", "2"), _ax("i", "2"), _ax("k", "B") + " (z)",
+    return rotation_view(620, 540, (300, 330), 160, THETA, _ax("k", "2"), _ax("i", "2"), _ax("k", "B") + " (z)",
                          _ax("i", "B") + " (x)", _ax("j", "2") + " = " + _ax("j", "B") + " (EF, y)", ("θ", ""),
                          col="ACC", tri="BLUE", pre=pre, out_off=(-16, 28))

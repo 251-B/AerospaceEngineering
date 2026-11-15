@@ -708,7 +708,7 @@ def new_page(topic):
     text = re.sub(r'<div class="note-banner">.*?</div>', lambda m: f'<div class="note-banner">\n      {intro}\n    </div>', text, count=1, flags=re.S)
     text = re.sub(r'\n?[ \t]*<style id="em-solution-figures">.*?</style>', "", text, flags=re.S)
     nxt = ""
-    if topic + 1 in RB_TOPICS:
+    if topic + 1 in RB_TOPICS and notes_exist(topic + 1):   # no dead link while the next topic is not written
         nxt = (f'      <a href="topic-{topic + 1}.html" class="nav-btn" style="text-align: right;">\n'
                f'        <span class="nav-btn-label">Next Topic →</span>\n'
                f'        <span class="nav-btn-title">Topic {topic + 1}: {RB_TOPICS[topic + 1][0]}</span>\n      </a>\n')
