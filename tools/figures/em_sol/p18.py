@@ -154,7 +154,7 @@ def meridian():
     sc.line(O, F, "HEAD", 1.3)
     sc.dashed(F, P)
     # position vector
-    sc.vec(O, P, None, "HEAD", 2.2, head=10)
+    sc.vec(O, (P[0] - 0.12, P[1] - 0.12), None, "HEAD", 2.2, head=10)   # tip stops at the rim of the ⊗ of P
     sc.label((1.55, 0.78), _r0p(), "HEAD", "middle", 17, dy=5)
     # triangle labels
     sc.label((1.0, 0.0), "R", "TEXT", "middle", 16, dy=24)
@@ -182,7 +182,7 @@ def meridian():
     _pin(sc, P)
     sc.label(P, "P", "HEAD", "end", 17, dx=-16, dy=6)
     sc.label(P, TH, "HEAD", "start", 17, weight="700", dx=14, dy=34)
-    _spin(sc, P, 0.3, -20, -140, "positive about " + TH, (24, 56), "start")
+    _spin(sc, P, 0.3, -5, -82, "positive about " + TH, (24, 56), "start")
     sc.note((-3.0, -0.6), _en("θ") + " = " + bold("k") + " × " + _en("R") + ", into the paper", "TEXT", "start", 13)
     _matrix(sc, 5.3, 3.5, _mname("1", "2"), (("1/√2", "0", "−1/√2"), ("0", "1", "0"), ("1/√2", "0", "1/√2")), colw=0.7)
     return sc

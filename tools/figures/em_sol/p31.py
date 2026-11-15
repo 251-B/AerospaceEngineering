@@ -76,7 +76,7 @@ def _spin(sc, c, r, a0, a1, name, lpos, anchor="start", col="GREEN", size=14):
     sc.label(c, name, col, anchor, size, italic=False, dx=lpos[0], dy=lpos[1])
 
 
-def _rot_view(sc, th, nfix, nrot, L=2.0, u=1.4, ax=2.5, ra=0.7, rl=1.0, ang="θ", ls=15, cf=0.72):
+def _rot_view(sc, th, nfix, nrot, L=2.0, u=1.4, ax=2.5, ra=0.7, rl=1.0, ang="θ", ls=15, cf=0.72, cdy=22):
     """View along a rotation axis (origin of the scene at world (0, 0)): fixed axes at 0 and 90 degrees (grey), rotated
     axes at th and 90 + th (blue), arcs with arrowheads, and the two right triangles of unit length u."""
     O = (0.0, 0.0)
@@ -102,7 +102,7 @@ def _rot_view(sc, th, nfix, nrot, L=2.0, u=1.4, ax=2.5, ra=0.7, rl=1.0, ang="θ"
     # triangle legs
     sc.dashed(t1[2], t1[1])
     sc.dashed(t2[2], t2[1])
-    sc.label((u * c / 2, 0.0), "cos " + ang, "TEXT", "middle", ls, dy=22 if sg > 0 else -12)
+    sc.label((u * c / 2, 0.0), "cos " + ang, "TEXT", "middle", ls, dy=cdy if sg > 0 else -12)
     sc.label((u * c, u * s / 2), "sin " + ang, "TEXT", "start", ls, dx=10, dy=5)
     sc.label((0.0, u * c * cf), "cos " + ang, "TEXT", "start" if sg > 0 else "end", ls, dx=10 * sg, dy=5)
     sc.label((-u * s / 2, u * c), "sin " + ang, "TEXT", "middle", ls, dy=-10)
@@ -190,7 +190,7 @@ def meridian():
     sc.arc(P1, 0.5, 90, 30, "GREEN", 1.8, head=True)
     sc.label(_pol(P1, 0.8, 62), "π/2 − α", "GREEN", "start", 15, dx=2, dy=-2)
     _pin(sc, P1)
-    sc.label(P1, P1N, "HEAD", "end", 17, dx=-16, dy=22)
+    sc.label(P1, P1N, "HEAD", "end", 17, dx=-36, dy=-16)          # inside the triangle, clear of the arc below
     sc.label(P1, ET, "HEAD", "middle", 17, weight="700", dx=-2, dy=34)
     _spin(sc, P1, 0.3, 235, 155, "positive", (-20, 58), "end")
     sc.label(P1, "about " + ET, "GREEN", "end", 14, italic=False, dx=-20, dy=74)
@@ -209,7 +209,7 @@ def rotation_k():
     th = 40.0
     Rc = XI * SA * 1.333333      # 1.6 drawn units
     Rc = 1.6
-    _rot_view(sc, th, (bold("i"), bold("j")), (ER, ET), L=2.0, u=1.1, ra=0.55, rl=0.4, ls=13, cf=0.9)
+    _rot_view(sc, th, (bold("i"), bold("j")), (ER, ET), L=2.0, u=1.1, ra=0.55, rl=0.4, ls=13, cf=0.9, cdy=38)
     sc.circle(O, Rc, "GREEN", 1.6, "7 5")
     sc.label(_pol(O, Rc, 215), "radius " + XIS + " sin α", "GREEN", "end", 15, dx=-10, dy=22)
     Pp = _pol(O, Rc, th)
@@ -217,7 +217,7 @@ def rotation_k():
     sc.label(Pp, S("P", "1") + "′", "HEAD", "start", 17, dx=14, dy=16)
     axis_out(sc, O, None)
     sc.label(O, bold("k"), "HEAD", "end", 17, dx=-14, dy=-6)
-    _spin(sc, O, 0.3, 200, 340, "positive about k", (0, 50), "middle")
+    _spin(sc, O, 0.3, 200, 340, "positive about k", (0, 66), "middle")
     _matrix(sc, 3.0, -1.3, _mname("0", "1"), (("cos θ", "−sin θ", "0"), ("sin θ", "cos θ", "0"), ("0", "0", "1")), colw=0.78)
     return sc
 
@@ -249,7 +249,7 @@ def fbd():
     sc.label(P1, ET, "HEAD", "end", 16, weight="700", dx=-14, dy=30)
     # P2
     sc.vec(P2, add(P2, (0.0, -1.0)), None, RED, 3.0, head=12)
-    sc.label(add(P2, (0.0, -0.5)), "−m g " + bold("k"), RED, "start", 16, dx=10, dy=5)
+    sc.label(add(P2, (0.0, -0.5)), "−m g " + bold("k"), RED, "end", 16, dx=-10, dy=5)
     sc.vec(P2, add(P2, (0.0, 1.0)), None, "PINK", 3.0, head=12)
     sc.label(add(P2, (0.0, 0.5)), "T " + bold("k"), "PINK", "end", 17, dx=-10, dy=5)
     sc.dotp(P2, 5.0)

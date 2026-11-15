@@ -106,7 +106,10 @@ def _rot_view(sc, th, nfix, nrot, L=2.0, u=1.4, ax=2.5, ra=0.7, rl=1.0, ang="θ"
     sc.label((u * c, u * s / 2), "sin " + ang, "TEXT", "start", ls, dx=10, dy=5)
     sc.label((0.0, u * c * cf), "cos " + ang, "TEXT", "start" if sg > 0 else "end", ls, dx=10 * sg, dy=5)
     sc.label((-u * s / 2, u * c), "sin " + ang, "TEXT", "middle", ls, dy=-10)
-    sc.label((u * c / 2, u * s / 2), "1", "TEXT", "middle", ls, dx=-8 * sg if sg > 0 else 14, dy=-10 * sg + 4 if sg > 0 else 16)
+    if sg > 0:
+        sc.label((u * c / 2, u * s / 2), "1", "TEXT", "middle", ls, dx=-8, dy=-6)
+    else:                                   # below the vector, nearer O, clear of the arrowhead of the angle arc
+        sc.label((u * c * 0.3, u * s * 0.3), "1", "TEXT", "middle", ls, dy=24)
     sc.label((-u * s / 2, u * c / 2), "1", "TEXT", "middle", ls, dx=-16 * sg, dy=-4)
 
 
@@ -152,8 +155,8 @@ def rotation_j():
     kd = (s, c)                       # axis of the cylinder
     nd = (-c, s)                      # normal to the axis, in the plane of the paper
     for sg in (1, -1):
-        sc.line((-2.0 * kd[0] + sg * 1.3 * nd[0], -2.0 * kd[1] + sg * 1.3 * nd[1]),
-                (2.4 * kd[0] + sg * 1.3 * nd[0], 2.4 * kd[1] + sg * 1.3 * nd[1]), "EDGE", 1.0)
+        sc.line((-2.0 * kd[0] + sg * 2.1 * nd[0], -2.0 * kd[1] + sg * 2.1 * nd[1]),
+                (2.4 * kd[0] + sg * 2.1 * nd[0], 2.4 * kd[1] + sg * 2.1 * nd[1]), "EDGE", 1.0)   # outline clear of the triangles
     _rot_view(sc, -al, (I1, K1), (bold("i"), bold("k")), L=2.4, u=1.5, ax=2.6, ra=0.8, rl=1.15, ang="α")
     _pin(sc, O)
     sc.label(O, J1 + " = " + bold("j"), "HEAD", "end", 17, dx=-14, dy=-12)
@@ -200,14 +203,14 @@ def cross_section():
     sc.arc(P, 0.28, 90, 90 + th, "GREEN", 1.6, head=True)
     sc.label(_pol(P, 0.5, 90 + th / 2 + 5), "θ", "GREEN", "middle", 15, dy=5)
     sc.dotp(P, 5.0)
-    sc.label(P, "P", "HEAD", "start", 17, dx=12, dy=22)
+    sc.label(P, "P", "HEAD", "end", 17, dx=-12, dy=5)
     # gravity in the section
     sc.vec((0.0, -0.6), (1.0, -0.6), None, RED, 3.0, head=12)
     sc.label((0.0, -0.6), "g sin α", RED, "start", 15, dy=24)
     sc.label((0.0, -0.6), "(part of gravity", RED, "start", 14, dy=44)
     sc.label((0.0, -0.6), "in the section)", RED, "start", 14, dy=62)
     # lowest generator and start point
-    sc.line((RC, -0.12), (RC, 0.12), "HEAD", 2.0)
+    sc.line((RC - 0.14, 0.0), (RC + 0.14, 0.0), "HEAD", 3.2)          # radial tick across the circle at theta = 0
     sc.label((RC, 0.0), "lowest generator (θ = 0)", "HEAD", "start", 15, dx=14, dy=28)
     x, y = sc.P((0.0, RC))
     sc.c.add(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="none" stroke="HEAD" stroke-width="1.8"/>')
@@ -249,12 +252,13 @@ def fbd():
     # reaction
     T = add(P, er, -1.4)
     sc.vec(P, T, None, PURPLE, 3.0, head=12)
-    sc.label(T, "N " + ER + " (drawn for N < 0)", PURPLE, "end", 16, dx=-10, dy=-8)
+    sc.label(T, "N " + ER, PURPLE, "end", 16, dx=-10, dy=-8)
+    sc.label(T, "(drawn for N < 0)", PURPLE, "end", 14, dx=-10, dy=12)
     # axial part of the weight, into the paper
     _pinc(sc, P, RED)
     sc.line((P[0] - 0.1, P[1] + 0.1), (0.85, 2.3), RED, 0.9, "3 3")
     sc.label((0.85, 2.3), "−m g cos α " + bold("k"), RED, "end", 16, dx=-4, dy=-14)
     sc.label((0.85, 2.3), "(axial part of the weight)", RED, "end", 15, dx=-4, dy=6)
     sc.label(P, "P", "HEAD", "end", 17, dx=-14, dy=10)
-    sc.note((-3.9, -2.55), "inertial frame " + S("S", "1") + ": no inertia forces; smooth cylinder: reaction along " + ER + " only", "TEXT", "start", 13)
+    sc.note((-3.9, -2.55), "inertial frame " + S("S", "0") + ": no inertia forces; smooth cylinder: reaction along " + ER + " only", "TEXT", "start", 13)
     return sc

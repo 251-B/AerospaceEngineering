@@ -154,7 +154,8 @@ def plane():
     # legs of the triangle
     sc.dashed(Q, P)
     sc.label((P[0] / 2, 0.0), "a cos θ", "TEXT", "middle", 15, dy=22)
-    sc.label((P[0], P[1] / 2), "a sin θ", "TEXT", "start", 15, dx=10, dy=5)
+    sc.line((P[0] + 0.03, P[1] * 0.4), (A_ + 0.12, P[1] * 0.4), "EDGE", 0.9)     # leader, so the label clears the circle
+    sc.label((A_ + 0.12, P[1] * 0.4), "a sin θ", "TEXT", "start", 15, dx=4, dy=5)
     # position vector
     sc.vec(O, P, None, "HEAD", 2.2, head=10)
     sc.label((0.2, 0.9), _r0p() + " = a " + ER, "HEAD", "start", 17, dy=5)
@@ -164,7 +165,7 @@ def plane():
     # anchor and spring
     _square(sc, A)
     sc.label(A, "A (0, β a)", "HEAD", "end", 16, dx=-12, dy=-4)
-    sc.spring(A, P, coils=7, amp=7.0, col=BROWN, lead=0.10, w=1.8)
+    sc.spring(A, P, coils=5, amp=7.0, col=BROWN, lead=0.32, w=1.8)   # long straight ends: the coils stay clear of the basis at P
     arrow_head(sc.c, sc.P((P[0] - 0.12 * (P[0] - A[0]), P[1] - 0.12 * (P[1] - A[1]))), sc.P(P), BROWN, 12)
     sc.label((P[0] / 2, (A[1] + P[1]) / 2), "AP", BROWN, "middle", 17, weight="700", dx=22, dy=-14)
     Ah = (P[0], A[1])
@@ -175,8 +176,8 @@ def plane():
     # basis at P
     sc.vec(P, (P[0] + 0.9 * c, P[1] + 0.9 * s), None, "BLUE", 2.6, head=11)
     sc.label((P[0] + 0.9 * c, P[1] + 0.9 * s), ER, "BLUE", "start", 17, weight="700", dx=8, dy=6)
-    sc.vec(P, (P[0] - 0.9 * s, P[1] + 0.9 * c), None, "BLUE", 2.6, head=11)
-    sc.label((P[0] - 0.9 * s, P[1] + 0.9 * c), ET, "BLUE", "start", 17, weight="700", dx=8, dy=-4)
+    sc.vec(P, (P[0] - 0.7 * s, P[1] + 0.7 * c), None, "BLUE", 2.6, head=11)
+    sc.label((P[0] - 0.7 * s, P[1] + 0.7 * c), ET, "BLUE", "middle", 17, weight="700", dx=2, dy=-12)
     sc.vec(P, (P[0] + 0.55, P[1]), None, "EDGE", 1.3, head=7)
     sc.vec(P, (P[0], P[1] + 0.55), None, "EDGE", 1.3, head=7)
     sc.arc(P, 0.38, 0, th, "GREEN", 1.6, head=True)
@@ -211,7 +212,7 @@ def fbd():
     add = lambda p, v, k=1.0: (p[0] + k * v[0], p[1] + k * v[1])
     sc.circle(O, A_, "EDGE", 1.6)
     sc.dotp(O, 3.0)
-    sc.label(O, "O", "TEXT", "end", 16, dx=-10, dy=-6)
+    sc.label(O, "O", "TEXT", "end", 16, dx=-10, dy=20)
     _square(sc, A)
     sc.label(A, "A", "HEAD", "start", 16, dx=12, dy=-6)
     # weight
@@ -226,6 +227,7 @@ def fbd():
     Rn = add(P, er, -0.8)
     sc.vec(P, Rn, None, PURPLE, 3.0, head=12)
     sc.label(Rn, S("N", "R") + " " + ER, PURPLE, "end", 17, dx=-8, dy=16)
+    sc.label(Rn, "(drawn for " + S("N", "R") + " < 0)", PURPLE, "end", 15, dx=-8, dy=36)
     # extra force and velocity
     Fx = add(P, et, 0.7)
     sc.line(P, add(P, et, 0.7 - 0.07), "GREEN", 2.8, "6 4")
@@ -233,9 +235,9 @@ def fbd():
     Pv = add(P, er, 0.16)
     Vt = add(Pv, et, 0.9)
     sc.vec(Pv, Vt, None, "GREEN", 1.6, head=9)
-    sc.label(Vt, "a " + "θ̇" + " " + ET, "GREEN", "start", 16, dx=10, dy=-4)
-    sc.line(Fx, (2.1, 1.45), "GREEN", 0.9)
-    sc.label((2.1, 1.45), "2 m μ v (parts e, f)", "GREEN", "start", 16, dx=4, dy=5)
+    sc.label(Vt, "a θ" + '<tspan dx="-6.5" baseline-shift="52%">·</tspan>' + " " + ET, "GREEN", "start", 16, dx=10, dy=-4)
+    sc.line((Fx[0] - 0.02, Fx[1] + 0.06), (1.2, 2.14), "GREEN", 0.9)        # leader up and to the left, clear of the velocity
+    sc.label((1.2, 2.14), "2 m μ v (parts e, f)", "GREEN", "start", 16, dx=-2, dy=-6)
     # axial reaction (zero)
     _pout(sc, P, 9, PURPLE)
     sc.line((P[0] + 0.13, P[1] - 0.06), (2.1, 0.85), PURPLE, 0.9, "3 3")

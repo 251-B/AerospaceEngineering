@@ -76,7 +76,7 @@ def _spin(sc, c, r, a0, a1, name, lpos, anchor="start", col="GREEN", size=14):
     sc.label(c, name, col, anchor, size, italic=False, dx=lpos[0], dy=lpos[1])
 
 
-def _rot_view(sc, th, nfix, nrot, L=2.0, u=1.4, ax=2.5, ra=0.7, rl=1.0, ang="θ", ls=15, cf=0.72):
+def _rot_view(sc, th, nfix, nrot, L=2.0, u=1.4, ax=2.5, ra=0.7, rl=1.0, ang="θ", ls=15, cf=0.72, cdy=22):
     """View along a rotation axis (origin of the scene at world (0, 0)): fixed axes at 0 and 90 degrees (grey), rotated
     axes at th and 90 + th (blue), arcs with arrowheads, and the two right triangles of unit length u."""
     O = (0.0, 0.0)
@@ -102,7 +102,7 @@ def _rot_view(sc, th, nfix, nrot, L=2.0, u=1.4, ax=2.5, ra=0.7, rl=1.0, ang="θ"
     # triangle legs
     sc.dashed(t1[2], t1[1])
     sc.dashed(t2[2], t2[1])
-    sc.label((u * c / 2, 0.0), "cos " + ang, "TEXT", "middle", ls, dy=22 if sg > 0 else -12)
+    sc.label((u * c / 2, 0.0), "cos " + ang, "TEXT", "middle", ls, dy=cdy if sg > 0 else -12)
     sc.label((u * c, u * s / 2), "sin " + ang, "TEXT", "start", ls, dx=10, dy=5)
     sc.label((0.0, u * c * cf), "cos " + ang, "TEXT", "start" if sg > 0 else "end", ls, dx=10 * sg, dy=5)
     sc.label((-u * s / 2, u * c), "sin " + ang, "TEXT", "middle", ls, dy=-10)
@@ -146,11 +146,14 @@ def meridian():
     sc.vec(O, (0.0, 4.3), None, "EDGE", 1.4, head=8)
     sc.label((0.0, 4.3), "z", "TEXT", "middle", 16, weight="700", dx=-12, dy=4)
     _parab(sc, -2.4, 2.4)
-    sc.label((2.2, 3.23), "a z = r²", "HEAD", "start", 16, dx=12, dy=0)
-    # slope triangle
-    V = (A + 0.5, A + 1.0)
-    triangle(sc, [P, (A + 0.5, A), V], YELLOW, 0.30)
-    right_angle(sc, (A + 0.5, A), 180, 90, 0.10)
+    sc.label((2.4, 3.84), "a z = r²", "HEAD", "start", 16, dx=10, dy=0)
+    # slope triangle, drawn further along the tangent (clear of the basis at P): legs a and 2r at the scale 0.4
+    T0 = (A + 0.5, A + 1.0)
+    C = (A + 0.9, A + 1.0)
+    V = (A + 0.9, A + 1.8)
+    sc.line((A + 0.9 * CP, A + 0.9 * SP), T0, ORANGE, 1.0, "4 3")
+    triangle(sc, [T0, C, V], YELLOW, 0.30)
+    right_angle(sc, C, 180, 90, 0.10)
     # dashed legs of P
     sc.dashed((0.0, A), P)
     sc.dashed((A, 0.0), P)
@@ -166,7 +169,7 @@ def meridian():
     sc.label((A, A + 0.9), bold("k"), "TEXT", "middle", 17, weight="700", dx=-1, dy=-10)
     # rotated pair
     sc.vec(P, (A + 0.9 * CP, A + 0.9 * SP), None, ORANGE, 2.6, head=11)
-    sc.label((A + 0.9 * CP, A + 0.9 * SP), EM, ORANGE, "end", 17, weight="700", dx=-4, dy=-12)
+    sc.label((A + 0.9 * CP, A + 0.9 * SP), EM, ORANGE, "end", 17, weight="700", dx=-10, dy=2)
     sc.vec(P, (A - 0.9 * SP, A + 0.9 * CP), None, ORANGE, 2.6, head=11)
     sc.label((A - 0.9 * SP, A + 0.9 * CP), bold("n"), ORANGE, "end", 17, weight="700", dx=-8, dy=-6)
     # arcs at P
@@ -175,10 +178,10 @@ def meridian():
     sc.arc(P, 0.42, 90, 90 + PHI, "GREEN", 1.8, head=True)
     sc.label(_pol(P, 0.66, 90 + PHI / 2 + 6), "φ", "GREEN", "middle", 16, dy=5)
     # triangle labels
-    sc.label((A + 0.4, A), "a", "TEXT", "middle", 15, dy=19)
-    sc.label((A + 0.5, A + 0.72), "2r", "TEXT", "start", 15, dx=9, dy=5)
-    sc.line(V, (V[0] + 0.15, V[1] + 0.09), "EDGE", 0.9)
-    sc.label(V, "√(a² + 4r²)", "TEXT", "start", 15, dx=22, dy=-12)
+    sc.label((A + 0.7, A + 1.0), "a", "TEXT", "middle", 15, dy=19)
+    sc.label((A + 0.9, A + 1.4), "2r", "TEXT", "start", 15, dx=9, dy=5)
+    sc.line((A + 0.7, A + 1.4), (1.78, 3.36), "EDGE", 0.9)
+    sc.label((1.78, 3.36), "√(a² + 4r²)", "TEXT", "end", 15, dx=-4, dy=0)
     # e_theta into the paper
     _pin(sc, P)
     sc.label(P, "P", "HEAD", "end", 17, dx=-30, dy=18)
@@ -198,7 +201,7 @@ def rotation_k():
     sc = Scene(860, 600, (330, 290), K)
     O = (0.0, 0.0)
     th = 35.0
-    _rot_view(sc, th, (bold("i"), bold("j")), (ER, TH), L=2.0, u=1.0, ra=0.5, rl=0.36, ls=13, cf=0.95)
+    _rot_view(sc, th, (bold("i"), bold("j")), (ER, TH), L=2.0, u=1.0, ra=0.5, rl=0.36, ls=13, cf=0.95, cdy=38)
     sc.circle(O, 2.0, "GREEN", 1.6, "7 5")
     sc.circle(O, 1.4, "GREEN", 1.6, "7 5")
     # labels of the circles, with a leader line
@@ -214,7 +217,7 @@ def rotation_k():
     sc.label((2.0, 0.85), S("v", "0"), "GREEN", "start", 17, dx=10, dy=4)
     axis_out(sc, O, None)
     sc.label(O, bold("k"), "HEAD", "end", 17, dx=-14, dy=-6)
-    _spin(sc, O, 0.3, 200, 340, "positive about k", (0, 50), "middle")
+    _spin(sc, O, 0.3, 200, 340, "positive about k", (0, 66), "middle")
     _matrix(sc, 3.2, -0.3, _mname("0", "1"), (("cos θ", "−sin θ", "0"), ("sin θ", "cos θ", "0"), ("0", "0", "1")), colw=0.78)
     return sc
 
@@ -230,21 +233,20 @@ def fbd():
     sc.vec(O, (0.0, 3.6), None, "EDGE", 1.4, head=8)
     sc.label((0.0, 3.6), "z", "TEXT", "middle", 16, weight="700", dx=-12, dy=4)
     _parab(sc, 0.0, 2.4, "EDGE", 1.5)
-    w = 0.8
+    w = 0.6                             # m g = 0.6 units, so every arrowhead stays right of the axis
     W = (A, A - w)
-    N = (A - 2 * w * 1.0, A + w)        # N = sqrt5 m g along n: (-2, 1) m g
-    N = (A - 2.0 * w, A + 1.0 * w)
+    N = (A - 2.0 * w, A + 1.0 * w)      # N = sqrt5 m g along n: (-2, 1) m g
     Rs = (A - 2.0 * w, A)
     sc.line((W[0] - 0.07, W[1] + 0.035), (Rs[0] + 0.07, Rs[1] - 0.035), "EDGE", 1.1, "5 4")
     sc.line((N[0], N[1] - 0.1), (Rs[0], Rs[1] + 0.1), "EDGE", 1.1, "5 4")
     sc.vec(P, W, None, RED, 3.0, head=12)
     sc.label((A, A - w / 2), "−m g " + bold("k"), RED, "start", 16, dx=10, dy=5)
     sc.vec(P, N, None, PURPLE, 3.0, head=12)
-    sc.label(N, "N " + bold("n"), PURPLE, "end", 17, dx=-10, dy=-2)
+    sc.label(N, "N " + bold("n"), PURPLE, "start", 17, dx=-4, dy=-14)
     sc.line(P, (Rs[0] + 0.1, Rs[1]), PURPLE, 2.6, "7 4")
     arrow_head(sc.c, sc.P(P), sc.P(Rs), PURPLE, 11)
-    sc.label((Rs[0], Rs[1]), "resultant −2 m g " + ER, PURPLE, "end", 15, dx=-12, dy=-2)
-    sc.label((Rs[0], Rs[1]), "(centripetal m " + S("v", "0", "2") + "/a)", PURPLE, "end", 15, dx=-12, dy=20)
+    sc.label((0.0, Rs[1]), "resultant −2 m g " + ER, PURPLE, "end", 15, dx=-10, dy=-2)
+    sc.label((0.0, Rs[1]), "(centripetal m " + S("v", "0", "2") + "/a)", PURPLE, "end", 15, dx=-10, dy=20)
     _pin(sc, P)
     sc.label(P, "P", "HEAD", "start", 17, dx=14, dy=-14)
     sc.label(P, TH, "HEAD", "start", 16, weight="700", dx=16, dy=8)

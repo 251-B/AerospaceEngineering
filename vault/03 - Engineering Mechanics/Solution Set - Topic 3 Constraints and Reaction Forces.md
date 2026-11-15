@@ -3,7 +3,7 @@ title: "Solution Set - Topic 3: Constraints and Reaction Forces"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
-type: "Full Analytical Solutions (4-Phase Methodology)"
+type: "Full Analytical Solutions"
 language: "English"
 tags:
   - solutions
@@ -12,7 +12,7 @@ tags:
 
 # 📚 Topic 3: Constraints and Reaction Forces - Full Analytical Solutions
 
-Exhaustive, step-by-step analytical solutions for all 12 solvable problems from Topic 3 (**Constraints and Reaction Forces**) of *Mechanics Applied to Aerospace Engineering* (UC3M). Every problem adheres to the mandatory 4-phase pedagogical methodology, with explicit justification prior to every equation, zero algebraic omissions, explicit derivative developments (product, quotient, and chain rules), explicit integral evaluations (substitutions, primitives, and Barrow's rule), rotation matrices $[{}_0 R_1]$, normal and tangent subspaces ($V_N, V_T$), and dimensional verifications.
+Exhaustive, step-by-step analytical solutions for all 12 solvable problems from Topic 3 (**Constraints and Reaction Forces**) of *Mechanics Applied to Aerospace Engineering* (UC3M). Every problem follows the Engineering Mechanics order of the problem-solving standard (frames and coordinates, change of basis and position vector, kinematics, forces and equations of motion, answers and checks), with explicit justification prior to every equation, zero algebraic omissions, explicit derivative developments (product, quotient, and chain rules), explicit integral evaluations (substitutions, primitives, and Barrow's rule), rotation matrices $[{}_0 R_1]$, normal and tangent subspaces ($V_N, V_T$), and dimensional verifications.
 
 ---
 
@@ -34,7 +34,7 @@ A heavy particle $P$ of mass $m$ slides without friction on the cone of the stat
 | Degrees of freedom | a free particle has 3; one surface constraint leaves 2: $R(t)$ and $\theta(t)$ ([Lecture 3, Slide 4]) |
 | Data | $m$ [kg], $g$ [m s$^{-2}$], $a$ [m] |
 | Applied force | weight $-mg\,\mathbf k$ |
-| Reaction | $\mathbf N = N\,\mathbf n$, one unknown component, since the normal subspace of a surface has dimension 1 (Notes.pdf, Sec. 6.4) |
+| Reaction | $\mathbf N = N\,\mathbf n$, one unknown component, since the normal subspace of a surface has dimension 1 (Notes.pdf, Sec. 6.3; Notes.pdf, Sec. 6.4) |
 | Initial conditions | $\mathbf r_0^P(0) = a\,\mathbf i + a\,\mathbf k$, $\mathbf v_0^P(0) = \sqrt{ag}\,\mathbf j$: $R(0) = a$, $\theta(0) = 0$, $\dot R(0) = 0$, $\dot\theta(0) = \sqrt{g/a}$ (from $a\dot\theta(0) = \sqrt{ag}$, see the kinematics) |
 | Hypotheses | no friction (statement); the reaction may only push the particle away from the surface towards the axis; the result shows that it always does |
 
@@ -48,7 +48,7 @@ The cylindrical basis is seen from above, along $\mathbf k$: with $\mathbf i$ to
 
 > [!derivation] Cylindrical basis: rotation about k
 > **Law:** elementary rotation about the third axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
 >
 > View along $\mathbf k$ (⊙). The unit vector $\mathbf e_R$ is $\mathbf i$ turned counterclockwise by $\theta$: its right triangle has hypotenuse 1, adjacent leg $\cos\theta$ along $\mathbf i$ and opposite leg $\sin\theta$ along $\mathbf j$. The unit vector $\mathbf e_\theta$ is $\mathbf j$ turned by the same angle: its adjacent leg $\cos\theta$ lies along $\mathbf j$ and its opposite leg $\sin\theta$ along minus $\mathbf i$, because turning the upward vector counterclockwise leans it to the left; that is the origin of the minus sign.
 >
@@ -84,7 +84,7 @@ The cylindrical basis is seen from above, along $\mathbf k$: with $\mathbf i$ to
 
 > [!derivation] Surface basis: rotation about e_theta in the meridian plane
 > **Law:** elementary rotation about the second axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.19
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.19
 >
 > View of the meridian plane of $P$ with $\mathbf e_R$ to the right and $\mathbf k$ up. Since $\mathbf e_\theta$ is the cross product of $\mathbf k$ and $\mathbf e_R$, it points into the paper (⊗) in this view, and a positive rotation about $\mathbf e_\theta$ (right-hand rule, thumb into the paper) is clockwise as seen. The generator $z = R$ rises at 45 degrees, so $\mathbf e_g$ is $\mathbf e_R$ turned counterclockwise by $\pi/4$: Notes.pdf, Eq. 1.19 with the negative angle $-\pi/4$. Its right triangle is the one of the generator itself: hypotenuse $R\sqrt2$ (the distance $OP$), adjacent leg $R$ (horizontal), opposite leg $z$, equal to $R$ (vertical); divided by the hypotenuse the legs give $\cos\frac{\pi}{4}$ and $\sin\frac{\pi}{4}$. The vector $\mathbf n$ is $\mathbf k$ turned by the same angle: adjacent leg along $\mathbf k$, opposite leg along minus $\mathbf e_R$ (turning the upward vector counterclockwise leans it to the left, towards the axis): that is the minus sign.
 >
@@ -276,7 +276,7 @@ The free-body diagram, drawn in the meridian plane, shows the weight and the nor
 
 > [!derivation] Limiting case: a slightly perturbed start
 > **Law:** linearisation of the meridian equation about the circular orbit
-> **Source:** Notes.pdf, Sec. 4.6; Notes.pdf, Eq. 5.7
+> **Source:** Notes.pdf, Sec. 4.6; Notes.pdf, Eq. 5.6
 >
 > If the start radius is moved to $a$ plus a small $\rho$ with the same areal constant $h$, the meridian equation is linearised in $\rho$.
 >
@@ -297,7 +297,7 @@ The free-body diagram, drawn in the meridian plane, shows the weight and the nor
 | Integral equations | $R^2\dot\theta = a\sqrt{ag}$; $\dot R^2 = \frac32 ga - gR - \frac{a^3 g}{2R^2}$; $t = \int_a^R dR'/\pm\sqrt{\Phi(R')}$, $\theta = \int_0^t h\,dt'/R^2$ |
 | Maximum and minimum of $z$ | $\Phi(R) = -\frac{g(2R + a)}{2R^2}(R - a)^2 \le 0$, so $R \equiv a$: $z_{\max} = z_{\min} = a$ (uniform circular motion, $\dot\theta = \sqrt{g/a}$, reaction $\sqrt2\,mg$) |
 
-**Check against the official key:** Problems.pdf, p. 73 lists item 18 with no answer, so there is no key to compare with. Independent check: the box of the circular motion substitutes the result back into Newton's law, and a numerical integration of the two equations of motion with unit values of the data keeps the radius equal to $a$ to round-off over many turns.
+**Check against the official key:** Problems.pdf, p. 73 lists item 18 with no answer, so there is no key to compare with. Independent check: the box of the circular motion substitutes the result back into Newton's law, and the linearised meridian equation shows the orbit is stable.
 
 ---
 
@@ -319,7 +319,7 @@ A heavy particle $P$ of mass $m$ slides without friction on the paraboloid of re
 | Degrees of freedom | 3 minus 1 surface constraint: 2, namely $r(t)$ and $\theta(t)$ ([Lecture 3, Slide 4]) |
 | Data | $m$ [kg], $g$ [m s$^{-2}$], $a$ [m], $v_0$ [m s$^{-1}$] |
 | Applied force | weight $-mg\,\mathbf k$ |
-| Reaction | $\mathbf N = N\,\mathbf n$, one unknown component (Notes.pdf, Sec. 6.4) |
+| Reaction | $\mathbf N = N\,\mathbf n$, one unknown component (Notes.pdf, Sec. 6.3; Notes.pdf, Sec. 6.4) |
 | Initial conditions | $r(0) = a$, $\theta(0) = 0$ (azimuth origin chosen at the start), $\dot r(0) = 0$ and $a\,\dot\theta(0) = v_0$ (velocity tangent to the parallel), $z(0) = a$ |
 | Hypotheses | no friction (statement); $v_0 \gt 0$ (sense of the azimuth chosen along the initial velocity) |
 
@@ -333,7 +333,7 @@ Seen from above, along $\mathbf k$, with $\mathbf i$ to the right and $\mathbf j
 
 > [!derivation] Cylindrical basis: rotation about k
 > **Law:** elementary rotation about the third axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
 >
 > View along $\mathbf k$ (⊙). $\mathbf e_r$ is $\mathbf i$ turned counterclockwise by $\theta$: hypotenuse 1, adjacent leg $\cos\theta$ on $\mathbf i$, opposite leg $\sin\theta$ on $\mathbf j$. $\mathbf e_\theta$ is $\mathbf j$ turned by the same angle: adjacent leg $\cos\theta$ on $\mathbf j$, opposite leg $\sin\theta$ on minus $\mathbf i$, since the upward vector turned counterclockwise leans to the left (the minus sign).
 >
@@ -351,7 +351,7 @@ Seen from above, along $\mathbf k$, with $\mathbf i$ to the right and $\mathbf j
 
 > [!derivation] Normal and meridian tangent of the paraboloid
 > **Law:** the gradient of the implicit equation is normal to the surface; the meridian tangent completes the right-handed triad
-> **Source:** Notes.pdf, Eq. 6.9; Notes.pdf, Eq. 6.10; Notes.pdf, Sec. 6.3
+> **Source:** Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 6.9; Notes.pdf, Eq. 6.10; Notes.pdf, Sec. 6.3
 >
 > Meridian section through $P$ (view with $\mathbf e_r$ to the right and $\mathbf k$ up, $\mathbf e_\theta$ into the paper ⊗, since $\mathbf e_\theta$ is the cross product of $\mathbf k$ and $\mathbf e_r$). The slope of the meridian $z = r^2/a$ is $2r/a$; the slope triangle has horizontal leg $a$, vertical leg $2r$ and hypotenuse $D = \sqrt{a^2 + 4r^2}$, so the slope angle $\varphi$ has $\cos\varphi = a/D$ (adjacent over hypotenuse) and $\sin\varphi = 2r/D$ (opposite over hypotenuse). The tangent $\mathbf e_m$ is $\mathbf e_r$ turned counterclockwise by $\varphi$; with the axis $\mathbf e_\theta$ into the paper a positive rotation is clockwise, so this is Notes.pdf, Eq. 1.19 with the angle $-\varphi$. The normal $\mathbf n$ is $\mathbf k$ turned by the same angle and leans towards the axis, minus $\mathbf e_r$: the minus sign.
 >
@@ -524,13 +524,13 @@ The free-body diagram in the meridian plane shows the weight and the normal reac
 >
 > $$\begin{aligned}
 > r_\ast &= v_0\sqrt{\frac{a}{2g}} \to 0 \quad &\text{($v_0 \to 0$)} \\
-> r^2\dot\theta &= a v_0 \to 0 \Rightarrow \dot\theta \to 0 \quad &\text{(no azimuthal motion)}
+> r^2\dot\theta &= a v_0 \to 0 \quad &\text{(the areal constant vanishes)}
 > \end{aligned}$$
 >
-> $$\boxed{v_0 \to 0:\ 0 \le r \le a,\ \text{oscillation through the vertex in a fixed meridian plane}}$$
+> $$\boxed{v_0 = 0:\ \dot\theta \equiv 0,\ 0 \le r \le a,\ \text{oscillation through the vertex in a fixed meridian plane}}$$
 >
 > **Units:** lengths $[\mathrm{L}]$
-> **Meaning:** without azimuthal speed nothing keeps the particle away from the axis, so it slides through the vertex in a vertical plane, like a bead on the meridian parabola.
+> **Meaning:** without azimuthal speed nothing keeps the particle away from the axis, so it slides through the vertex in a vertical plane, like a bead on the meridian parabola; for small $v_0 \gt 0$ the rate at the inner turning radius, $a v_0/r_\ast^2 = 2g/v_0$, is large, so the particle swings round the axis by nearly $\pi$ each time it passes close to it.
 
 | Part of the statement | Answer |
 | :--- | :--- |
@@ -539,7 +539,7 @@ The free-body diagram in the meridian plane shows the weight and the normal reac
 | Quadrature | $\int_a^r \frac{r'\sqrt{a^2 + 4r'^2}\,dr'}{\sqrt{2ga(a^2 - r'^2)(r'^2 - r_\ast^2)}} = \pm t$, with $r_\ast = v_0\sqrt{a/(2g)}$; $\theta = \int_0^t a v_0\,dt'/r^2$ |
 | Maximum and minimum of $r$ | $v_0 \lt \sqrt{2ga}$: $r_{\max} = a$, $r_{\min} = r_\ast$; $v_0 = \sqrt{2ga}$: $r \equiv a$; $v_0 \gt \sqrt{2ga}$: $r_{\min} = a$, $r_{\max} = r_\ast$ |
 
-**Check against the official key:** Problems.pdf, p. 73, item 19, prints the energy quadrature and the areal integral of the boxes above, identical term by term, and the same three cases for the extreme radii: **match**. The square roots of the key's extreme radius are lost in the text layer of the PDF; it is read as $v_0\sqrt{a/(2g)}$, the only reading that is a length and that equals $a$ at the circular speed $\sqrt{2ga}$, as the key's middle case requires.
+**Check against the official key:** Problems.pdf, p. 73, item 19, prints the energy quadrature and the areal integral of the boxes above, identical term by term, and the same three cases for the extreme radii: **match**. The key prints the second turning radius as $v_0\sqrt{a/2g}$, the same value.
 
 ---
 
@@ -553,14 +553,14 @@ A heavy particle $P$ of mass $m$ moves on the inside of a smooth vertical circum
 | :--- | :--- |
 | Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, origin at the centre of the circumference (Notes.pdf, Eq. 2.1) |
 | Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$, $\mathbf j$ vertical **upward** (the axis of the turning diameter), $\mathbf i$ and $\mathbf k$ horizontal, right-handed; the plane $Oxy$ holds the circumference at $t = 0$, as in Notes.pdf, Fig. 4.3 |
-| Basis of the plane of the circumference | $\mathcal B_2 = \{\mathbf i_2, \mathbf j, \mathbf k_2\}$, $\mathcal B_0$ turned by the angle $\omega t$ about $\mathbf j$; the circumference lies in the plane of $\mathbf i_2$ and $\mathbf j$ (for zero $\omega$, $\mathcal B_2$ is $\mathcal B_0$) |
-| Polar basis | $\mathcal B_3 = \{\mathbf e_R, \mathbf e_\theta, \mathbf k_2\}$: $\mathbf e_R$ from $O$ to $P$, $\mathbf e_\theta$ along increasing $\theta$, $\mathbf k_2$ normal to the plane |
-| Coordinate | $\theta$, the angle of $OP$ from the downward vertical, positive towards $\mathbf i_2$ (the coordinate of Notes.pdf, Sec. 4.7) |
-| Constraints | (1) plane of the circumference: $\mathbf r_0^P\cdot\mathbf k_2(t) = 0$, holonomic, bilateral, stationary for zero $\omega$ and rheonomic (time-dependent) when it turns; (2) circumference: $|\mathbf r_0^P| = L$ while in contact, holonomic, stationary, **unilateral** (the particle is inside and may move towards $O$, $|\mathbf r_0^P| \le L$) ([Lecture 3, Slide 21]) |
-| Degrees of freedom | 3 minus 2 constraints: 1, the angle $\theta(t)$; the turning angle $\omega t$ is prescribed, not a degree of freedom |
+| Basis of the plane of the circumference | $\mathcal B_1 = \{\mathbf i_1, \mathbf j, \mathbf k_1\}$, $\mathcal B_0$ turned by the angle $\omega t$ about $\mathbf j$; the circumference lies in the plane of $\mathbf i_1$ and $\mathbf j$ (for zero $\omega$, $\mathcal B_1$ is $\mathcal B_0$) |
+| Polar basis | $\mathcal B_2 = \{\mathbf e_R, \mathbf e_\theta, \mathbf k_1\}$: $\mathbf e_R$ from $O$ to $P$, $\mathbf e_\theta$ along increasing $\theta$, $\mathbf k_1$ normal to the plane |
+| Coordinate | $\theta$, the angle of $OP$ from the downward vertical, positive towards $\mathbf i_1$ (the coordinate of Notes.pdf, Sec. 4.7) |
+| Constraints | (1) plane of the circumference: $\mathbf r_0^P\cdot\mathbf k_1(t) = 0$, holonomic, bilateral, stationary for zero $\omega$ and rheonomic (time-dependent) when it turns; (2) circumference: $|\mathbf r_0^P| = L$ while in contact, holonomic, stationary, **unilateral** (the particle is inside and may move towards $O$, $|\mathbf r_0^P| \le L$) ([Lecture 3, Slide 21]) |
+| Degrees of freedom | 3 minus 2 constraints: one unknown function, $\theta(t)$. The rheonomic plane makes time appear explicitly (the lecture counts $t$ as an extra coordinate, [Lecture 3, Slide 21]), but $\omega t$ is prescribed, so $\theta$ is the only coordinate to solve for |
 | Data | $m$ [kg], $L$ [m], $g$ [m s$^{-2}$], $v_0$ [m s$^{-1}$], $\omega$ [rad s$^{-1}$] |
 | Applied force | weight $-mg\,\mathbf j$ |
-| Reaction | normal subspace of a curve, dimension 2 (Notes.pdf, Eq. 6.16): $\mathbf N = -N\,\mathbf e_R + N_b\,\mathbf k_2$, with $N \ge 0$ (the circumference pushes towards $O$) and $N_b$ of either sign (the plane holds the particle on both sides) |
+| Reaction | normal subspace of a curve, dimension 2 (Notes.pdf, Eq. 6.16): $\mathbf N = -N\,\mathbf e_R + N_b\,\mathbf k_1$, with $N \ge 0$ (the circumference pushes towards $O$) and $N_b$ of either sign (the plane holds the particle on both sides) |
 | Initial conditions (fixed circumference) | $\theta(0) = 0$ (lowest point), $L\dot\theta(0) = v_0 \gt 0$ |
 | Hypotheses | smooth contact; the reaction of the inner face can only push towards the centre, so the particle leaves the circumference when $N$ reaches zero (Notes.pdf, Sec. 6.4) |
 
@@ -572,42 +572,42 @@ A heavy particle $P$ of mass $m$ moves on the inside of a smooth vertical circum
 
 > [!derivation] Plane of the circumference: rotation about the vertical j
 > **Law:** elementary rotation about the second axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19
 >
-> View from above, along $\mathbf j$: since $\mathbf j$ is the cross product of $\mathbf k$ and $\mathbf i$, drawing $\mathbf k$ to the right and $\mathbf i$ up makes $\mathbf j$ point out of the paper (⊙), and a positive rotation about $\mathbf j$ is counterclockwise. The plane turns counterclockwise by $\omega t$. The vector $\mathbf i_2$ is $\mathbf i$ turned by $\omega t$: hypotenuse 1, adjacent leg $\cos\omega t$ along $\mathbf i$, opposite leg $\sin\omega t$ along minus $\mathbf k$, because the upward vector of the view turned counterclockwise leans to the left, towards minus $\mathbf k$ (the minus sign). The vector $\mathbf k_2$ is $\mathbf k$ turned by the same angle: adjacent leg $\cos\omega t$ along $\mathbf k$, opposite leg $\sin\omega t$ along $\mathbf i$.
+> View from above, along $\mathbf j$: since $\mathbf j$ is the cross product of $\mathbf k$ and $\mathbf i$, drawing $\mathbf k$ to the right and $\mathbf i$ up makes $\mathbf j$ point out of the paper (⊙), and a positive rotation about $\mathbf j$ is counterclockwise. The plane turns counterclockwise by $\omega t$. The vector $\mathbf i_1$ is $\mathbf i$ turned by $\omega t$: hypotenuse 1, adjacent leg $\cos\omega t$ along $\mathbf i$, opposite leg $\sin\omega t$ along minus $\mathbf k$, because the upward vector of the view turned counterclockwise leans to the left, towards minus $\mathbf k$ (the minus sign). The vector $\mathbf k_1$ is $\mathbf k$ turned by the same angle: adjacent leg $\cos\omega t$ along $\mathbf k$, opposite leg $\sin\omega t$ along $\mathbf i$.
 >
 > $$\begin{aligned}
-> \mathbf i_2 &= \cos\omega t\,\mathbf i - \sin\omega t\,\mathbf k, \quad \mathbf k_2 = \sin\omega t\,\mathbf i + \cos\omega t\,\mathbf k \quad &\text{(the two right triangles of the view)} \\
-> \mathbf i_2\times\mathbf j &= \cos\omega t\,\mathbf k - \sin\omega t\,\mathbf k\times\mathbf j = \cos\omega t\,\mathbf k + \sin\omega t\,\mathbf i = \mathbf k_2 \quad &\text{(right-handed: $\mathbf k\times\mathbf j = -\mathbf i$)} \\
-> \det[{}_0R_2] &= \cos\omega t\left(1\cdot\cos\omega t - 0\right) - 0 + \sin\omega t\left(0 - 1\cdot\left(-\sin\omega t\right)\right) = 1 \quad &\text{(expansion along the first row)} \\
-> \left([{}_0R_2][{}_0R_2]^T\right)_{11} &= \cos^2\omega t + \sin^2\omega t = 1, \quad \left([{}_0R_2][{}_0R_2]^T\right)_{13} = -\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0 \quad &\text{(rows 1 and 3; row 2 is the unit row of $\mathbf j$)}
+> \mathbf i_1 &= \cos\omega t\,\mathbf i - \sin\omega t\,\mathbf k, \quad \mathbf k_1 = \sin\omega t\,\mathbf i + \cos\omega t\,\mathbf k \quad &\text{(the two right triangles of the view)} \\
+> \mathbf i_1\times\mathbf j &= \cos\omega t\,\mathbf k - \sin\omega t\,\mathbf k\times\mathbf j = \cos\omega t\,\mathbf k + \sin\omega t\,\mathbf i = \mathbf k_1 \quad &\text{(right-handed: $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> \det[{}_0R_1] &= \cos\omega t\left(1\cdot\cos\omega t - 0\right) - 0 + \sin\omega t\left(0 - 1\cdot\left(-\sin\omega t\right)\right) = 1 \quad &\text{(expansion along the first row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\omega t + \sin^2\omega t = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{13} = -\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0 \quad &\text{(rows 1 and 3; row 2 is the unit row of $\mathbf j$)}
 > \end{aligned}$$
 >
-> $$\boxed{[{}_0R_2] = \begin{pmatrix} \cos\omega t & 0 & \sin\omega t \cr 0 & 1 & 0 \cr -\sin\omega t & 0 & \cos\omega t \end{pmatrix}, \quad \det[{}_0R_2] = 1, \quad [{}_0R_2][{}_0R_2]^T = I}$$
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\omega t & 0 & \sin\omega t \cr 0 & 1 & 0 \cr -\sin\omega t & 0 & \cos\omega t \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
 >
 > **Units:** dimensionless direction cosines; $[\omega t] = [\mathrm{T^{-1}}][\mathrm{T}] = [1]$
-> **Meaning:** the columns are $\mathbf i_2$, $\mathbf j$, $\mathbf k_2$ written in $\mathcal B_0$; for zero $\omega$ the matrix is the identity and the circumference stays in the plane $Oxy$.
+> **Meaning:** the columns are $\mathbf i_1$, $\mathbf j$, $\mathbf k_1$ written in $\mathcal B_0$; for zero $\omega$ the matrix is the identity and the circumference stays in the plane $Oxy$.
 
 > [!derivation] Polar basis in the plane: angle from the downward vertical
 > **Law:** elementary rotation about the third axis, with the angle related to the usual polar angle
-> **Source:** Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24; Notes.pdf, Sec. 4.7
+> **Source:** Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24; Notes.pdf, Sec. 4.7
 >
-> View along $\mathbf k_2$, with $\mathbf i_2$ to the right and $\mathbf j$ up: $\mathbf k_2$, the cross product of $\mathbf i_2$ and $\mathbf j$, points out of the paper (⊙), and positive angles are counterclockwise. The angle $\theta$ is measured from the downward vertical, minus $\mathbf j$, so the usual polar angle of $OP$, measured from $\mathbf i_2$, is $\theta - \pi/2$, and $\mathbf e_R$ is Notes.pdf, Eq. 1.20 with that angle. The right triangle of $OP$ has hypotenuse $L$, the horizontal leg $L\sin\theta$ (opposite to $\theta$, along $\mathbf i_2$) and the vertical leg $L\cos\theta$ (adjacent to $\theta$, along minus $\mathbf j$): this is why $\mathbf e_R$ has a minus sign on $\mathbf j$. The vector $\mathbf e_\theta$ is $\mathbf e_R$ turned by a quarter turn counterclockwise.
+> View along $\mathbf k_1$, with $\mathbf i_1$ to the right and $\mathbf j$ up: $\mathbf k_1$, the cross product of $\mathbf i_1$ and $\mathbf j$, points out of the paper (⊙), and positive angles are counterclockwise. The angle $\theta$ is measured from the downward vertical, minus $\mathbf j$, so the usual polar angle of $OP$, measured from $\mathbf i_1$, is $\theta - \pi/2$, and $\mathbf e_R$ is Notes.pdf, Eq. 1.20 with that angle. The right triangle of $OP$ has hypotenuse $L$, the horizontal leg $L\sin\theta$ (opposite to $\theta$, along $\mathbf i_1$) and the vertical leg $L\cos\theta$ (adjacent to $\theta$, along minus $\mathbf j$): this is why $\mathbf e_R$ has a minus sign on $\mathbf j$. The vector $\mathbf e_\theta$ is $\mathbf e_R$ turned by a quarter turn counterclockwise.
 >
 > $$\begin{aligned}
 > \cos\left(\theta - \tfrac{\pi}{2}\right) &= \cos\theta\cos\tfrac{\pi}{2} + \sin\theta\sin\tfrac{\pi}{2} = \sin\theta \quad &\text{(cosine of a difference)} \\
 > \sin\left(\theta - \tfrac{\pi}{2}\right) &= \sin\theta\cos\tfrac{\pi}{2} - \cos\theta\sin\tfrac{\pi}{2} = -\cos\theta \quad &\text{(sine of a difference)} \\
-> \mathbf e_R &= \sin\theta\,\mathbf i_2 - \cos\theta\,\mathbf j \quad &\text{(opposite leg along $\mathbf i_2$, adjacent leg along $-\mathbf j$, over $L$)} \\
-> \mathbf e_\theta &= \cos\theta\,\mathbf i_2 + \sin\theta\,\mathbf j \quad &\text{($\mathbf e_R$ turned by $\pi/2$ counterclockwise)} \\
-> \mathbf e_R\times\mathbf e_\theta &= \sin^2\theta\,\mathbf i_2\times\mathbf j - \cos^2\theta\,\mathbf j\times\mathbf i_2 = \left(\sin^2\theta + \cos^2\theta\right)\mathbf k_2 = \mathbf k_2 \quad &\text{(right-handed)} \\
-> \det[{}_2R_3] &= 1\cdot\left(\sin\theta\cdot\sin\theta - \cos\theta\cdot\left(-\cos\theta\right)\right) = 1 \quad &\text{(expansion along the third row)} \\
-> \left([{}_2R_3][{}_2R_3]^T\right)_{12} &= -\sin\theta\cos\theta + \cos\theta\sin\theta = 0, \quad \left([{}_2R_3][{}_2R_3]^T\right)_{11} = \sin^2\theta + \cos^2\theta = 1 \quad &\text{(rows times rows)}
+> \mathbf e_R &= \sin\theta\,\mathbf i_1 - \cos\theta\,\mathbf j \quad &\text{(opposite leg along $\mathbf i_1$, adjacent leg along $-\mathbf j$, over $L$)} \\
+> \mathbf e_\theta &= \cos\theta\,\mathbf i_1 + \sin\theta\,\mathbf j \quad &\text{($\mathbf e_R$ turned by $\pi/2$ counterclockwise)} \\
+> \mathbf e_R\times\mathbf e_\theta &= \sin^2\theta\,\mathbf i_1\times\mathbf j - \cos^2\theta\,\mathbf j\times\mathbf i_1 = \left(\sin^2\theta + \cos^2\theta\right)\mathbf k_1 = \mathbf k_1 \quad &\text{(right-handed)} \\
+> \det[{}_1R_2] &= 1\cdot\left(\sin\theta\cdot\sin\theta - \cos\theta\cdot\left(-\cos\theta\right)\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_1R_2][{}_1R_2]^T\right)_{12} &= -\sin\theta\cos\theta + \cos\theta\sin\theta = 0, \quad \left([{}_1R_2][{}_1R_2]^T\right)_{11} = \sin^2\theta + \cos^2\theta = 1 \quad &\text{(rows times rows)}
 > \end{aligned}$$
 >
-> $$\boxed{[{}_2R_3] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \cr -\cos\theta & \sin\theta & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \mathbf i_2 = \sin\theta\,\mathbf e_R + \cos\theta\,\mathbf e_\theta, \quad \mathbf j = -\cos\theta\,\mathbf e_R + \sin\theta\,\mathbf e_\theta}$$
+> $$\boxed{[{}_1R_2] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \cr -\cos\theta & \sin\theta & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \mathbf i_1 = \sin\theta\,\mathbf e_R + \cos\theta\,\mathbf e_\theta, \quad \mathbf j = -\cos\theta\,\mathbf e_R + \sin\theta\,\mathbf e_\theta}$$
 >
 > **Units:** dimensionless direction cosines: $[1]$
-> **Meaning:** at the lowest point $\mathbf e_R$ is minus $\mathbf j$ and $\mathbf e_\theta$ is $\mathbf i_2$; the inverse relations, read from the rows, are used to project the weight.
+> **Meaning:** at the lowest point $\mathbf e_R$ is minus $\mathbf j$ and $\mathbf e_\theta$ is $\mathbf i_1$; the inverse relations, read from the rows, are used to project the weight.
 
 > [!derivation] Position vector of the particle
 > **Law:** position vector of a point on a circumference of centre O
@@ -615,10 +615,10 @@ A heavy particle $P$ of mass $m$ moves on the inside of a smooth vertical circum
 >
 > $$\begin{aligned}
 > \mathbf r_0^P &= \overrightarrow{OP} = L\,\mathbf e_R \quad &\text{(both constraints substituted: radius $L$, in the plane)} \\
-> &= L\sin\theta\,\mathbf i_2 - L\cos\theta\,\mathbf j \quad &\text{(legs of the right triangle)}
+> &= L\sin\theta\,\mathbf i_1 - L\cos\theta\,\mathbf j \quad &\text{(legs of the right triangle)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf r_0^P = L\,\mathbf e_R = L\sin\theta\,\mathbf i_2 - L\cos\theta\,\mathbf j}$$
+> $$\boxed{\mathbf r_0^P = L\,\mathbf e_R = L\sin\theta\,\mathbf i_1 - L\cos\theta\,\mathbf j}$$
 >
 > **Units:** $[\mathrm{L}]$
 > **Meaning:** one coordinate $\theta$ fixes the particle while it is in contact; the height of $P$ above $O$ is $-L\cos\theta$.
@@ -630,14 +630,14 @@ A heavy particle $P$ of mass $m$ moves on the inside of a smooth vertical circum
 > **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26
 >
 > $$\begin{aligned}
-> \dot{\mathbf i}_2 &= \omega\,\mathbf j\times\mathbf i_2 = -\omega\,\mathbf k_2, \quad \dot{\mathbf k}_2 = \omega\,\mathbf j\times\mathbf k_2 = \omega\,\mathbf i_2, \quad \dot{\mathbf j} = \mathbf 0 \quad &\text{($\mathcal B_2$ turns about $\mathbf j$ at the rate $\omega$; $\mathbf j\times\mathbf i_2 = -\mathbf k_2$, $\mathbf j\times\mathbf k_2 = \mathbf i_2$)} \\
-> \dot{\mathbf e}_R &= \cos\theta\,\dot\theta\,\mathbf i_2 + \sin\theta\,\dot{\mathbf i}_2 + \sin\theta\,\dot\theta\,\mathbf j \quad &\text{(product rule; chain rule on $\sin\theta$, $-\cos\theta$)} \\
-> &= \dot\theta\,\mathbf e_\theta - \omega\sin\theta\,\mathbf k_2 \quad &\text{(grouped with $\mathbf e_\theta$)} \\
-> \dot{\mathbf e}_\theta &= -\sin\theta\,\dot\theta\,\mathbf i_2 + \cos\theta\,\dot{\mathbf i}_2 + \cos\theta\,\dot\theta\,\mathbf j = -\dot\theta\,\mathbf e_R - \omega\cos\theta\,\mathbf k_2 \quad &\text{(same rules)} \\
-> \dot{\mathbf k}_2 &= \omega\left(\sin\theta\,\mathbf e_R + \cos\theta\,\mathbf e_\theta\right) \quad &\text{($\mathbf i_2$ written in $\mathcal B_3$)}
+> \dot{\mathbf i}_2 &= \omega\,\mathbf j\times\mathbf i_1 = -\omega\,\mathbf k_1, \quad \dot{\mathbf k}_2 = \omega\,\mathbf j\times\mathbf k_1 = \omega\,\mathbf i_1, \quad \dot{\mathbf j} = \mathbf 0 \quad &\text{($\mathcal B_1$ turns about $\mathbf j$ at the rate $\omega$; $\mathbf j\times\mathbf i_1 = -\mathbf k_1$, $\mathbf j\times\mathbf k_1 = \mathbf i_1$)} \\
+> \dot{\mathbf e}_R &= \cos\theta\,\dot\theta\,\mathbf i_1 + \sin\theta\,\dot{\mathbf i}_2 + \sin\theta\,\dot\theta\,\mathbf j \quad &\text{(product rule; chain rule on $\sin\theta$, $-\cos\theta$)} \\
+> &= \dot\theta\,\mathbf e_\theta - \omega\sin\theta\,\mathbf k_1 \quad &\text{(grouped with $\mathbf e_\theta$)} \\
+> \dot{\mathbf e}_\theta &= -\sin\theta\,\dot\theta\,\mathbf i_1 + \cos\theta\,\dot{\mathbf i}_2 + \cos\theta\,\dot\theta\,\mathbf j = -\dot\theta\,\mathbf e_R - \omega\cos\theta\,\mathbf k_1 \quad &\text{(same rules)} \\
+> \dot{\mathbf k}_2 &= \omega\left(\sin\theta\,\mathbf e_R + \cos\theta\,\mathbf e_\theta\right) \quad &\text{($\mathbf i_1$ written in $\mathcal B_2$)}
 > \end{aligned}$$
 >
-> $$\boxed{\dot{\mathbf e}_R = \dot\theta\,\mathbf e_\theta - \omega\sin\theta\,\mathbf k_2, \quad \dot{\mathbf e}_\theta = -\dot\theta\,\mathbf e_R - \omega\cos\theta\,\mathbf k_2, \quad \dot{\mathbf k}_2 = \omega\left(\sin\theta\,\mathbf e_R + \cos\theta\,\mathbf e_\theta\right)}$$
+> $$\boxed{\dot{\mathbf e}_R = \dot\theta\,\mathbf e_\theta - \omega\sin\theta\,\mathbf k_1, \quad \dot{\mathbf e}_\theta = -\dot\theta\,\mathbf e_R - \omega\cos\theta\,\mathbf k_1, \quad \dot{\mathbf k}_2 = \omega\left(\sin\theta\,\mathbf e_R + \cos\theta\,\mathbf e_\theta\right)}$$
 >
 > **Units:** $[\dot\theta] = [\omega] = [\mathrm{T^{-1}}]$
 > **Meaning:** besides turning with $\theta$ inside the plane, the polar vectors are dragged out of the plane by the rotation of the circumference.
@@ -647,13 +647,13 @@ A heavy particle $P$ of mass $m$ moves on the inside of a smooth vertical circum
 > **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Eq. 4.34; Notes.pdf, Eq. 4.35
 >
 > $$\begin{aligned}
-> \mathbf v_0^P &= L\,\dot{\mathbf e}_R = L\dot\theta\,\mathbf e_\theta - L\omega\sin\theta\,\mathbf k_2 \quad &\text{($L$ constant)} \\
-> \mathbf a_0^P &= L\ddot\theta\,\mathbf e_\theta + L\dot\theta\,\dot{\mathbf e}_\theta - L\omega\cos\theta\,\dot\theta\,\mathbf k_2 - L\omega\sin\theta\,\dot{\mathbf k}_2 \quad &\text{(product rule; $\omega$ constant; chain rule on $\sin\theta$)} \\
-> &= L\ddot\theta\,\mathbf e_\theta - L\dot\theta^2\,\mathbf e_R - 2L\omega\dot\theta\cos\theta\,\mathbf k_2 - L\omega^2\sin\theta\left(\sin\theta\,\mathbf e_R + \cos\theta\,\mathbf e_\theta\right) \quad &\text{(derivatives of the unit vectors)} \\
-> &= -L\left(\dot\theta^2 + \omega^2\sin^2\theta\right)\mathbf e_R + L\left(\ddot\theta - \omega^2\sin\theta\cos\theta\right)\mathbf e_\theta - 2L\omega\dot\theta\cos\theta\,\mathbf k_2 \quad &\text{(grouped)}
+> \mathbf v_0^P &= L\,\dot{\mathbf e}_R = L\dot\theta\,\mathbf e_\theta - L\omega\sin\theta\,\mathbf k_1 \quad &\text{($L$ constant)} \\
+> \mathbf a_0^P &= L\ddot\theta\,\mathbf e_\theta + L\dot\theta\,\dot{\mathbf e}_\theta - L\omega\cos\theta\,\dot\theta\,\mathbf k_1 - L\omega\sin\theta\,\dot{\mathbf k}_2 \quad &\text{(product rule; $\omega$ constant; chain rule on $\sin\theta$)} \\
+> &= L\ddot\theta\,\mathbf e_\theta - L\dot\theta^2\,\mathbf e_R - 2L\omega\dot\theta\cos\theta\,\mathbf k_1 - L\omega^2\sin\theta\left(\sin\theta\,\mathbf e_R + \cos\theta\,\mathbf e_\theta\right) \quad &\text{(derivatives of the unit vectors)} \\
+> &= -L\left(\dot\theta^2 + \omega^2\sin^2\theta\right)\mathbf e_R + L\left(\ddot\theta - \omega^2\sin\theta\cos\theta\right)\mathbf e_\theta - 2L\omega\dot\theta\cos\theta\,\mathbf k_1 \quad &\text{(grouped)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf v_0^P = L\dot\theta\,\mathbf e_\theta - L\omega\sin\theta\,\mathbf k_2, \quad \mathbf a_0^P = -L\left(\dot\theta^2 + \omega^2\sin^2\theta\right)\mathbf e_R + L\left(\ddot\theta - \omega^2\sin\theta\cos\theta\right)\mathbf e_\theta - 2L\omega\dot\theta\cos\theta\,\mathbf k_2}$$
+> $$\boxed{\mathbf v_0^P = L\dot\theta\,\mathbf e_\theta - L\omega\sin\theta\,\mathbf k_1, \quad \mathbf a_0^P = -L\left(\dot\theta^2 + \omega^2\sin^2\theta\right)\mathbf e_R + L\left(\ddot\theta - \omega^2\sin\theta\cos\theta\right)\mathbf e_\theta - 2L\omega\dot\theta\cos\theta\,\mathbf k_1}$$
 >
 > **Units:** $[L\dot\theta] = [L\omega] = [\mathrm{L\,T^{-1}}]$; every acceleration term $[\mathrm{L\,T^{-2}}]$
 > **Meaning:** for zero $\omega$ these are Notes.pdf, Eq. 4.34 and Eq. 4.35; with rotation the particle is also carried round the vertical axis on a circle of radius $L\sin\theta$.
@@ -669,17 +669,17 @@ The free-body diagram shows the weight, the reaction of the circumference toward
 > **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.36; Notes.pdf, Eq. 6.13; Notes.pdf, Eq. 6.16
 >
 > $$\begin{aligned}
-> m\,\mathbf a_0^P &= -mg\,\mathbf j - N\,\mathbf e_R + N_b\,\mathbf k_2 \quad &\text{(weight and the two reaction components; unknowns $\theta$, $N$, $N_b$)} \\
-> -mg\,\mathbf j &= mg\cos\theta\,\mathbf e_R - mg\sin\theta\,\mathbf e_\theta \quad &\text{($\mathbf j$ in $\mathcal B_3$, second row of $[{}_2R_3]$)} \\
+> m\,\mathbf a_0^P &= -mg\,\mathbf j - N\,\mathbf e_R + N_b\,\mathbf k_1 \quad &\text{(weight and the two reaction components; unknowns $\theta$, $N$, $N_b$)} \\
+> -mg\,\mathbf j &= mg\cos\theta\,\mathbf e_R - mg\sin\theta\,\mathbf e_\theta \quad &\text{($\mathbf j$ in $\mathcal B_2$, second row of $[{}_1R_2]$)} \\
 > \mathbf e_\theta:\ mL\left(\ddot\theta - \omega^2\sin\theta\cos\theta\right) &= -mg\sin\theta \quad &\text{(tangent: no reaction)} \\
 > \mathbf e_R:\ -mL\left(\dot\theta^2 + \omega^2\sin^2\theta\right) &= mg\cos\theta - N \quad &\text{(normal in the plane)} \\
-> \mathbf k_2:\ -2mL\omega\dot\theta\cos\theta &= N_b \quad &\text{(normal to the plane)}
+> \mathbf k_1:\ -2mL\omega\dot\theta\cos\theta &= N_b \quad &\text{(normal to the plane)}
 > \end{aligned}$$
 >
 > $$\boxed{\ddot\theta + \left(\frac{g}{L} - \omega^2\cos\theta\right)\sin\theta = 0, \quad N = mL\left(\dot\theta^2 + \omega^2\sin^2\theta\right) + mg\cos\theta, \quad N_b = -2mL\omega\dot\theta\cos\theta}$$
 >
 > **Units:** $[g/L] = [\omega^2] = [\mathrm{T^{-2}}]$, as $[\ddot\theta]$; $[N] = [N_b] = [\mathrm{M\,L\,T^{-2}}]$
-> **Meaning:** these are the new equations of motion asked for the turning circumference; for zero $\omega$ they reduce to the pendulum of Notes.pdf, Eq. 4.37 and Eq. 4.38 (with $N$ in the role of the tension) and the plane exerts no force.
+> **Meaning:** these are the new equations of motion asked for the turning circumference; for zero $\omega$ they reduce to the pendulum of Notes.pdf, Eq. 4.37 and Eq. 4.38 (with $N$ in the role of the tension) and the plane exerts no force (Eq. 4.37 is printed with $+F_t$; with the tension $-F_t\,\mathbf e_R$ of the notes the term is $-F_t$, as $-N$ here).
 
 #### Fixed circumference
 
@@ -729,7 +729,7 @@ The free-body diagram shows the weight, the reaction of the circumference toward
 > $$\boxed{N(\theta) = \frac{m v_0^2}{L} - mg\left(2 - 3\cos\theta\right), \qquad \cos\theta_d = \frac{2gL - v_0^2}{3gL}}$$
 >
 > **Units:** $[m v_0^2/L] = [mg] = [\mathrm{M\,L\,T^{-2}}]$; $\cos\theta_d$ dimensionless: $[gL] = [v_0^2] = [\mathrm{L^2\,T^{-2}}]$
-> **Meaning:** contact is lost where the inward reaction would have to become a pull; it can only happen in the upper half, where the weight has an inward component.
+> **Meaning:** contact is lost where the inward reaction would have to become a pull; it can only happen in the upper half, where the weight has an inward component (Eq. 4.37 is printed with $+F_t$; with the tension $-F_t\,\mathbf e_R$ of the notes the term is $-F_t$, as $-N$ here).
 
 > [!derivation] Is the separation point reached? The three regimes
 > **Law:** the particle reaches a point only if the speed squared stays positive up to it; sign of the reaction
@@ -758,7 +758,7 @@ The free-body diagram shows the weight, the reaction of the circumference toward
 > \dot\theta\ddot\theta + \frac{g}{L}\sin\theta\,\dot\theta - \omega^2\sin\theta\cos\theta\,\dot\theta &= 0 \quad &\text{(equation of motion times $\dot\theta$)} \\
 > \frac{d}{dt}\left(-\tfrac12\omega^2\sin^2\theta\right) &= -\omega^2\sin\theta\cos\theta\,\dot\theta \quad &\text{(chain rule)} \\
 > \left[\tfrac12\dot\theta^2 - \frac{g}{L}\cos\theta - \tfrac12\omega^2\sin^2\theta\right]_0^t &= 0 \quad &\text{(sum of exact derivatives; Barrow's rule)} \\
-> \mathbf N\cdot\mathbf v_0^P &= N_b\,\mathbf k_2\cdot\left(-L\omega\sin\theta\,\mathbf k_2\right) = 2mL^2\omega^2\dot\theta\sin\theta\cos\theta \quad &\text{(power of the reaction: only the plane works)}
+> \mathbf N\cdot\mathbf v_0^P &= N_b\,\mathbf k_1\cdot\left(-L\omega\sin\theta\,\mathbf k_1\right) = 2mL^2\omega^2\dot\theta\sin\theta\cos\theta \quad &\text{(power of the reaction: only the plane works)}
 > \end{aligned}$$
 >
 > $$\boxed{\tfrac12\dot\theta^2 - \frac{g}{L}\cos\theta - \tfrac12\omega^2\sin^2\theta = \text{const}, \qquad \mathbf N\cdot\mathbf v_0^P = 2mL^2\omega^2\dot\theta\sin\theta\cos\theta \ne 0}$$
@@ -773,19 +773,19 @@ The free-body diagram shows the weight, the reaction of the circumference toward
 > $$\begin{aligned}
 > \left(\frac{g}{L} - \omega^2\cos\theta_e\right)\sin\theta_e &= 0 \quad &\text{(constant $\theta$: $\dot\theta = \ddot\theta = 0$)} \\
 > \sin\theta_e = 0 &\Rightarrow \theta_e = 0 \ \text{or} \ \theta_e = \pi \quad &\text{(lowest and highest points)} \\
-> \cos\theta_e = \frac{g}{\omega^2 L} &\Rightarrow \theta_e = \pm\arccos\frac{g}{\omega^2 L}, \ \text{only if } \omega^2 \ge \frac{g}{L} \quad &\text{(a cosine cannot exceed 1)} \\
+> \cos\theta_e = \frac{g}{\omega^2 L} &\Rightarrow \theta_e = \pm\arccos\frac{g}{\omega^2 L}, \ \text{only if } \omega^2 \gt \frac{g}{L} \quad &\text{(a cosine cannot exceed 1; at equality the two roots merge with $\theta_e = 0$)} \\
 > N(0) &= mg \gt 0, \quad N(\pi) = -mg \lt 0 \quad &\text{(reaction at rest: $N = mL\omega^2\sin^2\theta_e + mg\cos\theta_e$)} \\
 > N(\theta_e) &= mL\omega^2\sin^2\theta_e + \frac{mg^2}{\omega^2 L} \gt 0, \quad N_b = 0 \quad &\text{(off-axis positions, $\dot\theta = 0$)}
 > \end{aligned}$$
 >
 > $$\boxed{\theta_e = 0 \ \text{always}; \quad \theta_e = \pm\arccos\frac{g}{\omega^2 L} \ \text{if } \omega^2 \gt \frac{g}{L}; \quad \theta_e = \pi \ \text{excluded (it needs a pull)}}$$
 >
-> **Units:** $[g/(\omega^2 L)] = [\mathrm{L\,T^{-2}}]/([\mathrm{T^{-2}}][\mathrm{L}]) = [1]$
+> **Units:** $[g/(\omega^2 L)] = [\mathrm{L\,T^{-2}}]/([\mathrm{T^{-2}}][\mathrm{L}]) = [1]$; $[N(\theta_e)] = [\mathrm{M\,L\,T^{-2}}]$
 > **Meaning:** above the critical rate $\sqrt{g/L}$ the particle can ride at rest relative to the circumference on a horizontal circle of radius $L\sin\theta_e$, where the inward reaction and the weight give the centripetal force; the top would be an equilibrium only for a bead threaded on a wire, not for the inside of the circumference.
 
 > [!derivation] Stability of the equilibria
 > **Law:** linearisation of the equation of motion about an equilibrium
-> **Source:** Notes.pdf, Sec. 4.6; Notes.pdf, Eq. 5.7
+> **Source:** Notes.pdf, Sec. 4.6; Notes.pdf, Eq. 5.6
 >
 > Write the equation as the second derivative of $\theta$ equal to $F(\theta)$, with $F(\theta) = -(g/L - \omega^2\cos\theta)\sin\theta$. A small deviation $\delta$ obeys the second derivative of $\delta$ equal to $F'(\theta_e)\,\delta$: stable when $F'(\theta_e)$ is negative.
 >
@@ -808,10 +808,10 @@ The free-body diagram shows the weight, the reaction of the circumference toward
 | Motion, fixed circumference | $\ddot\theta + (g/L)\sin\theta = 0$; $v^2 = v_0^2 - 2gL(1 - \cos\theta)$; $t = \int_0^\theta L\,d\theta'/\sqrt{v_0^2 - 2gL(1 - \cos\theta')}$; reaction $N = mv_0^2/L - mg(2 - 3\cos\theta)$ towards $O$ |
 | Point where it leaves the circumference | $\cos\theta_d = (2gL - v_0^2)/(3gL)$, angle from the lowest point |
 | Is it reached? | no if $v_0 \le \sqrt{2gL}$ (oscillation); yes if $\sqrt{2gL} \lt v_0 \lt \sqrt{5gL}$, with $\theta_d$ between $\pi/2$ and $\pi$ and speed $v^2 = (v_0^2 - 2gL)/3$ there; no if $v_0 \ge \sqrt{5gL}$ (complete loops) |
-| Equations of motion, turning circumference | $\ddot\theta + (g/L - \omega^2\cos\theta)\sin\theta = 0$; $N = mL(\dot\theta^2 + \omega^2\sin^2\theta) + mg\cos\theta$; $N_b = -2mL\omega\dot\theta\cos\theta$ along $\mathbf k_2$ |
+| Equations of motion, turning circumference | $\ddot\theta + (g/L - \omega^2\cos\theta)\sin\theta = 0$; $N = mL(\dot\theta^2 + \omega^2\sin^2\theta) + mg\cos\theta$; $N_b = -2mL\omega\dot\theta\cos\theta$ along $\mathbf k_1$ |
 | Equilibrium positions | $\theta_e = 0$ (stable if $\omega^2 \lt g/L$); $\theta_e = \pm\arccos(g/(\omega^2 L))$ if $\omega^2 \gt g/L$ (stable); $\theta_e = \pi$ only for a bilateral constraint, excluded here |
 
-**Check against the official key:** Problems.pdf, p. 73 lists item 23 with no answer, so there is no key to compare with. Independent checks: for zero $\omega$ the equations are those of Notes.pdf, Sec. 4.7; the separation angle lies between the boundaries computed in the limiting cases below; and a numerical integration of the pendulum equation with unit $g$ and $L$, stopped where $N$ vanishes, gives the separation angle of the formula for several pushes between $\sqrt2$ and $\sqrt5$.
+**Check against the official key:** Problems.pdf, p. 73 lists item 23 with no answer, so there is no key to compare with. Independent checks: for zero $\omega$ the equations are those of Notes.pdf, Sec. 4.7; and the separation angle lies between the boundaries computed in the limiting cases below.
 
 > [!derivation] Limiting cases of the separation point
 > **Law:** the separation formula at the boundaries of its regime
@@ -848,7 +848,7 @@ A heavy particle $P$ of mass $m$ slides on a smooth circumference of radius $a$ 
 | Applied forces | weight $-mg\,\mathbf j$; spring $-k\,\overrightarrow{AP}$; parts (e) and (f) also $\mathbf F_\mu = 2m\mu\,\mathbf v_0^P$ |
 | Reaction | normal subspace of a curve, dimension 2 (Notes.pdf, Eq. 6.16): $\mathbf N = N_R\,\mathbf e_R + N_k\,\mathbf k$ |
 | Initial conditions | $\theta(0) = 0$ (the point $(a, 0)$); $\mathbf v_0^P(0) = v_0\,\mathbf j$, hence $a\dot\theta(0) = v_0$ (see the kinematics) |
-| Hypotheses | the spring has zero natural length (the statement gives only its constant; with this reading the force is $k$ times the vector from $A$ to $P$, and part (d) gives a closed motion); in parts (e) and (f) the spring and weight are those of part (d), $\beta = mg/(ka)$, since the statement keeps the initial conditions "as before"; the extra force is taken literally, along the velocity |
+| Hypotheses | the spring has zero natural length (the statement gives only its constant; with this reading the force is $-k$ times the vector from $A$ to $P$ (it pulls $P$ towards $A$), the zero-length spring of Notes.pdf, Sec. 7.5); in parts (e) and (f) the spring and weight are those of part (d), $\beta = mg/(ka)$, since the statement continues from part (d), and only with this balance does part (e) have a closed-form position; the extra force is taken literally, along the velocity |
 
 ![[attachments/EM-SOL/p24-plane.svg]]
 
@@ -856,7 +856,7 @@ A heavy particle $P$ of mass $m$ slides on a smooth circumference of radius $a$ 
 
 > [!derivation] Polar basis: rotation about k
 > **Law:** elementary rotation about the third axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
 >
 > View of the figure, $\mathbf k$ out of the paper (⊙), so positive angles are counterclockwise. $\mathbf e_R$ is $\mathbf i$ turned by $\theta$: hypotenuse 1, adjacent leg $\cos\theta$ along $\mathbf i$, opposite leg $\sin\theta$ along $\mathbf j$. $\mathbf e_\theta$ is $\mathbf j$ turned by $\theta$: adjacent leg $\cos\theta$ along $\mathbf j$, opposite leg $\sin\theta$ along minus $\mathbf i$, since the upward vector turned counterclockwise leans to the left (the minus sign).
 >
@@ -990,7 +990,7 @@ The free-body diagram shows the weight, the spring force towards $A$, the reacti
 > \int_0^{\theta}\frac{d\theta'}{\sqrt{\dfrac{v_0^2}{a^2} - \dfrac{2\left(mg - ka\beta\right)}{ma}\sin\theta'}} &= \int_0^t dt' = t \quad &\text{(separation, $\dot\theta \gt 0$ at the start; Barrow's rule)}
 > \end{aligned}$$
 >
-> $$\boxed{t = \int_0^{\theta}\frac{d\theta'}{\sqrt{v_0^2/a^2 - 2\left(mg - ka\beta\right)\sin\theta'/(ma)}}}$$
+> $$\boxed{t = \int_0^{\theta}\frac{d\theta'}{\sqrt{v_0^2/a^2 - 2\left(mg - ka\beta\right)\sin\theta'/(ma)}} \quad \text{(while $\dot\theta \gt 0$; the sign of the root changes at a turning point)}}$$
 >
 > **Units:** $[v_0^2/a^2] = [\mathrm{T^{-2}}]$; $[(mg - ka\beta)/(ma)] = [\mathrm{M\,L\,T^{-2}}]/[\mathrm{M\,L}] = [\mathrm{T^{-2}}]$; the integral is $[\mathrm{T}]$
 > **Meaning:** the mechanical energy is conserved (smooth fixed constraint, conservative forces); the radicand decides whether the particle turns back or goes round the circumference.
@@ -1051,7 +1051,7 @@ The free-body diagram shows the weight, the spring force towards $A$, the reacti
 > **Units:** $[ka] = [m v_0^2/a] = [\mathrm{M\,L\,T^{-2}}]$
 > **Meaning:** the outward component starts at $ka - m v_0^2/a$ (the radial pull of the spring and weight against the centripetal need) and decreases without bound: the circumference must push the particle inwards harder and harder as it speeds up.
 
-> [!warning] Reading of the extra force
+> [!note] Reading of the extra force
 > The statement says that the extra force is proportional to the velocity and **in the same direction**, with constant $2m\mu$, and the solution follows it literally. If a viscous damping force opposite to the velocity was meant (the usual model of Notes.pdf, Eq. 5.19), the same steps with the sign of $\mu$ reversed give an angle that grows as $1 - e^{-2\mu t}$ towards the finite limit $v_0/(2\mu a)$, and a radial reaction that tends to $ka$ as the particle comes to rest.
 
 | Part of the statement | Answer |
@@ -1063,7 +1063,7 @@ The free-body diagram shows the weight, the spring force towards $A$, the reacti
 | (e) Position with the force $2m\mu\,\mathbf v$ | $\theta = \frac{v_0}{2\mu a}(e^{2\mu t} - 1)$; $\mathbf r_0^P = a\cos\theta\,\mathbf i + a\sin\theta\,\mathbf j$ |
 | (f) Reaction | $\mathbf N = (ka - \frac{m v_0^2}{a}e^{4\mu t})\,\mathbf e_R$, no component out of the plane |
 
-**Check against the official key:** Problems.pdf, p. 73 lists item 24 with no answer, so there is no key to compare with. Independent checks: the potential obtained as a direct sum and as minus the work along the circumference agree (box of part (a)); the limiting cases below recover part (d); a numerical integration of the tangent equation of part (e) with sample data reproduces the closed form of $\theta(t)$.
+**Check against the official key:** Problems.pdf, p. 73 lists item 24 with no answer, so there is no key to compare with. Independent checks: the potential obtained as a direct sum and as minus the work along the circumference agree (box of part (a)); and the limiting cases below recover part (d).
 
 > [!derivation] Limiting case: vanishing extra force
 > **Law:** first-order expansion of the exponential
@@ -1090,8 +1090,8 @@ A heavy particle of mass $m$ slides without friction on an infinitely long circu
 
 | Item | Definition |
 | :--- | :--- |
-| Fixed (inertial) frame | $S_1 = \{O;\ \mathcal B_1\}$ with $\mathcal B_1 = \{\mathbf i_1, \mathbf j_1, \mathbf k_1\}$ of the left panel: $\mathbf k_1$ vertical **upward**, $\mathbf i_1$ horizontal to the right, $\mathbf j_1$ horizontal, right-handed |
-| Basis of the cylinder | $\mathcal B_2 = \{\mathbf i, \mathbf j, \mathbf k\}$ of the axes $x, y, z$ of the figure: $\mathbf k$ along the axis of the cylinder, $\mathbf j$ coincident with $\mathbf j_1$ ($y_1 \equiv y$), $\mathbf i$ completing the right-handed triad; fixed in $S_1$ |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_1\}$ with $\mathcal B_1 = \{\mathbf i_1, \mathbf j_1, \mathbf k_1\}$ of the left panel: $\mathbf k_1$ vertical **upward**, $\mathbf i_1$ horizontal to the right, $\mathbf j_1$ horizontal, right-handed |
+| Basis of the cylinder | $\mathcal B_2 = \{\mathbf i, \mathbf j, \mathbf k\}$ of the axes $x, y, z$ of the figure: $\mathbf k$ along the axis of the cylinder, $\mathbf j$ coincident with $\mathbf j_1$ ($y_1 \equiv y$), $\mathbf i$ completing the right-handed triad; fixed in $S_0$ |
 | Cylindrical basis | $\mathcal B_3 = \{\mathbf e_R, \mathbf e_\theta, \mathbf k\}$, $\mathcal B_2$ turned by $\theta$ about $\mathbf k$ (right panel) |
 | Coordinates | $z$ along the axis and $\theta$ from the axis $Ox$ in the cross-section (statement) |
 | Constraint | $f = x^2 + y^2 - R^2 = 0$ in the axes of the cylinder; holonomic, stationary, smooth; the particle is "constrained to move along the surface", read as bilateral (the sign of the reaction is discussed in part (c)) |
@@ -1108,7 +1108,7 @@ A heavy particle of mass $m$ slides without friction on an infinitely long circu
 
 > [!derivation] Basis of the cylinder: rotation about j1
 > **Law:** elementary rotation about the second axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19; Problems.pdf, p. 17
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19; Problems.pdf, p. 17
 >
 > View of the left panel, $\mathbf i_1$ to the right and $\mathbf k_1$ up. Since $\mathbf j_1$ is the cross product of $\mathbf k_1$ and $\mathbf i_1$, it points into the paper (⊗), and a positive rotation about $\mathbf j_1$ (thumb into the paper) is clockwise as seen. The axis $\mathbf k$ is $\mathbf k_1$ leaned clockwise towards $\mathbf i_1$ by $\alpha$: a positive rotation $\alpha$, Notes.pdf, Eq. 1.19 with the angle $\alpha$. The right triangle of $\mathbf k$ has hypotenuse 1, adjacent leg $\cos\alpha$ along $\mathbf k_1$ and opposite leg $\sin\alpha$ along $\mathbf i_1$. The axis $\mathbf i$ is $\mathbf i_1$ turned clockwise by the same angle: adjacent leg $\cos\alpha$ along $\mathbf i_1$, opposite leg $\sin\alpha$ along minus $\mathbf k_1$, because turning the right-pointing vector clockwise dips it below the horizontal (the minus sign; the figure draws $x$ pointing down to the right).
 >
@@ -1129,7 +1129,7 @@ A heavy particle of mass $m$ slides without friction on an infinitely long circu
 
 > [!derivation] Cylindrical basis of the cross-section: rotation about k
 > **Law:** elementary rotation about the third axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
+> **Source:** Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
 >
 > View of the right panel, along the axis: $\mathbf i$ to the right, $\mathbf j$ up, $\mathbf k$ out of the paper (⊙), as the figure marks; positive angles are counterclockwise. $\mathbf e_R$ is $\mathbf i$ turned by $\theta$ (adjacent leg $\cos\theta$ on $\mathbf i$, opposite leg $\sin\theta$ on $\mathbf j$); $\mathbf e_\theta$ is $\mathbf j$ turned by $\theta$ (adjacent leg $\cos\theta$ on $\mathbf j$, opposite leg $\sin\theta$ on minus $\mathbf i$: the upward vector leans to the left, the minus sign).
 >
@@ -1163,7 +1163,7 @@ A heavy particle of mass $m$ slides without friction on an infinitely long circu
 ### Kinematics
 
 > [!derivation] Velocity and acceleration of the particle
-> **Law:** derivatives of the cylindrical unit vectors; time derivatives in $S_1$; product rule
+> **Law:** derivatives of the cylindrical unit vectors; time derivatives in $S_0$; product rule
 > **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.29; Notes.pdf, Eq. 2.30
 >
 > $$\begin{aligned}
@@ -1179,7 +1179,7 @@ A heavy particle of mass $m$ slides without friction on an infinitely long circu
 
 ### Forces and Equations of Motion
 
-The free-body diagram, drawn in the cross-section, shows the in-plane part of the weight, the reaction along $\mathbf e_R$ and, as a ⊗ symbol, the axial part of the weight. The frame $S_1$ is inertial.
+The free-body diagram, drawn in the cross-section, shows the in-plane part of the weight, the reaction along $\mathbf e_R$ and, as a ⊗ symbol, the axial part of the weight. The frame $S_0$ is inertial.
 
 ![[attachments/EM-SOL/p29-fbd.svg]]
 
@@ -1205,7 +1205,7 @@ The free-body diagram, drawn in the cross-section, shows the in-plane part of th
 
 > [!derivation] z as a function of time
 > **Law:** two integrations of a constant acceleration with Barrow's rule
-> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.7
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.5; Notes.pdf, Eq. 4.6
 >
 > $$\begin{aligned}
 > \dot z(t) - \dot z(0) &= \int_0^t \left(-g\cos\alpha\right)dt' = \left[-g\cos\alpha\,t'\right]_0^t = -g\cos\alpha\,t \quad &\text{(Barrow's rule)} \\
@@ -1268,7 +1268,7 @@ The free-body diagram, drawn in the cross-section, shows the in-plane part of th
 >
 > $$\boxed{-\tfrac{2\pi}{3} \le \theta \le \tfrac{2\pi}{3}: \ \text{periodic oscillation about } \theta = 0, \quad z(t) = v_0 t - \tfrac12 g\cos\alpha\,t^2}$$
 >
-> **Units:** $[g\sin\alpha/R] = [\mathrm{T^{-2}}]$
+> **Units:** $[g\sin\alpha/R] = [\mathrm{T^{-2}}]$; $[N] = [\mathrm{M\,L\,T^{-2}}]$
 > **Meaning:** the particle starts on the side of the cylinder moving up, rises to the angle $2\pi/3$, swings back through the lowest generator to minus $2\pi/3$ and repeats, while it climbs and then slides back along the axis: on the unrolled cylinder the path is a wave drawn along a parabola. Beyond the angle where the cosine is minus one third the reaction changes sign, so this motion needs the bilateral constraint.
 
 #### (e) Case of the larger angular rate
@@ -1286,7 +1286,7 @@ The free-body diagram, drawn in the cross-section, shows the in-plane part of th
 > $$\boxed{\dot\theta \ \text{never vanishes: complete, non-uniform turns, fastest at the lowest generator}}$$
 >
 > **Units:** $[\mathrm{T^{-2}}]$; $[\mathrm{M\,L\,T^{-2}}]$
-> **Meaning:** the particle winds round the cylinder on a helix-like path whose pitch follows the axial velocity, which falls to zero at the time $v_0/(g\cos\alpha)$ and then reverses; the cylinder always pushes it towards the axis, so a one-sided contact would also hold.
+> **Meaning:** the particle winds round the cylinder on a helix-like path whose pitch follows the axial velocity, which falls to zero at the time $v_0/(g\cos\alpha)$ and then reverses; the cylinder always pushes it towards the axis, so a one-sided contact, with the particle on the inner face of the cylinder, would also hold.
 
 | Part of the statement | Answer |
 | :--- | :--- |
@@ -1296,7 +1296,7 @@ The free-body diagram, drawn in the cross-section, shows the in-plane part of th
 | (d) $\omega_0^2 = g\sin\alpha/R$ | oscillation between $\theta = \pm 2\pi/3$ about the lowest generator; the reaction changes sign (bilateral constraint needed) |
 | (e) $\omega_0^2 = 4g\sin\alpha/R$ | complete non-uniform turns, $\dot\theta^2$ between $2g\sin\alpha/R$ and $6g\sin\alpha/R$; reaction always towards the axis |
 
-**Check against the official key:** Problems.pdf, p. 74 lists item 29 with no answer, so there is no key to compare with. Independent checks: the limiting cases below, and a numerical integration of the angular equation with unit data for the case of part (d), which turns back at the angle $2\pi/3$ to the accuracy of the method.
+**Check against the official key:** Problems.pdf, p. 74 lists item 29 with no answer, so there is no key to compare with. Independent checks: the limiting cases below.
 
 > [!derivation] Limiting cases: vertical and horizontal axis
 > **Law:** behaviour of the equations at the extreme tilts
@@ -1343,7 +1343,7 @@ Two heavy particles of mass $m$ are joined by an inextensible massless string of
 
 > [!derivation] Cylindrical basis: rotation about k
 > **Law:** elementary rotation about the third axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
 >
 > View from above along $\mathbf k$ (⊙): $\mathbf i$ to the right, $\mathbf j$ up, counterclockwise positive. $\mathbf e_R$ is $\mathbf i$ turned by $\theta$: hypotenuse 1, adjacent leg $\cos\theta$ on $\mathbf i$, opposite leg $\sin\theta$ on $\mathbf j$. $\mathbf e_\theta$ is $\mathbf j$ turned by $\theta$: adjacent leg $\cos\theta$ on $\mathbf j$, opposite leg $\sin\theta$ on minus $\mathbf i$ (the upward vector leans to the left: the minus sign).
 >
@@ -1360,13 +1360,13 @@ Two heavy particles of mass $m$ are joined by an inextensible massless string of
 
 > [!derivation] Cone basis: rotation about e_theta in the meridian plane
 > **Law:** elementary rotation about the second axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.19; Notes.pdf, Sec. 6.3
+> **Source:** Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.19; Notes.pdf, Sec. 6.3
 >
 > View of the meridian plane of $P_1$ with $\mathbf e_R$ to the right and $\mathbf k$ up: $\mathbf e_\theta$, the cross product of $\mathbf k$ and $\mathbf e_R$, points into the paper (⊗), so a positive rotation about it is clockwise as seen. The generator $OP_1$ makes the semi-angle $\alpha$ with the downward axis, so $\mathbf e_\xi$ is $\mathbf e_R$ turned clockwise by $\pi/2 - \alpha$: a positive rotation of that angle. Its right triangle is the one of $OP_1$: hypotenuse $\xi$, vertical leg $\xi\cos\alpha$ along minus $\mathbf k$ (adjacent to $\alpha$) and horizontal leg $\xi\sin\alpha$ along $\mathbf e_R$ (opposite to $\alpha$); that is the minus sign on $\mathbf k$. The normal $\mathbf n$ is $\mathbf k$ turned by the same angle: it leans towards $\mathbf e_R$, outwards, with components $\cos\alpha$ on $\mathbf e_R$ and $\sin\alpha$ on $\mathbf k$.
 >
 > $$\begin{aligned}
 > \cos\left(\tfrac{\pi}{2} - \alpha\right) &= \sin\alpha, \quad \sin\left(\tfrac{\pi}{2} - \alpha\right) = \cos\alpha \quad &\text{(complementary angles)} \\
-> \mathbf e_\xi &= \sin\alpha\,\mathbf e_R - \cos\alpha\,\mathbf k, \quad \mathbf n = \cos\alpha\,\mathbf e_R + \sin\alpha\,\mathbf k \quad &\text{(columns of Notes.pdf, Eq. 1.19 with angle $\pi/2 - \alpha$)} \\
+> \mathbf e_\xi &= \sin\alpha\,\mathbf e_R - \cos\alpha\,\mathbf k, \quad \mathbf n = \cos\alpha\,\mathbf e_R + \sin\alpha\,\mathbf k \quad &\text{(columns of the rotation about the second axis, angle $\pi/2 - \alpha$)} \\
 > \mathbf e_\xi\times\mathbf e_\theta &= \sin\alpha\,\mathbf k - \cos\alpha\left(\mathbf k\times\mathbf e_\theta\right) = \sin\alpha\,\mathbf k + \cos\alpha\,\mathbf e_R = \mathbf n \quad &\text{(right-handed; $\mathbf k\times\mathbf e_\theta = -\mathbf e_R$)} \\
 > \det[{}_1R_2] &= \sin\alpha\cdot\sin\alpha - 0 + \cos\alpha\left(0 + \cos\alpha\right) = 1 \quad &\text{(expansion along the first row)} \\
 > \left([{}_1R_2][{}_1R_2]^T\right)_{13} &= -\sin\alpha\cos\alpha + \cos\alpha\sin\alpha = 0, \quad \left([{}_1R_2][{}_1R_2]^T\right)_{11} = 1 \quad &\text{(rows 1 and 3)} \\
@@ -1452,6 +1452,7 @@ The free-body diagrams of the two particles show the weights, the tension pullin
 > **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 6.11; [Lecture 3, Slide 14]
 >
 > $$\begin{aligned}
+> m\,\mathbf a_0^{P_1} &= \mathbf F^{P_1}, \quad m\,\mathbf a_0^{P_2} = \mathbf F^{P_2} \quad &\text{(all forces of box (b), reactions included)} \\
 > P_1,\ \mathbf e_\xi:\ m\left(\ddot\xi - \xi\dot\theta^2\sin^2\alpha\right) &= mg\cos\alpha - T \quad &\text{(along the generator)} \\
 > P_1,\ \mathbf e_\theta:\ m\left(2\dot\xi\dot\theta + \xi\ddot\theta\right)\sin\alpha &= 0 \quad &\text{(azimuthal)} \\
 > P_1,\ \mathbf n:\ -m\xi\dot\theta^2\sin\alpha\cos\alpha &= N - mg\sin\alpha \quad &\text{(normal to the cone)} \\
@@ -1524,7 +1525,7 @@ The free-body diagrams of the two particles show the weights, the tension pullin
 > $$\boxed{\xi^2\dot\theta = C_1, \qquad 2\dot\xi^2 + \xi^2\dot\theta^2\sin^2\alpha + 2g\xi\left(1 - \cos\alpha\right) = C_2}$$
 >
 > **Units:** $[C_1] = [\mathrm{L^2\,T^{-1}}]$; every term of the second integral $[\mathrm{L^2\,T^{-2}}]$
-> **Meaning:** the first is the angular momentum of $P_1$ about the axis divided by $m\sin\alpha$, constant because no force has a moment about the axis; the second is the mechanical energy of the pair: the stationary smooth constraints do no work and the string only transfers energy from one particle to the other, its works on the two ends cancelling.
+> **Meaning:** the first is the angular momentum of $P_1$ about the axis divided by $m\sin^2\alpha$, constant because no force has a moment about the axis; the second is the mechanical energy of the pair: the stationary smooth constraints do no work and the string only transfers energy from one particle to the other, its works on the two ends cancelling.
 
 | Part of the statement | Answer |
 | :--- | :--- |

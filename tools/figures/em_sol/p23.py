@@ -126,8 +126,8 @@ from figures.svgkit import arrow_head
 L = 2.0
 ER = _en("R")
 ET = _en("θ")
-I2 = S(bold("i"), "2")
-K2 = S(bold("k"), "2")
+I2 = S(bold("i"), "1")
+K2 = S(bold("k"), "1")
 TH = "θ"
 
 
@@ -138,7 +138,7 @@ def _pt(th):
 
 @figure("p23-plane",
         "The circumference in its own plane with the angle theta from the downward vertical, the right triangle of legs L sin theta and L cos theta, and the polar basis at P.",
-        r"Plane of the circumference, $\mathbf k_2$ out of the paper. $\theta$ is measured from the downward vertical, so the polar angle from $\mathbf i_2$ is $\theta - \pi/2$; the triangle (hypotenuse $L$, legs $L\sin\theta$ and $L\cos\theta$) gives $\mathbf e_R = \sin\theta\,\mathbf i_2 - \cos\theta\,\mathbf j$.")
+        r"Plane of the circumference, $\mathbf k_1$ out of the paper. $\theta$ is measured from the downward vertical, so the polar angle from $\mathbf i_1$ is $\theta - \pi/2$; the triangle (hypotenuse $L$, legs $L\sin\theta$ and $L\cos\theta$) gives $\mathbf e_R = \sin\theta\,\mathbf i_1 - \cos\theta\,\mathbf j$.")
 def plane():
     K = 86
     sc = Scene(800, 580, (250, 270), K)
@@ -154,11 +154,11 @@ def plane():
     sc.line(O, (0.0, -2.6), "EDGE", 1.2, "5 4")
     sc.label((0.0, -2.6), "−" + bold("j") + " (θ = 0)", "TEXT", "middle", 15, dy=18)
     # position vector and legs
-    sc.vec(O, P, None, "HEAD", 2.2, head=10)
+    sc.vec(O, (P[0] * (1 - 0.07 / L), P[1] * (1 - 0.07 / L)), None, "HEAD", 2.2, head=10)   # tip at the rim of the dot of P
     sc.dashed(Q, P)
     sc.label((0.0, P[1] / 2), "L cos θ", "TEXT", "end", 15, dx=-10, dy=5)
     sc.label((P[0] / 2, P[1]), "L sin θ", "TEXT", "middle", 15, dy=22)
-    sc.label((P[0] * 0.72, P[1] * 0.72), "L", "TEXT", "middle", 16, dx=-13, dy=2)
+    _side(sc, O, P, "L", "TEXT", 0.7, 13, sign=1, size=16)
     sc.label((0.76, -0.68), _r0p() + " = L " + ER, "HEAD", "start", 17, dy=5)
     # angles
     sc.arc(O, 0.55, -90, -50, "GREEN", 1.8, head=True)
@@ -179,33 +179,34 @@ def plane():
     axis_out(sc, O, None)
     sc.label(O, K2, "HEAD", "end", 17, weight="700", dx=-14, dy=22)
     sc.note((-2.6, -3.05), ER + " = sin θ " + I2 + " − cos θ " + bold("j"), "TEXT", "start", 14)
-    _matrix(sc, 3.55, 2.5, _mname("2", "3"), (("sin θ", "cos θ", "0"), ("−cos θ", "sin θ", "0"), ("0", "0", "1")), colw=0.78)
+    _matrix(sc, 3.55, 2.5, _mname("1", "2"), (("sin θ", "cos θ", "0"), ("−cos θ", "sin θ", "0"), ("0", "0", "1")), colw=0.78)
     return sc
 
 
 @figure("p23-rotation-j",
-        "View from above of the fixed axes k, i and of the axes i_2, k_2 of the turning plane, rotated by omega t about the vertical j.",
-        r"Rotation of the plane about $\mathbf j$ (out of the paper). The triangle of $\mathbf i_2$ has its opposite leg along $-\mathbf k$, the minus sign of $\mathbf i_2 = \cos\omega t\,\mathbf i - \sin\omega t\,\mathbf k$; the circumference is seen edge-on along $\mathbf i_2$.")
+        "View from above of the fixed axes k, i and of the axes i_1, k_1 of the turning plane, rotated by omega t about the vertical j.",
+        r"Rotation of the plane about $\mathbf j$ (out of the paper). The triangle of $\mathbf i_1$ has its opposite leg along $-\mathbf k$, the minus sign of $\mathbf i_1 = \cos\omega t\,\mathbf i - \sin\omega t\,\mathbf k$; the circumference is seen edge-on along $\mathbf i_1$.")
 def rotation_j():
     K = 80
     sc = Scene(860, 600, (330, 290), K)
     O = (0.0, 0.0)
     th = 30.0
     c, s = math.cos(math.radians(th)), math.sin(math.radians(th))
-    # trace of the circumference: thick black segment along i_2 (drawn first, the blue vector goes on top)
-    sc.line((2.0 * s, -2.0 * c), (-2.0 * s, 2.0 * c), "HEAD", 5.0)
+    # trace of the circumference: thin dashed grey segment parallel to i_1, offset 0.32 units to its left so the vector and its labels stay visible
+    off = (-0.32 * c, -0.32 * s)
+    sc.line((2.0 * s + off[0], -2.0 * c + off[1]), (-2.0 * s + off[0], 2.0 * c + off[1]), "EDGE", 1.4, "6 4")
     _rot_view(sc, th, (bold("k"), bold("i")), (K2, I2), L=2.0, u=1.4, ang="ωt")
-    sc.label((2.0 * s, -2.0 * c), "circumference (edge-on)", "HEAD", "end", 15, dx=-8, dy=20)
+    sc.label((2.0 * s, -2.0 * c), "circumference (edge-on, dashed)", "TEXT", "end", 15, dx=-6, dy=36)
     axis_out(sc, O, None)
     sc.label(O, bold("j"), "HEAD", "end", 17, dx=-14, dy=-6)
-    _spin(sc, O, 0.3, 200, 340, "positive about j", (-14, 46), "end")
-    _matrix(sc, 3.0, -1.2, _mname("0", "2"), (("cos ωt", "0", "sin ωt"), ("0", "1", "0"), ("−sin ωt", "0", "cos ωt")), colw=0.8)
+    _spin(sc, O, 0.3, 200, 340, "positive about j", (-26, 46), "end")
+    _matrix(sc, 3.0, -1.2, _mname("0", "1"), (("cos ωt", "0", "sin ωt"), ("0", "1", "0"), ("−sin ωt", "0", "cos ωt")), colw=0.8)
     return sc
 
 
 @figure("p23-fbd",
         "Free-body diagram of the particle inside the circumference: weight with its radial and tangential parts, the inward reaction and the reaction normal to the plane.",
-        r"Forces on $P$: the weight, whose components are $mg\cos\theta$ outwards and $mg\sin\theta$ against the motion, the inward reaction $-N\mathbf e_R$ of the circumference, which must stay non-negative, and the reaction $N_b\mathbf k_2$ of the turning plane.")
+        r"Forces on $P$: the weight, whose components are $mg\cos\theta$ outwards and $mg\sin\theta$ against the motion, the inward reaction $-N\mathbf e_R$ of the circumference, which must stay non-negative, and the reaction $N_b\mathbf k_1$ of the turning plane.")
 def fbd():
     K = 86
     sc = Scene(860, 600, (250, 290), K)
@@ -238,7 +239,7 @@ def fbd():
     # velocity
     V = add(P, et, 1.0)
     sc.vec(P, V, None, "GREEN", 2.8, head=11)
-    sc.label(V, "L " + "θ̇" + " " + ET, "GREEN", "start", 16, dx=10, dy=-2)
+    sc.label(V, "L θ" + '<tspan dx="-6.5" baseline-shift="52%">·</tspan>' + " " + ET, "GREEN", "start", 16, dx=10, dy=-2)
     # axial reaction
     _pout(sc, P, 9, PURPLE)
     sc.line((P[0] + 0.13, P[1] - 0.02), (2.7, P[1] - 0.02), PURPLE, 0.9, "3 3")
