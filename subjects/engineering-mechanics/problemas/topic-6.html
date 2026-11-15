@@ -1342,7 +1342,7 @@ y_P &amp;= a\tan\theta \quad &amp;\text{(solve for $y_P$)} \\
 \mathbf k_B &amp;= \sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2 \quad &amp;\text{($\mathbf k_2$ turned counterclockwise from the right leans upwards, towards $+\mathbf i_2$)} \\
 [{}_2R_B] &amp;= \begin{bmatrix} \cos\theta &amp; 0 &amp; \sin\theta \cr 0 &amp; 1 &amp; 0 \cr -\sin\theta &amp; 0 &amp; \cos\theta \end{bmatrix} \quad &amp;\text{(columns: $\mathbf i_B$, $\mathbf j_B$, $\mathbf k_B$ in $\mathcal B_2$)} \\
 \det[{}_2R_B] &amp;= 1\cdot(\cos^2\theta + \sin^2\theta) = 1 \quad &amp;\text{(expand along the second row)} \\
-[{}_2R_B][{}_2R_B]^T &amp;= [U] \quad &amp;\text{(same products as for $[{}_0R_1]$ with $\theta$ in place of $\beta$)}
+[{}_2R_B][{}_2R_B]^T &amp;= \begin{bmatrix} \cos^2\theta+\sin^2\theta &amp; 0 &amp; -\cos\theta\sin\theta+\sin\theta\cos\theta \cr 0 &amp; 1 &amp; 0 \cr -\sin\theta\cos\theta+\cos\theta\sin\theta &amp; 0 &amp; \sin^2\theta+\cos^2\theta \end{bmatrix} = [U] \quad &amp;\text{(row by row products; the off-diagonal terms cancel in pairs)}
 \end{aligned}$$</div>
     <div class="derivation-result">$$\boxed{[{}_2R_B] = [{}_2R_B(y, \theta)] = \begin{bmatrix} \cos\theta &amp; 0 &amp; \sin\theta \cr 0 &amp; 1 &amp; 0 \cr -\sin\theta &amp; 0 &amp; \cos\theta \end{bmatrix}}$$</div>
   </div>
@@ -1483,7 +1483,7 @@ y_P &amp;= a\tan\theta \quad &amp;\text{(solve for $y_P$)} \\
     <div class="derivation-result">$$\boxed{\begin{aligned} \boldsymbol\alpha_{B0} &amp;= \left[\dot\theta\,(\dot\gamma\cos\gamma\sin\beta + \dot\beta\cos\beta\sin\gamma) + \ddot\gamma\cos\beta - \dot\gamma\dot\beta\sin\beta\right]\mathbf i + \left[\ddot\beta - \dot\theta\dot\gamma\sin\gamma\right]\mathbf j \quad &amp;\text{(first two)} \\ &amp;\quad + \left[\dot\theta\,(\dot\gamma\cos\gamma\cos\beta - \dot\beta\sin\beta\sin\gamma) - \ddot\gamma\sin\beta - \dot\gamma\dot\beta\cos\beta\right]\mathbf k \quad &amp;\text{(third)} \end{aligned}}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{T^{-2}}]$</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the same result follows by differentiating the three fixed components of the angular velocity one by one, because the fixed unit vectors do not change; that route is used below as a check.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the same result follows by differentiating the three fixed components of the angular velocity one by one, because the fixed unit vectors do not change. The check further below takes a third route: it differentiates the body components.</p>
 </div>
 <div class="derivation-box">
   <div class="derivation-head">
@@ -2617,7 +2617,7 @@ v_{0\parallel} &amp;= \frac{\mathbf v_0^G\cdot\boldsymbol\omega}{\omega} \quad &
 <h3 class="phase-heading">Reference Frames, Bases and Degrees of Freedom</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical system:</strong> three homogeneous plates of negligible thickness shaped as the letters T, I and C, with uniform surface density $\sigma$ (mass per unit area, kg/m²).</li>
-<li><strong>Dimensions (read from the figure):</strong> every horizontal bar has length $w$, every letter has overall height $h$, and every bar, horizontal or vertical, has thickness $t$. The figure dimensions $h$ only on the T and $t$ only on the I (stem and lower bar) and on the C (upper bar); the three letters are drawn with equal heights and equal bar thicknesses, so the same $h$ and $t$ are used for all of them. The official key makes the same reading for the T.</li>
+<li><strong>Dimensions (read from the figure):</strong> every horizontal bar has length $w$, every letter has overall height $h$, and every bar, horizontal or vertical, has thickness $t$. The figure does not repeat every dimension on every letter; the three letters are drawn with equal heights and equal bar thicknesses, so the same $h$ and $t$ are used for all of them. The official key makes the same reading for the T.</li>
 <li><strong>Basis:</strong> for every shape the plate lies in the plane of the paper; $\mathbf i$ is horizontal to the right, $\mathbf j$ vertical upwards and $\mathbf k$ normal to the plate, out of the paper, so that $\{\mathbf i, \mathbf j, \mathbf k\}$ is right-handed. All the frames of one shape share this basis.</li>
 <li><strong>Frames of the T:</strong> the auxiliary frame $S_O$ has its origin $O$ at the midpoint of the lower edge of the top bar (the frame of the official key); $S_G$ is parallel to it with origin at the centre of mass $G$.</li>
 <li><strong>Frame of the I:</strong> the letter has two symmetry lines, so the frame $S_G$ is placed directly at their intersection.</li>

@@ -869,7 +869,7 @@ No position vector is needed: the centre $O$ is fixed and only the attitude of t
 > \mathbf k_B &= \sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2 \quad &\text{($\mathbf k_2$ turned counterclockwise from the right leans upwards, towards $+\mathbf i_2$)} \\
 > [{}_2R_B] &= \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_B$, $\mathbf j_B$, $\mathbf k_B$ in $\mathcal B_2$)} \\
 > \det[{}_2R_B] &= 1\cdot(\cos^2\theta + \sin^2\theta) = 1 \quad &\text{(expand along the second row)} \\
-> [{}_2R_B][{}_2R_B]^T &= [U] \quad &\text{(same products as for $[{}_0R_1]$ with $\theta$ in place of $\beta$)}
+> [{}_2R_B][{}_2R_B]^T &= \begin{bmatrix} \cos^2\theta+\sin^2\theta & 0 & -\cos\theta\sin\theta+\sin\theta\cos\theta \cr 0 & 1 & 0 \cr -\sin\theta\cos\theta+\cos\theta\sin\theta & 0 & \sin^2\theta+\cos^2\theta \end{bmatrix} = [U] \quad &\text{(row by row products; the off-diagonal terms cancel in pairs)}
 > \end{aligned}$$
 >
 > $$\boxed{[{}_2R_B] = [{}_2R_B(y, \theta)] = \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{bmatrix}}$$
@@ -1001,7 +1001,7 @@ No position vector is needed: the centre $O$ is fixed and only the attitude of t
 > $$\boxed{\begin{aligned} \boldsymbol\alpha_{B0} &= \left[\dot\theta\,(\dot\gamma\cos\gamma\sin\beta + \dot\beta\cos\beta\sin\gamma) + \ddot\gamma\cos\beta - \dot\gamma\dot\beta\sin\beta\right]\mathbf i + \left[\ddot\beta - \dot\theta\dot\gamma\sin\gamma\right]\mathbf j \quad &\text{(first two)} \\ &\quad + \left[\dot\theta\,(\dot\gamma\cos\gamma\cos\beta - \dot\beta\sin\beta\sin\gamma) - \ddot\gamma\sin\beta - \dot\gamma\dot\beta\cos\beta\right]\mathbf k \quad &\text{(third)} \end{aligned}}$$
 >
 > **Units:** $[\mathrm{T^{-2}}]$
-> **Meaning:** the same result follows by differentiating the three fixed components of the angular velocity one by one, because the fixed unit vectors do not change; that route is used below as a check.
+> **Meaning:** the same result follows by differentiating the three fixed components of the angular velocity one by one, because the fixed unit vectors do not change. The check further below takes a third route: it differentiates the body components.
 
 > [!derivation] Angular acceleration in the body basis
 > **Law:** change of basis from $\mathcal B_1$ to $\mathcal B_B$
@@ -1358,7 +1358,7 @@ This section does not apply: the motion of the centre is prescribed and no force
 ### Reference Frames, Bases and Degrees of Freedom
 
 * **Physical system:** three homogeneous plates of negligible thickness shaped as the letters T, I and C, with uniform surface density $\sigma$ (mass per unit area, kg/m²).
-* **Dimensions (read from the figure):** every horizontal bar has length $w$, every letter has overall height $h$, and every bar, horizontal or vertical, has thickness $t$. The figure dimensions $h$ only on the T and $t$ only on the I (stem and lower bar) and on the C (upper bar); the three letters are drawn with equal heights and equal bar thicknesses, so the same $h$ and $t$ are used for all of them. The official key makes the same reading for the T.
+* **Dimensions (read from the figure):** every horizontal bar has length $w$, every letter has overall height $h$, and every bar, horizontal or vertical, has thickness $t$. The figure does not repeat every dimension on every letter; the three letters are drawn with equal heights and equal bar thicknesses, so the same $h$ and $t$ are used for all of them. The official key makes the same reading for the T.
 * **Basis:** for every shape the plate lies in the plane of the paper; $\mathbf i$ is horizontal to the right, $\mathbf j$ vertical upwards and $\mathbf k$ normal to the plate, out of the paper, so that $\{\mathbf i, \mathbf j, \mathbf k\}$ is right-handed. All the frames of one shape share this basis.
 * **Frames of the T:** the auxiliary frame $S_O$ has its origin $O$ at the midpoint of the lower edge of the top bar (the frame of the official key); $S_G$ is parallel to it with origin at the centre of mass $G$.
 * **Frame of the I:** the letter has two symmetry lines, so the frame $S_G$ is placed directly at their intersection.
