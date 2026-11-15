@@ -779,3 +779,574 @@ This section does not apply: the motion is described by the geometric conditions
 * **Angle approaching a right angle.** The squared cosine in the denominator makes the speed of $P$ grow without bound: $P$ must run to infinity along $Oy$ to keep the line to $A$ nearly parallel to $Oy$.
 * **Slip velocity.** The scalar product of the velocity of $P$ with the angular velocity is minus $a$ times the squared rate times the sine over the squared cosine, which is not zero for a non-zero angle: the instantaneous motion is a screw motion, not a pure rotation.
 * **Dimensions.** The angular velocity has the dimensions of the rate, $[\mathrm{T^{-1}}]$; the velocity of $P$ is a length times a rate.
+
+---
+
+## Problem RB-03: Flywheel kinematics (Euler angles)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a free gyroscope made of three rigid bodies in a chain: the outer gimbal, turning in the fixed bearings $A$ and $B$; the inner gimbal, turning in the bearings $C$ and $D$ of the outer gimbal; and the flywheel, turning in the bearings $E$ and $F$ of the inner gimbal. Only the motion of the flywheel is asked for.
+* **Fixed frame:** $S_0\{O; \mathcal B_0\}$, the frame $XYZ$ of the figure, with right-handed basis $\{\mathbf i, \mathbf j, \mathbf k\}$ along $X$, $Y$, $Z$. Read from the figure: the three bearing axes meet at the centre of the flywheel, which is fixed and is taken as the origin $O$; the bearing axis $AB$ is the fixed axis $Y$.
+* **Outer gimbal frame:** $S_1\{O; \mathcal B_1\}$, attached to the outer gimbal. It turns about $AB$, so its second unit vector is the fixed one, $\mathbf j_1$ equal to $\mathbf j$; its first unit vector $\mathbf i_1$ lies along the bearing axis $CD$, from $D$ to $C$. The angle from $X$ to $\mathbf i_1$ is $\beta$.
+* **Inner gimbal frame:** $S_2\{O; \mathcal B_2\}$, attached to the inner gimbal. It turns about $CD$, so $\mathbf i_2$ equals $\mathbf i_1$; its second unit vector $\mathbf j_2$ lies along the flywheel axle $EF$. The angle between the two gimbals, marked at $C$ in the figure, is $\gamma$.
+* **Body frame of the flywheel:** $S_b\{O; \mathcal B_B\}$, the frame $xyz$ of the statement, with basis $\{\mathbf i_B, \mathbf j_B, \mathbf k_B\}$. It turns about the axle $EF$, so $\mathbf j_B$ equals $\mathbf j_2$ (the axis $y$ of the figure); the spin angle is $\theta$, with constant rate $\omega_\theta$.
+* **Senses and origin of the angles (reading):** the figure is a perspective sketch, so the positive senses of $\beta$, $\gamma$ and $\theta$ are taken by the right-hand rule about $\mathbf j$, $\mathbf i_1$ and $\mathbf j_2$; the key uses the same convention (see Answers and Checks). At the initial instant the given laws make $\beta$ and $\gamma$ zero, and the spin angle is counted from the position in which $x$ points from $D$ to $C$, so $\theta$ is zero too: the four bases coincide at the initial instant and $X$ also points from $D$ to $C$, as the statement requires.
+* **Degrees of freedom:** each gimbal joint is a revolute joint about a fixed line of the previous body, so the flywheel has three rotational degrees of freedom about its fixed centre, the three angles of a 2-1-2 Euler sequence. All three are given functions of time, so no coordinate is left free: the problem is pure kinematics.
+
+| Datum | Law | SI unit |
+| :--- | :--- | :--- |
+| Spin of the flywheel relative to the inner gimbal | $\theta = \omega_\theta t$, rate $\omega_\theta$ constant | rad, rad/s |
+| Inner gimbal relative to the outer gimbal | $\gamma = A\sin(\omega_\gamma t)$ | rad ($A$ in rad, $\omega_\gamma$ in rad/s) |
+| Outer gimbal relative to the fixed frame | $\beta = B\sin(\omega_\beta t)$ | rad ($B$ in rad, $\omega_\beta$ in rad/s) |
+
+* **Unknowns:** the angular velocity and the angular acceleration of the flywheel, each in the body basis and in the fixed basis.
+* **Plan:** one view per elementary rotation gives its matrix; the angular velocity is the sum of the three elementary angular velocities (Notes.pdf, Eq. 3.14); the angular acceleration is the derivative in $S_0$ of that sum, with the moving unit vectors differentiated by the Poisson formula (Notes.pdf, Eq. 3.3).
+
+![[attachments/EM-SOL/rb03-gimbal-chain.svg]]
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+No position vector is needed: the centre $O$ is fixed and only the attitude of the flywheel is asked for.
+
+#### Three elementary rotations
+
+![[attachments/EM-SOL/rb03-rotation-beta.svg]]
+
+> [!derivation] Outer gimbal: rotation about j by the angle beta
+> **Law:** simple rotation about the second axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 1.19; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]
+>
+> View with $\mathbf j$ out of the paper (⊙), $\mathbf k$ to the right and $\mathbf i$ up, since $\mathbf k\times\mathbf i = \mathbf j$. Positive $\beta$ is counterclockwise in this view.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\beta\,\mathbf i - \sin\beta\,\mathbf k \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf i$; $\mathbf i$ turned counterclockwise from up leans to the left, opposite leg along $-\mathbf k$)} \\
+> \mathbf j_1 &= \mathbf j \quad &\text{(the rotation axis does not move)} \\
+> \mathbf k_1 &= \sin\beta\,\mathbf i + \cos\beta\,\mathbf k \quad &\text{($\mathbf k$ turned counterclockwise from the right leans upwards: opposite leg along $+\mathbf i$)} \\
+> [{}_0R_1] &= \begin{bmatrix} \cos\beta & 0 & \sin\beta \cr 0 & 1 & 0 \cr -\sin\beta & 0 & \cos\beta \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot(\cos\beta\cos\beta - \sin\beta\,(-\sin\beta)) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\beta + \sin^2\beta & 0 & -\cos\beta\sin\beta + \sin\beta\cos\beta \cr 0 & 1 & 0 \cr -\sin\beta\cos\beta + \cos\beta\sin\beta & 0 & \sin^2\beta + \cos^2\beta \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = [{}_0R_1(y, \beta)] = \begin{bmatrix} \cos\beta & 0 & \sin\beta \cr 0 & 1 & 0 \cr -\sin\beta & 0 & \cos\beta \end{bmatrix}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** for a rotation about the second axis the minus sign sits below the diagonal, in the third row: the cyclic order is $\mathbf k$, $\mathbf i$, $\mathbf j$, so it is the first axis that leans towards the negative third one.
+
+![[attachments/EM-SOL/rb03-rotation-gamma.svg]]
+
+> [!derivation] Inner gimbal: rotation about i1 by the angle gamma
+> **Law:** simple rotation about the first axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 1.18; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]
+>
+> View with $\mathbf i_1$ out of the paper (⊙), $\mathbf j_1$ to the right and $\mathbf k_1$ up, since $\mathbf j_1\times\mathbf k_1 = \mathbf i_1$. Positive $\gamma$ is counterclockwise.
+>
+> $$\begin{aligned}
+> \mathbf i_2 &= \mathbf i_1 \quad &\text{(the rotation axis $CD$ does not move)} \\
+> \mathbf j_2 &= \cos\gamma\,\mathbf j_1 + \sin\gamma\,\mathbf k_1 \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf j_1$, opposite leg along $\mathbf k_1$)} \\
+> \mathbf k_2 &= -\sin\gamma\,\mathbf j_1 + \cos\gamma\,\mathbf k_1 \quad &\text{($\mathbf k_1$ turned counterclockwise leans towards $-\mathbf j_1$)} \\
+> [{}_1R_2] &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\gamma & -\sin\gamma \cr 0 & \sin\gamma & \cos\gamma \end{bmatrix} \quad &\text{(columns: $\mathbf i_2$, $\mathbf j_2$, $\mathbf k_2$ in $\mathcal B_1$)} \\
+> \det[{}_1R_2] &= 1\cdot(\cos^2\gamma + \sin^2\gamma) = 1 \quad &\text{(expand along the first row)} \\
+> [{}_1R_2][{}_1R_2]^T &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos^2\gamma + \sin^2\gamma & \cos\gamma\sin\gamma - \sin\gamma\cos\gamma \cr 0 & \sin\gamma\cos\gamma - \cos\gamma\sin\gamma & \sin^2\gamma + \cos^2\gamma \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_1R_2] = [{}_1R_2(x, \gamma)] = \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\gamma & -\sin\gamma \cr 0 & \sin\gamma & \cos\gamma \end{bmatrix}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the inner gimbal tilts the flywheel axle $\mathbf j_2$ away from the fixed axis $AB$ by the angle $\gamma$.
+
+![[attachments/EM-SOL/rb03-rotation-theta.svg]]
+
+> [!derivation] Flywheel: rotation about j2 by the angle theta
+> **Law:** simple rotation about the second axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 1.19; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]
+>
+> View with $\mathbf j_2$ out of the paper (⊙), $\mathbf k_2$ to the right and $\mathbf i_2$ up, since $\mathbf k_2\times\mathbf i_2 = \mathbf j_2$. Positive $\theta$ is counterclockwise.
+>
+> $$\begin{aligned}
+> \mathbf i_B &= \cos\theta\,\mathbf i_2 - \sin\theta\,\mathbf k_2 \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf i_2$; turned counterclockwise from up it leans towards $-\mathbf k_2$)} \\
+> \mathbf j_B &= \mathbf j_2 \quad &\text{(the axle $EF$ does not move)} \\
+> \mathbf k_B &= \sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2 \quad &\text{($\mathbf k_2$ turned counterclockwise from the right leans upwards, towards $+\mathbf i_2$)} \\
+> [{}_2R_B] &= \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_B$, $\mathbf j_B$, $\mathbf k_B$ in $\mathcal B_2$)} \\
+> \det[{}_2R_B] &= 1\cdot(\cos^2\theta + \sin^2\theta) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_2R_B][{}_2R_B]^T &= [U] \quad &\text{(same products as for $[{}_0R_1]$ with $\theta$ in place of $\beta$)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_2R_B] = [{}_2R_B(y, \theta)] = \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{bmatrix}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the spin turns the flywheel about its own axle; the attitude is the 2-1-2 sequence $[{}_0R_B] = [{}_0R_1][{}_1R_2][{}_2R_B]$, whose determinant is the product of three ones.
+
+> [!derivation] Unit vectors needed in the fixed basis and in the body basis
+> **Law:** change of basis and its inverse (the transpose)
+> **Source:** Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.16
+>
+> $$\begin{aligned}
+> \mathbf j_2 &= \cos\gamma\,\mathbf j_1 + \sin\gamma\,\mathbf k_1 = \cos\gamma\,\mathbf j + \sin\gamma\,(\sin\beta\,\mathbf i + \cos\beta\,\mathbf k) \quad &\text{(second rotation, then $\mathbf j_1$ and $\mathbf k_1$ of the first)} \\
+> &= \sin\gamma\sin\beta\,\mathbf i + \cos\gamma\,\mathbf j + \sin\gamma\cos\beta\,\mathbf k \quad &\text{(collect the components)} \\
+> \mathbf i_2 &= \cos\theta\,\mathbf i_B + \sin\theta\,\mathbf k_B, \quad \mathbf k_2 = -\sin\theta\,\mathbf i_B + \cos\theta\,\mathbf k_B \quad &\text{(rows of $[{}_2R_B]$: the inverse change, Eq. 1.14)} \\
+> \mathbf j_1 &= \cos\gamma\,\mathbf j_2 - \sin\gamma\,\mathbf k_2, \quad \mathbf k_1 = \sin\gamma\,\mathbf j_2 + \cos\gamma\,\mathbf k_2 \quad &\text{(rows of $[{}_1R_2]$)} \\
+> \mathbf i_1 &= \mathbf i_2 = \cos\theta\,\mathbf i_B + \sin\theta\,\mathbf k_B \quad &\text{($\mathbf i_2 = \mathbf i_1$)} \\
+> \mathbf j_1 &= \sin\gamma\sin\theta\,\mathbf i_B + \cos\gamma\,\mathbf j_B - \sin\gamma\cos\theta\,\mathbf k_B \quad &\text{(substitute $\mathbf j_2 = \mathbf j_B$ and $\mathbf k_2$)} \\
+> \mathbf k_1 &= -\cos\gamma\sin\theta\,\mathbf i_B + \sin\gamma\,\mathbf j_B + \cos\gamma\cos\theta\,\mathbf k_B \quad &\text{(substitute $\mathbf j_2 = \mathbf j_B$ and $\mathbf k_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{aligned} \mathbf j_2 &= \sin\gamma\sin\beta\,\mathbf i + \cos\gamma\,\mathbf j + \sin\gamma\cos\beta\,\mathbf k \quad &\text{(axle in $\mathcal B_0$)} \\ [\mathbf i_1]_B &= (\cos\theta,\ 0,\ \sin\theta),\ [\mathbf j_1]_B = (\sin\gamma\sin\theta,\ \cos\gamma,\ -\sin\gamma\cos\theta),\ [\mathbf k_1]_B = (-\cos\gamma\sin\theta,\ \sin\gamma,\ \cos\gamma\cos\theta) \quad &\text{(basis 1 in $\mathcal B_B$)} \end{aligned}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** each of the three triads is orthonormal (sum of squares of every row equal to one), which is a quick check of the substitutions.
+
+#### Angular velocity by additivity
+
+> [!derivation] Angular velocities of the elementary rotations
+> **Law:** a simple rotation has the angular velocity of the rate of its angle along its axis; Poisson formula
+> **Source:** Notes.pdf, Eq. 3.3; [Lecture 7, Slide 12]
+>
+> Check for the outer gimbal with the derivative of one of its unit vectors.
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf k_1}{dt}\right|_0 &= \frac{d}{dt}(\sin\beta\,\mathbf i + \cos\beta\,\mathbf k) = \cos\beta\,\dot\beta\,\mathbf i - \sin\beta\,\dot\beta\,\mathbf k \quad &\text{(chain rule; $\mathbf i$, $\mathbf k$ fixed)} \\
+> &= \dot\beta\,\mathbf i_1 \quad &\text{(compare with $\mathbf i_1$)} \\
+> \dot\beta\,\mathbf j\times\mathbf k_1 &= \dot\beta\,\mathbf j_1\times\mathbf k_1 = \dot\beta\,\mathbf i_1 \quad &\text{($\mathbf j = \mathbf j_1$; right-handed $\mathcal B_1$)} \\
+> \boldsymbol\omega_{10} &= \dot\beta\,\mathbf j \quad &\text{(the Poisson formula holds with this vector)} \\
+> \boldsymbol\omega_{21} &= \dot\gamma\,\mathbf i_1, \quad \boldsymbol\omega_{B2} = \dot\theta\,\mathbf j_2 \quad &\text{(same argument for the other two rotations)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{10} = \dot\beta\,\mathbf j, \qquad \boldsymbol\omega_{21} = \dot\gamma\,\mathbf i_1, \qquad \boldsymbol\omega_{B2} = \dot\theta\,\mathbf j_2}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$
+> **Meaning:** each gimbal adds the rate of its own angle along its own bearing axis.
+
+> [!derivation] Angular velocity of the flywheel in the fixed basis
+> **Law:** additivity of angular velocities
+> **Source:** Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 9.21; [Lecture 7, Slide 12]
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{B0} &= \boldsymbol\omega_{B2} + \boldsymbol\omega_{20} = \boldsymbol\omega_{B2} + \boldsymbol\omega_{21} + \boldsymbol\omega_{10} \quad &\text{(Eq. 3.14 twice, with the intermediate frames $S_2$ and $S_1$)} \\
+> &= \dot\theta\,\mathbf j_2 + \dot\gamma\,\mathbf i_1 + \dot\beta\,\mathbf j \quad &\text{(previous box)} \\
+> &= \dot\theta\,(\sin\gamma\sin\beta\,\mathbf i + \cos\gamma\,\mathbf j + \sin\gamma\cos\beta\,\mathbf k) + \dot\gamma\,(\cos\beta\,\mathbf i - \sin\beta\,\mathbf k) + \dot\beta\,\mathbf j \quad &\text{(substitute $\mathbf j_2$ and $\mathbf i_1$ in $\mathcal B_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{B0} = (\dot\theta\sin\gamma\sin\beta + \dot\gamma\cos\beta)\,\mathbf i + (\dot\theta\cos\gamma + \dot\beta)\,\mathbf j + (\dot\theta\sin\gamma\cos\beta - \dot\gamma\sin\beta)\,\mathbf k}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in every term
+> **Meaning:** the spin, the largest rate in a gyroscope, is spread over the three fixed axes by the tilt of the axle; the gimbal rates add along their bearing axes.
+
+> [!derivation] Angular velocity of the flywheel in the body basis
+> **Law:** additivity of angular velocities; inverse change of basis
+> **Source:** Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 1.14
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{B0} &= \dot\theta\,\mathbf j_B + \dot\gamma\,\mathbf i_1 + \dot\beta\,\mathbf j_1 \quad &\text{($\mathbf j_2 = \mathbf j_B$ and $\mathbf j = \mathbf j_1$)} \\
+> &= \dot\theta\,\mathbf j_B + \dot\gamma\,(\cos\theta\,\mathbf i_B + \sin\theta\,\mathbf k_B) + \dot\beta\,(\sin\gamma\sin\theta\,\mathbf i_B + \cos\gamma\,\mathbf j_B - \sin\gamma\cos\theta\,\mathbf k_B) \quad &\text{(substitute $\mathbf i_1$ and $\mathbf j_1$ in $\mathcal B_B$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{B0} = (\dot\gamma\cos\theta + \dot\beta\sin\theta\sin\gamma)\,\mathbf i_B + (\dot\theta + \dot\beta\cos\gamma)\,\mathbf j_B + (\dot\gamma\sin\theta - \dot\beta\sin\gamma\cos\theta)\,\mathbf k_B}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in every term
+> **Meaning:** these are the rates a three-axis gyrometer fixed on the flywheel would read. The squares of the two forms add up to the same value, the squared gimbal rates plus the squared spin plus twice the spin times the outer rate times the cosine of the inner angle.
+
+#### Angular acceleration from the derivative in the fixed frame
+
+> [!derivation] Derivatives of the moving unit vectors
+> **Law:** Poisson formula: a unit vector fixed in a frame changes with the angular velocity of that frame
+> **Source:** Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 1.42
+>
+> The vector $\mathbf i_1$ is fixed in $S_1$; the vector $\mathbf j_2$ is fixed in $S_2$, whose angular velocity is the sum of the first two elementary ones.
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \boldsymbol\omega_{10}\times\mathbf i_1 = \dot\beta\,\mathbf j_1\times\mathbf i_1 \quad &\text{(Poisson formula in $S_1$)} \\
+> &= -\dot\beta\,\mathbf k_1 \quad &\text{(right-handed $\mathcal B_1$: $\mathbf j_1\times\mathbf i_1 = -\mathbf k_1$)} \\
+> \boldsymbol\omega_{20} &= \boldsymbol\omega_{21} + \boldsymbol\omega_{10} = \dot\gamma\,\mathbf i_1 + \dot\beta\,\mathbf j_1 \quad &\text{(Eq. 3.14)} \\
+> \left.\frac{d\mathbf j_2}{dt}\right|_0 &= \boldsymbol\omega_{20}\times\mathbf j_2 = \begin{vmatrix} \mathbf i_1 & \mathbf j_1 & \mathbf k_1 \cr \dot\gamma & \dot\beta & 0 \cr 0 & \cos\gamma & \sin\gamma \end{vmatrix} \quad &\text{(Poisson formula in $S_2$; components in $\mathcal B_1$)} \\
+> &= \mathbf i_1\,(\dot\beta\sin\gamma - 0\cdot\cos\gamma) - \mathbf j_1\,(\dot\gamma\sin\gamma - 0\cdot 0) + \mathbf k_1\,(\dot\gamma\cos\gamma - \dot\beta\cdot 0) \quad &\text{(expand along the first row)} \\
+> &= \dot\beta\sin\gamma\,\mathbf i_1 - \dot\gamma\sin\gamma\,\mathbf j_1 + \dot\gamma\cos\gamma\,\mathbf k_1 \quad &\text{(carry out the products)}
+> \end{aligned}$$
+>
+> $$\boxed{\left.\frac{d\mathbf i_1}{dt}\right|_0 = -\dot\beta\,\mathbf k_1, \qquad \left.\frac{d\mathbf j_2}{dt}\right|_0 = \dot\beta\sin\gamma\,\mathbf i_1 - \dot\gamma\sin\gamma\,\mathbf j_1 + \dot\gamma\cos\gamma\,\mathbf k_1}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$
+> **Meaning:** the bearing axis $CD$ swings with the outer gimbal only; the axle $EF$ swings with both gimbals. Using the angular velocity of $S_2$ for the first vector would give the same result, because the extra term is along $\mathbf i_1$ itself.
+
+> [!derivation] Angular acceleration in the basis of the outer gimbal
+> **Law:** definition of angular acceleration as the derivative in $S_0$; product rule
+> **Source:** Notes.pdf, Eq. 3.9; Notes.pdf, Eq. 3.3
+>
+> $$\begin{aligned}
+> \boldsymbol\alpha_{B0} &= \left.\frac{d\boldsymbol\omega_{B0}}{dt}\right|_0 = \frac{d}{dt}(\dot\beta\,\mathbf j + \dot\gamma\,\mathbf i_1 + \dot\theta\,\mathbf j_2) \quad &\text{(definition; additive form of the angular velocity)} \\
+> &= \ddot\beta\,\mathbf j + \ddot\gamma\,\mathbf i_1 + \dot\gamma\left.\frac{d\mathbf i_1}{dt}\right|_0 + \ddot\theta\,\mathbf j_2 + \dot\theta\left.\frac{d\mathbf j_2}{dt}\right|_0 \quad &\text{(product rule; $\mathbf j$ is fixed in $S_0$)} \\
+> \ddot\theta &= 0 \quad &\text{(the spin rate $\omega_\theta$ is constant)} \\
+> \boldsymbol\alpha_{B0} &= \ddot\beta\,\mathbf j_1 + \ddot\gamma\,\mathbf i_1 - \dot\gamma\dot\beta\,\mathbf k_1 + \dot\theta\,(\dot\beta\sin\gamma\,\mathbf i_1 - \dot\gamma\sin\gamma\,\mathbf j_1 + \dot\gamma\cos\gamma\,\mathbf k_1) \quad &\text{(previous box; $\mathbf j = \mathbf j_1$)} \\
+> &= (\ddot\gamma + \dot\theta\dot\beta\sin\gamma)\,\mathbf i_1 + (\ddot\beta - \dot\theta\dot\gamma\sin\gamma)\,\mathbf j_1 + (\dot\theta\dot\gamma\cos\gamma - \dot\gamma\dot\beta)\,\mathbf k_1 \quad &\text{(collect along $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\alpha_{B0} = (\ddot\gamma + \dot\theta\dot\beta\sin\gamma)\,\mathbf i_1 + (\ddot\beta - \dot\theta\dot\gamma\sin\gamma)\,\mathbf j_1 + (\dot\theta\dot\gamma\cos\gamma - \dot\gamma\dot\beta)\,\mathbf k_1}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$ in every term
+> **Meaning:** besides the angular accelerations of the gimbals, the products of rates appear because the axes of the gimbal rates and of the spin turn; the basis $\mathcal B_1$ is the shortest place to collect them before passing to the two requested bases.
+
+> [!derivation] Angular acceleration in the fixed basis
+> **Law:** change of basis from $\mathcal B_1$ to $\mathcal B_0$
+> **Source:** Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.19
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\beta\,\mathbf i - \sin\beta\,\mathbf k, \quad \mathbf j_1 = \mathbf j, \quad \mathbf k_1 = \sin\beta\,\mathbf i + \cos\beta\,\mathbf k \quad &\text{(columns of $[{}_0R_1]$)} \\
+> \alpha_X &= (\ddot\gamma + \dot\theta\dot\beta\sin\gamma)\cos\beta + (\dot\theta\dot\gamma\cos\gamma - \dot\gamma\dot\beta)\sin\beta \quad &\text{(components along $\mathbf i$ of $\mathbf i_1$ and $\mathbf k_1$)} \\
+> &= \dot\theta\,(\dot\gamma\cos\gamma\sin\beta + \dot\beta\cos\beta\sin\gamma) + \ddot\gamma\cos\beta - \dot\gamma\dot\beta\sin\beta \quad &\text{(group the terms in the spin rate)} \\
+> \alpha_Y &= \ddot\beta - \dot\theta\dot\gamma\sin\gamma \quad &\text{(only $\mathbf j_1$ has a component along $\mathbf j$)} \\
+> \alpha_Z &= -(\ddot\gamma + \dot\theta\dot\beta\sin\gamma)\sin\beta + (\dot\theta\dot\gamma\cos\gamma - \dot\gamma\dot\beta)\cos\beta \quad &\text{(components along $\mathbf k$ of $\mathbf i_1$ and $\mathbf k_1$)} \\
+> &= \dot\theta\,(\dot\gamma\cos\gamma\cos\beta - \dot\beta\sin\beta\sin\gamma) - \ddot\gamma\sin\beta - \dot\gamma\dot\beta\cos\beta \quad &\text{(group the terms in the spin rate)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{aligned} \boldsymbol\alpha_{B0} &= \left[\dot\theta\,(\dot\gamma\cos\gamma\sin\beta + \dot\beta\cos\beta\sin\gamma) + \ddot\gamma\cos\beta - \dot\gamma\dot\beta\sin\beta\right]\mathbf i + \left[\ddot\beta - \dot\theta\dot\gamma\sin\gamma\right]\mathbf j \quad &\text{(first two)} \\ &\quad + \left[\dot\theta\,(\dot\gamma\cos\gamma\cos\beta - \dot\beta\sin\beta\sin\gamma) - \ddot\gamma\sin\beta - \dot\gamma\dot\beta\cos\beta\right]\mathbf k \quad &\text{(third)} \end{aligned}}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$
+> **Meaning:** the same result follows by differentiating the three fixed components of the angular velocity one by one, because the fixed unit vectors do not change; that route is used below as a check.
+
+> [!derivation] Angular acceleration in the body basis
+> **Law:** change of basis from $\mathcal B_1$ to $\mathcal B_B$
+> **Source:** Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.16
+>
+> Write the components of the previous box in $\mathcal B_1$ as $\alpha_1$, $\alpha_2$, $\alpha_3$ and use the body components of $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$.
+>
+> $$\begin{aligned}
+> \alpha_{x_B} &= \alpha_1\cos\theta + \alpha_2\sin\gamma\sin\theta - \alpha_3\cos\gamma\sin\theta \quad &\text{(first body components of $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$)} \\
+> &= \ddot\gamma\cos\theta + \dot\theta\dot\beta\sin\gamma\cos\theta + \ddot\beta\sin\gamma\sin\theta - \dot\theta\dot\gamma\sin^2\gamma\sin\theta - \dot\theta\dot\gamma\cos^2\gamma\sin\theta + \dot\gamma\dot\beta\cos\gamma\sin\theta \quad &\text{(expand the three products)} \\
+> &= \dot\beta\,(\dot\theta\cos\theta\sin\gamma + \dot\gamma\cos\gamma\sin\theta) + \ddot\gamma\cos\theta - \dot\gamma\dot\theta\sin\theta + \ddot\beta\sin\theta\sin\gamma \quad &\text{($\sin^2\gamma + \cos^2\gamma = 1$, then group)} \\
+> \alpha_{y_B} &= \alpha_2\cos\gamma + \alpha_3\sin\gamma \quad &\text{(second body components; that of $\mathbf i_1$ is zero)} \\
+> &= \ddot\beta\cos\gamma - \dot\theta\dot\gamma\sin\gamma\cos\gamma + \dot\theta\dot\gamma\cos\gamma\sin\gamma - \dot\gamma\dot\beta\sin\gamma \quad &\text{(expand)} \\
+> &= \ddot\beta\cos\gamma - \dot\gamma\dot\beta\sin\gamma \quad &\text{(the terms in the spin rate cancel)} \\
+> \alpha_{z_B} &= \alpha_1\sin\theta - \alpha_2\sin\gamma\cos\theta + \alpha_3\cos\gamma\cos\theta \quad &\text{(third body components)} \\
+> &= \ddot\gamma\sin\theta + \dot\theta\dot\beta\sin\gamma\sin\theta - \ddot\beta\sin\gamma\cos\theta + \dot\theta\dot\gamma\sin^2\gamma\cos\theta + \dot\theta\dot\gamma\cos^2\gamma\cos\theta - \dot\gamma\dot\beta\cos\gamma\cos\theta \quad &\text{(expand)} \\
+> &= \ddot\gamma\sin\theta + \dot\theta\dot\gamma\cos\theta - \ddot\beta\sin\gamma\cos\theta - \dot\beta\,(\dot\gamma\cos\gamma\cos\theta - \dot\theta\sin\theta\sin\gamma) \quad &\text{($\sin^2\gamma + \cos^2\gamma = 1$, then group)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{aligned} \boldsymbol\alpha_{B0} &= \left[\dot\beta\,(\dot\theta\cos\theta\sin\gamma + \dot\gamma\cos\gamma\sin\theta) + \ddot\gamma\cos\theta - \dot\gamma\dot\theta\sin\theta + \ddot\beta\sin\theta\sin\gamma\right]\mathbf i_B \quad &\text{(first)} \\ &\quad + \left[\ddot\beta\cos\gamma - \dot\gamma\dot\beta\sin\gamma\right]\mathbf j_B \quad &\text{(second)} \\ &\quad + \left[\ddot\gamma\sin\theta + \dot\theta\dot\gamma\cos\theta - \ddot\beta\sin\gamma\cos\theta - \dot\beta\,(\dot\gamma\cos\gamma\cos\theta - \dot\theta\sin\theta\sin\gamma)\right]\mathbf k_B \quad &\text{(third)} \end{aligned}}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$
+> **Meaning:** the component along the axle has no term in the spin rate: with a constant spin, the axle component of the angular acceleration comes only from the outer gimbal rate projected on the axle and its change.
+
+> [!derivation] Rates and accelerations of the three angles
+> **Law:** time derivatives of the given laws; chain rule
+> **Source:** Problems.pdf, p. 37
+>
+> $$\begin{aligned}
+> \dot\theta &= \omega_\theta, \quad \ddot\theta = 0 \quad &\text{(constant spin rate; $\theta = \omega_\theta t$ with zero initial angle)} \\
+> \dot\gamma &= \frac{d}{dt}\,A\sin(\omega_\gamma t) = A\cos(\omega_\gamma t)\,\omega_\gamma \quad &\text{(chain rule: outer derivative times $d(\omega_\gamma t)/dt = \omega_\gamma$)} \\
+> \ddot\gamma &= \frac{d}{dt}\,A\omega_\gamma\cos(\omega_\gamma t) = -A\omega_\gamma^2\sin(\omega_\gamma t) \quad &\text{(chain rule again)} \\
+> \dot\beta &= B\omega_\beta\cos(\omega_\beta t) \quad &\text{(chain rule)} \\
+> \ddot\beta &= -B\omega_\beta^2\sin(\omega_\beta t) \quad &\text{(chain rule again)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\theta = \omega_\theta,\quad \dot\gamma = A\omega_\gamma\cos(\omega_\gamma t),\quad \ddot\gamma = -A\omega_\gamma^2\sin(\omega_\gamma t),\quad \dot\beta = B\omega_\beta\cos(\omega_\beta t),\quad \ddot\beta = -B\omega_\beta^2\sin(\omega_\beta t)}$$
+>
+> **Units:** rates in $[\mathrm{T^{-1}}]$ and accelerations in $[\mathrm{T^{-2}}]$, since the amplitudes are angles in rad
+> **Meaning:** substituting these laws and the angles themselves in the boxed components gives the angular velocity and acceleration as explicit functions of time.
+
+### Center of Mass and Inertia Tensor
+
+This section does not apply: only the angular velocity and acceleration of the flywheel are asked for, and they do not depend on its mass distribution.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+This section does not apply: no momentum or energy is asked for.
+
+### Free-Body Diagram and Equations of Motion
+
+This section does not apply: the three angles are prescribed functions of time and no torque is asked for.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| Angular velocity, body basis | $(\dot\gamma\cos\theta + \dot\beta\sin\theta\sin\gamma)\,\mathbf i_B + (\dot\theta + \dot\beta\cos\gamma)\,\mathbf j_B + (\dot\gamma\sin\theta - \dot\beta\sin\gamma\cos\theta)\,\mathbf k_B$ |
+| Angular velocity, fixed basis | $(\dot\theta\sin\gamma\sin\beta + \dot\gamma\cos\beta)\,\mathbf i + (\dot\theta\cos\gamma + \dot\beta)\,\mathbf j + (\dot\theta\sin\gamma\cos\beta - \dot\gamma\sin\beta)\,\mathbf k$ |
+| Angular acceleration, body basis | $[\dot\beta(\dot\theta\cos\theta\sin\gamma + \dot\gamma\cos\gamma\sin\theta) + \ddot\gamma\cos\theta - \dot\gamma\dot\theta\sin\theta + \ddot\beta\sin\theta\sin\gamma]\,\mathbf i_B + [\ddot\beta\cos\gamma - \dot\gamma\dot\beta\sin\gamma]\,\mathbf j_B + [\ddot\gamma\sin\theta + \dot\theta\dot\gamma\cos\theta - \ddot\beta\sin\gamma\cos\theta - \dot\beta(\dot\gamma\cos\gamma\cos\theta - \dot\theta\sin\theta\sin\gamma)]\,\mathbf k_B$ |
+| Angular acceleration, fixed basis | $[\dot\theta(\dot\gamma\cos\gamma\sin\beta + \dot\beta\cos\beta\sin\gamma) + \ddot\gamma\cos\beta - \dot\gamma\dot\beta\sin\beta]\,\mathbf i + [\ddot\beta - \dot\theta\dot\gamma\sin\gamma]\,\mathbf j + [\dot\theta(\dot\gamma\cos\gamma\cos\beta - \dot\beta\sin\beta\sin\gamma) - \ddot\gamma\sin\beta - \dot\gamma\dot\beta\cos\beta]\,\mathbf k$ |
+| Time laws to substitute | $\theta = \omega_\theta t$, $\dot\theta = \omega_\theta$; $\gamma = A\sin\omega_\gamma t$, $\dot\gamma = A\omega_\gamma\cos\omega_\gamma t$, $\ddot\gamma = -A\omega_\gamma^2\sin\omega_\gamma t$; $\beta = B\sin\omega_\beta t$, $\dot\beta = B\omega_\beta\cos\omega_\beta t$, $\ddot\beta = -B\omega_\beta^2\sin\omega_\beta t$ |
+
+**Check against the official key:** the key (Problems.pdf, p. 77) prints "some partial results": the angular velocity and the angular acceleration in the fixed basis and in the body basis, written with the rates and accelerations of the three angles and no second derivative of the spin. Compared term by term, the twelve printed components (three per basis for each of the two vectors) coincide with the four boxed results above. The convention is the same: the outer gimbal turns about $Y$ by $\beta$, the inner gimbal about the axis $CD$ by $\gamma$, the flywheel about its axle (the axis $y$) by $\theta$, all positive by the right-hand rule. No discrepancy is found.
+
+> [!derivation] Check: body components of the angular acceleration by direct differentiation
+> **Law:** the angular acceleration of a frame is the same derivative in $S_0$ and in that frame, so the body components of the angular velocity may be differentiated directly
+> **Source:** Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 3.9; Notes.pdf, Sec. 9.2
+>
+> $$\begin{aligned}
+> \left.\frac{d\boldsymbol\omega_{B0}}{dt}\right|_0 &= \left.\frac{d\boldsymbol\omega_{B0}}{dt}\right|_B + \boldsymbol\omega_{B0}\times\boldsymbol\omega_{B0} = \left.\frac{d\boldsymbol\omega_{B0}}{dt}\right|_B \quad &\text{(Coriolis theorem, Eq. 3.8; the vector product of a vector with itself vanishes)} \\
+> \frac{d}{dt}(\dot\gamma\cos\theta + \dot\beta\sin\theta\sin\gamma) &= \ddot\gamma\cos\theta - \dot\gamma\dot\theta\sin\theta + \ddot\beta\sin\theta\sin\gamma + \dot\beta\dot\theta\cos\theta\sin\gamma + \dot\beta\dot\gamma\sin\theta\cos\gamma \quad &\text{(product rule; chain rule on each sine and cosine)} \\
+> \frac{d}{dt}(\dot\theta + \dot\beta\cos\gamma) &= 0 + \ddot\beta\cos\gamma - \dot\beta\dot\gamma\sin\gamma \quad &\text{(constant spin rate; product and chain rules)} \\
+> \frac{d}{dt}(\dot\gamma\sin\theta - \dot\beta\sin\gamma\cos\theta) &= \ddot\gamma\sin\theta + \dot\gamma\dot\theta\cos\theta - \ddot\beta\sin\gamma\cos\theta - \dot\beta\dot\gamma\cos\gamma\cos\theta + \dot\beta\dot\theta\sin\gamma\sin\theta \quad &\text{(product and chain rules)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\omega_{x_B} = \alpha_{x_B}, \qquad \dot\omega_{y_B} = \alpha_{y_B}, \qquad \dot\omega_{z_B} = \alpha_{z_B}}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$ in every term
+> **Meaning:** the three derivatives are, term by term, the body components obtained through the basis of the outer gimbal; the two routes agree.
+
+**Limiting cases and consistency:**
+
+* **Gimbals locked.** With both gimbal angles held at zero, the angular velocity reduces to the spin rate along the axle, which is then the fixed axis $Y$, and the angular acceleration vanishes: a wheel spinning at a constant rate about a fixed axle.
+* **Spin stopped.** With a zero spin rate the flywheel moves with the inner gimbal, and the angular acceleration in the outer gimbal basis keeps only the gimbal accelerations and the product of the two gimbal rates along the third axis, the term that appears because the inner bearing axis turns with the outer gimbal.
+* **Gyroscopic terms.** Every product of the spin rate with a gimbal rate comes from the turning of the axle, the derivative of its unit vector; these are the terms that make a fast flywheel resist the motion of its gimbals.
+* **Dimensions.** Every term of the angular velocity is a rate and every term of the angular acceleration is a product of two rates or a second derivative of an angle.
+
+---
+
+## Problem RB-11: Rolling disk (3D pure rolling kinematics)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a disc $B$ of radius $R$ rolling without slipping on the fixed plane $Oxy$. Points used: the centre $G$ of the disc, the geometric contact point $C$ on the plane, and the point $O_1$, the centre $(0, 0, R)$ of the circle described by $G$.
+* **Fixed frame:** $S_0\{O; \mathcal B_0\}$ with $\mathcal B_0\{\mathbf i, \mathbf j, \mathbf k\}$, as in the statement.
+* **Intermediate frame:** $S_1\{O; \mathcal B_1\}$, the basis of the official key: $\mathbf k_1$ along $\mathbf k$; $\mathbf i_1$ horizontal, along the perpendicular axis of the disc, from $Oz$ towards the disc; $\mathbf j_1$ completing a right-handed basis, $\mathbf k_1$ times $\mathbf i_1$. It turns about $Oz$ by the angle $\varphi$ measured from $\mathbf i$ to $\mathbf i_1$.
+* **Body frame:** $S_B\{G; \mathcal B_B\}$ attached to the disc, with $\mathbf i_B$ equal to $\mathbf i_1$ (the axis of the disc) and $\mathbf j_B$, $\mathbf k_B$ in the plane of the disc, turned by the spin angle $\psi$ about $\mathbf i_1$.
+* **How the conditions are read:**
+  1. *The disc remains perpendicular to the plane $Oxy$:* its plane is vertical, so its perpendicular axis is horizontal.
+  2. *The perpendicular axis always intersects $Oz$:* the axis passes through $G$, at height $R$, and is horizontal, so it meets $Oz$ at the point at height $R$, which is $O_1$. The axis is the line $O_1G$, along $\mathbf i_1$, and $O_1G$ is the radius $R$ of the circle described by $G$.
+  3. *Contact with $Oxy$:* the plane of the disc is vertical and contains $\mathbf k$, so the point of the rim nearest to the plane $Oxy$ is directly below $G$, at the distance $R$; it is at height zero, which is the contact point $C$.
+* **Degrees of freedom:** a free rigid body has six (Notes.pdf, Sec. 9.3). The position of $G$ (three coordinates) is prescribed by the statement; conditions 1 and 2 fix the direction of the axis of the disc (two attitude angles). One coordinate is left, the spin angle $\psi$, and the no-slip condition fixes its rate.
+* **Assumption for the fixed-basis components only:** at the initial instant $G$ is above the positive half of $Ox$, so $\varphi$ starts from zero.
+
+| Datum | Value | SI unit |
+| :--- | :--- | :--- |
+| Radius of the disc | $R$ | m |
+| Circle of the centre | radius $R$, centre $O_1(0, 0, R)$, in the plane $z = R$ | m |
+| Speed of the centre | $\omega R$, constant, counterclockwise seen from $Oz$ | m/s |
+| Coordinates | $\varphi(t)$ (prescribed), $\psi(t)$ (fixed by rolling) | rad |
+
+* **Unknowns:** (a) the angular velocity and acceleration of the disc in $S_0$; (b) the acceleration of the point of the disc in contact with $Oxy$; (c) the instantaneous axis of rotation.
+
+![[attachments/EM-SOL/rb11-overview.svg]]
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+#### Elementary rotations
+
+![[attachments/EM-SOL/rb11-rotation-phi.svg]]
+
+> [!derivation] First rotation: about k by the angle phi
+> **Law:** simple rotation about the third axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]
+>
+> View with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up. Counterclockwise in this view is the sense of motion of $G$ seen from $Oz$, and the positive sense of $\varphi$.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\varphi\,\mathbf i + \sin\varphi\,\mathbf j \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf i$, opposite leg along $\mathbf j$)} \\
+> \mathbf j_1 &= -\sin\varphi\,\mathbf i + \cos\varphi\,\mathbf j \quad &\text{($\mathbf j$ turned counterclockwise leans towards $-\mathbf i$: opposite leg along $-\mathbf i$)} \\
+> \mathbf k_1 &= \mathbf k \quad &\text{(the rotation axis does not move)} \\
+> \mathbf k_1\times\mathbf i_1 &= \cos\varphi\,(\mathbf k\times\mathbf i) + \sin\varphi\,(\mathbf k\times\mathbf j) = \cos\varphi\,\mathbf j - \sin\varphi\,\mathbf i = \mathbf j_1 \quad &\text{(the key's definition of $\mathbf j_1$ is met)} \\
+> [{}_0R_1] &= \begin{bmatrix} \cos\varphi & -\sin\varphi & 0 \cr \sin\varphi & \cos\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot(\cos^2\varphi + \sin^2\varphi) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\varphi + \sin^2\varphi & \cos\varphi\sin\varphi - \sin\varphi\cos\varphi & 0 \cr \sin\varphi\cos\varphi - \cos\varphi\sin\varphi & \sin^2\varphi + \cos^2\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = [{}_0R_1(z, \varphi)] = \begin{bmatrix} \cos\varphi & -\sin\varphi & 0 \cr \sin\varphi & \cos\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix}, \qquad \boldsymbol\omega_{10} = \dot\varphi\,\mathbf k}$$
+>
+> **Units:** dimensionless; the angular velocity in $[\mathrm{T^{-1}}]$
+> **Meaning:** $\mathbf i_1$ points from $Oz$ towards the disc, $\mathbf j_1$ is the horizontal tangent to the circle of $G$ in the sense of motion; the frame $S_1$ turns with the rate of $\varphi$ about the fixed vertical.
+
+![[attachments/EM-SOL/rb11-rotation-psi.svg]]
+
+> [!derivation] Second rotation: spin about i1 by the angle psi
+> **Law:** simple rotation about the first axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 1.18; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]
+>
+> View with $\mathbf i_1$ out of the paper (⊙): the observer is outside the circle of $G$, looking at the face of the disc towards $Oz$; $\mathbf j_1$ points to the right and $\mathbf k_1$ up, since $\mathbf j_1\times\mathbf k_1 = \mathbf i_1$. Positive $\psi$ is counterclockwise.
+>
+> $$\begin{aligned}
+> \mathbf i_B &= \mathbf i_1 \quad &\text{(the axis of the disc does not move in this rotation)} \\
+> \mathbf j_B &= \cos\psi\,\mathbf j_1 + \sin\psi\,\mathbf k_1 \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf j_1$, opposite leg along $\mathbf k_1$)} \\
+> \mathbf k_B &= -\sin\psi\,\mathbf j_1 + \cos\psi\,\mathbf k_1 \quad &\text{($\mathbf k_1$ turned counterclockwise leans towards $-\mathbf j_1$)} \\
+> [{}_1R_B] &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\psi & -\sin\psi \cr 0 & \sin\psi & \cos\psi \end{bmatrix} \quad &\text{(columns: $\mathbf i_B$, $\mathbf j_B$, $\mathbf k_B$ in $\mathcal B_1$)} \\
+> \det[{}_1R_B] &= 1\cdot(\cos^2\psi + \sin^2\psi) = 1 \quad &\text{(expand along the first row)} \\
+> [{}_1R_B][{}_1R_B]^T &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos^2\psi + \sin^2\psi & \cos\psi\sin\psi - \sin\psi\cos\psi \cr 0 & \sin\psi\cos\psi - \cos\psi\sin\psi & \sin^2\psi + \cos^2\psi \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_1R_B] = [{}_1R_B(x, \psi)] = \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\psi & -\sin\psi \cr 0 & \sin\psi & \cos\psi \end{bmatrix}, \qquad \boldsymbol\omega_{B1} = \dot\psi\,\mathbf i_1}$$
+>
+> **Units:** dimensionless; the angular velocity in $[\mathrm{T^{-1}}]$
+> **Meaning:** the spin is the only rotation of the disc relative to $S_1$; its rate is still unknown and will be fixed by the no-slip condition.
+
+> [!derivation] Angular velocity of the disc with the spin rate unknown
+> **Law:** additivity of angular velocities
+> **Source:** Notes.pdf, Eq. 3.14; [Lecture 7, Slide 12]
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{B0} &= \boldsymbol\omega_{B1} + \boldsymbol\omega_{10} \quad &\text{(Eq. 3.14 with the intermediate frame $S_1$)} \\
+> &= \dot\psi\,\mathbf i_1 + \dot\varphi\,\mathbf k_1 \quad &\text{(the two previous boxes; $\mathbf k = \mathbf k_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{B0} = \dot\psi\,\mathbf i_1 + \dot\varphi\,\mathbf k_1}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in both terms
+> **Meaning:** the disc turns about its own axis and, with the frame $S_1$, about the vertical.
+
+#### Position and velocity of the centre
+
+![[attachments/EM-SOL/rb11-meridian.svg]]
+
+> [!derivation] Position and velocity of G; the rate of phi
+> **Law:** position vector built point to point; time derivative in $S_0$ with the Poisson formula
+> **Source:** Notes.pdf, Eq. 3.3; Problems.pdf, p. 44
+>
+> In the vertical plane of $\mathbf i_1$ and $\mathbf k_1$ (the meridian plane through $G$), $O_1$ is at the height $R$ on $Oz$, $G$ is at the horizontal distance $R$ from $O_1$, and $C$ is at the vertical distance $R$ below $G$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^G &= \overrightarrow{OO_1} + \overrightarrow{O_1G} = R\,\mathbf k_1 + R\,\mathbf i_1 \quad &\text{(up $Oz$ to $O_1$, then along the axis of the disc to $G$)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \frac{d}{dt}(\cos\varphi\,\mathbf i + \sin\varphi\,\mathbf j) = \dot\varphi\,(-\sin\varphi\,\mathbf i + \cos\varphi\,\mathbf j) = \dot\varphi\,\mathbf j_1 \quad &\text{(chain rule; $\mathbf i$, $\mathbf j$ fixed)} \\
+> \mathbf v_0^G &= R\left.\frac{d\mathbf i_1}{dt}\right|_0 + R\left.\frac{d\mathbf k_1}{dt}\right|_0 = R\dot\varphi\,\mathbf j_1 + \mathbf 0 \quad &\text{(derivative of the position; $R$ constant and $\mathbf k_1$ fixed)} \\
+> \lvert\mathbf v_0^G\rvert &= R\dot\varphi = \omega R \quad &\text{(the speed of $G$ is given; counterclockwise from $Oz$ means a positive rate)} \\
+> \dot\varphi &= \omega, \qquad \varphi = \omega t \quad &\text{(constant rate; initial angle zero by the assumption above)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G = R\,(\mathbf i_1 + \mathbf k_1), \qquad \mathbf v_0^G = \omega R\,\mathbf j_1, \qquad \dot\varphi = \omega, \qquad \overrightarrow{GC} = -R\,\mathbf k_1}$$
+>
+> **Units:** positions in $[\mathrm L]$, velocity in $[\mathrm{T^{-1}}][\mathrm L] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** the frame $S_1$ turns about $Oz$ at the constant rate $\omega$; in it, $G$, $C$ and $O_1$ are fixed points of the meridian plane.
+
+#### No-slip condition at the contact point
+
+> [!derivation] Spin rate from the no-slip condition
+> **Law:** rolling without slipping: the body point of the disc at the contact has the velocity of the body point of the plane at the contact, which is zero because the plane is fixed; velocity field of the disc from $G$ to the body point $C(B)$
+> **Source:** Notes.pdf, Eq. 13.2; Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 9.14; Notes.pdf, Eq. 9.15
+>
+> The geometric point $C$ moves along the circle of radius $R$ on the plane, but the body point $C(B)$ of the disc that is at $C$ at this instant must have zero velocity. Its velocity follows from the velocity field (Eq. 9.3), not from the derivative of the position of $C$.
+>
+> $$\begin{aligned}
+> \mathbf v_0^{C(B)} &= \mathbf v_0^G + \boldsymbol\omega_{B0}\times\overrightarrow{GC} \quad &\text{(Eq. 9.3 between two body points)} \\
+> \boldsymbol\omega_{B0}\times\overrightarrow{GC} &= \begin{vmatrix} \mathbf i_1 & \mathbf j_1 & \mathbf k_1 \cr \dot\psi & 0 & \omega \cr 0 & 0 & -R \end{vmatrix} \quad &\text{(determinant form in $\mathcal B_1$, with the rate of $\varphi$ equal to $\omega$)} \\
+> &= \mathbf i_1\,(0\cdot(-R) - \omega\cdot 0) - \mathbf j_1\,(\dot\psi\,(-R) - \omega\cdot 0) + \mathbf k_1\,(\dot\psi\cdot 0 - 0\cdot 0) \quad &\text{(expand along the first row)} \\
+> &= R\dot\psi\,\mathbf j_1 \quad &\text{(carry out the products)} \\
+> \mathbf v_0^{C(B)} &= (\omega R + R\dot\psi)\,\mathbf j_1 \quad &\text{(add the velocity of $G$)} \\
+> \mathbf 0 &= (\omega R + R\dot\psi)\,\mathbf j_1 \quad &\text{(no slip on the fixed plane, Eq. 13.2)} \\
+> \dot\psi &= -\omega, \qquad \psi = \psi_0 - \omega t \quad &\text{(solve; integrate with the initial spin angle)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\psi = -\omega, \qquad \mathbf v_0^{C(B)} = \mathbf 0}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$ in the velocity condition; the spin rate in $[\mathrm{T^{-1}}]$
+> **Meaning:** seen from outside the circle (axis of the disc out of the paper), the disc moves to the right and turns clockwise, the negative sense, like a wheel rolling forward. Only the component along $\mathbf j_1$ gave a condition: the other two components of the contact velocity vanish for any spin rate.
+
+#### Part (a): angular velocity and angular acceleration
+
+> [!derivation] Angular velocity of the disc
+> **Law:** additivity of angular velocities with the rates found
+> **Source:** Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 1.20
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{B0} &= \dot\psi\,\mathbf i_1 + \dot\varphi\,\mathbf k_1 = -\omega\,\mathbf i_1 + \omega\,\mathbf k_1 \quad &\text{(substitute both rates)} \\
+> &= -\omega\,(\cos\omega t\,\mathbf i + \sin\omega t\,\mathbf j) + \omega\,\mathbf k \quad &\text{(substitute $\mathbf i_1$ in $\mathcal B_0$ with the angle $\omega t$)} \\
+> \lvert\boldsymbol\omega_{B0}\rvert &= \sqrt{\omega^2 + \omega^2} = \sqrt2\,\omega \quad &\text{(two perpendicular legs of length $\omega$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{B0} = \omega\,(-\mathbf i_1 + \mathbf k_1) = -\omega\cos\omega t\,\mathbf i - \omega\sin\omega t\,\mathbf j + \omega\,\mathbf k}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$
+> **Meaning:** the angular velocity has constant modulus and makes 45 degrees with the horizontal, pointing inwards and upwards; it turns about $Oz$ with the frame $S_1$.
+
+> [!derivation] Angular acceleration of the disc
+> **Law:** derivative in $S_0$ with the Poisson formula; checked with the composition of angular accelerations
+> **Source:** Notes.pdf, Eq. 3.9; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.15
+>
+> $$\begin{aligned}
+> \boldsymbol\alpha_{B0} &= \left.\frac{d\boldsymbol\omega_{B0}}{dt}\right|_0 = -\omega\left.\frac{d\mathbf i_1}{dt}\right|_0 + \omega\left.\frac{d\mathbf k_1}{dt}\right|_0 \quad &\text{(product rule with the constant $\omega$)} \\
+> &= -\omega\,(\omega\,\mathbf j_1) + \omega\,\mathbf 0 \quad &\text{(derivative of $\mathbf i_1$ found above; $\mathbf k_1$ is fixed)} \\
+> &= -\omega^2\,\mathbf j_1 \quad &\text{(multiply)} \\
+> \boldsymbol\alpha_{B0} &= \boldsymbol\alpha_{B1} + \boldsymbol\omega_{10}\times\boldsymbol\omega_{B1} + \boldsymbol\alpha_{10} \quad &\text{(check with Eq. 3.15)} \\
+> &= \mathbf 0 + \omega\,\mathbf k_1\times(-\omega\,\mathbf i_1) + \mathbf 0 \quad &\text{(constant spin rate about the axis $\mathbf i_1$ fixed in $S_1$; constant $\omega$ about the fixed $\mathbf k$)} \\
+> &= -\omega^2\,\mathbf j_1 \quad &\text{($\mathbf k_1\times\mathbf i_1 = \mathbf j_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\alpha_{B0} = -\omega^2\,\mathbf j_1 = \omega^2\sin\omega t\,\mathbf i - \omega^2\cos\omega t\,\mathbf j}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$
+> **Meaning:** both rates are constant, yet the angular acceleration is not zero: the spin axis is carried round the vertical, so the angular velocity vector turns; its tip moves horizontally, backwards with respect to the motion of $G$.
+
+#### Part (b): acceleration of the contact point of the disc
+
+> [!derivation] Acceleration of G
+> **Law:** derivative in $S_0$ of the velocity of $G$, with the Poisson formula
+> **Source:** Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 1.20
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf j_1}{dt}\right|_0 &= \boldsymbol\omega_{10}\times\mathbf j_1 = \omega\,\mathbf k_1\times\mathbf j_1 = -\omega\,\mathbf i_1 \quad &\text{(Poisson formula in $S_1$; $\mathbf k_1\times\mathbf j_1 = -\mathbf i_1$)} \\
+> \mathbf a_0^G &= \left.\frac{d}{dt}(\omega R\,\mathbf j_1)\right|_0 = \omega R\left.\frac{d\mathbf j_1}{dt}\right|_0 \quad &\text{(constant speed $\omega R$)} \\
+> &= -\omega^2 R\,\mathbf i_1 \quad &\text{(substitute)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^G = -\omega^2 R\,\mathbf i_1}$$
+>
+> **Units:** $[\mathrm{T^{-2}}][\mathrm L] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** $G$ moves uniformly on its circle, so its acceleration points towards $O_1$, the centre of that circle.
+
+> [!derivation] Acceleration of the body point C(B)
+> **Law:** acceleration field of a rigid body from $G$ to $C(B)$, each vector product by its determinant
+> **Source:** Notes.pdf, Eq. 9.4; Notes.pdf, Eq. 9.15; Notes.pdf, Eq. 1.42
+>
+> $$\begin{aligned}
+> \mathbf a_0^{C(B)} &= \mathbf a_0^G + \boldsymbol\alpha_{B0}\times\overrightarrow{GC} + \boldsymbol\omega_{B0}\times(\boldsymbol\omega_{B0}\times\overrightarrow{GC}) \quad &\text{(Eq. 9.4 between two body points)} \\
+> \boldsymbol\alpha_{B0}\times\overrightarrow{GC} &= \begin{vmatrix} \mathbf i_1 & \mathbf j_1 & \mathbf k_1 \cr 0 & -\omega^2 & 0 \cr 0 & 0 & -R \end{vmatrix} = \mathbf i_1\,((-\omega^2)(-R) - 0\cdot 0) - \mathbf j_1\,(0\cdot(-R) - 0\cdot 0) + \mathbf k_1\,(0\cdot 0 - (-\omega^2)\cdot 0) \quad &\text{(expand along the first row)} \\
+> &= \omega^2 R\,\mathbf i_1 \quad &\text{(carry out the products)} \\
+> \boldsymbol\omega_{B0}\times\overrightarrow{GC} &= R\dot\psi\,\mathbf j_1 = -\omega R\,\mathbf j_1 \quad &\text{(determinant of the no-slip box with the spin rate found)} \\
+> \boldsymbol\omega_{B0}\times(\boldsymbol\omega_{B0}\times\overrightarrow{GC}) &= \begin{vmatrix} \mathbf i_1 & \mathbf j_1 & \mathbf k_1 \cr -\omega & 0 & \omega \cr 0 & -\omega R & 0 \end{vmatrix} \quad &\text{(determinant form)} \\
+> &= \mathbf i_1\,(0\cdot 0 - \omega\,(-\omega R)) - \mathbf j_1\,((-\omega)\cdot 0 - \omega\cdot 0) + \mathbf k_1\,((-\omega)(-\omega R) - 0\cdot 0) \quad &\text{(expand along the first row)} \\
+> &= \omega^2 R\,\mathbf i_1 + \omega^2 R\,\mathbf k_1 \quad &\text{(carry out the products)} \\
+> \mathbf a_0^{C(B)} &= -\omega^2 R\,\mathbf i_1 + \omega^2 R\,\mathbf i_1 + \omega^2 R\,(\mathbf i_1 + \mathbf k_1) \quad &\text{(add the three terms)} \\
+> &= \omega^2 R\,(\mathbf i_1 + \mathbf k_1) \quad &\text{(the first two cancel)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^{C(B)} = \omega^2 R\,(\mathbf i_1 + \mathbf k_1), \qquad \lvert\mathbf a_0^{C(B)}\rvert = \sqrt2\,\omega^2 R}$$
+>
+> **Units:** $[\mathrm{T^{-2}}][\mathrm L] = [\mathrm{L\,T^{-2}}]$ in every term
+> **Meaning:** the body point at the contact is at rest but not unaccelerated: it leaves the plane upwards, with the acceleration $\omega^2 R$ that any rolling wheel point has at the contact, and it is also pushed outwards, away from $Oz$, by the turning of the plane of the disc.
+
+#### Part (c): instantaneous axis of rotation
+
+> [!derivation] Instantaneous axis through the contact point
+> **Law:** the axis is the set of points with the minimum velocity, parallel to the angular velocity; the slip velocity is common to all body points
+> **Source:** Notes.pdf, Eq. 9.5; Notes.pdf, Eq. 9.8; Notes.pdf, Eq. 9.11; [Lecture 7, Slide 9]
+>
+> $$\begin{aligned}
+> v_{0\parallel} &= \mathbf v_0^{C(B)}\cdot\frac{\boldsymbol\omega_{B0}}{\lvert\boldsymbol\omega_{B0}\rvert} = 0 \quad &\text{(Eq. 9.5 evaluated at the body point with zero velocity)} \\
+> \mathbf r_0^I &= \mathbf r_0^C + \lambda\,\boldsymbol\omega_{B0} \quad &\text{(Eq. 9.8: the axis is the line through a point of zero velocity, parallel to the angular velocity)} \\
+> \mathbf r_0^C &= \mathbf r_0^G + \overrightarrow{GC} = R\,\mathbf i_1 \quad &\text{(the contact point is below $G$, at the foot of the meridian triangle)} \\
+> \mathbf r_0^I &= R\,\mathbf i_1 + \lambda\omega\,(-\mathbf i_1 + \mathbf k_1) \quad &\text{(substitute)} \\
+> \mathbf r_0^I &= R\,\mathbf k_1 = \overrightarrow{OO_1} \quad &\text{(for the value $\lambda\omega = R$ the line reaches $O_1$ on $Oz$)} \\
+> \mathbf v_0^{O_1(B)} &= \mathbf v_0^G + \boldsymbol\omega_{B0}\times\overrightarrow{GO_1} = \omega R\,\mathbf j_1 + \omega\,(-\mathbf i_1 + \mathbf k_1)\times(-R\,\mathbf i_1) \quad &\text{(check with Eq. 9.3; $\overrightarrow{GO_1} = -R\,\mathbf i_1$)} \\
+> &= \omega R\,\mathbf j_1 - \omega R\,(\mathbf k_1\times\mathbf i_1) = \omega R\,\mathbf j_1 - \omega R\,\mathbf j_1 = \mathbf 0 \quad &\text{($\mathbf i_1\times\mathbf i_1 = \mathbf 0$, $\mathbf k_1\times\mathbf i_1 = \mathbf j_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{axis: } \mathbf r = R\,\mathbf i_1 + \mu\,(-\mathbf i_1 + \mathbf k_1), \text{ the line through } C \text{ and } O_1(0, 0, R)}$$
+>
+> **Units:** $\mu$ is a length, $[\mathrm L]$, so every term of the line is a length
+> **Meaning:** the motion is a pure rotation (zero slip velocity) about the line joining the contact point to $O_1$; in the meridian triangle $O_1GC$, with legs $R$ and $R$ and hypotenuse $R\sqrt2$, the axis is the hypotenuse, inclined 45 degrees to the plane. Since $O_1$ has zero velocity at every instant, the disc in fact moves about the fixed point $O_1$, and the axis sweeps a cone of vertex $O_1$ as the disc goes round.
+
+### Center of Mass and Inertia Tensor
+
+This section does not apply: the problem is purely kinematic, and the mass distribution of the disc does not enter.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+This section does not apply: no momentum or energy is asked for.
+
+### Free-Body Diagram and Equations of Motion
+
+This section does not apply: the motion of the centre is prescribed and no force is asked for.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Angular velocity | $\boldsymbol\omega_{B0} = \omega(-\mathbf i_1 + \mathbf k_1) = -\omega\cos\omega t\,\mathbf i - \omega\sin\omega t\,\mathbf j + \omega\,\mathbf k$ |
+| (a) Angular acceleration | $\boldsymbol\alpha_{B0} = -\omega^2\,\mathbf j_1 = \omega^2\sin\omega t\,\mathbf i - \omega^2\cos\omega t\,\mathbf j$ |
+| (b) Acceleration of the contact point of the disc | $\mathbf a_0^{C(B)} = \omega^2 R(\mathbf i_1 + \mathbf k_1)$ |
+| (c) Instantaneous axis | Axis of pure rotation through the contact point and $O_1(0, 0, R)$, direction $-\mathbf i_1 + \mathbf k_1$ |
+
+**Check against the official key:** the key (Problems.pdf, p. 79) defines the same basis (third vector along $\mathbf k$, first vector along the axis of the disc from $Oz$ towards the disc, second the vector product of the third and the first) and prints the angular velocity $\omega$ times the difference of $\mathbf k_1$ and $\mathbf i_1$, the angular acceleration minus the squared rate along $\mathbf j_1$, and the acceleration of the contact point of the disc $\omega^2 R$ times the sum of $\mathbf i_1$ and $\mathbf k_1$. All three coincide with the results above. The key prints nothing for part (c).
+
+**Limiting cases and consistency:**
+
+* **Rolling on a straight line.** If the circle of the centre were very large, the turning of the plane of the disc would be negligible: the angular velocity would reduce to the spin and the contact point acceleration to the upward $\omega^2 R$ of a wheel rolling on a straight line. The outward part along $\mathbf i_1$ is the effect of the finite radius of the path.
+* **Speeds against distances to the axis.** $G$ is at the distance $R/\sqrt2$ from the axis (half the diagonal of the square of side $R$ built on the meridian triangle), and its speed $\omega R$ equals the modulus $\sqrt2\,\omega$ of the angular velocity times that distance.
+* **Contact velocity versus the geometric point.** The geometric contact point moves on the plane with speed $\omega R$ along $\mathbf j_1$, while the body point that occupies it is at rest: the two velocities differ, as Eq. 9.15 warns.
+* **Dimensions.** Angular velocity in rad/s, angular acceleration in rad/s², accelerations in m/s².
