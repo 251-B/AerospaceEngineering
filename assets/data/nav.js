@@ -260,6 +260,10 @@ window.AE_NAV = {
             {
               "href": "subjects/engineering-mechanics/problemas/topic-5.html",
               "label": "5 · Relative motion"
+            },
+            {
+              "href": "subjects/engineering-mechanics/problemas/topic-6.html",
+              "label": "6 · Rigid body kinematics, inertia"
             }
           ]
         },

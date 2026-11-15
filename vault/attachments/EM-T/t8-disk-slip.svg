@@ -73,9 +73,9 @@
 <line x1="350.0" y1="393.8" x2="243.5" y2="393.8" stroke="#3b82f6" stroke-width="2.8"/>
 <path d="M237.5,393.8 L246.7,389.9 L246.7,397.6 Z" fill="#3b82f6"/>
 <text x="231.5" y="419.8" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">C(B)</tspan></text>
-<circle cx="418.8" cy="157.5" r="9" fill="none" stroke="#10b981" stroke-width="1.8"/>
-<path d="M413.2,151.9 L424.3,163.1 M413.2,163.1 L424.3,151.9" stroke="#10b981" stroke-width="1.6" fill="none"/>
-<text x="432.8" y="163.5" fill="#10b981" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">ω</tspan><tspan baseline-shift="sub" font-size="70%">B0</tspan></text>
+<circle cx="287.5" cy="185.0" r="9" fill="none" stroke="#10b981" stroke-width="1.8"/>
+<path d="M281.9,179.4 L293.1,190.6 M281.9,190.6 L293.1,179.4" stroke="#10b981" stroke-width="1.6" fill="none"/>
+<text x="301.5" y="191.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">ω</tspan><tspan baseline-shift="sub" font-size="70%">B0</tspan></text>
 <line x1="350.0" y1="235.0" x2="350.0" y2="280.9" stroke="#ec4899" stroke-width="3.0"/>
 <path d="M350.0,287.5 L345.7,277.4 L354.3,277.4 Z" fill="#ec4899"/>
 <text x="378.0" y="291.5" fill="#ec4899" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m g</text>

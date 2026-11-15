@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-mechanics-rigid-body-problems-6",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "Rigid body problems: Topic 6 solved step by step",
+    "text": "Eight official problems on rigid body kinematics and moments of inertia, each worked from first principles with its own figures.",
+    "link": "subjects/engineering-mechanics/problemas/topic-6.html"
+  },
+  {
     "id": "2026-11-15-mechanics-rigid-body-theory",
     "date": "2026-11-15",
     "tag": "Engineering Mechanics",

@@ -265,7 +265,7 @@ class Figures:
         self.used.append(name)
         cap = inl(html.unescape(emsol.REG.captions[name]))
         return (f'<div class="diagram-card">\n{emsol.REG.web[name]}\n'
-                f'<div class="diagram-caption">Figure {self.count}. {cap}.</div>\n</div>')
+                f'<div class="diagram-caption">Figure {self.count}. {cap.rstrip().rstrip('.')}.</div>\n</div>')
 
 
 def render_sim(block, ctx):

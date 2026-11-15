@@ -140,7 +140,7 @@ def b_cylinder():
     sc.vec(P(0, 0, 0), P(0, 0, 2.4), None, "EDGE", 1.4, head=8)
     sc.label(P(0, 0, 2.4), bold("z"), "TEXT", "middle", 16, weight="700", dx=-12, dy=14)
     sc.mass(P(0, 0, 0), None, r=4.5, col="BLUE")
-    sc.label(P(0, 0, 0), "G", "HEAD", "end", 17, dx=-12, dy=22)
+    sc.label(P(0, 0, 0), "G", "HEAD", "end", 17, dx=-16, dy=-2)
     # dimensions L/2 along the axis, R on the near face
     for za, zb in ((-L / 2, 0.0), (0.0, L / 2)):
         sc.dim(P(1.35, 0, za), P(1.35, 0, zb), "L/2", off=(24, 4))
@@ -170,9 +170,9 @@ def b_cylinder():
     sc.poly(arc, "GREEN", 1.7)
     arrow_px(sc, arc[-3], arc[-1], "GREEN", 9)
     sc.label(corner(0.55, th / 2, zf), "θ", "GREEN", "middle", 16, dx=8, dy=14)
-    sc.label(corner(r * 0.5, th + dth / 2, zf), "r", "TEXT", "end", 15, dx=-10, dy=-8)
+    sc.label(corner(r * 0.5, th + dth / 2, zf), "r", "TEXT", "start", 15, dx=16, dy=-14)
     sc.label(corner(r + dr, th + dth, zf), "dr", ORANGE, "start", 15, weight="700", dx=10, dy=-40)
-    sc.label(corner(r + dr / 2, th + dth, zf), "r dθ", ORANGE, "end", 15, weight="700", dx=-26, dy=-24)
+    sc.label(corner(r + dr / 2, th + dth, zf), "r dθ", ORANGE, "end", 15, weight="700", dx=-36, dy=-36)
     sc.label(corner(r + dr, th, z0), "dz", ORANGE, "start", 15, weight="700", dx=22, dy=-8)
     return sc
 
@@ -269,7 +269,7 @@ def d_sphere():
                0.78 * math.sin(math.radians(ph / 2))), "φ", "GREEN", "middle", 16, dx=4, dy=-4)
     sc.label(add(G, Pt, 0.5), "r", "HEAD", "end", 16, dx=-8, dy=-8)
     sc.label(add(G, F, 0.5), "r cos φ", "TEXT", "middle", 16, dx=30, dy=34)
-    sc.label(add(F, Pt, 0.5), "r sin φ", "TEXT", "start", 16, dx=14, dy=30)
+    sc.label(F, "r sin φ", "TEXT", "start", 16, dx=12, dy=10)
     # volume element at P
     er = (cp * ct, cp * st, sp)
     et = (-st, ct, 0.0)

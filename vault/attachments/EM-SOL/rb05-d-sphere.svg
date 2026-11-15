@@ -23,7 +23,7 @@
 <text x="497.8" y="358.9" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
 <text x="462.1" y="331.3" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r</text>
 <text x="500.1" y="425.3" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r cos φ</text>
-<text x="624.2" y="392.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r sin φ</text>
+<text x="552.1" y="412.7" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r sin φ</text>
 <polygon points="509.7,294.1 523.4,326.8 551.1,314.6 570.5,303.3 556.8,270.6 529.1,282.8" fill="#f59e0b" fill-opacity="0.9" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
 <line x1="523.4" y1="326.8" x2="542.8" y2="315.5" stroke="#4b5563" stroke-width="1.0"/>
 <line x1="523.4" y1="326.8" x2="551.1" y2="314.6" stroke="#4b5563" stroke-width="1.0"/>

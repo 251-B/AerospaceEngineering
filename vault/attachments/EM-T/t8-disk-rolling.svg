@@ -95,7 +95,7 @@
 <text x="182.5" y="250.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
 <text x="135.0" y="272.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">x</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
 <line x1="182.5" y1="250.0" x2="276.2" y2="250.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5 4"/>
-<text x="217.5" y="242.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">G</tspan></text>
+<text x="232.5" y="234.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">G</tspan></text>
 <circle cx="120.0" cy="250.0" r="3.6" fill="#4b5563"/>
 <text x="110.0" y="268.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
 <circle cx="57.5" cy="156.2" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>

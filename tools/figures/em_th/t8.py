@@ -242,7 +242,7 @@ def disk_rolling():
     fixed_axis(sc, O, 0, 0.5, "", off=(0, 0))
     sc.label((0.12, 0.0), bold("x") + S("", "0"), "TEXT", "middle", 16, weight="700", dy=22)
     sc.line((0.5, 0.0), G, "EDGE", 1.2, "5 4")
-    sc.label((0.78, 0.0), S("x", "0", "G"), "TEXT", "middle", 16, dy=-8)
+    sc.label((0.9, 0.0), S("x", "0", "G"), "TEXT", "middle", 16, dy=-16)
     sc.dotp(O, 3.6)
     sc.label(O, "O", "HEAD", "end", 17, dx=-10, dy=18)
     axis_out(sc, (-0.5, 0.75), bold("k") + S("", "0"), "HEAD", off=(0, 28))
@@ -393,7 +393,7 @@ def disk_slip():
     q = (C[0], C[1] - 0.27)
     sc.dashed(C, q)
     sc.vec(q, _add(q, (-1, 0), 0.9), _sub("v", "0", "C(B)"), "BLUE", 2.8, name_off=(-6, 26), size=16, head=10)
-    wp = (G[0] + 0.55, 0.62)
+    wp = (G[0] - 0.5, 0.4)
     axis_in(sc, wp, None, "GREEN")
     sc.label(wp, _sub("ω", "B0"), "GREEN", "start", 17, dx=14, dy=6)
     # forces (pink): weight at G, normal and friction at C
@@ -922,7 +922,9 @@ def poinsot():
     sc.label(far, "herpolhode", ORANGE, "end", 15, dx=-12, dy=-6)
     vis = [i for i, n in enumerate(nrm) if _dot(n, _TOV) > 0]
     q = _view(pol[vis[0]]) if vis else _view(pol[0])
-    sc.label(q, "polhode", "BLUE", "end", 15, dx=-10, dy=6)
+    lp = (q[0] - 0.55, q[1] - 0.32)
+    sc.line(q, lp, "BLUE", 1.0)
+    sc.label(lp, "polhode", "BLUE", "end", 15, dx=-4, dy=5)
     return sc
 
 
