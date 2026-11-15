@@ -221,6 +221,10 @@ window.AE_NAV = {
             {
               "href": "subjects/engineering-mechanics/teoria/topic-5.html",
               "label": "5 · Relative motion"
+            },
+            {
+              "href": "subjects/engineering-mechanics/teoria/topic-7.html",
+              "label": "7 · Rigid body momentum, energy and dynamics"
             }
           ]
         },

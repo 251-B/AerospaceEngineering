@@ -52,14 +52,14 @@ def _xyz(sub):
         r"Material system $B$ moving in the fixed frame $S_0$. The frames $S_A$ and $S_G$ have origins at $A$ and $G$ "
         r"and axes parallel to $S_0$, so they translate without rotating.")
 def material_system():
-    sc = Scene(600, 470, (190, 350), 150)
+    sc = Scene(600, 420, (190, 290), 150)
     O, A, G, P = (0.0, 0.0), (-0.5, 0.8), (1.3, 0.0), (1.0, 1.0)
     triangle(sc, _blob((1.4, 0.4), 0.9), "BLUE", 0.16)
     sc.poly(_blob((1.4, 0.4), 0.9), "BLUE", 1.6, close=True)
     sc.note((2.15, 0.95), "B", "TEXT", "start", 15)
     _frame_axes(sc, O, [1.1, 2.4, 1.6], [(-12, 14), (8, 20), (-14, 4)], _xyz("0"))
     # parallel frames
-    _frame(sc, G, _xyz("G"), "BLUE", 0.6, [(-16, 10), (4, 20), (-16, 4)])
+    _frame(sc, G, _xyz("G"), "BLUE", 0.6, [(-16, 10), (4, 20), (16, 6)])
     _frame(sc, A, _xyz("A"), "PINK", 0.6, [(-16, 10), (14, 14), (-16, 4)])
     # position vectors
     sc.vec(O, A, None, "HEAD", 1.9, head=9)
@@ -67,11 +67,11 @@ def material_system():
     sc.vec(O, P, None, "HEAD", 1.9, head=9)
     sc.vec(A, P, None, "PINK", 2.0, head=9)
     sc.vec(G, P, None, "BLUE", 2.0, head=9)
-    sc.label((-0.30, 0.50), S(bold("r"), "0", "A"), "HEAD", "end", 16, dx=-4, dy=0)
-    sc.label((0.65, -0.02), S(bold("r"), "0", "G"), "HEAD", "middle", 16, dy=-8)
-    sc.label((0.50, 0.50), S(bold("r"), "0", "P"), "HEAD", "end", 16, dx=-4, dy=8)
+    sc.label((-0.30, 0.50), S(bold("r"), "0", "A"), "HEAD", "end", 16, dx=-10, dy=0)
+    sc.label((0.65, -0.02), S(bold("r"), "0", "G"), "HEAD", "middle", 16, dy=-12)
+    sc.label((0.55, 0.55), S(bold("r"), "0", "P"), "HEAD", "start", 16, dx=8, dy=14)
     sc.label((0.25, 0.92), S(bold("r"), "A", "P"), "PINK", "middle", 16, dy=-9)
-    sc.label((1.12, 0.52), S(bold("r"), "G", "P"), "BLUE", "start", 16, dx=4, dy=18)
+    sc.label((1.15, 0.52), S(bold("r"), "G", "P"), "BLUE", "end", 16, dx=-10, dy=-8)
     # velocities
     sc.vec(P, _add(P, (0.55, 0.45)), S(bold("v"), "0", "P"), "BLUE", 2.6, name_off=(26, -2), size=16, head=10)
     sc.vec(G, _add(G, (0.55, 0.45)), S(bold("v"), "0", "G"), "BLUE", 2.6, name_off=(26, -2), size=16, head=10)
@@ -84,8 +84,8 @@ def material_system():
     sc.label(G, "G", "BLUE", "middle", 17, dx=10, dy=18)
     sx, sy = sc.P(P)
     sc.c.add(f'<rect x="{sx - 5:.1f}" y="{sy - 5:.1f}" width="10" height="10" fill="HEAD" fill-opacity="0.9"/>')
-    sc.label(P, "P", "HEAD", "middle", 17, dx=-10, dy=-12)
-    sc.note(P, "dm", "TEXT", "start", 14, dx=-6, dy=-26)
+    sc.label(P, "P", "HEAD", "middle", 17, dx=-16, dy=-8)
+    sc.note(P, "dm", "TEXT", "start", 14, dx=8, dy=-16)
     return sc
 
 
@@ -95,14 +95,14 @@ def material_system():
         r"External forces come from the environment; internal forces act in equal, opposite and collinear pairs, so "
         r"their resultant and their moment about any point vanish.")
 def internal_external():
-    sc = Scene(640, 470, (150, 340), 160)
+    sc = Scene(680, 480, (150, 340), 160)
     O = (0.0, 0.0)
     P1, P2, P3, G, A = (0.8, 1.0), (1.9, 1.1), (1.6, 0.5), (1.3, 0.6), (1.9, -0.2)
     blob = _blob((1.4, 0.6), 0.85, 1.0)
     triangle(sc, blob, "BLUE", 0.14)
     sc.poly(blob, "BLUE", 1.6, close=True)
     _frame_axes(sc, O, [0.9, 3.0, 1.9], [(-12, 14), (10, 18), (-14, 4)], _xyz("0"))
-    _frame(sc, G, _xyz("G"), "BLUE", 0.5, [(-14, 10), (12, 18), (-14, 4)], w=1.8)
+    _frame(sc, G, _xyz("G"), "BLUE", 0.38, [(-14, 10), (16, -10), (16, 14)], w=1.8)
     # position vectors
     sc.vec(O, P1, None, "HEAD", 1.8, head=8)
     sc.vec(O, G, None, "HEAD", 1.8, head=8)
@@ -117,21 +117,21 @@ def internal_external():
     u = ((P2[0] - P1[0]) / math.hypot(P2[0] - P1[0], P2[1] - P1[1]), (P2[1] - P1[1]) / math.hypot(P2[0] - P1[0], P2[1] - P1[1]))
     sc.vec(P1, _add(P1, u, 0.5), None, "GREEN", 2.2, head=9)
     sc.vec(P2, _add(P2, u, -0.5), None, "GREEN", 2.2, head=9)
-    sc.label(_add(P1, u, 0.42), S(bold("f"), "P2", "P1"), "GREEN", "middle", 16, dy=22)
+    sc.label(_add(P1, u, 0.42), S(bold("f"), "P2", "P1"), "GREEN", "middle", 16, dx=-6, dy=24)
     sc.label(_add(P2, u, -0.42), S(bold("f"), "P1", "P2"), "GREEN", "middle", 16, dy=-14)
     # external forces
-    sc.vec(P1, _add(P1, _d(140), 0.62), S(bold("F"), None, "P1"), "GREEN", 3.2, name_off=(-14, -6), size=17, head=11)
+    sc.vec(P1, _add(P1, _d(120), 0.62), S(bold("F"), None, "P1"), "GREEN", 3.2, name_off=(-14, -4), size=17, head=11)
     sc.vec(P2, _add(P2, (0.65, 0.0)), S(bold("F"), None, "P2"), "GREEN", 3.2, name_off=(8, -12), size=17, head=11)
     sc.vec(P3, _add(P3, (0.8, 0.0)), S(bold("F"), None, "P3"), "GREEN", 3.2, name_off=(24, 4), size=17, head=11)
     # points
     sc.dotp(O, 4)
     sc.label(O, "O", "HEAD", "end", 17, dx=-8, dy=18)
-    for p, nm, off in ((P1, "P1", (-6, -12)), (P2, "P2", (0, -14)), (P3, "P3", (-16, 6))):
+    for p, nm, off in ((P1, "P1", (-20, 6)), (P2, "P2", (0, -14)), (P3, "P3", (-16, 6))):
         sc.mass(p, None, r=5.5)
         sc.label(p, S("P", None, None).replace("P", "P") + f'<tspan baseline-shift="sub" font-size="70%">{nm[1]}</tspan>',
                  "HEAD", "middle", 17, dx=off[0], dy=off[1])
     sc.mass(G, None, r=5, col="BLUE")
-    sc.label(G, "G", "BLUE", "middle", 17, dx=-12, dy=18)
+    sc.label(G, "G", "BLUE", "middle", 17, dx=-16, dy=-4)
     sc.mass(A, None, r=5, col="PINK")
     sc.label(A, "A", "PINK", "middle", 17, dx=12, dy=18)
     return sc
@@ -142,7 +142,7 @@ def internal_external():
         "Two particles joined by a spring of stiffness k, with their position vectors and the pair of spring forces.",
         r"The spring forces derive from one potential energy of the pair; that term appears once in the energy equation.")
 def spring_pair():
-    sc = Scene(560, 450, (230, 380), 150)
+    sc = Scene(700, 450, (150, 335), 130)
     O = (2.0, 0.0)
     P1, P2 = (0.0, 0.3), (1.6, 1.8)
     for dv, nm, ln, off in (((-0.789, -0.614), bold("x") + S("", "0"), 1.05, (-14, 14)),
@@ -152,8 +152,8 @@ def spring_pair():
         sc.label(_add(O, dv, ln), nm, "HEAD", "middle", 17, weight="700", dx=off[0], dy=off[1])
     sc.vec(O, P1, None, "EDGE", 1.4, head=8)
     sc.vec(O, P2, None, "EDGE", 1.4, head=8)
-    sc.label((1.0, 0.12), S(bold("r"), "0", "P1"), "TEXT", "middle", 16, dy=-6)
-    sc.label((1.80, 1.0), S(bold("r"), "0", "P2"), "TEXT", "start", 16, dx=4, dy=0)
+    sc.label((1.0, 0.12), S(bold("r"), "0", "P1"), "TEXT", "middle", 16, dy=-12)
+    sc.label((1.80, 1.0), S(bold("r"), "0", "P2"), "TEXT", "start", 16, dx=10, dy=0)
     sc.spring(P1, P2, coils=6, amp=8, col="BLUE", lead=0.12, w=1.8)
     mid = ((P1[0] + P2[0]) / 2, (P1[1] + P2[1]) / 2)
     sc.label(mid, "k", "BLUE", "end", 18, dx=-20, dy=0)
@@ -188,7 +188,7 @@ def _bar(sc, o, ang=15.0, L=2.0, t=0.12):
         r"Three equivalent force systems on a rigid bar. The resultant force is the same; the moment changes with the "
         r"reduction point following Eq. 12.15.")
 def equivalent_systems():
-    sc = Scene(760, 300, (50, 200), 100)
+    sc = Scene(860, 300, (50, 200), 100)
     W = 2.55
     F = S(bold("F"))
     # left: individual forces
@@ -207,7 +207,7 @@ def equivalent_systems():
     sc.vec(A, _add(A, _d(-60), 0.9), bold("F"), "GREEN", 3.0, name_off=(18, 10), size=17, head=11)
     sc.spin(A, 0.30, -10, 255, S(bold("M"), "A"), "GREEN", name_r=0.55)
     sc.dotp(A, 3.4, "HEAD")
-    sc.label(A, "A", "HEAD", "middle", 17, dx=-4, dy=-38)
+    sc.label(A, "A", "HEAD", "middle", 17, dx=-32, dy=40)
     # right: reduction at B
     o3 = (2 * W, 0.0)
     pt = _bar(sc, o3)
@@ -229,11 +229,11 @@ def _box(sc, g, a, b, c, col="#1e3a8a"):
     def corner(sa, sb, sc_):
         return (g[0] + sa * a[0] / 2 + sb * b[0] / 2 + sc_ * c[0] / 2,
                 g[1] + sa * a[1] / 2 + sb * b[1] / 2 + sc_ * c[1] / 2)
-    faces = [([corner(-1, -1, 1), corner(1, -1, 1), corner(1, 1, 1), corner(-1, 1, 1)], 0.95),      # top (+c)
-             ([corner(-1, 1, 1), corner(1, 1, 1), corner(1, 1, -1), corner(-1, 1, -1)], 0.80),       # front (+b)
-             ([corner(-1, -1, 1), corner(-1, 1, 1), corner(-1, 1, -1), corner(-1, -1, -1)], 0.62)]   # end (-a)
+    faces = [([corner(-1, -1, 1), corner(1, -1, 1), corner(1, 1, 1), corner(-1, 1, 1)], 0.50),      # top (+c)
+             ([corner(-1, 1, 1), corner(1, 1, 1), corner(1, 1, -1), corner(-1, 1, -1)], 0.36),       # front (+b)
+             ([corner(-1, -1, 1), corner(-1, 1, 1), corner(-1, 1, -1), corner(-1, -1, -1)], 0.24)]   # end (-a)
     for pts, op in faces:
-        sc.poly(pts, "#bfdbfe", 1.4, close=True, fill=col, opacity=op)
+        sc.poly(pts, col, 1.6, close=True, fill=col, opacity=op)
 
 
 def _principal_panel(sc, g, dirty, title):
@@ -249,7 +249,7 @@ def _principal_panel(sc, g, dirty, title):
     _box(sc, g, a, b, c)
     # principal axes
     for deg, ln, nm, off in ((225, 0.85, bold("e") + S("", "1"), (-14, 14)), (90, 0.85, bold("e") + S("", "2"), (14, 0)),
-                             (150, 1.0, bold("e") + S("", "3"), (-16, -6))):
+                             (150, 1.0, bold("e") + S("", "3"), (16, -10))):
         sc.vec(g, _add(g, _d(deg), ln), nm, RED, 2.2, name_off=off, size=16, head=9)
     if not dirty:
         sc.vec(g, _add(g, _d(150), 1.6), S(bold("ω"), "B0"), "GREEN", 3.4, name_off=(-26, -8), size=17, head=11)
@@ -270,7 +270,7 @@ def _principal_panel(sc, g, dirty, title):
         r"In a clean rotation about a principal axis the angular momentum about $G$ is parallel to the angular velocity; "
         r"off the principal axes it is not, and the Euler equations couple.")
 def principal_axes():
-    sc = Scene(780, 430, (400, 250), 92)
+    sc = Scene(780, 390, (400, 215), 92)
     _principal_panel(sc, (-2.05, 0.0), False, "clean rotation")
     _principal_panel(sc, (2.05, 0.0), True, "dirty rotation")
     sc.line((0.0, 1.9), (0.0, -1.9), "EDGE", 1.0, "4 4")
@@ -299,9 +299,9 @@ def planar_motion():
     # fixed axes at O
     fixed_axis(sc, O, 0, 1.3, bold("i") + S("", "0"), off=(14, 6))
     fixed_axis(sc, O, 90, 1.3, bold("j") + S("", "0"), off=(14, 4))
-    axis_out(sc, O, bold("k") + S("", "0"), off=(-18, 4))
+    axis_out(sc, O, bold("k") + S("", "0"), off=(-24, -8))
     sc.dotp(O, 3.5)
-    sc.label(O, "O", "HEAD", "end", 17, dx=-10, dy=22)
+    sc.label(O, "O", "HEAD", "start", 17, dx=8, dy=24)
     sc.vec(O, G, None, "HEAD", 2.0, head=9)
     sc.label((1.0, 0.6), S(bold("r"), "0", "G"), "HEAD", "end", 17, dx=-4, dy=-10)
     # dashed parallel through G, triangle of i1
@@ -331,7 +331,7 @@ def planar_motion():
         r"Compound pendulum: position of $G$ from the shaded triangle, and the free-body diagram with the weight at $G$ "
         r"and the pin reaction at $O$.")
 def compound_pendulum():
-    sc = Scene(720, 480, (150, 90), 100)
+    sc = Scene(720, 420, (150, 110), 100)
     TH = 35.0
     t = math.radians(TH)
     L = 3.0
@@ -359,7 +359,7 @@ def compound_pendulum():
     sc.dashed(G, foot)
     sc.dashed(G, (G[0], 0.0))
     right_angle(sc, foot, 90, 0, 0.08)
-    unit(sc, O, ang_i1, 0.95, bold("i") + S("", "1"), off=(16, 10))
+    unit(sc, O, ang_i1, 1.0, bold("i") + S("", "1"), off=(18, 6))
     unit(sc, O, ang_i1 + 90, 0.8, bold("j") + S("", "1"), off=(10, -12))
     sc.angle(O, 0.50, -90, ang_i1, "θ", name_r=0.70)
     sc.pin(O, 5)
@@ -369,7 +369,7 @@ def compound_pendulum():
     sc.label(A, "A", "HEAD", "middle", 17, dx=16, dy=18)
     sc.label(O, "O", "HEAD", "end", 17, dx=-10, dy=-4)
     axis_out(sc, (-0.62, 0.62), bold("k") + S("", "0"), "HEAD", off=(-4, -24))
-    sc.label((G[0] / 2, G[1] / 2), "L/2", "HEAD", "start", 16, dx=12, dy=-6)
+    sc.label(_add(O, ui, 1.3), "L/2", "HEAD", "end", 16, dx=-12, dy=0)
     sc.label((0.0, G[1] / 2), "(L/2) cos θ", "TEXT", "end", 15, dx=-8, dy=5)
     sc.label((0.0, G[1]), "(L/2) sin θ", "TEXT", "start", 14, dx=5, dy=22)
     sc.note((0.2, -2.95), "deduction", "TEXT", "start", 13)

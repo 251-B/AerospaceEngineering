@@ -3012,6 +3012,27 @@
      1
     ]
    }
+  },
+  "subjects/engineering-mechanics/teoria/topic-7.html": {
+   "panel": [
+    [
+     "em-s9",
+     1
+    ],
+    [
+     "em-s10",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
   }
  }
 }

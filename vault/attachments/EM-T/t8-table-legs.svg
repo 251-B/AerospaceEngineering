@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" width="100%" class="fig-kit" style="max-width:860px;margin:0 auto;display:block" role="img" aria-label="Tables with three and four legs and the vertical reactions at their feet.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="210.0" y="28.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">determinate (3 legs)</text>
+<line x1="80.0" y1="202.0" x2="80.0" y2="312.0" stroke="#4b5563" stroke-width="5.0"/>
+<line x1="230.0" y1="202.0" x2="230.0" y2="232.0" stroke="#4b5563" stroke-width="5.0"/>
+<line x1="265.0" y1="202.0" x2="265.0" y2="312.0" stroke="#4b5563" stroke-width="5.0"/>
+<polygon points="120.0,110.0 340.0,110.0 280.0,190.0 60.0,190.0" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6" stroke-width="2.0" stroke-linejoin="round"/>
+<polygon points="60.0,190.0 280.0,190.0 280.0,202.0 60.0,202.0" fill="#3b82f6" fill-opacity="0.75" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="280.0,190.0 340.0,110.0 340.0,122.0 280.0,202.0" fill="#3b82f6" fill-opacity="0.75" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="80.0" cy="312.0" r="4.5" fill="#4b5563"/>
+<line x1="96.0" y1="312.0" x2="96.0" y2="266.6" stroke="#10b981" stroke-width="2.8"/>
+<path d="M96.0,260.0 L100.3,270.1 L91.7,270.1 Z" fill="#10b981"/>
+<text x="112.0" y="256.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="super" font-size="70%">P1</tspan></text>
+<circle cx="230.0" cy="232.0" r="4.5" fill="#4b5563"/>
+<line x1="246.0" y1="232.0" x2="246.0" y2="186.6" stroke="#10b981" stroke-width="2.8"/>
+<path d="M246.0,180.0 L250.3,190.1 L241.7,190.1 Z" fill="#10b981"/>
+<text x="262.0" y="176.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="super" font-size="70%">P2</tspan></text>
+<circle cx="265.0" cy="312.0" r="4.5" fill="#4b5563"/>
+<line x1="281.0" y1="312.0" x2="281.0" y2="266.6" stroke="#10b981" stroke-width="2.8"/>
+<path d="M281.0,260.0 L285.3,270.1 L276.7,270.1 Z" fill="#10b981"/>
+<text x="297.0" y="256.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="super" font-size="70%">P3</tspan></text>
+<text x="640.0" y="28.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">hyperstatic (4 legs)</text>
+<line x1="510.0" y1="202.0" x2="510.0" y2="312.0" stroke="#4b5563" stroke-width="5.0"/>
+<line x1="550.0" y1="202.0" x2="550.0" y2="232.0" stroke="#4b5563" stroke-width="5.0"/>
+<line x1="750.0" y1="202.0" x2="750.0" y2="232.0" stroke="#4b5563" stroke-width="5.0"/>
+<line x1="695.0" y1="202.0" x2="695.0" y2="312.0" stroke="#4b5563" stroke-width="5.0"/>
+<polygon points="550.0,110.0 770.0,110.0 710.0,190.0 490.0,190.0" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6" stroke-width="2.0" stroke-linejoin="round"/>
+<polygon points="490.0,190.0 710.0,190.0 710.0,202.0 490.0,202.0" fill="#3b82f6" fill-opacity="0.75" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="710.0,190.0 770.0,110.0 770.0,122.0 710.0,202.0" fill="#3b82f6" fill-opacity="0.75" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="510.0" cy="312.0" r="4.5" fill="#4b5563"/>
+<line x1="526.0" y1="312.0" x2="526.0" y2="266.6" stroke="#10b981" stroke-width="2.8"/>
+<path d="M526.0,260.0 L530.3,270.1 L521.7,270.1 Z" fill="#10b981"/>
+<text x="542.0" y="256.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="super" font-size="70%">P1</tspan></text>
+<circle cx="550.0" cy="232.0" r="4.5" fill="#4b5563"/>
+<line x1="566.0" y1="232.0" x2="566.0" y2="186.6" stroke="#10b981" stroke-width="2.8"/>
+<path d="M566.0,180.0 L570.3,190.1 L561.7,190.1 Z" fill="#10b981"/>
+<text x="582.0" y="176.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="super" font-size="70%">P2</tspan></text>
+<circle cx="750.0" cy="232.0" r="4.5" fill="#4b5563"/>
+<line x1="766.0" y1="232.0" x2="766.0" y2="186.6" stroke="#10b981" stroke-width="2.8"/>
+<path d="M766.0,180.0 L770.3,190.1 L761.7,190.1 Z" fill="#10b981"/>
+<text x="782.0" y="176.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="super" font-size="70%">P3</tspan></text>
+<circle cx="695.0" cy="312.0" r="4.5" fill="#4b5563"/>
+<line x1="711.0" y1="312.0" x2="711.0" y2="266.6" stroke="#10b981" stroke-width="2.8"/>
+<path d="M711.0,260.0 L715.3,270.1 L706.7,270.1 Z" fill="#10b981"/>
+<text x="727.0" y="256.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="super" font-size="70%">P4</tspan></text>
+</g></svg>

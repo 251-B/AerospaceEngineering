@@ -237,6 +237,34 @@
      "next"
     ]
    ]
+  },
+  "subjects/engineering-mechanics/teoria/topic-7.html": {
+   "flavor": "mechanics",
+   "template": "subjects/engineering-mechanics/teoria/topic-5.html",
+   "note": "vault/03 - Engineering Mechanics/Topic 7 - Momentum, Kinetic Energy and Rigid Body Dynamics.md",
+   "figures": "em_theory",
+   "html_title": "Topic 7: Momentum, Kinetic Energy and Rigid Body Dynamics | Mechanics Applied to Aerospace Engineering",
+   "category": "Mechanics Applied to Aerospace Engineering — Part II",
+   "title": "Topic 7: Momentum, Kinetic Energy and Rigid Body Dynamics",
+   "subtitle": "Department of Continuum Mechanics and Aeronautical Engineering • BSc in Aerospace Engineering, UC3M",
+   "source": "Sources: [Lecture 9, Slides 1-15] & [Lecture 10, Slides 1-20] & Notes.pdf (Chapters 11 and 12).",
+   "nav": [
+    [
+     "topic-5.html",
+     "Topic 5: Relative Motion",
+     "prev"
+    ],
+    [
+     "../problemas/index.html",
+     "Problems",
+     "center"
+    ],
+    [
+     "index.html",
+     "Mechanics Applied Index",
+     "next"
+    ]
+   ]
   }
  }
 }

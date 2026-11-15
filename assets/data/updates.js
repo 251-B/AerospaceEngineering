@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-mechanics-theory-topic-7",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "New theory: momentum, energy and rigid body dynamics",
+    "text": "Topic 7 is online: every formula of the rigid body dynamics chapters is derived line by line in its own box, with figures.",
+    "link": "subjects/engineering-mechanics/teoria/topic-7.html"
+  },
+  {
     "id": "2026-11-14-mechanics-class-badges",
     "date": "2026-11-14",
     "tag": "Engineering Mechanics",
