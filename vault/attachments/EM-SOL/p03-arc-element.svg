@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Infinitesimal right triangle at P with legs dx and dy and hypotenuse ds, the tangent rising at angle phi above the negative x direction.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="470.0,250.0 292.8,250.0 292.8,147.7" fill="#3b82f6" fill-opacity="0.14" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="470.0" y1="250.0" x2="292.8" y2="250.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="292.8" y1="250.0" x2="292.8" y2="147.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="306.0,250.0 306.0,236.8 292.8,236.8" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="470.0" y1="279.7" x2="376.4" y2="279.7" stroke="#8a94a6" stroke-width="1.6"/>
+<path d="M371.0,279.7 L379.3,276.2 L379.3,283.2 Z" fill="#8a94a6"/>
+<text x="363.0" y="284.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−<tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="470.0" y1="250.0" x2="292.8" y2="147.7" stroke="#4b5563" stroke-width="3.6"/>
+<line x1="470.0" y1="250.0" x2="361.4" y2="187.3" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M355.7,184.0 L366.6,185.4 L362.3,192.8 Z" fill="#f59e0b"/>
+<text x="349.7" y="170.0" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<path d="M412.8,217.0 A66.0,66.0 0 0 0 404.0,250.0" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="379.5" y="232.4" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<circle cx="470.0" cy="250.0" r="4.5" fill="#4b5563"/>
+<circle cx="292.8" cy="147.7" r="4.5" fill="#4b5563"/>
+<text x="480.0" y="272.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="282.8" y="143.7" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P′</text>
+<text x="381.4" y="309.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">|dx| = 3a cos²φ sin φ dφ</text>
+<text x="284.8" y="255.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dx (negative)</text>
+<text x="282.8" y="203.9" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dy = 3a sin²φ cos φ dφ</text>
+<text x="407.4" y="176.9" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ds = 3a sin φ cos φ dφ</text>
+<text x="371.0" y="355.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">ds² = dx² + dy²</text>
+<circle cx="536.0" cy="85.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="536.0" cy="85.0" r="2.6" fill="#4b5563"/>
+<text x="536.0" y="115.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+</g></svg>

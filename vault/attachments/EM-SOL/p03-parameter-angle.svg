@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 646 600" width="100%" class="fig-kit" style="max-width:646px;margin:0 auto;display:block" role="img" aria-label="Auxiliary circle showing that the parameter phi is the angle of the circle point Q, while the particle P is seen from O at the smaller polar angle vartheta.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="70.0" y1="510.0" x2="565.2" y2="510.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M570.0,510.0 L562.6,513.1 L562.6,506.9 Z" fill="#8a94a6"/>
+<text x="582.0" y="515.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="110.0" y1="550.0" x2="110.0" y2="74.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M110.0,70.0 L113.1,77.4 L106.9,77.4 Z" fill="#8a94a6"/>
+<text x="122.0" y="72.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<path d="M510.0,510.0 A400.0,400.0 0 0 0 110.0,110.0" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5 4" stroke-linejoin="round"/>
+<polyline points="510.0,510.0 509.9,510.0 509.6,510.0 509.1,510.0 508.4,509.9 507.4,509.9 506.3,509.8 505.0,509.7 503.5,509.5 501.7,509.4 499.8,509.1 497.7,508.8 495.4,508.5 492.9,508.1 490.2,507.6 487.4,507.0 484.3,506.4 481.1,505.7 477.8,504.9 474.2,504.0 470.5,503.1 466.6,502.0 462.6,500.8 458.4,499.6 454.1,498.2 449.6,496.7 445.0,495.1 440.3,493.4 435.5,491.6 430.5,489.6 425.4,487.6 420.2,485.4 415.0,483.1 409.6,480.6 404.1,478.1 398.6,475.4 392.9,472.6 387.3,469.6 381.5,466.5 375.7,463.3 369.8,460.0 363.9,456.5 357.9,452.9 352.0,449.2 346.0,445.4 339.9,441.4 333.9,437.3 327.8,433.1 321.8,428.8 315.8,424.3 309.7,419.8 303.7,415.1 297.7,410.3 291.8,405.4 285.9,400.4 280.0,395.3 274.2,390.2 268.4,384.9 262.7,379.5 257.0,374.1 251.4,368.6 245.9,363.0 240.5,357.3 235.1,351.6 229.8,345.8 224.7,340.0 219.6,334.1 214.6,328.2 209.7,322.3 204.9,316.3 200.2,310.3 195.7,304.2 191.2,298.2 186.9,292.2 182.7,286.1 178.6,280.1 174.6,274.0 170.8,268.0 167.1,262.1 163.5,256.1 160.0,250.2 156.7,244.3 153.5,238.5 150.4,232.7 147.4,227.1 144.6,221.4 141.9,215.9 139.4,210.4 136.9,205.0 134.6,199.8 132.4,194.6 130.4,189.5 128.4,184.5 126.6,179.7 124.9,175.0 123.3,170.4 121.8,165.9 120.4,161.6 119.2,157.4 118.0,153.4 116.9,149.5 116.0,145.8 115.1,142.2 114.3,138.9 113.6,135.7 113.0,132.6 112.4,129.8 111.9,127.1 111.5,124.6 111.2,122.3 110.9,120.2 110.6,118.3 110.5,116.5 110.3,115.0 110.2,113.7 110.1,112.6 110.1,111.6 110.0,110.9 110.0,110.4 110.0,110.1 110.0,110.0" fill="none" stroke="#4b5563" stroke-width="3.4" stroke-linejoin="round"/>
+<line x1="110.0" y1="510.0" x2="456.4" y2="310.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5 4"/>
+<line x1="110.0" y1="510.0" x2="369.8" y2="460.0" stroke="#4b5563" stroke-width="2.0"/>
+<line x1="456.4" y1="310.0" x2="456.4" y2="510.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="369.8" y1="460.0" x2="369.8" y2="510.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<path d="M198.0,510.0 A88.0,88.0 0 0 0 186.2,466.0" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="225.9" y="483.9" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<path d="M310.0,510.0 A200.0,200.0 0 0 0 306.4,472.2" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="348.9" y="492.2" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ϑ</text>
+<circle cx="251.4" cy="368.6" r="4.8" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="456.4" cy="310.0" r="4.0" fill="#8a94a6"/>
+<circle cx="369.8" cy="460.0" r="4.5" fill="#4b5563"/>
+<text x="102.0" y="530.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<text x="466.4" y="304.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Q (a cos φ, a sin φ)</text>
+<text x="369.8" y="562.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P (a cos³φ, a sin³φ)</text>
+<text x="231.4" y="344.6" fill="#4b5563" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">φ = ϑ = π/4</text>
+<text x="370.0" y="130.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">tan ϑ = tan³φ</text>
+<text x="510.0" y="534.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">a</text>
+<circle cx="150.0" cy="150.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="150.0" cy="150.0" r="2.6" fill="#4b5563"/>
+<text x="150.0" y="180.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+</g></svg>

@@ -31,7 +31,7 @@ def polar_rotation():
     sc.dashed((-s, 0.0), (-s, c))
     right_angle(sc, (c, 0.0), 180, 90, 0.05)
     right_angle(sc, (-s, 0.0), 0, 90, 0.05)
-    fixed_axis(sc, O, 0, 1.3, bold("i") + S("", "0"), off=(16, 5))
+    fixed_axis(sc, O, 0, 1.12, bold("i") + S("", "0"), off=(16, 5))
     fixed_axis(sc, O, 90, 1.3, bold("j") + S("", "0"), off=(16, 2))
     fixed_axis(sc, O, 180, 1.0, "−" + bold("i") + S("", "0"), off=(-8, -12), dashed=True)
     unit(sc, O, TH, 1.0, bold("e") + S("", "r"), off=(14, -6))
@@ -46,9 +46,9 @@ def polar_rotation():
     sc.label((c / 2, s / 2), "1", "TEXT", "middle", 15, dx=-12, dy=-10)
     sc.label((-s / 2, c / 2), "1", "TEXT", "middle", 15, dx=14, dy=-4)
     # rotation of the basis about O (counterclockwise), below the axes
-    sc.spin(O, 0.55, 200, 330, dot1("θ"), name_r=0.7)
-    axis_out(sc, O, bold("k") + S("", "0") + " (out of the paper)", off=(-72, 32))
-    sc.label(O, "O", "HEAD", "end", 17, dx=-12, dy=-4)
+    sc.spin(O, 0.6, 235, 305, dot1("θ"), name_r=0.74)
+    axis_out(sc, O, bold("k") + S("", "0") + " (out of the paper)", off=(115, 56))
+    sc.label(O, "O", "HEAD", "end", 17, dx=-16, dy=24)
     return sc
 
 
@@ -79,7 +79,11 @@ def tangent_triangle():
     sc.angle(P, 0.42, 90, psi + 90, "ψ", name_r=0.55)
     sc.label((BETA / 2, 0.0), "β", "TEXT", "middle", 16, dy=22)
     sc.label((BETA, 0.7), "1", "TEXT", "start", 16, dx=8, dy=4)
-    sc.label((BETA / 2 + 0.03, 0.55), "√(1 + β²)", "BLUE", "end", 14, dx=-8, dy=4)
+    hx, hy = sc.P((BETA * 0.6, 0.6))
+    nx, ny = -math.sin(math.radians(psi)), -math.cos(math.radians(psi))     # screen normal, to the left of the hypotenuse
+    sc.c.add(f'<text x="{hx + 16 * nx:.1f}" y="{hy + 16 * ny:.1f}" fill="BLUE" font-size="14" text-anchor="middle" '
+             f'font-style="italic" font-family="Newsreader, \'Times New Roman\', Times, serif" '
+             f'transform="rotate({-psi:.1f} {hx + 16 * nx:.1f} {hy + 16 * ny:.1f})">√(1 + β²)</text>')
     sc.note((0.55, 0.28), "tan ψ = 1/β", "TEXT", "start", 14)
     sc.mass(P, "P", r=5, name_off=(-14, 20), col="HEAD")
     axis_out(sc, (0.85, 0.82), bold("k") + S("", "0") + " = " + bold("e") + S("", "b"), off=(20, 30))
@@ -93,47 +97,47 @@ def tangent_triangle():
         r"$\mathbf e_\theta$ from the pole, so $OPC$ is a right triangle at $O$ with hypotenuse "
         r"$\rho = r\sqrt{1+\beta^2}$.")
 def spiral_plane():
-    sc = Scene(620, 600, (330, 300), 78)
+    sc = Scene(680, 640, (350, 260), 125)
     O = (0.0, 0.0)
     r = math.exp(BS * math.radians(TP))
     P = _d(TP, r)
     C = _d(TP + 90, BS * r)
     rho = r * math.sqrt(1 + BS * BS)
     psi = math.degrees(math.atan2(1.0, BS))
+
+    def pt(deg):
+        return _d(deg, math.exp(BS * math.radians(deg)))
     triangle(sc, [O, P, C], "BLUE", 0.14)
     sc.circle(C, rho, "EDGE", 1.0, "5 4")
-    fixed_axis(sc, O, 0, 3.7, bold("i") + S("", "0"), off=(16, 5))
-    fixed_axis(sc, O, 90, 3.5, bold("j") + S("", "0"), off=(16, 2))
-    sc.curve(lambda t: _d(math.degrees(t), math.exp(BS * t)), math.radians(-180), math.radians(358), col="HEAD", w=2.6)
-    sc.label(_d(358, 3.5), "r = α e<tspan baseline-shift=\"super\" font-size=\"70%\">βθ</tspan>", "HEAD", "start", 15,
-             dx=10, dy=-10)
-    # sense of increasing theta
-    a0, a1 = 300.0, 312.0
-    sc.vec(_d(a0, math.exp(BS * math.radians(a0 - 360))), _d(a1, math.exp(BS * math.radians(a1 - 360))), None,
-           "HEAD", 2.4, head=10)
-    # polar and intrinsic bases at P
-    L = 0.75
+    fixed_axis(sc, O, 0, 1.7, bold("i") + S("", "0"), off=(16, 5))
+    fixed_axis(sc, O, 90, 1.6, bold("j") + S("", "0"), off=(16, 2))
+    sc.curve(lambda t: pt(math.degrees(t)), math.radians(-180), math.radians(292), 200, col="HEAD", w=2.6)
+    sc.vec(pt(292), pt(304), None, "HEAD", 2.6, head=11)
+    sc.label(pt(304), "r = α e" + '<tspan baseline-shift="super" font-size="70%">βθ</tspan>', "HEAD", "start", 15,
+             dx=12, dy=14)
+    sc.vec(pt(95), pt(108), None, "HEAD", 2.6, head=11)
     sc.vec(O, P, None, "HEAD", 2.4, head=11)
-    sc.label(_d(TP, r / 2), "r", "HEAD", "middle", 16, dx=-12, dy=-8)
-    sc.label(_d(TP, r * 0.5), bold("r") + S("", "0", ) + "", "HEAD", "middle", 1, dx=0, dy=0)
-    unit(sc, P, TP, L, bold("e") + S("", "r"), "BLUE", off=(-12, -8))
-    unit(sc, P, TP + 90, L, bold("e") + S("", "θ"), "BLUE", off=(-16, 14))
-    unit(sc, P, TP + psi, L, bold("e") + S("", "t"), "ACC", off=(-14, 14))
-    unit(sc, P, TP + psi + 90, L, bold("e") + S("", "n"), "GREEN", off=(14, -2))
-    # P -> C and O -> C
+    sc.label(_d(TP, r * 0.5), bold("r") + S("", "0", "P") + " = r " + bold("e") + S("", "r"), "HEAD", "middle", 14,
+             dx=-6, dy=-30)
+    sc.label(_d(TP, r * 0.86), "r", "HEAD", "middle", 16, dx=4, dy=-14)
+    L = 0.55
+    unit(sc, P, TP, L, bold("e") + S("", "r"), "BLUE", off=(-14, -6))
+    unit(sc, P, TP + 90, L, bold("e") + S("", "θ"), "BLUE", off=(20, 14))
+    unit(sc, P, TP + psi, L, bold("e") + S("", "t"), "ACC", off=(-18, 16))
+    unit(sc, P, TP + psi + 90, L, bold("e") + S("", "n"), "GREEN", off=(-2, 24))
     sc.line(P, C, "GREEN", 1.6, "6 4")
     sc.line(O, C, "HEAD", 1.4, "3 3")
     right_angle(sc, O, TP + 90, TP, 0.12)
-    sc.angle(O, 0.8, 0, TP, "θ", name_r=0.97)
-    sc.angle(P, 0.45, TP, TP + psi, "ψ", name_r=0.62)
+    sc.angle(O, 0.55, 0, TP, "θ", name_r=0.7)
+    sc.angle(P, 0.30, TP, TP + psi, "ψ", name_r=0.43)
     sc.dotp(O, 4.0)
     sc.dotp(C, 3.5)
     sc.dotp(P, 4.5)
-    sc.label(O, "O", "HEAD", "end", 17, dx=-8, dy=-6)
-    sc.label(P, "P", "HEAD", "end", 17, dx=-12, dy=20)
-    sc.label(C, "C", "HEAD", "start", 17, dx=8, dy=20)
+    sc.label(O, "O", "HEAD", "end", 17, dx=-8, dy=-8)
+    sc.label(P, "P", "HEAD", "end", 17, dx=-14, dy=-4)
+    sc.label(C, "C", "HEAD", "start", 17, dx=8, dy=22)
     mid = ((P[0] + C[0]) / 2, (P[1] + C[1]) / 2)
-    sc.label(mid, "ρ", "GREEN", "middle", 17, dy=-12)
+    sc.label(mid, "ρ = r √(1 + β²)", "GREEN", "middle", 15, dx=40, dy=40)
     sc.label((C[0] / 2, C[1] / 2), "β r", "HEAD", "start", 15, dx=10, dy=6)
-    axis_out(sc, (2.6, 2.4), bold("k") + S("", "0") + " (out of the paper)", off=(-10, 28))
+    axis_out(sc, (1.2, 1.3), bold("k") + S("", "0") + " (out of the paper)", off=(0, 28))
     return sc

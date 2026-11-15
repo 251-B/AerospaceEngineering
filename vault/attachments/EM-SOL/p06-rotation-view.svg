@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="View along k0 of the fixed axes and of the tangent and auxiliary normal turned by the tangent angle gamma.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="220.0" y1="275.0" x2="424.2" y2="275.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M429.0,275.0 L421.6,278.1 L421.6,271.9 Z" fill="#8a94a6"/>
+<text x="443.0" y="281.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="220.0" y1="275.0" x2="220.0" y2="70.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M220.0,66.0 L223.1,73.4 L216.9,73.4 Z" fill="#8a94a6"/>
+<text x="236.0" y="70.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="220.0" y1="275.0" x2="77.5" y2="275.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4 4"/>
+<text x="87.5" y="281.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<polygon points="220.0,275.0 375.1,275.0 375.1,165.3" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="220.0,275.0 110.3,275.0 110.3,119.9" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="375.1" y1="275.0" x2="375.1" y2="165.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="220.0" y1="165.3" x2="375.1" y2="165.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="110.3" y1="275.0" x2="110.3" y2="119.9" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="220.0" y1="119.9" x2="110.3" y2="119.9" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="365.6,275.0 365.6,265.5 375.1,265.5" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polyline points="119.8,275.0 119.8,265.5 110.3,265.5" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="220.0" y1="275.0" x2="369.7" y2="169.1" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M375.1,165.3 L369.3,174.7 L364.4,167.7 Z" fill="#3b82f6"/>
+<text x="393.1" y="157.3" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<line x1="220.0" y1="275.0" x2="114.1" y2="125.3" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M110.3,119.9 L119.7,125.7 L112.7,130.6 Z" fill="#3b82f6"/>
+<text x="102.3" y="107.9" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">⊥</tspan></text>
+<circle cx="220.0" cy="275.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="220.0" cy="275.0" r="2.6" fill="#4b5563"/>
+<text x="250.0" y="327.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan> (⊙)</text>
+<path d="M277.0,275.0 A57.0,57.0 0 0 0 266.5,242.1" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="296.1" y="255.8" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<path d="M220.0,218.0 A57.0,57.0 0 0 0 187.1,228.5" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="195.8" y="203.9" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<text x="297.6" y="299.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos γ = 1/L</text>
+<text x="385.1" y="225.2" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin γ = cos x / L</text>
+<text x="165.2" y="299.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−sin γ</text>
+<text x="230.0" y="124.9" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos γ</text>
+<text x="39.5" y="392.8" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">on an upper arch γ decreases (tangent turns clockwise)</text>
+</g></svg>
