@@ -350,9 +350,9 @@ def fluid_problem_count():
 
 
 def sync_portal(root):
-    """The root card of the subject, the hero total of the portal and the "Problem Sets (N Solved)" label of both
-    subject indexes. Shared by tools/fluids_cl, fluids_ns, fluids_fs and fluids_da, so that all four write the same
-    count."""
+    """The root card of the subject, the hero total of the portal (when the page has one) and the "Problem Sets (N Solved)"
+    label of both subject indexes. Shared by tools/fluids_cl, fluids_ns, fluids_fs and fluids_da, so that all four write
+    the same count."""
     s = (root / PORTAL).read_text(encoding="utf-8")
     i = s.index('href="subjects/fluid-mechanics/problemas/index.html"')
     j = s.index('<span class="area-badge available">', i)
@@ -361,7 +361,8 @@ def sync_portal(root):
     total = fluid_problem_count()
     s = s[:j] + f'<span class="area-badge available">{total} problems' + s[k:]
     hero = re.search(r'(<span class="stat-value"[^>]*>)(\d+)(</span>\s*<span class="stat-label">Solved problems)', s)
-    s = s[:hero.start(2)] + str(int(hero.group(2)) + total - before) + s[hero.end(2):]
+    if hero:                                # the hero total is optional: the landing page no longer shows it
+        s = s[:hero.start(2)] + str(int(hero.group(2)) + total - before) + s[hero.end(2):]
     write(root, PORTAL, s)
     for rel in (PROBLEMS_INDEX, THEORY_INDEX):
         s = (root / rel).read_text(encoding="utf-8")

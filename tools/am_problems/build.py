@@ -239,7 +239,7 @@ def sync(root, sheets, counts):
         s = s[:a] + "      " + block + s[b:]
     write(root, INDEX, s)
 
-    # root badges: the problems of Advanced Maths and the hero total
+    # root badges: the problems of Advanced Maths and the hero total (when the landing page has one)
     s = (root / PORTAL).read_text(encoding="utf-8")
     i = s.index('href="subjects/advanced-maths/problemas/index.html"')
     j = s.index('<span class="area-badge available">', i)
@@ -249,7 +249,8 @@ def sync(root, sheets, counts):
     after = base + sum(counts.values())
     s = s[:j] + f'<span class="area-badge available">{after} problems' + s[k:]
     hero = re.search(r'(<span class="stat-value"[^>]*>)(\d+)(</span>\s*<span class="stat-label">Solved problems)', s)
-    s = s[:hero.start(2)] + str(int(hero.group(2)) + after - before) + s[hero.end(2):]
+    if hero:                                # the hero total is optional: the landing page no longer shows it
+        s = s[:hero.start(2)] + str(int(hero.group(2)) + after - before) + s[hero.end(2):]
     write(root, PORTAL, s)
 
 
