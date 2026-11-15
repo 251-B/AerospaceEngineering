@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-compact-subject-indexes",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "Subject indexes fit on one screen",
+    "text": "The theory and problem indexes of every subject are now short cards in a grid, with the new subject icons. The site is now called Orbit and has a simpler icon."
+  },
+  {
     "id": "2026-11-15-timer-focus-look",
     "date": "2026-11-15",
     "tag": "Portal",

@@ -331,6 +331,8 @@
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-index.css">
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -351,14 +353,16 @@
   </nav>
 
   <main class="container">
+    <nav class="subject-tabs" aria-label="Fluid Mechanics sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html" aria-current="page">Problems</a>
+      <span class="subject-tab" aria-disabled="true">Extra problems <span class="subject-tab__soon">Soon</span></span>
+      <span class="subject-tab" aria-disabled="true">Exam simulator <span class="subject-tab__soon">Soon</span></span>
+      <a class="subject-tab" href="../sources/index.html">Official PDFs</a>
+    </nav>
     <header class="page-header">
       <div class="icon" aria-hidden="true">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-          <circle cx="12" cy="5" r="2.2"/>
-          <path d="M10.5 7L4 21m9.5-14L20 21"/>
-          <path d="M7 15h10"/>
-          <circle cx="12" cy="15" r="1" fill="currentColor"/>
-        </svg>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.2c3-3.2 8-4.3 12.5-3.1 2.4.6 4.3 1.7 5.5 3.1-2 .8-5 1.2-8.5 1.2-4 0-7.5-.4-9.5-1.2z" fill="currentColor" fill-opacity="0.18"/><path d="M2 7.6c4-2.2 9-2.6 13.5-1.2 2.5.8 4.6 2 6.5 3.5"/><path d="M2 18.4c4 .9 9 1 13.5.4 2.4-.3 4.6-.9 6.5-1.6"/></svg>
       </div>
       <h1><span class="accent">Fluid Mechanics</span></h1>
       <p>Official Exam Problems — Step-by-Step Analytical Solutions</p>

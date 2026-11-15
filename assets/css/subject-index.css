@@ -1,0 +1,103 @@
+/* Subject index pages (teoria/, problemas/ and extra-problems/ index.html): the compact look of the
+   landing page. Linked as the last stylesheet of those pages, it lays their own markup out as a
+   grid of short cards (number, title, arrow) and hides the long summaries and tag clouds, so a
+   whole syllabus fits on one desktop screen. Colours and fonts are the page's own variables. */
+
+/* ---------------------------------------------------------------- page width and header */
+body .container { max-width: 1180px; }
+
+:is(.page-header, .page-hero) {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 16px;
+  margin: 0 auto 22px; padding: 22px 0 0; border: 0; text-align: left;
+}
+:is(.page-header, .page-hero) > :is(.icon, .page-header-icon) {
+  display: flex !important; align-items: center; justify-content: center; flex: none;
+  width: 52px; height: 52px; margin: 0 !important; border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 7%, transparent);
+  color: var(--accent);
+}
+:is(.page-header, .page-hero) > :is(.icon, .page-header-icon) svg { width: 28px; height: 28px; color: inherit !important; }
+:is(.page-header, .page-hero) h1 {
+  margin: 0; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.15; text-align: left;
+}
+:is(.page-header, .page-hero) h1 br { display: none; }
+:is(.page-header, .page-hero) h1 br + span::before { content: " · "; }
+/* the summaries under the title, the pills and counters, and the second copy of the tab strip */
+:is(.page-header, .page-hero) > :is(p, .hero-badge-wrap, .hero-stats, .hero-pill),
+body:has(.subject-tabs) :is(.view-switcher, .section-nav) { display: none !important; }
+:is(.page-header, .page-hero) > .view-switcher { flex-basis: 100%; justify-content: center; margin: 10px 0 0; }
+
+/* ---------------------------------------------------------------- section titles */
+.block-header { margin: 18px 0 10px; padding-bottom: 8px; }
+.block-header h2, .exam-block-title { font-size: 1.15rem; margin: 0; }
+.exam-block { margin-top: 18px; }
+.exam-block-lead { display: none; }
+
+/* ---------------------------------------------------------------- the cards: a grid, not a column */
+:is(.topics-list, .topics-grid, .sets-list, .problem-sets-grid) {
+  display: grid !important; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px; margin-top: 0; margin-bottom: 18px;
+}
+:is(.topic-card, .set-card) {
+  position: relative; display: flex !important; flex-direction: row; align-items: center; gap: 12px;
+  min-height: 78px; margin: 0 !important; padding: 14px 16px 14px 18px !important;
+  border-radius: var(--radius-md, 14px); overflow: hidden;
+}
+:is(.topic-card, .set-card) :is(.topic-desc, .set-desc, .topic-tags, .content-badges, .topic-meta .meta-tag, .badge-status, .topic-badge.available, .set-badge) { display: none !important; }
+:is(.topic-card, .set-card) :is(.topic-body, .topic-content, .set-content) {
+  flex: 1; min-width: 0; padding: 0 !important; display: flex; flex-direction: column; gap: 3px;
+}
+:is(.topic-card, .set-card) :is(.topic-title, .set-title) {
+  margin: 0 !important; font-size: 1.08rem; line-height: 1.25;
+}
+:is(.topic-card, .set-card) :is(.topic-number, .topic-code, .set-code, .topic-badge, .topic-num) {
+  margin: 0 !important; font-family: var(--font-mono, "JetBrains Mono", monospace); font-size: .7rem; letter-spacing: .06em;
+}
+:is(.topic-card, .set-card) :is(.topic-meta, .set-meta, .topic-top) { margin: 0 !important; display: flex; align-items: center; gap: 8px; }
+:is(.topic-card, .set-card) :is(.topic-arrow, .topic-action, .set-action) {
+  flex: none; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important;
+  width: auto; font-size: 1.1rem; transition: transform .2s ease;
+}
+:is(.topic-card, .set-card):hover :is(.topic-arrow, .topic-action, .set-action) { transform: translateX(3px); }
+/* accent strips become one thin bar on the left edge */
+:is(.topic-card, .set-card) :is(.topic-accent, .topic-accent-bar, .topic-accent-strip, .set-accent-strip) {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px; height: auto; margin: 0;
+}
+/* Engineering Mechanics: the big number column becomes a small label */
+.topic-card > .topic-num {
+  flex: none; width: auto !important; min-width: 0 !important; padding: 0 !important; border: 0 !important; background: none !important;
+  font-size: .95rem !important;
+}
+.topic-card.disabled { opacity: .55; }
+
+/* cards that list exercises (Business problems, Extra problems, Maths problem sets) */
+.problem-card { padding: 16px 18px !important; margin: 0 !important; }
+.problem-card :is(.card-desc, .topic-meta) { display: none !important; }
+.problem-card .card-title { margin: 0 0 8px !important; font-size: 1.1rem; }
+.problem-card .exercise-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 2px 14px; margin: 0; }
+.problem-card .exercise-item { padding: 5px 0 !important; }
+.problem-sets-grid:has(.exercise-list) { grid-template-columns: 1fr; }
+/* the exercise names of a problem sheet are listed on its own page */
+.set-card .exercise-pills-list { display: none !important; }
+
+/* exercise lists: body font, two lines at most */
+.problem-card .ex-title {
+  font-family: var(--font-body, "Newsreader", Georgia, serif) !important; font-weight: 500 !important; letter-spacing: 0;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; line-height: 1.35;
+}
+
+/* ---------------------------------------------------------------- less air around the page */
+.subject-tabs { margin-bottom: 0; }
+body :is(.page-footer, .site-footer) { margin-top: 18px; padding: 14px 0 18px; }
+section.container:has(#quoteContainer), section:has(> #quoteContainer) { display: none; }
+
+@media (max-width: 700px) {
+  :is(.page-header, .page-hero) { padding-top: 14px; margin-bottom: 16px; }
+  :is(.page-header, .page-hero) > :is(.icon, .page-header-icon) { width: 44px; height: 44px; }
+  :is(.topics-list, .topics-grid, .sets-list, .problem-sets-grid) { grid-template-columns: 1fr; }
+}
+@media print {
+  :is(.topic-card, .set-card) :is(.topic-desc, .set-desc) { display: block !important; }
+}
