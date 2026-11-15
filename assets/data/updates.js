@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-timer-focus-look",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "Timer and Focus: clearer buttons in each page's colours",
+    "text": "The Timer and Focus buttons and panels use the colour of the subject you are in, the home page gradient on the home page, and the same fonts as the rest of the site."
+  },
+  {
     "id": "2026-11-15-portal-new-home",
     "date": "2026-11-15",
     "tag": "Portal",

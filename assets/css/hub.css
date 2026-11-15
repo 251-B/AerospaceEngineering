@@ -1,5 +1,15 @@
 /* Study Portal hub (index.html). Tokens live in tokens.css. */
 
+/* Accent of the landing page for the shared widgets (study timer, Focus Lab, "What's new", side
+   menu): the gradient of the title, with indigo where a single colour is needed. */
+:root {
+  --accent: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #06b6d4, #6366f1, #a855f7);
+}
+[data-theme="dark"] {
+  --accent: #818cf8;
+}
+
 /* ========================================================
    RESET & BASE
    ======================================================== */
