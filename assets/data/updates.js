@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-15-card-watermarks",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "Subject cards show the new icons in the background",
+    "text": "The faint drawing behind each subject card on the home page is now the new icon of that subject.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-15-folded-problems",
     "date": "2026-11-15",
     "tag": "Portal",
