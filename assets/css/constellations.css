@@ -108,13 +108,11 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 
 /* ---- The stage ------------------------------------------------------------------------- */
 .sky-view {
-  position: relative;
-  margin: 8px 16px 0;
-  height: calc(100vh - 140px);
-  height: calc(100dvh - 140px);
-  min-height: 460px;
-  border: 1px solid var(--sk-border);
-  border-radius: var(--radius-xl);
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
   overflow: hidden;
   background: var(--sk-bg);
   color: var(--sk-text);
@@ -124,7 +122,7 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 .sky-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
 .sky-title {
-  position: absolute; z-index: 2; top: 12px; left: 18px; margin: 0; pointer-events: none;
+  position: absolute; z-index: 2; top: 70px; left: 24px; margin: 0; pointer-events: none;
   font-family: var(--font-display); font-weight: 400; font-size: 2.3rem; line-height: 1.1; letter-spacing: 0.015em; color: var(--sk-text);
 }
 .sky-title .gradient-text {
@@ -136,7 +134,7 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
   font: 500 0.72rem/1.3 var(--font-mono); color: var(--sk-text-2); letter-spacing: 0.08em; text-transform: uppercase;
 }
 .sky-back {
-  position: absolute; z-index: 3; top: 96px; left: 18px;
+  position: absolute; z-index: 3; top: 156px; left: 24px;
   font: 500 0.85rem/1 var(--font-mono); color: var(--sk-text);
   background: var(--sk-panel); border: 1px solid var(--sk-border); border-radius: 999px;
   padding: 10px 16px; cursor: pointer;
@@ -146,13 +144,14 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 .sky-back:focus-visible { outline: 2px solid var(--sk-text); outline-offset: 2px; }
 
 .sky-caption {
-  position: absolute; z-index: 2; left: 50%; bottom: 16px; transform: translateX(-50%);
+  position: absolute; z-index: 2; left: 50%; bottom: 46px; transform: translateX(-50%);
   max-width: calc(100% - 32px); text-align: center; pointer-events: none;
-  background: var(--sk-panel); border: 1px solid var(--sk-border); border-radius: var(--radius-lg);
+  background: none; border: 0; text-shadow: 0 0 10px var(--sk-halo), 0 0 3px var(--sk-halo);
   padding: 10px 20px; color: var(--sk-text-2);
   font: 400 0.95rem/1.35 var(--font-body);
 }
 .sky-caption h2 {
+  filter: drop-shadow(0 0 8px var(--sk-halo));
   margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 2.2rem; line-height: 1.12; letter-spacing: 0.015em;
   background: linear-gradient(135deg, var(--ct), var(--c)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
 }
@@ -221,7 +220,6 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 
 /* ---- Small screens ---------------------------------------------------------------------- */
 @media (max-width: 700px) {
-  .sky-view { margin: 6px 8px 0; }
   .header-actions { flex-wrap: wrap; justify-content: flex-end; }
   .header-actions .view-toggle, .header-actions .sky-palette-select { padding: 8px 10px; font-size: 0.75rem; }
   .sky-title { font-size: 1.15rem; }
@@ -235,3 +233,20 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 }
 
 @media print { .sky-view, .view-toggle, .sky-palette-select { display: none !important; } html[data-home-view] .classic-only { display: block !important; } }
+
+/* ---- The whole page is the sky: no frame, the header and footer float over it -------------- */
+html[data-home-view="constellations"],
+html[data-home-view="constellations"] body { height: 100%; overflow: hidden; }
+html[data-home-view="constellations"] .utility-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+html[data-home-view="constellations"] .site-footer {
+  position: fixed; left: 0; right: 0; bottom: 10px; z-index: 2; margin: 0; padding: 0; border: 0; background: transparent; pointer-events: none;
+}
+html[data-home-view="constellations"] .footer-inner { font-size: 0.78rem; color: var(--sk-text-2); }
+html[data-home-view="constellations"] .footer-separator { background: var(--sk-text-2); opacity: 0.5; }
+@media (max-width: 700px) {
+  .sky-title { top: 64px; left: 16px; font-size: 1.9rem; }
+  .sky-back { left: 16px; }
+  html[data-home-view="constellations"] .site-footer { display: none; }
+  .sky-caption { bottom: 20px; }
+}
+html[data-theme="light"] .sky-caption h2 { background: none; -webkit-text-fill-color: var(--ct); color: var(--ct); filter: none; }

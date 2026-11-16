@@ -149,7 +149,7 @@
   }
 
   /* Layouts of the panorama (centres of the five constellations and of the pulsar). */
-  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[270, 300], [930, 215], [1660, 350], [470, 880], [1290, 900]], pulsar: [1790, 1060] };
+  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[350, 350], [930, 215], [1660, 350], [470, 880], [1290, 900]], pulsar: [1790, 1060] };
   var PORT = { box: [1000, 2900], centre: [500, 1450], slots: [[260, 260], [740, 800], [240, 1380], [760, 1960], [270, 2540]], pulsar: [780, 2800] };
   var GUIDES = [[0, 1], [1, 2], [2, 4], [4, 3], [3, 0], [1, 3], [1, 4]];
 
