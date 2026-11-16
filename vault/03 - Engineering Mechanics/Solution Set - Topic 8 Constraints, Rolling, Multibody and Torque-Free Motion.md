@@ -4817,3 +4817,332 @@ No blade exerts a force along its own direction (no friction along the blades).
 * **Dimensions.** $b_L$ times a squared speed is a force; $mg$ over $b_L$ is a squared speed; $b_L/b_D$ is dimensionless.
 
 ---
+
+## Problem RB-17: Constrained pizza cutter (Fork and disc)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** two rigid bodies. The fork $F$, of mass $M$ and centre of mass $G$, turns about the fixed horizontal axis $AB$ through $O_1$ (an ideal pin: the fork can only turn about $AB$). The disc $D$, homogeneous, of mass $m$, radius $R$, negligible thickness and centre $O$, turns about the axis $CD$ of the fork through $O$ (an ideal bearing). $CD$ is perpendicular to $AB$ and to the arm of the fork, at the distance $b$ from $AB$; $G$ lies on the arm at the distance $a$ from $AB$.
+* **Labels of the statement.** The statement calls the fixed frame $S_1$ and the disc frame $S_0$; this solution keeps those labels, so here, unlike in `Notes.pdf`, the index 1 marks the inertial frame and the index 0 the disc.
+* **Fixed frame:** $S_1\{O_1; \mathcal B_1\}$ with $\mathbf i_1$ horizontal (to the right in the figure), $\mathbf j_1$ along $AB$ towards $A$ and $\mathbf k_1$ vertical, pointing down: gravity is $g\,\mathbf k_1$. The basis is right-handed; in the view of the figure, with $\mathbf i_1$ to the right and $\mathbf k_1$ down, $\mathbf j_1$ points out of the paper (⊙), which is the perspective in which $A$ is drawn in front.
+* **Fork frame:** $S_2\{O_1; \mathcal B_2\}$, attached to the fork: $\mathbf j_2$ along $AB$ (equal to $\mathbf j_1$), $\mathbf k_2$ along the arm from $O_1$ towards $O$, and $\mathbf i_2$ parallel to $CD$ (the axis $x_2 \equiv x_0$ of the figure).
+* **Disc frame:** $S_0\{O; \mathcal B_0\}$, attached to the disc: $\mathbf i_0$ equal to $\mathbf i_2$ (along $CD$, normal to the disc) and $\mathbf j_0$, $\mathbf k_0$ in the plane of the disc.
+* **Angles:** $\theta$, from $\mathbf k_1$ to $\mathbf k_2$ about $\mathbf j_1$ (read from the figure: the arm swings from the downward vertical towards $\mathbf i_1$); $\varphi$, from $\mathbf j_2$ to $\mathbf j_0$ about $\mathbf i_2$. The figure marks only the size of $\varphi$; its sense is read as positive about $\mathbf i_2$. The opposite reading would change the sign of the rate of $\varphi$ in every formula below (the axial angular momentum and the gyroscopic torques), not the method.
+* **Degrees of freedom:** two free bodies have twelve; the pin $AB$ removes five (the three components of the velocity of $O_1$ and the two rotations normal to $AB$) and the bearing $CD$ removes five more (the three components of the relative velocity at $O$ and the two relative rotations normal to $CD$). **Two degrees of freedom**, $\theta$ and $\varphi$.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the fork | $M$ | kg |
+| Distance from $G$ to $AB$ (along the arm) | $a$ | m |
+| Tensor of inertia of the fork at $O_1$, in $\mathcal B_2$ | $\mathrm{diag}(I_1, I_2, I_3)$ | kg m$^2$ |
+| Mass of the disc | $m$ | kg |
+| Distance from $AB$ to $CD$ (from $O_1$ to $O$) | $b$ | m |
+| Radius of the disc | $R$ | m |
+| Gravity | $g$, along $\mathbf k_1$ (down) | m/s$^2$ |
+| Pin $AB$ on the fork, at $O_1$ | force $\mathbf R_{O_1}$, torque $\mathbf Q_{O_1}$ with no $\mathbf j_2$ component | N, N m |
+| Bearing $CD$ on the disc, at $O$ | force $\mathbf R_O$, torque $\mathbf Q_O$ with no $\mathbf i_2$ component | N, N m |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb17-rot-theta.svg]]
+
+> [!derivation] Fork basis: rotation by theta about j1
+> **Law:** simple rotation about the second axis; right-hand rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 12]
+>
+> View of the vertical plane of the arm with $\mathbf j_1$ out of the paper (⊙), $\mathbf i_1$ to the right and $\mathbf k_1$ down: a positive $\theta$ turns counterclockwise, from the downward $\mathbf k_1$ towards $\mathbf i_1$. $\mathbf k_2$ is $\mathbf k_1$ turned by $\theta$: hypotenuse 1, adjacent leg along $\mathbf k_1$ (cosine of $\theta$), opposite leg along $\mathbf i_1$ (sine). $\mathbf i_2$ is $\mathbf i_1$ turned by $\theta$: adjacent leg along $\mathbf i_1$ (cosine); the counterclockwise turn carries the tip of $\mathbf i_1$ upwards, and up is minus $\mathbf k_1$, which is the minus sign of the opposite leg (sine).
+>
+> $$\begin{aligned}
+> \mathbf i_2 &= \cos\theta\,\mathbf i_1 - \sin\theta\,\mathbf k_1, \qquad \mathbf j_2 = \mathbf j_1, \qquad \mathbf k_2 = \sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf k_1 \quad &\text{(legs of the two triangles)} \\
+> [{}_1R_2] &= \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_2$, $\mathbf j_2$, $\mathbf k_2$ in $\mathcal B_1$)} \\
+> \det[{}_1R_2] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_1R_2][{}_1R_2]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & 0 & -\cos\theta\sin\theta + \sin\theta\cos\theta \cr 0 & 1 & 0 \cr -\sin\theta\cos\theta + \cos\theta\sin\theta & 0 & \sin^2\theta + \cos^2\theta \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf k_1 &= -\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2 \quad &\text{(third row: the inverse is the transpose)} \\
+> \boldsymbol\omega_{21} &= \dot\theta\,\mathbf j_2 \quad &\text{(rate of the angle along its axis)} \\
+> \dot{\mathbf i}_2 &= \dot\theta\,\mathbf j_2\times\mathbf i_2 = -\dot\theta\,\mathbf k_2, \qquad \dot{\mathbf j}_2 = \mathbf 0, \qquad \dot{\mathbf k}_2 = \dot\theta\,\mathbf j_2\times\mathbf k_2 = \dot\theta\,\mathbf i_2 \quad &\text{(Poisson in $S_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_2 = \cos\theta\,\mathbf i_1 - \sin\theta\,\mathbf k_1, \quad \mathbf k_2 = \sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf k_1, \quad \mathbf k_1 = -\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2, \quad \boldsymbol\omega_{21} = \dot\theta\,\mathbf j_2}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** with $\theta$ zero the arm hangs vertically and $\mathcal B_2$ coincides with $\mathcal B_1$; the weight, along $\mathbf k_1$, has a component along minus $\mathbf i_2$ that pulls the arm back towards the vertical.
+
+![[attachments/EM-SOL/rb17-rot-phi.svg]]
+
+> [!derivation] Disc basis: rotation by phi about i2, and the angular velocity of the disc
+> **Law:** simple rotation about the first axis; right-hand rule; additivity of angular velocities
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 3.14; [Lecture 7, Slide 12]
+>
+> View of the plane of the disc with $\mathbf i_2$ out of the paper (⊙), $\mathbf j_2$ to the right and $\mathbf k_2$ up (right-handed, since the cross product of $\mathbf j_2$ and $\mathbf k_2$ is $\mathbf i_2$): a positive $\varphi$ turns counterclockwise. $\mathbf j_0$: adjacent leg along $\mathbf j_2$ (cosine of $\varphi$), opposite leg along $\mathbf k_2$ (sine). $\mathbf k_0$: adjacent leg along $\mathbf k_2$ (cosine); the counterclockwise turn carries the tip of $\mathbf k_2$ to the left, towards minus $\mathbf j_2$, which is the minus sign.
+>
+> $$\begin{aligned}
+> \mathbf j_0 &= \cos\varphi\,\mathbf j_2 + \sin\varphi\,\mathbf k_2, \qquad \mathbf k_0 = -\sin\varphi\,\mathbf j_2 + \cos\varphi\,\mathbf k_2 \quad &\text{(legs of the two triangles)} \\
+> [{}_2R_0] &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\varphi & -\sin\varphi \cr 0 & \sin\varphi & \cos\varphi \end{bmatrix} \quad &\text{(columns: $\mathbf i_0$, $\mathbf j_0$, $\mathbf k_0$ in $\mathcal B_2$)} \\
+> \det[{}_2R_0] &= 1\cdot\left(\cos^2\varphi + \sin^2\varphi\right) = 1 \quad &\text{(expand along the first row)} \\
+> [{}_2R_0][{}_2R_0]^T &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos^2\varphi + \sin^2\varphi & \cos\varphi\sin\varphi - \sin\varphi\cos\varphi \cr 0 & \sin\varphi\cos\varphi - \cos\varphi\sin\varphi & \sin^2\varphi + \cos^2\varphi \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \boldsymbol\omega_{02} &= \dot\varphi\,\mathbf i_2 \quad &\text{(rate of the angle along its axis)} \\
+> \boldsymbol\omega_{01} &= \boldsymbol\omega_{02} + \boldsymbol\omega_{21} = \dot\varphi\,\mathbf i_2 + \dot\theta\,\mathbf j_2 \quad &\text{(Eq. 3.14 with the intermediate frame $S_2$)} \\
+> \boldsymbol\alpha_{01} &= \ddot\varphi\,\mathbf i_2 + \dot\varphi\,\dot{\mathbf i}_2 + \ddot\theta\,\mathbf j_2 = \ddot\varphi\,\mathbf i_2 + \ddot\theta\,\mathbf j_2 - \dot\varphi\dot\theta\,\mathbf k_2 \quad &\text{(product rule; Poisson from the previous box)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{01} = \dot\varphi\,\mathbf i_2 + \dot\theta\,\mathbf j_2, \qquad \boldsymbol\alpha_{01} = \ddot\varphi\,\mathbf i_2 + \ddot\theta\,\mathbf j_2 - \dot\varphi\dot\theta\,\mathbf k_2}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$; $[\mathrm{T^{-2}}]$
+> **Meaning:** the disc always contains the line $AB$ (its plane is spanned by $\mathbf j_2$ and $\mathbf k_2$); the term in the product of the two rates is the turning of the spin axis $\mathbf i_2$ as the fork swings.
+
+> [!derivation] Positions, velocities and accelerations of G and O
+> **Law:** position along the arm; derivative of a vector written in a moving basis; product rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.4; Notes.pdf, Eq. 2.6; [Lecture 7, Slide 6]
+>
+> Both points lie on the arm, at the distances $a$ and $b$ from $O_1$ along $\mathbf k_2$; $O_1$ is fixed.
+>
+> $$\begin{aligned}
+> \mathbf r_1^G &= a\,\mathbf k_2, \qquad \mathbf r_1^O = b\,\mathbf k_2 \quad &\text{(along the arm)} \\
+> \mathbf v_1^O &= b\,\dot{\mathbf k}_2 = b\dot\theta\,\mathbf i_2 \quad &\text{($b$ constant; Poisson)} \\
+> \mathbf a_1^O &= b\ddot\theta\,\mathbf i_2 + b\dot\theta\,\dot{\mathbf i}_2 = b\ddot\theta\,\mathbf i_2 - b\dot\theta^2\,\mathbf k_2 \quad &\text{(product rule; Poisson)} \\
+> \mathbf v_1^G &= a\dot\theta\,\mathbf i_2, \qquad \mathbf a_1^G = a\ddot\theta\,\mathbf i_2 - a\dot\theta^2\,\mathbf k_2 \quad &\text{(same steps with $a$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_1^O = b\dot\theta\,\mathbf i_2, \quad \mathbf a_1^O = b\ddot\theta\,\mathbf i_2 - b\dot\theta^2\,\mathbf k_2, \quad \mathbf v_1^G = a\dot\theta\,\mathbf i_2, \quad \mathbf a_1^G = a\ddot\theta\,\mathbf i_2 - a\dot\theta^2\,\mathbf k_2}$$
+>
+> **Units:** $[\mathrm L][\mathrm{T^{-1}}]$; $[\mathrm L][\mathrm{T^{-2}}]$ in every term
+> **Meaning:** both points describe circles about $AB$; the $\mathbf k_2$ term is the centripetal part, pointing from the point back to $O_1$, and the $\mathbf i_2$ term the tangential part.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Tensor of inertia of the disc at O
+> **Law:** moments and products of inertia as area integrals in polar coordinates (jacobian $\rho$); symmetry of revolution
+> **Source:** Notes.pdf, Eq. 10.9; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.35; [Lecture 8, Slide 10]
+>
+> The disc is homogeneous and thin, of surface density $\sigma$ equal to $m/(\pi R^2)$, so its centre of mass is the centre $O$. A point of the disc is at $\rho\cos\chi\,\mathbf j_0 + \rho\sin\chi\,\mathbf k_0$ from $O$, with $\rho$ from 0 to $R$ and $\chi$ from 0 to $2\pi$; its coordinate along $\mathbf i_0$ is zero (negligible thickness). The element of mass is $\sigma\rho\,d\rho\,d\chi$.
+>
+> $$\begin{aligned}
+> I_{xx} &= \sigma\int_0^{2\pi}\!\!\int_0^R\rho^2\,\rho\,d\rho\,d\chi = \sigma\left[\chi\right]_0^{2\pi}\left[\frac{\rho^4}{4}\right]_0^R = \sigma\cdot 2\pi\cdot\frac{R^4}{4} = \frac{mR^2}{2} \quad &\text{(distance to the axis $\mathbf i_0$ is $\rho$; antiderivatives; Barrow's rule)} \\
+> I_{yy} &= \sigma\int_0^{2\pi}\!\!\int_0^R\rho^2\sin^2\chi\,\rho\,d\rho\,d\chi = \sigma\left[\frac{\chi}{2} - \frac{\sin 2\chi}{4}\right]_0^{2\pi}\left[\frac{\rho^4}{4}\right]_0^R \quad &\text{(squared distance to the axis $\mathbf j_0$ is the square of $\rho\sin\chi$)} \\
+> &= \sigma\left(\pi - 0\right)\frac{R^4}{4} = \frac{m}{\pi R^2}\cdot\frac{\pi R^4}{4} = \frac{mR^2}{4} \quad &\text{(Barrow's rule; value of $\sigma$)} \\
+> I_{zz} &= \frac{mR^2}{4} \quad &\text{(same integral with the cosine: the two diameters are equivalent)} \\
+> P_{yz} &= \sigma\int_0^{2\pi}\!\!\sin\chi\cos\chi\,d\chi\int_0^R\rho^3\,d\rho = \sigma\left[\frac{\sin^2\chi}{2}\right]_0^{2\pi}\frac{R^4}{4} = 0, \qquad P_{xy} = P_{xz} = 0 \quad &\text{(antiderivative and Barrow's rule; zero coordinate along $\mathbf i_0$)} \\
+> [{}_2R_0]\,\mathrm{diag}\!\left(A, B, B\right)[{}_2R_0]^T &= \mathrm{diag}\!\left(A, B, B\right) \quad &\text{(the lower block is $B$ times $R R^T$, the identity: same components in $\mathcal B_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}{}^D_O = \begin{bmatrix} A & 0 & 0 \cr 0 & B & 0 \cr 0 & 0 & B \end{bmatrix}_{2}, \qquad A = \frac{mR^2}{2}, \quad B = \frac{mR^2}{4}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the disc is symmetric about its axis $CD$, so its tensor has the same constant components in the fork basis $\mathcal B_2$, although the disc turns relative to it: this is why $\mathcal B_2$ is the basis used for the disc below.
+
+The fork tensor is a datum of the statement: diagonal in $\mathcal B_2$ at $O_1$, with $I_2$ the moment about $AB$; the centre of mass $G$ is on the arm at the distance $a$ from $O_1$. Both tensors have constant components in $\mathcal B_2$.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Part (a): kinetic energy of the fork and disc relative to S1
+> **Law:** kinetic energy about a fixed body point (fork); Koenig's theorem about the centre of mass (disc)
+> **Source:** Notes.pdf, Eq. 11.32; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 9]
+>
+> $O_1$ is a fixed point of the fork, so its kinetic energy is the rotational term about $O_1$ alone; the disc has no fixed point and is expanded about its centre of mass $O$.
+>
+> $$\begin{aligned}
+> T^F &= \frac12\,\boldsymbol\omega_{21}\cdot\bar{\bar I}{}^F_{O_1}\cdot\boldsymbol\omega_{21} = \frac12\begin{bmatrix} 0 & \dot\theta & 0 \end{bmatrix}\begin{bmatrix} I_1 & 0 & 0 \cr 0 & I_2 & 0 \cr 0 & 0 & I_3 \end{bmatrix}\begin{bmatrix} 0 \cr \dot\theta \cr 0 \end{bmatrix} = \frac12\,I_2\dot\theta^2 \quad &\text{(Eq. 11.32; components in $\mathcal B_2$)} \\
+> T^D &= \frac12\,m\left(v_1^O\right)^2 + \frac12\,\boldsymbol\omega_{01}\cdot\bar{\bar I}{}^D_O\cdot\boldsymbol\omega_{01} \quad &\text{(Eq. 11.31, Koenig)} \\
+> &= \frac12\,m\,b^2\dot\theta^2 + \frac12\left(A\dot\varphi^2 + B\dot\theta^2\right) \quad &\text{(velocity of $O$; diagonal tensor in $\mathcal B_2$)} \\
+> T_1 &= T^F + T^D = \frac12\,I_2\dot\theta^2 + \frac12\,m b^2\dot\theta^2 + \frac{mR^2}{8}\dot\theta^2 + \frac{mR^2}{4}\dot\varphi^2 \quad &\text{(sum; values of $A$ and $B$)}
+> \end{aligned}$$
+>
+> $$\boxed{T_1 = \left(\frac{I_2}{2} + \frac{mR^2}{8} + \frac{mb^2}{2}\right)\dot\theta^2 + \frac{mR^2}{4}\,\dot\varphi^2}$$
+>
+> **Units:** $[\mathrm{M\,L^2}][\mathrm{T^{-2}}]$, J in every term
+> **Meaning:** the swing about $AB$ carries the fork, the disc as a point mass at $O$ and the disc turning about its own diameter; the spin about $CD$ adds a separate term, with no cross term between the two rates because $\mathcal B_2$ is principal for the disc.
+
+> [!derivation] Part (b): angular momentum of the disc about O relative to S1
+> **Law:** angular momentum about the centre of mass
+> **Source:** Notes.pdf, Eq. 11.12; [Lecture 9, Slide 5]
+>
+> $$\begin{aligned}
+> \mathbf H_O^D &= \bar{\bar I}{}^D_O\cdot\boldsymbol\omega_{01} \quad &\text{(Eq. 11.12; $O$ is the centre of mass of the disc)} \\
+> &= \begin{bmatrix} A & 0 & 0 \cr 0 & B & 0 \cr 0 & 0 & B \end{bmatrix}\begin{bmatrix} \dot\varphi \cr \dot\theta \cr 0 \end{bmatrix} = A\dot\varphi\,\mathbf i_2 + B\dot\theta\,\mathbf j_2 \quad &\text{(matrix product in $\mathcal B_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_O^D = \frac{mR^2}{2}\,\dot\varphi\,\mathbf i_2 + \frac{mR^2}{4}\,\dot\theta\,\mathbf j_2}$$
+>
+> **Units:** $[\mathrm{M\,L^2\,T^{-1}}]$, kg m$^2$/s
+> **Meaning:** the spin about $CD$ is weighted by the axial moment, twice the diametral one that weights the swing; the angular momentum is not parallel to the angular velocity unless one of the two rates is zero.
+
+> [!derivation] Part (c): angular momentum of the fork and disc about O1 relative to S1, and the linear momentum
+> **Law:** angular momentum about a fixed body point (fork); change of pole from the centre of mass (disc); linear momentum
+> **Source:** Notes.pdf, Eq. 11.13; Notes.pdf, Eq. 11.21; Notes.pdf, Eq. 11.3; [Lecture 9, Slide 7]
+>
+> $$\begin{aligned}
+> \mathbf H_{O_1}^F &= \bar{\bar I}{}^F_{O_1}\cdot\boldsymbol\omega_{21} = I_2\dot\theta\,\mathbf j_2 \quad &\text{(Eq. 11.13; $O_1$ fixed body point of the fork)} \\
+> \mathbf H_{O_1}^D &= \mathbf H_O^D + m\,\mathbf r_{O_1}^O\times\mathbf v_1^O \quad &\text{(Eq. 11.21, change of pole)} \\
+> m\,\mathbf r_{O_1}^O\times\mathbf v_1^O &= m\begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr 0 & 0 & b \cr b\dot\theta & 0 & 0 \end{vmatrix} = m\,b^2\dot\theta\,\mathbf j_2 \quad &\text{(expand along the first row)} \\
+> \mathbf H_{O_1} &= A\dot\varphi\,\mathbf i_2 + \left(I_2 + B + m b^2\right)\dot\theta\,\mathbf j_2 \quad &\text{(sum of the two bodies)} \\
+> &= A\dot\varphi\left(\cos\theta\,\mathbf i_1 - \sin\theta\,\mathbf k_1\right) + \left(I_2 + B + m b^2\right)\dot\theta\,\mathbf j_1 \quad &\text{($\mathbf i_2$ and $\mathbf j_2$ in $\mathcal B_1$, first box)} \\
+> \mathbf p_1 &= M\,\mathbf v_1^G + m\,\mathbf v_1^O = \left(Ma + mb\right)\dot\theta\,\mathbf i_2 \quad &\text{(Eq. 11.3 for each body; velocity box)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{O_1} = \frac{mR^2}{2}\dot\varphi\cos\theta\,\mathbf i_1 + \left(I_2 + \frac{mR^2}{4} + m b^2\right)\dot\theta\,\mathbf j_1 - \frac{mR^2}{2}\dot\varphi\sin\theta\,\mathbf k_1, \qquad \mathbf p_1 = \left(Ma + mb\right)\dot\theta\,\mathbf i_2}$$
+>
+> **Units:** kg m$^2$/s; kg m/s
+> **Meaning:** the component along $AB$ is the moment of inertia of the whole swinging assembly about $AB$ times the swing rate; the spin part lies along $CD$, which turns in the vertical plane with the fork, so its components in $\mathcal B_1$ change with $\theta$.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb17-exploded.svg]]
+
+The exploded view separates the two bodies at the bearing $CD$. The bearing acts on the disc with the force $\mathbf R_O$ and the torque $\mathbf Q_O$, both reduced at $O$, and on the fork with $-\mathbf R_O$ and $-\mathbf Q_O$ (third law of Newton). An ideal bearing does not oppose the spin about $CD$, so $\mathbf Q_O$ has no component along $\mathbf i_2$; an ideal pin does not oppose the swing about $AB$, so $\mathbf Q_{O_1}$ has no component along $\mathbf j_2$.
+
+| Load | Body | Point | Expression in $\mathcal B_2$ | Kind |
+| :--- | :--- | :--- | :--- | :--- |
+| Weight of the disc | $D$ | $O$ | $mg\,\mathbf k_1 = mg(-\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2)$ | applied |
+| Bearing force | $D$ | $O$ | $\mathbf R_O = R_{O,x}\,\mathbf i_2 + R_{O,y}\,\mathbf j_2 + R_{O,z}\,\mathbf k_2$ | constraint |
+| Bearing torque | $D$ | - | $\mathbf Q_O = Q_{O,y}\,\mathbf j_2 + Q_{O,z}\,\mathbf k_2$ | constraint |
+| Weight of the fork | $F$ | $G$ | $Mg\,\mathbf k_1 = Mg(-\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2)$ | applied |
+| Reaction of the disc | $F$ | $O$ | $-\mathbf R_O$ and $-\mathbf Q_O$ | constraint (pair) |
+| Pin force | $F$ | $O_1$ | $\mathbf R_{O_1} = R_{1,x}\,\mathbf i_2 + R_{1,y}\,\mathbf j_2 + R_{1,z}\,\mathbf k_2$ | constraint |
+| Pin torque | $F$ | - | $\mathbf Q_{O_1} = Q_{1,x}\,\mathbf i_2 + Q_{1,z}\,\mathbf k_2$ | constraint |
+
+> [!derivation] Equations of the disc (force, and moment about its centre O)
+> **Law:** Newton's second law for the centre of mass; moment equation about the centre of mass; derivative in the rotating basis
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 13.9; [Lecture 10, Slide 5]
+>
+> The pole $O$ is the centre of mass of the disc, so the term in the velocity of the pole of Eq. 12.13 is the cross product of the velocity of $O$ with itself, zero. The weight and $\mathbf R_O$ act at $O$ and have no moment about it. The components of the angular momentum in $\mathcal B_2$ are differentiated and the turning of $\mathcal B_2$ is added (Eq. 3.8 with the angular velocity of the fork).
+>
+> $$\begin{aligned}
+> m\left(b\ddot\theta\,\mathbf i_2 - b\dot\theta^2\,\mathbf k_2\right) &= mg\left(-\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2\right) + \mathbf R_O \quad &\text{(Eq. 12.8; acceleration of $O$)} \\
+> \frac{d\mathbf H_O^D}{dt}\bigg|_1 &= \frac{d\mathbf H_O^D}{dt}\bigg|_2 + \boldsymbol\omega_{21}\times\mathbf H_O^D \quad &\text{(Eq. 3.8)} \\
+> \frac{d\mathbf H_O^D}{dt}\bigg|_2 &= A\ddot\varphi\,\mathbf i_2 + B\ddot\theta\,\mathbf j_2 \quad &\text{(constant components of the tensor in $\mathcal B_2$)} \\
+> \boldsymbol\omega_{21}\times\mathbf H_O^D &= \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr 0 & \dot\theta & 0 \cr A\dot\varphi & B\dot\theta & 0 \end{vmatrix} = -A\dot\varphi\dot\theta\,\mathbf k_2 \quad &\text{(expand along the first row)} \\
+> A\ddot\varphi\,\mathbf i_2 + B\ddot\theta\,\mathbf j_2 - A\dot\varphi\dot\theta\,\mathbf k_2 &= Q_{O,y}\,\mathbf j_2 + Q_{O,z}\,\mathbf k_2 \quad &\text{(Eq. 12.13 about $O$)}
+> \end{aligned}$$
+>
+> $$\boxed{A\ddot\varphi = 0, \quad B\ddot\theta = Q_{O,y}, \quad -A\dot\varphi\dot\theta = Q_{O,z}; \qquad R_{O,x} = m\left(b\ddot\theta + g\sin\theta\right), \quad R_{O,y} = 0, \quad R_{O,z} = -m\left(b\dot\theta^2 + g\cos\theta\right)}$$
+>
+> **Units:** N m in the moment equations; N in the force components
+> **Meaning:** six equations of the disc. The first one is the free spin about the frictionless bearing: the axial component of the angular momentum is conserved although $\mathbf i_2$ turns, for two reasons: the bearing applies no torque along $\mathbf i_2$, and the gyroscopic term is along $\mathbf k_2$, normal to $\mathbf i_2$, because the angular momentum has no $\mathbf k_2$ component.
+
+> [!derivation] Equations of the fork (force, and moment about the fixed point O1)
+> **Law:** Newton's second law for the centre of mass; moment equation about a fixed point; third law of Newton for the bearing pair
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.10; Notes.pdf, Sec. 13.1
+>
+> The pole $O_1$ is fixed, so its velocity is zero and the pole term of Eq. 12.13 vanishes. The angular momentum of the fork is along $\mathbf j_2$, the axis of $\boldsymbol\omega_{21}$, so its gyroscopic term vanishes too. The moment of the pair at $O$ about $O_1$ uses the arm $b\,\mathbf k_2$.
+>
+> $$\begin{aligned}
+> M\left(a\ddot\theta\,\mathbf i_2 - a\dot\theta^2\,\mathbf k_2\right) &= Mg\left(-\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2\right) + \mathbf R_{O_1} - \mathbf R_O \quad &\text{(Eq. 12.8 for the fork)} \\
+> \frac{d\mathbf H_{O_1}^F}{dt}\bigg|_1 &= I_2\ddot\theta\,\mathbf j_2 + \dot\theta\,\mathbf j_2\times I_2\dot\theta\,\mathbf j_2 = I_2\ddot\theta\,\mathbf j_2 \quad &\text{(Eq. 3.8; a vector times itself is zero)} \\
+> a\,\mathbf k_2\times Mg\,\mathbf k_1 &= a\,\mathbf k_2\times Mg\left(-\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2\right) = -Mga\sin\theta\,\mathbf j_2 \quad &\text{(moment of the weight; $\mathbf k_2\times\mathbf i_2 = \mathbf j_2$)} \\
+> b\,\mathbf k_2\times\left(-\mathbf R_O\right) &= -b\begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr 0 & 0 & 1 \cr R_{O,x} & R_{O,y} & R_{O,z} \end{vmatrix} = b R_{O,y}\,\mathbf i_2 - b R_{O,x}\,\mathbf j_2 \quad &\text{(expand along the first row)} \\
+> I_2\ddot\theta\,\mathbf j_2 &= -Mga\sin\theta\,\mathbf j_2 + b R_{O,y}\,\mathbf i_2 - b R_{O,x}\,\mathbf j_2 + \mathbf Q_{O_1} - \mathbf Q_O \quad &\text{(Eq. 12.13 about $O_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf i_2:\ 0 = b R_{O,y} + Q_{1,x}, \qquad \mathbf j_2:\ I_2\ddot\theta = -Mga\sin\theta - b R_{O,x} - Q_{O,y}, \qquad \mathbf k_2:\ 0 = Q_{1,z} - Q_{O,z} \\ \mathbf R_{O_1} = \mathbf R_O + M\left(a\ddot\theta + g\sin\theta\right)\mathbf i_2 - M\left(a\dot\theta^2 + g\cos\theta\right)\mathbf k_2 \end{gathered}}$$
+>
+> **Units:** N m; N
+> **Meaning:** six equations of the fork. With the six of the disc they make twelve equations for twelve unknowns: the two coordinates, the three components of $\mathbf R_O$, the two of $\mathbf Q_O$, the three of $\mathbf R_{O_1}$ and the two of $\mathbf Q_{O_1}$.
+
+> [!derivation] Part (d): equations of motion of the system
+> **Law:** elimination of the bearing reactions between the equations of the two bodies
+> **Source:** Notes.pdf, Sec. 13.4; Notes.pdf, Eq. 12.13
+>
+> $$\begin{aligned}
+> I_2\ddot\theta &= -Mga\sin\theta - b\,m\left(b\ddot\theta + g\sin\theta\right) - B\ddot\theta \quad &\text{(fork along $\mathbf j_2$ with $R_{O,x}$ and $Q_{O,y}$ of the disc)} \\
+> \left(I_2 + m b^2 + B\right)\ddot\theta &= -\left(Ma + mb\right)g\sin\theta \quad &\text{(collect the second rates; collect the weights)} \\
+> \ddot\varphi &= 0 \quad &\text{(disc along $\mathbf i_2$, divided by $A$)}
+> \end{aligned}$$
+>
+> $$\boxed{\left(I_2 + \frac{mR^2}{4} + m b^2\right)\ddot\theta + \left(Ma + mb\right)g\sin\theta = 0, \qquad \ddot\varphi = 0}$$
+>
+> **Units:** N m in the first equation; $[\mathrm{T^{-2}}]$ in the second
+> **Meaning:** the swing is a compound pendulum whose moment of inertia about $AB$ includes the disc as a point mass at $O$ plus its diametral moment, and whose restoring moment is the total weight moment; the spin does not enter the swing, and the swing does not change the spin.
+
+> [!derivation] Part (d): reduction to quadratures
+> **Law:** integration of a zero second rate; first integral of the swing (multiply by the rate, chain rule); separation of variables; Barrow's rule
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 12.30
+>
+> Write $J$ for the sum of $I_2$, $B$ and the product of $m$ and the square of $b$, and $K$ for the sum of the products $Ma$ and $mb$. The initial values are $\theta_0$, $\varphi_0$ and the two initial rates.
+>
+> $$\begin{aligned}
+> \int_0^t\ddot\varphi\,dt' &= 0 \;\Rightarrow\; \left[\dot\varphi\right]_0^t = 0 \;\Rightarrow\; \dot\varphi = \dot\varphi_0 \equiv C_1 \quad &\text{(antiderivative of the second rate; Barrow's rule)} \\
+> \int_0^t\dot\varphi\,dt' &= \int_0^t C_1\,dt' \;\Rightarrow\; \left[\varphi\right]_0^t = C_1\left[t'\right]_0^t \;\Rightarrow\; \varphi = \varphi_0 + C_1 t \quad &\text{(antiderivatives; Barrow's rule)} \\
+> J\ddot\theta\,\dot\theta &= -K g\sin\theta\,\dot\theta \quad &\text{(multiply the swing equation by the rate of $\theta$)} \\
+> \frac{d}{dt}\left(\frac12 J\dot\theta^2\right) &= \frac{d}{dt}\left(K g\cos\theta\right) \quad &\text{(chain rule on both sides)} \\
+> \left[\frac12 J\dot\theta^2 - K g\cos\theta\right]_0^t &= 0 \;\Rightarrow\; \frac12 J\dot\theta^2 - K g\cos\theta = \frac12 J\dot\theta_0^2 - K g\cos\theta_0 \equiv E_\theta \quad &\text{(integrate from 0 to $t$; Barrow's rule)} \\
+> \frac{d\theta}{dt} &= \pm\sqrt{\frac{2\left(E_\theta + K g\cos\theta\right)}{J}} \quad &\text{(solve for the rate; sign of the initial rate)} \\
+> t &= \pm\int_{\theta_0}^{\theta}\frac{d\theta'}{\sqrt{2\left(E_\theta + K g\cos\theta'\right)/J}} \quad &\text{(separate the variables and integrate)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\varphi = C_1, \qquad \left(\frac{I_2}{2} + \frac{mR^2}{8} + \frac{mb^2}{2}\right)\dot\theta^2 + \frac{mR^2}{4}\dot\varphi^2 - \left(mb + Ma\right)g\cos\theta = C_2, \qquad t = \pm\int_{\theta_0}^{\theta}\frac{\sqrt J\,d\theta'}{\sqrt{2\left(E_\theta + Kg\cos\theta'\right)}}}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$; J; s
+> **Meaning:** the second boxed integral is the first integral of the swing plus the constant term of the spin, with the constant $C_2$ equal to the sum of $E_\theta$ and the spin term: it is the total mechanical energy, as checked with the power of the reactions in Answers and Checks. The last integral gives the time as a function of $\theta$; its inverse is the motion of the fork, and the spin grows linearly with time.
+
+#### Reactions
+
+> [!derivation] Part (f): force and torque of the axis CD on the disc at O
+> **Law:** equations of the disc with the motion of part (d)
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13
+>
+> $$\begin{aligned}
+> \mathbf R_O &= m\left(b\ddot\theta + g\sin\theta\right)\mathbf i_2 - m\left(b\dot\theta^2 + g\cos\theta\right)\mathbf k_2 \quad &\text{(force components of the disc box)} \\
+> \mathbf Q_O &= B\ddot\theta\,\mathbf j_2 - A\dot\varphi\dot\theta\,\mathbf k_2 \quad &\text{(moment components of the disc box)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf R_O = \left(mb\ddot\theta + mg\sin\theta\right)\mathbf i_2 - \left(mb\dot\theta^2 + mg\cos\theta\right)\mathbf k_2, \qquad \mathbf Q_O = \frac{mR^2}{4}\ddot\theta\,\mathbf j_2 - \frac{mR^2}{2}\dot\varphi\dot\theta\,\mathbf k_2}$$
+>
+> **Units:** N; N m
+> **Meaning:** the force supports the weight of the disc and supplies its tangential and centripetal accelerations; the torque has two parts: along $AB$ it gives the disc its angular acceleration about its diameter, and along $\mathbf k_2$ it turns the spin angular momentum, which lies along $\mathbf i_2$ and is carried round by the swing (when both rates are positive this torque points along minus $\mathbf k_2$).
+
+> [!derivation] Part (e): force and torque of the axis AB on the fork and disc at O1
+> **Law:** equations of the fork with the bearing pair of part (f)
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.12
+>
+> $$\begin{aligned}
+> \mathbf R_{O_1} &= \mathbf R_O + M\left(a\ddot\theta + g\sin\theta\right)\mathbf i_2 - M\left(a\dot\theta^2 + g\cos\theta\right)\mathbf k_2 \quad &\text{(force of the fork box)} \\
+> &= \left[\left(Ma + mb\right)\ddot\theta + \left(M + m\right)g\sin\theta\right]\mathbf i_2 - \left[\left(Ma + mb\right)\dot\theta^2 + \left(M + m\right)g\cos\theta\right]\mathbf k_2 \quad &\text{($\mathbf R_O$ of part (f); collect)} \\
+> Q_{1,x} &= -b R_{O,y} = 0, \qquad Q_{1,z} = Q_{O,z} = -A\dot\varphi\dot\theta \quad &\text{(moment of the fork along $\mathbf i_2$ and $\mathbf k_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf R_{O_1} = \left[\left(Ma + mb\right)\ddot\theta + \left(M + m\right)g\sin\theta\right]\mathbf i_2 - \left[\left(Ma + mb\right)\dot\theta^2 + \left(M + m\right)g\cos\theta\right]\mathbf k_2, \qquad \mathbf Q_{O_1} = -\frac{mR^2}{2}\dot\varphi\dot\theta\,\mathbf k_2}$$
+>
+> **Units:** N; N m
+> **Meaning:** the force is the total weight plus the rate of the total linear momentum of the assembly; the pin carries the gyroscopic torque of the spinning disc to the ground, and the fork transmits it unchanged because its own angular momentum lies along the pin. With the second rate of $\theta$ from part (d) the force depends only on $\theta$ and its rate.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Kinetic energy relative to $S_1$ | $T_1 = \left(\tfrac{I_2}{2} + \tfrac{mR^2}{8} + \tfrac{mb^2}{2}\right)\dot\theta^2 + \tfrac{mR^2}{4}\dot\varphi^2$ |
+| (b) $\mathbf H_O$ of the disc, in $\mathcal B_2$ | $\tfrac{mR^2}{2}\dot\varphi\,\mathbf i_2 + \tfrac{mR^2}{4}\dot\theta\,\mathbf j_2$ |
+| (c) $\mathbf H_{O_1}$ of fork and disc, in $\mathcal B_1$ | $\tfrac{mR^2}{2}\dot\varphi\cos\theta\,\mathbf i_1 + \left(I_2 + \tfrac{mR^2}{4} + mb^2\right)\dot\theta\,\mathbf j_1 - \tfrac{mR^2}{2}\dot\varphi\sin\theta\,\mathbf k_1$ |
+| (d) Equations of motion and quadratures | $\left(I_2 + \tfrac{mR^2}{4} + mb^2\right)\ddot\theta + (Ma + mb)g\sin\theta = 0$, $\ddot\varphi = 0$; $\dot\varphi = C_1$; $\left(\tfrac{I_2}{2} + \tfrac{mR^2}{8} + \tfrac{mb^2}{2}\right)\dot\theta^2 + \tfrac{mR^2}{4}\dot\varphi^2 - (mb + Ma)g\cos\theta = C_2$; $t = \pm\int_{\theta_0}^{\theta}\sqrt J\,d\theta'/\sqrt{2(E_\theta + Kg\cos\theta')}$ |
+| (e) Axis $AB$ on the system, at $O_1$ | $\mathbf R_{O_1} = [(Ma + mb)\ddot\theta + (M + m)g\sin\theta]\,\mathbf i_2 - [(Ma + mb)\dot\theta^2 + (M + m)g\cos\theta]\,\mathbf k_2$; $\mathbf Q_{O_1} = -\tfrac{mR^2}{2}\dot\varphi\dot\theta\,\mathbf k_2$ |
+| (f) Axis $CD$ on the disc, at $O$ | $\mathbf R_O = (mb\ddot\theta + mg\sin\theta)\,\mathbf i_2 - (mb\dot\theta^2 + mg\cos\theta)\,\mathbf k_2$; $\mathbf Q_O = \tfrac{mR^2}{4}\ddot\theta\,\mathbf j_2 - \tfrac{mR^2}{2}\dot\varphi\dot\theta\,\mathbf k_2$ |
+
+> [!derivation] Check: the energy integral from the power of the loads
+> **Law:** power of a force and a torque reduced at a point; energy theorem; potential of the weight
+> **Source:** Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34
+>
+> Second route to the constant $C_2$ of part (d), without the equations of motion: the power of every reaction is shown to be zero and the weights are conservative. The pair at the bearing acts on both bodies at $O$.
+>
+> $$\begin{aligned}
+> \dot W^{\text{pin}} &= \mathbf R_{O_1}\cdot\mathbf v_1^{O_1} + \mathbf Q_{O_1}\cdot\boldsymbol\omega_{21} = \mathbf R_{O_1}\cdot\mathbf 0 + \left(Q_{1,x}\,\mathbf i_2 + Q_{1,z}\,\mathbf k_2\right)\cdot\dot\theta\,\mathbf j_2 = 0 \quad &\text{(Eq. 12.29 on the fork; $O_1$ fixed)} \\
+> \dot W^{\text{bearing}} &= \mathbf R_O\cdot\mathbf v_1^O + \mathbf Q_O\cdot\boldsymbol\omega_{01} - \mathbf R_O\cdot\mathbf v_1^O - \mathbf Q_O\cdot\boldsymbol\omega_{21} \quad &\text{(on the disc plus on the fork, both reduced at $O$)} \\
+> &= \mathbf Q_O\cdot\left(\boldsymbol\omega_{01} - \boldsymbol\omega_{21}\right) = \left(Q_{O,y}\,\mathbf j_2 + Q_{O,z}\,\mathbf k_2\right)\cdot\dot\varphi\,\mathbf i_2 = 0 \quad &\text{(relative angular velocity along $CD$)} \\
+> V_1 &= -Mg\,\mathbf k_1\cdot\mathbf r_1^G - mg\,\mathbf k_1\cdot\mathbf r_1^O = -\left(Ma + mb\right)g\cos\theta \quad &\text{(Eq. 12.34; $\mathbf k_1\cdot\mathbf k_2$ is the cosine of $\theta$)} \\
+> \int_0^t\frac{d}{dt'}\left(T_1 + V_1\right)dt' &= \left[T_1 + V_1\right]_0^t = 0 \quad &\text{(energy theorem with conservative weights, Eq. 12.33; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\left(\frac{I_2}{2} + \frac{mR^2}{8} + \frac{mb^2}{2}\right)\dot\theta^2 + \frac{mR^2}{4}\dot\varphi^2 - \left(Ma + mb\right)g\cos\theta = C_2}$$
+>
+> **Units:** J in every term
+> **Meaning:** the same integral as in part (d), obtained without the equations of motion: the pin and the bearing are workless, so $T_1$ of part (a) plus the potential of the two weights is constant.
+
+**Check against the official key:** the key (Problems.pdf, p. 79) prints the quadratures, the spin rate equal to $C_1$ and the energy integral with the coefficients $I_2/2 + mR^2/8 + mb^2/2$, $mR^2/4$ and $mb + Ma$; the force and torque of $AB$ at $O_1$, with the components $(Ma + mb)$ times the second rate plus $(M + m)g$ times the sine of $\theta$ along $\mathbf i_2$, minus $(Ma + mb)$ times the squared rate plus $(M + m)g$ times the cosine along $\mathbf k_2$, and the torque $mR^2/2$ times the product of the rates along minus $\mathbf k_2$; and the force and torque of $CD$ on the disc at $O$ with the same form, $m$ in place of the totals, and the torque $mR^2/4$ times the second rate of $\theta$ along $\mathbf j_2$ minus the same gyroscopic term along $\mathbf k_2$. Every printed item coincides with the boxes of parts (d), (e) and (f), in the same basis $\mathcal B_2$ and with the same angles: **match**. The key calls the pin a collar; the force component along $AB$ comes out zero here, so a collar that could also slide along $AB$, started at rest along it, gives the same results. The key prints no expressions for parts (a) to (c); those of this solution are the terms of its energy integral.
+
+**Limiting cases and consistency:**
+
+* **No disc.** With $m$ zero the swing equation is the compound pendulum of the fork about $AB$, with moment $I_2$ and restoring moment $Mga$ times the sine of $\theta$; the bearing loads vanish.
+* **Disc as a particle.** With $R$ tending to zero the disc enters only as a point mass at $O$: the moment about $AB$ becomes $I_2$ plus $m b^2$, and the gyroscopic torques vanish.
+* **Equilibrium.** At rest with $\theta$ zero, $\mathbf k_2$ is $\mathbf k_1$ (down) and the pin force is $(M + m)g$ along minus $\mathbf k_1$: it holds the total weight up.
+* **Small swings.** For small $\theta$ the swing is harmonic with the squared angular frequency $(Ma + mb)g$ over $J$; the spin does not change it.
+* **Dimensions.** Every term of the swing equation is a moment (N m); every term of the energy integral is an energy; the reactions are forces and moments.
+
+---
