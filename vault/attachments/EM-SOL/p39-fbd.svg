@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 680" width="100%" class="fig-kit" style="max-width:860px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of P: weight and string tension towards Q, with the triad i_1, e_perp, e_QP and the components of the weight.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="57.5,162.5 567.5,162.5 699.5,30.5 189.5,30.5" fill="#8a94a6" fill-opacity="0.08" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="57.5" y1="162.5" x2="567.5" y2="162.5" stroke="#8a94a6" stroke-width="2.0"/>
+<line x1="260.0" y1="80.0" x2="282.5" y2="162.5" stroke="#8a94a6" stroke-width="1.6"/>
+<line x1="282.5" y1="162.5" x2="384.8" y2="411.5" stroke="#8a94a6" stroke-width="1.6"/>
+<circle cx="282.5" cy="162.5" r="3.0" fill="#8a94a6"/>
+<text x="274.5" y="180.5" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Q</text>
+<line x1="384.8" y1="411.5" x2="418.0" y2="406.4" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="6 4"/>
+<path d="M422.7,405.7 L415.9,409.9 L415.0,403.7 Z" fill="#ef4444"/>
+<line x1="384.8" y1="411.5" x2="299.6" y2="469.9" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="6 4"/>
+<path d="M295.7,472.6 L300.0,465.8 L303.5,471.0 Z" fill="#ef4444"/>
+<line x1="384.8" y1="411.5" x2="434.2" y2="531.7" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="6 4"/>
+<path d="M436.0,536.1 L430.3,530.5 L436.1,528.1 Z" fill="#ef4444"/>
+<line x1="384.8" y1="411.5" x2="384.8" y2="584.3" stroke="#ef4444" stroke-width="3.0"/>
+<path d="M384.8,591.5 L380.1,580.4 L389.5,580.4 Z" fill="#ef4444"/>
+<text x="384.8" y="613.5" fill="#ef4444" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<text x="430.7" y="399.7" fill="#ef4444" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g sin φ</text>
+<text x="287.7" y="478.6" fill="#ef4444" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g sin θ cos φ</text>
+<text x="444.0" y="550.1" fill="#ef4444" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m g cos θ cos φ</text>
+<line x1="384.8" y1="411.5" x2="330.1" y2="278.2" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M327.3,271.5 L335.8,280.0 L327.2,283.5 Z" fill="#ec4899"/>
+<text x="317.3" y="267.5" fill="#ec4899" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−T <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">QP</tspan></text>
+<line x1="384.8" y1="411.5" x2="316.6" y2="421.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M310.6,422.7 L319.2,417.5 L320.3,425.2 Z" fill="#3b82f6"/>
+<line x1="384.8" y1="411.5" x2="441.7" y2="372.4" stroke="#f97316" stroke-width="2.4"/>
+<path d="M446.6,369.0 L441.3,377.5 L436.8,371.0 Z" fill="#f97316"/>
+<line x1="384.8" y1="411.5" x2="411.0" y2="475.3" stroke="#f97316" stroke-width="2.4"/>
+<path d="M413.3,480.8 L406.2,473.8 L413.4,470.8 Z" fill="#f97316"/>
+<text x="302.6" y="416.7" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="454.6" y="365.0" fill="#f97316" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">⊥</tspan></text>
+<text x="421.3" y="484.8" fill="#f97316" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">QP</tspan></text>
+<circle cx="384.8" cy="411.5" r="5.5" fill="#4b5563"/>
+<text x="362.8" y="397.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="65.0" y="642.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">inertial frame: no inertia forces; the edge acts on the string only</text>
+</g></svg>

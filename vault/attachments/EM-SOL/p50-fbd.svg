@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 700" width="100%" class="fig-kit" style="max-width:860px;margin:0 auto;display:block" role="img" aria-label="Exploded free-body diagram of P and Q: weights and the forces of the bars along the bars, equal and opposite at the two ends of PQ.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="250.0" y1="140.0" x2="324.4" y2="299.5" stroke="#8a94a6" stroke-width="1.8"/>
+<line x1="324.4" y1="299.5" x2="448.8" y2="424.0" stroke="#8a94a6" stroke-width="1.8"/>
+<circle cx="250.0" cy="140.0" r="3.5" fill="#8a94a6"/>
+<text x="240.0" y="132.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<line x1="324.4" y1="299.5" x2="324.4" y2="402.3" stroke="#ef4444" stroke-width="3.0"/>
+<path d="M324.4,409.5 L319.7,398.5 L329.1,398.5 Z" fill="#ef4444"/>
+<text x="314.4" y="365.0" fill="#ef4444" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g <tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="324.4" y1="299.5" x2="257.7" y2="156.5" stroke="#ec4899" stroke-width="3.0"/>
+<path d="M254.6,150.0 L263.6,158.0 L255.1,162.0 Z" fill="#ec4899"/>
+<text x="277.5" y="229.7" fill="#ec4899" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−T<tspan baseline-shift="sub" font-size="70%">1</tspan> <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="324.4" y1="299.5" x2="369.8" y2="345.0" stroke="#ec4899" stroke-width="3.0"/>
+<path d="M374.9,350.1 L363.8,345.6 L370.4,338.9 Z" fill="#ec4899"/>
+<text x="382.9" y="338.1" fill="#ec4899" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">T<tspan baseline-shift="sub" font-size="70%">2</tspan> <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<circle cx="324.4" cy="299.5" r="5.5" fill="#4b5563"/>
+<text x="336.4" y="289.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<line x1="448.8" y1="424.0" x2="448.8" y2="526.8" stroke="#ef4444" stroke-width="3.0"/>
+<path d="M448.8,534.0 L444.2,522.9 L453.5,522.9 Z" fill="#ef4444"/>
+<text x="458.8" y="489.5" fill="#ef4444" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g <tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="448.8" y1="424.0" x2="403.4" y2="378.5" stroke="#ec4899" stroke-width="3.0"/>
+<path d="M398.3,373.4 L409.4,377.9 L402.8,384.5 Z" fill="#ec4899"/>
+<text x="394.3" y="399.4" fill="#ec4899" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−T<tspan baseline-shift="sub" font-size="70%">2</tspan> <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<circle cx="448.8" cy="424.0" r="5.5" fill="#4b5563"/>
+<text x="460.8" y="416.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Q</text>
+<text x="30.0" y="508.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">T<tspan baseline-shift="sub" font-size="70%">1</tspan>, T<tspan baseline-shift="sub" font-size="70%">2</tspan> positive when the bar pulls; a bar may also push;</text>
+<text x="30.0" y="530.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">inertial frame: no inertia forces</text>
+</g></svg>
