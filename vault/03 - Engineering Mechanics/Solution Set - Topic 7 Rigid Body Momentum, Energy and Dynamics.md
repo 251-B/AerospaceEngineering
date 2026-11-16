@@ -890,7 +890,7 @@ The forces on the triangle, in the inertial frame (no inertia forces):
 > R &= ka\left(2 - \frac{\sqrt3}{3}\cdot\frac{\sqrt2}{2}\right) = ka\left(2 - \frac{\sqrt6}{6}\right) = mg \quad &\text{(horizontal equation with the value of $k$)}
 > \end{aligned}$$
 >
-> $$\boxed{y_G = -2a, \qquad k = \frac{mg}{a\left(2 - \sqrt6/6\right)} \approx 0.630\,\frac{mg}{a}, \qquad R\,\mathbf i = ka\left(2 - \frac{\sqrt6}{6}\right)\mathbf i = mg\,\mathbf i}$$
+> $$\boxed{y_G = -2a, \qquad k = \frac{mg}{a\left(2 - \sqrt6/6\right)} \approx 0.628\,\frac{mg}{a}, \qquad R\,\mathbf i = ka\left(2 - \frac{\sqrt6}{6}\right)\mathbf i = mg\,\mathbf i}$$
 >
 > **Units:** m; N/m; N
 > **Meaning:** in equilibrium the spring passes through $G$ (its line $OA$ continues the segment $GA$ at 45 degrees), so the spring force is along the diagonal at 45 degrees: its vertical part carries the weight and its horizontal part, equal in size, is taken by the guide.
@@ -1304,7 +1304,10 @@ The forces on the triangle, in the inertial frame (no inertia forces):
 > \overrightarrow{O_AA} + \overrightarrow{AB} + \overrightarrow{BO_B} + \overrightarrow{O_BO_A} &= \mathbf 0 \quad &\text{(closed loop)} \\
 > L\,\mathbf e_L + b\,\mathbf i_B - \overrightarrow{O_BB} - b\,\mathbf i &= \mathbf 0 \quad &\text{(lengths of the links and of the two pin spacings)} \\
 > \overrightarrow{O_BB} &= L\,\mathbf e_L + b\left(\mathbf i_B - \mathbf i\right) \quad &\text{(solve for the right link)} \\
-> \overrightarrow{O_BB} &= L\,\mathbf e_L, \qquad \mathbf i_B = \mathbf i \quad &\text{(the parallel position drawn in the figure: the uncrossed branch of the four-bar loop)} \\
+> \left\lvert\overrightarrow{O_BB}\right\rvert^2 &= L^2 + 2Lb\,\mathbf e_L\cdot(\mathbf i_B - \mathbf i) + b^2\left\lvert\mathbf i_B - \mathbf i\right\rvert^2 \quad &\text{(square the previous row)} \\
+> 0 &= b\left\lvert\mathbf i_B - \mathbf i\right\rvert^2 + 2L\,\mathbf e_L\cdot(\mathbf i_B - \mathbf i) \quad &\text{(impose the right link length, $\lvert\overrightarrow{O_BB}\rvert = L$, subtract $L^2$ and divide by $b$)} \\
+> \mathbf i_B &= \mathbf i \quad &\text{(this root keeps the door parallel to the ceiling, as drawn; the other root is the crossed four-bar branch, which is not reached from the figure)} \\
+> \overrightarrow{O_BB} &= L\,\mathbf e_L \quad &\text{(put $\mathbf i_B = \mathbf i$ in the third row of the development)} \\
 > \boldsymbol\omega_{B0} &= \mathbf 0, \qquad \boldsymbol\alpha_{B0} = \mathbf 0 \quad &\text{($\mathbf i_B$ keeps its direction at every instant)}
 > \end{aligned}$$
 >
