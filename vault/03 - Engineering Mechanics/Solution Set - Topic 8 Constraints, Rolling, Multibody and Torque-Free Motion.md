@@ -6784,6 +6784,8 @@ The exploded view separates the disk and the bar at the pin $C$. The pin acts on
 
 #### Part (a): degrees of freedom with no friction
 
+The second limit (infinite friction) needs the kinematics of parts (c) and (d), so it is answered after them, in the box "Part (a), second limit".
+
 > [!derivation] Part (a), first limit: degrees of freedom when the coefficient of friction is zero
 > **Law:** six coordinates per free rigid body; one geometric equation per contact without friction (no penetration, Eq. 13.1)
 > **Source:** Notes.pdf, Sec. 13.1; Notes.pdf, Eq. 13.1; Notes.pdf, Sec. 14.1
@@ -7508,7 +7510,7 @@ The exploded view separates the particle and the cylinder. On the particle act i
 > $$\boxed{\mathbf i_1 = \cos\psi\,\mathbf i_0 + \sin\psi\,\mathbf j_0, \qquad \mathbf j_1 = -\sin\psi\,\mathbf i_0 + \cos\psi\,\mathbf j_0, \qquad \mathbf k_1 = \mathbf k_0}$$
 >
 > **Units:** dimensionless
-> **Meaning:** $\mathbf i_1$ is the line of nodes, the horizontal trace in the plane about which the axle is then tilted.
+> **Meaning:** $\mathbf i_1$ is the line of nodes, the trace in the inclined plane (the intersection of the plane of $\mathbf i_0$, $\mathbf j_0$ with the plane normal to the axle) about which the axle is then tilted; only $\mathbf j_0$ is horizontal.
 
 ![[attachments/EM-SOL/rb42-rot-theta.svg]]
 
@@ -7537,7 +7539,7 @@ The exploded view separates the particle and the cylinder. On the particle act i
 > **Law:** simple rotation about the third axis; product of rotation matrices
 > **Source:** Notes.pdf, Eq. 9.18; Notes.pdf, Eq. 9.19; [Lecture 7, Slide 12]
 >
-> View with $\mathbf k_2$ out of the paper (⊙), $\mathbf i_2$ to the right and $\mathbf j_2$ up; a positive $\phi$ turns counterclockwise. Triangle of $\mathbf i_s$: adjacent leg along $\mathbf i_2$ (cosine of $\phi$), opposite leg along $\mathbf j_2$ (sine). Triangle of $\mathbf j_s$: adjacent leg along $\mathbf j_2$ (cosine), opposite leg along minus $\mathbf i_2$ (sine).
+> View with $\mathbf k_2$ out of the paper (⊙), $\mathbf i_2$ to the right and $\mathbf j_2$ up; a positive $\phi$ turns counterclockwise. Triangle of $\mathbf i_s$: adjacent leg along $\mathbf i_2$ (cosine of $\phi$), opposite leg along $\mathbf j_2$ (sine). Triangle of $\mathbf j_s$: adjacent leg along $\mathbf j_2$ (cosine), opposite leg along minus $\mathbf i_2$ (sine): the counterclockwise turn carries the tip of $\mathbf j_2$ to the left, towards minus $\mathbf i_2$.
 >
 > $$\begin{aligned}
 > \mathbf i_s &= \cos\phi\,\mathbf i_2 + \sin\phi\,\mathbf j_2, \qquad \mathbf j_s = -\sin\phi\,\mathbf i_2 + \cos\phi\,\mathbf j_2, \qquad \mathbf k_s = \mathbf k_2 \quad &\text{(legs of the two triangles)} \\
@@ -7560,7 +7562,7 @@ The exploded view separates the particle and the cylinder. On the particle act i
 > **Law:** simple rotation about the third axis
 > **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Sec. 9.2
 >
-> Same view as the spin, with $\mathbf k_s$ out of the paper (⊙), $\mathbf i_s$ to the right and $\mathbf j_s$ up; a positive $\beta$ turns counterclockwise, with the same triangles.
+> Same view as the spin, with $\mathbf k_s$ out of the paper (⊙), $\mathbf i_s$ to the right and $\mathbf j_s$ up; a positive $\beta$ turns counterclockwise, with the same triangles; as for $\phi$, the counterclockwise turn carries the tip of $\mathbf j_s$ to the left, which is the minus sign of the opposite leg of $\mathbf j_d$.
 >
 > $$\begin{aligned}
 > \mathbf i_d &= \cos\beta\,\mathbf i_s + \sin\beta\,\mathbf j_s, \qquad \mathbf j_d = -\sin\beta\,\mathbf i_s + \cos\beta\,\mathbf j_s, \qquad \mathbf k_d = \mathbf k_s \quad &\text{(legs of the two triangles)} \\
@@ -7627,7 +7629,7 @@ The exploded view separates the particle and the cylinder. On the particle act i
 > $$\boxed{\text{non-integrable: } C \text{ returns to its start, the top point ends along } -\mathbf j_0}$$
 >
 > **Units:** dimensionless (directions)
-> **Meaning:** the attitude is not a function of $\xi$ and $\eta$ along the motion, and no two relations among the coordinates reproduce the rolling conditions (this last statement is the extension). That is why the six coordinates must be kept with four independent velocities.
+> **Meaning:** the attitude is not a function of $\xi$ and $\eta$ along the motion. That alone rules out three relations; to rule out two, pivot the sphere about the vertical $\mathbf k_0$ with the contact point at rest (this keeps the velocity of $C$ equal to zero) and note that the loop changes the vertical component of a material direction, which a pivot cannot. So the attitudes reachable with the contact point at a fixed place form a set of at least two dimensions, while two relations among $\xi$, $\eta$, $\psi$, $\theta$, $\phi$ would leave only one. That is why the six coordinates must be kept with four independent velocities.
 
 ### Center of Mass and Inertia Tensor
 
