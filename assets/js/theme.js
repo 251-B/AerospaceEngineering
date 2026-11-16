@@ -44,7 +44,7 @@
   // ---- Site name: the one place to change it ------------------------------------------------
   // The browser tab reads SITE_NAME on the landing page and SITE_NAME + ' ' + short subject name
   // on every page under subjects/<slug>/. Elements marked data-site-name get the name as text.
-  var SITE_NAME = 'Delta V';
+  var SITE_NAME = 'Sideris';
   var SUBJECT_SHORT = {
     'fluid-mechanics': 'Fluids',
     'aerospace-materials-1': 'Materials',

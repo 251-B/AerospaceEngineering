@@ -153,7 +153,7 @@
   var PORT = { box: [1000, 2900], centre: [500, 1450], slots: [[260, 260], [740, 800], [240, 1380], [760, 1960], [270, 2540]], pulsar: [780, 2800] };
   var GUIDES = [[0, 1], [1, 2], [2, 4], [4, 3], [3, 0], [1, 3], [1, 4]];
 
-  var ZOOM_H = 430;          // height of the camera box on a constellation (user units)
+  var ZOOM_H = 480;          // height of the camera box on a constellation (user units)
   var ZOOM_BW = [700, 980];  // minimum width of that box: landscape, portrait
 
   /* ---------------------------------------------------------------------------------------

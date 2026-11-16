@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-16-sideris-name",
+    "date": "2026-11-16",
+    "tag": "Portal",
+    "title": "The portal is now called Sideris",
+    "text": "New name, shown in the star map and in the browser tab, for example Sideris Fluids. The title uses the same colours as the old hub heading.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-16-stellar-home",
     "date": "2026-11-16",
     "tag": "Portal",
