@@ -35,6 +35,7 @@ Map of content for the repository's own tooling, agents and rules. The study con
 | [[Tool - audit_portal]] | Tool | Static gate for `index.html` and `subjects/` pages. |
 | [[Tool - build_topic_pages]] | Tool | Generates seven theory pages from vault notes and figures. |
 | [[Tool - mechanics-3d-sim]] | Tool | Geometry simulator of the Engineering Mechanics problem cards: archetypes, configuration keys and readout variables. |
+| [[Tool - constellations]] | Tool | Stellar view of the landing page: constellation map, sky palettes and the classic-view switch. |
 | [[Tool - fluids_ns]] | Tool | Generates the Fluid Mechanics Topic 4 problem page (NS1 to NS17) from the vault notes. |
 | [[Tool - build_problem_pages]] | Tool | Generates the two Business Management Topic 3 problem pages. |
 | [[Tool - build_mech_problems]] | Tool | Generates the five Engineering Mechanics official problem pages (51 problems). |

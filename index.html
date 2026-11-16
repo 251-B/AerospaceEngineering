@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/celestial-sky.css">
   <link rel="stylesheet" href="assets/css/hub.css">
+  <link rel="stylesheet" href="assets/css/constellations.css">
   <script src="assets/js/theme.js"></script>
+  <script src="assets/js/constellations.js"></script>
 
 </head>
 <body>
@@ -78,6 +80,8 @@
     <header class="utility-bar">
       <div class="container header-inner">
         <div class="header-actions">
+          <select class="sky-palette-select sky-only" id="skyPalette" aria-label="Sky palette" title="Sky palette"></select>
+          <button class="view-toggle" id="homeViewToggle" type="button">Classic view</button>
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme (T)">
             <span class="theme-toggle-track">
               <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -105,8 +109,16 @@
          MAIN CONTENT
          ============================================ -->
     <main>
-      <!-- HERO -->
-      <section class="hero container">
+      <!-- STELLAR VIEW: interactive constellation map (assets/js/constellations.js) -->
+      <section class="sky-view" id="skyView" aria-label="Constellation map of the subjects">
+        <h1 class="sky-title"><span data-site-name>Delta V</span><small>Aerospace Engineering &middot; 2nd Year</small></h1>
+        <button class="sky-back" id="skyBack" type="button" hidden>&larr; All Constellations</button>
+        <svg class="sky-svg" id="skySvg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Five subject constellations"></svg>
+        <div class="sky-caption" id="skyCaption" aria-live="polite"></div>
+      </section>
+
+      <!-- HERO (classic view) -->
+      <section class="hero container classic-only">
         <!-- Orbits and stars behind the title -->
         <svg class="hero-orbits" viewBox="0 0 900 320" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
           <defs>
@@ -160,7 +172,7 @@
       <!-- ============================================
            SUBJECTS
            ============================================ -->
-      <section class="container" id="subjects" aria-label="Subjects">
+      <section class="container classic-only" id="subjects" aria-label="Subjects">
         <div class="subjects-grid" id="subjectsGrid">
 
           <!-- ——— 1. Fluid Mechanics ——— -->
@@ -376,7 +388,7 @@
         </div>
       </section>
 
-      <div class="star-divider container" aria-hidden="true">
+      <div class="star-divider container classic-only" aria-hidden="true">
         <span></span>
         <svg><use href="#i-star"/></svg>
         <span></span>
@@ -385,7 +397,7 @@
       <!-- ============================================
            AEROSPACE QUOTES COMPONENT
            ============================================ -->
-      <section class="container quote-section" id="quoteSection">
+      <section class="container quote-section classic-only" id="quoteSection">
         <div id="quoteContainer"></div>
       </section>
 
@@ -411,7 +423,7 @@
     <div class="shortcut-row"><kbd>/</kbd> <span>Search</span></div>
     <div class="shortcut-row"><kbd>Enter</kbd> <span>Go to first result</span></div>
     <div class="shortcut-row"><kbd>T</kbd> <span>Toggle theme</span></div>
-    <div class="shortcut-row"><kbd>Esc</kbd> <span>Clear search</span></div>
+    <div class="shortcut-row"><kbd>Esc</kbd> <span>Clear search / back to all constellations</span></div>
     <div class="shortcut-row"><kbd>?</kbd> <span>Show shortcuts</span></div>
   </div>
 

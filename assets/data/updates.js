@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-16-stellar-home",
+    "date": "2026-11-16",
+    "tag": "Portal",
+    "title": "New star map on the home page",
+    "text": "Each subject is now a constellation. Click one to zoom in and pick Theory, Problems, PDFs and more. A button brings back the classic cards, and there are five sky palettes.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-16-materials-unit-6-7-practice",
     "date": "2026-11-16",
     "tag": "Aerospace Materials I",
