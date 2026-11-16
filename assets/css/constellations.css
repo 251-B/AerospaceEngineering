@@ -199,8 +199,8 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 .star { cursor: pointer; outline: none; }
 .star-hit { fill: transparent; }
 .star-flare { opacity: 0.42; transition: opacity 0.4s; }
-.star-core { fill: #ffffff; filter: drop-shadow(0 0 calc(var(--u, 1) * 3px) var(--c)); }
-.star-glyph { fill: var(--c); transform-box: fill-box; transform-origin: center; transform: scale(0.28); transition: transform 0.5s ease, opacity 0.4s;
+.star-core { fill: #ffffff; r: 2.4px; filter: drop-shadow(0 0 calc(var(--u, 1) * 3px) var(--c)); }
+.star-glyph { fill: var(--c); transform-box: fill-box; transform-origin: center; transform: scale(0.52); transition: transform 0.5s ease, opacity 0.4s;
   filter: drop-shadow(0 0 calc(var(--u, 1) * 2.5px) var(--c)); }
 .const.is-active .star-glyph { transform: scale(0.85); }
 .star-icon { opacity: 0; transition: opacity 0.4s 0.15s; pointer-events: none; }
