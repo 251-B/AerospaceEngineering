@@ -13,332 +13,1350 @@ tags:
 
 # Topic 4: Angular Momentum and Central Forces - Full Analytical Solutions
 
-Step-by-step analytical solutions for official problems from Topic 4 (**Angular Momentum, Central Forces, and Kepler's Problem**) of *Mechanics Applied to Aerospace Engineering* (UC3M). Every solution follows the systematic approach of `Notes.pdf`, chapter 7, inside four phases: constraints, degrees of freedom and coordinates (7.1, 7.2); reference frames (7.3); the derivation in the order kinematics (7.4), forces (7.5), equations of motion (7.6) and integration with the answers to the questions (7.7); and the interpretation and checks. Each formula is preceded by the reason for using it, with explicit derivatives (product and chain rules) and explicit integrals (primitive, substitution and Barrow's rule).
+Step-by-step analytical solutions for the official problems of Topic 4 (**Angular Momentum, Central Forces, and Kepler's Problem**) of *Mechanics Applied to Aerospace Engineering* (UC3M). Every solution follows the Engineering Mechanics order of the problem-solving standard and the Newtonian approach of `Notes.pdf`, chapter 7: reference frames, bases and coordinates; change of basis and position vector; kinematics; forces and equations of motion; answers and checks. Angular momentum, central forces, Binet's equation and Kepler's problem are derived in each solution from the position vector and Newton's second law, in the order of `Notes.pdf`, chapters 4 and 8, and every development (derivatives with the product and chain rules, integrals with Barrow's rule) is written out in a derivation box.
 
 ---
 
-## 📌 Problem 42: Particle Attracted to the Origin ($F = m\mu / r^\alpha$)
+## Problem 42: Particle Attracted to the Origin (Advanced General Power Law)
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a particle $P$ of mass $m$ attracted to the fixed point $O$ by $\mathbf{F} = -\dfrac{m\mu}{r^\alpha}\mathbf{e}_r$, where $r = \|\overrightarrow{OP}\|$.
-* **Hypotheses:** $S_0$ is inertial; $\mu \gt 0$ and $\alpha \gt 0$ are constants; no other force acts; $h \ne 0$ unless stated.
-* **Constraints:** none. $P$ is a free particle, so $\text{CDOF} = 3$. Part (a) proves that the motion is planar; that is a consequence of the dynamics, not an imposed constraint. In the plane, $\text{CDOF} = 2$.
-* **Coordinates:** polar coordinates $(r, \theta)$ in the plane of motion. For the orbit equation we also use $u(\theta) = 1/r(\theta)$ and $u' = du/d\theta$; $h$ is the magnitude of the angular momentum per unit mass.
-* **Special case $h = 0$:** the motion is then radial and the Binet formulation does not apply. It is treated at the end of part (c).
-* **Notation:** the official text writes $F = m\alpha/r^\beta$ and asks for $\beta = 1, 2, 3, 4$. Here the strength is $\mu$ and the exponent is $\alpha$.
+### Reference Frames, Bases and Coordinates
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $\mu$ | force strength per unit mass, $F/m = \mu/r^\alpha$ | m$^{\alpha+1}$/s$^2$ |
-| $h$ | specific angular momentum | m$^2$/s |
-| $u$ | reciprocal radius | m$^{-1}$ |
-| $\xi$ | specific mechanical energy | J/kg = m$^2$/s$^2$ |
+A point particle $P$ of mass $m$ is attracted by the origin $O$ of the inertial frame $S_0$ by a force of magnitude $m\mu/r^\alpha$, where $r$ is the distance from $O$ to $P$ (Problems.pdf, p. 29; the official text calls the strength $\alpha$ and the exponent $\beta$, see the notation note of the Problem Set). The statement asks to prove that the angular momentum and the mechanical energy are conserved and that the motion is planar, to find the second-order equation of $u$ as a function of $\theta$, and to discuss with a first integral when the particle escapes, reaches $O$ or oscillates, for the exponents 1, 2, 3 and 4. The solution follows the Newtonian approach of Notes.pdf, Sec. 7.1 to Sec. 7.7, and the derivation of the central force problem of Notes.pdf, Sec. 4.8.1 and Notes.pdf, Sec. 8.3, with the general exponent in place of the inverse square.
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with its origin at the attracting centre.
-* **Polar basis.** Take $\mathbf{k}$ along $\mathbf{H}_O$ (justified in 3.3). The polar basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$
-Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
-* **Angular velocity and angular acceleration of $\mathcal{B}_1$ with respect to $S_0$:** $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$ and $\boldsymbol{\alpha}_{10} = \ddot{\theta}\,\mathbf{k}$.
-* **Time derivatives of the unit vectors (Poisson's formula $\dot{\mathbf{e}} = \boldsymbol{\omega}\times\mathbf{e}$):**
-$$ \dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{k}\times\mathbf{e}_r = \dot{\theta}\,\mathbf{e}_\theta, \qquad \dot{\mathbf{e}}_\theta = \dot{\theta}\,\mathbf{k}\times\mathbf{e}_\theta = -\dot{\theta}\,\mathbf{e}_r $$
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, origin at the attracting centre (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$, right-handed; $\mathbf k$ is taken along the angular momentum $\mathbf H_{O,0}$, which part (a) proves to be constant, so that the plane of the motion is the plane $Oxy$ (Notes.pdf, Sec. 8.2) |
+| Polar basis | $\mathcal B_1 = \{\mathbf e_r, \mathbf e_\theta, \mathbf k\}$, $\mathcal B_0$ turned by $\theta$ about $\mathbf k$; $\mathbf e_r$ points from $O$ towards $P$ (Notes.pdf, Eq. 8.2) |
+| Coordinates | $r$, the distance $OP$; $\theta$, the polar angle of $P$ measured from $\mathbf i$, counterclockwise about $\mathbf k$; $u = 1/r$ and $u' = du/d\theta$ (statement) |
+| Hypotheses | $S_0$ inertial; $\mu \gt 0$ (attraction) and the exponent $\alpha$ constant, discussed for $\alpha = 1, 2, 3, 4$; no other force acts; $h \ne 0$ in parts (b) and (c) (with zero angular momentum the motion is radial: last limiting case) |
+| Constraints | none: $P$ is a free particle ([Lecture 3, Slide 4]) |
+| Degrees of freedom | 3 in space; 2 in the plane of the motion ($r$, $\theta$) once part (a) has proved that the motion is planar |
+| Data | $m$ [kg], $\mu$ [m$^{\alpha+1}$ s$^{-2}$], $\alpha$ [1]; initial values $u_0 = u(0)$ [m$^{-1}$] and $u_0' = u'(0)$ [m$^{-1}$] |
+| Derived constants | $h = \lvert\mathbf r_0^P\times\mathbf v_0^P\rvert$, angular momentum about $O$ per unit mass [m$^2$ s$^{-1}$]; $K = \mu/h^2$ [m$^{\alpha-3}$], the parameter of the discussion (the "$\mu/h^2$" of the statement) |
+| Applied force | the attraction $\mathbf F = -\dfrac{m\mu}{r^\alpha}\,\mathbf e_r$, from $P$ towards $O$ |
+| Constraint and inertia forces | none: no constraint, and $S_0$ is inertial |
 
-### Phase 3: Derivation
+![[attachments/EM-SOL/p42-plane.svg]]
 
-#### 3.1 Kinematics
-* **Pedagogical Justification:** the force acts along the line $OP$, so the position vector is simply $r\mathbf{e}_r$. The basis vector $\mathbf{e}_r$ is not constant in $S_0$, so each derivative uses the product rule and Poisson's formula. These planar polar formulas are valid for a motion contained in the plane of the basis; that the motion is indeed planar is proved in 3.3, and here it only fixes the choice of $\mathbf{k}$.
-$$ \mathbf{r} = r\,\mathbf{e}_r $$
-$$ \mathbf{v} = \frac{d}{dt}\left(r\mathbf{e}_r\right) = \dot{r}\,\mathbf{e}_r + r\,\dot{\mathbf{e}}_r = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta $$
-$$ \mathbf{a} = \ddot{r}\,\mathbf{e}_r + \dot{r}\,\dot{\mathbf{e}}_r + \left(\dot{r}\dot{\theta} + r\ddot{\theta}\right)\mathbf{e}_\theta + r\dot{\theta}\,\dot{\mathbf{e}}_\theta = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e}_\theta $$
-* The angular momentum per unit mass about $O$ follows from the velocity:
-$$ \mathbf{h} = \mathbf{r}\times\mathbf{v} = r\mathbf{e}_r\times\left(\dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_\theta\right) = r^2\dot{\theta}\,\mathbf{k}, \qquad h = r^2\dot{\theta} $$
+### Change of Basis and Position Vector
 
-#### 3.2 Forces
-* **Applied force:** the attraction $\mathbf{F} = -\dfrac{m\mu}{r^\alpha}\mathbf{e}_r$. It is central: its line of action always passes through $O$.
-* **Constraint forces:** none. **Inertia forces:** none, because Newton's second law is written in the inertial frame $S_0$.
-* **Pedagogical Justification:** the force is purely radial and depends only on $r$, so its elementary work $\mathbf{F}\cdot d\mathbf{r} = F(r)\,dr$ is the exact differential of a function of $r$ (equivalently, $\nabla\times\mathbf{F} = \mathbf{0}$). The force is therefore conservative. The potential energy per unit mass is minus the work per unit mass from a reference radius to $r$ (Barrow's rule). For $\alpha \gt 1$ the reference is at infinity, and the term at the lower limit $s \to \infty$ vanishes because $1 - \alpha \lt 0$:
-$$ V_0(r) = -\int_\infty^r\left(-\frac{\mu}{s^\alpha}\right)ds = \mu\left[\frac{s^{1-\alpha}}{1 - \alpha}\right]_\infty^r = \mu\left[\frac{r^{1-\alpha}}{1 - \alpha} - \lim_{s\to\infty}\frac{s^{1-\alpha}}{1 - \alpha}\right] = -\frac{\mu}{(\alpha - 1)\,r^{\alpha - 1}} $$
-For $\alpha \le 1$ the integral from infinity diverges, so the reference radius $r_*$ is arbitrary. For $\alpha = 1$:
-$$ V_0(r) = -\int_{r_*}^r\left(-\frac{\mu}{s}\right)ds = \mu\left[\ln s\right]_{r_*}^r = \mu\ln\frac{r}{r_*} $$
-* In all cases the force per unit mass is recovered by differentiating, e.g. for $\alpha \gt 1$, $V_0'(r) = -\dfrac{\mu}{\alpha - 1}\cdot\left(-(\alpha - 1)\,r^{-\alpha}\right) = \dfrac{\mu}{r^\alpha}$, and for $\alpha = 1$, $V_0'(r) = \mu/r$.
+![[attachments/EM-SOL/p42-rotation-k.svg]]
 
-#### 3.3 Equations of Motion
-* **Pedagogical Justification:** the torque about the fixed point $O$ vanishes because $\mathbf{F}$ is parallel to $\mathbf{r}$. The angular momentum theorem about a fixed point (Notes Eq. 4.53) is a consequence of Newton's second law and gives a first integral right away.
-$$ \mathbf{M}_O = \mathbf{r}\times\mathbf{F} = r\mathbf{e}_r\times\left(-\frac{m\mu}{r^\alpha}\mathbf{e}_r\right) = \mathbf{0} \implies \left.\frac{d\mathbf{H}_O}{dt}\right|_0 = \mathbf{0} \implies \mathbf{H}_O = m\,\mathbf{r}\times\mathbf{v} = \text{const} $$
-* **Planar motion.** From $\mathbf{H}_O = m\,\mathbf{r}\times\mathbf{v}$, both $\mathbf{r}\cdot\mathbf{H}_O \equiv 0$ and $\mathbf{v}\cdot\mathbf{H}_O \equiv 0$. Then $P$ stays in the plane through $O$ perpendicular to $\mathbf{H}_O$, and we orient $\mathbf{k}$ along $\mathbf{H}_O$.
-* **Newton's second law in the plane.** With $\mathbf{a}$ from 3.1 and $\mathbf{F}$ from 3.2, projected on $\mathbf{e}_r$ and $\mathbf{e}_\theta$:
-$$ m\left(\ddot{r} - r\dot{\theta}^2\right) = -\frac{m\mu}{r^\alpha}, \qquad m\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = 0 $$
-* **Check of closure:** two unknowns, $r(t)$ and $\theta(t)$, and two independent scalar equations.
-* **Angular momentum from the transverse equation.** Multiplying by $r/m$ and using the product rule:
-$$ \frac{d}{dt}\left(r^2\dot{\theta}\right) = 2r\dot{r}\dot{\theta} + r^2\ddot{\theta} = r\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = 0 \implies h = r^2\dot{\theta} = \text{const} $$
-* **Energy from the radial equation.** The force is conservative (3.2), so the mechanical energy per unit mass $\xi = \tfrac{1}{2}\left(\dot{r}^2 + r^2\dot{\theta}^2\right) + V_0(r)$ is a first integral. Differentiating with the product and chain rules, and using $V_0'(r) = \mu/r^\alpha$:
-$$ \dot{\xi} = \dot{r}\ddot{r} + r\dot{r}\dot{\theta}^2 + r^2\dot{\theta}\ddot{\theta} + V_0'(r)\dot{r} = \dot{r}\left(\ddot{r} - r\dot{\theta}^2\right) + r\dot{\theta}\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) + \frac{\mu}{r^\alpha}\dot{r} $$
-$$ \dot{\xi} = \dot{r}\left(-\frac{\mu}{r^\alpha}\right) + 0 + \frac{\mu}{r^\alpha}\dot{r} = 0 \implies \xi = \tfrac{1}{2}v^2 + V_0(r) = \text{const} $$
+> [!derivation] Polar basis: rotation about k
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 8.2
+>
+> View along $\mathbf k$, which points out of the paper (⊙) because it is the cross product of $\mathbf i$ (to the right) and $\mathbf j$ (up): a positive rotation about $\mathbf k$ is counterclockwise, as $\theta$ in the figure. $\mathbf e_r$ is $\mathbf i$ turned by $\theta$: in its right triangle the hypotenuse is 1, the adjacent leg $\cos\theta$ lies along $\mathbf i$ and the opposite leg $\sin\theta$ along $\mathbf j$. $\mathbf e_\theta$ is $\mathbf j$ turned by $\theta$: the adjacent leg $\cos\theta$ lies along $\mathbf j$ and the opposite leg $\sin\theta$ along minus $\mathbf i$, because the upward vector turned counterclockwise leans to the left (the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf e_r &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_r$: adjacent leg on $\mathbf i$, opposite leg on $\mathbf j$)} \\
+> \mathbf e_\theta &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_\theta$: opposite leg on $-\mathbf i$, adjacent leg on $\mathbf j$)} \\
+> \mathbf e_r\times\mathbf e_\theta &= \cos^2\theta\,\mathbf i\times\mathbf j - \sin^2\theta\,\mathbf j\times\mathbf i \quad &\text{(distributive law; $\mathbf i\times\mathbf i = \mathbf j\times\mathbf j = \mathbf 0$)} \\
+> &= \left(\cos^2\theta + \sin^2\theta\right)\mathbf k = \mathbf k \quad &\text{(right-handed: $\mathbf j\times\mathbf i = -\mathbf k$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos\theta\cdot\cos\theta - \left(-\sin\theta\right)\sin\theta\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\theta + \sin^2\theta = 1 \quad &\text{(row 1 times row 1)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\theta\sin\theta - \sin\theta\cos\theta = 0 \quad &\text{(row 1 times row 2; row 3 is the unit row of $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** the columns of the matrix are $\mathbf e_r$, $\mathbf e_\theta$ and $\mathbf k$ written in $\mathcal B_0$; $\mathbf e_r$ follows the particle and $\mathbf e_\theta$ is perpendicular to it in the plane of the motion.
 
-#### 3.4 Integration and Answers
-##### (a) Conserved quantities and planar motion
-* The angular momentum $\mathbf{H}_O = m\,\mathbf{r}\times\mathbf{v}$ and the mechanical energy $\xi = \tfrac{1}{2}v^2 + V_0(r)$ are conserved, and the motion occurs in the plane through $O$ perpendicular to $\mathbf{H}_O$. All three statements were proved in 3.3.
+> [!derivation] Position vector of the particle
+> **Law:** position vector of a point particle; polar coordinates in the plane of the motion
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 8.3
+>
+> In the plane of the motion the segment $OP$ is the hypotenuse $r$ of the right triangle whose leg along $\mathbf i$ is $r\cos\theta$ (adjacent to $\theta$) and whose leg along $\mathbf j$ is $r\sin\theta$ (opposite to $\theta$).
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OP} \quad &\text{(definition, Eq. 2.2)} \\
+> &= r\,\mathbf e_r \quad &\text{($\mathbf e_r$ is the unit vector from $O$ towards $P$)} \\
+> &= r\cos\theta\,\mathbf i + r\sin\theta\,\mathbf j \quad &\text{($\mathbf e_r$ in $\mathcal B_0$)} \\
+> \mathbf r_0^P\cdot\mathbf r_0^P &= r^2\cos^2\theta + r^2\sin^2\theta \quad &\text{(components squared and added)} \\
+> &= r^2 \quad &\text{($\cos^2\theta + \sin^2\theta = 1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = r\,\mathbf e_r = r\cos\theta\,\mathbf i + r\sin\theta\,\mathbf j, \qquad \lvert\mathbf r_0^P\rvert = r}$$
+>
+> **Units:** $[r] = [\mathrm{L}]$
+> **Meaning:** the position has only a radial component; the attraction acts along minus $\mathbf e_r$, that is along the line $PO$: it is a central force.
 
-##### (b) Binet equation for a power law
-* **Pedagogical Justification:** we want the orbit $u(\theta)$, so time is eliminated with $h = r^2\dot{\theta}$, i.e. $\dot{\theta} = hu^2$. The chain rule for $r = u^{-1}$ gives $dr/d\theta = -u'/u^2$.
-$$ \dot{r} = \frac{dr}{d\theta}\dot{\theta} = \left(-\frac{u'}{u^2}\right)\left(hu^2\right) = -hu', \qquad \ddot{r} = \frac{d}{dt}\left(-hu'\right) = -hu''\,\dot{\theta} = -h^2u^2u'' $$
-* The radial equation $\ddot{r} - r\dot{\theta}^2 = -\mu/r^\alpha = -\mu u^\alpha$ with $r\dot{\theta}^2 = \frac{1}{u}\left(hu^2\right)^2 = h^2u^3$ becomes
-$$ -h^2u^2u'' - h^2u^3 = -\mu u^\alpha \quad\overset{\div\,(-h^2u^2)}{\Longrightarrow}\quad \boxed{u'' + u = \frac{\mu}{h^2}\,u^{\alpha - 2}} $$
+### Kinematics
 
-##### (c) First integral and limits of the motion
-* **Pedagogical Justification:** write the specific energy with $\dot{r} = -hu'$ and $r\dot{\theta} = hu$. Since $\xi$ is constant, the result is a first integral (a quadrature) with no second derivative.
-$$ \xi = \tfrac{1}{2}h^2\left[(u')^2 + u^2\right] + V_0\!\left(\frac{1}{u}\right) \implies \boxed{(u')^2 + W_{\text{eff}}(u) = E^*}, \quad E^* \equiv \frac{2\xi}{h^2}, \quad W_{\text{eff}}(u) = u^2 + \frac{2V_0(1/u)}{h^2} $$
-* **Derivative of $W_{\text{eff}}$ (chain rule).** With $\dfrac{d}{du}\left(\dfrac{1}{u}\right) = -\dfrac{1}{u^2}$ and $V_0'(r) = \mu/r^\alpha$ evaluated at $r = 1/u$:
-$$ \frac{d}{du}V_0\!\left(\frac{1}{u}\right) = V_0'\!\left(\frac{1}{u}\right)\left(-\frac{1}{u^2}\right) = \mu u^\alpha\left(-\frac{1}{u^2}\right) = -\mu u^{\alpha - 2} \implies W_{\text{eff}}'(u) = 2u - \frac{2\mu}{h^2}u^{\alpha - 2} $$
-* **Check.** $\dfrac{d}{d\theta}\left[(u')^2 + W_{\text{eff}}\right] = u'\left(2u'' + W_{\text{eff}}'\right) = 0$. Where $u' \ne 0$ this gives $u'' = -\tfrac{1}{2}W_{\text{eff}}'$, which is the Binet equation; at the points where $u' = 0$ the Binet equation holds by continuity.
-* **Limits of the motion.** Because $(u')^2 \ge 0$, motion exists only where $W_{\text{eff}}(u) \le E^*$. The turning points ($u' = 0$) are the roots of $W_{\text{eff}}(u) = E^*$, and a minimum or a maximum of $W_{\text{eff}}$ is a circular orbit. The constant is fixed by the initial data $u_0 = u(0)$ and $u_0' = u'(0)$:
-$$ E^* = (u_0')^2 + W_{\text{eff}}(u_0) $$
-* The three questions are: **(i)** escape, $u \to 0$; **(ii)** reaching the origin, $u \to \infty$; **(iii)** oscillation between two values of $u$.
+> [!derivation] Derivatives of the polar unit vectors
+> **Law:** derivative of a unit vector turning about a fixed axis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \dot\theta\,\mathbf k \quad &\text{($\mathcal B_1$ turns about the fixed $\mathbf k$ with the angle $\theta$)} \\
+> \mathbf k\times\mathbf e_r &= \cos\theta\,\mathbf j - \sin\theta\,\mathbf i = \mathbf e_\theta \quad &\text{($\mathbf k\times\mathbf i = \mathbf j$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> \mathbf k\times\mathbf e_\theta &= -\sin\theta\,\mathbf j - \cos\theta\,\mathbf i = -\mathbf e_r \quad &\text{(same products)} \\
+> \dot{\mathbf e}_r &= \boldsymbol\omega_{10}\times\mathbf e_r = \dot\theta\,\mathbf e_\theta \quad &\text{(Eq. 1.62)} \\
+> \dot{\mathbf e}_\theta &= \boldsymbol\omega_{10}\times\mathbf e_\theta = -\dot\theta\,\mathbf e_r \quad &\text{(Eq. 1.62)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf e}_r = \dot\theta\,\mathbf e_\theta, \qquad \dot{\mathbf e}_\theta = -\dot\theta\,\mathbf e_r}$$
+>
+> **Units:** $[\dot\theta] = [\mathrm{T^{-1}}]$
+> **Meaning:** both unit vectors turn with the particle at the rate $\dot\theta$; $\mathbf k$ is fixed.
 
-##### Case $\alpha = 2$: inverse square (Kepler)
-* Binet: $u'' + u = \mu/h^2$. Potential: $V_0 = -\mu u$, so $W_{\text{eff}} = u^2 - \dfrac{2\mu}{h^2}u = \left(u - \dfrac{\mu}{h^2}\right)^2 - \left(\dfrac{\mu}{h^2}\right)^2$, a parabola with minimum $-(\mu/h^2)^2$ at $u = \mu/h^2$. The constant is $E^* = (u_0')^2 + u_0^2 - \dfrac{2\mu}{h^2}u_0$.
-* **(i) Escape:** possible if and only if $E^* \ge W_{\text{eff}}(0) = 0$, i.e. $(u_0')^2 + u_0^2 \ge \dfrac{2\mu}{h^2}u_0$ (parabola or hyperbola). For $E^* \gt 0$ a particle moving inward ($u_0' \gt 0$) is first reflected at the positive root and then escapes.
-* **(ii) Reaching $r = 0$:** impossible for $h \ne 0$, because $W_{\text{eff}} \to +\infty$ as $u \to \infty$.
-* **(iii) Oscillation:** for $-(\mu/h^2)^2 \lt E^* \lt 0$: $u$ oscillates between the two roots (periapsis and apoapsis of an ellipse); $E^* = -(\mu/h^2)^2$ is the circular orbit.
+> [!derivation] Velocity and acceleration of the particle
+> **Law:** time derivatives of the position vector in $S_0$; product rule
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Eq. 8.3
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \frac{d}{dt}\left(r\,\mathbf e_r\right) \quad &\text{(definition, Eq. 2.3)} \\
+> &= \dot r\,\mathbf e_r + r\,\dot{\mathbf e}_r \quad &\text{(product rule)} \\
+> &= \dot r\,\mathbf e_r + r\dot\theta\,\mathbf e_\theta \quad &\text{($\dot{\mathbf e}_r = \dot\theta\,\mathbf e_\theta$)} \\
+> \mathbf a_0^P &= \ddot r\,\mathbf e_r + \dot r\,\dot{\mathbf e}_r + \dot r\dot\theta\,\mathbf e_\theta + r\ddot\theta\,\mathbf e_\theta + r\dot\theta\,\dot{\mathbf e}_\theta \quad &\text{(Eq. 2.4; product rule on each term)} \\
+> &= \ddot r\,\mathbf e_r + \dot r\dot\theta\,\mathbf e_\theta + \dot r\dot\theta\,\mathbf e_\theta + r\ddot\theta\,\mathbf e_\theta - r\dot\theta^2\,\mathbf e_r \quad &\text{(derivatives of the unit vectors substituted)} \\
+> &= \left(\ddot r - r\dot\theta^2\right)\mathbf e_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\mathbf e_\theta \quad &\text{(grouped along $\mathbf e_r$ and $\mathbf e_\theta$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \dot r\,\mathbf e_r + r\dot\theta\,\mathbf e_\theta, \qquad \mathbf a_0^P = \left(\ddot r - r\dot\theta^2\right)\mathbf e_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\mathbf e_\theta}$$
+>
+> **Units:** $[\dot r] = [r\dot\theta] = [\mathrm{L\,T^{-1}}]$; $[\ddot r] = [r\dot\theta^2] = [\dot r\dot\theta] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** $\dot r$ is the rate at which $P$ moves away from $O$ and $r\dot\theta$ the speed at which it turns round $O$; these are the expressions of Notes.pdf, Eq. 8.3.
 
-##### Case $\alpha = 1$: $F \propto 1/r$
-* Binet: $u'' + u = \dfrac{\mu}{h^2u}$. With the reference radius $r_*$, $V_0 = \mu\ln(r/r_*) = -\mu\ln(ur_*)$, so $W_{\text{eff}} = u^2 - \dfrac{2\mu}{h^2}\ln(ur_*)$ and $E^* = (u_0')^2 + u_0^2 - \dfrac{2\mu}{h^2}\ln(u_0r_*)$.
-* $W_{\text{eff}} \to +\infty$ both as $u \to 0$ (because $-\ln u \to +\infty$) and as $u \to \infty$. Its minimum is at $W_{\text{eff}}' = 2u - \dfrac{2\mu}{h^2u} = 0$, i.e. $u_c = \sqrt{\mu}/h$.
-* **(i)** Escape is impossible for any finite energy. **(ii)** Reaching $r = 0$ is impossible. **(iii)** Every orbit with $E^* \gt W_{\text{eff}}(u_c)$ oscillates between two finite turning points; $E^* = W_{\text{eff}}(u_c)$ is the circular orbit $r = h/\sqrt{\mu}$. Since $E^* \ge W_{\text{eff}}(u_c)$ always, every motion with $h \ne 0$ is of type (iii) or circular.
+> [!derivation] Angular momentum per unit mass in polar form
+> **Law:** angular momentum about a point, per unit mass; cross products of the polar basis
+> **Source:** Notes.pdf, Eq. 4.48; Notes.pdf, Eq. 8.7
+>
+> $$\begin{aligned}
+> \mathbf h &= \mathbf r_0^P\times\mathbf v_0^P \quad &\text{(Eq. 4.48 about $O$, divided by $m$)} \\
+> &= r\,\mathbf e_r\times\left(\dot r\,\mathbf e_r + r\dot\theta\,\mathbf e_\theta\right) \quad &\text{(position and velocity substituted)} \\
+> &= r\dot r\,\mathbf e_r\times\mathbf e_r + r^2\dot\theta\,\mathbf e_r\times\mathbf e_\theta \quad &\text{(distributive law)} \\
+> &= r^2\dot\theta\,\mathbf k \quad &\text{($\mathbf e_r\times\mathbf e_r = \mathbf 0$, $\mathbf e_r\times\mathbf e_\theta = \mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf h = \frac{\mathbf H_{O,0}}{m} = r^2\dot\theta\,\mathbf k, \qquad h = r^2\dot\theta}$$
+>
+> **Units:** $[r^2\dot\theta] = [\mathrm{L^2\,T^{-1}}]$
+> **Meaning:** with $\mathbf k$ along $\mathbf H_{O,0}$ the rate $\dot\theta$ is positive: the particle turns counterclockwise about $\mathbf k$, never backwards.
 
-##### Case $\alpha = 3$: $F \propto 1/r^3$
-* $V_0 = -\dfrac{\mu}{2r^2} = -\dfrac{\mu}{2}u^2$. Binet: $u'' + \lambda u = 0$ with $\lambda \equiv 1 - \mu/h^2$. Then $W_{\text{eff}} = \lambda u^2$ and $(u')^2 + \lambda u^2 = E^*$.
-* **$h^2 \gt \mu$ ($\lambda = \kappa^2 \gt 0$, $\kappa = \sqrt{1 - \mu/h^2}$):** $u = A\cos(\kappa\theta + \delta)$; the initial conditions $u_0 = A\cos\delta$ and $u_0' = -\kappa A\sin\delta$ give, squaring and adding, $A = \sqrt{u_0^2 + (u_0'/\kappa)^2}$. The cosine vanishes at a finite angle, so $u \to 0$ in every case: **(i) the particle always escapes**; a particle moving inward ($u_0' \gt 0$) is first reflected at the periapsis $u = A$. **(ii)** never, since $u \le A$. **(iii)** no oscillation between two positive values.
-* **$h^2 \lt \mu$ ($\lambda = -\kappa^2 \lt 0$, $\kappa = \sqrt{\mu/h^2 - 1}$):** $u = C_1e^{\kappa\theta} + C_2e^{-\kappa\theta}$ with $C_1 = \tfrac{1}{2}(u_0 + u_0'/\kappa)$, $C_2 = \tfrac{1}{2}(u_0 - u_0'/\kappa)$. If $C_1 \gt 0$ (i.e. $u_0' \gt -\kappa u_0$), $u \to \infty$: **(ii) the particle reaches the origin**. If $C_1 \lt 0$ ($u_0' \lt -\kappa u_0$), $u$ reaches $0$ at a finite angle: **(i) escape**. If $C_1 = 0$, $u = u_0e^{-\kappa\theta} \to 0$ only asymptotically (spiral $r = r_0e^{\kappa\theta}$), a limiting case of escape. **(iii)** no oscillation.
-* **$h^2 = \mu$ ($\lambda = 0$):** $u'' = 0 \Rightarrow u = u_0 + u_0'\theta$ (reciprocal spiral). $u_0' \gt 0$: reaches the origin; $u_0' \lt 0$: escapes at $\theta = u_0/|u_0'|$; $u_0' = 0$: circle $r = 1/u_0$.
+### Forces and Equations of Motion
 
-##### Case $\alpha = 4$: $F \propto 1/r^4$
-* Binet: $u'' + u = \dfrac{\mu}{h^2}u^2$. $V_0 = -\dfrac{\mu}{3}u^3$, so $W_{\text{eff}} = u^2 - \dfrac{2\mu}{3h^2}u^3 = u^2\left(1 - \dfrac{2\mu}{3h^2}u\right)$ and $E^* = (u_0')^2 + u_0^2 - \dfrac{2\mu}{3h^2}u_0^3$.
-* $W_{\text{eff}}'(u) = 2u - \dfrac{2\mu}{h^2}u^2 = 2u\left(1 - \dfrac{\mu}{h^2}u\right)$: stationary points $u = 0$ (minimum, $W = 0$) and $u_b = h^2/\mu$ (maximum, barrier $W_{\max} = u_b^2 - \dfrac{2\mu}{3h^2}u_b^3 = \dfrac{h^4}{3\mu^2}$). For $u \gt u_b$, $W_{\text{eff}}$ decreases without bound and crosses zero at $u_z = 3h^2/(2\mu) \gt u_b$.
-* **There is no interior minimum**, so the allowed set $\{W_{\text{eff}} \le E^*\}$ either contains $u = 0$ or extends to $u \to \infty$. Because $\dot{\theta} = hu^2 \gt 0$, $u'$ has the sign of $\dot{u}$.
-* **Allowed regions by energy** (with $u_0 \gt 0$):
-  - $E^* \lt 0$: only $u \ge u_2$ with $u_2 \gt u_z$ is allowed.
-  - $E^* = 0$: $u = 0$ is a double root, so the allowed set is $\{0\} \cup [u_z, \infty)$; a particle at finite $r$ has $u_0 \ge u_z$.
-  - $0 \lt E^* \lt W_{\max}$: two roots $u_1 \in (0, u_b)$ and $u_2 \gt u_b$; allowed $u \le u_1$ or $u \ge u_2$.
-  - $E^* = W_{\max}$: $u_b$ is a stationary point of $W_{\text{eff}}$; the unstable circular orbit $u = u_b$ and the motions that approach it asymptotically.
-  - $E^* \gt W_{\max}$: no turning points.
-* **Motion in each region.** For $0 \lt E^* \lt W_{\max}$ and $u_0 \le u_1$: if $u_0' \gt 0$ the particle is reflected at $u_1$, and in any case it escapes. For $u_0 \ge u_2$: if $u_0' \lt 0$ it is reflected at $u_2$, and in any case it falls to the origin. For $E^* = W_{\max}$: with $u_0 \lt u_b$, $u_0' \lt 0$ escapes and $u_0' \gt 0$ approaches $u_b$ asymptotically; with $u_0 \gt u_b$, $u_0' \gt 0$ falls to the origin and $u_0' \lt 0$ approaches $u_b$ asymptotically. For $E^* \gt W_{\max}$, $u_0' \lt 0$ escapes and $u_0' \gt 0$ falls to the origin.
-* **(i)** escape: $0 \lt E^* \lt W_{\max}$ with $u_0 \lt u_b$; or $E^* = W_{\max}$ with $u_0 \lt u_b$ and $u_0' \lt 0$; or $E^* \gt W_{\max}$ with $u_0' \lt 0$.
-* **(ii)** reaching $r = 0$: $E^* \le 0$ (then $u_0 \ge u_z$); or $0 \lt E^* \lt W_{\max}$ with $u_0 \gt u_b$; or $E^* = W_{\max}$ with $u_0 \gt u_b$ and $u_0' \gt 0$; or $E^* \gt W_{\max}$ with $u_0' \gt 0$.
-* **(iii)** bounded oscillation between two values of $u$: **does not occur**; it would need an interior minimum of $W_{\text{eff}}$, and the only bounded motion is the unstable circle $u = u_b$.
+The free-body diagram of $P$ shows a single force, the attraction towards $O$. $S_0$ is inertial, so no inertia force acts, and there is no constraint.
 
-##### Special case $h = 0$ (radial motion)
-* **Pedagogical Justification:** with $h = 0$, $\dot{\theta} = 0$ and the particle moves on a straight line through $O$. The Binet equation does not apply ($u = 1/r$ cannot be expressed as a function of $\theta$), so we use the radial equation and the energy directly: $\ddot{r} = -\mu/r^\alpha \lt 0$ and $\tfrac{1}{2}\dot{r}^2 + V_0(r) = \xi$.
-* **(ii)** A particle with $\dot{r}_0 \lt 0$ reaches $r = 0$ for every $\alpha$, since the acceleration is always inward. **(i)** Escape requires $\dot{r}_0 \gt 0$ and $\xi \ge \lim_{r\to\infty}V_0 = 0$, which exists only for $\alpha \gt 1$; for $\alpha \le 1$, $V_0 \to +\infty$ and the particle always turns back. **(iii)** Without angular momentum, a particle that turns back falls to the origin, so there is no oscillation between two values.
+![[attachments/EM-SOL/p42-fbd.svg]]
 
-### Phase 4: Interpretation & Checks
-* **Dimensional check:** $[F/m] = \text{m/s}^2 = [\mu]/\text{m}^\alpha$ gives $[\mu] = \text{m}^{\alpha+1}/\text{s}^2$. With $[h^2] = \text{m}^4/\text{s}^2$ and $[u] = \text{m}^{-1}$, $\dfrac{\mu}{h^2}u^{\alpha - 2}$ has units $\text{m}^{\alpha - 3}\,\text{m}^{-(\alpha - 2)} = \text{m}^{-1}$, the same as $u$ and $u''$ ($\theta$ is dimensionless).
-* **Stability of circular orbits (consequence of the first integral):** for general $\alpha$, $W_{\text{eff}}'(u_c) = 0$ gives $u_c^{\alpha - 3} = h^2/\mu$ and $W_{\text{eff}}''(u_c) = 2 - 2(\alpha - 2)\dfrac{\mu}{h^2}u_c^{\alpha - 3} = 2(3 - \alpha)$, so the circular orbit is a minimum (stable) for $\alpha \lt 3$ and a maximum (unstable) for $\alpha \gt 3$, in agreement with the cases above ($\alpha = 4$: barrier at $u_b = h^2/\mu$).
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 42 in its solution keys, so the result is verified by independent derivation. A symbolic check with sympy confirms the substitution $\dot{r} = -hu'$, $\ddot{r} = -h^2u^2u''$, the Binet equation, the first integral $\frac{d}{d\theta}\left[(u')^2 + W_{\text{eff}}\right] = 0$, the barrier $W_{\max} = h^4/(3\mu^2)$ and $W_{\text{eff}}'' = 2(3 - \alpha)$.
-* **Numerical check** (Python, DOP853 with relative tolerance $10^{-12}$ on $u'' = -u + (\mu/h^2)u^{\alpha-2}$, units with $\mu = h = 1$ unless stated). Blow-up angles are given for the cut-off $u = 10^6$; they change by less than $0.003$ rad when the cut-off is $10^9$.
+> [!derivation] (a) Torque about O and conservation of the angular momentum
+> **Law:** theorem of the angular momentum about a fixed point; moment of a central force
+> **Source:** Notes.pdf, Eq. 4.48; Notes.pdf, Eq. 4.53; Notes.pdf, Eq. 4.57; Notes.pdf, Eq. 4.58; [Lecture 4, Slide 5]
+>
+> The proof uses vectors of $S_0$ in any basis, not the polar coordinates, so it does not assume that the motion is planar. $O$ is fixed, so its velocity is zero.
+>
+> $$\begin{aligned}
+> \mathbf H_{O,0} &= \mathbf r_0^P\times m\,\mathbf v_0^P \quad &\text{(definition, Eq. 4.48)} \\
+> \left.\frac{d\mathbf H_{O,0}}{dt}\right|_0 &= \mathbf v_0^P\times m\,\mathbf v_0^P + \mathbf r_0^P\times m\,\mathbf a_0^P \quad &\text{(product rule for the cross product; $O$ fixed)} \\
+> &= \mathbf r_0^P\times m\,\mathbf a_0^P \quad &\text{($\mathbf v_0^P\times\mathbf v_0^P = \mathbf 0$)} \\
+> &= \mathbf r_0^P\times\mathbf F \quad &\text{(Newton's second law, Notes.pdf, Eq. 4.4)} \\
+> &= r\,\mathbf e_r\times\left(-\frac{m\mu}{r^\alpha}\,\mathbf e_r\right) \quad &\text{(position vector and force)} \\
+> &= -m\mu\,r^{1-\alpha}\left(\mathbf e_r\times\mathbf e_r\right) \quad &\text{(scalars taken out of the product)} \\
+> &= \mathbf 0 \quad &\text{($\mathbf e_r\times\mathbf e_r = \mathbf 0$)} \\
+> \left[\mathbf H_{O,0}\right]_0^t &= \int_0^t\mathbf 0\,dt' = \mathbf 0 \quad &\text{(Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf M_O = \mathbf r_0^P\times\mathbf F = \mathbf 0, \qquad \mathbf H_{O,0} = m\,\mathbf r_0^P\times\mathbf v_0^P = \mathbf H_{O,0}(0) = \text{const}}$$
+>
+> **Units:** $[\mathbf H_{O,0}] = [\mathrm{M\,L^2\,T^{-1}}]$; $[\mathbf M_O] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the line of action of the attraction always passes through $O$, so it has no moment about $O$: the three components of the angular momentum are conserved (three scalar laws), for any exponent.
 
-| Case | Initial data $(u_0, u_0')$ | Predicted | Integration result |
-|---|---|---|---|
-| $\alpha = 2$ | $(1.5, 0)$ | bounded, $0.5$ to $1.5$ | $u \in [0.5000, 1.5000]$ over $60$ rad |
-| $\alpha = 2$ | $(0.5, -0.9)$, $E^* \gt 0$ | escape | $u = 0$ at $\theta = 0.823$ |
-| $\alpha = 4$ | $(0.5, 0)$, $E^* = 1/6 \lt 1/3$ | reflected, then escape | $u = 0$ at $\theta = 2.078$ |
-| $\alpha = 4$ | $(1.2, 0)$, $E^* = 0.288 \lt 1/3$ | collapse | $u \to \infty$ at $\theta = 4.058$ |
-| $\alpha = 4$ | $(0.5, 0.9)$, $E^* = 0.977 \gt 1/3$ | collapse | $u \to \infty$ at $\theta = 3.604$ |
-| $\alpha = 4$ | $(0.5, -0.9)$, $E^* = 0.977 \gt 1/3$ | escape | $u = 0$ at $\theta = 0.524$ |
-| $\alpha = 4$ | $(1, 0)$, $E^* = W_{\max}$ | unstable circular orbit | $u = 1$ for $20$ rad |
-| $\alpha = 4$ | $(1.5, 0)$, $E^* = 0$, $u_0 = u_z$ | collapse | $u \to \infty$ at $\theta = 3.139$ |
-| $\alpha = 4$ | $(0.5, -0.408)$, $E^* = W_{\max}$ | escape | $u = 0$ at $\theta = 0.975$ |
-| $\alpha = 4$ | $(0.5, +0.408)$, $E^* = W_{\max}$ | tends to $u_b = 1$ asymptotically | follows $u \to 1$ until round-off, amplified by $e^{\theta}$, takes it off the separatrix at $\theta \approx 34$ |
-| $\alpha = 3$, $\mu/h^2 = 2$ | $(1, 0.2)$, $C_1 \gt 0$ | collapse | $u = \cosh\theta + 0.2\sinh\theta$ grows without bound with $\theta$ and no zero appears |
-| $\alpha = 3$, $\mu/h^2 = 2$ | $(1, -1.5)$, $C_1 \lt 0$ | escape | $u = 0$ at $\theta = 0.805$ |
-| $\alpha = 3$, $\mu/h^2 = 1/2$ | $(1, 0)$ | escape | $u = 0$ at $\theta = 2.221$, equal to $\dfrac{\pi/2}{\sqrt{1/2}}$ |
-| $\alpha = 3$, $\mu = h^2$ | $(1, -0.1)$ | escape at $\theta = 10$ | $u = 1 - 0.1\theta$, zero at $\theta = 10$ |
-| $\alpha = 1$ | $(0.5, 0.3)$ | bounded | $u \in [0.471, 1.653]$ over $100$ rad |
+> [!derivation] (a) The motion is planar
+> **Law:** the angular momentum is perpendicular to the position vector; scalar triple product
+> **Source:** Notes.pdf, Sec. 4.8.1; [Lecture 4, Slide 7]
+>
+> $$\begin{aligned}
+> \mathbf r_0^P\cdot\mathbf H_{O,0} &= \mathbf r_0^P\cdot\left(\mathbf r_0^P\times m\,\mathbf v_0^P\right) \quad &\text{(definition of $\mathbf H_{O,0}$)} \\
+> &= m\,\mathbf v_0^P\cdot\left(\mathbf r_0^P\times\mathbf r_0^P\right) \quad &\text{(cyclic permutation of the triple product)} \\
+> &= 0 \quad &\text{($\mathbf r_0^P\times\mathbf r_0^P = \mathbf 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P(t)\cdot\mathbf H_{O,0} = 0 \ \text{for all } t, \ \text{with } \mathbf H_{O,0} \ \text{constant}: \ P \ \text{moves in the fixed plane through } O \ \text{perpendicular to } \mathbf H_{O,0}}$$
+>
+> **Units:** $[\mathrm{L}][\mathrm{M\,L^2\,T^{-1}}]$ on both sides of the zero
+> **Meaning:** the vector $\mathbf H_{O,0}$ is fixed by the previous box, and the position stays perpendicular to it: this is the plane $Oxy$ of the table, with $\mathbf k$ along $\mathbf H_{O,0}$. If $\mathbf H_{O,0}$ is zero the velocity is parallel to the position and the particle moves on a fixed line through $O$ (last limiting case).
+
+> [!derivation] (a) Elementary work of the attraction: an exact differential
+> **Law:** elementary work of a force; potential energy exists when the work is an exact differential
+> **Source:** Notes.pdf, Eq. 4.13; Notes.pdf, Eq. 4.14; Notes.pdf, Sec. 4.4
+>
+> $$\begin{aligned}
+> d\mathbf r_0^P &= dr\,\mathbf e_r + r\,d\mathbf e_r \quad &\text{(differential of $r\,\mathbf e_r$, product rule)} \\
+> \mathbf e_r\cdot d\mathbf e_r &= \tfrac12\,d\left(\mathbf e_r\cdot\mathbf e_r\right) \quad &\text{(product rule on the dot product)} \\
+> &= \tfrac12\,d(1) = 0 \quad &\text{($\mathbf e_r$ is a unit vector)} \\
+> \delta W_0 &= \mathbf F\cdot d\mathbf r_0^P \quad &\text{(Eq. 4.13)} \\
+> &= -\frac{m\mu}{r^\alpha}\,\mathbf e_r\cdot\left(dr\,\mathbf e_r + r\,d\mathbf e_r\right) \quad &\text{(force and displacement substituted)} \\
+> &= -\frac{m\mu}{r^\alpha}\,dr \quad &\text{($\mathbf e_r\cdot\mathbf e_r = 1$, $\mathbf e_r\cdot d\mathbf e_r = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\delta W_0 = -m\mu\,r^{-\alpha}\,dr: \ \text{a function of } r \text{ alone times } dr, \ \text{an exact differential}}$$
+>
+> **Units:** $[m\mu\,r^{-\alpha}\,dr] = [\mathrm{M}][\mathrm{L^{\alpha+1}\,T^{-2}}][\mathrm{L^{-\alpha}}][\mathrm{L}] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** only the change of the distance to $O$ costs work; the work between two positions depends only on their distances to $O$, not on the path, so the attraction is conservative.
+
+> [!derivation] (a) Potential energy of the attraction
+> **Law:** potential energy as minus the work from a reference position; antiderivative and Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.14
+>
+> The work of the previous box is integrated from a reference radius $r_*$, where the potential energy is zero, to the radius $r$; $s$ is the integration variable.
+>
+> $$\begin{aligned}
+> V_0(r) &= -\int_{r_*}^{r}\left(-m\mu\,s^{-\alpha}\right)ds \quad &\text{(Eq. 4.14 with the work of the previous box)} \\
+> &= m\mu\int_{r_*}^{r}s^{-\alpha}\,ds \quad &\text{(the two minus signs cancel)} \\
+> \alpha \ne 1:\quad V_0(r) &= m\mu\left[\frac{s^{1-\alpha}}{1-\alpha}\right]_{r_*}^{r} \quad &\text{(antiderivative of $s^{-\alpha}$)} \\
+> &= m\mu\,\frac{r^{1-\alpha} - r_*^{1-\alpha}}{1-\alpha} \quad &\text{(Barrow's rule)} \\
+> \alpha \gt 1,\ r_*\to\infty:\quad V_0(r) &= \frac{m\mu\,r^{1-\alpha}}{1-\alpha} \quad &\text{($r_*^{1-\alpha}\to 0$ because $1-\alpha \lt 0$)} \\
+> &= -\frac{m\mu}{(\alpha-1)\,r^{\alpha-1}} \quad &\text{(sign moved to the denominator)} \\
+> \alpha = 1:\quad V_0(r) &= m\mu\left[\ln s\right]_{r_*}^{r} \quad &\text{(antiderivative of $s^{-1}$)} \\
+> &= m\mu\ln\frac{r}{r_*} \quad &\text{(Barrow's rule; difference of logarithms)} \\
+> \alpha \gt 1:\quad \frac{dV_0}{dr} &= -\frac{m\mu}{\alpha-1}\left(1-\alpha\right)r^{-\alpha} \quad &\text{(derivative of the power $r^{1-\alpha}$)} \\
+> &= m\mu\,r^{-\alpha} \quad &\text{($(1-\alpha)/(\alpha-1) = -1$)} \\
+> \alpha = 1:\quad \frac{dV_0}{dr} &= \frac{m\mu}{r} \quad &\text{(derivative of the logarithm)}
+> \end{aligned}$$
+>
+> $$\boxed{V_0(r) = -\frac{m\mu}{(\alpha-1)\,r^{\alpha-1}} \ (\alpha = 2, 3, 4), \qquad V_0(r) = m\mu\ln\frac{r}{r_*} \ (\alpha = 1), \qquad \frac{dV_0}{dr} = m\mu\,r^{-\alpha}}$$
+>
+> **Units:** $[m\mu\,r^{1-\alpha}] = [\mathrm{M}][\mathrm{L^{\alpha+1}\,T^{-2}}][\mathrm{L^{1-\alpha}}] = [\mathrm{M\,L^2\,T^{-2}}]$; the logarithm is of a ratio of lengths
+> **Meaning:** minus the derivative of the potential is the radial component of the force, as it must be. For the exponents above 1 the potential tends to zero far away; for the exponent 1 it grows without bound with $r$, which will forbid the escape.
+
+> [!derivation] (a) Conservation of the mechanical energy
+> **Law:** theorem of the kinetic energy; the attraction derives from the potential of the previous box; Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P\right) &= m\,\mathbf a_0^P\cdot\mathbf v_0^P \quad &\text{(product rule on the dot product)} \\
+> &= \mathbf F\cdot\mathbf v_0^P \quad &\text{(Newton's second law, Eq. 4.11)} \\
+> &= -\frac{m\mu}{r^\alpha}\,\mathbf e_r\cdot\mathbf v_0^P \quad &\text{(force substituted)} \\
+> \mathbf r_0^P\cdot\mathbf v_0^P &= \tfrac12\,\frac{d}{dt}\left(\mathbf r_0^P\cdot\mathbf r_0^P\right) \quad &\text{(product rule on the dot product)} \\
+> &= \tfrac12\,\frac{d}{dt}\left(r^2\right) \quad &\text{($\mathbf r_0^P\cdot\mathbf r_0^P = r^2$)} \\
+> &= r\dot r \quad &\text{(chain rule)} \\
+> \mathbf e_r\cdot\mathbf v_0^P &= \dot r \quad &\text{(divided by $r$; $\mathbf e_r$ is $\mathbf r_0^P/r$)} \\
+> \frac{d}{dt}\left(\tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P\right) &= -m\mu\,r^{-\alpha}\,\dot r \quad &\text{(substituted)} \\
+> &= -\frac{dV_0}{dr}\,\dot r \quad &\text{(derivative of the potential, previous box)} \\
+> &= -\frac{d}{dt}V_0\big(r(t)\big) \quad &\text{(chain rule)} \\
+> \frac{d}{dt}\left(\tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P + V_0\right) &= 0 \quad &\text{(both terms on the left)} \\
+> \left[\tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P + V_0\right]_0^t &= 0 \quad &\text{(Barrow's rule between $0$ and $t$)}
+> \end{aligned}$$
+>
+> $$\boxed{E_0 = \tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P + V_0(r) = \text{const}}$$
+>
+> **Units:** $[\tfrac12 m v^2] = [V_0] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the only force does work that depends on the distance to $O$ alone, so the kinetic energy gained when $P$ falls towards $O$ is exactly the potential energy lost: the mechanical energy is a second conserved quantity. This completes part (a).
+
+> [!derivation] Newton's second law in the plane of the motion
+> **Law:** Newton's second law in an inertial frame, projected on the polar basis
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 8.4; Notes.pdf, Eq. 8.5; Notes.pdf, Eq. 8.6
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^P &= -\frac{m\mu}{r^\alpha}\,\mathbf e_r \quad &\text{(the only force; Eq. 4.4)} \\
+> \mathbf e_r:\ m\left(\ddot r - r\dot\theta^2\right) &= -\frac{m\mu}{r^\alpha} \quad &\text{(dot product with $\mathbf e_r$)} \\
+> \mathbf e_\theta:\ m\left(r\ddot\theta + 2\dot r\dot\theta\right) &= 0 \quad &\text{(dot product with $\mathbf e_\theta$)} \\
+> \mathbf k:\ 0 &= 0 \quad &\text{(planar motion: no component along $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot r - r\dot\theta^2 = -\frac{\mu}{r^\alpha}, \qquad r\ddot\theta + 2\dot r\dot\theta = 0}$$
+>
+> **Units:** $[\ddot r] = [r\dot\theta^2] = [\mu\,r^{-\alpha}] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** two equations for the two unknown functions $r(t)$ and $\theta(t)$; with the exponent 2 they are Notes.pdf, Eq. 8.5 and Eq. 8.6.
+
+> [!derivation] Areal integral: the angular momentum per unit mass is constant
+> **Law:** the transverse equation times r is an exact derivative; Barrow's rule
+> **Source:** Notes.pdf, Eq. 8.6; Notes.pdf, Eq. 8.7; [Lecture 4, Slide 12]
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(r^2\dot\theta\right) &= 2r\dot r\dot\theta + r^2\ddot\theta \quad &\text{(product rule; chain rule on $r^2$)} \\
+> &= r\left(r\ddot\theta + 2\dot r\dot\theta\right) \quad &\text{(common factor $r$)} \\
+> &= 0 \quad &\text{(transverse equation)} \\
+> \left[r^2\dot\theta\right]_0^t &= 0 \quad &\text{(Barrow's rule)} \\
+> \dot\theta &= \frac{h}{r^2} = h\,u^2 \quad &\text{(the constant is $h$, kinematics box; $u = 1/r$)}
+> \end{aligned}$$
+>
+> $$\boxed{r^2\dot\theta = h = \text{const}, \qquad \dot\theta = h\,u^2}$$
+>
+> **Units:** $[h] = [\mathrm{L^2\,T^{-1}}]$; $[h\,u^2] = [\mathrm{L^2\,T^{-1}}][\mathrm{L^{-2}}] = [\mathrm{T^{-1}}]$
+> **Meaning:** the $\mathbf k$ component of the conserved angular momentum of part (a), per unit mass; the angular rate grows as the particle approaches $O$.
+
+> [!derivation] (b) Second-order equation for u as a function of theta
+> **Law:** change of independent variable from t to theta (chain rule); radial equation of motion
+> **Source:** Notes.pdf, Eq. 8.9; Notes.pdf, Eq. 8.10; Notes.pdf, Eq. 8.11; Notes.pdf, Eq. 8.12; [Lecture 4, Slide 13]
+>
+> With $h$ nonzero the rate $\dot\theta = hu^2$ never vanishes, so $\theta$ grows monotonically with $t$ and can replace it as the independent variable: $u = u(\theta(t))$, and primes are derivatives with respect to $\theta$.
+>
+> $$\begin{aligned}
+> \dot r &= \frac{d}{dt}\left(u^{-1}\right) = -u^{-2}\,\dot u \quad &\text{(chain rule on $r = u^{-1}$)} \\
+> \dot u &= u'\,\dot\theta \quad &\text{(chain rule on $u(\theta(t))$)} \\
+> \dot r &= -u^{-2}\,u'\,h\,u^2 \quad &\text{($\dot\theta = hu^2$ substituted)} \\
+> &= -h\,u' \quad &\text{($u^{-2}u^2 = 1$)} \\
+> \ddot r &= -h\,\frac{d}{dt}\left(u'\right) \quad &\text{($h$ constant)} \\
+> &= -h\,u''\,\dot\theta \quad &\text{(chain rule on $u'(\theta(t))$)} \\
+> &= -h^2u^2\,u'' \quad &\text{($\dot\theta = hu^2$)} \\
+> r\dot\theta^2 &= u^{-1}\left(h\,u^2\right)^2 \quad &\text{($r = u^{-1}$, $\dot\theta = hu^2$)} \\
+> &= h^2u^3 \quad &\text{(powers of $u$ collected)} \\
+> -h^2u^2\,u'' - h^2u^3 &= -\mu\,u^\alpha \quad &\text{(radial equation; $r^{-\alpha} = u^\alpha$)} \\
+> u'' + u &= \frac{\mu}{h^2}\,u^{\alpha-2} \quad &\text{(divided by $-h^2u^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{u'' + u = K\,u^{\alpha-2}, \qquad K = \frac{\mu}{h^2}}$$
+>
+> **Units:** $[u''] = [u] = [\mathrm{L^{-1}}]$ ($\theta$ is dimensionless); $[K\,u^{\alpha-2}] = [\mathrm{L^{\alpha+1}\,T^{-2}}][\mathrm{L^{-4}\,T^{2}}][\mathrm{L^{2-\alpha}}] = [\mathrm{L^{-1}}]$
+> **Meaning:** the equation of the orbit, free of time. For the exponent 2 it is the linear equation of a forced harmonic oscillator, Notes.pdf, Eq. 8.12; for 3 it is linear and homogeneous; for 1 and 4 it is nonlinear.
+
+### Answers and Checks
+
+#### (c) First integral and limits of the motion
+
+> [!derivation] First integral of the equation of u
+> **Law:** the equation multiplied by 2u' is an exact derivative (chain rule); Barrow's rule between 0 and theta
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 8.12
+>
+> Write $\Phi(u)$ for an antiderivative of $u^{\alpha-2}$: $\Phi(u) = u^{\alpha-1}/(\alpha-1)$ for $\alpha \ne 1$ and $\Phi(u) = \ln(u/u_0)$ for $\alpha = 1$; in both cases its derivative is $u^{\alpha-2}$.
+>
+> $$\begin{aligned}
+> 2u'u'' + 2u\,u' &= 2K\,u^{\alpha-2}\,u' \quad &\text{(equation of part (b) times $2u'$)} \\
+> \frac{d}{d\theta}\left(u'^2\right) &= 2u'u'' \quad &\text{(chain rule)} \\
+> \frac{d}{d\theta}\left(u^2\right) &= 2u\,u' \quad &\text{(chain rule)} \\
+> \frac{d}{d\theta}\,\Phi(u) &= u^{\alpha-2}\,u' \quad &\text{(chain rule; $\Phi'(u) = u^{\alpha-2}$)} \\
+> \frac{d}{d\theta}\left[u'^2 + u^2 - 2K\,\Phi(u)\right] &= 0 \quad &\text{(the first row is this sum of derivatives)} \\
+> \left[u'^2 + u^2 - 2K\,\Phi(u)\right]_0^\theta &= 0 \quad &\text{(Barrow's rule)} \\
+> u'^2 + W(u) &= u_0'^2 + W(u_0) \quad &\text{(with $W(u) \equiv u^2 - 2K\,\Phi(u)$)}
+> \end{aligned}$$
+>
+> $$\boxed{u'^2 + W(u) = E^*, \qquad W(u) = u^2 - 2K\,\Phi(u), \qquad E^* = u_0'^2 + W(u_0)}$$
+>
+> **Units:** $[u'^2] = [u^2] = [\mathrm{L^{-2}}]$; $[K\,\Phi] = [\mathrm{L^{\alpha-3}}][\mathrm{L^{1-\alpha}}] = [\mathrm{L^{-2}}]$ (for the exponent 1, $K$ is in $\mathrm{L^{-2}}$ and $\Phi$ is dimensionless)
+> **Meaning:** a first-order equation for $u(\theta)$: $u'$ is known from $u$ alone, and the constant $E^*$ is fixed by the values $u_0$ and $u_0'$ at the initial instant, as the statement asks.
+
+> [!derivation] The first integral is the mechanical energy (check, exponents 2, 3, 4)
+> **Law:** energy of part (a) written with the change of variable of part (b)
+> **Source:** Notes.pdf, Eq. 4.31; Notes.pdf, Eq. 8.10; Notes.pdf, Eq. 8.19
+>
+> $$\begin{aligned}
+> \dot r &= -h\,u' \quad &\text{(box of part (b))} \\
+> r\dot\theta &= u^{-1}\,h\,u^2 \quad &\text{($r = u^{-1}$, $\dot\theta = hu^2$)} \\
+> &= h\,u \quad &\text{(powers of $u$ collected)} \\
+> \mathbf v_0^P\cdot\mathbf v_0^P &= \dot r^2 + \left(r\dot\theta\right)^2 \quad &\text{($\mathcal B_1$ orthonormal)} \\
+> &= h^2\left(u'^2 + u^2\right) \quad &\text{(the two rates substituted)} \\
+> \frac{E_0}{m} &= \tfrac12 h^2\left(u'^2 + u^2\right) - \frac{\mu\,u^{\alpha-1}}{\alpha-1} \quad &\text{(energy of part (a); $r^{1-\alpha} = u^{\alpha-1}$)} \\
+> \frac{2E_0}{m h^2} &= u'^2 + u^2 - \frac{2K\,u^{\alpha-1}}{\alpha-1} \quad &\text{(times $2/h^2$; $K = \mu/h^2$)} \\
+> &= u'^2 + W(u) \quad &\text{(definition of $W$, $\alpha \ne 1$)}
+> \end{aligned}$$
+>
+> $$\boxed{E^* = \frac{2E_0}{m h^2} \quad (\alpha = 2, 3, 4)}$$
+>
+> **Units:** $[E_0/(m h^2)] = [\mathrm{L^2\,T^{-2}}][\mathrm{L^{-4}\,T^2}] = [\mathrm{L^{-2}}]$
+> **Meaning:** the first integral is the energy of part (a) per unit of $m h^2/2$, and $W$ is the effective potential: the centrifugal term $u^2$ (it comes from the kinetic energy of the turning) minus the attraction. For the exponent 1 the constant differs only by the reference of the logarithm.
+
+> [!derivation] Allowed values of u and turning points
+> **Law:** a square cannot be negative; derivative of the first integral
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.28
+>
+> $$\begin{aligned}
+> u'^2 &= E^* - W(u) \ge 0 \quad &\text{(first integral; square of a real number)} \\
+> 2u'u'' + W'(u)\,u' &= 0 \quad &\text{(derivative of the first integral with respect to $\theta$; chain rule)} \\
+> u'' &= -\tfrac12\,W'(u) \quad &\text{(divided by $2u'$ where $u' \ne 0$)} \\
+> W'(u) &= 2u - 2K\,u^{\alpha-2} \quad &\text{(derivative of $W$; $\Phi'(u) = u^{\alpha-2}$)} \\
+> u'' &= -u + K\,u^{\alpha-2} \quad &\text{(substituted: the equation of part (b) is recovered)}
+> \end{aligned}$$
+>
+> $$\boxed{W(u) \le E^* \ \text{along the motion}; \ \text{at a root } u_t \text{ of } W(u_t) = E^* \text{ with } W'(u_t) \ne 0, \ u' = 0 \text{ and } u'' = -\tfrac12 W'(u_t) \ne 0}$$
+>
+> **Units:** $[W] = [E^*] = [\mathrm{L^{-2}}]$; $[W'] = [u''] = [\mathrm{L^{-1}}]$
+> **Meaning:** $u$ can only take the values where the curve $W$ lies below the level $E^*$; at a simple root $u'$ vanishes and $u''$ pushes $u$ back into the allowed region (a turning point, Notes.pdf, Eq. 4.28). Since $\dot\theta = hu^2$ is positive, $u'$ has the sign of $\dot u$: a growing $u$ means $P$ approaching $O$. Hence (i) escape ($u \to 0$) needs the allowed region to reach $u = 0$; (ii) reaching $O$ ($u \to \infty$) needs it to be unbounded above; (iii) oscillation needs $u_0$ inside a bounded interval of positive values limited by two simple roots.
+
+![[attachments/EM-SOL/p42-weff.svg]]
+
+#### Exponent 2: inverse square
+
+> [!derivation] Exponent 2: conic orbits
+> **Law:** first integral with the general solution of the linear equation of the orbit
+> **Source:** Notes.pdf, Eq. 8.12; Notes.pdf, Eq. 8.13; Notes.pdf, Eq. 8.14; [Lecture 4, Slide 14]
+>
+> $$\begin{aligned}
+> W(u) &= u^2 - 2K\,u \quad &\text{($\Phi(u) = u$)} \\
+> &= \left(u - K\right)^2 - K^2 \quad &\text{(square completed)} \\
+> E^* &= u_0'^2 + u_0^2 - 2K\,u_0 \quad &\text{(initial data)} \\
+> u &= K + A\cos\left(\theta - \theta_p\right) \quad &\text{(general solution of $u'' + u = K$, Eq. 8.13; $A \ge 0$)} \\
+> u' &= -A\sin\left(\theta - \theta_p\right) \quad &\text{(derivative)} \\
+> A^2\sin^2\left(\theta - \theta_p\right) + A^2\cos^2\left(\theta - \theta_p\right) &= E^* + K^2 \quad &\text{(substituted in $u'^2 + (u - K)^2 = E^* + K^2$)} \\
+> A^2 &= E^* + K^2 \quad &\text{($\cos^2 + \sin^2 = 1$)} \\
+> e &= \frac{A}{K} \quad &\text{(eccentricity of Eq. 8.13, where $A = Ke$)} \\
+> &= \sqrt{1 + \frac{E^*}{K^2}} \quad &\text{($A$ of the previous row)} \\
+> u_{\min} &= K\left(1 - e\right), \quad u_{\max} = K\left(1 + e\right) \quad &\text{(cosine at $-1$ and $+1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} u = K\left[1 + e\cos\left(\theta - \theta_p\right)\right], \quad e = \sqrt{1 + E^*/K^2}, \quad E^* = u_0'^2 + u_0^2 - 2Ku_0 \cr \text{(i) escape} \iff E^* \ge 0 \ (e \ge 1); \quad \text{(ii) never}; \cr \text{(iii) oscillation between } K(1-e) \text{ and } K(1+e) \iff -K^2 \lt E^* \lt 0; \ \text{circle } u = K \text{ for } E^* = -K^2 \end{array}}$$
+>
+> **Units:** $[K] = [\mathrm{L^{-1}}]$ for the exponent 2; $e$ is dimensionless
+> **Meaning:** $u$ reaches zero only if the cosine can reach $-1/e$, that is if $e \ge 1$ (parabola or hyperbola): the particle escapes, even if it first moves inward and passes the pericentre. $u$ never exceeds $K(1 + e)$, so $O$ is never reached. For $e$ below 1 (negative energy) $u$ oscillates between the pericentre and the apocentre of an ellipse, Kepler's first law.
+
+#### Exponent 1
+
+> [!derivation] Exponent 1: every orbit is bounded
+> **Law:** first integral; shape of the effective potential (derivatives and limits)
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.28
+>
+> $$\begin{aligned}
+> W(u) &= u^2 - 2K\ln\frac{u}{u_0} \quad &\text{($\Phi(u) = \ln(u/u_0)$)} \\
+> E^* &= u_0'^2 + u_0^2 \quad &\text{($\ln 1 = 0$)} \\
+> W'(u) &= 2u - \frac{2K}{u} \quad &\text{(derivative)} \\
+> 2u_c - \frac{2K}{u_c} &= 0 \quad &\text{(stationary point)} \\
+> u_c &= \sqrt{K} \quad &\text{(times $u_c/2$; positive root)} \\
+> W''(u) &= 2 + \frac{2K}{u^2} \gt 0 \quad &\text{(second derivative: $W$ is strictly convex)} \\
+> \lim_{u\to 0^+}W(u) &= +\infty \quad &\text{($-\ln(u/u_0) \to +\infty$)} \\
+> \lim_{u\to\infty}W(u) &= +\infty \quad &\text{($u^2$ grows faster than the logarithm)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} W \text{ has a single minimum at } u_c = \sqrt{K} = \sqrt{\mu}/h \text{ and tends to } +\infty \text{ at both ends} \cr \text{(i) never}; \quad \text{(ii) never}; \quad \text{(iii) always, between the two roots } u_1 \lt u_c \lt u_2 \text{ of } W = E^*; \cr \text{circle } r = h/\sqrt{\mu} \text{ when } u_0 = \sqrt{K} \text{ and } u_0' = 0 \end{array}}$$
+>
+> **Units:** $[K] = [\mathrm{L^{-2}}]$ for the exponent 1, so $[\sqrt K] = [\mathrm{L^{-1}}]$
+> **Meaning:** the potential well is infinitely deep on both sides: the logarithmic potential grows without bound far away and the centrifugal term near $O$. Any level above the minimum cuts the convex curve exactly twice, so every motion with nonzero angular momentum oscillates between two radii.
+
+#### Exponent 3
+
+> [!derivation] Exponent 3: the orbit equation
+> **Law:** first integral and equation of part (b) with the exponent 3
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 8.12
+>
+> $$\begin{aligned}
+> W(u) &= u^2 - K\,u^2 \quad &\text{($\Phi(u) = u^2/2$)} \\
+> &= \left(1 - K\right)u^2 \quad &\text{(common factor $u^2$)} \\
+> u'' + \left(1 - K\right)u &= 0 \quad &\text{(equation of part (b): $u^{\alpha-2} = u$)} \\
+> E^* &= u_0'^2 + \left(1 - K\right)u_0^2 \quad &\text{(initial data)}
+> \end{aligned}$$
+>
+> $$\boxed{u'' + \left(1 - K\right)u = 0, \qquad u'^2 + \left(1 - K\right)u^2 = E^*, \qquad K = \frac{\mu}{h^2} \ \text{dimensionless}}$$
+>
+> **Units:** $[K] = [\mathrm{L^{4}\,T^{-2}}]/[\mathrm{L^4\,T^{-2}}] = [1]$ for the exponent 3
+> **Meaning:** the attraction and the centrifugal term both vary as $u^3$ in the radial equation, so the sign of $1 - K$ alone decides the type of motion; the three cases follow.
+
+> [!derivation] Exponent 3 with K below 1: the particle always escapes
+> **Law:** harmonic solution of the linear equation; initial conditions
+> **Source:** Notes.pdf, Eq. 5.6; Notes.pdf, Eq. 5.10
+>
+> Write $\lambda = \sqrt{1 - K}$, positive.
+>
+> $$\begin{aligned}
+> u &= A\cos\left(\lambda\theta + \delta\right) \quad &\text{(general solution of $u'' + \lambda^2u = 0$; $A \ge 0$)} \\
+> u_0 &= A\cos\delta \quad &\text{(value at $\theta = 0$)} \\
+> u_0' &= -\lambda A\sin\delta \quad &\text{(derivative at $\theta = 0$)} \\
+> A^2\cos^2\delta + A^2\sin^2\delta &= u_0^2 + \frac{u_0'^2}{\lambda^2} \quad &\text{(the two rows squared and added)} \\
+> A^2 &= u_0^2 + \frac{u_0'^2}{\lambda^2} \quad &\text{($\cos^2 + \sin^2 = 1$)} \\
+> u &= 0 \ \text{at} \ \lambda\theta_e + \delta = \frac{\pi}{2} \quad &\text{(first zero of the cosine after $\theta = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{K \lt 1: \ u \le A = \sqrt{u_0^2 + u_0'^2/(1 - K)}, \ u \text{ reaches } 0 \text{ at a finite angle}: \ \text{(i) always; (ii) never; (iii) never}}$$
+>
+> **Units:** $[A] = [u_0] = [u_0'] = [\mathrm{L^{-1}}]$; $\lambda$ dimensionless
+> **Meaning:** the centrifugal term wins: $W$ is an upward parabola with its minimum at $u = 0$, so the particle reaches infinity along an asymptote; if it starts moving inward it is first reflected at the closest distance $1/A$.
+
+> [!derivation] Exponent 3 with K above 1: escape or fall, decided by the initial data
+> **Law:** exponential solution of the linear equation; initial conditions
+> **Source:** Notes.pdf, Eq. 8.12
+>
+> Write $\lambda = \sqrt{K - 1}$, positive.
+>
+> $$\begin{aligned}
+> u'' - \lambda^2 u &= 0 \quad &\text{(equation with $1 - K = -\lambda^2$)} \\
+> u &= C_1e^{\lambda\theta} + C_2e^{-\lambda\theta} \quad &\text{(general solution)} \\
+> u_0 &= C_1 + C_2 \quad &\text{(value at $\theta = 0$)} \\
+> u_0' &= \lambda\left(C_1 - C_2\right) \quad &\text{(derivative at $\theta = 0$)} \\
+> C_1 &= \tfrac12\left(u_0 + \frac{u_0'}{\lambda}\right), \quad C_2 = \tfrac12\left(u_0 - \frac{u_0'}{\lambda}\right) \quad &\text{(sum and difference of the two rows)} \\
+> E^* &= u_0'^2 - \lambda^2u_0^2 \quad &\text{(first integral with $1 - K = -\lambda^2$)} \\
+> &= -\lambda^2\left(u_0 + \frac{u_0'}{\lambda}\right)\left(u_0 - \frac{u_0'}{\lambda}\right) \quad &\text{(difference of squares)} \\
+> &= -4\lambda^2C_1C_2 \quad &\text{($C_1$ and $C_2$ substituted)} \\
+> C_1 \lt 0:\quad e^{2\lambda\theta_e} &= \frac{C_2}{-C_1} \quad &\text{(zero of $u$; $C_2 = u_0 - C_1 \gt -C_1 \gt 0$)} \\
+> \theta_e &= \frac{1}{2\lambda}\ln\frac{C_2}{-C_1} \gt 0 \quad &\text{(logarithm; the ratio exceeds 1)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} K \gt 1: \ \text{(ii) } u \to \infty \iff C_1 \gt 0 \iff u_0' \gt -\sqrt{K - 1}\,u_0; \cr \text{(i) escape at } \theta_e \iff C_1 \lt 0 \iff u_0' \lt -\sqrt{K - 1}\,u_0; \ \text{limit } C_1 = 0: \ u = u_0e^{-\lambda\theta} \to 0 \text{ as } \theta \to \infty; \ \text{(iii) never} \end{array}}$$
+>
+> **Units:** $[C_1] = [C_2] = [\mathrm{L^{-1}}]$; $\lambda\theta$ dimensionless
+> **Meaning:** the attraction wins over the centrifugal term: with $C_1$ positive the growing exponential dominates and $P$ spirals into $O$ (when $C_2$ is negative, $u$ starts at $u_0$ with a positive slope and keeps growing); with $C_1$ negative $u$ falls to zero at the finite angle $\theta_e$. The energy row agrees with the shape of $W$, a downward parabola with its top at $u = 0$: a negative $E^*$ means $C_1$ and $C_2$ of the same sign, both positive, and a fall into $O$.
+
+> [!derivation] Exponent 3 with K equal to 1: reciprocal spiral
+> **Law:** equation of part (b) with the linear term cancelled; Barrow's rule twice
+> **Source:** Notes.pdf, Eq. 8.12
+>
+> $$\begin{aligned}
+> u'' &= 0 \quad &\text{(equation with $1 - K = 0$)} \\
+> u' &= u_0' \quad &\text{(Barrow's rule from $0$ to $\theta$)} \\
+> u &= u_0 + u_0'\,\theta \quad &\text{(Barrow's rule again)}
+> \end{aligned}$$
+>
+> $$\boxed{K = 1: \ u = u_0 + u_0'\theta; \ u_0' \gt 0: \text{(ii)}; \ u_0' \lt 0: \text{(i) at } \theta_e = u_0/\lvert u_0'\rvert; \ u_0' = 0: \text{circle}; \ \text{(iii) never}}$$
+>
+> **Units:** $[u_0'\theta] = [\mathrm{L^{-1}}]$
+> **Meaning:** the attraction exactly balances the centrifugal term for every radius: the circle exists for any radius but any radial push makes the particle spiral in or out.
+
+#### Exponent 4
+
+> [!derivation] Exponent 4: shape of the effective potential
+> **Law:** derivatives, stationary points and limits of W
+> **Source:** Notes.pdf, Eq. 4.28
+>
+> $$\begin{aligned}
+> W(u) &= u^2 - \tfrac23 K\,u^3 \quad &\text{($\Phi(u) = u^3/3$)} \\
+> W'(u) &= 2u - 2K\,u^2 \quad &\text{(derivative)} \\
+> &= 2u\left(1 - K\,u\right) \quad &\text{(common factor $2u$)} \\
+> W'(u) &\gt 0 \ \text{for} \ 0 \lt u \lt \tfrac1K, \quad W'(u) \lt 0 \ \text{for} \ u \gt \tfrac1K \quad &\text{(sign of $1 - Ku$)} \\
+> W\left(\tfrac1K\right) &= \frac{1}{K^2} - \frac{2}{3K^2} \quad &\text{(value at the maximum $u_b = 1/K$)} \\
+> &= \frac{1}{3K^2} \quad &\text{(fractions added)} \\
+> u_z^2\left(1 - \tfrac23 K\,u_z\right) &= 0 \quad &\text{(zeros of $W$)} \\
+> u_z &= \frac{3}{2K} \quad &\text{(the nonzero root)} \\
+> \lim_{u\to\infty}W(u) &= -\infty \quad &\text{(the cubic term dominates)}
+> \end{aligned}$$
+>
+> $$\boxed{W: 0 \text{ at } u = 0, \ \text{increasing to } W_{\max} = \frac{1}{3K^2} \text{ at } u_b = \frac1K, \ \text{then decreasing through } 0 \text{ at } u_z = \frac{3}{2K} \text{ to } -\infty}$$
+>
+> **Units:** $[K] = [\mathrm{L}]$ for the exponent 4; $[u_b] = [u_z] = [\mathrm{L^{-1}}]$, $[W_{\max}] = [\mathrm{L^{-2}}]$
+> **Meaning:** a barrier, not a well: there is no minimum at a positive $u$, only the unstable circular orbit $u = u_b$ on top of the barrier.
+
+> [!derivation] Exponent 4: motion for each level of the first integral
+> **Law:** allowed region below the level E* (previous boxes); W is monotonic on each side of the barrier
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.28
+>
+> $E^*$ is fixed by the data, $E^* = u_0'^2 + u_0^2 - \tfrac23 K u_0^3$, and $u_0$ lies in the allowed region.
+>
+> $$\begin{aligned}
+> E^* \gt W_{\max}:\quad W(u) &\lt E^* \ \text{for all} \ u \gt 0 \quad &\text{($W \le W_{\max}$): no turning point; the sign of $u_0'$ decides} \\
+> E^* = W_{\max}:\quad W(u) &= E^* \ \text{only at} \ u_b \quad &\text{(double root): unstable circle, or asymptotic approach to $u_b$} \\
+> 0 \lt E^* \lt W_{\max}:\quad W(u_1) &= W(u_2) = E^*, \ 0 \lt u_1 \lt u_b \lt u_2 \lt u_z \quad &\text{(one root on each monotonic branch)} \\
+> 0 \lt E^* \lt W_{\max}:\quad u &\in \left(0, u_1\right] \ \text{or} \ u \in \left[u_2, \infty\right) \quad &\text{(the barrier between $u_1$ and $u_2$ is forbidden)} \\
+> E^* = 0:\quad u &\in \{0\}\cup\left[u_z, \infty\right) \quad &\text{(roots $0$, double, and $u_z$)} \\
+> E^* \lt 0:\quad u &\in \left[u_2, \infty\right), \ u_2 \gt u_z \quad &\text{(single root on the decreasing branch)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \text{(i) escape: } 0 \lt E^* \lt W_{\max},\ u_0 \lt u_b; \ \text{or } E^* = W_{\max},\ u_0 \lt u_b,\ u_0' \lt 0; \ \text{or } E^* \gt W_{\max},\ u_0' \lt 0 \cr \text{(ii) reaches } O\text{: } E^* \le 0; \ \text{or } 0 \lt E^* \lt W_{\max},\ u_0 \gt u_b; \ \text{or } E^* = W_{\max},\ u_0 \gt u_b,\ u_0' \gt 0; \ \text{or } E^* \gt W_{\max},\ u_0' \gt 0 \cr \text{(iii) never: } W \text{ has no minimum at positive } u; \ \text{only the unstable circle } u_0 = u_b = h^2/\mu,\ u_0' = 0 \end{array}}$$
+>
+> **Units:** $[E^*] = [W_{\max}] = [\mathrm{L^{-2}}]$
+> **Meaning:** a particle below the barrier stays on its side: outside it escapes (after a reflection at $u_1$ if it was moving in), inside it falls to $O$ (after a reflection at $u_2$ if it was moving out). Above the barrier nothing reflects it, so it escapes if it moves outward and falls if it moves inward. On the separatrix $E^* = W_{\max}$ the cases moving towards $u_b$ approach the unstable circle without reaching it.
+
+#### Answers
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Conserved quantities, planar motion | $\mathbf M_O = \mathbf r_0^P\times\mathbf F = \mathbf 0$, so $\mathbf H_{O,0} = m\,\mathbf r_0^P\times\mathbf v_0^P$ is constant; $\delta W_0 = -m\mu r^{-\alpha}dr$ is exact, $V_0 = -m\mu/[(\alpha - 1)r^{\alpha-1}]$ ($\alpha \ne 1$), $V_0 = m\mu\ln(r/r_*)$ ($\alpha = 1$), and $E_0 = \frac12 m v^2 + V_0$ is constant; $\mathbf r_0^P\cdot\mathbf H_{O,0} = 0$, so $P$ moves in the fixed plane through $O$ perpendicular to $\mathbf H_{O,0}$ |
+| (b) Equation for $u(\theta)$ | $u'' + u = \dfrac{\mu}{h^2}\,u^{\alpha-2}$, with $h = r^2\dot\theta$ constant |
+| (c) First integral | $u'^2 + W(u) = E^*$, $W(u) = u^2 - \dfrac{2\mu}{h^2}\Phi(u)$, $\Phi = \dfrac{u^{\alpha-1}}{\alpha - 1}$ ($\alpha \ne 1$) or $\ln(u/u_0)$ ($\alpha = 1$), $E^* = u_0'^2 + W(u_0)$ ($= 2E_0/(mh^2)$ for $\alpha = 2, 3, 4$); motion only where $W(u) \le E^*$, turning points at $W(u) = E^*$ |
+| (c) $\alpha = 1$ | (i) never; (ii) never; (iii) always, between the two roots of $u^2 - \frac{2\mu}{h^2}\ln(u/u_0) = u_0'^2 + u_0^2$ (circle $r = h/\sqrt\mu$ if $u_0 = \sqrt\mu/h$, $u_0' = 0$) |
+| (c) $\alpha = 2$ | $u = \frac{\mu}{h^2}[1 + e\cos(\theta - \theta_p)]$, $e = \sqrt{1 + E^*h^4/\mu^2}$, $E^* = u_0'^2 + u_0^2 - 2\frac{\mu}{h^2}u_0$: (i) iff $E^* \ge 0$; (ii) never; (iii) iff $-\mu^2/h^4 \lt E^* \lt 0$, between $\frac{\mu}{h^2}(1 \mp e)$ |
+| (c) $\alpha = 3$ | $\mu/h^2 \lt 1$: (i) always. $\mu/h^2 \gt 1$: (ii) iff $u_0' \gt -\sqrt{\mu/h^2 - 1}\,u_0$, (i) iff $u_0' \lt -\sqrt{\mu/h^2 - 1}\,u_0$. $\mu/h^2 = 1$: (ii) if $u_0' \gt 0$, (i) if $u_0' \lt 0$, circle if $u_0' = 0$. (iii) never |
+| (c) $\alpha = 4$ | with $E^* = u_0'^2 + u_0^2 - \frac{2\mu}{3h^2}u_0^3$, $W_{\max} = \frac{h^4}{3\mu^2}$, $u_b = \frac{h^2}{\mu}$: (i) if $0 \lt E^* \lt W_{\max}$ and $u_0 \lt u_b$, or $E^* \ge W_{\max}$ and $u_0' \lt 0$ (with $u_0 \lt u_b$ when $E^* = W_{\max}$); (ii) if $E^* \le 0$, or $0 \lt E^* \lt W_{\max}$ and $u_0 \gt u_b$, or $E^* \ge W_{\max}$ and $u_0' \gt 0$ (with $u_0 \gt u_b$ when $E^* = W_{\max}$); (iii) never |
+
+**Check against the official key:** Problems.pdf, p. 76 lists item 42 with no answer, so there is no key to compare with. Independent checks: the first integral was obtained from the equation of part (b) itself and agrees with the energy of part (a) (check box above); the classification is confirmed by integrating the equation of part (b) numerically (fourth-order Runge-Kutta, step $10^{-4}$ rad, the ratio $\mu/h^2$ set to 1 unless stated, "blow-up" meaning $u$ above $10^6$):
+
+| Exponent | Data $(u_0, u_0')$ | Predicted | Numerical result |
+| :---: | :--- | :--- | :--- |
+| 2 | $(1.5, 0)$, $E^* = -0.75$ | (iii) between $0.5$ and $1.5$ | $u \in [0.5000, 1.5000]$ over 60 rad |
+| 2 | $(0.5, -0.9)$, $E^* = 0.06$ | (i) | $u = 0$ at $\theta = 0.824$ |
+| 1 | $(0.5, 0.3)$, $E^* = 0.34$ | (iii) | $u \in [0.4714, 1.6526]$ over 100 rad |
+| 3, $\mu/h^2 = 1/2$ | $(1, 0)$ | (i) at $\theta_e = \pi/(2\sqrt{1/2}) = 2.2214$ | $u = 0$ at $\theta = 2.2214$ |
+| 3, $\mu/h^2 = 2$ | $(1, -1.5)$, $C_1 = -0.25$ | (i) at $\theta_e = \frac12\ln 5 = 0.8047$ | $u = 0$ at $\theta = 0.8047$ |
+| 3, $\mu/h^2 = 1$ | $(1, -0.1)$ | (i) at $\theta_e = 10$ | $u = 0$ at $\theta = 10.000$ |
+| 4 | $(0.5, 0)$, $E^* = 1/6 \lt 1/3$, $u_0 \lt u_b = 1$ | (i) | $u = 0$ at $\theta = 2.078$ |
+| 4 | $(1.2, 0)$, $E^* = 0.288 \lt 1/3$, $u_0 \gt u_b$ | (ii) | blow-up near $\theta = 4.06$ |
+| 4 | $(0.5, \pm 0.9)$, $E^* = 0.977 \gt 1/3$ | (ii) for $+$, (i) for $-$ | blow-up near $\theta = 3.60$; $u = 0$ at $\theta = 0.524$ |
+
+> [!derivation] Limiting case: circular orbits and their stability
+> **Law:** a circular orbit is a stationary point of W; a minimum is stable, a maximum unstable
+> **Source:** Notes.pdf, Sec. 4.6; Notes.pdf, Eq. 4.28
+>
+> $$\begin{aligned}
+> W'(u_c) &= 2u_c - 2K\,u_c^{\alpha-2} = 0 \quad &\text{(circular orbit: $u$ constant, so $u'' = 0$)} \\
+> K\,u_c^{\alpha-3} &= 1 \quad &\text{(divided by $2u_c$)} \\
+> W''(u) &= 2 - 2K\left(\alpha - 2\right)u^{\alpha-3} \quad &\text{(derivative of $W'$)} \\
+> W''(u_c) &= 2 - 2\left(\alpha - 2\right) \quad &\text{(the previous condition substituted)} \\
+> &= 2\left(3 - \alpha\right) \quad &\text{(simplified)}
+> \end{aligned}$$
+>
+> $$\boxed{u_c = K^{1/(3-\alpha)} \ (\alpha \ne 3), \qquad W''(u_c) = 2\left(3 - \alpha\right): \ \text{minimum (stable) for } \alpha \lt 3, \ \text{maximum (unstable) for } \alpha \gt 3}$$
+>
+> **Units:** $[K\,u_c^{\alpha-3}] = [\mathrm{L^{\alpha-3}}][\mathrm{L^{3-\alpha}}] = [1]$; $W''$ is dimensionless
+> **Meaning:** the three cases worked above agree: $u_c = \sqrt K$ for the exponent 1 and $u_c = K$ for 2 are minima, with bounded oscillations around them; $u_b = 1/K$ for 4 is the top of the barrier; for 3 the curvature is zero and circles exist only when $K$ equals 1.
+
+> [!derivation] Limiting case: zero angular momentum (radial motion)
+> **Law:** equations of motion and energy with h equal to zero
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Sec. 4.8.1
+>
+> $$\begin{aligned}
+> \dot\theta &= \frac{h}{r^2} = 0 \quad &\text{(areal integral with $h = 0$: fixed direction)} \\
+> \ddot r &= -\mu\,r^{-\alpha} \lt 0 \quad &\text{(radial equation with $\dot\theta = 0$)} \\
+> \tfrac12\dot r^2 + \frac{V_0(r)}{m} &= \frac{E_0}{m} \quad &\text{(energy with $\mathbf v_0^P = \dot r\,\mathbf e_r$)}
+> \end{aligned}$$
+>
+> $$\boxed{h = 0: \ \text{motion on a fixed line through } O; \ \text{(i) only if } \alpha \gt 1,\ \dot r_0 \gt 0,\ E_0 \ge 0; \ \text{otherwise (ii)}; \ \text{(iii) never}}$$
+>
+> **Units:** $[\ddot r] = [\mu\,r^{-\alpha}] = [\mathrm{L\,T^{-2}}]$; $[\dot r^2] = [V_0/m] = [\mathrm{L^2\,T^{-2}}]$
+> **Meaning:** without angular momentum there is no centrifugal barrier: the acceleration always points to $O$. Moving inward, the particle reaches $O$; moving outward, it escapes only if its energy reaches the value zero of the potential at infinity (impossible for the exponent 1, whose potential is unbounded), and otherwise it stops and falls back to $O$ (Notes.pdf, Sec. 4.8.1, property 5).
 
 ---
 
-## 📌 Problem 43: Two Connected Particles, Plane with Hole
+## Problem 43: Two Connected Particles, Plane with Hole
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** $P_1$ on a smooth horizontal plane at polar position $(r, \theta)$ and $P_2$ hanging on the vertical through the hole $O$, joined by an inextensible massless cord of length $2a$ that passes through $O$.
-* **Hypotheses:** inertial frame $S_0$ with $O$ at the hole; smooth hole and plane for parts (a) to (e); the cord stays taut ($T \gt 0$, checked in (e)); no drag.
-* **Constraints** (holonomic and scleronomic; the cord is unilateral in principle, so $T \ge 0$ is verified afterwards):
-  - $P_1$ on the plane: $z_1 = 0$.
-  - $P_2$ on the vertical through the hole: $x_2 = y_2 = 0$.
-  - Cord of constant length: $r + \ell_2 = 2a$, where $\ell_2$ is the hanging length, so $z_2 = -\ell_2 = r - 2a$ ($Oz$ pointing up).
-  - Geometric feasibility: $\ell_2 \ge 0$, i.e. $r \le 2a$ ($P_2$ cannot go above the hole). This is a unilateral limit that the solution must respect (see Phase 4).
-* **Degrees of freedom:** two particles have $6$ coordinates and there are $4$ independent constraints, so $\text{CDOF} = 6 - 4 = 2$.
-* **Coordinates:** $(r, \theta)$, polar coordinates of $P_1$ on the plane.
-* **Initial state:** $r(0) = a$, $\dot{r}(0) = 0$, $r(0)\dot{\theta}(0) = v_0$, hence $\dot{\theta}(0) = v_0/a$ and $\dot{z}_2(0) = 0$.
+### Reference Frames, Bases and Coordinates
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $m$ | mass of each particle | kg |
-| $a$ | half of the cord length | m |
-| $v_0$ | initial speed of $P_1$ | m/s |
-| $g$ | gravitational acceleration | m/s$^2$ |
-| $\mu$ | friction coefficient (part f) | 1 |
+Two point particles $P_1$ and $P_2$ of mass $m$ are tied to the ends of a massless cord of length $2a$ that passes through a small hole $O$ of a smooth horizontal plane: $P_1$ moves on the plane and $P_2$ hangs on the vertical line below the hole (Problems.pdf, p. 30; in-class problem of Session 8). At the start half of the cord is on the plane and $P_1$ is pushed with the speed $v_0$ perpendicular to the cord, counterclockwise seen from above; the cord is always tense. The statement asks for the speed and the tension of a circular motion, the reduction to quadratures and the band of radii for the speed $\sqrt{8ag/3}$, the tension from Newton's law for $P_2$, and the equations of motion on a rough plane. The solution follows the Newtonian approach of Notes.pdf, Sec. 7.1 to Sec. 7.7.
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$, horizontal plane $z = 0$, $\mathbf{k}$ up.
-* **Polar basis of $P_1$.** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by $\theta(t)$ about $\mathbf{k}$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$
-Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
-* $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so by Poisson $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$. $P_2$ moves along $\mathbf{k}$, so it needs no extra basis.
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, origin at the hole (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$: $\mathbf i$ and $\mathbf j$ horizontal on the plane, $\mathbf i$ along the initial position of $P_1$; $\mathbf k$ vertical **upward**, so that seen from above it points towards the observer and counterclockwise is the positive sense about $\mathbf k$ |
+| Polar basis | $\mathcal B_1 = \{\mathbf e_r, \mathbf e_\theta, \mathbf k\}$, $\mathcal B_0$ turned by $\theta$ about $\mathbf k$; $\mathbf e_r$ horizontal, from $O$ towards $P_1$ (Notes.pdf, Eq. 2.24) |
+| Coordinates | $r$, the distance $OP_1$ (the length of cord on the plane); $\theta$, the polar angle of $P_1$ from $\mathbf i$, counterclockwise seen from above |
+| Hypotheses | smooth plane in parts (a) to (e) (rough with the coefficient $\mu$ in part (f)); small smooth hole, so the cord slides through it without friction; massless, inextensible cord, always tense (statement); $P_2$ stays below the hole, so the hanging length is not negative |
+| Constraints | $P_1$ on the plane, $z_1 = 0$ (1 equation, holonomic, stationary, smooth); $P_2$ on the vertical through $O$, $x_2 = y_2 = 0$ (2 equations, holonomic, stationary, smooth); cord, $\lvert OP_1\rvert + \lvert OP_2\rvert = 2a$ (1 equation joining the particles, holonomic, stationary, **unilateral**) ([Lecture 3, Slide 17]; [Lecture 3, Slide 21]) |
+| Degrees of freedom | 6 coordinates of two particles minus 4 constraint equations: 2, the functions $r(t)$ and $\theta(t)$ ([Lecture 3, Slide 4]) |
+| Data | $m$ [kg], $a$ [m], $g$ [m s$^{-2}$], $v_0$ [m s$^{-1}$] (unknown in (a), $\sqrt{8ag/3}$ in (c) to (e)), $\mu$ [1] in (f) |
+| Initial state | $r(0) = a$ (half of the cord on the plane), $\theta(0) = 0$, initial velocity of $P_1$ of magnitude $v_0$ perpendicular to the cord, counterclockwise seen from above |
+| Applied forces | weights $-mg\,\mathbf k$ on each particle; in (f), the friction of the plane on $P_1$ |
+| Constraint forces | on $P_1$: normal reaction of the plane along $\mathbf k$ and tension towards the hole; on $P_2$: tension upwards and reaction of the vertical guide, normal to it; the same tension $T$ at both ends (massless cord, smooth hole, [Lecture 3, Slide 17]) |
 
-### Phase 3: Derivation
+![[attachments/EM-SOL/p43-elevation.svg]]
 
-#### 3.1 Kinematics
-* **Pedagogical Justification:** the constraints leave $r$ and $\theta$ free; the position of $P_2$ follows from the cord constraint $z_2 = r - 2a$. For $P_1$ we use the polar formulas of Problem 42 (product rule and Poisson).
-$$ \mathbf{r}_1 = r\mathbf{e}_r, \qquad \mathbf{v}_1 = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta, \qquad \mathbf{a}_1 = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e}_\theta $$
-$$ \mathbf{r}_2 = (r - 2a)\,\mathbf{k}, \qquad \mathbf{v}_2 = \dot{r}\,\mathbf{k}, \qquad \mathbf{a}_2 = \ddot{r}\,\mathbf{k} $$
+### Change of Basis and Position Vector
 
-#### 3.2 Forces
-* **On $P_1$:** its weight $-mg\,\mathbf{k}$; the normal reaction of the smooth plane $N_1\,\mathbf{k}$ (unknown magnitude, vertical because the plane is smooth); and the tension of the cord $-T\,\mathbf{e}_r$ (the cord is horizontal on the plane and pulls toward the hole).
-* **On $P_2$:** its weight $-mg\,\mathbf{k}$, the tension $+T\,\mathbf{k}$ (same cord, massless, smooth hole) and the horizontal reaction of the vertical line $R_{2x}\,\mathbf{i} + R_{2y}\,\mathbf{j}$ that keeps $x_2 = y_2 = 0$ (unknown, to be determined).
-* **Inertia forces:** none, because the frame $S_0$ is inertial.
-* **Unknowns:** $r(t)$, $\theta(t)$, $T(t)$, $N_1(t)$, $R_{2x}(t)$ and $R_{2y}(t)$.
+![[attachments/EM-SOL/p43-rotation-k.svg]]
 
-#### 3.3 Equations of Motion
-* **Pedagogical Justification:** Newton's second law, one vector equation for each particle, gives six scalar equations. The vertical equation of $P_1$ and the horizontal ones of $P_2$ only fix reactions, so we project on the tangent directions of the constraints first.
-$$ P_1,\ \mathbf{e}_r: \; m\left(\ddot{r} - r\dot{\theta}^2\right) = -T, \qquad P_1,\ \mathbf{e}_\theta: \; m\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = 0, \qquad P_1,\ \mathbf{k}: \; 0 = N_1 - mg $$
-$$ P_2,\ \mathbf{k}: \; m\ddot{r} = T - mg, \qquad P_2,\ \mathbf{i}: \; 0 = R_{2x}, \qquad P_2,\ \mathbf{j}: \; 0 = R_{2y} $$
-* **Check of closure:** six unknowns ($r$, $\theta$, $T$, $N_1$, $R_{2x}$, $R_{2y}$) and six equations. The reactions are decoupled: $N_1 = mg$ and $R_{2x} = R_{2y} = 0$, because $\mathbf{a}_2$ is parallel to $\mathbf{k}$. Only $r$, $\theta$ and $T$ remain, with three equations.
-* **Dynamical decoupling.** Adding the $\mathbf{e}_r$ equation of $P_1$ and the equation of $P_2$ eliminates $T$:
-$$ m\left(2\ddot{r} - r\dot{\theta}^2\right) = -mg $$
-* **Angular momentum.** Multiplying the transverse equation by $r/m$ gives $\frac{d}{dt}\left(r^2\dot{\theta}\right) = r\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = 0$, so $h = r^2\dot{\theta}$ is constant.
-* **Energy.** The tension does work $-T\dot{r}$ on $P_1$ and $+T\dot{r}$ on $P_2$, which cancel (inextensible cord); the plane does no work. With the kinetic energy $K = \tfrac{1}{2}m\left(\dot{r}^2 + r^2\dot{\theta}^2\right) + \tfrac{1}{2}m\dot{r}^2$ and $V = mgz_2 = mg(r - 2a)$, the energy is conserved. Replacing $r^2\dot{\theta}^2 = h^2/r^2$:
-$$ E = K + V = m\dot{r}^2 + \frac{mh^2}{2r^2} + mg(r - 2a) = \text{const} $$
+> [!derivation] Polar basis of P1: rotation about k
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
+>
+> View from above along $\mathbf k$, which points out of the paper (⊙, upward towards the observer) with $\mathbf i$ to the right and $\mathbf j$ up the page: a positive rotation about $\mathbf k$ is counterclockwise, the sense of the push. $\mathbf e_r$ is $\mathbf i$ turned by $\theta$: hypotenuse 1, adjacent leg $\cos\theta$ along $\mathbf i$, opposite leg $\sin\theta$ along $\mathbf j$. $\mathbf e_\theta$ is $\mathbf j$ turned by $\theta$: adjacent leg $\cos\theta$ along $\mathbf j$, opposite leg $\sin\theta$ along minus $\mathbf i$ (the vector $\mathbf j$ turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf e_r &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_r$)} \\
+> \mathbf e_\theta &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_\theta$: opposite leg on $-\mathbf i$)} \\
+> \mathbf e_r\times\mathbf e_\theta &= \left(\cos^2\theta + \sin^2\theta\right)\mathbf k = \mathbf k \quad &\text{(right-handed; $\mathbf i\times\mathbf j = \mathbf k$, $\mathbf j\times\mathbf i = -\mathbf k$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\theta + \sin^2\theta = 1 \quad &\text{(row 1 times row 1)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\theta\sin\theta - \sin\theta\cos\theta = 0 \quad &\text{(row 1 times row 2; row 3 is the unit row of $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** $\mathbf e_r$ points along the cord on the plane, from the hole to $P_1$, and $\mathbf e_\theta$ is the horizontal direction of the push at the initial instant.
 
-#### 3.4 Integration and Answers
-##### (a) Circular motion, $r \equiv a$
-* **Pedagogical Justification:** for $r$ constant, $\dot{r} = \ddot{r} = 0$, so $P_2$ is at rest and the cord tension must balance its weight, while $P_1$ moves on a circle under the tension alone. With $\dot{r} = 0$ the transverse equation gives $r\ddot{\theta} = 0$, so $\dot{\theta}$ is constant and equal to its initial value $v_0/a$ (equivalently $h = a^2\dot{\theta} = av_0$).
-$$ P_1: \; m\left(0 - a\dot{\theta}^2\right) = -T \implies T = ma\dot{\theta}^2 = \frac{mv_0^2}{a}, \qquad P_2: \; 0 = T - mg \implies T = mg $$
-$$ \frac{mv_0^2}{a} = mg \implies \boxed{v_0 = \sqrt{ag}} $$
+> [!derivation] Position vectors and the length of cord on each side
+> **Law:** position vectors with the constraints substituted; inextensible cord
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.28; [Lecture 3, Slide 17]
+>
+> The cord runs straight on the plane from $P_1$ to the hole, with the length $r$, and then straight down to $P_2$; the hanging length is the rest of the cord.
+>
+> $$\begin{aligned}
+> \mathbf r_0^{P_1} &= r\,\mathbf e_r \quad &\text{(cylindrical position, Eq. 2.28, with $z_1 = 0$)} \\
+> \lvert OP_2\rvert &= 2a - r \quad &\text{(inextensible cord of length $2a$)} \\
+> \mathbf r_0^{P_2} &= -\left(2a - r\right)\mathbf k \quad &\text{(on the vertical through $O$, below the hole)} \\
+> &= \left(r - 2a\right)\mathbf k \quad &\text{(sign distributed)} \\
+> 2a - r &\ge 0 \quad &\text{($P_2$ cannot rise above the hole)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^{P_1} = r\,\mathbf e_r, \qquad \mathbf r_0^{P_2} = \left(r - 2a\right)\mathbf k, \qquad 0 \lt r \le 2a}$$
+>
+> **Units:** $[r] = [a] = [\mathrm{L}]$
+> **Meaning:** both particles are described by the two coordinates; when $P_1$ moves away from the hole, $P_2$ rises by the same amount. At the start, with $r$ equal to $a$, the hanging length is also $a$: half of the cord on each side.
 
-##### (b) Tension in the circular case
-$$ \boxed{T = mg} $$
+![[attachments/EM-SOL/p43-top.svg]]
 
-##### (c) Quadratures for $v_0 = \sqrt{8ag/3}$
-* **Pedagogical Justification:** the two first integrals of 3.3 leave a single equation for $r(t)$. Evaluate $h$ and $E$ at the initial instant.
-$$ h = r^2\dot{\theta} = a v_0 = a\sqrt{\frac{8ag}{3}} \implies h^2 = \frac{8}{3}a^3g, \qquad E(0) = \tfrac{1}{2}m v_0^2 + mg(a - 2a) = \tfrac{1}{2}m\cdot\frac{8ag}{3} - mga = \frac{1}{3}mga $$
-* Equating $E = E(0)$, dividing by $m$ and isolating $\dot{r}^2$:
-$$ \dot{r}^2 + \frac{4a^3g}{3r^2} + gr - 2ga = \frac{1}{3}ga \implies \dot{r}^2 = \frac{7}{3}ga - gr - \frac{4a^3g}{3r^2} = \frac{g}{3r^2}\left(7ar^2 - 3r^3 - 4a^3\right) $$
-* Separating variables, with $P(r) \equiv -3r^3 + 7ar^2 - 4a^3$. The sign of $\dot{r}$ is $+$ in the first half-cycle, because $P_1$ starts at the inner turning point $r = a$ with $\ddot{r}(0) = -\tfrac{g}{2} + \tfrac{h^2}{2a^3} = \tfrac{5g}{6} \gt 0$ (from the radial equation of 3.3 with $\dot{\theta} = h/r^2$). Applying Barrow's rule from $r(0) = a$ on the left side and from $0$ to $t$ on the right side:
-$$ \frac{dr}{dt} = +\sqrt{\frac{g}{3}}\,\frac{\sqrt{P(r)}}{r} \implies \int_a^r\frac{r'\,dr'}{\sqrt{P(r')}} = \sqrt{\frac{g}{3}}\int_0^t dt' = \sqrt{\frac{g}{3}}\,t, \qquad 0 \le t \le \frac{\tau_r}{2} $$
-The integrand is improper at $r' = a$ (the radicand vanishes there) but integrable, since $P(r')$ has a simple root at $a$. After the outer turning point $r = 2a$, reached at $t = \tau_r/2$, the sign of $\dot{r}$ is $-$ and the quadrature restarts from $2a$:
-$$ \int_r^{2a}\frac{r'\,dr'}{\sqrt{P(r')}} = \sqrt{\frac{g}{3}}\left(t - \frac{\tau_r}{2}\right), \qquad \frac{\tau_r}{2} \le t \le \tau_r $$
-and the motion repeats with the radial period $\tau_r$ (see Phase 4).
-* **Quadrature for the angle.** With $\dot{\theta} = h/r^2$ and the same separation of variables, $d\theta = \dfrac{h}{r^2\dot{r}}\,dr$, and using $h/\sqrt{g/3} = \sqrt{8a^3}$. In the first half-cycle ($\theta(0) = \theta_0$) and in the second one:
-$$ \theta(r) = \theta_0 + \sqrt{8a^3}\int_a^r\frac{dr'}{r'\sqrt{P(r')}}, \qquad \theta(r) = \theta(2a) + \sqrt{8a^3}\int_r^{2a}\frac{dr'}{r'\sqrt{P(r')}} $$
-or, directly in time, $\theta(t) = \theta_0 + \displaystyle\int_0^t\frac{h}{r(t')^2}\,dt'$, which is valid for all $t$ because $\dot{\theta} = h/r^2 \gt 0$.
+### Kinematics
 
-##### (d) Oscillation between $r = a$ and $r = 2a$
-* **Pedagogical Justification:** motion requires $\dot{r}^2 \ge 0$, i.e. $P(r) = -3r^3 + 7ar^2 - 4a^3 \ge 0$. With $x = r/a$ the polynomial is $a^3(-3x^3 + 7x^2 - 4)$, and the hint gives its roots.
-$$ -3x^3 + 7x^2 - 4 = -(x - 1)(x - 2)(3x + 2) $$
-(check: $(x - 1)(x - 2) = x^2 - 3x + 2$ and $(x^2 - 3x + 2)(3x + 2) = 3x^3 - 7x^2 + 4$).
-* Check of the roots: $x = 1$: $-3 + 7 - 4 = 0$; $x = 2$: $-24 + 28 - 4 = 0$; $x = -2/3$: $\frac{8}{9} + \frac{28}{9} - 4 = 0$. Since $r \gt 0$, $3x + 2 \gt 0$ and $P \ge 0$ requires $(x - 1)(x - 2) \le 0$:
-$$ 1 \le x \le 2 \iff a \le r(t) \le 2a $$
-* The turning points ($\dot{r} = 0$) are $r_{\min} = a$ and $r_{\max} = 2a$. Both are simple roots of $P$, and the radial acceleration points back into the allowed interval at each one: $\ddot{r}(a) = \tfrac{5g}{6} \gt 0$ and $\ddot{r}(2a) = -\tfrac{g}{2} + \tfrac{h^2}{16a^3} = -\tfrac{g}{3} \lt 0$ (from $\ddot{r} = -\tfrac{g}{2} + \tfrac{h^2}{2r^3}$, derived in (e)). So $r$ reverses in finite time at both ends and the motion oscillates between them.
-* Feasibility: $r_{\max} = 2a$ is exactly the limit $\ell_2 = 2a - r \ge 0$ of Phase 1; at that instant $P_2$ reaches the hole with zero velocity.
+> [!derivation] Derivatives of the polar unit vectors
+> **Law:** derivative of a unit vector turning about a fixed axis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \dot\theta\,\mathbf k \quad &\text{($\mathcal B_1$ turns about the fixed $\mathbf k$ with the angle $\theta$)} \\
+> \mathbf k\times\mathbf e_r &= \cos\theta\,\mathbf j - \sin\theta\,\mathbf i = \mathbf e_\theta \quad &\text{($\mathbf k\times\mathbf i = \mathbf j$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> \mathbf k\times\mathbf e_\theta &= -\sin\theta\,\mathbf j - \cos\theta\,\mathbf i = -\mathbf e_r \quad &\text{(same products)} \\
+> \dot{\mathbf e}_r &= \boldsymbol\omega_{10}\times\mathbf e_r = \dot\theta\,\mathbf e_\theta \quad &\text{(Eq. 1.62)} \\
+> \dot{\mathbf e}_\theta &= \boldsymbol\omega_{10}\times\mathbf e_\theta = -\dot\theta\,\mathbf e_r \quad &\text{(Eq. 1.62)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf e}_r = \dot\theta\,\mathbf e_\theta, \qquad \dot{\mathbf e}_\theta = -\dot\theta\,\mathbf e_r}$$
+>
+> **Units:** $[\dot\theta] = [\mathrm{T^{-1}}]$
+> **Meaning:** the polar basis follows $P_1$ round the hole; $\mathbf k$ is fixed.
 
-##### (e) Tension of the cord
-* **Pedagogical Justification:** the equation of $P_2$ from 3.3 gives $T = m\left(g + \ddot{r}\right)$. We need $\ddot{r}$ as a function of $r$. It comes directly from the decoupled equation $2\ddot{r} - r\dot{\theta}^2 = -g$ of 3.3, with $\dot{\theta} = h/r^2$ (no division by $\dot{r}$ is needed):
-$$ 2\ddot{r} = -g + \frac{h^2}{r^3} \implies \ddot{r} = -\frac{g}{2} + \frac{h^2}{2r^3} = -\frac{g}{2} + \frac{4a^3g}{3r^3} \qquad\left(h^2 = \tfrac{8}{3}a^3g\right) $$
-* Check by differentiating the energy integral of (c) (chain rule, $\frac{d}{dt}r^{-2} = -2r^{-3}\dot{r}$): $2\dot{r}\ddot{r} = \left(-g + \dfrac{8a^3g}{3r^3}\right)\dot{r}$, which gives the same $\ddot{r}$ wherever $\dot{r} \ne 0$.
-$$ \boxed{T = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right)} $$
-* $T \gt 0$ for all $r \in [a, 2a]$, so the cord stays taut.
+> [!derivation] Velocity and acceleration of both particles
+> **Law:** time derivatives of the position vectors in $S_0$; product rule
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Sec. 7.4
+>
+> $$\begin{aligned}
+> \mathbf v_0^{P_1} &= \dot r\,\mathbf e_r + r\,\dot{\mathbf e}_r \quad &\text{(Eq. 2.3; product rule)} \\
+> &= \dot r\,\mathbf e_r + r\dot\theta\,\mathbf e_\theta \quad &\text{($\dot{\mathbf e}_r = \dot\theta\,\mathbf e_\theta$)} \\
+> \mathbf a_0^{P_1} &= \ddot r\,\mathbf e_r + \dot r\,\dot{\mathbf e}_r + \dot r\dot\theta\,\mathbf e_\theta + r\ddot\theta\,\mathbf e_\theta + r\dot\theta\,\dot{\mathbf e}_\theta \quad &\text{(Eq. 2.4; product rule on each term)} \\
+> &= \ddot r\,\mathbf e_r + \dot r\dot\theta\,\mathbf e_\theta + \dot r\dot\theta\,\mathbf e_\theta + r\ddot\theta\,\mathbf e_\theta - r\dot\theta^2\,\mathbf e_r \quad &\text{(derivatives of the unit vectors substituted)} \\
+> &= \left(\ddot r - r\dot\theta^2\right)\mathbf e_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\mathbf e_\theta \quad &\text{(grouped)} \\
+> \mathbf v_0^{P_2} &= \frac{d}{dt}\left[\left(r - 2a\right)\mathbf k\right] = \dot r\,\mathbf k \quad &\text{($a$ constant, $\mathbf k$ fixed)} \\
+> \mathbf a_0^{P_2} &= \ddot r\,\mathbf k \quad &\text{(derivative again)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \mathbf v_0^{P_1} = \dot r\,\mathbf e_r + r\dot\theta\,\mathbf e_\theta, \quad \mathbf a_0^{P_1} = \left(\ddot r - r\dot\theta^2\right)\mathbf e_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\mathbf e_\theta \cr \mathbf v_0^{P_2} = \dot r\,\mathbf k, \quad \mathbf a_0^{P_2} = \ddot r\,\mathbf k \end{array}}$$
+>
+> **Units:** $[\dot r] = [r\dot\theta] = [\mathrm{L\,T^{-1}}]$; $[\ddot r] = [r\dot\theta^2] = [\dot r\dot\theta] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** $P_2$ moves only vertically, with the radial rate of $P_1$: the cord transmits the radial motion through the hole.
 
-##### (f) Rough plane
-* **Pedagogical Justification:** Coulomb friction acts on $P_1$ opposite to its velocity, with magnitude $\mu N_1$. The normal force is $N_1 = mg$ (3.3), because the cord is horizontal on the plane and only the weight acts vertically.
-$$ \mathbf{F}_f = -\mu mg\,\frac{\mathbf{v}_1}{\|\mathbf{v}_1\|} = -\mu mg\,\frac{\dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$
-$$ \mathbf{e}_r: \; m\left(\ddot{r} - r\dot{\theta}^2\right) = -T - \mu mg\frac{\dot{r}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$
-$$ \mathbf{e}_\theta: \; m\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = -\mu mg\frac{r\dot{\theta}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}}, \qquad P_2: \; m\ddot{r} = T - mg $$
-* Adding the $\mathbf{e}_r$ equation and the $P_2$ equation eliminates $T$; multiplying the $\mathbf{e}_\theta$ equation by $r$ gives the evolution of $h$:
-$$ 2\ddot{r} - r\dot{\theta}^2 = -g - \mu g\frac{\dot{r}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}}, \qquad \frac{d}{dt}\left(r^2\dot{\theta}\right) = -\mu g\,\frac{r^2\dot{\theta}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$
-* Angular momentum and energy are no longer conserved (friction dissipates energy), so the problem cannot be reduced to the quadratures of (c).
+> [!derivation] Initial state
+> **Law:** initial velocity of P1 decomposed in the polar basis
+> **Source:** Notes.pdf, Sec. 7.7; Problems.pdf, p. 30
+>
+> The push is perpendicular to the cord, which lies along $\mathbf e_r$, and counterclockwise seen from above, the sense of positive $\theta$: the initial velocity is $v_0\,\mathbf e_\theta$.
+>
+> $$\begin{aligned}
+> \mathbf v_0^{P_1}(0) &= \dot r(0)\,\mathbf e_r + a\,\dot\theta(0)\,\mathbf e_\theta \quad &\text{(velocity at $t = 0$, with $r(0) = a$)} \\
+> &= v_0\,\mathbf e_\theta \quad &\text{(push perpendicular to the cord, counterclockwise)} \\
+> \dot r(0) &= 0, \quad \dot\theta(0) = \frac{v_0}{a} \quad &\text{(components along $\mathbf e_r$ and $\mathbf e_\theta$ compared)} \\
+> \mathbf v_0^{P_2}(0) &= \dot r(0)\,\mathbf k = \mathbf 0 \quad &\text{($P_2$ starts at rest)}
+> \end{aligned}$$
+>
+> $$\boxed{r(0) = a, \quad \dot r(0) = 0, \quad \theta(0) = 0, \quad \dot\theta(0) = \frac{v_0}{a}}$$
+>
+> **Units:** $[v_0/a] = [\mathrm{T^{-1}}]$
+> **Meaning:** $P_1$ starts moving round the hole without approaching or leaving it, and $P_2$ starts at rest at the depth $a$.
 
-### Phase 4: Interpretation & Checks
-* **Tension at the turning points:** $T(a) = mg\left(\tfrac{1}{2} + \tfrac{4}{3}\right) = \tfrac{11}{6}mg$ and $T(2a) = mg\left(\tfrac{1}{2} + \tfrac{4}{24}\right) = \tfrac{2}{3}mg$, both positive.
-* **Consistency with (a):** for $v_0^2 = ag$, $h^2 = a^3g$ and $\ddot{r}(a) = -\tfrac{g}{2} + \tfrac{h^2}{2a^3} = 0$, so $r = a$ is an equilibrium of the radial equation, as expected for the circular case.
-* **Radial period** (consequence of (c) and (d)): $\tau_r = 2\sqrt{3/g}\int_a^{2a}r\,dr/\sqrt{P(r)}$. With $x = r/a$, $r\,dr = a^2x\,dx$ and $\sqrt{P} = a^{3/2}\sqrt{(x - 1)(2 - x)(3x + 2)}$, so $\tau_r = 2\sqrt{3a/g}\int_1^2x\,dx/\sqrt{(x - 1)(2 - x)(3x + 2)}$. Then with $x = \tfrac{3}{2} - \tfrac{1}{2}\cos s$ ($x = 1 \to s = 0$, $x = 2 \to s = \pi$), $(x - 1)(2 - x) = \tfrac{1}{4}\sin^2 s$ and $dx = \tfrac{1}{2}\sin s\,ds$, so $\tau_r = 2\sqrt{\dfrac{3a}{g}}\displaystyle\int_0^\pi\dfrac{x(s)\,ds}{\sqrt{3x(s) + 2}} \approx 6.342\sqrt{\dfrac{a}{g}}$.
-* **Dimensions:** $[T] = [m][g] = \text{N}$ and $[v_0] = \sqrt{[a][g]} = \text{m/s}$.
-* **Feasibility:** the outer turning point $r_{\max} = 2a$ puts $P_2$ at the hole with zero velocity ($\ell_2 = 0$), the limit of the constraint $r \le 2a$. The tension there, $T(2a) = \tfrac{2}{3}mg \gt 0$, shows that the cord is still taut, so the motion is admissible for the whole cycle.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 43 in its solution keys (the tension in (e) is given in the statement and is derived above). All results are therefore verified by independent derivation and by numerical integration.
-* **Quadratures** (Python, DOP853 on the equations of 3.3 with $a = g = 1$): from $r = a$ to $r = 1.5a$ the integral for $t$ gives $1.361538\sqrt{a/g}$ and the integral for $\theta$ gives $1.635065$ rad, both equal to the values of the direct integration to $10^{-10}$.
-* **Symbolic check** (sympy): $\dot{r}^2 = \dfrac{g\,(2a - r)(r - a)(2a + 3r)}{3r^2}$ with roots $r = a$ and $r = 2a$; the tension $m(g + \ddot{r})$ equals $mg\left(\tfrac{1}{2} + \tfrac{4a^3}{3r^3}\right)$ identically.
-* **Numerical check** (Python, DOP853 on $\ddot{r} = -g/2 + 4a^3g/(3r^3)$ with $a = g = m = 1$, $r(0) = 1$, $\dot{r}(0) = 0$): minimum and maximum radius $1.0000$ and $1.9991$ over the sampled steps (the turning point $2.0000$ is reached between samples), period $6.34243$ (the quadrature gives $6.34243$), and the energy residual stays below $5\times 10^{-12}$.
+### Forces and Equations of Motion
+
+The free-body diagrams show on $P_1$ its weight, the normal reaction of the plane and the tension towards the hole (and, in part (f), the friction opposite to the velocity); on $P_2$ its weight, the tension upwards and the reaction of the vertical guide. $S_0$ is inertial, so no inertia force acts.
+
+![[attachments/EM-SOL/p43-fbd.svg]]
+
+> [!derivation] Forces on both particles (smooth plane)
+> **Law:** weight; tension of a massless cord through a small smooth hole; reactions in the normal subspaces
+> **Source:** Notes.pdf, Sec. 6.4; Notes.pdf, Sec. 7.5; [Lecture 3, Slide 13]; [Lecture 3, Slide 17]
+>
+> $$\begin{aligned}
+> -\frac{\mathbf r_0^{P_1}}{r} &= -\mathbf e_r \quad &\text{(unit vector from $P_1$ towards the hole, along the cord)} \\
+> \mathbf F^{P_1} &= -mg\,\mathbf k + N_1\,\mathbf k - T\,\mathbf e_r \quad &\text{(weight, normal reaction of the smooth plane, tension $T \ge 0$)} \\
+> \mathbf F^{P_2} &= -mg\,\mathbf k + T\,\mathbf k + R_x\,\mathbf i + R_y\,\mathbf j \quad &\text{(weight, tension towards the hole, guide reaction normal to the vertical)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F^{P_1} = -T\,\mathbf e_r + \left(N_1 - mg\right)\mathbf k, \qquad \mathbf F^{P_2} = \left(T - mg\right)\mathbf k + R_x\,\mathbf i + R_y\,\mathbf j}$$
+>
+> **Units:** every force $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** four unknown reactions, $T$, $N_1$, $R_x$, $R_y$; no force on $P_1$ has a component along $\mathbf e_\theta$, and the tension on $P_1$ passes through the hole.
+
+> [!derivation] Newton's second law for each particle
+> **Law:** Newton's second law in an inertial frame, projected on the polar basis (P1) and on the fixed basis (P2)
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 7.6; [Lecture 3, Slide 14]
+>
+> $$\begin{aligned}
+> P_1,\ \mathbf e_r:\ m\left(\ddot r - r\dot\theta^2\right) &= -T \quad &\text{(dot product with $\mathbf e_r$)} \\
+> P_1,\ \mathbf e_\theta:\ m\left(r\ddot\theta + 2\dot r\dot\theta\right) &= 0 \quad &\text{(no force along $\mathbf e_\theta$)} \\
+> P_1,\ \mathbf k:\ 0 &= N_1 - mg \quad &\text{($P_1$ stays on the plane: no vertical acceleration)} \\
+> P_2,\ \mathbf k:\ m\ddot r &= T - mg \quad &\text{(along the vertical)} \\
+> P_2,\ \mathbf i,\ \mathbf j:\ 0 &= R_x, \quad 0 = R_y \quad &\text{($\mathbf a_0^{P_2}$ has no horizontal part)}
+> \end{aligned}$$
+>
+> $$\boxed{N_1 = mg, \qquad R_x = R_y = 0, \qquad T = m\left(g + \ddot r\right)}$$
+>
+> **Units:** every term $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** six scalar equations for the six unknowns $r$, $\theta$, $T$, $N_1$, $R_x$, $R_y$. The plane carries the weight of $P_1$ (the cord is horizontal on it), the guide exerts no force, and the tension is the weight of $P_2$ corrected by its vertical acceleration.
+
+> [!derivation] Equations of motion free of the tension
+> **Law:** elimination of the tension between the equations of P1 and P2
+> **Source:** Notes.pdf, Sec. 7.6
+>
+> $$\begin{aligned}
+> m\left(\ddot r - r\dot\theta^2\right) + m\ddot r &= -T + T - mg \quad &\text{(equation of $P_1$ along $\mathbf e_r$ plus equation of $P_2$)} \\
+> 2\ddot r - r\dot\theta^2 + g &= 0 \quad &\text{(divided by $m$; all terms on the left)}
+> \end{aligned}$$
+>
+> $$\boxed{2\ddot r - r\dot\theta^2 + g = 0, \qquad r\ddot\theta + 2\dot r\dot\theta = 0}$$
+>
+> **Units:** $[\ddot r] = [r\dot\theta^2] = [g] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** two equations for $r$ and $\theta$ only. The factor 2 is the inertia of both particles, which move with the same radial rate; the only driving terms are the centrifugal term of $P_1$ and the weight of $P_2$.
+
+> [!derivation] Two first integrals: angular momentum and energy
+> **Law:** exact derivatives (product and chain rules); Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.58; Notes.pdf, Eq. 4.31; Notes.pdf, Eq. 8.7; [Lecture 3, Slide 17]; [Lecture 4, Slide 7]
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(r^2\dot\theta\right) &= 2r\dot r\dot\theta + r^2\ddot\theta \quad &\text{(product rule; chain rule on $r^2$)} \\
+> &= r\left(r\ddot\theta + 2\dot r\dot\theta\right) \quad &\text{(common factor $r$)} \\
+> &= 0 \quad &\text{(transverse equation)} \\
+> r^2\dot\theta &= r(0)^2\,\dot\theta(0) \quad &\text{(Barrow's rule between $0$ and $t$)} \\
+> &= a^2\,\frac{v_0}{a} = a\,v_0 \equiv h \quad &\text{(initial state)} \\
+> 2\ddot r - \frac{h^2}{r^3} + g &= 0 \quad &\text{(radial equation; $r\dot\theta^2 = h^2/r^3$)} \\
+> 2\dot r\ddot r - \frac{h^2}{r^3}\,\dot r + g\,\dot r &= 0 \quad &\text{(times $\dot r$)} \\
+> \frac{d}{dt}\left(\dot r^2\right) &= 2\dot r\ddot r \quad &\text{(chain rule)} \\
+> \frac{d}{dt}\left(\frac{h^2}{2r^2}\right) &= -\frac{h^2}{r^3}\,\dot r \quad &\text{(chain rule; $h$ constant)} \\
+> \frac{d}{dt}\left(g\,r\right) &= g\,\dot r \quad &\text{($g$ constant)} \\
+> \frac{d}{dt}\left[\dot r^2 + \frac{h^2}{2r^2} + g\,r\right] &= 0 \quad &\text{(the previous equation is this sum of derivatives)} \\
+> \left[\dot r^2 + \frac{h^2}{2r^2} + g\,r\right]_0^t &= 0 \quad &\text{(Barrow's rule)} \\
+> m\dot r^2 + \frac{m h^2}{2r^2} + mg\left(r - 2a\right) &= E = \text{const} \quad &\text{(times $m$, minus the constant $2mga$)} \\
+> \tfrac12 m\,\mathbf v_0^{P_1}\cdot\mathbf v_0^{P_1} + \tfrac12 m\,\mathbf v_0^{P_2}\cdot\mathbf v_0^{P_2} + mg\,z_2 &= E \quad &\text{(the same: $\dot r^2 + h^2/r^2$, $\dot r^2$ and $z_2 = r - 2a$)}
+> \end{aligned}$$
+>
+> $$\boxed{r^2\dot\theta = h = a\,v_0, \qquad E = m\dot r^2 + \frac{m h^2}{2r^2} + mg\left(r - 2a\right) = \text{const}}$$
+>
+> **Units:** $[h] = [\mathrm{L^2\,T^{-1}}]$; every term of $E$ $[\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the first is the angular momentum of $P_1$ about the vertical through the hole per unit mass, constant because the tension passes through the hole; the second is the mechanical energy of the pair: the tension does the power $-T\dot r$ on $P_1$ and $+T\dot r$ on $P_2$, which cancel, and the smooth stationary constraints do no work.
+
+### Answers and Checks
+
+#### (a) and (b) Circular motion
+
+> [!derivation] Speed and tension for a circular motion of P1
+> **Law:** equations of motion with a constant radius
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 7.7
+>
+> A circumference of $P_1$ about the hole has a constant radius, equal to its initial value $a$.
+>
+> $$\begin{aligned}
+> r &\equiv a, \quad \dot r = \ddot r = 0 \quad &\text{(constant radius)} \\
+> m\cdot 0 &= T - mg \quad &\text{(equation of $P_2$)} \\
+> T &= mg \quad &\text{(solved)} \\
+> \dot\theta &= \frac{h}{a^2} \quad &\text{(areal integral with $r = a$)} \\
+> &= \frac{v_0}{a} \quad &\text{($h = a v_0$)} \\
+> m\left(0 - a\dot\theta^2\right) &= -T \quad &\text{(equation of $P_1$ along $\mathbf e_r$)} \\
+> T &= m a\dot\theta^2 \quad &\text{(solved)} \\
+> &= \frac{m v_0^2}{a} \quad &\text{($\dot\theta = v_0/a$)} \\
+> \frac{m v_0^2}{a} &= mg \quad &\text{(the two values of $T$)} \\
+> v_0 &= \sqrt{a g} \quad &\text{(positive root)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{(a)}\ v_0 = \sqrt{a g}, \qquad \text{(b)}\ T = mg}$$
+>
+> **Units:** $[\sqrt{ag}] = [\mathrm{L\,T^{-1}}]$; $[mg] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** $P_2$ hangs at rest, so the cord carries its weight; that weight is exactly the centripetal force that keeps $P_1$ on the circle of radius $a$.
+
+#### (c) Reduction to quadratures for the speed of the statement
+
+> [!derivation] First integrals evaluated with the initial state
+> **Law:** the first integrals with the initial data; energy integral solved for the radial rate
+> **Source:** Notes.pdf, Eq. 4.27; Problems.pdf, p. 30
+>
+> $$\begin{aligned}
+> v_0^2 &= \frac{8ag}{3} \quad &\text{(statement)} \\
+> h^2 &= a^2v_0^2 = \frac{8a^3g}{3} \quad &\text{($h = a v_0$)} \\
+> \frac{E}{m} &= \dot r(0)^2 + \frac{h^2}{2a^2} + g\left(a - 2a\right) \quad &\text{(energy at $t = 0$)} \\
+> &= 0 + \frac{4ag}{3} - g a \quad &\text{($\dot r(0) = 0$; $h^2/(2a^2) = 4ag/3$)} \\
+> &= \frac{g a}{3} \quad &\text{(added)} \\
+> \dot r^2 &= \frac{E}{m} - \frac{h^2}{2r^2} - g\left(r - 2a\right) \quad &\text{(energy integral solved for $\dot r^2$)} \\
+> &= \frac{g a}{3} - \frac{4a^3g}{3r^2} - g r + 2g a \quad &\text{(values substituted)} \\
+> &= \frac{7g a}{3} - g r - \frac{4a^3g}{3r^2} \quad &\text{(constant terms added)} \\
+> &= \frac{g\left(7a r^2 - 3r^3 - 4a^3\right)}{3r^2} \quad &\text{(common denominator $3r^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{h^2 = \frac{8a^3g}{3}, \qquad \dot r^2 = \frac{g\,P(r)}{3r^2}, \qquad P(r) = -3r^3 + 7a r^2 - 4a^3}$$
+>
+> **Units:** $[g\,P/r^2] = [\mathrm{L\,T^{-2}}][\mathrm{L^3}][\mathrm{L^{-2}}] = [\mathrm{L^2\,T^{-2}}] = [\dot r^2]$
+> **Meaning:** the radial motion obeys a one-dimensional energy equation: the radial rate is known from the radius alone.
+
+> [!derivation] Quadrature for the time
+> **Law:** separation of variables in the energy integral; Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.44
+>
+> The sign of the radial rate is fixed by the radial acceleration at the start, where the rate is zero.
+>
+> $$\begin{aligned}
+> \ddot r(0) &= \tfrac12\left(-g + \frac{h^2}{a^3}\right) \quad &\text{(equation of motion free of $T$ with $r\dot\theta^2 = h^2/r^3$, at $r = a$)} \\
+> &= \tfrac12\left(-g + \frac{8g}{3}\right) \quad &\text{($h^2 = 8a^3g/3$)} \\
+> &= \frac{5g}{6} \gt 0 \quad &\text{(added: $r$ starts to grow)} \\
+> \frac{dr}{dt} &= +\sqrt{\frac{g}{3}}\,\frac{\sqrt{P(r)}}{r} \quad &\text{(positive root while $r$ grows)} \\
+> \frac{r\,dr}{\sqrt{P(r)}} &= \sqrt{\frac{g}{3}}\,dt \quad &\text{(separation of variables)} \\
+> \int_a^r\frac{r'\,dr'}{\sqrt{P(r')}} &= \sqrt{\frac{g}{3}}\int_0^t dt' \quad &\text{(integrated from the initial state)} \\
+> &= \sqrt{\frac{g}{3}}\;t \quad &\text{(Barrow's rule on the right side)}
+> \end{aligned}$$
+>
+> $$\boxed{t = \sqrt{\frac{3}{g}}\int_a^r\frac{r'\,dr'}{\sqrt{P(r')}} \ \ (r \text{ growing}), \qquad t = \frac{\tau_r}{2} + \sqrt{\frac{3}{g}}\int_r^{2a}\frac{r'\,dr'}{\sqrt{P(r')}} \ \ (r \text{ decreasing from } 2a)}$$
+>
+> **Units:** $[\sqrt{3/g}\;r\,dr/\sqrt{P}] = [\mathrm{T\,L^{-1/2}}][\mathrm{L^2}][\mathrm{L^{-3/2}}] = [\mathrm{T}]$
+> **Meaning:** the integrand is improper at the turning radii, where $P$ has simple roots (next part), but it is integrable; after the outer turning point the root changes sign and the motion repeats with the radial period $\tau_r$, twice the time from $a$ to $2a$.
+
+> [!derivation] Quadrature for the angle
+> **Law:** areal integral with the time element of the previous box; Barrow's rule
+> **Source:** Notes.pdf, Eq. 8.7
+>
+> $$\begin{aligned}
+> d\theta &= \frac{h}{r^2}\,dt \quad &\text{(areal integral, $\dot\theta = h/r^2$)} \\
+> &= \frac{h}{r^2}\,\sqrt{\frac{3}{g}}\,\frac{r\,dr}{\sqrt{P(r)}} \quad &\text{($dt$ of the previous box)} \\
+> &= h\sqrt{\frac{3}{g}}\,\frac{dr}{r\sqrt{P(r)}} \quad &\text{(one power of $r$ cancelled)} \\
+> h\sqrt{\frac{3}{g}} &= \sqrt{\frac{8a^3g}{3}\cdot\frac{3}{g}} \quad &\text{(product of the square roots)} \\
+> &= \sqrt{8a^3} = 2\sqrt2\,a^{3/2} \quad &\text{($g$ and 3 cancel)} \\
+> \theta - 0 &= 2\sqrt2\,a^{3/2}\int_a^r\frac{dr'}{r'\sqrt{P(r')}} \quad &\text{(Barrow's rule from $\theta(0) = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\theta(r) = 2\sqrt2\,a^{3/2}\int_a^r\frac{dr'}{r'\sqrt{P(r')}} \ \ (r \text{ growing}), \qquad \theta(t) = \int_0^t\frac{h}{r(t')^2}\,dt' \ \ (\text{all } t)}$$
+>
+> **Units:** $[a^{3/2}\,dr/(r\sqrt P)] = [\mathrm{L^{3/2}}][\mathrm{L}][\mathrm{L^{-1}}][\mathrm{L^{-3/2}}] = [1]$
+> **Meaning:** the angle grows monotonically, since the angular rate is always positive; together with the quadrature for the time it gives the orbit of $P_1$ and, through the cord, the height of $P_2$.
+
+#### (d) Oscillation between a and 2a
+
+![[attachments/EM-SOL/p43-band.svg]]
+
+> [!derivation] Band of radii and turning points
+> **Law:** the square of the radial rate cannot be negative; radial acceleration at the turning points
+> **Source:** Notes.pdf, Eq. 4.28; Problems.pdf, p. 30
+>
+> With $x = r/a$ the polynomial is factored with the roots of the hint.
+>
+> $$\begin{aligned}
+> P(r) &= a^3\left(-3x^3 + 7x^2 - 4\right) \quad &\text{($r = a x$; $a^3$ factored out)} \\
+> \left(x - 1\right)\left(x - 2\right) &= x^2 - 3x + 2 \quad &\text{(product)} \\
+> \left(x^2 - 3x + 2\right)\left(3x + 2\right) &= 3x^3 - 7x^2 + 4 \quad &\text{(product)} \\
+> -3x^3 + 7x^2 - 4 &= -\left(x - 1\right)\left(x - 2\right)\left(3x + 2\right) \quad &\text{(minus the previous row: roots $1$, $2$, $-2/3$)} \\
+> P \ge 0 &\iff \left(x - 1\right)\left(x - 2\right) \le 0 \quad &\text{($\dot r^2 \ge 0$; $3x + 2 \gt 0$ for $x \gt 0$)} \\
+> &\iff 1 \le x \le 2 \quad &\text{(a product of two factors is not positive between their roots)} \\
+> \ddot r &= -\frac{g}{2} + \frac{h^2}{2r^3} \quad &\text{(equation of motion free of $T$, $r\dot\theta^2 = h^2/r^3$, divided by 2)} \\
+> &= -\frac{g}{2} + \frac{4a^3g}{3r^3} \quad &\text{($h^2 = 8a^3g/3$)} \\
+> \ddot r\big|_{r = a} &= -\frac{g}{2} + \frac{4g}{3} \quad &\text{(inner turning point)} \\
+> &= \frac{5g}{6} \gt 0 \quad &\text{(added)} \\
+> \ddot r\big|_{r = 2a} &= -\frac{g}{2} + \frac{g}{6} \quad &\text{(outer turning point: $4a^3/(3\cdot 8a^3) = 1/6$)} \\
+> &= -\frac{g}{3} \lt 0 \quad &\text{(added)}
+> \end{aligned}$$
+>
+> $$\boxed{a \le r(t) \le 2a; \ \text{the radial rate vanishes at } r = a \ (\ddot r = 5g/6 \gt 0) \text{ and at } r = 2a \ (\ddot r = -g/3 \lt 0): \ P_1 \text{ oscillates between them}}$$
+>
+> **Units:** $x$ dimensionless; $[\ddot r] = [g] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** at both ends of the band the radial rate vanishes and the radial acceleration points back into the band, so $r$ reverses in a finite time at each end. At the outer end the hanging length $2a - r$ is zero: $P_2$ arrives at the hole with zero velocity, exactly at the limit allowed by the cord, and goes down again.
+
+#### (e) Tension of the cord
+
+> [!derivation] Tension from Newton's law for P2
+> **Law:** equation of P2 along the vertical; radial acceleration from the equation free of the tension
+> **Source:** Notes.pdf, Eq. 4.4; Problems.pdf, p. 30
+>
+> $$\begin{aligned}
+> T &= m\left(g + \ddot r\right) \quad &\text{(equation of $P_2$ along $\mathbf k$)} \\
+> \ddot r &= -\frac{g}{2} + \frac{4a^3g}{3r^3} \quad &\text{(previous box)} \\
+> T &= m\left(g - \frac{g}{2} + \frac{4a^3g}{3r^3}\right) \quad &\text{(substituted)} \\
+> &= mg\left(\frac12 + \frac{4a^3}{3r^3}\right) \quad &\text{(common factor $mg$)} \\
+> T(a) &= mg\left(\frac12 + \frac43\right) \quad &\text{(inner end of the band)} \\
+> &= \frac{11}{6}\,mg \quad &\text{(added)} \\
+> T(2a) &= mg\left(\frac12 + \frac{4}{24}\right) \quad &\text{(outer end of the band)} \\
+> &= \frac23\,mg \quad &\text{(added)}
+> \end{aligned}$$
+>
+> $$\boxed{T = mg\left(\frac12 + \frac{4a^3}{3r^3}\right), \qquad \frac23\,mg \le T \le \frac{11}{6}\,mg}$$
+>
+> **Units:** $[mg] = [\mathrm{M\,L\,T^{-2}}]$; $a^3/r^3$ dimensionless
+> **Meaning:** the expression of the statement. The tension decreases with $r$ and is smallest at the outer end, where it is still positive: the cord stays tense during the whole motion, as assumed.
+
+#### (f) Rough plane
+
+> [!derivation] Friction force on P1
+> **Law:** Coulomb friction of a sliding particle, opposite to its velocity relative to the (fixed) plane
+> **Source:** Notes.pdf, Eq. 6.20; Notes.pdf, Eq. 6.21; [Lecture 3, Slide 18]
+>
+> The friction lies in the plane, so the vertical equation of $P_1$ is unchanged and the normal reaction is still the weight. The plane is at rest in $S_0$, so the relative velocity is the velocity of $P_1$.
+>
+> $$\begin{aligned}
+> N_1 &= mg \quad &\text{(equation of $P_1$ along $\mathbf k$)} \\
+> \lvert\mathbf v_0^{P_1}\rvert &= \sqrt{\dot r^2 + r^2\dot\theta^2} \quad &\text{(orthonormal polar basis)} \\
+> \mathbf R &= -\mu N_1\,\frac{\mathbf v_0^{P_1}}{\lvert\mathbf v_0^{P_1}\rvert} \quad &\text{(Eq. 6.21, $P_1$ sliding)} \\
+> &= -\mu mg\,\frac{\dot r\,\mathbf e_r + r\dot\theta\,\mathbf e_\theta}{\sqrt{\dot r^2 + r^2\dot\theta^2}} \quad &\text{($N_1$ and the velocity substituted)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf R = -\mu mg\,\frac{\dot r\,\mathbf e_r + r\dot\theta\,\mathbf e_\theta}{\sqrt{\dot r^2 + r^2\dot\theta^2}}}$$
+>
+> **Units:** $[\mu mg] = [\mathrm{M\,L\,T^{-2}}]$; the fraction is dimensionless
+> **Meaning:** a force of constant magnitude opposite to the velocity of $P_1$; it adds no unknown while $P_1$ slides.
+
+> [!derivation] Equations of motion on the rough plane
+> **Law:** Newton's second law with the friction added; elimination of the tension
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 6.6; [Lecture 3, Slide 18]
+>
+> $$\begin{aligned}
+> P_1,\ \mathbf e_r:\ m\left(\ddot r - r\dot\theta^2\right) &= -T - \mu mg\,\frac{\dot r}{\sqrt{\dot r^2 + r^2\dot\theta^2}} \quad &\text{(dot product with $\mathbf e_r$)} \\
+> P_1,\ \mathbf e_\theta:\ m\left(r\ddot\theta + 2\dot r\dot\theta\right) &= -\mu mg\,\frac{r\dot\theta}{\sqrt{\dot r^2 + r^2\dot\theta^2}} \quad &\text{(dot product with $\mathbf e_\theta$)} \\
+> P_2,\ \mathbf k:\ m\ddot r &= T - mg \quad &\text{(unchanged)} \\
+> 2\ddot r - r\dot\theta^2 + g + \mu g\,\frac{\dot r}{\sqrt{\dot r^2 + r^2\dot\theta^2}} &= 0 \quad &\text{(first plus third, divided by $m$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} 2\ddot r - r\dot\theta^2 + g + \mu g\,\dfrac{\dot r}{\sqrt{\dot r^2 + r^2\dot\theta^2}} = 0 \cr r\ddot\theta + 2\dot r\dot\theta + \mu g\,\dfrac{r\dot\theta}{\sqrt{\dot r^2 + r^2\dot\theta^2}} = 0 \cr T = m\left(g + \ddot r\right), \quad N_1 = mg \end{array}}$$
+>
+> **Units:** every term of the first two equations $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** the two equations for $r$ and $\theta$ hold while $P_1$ slides and the cord is tense; the tension and the normal reaction follow afterwards.
+
+> [!derivation] Angular momentum and energy on the rough plane
+> **Law:** transverse equation times r; theorem of the kinetic energy for both particles (power of the forces)
+> **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Sec. 6.6; [Lecture 3, Slide 17]
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(r^2\dot\theta\right) &= 2r\dot r\dot\theta + r^2\ddot\theta \quad &\text{(product rule; chain rule on $r^2$)} \\
+> &= r\left(r\ddot\theta + 2\dot r\dot\theta\right) \quad &\text{(common factor $r$)} \\
+> &= -\mu g\,\frac{r^2\dot\theta}{\sqrt{\dot r^2 + r^2\dot\theta^2}} \quad &\text{(transverse equation of the previous box)} \\
+> \frac{dE}{dt} &= -T\,\mathbf e_r\cdot\mathbf v_0^{P_1} + T\,\mathbf k\cdot\mathbf v_0^{P_2} + \mathbf R\cdot\mathbf v_0^{P_1} \quad &\text{(power of the forces not in $E$; $N_1$ and the guide are normal to the velocities)} \\
+> &= -T\dot r + T\dot r + \mathbf R\cdot\mathbf v_0^{P_1} \quad &\text{($\mathbf e_r\cdot\mathbf v_0^{P_1} = \dot r$, $\mathbf k\cdot\mathbf v_0^{P_2} = \dot r$)} \\
+> &= -\mu mg\,\frac{\mathbf v_0^{P_1}\cdot\mathbf v_0^{P_1}}{\lvert\mathbf v_0^{P_1}\rvert} \quad &\text{(friction of the previous box)} \\
+> &= -\mu mg\,\lvert\mathbf v_0^{P_1}\rvert \quad &\text{(square of the magnitude over the magnitude)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{d}{dt}\left(r^2\dot\theta\right) = -\mu g\,\frac{r^2\dot\theta}{\lvert\mathbf v_0^{P_1}\rvert} \lt 0, \qquad \frac{dE}{dt} = -\mu mg\,\lvert\mathbf v_0^{P_1}\rvert \lt 0}$$
+>
+> **Units:** $[\mu g\,r^2\dot\theta/v] = [\mathrm{L^2\,T^{-2}}]$; $[\mu mg\,v] = [\mathrm{M\,L^2\,T^{-3}}]$, a power
+> **Meaning:** the friction has a moment about the hole and dissipates energy, so neither first integral survives and the problem no longer reduces to the quadratures of part (c): the turning of $P_1$ slows down and the pair loses energy at the rate of the friction power.
+
+#### Answers
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Circular motion | $v_0 = \sqrt{ag}$ (circle of radius $a$, $\dot\theta = \sqrt{g/a}$) |
+| (b) Tension in that case | $T = mg$ |
+| (c) Quadratures, $v_0 = \sqrt{8ag/3}$ | $r^2\dot\theta = h$, $h^2 = 8a^3g/3$; $\dot r^2 = g(-3r^3 + 7ar^2 - 4a^3)/(3r^2)$; $t = \sqrt{3/g}\int_a^r r'\,dr'/\sqrt{-3r'^3 + 7ar'^2 - 4a^3}$ while $r$ grows (from $2a$ downwards on the way back); $\theta = 2\sqrt2\,a^{3/2}\int_a^r dr'/(r'\sqrt{-3r'^3 + 7ar'^2 - 4a^3})$ |
+| (d) Band of radii | $\dot r^2 = -g(r - a)(r - 2a)(3r + 2a)/(3r^2) \ge 0$ gives $a \le r \le 2a$; turning points $r = a$ ($\ddot r = 5g/6$) and $r = 2a$ ($\ddot r = -g/3$) |
+| (e) Tension | $T = m(g + \ddot r) = mg\left(\frac12 + \frac{4a^3}{3r^3}\right)$, between $\frac23 mg$ and $\frac{11}{6}mg$ |
+| (f) Rough plane | $2\ddot r - r\dot\theta^2 + g + \mu g\,\dot r/\sqrt{\dot r^2 + r^2\dot\theta^2} = 0$; $r\ddot\theta + 2\dot r\dot\theta + \mu g\,r\dot\theta/\sqrt{\dot r^2 + r^2\dot\theta^2} = 0$; $T = m(g + \ddot r)$, $N_1 = mg$ |
+
+**Check against the official key:** Problems.pdf, p. 76 lists item 43 with no answer, so there is no key to compare with. The statement itself prints the tension of part (e) and the roots of the polynomial of part (d): the box of part (e) reproduces that tension and the box of part (d) the factorisation with those roots (**match** with the statement). Independent checks: the quadratures were evaluated numerically with unit data ($a$ of 1 m, $g$ of 1 m s$^{-2}$; substitution of $x$ by 3/2 minus one half of the cosine of a new variable $s$, which removes the endpoint singularities, and the midpoint rule with 200000 points) and compared with a direct fourth-order Runge-Kutta integration of the equations of motion free of the tension (step $10^{-5}$ s):
+
+| Quantity | Quadrature of part (c) | Direct integration |
+| :--- | :--- | :--- |
+| time from $r = a$ to $r = 1.5a$ | $1.36154\sqrt{a/g}$ | $1.36154\sqrt{a/g}$ |
+| angle turned from $r = a$ to $r = 1.5a$ | $1.63506$ rad | $1.63507$ rad |
+| radial period $\tau_r$ | $6.34243\sqrt{a/g}$ | (not integrated) |
+| angle turned in one radial period | $5.0813$ rad ($291.1^\circ$) | (not integrated) |
+
+> [!derivation] Limiting case: the circle of part (a) as a radial equilibrium
+> **Law:** equilibrium and linearisation of the radial equation of motion
+> **Source:** Notes.pdf, Sec. 4.6; Notes.pdf, Eq. 5.6
+>
+> With the speed of part (a) the angular momentum is $a\sqrt{ag}$. A small radial perturbation $\rho$ about $r = a$ is kept to first order.
+>
+> $$\begin{aligned}
+> h^2 &= a^2\cdot a g = a^3g \quad &\text{($h = a v_0$, $v_0^2 = ag$)} \\
+> \ddot r &= -\frac{g}{2} + \frac{a^3g}{2r^3} \quad &\text{(equation of motion free of $T$ with this $h$)} \\
+> \ddot r\big|_{r = a} &= -\frac{g}{2} + \frac{g}{2} = 0 \quad &\text{($r = a$ is an equilibrium of the radial motion)} \\
+> \frac{a^3}{\left(a + \rho\right)^3} &\simeq 1 - \frac{3\rho}{a} \quad &\text{(first-order expansion, $\lvert\rho\rvert \ll a$)} \\
+> \ddot\rho &= -\frac{g}{2} + \frac{g}{2}\left(1 - \frac{3\rho}{a}\right) \quad &\text{($r = a + \rho$ substituted)} \\
+> \ddot\rho + \frac{3g}{2a}\,\rho &= 0 \quad &\text{(simplified: the form of Eq. 5.6)}
+> \end{aligned}$$
+>
+> $$\boxed{v_0 = \sqrt{ag}: \ r = a \ \text{is a stable radial equilibrium}, \qquad \omega_r = \sqrt{\frac{3g}{2a}}}$$
+>
+> **Units:** $[g/a] = [\mathrm{T^{-2}}]$, so $[\omega_r] = [\mathrm{T^{-1}}]$
+> **Meaning:** consistent with parts (a) and (b): with the speed $\sqrt{ag}$ the radial acceleration vanishes at $r = a$, and a slightly different push makes $r$ oscillate harmonically about $a$, as the speed $\sqrt{8ag/3}$ does with a large amplitude between $a$ and $2a$.
 
 ---
 
-## 📌 Problem 44: The Little Prince Throwing Seeds
+## Problem 44: The Little Prince Throwing Seeds
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a seed of mass $m \ll M$ launched from the surface ($r_0 = R$) with speed $v_0$ at $\gamma = 60^\circ$ above the local horizontal; it reaches the apocenter $r_a = 3R$.
-* **Hypotheses:** spherically symmetric, non-rotating asteroid, so the gravitational force is central and conservative with $\mu = GM$; vacuum (no drag); inertial frame $S_0$ centred on the asteroid.
-* **Constraints:** none (the seed is a free particle once it leaves the surface), so $\text{CDOF} = 3$. The central force makes the motion planar, so $\text{CDOF} = 2$ with the coordinates $(r, \theta)$ in the orbital plane.
-* **Initial state:** $r = R$, radial component $v_{r0} = v_0\sin\gamma = \tfrac{\sqrt{3}}{2}v_0$ and transverse component $v_{\theta 0} = v_0\cos\gamma = \tfrac{1}{2}v_0$. At the apocenter $\dot{r} = 0$.
+### Reference Frames, Bases and Coordinates
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $M$, $R$ | mass and radius of the asteroid | kg, m |
-| $G$ | universal gravitational constant, $6.6743\times 10^{-11}$ | m$^3$/(kg s$^2$) |
-| $\mu = GM$ | gravitational parameter | m$^3$/s$^2$ |
-| $\gamma$ | launch angle above the local horizontal (given: $60^\circ$) | rad |
-| $r_a$ | apocenter radius (given: $3R$) | m |
-| $v_0$ | launch speed (unknown) | m/s |
+The little Prince throws a baobab seed from the equator of his spherical asteroid, of radius $R$ and mass $M$, which does not rotate; the initial velocity has the magnitude $v_0$ and makes the angle $\gamma$ of 60 degrees with the local horizontal, and the seed reaches the apocentre $3R$ before falling back (Problems.pdf, p. 31). The statement asks for $v_0$ in terms of the data and the gravitational constant $G$. The solution follows the Newtonian approach of Notes.pdf, Sec. 7.1 to Sec. 7.7, applied to Kepler's problem as in Notes.pdf, Sec. 8.2 to Sec. 8.5.
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $O$ at the centre of the asteroid.
-* **Polar basis in the orbital plane.** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by the true anomaly $\theta$ about $\mathbf{k}$ (along $\mathbf{H}_O$):
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$
-Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
-* $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so by Poisson $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, origin at the centre $O$ of the asteroid (Notes.pdf, Eq. 2.1; Notes.pdf, Sec. 8.2) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$: $\mathbf i$ from $O$ through the launch point; $\mathbf j$ along the horizontal part of the launch velocity; $\mathbf k = \mathbf i\times\mathbf j$, perpendicular to the plane of the motion |
+| Polar basis | $\mathcal B_1 = \{\mathbf e_r, \mathbf e_\theta, \mathbf k\}$, $\mathcal B_0$ turned by $\theta$ about $\mathbf k$; $\mathbf e_r$ from $O$ towards the seed $P$ (Notes.pdf, Eq. 8.2) |
+| Coordinates | $r$, the distance $OP$; $\theta$, the polar angle of $P$ from $\mathbf i$, positive about $\mathbf k$ |
+| Hypotheses | spherically symmetric asteroid that attracts like a point mass $M$ at $O$ (the Earth of Notes.pdf, Ch. 8 is modelled the same way); seed mass $m \ll M$, so the acceleration of $O$ is neglected and $S_0$ is inertial; the asteroid does not rotate, so the launch velocity measured by the Prince is the velocity in $S_0$; no atmosphere; between launch and landing the seed moves outside the asteroid (checked below) |
+| Constraints | none in flight: the seed is a free particle; the central force keeps it in the plane of $\mathbf i$ and $\mathbf j$ (Notes.pdf, Sec. 4.8.1) |
+| Degrees of freedom | 3 in space; 2 in the plane of the motion ($r$, $\theta$) |
+| Data | $R$ [m], $M$ [kg], $G$ [m$^3$ kg$^{-1}$ s$^{-2}$], $\gamma$ of 60 degrees, apocentre $r_a$ equal to $3R$; gravitational parameter $\mu = GM$ [m$^3$ s$^{-2}$] |
+| Unknown | the launch speed $v_0$ [m s$^{-1}$] |
+| Initial state | $r(0) = R$, $\theta(0) = 0$; velocity $v_0$ at $\gamma$ above the local horizontal, the plane perpendicular to $\mathbf e_r$ at the launch point |
+| Applied force | the gravitational attraction of the asteroid, towards $O$ |
+| Constraint and inertia forces | none in flight; $S_0$ inertial |
 
-### Phase 3: Derivation
+![[attachments/EM-SOL/p44-launch.svg]]
 
-#### 3.1 Kinematics
-* **Pedagogical Justification:** the product rule and Poisson's formula (as in Problem 42, 3.1) give the position, velocity and acceleration in the polar basis. The velocity is what the conservation laws need, and the acceleration is needed to write Newton's second law in 3.3.
-$$ \mathbf{r} = r\mathbf{e}_r, \qquad \mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta, \qquad \mathbf{a} = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e}_\theta $$
-$$ h = \|\mathbf{r}\times\mathbf{v}\| = r^2\dot{\theta} = r\,v_\theta $$
-* At launch, $\dot{r} = v_0\sin\gamma$ and $r\dot{\theta} = v_0\cos\gamma$. At the apocenter $\dot{r} = 0$, so the velocity is purely transverse: $v_a = r_a\dot{\theta}_a$.
+### Change of Basis and Position Vector
 
-#### 3.2 Forces
-* **Applied force:** the gravitation of the asteroid, $\mathbf{F} = -\dfrac{GMm}{r^2}\mathbf{e}_r$. It is central and conservative.
-* **Constraint and inertia forces:** none (free particle, inertial frame).
-* **Pedagogical Justification:** the potential energy per unit mass follows from Barrow's rule with the reference at infinity:
-$$ V_0(r) = -\int_\infty^r\left(-\frac{GM}{s^2}\right)ds = GM\left[-\frac{1}{s}\right]_\infty^r = GM\left[-\frac{1}{r} - \lim_{s\to\infty}\left(-\frac{1}{s}\right)\right] = -\frac{GM}{r} $$
+![[attachments/EM-SOL/p44-rotation-k.svg]]
 
-#### 3.3 Equations of Motion
-* **Pedagogical Justification:** the unknowns are the orbit variables $r(t)$ and $\theta(t)$. Instead of integrating Newton's second law in time, we use its two first integrals, which follow from it and give the speed directly at two points (launch and apocenter), exactly what the question needs.
-$$ m\left(\ddot{r} - r\dot{\theta}^2\right) = -\frac{GMm}{r^2}, \qquad m\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = 0 $$
-* **Angular momentum.** The transverse equation times $r/m$ is $\frac{d}{dt}\left(r^2\dot{\theta}\right) = 0$, so $h = r^2\dot{\theta}$ is constant (the force is central).
-* **Energy.** The force is conservative, so $\xi = \tfrac{1}{2}v^2 - GM/r$ is constant. Both laws hold for the same particle between launch and apocenter.
-* **Unknowns and equations:** $v_0$ and $v_a$ are unknown, and there are two equations ($h$ and $\xi$ conservation), so the problem is closed.
+> [!derivation] Polar basis: rotation about k
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 8.2
+>
+> View along $\mathbf k$, which points out of the paper (⊙) because it is the cross product of $\mathbf i$ (to the right) and $\mathbf j$ (up): a positive rotation about $\mathbf k$ is counterclockwise, the sense in which the seed moves away from the launch point. $\mathbf e_r$ is $\mathbf i$ turned by $\theta$: hypotenuse 1, adjacent leg $\cos\theta$ along $\mathbf i$, opposite leg $\sin\theta$ along $\mathbf j$. $\mathbf e_\theta$ is $\mathbf j$ turned by $\theta$: adjacent leg $\cos\theta$ along $\mathbf j$, opposite leg $\sin\theta$ along minus $\mathbf i$ (the upward vector turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf e_r &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_r$)} \\
+> \mathbf e_\theta &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_\theta$: opposite leg on $-\mathbf i$)} \\
+> \mathbf e_r\times\mathbf e_\theta &= \left(\cos^2\theta + \sin^2\theta\right)\mathbf k = \mathbf k \quad &\text{(right-handed; $\mathbf i\times\mathbf j = \mathbf k$, $\mathbf j\times\mathbf i = -\mathbf k$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\theta + \sin^2\theta = 1 \quad &\text{(row 1 times row 1)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\theta\sin\theta - \sin\theta\cos\theta = 0 \quad &\text{(row 1 times row 2; row 3 is the unit row of $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** at the launch point ($\theta = 0$) the basis $\mathcal B_1$ coincides with $\mathcal B_0$: $\mathbf e_r$ is the local vertical and $\mathbf e_\theta$ the local horizontal in the plane of the throw.
 
-#### 3.4 Integration and Answers
-##### Conservation of specific angular momentum
-* **Pedagogical Justification:** evaluate $h$ at launch and at the apocenter, where $v_a = r_a\dot{\theta}_a$.
-$$ h = R\left(v_0\cos\gamma\right) = \frac{1}{2}Rv_0, \qquad h = r_av_a = 3Rv_a \implies v_a = \frac{h}{3R} = \frac{\tfrac{1}{2}Rv_0}{3R} = \frac{v_0}{6} $$
+> [!derivation] Position vector of the seed
+> **Law:** position vector of a point particle; polar coordinates in the plane of the motion
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 8.3
+>
+> In the plane of the motion the segment $OP$ is the hypotenuse $r$ of the right triangle with the leg $r\cos\theta$ along $\mathbf i$ (adjacent to $\theta$) and the leg $r\sin\theta$ along $\mathbf j$ (opposite).
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OP} = r\,\mathbf e_r \quad &\text{(definition; $\mathbf e_r$ from $O$ towards $P$)} \\
+> &= r\cos\theta\,\mathbf i + r\sin\theta\,\mathbf j \quad &\text{($\mathbf e_r$ in $\mathcal B_0$)} \\
+> \mathbf r_0^P(0) &= R\,\mathbf i \quad &\text{(launch point on the surface, $\theta(0) = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = r\,\mathbf e_r = r\cos\theta\,\mathbf i + r\sin\theta\,\mathbf j, \qquad \mathbf r_0^P(0) = R\,\mathbf i}$$
+>
+> **Units:** $[r] = [R] = [\mathrm{L}]$
+> **Meaning:** the outward normal of the sphere at the launch point is $\mathbf e_r$, so "local vertical" means $\mathbf e_r$ and "local horizontal" the plane perpendicular to it.
 
-##### Conservation of specific energy
-* **Pedagogical Justification:** the energy takes the same value at launch and at the apocenter.
-$$ \frac{1}{2}v_0^2 - \frac{GM}{R} = \frac{1}{2}\left(\frac{v_0}{6}\right)^2 - \frac{GM}{3R} = \frac{v_0^2}{72} - \frac{GM}{3R} $$
+### Kinematics
 
-##### Solving for $v_0$
-$$ \left(\frac{1}{2} - \frac{1}{72}\right)v_0^2 = \left(1 - \frac{1}{3}\right)\frac{GM}{R} \implies \frac{35}{72}v_0^2 = \frac{2}{3}\frac{GM}{R} \implies v_0^2 = \frac{2}{3}\cdot\frac{72}{35}\frac{GM}{R} = \frac{48}{35}\frac{GM}{R} $$
-$$ \boxed{v_0 = \sqrt{\frac{48}{35}\,\frac{GM}{R}}} $$
+> [!derivation] Derivatives of the polar unit vectors
+> **Law:** derivative of a unit vector turning about a fixed axis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \dot\theta\,\mathbf k \quad &\text{($\mathcal B_1$ turns about the fixed $\mathbf k$ with the angle $\theta$)} \\
+> \mathbf k\times\mathbf e_r &= \cos\theta\,\mathbf j - \sin\theta\,\mathbf i = \mathbf e_\theta \quad &\text{($\mathbf k\times\mathbf i = \mathbf j$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> \mathbf k\times\mathbf e_\theta &= -\sin\theta\,\mathbf j - \cos\theta\,\mathbf i = -\mathbf e_r \quad &\text{(same products)} \\
+> \dot{\mathbf e}_r &= \boldsymbol\omega_{10}\times\mathbf e_r = \dot\theta\,\mathbf e_\theta \quad &\text{(Eq. 1.62)} \\
+> \dot{\mathbf e}_\theta &= \boldsymbol\omega_{10}\times\mathbf e_\theta = -\dot\theta\,\mathbf e_r \quad &\text{(Eq. 1.62)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf e}_r = \dot\theta\,\mathbf e_\theta, \qquad \dot{\mathbf e}_\theta = -\dot\theta\,\mathbf e_r}$$
+>
+> **Units:** $[\dot\theta] = [\mathrm{T^{-1}}]$
+> **Meaning:** the polar basis turns with the seed round the centre of the asteroid.
 
-### Phase 4: Interpretation & Checks
-* **Bound orbit:** the escape speed at the surface is $v_e = \sqrt{2GM/R}$, i.e. $v_e^2 = \tfrac{70}{35}GM/R$. Since $\tfrac{48}{35} \lt 2$, $v_0 \lt v_e$ and the orbit is an ellipse: the seed falls back.
-* **Orbital parameters:** $h^2 = \tfrac{1}{4}R^2v_0^2 = \tfrac{12}{35}GMR$ and the semi-latus rectum $p = h^2/\mu = \tfrac{12}{35}R$. From $r_a = p/(1 - e) = 3R$: $1 - e = \tfrac{4}{35}$ and $e = \tfrac{31}{35} \approx 0.8857$. The periapsis of the full conic is $r_p = p/(1 + e) = \tfrac{2}{11}R \lt R$, inside the asteroid.
-* **Physical arc.** On the orbit $r = p/(1 + e\cos\theta)$ the seed leaves the surface where $1 + e\cos\theta_0 = p/R$, i.e. $\cos\theta_0 = -\tfrac{23}{31}$ with $\sin\theta_0 \gt 0$ (the seed is moving away from the centre, $\dot{r}_0 \gt 0$), so $\theta_0 \approx 137.9^\circ$. It passes the apocenter at $\theta = \pi$ and lands where $r = R$ again, at $\theta = 2\pi - \theta_0 \approx 222.1^\circ$. The part of the conic that contains the periapsis ($\theta = 0$) is inside the asteroid and is not travelled: the seed describes about $84^\circ$ of orbit and falls back.
-* **Independent check with the Binet solution.** The orbit equation of Problem 42 for $\alpha = 2$ is $u'' + u = \mu/h^2$, with the first integral $\left(u - \mu/h^2\right)^2 + (u')^2 = \left(\mu e/h^2\right)^2$ that defines the eccentricity. The launch data give $u_0 = 1/R$ and $u_0' = -\dot{r}_0/h = -\dfrac{(\sqrt{3}/2)v_0}{(1/2)Rv_0} = -\dfrac{\sqrt{3}}{R}$, so
-$$ \frac{\mu e}{h^2} = \sqrt{\left(\frac{1}{R} - \frac{35}{12R}\right)^2 + \frac{3}{R^2}} = \sqrt{\frac{529}{144R^2} + \frac{432}{144R^2}} = \frac{31}{12R} \implies e = \frac{31}{12R}\cdot\frac{12R}{35} = \frac{31}{35} $$
-* This eccentricity, obtained from the launch conditions alone, reproduces the prescribed apocenter: $r_a = \dfrac{p}{1 - e} = \dfrac{12R/35}{4/35} = 3R$. The value of $v_0$ found from energy and angular momentum is therefore consistent with a second, independent formulation.
-* **Limiting cases** of the general result. Repeating the algebra with $r_a$ and $\gamma$ as symbols ($h = Rv_0\cos\gamma$, $v_a = (R/r_a)v_0\cos\gamma$):
-$$ v_0^2 = \frac{2\mu\left(\frac{1}{R} - \frac{1}{r_a}\right)}{1 - \left(\frac{R}{r_a}\right)^2\cos^2\gamma} $$
-For $r_a = 3R$ and $\gamma = 60^\circ$ the denominator is $1 - \tfrac{1}{9}\cdot\tfrac{1}{4} = \tfrac{35}{36}$ and $v_0^2 = \tfrac{4}{3}\cdot\tfrac{36}{35}\,\mu/R = \tfrac{48}{35}\,\mu/R$. As $r_a \to \infty$, $v_0^2 \to 2\mu/R$, the escape speed. For $\gamma = 90^\circ$ (vertical launch) $v_0^2 = 2\mu\left(1/R - 1/r_a\right)$, the energy balance of a radial flight. For $\gamma = 0$ and $r_a \to R$ the quotient tends to $\mu/R$, the circular speed.
-* **Dimensions:** $[v_0] = \sqrt{[G][M]/[R]} = \sqrt{\dfrac{\text{m}^3}{\text{kg}\,\text{s}^2}\cdot\dfrac{\text{kg}}{\text{m}}} = \text{m/s}$.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 44 in its solution keys, so the result is verified by independent derivation: sympy solves the energy equation and returns $v_0^2 = \tfrac{48}{35}GM/R$, and the eccentricity obtained from the launch data reproduces the prescribed apocenter $r_a = 3R$.
-* **Numerical check** (Python, DOP853 integration of $\ddot{\mathbf{r}} = -\mu\mathbf{r}/r^3$ with $\mu = R = 1$ and $v_0 = \sqrt{48/35}$, $\gamma = 60^\circ$): the maximum radius reached is $2.99998R$ (sampling resolution of the output) and the speed there is $0.16668\,v_0$, in agreement with $r_a = 3R$ and $v_a = v_0/6$.
+> [!derivation] Velocity and acceleration of the seed
+> **Law:** time derivatives of the position vector in $S_0$; product rule
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Eq. 8.3
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \dot r\,\mathbf e_r + r\,\dot{\mathbf e}_r \quad &\text{(Eq. 2.3; product rule)} \\
+> &= \dot r\,\mathbf e_r + r\dot\theta\,\mathbf e_\theta \quad &\text{($\dot{\mathbf e}_r = \dot\theta\,\mathbf e_\theta$)} \\
+> \mathbf a_0^P &= \ddot r\,\mathbf e_r + \dot r\,\dot{\mathbf e}_r + \dot r\dot\theta\,\mathbf e_\theta + r\ddot\theta\,\mathbf e_\theta + r\dot\theta\,\dot{\mathbf e}_\theta \quad &\text{(Eq. 2.4; product rule on each term)} \\
+> &= \ddot r\,\mathbf e_r + \dot r\dot\theta\,\mathbf e_\theta + \dot r\dot\theta\,\mathbf e_\theta + r\ddot\theta\,\mathbf e_\theta - r\dot\theta^2\,\mathbf e_r \quad &\text{(derivatives of the unit vectors substituted)} \\
+> &= \left(\ddot r - r\dot\theta^2\right)\mathbf e_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\mathbf e_\theta \quad &\text{(grouped)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \dot r\,\mathbf e_r + r\dot\theta\,\mathbf e_\theta, \qquad \mathbf a_0^P = \left(\ddot r - r\dot\theta^2\right)\mathbf e_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\mathbf e_\theta}$$
+>
+> **Units:** $[\dot r] = [r\dot\theta] = [\mathrm{L\,T^{-1}}]$; every acceleration term $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** $\dot r$ is the vertical (radial) part of the velocity and $r\dot\theta$ its horizontal (transverse) part, at every point of the flight.
+
+> [!derivation] Launch velocity and the velocity at the apocentre
+> **Law:** components of the launch velocity from its right triangle; a maximum of r has zero rate
+> **Source:** Notes.pdf, Eq. 8.3; Notes.pdf, Sec. 8.4; Problems.pdf, p. 31
+>
+> In the right triangle of the launch velocity the hypotenuse is $v_0$, the leg along the local horizontal $\mathbf e_\theta$ is adjacent to $\gamma$ and the leg along the local vertical $\mathbf e_r$ is opposite to it. The apocentre is the largest distance reached, an interior maximum of the differentiable function $r(t)$.
+>
+> $$\begin{aligned}
+> \mathbf v_0^P(0) &= v_0\sin\gamma\,\mathbf e_r + v_0\cos\gamma\,\mathbf e_\theta \quad &\text{(opposite leg vertical, adjacent leg horizontal)} \\
+> \dot r(0) &= v_0\sin\gamma \quad &\text{(component along $\mathbf e_r$ compared with the velocity box at $r = R$)} \\
+> &= \frac{\sqrt3}{2}\,v_0 \quad &\text{($\sin 60^\circ = \sqrt3/2$)} \\
+> R\,\dot\theta(0) &= v_0\cos\gamma \quad &\text{(component along $\mathbf e_\theta$)} \\
+> &= \frac12\,v_0 \quad &\text{($\cos 60^\circ = 1/2$)} \\
+> \dot r(t_a) &= 0 \quad &\text{(zero derivative at the maximum of $r$)} \\
+> \mathbf v_0^P(t_a) &= r_a\dot\theta(t_a)\,\mathbf e_\theta \quad &\text{(velocity box with $\dot r = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot r(0) = \frac{\sqrt3}{2}\,v_0, \quad R\,\dot\theta(0) = \frac12\,v_0; \qquad \text{at the apocentre } \dot r = 0, \ v_a = r_a\dot\theta_a}$$
+>
+> **Units:** $[v_0] = [R\dot\theta] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** the seed leaves the surface climbing; at the highest point its velocity is purely horizontal (transverse).
+
+### Forces and Equations of Motion
+
+The free-body diagram of the seed in flight shows only the attraction of the asteroid, directed to its centre. $S_0$ is inertial, so no inertia force acts, and in flight there is no constraint.
+
+![[attachments/EM-SOL/p44-fbd.svg]]
+
+> [!derivation] Gravitational force on the seed
+> **Law:** Newton's law of universal gravitation for a spherical body, outside it
+> **Source:** Notes.pdf, Eq. 8.1; [Lecture 4, Slide 9]
+>
+> $$\begin{aligned}
+> \mathbf F &= -\frac{G M m}{r^2}\,\mathbf e_r \quad &\text{(attraction towards $O$, Eq. 8.1 with the asteroid as the central body)} \\
+> \mu &= G M \quad &\text{(gravitational parameter of the asteroid)} \\
+> \mathbf F &= -\frac{\mu m}{r^2}\,\mathbf e_r \quad &\text{(substituted)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F = -\frac{\mu m}{r^2}\,\mathbf e_r, \qquad \mu = G M}$$
+>
+> **Units:** $[\mu] = [G][M] = [\mathrm{L^3\,M^{-1}\,T^{-2}}][\mathrm{M}] = [\mathrm{L^3\,T^{-2}}]$; $[\mu m/r^2] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** a central force (its line of action passes through $O$) of the inverse-square type: the seed solves Kepler's problem about the asteroid.
+
+> [!derivation] Newton's second law projected on the polar basis
+> **Law:** Newton's second law in an inertial frame
+> **Source:** Notes.pdf, Eq. 8.4; Notes.pdf, Eq. 8.5; Notes.pdf, Eq. 8.6
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^P &= -\frac{\mu m}{r^2}\,\mathbf e_r \quad &\text{(the only force)} \\
+> \mathbf e_r:\ \ddot r - r\dot\theta^2 &= -\frac{\mu}{r^2} \quad &\text{(dot product with $\mathbf e_r$, divided by $m$)} \\
+> \mathbf e_\theta:\ r\ddot\theta + 2\dot r\dot\theta &= 0 \quad &\text{(dot product with $\mathbf e_\theta$, divided by $m$)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot r - r\dot\theta^2 = -\frac{\mu}{r^2}, \qquad r\ddot\theta + 2\dot r\dot\theta = 0}$$
+>
+> **Units:** $[\ddot r] = [r\dot\theta^2] = [\mu/r^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the mass of the seed drops out: its flight does not depend on how heavy it is.
+
+> [!derivation] Areal integral: constant angular momentum per unit mass
+> **Law:** the transverse equation times r is an exact derivative; Barrow's rule
+> **Source:** Notes.pdf, Eq. 8.7; [Lecture 4, Slide 12]
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(r^2\dot\theta\right) &= 2r\dot r\dot\theta + r^2\ddot\theta \quad &\text{(product rule; chain rule on $r^2$)} \\
+> &= r\left(r\ddot\theta + 2\dot r\dot\theta\right) \quad &\text{(common factor $r$)} \\
+> &= 0 \quad &\text{(transverse equation)} \\
+> \left[r^2\dot\theta\right]_0^t &= 0 \quad &\text{(Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{h = r^2\dot\theta = r\left(r\dot\theta\right) = \text{const}}$$
+>
+> **Units:** $[h] = [\mathrm{L^2\,T^{-1}}]$
+> **Meaning:** the distance to the centre times the horizontal part of the velocity is the same at every point of the flight (Kepler's second law, Notes.pdf, Eq. 8.8).
+
+> [!derivation] Energy integral (vis-viva equation)
+> **Law:** the radial equation times the radial rate is an exact derivative (chain rule); Barrow's rule
+> **Source:** Notes.pdf, Eq. 8.5; Notes.pdf, Eq. 8.19; Notes.pdf, Eq. 4.31
+>
+> $$\begin{aligned}
+> \ddot r - \frac{h^2}{r^3} + \frac{\mu}{r^2} &= 0 \quad &\text{(radial equation; $r\dot\theta^2 = h^2/r^3$)} \\
+> \dot r\ddot r - \frac{h^2}{r^3}\,\dot r + \frac{\mu}{r^2}\,\dot r &= 0 \quad &\text{(times $\dot r$)} \\
+> \frac{d}{dt}\left(\tfrac12\dot r^2\right) &= \dot r\ddot r \quad &\text{(chain rule)} \\
+> \frac{d}{dt}\left(\frac{h^2}{2r^2}\right) &= -\frac{h^2}{r^3}\,\dot r \quad &\text{(chain rule; $h$ constant)} \\
+> \frac{d}{dt}\left(-\frac{\mu}{r}\right) &= \frac{\mu}{r^2}\,\dot r \quad &\text{(chain rule)} \\
+> \frac{d}{dt}\left[\tfrac12\dot r^2 + \frac{h^2}{2r^2} - \frac{\mu}{r}\right] &= 0 \quad &\text{(the second row is this sum of derivatives)} \\
+> \left[\tfrac12\dot r^2 + \frac{h^2}{2r^2} - \frac{\mu}{r}\right]_0^t &= 0 \quad &\text{(Barrow's rule)} \\
+> \tfrac12\left(\dot r^2 + r^2\dot\theta^2\right) - \frac{\mu}{r} &= \xi \quad &\text{($h^2/r^2 = r^2\dot\theta^2$; $\xi$ the constant)}
+> \end{aligned}$$
+>
+> $$\boxed{\xi = \tfrac12\,\mathbf v_0^P\cdot\mathbf v_0^P - \frac{\mu}{r} = \text{const}}$$
+>
+> **Units:** $[v^2] = [\mu/r] = [\mathrm{L^2\,T^{-2}}]$
+> **Meaning:** the mechanical energy per unit mass, kinetic plus the potential $-\mu/r$ of the attraction with zero at infinity (Notes.pdf, Eq. 8.19): the seed slows down as it climbs.
+
+### Answers and Checks
+
+#### Launch speed
+
+> [!derivation] Angular momentum at launch and at the apocentre
+> **Law:** areal integral evaluated at two points of the flight
+> **Source:** Notes.pdf, Eq. 8.7; Problems.pdf, p. 31
+>
+> $$\begin{aligned}
+> h &= R\left(R\dot\theta(0)\right) \quad &\text{(launch: $r = R$)} \\
+> &= R\,v_0\cos\gamma \quad &\text{(horizontal part of the launch velocity)} \\
+> &= \tfrac12\,R\,v_0 \quad &\text{($\cos 60^\circ = 1/2$)} \\
+> h &= r_a\left(r_a\dot\theta_a\right) = 3R\,v_a \quad &\text{(apocentre: $r_a = 3R$, $v_a = r_a\dot\theta_a$)} \\
+> v_a &= \frac{h}{3R} \quad &\text{(solved)} \\
+> &= \frac{R\,v_0/2}{3R} \quad &\text{($h$ at launch)} \\
+> &= \frac{v_0}{6} \quad &\text{($R$ cancelled)}
+> \end{aligned}$$
+>
+> $$\boxed{h = \tfrac12\,R\,v_0, \qquad v_a = \frac{v_0}{6}}$$
+>
+> **Units:** $[R\,v_0] = [\mathrm{L^2\,T^{-1}}]$; $[v_a] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** at three times the distance the horizontal speed is one third of the initial horizontal part, which is itself one half of the launch speed.
+
+> [!derivation] Launch speed from the energy integral
+> **Law:** vis-viva equation evaluated at launch and at the apocentre
+> **Source:** Notes.pdf, Eq. 8.19; Problems.pdf, p. 31
+>
+> $$\begin{aligned}
+> \tfrac12\,v_0^2 - \frac{\mu}{R} &= \tfrac12\,v_a^2 - \frac{\mu}{3R} \quad &\text{(same $\xi$ at launch and at the apocentre)} \\
+> \tfrac12\,v_0^2 - \frac{\mu}{R} &= \frac{v_0^2}{72} - \frac{\mu}{3R} \quad &\text{($v_a = v_0/6$)} \\
+> \left(\frac12 - \frac{1}{72}\right)v_0^2 &= \left(1 - \frac13\right)\frac{\mu}{R} \quad &\text{(terms collected)} \\
+> \frac{35}{72}\,v_0^2 &= \frac23\,\frac{\mu}{R} \quad &\text{(fractions)} \\
+> v_0^2 &= \frac23\cdot\frac{72}{35}\,\frac{\mu}{R} \quad &\text{(times $72/35$)} \\
+> &= \frac{48}{35}\,\frac{\mu}{R} \quad &\text{(product)} \\
+> v_0 &= \sqrt{\frac{48}{35}\,\frac{G M}{R}} \quad &\text{(positive root; $\mu = GM$)}
+> \end{aligned}$$
+>
+> $$\boxed{v_0 = \sqrt{\frac{48\,G M}{35\,R}} = 4\sqrt{\frac{3\,G M}{35\,R}} \simeq 1.1711\sqrt{\frac{G M}{R}}}$$
+>
+> **Units:** $[G M/R] = [\mathrm{L^3\,M^{-1}\,T^{-2}}][\mathrm{M}][\mathrm{L^{-1}}] = [\mathrm{L^2\,T^{-2}}]$, so $[v_0] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** a little more than the circular speed at the surface (factor 1.17) and less than the escape speed (factor 1.41, Notes.pdf, Eq. 8.21): the seed is on a closed orbit and comes back.
+
+> [!derivation] Check: 3R is the larger turning radius and the seed falls back
+> **Law:** turning radii are the roots of the vis-viva equation with zero radial rate
+> **Source:** Notes.pdf, Eq. 4.28; Notes.pdf, Eq. 8.19
+>
+> $$\begin{aligned}
+> \xi &= \tfrac12\cdot\frac{48\,\mu}{35\,R} - \frac{\mu}{R} \quad &\text{(energy at launch)} \\
+> &= -\frac{11\,\mu}{35\,R} \lt 0 \quad &\text{(fractions)} \\
+> \frac{h^2}{2} &= \frac{R^2v_0^2}{8} \quad &\text{($h = Rv_0/2$)} \\
+> &= \frac{6\,\mu R}{35} \quad &\text{($v_0^2 = 48\mu/(35R)$)} \\
+> \frac{6\,\mu R}{35\,r^2} - \frac{\mu}{r} &= -\frac{11\,\mu}{35\,R} \quad &\text{(energy integral with $\dot r = 0$)} \\
+> 11\,r^2 - 35\,R\,r + 6\,R^2 &= 0 \quad &\text{(times $35Rr^2/\mu$; terms moved to the left)} \\
+> r &= \frac{35 \pm \sqrt{35^2 - 4\cdot 11\cdot 6}}{22}\,R \quad &\text{(quadratic formula)} \\
+> &= \frac{35 \pm 31}{22}\,R \quad &\text{($1225 - 264 = 961 = 31^2$)} \\
+> r_a &= 3R, \quad r_p = \frac{2}{11}\,R \quad &\text{(the two roots)}
+> \end{aligned}$$
+>
+> $$\boxed{\xi = -\frac{11\,\mu}{35\,R} \lt 0, \qquad r_p = \frac{2}{11}\,R \lt R \lt r_a = 3R}$$
+>
+> **Units:** $[\xi] = [\mu/R] = [\mathrm{L^2\,T^{-2}}]$; $r_p$ and $r_a$ in $[\mathrm{L}]$
+> **Meaning:** the energy is negative, so the orbit is an ellipse; $3R$ is its larger turning radius, the apocentre, consistent with the data. The pericentre lies inside the asteroid: after the apocentre the seed comes down and hits the surface before reaching it.
+
+![[attachments/EM-SOL/p44-orbit.svg]]
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| Launch speed | $v_0 = \sqrt{\dfrac{48\,GM}{35\,R}} \simeq 1.1711\sqrt{GM/R}$ |
+| Intermediate results | $h = \frac12 Rv_0$; speed at the apocentre $v_a = v_0/6$; $\xi = -\frac{11}{35}\,GM/R$; pericentre of the full ellipse $\frac{2}{11}R$ (inside the asteroid); eccentricity $\frac{31}{35}$ |
+
+**Check against the official key:** Problems.pdf, p. 76 lists item 44 with no answer, so there is no key to compare with. Independent checks: the orbit equation of Notes.pdf, Eq. 8.13, fitted to the launch data alone, gives back the apocentre $3R$ (box below); the semi-major axis gives back the energy through Notes.pdf, Eq. 8.19 (box below); and a direct fourth-order Runge-Kutta integration of the equations of motion (unit values $\mu$ and $R$ of 1, step $10^{-5}$) from the launch data with the speed found reaches the largest distance $3.0000R$ with the speed $0.16667v_0$, at $42.1^\circ$ from the launch point, and lands after $11.27\sqrt{R^3/(GM)}$.
+
+> [!derivation] Independent check with the conic of Kepler's problem
+> **Law:** orbit equation of Kepler's problem and its first integral; launch data as initial conditions
+> **Source:** Notes.pdf, Eq. 8.10; Notes.pdf, Eq. 8.13; Notes.pdf, Eq. 8.14
+>
+> $$\begin{aligned}
+> u &= \frac{\mu}{h^2}\left[1 + e\cos\left(\theta + \psi\right)\right], \quad u' = -\frac{\mu e}{h^2}\sin\left(\theta + \psi\right) \quad &\text{(Eq. 8.13 and its derivative; $u = 1/r$)} \\
+> \left(u - \frac{\mu}{h^2}\right)^2 + u'^2 &= \left(\frac{\mu e}{h^2}\right)^2 \quad &\text{(squared and added; $\cos^2 + \sin^2 = 1$)} \\
+> u_0 &= \frac1R \quad &\text{(launch point)} \\
+> u_0' &= -\frac{\dot r(0)}{h} \quad &\text{($\dot r = -h\,u'$, Eq. 8.10)} \\
+> &= -\frac{\sqrt3\,v_0/2}{R\,v_0/2} = -\frac{\sqrt3}{R} \quad &\text{(launch data; $v_0/2$ cancelled)} \\
+> \frac{\mu}{h^2} &= \frac{\mu}{12\,\mu R/35} \quad &\text{($h^2 = 12\,\mu R/35$, previous box)} \\
+> &= \frac{35}{12\,R} \quad &\text{($\mu$ cancelled)} \\
+> \left(\frac{\mu e}{h^2}\right)^2 &= \left(\frac{1}{R} - \frac{35}{12R}\right)^2 + \frac{3}{R^2} \quad &\text{(second row with the launch data)} \\
+> &= \frac{529 + 432}{144\,R^2} = \frac{961}{144\,R^2} \quad &\text{(common denominator $144R^2$)} \\
+> \frac{\mu e}{h^2} &= \frac{31}{12\,R} \quad &\text{(positive square root)} \\
+> e &= \frac{31}{12R}\cdot\frac{12R}{35} = \frac{31}{35} \quad &\text{(divided by $\mu/h^2$)} \\
+> r_a &= \frac{h^2/\mu}{1 - e} \quad &\text{(Eq. 8.14 at the apocentre, cosine equal to $-1$)} \\
+> &= \frac{12R/35}{4/35} = 3R \quad &\text{($h^2/\mu = 12R/35$, $1 - e = 4/35$)}
+> \end{aligned}$$
+>
+> $$\boxed{e = \frac{31}{35}, \qquad p = \frac{h^2}{\mu} = \frac{12}{35}\,R, \qquad r_a = \frac{p}{1 - e} = 3R}$$
+>
+> **Units:** $[u] = [u'] = [\mu/h^2] = [\mathrm{L^{-1}}]$; $e$ dimensionless
+> **Meaning:** the conic through the launch point with the launch velocity has exactly the apocentre of the statement: a second derivation, independent of the energy balance, confirms the speed found.
+
+> [!derivation] Independent check with the semi-major axis
+> **Law:** semi-major axis from the apsides; constant of the vis-viva equation
+> **Source:** Notes.pdf, Eq. 8.15; Notes.pdf, Eq. 8.19
+>
+> $$\begin{aligned}
+> 2a_o &= r_p + r_a \quad &\text{(Eq. 8.15, $a_o$ the semi-major axis)} \\
+> &= \frac{2}{11}\,R + 3R = \frac{35}{11}\,R \quad &\text{(apsides of the turning-radius box)} \\
+> -\frac{\mu}{2a_o} &= -\frac{11\,\mu}{35\,R} \quad &\text{(constant of Eq. 8.19)}
+> \end{aligned}$$
+>
+> $$\boxed{-\frac{\mu}{2a_o} = -\frac{11\,\mu}{35\,R} = \xi}$$
+>
+> **Units:** $[\mu/a_o] = [\mathrm{L^2\,T^{-2}}]$
+> **Meaning:** the energy computed from the launch data equals the energy that Kepler's problem assigns to an ellipse with these apsides.
+
+> [!derivation] Limiting cases of the general launch speed
+> **Law:** the same two first integrals with the apocentre and the launch angle kept as symbols
+> **Source:** Notes.pdf, Eq. 8.7; Notes.pdf, Eq. 8.19; Notes.pdf, Eq. 8.20; Notes.pdf, Eq. 8.21
+>
+> $$\begin{aligned}
+> v_a &= \frac{R}{r_a}\,v_0\cos\gamma \quad &\text{(areal integral: $R\,v_0\cos\gamma = r_a v_a$)} \\
+> \tfrac12\,v_0^2\left(1 - \frac{R^2}{r_a^2}\cos^2\gamma\right) &= \mu\left(\frac1R - \frac{1}{r_a}\right) \quad &\text{(vis-viva at both points, terms collected)} \\
+> v_0^2 &= \frac{2\mu\left(1/R - 1/r_a\right)}{1 - \left(R/r_a\right)^2\cos^2\gamma} \quad &\text{(solved)} \\
+> r_a \to \infty:\quad v_0^2 &\to \frac{2\mu}{R} \quad &\text{(escape speed, Eq. 8.21)} \\
+> \gamma = 90^\circ:\quad v_0^2 &= 2\mu\left(\frac1R - \frac{1}{r_a}\right) \quad &\text{(vertical throw: $\cos\gamma = 0$)} \\
+> \gamma = 0:\quad v_0^2 &= \frac{2\mu\left(r_a - R\right)}{R\,r_a}\cdot\frac{r_a^2}{\left(r_a - R\right)\left(r_a + R\right)} \quad &\text{(common denominators; difference of squares)} \\
+> &= \frac{2\mu\,r_a}{R\left(r_a + R\right)} \quad &\text{(common factors cancelled)} \\
+> \gamma = 0,\ r_a \to R:\quad v_0^2 &\to \frac{\mu}{R} \quad &\text{(circular speed, Eq. 8.20)} \\
+> r_a = 3R,\ \gamma = 60^\circ:\quad v_0^2 &= \frac{2\mu\cdot\frac{2}{3R}}{1 - \frac19\cdot\frac14} \quad &\text{(the case of the statement)} \\
+> &= \frac{4\mu/(3R)}{35/36} = \frac{48\,\mu}{35\,R} \quad &\text{(fractions)}
+> \end{aligned}$$
+>
+> $$\boxed{v_0^2 = \frac{2\mu\left(1/R - 1/r_a\right)}{1 - \left(R/r_a\right)^2\cos^2\gamma}: \ \text{escape speed for } r_a \to \infty, \ \text{circular speed for } \gamma = 0,\ r_a \to R}$$
+>
+> **Units:** $[\mu/R] = [\mathrm{L^2\,T^{-2}}]$; the denominator is dimensionless
+> **Meaning:** the general formula reduces to the escape speed when the apocentre goes to infinity, to the energy balance of a vertical flight when the throw is vertical (no horizontal speed at the top), and to the circular speed for a horizontal throw that never climbs; it gives back the result of the statement.
