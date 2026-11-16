@@ -206,9 +206,9 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 .const.is-active .star-icon { opacity: 1; }
 .const.is-active .star-core { opacity: 0; }
 .star-name, .star-count { display: none; }
-.const.is-active .star-name { display: block; font-size: calc(var(--u, 1) * 15px * var(--tk, 1)); }
+.const.is-active .star:hover .star-name, .const.is-active .star:focus-visible .star-name, .const.is-active .star.is-shown .star-name { display: block; font-size: calc(var(--u, 1) * 15px * var(--tk, 1)); }
 .const.is-active .star-count { display: none; font-size: calc(var(--u, 1) * 12px); fill: var(--sk-text-2); font-family: var(--font-mono); }
-.const.is-active .star:hover .star-count, .const.is-active .star:focus-visible .star-count { display: block; }
+.const.is-active .star:hover .star-count, .const.is-active .star:focus-visible .star-count, .const.is-active .star.is-shown .star-count { display: block; }
 .const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(1.2); }
 .const.is-active .star:hover .star-flare, .const.is-active .star:focus-visible .star-flare { opacity: 0.8; }
 .star:focus-visible .star-hit { stroke: var(--sk-text); stroke-width: calc(var(--u, 1) * 2px); }

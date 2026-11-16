@@ -263,14 +263,27 @@
       var ic = s('g', { 'class': 'star-icon' }, a);
       s('circle', { 'class': 'star-icon-bg', r: 13 }, ic);
       s('use', { href: '#' + sec.icon, x: -9, y: -9, width: 18, height: 18, 'class': 'star-icon-glyph' }, ic);
-      var side = (meta.labels && meta.labels[ai]) || (Math.abs(p[0]) < 26 ? (p[1] < 0 ? 't' : 'b') : (p[0] < 0 ? 'l' : 'r'));
-      var vertical = side === 't' || side === 'b';
-      var attrs = vertical
-        ? { 'text-anchor': 'middle', x: 0, y: side === 't' ? -30 : 40 }
-        : { 'text-anchor': side === 'l' ? 'end' : 'start', x: side === 'l' ? -24 : 24, y: 5 };
+      // The name goes on the free side of the star: away from the lines that reach it and from the figure.
+      var incident = [];
+      meta.edges.forEach(function (e) {
+        var other = e[0] === ai ? e[1] : e[1] === ai ? e[0] : -1;
+        if (other >= 0) incident.push(Math.atan2(anchors[other][1] - p[1], anchors[other][0] - p[0]));
+      });
+      var cx = 0, cy = 0;
+      anchors.forEach(function (q) { cx += q[0] / anchors.length; cy += q[1] / anchors.length; });
+      var out = Math.atan2(p[1] - cy, p[0] - cx), best = -9, dx = 1, dy = 0;
+      for (var step = 0; step < 24; step++) {   // the free direction: far from every line at the star, leaning outward
+        var ang = step * Math.PI / 12, gap = 9;
+        incident.forEach(function (ia) { var d = Math.abs(Math.atan2(Math.sin(ang - ia), Math.cos(ang - ia))); if (d < gap) gap = d; });
+        var score = Math.min(gap, 1.2) + 0.35 * Math.cos(ang - out);
+        if (score > best) { best = score; dx = Math.cos(ang); dy = Math.sin(ang); }
+      }
+      var anchor = dx > 0.35 ? 'start' : dx < -0.35 ? 'end' : 'middle';
+      var ny = Math.abs(dy) > 0.5 ? dy * 36 + (dy > 0 ? 10 : -4) : dy * 30 + 5;
+      var attrs = { 'text-anchor': anchor, x: Math.round(dx * (anchor === 'middle' ? 0 : 32)), y: Math.round(ny) };
       var name = s('text', attrs, a); name.setAttribute('class', 'star-name'); name.textContent = sec.label;
       var cAttrs = {}; for (var k in attrs) cAttrs[k] = attrs[k];
-      cAttrs.y = Number(attrs.y) + (side === 't' ? -17 : 19);
+      cAttrs.y = Math.round(ny) + (dy < -0.5 ? -17 : 18);
       var count = s('text', cAttrs, a); count.setAttribute('class', 'star-count'); count.textContent = sec.count;
       return a;
     });
@@ -371,7 +384,7 @@
       caption.style.setProperty('--c', 'var(--c-' + META[it.slug].color + ')');
       caption.style.setProperty('--ct', 'var(--ct-' + META[it.slug].color + ')');
       caption.appendChild(h('h2', '', it.latin));
-      caption.appendChild(h('p', '', it.name + ' · ' + it.sections.length + ' areas · Esc returns to all constellations'));
+      caption.appendChild(h('p', '', it.name + ' · ' + it.sections.length + ' areas · hover or tap a star for its name · Esc goes back'));
     } else {
       caption.appendChild(h('p', '', HINT));
     }
@@ -392,6 +405,7 @@
     if (!selected) return;
     var prev = byslug(selected);
     selected = null;
+    prev.stars.forEach(function (x) { x.classList.remove('is-shown'); });
     moveCamera(false);
     renderState(prev.g);
   }
@@ -506,8 +520,16 @@
     moveCamera(true);
 
     // Clicks: a constellation selects (a star of a closed one must not navigate), empty sky goes back.
+    var lastPointer = 'mouse';
+    svg.addEventListener('pointerdown', function (event) { lastPointer = event.pointerType || 'mouse'; });
     svg.addEventListener('click', function (event) {
       var star = event.target.closest && event.target.closest('.star');
+      if (star && lastPointer === 'touch' && !star.classList.contains('is-shown')) {   // first tap: show the name, second: go
+        event.preventDefault();
+        items.forEach(function (it) { it.stars.forEach(function (x) { x.classList.remove('is-shown'); }); });
+        star.classList.add('is-shown');
+        return;
+      }
       var group = event.target.closest && event.target.closest('.const');
       if (group && group.getAttribute('data-slug') !== selected) {
         event.preventDefault();
