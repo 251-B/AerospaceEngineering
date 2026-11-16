@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 820" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="The rotation phi of the sphere about the rod, measured from the normal w to the rod.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="649.8,470.0 649.1,451.2 647.2,432.5 643.9,413.9 639.3,395.6 633.5,377.7 626.5,360.3 618.2,343.3 608.8,327.0 598.3,311.4 586.7,296.6 574.1,282.6 560.5,269.5 546.1,257.4 530.9,246.3 514.9,236.3 498.3,227.5 481.1,219.8 463.4,213.4 445.3,208.2 426.9,204.3 408.2,201.7 389.4,200.4 370.6,200.4 351.8,201.7 333.1,204.3 314.7,208.2 296.6,213.4 278.9,219.8 261.7,227.5 245.1,236.3 229.1,246.3 213.9,257.4 199.5,269.5 185.9,282.6 173.3,296.6 161.7,311.4 151.2,327.0 141.8,343.3 133.5,360.3 126.5,377.7 120.7,395.6 116.1,413.9 112.8,432.5 110.9,451.2 110.2,470.0 110.9,488.8 112.8,507.5 116.1,526.1 120.7,544.4 126.5,562.3 133.5,579.7 141.8,596.7 151.2,613.0 161.7,628.6 173.3,643.4 185.9,657.4 199.5,670.5 213.9,682.6 229.1,693.7 245.1,703.7 261.7,712.5 278.9,720.2 296.6,726.6 314.7,731.8 333.1,735.7 351.8,738.3 370.6,739.6 389.4,739.6 408.2,738.3 426.9,735.7 445.3,731.8 463.4,726.6 481.1,720.2 498.3,712.5 514.9,703.7 530.9,693.7 546.1,682.6 560.5,670.5 574.1,657.4 586.7,643.4 598.3,628.6 608.8,613.0 618.2,596.7 626.5,579.7 633.5,562.3 639.3,544.4 643.9,526.1 647.2,507.5 649.1,488.8 649.8,470.0" fill="#8a94a6" fill-opacity="0.08" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="209.0" y1="755.0" x2="551.0" y2="755.0" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="209.0" y1="755.0" x2="202.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="218.0" y1="755.0" x2="211.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="227.0" y1="755.0" x2="220.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="236.0" y1="755.0" x2="229.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="245.0" y1="755.0" x2="238.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="254.0" y1="755.0" x2="247.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="263.0" y1="755.0" x2="256.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="272.0" y1="755.0" x2="265.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="281.0" y1="755.0" x2="274.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="290.0" y1="755.0" x2="283.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="299.0" y1="755.0" x2="292.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="308.0" y1="755.0" x2="301.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="317.0" y1="755.0" x2="310.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="326.0" y1="755.0" x2="319.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="335.0" y1="755.0" x2="328.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="344.0" y1="755.0" x2="337.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="353.0" y1="755.0" x2="346.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="362.0" y1="755.0" x2="355.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="371.0" y1="755.0" x2="364.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="380.0" y1="755.0" x2="373.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="389.0" y1="755.0" x2="382.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="398.0" y1="755.0" x2="391.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="407.0" y1="755.0" x2="400.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="416.0" y1="755.0" x2="409.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="425.0" y1="755.0" x2="418.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="434.0" y1="755.0" x2="427.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="443.0" y1="755.0" x2="436.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="452.0" y1="755.0" x2="445.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="461.0" y1="755.0" x2="454.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="470.0" y1="755.0" x2="463.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="479.0" y1="755.0" x2="472.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="488.0" y1="755.0" x2="481.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="497.0" y1="755.0" x2="490.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="506.0" y1="755.0" x2="499.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="515.0" y1="755.0" x2="508.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="524.0" y1="755.0" x2="517.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="533.0" y1="755.0" x2="526.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="542.0" y1="755.0" x2="535.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="551.0" y1="755.0" x2="544.6" y2="761.4" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="380.0" y="789.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">plane</text>
+<line x1="380.0" y1="470.0" x2="683.0" y2="470.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M687.8,470.0 L680.4,473.1 L680.4,466.9 Z" fill="#8a94a6"/>
+<text x="703.8" y="476.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<line x1="380.0" y1="470.0" x2="380.0" y2="167.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M380.0,162.2 L383.1,169.6 L376.9,169.6 Z" fill="#8a94a6"/>
+<text x="396.0" y="166.2" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">w</tspan></text>
+<polygon points="380.0,470.0 525.5,470.0 525.5,347.9" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="525.5" y1="470.0" x2="525.5" y2="347.9" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="512.2,470.0 512.2,456.7 525.5,456.7" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polygon points="380.0,470.0 380.0,324.5 257.9,324.5" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="380.0" y1="324.5" x2="257.9" y2="324.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="380.0,337.8 366.7,337.8 366.7,324.5" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="380.0" y1="470.0" x2="520.5" y2="352.1" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M525.5,347.9 L520.5,357.7 L515.0,351.1 Z" fill="#f59e0b"/>
+<text x="543.5" y="337.9" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<line x1="380.0" y1="470.0" x2="262.1" y2="329.5" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M257.9,324.5 L267.7,329.5 L261.1,335.0 Z" fill="#f59e0b"/>
+<text x="251.9" y="310.5" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">3</tspan></text>
+<text x="452.8" y="494.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos φ</text>
+<text x="534.5" y="413.9" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin φ</text>
+<text x="318.9" y="316.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin φ</text>
+<text x="389.0" y="415.2" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos φ</text>
+<path d="M475.0,470.0 A95.0,95.0 0 0 0 452.8,408.9" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M450.8,406.6 L458.9,410.7 L453.5,415.2 Z" fill="#10b981"/>
+<path d="M380.0,375.0 A95.0,95.0 0 0 0 318.9,397.2" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M316.6,399.2 L320.7,391.1 L325.2,396.5 Z" fill="#10b981"/>
+<text x="465.3" y="455.5" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<text x="361.5" y="402.7" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<circle cx="380.0" cy="470.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="380.0" cy="470.0" r="2.6" fill="#4b5563"/>
+<text x="364.0" y="498.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">u</tspan> (⊙)</text>
+<line x1="257.9" y1="324.5" x2="206.6" y2="263.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="206.6" cy="263.3" r="5" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="196.6" y="259.3" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">mark</text>
+<text x="396.0" y="456.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<line x1="380.0" y1="470.0" x2="553.4" y2="676.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="474.7" y="587.3" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R</text>
+</g></svg>

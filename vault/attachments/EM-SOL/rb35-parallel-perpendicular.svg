@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="Right triangle formed by the velocity of G, its part along the angular velocity and its part perpendicular to it.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="130.0,360.0 357.9,277.0 290.2,90.9" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="357.9" y1="277.0" x2="417.1" y2="255.5" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="5 4"/>
+<line x1="136.7" y1="378.4" x2="216.0" y2="349.6" stroke="#10b981" stroke-width="3.0"/>
+<path d="M222.2,347.3 L214.2,354.8 L211.2,346.7 Z" fill="#10b981"/>
+<text x="230.2" y="361.3" fill="#10b981" font-size="18" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">e<tspan baseline-shift="sub" font-size="70%">ω</tspan></text>
+<line x1="130.0" y1="360.0" x2="286.5" y2="97.1" stroke="#f59e0b" stroke-width="3.4"/>
+<path d="M290.2,90.9 L288.5,102.8 L280.5,98.0 Z" fill="#f59e0b"/>
+<line x1="130.0" y1="360.0" x2="351.7" y2="279.3" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M357.9,277.0 L349.9,284.5 L346.9,276.5 Z" fill="#3b82f6"/>
+<line x1="357.9" y1="277.0" x2="290.2" y2="90.9" stroke="#3b82f6" stroke-width="2.2" stroke-dasharray="6 4"/>
+<path d="M290.2,90.9 L297.0,98.2 L289.7,100.9 Z" fill="#3b82f6"/>
+<polyline points="348.7,280.4 345.4,271.2 354.6,267.8" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<path d="M189.2,338.5 A63.0,63.0 0 0 0 162.3,305.9" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="194.7" y="311.5" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">α</text>
+<text x="304.0" y="394.5" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">v<tspan baseline-shift="sub" font-size="70%">0∥</tspan> = 4√3 m/s</text>
+<text x="196.2" y="219.6" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">|<tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">G</tspan>| = √80 m/s</text>
+<text x="336.0" y="188.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0⊥</tspan><tspan baseline-shift="super" font-size="70%">G</tspan></text>
+<circle cx="130.0" cy="360.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="116.0" y="352.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+</g></svg>

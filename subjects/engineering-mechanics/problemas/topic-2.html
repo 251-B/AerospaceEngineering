@@ -393,8 +393,9 @@
   <script src="../../../assets/js/theme.js"></script>
   <script defer src="../../../assets/js/ask-ai.js"></script>
   <script defer src="../../../assets/js/pdf-export.js"></script>
-  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/derivation-box.css">
   <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -528,7 +529,7 @@
           <h2 class="problem-title">Conservative Force and Potential II</h2>
       <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=9" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 9</a>
         </div>
-        <span class="problem-badge">1D Energy Landscapes</span>
+        <span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;"><span class="problem-badge">1D Energy Landscapes</span><span class="problem-badge">In-Class Session 4</span></span>
       </div>
       <div class="problem-statement">
 <p>The potential energy function of a particle of mass $m$ is:</p>
@@ -658,7 +659,7 @@ $$ V(x) = -\frac{c}{2}(x^2 - a^2)^2 $$
           <h2 class="problem-title">Conservative Force and Potential III</h2>
       <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=9" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 9</a>
         </div>
-        <span class="problem-badge">Oscillation Period</span>
+        <span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;"><span class="problem-badge">Oscillation Period</span><span class="problem-badge">Oscillations - Lecture 6</span></span>
       </div>
       <div class="problem-statement">
 <p>A particle moving under a conservative force oscillates between $x_1$ and $x_2$. Show that the period of oscillation is:</p>
@@ -1057,7 +1058,7 @@ $$ V(x) = mgx\left[\left(\frac{x}{a}\right)^2 - 3\right] $$
           <h2 class="problem-title">Drag on Falling Football</h2>
       <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=9" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 9</a>
         </div>
-        <span class="problem-badge">Quadratic Drag</span>
+        <span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;"><span class="problem-badge">Quadratic Drag</span><span class="problem-badge">In-Class Session 4</span></span>
       </div>
       <div class="problem-statement">
 <p>A football has frontal surface area $S$, mass $m$, and a drag coefficient $C_D$. It falls vertically through the air of density $\rho$. It is assumed that the forces acting on the ball are only gravity and drag. The drag can be modeled as: $D = \frac{1}{2}\rho v^2 S C_D$, with $v$ the speed of the ball. Compute its terminal speed and its position as a function of time.</p>
@@ -1141,7 +1142,7 @@ $$ \int \frac{dx}{x_0^2 - x^2} = \frac{1}{x_0}\text{atanh}\left(\frac{x}{x_0}\ri
           <h2 class="problem-title">Linear Central Force</h2>
       <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=9" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 9</a>
         </div>
-        <span class="problem-badge">Newtonian Restoring Force</span>
+        <span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;"><span class="problem-badge">Newtonian Restoring Force</span><span class="problem-badge">In-Class Session 4</span></span>
       </div>
       <div class="problem-statement">
 <p>A force attracts a heavy particle $M$ of mass $m$ to a point $O$. The attractive force is proportional to the mass of the particle and to the distance $OM$. The proportionality coefficient is $k^2$. The coordinate system $Oxyz$ has the origin at the centre of attraction $O$ and the axis $Oz$ is vertically oriented. Initially, the coordinates of $M$ are:</p>
@@ -1200,7 +1201,7 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Integration of each component</h5>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>$x$ and $y$ (homogeneous oscillators):</strong> the equation $\ddot{x} + k^2x = 0$ is linear with constant coefficients and its characteristic equation $r^2 + k^2 = 0$ has the roots $\pm ik$ (the characteristic-equation method of Notes Eq. 5.20, Sec. 5.3), so the general solution is $A\cos kt + B\sin kt$ (Notes Sec. 5.1, Eq. 5.7). Its velocity follows from the chain rule, $\frac{d}{dt}\cos kt = -k\sin kt$ and $\frac{d}{dt}\sin kt = k\cos kt$: $\dot{x} = -kA\sin kt + kB\cos kt$. The initial conditions give</li>
+<li><strong>$x$ and $y$ (homogeneous oscillators):</strong> the equation $\ddot{x} + k^2x = 0$ is linear with constant coefficients and its characteristic equation $r^2 + k^2 = 0$ has the roots $\pm ik$ (the characteristic-equation method of Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=57" target="_blank" rel="noopener" title="Open Notes.pdf at page 57">5.20</a>, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=57" target="_blank" rel="noopener" title="Open Notes.pdf at page 57">5.3</a>), so the general solution is $A\cos kt + B\sin kt$ (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=55" target="_blank" rel="noopener" title="Open Notes.pdf at page 55">5.1</a>, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=56" target="_blank" rel="noopener" title="Open Notes.pdf at page 56">5.7</a>). Its velocity follows from the chain rule, $\frac{d}{dt}\cos kt = -k\sin kt$ and $\frac{d}{dt}\sin kt = k\cos kt$: $\dot{x} = -kA\sin kt + kB\cos kt$. The initial conditions give</li>
 </ul>
 <div class="math-block">$$ x(0) = A_x = \frac{\sqrt{3}g}{k^2},\ \ \dot{x}(0) = kB_x = 0 \implies x(t) = \frac{\sqrt{3}g}{k^2}\cos kt $$</div>
 <div class="math-block">$$ y(0) = A_y = 0,\ \ \dot{y}(0) = kB_y = \frac{2g}{k} \implies B_y = \frac{2g}{k^2} \implies y(t) = \frac{2g}{k^2}\sin kt $$</div>
@@ -1262,7 +1263,7 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
           <h2 class="problem-title">Vibrating Rotor (Unbalanced Turbojet)</h2>
       <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=31" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 31</a>
         </div>
-        <span class="problem-badge">Forced Oscillations</span>
+        <span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;"><span class="problem-badge">Forced Oscillations</span><span class="problem-badge">Oscillations - Lecture 6</span></span>
       </div>
       <div class="problem-statement">
 <p>To understand the vibrations that occur in a turbojet when the mass distribution of the rotor is slightly unbalanced, we can consider the turbojet as a rigid disk of mass $m$ that rotates at a fixed angular velocity $\omega$, with the center of mass $G$ being separated from the geometric center $C$ by a fixed distance [called $\ell$ in the figure]. An elastic restoring force (with constant $k$) tries to keep $C$ at its design position $O$. We call $x_0^G, y_0^G$ the Cartesian coordinates of $G$, and $x_0^C, y_0^C$ the Cartesian coordinates of $C$. Considering the weight of the disk negligible, write down the equation of the dynamics of $G$. Assuming that the homogeneous solution is damped over time and only the particular solution remains, write down the expression of $x_0^G(t)$ and $x_0^C(t)$. Can we affirm that $|\boldsymbol{OC}| &gt; |\boldsymbol{OG}|$ if $\omega &gt; \sqrt{k/m}$?</p>
@@ -1306,7 +1307,7 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
 <li><strong>Applied force:</strong> the spring force $-k\,\mathbf{r}_C$, which depends on the position of $C$, not on that of $G$. <strong>Constraint forces:</strong> none that affect the centre of mass (the weight is neglected and the drive is a pure couple). <strong>Inertia forces:</strong> none, $S_0$ is inertial.</li>
 </ul>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Newton's second law for $G$ with $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$ gives a forced linear equation (Notes Sec. 5.4, oscillator under a periodic force):</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Newton's second law for $G$ with $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$ gives a forced linear equation (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=59" target="_blank" rel="noopener" title="Open Notes.pdf at page 59">5.4</a>, oscillator under a periodic force):</div>
 <div class="math-block">$$ m\ddot{\mathbf{r}}_G = -k\,\mathbf{r}_C = -k\left[\mathbf{r}_G - \ell\,\mathbf{e}(t)\right] $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>Dividing by $m$ with $\omega_0^2 = k/m$, and eliminating $\mathbf{r}_C$ through the geometric relation of 3.1 (so the unknowns reduce to the two coordinates of $G$), the two components decouple (two unknowns, two equations):</li>
@@ -1360,7 +1361,7 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
           <h2 class="problem-title">Bumpy Taxiway</h2>
       <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=31" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 31</a>
         </div>
-        <span class="problem-badge">Resonance &amp; Damping</span>
+        <span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;"><span class="problem-badge">Resonance &amp; Damping</span><span class="problem-badge">Oscillations - Lecture 6</span></span>
       </div>
       <div class="problem-statement">
 <p>An airplane is taxiing over a bumpy runway of vertical profile $y_1 = \sin(x)$ with a horizontal velocity $c$. The vertical motion of the airplane can be modeled as that of a heavy particle $P$ of mass $m$ supported on a landing gear of nominal length $L$ when unloaded. Consider that the landing gear has stiffness constant $k$ and negligible damping.</p>
@@ -1421,7 +1422,7 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
 <div class="math-block">$$ m\ddot{z} = -kz + k\sin(ct) \implies \ddot{z} + \omega_0^2z = \omega_0^2\sin(ct) $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) Resonance</h5>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> this is a harmonic oscillator forced at the angular frequency $\Omega = c$ by the base motion (Notes Sec. 5.4). Resonance occurs when the forcing frequency equals the natural frequency: the amplitude of the forced response, $A = \omega_0^2/(\omega_0^2 - c^2)$ derived in (b) below, diverges at $c = \omega_0$. There the trial $A\sin(ct)$ fails (it solves the homogeneous equation) and the particular solution is $z_p = -\tfrac{1}{2}\omega_0t\cos(\omega_0t)$ (check: $\ddot z_p + \omega_0^2z_p = \omega_0^2\sin(\omega_0t)$), which grows linearly in time, as in Problem 45.</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> this is a harmonic oscillator forced at the angular frequency $\Omega = c$ by the base motion (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=59" target="_blank" rel="noopener" title="Open Notes.pdf at page 59">5.4</a>). Resonance occurs when the forcing frequency equals the natural frequency: the amplitude of the forced response, $A = \omega_0^2/(\omega_0^2 - c^2)$ derived in (b) below, diverges at $c = \omega_0$. There the trial $A\sin(ct)$ fails (it solves the homogeneous equation) and the particular solution is $z_p = -\tfrac{1}{2}\omega_0t\cos(\omega_0t)$ (check: $\ddot z_p + \omega_0^2z_p = \omega_0^2\sin(\omega_0t)$), which grows linearly in time, as in Problem 45.</div>
 <div class="math-block">$$ \boxed{c_{\text{res}} = \omega_0 = \sqrt{\frac{k}{m}}} $$</div>
 <p style="margin-bottom: 10px;">For a profile of general wavelength $\Lambda$ the resonant speed would be $c = \omega_0\Lambda/2\pi$ (here $\Lambda = 2\pi$).</p>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(b) Amplitude at very high speed</h5>
@@ -1433,8 +1434,8 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the damper adds $-\lambda\left(\dot{y} - \dot{y}_b\right)$. With $a = \lambda/m = 2\zeta\omega_0$ and the damping ratio $\zeta = \lambda/\left(2\sqrt{km}\right)$:</div>
 <div class="math-block">$$ \ddot{z} + a\dot{z} + \omega_0^2z = \omega_0^2\sin(ct) + ac\cos(ct) $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Transient (homogeneous solution).</strong> The characteristic equation $r^2 + ar + \omega_0^2 = 0$ has the roots $r = -\zeta\omega_0 \pm \omega_0\sqrt{\zeta^2 - 1}$:<ul><li>Underdamped, $\lambda \lt 2\sqrt{km}$ ($\zeta \lt 1$): $z_h = e^{-\zeta\omega_0t}\left(C_1\cos\omega_dt + C_2\sin\omega_dt\right)$ with $\omega_d = \omega_0\sqrt{1 - \zeta^2}$.</li><li>Critical, $\lambda = 2\sqrt{km}$ ($\zeta = 1$): $z_h = (C_1 + C_2t)e^{-\omega_0t}$, the fastest return without oscillation.</li><li>Overdamped, $\lambda \gt 2\sqrt{km}$ ($\zeta \gt 1$): $z_h = C_1e^{r_1t} + C_2e^{r_2t}$ with $r_{1,2} \lt 0$ real, a slower return (the three regimes of Notes Sec. 5.3).</li></ul></li>
-<li><strong>Steady state.</strong> The forcing is the imaginary part of $\left(\omega_0^2 + iac\right)e^{ict}$, so with $z_p = \operatorname{Im}\left[He^{ict}\right]$. Substituting $\tilde z = He^{ict}$, the chain rule gives $\dot{\tilde z} = ic\,\tilde z$ and $\ddot{\tilde z} = -c^2\tilde z$, so the equation becomes $\left(\omega_0^2 - c^2 + iac\right)H = \omega_0^2 + iac$ (Notes Sec. 5.2, complex representation):</li>
+<li><strong>Transient (homogeneous solution).</strong> The characteristic equation $r^2 + ar + \omega_0^2 = 0$ has the roots $r = -\zeta\omega_0 \pm \omega_0\sqrt{\zeta^2 - 1}$:<ul><li>Underdamped, $\lambda \lt 2\sqrt{km}$ ($\zeta \lt 1$): $z_h = e^{-\zeta\omega_0t}\left(C_1\cos\omega_dt + C_2\sin\omega_dt\right)$ with $\omega_d = \omega_0\sqrt{1 - \zeta^2}$.</li><li>Critical, $\lambda = 2\sqrt{km}$ ($\zeta = 1$): $z_h = (C_1 + C_2t)e^{-\omega_0t}$, the fastest return without oscillation.</li><li>Overdamped, $\lambda \gt 2\sqrt{km}$ ($\zeta \gt 1$): $z_h = C_1e^{r_1t} + C_2e^{r_2t}$ with $r_{1,2} \lt 0$ real, a slower return (the three regimes of Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=57" target="_blank" rel="noopener" title="Open Notes.pdf at page 57">5.3</a>).</li></ul></li>
+<li><strong>Steady state.</strong> The forcing is the imaginary part of $\left(\omega_0^2 + iac\right)e^{ict}$, so with $z_p = \operatorname{Im}\left[He^{ict}\right]$. Substituting $\tilde z = He^{ict}$, the chain rule gives $\dot{\tilde z} = ic\,\tilde z$ and $\ddot{\tilde z} = -c^2\tilde z$, so the equation becomes $\left(\omega_0^2 - c^2 + iac\right)H = \omega_0^2 + iac$ (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=56" target="_blank" rel="noopener" title="Open Notes.pdf at page 56">5.2</a>, complex representation):</li>
 </ul>
 <div class="math-block">$$ H = \frac{\omega_0^2 + iac}{\omega_0^2 - c^2 + iac}, \qquad |H|^2 = \frac{\omega_0^4 + a^2c^2}{\left(\omega_0^2 - c^2\right)^2 + a^2c^2} $$</div>
 <p style="margin-bottom: 10px;">The steady amplitude is $|H|$ and it is always finite. At resonance, $c = \omega_0$: $|H(\omega_0)| = \sqrt{1 + \dfrac{\omega_0^2}{a^2}} = \sqrt{1 + \dfrac{1}{4\zeta^2}}$. For $c \gg \max\left(a, \omega_0^2/a\right)$ (so that the damping term dominates both the numerator and the denominator), $|H| \approx ac/c^2 = a/c = \lambda/(mc)$: it decays only as $1/c$, slower than the undamped $1/c^2$ of part (b).</p>

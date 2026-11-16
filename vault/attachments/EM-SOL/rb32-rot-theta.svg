@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 919 700" width="100%" class="fig-kit" style="max-width:919px;margin:0 auto;display:block" role="img" aria-label="Gimbal rotation: the gimbal basis turned by theta about the gimbal axis i_a, which points out of the paper; the spin axle j_b is lifted towards k_a.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="441.7,605.9 270.1,237.9 278.3,234.1 449.9,602.1" fill="#8a94a6" fill-opacity="0.35" stroke="#4b5563" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="360.0" y1="420.0" x2="683.6" y2="269.1" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="360.0" y1="420.0" x2="719.2" y2="420.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M724.0,420.0 L716.6,423.1 L716.6,416.9 Z" fill="#8a94a6"/>
+<text x="742.0" y="425.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">a</tspan></text>
+<line x1="360.0" y1="420.0" x2="360.0" y2="60.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M360.0,56.0 L363.1,63.4 L356.9,63.4 Z" fill="#8a94a6"/>
+<text x="360.0" y="43.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">a</tspan></text>
+<polygon points="360.0,420.0 601.1,420.0 601.1,307.6" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="601.1" y1="420.0" x2="601.1" y2="307.6" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="591.3,420.0 591.3,410.2 601.1,410.2" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="360.0" y1="420.0" x2="595.1" y2="310.4" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M601.1,307.6 L593.7,315.7 L590.1,308.0 Z" fill="#3b82f6"/>
+<text x="625.1" y="311.6" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan></text>
+<text x="458.6" y="438.6" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos θ</text>
+<text x="630.3" y="364.3" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin θ</text>
+<text x="487.1" y="351.4" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<polygon points="360.0,420.0 360.0,178.9 247.6,178.9" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="360.0" y1="178.9" x2="247.6" y2="178.9" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="360.0,188.7 350.2,188.7 350.2,178.9" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="360.0" y1="420.0" x2="250.4" y2="184.9" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M247.6,178.9 L255.7,186.3 L248.0,189.9 Z" fill="#3b82f6"/>
+<text x="225.6" y="170.9" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan></text>
+<text x="380.5" y="319.1" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos θ</text>
+<text x="297.0" y="164.4" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin θ</text>
+<text x="286.4" y="297.9" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<path d="M444.0,420.0 A84.0,84.0 0 0 0 436.1,384.5" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M434.9,381.8 L441.5,387.8 L435.2,390.8 Z" fill="#10b981"/>
+<text x="462.0" y="413.8" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<path d="M360.0,336.0 A84.0,84.0 0 0 0 324.5,343.9" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M321.8,345.1 L327.8,338.5 L330.8,344.8 Z" fill="#10b981"/>
+<text x="295.8" y="342.0" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<circle cx="360.0" cy="420.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="360.0" cy="420.0" r="2.6" fill="#4b5563"/>
+<text x="346.0" y="450.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">a</tspan> = <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan> (⊙), gimbal axis</text>
+<text x="695.6" y="265.1" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">spin axle <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan> = <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">d</tspan></text>
+<text x="433.8" y="616.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">disk (edge-on)</text>
+<path d="M298.0,409.1 A63.0,63.0 0 0 1 319.5,371.7" fill="none" stroke="#ec4899" stroke-width="2.0" stroke-linejoin="round"/>
+<path d="M321.8,369.8 L317.7,377.8 L313.2,372.5 Z" fill="#ec4899"/>
+<text x="280.0" y="357.0" fill="#ec4899" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">spring −kθ, damper −λθ̇</text>
+<text x="280.0" y="375.0" fill="#ec4899" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">restoring, clockwise about <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">a</tspan></text>
+</g></svg>

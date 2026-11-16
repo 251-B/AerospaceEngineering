@@ -61,5 +61,5 @@ In Aerospace Engineering, all analytical modeling starts with an abstraction:
 ---
 
 ## 🔗 Related Concepts
-* [[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]]
+* [[Topic 1 - Kinematics of a Point Particle|Topic 1: Fundamentals and Particle Kinematics]]
 * [[Concept - Vector Bases Rotation Matrices and Poisson Theorem|Concept: Vector Bases, Rotation Matrices, and Poisson's Theorem]]

@@ -237,6 +237,90 @@
      "next"
     ]
    ]
+  },
+  "subjects/engineering-mechanics/teoria/topic-6.html": {
+   "flavor": "mechanics",
+   "template": "subjects/engineering-mechanics/teoria/topic-5.html",
+   "note": "vault/03 - Engineering Mechanics/Topic 6 - Kinematics of Rigid Bodies and Inertia Properties.md",
+   "figures": "em_theory",
+   "html_title": "Topic 6: Kinematics of Rigid Bodies and Inertia Properties — Engineering Mechanics",
+   "category": "Topic 06 · Rigid Body",
+   "title": "Kinematics of Rigid Bodies and Inertia Properties",
+   "subtitle": "Orthogonal matrices and Euler angles, the angular velocity and its additivity, the velocity and acceleration fields, the instantaneous axis of rotation, the centre of mass, the tensor of inertia, Steiner's theorem and the principal axes.",
+   "source": "Sources: Notes.pdf, chapters 9 and 10; Lectures 7 and 8.",
+   "nav": [
+    [
+     "topic-5.html",
+     "Topic 5",
+     "prev"
+    ],
+    [
+     "../problemas/topic-6.html",
+     "Topic 6 Problems (8)",
+     "center"
+    ],
+    [
+     "topic-7.html",
+     "Topic 7",
+     "next"
+    ]
+   ]
+  },
+  "subjects/engineering-mechanics/teoria/topic-7.html": {
+   "flavor": "mechanics",
+   "template": "subjects/engineering-mechanics/teoria/topic-5.html",
+   "note": "vault/03 - Engineering Mechanics/Topic 7 - Momentum, Kinetic Energy and Rigid Body Dynamics.md",
+   "figures": "em_theory",
+   "html_title": "Topic 7: Momentum, Kinetic Energy and Rigid Body Dynamics — Engineering Mechanics",
+   "category": "Topic 07 · Rigid Body",
+   "title": "Momentum, Kinetic Energy and Rigid Body Dynamics",
+   "subtitle": "Linear momentum, angular momentum about an arbitrary point, kinetic energy and Koenig's theorem, the force and moment equations, Euler's equations, the work and energy theorem and planar dynamics.",
+   "source": "Sources: Notes.pdf, chapters 11 and 12; Lectures 9 and 10.",
+   "nav": [
+    [
+     "topic-6.html",
+     "Topic 6",
+     "prev"
+    ],
+    [
+     "../problemas/topic-7.html",
+     "Topic 7 Problems (8)",
+     "center"
+    ],
+    [
+     "topic-8.html",
+     "Topic 8",
+     "next"
+    ]
+   ]
+  },
+  "subjects/engineering-mechanics/teoria/topic-8.html": {
+   "flavor": "mechanics",
+   "template": "subjects/engineering-mechanics/teoria/topic-5.html",
+   "note": "vault/03 - Engineering Mechanics/Topic 8 - Constraints, Rolling Motion, Multibody Systems and Torque-Free Motion.md",
+   "figures": "em_theory",
+   "html_title": "Topic 8: Constraints, Rolling Motion, Multibody Systems and Torque-Free Motion — Engineering Mechanics",
+   "category": "Topic 08 · Rigid Body",
+   "title": "Constraints, Rolling Motion, Multibody Systems and Torque-Free Motion",
+   "subtitle": "Constraints on a rigid body, rolling with and without slip, indeterminate reactions, multibody systems and exploded views, the general recipe, and torque-free motion with Poinsot's construction.",
+   "source": "Sources: Notes.pdf, chapters 13, 14 and 15; no lecture deck covers this topic.",
+   "nav": [
+    [
+     "topic-7.html",
+     "Topic 7",
+     "prev"
+    ],
+    [
+     "../problemas/topic-8.html",
+     "Topic 8 Problems (26)",
+     "center"
+    ],
+    [
+     "index.html",
+     "Mechanics Applied Index",
+     "next"
+    ]
+   ]
   }
  }
 }

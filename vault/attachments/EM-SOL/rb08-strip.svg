@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 540" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Horizontal strip of the triangle used to integrate the centre of mass and the moments of inertia.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="271.5,369.5 408.5,369.5 408.5,358.0 271.5,358.0" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="340.0,250.8 225.0,450.0 455.0,450.0" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="340.0" y1="450.0" x2="340.0" y2="220.2" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M340.0,215.4 L343.1,222.8 L336.9,222.8 Z" fill="#8a94a6"/>
+<text x="354.0" y="220.4" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">y</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="340.0" y1="450.0" x2="500.8" y2="450.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M505.6,450.0 L498.2,453.1 L498.2,446.9 Z" fill="#8a94a6"/>
+<text x="519.6" y="455.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">x</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="340.0" y1="369.5" x2="408.5" y2="369.5" stroke="#4b5563" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="374.3" y="391.5" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">w</text>
+<line x1="340.0" y1="450.0" x2="455.0" y2="450.0" stroke="#4b5563" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="397.5" y="476.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">a/2</text>
+<line x1="408.5" y1="369.5" x2="408.5" y2="450.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="174.4" y1="450.0" x2="174.4" y2="369.5" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M174.4,450.0 L171.7,443.6 L177.1,443.6 Z" fill="#8a94a6"/>
+<path d="M174.4,369.5 L177.1,375.9 L171.7,375.9 Z" fill="#8a94a6"/>
+<text x="174.4" y="409.8" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="166.4" y="414.8" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">y₁</text>
+<line x1="174.4" y1="369.5" x2="174.4" y2="250.8" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M174.4,369.5 L171.7,363.1 L177.1,363.1 Z" fill="#8a94a6"/>
+<path d="M174.4,250.8 L177.1,257.3 L171.7,257.3 Z" fill="#8a94a6"/>
+<text x="174.4" y="310.2" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="166.4" y="315.2" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">h − y₁</text>
+<line x1="167.5" y1="450.0" x2="220.4" y2="450.0" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="2 4"/>
+<line x1="167.5" y1="369.5" x2="266.9" y2="369.5" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="2 4"/>
+<line x1="167.5" y1="250.8" x2="335.4" y2="250.8" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="2 4"/>
+<text x="439.1" y="350.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dy₁</text>
+<line x1="415.4" y1="363.8" x2="431.5" y2="363.8" stroke="#3b82f6" stroke-width="1.0"/>
+<text x="356.0" y="246.8" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<text x="209.0" y="458.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">B</text>
+<text x="471.0" y="458.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<circle cx="340.0" cy="383.6" r="4.0" fill="#4b5563"/>
+<text x="354.0" y="388.6" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+</g></svg>

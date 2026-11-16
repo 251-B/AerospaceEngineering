@@ -682,6 +682,16 @@ html[data-theme="print"] .surface-panel {
   html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill*="--fig-green"] :is(text, tspan) {
     fill: oklch(from #10b981 clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
   }
+
+  /* Geometry simulator of the Engineering Mechanics problem cards (assets/js/mechanics-3d-sim.js):
+     its labels, matrix entries and readouts are text, never accent, so they take the palette's own
+     text colour; colour stays in the strokes and fills of the drawing. */
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .m3-svg :is(text, tspan) {
+    fill: var(--study-text);
+  }
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.m3-readouts dd, .m3-title, .m3-control output) {
+    color: var(--study-text);
+  }
 }
 
 /* ==========================================================================
@@ -794,3 +804,94 @@ html[data-theme="print"] .surface-panel {
     box-shadow: none !important;
   }
 }
+
+/* ==========================================================================
+   14. ONE TITLE COLOUR PER SUBJECT, SHORT TITLE BLOCKS
+   Some pages painted half of their <h1> in the accent or with a gradient and
+   others did not, so the title changed colour from page to page. Every page
+   title is now the plain text colour of the page; the subject keeps its
+   identity in the icon, the kicker and the borders.
+   The long descriptions under the title of a topic page (what the page
+   contains, how it was written, where it comes from) are hidden on screen:
+   the kicker, the title, the "Official material" links and the PDF buttons
+   stay. They are still part of the page, so the PDFs are unchanged.
+   ========================================================================== */
+@media screen {
+  html:not([data-theme="print"]) h1 :is(span, em, strong, b, i) {
+    color: inherit !important;
+    -webkit-text-fill-color: currentColor !important;
+    background: none !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+  }
+
+  html:not([data-theme="print"]) :is(.article-header, .page-intro, .page-title-box) >
+    :is(p, .article-lead, .article-subtitle, .article-meta, .page-meta, .source-box, .source-banner, .reading-meta, .brand-badge),
+  html:not([data-theme="print"]) .page-hero > :is(p.subtitle, .hero-badge),
+  html:not([data-theme="print"]) .article-header + .note-banner,
+  html:not([data-theme="print"]) .midterm-part-lead {
+    display: none !important;
+  }
+  html:not([data-theme="print"]) :is(.article-header, .page-intro, .page-title-box) > h1 { margin-bottom: 14px; }
+}
+
+/* ==========================================================================
+   15. COLLAPSIBLE PROBLEM CARDS (assets/js/problem-collapse.js)
+   Every problem card of a problem page starts folded to its heading. The
+   script marks the heading children (.pc-head) and adds the toggle; the rest
+   of the card is hidden while it carries .pc-collapsed. Screen only: print
+   shows every problem in full. Text colours are the page's own.
+   ========================================================================== */
+@media screen {
+  .pc-card { position: relative; }
+  [data-pc] { scroll-margin-top: 76px; }   /* a linked card lands below the sticky header */
+  .pc-card.pc-collapsed > :not(.pc-head) { display: none !important; }
+  .pc-card > .pc-head { cursor: pointer; padding-right: 44px; }
+  .pc-card.pc-collapsed { padding-top: 18px !important; padding-bottom: 18px !important; margin-bottom: 12px !important; }
+  .pc-card.pc-collapsed > .pc-head:last-of-type, .pc-card.pc-collapsed > .pc-head { margin-bottom: 0 !important; border-bottom: 0 !important; padding-bottom: 0 !important; }
+  .pc-card.pc-collapsed > .pc-head + .pc-head { margin-top: 8px !important; }
+  .pc-card.pc-collapsed:hover { border-color: var(--accent) !important; }
+  /* folded: the heading only; the PDF and source chips come back when the card opens */
+  .pc-card.pc-collapsed > .pc-head :is(.src-link, .pdf-chips, .ask-ai-bar) { display: none !important; }
+  .pc-card.pc-collapsed > .pc-head :is(h2, h3, h4, .problem-title) { margin-bottom: 0 !important; }
+  details.problem-card[data-pc]:not([open]) { padding-top: 18px !important; padding-bottom: 18px !important; }
+
+  .pc-toggle {
+    position: absolute; top: 14px; right: 14px; z-index: 1;
+    display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0;
+    border: 1px solid var(--border-card, rgba(127, 127, 127, 0.3)); border-radius: 50%;
+    background: transparent; color: var(--text-primary, inherit); cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .pc-toggle svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .pc-toggle[aria-expanded="true"] { transform: rotate(180deg); }
+  .pc-toggle:hover { border-color: var(--accent); }
+  .pc-toggle:focus-visible, .pc-bar__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Aerospace Materials I: the cards are <details>; same arrow, no "Click to collapse" label */
+  details.problem-card[data-pc] { position: relative; }
+  details.problem-card[data-pc] > summary .problem-header > span[style] { display: none; }
+  details.problem-card[data-pc] > summary { padding-right: 44px; }
+  details.problem-card[data-pc] > summary::after {
+    content: ""; position: absolute; top: 18px; right: 18px; width: 10px; height: 10px;
+    border-right: 2px solid var(--text-primary, currentColor); border-bottom: 2px solid var(--text-primary, currentColor);
+    transform: rotate(45deg); transition: transform 0.2s ease;
+  }
+  details.problem-card[data-pc][open] > summary::after { transform: rotate(225deg); top: 24px; }
+  details.problem-card[data-pc]:not([open]) { margin-bottom: 12px !important; }
+  details.problem-card[data-pc]:not([open]) > :not(summary) { display: none !important; }
+  details.problem-card[data-pc]:not([open]) > summary :is(.problem-title, h2, h3) { margin-bottom: 0 !important; }
+
+  .pc-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; margin: 0 0 14px; }
+  .pc-bar__count {
+    margin-right: auto; font-family: var(--font-mono, monospace); font-size: 0.74rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-secondary, inherit);
+  }
+  .pc-bar__btn {
+    padding: 6px 14px; border: 1px solid var(--border-card, rgba(127, 127, 127, 0.3)); border-radius: 999px;
+    background: transparent; color: var(--text-primary, inherit); cursor: pointer;
+    font-family: var(--font-body, "Newsreader", Georgia, serif); font-size: 0.95rem; font-weight: 600;
+  }
+  .pc-bar__btn:hover { border-color: var(--accent); }
+}
+@media print { .pc-toggle, .pc-bar { display: none !important; } }

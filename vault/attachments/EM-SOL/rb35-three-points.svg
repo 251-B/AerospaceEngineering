@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="The three tracked points of the spaceship with their velocities and the angular velocity.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="210.0" y1="330.0" x2="121.5" y2="398.9" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M117.7,401.8 L121.6,394.9 L125.4,399.8 Z" fill="#8a94a6"/>
+<text x="105.7" y="415.8" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="210.0" y1="330.0" x2="430.2" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M435.0,330.0 L427.6,333.1 L427.6,326.9 Z" fill="#8a94a6"/>
+<text x="449.0" y="336.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="210.0" y1="330.0" x2="210.0" y2="169.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M210.0,165.0 L213.1,172.4 L206.9,172.4 Z" fill="#8a94a6"/>
+<text x="198.0" y="163.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<polygon points="210.0,330.0 358.4,307.9 323.6,181.6" fill="none" stroke="#4b5563" stroke-width="1.4" stroke-dasharray="6 4" stroke-linejoin="round"/>
+<line x1="210.0" y1="330.0" x2="212.7" y2="367.6" stroke="#f59e0b" stroke-width="2.8"/>
+<path d="M213.2,374.2 L208.2,364.4 L216.7,363.8 Z" fill="#f59e0b"/>
+<text x="241.2" y="384.2" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">G</tspan></text>
+<line x1="358.4" y1="307.9" x2="359.8" y2="246.6" stroke="#f59e0b" stroke-width="2.8"/>
+<path d="M360.0,240.0 L364.0,250.2 L355.5,250.0 Z" fill="#f59e0b"/>
+<text x="388.0" y="236.0" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">A</tspan></text>
+<line x1="323.6" y1="181.6" x2="168.7" y2="119.3" stroke="#f59e0b" stroke-width="2.8"/>
+<path d="M162.6,116.8 L173.6,116.6 L170.4,124.6 Z" fill="#f59e0b"/>
+<text x="158.6" y="102.8" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">C</tspan></text>
+<line x1="210.0" y1="330.0" x2="246.5" y2="286.3" stroke="#10b981" stroke-width="3.4"/>
+<path d="M251.1,280.7 L247.6,292.2 L240.4,286.2 Z" fill="#10b981"/>
+<text x="263.1" y="272.7" fill="#10b981" font-size="19" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ω</text>
+<circle cx="210.0" cy="330.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="196.0" y="320.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<circle cx="358.4" cy="307.9" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="344.4" y="311.9" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<circle cx="323.6" cy="181.6" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="339.6" y="199.6" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+</g></svg>

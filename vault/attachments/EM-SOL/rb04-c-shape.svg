@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 600" width="100%" class="fig-kit" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="C-shaped plate with its auxiliary frame at the back, its centre of mass on the horizontal symmetry axis and an area element.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="190.0,122.5 490.0,122.5 490.0,182.5 250.0,182.5 250.0,437.5 490.0,437.5 490.0,497.5 190.0,497.5" fill="#3b82f6" fill-opacity="0.14" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="190.0,122.5 490.0,122.5 490.0,182.5 250.0,182.5 250.0,437.5 490.0,437.5 490.0,497.5 190.0,497.5" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="190.0" y1="310.0" x2="541.5" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M546.2,310.0 L538.9,313.1 L538.9,306.9 Z" fill="#8a94a6"/>
+<text x="560.2" y="316.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">x</tspan></text>
+<line x1="190.0" y1="310.0" x2="190.0" y2="104.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M190.0,100.0 L193.1,107.4 L186.9,107.4 Z" fill="#8a94a6"/>
+<text x="204.0" y="104.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">y</tspan></text>
+<circle cx="190.0" cy="310.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="190.0" cy="310.0" r="2.6" fill="#4b5563"/>
+<text x="176.0" y="300.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">z</tspan></text>
+<line x1="304.2" y1="535.0" x2="304.2" y2="85.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="6 4"/>
+<text x="311.2" y="539.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Gy</text>
+<circle cx="190.0" cy="310.0" r="3.5" fill="#4b5563"/>
+<text x="176.0" y="332.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O′</text>
+<circle cx="304.2" cy="310.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="314.2" y="300.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<line x1="190.0" y1="122.5" x2="190.0" y2="62.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="490.0" y1="122.5" x2="490.0" y2="62.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="190.0" y1="66.2" x2="490.0" y2="66.2" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M190.0,66.2 L196.4,63.5 L196.4,69.0 Z" fill="#8a94a6"/>
+<path d="M490.0,66.2 L483.6,69.0 L483.6,63.5 Z" fill="#8a94a6"/>
+<text x="340.0" y="58.2" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">w</text>
+<line x1="490.0" y1="182.5" x2="531.2" y2="182.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="490.0" y1="122.5" x2="531.2" y2="122.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="527.5" y1="182.5" x2="527.5" y2="122.5" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M527.5,182.5 L524.8,176.1 L530.2,176.1 Z" fill="#8a94a6"/>
+<path d="M527.5,122.5 L530.2,128.9 L524.8,128.9 Z" fill="#8a94a6"/>
+<text x="527.5" y="152.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="537.5" y="157.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">t</text>
+<line x1="190.0" y1="497.5" x2="133.8" y2="497.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="190.0" y1="122.5" x2="133.8" y2="122.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="137.5" y1="497.5" x2="137.5" y2="122.5" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M137.5,497.5 L134.8,491.1 L140.2,491.1 Z" fill="#8a94a6"/>
+<path d="M137.5,122.5 L140.2,128.9 L134.8,128.9 Z" fill="#8a94a6"/>
+<text x="137.5" y="310.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="125.5" y="315.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">h</text>
+<line x1="190.0" y1="407.5" x2="250.0" y2="407.5" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M190.0,407.5 L196.4,404.8 L196.4,410.2 Z" fill="#8a94a6"/>
+<path d="M250.0,407.5 L243.6,410.2 L243.6,404.8 Z" fill="#8a94a6"/>
+<text x="220.0" y="407.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="220.0" y="425.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">t</text>
+<line x1="190.0" y1="355.0" x2="304.2" y2="355.0" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M190.0,355.0 L196.4,352.3 L196.4,357.7 Z" fill="#8a94a6"/>
+<path d="M304.2,355.0 L297.8,357.7 L297.8,352.3 Z" fill="#8a94a6"/>
+<text x="247.1" y="355.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="257.5" y="373.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">x</tspan><tspan baseline-shift="sub" font-size="70%">G</tspan></text>
+<polygon points="356.5,158.5 368.5,158.5 368.5,146.5 356.5,146.5" fill="#f59e0b" fill-opacity="0.95" stroke="#f59e0b" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="362.5" y1="152.5" x2="190.0" y2="152.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="362.5" y1="152.5" x2="362.5" y2="310.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="276.2" y="144.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x</text>
+<text x="368.5" y="236.2" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">y</text>
+<text x="374.5" y="157.5" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">dA</text>
+</g></svg>

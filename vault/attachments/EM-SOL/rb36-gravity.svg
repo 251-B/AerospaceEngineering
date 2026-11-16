@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="The slope basis i0, j0 turned by gamma from the horizontal and the right triangle that splits gravity into g sin gamma down the slope and g cos gamma into the slope.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="39.2" y1="519.9" x2="655.0" y2="354.9" stroke="#8a94a6" stroke-width="6.0"/>
+<line x1="39.2" y1="519.9" x2="264.2" y2="519.9" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="6 4"/>
+<path d="M159.2,519.9 A120.0,120.0 0 0 0 155.1,488.8" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M154.3,485.9 L159.9,493.0 L153.1,494.8 Z" fill="#10b981"/>
+<text x="174.2" y="512.2" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<text x="41.2" y="541.9" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">slope</text>
+<line x1="300.0" y1="450.0" x2="452.7" y2="450.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M457.5,450.0 L450.1,453.1 L450.1,446.9 Z" fill="#8a94a6"/>
+<text x="471.5" y="464.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">h</tspan></text>
+<line x1="300.0" y1="450.0" x2="300.0" y2="297.3" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M300.0,292.5 L303.1,299.9 L296.9,299.9 Z" fill="#8a94a6"/>
+<text x="314.0" y="292.5" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">v</tspan></text>
+<line x1="300.0" y1="450.0" x2="395.0" y2="424.5" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M401.4,422.8 L392.7,429.6 L390.5,421.3 Z" fill="#3b82f6"/>
+<text x="409.4" y="408.8" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="300.0" y1="450.0" x2="274.5" y2="355.0" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M272.8,348.6 L279.6,357.3 L271.3,359.5 Z" fill="#3b82f6"/>
+<text x="256.8" y="344.6" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<path d="M345.0,450.0 A45.0,45.0 0 0 0 343.5,438.4" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M342.7,435.5 L348.2,442.6 L341.5,444.4 Z" fill="#10b981"/>
+<text x="374.4" y="445.2" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<path d="M300.0,405.0 A45.0,45.0 0 0 0 288.4,406.5" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M285.5,407.3 L292.6,401.8 L294.4,408.5 Z" fill="#10b981"/>
+<text x="290.2" y="379.6" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<circle cx="300.0" cy="450.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="300.0" cy="450.0" r="2.6" fill="#4b5563"/>
+<text x="286.0" y="476.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan> (⊙)</text>
+<polygon points="525.0,135.0 570.0,302.9 525.0,315.0" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="570.0" y1="302.9" x2="525.0" y2="315.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="525.0" y1="135.0" x2="570.0" y2="302.9" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="525.0" y1="135.0" x2="525.0" y2="307.2" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M525.0,315.0 L519.9,303.0 L530.1,303.0 Z" fill="#ec4899"/>
+<text x="515.0" y="231.0" fill="#ec4899" font-size="19" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">g</text>
+<text x="557.5" y="223.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">g cos γ</text>
+<text x="553.5" y="333.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">g sin γ</text>
+<polyline points="567.7,294.2 559.0,296.6 561.3,305.3" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<path d="M525.0,202.5 A67.5,67.5 0 0 0 542.5,200.2" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M545.4,199.4 L538.3,205.0 L536.5,198.2 Z" fill="#10b981"/>
+<text x="533.2" y="237.9" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+</g></svg>

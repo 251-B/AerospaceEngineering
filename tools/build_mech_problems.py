@@ -28,6 +28,31 @@ Structure 3 (the lecturer's order, AGENTS.md "Problem-solving standard") require
     Answers and Checks                    (must contain "Check against the official key")
 and no "Phase" word anywhere in the solution.
 
+Structure 4 (rigid body, "rb-NN" ids, topics 6-8) requires these "### " sections, all six, in this order (a section
+may be a single sentence saying that it does not apply to the problem):
+    Reference Frames, Bases and Degrees of Freedom
+    Change of Basis, Position Vectors and Constraint Kinematics
+    Center of Mass and Inertia Tensor
+    Linear Momentum, Angular Momentum and Kinetic Energy
+    Free-Body Diagram and Equations of Motion
+    Answers and Checks                    (must contain "Check against the official key" or "Limiting cases")
+and no "Phase" word. Notes: "## 📌 Problem RB-NN: title" (statement) and "## Problem RB-NN: title" (solution); card id
+"rb-NN", visible number "RB NN"; a statement may carry several figures (T6-RB04-figure.png, T8-RB20-figure-b.png).
+The JSON entry has "group" (A-G); rigid body pages group the cards under <h2 id="group-a"> headings (GROUPS).
+
+Derivation boxes (tools/derivation.py): a solution callout "> [!derivation] Title" (Law, Source, development, boxed
+result, Units, Meaning) is rendered as <div class="derivation-box">; a figure embed inside it is numbered like any other.
+Gate no-inline-calc: for structure 3 and 4 the rendered solution goes through derivation.gate (no calculation in prose
+outside a box); an error unless the JSON entry has "boxed": false (legacy structure-3 solutions; not allowed with
+structure 4). Statements are never gated. A run prints how many problems are structure 2, "boxed": false and fully boxed.
+
+Simulator: "> [!example] Interactive simulator" followed by "> sim: {json}" becomes
+<div class="m3-sim" data-archetype data-config>; one per problem; pages with one load mechanics-3d-sim.css/.js. Every page
+loads derivation-box.css. All are inserted before assets/css/responsive.css, which stays the last stylesheet.
+
+JSON extras: "badges": [...] adds badges next to "badge". Topics 6-8 come from EXPECTED; a topic whose notes do not exist
+yet is skipped with a notice; a missing page is created from the head, header, banner and footer of topic-5.html.
+
 Structure 2 (course order, Notes.pdf chapter 7) requires:
     Phase 1: Constraints, Degrees of Freedom & Coordinates
     Phase 2: Reference Frames & Vector Bases
@@ -55,6 +80,7 @@ REPO = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 import build_topic_pages as bt  # noqa: E402
+import derivation as der  # noqa: E402
 import source_links as sl  # noqa: E402
 from figures import em_solutions as emsol  # noqa: E402
 
@@ -68,8 +94,38 @@ SET_NAMES = {
     3: "Topic 3 Constraints and Reaction Forces",
     4: "Topic 4 Angular Momentum and Central Forces",
     5: "Topic 5 Relative Motion",
+    6: "Topic 6 Rigid Body Kinematics and Inertia",
+    7: "Topic 7 Rigid Body Momentum, Energy and Dynamics",
+    8: "Topic 8 Constraints, Rolling, Multibody and Torque-Free Motion",
 }
-EXPECTED = {1: 6, 2: 10, 3: 12, 4: 3, 5: 20}
+EXPECTED = {1: 6, 2: 10, 3: 12, 4: 3, 5: 20, 6: 8, 7: 8, 8: 26}
+RB_TOPICS = {
+    6: ("Kinematics of Rigid Bodies and Inertia Properties", "Topic 5: Relative Motion"),
+    7: ("Momentum, Kinetic Energy and Rigid Body Dynamics", "Topic 6: Kinematics of Rigid Bodies and Inertia Properties"),
+    8: ("Constraints, Rolling Motion, Multibody Systems and Torque-Free Motion",
+        "Topic 7: Momentum, Kinetic Energy and Rigid Body Dynamics"),
+}
+GROUPS = {
+    "A": "Rigid body kinematics, Euler angles and the instantaneous axis of rotation",
+    "B": "Mass geometry, Steiner's theorem and principal axes",
+    "C": "Linear momentum, angular momentum and kinetic energy",
+    "D": "Planar and 3D rigid body dynamics, equilibrium and linearized oscillations",
+    "E": "Rolling with and without slip, unilateral constraints and lift-off",
+    "F": "Multibody systems and exploded views",
+    "G": "Torque-free motion, Poinsot's construction and gyroscopes",
+}
+ARCHETYPES = ("curvilinear-3d", "rotating-wire-groove", "oscillator-phase", "rb-euler-kinematics",
+              "rb-inertia-principal", "rb-planar-dynamics", "rb-rolling-contact", "rb-gyro-multibody")
+STEPS_V4 = [
+    "Reference Frames, Bases and Degrees of Freedom",
+    "Change of Basis, Position Vectors and Constraint Kinematics",
+    "Center of Mass and Inertia Tensor",
+    "Linear Momentum, Angular Momentum and Kinetic Energy",
+    "Free-Body Diagram and Equations of Motion",
+    "Answers and Checks",
+]
+ASSET_CSS = '../../../assets/css/'
+ASSET_JS = '../../../assets/js/'
 EMOJI = re.compile("[\U0001F300-\U0001FAFF☀-➿⭐⬆✅❌]")
 
 PHASES_V2 = [
@@ -199,7 +255,7 @@ class Figures:
     """Turns the figure embeds of one solution into diagram cards, numbered per problem."""
 
     def __init__(self, pid, errors):
-        self.pid, self.errors, self.count, self.used = pid, errors, 0, []
+        self.pid, self.errors, self.count, self.used, self.sims = pid, errors, 0, [], 0
 
     def __call__(self, name):
         if name not in emsol.REG.web:
@@ -209,10 +265,38 @@ class Figures:
         self.used.append(name)
         cap = inl(html.unescape(emsol.REG.captions[name]))
         return (f'<div class="diagram-card">\n{emsol.REG.web[name]}\n'
-                f'<div class="diagram-caption">Figure {self.count}. {cap}.</div>\n</div>')
+                f'<div class="diagram-caption">Figure {self.count}. {cap.rstrip().rstrip('.')}.</div>\n</div>')
 
 
-def render_solution(md, figs=None):
+def render_sim(block, ctx):
+    """HTML of an '[!example] Interactive simulator' callout (block: its lines without the '> ' prefix)."""
+    raw = next((ln.strip()[4:].strip() for ln in block[1:] if ln.strip().startswith("sim:")), None)
+    if raw is None:
+        ctx.errors.append(f"problem {ctx.pid}: simulator callout without a 'sim: {{json}}' line")
+        return ""
+    try:
+        cfg = json.loads(raw)
+        if not isinstance(cfg, dict):
+            raise ValueError("not an object")
+    except ValueError as exc:
+        ctx.errors.append(f"problem {ctx.pid}: invalid simulator JSON ({exc})")
+        return ""
+    arche = cfg.pop("archetype", None)
+    if arche not in ARCHETYPES:
+        ctx.errors.append(f"problem {ctx.pid}: unknown simulator archetype {arche!r}")
+        return ""
+    ctx.sims += 1
+    if ctx.sims > 1:
+        ctx.errors.append(f"problem {ctx.pid}: more than one simulator")
+        return ""
+    data = html.escape(json.dumps(cfg, separators=(",", ":"), ensure_ascii=False), quote=True)
+    return (f'<div class="m3-sim" data-archetype="{arche}" data-config=\'{data}\'>'
+            '<p class="m3-fallback">Interactive geometry simulator: it needs JavaScript. '
+            'The figures above show the same geometry.</p></div>')
+
+
+def render_solution(md, figs=None, errors=None):
+    ctx = figs or Figures("?", errors if errors is not None else [])
     lines = md.split("\n")
     out, i, n = [], 0, len(lines)
     ul = []
@@ -253,6 +337,25 @@ def render_solution(md, figs=None):
                 rows.append(lines[i])
                 i += 1
             out.append(_table(rows))
+            continue
+        if line.startswith(">") and der.is_start(line):
+            flush()
+            block, i = der.take(lines, i)
+            box, errs = der.parse(block)
+            ctx.errors.extend(f"problem {ctx.pid}: {e}" for e in errs)
+
+            def box_fig(val, ctx=ctx):
+                folder, fname = val
+                if folder != "EM-SOL" or not fname.endswith(".svg"):
+                    ctx.errors.append(f"problem {ctx.pid}: figure {folder}/{fname} in a box must be attachments/EM-SOL/<name>.svg")
+                    return ""
+                return figs(fname[:-4]) if figs else ""
+            out.append(der.render(box, inl, figure=box_fig))
+            continue
+        if line.startswith(">") and re.match(r">\s*\[!example\]\s*Interactive simulator", line):
+            flush()
+            block, i = der.take(lines, i)
+            out.append(render_sim(block, ctx))
             continue
         if line.startswith(">"):
             flush()
@@ -327,7 +430,7 @@ def render_solution(md, figs=None):
     return "\n".join(out)
 
 
-def render_statement(md, pid, errors):
+def render_statement(md, pid, errors, figures=None):
     """(statement_html, figure_name): text blocks and question lists in the order of the note."""
     lines = md.split("\n")
     segs = []
@@ -369,7 +472,7 @@ def render_statement(md, pid, errors):
             while j < n and not lines[j].strip():
                 j += 1
             cap = lines[j].strip() if j < n else ""
-            mc = re.match(r"\*Figure: (.*?)\s*Source: (Problems\.pdf, p\. \d+)\.\*$", cap)
+            mc = re.match(r"\*Figure: (.*?)\s*Source: (Problems\.pdf, pp?\. \d+(?:\s*[-–]\s*\d+)?)\.\*$", cap)
             if mc:
                 alt, src = mc.group(1), mc.group(2)
                 i = j + 1
@@ -378,6 +481,8 @@ def render_statement(md, pid, errors):
                 alt, src = "figure", "Problems.pdf"
                 i += 1
             figure = mf.group(1)
+            if figures is not None:
+                figures.append(figure)
             add("t", 
                 f'<figure class="statement-figure"><img src="../../../vault/attachments/EM/{figure}" '
                 f'alt="{html.escape(alt)}" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;'
@@ -399,6 +504,19 @@ def render_statement(md, pid, errors):
             add("q", 
                 f'<li class="question-item">\n<span class="question-label">{inl(mq.group(1))}</span>\n'
                 f'<div class="question-text">{inl(text)}</div>\n</li>')
+            continue
+        if re.match(r"^[-*] \S", line):                      # plain bullet list of the statement (data and conditions)
+            flush_para()
+            flush_math()
+            items = []
+            while i < n and re.match(r"^[-*] \S", lines[i]) and not re.match(r"^[-*] \*\*(\(?[A-Za-z0-9]+\)?)\*\*", lines[i]):
+                text = lines[i][2:].strip()
+                i += 1
+                while i < n and lines[i].startswith("  ") and lines[i].strip():
+                    text += " " + lines[i].strip()
+                    i += 1
+                items.append(f"<li>{inl(text)}</li>")
+            add("t", '<ul class="statement-list">\n' + "\n".join(items) + "\n</ul>")
             continue
         if line.startswith(">"):
             flush_para()
@@ -433,15 +551,15 @@ def read_note(kind, topic):
 
 
 def split_problems(md):
-    """{id: (heading_title, body)} for every '## ... Problem NN: title' section."""
+    """{id: (heading_title, body)} for every '## ... Problem NN: title' (id 'NN') or 'Problem RB-NN: title' (id 'rb-NN') section."""
     out = {}
-    parts = re.split(r"\n(?=## [^\n]*Problem \d+:)", md)
+    parts = re.split(r"\n(?=## [^\n]*Problem (?:RB-)?\d+:)", md)
     for part in parts:
-        m = re.match(r"## [^\n]*Problem (\d+):\s*(.*)\n", part)
+        m = re.match(r"## [^\n]*Problem (RB-)?(\d+):\s*(.*)\n", part)
         if not m:
             continue
         body = part[m.end():]
-        out[m.group(1).zfill(2)] = (m.group(2).strip(), body)
+        out[("rb-" if m.group(1) else "") + m.group(2).zfill(2)] = (m.group(3).strip(), body)
     return out
 
 
@@ -479,6 +597,21 @@ def validate_v3(pid, sections, body, errors):
         errors.append(f"problem {pid}: the word 'Phase' appears in a structure-3 solution")
 
 
+def validate_v4(pid, sections, body, errors):
+    heads = [h for _, h, _ in sections]
+    if heads != STEPS_V4:
+        errors.append(f"problem {pid}: sections are {heads}, expected {STEPS_V4}")
+        return
+    for _, head, md in sections:
+        if not md.strip():
+            errors.append(f"problem {pid}: section '{head}' is empty (write a sentence saying it does not apply)")
+    last = sections[-1][2]
+    if "Check against the official key" not in last and not re.search(r"limiting cases", last, re.I):
+        errors.append(f"problem {pid}: 'Answers and Checks' lacks 'Check against the official key' or 'Limiting cases'")
+    if re.search(r"\bPhase\b", body):
+        errors.append(f"problem {pid}: the word 'Phase' appears in a structure-4 solution")
+
+
 def validate(pid, phases, structure, errors):
     nums = [p[0] for p in phases]
     if nums != [1, 2, 3, 4]:
@@ -505,12 +638,17 @@ def validate(pid, phases, structure, errors):
 
 
 def card_html(pid, meta, stmt_md, sol_md, errors):
-    statement, fig = render_statement(stmt_md, pid, errors)
-    if fig and not (FIG_DIR / fig).exists():
-        errors.append(f"problem {pid}: missing figure vault/attachments/EM/{fig}")
-    if meta.get("structure", 1) >= 3:
+    figures = []
+    statement, _ = render_statement(stmt_md, pid, errors, figures)
+    for fig in figures:
+        if not (FIG_DIR / fig).exists():
+            errors.append(f"problem {pid}: missing figure vault/attachments/EM/{fig}")
+    structure = meta.get("structure", 1)
+    if structure == 4 and meta.get("boxed") is False:
+        errors.append(f"problem {pid}: \"boxed\": false is not allowed with structure 4")
+    if structure >= 3:
         phases = split_sections(sol_md)
-        validate_v3(pid, phases, sol_md, errors)
+        (validate_v4 if structure == 4 else validate_v3)(pid, phases, sol_md, errors)
     else:
         phases = split_phases(sol_md, pid)
         validate(pid, phases, meta.get("structure", 1), errors)
@@ -522,15 +660,25 @@ def card_html(pid, meta, stmt_md, sol_md, errors):
             f'<div class="phase-block">\n'
             f'<h3 class="phase-heading">{inl(head)}</h3>\n{render_solution(md, figs)}\n</div>')
     USED.update(figs.used)
+    solution_html = "".join(blocks)
+    if structure >= 3 and meta.get("boxed") is not False:
+        errors.extend(f"problem {pid}: {e}" for e in der.gate(solution_html))
     credit = f" {meta['source_note']}" if meta.get("source_note") else ""
+    rb = pid.startswith("rb-")
+    card_id = pid if rb else f"prob-{pid}"
+    label = "Problem RB " + pid[3:] if rb else f"Problem {pid}"
+    badge = f'<span class="problem-badge">{inl(meta["badge"])}</span>'
+    if meta.get("badges"):
+        badge = ('<span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;">' + badge
+                 + "".join(f'<span class="problem-badge">{inl(b)}</span>' for b in meta["badges"]) + "</span>")
     return f'''    <!-- Problem {pid} -->
-    <div class="problem-card" id="prob-{pid}">
+    <div class="problem-card" id="{card_id}">
       <div class="problem-header">
         <div class="problem-title-area">
-          <div class="problem-num">Problem {pid}</div>
+          <div class="problem-num">{label}</div>
           <h2 class="problem-title">{inl(meta["title"])}</h2>
         </div>
-        <span class="problem-badge">{inl(meta["badge"])}</span>
+        {badge}
       </div>
 {statement}
       <!-- Analytical Solution -->
@@ -540,7 +688,7 @@ def card_html(pid, meta, stmt_md, sol_md, errors):
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
-{"".join(blocks)}
+{solution_html}
         </div>
       </details>
 
@@ -557,26 +705,100 @@ def load_meta():
     return json.loads(META.read_text(encoding="utf-8"))
 
 
+def notes_exist(topic):
+    return all((VAULT / f"{kind} - {SET_NAMES[topic]}.md").exists() for kind in ("Problem Set", "Solution Set"))
+
+
+def new_page(topic):
+    """Page of a rigid body topic that has none yet: head, header, banner and footer of topic-5.html."""
+    title, prev_title = RB_TOPICS[topic]
+    text = sl.strip_links((SUBJECT / "topic-5.html").read_text(encoding="utf-8"))
+    text = re.sub(r"<title>.*?</title>", lambda m: f"<title>Topic {topic}: {title} - Problems | Mechanics Applied to Aerospace Engineering</title>", text, count=1)
+    text = re.sub(r'<h1 class="article-title">.*?</h1>', lambda m: f'<h1 class="article-title">Topic {topic}: {title} - Problem Sets</h1>', text, count=1, flags=re.S)
+    intro = ("<strong>Statements and solutions:</strong> These are the rigid body problems of Problems.pdf section 2, "
+             "solved in the lecturer's order: frames, bases and degrees of freedom; change of basis, position vectors and constraint "
+             "kinematics; centre of mass and inertia tensor; momentum and energy; free-body diagram and equations of motion; answers and checks.")
+    text = re.sub(r'<div class="note-banner">.*?</div>', lambda m: f'<div class="note-banner">\n      {intro}\n    </div>', text, count=1, flags=re.S)
+    text = re.sub(r'\n?[ \t]*<style id="em-solution-figures">.*?</style>', "", text, flags=re.S)
+    nxt = ""
+    if topic + 1 in RB_TOPICS and notes_exist(topic + 1):   # no dead link while the next topic is not written
+        nxt = (f'      <a href="topic-{topic + 1}.html" class="nav-btn" style="text-align: right;">\n'
+               f'        <span class="nav-btn-label">Next Topic →</span>\n'
+               f'        <span class="nav-btn-title">Topic {topic + 1}: {RB_TOPICS[topic + 1][0]}</span>\n      </a>\n')
+    nav = (f'    <div class="article-nav">\n      <a href="topic-{topic - 1}.html" class="nav-btn">\n'
+           f'        <span class="nav-btn-label">← Previous Topic</span>\n        <span class="nav-btn-title">{prev_title}</span>\n      </a>\n'
+           f'      <a href="../teoria/topic-{topic}.html" class="nav-btn" style="text-align: center;">\n'
+           f'        <span class="nav-btn-label">Theory Reference</span>\n        <span class="nav-btn-title">Review Topic Theory →</span>\n      </a>\n'
+           f'      <a href="index.html" class="nav-btn" style="text-align: right;">\n'
+           f'        <span class="nav-btn-label">Back to Syllabus →</span>\n        <span class="nav-btn-title">Problems Hub</span>\n      </a>\n'
+           f'{nxt}    </div>\n')
+    a = re.search(r"^[ \t]*<!-- (?:Problem|Group) ", text, re.M).start()
+    b = re.search(r'^[ \t]*<div class="article-nav">', text, re.M)
+    end_nav = re.search(r"</main>", text).start()
+    footer = text[end_nav:]
+    quote = re.search(r"\n[ \t]*<!-- Aerospace Motivational Quote Component -->.*?(?=</main>)", text[b.start():end_nav], re.S)
+    middle = (quote.group(0) if quote else "\n")
+    return text[:a] + "    <!-- Problem placeholder -->\n" + nav + middle + footer
+
+
+def set_head_assets(page, with_sim, errors, topic):
+    """derivation-box.css always; mechanics-3d-sim.css/.js when a card has a simulator; all before responsive.css."""
+    page = re.sub(r'\n?[ \t]*<link rel="stylesheet" href="\.\./\.\./\.\./assets/css/(?:derivation-box|mechanics-3d-sim)\.css">', "", page)
+    page = re.sub(r'\n?[ \t]*<script defer src="\.\./\.\./\.\./assets/js/mechanics-3d-sim\.js"></script>', "", page)
+    tags = [f'<link rel="stylesheet" href="{ASSET_CSS}derivation-box.css">']
+    if with_sim:
+        tags += [f'<link rel="stylesheet" href="{ASSET_CSS}mechanics-3d-sim.css">',
+                 f'<script defer src="{ASSET_JS}mechanics-3d-sim.js"></script>']
+    anchor = re.search(r'^([ \t]*)<link rel="stylesheet" href="\.\./\.\./\.\./assets/css/responsive\.css">', page, re.M)
+    if not anchor:
+        errors.append(f"topic {topic}: the page has no link to assets/css/responsive.css")
+        return page
+    ins = "".join(f"{anchor.group(1)}{t}\n" for t in tags)
+    return page[:anchor.start()] + ins + page[anchor.start():]
+
+
+def group_head(letter):
+    return (f'    <!-- Group {letter} -->\n    <h2 id="group-{letter.lower()}" style="font-family: var(--font-display); '
+            f'font-size: 1.5rem; margin: 48px 0 16px; color: var(--text-heading);">{html.escape(GROUPS[letter])}</h2>\n\n')
+
+
 def build_page(topic, meta, errors):
-    ids = sorted(k for k, v in meta.items() if v["topic"] == topic)
+    rb = topic in RB_TOPICS
+    ids = [k for k, v in meta.items() if v["topic"] == topic]
     stmts = split_problems(read_note("Problem Set", topic))
     sols = split_problems(read_note("Solution Set", topic))
+    if rb:
+        ids = [k for k in stmts if k in ids] + [k for k in sorted(ids) if k not in stmts]
+        extra = sorted(k for k in list(stmts) + list(sols) if k not in meta)
+        if extra:
+            errors.append(f"topic {topic}: problems in the notes but not in mech_problems.json: {', '.join(sorted(set(extra)))}")
+    else:
+        ids.sort()
     if len(ids) != EXPECTED[topic]:
         errors.append(f"topic {topic}: {len(ids)} problems in mech_problems.json, expected {EXPECTED[topic]}")
-    cards = []
-    for pid in ids:
+    if rb:
+        for pid in ids:
+            if meta[pid].get("group") not in GROUPS:
+                errors.append(f"problem {pid}: 'group' must be one of {''.join(GROUPS)}")
+    cards, seen = [], None
+    ordered = sorted(ids, key=lambda p: sorted(GROUPS).index(meta[p]["group"]) if meta[p].get("group") in GROUPS else 99) if rb else ids
+    for pid in ordered:
         for label, src in (("Problem Set", stmts), ("Solution Set", sols)):
             if pid not in src:
                 errors.append(f"problem {pid}: missing in {label} - {SET_NAMES[topic]}")
         if pid in stmts and pid in sols:
+            if rb and meta[pid].get("group") != seen and meta[pid].get("group") in GROUPS:
+                seen = meta[pid]["group"]
+                cards.append(group_head(seen))
             cards.append(card_html(pid, meta[pid], stmts[pid][1], sols[pid][1], errors))
     path = SUBJECT / f"topic-{topic}.html"
-    text = sl.strip_links(path.read_text(encoding="utf-8"))
-    start = re.search(r"^[ \t]*<!-- Problem ", text, re.M).start()
+    text = sl.strip_links(path.read_text(encoding="utf-8")) if path.exists() else new_page(topic)
+    start = re.search(r"^[ \t]*<!-- (?:Problem|Group) ", text, re.M).start()
     end = re.search(r'^[ \t]*<div class="article-nav">', text, re.M).start()
     page = text[:start] + "".join(cards) + text[end:]
     if 'class="diagram-card"' in "".join(cards) and f'id="{STYLE_ID}"' not in page:
         page = page.replace("</head>", STYLE + "</head>", 1)
+    page = set_head_assets(page, 'class="m3-sim"' in "".join(cards), errors, topic)
     if EMOJI.search("".join(cards)):
         errors.append(f"topic {topic}: emoji in the generated cards")
     return path, page
@@ -587,7 +809,7 @@ def main(argv=None):
     ap.add_argument("--check", action="store_true", help="exit 1 if a page is stale or a note is invalid")
     args = ap.parse_args(argv)
     meta = load_meta()
-    errors, stale = [], []
+    errors, stale, built = [], [], 0
     for name, warns in emsol.build().items():
         errors += [f"figure {name}: {w}" for w in warns]
     for rel in emsol.REG.stale(REPO):
@@ -597,8 +819,12 @@ def main(argv=None):
         for rel in emsol.REG.write(REPO):
             print(f"build_mech_problems: wrote {rel}")
     for topic in sorted(EXPECTED):
+        if not notes_exist(topic):
+            print(f"build_mech_problems: topic {topic}: notes '{SET_NAMES[topic]}' do not exist yet, skipped")
+            continue
+        built += 1
         path, want = build_page(topic, meta, errors)
-        have = sl.strip_links(path.read_text(encoding="utf-8"))
+        have = sl.strip_links(path.read_text(encoding="utf-8")) if path.exists() else None
         if have == want:
             continue
         stale.append(path)
@@ -610,14 +836,22 @@ def main(argv=None):
         errors.append(f"figures drawn but not used by any solution: {', '.join(unused)}")
     for e in errors:
         print(f"build_mech_problems: {e}", file=sys.stderr)
+    counts = problem_counts(meta)
+    print("build_mech_problems: {structure2} problems are structure 2, {legacy} are \"boxed\": false, {boxed} are fully boxed".format(**counts))
     if args.check:
         for p in stale:
             print(f"build_mech_problems: stale {p.relative_to(REPO)} (run python tools/build_mech_problems.py)", file=sys.stderr)
         return 1 if (stale or errors) else 0
     if errors:
         return 1
-    print(f"build_mech_problems: {len(EXPECTED)} page(s) checked")
+    print(f"build_mech_problems: {built} page(s) checked")
     return 0
+
+
+def problem_counts(meta):
+    structure2 = sum(1 for v in meta.values() if v.get("structure", 1) <= 2)
+    legacy = sum(1 for v in meta.values() if v.get("structure", 1) >= 3 and v.get("boxed") is False)
+    return {"structure2": structure2, "legacy": legacy, "boxed": len(meta) - structure2 - legacy}
 
 
 if __name__ == "__main__":

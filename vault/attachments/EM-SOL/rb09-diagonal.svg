@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="Rectangle with the right triangle that shows the half diagonal from G to C of length a at the angle pi/6 to the long side.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="380.0,310.0 548.8,212.6 492.5,115.1" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="267.5,504.9 155.0,310.0 492.5,115.1 605.0,310.0" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="335.0" y1="310.0" x2="632.0" y2="310.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="267.5" y1="504.9" x2="492.5" y2="115.1" stroke="#f59e0b" stroke-width="2.2"/>
+<line x1="380.0" y1="310.0" x2="488.9" y2="121.4" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M492.5,115.1 L491.0,127.1 L482.9,122.4 Z" fill="#f59e0b"/>
+<line x1="380.0" y1="310.0" x2="271.1" y2="498.6" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M267.5,504.9 L269.0,492.9 L277.1,497.6 Z" fill="#f59e0b"/>
+<line x1="380.0" y1="310.0" x2="432.7" y2="279.6" stroke="#3b82f6" stroke-width="2.8"/>
+<path d="M438.5,276.2 L431.8,285.0 L427.5,277.6 Z" fill="#3b82f6"/>
+<text x="454.5" y="278.2" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<line x1="380.0" y1="310.0" x2="349.6" y2="257.3" stroke="#3b82f6" stroke-width="2.8"/>
+<path d="M346.2,251.5 L355.0,258.2 L347.6,262.5 Z" fill="#3b82f6"/>
+<text x="332.2" y="249.5" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<polyline points="539.0,218.2 533.4,208.5 543.1,202.8" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<text x="506.8" y="250.6" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" transform="rotate(-30.0 506.8 250.6)">b/2 = √3 a/2</text>
+<text x="531.0" y="157.9" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" transform="rotate(60.0 531.0 157.9)">a/2</text>
+<text x="427.2" y="202.2" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" transform="rotate(-60.0 427.2 202.2)"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">G</tspan><tspan baseline-shift="super" font-size="70%">C</tspan>   |GC| = a</text>
+<text x="333.6" y="418.3" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" transform="rotate(-60.0 333.6 418.3)"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">G</tspan><tspan baseline-shift="super" font-size="70%">A</tspan> = −<tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">G</tspan><tspan baseline-shift="super" font-size="70%">C</tspan></text>
+<path d="M425.0,310.0 A45.0,45.0 0 0 0 419.0,287.5" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M417.5,284.9 L424.7,290.3 L418.6,293.8 Z" fill="#10b981"/>
+<text x="447.5" y="306.4" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<path d="M454.0,267.2 A85.5,85.5 0 0 0 422.8,236.0" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M420.2,234.5 L429.1,235.6 L425.6,241.6 Z" fill="#10b981"/>
+<text x="444.5" y="241.5" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<path d="M560.0,310.0 A180.0,180.0 0 0 0 470.0,154.1" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M467.4,152.6 L476.3,153.7 L472.8,159.8 Z" fill="#10b981"/>
+<text x="568.0" y="336.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">β = θ + π/6</text>
+<text x="480.5" y="223.5" fill="#10b981" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">γ = π/6</text>
+<circle cx="380.0" cy="310.0" r="4.0" fill="#4b5563"/>
+<text x="374.0" y="334.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<text x="265.5" y="528.9" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<text x="139.0" y="314.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">B</text>
+<text x="500.5" y="103.1" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<text x="621.0" y="314.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">D</text>
+</g></svg>

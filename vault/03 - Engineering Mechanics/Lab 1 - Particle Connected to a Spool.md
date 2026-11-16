@@ -21,7 +21,7 @@ sources:
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
 > **Source Documents:** [[Source - 03-engineering-mechanics - laboratorios - general-instructions - mechanics_labs (pdf)|mechanics_labs.pdf]] (pp. 14–16) | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1-Ismael - Lab1_notes (pptx)|Lab1_notes.pptx]] | `AnaliticSolutionLab1Mech2ndTry.pdf` (official handwritten derivation)  
-> **Theoretical Prerequisites:** [[Topic 1 - Fundamentals and Particle Kinematics]], [[Topic 2 - Point Particle Dynamics]], [[Topic 3 - Constraints and Reaction Forces]]  
+> **Theoretical Prerequisites:** [[Topic 1 - Kinematics of a Point Particle]], [[Topic 2 - Dynamics of a Point Particle, Equilibrium and Oscillations]], [[Topic 3 - Constraints and Reaction Forces]]  
 > **Navigation:** [[Lab - Guidelines and Scientific Report Standards|Guidelines]] | [[Engineering Mechanics MOC|⬅️ Mechanics MOC]]
 
 ---

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="Schematic of the outer gimbal, inner gimbal and flywheel with their three rotation axes AB, CD and EF.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="330.0" y1="270.0" x2="248.6" y2="333.4" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M244.8,336.3 L248.7,329.3 L252.5,334.2 Z" fill="#8a94a6"/>
+<text x="232.8" y="350.3" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">X</tspan></text>
+<line x1="330.0" y1="270.0" x2="692.7" y2="270.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M697.5,270.0 L690.1,273.1 L690.1,266.9 Z" fill="#8a94a6"/>
+<text x="709.5" y="284.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">Y</tspan></text>
+<line x1="330.0" y1="270.0" x2="330.0" y2="57.3" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M330.0,52.5 L333.1,59.9 L326.9,59.9 Z" fill="#8a94a6"/>
+<text x="318.0" y="52.5" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">Z</tspan></text>
+<polygon points="498.1,383.5 626.9,156.5 161.9,156.5 33.1,383.5" fill="#3b82f6" fill-opacity="0.06" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="498.1,383.5 626.9,156.5 161.9,156.5 33.1,383.5" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linejoin="round"/>
+<polygon points="389.0,305.0 170.6,412.0 271.0,235.0 489.4,128.0" fill="#10b981" fill-opacity="0.08" stroke="#10b981" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="389.0,305.0 170.6,412.0 271.0,235.0 489.4,128.0" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="279.8" y1="358.5" x2="265.6" y2="383.5" stroke="#10b981" stroke-width="2.0"/>
+<line x1="380.2" y1="181.5" x2="394.4" y2="156.5" stroke="#10b981" stroke-width="2.0"/>
+<polygon points="296.5,329.0 291.2,323.4 286.3,317.2 281.9,310.5 278.1,303.3 274.8,295.7 272.1,287.9 270.0,279.9 268.6,271.8 267.8,263.7 267.8,255.6 268.4,247.7 269.7,240.0 271.7,232.7 274.3,225.7 277.5,219.3 281.3,213.4 285.6,208.1 290.4,203.5 295.6,199.7 301.3,196.6 307.2,194.3 313.4,192.8 319.7,192.2 326.2,192.5 332.7,193.5 339.2,195.5 345.6,198.2 351.8,201.7 357.8,206.0 363.5,211.0 368.8,216.6 373.7,222.8 378.1,229.5 381.9,236.7 385.2,244.3 387.9,252.1 390.0,260.1 391.4,268.2 392.2,276.3 392.2,284.4 391.6,292.3 390.3,300.0 388.3,307.3 385.7,314.3 382.5,320.7 378.7,326.6 374.4,331.9 369.6,336.5 364.4,340.3 358.7,343.4 352.8,345.7 346.6,347.2 340.3,347.8 333.8,347.5 327.3,346.5 320.8,344.5 314.4,341.8 308.2,338.3 302.2,334.0 296.5,329.0" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="296.5,329.0 291.2,323.4 286.3,317.2 281.9,310.5 278.1,303.3 274.8,295.7 272.1,287.9 270.0,279.9 268.6,271.8 267.8,263.7 267.8,255.6 268.4,247.7 269.7,240.0 271.7,232.7 274.3,225.7 277.5,219.3 281.3,213.4 285.6,208.1 290.4,203.5 295.6,199.7 301.3,196.6 307.2,194.3 313.4,192.8 319.7,192.2 326.2,192.5 332.7,193.5 339.2,195.5 345.6,198.2 351.8,201.7 357.8,206.0 363.5,211.0 368.8,216.6 373.7,222.8 378.1,229.5 381.9,236.7 385.2,244.3 387.9,252.1 390.0,260.1 391.4,268.2 392.2,276.3 392.2,284.4 391.6,292.3 390.3,300.0 388.3,307.3 385.7,314.3 382.5,320.7 378.7,326.6 374.4,331.9 369.6,336.5 364.4,340.3 358.7,343.4 352.8,345.7 346.6,347.2 340.3,347.8 333.8,347.5 327.3,346.5 320.8,344.5 314.4,341.8 308.2,338.3 302.2,334.0 296.5,329.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="220.8" y1="323.5" x2="439.2" y2="216.5" stroke="#f59e0b" stroke-width="2.6"/>
+<line x1="330.0" y1="270.0" x2="269.2" y2="242.5" stroke="#f59e0b" stroke-width="1.6"/>
+<circle cx="97.5" cy="270.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="83.5" y="288.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<circle cx="562.5" cy="270.0" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="576.5" y="288.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">B</text>
+<circle cx="279.8" cy="358.5" r="5" fill="#10b981" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="263.8" y="366.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<circle cx="380.2" cy="181.5" r="5" fill="#10b981" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="390.2" y="173.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">D</text>
+<circle cx="220.8" cy="323.5" r="5" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="202.8" y="329.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">E</text>
+<circle cx="439.2" cy="216.5" r="5" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="433.2" y="204.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F</text>
+<circle cx="330.0" cy="270.0" r="3.5" fill="#4b5563"/>
+<text x="346.0" y="292.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<line x1="570.0" y1="270.0" x2="638.4" y2="270.0" stroke="#3b82f6" stroke-width="3.0"/>
+<path d="M645.0,270.0 L634.9,274.3 L634.9,265.7 Z" fill="#3b82f6"/>
+<text x="647.0" y="256.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">β̇ <tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="260.5" y1="392.6" x2="228.4" y2="449.2" stroke="#10b981" stroke-width="3.0"/>
+<path d="M225.1,455.0 L226.4,444.0 L233.8,448.3 Z" fill="#10b981"/>
+<text x="185.1" y="469.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ̇ <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="444.9" y1="213.7" x2="496.4" y2="188.5" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M502.3,185.6 L495.1,193.9 L491.4,186.2 Z" fill="#f59e0b"/>
+<text x="508.3" y="171.6" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ̇ <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<polyline points="618.4,242.3 617.3,240.6 616.0,239.4 614.7,238.5 613.3,238.1 611.8,238.1 610.2,238.4 608.6,239.2 607.0,240.4 605.4,242.0 603.8,243.9 602.3,246.1 600.8,248.7 599.5,251.5 598.2,254.6 597.0,257.9 596.0,261.3 595.1,264.8 594.4,268.5 593.9,272.1 593.5,275.7 593.3,279.2 593.3,282.6 593.5,285.9 593.8,288.9 594.4,291.7 595.1,294.2 595.9,296.4 596.9,298.3 598.1,299.8 599.4,300.9 600.7,301.6 602.2,302.0 603.7,301.9 605.3,301.4 606.9,300.5 608.5,299.2 610.1,297.5 611.7,295.5 613.2,293.1 614.6,290.5" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M614.6,290.5 L613.3,300.4 L606.6,296.4 Z" fill="#3b82f6"/>
+<text x="615.5" y="281.7" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">β</text>
+<polyline points="261.6,409.9 258.8,408.0 255.7,406.3 252.5,404.9 249.2,403.8 245.8,402.9 242.3,402.2 238.8,401.9 235.4,401.8 232.1,402.1 228.9,402.6 225.9,403.4 223.1,404.4 220.5,405.8 218.3,407.3 216.3,409.1 214.7,411.1 213.4,413.2 212.5,415.5 212.0,417.9 211.9,420.4 212.2,423.0 212.8,425.5 213.9,428.0 215.3,430.5 217.1,432.9 219.1,435.2 221.5,437.4 224.2,439.4 227.1,441.2 230.2,442.8 233.4,444.1 236.8,445.2 240.2,446.0 243.7,446.6 247.2,446.8 250.6,446.8 253.8,446.5 257.0,445.9 259.9,445.0 262.7,443.8" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M262.7,443.8 L255.3,450.6 L252.7,443.3 Z" fill="#10b981"/>
+<text x="203.9" y="442.4" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">γ</text>
+<polyline points="482.1,173.5 479.5,172.0 476.9,170.9 474.2,170.1 471.5,169.7 468.8,169.8 466.1,170.2 463.6,170.9 461.2,172.1 459.0,173.6 456.9,175.4 455.1,177.6 453.5,180.0 452.2,182.7 451.1,185.6 450.3,188.7 449.8,191.9 449.7,195.2 449.8,198.6 450.3,202.0 451.0,205.4 452.0,208.6 453.4,211.8 454.9,214.8 456.7,217.6 458.8,220.2 461.0,222.6 463.4,224.6 465.9,226.3 468.5,227.7 471.2,228.7 473.9,229.3 476.6,229.5 479.3,229.4 481.9,228.9 484.4,228.0 486.7,226.7 488.9,225.1 490.9,223.2 492.7,221.0 494.2,218.4" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M494.2,218.4 L492.2,228.2 L485.8,223.8 Z" fill="#f59e0b"/>
+<text x="473.0" y="211.4" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<text x="71.5" y="310.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">axis AB = Y</text>
+</g></svg>

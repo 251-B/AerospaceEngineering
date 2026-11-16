@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 700" width="100%" class="fig-kit" style="max-width:880px;margin:0 auto;display:block" role="img" aria-label="The body basis of the sledge, turned counterclockwise by psi from the fixed basis.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="50.5" y1="360.0" x2="430.0" y2="360.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="430.0" y1="360.0" x2="692.5" y2="360.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M697.3,360.0 L689.9,363.1 L689.9,356.9 Z" fill="#8a94a6"/>
+<text x="713.3" y="366.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="430.0" y1="360.0" x2="430.0" y2="97.5" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M430.0,92.7 L433.1,100.1 L426.9,100.1 Z" fill="#8a94a6"/>
+<text x="446.0" y="96.7" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<polygon points="430.0,360.0 662.6,360.0 662.6,275.4" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="662.6" y1="360.0" x2="662.6" y2="275.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="651.0,360.0 651.0,348.4 662.6,348.4" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polygon points="430.0,360.0 430.0,127.4 345.4,127.4" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="430.0" y1="127.4" x2="345.4" y2="127.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="430.0,139.0 418.4,139.0 418.4,127.4" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="430.0" y1="360.0" x2="656.4" y2="277.6" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M662.6,275.4 L654.5,282.8 L651.6,274.8 Z" fill="#3b82f6"/>
+<text x="680.6" y="265.4" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan></text>
+<line x1="430.0" y1="360.0" x2="347.6" y2="133.6" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M345.4,127.4 L352.8,135.5 L344.8,138.4 Z" fill="#3b82f6"/>
+<text x="339.4" y="113.4" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan></text>
+<text x="546.3" y="384.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos ψ</text>
+<text x="671.6" y="322.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin ψ</text>
+<text x="387.7" y="119.4" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin ψ</text>
+<text x="439.0" y="261.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos ψ</text>
+<path d="M512.5,360.0 A82.5,82.5 0 0 0 507.5,331.8" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M506.5,329.0 L512.6,335.6 L506.0,338.0 Z" fill="#10b981"/>
+<path d="M430.0,277.5 A82.5,82.5 0 0 0 401.8,282.5" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M399.0,283.5 L405.6,277.4 L408.0,284.0 Z" fill="#10b981"/>
+<text x="507.2" y="363.7" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ψ</text>
+<text x="429.7" y="300.8" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ψ</text>
+<circle cx="430.0" cy="360.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="430.0" cy="360.0" r="2.6" fill="#4b5563"/>
+<text x="404.0" y="390.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan> (⊙)</text>
+<text x="602.8" y="285.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<text x="351.7" y="185.2" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<text x="414.0" y="348.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<circle cx="67.0" cy="541.5" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<path d="M61.4,535.9 L72.6,547.1 M61.4,547.1 L72.6,535.9" stroke="#4b5563" stroke-width="1.6" fill="none"/>
+<text x="83.0" y="546.5" fill="#4b5563" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">g  (into the paper)</text>
+<line x1="809.5" y1="624.0" x2="809.5" y2="441.4" stroke="#4b5563" stroke-width="3.0"/>
+<path d="M809.5,434.2 L814.2,445.3 L804.8,445.3 Z" fill="#4b5563"/>
+<text x="835.5" y="440.2" fill="#4b5563" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">U<tspan baseline-shift="sub" font-size="70%">∞</tspan></text>
+<text x="809.5" y="681.8" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">wind</text>
+</g></svg>

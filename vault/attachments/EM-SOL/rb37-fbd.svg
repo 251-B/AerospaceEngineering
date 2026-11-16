@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1000" width="100%" class="fig-kit" style="max-width:960px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the disk: weight, repulsion from A at P, and the normal reaction and friction of the cylinder at C.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polyline points="40.0,150.0 40.1,159.4 40.5,168.8 41.1,178.2 42.0,187.6 43.1,197.0 44.4,206.3 46.0,215.6 47.9,224.8 49.9,234.0 52.3,243.2 54.8,252.2 57.6,261.2 60.6,270.2 63.9,279.0 67.4,287.8 71.1,296.4 75.1,305.0 79.2,313.4 83.6,321.8 88.2,330.0 93.0,338.1 98.1,346.1 103.3,353.9 108.8,361.6 114.4,369.2 120.2,376.6 126.3,383.8 132.5,390.9 138.9,397.8 145.4,404.6 152.2,411.1 159.1,417.5 166.2,423.7 173.4,429.8 180.8,435.6 188.4,441.2 196.1,446.7 203.9,451.9 211.9,457.0 220.0,461.8 228.2,466.4 236.6,470.8 245.0,474.9 253.6,478.9 262.2,482.6 271.0,486.1 279.8,489.4 288.8,492.4 297.8,495.2 306.8,497.7 316.0,500.1 325.2,502.1 334.4,504.0 343.7,505.6 353.0,506.9 362.4,508.0 371.8,508.9 381.2,509.5 390.6,509.9 400.0,510.0 409.4,509.9 418.8,509.5 428.2,508.9 437.6,508.0 447.0,506.9 456.3,505.6 465.6,504.0 474.8,502.1 484.0,500.1 493.2,497.7 502.2,495.2 511.2,492.4 520.2,489.4 529.0,486.1 537.8,482.6 546.4,478.9 555.0,474.9 563.4,470.8 571.8,466.4 580.0,461.8 588.1,457.0 596.1,451.9 603.9,446.7 611.6,441.2 619.2,435.6 626.6,429.8 633.8,423.7 640.9,417.5 647.8,411.1 654.6,404.6 661.1,397.8 667.5,390.9 673.7,383.8 679.8,376.6 685.6,369.2 691.2,361.6 696.7,353.9 701.9,346.1 707.0,338.1 711.8,330.0 716.4,321.8 720.8,313.4 724.9,305.0 728.9,296.4 732.6,287.8 736.1,279.0 739.4,270.2 742.4,261.2 745.2,252.2 747.7,243.2 750.1,234.0 752.1,224.8 754.0,215.6 755.6,206.3 756.9,197.0 758.0,187.6 758.9,178.2 759.5,168.8 759.9,159.4 760.0,150.0" fill="none" stroke="#8a94a6" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="40.0" y1="150.0" x2="59.7" y2="136.2" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="41.4" y1="181.4" x2="59.8" y2="165.9" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="45.5" y1="212.5" x2="62.4" y2="195.5" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="52.3" y1="243.2" x2="67.7" y2="224.8" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="61.7" y1="273.1" x2="75.5" y2="253.5" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="73.7" y1="302.1" x2="85.7" y2="281.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="88.2" y1="330.0" x2="98.4" y2="308.2" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="105.1" y1="356.5" x2="113.3" y2="333.9" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="124.2" y1="381.4" x2="130.4" y2="358.2" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="145.4" y1="404.6" x2="149.6" y2="380.9" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="168.6" y1="425.8" x2="170.7" y2="401.9" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="193.5" y1="444.9" x2="193.5" y2="420.9" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="220.0" y1="461.8" x2="217.9" y2="437.9" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="247.9" y1="476.3" x2="243.7" y2="452.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="276.9" y1="488.3" x2="270.7" y2="465.1" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="306.8" y1="497.7" x2="298.6" y2="475.2" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="337.5" y1="504.5" x2="327.3" y2="482.8" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="368.6" y1="508.6" x2="356.6" y2="487.8" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="400.0" y1="510.0" x2="386.2" y2="490.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="431.4" y1="508.6" x2="415.9" y2="490.2" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="462.5" y1="504.5" x2="445.5" y2="487.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="493.2" y1="497.7" x2="474.8" y2="482.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="738.3" y1="273.1" x2="715.1" y2="279.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="747.7" y1="243.2" x2="725.2" y2="251.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="754.5" y1="212.5" x2="732.8" y2="222.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="758.6" y1="181.4" x2="737.8" y2="193.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="760.0" y1="150.0" x2="740.3" y2="163.8" stroke="#8a94a6" stroke-width="1.0"/>
+<polygon points="828.5,517.7 828.3,509.9 827.5,502.0 826.2,494.3 824.4,486.6 822.2,479.1 819.4,471.8 816.2,464.6 812.5,457.7 808.3,451.0 803.7,444.6 798.8,438.6 793.4,432.8 787.7,427.5 781.6,422.5 775.2,417.9 768.5,413.8 761.6,410.1 754.5,406.8 747.1,404.1 739.6,401.8 731.9,400.0 724.2,398.7 716.4,398.0 708.5,397.7 700.7,398.0 692.9,398.7 685.1,400.0 677.5,401.8 670.0,404.1 662.6,406.8 655.5,410.1 648.5,413.8 641.9,417.9 635.5,422.5 629.4,427.5 623.7,432.8 618.3,438.6 613.3,444.6 608.8,451.0 604.6,457.7 600.9,464.6 597.7,471.8 594.9,479.1 592.6,486.6 590.8,494.3 589.6,502.0 588.8,509.9 588.5,517.7 588.8,525.5 589.6,533.4 590.8,541.1 592.6,548.8 594.9,556.3 597.7,563.6 600.9,570.8 604.6,577.7 608.8,584.4 613.3,590.8 618.3,596.8 623.7,602.6 629.4,607.9 635.5,612.9 641.9,617.5 648.5,621.6 655.5,625.3 662.6,628.6 670.0,631.3 677.5,633.6 685.1,635.4 692.9,636.7 700.7,637.4 708.5,637.7 716.4,637.4 724.2,636.7 731.9,635.4 739.6,633.6 747.1,631.3 754.5,628.6 761.6,625.3 768.5,621.6 775.2,617.5 781.6,612.9 787.7,607.9 793.4,602.6 798.8,596.8 803.7,590.8 808.3,584.4 812.5,577.7 816.2,570.8 819.4,563.6 822.2,556.3 824.4,548.8 826.2,541.1 827.5,533.4 828.3,525.5 828.5,517.7" fill="#8a94a6" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="400.0" y1="870.0" x2="595.8" y2="476.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="400.0" cy="870.0" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="384.0" y="876.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<line x1="708.5" y1="517.7" x2="595.8" y2="476.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="640.5" y="487.1" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan></text>
+<line x1="736.1" y1="494.6" x2="659.0" y2="402.6" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M736.1,494.6 L729.9,491.4 L734.1,487.9 Z" fill="#8a94a6"/>
+<path d="M659.0,402.6 L665.2,405.8 L661.0,409.3 Z" fill="#8a94a6"/>
+<text x="723.5" y="454.6" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="708.5" y1="517.7" x2="743.5" y2="488.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="708.5" y1="517.7" x2="708.5" y2="690.5" stroke="#ec4899" stroke-width="3.2"/>
+<path d="M708.5,697.7 L703.9,686.6 L713.2,686.6 Z" fill="#ec4899"/>
+<text x="716.5" y="713.7" fill="#ec4899" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">mg</text>
+<line x1="595.8" y1="476.7" x2="672.8" y2="322.0" stroke="#ec4899" stroke-width="3.2"/>
+<path d="M676.0,315.5 L675.2,327.5 L666.9,323.3 Z" fill="#ec4899"/>
+<text x="684.0" y="311.5" fill="#ec4899" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">P</tspan> = k AP</text>
+<line x1="631.4" y1="425.8" x2="673.1" y2="475.4" stroke="#10b981" stroke-width="3.2"/>
+<path d="M677.7,480.9 L667.0,475.5 L674.2,469.5 Z" fill="#10b981"/>
+<text x="689.7" y="488.9" fill="#10b981" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N</text>
+<line x1="631.4" y1="425.8" x2="727.0" y2="345.6" stroke="#10b981" stroke-width="3.2"/>
+<path d="M732.5,340.9 L727.1,351.6 L721.1,344.5 Z" fill="#10b981"/>
+<text x="740.5" y="334.9" fill="#10b981" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">T</text>
+<path d="M660.7,521.9 A48.0,48.0 0 0 0 696.1,564.1" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M699.0,564.8 L690.1,566.1 L691.9,559.3 Z" fill="#10b981"/>
+<text x="644.2" y="576.7" fill="#10b981" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">4ψ̈</text>
+<circle cx="631.4" cy="425.8" r="4.5" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="615.4" y="417.8" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<circle cx="595.8" cy="476.7" r="4.5" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="581.8" y="470.7" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<circle cx="708.5" cy="517.7" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="726.5" y="539.7" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<circle cx="400.0" cy="150.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="400.0" cy="150.0" r="2.6" fill="#4b5563"/>
+<text x="384.0" y="142.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<text x="414.0" y="136.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan> (⊙)</text>
+</g></svg>

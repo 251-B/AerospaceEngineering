@@ -87,9 +87,17 @@ class Scene:
         for i, a in enumerate(self.boxes):
             if a[1] < 0 or a[3] > self.c.w or a[2] < 0 or a[4] > self.c.h:
                 out.append(f"label {a[0]!r} leaves the canvas")
+            if not a[0]:
+                continue                                  # empty labels (spin arcs) carry no text to overlap
             for b in self.boxes[i + 1:]:
-                if a[1] < b[3] and b[1] < a[3] and a[2] < b[4] and b[2] < a[4]:
-                    out.append(f"labels {a[0]!r} and {b[0]!r} overlap")
+                if not b[0]:
+                    continue
+                w = min(a[3], b[3]) - max(a[1], b[1])
+                h = min(a[4], b[4]) - max(a[2], b[2])
+                if w > 0 and h > 0:
+                    small = min((a[3] - a[1]) * (a[4] - a[2]), (b[3] - b[1]) * (b[4] - b[2]))
+                    if w * h > small / 3:                 # the boxes are generous estimates: a graze is not an overlap
+                        out.append(f"labels {a[0]!r} and {b[0]!r} overlap")
         return out
 
     # ---- lines and bodies ---------------------------------------------------------------

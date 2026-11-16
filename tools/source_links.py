@@ -11,7 +11,11 @@ any other link on the page):
             problem sheet at the page where the statement starts
     cite    inline citations such as "[Slide 14]", "Notes.pdf, Eq. 2.26",
             "Robinson, Sec. 7.6, p. 54" or "[Session 4 Slide 22]" become links to
-            that page of the cited PDF; text inside $...$ / $$...$$ is never touched
+            that page of the cited PDF; text inside $...$ / $$...$$ is never touched.
+            "[Lecture N, Slide M]" (also "Slides M-K", linking to M) becomes a link to
+            page M of the deck of lecture N (config key "lectures", per subject folder:
+            Engineering Mechanics Lectures 1 to 10); "Problems.pdf, p. N" is linked on pages
+            whose cite rules name a "problems" PDF
 
 Configuration lives in tools/source_links.json (PDFs, per-page panels, card
 pages and citation rules). "Slide N" means page N of the deck unless the PDF
@@ -83,6 +87,9 @@ _KEYWORD = r"(Secs?\.|Sections?|Ch\.|Chapters?|pp?\.|Eqs?\.|Equations?|Figs?\.|F
 _ITEM = re.compile(rf"(\s*(?:[,;:]|\(|\band\b|&amp;|&)?\s*(?:\band\b\s*|&amp;\s*)?){_KEYWORD}\s*((?:{_RANGE})(?:\s*(?:,|&amp;|\band\b)\s*(?!{_KEYWORD}){_RANGE})*)")
 _NUMTOKEN = re.compile(_RANGE)
 _TRIGGER = re.compile(r"\b(Robinson(?:\s*\(2004\))?|Notes(?:\.pdf)?|Session\s+(\d+))(?=[\s,;:.)])")
+_TRIGGER_PROBLEMS = re.compile(r"\b(Problems\.pdf)(?=[\s,;:.)])")  # only on pages whose cite rules name a "problems" PDF
+# "[Lecture 7, Slide 12]" / "[Lecture 7, Slides 3-5]": the lecture picks the deck (rules["lectures"], per subject)
+_LECTURE = re.compile(r"\[Lecture (\d+), Slides? ((\d+)(?:\s*(?:[\u2013-]|&ndash;)\s*\d+)?)\]")
 _BARE_SLIDE = re.compile(rf"\bSlides?\s+(?={_NUM})")
 _BARE_EQ = re.compile(rf"\bEqs?\.\s*(?={_NUM})")
 _EQ_OF_NOTES = re.compile(rf"\b(Eqs?\.\s*)({_RANGE})(\s+(?:of|in)\s+Notes(?:\.pdf)?)")
@@ -191,7 +198,12 @@ class Linker:
         out, i, n = [], 0, len(seg)
         while i < n:
             candidates = []
-            for rx, kind in ((_EQ_OF_NOTES, "eqof"), (_TRIGGER, "trigger"), (_BARE_SLIDE, "slide"), (_BARE_EQ, "eq")):
+            for rx, kind in ((_EQ_OF_NOTES, "eqof"), (_TRIGGER, "trigger"), (_BARE_SLIDE, "slide"), (_BARE_EQ, "eq"),
+                             (_LECTURE, "lecture"), (_TRIGGER_PROBLEMS, "problems")):
+                if kind == "lecture" and not rules.get("lectures"):
+                    continue
+                if kind == "problems" and not rules.get("problems"):
+                    continue
                 m = rx.search(seg, i)
                 if m:
                     candidates.append((m.start(), kind, m))
@@ -202,6 +214,19 @@ class Linker:
             if kind == "eqof" and rules.get("notes"):
                 out.append(m.group(1) + self.link_numbers(m.group(2), rules["notes"], "eq") + m.group(3))
                 i = m.end()
+            elif kind == "lecture":
+                deck = rules["lectures"].get(m.group(1))
+                if deck:
+                    out.append(seg[m.start():m.start(2)] + self.link(m.group(2), deck, "slide", m.group(3)) + "]")
+                else:
+                    self.unresolved.append(f"lecture {m.group(1)}")
+                    out.append(m.group(0))
+                i = m.end()
+            elif kind == "problems":
+                pdf_for = lambda k, p=rules["problems"]: p if k == "page" else None  # noqa: E731
+                linked, end = self.chain(seg, m.end(), pdf_for)
+                out.append(m.group(1) + linked)
+                i = end if end > m.end() else m.end()
             elif kind == "trigger":
                 word = m.group(1)
                 if word.startswith("Robinson"):
@@ -389,15 +414,30 @@ def insert_css(text, page_rel):
     m = re.search(r"\n([ \t]*)</head>", text)
     if not m:
         return text
+    resp = re.search(r'\n([ \t]*)<link\b[^>]*assets/css/responsive\.css[^>]*>', text)
+    if resp and "assets/css/derivation-box.css" in text:  # pages with derivation boxes keep responsive.css last
+        return text[:resp.start()] + f"\n{resp.group(1)}{tag}" + text[resp.start():]
     return text[:m.start()] + f"\n{m.group(1)}  {tag}" + text[m.start():]
 
 
 # --------------------------------------------------------------------------- page build
+def lecture_decks(page_rel, cfg):
+    """{lecture number: pdf id} of the subject a page belongs to (config key "lectures", by subject folder), else {}."""
+    parts = pathlib.PurePosixPath(page_rel).parts
+    if len(parts) > 2 and parts[0] == "subjects":
+        return cfg.get("lectures", {}).get(parts[1], {})
+    return {}
+
+
 def build_page(page_rel, original, cfg, anchors, report):
     spec = cfg["pages"][page_rel]
     pdfs = cfg["pdfs"]
     text = strip_links(original)
-    linker = Linker(page_rel, resolve_rules(spec.get("cite", {}), text), pdfs, anchors)
+    rules = resolve_rules(spec.get("cite", {}), text)
+    decks = lecture_decks(page_rel, cfg)
+    if decks:
+        rules = {**rules, "lectures": decks}
+    linker = Linker(page_rel, rules, pdfs, anchors)
     text = link_citations(text, linker)
     missing = []
     if spec.get("cards"):

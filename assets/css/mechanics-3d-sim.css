@@ -1,0 +1,120 @@
+/* Geometry simulator of the Engineering Mechanics problem cards (assets/js/mechanics-3d-sim.js).
+   Every text, in the figure and around it, takes the page's own text variables (--text-heading, --text-main), never
+   a subject accent, so the six reading palettes of study-surface.css keep it at AAA. Colour is carried by strokes and
+   fills only (--fig-blue, --fig-acc, --fig-green, --fig-pink of the figure kit), which print.css maps to greys. */
+
+.m3-sim {
+  margin: 22px 0;
+  padding: 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+.m3-fallback { margin: 0; color: var(--text-main, var(--text-body)); font-size: 0.92rem; }
+.m3-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-heading);
+  margin-bottom: 6px;
+}
+.m3-intro { margin: 0 0 10px; font-size: 0.95rem; color: var(--text-main, var(--text-body)); }
+.m3-figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.m3-svg { display: block; width: 100%; max-width: 760px; height: auto; margin: 0 auto; touch-action: none; cursor: grab; }
+.m3-svg:active { cursor: grabbing; }
+.m3-svg:focus-visible { outline: 2px solid var(--text-heading); outline-offset: 2px; }
+.m3-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 16px; margin-top: 12px; }
+@media (max-width: 720px) {
+  .m3-panel { grid-template-columns: minmax(0, 1fr); }
+  .m3-svg { min-width: 620px; }
+}
+
+/* controls */
+.m3-views { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.m3-btn {
+  padding: 4px 9px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-heading);
+  background: var(--bg-input, var(--bg-surface));
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.m3-btn[aria-pressed="true"] { border-color: var(--text-heading); font-weight: 600; }
+.m3-btn:focus-visible, .m3-control input:focus-visible, .m3-control select:focus-visible { outline: 2px solid var(--text-heading); outline-offset: 2px; }
+.m3-control { margin-bottom: 10px; }
+.m3-control label { display: block; font-family: var(--font-sans); font-size: 0.86rem; color: var(--text-main, var(--text-body)); margin-bottom: 3px; }
+.m3-control output { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-heading); }
+.m3-control input[type="range"] { width: 100%; accent-color: var(--text-heading); }
+.m3-control select {
+  width: 100%;
+  padding: 5px 8px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--text-heading);
+  background: var(--bg-input, var(--bg-surface));
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+}
+
+/* readouts */
+.m3-readouts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 4px 12px;
+  font-size: 0.86rem;
+  align-content: start;
+}
+.m3-readouts dt { font-family: var(--font-sans); color: var(--text-main, var(--text-body)); }
+.m3-readouts dd { margin: 0; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-heading); overflow-wrap: anywhere; }
+
+/* drawing: text */
+.m3-svg text, .m3-svg tspan { fill: var(--text-heading); stroke: none; }
+.m3-svg .m3-t { font-family: var(--font-serif, Newsreader, Georgia, serif); font-size: 15px; font-style: italic; font-weight: 600; paint-order: stroke; stroke: var(--bg-surface); stroke-width: 3px; stroke-linejoin: round; }
+.m3-svg .m3-small { font-size: 12.5px; font-weight: 500; }
+.m3-svg .m3-cap { font-family: var(--font-sans); font-size: 12px; font-style: normal; font-weight: 600; }
+.m3-svg .m3-mono { font-family: var(--font-mono); font-size: 13px; font-style: normal; font-weight: 500; }
+
+/* drawing: lines and fills */
+.m3-bg { fill: var(--bg-surface); stroke: none; }
+.m3-line { stroke: var(--text-muted); stroke-width: 1.4; fill: none; stroke-linecap: round; }
+.m3-head { fill: var(--text-muted); stroke: none; }
+.m3-poly { stroke: var(--text-muted); stroke-width: 1.4; fill: none; stroke-linejoin: round; }
+.m3-dot { fill: var(--text-heading); stroke: var(--bg-surface); stroke-width: 1; }
+.m3-sep { stroke-dasharray: 2 5; stroke-width: 1; }
+.m3-thin { stroke-width: 1; }
+.m3-sym { stroke: var(--text-heading); stroke-width: 1.4; }
+.m3-dash { stroke-dasharray: 4 3; stroke-width: 1; }
+.m3-thick { stroke: var(--text-heading); stroke-width: 2.6; }
+.m3-arc { stroke: var(--text-heading); stroke-width: 1.3; }
+.m3-ground { fill: var(--text-muted); fill-opacity: 0.08; stroke: var(--text-muted); stroke-width: 0.8; }
+.m3-line.m3-fixed, .m3-poly.m3-fixed { stroke: var(--text-muted); stroke-width: 1.2; }
+.m3-head.m3-fixed { fill: var(--text-muted); }
+.m3-line.m3-b1, .m3-poly.m3-b1 { stroke: var(--fig-blue, #3b82f6); stroke-width: 2.4; }
+.m3-head.m3-b1 { fill: var(--fig-blue, #3b82f6); }
+.m3-line.m3-dashv { stroke: var(--fig-blue, #3b82f6); stroke-width: 1.4; stroke-dasharray: 5 3; }
+.m3-head.m3-dashv { fill: var(--fig-blue, #3b82f6); }
+.m3-line.m3-r { stroke: var(--text-heading); stroke-width: 2; }
+.m3-head.m3-r { fill: var(--text-heading); }
+.m3-line.m3-v, .m3-poly.m3-v { stroke: var(--fig-green, #10b981); stroke-width: 2.2; }
+.m3-head.m3-v { fill: var(--fig-green, #10b981); }
+.m3-line.m3-acc { stroke: var(--fig-acc, #f59e0b); stroke-width: 2.2; }
+.m3-head.m3-acc { fill: var(--fig-acc, #f59e0b); }
+.m3-line.m3-w { stroke: var(--fig-pink, #ec4899); stroke-width: 2.4; }
+.m3-head.m3-w { fill: var(--fig-pink, #ec4899); }
+.m3-line.m3-iar { stroke: var(--fig-pink, #ec4899); stroke-width: 1.2; stroke-dasharray: 7 3 2 3; }
+.m3-poly.m3-path { stroke: var(--fig-acc, #f59e0b); stroke-width: 1.8; }
+.m3-poly.m3-body, .m3-line.m3-body { stroke: var(--text-heading); stroke-width: 1.8; }
+.m3-poly.m3-fill { fill: var(--text-muted); fill-opacity: 0.12; }
+.m3-poly.m3-tri { fill: var(--fig-blue, #3b82f6); fill-opacity: 0.16; stroke: var(--fig-blue, #3b82f6); stroke-width: 1; stroke-dasharray: 4 3; }
+.m3-dot.m3-p { fill: var(--fig-acc, #f59e0b); stroke: var(--text-heading); }
+
+@media print {
+  .m3-sim { break-inside: avoid; border-color: #999; }
+  .m3-controls, .m3-intro { display: none !important; }
+  .m3-panel { grid-template-columns: minmax(0, 1fr); }
+  .m3-svg { min-width: 0; cursor: default; }
+}

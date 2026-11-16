@@ -23,6 +23,62 @@ window.AE_UPDATES = [
     "link": "subjects/aerospace-materials-1/simulator/index.html"
   },
   {
+    "id": "2026-11-16-mechanics-problems-8",
+    "date": "2026-11-16",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 8 problems: rolling, multibody and torque-free motion",
+    "text": "26 official rigid body problems solved step by step: rolling, a yo-yo, Euler's disk, multibody systems with exploded views, and a free spinning asteroid.",
+    "link": "subjects/engineering-mechanics/problemas/topic-8.html"
+  },
+  {
+    "id": "2026-11-16-mechanics-rigid-body-problems-7",
+    "date": "2026-11-16",
+    "tag": "Engineering Mechanics",
+    "title": "Rigid body problems: Topic 7 solved step by step",
+    "text": "Eight official dynamics problems, from a spinner and Lagrange's top to a firedoor and a cylinder on two strings, each with free-body diagrams.",
+    "link": "subjects/engineering-mechanics/problemas/topic-7.html"
+  },
+  {
+    "id": "2026-11-15-mechanics-inertia-theory",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 6 theory now covers inertia properties",
+    "text": "Centre of mass, moments and products of inertia, the inertia tensor, principal axes and Steiner's theorem, with four worked examples.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
+    "id": "2026-11-15-mechanics-rigid-body-problems-6",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "Rigid body problems: Topic 6 solved step by step",
+    "text": "Eight official problems on rigid body kinematics and moments of inertia, each worked from first principles with its own figures.",
+    "link": "subjects/engineering-mechanics/problemas/topic-6.html"
+  },
+  {
+    "id": "2026-11-15-mechanics-rigid-body-theory",
+    "date": "2026-11-15",
+    "tag": "Engineering Mechanics",
+    "title": "Rigid body theory: Topics 6, 7 and 8",
+    "text": "Three new theory pages cover rigid body kinematics and inertia, momentum, energy and dynamics, and rolling, multibody systems and torque-free motion.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
+    "id": "2026-11-15-card-watermarks",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "Subject cards show the new icons in the background",
+    "text": "The faint drawing behind each subject card on the home page is now the new icon of that subject.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-15-folded-problems",
+    "date": "2026-11-15",
+    "tag": "Portal",
+    "title": "Problems start folded, shorter page headers",
+    "text": "Every problem page now lists its problems folded: click one to open it, or use Open all. Page titles share one colour and the long intro texts are gone.",
+    "link": "subjects/engineering-mechanics/problemas/topic-5.html"
+  },
+  {
     "id": "2026-11-15-exam-simulator-look",
     "date": "2026-11-15",
     "tag": "Portal",
@@ -81,6 +137,22 @@ window.AE_UPDATES = [
     "title": "A cleaner home page",
     "text": "The home page is simpler: compact subject cards with direct buttons to theory, problems, PDFs and exams, new icons and a working dark and light switch.",
     "link": "index.html"
+  },
+  {
+    "id": "2026-11-14-mechanics-class-badges",
+    "date": "2026-11-14",
+    "tag": "Engineering Mechanics",
+    "title": "Problems solved in class are now marked",
+    "text": "Each mechanics problem done in a class session shows its session number, and the oscillation problems of Lecture 6 are marked too.",
+    "link": "subjects/engineering-mechanics/problemas/index.html"
+  },
+  {
+    "id": "2026-11-14-mechanics-lectures-6-10",
+    "date": "2026-11-14",
+    "tag": "Engineering Mechanics",
+    "title": "Five new lecture decks: oscillations and rigid bodies",
+    "text": "Lectures 6 to 10 (oscillations, rigid body kinematics, inertia, momentum and energy, rigid body dynamics) are now on the PDFs page.",
+    "link": "subjects/engineering-mechanics/sources/index.html"
   },
   {
     "id": "2026-11-11-materials-slide-figures",

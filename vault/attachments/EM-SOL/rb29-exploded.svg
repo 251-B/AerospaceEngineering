@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 880" width="100%" class="fig-kit" style="max-width:820px;margin:0 auto;display:block" role="img" aria-label="Exploded view of the disk and the bar with the pin pair at C, the pin force at O, the knob force normal to the groove, the pull on A and the weights.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="606.0,630.0 605.6,617.8 604.4,605.7 602.4,593.7 599.7,581.9 596.1,570.2 591.8,558.8 586.8,547.7 581.1,537.0 574.7,526.7 567.6,516.8 559.8,507.4 551.5,498.5 542.6,490.2 533.2,482.4 523.3,475.3 513.0,468.9 502.3,463.2 491.2,458.2 479.8,453.9 468.1,450.3 456.3,447.6 444.3,445.6 432.2,444.4 420.0,444.0 407.8,444.4 395.7,445.6 383.7,447.6 371.9,450.3 360.2,453.9 348.8,458.2 337.7,463.2 327.0,468.9 316.7,475.3 306.8,482.4 297.4,490.2 288.5,498.5 280.2,507.4 272.4,516.8 265.3,526.7 258.9,537.0 253.2,547.7 248.2,558.8 243.9,570.2 240.3,581.9 237.6,593.7 235.6,605.7 234.4,617.8 234.0,630.0 234.4,642.2 235.6,654.3 237.6,666.3 240.3,678.1 243.9,689.8 248.2,701.2 253.2,712.3 258.9,723.0 265.3,733.3 272.4,743.2 280.2,752.6 288.5,761.5 297.4,769.8 306.8,777.6 316.7,784.7 327.0,791.1 337.7,796.8 348.8,801.8 360.2,806.1 371.9,809.7 383.7,812.4 395.7,814.4 407.8,815.6 420.0,816.0 432.2,815.6 444.3,814.4 456.3,812.4 468.1,809.7 479.8,806.1 491.2,801.8 502.3,796.8 513.0,791.1 523.3,784.7 533.2,777.6 542.6,769.8 551.5,761.5 559.8,752.6 567.6,743.2 574.7,733.3 581.1,723.0 586.8,712.3 591.8,701.2 596.1,689.8 599.7,678.1 602.4,666.3 604.4,654.3 605.6,642.2 606.0,630.0" fill="#8a94a6" fill-opacity="0.12" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="395.2" y="856.3" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">DISK</text>
+<circle cx="420.0" cy="630.0" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="406.0" y="652.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<circle cx="594.8" cy="566.4" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="612.8" y="554.4" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<line x1="147.2" y1="816.0" x2="204.4" y2="816.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M209.2,816.0 L201.8,819.1 L201.8,812.9 Z" fill="#8a94a6"/>
+<text x="221.2" y="822.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="147.2" y1="816.0" x2="147.2" y2="758.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M147.2,754.0 L150.3,761.4 L144.1,761.4 Z" fill="#8a94a6"/>
+<text x="159.2" y="752.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<circle cx="147.2" cy="816.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="147.2" cy="816.0" r="2.6" fill="#4b5563"/>
+<text x="123.2" y="846.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan> (⊙)</text>
+<line x1="420.0" y1="630.0" x2="472.9" y2="630.0" stroke="#10b981" stroke-width="2.0"/>
+<path d="M478.9,630.0 L469.7,633.9 L469.7,626.1 Z" fill="#10b981"/>
+<line x1="478.9" y1="630.0" x2="478.9" y2="577.1" stroke="#10b981" stroke-width="2.0"/>
+<path d="M478.9,571.1 L482.8,580.3 L475.0,580.3 Z" fill="#10b981"/>
+<line x1="420.0" y1="630.0" x2="473.8" y2="576.2" stroke="#10b981" stroke-width="3.2"/>
+<path d="M478.9,571.1 L474.4,582.2 L467.8,575.6 Z" fill="#10b981"/>
+<text x="449.4" y="648.0" fill="#10b981" font-size="15" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R<tspan baseline-shift="sub" font-size="70%">Ox</tspan></text>
+<text x="486.9" y="605.5" fill="#10b981" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R<tspan baseline-shift="sub" font-size="70%">Oy</tspan></text>
+<text x="448.9" y="559.1" fill="#10b981" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R<tspan baseline-shift="sub" font-size="70%">O</tspan></text>
+<line x1="420.0" y1="630.0" x2="420.0" y2="715.8" stroke="#ec4899" stroke-width="3.0"/>
+<path d="M420.0,723.0 L415.3,711.9 L424.7,711.9 Z" fill="#ec4899"/>
+<text x="444.0" y="729.0" fill="#ec4899" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">mg</text>
+<line x1="594.8" y1="566.4" x2="532.6" y2="566.4" stroke="#f59e0b" stroke-width="2.0"/>
+<path d="M526.6,566.4 L535.8,562.5 L535.8,570.3 Z" fill="#f59e0b"/>
+<line x1="526.6" y1="566.4" x2="526.6" y2="628.6" stroke="#f59e0b" stroke-width="2.0"/>
+<path d="M526.6,634.6 L522.7,625.4 L530.5,625.4 Z" fill="#f59e0b"/>
+<line x1="594.8" y1="566.4" x2="531.7" y2="629.5" stroke="#f59e0b" stroke-width="3.2"/>
+<path d="M526.6,634.6 L531.1,623.5 L537.7,630.1 Z" fill="#f59e0b"/>
+<text x="560.7" y="556.4" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−X</text>
+<text x="534.6" y="605.5" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−Y</text>
+<text x="536.6" y="648.6" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−R<tspan baseline-shift="sub" font-size="70%">C</tspan></text>
+<polygon points="360.7,377.4 41.0,102.5 53.2,88.4 372.8,363.3" fill="#8a94a6" fill-opacity="0.35" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="325.6" y="261.3" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">BAR</text>
+<circle cx="359.7" cy="364.3" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="355.7" y="388.3" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<circle cx="206.9" cy="232.9" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="224.9" y="254.9" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<circle cx="54.2" cy="101.5" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="50.2" y="87.5" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<circle cx="184.9" cy="214.0" r="6" fill="#4b5563" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="154.9" y="216.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">K</text>
+<line x1="184.9" y1="214.0" x2="152.6" y2="251.6" stroke="#4b5563" stroke-width="2.0"/>
+<line x1="173.8" y1="269.8" x2="131.5" y2="233.4" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="173.8" y1="269.8" x2="172.1" y2="283.1" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="166.7" y1="263.7" x2="165.1" y2="277.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="159.7" y1="257.7" x2="158.0" y2="271.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="152.6" y1="251.6" x2="151.0" y2="264.9" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="145.6" y1="245.5" x2="143.9" y2="258.8" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="138.5" y1="239.5" x2="136.9" y2="252.8" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="131.5" y1="233.4" x2="129.8" y2="246.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="206.9" y1="232.9" x2="206.9" y2="318.7" stroke="#ec4899" stroke-width="3.0"/>
+<path d="M206.9,325.9 L202.3,314.9 L211.6,314.9 Z" fill="#ec4899"/>
+<text x="236.9" y="331.9" fill="#ec4899" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">2mg</text>
+<line x1="359.7" y1="364.3" x2="446.7" y2="364.3" stroke="#f59e0b" stroke-width="2.0"/>
+<path d="M452.7,364.3 L443.5,368.2 L443.5,360.4 Z" fill="#f59e0b"/>
+<line x1="452.7" y1="364.3" x2="452.7" y2="277.3" stroke="#f59e0b" stroke-width="2.0"/>
+<path d="M452.7,271.3 L456.6,280.5 L448.8,280.5 Z" fill="#f59e0b"/>
+<line x1="359.7" y1="364.3" x2="447.6" y2="276.4" stroke="#f59e0b" stroke-width="3.2"/>
+<path d="M452.7,271.3 L448.2,282.4 L441.6,275.8 Z" fill="#f59e0b"/>
+<text x="406.2" y="382.3" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">X</text>
+<text x="460.7" y="322.8" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Y</text>
+<text x="460.7" y="265.3" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R<tspan baseline-shift="sub" font-size="70%">C</tspan></text>
+<line x1="184.9" y1="214.0" x2="249.0" y2="139.5" stroke="#10b981" stroke-width="3.2"/>
+<path d="M253.7,134.1 L250.0,145.5 L242.9,139.4 Z" fill="#10b981"/>
+<text x="261.7" y="134.1" fill="#10b981" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N<tspan baseline-shift="sub" font-size="70%">K</tspan> <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="261.7" y="152.1" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">normal to the groove</text>
+<line x1="54.2" y1="101.5" x2="158.6" y2="101.5" stroke="#10b981" stroke-width="3.2"/>
+<path d="M165.8,101.5 L154.7,106.2 L154.7,96.9 Z" fill="#10b981"/>
+<text x="173.8" y="89.5" fill="#10b981" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">A</tspan> = −k x<tspan baseline-shift="sub" font-size="70%">A</tspan> <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="420.0" y1="419.2" x2="420.0" y2="47.2" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="9 5"/>
+<text x="438.0" y="39.2" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Oy<tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="158.4" y1="289.3" x2="311.2" y2="420.7" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M158.4,289.3 L165.1,291.5 L161.5,295.6 Z" fill="#8a94a6"/>
+<path d="M311.2,420.7 L304.6,418.6 L308.1,414.4 Z" fill="#8a94a6"/>
+<text x="268.8" y="361.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−L/2</text>
+<line x1="206.9" y1="232.9" x2="154.4" y2="294.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="359.7" y1="364.3" x2="307.2" y2="425.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="158.4" y1="289.3" x2="5.6" y2="157.9" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M158.4,289.3 L151.8,287.2 L155.3,283.0 Z" fill="#8a94a6"/>
+<path d="M5.6,157.9 L12.3,160.1 L8.8,164.2 Z" fill="#8a94a6"/>
+<text x="48.0" y="219.6" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">L/2</text>
+<line x1="206.9" y1="232.9" x2="154.4" y2="294.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="54.2" y1="101.5" x2="1.6" y2="162.6" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="126.1" y1="326.9" x2="104.1" y2="308.0" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M126.1,326.9 L119.4,324.8 L123.0,320.7 Z" fill="#8a94a6"/>
+<path d="M104.1,308.0 L110.8,310.1 L107.2,314.3 Z" fill="#8a94a6"/>
+<text x="81.1" y="313.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">s − L/2</text>
+<line x1="206.9" y1="232.9" x2="122.1" y2="331.6" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="184.9" y1="214.0" x2="100.1" y2="312.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="594.8" y1="566.4" x2="359.7" y2="364.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="500.6" y="425.4" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">action – reaction pair at C</text>
+<line x1="206.9" y1="232.9" x2="239.0" y2="195.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M243.3,190.6 L240.0,201.1 L233.5,195.5 Z" fill="#f59e0b"/>
+<text x="257.3" y="198.6" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="206.9" y1="232.9" x2="169.6" y2="200.8" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M164.6,196.5 L175.1,199.9 L169.5,206.4 Z" fill="#f59e0b"/>
+<text x="150.6" y="188.5" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+</g></svg>

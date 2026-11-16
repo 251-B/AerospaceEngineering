@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="A square plate with its corner frame along the sides and the principal axes of inertia rotated forty-five degrees, along the diagonal and across it.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="200.0,400.0 500.0,400.0 500.0,100.0 200.0,100.0" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="200.0,400.0 500.0,400.0 500.0,100.0 200.0,100.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="200.0" y1="400.0" x2="570.2" y2="400.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M575.0,400.0 L567.6,403.1 L567.6,396.9 Z" fill="#8a94a6"/>
+<text x="589.0" y="406.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="200.0" y1="400.0" x2="200.0" y2="29.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M200.0,25.0 L203.1,32.4 L196.9,32.4 Z" fill="#8a94a6"/>
+<text x="214.0" y="29.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="200.0" cy="400.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="200.0" cy="400.0" r="2.6" fill="#4b5563"/>
+<text x="186.0" y="424.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="188.0" y="392.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<line x1="200.0" y1="400.0" x2="359.7" y2="240.3" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M364.4,235.6 L360.3,245.8 L354.2,239.7 Z" fill="#3b82f6"/>
+<text x="348.4" y="229.6" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="200.0" y1="400.0" x2="40.3" y2="240.3" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M35.6,235.6 L45.8,239.7 L39.7,245.8 Z" fill="#3b82f6"/>
+<text x="21.6" y="225.6" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<line x1="364.4" y1="235.6" x2="500.0" y2="100.0" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="6 4"/>
+<path d="M282.5,400.0 A82.5,82.5 0 0 0 258.3,341.7" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M256.2,339.5 L264.6,342.9 L259.6,347.9 Z" fill="#10b981"/>
+<path d="M200.0,317.5 A82.5,82.5 0 0 0 141.7,341.7" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M139.5,343.8 L142.9,335.4 L147.9,340.4 Z" fill="#10b981"/>
+<text x="310.9" y="359.1" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">π/4</text>
+<text x="143.2" y="280.2" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">π/4</text>
+<circle cx="350.0" cy="250.0" r="5" fill="#ec4899" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="360.0" y="272.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<text x="350.0" y="92.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">a</text>
+<text x="508.0" y="255.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">a</text>
+</g></svg>

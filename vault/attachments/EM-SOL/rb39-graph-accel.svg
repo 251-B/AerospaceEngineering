@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" width="100%" class="fig-kit" style="max-width:960px;margin:0 auto;display:block" role="img" aria-label="Graph of the initial acceleration of the yo-yo, decreasing from two thirds of g at R equal to a towards zero.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="110.0" y1="620.0" x2="894.6" y2="620.0" stroke="#8a94a6" stroke-width="1.6"/>
+<path d="M900.0,620.0 L891.7,623.5 L891.7,616.5 Z" fill="#8a94a6"/>
+<line x1="110.0" y1="620.0" x2="110.0" y2="79.8" stroke="#8a94a6" stroke-width="1.6"/>
+<path d="M110.0,74.4 L113.5,82.7 L106.5,82.7 Z" fill="#8a94a6"/>
+<line x1="160.0" y1="620.0" x2="160.0" y2="620.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="160.0" y1="620.0" x2="160.0" y2="628.2" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="160.0" y="644.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">1</text>
+<line x1="260.0" y1="620.0" x2="260.0" y2="620.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="260.0" y1="620.0" x2="260.0" y2="628.2" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="260.0" y="644.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">2</text>
+<line x1="360.0" y1="620.0" x2="360.0" y2="620.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="360.0" y1="620.0" x2="360.0" y2="628.2" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="360.0" y="644.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">3</text>
+<line x1="460.0" y1="620.0" x2="460.0" y2="620.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="460.0" y1="620.0" x2="460.0" y2="628.2" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="460.0" y="644.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">4</text>
+<line x1="560.0" y1="620.0" x2="560.0" y2="620.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="560.0" y1="620.0" x2="560.0" y2="628.2" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="560.0" y="644.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">5</text>
+<line x1="660.0" y1="620.0" x2="660.0" y2="620.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="660.0" y1="620.0" x2="660.0" y2="628.2" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="660.0" y="644.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">6</text>
+<line x1="760.0" y1="620.0" x2="760.0" y2="620.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="760.0" y1="620.0" x2="760.0" y2="628.2" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="760.0" y="644.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">7</text>
+<line x1="860.0" y1="620.0" x2="860.0" y2="620.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="860.0" y1="620.0" x2="860.0" y2="628.2" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="860.0" y="644.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">8</text>
+<line x1="110.0" y1="496.0" x2="900.0" y2="496.0" stroke="#8a94a6" stroke-width="0.6" stroke-dasharray="2 4"/>
+<text x="102.0" y="501.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0.2</text>
+<line x1="110.0" y1="372.0" x2="900.0" y2="372.0" stroke="#8a94a6" stroke-width="0.6" stroke-dasharray="2 4"/>
+<text x="102.0" y="377.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0.4</text>
+<line x1="110.0" y1="248.0" x2="900.0" y2="248.0" stroke="#8a94a6" stroke-width="0.6" stroke-dasharray="2 4"/>
+<text x="102.0" y="253.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0.6</text>
+<line x1="110.0" y1="124.0" x2="900.0" y2="124.0" stroke="#8a94a6" stroke-width="0.6" stroke-dasharray="2 4"/>
+<text x="102.0" y="129.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0.8</text>
+<text x="900.0" y="668.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R / a</text>
+<text x="122.0" y="66.4" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ξ̈<tspan baseline-shift="sub" font-size="70%">0</tspan> / g</text>
+<polyline points="310.0,421.6 315.5,430.0 321.0,438.0 326.5,445.4 332.0,452.4 337.5,459.0 343.0,465.2 348.5,471.0 354.0,476.5 359.5,481.8 365.0,486.7 370.5,491.4 376.0,495.8 381.5,500.0 387.0,504.0 392.5,507.8 398.0,511.5 403.5,514.9 409.0,518.2 414.5,521.3 420.0,524.3 425.5,527.2 431.0,529.9 436.5,532.5 442.0,535.0 447.5,537.4 453.0,539.7 458.5,541.9 464.0,544.0 469.5,546.1 475.0,548.0 480.5,549.9 486.0,551.7 491.5,553.4 497.0,555.1 502.5,556.7 508.0,558.2 513.5,559.7 519.0,561.1 524.5,562.5 530.0,563.9 535.5,565.2 541.0,566.4 546.5,567.6 552.0,568.8 557.5,569.9 563.0,571.0 568.5,572.0 574.0,573.1 579.5,574.1 585.0,575.0 590.5,575.9 596.0,576.8 601.5,577.7 607.0,578.6 612.5,579.4 618.0,580.2 623.5,580.9 629.0,581.7 634.5,582.4 640.0,583.1 645.5,583.8 651.0,584.5 656.5,585.2 662.0,585.8 667.5,586.4 673.0,587.0 678.5,587.6 684.0,588.2 689.5,588.7 695.0,589.2 700.5,589.8 706.0,590.3 711.5,590.8 717.0,591.3 722.5,591.7 728.0,592.2 733.5,592.7 739.0,593.1 744.5,593.5 750.0,594.0 755.5,594.4 761.0,594.8 766.5,595.2 772.0,595.5 777.5,595.9 783.0,596.3 788.5,596.6 794.0,597.0 799.5,597.3 805.0,597.7 810.5,598.0 816.0,598.3 821.5,598.6 827.0,598.9 832.5,599.2 838.0,599.5 843.5,599.8 849.0,600.1 854.5,600.4 860.0,600.6" fill="none" stroke="#8a94a6" stroke-width="2.2" stroke-dasharray="7 5" stroke-linejoin="round"/>
+<polyline points="160.0,206.7 164.4,218.6 168.8,230.4 173.1,241.9 177.5,253.2 181.9,264.2 186.2,275.0 190.6,285.4 195.0,295.6 199.4,305.5 203.8,315.1 208.1,324.3 212.5,333.3 216.9,342.0 221.2,350.4 225.6,358.6 230.0,366.4 234.4,374.0 238.8,381.3 243.1,388.4 247.5,395.2 251.9,401.8 256.2,408.1 260.6,414.2 265.0,420.1 269.4,425.8 273.8,431.2 278.1,436.5 282.5,441.6 286.9,446.5 291.2,451.2 295.6,455.8 300.0,460.2 304.4,464.5 308.8,468.6 313.1,472.5 317.5,476.3 321.9,480.0 326.2,483.6 330.6,487.0 335.0,490.3 339.4,493.5 343.8,496.6 348.1,499.6 352.5,502.5 356.9,505.3 361.2,508.0 365.6,510.7 370.0,513.2 374.4,515.7 378.8,518.0 383.1,520.3 387.5,522.6 391.9,524.7 396.2,526.8 400.6,528.8 405.0,530.8 409.4,532.7 413.8,534.6 418.1,536.4 422.5,538.1 426.9,539.8 431.2,541.4 435.6,543.0 440.0,544.6 444.4,546.1 448.8,547.5 453.1,549.0 457.5,550.3 461.9,551.7 466.2,553.0 470.6,554.3 475.0,555.5 479.4,556.7 483.8,557.9 488.1,559.0 492.5,560.1 496.9,561.2 501.2,562.2 505.6,563.3 510.0,564.3 514.4,565.2 518.8,566.2 523.1,567.1 527.5,568.0 531.9,568.9 536.2,569.8 540.6,570.6 545.0,571.4 549.4,572.2 553.8,573.0 558.1,573.8 562.5,574.5 566.9,575.2 571.2,575.9 575.6,576.6 580.0,577.3 584.4,578.0 588.8,578.6 593.1,579.2 597.5,579.9 601.9,580.5 606.2,581.1 610.6,581.6 615.0,582.2 619.4,582.8 623.8,583.3 628.1,583.8 632.5,584.3 636.9,584.9 641.2,585.3 645.6,585.8 650.0,586.3 654.4,586.8 658.8,587.2 663.1,587.7 667.5,588.1 671.9,588.6 676.2,589.0 680.6,589.4 685.0,589.8 689.4,590.2 693.8,590.6 698.1,591.0 702.5,591.3 706.9,591.7 711.2,592.1 715.6,592.4 720.0,592.8 724.4,593.1 728.8,593.5 733.1,593.8 737.5,594.1 741.9,594.4 746.2,594.7 750.6,595.0 755.0,595.3 759.4,595.6 763.8,595.9 768.1,596.2 772.5,596.5 776.9,596.8 781.2,597.0 785.6,597.3 790.0,597.6 794.4,597.8 798.8,598.1 803.1,598.3 807.5,598.6 811.9,598.8 816.2,599.1 820.6,599.3 825.0,599.5 829.4,599.7 833.8,600.0 838.1,600.2 842.5,600.4 846.9,600.6 851.2,600.8 855.6,601.0 860.0,601.2" fill="none" stroke="#3b82f6" stroke-width="3.4" stroke-linejoin="round"/>
+<circle cx="160.0" cy="206.7" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="172.0" y="192.7" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">2g/3</text>
+<line x1="160.0" y1="620.0" x2="160.0" y2="206.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="260.0" cy="413.3" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="272.0" y="399.3" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">g/3</text>
+<line x1="260.0" y1="620.0" x2="260.0" y2="413.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="460.0" cy="551.1" r="5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="472.0" y="537.1" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">g/9</text>
+<line x1="460.0" y1="620.0" x2="460.0" y2="551.1" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="398.0" y="488.7" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">2g / (2 + (R/a)²)</text>
+<text x="582.0" y="530.4" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">2g a² / R²  (large R/a)</text>
+</g></svg>
