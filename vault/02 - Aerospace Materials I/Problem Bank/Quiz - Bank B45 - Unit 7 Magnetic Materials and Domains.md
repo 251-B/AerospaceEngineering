@@ -219,7 +219,7 @@ Session 15, Slides 5 and 10.
 
 Ferrites keep a net magnetic moment, although neighbouring dipoles are antiparallel, because:
 
-a) all their dipoles point in the same direction
+a) their dipoles line up parallel inside each domain
 b) the antiparallel moments have different sizes
 c) the field induces extra dipoles in them
 d) their dipoles are randomly oriented
@@ -232,7 +232,7 @@ b
 
 Slide 11: in the ferrites the cations carry spin moments of different intensity (for example Fe²⁺ 4 $\mu_B$ and Fe³⁺ 5 $\mu_B$), aligned antiparallel; the sum does not cancel, so a net moment remains.
 
-- a) All dipoles parallel is the ferromagnetic arrangement; the statement itself says the neighbours are antiparallel.
+- a) Parallel dipoles are the ferromagnetic arrangement; the statement itself says the neighbours are antiparallel.
 - c) Induced dipoles appear only in diamagnetism and vanish with the field; the net moment of a ferrite is permanent.
 - d) Random dipoles give no net moment (paramagnetism without a field), so they cannot explain one.
 

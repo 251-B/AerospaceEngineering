@@ -35,7 +35,7 @@ tags:
 Which one of the following statements is TRUE about the effect of temperature on the thermal conductivity of metals?
 
 a) Higher T raises both the electron mobility and $k_{ph}$
-b) Higher T has no effect on either contribution
+b) Higher T lowers both $k_{ph}$ and the electron mobility
 c) Higher T lowers $k_{ph}$ and raises the electron mobility
 d) Higher T raises $k_{ph}$ but lowers the electron mobility
 
@@ -48,7 +48,7 @@ d
 Slide 42 gives two competing effects for metals: a higher temperature increases the contribution of the lattice vibrations $k_{ph}$, and it decreases the electron mobility (more scattering of the electrons).
 
 - a) Right for $k_{ph}$, wrong for the electrons: more thermal vibration scatters them more, so their mobility falls.
-- b) The slide names an effect on both contributions; they partly compensate, but neither is unaffected.
+- b) Right for the electron mobility, wrong for $k_{ph}$: the slide says that heating increases the lattice contribution, so the two effects compete.
 - c) Both effects inverted: the slide says that heating raises $k_{ph}$ and lowers the mobility of the electrons, not the reverse.
 
 ### Source
@@ -126,9 +126,9 @@ Session 15, Slides 38 and 45; Session 11, Slide 17.
 
 A bar held between rigid walls and then cooled develops a thermal stress that is:
 
-a) tensile, since its contraction is prevented
-b) compressive, since its contraction is prevented
-c) zero, since cooling only lowers its energy
+a) tensile, since the walls prevent its contraction
+b) compressive, since the walls prevent its contraction
+c) zero, since a uniform change creates no gradient
 d) tensile at the surface and compressive inside
 
 ### Answer
@@ -140,7 +140,7 @@ a
 Slide 45: with $T_f < T_0$, $\sigma = E\alpha(T_0 - T_f) > 0$: the walls stop the bar from contracting, so they pull on it and the stress is tensile.
 
 - b) Sign of the heating case: a prevented expansion gives compression, a prevented contraction gives tension.
-- c) The stress comes from the restrained contraction, not from the energy of the bar; it is zero only if the bar is free.
+- c) Mixes up the two sources of thermal stress: gradients (Slide 47) are not needed here, since the walls block the free contraction $\alpha\Delta T$ and the stress $E\alpha\Delta T$ appears at uniform temperature.
 - d) Tensile surface and compressive interior is the stress profile of rapid cooling of a free body with a temperature gradient (Slide 47), not of a uniformly cooled constrained bar.
 
 ### Source
@@ -187,10 +187,10 @@ Session 15, Slides 38 and 45; Session 11, Slide 17.
 
 A hot glass plate is suddenly quenched in cold water. What will happen to the stresses inside it?
 
-a) Compressive surface and tensile interior
-b) Tensile surface and compressive interior
-c) Tensile stresses at the surface and in the interior
-d) No stresses, as the plate is free to contract
+a) Compressive at the surface, tensile in the interior
+b) Tensile at the surface, compressive in the interior
+c) Tensile stresses at both surface and interior
+d) Compressive stresses at both surface and interior
 
 ### Answer
 
@@ -201,8 +201,8 @@ b
 Slide 47: on rapid cooling the outside cools and contracts before the interior, which holds it back; the surface is under tension and the interior under compression.
 
 - a) This is the stress state of rapid heating, with the signs inverted.
-- c) The surface and the interior must balance each other in a free body; they cannot both be in tension.
-- d) Ignores the temperature gradient: thermal stresses appear without any external constraint when the outside changes temperature faster than the inside.
+- c) Takes the sign of a constrained bar that is cooled (Slide 45); in a free plate the surface and the interior must balance each other, so they do not share the same sign.
+- d) Takes the sign of a constrained bar that is heated; for the same balance reason a free plate cannot be compressed everywhere.
 
 ### Source
 
@@ -217,10 +217,10 @@ Session 15, Slide 47.
 
 Thermal stresses appear in an unconstrained body during rapid heating because:
 
-a) the walls prevent its expansion
-b) the whole body expands uniformly
-c) the interior heats faster than the surface
-d) the outside temperature changes faster than the interior
+a) the walls around it prevent its expansion
+b) the whole body expands by the same amount
+c) the inside heats up faster than the outside
+d) the outside heats up faster than the inside
 
 ### Answer
 

@@ -561,6 +561,47 @@ def check_blueprint(blueprint, blocks, problems, partial=False):
             for a in part.get("selection_rules", {}).get("archetypes", []):
                 if a not in ARCHETYPES or (not partial and not any(p["archetype"] == a for p in problems)):
                     raise bpb.BankError(f"{BLUEPRINT}: archetype {a!r} has no problem in the bank")
+    _check_modes(blueprint, parts, blocks, partial)
+
+
+def _check_modes(blueprint, parts, blocks, partial):
+    """Practice scopes ("modes") read by assets/js/exam-simulator.js: each fixes the test questions per unit."""
+    modes = blueprint.get("modes")
+    if modes is None:
+        return
+    mc = next((p for p in parts if p.get("type") == "multiple_choice"), None)
+    if mc is None or not isinstance(modes, list) or not modes:
+        raise bpb.BankError(f"{BLUEPRINT}: modes need a list and a multiple-choice part")
+    ids = [m.get("id") for m in modes]
+    if len(set(ids)) != len(ids) or not all(isinstance(i, str) and re.fullmatch(r"[\w-]+", i) for i in ids):
+        raise bpb.BankError(f"{BLUEPRINT}: mode ids must be unique words, got {ids}")
+    if sum(1 for m in modes if m.get("default")) != 1:
+        raise bpb.BankError(f"{BLUEPRINT}: exactly one mode must be the default")
+    for m in modes:
+        where = f"{BLUEPRINT}: mode {m['id']}"
+        if not m.get("label") or not m.get("description"):
+            raise bpb.BankError(f"{where} needs a label and a description")
+        per_unit = m.get("per_unit")
+        if not isinstance(per_unit, dict) or not per_unit:
+            raise bpb.BankError(f"{where} needs per_unit")
+        if any(int(u) not in UNITS or not isinstance(n, int) or n < 1 for u, n in per_unit.items()):
+            raise bpb.BankError(f"{where}: per_unit must map the units {sorted(UNITS)} to positive whole numbers")
+        if sum(per_unit.values()) != mc["count"]:
+            raise bpb.BankError(f"{where}: per_unit adds up to {sum(per_unit.values())}, not {mc['count']}")
+        if not m.get("include_problem", True):
+            if mc["points_total"] != round(mc["count"] * mc["points_each"], 4):
+                raise bpb.BankError(f"{where}: the test alone must add up to {mc['points_total']}")
+        if "duration_minutes" in m:
+            if m["duration_minutes"] not in m.get("duration_options_minutes", []):
+                raise bpb.BankError(f"{where}: duration_minutes must be one of its duration_options_minutes")
+        if not partial:
+            for u, n in per_unit.items():
+                unit_blocks = [b for b in blocks if b["unit"] == int(u)]
+                have = sum(len(b["questions"]) for b in unit_blocks)
+                if have < 2 * n:
+                    raise bpb.BankError(f"{where}: unit {u} needs at least {2 * n} test questions, has {have}")
+                if len(unit_blocks) < n:
+                    raise bpb.BankError(f"{where}: unit {u} has {len(unit_blocks)} blocks for {n} questions of different blocks")
 
 
 def load_bank(bank_dir=BANK, partial=False, index=True):

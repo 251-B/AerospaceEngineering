@@ -184,10 +184,10 @@ Session 13, Slides 8, 22 and 26.
 
 Which one of the following statements about semiconductors is TRUE?
 
-a) Their valence band is half filled
+a) Their valence band is half filled with electrons
 b) Their conductivity is mediocre but easily controllable
-c) Their band gap is larger than 2 eV
-d) Their dopant content is typically 10 to 20 wt%
+c) Their band gap is larger than 2 eV, as in insulators
+d) Their dopant content is typically 0.1 to 1 wt% of the host
 
 ### Answer
 
@@ -199,7 +199,7 @@ Session 13, Slide 25: semiconductors are mediocre conductors whose conductivity 
 
 - a) A half-filled valence band is the band structure of a conductor (Slide 6); a semiconductor has a full valence band.
 - c) Semiconductors have $E_g < 2$ eV; above 2 eV the material is an insulator (Slides 8 and 25).
-- d) Dopants are added at low concentrations, 100 to 1000 ppm (Slide 26), not tens of percent.
+- d) Order-of-magnitude slip: 100 to 1000 ppm (Slide 26) is 0.01 to 0.1 wt%, ten times less than 0.1 to 1 wt%.
 
 ### Source
 

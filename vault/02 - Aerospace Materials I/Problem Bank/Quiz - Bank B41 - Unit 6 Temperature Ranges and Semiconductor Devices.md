@@ -187,10 +187,10 @@ Session 13, Slide 45.
 
 The colour of the light emitted by an LED depends on:
 
-a) The intensity of the forward current
-b) The temperature of the p-n junction
-c) The distance between the valence and conduction bands
-d) The thickness of the depletion layer
+a) The intensity of the forward current in the diode
+b) The temperature reached by the p-n junction in use
+c) The energy gap between valence and conduction bands
+d) The thickness of the depletion layer of the junction
 
 ### Answer
 
@@ -311,9 +311,9 @@ Session 13, Slide 48.
 Which one of the following statements about photoconductivity is TRUE?
 
 a) It needs photons with energy below the band gap
-b) It lowers the conductivity of the material
+b) It lowers the conductivity of the illuminated material
 c) It needs photons with energy of at least the band gap
-d) It is caused only by the heating of the lattice
+d) It is caused by the heating of the lattice under light
 
 ### Answer
 
@@ -325,7 +325,7 @@ Session 13, Slide 46: photoconductivity is the phenomenon in which a material be
 
 - a) Inverted: photons below the gap go through the material without being absorbed.
 - b) Inverted effect: the absorbed light creates carriers, so the material becomes more conductive.
-- d) Thermal excitation is a different cause listed on the same slide; photoconductivity is excitation by radiation.
+- d) Takes the thermal effect of light for the mechanism: thermal excitation is a different cause listed on the same slide; photoconductivity is excitation by radiation.
 
 ### Source
 

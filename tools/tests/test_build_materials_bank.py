@@ -299,6 +299,57 @@ class BankRuleTests(NoteCase):
             bmb.check_blueprint(broken, [], [], partial=True)
 
 
+class ModeTests(unittest.TestCase):
+    """Practice scopes of the blueprint (read by assets/js/exam-simulator.js)."""
+
+    def bp(self):
+        return json.loads((bmb.OUT_DIR / bmb.BLUEPRINT).read_text(encoding="utf-8"))
+
+    def test_real_blueprint_modes_are_valid(self):
+        bp = self.bp()
+        bmb.check_blueprint(bp, [], [], partial=True)
+        ids = [m["id"] for m in bp["modes"]]
+        self.assertEqual(ids, ["real-paper", "focus-6-7", "unit-4", "unit-5", "unit-6", "unit-7"])
+        self.assertEqual(bp["modes"][0]["per_unit"], bp["parts"][0]["selection_rules"]["per_unit"])
+        self.assertGreater(bp["modes"][1]["per_unit"]["6"] + bp["modes"][1]["per_unit"]["7"], 5)
+
+    def test_a_mode_must_add_up_to_the_part_count(self):
+        bp = self.bp()
+        bp["modes"][1]["per_unit"]["6"] = 5
+        with self.assertRaisesRegex(bpb.BankError, "per_unit adds up"):
+            bmb.check_blueprint(bp, [], [], partial=True)
+
+    def test_exactly_one_default_and_unique_ids(self):
+        bp = self.bp()
+        bp["modes"][1]["default"] = True
+        with self.assertRaisesRegex(bpb.BankError, "default"):
+            bmb.check_blueprint(bp, [], [], partial=True)
+        bp = self.bp()
+        bp["modes"][2]["id"] = "real-paper"
+        with self.assertRaisesRegex(bpb.BankError, "unique"):
+            bmb.check_blueprint(bp, [], [], partial=True)
+
+    def test_unknown_unit_and_bad_duration_are_rejected(self):
+        bp = self.bp()
+        bp["modes"][2]["per_unit"] = {"9": 10}
+        with self.assertRaisesRegex(bpb.BankError, "per_unit must map"):
+            bmb.check_blueprint(bp, [], [], partial=True)
+        bp = self.bp()
+        bp["modes"][2]["duration_minutes"] = 25
+        with self.assertRaisesRegex(bpb.BankError, "duration_minutes"):
+            bmb.check_blueprint(bp, [], [], partial=True)
+
+    def test_bank_needs_enough_blocks_and_questions_for_a_unit_mode(self):
+        bp = self.bp()
+        blocks = [{"unit": 4, "questions": [0] * 10} for _ in range(3)]
+        with self.assertRaisesRegex(bpb.BankError, "needs at least"):
+            bmb.check_blueprint(bp, blocks, [], partial=False)
+
+    def test_business_management_blueprint_has_no_modes(self):
+        path = bmb.REPO / "subjects" / "business-management" / "data" / "exam-blueprint.json"
+        self.assertNotIn("modes", json.loads(path.read_text(encoding="utf-8")))
+
+
 class ProblemNoteTests(NoteCase):
     NAME = "Problem - Bank P01 - Demo.md"
 
@@ -431,7 +482,7 @@ class MultipleChoiceSimulatorTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_harness_ran_every_scenario(self):
-        self.assertEqual(len(self.results), 28, [r["name"] for r in self.results])
+        self.assertEqual(len(self.results), 42, [r["name"] for r in self.results])
 
     def test_every_scenario_passes(self):
         failures = [f"{r['name']}: {r['detail'][:300]}" for r in self.results if not r["pass"]]

@@ -221,7 +221,7 @@ With an increase in temperature, the electrical resistivity of a pure metal:
 a) Decreases, due to a larger number of free electrons
 b) Increases, due to stronger vibrations of the atoms
 c) Increases, due to a smaller number of free electrons
-d) Stays constant, as only impurities scatter electrons
+d) Stays constant, as the scattering is due to impurities
 
 ### Answer
 
@@ -233,7 +233,7 @@ Session 13, Slides 14 and 17: the thermal resistivity $\rho_T = \rho_0(1+\alpha_
 
 - a) Inverted trend with the semiconductor mechanism: more carriers with temperature is what happens in an intrinsic semiconductor (Slide 29).
 - c) Right trend with the wrong reason: the number of free electrons of a metal does not change; the mobility does.
-- d) Only the residual part is independent of temperature (Slide 16); the thermal part grows with it.
+- d) Takes the residual part for the whole resistivity: that part is independent of temperature (Slide 16), but the thermal part grows with it.
 
 ### Source
 
@@ -278,10 +278,10 @@ Session 13, Slides 13-17 and 48.
 
 The residual resistivity $\rho_r$ of a metal is the part of its resistivity that:
 
-a) Grows linearly with the temperature in °C
-b) Comes from the vibrations of the lattice
-c) Vanishes when the metal contains impurities
-d) Comes from impurities and defects, independent of temperature
+a) Grows with temperature following $\rho_0(1+\alpha_T\Delta T)$
+b) Comes from the scattering by lattice vibrations
+c) Vanishes once impurities are added to the pure metal
+d) Comes from impurities and defects, not from temperature
 
 ### Answer
 
@@ -291,7 +291,7 @@ d
 
 Session 13, Slides 14 and 16: $\rho_{total} = \rho_T + \rho_r$; the residual resistivity does not depend on temperature and is produced by impurities or alloying elements ($\rho_i$) and structural imperfections ($\rho_d$).
 
-- a) This describes the thermal resistivity $\rho_T = \rho_0(1+\alpha_T\Delta T)$.
+- a) This is the thermal resistivity $\rho_T = \rho_0(1+\alpha_T\Delta T)$, the other term of the sum.
 - b) Lattice vibrations produce the thermal part, not the residual one.
 - c) Inverted: impurities are one of the two sources of $\rho_r$, so they raise it.
 

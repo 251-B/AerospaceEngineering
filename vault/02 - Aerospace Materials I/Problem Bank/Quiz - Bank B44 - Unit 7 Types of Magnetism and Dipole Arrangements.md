@@ -306,7 +306,7 @@ Session 15, Slides 3 and 9.
 
 An antiferromagnetic solid such as MnO has no net magnetic moment because its dipoles:
 
-a) are induced only while a field acts
+a) are induced by the applied field and vanish with it
 b) are permanent but point at random
 c) are antiparallel and of unequal size
 d) are antiparallel and of equal size

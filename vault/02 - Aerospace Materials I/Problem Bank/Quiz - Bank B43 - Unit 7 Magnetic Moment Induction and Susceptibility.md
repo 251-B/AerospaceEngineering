@@ -32,10 +32,10 @@ tags:
 
 The net magnetic moment of an isolated atom comes from:
 
-a) the orbital motion of its electrons only
-b) the orbital and spin moments of its electrons
-c) the spin moments of its electrons only
-d) the static electric charge of its nucleus
+a) the orbital motion of its electrons, as spin cancels out
+b) the sum of the orbital and spin moments of its electrons
+c) the spin of its electrons, as orbital motion cancels out
+d) the static electric charge carried by its nucleus
 
 ### Answer
 
@@ -45,8 +45,8 @@ b
 
 Session 15, Slide 3: each electron has an orbital magnetic moment, $m_l\mu_B$, from its motion around the nucleus, and a spin magnetic moment, $\pm\mu_B$; the moment of the atom is the sum of both contributions over all its electrons.
 
-- a) Leaves out the spin moment, which the slide lists as the second contribution of every electron (and the main one in ferromagnets, Slide 9).
-- c) Leaves out the orbital moment; spin dominates in ferromagnets, but the moment of the atom is the sum of both terms.
+- a) Assumes the spin cancels out; the slide lists the spin moment as the second contribution of every electron (and the main one in ferromagnets, Slide 9).
+- c) Assumes the orbital moment cancels out; spin dominates in ferromagnets, but the moment of the atom is the sum of both terms.
 - d) Magnetism comes from moving charges (Slide 3); a static charge produces an electric field, not a magnetic moment.
 
 ### Source
@@ -246,7 +246,7 @@ With an increase in the relative permeability of a coil core, at the same field 
 
 a) increases, because $B = \mu_r\mu_0 H$
 b) decreases, because the core opposes the field
-c) does not change, because B depends only on H
+c) stays the same, because the core changes $H$ but not $B$
 d) increases, because $\mu_0$ grows with the core
 
 ### Answer
@@ -258,7 +258,7 @@ a
 Slide 4: $B = \mu H$ with $\mu = \mu_r\mu_0$, so at constant $H$ the induction grows in proportion to $\mu_r$.
 
 - b) Inverted trend: a core that opposes the field is diamagnetic, with $\mu_r < 1$; a larger $\mu_r$ strengthens the induction.
-- c) Ignores the material: $B = \mu_0 H$ holds only in vacuum, and a core changes $B$ through $\mu_r$.
+- c) Mixes up $H$ and $B$: $H$ is set by the current of the coil, but $B = \mu_r\mu_0 H$ responds to the core, so $B$ does change.
 - d) Right trend, wrong cause: $\mu_0$ is the constant permeability of vacuum, $1.257\times10^{-6}$ H/m; only $\mu_r$ depends on the material.
 
 ### Source

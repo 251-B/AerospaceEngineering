@@ -189,7 +189,7 @@ With an increase in the relaxation time $\tau$ of the conduction electrons, the 
 
 a) Decreases, because the electrons collide more often
 b) Increases, because the number of free electrons increases
-c) Stays constant, because it depends only on the field
+c) Stays constant, because the field sets the drift velocity
 d) Increases, because $\mu$ is proportional to $\tau$
 
 ### Answer
@@ -202,7 +202,7 @@ Session 13, Slide 11: $\mu = \tau|q_e|/m_e$, so a longer time between collisions
 
 - a) Inverts the meaning of $\tau$: a longer relaxation time means fewer collisions per second, not more.
 - b) Right trend with the wrong cause: the number of electrons $n$ is a separate factor of $\sigma = n|q_e|\mu$ and does not enter $\mu$.
-- c) Confuses the mobility with the drift velocity: $v_d = \mu E$ depends on the field, while $\mu$ does not.
+- c) Confuses the mobility with the drift velocity: $v_d = \mu E$ is the quantity set by the field, while $\mu = \tau|q_e|/m_e$ does not contain $E$.
 
 ### Source
 
@@ -249,7 +249,7 @@ Which one of the following statements about the resistivity of a metal is TRUE?
 
 a) It falls as the disorder of the metal structure grows
 b) It is caused by the acceleration of electrons by the field
-c) It depends only on the number of free electrons per volume
+c) It is determined by the number of free electrons per volume
 d) It grows with the number of electron collisions with the ions
 
 ### Answer
@@ -262,7 +262,7 @@ Session 13, Slide 13: the resistivity $\rho = 1/\sigma$ grows with the disorder 
 
 - a) Inverted trend: disorder scatters the electrons, so it raises the resistivity.
 - b) The acceleration is what the field does; the resistance comes from the collisions that oppose it (Slide 11).
-- c) Ignores the mobility: $\sigma = n|q_e|\mu$ depends on the number of electrons AND their mobility (Slide 13).
+- c) Takes $n$ as the sole factor and ignores the mobility: $\sigma = n|q_e|\mu$ contains the number of electrons AND their mobility, which the collisions reduce (Slide 13).
 
 ### Source
 

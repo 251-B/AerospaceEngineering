@@ -255,7 +255,7 @@ With an increase in the donor ionisation energy $E_c - E_d$, the extrinsic-range
 
 a) Becomes less steep, as the slope is $-2k/(E_c - E_d)$
 b) Becomes steeper, as the slope is $-E_g/2k$
-c) Stays the same, as all the donors are already ionised
+c) Stays the same, as the slope is set by the donor concentration
 d) Becomes steeper, as the slope is $-(E_c - E_d)/2k$
 
 ### Answer
@@ -268,7 +268,7 @@ Session 13, Slide 43: in the extrinsic range $\ln\sigma = \ln\sigma_0 - (E_c - E
 
 - a) The ratio was inverted; with it a larger energy would wrongly flatten the line.
 - b) Right trend with the slope of the intrinsic range, which depends on $E_g$, not on the donor level.
-- c) Complete ionisation describes the exhaustion range, where $\sigma$ is constant; in the extrinsic range the donors are still being ionised.
+- c) Takes the donor concentration as the origin of the slope: it only shifts the line (the intercept $\ln\sigma_0$), while the slope contains $E_c - E_d$ (Slide 43).
 
 ### Source
 
@@ -283,7 +283,7 @@ Session 13, Slide 43.
 
 At very high temperature, the conductivity of an n-type semiconductor is controlled by:
 
-a) The electrons given by the donor levels only
+a) The electrons supplied by the donor levels as they ionise
 b) The holes created at the acceptor levels
 c) The electrons and holes generated across the band gap
 d) The mobility of the ionised donor atoms
@@ -296,7 +296,7 @@ c
 
 Session 13, Slides 43-44: at very high temperature the intrinsic generation across the gap takes over and the material behaves as an intrinsic conductor; the carriers are the electrons and holes created across $E_g$.
 
-- a) Electrons from donors only describe the extrinsic and exhaustion ranges; at very high temperature they are outnumbered by intrinsic carriers.
+- a) Electrons from the donors describe the extrinsic and exhaustion ranges; at very high temperature they are outnumbered by intrinsic carriers.
 - b) An n-type material has donor levels, not acceptor levels.
 - d) The ionised donors are fixed in the lattice; they are not carriers.
 

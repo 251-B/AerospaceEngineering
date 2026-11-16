@@ -130,6 +130,50 @@
       ok('block tally uses the exam rule', /2 of 10 answered · 1 right, 1 wrong · with the exam rule: 0\.35/.test(d.getElementById('simBlockTally').textContent), d.getElementById('simBlockTally').textContent);
       ok('block practice stores nothing', JSON.parse(w.localStorage.getItem('ae_mat_exams')).current === null, '');
 
+      // --- practice scopes (blueprint modes)
+      d.getElementById('simBlockBack').click();
+      var radios = d.querySelectorAll('#simModes input[name=simMode]');
+      ok('scope picker lists the modes of the blueprint, real paper first and checked', radios.length === bp.modes.length && radios[0].value === 'real-paper' && radios[0].checked, radios.length);
+      function chooseMode(id) {
+        var r = d.querySelector('#simModes input[value="' + id + '"]');
+        r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      function mixOf(c) {
+        var u = {}; c.items.filter(function (e) { return byId[e.id].kind === 'multiple_choice'; }).forEach(function (e) { var k = byId[e.id].unit; u[k] = (u[k] || 0) + 1; });
+        return u;
+      }
+      chooseMode('unit-6');
+      ok('unit mode shows the test alone, out of 5, with its own clock', /5\.0/.test(d.getElementById('simStructure').textContent) && !/Part II/.test(d.getElementById('simStructure').textContent) && d.querySelector('#simDurations input:checked').value === '20', d.getElementById('simStructure').textContent);
+      ok('unit mode hides the problem type', d.getElementById('simArchetype').parentNode.hidden === true, '');
+      ok('generate button names the mode', /Unit 6 Test/.test(d.querySelector('#simGenerate').textContent), d.querySelector('#simGenerate').textContent);
+      d.getElementById('simGenerate').click();
+      cur = current(w);
+      var blocksUsed = {};
+      cur.items.forEach(function (e) { blocksUsed[byId[e.id].block] = 1; });
+      ok('unit mode draws ten questions of Unit 6 and no problem', cur.items.length === 10 && JSON.stringify(mixOf(cur)) === '{"6":10}' && cur.mode === 'unit-6', JSON.stringify(mixOf(cur)));
+      ok('unit mode draws every question from a different block', Object.keys(blocksUsed).length === 10, Object.keys(blocksUsed).length);
+      cur.items.forEach(function (e, idx) { var it = byId[e.id]; if (idx < 6) pick(d, idx + 1, it.answer); else if (idx < 8) pick(d, idx + 1, wrongLetter(it)); });
+      d.getElementById('simFinish').click();
+      ok('unit mode: 6 right and 2 wrong give 2.70 of 5', /Mark of the test: 2\.70/.test(d.querySelector('.sim-mcq-summary').textContent) && d.getElementById('simScore').textContent === '2.70', d.querySelector('.sim-mcq-summary').textContent);
+      ok('unit mode can be saved without a problem', d.getElementById('simSave').disabled === false, '');
+      d.getElementById('simSave').click();
+      st = JSON.parse(w.localStorage.getItem('ae_mat_exams'));
+      h = st.history[st.history.length - 1];
+      ok('history keeps the mode and the maximum of 5', h.mode === 'unit-6' && h.modeLabel === 'Unit 6 only' && h.max === 5 && Math.abs(h.total - 2.7) < 1e-9, JSON.stringify([h.mode, h.max, h.total]));
+      d.getElementById('simNew').click();
+      ok('history lists the mode of each attempt', /Unit 6 only/.test(d.getElementById('simHistory').textContent), d.getElementById('simHistory').textContent.slice(0, 200));
+      ok('the chosen mode is remembered on the setup screen', d.querySelector('#simModes input:checked').value === 'unit-6', '');
+      chooseMode('focus-6-7');
+      d.getElementById('simGenerate').click();
+      ok('focus mode draws 1 + 2 + 4 + 3', JSON.stringify(mixOf(current(w))) === '{"4":1,"5":2,"6":4,"7":3}', JSON.stringify(mixOf(current(w))));
+      d.getElementById('simAbandon').click();
+      chooseMode('real-paper');
+      d.getElementById('simGenerate').click();
+      ok('real-paper mode keeps 2 + 4 + 2 + 2', JSON.stringify(mixOf(current(w))) === '{"4":2,"5":4,"6":2,"7":2}', JSON.stringify(mixOf(current(w))));
+      d.getElementById('simAbandon').click();
+      var n7 = bank.blocks.filter(function (b) { return b.unit === 7; }).length;
+      ok('every unit has blocks enough for a single-unit test', [4, 5, 6, 7].every(function (u) { return bank.blocks.filter(function (b) { return b.unit === u; }).length >= 10; }), n7);
+
       // --- shortcuts
       d.dispatchEvent(new KeyboardEvent('keydown', { key: '?', bubbles: true }));
       var help = d.getElementById('simHelp');

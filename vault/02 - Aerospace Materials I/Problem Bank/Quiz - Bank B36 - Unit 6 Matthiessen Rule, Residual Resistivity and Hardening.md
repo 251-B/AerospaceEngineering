@@ -189,10 +189,10 @@ Session 13, Slide 17 (chart of resistivity against temperature for copper and Cu
 
 With an increase in the nickel content of a copper alloy, its residual resistivity:
 
-a) Decreases, as nickel adds free electrons
+a) Decreases, as nickel adds more free electrons to the metal
 b) Increases, as nickel raises the lattice vibrations
 c) Increases, as the foreign atoms distort the lattice
-d) Stays constant, as only dislocations add to it
+d) Stays constant, as it is set by the dislocation density
 
 ### Answer
 
@@ -204,7 +204,7 @@ Session 13, Slides 16-17: $\rho_r$ increases with the degree of distortion of th
 
 - a) Inverted trend; the slides give no change in the number of free electrons, only scattering by the impurity.
 - b) Right trend with the wrong cause: lattice vibrations are the thermal part, which the chart shows to be the same for all the alloys.
-- d) Impurities ($\rho_i$) are one of the two sources of the residual resistivity, together with structural imperfections ($\rho_d$).
+- d) Takes the dislocations as the only source: impurities ($\rho_i$) are one of the two sources of the residual resistivity, together with structural imperfections ($\rho_d$).
 
 ### Source
 

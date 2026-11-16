@@ -36,7 +36,7 @@ A small permanent magnet rests on a ceramic superconductor, which is then cooled
 
 a) It levitates, because the superconductor expels the field
 b) It sticks to it, because the superconductor becomes ferromagnetic
-c) Nothing, because superconductors have no magnetic response
+c) It tips over and slides off, because one pole is repelled
 d) It is pulled down, because the field lines crowd into it
 
 ### Answer
@@ -48,7 +48,7 @@ a
 Slide 27: below $T_c$ the superconductor expels the magnetic field (Meissner effect) and behaves as a perfect diamagnet; the repulsion lifts the magnet, which levitates above the superconductor cooled by liquid nitrogen.
 
 - b) A superconductor in the Meissner state is diamagnetic, not ferromagnetic, so it repels the magnet instead of attracting it.
-- c) The superconducting state has a strong magnetic response, perfect diamagnetism; zero resistivity is not its only feature.
+- c) Treats the superconductor as a second magnet with a fixed pole; a perfect diamagnet repels either pole of the magnet, so it floats instead of tipping over.
 - d) Inverted picture: the field lines are pushed around the superconductor, not drawn into it.
 
 ### Source
@@ -65,7 +65,7 @@ Session 15, Slide 27.
 With an increase in temperature below $T_c$, the critical magnetic field $H_c$ of a superconductor:
 
 a) increases, so higher fields are tolerated
-b) does not change, as it depends only on composition
+b) stays constant up to $T_c$ and then drops to zero
 c) increases, while the critical current density falls
 d) decreases, so lower fields destroy superconductivity
 
@@ -78,7 +78,7 @@ d
 Slide 26: $H_c$ and $J_c$ decrease with increasing temperature; closer to $T_c$ a smaller field (or current density) is enough to return the material to the normal state, which is the shape of the superconducting envelope.
 
 - a) Inverted trend: the critical field is largest at the lowest temperature.
-- b) $H_c$ depends on the temperature as well as on the material: it falls to zero at $T_c$.
+- b) Reads the curve as a switch: $H_c$ is largest at the lowest temperature and falls steadily to zero at $T_c$ (Slide 26).
 - c) Right about $J_c$, wrong about $H_c$: the slide says both decrease with temperature.
 
 ### Source
@@ -185,10 +185,10 @@ Session 15, Slides 34-35 and 38.
 
 With an increase in temperature below the Debye temperature, the heat capacity of a solid:
 
-a) decreases, because the lattice waves lose energy
-b) stays at 3R, its limiting value
-c) increases, because more free electrons are created
-d) increases, because the lattice waves raise their average energy
+a) decreases, because the atoms vibrate more freely and store less
+b) stays at 3R, because every vibration mode is already excited
+c) increases, because more free electrons are created to store heat
+d) increases, because the lattice waves gain average energy
 
 ### Answer
 
@@ -198,7 +198,7 @@ d
 
 Slide 35: the heat capacity increases with temperature because the lattice waves can increase their average energy; only above $\theta_D$ does it level off at about $3R$.
 
-- a) Inverted trend: heating gives the lattice waves more energy, not less.
+- a) Inverted trend: heating gives the lattice waves more energy to store, not less.
 - b) $3R$ is reached only above the Debye temperature; below it the heat capacity is still rising.
 - c) Right trend, wrong mechanism: thermally created carriers belong to semiconductors (Unit 6); the slide explains the rise with the lattice waves.
 

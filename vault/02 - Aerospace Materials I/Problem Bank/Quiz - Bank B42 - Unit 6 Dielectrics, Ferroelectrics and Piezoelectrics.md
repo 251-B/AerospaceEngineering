@@ -67,7 +67,7 @@ What will happen to the charge stored at a fixed voltage when the vacuum between
 a) It will rise about 4000 times
 b) It will rise about 10 times
 c) It will fall about 4000 times
-d) It will not change, as it depends only on the voltage
+d) It will rise about 400 times
 
 ### Answer
 
@@ -79,7 +79,7 @@ Session 13, Slides 52 and 57: $C = \varepsilon_r C_0$ and BaTiO₃ has $\varepsi
 
 - b) Uses the dielectric constant of a common dielectric, Al₂O₃ ($\varepsilon_r = 10$, Slide 57), instead of that of the ferroelectric.
 - c) The dielectric constant was applied as a divisor: a polarised dielectric lets the plates store more charge, $Q_0 + Q'$, not less.
-- d) Forgets that the stored charge is $Q = CV$ and the capacitance depends on the material between the plates.
+- d) Power-of-ten slip: $\varepsilon_r = 4000$ was read as 400, so $Q = CV$ rises 400 times instead of 4000 times.
 
 ### Source
 

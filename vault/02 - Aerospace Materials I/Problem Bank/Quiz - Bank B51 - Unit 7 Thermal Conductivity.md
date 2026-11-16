@@ -157,10 +157,10 @@ Session 15, Slides 38 and 40.
 
 Ceramics and polymers are poor thermal conductors because:
 
-a) many free electrons scatter their phonons
-b) their heat capacity is higher than that of metals
+a) many free electrons scatter their phonons in the lattice
+b) their heat capacity is higher than that of metals, so heat is stored
 c) they have few free electrons, so heat travels by phonons
-d) their phonons cannot carry any heat at all
+d) their atoms vibrate too weakly to pass heat along
 
 ### Answer
 
@@ -172,7 +172,7 @@ Slide 40: in insulating materials the transfer of thermal energy is by phonons, 
 
 - a) Insulators do not have many free electrons; that is the feature of metals.
 - b) The specific heat is a different property (heat stored, not heat transferred); it does not explain a low conductivity.
-- d) An absolute statement: phonons do carry heat, and some ceramics such as SiC and AlN reach up to 270 W/(m·K) through them (Slide 41).
+- d) Phonon conduction is the mechanism of these materials, only less effective than electrons; phonons do carry heat, and some ceramics such as SiC and AlN reach up to 270 W/(m·K) through them (Slide 41).
 
 ### Source
 
@@ -190,7 +190,7 @@ With an increase in the zinc content of a Cu-Zn alloy, its thermal conductivity:
 a) decreases, because solute atoms scatter electrons and phonons
 b) increases, because zinc adds free electrons
 c) decreases, because zinc lowers the heat capacity
-d) does not change, as k depends only on temperature
+d) increases, because the alloy becomes harder and stiffer
 
 ### Answer
 
@@ -202,7 +202,7 @@ Slide 43: alloying, defects and porosity reduce the thermal conductivity, and th
 
 - b) Inverted trend: the chart of Slide 43 shows the conductivity of copper falling with zinc.
 - c) Right trend, wrong cause: the heat capacity does not depend significantly on the structure (Slide 35), and the drop comes from scattering.
-- d) Slide 43 shows that the composition changes $k$ at a given temperature.
+- d) Mixes up strength and conductivity: solute atoms harden the alloy, but the same defects reduce $k$ (Slide 43).
 
 ### Source
 

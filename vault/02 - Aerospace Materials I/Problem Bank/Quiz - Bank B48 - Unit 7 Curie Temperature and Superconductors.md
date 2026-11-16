@@ -157,7 +157,7 @@ Session 15, Slide 23.
 Which one of the following statements is TRUE about the Néel temperature?
 
 a) Above it a ferromagnetic material becomes paramagnetic
-b) Below it a material loses all its electrical resistance
+b) Below it a material turns into a superconductor
 c) Above it an antiferromagnetic material becomes paramagnetic
 d) Above it an antiferromagnetic material becomes ferromagnetic
 

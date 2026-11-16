@@ -312,7 +312,7 @@ With an increase in the melting temperature of a metal, its linear coefficient o
 a) increases, because its atoms vibrate more strongly
 b) decreases, because its bonding is stronger
 c) decreases, because the metal is denser
-d) does not change, as it depends only on the crystal structure
+d) increases, because a stiffer bond pushes the atoms further apart
 
 ### Answer
 
@@ -324,7 +324,7 @@ Slide 37 plots the coefficient of the metals at 25 °C against their melting tem
 
 - a) Inverted trend: metals with a high melting temperature expand less, not more.
 - c) Right trend, wrong cause: the slides relate the coefficient to the bonding energy, not to the density.
-- d) The chart of Slide 37 shows a clear trend with the melting temperature, so the coefficient is not set by the crystal structure alone.
+- d) Inverted trend with a plausible cause: a strong bond is stiff, but the slides link strong bonding to low expansion, so the chart of Slide 37 falls with the melting temperature.
 
 ### Source
 

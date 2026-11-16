@@ -4,7 +4,7 @@
   "title": "Aerospace Materials I — Assessment Test II (Midterm 2)",
   "short_title": "Midterm 2",
   "generate_label": "Generate New Midterm 2 Exam",
-  "note": "Assessment Test II of 22 November 2019 (model B) is Part I, a test of 10 questions with four options and one right answer (+0.5 right, -0.15 wrong, 0 blank, the mark never below 0; 5 points), and Part II, one problem of 5 points on a binary phase diagram with four parts (1.2 + 1.3 + 1.3 + 1.2). The 2018 paper has the same ten questions and the same problem. The paper prints no duration: the test takes part of one class session, so 60 minutes is the standard here. The ten questions of the real paper are four on Unit 5 and two on each of Units 4, 6 and 7; the simulator keeps that mix.",
+  "note": "Assessment Test II of 22 November 2019 (model B) is Part I, a test of 10 questions with four options and one right answer (+0.5 right, -0.15 wrong, 0 blank, the mark never below 0; 5 points), and Part II, one problem of 5 points on a binary phase diagram with four parts (1.2 + 1.3 + 1.3 + 1.2). The 2018 paper has the same ten questions and the same problem. The paper prints no duration: the test takes part of one class session, so 60 minutes is the standard here. The ten questions of the real paper are four on Unit 5 and two on each of Units 4, 6 and 7; the simulator keeps that mix. Practice scopes (modes): the real mix, a mix weighted towards Units 6 and 7 (1 + 2 + 4 + 3: Unit 4 is already examined by the Part II problem and Unit 5 keeps two questions), and the ten questions of a single unit. A single-unit mode trains only Part I, graded out of 5 with the same rule, and has a shorter clock (20 minutes standard: an assumption, no paper prints it).",
   "provenance": {
     "structure_source": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2019.pdf: p. 2 (header: scoring rule, 'Part I (5 points)', questions 1 to 5), p. 3 (questions 6 to 10 and the Pb-Sn diagram), p. 4 (problem '2. (5 points)' on the Ni-Nb diagram, parts a 1.2p, b 1.3p, c 1.3p, d 1.2p). MATERIALS_SECONDPARTIAL_2018.docx: the same ten questions and problem, without the scoring header.",
     "duration_source": "Not printed on either paper. Schedule_MAT AERO I 2026 - 27.pdf lists 'TEST 2 (Topics 4, 5, 6 and 7). Resolution of PROBLEMS' as one session. 60 minutes is an assumption.",
@@ -15,7 +15,11 @@
   "problem_bank": "subjects/aerospace-materials-1/data/problems.json",
   "total_points": 10.0,
   "duration_minutes": 60,
-  "duration_options_minutes": [45, 60, 90],
+  "duration_options_minutes": [
+    45,
+    60,
+    90
+  ],
   "parts": [
     {
       "id": "part-1",
@@ -31,7 +35,12 @@
       "floor": 0,
       "description": "Ten questions with four options and one right answer. Right +0.5, wrong -0.15, blank 0; the mark of the test is never below 0.",
       "selection_rules": {
-        "per_unit": {"4": 2, "5": 4, "6": 2, "7": 2},
+        "per_unit": {
+          "4": 2,
+          "5": 4,
+          "6": 2,
+          "7": 2
+        },
         "distinct_themes": true
       }
     },
@@ -46,14 +55,117 @@
       "selection_rules": {
         "distinct_units": false,
         "distinct_themes": false,
-        "archetypes": ["phase-diagram-invariant", "eutectic-lever-rule", "fe-c-steels", "tensile-test", "semiconductors-conductivity"]
+        "archetypes": [
+          "phase-diagram-invariant",
+          "eutectic-lever-rule",
+          "fe-c-steels",
+          "tensile-test",
+          "semiconductors-conductivity"
+        ]
       },
-      "grading_steps": [0, 0.25, 0.5, 0.75, 1.0]
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
     }
   ],
   "runner": {
     "hide_hints_and_solutions_until_submit": true,
     "allow_scratchpad_per_question": true,
     "exclude_previous_attempt_option": true
-  }
+  },
+  "modes": [
+    {
+      "id": "real-paper",
+      "label": "Mixed (real paper)",
+      "default": true,
+      "include_problem": true,
+      "description": "The mix of the real paper: 2 + 4 + 2 + 2 questions (Units 4, 5, 6, 7) and the Part II problem.",
+      "per_unit": {
+        "4": 2,
+        "5": 4,
+        "6": 2,
+        "7": 2
+      }
+    },
+    {
+      "id": "focus-6-7",
+      "label": "Mixed (focus on Units 6 and 7)",
+      "include_problem": true,
+      "description": "Weighted towards Units 6 and 7: 1 + 2 + 4 + 3 questions and the Part II problem.",
+      "per_unit": {
+        "4": 1,
+        "5": 2,
+        "6": 4,
+        "7": 3
+      }
+    },
+    {
+      "id": "unit-4",
+      "label": "Unit 4 only",
+      "include_problem": false,
+      "generate_label": "Generate New Unit 4 Test",
+      "duration_minutes": 20,
+      "duration_options_minutes": [
+        15,
+        20,
+        30
+      ],
+      "description": "Ten test questions on Unit 4 (Phase diagrams) from different blocks, graded out of 5. No Part II problem.",
+      "per_unit": {
+        "4": 10
+      }
+    },
+    {
+      "id": "unit-5",
+      "label": "Unit 5 only",
+      "include_problem": false,
+      "generate_label": "Generate New Unit 5 Test",
+      "duration_minutes": 20,
+      "duration_options_minutes": [
+        15,
+        20,
+        30
+      ],
+      "description": "Ten test questions on Unit 5 (Mechanical properties) from different blocks, graded out of 5. No Part II problem.",
+      "per_unit": {
+        "5": 10
+      }
+    },
+    {
+      "id": "unit-6",
+      "label": "Unit 6 only",
+      "include_problem": false,
+      "generate_label": "Generate New Unit 6 Test",
+      "duration_minutes": 20,
+      "duration_options_minutes": [
+        15,
+        20,
+        30
+      ],
+      "description": "Ten test questions on Unit 6 (Electrical properties) from different blocks, graded out of 5. No Part II problem.",
+      "per_unit": {
+        "6": 10
+      }
+    },
+    {
+      "id": "unit-7",
+      "label": "Unit 7 only",
+      "include_problem": false,
+      "generate_label": "Generate New Unit 7 Test",
+      "duration_minutes": 20,
+      "duration_options_minutes": [
+        15,
+        20,
+        30
+      ],
+      "description": "Ten test questions on Unit 7 (Magnetic and thermal properties) from different blocks, graded out of 5. No Part II problem.",
+      "per_unit": {
+        "7": 10
+      }
+    }
+  ]
 }

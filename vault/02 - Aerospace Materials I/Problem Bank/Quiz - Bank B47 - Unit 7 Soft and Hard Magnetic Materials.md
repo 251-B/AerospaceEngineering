@@ -33,10 +33,10 @@ tags:
 
 Which one of the following statements is TRUE about soft magnetic materials?
 
-a) Their Bloch walls are difficult to move
+a) Their Bloch walls are difficult to move, giving a wide loop
 b) They have a high initial permeability and a low coercivity
-c) Their coercivity is above 10 000 A/m
-d) They are chosen for permanent magnets
+c) Their coercivity is above 10 000 A/m, giving a wide loop
+d) They are chosen for permanent magnets, as they keep their field
 
 ### Answer
 
@@ -46,9 +46,9 @@ b
 
 Slide 18: in soft magnetic materials the Bloch walls are easy to move, which gives a high initial permeability and a low coercivity (a narrow loop).
 
-- a) Walls that are difficult to move are the feature of hard magnetic materials.
+- a) Hard and soft swapped: walls that are difficult to move, and the wide loop that follows, are the feature of hard magnetic materials.
 - c) The limit is the other way round: $H_c$ above 10 000 A/m classifies a material as hard (Slide 18).
-- d) Permanent magnets need a high resistance to demagnetization, so they are made of hard materials (Slide 19).
+- d) Soft materials lose their magnetization easily, which is their purpose in transformer cores; permanent magnets need a high resistance to demagnetization, so they are made of hard materials (Slide 19).
 
 ### Source
 
@@ -219,7 +219,7 @@ With an increase in the grain size of a ferromagnetic material, its coercivity:
 a) increases, because the Bloch walls move more easily
 b) decreases, because the Bloch walls move more easily
 c) increases, because more boundaries pin the walls
-d) does not change, as it depends only on the composition
+d) decreases, because the saturation magnetization falls
 
 ### Answer
 
@@ -231,7 +231,7 @@ Slide 21: the Bloch walls move more easily in larger grains, so the permeability
 
 - a) Right cause with the inverted effect: easier wall motion makes the loop narrower, not wider.
 - c) A larger grain size means fewer grain boundaries, not more, so fewer obstacles to the walls.
-- d) It is the saturation magnetization that is fixed by the composition; the coercivity is strongly microstructure-dependent (Slide 20).
+- d) Right trend, wrong cause: the saturation magnetization is fixed by the composition and does not change with the grain size; the fall in $H_c$ comes from the easier wall motion (Slide 20).
 
 ### Source
 

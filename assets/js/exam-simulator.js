@@ -37,8 +37,9 @@
   // A subject with several exams (Advanced Maths) lists them as data-blueprint-<exam> and picks one with ?exam=<exam>.
   var examId = '';
   try { examId = new URLSearchParams(window.location.search).get('exam') || ''; } catch (e) { examId = ''; }
-  var BP = window[(examId && /^[\w-]+$/.test(examId) && root.getAttribute('data-blueprint-' + examId)) ||
+  var BP_FULL = window[(examId && /^[\w-]+$/.test(examId) && root.getAttribute('data-blueprint-' + examId)) ||
                   root.getAttribute('data-blueprint') || 'AE_BM_BLUEPRINT'];
+  var BP = BP_FULL;   // the blueprint of the chosen practice scope (see setMode); BP_FULL when the blueprint lists no modes
   var KEY = root.getAttribute('data-storage') || 'ae_bm_exams';
   var examKey = examId || root.getAttribute('data-default-exam') || '';
   // The Extra problems section: theory cases and practice problems live on two pages of their own.
@@ -52,7 +53,7 @@
   var setupEl = document.getElementById('simSetup');
   var runnerEl = document.getElementById('simRunner');
   var resultsEl = document.getElementById('simResults');
-  if (!BANK || !BANK.items || !BP || !BP.parts || !setupEl || !runnerEl || !resultsEl) {
+  if (!BANK || !BANK.items || !BP_FULL || !BP_FULL.parts || !setupEl || !runnerEl || !resultsEl) {
     root.insertAdjacentHTML('afterbegin', '<p class="sim-card">The exam simulator could not load the problem bank.</p>');
     return;
   }
@@ -60,7 +61,7 @@
   BANK.items.forEach(function (i) { BY_ID[i.id] = i; });
   // Texts that depend on the blueprint (title, structure note, button label), and the current exam link.
   Array.prototype.forEach.call(root.querySelectorAll('[data-bp]'), function (n) {
-    var v = BP[n.getAttribute('data-bp')];
+    var v = BP_FULL[n.getAttribute('data-bp')];
     if (typeof v === 'string' && v) n.textContent = v;
   });
   Array.prototype.forEach.call(document.querySelectorAll('[data-exam-link]'), function (a) {
@@ -123,7 +124,7 @@
   // ---- Multiple choice ---------------------------------------------------------------
   function isMC(item) { return !!item && item.kind === 'multiple_choice'; }
   function partOf(entry) { return BP.parts.filter(function (p) { return p.id === entry.part; })[0]; }
-  var mcPart = BP.parts.filter(function (p) { return p.type === 'multiple_choice'; })[0] || null;
+  var mcPart = null;   // set by setMode()
   function signed(x) { return (x > 0 ? '+' : '') + fmt(x); }
   // Points of one answer under the rules of its part: right, wrong or blank.
   function mcPoints(part, item, choice) {
@@ -186,41 +187,136 @@
     return box;
   }
 
+  // ---- Practice scopes (blueprint "modes") ---------------------------------------------
+  // A blueprint may list modes: each one fixes the number of test questions per unit (selection_rules.per_unit of the
+  // multiple-choice part), may drop the problem part (include_problem false: the exam is the test only and is graded
+  // out of its own points) and may carry its own clock. The effective blueprint BP is rebuilt from BP_FULL on every change.
+  var MODES = Array.isArray(BP_FULL.modes) && BP_FULL.modes.length ? BP_FULL.modes : null;
+  var modeId = '';
+  var part2 = null;
+  function effectiveBlueprint(mode) {
+    var bp = JSON.parse(JSON.stringify(BP_FULL));
+    delete bp.modes;
+    if (!mode) return bp;
+    bp.parts = bp.parts.filter(function (p) { return mode.include_problem !== false || p.type === 'multiple_choice'; });
+    bp.parts.forEach(function (p) {
+      if (p.type === 'multiple_choice' && mode.per_unit) {
+        p.selection_rules = p.selection_rules || {};
+        p.selection_rules.per_unit = mode.per_unit;
+      }
+    });
+    bp.total_points = Math.round(bp.parts.reduce(function (s, p) { return s + p.count * p.points_each; }, 0) * 100) / 100;
+    if (mode.duration_minutes) bp.duration_minutes = mode.duration_minutes;
+    if (mode.duration_options_minutes) bp.duration_options_minutes = mode.duration_options_minutes;
+    bp.mode = { id: mode.id, label: mode.label };
+    return bp;
+  }
+  function modeById(id) { return MODES ? (MODES.filter(function (m) { return m.id === id; })[0] || null) : null; }
+  function defaultMode() { return MODES ? (MODES.filter(function (m) { return m.default; })[0] || MODES[0]) : null; }
+  function setMode(id) {
+    var mode = modeById(id) || defaultMode();
+    modeId = mode ? mode.id : '';
+    BP = effectiveBlueprint(mode);
+    mcPart = BP.parts.filter(function (p) { return p.type === 'multiple_choice'; })[0] || null;
+    // The part whose problem type can be chosen: the one that lists archetypes (Business Management: the Extra Practice problem).
+    part2 = BP.parts.filter(function (p) { return p.selection_rules && p.selection_rules.archetypes; })[0] ||
+      BP.parts.filter(function (p) { return p.category === 'extra_practice_problem'; })[0] || null;
+  }
+  setMode(store.current && store.current.mode ? store.current.mode : (store.lastMode || ''));
+
   // ---- Setup screen ------------------------------------------------------------------
-  // The part whose problem type can be chosen: the one that lists archetypes (Business Management: the Extra Practice problem).
-  var part2 = BP.parts.filter(function (p) { return p.selection_rules && p.selection_rules.archetypes; })[0] ||
-    BP.parts.filter(function (p) { return p.category === 'extra_practice_problem'; })[0];
   var durationBox = document.getElementById('simDurations');
-  (BP.duration_options_minutes || [BP.duration_minutes]).forEach(function (m) {
-    var label = el('label', 'sim-radio', null);
-    var input = document.createElement('input');
-    input.type = 'radio';
-    input.name = 'simDuration';
-    input.value = String(m);
-    input.checked = m === BP.duration_minutes;
-    label.appendChild(input);
-    label.appendChild(document.createTextNode(' ' + m + ' min' + (m === BP.duration_minutes ? ' (standard)' : '')));
-    durationBox.appendChild(label);
-  });
   var archSelect = document.getElementById('simArchetype');
-  if (part2 && part2.selection_rules && part2.selection_rules.archetypes) {
-    part2.selection_rules.archetypes.forEach(function (a) {
-      var o = document.createElement('option');
-      o.value = a;
-      o.textContent = (BANK.archetypes && BANK.archetypes[a]) || a;
-      archSelect.appendChild(o);
+  var structure = document.getElementById('simStructure');
+  function renderDurations() {
+    durationBox.innerHTML = '';
+    (BP.duration_options_minutes || [BP.duration_minutes]).forEach(function (m) {
+      var label = el('label', 'sim-radio', null);
+      var input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'simDuration';
+      input.value = String(m);
+      input.checked = m === BP.duration_minutes;
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(' ' + m + ' min' + (m === BP.duration_minutes ? ' (standard)' : '')));
+      durationBox.appendChild(label);
     });
   }
-
-  var structure = document.getElementById('simStructure');
-  if (structure) {
+  function renderArchetypes() {
+    while (archSelect.options.length > 1) archSelect.remove(1);
+    if (part2 && part2.selection_rules && part2.selection_rules.archetypes) {
+      part2.selection_rules.archetypes.forEach(function (a) {
+        var o = document.createElement('option');
+        o.value = a;
+        o.textContent = (BANK.archetypes && BANK.archetypes[a]) || a;
+        archSelect.appendChild(o);
+      });
+    }
+    archSelect.value = 'any';
+    // A scope without the problem part has no problem type to choose.
+    if (archSelect.parentNode) archSelect.parentNode.hidden = !part2;
+  }
+  function unitMix(p) {
+    var pu = p.selection_rules && p.selection_rules.per_unit;
+    if (!pu) return '';
+    return '<br><span class="sim-muted">' + Object.keys(pu).map(function (u) { return 'Unit ' + u + ': ' + pu[u]; }).join(' · ') + '</span>';
+  }
+  function renderStructure() {
+    if (!structure) return;
     var rows = BP.parts.map(function (p) {
-      var rule = p.type === 'multiple_choice' ? '<br><span class="sim-muted">right ' + signed(p.points_correct) + ' · wrong ' + signed(p.points_wrong) + ' · blank ' + fmt(p.points_blank || 0) + ' · never below ' + fmt(p.floor) + '</span>' : '';
+      var rule = p.type === 'multiple_choice' ? '<br><span class="sim-muted">right ' + signed(p.points_correct) + ' · wrong ' + signed(p.points_wrong) + ' · blank ' + fmt(p.points_blank || 0) + ' · never below ' + fmt(p.floor) + '</span>' + (MODES ? unitMix(p) : '') : '';
       return '<tr><td>' + p.label + rule + '</td><td class="num">' + p.count + ' × ' + fmt1(p.points_each) + '</td><td class="num">' + fmt1(p.points_total) + '</td></tr>';
     }).join('');
     structure.innerHTML = '<thead><tr><th>Part</th><th class="num">Items × points</th><th class="num">Points</th></tr></thead><tbody>' + rows +
       '<tr><td><strong>Total</strong></td><td class="num">' + BP.duration_minutes + ' min</td><td class="num"><strong>' + fmt1(BP.total_points) + '</strong></td></tr></tbody>';
   }
+  function renderGenerateLabel() {
+    var mode = modeById(modeId);
+    var span = document.querySelector('#simGenerate [data-bp="generate_label"]');
+    if (span) span.textContent = (mode && mode.generate_label) || BP_FULL.generate_label || span.textContent;
+  }
+  function renderSetup() { renderDurations(); renderArchetypes(); renderStructure(); renderGenerateLabel(); }
+  // The scope picker: radio buttons at the head of the "New exam" options, only when the blueprint lists modes.
+  function buildModePicker() {
+    if (!MODES || !durationBox || !durationBox.closest) return;
+    var opts = durationBox.closest('.sim-options');
+    if (!opts) return;
+    var fs = document.createElement('fieldset');
+    fs.className = 'sim-modes';
+    fs.id = 'simModes';
+    var lg = document.createElement('legend');
+    lg.textContent = 'Practice scope';
+    fs.appendChild(lg);
+    var box = el('div', 'sim-radios', null);
+    var desc = el('p', 'sim-muted', null);
+    desc.id = 'simModeDesc';
+    MODES.forEach(function (m) {
+      var label = el('label', 'sim-radio', null);
+      var input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'simMode';
+      input.value = m.id;
+      input.checked = m.id === modeId;
+      input.addEventListener('change', function () {
+        if (!input.checked) return;
+        setMode(m.id);
+        store.lastMode = m.id;
+        save();
+        renderSetup();
+        desc.textContent = m.description || '';
+      });
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(' ' + m.label));
+      box.appendChild(label);
+    });
+    var cur = modeById(modeId);
+    desc.textContent = (cur && cur.description) || '';
+    fs.appendChild(box);
+    fs.appendChild(desc);
+    opts.insertBefore(fs, opts.firstChild);
+  }
+  buildModePicker();
+  renderSetup();
 
   function renderHistory() {
     var box = document.getElementById('simHistory');
@@ -233,10 +329,14 @@
       (h.parts || []).forEach(function (pr) { links.unshift(pr.label + ': ' + pr.right + ' right, ' + pr.wrong + ' wrong, ' + pr.blank + ' blank = ' + fmt(pr.score) + '/' + fmt(pr.max)); });
       links = links.join(' · ');
       return '<tr><td>' + d.toLocaleDateString('en-GB') + ' ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) +
-        '</td><td>' + links + '</td><td class="num"><strong>' + fmt1(h.total) + '</strong> / ' + fmt1(h.max) + '</td></tr>';
+        (h.modeLabel ? '<br><span class="sim-muted">' + h.modeLabel + '</span>' : '') + '</td><td>' + links + '</td><td class="num"><strong>' + fmt1(h.total) + '</strong> / ' + fmt1(h.max) + '</td></tr>';
     }).join('');
     var avg = hist.reduce(function (s, h) { return s + h.total; }, 0) / hist.length;
-    box.innerHTML = '<p class="sim-muted">' + hist.length + ' exam(s) graded · average ' + fmt1(avg) + ' / ' + fmt1(BP.total_points) + '</p>' +
+    var sameMax = hist.every(function (h) { return h.max === hist[0].max; });
+    // Scopes with different maxima (test only, whole exam) are averaged as a share of the points available.
+    var avgText = sameMax ? fmt1(avg) + ' / ' + fmt1(BP.total_points)
+      : Math.round(100 * hist.reduce(function (s, h) { return s + h.total; }, 0) / hist.reduce(function (s, h) { return s + h.max; }, 0)) + '% of the points';
+    box.innerHTML = '<p class="sim-muted">' + hist.length + ' exam(s) graded · average ' + avgText + '</p>' +
       '<div class="sim-table-wrap"><table class="sim-history"><thead><tr><th>Date</th><th>Items and points</th><th class="num">Grade</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
   }
 
@@ -260,13 +360,16 @@
     shuffle(free);
     if (rules.per_unit) {
       // A fixed number of items per unit (the mix of the real paper), each on a different concept when possible.
-      var picked = [], seenTheme = {};
+      var picked = [], seenTheme = {}, seenBlock = {};
       Object.keys(rules.per_unit).forEach(function (u) {
         var want = rules.per_unit[u], got = 0, mine = free.filter(function (i) { return String(i.unit) === String(u); });
-        [true, false].forEach(function (strict) {
+        // First a different block and a different concept for every question, then only a different concept, then any.
+        ['block', 'concept', 'any'].forEach(function (level) {
           mine.forEach(function (it) {
-            if (got >= want || picked.indexOf(it) >= 0 || (strict && seenTheme[it.theme])) return;
-            picked.push(it); seenTheme[it.theme] = 1; got++;
+            if (got >= want || picked.indexOf(it) >= 0) return;
+            if (level !== 'any' && seenTheme[it.theme]) return;
+            if (level === 'block' && it.block && seenBlock[it.block]) return;
+            picked.push(it); seenTheme[it.theme] = 1; if (it.block) seenBlock[it.block] = 1; got++;
           });
         });
       });
@@ -302,7 +405,7 @@
       notes = notes.concat(res.notes);
     });
     var now = Date.now();
-    store.current = { items: ids, minutes: minutes, startedAt: now, endAt: now + minutes * 60000, drafts: {}, answers: {}, notes: notes, phase: 'running', exam: examKey };
+    store.current = { items: ids, minutes: minutes, startedAt: now, endAt: now + minutes * 60000, drafts: {}, answers: {}, notes: notes, phase: 'running', exam: examKey, mode: modeId };
     save();
     startRunner();
   }
@@ -641,7 +744,7 @@
       return { id: p.id, label: p.label.split(' — ')[0], right: r.right, wrong: r.wrong, blank: r.blank, raw: r.raw, score: r.score, max: p.points_total };
     });
     store.history.push({ startedAt: cur.startedAt, finishedAt: cur.finishedAt || Date.now(), minutes: cur.minutes,
-                         timeUp: !!cur.timeUp, items: items, parts: partResults, total: t.total, max: BP.total_points, exam: examKey });
+                         timeUp: !!cur.timeUp, items: items, parts: partResults, total: t.total, max: BP.total_points, exam: examKey, mode: modeId, modeLabel: BP.mode ? BP.mode.label : '' });
     store.current = null;
     save();
     var box = document.getElementById('simSaved');
