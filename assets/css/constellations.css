@@ -123,8 +123,8 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 
 .sky-title {
   position: absolute; z-index: 0; left: 50%; top: 47%; transform: translate(-50%, -50%); margin: 0; pointer-events: none; text-align: center; white-space: nowrap;
-  font-family: var(--font-display); font-weight: 400; font-size: clamp(4.2rem, 13vw, 10.5rem); line-height: 1; letter-spacing: 0.03em; color: var(--sk-text);
-  opacity: 0.85; transition: opacity 0.7s;
+  font-family: var(--font-display); font-weight: 400; font-size: clamp(2.6rem, 6.2vw, 5.2rem); line-height: 1; letter-spacing: 0.03em; color: var(--sk-text);
+  opacity: 0.5; transition: opacity 0.7s;
 }
 .sky-title .gradient-text {
   display: inline-block;
@@ -248,7 +248,7 @@ html[data-home-view="constellations"] .site-footer {
 html[data-home-view="constellations"] .footer-inner { font-size: 0.78rem; color: var(--sk-text-2); }
 html[data-home-view="constellations"] .footer-separator { background: var(--sk-text-2); opacity: 0.5; }
 @media (max-width: 700px) {
-  .sky-title { top: 45%; font-size: clamp(3.6rem, 19vw, 5.5rem); }
+  .sky-title { top: 45%; font-size: clamp(2.4rem, 12vw, 3.6rem); }
   .sky-back { left: 16px; top: 64px; }
   html[data-home-view="constellations"] .site-footer { display: none; }
   .sky-caption { bottom: 20px; }

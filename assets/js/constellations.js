@@ -64,6 +64,25 @@
      +-180). anchors() are the places the stars take, in section order; edges join anchors by
      index; decor are faint extra paths that complete the silhouette.
      --------------------------------------------------------------------------------------- */
+  // Each area has its own star shape, so a star is recognised before it is read.
+  function starPath(points, outer, inner, turn) {
+    var d = '';
+    for (var k = 0; k < points * 2; k++) {
+      var r = k % 2 === 0 ? outer : outer * inner, a = turn + k * Math.PI / points - Math.PI / 2;
+      d += (k ? 'L' : 'M') + (r * Math.cos(a)).toFixed(1) + ' ' + (r * Math.sin(a)).toFixed(1);
+    }
+    return d + 'Z';
+  }
+  var SHAPES = {
+    theory:  starPath(4, 30, 0.2, 0),
+    problems: starPath(5, 28, 0.45, 0),
+    extra:   starPath(6, 28, 0.55, 0),
+    formula: starPath(4, 28, 0.55, Math.PI / 4),
+    sim:     starPath(8, 29, 0.42, 0),
+    pdfs:    starPath(3, 30, 0.42, Math.PI),
+    exams:   starPath(12, 27, 0.7, 0)
+  };
+
   function chain(n, closed) {
     var e = [];
     for (var k = 0; k < n - 1; k++) e.push([k, k + 1]);
@@ -258,7 +277,7 @@
       }, g);
       s('circle', { 'class': 'star-hit', r: 26 }, a);
       s('circle', { 'class': 'star-flare', r: 46, fill: 'url(#flare-' + meta.color + ')' }, a);
-      s('path', { 'class': 'star-glyph', d: 'M0 -26 L4.5 -5 L26 0 L4.5 5 L0 26 L-4.5 5 L-26 0 L-4.5 -5Z' }, a);
+      s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, a);
       s('circle', { 'class': 'star-core', r: 3.4 }, a);
       var ic = s('g', { 'class': 'star-icon' }, a);
       s('circle', { 'class': 'star-icon-bg', r: 13 }, ic);
