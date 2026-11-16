@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="aerospace-materials-1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aerospace Materials I — Extra Problems</title>
+  <meta name="description" content="Test questions and exam-style problems for Assessment Test II of Aerospace Materials I (UC3M Aerospace Engineering), Units 4 to 7, with every answer explained.">
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(20, 30, 55, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.80);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-card: rgba(0, 0, 0, 0.10);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.75;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, .page-header h1, .page-hero h1, .topic-title, .card-title, .set-title, .framework-title, .ex-title, .block-header h2 {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .card-badge, .meta-tag, .ex-num {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 22%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+    /* Sticky Navigation */
+    .back-bar {
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      position: sticky; top: 0; z-index: 50;
+    }
+
+    .back-bar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; gap: 12px; flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .nav-tabs {
+      display: flex; gap: 8px; align-items: center;
+    }
+
+    .tab-link {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.86rem; font-weight: 500;
+      padding: 6px 12px; border-radius: 6px;
+      transition: all var(--transition);
+    }
+    .tab-link.active {
+      color: var(--accent); background: var(--accent-soft); font-weight: 600;
+    }
+
+    .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-primary); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+    /* Page header */
+    .page-header {
+      text-align: center;
+      padding: 48px 0 36px;
+    }
+
+    .page-header .icon { font-size: 2.8rem; margin-bottom: 12px; }
+
+    .page-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 8px;
+    }
+
+    .page-header p {
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.02rem;
+    }
+
+    /* Cards */
+    .problem-sets-grid {
+      display: grid; gap: 24px; margin-bottom: 56px;
+    }
+
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .problem-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-border);
+      background: var(--bg-card-hover);
+    }
+
+    .problem-card:hover::before { opacity: 1; }
+
+    .card-badge {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .card-title {
+      font-size: 1.38rem;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.90rem;
+      line-height: 1.58;
+      margin-bottom: 16px;
+    }
+
+    .exercise-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .exercise-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .ex-num {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .ex-title {
+      color: var(--text-primary);
+    }
+
+    .topic-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+    }
+
+    .meta-tag {
+      background: var(--bg-input);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    footer.site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+    /* Extra problems hub: one block per exam */
+    .exam-block-title { font-family: var(--font-display); font-size: 1.9rem; color: var(--text-heading, var(--text-primary)); margin: 8px 0 6px; }
+    .exam-block-lead { color: var(--text-body, var(--text-secondary)); margin: 0 0 22px; max-width: 760px; }
+    .exam-block-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/subject-index.css">
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="back-bar">
+    <div class="container back-bar-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge" style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--accent-border);">UC3M 251-14171</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Aerospace Materials I sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html" aria-current="page">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../sources/index.html">PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <div class="icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 4.3v8.6L12 20.2l-7.5-4.3V7.3z"/><path d="M12 11.6l7.5-4.3M12 11.6L4.5 7.3M12 11.6v8.6"/><circle cx="12" cy="3" r="1.3" fill="currentColor"/><circle cx="19.5" cy="7.3" r="1.3" fill="currentColor"/><circle cx="4.5" cy="7.3" r="1.3" fill="currentColor"/><circle cx="12" cy="11.6" r="1.3" fill="currentColor"/><circle cx="12" cy="20.2" r="1.3" fill="currentColor"/></svg>
+      </div>
+      <h1>Aerospace Materials I — Extra Problems</h1>
+      <p>Test questions and exam-style problems written for this portal, grouped by exam, with every answer explained and every problem solved step by step. They are practice material, not official exercises: the official ones are on the Problems page.</p>
+    </header>
+
+<!-- EXTRA-HUB:START (generated by tools/build_materials_bank.py; edit the vault notes) -->
+    <section class="exam-block" id="midterm-2" aria-labelledby="midterm-2-title">
+      <h2 class="exam-block-title" id="midterm-2-title">2nd Midterm</h2>
+      <p class="exam-block-lead">Assessment Test II covers Units 4 to 7: phase diagrams, mechanical, electrical, magnetic and thermal properties. It is a test of ten questions (5 points) and one problem (5 points). Practise the questions block by block, work through the problems, or take a timed exam in the <a href="../simulator/index.html">Exam simulator</a>.</p>
+      <div class="problem-sets-grid">
+      <div class="problem-card">
+        <span class="card-badge">2nd Midterm • Test</span>
+        <h2 class="card-title"><a href="midterm-2-test.html">Test Questions, Blocks B01 to B62</a></h2>
+        <p class="card-desc">620 questions with four options in 62 blocks of ten, each with its answer and the reason why every wrong option is wrong.</p>
+
+        <ul class="exercise-list">
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B01" title="Components, phases and microconstituents">
+              <span class="ex-num">B01</span>
+              <span class="ex-title">Components, phases and microconstituents</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B02" title="Unary diagrams and isomorphous systems">
+              <span class="ex-num">B02</span>
+              <span class="ex-title">Unary diagrams and isomorphous systems</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B03" title="Isomorphous systems and the Gibbs phase rule">
+              <span class="ex-num">B03</span>
+              <span class="ex-title">Isomorphous systems and the Gibbs phase rule</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B04" title="Gibbs phase rule and tie lines">
+              <span class="ex-num">B04</span>
+              <span class="ex-title">Gibbs phase rule and tie lines</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B05" title="Tie line and lever rule">
+              <span class="ex-num">B05</span>
+              <span class="ex-title">Tie line and lever rule</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B06" title="Coring and the eutectic reaction">
+              <span class="ex-num">B06</span>
+              <span class="ex-title">Coring and the eutectic reaction</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B07" title="Eutectic systems and the Pb-Sn diagram">
+              <span class="ex-num">B07</span>
+              <span class="ex-title">Eutectic systems and the Pb-Sn diagram</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B08" title="Hypoeutectic and hypereutectic alloys">
+              <span class="ex-num">B08</span>
+              <span class="ex-title">Hypoeutectic and hypereutectic alloys</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B09" title="Eutectic microconstituents and the solvus">
+              <span class="ex-num">B09</span>
+              <span class="ex-title">Eutectic microconstituents and the solvus</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B10" title="Precipitation and invariant reactions">
+              <span class="ex-num">B10</span>
+              <span class="ex-title">Precipitation and invariant reactions</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B11" title="Invariant reactions">
+              <span class="ex-num">B11</span>
+              <span class="ex-title">Invariant reactions</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B12" title="Intermetallic compounds and the Fe-Fe3C diagram">
+              <span class="ex-num">B12</span>
+              <span class="ex-title">Intermetallic compounds and the Fe-Fe3C diagram</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B13" title="The Fe-Fe3C diagram">
+              <span class="ex-num">B13</span>
+              <span class="ex-title">The Fe-Fe3C diagram</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B14" title="Steel microstructures and amounts">
+              <span class="ex-num">B14</span>
+              <span class="ex-title">Steel microstructures and amounts</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B15" title="Steels, cooling rate, alloying elements and ceramic diagrams">
+              <span class="ex-num">B15</span>
+              <span class="ex-title">Steels, cooling rate, alloying elements and ceramic diagrams</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B16" title="Mechanical tests, the tension test and engineering stress and strain">
+              <span class="ex-num">B16</span>
+              <span class="ex-title">Mechanical tests, the tension test and engineering stress and strain</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B17" title="Elastic and plastic deformation at the atomic level">
+              <span class="ex-num">B17</span>
+              <span class="ex-title">Elastic and plastic deformation at the atomic level</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B18" title="Hooke&#x27;s law, Young&#x27;s modulus and elastic elongation">
+              <span class="ex-num">B18</span>
+              <span class="ex-title">Hooke&#x27;s law, Young&#x27;s modulus and elastic elongation</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B19" title="Young&#x27;s modulus, bonding, families of materials and non-linear elasticity">
+              <span class="ex-num">B19</span>
+              <span class="ex-title">Young&#x27;s modulus, bonding, families of materials and non-linear elasticity</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B20" title="Poisson&#x27;s ratio, lateral contraction and the shear modulus">
+              <span class="ex-num">B20</span>
+              <span class="ex-title">Poisson&#x27;s ratio, lateral contraction and the shear modulus</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B21" title="Elastic constants from contraction, and the compression, impact, bend, shear and torsion tests">
+              <span class="ex-num">B21</span>
+              <span class="ex-title">Elastic constants from contraction, and the compression, impact, bend, shear and torsion tests</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B22" title="Slip, dislocations and slip systems">
+              <span class="ex-num">B22</span>
+              <span class="ex-title">Slip, dislocations and slip systems</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B23" title="Yield strength, the 0.2 % offset and discontinuous yielding">
+              <span class="ex-num">B23</span>
+              <span class="ex-title">Yield strength, the 0.2 % offset and discontinuous yielding</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B24" title="Working stress, tensile strength and necking">
+              <span class="ex-num">B24</span>
+              <span class="ex-title">Working stress, tensile strength and necking</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B25" title="What a given load does to a wire, a bar or a rod">
+              <span class="ex-num">B25</span>
+              <span class="ex-title">What a given load does to a wire, a bar or a rod</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B26" title="Ductility: percent elongation and percent reduction in area">
+              <span class="ex-num">B26</span>
+              <span class="ex-title">Ductility: percent elongation and percent reduction in area</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B27" title="Toughness and the modulus of resilience">
+              <span class="ex-num">B27</span>
+              <span class="ex-title">Toughness and the modulus of resilience</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B28" title="True stress and true strain">
+              <span class="ex-num">B28</span>
+              <span class="ex-title">True stress and true strain</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B29" title="The neck, the strengthening principle and strain hardening">
+              <span class="ex-num">B29</span>
+              <span class="ex-title">The neck, the strengthening principle and strain hardening</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B30" title="Effects of cold work, solid solution and grain size strengthening">
+              <span class="ex-num">B30</span>
+              <span class="ex-title">Effects of cold work, solid solution and grain size strengthening</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B31" title="Solid solution, grain boundaries, precipitation and aircraft aluminium alloys">
+              <span class="ex-num">B31</span>
+              <span class="ex-title">Solid solution, grain boundaries, precipitation and aircraft aluminium alloys</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B32" title="Hardness tests and hardness against tensile strength">
+              <span class="ex-num">B32</span>
+              <span class="ex-title">Hardness tests and hardness against tensile strength</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B33" title="Energy bands and classification of materials">
+              <span class="ex-num">B33</span>
+              <span class="ex-title">Energy bands and classification of materials</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B34" title="Metallic conduction, drift velocity and mobility">
+              <span class="ex-num">B34</span>
+              <span class="ex-title">Metallic conduction, drift velocity and mobility</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B35" title="Conductivity, carriers and resistivity of metals">
+              <span class="ex-num">B35</span>
+              <span class="ex-title">Conductivity, carriers and resistivity of metals</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B36" title="Matthiessen&#x27;s rule, residual resistivity and hardening">
+              <span class="ex-num">B36</span>
+              <span class="ex-title">Matthiessen&#x27;s rule, residual resistivity and hardening</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B37" title="Non-metallic conductors and intrinsic semiconductors">
+              <span class="ex-num">B37</span>
+              <span class="ex-title">Non-metallic conductors and intrinsic semiconductors</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B38" title="Intrinsic semiconductors, band gap and temperature">
+              <span class="ex-num">B38</span>
+              <span class="ex-title">Intrinsic semiconductors, band gap and temperature</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B39" title="Extrinsic semiconductors, dopants and carriers">
+              <span class="ex-num">B39</span>
+              <span class="ex-title">Extrinsic semiconductors, dopants and carriers</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B40" title="Dopant levels and extrinsic conductivity with temperature">
+              <span class="ex-num">B40</span>
+              <span class="ex-title">Dopant levels and extrinsic conductivity with temperature</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B41" title="Temperature ranges and semiconductor devices">
+              <span class="ex-num">B41</span>
+              <span class="ex-title">Temperature ranges and semiconductor devices</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B42" title="Dielectrics, ferroelectrics and piezoelectrics">
+              <span class="ex-num">B42</span>
+              <span class="ex-title">Dielectrics, ferroelectrics and piezoelectrics</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B43" title="Magnetic moment, induction, permeability and susceptibility">
+              <span class="ex-num">B43</span>
+              <span class="ex-title">Magnetic moment, induction, permeability and susceptibility</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B44" title="Types of magnetism and dipole arrangements">
+              <span class="ex-num">B44</span>
+              <span class="ex-title">Types of magnetism and dipole arrangements</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B45" title="Magnetic materials, domains and Bloch walls">
+              <span class="ex-num">B45</span>
+              <span class="ex-title">Magnetic materials, domains and Bloch walls</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B46" title="Magnetization curve and hysteresis loop">
+              <span class="ex-num">B46</span>
+              <span class="ex-title">Magnetization curve and hysteresis loop</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B47" title="Soft and hard magnetic materials">
+              <span class="ex-num">B47</span>
+              <span class="ex-title">Soft and hard magnetic materials</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B48" title="Curie and Néel temperatures and superconductors">
+              <span class="ex-num">B48</span>
+              <span class="ex-title">Curie and Néel temperatures and superconductors</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B49" title="Superconductivity and heat capacity">
+              <span class="ex-num">B49</span>
+              <span class="ex-title">Superconductivity and heat capacity</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B50" title="Thermal expansion">
+              <span class="ex-num">B50</span>
+              <span class="ex-title">Thermal expansion</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B51" title="Thermal conductivity and expansion">
+              <span class="ex-num">B51</span>
+              <span class="ex-title">Thermal conductivity and expansion</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B52" title="Thermal stresses and thermal shock">
+              <span class="ex-num">B52</span>
+              <span class="ex-title">Thermal stresses and thermal shock</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B53" title="Metallic and ionic conduction applied">
+              <span class="ex-num">B53</span>
+              <span class="ex-title">Metallic and ionic conduction applied</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B54" title="Intrinsic semiconductors applied">
+              <span class="ex-num">B54</span>
+              <span class="ex-title">Intrinsic semiconductors applied</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B55" title="Extrinsic semiconductors, dopants and carrier data">
+              <span class="ex-num">B55</span>
+              <span class="ex-title">Extrinsic semiconductors, dopants and carrier data</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B56" title="Extrinsic conductivity against temperature and devices">
+              <span class="ex-num">B56</span>
+              <span class="ex-title">Extrinsic conductivity against temperature and devices</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B57" title="Dielectrics, ferroelectrics and piezoelectrics applied">
+              <span class="ex-num">B57</span>
+              <span class="ex-title">Dielectrics, ferroelectrics and piezoelectrics applied</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B58" title="Magnetic moments, fields and types of magnetism applied">
+              <span class="ex-num">B58</span>
+              <span class="ex-title">Magnetic moments, fields and types of magnetism applied</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B59" title="Domains, hysteresis and the tables of magnetic materials">
+              <span class="ex-num">B59</span>
+              <span class="ex-title">Domains, hysteresis and the tables of magnetic materials</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B60" title="Loop factors, Curie and Néel temperatures and superconductors">
+              <span class="ex-num">B60</span>
+              <span class="ex-title">Loop factors, Curie and Néel temperatures and superconductors</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B61" title="Superconductor applications, heat capacity and thermal expansion">
+              <span class="ex-num">B61</span>
+              <span class="ex-title">Superconductor applications, heat capacity and thermal expansion</span>
+            </a>
+          </li>
+          <li class="exercise-item">
+            <a class="ex-link" href="midterm-2-test.html#B62" title="Thermal conduction, thermocouples, thermal stresses and thermal shock">
+              <span class="ex-num">B62</span>
+              <span class="ex-title">Thermal conduction, thermocouples, thermal stresses and thermal shock</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="topic-meta">
+          <span class="meta-tag">620 Questions</span>
+          <span class="meta-tag">Blocks of 10</span>
+          <span class="meta-tag">Units 4 to 7</span>
+          <span class="meta-tag">Answers explained</span>
+        </div>
+      </div>
+      </div>
+    </section>
+<!-- EXTRA-HUB:END -->
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

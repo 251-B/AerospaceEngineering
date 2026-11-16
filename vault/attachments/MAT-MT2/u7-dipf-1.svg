@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 148" width="100%" class="fig-kit" style="max-width:248px;margin:0 auto;display:block" role="img" aria-label="Arrangement of magnetic dipoles (option picture)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="34.0" cy="30.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="80.0" cy="30.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="126.0" cy="30.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="172.0" cy="30.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="34.0" cy="74.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="80.0" cy="74.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="126.0" cy="74.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="172.0" cy="74.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="34.0" cy="118.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="80.0" cy="118.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="126.0" cy="118.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="172.0" cy="118.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<line x1="34.0" y1="44.0" x2="34.0" y2="20.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M34.0,16.0 L37.1,23.4 L30.9,23.4 Z" fill="#3b82f6"/>
+<line x1="80.0" y1="44.0" x2="80.0" y2="20.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M80.0,16.0 L83.1,23.4 L76.9,23.4 Z" fill="#3b82f6"/>
+<line x1="126.0" y1="44.0" x2="126.0" y2="20.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M126.0,16.0 L129.1,23.4 L122.9,23.4 Z" fill="#3b82f6"/>
+<line x1="172.0" y1="44.0" x2="172.0" y2="20.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M172.0,16.0 L175.1,23.4 L168.9,23.4 Z" fill="#3b82f6"/>
+<line x1="34.0" y1="88.0" x2="34.0" y2="64.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M34.0,60.0 L37.1,67.4 L30.9,67.4 Z" fill="#3b82f6"/>
+<line x1="80.0" y1="88.0" x2="80.0" y2="64.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M80.0,60.0 L83.1,67.4 L76.9,67.4 Z" fill="#3b82f6"/>
+<line x1="126.0" y1="88.0" x2="126.0" y2="64.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M126.0,60.0 L129.1,67.4 L122.9,67.4 Z" fill="#3b82f6"/>
+<line x1="172.0" y1="88.0" x2="172.0" y2="64.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M172.0,60.0 L175.1,67.4 L168.9,67.4 Z" fill="#3b82f6"/>
+<line x1="34.0" y1="132.0" x2="34.0" y2="108.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M34.0,104.0 L37.1,111.4 L30.9,111.4 Z" fill="#3b82f6"/>
+<line x1="80.0" y1="132.0" x2="80.0" y2="108.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M80.0,104.0 L83.1,111.4 L76.9,111.4 Z" fill="#3b82f6"/>
+<line x1="126.0" y1="132.0" x2="126.0" y2="108.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M126.0,104.0 L129.1,111.4 L122.9,111.4 Z" fill="#3b82f6"/>
+<line x1="172.0" y1="132.0" x2="172.0" y2="108.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M172.0,104.0 L175.1,111.4 L168.9,111.4 Z" fill="#3b82f6"/>
+<line x1="224.0" y1="126.0" x2="224.0" y2="24.6" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M224.0,18.0 L228.3,28.1 L219.7,28.1 Z" fill="#ec4899"/>
+<text x="234.0" y="74.0" fill="#ec4899" font-size="15" font-weight="700" text-anchor="start">H</text>
+</g></svg>

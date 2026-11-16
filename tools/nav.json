@@ -147,6 +147,16 @@
      "page": "topic-3-diffusion.html",
      "label": "3 · Diffusion"
     }
+   ],
+   "extra-problems": [
+    {
+     "page": "midterm-2-test.html",
+     "label": "2nd Midterm · Test"
+    },
+    {
+     "page": "midterm-2-problems.html",
+     "label": "2nd Midterm · Problems"
+    }
    ]
   },
   {

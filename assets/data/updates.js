@@ -15,6 +15,22 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-16-materials-unit-6-7-practice",
+    "date": "2026-11-16",
+    "tag": "Aerospace Materials I",
+    "title": "Materials: 100 more test questions and practice by unit",
+    "text": "Units 6 and 7 now have 150 test questions each. The simulator can mix the real paper, focus on Units 6 and 7, or train one unit at a time.",
+    "link": "subjects/aerospace-materials-1/simulator/index.html"
+  },
+  {
+    "id": "2026-11-16-materials-midterm-2-simulator",
+    "date": "2026-11-16",
+    "tag": "Aerospace Materials I",
+    "title": "Materials: Midterm 2 test bank and exam simulator",
+    "text": "Test questions on Units 4 to 7 in blocks of ten, every answer explained, and a timed test marked with the real penalty. The solved problems come next.",
+    "link": "subjects/aerospace-materials-1/simulator/index.html"
+  },
+  {
     "id": "2026-11-16-mechanics-simulators",
     "date": "2026-11-16",
     "tag": "Engineering Mechanics",

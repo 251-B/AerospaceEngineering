@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - examenes
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2019.pdf"
 kind: examenes
-status: not-referenced
+status: referenced
 bytes: 2646391
 ---
 
@@ -19,8 +19,61 @@ bytes: 2646391
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2019.pdf`
 - **Kind:** examenes
 - **Size:** 2.6 MB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 54 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B01 - Unit 4 Components Phases and Microconstituents]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B02 - Unit 4 Unary Diagrams and Isomorphous Systems]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B03 - Unit 4 Isomorphous Systems and the Gibbs Phase Rule]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B04 - Unit 4 Gibbs Phase Rule and Tie Lines]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B05 - Unit 4 Tie Line and Lever Rule]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B06 - Unit 4 Coring and the Eutectic Reaction]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B07 - Unit 4 Eutectic Systems and the Pb-Sn Diagram]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B08 - Unit 4 Hypoeutectic and Hypereutectic Alloys]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B09 - Unit 4 Eutectic Microconstituents and the Solvus]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B10 - Unit 4 Precipitation and Invariant Reactions]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B11 - Unit 4 Invariant Reactions]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B12 - Unit 4 Intermetallic Compounds and the Fe-Fe3C Diagram]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B13 - Unit 4 The Fe-Fe3C Diagram]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B14 - Unit 4 Steel Microstructures and Amounts]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B15 - Unit 4 Steels Cooling Rate Alloying and Ceramic Diagrams]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B16 - Unit 5 Tension Test and Engineering Stress and Strain]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B17 - Unit 5 Elastic and Plastic Deformation]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B18 - Unit 5 Hookes Law and Elastic Elongation]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B19 - Unit 5 Youngs Modulus Bonding and Non-Linear Elasticity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B20 - Unit 5 Poissons Ratio and Shear Modulus]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B21 - Unit 5 Elastic Constants and Other Mechanical Tests]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B22 - Unit 5 Slip Dislocations and Slip Systems]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B23 - Unit 5 Yield Strength and the Offset Method]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B24 - Unit 5 Working Stress Tensile Strength and Necking]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B25 - Unit 5 What a Load Does to a Wire or Bar]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B26 - Unit 5 Ductility Percent Elongation and Reduction in Area]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B27 - Unit 5 Toughness and Modulus of Resilience]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B28 - Unit 5 True Stress and True Strain]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B29 - Unit 5 Strengthening Principle and Strain Hardening]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B30 - Unit 5 Cold Work Solid Solution and Grain Size]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B31 - Unit 5 Precipitation Strengthening and Aircraft Alloys]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B32 - Unit 5 Hardness Tests and Tensile Strength]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B33 - Unit 6 Energy Bands and Classification of Materials]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B34 - Unit 6 Metallic Conduction, Drift Velocity and Mobility]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B35 - Unit 6 Conductivity, Carriers and Resistivity of Metals]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B36 - Unit 6 Matthiessen Rule, Residual Resistivity and Hardening]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B37 - Unit 6 Non-Metallic Conductors and Intrinsic Semiconductors]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B38 - Unit 6 Intrinsic Semiconductors, Band Gap and Temperature]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B39 - Unit 6 Extrinsic Semiconductors, Dopants and Carriers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B40 - Unit 6 Dopant Levels and Extrinsic Conductivity with Temperature]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B41 - Unit 6 Temperature Ranges and Semiconductor Devices]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B42 - Unit 6 Dielectrics, Ferroelectrics and Piezoelectrics]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B43 - Unit 7 Magnetic Moment Induction and Susceptibility]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B44 - Unit 7 Types of Magnetism and Dipole Arrangements]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B45 - Unit 7 Magnetic Materials and Domains]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B46 - Unit 7 Magnetization Curve and Hysteresis Loop]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B47 - Unit 7 Soft and Hard Magnetic Materials]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B48 - Unit 7 Curie Temperature and Superconductors]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B49 - Unit 7 Superconductivity and Heat Capacity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B50 - Unit 7 Thermal Expansion]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B51 - Unit 7 Thermal Conductivity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B52 - Unit 7 Thermal Stresses and Thermal Shock]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]

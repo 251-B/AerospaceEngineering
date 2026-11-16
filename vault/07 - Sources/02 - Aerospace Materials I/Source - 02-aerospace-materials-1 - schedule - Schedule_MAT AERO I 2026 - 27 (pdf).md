@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - schedule
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/schedule/Schedule_MAT AERO I 2026 - 27.pdf"
 kind: schedule
-status: not-referenced
+status: referenced
 bytes: 300281
 ---
 
@@ -19,8 +19,8 @@ bytes: 300281
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/schedule/Schedule_MAT AERO I 2026 - 27.pdf`
 - **Kind:** schedule
 - **Size:** 300.3 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]

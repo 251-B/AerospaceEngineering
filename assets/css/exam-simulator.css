@@ -319,3 +319,49 @@ body:has(#examSimulator) .page-header > p { display: none; }
 
 @media (max-width: 900px) { #simSetup { grid-template-columns: minmax(0, 1fr); } }
 @media print { :is(#simGenerate, #simHelpOpen, #simPrint, #simFinish, #simNew)::before { display: none; } }
+
+/* ---- Multiple-choice parts (blueprint part "type": "multiple_choice") and block practice ----
+   Text keeps the reading-palette colours; right and wrong are told apart by the border, the weight and a written label. */
+.sim-mcq { margin: 12px 0 0; padding: 0; border: 0; display: grid; gap: 8px; min-width: 0; }
+.sim-mcq__opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.sim-mcq--review .sim-mcq__opt { cursor: default; }
+.sim-mcq__opt input { margin-top: 0.35em; flex: none; }
+.sim-mcq__letter { font-family: var(--font-mono); font-weight: 700; color: var(--text-primary); flex: none; }
+.sim-mcq__text { flex: 1; min-width: 0; color: var(--text-primary); }
+.sim-mcq__text svg, .sim-mcq__text img { max-width: 220px !important; }
+.sim-mcq__opt--blank { border-style: dashed; }
+.sim-mcq__opt--blank .sim-mcq__text { font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-secondary); }
+.sim-mcq__opt:has(input:checked) { border-color: var(--text-primary); border-width: 2px; padding: 8px 11px; }
+.sim-mcq__opt:has(input:focus-visible) { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+.sim-mcq__opt[data-state="right"] { border: 2px solid var(--text-primary); padding: 8px 11px; font-weight: 600; }
+.sim-mcq__opt[data-state="wrong"] { border: 2px dashed var(--text-primary); padding: 8px 11px; }
+.sim-mcq__mark { flex: none; font-family: var(--font-sans); font-size: 0.82rem; font-weight: 700; color: var(--text-primary); }
+.sim-mcq__verdict { font-family: var(--font-sans); font-weight: 700; color: var(--text-primary); margin: 10px 0 0; }
+.sim-mcq__why { margin: 6px 0 8px 1.2em; }
+.sim-mcq__why li { margin: 4px 0; color: var(--text-primary); }
+.sim-mcq-summary p, .sim-block-tally { color: var(--text-primary); }
+.sim-mcq-summary__score { font-size: 1.15rem; }
+.sim-block-tally { font-family: var(--font-mono); font-size: 0.95rem; }
+.sim-nav a[data-answered="true"] { border-color: var(--text-primary); border-width: 2px; padding: 3px 9px; }
+.sim-question--mcq[data-result="right"] { border-left: 5px solid var(--text-primary); }
+.sim-question--mcq[data-result="wrong"] { border-left: 5px dashed var(--text-primary); }
+#simBlock .sim-question { scroll-margin-top: 90px; }
+@media print {
+  .sim-question--mcq + .sim-question--mcq { break-before: auto; }
+  .sim-question--mcq { break-inside: avoid; }
+  .sim-mcq__opt { border: 0 !important; padding: 2px 0 !important; background: #fff !important; }
+  .sim-mcq__opt--blank { display: none; }
+  .sim-mcq__opt input { appearance: none; width: 11px; height: 11px; border: 1px solid #000; border-radius: 0; }
+  .sim-block-card, #simBlock .sim-actions { display: none; }
+}
+.sim-question--mcq .sim-question__head a { color: var(--text-primary); }

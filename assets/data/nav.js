@@ -179,9 +179,28 @@ window.AE_NAV = {
               "label": "3 · Diffusion"
             }
           ]
+        },
+        {
+          "id": "extra-problems",
+          "label": "Extra problems",
+          "href": "subjects/aerospace-materials-1/extra-problems/index.html",
+          "pages": [
+            {
+              "href": "subjects/aerospace-materials-1/extra-problems/midterm-2-test.html",
+              "label": "2nd Midterm · Test"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/extra-problems/midterm-2-problems.html",
+              "label": "2nd Midterm · Problems"
+            }
+          ]
         }
       ],
       "extras": [
+        {
+          "href": "subjects/aerospace-materials-1/simulator/index.html",
+          "label": "Exam simulator"
+        },
         {
           "href": "subjects/aerospace-materials-1/sources/index.html",
           "label": "PDFs"

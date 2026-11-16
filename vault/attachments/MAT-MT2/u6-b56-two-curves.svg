@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 290" width="100%" class="fig-kit" style="max-width:480px;margin:0 auto;display:block" role="img" aria-label="ln σ against 1/T for two n-type semiconductors A and B with the same donor concentration: A leaves the flat range at a higher temperature and its high-temperature line is steeper than that of B">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="60.0" y1="240.0" x2="449.6" y2="240.0" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M455.0,240.0 L446.7,243.5 L446.7,236.5 Z" fill="#8a94a6"/>
+<line x1="60.0" y1="240.0" x2="60.0" y2="25.4" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M60.0,20.0 L63.5,28.3 L56.5,28.3 Z" fill="#8a94a6"/>
+<text x="255.0" y="278.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">1/T</text>
+<text x="54.0" y="258.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">High T</text>
+<text x="445.0" y="258.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">Low T</text>
+<text x="36" y="130" fill="#6b7280" font-size="13" text-anchor="middle" transform="rotate(-90 36 130)">ln σ</text>
+<polyline points="175.0,150.0 240.0,150.0 420.0,211.0" fill="none" stroke="#8a94a6" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="175.0,150.0 100.0,32.0" fill="none" stroke="#ec4899" stroke-width="2.6" stroke-linejoin="round"/>
+<polyline points="240.0,150.0 100.0,56.0" fill="none" stroke="#3b82f6" stroke-width="2.6" stroke-linejoin="round"/>
+<text x="88.0" y="36.0" fill="#ec4899" font-size="15" font-weight="700" text-anchor="middle">A</text>
+<text x="88.0" y="64.0" fill="#3b82f6" font-size="15" font-weight="700" text-anchor="middle">B</text>
+</g></svg>

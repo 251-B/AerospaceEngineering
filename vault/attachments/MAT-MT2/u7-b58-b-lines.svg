@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" width="100%" class="fig-kit" style="max-width:420px;margin:0 auto;display:block" role="img" aria-label="Induction B against mu0 H: dashed line B = mu0 H and three solid lines 1, 2 and 3 through the origin with different slopes">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="48.0" y1="262.0" x2="394.6" y2="262.0" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M400.0,262.0 L391.7,265.5 L391.7,258.5 Z" fill="#8a94a6"/>
+<line x1="60.0" y1="274.0" x2="60.0" y2="19.4" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M60.0,14.0 L63.5,22.3 L56.5,22.3 Z" fill="#8a94a6"/>
+<text x="398.0" y="282.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="end">μ₀H</text>
+<text x="68.0" y="26.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start">B</text>
+<line x1="60.0" y1="262.0" x2="280.0" y2="42.0" stroke="#8a94a6" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="60.0" y1="262.0" x2="243.0" y2="42.4" stroke="#ec4899" stroke-width="2.6"/>
+<line x1="60.0" y1="262.0" x2="280.0" y2="86.0" stroke="#3b82f6" stroke-width="2.6"/>
+<line x1="60.0" y1="262.0" x2="148.0" y2="42.0" stroke="#10b981" stroke-width="2.6"/>
+<text x="241.0" y="34.4" fill="#ec4899" font-size="16" font-weight="700" text-anchor="middle">1</text>
+<text x="146.0" y="34.0" fill="#10b981" font-size="16" font-weight="700" text-anchor="middle">3</text>
+<text x="288.0" y="46.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start">B = μ₀H</text>
+<text x="288.0" y="91.0" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="start">2</text>
+</g></svg>

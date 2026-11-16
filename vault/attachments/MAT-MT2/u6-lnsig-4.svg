@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 172" width="100%" class="fig-kit" style="max-width:250px;margin:0 auto;display:block" role="img" aria-label="Conductivity plot D">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="40.0" y1="150.0" x2="225.2" y2="150.0" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M230.0,150.0 L222.6,153.1 L222.6,146.9 Z" fill="#8a94a6"/>
+<line x1="40.0" y1="150.0" x2="40.0" y2="20.8" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M40.0,16.0 L43.1,23.4 L36.9,23.4 Z" fill="#8a94a6"/>
+<text x="226.0" y="168.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1/T</text>
+<text x="46.0" y="22.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">ln σ</text>
+<polyline points="60.0,84.0 210.0,84.0" fill="none" stroke="#ec4899" stroke-width="2.6" stroke-linejoin="round"/>
+</g></svg>

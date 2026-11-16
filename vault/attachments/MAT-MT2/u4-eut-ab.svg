@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Eutectic A-B phase diagram with labelled temperatures and compositions">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M80.0,30.0 L80.0,61.1 L87.0,63.3 L95.7,66.0 L105.9,69.1 L117.3,72.6 L129.8,76.5 L143.0,80.6 L156.7,84.9 L170.7,89.3 L184.6,93.9 L198.3,98.6 L211.5,103.2 L224.0,107.8 L236.5,112.6 L249.7,118.0 L263.4,123.7 L277.3,129.7 L291.3,135.8 L305.0,141.8 L318.2,147.7 L330.7,153.3 L342.1,158.5 L352.3,163.1 L361.0,166.9 L368.0,170.0 L368.0,170.0 L372.6,168.3 L378.4,166.2 L385.2,163.7 L392.9,160.9 L401.2,157.9 L410.0,154.6 L419.1,151.3 L428.4,148.0 L437.8,144.7 L446.9,141.5 L455.7,138.5 L464.0,135.8 L472.3,133.1 L481.1,130.4 L490.2,127.7 L499.6,124.9 L508.9,122.3 L518.0,119.6 L526.8,117.1 L535.1,114.8 L542.8,112.7 L549.6,110.8 L555.4,109.1 L560.0,107.8 L560.0,30.0 Z" fill="#3b82f6" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,61.1 L152.0,170.0 L152.0,170.0 L150.6,173.0 L148.8,176.6 L146.6,180.8 L144.2,185.6 L141.6,190.7 L138.8,196.2 L136.0,202.0 L133.2,208.0 L130.4,214.1 L127.8,220.2 L125.4,226.3 L123.2,232.2 L121.2,238.4 L119.2,245.2 L117.3,252.4 L115.4,259.9 L113.5,267.5 L111.8,275.0 L110.2,282.3 L108.6,289.3 L107.2,295.7 L106.0,301.4 L104.9,306.2 L104.0,310.0 L80.0,310.0 Z" fill="#3b82f6" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M560.0,107.8 L512.0,170.0 L560.0,107.8 L512.0,170.0 L512.9,173.0 L514.1,176.6 L515.6,180.8 L517.2,185.6 L518.9,190.7 L520.7,196.2 L522.6,202.0 L524.4,208.0 L526.3,214.1 L528.1,220.2 L529.7,226.3 L531.2,232.2 L532.6,238.4 L534.0,245.2 L535.5,252.4 L536.9,259.9 L538.3,267.5 L539.6,275.0 L540.9,282.3 L542.0,289.3 L543.1,295.7 L544.1,301.4 L544.9,306.2 L545.6,310.0 L560.0,310.0 Z" fill="#3b82f6" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,61.1 L87.0,63.3 L95.7,66.0 L105.9,69.1 L117.3,72.6 L129.8,76.5 L143.0,80.6 L156.7,84.9 L170.7,89.3 L184.6,93.9 L198.3,98.6 L211.5,103.2 L224.0,107.8 L236.5,112.6 L249.7,118.0 L263.4,123.7 L277.3,129.7 L291.3,135.8 L305.0,141.8 L318.2,147.7 L330.7,153.3 L342.1,158.5 L352.3,163.1 L361.0,166.9 L368.0,170.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M368.0,170.0 L372.6,168.3 L378.4,166.2 L385.2,163.7 L392.9,160.9 L401.2,157.9 L410.0,154.6 L419.1,151.3 L428.4,148.0 L437.8,144.7 L446.9,141.5 L455.7,138.5 L464.0,135.8 L472.3,133.1 L481.1,130.4 L490.2,127.7 L499.6,124.9 L508.9,122.3 L518.0,119.6 L526.8,117.1 L535.1,114.8 L542.8,112.7 L549.6,110.8 L555.4,109.1 L560.0,107.8" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,61.1 L152.0,170.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M560.0,107.8 L512.0,170.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M152.0,170.0 L150.6,173.0 L148.8,176.6 L146.6,180.8 L144.2,185.6 L141.6,190.7 L138.8,196.2 L136.0,202.0 L133.2,208.0 L130.4,214.1 L127.8,220.2 L125.4,226.3 L123.2,232.2 L121.2,238.4 L119.2,245.2 L117.3,252.4 L115.4,259.9 L113.5,267.5 L111.8,275.0 L110.2,282.3 L108.6,289.3 L107.2,295.7 L106.0,301.4 L104.9,306.2 L104.0,310.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M512.0,170.0 L512.9,173.0 L514.1,176.6 L515.6,180.8 L517.2,185.6 L518.9,190.7 L520.7,196.2 L522.6,202.0 L524.4,208.0 L526.3,214.1 L528.1,220.2 L529.7,226.3 L531.2,232.2 L532.6,238.4 L534.0,245.2 L535.5,252.4 L536.9,259.9 L538.3,267.5 L539.6,275.0 L540.9,282.3 L542.0,289.3 L543.1,295.7 L544.1,301.4 L544.9,306.2 L545.6,310.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M152.0,170.0 L512.0,170.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="80.0" y1="310.0" x2="560.0" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="560.0" y1="30.0" x2="560.0" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="560.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="80.0" y1="310.0" x2="80.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="80.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0 (A)</text>
+<line x1="152.0" y1="310.0" x2="152.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="152.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">15</text>
+<line x1="224.0" y1="310.0" x2="224.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="224.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">30</text>
+<line x1="296.0" y1="310.0" x2="296.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="296.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">45</text>
+<line x1="368.0" y1="310.0" x2="368.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="368.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">60</text>
+<line x1="440.0" y1="310.0" x2="440.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="440.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">75</text>
+<line x1="512.0" y1="310.0" x2="512.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="512.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">90</text>
+<line x1="560.0" y1="310.0" x2="560.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="560.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100 (B)</text>
+<line x1="75.0" y1="310.0" x2="80.0" y2="310.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="314.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">0</text>
+<line x1="75.0" y1="247.8" x2="80.0" y2="247.8" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="251.8" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="75.0" y1="170.0" x2="80.0" y2="170.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="174.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">450</text>
+<line x1="75.0" y1="107.8" x2="80.0" y2="107.8" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="111.8" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">650</text>
+<line x1="75.0" y1="61.1" x2="80.0" y2="61.1" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="65.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">800</text>
+<text x="320.0" y="348.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% B)</text>
+<text x="84.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<circle cx="152.0" cy="170.0" r="3.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="368.0" cy="170.0" r="3.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="512.0" cy="170.0" r="3.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="296.0" y="67.3" fill="#4b5563" font-size="15" font-weight="700" text-anchor="middle">L</text>
+<text x="99.2" y="207.3" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">α</text>
+<text x="543.6" y="207.3" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">β</text>
+<text x="171.2" y="135.8" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α + L</text>
+<text x="478.4" y="152.9" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">β + L</text>
+<text x="329.6" y="241.6" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">α + β</text>
+</g></svg>
