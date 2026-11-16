@@ -160,7 +160,8 @@ class RepositoryTests(unittest.TestCase):
             self.assertEqual(sum(1 for v in particle.values() if v["topic"] == topic), g.EXPECTED[topic])
         for k, v in meta.items():
             if v.get("structure", 1) == 3:
-                self.assertIs(v.get("boxed"), False)
+                # a rewritten solution drops the key and is gated; one still waiting keeps "boxed": false
+                self.assertIn(v.get("boxed"), (None, False))
             if v.get("structure", 1) == 4:
                 self.assertNotIn("boxed", v)
 
