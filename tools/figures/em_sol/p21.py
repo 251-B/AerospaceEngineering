@@ -102,6 +102,7 @@ def _dvec(sc, a, b, col="PINK", w=2.4, head=10):
 def local_basis():
     def post(sc):
         sc.label((0.0, -0.42), "positive λ counterclockwise", "GREEN", "middle", 14, weight="700")
+        sc.label((-0.30, -0.66), S(bold("e"), "n") + " points towards the north", "TEXT", "middle", 15, italic=False)
         x0, y0, dx, dy = 1.30, -0.45, 0.40, 0.19
         cells = (("cos λ", "−sin λ", "0"), ("0", "0", "−1"), ("sin λ", "cos λ", "0"))
         sc.label((x0 - 0.30, y0 - dy), "[" + S("", "1") + "R" + S("", "2") + "] =", "TEXT", "end", 16)
@@ -111,9 +112,9 @@ def local_basis():
         top, bot = y0 + 0.16, y0 - 2 * dy - 0.08
         for xb, sg in ((x0 - 0.22, 1), (x0 + 2 * dx + 0.26, -1)):
             sc.poly([(xb + sg * 0.05, top), (xb, top), (xb, bot), (xb + sg * 0.05, bot)], "TEXT", 1.4)
-        sc.note((x0 - 0.22, bot - 0.17), "columns: e_r, e_n, −j₁", "TEXT", "start", 13)
-    return rotation_view(980, 720, (360, 450), 250, LAT, S(bold("i"), "1"), S(bold("k"), "1"),
-                         S(bold("e"), "r") + " (local vertical)", S(bold("e"), "n") + " (towards the north)",
+        sc.label((x0 - 0.22, bot - 0.17), "columns: " + S(bold("e"), "r") + ", " + S(bold("e"), "n") + ", −" + S(bold("j"), "1"), "TEXT", "start", 14, italic=False)
+    return rotation_view(980, 760, (360, 450), 250, LAT, S(bold("i"), "1"), S(bold("k"), "1"),
+                         S(bold("e"), "r") + " (local vertical)", S(bold("e"), "n"),
                          "−" + S(bold("j"), "1") + " (⊙)", ("λ", ""), col="ACC", tri="ACC", out_off=(-14, 5), post=post)
 
 
@@ -132,31 +133,31 @@ def fbd():
     spin_about_vertical(sc, (0.0, R + 1.62), 0.16, 0.05, "Ω")
     axis_in(sc, O, None, "BLUE", 8)
     sc.label(O, "O", "HEAD", "start", 17, dx=14, dy=-12)
-    sc.label(O, S(bold("j"), "1") + " (⊗)", "BLUE", "start", 14, weight="700", dx=14, dy=22)
+    sc.label(O, S(bold("j"), "1") + " into the paper", "BLUE", "end", 15, weight="700", dx=-16, dy=5)
     g0 = (-2.5, -1.9)
     fixed_axis(sc, g0, 0, 0.5, S(bold("i"), "1"), off=(14, 5))
     fixed_axis(sc, g0, 90, 0.5, S(bold("k"), "1"), off=(0, -8))
     # body at the north pole
-    top = (0.0, R)
     sc.poly([(-0.07, R - 0.07), (0.07, R - 0.07), (0.07, R + 0.07), (-0.07, R + 0.07)], "HEAD", 2.0, fill="ACC", close=True)
-    sc.vec((0.12, R), (0.12, R - 0.8), None, "PINK", 2.8, head=11)
-    sc.label((0.12, R - 0.8), "−m " + S("g", "p") + " " + S(bold("e"), "r"), "PINK", "start", 15, weight="700", dx=10, dy=6)
-    sc.vec((-0.12, R + 0.1), (-0.12, R + 0.9), None, "PINK", 2.8, head=11)
-    sc.label((-0.12, R + 0.9), S("N", "pole") + " = m " + S("g", "p") + " " + S(bold("k"), "1"), "PINK", "end", 15,
-             weight="700", dx=-10, dy=-2)
-    sc.label((0.0, R), "pole", "HEAD", "start", 16, dx=16, dy=-8)
-    sc.note((0.35, R + 0.62), "on the axis: F_C = 0", "TEXT", "start", 13)
+    sc.vec((0.12, R - 0.07), (0.12, R - 0.8), None, "PINK", 2.8, head=11)
+    sc.label((0.12, R - 0.45), "−m " + S("g", "p") + " " + S(bold("e"), "r"), "PINK", "start", 16, weight="700", dx=12, dy=5)
+    sc.vec((-0.12, R + 0.07), (-0.12, R + 0.9), None, "PINK", 2.8, head=11)
+    sc.label((-0.12, R + 0.55), S("N", "pole") + " = m " + S("g", "p") + " " + S(bold("k"), "1"), "PINK", "end", 16,
+             weight="700", dx=-12, dy=5)
+    sc.label((0.0, R), "pole", "HEAD", "start", 16, dx=22, dy=-14)
+    sc.note((0.45, R + 0.75), "on the axis: F_C = 0", "TEXT", "start", 14)
     # body at the equator
     sc.poly([(R - 0.07, -0.07), (R + 0.07, -0.07), (R + 0.07, 0.07), (R - 0.07, 0.07)], "HEAD", 2.0, fill="ACC", close=True)
-    sc.vec((R - 0.1, -0.05), (R - 0.9, -0.05), None, "PINK", 2.8, head=11)
-    sc.label((R - 0.9, -0.05), "−m " + S("g", "p") + " " + S(bold("i"), "1"), "PINK", "middle", 15, weight="700", dy=24)
-    _dvec(sc, (R + 0.1, -0.05), (R + 0.5, -0.05), "PINK", 2.6)
-    sc.label((R + 0.5, -0.05), S(bold("F"), "C") + " = m Ω² R " + S(bold("i"), "1") + " (inertia)", "PINK", "start", 15,
-             weight="700", dx=10, dy=22)
-    sc.vec((R + 0.1, 0.17), (R + 0.5, 0.17), None, "PINK", 2.8, head=11)
-    sc.label((R + 0.5, 0.17), S("N", "eq") + " = m(" + S("g", "p") + " − Ω² R) " + S(bold("i"), "1"), "PINK", "start", 15,
-             weight="700", dx=10, dy=-6)
-    sc.label((R, 0.0), "equator", "HEAD", "middle", 16, dx=0, dy=-26)
-    sc.note((R + 0.1, -0.95), "W_eq = W_pole / 2 when Ω² R = g_p / 2", "TEXT", "start", 14)
+    sc.vec((R - 0.07, 0.0), (R - 0.9, 0.0), None, "PINK", 2.8, head=11)
+    sc.label((R - 0.5, 0.0), "−m " + S("g", "p") + " " + S(bold("i"), "1"), "PINK", "middle", 16, weight="700", dy=28)
+    _dvec(sc, (R + 0.07, -0.22), (R + 0.5, -0.22), "PINK", 2.6)
+    sc.label((R + 0.5, -0.22), S(bold("F"), "C") + " = m Ω² R " + S(bold("i"), "1"), "PINK", "start", 16, weight="700",
+             dx=10, dy=5)
+    sc.vec((R + 0.07, 0.22), (R + 0.5, 0.22), None, "PINK", 2.8, head=11)
+    sc.label((R + 0.5, 0.22), S("N", "eq") + " = m(" + S("g", "p") + " − Ω² R) " + S(bold("i"), "1"), "PINK", "start", 16,
+             weight="700", dx=10, dy=5)
+    sc.label((R, 0.0), "equator", "HEAD", "start", 16, dx=18, dy=-58)
+    sc.note((R + 0.05, -0.85), "dashed = inertia force", "TEXT", "start", 14)
+    sc.note((R + 0.05, -1.15), "W_eq = W_pole / 2 when Ω² R = g_p / 2", "TEXT", "start", 14)
     sc.note((-1.0, -2.45), "body at rest in S₁: no Coriolis force; F_A = F_E = 0", "TEXT", "start", 14)
     return sc

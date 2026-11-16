@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 720" width="100%" class="fig-kit" style="max-width:980px;margin:0 auto;display:block" role="img" aria-label="Meridian view of the local basis e_r, e_n turned by the latitude from i1, k1, with the two unit right triangles">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 760" width="100%" class="fig-kit" style="max-width:980px;margin:0 auto;display:block" role="img" aria-label="Meridian view of the local basis e_r, e_n turned by the latitude from i1, k1, with the two unit right triangles">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
 <line x1="360.0" y1="450.0" x2="760.2" y2="450.0" stroke="#8a94a6" stroke-width="1.4"/>
 <path d="M765.0,450.0 L757.6,453.1 L757.6,446.9 Z" fill="#8a94a6"/>
@@ -17,7 +17,7 @@
 <text x="569.5" y="279.3" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">r</tspan> (local vertical)</text>
 <line x1="360.0" y1="450.0" x2="203.5" y2="263.5" stroke="#f59e0b" stroke-width="2.6"/>
 <path d="M199.3,258.5 L209.1,263.5 L202.5,269.0 Z" fill="#f59e0b"/>
-<text x="193.3" y="244.5" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">n</tspan> (towards the north)</text>
+<text x="193.3" y="244.5" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">n</tspan></text>
 <text x="455.8" y="474.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos λ</text>
 <text x="560.5" y="374.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin λ</text>
 <text x="279.7" y="250.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin λ</text>
@@ -32,6 +32,7 @@
 <circle cx="360.0" cy="450.0" r="2.6" fill="#4b5563"/>
 <text x="346.0" y="455.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−<tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> (⊙)</text>
 <text x="360.0" y="555.0" fill="#10b981" font-size="14" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">positive λ counterclockwise</text>
+<text x="285.0" y="615.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">n</tspan> points towards the north</text>
 <text x="610.0" y="610.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">[<tspan baseline-shift="sub" font-size="70%">1</tspan>R<tspan baseline-shift="sub" font-size="70%">2</tspan>] =</text>
 <text x="695.0" y="562.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos λ</text>
 <text x="795.0" y="562.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−sin λ</text>
@@ -44,5 +45,5 @@
 <text x="895.0" y="657.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">0</text>
 <polyline points="642.5,522.5 630.0,522.5 630.0,677.5 642.5,677.5" fill="none" stroke="#6b7280" stroke-width="1.4" stroke-linejoin="round"/>
 <polyline points="937.5,522.5 950.0,522.5 950.0,677.5 937.5,677.5" fill="none" stroke="#6b7280" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="630.0" y="720.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">columns: e_r, e_n, −j₁</text>
+<text x="630.0" y="720.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">columns: <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">r</tspan>, <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">n</tspan>, −<tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
 </g></svg>

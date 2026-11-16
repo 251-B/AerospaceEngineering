@@ -99,72 +99,68 @@ def _dvec(sc, a, b, col="PINK", w=2.4, head=10):
         r"$m\omega^2R\sin\theta\,\mathbf i_1$. Normal to it: the reaction $N_b\,\mathbf j_1$ and the Coriolis force "
         r"$-2m\omega R\dot\theta\cos\theta\,\mathbf j_1$, which balance each other.")
 def fbd():
-    sc = Scene(1120, 640, (240, 330), 105)
+    sc = Scene(1160, 690, (250, 320), 130)
     R = 1.6
     t = math.radians(TH)
     O = (0.0, 0.0)
     P = (R * math.sin(t), -R * math.cos(t))
     er = (math.sin(t), -math.cos(t))
-    et = (math.cos(t), math.sin(t))
     # ---- left panel: the plane of the wire
     sc.circle(O, R, "HEAD", 3.0)
     sc.line((0.0, -R - 0.3), (0.0, R + 0.35), "EDGE", 1.3, "10 3 2 3")
-    sc.label((0.0, R + 0.35), "axis of rotation (" + S(bold("k"), "1") + ")", "TEXT", "end", 14, dx=-10, dy=2)
+    sc.label((0.0, R + 0.35), "axis of rotation (" + S(bold("k"), "1") + ")", "TEXT", "end", 15, dx=-10, dy=2)
     spin_about_vertical(sc, (0.0, R + 0.52), 0.16, 0.05, "ω")
     sc.dashed(O, P)
     sc.dotp(O, 3.5)
-    sc.label(O, "O", "HEAD", "end", 17, dx=-8, dy=20)
-    axis_in(sc, (-0.5, 0.5), None, "BLUE", 8)
-    sc.label((-0.5, 0.5), S(bold("j"), "1"), "BLUE", "end", 15, weight="700", dx=-14, dy=5)
-    g0 = (-2.1, -1.5)
+    sc.label(O, "O", "HEAD", "end", 18, dx=-8, dy=22)
+    axis_in(sc, (-0.55, 0.55), None, "BLUE", 8)
+    sc.label((-0.55, 0.55), S(bold("j"), "1"), "BLUE", "end", 16, weight="700", dx=-14, dy=5)
+    g0 = (-1.75, -1.5)
     fixed_axis(sc, g0, 0, 0.5, S(bold("i"), "1"), off=(14, 5))
     fixed_axis(sc, g0, 90, 0.5, S(bold("k"), "1"), off=(0, -8))
-    # r_perp
     sc.dashed((0.0, P[1]), P)
-    sc.label((P[0] / 2, P[1]), S("r", "⊥") + " = R sin θ", "TEXT", "middle", 15, dy=22)
+    sc.label((P[0] / 2, P[1]), S("r", "⊥") + " = R sin θ", "TEXT", "middle", 16, dy=24)
     sc.angle(O, 0.30, -90, -90 + TH, "θ", name_r=0.44)
-    # forces at P
+    # forces at P, all from P itself
     sc.vec(P, (P[0], P[1] - 0.9), None, "PINK", 2.8, head=11)
-    sc.label((P[0], P[1] - 0.9), "−m g " + S(bold("k"), "1"), "PINK", "start", 15, weight="700", dx=10, dy=16)
-    off = (et[0] * 0.07, et[1] * 0.07)
-    nr_tip = (P[0] + off[0] + 0.7 * er[0], P[1] + off[1] + 0.7 * er[1])
-    sc.vec((P[0] + off[0], P[1] + off[1]), nr_tip, None, "PINK", 2.8, head=11)
-    sc.label(nr_tip, S("N", "r") + " " + S(bold("e"), "r") + " (sign of N" + S("", "r") + " from the equation)", "PINK", "start",
-             15, weight="700", dx=10, dy=18)
+    sc.label((P[0], P[1] - 0.9), "−m g " + S(bold("k"), "1"), "PINK", "start", 16, weight="700", dx=10, dy=14)
+    nr_tip = (P[0] + 0.85 * er[0], P[1] + 0.85 * er[1])
+    sc.vec(P, nr_tip, None, "PINK", 2.8, head=11)
+    sc.label(nr_tip, S("N", "r") + " " + S(bold("e"), "r"), "PINK", "start", 16, weight="700", dx=10, dy=16)
     fc = (P[0] + 0.8, P[1])
     _dvec(sc, P, fc, "PINK", 2.6)
-    sc.label(fc, S(bold("F"), "C") + " = mω²R sin θ " + S(bold("i"), "1") + " (inertia)", "PINK", "start", 15, weight="700",
-             dx=10, dy=-2)
-    unit(sc, P, TH - 90, 0.45, S(bold("e"), "r"), "ACC", off=(-16, 22))
-    unit(sc, P, TH, 0.45, S(bold("e"), "θ"), "ACC", off=(14, -6))
-    sc.mass(P, "P", r=7, name_off=(-18, -10))
-    px, py = 1.0, -2.45
+    sc.label(fc, S(bold("F"), "C") + " = mω²R sin θ " + S(bold("i"), "1"), "PINK", "start", 16, weight="700", dx=10, dy=5)
+    unit(sc, P, TH - 90, 0.45, S(bold("e"), "r"), "ACC", off=(-14, 22))
+    unit(sc, P, TH, 0.45, S(bold("e"), "θ"), "ACC", off=(8, -10))
+    sc.mass(P, "P", r=7, name_off=(-18, -12))
+    px, py = -1.5, -2.05
     axis_in(sc, (px, py), None, "PINK", 8)
-    sc.label((px, py), S("N", "b") + " " + S(bold("j"), "1") + "  (into the paper), at P", "PINK", "start", 15, weight="700",
+    sc.label((px, py), S("N", "b") + " " + S(bold("j"), "1") + "  (into the paper), at P", "PINK", "start", 16, weight="700",
              dx=16, dy=5)
-    axis_out(sc, (px, py - 0.3), None, "PINK", 8)
-    sc.label((px, py - 0.3), S(bold("F"), "COR") + "  (out of the paper), at P", "PINK", "start", 15, weight="700", dx=16, dy=5)
-    sc.note((px - 0.15, py - 0.62), "F_COR along −j₁ when θ̇ cos θ > 0", "TEXT", "start", 13)
+    axis_out(sc, (px, py - 0.34), None, "PINK", 8)
+    sc.label((px, py - 0.34), S(bold("F"), "COR") + "  (out of the paper), at P", "PINK", "start", 16, weight="700",
+             dx=16, dy=5)
+    sc.note((px - 0.1, py - 0.72), "F_COR along −j₁ when θ̇ cos θ > 0; dashed = inertia force", "TEXT", "start", 14)
     # ---- right panel: seen from above, k1 out of the paper
-    OR = (7.6, 0.0)
+    OR = (4.1, 0.0)
     PR = (OR[0] + R * math.sin(t), 0.0)
     sc.line((OR[0] - R, 0.0), (OR[0] + R, 0.0), "HEAD", 5.0)
-    sc.note((OR[0] - R, -0.28), "wire seen edge-on", "TEXT", "start", 13)
-    fixed_axis(sc, (OR[0] + R, 0.0), 0, 0.5, S(bold("i"), "1"), off=(14, 5))
+    sc.note((OR[0] - R, 0.25), "wire seen edge-on", "TEXT", "start", 14)
+    fixed_axis(sc, (OR[0] + R, 0.0), 0, 0.4, S(bold("i"), "1"), off=(14, 5))
     fixed_axis(sc, OR, 90, 1.55, S(bold("j"), "1"), off=(0, -8))
     axis_out(sc, OR, None, "HEAD", 9)
-    sc.label(OR, S(bold("k"), "1") + " (⊙)", "HEAD", "end", 15, weight="700", dx=-14, dy=24)
+    sc.label(OR, S(bold("k"), "1") + " (⊙)", "HEAD", "end", 16, weight="700", dx=-14, dy=26)
     sc.spin(OR, 0.55, 105, 165, "ω", "GREEN", name_r=0.78, size=17)
-    sc.vec(PR, (PR[0], 0.7), None, "PINK", 2.8, head=11)
-    sc.label((PR[0], 0.7), S("N", "b") + " " + S(bold("j"), "1"), "PINK", "end", 15, weight="700", dx=-10, dy=-4)
+    sc.vec(PR, (PR[0], 0.9), None, "PINK", 2.8, head=11)
+    sc.label((PR[0], 0.9), S("N", "b") + " " + S(bold("j"), "1"), "PINK", "end", 16, weight="700", dx=-10, dy=2)
     d = 0.10
     _dvec(sc, (PR[0] - d, 0.0), (PR[0] - d, -0.7), "PINK", 2.6)
-    sc.label((PR[0] - d, -0.7), S(bold("F"), "COR") + " = −2mωRθ̇ cos θ " + S(bold("j"), "1") + " (inertia)", "PINK", "end",
-             15, weight="700", dx=-4, dy=22)
-    sc.vec((PR[0] + 0.16, 0.0), (PR[0] + 0.16, 0.5), None, "GREEN", 2.2, head=10)
-    sc.label((PR[0] + 0.16, 0.5), "transport velocity ωR sin θ " + S(bold("j"), "1"), "GREEN", "start", 15, weight="700",
-             dx=10, dy=-4)
+    sc.label((PR[0] - d, -0.7), S(bold("F"), "COR") + " = −2mωRθ̇ cos θ " + S(bold("j"), "1"), "PINK", "end",
+             16, weight="700", dx=-4, dy=22)
+    sc.vec((PR[0] + 0.3, 0.0), (PR[0] + 0.3, 0.5), None, "GREEN", 2.2, head=10)
+    sc.label((PR[0] + 0.3, 0.5), S("v", "t") + " = ωR sin θ " + S(bold("j"), "1"), "GREEN", "start", 16, weight="700",
+             dx=10, dy=4)
     sc.mass(PR, None, r=6)
-    sc.label(PR, "P (seen from above)", "HEAD", "start", 15, dx=-30, dy=48)
-    sc.note((OR[0] - R, -1.9), "N_b and F_COR balance: N_b = 2mωR θ̇ cos θ", "TEXT", "start", 13)
+    sc.label(PR, "P (top view)", "HEAD", "start", 16, dx=12, dy=26)
+    sc.note((OR[0] - R, -1.9), "N_b and F_COR balance: N_b = 2mωR θ̇ cos θ", "TEXT", "start", 14)
     return sc
