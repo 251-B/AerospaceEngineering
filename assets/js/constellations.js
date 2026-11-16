@@ -370,6 +370,7 @@
 
   function renderState(focus) {
     svg.classList.toggle('is-zoomed', !!selected);
+    stage.classList.toggle('has-selection', !!selected);
     items.forEach(function (it) {
       var on = it.slug === selected;
       it.g.classList.toggle('is-active', on);
