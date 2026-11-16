@@ -1311,3 +1311,1352 @@ The forces on the sheet while it touches the line, in the inertial frame:
 * **Dimensions.** Every term of the energy integral is in m$^2$/s$^2$; the angular momentum integrals are in kg m$^2$/s.
 
 ---
+
+## Problem RB-16: Sphere on inclined plane with central attraction
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a homogeneous solid sphere $b$ of mass $m$, radius $R$ and centre $G$, rolling without slipping on a fixed plane inclined at the angle $\alpha$ to the horizontal. Two applied actions: gravity and an attraction towards the point $O$ of the plane, proportional to the mass and to the distance to $O$. The statement gives no figure; the frames below are chosen here.
+* **Interpretation of the attraction:** it is read as a field that pulls every mass element towards $O$ with a force per unit mass equal to $-\kappa$ times its position vector from $O$, with $\kappa$ a positive constant in s$^{-2}$. Its resultant on the sphere is then proportional to $m$ and to the distance from $O$ to $G$, as the statement says, and it is computed in the force section.
+* **Horizontal frame:** $S_h\{O; \mathbf I, \mathbf j, \mathbf K\}$, with $\mathbf K$ vertical upwards, $\mathbf j$ horizontal and lying in the inclined plane, and $\mathbf I$ horizontal, pointing towards the side where the plane goes down.
+* **Fixed frame of the plane:** $S_0\{O; \mathbf i, \mathbf j, \mathbf k\}$, with $\mathbf i$ along the line of maximum slope pointing downhill, $\mathbf j$ the horizontal line of the plane and $\mathbf k$ the normal to the plane, pointing away from it on the side of the sphere. The plane is at rest, so $S_0$ is inertial.
+* **Body frame:** any basis fixed to the sphere; it is never needed explicitly, because the inertia tensor of a sphere is the same in every basis (centre of mass section). The rotation of the sphere is described by the components of its angular velocity in $\mathcal B_0$.
+* **Coordinates:** the coordinates $x$, $y$ of $G$ along $\mathbf i$ and $\mathbf j$ (its coordinate along $\mathbf k$ is fixed by the contact) and three angles for the orientation (for instance the Euler angles of the course).
+* **Degrees of freedom:** a free rigid body has six coordinates. No penetration of the plane (Notes.pdf, Eq. 13.1) fixes the height of $G$ above the plane and leaves five. Rolling without slipping adds two relations among the velocities (Notes.pdf, Eq. 13.5) that cannot be integrated into relations among the coordinates: five coordinates are still needed to place the sphere, but only three velocities are independent.
+* **Unknowns of the dynamics:** $x(t)$, $y(t)$, the three components of the angular velocity, the normal reaction $N$ and the two components of the friction force, $F_x$ and $F_y$. Equations: three force components, three moment components and the two rolling conditions.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the sphere, homogeneous | $m$ | kg |
+| Radius | $R$ | m |
+| Inclination of the plane | $\alpha$ | rad |
+| Constant of the attraction (force per unit mass and unit distance) | $\kappa$ | s$^{-2}$ |
+| Gravity | $g$, along $-\mathbf K$ | m/s$^2$ |
+| Contact | rolling without slipping (friction as large as needed) | - |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb16-rot-alpha.svg]]
+
+> [!derivation] Basis of the plane: rotation by alpha about j
+> **Law:** simple rotation about the second axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Sec. 9.2; Notes.pdf, Eq. 9.16; [Lecture 7, Slide 12]
+>
+> View with $\mathbf j$ pointing into the paper (⊗), $\mathbf I$ to the right and $\mathbf K$ up; this view is right-handed because the product of $\mathbf K$ and $\mathbf I$ is $\mathbf j$. The plane is seen edge-on as a line going down to the right at the angle $\alpha$. Seen from the tip of $\mathbf j$ (from behind the paper), a positive rotation about $\mathbf j$ is counterclockwise; seen from the front, as drawn, it is clockwise, and it carries $\mathbf I$ downwards. Triangle of $\mathbf i$: hypotenuse 1 along the downhill line, adjacent leg along $\mathbf I$ (cosine of $\alpha$), opposite leg along minus $\mathbf K$ (sine of $\alpha$): the downhill direction drops. Triangle of $\mathbf k$: hypotenuse 1 along the normal, adjacent leg along $\mathbf K$ (cosine), opposite leg along $\mathbf I$ (sine): the normal leans towards the downhill side.
+>
+> $$\begin{aligned}
+> \mathbf i &= \cos\alpha\,\mathbf I - \sin\alpha\,\mathbf K, \qquad \mathbf k = \sin\alpha\,\mathbf I + \cos\alpha\,\mathbf K \quad &\text{(legs of the two triangles)} \\
+> [{}_hR_0] &= \begin{bmatrix} \cos\alpha & 0 & \sin\alpha \cr 0 & 1 & 0 \cr -\sin\alpha & 0 & \cos\alpha \end{bmatrix} \quad &\text{(columns: $\mathbf i$, $\mathbf j$, $\mathbf k$ in $\mathcal B_h$)} \\
+> \det[{}_hR_0] &= 1\cdot\left(\cos\alpha\cos\alpha - \sin\alpha\,(-\sin\alpha)\right) = \cos^2\alpha + \sin^2\alpha = 1 \quad &\text{(expand along the second row)} \\
+> [{}_hR_0][{}_hR_0]^T &= \begin{bmatrix} \cos^2\alpha + \sin^2\alpha & 0 & -\cos\alpha\sin\alpha + \sin\alpha\cos\alpha \cr 0 & 1 & 0 \cr -\sin\alpha\cos\alpha + \cos\alpha\sin\alpha & 0 & \sin^2\alpha + \cos^2\alpha \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf K &= -\sin\alpha\,\mathbf i + \cos\alpha\,\mathbf k \quad &\text{(third row of the matrix: the inverse is the transpose)} \\
+> m\,\mathbf g &= -mg\,\mathbf K = mg\sin\alpha\,\mathbf i - mg\cos\alpha\,\mathbf k \quad &\text{(weight in $\mathcal B_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf K = -\sin\alpha\,\mathbf i + \cos\alpha\,\mathbf k, \qquad m\,\mathbf g = mg\sin\alpha\,\mathbf i - mg\cos\alpha\,\mathbf k}$$
+>
+> **Units:** the matrix is dimensionless; the weight in N
+> **Meaning:** the weight splits into a component along the plane, pointing downhill, and a component pressing the sphere against the plane; the basis is constant, so $S_0$ is a fixed frame.
+
+![[attachments/EM-SOL/rb16-plane.svg]]
+
+> [!derivation] Position and velocity of G and rolling without slipping
+> **Law:** no penetration and no slip at the contact with a fixed plane; velocity field of the rigid body; vector products by determinants
+> **Source:** Notes.pdf, Eq. 13.1; Notes.pdf, Eq. 13.5; Notes.pdf, Eq. 9.3; Notes.pdf, Sec. 13.2
+>
+> The plane is tangent to the sphere at the contact point $P$, and the normal to a sphere passes through its centre, so $P$ is the foot of the perpendicular from $G$ to the plane, at the distance $R$. Write the angular velocity of the sphere as $\omega_x\,\mathbf i + \omega_y\,\mathbf j + \omega_z\,\mathbf k$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^G &= x\,\mathbf i + y\,\mathbf j + R\,\mathbf k, \qquad \mathbf r_G^P = -R\,\mathbf k \quad &\text{(height $R$ above the plane: no penetration)} \\
+> \mathbf v_0^G &= \dot x\,\mathbf i + \dot y\,\mathbf j \quad &\text{(derivative in the fixed basis; $R$ constant)} \\
+> \boldsymbol\omega_{b0}\times\mathbf r_G^P &= \begin{vmatrix} \mathbf i & \mathbf j & \mathbf k \cr \omega_x & \omega_y & \omega_z \cr 0 & 0 & -R \end{vmatrix} = \mathbf i\left(-R\,\omega_y - 0\right) - \mathbf j\left(-R\,\omega_x - 0\right) + \mathbf k\,(0 - 0) \quad &\text{(expand along the first row)} \\
+> \mathbf v_0^{P(b)} &= \mathbf v_0^G + \boldsymbol\omega_{b0}\times\mathbf r_G^P = \left(\dot x - R\,\omega_y\right)\mathbf i + \left(\dot y + R\,\omega_x\right)\mathbf j \quad &\text{(velocity field from $G$, Eq. 9.3)} \\
+> \mathbf v_0^{P(b)} &= \mathbf 0 \quad &\text{(rolling without slipping on a plane at rest, Eq. 13.5)} \\
+> \omega_x &= -\frac{\dot y}{R}, \qquad \omega_y = \frac{\dot x}{R} \quad &\text{(components along $\mathbf j$ and $\mathbf i$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^G = \dot x\,\mathbf i + \dot y\,\mathbf j, \qquad \boldsymbol\omega_{b0} = -\frac{\dot y}{R}\,\mathbf i + \frac{\dot x}{R}\,\mathbf j + \omega_z\,\mathbf k}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$ for the velocities; $[\mathrm{T^{-1}}]$ for the angular velocity
+> **Meaning:** the two tangential components of the angular velocity are tied to the velocity of the centre; the spin about the normal, $\omega_z$, is left free by the contact. The relations involve rates only: they do not give the orientation as a function of $x$ and $y$.
+
+### Center of Mass and Inertia Tensor
+
+![[attachments/EM-SOL/rb16-sphere-element.svg]]
+
+> [!derivation] Centre of mass and inertia tensor of the solid sphere
+> **Law:** mass, centre of mass and moments of inertia as volume integrals in spherical coordinates (jacobian $r^2\sin\chi$); relation between the three axial moments and the polar integral
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.13; Notes.pdf, Eq. 10.15; Notes.pdf, Sec. 10.3; [Lecture 8, Slide 21]
+>
+> Spherical coordinates about $G$: distance $r$ from 0 to $R$, colatitude $\chi$ from 0 to $\pi$, longitude $\lambda$ from 0 to $2\pi$; a point is $r(\sin\chi\cos\lambda, \sin\chi\sin\lambda, \cos\chi)$ and the volume element is $r^2\sin\chi\,dr\,d\chi\,d\lambda$; the density is $\rho$.
+>
+> $$\begin{aligned}
+> V &= \int_0^{2\pi}d\lambda\int_0^{\pi}\sin\chi\,d\chi\int_0^R r^2\,dr = 2\pi\left[-\cos\chi\right]_0^{\pi}\left[\frac{r^3}{3}\right]_0^R \quad &\text{(separable integral; antiderivatives)} \\
+> &= 2\pi\left(-\cos\pi + \cos 0\right)\left(\frac{R^3}{3} - 0\right) = 2\pi\cdot 2\cdot\frac{R^3}{3} = \frac{4\pi R^3}{3} \quad &\text{(Barrow's rule)} \\
+> \rho &= \frac{m}{V} = \frac{3m}{4\pi R^3} \quad &\text{(homogeneous sphere)} \\
+> \mathbf r_G^G &= \mathbf 0 \quad &\text{(every plane through the centre is a plane of symmetry, Sec. 10.3)} \\
+> I_x + I_y + I_z &= 2\int r^2\,dm = 2\rho\int_0^{2\pi}d\lambda\int_0^{\pi}\sin\chi\,d\chi\int_0^R r^4\,dr \quad &\text{(Eq. 10.13; squared distance to the centre)} \\
+> &= 2\rho\cdot 2\pi\cdot 2\cdot\left[\frac{r^5}{5}\right]_0^R = \frac{8\pi\rho R^5}{5} \quad &\text{(antiderivative; Barrow's rule)} \\
+> &= \frac{8\pi R^5}{5}\cdot\frac{3m}{4\pi R^3} = \frac65\,mR^2 \quad &\text{(value of $\rho$)} \\
+> I_x &= I_y = I_z = \frac13\cdot\frac65\,mR^2 = \frac25\,mR^2 \quad &\text{(a rotation that exchanges the axes leaves the sphere unchanged)} \\
+> \int_0^{2\pi}\cos\lambda\sin\lambda\,d\lambda &= \left[\frac{\sin^2\lambda}{2}\right]_0^{2\pi} = 0, \quad \int_0^{2\pi}\cos\lambda\,d\lambda = \left[\sin\lambda\right]_0^{2\pi} = 0, \quad \int_0^{2\pi}\sin\lambda\,d\lambda = \left[-\cos\lambda\right]_0^{2\pi} = 0 \quad &\text{(longitude factors of the products of inertia, Eq. 10.15)} \\
+> [R]\left(\tfrac25 mR^2[U]\right)[R]^T &= \tfrac25 mR^2\,[R][R]^T = \tfrac25 mR^2\,[U] \quad &\text{(change of basis by any rotation, Eq. 10.41)}
+> \end{aligned}$$
+>
+> $$\boxed{G \ \text{at the geometric centre}, \qquad \bar{\bar I}_G = \frac25\,mR^2\begin{bmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix} \ \text{in every basis}}$$
+>
+> **Units:** $\rho$ in kg/m$^3$; moments in $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the tensor is isotropic, so the angular momentum about $G$ is parallel to the angular velocity, whatever the orientation of the sphere.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Momentum, angular momentum about G and kinetic energy
+> **Law:** linear momentum from $G$; angular momentum from the tensor; Koenig's decomposition
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 10]
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= m\,\mathbf v_0^G = m\left(\dot x\,\mathbf i + \dot y\,\mathbf j\right) \quad &\text{(Eq. 11.3)} \\
+> \mathbf H_{G,0} &= \bar{\bar I}_G\cdot\boldsymbol\omega_{b0} = \frac25\,mR^2\left(\omega_x\,\mathbf i + \omega_y\,\mathbf j + \omega_z\,\mathbf k\right) \quad &\text{(Eq. 11.12; isotropic tensor)} \\
+> &= \frac25\,mR\left(-\dot y\,\mathbf i + \dot x\,\mathbf j\right) + \frac25\,mR^2\,\omega_z\,\mathbf k \quad &\text{(rolling relations)} \\
+> T_0 &= \frac12\,m\left(\dot x^2 + \dot y^2\right) + \frac12\cdot\frac25\,mR^2\left(\frac{\dot y^2}{R^2} + \frac{\dot x^2}{R^2} + \omega_z^2\right) \quad &\text{(Eq. 11.31)} \\
+> &= \left(\frac12 + \frac15\right)m\left(\dot x^2 + \dot y^2\right) + \frac15\,mR^2\omega_z^2 \quad &\text{(collect)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{G,0} = \frac25\,mR^2\,\boldsymbol\omega_{b0}, \qquad T_0 = \frac{7}{10}\,m\left(\dot x^2 + \dot y^2\right) + \frac15\,mR^2\,\omega_z^2}$$
+>
+> **Units:** kg m/s; kg m$^2$/s; J
+> **Meaning:** a rolling sphere carries, on top of the translational energy, two fifths of it as rotational energy about the tangential axes; the spin about the normal adds an independent term.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb16-fbd.svg]]
+
+| Force | Point of application | Expression | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $G$ | $mg\sin\alpha\,\mathbf i - mg\cos\alpha\,\mathbf k$ | applied, conservative |
+| Central attraction | $G$ (resultant, next box) | $-m\kappa\,\mathbf r_0^G$ | applied, conservative |
+| Normal reaction | $P$ | $N\,\mathbf k$ | constraint |
+| Friction | $P$ | $F_x\,\mathbf i + F_y\,\mathbf j$ (unknown: rolling without slip) | constraint |
+
+> [!derivation] Resultant and moment of the central attraction
+> **Law:** resultant and moment of a distributed force as integrals over the mass; definition of the centre of mass
+> **Source:** Notes.pdf, Eq. 12.4; Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 10.6
+>
+> A mass element at $\mathbf r_0^G + \boldsymbol\rho$, with $\boldsymbol\rho$ measured from $G$, feels the force $-\kappa\left(\mathbf r_0^G + \boldsymbol\rho\right)dm$.
+>
+> $$\begin{aligned}
+> \mathbf F_\kappa &= -\kappa\int\left(\mathbf r_0^G + \boldsymbol\rho\right)dm = -\kappa\,m\,\mathbf r_0^G - \kappa\int\boldsymbol\rho\,dm \quad &\text{(sum over the mass)} \\
+> \int\boldsymbol\rho\,dm &= \mathbf 0 \quad &\text{(first moment about the centre of mass, Eq. 10.6)} \\
+> \mathbf M_{G,\kappa} &= \int\boldsymbol\rho\times\left(-\kappa\left(\mathbf r_0^G + \boldsymbol\rho\right)\right)dm = -\kappa\left(\int\boldsymbol\rho\,dm\right)\times\mathbf r_0^G - \kappa\int\boldsymbol\rho\times\boldsymbol\rho\,dm \quad &\text{(distribute the product)} \\
+> &= \mathbf 0 - \mathbf 0 \quad &\text{(first moment zero; a vector product of a vector with itself is zero)} \\
+> \mathbf F_\kappa &= -m\kappa\left(x\,\mathbf i + y\,\mathbf j + R\,\mathbf k\right) \quad &\text{(position of $G$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_\kappa = -m\kappa\left(x\,\mathbf i + y\,\mathbf j + R\,\mathbf k\right) \ \text{acting at } G, \qquad \mathbf M_{G,\kappa} = \mathbf 0}$$
+>
+> **Units:** $[\mathrm M][\mathrm{T^{-2}}][\mathrm L]$, N
+> **Meaning:** the attraction behaves as a single force applied at $G$, with magnitude proportional to the mass and to the distance from $O$ to $G$, as the statement describes it; it pulls $G$ towards $O$ and, through its normal component, presses the sphere against the plane.
+
+> [!derivation] Force equation
+> **Law:** Newton's second law for the centre of mass
+> **Source:** Notes.pdf, Eq. 12.8; [Lecture 10, Slide 4]
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^G &= m\,\mathbf g + \mathbf F_\kappa + N\,\mathbf k + F_x\,\mathbf i + F_y\,\mathbf j \quad &\text{(Eq. 12.8)} \\
+> \mathbf a_0^G &= \ddot x\,\mathbf i + \ddot y\,\mathbf j \quad &\text{(derivative of the velocity of $G$ in the fixed basis)} \\
+> m\,\ddot x &= mg\sin\alpha - m\kappa x + F_x \quad &\text{(component along $\mathbf i$)} \\
+> m\,\ddot y &= -m\kappa y + F_y \quad &\text{(component along $\mathbf j$)} \\
+> 0 &= -mg\cos\alpha - m\kappa R + N \quad &\text{(component along $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{m\,\ddot x = mg\sin\alpha - m\kappa x + F_x, \qquad m\,\ddot y = -m\kappa y + F_y, \qquad N = m\left(g\cos\alpha + \kappa R\right)}$$
+>
+> **Units:** N in every term
+> **Meaning:** the normal reaction is constant: the normal component of the weight plus the normal component of the attraction, which pulls $G$ towards the plane from the height $R$.
+
+> [!derivation] Moment equation about G
+> **Law:** moment equation about the centre of mass; vector product by its determinant
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.14; [Lecture 10, Slide 5]
+>
+> The weight and the attraction act at $G$ with no moment (previous box); only the contact force at $P$ has an arm. The pole $G$ is allowed because the term of Eq. 12.13 in the velocity of the pole vanishes when the pole is the centre of mass.
+>
+> $$\begin{aligned}
+> \mathbf M_G &= \begin{vmatrix} \mathbf i & \mathbf j & \mathbf k \cr 0 & 0 & -R \cr F_x & F_y & N \end{vmatrix} = \mathbf i\left(0 + R\,F_y\right) - \mathbf j\left(0 + R\,F_x\right) + \mathbf k\,(0 - 0) \quad &\text{(arm $\mathbf r_G^P$; expand along the first row)} \\
+> \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 &= \frac25\,mR^2\left(\dot\omega_x\,\mathbf i + \dot\omega_y\,\mathbf j + \dot\omega_z\,\mathbf k\right) \quad &\text{(constant tensor coefficient; $\mathcal B_0$ fixed)} \\
+> \frac25\,mR^2\,\dot\omega_x &= R\,F_y, \qquad \frac25\,mR^2\,\dot\omega_y = -R\,F_x, \qquad \frac25\,mR^2\,\dot\omega_z = 0 \quad &\text{(components of Eq. 12.13 with the pole at $G$)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac25\,mR\,\dot\omega_x = F_y, \qquad \frac25\,mR\,\dot\omega_y = -F_x, \qquad \omega_z = \omega_{z0} \ \text{(constant)}}$$
+>
+> **Units:** N m in each moment component
+> **Meaning:** friction is the only action that changes the rolling rates; the spin about the normal is conserved because no force has a moment about the normal through $G$ (the friction lies in the plane through $P$, whose line meets that normal), and the fixed axis $\mathbf k$ needs no gyroscopic term.
+
+> [!derivation] Equations of motion of the centre
+> **Law:** elimination of friction between the force and moment equations with the rolling relations; chain rule
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.5
+>
+> $$\begin{aligned}
+> \dot\omega_y &= \frac{\ddot x}{R}, \qquad \dot\omega_x = -\frac{\ddot y}{R} \quad &\text{(time derivative of the rolling relations; $R$ constant)} \\
+> F_x &= -\frac25\,mR\,\frac{\ddot x}{R} = -\frac25\,m\,\ddot x, \qquad F_y = \frac25\,mR\left(-\frac{\ddot y}{R}\right) = -\frac25\,m\,\ddot y \quad &\text{(moment equations)} \\
+> m\,\ddot x + \frac25\,m\,\ddot x &= mg\sin\alpha - m\kappa x \quad &\text{(substitute $F_x$ in the force equation)} \\
+> m\,\ddot y + \frac25\,m\,\ddot y &= -m\kappa y \quad &\text{(substitute $F_y$)} \\
+> \ddot x + \frac57\,\kappa\,x &= \frac57\,g\sin\alpha, \qquad \ddot y + \frac57\,\kappa\,y = 0 \quad &\text{(divide by $\tfrac75 m$)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot x + \Omega^2\left(x - x_E\right) = 0, \qquad \ddot y + \Omega^2\,y = 0, \qquad \Omega^2 = \frac{5\kappa}{7}, \qquad x_E = \frac{g\sin\alpha}{\kappa}}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$ for the squared frequency; $x_E$ in $[\mathrm{L\,T^{-2}}]/[\mathrm{T^{-2}}] = [\mathrm L]$
+> **Meaning:** both coordinates of $G$ perform harmonic oscillations with the same frequency about the point $E$ of the plane at the distance $x_E$ downhill from $O$, where the downhill pull of the weight balances the in-plane part of the attraction. The factor five sevenths comes from the rotational inertia: rolling makes the sphere respond as if its mass were seven fifths of $m$.
+
+> [!derivation] Integration: trajectory of the centre
+> **Law:** general solution of the harmonic oscillator, checked by substitution with the chain rule
+> **Source:** Notes.pdf, Eq. 5.6; Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.8; Notes.pdf, Eq. 5.9
+>
+> Initial data: position $x_0$, $y_0$ and velocity components $\dot x_0$, $\dot y_0$.
+>
+> $$\begin{aligned}
+> x - x_E &= C_1\cos\Omega t + C_2\sin\Omega t \quad &\text{(Eq. 5.7 for the variable $x - x_E$)} \\
+> \frac{d^2}{dt^2}\left(C_1\cos\Omega t + C_2\sin\Omega t\right) &= -\Omega^2\left(C_1\cos\Omega t + C_2\sin\Omega t\right) \quad &\text{(chain rule twice; it satisfies the equation)} \\
+> C_1 &= x_0 - x_E, \qquad C_2 = \frac{\dot x_0}{\Omega} \quad &\text{(Eqs. 5.8 and 5.9 at the initial instant)} \\
+> y &= y_0\cos\Omega t + \frac{\dot y_0}{\Omega}\sin\Omega t \quad &\text{(same steps for $y$, centre 0)}
+> \end{aligned}$$
+>
+> $$\boxed{x(t) = x_E + \left(x_0 - x_E\right)\cos\Omega t + \frac{\dot x_0}{\Omega}\sin\Omega t, \qquad y(t) = y_0\cos\Omega t + \frac{\dot y_0}{\Omega}\sin\Omega t, \qquad \Omega = \sqrt{\frac{5\kappa}{7}}}$$
+>
+> **Units:** $[\mathrm L]$ in every term; $\Omega t$ dimensionless
+> **Meaning:** the two coordinates are combinations of the same cosine and sine, so the vector from $E$ to the projection of $G$ is a fixed linear combination of two constant vectors times the cosine and the sine: $G$ describes an ellipse centred above $E$, run through once per period $2\pi/\Omega$, whatever the inclination. The ellipse degenerates into a segment through $E$ when the initial position relative to $E$ and the initial velocity are parallel (for instance, release from rest), and into a circle for suitable launches.
+
+> [!derivation] Angular velocity and reactions along the motion
+> **Law:** rolling relations; friction from the moment equations; normal reaction from the force equation
+> **Source:** Notes.pdf, Eq. 13.5; Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 13.2; Notes.pdf, Sec. 6.6
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{b0} &= -\frac{\dot y}{R}\,\mathbf i + \frac{\dot x}{R}\,\mathbf j + \omega_{z0}\,\mathbf k \quad &\text{(kinematics section and conserved spin)} \\
+> F_x &= -\frac25\,m\,\ddot x = -\frac25\,m\cdot\frac57\left(g\sin\alpha - \kappa x\right) = -\frac27\,m\left(g\sin\alpha - \kappa x\right) \quad &\text{(moment equation; equation of motion)} \\
+> F_y &= -\frac25\,m\,\ddot y = -\frac25\,m\left(-\frac57\,\kappa y\right) = \frac27\,m\,\kappa\,y \quad &\text{(same for $y$)} \\
+> \left|F_x\,\mathbf i + F_y\,\mathbf j\right| &\le \mu\,N \quad &\text{(Coulomb condition for rolling without slip, with $\mu$ the friction coefficient)}
+> \end{aligned}$$
+>
+> $$\boxed{N = m\left(g\cos\alpha + \kappa R\right), \qquad F_x\,\mathbf i + F_y\,\mathbf j = -\frac27\left[m\left(g\sin\alpha - \kappa x\right)\mathbf i - m\kappa y\,\mathbf j\right]}$$
+>
+> **Units:** N
+> **Meaning:** the friction force is always minus two sevenths of the in-plane resultant of the weight and the attraction (the bracket), so it vanishes when $G$ is above $E$ and is largest at the extremes of the ellipse farthest from $E$. The rolling assumption holds while the magnitude of the bracket times two sevenths stays below the friction coefficient times the constant normal reaction.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| Coordinates and degrees of freedom | $x$, $y$ of $G$ plus three angles; no penetration leaves 5 coordinates, rolling leaves 3 independent velocities |
+| Equations of motion | $\ddot x + \tfrac57\kappa\,(x - x_E) = 0$, $\ddot y + \tfrac57\kappa\,y = 0$, $\omega_z = \omega_{z0}$, with $x_E = g\sin\alpha/\kappa$ |
+| Motion of $G$ | $x = x_E + (x_0 - x_E)\cos\Omega t + (\dot x_0/\Omega)\sin\Omega t$, $y = y_0\cos\Omega t + (\dot y_0/\Omega)\sin\Omega t$, $\Omega = \sqrt{5\kappa/7}$: an ellipse centred at $E$ (period $2\pi\sqrt{7/(5\kappa)}$) |
+| Rotation | $\boldsymbol\omega_{b0} = -(\dot y/R)\,\mathbf i + (\dot x/R)\,\mathbf j + \omega_{z0}\,\mathbf k$ |
+| Normal reaction | $N = m(g\cos\alpha + \kappa R)$, constant |
+| Friction | $-\tfrac27\left[m(g\sin\alpha - \kappa x)\,\mathbf i - m\kappa y\,\mathbf j\right]$; rolling holds while its magnitude does not exceed $\mu N$ |
+
+`Problems.pdf` prints no answer for this problem (see [[Problem Set - Rigid Body Official Key]]), so the results are checked with an independent derivation and limiting cases.
+
+> [!derivation] Check: conservation of the mechanical energy
+> **Law:** zero power of the contact force at a body point at rest; potential of the weight and of a linear central force; chain rule
+> **Source:** Notes.pdf, Eq. 12.31; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; Notes.pdf, Eq. 5.2
+>
+> $$\begin{aligned}
+> V_0 &= -mg\sin\alpha\,x + mg\cos\alpha\,R + \frac12\,m\kappa\left(x^2 + y^2 + R^2\right) \quad &\text{(height of $G$ along $\mathbf K$; potential of the attraction, Eq. 5.2 per unit mass)} \\
+> \dot W_P &= \left(N\,\mathbf k + F_x\,\mathbf i + F_y\,\mathbf j\right)\cdot\mathbf v_0^{P(b)} = 0 \quad &\text{(the contact body point is at rest)} \\
+> \frac{d}{dt}\left(T_0 + V_0\right) &= \frac75\,m\left(\dot x\ddot x + \dot y\ddot y\right) - mg\sin\alpha\,\dot x + m\kappa\left(x\dot x + y\dot y\right) \quad &\text{(chain rule; $\omega_z$ constant)} \\
+> &= \frac75\,m\,\dot x\left(\ddot x + \frac57\,\kappa x - \frac57\,g\sin\alpha\right) + \frac75\,m\,\dot y\left(\ddot y + \frac57\,\kappa y\right) = 0 \quad &\text{(factor; the brackets are the equations of motion)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{7}{10}\,m\left(\dot x^2 + \dot y^2\right) + \frac15\,mR^2\omega_{z0}^2 + V_0 = E_0 \ \text{(constant)}}$$
+>
+> **Units:** J in every term
+> **Meaning:** the equations of motion obtained from the force and moment equations conserve the energy, as they must with no work of the contact force; the same equations were also confirmed symbolically by solving the six Newton-Euler equations together with the rolling relations.
+
+**Limiting cases and consistency:**
+
+* **No attraction.** With the constant of the attraction tending to zero, $x_E$ grows without bound and the equation for $x$ becomes a uniform acceleration of five sevenths of $g\sin\alpha$ down the slope: the classical sphere rolling down an incline.
+* **Horizontal plane.** With zero inclination, $E$ coincides with $O$ and the friction balances two sevenths of the attraction alone; the sphere oscillates about $O$.
+* **Equilibrium.** At rest with $G$ above $E$, the in-plane forces cancel, the friction is zero and the normal reaction is the normal part of the weight plus that of the attraction.
+* **Smooth plane (comparison).** Without friction the factor seven fifths disappears and the frequency would be the square root of the attraction constant; rolling slows the oscillation by the factor square root of five sevenths.
+* **Dimensions.** The squared frequency is in s$^{-2}$ like the constant of the attraction; every term of the energy is in J.
+
+---
+
+## Problem RB-18: Bowling ball (Jesús Quintana)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a homogeneous solid sphere $b$ (the bowling ball, the holes being neglected in the mass distribution) of mass $M$, radius $a$ and centre $G$, moving on the horizontal lane, a plane strip of width $W$ and length $l$ with friction coefficient $\mu$. Gravity acts downwards. The contact with the lane is one point $P$.
+* **Fixed frame:** $S_0\{O; \mathcal B_0\}$, $\mathcal B_0\{\mathbf i, \mathbf j, \mathbf k\}$, the frame $Oxyz$ of the figure: $O$ at the foul line, on the axis of the lane; $\mathbf i$ along the lane towards the pins; $\mathbf k$ vertical upwards; $\mathbf j$ across the lane (to the left of a player looking at the pins, read from the top view of the figure), so that the basis is right-handed. It is inertial.
+* **Intermediate frames:** $S_1\{G; \mathbf i_1, \mathbf j_1, \mathbf k\}$, obtained by turning $\mathcal B_0$ by $\psi$ about $\mathbf k$; $S_2\{G; \mathbf i_2, \mathbf j_1, \mathbf k_2\}$, obtained by turning $\mathcal B_1$ by $\theta$ about $\mathbf j_1$; $\mathbf k_2$ points from $G$ to the hole $A$, as the statement says.
+* **Body frame:** $S_b\{G; \mathbf i_b, \mathbf j_b, \mathbf k_2\}$, obtained by turning $\mathcal B_2$ by $\varphi$ about $\mathbf k_2$ (Euler angles in the order 3-2-3 of the statement).
+* **Coordinates:** $x_G$, $y_G$ (projection of $G$ on the lane) and the three Euler angles $\psi$, $\theta$, $\varphi$. The rates of the coordinates of $G$ are written $\xi$ and $\eta$, as in the official key, and the angular velocity of the ball in $\mathcal B_0$ has components $\omega_x$, $\omega_y$, $\omega_z$.
+* **Part (a), rolling with slip:** a free rigid body has six coordinates. No penetration of the lane (Notes.pdf, Eq. 13.1) is one holonomic constraint: the height of $G$ equals $a$. Five degrees of freedom remain, with the five coordinates above. Necessary variables: the five coordinates and the normal reaction $N$; the friction force is not an extra unknown, because with slip Coulomb's law gives it in terms of $N$ and of the slip velocity.
+* **Part (b), rolling without slip:** the same holonomic constraint plus the two components of the no-slip condition (Notes.pdf, Eq. 13.5), which relate rates and cannot be integrated: three constraints in total. Three degrees of freedom remain (three independent velocities); the five coordinates are still needed to place the ball. Necessary variables: the five coordinates, $N$ and the two friction components $F_x$, $F_y$, which are now unknown reactions.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the ball, homogeneous sphere | $M$ | kg |
+| Radius | $a$ | m |
+| Width and length of the lane | $W$, $l$ | m |
+| Friction coefficient | $\mu$ | - |
+| Gravity | $g$, along $-\mathbf k$ | m/s$^2$ |
+| Initial data, part (g) | $G$ above $O$; $\xi_0$ along $\mathbf i$; zero $\eta$; Euler angles zero; rate of $\theta$ equal to $\xi_0/(4a)$, other angle rates zero | m, m/s, rad/s |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb18-rot-psi.svg]]
+
+> [!derivation] First rotation: psi about k
+> **Law:** simple rotation about the third axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]
+>
+> View from above with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up; a positive $\psi$ turns counterclockwise. Triangle of $\mathbf i_1$: hypotenuse 1, adjacent leg along $\mathbf i$ (cosine), opposite leg along $\mathbf j$ (sine). Triangle of $\mathbf j_1$: hypotenuse 1, adjacent leg along $\mathbf j$ (cosine), opposite leg along minus $\mathbf i$ (sine): the counterclockwise turn about the outward axis carries the tip of $\mathbf j$ to the left.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\psi\,\mathbf i + \sin\psi\,\mathbf j, \qquad \mathbf j_1 = -\sin\psi\,\mathbf i + \cos\psi\,\mathbf j \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_1] &= \begin{bmatrix} \cos\psi & -\sin\psi & 0 \cr \sin\psi & \cos\psi & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\psi + \sin^2\psi\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\psi + \sin^2\psi & \cos\psi\sin\psi - \sin\psi\cos\psi & 0 \cr \sin\psi\cos\psi - \cos\psi\sin\psi & \sin^2\psi + \cos^2\psi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \boldsymbol\omega_{10} &= \dot\psi\,\mathbf k \quad &\text{(rotation about the fixed axis $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_1 = \cos\psi\,\mathbf i + \sin\psi\,\mathbf j, \qquad \mathbf j_1 = -\sin\psi\,\mathbf i + \cos\psi\,\mathbf j, \qquad \boldsymbol\omega_{10} = \dot\psi\,\mathbf k}$$
+>
+> **Units:** dimensionless matrix; $[\mathrm{T^{-1}}]$
+> **Meaning:** $\mathbf j_1$ is horizontal; it is the axis of the second rotation.
+
+![[attachments/EM-SOL/rb18-rot-theta.svg]]
+
+> [!derivation] Second rotation: theta about j1
+> **Law:** simple rotation about the second axis; right-hand rule
+> **Source:** Notes.pdf, Sec. 9.2; Notes.pdf, Eq. 9.17
+>
+> View with $\mathbf j_1$ pointing into the paper (⊗), $\mathbf i_1$ to the right and $\mathbf k$ up; this view is right-handed because the product of $\mathbf k$ and $\mathbf i_1$ is $\mathbf j_1$. A positive rotation about an axis that points into the paper is clockwise as seen. Triangle of $\mathbf i_2$: hypotenuse 1, adjacent leg along $\mathbf i_1$ (cosine of $\theta$), opposite leg along minus $\mathbf k$ (sine): the tip of $\mathbf i_1$, turned clockwise, drops. Triangle of $\mathbf k_2$: hypotenuse 1, adjacent leg along $\mathbf k$ (cosine), opposite leg along $\mathbf i_1$ (sine): the tip of $\mathbf k$ moves to the right.
+>
+> $$\begin{aligned}
+> \mathbf i_2 &= \cos\theta\,\mathbf i_1 - \sin\theta\,\mathbf k, \qquad \mathbf k_2 = \sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf k \quad &\text{(legs of the two triangles)} \\
+> [{}_1R_2] &= \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_2$, $\mathbf j_1$, $\mathbf k_2$ in $\mathcal B_1$)} \\
+> \det[{}_1R_2] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_1R_2][{}_1R_2]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & 0 & -\cos\theta\sin\theta + \sin\theta\cos\theta \cr 0 & 1 & 0 \cr -\sin\theta\cos\theta + \cos\theta\sin\theta & 0 & \sin^2\theta + \cos^2\theta \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf k &= -\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2 \quad &\text{(third row: the inverse is the transpose)} \\
+> \mathbf k_2 &= \sin\theta\cos\psi\,\mathbf i + \sin\theta\sin\psi\,\mathbf j + \cos\theta\,\mathbf k \quad &\text{($\mathbf i_1$ of the first rotation)} \\
+> \boldsymbol\omega_{21} &= \dot\theta\,\mathbf j_1 \quad &\text{(rotation about $\mathbf j_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf k_2 = \sin\theta\cos\psi\,\mathbf i + \sin\theta\sin\psi\,\mathbf j + \cos\theta\,\mathbf k, \qquad \mathbf k = -\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2, \qquad \boldsymbol\omega_{21} = \dot\theta\,\mathbf j_1}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** $\theta$ is the angle between the vertical and the line $GA$; with $\theta$ zero the hole $A$ is at the top of the ball.
+
+![[attachments/EM-SOL/rb18-rot-phi.svg]]
+
+> [!derivation] Third rotation: phi about k2
+> **Law:** simple rotation about the third axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.18; Notes.pdf, Sec. 9.2
+>
+> View with $\mathbf k_2$ out of the paper (⊙), $\mathbf i_2$ to the right and $\mathbf j_1$ up; the triangles are those of the first rotation with $\varphi$ in place of $\psi$.
+>
+> $$\begin{aligned}
+> \mathbf i_b &= \cos\varphi\,\mathbf i_2 + \sin\varphi\,\mathbf j_1, \qquad \mathbf j_b = -\sin\varphi\,\mathbf i_2 + \cos\varphi\,\mathbf j_1 \quad &\text{(adjacent legs along $\mathbf i_2$ and $\mathbf j_1$; tip of $\mathbf j_1$ towards minus $\mathbf i_2$)} \\
+> [{}_2R_b] &= \begin{bmatrix} \cos\varphi & -\sin\varphi & 0 \cr \sin\varphi & \cos\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_b$, $\mathbf j_b$, $\mathbf k_2$ in $\mathcal B_2$)} \\
+> \det[{}_2R_b] &= 1\cdot\left(\cos^2\varphi + \sin^2\varphi\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_2R_b][{}_2R_b]^T &= \begin{bmatrix} \cos^2\varphi + \sin^2\varphi & \cos\varphi\sin\varphi - \sin\varphi\cos\varphi & 0 \cr \sin\varphi\cos\varphi - \cos\varphi\sin\varphi & \sin^2\varphi + \cos^2\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \boldsymbol\omega_{b2} &= \dot\varphi\,\mathbf k_2 \quad &\text{(rotation about $\mathbf k_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_b = \cos\varphi\,\mathbf i_2 + \sin\varphi\,\mathbf j_1, \qquad \mathbf j_b = -\sin\varphi\,\mathbf i_2 + \cos\varphi\,\mathbf j_1, \qquad \boldsymbol\omega_{b2} = \dot\varphi\,\mathbf k_2}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** the spin $\varphi$ turns the ball about the line $GA$; it moves the other holes but not $A$.
+
+> [!derivation] Angular velocity of the ball
+> **Law:** composition of the angular velocities of the three simple rotations
+> **Source:** Notes.pdf, Eq. 9.21; Notes.pdf, Sec. 15.1
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{b0} &= \boldsymbol\omega_{b2} + \boldsymbol\omega_{21} + \boldsymbol\omega_{10} = \dot\varphi\,\mathbf k_2 + \dot\theta\,\mathbf j_1 + \dot\psi\,\mathbf k \quad &\text{(composition, Eq. 9.21)} \\
+> &= \dot\varphi\left(\sin\theta\cos\psi\,\mathbf i + \sin\theta\sin\psi\,\mathbf j + \cos\theta\,\mathbf k\right) + \dot\theta\left(-\sin\psi\,\mathbf i + \cos\psi\,\mathbf j\right) + \dot\psi\,\mathbf k \quad &\text{($\mathbf k_2$ and $\mathbf j_1$ in $\mathcal B_0$)} \\
+> \omega_x &= -\dot\theta\sin\psi + \dot\varphi\sin\theta\cos\psi \quad &\text{(collect along $\mathbf i$)} \\
+> \omega_y &= \dot\theta\cos\psi + \dot\varphi\sin\theta\sin\psi \quad &\text{(collect along $\mathbf j$)} \\
+> \omega_z &= \dot\psi + \dot\varphi\cos\theta \quad &\text{(collect along $\mathbf k$)} \\
+> \boldsymbol\omega_{b0} &= -\dot\psi\sin\theta\,\mathbf i_2 + \dot\theta\,\mathbf j_1 + \left(\dot\psi\cos\theta + \dot\varphi\right)\mathbf k_2 \quad &\text{(same vector in $\mathcal B_2$, with $\mathbf k$ of the second rotation)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega_x = -\dot\theta\sin\psi + \dot\varphi\sin\theta\cos\psi, \qquad \omega_y = \dot\theta\cos\psi + \dot\varphi\sin\theta\sin\psi, \qquad \omega_z = \dot\psi + \dot\varphi\cos\theta}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in every term
+> **Meaning:** these three relations are the kinematic equations that link the Euler angles to the angular velocity; the equations of motion below are simplest in the components of $\mathcal B_0$.
+
+> [!derivation] Euler angle rates from the angular velocity
+> **Law:** scalar products of the composition with unit vectors of the intermediate bases
+> **Source:** Notes.pdf, Eq. 9.21; Notes.pdf, Sec. 15.1
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{b0}\cdot\mathbf j_1 &= \dot\theta \quad &\text{($\mathbf k_2$ and $\mathbf k$ are normal to $\mathbf j_1$)} \\
+> \boldsymbol\omega_{b0}\cdot\mathbf j_1 &= -\omega_x\sin\psi + \omega_y\cos\psi \quad &\text{($\mathbf j_1$ in $\mathcal B_0$)} \\
+> \boldsymbol\omega_{b0}\cdot\mathbf i_1 &= \dot\varphi\,\mathbf k_2\cdot\mathbf i_1 = \dot\varphi\sin\theta \quad &\text{($\mathbf j_1$ and $\mathbf k$ are normal to $\mathbf i_1$)} \\
+> \boldsymbol\omega_{b0}\cdot\mathbf i_1 &= \omega_x\cos\psi + \omega_y\sin\psi \quad &\text{($\mathbf i_1$ in $\mathcal B_0$)} \\
+> \dot\psi &= \omega_z - \dot\varphi\cos\theta \quad &\text{(third component of the previous box)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\theta = -\omega_x\sin\psi + \omega_y\cos\psi, \qquad \dot\varphi = \frac{\omega_x\cos\psi + \omega_y\sin\psi}{\sin\theta}, \qquad \dot\psi = \omega_z - \dot\varphi\cos\theta}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$
+> **Meaning:** once the angular velocity is known in time, these three first-order equations give the Euler angles; they are singular when the sine of $\theta$ is zero (hole on the vertical through $G$), where $\psi$ and $\varphi$ turn about the same axis.
+
+![[attachments/EM-SOL/rb18-slip.svg]]
+
+> [!derivation] Position and velocity of G and slip velocity of the contact point
+> **Law:** no penetration of the lane; velocity field of the rigid body; vector product by its determinant
+> **Source:** Notes.pdf, Eq. 13.1; Notes.pdf, Eq. 9.3; Notes.pdf, Sec. 13.2
+>
+> The lane is tangent to the ball at $P$ and the normal of a sphere passes through its centre, so $P$ is straight below $G$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^G &= x_G\,\mathbf i + y_G\,\mathbf j + a\,\mathbf k, \qquad \mathbf r_G^P = -a\,\mathbf k \quad &\text{(height $a$: no penetration)} \\
+> \mathbf v_0^G &= \xi\,\mathbf i + \eta\,\mathbf j, \qquad \mathbf a_0^G = \dot\xi\,\mathbf i + \dot\eta\,\mathbf j \quad &\text{(derivatives in the fixed basis; $\xi$, $\eta$ the rates of $x_G$, $y_G$)} \\
+> \boldsymbol\omega_{b0}\times\mathbf r_G^P &= \begin{vmatrix} \mathbf i & \mathbf j & \mathbf k \cr \omega_x & \omega_y & \omega_z \cr 0 & 0 & -a \end{vmatrix} = \mathbf i\left(-a\,\omega_y\right) - \mathbf j\left(-a\,\omega_x\right) + \mathbf k\,(0) \quad &\text{(expand along the first row)} \\
+> \mathbf v_0^{P(b)} &= \mathbf v_0^G + \boldsymbol\omega_{b0}\times\mathbf r_G^P \quad &\text{(velocity field, Eq. 9.3)} \\
+> &= \left(\xi - a\,\omega_y\right)\mathbf i + \left(\eta + a\,\omega_x\right)\mathbf j \quad &\text{(collect)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_{\mathrm{slip}} = \mathbf v_0^{P(b)} = \left(\xi - a\,\omega_y\right)\mathbf i + \left(\eta + a\,\omega_x\right)\mathbf j, \qquad s = \sqrt{\left(\xi - a\,\omega_y\right)^2 + \left(\eta + a\,\omega_x\right)^2}}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** the slip velocity has no vertical component (no penetration holds). Rolling without slip makes both components zero: the two constraints of part (b).
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Centre of mass and inertia tensor of the ball
+> **Law:** mass, centre of mass and moments of inertia as volume integrals in spherical coordinates (jacobian $r^2\sin\chi$); relation between the three axial moments and the polar integral
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.13; Notes.pdf, Eq. 10.15; Notes.pdf, Sec. 10.3; [Lecture 8, Slide 21]
+>
+> Spherical coordinates about $G$: distance $r$ from 0 to $a$, colatitude $\chi$ from 0 to $\pi$, longitude $\lambda$ from 0 to $2\pi$; volume element $r^2\sin\chi\,dr\,d\chi\,d\lambda$; density $\rho$.
+>
+> $$\begin{aligned}
+> V &= \int_0^{2\pi}d\lambda\int_0^{\pi}\sin\chi\,d\chi\int_0^a r^2\,dr = 2\pi\left[-\cos\chi\right]_0^{\pi}\left[\frac{r^3}{3}\right]_0^a \quad &\text{(separable integral; antiderivatives)} \\
+> &= 2\pi\left(-\cos\pi + \cos 0\right)\left(\frac{a^3}{3} - 0\right) = \frac{4\pi a^3}{3} \quad &\text{(Barrow's rule)} \\
+> \rho &= \frac{3M}{4\pi a^3}, \qquad \mathbf r_G^G = \mathbf 0 \quad &\text{(homogeneous; every plane through the centre is a plane of symmetry)} \\
+> I_x + I_y + I_z &= 2\int r^2\,dm = 2\rho\cdot 2\pi\cdot 2\cdot\left[\frac{r^5}{5}\right]_0^a = \frac{8\pi\rho a^5}{5} \quad &\text{(Eq. 10.13; same angular factors; Barrow's rule)} \\
+> &= \frac{8\pi a^5}{5}\cdot\frac{3M}{4\pi a^3} = \frac65\,Ma^2 \quad &\text{(value of $\rho$)} \\
+> I_x &= I_y = I_z = \frac25\,Ma^2 \quad &\text{(the three axes are equivalent for a sphere)} \\
+> \left[\frac{\sin^2\lambda}{2}\right]_0^{2\pi} &= 0, \quad \left[\sin\lambda\right]_0^{2\pi} = 0, \quad \left[-\cos\lambda\right]_0^{2\pi} = 0 \quad &\text{(longitude integrals of $\cos\lambda\sin\lambda$, $\cos\lambda$, $\sin\lambda$: products of inertia zero, Eq. 10.15)} \\
+> [R]\left(\tfrac25 Ma^2[U]\right)[R]^T &= \tfrac25 Ma^2\,[U] \quad &\text{(any change of basis, Eq. 10.41)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac25\,Ma^2\begin{bmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix} \ \text{in every basis}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the tensor is isotropic, so it is the same in $\mathcal B_0$, $\mathcal B_2$ and the body basis: the orientation of the holes does not enter the dynamics of the model.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Part (c): momentum, angular momentum about G and kinetic energy
+> **Law:** linear momentum from $G$; angular momentum from the tensor; Koenig's decomposition
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 10]
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= M\,\mathbf v_0^G = M\left(\xi\,\mathbf i + \eta\,\mathbf j\right) \quad &\text{(Eq. 11.3)} \\
+> \mathbf H_{G,0} &= \bar{\bar I}_G\cdot\boldsymbol\omega_{b0} = \frac25\,Ma^2\left(\omega_x\,\mathbf i + \omega_y\,\mathbf j + \omega_z\,\mathbf k\right) \quad &\text{(Eq. 11.12; isotropic tensor)} \\
+> &= \frac25\,Ma^2\left[\left(-\dot\theta\sin\psi + \dot\varphi\sin\theta\cos\psi\right)\mathbf i + \left(\dot\theta\cos\psi + \dot\varphi\sin\theta\sin\psi\right)\mathbf j + \left(\dot\psi + \dot\varphi\cos\theta\right)\mathbf k\right] \quad &\text{(components of the angular velocity)} \\
+> T_0 &= \frac12\,M\left(\xi^2 + \eta^2\right) + \frac15\,Ma^2\left(\dot\psi^2 + \dot\theta^2 + \dot\varphi^2 + 2\dot\psi\dot\varphi\cos\theta\right) \quad &\text{(Eq. 11.31; squared magnitude of the angular velocity in $\mathcal B_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{G,0} = \frac25\,Ma^2\left[\left(-\dot\theta\sin\psi + \dot\varphi\sin\theta\cos\psi\right)\mathbf i + \left(\dot\theta\cos\psi + \dot\varphi\sin\theta\sin\psi\right)\mathbf j + \left(\dot\psi + \dot\varphi\cos\theta\right)\mathbf k\right]}$$
+>
+> **Units:** kg m$^2$/s; J
+> **Meaning:** the angular momentum about $G$ is parallel to the angular velocity. The squared magnitude in $\mathcal B_2$ is the sum of the rate of $\psi$ squared times the sine of $\theta$ squared, the rate of $\theta$ squared and the third component squared; expanding the last square and using the identity of sine and cosine gives the bracket of the kinetic energy.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb18-fbd.svg]]
+
+| Force | Point of application | Expression | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $G$ | $-Mg\,\mathbf k$ | applied |
+| Normal reaction | $P$ | $N\,\mathbf k$ | constraint |
+| Friction, with slip | $P$ | $-\mu N$ times the unit vector of the slip velocity | constraint, known law |
+| Friction, without slip | $P$ | $F_x\,\mathbf i + F_y\,\mathbf j$, unknown, with magnitude at most $\mu N$ | constraint |
+
+> [!derivation] Part (d): resultant force and torque about G
+> **Law:** resultant of the forces; moment about $G$ by a determinant; Coulomb's law of friction
+> **Source:** Notes.pdf, Eq. 12.4; Notes.pdf, Eq. 12.14; Notes.pdf, Sec. 13.2; Notes.pdf, Sec. 6.6
+>
+> $$\begin{aligned}
+> \mathbf F &= F_x\,\mathbf i + F_y\,\mathbf j + \left(N - Mg\right)\mathbf k \quad &\text{(sum of the three forces)} \\
+> \mathbf M_G &= \begin{vmatrix} \mathbf i & \mathbf j & \mathbf k \cr 0 & 0 & -a \cr F_x & F_y & N \end{vmatrix} = \mathbf i\left(0 + a\,F_y\right) - \mathbf j\left(0 + a\,F_x\right) + \mathbf k\,(0 - 0) \quad &\text{(arm $\mathbf r_G^P$; the weight acts at $G$)} \\
+> F_x\,\mathbf i + F_y\,\mathbf j &= -\mu N\,\frac{\mathbf v_{\mathrm{slip}}}{s} = -\frac{\mu N}{s}\left[\left(\xi - a\,\omega_y\right)\mathbf i + \left(\eta + a\,\omega_x\right)\mathbf j\right] \quad &\text{(with slip: maximum magnitude, opposite to the slip)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F = F_x\,\mathbf i + F_y\,\mathbf j + \left(N - Mg\right)\mathbf k, \qquad \mathbf M_G = a\,F_y\,\mathbf i - a\,F_x\,\mathbf j}$$
+>
+> **Units:** N; N m
+> **Meaning:** only the friction has a moment about $G$, and that moment is horizontal: nothing can change the spin about the vertical, $\omega_z$.
+
+> [!derivation] Part (e): equations of motion with slip
+> **Law:** Newton's second law for the centre of mass; moment equation about $G$ with the isotropic tensor
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 4]; [Lecture 10, Slide 5]
+>
+> The pole $G$ is allowed in Eq. 12.13 because the term in the velocity of the pole vanishes for the centre of mass. The tensor coefficient is constant and $\mathcal B_0$ is fixed, so the derivative of the angular momentum is the tensor coefficient times the derivatives of the three components.
+>
+> $$\begin{aligned}
+> 0 &= N - Mg \quad &\text{(vertical component of Eq. 12.8: $G$ stays at height $a$)} \\
+> M\,\dot\xi &= -\frac{\mu Mg}{s}\left(\xi - a\,\omega_y\right), \qquad M\,\dot\eta = -\frac{\mu Mg}{s}\left(\eta + a\,\omega_x\right) \quad &\text{(horizontal components, with $N$ equal to $Mg$)} \\
+> \frac25\,Ma^2\,\dot\omega_x &= a\,F_y = a\,M\,\dot\eta \quad &\text{(component along $\mathbf i$ of Eq. 12.13; $F_y$ from the force equation)} \\
+> \frac25\,Ma^2\,\dot\omega_y &= -a\,F_x = -a\,M\,\dot\xi \quad &\text{(component along $\mathbf j$)} \\
+> \frac25\,Ma^2\,\dot\omega_z &= 0 \quad &\text{(component along $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\xi = -\frac{\mu g\left(\xi - a\omega_y\right)}{s}, \quad \dot\eta = -\frac{\mu g\left(\eta + a\omega_x\right)}{s}, \quad 2a\,\dot\omega_x = 5\,\dot\eta, \quad 2a\,\dot\omega_y = -5\,\dot\xi, \quad \dot\omega_z = 0}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$ in the force equations; $[\mathrm{L\,T^{-2}}]$ after multiplying the angular accelerations by $a$
+> **Meaning:** five first-order equations for the five rates, completed by the algebraic relations for $N$ and $s$ and by five kinematic equations: the rates of $x_G$ and $y_G$ equal $\xi$ and $\eta$, and the Euler angle rates follow from the components of the angular velocity (kinematics section). Ten first-order equations in all, for the five degrees of freedom.
+
+> [!derivation] Evolution of the slip velocity
+> **Law:** time derivative of the slip velocity with the equations of motion; Barrow's rule
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 13.2
+>
+> Write the slip velocity as the components $u$ along $\mathbf i$ and $w$ along $\mathbf j$.
+>
+> $$\begin{aligned}
+> \dot u &= \dot\xi - a\,\dot\omega_y = \dot\xi + \frac52\,\dot\xi = \frac72\,\dot\xi = -\frac72\,\mu g\,\frac us \quad &\text{(derivative of $\xi - a\omega_y$; previous box)} \\
+> \dot w &= \dot\eta + a\,\dot\omega_x = \dot\eta + \frac52\,\dot\eta = \frac72\,\dot\eta = -\frac72\,\mu g\,\frac ws \quad &\text{(derivative of $\eta + a\omega_x$)} \\
+> \frac{d}{dt}\left(\frac us\right) &= \frac{\dot u\,s - u\,\dot s}{s^2}, \qquad \dot s = \frac{u\dot u + w\dot w}{s} = -\frac72\,\mu g \quad &\text{(quotient rule; chain rule on the square root)} \\
+> \frac{d}{dt}\left(\frac us\right) &= \frac{-\tfrac72\mu g\,u + \tfrac72\mu g\,u}{s^2} = 0 \quad &\text{(substitute)} \\
+> s(t) - s(0) &= \int_0^t\dot s\,dt' = -\frac72\,\mu g\,t \quad &\text{(Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{\mathbf v_{\mathrm{slip}}}{s} \ \text{constant}, \qquad s(t) = s_0 - \frac72\,\mu g\,t, \qquad t^{*} = \frac{2\,s_0}{7\,\mu g}}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$; $t^{*}$ in $[\mathrm{L\,T^{-1}}]/[\mathrm{L\,T^{-2}}] = [\mathrm T]$
+> **Meaning:** while the ball slips, the friction keeps a fixed direction and the slip speed falls linearly; at the time $t^{*}$ the slip vanishes and the motion continues as rolling without slip (part (f)). The centre of mass therefore has a constant acceleration of magnitude $\mu g$ during the slip: its path is a parabola, or a straight line when the initial velocity of $G$ is parallel to the slip.
+
+> [!derivation] Part (f): rolling without slip reduced to quadratures
+> **Law:** no-slip conditions; force and moment equations with unknown friction; Barrow's rule
+> **Source:** Notes.pdf, Eq. 13.5; Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 13.2
+>
+> $$\begin{aligned}
+> \xi &= a\,\omega_y, \qquad \eta = -a\,\omega_x \quad &\text{(slip velocity equal to zero, Eq. 13.5)} \\
+> M\,\dot\xi &= F_x, \qquad \frac25\,Ma^2\,\dot\omega_y = -a\,F_x \quad &\text{(force along $\mathbf i$; moment along $\mathbf j$)} \\
+> \frac25\,Ma^2\,\frac{\dot\xi}{a} &= -a\,M\,\dot\xi \quad &\text{(rate of $\omega_y$ equal to the rate of $\xi$ over $a$; eliminate $F_x$)} \\
+> \frac75\,M\,\dot\xi &= 0, \qquad \frac75\,M\,\dot\eta = 0, \qquad \dot\omega_z = 0 \quad &\text{(divide by $a$ and collect; same steps for $\eta$ with the moment along $\mathbf i$)} \\
+> F_x &= F_y = 0 \quad &\text{(force equations)} \\
+> x_G(t) - x_G(t_1) &= \int_{t_1}^t\xi\,dt' = C_1\left(t - t_1\right), \qquad y_G(t) - y_G(t_1) = C_2\left(t - t_1\right) \quad &\text{(Barrow's rule, from the start $t_1$ of the rolling)}
+> \end{aligned}$$
+>
+> $$\boxed{\xi = a\,\omega_y = C_1, \qquad \eta = -a\,\omega_x = C_2, \qquad \omega_z = C_3, \qquad x_G = x_{G1} + C_1\left(t - t_1\right), \qquad y_G = y_{G1} + C_2\left(t - t_1\right)}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$ for $C_1$, $C_2$; $[\mathrm{T^{-1}}]$ for $C_3$
+> **Meaning:** a sphere rolling without slip on a horizontal plane needs no friction: $G$ moves on a straight line at constant speed. The angular velocity is constant in $S_0$, so the ball turns uniformly about a fixed direction; the Euler angles follow by integrating the three rate equations of the kinematics section with these constant components, and $C_1$, $C_2$, $C_3$ are fixed by the state at the start of the rolling.
+
+#### Part (g): the throw of Jesús Quintana
+
+> [!derivation] Initial angular velocity and slip velocity
+> **Law:** components of the angular velocity at the initial instant; slip velocity
+> **Source:** Notes.pdf, Eq. 9.21; Notes.pdf, Eq. 9.3; Problems.pdf, p. 48
+>
+> $$\begin{aligned}
+> \omega_x(0) &= -\frac{\xi_0}{4a}\sin 0 + 0 = 0 \quad &\text{(rates of $\psi$ and $\varphi$ zero; $\psi$ zero)} \\
+> \omega_y(0) &= \frac{\xi_0}{4a}\cos 0 + 0 = \frac{\xi_0}{4a} \quad &\text{(rate of $\theta$ given)} \\
+> \omega_z(0) &= 0 + 0 = 0 \quad &\text{(rates of $\psi$ and $\varphi$ zero)} \\
+> u(0) &= \xi_0 - a\,\frac{\xi_0}{4a} = \frac34\,\xi_0, \qquad w(0) = 0 + 0 = 0 \quad &\text{(slip velocity components)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{b0}(0) = \frac{\xi_0}{4a}\,\mathbf j, \qquad \mathbf v_{\mathrm{slip}}(0) = \frac34\,\xi_0\,\mathbf i \ne \mathbf 0}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$; $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** the ball turns forwards only a quarter as fast as rolling would require, so it slides forwards from the very first instant, at the foul line: the friction points backwards, along minus $\mathbf i$.
+
+![[attachments/EM-SOL/rb18-velocities.svg]]
+
+> [!derivation] Motion during the slip
+> **Law:** equations of motion with slip; Barrow's rule twice
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 13.2
+>
+> The slip is along plus $\mathbf i$ with zero component along $\mathbf j$, and its direction is constant (box on the slip velocity), so the ratio $u/s$ is 1 and $w/s$ is 0 until the slip ends.
+>
+> $$\begin{aligned}
+> \dot\xi &= -\mu g, \qquad \dot\eta = 0, \qquad \dot\omega_x = 0, \qquad \dot\omega_y = \frac{5\mu g}{2a}, \qquad \dot\omega_z = 0 \quad &\text{(part (e) with $u/s$ equal to 1)} \\
+> \xi(t) &= \xi_0 - \mu g\,t, \qquad x_G(t) = \int_0^t\left(\xi_0 - \mu g\,t'\right)dt' = \left[\xi_0 t' - \frac{\mu g\,t'^2}{2}\right]_0^t = \xi_0 t - \frac{\mu g\,t^2}{2} \quad &\text{(Barrow's rule twice)} \\
+> \omega_y(t) &= \frac{\xi_0}{4a} + \frac{5\mu g}{2a}\,t, \qquad \eta = \omega_x = \omega_z = 0, \qquad y_G = 0 \quad &\text{(Barrow's rule; zero initial values)} \\
+> \dot\theta &= \omega_y, \qquad \dot\psi = \dot\varphi = 0 \quad &\text{(Euler rates with $\psi$ and $\varphi$ zero; consistent with zero initial rates)} \\
+> \theta(t) &= \int_0^t\left(\frac{\xi_0}{4a} + \frac{5\mu g}{2a}\,t'\right)dt' = \frac{\xi_0}{4a}\,t + \frac{5\mu g}{4a}\,t^2 \quad &\text{(antiderivative; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{x_G = \xi_0 t - \frac12\mu g t^2, \quad y_G = 0, \quad \xi = \xi_0 - \mu g t, \quad \omega_y = \frac{\xi_0}{4a} + \frac{5\mu g}{2a}\,t, \quad \psi = \varphi = 0, \quad \theta = \frac{\xi_0 t}{4a} + \frac{5\mu g\,t^2}{4a}}$$
+>
+> **Units:** m; m/s; rad/s; rad
+> **Meaning:** the ball moves along the axis of the lane; friction slows the centre down and spins the ball up about the horizontal axis $\mathbf j$, so the hole $A$ turns forwards in the vertical plane of the lane.
+
+> [!derivation] Part (g)1: end of the slip
+> **Law:** zero slip velocity; previous box
+> **Source:** Notes.pdf, Eq. 13.5; Notes.pdf, Sec. 13.2
+>
+> $$\begin{aligned}
+> u(t) &= \frac34\,\xi_0 - \frac72\,\mu g\,t \quad &\text{(box on the slip velocity with $s_0$ equal to three quarters of $\xi_0$)} \\
+> t^{*} &= \frac{3\xi_0/4}{7\mu g/2} = \frac{3\,\xi_0}{14\,\mu g} \quad &\text{(set $u$ to zero)} \\
+> x^{*} &= \xi_0\,\frac{3\xi_0}{14\mu g} - \frac{\mu g}{2}\,\frac{9\xi_0^2}{196\,\mu^2g^2} = \frac{84\,\xi_0^2 - 9\,\xi_0^2}{392\,\mu g} = \frac{75\,\xi_0^2}{392\,\mu g} \quad &\text{(position of the previous box at $t^{*}$; common denominator 392)} \\
+> \xi^{*} &= \xi_0 - \mu g\,\frac{3\xi_0}{14\mu g} = \frac{11}{14}\,\xi_0 \quad &\text{(velocity at $t^{*}$)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{slip from } t = 0 \text{ at } x_G = 0 \text{ until } t^{*} = \frac{3\xi_0}{14\mu g}, \ x^{*} = \frac{75\,\xi_0^2}{392\,\mu g}; \ \text{then rolling with } \xi = \frac{11}{14}\,\xi_0 = a\,\omega_y}$$
+>
+> **Units:** $t^{*}$ in s; $x^{*}$ in $[\mathrm{L^2\,T^{-2}}]/[\mathrm{L\,T^{-2}}] = [\mathrm L]$
+> **Meaning:** read literally, the ball slips from the moment it is released, at the foul line. The transition the question is aiming at is the end of the slip: after the time $t^{*}$, about 0.214 times the ratio of the initial speed to the product of the friction coefficient and $g$, the ball would roll without slip at eleven fourteenths of its initial speed, if the lane were long enough.
+
+> [!derivation] Part (g)2: arrival at the pins for the given length
+> **Law:** position during the slip; roots of a quadratic equation
+> **Source:** Notes.pdf, Eq. 12.8; Problems.pdf, p. 48
+>
+> $$\begin{aligned}
+> l &= \frac{\xi_0^2}{10\,\mu g} \lt x^{*} = \frac{75\,\xi_0^2}{392\,\mu g} \quad &\text{(39.2 is smaller than 75 in units of $\xi_0^2/(392\mu g)$)} \\
+> \xi_0 t_l - \frac{\mu g}{2}\,t_l^2 &= \frac{\xi_0^2}{10\,\mu g} \quad &\text{(the ball is still slipping at the pins)} \\
+> \tau^2 - 2\tau + \frac15 &= 0, \qquad \tau = \frac{\mu g\,t_l}{\xi_0} \quad &\text{(multiply by $2\mu g/\xi_0^2$)} \\
+> \tau &= 1 - \sqrt{1 - \frac15} = 1 - \frac{2}{\sqrt5} \quad &\text{(first arrival: smaller root)} \\
+> \xi(t_l) &= \xi_0\left(1 - \tau\right) = \frac{2\,\xi_0}{\sqrt5} \quad &\text{(velocity during the slip)} \\
+> \omega_y(t_l) &= \frac{\xi_0}{4a} + \frac{5}{2a}\,\xi_0\,\tau = \frac{\xi_0}{a}\left(\frac14 + \frac52 - \sqrt5\right) = \frac{\xi_0}{a}\left(\frac{11}{4} - \sqrt5\right) \quad &\text{(angular velocity during the slip; $\tfrac52\cdot\tfrac{2}{\sqrt5} = \sqrt5$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^G = \frac{2\,\xi_0}{\sqrt5}\,\mathbf i, \qquad \boldsymbol\omega_{b0} = \frac{\xi_0}{a}\left(\frac{11}{4} - \sqrt5\right)\mathbf j, \qquad t_l = \left(1 - \frac{2}{\sqrt5}\right)\frac{\xi_0}{\mu g}}$$
+>
+> **Units:** m/s; rad/s; s
+> **Meaning:** the ball reaches the pins at about 0.894 of its initial speed and is still slipping there: $a$ times its angular velocity is about 0.514 of the initial speed, below the speed of $G$, and the slip ($u$ about 0.380 of the initial speed) has not run out.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) With slip | 1 constraint (height of $G$); 5 degrees of freedom; variables $x_G$, $y_G$, $\psi$, $\theta$, $\varphi$ and $N$ |
+| (b) Without slip | 3 constraints (height of $G$ and two non-integrable no-slip conditions); 3 degrees of freedom; variables $x_G$, $y_G$, $\psi$, $\theta$, $\varphi$, $N$, $F_x$, $F_y$ |
+| (c) Angular momentum about $G$ | $\tfrac25 Ma^2\left[(-\dot\theta\sin\psi + \dot\varphi\sin\theta\cos\psi)\,\mathbf i + (\dot\theta\cos\psi + \dot\varphi\sin\theta\sin\psi)\,\mathbf j + (\dot\psi + \dot\varphi\cos\theta)\,\mathbf k\right]$ |
+| (d) Force and torque | $\mathbf F = F_x\mathbf i + F_y\mathbf j + (N - Mg)\mathbf k$, $\mathbf M_G = aF_y\,\mathbf i - aF_x\,\mathbf j$; with slip $F_x\mathbf i + F_y\mathbf j = -\mu N\,\mathbf v_{\mathrm{slip}}/s$ |
+| (e) Equations with slip | $\dot\xi = -\mu g(\xi - a\omega_y)/s$, $\dot\eta = -\mu g(\eta + a\omega_x)/s$, $2a\dot\omega_x = 5\dot\eta$, $2a\dot\omega_y = -5\dot\xi$, $\dot\omega_z = 0$, $N = Mg$, plus the five kinematic equations |
+| (f) Without slip | $\xi = a\omega_y = C_1$, $\eta = -a\omega_x = C_2$, $\omega_z = C_3$; $G$ moves on a straight line at constant speed |
+| (g)1 | slip from the release, $t = 0$ at $x_G = 0$; the slip would end at $t^{*} = 3\xi_0/(14\mu g)$, $x^{*} = 75\xi_0^2/(392\mu g)$ |
+| (g)2 | with $l = \xi_0^2/(10\mu g)$ the ball is still slipping: $\mathbf v_0^G = (2\xi_0/\sqrt5)\,\mathbf i$, $\boldsymbol\omega_{b0} = (\xi_0/a)(11/4 - \sqrt5)\,\mathbf j$ |
+
+**Check against the official key:** the key (Problems.pdf, p. 79) prints 5 degrees of freedom with slip and 3 without, the equations of motion with slip in exactly the form of part (e), with the same symbols, the quadratures of part (f) and, at the pins, the velocity $2\xi_0/\sqrt5$ along $\mathbf i$ and the angular velocity $(\xi_0/a)(11/4 - \sqrt5)$ along $\mathbf j$. Match on every printed item. The key prints no time or position for question (g)1; the interpretation used here (slip from the release, end of the slip at $t^{*}$) is stated in its box.
+
+**Limiting cases and consistency:**
+
+* **Launch already rolling.** If the initial rate of $\theta$ were $\xi_0/a$, the slip velocity would start at zero and part (f) would apply from the start: constant velocity, no friction.
+* **Energy.** During the slip the friction does the negative power $-\mu Mg\,s$, and the kinetic energy computed with the boxed solution decreases at exactly that rate; once the ball rolls, the energy is constant.
+* **Independent derivation.** The time of the end of the slip and the state at the pins were recomputed symbolically from the boxed formulas; the quadratic root, the velocity and the angular velocity coincide with the values above.
+* **Dimensions.** The time scale is the ratio of a speed to an acceleration; lengths are squared speeds over accelerations; the angular velocity is a speed over $a$.
+
+---
+
+## Problem RB-19: Sphere on the floor with spring
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a homogeneous solid sphere $b$ of mass $M$, radius $a$ and centre $G$, resting on the horizontal plane $Oxy$ and touching it at one point $P$. A spring of constant $k$ and zero natural length joins the point $A$ of the surface of the sphere to the fixed point $C$ of the vertical axis, at the height $2a$ above $O$. Gravity acts downwards. The spring is massless, so it pulls on $A$ along the line from $A$ to $C$.
+* **Fixed frame:** $S_0\{O; \mathbf i, \mathbf j, \mathbf k\}$, the frame $Oxyz$ of the figure, with $\mathbf k$ vertical upwards. It is inertial. The bold letter $\mathbf k$ is the unit vector; the plain $k$ is the spring constant.
+* **Intermediate frames:** $S_1\{G; \mathbf i_1, \mathbf j_1, \mathbf k\}$, obtained by turning $\mathcal B_0$ by $\psi$ about $\mathbf k$; $S_2\{G; \mathbf i_2, \mathbf j_2, \mathbf k_2\}$, the frame $Gx_2y_2z_2$ of the statement, obtained by turning $\mathcal B_1$ by $\theta$ about $\mathbf j_1$. Then $\mathbf j_2$ equals $\mathbf j_1$: it is horizontal and normal to both $\mathbf k_2$ and $\mathbf k$, as the statement requires; $\psi$ is the angle from $Oy$ to $Gy_2$ and $\theta$ the angle from $Oz$ to $Gz_2$, which points from $G$ to $A$.
+* **Body frame:** $S_b\{G; \mathbf i_b, \mathbf j_b, \mathbf k_2\}$, obtained by turning $\mathcal B_2$ by $\varphi$ about $\mathbf k_2$; this is the rotation by which, in the statement, the frame $Gx_2y_2z_2$ differs from a body frame. The three angles are Euler angles in the order 3-2-3.
+* **Coordinates:** $\xi$, $\eta$ (projection of $G$ on the plane), $\psi$, $\theta$, $\varphi$.
+* **Degrees of freedom, smooth plane:** six coordinates of a free body minus the no-penetration constraint (Notes.pdf, Eq. 13.1), which fixes the height of $G$ at $a$: five, the five coordinates above. Unknowns: the five coordinates and the normal reaction $N$.
+* **Degrees of freedom, rough plane with rolling without slip:** the two no-slip conditions (Notes.pdf, Eq. 13.5) relate rates and cannot be integrated, so the five coordinates are still needed but only three velocities are independent. Unknowns: the five coordinates, $N$ and the two friction components.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the sphere, homogeneous | $M$ | kg |
+| Radius | $a$ | m |
+| Spring constant, zero natural length | $k$ | N/m |
+| Height of the anchor point $C$ on $Oz$ | $2a$ | m |
+| Gravity | $g$, along $-\mathbf k$ | m/s$^2$ |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb19-rot-psi.svg]]
+
+> [!derivation] First rotation: psi about k
+> **Law:** simple rotation about the third axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]
+>
+> View from above with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up; a positive $\psi$ turns counterclockwise. Triangle of $\mathbf i_1$: hypotenuse 1, adjacent leg along $\mathbf i$ (cosine), opposite leg along $\mathbf j$ (sine). Triangle of $\mathbf j_1$: hypotenuse 1, adjacent leg along $\mathbf j$ (cosine), opposite leg along minus $\mathbf i$ (sine): the counterclockwise turn about the outward axis carries the tip of $\mathbf j$ to the left.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\psi\,\mathbf i + \sin\psi\,\mathbf j, \qquad \mathbf j_1 = -\sin\psi\,\mathbf i + \cos\psi\,\mathbf j \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_1] &= \begin{bmatrix} \cos\psi & -\sin\psi & 0 \cr \sin\psi & \cos\psi & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\psi + \sin^2\psi\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\psi + \sin^2\psi & \cos\psi\sin\psi - \sin\psi\cos\psi & 0 \cr \sin\psi\cos\psi - \cos\psi\sin\psi & \sin^2\psi + \cos^2\psi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf i &= \cos\psi\,\mathbf i_1 - \sin\psi\,\mathbf j_1, \qquad \mathbf j = \sin\psi\,\mathbf i_1 + \cos\psi\,\mathbf j_1 \quad &\text{(rows of the matrix: the inverse is the transpose)} \\
+> \boldsymbol\omega_{10} &= \dot\psi\,\mathbf k \quad &\text{(rotation about the fixed axis $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_1 = \cos\psi\,\mathbf i + \sin\psi\,\mathbf j, \qquad \mathbf j_1 = -\sin\psi\,\mathbf i + \cos\psi\,\mathbf j, \qquad \boldsymbol\omega_{10} = \dot\psi\,\mathbf k}$$
+>
+> **Units:** dimensionless matrix; $[\mathrm{T^{-1}}]$
+> **Meaning:** $\psi$ is the angle between $Oy$ and the horizontal axis $Gy_2$, as the statement defines it.
+
+![[attachments/EM-SOL/rb19-rot-theta.svg]]
+
+> [!derivation] Second rotation: theta about j1
+> **Law:** simple rotation about the second axis; right-hand rule
+> **Source:** Notes.pdf, Sec. 9.2; Notes.pdf, Eq. 9.17
+>
+> View with $\mathbf j_1$ pointing into the paper (⊗), $\mathbf i_1$ to the right and $\mathbf k$ up; this view is right-handed because the product of $\mathbf k$ and $\mathbf i_1$ is $\mathbf j_1$, and a positive rotation about an axis pointing into the paper looks clockwise. Triangle of $\mathbf i_2$: hypotenuse 1, adjacent leg along $\mathbf i_1$ (cosine of $\theta$), opposite leg along minus $\mathbf k$ (sine): the tip of $\mathbf i_1$ drops, as $Gx_2$ does in the figure. Triangle of $\mathbf k_2$: hypotenuse 1, adjacent leg along $\mathbf k$ (cosine), opposite leg along $\mathbf i_1$ (sine).
+>
+> $$\begin{aligned}
+> \mathbf i_2 &= \cos\theta\,\mathbf i_1 - \sin\theta\,\mathbf k, \qquad \mathbf k_2 = \sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf k, \qquad \mathbf j_2 = \mathbf j_1 \quad &\text{(legs of the two triangles; rotation axis unchanged)} \\
+> [{}_1R_2] &= \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_2$, $\mathbf j_2$, $\mathbf k_2$ in $\mathcal B_1$)} \\
+> \det[{}_1R_2] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_1R_2][{}_1R_2]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & 0 & -\cos\theta\sin\theta + \sin\theta\cos\theta \cr 0 & 1 & 0 \cr -\sin\theta\cos\theta + \cos\theta\sin\theta & 0 & \sin^2\theta + \cos^2\theta \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf i_1 &= \cos\theta\,\mathbf i_2 + \sin\theta\,\mathbf k_2, \qquad \mathbf k = -\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2 \quad &\text{(rows: the inverse is the transpose)} \\
+> \mathbf k_2 &= \sin\theta\cos\psi\,\mathbf i + \sin\theta\sin\psi\,\mathbf j + \cos\theta\,\mathbf k \quad &\text{($\mathbf i_1$ of the first rotation)} \\
+> \boldsymbol\omega_{21} &= \dot\theta\,\mathbf j_2 \quad &\text{(rotation about $\mathbf j_1$, equal to $\mathbf j_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_1 = \cos\theta\,\mathbf i_2 + \sin\theta\,\mathbf k_2, \qquad \mathbf k = -\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2, \qquad \mathbf k_2 = \sin\theta\cos\psi\,\mathbf i + \sin\theta\sin\psi\,\mathbf j + \cos\theta\,\mathbf k}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** $\theta$ is the angle between $Oz$ and $GA$; with $\theta$ zero the point $A$ is at the top of the sphere, at the height of $C$.
+
+![[attachments/EM-SOL/rb19-rot-phi.svg]]
+
+> [!derivation] Third rotation: phi about k2
+> **Law:** simple rotation about the third axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.18; Notes.pdf, Sec. 9.2
+>
+> View with $\mathbf k_2$ out of the paper (⊙), $\mathbf i_2$ to the right and $\mathbf j_2$ up; the triangles are those of the first rotation with $\varphi$ in place of $\psi$.
+>
+> $$\begin{aligned}
+> \mathbf i_b &= \cos\varphi\,\mathbf i_2 + \sin\varphi\,\mathbf j_2, \qquad \mathbf j_b = -\sin\varphi\,\mathbf i_2 + \cos\varphi\,\mathbf j_2 \quad &\text{(adjacent legs along $\mathbf i_2$ and $\mathbf j_2$; tip of $\mathbf j_2$ towards minus $\mathbf i_2$)} \\
+> [{}_2R_b] &= \begin{bmatrix} \cos\varphi & -\sin\varphi & 0 \cr \sin\varphi & \cos\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_b$, $\mathbf j_b$, $\mathbf k_2$ in $\mathcal B_2$)} \\
+> \det[{}_2R_b] &= 1\cdot\left(\cos^2\varphi + \sin^2\varphi\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_2R_b][{}_2R_b]^T &= \begin{bmatrix} \cos^2\varphi + \sin^2\varphi & \cos\varphi\sin\varphi - \sin\varphi\cos\varphi & 0 \cr \sin\varphi\cos\varphi - \cos\varphi\sin\varphi & \sin^2\varphi + \cos^2\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \boldsymbol\omega_{b2} &= \dot\varphi\,\mathbf k_2 \quad &\text{(rotation about $\mathbf k_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_b = \cos\varphi\,\mathbf i_2 + \sin\varphi\,\mathbf j_2, \qquad \mathbf j_b = -\sin\varphi\,\mathbf i_2 + \cos\varphi\,\mathbf j_2, \qquad \boldsymbol\omega_{b2} = \dot\varphi\,\mathbf k_2}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** the spin about $GA$ does not move $A$, so it does not change the spring force.
+
+> [!derivation] Angular velocities of the sphere and of the frame Gx2y2z2
+> **Law:** composition of the angular velocities of the simple rotations
+> **Source:** Notes.pdf, Eq. 9.21; Notes.pdf, Sec. 15.1
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{20} &= \boldsymbol\omega_{21} + \boldsymbol\omega_{10} = \dot\theta\,\mathbf j_2 + \dot\psi\left(-\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2\right) \quad &\text{(composition; $\mathbf k$ in $\mathcal B_2$)} \\
+> \boldsymbol\omega_{b0} &= \boldsymbol\omega_{b2} + \boldsymbol\omega_{20} = -\dot\psi\sin\theta\,\mathbf i_2 + \dot\theta\,\mathbf j_2 + \left(\dot\psi\cos\theta + \dot\varphi\right)\mathbf k_2 \quad &\text{(add the spin; Eq. 9.21)} \\
+> \boldsymbol\omega_{b0} &= \dot\psi\,\mathbf k + \dot\theta\left(-\sin\psi\,\mathbf i + \cos\psi\,\mathbf j\right) + \dot\varphi\left(\sin\theta\cos\psi\,\mathbf i + \sin\theta\sin\psi\,\mathbf j + \cos\theta\,\mathbf k\right) \quad &\text{(same vector in $\mathcal B_0$)} \\
+> \omega_x &= -\dot\theta\sin\psi + \dot\varphi\sin\theta\cos\psi, \qquad \omega_y = \dot\theta\cos\psi + \dot\varphi\sin\theta\sin\psi \quad &\text{(horizontal components, used for rolling)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{b0} = -\dot\psi\sin\theta\,\mathbf i_2 + \dot\theta\,\mathbf j_2 + n\,\mathbf k_2, \qquad n = \dot\psi\cos\theta + \dot\varphi, \qquad \boldsymbol\omega_{20} = -\dot\psi\sin\theta\,\mathbf i_2 + \dot\theta\,\mathbf j_2 + \dot\psi\cos\theta\,\mathbf k_2}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in every term
+> **Meaning:** the sphere and the frame $Gx_2y_2z_2$ differ only by the spin along $\mathbf k_2$; $n$ is the total spin of the sphere about $GA$.
+
+![[attachments/EM-SOL/rb19-spring.svg]]
+
+> [!derivation] Positions of G, A and C, the spring vector and the contact point
+> **Law:** position vectors as sums of segments; no penetration; velocity field of the rigid body
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 13.1; Notes.pdf, Sec. 13.2
+>
+> The plane is tangent to the sphere at $P$ and the normal to a sphere passes through its centre, so $P$ is straight below $G$ and $G$ is at the height $a$. Write $\rho_1$ and $\rho_2$ for the components of the horizontal position of $G$ along $\mathbf i_1$ and $\mathbf j_1$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^G &= \xi\,\mathbf i + \eta\,\mathbf j + a\,\mathbf k, \qquad \mathbf r_G^A = a\,\mathbf k_2, \qquad \mathbf r_0^C = 2a\,\mathbf k, \qquad \mathbf r_G^P = -a\,\mathbf k \quad &\text{(definitions of the statement)} \\
+> \overrightarrow{AC} &= \mathbf r_0^C - \mathbf r_0^G - \mathbf r_G^A = -\xi\,\mathbf i - \eta\,\mathbf j + a\,\mathbf k - a\,\mathbf k_2 \quad &\text{(head minus tail)} \\
+> &= -\left(\xi + a\sin\theta\cos\psi\right)\mathbf i - \left(\eta + a\sin\theta\sin\psi\right)\mathbf j + a\left(1 - \cos\theta\right)\mathbf k \quad &\text{(in $\mathcal B_0$, with $\mathbf k_2$ of the second rotation)} \\
+> -\xi\,\mathbf i - \eta\,\mathbf j &= -\rho_1\,\mathbf i_1 - \rho_2\,\mathbf j_1, \qquad \rho_1 = \xi\cos\psi + \eta\sin\psi, \quad \rho_2 = -\xi\sin\psi + \eta\cos\psi \quad &\text{($\mathbf i$ and $\mathbf j$ in $\mathcal B_1$)} \\
+> \overrightarrow{AC} &= -\left(\rho_1\cos\theta + a\sin\theta\right)\mathbf i_2 - \rho_2\,\mathbf j_2 + \left(a\cos\theta - a - \rho_1\sin\theta\right)\mathbf k_2 \quad &\text{(in $\mathcal B_2$, with $\mathbf i_1$ and $\mathbf k$ of the second rotation)} \\
+> \mathbf v_0^G &= \dot\xi\,\mathbf i + \dot\eta\,\mathbf j, \qquad \mathbf v_0^{P(b)} = \left(\dot\xi - a\,\omega_y\right)\mathbf i + \left(\dot\eta + a\,\omega_x\right)\mathbf j \quad &\text{(velocity field from $G$; the product of the angular velocity with $-a\,\mathbf k$ by its determinant)}
+> \end{aligned}$$
+>
+> $$\boxed{\overrightarrow{AC} = -\left(\xi + a\sin\theta\cos\psi\right)\mathbf i - \left(\eta + a\sin\theta\sin\psi\right)\mathbf j + a\left(1 - \cos\theta\right)\mathbf k, \qquad \mathbf v_0^{P(b)} = \left(\dot\xi - a\,\omega_y\right)\mathbf i + \left(\dot\eta + a\,\omega_x\right)\mathbf j}$$
+>
+> **Units:** $[\mathrm L]$; $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** the vertical component of the spring vector is never negative: $A$ is never above the height $2a$ of $C$, so the spring always pulls the sphere upwards (or not at all, with $A$ at the top). The contact velocity has no vertical component (no penetration); on a smooth plane its horizontal components are free.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Centre of mass and inertia tensor of the sphere
+> **Law:** mass, centre of mass and moments of inertia as volume integrals in spherical coordinates (jacobian $r^2\sin\chi$); relation between the three axial moments and the polar integral
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.13; Notes.pdf, Eq. 10.15; Notes.pdf, Sec. 10.3; [Lecture 8, Slide 21]
+>
+> Spherical coordinates about $G$: distance $r$ from 0 to $a$, colatitude $\chi$ from 0 to $\pi$, longitude $\lambda$ from 0 to $2\pi$; volume element $r^2\sin\chi\,dr\,d\chi\,d\lambda$; density $\rho$.
+>
+> $$\begin{aligned}
+> V &= \int_0^{2\pi}d\lambda\int_0^{\pi}\sin\chi\,d\chi\int_0^a r^2\,dr = 2\pi\left[-\cos\chi\right]_0^{\pi}\left[\frac{r^3}{3}\right]_0^a \quad &\text{(separable integral; antiderivatives)} \\
+> &= 2\pi\left(-\cos\pi + \cos 0\right)\left(\frac{a^3}{3} - 0\right) = \frac{4\pi a^3}{3} \quad &\text{(Barrow's rule)} \\
+> \rho &= \frac{3M}{4\pi a^3}, \qquad \mathbf r_G^G = \mathbf 0 \quad &\text{(homogeneous; every plane through the centre is a plane of symmetry)} \\
+> I_x + I_y + I_z &= 2\int r^2\,dm = 2\rho\cdot 2\pi\cdot 2\cdot\left[\frac{r^5}{5}\right]_0^a = \frac{8\pi\rho a^5}{5} \quad &\text{(Eq. 10.13; same angular factors; Barrow's rule)} \\
+> &= \frac{8\pi a^5}{5}\cdot\frac{3M}{4\pi a^3} = \frac65\,Ma^2 \quad &\text{(value of $\rho$)} \\
+> I_x &= I_y = I_z = \frac25\,Ma^2 \quad &\text{(the three axes are equivalent for a sphere)} \\
+> \left[\frac{\sin^2\lambda}{2}\right]_0^{2\pi} &= 0, \quad \left[\sin\lambda\right]_0^{2\pi} = 0, \quad \left[-\cos\lambda\right]_0^{2\pi} = 0 \quad &\text{(longitude integrals of $\cos\lambda\sin\lambda$, $\cos\lambda$, $\sin\lambda$: products of inertia zero, Eq. 10.15)} \\
+> [R]\left(\tfrac25 Ma^2[U]\right)[R]^T &= \tfrac25 Ma^2\,[U] \quad &\text{(any change of basis, Eq. 10.41)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac25\,Ma^2\begin{bmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix} \ \text{in every basis, in particular in } Gx_2y_2z_2}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the frame $Gx_2y_2z_2$ is not attached to the sphere, but the tensor has the same constant components there, which is what makes that frame convenient.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Part (a)i: momentum, angular momentum about G and kinetic energy
+> **Law:** linear momentum from $G$; angular momentum from the tensor; Koenig's decomposition
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 10]
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= M\left(\dot\xi\,\mathbf i + \dot\eta\,\mathbf j\right) \quad &\text{(Eq. 11.3)} \\
+> \mathbf H_{G,0} &= \frac25\,Ma^2\begin{bmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} -\dot\psi\sin\theta \cr \dot\theta \cr n \end{bmatrix} \quad &\text{(Eq. 11.12 in $\mathcal B_2$)} \\
+> &= \frac25\,Ma^2\left(-\dot\psi\sin\theta\,\mathbf i_2 + \dot\theta\,\mathbf j_2 + n\,\mathbf k_2\right) \quad &\text{(row by column)} \\
+> T_0 &= \frac12\,M\left(\dot\xi^2 + \dot\eta^2\right) + \frac15\,Ma^2\left(\dot\psi^2\sin^2\theta + \dot\theta^2 + n^2\right) \quad &\text{(Eq. 11.31)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{G,0} = \frac25\,Ma^2\left[-\dot\psi\sin\theta\,\mathbf i_2 + \dot\theta\,\mathbf j_2 + \left(\dot\psi\cos\theta + \dot\varphi\right)\mathbf k_2\right]}$$
+>
+> **Units:** kg m$^2$/s; J
+> **Meaning:** the angular momentum is parallel to the angular velocity; written in $Gx_2y_2z_2$ its components do not depend on $\varphi$.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb19-fbd.svg]]
+
+| Force | Point of application | Expression | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $G$ | $-Mg\,\mathbf k$ | applied, conservative |
+| Spring | $A$ | $k$ times the vector from $A$ to $C$ | applied, conservative |
+| Normal reaction | $P$ | $N\,\mathbf k$ | constraint |
+| Friction (part (b) only) | $P$ | $F_x\,\mathbf i + F_y\,\mathbf j$, unknown | constraint |
+
+> [!derivation] Part (a)ii: force and torque of the spring
+> **Law:** linear spring of zero natural length; moment about $G$ by a determinant in $\mathcal B_2$
+> **Source:** Notes.pdf, Eq. 5.1; Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 2.6
+>
+> A spring of zero natural length pulls each end towards the other with a force equal to the constant times the full extension vector.
+>
+> $$\begin{aligned}
+> \mathbf F_s &= k\,\overrightarrow{AC} = -k\left(\xi + a\sin\theta\cos\psi\right)\mathbf i - k\left(\eta + a\sin\theta\sin\psi\right)\mathbf j + ka\left(1 - \cos\theta\right)\mathbf k \quad &\text{(Eq. 5.1 in vector form)} \\
+> \mathbf M_{G,s} &= \mathbf r_G^A\times\mathbf F_s = \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr 0 & 0 & a \cr -k\left(\rho_1\cos\theta + a\sin\theta\right) & -k\rho_2 & k\left(a\cos\theta - a - \rho_1\sin\theta\right) \end{vmatrix} \quad &\text{(arm $a\,\mathbf k_2$; spring vector in $\mathcal B_2$)} \\
+> &= \mathbf i_2\left(0 + ka\rho_2\right) - \mathbf j_2\left(0 + ka\left(\rho_1\cos\theta + a\sin\theta\right)\right) + \mathbf k_2\,(0 - 0) \quad &\text{(expand along the first row)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf M_{G,s} = ka\left(-\xi\sin\psi + \eta\cos\psi\right)\mathbf i_2 - ka\left(\left(\xi\cos\psi + \eta\sin\psi\right)\cos\theta + a\sin\theta\right)\mathbf j_2}$$
+>
+> **Units:** N; N m
+> **Meaning:** the torque of the spring is normal to $GA$, so it never changes the spin about $GA$; the weight acts at $G$ and the normal reaction passes through $G$, so on the smooth plane the spring is the only source of moment.
+
+> [!derivation] Part (a)iii and (a)iv: force equation and normal reaction
+> **Law:** Newton's second law for the centre of mass
+> **Source:** Notes.pdf, Eq. 12.8; [Lecture 10, Slide 4]
+>
+> $$\begin{aligned}
+> M\,\mathbf a_0^G &= \mathbf F_s - Mg\,\mathbf k + N\,\mathbf k \quad &\text{(Eq. 12.8, smooth plane)} \\
+> \mathbf a_0^G &= \ddot\xi\,\mathbf i + \ddot\eta\,\mathbf j \quad &\text{(second derivative of the position; height constant)} \\
+> M\,\ddot\xi &= -k\left(\xi + a\sin\theta\cos\psi\right) \quad &\text{(component along $\mathbf i$)} \\
+> M\,\ddot\eta &= -k\left(\eta + a\sin\theta\sin\psi\right) \quad &\text{(component along $\mathbf j$)} \\
+> 0 &= ka\left(1 - \cos\theta\right) - Mg + N \quad &\text{(component along $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{M\,\ddot\xi = -k\left(\xi + a\sin\theta\cos\psi\right), \qquad M\,\ddot\eta = -k\left(\eta + a\sin\theta\sin\psi\right), \qquad N = Mg - ka\left(1 - \cos\theta\right)}$$
+>
+> **Units:** N in every term
+> **Meaning:** the spring pulls $G$ towards the vertical through $C$, shifted by the horizontal offset of $A$ from $G$. The normal reaction depends only on $\theta$: it equals the weight with $A$ at the top and is smallest, $Mg - 2ka$, with $A$ at the bottom; the sphere stays on the plane while it is positive.
+
+> [!derivation] Part (a)iii: moment equation about G
+> **Law:** moment equation about the centre of mass; Coriolis theorem between $S_0$ and $Gx_2y_2z_2$; vector product by its determinant
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 12.20
+>
+> Write $I$ for the moment of inertia two fifths of $Ma^2$. The pole $G$ is allowed because the term in the velocity of the pole of Eq. 12.13 vanishes for the centre of mass.
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 &= \left.\frac{d\mathbf H_{G,0}}{dt}\right|_2 + \boldsymbol\omega_{20}\times\mathbf H_{G,0} \quad &\text{(Coriolis theorem, Eq. 3.8)} \\
+> \left.\frac{d\mathbf H_{G,0}}{dt}\right|_2 &= I\left(-\ddot\psi\sin\theta - \dot\psi\cos\theta\,\dot\theta\right)\mathbf i_2 + I\ddot\theta\,\mathbf j_2 + I\dot n\,\mathbf k_2 \quad &\text{(derivatives of the components; product and chain rules)} \\
+> \boldsymbol\omega_{20}\times\mathbf H_{G,0} &= I\begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr -\dot\psi\sin\theta & \dot\theta & \dot\psi\cos\theta \cr -\dot\psi\sin\theta & \dot\theta & n \end{vmatrix} \quad &\text{(determinant form)} \\
+> &= I\left[\mathbf i_2\,\dot\theta\left(n - \dot\psi\cos\theta\right) - \mathbf j_2\left(-\dot\psi\sin\theta\,n + \dot\psi^2\sin\theta\cos\theta\right) + \mathbf k_2\left(-\dot\psi\sin\theta\,\dot\theta + \dot\theta\dot\psi\sin\theta\right)\right] \quad &\text{(expand along the first row)} \\
+> &= I\left(\dot\theta\dot\varphi\,\mathbf i_2 + \dot\psi\dot\varphi\sin\theta\,\mathbf j_2\right) \quad &\text{($n$ minus the rate of $\psi$ times the cosine is the rate of $\varphi$)} \\
+> I\left(-\ddot\psi\sin\theta - \dot\psi\dot\theta\cos\theta + \dot\theta\dot\varphi\right) &= ka\,\rho_2 \quad &\text{(component along $\mathbf i_2$)} \\
+> I\left(\ddot\theta + \dot\psi\dot\varphi\sin\theta\right) &= -ka\left(\rho_1\cos\theta + a\sin\theta\right) \quad &\text{(component along $\mathbf j_2$)} \\
+> I\,\dot n &= 0 \quad &\text{(component along $\mathbf k_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\tfrac25 Ma\left(-\ddot\psi\sin\theta - \dot\psi\dot\theta\cos\theta + \dot\theta\dot\varphi\right) = k\left(-\xi\sin\psi + \eta\cos\psi\right), \quad \tfrac25 Ma\left(\ddot\theta + \dot\psi\dot\varphi\sin\theta\right) = -k\left(\left(\xi\cos\psi + \eta\sin\psi\right)\cos\theta + a\sin\theta\right), \quad \dot\psi\cos\theta + \dot\varphi = n_0}$$
+>
+> **Units:** N in the first two equations (each side divided by $a$); $[\mathrm{T^{-1}}]$ for $n_0$
+> **Meaning:** the spin about the moving axis $GA$ is conserved for two reasons together: no force has a moment along $GA$ (the spring acts on $GA$ itself and the other forces pass through $G$), and the gyroscopic term has no component along $GA$ because the tensor is isotropic. With the two force equations, these are the five ordinary differential equations for $\xi$, $\eta$, $\psi$, $\theta$, $\varphi$.
+
+#### Part (b): rough plane, rolling without slip
+
+> [!derivation] Changes to the equations and to the reactions
+> **Law:** no-slip conditions; friction as an unknown reaction; moment of the friction about $G$ by a determinant
+> **Source:** Notes.pdf, Eq. 13.5; Notes.pdf, Sec. 13.2; Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13
+>
+> Write the friction in $\mathcal B_1$ as $F_1\,\mathbf i_1 + F_2\,\mathbf j_1$, so that $F_1$ is the $\mathbf i$ component times the cosine of $\psi$ plus the $\mathbf j$ component times its sine, and $F_2$ minus the $\mathbf i$ component times the sine plus the $\mathbf j$ component times the cosine.
+>
+> $$\begin{aligned}
+> \dot\xi &= a\left(\dot\theta\cos\psi + \dot\varphi\sin\theta\sin\psi\right), \qquad \dot\eta = -a\left(-\dot\theta\sin\psi + \dot\varphi\sin\theta\cos\psi\right) \quad &\text{(contact velocity zero, Eq. 13.5)} \\
+> M\,\ddot\xi &= -k\left(\xi + a\sin\theta\cos\psi\right) + F_x, \qquad M\,\ddot\eta = -k\left(\eta + a\sin\theta\sin\psi\right) + F_y \quad &\text{(force equation with the friction)} \\
+> \left(-a\,\mathbf k\right)\times\left(F_1\,\mathbf i_1 + F_2\,\mathbf j_1\right) &= -aF_1\,\mathbf j_1 + aF_2\,\mathbf i_1 \quad &\text{($\mathbf k\times\mathbf i_1 = \mathbf j_1$, $\mathbf k\times\mathbf j_1 = -\mathbf i_1$)} \\
+> &= aF_2\cos\theta\,\mathbf i_2 - aF_1\,\mathbf j_2 + aF_2\sin\theta\,\mathbf k_2 \quad &\text{($\mathbf i_1$ of the second rotation)} \\
+> I\left(-\ddot\psi\sin\theta - \dot\psi\dot\theta\cos\theta + \dot\theta\dot\varphi\right) &= ka\,\rho_2 + aF_2\cos\theta \quad &\text{(component along $\mathbf i_2$)} \\
+> I\left(\ddot\theta + \dot\psi\dot\varphi\sin\theta\right) &= -ka\left(\rho_1\cos\theta + a\sin\theta\right) - aF_1 \quad &\text{(component along $\mathbf j_2$)} \\
+> I\,\frac{d}{dt}\left(\dot\psi\cos\theta + \dot\varphi\right) &= aF_2\sin\theta \quad &\text{(component along $\mathbf k_2$)} \\
+> N &= Mg - ka\left(1 - \cos\theta\right) \quad &\text{(vertical component unchanged: the friction is horizontal)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{7 equations (2 forces, 3 moments, 2 rolling conditions) for } \xi, \eta, \psi, \theta, \varphi, F_x, F_y; \qquad N = Mg - ka\left(1 - \cos\theta\right)}$$
+>
+> **Units:** N for the forces; N m for the moments; m/s for the rolling conditions
+> **Meaning:** the friction becomes two more unknowns, balanced by the two rolling conditions. It enters the two force equations and all three moment equations; in particular the spin about $GA$ is no longer conserved, because the friction has the moment $aF_2\sin\theta$ about $GA$ whenever that axis is tilted. The normal reaction keeps the same expression. The friction can be eliminated with the force equations, $F_x$ equal to $M$ times the second rate of $\xi$ plus the spring term, and the problem becomes five second-order equations constrained by the two rolling relations.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a)i Angular momentum about $G$ | $\tfrac25 Ma^2\left[-\dot\psi\sin\theta\,\mathbf i_2 + \dot\theta\,\mathbf j_2 + (\dot\psi\cos\theta + \dot\varphi)\,\mathbf k_2\right]$ |
+| (a)ii Spring force | $-k(\xi + a\sin\theta\cos\psi)\,\mathbf i - k(\eta + a\sin\theta\sin\psi)\,\mathbf j + ka(1 - \cos\theta)\,\mathbf k$ at $A$ |
+| (a)ii Spring torque about $G$ | $ka(-\xi\sin\psi + \eta\cos\psi)\,\mathbf i_2 - ka\left((\xi\cos\psi + \eta\sin\psi)\cos\theta + a\sin\theta\right)\mathbf j_2$ |
+| (a)iii Five equations | $M\ddot\xi = -k(\xi + a\sin\theta\cos\psi)$; $M\ddot\eta = -k(\eta + a\sin\theta\sin\psi)$; $\tfrac25 Ma(-\ddot\psi\sin\theta - \dot\psi\dot\theta\cos\theta + \dot\theta\dot\varphi) = k(-\xi\sin\psi + \eta\cos\psi)$; $\tfrac25 Ma(\ddot\theta + \dot\psi\dot\varphi\sin\theta) = -k((\xi\cos\psi + \eta\sin\psi)\cos\theta + a\sin\theta)$; $\dot\psi\cos\theta + \dot\varphi = n_0$ |
+| (a)iv Reaction | $N\,\mathbf k$ with $N = Mg - ka(1 - \cos\theta)$ |
+| (b) Rough plane | add $F_x\,\mathbf i + F_y\,\mathbf j$ at $P$ to the force equations and its moment $aF_2\cos\theta\,\mathbf i_2 - aF_1\,\mathbf j_2 + aF_2\sin\theta\,\mathbf k_2$ to the moment equations (the third one loses its first integral), plus the two rolling conditions; $N$ unchanged |
+
+`Problems.pdf` prints no answer for this problem (see [[Problem Set - Rigid Body Official Key]]), so the results are checked with an independent derivation and limiting cases.
+
+> [!derivation] Check: energy integral on the smooth plane
+> **Law:** conservation of the mechanical energy; potential of a spring of zero natural length and of the weight
+> **Source:** Notes.pdf, Eq. 5.2; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34
+>
+> $$\begin{aligned}
+> V_0 &= \frac12\,k\left|\overrightarrow{AC}\right|^2 + Mga \quad &\text{(Eq. 5.2 with the extension equal to the length; Eq. 12.34 with $G$ at height $a$)} \\
+> \left|\overrightarrow{AC}\right|^2 &= \left(\xi + a\sin\theta\cos\psi\right)^2 + \left(\eta + a\sin\theta\sin\psi\right)^2 + a^2\left(1 - \cos\theta\right)^2 \quad &\text{(components in $\mathcal B_0$)} \\
+> \dot W_P &= N\,\mathbf k\cdot\mathbf v_0^{P(b)} = 0 \quad &\text{(the contact velocity is horizontal)} \\
+> T_0 + V_0 &= E_0 \quad &\text{(Eq. 12.33)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac12 M\left(\dot\xi^2 + \dot\eta^2\right) + \frac15 Ma^2\left(\dot\psi^2\sin^2\theta + \dot\theta^2 + n_0^2\right) + \frac12 k\left|\overrightarrow{AC}\right|^2 = E_0 - Mga}$$
+>
+> **Units:** J in every term
+> **Meaning:** the five equations of part (a) were also obtained independently from these kinetic and potential energies with the five coordinates (Lagrange's equations, used only as a check); the two force equations and the equations for $\theta$ and $\varphi$ coincide term by term, and the equation for $\psi$ is the combination of the components along $\mathbf i_2$ and $\mathbf k_2$ that gives the moment about the vertical $\mathbf k$.
+
+**Limiting cases and consistency:**
+
+* **Equilibrium.** With $G$ above $O$ and $A$ at the top ($\xi$, $\eta$, $\theta$ zero), $A$ coincides with $C$, the spring is unstretched, every right-hand side vanishes and $N$ equals $Mg$: an equilibrium.
+* **No spring.** With $k$ zero, $G$ moves uniformly on the plane and the three moment equations are those of a free sphere, whose angular velocity is constant.
+* **Lift-off.** On the smooth plane the reaction can only vanish if the spring pulls hard enough: $N$ becomes zero for $ka(1 - \cos\theta)$ equal to $Mg$, possible only if $2ka$ exceeds $Mg$.
+* **Dimensions.** $k$ times a length is a force; the equations with the factor two fifths of $Ma$ have N on both sides.
+
+---
+
+## Problem RB-22: Ball with bar on inclined plane
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a homogeneous solid sphere $b$ of mass $M$, radius $R$ and centre $G$, always touching a fixed plane inclined at the angle $\gamma$; the contact point is $P$. A rigid massless rod, pinned at the point $O$ of the plane, passes through a small diametral hole of the sphere; the sphere slides along the rod and turns about it without friction. Gravity acts downwards.
+* **Horizontal frame:** $S_h\{O; \mathbf I, \mathbf j, \mathbf K\}$, with $\mathbf K$ vertical upwards, $\mathbf j$ the horizontal line of the plane and $\mathbf I$ horizontal, towards the side where the plane goes down.
+* **Fixed frame:** $S\{O; \mathbf i, \mathbf j, \mathbf k\}$, the frame $Oxyz$ of the statement: $\mathbf i$ down the line of maximum slope, $\mathbf k$ normal to the plane, upwards, and $\mathbf j$ completing a right-handed basis (horizontal). The plane is at rest, so this frame is inertial.
+* **Auxiliary frame:** $S_2\{O; \mathbf i_2, \mathbf j_2, \mathbf k\}$, turned by $\theta$ about $\mathbf k$, with $\mathbf i_2$ along $OP$, as the statement defines it.
+* **Frame of the rod:** $S_3\{O; \mathbf u, \mathbf j_2, \mathbf w\}$, with $\mathbf u$ along the rod from $O$ to $G$ (at the angle $\beta$ above the plane), $\mathbf j_2$ normal to the rod and parallel to the plane, and $\mathbf w$ normal to the rod in the vertical plane of $\mathbf i_2$ and $\mathbf k$. Read from the figure: $\varphi$ is drawn at $G$ from this normal line, so the rod is taken as carried by the two rotations $\theta$ (about $\mathbf k$) and $\beta$ (about $\mathbf j_2$), as by a universal joint at $O$; this is the reading of "free to turn in any direction but it does not rotate along its longitudinal axis". The angular velocity of this frame has an axial component equal to the rate of $\theta$ times the sine of $\beta$; with another convention for the rod, only the definition of $\varphi$ (and its rate in part (c)) changes, not the forces or the motion of $G$.
+* **Body frame:** $S_b\{G; \mathbf u, \mathbf e_2, \mathbf e_3\}$, turned by $\varphi$ about the rod.
+* **Part (a), coordinates:** a free body has six coordinates. Contact with the plane (no penetration, Notes.pdf, Eq. 13.1) fixes the height of $G$ at $R$: five remain, the two coordinates of $P$ in the plane and three angles. The rod is free to turn about $O$, so it imposes nothing on the position of $G$ (it simply points from $O$ to $G$), but the hole aligns a body diameter with the rod: two conditions on the orientation. Three coordinates remain: $\theta$ and $d$ (the polar coordinates of $P$ in the plane) and $\varphi$; $\beta$ is a function of $d$.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the sphere, homogeneous | $M$ | kg |
+| Radius | $R$ | m |
+| Inclination of the plane | $\gamma$ | rad |
+| Rod | massless, rigid, pinned at $O$; smooth along and about its axis | - |
+| Angle of the rod with the plane | $\beta$, with tangent $R/d$ | rad |
+| Gravity | $g$, along $-\mathbf K$ | m/s$^2$ |
+| Initial state, part (j) | $\mathbf r_{G0} = 2R\,\mathbf i + 3R\,\mathbf j + R\,\mathbf k$, $\mathbf v_{G0} = -\sqrt{Rg}\,(\mathbf i + \mathbf j)$ | m, m/s |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb22-rot-gamma.svg]]
+
+> [!derivation] Basis of the plane: rotation by gamma about j
+> **Law:** simple rotation about the second axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Sec. 9.2; Notes.pdf, Eq. 9.16; [Lecture 7, Slide 12]
+>
+> View with $\mathbf j$ pointing into the paper (⊗), $\mathbf I$ to the right and $\mathbf K$ up; this view is right-handed because the product of $\mathbf K$ and $\mathbf I$ is $\mathbf j$, and a positive rotation about an axis pointing into the paper looks clockwise. Triangle of $\mathbf i$: hypotenuse 1 down the slope, adjacent leg along $\mathbf I$ (cosine of $\gamma$), opposite leg along minus $\mathbf K$ (sine). Triangle of $\mathbf k$: hypotenuse 1 along the normal, adjacent leg along $\mathbf K$ (cosine), opposite leg along $\mathbf I$ (sine).
+>
+> $$\begin{aligned}
+> \mathbf i &= \cos\gamma\,\mathbf I - \sin\gamma\,\mathbf K, \qquad \mathbf k = \sin\gamma\,\mathbf I + \cos\gamma\,\mathbf K \quad &\text{(legs of the two triangles)} \\
+> [{}_hR_0] &= \begin{bmatrix} \cos\gamma & 0 & \sin\gamma \cr 0 & 1 & 0 \cr -\sin\gamma & 0 & \cos\gamma \end{bmatrix} \quad &\text{(columns: $\mathbf i$, $\mathbf j$, $\mathbf k$ in $\mathcal B_h$)} \\
+> \det[{}_hR_0] &= 1\cdot\left(\cos^2\gamma + \sin^2\gamma\right) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_hR_0][{}_hR_0]^T &= \begin{bmatrix} \cos^2\gamma + \sin^2\gamma & 0 & -\cos\gamma\sin\gamma + \sin\gamma\cos\gamma \cr 0 & 1 & 0 \cr -\sin\gamma\cos\gamma + \cos\gamma\sin\gamma & 0 & \sin^2\gamma + \cos^2\gamma \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf K &= -\sin\gamma\,\mathbf i + \cos\gamma\,\mathbf k \quad &\text{(third row: the inverse is the transpose)} \\
+> M\,\mathbf g &= -Mg\,\mathbf K = Mg\sin\gamma\,\mathbf i - Mg\cos\gamma\,\mathbf k \quad &\text{(weight in the basis of the plane)}
+> \end{aligned}$$
+>
+> $$\boxed{M\,\mathbf g = Mg\sin\gamma\,\mathbf i - Mg\cos\gamma\,\mathbf k}$$
+>
+> **Units:** dimensionless matrix; N
+> **Meaning:** the weight pulls the sphere down the slope, along $\mathbf i$, and presses it against the plane.
+
+![[attachments/EM-SOL/rb22-rot-theta.svg]]
+
+> [!derivation] Auxiliary basis: rotation by theta about k
+> **Law:** simple rotation about the third axis; right-hand rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.4; Notes.pdf, Sec. 9.2
+>
+> View of the plane from above with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up; a positive $\theta$ turns counterclockwise. Triangle of $\mathbf i_2$: hypotenuse 1, adjacent leg along $\mathbf i$ (cosine), opposite leg along $\mathbf j$ (sine). Triangle of $\mathbf j_2$: adjacent leg along $\mathbf j$ (cosine), opposite leg along minus $\mathbf i$ (sine), because the counterclockwise turn carries the tip of $\mathbf j$ to the left.
+>
+> $$\begin{aligned}
+> \mathbf i_2 &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j, \qquad \mathbf j_2 = -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_2] &= \begin{bmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_2$, $\mathbf j_2$, $\mathbf k$ in $\mathcal B_0$)} \\
+> \det[{}_0R_2] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_2][{}_0R_2]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & \cos\theta\sin\theta - \sin\theta\cos\theta & 0 \cr \sin\theta\cos\theta - \cos\theta\sin\theta & \sin^2\theta + \cos^2\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf i &= \cos\theta\,\mathbf i_2 - \sin\theta\,\mathbf j_2 \quad &\text{(first row: the inverse is the transpose)} \\
+> \boldsymbol\omega_{20} &= \dot\theta\,\mathbf k, \qquad \dot{\mathbf i}_2 = \dot\theta\,\mathbf k\times\mathbf i_2 = \dot\theta\,\mathbf j_2, \qquad \dot{\mathbf j}_2 = \dot\theta\,\mathbf k\times\mathbf j_2 = -\dot\theta\,\mathbf i_2 \quad &\text{(Poisson)} \\
+> M\,\mathbf g &= Mg\sin\gamma\cos\theta\,\mathbf i_2 - Mg\sin\gamma\sin\theta\,\mathbf j_2 - Mg\cos\gamma\,\mathbf k \quad &\text{(weight in $\mathcal B_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_2 = \cos\theta\,\mathbf i + \sin\theta\,\mathbf j, \qquad \boldsymbol\omega_{20} = \dot\theta\,\mathbf k, \qquad M\,\mathbf g = Mg\sin\gamma\left(\cos\theta\,\mathbf i_2 - \sin\theta\,\mathbf j_2\right) - Mg\cos\gamma\,\mathbf k}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$; N
+> **Meaning:** for positive $\theta$ the downhill pull has a component along minus $\mathbf j_2$, which turns $OP$ back towards the line of maximum slope.
+
+![[attachments/EM-SOL/rb22-rod-section.svg]]
+
+> [!derivation] Frame of the rod: rotation by beta about j2, and the rate of beta
+> **Law:** simple rotation about the second axis; right triangle of the rod; chain rule
+> **Source:** Notes.pdf, Sec. 9.2; Notes.pdf, Eq. 9.17; Notes.pdf, Eq. 2.6
+>
+> Vertical section through $O$, $P$ and $G$, with $\mathbf i_2$ to the right, $\mathbf k$ up and $\mathbf j_2$ pointing into the paper (⊗). Right triangle $OPG$: the leg $d$ along the plane from $O$ to $P$, the leg $R$ from $P$ to $G$ along the normal, and the hypotenuse $OG$ of length $L$, along the rod; $\beta$ is the angle at $O$. The rod turns counterclockwise as seen, which is a rotation about minus $\mathbf j_2$. Triangle of $\mathbf u$: adjacent leg along $\mathbf i_2$ (cosine), opposite leg along $\mathbf k$ (sine). Triangle of $\mathbf w$: adjacent leg along $\mathbf k$ (cosine), opposite leg along minus $\mathbf i_2$ (sine): the tip of $\mathbf k$ moves to the left.
+>
+> $$\begin{aligned}
+> L &= \sqrt{d^2 + R^2}, \qquad \cos\beta = \frac dL, \qquad \sin\beta = \frac RL, \qquad \tan\beta = \frac Rd \quad &\text{(right triangle $OPG$)} \\
+> \mathbf u &= \cos\beta\,\mathbf i_2 + \sin\beta\,\mathbf k, \qquad \mathbf w = -\sin\beta\,\mathbf i_2 + \cos\beta\,\mathbf k \quad &\text{(legs of the triangles of the unit vectors)} \\
+> [{}_2R_3] &= \begin{bmatrix} \cos\beta & 0 & -\sin\beta \cr 0 & 1 & 0 \cr \sin\beta & 0 & \cos\beta \end{bmatrix} \quad &\text{(columns: $\mathbf u$, $\mathbf j_2$, $\mathbf w$ in $\mathcal B_2$)} \\
+> \det[{}_2R_3] &= 1\cdot\left(\cos^2\beta + \sin^2\beta\right) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_2R_3][{}_2R_3]^T &= \begin{bmatrix} \cos^2\beta + \sin^2\beta & 0 & \cos\beta\sin\beta - \sin\beta\cos\beta \cr 0 & 1 & 0 \cr \sin\beta\cos\beta - \cos\beta\sin\beta & 0 & \sin^2\beta + \cos^2\beta \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf u\times\mathbf j_2 &= \cos\beta\,\mathbf i_2\times\mathbf j_2 + \sin\beta\,\mathbf k\times\mathbf j_2 = \cos\beta\,\mathbf k - \sin\beta\,\mathbf i_2 = \mathbf w \quad &\text{(the triad is right-handed)} \\
+> \frac{d}{dt}\tan\beta &= \frac{\dot\beta}{\cos^2\beta} = -\frac{R\,\dot d}{d^2} \quad &\text{(chain rule on both sides of the tangent)} \\
+> \dot\beta &= -\frac{R\,\dot d}{d^2}\cdot\frac{d^2}{d^2 + R^2} = -\frac{R\,\dot d}{d^2 + R^2} \quad &\text{(square of the cosine from the triangle)} \\
+> \boldsymbol\omega_{32} &= -\dot\beta\,\mathbf j_2, \qquad \boldsymbol\omega_{30} = \dot\theta\,\mathbf k - \dot\beta\,\mathbf j_2 \quad &\text{(rotation about minus $\mathbf j_2$; composition, Eq. 9.21)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf u = \cos\beta\,\mathbf i_2 + \sin\beta\,\mathbf k, \qquad \mathbf w = -\sin\beta\,\mathbf i_2 + \cos\beta\,\mathbf k, \qquad \dot\beta = -\frac{R\,\dot d}{d^2 + R^2}, \qquad \boldsymbol\omega_{30} = \dot\theta\,\mathbf k - \dot\beta\,\mathbf j_2}$$
+>
+> **Units:** dimensionless; $\dot\beta$ in $[\mathrm L][\mathrm{L\,T^{-1}}]/[\mathrm{L^2}] = [\mathrm{T^{-1}}]$
+> **Meaning:** when the sphere moves away from $O$ the rod flattens: $\beta$ decreases while $d$ grows.
+
+![[attachments/EM-SOL/rb22-rot-phi.svg]]
+
+> [!derivation] Body basis: rotation by phi about the rod
+> **Law:** simple rotation about the first axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.17; Notes.pdf, Sec. 9.2
+>
+> View along the rod with $\mathbf u$ out of the paper (⊙), $\mathbf j_2$ to the right and $\mathbf w$ up; this is right-handed because the product of $\mathbf u$ and $\mathbf j_2$ is $\mathbf w$. A positive $\varphi$ turns counterclockwise. Triangle of $\mathbf e_2$: adjacent leg along $\mathbf j_2$ (cosine), opposite leg along $\mathbf w$ (sine). Triangle of $\mathbf e_3$: adjacent leg along $\mathbf w$ (cosine), opposite leg along minus $\mathbf j_2$ (sine).
+>
+> $$\begin{aligned}
+> \mathbf e_2 &= \cos\varphi\,\mathbf j_2 + \sin\varphi\,\mathbf w, \qquad \mathbf e_3 = -\sin\varphi\,\mathbf j_2 + \cos\varphi\,\mathbf w \quad &\text{(legs of the two triangles)} \\
+> [{}_3R_b] &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\varphi & -\sin\varphi \cr 0 & \sin\varphi & \cos\varphi \end{bmatrix} \quad &\text{(columns: $\mathbf u$, $\mathbf e_2$, $\mathbf e_3$ in $\mathcal B_3$)} \\
+> \det[{}_3R_b] &= 1\cdot\left(\cos^2\varphi + \sin^2\varphi\right) = 1 \quad &\text{(expand along the first row)} \\
+> [{}_3R_b][{}_3R_b]^T &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos^2\varphi + \sin^2\varphi & \cos\varphi\sin\varphi - \sin\varphi\cos\varphi \cr 0 & \sin\varphi\cos\varphi - \cos\varphi\sin\varphi & \sin^2\varphi + \cos^2\varphi \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \boldsymbol\omega_{b3} &= \dot\varphi\,\mathbf u \quad &\text{(rotation about the rod)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_2 = \cos\varphi\,\mathbf j_2 + \sin\varphi\,\mathbf w, \qquad \mathbf e_3 = -\sin\varphi\,\mathbf j_2 + \cos\varphi\,\mathbf w, \qquad \boldsymbol\omega_{b3} = \dot\varphi\,\mathbf u}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** the sphere can only turn about the rod relative to the rod frame; that is the content of the two orientation constraints of part (a).
+
+> [!derivation] Part (b): angular velocity and angular acceleration of the sphere
+> **Law:** composition of angular velocities; Coriolis theorem between $S$ and $S_2$; product and chain rules
+> **Source:** Notes.pdf, Eq. 9.21; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 3.9; Notes.pdf, Sec. 15.1
+>
+> Write the angular velocity in $\mathcal B_2$ with the components $a_1$, $a_2$, $a_3$.
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{b0} &= \boldsymbol\omega_{b3} + \boldsymbol\omega_{30} = \dot\varphi\left(\cos\beta\,\mathbf i_2 + \sin\beta\,\mathbf k\right) + \dot\theta\,\mathbf k - \dot\beta\,\mathbf j_2 \quad &\text{(composition; $\mathbf u$ in $\mathcal B_2$)} \\
+> a_1 &= \dot\varphi\cos\beta, \qquad a_2 = -\dot\beta, \qquad a_3 = \dot\theta + \dot\varphi\sin\beta \quad &\text{(collect)} \\
+> \boldsymbol\alpha_{b0} &= \left.\frac{d\boldsymbol\omega_{b0}}{dt}\right|_2 + \dot\theta\,\mathbf k\times\left(a_1\,\mathbf i_2 + a_2\,\mathbf j_2 + a_3\,\mathbf k\right) \quad &\text{(Coriolis theorem with $S_2$, Eq. 3.8)} \\
+> \dot\theta\,\mathbf k\times\left(a_1\,\mathbf i_2 + a_2\,\mathbf j_2\right) &= \dot\theta\,a_1\,\mathbf j_2 - \dot\theta\,a_2\,\mathbf i_2 \quad &\text{($\mathbf k\times\mathbf i_2 = \mathbf j_2$, $\mathbf k\times\mathbf j_2 = -\mathbf i_2$)} \\
+> \dot a_1 &= \ddot\varphi\cos\beta - \dot\varphi\sin\beta\,\dot\beta, \qquad \dot a_3 = \ddot\theta + \ddot\varphi\sin\beta + \dot\varphi\cos\beta\,\dot\beta \quad &\text{(product and chain rules)} \\
+> \ddot\beta &= -\frac{R\,\ddot d}{d^2 + R^2} + \frac{2Rd\,\dot d^2}{\left(d^2 + R^2\right)^2} \quad &\text{(quotient rule on the rate of $\beta$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{b0} = \dot\varphi\cos\beta\,\mathbf i_2 - \dot\beta\,\mathbf j_2 + \left(\dot\theta + \dot\varphi\sin\beta\right)\mathbf k, \qquad \boldsymbol\alpha_{b0} = \left(\ddot\varphi\cos\beta - \dot\varphi\dot\beta\sin\beta + \dot\theta\dot\beta\right)\mathbf i_2 + \left(-\ddot\beta + \dot\theta\dot\varphi\cos\beta\right)\mathbf j_2 + \left(\ddot\theta + \ddot\varphi\sin\beta + \dot\varphi\dot\beta\cos\beta\right)\mathbf k}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ and $[\mathrm{T^{-2}}]$
+> **Meaning:** with the cosine and sine of $\beta$ equal to $d/L$ and $R/L$ and the rate of $\beta$ from the previous box, both vectors are functions of $\theta$, $d$, $\varphi$ and their derivatives only.
+
+> [!derivation] Part (b): velocity and acceleration of G
+> **Law:** derivative of a position vector written in a moving basis; Poisson's formula; product rule
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 6]
+>
+> $$\begin{aligned}
+> \mathbf r_0^G &= \overrightarrow{OP} + \overrightarrow{PG} = d\,\mathbf i_2 + R\,\mathbf k \quad &\text{(sum of segments; $G$ above $P$ at the height $R$)} \\
+> \mathbf v_0^G &= \dot d\,\mathbf i_2 + d\,\dot{\mathbf i}_2 = \dot d\,\mathbf i_2 + d\,\dot\theta\,\mathbf j_2 \quad &\text{(product rule; Poisson)} \\
+> \mathbf a_0^G &= \ddot d\,\mathbf i_2 + \dot d\,\dot\theta\,\mathbf j_2 + \left(\dot d\,\dot\theta + d\,\ddot\theta\right)\mathbf j_2 + d\,\dot\theta\left(-\dot\theta\,\mathbf i_2\right) \quad &\text{(product rule on each term; Poisson)} \\
+> &= \left(\ddot d - d\,\dot\theta^2\right)\mathbf i_2 + \left(d\,\ddot\theta + 2\,\dot d\,\dot\theta\right)\mathbf j_2 \quad &\text{(collect)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^G = \dot d\,\mathbf i_2 + d\,\dot\theta\,\mathbf j_2, \qquad \mathbf a_0^G = \left(\ddot d - d\,\dot\theta^2\right)\mathbf i_2 + \left(d\,\ddot\theta + 2\,\dot d\,\dot\theta\right)\mathbf j_2}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$ and $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** $G$ moves parallel to the plane like a point in polar coordinates $(d, \theta)$ at the constant height $R$.
+
+> [!derivation] Part (c): velocity of P and rolling without slip
+> **Law:** velocity field of the rigid body; rolling without slipping on a fixed plane; vector product by its determinant
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 13.5; Notes.pdf, Sec. 13.2
+>
+> $$\begin{aligned}
+> \mathbf v_0^{P(b)} &= \mathbf v_0^G + \boldsymbol\omega_{b0}\times\left(-R\,\mathbf k\right) \quad &\text{(velocity field from $G$)} \\
+> \boldsymbol\omega_{b0}\times\left(-R\,\mathbf k\right) &= \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k \cr a_1 & a_2 & a_3 \cr 0 & 0 & -R \end{vmatrix} = -R\,a_2\,\mathbf i_2 + R\,a_1\,\mathbf j_2 \quad &\text{(expand along the first row)} \\
+> \mathbf v_0^{P(b)} &= \left(\dot d + R\,\dot\beta\right)\mathbf i_2 + \left(d\,\dot\theta + R\,\dot\varphi\cos\beta\right)\mathbf j_2 \quad &\text{(components $a_1$, $a_2$)} \\
+> \dot d + R\,\dot\beta &= \dot d - \frac{R^2\,\dot d}{d^2 + R^2} = \frac{d^2}{d^2 + R^2}\,\dot d = \cos^2\beta\,\dot d = 0 \quad &\text{(component along $\mathbf i_2$ set to zero, Eq. 13.5)} \\
+> d\,\dot\theta + R\,\dot\varphi\cos\beta &= 0 \quad &\text{(component along $\mathbf j_2$ set to zero)} \\
+> \dot\varphi &= -\frac{d}{R\cos\beta}\,\dot\theta = -\frac{L\cos\beta}{L\sin\beta\cos\beta}\,\dot\theta \quad &\text{($d$ and $R$ from the triangle)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot d = 0, \qquad \dot\varphi = -\frac{\dot\theta}{\sin\beta}, \qquad \boldsymbol\omega_{b0} = -\frac{\dot\theta}{\tan\beta}\,\mathbf i_2 = -\frac dR\,\dot\theta\,\mathbf i_2, \qquad \boldsymbol\alpha_{b0} = -\frac dR\left(\ddot\theta\,\mathbf i_2 + \dot\theta^2\,\mathbf j_2\right)}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$; $[\mathrm{T^{-2}}]$
+> **Meaning:** a rolling sphere cannot change its distance to $O$: moving radially would need a rotation about $\mathbf j_2$ larger than the one the rod allows, so $d$ and $\beta$ keep their initial values and $G$ moves on a circle of radius $d$. The third component of the angular velocity cancels and the angular velocity lies along $OP$: the instantaneous axis passes through $P$ and $O$, and the sphere rolls like a cone with its apex at $O$. The angular acceleration follows from part (b) with constant $\beta$.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Centre of mass and inertia tensor of the sphere
+> **Law:** mass, centre of mass and moments of inertia as volume integrals in spherical coordinates (jacobian $r^2\sin\chi$); relation between the three axial moments and the polar integral
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.13; Notes.pdf, Eq. 10.15; Notes.pdf, Sec. 10.3; [Lecture 8, Slide 21]
+>
+> Spherical coordinates about $G$: distance $r$ from 0 to $R$, colatitude $\chi$ from 0 to $\pi$, longitude $\lambda$ from 0 to $2\pi$; volume element $r^2\sin\chi\,dr\,d\chi\,d\lambda$; density $\rho$. The small hole is neglected.
+>
+> $$\begin{aligned}
+> V &= \int_0^{2\pi}d\lambda\int_0^{\pi}\sin\chi\,d\chi\int_0^R r^2\,dr = 2\pi\left[-\cos\chi\right]_0^{\pi}\left[\frac{r^3}{3}\right]_0^R \quad &\text{(separable integral; antiderivatives)} \\
+> &= 2\pi\left(-\cos\pi + \cos 0\right)\left(\frac{R^3}{3} - 0\right) = \frac{4\pi R^3}{3} \quad &\text{(Barrow's rule)} \\
+> \rho &= \frac{3M}{4\pi R^3}, \qquad \mathbf r_G^G = \mathbf 0 \quad &\text{(homogeneous; every plane through the centre is a plane of symmetry)} \\
+> I_x + I_y + I_z &= 2\int r^2\,dm = 2\rho\cdot 2\pi\cdot 2\cdot\left[\frac{r^5}{5}\right]_0^R = \frac{8\pi\rho R^5}{5} \quad &\text{(Eq. 10.13; same angular factors; Barrow's rule)} \\
+> &= \frac{8\pi R^5}{5}\cdot\frac{3M}{4\pi R^3} = \frac65\,MR^2 \quad &\text{(value of $\rho$)} \\
+> I_x &= I_y = I_z = \frac25\,MR^2 \quad &\text{(the three axes are equivalent for a sphere)} \\
+> \left[\frac{\sin^2\lambda}{2}\right]_0^{2\pi} &= 0, \quad \left[\sin\lambda\right]_0^{2\pi} = 0, \quad \left[-\cos\lambda\right]_0^{2\pi} = 0 \quad &\text{(longitude integrals of $\cos\lambda\sin\lambda$, $\cos\lambda$, $\sin\lambda$: products of inertia zero, Eq. 10.15)} \\
+> [R]\left(\tfrac25 MR^2[U]\right)[R]^T &= \tfrac25 MR^2\,[U] \quad &\text{(any change of basis, Eq. 10.41)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = \frac25\,MR^2\begin{bmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix} \ \text{in every basis}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the tensor is the same in $\mathcal B_2$, in the rod frame and in the body frame, so the angular momentum about $G$ is two fifths of $MR^2$ times the angular velocity.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Momentum, angular momentum about G and kinetic energy
+> **Law:** linear momentum from $G$; angular momentum from the tensor; Koenig's decomposition
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= M\left(\dot d\,\mathbf i_2 + d\,\dot\theta\,\mathbf j_2\right) \quad &\text{(Eq. 11.3)} \\
+> \mathbf H_{G,0} &= \frac25\,MR^2\left(\dot\varphi\cos\beta\,\mathbf i_2 - \dot\beta\,\mathbf j_2 + \left(\dot\theta + \dot\varphi\sin\beta\right)\mathbf k\right) \quad &\text{(Eq. 11.12; isotropic tensor)} \\
+> \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 &= \frac25\,MR^2\,\boldsymbol\alpha_{b0} \quad &\text{(constant coefficient times the derivative of the angular velocity)} \\
+> T_0 &= \frac12\,M\left(\dot d^2 + d^2\dot\theta^2\right) + \frac15\,MR^2\left(\dot\varphi^2\cos^2\beta + \dot\beta^2 + \left(\dot\theta + \dot\varphi\sin\beta\right)^2\right) \quad &\text{(Eq. 11.31)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{G,0} = \frac25\,MR^2\,\boldsymbol\omega_{b0}, \qquad \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 = \frac25\,MR^2\,\boldsymbol\alpha_{b0}}$$
+>
+> **Units:** kg m$^2$/s; N m; J
+> **Meaning:** with rolling (part (c)) the kinetic energy reduces to the seven fifths of $\tfrac12 M d^2$ times the squared rate of $\theta$, because the rotational part is two fifths of $MR^2$ times the square of $d/R$ times that rate, halved.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb22-exploded.svg]]
+
+> [!derivation] Part (d): reactions on the rod
+> **Law:** equilibrium of a massless body (force and moment equations with zero inertia); action and reaction between rod and sphere; ideal (frictionless) connections
+> **Source:** Notes.pdf, Eq. 12.24; Notes.pdf, Eq. 12.25; Notes.pdf, Eq. 13.9; Notes.pdf, Eq. 13.10
+>
+> The rod and the sphere act on each other at $G$ through a force $\mathbf F_r$ and a torque $\mathbf Q_r$ (on the sphere; minus these on the rod). The sphere slides along the rod and turns about it without friction, so neither has a component along $\mathbf u$. At $O$ the joint applies a force $\mathbf R_O$ (three components) and a torque that cannot act about the two axes of the joint, $\mathbf k$ and $\mathbf j_2$, so it is $Q_O\,\mathbf i_2$. Eight unknown components, six equations of equilibrium.
+>
+> $$\begin{aligned}
+> \mathbf F_r &= F_j\,\mathbf j_2 + F_w\,\mathbf w, \qquad \mathbf Q_r = Q_j\,\mathbf j_2 + Q_w\,\mathbf w \quad &\text{(no components along the smooth rod)} \\
+> \mathbf R_O - \mathbf F_r &= \mathbf 0 \quad &\text{(force equation of the massless rod, Eq. 12.24)} \\
+> Q_O\,\mathbf i_2 + L\,\mathbf u\times\left(-\mathbf F_r\right) - \mathbf Q_r &= \mathbf 0 \quad &\text{(moments about $O$, Eq. 12.25; $G$ at $L\,\mathbf u$)} \\
+> Q_O\,\mathbf i_2\cdot\mathbf u &= Q_O\cos\beta = 0 \quad &\text{(project on $\mathbf u$: the other two terms are normal to $\mathbf u$)} \\
+> \mathbf u\times\mathbf F_r &= F_j\,\mathbf u\times\mathbf j_2 + F_w\,\mathbf u\times\mathbf w = F_j\,\mathbf w - F_w\,\mathbf j_2 \quad &\text{($\mathbf u\times\mathbf j_2 = \mathbf w$ and $\mathbf u\times\mathbf w = -\mathbf j_2$ in the right-handed rod triad)} \\
+> \mathbf Q_r &= -L\left(F_j\,\mathbf w - F_w\,\mathbf j_2\right) = L\,F_w\,\mathbf j_2 - L\,F_j\,\mathbf w \quad &\text{(moment equation with $Q_O$ zero)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf R_O = \mathbf F_r = F_j\,\mathbf j_2 + F_w\,\mathbf w, \qquad Q_O = 0, \qquad \mathbf Q_r = L\,F_w\,\mathbf j_2 - L\,F_j\,\mathbf w, \qquad L = \sqrt{d^2 + R^2}}$$
+>
+> **Units:** N; N m ($L$ in m times a force)
+> **Meaning:** all the reactions on the rod depend on the two force components $F_j$ and $F_w$. A massless rod is a two-force member only when it carries no torque; here it transmits the torque that the sphere needs, balanced by the moment of the force pair at $O$ and $G$. The joint torque is zero, so the result is the same if the joint at $O$ is read as a ball-and-socket joint.
+
+| Force on the sphere | Point of application | Expression in $\mathcal B_2$ | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $G$ | $Mg\sin\gamma(\cos\theta\,\mathbf i_2 - \sin\theta\,\mathbf j_2) - Mg\cos\gamma\,\mathbf k$ | applied |
+| Rod force | $G$ | $F_j\,\mathbf j_2 + F_w(-\sin\beta\,\mathbf i_2 + \cos\beta\,\mathbf k)$ | constraint |
+| Rod torque | - | $L F_w\,\mathbf j_2 - L F_j(-\sin\beta\,\mathbf i_2 + \cos\beta\,\mathbf k)$ | constraint |
+| Normal reaction | $P$ | $N\,\mathbf k$ | constraint |
+| Friction | $P$ | $T_1\,\mathbf i_2 + T_2\,\mathbf j_2$ (unknown with no slip; zero on a smooth plane) | constraint |
+
+> [!derivation] Part (e): resultant force and moment about G on the sphere
+> **Law:** sum of forces; moments about $G$ by a determinant; the torque of the rod added as a couple
+> **Source:** Notes.pdf, Eq. 12.4; Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 2.6
+>
+> $$\begin{aligned}
+> \mathbf F &= \left(Mg\sin\gamma\cos\theta - F_w\sin\beta + T_1\right)\mathbf i_2 + \left(-Mg\sin\gamma\sin\theta + F_j + T_2\right)\mathbf j_2 + \left(-Mg\cos\gamma + F_w\cos\beta + N\right)\mathbf k \quad &\text{(sum by components)} \\
+> \left(-R\,\mathbf k\right)\times\left(T_1\,\mathbf i_2 + T_2\,\mathbf j_2 + N\,\mathbf k\right) &= \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k \cr 0 & 0 & -R \cr T_1 & T_2 & N \end{vmatrix} = R\,T_2\,\mathbf i_2 - R\,T_1\,\mathbf j_2 \quad &\text{(moment of the contact force; expand along the first row)} \\
+> \mathbf Q_r &= L F_j\sin\beta\,\mathbf i_2 + L F_w\,\mathbf j_2 - L F_j\cos\beta\,\mathbf k = R\,F_j\,\mathbf i_2 + L\,F_w\,\mathbf j_2 - d\,F_j\,\mathbf k \quad &\text{($\mathbf w$ in $\mathcal B_2$; $L\sin\beta = R$, $L\cos\beta = d$)} \\
+> \mathbf M_G &= \mathbf Q_r + R\,T_2\,\mathbf i_2 - R\,T_1\,\mathbf j_2 \quad &\text{(weight and rod force act at $G$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf M_G = R\left(F_j + T_2\right)\mathbf i_2 + \left(L\,F_w - R\,T_1\right)\mathbf j_2 - d\,F_j\,\mathbf k}$$
+>
+> **Units:** N; N m
+> **Meaning:** five unknown reaction components act on the sphere: $F_j$, $F_w$ (the rod), $N$, $T_1$, $T_2$ (the plane).
+
+> [!derivation] Part (f): six equations for rolling without slip
+> **Law:** Newton's second law for the centre of mass; moment equation about $G$
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 4]; [Lecture 10, Slide 5]
+>
+> With rolling, $d$ and $\beta$ are constant (part (c)), so the acceleration of $G$ is minus $d$ times the squared rate of $\theta$ along $\mathbf i_2$ plus $d$ times its second rate along $\mathbf j_2$, and the angular acceleration is the one boxed in part (c). The pole $G$ is the centre of mass, so Eq. 12.13 has no term in the velocity of the pole.
+>
+> $$\begin{aligned}
+> -M\,d\,\dot\theta^2 &= Mg\sin\gamma\cos\theta - F_w\sin\beta + T_1 \quad &\text{(force along $\mathbf i_2$)} \\
+> M\,d\,\ddot\theta &= -Mg\sin\gamma\sin\theta + F_j + T_2 \quad &\text{(force along $\mathbf j_2$)} \\
+> 0 &= -Mg\cos\gamma + F_w\cos\beta + N \quad &\text{(force along $\mathbf k$)} \\
+> -\frac25\,MRd\,\ddot\theta &= R\left(F_j + T_2\right) \quad &\text{(moment along $\mathbf i_2$; $\tfrac25 MR^2$ times $-\tfrac dR\ddot\theta$)} \\
+> -\frac25\,MRd\,\dot\theta^2 &= L\,F_w - R\,T_1 \quad &\text{(moment along $\mathbf j_2$)} \\
+> 0 &= -d\,F_j \quad &\text{(moment along $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{six equations for } \theta, F_j, F_w, N, T_1, T_2 \text{ (above)}, \qquad F_j = 0}$$
+>
+> **Units:** N for the forces; N m for the moments
+> **Meaning:** the last equation already says that the rod pushes on the sphere only along $\mathbf w$, in the vertical plane of the rod.
+
+> [!derivation] Reduction to one equation and the reactions along the motion
+> **Law:** elimination of the reactions between the six equations
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13
+>
+> $$\begin{aligned}
+> T_2 &= -\frac25\,M\,d\,\ddot\theta \quad &\text{(moment along $\mathbf i_2$ with $F_j$ zero, divided by $R$)} \\
+> M\,d\,\ddot\theta + \frac25\,M\,d\,\ddot\theta &= -Mg\sin\gamma\sin\theta \quad &\text{(force along $\mathbf j_2$)} \\
+> \ddot\theta + \frac{5\,g\sin\gamma}{7\,d}\,\sin\theta &= 0 \quad &\text{(divide by $\tfrac75 Md$)} \\
+> T_1 &= F_w\sin\beta - Mg\sin\gamma\cos\theta - M\,d\,\dot\theta^2 \quad &\text{(force along $\mathbf i_2$)} \\
+> L\,F_w - R\,F_w\sin\beta &= -R\left(Mg\sin\gamma\cos\theta + M\,d\,\dot\theta^2\right) - \frac25\,MRd\,\dot\theta^2 \quad &\text{(substitute in the moment along $\mathbf j_2$)} \\
+> L - R\sin\beta &= L\left(1 - \sin^2\beta\right) = L\cos^2\beta = d\cos\beta \quad &\text{($R = L\sin\beta$; $d = L\cos\beta$)} \\
+> F_w &= -\frac{R}{d\cos\beta}\,M\left(g\sin\gamma\cos\theta + \frac75\,d\,\dot\theta^2\right) = -\frac{M\tan\beta}{\cos\beta}\left(g\sin\gamma\cos\theta + \frac75\,d\,\dot\theta^2\right) \quad &\text{(divide; $R/d = \tan\beta$)} \\
+> N &= Mg\cos\gamma - F_w\cos\beta = Mg\cos\gamma + M\tan\beta\left(g\sin\gamma\cos\theta + \frac75\,d\,\dot\theta^2\right) \quad &\text{(force along $\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\theta + \frac{5\,g\sin\gamma}{7\,d}\sin\theta = 0, \quad F_j = 0, \quad T_2 = \frac27\,Mg\sin\gamma\sin\theta, \quad F_w = -\frac{M\tan\beta}{\cos\beta}\left(g\sin\gamma\cos\theta + \frac75 d\dot\theta^2\right), \quad N = Mg\cos\gamma - F_w\cos\beta}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$ for the coefficient of the sine ($[\mathrm{L\,T^{-2}}]/[\mathrm L]$); N for the reactions
+> **Meaning:** the sphere is a pendulum about the line of maximum slope through $O$: the downhill pull, with the arm given by the sine of $\theta$, brings $OP$ back to $\theta$ zero, and the rolling adds two fifths to the inertia. $T_2$ follows from the first line with the second rate of $\theta$ from the third; $T_1$ is then the force along $\mathbf i_2$ with this $F_w$. Whenever the bracket is positive (near the equilibrium, for instance) $F_w$ is negative, along minus $\mathbf w$: the rod presses the sphere against the plane, which is why $N$ then exceeds the normal part of the weight.
+
+> [!derivation] Part (g): reactions in the equilibrium at theta equal to zero
+> **Law:** the previous box at rest with $\theta$ zero
+> **Source:** Notes.pdf, Eq. 12.24; Notes.pdf, Eq. 12.25
+>
+> $$\begin{aligned}
+> \ddot\theta &= -\frac{5\,g\sin\gamma}{7\,d}\sin 0 = 0 \quad &\text{(rest at $\theta$ zero is an equilibrium)} \\
+> F_w &= -\frac{Mg\sin\gamma\tan\beta}{\cos\beta} = -\frac{Mg\sin\gamma\sin\beta}{\cos^2\beta}, \qquad F_j = 0 \quad &\text{(zero rate, cosine of $\theta$ equal to 1)} \\
+> \mathbf F_r &= F_w\left(-\sin\beta\,\mathbf i_2 + \cos\beta\,\mathbf k\right) = Mg\sin\gamma\tan^2\beta\,\mathbf i_2 - Mg\sin\gamma\tan\beta\,\mathbf k \quad &\text{(rod force in $\mathcal B_2$)} \\
+> \mathbf Q_r &= L\,F_w\,\mathbf j_2 = -\frac{MgR\sin\gamma}{\cos^2\beta}\,\mathbf j_2 \quad &\text{(part (d); $L\sin\beta = R$)} \\
+> N &= Mg\cos\gamma + Mg\sin\gamma\tan\beta \quad &\text{(previous box)} \\
+> T_1 &= F_w\sin\beta - Mg\sin\gamma = -Mg\sin\gamma\left(\tan^2\beta + 1\right) = -\frac{Mg\sin\gamma}{\cos^2\beta}, \qquad T_2 = 0 \quad &\text{(force along $\mathbf i_2$; $1 + \tan^2\beta = 1/\cos^2\beta$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_r = Mg\sin\gamma\tan\beta\left(\tan\beta\,\mathbf i - \mathbf k\right), \quad \mathbf Q_r = -\frac{MgR\sin\gamma}{\cos^2\beta}\,\mathbf j, \quad N = Mg\left(\cos\gamma + \sin\gamma\tan\beta\right), \quad \mathbf T = -\frac{Mg\sin\gamma}{\cos^2\beta}\,\mathbf i}$$
+>
+> **Units:** N; N m
+> **Meaning:** at $\theta$ zero the basis $\mathcal B_2$ coincides with $\mathcal B_0$. The sphere hangs below $O$ on the line of maximum slope: friction holds it up the slope with more than the downhill weight component, the rod pushes it down the slope and into the plane, and the torque of the rod balances the moment of the friction about $G$. Check of the moment along $\mathbf j_2$: $L F_w$ minus $R T_1$ is $MgR\sin\gamma$ over the square of the cosine of $\beta$ times minus one plus one, zero.
+
+> [!derivation] Part (h): small oscillations about the equilibrium
+> **Law:** first-order expansion of the sine; harmonic oscillator and its initial conditions
+> **Source:** Notes.pdf, Eq. 5.6; Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.8; Notes.pdf, Eq. 5.9
+>
+> $$\begin{aligned}
+> \sin\theta &= \theta + O\left(\theta^3\right) \quad &\text{(Taylor expansion about zero)} \\
+> \ddot\theta + \Omega^2\,\theta &= 0, \qquad \Omega^2 = \frac{5\,g\sin\gamma}{7\,d} = \frac{5\,g\sin\gamma\tan\beta}{7\,R} \quad &\text{(linearised equation, Eq. 5.6; $d = R/\tan\beta$)} \\
+> \theta(t) &= C_1\cos\Omega t + C_2\sin\Omega t, \qquad C_1 = \theta_0, \quad C_2 = \frac{\dot\theta_0}{\Omega} = 0 \quad &\text{(Eqs. 5.7 to 5.9; released from rest)} \\
+> \ddot\theta &= -\Omega^2\,\theta_0\cos\Omega t \quad &\text{(chain rule twice: the solution satisfies the equation)}
+> \end{aligned}$$
+>
+> $$\boxed{\theta(t) = \theta_0\cos\Omega t, \qquad \Omega = \sqrt{\frac{5\,g\sin\gamma}{7\,d}} = \sqrt{\frac{5\,g\sin\gamma\tan\beta}{7\,R}}}$$
+>
+> **Units:** $\Omega$ in $\sqrt{[\mathrm{L\,T^{-2}}]/[\mathrm L]} = [\mathrm{T^{-1}}]$
+> **Meaning:** the sphere swings about the line of maximum slope like a pendulum of length $d$ in the reduced gravity $g\sin\gamma$, slowed by the factor square root of five sevenths that rolling brings; a flatter plane or a longer rod gives slower oscillations.
+
+#### Parts (i) and (j): frictionless inclined plane
+
+> [!derivation] Part (i): equations on the smooth plane
+> **Law:** the equations of part (f) with zero friction and without the rolling conditions; projection of the moment equation on the rod
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 13.2
+>
+> Without friction $T_1$ and $T_2$ vanish, the contact point may slide and $d$ and $\varphi$ are free again: three coordinates and three reaction components ($F_j$, $F_w$, $N$). Write $I$ for two fifths of $MR^2$, and the components of the angular acceleration as in part (b).
+>
+> $$\begin{aligned}
+> M\left(\ddot d - d\,\dot\theta^2\right) &= Mg\sin\gamma\cos\theta - F_w\sin\beta \quad &\text{(force along $\mathbf i_2$)} \\
+> M\left(d\,\ddot\theta + 2\,\dot d\,\dot\theta\right) &= -Mg\sin\gamma\sin\theta + F_j \quad &\text{(force along $\mathbf j_2$)} \\
+> N &= Mg\cos\gamma - F_w\cos\beta \quad &\text{(force along $\mathbf k$; height of $G$ constant)} \\
+> I\left(\ddot\varphi\cos\beta - \dot\varphi\dot\beta\sin\beta + \dot\theta\dot\beta\right) &= R\,F_j \quad &\text{(moment along $\mathbf i_2$)} \\
+> I\left(-\ddot\beta + \dot\theta\dot\varphi\cos\beta\right) &= L\,F_w \quad &\text{(moment along $\mathbf j_2$)} \\
+> I\left(\ddot\theta + \ddot\varphi\sin\beta + \dot\varphi\dot\beta\cos\beta\right) &= -d\,F_j \quad &\text{(moment along $\mathbf k$)} \\
+> \mathbf M_G\cdot\mathbf u &= R\,F_j\cos\beta - d\,F_j\sin\beta = F_j L\left(\sin\beta\cos\beta - \cos\beta\sin\beta\right) = 0 \quad &\text{(moment about the rod)} \\
+> \frac{d}{dt}\left(\boldsymbol\omega_{b0}\cdot\mathbf u\right) &= \boldsymbol\alpha_{b0}\cdot\mathbf u + \boldsymbol\omega_{b0}\cdot\left(\boldsymbol\omega_{30}\times\mathbf u\right) = \frac{\mathbf M_G\cdot\mathbf u}{I} + 0 \quad &\text{(product rule; Poisson for $\mathbf u$; $\boldsymbol\omega_{b0}$ minus $\boldsymbol\omega_{30}$ is parallel to $\mathbf u$)} \\
+> \boldsymbol\omega_{b0}\cdot\mathbf u &= \dot\varphi\cos^2\beta + \left(\dot\theta + \dot\varphi\sin\beta\right)\sin\beta = \dot\varphi + \dot\theta\sin\beta \quad &\text{(components in $\mathcal B_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{the six equations above for } \theta, d, \varphi, F_j, F_w, N, \text{ with } \sin\beta = \frac{R}{L}, \ \cos\beta = \frac dL, \ \dot\beta = -\frac{R\dot d}{L^2}; \qquad \dot\varphi + \dot\theta\sin\beta = C}$$
+>
+> **Units:** N; N m; $[\mathrm{T^{-1}}]$ for the constant $C$
+> **Meaning:** the spin of the sphere about the moving rod is conserved for two reasons together: the reactions have no moment about the rod (the rod exerts no torque along itself and the other forces act at $G$ or along the normal through $G$), and the gyroscopic term vanishes because the tensor is isotropic and the sphere differs from the rod frame only by a rotation about the rod. The force along $\mathbf j_2$ gives $F_j$, the moment along $\mathbf j_2$ gives $F_w$, and three second-order equations remain for $\theta$, $d$ and $\varphi$. The contact must be checked: $N$ must stay positive.
+
+> [!derivation] Part (j): initial conditions
+> **Law:** polar coordinates of the contact point; components of the velocity of $G$ in $\mathcal B_2$
+> **Source:** Notes.pdf, Eq. 9.3; Problems.pdf, p. 52
+>
+> $$\begin{aligned}
+> \overrightarrow{OP_0} &= 2R\,\mathbf i + 3R\,\mathbf j \quad &\text{(the contact is below $G$)} \\
+> d_0 &= \sqrt{4R^2 + 9R^2} = \sqrt{13}\,R, \qquad \cos\theta_0 = \frac{2}{\sqrt{13}}, \quad \sin\theta_0 = \frac{3}{\sqrt{13}} \quad &\text{(right triangle with legs $2R$, $3R$)} \\
+> \theta_0 &= \arctan\frac32, \qquad \tan\beta_0 = \frac{R}{d_0} = \frac{1}{\sqrt{13}}, \qquad \sin\beta_0 = \frac{1}{\sqrt{14}} \quad &\text{(hypotenuse $\sqrt{d_0^2 + R^2} = \sqrt{14}\,R$)} \\
+> \dot d_0 &= \mathbf v_{G0}\cdot\mathbf i_2 = -\sqrt{Rg}\left(\cos\theta_0 + \sin\theta_0\right) = -\frac{5\sqrt{Rg}}{\sqrt{13}} \quad &\text{(component along $\mathbf i_2$)} \\
+> d_0\,\dot\theta_0 &= \mathbf v_{G0}\cdot\mathbf j_2 = -\sqrt{Rg}\left(-\sin\theta_0 + \cos\theta_0\right) = \frac{\sqrt{Rg}}{\sqrt{13}} \quad &\text{(component along $\mathbf j_2$)} \\
+> \dot\theta_0 &= \frac{\sqrt{Rg}}{\sqrt{13}\cdot\sqrt{13}\,R} = \frac{1}{13}\sqrt{\frac gR} \quad &\text{(divide by $d_0$)} \\
+> \dot\varphi_0 &= C - \dot\theta_0\sin\beta_0 \quad &\text{(spin integral of part (i))}
+> \end{aligned}$$
+>
+> $$\boxed{\theta_0 = \arctan\tfrac32, \quad d_0 = \sqrt{13}\,R, \quad \dot\theta_0 = \frac{1}{13}\sqrt{\frac gR}, \quad \dot d_0 = -5\sqrt{\frac{Rg}{13}}, \quad \varphi_0 = 0, \quad \dot\varphi_0 = C - \frac{1}{13\sqrt{14}}\sqrt{\frac gR}}$$
+>
+> **Units:** rad; m; rad/s; m/s
+> **Meaning:** the sphere starts at about 56.3 deg from the line of maximum slope, with the rod at about 15.5 deg above the plane, moving towards $O$ (negative rate of $d$) while $OP$ turns slowly counterclockwise. The data fix the motion of $G$ but not the spin about the rod: $\varphi_0$ is zero by the choice of the reference, and the constant $C$ (the initial spin about the rod) is an extra datum; for a sphere launched with no angular velocity about the rod, $C$ is zero.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Coordinates | $\theta$, $d$, $\varphi$ (three); $\beta = \arctan(R/d)$ |
+| (b) Kinematics | $\boldsymbol\omega = \dot\varphi\cos\beta\,\mathbf i_2 - \dot\beta\,\mathbf j_2 + (\dot\theta + \dot\varphi\sin\beta)\,\mathbf k$; $\boldsymbol\alpha = (\ddot\varphi\cos\beta - \dot\varphi\dot\beta\sin\beta + \dot\theta\dot\beta)\,\mathbf i_2 + (-\ddot\beta + \dot\theta\dot\varphi\cos\beta)\,\mathbf j_2 + (\ddot\theta + \ddot\varphi\sin\beta + \dot\varphi\dot\beta\cos\beta)\,\mathbf k$; $\mathbf v_G = \dot d\,\mathbf i_2 + d\dot\theta\,\mathbf j_2$; $\mathbf a_G = (\ddot d - d\dot\theta^2)\,\mathbf i_2 + (d\ddot\theta + 2\dot d\dot\theta)\,\mathbf j_2$; $\dot\beta = -R\dot d/(d^2 + R^2)$ |
+| (c) Rolling | $\mathbf v_P = \mathbf v_G - R\,\boldsymbol\omega\times\mathbf k$; $\dot d = 0$, $\dot\varphi = -\dot\theta/\sin\beta$ |
+| (d) Rod | $\mathbf R_O = \mathbf F_r = F_j\,\mathbf j_2 + F_w\,\mathbf w$, joint torque zero, $\mathbf Q_r = LF_w\,\mathbf j_2 - LF_j\,\mathbf w$ |
+| (e) Sphere | force and moment of the part (e) box, with $F_j$, $F_w$, $N$, $T_1$, $T_2$ |
+| (f) Six equations | box of part (f) |
+| (g) Equilibrium | $\mathbf F_r = Mg\sin\gamma\tan\beta(\tan\beta\,\mathbf i - \mathbf k)$, $\mathbf Q_r = -MgR\sin\gamma\,\mathbf j/\cos^2\beta$; $N = Mg(\cos\gamma + \sin\gamma\tan\beta)$; friction $-Mg\sin\gamma\,\mathbf i/\cos^2\beta$ |
+| (h) Small oscillations | $\theta = \theta_0\cos\Omega t$, $\Omega = \sqrt{5g\sin\gamma/(7d)} = \sqrt{5g\sin\gamma\tan\beta/(7R)}$ |
+| (i) Smooth plane | $T_1 = T_2 = 0$; $d$ and $\varphi$ free; six equations of the part (i) box; $\dot\varphi + \dot\theta\sin\beta$ constant |
+| (j) Initial conditions | $\theta_0 = \arctan(3/2)$, $d_0 = \sqrt{13}R$, $\dot\theta_0 = \sqrt{g/R}/13$, $\dot d_0 = -5\sqrt{Rg/13}$, $\varphi_0 = 0$; the spin about the rod is an extra datum |
+
+`Problems.pdf` prints no answer for this problem (see [[Problem Set - Rigid Body Official Key]]), so the results are checked with an independent derivation and limiting cases.
+
+> [!derivation] Check: energy of the rolling sphere
+> **Law:** conservation of the mechanical energy (contact point at rest, ideal smooth rod); potential of the weight; chain rule
+> **Source:** Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; Notes.pdf, Eq. 12.31
+>
+> $$\begin{aligned}
+> T_0 &= \frac12\,M\,d^2\dot\theta^2 + \frac12\cdot\frac25\,MR^2\,\frac{d^2}{R^2}\,\dot\theta^2 = \frac{7}{10}\,M\,d^2\dot\theta^2 \quad &\text{(Koenig with the angular velocity of part (c))} \\
+> V_0 &= M g\,\mathbf r_0^G\cdot\mathbf K = Mg\left(-d\cos\theta\sin\gamma + R\cos\gamma\right) \quad &\text{($\mathbf K$ in $\mathcal B_0$; $\mathbf i_2\cdot\mathbf i$ is the cosine of $\theta$)} \\
+> \frac{d}{dt}\left(T_0 + V_0\right) &= \frac75\,M\,d^2\dot\theta\ddot\theta + Mg\,d\sin\gamma\sin\theta\,\dot\theta = \frac75\,M\,d^2\dot\theta\left(\ddot\theta + \frac{5\,g\sin\gamma}{7\,d}\sin\theta\right) \quad &\text{(chain rule; $d$ constant)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{7}{10}\,M\,d^2\dot\theta^2 - Mg\,d\sin\gamma\cos\theta = E_0 - MgR\cos\gamma}$$
+>
+> **Units:** J in every term
+> **Meaning:** the derivative vanishes exactly by the equation of motion of the reduced box: the energy integral is its first integral. The frictionless equations of part (i) were also compared symbolically with the equations obtained from the kinetic energy of the momentum section and this potential with the three coordinates; after eliminating $F_j$ and $F_w$ they coincide.
+
+**Limiting cases and consistency:**
+
+* **Horizontal plane.** With zero inclination the coefficient of the sine vanishes: any $\theta$ is an equilibrium and the sphere rolls around $O$ at a constant rate. The centripetal force comes from the friction and the rod, and the rod presses the sphere against the plane, so the normal reaction exceeds the weight by a term proportional to the squared rate of $\theta$.
+* **Very long rod.** For $d$ much larger than $R$, $\beta$ tends to zero: in equilibrium the rod force vanishes, the friction tends to the downhill weight component, and the torque of the rod tends to $MgR\sin\gamma$, which balances the moment of that friction about $G$; the frequency tends to zero, as for a very long pendulum.
+* **Sign check.** For small positive $\theta$ the second rate of $\theta$ is negative: the sphere returns towards the line of maximum slope below $O$, which is the stable side.
+* **Dimensions.** The squared frequency is an acceleration over a length; every reaction is a multiple of $Mg$.
+
+---
