@@ -264,6 +264,10 @@ window.AE_NAV = {
             {
               "href": "subjects/engineering-mechanics/problemas/topic-6.html",
               "label": "6 · Rigid body kinematics, inertia"
+            },
+            {
+              "href": "subjects/engineering-mechanics/problemas/topic-7.html",
+              "label": "7 · Momentum, energy, dynamics"
             }
           ]
         },

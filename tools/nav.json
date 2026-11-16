@@ -211,6 +211,10 @@
     {
      "page": "topic-6.html",
      "label": "6 · Rigid body kinematics, inertia"
+    },
+    {
+     "page": "topic-7.html",
+     "label": "7 · Momentum, energy, dynamics"
     }
    ],
    "extra-problems": [

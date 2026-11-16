@@ -19,7 +19,7 @@ bytes: 4812504
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf`
 - **Kind:** problemas
 - **Size:** 4.8 MB
-- **Status:** referenced by 21 note(s) below
+- **Status:** referenced by 22 note(s) below
 
 ## Referenced by
 
@@ -40,6 +40,7 @@ bytes: 4812504
 - [[03 - Engineering Mechanics/Solution Set - Topic 4 Angular Momentum and Central Forces]]
 - [[03 - Engineering Mechanics/Solution Set - Topic 5 Relative Motion]]
 - [[03 - Engineering Mechanics/Solution Set - Topic 6 Rigid Body Kinematics and Inertia]]
+- [[03 - Engineering Mechanics/Solution Set - Topic 7 Rigid Body Momentum, Energy and Dynamics]]
 - [[03 - Engineering Mechanics/Topic 4 - Angular Momentum and Central Forces]]
 - [[03 - Engineering Mechanics/Topic 5 - Relative Motion]]
 - [[06 - Repository/Rules - EM Mission Progress]]

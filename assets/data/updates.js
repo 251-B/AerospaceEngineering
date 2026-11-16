@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-16-mechanics-rigid-body-problems-7",
+    "date": "2026-11-16",
+    "tag": "Engineering Mechanics",
+    "title": "Rigid body problems: Topic 7 solved step by step",
+    "text": "Eight official dynamics problems, from a spinner and Lagrange's top to a firedoor and a cylinder on two strings, each with free-body diagrams.",
+    "link": "subjects/engineering-mechanics/problemas/topic-7.html"
+  },
+  {
     "id": "2026-11-15-mechanics-inertia-theory",
     "date": "2026-11-15",
     "tag": "Engineering Mechanics",

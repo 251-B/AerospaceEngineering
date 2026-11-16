@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 600" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the hanging axisymmetric body with the string tension, its weight and the guide reaction.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="180.0" y1="90.0" x2="420.0" y2="90.0" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="180.0" y1="90.0" x2="173.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="189.0" y1="90.0" x2="182.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="198.0" y1="90.0" x2="191.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="207.0" y1="90.0" x2="200.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="216.0" y1="90.0" x2="209.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="225.0" y1="90.0" x2="218.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="234.0" y1="90.0" x2="227.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="243.0" y1="90.0" x2="236.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="252.0" y1="90.0" x2="245.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="261.0" y1="90.0" x2="254.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="270.0" y1="90.0" x2="263.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="279.0" y1="90.0" x2="272.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="288.0" y1="90.0" x2="281.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="297.0" y1="90.0" x2="290.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="306.0" y1="90.0" x2="299.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="315.0" y1="90.0" x2="308.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="324.0" y1="90.0" x2="317.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="333.0" y1="90.0" x2="326.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="342.0" y1="90.0" x2="335.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="351.0" y1="90.0" x2="344.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="360.0" y1="90.0" x2="353.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="369.0" y1="90.0" x2="362.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="378.0" y1="90.0" x2="371.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="387.0" y1="90.0" x2="380.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="396.0" y1="90.0" x2="389.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="405.0" y1="90.0" x2="398.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="414.0" y1="90.0" x2="407.6" y2="83.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="300.0" y1="90.0" x2="300.0" y2="448.2" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="10 4 2 4"/>
+<line x1="214.0" y1="212.9" x2="325.8" y2="372.6" stroke="#4b5563" stroke-width="6.0"/>
+<line x1="374.5" y1="298.3" x2="239.3" y2="392.9" stroke="#4b5563" stroke-width="6.0"/>
+<polygon points="383.1,310.5 247.9,405.2 230.7,380.6 365.9,286.0" fill="#4b5563" fill-opacity="0.12" stroke="#4b5563" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="180.2" y1="261.0" x2="338.7" y2="34.7" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="7 4"/>
+<line x1="300.0" y1="335.7" x2="184.5" y2="254.9" stroke="#3b82f6" stroke-width="1.6" stroke-dasharray="6 4"/>
+<polyline points="178.5,263.5 187.1,269.5 193.1,260.9" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<text x="236.3" y="317.3" fill="#3b82f6" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">ℓ sin θ</text>
+<line x1="312.3" y1="327.1" x2="236.6" y2="219.0" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M233.1,214.1 L241.6,219.4 L235.2,223.9 Z" fill="#3b82f6"/>
+<text x="204.0" y="188.9" fill="#3b82f6" font-size="15" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">G</tspan><tspan baseline-shift="super" font-size="70%">A</tspan> = −ℓ <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<line x1="214.0" y1="212.9" x2="262.8" y2="143.1" stroke="#ec4899" stroke-width="3.6"/>
+<path d="M267.3,136.7 L264.6,149.4 L256.3,143.6 Z" fill="#ec4899"/>
+<text x="257.3" y="128.7" fill="#ec4899" font-size="17" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">T <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">AO</tspan></text>
+<line x1="300.0" y1="335.7" x2="300.0" y2="462.9" stroke="#ec4899" stroke-width="3.6"/>
+<path d="M300.0,470.7 L294.9,458.8 L305.1,458.8 Z" fill="#ec4899"/>
+<text x="278.0" y="482.7" fill="#ec4899" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">mg</text>
+<line x1="300.0" y1="335.7" x2="225.3" y2="335.7" stroke="#ec4899" stroke-width="3.6"/>
+<path d="M217.5,335.7 L229.5,330.7 L229.5,340.8 Z" fill="#ec4899"/>
+<text x="207.5" y="341.7" fill="#ec4899" font-size="17" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N<tspan baseline-shift="sub" font-size="70%">2</tspan> <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="333.0" cy="218.7" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="333.0" cy="218.7" r="2.6" fill="#4b5563"/>
+<text x="349.0" y="223.7" fill="#4b5563" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N<tspan baseline-shift="sub" font-size="70%">1</tspan> <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> = 0 (⊙)</text>
+<path d="M326.7,262.4 A78.0,78.0 0 0 1 313.5,412.6" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M310.6,413.1 L318.1,408.2 L319.4,415.1 Z" fill="#f59e0b"/>
+<text x="401.0" y="349.6" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="391.7" y="376.5" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">M</tspan><tspan baseline-shift="sub" font-size="70%">G</tspan> = −ℓ T sin θ <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<circle cx="300.0" cy="90.0" r="5" fill="#4b5563" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="284.0" y="82.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<circle cx="214.0" cy="212.9" r="5" fill="#4b5563" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="200.0" y="218.9" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<circle cx="300.0" cy="335.7" r="4.5" fill="#4b5563"/>
+<text x="314.0" y="323.7" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+</g></svg>
