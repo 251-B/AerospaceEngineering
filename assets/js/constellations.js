@@ -88,37 +88,37 @@
      anchors; the others stay as faint stars of the figure. `rot` turns the whole figure. */
   var META = {
     'fluid-mechanics': {
-      latin: 'Stella Fluidorum', color: 'fluid', rot: -14,
-      anchors: [[-205, 62], [-140, -28], [-62, -98], [42, -84], [110, -8], [72, 74], [-8, 44]],
-      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]],
+      latin: 'Stella Fluidorum', color: 'fluid', rot: -22,
+      anchors: [[-215, 70], [-150, -10], [-95, -92], [-12, -60], [58, -128], [120, -20], [40, 50]],
+      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [3, 5], [5, 6]],
       use: { 4: [0, 2, 4, 6] },
       flow: [[[-215, 20], [-150, -70], [-70, -128], [30, -120], [120, -60]], [[-190, 108], [-100, 70], [-20, 96], [70, 118], [150, 76]]]
     },
     'aerospace-materials-1': {
-      latin: 'Stella Materiae', color: 'materials', rot: 9,
-      anchors: [[-12, -150], [118, -88], [138, 46], [28, 138], [-108, 90], [-142, -46], [-6, -4]],
+      latin: 'Stella Materiae', color: 'materials', rot: 17,
+      anchors: [[-20, -155], [95, -92], [158, 22], [60, 118], [-85, 150], [-150, 40], [-12, 6]],
       edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [2, 6], [4, 6]],
       use: { 6: [0, 1, 2, 3, 4, 5] },
       flow: [[[-196, -120], [-60, -196], [60, -190]], [[150, 150], [60, 200], [-70, 196]]]
     },
     'engineering-mechanics': {
-      latin: 'Stella Mechanicae', color: 'mechanics', rot: 12,
-      anchors: [[-205, 40], [-150, -48], [-52, -96], [70, -78], [168, -16], [128, 66], [12, 88]],
-      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0]],
+      latin: 'Stella Mechanicae', color: 'mechanics', rot: 24,
+      anchors: [[-215, 52], [-170, -52], [-70, -110], [48, -64], [150, -92], [196, 18], [92, 98]],
+      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [3, 6]],
       use: {},
       flow: [[[-30, 4], [60, -40], [140, -100]], [[-210, 100], [-100, 150], [60, 160]]]
     },
     'advanced-maths': {
-      latin: 'Stella Matheseos', color: 'maths', rot: -8,
-      anchors: [[-235, 12], [-168, -84], [-88, -66], [-12, 28], [62, 100], [142, 52], [226, -34]],
+      latin: 'Stella Matheseos', color: 'maths', rot: -15,
+      anchors: [[-250, 30], [-186, -82], [-96, -40], [-24, 56], [58, 112], [120, 10], [214, -70]],
       labels: ['l', 't', 't', 'b', 'b', 't', 'r'],
       edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]],
       use: {},
       flow: [[[-240, 36], [-120, 60], [0, 90], [120, 120]], [[-200, -120], [-60, -140], [90, -110], [210, -90]]]
     },
     'business-management': {
-      latin: 'Stella Oeconomiae', color: 'business', rot: 16,
-      anchors: [[-168, 52], [-98, -74], [-8, 22], [64, -92], [158, -22], [88, 88], [-62, 108]],
+      latin: 'Stella Oeconomiae', color: 'business', rot: 31,
+      anchors: [[-180, 60], [-112, -92], [-24, 10], [52, -110], [170, -38], [122, 96], [-48, 120]],
       edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 2], [2, 6], [6, 0], [1, 6]],
       use: { 6: [0, 1, 2, 3, 4, 5] },
       flow: [[[100, -150], [170, -90]], [[-190, -20], [-140, -120]]]
@@ -149,8 +149,8 @@
   }
 
   /* Layouts of the panorama (centres of the five constellations and of the pulsar). */
-  var LAND = { box: [1600, 1030], centre: [800, 515], slots: [[300, 250], [820, 165], [1300, 285], [500, 600], [1060, 585]], pulsar: [1500, 800] };
-  var PORT = { box: [1000, 2500], centre: [500, 1250], slots: [[290, 240], [720, 700], [270, 1160], [730, 1620], [290, 2080]], pulsar: [800, 2400] };
+  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[270, 300], [930, 215], [1660, 350], [470, 880], [1290, 900]], pulsar: [1790, 1060] };
+  var PORT = { box: [1000, 2900], centre: [500, 1450], slots: [[260, 260], [740, 800], [240, 1380], [760, 1960], [270, 2540]], pulsar: [780, 2800] };
   var GUIDES = [[0, 1], [1, 2], [2, 4], [4, 3], [3, 0], [1, 3], [1, 4]];
 
   var ZOOM_H = 430;          // height of the camera box on a constellation (user units)
@@ -275,9 +275,7 @@
       return a;
     });
 
-    // panorama labels (hidden while zoomed)
-    var t = s('text', { 'class': 'const-title', x: 0, y: 248 }, g); t.textContent = meta.latin;
-    var u = s('text', { 'class': 'const-sub', x: 0, y: 274 }, g); u.textContent = sub.name;
+    // the name of a subject appears only when its constellation is opened (caption)
 
     return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list };
   }
@@ -370,6 +368,8 @@
     caption.textContent = '';
     if (selected) {
       var it = byslug(selected);
+      caption.style.setProperty('--c', 'var(--c-' + META[it.slug].color + ')');
+      caption.style.setProperty('--ct', 'var(--ct-' + META[it.slug].color + ')');
       caption.appendChild(h('h2', '', it.latin));
       caption.appendChild(h('p', '', it.name + ' · ' + it.sections.length + ' areas · Esc returns to all constellations'));
     } else {
@@ -471,10 +471,19 @@
       s('stop', { offset: '0.35', style: 'stop-color: var(--c-' + color + '); stop-opacity: 0.16' }, grad);
       s('stop', { offset: '1', style: 'stop-color: var(--c-' + color + '); stop-opacity: 0' }, grad);
     });
-    for (var bs = 0; bs < 70; bs++) {   // the far sky: tiny twinkling stars behind everything
-      var r2 = seeded(31337 + bs), bx = Math.round(r2() * 1800 - 100), by = Math.round(r2() * 2300 - 100);
-      var bd = s('circle', { 'class': 'dust far', cx: bx, cy: by, r: (0.8 + r2() * 1.6).toFixed(1) }, svg);
-      bd.style.setProperty('--d', (r2() * 6).toFixed(2) + 's');
+    var rs = seeded(20260511);   // the far sky: three sizes, three tints, a few twinkling, a few bright with spikes
+    var tints = ['t-w', 't-w', 't-w', 't-c', 't-a'];
+    for (var bs = 0; bs < 420; bs++) {
+      var bx = Math.round(rs() * 2500 - 300), by = Math.round(rs() * 3500 - 300), pk = rs();
+      var size = pk < 0.72 ? 's1' : pk < 0.93 ? 's2' : 's3';
+      var bd = s('circle', { 'class': 'dust far ' + size + ' ' + tints[Math.floor(rs() * tints.length)] + (rs() < 0.3 ? ' tw' : ''), cx: bx, cy: by, r: 1 }, svg);
+      bd.style.setProperty('--d', (rs() * 7).toFixed(2) + 's');
+    }
+    for (var sp = 0; sp < 26; sp++) {
+      var holder = s('g', { transform: 'translate(' + Math.round(rs() * 2500 - 300) + ' ' + Math.round(rs() * 3500 - 300) + ')' }, svg);
+      var spark = s('path', { 'class': 'far-spark ' + tints[Math.floor(rs() * tints.length)], d: 'M0 -9 L1.4 -1.4 L9 0 L1.4 1.4 L0 9 L-1.4 1.4 L-9 0 L-1.4 -1.4Z' }, holder);
+      spark.style.setProperty('--d', (rs() * 6).toFixed(2) + 's');
+      spark.style.setProperty('--k', (0.5 + rs() * 0.7).toFixed(2));
     }
     var guideLayer = s('g', { 'aria-hidden': 'true' }, svg);
     GUIDES.forEach(function (pair) { guides.push({ a: pair[0], b: pair[1], el: s('line', { 'class': 'guide-line' }, guideLayer) }); });
