@@ -287,37 +287,28 @@ html[data-home-view="constellations"] .header-actions .view-toggle::before {
   clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
 }
 
-/* Timer and Focus: two lost astros drifting at the edge of the sky */
+/* Timer and Focus: two small ringed planets drifting at the edge of the sky */
 html[data-home-view="constellations"] .fl-launcher,
 html[data-home-view="constellations"] .pm-launcher {
-  min-width: 0; width: 48px; height: 48px; padding: 0; justify-content: center; border: 0; border-radius: 50%;
+  min-width: 0; width: 64px; height: 64px; padding: 0; justify-content: center; border: 0; border-radius: 50%;
+  background-color: transparent; background-repeat: no-repeat; background-position: center; background-size: 64px 64px;
+  box-shadow: none; filter: drop-shadow(0 0 10px rgba(160, 150, 255, 0.35));
   animation: astro-drift 9s ease-in-out infinite;
 }
 html[data-home-view="constellations"] .fl-launcher__label,
 html[data-home-view="constellations"] .pm-launcher:not(.is-compact) .pm-launcher__label {
   position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
-html[data-home-view="constellations"] .fl-launcher {   /* a ringed planet */
-  right: 34px; bottom: 54px; color: #ffffff;
-  background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.55), transparent 38%), linear-gradient(145deg, #8b6cff, #2c1a78);
-  box-shadow: 0 0 22px rgba(139, 108, 255, 0.45);
-}
-html[data-home-view="constellations"] .fl-launcher::after {
-  content: ''; position: absolute; left: -9px; right: -9px; top: 50%; height: 16px; margin-top: -8px; border-radius: 50%;
-  border: 1.5px solid rgba(214, 200, 255, 0.75); transform: rotate(-22deg); pointer-events: none; clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
-}
+html[data-home-view="constellations"] .fl-launcher { right: 26px; bottom: 52px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='p' cx='34%25' cy='28%25' r='80%25'%3E%3Cstop offset='0' stop-color='%23c9b8ff'/%3E%3Cstop offset='.45' stop-color='%237b5cf0'/%3E%3Cstop offset='1' stop-color='%232b1a78'/%3E%3C/radialGradient%3E%3C/defs%3E%0A%3Cg transform='rotate(-20 32 32)' fill='none' stroke-linecap='round'%3E%3Cpath d='M2.5 32A29.5 9 0 0 1 61.5 32' stroke='%23d9ccff' stroke-opacity='.5' stroke-width='1.1'/%3E%3Cpath d='M7 32A25 7 0 0 1 57 32' stroke='%23d9ccff' stroke-opacity='.3' stroke-width='.9'/%3E%3C/g%3E%0A%3Ccircle cx='32' cy='32' r='17' fill='url(%23p)'/%3E%0A%3Cg transform='rotate(-20 32 32)' fill='none' stroke-linecap='round'%3E%3Cpath d='M2.5 32A29.5 9 0 0 0 61.5 32' stroke='%23efe8ff' stroke-opacity='.85' stroke-width='1.3'/%3E%3Cpath d='M7 32A25 7 0 0 0 57 32' stroke='%23efe8ff' stroke-opacity='.45' stroke-width='.9'/%3E%3C/g%3E%3C/svg%3E"); }
+html[data-home-view="constellations"] .pm-launcher { right: 98px; bottom: 18px; animation-delay: -4s; filter: drop-shadow(0 0 10px rgba(255, 233, 168, 0.3)); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='p' cx='34%25' cy='28%25' r='80%25'%3E%3Cstop offset='0' stop-color='%23fffdf0'/%3E%3Cstop offset='.5' stop-color='%23e6dcb0'/%3E%3Cstop offset='1' stop-color='%238f8660'/%3E%3C/radialGradient%3E%3C/defs%3E%0A%3Cg transform='rotate(18 32 32)' fill='none' stroke-linecap='round'%3E%3Cpath d='M2.5 32A29.5 9 0 0 1 61.5 32' stroke='%23ffe9a8' stroke-opacity='.5' stroke-width='1.1'/%3E%3Cpath d='M7 32A25 7 0 0 1 57 32' stroke='%23ffe9a8' stroke-opacity='.3' stroke-width='.9'/%3E%3C/g%3E%0A%3Ccircle cx='32' cy='32' r='17' fill='url(%23p)'/%3E%0A%3Cg transform='rotate(18 32 32)' fill='none' stroke-linecap='round'%3E%3Cpath d='M2.5 32A29.5 9 0 0 0 61.5 32' stroke='%23fff3c8' stroke-opacity='.85' stroke-width='1.3'/%3E%3Cpath d='M7 32A25 7 0 0 0 57 32' stroke='%23fff3c8' stroke-opacity='.45' stroke-width='.9'/%3E%3C/g%3E%3C/svg%3E"); }
 html[data-home-view="constellations"] .fl-launcher svg { stroke: #ffffff; }
-html[data-home-view="constellations"] .pm-launcher {   /* a small moon */
-  right: 96px; bottom: 22px; color: #2f2a18; animation-delay: -4s;
-  background: radial-gradient(circle at 34% 28%, #fffdf0, #e4dbb4 48%, #9a9068);
-  box-shadow: 0 0 20px rgba(255, 244, 200, 0.4);
+html[data-home-view="constellations"] .pm-launcher svg, html[data-home-view="constellations"] .pm-launcher svg * { stroke: #3a3320; }
+html[data-home-view="constellations"] .pm-launcher.is-compact {
+  width: auto; min-width: 48px; height: 44px; padding: 0 14px; border-radius: 999px; background-image: none; background-color: #e6dcb0; color: #2f2a18;
 }
-html[data-home-view="constellations"] .pm-launcher.is-compact { width: auto; min-width: 48px; padding: 0 14px; border-radius: 999px; }
-html[data-home-view="constellations"] .pm-launcher .pm-mini { stroke: #2f2a18; }
-html[data-home-view="constellations"] .pm-launcher svg { stroke: #2f2a18; }
 html[data-home-view="constellations"] .fl-launcher::before,
 html[data-home-view="constellations"] .pm-launcher::before {
-  position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%); padding: 3px 9px; border-radius: 999px; white-space: nowrap; opacity: 0; pointer-events: none;
+  position: absolute; left: 50%; bottom: calc(100% + 4px); transform: translateX(-50%); padding: 3px 9px; border-radius: 999px; white-space: nowrap; opacity: 0; pointer-events: none;
   font: 500 0.72rem/1.2 var(--font-mono); color: var(--sk-text); background: var(--sk-panel); border: 1px solid var(--sk-border); transition: opacity 0.25s;
 }
 html[data-home-view="constellations"] .fl-launcher::before { content: 'Focus'; }
@@ -328,11 +319,3 @@ html[data-home-view="constellations"] .fl-launcher:focus-visible::before, html[d
 @media (prefers-reduced-motion: reduce) {
   html[data-home-view="constellations"] .fl-launcher, html[data-home-view="constellations"] .pm-launcher { animation: none; }
 }
-
-/* Name of a constellation: only while the pointer is on it (or it has focus) and the map is not zoomed */
-.sky-svg .const-title, .sky-svg .const-sub { opacity: 0; transition: opacity 0.35s; pointer-events: none; text-anchor: middle; stroke-width: calc(var(--u, 1) * 3px); }
-.sky-svg .const-title { font-family: var(--font-display); font-weight: 400; font-size: calc(var(--u, 1) * 30px * var(--tk, 1)); letter-spacing: 0.02em; fill: var(--ct); }
-.sky-svg .const-sub { font-family: var(--font-mono); font-weight: 500; font-size: calc(var(--u, 1) * 13px * var(--tk, 1)); letter-spacing: 0.08em; text-transform: uppercase; fill: var(--sk-text-2); }
-.sky-svg:not(.is-zoomed) .const:hover .const-title, .sky-svg:not(.is-zoomed) .const:hover .const-sub,
-.sky-svg:not(.is-zoomed) .const:focus-visible .const-title, .sky-svg:not(.is-zoomed) .const:focus-visible .const-sub { opacity: 1; }
-.sky-svg.is-zoomed .const-title, .sky-svg.is-zoomed .const-sub { display: none; }
