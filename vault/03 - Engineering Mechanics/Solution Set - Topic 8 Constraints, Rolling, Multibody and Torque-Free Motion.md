@@ -1516,8 +1516,10 @@ The forces on the sheet while it touches the line, in the inertial frame:
 >
 > $$\begin{aligned}
 > x - x_E &= C_1\cos\Omega t + C_2\sin\Omega t \quad &\text{(Eq. 5.7 for the variable $x - x_E$)} \\
-> \frac{d^2}{dt^2}\left(C_1\cos\Omega t + C_2\sin\Omega t\right) &= -\Omega^2\left(C_1\cos\Omega t + C_2\sin\Omega t\right) \quad &\text{(chain rule twice; it satisfies the equation)} \\
-> C_1 &= x_0 - x_E, \qquad C_2 = \frac{\dot x_0}{\Omega} \quad &\text{(Eqs. 5.8 and 5.9 at the initial instant)} \\
+> \frac{d}{dt}\left(C_1\cos\Omega t + C_2\sin\Omega t\right) &= -C_1\Omega\sin\Omega t + C_2\Omega\cos\Omega t \quad &\text{(chain rule: $d(\Omega t)/dt = \Omega$)} \\
+> \frac{d^2}{dt^2}\left(C_1\cos\Omega t + C_2\sin\Omega t\right) &= -\Omega^2\left(C_1\cos\Omega t + C_2\sin\Omega t\right) \quad &\text{(chain rule again; it satisfies the equation)} \\
+> C_1 &= x_0 - x_E \quad &\text{(the position at $t = 0$, where $\cos 0 = 1$ and $\sin 0 = 0$)} \\
+> \dot x_0 &= C_2\,\Omega \;\Rightarrow\; C_2 = \frac{\dot x_0}{\Omega} \quad &\text{(the first derivative at $t = 0$, Eqs. 5.8 and 5.9)} \\
 > y &= y_0\cos\Omega t + \frac{\dot y_0}{\Omega}\sin\Omega t \quad &\text{(same steps for $y$, centre 0)}
 > \end{aligned}$$
 >
@@ -2070,7 +2072,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\overrightarrow{AC} = -\left(\xi + a\sin\theta\cos\psi\right)\mathbf i - \left(\eta + a\sin\theta\sin\psi\right)\mathbf j + a\left(1 - \cos\theta\right)\mathbf k, \qquad \mathbf v_0^{P(b)} = \left(\dot\xi - a\,\omega_y\right)\mathbf i + \left(\dot\eta + a\,\omega_x\right)\mathbf j}$$
 >
 > **Units:** $[\mathrm L]$; $[\mathrm{L\,T^{-1}}]$
-> **Meaning:** the vertical component of the spring vector is never negative: $A$ is never above the height $2a$ of $C$, so the spring always pulls the sphere upwards (or not at all, with $A$ at the top). The contact velocity has no vertical component (no penetration); on a smooth plane its horizontal components are free.
+> **Meaning:** the vertical component of the spring vector is never negative: $A$ is never above the height $2a$ of $C$, so the vertical component of the spring force is never downward; it vanishes when $A$ is at the top. The contact velocity has no vertical component (no penetration); on a smooth plane its horizontal components are free.
 
 ### Center of Mass and Inertia Tensor
 
@@ -2203,7 +2205,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\text{7 equations (2 forces, 3 moments, 2 rolling conditions) for } \xi, \eta, \psi, \theta, \varphi, F_x, F_y; \qquad N = Mg - ka\left(1 - \cos\theta\right)}$$
 >
 > **Units:** N for the forces; N m for the moments; m/s for the rolling conditions
-> **Meaning:** the friction becomes two more unknowns, balanced by the two rolling conditions. It enters the two force equations and all three moment equations; in particular the spin about $GA$ is no longer conserved, because the friction has the moment $aF_2\sin\theta$ about $GA$ whenever that axis is tilted. The normal reaction keeps the same expression. The friction can be eliminated with the force equations, $F_x$ equal to $M$ times the second rate of $\xi$ plus the spring term, and the problem becomes five second-order equations constrained by the two rolling relations.
+> **Meaning:** the friction becomes two more unknowns, balanced by the two rolling conditions. It enters the two force equations and all three moment equations; in particular the spin about $GA$ is no longer conserved, because the friction has the moment $aF_2\sin\theta$ about $GA$ whenever that axis is tilted. The normal reaction keeps the same expression. The friction can be eliminated with the force equations, $F_x$ equal to $M$ times the second rate of $\xi$ plus the spring term, and three second-order moment equations remain, which together with the two first-order rolling relations give five equations for the five coordinates.
 
 ### Answers and Checks
 
@@ -2567,14 +2569,15 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\begin{aligned}
 > \sin\theta &= \theta + O\left(\theta^3\right) \quad &\text{(Taylor expansion about zero)} \\
 > \ddot\theta + \Omega^2\,\theta &= 0, \qquad \Omega^2 = \frac{5\,g\sin\gamma}{7\,d} = \frac{5\,g\sin\gamma\tan\beta}{7\,R} \quad &\text{(linearised equation, Eq. 5.6; $d = R/\tan\beta$)} \\
-> \theta(t) &= C_1\cos\Omega t + C_2\sin\Omega t, \qquad C_1 = \theta_0, \quad C_2 = \frac{\dot\theta_0}{\Omega} = 0 \quad &\text{(Eqs. 5.7 to 5.9; released from rest)} \\
-> \ddot\theta &= -\Omega^2\,\theta_0\cos\Omega t \quad &\text{(chain rule twice: the solution satisfies the equation)}
+> \theta(t) &= C_1\cos\Omega t + C_2\sin\Omega t, \qquad C_1 = \theta_0, \quad C_2 = \frac{\dot\theta_0}{\Omega} = 0 \quad &\text{(Eqs. 5.7 to 5.9; released from rest, so $\dot\theta(0) = C_2\Omega = 0$)} \\
+> \dot\theta &= -\Omega\,\theta_0\sin\Omega t \quad &\text{(chain rule: $d(\Omega t)/dt = \Omega$)} \\
+> \ddot\theta &= -\Omega^2\,\theta_0\cos\Omega t \quad &\text{(chain rule again: the solution satisfies the equation)}
 > \end{aligned}$$
 >
 > $$\boxed{\theta(t) = \theta_0\cos\Omega t, \qquad \Omega = \sqrt{\frac{5\,g\sin\gamma}{7\,d}} = \sqrt{\frac{5\,g\sin\gamma\tan\beta}{7\,R}}}$$
 >
 > **Units:** $\Omega$ in $\sqrt{[\mathrm{L\,T^{-2}}]/[\mathrm L]} = [\mathrm{T^{-1}}]$
-> **Meaning:** the sphere swings about the line of maximum slope like a pendulum of length $d$ in the reduced gravity $g\sin\gamma$, slowed by the factor square root of five sevenths that rolling brings; a flatter plane or a longer rod gives slower oscillations.
+> **Meaning:** the sphere swings about the line of maximum slope like a pendulum of length $d$ in the reduced gravity $g\sin\gamma$, slowed by the factor square root of five sevenths that rolling brings; a sphere farther from $O$ (larger $d$) gives slower oscillations.
 
 #### Parts (i) and (j): frictionless inclined plane
 
@@ -2655,7 +2658,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 **Limiting cases and consistency:**
 
 * **Horizontal plane.** With zero inclination the coefficient of the sine vanishes: any $\theta$ is an equilibrium and the sphere rolls around $O$ at a constant rate. The centripetal force comes from the friction and the rod, and the rod presses the sphere against the plane, so the normal reaction exceeds the weight by a term proportional to the squared rate of $\theta$.
-* **Very long rod.** For $d$ much larger than $R$, $\beta$ tends to zero: in equilibrium the rod force vanishes, the friction tends to the downhill weight component, and the torque of the rod tends to $MgR\sin\gamma$, which balances the moment of that friction about $G$; the frequency tends to zero, as for a very long pendulum.
+* **Large distance $d$.** For $d$ much larger than $R$, $\beta$ tends to zero: in equilibrium the rod force vanishes, the friction tends to the downhill weight component, and the torque of the rod tends to $MgR\sin\gamma$, which balances the moment of that friction about $G$; the frequency tends to zero, as for a very long pendulum.
 * **Sign check.** For small positive $\theta$ the second rate of $\theta$ is negative: the sphere returns towards the line of maximum slope below $O$, which is the stable side.
 * **Dimensions.** The squared frequency is an acceleration over a length; every reaction is a multiple of $Mg$.
 
