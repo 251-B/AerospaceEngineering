@@ -4181,7 +4181,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\Omega_{0,\min} = \sqrt{\frac{8gR}{R^2 + 2a^2}} \approx 2\sqrt{\frac{2g}{R}} \quad (a \ll R), \ \text{clockwise}}$$
 >
 > **Units:** $\sqrt{[\mathrm{L\,T^{-2}}][\mathrm L]/[\mathrm L^2]} = [\mathrm{T^{-1}}]$
-> **Meaning:** the climb uses up the kinetic energy at the constant rate of the weight. With $a$ much smaller than $R$, the minimum spin falls like one over the square root of $R$ (graph below): a large yo-yo stores more rotational energy per unit of spin. With the minimum value the yo-yo arrives at the origin with zero spin and then falls again.
+> **Meaning:** the weight takes away the same kinetic energy for every metre of climb, so the climb stops after a fixed height whatever the speed. The symbol $\Omega$ of the statement is read here as the initial spin $\Omega_0$, and the graph shows its minimum value against $R$. With $a$ much smaller than $R$, the minimum spin falls like one over the square root of $R$ (graph below): a large yo-yo stores more rotational energy per unit of spin. With the minimum value the yo-yo arrives at the origin with zero spin and then falls again.
 
 ![[attachments/EM-SOL/rb39-graph-omega.svg]]
 
@@ -4265,7 +4265,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > \mathbf j_0 &= \sin\beta\,\mathbf e_t + \cos\beta\,\mathbf e_n \quad &\text{(second row: the inverse is the transpose)} \\
 > \dot\beta &= \frac{d}{dt}\arctan\frac{x_P}{2R} = \frac{1}{1 + x_P^2/(4R^2)}\cdot\frac{\dot x_P}{2R} = \frac{2R\,\dot x_P}{s^2} \quad &\text{(chain rule)} \\
 > \dot{\mathbf e}_t &= \dot\beta\,\mathbf k_0\times\mathbf e_t = \dot\beta\,\mathbf e_n, \qquad \dot{\mathbf e}_n = \dot\beta\,\mathbf k_0\times\mathbf e_n = -\dot\beta\,\mathbf e_t \quad &\text{(Poisson)} \\
-> \rho_c &= \frac{\left|\dot{\mathbf r}_0^P\right|}{\left|\dot\beta\right|} = \frac{s/(2R)}{2R/s^2} = \frac{s^3}{4R^2} \ge \frac{(2R)^3}{4R^2} = 2R \quad &\text{(radius of curvature: arc rate over turning rate; speed of $P$ from the next box; $s$ smallest at the vertex)}
+> \rho_c &= \frac{\left|\dot{\mathbf r}_0^P\right|}{\left|\dot\beta\right|} = \frac{s/(2R)}{2R/s^2} = \frac{s^3}{4R^2} \ge \frac{(2R)^3}{4R^2} = 2R \quad &\text{(radius of curvature: arc rate over turning rate; speed of $P$ taken from the kinematics box below, which does not depend on this one; $s$ smallest at the vertex)}
 > \end{aligned}$$
 >
 > $$\boxed{\mathbf e_t = \frac{2R\,\mathbf i_0 + x_P\,\mathbf j_0}{\sqrt{4R^2 + x_P^2}}, \qquad \mathbf e_n = \frac{-x_P\,\mathbf i_0 + 2R\,\mathbf j_0}{\sqrt{4R^2 + x_P^2}}, \qquad \dot\beta = \frac{2R\,\dot x_P}{4R^2 + x_P^2}}$$
@@ -4427,7 +4427,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\frac32\,mR^2\ddot\phi = Q + mgR\,\frac{x_P}{\sqrt{4R^2 + x_P^2}}, \qquad T_f = mg\sin\beta - mR\ddot\phi, \qquad N = mg\cos\beta - mR\dot\phi\dot\beta}$$
 >
 > **Units:** N m in the first equation; N in the other two
-> **Meaning:** three equations for the three unknowns $x_P$ (with $\phi$ tied to it by part (d)), $T_f$ and $N$. On the right-hand side of the cavity gravity gives a positive (counterclockwise) moment that rolls the disk back to the left; a positive torque does the same everywhere. While the disk moves left the rate of $\phi$ is positive and that of $\beta$ negative, so $N$ exceeds the normal component of the weight.
+> **Meaning:** three equations for the three unknowns $x_P$ (with $\phi$ tied to it by part (d)), $T_f$ and $N$. On the right-hand side of the cavity gravity gives a positive (counterclockwise) moment that rolls the disk back to the left; a positive torque does the same everywhere. In either direction of motion the rates of $\phi$ and $\beta$ have opposite signs, so $N$ exceeds the normal component of the weight.
 
 > [!derivation] Part (e): first-order equation for x_P
 > **Law:** energy theorem with the power of the torque; the contact force does no work (its body point is at rest); Barrow's rule
@@ -4445,7 +4445,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\dot x_P^2 = \frac{4\left[Q\,\phi(x_P) - mg\left(\dfrac{x_P^2}{4R} + \dfrac{2R^2}{\sqrt{4R^2 + x_P^2}} - R\right)\right]}{3mR^2\left(\dfrac{\sqrt{4R^2 + x_P^2}}{2R^2} - \dfrac{2R}{4R^2 + x_P^2}\right)^2}, \qquad x_P(0) = 0}$$
 >
 > **Units:** numerator J; denominator kg ($f$ is an inverse length); quotient m$^2$/s$^2$
-> **Meaning:** the only unknown is $x_P$, with $\phi(x_P)$ of part (d). The first-order equation is the square root with the sign opposite to $Q$: with $Q$ positive the second rate of $\phi$ starts at $2Q/(3mR^2)$, positive, so $\phi$ grows and $x_P$ decreases (the disk climbs the left-hand side). At $x_P$ zero the right-hand side vanishes; as in any start from rest, the second-order equation selects the motion.
+> **Meaning:** the only unknown is $x_P$, with $\phi(x_P)$ of part (d). Until the first turning point, the first-order equation is the square root with the sign opposite to $Q$ (if the torque is too small the disk stops and rolls back, and the sign changes): with $Q$ positive the second rate of $\phi$ starts at $2Q/(3mR^2)$, positive, so $\phi$ grows and $x_P$ decreases (the disk climbs the left-hand side). At $x_P$ zero the right-hand side vanishes; as in any start from rest, the second-order equation selects the motion.
 
 > [!derivation] Part (f): condition to leave the cavity
 > **Law:** the first-order equation of part (e) must keep a positive right-hand side all the way to the rim
@@ -4464,7 +4464,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{|Q| \gt Q_c = \frac{5\,mgR}{2\left(2\sqrt3 + \ln(2 + \sqrt3) - \pi/3\right)} \approx 0.670\,mgR}$$
 >
 > **Units:** N m on both sides
-> **Meaning:** the work of the torque over the rotation 3.734 rad must exceed the rise of $G$ from $R$ to $3.5R$. With $Q$ exactly $Q_c$ the disk would reach the rim at rest and roll back, because there the moment of the weight, $mgR$ times the sine of 60 degrees, about $0.866\,mgR$, exceeds $Q_c$.
+> **Meaning:** why the rim decides: the weight adds the rise $dY$ for a turn $d\Phi$ at the rate given by the sine of the angle of the groove, which increases with $z$ from zero, so $Y$ is convex in $\Phi$ with both starting at zero and the ratio $Y/\Phi$ increases up to the rim (the table shows it). The work of the torque over the rotation 3.734 rad must exceed the rise of $G$ from $R$ to $3.5R$. With $Q$ exactly $Q_c$ the disk would reach the rim at rest and roll back, because there the moment of the weight, $mgR$ times the sine of 60 degrees, about $0.866\,mgR$, exceeds $Q_c$.
 
 | $z = -x_P/R$ | $\Phi(z)$ (rad) | $Y(z)$ | $Y/\Phi$ |
 | :--- | :--- | :--- | :--- |
@@ -4627,7 +4627,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\mathbf r_b^I = \overrightarrow{GI} = \frac{\ell}{2}\,\mathbf i_b - \frac{3\ell}{2}\cot\theta\,\mathbf j_b}$$
 >
 > **Units:** $[\mathrm L]$
-> **Meaning:** $I$ is where the normals to the blades meet: on the line of $A$ and $B$ (normal to their blades) and on the normal to the blade at $C$. For $\theta$ positive it lies on the side of minus $\mathbf j_b$, the side towards which the sledge turns when it moves forward. With $\theta$ a right angle it is the midpoint of $AB$; as $\theta$ tends to zero it goes to infinity (pure translation). For a fixed $\theta$ the point $I$ is also fixed on the ice (last row), so $G$ moves on a circle about it.
+> **Meaning:** $I$ is where the normals to the blades meet: on the line of $A$ and $B$ (normal to their blades) and on the normal to the blade at $C$. For $\theta$ positive and less than a right angle it lies on the side of minus $\mathbf j_b$, the side towards which the sledge turns when it moves forward. With $\theta$ a right angle it is the midpoint of $AB$; as $\theta$ tends to zero it goes to infinity (pure translation). For a fixed $\theta$ the point $I$ is also fixed on the ice (last row), so $G$ moves on a circle about it.
 
 > [!derivation] Part (c): rates of x and y
 > **Law:** components of the velocity of $G$ in $\mathcal B_0$ from those in $\mathcal B_b$
@@ -4672,7 +4672,7 @@ The statement gives the centre of mass $G$ (at a negligible height above the ice
 | :--- | :--- | :--- | :--- |
 | Weight | $G$ | $-mg\,\mathbf k_0$ | applied |
 | Normal reactions of the ice | $A$, $B$, $C$ | $N_A\,\mathbf k_0$, $N_B\,\mathbf k_0$, $N_C\,\mathbf k_0$, each $\ge 0$ (the ice only pushes) | constraint |
-| Side reactions of the blades at $A$ and $B$ | $A$, $B$ | $Y\,\mathbf j_b$ at each, equal (statement) | constraint |
+| Side reactions of the blades at $A$ and $B$ | $A$, $B$ | $Y\,\mathbf j_b$ at each, equal in magnitude (statement); read here with the same sense at $A$ and $B$ | constraint |
 | Side reaction of the blade at $C$ | $C$ | $Y_C\,\mathbf n_C = Y_C(-\sin\theta\,\mathbf i_b + \cos\theta\,\mathbf j_b)$ | constraint |
 | Lift | $P$ | $\mathbf L = b_L\,u_b^w\,(\mathbf u_b^w\times\mathbf k_0)$, horizontal, normal to the relative wind | applied |
 | Drag | $P$ | $\mathbf D = b_D\,u_b^w\,\mathbf u_b^w$, along the relative wind | applied |
@@ -4730,7 +4730,7 @@ No blade exerts a force along its own direction (no friction along the blades).
 > I\ddot\psi &= \ell\left(Y - Y_C\cos\theta\right) \quad &\text{(moment along $\mathbf k_0$)}
 > \end{aligned}$$
 >
-> $$\boxed{\text{six equations for } \psi(t),\ Y,\ Y_C,\ N_A,\ N_B,\ N_C, \quad \text{with } u, w \text{ from the blade conditions}}$$
+> $$\boxed{\text{six equations for } \psi(t),\ Y,\ Y_C,\ N_A,\ N_B,\ N_C, \quad \text{with } u, w \text{ from the blade conditions, for } \theta \neq 0}$$
 >
 > **Units:** N in the force equations; N m in the moment equations
 > **Meaning:** six unknowns, the coordinate $\psi$ (which gives $u$ and $w$) and five reactions, for six equations. The motion is valid while the three normal reactions stay non-negative; when one reaches zero the sledge starts to tip.
@@ -4800,7 +4800,7 @@ No blade exerts a force along its own direction (no friction along the blades).
 > $$\begin{aligned}
 > \overrightarrow{MG}\times\left(-mg\,\mathbf k_0\right) &= -\frac{\ell}{2}\,\mathbf i_b\times\left(-mg\,\mathbf k_0\right) = -\frac{\ell}{2}\,mg\,\mathbf j_b \quad &\text{(weight at $G$; $\mathbf i_b\times\mathbf k_0 = -\mathbf j_b$)} \\
 > \overrightarrow{MP}\times L\,\mathbf i_b &= \left(-\frac{\ell}{2}\,\mathbf i_b + \ell\,\mathbf k_0\right)\times L\,\mathbf i_b = \ell L\,\mathbf j_b \quad &\text{(lift at $P$; $\mathbf k_0\times\mathbf i_b = \mathbf j_b$)} \\
-> \ell L - \frac{\ell}{2}\,mg &= 0 \;\Rightarrow\; L = \frac{mg}{2} \quad &\text{(the reactions at $A$ and $B$ pass through the line $AB$)}
+> \ell L - \frac{\ell}{2}\,mg &= 0 \;\Rightarrow\; L = \frac{mg}{2} \quad &\text{(the reactions at $A$ and $B$ have no moment about $\mathbf j_b$: their lines cut the line $AB$, and the moments about $\mathbf i_b$ cancel because $N_A = N_B$)}
 > \end{aligned}$$
 >
 > $$\boxed{b_L U_{\infty,\max}^2 = \frac{mg}{2}}$$
