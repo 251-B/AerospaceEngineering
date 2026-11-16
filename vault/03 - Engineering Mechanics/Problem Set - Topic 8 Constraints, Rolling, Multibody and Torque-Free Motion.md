@@ -273,7 +273,7 @@ A homogeneous, heavy disk b of mass $m$, radius $R$, and center $G$ rolls withou
 **Data**: the moment of inertia of the disk about a line perpendicular to the drawing passing through $G$ is $I = mR^2/2$.
 
 ![[attachments/EM/T8-RB37-figure.png]]
-*Figure: Disk b of radius $R$ rolling inside a fixed cylinder of radius $3R$ centred at $O$, with the angles $\psi$ and $\phi$, the contact point $C$, the body point $P$, the force $\mathbf{F}_P$, the point $A$ and the frames $S_0$ and $S_b$ Source: Problems.pdf, p. 66.*
+*Figure: Disk b of radius $R$ rolling on the outside of a fixed cylinder of radius $3R$ centred at $O$ (as drawn), with the angles $\psi$ and $\phi$, the contact point $C$, the body point $P$, the force $\mathbf{F}_P$, the point $A$ and the frames $S_0$ and $S_b$ Source: Problems.pdf, p. 66.*
 
 Assuming that the disk and the cylinder are always in contact:
 

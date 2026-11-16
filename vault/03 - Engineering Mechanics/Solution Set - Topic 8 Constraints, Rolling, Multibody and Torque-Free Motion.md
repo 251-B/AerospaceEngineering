@@ -2926,7 +2926,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\frac{d}{dt}\left(T_1 + V\right) = 0 \iff \text{the equation of part (e)}}$$
 >
 > **Units:** W in every term
-> **Meaning:** the bracket is the equation of part (e) multiplied by $m(a_2 - a_1)$ times the bracket of that box; the energy method, with no reaction in sight, gives the same equation of motion. It was also obtained symbolically from the Lagrangian of the single coordinate $\phi$, with the same result.
+> **Meaning:** the bracket is the equation of part (e) multiplied by $m(a_2 - a_1)$ times the bracket of that box; the energy method, with no reaction in sight, gives the same equation of motion.
 
 **Limiting cases and consistency:**
 
@@ -3110,7 +3110,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\dot r\cos\beta + r\,\dot\psi\sin\beta = 0, \qquad -\dot r\sin\beta + r\,\dot\psi\cos\beta + R\,\dot\delta = 0 \quad\Longleftrightarrow\quad \dot r = R\,\dot\delta\sin\beta, \quad r\,\dot\psi = -R\,\dot\delta\cos\beta}$$
 >
 > **Units:** $[\mathrm{L\,T^{-1}}]$ in every term
-> **Meaning:** the vertical component vanishes identically (contact is kept). The geometric contact point must travel along the tangent $\mathbf y_2$ of the coin, at the speed at which the rim unrolls, $R$ times the rate of $\delta$. Two conditions on the rates that cannot be integrated into relations among $r$, $\psi$, $\beta$, $\delta$ (they involve the angle $\beta$ multiplying the rates): this is why the coin keeps five coordinates but only three degrees of freedom, as stated in part (a).
+> **Meaning:** the vertical component vanishes identically (contact is kept). The geometric contact point must travel along the tangent $\mathbf y_2$ of the coin, at the speed at which the rim unrolls, $R$ times the rate of $\delta$. Two conditions on the rates that cannot be integrated into relations among $r$, $\psi$, $\beta$, $\delta$: rolling with $\beta$ held at zero changes $\psi$ and $\delta$ at fixed $r$, rolling with $\beta$ held at a right angle changes $r$ and $\delta$ at fixed $\psi$, and turning $\beta$ costs nothing, so every combination of $r$, $\psi$ and $\delta$ can be reached and no finite relation among them exists (the formal proof that the form is not integrable is an extension). This is why the coin keeps five coordinates but only three degrees of freedom, as stated in part (a).
 
 ### Center of Mass and Inertia Tensor
 
@@ -3133,7 +3133,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\bar{\bar I}_G = \frac{mR^2}{4}\begin{bmatrix} 2 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix} \ \text{in } \mathcal B_3 \text{ and in } \mathcal B_b}$$
 >
 > **Units:** $[\mathrm M][\mathrm L^2]$
-> **Meaning:** the first moment agrees with the datum of the statement. Every diameter is a principal axis with the moment $mR^2/4$, so $\mathcal B_3$, which does not spin with the coin, is a principal basis at all times.
+> **Meaning:** the axial moment $I_1 = mR^2/2$ agrees with the datum of the statement. Every diameter is a principal axis with the moment $mR^2/4$, so $\mathcal B_3$, which does not spin with the coin, is a principal basis at all times.
 
 ### Linear Momentum, Angular Momentum and Kinetic Energy
 
@@ -3258,7 +3258,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{r = \sqrt{R^2 - h^2}, \qquad \theta = \arccos\frac hR, \qquad N = mg, \qquad F_x = F_y = 0, \qquad h\,\dot\psi^2 = 4g}$$
 >
 > **Units:** $[\mathrm L][\mathrm{T^{-2}}] = [\mathrm{L\,T^{-2}}]$, an acceleration on both sides
-> **Meaning:** the angular velocity is along $CG$: the coin turns about the line joining the contact point and the fixed centre, so $G$ stays at rest and the contact point runs round $O$ on a circle of radius $r$ at the constant rate of $\psi$, while the coin itself barely spins (minus the rate of $\psi$ times the sine of $\theta$). No friction is needed: the weight and the normal reaction form a couple, of arm $r$, that turns the angular momentum about the vertical. The lower $G$, the faster the motion: the rate of $\psi$ grows as one over the square root of $h$ and has no bound as the coin lies down. The energy of this motion is $mgh$ plus one eighth of $mh^2$ times the squared rate of $\psi$, that is $\tfrac32 mgh$: a real coin that loses energy slowly passes through these states with decreasing $h$, so its contact point circles faster and faster, the rising whirr of Euler's disk, until it stops abruptly.
+> **Meaning:** the angular velocity is along $CG$: the coin turns about the line joining the contact point and the fixed centre, so $G$ stays at rest and the contact point runs round $O$ on a circle of radius $r$ at the constant rate of $\psi$, while the angular velocity has no component along the normal of the coin (the spin of the coin about its own axis cancels against the part of the rate of $\psi$ along that axis), so the face of the coin turns about the vertical only at the small rate of $\psi$ times one minus the sine of $\theta$. No friction is needed: the weight and the normal reaction form a couple, of arm $r$, that turns the angular momentum about the vertical. The lower $G$, the faster the motion: the rate of $\psi$ grows as one over the square root of $h$ and has no bound as the coin lies down. The energy of this motion is $mgh$ plus one eighth of $mh^2$ times the squared rate of $\psi$, that is $\tfrac32 mgh$: a real coin that loses energy slowly passes through these states with decreasing $h$, so its contact point circles faster and faster, the rising whirr of Euler's disk, until it stops abruptly.
 
 ### Answers and Checks
 
@@ -3289,12 +3289,12 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\dot\psi^2 = \frac{4g}{R\cos\theta} = \frac{4g}{h}}$$
 >
 > **Units:** $[\mathrm{T^{-2}}]$
-> **Meaning:** the gyroscopic argument, with no Euler angle derivative to expand, gives the same relation as part (f). The kinematics of part (b) (angular velocity, angular acceleration, velocity and acceleration of $G$) and the three Euler equations were also checked symbolically by building the rotation matrix of the coin as the product of the four rotations and differentiating it directly.
+> **Meaning:** the gyroscopic argument, with no Euler angle derivative to expand, gives the same relation as part (f).
 
 **Limiting cases and consistency:**
 
 * **Upright coin.** As $h$ tends to $R$, $\theta$ and $r$ tend to zero: the coin stands on its rim at $O$ and spins about its vertical diameter, with the rate of $\psi$ tending to $2\sqrt{g/R}$, the lowest rate allowed by the relation; for the upright coin itself the tipping moment vanishes and any rate is possible.
-* **Flat coin.** As $h$ tends to zero the rate of $\psi$ grows without bound while the energy, three halves of $mgh$, tends to zero: the ideal model has a finite-time singularity if energy is drained, the classic behaviour of Euler's disk.
+* **Flat coin.** As $h$ tends to zero the rate of $\psi$ grows without bound while the energy, three halves of $mgh$, tends to zero: in the ideal model the rate of $\psi$ grows without bound as the energy is drained (an **extension**: whether this happens in finite time depends on the dissipation law, which the course does not cover).
 * **Numbers.** For $R$ equal to 0.04 m and $h$ equal to 0.01 m, the rate of $\psi$ is $\sqrt{4\cdot 9.81/0.01}$, about 62.6 rad/s (about 10 turns per second), with $\theta$ about 75.5 deg.
 * **Dimensions.** Every Newton equation is in N, every Euler equation in N m; both rolling conditions are velocities.
 
@@ -3308,7 +3308,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 * **Fixed frame:** $S_0\{O; \mathbf i_0, \mathbf j_0, \mathbf k_0\}$, with $\mathbf k_0$ vertical upwards and $O$ the point of the ground where the line of the axle meets it (figure). The ground is at rest, so this frame is inertial.
 * **Rotating frame:** $S_1\{O; \mathbf i_1, \mathbf j_1, \mathbf k_1\}$, turned by $\psi$ about $\mathbf k_0$, with $\mathbf j_1$ along $OPQ$ on the ground and $\mathbf k_1$ equal to $\mathbf k_0$.
 * **Frame of the axle:** $\mathcal B_2$, the basis $\{\mathbf i_2, \mathbf j_2, \mathbf k_2\}$ with $\mathbf i_2$ equal to $\mathbf i_1$ and $\mathbf j_2$ along the axle from $O$ through $C_1$ to $C_2$; it is fixed in $S_1$ (the inclination of the axle is constant, see below).
-* **Body basis:** $\mathcal B_3$, the basis $\{\mathbf i_3, \mathbf j_3, \mathbf k_3\}$ with $\mathbf j_3$ equal to $\mathbf j_2$, turned by $\phi$ about the axle; at the initial instant $\mathbf i_3$ points along $C_2Q$. Read from the figure, which shows only the magnitude of $\phi$: $\phi$ is taken positive about $\mathbf j_2$ (right-hand rule along the axle oriented from $C_1$ to $C_2$).
+* **Body basis:** $\mathcal B_3$, the basis $\{\mathbf i_3, \mathbf j_3, \mathbf k_3\}$ with $\mathbf j_3$ equal to $\mathbf j_2$, turned by $\phi$ about the axle; at the initial instant $\mathbf i_3$ points along $C_2Q$. Read from the figure, which shows only the angle between $\mathbf i_3$ and the line $C_2Q$, not its sense: $\phi$ is taken positive about $\mathbf j_2$ (right-hand rule along the axle oriented from $C_1$ to $C_2$). With the opposite sense the rolling condition reads $\phi = 2\psi$ and nothing else changes, because $\phi$ is eliminated before the dynamics.
 * **Degrees of freedom:** a free body has six coordinates. Contact of both wheels with the ground gives two conditions (Notes.pdf, Eq. 13.1); they fix the height and the inclination of the axle. Of the four remaining coordinates, the two coordinates of $O$ on the ground stay constant in the motion, as the figure takes them (rolling at $P$ and $Q$ forbids any velocity of the apex of the cone that the wheels define); the angles $\psi$ and $\phi$ remain. Rolling adds one relation between them (part (c)): the body has **one degree of freedom**.
 
 | Datum | Symbol | SI unit |
@@ -3662,12 +3662,12 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\dot\psi_{\max}^2 = \frac{104\,g}{323\sqrt3\,a}}$$
 >
 > **Units:** $[\mathrm{T^{-2}}]$
-> **Meaning:** the key's equation is the moment equation of this solution; its numbers follow from the tensor of part (a). The equations of motion were also checked symbolically by building the rotation matrix of the body and differentiating its angular momentum directly.
+> **Meaning:** the key's equation is the moment equation of this solution; its numbers follow from the tensor of part (a).
 
 **Limiting cases and consistency:**
 
 * **Rest.** With the rate of $\psi$ zero, the normal reactions are thirteen twentieths and seven twentieths of $mg$: the static split of the weight between $P$ and $Q$ by the lever rule about the vertical through $G$.
-* **No gyroscopic term.** Without the term in $A + 3B$ the limit would come from the centripetal force alone, with the squared rate equal to $13g/(24.3\sqrt3\,a)$, about $0.309\,g/a$: the spin of the wheels lowers the limit by about 40 percent.
+* **No gyroscopic term.** Without the term in $A + 3B$ the limit would come from the centripetal force alone, with the squared rate equal to $13g/(24.3\sqrt3\,a)$, about $0.309\,g/a$: the gyroscopic term lowers the limiting squared rate by about 40 percent (the limiting rate by about 22 percent).
 * **Sign of the rate.** Only the square of the rate of $\psi$ enters $N_P$: turning either way gives the same limit.
 * **Dimensions.** $A$ and $B$ are a mass times a squared length; every term of the key's equation is in $[\mathrm{T^{-2}}]$.
 
@@ -3942,7 +3942,7 @@ The forces on the sheet while it touches the line, in the inertial frame:
 > $$\boxed{\dot\psi^2 = \frac km\left(2 - 2\cos\psi - \frac{\sin 3\psi}{3} + \frac{\sin 4\psi}{2}\right) - \frac{g}{3R}\left(1 - \cos\psi\right)}$$
 >
 > **Units:** J before the division; $[\mathrm{T^{-2}}]$ after
-> **Meaning:** the energy gives exactly the first integral of part (e), without any reaction: the friction does no work because the disk rolls, and the normal reaction acts on a point at rest. The equation of motion was also derived symbolically from the Lagrangian of $\psi$, with the same result.
+> **Meaning:** the energy gives exactly the first integral of part (e), without any reaction: the friction does no work because the disk rolls, and the normal reaction acts on a point at rest.
 
 **Limiting cases and consistency:**
 
