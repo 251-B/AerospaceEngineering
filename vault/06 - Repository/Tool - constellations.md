@@ -23,3 +23,7 @@ Stellar view of the landing page: `assets/js/constellations.js` and `assets/css/
 ## Editing
 
 Silhouettes and Latin titles are in `META` of the script; the two panorama layouts (landscape and portrait) in `LAND` and `PORT`. A new subject needs a `META` entry and a slot.
+
+## Phones and tablets
+
+Below 900 px (and on phones held on their side) the map is a taller sky that scrolls: `PORT_S` (one column, phones) and `PORT_T` (zigzag, tablets), with the title in the first screen. Opening a constellation fixes the map to the window, grows the stars (`--ks`, icon at least 20 px) and keeps every text at 13 px or more; going back restores the scroll position. The far sky is redrawn for the layout in use.

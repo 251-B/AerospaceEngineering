@@ -169,11 +169,12 @@
 
   /* Layouts of the panorama (centres of the five constellations). */
   var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[350, 350], [930, 215], [1660, 350], [470, 880], [1290, 900]] };
-  var PORT = { box: [1000, 2900], centre: [500, 1450], slots: [[260, 260], [740, 800], [240, 1380], [760, 1960], [270, 2540]] };
+  var PORT_T = { box: [1000, 2400], centre: [500, 1200], slots: [[300, 440], [700, 850], [260, 1270], [720, 1690], [290, 2110]] };   // tablet portrait and landscape phones: a zigzag, scrolled; the top 200 units hold the title
+  var PORT_S = { box: [640, 3160], centre: [320, 1580], slots: [[300, 490], [350, 1060], [290, 1630], [350, 2200], [300, 2770]] };       // phones: one column, scrolled; the top 160 units hold the title
   var GUIDES = [[0, 1], [1, 2], [2, 4], [4, 3], [3, 0], [1, 3], [1, 4]];
 
   var ZOOM_H = 480;          // height of the camera box on a constellation (user units)
-  var ZOOM_BW = [700, 980];  // minimum width of that box: landscape, portrait
+  var ZOOM_BW = [700, 820, 620];  // minimum width of that box: landscape, tablet portrait, phone
 
   /* ---------------------------------------------------------------------------------------
      Build
@@ -275,12 +276,13 @@
         transform: 'translate(' + p[0] + ' ' + p[1] + ')',
         'aria-label': sec.label + (sec.count ? ', ' + sec.count : '') + ', ' + sub.name
       }, g);
-      s('circle', { 'class': 'star-hit', r: 26 }, a);
-      s('circle', { 'class': 'star-flare', r: 56, fill: 'url(#flare-' + meta.color + ')' }, a);
-      s('path', { 'class': 'star-dot', d: starPath(4, 15, 0.24, 0) }, a);   // every star is the same small sparkle in the panorama
-      s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, a);   // its own shape appears when the constellation is open
-      s('circle', { 'class': 'star-core', r: 3.4 }, a);
-      var ic = s('g', { 'class': 'star-icon' }, a);
+      var body = s('g', { 'class': 'star-body' }, a);
+      s('circle', { 'class': 'star-hit', r: 26 }, body);
+      s('circle', { 'class': 'star-flare', r: 56, fill: 'url(#flare-' + meta.color + ')' }, body);
+      s('path', { 'class': 'star-dot', d: starPath(4, 15, 0.24, 0) }, body);   // every star is the same small sparkle in the panorama
+      s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, body);   // its own shape appears when the constellation is open
+      s('circle', { 'class': 'star-core', r: 3.4 }, body);
+      var ic = s('g', { 'class': 'star-icon' }, body);
       s('circle', { 'class': 'star-icon-bg', r: 13 }, ic);
       s('use', { href: '#' + sec.icon, x: -9.5, y: -9.5, width: 19, height: 19, 'class': 'star-icon-glyph' }, ic);
       // The name goes on the free side of the star: away from the lines that reach it and from the figure.
@@ -299,8 +301,8 @@
         if (score > best) { best = score; dx = Math.cos(ang); dy = Math.sin(ang); }
       }
       var anchor = dx > 0.35 ? 'start' : dx < -0.35 ? 'end' : 'middle';
-      var ny = Math.abs(dy) > 0.5 ? dy * 52 + (dy > 0 ? 10 : -4) : dy * 44 + 5;
-      var attrs = { 'text-anchor': anchor, x: Math.round(dx * (anchor === 'middle' ? 0 : 46)), y: Math.round(ny) };
+      var ny = Math.abs(dy) > 0.5 ? dy * 62 + (dy > 0 ? 10 : -4) : dy * 52 + 5;
+      var attrs = { 'text-anchor': anchor, x: Math.round(dx * (anchor === 'middle' ? 0 : 58)), y: Math.round(ny) };
       var name = s('text', attrs, a); name.setAttribute('class', 'star-name'); name.setAttribute('display', 'none'); name.textContent = sec.label;
       var cAttrs = {}; for (var k in attrs) cAttrs[k] = attrs[k];
       cAttrs.y = Math.round(ny) + (dy < -0.5 ? -17 : 18);
@@ -316,13 +318,54 @@
     return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys) };
   }
 
+  // Phones, tablets held upright and phones on their side get a taller map that scrolls, so the figures stay big
+  // and no text is squeezed; computers and landscape tablets fit the whole sky in the window.
+  function isCompact() {
+    var r = stage.getBoundingClientRect();
+    return r.width < 900 && (r.width < 600 || r.width / Math.max(1, r.height) < 0.85 || r.height < 520);
+  }
+
   function currentLayout() {
     var r = stage.getBoundingClientRect();
-    return r.width / Math.max(1, r.height) < 0.85 ? PORT : LAND;
+    if (!isCompact()) return LAND;
+    return r.width < 600 ? PORT_S : PORT_T;
+  }
+
+  var lastLayout = null, farLayer = null;
+
+  // The far sky is drawn for the layout in use (its area decides how many stars), a margin wide all around.
+  function buildFarSky(L) {
+    if (!farLayer) return;
+    while (farLayer.firstChild) farLayer.removeChild(farLayer.firstChild);
+    var x0 = -600, y0 = -600, w = L.box[0] + 1200, hgt = L.box[1] + 1200;
+    var rs = seeded(20260511), tints = ['t-w', 't-w', 't-w', 't-c', 't-a'];
+    var n = Math.min(800, Math.round(w * hgt / 7500));
+    for (var i = 0; i < n; i++) {
+      var pk = rs(), size = pk < 0.72 ? 's1' : pk < 0.93 ? 's2' : 's3';
+      var bd = s('circle', { 'class': 'dust far ' + size + ' ' + tints[Math.floor(rs() * tints.length)] + (rs() < 0.3 ? ' tw' : ''), cx: Math.round(x0 + rs() * w), cy: Math.round(y0 + rs() * hgt), r: 1 }, farLayer);
+      bd.style.setProperty('--d', (rs() * 7).toFixed(2) + 's');
+    }
+    var sparks = Math.round(n / 42);
+    for (var k = 0; k < sparks; k++) {
+      var holder = s('g', { transform: 'translate(' + Math.round(x0 + rs() * w) + ' ' + Math.round(y0 + rs() * hgt) + ')' }, farLayer);
+      var spark = s('path', { 'class': 'far-spark ' + tints[Math.floor(rs() * tints.length)], d: 'M0 -9 L1.4 -1.4 L9 0 L1.4 1.4 L0 9 L-1.4 1.4 L-9 0 L-1.4 -1.4Z' }, holder);
+      spark.style.setProperty('--d', (rs() * 6).toFixed(2) + 's');
+      spark.style.setProperty('--k', (0.5 + rs() * 0.7).toFixed(2));
+    }
+  }
+
+  // The map is as tall as its layout asks when it scrolls, and as tall as the window when a constellation is open.
+  function sizeSvg(L) {
+    var compact = isCompact();
+    stage.classList.toggle('is-compact', compact);
+    svg.classList.toggle('is-compact', compact);
+    svg.style.height = compact && !selected ? Math.round(stage.clientWidth * L.box[1] / L.box[0]) + 'px' : '';
   }
 
   function applyLayout() {
     var L = currentLayout();
+    if (L !== lastLayout) { lastLayout = L; buildFarSky(L); }
+    sizeSvg(L);
     items.forEach(function (it) {
       it.slot = L.slots[it.index];
       it.g.setAttribute('transform', 'translate(' + it.slot[0] + ' ' + it.slot[1] + ')');
@@ -344,10 +387,13 @@
   function target() {
     var L = currentLayout();
     var r = stage.getBoundingClientRect();
+    var compact = isCompact();
+    if (compact && !selected) return { cx: L.box[0] / 2, cy: L.box[1] / 2, bw: L.box[0], bh: L.box[1], asp: L.box[0] / L.box[1] };
     var asp = r.width / Math.max(1, r.height);
     if (!selected) return { cx: L.centre[0], cy: L.centre[1], bw: L.box[0], bh: L.box[1], asp: asp };
     var it = byslug(selected);
-    return { cx: it.slot[0], cy: it.slot[1] + 38, bw: ZOOM_BW[asp < 0.85 ? 1 : 0], bh: ZOOM_H, asp: asp };
+    var bw = compact ? (r.width < 600 ? ZOOM_BW[2] : ZOOM_BW[1]) : ZOOM_BW[0];
+    return { cx: it.slot[0], cy: it.slot[1] + (compact ? 60 : 38), bw: bw, bh: compact ? ZOOM_H + 140 : ZOOM_H, asp: asp };
   }
 
   function boxOf(t) {   // the viewBox that holds the target box at the container's aspect ratio
@@ -360,7 +406,10 @@
     svg.setAttribute('viewBox', b.x.toFixed(2) + ' ' + b.y.toFixed(2) + ' ' + b.w.toFixed(2) + ' ' + b.h.toFixed(2));
     var px = svg.getBoundingClientRect().width || 1;
     svg.style.setProperty('--u', (b.w / px).toFixed(4));
-    svg.style.setProperty('--tk', b.w / b.h < 0.85 ? '0.7' : '1');   // text scale on a portrait screen   // user units per CSS pixel: keeps text at a readable size
+    svg.style.setProperty('--tk', '1');
+    // on a touch screen the stars of an open constellation grow until the icon is at least ~20 px across
+    var ks = selected && isCompact() ? Math.min(1.45, Math.max(1, 20 * (b.w / px) / 13)) : 1;
+    svg.style.setProperty('--ks', ks.toFixed(3));
   }
 
   function reduced() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
@@ -368,7 +417,7 @@
   function moveCamera(instant) {
     var to = boxOf(target());
     cancelAnimationFrame(camAnim);
-    if (instant || reduced() || !cam) { cam = to; paint(cam); return; }
+    if (instant || reduced() || !cam || isCompact()) { cam = to; paint(cam); return; }
     var from = cam, start = null, dur = 750;
     function step(now) {
       if (start === null) start = now;
@@ -392,6 +441,7 @@
     return null;
   }
 
+  var savedScroll = 0;
   var HINT = 'Choose a constellation to explore a subject. Tab and Enter work too.';
 
   function renderState(focus) {
@@ -423,7 +473,9 @@
 
   function selectConstellation(slug, fromKeyboard) {
     if (!byslug(slug)) return;
+    if (isCompact() && !selected) savedScroll = stage.scrollTop;
     selected = slug;
+    sizeSvg(currentLayout());
     moveCamera(false);
     renderState(fromKeyboard ? true : false);
   }
@@ -433,8 +485,10 @@
     var prev = byslug(selected);
     selected = null;
     prev.stars.forEach(function (x) { x.classList.remove('is-shown'); });
+    sizeSvg(currentLayout());
     moveCamera(false);
     renderState(prev.g);
+    if (isCompact()) stage.scrollTop = savedScroll;
   }
 
   /* ---------------------------------------------------------------------------------------
@@ -512,20 +566,7 @@
       s('stop', { offset: '0.35', style: 'stop-color: var(--c-' + color + '); stop-opacity: 0.16' }, grad);
       s('stop', { offset: '1', style: 'stop-color: var(--c-' + color + '); stop-opacity: 0' }, grad);
     });
-    var rs = seeded(20260511);   // the far sky: three sizes, three tints, a few twinkling, a few bright with spikes
-    var tints = ['t-w', 't-w', 't-w', 't-c', 't-a'];
-    for (var bs = 0; bs < 420; bs++) {
-      var bx = Math.round(rs() * 2500 - 300), by = Math.round(rs() * 3500 - 300), pk = rs();
-      var size = pk < 0.72 ? 's1' : pk < 0.93 ? 's2' : 's3';
-      var bd = s('circle', { 'class': 'dust far ' + size + ' ' + tints[Math.floor(rs() * tints.length)] + (rs() < 0.3 ? ' tw' : ''), cx: bx, cy: by, r: 1 }, svg);
-      bd.style.setProperty('--d', (rs() * 7).toFixed(2) + 's');
-    }
-    for (var sp = 0; sp < 26; sp++) {
-      var holder = s('g', { transform: 'translate(' + Math.round(rs() * 2500 - 300) + ' ' + Math.round(rs() * 3500 - 300) + ')' }, svg);
-      var spark = s('path', { 'class': 'far-spark ' + tints[Math.floor(rs() * tints.length)], d: 'M0 -9 L1.4 -1.4 L9 0 L1.4 1.4 L0 9 L-1.4 1.4 L-9 0 L-1.4 -1.4Z' }, holder);
-      spark.style.setProperty('--d', (rs() * 6).toFixed(2) + 's');
-      spark.style.setProperty('--k', (0.5 + rs() * 0.7).toFixed(2));
-    }
+    farLayer = s('g', { 'aria-hidden': 'true' }, svg);
     var guideLayer = s('g', { 'aria-hidden': 'true' }, svg);
     GUIDES.forEach(function (pair) { guides.push({ a: pair[0], b: pair[1], el: s('line', { 'class': 'guide-line' }, guideLayer) }); });
 

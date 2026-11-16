@@ -245,7 +245,7 @@ html[data-home-view="constellations"] .site-footer {
 html[data-home-view="constellations"] .footer-inner { font-size: 0.78rem; color: var(--sk-text-2); }
 html[data-home-view="constellations"] .footer-separator { background: var(--sk-text-2); opacity: 0.5; }
 @media (max-width: 700px) {
-  .sky-title { top: 45%; font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .sky-title { top: 84px; transform: translateX(-50%); font-size: clamp(1.7rem, 8vw, 2.4rem); }
   .sky-back { left: 16px; top: 64px; }
   html[data-home-view="constellations"] .site-footer { display: none; }
   .sky-caption { bottom: 20px; }
@@ -325,3 +325,37 @@ html[data-home-view="constellations"] .fl-launcher:focus-visible::before, html[d
 .sky-svg:not(.is-zoomed) .const:hover .const-title, .sky-svg:not(.is-zoomed) .const:hover .const-sub,
 .sky-svg:not(.is-zoomed) .const:focus-visible .const-title, .sky-svg:not(.is-zoomed) .const:focus-visible .const-sub { opacity: 1; }
 .sky-svg.is-zoomed .const-title, .sky-svg.is-zoomed .const-sub { display: none; }
+
+/* ---- Phones and tablets: a taller sky that scrolls, big stars, no tiny text -------------------- */
+.star-body { transform: scale(var(--ks, 1)); }
+.sky-view.is-compact { overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; touch-action: pan-y; overscroll-behavior: contain; }
+.sky-view.is-compact.has-selection { overflow: hidden; touch-action: manipulation; }
+.sky-view.is-compact .sky-svg { position: absolute; top: 0; left: 0; right: 0; bottom: auto; }
+.sky-view.is-compact.has-selection .sky-svg { position: fixed; inset: 0; }
+.sky-view.is-compact .sky-caption, .sky-view.is-compact .sky-back { position: fixed; }
+.sky-view.is-compact .sky-title { top: 84px; transform: translateX(-50%); }
+.sky-view.is-compact .sky-caption { bottom: 14px; padding: 0 16px; }
+.sky-view.is-compact .sky-caption p { font-size: 1.05rem; line-height: 1.4; }
+.sky-view.is-compact .sky-caption h2 { font-size: 2.1rem; }
+.sky-view.is-compact .sky-back { top: 66px; left: 14px; font-size: 1rem; padding: 12px 18px; min-height: 44px; }
+.sky-view.is-compact:not(.has-selection) .sky-caption { display: none; }   /* the hint would sit on the figures while scrolling */
+.sky-svg.is-compact .const.is-active .star-glyph { transform: scale(1); }
+.sky-svg.is-compact .const.is-active .star:hover .star-glyph, .sky-svg.is-compact .const.is-active .star.is-shown .star-glyph { transform: scale(1.2); }
+.sky-svg.is-compact .const.is-active .star-name { font-size: calc(var(--u, 1) * 16px); }
+.sky-svg.is-compact .const.is-active .star-count { font-size: calc(var(--u, 1) * 13px); }
+@media (max-width: 899px) {
+  .header-actions { gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .header-actions .view-toggle, .header-actions .sky-palette-select { min-height: 42px; padding: 10px 14px; font-size: 0.88rem; }
+  html[data-home-view="constellations"] .ae-nav-btn, html[data-home-view="constellations"] .upd-bell { min-width: 42px; min-height: 42px; }
+}
+.sky-view.is-compact .sky-caption { left: 0; right: 0; transform: none; max-width: none; margin: 0 14px; }
+@media (max-width: 599px) {
+  .header-actions { flex-wrap: nowrap; gap: 6px; }
+  .header-actions .sky-palette-select { max-width: 138px; padding-right: 8px; font-size: 0.8rem; }
+  .header-actions .view-toggle { font-size: 0; width: 42px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+  html[data-home-view="constellations"] .header-actions .view-toggle::before { margin: 0; width: 16px; height: 16px; }
+  .sky-view.is-compact .sky-back { top: 68px; }
+}
+
+.sky-view.is-compact .sky-title small { font-size: 0.85rem; letter-spacing: 0.06em; }
+@media (max-width: 899px) { html[data-home-view="constellations"] .site-footer { display: none; } }
