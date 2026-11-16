@@ -262,7 +262,7 @@
   "title": "Particle with String on Spool",
   "badge": "Rheonomic Spool Constraint",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 6"
   ]
@@ -292,7 +292,7 @@
   "title": "String with Two Particles on a Cylinder",
   "badge": "Multi-Particle Cylinder Contact",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 13",
    "Oscillations - Lecture 6 (part f)"
@@ -319,7 +319,7 @@
   "title": "Particle on Torus",
   "badge": "Toroidal Geometry",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 12"
   ]
@@ -329,7 +329,7 @@
   "title": "Particle on a String with a Plate",
   "badge": "Plate Edge Contact",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "40": {
   "topic": 5,
@@ -404,7 +404,7 @@
   "title": "Two Connected Particles, One on Paraboloid",
   "badge": "Multi-Particle Manifold",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "49": {
   "topic": 5,
@@ -422,7 +422,7 @@
   "title": "Double Pendulum",
   "badge": "Kinematic Linkage",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6 (part f)"
   ]

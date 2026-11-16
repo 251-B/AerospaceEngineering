@@ -1556,434 +1556,1743 @@ The free-body diagrams of the two particles show the weights, the tension pullin
 
 ---
 
-## 📌 Problem 32: Particle with String on Spool
+## Problem 32: Particle with String on Spool
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a heavy particle $P$ of mass $m$ hangs from a string of length $l = 4\pi a$ that unwinds from a spool of radius $a$ and centre $O$, which rotates counterclockwise at the constant rate $\omega$. The string is massless, inextensible, thin and stays taut. One end is fixed to the spool at the point $A$ of its perimeter; $B$ is the point where the straight segment $BP$ leaves the spool, and $\phi$ is the angle between $Ox$ and $OB$. Initially $\overrightarrow{OA} = -a\,\mathbf{i}$ and $B$ never reaches $A$.
-* **Constraints:** $P$ is a particle in the plane (2 coordinates). The string of fixed length that winds on the spool ties its position to the geometry: the free length $BP$ is $s = l - (\text{wrapped arc})$, and the attachment $A$ turns with the spool, so the constraint depends explicitly on time (rheonomic, holonomic) when $\omega \ne 0$. It is unilateral ($T \ge 0$, taut string).
-* **Degrees of freedom (part a):** $\text{CDOF} = 2 - 1 = 1$, the angle $\phi$.
-* **Parameters:** $m$, $a$, $l = 4\pi a$, $\omega$, $g$.
+### Reference Frames, Bases and Coordinates
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$ with $\mathbf{j}$ vertical upward.
-* **Basis at $B$:** $\mathbf{u}_r = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{j}$ (radial) and $\mathbf{u}_t = -\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}$ (counterclockwise tangent), a rotation of $\{\mathbf{i}, \mathbf{j}\}$ by $\phi$ (matrix $\begin{pmatrix}\cos \phi & -\sin \phi & 0\\ \sin \phi & \cos \phi & 0\\ 0 & 0 & 1\end{pmatrix}$, $\det = \cos^2\phi + \sin^2\phi = 1$; $RR^T$ has diagonal entries $\cos^2\phi + \sin^2\phi = 1$ (and $1$) and off-diagonal entries $\cos \phi\sin \phi - \sin \phi\cos \phi = 0$, so $RR^T = I$), with $\dot{\mathbf{u}}_r = \dot{\phi}\,\mathbf{u}_t$ and $\dot{\mathbf{u}}_t = -\dot{\phi}\,\mathbf{u}_r$. The straight segment leaves $B$ clockwise, toward the lower right in the figure, i.e. along $-\mathbf{u}_t$.
+A heavy particle $P$ of mass $m$ hangs from a string of length $l$, equal to $4\pi a$, whose other end is fixed at the point $A$ of a spool of radius $a$ and centre $O$; the spool turns counterclockwise at the constant rate $\omega$, and the string leaves it at the tangency point $B$, at the angle $\phi$ from $Ox$ (Problems.pdf, p. 20). The statement asks for the degrees of freedom, the kinematics of $P$, its forces, whether its mechanical energy is conserved, a closed set of equations and, for a spool at rest, a first integral. The solution follows the Newtonian approach of Notes.pdf, Sec. 7.1 to Sec. 7.7.
 
-### Phase 3: Derivation
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$ of the figure, origin at the centre of the spool (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$: $\mathbf i$ along $Ox$ (to the right), $\mathbf j$ along $Oy$ (vertical, **upward**), $\mathbf k$ out of the paper (right-handed) |
+| Basis of the tangency point | $\mathcal B_1 = \{\mathbf i_1, \mathbf j_1, \mathbf k\}$, $\mathcal B_0$ turned by $\phi$ about $\mathbf k$: $\mathbf i_1$ along $OB$, $\mathbf j_1$ tangent to the spool at $B$ in the counterclockwise sense |
+| Coordinate | $\phi$, the angle from $Ox$ to the radius $OB$, counterclockwise positive (statement) |
+| Spool | turns about $\mathbf k$ at the constant rate $\omega \ge 0$; the attachment $A$ turns with it, from $\overrightarrow{OA} = -a\,\mathbf i$ at $t = 0$, so its polar angle is $\pi + \omega t$ |
+| Hypotheses | $P$ moves in the plane $Oxy$ of the figure (the plane of the cross-section of the spool); the string is massless, inextensible, thin and always tense (statement); the wound part runs from $B$ counterclockwise to $A$ (figure), and $B$ never reaches $A$; $P$ never touches the spool |
+| Constraints | plane of motion, $\mathbf r_0^P\cdot\mathbf k = 0$ (holonomic, stationary, bilateral); string: the straight segment $BP$ is tangent to the spool and its length is $l$ minus the wound arc $AB$ (holonomic, **rheonomic** when $\omega \ne 0$ because $A$ moves with time, **unilateral**: the string can only pull) ([Lecture 3, Slide 21]) |
+| Degrees of freedom (a) | 3 coordinates of $P$ minus 2 constraint equations: one unknown function, $\phi(t)$. For $\omega \ne 0$ the string constraint contains $t$ explicitly (the lecture adds $t$ as an extra coordinate, [Lecture 3, Slide 21]), but $\omega t$ is prescribed, so $\phi$ is the only coordinate to solve for; for $\omega = 0$ the constraint is stationary and the problem has exactly one degree of freedom ([Lecture 3, Slide 4]) |
+| Data | $m$ [kg], $a$ [m], $l = 4\pi a$ [m], $\omega$ [rad s$^{-1}$], $g$ [m s$^{-2}$] |
+| Applied force | weight $-mg\,\mathbf j$ |
+| Constraint force | tension of the string, $T \ge 0$ along $PB$, towards $B$ (Notes.pdf, Sec. 7.5) |
 
-#### 3.1 Kinematics
-##### (a) Degrees of freedom
-* The particle moves in the plane (2 coordinates) but the string constraint leaves exactly **one** degree of freedom, $\phi$.
+![[attachments/EM-SOL/p32-plane.svg]]
 
-##### (b) Position, velocity and acceleration of $P$
-* **Pedagogical Justification:** the point $B$ is at $a\,\mathbf{u}_r$ and $P$ is at the distance $s$ from $B$ along $-\mathbf{u}_t$. The length $s$ is the total length minus the wrapped arc. The attachment $A$ is at the angle $\pi + \omega t$ (it turns with the spool), and the string is wound from $B$ (angle $\phi$) to $A$, so the wrapped arc is $a(\pi + \omega t - \phi)$:
-$$ s(t) = l - a\left(\pi + \omega t - \phi\right) = a\left(3\pi - \omega t + \phi\right), \qquad \dot{s} = a\left(\dot{\phi} - \omega\right) $$
-$$ \mathbf{r}_P = a\,\mathbf{u}_r - s\,\mathbf{u}_t $$
-* **Velocity** (product rule and Poisson's formula):
-$$ \mathbf{v}_P = a\dot{\phi}\,\mathbf{u}_t - \dot{s}\,\mathbf{u}_t - s\left(-\dot{\phi}\,\mathbf{u}_r\right) = a\dot{\phi}\,\mathbf{u}_t - a\left(\dot{\phi} - \omega\right)\mathbf{u}_t + s\dot{\phi}\,\mathbf{u}_r = a\omega\,\mathbf{u}_t + s\dot{\phi}\,\mathbf{u}_r $$
-* **Acceleration:**
-$$ \mathbf{a}_P = a\omega\left(-\dot{\phi}\,\mathbf{u}_r\right) + \dot{s}\dot{\phi}\,\mathbf{u}_r + s\ddot{\phi}\,\mathbf{u}_r + s\dot{\phi}\left(\dot{\phi}\,\mathbf{u}_t\right) = \left[s\ddot{\phi} + a\dot{\phi}^2 - 2a\omega\dot{\phi}\right]\mathbf{u}_r + s\dot{\phi}^2\,\mathbf{u}_t $$
-(using $\dot{s}\dot{\phi} = a\left(\dot{\phi} - \omega\right)\dot{\phi}$).
+### Change of Basis and Position Vector
 
-#### 3.2 Forces
-##### (c) Forces on $P$
-* **Weight:** $-mg\,\mathbf{j} = -mg\left(\sin\phi\,\mathbf{u}_r + \cos\phi\,\mathbf{u}_t\right)$.
-* **Tension:** along the straight segment, toward $B$: $\mathbf{T} = +T\,\mathbf{u}_t$ with $T \gt 0$ (since $\mathbf{r}_B - \mathbf{r}_P = s\,\mathbf{u}_t$).
-* **Inertia forces:** none. There is no other force: the string is the only constraint.
+![[attachments/EM-SOL/p32-rotation-k.svg]]
 
-#### 3.3 Equations of Motion
-##### (e) Closed set of equations
-* **Pedagogical Justification:** Newton's second law in $S_0$ gives two scalar equations for the two unknowns $\phi(t)$ and $T(t)$. The radial projection contains no tension:
-$$ \mathbf{u}_r: \; m\left[s\ddot{\phi} + a\dot{\phi}^2 - 2a\omega\dot{\phi}\right] = -mg\sin\phi, \qquad \mathbf{u}_t: \; ms\dot{\phi}^2 = T - mg\cos\phi $$
-$$ \boxed{a\left[\left(3\pi - \omega t + \phi\right)\ddot{\phi} - 2\omega\dot{\phi} + \dot{\phi}^2\right] = -g\sin\phi}, \qquad \boxed{T = ma\left(3\pi - \omega t + \phi\right)\dot{\phi}^2 + mg\cos\phi} $$
-The first is the equation of motion for $\phi(t)$; the tension follows from the second once $\phi(t)$ is known.
+> [!derivation] Basis of the tangency point: rotation about k
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20
+>
+> View along $\mathbf k$, which points out of the paper (⊙) because $\mathbf k$ is the cross product of $\mathbf i$ (to the right) and $\mathbf j$ (up): a positive rotation about $\mathbf k$ is counterclockwise, as $\phi$ in the figure. $\mathbf i_1$ is $\mathbf i$ turned by $\phi$: in its right triangle the hypotenuse is 1, the adjacent leg $\cos\phi$ lies along $\mathbf i$ and the opposite leg $\sin\phi$ along $\mathbf j$. $\mathbf j_1$ is $\mathbf j$ turned by $\phi$: the adjacent leg $\cos\phi$ lies along $\mathbf j$ and the opposite leg $\sin\phi$ along minus $\mathbf i$, because the upward vector turned counterclockwise leans to the left (the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\phi\,\mathbf i + \sin\phi\,\mathbf j \quad &\text{(right triangle of $\mathbf i_1$: adjacent leg on $\mathbf i$, opposite leg on $\mathbf j$)} \\
+> \mathbf j_1 &= -\sin\phi\,\mathbf i + \cos\phi\,\mathbf j \quad &\text{(right triangle of $\mathbf j_1$: opposite leg on $-\mathbf i$, adjacent leg on $\mathbf j$)} \\
+> \mathbf i_1\times\mathbf j_1 &= \cos^2\phi\,\mathbf i\times\mathbf j - \sin^2\phi\,\mathbf j\times\mathbf i = \left(\cos^2\phi + \sin^2\phi\right)\mathbf k = \mathbf k \quad &\text{(right-handed: $\mathbf j\times\mathbf i = -\mathbf k$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos\phi\cdot\cos\phi - \left(-\sin\phi\right)\sin\phi\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\phi + \sin^2\phi = 1 \quad &\text{(row 1 times row 1)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\phi\sin\phi - \sin\phi\cos\phi = 0 \quad &\text{(row 1 times row 2; row 3 is the unit row of $\mathbf k$)} \\
+> \mathbf j &= \sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf j_1 \quad &\text{(second row of the matrix, Eq. 1.14)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\phi & -\sin\phi & 0 \cr \sin\phi & \cos\phi & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I, \quad \mathbf j = \sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf j_1}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** $\mathbf i_1$ points from $O$ to the tangency point $B$ and $\mathbf j_1$ along the spool at $B$; the last relation projects the weight on $\mathcal B_1$.
 
-##### (d) Energy
-* **Pedagogical Justification:** the power of the tension on $P$ is $\mathbf{T}\cdot\mathbf{v}_P = T\,\mathbf{u}_t\cdot\left(a\omega\,\mathbf{u}_t + s\dot{\phi}\,\mathbf{u}_r\right) = Ta\omega$. For $\omega \ne 0$ it is not zero (the contact point $B$ moves with the spool), so the tension does work on $P$ and the mechanical energy of $P$ is **not conserved**. For $\omega = 0$ the power is zero, the constraint is scleronomic and the energy is conserved.
+> [!derivation] Free length of the string
+> **Law:** inextensible string: total length equals wound arc plus straight segment
+> **Source:** [Lecture 3, Slide 17]; [Lecture 3, Slide 21]; Problems.pdf, p. 20
+>
+> The wound part goes from $B$, at the polar angle $\phi$, counterclockwise to $A$, at the polar angle $\pi + \omega t$; an arc of a circle of radius $a$ is the radius times the angle it spans. The free length is $s = |BP|$.
+>
+> $$\begin{aligned}
+> \text{arc } BA &= a\left(\pi + \omega t - \phi\right) \quad &\text{(radius times the angle spanned from $B$ to $A$)} \\
+> s &= l - a\left(\pi + \omega t - \phi\right) \quad &\text{(constant total length $l$)} \\
+> &= 4\pi a - \pi a - a\omega t + a\phi \quad &\text{($l = 4\pi a$; brackets removed)} \\
+> &= a\left(3\pi - \omega t + \phi\right) \quad &\text{(common factor $a$)}
+> \end{aligned}$$
+>
+> $$\boxed{s(t) = a\left(3\pi - \omega t + \phi\right), \qquad 0 \lt \pi + \omega t - \phi \ (\text{$B$ never reaches $A$})}$$
+>
+> **Units:** $[a] = [\mathrm{L}]$; $[\omega t] = [\phi] = [1]$, so $[s] = [\mathrm{L}]$
+> **Meaning:** turning the spool counterclockwise winds the string ($s$ decreases with $t$), while a larger $\phi$ unwinds it; with $\omega = 0$ the free length depends only on $\phi$.
 
-#### 3.4 Integration and Answers
-##### (f) Case $\omega = 0$
-* **Pedagogical Justification:** with $\omega = 0$ the tension does no work and gravity is conservative, so the mechanical energy is a first integral that involves only $\phi$ and $\dot{\phi}$ (it contains no $\ddot{\phi}$). From $\mathbf{r}_P = a\,\mathbf{u}_r - s\,\mathbf{u}_t$ with $s = a(3\pi + \phi)$, the height is $y = a\sin\phi - a(3\pi + \phi)\cos\phi$, and $v^2 = s^2\dot{\phi}^2$ (from 3.1 with $\omega = 0$):
-$$ \boxed{E = \tfrac{1}{2}m\left[a(3\pi + \phi)\right]^2\dot{\phi}^2 + mga\left[\sin\phi - (3\pi + \phi)\cos\phi\right] = \text{const}} $$
+> [!derivation] Position vector of the particle
+> **Law:** position vector as a sum of partial vectors; tangency of the free segment
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Sec. 7.4; Problems.pdf, p. 20
+>
+> $\overrightarrow{OB}$ has length $a$ along $\mathbf i_1$. The free segment is tangent to the spool at $B$ (right angle at $B$ in the figure), so it is along plus or minus $\mathbf j_1$; the wound part continues from $B$ in the sense of plus $\mathbf j_1$ (counterclockwise, towards $A$), so the free part leaves $B$ along minus $\mathbf j_1$, down and to the right in the figure. Because $BP$ is perpendicular to $OB$, which makes the angle $\phi$ with the horizontal, $BP$ makes the angle $\phi$ with the downward vertical: in the right triangle of $BP$ the hypotenuse is $s$, the vertical leg $s\cos\phi$ (adjacent to $\phi$, downwards) and the horizontal leg $s\sin\phi$ (opposite to $\phi$, to the right).
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OB} + \overrightarrow{BP} \quad &\text{(sum of partial vectors)} \\
+> &= a\,\mathbf i_1 - s\,\mathbf j_1 \quad &\text{(radius along $\mathbf i_1$; free segment along $-\mathbf j_1$)} \\
+> &= a\left(\cos\phi\,\mathbf i + \sin\phi\,\mathbf j\right) - s\left(-\sin\phi\,\mathbf i + \cos\phi\,\mathbf j\right) \quad &\text{($\mathcal B_1$ in $\mathcal B_0$)} \\
+> &= \left(a\cos\phi + s\sin\phi\right)\mathbf i + \left(a\sin\phi - s\cos\phi\right)\mathbf j \quad &\text{(components grouped)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = a\,\mathbf i_1 - a\left(3\pi - \omega t + \phi\right)\mathbf j_1, \qquad y_P = a\sin\phi - a\left(3\pi - \omega t + \phi\right)\cos\phi}$$
+>
+> **Units:** $[\mathrm{L}]$ in every term
+> **Meaning:** $P$ lies on the involute of the spool traced by the end of the string; the horizontal leg $s\sin\phi$ and the vertical leg $s\cos\phi$ of the free segment are the dashed projections of the figure.
 
-### Phase 4: Interpretation & Checks
-* **Involute pendulum:** the system behaves like a pendulum whose effective length $s = a(3\pi - \omega t + \phi)$ changes as the string unwinds.
-* **Dimensional check:** $[a\ddot{\phi}\,s/a] = \text{m s}^{-2}$, like $[g\sin\phi]$; $[T] = \left[ma\left(3\pi + \phi\right)\dot{\phi}^2\right] = \text{N}$.
-* **Check against the official key:** the key of `Problems.pdf` gives the two equations $a\left[\left(3\pi - \omega t + \phi\right)\ddot{\phi} - 2\omega\dot{\phi} + \dot{\phi}^2\right] = -g\sin\phi$ and $ma\left(3\pi - \omega t + \phi\right)\dot{\phi}^2 = -mg\cos\phi + T$, the conservation of the mechanical energy for $\omega = 0$ and its quadrature $\tfrac{1}{2}m\left[a(3\pi + \phi)\right]^2\dot{\phi}^2 + mga\left[\sin\phi - (3\pi + \phi)\cos\phi\right] = E$. All coincide with the results above. Sympy reproduces $\mathbf{v}_P$ and $\mathbf{a}_P$ by differentiating $\mathbf{r}_P$, and numerical integration of the equation with $\omega = 0$ conserves the energy to $6\times 10^{-12}$ with $T \gt 0$.
+### Kinematics
 
----
+> [!derivation] Derivatives of the basis of the tangency point
+> **Law:** derivative of a unit vector turning about a fixed axis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \dot\phi\,\mathbf k \quad &\text{($\mathcal B_1$ turns about the fixed $\mathbf k$ with the angle $\phi$)} \\
+> \mathbf k\times\mathbf i_1 &= \cos\phi\,\mathbf j - \sin\phi\,\mathbf i = \mathbf j_1 \quad &\text{($\mathbf k\times\mathbf i = \mathbf j$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> \mathbf k\times\mathbf j_1 &= -\sin\phi\,\mathbf j - \cos\phi\,\mathbf i = -\mathbf i_1 \quad &\text{(same products)} \\
+> \dot{\mathbf i}_1 &= \boldsymbol\omega_{10}\times\mathbf i_1 = \dot\phi\,\mathbf j_1 \quad &\text{(Eq. 1.62)} \\
+> \dot{\mathbf j}_1 &= \boldsymbol\omega_{10}\times\mathbf j_1 = -\dot\phi\,\mathbf i_1 \quad &\text{(Eq. 1.62)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf i}_1 = \dot\phi\,\mathbf j_1, \qquad \dot{\mathbf j}_1 = -\dot\phi\,\mathbf i_1}$$
+>
+> **Units:** $[\dot\phi] = [\mathrm{T^{-1}}]$
+> **Meaning:** the basis follows the tangency point $B$, not the spool: it turns with $\dot\phi$, whatever $\omega$ is.
 
-## 📌 Problem 35: String with Two Particles on a Cylinder
+> [!derivation] Rate of change of the free length
+> **Law:** chain rule on the free length; the spool rate is constant
+> **Source:** Notes.pdf, Eq. 2.3; Problems.pdf, p. 20
+>
+> $$\begin{aligned}
+> \dot s &= \frac{d}{dt}\left[a\left(3\pi - \omega t + \phi\right)\right] = a\left(0 - \omega + \dot\phi\right) \quad &\text{($a$, $\pi$ and $\omega$ constant; chain rule on $\phi(t)$)} \\
+> \ddot s &= a\left(\ddot\phi - 0\right) = a\ddot\phi \quad &\text{(derivative of $\dot s$; $\omega$ constant)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot s = a\left(\dot\phi - \omega\right), \qquad \ddot s = a\ddot\phi}$$
+>
+> **Units:** $[a\dot\phi] = [a\omega] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** the free length grows when $B$ advances counterclockwise faster than the attachment $A$.
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** two heavy particles $P$ and $Q$ of mass $m$ are joined by an inextensible massless string of length $L$ that rests on a fixed smooth cylinder of radius $R$ and centre $O$, and by a spring of zero natural length and stiffness $k$. The motion is planar, in $Oxy$ with $Oy$ upward. $A$ (right) and $B$ (left) are the tangency points of the string with the cylinder. The string stays taut and the spring does not touch the cylinder.
-* **Constraints:** two free particles in the plane have $4$ coordinates. The inextensible string, taut and in contact with the cylinder, gives one holonomic constraint (unilateral: $T \ge 0$), so $\text{CDOF} = 4 - 1 = 3$. The smooth cylinder acts on the string, not on the particles.
-* **Coordinates:** $A$ is at the polar angle $\alpha$ from $Ox$ and $B$ at the polar angle $\beta$. The straight segments $AP$ and $BQ$ have lengths $\xi_P$ and $\xi_Q$, and the string wraps the arc $AB$ of length $R(\beta - \alpha)$ on the cylinder:
-$$ \xi_P + \xi_Q + R(\beta - \alpha) = L $$
-The generalised coordinates are $(\alpha, \beta, \xi_P)$, with $\xi_Q = L - \xi_P - R(\beta - \alpha)$ (the four quantities $\alpha, \beta, \xi_P, \xi_Q$ are used below together with this one relation).
-* **Parameters:** $m$ [kg], $L$ [m], $R$ [m], $k$ [N/m], $g$ [m/s$^2$]; $\ell_0 = (L - \pi R)/2$ [m] is defined in (e).
+> [!derivation] (b) Velocity and acceleration of the particle
+> **Law:** time derivatives of the position vector in $S_0$; product rule
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Sec. 7.4
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= a\,\dot{\mathbf i}_1 - \dot s\,\mathbf j_1 - s\,\dot{\mathbf j}_1 \quad &\text{(product rule on $s\,\mathbf j_1$; $a$ constant)} \\
+> &= a\dot\phi\,\mathbf j_1 - a\left(\dot\phi - \omega\right)\mathbf j_1 + s\dot\phi\,\mathbf i_1 \quad &\text{(derivatives of $\mathbf i_1$, $\mathbf j_1$ and $s$)} \\
+> &= s\dot\phi\,\mathbf i_1 + a\omega\,\mathbf j_1 \quad &\text{(the terms in $a\dot\phi\,\mathbf j_1$ cancel)} \\
+> \mathbf a_0^P &= \dot s\dot\phi\,\mathbf i_1 + s\ddot\phi\,\mathbf i_1 + s\dot\phi\,\dot{\mathbf i}_1 + a\omega\,\dot{\mathbf j}_1 \quad &\text{(product rule; $a\omega$ constant)} \\
+> &= a\left(\dot\phi - \omega\right)\dot\phi\,\mathbf i_1 + s\ddot\phi\,\mathbf i_1 + s\dot\phi^2\,\mathbf j_1 - a\omega\dot\phi\,\mathbf i_1 \quad &\text{(derivatives of $s$, $\mathbf i_1$, $\mathbf j_1$)} \\
+> &= \left(s\ddot\phi + a\dot\phi^2 - 2a\omega\dot\phi\right)\mathbf i_1 + s\dot\phi^2\,\mathbf j_1 \quad &\text{(the two terms in $a\omega\dot\phi$ added)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \mathbf r_0^P = a\,\mathbf i_1 - a\left(3\pi - \omega t + \phi\right)\mathbf j_1 \cr \mathbf v_0^P = a\left(3\pi - \omega t + \phi\right)\dot\phi\,\mathbf i_1 + a\omega\,\mathbf j_1 \cr \mathbf a_0^P = a\left[\left(3\pi - \omega t + \phi\right)\ddot\phi + \dot\phi^2 - 2\omega\dot\phi\right]\mathbf i_1 + a\left(3\pi - \omega t + \phi\right)\dot\phi^2\,\mathbf j_1 \end{array}}$$
+>
+> **Units:** $[s\dot\phi] = [a\omega] = [\mathrm{L\,T^{-1}}]$; $[s\ddot\phi] = [a\dot\phi^2] = [a\omega\dot\phi] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** $P$ turns about the instantaneous tangency point $B$ on a circle of radius $s$ (the term $s\dot\phi\,\mathbf i_1$, perpendicular to the string) while the spool reels the string in at the speed $a\omega$ along $\mathbf j_1$, from $P$ towards $B$.
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ fixed to the cylinder.
-* **Bases following the contact points:** $\mathbf{n}$ is the outward normal of the cylinder and $\mathbf{t}$ the unit vector along the straight string, from the tangency point to the particle (clockwise at $A$, counterclockwise at $B$):
-$$ \mathbf{n}_A = \cos\alpha\,\mathbf{i} + \sin\alpha\,\mathbf{j}, \quad \mathbf{t}_A = \sin\alpha\,\mathbf{i} - \cos\alpha\,\mathbf{j}, \qquad \mathbf{n}_B = \cos\beta\,\mathbf{i} + \sin\beta\,\mathbf{j}, \quad \mathbf{t}_B = -\sin\beta\,\mathbf{i} + \cos\beta\,\mathbf{j} $$
-* **Changes of basis** (columns are the components of $\mathbf{t}_A, \mathbf{n}_A, \mathbf{k}$ and of $\mathbf{n}_B, \mathbf{t}_B, \mathbf{k}$):
-$$ [{}_0 R_A] = \begin{pmatrix} \sin\alpha & \cos\alpha & 0 \\ -\cos\alpha & \sin\alpha & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad [{}_0 R_B] = \begin{pmatrix} \cos\beta & -\sin\beta & 0 \\ \sin\beta & \cos\beta & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
-$$ \det[{}_0 R_A] = \sin^2\alpha + \cos^2\alpha = 1, \quad \det[{}_0 R_B] = \cos^2\beta + \sin^2\beta = 1, \quad [{}_0 R_A][{}_0 R_A]^T = [{}_0 R_B][{}_0 R_B]^T = I $$
-Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
-* **Time derivatives** (each basis turns about $\mathbf{k}$ at the rate of its angle):
-$$ \dot{\mathbf{t}}_A = \dot{\alpha}\,\mathbf{n}_A, \quad \dot{\mathbf{n}}_A = -\dot{\alpha}\,\mathbf{t}_A, \qquad \dot{\mathbf{n}}_B = \dot{\beta}\,\mathbf{t}_B, \quad \dot{\mathbf{t}}_B = -\dot{\beta}\,\mathbf{n}_B $$
+### Forces and Equations of Motion
 
-### Phase 3: Derivation
+The free-body diagram of $P$ shows its weight and the tension of the string, directed from $P$ to $B$. $S_0$ is inertial, so no inertia force acts; $P$ does not touch the spool, which acts only on the string.
 
-#### 3.1 Kinematics
-##### (b) Position, velocity and acceleration
-* **Pedagogical Justification:** each particle is at the tangency point plus the straight segment, $\mathbf{r}_P = R\,\mathbf{n}_A + \xi_P\,\mathbf{t}_A$ and $\mathbf{r}_Q = R\,\mathbf{n}_B + \xi_Q\,\mathbf{t}_B$. The derivatives use the product rule and the formulas of Phase 2:
-$$ \mathbf{v}_P = -R\dot{\alpha}\,\mathbf{t}_A + \dot{\xi}_P\,\mathbf{t}_A + \xi_P\dot{\alpha}\,\mathbf{n}_A = \left(\dot{\xi}_P - R\dot{\alpha}\right)\mathbf{t}_A + \xi_P\dot{\alpha}\,\mathbf{n}_A $$
-$$ \mathbf{a}_P = \left(\ddot{\xi}_P - R\ddot{\alpha}\right)\mathbf{t}_A + \left(\dot{\xi}_P - R\dot{\alpha}\right)\dot{\alpha}\,\mathbf{n}_A + \left(\dot{\xi}_P\dot{\alpha} + \xi_P\ddot{\alpha}\right)\mathbf{n}_A - \xi_P\dot{\alpha}^2\,\mathbf{t}_A = \left(\ddot{\xi}_P - R\ddot{\alpha} - \xi_P\dot{\alpha}^2\right)\mathbf{t}_A + \left(\xi_P\ddot{\alpha} + 2\dot{\xi}_P\dot{\alpha} - R\dot{\alpha}^2\right)\mathbf{n}_A $$
-$$ \mathbf{v}_Q = \left(\dot{\xi}_Q + R\dot{\beta}\right)\mathbf{t}_B - \xi_Q\dot{\beta}\,\mathbf{n}_B, \qquad \mathbf{a}_Q = \left(\ddot{\xi}_Q + R\ddot{\beta} - \xi_Q\dot{\beta}^2\right)\mathbf{t}_B - \left(\xi_Q\ddot{\beta} + 2\dot{\xi}_Q\dot{\beta} + R\dot{\beta}^2\right)\mathbf{n}_B $$
-$\mathbf{a}_Q$ follows from $\mathbf{v}_Q$ exactly as $\mathbf{a}_P$ from $\mathbf{v}_P$, with $\dot{\mathbf{t}}_B$ and $\dot{\mathbf{n}}_B$ of Phase 2 and $\beta$ in place of $\alpha$. In terms of the chosen coordinates $(\alpha, \beta, \xi_P)$: $\xi_Q = L - \xi_P - R(\beta - \alpha)$, $\dot{\xi}_Q = -\dot{\xi}_P - R(\dot{\beta} - \dot{\alpha})$ (so $\dot{\xi}_Q + R\dot{\beta} = R\dot{\alpha} - \dot{\xi}_P$) and $\ddot{\xi}_Q + R\ddot{\beta} = R\ddot{\alpha} - \ddot{\xi}_P$.
+![[attachments/EM-SOL/p32-fbd.svg]]
 
-#### 3.2 Forces
-##### (c) Forces on $P$ and $Q$
-* **Weights:** $-mg\,\mathbf{j}$ on each particle.
-* **String tension** $T \ge 0$ (the same on both sides: the cylinder is smooth and the string massless): $-T\,\mathbf{t}_A$ on $P$ and $-T\,\mathbf{t}_B$ on $Q$, directed toward the tangency points.
-* **Spring** (zero natural length): $\mathbf{F}_{s,P} = k\,\mathbf{d}$ and $\mathbf{F}_{s,Q} = -k\,\mathbf{d}$, with $\mathbf{d} = \mathbf{r}_Q - \mathbf{r}_P$.
-* **Inertia forces:** none. The projections of the weight on the bases are $\mathbf{j}\cdot\mathbf{t}_A = -\cos\alpha$, $\mathbf{j}\cdot\mathbf{n}_A = \sin\alpha$, $\mathbf{j}\cdot\mathbf{t}_B = \cos\beta$, $\mathbf{j}\cdot\mathbf{n}_B = \sin\beta$.
+> [!derivation] (c) Forces on the particle
+> **Law:** weight; tension of a massless string along the string, pulling (constraint force of unknown magnitude)
+> **Source:** Notes.pdf, Sec. 7.5; [Lecture 3, Slide 13]; [Lecture 3, Slide 17]
+>
+> $$\begin{aligned}
+> \mathbf r_0^B - \mathbf r_0^P &= a\,\mathbf i_1 - \left(a\,\mathbf i_1 - s\,\mathbf j_1\right) = s\,\mathbf j_1 \quad &\text{(the string pulls $P$ towards $B$: unit vector $\mathbf j_1$)} \\
+> \mathbf T &= T\,\mathbf j_1, \quad T \ge 0 \quad &\text{(tension, magnitude unknown; a string can only pull)} \\
+> -mg\,\mathbf j &= -mg\sin\phi\,\mathbf i_1 - mg\cos\phi\,\mathbf j_1 \quad &\text{($\mathbf j$ in $\mathcal B_1$)} \\
+> \mathbf F &= -mg\sin\phi\,\mathbf i_1 + \left(T - mg\cos\phi\right)\mathbf j_1 \quad &\text{(sum: weight plus tension)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F = -mg\,\mathbf j + T\,\mathbf j_1 = -mg\sin\phi\,\mathbf i_1 + \left(T - mg\cos\phi\right)\mathbf j_1, \qquad T \ge 0}$$
+>
+> **Units:** $[mg] = [T] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the tension has no component along $\mathbf i_1$ (perpendicular to the string), so the projection on $\mathbf i_1$ will be free of the unknown $T$.
 
-#### 3.3 Equations of Motion
-* **Pedagogical Justification:** Newton's second law for $P$ and $Q$, projected on the bases of the contact points, gives four scalar equations; together with the length constraint there are 5 equations for the 5 unknowns $\alpha, \beta, \xi_P, \xi_Q, T$:
-$$ m\left(\ddot{\xi}_P - R\ddot{\alpha} - \xi_P\dot{\alpha}^2\right) = -T + mg\cos\alpha + k\,\mathbf{d}\cdot\mathbf{t}_A $$
-$$ m\left(\xi_P\ddot{\alpha} + 2\dot{\xi}_P\dot{\alpha} - R\dot{\alpha}^2\right) = -mg\sin\alpha + k\,\mathbf{d}\cdot\mathbf{n}_A $$
-$$ m\left(\ddot{\xi}_Q + R\ddot{\beta} - \xi_Q\dot{\beta}^2\right) = -T - mg\cos\beta - k\,\mathbf{d}\cdot\mathbf{t}_B $$
-$$ -m\left(\xi_Q\ddot{\beta} + 2\dot{\xi}_Q\dot{\beta} + R\dot{\beta}^2\right) = -mg\sin\beta - k\,\mathbf{d}\cdot\mathbf{n}_B $$
-* **Decoupling.** Subtracting the first and third equations removes the tension $T$; the remaining equations, with the length constraint, determine the three coordinates, and $T$ is computed afterwards.
+> [!derivation] (e) Newton's second law: a closed set of equations
+> **Law:** Newton's second law in an inertial frame, projected on $\mathcal B_1$; the projection perpendicular to the string is free of the tension
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 7.6; [Lecture 3, Slide 14]
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^P &= -mg\,\mathbf j + T\,\mathbf j_1 \quad &\text{(all the forces; unknowns $\phi$ and $T$)} \\
+> \mathbf i_1:\ m\left(s\ddot\phi + a\dot\phi^2 - 2a\omega\dot\phi\right) &= -mg\sin\phi \quad &\text{(dot product with $\mathbf i_1$; no tension)} \\
+> \mathbf j_1:\ ms\dot\phi^2 &= -mg\cos\phi + T \quad &\text{(dot product with $\mathbf j_1$)} \\
+> a\left[\left(3\pi - \omega t + \phi\right)\ddot\phi - 2\omega\dot\phi + \dot\phi^2\right] &= -g\sin\phi \quad &\text{(first projection divided by $m$; $s$ substituted)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} a\left[\left(3\pi - \omega t + \phi\right)\ddot\phi - 2\omega\dot\phi + \dot\phi^2\right] = -g\sin\phi \cr T = ma\left(3\pi - \omega t + \phi\right)\dot\phi^2 + mg\cos\phi \end{array}}$$
+>
+> **Units:** $[a\ddot\phi] = [a\omega\dot\phi] = [g] = [\mathrm{L\,T^{-2}}]$; $[T] = [ma\dot\phi^2] = [mg] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** two scalar equations for the two unknowns $\phi(t)$ and $T(t)$ (the third projection, on $\mathbf k$, is identically zero for planar motion): the first contains only $\phi$ and gives the motion, with a coefficient that depends explicitly on $t$; the second gives the tension afterwards, which must stay positive for the string to be tense.
 
-#### 3.4 Integration and Answers
-##### (a) Degrees of freedom
-* $\text{CDOF} = 3$ (see Phase 1): for example $(\alpha, \beta, \xi_P)$.
+> [!derivation] (d) Power of the tension and the mechanical energy of P
+> **Law:** theorem of kinetic energy (power of the forces); potential of the weight; power of a time-dependent constraint
+> **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31; [Lecture 3, Slide 16]; [Lecture 3, Slide 21]
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P\right) &= m\,\mathbf a_0^P\cdot\mathbf v_0^P = \mathbf F\cdot\mathbf v_0^P \quad &\text{(product rule; Newton's second law)} \\
+> -mg\,\mathbf j\cdot\mathbf v_0^P &= -mg\,\dot y_P = -\frac{d}{dt}\left(mg\,y_P\right) \quad &\text{(the weight derives from the potential $mg\,y_P$)} \\
+> T\,\mathbf j_1\cdot\mathbf v_0^P &= T\,\mathbf j_1\cdot\left(s\dot\phi\,\mathbf i_1 + a\omega\,\mathbf j_1\right) = Ta\omega \quad &\text{(power of the tension; $\mathbf j_1\cdot\mathbf i_1 = 0$)} \\
+> \frac{d}{dt}\left(\tfrac12 m\,|\mathbf v_0^P|^2 + mg\,y_P\right) &= Ta\omega \quad &\text{(the two powers moved to their sides)} \\
+> |\mathbf v_0^P|^2 &= s^2\dot\phi^2 + a^2\omega^2 \quad &\text{(orthonormal $\mathcal B_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{E = \tfrac12 m\left(s^2\dot\phi^2 + a^2\omega^2\right) + mg\left(a\sin\phi - s\cos\phi\right), \qquad \dot E = Ta\omega \gt 0 \ \text{for } \omega \gt 0: \ E \ \text{not conserved}}$$
+>
+> **Units:** $[E] = [\mathrm{M\,L^2\,T^{-2}}]$; $[Ta\omega] = [\mathrm{M\,L\,T^{-2}}][\mathrm{L}][\mathrm{T^{-1}}] = [\mathrm{M\,L^2\,T^{-3}}]$, a power
+> **Meaning:** the string constraint depends explicitly on time, so the velocity of $P$ is not orthogonal to the tension: the spool, driven at constant rate by its motor, reels $P$ in and works on it at the rate $Ta\omega$; since the string is tense, the mechanical energy of $P$ grows. It is conserved only for $\omega = 0$.
 
-##### (d) Mechanical energy
-* **Pedagogical Justification:** the energy of $P$ alone is not conserved: the tension and the spring both do work on it, and that work is exchanged with $Q$. For the system $P + Q$, the only forces that could dissipate energy are the tensions, so their total power is computed first, with $\mathbf{t}_A\cdot\mathbf{v}_P = \dot{\xi}_P - R\dot{\alpha}$ and $\mathbf{t}_B\cdot\mathbf{v}_Q = \dot{\xi}_Q + R\dot{\beta}$:
-$$ \dot{W}_T = -T\,\mathbf{t}_A\cdot\mathbf{v}_P - T\,\mathbf{t}_B\cdot\mathbf{v}_Q = -T\,\frac{d}{dt}\left[\xi_P + \xi_Q + R(\beta - \alpha)\right] = -T\dot{L} = 0 $$
-* The tensions do zero net work. Gravity and the spring are conservative, so the total mechanical energy of the system is conserved, with the potential energy
-$$ V = mg\left(y_P + y_Q\right) + \tfrac{1}{2}k\left|\mathbf{r}_Q - \mathbf{r}_P\right|^2, \qquad E = \tfrac{1}{2}m\left(v_P^2 + v_Q^2\right) + V = \text{const} $$
+### Answers and Checks
 
-##### (e) Symmetric configurations about $Oy$
-* **Pedagogical Justification:** if the motion keeps the mirror symmetry about $Oy$, then $\beta = \pi - \alpha$ and $\xi_P = \xi_Q = \xi$. The length constraint becomes $2\xi + R(\pi - 2\alpha) = L$, i.e.
-$$ \xi(\alpha) = \ell_0 + R\alpha, \qquad \ell_0 = \frac{L - \pi R}{2} $$
-* The system has $\text{CDOF} = 1$, the angle $\alpha$. The relations between the previous coordinates are $\beta = \pi - \alpha$, $\xi_P = \xi_Q = \ell_0 + R\alpha$ and $\dot{\xi} = R\dot{\alpha}$.
+#### (f) Spool at rest
 
-##### (f) Equilibrium and small oscillations
-* **Pedagogical Justification:** with the symmetry, one coordinate $\alpha$ describes the system. The coordinates of $P$ are $x_P = R\cos\alpha + \xi\sin\alpha$ and $y_P = R\sin\alpha - \xi\cos\alpha$. Differentiating with respect to $\alpha$ (with $\xi' = R$):
-$$ x_P' = -R\sin\alpha + R\sin\alpha + \xi\cos\alpha = \xi\cos\alpha, \qquad y_P' = R\cos\alpha - R\cos\alpha + \xi\sin\alpha = \xi\sin\alpha $$
-so $v_P = \xi\dot{\alpha}$. By symmetry $x_Q = -x_P$, $y_Q = y_P$ and $|\mathbf{r}_Q - \mathbf{r}_P| = 2x_P$:
-$$ K = 2\cdot\tfrac{1}{2}m\xi^2\dot{\alpha}^2 = m\xi^2\dot{\alpha}^2, \qquad V(\alpha) = 2mgy_P + \tfrac{1}{2}k(2x_P)^2 = 2mgy_P + 2kx_P^2 $$
-$$ V'(\alpha) = 2mg\xi\sin\alpha + 4kx_P\xi\cos\alpha = 2\xi f(\alpha), \qquad f(\alpha) = mg\sin\alpha + 2k\cos\alpha\left(R\cos\alpha + \xi\sin\alpha\right) $$
-* **Equilibrium.** $V'(\alpha_0) = 0$, i.e. $f(\alpha_0) = 0$ (since $\xi \gt 0$). Physically, the horizontal pull $2kx_P$ of the spring must be balanced by the horizontal component of the tension, which needs $\alpha_0 \lt 0$: the segments $AP$ and $BQ$ are slightly inclined inward. For a small deviation from the vertical, $|\alpha_0| \ll 1$, keep first-order terms ($\sin\alpha \approx \alpha$, $\cos\alpha \approx 1$, $\xi \approx \ell_0$):
-$$ mg\alpha_0 + 2k\left(R + \ell_0\alpha_0\right) = 0 \implies \alpha_0 \approx -\frac{2kR}{mg + 2k\ell_0} $$
-and the other coordinates at equilibrium follow from the symmetry relations: $\beta_0 = \pi - \alpha_0 \approx \pi + \dfrac{2kR}{mg + 2k\ell_0}$ and $\xi_0 = \ell_0 + R\alpha_0 \approx \ell_0 - \dfrac{2kR^2}{mg + 2k\ell_0}$.
-* **Equation of motion.** From $\frac{d}{dt}(K + V) = 0$ with the chain rule and $\dot{\xi} = R\dot{\alpha}$:
-$$ 2m\xi^2\dot{\alpha}\ddot{\alpha} + 2m\xi R\dot{\alpha}^3 + 2\xi f\dot{\alpha} = 0 \implies m\xi\ddot{\alpha} + mR\dot{\alpha}^2 + f(\alpha) = 0 $$
-This is the $\mathbf{n}_A$ equation of 3.3 with $\dot{\xi}_P = R\dot{\alpha}$ and $\mathbf{d}\cdot\mathbf{n}_A = -2x_P\cos\alpha$.
-* **Linearisation.** Put $\alpha = \alpha_0 + \delta$ with $\delta$ small: $\dot{\alpha}^2$ is second order and $f(\alpha) \approx f'(\alpha_0)\delta$, with $f'(\alpha) = mg\cos\alpha + 2k\left[\xi\cos^2\alpha - x_P\sin\alpha\right] \approx mg + 2k\ell_0$:
-$$ \ddot{\delta} + \frac{mg + 2k\ell_0}{m\ell_0}\,\delta = 0 \implies \omega^2 = \frac{g}{\ell_0} + \frac{2k}{m}, \qquad \boxed{\omega = \sqrt{\frac{g}{\ell_0} + \frac{2k}{m}}} $$
+With the spool at rest (zero $\omega$) the attachment $A$ stays at $-a\,\mathbf i$, the string constraint becomes stationary and the free length $a(3\pi + \phi)$ depends on $\phi$ alone. Part (a) becomes exactly one degree of freedom, the velocity of part (b) loses its term along $\mathbf j_1$, and the power of the tension of part (d) vanishes.
 
-### Phase 4: Interpretation & Checks
-* **Limit $k \to 0$:** $\omega = \sqrt{g/\ell_0}$, the pendulum of length $\ell_0$ (the free length of each hanging segment).
-* **Limit $g \to 0$:** $\omega = \sqrt{2k/m}$, the frequency of two particles of mass $m$ joined by a spring $k$ (reduced mass $m/2$ and stiffness $k$). In this limit $\alpha_0 \to -R/\ell_0$, which is small only if $R \ll \ell_0$; otherwise the limit lies outside the small-angle hypothesis.
-* **Dimensional check:** $[g/\ell_0] = \text{s}^{-2}$, $[2k/m] = \text{N m}^{-1}\text{kg}^{-1} = \text{s}^{-2}$; $[\alpha_0] = [kR/(mg + 2k\ell_0)] = 1$.
-* **Check against the official key:** `Problems.pdf` gives only the spring force, $\mathbf{F}_{S,P} = -\mathbf{F}_{S,Q} = k\overrightarrow{PQ} = k(\mathbf{r}_Q - \mathbf{r}_P)$ written in its own coordinates, which is the same vector as $k\,\mathbf{d}$ above. The remaining results are verified by independent derivation and numerically ($R = 1$ m, $\ell_0 = 2$ m, $m = 1$ kg, $k = 0.3$ N/m, $g = 9.81$ m/s$^2$): the exact root of $f(\alpha_0) = 0$ is $\alpha_0 = -0.054532$ rad against $-0.054496$ rad from the linear formula, and integrating $m\xi\ddot{\alpha} + mR\dot{\alpha}^2 + f = 0$ gives $\omega^2 = 5.6482$ s$^{-2}$, equal to $f'(\alpha_0)/(m\xi(\alpha_0))$; the difference with $g/\ell_0 + 2k/m = 5.505$ s$^{-2}$ is the first-order correction $\xi(\alpha_0) = \ell_0 + R\alpha_0$ in place of $\ell_0$.
+> [!derivation] First integral of the motion for a spool at rest
+> **Law:** the equation of motion multiplied by a suitable factor is an exact derivative (product and chain rules); Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31; [Lecture 3, Slide 16]; Problems.pdf, p. 75
+>
+> $$\begin{aligned}
+> a\left[\left(3\pi + \phi\right)\ddot\phi + \dot\phi^2\right] + g\sin\phi &= 0 \quad &\text{(equation of motion with $\omega = 0$)} \\
+> a^2\left(3\pi + \phi\right)^2\dot\phi\ddot\phi + a^2\left(3\pi + \phi\right)\dot\phi^3 + ga\left(3\pi + \phi\right)\sin\phi\,\dot\phi &= 0 \quad &\text{(times $a\left(3\pi + \phi\right)\dot\phi$)} \\
+> \frac{d}{dt}\left[\tfrac12 a^2\left(3\pi + \phi\right)^2\dot\phi^2\right] &= a^2\left(3\pi + \phi\right)\dot\phi\cdot\dot\phi^2 + a^2\left(3\pi + \phi\right)^2\dot\phi\ddot\phi \quad &\text{(product rule; chain rule on $\left(3\pi + \phi\right)^2$)} \\
+> \frac{d}{dt}\left[a\sin\phi - a\left(3\pi + \phi\right)\cos\phi\right] &= a\cos\phi\,\dot\phi - a\dot\phi\cos\phi + a\left(3\pi + \phi\right)\sin\phi\,\dot\phi \quad &\text{(chain and product rules)} \\
+> &= a\left(3\pi + \phi\right)\sin\phi\,\dot\phi \quad &\text{(the terms in $a\cos\phi\,\dot\phi$ cancel)} \\
+> \frac{d}{dt}\left[\tfrac12 a^2\left(3\pi + \phi\right)^2\dot\phi^2 + g\left(a\sin\phi - a\left(3\pi + \phi\right)\cos\phi\right)\right] &= 0 \quad &\text{(the second line is this sum of derivatives)} \\
+> \left[\tfrac12 a^2\left(3\pi + \phi\right)^2\dot\phi^2 + ga\left(\sin\phi - \left(3\pi + \phi\right)\cos\phi\right)\right]_0^t &= 0 \quad &\text{(Barrow's rule between $0$ and $t$)}
+> \end{aligned}$$
+>
+> $$\boxed{\tfrac12 m\left[a\left(3\pi + \phi\right)\right]^2\dot\phi^2 + mga\left[\sin\phi - \left(3\pi + \phi\right)\cos\phi\right] = E = \text{const}}$$
+>
+> **Units:** $[m a^2\dot\phi^2] = [mga] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the mechanical energy of part (d) with $\omega = 0$: kinetic energy of the circular motion about $B$ plus the potential of the weight, with the height $y_P$ of the position box. It contains $\phi$ and its rate only, and with the initial data it reduces the motion to a quadrature.
 
----
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom | one coordinate, $\phi(t)$; the string constraint is rheonomic for $\omega \ne 0$ (time appears explicitly through $\omega t$, prescribed) and stationary for $\omega = 0$ |
+| (b) Kinematics | $\mathbf r_0^P = a\,\mathbf i_1 - a(3\pi - \omega t + \phi)\,\mathbf j_1$; $\mathbf v_0^P = a(3\pi - \omega t + \phi)\dot\phi\,\mathbf i_1 + a\omega\,\mathbf j_1$; $\mathbf a_0^P = a[(3\pi - \omega t + \phi)\ddot\phi + \dot\phi^2 - 2\omega\dot\phi]\,\mathbf i_1 + a(3\pi - \omega t + \phi)\dot\phi^2\,\mathbf j_1$, with $\mathbf i_1 = \cos\phi\,\mathbf i + \sin\phi\,\mathbf j$, $\mathbf j_1 = -\sin\phi\,\mathbf i + \cos\phi\,\mathbf j$ |
+| (c) Forces | weight $-mg\,\mathbf j = -mg(\sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf j_1)$; tension $T\,\mathbf j_1$ towards $B$, $T \ge 0$ |
+| (d) Energy | not conserved for $\omega \ne 0$: $\dot E = Ta\omega$ (power of the tension of the moving spool) |
+| (e) Closed set | $a[(3\pi - \omega t + \phi)\ddot\phi - 2\omega\dot\phi + \dot\phi^2] = -g\sin\phi$; $T = ma(3\pi - \omega t + \phi)\dot\phi^2 + mg\cos\phi$ |
+| (f) Spool at rest | $\frac12 m[a(3\pi + \phi)]^2\dot\phi^2 + mga[\sin\phi - (3\pi + \phi)\cos\phi] = E$ |
 
-## 📌 Problem 38: Particle on Torus
+**Check against the official key:** Problems.pdf, p. 75, item 32, prints the two projections of Newton's second law along $\mathbf i_1$ and $\mathbf j_1$ exactly as in the box of part (e) (the same equation for $\phi$ and the same equation for the tension $T$), states that the mechanical energy is conserved only for a spool at rest, and prints the same first integral as the box of part (f): **match**, term by term.
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a heavy particle $P$ ($m_P = 1$) moves without friction on the vertical torus $x_0 = (2 + \cos\phi)\sin\theta$, $y_0 = \sin\phi$, $z_0 = 4 + (2 + \cos\phi)\cos\theta$, and cannot separate from its surface. A second particle $Q$ ($m_Q = 2$) is constrained to the plane $Ox_0y_0$ without friction. $P$ and $Q$ attract each other with a force proportional to their distance, with constant $k = 2$.
-* **Initial state:** $\mathbf{r}_P(t_0) = 2\mathbf{i}_0 + \mathbf{j}_0 + 4\mathbf{k}_0$, $\mathbf{v}_P(t_0) = -\mathbf{k}_0$; $\mathbf{r}_Q(t_0) = 3\mathbf{i}_0 + \mathbf{j}_0$, $\mathbf{v}_Q(t_0) = -\mathbf{i}_0 + \mathbf{j}_0$.
-* **Constraints and degrees of freedom (a):** two free particles have $6$ coordinates. $P$ is on the torus surface ($1$ constraint) and $Q$ is on the plane $z_0 = 0$ ($1$ constraint), so $\text{CDOF} = 6 - 2 = 4$. A minimal set: $(\theta, \phi)$ for $P$, where $\theta$ is the toroidal angle (rotation about $\mathbf{j}_0$ of the axis of the torus, which passes through $z_0 = 4$) and $\phi$ the poloidal angle (angle around the tube, whose centre circle has radius $2$ and the tube radius is $1$); and $(\xi, \eta)$ for $Q$, its Cartesian coordinates in the plane.
-* **Initial values of the coordinates:** from $x_0 = 2$, $y_0 = 1$, $z_0 = 4$: $\sin\phi = 1$ and $(2 + \cos\phi)\sin\theta = 2$, so $\phi = \theta = \pi/2$. The initial velocity $-\mathbf{k}_0$ gives $\dot{\theta}(0) = 1/2$ and $\dot{\phi}(0) = 0$ (shown in 3.1), and $\xi = 3$, $\eta = 1$, $\dot{\xi} = -1$, $\dot{\eta} = 1$.
-* **Parameters:** $m_P = 1$, $m_Q = 2$, $k = 2$, $g = 9.81$ m/s$^2$.
+> [!derivation] Limiting case: tangency point held fixed
+> **Law:** the velocity of the kinematics box with a constant angle
+> **Source:** Notes.pdf, Eq. 2.3
+>
+> If $\phi$ stays constant, $B$ does not move and the spool simply reels the straight string in.
+>
+> $$\begin{aligned}
+> \dot\phi &= 0 \quad &\text{(fixed tangency point)} \\
+> \mathbf v_0^P &= 0\cdot\mathbf i_1 + a\omega\,\mathbf j_1 = a\omega\,\mathbf j_1 \quad &\text{(velocity of part (b))} \\
+> \dot s &= a\left(0 - \omega\right) = -a\omega \quad &\text{(rate of the free length)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\phi = 0:\ \mathbf v_0^P = a\omega\,\mathbf j_1, \quad |\mathbf v_0^P| = -\dot s = a\omega}$$
+>
+> **Units:** $[a\omega] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** $P$ moves straight towards $B$ at the peripheral speed of the spool, exactly the rate at which the string shortens: the kinematics is consistent with the inextensible string.
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{k}_0$ vertical upward.
-* **Toroidal basis.** With $\theta$ (rotation about $\mathbf{j}_0$): $\mathcal{B}_1 = \{\mathbf{e}_\rho, \mathbf{e}_\theta, \mathbf{j}_0\}$ with $\mathbf{e}_\rho = \sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{k}_0$ and $\mathbf{e}_\theta = \cos\theta\,\mathbf{i}_0 - \sin\theta\,\mathbf{k}_0$ (so $\mathbf{e}_\rho\times\mathbf{e}_\theta = \mathbf{j}_0$):
-$$ [{}_0 R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \\ \cos\theta & -\sin\theta & 0 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
-Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
-with $\dot{\mathbf{e}}_\rho = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_\rho$.
-* **Poloidal basis.** With $\phi$ (rotation about $\mathbf{e}_\theta$): $\mathcal{B}_2 = \{\mathbf{n}, \mathbf{e}_\theta, \mathbf{t}_\phi\}$ with $\mathbf{n} = \cos\phi\,\mathbf{e}_\rho + \sin\phi\,\mathbf{j}_0$ (outward normal) and $\mathbf{t}_\phi = -\sin\phi\,\mathbf{e}_\rho + \cos\phi\,\mathbf{j}_0$:
-$$ [{}_1 R_2] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \\ 0 & 1 & 0 \\ \sin\phi & 0 & \cos\phi \end{pmatrix}, \qquad \det[{}_1 R_2] = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
-Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
-
-### Phase 3: Derivation
-
-#### 3.1 Kinematics
-##### (b) Position, velocity and acceleration
-* **Pedagogical Justification:** with $\varrho \equiv 2 + \cos\phi$, the position of $P$ is $\mathbf{r}_P = 4\mathbf{k}_0 + \varrho\,\mathbf{e}_\rho + \sin\phi\,\mathbf{j}_0$ and that of $Q$ is $\mathbf{r}_Q = \xi\,\mathbf{i}_0 + \eta\,\mathbf{j}_0$. With $\dot{\varrho} = -\sin\phi\,\dot{\phi}$ and Poisson's formula,
-$$ \mathbf{v}_P = -\sin\phi\,\dot{\phi}\,\mathbf{e}_\rho + \varrho\dot{\theta}\,\mathbf{e}_\theta + \cos\phi\,\dot{\phi}\,\mathbf{j}_0, \qquad v_P^2 = \dot{\phi}^2 + \varrho^2\dot{\theta}^2 $$
-$$ \mathbf{a}_P = \left(\ddot{\varrho} - \varrho\dot{\theta}^2\right)\mathbf{e}_\rho + \left(\varrho\ddot{\theta} + 2\dot{\varrho}\dot{\theta}\right)\mathbf{e}_\theta + \left(\cos\phi\,\ddot{\phi} - \sin\phi\,\dot{\phi}^2\right)\mathbf{j}_0, \qquad \ddot{\varrho} = -\cos\phi\,\dot{\phi}^2 - \sin\phi\,\ddot{\phi} $$
-$$ \mathbf{v}_Q = \dot{\xi}\,\mathbf{i}_0 + \dot{\eta}\,\mathbf{j}_0, \qquad \mathbf{a}_Q = \ddot{\xi}\,\mathbf{i}_0 + \ddot{\eta}\,\mathbf{j}_0 $$
-* **Initial rates.** At $\theta = \phi = \pi/2$: $\mathbf{e}_\theta = -\mathbf{k}_0$, $\varrho = 2$, so $\mathbf{v}_P = -\dot{\phi}\,\mathbf{e}_\rho - 2\dot{\theta}\,\mathbf{k}_0 = -\mathbf{k}_0$ gives $\dot{\theta}(0) = 1/2$ and $\dot{\phi}(0) = 0$.
-
-##### (c) Two tangent vectors and one normal vector to the torus
-* The two independent tangent vectors are the partial derivatives of $\mathbf{r}_P$, and the normal is their cross product:
-$$ \frac{\partial\mathbf{r}_P}{\partial\theta} = \varrho\,\mathbf{e}_\theta, \qquad \frac{\partial\mathbf{r}_P}{\partial\phi} = \mathbf{t}_\phi, \qquad \frac{\partial\mathbf{r}_P}{\partial\theta}\times\frac{\partial\mathbf{r}_P}{\partial\phi} = \varrho\,\mathbf{n} $$
-
-#### 3.2 Forces
-##### (d) Forces on $P$ and $Q$
-* **On $P$:** its weight $-m_Pg\,\mathbf{k}_0$; the attraction of $Q$, $\mathbf{F} = k\left(\mathbf{r}_Q - \mathbf{r}_P\right)$; and the reaction of the smooth torus $N\,\mathbf{n}$ (normal, with unknown magnitude; it does not enter the tangent projections). Explicitly,
-$$ \mathbf{F} = 2\left[\xi - (2 + \cos\phi)\sin\theta\right]\mathbf{i}_0 + 2\left[\eta - \sin\phi\right]\mathbf{j}_0 - 2\left[4 + (2 + \cos\phi)\cos\theta\right]\mathbf{k}_0 $$
-* **On $Q$:** the attraction $-\mathbf{F}$ and its weight $-m_Qg\,\mathbf{k}_0$, balanced by the vertical reaction of the smooth plane (so the motion of $Q$ is horizontal). **Inertia forces:** none.
-
-#### 3.3 Equations of Motion
-##### (e) Second-order equations for the four coordinates
-* **Pedagogical Justification:** the unknown reaction $N\,\mathbf{n}$ is orthogonal to the two tangent vectors, so projecting Newton's second law for $P$ on $\mathbf{e}_\theta$ and on $\mathbf{t}_\phi$ gives two equations free of $N$. With $\mathbf{k}_0 = \cos\theta\,\mathbf{e}_\rho - \sin\theta\,\mathbf{e}_\theta$, $\mathbf{i}_0 = \sin\theta\,\mathbf{e}_\rho + \cos\theta\,\mathbf{e}_\theta$, and the accelerations of 3.1:
-$$ \mathbf{a}_P\cdot\mathbf{e}_\theta = \varrho\ddot{\theta} - 2\sin\phi\,\dot{\phi}\dot{\theta}, \qquad \mathbf{a}_P\cdot\mathbf{t}_\phi = \ddot{\phi} + \varrho\sin\phi\,\dot{\theta}^2 $$
-$$ \left(\mathbf{F} - m_Pg\,\mathbf{k}_0\right)\cdot\mathbf{e}_\theta = m_Pg\sin\theta + k\left(\xi\cos\theta + 4\sin\theta\right) $$
-$$ \left(\mathbf{F} - m_Pg\,\mathbf{k}_0\right)\cdot\mathbf{t}_\phi = m_Pg\sin\phi\cos\theta + k\left(-\xi\sin\phi\sin\theta + \eta\cos\phi + 4\sin\phi\cos\theta + 2\sin\phi\right) $$
-* **Equations of motion** (with $m_P = 1$, $m_Q = 2$, $k = 2$; for $Q$, $m_Q\ddot{\xi} = -k(\xi - x_P)$ and $m_Q\ddot{\eta} = -k(\eta - y_P)$):
-$$ (2 + \cos\phi)\,\ddot{\theta} = 2\sin\phi\,\dot{\phi}\dot{\theta} + g\sin\theta + 2\left(\xi\cos\theta + 4\sin\theta\right) $$
-$$ \ddot{\phi} = -(2 + \cos\phi)\sin\phi\,\dot{\theta}^2 + g\sin\phi\cos\theta + 2\left(-\xi\sin\phi\sin\theta + \eta\cos\phi + 4\sin\phi\cos\theta + 2\sin\phi\right) $$
-$$ \ddot{\xi} = -\left[\xi - (2 + \cos\phi)\sin\theta\right], \qquad \ddot{\eta} = -\left[\eta - \sin\phi\right] $$
-* **Check of closure:** four unknown coordinates and four equations; the reaction of the torus follows afterwards from the $\mathbf{n}$ projection (the statement says that $P$ cannot separate from the surface, so the constraint is bilateral and $N$ may have either sign).
-
-#### 3.4 Integration and Answers
-##### (f) A scalar conservation law
-* **Pedagogical Justification:** the reactions of the torus and of the plane are normal to the velocities of $P$ and $Q$ and do no work; gravity and the spring are conservative; there are no other forces. The total mechanical energy of the system is conserved:
-$$ E = \tfrac{1}{2}m_Pv_P^2 + \tfrac{1}{2}m_Qv_Q^2 + m_Pgz_P + \tfrac{1}{2}k\left|\mathbf{r}_P - \mathbf{r}_Q\right|^2 = \text{const} $$
-* **Initial value:**
-$$ T_P = \tfrac{1}{2}(1)(1)^2 = \tfrac{1}{2}, \qquad T_Q = \tfrac{1}{2}(2)\left((-1)^2 + 1^2\right) = 2, \qquad V_g = m_Pgz_P(t_0) = 4g $$
-$$ \left|\mathbf{r}_P - \mathbf{r}_Q\right|^2 = (2 - 3)^2 + (1 - 1)^2 + (4 - 0)^2 = 17 \implies V_{\text{spring}} = \tfrac{1}{2}(2)(17) = 17, \qquad E_0 = \tfrac{1}{2} + 2 + 4g + 17 = 19.5 + 4g $$
-
-##### (g) Can $P$ reach the highest point of the torus?
-* **Pedagogical Justification:** use the conservation law alone. The highest point of the torus is at $\phi = 0$, $\theta = 0$, with $z_{\max} = 4 + (2 + 1) = 7$. There the gravitational energy of $P$ is $7g$, and the other terms of $E$ (the kinetic energies and the spring energy) are non-negative, so reaching the summit requires $E_0 \ge 7g$:
-$$ E_0 = 19.5 + 4g \ge 7g \iff 19.5 \ge 3g = 29.43 \quad\text{(false)} $$
-* **Answer:** no. With $g = 9.81$ m/s$^2$, $E_0 = 58.74$ J and the summit needs at least $7g = 68.67$ J, a deficit of $9.93$ J.
-
-### Phase 4: Interpretation & Checks
-* **Robustness:** for a general stiffness $E_0 = 2.5 + 4g + 8.5k$. At the summit $z_P = 7$ and $z_Q = 0$, so $|\mathbf{r}_P - \mathbf{r}_Q| \ge 7$ and $V_{\text{spring}} \ge \tfrac12 k\cdot 49 = 24.5k$. Reaching it requires $2.5 + 4g + 8.5k \ge 7g + 24.5k$, i.e. $2.5 \ge 3g + 16k$, false for every $k \ge 0$: the conclusion does not depend on $k$. (With $k = 2$: $58.74$ J against at least $68.67 + 49 = 117.67$ J.)
-* **Dimensional check:** $[k|\mathbf{r}_P - \mathbf{r}_Q|^2] = \text{N m}^{-1}\text{m}^2 = \text{J}$, $[mgz] = \text{J}$ and $[mv^2] = \text{J}$.
-* **Check against the official key:** `Problems.pdf` gives the force on $P$ due to $Q$, $\mathbf{F}_P = 2\left[\xi - (2 + \cos\phi)\sin\theta\right]\mathbf{i}_0 + 2\left[\eta - \sin\phi\right]\mathbf{j}_0 - 2\left[4 + (2 + \cos\phi)\cos\theta\right]\mathbf{k}_0$ (the key writes the same vector with its own letters), identical to part (d). The rest is verified by independent derivation. Sympy confirms the two tangent vectors and the normal, the projections of $\mathbf{a}_P$ and of the forces used in (e), and numerical integration of the four equations (DOP853) conserves $E$ to $2\times 10^{-11}$ with $E_0 = 58.74$ and keeps $z_P \le 4$ over $6$ s (the summit $z = 7$ is not approached).
-
----
-
-## 📌 Problem 39: Particle on a String with a Plate
-
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a heavy particle $P$ of mass $m$ hangs from a massless inextensible string of length $\ell$ anchored at the point $O$ of the upper surface of a thin horizontal plate. The string passes without friction over the straight edge of the plate, at perpendicular distance $d$ from $O$, at the contact point $Q$; it remains taut and in contact with the plate.
-* **Geometry (read from the figure, `Problems.pdf` PDF page 27).** The edge is the straight line $x_0 = d$, parallel to $\mathbf{j}_0$ ($Ox_0$ is perpendicular to the edge); $\theta$ is the angle between $Ox_0$ and $OQ$, so $\mathbf{r}_Q = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0$; and $\phi$ is the angle between the vertical and the line through $P$ perpendicular to the edge, which lies in a plane normal to the edge. The statement text does not fix the direction of the edge, so this reading relies on the figure.
-* **Constraints and degrees of freedom (a):** $P$ has $3$ coordinates. The string has constant length: $|OQ| + |QP| = \ell$ with $Q$ on the edge, and $Q$ slides on the edge (the position of $Q$ on the edge is not fixed). The frictionless sliding over the edge makes the two string segments meet the edge at equal angles (the hint of the statement). Counting: the $3$ coordinates of $P$ minus the single length constraint give $\text{CDOF} = 3 - 1 = 2$; $Q$ adds no unknown, because the equal-angle condition fixes it once $\theta$ is known. These conditions leave the two independent coordinates $\theta$ and $\phi$: $\text{CDOF} = 2$.
-* **Initial state:** $\theta(0) = \phi(0) = \pi/3$ and $|\mathbf{v}_P(0)| = \sqrt{\ell g}$.
-* **Parameters:** $m$, $\ell$, $d$, $g$.
-
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{k}_0$ vertical upward; the plate in the plane $z_0 = 0$.
-* **Lengths:** $|OQ| = d/\cos\theta$, so the hanging segment has length $\rho = \ell - \dfrac{d}{\cos\theta}$.
-* **Swing basis.** The hanging segment $QP$ swings in the plane normal to the edge, i.e. about the direction $\mathbf{j}_0$. The basis $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_0, \mathbf{k}_1\}$ is the inertial basis rotated by $-\phi$ about $\mathbf{j}_0$ (by $\phi$ about $-\mathbf{j}_0$), with $\mathbf{i}_1 = \cos\phi\,\mathbf{i}_0 + \sin\phi\,\mathbf{k}_0$ and $\mathbf{k}_1 = -\sin\phi\,\mathbf{i}_0 + \cos\phi\,\mathbf{k}_0$ (columns in $\mathcal{B}_0$):
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \\ 0 & 1 & 0 \\ \sin\phi & 0 & \cos\phi \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\phi + \sin^2\phi = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
-Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
-
-### Phase 3: Derivation
-
-#### 3.1 Kinematics
-##### (b) Unit vector from $Q$ to $P$
-* **Pedagogical Justification:** the edge is frictionless, so the two string segments make equal angles with it (the hint). The unit vector from $Q$ to $O$ is $-\left(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0\right)$, hence $\mathbf{e}_{QP}\cdot\mathbf{j}_0 = \sin\theta$. The remaining part of $\mathbf{e}_{QP}$ lies in the plane normal to the edge, along $\sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0 = -\mathbf{k}_1$, with magnitude $\sqrt{1 - \sin^2\theta} = \cos\theta$:
-$$ \mathbf{e}_{QP} = \cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0 = \sin\theta\,\mathbf{j}_0 - \cos\theta\,\mathbf{k}_1, \qquad |\mathbf{e}_{QP}|^2 = \cos^2\theta\left(\sin^2\phi + \cos^2\phi\right) + \sin^2\theta = 1 $$
-
-##### (c) Position, velocity and acceleration
-* **Pedagogical Justification:** $Q$ is on the edge and $P$ hangs at the distance $\rho$ along $\mathbf{e}_{QP}$:
-$$ \mathbf{r}_Q = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0, \qquad \mathbf{v}_Q = \frac{d\dot{\theta}}{\cos^2\theta}\,\mathbf{j}_0, \qquad \mathbf{r}_P = \mathbf{r}_Q + \rho\,\mathbf{e}_{QP} $$
-$$ \mathbf{r}_P = \left[d + (\ell\cos\theta - d)\sin\phi\right]\mathbf{i}_0 + \left[d\tan\theta + \left(\ell - \frac{d}{\cos\theta}\right)\sin\theta\right]\mathbf{j}_0 - (\ell\cos\theta - d)\cos\phi\,\mathbf{k}_0 $$
-(using $\rho\cos\theta = \ell\cos\theta - d$). Write $u \equiv \ell\cos\theta - d = \rho\cos\theta \ge 0$. The $\mathbf{j}_0$ component simplifies, $d\tan\theta + \ell\sin\theta - d\tan\theta = \ell\sin\theta$, so
-$$ \mathbf{r}_P = \left(d + u\sin\phi\right)\mathbf{i}_0 + \ell\sin\theta\,\mathbf{j}_0 - u\cos\phi\,\mathbf{k}_0, \qquad z_P = -u\cos\phi, \qquad \frac{du}{d\theta} = -\ell\sin\theta $$
-* **Velocity of $P$.** The chain rule gives $\mathbf{v}_P = \mathbf{t}_\theta\dot{\theta} + \mathbf{t}_\phi\dot{\phi}$ with the tangent vectors
-$$ \mathbf{t}_\theta = \frac{\partial\mathbf{r}_P}{\partial\theta} = \ell\begin{pmatrix} -\sin\theta\sin\phi \\ \cos\theta \\ \sin\theta\cos\phi \end{pmatrix}, \qquad \mathbf{t}_\phi = \frac{\partial\mathbf{r}_P}{\partial\phi} = u\begin{pmatrix} \cos\phi \\ 0 \\ \sin\phi \end{pmatrix} $$
-They are orthogonal ($\mathbf{t}_\theta\cdot\mathbf{t}_\phi = \ell u\sin\theta\sin\phi\cos\phi\,(-1 + 1) = 0$) with $|\mathbf{t}_\theta|^2 = \ell^2\left(\sin^2\theta + \cos^2\theta\right) = \ell^2$ and $|\mathbf{t}_\phi|^2 = u^2$, so
-$$ v_P^2 = \ell^2\dot{\theta}^2 + u^2\dot{\phi}^2 $$
-* **Acceleration of $P$.** Differentiating once more (product rule, with $\mathbf{t}_{\theta\theta} = \partial^2\mathbf{r}_P/\partial\theta^2$ and so on):
-$$ \mathbf{a}_P = \mathbf{t}_\theta\ddot{\theta} + \mathbf{t}_\phi\ddot{\phi} + \mathbf{t}_{\theta\theta}\dot{\theta}^2 + 2\mathbf{t}_{\theta\phi}\dot{\theta}\dot{\phi} + \mathbf{t}_{\phi\phi}\dot{\phi}^2 $$
-$$ \mathbf{t}_{\theta\theta} = \ell\begin{pmatrix} -\cos\theta\sin\phi \\ -\sin\theta \\ \cos\theta\cos\phi \end{pmatrix}, \quad \mathbf{t}_{\theta\phi} = -\ell\sin\theta\begin{pmatrix} \cos\phi \\ 0 \\ \sin\phi \end{pmatrix}, \quad \mathbf{t}_{\phi\phi} = u\begin{pmatrix} -\sin\phi \\ 0 \\ \cos\phi \end{pmatrix} $$
-* **Velocity and acceleration of $Q$.** From $\mathbf{v}_Q = d\dot{\theta}\cos^{-2}\theta\,\mathbf{j}_0$ and $\frac{d}{dt}\cos^{-2}\theta = 2\sin\theta\cos^{-3}\theta\,\dot{\theta}$:
-$$ \mathbf{a}_Q = \frac{d\left(\ddot{\theta}\cos\theta + 2\dot{\theta}^2\sin\theta\right)}{\cos^3\theta}\,\mathbf{j}_0 $$
-
-#### 3.2 Forces
-##### (d) Forces on $P$
-* **Weight:** $-mg\,\mathbf{k}_0$. **String tension:** along the segment $QP$, toward $Q$: $\mathbf{T} = -T\,\mathbf{e}_{QP}$ with $T \ge 0$. The edge acts on the string, not on $P$. **Inertia forces:** none.
-
-#### 3.3 Equations of Motion
-##### (f) Work of the tension (needed to eliminate $T$ from the equations)
-* **Pedagogical Justification:** the tension acts along $-\mathbf{e}_{QP}$ on $P$, so its power is $-T\,\mathbf{e}_{QP}\cdot\mathbf{v}_P$. Differentiating $\mathbf{r}_P = \mathbf{r}_Q + \rho\,\mathbf{e}_{QP}$ (product rule) gives $\mathbf{v}_P = \mathbf{v}_Q + \dot{\rho}\,\mathbf{e}_{QP} + \rho\,\dot{\mathbf{e}}_{QP}$. Since $|\mathbf{e}_{QP}| = 1$, $\mathbf{e}_{QP}\cdot\dot{\mathbf{e}}_{QP} = \tfrac{1}{2}\frac{d}{dt}|\mathbf{e}_{QP}|^2 = 0$, so
-$$ \mathbf{e}_{QP}\cdot\mathbf{v}_P = \mathbf{e}_{QP}\cdot\mathbf{v}_Q + \dot{\rho} $$
-* $\mathbf{v}_Q$ has only a $\mathbf{j}_0$ component, so $\mathbf{e}_{QP}\cdot\mathbf{v}_Q = \sin\theta\,\dfrac{d\dot{\theta}}{\cos^2\theta}$. With the chain rule $\frac{d}{dt}\left(\frac{1}{\cos\theta}\right) = \frac{\sin\theta}{\cos^2\theta}\dot{\theta}$, the hanging length changes at the rate $\dot{\rho} = -\dfrac{d\dot{\theta}\sin\theta}{\cos^2\theta}$. Therefore
-$$ \mathbf{e}_{QP}\cdot\mathbf{v}_P = \frac{d\dot{\theta}\sin\theta}{\cos^2\theta} - \frac{d\dot{\theta}\sin\theta}{\cos^2\theta} = 0 \implies \mathbf{T}\cdot\mathbf{v}_P = 0 $$
-The tension does **no work** on $P$ ($W_T = 0$).
-* **Consequence.** The identity holds for arbitrary $\dot{\theta}$ and $\dot{\phi}$, so $\mathbf{e}_{QP}$ is orthogonal to both tangent vectors $\partial\mathbf{r}_P/\partial\theta$ and $\partial\mathbf{r}_P/\partial\phi$. Projecting Newton's second law on these two vectors therefore removes the tension.
-
-##### (e) Second-order equations for $\theta$ and $\phi$
-* **Pedagogical Justification:** Newton's second law $m\mathbf{a}_P = -mg\,\mathbf{k}_0 + \mathbf{T}$ is projected on $\mathbf{t}_\theta$ and $\mathbf{t}_\phi$, which are orthogonal to $\mathbf{T}$ (part f), so the tension drops out: $m\,\mathbf{a}_P\cdot\mathbf{t}_q = -mg\,\mathbf{k}_0\cdot\mathbf{t}_q$ for $q = \theta, \phi$. The scalar products of the vectors of 3.1(c) are
-$$ \mathbf{t}_{\theta\theta}\cdot\mathbf{t}_\theta = \ell^2\left(\cos\theta\sin\theta\sin^2\phi - \sin\theta\cos\theta + \sin\theta\cos\theta\cos^2\phi\right) = 0, \qquad \mathbf{t}_{\theta\phi}\cdot\mathbf{t}_\theta = \ell^2\sin^2\theta\left(\sin\phi\cos\phi - \sin\phi\cos\phi\right) = 0, \qquad \mathbf{t}_{\phi\phi}\cdot\mathbf{t}_\theta = \ell u\sin\theta $$
-$$ \mathbf{t}_{\theta\theta}\cdot\mathbf{t}_\phi = 0, \qquad \mathbf{t}_{\theta\phi}\cdot\mathbf{t}_\phi = -\ell u\sin\theta, \qquad \mathbf{t}_{\phi\phi}\cdot\mathbf{t}_\phi = 0 $$
-and the orthogonality of $\mathbf{t}_\theta$ and $\mathbf{t}_\phi$ gives
-$$ \mathbf{a}_P\cdot\mathbf{t}_\theta = \ell^2\ddot{\theta} + \ell u\sin\theta\,\dot{\phi}^2, \qquad \mathbf{a}_P\cdot\mathbf{t}_\phi = u^2\ddot{\phi} - 2\ell u\sin\theta\,\dot{\theta}\dot{\phi} $$
-while $-g\,\mathbf{k}_0\cdot\mathbf{t}_\theta = -g\ell\sin\theta\cos\phi$ and $-g\,\mathbf{k}_0\cdot\mathbf{t}_\phi = -gu\sin\phi$. Dividing the first projection by $\ell$ and the second by $u \gt 0$:
-$$ \boxed{\ell\ddot{\theta} + \left(\ell\cos\theta - d\right)\sin\theta\,\dot{\phi}^2 + g\sin\theta\cos\phi = 0} $$
-$$ \boxed{\left(\ell\cos\theta - d\right)\ddot{\phi} - 2\ell\sin\theta\,\dot{\theta}\dot{\phi} + g\sin\phi = 0} $$
-* **Tension (afterwards).** Along $\mathbf{e}_{QP}$: $T = mg\cos\theta\cos\phi + m\,\mathbf{v}_P\cdot\dot{\mathbf{e}}_{QP}$, since $\mathbf{a}_P\cdot\mathbf{e}_{QP} = -\mathbf{v}_P\cdot\dot{\mathbf{e}}_{QP}$ (from $\mathbf{v}_P\cdot\mathbf{e}_{QP} = 0$).
-
-#### 3.4 Integration and Answers
-##### (g) Mechanical energy
-* **Pedagogical Justification:** the plate is at rest (scleronomic constraint), the tension does no work (part f) and gravity is conservative, so the mechanical energy of $P$ is conserved:
-$$ E = \tfrac{1}{2}mv_P^2 + mgz_P = \tfrac{1}{2}m\left[\ell^2\dot{\theta}^2 + \left(\ell\cos\theta - d\right)^2\dot{\phi}^2\right] - mg\left(\ell\cos\theta - d\right)\cos\phi = \text{const} $$
-* **Initial value.** At $t = 0$, $|\mathbf{v}_P|^2 = \ell g$ and $\cos\theta = \cos\phi = \tfrac{1}{2}$, so $z_P(0) = -\left(\tfrac{\ell}{2} - d\right)\tfrac{1}{2}$:
-$$ \boxed{E_0 = \tfrac{1}{2}m\ell g - mg\left(\frac{\ell}{2} - d\right)\frac{1}{2} = \frac{mg\ell}{4} + \frac{mgd}{2}} $$
-It is a conserved quantity of the motion.
-
-### Phase 4: Interpretation & Checks
-* **Variable-length spherical pendulum:** the system acts as a spherical pendulum whose length changes as $Q$ slides along the edge.
-* **Limit $d \to 0$:** the edge passes through $O$, so $Q = O$, $\rho = \ell$ and $\mathbf{e}_{QP}$ is the unit vector of a spherical pendulum of length $\ell$ with $\cos\gamma = \cos\theta\cos\phi$ the cosine of its angle with the downward vertical; the energy reduces to $E_0 = mg\ell/4$, equal to $\tfrac{1}{2}m\ell g - mg\ell\cos\theta\cos\phi$ at $\theta = \phi = \pi/3$.
-* **Dimensional check:** $[\rho] = \text{m}$; $[mg\ell] = [mgd] = \text{J}$; $[u] = \text{m}$ and every term of the two equations of motion has units m/s$^2$.
-* **Check against the official key:** the key of `Problems.pdf` answers (f): "No, the tension does not exert work; it is easy to prove it with $\mathbf{e}_r\cdot\mathbf{v}_P^0 = 0$", which is the result of 3.3. The rest is verified by independent derivation. Sympy confirms $\mathbf{e}_{QP}\cdot\mathbf{v}_P = 0$, $v_P^2 = \ell^2\dot{\theta}^2 + (\ell\cos\theta - d)^2\dot{\phi}^2$, $z_P = (d - \ell\cos\theta)\cos\phi$, the equivalence of the two projections with the equations above, and numerically $E_0 = mg\ell/4 + mgd/2 = 7.3575$ J for $m = 1$ kg, $\ell = 2$ m, $d = 0.5$ m, equal to $\tfrac{1}{2}m\ell g + mgz_P(0) = 9.81 - 2.4525$ J.
+> [!derivation] Limiting case: small oscillations of the spool at rest
+> **Law:** equilibrium of the equation of motion and its linearisation about it
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Eq. 5.6; [Lecture 6, Slide 15]
+>
+> With $\omega = 0$, the state with constant zero $\phi$ satisfies the equation of motion (the sine vanishes): $B$ is at $(a, 0)$ and $P$ hangs vertically below it at the depth $3\pi a$. For a small $\phi$ the sine is replaced by its argument and the products of $\phi$ with its rate or acceleration, of second order, are dropped.
+>
+> $$\begin{aligned}
+> a\left[\left(3\pi + 0\right)\cdot 0 + 0\right] + g\sin 0 &= 0 \quad &\text{(constant zero $\phi$ is an equilibrium)} \\
+> T &= 0 + mg\cos 0 = mg \quad &\text{(tension at the equilibrium)} \\
+> 3\pi a\,\ddot\phi + a\phi\ddot\phi + a\dot\phi^2 + g\sin\phi &= 0 \quad &\text{(equation of motion with $\omega = 0$, bracket expanded)} \\
+> 3\pi a\,\ddot\phi + g\phi &= 0 \quad &\text{($\sin\phi \simeq \phi$; second-order terms dropped)} \\
+> \ddot\phi + \frac{g}{3\pi a}\,\phi &= 0 \quad &\text{(divided by $3\pi a$: the form of Eq. 5.6)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega = 0,\ |\phi| \ll 1:\quad T = mg, \qquad \omega_n = \sqrt{\frac{g}{3\pi a}}}$$
+>
+> **Units:** $[g/(3\pi a)] = [\mathrm{L\,T^{-2}}]/[\mathrm{L}] = [\mathrm{T^{-2}}]$, so $[\omega_n] = [\mathrm{T^{-1}}]$
+> **Meaning:** near the vertical the particle swings like a simple pendulum whose length is the free length $3\pi a$ of the string, hanging from the tangency point; the string carries exactly the weight at rest.
 
 ---
 
-## 📌 Problem 48: Two Connected Particles, One on Paraboloid
+## Problem 35: String with Two Particles on a Cylinder
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** two heavy particles $P$ and $Q$ of mass $m$ are joined by an inextensible massless cord of length $\ell$ that passes through a small hole at the origin $O$. $P$ moves without friction on the paraboloid $z = cR^2$ ($c \gt 0$, cylindrical coordinates $\{R, \theta, z\}$); $Q$ is restricted to hang along the vertical axis $Oz$. The frame $S_0$ is inertial, there is no friction, the cord is always taut and $Q$ never reaches $O$.
-* **Constraints (a):** two free particles have $6$ coordinates, and there are $4$ independent constraints:
-  - $P$ on the paraboloid: $z_P = cR^2$ (1; bilateral, since the statement says $P$ is constrained to stay on the paraboloid).
-  - $Q$ on the axis: $x_Q = y_Q = 0$ (2).
-  - Constant cord length: $|\overrightarrow{OP}| + |z_Q| = \ell$ (1; unilateral, $T \ge 0$).
-* **Degrees of freedom:** $\text{CDOF} = 6 - 4 = 2$, with $(R, \theta)$.
-* **Initial state (h):** $R(0) = 1/c$, $\theta(0) = 0$, $\dot{R}(0) = 0$, $\dot{\theta}(0) = d \ne 0$.
-* **Parameters:** $m$, $c$ [m$^{-1}$], $\ell$, $g$, $d$ [s$^{-1}$].
+### Reference Frames, Bases and Coordinates
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.
-* **Cylindrical basis:** $\mathcal{B}_1 = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{k}\}$ with $\mathbf{k} = \mathbf{k}_0$, the inertial basis rotated by $\theta(t)$ about $\mathbf{k}$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
-Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
-with $\dot{\mathbf{e}}_R = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_R$.
-* **Surface-adapted basis.** With $s = \sqrt{1 + 4c^2R^2}$, the unit meridian tangent is $\mathbf{e}_g = (\mathbf{e}_R + 2cR\,\mathbf{k})/s$, the unit normal pointing into the bowl is $\hat{\mathbf{n}} = (-2cR\,\mathbf{e}_R + \mathbf{k})/s$, and $\mathbf{e}_g\times\mathbf{e}_\theta = \hat{\mathbf{n}}$, so
-$$ [{}_1 R_2] = \begin{pmatrix} 1/s & 0 & -2cR/s \\ 0 & 1 & 0 \\ 2cR/s & 0 & 1/s \end{pmatrix}, \qquad \det[{}_1 R_2] = \frac{1 + 4c^2R^2}{s^2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
+Two heavy particles $P$ and $Q$ of mass $m$ hang from the two ends of an inextensible massless string of length $L$ that lies over a smooth fixed cylinder of radius $R$ and centre $O$, touching it between the tangency points $A$ and $B$; a spring of zero natural length and stiffness $k$ joins $P$ and $Q$ (Problems.pdf, p. 23). The statement asks for the degrees of freedom and a set of coordinates, the kinematics, the forces, the mechanical energy of $P$, the symmetric configurations and, for them, the equilibrium and the frequency of small oscillations. The solution follows the Newtonian approach of Notes.pdf, Sec. 7.1 to Sec. 7.7, with the coordinates of the official key.
 
-### Phase 3: Derivation
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$ of the figure, origin at the centre of the cylinder (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$: $\mathbf i$ along $Ox$ (to the right), $\mathbf j$ along $Oy$ (vertical, **upward**), $\mathbf k$ along the axis of the cylinder, out of the paper |
+| Basis at $A$ | $\mathcal B_1 = \{\mathbf e_A, \mathbf e_\theta, \mathbf k\}$, $\mathcal B_0$ turned by $\theta$ about $\mathbf k$: $\mathbf e_A$ from $O$ to $A$, $\mathbf e_\theta$ tangent to the cylinder at $A$, counterclockwise |
+| Basis at $B$ | $\mathcal B_2 = \{\mathbf e_B, \mathbf e_\psi, \mathbf k\}$, $\mathcal B_0$ turned by $\psi$ about $\mathbf k$: $\mathbf e_B$ from $O$ to $B$, $\mathbf e_\psi$ tangent at $B$, counterclockwise |
+| Coordinates (a) | $\theta$, polar angle of $A$ from $Ox$; $\psi$, polar angle of $B$ from $Ox$ (with $\psi \gt \theta$); $\xi$, length of the straight segment $AP$. The length of $BQ$ is the auxiliary quantity $\zeta = L - \xi - R(\psi - \theta)$ |
+| Hypotheses | motion in the plane $Oxy$ of the figure; the string is tense, touches the cylinder only along the arc from $A$ to $B$ over the top and slides on it without friction; the particles and the spring never touch the cylinder |
+| Constraints | $P$ and $Q$ in the plane (2 equations, holonomic, stationary, bilateral); string: $\xi + R(\psi - \theta) + \zeta = L$, with each straight segment tangent to the cylinder (1 equation joining the two particles, holonomic, stationary, **unilateral**: the string can only pull) ([Lecture 3, Slide 17]; [Lecture 3, Slide 21]) |
+| Degrees of freedom (a) | 6 coordinates of two particles minus 3 constraint equations: 3, namely $\theta(t)$, $\psi(t)$, $\xi(t)$ ([Lecture 3, Slide 4]) |
+| Data | $m$ [kg], $L$ [m], $R$ [m], $k$ [N m$^{-1}$], $g$ [m s$^{-2}$] |
+| Applied forces | weights $-mg\,\mathbf j$ on each particle; spring of zero natural length, $k\overrightarrow{PQ}$ on $P$ and $-k\overrightarrow{PQ}$ on $Q$ (Notes.pdf, Sec. 7.5) |
+| Constraint forces | tension $T \ge 0$ of the string, along $PA$ on $P$ and along $QB$ on $Q$; the same magnitude at both ends (massless string on a smooth cylinder, [Lecture 3, Slide 17]); the cylinder acts on the string only |
 
-#### 3.1 Kinematics
-##### (b) Position, velocity and acceleration
-* **Pedagogical Justification:** the cord runs straight from $O$ to $P$, so the length of its part on the side of $P$ is $\rho(R) = |\mathbf{r}_P| = R\sqrt{1 + c^2R^2}$, and $Q$ hangs at the depth $\ell - \rho$:
-$$ \mathbf{r}_P = R\,\mathbf{e}_R + cR^2\,\mathbf{k}, \qquad \mathbf{r}_Q = -\left(\ell - \rho(R)\right)\mathbf{k} $$
-* **Derivatives of $\rho$** (chain rule, with $w = \sqrt{1 + c^2R^2}$): $\rho' = \dfrac{d\rho}{dR} = w + \dfrac{c^2R^2}{w} = \dfrac{1 + 2c^2R^2}{w}$ and, by the quotient rule with $w' = c^2R/w$, $\rho'' = \dfrac{4c^2R\,w - \left(1 + 2c^2R^2\right)c^2R/w}{w^2} = \dfrac{c^2R\left[4\left(1 + c^2R^2\right) - \left(1 + 2c^2R^2\right)\right]}{w^3} = \dfrac{c^2R\left(3 + 2c^2R^2\right)}{w^3}$.
-* **Particle $P$** (product rule and Poisson):
-$$ \mathbf{v}_P = \dot{R}\,\mathbf{e}_R + R\dot{\theta}\,\mathbf{e}_\theta + 2cR\dot{R}\,\mathbf{k}, \qquad v_P^2 = \dot{R}^2\left(1 + 4c^2R^2\right) + R^2\dot{\theta}^2 $$
-$$ \mathbf{a}_P = \left(\ddot{R} - R\dot{\theta}^2\right)\mathbf{e}_R + \left(R\ddot{\theta} + 2\dot{R}\dot{\theta}\right)\mathbf{e}_\theta + 2c\left(\dot{R}^2 + R\ddot{R}\right)\mathbf{k} $$
-(Notes Sec. 2.6.2: product rule on $\dot{R}\,\mathbf{e}_R$ and $R\dot{\theta}\,\mathbf{e}_\theta$ with $\dot{\mathbf{e}}_R = \dot{\theta}\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_R$, and $\frac{d}{dt}\left(2cR\dot{R}\right) = 2c\left(\dot{R}^2 + R\ddot{R}\right)$.)
-* **Particle $Q$:** $\mathbf{v}_Q = \rho'\dot{R}\,\mathbf{k}$ and $\mathbf{a}_Q = \left(\rho'\ddot{R} + \rho''\dot{R}^2\right)\mathbf{k}$.
+![[attachments/EM-SOL/p35-plane.svg]]
 
-##### (c) Tangent and normal vectors to the paraboloid
-$$ \mathbf{t}_R = \frac{\partial\mathbf{r}_P}{\partial R} = \mathbf{e}_R + 2cR\,\mathbf{k}, \qquad \mathbf{t}_\theta = \frac{\partial\mathbf{r}_P}{\partial\theta} = R\,\mathbf{e}_\theta, \qquad \mathbf{n} = \mathbf{t}_R\times\mathbf{t}_\theta = R\left(-2cR\,\mathbf{e}_R + \mathbf{k}\right) $$
+### Change of Basis and Position Vector
 
-#### 3.2 Forces
-##### (d) Forces on $P$ and $Q$
-* **On $P$:** its weight $-mg\,\mathbf{k}$; the reaction of the smooth paraboloid $\mathbf{N} = N\,\hat{\mathbf{n}}$ (unknown magnitude $N$, normal to the surface); and the tension of the cord, directed toward the hole, $\mathbf{T}_P = -T\,\dfrac{\mathbf{r}_P}{|\mathbf{r}_P|}$.
-* **On $Q$:** its weight $-mg\,\mathbf{k}$, the tension $\mathbf{T}_Q = +T\,\mathbf{k}$ (same cord, smooth hole), and the horizontal reaction $\mathbf{R}_Q$ of the vertical guide.
-* **Inertia forces:** none ($S_0$ is inertial).
+![[attachments/EM-SOL/p35-rotations-k.svg]]
 
-#### 3.3 Equations of Motion
-##### (f) Two second-order equations for $R$ and $\theta$
-* **Pedagogical Justification:** the unknowns are $R$, $\theta$, $T$, $N$ and the two components of $\mathbf{R}_Q$, i.e. $6$ unknowns, and Newton's second law for $P$ and $Q$ gives $6$ scalar equations. Projecting the equation of $P$ on the tangent vectors removes the normal reaction $N$, and the equation of $Q$ gives $T$ and $\mathbf{R}_Q = \mathbf{0}$ (since $\mathbf{a}_Q \parallel \mathbf{k}$):
-$$ Q,\ \mathbf{k}: \; m\left(\rho'\ddot{R} + \rho''\dot{R}^2\right) = T - mg \implies T = m\left(g + \rho'\ddot{R} + \rho''\dot{R}^2\right) $$
-* **Equation for $\theta$.** Projecting on $\mathbf{e}_\theta$ (no component of the reaction, of gravity or of the tension, which lies in the meridian plane): $m\left(R\ddot{\theta} + 2\dot{R}\dot{\theta}\right) = 0$, i.e. $\dfrac{m}{R}\dfrac{d}{dt}\left(R^2\dot{\theta}\right) = 0$.
-* **Equation for $R$.** Projecting on $\mathbf{t}_R$: the tension component is $-T\,\dfrac{\mathbf{r}_P}{|\mathbf{r}_P|}\cdot\mathbf{t}_R = -T\rho'$ (because $\dfrac{\mathbf{r}_P}{|\mathbf{r}_P|}\cdot\mathbf{t}_R = \dfrac{R + 2c^2R^3}{R w} = \rho'$) and the weight gives $-mg\,\mathbf{k}\cdot\mathbf{t}_R = -2cmgR$:
-$$ m\left[\ddot{R} - R\dot{\theta}^2 + 2cR\cdot 2c\left(\dot{R}^2 + R\ddot{R}\right)\right] = -2cmgR - T\rho' $$
-Substituting $T$ from the equation of $Q$:
-$$ \boxed{\left(1 + 4c^2R^2 + \rho'^2\right)\ddot{R} + \left(4c^2R + \rho'\rho''\right)\dot{R}^2 - R\dot{\theta}^2 + 2cgR + g\rho' = 0}, \qquad \boxed{R\ddot{\theta} + 2\dot{R}\dot{\theta} = 0} $$
-with $\rho'^2 = \dfrac{(1 + 2c^2R^2)^2}{1 + c^2R^2}$.
+> [!derivation] Bases at the tangency points: two rotations about k
+> **Law:** elementary rotations about the third axis; change of basis matrices and their checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
+>
+> View along $\mathbf k$, out of the paper (⊙), since $\mathbf k$ is the cross product of $\mathbf i$ (to the right) and $\mathbf j$ (up): positive angles are counterclockwise, as $\theta$ and $\psi$ in the figure. $\mathbf e_A$ is $\mathbf i$ turned by $\theta$: hypotenuse 1, adjacent leg $\cos\theta$ along $\mathbf i$, opposite leg $\sin\theta$ along $\mathbf j$. $\mathbf e_\theta$ is $\mathbf j$ turned by $\theta$: adjacent leg $\cos\theta$ along $\mathbf j$, opposite leg $\sin\theta$ along minus $\mathbf i$ (the upward vector turned counterclockwise leans to the left: the minus sign). The basis at $B$ is the same construction with the angle $\psi$.
+>
+> $$\begin{aligned}
+> \mathbf e_A &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_A$)} \\
+> \mathbf e_\theta &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_\theta$: opposite leg on $-\mathbf i$)} \\
+> \mathbf e_B &= \cos\psi\,\mathbf i + \sin\psi\,\mathbf j \quad &\text{(same triangles with $\psi$)} \\
+> \mathbf e_\psi &= -\sin\psi\,\mathbf i + \cos\psi\,\mathbf j \quad &\text{(same triangles with $\psi$)} \\
+> \mathbf e_A\times\mathbf e_\theta &= \left(\cos^2\theta + \sin^2\theta\right)\mathbf k = \mathbf k \quad &\text{(right-handed; $\mathbf i\times\mathbf j = \mathbf k$, $\mathbf j\times\mathbf i = -\mathbf k$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos\theta\cos\theta + \sin\theta\sin\theta\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\theta\sin\theta - \sin\theta\cos\theta = 0 \quad &\text{(rows 1 and 2; each row has unit norm)} \\
+> \mathbf j &= \sin\theta\,\mathbf e_A + \cos\theta\,\mathbf e_\theta \quad &\text{(second row of $[{}_0R_1]$, Eq. 1.14)} \\
+> \mathbf j &= \sin\psi\,\mathbf e_B + \cos\psi\,\mathbf e_\psi \quad &\text{(second row of $[{}_0R_2]$)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad [{}_0R_2] = \begin{pmatrix} \cos\psi & -\sin\psi & 0 \cr \sin\psi & \cos\psi & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det = 1, \quad RR^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** each tangency point carries its own polar basis; the checks of $[{}_0R_2]$ are those of $[{}_0R_1]$ with $\psi$ in place of $\theta$.
 
-#### 3.4 Integration and Answers
-##### (e) Condition for the cord to remain in tension
-* **Pedagogical Justification:** the cord can only pull, so $T \gt 0$ at all times. From the equation of $Q$:
-$$ T = m\left(g + \ddot{z}_Q\right) \gt 0 \iff \ddot{z}_Q = \rho'\ddot{R} + \rho''\dot{R}^2 \gt -g, \qquad \text{i.e.} \quad \frac{1 + 2c^2R^2}{\sqrt{1 + c^2R^2}}\ddot{R} + \frac{c^2R\left(3 + 2c^2R^2\right)}{\left(1 + c^2R^2\right)^{3/2}}\dot{R}^2 \gt -g $$
+> [!derivation] Length of the second straight segment
+> **Law:** inextensible string: straight segments plus the wound arc equal the total length
+> **Source:** [Lecture 3, Slide 17]; Problems.pdf, p. 23
+>
+> The string touches the cylinder from $A$, at the polar angle $\theta$, counterclockwise over the top to $B$, at $\psi$; the arc is the radius times the angle it spans.
+>
+> $$\begin{aligned}
+> \text{arc } AB &= R\left(\psi - \theta\right) \quad &\text{(radius times the angle from $A$ to $B$)} \\
+> \xi + R\left(\psi - \theta\right) + \zeta &= L \quad &\text{(constant length)} \\
+> \zeta &= L - \xi - R\left(\psi - \theta\right) \quad &\text{(solved for the length of $BQ$)}
+> \end{aligned}$$
+>
+> $$\boxed{\zeta = L - \xi - R\left(\psi - \theta\right)}$$
+>
+> **Units:** $[\mathrm{L}]$ in every term ($\theta$, $\psi$ in radians)
+> **Meaning:** the length of $BQ$ is not a fourth coordinate: it follows from the three chosen ones.
 
-##### (g) Two scalar conservation laws (first integrals)
-* **Azimuthal integral (first integral of the $\theta$ equation).** From the equation for $\theta$ and $a_\theta = \frac{1}{R}\frac{d}{dt}\left(R^2\dot{\theta}\right)$ (product rule: $\frac{1}{R}\left(2R\dot{R}\dot{\theta} + R^2\ddot{\theta}\right) = R\ddot{\theta} + 2\dot{R}\dot{\theta}$):
-$$ \boxed{R^2\dot{\theta} = \text{const} = R(0)^2\,d = \frac{d}{c^2}} \implies \dot{\theta} = \frac{d}{c^2R^2} $$
-* **Mechanical energy.** The reaction of the paraboloid does no work ($\mathbf{N}\cdot\mathbf{v}_P = 0$), the tension does the work $-T\rho'\dot{R}$ on $P$ and $+T\rho'\dot{R}$ on $Q$, which cancel (inextensible cord, smooth hole), the guide reaction is perpendicular to $\mathbf{v}_Q$, and gravity is conservative. With $V = mg\left(cR^2 + z_Q\right) = mg\left[cR^2 + \rho - \ell\right]$:
-$$ E = \tfrac{1}{2}m\left[\left(1 + 4c^2R^2 + \rho'^2\right)\dot{R}^2 + R^2\dot{\theta}^2\right] + mg\left(cR^2 + \rho\right) - mg\ell = \text{const} $$
+> [!derivation] Position vectors of both particles
+> **Law:** position vectors as sums of partial vectors; tangency of the straight segments
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Sec. 7.4; Problems.pdf, p. 23
+>
+> Each straight segment is tangent to the cylinder at its tangency point, so it is perpendicular to the radius there. At $A$ the wound part continues counterclockwise (along $\mathbf e_\theta$), so $AP$ leaves along minus $\mathbf e_\theta$, down and to the right. At $B$ the wound part continues clockwise (along minus $\mathbf e_\psi$), so $BQ$ leaves along $\mathbf e_\psi$, down and to the left. Since $AP$ is perpendicular to $OA$, which makes the angle $\theta$ with the horizontal, $AP$ makes the angle $\theta$ with the downward vertical: in its right triangle the hypotenuse is $\xi$, the vertical leg $\xi\cos\theta$ (adjacent, downwards) and the horizontal leg $\xi\sin\theta$ (opposite, to the right). In the same way $BQ$ makes the angle $\pi - \psi$ with the downward vertical: hypotenuse $\zeta$, horizontal leg $\zeta\sin(\pi - \psi)$ to the left and vertical leg $\zeta\cos(\pi - \psi)$ downwards.
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OA} + \overrightarrow{AP} = R\,\mathbf e_A - \xi\,\mathbf e_\theta \quad &\text{(radius to $A$; segment along $-\mathbf e_\theta$)} \\
+> &= \left(R\cos\theta + \xi\sin\theta\right)\mathbf i + \left(R\sin\theta - \xi\cos\theta\right)\mathbf j \quad &\text{($\mathcal B_1$ in $\mathcal B_0$)} \\
+> \mathbf r_0^Q &= \overrightarrow{OB} + \overrightarrow{BQ} = R\,\mathbf e_B + \zeta\,\mathbf e_\psi \quad &\text{(radius to $B$; segment along $\mathbf e_\psi$)} \\
+> &= \left(R\cos\psi - \zeta\sin\psi\right)\mathbf i + \left(R\sin\psi + \zeta\cos\psi\right)\mathbf j \quad &\text{($\mathcal B_2$ in $\mathcal B_0$)} \\
+> \sin\left(\pi - \psi\right) &= \sin\psi, \quad \cos\left(\pi - \psi\right) = -\cos\psi \quad &\text{(supplementary angles: legs $\zeta\sin\psi$ to the left, $-\zeta\cos\psi$ downwards)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = R\,\mathbf e_A - \xi\,\mathbf e_\theta, \qquad \mathbf r_0^Q = R\,\mathbf e_B + \left[L - \xi - R\left(\psi - \theta\right)\right]\mathbf e_\psi}$$
+>
+> **Units:** $[\mathrm{L}]$
+> **Meaning:** the position of each particle is the tangency point plus the hanging segment; in the figure $\psi$ lies between $\pi/2$ and $\pi$, so the cosine of $\psi$ is negative and the vertical leg of $BQ$ is positive downwards.
 
-##### (h) Equation $f(R) = 0$ for the extreme values of $R$
-* **Pedagogical Justification:** at the extremes $\dot{R} = 0$, so only $\tfrac{1}{2}mR^2\dot{\theta}^2$ remains of the kinetic energy, with $R^2\dot{\theta}^2 = d^2/(c^4R^2)$ from the azimuthal integral. The constant $-mg\ell$ cancels in $E - E_0$. At $R(0) = 1/c$: $\rho = \sqrt{2}/c$ and $R^2\dot{\theta}^2 = d^2/c^2$. Per unit mass:
-$$ \boxed{f(R) = \frac{d^2}{2c^4R^2} + g\left(cR^2 + R\sqrt{1 + c^2R^2}\right) - \frac{d^2}{2c^2} - \frac{(1 + \sqrt{2})\,g}{c} = 0} $$
-* The allowed radii are those with $f(R) \le 0$ (so that $\dot{R}^2 \ge 0$), and $R = 1/c$ is a root.
+### Kinematics
 
-### Phase 4: Interpretation & Checks
-* **Limit $c \to 0$ (flat plane):** $\rho = R$, $\rho' = 1$, $\rho'' = 0$, and the equation for $R$ becomes $2\ddot{R} - R\dot{\theta}^2 + g = 0$, that of two equal particles joined through a hole in a horizontal plane.
-* **Bounded precessing motion:** the particle moves between two parallel circles $R_{\min}$ and $R_{\max}$, with the azimuthal angle monotonic ($\dot{\theta} = d/(c^2R^2)$ has the sign of $d$).
-* **Dimensional check:** $[c] = \text{m}^{-1}$, $[d] = \text{s}^{-1}$; $[cR^2] = [\rho] = \text{m}$ and $cR$ is dimensionless; every term of $f$ has units m$^2$/s$^2$.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 48 in its solution keys, so the results are verified by independent derivation. Sympy confirms $\rho'$, $\rho''$, the projections of $\mathbf{a}_P$ on $\mathbf{t}_R$ and $\mathbf{e}_\theta$, and numerical integration of the two equations of (f) ($c = d = g = 1$) conserves $E$ to $2\times 10^{-12}$, keeps $T/m \ge 0.303$ and bounds $R$ between $0.482807$ and $1$, the roots of $f$ ($f(0.482807) = 0$ and $f(1) = 0$; $f \lt 0$ between them).
+> [!derivation] Derivatives of the two bases
+> **Law:** derivative of a unit vector turning about a fixed axis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \dot\theta\,\mathbf k, \quad \boldsymbol\omega_{20} = \dot\psi\,\mathbf k \quad &\text{(each basis turns about the fixed $\mathbf k$ with its own angle)} \\
+> \dot{\mathbf e}_A &= \dot\theta\,\mathbf k\times\mathbf e_A = \dot\theta\,\mathbf e_\theta \quad &\text{($\mathbf k\times\mathbf e_A = \cos\theta\,\mathbf j - \sin\theta\,\mathbf i$)} \\
+> \dot{\mathbf e}_\theta &= \dot\theta\,\mathbf k\times\mathbf e_\theta = -\dot\theta\,\mathbf e_A \quad &\text{($\mathbf k\times\mathbf e_\theta = -\sin\theta\,\mathbf j - \cos\theta\,\mathbf i$)} \\
+> \dot{\mathbf e}_B &= \dot\psi\,\mathbf e_\psi, \quad \dot{\mathbf e}_\psi = -\dot\psi\,\mathbf e_B \quad &\text{(same products with $\psi$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf e}_A = \dot\theta\,\mathbf e_\theta, \quad \dot{\mathbf e}_\theta = -\dot\theta\,\mathbf e_A, \quad \dot{\mathbf e}_B = \dot\psi\,\mathbf e_\psi, \quad \dot{\mathbf e}_\psi = -\dot\psi\,\mathbf e_B}$$
+>
+> **Units:** $[\dot\theta] = [\dot\psi] = [\mathrm{T^{-1}}]$
+> **Meaning:** the bases follow the tangency points, which slide round the cylinder as the configuration changes.
+
+> [!derivation] (b) Position, velocity and acceleration of P
+> **Law:** time derivatives in $S_0$; product rule
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Sec. 7.4
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= R\,\dot{\mathbf e}_A - \dot\xi\,\mathbf e_\theta - \xi\,\dot{\mathbf e}_\theta \quad &\text{(product rule; $R$ constant)} \\
+> &= R\dot\theta\,\mathbf e_\theta - \dot\xi\,\mathbf e_\theta + \xi\dot\theta\,\mathbf e_A \quad &\text{(derivatives of the basis)} \\
+> &= \xi\dot\theta\,\mathbf e_A + \left(R\dot\theta - \dot\xi\right)\mathbf e_\theta \quad &\text{(grouped)} \\
+> \mathbf a_0^P &= \left(\dot\xi\dot\theta + \xi\ddot\theta\right)\mathbf e_A + \xi\dot\theta\,\dot{\mathbf e}_A + \left(R\ddot\theta - \ddot\xi\right)\mathbf e_\theta + \left(R\dot\theta - \dot\xi\right)\dot{\mathbf e}_\theta \quad &\text{(product rule on each term)} \\
+> &= \left(\dot\xi\dot\theta + \xi\ddot\theta\right)\mathbf e_A + \xi\dot\theta^2\,\mathbf e_\theta + \left(R\ddot\theta - \ddot\xi\right)\mathbf e_\theta - \left(R\dot\theta - \dot\xi\right)\dot\theta\,\mathbf e_A \quad &\text{(derivatives of the basis)} \\
+> &= \left(\xi\ddot\theta + 2\dot\xi\dot\theta - R\dot\theta^2\right)\mathbf e_A + \left(R\ddot\theta - \ddot\xi + \xi\dot\theta^2\right)\mathbf e_\theta \quad &\text{(grouped)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \mathbf r_0^P = R\,\mathbf e_A - \xi\,\mathbf e_\theta, \quad \mathbf v_0^P = \xi\dot\theta\,\mathbf e_A + \left(R\dot\theta - \dot\xi\right)\mathbf e_\theta \cr \mathbf a_0^P = \left(\xi\ddot\theta + 2\dot\xi\dot\theta - R\dot\theta^2\right)\mathbf e_A + \left(R\ddot\theta - \ddot\xi + \xi\dot\theta^2\right)\mathbf e_\theta \end{array}}$$
+>
+> **Units:** $[\xi\dot\theta] = [\dot\xi] = [\mathrm{L\,T^{-1}}]$; $[\xi\ddot\theta] = [\dot\xi\dot\theta] = [R\dot\theta^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the component along $\mathbf e_\theta$ (along the string, positive towards $A$) is the speed at which the string is pulled over $A$; the component along $\mathbf e_A$ is the swing of the segment.
+
+> [!derivation] (b) Position, velocity and acceleration of Q
+> **Law:** time derivatives in $S_0$; product rule; the length of $BQ$ differentiated with the chain rule
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; [Lecture 3, Slide 17]
+>
+> $$\begin{aligned}
+> \dot\zeta &= -\dot\xi - R\left(\dot\psi - \dot\theta\right) \quad &\text{(derivative of the length of $BQ$; $L$, $R$ constant)} \\
+> R\dot\psi + \dot\zeta &= R\dot\theta - \dot\xi, \quad R\ddot\psi + \ddot\zeta = R\ddot\theta - \ddot\xi \quad &\text{(the rate along each segment is the same)} \\
+> \mathbf v_0^Q &= R\dot\psi\,\mathbf e_\psi + \dot\zeta\,\mathbf e_\psi - \zeta\dot\psi\,\mathbf e_B = -\zeta\dot\psi\,\mathbf e_B + \left(R\dot\theta - \dot\xi\right)\mathbf e_\psi \quad &\text{(product rule; derivatives of $\mathcal B_2$)} \\
+> \mathbf a_0^Q &= -\left(\dot\zeta\dot\psi + \zeta\ddot\psi\right)\mathbf e_B - \zeta\dot\psi^2\,\mathbf e_\psi + \left(R\ddot\theta - \ddot\xi\right)\mathbf e_\psi - \left(R\dot\theta - \dot\xi\right)\dot\psi\,\mathbf e_B \quad &\text{(product rule on each term)} \\
+> &= -\left(\zeta\ddot\psi + 2\dot\zeta\dot\psi + R\dot\psi^2\right)\mathbf e_B + \left(R\ddot\theta - \ddot\xi - \zeta\dot\psi^2\right)\mathbf e_\psi \quad &\text{($R\dot\theta - \dot\xi = R\dot\psi + \dot\zeta$; grouped)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \mathbf r_0^Q = R\,\mathbf e_B + \zeta\,\mathbf e_\psi, \quad \mathbf v_0^Q = -\zeta\dot\psi\,\mathbf e_B + \left(R\dot\theta - \dot\xi\right)\mathbf e_\psi \cr \mathbf a_0^Q = -\left(\zeta\ddot\psi + 2\dot\zeta\dot\psi + R\dot\psi^2\right)\mathbf e_B + \left(R\ddot\theta - \ddot\xi - \zeta\dot\psi^2\right)\mathbf e_\psi \cr \zeta = L - \xi - R\left(\psi - \theta\right), \quad \dot\zeta = R\dot\theta - R\dot\psi - \dot\xi \end{array}}$$
+>
+> **Units:** $[\zeta\dot\psi] = [R\dot\theta] = [\mathrm{L\,T^{-1}}]$; every acceleration term $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** $Q$ moves along its segment ($\mathbf e_\psi$, away from $B$) at the same rate at which $P$ moves towards $A$: whatever the string gains on one side it loses on the other.
+
+### Forces and Equations of Motion
+
+The free-body diagrams show on each particle its weight, the tension towards its tangency point and the force of the spring towards the other particle. $S_0$ is inertial, so no inertia force acts.
+
+![[attachments/EM-SOL/p35-fbd.svg]]
+
+> [!derivation] (c) Forces on both particles
+> **Law:** weight; spring of zero natural length; tension of a massless string, equal at both ends on a smooth support
+> **Source:** Notes.pdf, Sec. 7.5; [Lecture 3, Slide 13]; [Lecture 3, Slide 17]; Problems.pdf, p. 75
+>
+> $$\begin{aligned}
+> \mathbf r_0^A - \mathbf r_0^P &= \xi\,\mathbf e_\theta, \quad \mathbf r_0^B - \mathbf r_0^Q = -\zeta\,\mathbf e_\psi \quad &\text{(directions from each particle to its tangency point)} \\
+> \overrightarrow{PQ} &= \mathbf r_0^Q - \mathbf r_0^P = R\left(\mathbf e_B - \mathbf e_A\right) + \zeta\,\mathbf e_\psi + \xi\,\mathbf e_\theta \quad &\text{(difference of the position vectors)} \\
+> \mathbf F_{S,P} &= k\overrightarrow{PQ} = kR\left(\mathbf e_B - \mathbf e_A\right) + k\left[L - \xi - R\left(\psi - \theta\right)\right]\mathbf e_\psi + k\xi\,\mathbf e_\theta \quad &\text{(zero natural length: the force is $k$ times the extension vector)} \\
+> \mathbf F_{S,Q} &= -\mathbf F_{S,P} \quad &\text{(action and reaction of the massless spring)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \mathbf F^P = -mg\,\mathbf j + T\,\mathbf e_\theta + k\overrightarrow{PQ} \cr \mathbf F^Q = -mg\,\mathbf j - T\,\mathbf e_\psi - k\overrightarrow{PQ} \cr k\overrightarrow{PQ} = kR\left(\mathbf e_B - \mathbf e_A\right) + k\left[L - \xi - R\left(\psi - \theta\right)\right]\mathbf e_\psi + k\xi\,\mathbf e_\theta, \quad T \ge 0 \end{array}}$$
+>
+> **Units:** $[mg] = [T] = [kR] = [k\xi] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the tension is the only reaction on the particles, a single unknown $T(t)$ shared by both, since the smooth cylinder acts only on the string; the spring pair is equal and opposite.
+
+> [!derivation] Newton's second law for both particles
+> **Law:** Newton's second law in an inertial frame with all the forces, each particle projected on its own basis
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 7.6; [Lecture 3, Slide 14]
+>
+> The weight is projected with the rows of the matrices; the spring with the dot products of $\overrightarrow{PQ}$, written $\overrightarrow{PQ}\cdot\mathbf e_A$ and so on.
+>
+> $$\begin{aligned}
+> P,\ \mathbf e_A:\ m\left(\xi\ddot\theta + 2\dot\xi\dot\theta - R\dot\theta^2\right) &= -mg\sin\theta + k\overrightarrow{PQ}\cdot\mathbf e_A \quad &\text{(no tension: $\mathbf e_\theta\cdot\mathbf e_A = 0$)} \\
+> P,\ \mathbf e_\theta:\ m\left(R\ddot\theta - \ddot\xi + \xi\dot\theta^2\right) &= -mg\cos\theta + T + k\overrightarrow{PQ}\cdot\mathbf e_\theta \quad &\text{(along $PA$)} \\
+> Q,\ \mathbf e_B:\ -m\left(\zeta\ddot\psi + 2\dot\zeta\dot\psi + R\dot\psi^2\right) &= -mg\sin\psi - k\overrightarrow{PQ}\cdot\mathbf e_B \quad &\text{(no tension: $\mathbf e_\psi\cdot\mathbf e_B = 0$)} \\
+> Q,\ \mathbf e_\psi:\ m\left(R\ddot\theta - \ddot\xi - \zeta\dot\psi^2\right) &= -mg\cos\psi - T - k\overrightarrow{PQ}\cdot\mathbf e_\psi \quad &\text{(along $BQ$)} \\
+> m\left(2R\ddot\theta - 2\ddot\xi + \xi\dot\theta^2 - \zeta\dot\psi^2\right) &= -mg\left(\cos\theta + \cos\psi\right) + k\overrightarrow{PQ}\cdot\left(\mathbf e_\theta - \mathbf e_\psi\right) \quad &\text{(sum of the two string projections: $T$ eliminated)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{3 equations free of } T \text{ (the } \mathbf e_A \text{, } \mathbf e_B \text{ projections and their string sum) for } \theta, \psi, \xi; \quad T \text{ from the } \mathbf e_\theta \text{ projection}}$$
+>
+> **Units:** every term $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** four scalar equations for the four unknowns $\theta$, $\psi$, $\xi$ and $T$; the motion decouples from the tension, which is computed afterwards and must stay positive.
+
+> [!derivation] (d) Work of the forces on P and the energy of the pair
+> **Law:** power of a force; the tension transfers energy between the particles; potential of the weights and of the spring
+> **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31; [Lecture 3, Slide 17]
+>
+> $$\begin{aligned}
+> T\,\mathbf e_\theta\cdot\mathbf v_0^P &= T\left(R\dot\theta - \dot\xi\right) \quad &\text{(power of the tension on $P$: not zero in general)} \\
+> -T\,\mathbf e_\psi\cdot\mathbf v_0^Q &= -T\left(R\dot\theta - \dot\xi\right) \quad &\text{(power of the tension on $Q$)} \\
+> k\overrightarrow{PQ}\cdot\mathbf v_0^P - k\overrightarrow{PQ}\cdot\mathbf v_0^Q &= -k\overrightarrow{PQ}\cdot\frac{d\overrightarrow{PQ}}{dt} = -\frac{d}{dt}\left(\tfrac12 k\left|\overrightarrow{PQ}\right|^2\right) \quad &\text{(power of the spring on both; chain rule)} \\
+> -mg\,\mathbf j\cdot\left(\mathbf v_0^P + \mathbf v_0^Q\right) &= -\frac{d}{dt}\left[mg\left(y_P + y_Q\right)\right] \quad &\text{(power of the weights)} \\
+> \frac{d}{dt}\left[\tfrac12 m\left(|\mathbf v_0^P|^2 + |\mathbf v_0^Q|^2\right)\right] &= -\frac{d}{dt}\left[mg\left(y_P + y_Q\right) + \tfrac12 k\left|\overrightarrow{PQ}\right|^2\right] \quad &\text{(sum of all powers; the two tension powers cancel)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} E_P \ \text{not conserved: } \dot E_P = T\left(R\dot\theta - \dot\xi\right) + \text{power of the spring, which depends on the motion of } Q \cr E = \tfrac12 m\left(|\mathbf v_0^P|^2 + |\mathbf v_0^Q|^2\right) + V = \text{const}, \quad V = mg\left(R\sin\theta - \xi\cos\theta + R\sin\psi + \zeta\cos\psi\right) + \tfrac12 k\left|\overrightarrow{PQ}\right|^2 \end{array}}$$
+>
+> **Units:** $[mgR] = [k\xi^2] = [\mathrm{M\,L^2\,T^{-2}}]$; powers $[\mathrm{M\,L^2\,T^{-3}}]$
+> **Meaning:** the mechanical energy of $P$ alone is not conserved: the string works on $P$ whenever it slides over $A$, and the spring force on $P$ depends on where $Q$ is, so it has no potential of the position of $P$ alone. The pair is conservative: the string only transfers energy from one particle to the other and the spring is an internal conservative force, so the potential energy is the one in the box.
+
+### Answers and Checks
+
+#### (e) Symmetric configurations
+
+> [!derivation] Coordinates of a configuration symmetric about Oy
+> **Law:** mirror symmetry about the vertical axis; the length constraint
+> **Source:** [Lecture 3, Slide 4]; Problems.pdf, p. 23
+>
+> The mirror in $Oy$ changes the sign of $x$ and keeps $y$; it sends the polar angle $\theta$ to $\pi - \theta$.
+>
+> $$\begin{aligned}
+> \psi &= \pi - \theta \quad &\text{($B$ is the mirror image of $A$)} \\
+> R\cos\psi - \zeta\sin\psi &= -R\cos\theta - \zeta\sin\theta \quad &\text{($x_Q$ with $\cos(\pi - \theta) = -\cos\theta$, $\sin(\pi - \theta) = \sin\theta$)} \\
+> -R\cos\theta - \zeta\sin\theta &= -\left(R\cos\theta + \xi\sin\theta\right) \iff \zeta = \xi \quad &\text{(mirror condition $x_Q = -x_P$)} \\
+> \xi &= L - \xi - R\left(\pi - \theta - \theta\right) \quad &\text{(length constraint with both relations)} \\
+> \xi &= \frac{L - \pi R}{2} + R\theta \quad &\text{(solved for $\xi$)}
+> \end{aligned}$$
+>
+> $$\boxed{\psi = \pi - \theta, \qquad \xi = \zeta = \ell_0 + R\theta, \qquad \ell_0 = \frac{L - \pi R}{2}; \qquad \text{1 degree of freedom, } \theta}$$
+>
+> **Units:** $[\ell_0] = [R\theta] = [\mathrm{L}]$
+> **Meaning:** $\ell_0$ is the length of each hanging segment when $A$ and $B$ are at the ends of the horizontal diameter; the symmetric motion keeps one coordinate, and the vertical coordinates of $P$ and $Q$ are then equal.
+
+#### (f) Equilibrium and small oscillations of the symmetric configuration
+
+![[attachments/EM-SOL/p35-symmetric.svg]]
+
+> [!derivation] Equation of motion of a symmetric motion
+> **Law:** projection of Newton's second law perpendicular to the string (free of the tension), with the symmetric relations
+> **Source:** Notes.pdf, Eq. 4.4; [Lecture 3, Slide 14]
+>
+> With the relations of part (e), the spring is horizontal: $\overrightarrow{PQ}$ is minus twice the abscissa of $P$ times $\mathbf i$, and its projection on $\mathbf e_A$ uses the first row of $[{}_0R_1]$.
+>
+> $$\begin{aligned}
+> \overrightarrow{PQ} &= -2\left(R\cos\theta + \xi\sin\theta\right)\mathbf i \quad &\text{($x_Q = -x_P$, $y_Q = y_P$)} \\
+> \overrightarrow{PQ}\cdot\mathbf e_A &= -2\left(R\cos\theta + \xi\sin\theta\right)\cos\theta \quad &\text{($\mathbf i\cdot\mathbf e_A = \cos\theta$)} \\
+> \dot\xi &= R\dot\theta \quad &\text{(derivative of $\xi = \ell_0 + R\theta$)} \\
+> 2\dot\xi\dot\theta - R\dot\theta^2 &= 2R\dot\theta^2 - R\dot\theta^2 = R\dot\theta^2 \quad &\text{(substitution in the acceleration along $\mathbf e_A$)} \\
+> m\left(\xi\ddot\theta + R\dot\theta^2\right) &= -mg\sin\theta - 2k\cos\theta\left(R\cos\theta + \xi\sin\theta\right) \quad &\text{(projection of $P$ on $\mathbf e_A$)}
+> \end{aligned}$$
+>
+> $$\boxed{m\left(\ell_0 + R\theta\right)\ddot\theta + mR\dot\theta^2 + mg\sin\theta + 2k\cos\theta\left[R\cos\theta + \left(\ell_0 + R\theta\right)\sin\theta\right] = 0}$$
+>
+> **Units:** every term $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the projection of $Q$ on $\mathbf e_B$ gives the same equation (mirror image of every term), so a symmetric start stays symmetric and no extra force is needed to keep it so.
+
+> [!derivation] Linearisation for nearly vertical segments: equilibrium
+> **Law:** small deviation of the segments from the vertical (the angle $\theta$, as shown in the position box): first-order expansion of the equation of motion; equilibrium with zero rate and acceleration
+> **Source:** Notes.pdf, Eq. 4.32; [Lecture 6, Slide 15]
+>
+> Every term is expanded to first order in $\theta$ and its derivatives: products of two small quantities are dropped.
+>
+> $$\begin{aligned}
+> m\left(\ell_0 + R\theta\right)\ddot\theta &\simeq m\ell_0\ddot\theta \quad &\text{($R\theta\ddot\theta$ is of second order)} \\
+> mR\dot\theta^2 &\simeq 0 \quad &\text{(second order)} \\
+> mg\sin\theta &\simeq mg\theta \quad &\text{($\sin\theta \simeq \theta$)} \\
+> 2k\left[R\cos^2\theta + \left(\ell_0 + R\theta\right)\sin\theta\cos\theta\right] &\simeq 2k\left(R + \ell_0\theta\right) \quad &\text{($\cos^2\theta \simeq 1$; $\sin\theta\cos\theta \simeq \theta$; $R\theta^2$ dropped)} \\
+> m\ell_0\ddot\theta + \left(mg + 2k\ell_0\right)\theta + 2kR &= 0 \quad &\text{(linearised equation)} \\
+> \left(mg + 2k\ell_0\right)\theta_0 + 2kR &= 0 \quad &\text{(equilibrium: $\ddot\theta = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\theta_0 \simeq -\frac{2kR}{mg + 2k\ell_0}, \qquad \psi_0 = \pi - \theta_0 \simeq \pi + \frac{2kR}{mg + 2k\ell_0}, \qquad \xi_0 = \zeta_0 \simeq \ell_0 - \frac{2kR^2}{mg + 2k\ell_0}}$$
+>
+> **Units:** $[kR]/[mg] = [\mathrm{M\,T^{-2}}][\mathrm{L}]/[\mathrm{M\,L\,T^{-2}}] = [1]$ and $[k\ell_0] = [mg]$, so $\theta_0$ is dimensionless; $[kR^2/(mg)] = [\mathrm{L}]$
+> **Meaning:** $\theta_0$ is negative: $A$ sits slightly below the horizontal diameter and the segments lean inwards, because the spring pulls the particles together and the horizontal part of the tension must balance it. The approximation holds when $2kR$ is small compared with the sum of $mg$ and $2k\ell_0$.
+
+> [!derivation] Linearisation for nearly vertical segments: frequency
+> **Law:** deviation from the equilibrium in the linearised equation; harmonic oscillator
+> **Source:** Notes.pdf, Eq. 5.6; [Lecture 6, Slide 6]; [Lecture 6, Slide 15]
+>
+> $$\begin{aligned}
+> \theta &= \theta_0 + \delta, \quad \ddot\theta = \ddot\delta \quad &\text{(deviation from the equilibrium; $\theta_0$ constant)} \\
+> m\ell_0\ddot\delta + \left(mg + 2k\ell_0\right)\delta + \left[\left(mg + 2k\ell_0\right)\theta_0 + 2kR\right] &= 0 \quad &\text{(substitution in the linearised equation)} \\
+> m\ell_0\ddot\delta + \left(mg + 2k\ell_0\right)\delta &= 0 \quad &\text{(the bracket is the equilibrium condition: zero)} \\
+> \ddot\delta + \left(\frac{g}{\ell_0} + \frac{2k}{m}\right)\delta &= 0 \quad &\text{(divided by $m\ell_0$: the form of Eq. 5.6)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega_0 = \sqrt{\frac{g}{\ell_0} + \frac{2k}{m}}, \qquad \ell_0 = \frac{L - \pi R}{2}}$$
+>
+> **Units:** $[g/\ell_0] = [\mathrm{T^{-2}}]$; $[k/m] = [\mathrm{M\,T^{-2}}]/[\mathrm{M}] = [\mathrm{T^{-2}}]$; so $[\omega_0] = [\mathrm{T^{-1}}]$
+> **Meaning:** two restoring effects add: gravity, as for a pendulum of length $\ell_0$, and the spring, which pulls both particles inwards when they swing apart; the equilibrium shift $\theta_0$ does not change the frequency to first order.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom | 3: $\theta$ (polar angle of $A$), $\psi$ (polar angle of $B$), $\xi$ (length of $AP$); $\zeta = L - \xi - R(\psi - \theta)$ |
+| (b) Kinematics | $\mathbf r_0^P = R\,\mathbf e_A - \xi\,\mathbf e_\theta$, $\mathbf v_0^P = \xi\dot\theta\,\mathbf e_A + (R\dot\theta - \dot\xi)\,\mathbf e_\theta$, $\mathbf a_0^P = (\xi\ddot\theta + 2\dot\xi\dot\theta - R\dot\theta^2)\,\mathbf e_A + (R\ddot\theta - \ddot\xi + \xi\dot\theta^2)\,\mathbf e_\theta$; $\mathbf r_0^Q = R\,\mathbf e_B + \zeta\,\mathbf e_\psi$, $\mathbf v_0^Q = -\zeta\dot\psi\,\mathbf e_B + (R\dot\theta - \dot\xi)\,\mathbf e_\psi$, $\mathbf a_0^Q = -(\zeta\ddot\psi + 2\dot\zeta\dot\psi + R\dot\psi^2)\,\mathbf e_B + (R\ddot\theta - \ddot\xi - \zeta\dot\psi^2)\,\mathbf e_\psi$ |
+| (c) Forces | $P$: $-mg\,\mathbf j$, $T\,\mathbf e_\theta$, $k\overrightarrow{PQ}$; $Q$: $-mg\,\mathbf j$, $-T\,\mathbf e_\psi$, $-k\overrightarrow{PQ}$; $k\overrightarrow{PQ} = kR(\mathbf e_B - \mathbf e_A) + k[L - \xi - R(\psi - \theta)]\,\mathbf e_\psi + k\xi\,\mathbf e_\theta$ |
+| (d) Energy | of $P$ alone: not conserved (tension power $T(R\dot\theta - \dot\xi)$, spring force depends on $Q$); of the pair: conserved, $V = mg(y_P + y_Q) + \frac12 k|\overrightarrow{PQ}|^2$ |
+| (e) Symmetric motion | 1 degree of freedom; $\psi = \pi - \theta$, $\xi = \zeta = \ell_0 + R\theta$, $\ell_0 = (L - \pi R)/2$ |
+| (f) Equilibrium and frequency | $\theta_0 \simeq -2kR/(mg + 2k\ell_0)$, $\psi_0 = \pi - \theta_0$, $\xi_0 \simeq \ell_0 - 2kR^2/(mg + 2k\ell_0)$; $\omega_0 = \sqrt{g/\ell_0 + 2k/m}$ |
+
+**Check against the official key:** Problems.pdf, p. 75, item 35, gives only the spring forces on $P$ and $Q$, written in the same coordinates $\theta$, $\psi$, $\xi$ and the same unit vectors: the key's vector is term by term the one of the box of part (c) (**match**). The other parts have no key; the box below checks the linearisation of part (f) against the exact nonlinear equation with sample data.
+
+> [!derivation] Independent check of the linearisation with sample data
+> **Law:** exact equilibrium of the nonlinear symmetric equation (root found by bisection) and its exact stiffness, compared with the first-order formulas
+> **Source:** Notes.pdf, Eq. 4.32; [Lecture 6, Slide 15]
+>
+> Sample data: $R$ of 1 m, $\ell_0$ of 2 m, $m$ of 1 kg, $k$ of 0.3 N/m, $g$ of 9.81 m/s². The nonlinear equilibrium condition is $f(\theta)$ equal to zero, with $f$ the sum of the weight term and the spring term of the symmetric equation of motion.
+>
+> $$\begin{aligned}
+> \theta_0^{\text{lin}} &= -\frac{2(0.3)(1)}{(1)(9.81) + 2(0.3)(2)} = -\frac{0.6}{11.01} = -0.05450\ \text{rad} \quad &\text{(formula of part (f))} \\
+> f(\theta) &= mg\sin\theta + 2k\cos\theta\left[R\cos\theta + \left(\ell_0 + R\theta\right)\sin\theta\right] = 0 \ \Rightarrow\ \theta_0 = -0.05453\ \text{rad} \quad &\text{(exact root, bisection)} \\
+> \omega_0^{2,\text{lin}} &= \frac{9.81}{2} + \frac{2(0.3)}{1} = 4.905 + 0.600 = 5.505\ \text{s}^{-2} \quad &\text{(formula of part (f))} \\
+> \omega_0^2 &= \frac{f'(\theta_0)}{m\left(\ell_0 + R\theta_0\right)} = 5.648\ \text{s}^{-2} \quad &\text{(exact stiffness over the exact inertia at the root)}
+> \end{aligned}$$
+>
+> $$\boxed{\theta_0:\ -0.05453 \ \text{(exact)}\ \text{vs}\ -0.05450 \ \text{(linear)}; \qquad \omega_0^2:\ 5.648 \ \text{vs}\ 5.505\ \text{s}^{-2}}$$
+>
+> **Units:** angles in rad; $[\omega_0^2] = [\mathrm{T^{-2}}]$
+> **Meaning:** the equilibrium agrees to 0.06 percent and the frequency squared to 2.6 percent, a relative difference of the order of the small angle itself (5 percent), as a first-order approximation allows: the linearised results are confirmed.
+
+> [!derivation] Limiting cases of the frequency
+> **Law:** the equilibrium and frequency of part (f) at the ends of the range of the data
+> **Source:** Notes.pdf, Eq. 5.6; Notes.pdf, Sec. 4.7
+>
+> $$\begin{aligned}
+> k \to 0:\quad \theta_0 &\to 0, \quad \omega_0 \to \sqrt{\frac{g}{\ell_0}} \quad &\text{(no spring)} \\
+> R \to 0:\quad \theta_0 &\to 0, \quad \ell_0 \to \frac{L}{2}, \quad \omega_0 \to \sqrt{\frac{2g}{L} + \frac{2k}{m}} \quad &\text{(cylinder shrunk to a point)}
+> \end{aligned}$$
+>
+> $$\boxed{k \to 0:\ \omega_0 = \sqrt{g/\ell_0}\ \text{(simple pendulum)}; \qquad R \to 0:\ \omega_0 = \sqrt{2g/L + 2k/m}}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in both limits
+> **Meaning:** without the spring each particle is a simple pendulum of length $\ell_0$ hanging vertically from its tangency point; with a vanishing cylinder the two particles hang from one point on segments of length $L/2$, and the spring adds its stiffness to the symmetric swing.
 
 ---
 
-## 📌 Problem 50: Double Pendulum
+## Problem 38: Particle on Torus
 
-### Phase 1: Constraints, Degrees of Freedom & Coordinates
-* **System:** a double pendulum of two heavy particles $P$ and $Q$ of mass $m$ joined to $O$ and to each other by two rigid massless bars of length $\ell$. The motion is planar (the figure and the angles $\theta$ and $\phi$ describe a plane). The angle $\theta$ is that of the bar $OP$ with the downward vertical and $\phi$ that of the bar $PQ$ with the downward vertical.
-* **Constraints:** two particles in the plane have $4$ coordinates; the rigid bars give $|OP| = \ell$ and $|PQ| = \ell$ (holonomic, scleronomic, bilateral). $\text{CDOF} = 4 - 2 = 2$, with $(\theta, \phi)$.
-* **Parameters:** $m$, $\ell$, $g$.
+### Reference Frames, Bases and Coordinates
 
-### Phase 2: Reference Frames & Vector Bases
-* **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$, with $\mathbf{i}$ horizontal to the right and $\mathbf{j}$ vertical upward (the horizontal axis is $Ox$).
-* **Bar bases** (rotations about the axis perpendicular to the plane; check below):
-$$ \mathbf{e}_P = \sin\theta\,\mathbf{i} - \cos\theta\,\mathbf{j}, \quad \mathbf{e}_\theta = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{j}, \qquad \mathbf{e}_Q = \sin\phi\,\mathbf{i} - \cos\phi\,\mathbf{j}, \quad \mathbf{e}_\phi = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{j} $$
-In $\{\mathbf{i}, \mathbf{j}\}$ the matrix with columns $\mathbf{e}_P, \mathbf{e}_\theta$ is $\begin{pmatrix}\sin\theta & \cos\theta\\ -\cos\theta & \sin\theta\end{pmatrix}$, with $\det = \sin^2\theta + \cos^2\theta = 1$ and orthonormal columns ($\sin^2\theta + \cos^2\theta = 1$, $\sin\theta\cos\theta - \cos\theta\sin\theta = 0$), so $RR^T = I$; the same holds with $\phi$ for $\mathbf{e}_Q, \mathbf{e}_\phi$.
-where $\mathbf{e}_P$ points from $O$ to $P$ and $\mathbf{e}_Q$ from $P$ to $Q$. Their derivatives are $\dot{\mathbf{e}}_P = \dot{\theta}\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_P$, and the same with $\phi$.
-* **Scalar products needed:** $\mathbf{j}\cdot\mathbf{e}_P = -\cos\theta$, $\mathbf{j}\cdot\mathbf{e}_\theta = \sin\theta$, $\mathbf{j}\cdot\mathbf{e}_Q = -\cos\phi$, $\mathbf{j}\cdot\mathbf{e}_\phi = \sin\phi$, and
-$$ \mathbf{e}_P\cdot\mathbf{e}_Q = \cos(\theta - \phi), \quad \mathbf{e}_\theta\cdot\mathbf{e}_Q = \sin(\phi - \theta), \quad \mathbf{e}_\theta\cdot\mathbf{e}_\phi = \cos(\theta - \phi), \quad \mathbf{e}_P\cdot\mathbf{e}_\phi = \sin(\theta - \phi) $$
+A heavy particle $P$ of mass $m_P$ moves without friction on a vertically standing torus and cannot leave it; a second particle $Q$ of mass $m_Q$ moves without friction on the horizontal plane $Ox_0y_0$; the two attract each other with a force proportional to their distance, of constant $k$ (Problems.pdf, p. 26). The statement asks for a minimal set of coordinates, the kinematics of both particles, two tangent vectors and a normal vector of the torus, the forces, the equations of motion free of reactions, a conservation law and whether $P$ can reach the top of the torus. The solution follows the Newtonian approach of Notes.pdf, Sec. 7.1 to Sec. 7.7.
 
-### Phase 3: Derivation
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$ of the figure (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $\mathbf k_0$ vertical **upward**, $\mathbf i_0$ and $\mathbf j_0$ horizontal, right-handed |
+| Torus | read from its parametric equations: the centre circle of the tube is $(2\sin\theta, 0, 4 + 2\cos\theta)$, of radius 2, in the vertical plane $Ox_0z_0$, centred at $C = (0, 0, 4)$; the tube has radius 1. The axis of symmetry of the torus is the horizontal line through $C$ parallel to $\mathbf j_0$ |
+| Toroidal basis | $\mathcal B_1 = \{\mathbf i_1, \mathbf j_1, \mathbf k_1\}$, $\mathcal B_0$ turned by $\theta$ about $\mathbf j_0$ ($\mathbf j_1 = \mathbf j_0$): $\mathbf k_1$ from $C$ towards the centre of the tube section that holds $P$, $\mathbf i_1$ along increasing $\theta$ |
+| Poloidal basis | $\mathcal B_2 = \{\mathbf i_2, \mathbf j_2, \mathbf k_2\}$, $\mathcal B_1$ turned by the angle $\phi$ about $-\mathbf i_1$ ($\mathbf i_2 = \mathbf i_1$): $\mathbf k_2$ the outward normal of the torus at $P$, $\mathbf j_2$ along increasing $\phi$ |
+| Coordinates (a) | $\theta$: angle of the meridian half-plane of $P$ about the axis of the torus, from $\mathbf k_0$ towards $\mathbf i_0$; $\phi$: angle round the tube in that half-plane, from the outward direction $\mathbf k_1$ towards $\mathbf j_0$; $\xi$, $\eta$: Cartesian coordinates of $Q$ in the plane $Ox_0y_0$ (the letters of the official key) |
+| Constraints | $P$ on the torus (1 equation, holonomic, stationary, smooth, bilateral: it cannot separate); $Q$ on the plane, $z_Q = 0$ (1 equation, holonomic, stationary, smooth, bilateral) ([Lecture 3, Slide 21]) |
+| Degrees of freedom (a) | 6 coordinates of two particles minus 2 constraint equations: 4, namely $\theta$, $\phi$, $\xi$, $\eta$ ([Lecture 3, Slide 4]) |
+| Data | $m_P = 1$, $m_Q = 2$, $k = 2$, lengths as in the equations of the torus; read as SI units (kg, N m$^{-1}$, m); $g$ [m s$^{-2}$] |
+| Initial conditions | $\mathbf r_0^P = 2\mathbf i_0 + \mathbf j_0 + 4\mathbf k_0$, $\mathbf v_0^P = -\mathbf k_0$; $\mathbf r_0^Q = 3\mathbf i_0 + \mathbf j_0$, $\mathbf v_0^Q = -\mathbf i_0 + \mathbf j_0$ |
+| Applied forces | weights $-m_Pg\,\mathbf k_0$ and $-m_Qg\,\mathbf k_0$; mutual attraction $k\overrightarrow{PQ}$ on $P$ and $-k\overrightarrow{PQ}$ on $Q$ (a zero-length spring, Notes.pdf, Sec. 7.5) |
+| Constraint forces | normal reaction of the torus $N\,\mathbf k_2$ on $P$ (one unknown, Notes.pdf, Sec. 6.4); normal reaction of the plane $N_Q\,\mathbf k_0$ on $Q$ |
 
-#### 3.1 Kinematics
-##### (a) Position, velocity and acceleration
-* **Pedagogical Justification:** the positions are sums of the two bar vectors, $\mathbf{r}_P = \ell\,\mathbf{e}_P$ and $\mathbf{r}_Q = \ell\,\mathbf{e}_P + \ell\,\mathbf{e}_Q$; the derivatives use Poisson's formula:
-$$ \mathbf{r}_P = \ell\sin\theta\,\mathbf{i} - \ell\cos\theta\,\mathbf{j}, \qquad \mathbf{r}_Q = \ell\left(\sin\theta + \sin\phi\right)\mathbf{i} - \ell\left(\cos\theta + \cos\phi\right)\mathbf{j} $$
-$$ \mathbf{v}_P = \ell\dot{\theta}\,\mathbf{e}_\theta, \qquad \mathbf{v}_Q = \ell\dot{\theta}\,\mathbf{e}_\theta + \ell\dot{\phi}\,\mathbf{e}_\phi, \qquad v_P^2 = \ell^2\dot{\theta}^2, \quad v_Q^2 = \ell^2\left[\dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}\cos(\theta - \phi)\right] $$
-$$ \mathbf{a}_P = \ell\left(\ddot{\theta}\,\mathbf{e}_\theta - \dot{\theta}^2\,\mathbf{e}_P\right), \qquad \mathbf{a}_Q = \mathbf{a}_P + \ell\left(\ddot{\phi}\,\mathbf{e}_\phi - \dot{\phi}^2\,\mathbf{e}_Q\right) $$
+![[attachments/EM-SOL/p38-meridian.svg]]
 
-#### 3.2 Forces
-##### (b) Forces on $P$ and $Q$
-* The bars are massless and rigid, so each transmits a force along its axis: $T_1$ in $OP$ and $T_2$ in $PQ$ (negative values mean compression).
-* **On $P$:** its weight $-mg\,\mathbf{j}$, the pull $-T_1\,\mathbf{e}_P$ of the bar $OP$ and the pull $+T_2\,\mathbf{e}_Q$ of the bar $PQ$. **On $Q$:** its weight $-mg\,\mathbf{j}$ and the pull $-T_2\,\mathbf{e}_Q$ of the bar $PQ$ (action and reaction). **Inertia forces:** none.
+### Change of Basis and Position Vector
 
-#### 3.3 Equations of Motion
-##### (c) Equations of motion for $\theta$ and $\phi$
-* **Pedagogical Justification:** Newton's second law, $m\mathbf{a}_P = -mg\,\mathbf{j} - T_1\mathbf{e}_P + T_2\mathbf{e}_Q$ and $m\mathbf{a}_Q = -mg\,\mathbf{j} - T_2\mathbf{e}_Q$, gives four scalar equations for the four unknowns $\theta, \phi, T_1, T_2$. The two tensions are removed by choosing the projection directions.
-* **Equation for $\phi$.** Project the equation of $Q$ on $\mathbf{e}_\phi$, which is orthogonal to $\mathbf{e}_Q$ and removes $T_2$. With $\mathbf{a}_P\cdot\mathbf{e}_\phi = \ell\left[\ddot{\theta}\cos(\theta - \phi) - \dot{\theta}^2\sin(\theta - \phi)\right]$ and $\ell\left(\ddot{\phi}\,\mathbf{e}_\phi - \dot{\phi}^2\mathbf{e}_Q\right)\cdot\mathbf{e}_\phi = \ell\ddot{\phi}$:
-$$ \boxed{\ddot{\phi} + \ddot{\theta}\cos(\theta - \phi) - \dot{\theta}^2\sin(\theta - \phi) + \frac{g}{\ell}\sin\phi = 0} $$
-* **Equation for $\theta$.** Add the two equations of motion so that $T_2\,\mathbf{e}_Q$ cancels, and project on $\mathbf{e}_\theta$, which is orthogonal to $\mathbf{e}_P$ and removes $T_1$. The right-hand side is $-2mg\,\mathbf{j}\cdot\mathbf{e}_\theta = -2mg\sin\theta$, and the left-hand side is $m\left(\mathbf{a}_P + \mathbf{a}_Q\right)\cdot\mathbf{e}_\theta$ with $\mathbf{a}_P\cdot\mathbf{e}_\theta = \ell\ddot{\theta}$ and $\mathbf{a}_Q\cdot\mathbf{e}_\theta = \ell\ddot{\theta} + \ell\ddot{\phi}\cos(\theta - \phi) + \ell\dot{\phi}^2\sin(\theta - \phi)$:
-$$ \boxed{2\ddot{\theta} + \ddot{\phi}\cos(\theta - \phi) + \dot{\phi}^2\sin(\theta - \phi) + \frac{2g}{\ell}\sin\theta = 0} $$
-* **Tensions (afterwards).** Projecting on the bar directions,
-$$ T_2 = mg\cos\phi - m\ell\left[\ddot{\theta}\sin(\phi - \theta) - \dot{\theta}^2\cos(\theta - \phi) - \dot{\phi}^2\right], \qquad T_1 = mg\cos\theta + m\ell\dot{\theta}^2 + T_2\cos(\theta - \phi) $$
-At rest at $\theta = \phi = 0$: $T_2 = mg$ and $T_1 = 2mg$, the static tensions of the hanging chain.
+![[attachments/EM-SOL/p38-rotation-j.svg]]
 
-#### 3.4 Integration and Answers
-##### (d) Conservation law
-* **Pedagogical Justification:** the bar forces do no net work. Bar $OP$ acts on $P$ with $-T_1\mathbf{e}_P$, whose power is $-T_1\mathbf{e}_P\cdot\ell\dot{\theta}\,\mathbf{e}_\theta = 0$. Bar $PQ$ acts with $+T_2\mathbf{e}_Q$ on $P$ and $-T_2\mathbf{e}_Q$ on $Q$, total power $-T_2\mathbf{e}_Q\cdot(\mathbf{v}_Q - \mathbf{v}_P) = -T_2\mathbf{e}_Q\cdot\ell\dot{\phi}\,\mathbf{e}_\phi = 0$. Gravity is conservative, so the mechanical energy is constant:
-$$ E = \tfrac{1}{2}m\ell^2\left[2\dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}\cos(\theta - \phi)\right] - mg\ell\left(2\cos\theta + \cos\phi\right) = \text{const} $$
+> [!derivation] Toroidal basis: rotation about j0
+> **Law:** elementary rotation about the second axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19
+>
+> View of the vertical plane $Ox_0z_0$ with $\mathbf i_0$ to the right and $\mathbf k_0$ up: $\mathbf j_0$, the cross product of $\mathbf k_0$ and $\mathbf i_0$, points into the paper (⊗), so a positive rotation about $\mathbf j_0$ is clockwise as seen. The angle $\theta$ goes from $\mathbf k_0$ (up) towards $\mathbf i_0$ (right): clockwise, a positive rotation. $\mathbf k_1$ is $\mathbf k_0$ turned by $\theta$: hypotenuse 1, adjacent leg $\cos\theta$ along $\mathbf k_0$, opposite leg $\sin\theta$ along $\mathbf i_0$. $\mathbf i_1$ is $\mathbf i_0$ turned by $\theta$: adjacent leg $\cos\theta$ along $\mathbf i_0$, opposite leg $\sin\theta$ along minus $\mathbf k_0$, because the vector to the right turned clockwise points downwards (the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\theta\,\mathbf i_0 - \sin\theta\,\mathbf k_0 \quad &\text{(right triangle of $\mathbf i_1$: opposite leg on $-\mathbf k_0$)} \\
+> \mathbf k_1 &= \sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf k_0 \quad &\text{(right triangle of $\mathbf k_1$)} \\
+> \mathbf i_1\times\mathbf j_0 &= \cos\theta\,\mathbf k_0 - \sin\theta\,\mathbf k_0\times\mathbf j_0 = \cos\theta\,\mathbf k_0 + \sin\theta\,\mathbf i_0 = \mathbf k_1 \quad &\text{(right-handed; $\mathbf k_0\times\mathbf j_0 = -\mathbf i_0$)} \\
+> \det[{}_0R_1] &= \cos\theta\left(\cos\theta\right) - 0 + \sin\theta\left(0 + \sin\theta\right) = 1 \quad &\text{(expansion along the first row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{13} &= -\cos\theta\sin\theta + \sin\theta\cos\theta = 0 \quad &\text{(rows 1 and 3; each row has unit norm)} \\
+> \mathbf i_0 &= \cos\theta\,\mathbf i_1 + \sin\theta\,\mathbf k_1, \quad \mathbf k_0 = -\sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf k_1 \quad &\text{(rows 1 and 3 of the matrix, Eq. 1.14)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** $\mathbf k_1$ points from the centre $C$ of the torus to the centre of the tube section through $P$; $\mathbf i_1$ is the direction in which $P$ moves when only $\theta$ changes.
 
-##### (e) Will $Q$ ever cross the $Ox$ axis?
-* **Pedagogical Justification:** with $\theta(0) = \phi(0) = \pi/4$ and $\dot{\theta}(0) = \dot{\phi}(0) = 0$, the initial energy is purely potential:
-$$ E_0 = -mg\ell\left(2\cos\frac{\pi}{4} + \cos\frac{\pi}{4}\right) = -\frac{3\sqrt{2}}{2}mg\ell \approx -2.121\,mg\ell $$
-* $Q$ is on the axis when $y_Q = -\ell\left(\cos\theta + \cos\phi\right) = 0$, i.e. $\cos\phi = -\cos\theta$. There the potential energy is $V = -mg\ell\left(2\cos\theta + \cos\phi\right) = -mg\ell\cos\theta \ge -mg\ell$. Since the kinetic energy is non-negative, $E \ge V$ at any point of the motion, so reaching the axis would require $E_0 \ge -mg\ell$. But $E_0 = -2.121\,mg\ell \lt -mg\ell$.
-* **Answer:** $Q$ can **never** cross the $Ox$ axis (it would need a negative kinetic energy).
+> [!derivation] Poloidal basis: rotation in the meridian half-plane
+> **Law:** elementary rotation about the first axis, with a negative angle; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.18
+>
+> View of the meridian half-plane with $\mathbf j_1$ to the right and $\mathbf k_1$ up: $\mathbf i_1$, the cross product of $\mathbf j_1$ and $\mathbf k_1$, points out of the paper (⊙), so positive angles about $\mathbf i_1$ are counterclockwise. The angle $\phi$ goes from $\mathbf k_1$ (up) towards $\mathbf j_1$ (right): clockwise, so the poloidal basis is Eq. 1.18 with the angle minus $\phi$. $\mathbf k_2$ is $\mathbf k_1$ turned clockwise by $\phi$: hypotenuse 1, adjacent leg $\cos\phi$ along $\mathbf k_1$, opposite leg $\sin\phi$ along $\mathbf j_1$. $\mathbf j_2$ is $\mathbf j_1$ turned clockwise by $\phi$: adjacent leg $\cos\phi$ along $\mathbf j_1$, opposite leg $\sin\phi$ along minus $\mathbf k_1$, since the vector to the right turned clockwise points downwards (the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf j_2 &= \cos\phi\,\mathbf j_1 - \sin\phi\,\mathbf k_1 \quad &\text{(right triangle of $\mathbf j_2$: opposite leg on $-\mathbf k_1$)} \\
+> \mathbf k_2 &= \sin\phi\,\mathbf j_1 + \cos\phi\,\mathbf k_1 \quad &\text{(right triangle of $\mathbf k_2$)} \\
+> \mathbf i_2\times\mathbf j_2 &= \cos\phi\,\mathbf i_1\times\mathbf j_1 - \sin\phi\,\mathbf i_1\times\mathbf k_1 = \cos\phi\,\mathbf k_1 + \sin\phi\,\mathbf j_1 = \mathbf k_2 \quad &\text{(right-handed; $\mathbf i_1\times\mathbf k_1 = -\mathbf j_1$)} \\
+> \det[{}_1R_2] &= 1\cdot\left(\cos\phi\cos\phi - \sin\phi\left(-\sin\phi\right)\right) = 1 \quad &\text{(expansion along the first row)} \\
+> \left([{}_1R_2][{}_1R_2]^T\right)_{23} &= -\cos\phi\sin\phi + \sin\phi\cos\phi = 0 \quad &\text{(rows 2 and 3; each row has unit norm)} \\
+> \mathbf j_1 &= \cos\phi\,\mathbf j_2 + \sin\phi\,\mathbf k_2, \quad \mathbf k_1 = -\sin\phi\,\mathbf j_2 + \cos\phi\,\mathbf k_2 \quad &\text{(rows 2 and 3 of the matrix)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_1R_2] = \begin{pmatrix} 1 & 0 & 0 \cr 0 & \cos\phi & \sin\phi \cr 0 & -\sin\phi & \cos\phi \end{pmatrix}, \quad \det[{}_1R_2] = 1, \quad [{}_1R_2][{}_1R_2]^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** $\mathbf k_2$ is the outward normal of the tube at $P$ and $\mathbf j_2$ its tangent along the small circle of the section.
 
-##### (f) Additional constraint $\phi = 2\theta$: small-angle natural frequency
-* **Pedagogical Justification:** with the constraint $\phi = 2\theta$ the system has one degree of freedom. The additional ideal constraint (scleronomic, no friction) does no work, so the energy is still conserved. For small angles, $\dot{\phi} = 2\dot{\theta}$, $\cos(\theta - \phi) = \cos\theta \approx 1$ and $\cos u \approx 1 - u^2/2$:
-$$ K = \tfrac{1}{2}m\ell^2\left[2 + 4 + 4\right]\dot{\theta}^2 = 5m\ell^2\dot{\theta}^2, \qquad V = -mg\ell\left[2\left(1 - \tfrac{\theta^2}{2}\right) + \left(1 - 2\theta^2\right)\right] = -3mg\ell + 3mg\ell\theta^2 $$
-$$ E = 5m\ell^2\dot{\theta}^2 + 3mg\ell\theta^2 + \text{const} \implies E' = 10m\ell^2\dot{\theta}\ddot{\theta} + 6mg\ell\theta\dot{\theta} = 0 \implies \ddot{\theta} + \frac{3g}{5\ell}\theta = 0 $$
-* **Comparison with the hint.** The energy of an ideal oscillator is $\tfrac{1}{2}m_{\text{eq}}\left(\dot{x}^2 + \omega_0^2x^2\right)$; here $\tfrac{1}{2}(10m\ell^2)\left(\dot{\theta}^2 + \dfrac{3g}{5\ell}\theta^2\right)$, so
-$$ \boxed{\omega_0 = \sqrt{\frac{3g}{5\ell}}} $$
+> [!derivation] Position vectors of both particles
+> **Law:** position vector as a sum of partial vectors; constraints substituted
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Sec. 7.4; Problems.pdf, p. 26
+>
+> $\overrightarrow{OC}$ is $4\mathbf k_0$; the centre $D$ of the tube section of $P$ is at the distance 2 from $C$ along $\mathbf k_1$; $P$ is at the distance 1 from $D$ along $\mathbf k_2$. In the right triangle of $DP$ (meridian figure) the hypotenuse is 1, the leg along $\mathbf k_1$ is $\cos\phi$ (adjacent to $\phi$) and the leg along $\mathbf j_1$ is $\sin\phi$ (opposite).
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OC} + \overrightarrow{CD} + \overrightarrow{DP} = 4\,\mathbf k_0 + 2\,\mathbf k_1 + \mathbf k_2 \quad &\text{(sum of partial vectors)} \\
+> &= 4\,\mathbf k_0 + \left(2 + \cos\phi\right)\mathbf k_1 + \sin\phi\,\mathbf j_1 \quad &\text{($\mathbf k_2$ in $\mathcal B_1$)} \\
+> &= \left(2 + \cos\phi\right)\sin\theta\,\mathbf i_0 + \sin\phi\,\mathbf j_0 + \left[4 + \left(2 + \cos\phi\right)\cos\theta\right]\mathbf k_0 \quad &\text{($\mathbf k_1$ in $\mathcal B_0$; the equations of the statement)} \\
+> \mathbf r_0^Q &= \xi\,\mathbf i_0 + \eta\,\mathbf j_0 \quad &\text{(on the plane $z_Q = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = 4\,\mathbf k_0 + \varrho\,\mathbf k_1 + \sin\phi\,\mathbf j_1, \quad \varrho = 2 + \cos\phi; \qquad \mathbf r_0^Q = \xi\,\mathbf i_0 + \eta\,\mathbf j_0}$$
+>
+> **Units:** $[\mathrm{L}]$
+> **Meaning:** $\varrho$ is the distance from $P$ to the axis of the torus; the third line reproduces the parametric equations of the statement, which confirms the reading of $\theta$ and $\phi$.
 
-### Phase 4: Interpretation & Checks
-* **Dimensional check:** $[g/\ell] = \text{s}^{-2}$, so $[\omega_0] = \text{s}^{-1}$; $[T_1] = [T_2] = [mg] = \text{N}$.
-* **Comparison (not a limit of this system):** for a single pendulum the frequency would be $\sqrt{g/\ell}$; the constrained double pendulum oscillates more slowly ($\omega_0^2 = 0.6\,g/\ell$) because the second mass adds inertia faster than restoring torque.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 50 in its solution keys, so the results are verified by independent derivation. Sympy confirms that the Euler-Lagrange equations of $K - V$ are $m\ell^2$ times the two equations of (c), and gives $K \approx 5m\ell^2\dot{\theta}^2$ and $V''(0) = 6mg\ell$ for the constrained case.
+> [!derivation] Coordinates at the initial instant
+> **Law:** the initial position and velocity written with the coordinates
+> **Source:** Problems.pdf, p. 26
+>
+> $$\begin{aligned}
+> \sin\phi_0 &= 1 \Rightarrow \phi_0 = \tfrac{\pi}{2}, \quad \varrho_0 = 2 + 0 = 2 \quad &\text{($y_P = 1$)} \\
+> 2\sin\theta_0 &= 2, \quad 4 + 2\cos\theta_0 = 4 \Rightarrow \theta_0 = \tfrac{\pi}{2} \quad &\text{($x_P = 2$, $z_P = 4$)} \\
+> \mathbf i_1 &= -\mathbf k_0, \quad \mathbf j_2 = -\mathbf k_1 = -\mathbf i_0, \quad \mathbf k_2 = \mathbf j_0 \quad &\text{(bases at $\theta = \phi = \pi/2$)} \\
+> \mathbf v_0^P &= \varrho\dot\theta\,\mathbf i_1 + \dot\phi\,\mathbf j_2 = -2\dot\theta\,\mathbf k_0 - \dot\phi\,\mathbf i_0 = -\mathbf k_0 \quad &\text{(velocity of the kinematics box below at $t_0$)} \\
+> \xi_0 &= 3, \quad \eta_0 = 1, \quad \dot\xi_0 = -1, \quad \dot\eta_0 = 1 \quad &\text{(position and velocity of $Q$)}
+> \end{aligned}$$
+>
+> $$\boxed{\theta_0 = \phi_0 = \tfrac{\pi}{2}, \quad \dot\theta_0 = \tfrac12, \quad \dot\phi_0 = 0; \qquad \xi_0 = 3, \quad \eta_0 = 1, \quad \dot\xi_0 = -1, \quad \dot\eta_0 = 1}$$
+>
+> **Units:** angles in rad, rates in $[\mathrm{T^{-1}}]$; $[\xi] = [\mathrm{L}]$
+> **Meaning:** $P$ starts at the top of its tube section on the side of positive $\mathbf j_0$ (the normal there is $\mathbf j_0$, perpendicular to the initial velocity, as it must be) and moves down along the toroidal direction.
+
+### Kinematics
+
+> [!derivation] Derivatives of the toroidal basis
+> **Law:** derivative of a unit vector turning about a fixed axis
+> **Source:** Notes.pdf, Eq. 1.62
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \dot\theta\,\mathbf j_0 \quad &\text{($\mathcal B_1$ turns about the fixed $\mathbf j_0$ with $\theta$)} \\
+> \dot{\mathbf k}_1 &= \dot\theta\,\mathbf j_1\times\mathbf k_1 = \dot\theta\,\mathbf i_1 \quad &\text{($\mathbf j_1\times\mathbf k_1 = \mathbf i_1$)} \\
+> \dot{\mathbf i}_1 &= \dot\theta\,\mathbf j_1\times\mathbf i_1 = -\dot\theta\,\mathbf k_1 \quad &\text{($\mathbf j_1\times\mathbf i_1 = -\mathbf k_1$)} \\
+> \dot{\mathbf j}_1 &= \mathbf 0 \quad &\text{($\mathbf j_1 = \mathbf j_0$ is fixed)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf i}_1 = -\dot\theta\,\mathbf k_1, \qquad \dot{\mathbf j}_1 = \mathbf 0, \qquad \dot{\mathbf k}_1 = \dot\theta\,\mathbf i_1}$$
+>
+> **Units:** $[\dot\theta] = [\mathrm{T^{-1}}]$
+> **Meaning:** the meridian half-plane of $P$ turns about the axis of the torus.
+
+> [!derivation] (b) Position, velocity and acceleration of P
+> **Law:** time derivatives in $S_0$; product and chain rules; projection on the poloidal basis
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Sec. 7.4
+>
+> $$\begin{aligned}
+> \dot\varrho &= -\sin\phi\,\dot\phi \quad &\text{(chain rule on $2 + \cos\phi$)} \\
+> \mathbf v_0^P &= \dot\varrho\,\mathbf k_1 + \varrho\,\dot{\mathbf k}_1 + \cos\phi\,\dot\phi\,\mathbf j_1 \quad &\text{(product rule; $4\,\mathbf k_0$ and $\mathbf j_1$ fixed)} \\
+> &= \varrho\dot\theta\,\mathbf i_1 + \dot\phi\left(\cos\phi\,\mathbf j_1 - \sin\phi\,\mathbf k_1\right) = \varrho\dot\theta\,\mathbf i_2 + \dot\phi\,\mathbf j_2 \quad &\text{(derivative of $\mathbf k_1$; definition of $\mathbf j_2$)} \\
+> \mathbf a_0^P &= \left(\dot\varrho\dot\theta + \varrho\ddot\theta\right)\mathbf i_1 + \varrho\dot\theta\,\dot{\mathbf i}_1 + \left(\cos\phi\,\ddot\phi - \sin\phi\,\dot\phi^2\right)\mathbf j_1 - \left(\sin\phi\,\ddot\phi + \cos\phi\,\dot\phi^2\right)\mathbf k_1 - \sin\phi\,\dot\phi\,\dot{\mathbf k}_1 \quad &\text{(product and chain rules on the velocity in $\mathcal B_1$)} \\
+> &= \left(\varrho\ddot\theta - 2\sin\phi\,\dot\phi\dot\theta\right)\mathbf i_1 + \left(\cos\phi\,\ddot\phi - \sin\phi\,\dot\phi^2\right)\mathbf j_1 - \left(\varrho\dot\theta^2 + \sin\phi\,\ddot\phi + \cos\phi\,\dot\phi^2\right)\mathbf k_1 \quad &\text{(derivatives of $\mathbf i_1$, $\mathbf k_1$; grouped)} \\
+> \mathbf a_0^P\cdot\mathbf j_2 &= \cos^2\phi\,\ddot\phi - \cos\phi\sin\phi\,\dot\phi^2 + \sin\phi\,\varrho\dot\theta^2 + \sin^2\phi\,\ddot\phi + \sin\phi\cos\phi\,\dot\phi^2 = \ddot\phi + \varrho\sin\phi\,\dot\theta^2 \quad &\text{(dot product with $\cos\phi\,\mathbf j_1 - \sin\phi\,\mathbf k_1$)} \\
+> \mathbf a_0^P\cdot\mathbf k_2 &= \sin\phi\cos\phi\,\ddot\phi - \sin^2\phi\,\dot\phi^2 - \cos\phi\,\varrho\dot\theta^2 - \cos\phi\sin\phi\,\ddot\phi - \cos^2\phi\,\dot\phi^2 = -\dot\phi^2 - \varrho\cos\phi\,\dot\theta^2 \quad &\text{(dot product with $\sin\phi\,\mathbf j_1 + \cos\phi\,\mathbf k_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \mathbf r_0^P = 4\,\mathbf k_0 + \varrho\,\mathbf k_1 + \sin\phi\,\mathbf j_1, \quad \mathbf v_0^P = \varrho\dot\theta\,\mathbf i_2 + \dot\phi\,\mathbf j_2 \cr \mathbf a_0^P = \left(\varrho\ddot\theta - 2\sin\phi\,\dot\theta\dot\phi\right)\mathbf i_2 + \left(\ddot\phi + \varrho\sin\phi\,\dot\theta^2\right)\mathbf j_2 - \left(\dot\phi^2 + \varrho\cos\phi\,\dot\theta^2\right)\mathbf k_2, \quad \varrho = 2 + \cos\phi \end{array}}$$
+>
+> **Units:** lengths in m (the tube radius 1 m multiplies $\dot\phi$): $[\varrho\dot\theta] = [\mathrm{L\,T^{-1}}]$; every acceleration term $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** the velocity lies in the tangent plane of the torus (no $\mathbf k_2$ component) while the acceleration has a normal part, the centripetal acceleration of the two circular motions, which the reaction and the forces must supply.
+
+> [!derivation] (b) Position, velocity and acceleration of Q
+> **Law:** time derivatives in $S_0$ of Cartesian components
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4
+>
+> $$\begin{aligned}
+> \mathbf v_0^Q &= \dot\xi\,\mathbf i_0 + \dot\eta\,\mathbf j_0 \quad &\text{(fixed unit vectors)} \\
+> \mathbf a_0^Q &= \ddot\xi\,\mathbf i_0 + \ddot\eta\,\mathbf j_0 \quad &\text{(derivative of the velocity)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^Q = \xi\,\mathbf i_0 + \eta\,\mathbf j_0, \quad \mathbf v_0^Q = \dot\xi\,\mathbf i_0 + \dot\eta\,\mathbf j_0, \quad \mathbf a_0^Q = \ddot\xi\,\mathbf i_0 + \ddot\eta\,\mathbf j_0}$$
+>
+> **Units:** $[\mathrm{L}]$, $[\mathrm{L\,T^{-1}}]$, $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** $Q$ moves freely in the horizontal plane.
+
+> [!derivation] (c) Tangent and normal vectors of the torus
+> **Law:** tangent vectors as partial derivatives of the parametric form; normal as their cross product
+> **Source:** [Lecture 3, Slide 9]; Notes.pdf, Sec. 6.3
+>
+> $$\begin{aligned}
+> \mathbf t_\theta &= \frac{\partial\mathbf r_0^P}{\partial\theta} = \varrho\,\frac{\partial\mathbf k_1}{\partial\theta} = \varrho\,\mathbf i_1 \quad &\text{($\partial\mathbf k_1/\partial\theta = \cos\theta\,\mathbf i_0 - \sin\theta\,\mathbf k_0 = \mathbf i_1$)} \\
+> \mathbf t_\phi &= \frac{\partial\mathbf r_0^P}{\partial\phi} = -\sin\phi\,\mathbf k_1 + \cos\phi\,\mathbf j_1 = \mathbf j_2 \quad &\text{(derivative of $\varrho\,\mathbf k_1 + \sin\phi\,\mathbf j_1$)} \\
+> \mathbf t_\theta\times\mathbf t_\phi &= \varrho\,\mathbf i_2\times\mathbf j_2 = \varrho\,\mathbf k_2 \quad &\text{(right-handed $\mathcal B_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf t_\theta = \left(2 + \cos\phi\right)\mathbf i_1, \quad \mathbf t_\phi = \cos\phi\,\mathbf j_1 - \sin\phi\,\mathbf k_1, \quad \mathbf n = \mathbf k_2 = \sin\phi\,\mathbf j_1 + \cos\phi\,\mathbf k_1}$$
+>
+> **Units:** $[\mathbf t_\theta] = [\mathbf t_\phi] = [\mathrm{L}]$ per radian; $\mathbf n$ dimensionless
+> **Meaning:** the two tangent vectors are orthogonal and $\varrho$ never vanishes (its minimum is 1), so the parametrisation is regular everywhere; in $\mathcal B_0$, $\mathbf i_1 = \cos\theta\,\mathbf i_0 - \sin\theta\,\mathbf k_0$ and $\mathbf k_1 = \sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf k_0$.
+
+### Forces and Equations of Motion
+
+The free-body diagrams show on $P$ its weight, the attraction towards $Q$ and the normal reaction of the torus; on $Q$ its weight, the attraction towards $P$ and the normal reaction of the plane. $S_0$ is inertial, so no inertia force acts.
+
+![[attachments/EM-SOL/p38-fbd.svg]]
+
+> [!derivation] (d) Forces on both particles
+> **Law:** weight; attraction proportional to the distance (zero-length spring); normal reactions of smooth surfaces
+> **Source:** Notes.pdf, Sec. 6.4; Notes.pdf, Sec. 7.5; [Lecture 3, Slide 13]; Problems.pdf, p. 75
+>
+> $$\begin{aligned}
+> \overrightarrow{PQ} &= \mathbf r_0^Q - \mathbf r_0^P = \left(\xi - \varrho\sin\theta\right)\mathbf i_0 + \left(\eta - \sin\phi\right)\mathbf j_0 - \left(4 + \varrho\cos\theta\right)\mathbf k_0 \quad &\text{(difference of the position vectors)} \\
+> \mathbf F_P &= k\overrightarrow{PQ} = 2\left[\xi - \left(2 + \cos\phi\right)\sin\theta\right]\mathbf i_0 + 2\left(\eta - \sin\phi\right)\mathbf j_0 - 2\left[4 + \left(2 + \cos\phi\right)\cos\theta\right]\mathbf k_0 \quad &\text{(attraction on $P$, $k = 2$)} \\
+> \mathbf F_Q &= -k\overrightarrow{PQ} \quad &\text{(action and reaction)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} P:\ -m_Pg\,\mathbf k_0, \quad \mathbf F_P = k\overrightarrow{PQ}, \quad N\,\mathbf k_2 \cr Q:\ -m_Qg\,\mathbf k_0, \quad -k\overrightarrow{PQ}, \quad N_Q\,\mathbf k_0 \end{array}}$$
+>
+> **Units:** $[k\,|\overrightarrow{PQ}|] = [\mathrm{M\,T^{-2}}][\mathrm{L}] = [mg] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** two unknown reactions, $N$ and $N_Q$, each along the single normal direction of its smooth surface.
+
+> [!derivation] Projections of the forces on the tangent plane of the torus
+> **Law:** dot products with the poloidal basis, using the rows of the change of basis matrices
+> **Source:** Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.16
+>
+> From the two matrices: $\mathbf i_0$ has the components $\cos\theta$, $-\sin\theta\sin\phi$, $\sin\theta\cos\phi$ on $\mathbf i_2$, $\mathbf j_2$, $\mathbf k_2$; $\mathbf j_0$ has $0$, $\cos\phi$, $\sin\phi$; $\mathbf k_0$ has $-\sin\theta$, $-\cos\theta\sin\phi$, $\cos\theta\cos\phi$; $\mathbf k_1$ has $0$, $-\sin\phi$, $\cos\phi$.
+>
+> $$\begin{aligned}
+> \overrightarrow{PQ} &= \xi\,\mathbf i_0 + \eta\,\mathbf j_0 - 4\,\mathbf k_0 - \varrho\,\mathbf k_1 - \sin\phi\,\mathbf j_1 \quad &\text{(position vectors in mixed bases)} \\
+> \overrightarrow{PQ}\cdot\mathbf i_2 &= \xi\cos\theta + 4\sin\theta \quad &\text{(components on $\mathbf i_2$; $\mathbf k_1$, $\mathbf j_1$ have none)} \\
+> \overrightarrow{PQ}\cdot\mathbf j_2 &= -\xi\sin\theta\sin\phi + \eta\cos\phi + 4\cos\theta\sin\phi + \varrho\sin\phi - \sin\phi\cos\phi \quad &\text{(components on $\mathbf j_2$)} \\
+> &= -\xi\sin\theta\sin\phi + \eta\cos\phi + 4\cos\theta\sin\phi + 2\sin\phi \quad &\text{($\varrho\sin\phi - \sin\phi\cos\phi = 2\sin\phi$)} \\
+> -m_Pg\,\mathbf k_0\cdot\mathbf i_2 &= m_Pg\sin\theta, \quad -m_Pg\,\mathbf k_0\cdot\mathbf j_2 = m_Pg\cos\theta\sin\phi \quad &\text{(weight)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \left(\mathbf F_P - m_Pg\,\mathbf k_0\right)\cdot\mathbf i_2 = m_Pg\sin\theta + k\left(\xi\cos\theta + 4\sin\theta\right) \cr \left(\mathbf F_P - m_Pg\,\mathbf k_0\right)\cdot\mathbf j_2 = m_Pg\cos\theta\sin\phi + k\left(-\xi\sin\theta\sin\phi + \eta\cos\phi + 4\cos\theta\sin\phi + 2\sin\phi\right) \end{array}}$$
+>
+> **Units:** $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the reaction $N\,\mathbf k_2$ has no component on $\mathbf i_2$ or $\mathbf j_2$, so these two projections carry the applied forces only.
+
+> [!derivation] (e) Equations of motion free of reactions
+> **Law:** Newton's second law in an inertial frame; projections on the tangent plane of the torus and on the plane of $Q$, free of the reactions
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 7.6; [Lecture 3, Slide 14]
+>
+> $$\begin{aligned}
+> P,\ \mathbf i_2:\ m_P\left(\varrho\ddot\theta - 2\sin\phi\,\dot\theta\dot\phi\right) &= m_Pg\sin\theta + k\left(\xi\cos\theta + 4\sin\theta\right) \quad &\text{(toroidal direction)} \\
+> P,\ \mathbf j_2:\ m_P\left(\ddot\phi + \varrho\sin\phi\,\dot\theta^2\right) &= m_Pg\cos\theta\sin\phi + k\left(-\xi\sin\theta\sin\phi + \eta\cos\phi + 4\cos\theta\sin\phi + 2\sin\phi\right) \quad &\text{(poloidal direction)} \\
+> Q,\ \mathbf i_0:\ m_Q\ddot\xi &= -k\left(\xi - \varrho\sin\theta\right) \quad &\text{(horizontal: no reaction)} \\
+> Q,\ \mathbf j_0:\ m_Q\ddot\eta &= -k\left(\eta - \sin\phi\right) \quad &\text{(horizontal: no reaction)} \\
+> m_P = 1,\ m_Q = 2,\ k = 2 &\Rightarrow \text{the system below} \quad &\text{(data substituted)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \left(2 + \cos\phi\right)\ddot\theta = 2\sin\phi\,\dot\theta\dot\phi + g\sin\theta + 2\left(\xi\cos\theta + 4\sin\theta\right) \cr \ddot\phi = -\left(2 + \cos\phi\right)\sin\phi\,\dot\theta^2 + g\cos\theta\sin\phi + 2\left(-\xi\sin\theta\sin\phi + \eta\cos\phi + 4\cos\theta\sin\phi + 2\sin\phi\right) \cr \ddot\xi = -\xi + \left(2 + \cos\phi\right)\sin\theta, \qquad \ddot\eta = -\eta + \sin\phi \end{array}}$$
+>
+> **Units:** with the data in SI, $[\ddot\phi] = [\mathrm{T^{-2}}]$ and every term of its equation (divided by the tube radius 1 m) is $[\mathrm{T^{-2}}]$; $[\ddot\xi] = [\xi]\,[k/m_Q] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** four second-order equations for the four coordinates, free of $N$ and $N_Q$; the reactions follow afterwards from the projections on $\mathbf k_2$ (for $P$) and on $\mathbf k_0$ (for $Q$, which gives $N_Q = m_Qg - k\,z_P$).
+
+### Answers and Checks
+
+#### (f) A scalar conservation law
+
+> [!derivation] Mechanical energy of the pair
+> **Law:** theorem of kinetic energy for each particle; stationary smooth constraints do no work; internal conservative attraction
+> **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31; Notes.pdf, Eq. 6.12; [Lecture 3, Slide 16]
+>
+> $$\begin{aligned}
+> N\,\mathbf k_2\cdot\mathbf v_0^P &= N\,\mathbf k_2\cdot\left(\varrho\dot\theta\,\mathbf i_2 + \dot\phi\,\mathbf j_2\right) = 0, \quad N_Q\,\mathbf k_0\cdot\mathbf v_0^Q = 0 \quad &\text{(reactions normal to the velocities)} \\
+> k\overrightarrow{PQ}\cdot\mathbf v_0^P - k\overrightarrow{PQ}\cdot\mathbf v_0^Q &= -k\overrightarrow{PQ}\cdot\frac{d\overrightarrow{PQ}}{dt} = -\frac{d}{dt}\left(\tfrac12 k\left|\overrightarrow{PQ}\right|^2\right) \quad &\text{(power of the attraction on both; chain rule)} \\
+> -m_Pg\,\mathbf k_0\cdot\mathbf v_0^P - m_Qg\,\mathbf k_0\cdot\mathbf v_0^Q &= -\frac{d}{dt}\left(m_Pg\,z_P\right) \quad &\text{($z_Q = 0$ always)} \\
+> \frac{d}{dt}\left[\tfrac12 m_P|\mathbf v_0^P|^2 + \tfrac12 m_Q|\mathbf v_0^Q|^2\right] &= -\frac{d}{dt}\left[m_Pg\,z_P + \tfrac12 k\left|\overrightarrow{PQ}\right|^2\right] \quad &\text{(sum of all powers)} \\
+> |\mathbf v_0^P|^2 &= \varrho^2\dot\theta^2 + \dot\phi^2 \quad &\text{(orthonormal $\mathcal B_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{E = \tfrac12\left[\left(2 + \cos\phi\right)^2\dot\theta^2 + \dot\phi^2\right] + \left(\dot\xi^2 + \dot\eta^2\right) + g\left[4 + \left(2 + \cos\phi\right)\cos\theta\right] + \left|\overrightarrow{PQ}\right|^2 = \text{const}}$$
+>
+> **Units:** every term $[\mathrm{M\,L^2\,T^{-2}}]$ with the masses and $k$ in SI ($\frac12 m_Q = 1$ kg, $\frac12 k = 1$ N m$^{-1}$)
+> **Meaning:** the torus and the plane are fixed and smooth, so their reactions do no work; the weight of $Q$ does no work because $Q$ stays at zero height; the attraction is internal and conservative. The total mechanical energy is the scalar conservation law.
+
+> [!derivation] Value of the energy at the initial instant
+> **Law:** the conservation law evaluated with the initial conditions
+> **Source:** Problems.pdf, p. 26
+>
+> $$\begin{aligned}
+> \tfrac12 m_P|\mathbf v_0^P|^2 &= \tfrac12(1)(1)^2 = 0.5 \quad &\text{($\mathbf v_0^P = -\mathbf k_0$)} \\
+> \tfrac12 m_Q|\mathbf v_0^Q|^2 &= \tfrac12(2)\left[(-1)^2 + 1^2\right] = 2 \quad &\text{($\mathbf v_0^Q = -\mathbf i_0 + \mathbf j_0$)} \\
+> m_Pg\,z_P &= (1)\,g\,(4) = 4g \quad &\text{($z_P = 4$)} \\
+> \left|\overrightarrow{PQ}\right|^2 &= (3 - 2)^2 + (1 - 1)^2 + (0 - 4)^2 = 17 \quad &\text{(initial positions)} \\
+> \tfrac12 k\left|\overrightarrow{PQ}\right|^2 &= \tfrac12(2)(17) = 17 \quad &\text{(attraction potential)} \\
+> E_0 &= 0.5 + 2 + 4g + 17 = 19.5 + 4g \quad &\text{(sum)}
+> \end{aligned}$$
+>
+> $$\boxed{E_0 = 19.5 + 4g\ \text{J} = 58.74\ \text{J} \ (g = 9.81\ \text{m s}^{-2})}$$
+>
+> **Units:** $[\mathrm{M\,L^2\,T^{-2}}]$, joules
+> **Meaning:** most of the initial energy is the potential of the attraction (17 J) and of the height of $P$ (39.24 J).
+
+#### (g) Can P reach the highest point of the torus?
+
+> [!derivation] Energy needed at the top of the torus
+> **Law:** the kinetic energies are never negative, so at any reachable state the potential energy cannot exceed the constant energy
+> **Source:** Notes.pdf, Eq. 4.28; Notes.pdf, Eq. 4.31
+>
+> The highest point of the torus is where $z_P$ is largest: $\cos\theta = 1$ and $\cos\phi = 1$, that is $\theta = \phi = 0$, with $z_P = 4 + 3 = 7$. There $P$ is 7 above the plane of $Q$, so the distance $|PQ|$ is at least 7.
+>
+> $$\begin{aligned}
+> z_{P,\max} &= 4 + \left(2 + 1\right)\left(1\right) = 7 \quad &\text{($\theta = \phi = 0$)} \\
+> \left|\overrightarrow{PQ}\right|^2 &= \left(\xi - 0\right)^2 + \left(\eta - 0\right)^2 + \left(0 - 7\right)^2 \ge 49 \quad &\text{(at the top; $\xi$, $\eta$ free)} \\
+> E &\ge m_Pg\,(7) + \tfrac12 k\,(49) = 7g + 49 \quad &\text{(kinetic energies dropped)} \\
+> E_0 - \left(7g + 49\right) &= 19.5 + 4g - 7g - 49 = -29.5 - 3g \lt 0 \quad &\text{(for every $g \ge 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{E_0 = 58.74\ \text{J} \lt 7g + 49 = 117.67\ \text{J}: \ P \ \text{can never reach the top of the torus}}$$
+>
+> **Units:** $[\mathrm{M\,L^2\,T^{-2}}]$, joules
+> **Meaning:** the energy falls short by 58.9 J; even without the attraction term (which only strengthens the conclusion) the gravity term alone would need $7g$ = 68.67 J against 58.74 J available. The answer does not depend on the value of $g$.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Coordinates | $\theta$ (meridian angle about the axis of the torus, the horizontal line through $(0, 0, 4)$ parallel to $\mathbf j_0$), $\phi$ (angle round the tube), $\xi$, $\eta$ (Cartesian coordinates of $Q$): 4 degrees of freedom |
+| (b) Kinematics | $\mathbf r_0^P = 4\,\mathbf k_0 + \varrho\,\mathbf k_1 + \sin\phi\,\mathbf j_1$, $\mathbf v_0^P = \varrho\dot\theta\,\mathbf i_2 + \dot\phi\,\mathbf j_2$, $\mathbf a_0^P = (\varrho\ddot\theta - 2\sin\phi\,\dot\theta\dot\phi)\,\mathbf i_2 + (\ddot\phi + \varrho\sin\phi\,\dot\theta^2)\,\mathbf j_2 - (\dot\phi^2 + \varrho\cos\phi\,\dot\theta^2)\,\mathbf k_2$, $\varrho = 2 + \cos\phi$; $\mathbf r_0^Q = \xi\,\mathbf i_0 + \eta\,\mathbf j_0$, $\mathbf v_0^Q = \dot\xi\,\mathbf i_0 + \dot\eta\,\mathbf j_0$, $\mathbf a_0^Q = \ddot\xi\,\mathbf i_0 + \ddot\eta\,\mathbf j_0$ |
+| (c) Tangent and normal | $\mathbf t_\theta = (2 + \cos\phi)\,\mathbf i_1$, $\mathbf t_\phi = \cos\phi\,\mathbf j_1 - \sin\phi\,\mathbf k_1$, $\mathbf n = \sin\phi\,\mathbf j_1 + \cos\phi\,\mathbf k_1$, with $\mathbf i_1 = \cos\theta\,\mathbf i_0 - \sin\theta\,\mathbf k_0$, $\mathbf k_1 = \sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf k_0$ |
+| (d) Forces | $P$: $-m_Pg\,\mathbf k_0$, $k\overrightarrow{PQ} = 2[\xi - (2 + \cos\phi)\sin\theta]\,\mathbf i_0 + 2(\eta - \sin\phi)\,\mathbf j_0 - 2[4 + (2 + \cos\phi)\cos\theta]\,\mathbf k_0$, $N\,\mathbf n$; $Q$: $-m_Qg\,\mathbf k_0$, $-k\overrightarrow{PQ}$, $N_Q\,\mathbf k_0$ |
+| (e) Equations of motion | the four equations of the box of part (e) |
+| (f) Conservation law | $E = \frac12[(2 + \cos\phi)^2\dot\theta^2 + \dot\phi^2] + \dot\xi^2 + \dot\eta^2 + g\,z_P + |\overrightarrow{PQ}|^2$, $E_0 = 19.5 + 4g$ |
+| (g) Top of the torus | no: it needs at least $7g + 49$, more than $E_0$ for any $g$ |
+
+**Check against the official key:** Problems.pdf, p. 75, item 38, gives the force on $P$ due to $Q$ in the same coordinates (the key's letters $\xi$, $\eta$ for $Q$): identical, component by component, to the box of part (d) (**match**). The other parts have no key; the independent checks are the reproduction of the parametric equations of the statement by the position vector, the orthogonality of the initial velocity to the normal $\mathbf j_0$ in the box of the initial coordinates, and the limiting case below.
+
+> [!derivation] Limiting case: P alone at the top of its tube section
+> **Law:** the equations of motion with the attraction removed, at a point of symmetry
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Eq. 4.4
+>
+> Without the attraction ($k$ set to zero) $P$ is a heavy particle on a fixed smooth torus. The highest point, $\theta = \phi = 0$, must then be an equilibrium, since every tangent direction there is horizontal.
+>
+> $$\begin{aligned}
+> \left(2 + 1\right)\ddot\theta &= 0 + g\sin 0 + 0 = 0 \quad &\text{(toroidal equation at rest, $k = 0$)} \\
+> \ddot\phi &= 0 + g\cos 0\sin 0 + 0 = 0 \quad &\text{(poloidal equation at rest, $k = 0$)} \\
+> m_P\,\mathbf a_0^P\cdot\mathbf k_2 &= 0 = -m_Pg\cos 0\cos 0 + N \quad &\text{(normal projection at rest: $\mathbf k_0\cdot\mathbf k_2 = \cos\theta\cos\phi$)}
+> \end{aligned}$$
+>
+> $$\boxed{k = 0,\ \theta = \phi = 0,\ \text{at rest}:\ \ddot\theta = \ddot\phi = 0, \quad N = m_Pg}$$
+>
+> **Units:** $[N] = [m_Pg] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the equations recognise the top as an equilibrium where the torus carries the whole weight, as it must; this confirms the signs of the gravity terms ($g\sin\theta$ and $g\cos\theta\sin\phi$ push $P$ away from the top).
+
+---
+
+## Problem 39: Particle on a String with a Plate
+
+### Reference Frames, Bases and Coordinates
+
+A heavy particle $P$ of mass $m$ hangs from a massless inextensible string of length $\ell$ tied at the point $O$ of the upper surface of a thin horizontal plate; the string runs on the plate to the point $Q$ of its straight edge, at the distance $d$ from $O$, and hangs over that edge, sliding on it without friction (Problems.pdf, p. 27). The statement asks for the degrees of freedom, the unit vector from $Q$ to $P$, the kinematics of $Q$ and $P$, the forces on $P$, the equations of motion, the work of the tension and the mechanical energy. The solution follows the Newtonian approach of Notes.pdf, Sec. 7.1 to Sec. 7.7.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$ of the figure (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $\mathbf k_0$ vertical **upward**, the plate in the plane $z_0 = 0$ |
+| Edge of the plate | read from the figure: the straight line $x_0 = d$, $z_0 = 0$, parallel to $\mathbf j_0$ ($Ox_0$ is the perpendicular from $O$ to the edge); the plate occupies $x_0 \lt d$ |
+| Basis of the hanging plane | $\mathcal B_1 = \{\mathbf i_1, \mathbf j_0, \mathbf k_1\}$, $\mathcal B_0$ turned by $\phi$ about $-\mathbf j_0$: minus $\mathbf k_1$ is the direction of the line from the edge to $P$ perpendicular to the edge |
+| Coordinates | $\theta$: angle from $Ox_0$ to the segment $OQ$, in the plane of the plate; $\phi$: angle from the downward vertical to the line through $P$ perpendicular to the edge, positive away from the plate (towards $\mathbf i_0$), read from the figure |
+| Hypotheses | the string is tense, lies straight on the plate from $O$ to $Q$ and straight in the air from $Q$ to $P$; the edge is smooth, so the tension has the same magnitude $T$ on both sides of $Q$ ([Lecture 3, Slide 17]); the hanging length stays positive, $\ell\cos\theta \gt d$ (at $t = 0$ this needs $\ell \gt 2d$) |
+| Constraints | inextensible string: $|OQ| + |QP| = \ell$ with $Q$ on the edge (1 equation, holonomic, stationary, unilateral) ([Lecture 3, Slide 21]); the position of $Q$ on the edge is fixed by the balance of the string at the smooth edge (box of part (b)) |
+| Degrees of freedom (a) | 3 coordinates of $P$ minus 1 constraint equation: 2, namely $\theta(t)$ and $\phi(t)$ ([Lecture 3, Slide 4]); $Q$ is a geometric point, not a particle, and adds no unknown |
+| Data | $m$ [kg], $\ell$ [m], $d$ [m], $g$ [m s$^{-2}$]; at $t = 0$: $\theta = \phi = \pi/3$ and speed of $P$ equal to $\sqrt{\ell g}$ |
+| Applied force | weight $-mg\,\mathbf k_0$ |
+| Constraint force | tension $T \ge 0$ on $P$, from $P$ towards $Q$ (Notes.pdf, Sec. 7.5); the edge acts on the string only |
+
+![[attachments/EM-SOL/p39-plate.svg]]
+
+### Change of Basis and Position Vector
+
+![[attachments/EM-SOL/p39-rotation-j.svg]]
+
+> [!derivation] Basis of the hanging plane: rotation about minus j0
+> **Law:** elementary rotation about the second axis, with a negative angle; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19
+>
+> View of the vertical plane through $P$ perpendicular to the edge, with $\mathbf i_0$ to the right (away from the plate) and $\mathbf k_0$ up: $\mathbf j_0$, the cross product of $\mathbf k_0$ and $\mathbf i_0$, points into the paper (⊗), and a positive rotation about $\mathbf j_0$ is clockwise as seen. The angle $\phi$ goes from the downward vertical towards $\mathbf i_0$: counterclockwise, so the basis is Eq. 1.19 with the angle minus $\phi$ (a positive rotation about minus $\mathbf j_0$, which points out of the paper). $\mathbf i_1$ is $\mathbf i_0$ turned counterclockwise by $\phi$: hypotenuse 1, adjacent leg $\cos\phi$ along $\mathbf i_0$, opposite leg $\sin\phi$ along $\mathbf k_0$. $\mathbf k_1$ is $\mathbf k_0$ turned counterclockwise by $\phi$: adjacent leg $\cos\phi$ along $\mathbf k_0$, opposite leg $\sin\phi$ along minus $\mathbf i_0$, because the upward vector turned counterclockwise leans to the left (the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\phi\,\mathbf i_0 + \sin\phi\,\mathbf k_0 \quad &\text{(right triangle of $\mathbf i_1$)} \\
+> \mathbf k_1 &= -\sin\phi\,\mathbf i_0 + \cos\phi\,\mathbf k_0 \quad &\text{(right triangle of $\mathbf k_1$: opposite leg on $-\mathbf i_0$)} \\
+> \mathbf i_1\times\mathbf j_0 &= \cos\phi\,\mathbf k_0 + \sin\phi\,\mathbf k_0\times\mathbf j_0 = \cos\phi\,\mathbf k_0 - \sin\phi\,\mathbf i_0 = \mathbf k_1 \quad &\text{(right-handed; $\mathbf k_0\times\mathbf j_0 = -\mathbf i_0$)} \\
+> \det[{}_0R_1] &= \cos\phi\left(\cos\phi\right) - 0 + \left(-\sin\phi\right)\left(0 - \sin\phi\right) = 1 \quad &\text{(expansion along the first row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{13} &= \cos\phi\sin\phi - \sin\phi\cos\phi = 0 \quad &\text{(rows 1 and 3; each row has unit norm)} \\
+> \mathbf k_0 &= \sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf k_1 \quad &\text{(third row of the matrix, Eq. 1.14)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \cr 0 & 1 & 0 \cr \sin\phi & 0 & \cos\phi \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** minus $\mathbf k_1$, equal to $\sin\phi\,\mathbf i_0 - \cos\phi\,\mathbf k_0$, points from the edge down to $P$ at the angle $\phi$ from the vertical; $\mathbf i_1$ is perpendicular to it in the same vertical plane.
+
+> [!derivation] Position of Q and the two lengths of the string
+> **Law:** right triangle in the plane of the plate; inextensible string
+> **Source:** Notes.pdf, Eq. 2.2; [Lecture 3, Slide 17]; Problems.pdf, p. 27
+>
+> In the plane of the plate the triangle $O$, foot of the perpendicular on the edge, $Q$ is right-angled at the foot: the hypotenuse is $|OQ|$, the leg adjacent to $\theta$ is $d$ (along $\mathbf i_0$) and the opposite leg is $d\tan\theta$ (along the edge, $\mathbf j_0$).
+>
+> $$\begin{aligned}
+> \mathbf r_0^Q &= d\,\mathbf i_0 + d\tan\theta\,\mathbf j_0 \quad &\text{(the two legs of the triangle)} \\
+> |OQ| &= \frac{d}{\cos\theta} \quad &\text{(adjacent leg over the cosine)} \\
+> \rho &= |QP| = \ell - \frac{d}{\cos\theta} \quad &\text{(constant total length)} \\
+> \rho\cos\theta &= \ell\cos\theta - d \equiv u \quad &\text{(definition of $u$, used below)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^Q = d\,\mathbf i_0 + d\tan\theta\,\mathbf j_0, \qquad \rho = \ell - \frac{d}{\cos\theta}, \qquad u = \ell\cos\theta - d \gt 0}$$
+>
+> **Units:** $[d] = [\rho] = [u] = [\mathrm{L}]$
+> **Meaning:** turning $OQ$ away from $Ox_0$ uses more string on the plate and shortens the hanging part.
+
+> [!derivation] (b) Unit vector from Q to P
+> **Law:** balance of the massless string at the smooth edge (no force along the edge); unit norm
+> **Source:** Notes.pdf, Sec. 6.5; [Lecture 3, Slide 17]; Problems.pdf, p. 27
+>
+> The edge is smooth, so its force on the string at $Q$ is perpendicular to the edge (to $\mathbf j_0$); the massless string at $Q$ is pulled by $T$ towards $O$ and by $T$ towards $P$. The balance along the edge gives the hint of the statement (equal angles of both segments with the edge). The rest of the unit vector lies in the vertical plane perpendicular to the edge, along minus $\mathbf k_1$.
+>
+> $$\begin{aligned}
+> \mathbf e_{QO} &= -\cos\theta\,\mathbf i_0 - \sin\theta\,\mathbf j_0 \quad &\text{(from $Q$ back to $O$: minus the direction of $OQ$)} \\
+> T\left(\mathbf e_{QO} + \mathbf e_{QP}\right)\cdot\mathbf j_0 &= 0 \quad &\text{(no force along the edge on the massless string at $Q$)} \\
+> \mathbf e_{QP}\cdot\mathbf j_0 &= -\mathbf e_{QO}\cdot\mathbf j_0 = \sin\theta \quad &\text{(divided by $T \gt 0$; $\mathbf e_{QO}\cdot\mathbf j_0 = -\sin\theta$)} \\
+> \mathbf e_{QP} &= \sin\theta\,\mathbf j_0 + c\left(-\mathbf k_1\right) \quad &\text{(the rest lies along the line from the edge to $P$)} \\
+> c^2 + \sin^2\theta &= 1 \Rightarrow c = \cos\theta \quad &\text{(unit norm; $c \gt 0$ since $P$ hangs below the edge)} \\
+> \mathbf e_{QP} &= \sin\theta\,\mathbf j_0 - \cos\theta\left(-\sin\phi\,\mathbf i_0 + \cos\phi\,\mathbf k_0\right) \quad &\text{($\mathbf k_1$ in $\mathcal B_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_{QP} = \cos\theta\sin\phi\,\mathbf i_0 + \sin\theta\,\mathbf j_0 - \cos\theta\cos\phi\,\mathbf k_0 = \sin\theta\,\mathbf j_0 - \cos\theta\,\mathbf k_1}$$
+>
+> **Units:** dimensionless; $|\mathbf e_{QP}|^2 = \cos^2\theta\left(\sin^2\phi + \cos^2\phi\right) + \sin^2\theta = 1$
+> **Meaning:** the hanging segment continues the direction of $OQ$ along the edge: its component along $\mathbf j_0$ equals that of $OQ$, as if the plate were unfolded about the edge.
+
+> [!derivation] Position vector of P
+> **Law:** position vector as a sum of partial vectors
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Sec. 7.4
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OQ} + \overrightarrow{QP} = d\,\mathbf i_0 + d\tan\theta\,\mathbf j_0 + \rho\left(\sin\theta\,\mathbf j_0 - \cos\theta\,\mathbf k_1\right) \quad &\text{(sum of partial vectors)} \\
+> d\tan\theta + \rho\sin\theta &= d\tan\theta + \ell\sin\theta - \frac{d\sin\theta}{\cos\theta} = \ell\sin\theta \quad &\text{(component along $\mathbf j_0$)} \\
+> \rho\cos\theta &= u \quad &\text{(component along $-\mathbf k_1$)} \\
+> \mathbf r_0^P &= d\,\mathbf i_0 + \ell\sin\theta\,\mathbf j_0 - u\,\mathbf k_1 \quad &\text{(both components substituted)} \\
+> &= \left(d + u\sin\phi\right)\mathbf i_0 + \ell\sin\theta\,\mathbf j_0 - u\cos\phi\,\mathbf k_0 \quad &\text{($\mathbf k_1$ in $\mathcal B_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = d\,\mathbf i_0 + \ell\sin\theta\,\mathbf j_0 - \left(\ell\cos\theta - d\right)\mathbf k_1, \qquad z_P = -\left(\ell\cos\theta - d\right)\cos\phi}$$
+>
+> **Units:** $[\mathrm{L}]$
+> **Meaning:** $P$ sits on the vertical plane perpendicular to the edge at the abscissa $\ell\sin\theta$ along the edge, at the distance $u$ from the edge, swung out by $\phi$; in the right triangle of that distance the vertical leg is $u\cos\phi$ (adjacent to $\phi$) and the horizontal leg $u\sin\phi$ (opposite).
+
+### Kinematics
+
+> [!derivation] Derivatives of the basis of the hanging plane
+> **Law:** derivative of a unit vector turning about a fixed axis
+> **Source:** Notes.pdf, Eq. 1.62
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= -\dot\phi\,\mathbf j_0 \quad &\text{(rotation by $\phi$ about $-\mathbf j_0$)} \\
+> \dot{\mathbf i}_1 &= -\dot\phi\,\mathbf j_0\times\left(\cos\phi\,\mathbf i_0 + \sin\phi\,\mathbf k_0\right) = -\dot\phi\left(-\cos\phi\,\mathbf k_0 + \sin\phi\,\mathbf i_0\right) = \dot\phi\,\mathbf k_1 \quad &\text{($\mathbf j_0\times\mathbf i_0 = -\mathbf k_0$, $\mathbf j_0\times\mathbf k_0 = \mathbf i_0$)} \\
+> \dot{\mathbf k}_1 &= -\dot\phi\,\mathbf j_0\times\left(-\sin\phi\,\mathbf i_0 + \cos\phi\,\mathbf k_0\right) = -\dot\phi\left(\sin\phi\,\mathbf k_0 + \cos\phi\,\mathbf i_0\right) = -\dot\phi\,\mathbf i_1 \quad &\text{(same products)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf i}_1 = \dot\phi\,\mathbf k_1, \qquad \dot{\mathbf k}_1 = -\dot\phi\,\mathbf i_1, \qquad \dot{\mathbf j}_0 = \mathbf 0}$$
+>
+> **Units:** $[\dot\phi] = [\mathrm{T^{-1}}]$
+> **Meaning:** the hanging plane does not turn; only the direction of the swing inside it changes.
+
+> [!derivation] (c) Velocity and acceleration of Q
+> **Law:** time derivatives in $S_0$; chain and quotient rules
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\tan\theta &= \frac{\dot\theta}{\cos^2\theta} \quad &\text{(chain rule; derivative of the tangent)} \\
+> \mathbf v_0^Q &= \frac{d\dot\theta}{\cos^2\theta}\,\mathbf j_0 \quad &\text{($d\,\mathbf i_0$ is constant)} \\
+> \frac{d}{dt}\left(\frac{\dot\theta}{\cos^2\theta}\right) &= \frac{\ddot\theta\cos^2\theta - \dot\theta\cdot 2\cos\theta\left(-\sin\theta\right)\dot\theta}{\cos^4\theta} = \frac{\ddot\theta\cos\theta + 2\dot\theta^2\sin\theta}{\cos^3\theta} \quad &\text{(quotient rule; chain rule on $\cos^2\theta$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^Q = d\,\mathbf i_0 + d\tan\theta\,\mathbf j_0, \quad \mathbf v_0^Q = \frac{d\dot\theta}{\cos^2\theta}\,\mathbf j_0, \quad \mathbf a_0^Q = \frac{d\left(\ddot\theta\cos\theta + 2\dot\theta^2\sin\theta\right)}{\cos^3\theta}\,\mathbf j_0}$$
+>
+> **Units:** $[d\dot\theta] = [\mathrm{L\,T^{-1}}]$, $[d\ddot\theta] = [d\dot\theta^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the contact point slides along the edge only.
+
+> [!derivation] (c) Velocity and acceleration of P
+> **Law:** time derivatives in $S_0$; product and chain rules
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Sec. 7.4
+>
+> $$\begin{aligned}
+> \dot u &= -\ell\sin\theta\,\dot\theta \quad &\text{(chain rule on $\ell\cos\theta - d$)} \\
+> \mathbf v_0^P &= \ell\cos\theta\,\dot\theta\,\mathbf j_0 - \dot u\,\mathbf k_1 - u\,\dot{\mathbf k}_1 \quad &\text{(product rule; $d\,\mathbf i_0$ constant)} \\
+> &= u\dot\phi\,\mathbf i_1 + \ell\dot\theta\cos\theta\,\mathbf j_0 + \ell\dot\theta\sin\theta\,\mathbf k_1 \quad &\text{($\dot u$ and the derivative of $\mathbf k_1$ substituted)} \\
+> \frac{d}{dt}\left(u\dot\phi\,\mathbf i_1\right) &= \left(u\ddot\phi - \ell\sin\theta\,\dot\theta\dot\phi\right)\mathbf i_1 + u\dot\phi^2\,\mathbf k_1 \quad &\text{(product rule; derivative of $\mathbf i_1$)} \\
+> \frac{d}{dt}\left(\ell\dot\theta\cos\theta\,\mathbf j_0\right) &= \ell\left(\ddot\theta\cos\theta - \dot\theta^2\sin\theta\right)\mathbf j_0 \quad &\text{(product and chain rules)} \\
+> \frac{d}{dt}\left(\ell\dot\theta\sin\theta\,\mathbf k_1\right) &= \ell\left(\ddot\theta\sin\theta + \dot\theta^2\cos\theta\right)\mathbf k_1 - \ell\dot\theta\dot\phi\sin\theta\,\mathbf i_1 \quad &\text{(product rule; derivative of $\mathbf k_1$)} \\
+> \mathbf a_0^P &= \left(u\ddot\phi - 2\ell\sin\theta\,\dot\theta\dot\phi\right)\mathbf i_1 + \ell\left(\ddot\theta\cos\theta - \dot\theta^2\sin\theta\right)\mathbf j_0 + \left[\ell\left(\ddot\theta\sin\theta + \dot\theta^2\cos\theta\right) + u\dot\phi^2\right]\mathbf k_1 \quad &\text{(sum of the three derivatives)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \mathbf v_0^P = \left(\ell\cos\theta - d\right)\dot\phi\,\mathbf i_1 + \ell\dot\theta\left(\cos\theta\,\mathbf j_0 + \sin\theta\,\mathbf k_1\right) \cr \mathbf a_0^P = \left[\left(\ell\cos\theta - d\right)\ddot\phi - 2\ell\sin\theta\,\dot\theta\dot\phi\right]\mathbf i_1 + \ell\left(\ddot\theta\cos\theta - \dot\theta^2\sin\theta\right)\mathbf j_0 + \left[\ell\left(\ddot\theta\sin\theta + \dot\theta^2\cos\theta\right) + \left(\ell\cos\theta - d\right)\dot\phi^2\right]\mathbf k_1 \end{array}}$$
+>
+> **Units:** $[u\dot\phi] = [\ell\dot\theta] = [\mathrm{L\,T^{-1}}]$; every acceleration term $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** the velocity has two orthogonal parts: the swing $u\dot\phi$ in the hanging plane and $\ell\dot\theta$ along $\cos\theta\,\mathbf j_0 + \sin\theta\,\mathbf k_1$, which is perpendicular to the string; so the speed squared is $\ell^2\dot\theta^2 + u^2\dot\phi^2$.
+
+### Forces and Equations of Motion
+
+The free-body diagram of $P$ shows its weight and the tension of the string, from $P$ towards $Q$. $S_0$ is inertial, so no inertia force acts; the plate and its edge act only on the string.
+
+![[attachments/EM-SOL/p39-fbd.svg]]
+
+> [!derivation] (d) Forces on P and a basis adapted to the string
+> **Law:** weight; tension of a massless string along the string, pulling
+> **Source:** Notes.pdf, Sec. 7.5; [Lecture 3, Slide 13]
+>
+> The unit vector $\mathbf e_\perp$, equal to $\cos\theta\,\mathbf j_0 + \sin\theta\,\mathbf k_1$, completes with $\mathbf i_1$ and $\mathbf e_{QP}$ an orthonormal triad: both $\mathbf i_1$ and $\mathbf e_\perp$ are perpendicular to the string.
+>
+> $$\begin{aligned}
+> \mathbf T &= -T\,\mathbf e_{QP}, \quad T \ge 0 \quad &\text{(from $P$ towards $Q$; a string can only pull)} \\
+> \mathbf e_\perp\cdot\mathbf e_{QP} &= \cos\theta\sin\theta - \sin\theta\cos\theta = 0 \quad &\text{($\mathbf e_\perp$ perpendicular to the string)} \\
+> \mathbf i_1\cdot\mathbf e_{QP} &= \mathbf i_1\cdot\left(\sin\theta\,\mathbf j_0 - \cos\theta\,\mathbf k_1\right) = 0 \quad &\text{($\mathbf i_1$ perpendicular to the string)} \\
+> -mg\,\mathbf k_0\cdot\mathbf i_1 &= -mg\sin\phi \quad &\text{($\mathbf k_0 = \sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf k_1$)} \\
+> -mg\,\mathbf k_0\cdot\mathbf e_\perp &= -mg\cos\phi\,\mathbf k_1\cdot\left(\sin\theta\,\mathbf k_1\right) = -mg\cos\phi\sin\theta \quad &\text{(same expression of $\mathbf k_0$)} \\
+> -mg\,\mathbf k_0\cdot\mathbf e_{QP} &= -mg\cos\phi\,\mathbf k_1\cdot\left(-\cos\theta\,\mathbf k_1\right) = mg\cos\phi\cos\theta \quad &\text{(same expression of $\mathbf k_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F = -mg\,\mathbf k_0 - T\,\mathbf e_{QP} = -mg\sin\phi\,\mathbf i_1 - mg\sin\theta\cos\phi\,\mathbf e_\perp + \left(mg\cos\theta\cos\phi - T\right)\mathbf e_{QP}}$$
+>
+> **Units:** $[mg] = [T] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the tension appears only along $\mathbf e_{QP}$; the projections on $\mathbf i_1$ and $\mathbf e_\perp$ are free of it.
+
+> [!derivation] (e) Equations of motion for the two angles
+> **Law:** Newton's second law in an inertial frame, projected on the two directions perpendicular to the string
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 7.6; [Lecture 3, Slide 14]
+>
+> $$\begin{aligned}
+> \mathbf a_0^P\cdot\mathbf i_1 &= u\ddot\phi - 2\ell\sin\theta\,\dot\theta\dot\phi \quad &\text{(component along $\mathbf i_1$)} \\
+> \mathbf a_0^P\cdot\mathbf e_\perp &= \ell\cos^2\theta\,\ddot\theta - \ell\cos\theta\sin\theta\,\dot\theta^2 + \ell\sin^2\theta\,\ddot\theta + \ell\sin\theta\cos\theta\,\dot\theta^2 + u\sin\theta\,\dot\phi^2 \quad &\text{(components on $\mathbf j_0$, $\mathbf k_1$ times $\cos\theta$, $\sin\theta$)} \\
+> &= \ell\ddot\theta + u\sin\theta\,\dot\phi^2 \quad &\text{($\cos^2\theta + \sin^2\theta = 1$; the $\dot\theta^2$ terms cancel)} \\
+> \mathbf i_1:\ m\left(u\ddot\phi - 2\ell\sin\theta\,\dot\theta\dot\phi\right) &= -mg\sin\phi \quad &\text{(Newton, no tension)} \\
+> \mathbf e_\perp:\ m\left(\ell\ddot\theta + u\sin\theta\,\dot\phi^2\right) &= -mg\sin\theta\cos\phi \quad &\text{(Newton, no tension)} \\
+> \mathbf e_{QP}:\ -m\left(\ell\dot\theta^2 + u\cos\theta\,\dot\phi^2\right) &= mg\cos\theta\cos\phi - T \quad &\text{($\mathbf a_0^P\cdot\mathbf e_{QP}$ by the same products)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \ell\ddot\theta + \left(\ell\cos\theta - d\right)\sin\theta\,\dot\phi^2 + g\sin\theta\cos\phi = 0 \cr \left(\ell\cos\theta - d\right)\ddot\phi - 2\ell\sin\theta\,\dot\theta\dot\phi + g\sin\phi = 0 \cr T = m\left[\ell\dot\theta^2 + \left(\ell\cos\theta - d\right)\cos\theta\,\dot\phi^2\right] + mg\cos\theta\cos\phi \end{array}}$$
+>
+> **Units:** $[\ell\ddot\theta] = [u\dot\phi^2] = [g] = [\mathrm{L\,T^{-2}}]$; $[T] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** three equations for $\theta$, $\phi$ and $T$; the first two contain only the angles and give the motion, the third the tension, which must stay positive.
+
+### Answers and Checks
+
+#### (f) Work of the tension
+
+> [!derivation] Power of the tension on P
+> **Law:** power of a force, the dot product with the velocity
+> **Source:** Notes.pdf, Eq. 4.11; [Lecture 3, Slide 16]; Problems.pdf, p. 76
+>
+> $$\begin{aligned}
+> \mathbf e_{QP}\cdot\mathbf v_0^P &= \left(\sin\theta\,\mathbf j_0 - \cos\theta\,\mathbf k_1\right)\cdot\left(u\dot\phi\,\mathbf i_1 + \ell\dot\theta\cos\theta\,\mathbf j_0 + \ell\dot\theta\sin\theta\,\mathbf k_1\right) \quad &\text{(the two vectors in $\mathcal B_1$)} \\
+> &= \ell\dot\theta\sin\theta\cos\theta - \ell\dot\theta\cos\theta\sin\theta = 0 \quad &\text{(orthonormal $\mathcal B_1$)} \\
+> \dot W_T &= -T\,\mathbf e_{QP}\cdot\mathbf v_0^P = 0 \quad &\text{(power of the tension)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf T\cdot\mathbf v_0^P = 0 \ \text{for every motion: the tension does no work on } P}$$
+>
+> **Units:** power $[\mathrm{M\,L^2\,T^{-3}}]$, identically zero
+> **Meaning:** $P$ never moves along the string: the plate is fixed and the string slides freely over the edge, so the constraint is stationary and its force is normal to every possible velocity.
+
+#### (g) Mechanical energy
+
+> [!derivation] Mechanical energy of P, its initial value and its conservation
+> **Law:** theorem of kinetic energy; potential of the weight; zero power of the tension
+> **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\tfrac12 m|\mathbf v_0^P|^2\right) &= -mg\,\mathbf k_0\cdot\mathbf v_0^P + 0 = -\frac{d}{dt}\left(mg\,z_P\right) \quad &\text{(power of the weight and of the tension)} \\
+> |\mathbf v_0^P|^2 &= u^2\dot\phi^2 + \ell^2\dot\theta^2\left(\cos^2\theta + \sin^2\theta\right) = \ell^2\dot\theta^2 + u^2\dot\phi^2 \quad &\text{(orthonormal $\mathcal B_1$)} \\
+> E &= \tfrac12 m\left(\ell^2\dot\theta^2 + u^2\dot\phi^2\right) - mg\,u\cos\phi \quad &\text{(kinetic plus potential energy; $z_P = -u\cos\phi$)} \\
+> u(0) &= \ell\cos\tfrac{\pi}{3} - d = \tfrac{\ell}{2} - d \quad &\text{($\cos\frac{\pi}{3} = \frac12$)} \\
+> z_P(0) &= -\left(\tfrac{\ell}{2} - d\right)\cos\tfrac{\pi}{3} = -\tfrac{\ell}{4} + \tfrac{d}{2} \quad &\text{(height of $P$ at $t = 0$)} \\
+> E(0) &= \tfrac12 m\ell g - mg\left(\tfrac{\ell}{4} - \tfrac{d}{2}\right) = \frac{mg\ell}{4} + \frac{mgd}{2} \quad &\text{(speed squared $\ell g$ at $t = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{E = \tfrac12 m\left[\ell^2\dot\theta^2 + \left(\ell\cos\theta - d\right)^2\dot\phi^2\right] - mg\left(\ell\cos\theta - d\right)\cos\phi = \frac{mg\ell}{4} + \frac{mgd}{2} = \text{const}}$$
+>
+> **Units:** $[m\ell^2\dot\theta^2] = [mg\ell] = [mgd] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the energy is conserved: the weight is conservative and the only other force, the tension, does no work (part (f)), because the plate is at rest.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom | 2: $\theta$ and $\phi$ |
+| (b) Unit vector $Q \to P$ | $\mathbf e_{QP} = \cos\theta\sin\phi\,\mathbf i_0 + \sin\theta\,\mathbf j_0 - \cos\theta\cos\phi\,\mathbf k_0$ |
+| (c) Kinematics | $\mathbf r_0^Q = d\,\mathbf i_0 + d\tan\theta\,\mathbf j_0$, $\mathbf v_0^Q = d\dot\theta\cos^{-2}\theta\,\mathbf j_0$, $\mathbf a_0^Q = d(\ddot\theta\cos\theta + 2\dot\theta^2\sin\theta)\cos^{-3}\theta\,\mathbf j_0$; $\mathbf r_0^P = (d + u\sin\phi)\,\mathbf i_0 + \ell\sin\theta\,\mathbf j_0 - u\cos\phi\,\mathbf k_0$ with $u = \ell\cos\theta - d$; $\mathbf v_0^P$, $\mathbf a_0^P$ in the box of part (c), in the basis $\mathbf i_1 = \cos\phi\,\mathbf i_0 + \sin\phi\,\mathbf k_0$, $\mathbf j_0$, $\mathbf k_1 = -\sin\phi\,\mathbf i_0 + \cos\phi\,\mathbf k_0$ |
+| (d) Forces on $P$ | weight $-mg\,\mathbf k_0$; tension $-T\,\mathbf e_{QP}$, $T \ge 0$ |
+| (e) Equations of motion | $\ell\ddot\theta + (\ell\cos\theta - d)\sin\theta\,\dot\phi^2 + g\sin\theta\cos\phi = 0$; $(\ell\cos\theta - d)\ddot\phi - 2\ell\sin\theta\,\dot\theta\dot\phi + g\sin\phi = 0$ |
+| (f) Work of the tension | none: $\mathbf e_{QP}\cdot\mathbf v_0^P = 0$ identically |
+| (g) Mechanical energy | $E = \frac12 m[\ell^2\dot\theta^2 + (\ell\cos\theta - d)^2\dot\phi^2] - mg(\ell\cos\theta - d)\cos\phi$; $E(0) = mg\ell/4 + mgd/2$; conserved |
+
+**Check against the official key:** Problems.pdf, p. 76, item 39, answers only part (f): the tension does no work, which is proved with the dot product of the unit vector of the string and the velocity of $P$ vanishing; the box of part (f) is that proof (**match**). The other parts have no key; the limiting cases below are independent checks.
+
+> [!derivation] Limiting case: motion in the vertical plane through Ox0
+> **Law:** an invariant solution of the equations of motion
+> **Source:** Notes.pdf, Sec. 4.7; Notes.pdf, Eq. 4.4
+>
+> With $\theta$ identically zero, $Q$ stays at the foot $(d, 0, 0)$ of the perpendicular and the string hangs from the edge in the plane $y_0 = 0$.
+>
+> $$\begin{aligned}
+> \ell\cdot 0 + \left(\ell - d\right)\cdot 0\cdot\dot\phi^2 + g\cdot 0\cdot\cos\phi &= 0 \quad &\text{(first equation with $\theta \equiv 0$: satisfied for every $\phi(t)$)} \\
+> \left(\ell - d\right)\ddot\phi - 0 + g\sin\phi &= 0 \quad &\text{(second equation with $\theta \equiv 0$)} \\
+> T &= m\left(\ell - d\right)\dot\phi^2 + mg\cos\phi \quad &\text{(tension with $\theta \equiv 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\theta \equiv 0:\quad \ddot\phi + \frac{g}{\ell - d}\sin\phi = 0, \qquad T = m\left(\ell - d\right)\dot\phi^2 + mg\cos\phi}$$
+>
+> **Units:** $[g/(\ell - d)] = [\mathrm{T^{-2}}]$; $[T] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** a simple pendulum of length $\ell - d$ hanging from the edge, with its classical tension (Notes.pdf, Sec. 4.7): the general equations contain the expected special case.
+
+> [!derivation] Limiting case: edge through the anchor point
+> **Law:** the results with the distance d set to zero
+> **Source:** Notes.pdf, Sec. 4.7
+>
+> $$\begin{aligned}
+> d &\to 0:\quad \rho = \ell, \quad u = \ell\cos\theta \quad &\text{($Q$ coincides with $O$)} \\
+> \mathbf r_0^P &= \ell\left(\cos\theta\sin\phi\,\mathbf i_0 + \sin\theta\,\mathbf j_0 - \cos\theta\cos\phi\,\mathbf k_0\right) = \ell\,\mathbf e_{QP} \quad &\text{(position box)} \\
+> E(0) &= \frac{mg\ell}{4} + 0 = \tfrac12 m\ell g - mg\ell\cos\tfrac{\pi}{3}\cos\tfrac{\pi}{3} \quad &\text{(energy box)}
+> \end{aligned}$$
+>
+> $$\boxed{d \to 0:\ |\mathbf r_0^P| = \ell, \quad E(0) = \frac{mg\ell}{4}}$$
+>
+> **Units:** $[\mathrm{L}]$; $[\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** $P$ stays on the sphere of radius $\ell$ centred at $O$: a spherical pendulum described by two angles, whose height is $-\ell\cos\theta\cos\phi$; the energy matches the general value with zero $d$.
+
+---
+
+## Problem 48: Two Connected Particles, One on Paraboloid
+
+### Reference Frames, Bases and Coordinates
+
+Two heavy particles $P$ and $Q$ of mass $m$ are joined by an inextensible massless string of length $\ell$ that passes through a small hole at the vertex $O$ of a paraboloid; $P$ moves without friction on the paraboloid of height $cR^2$ at the radius $R$ and $Q$ hangs on the vertical axis below $O$ (Problems.pdf, p. 33). The statement asks for the degrees of freedom, the kinematics, a normal and two tangent vectors of the paraboloid, the forces, the condition for a tense string, the equations of motion for $R$ and $\theta$, two first integrals and the equation of the extreme radii. The solution follows the Newtonian approach of Notes.pdf, Sec. 7.1 to Sec. 7.7.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, origin at the vertex of the paraboloid and the hole (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $\mathbf k_0$ vertical **upward**, along the axis of the paraboloid |
+| Cylindrical basis | $\mathcal B_1 = \{\mathbf e_R, \mathbf e_\theta, \mathbf k_0\}$, $\mathcal B_0$ turned by $\theta$ about $\mathbf k_0$; $\mathbf e_R$ horizontal, towards the meridian plane of $P$ (Notes.pdf, Eq. 2.24) |
+| Coordinates | $R$, distance from $P$ to the axis, and $\theta$, azimuth of $P$ from $\mathbf i_0$ (statement) |
+| Hypotheses | $c \gt 0$ (the paraboloid opens upwards, figure); the string is straight from $O$ to $P$ (the bowl is convex, so the chord $OP$ does not touch the surface), always tense, and $Q$ never reaches $O$ (statement); no friction anywhere |
+| Constraints | $P$ on the paraboloid, $z_P = cR^2$ (1 equation, holonomic, stationary, smooth, bilateral: $P$ is constrained to stay on it); $Q$ on the axis, $x_Q = y_Q = 0$ (2 equations, holonomic, stationary, smooth, bilateral); string, $|OP| + |OQ| = \ell$ (1 equation joining the particles, holonomic, stationary, **unilateral**) ([Lecture 3, Slide 17]; [Lecture 3, Slide 21]) |
+| Degrees of freedom (a) | 6 coordinates of two particles minus 4 constraint equations: 2 effective degrees of freedom, $R(t)$ and $\theta(t)$ ([Lecture 3, Slide 4]) |
+| Data | $m$ [kg], $\ell$ [m], $c$ [m$^{-1}$], $g$ [m s$^{-2}$]; for part (h), $R(0) = 1/c$, $\theta(0) = 0$, $\dot R(0) = 0$, $\dot\theta(0) = d$ [s$^{-1}$], $d \ne 0$ |
+| Applied forces | weights $-mg\,\mathbf k_0$ on each particle |
+| Constraint forces | on $P$: tension towards $O$ and normal reaction of the paraboloid; on $Q$: tension along $\mathbf k_0$ and the reaction of the guide, normal to the axis; the same tension $T$ at both ends (massless string, small smooth hole, [Lecture 3, Slide 17]) |
+
+![[attachments/EM-SOL/p48-meridian.svg]]
+
+### Change of Basis and Position Vector
+
+![[attachments/EM-SOL/p48-rotation-k.svg]]
+
+> [!derivation] Cylindrical basis: rotation about k0
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.24
+>
+> View from above along $\mathbf k_0$, which points out of the paper (⊙) with $\mathbf i_0$ to the right and $\mathbf j_0$ up; positive angles are counterclockwise. $\mathbf e_R$ is $\mathbf i_0$ turned by $\theta$: hypotenuse 1, adjacent leg $\cos\theta$ along $\mathbf i_0$, opposite leg $\sin\theta$ along $\mathbf j_0$. $\mathbf e_\theta$ is $\mathbf j_0$ turned by $\theta$: adjacent leg $\cos\theta$ along $\mathbf j_0$, opposite leg $\sin\theta$ along minus $\mathbf i_0$ (the upward vector turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf e_R &= \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0 \quad &\text{(right triangle of $\mathbf e_R$)} \\
+> \mathbf e_\theta &= -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0 \quad &\text{(right triangle of $\mathbf e_\theta$: opposite leg on $-\mathbf i_0$)} \\
+> \mathbf e_R\times\mathbf e_\theta &= \left(\cos^2\theta + \sin^2\theta\right)\mathbf k_0 = \mathbf k_0 \quad &\text{(right-handed)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\theta\sin\theta - \sin\theta\cos\theta = 0 \quad &\text{(rows 1 and 2; each row has unit norm)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** $\mathbf e_R$ and $\mathbf k_0$ span the meridian plane of $P$, where the string, the weight and the normal reaction all lie.
+
+> [!derivation] Position vectors and the length of string on each side
+> **Law:** position vectors with the constraints substituted; Pythagoras in the meridian triangle; inextensible string
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.28; [Lecture 3, Slide 17]
+>
+> In the meridian plane the segment $OP$ is the hypotenuse of the right triangle with the horizontal leg $R$ (along $\mathbf e_R$) and the vertical leg $cR^2$ (along $\mathbf k_0$).
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= R\,\mathbf e_R + cR^2\,\mathbf k_0 \quad &\text{(cylindrical position with $z = cR^2$)} \\
+> \rho &= |OP| = \sqrt{R^2 + c^2R^4} = R\sqrt{1 + c^2R^2} \quad &\text{(hypotenuse of the meridian triangle; $R \ge 0$)} \\
+> |OQ| &= \ell - \rho \quad &\text{(inextensible string)} \\
+> \mathbf r_0^Q &= -\left(\ell - \rho\right)\mathbf k_0 \quad &\text{(on the axis, below $O$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = R\,\mathbf e_R + cR^2\,\mathbf k_0, \qquad \mathbf r_0^Q = -\left(\ell - R\sqrt{1 + c^2R^2}\right)\mathbf k_0}$$
+>
+> **Units:** $[cR^2] = [\mathrm{L^{-1}}][\mathrm{L^2}] = [\mathrm{L}]$; $cR$ is dimensionless
+> **Meaning:** when $P$ climbs the bowl (larger $R$), the string on its side lengthens and $Q$ rises by the same amount.
+
+> [!derivation] Derivatives of the length of string on the side of P
+> **Law:** chain rule; quotient rule
+> **Source:** Notes.pdf, Eq. 2.3
+>
+> Write $w$ for the square root of $1 + c^2R^2$, so that $\rho = Rw$ and $\rho'$, $\rho''$ denote derivatives with respect to $R$.
+>
+> $$\begin{aligned}
+> w' &= \frac{1}{2w}\cdot 2c^2R = \frac{c^2R}{w} \quad &\text{(chain rule on the square root)} \\
+> \rho' &= w + Rw' = w + \frac{c^2R^2}{w} = \frac{1 + 2c^2R^2}{w} \quad &\text{(product rule; common denominator $w$)} \\
+> \rho'' &= \frac{4c^2R\,w - \left(1 + 2c^2R^2\right)w'}{w^2} = \frac{4c^2R\,w^2 - \left(1 + 2c^2R^2\right)c^2R}{w^3} \quad &\text{(quotient rule; $w'$ substituted, times $w/w$)} \\
+> &= \frac{c^2R\left[4 + 4c^2R^2 - 1 - 2c^2R^2\right]}{w^3} = \frac{c^2R\left(3 + 2c^2R^2\right)}{w^3} \quad &\text{($w^2 = 1 + c^2R^2$)} \\
+> \dot\rho &= \rho'\dot R \quad &\text{(chain rule)} \\
+> \ddot\rho &= \rho''\dot R\cdot\dot R + \rho'\ddot R \quad &\text{(product rule; chain rule on $\rho'(R)$)}
+> \end{aligned}$$
+>
+> $$\boxed{\rho' = \frac{1 + 2c^2R^2}{\sqrt{1 + c^2R^2}}, \qquad \rho'' = \frac{c^2R\left(3 + 2c^2R^2\right)}{\left(1 + c^2R^2\right)^{3/2}}}$$
+>
+> **Units:** $\rho'$ dimensionless; $[\rho''] = [c^2R] = [\mathrm{L^{-1}}]$
+> **Meaning:** $\rho'$ is at least 1: the string on the side of $P$ grows at least as fast as the radius.
+
+### Kinematics
+
+> [!derivation] (b) Position, velocity and acceleration of both particles
+> **Law:** time derivatives in $S_0$; derivatives of the cylindrical unit vectors; product rule
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4
+>
+> $$\begin{aligned}
+> \dot{\mathbf e}_R &= \dot\theta\,\mathbf k_0\times\mathbf e_R = \dot\theta\,\mathbf e_\theta \quad &\text{($\mathcal B_1$ turns about $\mathbf k_0$ with $\theta$; $\mathbf k_0\times\mathbf e_R = \mathbf e_\theta$)} \\
+> \dot{\mathbf e}_\theta &= \dot\theta\,\mathbf k_0\times\mathbf e_\theta = -\dot\theta\,\mathbf e_R \quad &\text{($\mathbf k_0\times\mathbf e_\theta = -\mathbf e_R$)} \\
+> \mathbf v_0^P &= \dot R\,\mathbf e_R + R\dot\theta\,\mathbf e_\theta + 2cR\dot R\,\mathbf k_0 \quad &\text{(product rule; chain rule on $cR^2$)} \\
+> \mathbf a_0^P &= \ddot R\,\mathbf e_R + \dot R\dot\theta\,\mathbf e_\theta + \left(\dot R\dot\theta + R\ddot\theta\right)\mathbf e_\theta - R\dot\theta^2\,\mathbf e_R + 2c\left(\dot R^2 + R\ddot R\right)\mathbf k_0 \quad &\text{(product rule on each term)} \\
+> &= \left(\ddot R - R\dot\theta^2\right)\mathbf e_R + \left(R\ddot\theta + 2\dot R\dot\theta\right)\mathbf e_\theta + 2c\left(\dot R^2 + R\ddot R\right)\mathbf k_0 \quad &\text{(grouped)} \\
+> \mathbf v_0^Q &= \dot\rho\,\mathbf k_0 = \rho'\dot R\,\mathbf k_0 \quad &\text{($\ell$ constant; chain rule on $\rho$)} \\
+> \mathbf a_0^Q &= \ddot\rho\,\mathbf k_0 = \left(\rho'\ddot R + \rho''\dot R^2\right)\mathbf k_0 \quad &\text{(product and chain rules)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \mathbf r_0^P = R\,\mathbf e_R + cR^2\,\mathbf k_0, \quad \mathbf v_0^P = \dot R\,\mathbf e_R + R\dot\theta\,\mathbf e_\theta + 2cR\dot R\,\mathbf k_0 \cr \mathbf a_0^P = \left(\ddot R - R\dot\theta^2\right)\mathbf e_R + \left(R\ddot\theta + 2\dot R\dot\theta\right)\mathbf e_\theta + 2c\left(\dot R^2 + R\ddot R\right)\mathbf k_0 \cr \mathbf r_0^Q = -\left(\ell - \rho\right)\mathbf k_0, \quad \mathbf v_0^Q = \rho'\dot R\,\mathbf k_0, \quad \mathbf a_0^Q = \left(\rho'\ddot R + \rho''\dot R^2\right)\mathbf k_0 \end{array}}$$
+>
+> **Units:** $[\dot R] = [R\dot\theta] = [cR\dot R] = [\mathrm{L\,T^{-1}}]$; every acceleration term $[\mathrm{L\,T^{-2}}]$, e.g. $[\rho''\dot R^2] = [\mathrm{L^{-1}}][\mathrm{L^2\,T^{-2}}]$
+> **Meaning:** these are the derivatives of the cylindrical position with $z = cR^2$; $Q$ moves only along the axis, at the rate at which the string on the side of $P$ changes.
+
+> [!derivation] (c) Tangent and normal vectors of the paraboloid
+> **Law:** tangent vectors as partial derivatives of the parametric form; normal as their cross product
+> **Source:** [Lecture 3, Slide 9]; Notes.pdf, Sec. 6.3
+>
+> $$\begin{aligned}
+> \mathbf t_R &= \frac{\partial\mathbf r_0^P}{\partial R} = \mathbf e_R + 2cR\,\mathbf k_0 \quad &\text{(derivative at constant $\theta$)} \\
+> \mathbf t_\theta &= \frac{\partial\mathbf r_0^P}{\partial\theta} = R\,\frac{\partial\mathbf e_R}{\partial\theta} = R\,\mathbf e_\theta \quad &\text{(derivative at constant $R$)} \\
+> \mathbf t_R\times\mathbf t_\theta &= R\,\mathbf e_R\times\mathbf e_\theta + 2cR^2\,\mathbf k_0\times\mathbf e_\theta = R\,\mathbf k_0 - 2cR^2\,\mathbf e_R \quad &\text{($\mathbf k_0\times\mathbf e_\theta = -\mathbf e_R$)} \\
+> \hat{\mathbf n} &= \frac{-2cR\,\mathbf e_R + \mathbf k_0}{\sqrt{1 + 4c^2R^2}} \quad &\text{(normalised; it points into the bowl)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf t_R = \mathbf e_R + 2cR\,\mathbf k_0, \qquad \mathbf t_\theta = R\,\mathbf e_\theta, \qquad \mathbf n = R\left(-2cR\,\mathbf e_R + \mathbf k_0\right)}$$
+>
+> **Units:** $\mathbf t_R$ dimensionless; $[\mathbf t_\theta] = [\mathbf n] = [\mathrm{L}]$
+> **Meaning:** the meridian tangent rises with the slope $2cR$ (right triangle of legs 1 and $2cR$ in the meridian figure); the normal is perpendicular to both tangents, and only along it can the smooth paraboloid push.
+
+### Forces and Equations of Motion
+
+The free-body diagrams show on $P$ its weight, the tension towards the hole and the normal reaction; on $Q$ its weight, the tension upwards and the reaction of the guide. $S_0$ is inertial, so no inertia force acts.
+
+![[attachments/EM-SOL/p48-fbd.svg]]
+
+> [!derivation] (d) Forces on both particles
+> **Law:** weight; tension of a massless string through a smooth hole; reactions in the normal subspaces
+> **Source:** Notes.pdf, Sec. 6.4; Notes.pdf, Sec. 7.5; [Lecture 3, Slide 13]; [Lecture 3, Slide 17]
+>
+> In the meridian triangle of $OP$ the cosine of the angle of the string with the horizontal is $R/\rho$ (adjacent leg over hypotenuse) and its sine is $cR^2/\rho$ (opposite leg over hypotenuse).
+>
+> $$\begin{aligned}
+> -\frac{\mathbf r_0^P}{\rho} &= -\frac{R}{\rho}\,\mathbf e_R - \frac{cR^2}{\rho}\,\mathbf k_0 \quad &\text{(unit vector from $P$ towards $O$)} \\
+> \mathbf F^P &= -mg\,\mathbf k_0 - \frac{T}{\rho}\left(R\,\mathbf e_R + cR^2\,\mathbf k_0\right) + N\,\hat{\mathbf n} \quad &\text{(weight, tension $T \ge 0$, normal reaction $N$)} \\
+> \mathbf F^Q &= -mg\,\mathbf k_0 + T\,\mathbf k_0 + R_x\,\mathbf i_0 + R_y\,\mathbf j_0 \quad &\text{(weight, tension towards $O$, guide reaction normal to the axis)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F^P = -mg\,\mathbf k_0 - \frac{T}{\sqrt{1 + c^2R^2}}\left(\mathbf e_R + cR\,\mathbf k_0\right) + N\,\frac{-2cR\,\mathbf e_R + \mathbf k_0}{\sqrt{1 + 4c^2R^2}}, \qquad \mathbf F^Q = \left(T - mg\right)\mathbf k_0 + R_x\,\mathbf i_0 + R_y\,\mathbf j_0}$$
+>
+> **Units:** every force $[\mathrm{M\,L\,T^{-2}}]$; the fractions are dimensionless
+> **Meaning:** four new unknowns, $T$, $N$, $R_x$, $R_y$; none of the forces on $P$ has a component along $\mathbf e_\theta$.
+
+> [!derivation] Newton's second law for each particle
+> **Law:** Newton's second law in an inertial frame; projections on the tangent vectors (free of $N$) and on the axis
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 7.6; [Lecture 3, Slide 14]
+>
+> $$\begin{aligned}
+> \mathbf a_0^P\cdot\mathbf t_R &= \ddot R - R\dot\theta^2 + 4c^2R\left(\dot R^2 + R\ddot R\right) \quad &\text{(components on $\mathbf e_R$ and $\mathbf k_0$ times 1 and $2cR$)} \\
+> -\frac{\mathbf r_0^P}{\rho}\cdot\mathbf t_R &= -\frac{R + 2c^2R^3}{R\sqrt{1 + c^2R^2}} = -\rho' \quad &\text{(tension direction on the meridian tangent)} \\
+> P,\ \mathbf t_R:\ m\left[\left(1 + 4c^2R^2\right)\ddot R + 4c^2R\dot R^2 - R\dot\theta^2\right] &= -2mgcR - T\rho' \quad &\text{($-mg\,\mathbf k_0\cdot\mathbf t_R = -2mgcR$; $\hat{\mathbf n}\cdot\mathbf t_R = 0$)} \\
+> P,\ \mathbf e_\theta:\ m\left(R\ddot\theta + 2\dot R\dot\theta\right) &= 0 \quad &\text{(no force along $\mathbf e_\theta$)} \\
+> Q,\ \mathbf k_0:\ m\left(\rho'\ddot R + \rho''\dot R^2\right) &= T - mg \quad &\text{(along the axis)} \\
+> Q,\ \mathbf i_0,\ \mathbf j_0:\ 0 &= R_x, \quad 0 = R_y \quad &\text{($\mathbf a_0^Q$ has no horizontal part)}
+> \end{aligned}$$
+>
+> $$\boxed{T = m\left(g + \rho'\ddot R + \rho''\dot R^2\right), \qquad R_x = R_y = 0}$$
+>
+> **Units:** every term $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** five of the six scalar equations; the sixth, along $\hat{\mathbf n}$, gives $N$ afterwards. The equation of $Q$ gives the tension in terms of the motion of $R$.
+
+> [!derivation] (f) Equations of motion for R and theta, free of other unknowns
+> **Law:** elimination of the tension between the equations of P and Q
+> **Source:** Notes.pdf, Sec. 7.6; Notes.pdf, Sec. 7.7
+>
+> $$\begin{aligned}
+> m\left[\left(1 + 4c^2R^2\right)\ddot R + 4c^2R\dot R^2 - R\dot\theta^2\right] &= -2mgcR - m\rho'\left(g + \rho'\ddot R + \rho''\dot R^2\right) \quad &\text{(tension of $Q$ substituted)} \\
+> \left(1 + 4c^2R^2 + \rho'^2\right)\ddot R + \left(4c^2R + \rho'\rho''\right)\dot R^2 - R\dot\theta^2 + 2gcR + g\rho' &= 0 \quad &\text{(divided by $m$; all terms on the left)} \\
+> \rho'^2 &= \frac{\left(1 + 2c^2R^2\right)^2}{1 + c^2R^2} \quad &\text{(square of $\rho'$)} \\
+> \rho'\rho'' &= \frac{1 + 2c^2R^2}{\left(1 + c^2R^2\right)^{1/2}}\cdot\frac{c^2R\left(3 + 2c^2R^2\right)}{\left(1 + c^2R^2\right)^{3/2}} = \frac{c^2R\left(1 + 2c^2R^2\right)\left(3 + 2c^2R^2\right)}{\left(1 + c^2R^2\right)^2} \quad &\text{(product of the two derivatives)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \left(1 + 4c^2R^2 + \rho'^2\right)\ddot R + \left(4c^2R + \rho'\rho''\right)\dot R^2 - R\dot\theta^2 + 2gcR + g\rho' = 0 \cr R\ddot\theta + 2\dot R\dot\theta = 0 \end{array}}$$
+>
+> **Units:** $[\ddot R] = [R\dot\theta^2] = [gcR] = [g\rho'] = [\mathrm{L\,T^{-2}}]$; $[c^2R\dot R^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** two second-order equations in $R$ and $\theta$ only; the coefficient of the radial acceleration is the effective inertia of the pair: $1 + 4c^2R^2$ from $P$ moving along the meridian and $\rho'^2$ from $Q$ moving along the axis.
+
+> [!derivation] Normal reaction of the paraboloid
+> **Law:** projection of Newton's second law for P on the unit normal
+> **Source:** Notes.pdf, Eq. 4.4; [Lecture 3, Slide 14]
+>
+> $$\begin{aligned}
+> \mathbf a_0^P\cdot\hat{\mathbf n} &= \frac{-2cR\left(\ddot R - R\dot\theta^2\right) + 2c\left(\dot R^2 + R\ddot R\right)}{\sqrt{1 + 4c^2R^2}} = \frac{2c\left(\dot R^2 + R^2\dot\theta^2\right)}{\sqrt{1 + 4c^2R^2}} \quad &\text{(the terms in $\ddot R$ cancel)} \\
+> \mathbf F^P\cdot\hat{\mathbf n} &= \frac{-mg}{\sqrt{1 + 4c^2R^2}} - \frac{T}{\rho}\,\frac{-2cR^2 + cR^2}{\sqrt{1 + 4c^2R^2}} + N \quad &\text{(weight, tension, reaction)}
+> \end{aligned}$$
+>
+> $$\boxed{N = \frac{2mc\left(\dot R^2 + R^2\dot\theta^2\right) + mg - \dfrac{TcR}{\sqrt{1 + c^2R^2}}}{\sqrt{1 + 4c^2R^2}}}$$
+>
+> **Units:** $[mc\dot R^2] = [\mathrm{M\,L^{-1}\,L^2\,T^{-2}}] = [mg] = [T] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the bowl carries the weight and supplies the normal part of the acceleration; the string, which pulls $P$ partly away from the surface, reduces the reaction.
+
+### Answers and Checks
+
+#### (e) Tense string
+
+> [!derivation] Condition for the string to stay tense
+> **Law:** a string can only pull: positive tension (unilateral constraint)
+> **Source:** Notes.pdf, Sec. 6.4; [Lecture 3, Slide 21]
+>
+> $$\begin{aligned}
+> T &= m\left(g + \rho'\ddot R + \rho''\dot R^2\right) \gt 0 \quad &\text{(equation of $Q$)} \\
+> \ddot z_Q &= \frac{d^2\rho}{dt^2} = \rho'\ddot R + \rho''\dot R^2 \gt -g \quad &\text{(the bracket is the vertical acceleration of $Q$)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{1 + 2c^2R^2}{\sqrt{1 + c^2R^2}}\,\ddot R + \frac{c^2R\left(3 + 2c^2R^2\right)}{\left(1 + c^2R^2\right)^{3/2}}\,\dot R^2 \gt -g \quad \text{for all } t}$$
+>
+> **Units:** every term $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** the solution $R(t)$ must never make $Q$ accelerate downwards faster than free fall; if it did, the string would go slack and $Q$ would fall freely.
+
+#### (g) Two first integrals
+
+> [!derivation] Areal integral and energy integral derived from the equations of motion
+> **Law:** exact derivatives (product and chain rules); Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31; [Lecture 3, Slide 17]
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(R^2\dot\theta\right) &= 2R\dot R\dot\theta + R^2\ddot\theta = R\left(R\ddot\theta + 2\dot R\dot\theta\right) = 0 \quad &\text{(product and chain rules; equation of $\theta$)} \\
+> \left[R^2\dot\theta\right]_0^t &= 0 \Rightarrow R^2\dot\theta = h \quad &\text{(Barrow's rule; $h$ constant)} \\
+> \frac{d}{dt}\left[\tfrac12\left(1 + 4c^2R^2 + \rho'^2\right)\dot R^2\right] &= \left(1 + 4c^2R^2 + \rho'^2\right)\dot R\ddot R + \left(4c^2R + \rho'\rho''\right)\dot R^3 \quad &\text{(product rule; chain rule on the coefficient)} \\
+> -R\dot\theta^2\,\dot R &= -\frac{h^2}{R^3}\,\dot R = \frac{d}{dt}\left(\frac{h^2}{2R^2}\right) \quad &\text{($\dot\theta = h/R^2$; chain rule)} \\
+> \left(2gcR + g\rho'\right)\dot R &= \frac{d}{dt}\left[g\left(cR^2 + \rho\right)\right] \quad &\text{(chain rule)} \\
+> \left[\tfrac12\left(1 + 4c^2R^2 + \rho'^2\right)\dot R^2 + \frac{h^2}{2R^2} + g\left(cR^2 + \rho\right)\right]_0^t &= 0 \quad &\text{(equation of $R$ times $\dot R$: a sum of exact derivatives; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{R^2\dot\theta = h, \qquad E = \tfrac12 m\left[\left(1 + 4c^2R^2 + \rho'^2\right)\dot R^2 + R^2\dot\theta^2\right] + mg\left(cR^2 + R\sqrt{1 + c^2R^2}\right) - mg\ell = \text{const}}$$
+>
+> **Units:** $[h] = [\mathrm{L^2\,T^{-1}}]$; every term of $E$ $[\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the first is the angular momentum of $P$ about the axis divided by $m$, constant because no force on $P$ has a moment about the axis; the second is the mechanical energy of the pair (kinetic energy of $P$ and $Q$ plus the potential $mg\,z_P + mg\,z_Q$, with $z_Q = \rho - \ell$): the smooth stationary constraints do no work and the string only transfers energy between the particles.
+
+#### (h) Extreme values of R
+
+> [!derivation] Equation of the turning radii
+> **Law:** at an extreme of R its rate vanishes; the two first integrals with the initial data
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.28; Problems.pdf, p. 33
+>
+> $$\begin{aligned}
+> h &= R(0)^2\,\dot\theta(0) = \frac{d}{c^2} \quad &\text{($R(0) = 1/c$, $\dot\theta(0) = d$)} \\
+> \rho(0) &= \frac{1}{c}\sqrt{1 + 1} = \frac{\sqrt2}{c} \quad &\text{(string on the side of $P$ at $t = 0$)} \\
+> \frac{E}{m} + g\ell &= 0 + \frac{h^2c^2}{2} + g\left(\frac{1}{c} + \frac{\sqrt2}{c}\right) = \frac{d^2}{2c^2} + \frac{\left(1 + \sqrt2\right)g}{c} \quad &\text{($\dot R(0) = 0$; $R^2\dot\theta^2 = h^2/R^2$)} \\
+> \frac{h^2}{2R^2} + g\left(cR^2 + R\sqrt{1 + c^2R^2}\right) &= \frac{d^2}{2c^2} + \frac{\left(1 + \sqrt2\right)g}{c} \quad &\text{(energy integral at a radius where $\dot R = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{f(R) = \frac{d^2}{2c^4R^2} + g\left(cR^2 + R\sqrt{1 + c^2R^2}\right) - \frac{d^2}{2c^2} - \frac{\left(1 + \sqrt2\right)g}{c} = 0}$$
+>
+> **Units:** $[d^2/(c^4R^2)] = [\mathrm{T^{-2}}][\mathrm{L^4}][\mathrm{L^{-2}}] = [\mathrm{L^2\,T^{-2}}]$; $[gcR^2] = [g/c] = [\mathrm{L^2\,T^{-2}}]$
+> **Meaning:** the energy integral gives one half of the effective inertia times the square of the radial rate equal to minus $f(R)$, so the motion is confined to the radii where $f$ is negative or zero; $R = 1/c$ is always a root (the start), and the other root is the other turning radius.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom | 2 effective ($R$, $\theta$): 6 coordinates minus 4 constraint equations (paraboloid, axis of $Q$ twice, string) |
+| (b) Kinematics | $\mathbf r_0^P = R\,\mathbf e_R + cR^2\,\mathbf k_0$, $\mathbf v_0^P = \dot R\,\mathbf e_R + R\dot\theta\,\mathbf e_\theta + 2cR\dot R\,\mathbf k_0$, $\mathbf a_0^P = (\ddot R - R\dot\theta^2)\,\mathbf e_R + (R\ddot\theta + 2\dot R\dot\theta)\,\mathbf e_\theta + 2c(\dot R^2 + R\ddot R)\,\mathbf k_0$; $\mathbf r_0^Q = -(\ell - \rho)\,\mathbf k_0$, $\mathbf v_0^Q = \rho'\dot R\,\mathbf k_0$, $\mathbf a_0^Q = (\rho'\ddot R + \rho''\dot R^2)\,\mathbf k_0$, with $\rho = R\sqrt{1 + c^2R^2}$, $\mathbf e_R = \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0$, $\mathbf e_\theta = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0$ |
+| (c) Tangent and normal | $\mathbf t_R = \mathbf e_R + 2cR\,\mathbf k_0$, $\mathbf t_\theta = R\,\mathbf e_\theta$, $\mathbf n = R(-2cR\,\mathbf e_R + \mathbf k_0)$ |
+| (d) Forces | $P$: $-mg\,\mathbf k_0$, $-T\,\mathbf r_0^P/\rho$, $N\,\hat{\mathbf n}$; $Q$: $-mg\,\mathbf k_0$, $T\,\mathbf k_0$, $R_x\,\mathbf i_0 + R_y\,\mathbf j_0$ (zero) |
+| (e) Tense string | $\rho'\ddot R + \rho''\dot R^2 \gt -g$ at all times |
+| (f) Equations of motion | $(1 + 4c^2R^2 + \rho'^2)\ddot R + (4c^2R + \rho'\rho'')\dot R^2 - R\dot\theta^2 + 2gcR + g\rho' = 0$; $R\ddot\theta + 2\dot R\dot\theta = 0$ |
+| (g) First integrals | $R^2\dot\theta = h$; $\frac12[(1 + 4c^2R^2 + \rho'^2)\dot R^2 + R^2\dot\theta^2] + g(cR^2 + \rho) = \text{const}$ |
+| (h) Extreme radii | $f(R) = \frac{d^2}{2c^4R^2} + g(cR^2 + R\sqrt{1 + c^2R^2}) - \frac{d^2}{2c^2} - \frac{(1 + \sqrt2)g}{c} = 0$ |
+
+**Check against the official key:** Problems.pdf, p. 76 lists item 48 with no answer, so there is no key to compare with. Independent checks: the energy integral was obtained from the equation of motion itself (box of part (g)), so the two are consistent by construction; the turning radii are checked numerically below, and the flat limit reproduces the classical problem of the table with a hole.
+
+> [!derivation] Numerical check of the turning radii
+> **Law:** roots of the equation of part (h) with unit data, located by the change of sign of f
+> **Source:** Notes.pdf, Eq. 4.28
+>
+> Unit data: $c$ of 1 m$^{-1}$, $d$ of 1 s$^{-1}$, $g$ of 1 m s$^{-2}$ (so that every term is of order one).
+>
+> $$\begin{aligned}
+> f(1) &= \tfrac12 + \left(1 + \sqrt2\right) - \tfrac12 - \left(1 + \sqrt2\right) = 0 \quad &\text{(the start is a root)} \\
+> f(0.7) &= \frac{1}{0.98} + 0.49 + 0.7\sqrt{1.49} - 0.5 - 2.4142 = 1.0204 + 0.49 + 0.8545 - 2.9142 = -0.5493 \quad &\text{(negative: allowed radius)} \\
+> f(0.4828) &\simeq 0 \quad &\text{(second root, by bisection of the change of sign)}
+> \end{aligned}$$
+>
+> $$\boxed{c = d = g = 1:\quad 0.4828 \le R \le 1}$$
+>
+> **Units:** in these units $f$ is in m$^2$ s$^{-2}$
+> **Meaning:** with these data the start $R = 1/c$ is the largest radius: the initial azimuthal speed is too small to hold $P$ on that parallel, so $P$ slides down the bowl to the radius 0.4828 and back, precessing round the axis.
+
+> [!derivation] Limiting case: flat table with a hole
+> **Law:** the equation of motion of R with the curvature c set to zero
+> **Source:** Notes.pdf, Eq. 4.4
+>
+> $$\begin{aligned}
+> c &\to 0:\quad \rho = R, \quad \rho' = 1, \quad \rho'' = 0 \quad &\text{(the bowl becomes the horizontal plane through $O$)} \\
+> \left(1 + 0 + 1\right)\ddot R + 0 - R\dot\theta^2 + 0 + g &= 0 \quad &\text{(equation of $R$)} \\
+> T &= m\left(g + \ddot R\right) \quad &\text{(tension)}
+> \end{aligned}$$
+>
+> $$\boxed{c \to 0:\quad 2\ddot R - R\dot\theta^2 + g = 0, \qquad \text{circular motion when } R\dot\theta^2 = g}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** the classical pair on a table with a hole: both particles move with the rate of $R$ (effective mass $2m$), and on a circle the weight of $Q$, carried by the string, is the centripetal force of $P$.
+
+---
+
+## Problem 50: Double Pendulum
+
+### Reference Frames, Bases and Coordinates
+
+Two heavy particles $P$ and $Q$ of mass $m$ hang from the origin $O$ by two rigid massless bars of length $\ell$, $OP$ and $PQ$; the angles $\theta$ and $\phi$ of the bars with the downward vertical describe the configuration (Problems.pdf, p. 35). The statement asks for the kinematics, the forces, the equations of motion free of other unknowns, a conservation law, whether $Q$ can cross the axis $Ox$ for a given start and, with the extra constraint that $\phi$ is twice $\theta$, the natural frequency of small oscillations. The solution follows the Newtonian approach of Notes.pdf, Sec. 7.1 to Sec. 7.7.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$ of the figure (Notes.pdf, Eq. 2.1) |
+| Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$: $\mathbf i$ horizontal to the right (axis $Ox$), $\mathbf j$ vertical **upward**, $\mathbf k$ out of the paper |
+| Basis of the bar $OP$ | $\mathcal B_1 = \{\mathbf i_1, \mathbf j_1, \mathbf k\}$, $\mathcal B_0$ turned about $\mathbf k$ by the polar angle $\theta - \pi/2$: $\mathbf i_1$ from $O$ to $P$, $\mathbf j_1$ along increasing $\theta$ |
+| Basis of the bar $PQ$ | $\mathcal B_2 = \{\mathbf i_2, \mathbf j_2, \mathbf k\}$, $\mathcal B_0$ turned about $\mathbf k$ by $\phi - \pi/2$: $\mathbf i_2$ from $P$ to $Q$, $\mathbf j_2$ along increasing $\phi$ |
+| Coordinates | $\theta$, angle of $OP$ from the downward vertical; $\phi$, angle of $PQ$ from the downward vertical; both positive counterclockwise, towards $\mathbf i$ from below (figure) |
+| Hypotheses | planar motion in the plane $Oxy$ of the figure; joints without friction; bars rigid and massless |
+| Constraints | plane of motion for each particle (2 equations); bars, $|\overrightarrow{OP}| = \ell$ and $|\overrightarrow{PQ}| = \ell$ (2 equations, holonomic, stationary, bilateral: a bar can push and pull) ([Lecture 3, Slide 17]; [Lecture 3, Slide 21]) |
+| Degrees of freedom | 6 coordinates minus 4 constraint equations: 2, namely $\theta(t)$ and $\phi(t)$ ([Lecture 3, Slide 4]) |
+| Data | $m$ [kg], $\ell$ [m], $g$ [m s$^{-2}$]; part (e): $\theta = \phi = \pi/4$ at rest; part (f): extra constraint, $\phi$ equal to $2\theta$ |
+| Applied forces | weights $-mg\,\mathbf j$ on each particle |
+| Constraint forces | forces of the bars along the bars: $T_1$ in $OP$ and $T_2$ in $PQ$, positive when the bar pulls (tension), negative when it pushes (Notes.pdf, Sec. 6.4) |
+
+![[attachments/EM-SOL/p50-plane.svg]]
+
+### Change of Basis and Position Vector
+
+![[attachments/EM-SOL/p50-rotations-k.svg]]
+
+> [!derivation] Bases of the two bars: angles from the downward vertical
+> **Law:** elementary rotation about the third axis, with the angle related to the usual polar angle; change of basis matrices and their checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Sec. 4.7
+>
+> View along $\mathbf k$, out of the paper (⊙), since $\mathbf k$ is the cross product of $\mathbf i$ (to the right) and $\mathbf j$ (up): positive angles are counterclockwise. $\theta$ is measured from the downward vertical, minus $\mathbf j$, which is itself at the polar angle minus $\pi/2$ from $\mathbf i$; so the polar angle of $OP$ is $\theta - \pi/2$, and $\mathbf i_1$ is Notes.pdf, Eq. 1.20 with that angle. The right triangle of $OP$ has hypotenuse $\ell$, horizontal leg $\ell\sin\theta$ (opposite to $\theta$, along $\mathbf i$) and vertical leg $\ell\cos\theta$ (adjacent to $\theta$, along minus $\mathbf j$): this is the minus sign on $\mathbf j$. $\mathbf j_1$ is $\mathbf i_1$ turned a quarter turn counterclockwise. The bar $PQ$ is the same construction with $\phi$.
+>
+> $$\begin{aligned}
+> \cos\left(\theta - \tfrac{\pi}{2}\right) &= \cos\theta\cos\tfrac{\pi}{2} + \sin\theta\sin\tfrac{\pi}{2} = \sin\theta \quad &\text{(cosine of a difference)} \\
+> \sin\left(\theta - \tfrac{\pi}{2}\right) &= \sin\theta\cos\tfrac{\pi}{2} - \cos\theta\sin\tfrac{\pi}{2} = -\cos\theta \quad &\text{(sine of a difference)} \\
+> \mathbf i_1 &= \sin\theta\,\mathbf i - \cos\theta\,\mathbf j \quad &\text{(opposite leg along $\mathbf i$, adjacent leg along $-\mathbf j$, over $\ell$)} \\
+> \mathbf j_1 &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{($\mathbf i_1$ turned by $\pi/2$ counterclockwise)} \\
+> \mathbf i_2 &= \sin\phi\,\mathbf i - \cos\phi\,\mathbf j \quad &\text{(same construction with $\phi$: triangle of $PQ$)} \\
+> \mathbf j_2 &= \cos\phi\,\mathbf i + \sin\phi\,\mathbf j \quad &\text{($\mathbf i_2$ turned by $\pi/2$ counterclockwise)} \\
+> \mathbf i_1\times\mathbf j_1 &= \sin^2\theta\,\mathbf i\times\mathbf j - \cos^2\theta\,\mathbf j\times\mathbf i = \left(\sin^2\theta + \cos^2\theta\right)\mathbf k = \mathbf k \quad &\text{(right-handed)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\sin\theta\sin\theta - \cos\theta\left(-\cos\theta\right)\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= -\sin\theta\cos\theta + \cos\theta\sin\theta = 0 \quad &\text{(rows 1 and 2; each row has unit norm)} \\
+> \mathbf j &= -\cos\theta\,\mathbf i_1 + \sin\theta\,\mathbf j_1 = -\cos\phi\,\mathbf i_2 + \sin\phi\,\mathbf j_2 \quad &\text{(second rows of the matrices, Eq. 1.14)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \cr -\cos\theta & \sin\theta & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad [{}_0R_2] = \begin{pmatrix} \sin\phi & \cos\phi & 0 \cr -\cos\phi & \sin\phi & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det = 1, \quad RR^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$
+> **Meaning:** at rest, hanging, $\mathbf i_1$ and $\mathbf i_2$ are minus $\mathbf j$; the checks of $[{}_0R_2]$ are those of $[{}_0R_1]$ with $\phi$.
+
+> [!derivation] Dot products between the two bases
+> **Law:** dot products of components in the orthonormal basis $\mathcal B_0$; angle-difference identities
+> **Source:** Notes.pdf, Eq. 1.13
+>
+> $$\begin{aligned}
+> \mathbf i_1\cdot\mathbf i_2 &= \sin\theta\sin\phi + \cos\theta\cos\phi = \cos\left(\theta - \phi\right) \quad &\text{(cosine of a difference)} \\
+> \mathbf j_1\cdot\mathbf j_2 &= \cos\theta\cos\phi + \sin\theta\sin\phi = \cos\left(\theta - \phi\right) \quad &\text{(cosine of a difference)} \\
+> \mathbf i_1\cdot\mathbf j_2 &= \sin\theta\cos\phi - \cos\theta\sin\phi = \sin\left(\theta - \phi\right) \quad &\text{(sine of a difference)} \\
+> \mathbf j_1\cdot\mathbf i_2 &= \cos\theta\sin\phi - \sin\theta\cos\phi = -\sin\left(\theta - \phi\right) \quad &\text{(sine of a difference, with a minus sign)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_1\cdot\mathbf i_2 = \mathbf j_1\cdot\mathbf j_2 = \cos\left(\theta - \phi\right), \qquad \mathbf i_1\cdot\mathbf j_2 = -\mathbf j_1\cdot\mathbf i_2 = \sin\left(\theta - \phi\right)}$$
+>
+> **Units:** dimensionless
+> **Meaning:** only the angle between the two bars, $\theta - \phi$, enters the coupling of the two particles.
+
+> [!derivation] Position vectors of both particles
+> **Law:** position vectors as sums of partial vectors along the bars
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Sec. 7.4
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OP} = \ell\,\mathbf i_1 = \ell\sin\theta\,\mathbf i - \ell\cos\theta\,\mathbf j \quad &\text{(legs of the triangle of $OP$)} \\
+> \mathbf r_0^Q &= \overrightarrow{OP} + \overrightarrow{PQ} = \ell\,\mathbf i_1 + \ell\,\mathbf i_2 \quad &\text{(sum of partial vectors)} \\
+> &= \ell\left(\sin\theta + \sin\phi\right)\mathbf i - \ell\left(\cos\theta + \cos\phi\right)\mathbf j \quad &\text{(legs of both triangles)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = \ell\,\mathbf i_1, \qquad \mathbf r_0^Q = \ell\,\mathbf i_1 + \ell\,\mathbf i_2, \qquad y_P = -\ell\cos\theta, \qquad y_Q = -\ell\left(\cos\theta + \cos\phi\right)}$$
+>
+> **Units:** $[\mathrm{L}]$
+> **Meaning:** $Q$ is on the axis $Ox$ when its height $y_Q$ is zero, which is the question of part (e).
+
+### Kinematics
+
+> [!derivation] Derivatives of the bases of the bars
+> **Law:** derivative of a unit vector turning about a fixed axis
+> **Source:** Notes.pdf, Eq. 1.62
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \dot\theta\,\mathbf k \quad &\text{(the polar angle $\theta - \pi/2$ changes at the rate $\dot\theta$)} \\
+> \boldsymbol\omega_{20} &= \dot\phi\,\mathbf k \quad &\text{(the polar angle $\phi - \pi/2$ changes at the rate $\dot\phi$)} \\
+> \dot{\mathbf i}_1 &= \dot\theta\,\mathbf k\times\mathbf i_1 = \dot\theta\left(\sin\theta\,\mathbf j + \cos\theta\,\mathbf i\right) = \dot\theta\,\mathbf j_1 \quad &\text{($\mathbf k\times\mathbf i = \mathbf j$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> \dot{\mathbf j}_1 &= \dot\theta\,\mathbf k\times\mathbf j_1 = \dot\theta\left(\cos\theta\,\mathbf j - \sin\theta\,\mathbf i\right) = -\dot\theta\,\mathbf i_1 \quad &\text{(same products)} \\
+> \dot{\mathbf i}_2 &= \dot\phi\,\mathbf k\times\mathbf i_2 = \dot\phi\,\mathbf j_2 \quad &\text{(same products with $\phi$)} \\
+> \dot{\mathbf j}_2 &= \dot\phi\,\mathbf k\times\mathbf j_2 = -\dot\phi\,\mathbf i_2 \quad &\text{(same products with $\phi$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf i}_1 = \dot\theta\,\mathbf j_1, \quad \dot{\mathbf j}_1 = -\dot\theta\,\mathbf i_1, \quad \dot{\mathbf i}_2 = \dot\phi\,\mathbf j_2, \quad \dot{\mathbf j}_2 = -\dot\phi\,\mathbf i_2}$$
+>
+> **Units:** $[\dot\theta] = [\dot\phi] = [\mathrm{T^{-1}}]$
+> **Meaning:** each bar turns about $\mathbf k$ with its own angular rate.
+
+> [!derivation] (a) Position, velocity and acceleration of both particles
+> **Law:** time derivatives in $S_0$; product rule
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Eq. 4.34; Notes.pdf, Eq. 4.35
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \ell\,\dot{\mathbf i}_1 = \ell\dot\theta\,\mathbf j_1 \quad &\text{($\ell$ constant)} \\
+> \mathbf a_0^P &= \ell\ddot\theta\,\mathbf j_1 + \ell\dot\theta\,\dot{\mathbf j}_1 = \ell\ddot\theta\,\mathbf j_1 - \ell\dot\theta^2\,\mathbf i_1 \quad &\text{(product rule; derivative of $\mathbf j_1$)} \\
+> \mathbf v_0^Q &= \ell\,\dot{\mathbf i}_1 + \ell\,\dot{\mathbf i}_2 = \ell\dot\theta\,\mathbf j_1 + \ell\dot\phi\,\mathbf j_2 \quad &\text{(sum of the two bar terms)} \\
+> \mathbf a_0^Q &= \ell\ddot\theta\,\mathbf j_1 - \ell\dot\theta^2\,\mathbf i_1 + \ell\ddot\phi\,\mathbf j_2 - \ell\dot\phi^2\,\mathbf i_2 \quad &\text{(product rule on each term)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \mathbf r_0^P = \ell\,\mathbf i_1, \quad \mathbf v_0^P = \ell\dot\theta\,\mathbf j_1, \quad \mathbf a_0^P = \ell\ddot\theta\,\mathbf j_1 - \ell\dot\theta^2\,\mathbf i_1 \cr \mathbf r_0^Q = \ell\left(\mathbf i_1 + \mathbf i_2\right), \quad \mathbf v_0^Q = \ell\dot\theta\,\mathbf j_1 + \ell\dot\phi\,\mathbf j_2, \quad \mathbf a_0^Q = \ell\left(\ddot\theta\,\mathbf j_1 - \dot\theta^2\,\mathbf i_1 + \ddot\phi\,\mathbf j_2 - \dot\phi^2\,\mathbf i_2\right) \end{array}}$$
+>
+> **Units:** $[\ell\dot\theta] = [\mathrm{L\,T^{-1}}]$; $[\ell\ddot\theta] = [\ell\dot\theta^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** $P$ moves on a circle about $O$ (the pendulum of Notes.pdf, Sec. 4.7); $Q$ adds to the motion of $P$ its own circular motion about $P$.
+
+### Forces and Equations of Motion
+
+The free-body diagrams show on each particle its weight and the forces of the bars attached to it; the bar $PQ$ acts on $P$ and on $Q$ with equal and opposite forces. $S_0$ is inertial, so no inertia force acts.
+
+![[attachments/EM-SOL/p50-fbd.svg]]
+
+> [!derivation] (b) Forces on both particles
+> **Law:** weight; constraint forces in the normal subspaces of the bar constraints, along the gradients of their equations
+> **Source:** Notes.pdf, Sec. 6.4; [Lecture 3, Slide 13]; [Lecture 3, Slide 17]
+>
+> The bar $OP$ is the constraint whose equation is the square of the length of $OP$ minus $\ell^2$; its gradient with respect to the position of $P$ is twice $\overrightarrow{OP}$, along $\mathbf i_1$. The bar $PQ$ is the constraint on the square of the length of $PQ$; its gradient is twice $\overrightarrow{PQ}$ (along $\mathbf i_2$) with respect to $Q$ and minus that with respect to $P$, so its forces on $Q$ and $P$ are equal and opposite.
+>
+> $$\begin{aligned}
+> \mathbf N_{OP\to P} &= -T_1\,\mathbf i_1 \quad &\text{(along the bar; $T_1 \gt 0$ pulls $P$ towards $O$)} \\
+> \mathbf N_{PQ\to Q} &= -T_2\,\mathbf i_2 \quad &\text{(along the bar; $T_2 \gt 0$ pulls $Q$ towards $P$)} \\
+> \mathbf N_{PQ\to P} &= +T_2\,\mathbf i_2 \quad &\text{(equal and opposite: minus the gradient with respect to $Q$)} \\
+> \mathbf F^P &= -mg\,\mathbf j - T_1\,\mathbf i_1 + T_2\,\mathbf i_2 \quad &\text{(all forces on $P$)} \\
+> \mathbf F^Q &= -mg\,\mathbf j - T_2\,\mathbf i_2 \quad &\text{(all forces on $Q$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F^P = -mg\,\mathbf j - T_1\,\mathbf i_1 + T_2\,\mathbf i_2, \qquad \mathbf F^Q = -mg\,\mathbf j - T_2\,\mathbf i_2}$$
+>
+> **Units:** $[mg] = [T_1] = [T_2] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** two new unknowns, $T_1$ and $T_2$; a bar, unlike a string, may also push, so they may take either sign.
+
+> [!derivation] (c) Equations of motion free of the forces of the bars
+> **Law:** Newton's second law in an inertial frame; projections chosen to eliminate $T_1$ and $T_2$
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 7.6; [Lecture 3, Slide 14]
+>
+> $\mathbf j_2$ is perpendicular to $\mathbf i_2$, so the equation of $Q$ along $\mathbf j_2$ is free of $T_2$. Adding the equations of $P$ and $Q$ cancels the pair $\pm T_2\,\mathbf i_2$, and $\mathbf j_1$ is perpendicular to $\mathbf i_1$, so the sum along $\mathbf j_1$ is free of $T_1$. The weight is projected with $\mathbf j\cdot\mathbf j_1 = \sin\theta$ and $\mathbf j\cdot\mathbf j_2 = \sin\phi$.
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^P + m\,\mathbf a_0^Q &= \mathbf F^P + \mathbf F^Q = -2mg\,\mathbf j - T_1\,\mathbf i_1 \quad &\text{(Newton for each particle, added: the pair $\pm T_2\,\mathbf i_2$ cancels)} \\
+> \mathbf a_0^Q\cdot\mathbf j_2 &= \ell\ddot\theta\cos\left(\theta - \phi\right) - \ell\dot\theta^2\sin\left(\theta - \phi\right) + \ell\ddot\phi \quad &\text{(dot products of the previous box)} \\
+> Q,\ \mathbf j_2:\ m\ell\left[\ddot\phi + \ddot\theta\cos\left(\theta - \phi\right) - \dot\theta^2\sin\left(\theta - \phi\right)\right] &= -mg\sin\phi \quad &\text{(no $T_2$)} \\
+> \left(\mathbf a_0^P + \mathbf a_0^Q\right)\cdot\mathbf j_1 &= 2\ell\ddot\theta + \ell\ddot\phi\cos\left(\theta - \phi\right) + \ell\dot\phi^2\sin\left(\theta - \phi\right) \quad &\text{($\mathbf j_2\cdot\mathbf j_1 = \cos(\theta - \phi)$, $\mathbf i_2\cdot\mathbf j_1 = -\sin(\theta - \phi)$)} \\
+> P + Q,\ \mathbf j_1:\ m\ell\left[2\ddot\theta + \ddot\phi\cos\left(\theta - \phi\right) + \dot\phi^2\sin\left(\theta - \phi\right)\right] &= -2mg\sin\theta \quad &\text{(no $T_1$, no $T_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} 2\ddot\theta + \ddot\phi\cos\left(\theta - \phi\right) + \dot\phi^2\sin\left(\theta - \phi\right) + \dfrac{2g}{\ell}\sin\theta = 0 \cr \ddot\phi + \ddot\theta\cos\left(\theta - \phi\right) - \dot\theta^2\sin\left(\theta - \phi\right) + \dfrac{g}{\ell}\sin\phi = 0 \end{array}}$$
+>
+> **Units:** $[\ddot\theta] = [\dot\phi^2] = [g/\ell] = [\mathrm{T^{-2}}]$
+> **Meaning:** two coupled second-order equations for the two angles; they contain no force of the bars.
+
+> [!derivation] Forces of the bars, afterwards
+> **Law:** Newton's second law projected along the bars
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Eq. 4.37
+>
+> $$\begin{aligned}
+> Q,\ \mathbf i_2:\ m\ell\left[-\ddot\theta\sin\left(\theta - \phi\right) - \dot\theta^2\cos\left(\theta - \phi\right) - \dot\phi^2\right] &= mg\cos\phi - T_2 \quad &\text{($\mathbf j_1\cdot\mathbf i_2 = -\sin(\theta - \phi)$; $-\mathbf j\cdot\mathbf i_2 = \cos\phi$)} \\
+> P,\ \mathbf i_1:\ -m\ell\dot\theta^2 &= mg\cos\theta - T_1 + T_2\cos\left(\theta - \phi\right) \quad &\text{($-\mathbf j\cdot\mathbf i_1 = \cos\theta$; $\mathbf i_2\cdot\mathbf i_1 = \cos(\theta - \phi)$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} T_2 = mg\cos\phi + m\ell\left[\ddot\theta\sin\left(\theta - \phi\right) + \dot\theta^2\cos\left(\theta - \phi\right) + \dot\phi^2\right] \cr T_1 = mg\cos\theta + m\ell\dot\theta^2 + T_2\cos\left(\theta - \phi\right) \end{array}}$$
+>
+> **Units:** every term $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** hanging at rest ($\theta$, $\phi$ and their rates zero) the lower bar carries the weight of $Q$, $T_2 = mg$, and the upper bar both weights, $T_1 = 2mg$.
+
+### Answers and Checks
+
+#### (d) Conservation law
+
+> [!derivation] Mechanical energy of the double pendulum
+> **Law:** theorem of kinetic energy; the forces of the stationary bars do no total work; potential of the weights
+> **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31; [Lecture 3, Slide 16]; [Lecture 3, Slide 17]
+>
+> $$\begin{aligned}
+> -T_1\,\mathbf i_1\cdot\mathbf v_0^P &= -T_1\,\mathbf i_1\cdot\ell\dot\theta\,\mathbf j_1 = 0 \quad &\text{(power of the bar $OP$)} \\
+> T_2\,\mathbf i_2\cdot\mathbf v_0^P - T_2\,\mathbf i_2\cdot\mathbf v_0^Q &= -T_2\,\mathbf i_2\cdot\left(\mathbf v_0^Q - \mathbf v_0^P\right) = -T_2\,\mathbf i_2\cdot\ell\dot\phi\,\mathbf j_2 = 0 \quad &\text{(total power of the bar $PQ$)} \\
+> -mg\,\mathbf j\cdot\left(\mathbf v_0^P + \mathbf v_0^Q\right) &= -\frac{d}{dt}\left[mg\left(y_P + y_Q\right)\right] \quad &\text{(power of the weights)} \\
+> |\mathbf v_0^Q|^2 &= \ell^2\left[\dot\theta^2 + \dot\phi^2 + 2\dot\theta\dot\phi\cos\left(\theta - \phi\right)\right] \quad &\text{(square of $\mathbf v_0^Q$; $\mathbf j_1\cdot\mathbf j_2 = \cos(\theta - \phi)$)} \\
+> E &= \tfrac12 m\ell^2\dot\theta^2 + \tfrac12 m|\mathbf v_0^Q|^2 - mg\ell\cos\theta - mg\ell\left(\cos\theta + \cos\phi\right) \quad &\text{(kinetic plus potential energy)}
+> \end{aligned}$$
+>
+> $$\boxed{E = \tfrac12 m\ell^2\left[2\dot\theta^2 + \dot\phi^2 + 2\dot\theta\dot\phi\cos\left(\theta - \phi\right)\right] - mg\ell\left(2\cos\theta + \cos\phi\right) = \text{const}}$$
+>
+> **Units:** $[m\ell^2\dot\theta^2] = [mg\ell] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the bars only transfer energy between the particles: the bar $OP$ is perpendicular to the velocity of $P$, and the bar $PQ$ is perpendicular to the velocity of $Q$ relative to $P$. Only the conservative weights work.
+
+#### (e) Can Q cross the axis Ox?
+
+> [!derivation] Energy needed to bring Q to the height of O
+> **Law:** the kinetic energy is never negative, so the potential energy cannot exceed the constant energy
+> **Source:** Notes.pdf, Eq. 4.28; Notes.pdf, Eq. 4.31
+>
+> $$\begin{aligned}
+> E_0 &= 0 - mg\ell\left(2\cos\tfrac{\pi}{4} + \cos\tfrac{\pi}{4}\right) = -\frac{3\sqrt2}{2}\,mg\ell = -2.121\,mg\ell \quad &\text{(at rest, $\theta = \phi = \pi/4$)} \\
+> y_Q &= -\ell\left(\cos\theta + \cos\phi\right) = 0 \iff \cos\phi = -\cos\theta \quad &\text{($Q$ on the axis $Ox$)} \\
+> V &= -mg\ell\left(2\cos\theta - \cos\theta\right) = -mg\ell\cos\theta \ge -mg\ell \quad &\text{(potential there; $\cos\theta \le 1$)} \\
+> E_0 - V &\le -2.121\,mg\ell + mg\ell = -1.121\,mg\ell \lt 0 \quad &\text{(the kinetic energy would be negative)}
+> \end{aligned}$$
+>
+> $$\boxed{E_0 = -\tfrac{3\sqrt2}{2}\,mg\ell \lt -mg\ell \le V\big|_{y_Q = 0}: \quad Q \ \text{never reaches, so never crosses, the axis } Ox}$$
+>
+> **Units:** $[mg\ell] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** whatever the configuration with $Q$ at the height of $O$, it needs at least the potential energy $-mg\ell$, more than the energy available; the motion stays below the axis.
+
+#### (f) Small oscillations with the extra constraint
+
+> [!derivation] Energy of the constrained system for small angles
+> **Law:** the extra constraint is ideal and stationary (no work), so the energy of part (d) is still conserved; second-order expansion in the small angle; comparison with the energy of a harmonic oscillator
+> **Source:** Notes.pdf, Eq. 5.6; [Lecture 6, Slide 7]; [Lecture 3, Slide 16]; Problems.pdf, p. 35
+>
+> With $\phi$ equal to $2\theta$ the system has one degree of freedom, $\theta$. The kinetic energy is already quadratic in the rate, so its coefficient is kept to zeroth order in $\theta$; the potential is expanded to second order with the Taylor series of the cosine.
+>
+> $$\begin{aligned}
+> \dot\phi &= 2\dot\theta \quad &\text{(derivative of the extra constraint)} \\
+> \cos\left(\theta - \phi\right) &= \cos\left(-\theta\right) = \cos\theta \quad &\text{(angle between the bars; cosine is even)} \\
+> K &= \tfrac12 m\ell^2\left[2 + 4 + 4\cos\theta\right]\dot\theta^2 \simeq \tfrac12 m\ell^2\left(10\right)\dot\theta^2 = 5m\ell^2\dot\theta^2 \quad &\text{(kinetic energy of part (d); $\cos\theta \simeq 1$)} \\
+> \cos\theta &\simeq 1 - \tfrac{\theta^2}{2} \quad &\text{(Taylor series to second order)} \\
+> \cos 2\theta &\simeq 1 - \tfrac{\left(2\theta\right)^2}{2} = 1 - 2\theta^2 \quad &\text{(the same series with the argument $2\theta$)} \\
+> V &= -mg\ell\left(2\cos\theta + \cos 2\theta\right) \simeq -mg\ell\left(2 - \theta^2 + 1 - 2\theta^2\right) = -3mg\ell + 3mg\ell\,\theta^2 \quad &\text{(potential of part (d))} \\
+> E + 3mg\ell &\simeq 5m\ell^2\dot\theta^2 + 3mg\ell\,\theta^2 = \tfrac12\left(10m\ell^2\right)\left(\dot\theta^2 + \frac{3g}{5\ell}\,\theta^2\right) \quad &\text{(common factor $5m\ell^2$)} \\
+> 10m\ell^2\dot\theta\ddot\theta + 6mg\ell\,\theta\dot\theta &= 0 \Rightarrow \ddot\theta + \frac{3g}{5\ell}\,\theta = 0 \quad &\text{(time derivative of the constant energy, chain rule; divided by $10m\ell^2\dot\theta$)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega_0 = \sqrt{\frac{3g}{5\ell}}}$$
+>
+> **Units:** $[g/\ell] = [\mathrm{T^{-2}}]$, so $[\omega_0] = [\mathrm{T^{-1}}]$
+> **Meaning:** the energy has the form of the hint, with the mass replaced by $10m\ell^2$ and the coordinate by $\theta$; the linearised equation is the harmonic oscillator of Notes.pdf, Eq. 5.6. The frequency squared is 0.6 times that of a simple pendulum of length $\ell$: $Q$, which moves three times as far as $P$, adds more inertia than restoring weight.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Kinematics | $\mathbf r_0^P = \ell\,\mathbf i_1$, $\mathbf v_0^P = \ell\dot\theta\,\mathbf j_1$, $\mathbf a_0^P = \ell(\ddot\theta\,\mathbf j_1 - \dot\theta^2\,\mathbf i_1)$; $\mathbf r_0^Q = \ell(\mathbf i_1 + \mathbf i_2)$, $\mathbf v_0^Q = \ell(\dot\theta\,\mathbf j_1 + \dot\phi\,\mathbf j_2)$, $\mathbf a_0^Q = \ell(\ddot\theta\,\mathbf j_1 - \dot\theta^2\,\mathbf i_1 + \ddot\phi\,\mathbf j_2 - \dot\phi^2\,\mathbf i_2)$, with $\mathbf i_1 = \sin\theta\,\mathbf i - \cos\theta\,\mathbf j$, $\mathbf j_1 = \cos\theta\,\mathbf i + \sin\theta\,\mathbf j$ and the same with $\phi$ |
+| (b) Forces | $P$: $-mg\,\mathbf j$, $-T_1\,\mathbf i_1$, $T_2\,\mathbf i_2$; $Q$: $-mg\,\mathbf j$, $-T_2\,\mathbf i_2$ |
+| (c) Equations of motion | $2\ddot\theta + \ddot\phi\cos(\theta - \phi) + \dot\phi^2\sin(\theta - \phi) + (2g/\ell)\sin\theta = 0$; $\ddot\phi + \ddot\theta\cos(\theta - \phi) - \dot\theta^2\sin(\theta - \phi) + (g/\ell)\sin\phi = 0$ |
+| (d) Conservation law | $\frac12 m\ell^2[2\dot\theta^2 + \dot\phi^2 + 2\dot\theta\dot\phi\cos(\theta - \phi)] - mg\ell(2\cos\theta + \cos\phi) = E$ |
+| (e) Crossing $Ox$ | never: $E_0 = -\frac{3\sqrt2}{2}mg\ell$ is below the least potential $-mg\ell$ with $Q$ on the axis |
+| (f) Constrained small oscillations | $\omega_0 = \sqrt{3g/(5\ell)}$ |
+
+**Check against the official key:** Problems.pdf, p. 76 lists item 50 with no answer, so there is no key to compare with. Independent checks: the energy of part (d) was obtained from the powers of the forces, and its time derivative vanishes along the equations of part (c); the static forces of the bars are the expected ones; and the frequency of part (f) belongs to a family of constraints whose limits are checked below.
+
+> [!derivation] Limiting cases: a family of imposed constraints
+> **Law:** the energy method of part (f) with the constraint that $\phi$ equals $\lambda\theta$, for a constant $\lambda$
+> **Source:** Notes.pdf, Eq. 5.6; Notes.pdf, Sec. 4.7
+>
+> $$\begin{aligned}
+> K &\simeq \tfrac12 m\ell^2\left(2 + \lambda^2 + 2\lambda\right)\dot\theta^2 \quad &\text{(kinetic energy of part (d), $\dot\phi = \lambda\dot\theta$, $\cos(\theta - \phi) \simeq 1$)} \\
+> V &\simeq -3mg\ell + \tfrac12 mg\ell\left(2 + \lambda^2\right)\theta^2 \quad &\text{(Taylor series of $\cos\theta$ and $\cos\lambda\theta$)} \\
+> \omega_0^2 &= \frac{g}{\ell}\,\frac{2 + \lambda^2}{2 + 2\lambda + \lambda^2} \quad &\text{(ratio of the two coefficients)} \\
+> \lambda = 0:\ \omega_0^2 &= \frac{g}{\ell}\,\frac{2}{2} = \frac{g}{\ell} \quad &\text{(lower bar held vertical)} \\
+> \lambda = 2:\ \omega_0^2 &= \frac{g}{\ell}\,\frac{2 + 4}{2 + 4 + 4} = \frac{3g}{5\ell} \quad &\text{(the constraint of the statement)}
+> \end{aligned}$$
+>
+> $$\boxed{\lambda = 0:\ \omega_0 = \sqrt{g/\ell}\ \text{(simple pendulum)}; \qquad \lambda = 2:\ \omega_0 = \sqrt{3g/(5\ell)}\ \text{(part (f))}}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$
+> **Meaning:** with the lower bar kept vertical both particles move with $P$ and swing together as one simple pendulum of length $\ell$, the frequency of Notes.pdf, Sec. 4.7; the general formula reproduces the result of part (f) for the constraint of the statement.
