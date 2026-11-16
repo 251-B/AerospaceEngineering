@@ -131,3 +131,8 @@ Related: [[Repository MOC]], [[Rules - AGENTS.md]], [[Rules - CLAUDE.md]], [[Too
 - `tools/figures/mech.py`: the label-overlap report ignores empty labels (spin arcs) and only warns when two label boxes cover more than a third of the smaller one (the boxes are generous estimates); before, three borderline cases blocked the page builder.
 - Key discrepancies and readings are declared inside each solution; open choices: none.
 - Still owed: the `sim` callouts of the 42 rigid body problems (H4), then the same for the 51 particle problems (their own branch), the final `ultrareview` and the merge to `main`.
+
+## Update 2026-11-16 (evening): rigid body simulators, published on `main`
+
+- Rigid body (Topics 6 to 8, 42 problems) is on `main` since `ea75420` (theory, problems, figures, PDFs, navigation). The simulator callouts of all 42 problems were added afterwards: Topic 6 (8), Topic 7 (8), Topic 8 (26, in two batches). At the default state every readout equals the value of its solution (about 320 readouts compared against values computed apart); limitations of an archetype are stated in each `intro` (the engine was not changed). Gates, `vault_lint`, `audit_portal` and the 19 simulator tests pass; the three failing tests (`test_theme`, `test_solution_close`, `test_surface`) fail on `main` too.
+- Still owed (milestones H1, H2, H4 for the particle part, in `claude/practical-newton-p5p22y-particle`): the 51 particle problems, theory Topics 1 to 5 rewritten, their simulators, the extra-problems bank, and the final `ultrareview`.
