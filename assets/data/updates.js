@@ -47,6 +47,14 @@ window.AE_UPDATES = [
     "link": "subjects/aerospace-materials-1/simulator/index.html"
   },
   {
+    "id": "2026-11-16-mechanics-simulators",
+    "date": "2026-11-16",
+    "tag": "Engineering Mechanics",
+    "title": "Interactive 3D simulators in the rigid body problems",
+    "text": "All 42 rigid body problems now have a simulator: turn the view, move the angles and watch the axes, the rotation matrix and the values of the solution update.",
+    "link": "subjects/engineering-mechanics/problemas/topic-6.html"
+  },
+  {
     "id": "2026-11-16-mechanics-problems-8",
     "date": "2026-11-16",
     "tag": "Engineering Mechanics",
