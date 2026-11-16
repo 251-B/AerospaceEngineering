@@ -50,7 +50,6 @@
   "badge": "Rotating Frame + Inertia Forces",
   "source_note": "(PDF page 8); key on PDF page 72",
   "structure": 3,
-  "boxed": false,
   "badges": [
    "In-Class Session 10"
   ]
@@ -60,16 +59,14 @@
   "title": "Kinematics, Two Trains on Tracks",
   "badge": "Relative Motion",
   "source_note": "",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "09": {
   "topic": 5,
   "title": "Artificial Gravity in a Rotating Cylinder",
   "badge": "Centrifugal + Coriolis Forces",
   "source_note": "(PDF page 8); no official key",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "10": {
   "topic": 2,
@@ -161,16 +158,14 @@
   "title": "Heavy Particle on a Rotating Circumference",
   "badge": "Energy in a Rotating Frame",
   "source_note": "(PDF page 10); no official key",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "21": {
   "topic": 5,
   "title": "Apparent Weight on a Spinning Planet",
   "badge": "Centrifugal Force",
   "source_note": "(PDF page 10); no official key",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "22": {
   "topic": 5,

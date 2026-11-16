@@ -20,707 +20,1418 @@ Step-by-step solutions of the official relative-motion problems of *Mechanics Ap
 ## Problem 07: Skater Towed by a Vehicle on a Circumference (Rotating Frame)
 
 ### Reference Frames, Bases and Coordinates
-* **Physical system:** the vehicle $A$ moves on the circle of radius $a$ centred at $O$ with constant angular rate $\omega$. The skater $B$ (mass $m$) is joined to $A$ by a massless rigid bar of length $l = a$ and slides on a smooth horizontal plane.
-* **Why a rotating frame.** In the frame $Ox_1y_1$ that turns with the line $OA$, the vehicle is at rest at $(a, 0)$, so the skater moves on a fixed circle of radius $a$ around $A$: one coordinate $\psi$ describes the motion and the constraint is fixed in that frame. The price is that $Ox_1y_1$ is non-inertial, so we must add the inertia forces of Notes Eq. 4.62 to Newton's law (Notes Eq. 4.63).
-* **Hypotheses:**
-  1. $Oxy$ is inertial; the plane is smooth (its reaction is vertical and cancels the weight, so neither enters the horizontal dynamics).
-  2. The bar is massless, so the force it exerts on $B$ is directed along the bar: $-T\,\mathbf{u}_{AB}$, with $T \gt 0$ meaning tension.
-  3. $\omega$ is constant.
-* **Fixed (inertial) frame:** $S_0 = Oxy = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, basis $\mathcal{B}_0$, with $\mathbf{k}_0$ vertical (normal to the plane of motion).
-* **Moving frame:** $S_1 = Ox_1y_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, basis $\mathcal{B}_1$, with $\mathbf{i}_1$ along $OA$ and $\mathbf{k}_1 = \mathbf{k}_0$. The origin of $S_1$ is $O$ (it plays the role of the generic origin "$A$" of Notes Ch. 3, which here is the fixed point $O$; the letter $A$ is kept for the vehicle as in the statement) and the particle is $P \equiv B$.
-* **Bar basis:** $\{\mathbf{u}_{AB}, \mathbf{u}_\perp, \mathbf{k}_1\}$, the unit vector from $A$ to $B$ and the unit vector normal to the bar in the plane; they are deduced in the next section.
-* **Coordinate and degrees of freedom:** $B$ moves in the plane (2 coordinates) with one constraint $|AB| = a$: **1 DOF**, the angle $\psi$ from $Ox_1$ to the bar $AB$, measured at $A$ counter-clockwise. The angle $\omega t$ of $S_1$ is prescribed.
-* **Initial conditions:** $A$ at $(a, 0)$ and $B$ at rest at $(2a, 0)$, so $\psi(0) = 0$ and $\mathbf{v}_0^B(0) = \mathbf{0}$ (this gives $\dot{\psi}(0)$ in part (c)).
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $m$ | mass of the skater $B$ | kg |
-| $a$ | radius of the vehicle's circle and bar length | m |
-| $\omega$ | angular rate of the vehicle (constant) | rad/s |
-| $\psi$ | angle from $Ox_1$ to the bar $AB$ | rad |
-| $T$ | tension of the bar (positive when pulling $B$ toward $A$) | N |
+A vehicle $A$ moves on the circumference of radius $a$ and centre $O$ with the constant angular velocity $\omega$, on a smooth horizontal plane; a skater $B$ of mass $m$ is joined to it by a massless rigid bar of length $a$. At the start the vehicle is at $(a, 0)$ and the skater at rest at $(2a, 0)$ (Problems.pdf, p. 8). The statement asks, in the rotating frame $Ox_1y_1$ that carries $OA$ on its first axis, for the relative acceleration, the centripetal and Coriolis terms, the reduction of the motion to quadratures, the tension of the bar and whether a string would go slack. The relative kinematics follows Notes.pdf, Sec. 3.1 and Sec. 3.2, and the dynamics in the non-inertial frame Notes.pdf, Sec. 4.9.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, the frame $Oxy$ of the statement, with $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$: $\mathbf i_0$ along $Ox$, $\mathbf j_0$ along $Oy$, $\mathbf k_0$ vertical, up (Notes.pdf, Eq. 2.1) |
+| Moving frame | $S_1 = \{O;\ \mathcal B_1\}$, the frame $Ox_1y_1$: $\mathbf i_1$ along $OA$, $\mathbf k_1 = \mathbf k_0$, $\mathbf j_1$ the cross product of $\mathbf k_1$ and $\mathbf i_1$; it turns by the angle $\omega t$ about $\mathbf k_0$ |
+| Origin of $S_1$ | the fixed point $O$ (the generic origin, called $A$ in Notes.pdf, Sec. 3.2, is here $O$; the letter $A$ stays for the vehicle, as in the statement) |
+| Bar basis | $\mathcal B_2 = \{\mathbf u_{AB}, \mathbf u_\perp, \mathbf k_1\}$: $\mathbf u_{AB}$ from $A$ to $B$, $\mathbf u_\perp$ normal to the bar in the plane, in the sense of growing $\psi$ |
+| Coordinate | $\psi$, the angle from $\mathbf i_1$ to the bar $AB$, measured at $A$, positive about $\mathbf k_1$ (counterclockwise seen from above) |
+| Constraints | $B$ on the horizontal plane; distance $AB$ equal to $a$; in $S_1$ the vehicle is at rest at $(a, 0)$, so $B$ moves on a circle of radius $a$ about $A$, fixed in $S_1$ |
+| Degrees of freedom | 3 minus 2: 1, the angle $\psi(t)$; the angle $\omega t$ of $S_1$ is prescribed |
+| Data | $m$ [kg], $a$ [m], $\omega$ [rad s$^{-1}$], constant |
+| Unknowns | $\psi(t)$, the bar force $T$ [N] (positive when the bar pulls $B$ towards $A$), the normal reaction of the plane $N$ [N] |
+| Initial state | $\psi(0) = 0$ (skater at $(2a, 0)$); skater at rest in $S_0$ |
+| Applied forces | weight $-mg\,\mathbf k_1$; the force of the bar, along the bar |
+| Constraint force | normal reaction of the smooth plane, $N\,\mathbf k_1$ |
+| Inertia forces (in $S_1$) | of the origin, Euler, centrifugal and Coriolis (Notes.pdf, Eq. 4.62) |
+| Hypotheses | the bar is massless and hinged at both ends, so the force it exerts on $B$ lies along the bar; the plane is smooth, so its reaction is vertical; $\omega$ constant; the skater is a point particle |
 
 ### Change of Basis and Position Vector
 
-#### The basis $\mathcal{B}_1$ seen from above
-
 ![[attachments/EM-SOL/p07-attitude.svg]]
 
-The rotation is about the vertical $\mathbf{k}_0$, so it is drawn looking down from $+\mathbf{k}_0$: $\mathbf{k}_0 = \mathbf{k}_1$ points out of the paper, towards the reader ($\odot$). With $\mathbf{i}_0$ to the right, the right-hand rule $\mathbf{k}_0 = \mathbf{i}_0\times\mathbf{j}_0$ puts $\mathbf{j}_0$ up the page (fingers from $\mathbf{i}_0$ to $\mathbf{j}_0$, counter-clockwise, thumb towards the reader). The vehicle starts on $Ox$ and turns counter-clockwise, so after a time $t$ the angle from $\mathbf{i}_0$ to $\mathbf{i}_1$ is $\omega t$:
-
-* $\mathbf{i}_1$ is the hypotenuse (length 1) of a right triangle whose leg adjacent to $\omega t$ lies along $\mathbf{i}_0$ and measures $\cos\omega t$, and whose opposite leg lies along $+\mathbf{j}_0$ and measures $\sin\omega t$: $\mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$.
-* $\mathbf{j}_1$ is $\mathbf{i}_1$ turned a further $90^\circ$ counter-clockwise (so that $\mathbf{k}_1 = \mathbf{i}_1\times\mathbf{j}_1$ still points towards the reader). It has turned the same angle $\omega t$ from $\mathbf{j}_0$, and turning counter-clockwise from "up" moves its tip to the left: its leg along $\mathbf{j}_0$ (adjacent) is $\cos\omega t$ and its leg along $-\mathbf{i}_0$ (opposite) is $\sin\omega t$. **That is the origin of the minus sign:** $\mathbf{j}_1 = -\sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{j}_0$.
-* $\mathbf{k}_1 = \mathbf{k}_0$, the axis of the rotation.
-
-The columns of $[{}_0R_1]$ are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$:
-
-$$ [{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
-
-**Checks:** $\det[{}_0R_1] = \cos\omega t\cos\omega t - (-\sin\omega t)\sin\omega t = \cos^2\omega t + \sin^2\omega t = 1$; the columns are unit vectors ($\cos^2\omega t + \sin^2\omega t = 1$) and mutually orthogonal ($-\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0$), so $[{}_0R_1][{}_0R_1]^T = I$.
-
-**Motion of $S_1$.** Simple rotation about $\mathbf{k}_0 = \mathbf{k}_1$ (Slide 16):
-
-$$ \boldsymbol{\omega}_{10} = \omega\,\mathbf{k}_1, \qquad \boldsymbol{\alpha}_{10} = \left.\frac{d\boldsymbol{\omega}_{10}}{dt}\right|_0 = \dot{\omega}\,\mathbf{k}_1 = \mathbf{0}, \qquad \mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0} $$
-
-Check with Poisson's formula: by the chain rule $\left.\frac{d\mathbf{i}_1}{dt}\right|_0 = -\omega\sin\omega t\,\mathbf{i}_0 + \omega\cos\omega t\,\mathbf{j}_0 = \omega\,\mathbf{j}_1$, and $\boldsymbol{\omega}_{10}\times\mathbf{i}_1 = \omega\,\mathbf{k}_1\times\mathbf{i}_1 = \omega\,\mathbf{j}_1$.
-
-#### The position vector in the rotating plane
+> [!derivation] Basis of the rotating frame: rotation by omega t about k0
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; [Lecture 5, Slide 16]
+>
+> View from above, along $\mathbf k_0$, which points out of the paper (⊙) because it is the cross product of $\mathbf i_0$ (to the right) and $\mathbf j_0$ (up): a positive rotation about $\mathbf k_0$ is counterclockwise, the sense in which the vehicle turns. $\mathbf i_1$ is $\mathbf i_0$ turned by $\omega t$: hypotenuse 1, adjacent leg $\cos\omega t$ along $\mathbf i_0$, opposite leg $\sin\omega t$ along $\mathbf j_0$. $\mathbf j_1$ is $\mathbf j_0$ turned by the same angle: adjacent leg $\cos\omega t$ along $\mathbf j_0$, opposite leg $\sin\omega t$ along minus $\mathbf i_0$ (the upward vector turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0 \quad &\text{(right triangle of $\mathbf i_1$)} \\
+> \mathbf j_1 &= -\sin\omega t\,\mathbf i_0 + \cos\omega t\,\mathbf j_0 \quad &\text{(right triangle of $\mathbf j_1$: opposite leg on $-\mathbf i_0$)} \\
+> \mathbf k_1 &= \mathbf k_0 \quad &\text{(axis of the rotation)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos\omega t\cos\omega t - \left(-\sin\omega t\right)\sin\omega t\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\omega t + \sin^2\omega t = 1 \quad &\text{(row 1 times row 1)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\omega t\sin\omega t - \sin\omega t\cos\omega t = 0 \quad &\text{(row 1 times row 2; row 3 is the unit row of $\mathbf k_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \cr \sin\omega t & \cos\omega t & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless direction cosines: $[1]$; $[\omega t] = [\mathrm{T^{-1}}][\mathrm{T}] = [1]$
+> **Meaning:** at the start ($t$ zero) the two frames coincide; afterwards $\mathbf i_1$ always points from $O$ to the vehicle.
 
 ![[attachments/EM-SOL/p07-bar-plane.svg]]
 
-In $S_1$ the vehicle is at rest at $A = (a, 0)$, so the plane is drawn with $\mathbf{i}_1$ to the right and $\mathbf{j}_1$ up. To go from $O$ to $B$ we pass through $A$, because the distance from $A$ is the one fixed by the bar (Notes Eq. 3.16 with $\mathbf{r}_0^O = \mathbf{0}$):
+> [!derivation] Position vector of the skater in the rotating frame
+> **Law:** position vector as a sum of segments; right triangle of the bar
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 3.16; Problems.pdf, p. 8
+>
+> In $S_1$ the vehicle is at rest on the axis $Ox_1$ at the distance $a$ from $O$. From $O$ to $B$ we pass through $A$, because the bar fixes the distance from $A$. Let $F$ be the foot of the perpendicular from $B$ to the line $Ox_1$: in the right triangle $AFB$ the hypotenuse is the bar, of length $a$; the leg adjacent to $\psi$ is $a\cos\psi$ along $\mathbf i_1$ and the leg opposite to $\psi$ is $a\sin\psi$ along $\mathbf j_1$. $\psi$ is measured from $\mathbf i_1$ counterclockwise, so it is already the standard polar angle about $A$ and needs no shift. For a negative $\psi$ (the case of the motion, part (c)) the opposite leg points along minus $\mathbf j_1$ and the same formula holds.
+>
+> $$\begin{aligned}
+> \mathbf r_0^O &= \mathbf 0 \quad &\text{(the origin of $S_1$ is the fixed point $O$)} \\
+> \mathbf r_0^B &= \mathbf r_0^O + \mathbf r_1^B = \mathbf r_1^B \quad &\text{(Eq. 3.16)} \\
+> \mathbf r_1^B &= \overrightarrow{OA} + \overrightarrow{AB} \quad &\text{(through the hinge $A$)} \\
+> \overrightarrow{OA} &= a\,\mathbf i_1 \quad &\text{(vehicle at rest in $S_1$)} \\
+> \overrightarrow{AB} &= a\cos\psi\,\mathbf i_1 + a\sin\psi\,\mathbf j_1 \quad &\text{(adjacent and opposite legs of $AFB$)} \\
+> \mathbf r_1^B &= a\left(1 + \cos\psi\right)\mathbf i_1 + a\sin\psi\,\mathbf j_1 \quad &\text{(sum, grouped by unit vector)} \\
+> x_1 &= a\left(1 + \cos\psi\right), \quad y_1 = a\sin\psi \quad &\text{(components in $\mathcal B_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^B = \mathbf r_1^B = a\left(1 + \cos\psi\right)\mathbf i_1 + a\sin\psi\,\mathbf j_1}$$
+>
+> **Units:** $[a] = [\mathrm{L}]$; $\psi$ dimensionless
+> **Meaning:** $\psi$ zero gives the initial point at twice $a$ on $Ox_1$; $\psi$ equal to minus $\pi$ gives the point $O$ itself.
 
-$$ \mathbf{r}_1^B = \overrightarrow{OA} + \overrightarrow{AB} $$
+![[attachments/EM-SOL/p07-rotation-psi.svg]]
 
-* $\overrightarrow{OA} = a\,\mathbf{i}_1$: $A$ lies on $Ox_1$ at distance $a$ from $O$.
-* $\overrightarrow{AB}$ has length $a$ and makes the angle $\psi$ with $\mathbf{i}_1$, measured counter-clockwise at $A$. Let $F$ be the foot of the perpendicular from $B$ to the line $Ox_1$. In the shaded right triangle $AFB$ (right angle at $F$) the hypotenuse is $|AB| = a$, the leg adjacent to $\psi$ is $AF = a\cos\psi$ along $\mathbf{i}_1$ and the leg opposite to $\psi$ is $FB = a\sin\psi$ along $\mathbf{j}_1$. So $\overrightarrow{AB} = a\cos\psi\,\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1$.
-
-Adding the two vectors:
-
-$$ \mathbf{r}_1^B = a\,\mathbf{i}_1 + a\left(\cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1\right) = a(1 + \cos\psi)\,\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1 $$
-
-These are the dashed components of the figure: $|OF| = a + a\cos\psi$ along $\mathbf{i}_1$ and $|FB| = a\sin\psi$ along $\mathbf{j}_1$. For $\psi \lt 0$ (the case of the motion, as part (c) shows) $\sin\psi \lt 0$ and $B$ is below $Ox_1$; the same formula holds. Here $\psi$ is the standard polar angle of $B$ about $A$ (measured from $\mathbf{i}_1$, counter-clockwise), so no shift of the angle is needed. Checks: $\psi = 0$ gives $2a\,\mathbf{i}_1$, the initial position; $\psi = -\pi$ gives $\mathbf{0}$, the point $O$.
-
-**Bar basis.** The unit vector along the bar is $\mathbf{u}_{AB} = \overrightarrow{AB}/a = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$ (from $A$ to $B$). Differentiating with respect to $\psi$ ($\frac{d}{d\psi}\cos\psi = -\sin\psi$, $\frac{d}{d\psi}\sin\psi = \cos\psi$) gives the unit vector normal to the bar, in the sense of increasing $\psi$:
-
-$$ \mathbf{u}_\perp = \frac{d\mathbf{u}_{AB}}{d\psi} = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1 = \mathbf{k}_1\times\mathbf{u}_{AB} $$
-
-(the last form with $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$ and $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$). Their matrix $\begin{pmatrix}\cos\psi & -\sin\psi\\ \sin\psi & \cos\psi\end{pmatrix}$ (completed with $\mathbf{k}_1$) is again a simple rotation: $\det = \cos^2\psi + \sin^2\psi = 1$, and $RR^T$ has diagonal entries $\cos^2\psi + \sin^2\psi = 1$ and off-diagonal entries $\cos\psi\sin\psi - \sin\psi\cos\psi = 0$, so $RR^T = I$. Also $\frac{d\mathbf{u}_\perp}{d\psi} = -\cos\psi\,\mathbf{i}_1 - \sin\psi\,\mathbf{j}_1 = -\mathbf{u}_{AB}$.
+> [!derivation] Bar basis: rotation by psi about k1
+> **Law:** elementary rotation about the third axis; change of basis matrix, its checks and its inverse
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20
+>
+> View from above along $\mathbf k_1$, out of the paper (⊙); $\mathbf i_1$ to the right and $\mathbf j_1$ up. $\mathbf u_{AB}$ is $\mathbf i_1$ turned by $\psi$: hypotenuse 1, adjacent leg $\cos\psi$ along $\mathbf i_1$, opposite leg $\sin\psi$ along $\mathbf j_1$. $\mathbf u_\perp$ is $\mathbf j_1$ turned by $\psi$: adjacent leg $\cos\psi$ along $\mathbf j_1$, opposite leg $\sin\psi$ along minus $\mathbf i_1$ (the upward vector turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf u_{AB} &= \frac{\overrightarrow{AB}}{a} = \cos\psi\,\mathbf i_1 + \sin\psi\,\mathbf j_1 \quad &\text{(right triangle of $\mathbf u_{AB}$)} \\
+> \mathbf u_\perp &= -\sin\psi\,\mathbf i_1 + \cos\psi\,\mathbf j_1 \quad &\text{(right triangle of $\mathbf u_\perp$: opposite leg on $-\mathbf i_1$)} \\
+> \det[{}_1R_2] &= 1\cdot\left(\cos^2\psi + \sin^2\psi\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_1R_2][{}_1R_2]^T\right)_{11} &= \cos^2\psi + \sin^2\psi = 1, \quad \left([{}_1R_2][{}_1R_2]^T\right)_{12} = \cos\psi\sin\psi - \sin\psi\cos\psi = 0 \quad &\text{(rows times rows)} \\
+> \mathbf i_1 &= \cos\psi\,\mathbf u_{AB} - \sin\psi\,\mathbf u_\perp, \quad \mathbf j_1 = \sin\psi\,\mathbf u_{AB} + \cos\psi\,\mathbf u_\perp \quad &\text{(inverse: the rows of the matrix)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_1R_2] = \begin{pmatrix} \cos\psi & -\sin\psi & 0 \cr \sin\psi & \cos\psi & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_1R_2] = 1, \quad [{}_1R_2][{}_1R_2]^T = I}$$
+>
+> **Units:** dimensionless: $[1]$
+> **Meaning:** the bar force acts along $\mathbf u_{AB}$ only, so projecting on $\mathbf u_\perp$ will give an equation free of the unknown tension.
 
 ### Kinematics
 
-##### (a) Relative acceleration $\mathbf{a}_1^B$
-* **Pedagogical Justification:** the relative quantities are derivatives in $S_1$, where $\mathbf{i}_1, \mathbf{j}_1$ are constant, so only the components are differentiated.
+> [!derivation] Motion of the rotating frame and derivatives of its unit vectors
+> **Law:** angular velocity of a simple rotation; derivative of a unit vector fixed in a rotating basis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.4; Notes.pdf, Eq. 3.5; Notes.pdf, Eq. 3.9; [Lecture 5, Slide 16]
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \omega\,\mathbf k_1 \quad &\text{($\mathcal B_1$ turns about the fixed $\mathbf k_0 = \mathbf k_1$ with the angle $\omega t$)} \\
+> \boldsymbol\alpha_{10} &= \dot\omega\,\mathbf k_1 = \mathbf 0 \quad &\text{(Eq. 3.9; $\omega$ constant, $\mathbf k_1$ fixed)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \boldsymbol\omega_{10}\times\mathbf i_1 = \omega\,\mathbf k_1\times\mathbf i_1 = \omega\,\mathbf j_1 \quad &\text{(Eq. 3.3; $\mathbf k_1\times\mathbf i_1 = \mathbf j_1$)} \\
+> \left.\frac{d\mathbf j_1}{dt}\right|_0 &= \omega\,\mathbf k_1\times\mathbf j_1 = -\omega\,\mathbf i_1 \quad &\text{(Eq. 3.4; $\mathbf k_1\times\mathbf j_1 = -\mathbf i_1$)} \\
+> \left.\frac{d\mathbf k_1}{dt}\right|_0 &= \omega\,\mathbf k_1\times\mathbf k_1 = \mathbf 0 \quad &\text{(Eq. 3.5)} \\
+> \frac{d}{dt}\left(\cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0\right) &= -\omega\sin\omega t\,\mathbf i_0 + \omega\cos\omega t\,\mathbf j_0 = \omega\,\mathbf j_1 \quad &\text{(check: chain rule on the components of $\mathbf i_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{10} = \omega\,\mathbf k_1, \quad \boldsymbol\alpha_{10} = \mathbf 0, \quad \left.\frac{d\mathbf i_1}{dt}\right|_0 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = -\omega\,\mathbf i_1}$$
+>
+> **Units:** $[\omega] = [\mathrm{T^{-1}}]$
+> **Meaning:** seen from $S_0$ the unit vectors of $S_1$ turn with the vehicle; seen from $S_1$ they are constant.
 
-Relative velocity, with the chain rule $\frac{d}{dt}\cos\psi = -\sin\psi\,\dot{\psi}$ and $\frac{d}{dt}\sin\psi = \cos\psi\,\dot{\psi}$:
+> [!derivation] Absolute velocity of the skater: relative and transport terms
+> **Law:** time derivative in $S_0$ of the position vector written in the moving basis; product rule
+> **Source:** Notes.pdf, Eq. 3.2; Notes.pdf, Eq. 3.6; Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.19; [Lecture 5, Slide 24]
+>
+> $$\begin{aligned}
+> \mathbf v_0^B &= \left.\frac{d}{dt}\right|_0\left(x_1\,\mathbf i_1 + y_1\,\mathbf j_1\right) \quad &\text{(definition; $\mathbf r_0^B = \mathbf r_1^B$)} \\
+> &= \dot x_1\,\mathbf i_1 + \dot y_1\,\mathbf j_1 + x_1\left.\frac{d\mathbf i_1}{dt}\right|_0 + y_1\left.\frac{d\mathbf j_1}{dt}\right|_0 \quad &\text{(product rule on each term)} \\
+> &= \underbrace{\dot x_1\,\mathbf i_1 + \dot y_1\,\mathbf j_1}_{\mathbf v_1^B} + \underbrace{\omega x_1\,\mathbf j_1 - \omega y_1\,\mathbf i_1}_{\boldsymbol\omega_{10}\times\mathbf r_1^B} \quad &\text{(derivatives of the unit vectors substituted)} \\
+> \dot x_1 &= \frac{d}{dt}\left[a\left(1 + \cos\psi\right)\right] = -a\sin\psi\,\dot\psi \quad &\text{(chain rule: $\tfrac{d}{d\psi}\cos\psi = -\sin\psi$)} \\
+> \dot y_1 &= \frac{d}{dt}\left(a\sin\psi\right) = a\cos\psi\,\dot\psi \quad &\text{(chain rule: $\tfrac{d}{d\psi}\sin\psi = \cos\psi$)} \\
+> \mathbf v_1^B &= -a\dot\psi\sin\psi\,\mathbf i_1 + a\dot\psi\cos\psi\,\mathbf j_1 = a\dot\psi\,\mathbf u_\perp \quad &\text{(components; $\mathbf u_\perp$ of the bar basis)} \\
+> \boldsymbol\omega_{10}\times\mathbf r_1^B &= -a\omega\sin\psi\,\mathbf i_1 + a\omega\left(1 + \cos\psi\right)\mathbf j_1 \quad &\text{($x_1$ and $y_1$ substituted)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^B = \mathbf v_1^B + \boldsymbol\omega_{10}\times\mathbf r_1^B = -a\left(\dot\psi + \omega\right)\sin\psi\,\mathbf i_1 + a\left[\left(\dot\psi + \omega\right)\cos\psi + \omega\right]\mathbf j_1}$$
+>
+> **Units:** $[a\dot\psi] = [a\omega] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** the relative term comes from differentiating the components, the transport term from differentiating the turning unit vectors; it is the form of Eq. 3.20 with the origin at rest.
 
-$$ \mathbf{v}_1^B = \left.\frac{d\mathbf{r}_1^B}{dt}\right|_1 = -a\dot{\psi}\sin\psi\,\mathbf{i}_1 + a\dot{\psi}\cos\psi\,\mathbf{j}_1 = a\dot{\psi}\,\mathbf{u}_\perp $$
+> [!derivation] Absolute acceleration of the skater: relative, Coriolis and centripetal terms
+> **Law:** time derivative in $S_0$ of the two terms of the velocity; product rule and derivatives of the unit vectors
+> **Source:** Notes.pdf, Eq. 3.21; Notes.pdf, Eq. 3.22; Notes.pdf, Eq. 3.23; Notes.pdf, Eq. 3.24; [Lecture 5, Slide 25]
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf v_1^B}{dt}\right|_0 &= \ddot x_1\,\mathbf i_1 + \ddot y_1\,\mathbf j_1 + \dot x_1\,\omega\,\mathbf j_1 - \dot y_1\,\omega\,\mathbf i_1 \quad &\text{(product rule; derivatives of $\mathbf i_1$, $\mathbf j_1$)} \\
+> &= \mathbf a_1^B + \boldsymbol\omega_{10}\times\mathbf v_1^B \quad &\text{(first pair: the relative acceleration; second pair: a rotation term)} \\
+> \left.\frac{d}{dt}\right|_0\left(\omega\,\mathbf k_1\times\mathbf r_1^B\right) &= \dot\omega\,\mathbf k_1\times\mathbf r_1^B + \omega\left.\frac{d\mathbf k_1}{dt}\right|_0\times\mathbf r_1^B + \omega\,\mathbf k_1\times\left.\frac{d\mathbf r_1^B}{dt}\right|_0 \quad &\text{(product rule on the three factors)} \\
+> &= \boldsymbol\omega_{10}\times\left(\mathbf v_1^B + \boldsymbol\omega_{10}\times\mathbf r_1^B\right) \quad &\text{($\dot\omega$ zero; $\mathbf k_1$ fixed; velocity box)} \\
+> \mathbf a_0^B &= \mathbf a_1^B + \boldsymbol\omega_{10}\times\mathbf v_1^B + \boldsymbol\omega_{10}\times\mathbf v_1^B + \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^B\right) \quad &\text{(sum of the two derivatives)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^B = \mathbf a_1^B + 2\,\boldsymbol\omega_{10}\times\mathbf v_1^B + \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^B\right)}$$
+>
+> **Units:** every term $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** one Coriolis half comes from the turning of $\mathbf i_1$, $\mathbf j_1$ inside the relative velocity, the other from the change of the relative position inside the transport term; with the origin at rest and constant $\omega$ the origin and Euler terms of Eq. 3.27 are absent.
 
-Relative acceleration, with the product rule $\frac{d}{dt}(\dot{\psi}\sin\psi) = \ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi$ and $\frac{d}{dt}(\dot{\psi}\cos\psi) = \ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi$:
+#### (a) Relative acceleration
 
-$$ \boxed{\mathbf{a}_1^B = -a\left(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi\right)\mathbf{i}_1 + a\left(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi\right)\mathbf{j}_1 = a\ddot{\psi}\,\mathbf{u}_\perp - a\dot{\psi}^2\,\mathbf{u}_{AB}} $$
+> [!derivation] Relative acceleration of the skater
+> **Law:** second time derivative in $S_1$, where $\mathbf i_1$ and $\mathbf j_1$ are constant; product rule and chain rule
+> **Source:** Notes.pdf, Eq. 3.7; Notes.pdf, Eq. 3.24; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> \ddot x_1 &= \frac{d}{dt}\left(-a\dot\psi\sin\psi\right) = -a\ddot\psi\sin\psi - a\dot\psi^2\cos\psi \quad &\text{(product rule; chain rule on $\sin\psi$)} \\
+> \ddot y_1 &= \frac{d}{dt}\left(a\dot\psi\cos\psi\right) = a\ddot\psi\cos\psi - a\dot\psi^2\sin\psi \quad &\text{(product rule; chain rule on $\cos\psi$)} \\
+> \mathbf a_1^B &= \ddot x_1\,\mathbf i_1 + \ddot y_1\,\mathbf j_1 \quad &\text{(Eq. 3.24 with constant $\mathbf i_1$, $\mathbf j_1$ in $S_1$)} \\
+> &= a\ddot\psi\left(-\sin\psi\,\mathbf i_1 + \cos\psi\,\mathbf j_1\right) - a\dot\psi^2\left(\cos\psi\,\mathbf i_1 + \sin\psi\,\mathbf j_1\right) \quad &\text{(grouped by $\ddot\psi$ and $\dot\psi^2$)} \\
+> &= a\ddot\psi\,\mathbf u_\perp - a\dot\psi^2\,\mathbf u_{AB} \quad &\text{(bar basis)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_1^B = -a\left(\ddot\psi\sin\psi + \dot\psi^2\cos\psi\right)\mathbf i_1 + a\left(\ddot\psi\cos\psi - \dot\psi^2\sin\psi\right)\mathbf j_1 = a\ddot\psi\,\mathbf u_\perp - a\dot\psi^2\,\mathbf u_{AB}}$$
+>
+> **Units:** $[a\ddot\psi] = [a\dot\psi^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** in $S_1$ the skater moves on a circle of radius $a$ about $A$: a tangential part along the normal of the bar and a centripetal part pointing from $B$ towards $A$.
 
-(the last form follows by grouping the $\ddot{\psi}$ and $\dot{\psi}^2$ terms: circular motion of radius $a$ about $A$, tangential plus normal part).
+#### (b) Centripetal and Coriolis terms
 
-##### (b) Centripetal and Coriolis terms
-* **Pedagogical Justification:** they are the two non-zero rotation terms of Notes Eq. 3.27 (Slide 25); the Euler term vanishes because $\boldsymbol{\alpha}_{10} = \mathbf{0}$ and the origin term because $\mathbf{a}_0^O = \mathbf{0}$.
-
-Cross products used: $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$.
-
-**Centripetal term.**
-
-$$ \boldsymbol{\omega}_{10}\times\mathbf{r}_1^B = \omega\mathbf{k}_1\times\left[a(1+\cos\psi)\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1\right] = a\omega(1+\cos\psi)\,\mathbf{j}_1 - a\omega\sin\psi\,\mathbf{i}_1 $$
-$$ \boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^B\right) = \omega\mathbf{k}_1\times\left[-a\omega\sin\psi\,\mathbf{i}_1 + a\omega(1+\cos\psi)\,\mathbf{j}_1\right] = -a\omega^2\sin\psi\,\mathbf{j}_1 - a\omega^2(1+\cos\psi)\,\mathbf{i}_1 $$
-$$ \boxed{\boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^B\right) = -a\omega^2\left[(1+\cos\psi)\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1\right] = -\omega^2\,\mathbf{r}_1^B} $$
-
-It equals $-\omega^2\mathbf{r}_\perp$ with $\mathbf{r}_\perp = \mathbf{r}_1^B$ because $\mathbf{r}_1^B$ lies in the plane normal to $\boldsymbol{\omega}_{10}$ (Slide 30).
-
-**Coriolis term.**
-
-$$ 2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^B = 2\omega\mathbf{k}_1\times\left(-a\dot{\psi}\sin\psi\,\mathbf{i}_1 + a\dot{\psi}\cos\psi\,\mathbf{j}_1\right) = -2a\omega\dot{\psi}\sin\psi\,\mathbf{j}_1 - 2a\omega\dot{\psi}\cos\psi\,\mathbf{i}_1 $$
-$$ \boxed{2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^B = -2a\omega\dot{\psi}\left(\cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1\right) = -2a\omega\dot{\psi}\,\mathbf{u}_{AB}} $$
-
-**Absolute acceleration** (Notes Eq. 3.27):
-
-$$ \mathbf{a}_0^B = \underbrace{\mathbf{a}_0^O}_{\mathbf{0}} + \mathbf{a}_1^B + \underbrace{\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^B}_{\mathbf{0}} - \omega^2\mathbf{r}_1^B - 2a\omega\dot{\psi}\,\mathbf{u}_{AB} $$
+> [!derivation] Centripetal and Coriolis accelerations
+> **Law:** vector products with the angular velocity of $S_1$, expanded term by term
+> **Source:** Notes.pdf, Eq. 3.25; Notes.pdf, Eq. 3.27; [Lecture 5, Slide 25]
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10}\times\mathbf r_1^B &= \omega\,\mathbf k_1\times\left[a\left(1 + \cos\psi\right)\mathbf i_1 + a\sin\psi\,\mathbf j_1\right] = -a\omega\sin\psi\,\mathbf i_1 + a\omega\left(1 + \cos\psi\right)\mathbf j_1 \quad &\text{($\mathbf k_1\times\mathbf i_1 = \mathbf j_1$, $\mathbf k_1\times\mathbf j_1 = -\mathbf i_1$)} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^B\right) &= \omega\,\mathbf k_1\times\left[-a\omega\sin\psi\,\mathbf i_1 + a\omega\left(1 + \cos\psi\right)\mathbf j_1\right] \quad &\text{(previous row)} \\
+> &= -a\omega^2\sin\psi\,\mathbf j_1 - a\omega^2\left(1 + \cos\psi\right)\mathbf i_1 \quad &\text{(same products)} \\
+> 2\,\boldsymbol\omega_{10}\times\mathbf v_1^B &= 2\omega\,\mathbf k_1\times\left(-a\dot\psi\sin\psi\,\mathbf i_1 + a\dot\psi\cos\psi\,\mathbf j_1\right) \quad &\text{(relative velocity of the velocity box)} \\
+> &= -2a\omega\dot\psi\sin\psi\,\mathbf j_1 - 2a\omega\dot\psi\cos\psi\,\mathbf i_1 \quad &\text{(same products)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^B\right) = -a\omega^2\left[\left(1 + \cos\psi\right)\mathbf i_1 + \sin\psi\,\mathbf j_1\right], \qquad 2\,\boldsymbol\omega_{10}\times\mathbf v_1^B = -2a\omega\dot\psi\left(\cos\psi\,\mathbf i_1 + \sin\psi\,\mathbf j_1\right) = -2a\omega\dot\psi\,\mathbf u_{AB}}$$
+>
+> **Units:** $[a\omega^2] = [a\omega\dot\psi] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the centripetal term is $\omega^2$ times the position vector, reversed: it points from $B$ towards the axis through $O$, because the whole of $\mathbf r_1^B$ lies in the plane normal to $\boldsymbol\omega_{10}$. The Coriolis term lies along the bar.
 
 ### Forces and Equations of Motion
 
-##### (c) Forces on the skater in $S_1$
-* **Pedagogical Justification:** in $S_1$ Newton's law holds with the inertia forces (Notes Eqs. 4.62–4.63): $m\mathbf{a}_1^B = \mathbf{F} + \mathbf{F}_i$. Here $\mathbf{F} = -T\,\mathbf{u}_{AB}$ (horizontal part), $\mathbf{F}_A = \mathbf{0}$, $\mathbf{F}_E = \mathbf{0}$, and
-$$ \mathbf{F}_C = -m\boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^B\right) = ma\omega^2\left[(1+\cos\psi)\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1\right], \qquad \mathbf{F}_{COR} = -2m\boldsymbol{\omega}_{10}\times\mathbf{v}_1^B = 2ma\omega\dot{\psi}\,\mathbf{u}_{AB} $$
+The free-body diagram of the skater in $S_1$ shows the weight and the normal reaction of the plane (both vertical), the bar force along the bar, and the two inertia forces that do not vanish: the centrifugal force, away from $O$, and the Coriolis force, along the bar. The inertia force of the origin and the Euler force vanish because $O$ is fixed and $\omega$ is constant.
 
-##### (c, continued) Equation of motion
+![[attachments/EM-SOL/p07-fbd.svg]]
 
-The unknown $T$ disappears if we project on $\mathbf{u}_\perp$, the only direction along which the bar exerts no force.
+> [!derivation] Actual and inertia forces on the skater in the rotating frame
+> **Law:** inertia forces of a non-inertial frame; force of a massless two-hinged bar along the bar
+> **Source:** Notes.pdf, Eq. 4.62; [Lecture 5, Slide 28]; [Lecture 5, Slide 30]
+>
+> $$\begin{aligned}
+> \mathbf F &= -T\,\mathbf u_{AB} - mg\,\mathbf k_1 + N\,\mathbf k_1 \quad &\text{(bar, weight, plane)} \\
+> \mathbf F_A &= -m\,\mathbf a_0^O = \mathbf 0, \quad \mathbf F_E = -m\,\boldsymbol\alpha_{10}\times\mathbf r_1^B = \mathbf 0 \quad &\text{($O$ fixed; $\boldsymbol\alpha_{10}$ zero)} \\
+> \mathbf F_C &= -m\,\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^B\right) = ma\omega^2\left[\left(1 + \cos\psi\right)\mathbf i_1 + \sin\psi\,\mathbf j_1\right] \quad &\text{(centripetal term of part (b) times $-m$)} \\
+> \mathbf F_{COR} &= -2m\,\boldsymbol\omega_{10}\times\mathbf v_1^B = 2ma\omega\dot\psi\,\mathbf u_{AB} \quad &\text{(Coriolis term of part (b) times $-m$)} \\
+> \mathbf F_C\cdot\mathbf u_{AB} &= ma\omega^2\left[\left(1 + \cos\psi\right)\cos\psi + \sin^2\psi\right] = ma\omega^2\left(1 + \cos\psi\right) \quad &\text{(components of $\mathbf u_{AB}$; $\cos^2\psi + \sin^2\psi = 1$)} \\
+> \mathbf F_C\cdot\mathbf u_\perp &= ma\omega^2\left[-\left(1 + \cos\psi\right)\sin\psi + \sin\psi\cos\psi\right] = -ma\omega^2\sin\psi \quad &\text{(components of $\mathbf u_\perp$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_C = ma\omega^2\left(1 + \cos\psi\right)\mathbf u_{AB} - ma\omega^2\sin\psi\,\mathbf u_\perp, \qquad \mathbf F_{COR} = 2ma\omega\dot\psi\,\mathbf u_{AB}}$$
+>
+> **Units:** $[ma\omega^2] = [ma\omega\dot\psi] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the centrifugal force pushes $B$ away from $O$; its part normal to the bar turns the bar back towards the axis $Ox_1$, like the weight of a pendulum hung from $A$.
 
-Projections on $\mathbf{u}_\perp = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$:
-
-* $m\mathbf{a}_1^B\cdot\mathbf{u}_\perp = ma\ddot{\psi}$ (from the grouped form of part (a), since $\mathbf{u}_{AB}\cdot\mathbf{u}_\perp = 0$);
-* $-T\,\mathbf{u}_{AB}\cdot\mathbf{u}_\perp = 0$ and $\mathbf{F}_{COR}\cdot\mathbf{u}_\perp = 0$;
-* $\mathbf{F}_C\cdot\mathbf{u}_\perp = ma\omega^2\left[-(1+\cos\psi)\sin\psi + \sin\psi\cos\psi\right] = -ma\omega^2\sin\psi$.
-$$ ma\ddot{\psi} = -ma\omega^2\sin\psi \quad\Longrightarrow\quad \boxed{\ddot{\psi} + \omega^2\sin\psi = 0} $$
-
-In $S_1$ the skater behaves as a pendulum of length $a$ hanging from $A$: about $A$ the centrifugal force $m\omega^2(\mathbf{OA} + \mathbf{AB})$ has the same moment as the uniform field $m a\omega^2\,\mathbf{i}_1$ (because $\mathbf{AB}\times\mathbf{AB} = \mathbf{0}$), so the "effective gravity" has strength $a\omega^2$ and points along $+\mathbf{i}_1$.
-
-##### (d) Equation for the tension
-* **Pedagogical Justification:** project $m\mathbf{a}_1^B = -T\mathbf{u}_{AB} + \mathbf{F}_C + \mathbf{F}_{COR}$ on $\mathbf{u}_{AB}$, the direction in which the bar force acts.
-
-Projections on $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$:
-
-* $m\mathbf{a}_1^B\cdot\mathbf{u}_{AB} = -ma\dot{\psi}^2$;
-* $\mathbf{F}_C\cdot\mathbf{u}_{AB} = ma\omega^2\left[(1+\cos\psi)\cos\psi + \sin^2\psi\right] = ma\omega^2(1 + \cos\psi)$;
-* $\mathbf{F}_{COR}\cdot\mathbf{u}_{AB} = 2ma\omega\dot{\psi}$.
-$$ -ma\dot{\psi}^2 = -T + ma\omega^2(1+\cos\psi) + 2ma\omega\dot{\psi} \quad\Longrightarrow\quad T = ma\left[\dot{\psi}^2 + 2\omega\dot{\psi} + \omega^2(1 + \cos\psi)\right] $$
+> [!derivation] Newton's second law in the rotating frame, projected on the bar basis
+> **Law:** Newton's second law in a non-inertial frame with the inertia forces
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Sec. 7.6; [Lecture 5, Slide 28]
+>
+> $$\begin{aligned}
+> m\,\mathbf a_1^B &= \mathbf F + \mathbf F_C + \mathbf F_{COR} \quad &\text{(Eq. 4.63; $\mathbf F_A$ and $\mathbf F_E$ zero)} \\
+> \mathbf u_\perp:\ ma\ddot\psi &= -ma\omega^2\sin\psi \quad &\text{(bar force and Coriolis force have no $\mathbf u_\perp$ part)} \\
+> \mathbf u_{AB}:\ -ma\dot\psi^2 &= -T + ma\omega^2\left(1 + \cos\psi\right) + 2ma\omega\dot\psi \quad &\text{(all forces along the bar)} \\
+> \mathbf k_1:\ 0 &= N - mg \quad &\text{(the skater stays on the plane)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\psi + \omega^2\sin\psi = 0, \qquad T = ma\left[\dot\psi^2 + 2\omega\dot\psi + \omega^2\left(1 + \cos\psi\right)\right], \qquad N = mg}$$
+>
+> **Units:** $[\ddot\psi] = [\omega^2] = [\mathrm{T^{-2}}]$; $[T] = [ma\dot\psi^2] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** three scalar equations for the three unknowns $\psi$, $T$ and $N$. In $S_1$ the skater swings like a pendulum of length $a$ hung from $A$, with the effective field $a\omega^2$ pointing along plus $\mathbf i_1$, away from $O$; $\psi$ zero is its stable bottom.
 
 ### Answers and Checks
 
-##### (a) Relative acceleration
-$\mathbf{a}_1^B = -a\left(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi\right)\mathbf{i}_1 + a\left(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi\right)\mathbf{j}_1 = a\ddot{\psi}\,\mathbf{u}_\perp - a\dot{\psi}^2\,\mathbf{u}_{AB}$.
+#### (c) Reduction to quadratures
 
-##### (b) Centripetal and Coriolis terms
-$\boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^B\right) = -a\omega^2\left[(1+\cos\psi)\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1\right]$ and $2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^B = -2a\omega\dot{\psi}\left(\cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1\right)$. Both agree with the official key (Problems.pdf, p. 72), where the centripetal term is called "centrifugal acceleration".
+> [!derivation] First integral of the equation of motion
+> **Law:** the equation of motion multiplied by twice the rate is an exact derivative (the hint of the statement); Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.22; Notes.pdf, Sec. 7.7; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> 2\dot\psi\ddot\psi + 2\omega^2\sin\psi\,\dot\psi &= 0 \quad &\text{(equation of motion times $2\dot\psi$)} \\
+> \frac{d}{dt}\left(\dot\psi^2\right) &= 2\dot\psi\ddot\psi \quad &\text{(chain rule: $\tfrac{d}{d\dot\psi}\dot\psi^2 = 2\dot\psi$)} \\
+> \frac{d}{dt}\left(-2\omega^2\cos\psi\right) &= 2\omega^2\sin\psi\,\dot\psi \quad &\text{(chain rule: $\tfrac{d}{d\psi}\cos\psi = -\sin\psi$)} \\
+> \frac{d}{dt}\left(\dot\psi^2 - 2\omega^2\cos\psi\right) &= 0 \quad &\text{(the first row is this sum)} \\
+> \left[\dot\psi^2 - 2\omega^2\cos\psi\right]_0^t &= 0 \quad &\text{(Barrow's rule between 0 and $t$)} \\
+> \dot\psi^2 - \dot\psi^2(0) &= 2\omega^2\left(\cos\psi - \cos\psi(0)\right) = 2\omega^2\left(\cos\psi - 1\right) \quad &\text{($\psi(0) = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\psi^2 = \dot\psi^2(0) + 2\omega^2\left(\cos\psi - 1\right)}$$
+>
+> **Units:** $[\dot\psi^2] = [\omega^2] = [\mathrm{T^{-2}}]$
+> **Meaning:** the rate squared depends on the position only; the initial rate is still to be found from the condition that the skater starts at rest in $S_0$.
 
-##### (c) First integral, initial rate and quadrature
+> [!derivation] Initial rate from the skater at rest in the inertial frame
+> **Law:** absolute velocity of the velocity box evaluated at the initial instant
+> **Source:** Notes.pdf, Eq. 3.20; Notes.pdf, Eq. 3.26; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> \mathbf v_0^B &= -a\left(\dot\psi + \omega\right)\sin\psi\,\mathbf i_1 + a\left[\left(\dot\psi + \omega\right)\cos\psi + \omega\right]\mathbf j_1 \quad &\text{(velocity box)} \\
+> \mathbf v_0^B(0) &= -a\left(\dot\psi(0) + \omega\right)\cdot 0\,\mathbf i_1 + a\left[\left(\dot\psi(0) + \omega\right)\cdot 1 + \omega\right]\mathbf j_1 \quad &\text{($\psi(0) = 0$: $\sin 0 = 0$, $\cos 0 = 1$)} \\
+> &= a\left[\dot\psi(0) + 2\omega\right]\mathbf j_1 = \mathbf 0 \quad &\text{(skater at rest in $S_0$)} \\
+> \dot\psi(0) &= -2\omega \quad &\text{(solved)} \\
+> \dot\psi^2 &= 4\omega^2 + 2\omega^2\left(\cos\psi - 1\right) = 2\omega^2\left(1 + \cos\psi\right) \quad &\text{(first integral)} \\
+> &= 4\omega^2\cos^2\frac{\psi}{2} \quad &\text{($1 + \cos\psi = 2\cos^2(\psi/2)$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\psi(0) = -2\omega, \qquad \dot\psi^2 = 4\omega^2\cos^2\frac{\psi}{2}}$$
+>
+> **Units:** $[\dot\psi] = [\omega] = [\mathrm{T^{-1}}]$
+> **Meaning:** seen from $S_1$, which turns counterclockwise, a skater at rest in $S_0$ moves clockwise: her relative velocity must cancel the transport velocity of the point at twice $a$ from the axis, of magnitude $2a\omega$.
 
-**First integral (hint of the statement).** Multiply $\ddot{\psi} + \omega^2\sin\psi = 0$ by $2\dot{\psi}$. By the chain rule $\frac{d}{dt}\left(\dot{\psi}^2\right) = 2\dot{\psi}\ddot{\psi}$ and $\frac{d}{dt}\cos\psi = -\sin\psi\,\dot{\psi}$, so
+> [!derivation] Sign of the rate and quadrature
+> **Law:** continuity of the rate; separation of variables
+> **Source:** Notes.pdf, Eq. 4.44; Notes.pdf, Sec. 7.7; Problems.pdf, p. 8
+>
+> The rate is a continuous function of time. Between minus $\pi$ and $\pi$ the factor $\cos(\psi/2)$ is positive, so the rate cannot vanish there and keeps the sign it has at the start, negative: $\psi$ decreases from 0 and stays between minus $\pi$ and 0.
+>
+> $$\begin{aligned}
+> \dot\psi &= -2\omega\cos\frac{\psi}{2}, \quad -\pi \lt \psi \le 0 \quad &\text{(negative root, fixed by $\dot\psi(0) = -2\omega$)} \\
+> \frac{d\psi}{2\cos(\psi/2)} &= -\omega\,dt \quad &\text{(variables separated)} \\
+> \int_0^{\psi}\frac{d\psi'}{2\cos(\psi'/2)} &= -\int_0^t\omega\,dt' \quad &\text{(integrated from the initial state $\psi(0) = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\int_0^{\psi}\frac{d\psi'}{2\cos(\psi'/2)} = -\int_0^t\omega\,dt', \qquad \dot\psi = -2\omega\cos\frac{\psi}{2} \ \ \left(-\pi \lt \psi \le 0\right)}$$
+>
+> **Units:** both integrals dimensionless; $[\omega\,dt] = [1]$
+> **Meaning:** this is the form asked for in the statement; the next box evaluates it.
 
-$$ 2\dot{\psi}\ddot{\psi} = -2\omega^2\sin\psi\,\dot{\psi} \quad\Longleftrightarrow\quad \frac{d}{dt}\left(\dot{\psi}^2\right) = 2\omega^2\frac{d}{dt}\left(\cos\psi\right) $$
+> [!derivation] Evaluation of the quadrature: the angle as a function of time
+> **Law:** substitution, antiderivative of the secant, Barrow's rule; half-angle identities
+> **Source:** Notes.pdf, Eq. 4.44; Problems.pdf, p. 8
+>
+> With the substitution $w = \psi'/2$ the differential is $d\psi' = 2\,dw$ and the limits 0 and $\psi$ become 0 and $\psi/2$. The antiderivative of $1/\cos w$ is $\ln|\sec w + \tan w|$; its derivative is $(\sec w\tan w + \sec^2 w)/(\sec w + \tan w) = \sec w$.
+>
+> $$\begin{aligned}
+> \int_0^{\psi}\frac{d\psi'}{2\cos(\psi'/2)} &= \int_0^{\psi/2}\frac{2\,dw}{2\cos w} = \int_0^{\psi/2}\frac{dw}{\cos w} \quad &\text{(substitution $\psi' = 2w$)} \\
+> &= \left[\ln\left|\sec w + \tan w\right|\right]_0^{\psi/2} = \ln\left(\sec\frac{\psi}{2} + \tan\frac{\psi}{2}\right) - \ln 1 \quad &\text{(Barrow's rule; the argument is positive for $|\psi/2| \lt \pi/2$)} \\
+> -\int_0^t\omega\,dt' &= -\omega\left[t'\right]_0^t = -\omega t \quad &\text{(antiderivative $t'$; Barrow's rule)} \\
+> \sec x + \tan x &= \frac{1 + \sin x}{\cos x} = \frac{\left(\cos\tfrac{x}{2} + \sin\tfrac{x}{2}\right)^2}{\cos^2\tfrac{x}{2} - \sin^2\tfrac{x}{2}} = \frac{1 + \tan\tfrac{x}{2}}{1 - \tan\tfrac{x}{2}} = \tan\left(\frac{\pi}{4} + \frac{x}{2}\right) \quad &\text{(half-angle forms; tangent of a sum)} \\
+> \tan\left(\frac{\pi}{4} + \frac{\psi}{4}\right) &= e^{-\omega t} \quad &\text{(exponential of both sides, $x = \psi/2$)} \\
+> \psi &= 4\arctan\left(e^{-\omega t}\right) - \pi \quad &\text{(solved; $\pi/4 + \psi/4$ lies between 0 and $\pi/4$)} \\
+> \cos\frac{\psi}{2} &= \cos\left(2\arctan e^{-\omega t} - \frac{\pi}{2}\right) = \sin\left(2\arctan e^{-\omega t}\right) = \frac{2e^{-\omega t}}{1 + e^{-2\omega t}} = \frac{1}{\cosh\omega t} \quad &\text{($\sin 2\beta = 2\tan\beta/(1 + \tan^2\beta)$)}
+> \end{aligned}$$
+>
+> $$\boxed{\psi(t) = 4\arctan\left(e^{-\omega t}\right) - \pi, \qquad \cos\frac{\psi}{2} = \frac{1}{\cosh\omega t}, \qquad \dot\psi = -\frac{2\omega}{\cosh\omega t}}$$
+>
+> **Units:** $[\omega t] = [1]$
+> **Meaning:** $\psi$ starts at 0 and tends to minus $\pi$ as $t$ grows, without reaching it in a finite time: with a rigid bar the skater creeps towards the centre $O$. The rate written with the hyperbolic cosine has the value $-2\omega$ at the start, as the initial-rate box requires.
 
-Integrate from $0$ to $t$ and apply Barrow's rule $[F]_0^t = F(t) - F(0)$:
+#### (d) Tension on the bar
 
-On the left, $\int_0^t 2\dot{\psi}\ddot{\psi}\,dt' = \left[\dot{\psi}^2\right]_0^t$. On the right, the change of variable $\psi = \psi(t')$, $d\psi = \dot{\psi}\,dt'$, turns $\int_0^t\left(-2\omega^2\sin\psi\right)\dot{\psi}\,dt'$ into $\int_{\psi(0)}^{\psi(t)}\left(-2\omega^2\sin\psi\right)d\psi$, whose antiderivative is $2\omega^2\cos\psi$:
+> [!derivation] Tension as a function of the angle and of time
+> **Law:** tangent equation of the bar basis with the first integral substituted
+> **Source:** Notes.pdf, Eq. 4.63; Problems.pdf, p. 8
+>
+> Write $c$ for $\cos(\psi/2)$, positive during the motion.
+>
+> $$\begin{aligned}
+> T &= ma\left[\dot\psi^2 + 2\omega\dot\psi + \omega^2\left(1 + \cos\psi\right)\right] \quad &\text{(equation along the bar)} \\
+> \dot\psi^2 &= 4\omega^2c^2, \quad \dot\psi = -2\omega c, \quad 1 + \cos\psi = 2c^2 \quad &\text{(sign box and half-angle identity)} \\
+> T &= ma\omega^2\left(4c^2 - 4c + 2c^2\right) = ma\omega^2\left(6c^2 - 4c\right) \quad &\text{(substituted and collected)} \\
+> &= 2ma\omega^2\,c\left(3c - 2\right) \quad &\text{(common factor $2c$)} \\
+> T(t) &= \frac{2ma\omega^2}{\cosh\omega t}\left(\frac{3}{\cosh\omega t} - 2\right) \quad &\text{($c = 1/\cosh\omega t$)}
+> \end{aligned}$$
+>
+> $$\boxed{T = 2ma\omega^2\cos\frac{\psi}{2}\left(3\cos\frac{\psi}{2} - 2\right)}$$
+>
+> **Units:** $[ma\omega^2] = [\mathrm{M}][\mathrm{L}][\mathrm{T^{-2}}] = [\mathrm{M\,L\,T^{-2}}]$, a force
+> **Meaning:** at the start ($c$ equal to 1) the bar pulls with $2ma\omega^2$; the pull decreases as the skater swings in and turns into a push later on.
 
-$$ \dot{\psi}^2(t) - \dot{\psi}^2(0) = \int_{\psi(0)}^{\psi(t)}\left(-2\omega^2\sin\psi\right)d\psi = 2\omega^2\left[\cos\psi\right]_{\psi(0)}^{\psi(t)} = 2\omega^2\left(\cos\psi - 1\right) $$
+#### (e) String instead of the bar
 
-**Initial rate.** By Notes Eq. 3.26, $\mathbf{v}_0^B = \mathbf{v}_0^O + \mathbf{v}_1^B + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^B$. At $t = 0$: $\psi = 0$, $\mathbf{r}_1^B = 2a\,\mathbf{i}_1$, $\mathbf{v}_1^B = a\dot{\psi}(0)\,\mathbf{j}_1$, $\boldsymbol{\omega}_{10}\times\mathbf{r}_1^B = 2a\omega\,\mathbf{j}_1$, and $\mathbf{v}_0^B = \mathbf{0}$:
+> [!derivation] Instant at which a string goes slack
+> **Law:** a string can only pull: it stays taut while the tension of the bar solution is not negative
+> **Source:** Notes.pdf, Sec. 6.4; Problems.pdf, p. 8
+>
+> While the string is taut it behaves as the bar, so the motion and the tension are those found above. $c$ is the reciprocal of $\cosh\omega t$, so it decreases monotonically from 1 towards 0; the factor $c$ stays positive and the factor $3c - 2$ changes sign once.
+>
+> $$\begin{aligned}
+> T &= 0 \iff 3c - 2 = 0 \iff \cos\frac{\psi}{2} = \frac23 \quad &\text{(first zero of the tension)} \\
+> \psi_\ell &= -2\arccos\frac23 = -1.6821\ \text{rad} = -96.38^\circ \quad &\text{(negative branch of the motion)} \\
+> \cosh\omega t_\ell &= \frac32 \quad &\text{($c = 1/\cosh\omega t$)} \\
+> e^{\omega t_\ell} &= \frac32 + \sqrt{\frac94 - 1} = \frac{3 + \sqrt5}{2} \quad &\text{(positive root of $e^{2x} - 3e^x + 1 = 0$)} \\
+> \omega t_\ell &= \ln\frac{3 + \sqrt5}{2} = 0.9624 \quad &\text{(logarithm)} \\
+> \left|\mathbf r_1^B\right| &= a\sqrt{2\left(1 + \cos\psi_\ell\right)} = 2a\cos\frac{\psi_\ell}{2} = \frac43\,a \quad &\text{(distance from $O$ at that instant)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{the string goes slack at } \psi_\ell = -2\arccos\frac23 \simeq -96.38^\circ, \quad t_\ell = \frac{1}{\omega}\ln\frac{3 + \sqrt5}{2} \simeq \frac{0.9624}{\omega}}$$
+>
+> **Units:** $[t_\ell] = [\omega^{-1}] = [\mathrm{T}]$; angles dimensionless
+> **Meaning:** yes, it goes slack, once, after the string has turned 96.38 degrees clockwise from $Ox_1$ (it lags behind the vehicle), when the skater is at four thirds of $a$ from the centre. From then on no force acts in the plane and the skater moves in a straight line in $S_0$.
 
-$$ \mathbf{0} = \left[a\dot{\psi}(0) + 2a\omega\right]\mathbf{j}_1 \quad\Longrightarrow\quad \dot{\psi}(0) = -2\omega $$
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Relative acceleration | $\mathbf a_1^B = -a\left(\ddot\psi\sin\psi + \dot\psi^2\cos\psi\right)\mathbf i_1 + a\left(\ddot\psi\cos\psi - \dot\psi^2\sin\psi\right)\mathbf j_1 = a\ddot\psi\,\mathbf u_\perp - a\dot\psi^2\,\mathbf u_{AB}$ |
+| (b) Centripetal term | $\boldsymbol\omega_{10}\times(\boldsymbol\omega_{10}\times\mathbf r_1^B) = -a\omega^2\left[(1 + \cos\psi)\mathbf i_1 + \sin\psi\,\mathbf j_1\right]$ |
+| (b) Coriolis term | $2\boldsymbol\omega_{10}\times\mathbf v_1^B = -2a\omega\dot\psi\left(\cos\psi\,\mathbf i_1 + \sin\psi\,\mathbf j_1\right)$ |
+| (c) Equation of motion and quadrature | $\ddot\psi + \omega^2\sin\psi = 0$; $\dot\psi = -2\omega\cos(\psi/2)$ for $-\pi \lt \psi \le 0$; $\int_0^{\psi}d\psi'/(2\cos(\psi'/2)) = -\int_0^t\omega\,dt'$, giving $\psi = 4\arctan(e^{-\omega t}) - \pi$ |
+| (d) Tension | $T = 2ma\omega^2\cos(\psi/2)\left(3\cos(\psi/2) - 2\right)$ |
+| (e) String | goes slack at $\psi = -2\arccos(2/3) \simeq -96.38^\circ$, at $t = \ln\frac{3 + \sqrt5}{2}/\omega \simeq 0.9624/\omega$ |
+| Normal reaction of the plane | $N = mg$ |
 
-Hence, with $1 + \cos\psi = 2\cos^2(\psi/2)$,
+**Check against the official key:** Problems.pdf, p. 72 prints the Coriolis acceleration, the "centrifugal acceleration" (the term called centripetal here, as in Notes.pdf, Eq. 3.25), the first-order equation of motion with its range, the tension and the angle at which the string goes slack. The box below sets them side by side with the results above: every one coincides, so there is no discrepancy.
 
-$$ \dot{\psi}^2 = 4\omega^2 + 2\omega^2(\cos\psi - 1) = 2\omega^2(1 + \cos\psi) = 4\omega^2\cos^2\frac{\psi}{2} $$
+> [!derivation] Comparison with the official key
+> **Law:** term-by-term comparison of the results with the key
+> **Source:** Problems.pdf, p. 72; Notes.pdf, Eq. 3.25
+>
+> $$\begin{aligned}
+> \text{key: } \mathbf a_{cor} &= -2a\omega\dot\psi\left(\cos\psi\,\mathbf i_1 + \sin\psi\,\mathbf j_1\right) \quad &\text{(same as $2\boldsymbol\omega_{10}\times\mathbf v_1^B$, part (b))} \\
+> \text{key: } \mathbf a_{cf} &= -a\omega^2\left[\left(1 + \cos\psi\right)\mathbf i_1 + \sin\psi\,\mathbf j_1\right] \quad &\text{(same as the centripetal term, part (b))} \\
+> \text{key: } \dot\psi &= -2\omega\cos\left(\psi/2\right), \ -\pi \lt \psi \le 0 \quad &\text{(same as the sign box, part (c))} \\
+> \text{key: } T &= 2ma\omega^2\cos\frac{\psi}{2}\left(3\cos\frac{\psi}{2} - 2\right) \quad &\text{(same as part (d))} \\
+> \text{key: } \psi &= -2\arccos\left(2/3\right) \quad &\text{(same as part (e))}
+> \end{aligned}$$
+>
+> $$\boxed{\text{all five results of the key coincide with this solution}}$$
+>
+> **Units:** accelerations $[\mathrm{L\,T^{-2}}]$, rate $[\mathrm{T^{-1}}]$, tension $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the key calls centrifugal acceleration the term that Notes.pdf calls centripetal; it is the same vector, pointing towards the axis.
 
-For $-\pi \lt \psi \lt \pi$ the factor $\cos(\psi/2) \gt 0$, so $\dot{\psi}$ cannot vanish nor change sign there; $\dot{\psi}(0) = -2\omega \lt 0$ selects
+> [!derivation] Independent check: mechanical energy in the rotating frame
+> **Law:** in $S_1$ the mechanical energy is conserved when every force that does work there has a potential
+> **Source:** [Lecture 5, Slide 29]; [Lecture 5, Slide 30]; [Lecture 5, Slide 31]; Notes.pdf, Eq. 4.31
+>
+> Two reasons make the energy in $S_1$ a constant. First, the forces that do work in $S_1$ have a potential: $\boldsymbol\omega_{10}$ is constant, so the centrifugal force derives from $-\tfrac12 m\omega^2 r_\perp^2$, where $r_\perp$ is the distance to the axis through $O$ (here the whole of $|\mathbf r_1^B|$), while the force of the origin and the Euler force vanish. Second, the other forces do no work in $S_1$: the bar force lies along $\mathbf u_{AB}$, normal to the relative velocity along $\mathbf u_\perp$; the Coriolis force is normal to the relative velocity; the weight and the normal reaction are vertical.
+>
+> $$\begin{aligned}
+> r_\perp^2 &= a^2\left(1 + \cos\psi\right)^2 + a^2\sin^2\psi = 2a^2\left(1 + \cos\psi\right) \quad &\text{(components of $\mathbf r_1^B$; Pythagorean identity)} \\
+> E_1^B &= \tfrac12 m\,\mathbf v_1^B\cdot\mathbf v_1^B - \tfrac12 m\omega^2 r_\perp^2 = \tfrac12 ma^2\dot\psi^2 - ma^2\omega^2\left(1 + \cos\psi\right) \quad &\text{(kinetic energy in $S_1$ plus the centrifugal potential)} \\
+> E_1^B(0) &= \tfrac12 ma^2\left(4\omega^2\right) - ma^2\omega^2\cdot 2 = 0 \quad &\text{($\dot\psi(0) = -2\omega$, $\psi(0) = 0$)} \\
+> \dot\psi^2 &= 2\omega^2\left(1 + \cos\psi\right) \quad &\text{(constant energy equal to zero)}
+> \end{aligned}$$
+>
+> $$\boxed{E_1^B = \tfrac12 ma^2\dot\psi^2 - ma^2\omega^2\left(1 + \cos\psi\right) = 0 \ \Rightarrow\ \dot\psi^2 = 2\omega^2\left(1 + \cos\psi\right)}$$
+>
+> **Units:** $[ma^2\omega^2] = [\mathrm{M\,L^2\,T^{-2}}]$, an energy
+> **Meaning:** the energy route, which never uses the equation of motion, gives the same first integral; the energy is exactly that of the separatrix of the effective pendulum, which is why the skater only creeps towards the top position at $\psi$ equal to minus $\pi$.
 
-$$ \boxed{\dot{\psi} = -2\omega\cos\frac{\psi}{2}, \qquad -\pi \lt \psi \le 0} $$
+> [!derivation] Check at the initial instant, in the inertial frame
+> **Law:** composition of accelerations at the start; Newton's second law in $S_0$ along $\mathbf i_1$
+> **Source:** Notes.pdf, Eq. 3.27; Notes.pdf, Eq. 4.59
+>
+> $$\begin{aligned}
+> \ddot\psi(0) &= -\omega^2\sin 0 = 0, \quad \dot\psi(0) = -2\omega \quad &\text{(equation of motion; initial rate)} \\
+> \mathbf a_1^B(0) &= -a\left(4\omega^2\right)\mathbf i_1 = -4a\omega^2\,\mathbf i_1 \quad &\text{(part (a) with $\mathbf u_{AB}(0) = \mathbf i_1$)} \\
+> 2\,\boldsymbol\omega_{10}\times\mathbf v_1^B(0) &= -2a\omega\left(-2\omega\right)\mathbf i_1 = 4a\omega^2\,\mathbf i_1 \quad &\text{(part (b))} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^B(0)\right) &= -2a\omega^2\,\mathbf i_1 \quad &\text{(part (b) with $\psi = 0$)} \\
+> \mathbf a_0^B(0) &= -4a\omega^2\,\mathbf i_1 + 4a\omega^2\,\mathbf i_1 - 2a\omega^2\,\mathbf i_1 = -2a\omega^2\,\mathbf i_1 \quad &\text{(sum)} \\
+> -T(0)\,\mathbf i_1 &= m\,\mathbf a_0^B(0) \ \Rightarrow\ T(0) = 2ma\omega^2 \quad &\text{(Eq. 4.59 along $\mathbf i_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{T(0) = 2ma\omega^2 = \left. 2ma\omega^2\,c\left(3c - 2\right)\right|_{c = 1}}$$
+>
+> **Units:** $[a\omega^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** at rest in $S_0$, the skater is set in motion by the bar alone, which pulls her towards the vehicle; the inertial frame gives the same tension as the rotating one.
 
-which agrees with the official key (Problems.pdf, p. 72).
-
-**Energy check in $S_1$** (Slides 29–30). The origin is fixed and $\boldsymbol{\omega}_{10}$ is constant, so $\mathbf{F}_C$ has the potential $V_1 = -\tfrac12 m\omega^2 r_\perp^2$, $\mathbf{F}_{COR}$ does no work, and the bar force does no work in $S_1$ ($-T\mathbf{u}_{AB}\cdot a\dot{\psi}\mathbf{u}_\perp = 0$). With $r_\perp^2 = a^2\left[(1+\cos\psi)^2 + \sin^2\psi\right] = 2a^2(1+\cos\psi)$:
-
-$$ E_1^B = \frac12 ma^2\dot{\psi}^2 - ma^2\omega^2(1+\cos\psi) = \text{const} = \frac12 ma^2(4\omega^2) - 2ma^2\omega^2 = 0 $$
-
-which gives again $\dot{\psi}^2 = 2\omega^2(1 + \cos\psi)$.
-
-**Quadrature.** Separate variables in $\frac{d\psi}{dt} = -2\omega\cos\frac{\psi}{2}$:
-
-$$ \boxed{\int_0^{\psi}\frac{d\psi'}{2\cos(\psi'/2)} = -\int_0^t \omega\,dt'} $$
-
-The left integral is elementary. Substitute $w = \psi'/2$, $d\psi' = 2\,dw$, limits $0 \to \psi/2$; the antiderivative of $\sec w$ is $\ln|\sec w + \tan w|$ (its derivative is $\frac{\sec w\tan w + \sec^2 w}{\sec w + \tan w} = \sec w$). By Barrow's rule:
-
-$$ \int_0^{\psi/2}\frac{dw}{\cos w} = \left[\ln\left|\sec w + \tan w\right|\right]_0^{\psi/2} = \ln\left|\sec\frac{\psi}{2} + \tan\frac{\psi}{2}\right| - \ln 1 = -\omega t $$
-
-so $\psi(t)$ is given implicitly by $\sec\frac{\psi}{2} + \tan\frac{\psi}{2} = e^{-\omega t}$; as $t\to\infty$, $\psi \to -\pi$, i.e. $B$ tends to the centre $O$ ($\mathbf{r}_1^B \to \mathbf{0}$) without ever reaching it.
-
-##### (d) Tension on the bar
-Substitute the first integral in $T = ma\left[\dot{\psi}^2 + 2\omega\dot{\psi} + \omega^2(1 + \cos\psi)\right]$, with $c \equiv \cos(\psi/2)$: $\dot{\psi}^2 = 4\omega^2c^2$, $\dot{\psi} = -2\omega c$, $1 + \cos\psi = 2c^2$:
-
-$$ T = ma\omega^2\left(4c^2 - 4c + 2c^2\right) = ma\omega^2\left(6c^2 - 4c\right) $$
-$$ \boxed{T = 2ma\omega^2\cos\frac{\psi}{2}\left(3\cos\frac{\psi}{2} - 2\right)} $$
-
-which agrees with the official key (Problems.pdf, p. 72). At $t = 0$: $T(0) = 2ma\omega^2 \gt 0$.
-
-##### (e) Does a string become loose?
-* **Pedagogical Justification:** a string can only pull, so it stays taut while $T \ge 0$; it goes slack at the first instant where $T$ would become negative.
-
-As $\psi$ decreases from $0$ toward $-\pi$, $c = \cos(\psi/2)$ decreases monotonically from $1$ toward $0$. The factor $c$ stays positive, and $3c - 2$ changes sign at $c = 2/3$:
-
-$$ \cos\frac{\psi}{2} = \frac23 \quad\Longrightarrow\quad \boxed{\psi_{\text{loose}} = -2\arccos\frac23 \approx -1.682\ \text{rad} \approx -96.38^\circ} $$
-
-(official key: $\psi = -2\arccos(2/3)$). **When:** at $\psi/2 = -\arccos(2/3)$, $\sec(\psi/2) = 3/2$ and $\tan(\psi/2) = -\sqrt{1 - 4/9}\big/(2/3) = -\sqrt5/2$, so from part (c)
-
-$$ \omega t_{\text{loose}} = -\ln\left(\frac32 - \frac{\sqrt5}{2}\right) = \ln\frac{2}{3 - \sqrt5} = \ln\frac{3 + \sqrt5}{2} \approx 0.9624, \qquad t_{\text{loose}} \approx \frac{0.962}{\omega} $$
-
-So yes: the string goes slack after about $0.96/\omega$ seconds, when the bar has turned $96.4^\circ$ clockwise from $Ox_1$.
-
-##### Checks
-* **Reading in $S_1$.** The rotating observer sees $B$ as a pendulum of length $a$ hung from $A$ in an effective field of strength $a\omega^2$ pointing away from $O$ (the centrifugal force), whose "lowest" point is $\psi = 0$. The skater starts there with relative speed $2a\omega$, which is exactly the separatrix energy ($E_1^B = 0$): it creeps toward the "inverted" position $\psi = -\pi$ (where $B$ would sit at $O$) in infinite time.
-* **Why $T$ drops.** The Coriolis force $2ma\omega\dot{\psi}\,\mathbf{u}_{AB}$ points toward $A$ when $\dot{\psi} \lt 0$, and the centrifugal pull along the bar, $ma\omega^2(1+\cos\psi)$, shrinks as $B$ swings in; when the required centripetal force $ma\dot{\psi}^2$ is supplied by these inertia forces alone the bar is unloaded ($T = 0$).
-* **Limit $\omega \to 0$:** $\dot{\psi} \to 0$, $T \to 0$ (nothing moves).
-* **Orthogonality:** $\mathbf{u}_{AB}\cdot\mathbf{u}_\perp = -\cos\psi\sin\psi + \sin\psi\cos\psi = 0$, $|\mathbf{u}_{AB}| = |\mathbf{u}_\perp| = 1$.
-* **Dimensions:** $[\mathbf{a}_1^B] = [a\ddot{\psi}] = [a\dot{\psi}^2] = \text{m}\,\text{s}^{-2}$; $[\omega^2 a] = [\omega\dot{\psi}a] = \text{m}\,\text{s}^{-2}$; $[T] = [ma\omega^2] = \text{kg}\,\text{m}\,\text{s}^{-2} = \text{N}$; $[\omega t] = 1$.
-* **Verification (sympy):** the inertial double derivative of $[{}_0R_1]\{\mathbf{r}_1^B\}$ equals $\mathbf{a}_1^B - \omega^2\mathbf{r}_1^B - 2a\omega\dot{\psi}\mathbf{u}_{AB}$; the EOM, $\dot{\psi}(0) = -2\omega$, $dE_1^B/dt = 0$ along the EOM, the tension and $\psi_{\text{loose}}$ are reproduced; an RK4 integration with $\omega = 1$ reaches $\cos(\psi/2) = 2/3$ at $t = 0.9625$ s, matching $\ln\frac{3+\sqrt5}{2} = 0.9624$.
-* **Check against the official key:** the key of `Problems.pdf` (p. 72) gives the centripetal and Coriolis terms, $\dot{\psi} = -2\omega\cos(\psi/2)$, $T = 2ma\omega^2\cos(\psi/2)\left(3\cos(\psi/2) - 2\right)$ and $\psi = -2\arccos(2/3)$ for the string going slack. All of them coincide with the results above (no discrepancy).
+> [!derivation] Limiting cases
+> **Law:** the results evaluated at extreme values of the data and of time
+> **Source:** Notes.pdf, Eq. 4.63; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> \omega \to 0:\quad \dot\psi &= -2\omega\cos\frac{\psi}{2} \to 0, \quad T \to 0 \quad &\text{(a vehicle at rest pulls nothing)} \\
+> t \to \infty:\quad \psi &\to 4\arctan 0 - \pi = -\pi, \quad \mathbf r_1^B \to a\left(1 - 1\right)\mathbf i_1 = \mathbf 0 \quad &\text{(rigid bar: $B$ approaches $O$)} \\
+> t \to \infty:\quad T &\to 2ma\omega^2\cdot 0\cdot\left(0 - 2\right) = 0 \quad &\text{(the bar unloads at the end)} \\
+> t_\ell \lt t:\quad T &\lt 0 \quad &\text{(rigid bar in compression; $3c - 2 \lt 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega \to 0:\ T \to 0; \qquad t \to \infty:\ \psi \to -\pi,\ B \to O,\ T \to 0^-}$$
+>
+> **Units:** $[T] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** a rigid bar pushes the skater after the instant at which a string would go slack, and the push dies out as she approaches the centre.
 
 ---
 
 ## Problem 08: Kinematics, Two Trains on Tracks
 
 ### Reference Frames, Bases and Coordinates
-* **Physical System:** Two trains $A$ and $B$ move on separate tracks with distance of closest separation $a$.
-* Case 1: Two parallel straight tracks with constant speeds $v_A$ and $v_B$.
-* Case 2: Train $A$ on a straight track, Train $B$ on a circular track of radius $R$.
-* **Parameters & Units:** Separation $a\text{ [m]}$, radius $R\text{ [m]}$, speeds $v_A, v_B\text{ [m/s]}$.
-* **Hypotheses:** the tracks are in a plane; at $t = 0$ train $A$ is at the origin and train $B$ is at the point of its track closest to the track of $A$; the speeds are constant.
-* **Inertial Cartesian Frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}\}$, with $\mathbf{i}_0$ along the track of $A$, $\mathbf{j}_0$ towards the track of $B$ and $\mathbf{k} = \mathbf{i}_0\times\mathbf{j}_0$ normal to the plane of the tracks.
-* **Frame of train $B$ (Case 2, rotating observer):** $S_B = \{B; \mathbf{i}_B, \mathbf{j}_B, \mathbf{k}\}$, attached to the train, with $\mathbf{i}_B$ along its direction of motion (the tangent to the track) and $\mathbf{j}_B$ pointing towards the centre $C$ of the track. It turns with the train by the angle $\omega_Bt$ about $\mathbf{k}$, $\omega_B = v_B/R$.
-* **Coordinates and degrees of freedom.** The coordinates are the arc positions along the tracks (one per train). Both motions are prescribed, $x_A = v_At$ and $\theta_B = v_Bt/R$, so no degree of freedom is unknown (0 DOF): the problem is purely kinematic. $\theta_B$ is the angle of $CB$ measured at the centre $C$ from the downward vertical $-\mathbf{j}_0$, positive counter-clockwise (towards $+\mathbf{i}_0$).
-* **Observers.** In Case 1 the relative velocity is the same for any observer that translates with a train. In Case 2 an observer attached to $B$ turns with it at $\omega_B = v_B/R$, so the velocity of $A$ seen by this observer needs the rotating frame $S_B$.
+
+Two trains $A$ and $B$ run on parallel tracks separated by the distance $a$, with absolute velocities $v_A$ and $v_B$; the statement asks for the velocity of each train relative to the other, first for the two straight tracks and then when train $B$ runs on a circular track of radius $R$ whose minimum distance to the straight track of $A$ is $a$ (Problems.pdf, p. 8). The problem is kinematic only: both motions are given. The observer of each train is a reference frame attached to it, and the velocity seen by a moving observer follows from the derivative of a vector in a moving frame, Notes.pdf, Sec. 3.1 and Sec. 3.2.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, the ground; $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k\}$: $\mathbf i_0$ along the track of $A$, $\mathbf j_0$ towards the track of $B$ in the plane of the tracks, $\mathbf k$ the cross product of $\mathbf i_0$ and $\mathbf j_0$, normal to that plane (Notes.pdf, Eq. 2.1) |
+| Origin $O$ | the position of train $A$ at the initial instant |
+| Frame of train $A$ | $S_A = \{A;\ \mathcal B_0\}$: origin on the train, axes parallel to the ground axes, since a train on a straight track does not turn |
+| Frame of train $B$, case 1 | $S_B = \{B;\ \mathcal B_0\}$, for the same reason |
+| Frame of train $B$, case 2 | $S_B = \{B;\ \mathcal B_B\}$, $\mathcal B_B = \{\mathbf i_B, \mathbf j_B, \mathbf k\}$: $\mathbf i_B$ along the track in the sense of motion, $\mathbf j_B$ from the train towards the centre $C$ of the track; it turns with the train |
+| Notation | $\mathbf v_A^B$: velocity of train $B$ relative to $S_A$; $\mathbf v_B^A$: velocity of train $A$ relative to $S_B$ (subscript the frame, superscript the point, as in Notes.pdf, Eq. 3.19) |
+| Coordinates | case 1: abscissas of the trains along $\mathbf i_0$; case 2: abscissa of $A$ and the angle $\theta_B$ of the segment from $C$ to $B$, measured at $C$ from the downward vertical (minus $\mathbf j_0$), positive about $\mathbf k$ |
+| Degrees of freedom | 1 per train (each is constrained to its track), both prescribed: no unknown coordinate |
+| Data | $a$ [m], $R$ [m], $v_A$, $v_B$ [m s$^{-1}$]; angular rate of train $B$ on the circle $\omega_B = v_B/R$ [rad s$^{-1}$] |
+| Hypotheses | the tracks lie in one plane; the speeds are constant; $v_A$ and $v_B$ are signed components (positive along $\mathbf i_0$ where the trains are side by side; a train running the other way has a negative value); at the initial instant $A$ is at $O$ and $B$ at the point of its track closest to the track of $A$ (another initial position of $A$ only adds a constant to its abscissa) |
+| Unknowns | the relative velocities $\mathbf v_A^B$ and $\mathbf v_B^A$ in each case |
 
 ### Change of Basis and Position Vector
 
-#### Position of each train
+#### Case 1: parallel straight tracks
+
+![[attachments/EM-SOL/p08-parallel.svg]]
+
+> [!derivation] Positions of the trains on parallel tracks
+> **Law:** position vectors of points moving with constant velocity along straight lines
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.5; Problems.pdf, p. 8
+>
+> $x_{B0}$ is the abscissa of $B$ at the initial instant (any value; it does not enter the velocities).
+>
+> $$\begin{aligned}
+> \mathbf r_0^A &= v_A t\,\mathbf i_0 \quad &\text{($A$ starts at $O$ and runs along $\mathbf i_0$)} \\
+> \mathbf r_0^B &= \left(x_{B0} + v_B t\right)\mathbf i_0 + a\,\mathbf j_0 \quad &\text{(track of $B$ at the distance $a$)} \\
+> \mathbf r_A^B &= \mathbf r_0^B - \mathbf r_0^A = \left(x_{B0} + \left(v_B - v_A\right)t\right)\mathbf i_0 + a\,\mathbf j_0 \quad &\text{(Eq. 3.16 with the origin $A$ of $S_A$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^A = v_A t\,\mathbf i_0, \qquad \mathbf r_0^B = \left(x_{B0} + v_B t\right)\mathbf i_0 + a\,\mathbf j_0, \qquad \mathbf r_A^B = \left(x_{B0} + \left(v_B - v_A\right)t\right)\mathbf i_0 + a\,\mathbf j_0}$$
+>
+> **Units:** $[v_A t] = [\mathrm{L\,T^{-1}}][\mathrm{T}] = [\mathrm{L}]$; $[a] = [\mathrm{L}]$
+> **Meaning:** seen from $A$, train $B$ stays at the distance $a$ across and slides along the tracks.
+
+#### Case 2: train B on a circular track
 
 ![[attachments/EM-SOL/p08-tracks.svg]]
 
-The plane of the tracks is drawn from above: $\mathbf{k}$ points out of the paper, towards the reader ($\odot$), $\mathbf{i}_0$ to the right and $\mathbf{j}_0$ up (the right-hand rule $\mathbf{i}_0\times\mathbf{j}_0 = \mathbf{k}$: fingers from $\mathbf{i}_0$ to $\mathbf{j}_0$ counter-clockwise, thumb towards the reader).
-
-**Case 1.** Train $A$ runs on the line $y = 0$ and train $B$ on the parallel line $y = a$:
-
-$$ \mathbf{r}_A(t) = v_A t\,\mathbf{i}_0, \qquad \mathbf{r}_B(t) = (x_{B0} + v_B t)\,\mathbf{i}_0 + a\,\mathbf{j}_0 $$
-
-**Case 2.** Train $A$ is still on the $x$-axis, $\mathbf{r}_A = v_At\,\mathbf{i}_0$. The circular track has its centre $C$ at $(0, R + a)$, so that its lowest point is at height $(R + a) - R = a$ above the track of $A$, the given minimum distance. To reach $B$ we pass through the centre, because the distance from $C$ is the one that stays constant:
-
-$$ \mathbf{r}_B = \overrightarrow{OC} + \overrightarrow{CB} $$
-
-* $\overrightarrow{OC} = (R + a)\,\mathbf{j}_0$.
-* $\overrightarrow{CB}$ has length $R$ and makes the angle $\theta_B = \omega_Bt$ with the downward vertical. Let $F$ be the point of the vertical through $C$ at the height of $B$. In the shaded right triangle $CFB$ (right angle at $F$) the hypotenuse is $|CB| = R$; the leg opposite to $\theta_B$ is $FB = R\sin\omega_Bt$, horizontal, along $+\mathbf{i}_0$; the leg adjacent to $\theta_B$ is $CF = R\cos\omega_Bt$, vertical and pointing down, along $-\mathbf{j}_0$. So $\overrightarrow{CB} = R\sin\omega_Bt\,\mathbf{i}_0 - R\cos\omega_Bt\,\mathbf{j}_0$.
-
-Adding:
-
-$$ \mathbf{r}_B(t) = R\sin(\omega_B t)\,\mathbf{i}_0 + \left[R + a - R\cos(\omega_B t)\right]\mathbf{j}_0 $$
-
-Check: $t = 0$ gives $a\,\mathbf{j}_0$, the lowest point of the circle, closest to the track of $A$. The angle $\theta_B$ is measured from $-\mathbf{j}_0$ and not from $\mathbf{i}_0$: the usual polar angle about $C$ is $\varphi = \theta_B - \pi/2$, because $\cos\left(\theta_B - \tfrac{\pi}{2}\right) = \cos\theta_B\cos\tfrac{\pi}{2} + \sin\theta_B\sin\tfrac{\pi}{2} = \sin\theta_B$ and $\sin\left(\theta_B - \tfrac{\pi}{2}\right) = \sin\theta_B\cos\tfrac{\pi}{2} - \cos\theta_B\sin\tfrac{\pi}{2} = -\cos\theta_B$, which turns $R(\cos\varphi\,\mathbf{i}_0 + \sin\varphi\,\mathbf{j}_0)$ into the $\overrightarrow{CB}$ above. It is chosen so that $\theta_B = 0$ is the starting point.
-
-#### The basis of train $B$
+> [!derivation] Position of train B on the circular track
+> **Law:** position vector as a sum of segments; right triangle at the centre of the track
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 3.16; Problems.pdf, p. 8
+>
+> The closest point of the circle to the straight track lies on the perpendicular from the centre $C$, so $C$ is at the height $R + a$ above $O$ (its lowest point is then at the height $a$). From $O$ to $B$ we pass through $C$, because the distance from $C$ is the one that stays constant. Let $F$ be the point of the vertical through $C$ at the height of $B$: in the right triangle $CFB$ the hypotenuse is $R$; the leg opposite to $\theta_B$ is $R\sin\theta_B$, horizontal, along $\mathbf i_0$; the leg adjacent to $\theta_B$ is $R\cos\theta_B$, vertical, pointing down, along minus $\mathbf j_0$. The angle $\theta_B$ is measured from the downward vertical, not from $\mathbf i_0$: the standard polar angle about $C$ is $\varphi = \theta_B - \pi/2$, and the last two rows show that the standard form gives the same vector.
+>
+> $$\begin{aligned}
+> \theta_B &= \omega_B t = \frac{v_B}{R}\,t \quad &\text{(arc $R\theta_B$ travelled at the speed $v_B$, from the closest point)} \\
+> \overrightarrow{OC} &= \left(R + a\right)\mathbf j_0 \quad &\text{(centre above the closest point)} \\
+> \overrightarrow{CB} &= R\sin\theta_B\,\mathbf i_0 - R\cos\theta_B\,\mathbf j_0 \quad &\text{(opposite leg along $\mathbf i_0$; adjacent leg along $-\mathbf j_0$)} \\
+> \mathbf r_0^B &= \overrightarrow{OC} + \overrightarrow{CB} = R\sin\theta_B\,\mathbf i_0 + \left(R + a - R\cos\theta_B\right)\mathbf j_0 \quad &\text{(sum)} \\
+> \cos\left(\theta_B - \tfrac{\pi}{2}\right) &= \cos\theta_B\cos\tfrac{\pi}{2} + \sin\theta_B\sin\tfrac{\pi}{2} = \sin\theta_B \quad &\text{(cosine of a difference)} \\
+> \sin\left(\theta_B - \tfrac{\pi}{2}\right) &= \sin\theta_B\cos\tfrac{\pi}{2} - \cos\theta_B\sin\tfrac{\pi}{2} = -\cos\theta_B \quad &\text{(sine of a difference: $R\cos\varphi\,\mathbf i_0 + R\sin\varphi\,\mathbf j_0$ is $\overrightarrow{CB}$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^A = v_A t\,\mathbf i_0, \qquad \mathbf r_0^B = R\sin\theta_B\,\mathbf i_0 + \left(R + a - R\cos\theta_B\right)\mathbf j_0, \qquad \theta_B = \frac{v_B t}{R}}$$
+>
+> **Units:** $[R] = [a] = [\mathrm{L}]$; $[v_B t/R] = [1]$
+> **Meaning:** at the initial instant train $B$ is at the height $a$ just above train $A$; with a positive $v_B$ it moves counterclockwise, along plus $\mathbf i_0$ at that point, like $A$.
 
 ![[attachments/EM-SOL/p08-train-basis.svg]]
 
-$\mathbf{i}_B$ is the unit tangent to the track in the sense of motion. Differentiating $\overrightarrow{CB}$ with respect to $\theta_B$ ($\frac{d}{d\theta}\sin\theta = \cos\theta$, $\frac{d}{d\theta}(-\cos\theta) = \sin\theta$) and dividing by its length $R\sqrt{\cos^2\theta_B + \sin^2\theta_B} = R$:
+> [!derivation] Basis of train B: rotation by theta_B about k
+> **Law:** unit tangent of the track; elementary rotation about the third axis and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.9
+>
+> View along $\mathbf k$, which points out of the paper (⊙) because it is the cross product of $\mathbf i_0$ (to the right) and $\mathbf j_0$ (up). The tangent is the derivative of $\overrightarrow{CB}$ with respect to the angle, divided by its length $R$. $\mathbf i_B$ is then $\mathbf i_0$ turned by $\theta_B$: hypotenuse 1, adjacent leg $\cos\theta_B$ along $\mathbf i_0$, opposite leg $\sin\theta_B$ along $\mathbf j_0$. $\mathbf j_B$ is $\mathbf j_0$ turned by the same angle: adjacent leg $\cos\theta_B$ along $\mathbf j_0$, opposite leg $\sin\theta_B$ along minus $\mathbf i_0$ (the upward vector turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \frac{d\overrightarrow{CB}}{d\theta_B} &= R\cos\theta_B\,\mathbf i_0 + R\sin\theta_B\,\mathbf j_0 \quad &\text{($\tfrac{d}{d\theta}\sin\theta = \cos\theta$, $\tfrac{d}{d\theta}(-\cos\theta) = \sin\theta$)} \\
+> \mathbf i_B &= \frac{1}{R}\,\frac{d\overrightarrow{CB}}{d\theta_B} = \cos\theta_B\,\mathbf i_0 + \sin\theta_B\,\mathbf j_0 \quad &\text{(length $R\sqrt{\cos^2\theta_B + \sin^2\theta_B} = R$)} \\
+> \mathbf j_B &= \mathbf k\times\mathbf i_B = -\sin\theta_B\,\mathbf i_0 + \cos\theta_B\,\mathbf j_0 = -\frac{\overrightarrow{CB}}{R} \quad &\text{($\mathbf k\times\mathbf i_0 = \mathbf j_0$, $\mathbf k\times\mathbf j_0 = -\mathbf i_0$): it points to $C$} \\
+> \det[{}_0R_B] &= 1\cdot\left(\cos^2\theta_B + \sin^2\theta_B\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_B][{}_0R_B]^T\right)_{11} &= \cos^2\theta_B + \sin^2\theta_B = 1, \quad \left([{}_0R_B][{}_0R_B]^T\right)_{12} = \cos\theta_B\sin\theta_B - \sin\theta_B\cos\theta_B = 0 \quad &\text{(rows times rows)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_B] = \begin{pmatrix} \cos\theta_B & -\sin\theta_B & 0 \cr \sin\theta_B & \cos\theta_B & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_B] = 1, \quad [{}_0R_B][{}_0R_B]^T = I}$$
+>
+> **Units:** dimensionless: $[1]$
+> **Meaning:** the frame of train $B$ turns by the same angle $\theta_B$ as the radius $CB$: the train always points along the track and its second axis always points to the centre.
 
-$$ \mathbf{i}_B = \cos\omega_Bt\,\mathbf{i}_0 + \sin\omega_Bt\,\mathbf{j}_0 $$
+![[attachments/EM-SOL/p08-observer-b.svg]]
 
-so $\mathbf{i}_B$ is $\mathbf{i}_0$ turned counter-clockwise by $\omega_Bt$ (seen from $+\mathbf{k}$, $\odot$): leg $\cos\omega_Bt$ along $\mathbf{i}_0$ (adjacent) and leg $\sin\omega_Bt$ along $\mathbf{j}_0$ (opposite). $\mathbf{j}_B = \mathbf{k}\times\mathbf{i}_B$ is $\mathbf{i}_B$ turned a further $90^\circ$; it has turned the same angle $\omega_Bt$ from $\mathbf{j}_0$, and turning counter-clockwise from "up" moves its tip towards $-\mathbf{i}_0$, so its opposite leg is $-\sin\omega_Bt\,\mathbf{i}_0$:
-
-$$ \mathbf{j}_B = -\sin\omega_Bt\,\mathbf{i}_0 + \cos\omega_Bt\,\mathbf{j}_0 = -\frac{\overrightarrow{CB}}{R} $$
-
-(comparing with $\overrightarrow{CB} = R\sin\omega_Bt\,\mathbf{i}_0 - R\cos\omega_Bt\,\mathbf{j}_0$), so $\mathbf{j}_B$ points from $B$ towards the centre $C$, as drawn. With the columns of $\mathbf{i}_B, \mathbf{j}_B, \mathbf{k}$ in $\mathcal{B}_0$:
-
-$$ [{}_0R_B] = \begin{pmatrix}\cos\omega_Bt & -\sin\omega_Bt & 0\\ \sin\omega_Bt & \cos\omega_Bt & 0\\ 0 & 0 & 1\end{pmatrix}, \qquad \det[{}_0R_B] = \cos\omega_Bt\cos\omega_Bt - (-\sin\omega_Bt)\sin\omega_Bt = \cos^2\omega_Bt + \sin^2\omega_Bt = 1 $$
-
-and $[{}_0R_B][{}_0R_B]^T$ has diagonal entries $\cos^2\omega_Bt + \sin^2\omega_Bt = 1$ (and $1$) and off-diagonal entries $\cos\omega_Bt\sin\omega_Bt - \sin\omega_Bt\cos\omega_Bt = 0$, so it is $I$. The angular velocity of $S_B$ is $\boldsymbol{\omega}_{B0} = \omega_B\,\mathbf{k}$ (Poisson: $\frac{d\mathbf{i}_B}{dt} = -\omega_B\sin\omega_Bt\,\mathbf{i}_0 + \omega_B\cos\omega_Bt\,\mathbf{j}_0 = \omega_B\,\mathbf{j}_B = \omega_B\,\mathbf{k}\times\mathbf{i}_B$).
+> [!derivation] Position of train A seen from train B
+> **Law:** relative position vector and its components in the basis of the moving frame (projections)
+> **Source:** Notes.pdf, Eq. 3.1; Notes.pdf, Eq. 3.16
+>
+> $$\begin{aligned}
+> \mathbf r_B^A &= \mathbf r_0^A - \mathbf r_0^B = \left(v_A t - R\sin\theta_B\right)\mathbf i_0 + \left(R\cos\theta_B - R - a\right)\mathbf j_0 \quad &\text{(Eq. 3.16 with the origin $B$ of $S_B$)} \\
+> x &= \mathbf r_B^A\cdot\mathbf i_B = \left(v_A t - R\sin\theta_B\right)\cos\theta_B + \left(R\cos\theta_B - R - a\right)\sin\theta_B \quad &\text{(components of $\mathbf i_B$)} \\
+> &= v_A t\cos\theta_B - \left(R + a\right)\sin\theta_B \quad &\text{($R\sin\theta_B\cos\theta_B$ cancels)} \\
+> y &= \mathbf r_B^A\cdot\mathbf j_B = -\left(v_A t - R\sin\theta_B\right)\sin\theta_B + \left(R\cos\theta_B - R - a\right)\cos\theta_B \quad &\text{(components of $\mathbf j_B$)} \\
+> &= R - \left(R + a\right)\cos\theta_B - v_A t\sin\theta_B \quad &\text{($R\sin^2\theta_B + R\cos^2\theta_B = R$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_B^A = x\,\mathbf i_B + y\,\mathbf j_B, \qquad x = v_A t\cos\theta_B - \left(R + a\right)\sin\theta_B, \qquad y = R - \left(R + a\right)\cos\theta_B - v_A t\sin\theta_B}$$
+>
+> **Units:** $[x] = [y] = [\mathrm{L}]$
+> **Meaning:** at the initial instant train $A$ is at the distance $a$ from $B$ along minus $\mathbf j_B$, on the side opposite to the centre $C$.
 
 ### Kinematics
 
-##### Case 1: Parallel Tracks
-Differentiating the positions (the speeds are constant):
+#### Case 1
 
-$$ \mathbf{v}_A = v_A\,\mathbf{i}_0, \qquad \mathbf{v}_B = v_B\,\mathbf{i}_0 $$
+> [!derivation] Relative velocities on parallel tracks
+> **Law:** derivative of the relative position in a frame that translates without turning
+> **Source:** Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.28; [Lecture 5, Slide 24]
+>
+> The frames $S_A$ and $S_B$ have the basis $\mathcal B_0$, whose unit vectors are constant: the derivative in either frame is the derivative of the components.
+>
+> $$\begin{aligned}
+> \mathbf v_0^A &= \frac{d}{dt}\left(v_A t\right)\mathbf i_0 = v_A\,\mathbf i_0, \quad \mathbf v_0^B = \frac{d}{dt}\left(x_{B0} + v_B t\right)\mathbf i_0 = v_B\,\mathbf i_0 \quad &\text{(Eq. 2.3; constant speeds)} \\
+> \mathbf v_A^B &= \left.\frac{d\mathbf r_A^B}{dt}\right|_A = \frac{d}{dt}\left(x_{B0} + \left(v_B - v_A\right)t\right)\mathbf i_0 = \left(v_B - v_A\right)\mathbf i_0 \quad &\text{(derivative of the components; $a$ constant)} \\
+> \mathbf v_0^B &= \mathbf v_0^A + \mathbf v_A^B \quad &\text{(check: Eq. 3.28, no rotation term)} \\
+> \mathbf v_B^A &= \left.\frac{d}{dt}\left(\mathbf r_0^A - \mathbf r_0^B\right)\right|_B = \left(v_A - v_B\right)\mathbf i_0 \quad &\text{(same reasoning with the roles exchanged)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_A^B = \left(v_B - v_A\right)\mathbf i_0, \qquad \mathbf v_B^A = \left(v_A - v_B\right)\mathbf i_0 = -\mathbf v_A^B}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** each observer sees the other train move along the tracks with the difference of the speeds; the separation $a$ does not enter, because it is a constant part of the relative position.
 
-* **Relative Velocity:**
-$$ \mathbf{v}_{B/A} = \mathbf{v}_B - \mathbf{v}_A = (v_B - v_A)\mathbf{i}_0 $$
-$$ \mathbf{v}_{A/B} = -\mathbf{v}_{B/A} = (v_A - v_B)\mathbf{i}_0 $$
+#### Case 2
 
-##### Case 2: Train $B$ on a Circular Track of Radius $R$
-* Velocity of train $B$, with the chain rule $\frac{d}{dt}\sin(\omega_Bt) = \omega_B\cos(\omega_Bt)$ and $\frac{d}{dt}\cos(\omega_Bt) = -\omega_B\sin(\omega_Bt)$:
-$$ \mathbf{v}_B = \frac{d\mathbf{r}_B}{dt} = R\omega_B\cos(\omega_B t)\mathbf{i}_0 + R\omega_B\sin(\omega_B t)\mathbf{j}_0 = v_B\cos\left(\frac{v_B t}{R}\right)\mathbf{i}_0 + v_B\sin\left(\frac{v_B t}{R}\right)\mathbf{j}_0 = v_B\,\mathbf{i}_B $$
-* **Relative Velocity $\mathbf{v}_{B/A}$:**
-$$ \mathbf{v}_{B/A} = \mathbf{v}_B - \mathbf{v}_A = \left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]\mathbf{i}_0 + v_B\sin\left(\frac{v_B t}{R}\right)\mathbf{j}_0 $$
-* **Magnitude of Relative Velocity** (expanding the square and using $\cos^2 + \sin^2 = 1$):
-$$ v_{\text{rel}} = \sqrt{\left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]^2 + v_B^2\sin^2\left(\frac{v_B t}{R}\right)} = \sqrt{v_B^2 + v_A^2 - 2v_A v_B\cos\left(\frac{v_B t}{R}\right)} $$
+> [!derivation] Absolute velocities and the angular velocity of train B
+> **Law:** time derivatives in $S_0$; chain rule; derivative of a unit vector of a turning basis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.4
+>
+> $$\begin{aligned}
+> \mathbf v_0^A &= v_A\,\mathbf i_0 \quad &\text{(as in case 1)} \\
+> \mathbf v_0^B &= R\cos\theta_B\,\dot\theta_B\,\mathbf i_0 + R\sin\theta_B\,\dot\theta_B\,\mathbf j_0 \quad &\text{(chain rule; $R$ and $a$ constant)} \\
+> &= v_B\cos\theta_B\,\mathbf i_0 + v_B\sin\theta_B\,\mathbf j_0 = v_B\,\mathbf i_B \quad &\text{($R\dot\theta_B = R\,\omega_B = v_B$)} \\
+> \boldsymbol\omega_{B0} &= \dot\theta_B\,\mathbf k = \omega_B\,\mathbf k \quad &\text{($\mathcal B_B$ turns about the fixed $\mathbf k$ with the angle $\theta_B$)} \\
+> \left.\frac{d\mathbf i_B}{dt}\right|_0 &= -\omega_B\sin\theta_B\,\mathbf i_0 + \omega_B\cos\theta_B\,\mathbf j_0 = \omega_B\,\mathbf j_B = \boldsymbol\omega_{B0}\times\mathbf i_B \quad &\text{(chain rule; Eq. 3.3)} \\
+> \left.\frac{d\mathbf j_B}{dt}\right|_0 &= -\omega_B\cos\theta_B\,\mathbf i_0 - \omega_B\sin\theta_B\,\mathbf j_0 = -\omega_B\,\mathbf i_B = \boldsymbol\omega_{B0}\times\mathbf j_B \quad &\text{(chain rule; Eq. 3.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^A = v_A\,\mathbf i_0, \quad \mathbf v_0^B = v_B\,\mathbf i_B, \quad \boldsymbol\omega_{B0} = \frac{v_B}{R}\,\mathbf k, \quad \left.\frac{d\mathbf i_B}{dt}\right|_0 = \omega_B\,\mathbf j_B, \quad \left.\frac{d\mathbf j_B}{dt}\right|_0 = -\omega_B\,\mathbf i_B}$$
+>
+> **Units:** $[v_B] = [\mathrm{L\,T^{-1}}]$; $[\omega_B] = [\mathrm{T^{-1}}]$
+> **Meaning:** train $B$ keeps its speed but turns its direction; its frame turns at the rate of the radius $CB$.
 
-##### Case 2, velocity of $A$ with respect to an observer attached to $B$
-The frame $S_B$ of the change-of-basis section turns with $\boldsymbol{\omega}_{B0} = \omega_B\mathbf{k}$. Notes Eq. 3.26 gives $\mathbf{v}_{A/B} = \mathbf{v}_A - \mathbf{v}_B - \boldsymbol{\omega}_{B0}\times(\mathbf{r}_A - \mathbf{r}_B)$. With $\mathbf{r}_A - \mathbf{r}_B = (v_At - R\sin\omega_Bt)\,\mathbf{i}_0 + (R\cos\omega_Bt - R - a)\,\mathbf{j}_0$, $\mathbf{k}\times\mathbf{i}_0 = \mathbf{j}_0$, $\mathbf{k}\times\mathbf{j}_0 = -\mathbf{i}_0$ and $\omega_BR = v_B$, the three terms are
-$$ \mathbf{v}_A - \mathbf{v}_B = \left(v_A - v_B\cos\omega_Bt\right)\mathbf{i}_0 - v_B\sin\omega_Bt\,\mathbf{j}_0, \qquad -\boldsymbol{\omega}_{B0}\times(\mathbf{r}_A - \mathbf{r}_B) = -\omega_B\left(R + a - R\cos\omega_Bt\right)\mathbf{i}_0 - \omega_B\left(v_At - R\sin\omega_Bt\right)\mathbf{j}_0 $$
-Adding them, $\omega_BR\cos\omega_Bt = v_B\cos\omega_Bt$ cancels the $-v_B\cos\omega_Bt$ term and $\omega_BR\sin\omega_Bt = v_B\sin\omega_Bt$ cancels the $-v_B\sin\omega_Bt$ term:
-$$ \mathbf{v}_{A/B} = \left[v_A - v_B\,\frac{R + a}{R}\right]\mathbf{i}_0 - \frac{v_Av_Bt}{R}\,\mathbf{j}_0 \quad\text{(components in } \mathcal{B}_0\text{)} $$
+> [!derivation] Velocity of train B relative to train A
+> **Law:** derivative of the relative position in the frame of $A$, which translates without turning
+> **Source:** Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.28
+>
+> $$\begin{aligned}
+> \mathbf r_A^B &= \mathbf r_0^B - \mathbf r_0^A = \left(R\sin\theta_B - v_A t\right)\mathbf i_0 + \left(R + a - R\cos\theta_B\right)\mathbf j_0 \quad &\text{(Eq. 3.16)} \\
+> \mathbf v_A^B &= \left.\frac{d\mathbf r_A^B}{dt}\right|_A = \left(R\cos\theta_B\,\omega_B - v_A\right)\mathbf i_0 + R\sin\theta_B\,\omega_B\,\mathbf j_0 \quad &\text{(constant $\mathcal B_0$; chain rule)} \\
+> &= \left(v_B\cos\theta_B - v_A\right)\mathbf i_0 + v_B\sin\theta_B\,\mathbf j_0 \quad &\text{($R\,\omega_B = v_B$)} \\
+> \left|\mathbf v_A^B\right|^2 &= v_B^2\cos^2\theta_B - 2v_Av_B\cos\theta_B + v_A^2 + v_B^2\sin^2\theta_B \quad &\text{(squares expanded)} \\
+> &= v_A^2 + v_B^2 - 2v_Av_B\cos\theta_B \quad &\text{($\cos^2 + \sin^2 = 1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_A^B = \mathbf v_0^B - \mathbf v_0^A = \left(v_B\cos\frac{v_Bt}{R} - v_A\right)\mathbf i_0 + v_B\sin\frac{v_Bt}{R}\,\mathbf j_0, \qquad \left|\mathbf v_A^B\right| = \sqrt{v_A^2 + v_B^2 - 2v_Av_B\cos\frac{v_Bt}{R}}}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$; inside the root $[\mathrm{L^2\,T^{-2}}]$
+> **Meaning:** the observer on $A$ does not turn, so he sees the plain difference of the two absolute velocities, which changes only because $B$ turns.
+
+> [!derivation] Velocity of train A relative to train B, which turns
+> **Law:** time derivative in $S_0$ of the position written in the turning basis of $S_B$; product rule
+> **Source:** Notes.pdf, Eq. 3.2; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.20; [Lecture 5, Slide 24]
+>
+> The relative velocity is the derivative in $S_B$, in which $\mathbf i_B$ and $\mathbf j_B$ are constant: the derivative of the components $x$ and $y$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^A &= \mathbf r_0^B + x\,\mathbf i_B + y\,\mathbf j_B \quad &\text{(Eq. 3.16)} \\
+> \mathbf v_0^A &= \mathbf v_0^B + \dot x\,\mathbf i_B + \dot y\,\mathbf j_B + x\left.\frac{d\mathbf i_B}{dt}\right|_0 + y\left.\frac{d\mathbf j_B}{dt}\right|_0 \quad &\text{(derivative in $S_0$; product rule)} \\
+> &= \mathbf v_0^B + \underbrace{\dot x\,\mathbf i_B + \dot y\,\mathbf j_B}_{\mathbf v_B^A} + \underbrace{\omega_B\left(x\,\mathbf j_B - y\,\mathbf i_B\right)}_{\boldsymbol\omega_{B0}\times\mathbf r_B^A} \quad &\text{(derivatives of the unit vectors)} \\
+> \dot x &= v_A\cos\theta_B - v_A t\,\omega_B\sin\theta_B - \left(R + a\right)\omega_B\cos\theta_B \quad &\text{(product rule; chain rule, $\dot\theta_B = \omega_B$)} \\
+> \dot y &= \left(R + a\right)\omega_B\sin\theta_B - v_A\sin\theta_B - v_A t\,\omega_B\cos\theta_B \quad &\text{(product rule; chain rule)} \\
+> \dot x\cos\theta_B - \dot y\sin\theta_B &= v_A\left(\cos^2\theta_B + \sin^2\theta_B\right) - \left(R + a\right)\omega_B\left(\cos^2\theta_B + \sin^2\theta_B\right) \quad &\text{($\mathbf i_0$ part of $\dot x\,\mathbf i_B + \dot y\,\mathbf j_B$; the $v_At\omega_B$ terms cancel)} \\
+> \dot x\sin\theta_B + \dot y\cos\theta_B &= -v_A t\,\omega_B\left(\sin^2\theta_B + \cos^2\theta_B\right) \quad &\text{($\mathbf j_0$ part; the other terms cancel in pairs)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_B^A = \dot x\,\mathbf i_B + \dot y\,\mathbf j_B = \left[v_A - v_B\,\frac{R + a}{R}\right]\mathbf i_0 - \frac{v_Av_B t}{R}\,\mathbf j_0}$$
+>
+> **Units:** $[v_B(R + a)/R] = [v_Av_Bt/R] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** the observer on $B$ turns with the train, so to the difference of the absolute velocities he adds minus the transport term: the ground itself seems to turn about him, and the component along minus $\mathbf j_0$ grows linearly with time, with the distance travelled by $A$.
+
+> [!derivation] Check: composition of velocities for the observer on B
+> **Law:** absolute velocity as the velocity of the origin plus the relative and transport terms
+> **Source:** Notes.pdf, Eq. 3.20; Notes.pdf, Eq. 3.26
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{B0}\times\mathbf r_B^A &= \omega_B\,\mathbf k\times\left[\left(v_A t - R\sin\theta_B\right)\mathbf i_0 + \left(R\cos\theta_B - R - a\right)\mathbf j_0\right] \quad &\text{(relative position in $\mathcal B_0$)} \\
+> &= -\omega_B\left(R\cos\theta_B - R - a\right)\mathbf i_0 + \omega_B\left(v_A t - R\sin\theta_B\right)\mathbf j_0 \quad &\text{($\mathbf k\times\mathbf i_0 = \mathbf j_0$, $\mathbf k\times\mathbf j_0 = -\mathbf i_0$)} \\
+> \mathbf i_0:\ v_B\cos\theta_B + v_A - \left(R + a\right)\omega_B - \omega_B\left(R\cos\theta_B - R - a\right) &= v_A + \left(v_B - \omega_B R\right)\cos\theta_B = v_A \quad &\text{(origin + relative + transport; $\omega_B R = v_B$)} \\
+> \mathbf j_0:\ v_B\sin\theta_B - \omega_B v_A t + \omega_B\left(v_A t - R\sin\theta_B\right) &= \left(v_B - \omega_B R\right)\sin\theta_B = 0 \quad &\text{(same sum)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^B + \mathbf v_B^A + \boldsymbol\omega_{B0}\times\mathbf r_B^A = v_A\,\mathbf i_0 = \mathbf v_0^A}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** the three terms rebuild the absolute velocity of train $A$, as Eq. 3.20 requires: the relative velocity of the previous box is consistent.
 
 ### Answers and Checks
 
-##### Case 1
-$\mathbf{v}_{B/A} = (v_B - v_A)\,\mathbf{i}_0$ and $\mathbf{v}_{A/B} = (v_A - v_B)\,\mathbf{i}_0$.
+#### Case 1: parallel tracks
 
-##### Case 2
-$\mathbf{v}_{B/A} = \left[v_B\cos(v_Bt/R) - v_A\right]\mathbf{i}_0 + v_B\sin(v_Bt/R)\,\mathbf{j}_0$, with modulus $v_{\text{rel}} = \sqrt{v_A^2 + v_B^2 - 2v_Av_B\cos(v_Bt/R)}$, for an observer that translates with $A$ ($\mathbf{v}_{A/B} = -\mathbf{v}_{B/A}$ for an observer that translates with $B$). No integration is needed beyond the differentiation above.
+> [!derivation] Answer for parallel tracks
+> **Law:** relative velocity for observers that translate without turning
+> **Source:** Notes.pdf, Eq. 3.28; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> \mathbf v_A^B &= \left(v_B - v_A\right)\mathbf i_0 \quad &\text{(train $B$ seen from $A$)} \\
+> \mathbf v_B^A &= \left(v_A - v_B\right)\mathbf i_0 \quad &\text{(train $A$ seen from $B$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_A^B = -\mathbf v_B^A = \left(v_B - v_A\right)\mathbf i_0}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** for trains running the same way the relative speed is the difference of the speeds; for opposite senses (a negative signed value) it is their sum.
 
-For an observer attached to $B$ (turning with it), $\mathbf{v}_{A/B} = \left[v_A - v_B(R + a)/R\right]\mathbf{i}_0 - (v_Av_Bt/R)\,\mathbf{j}_0$. It differs from $-\mathbf{v}_{B/A}$ because the observer attached to $B$ rotates: at $t = 0$, $v_{A/B} = v_A - v_B(1 + a/R)$, whereas the translating-observer value is $v_A - v_B$; for $R \to \infty$ both coincide.
+#### Case 2: train B on a circular track
 
-##### Checks
-* **Dimensional check:** $[\mathbf{v}_{B/A}] = \text{m/s}$; in Case 2 the argument of the trigonometric functions is $\dfrac{v_B t}{R} = \dfrac{(\text{m/s})\,\text{s}}{\text{m}}$, which is dimensionless (rad), and $[v_B^2 + v_A^2 - 2v_Av_B\cos(\cdot)] = \text{m}^2/\text{s}^2$, so $v_{\text{rel}}$ is in m/s.
-* **Role of the separation $a$:** it does not appear in any relative velocity for translating observers, because $\mathbf{v}_{B/A}$ is the time derivative of $\mathbf{r}_B - \mathbf{r}_A$ and $a$ only enters the constant offset of that vector (it does appear for the rotating observer, through $\boldsymbol{\omega}_{B0}\times(\mathbf{r}_A - \mathbf{r}_B)$).
-* **Limiting cases of Case 2 (sympy):**
-* $t = 0$: $v_{\text{rel}} = \sqrt{v_A^2 + v_B^2 - 2v_Av_B} = |v_B - v_A|$, because both velocities are parallel to $\mathbf{i}_0$ at that instant.
-* $R \to \infty$ (the circular track straightens): $\cos(v_Bt/R) \to 1$ and $v_{\text{rel}} \to |v_B - v_A|$, which is the Case 1 result.
-* $v_A = v_B = v$: $v_{\text{rel}} = v\sqrt{2 - 2\cos(vt/R)} = 2v\left|\sin\dfrac{vt}{2R}\right|$, which starts at $0$ and never exceeds $2v$.
-* $v_A = 0$: $v_{\text{rel}} = v_B$ for all $t$ (relative to a stationary train, only the speed of $B$ matters).
-* **Symbolic check:** $\|\mathbf{v}_B - \mathbf{v}_A\|^2$ computed from the components equals $v_B^2 + v_A^2 - 2v_Av_B\cos(v_Bt/R)$ with zero residual. The translating-observer results use only $\mathcal{B}_0$; the rotating observer of Case 2 uses $[{}_0R_B]$. Dimensions of that result: $[v_A] = [v_Ba/R] = [v_Av_Bt/R] = \text{m/s}$.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 8 in its solution keys, so the results are verified by independent derivation (the symbolic check above).
+> [!derivation] Answer for the circular track
+> **Law:** relative velocities of the kinematics boxes, with the rate of the angle written out
+> **Source:** Notes.pdf, Eq. 3.20; Notes.pdf, Eq. 3.28; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> \mathbf v_A^B &= \left(v_B\cos\frac{v_Bt}{R} - v_A\right)\mathbf i_0 + v_B\sin\frac{v_Bt}{R}\,\mathbf j_0 \quad &\text{(observer on $A$, not turning)} \\
+> \mathbf v_B^A &= \left[v_A - v_B\,\frac{R + a}{R}\right]\mathbf i_0 - \frac{v_Av_Bt}{R}\,\mathbf j_0 \quad &\text{(observer on $B$, turning with the train)} \\
+> \left|\mathbf v_B^A\right|^2 &= \left(v_A - v_B\,\frac{R + a}{R}\right)^2 + \left(\frac{v_Av_Bt}{R}\right)^2 \quad &\text{(sum of squares)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_A^B = \left(v_B\cos\frac{v_Bt}{R} - v_A\right)\mathbf i_0 + v_B\sin\frac{v_Bt}{R}\,\mathbf j_0, \qquad \mathbf v_B^A = \left[v_A - v_B\,\frac{R + a}{R}\right]\mathbf i_0 - \frac{v_Av_Bt}{R}\,\mathbf j_0 \ne -\mathbf v_A^B}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** the two answers are no longer opposite: the observer on $B$ turns, and the transport term adds to his reading a part proportional to the distance of $A$ from him, which here grows with time.
+
+| Part of the statement | Answer |
+| :--- | :--- |
+| Case 1, velocity of $B$ relative to $A$ | $\mathbf v_A^B = (v_B - v_A)\,\mathbf i_0$ |
+| Case 1, velocity of $A$ relative to $B$ | $\mathbf v_B^A = (v_A - v_B)\,\mathbf i_0$ |
+| Case 2, velocity of $B$ relative to $A$ | $\mathbf v_A^B = (v_B\cos(v_Bt/R) - v_A)\,\mathbf i_0 + v_B\sin(v_Bt/R)\,\mathbf j_0$, modulus $\sqrt{v_A^2 + v_B^2 - 2v_Av_B\cos(v_Bt/R)}$ |
+| Case 2, velocity of $A$ relative to $B$ (frame turning with $B$) | $\mathbf v_B^A = [v_A - v_B(R + a)/R]\,\mathbf i_0 - (v_Av_Bt/R)\,\mathbf j_0$; in the basis of the train, $\dot x\,\mathbf i_B + \dot y\,\mathbf j_B$ with $\dot x$ and $\dot y$ of the kinematics box |
+| Intermediate results | $\omega_B = v_B/R$; $\mathbf r_B^A = x\,\mathbf i_B + y\,\mathbf j_B$ with $x = v_At\cos\theta_B - (R + a)\sin\theta_B$, $y = R - (R + a)\cos\theta_B - v_At\sin\theta_B$ |
+
+**Check against the official key:** Problems.pdf, p. 72 lists item 8 with no answer, so there is no key to compare with. Independent checks: the composition box rebuilds the absolute velocity of train $A$ from the three terms of Notes.pdf, Eq. 3.20, and the limiting cases below give back case 1.
+
+> [!derivation] Limiting cases
+> **Law:** the case 2 results at the initial instant and for a straight track
+> **Source:** Notes.pdf, Eq. 3.20; Notes.pdf, Eq. 3.28
+>
+> $$\begin{aligned}
+> t = 0:\quad \mathbf v_A^B &= \left(v_B - v_A\right)\mathbf i_0 \quad &\text{($\cos 0 = 1$, $\sin 0 = 0$: the velocities are parallel)} \\
+> t = 0:\quad \mathbf v_B^A &= \left(v_A - v_B\right)\mathbf i_0 - \frac{a}{R}\,v_B\,\mathbf i_0 \quad &\text{(transport term of a point at the distance $a$ from $B$)} \\
+> R \to \infty:\quad \mathbf v_A^B &\to \left(v_B - v_A\right)\mathbf i_0, \quad \mathbf v_B^A \to \left(v_A - v_B\right)\mathbf i_0 \quad &\text{($v_Bt/R \to 0$, $a/R \to 0$: case 1)} \\
+> v_A = 0:\quad \left|\mathbf v_A^B\right| &= v_B \quad &\text{(a train at rest sees the speed of $B$)} \\
+> v_A = v_B = v:\quad \left|\mathbf v_A^B\right| &= v\sqrt{2 - 2\cos\frac{vt}{R}} = 2v\left|\sin\frac{vt}{2R}\right| \quad &\text{($1 - \cos\beta = 2\sin^2(\beta/2)$)}
+> \end{aligned}$$
+>
+> $$\boxed{t = 0 \text{ or } R \to \infty: \ \text{case 1 recovered, except the term } -\tfrac{a}{R}\,v_B\,\mathbf i_0 \text{ of the turning observer at } t = 0}$$
+>
+> **Units:** $[a\,v_B/R] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** even at the start, when the two trains run side by side and parallel, the turning observer on $B$ reads a different speed for $A$, by the fraction $a/R$ of $v_B$, because $A$ is at the distance $a$ from the axis about which he turns; the difference disappears for a straight track.
 
 ---
 
 ## Problem 09: Artificial Gravity in a Rotating Cylinder (2001: A Space Odyssey)
 
 ### Reference Frames, Bases and Coordinates
-* **Physical system:** a cylindrical hull of radius $R$ spins at constant rate $\omega$ about its axis in deep space. An astronaut $P$ of mass $m$ stands on, or runs along, the inner surface.
-* **Why the hull frame.** The astronaut lives in the hull: the floor, her running speed $u$ and what she "feels" are all defined with respect to the cylinder. In the frame $S_1$ attached to the hull the floor is fixed, and the only price is to add the inertia forces of Notes Eq. 4.62. The centrifugal force is exactly the "artificial gravity" of the statement; the Coriolis force is what changes when she runs.
-* **Hypotheses:**
-  1. No external gravity (deep space); the only actual force on the astronaut is the total force $\mathbf{N}$ of the floor on her feet (normal reaction plus any friction; part (b) shows that, for uniform running, $\mathbf{N}$ comes out purely radial).
-  2. $h \ll R$: she is a point particle on the surface, at distance $R$ from the axis.
-  3. $\omega$ constant; the axis point $O$ is fixed in an inertial frame $S_0$.
-* **Artificial gravity felt.** A body feels as "weight" the force it has to receive from the floor. We define the artificial gravity as $g_{\text{art}} = |\mathbf{N}|/m$, the reading per unit mass of a scale under her feet, directed opposite to $\mathbf{N}$ (i.e. away from the axis, "down" for her).
-* **Fixed (inertial) frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, with $O$ on the axis and $\mathbf{k}_0$ along it.
-* **Moving frame:** $S_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$ fixed to the hull, $\mathbf{k}_1 = \mathbf{k}_0$. The origin of $S_1$ is the fixed point $O$; $S_1$ coincides with $S_0$ at $t = 0$.
-* **Local cylindrical basis of the astronaut (in $S_1$):** $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_1\}$, radial (from the axis to the floor), circumferential (in the sense of rotation) and axial; deduced in the next section.
-* **Coordinates and degrees of freedom:** on the cylinder surface, 2 coordinates: azimuth $\varphi$ in $S_1$ (measured from $\mathbf{i}_1$ in the sense of rotation) and axial position $z$. Running at constant speed $u$ means $u_\theta = R\dot{\varphi}$ and $u_z = \dot{z}$ constant with $u_\theta^2 + u_z^2 = u^2$.
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $R$ | radius of the cylinder ($10$ m in the numerical case) | m |
-| $\omega$ | spin rate of the cylinder | rad/s |
-| $g$ | target artificial gravity ($9.81$ m/s$^2$) | m/s$^2$ |
-| $u$ | running speed relative to the cylinder | m/s |
-| $u_\theta,\ u_z$ | circumferential (positive in the sense of rotation) and axial components of the running velocity | m/s |
-| $m$ | mass of the astronaut | kg |
+A cylindrical spaceship of radius $R$ spins with constant angular velocity $\omega$ about its axis, and the astronauts live on its inner surface, where the centrifugal force plays the part of gravity (Problems.pdf, p. 8). The statement asks for the spin rate that gives the artificial gravity $g$ (with $R$ of 10 m and $g$ of 9.81 m/s$^2$), for the artificial gravity felt by an astronaut running on the surface with the constant speed $u$ relative to the cylinder, and for the condition to feel none. What the astronaut feels is defined in the frame of the hull, so the solution works in that frame with the inertia forces of Notes.pdf, Sec. 4.9, after deriving the composition of motions of Notes.pdf, Sec. 3.2.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, $O$ on the axis of the cylinder, $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$ with $\mathbf k_0$ along the axis (Notes.pdf, Eq. 2.1) |
+| Moving frame | $S_1 = \{O;\ \mathcal B_1\}$ fixed to the hull, $\mathcal B_1 = \{\mathbf i_1, \mathbf j_1, \mathbf k_1\}$, $\mathbf k_1 = \mathbf k_0$; it coincides with $S_0$ at the initial instant and turns by $\omega t$ |
+| Cylindrical basis (in $S_1$) | $\mathcal B_2 = \{\mathbf e_r, \mathbf e_\theta, \mathbf k_1\}$ at the astronaut: $\mathbf e_r$ from the axis to the floor, $\mathbf e_\theta$ along the floor in the sense of rotation, $\mathbf k_1$ along the axis |
+| Coordinates | $\varphi$, the azimuth of the astronaut in $S_1$, measured from $\mathbf i_1$ about $\mathbf k_1$; $z$, her position along the axis |
+| Constraint | she stays on the floor: distance $R$ from the axis |
+| Degrees of freedom | 3 minus 1: 2, $\varphi$ and $z$, both prescribed by her running |
+| Running velocity | $u_\theta = R\dot\varphi$ (along $\mathbf e_\theta$, positive in the sense of rotation) and $u_z = \dot z$ (along the axis), constant; $\gamma$ is the angle between the running direction and $\mathbf e_\theta$, so that $u_\theta = u\cos\gamma$ and $u_z = u\sin\gamma$ |
+| Data | $R$ [m] (10 m), $g$ [m s$^{-2}$] (9.81 m s$^{-2}$), $u$ [m s$^{-1}$], $m$ [kg] the mass of the astronaut |
+| Unknowns | (a) $\omega$ [rad s$^{-1}$]; (b) and (c) the floor force $\mathbf N$ [N] and the artificial gravity it means |
+| Applied forces | none other than the floor: no external gravity (deep space) |
+| Constraint force | the total force of the floor on her feet, $\mathbf N$ (normal part and any friction) |
+| Inertia forces (in $S_1$) | of the origin, Euler, centrifugal and Coriolis (Notes.pdf, Eq. 4.62) |
+| Artificial gravity | what she feels as weight is the force she must receive from the floor: $g_{art}$ is the magnitude of $\mathbf N$ per unit mass, felt in the direction opposite to $\mathbf N$ (the reading of a scale under her feet) |
+| Hypotheses | $\omega$ constant; $O$ fixed in an inertial frame; her height $h$ is negligible against $R$ (statement), so she is a point particle at the distance $R$ from the axis; the running is uniform (constant components) |
 
 ### Change of Basis and Position Vector
 
 ![[attachments/EM-SOL/p09-cross-section.svg]]
 
-**The basis $\mathcal{B}_1$.** The hull turns about its axis $\mathbf{k}_0$, so the cross-section is drawn looking along the axis, with $\mathbf{k}_0 = \mathbf{k}_1$ pointing out of the paper, towards the reader ($\odot$). With $\mathbf{i}_0$ to the right, the right-hand rule $\mathbf{i}_0\times\mathbf{j}_0 = \mathbf{k}_0$ puts $\mathbf{j}_0$ up the page, and a positive $\omega$ turns the hull counter-clockwise. After a time $t$, $\mathbf{i}_1$ has turned the angle $\omega t$ from $\mathbf{i}_0$:
+> [!derivation] Basis of the hull: rotation by omega t about k0
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; [Lecture 5, Slide 16]
+>
+> Cross-section seen along the axis, $\mathbf k_0$ out of the paper (⊙) because it is the cross product of $\mathbf i_0$ (to the right) and $\mathbf j_0$ (up); a positive $\omega$ turns the hull counterclockwise. $\mathbf i_1$ is $\mathbf i_0$ turned by $\omega t$: hypotenuse 1, adjacent leg $\cos\omega t$ along $\mathbf i_0$, opposite leg $\sin\omega t$ along $\mathbf j_0$. $\mathbf j_1$ is $\mathbf j_0$ turned by the same angle: adjacent leg $\cos\omega t$ along $\mathbf j_0$, opposite leg $\sin\omega t$ along minus $\mathbf i_0$ (the upward vector turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0, \quad \mathbf j_1 = -\sin\omega t\,\mathbf i_0 + \cos\omega t\,\mathbf j_0, \quad \mathbf k_1 = \mathbf k_0 \quad &\text{(the two right triangles; axis)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\omega t + \sin^2\omega t\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\omega t + \sin^2\omega t = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{12} = \cos\omega t\sin\omega t - \sin\omega t\cos\omega t = 0 \quad &\text{(rows times rows)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \cr \sin\omega t & \cos\omega t & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless: $[1]$
+> **Meaning:** the hull axes follow the hull; seen from them the floor is at rest.
 
-* $\mathbf{i}_1$ is the hypotenuse (length 1) of a right triangle with the leg $\cos\omega t$ along $\mathbf{i}_0$ (adjacent) and the leg $\sin\omega t$ along $+\mathbf{j}_0$ (opposite): $\mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$.
-* $\mathbf{j}_1$ is $\mathbf{j}_0$ turned the same angle counter-clockwise; turning from "up" towards the left, its opposite leg $\sin\omega t$ points along $-\mathbf{i}_0$, which gives the minus sign: $\mathbf{j}_1 = -\sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{j}_0$.
-* $\mathbf{k}_1 = \mathbf{k}_0$, the axis of rotation.
+> [!derivation] Cylindrical basis at the astronaut and her position vector
+> **Law:** elementary rotation by the azimuth about the axis; position vector as a sum of segments
+> **Source:** Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.24; Notes.pdf, Eq. 2.28; Notes.pdf, Eq. 3.16
+>
+> Same view along the axis (⊙). $\mathbf e_r$ is $\mathbf i_1$ turned by $\varphi$: hypotenuse 1, adjacent leg $\cos\varphi$ along $\mathbf i_1$, opposite leg $\sin\varphi$ along $\mathbf j_1$. $\mathbf e_\theta$ is $\mathbf j_1$ turned by $\varphi$: adjacent leg $\cos\varphi$ along $\mathbf j_1$, opposite leg $\sin\varphi$ along minus $\mathbf i_1$ (the minus sign, for the same reason). From $O$ we go along the axis to the cross-section of the astronaut and then out along the radius to the floor.
+>
+> $$\begin{aligned}
+> \mathbf e_r &= \cos\varphi\,\mathbf i_1 + \sin\varphi\,\mathbf j_1, \quad \mathbf e_\theta = -\sin\varphi\,\mathbf i_1 + \cos\varphi\,\mathbf j_1 \quad &\text{(right triangles of the shaded figure)} \\
+> \det[{}_1R_2] &= \cos^2\varphi + \sin^2\varphi = 1, \quad \mathbf e_r\cdot\mathbf e_\theta = -\cos\varphi\sin\varphi + \sin\varphi\cos\varphi = 0 \quad &\text{(checks of the rotation)} \\
+> \mathbf r_0^O &= \mathbf 0 \quad &\text{(the origin of $S_1$ is the fixed point $O$)} \\
+> \mathbf r_0^P &= \mathbf r_1^P = z\,\mathbf k_1 + R\,\mathbf e_r \quad &\text{(along the axis, then radially to the floor)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = \mathbf r_1^P = R\,\mathbf e_r + z\,\mathbf k_1, \qquad \mathbf e_r = \cos\varphi\,\mathbf i_1 + \sin\varphi\,\mathbf j_1, \qquad \mathbf e_\theta = -\sin\varphi\,\mathbf i_1 + \cos\varphi\,\mathbf j_1}$$
+>
+> **Units:** $[R] = [z] = [\mathrm{L}]$
+> **Meaning:** the part of the position normal to the spin axis is $R\,\mathbf e_r$, the same for every cross-section: every point of the floor is at the distance $R$ from the axis.
 
-$$ [{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos\omega t\cos\omega t - (-\sin\omega t)\sin\omega t = \cos^2\omega t + \sin^2\omega t = 1 $$
+![[attachments/EM-SOL/p09-running.svg]]
 
-The columns are unit vectors ($\cos^2\omega t + \sin^2\omega t = 1$) and mutually orthogonal ($-\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0$), so $[{}_0R_1][{}_0R_1]^T = I$.
-
-**Motion of $S_1$:** $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_1$, $\boldsymbol{\alpha}_{10} = \mathbf{0}$ ($\omega$ constant and $\mathbf{k}_1$ fixed), $\mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0}$. Poisson check: $\left.\frac{d\mathbf{i}_1}{dt}\right|_0 = -\omega\sin\omega t\,\mathbf{i}_0 + \omega\cos\omega t\,\mathbf{j}_0 = \omega\,\mathbf{j}_1 = \omega\,\mathbf{k}_1\times\mathbf{i}_1$ (chain rule).
-
-**Position vector.** To reach $P$ we go along the axis to the cross-section that contains her (height $z$), and then radially out to the floor, a distance $R$:
-
-$$ \mathbf{r}_1^P = z\,\mathbf{k}_1 + R\,\mathbf{e}_r $$
-
-In the cross-section, $R\,\mathbf{e}_r$ is the hypotenuse (length $R$) of the shaded right triangle: the leg adjacent to $\varphi$ lies along $\mathbf{i}_1$ and measures $R\cos\varphi$, the leg opposite to $\varphi$ lies along $\mathbf{j}_1$ and measures $R\sin\varphi$. So, with $\varphi$ the usual polar angle measured from $\mathbf{i}_1$:
-
-$$ \mathbf{e}_r = \cos\varphi\,\mathbf{i}_1 + \sin\varphi\,\mathbf{j}_1, \qquad \mathbf{e}_\theta = \frac{d\mathbf{e}_r}{d\varphi} = -\sin\varphi\,\mathbf{i}_1 + \cos\varphi\,\mathbf{j}_1 $$
-
-($\frac{d}{d\varphi}\cos\varphi = -\sin\varphi$, $\frac{d}{d\varphi}\sin\varphi = \cos\varphi$; $|\mathbf{e}_\theta| = \sqrt{\sin^2\varphi + \cos^2\varphi} = 1$, and $\mathbf{e}_\theta$ points in the sense of increasing $\varphi$, the sense of rotation). The matrix with columns $\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_1$ in $\mathcal{B}_1$ is a simple rotation by $\varphi$ (matrix $\begin{pmatrix}\cos \varphi & -\sin \varphi & 0\\ \sin \varphi & \cos \varphi & 0\\ 0 & 0 & 1\end{pmatrix}$, $\det = \cos^2\varphi + \sin^2\varphi = 1$; $RR^T$ has diagonal entries $\cos^2\varphi + \sin^2\varphi = 1$ (and $1$) and off-diagonal entries $\cos \varphi\sin \varphi - \sin \varphi\cos \varphi = 0$, so $RR^T = I$).
-
-**Derivatives and cross products used later.** In $S_1$, by the chain rule, $\left.\frac{d\mathbf{e}_r}{dt}\right|_1 = \frac{d\mathbf{e}_r}{d\varphi}\dot{\varphi} = \dot{\varphi}\,\mathbf{e}_\theta$ and $\left.\frac{d\mathbf{e}_\theta}{dt}\right|_1 = \left(-\cos\varphi\,\mathbf{i}_1 - \sin\varphi\,\mathbf{j}_1\right)\dot{\varphi} = -\dot{\varphi}\,\mathbf{e}_r$. With $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$ and $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$: $\mathbf{k}_1\times\mathbf{e}_r = \cos\varphi\,\mathbf{j}_1 - \sin\varphi\,\mathbf{i}_1 = \mathbf{e}_\theta$ and $\mathbf{k}_1\times\mathbf{e}_\theta = -\sin\varphi\,\mathbf{j}_1 - \cos\varphi\,\mathbf{i}_1 = -\mathbf{e}_r$. The part of $\mathbf{r}_1^P$ normal to $\boldsymbol{\omega}_{10}$ is $\mathbf{r}_\perp = R\,\mathbf{e}_r$ (the axial part $z\,\mathbf{k}_1$ is parallel to it).
+> [!derivation] Running direction on the floor
+> **Law:** components of a vector from its right triangle in the plane tangent to the floor
+> **Source:** Notes.pdf, Eq. 2.24; Problems.pdf, p. 8
+>
+> The tangent plane of the floor at the astronaut contains $\mathbf e_\theta$ (around the hull) and $\mathbf k_1$ (along it); the figure shows it from outside, with $\mathbf e_r$ out of the paper (⊙), since $\mathbf e_\theta\times\mathbf k_1 = \mathbf e_r$. The running velocity is the hypotenuse $u$ of a right triangle; its leg along $\mathbf e_\theta$ is adjacent to $\gamma$ and its leg along $\mathbf k_1$ is opposite.
+>
+> $$\begin{aligned}
+> u_\theta &= R\dot\varphi = u\cos\gamma \quad &\text{(adjacent leg)} \\
+> u_z &= \dot z = u\sin\gamma \quad &\text{(opposite leg)} \\
+> u_\theta^2 + u_z^2 &= u^2\left(\cos^2\gamma + \sin^2\gamma\right) = u^2 \quad &\text{(Pythagorean identity: speed $u$)}
+> \end{aligned}$$
+>
+> $$\boxed{u_\theta = u\cos\gamma, \qquad u_z = u\sin\gamma, \qquad \dot\varphi = \frac{u\cos\gamma}{R}}$$
+>
+> **Units:** $[u] = [\mathrm{L\,T^{-1}}]$; $[\dot\varphi] = [\mathrm{T^{-1}}]$
+> **Meaning:** $\gamma$ zero is running around the hull in the sense of rotation, $\gamma$ equal to $\pi$ against it, and $\gamma$ equal to $\pi/2$ along the axis.
 
 ### Kinematics
 
-In part (a) the astronaut is at rest on the floor, so $\mathbf{v}_1^P = \mathbf{0}$ and $\mathbf{a}_1^P = \mathbf{0}$. In part (b) she runs with a constant relative velocity:
+> [!derivation] Derivatives of the unit vectors in each frame
+> **Law:** derivative of a unit vector of a turning basis; chain rule
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.4; Notes.pdf, Eq. 3.5; Notes.pdf, Eq. 3.9
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \omega\,\mathbf k_1, \quad \boldsymbol\alpha_{10} = \mathbf 0 \quad &\text{(simple rotation about the fixed $\mathbf k_0$; $\omega$ constant)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \omega\,\mathbf k_1\times\mathbf i_1 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = \omega\,\mathbf k_1\times\mathbf j_1 = -\omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0 \quad &\text{(Eq. 3.3 to 3.5)} \\
+> \left.\frac{d\mathbf e_r}{dt}\right|_1 &= -\sin\varphi\,\dot\varphi\,\mathbf i_1 + \cos\varphi\,\dot\varphi\,\mathbf j_1 = \dot\varphi\,\mathbf e_\theta \quad &\text{(in $S_1$, $\mathbf i_1$ and $\mathbf j_1$ are constant; chain rule)} \\
+> \left.\frac{d\mathbf e_\theta}{dt}\right|_1 &= -\cos\varphi\,\dot\varphi\,\mathbf i_1 - \sin\varphi\,\dot\varphi\,\mathbf j_1 = -\dot\varphi\,\mathbf e_r \quad &\text{(chain rule)} \\
+> \left.\frac{d\mathbf e_r}{dt}\right|_0 &= \dot\varphi\,\mathbf e_\theta + \cos\varphi\,\omega\,\mathbf j_1 - \sin\varphi\,\omega\,\mathbf i_1 = \left(\dot\varphi + \omega\right)\mathbf e_\theta \quad &\text{(in $S_0$: also the derivatives of $\mathbf i_1$, $\mathbf j_1$)} \\
+> \left.\frac{d\mathbf e_\theta}{dt}\right|_0 &= -\dot\varphi\,\mathbf e_r - \sin\varphi\,\omega\,\mathbf j_1 - \cos\varphi\,\omega\,\mathbf i_1 = -\left(\dot\varphi + \omega\right)\mathbf e_r \quad &\text{(same)}
+> \end{aligned}$$
+>
+> $$\boxed{\left.\frac{d\mathbf e_r}{dt}\right|_1 = \dot\varphi\,\mathbf e_\theta, \quad \left.\frac{d\mathbf e_r}{dt}\right|_0 = \left(\dot\varphi + \omega\right)\mathbf e_\theta, \quad \left.\frac{d\mathbf e_\theta}{dt}\right|_0 = -\left(\dot\varphi + \omega\right)\mathbf e_r}$$
+>
+> **Units:** $[\dot\varphi] = [\omega] = [\mathrm{T^{-1}}]$
+> **Meaning:** seen from the hull the cylindrical basis turns with her running only; seen from inertial space it turns with her running plus the spin, which is the extra part $\boldsymbol\omega_{10}$ applied to each unit vector.
 
-**Relative kinematics.** $\mathbf{r}_1^P = R\,\mathbf{e}_r + z\,\mathbf{k}_1$ with $R\dot{\varphi} = u_\theta$, $\dot{z} = u_z$ (both constant). Differentiating in $S_1$ with the product and chain rules ($R$ constant, $\mathbf{k}_1$ constant in $S_1$):
+> [!derivation] Relative velocity and relative acceleration
+> **Law:** time derivatives in $S_1$; product rule
+> **Source:** Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.24
+>
+> $$\begin{aligned}
+> \mathbf v_1^P &= \left.\frac{d}{dt}\right|_1\left(R\,\mathbf e_r + z\,\mathbf k_1\right) = R\dot\varphi\,\mathbf e_\theta + \dot z\,\mathbf k_1 \quad &\text{(Eq. 3.19; $R$ constant, $\mathbf k_1$ fixed in $S_1$)} \\
+> &= u_\theta\,\mathbf e_\theta + u_z\,\mathbf k_1 \quad &\text{(running velocity)} \\
+> \mathbf a_1^P &= \dot u_\theta\,\mathbf e_\theta + u_\theta\left.\frac{d\mathbf e_\theta}{dt}\right|_1 + \dot u_z\,\mathbf k_1 \quad &\text{(Eq. 3.24; product rule)} \\
+> &= -u_\theta\dot\varphi\,\mathbf e_r = -\frac{u_\theta^2}{R}\,\mathbf e_r \quad &\text{(constant components; $\dot\varphi = u_\theta/R$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_1^P = u_\theta\,\mathbf e_\theta + u_z\,\mathbf k_1, \qquad \mathbf a_1^P = -\frac{u_\theta^2}{R}\,\mathbf e_r}$$
+>
+> **Units:** $[u_\theta^2/R] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** in the hull she runs on a helix of radius $R$ (a circle when she runs around, a straight line along the axis), and only the part around the hull bends her path.
 
-$$ \mathbf{v}_1^P = R\dot{\varphi}\,\mathbf{e}_\theta + \dot{z}\,\mathbf{k}_1 = u_\theta\,\mathbf{e}_\theta + u_z\,\mathbf{k}_1 $$
-$$ \mathbf{a}_1^P = \dot{u}_\theta\,\mathbf{e}_\theta + u_\theta\left(-\dot{\varphi}\,\mathbf{e}_r\right) + \dot{u}_z\,\mathbf{k}_1 = -\frac{u_\theta^2}{R}\,\mathbf{e}_r $$
-
-($\dot{u}_\theta = \dot{u}_z = 0$ and $\dot{\varphi} = u_\theta/R$; the relative path is a helix of radius $R$; in $S_1$ she needs a centripetal acceleration $u_\theta^2/R$).
+> [!derivation] Absolute velocity and acceleration: relative, transport, Coriolis and centripetal terms
+> **Law:** time derivatives in $S_0$ of the position written in the turning bases; product rule
+> **Source:** Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.20; Notes.pdf, Eq. 3.21; Notes.pdf, Eq. 3.25; [Lecture 5, Slide 24]; [Lecture 5, Slide 25]
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \left.\frac{d}{dt}\right|_0\left(R\,\mathbf e_r + z\,\mathbf k_1\right) = R\left(\dot\varphi + \omega\right)\mathbf e_\theta + \dot z\,\mathbf k_1 \quad &\text{(derivatives in $S_0$ of the previous box)} \\
+> &= \underbrace{u_\theta\,\mathbf e_\theta + u_z\,\mathbf k_1}_{\mathbf v_1^P} + \underbrace{\omega R\,\mathbf e_\theta}_{\boldsymbol\omega_{10}\times\mathbf r_1^P} \quad &\text{($\omega\,\mathbf k_1\times(R\,\mathbf e_r + z\,\mathbf k_1) = \omega R\,\mathbf e_\theta$)} \\
+> \mathbf a_0^P &= R\ddot\varphi\,\mathbf e_\theta + R\left(\dot\varphi + \omega\right)\left.\frac{d\mathbf e_\theta}{dt}\right|_0 + \ddot z\,\mathbf k_1 \quad &\text{(product rule; $\dot\omega$ zero)} \\
+> &= -R\left(\dot\varphi + \omega\right)^2\mathbf e_r \quad &\text{(uniform running: $\ddot\varphi$ and $\ddot z$ zero)} \\
+> &= -R\dot\varphi^2\,\mathbf e_r - 2R\omega\dot\varphi\,\mathbf e_r - R\omega^2\,\mathbf e_r \quad &\text{(square expanded)} \\
+> 2\,\boldsymbol\omega_{10}\times\mathbf v_1^P &= 2\omega\,\mathbf k_1\times\left(u_\theta\,\mathbf e_\theta + u_z\,\mathbf k_1\right) = -2\omega u_\theta\,\mathbf e_r \quad &\text{($\mathbf k_1\times\mathbf e_\theta = -\mathbf e_r$, $\mathbf k_1\times\mathbf k_1 = \mathbf 0$)} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) &= \omega\,\mathbf k_1\times\left(\omega R\,\mathbf e_\theta\right) = -\omega^2R\,\mathbf e_r \quad &\text{(same products)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \mathbf v_1^P + \omega R\,\mathbf e_\theta, \qquad \mathbf a_0^P = \underbrace{-\frac{u_\theta^2}{R}\,\mathbf e_r}_{\mathbf a_1^P}\ \underbrace{- 2\omega u_\theta\,\mathbf e_r}_{2\boldsymbol\omega_{10}\times\mathbf v_1^P}\ \underbrace{- \omega^2R\,\mathbf e_r}_{\boldsymbol\omega_{10}\times(\boldsymbol\omega_{10}\times\mathbf r_1^P)} = -\frac{\left(\omega R + u_\theta\right)^2}{R}\,\mathbf e_r}$$
+>
+> **Units:** every term $[\mathrm{L\,T^{-2}}]$: $[u_\theta^2/R] = [\omega u_\theta] = [\omega^2R]$
+> **Meaning:** the three terms of the expanded square are the relative, Coriolis and centripetal accelerations of Eq. 3.25 (the origin and Euler terms vanish); the axial running gives none of them.
 
 ### Forces and Equations of Motion
 
+The free-body diagram of the astronaut in $S_1$ shows the floor force, the centrifugal force away from the axis and the Coriolis force, which is radial too. There is no weight in deep space; the inertia force of the origin and the Euler force vanish ($O$ fixed, $\omega$ constant).
+
 ![[attachments/EM-SOL/p09-forces.svg]]
 
-The only actual force on the astronaut is the floor force $\mathbf{N}$ (no gravity in deep space). The inertia forces of Notes Eq. 4.62 are $\mathbf{F}_A = \mathbf{0}$ (fixed origin) and $\mathbf{F}_E = \mathbf{0}$ ($\boldsymbol{\alpha}_{10} = \mathbf{0}$); $\mathbf{F}_C = m\omega^2\mathbf{r}_\perp$ (Slide 30) and $\mathbf{F}_{COR} = -2m\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P$ (Slide 31).
-
-**Centrifugal force.** With $\mathbf{r}_\perp = R\,\mathbf{e}_r$, $\mathbf{k}_1\times\mathbf{e}_r = \mathbf{e}_\theta$ and $\mathbf{k}_1\times\mathbf{e}_\theta = -\mathbf{e}_r$:
-
-$$ \mathbf{F}_C = -m\,\omega\mathbf{k}_1\times\left(\omega\mathbf{k}_1\times R\,\mathbf{e}_r\right) = -m\,\omega\mathbf{k}_1\times\left(R\omega\,\mathbf{e}_\theta\right) = m\omega^2R\,\mathbf{e}_r $$
-
-**Coriolis force** (running case), with $\mathbf{k}_1\times\mathbf{e}_\theta = -\mathbf{e}_r$ and $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$:
-
-$$ \mathbf{F}_{COR} = -2m\,\omega\mathbf{k}_1\times\left(u_\theta\,\mathbf{e}_\theta + u_z\,\mathbf{k}_1\right) = 2m\omega u_\theta\,\mathbf{e}_r $$
-
-**Newton's law in $S_1$** (Notes Eq. 4.63), $m\mathbf{a}_1^P = \mathbf{N} + \mathbf{F}_C + \mathbf{F}_{COR}$. The unknown is the floor force $\mathbf{N}$ (the relative motion is prescribed, so no coordinate is unknown):
-
-$$ -m\frac{u_\theta^2}{R}\,\mathbf{e}_r = \mathbf{N} + m\omega^2R\,\mathbf{e}_r + 2m\omega u_\theta\,\mathbf{e}_r $$
-$$ \mathbf{N} = -m\left(\omega^2R + 2\omega u_\theta + \frac{u_\theta^2}{R}\right)\mathbf{e}_r = -\frac{m}{R}\left(\omega R + u_\theta\right)^2\mathbf{e}_r $$
-
-(the bracket is the square $(\omega R + u_\theta)^2 = \omega^2R^2 + 2\omega R u_\theta + u_\theta^2$ divided by $R$). At rest ($u_\theta = u_z = 0$) it reduces to the static balance $m\,\mathbf{0} = \mathbf{N} + m\omega^2R\,\mathbf{e}_r$, $\mathbf{N} = -m\omega^2R\,\mathbf{e}_r$.
+> [!derivation] Inertia forces and the floor force
+> **Law:** Newton's second law in a non-inertial frame with the inertia forces
+> **Source:** Notes.pdf, Eq. 4.62; Notes.pdf, Eq. 4.63; [Lecture 5, Slide 28]; [Lecture 5, Slide 30]; [Lecture 5, Slide 31]
+>
+> $$\begin{aligned}
+> \mathbf F_A &= -m\,\mathbf a_0^O = \mathbf 0, \quad \mathbf F_E = -m\,\boldsymbol\alpha_{10}\times\mathbf r_1^P = \mathbf 0 \quad &\text{($O$ fixed; $\boldsymbol\alpha_{10}$ zero)} \\
+> \mathbf F_C &= -m\,\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) = m\omega^2R\,\mathbf e_r \quad &\text{(centripetal term times $-m$)} \\
+> \mathbf F_{COR} &= -2m\,\boldsymbol\omega_{10}\times\mathbf v_1^P = 2m\omega u_\theta\,\mathbf e_r \quad &\text{(Coriolis term times $-m$)} \\
+> m\,\mathbf a_1^P &= \mathbf N + \mathbf F_C + \mathbf F_{COR} \quad &\text{(Eq. 4.63; the floor is the only actual force)} \\
+> -m\frac{u_\theta^2}{R}\,\mathbf e_r &= \mathbf N + m\omega^2R\,\mathbf e_r + 2m\omega u_\theta\,\mathbf e_r \quad &\text{(substituted)} \\
+> \mathbf N &= -m\left(\omega^2R + 2\omega u_\theta + \frac{u_\theta^2}{R}\right)\mathbf e_r = -\frac{m}{R}\left(\omega R + u_\theta\right)^2\mathbf e_r \quad &\text{(solved; perfect square)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf N = -\frac{m}{R}\left(\omega R + u_\theta\right)^2\mathbf e_r, \qquad N_\theta = N_z = 0}$$
+>
+> **Units:** $[m\,\omega^2R] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** three scalar equations give the three components of the floor force; it points to the axis and has no part along the floor, so uniform running needs no friction on average.
 
 ### Answers and Checks
 
-##### (a) Spin rate for a given artificial gravity
-* **Pedagogical Justification:** an astronaut at rest on the floor has $\mathbf{v}_1^P = \mathbf{0}$ and $\mathbf{a}_1^P = \mathbf{0}$, so Notes Eq. 4.63 becomes a static balance in $S_1$ between the floor reaction and the centrifugal force (the Coriolis force vanishes because $\mathbf{v}_1^P = \mathbf{0}$).
+#### (a) Spin rate for the artificial gravity g
 
-From the static balance, $\mathbf{N} = -m\omega^2R\,\mathbf{e}_r$ and
+> [!derivation] Astronaut at rest on the floor
+> **Law:** static balance in $S_1$ between the floor force and the centrifugal force
+> **Source:** Notes.pdf, Eq. 4.63; [Lecture 5, Slide 30]; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> u_\theta &= u_z = 0 \ \Rightarrow\ \mathbf N = -m\omega^2R\,\mathbf e_r \quad &\text{(floor-force box at rest; no Coriolis force)} \\
+> g_{art} &= \frac{|\mathbf N|}{m} = \omega^2R \quad &\text{(definition of the artificial gravity)} \\
+> \omega^2R &= g \ \Rightarrow\ \omega = \sqrt{\frac{g}{R}} \quad &\text{(positive root)} \\
+> \omega &= \sqrt{\frac{9.81}{10}}\ \mathrm{s^{-1}} = \sqrt{0.981}\ \mathrm{s^{-1}} = 0.9905\ \text{rad/s} \quad &\text{(data)} \\
+> T_{rev} &= \frac{2\pi}{\omega} = 6.344\ \mathrm{s}, \quad \frac{60\,\omega}{2\pi} = 9.458\ \text{rpm}, \quad \omega R = 9.905\ \text{m/s} \quad &\text{(period, revolutions per minute, floor speed)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega = \sqrt{\frac{g}{R}} = 0.9905\ \text{rad/s} \quad (\text{one turn in } 6.34\ \mathrm{s})}$$
+>
+> **Units:** $[\sqrt{g/R}] = [\mathrm{L\,T^{-2}}\,\mathrm{L^{-1}}]^{1/2} = [\mathrm{T^{-1}}]$
+> **Meaning:** the floor pushes her towards the axis with the force $m\omega^2R$, and she reads it as a weight pointing away from the axis, towards the floor; the floor itself moves at 9.90 m/s in inertial space.
 
-$$ g_{\text{art}} = \frac{|\mathbf{N}|}{m} = \omega^2 R $$
+#### (b) Artificial gravity while running
 
-The floor pushes her toward the axis, and she feels a "gravity" $\omega^2R$ pointing away from the axis. Setting $g_{\text{art}} = g$:
+> [!derivation] Artificial gravity felt by the running astronaut
+> **Law:** floor-force box with the relative velocity of the running
+> **Source:** Notes.pdf, Eq. 4.63; [Lecture 5, Slide 31]; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> g_{art} &= \frac{|\mathbf N|}{m} = \frac{\left(\omega R + u_\theta\right)^2}{R} \quad &\text{(floor-force box)} \\
+> &= \omega^2R + 2\omega u_\theta + \frac{u_\theta^2}{R} = g + 2\omega u_\theta + \frac{u_\theta^2}{R} \quad &\text{(square expanded; $\omega^2R = g$ from part (a))} \\
+> &= g\left(1 + \frac{u\cos\gamma}{\omega R}\right)^2 = g\left(1 + \frac{u\cos\gamma}{\sqrt{gR}}\right)^2 \quad &\text{($u_\theta = u\cos\gamma$; $\omega R = \sqrt{gR}$)} \\
+> \gamma = 0:\quad g_{art} &= \frac{\left(\omega R + u\right)^2}{R} \gt g \quad &\text{(around the hull, with the rotation)} \\
+> \gamma = \pi:\quad g_{art} &= \frac{\left(\omega R - u\right)^2}{R} \lt g \ \ (0 \lt u \lt 2\omega R) \quad &\text{(around the hull, against the rotation)} \\
+> \gamma = \tfrac{\pi}{2}:\quad g_{art} &= g \quad &\text{(along the axis: relative velocity parallel to $\boldsymbol\omega_{10}$)}
+> \end{aligned}$$
+>
+> $$\boxed{g_{art} = \frac{\left(\omega R + u\cos\gamma\right)^2}{R} = g + 2\omega u\cos\gamma + \frac{u^2\cos^2\gamma}{R}}$$
+>
+> **Units:** $[\omega u] = [u^2/R] = [g] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** with the data of part (a), running at 2 m/s around the hull gives 14.17 m/s$^2$ (1.44 g) with the rotation and 6.25 m/s$^2$ (0.64 g) against it; at 5 m/s, 22.21 m/s$^2$ (2.26 g) and 2.41 m/s$^2$ (0.25 g).
 
-$$ \boxed{\omega = \sqrt{\frac{g}{R}}} $$
+#### (c) Condition for no artificial gravity
 
-**Numbers** ($R = 10$ m, $g = 9.81$ m/s$^2$):
+> [!derivation] Weightlessness while running
+> **Law:** a perfect square vanishes only when its base vanishes
+> **Source:** Notes.pdf, Eq. 3.20; Notes.pdf, Eq. 4.63; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> g_{art} &= 0 \iff \omega R + u_\theta = 0 \iff u_\theta = -\omega R \quad &\text{(part (b))} \\
+> u\cos\gamma &= -\omega R \ \Rightarrow\ \cos\gamma = -\frac{\omega R}{u}, \quad \text{possible only if } u \ge \omega R \quad &\text{(running direction; $|\cos\gamma| \le 1$)} \\
+> \mathbf v_0^P &= \mathbf v_1^P + \omega R\,\mathbf e_\theta = \left(u_\theta + \omega R\right)\mathbf e_\theta + u_z\,\mathbf k_1 = u_z\,\mathbf k_1 \quad &\text{(absolute velocity box)} \\
+> \mathbf a_0^P &= -\frac{\left(\omega R + u_\theta\right)^2}{R}\,\mathbf e_r = \mathbf 0 \quad &\text{(absolute acceleration box)}
+> \end{aligned}$$
+>
+> $$\boxed{u_\theta = u\cos\gamma = -\omega R = -\sqrt{gR}\ \ (9.90\ \text{m/s}); \quad \text{running only around the hull: } u = \omega R \text{ against the rotation}}$$
+>
+> **Units:** $[\omega R] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** she must run against the rotation so fast that the part of her running around the hull cancels the speed of the floor; she is then at rest in inertial space (or drifts uniformly along the axis if she also runs along it), no force is needed and the floor slides under her feet. A speed below 9.90 m/s, a sprinter's speed, cannot achieve it.
 
-$$ \omega = \sqrt{\frac{9.81\ \text{m/s}^2}{10\ \text{m}}} = \sqrt{0.981}\ \text{s}^{-1} \approx 0.9905\ \text{rad/s}, \qquad T_{\text{rev}} = \frac{2\pi}{\omega} \approx 6.34\ \text{s}, \qquad \frac{60\,\omega}{2\pi} \approx 9.46\ \text{rpm} $$
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Spin rate | $\omega = \sqrt{g/R} = 0.9905$ rad/s for $R = 10$ m and $g = 9.81$ m/s$^2$ (one turn in 6.34 s, 9.46 rpm) |
+| (b) Artificial gravity while running | $g_{art} = (\omega R + u\cos\gamma)^2/R = g + 2\omega u\cos\gamma + u^2\cos^2\gamma/R$, felt away from the axis; the floor force is $\mathbf N = -m(\omega R + u_\theta)^2\,\mathbf e_r/R$ |
+| (c) No artificial gravity | $u_\theta = -\omega R$: the part of the running velocity around the hull equal to the floor speed $\sqrt{gR}$ (9.90 m/s), against the rotation; any axial part is allowed; it needs $u \ge \omega R$ |
+| Intermediate results | $\mathbf a_1^P = -u_\theta^2\,\mathbf e_r/R$; Coriolis acceleration $-2\omega u_\theta\,\mathbf e_r$; centripetal acceleration $-\omega^2R\,\mathbf e_r$; $\mathbf v_0^P = (\omega R + u_\theta)\,\mathbf e_\theta + u_z\,\mathbf k_1$ |
 
-and the floor moves at $\omega R \approx 9.90$ m/s in $S_0$.
+**Check against the official key:** Problems.pdf, p. 72 lists item 9 with no answer, so there is no key to compare with. Independent checks: the inertial reading below gives the same floor force without inertia forces, and the limiting cases close the results.
 
-##### (b) Artificial gravity felt while running
-* **Pedagogical Justification:** now $\mathbf{v}_1^P \neq \mathbf{0}$, so the Coriolis force appears, and her relative path may be curved, so $\mathbf{a}_1^P \neq \mathbf{0}$. Both are computed in $S_1$ and inserted in Notes Eq. 4.63 to obtain $\mathbf{N}$. The statement does not fix the running direction, so we take a general constant relative velocity with circumferential part $u_\theta$ and axial part $u_z$ (running "around" the hull is $u_z = 0$, $u_\theta = \pm u$).
+> [!derivation] Independent check in the inertial frame
+> **Law:** Newton's second law in $S_0$ with the absolute acceleration
+> **Source:** Notes.pdf, Eq. 4.59; Notes.pdf, Eq. 3.25
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \left(\omega R + u_\theta\right)\mathbf e_\theta + u_z\,\mathbf k_1 \quad &\text{(absolute velocity box)} \\
+> m\,\mathbf a_0^P &= \mathbf N \quad &\text{(Eq. 4.59: the floor is the only force)} \\
+> \mathbf N &= -\frac{m\left(\omega R + u_\theta\right)^2}{R}\,\mathbf e_r \quad &\text{(absolute acceleration box)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf N = -\frac{m}{R}\left(\omega R + u_\theta\right)^2\mathbf e_r \quad \text{(same as in } S_1\text{)}}$$
+>
+> **Units:** $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** in inertial space she moves on a circle or helix of radius $R$ with the speed around the axis $\omega R + u_\theta$, so the floor must provide the centripetal force of that speed; the rotating observer splits the same force into the centrifugal, Coriolis and relative parts.
 
-The reaction $\mathbf{N} = -\frac{m}{R}(\omega R + u_\theta)^2\,\mathbf{e}_r$ is purely radial, so no friction is needed to keep the motion uniform. The artificial gravity she feels is
-
-$$ \boxed{g_{\text{art}} = \frac{\left(\omega R + u_\theta\right)^2}{R} = g\left(1 + \frac{u_\theta}{\omega R}\right)^2 = g + 2\omega u_\theta + \frac{u_\theta^2}{R}} $$
-
-using $\omega^2R = g$ from part (a). Particular cases:
-
-* running around the hull **in the sense of rotation** ($u_\theta = +u$): $g_{\text{art}} = (\omega R + u)^2/R \gt g$ (she feels heavier);
-* running **against the rotation** ($u_\theta = -u$): $g_{\text{art}} = (\omega R - u)^2/R \lt g$ for $u \lt 2\omega R$ (she feels lighter);
-* running **along the axis** ($u_\theta = 0$, $u_z = u$): $g_{\text{art}} = g$ (the Coriolis force vanishes because $\mathbf{v}_1^P \parallel \boldsymbol{\omega}_{10}$).
-
-**Numbers** ($R = 10$ m, $\omega = 0.9905$ rad/s): at $u = 2$ m/s, $g_{\text{art}} = 14.17$ m/s$^2$ ($1.44\,g$) with the rotation and $6.25$ m/s$^2$ ($0.64\,g$) against it; at $u = 5$ m/s, $22.2$ m/s$^2$ ($2.26\,g$) and $2.41$ m/s$^2$ ($0.25\,g$).
-
-##### (c) Condition for no artificial gravity
-* **Pedagogical Justification:** $g_{\text{art}} = (\omega R + u_\theta)^2/R$ is a perfect square, so it vanishes only when its base vanishes.
-$$ g_{\text{art}} = 0 \iff \omega R + u_\theta = 0 \iff \boxed{u_\theta = -\omega R,\quad u_z = 0} $$
-
-She must run around the hull, against the rotation, at the speed of the floor $\omega R$ ($\approx 9.90$ m/s for the numerical case, a sprinter's speed). Then, by Notes Eq. 3.26, her absolute velocity is $\mathbf{v}_0^P = \mathbf{v}_1^P + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P = -\omega R\,\mathbf{e}_\theta + \omega R\,\mathbf{e}_\theta = \mathbf{0}$: she is at rest in inertial space, floating, while the floor slides under her feet. With an axial component ($u_z \neq 0$) and $u = \omega R$ the condition cannot be met, since then $|u_\theta| \lt \omega R$.
-
-##### Checks
-* **Inertial reading (cross-check).** In $S_0$ the astronaut moves on a circle (or helix) of radius $R$ with tangential speed $\omega R + u_\theta$, so the floor must supply the centripetal force $m(\omega R + u_\theta)^2/R$: the same result. The rotating observer splits it into centrifugal $m\omega^2R$, Coriolis $2m\omega u_\theta$ and relative centripetal $mu_\theta^2/R$ parts.
-* **Limits:** $u_\theta \to 0$ gives $g_{\text{art}} = g$; for $|u_\theta| \ll \omega R$, $g_{\text{art}} \approx g \pm 2\omega u$, a correction due to the Coriolis force alone; a larger hull ($R \to \infty$ at fixed $g$) needs a smaller $\omega$ and makes the Coriolis correction $2\omega u = 2u\sqrt{g/R}$ smaller, which is why large habitats are more comfortable.
-* **Orthogonality:** $\mathbf{e}_r\cdot\mathbf{e}_\theta = -\cos\varphi\sin\varphi + \sin\varphi\cos\varphi = 0$.
-* **Dimensions:** $[\sqrt{g/R}] = \sqrt{\text{m}\,\text{s}^{-2}/\text{m}} = \text{s}^{-1}$; $[\omega^2R] = [2\omega u_\theta] = [u_\theta^2/R] = \text{m}\,\text{s}^{-2}$; $[N] = \text{kg}\,\text{m}\,\text{s}^{-2} = \text{N}$.
-* **Verification (sympy):** $\mathbf{a}_1^P$, $\mathbf{F}_C$, $\mathbf{F}_{COR}$ and $\mathbf{N}$ are recomputed; the inertial double derivative of $[{}_0R_1]\{\mathbf{r}_1^P\}$ equals the Notes Eq. 3.27 decomposition and gives the same $\mathbf{N}$; the numbers above are reproduced.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 9 in its solution keys, so the results are verified by independent derivation (the inertial reading and the sympy check above).
+> [!derivation] Limiting cases
+> **Law:** the artificial gravity of part (b) at extreme values of the data
+> **Source:** Notes.pdf, Eq. 4.63; Problems.pdf, p. 8
+>
+> $$\begin{aligned}
+> u \to 0:\quad g_{art} &\to \omega^2R = g \quad &\text{(part (a) recovered)} \\
+> u \ll \omega R:\quad g_{art} &\simeq g\left(1 + \frac{2u\cos\gamma}{\sqrt{gR}}\right) \quad &\text{(first order in $u$: the Coriolis term alone)} \\
+> R \to \infty,\ g \text{ fixed}:\quad \frac{2u}{\sqrt{gR}} &\to 0 \quad &\text{(relative Coriolis correction of a larger hull)} \\
+> u = 2\ \text{m/s},\ R = 10\ \text{m}:\quad \frac{2u}{\sqrt{gR}} &= \frac{4}{9.905} = 0.404 \quad &\text{(first-order correction for the data)}
+> \end{aligned}$$
+>
+> $$\boxed{g_{art} \to g \ \text{for} \ u \to 0; \qquad \text{first-order change } \pm 2\omega u \ \text{around the hull}}$$
+>
+> **Units:** $2u/\sqrt{gR}$ is dimensionless
+> **Meaning:** a runner in a small hull feels a large change of weight (about 40 percent at 2 m/s in the hull of 10 m, to first order), which is why large habitats are more comfortable.
 
 ---
 
 ## Problem 20: Heavy Particle on a Rotating Circumference
 
 ### Reference Frames, Bases and Coordinates
-* **Physical system:** a particle $P$ of mass $m$ slides on a smooth circular wire of radius $R$ and centre $O$; the wire turns with constant angular velocity $\omega$ about its vertical diameter. The angle $\theta$ is measured from the lowest point.
-* **Why the moving frame.** In the frame $S_1$ attached to the wire the constraint is a fixed circle, the motion has one coordinate $\theta$, and the reaction has two clear components (in the plane of the wire, normal to it). The question itself asks for the energy "in the moving reference frame", which requires the inertia forces of Notes Eq. 4.62 and their potentials (Slides 29–31).
-* **Hypotheses:**
-  1. $S_0$ fixed to the ground is inertial; $O$ is fixed; uniform gravity $-g\,\mathbf{k}$.
-  2. The wire is smooth: the reaction has no component along the tangent of the wire.
-  3. $\omega$ is constant.
-* **Fixed (inertial) frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, $\mathbf{k}_0$ upward along the rotation axis.
-* **Moving frame:** $S_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$ attached to the wire: $\mathbf{k}_1 = \mathbf{k}_0$, $\mathbf{i}_1$ horizontal in the plane of the wire (on the side where $\theta \gt 0$), $\mathbf{j}_1 = \mathbf{k}_1\times\mathbf{i}_1$ normal to the plane of the wire. The plane of the wire is at azimuth $\omega t$ from $\mathbf{i}_0$.
-* **Wire basis:** $\{\mathbf{e}_r, \mathbf{e}_\theta, -\mathbf{j}_1\}$, radial (from $O$ to $P$), tangent (increasing $\theta$) and normal to the plane; deduced in the next section.
-* **Coordinate and degrees of freedom:** the particle is constrained to a curve fixed in $S_1$: **1 DOF**, $\theta$, the angle of $OP$ measured at $O$ from the downward vertical $-\mathbf{k}_1$, positive towards $+\mathbf{i}_1$.
-* **Unknown reaction:** $\mathbf{N} = N_r\,\mathbf{e}_r + N_b\,\mathbf{j}_1$, with $N_r$ in the plane of the wire (along the radius) and $N_b$ normal to that plane.
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $m$ | mass of the particle | kg |
-| $R$ | radius of the circumference | m |
-| $\omega$ | spin rate of the circumference (constant) | rad/s |
-| $g$ | gravitational acceleration | m/s$^2$ |
-| $\theta$ | angle from the lowest point | rad |
-| $N_r,\ N_b$ | reaction components (radial in-plane, normal to the plane) | N |
-| $\theta_0,\ \dot{\theta}_0$ | initial angle and angular rate in $S_1$ | rad, rad/s |
+A heavy particle moves along a smooth circumference of radius $R$ and centre $O$; one diameter is vertical and the circumference turns about it with the constant angular velocity $\omega$; $\theta$ is the angle between the particle and the lowest point (Problems.pdf, p. 10). The statement asks to discuss the conservation of the mechanical energy in the moving frame and compute its value, and for the reaction of the circumference normal to its plane as a function of $\theta$. The wire is fixed in the frame that turns with it, so the solution works in that frame, with the composition of motions of Notes.pdf, Sec. 3.2 and the inertia forces of Notes.pdf, Sec. 4.9.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $\mathbf k_0$ vertical, up, along the axis of rotation (Notes.pdf, Eq. 2.1) |
+| Moving frame | $S_1 = \{O;\ \mathcal B_1\}$ attached to the circumference: $\mathbf k_1 = \mathbf k_0$; $\mathbf i_1$ horizontal, in the plane of the circumference, on the side where $\theta$ is positive; $\mathbf j_1$ the cross product of $\mathbf k_1$ and $\mathbf i_1$, normal to the plane of the circumference; it turns by $\omega t$ about $\mathbf k_0$ |
+| Wire basis | $\mathcal B_2 = \{\mathbf e_r, \mathbf e_\theta, -\mathbf j_1\}$: $\mathbf e_r$ from $O$ to the particle $P$, $\mathbf e_\theta$ tangent to the circumference in the sense of growing $\theta$ |
+| Coordinate | $\theta$, the angle at $O$ from the downward vertical to $OP$, positive towards $\mathbf i_1$ |
+| Constraints | $P$ on the circumference: distance $R$ from $O$ and plane of the circumference, both fixed in $S_1$; smooth and bilateral (a bead on the wire) |
+| Degrees of freedom | 3 minus 2: 1, the angle $\theta(t)$ |
+| Data | $m$ [kg], $R$ [m], $\omega$ [rad s$^{-1}$], $g$ [m s$^{-2}$]; initial values $\theta_0$ [rad] and $\dot\theta_0$ [rad s$^{-1}$] (not given in the statement, kept as symbols) |
+| Unknowns | $\theta(t)$; reaction $\mathbf N = N_r\,\mathbf e_r + N_b\,\mathbf j_1$ (normal subspace of a curve, Notes.pdf, Eq. 6.16): $N_r$ in the plane, $N_b$ normal to it |
+| Applied force | weight $-mg\,\mathbf k_1$ |
+| Inertia forces (in $S_1$) | of the origin, Euler, centrifugal and Coriolis (Notes.pdf, Eq. 4.62) |
+| Hypotheses | $S_0$ inertial with $O$ fixed; uniform gravity; $\omega$ constant; smooth wire, so the reaction has no component along the tangent |
 
 ### Change of Basis and Position Vector
 
-#### The basis $\mathcal{B}_1$ seen from above
-
 ![[attachments/EM-SOL/p20-top-view.svg]]
 
-The rotation is about the vertical $\mathbf{k}_0$, so it is drawn looking down from $+\mathbf{k}_0$: $\mathbf{k}_0 = \mathbf{k}_1$ points out of the paper ($\odot$), $\mathbf{i}_0$ to the right and, by the right-hand rule $\mathbf{i}_0\times\mathbf{j}_0 = \mathbf{k}_0$, $\mathbf{j}_0$ up the page. The plane of the wire is seen edge-on, as a line through $O$ along $\mathbf{i}_1$; it turns counter-clockwise ($\omega \gt 0$) and makes the angle $\omega t$ with $\mathbf{i}_0$:
-
-* $\mathbf{i}_1$ is the hypotenuse (length 1) of a right triangle with the leg $\cos\omega t$ along $\mathbf{i}_0$ (adjacent) and the leg $\sin\omega t$ along $+\mathbf{j}_0$ (opposite): $\mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$.
-* $\mathbf{j}_1 = \mathbf{k}_1\times\mathbf{i}_1$ is $\mathbf{i}_1$ turned $90^\circ$ counter-clockwise, normal to the trace of the wire. It has turned $\omega t$ from $\mathbf{j}_0$, towards the left, so its opposite leg $\sin\omega t$ lies along $-\mathbf{i}_0$: $\mathbf{j}_1 = -\sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{j}_0$ (that is the minus sign of the matrix).
-* $\mathbf{k}_1 = \mathbf{k}_0$.
-
-$$ [{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos\omega t\cos\omega t - (-\sin\omega t)\sin\omega t = \cos^2\omega t + \sin^2\omega t = 1 $$
-
-The columns are unit vectors and mutually orthogonal ($-\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0$), so $[{}_0R_1][{}_0R_1]^T = I$.
-
-**Motion of $S_1$:** $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_1$, $\boldsymbol{\alpha}_{10} = \mathbf{0}$, $\mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0}$. Poisson check (chain rule): $\left.\frac{d\mathbf{i}_1}{dt}\right|_0 = -\omega\sin\omega t\,\mathbf{i}_0 + \omega\cos\omega t\,\mathbf{j}_0 = \omega\,\mathbf{j}_1 = \omega\,\mathbf{k}_1\times\mathbf{i}_1$.
-
-#### The position vector in the plane of the wire
+> [!derivation] Basis of the rotating circumference: rotation by omega t about k0
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; [Lecture 5, Slide 16]
+>
+> Top view along $\mathbf k_0$, out of the paper (⊙) because it is the cross product of $\mathbf i_0$ (to the right) and $\mathbf j_0$ (up); the circumference is seen edge-on, along $\mathbf i_1$, and turns counterclockwise. $\mathbf i_1$ is $\mathbf i_0$ turned by $\omega t$: hypotenuse 1, adjacent leg $\cos\omega t$ along $\mathbf i_0$, opposite leg $\sin\omega t$ along $\mathbf j_0$. $\mathbf j_1$ is $\mathbf j_0$ turned by the same angle: adjacent leg $\cos\omega t$ along $\mathbf j_0$, opposite leg $\sin\omega t$ along minus $\mathbf i_0$ (the upward vector turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0, \quad \mathbf j_1 = -\sin\omega t\,\mathbf i_0 + \cos\omega t\,\mathbf j_0, \quad \mathbf k_1 = \mathbf k_0 \quad &\text{(the two right triangles; axis)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\omega t + \sin^2\omega t\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\omega t + \sin^2\omega t = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{12} = \cos\omega t\sin\omega t - \sin\omega t\cos\omega t = 0 \quad &\text{(rows times rows)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \cr \sin\omega t & \cos\omega t & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless: $[1]$
+> **Meaning:** $\mathbf j_1$ is horizontal and normal to the plane of the circumference: the direction of the reaction asked for in part (b).
 
 ![[attachments/EM-SOL/p20-wire-plane.svg]]
 
-The plane of the wire is fixed in $S_1$ and is drawn with $\mathbf{i}_1$ to the right and $\mathbf{k}_1$ up. Then $\mathbf{j}_1 = \mathbf{k}_1\times\mathbf{i}_1$ points into the paper ($\otimes$): fingers from $\mathbf{k}_1$ (up) to $\mathbf{i}_1$ (right), clockwise, so the thumb points away from the reader.
-
-The centre $O$ is the origin, so $\mathbf{r}_1^P = \overrightarrow{OP}$, of length $R$, making the angle $\theta$ with the downward vertical $-\mathbf{k}_1$. Let $F$ be the point of the vertical axis at the height of $P$. In the shaded right triangle $OFP$ (right angle at $F$) the hypotenuse is $|OP| = R$; the leg opposite to $\theta$ is $FP = R\sin\theta$, horizontal, along $+\mathbf{i}_1$; the leg adjacent to $\theta$ is $OF = R\cos\theta$, vertical and pointing down, along $-\mathbf{k}_1$. Hence
-
-$$ \mathbf{r}_1^P = R\,\mathbf{e}_r, \qquad \mathbf{e}_r = \sin\theta\,\mathbf{i}_1 - \cos\theta\,\mathbf{k}_1 $$
-
-Check: $\theta = 0$ gives $-R\,\mathbf{k}_1$, the lowest point; $\theta = \pi/2$ gives $R\,\mathbf{i}_1$, the end of the horizontal diameter. The part of $\mathbf{r}_1^P$ normal to the axis is the horizontal leg, $\mathbf{r}_\perp = R\sin\theta\,\mathbf{i}_1$.
-
-**Relation with the standard polar angle.** Measured from $\mathbf{i}_1$ towards $\mathbf{k}_1$, the usual polar angle $\varphi$ gives $\mathbf{e}_r = \cos\varphi\,\mathbf{i}_1 + \sin\varphi\,\mathbf{k}_1$. This matches $\sin\theta\,\mathbf{i}_1 - \cos\theta\,\mathbf{k}_1$ for $\varphi = \theta - \pi/2$: $\cos\left(\theta - \tfrac{\pi}{2}\right) = \cos\theta\cos\tfrac{\pi}{2} + \sin\theta\sin\tfrac{\pi}{2} = \sin\theta$ and $\sin\left(\theta - \tfrac{\pi}{2}\right) = \sin\theta\cos\tfrac{\pi}{2} - \cos\theta\sin\tfrac{\pi}{2} = -\cos\theta$. So $\theta$ is the polar angle measured from $-\mathbf{k}_1$, chosen so that $\theta = 0$ is the lowest point, as in the statement.
-
-**Wire basis.** The tangent is the derivative with respect to $\theta$ ($\frac{d}{d\theta}\sin\theta = \cos\theta$, $\frac{d}{d\theta}(-\cos\theta) = \sin\theta$), already of unit length ($\sqrt{\cos^2\theta + \sin^2\theta} = 1$):
-
-$$ \mathbf{e}_\theta = \frac{d\mathbf{e}_r}{d\theta} = \cos\theta\,\mathbf{i}_1 + \sin\theta\,\mathbf{k}_1 $$
-
-Since $\mathbf{e}_r\times\mathbf{e}_\theta = (-\cos\theta)(\cos\theta)(\mathbf{k}_1\times\mathbf{i}_1) + (\sin\theta)(\sin\theta)(\mathbf{i}_1\times\mathbf{k}_1) = -\cos^2\theta\,\mathbf{j}_1 - \sin^2\theta\,\mathbf{j}_1 = -\mathbf{j}_1$ (with $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{i}_1\times\mathbf{k}_1 = -\mathbf{j}_1$), the right-handed triad is $\{\mathbf{e}_r, \mathbf{e}_\theta, -\mathbf{j}_1\}$; $-\mathbf{j}_1$ points out of the paper in the plane view. Its columns in $\mathcal{B}_1$:
-
-$$ [{}_1R_w] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & -1 \\ -\cos\theta & \sin\theta & 0 \end{pmatrix}, \qquad \det[{}_1R_w] = \sin\theta(0\cdot 0 + \sin\theta) - \cos\theta(0\cdot 0 - \cos\theta) = 1 $$
-
-and the columns are orthonormal ($\sin^2\theta + \cos^2\theta = 1$, $\sin\theta\cos\theta - \cos\theta\sin\theta = 0$), so $[{}_1R_w][{}_1R_w]^T = I$.
-
-**Derivatives in $S_1$** (chain rule): $\left.\frac{d\mathbf{e}_r}{dt}\right|_1 = \frac{d\mathbf{e}_r}{d\theta}\dot{\theta} = \dot{\theta}\left(\cos\theta\,\mathbf{i}_1 + \sin\theta\,\mathbf{k}_1\right) = \dot{\theta}\,\mathbf{e}_\theta$ and $\left.\frac{d\mathbf{e}_\theta}{dt}\right|_1 = \dot{\theta}\left(-\sin\theta\,\mathbf{i}_1 + \cos\theta\,\mathbf{k}_1\right) = -\dot{\theta}\,\mathbf{e}_r$.
+> [!derivation] Position vector and wire basis in the plane of the circumference
+> **Law:** right triangle in the plane of the wire; relation with the standard polar angle; rotation in that plane and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 3.16; Problems.pdf, p. 10
+>
+> Plane of the circumference, fixed in $S_1$, drawn with $\mathbf i_1$ to the right and $\mathbf k_1$ up; then $\mathbf j_1$, the cross product of $\mathbf k_1$ (up) and $\mathbf i_1$ (right), points into the paper (⊗), and minus $\mathbf j_1$ out of it. Let $F$ be the point of the vertical diameter at the height of $P$: in the right triangle $OFP$ the hypotenuse is $R$; the leg opposite to $\theta$ is $R\sin\theta$, horizontal, along $\mathbf i_1$; the leg adjacent to $\theta$ is $R\cos\theta$, vertical, pointing down, along minus $\mathbf k_1$ (the minus sign: $\theta$ is measured from the downward vertical). The standard polar angle of this plane, measured from $\mathbf i_1$ towards $\mathbf k_1$, is $\theta - \pi/2$. The tangent is the derivative of $\mathbf e_r$ with respect to $\theta$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^O &= \mathbf 0, \quad \mathbf r_0^P = \mathbf r_1^P = \overrightarrow{OP} \quad &\text{(origin of $S_1$ at the fixed centre; Eq. 3.16)} \\
+> \mathbf e_r &= \sin\theta\,\mathbf i_1 - \cos\theta\,\mathbf k_1 \quad &\text{(legs of $OFP$ divided by $R$)} \\
+> \cos\left(\theta - \tfrac{\pi}{2}\right) &= \sin\theta, \quad \sin\left(\theta - \tfrac{\pi}{2}\right) = -\cos\theta \quad &\text{(difference formulas: the standard form gives the same $\mathbf e_r$)} \\
+> \mathbf e_\theta &= \frac{d\mathbf e_r}{d\theta} = \cos\theta\,\mathbf i_1 + \sin\theta\,\mathbf k_1 \quad &\text{($\tfrac{d}{d\theta}\sin\theta = \cos\theta$, $\tfrac{d}{d\theta}(-\cos\theta) = \sin\theta$; unit length)} \\
+> \mathbf e_r\times\mathbf e_\theta &= \sin^2\theta\,\mathbf i_1\times\mathbf k_1 - \cos^2\theta\,\mathbf k_1\times\mathbf i_1 = -\mathbf j_1 \quad &\text{($\mathbf i_1\times\mathbf k_1 = -\mathbf j_1$, $\mathbf k_1\times\mathbf i_1 = \mathbf j_1$)} \\
+> \det[{}_1R_2] &= -(-1)\left(\sin^2\theta + \cos^2\theta\right) = 1 \quad &\text{(expansion along the second row, entry $-1$ in place (2,3))} \\
+> \mathbf e_r\cdot\mathbf e_\theta &= \sin\theta\cos\theta - \cos\theta\sin\theta = 0 \quad &\text{(columns orthogonal: $[{}_1R_2][{}_1R_2]^T = I$)} \\
+> \mathbf r_1^P &= R\,\mathbf e_r = R\sin\theta\,\mathbf i_1 - R\cos\theta\,\mathbf k_1 \quad &\text{(position vector)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^P = R\sin\theta\,\mathbf i_1 - R\cos\theta\,\mathbf k_1, \quad [{}_1R_2] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \cr 0 & 0 & -1 \cr -\cos\theta & \sin\theta & 0 \end{pmatrix}, \quad \det[{}_1R_2] = 1}$$
+>
+> **Units:** $[R] = [\mathrm{L}]$; direction cosines dimensionless
+> **Meaning:** $\theta$ zero is the lowest point and $\theta$ equal to $\pi/2$ the end of the horizontal diameter; the distance of $P$ to the axis is the horizontal leg $R\sin\theta$.
 
 ### Kinematics
-$$ \mathbf{r}_1^P = R\,\mathbf{e}_r, \qquad \mathbf{v}_1^P = R\dot{\theta}\,\mathbf{e}_\theta, \qquad \mathbf{a}_1^P = R\ddot{\theta}\,\mathbf{e}_\theta + R\dot{\theta}\left(-\dot{\theta}\,\mathbf{e}_r\right) = R\ddot{\theta}\,\mathbf{e}_\theta - R\dot{\theta}^2\,\mathbf{e}_r $$
 
-($R$ is constant, so $\mathbf{v}_1^P = R\left.\frac{d\mathbf{e}_r}{dt}\right|_1$; then the product rule on $R\dot{\theta}\,\mathbf{e}_\theta$: $\frac{d}{dt}(R\dot{\theta}) = R\ddot{\theta}$ and $\left.\frac{d\mathbf{e}_\theta}{dt}\right|_1 = -\dot{\theta}\,\mathbf{e}_r$.)
+> [!derivation] Derivatives of the unit vectors
+> **Law:** derivative of a unit vector of a turning basis; chain rule
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.4; Notes.pdf, Eq. 3.5; Notes.pdf, Eq. 3.9
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \omega\,\mathbf k_1, \quad \boldsymbol\alpha_{10} = \mathbf 0 \quad &\text{(simple rotation about the fixed vertical; $\omega$ constant)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \omega\,\mathbf k_1\times\mathbf i_1 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = -\omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0 \quad &\text{(Eq. 3.3 to 3.5)} \\
+> \left.\frac{d\mathbf e_r}{dt}\right|_1 &= \frac{d\mathbf e_r}{d\theta}\,\dot\theta = \dot\theta\,\mathbf e_\theta \quad &\text{(chain rule; $\mathbf i_1$, $\mathbf k_1$ constant in $S_1$)} \\
+> \left.\frac{d\mathbf e_\theta}{dt}\right|_1 &= \left(-\sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf k_1\right)\dot\theta = -\dot\theta\,\mathbf e_r \quad &\text{(chain rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\left.\frac{d\mathbf i_1}{dt}\right|_0 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = -\omega\,\mathbf i_1, \quad \left.\frac{d\mathbf e_r}{dt}\right|_1 = \dot\theta\,\mathbf e_\theta, \quad \left.\frac{d\mathbf e_\theta}{dt}\right|_1 = -\dot\theta\,\mathbf e_r}$$
+>
+> **Units:** $[\omega] = [\dot\theta] = [\mathrm{T^{-1}}]$
+> **Meaning:** in $S_1$ only the wire basis turns, with the particle; in $S_0$ the whole plane turns about the vertical as well.
 
-The absolute velocity (Notes Eq. 3.26), used below, is $\mathbf{v}_0^P = \mathbf{v}_1^P + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P = R\dot{\theta}\,\mathbf{e}_\theta + \omega R\sin\theta\,\mathbf{j}_1$ (from $\omega\mathbf{k}_1\times(R\sin\theta\,\mathbf{i}_1 - R\cos\theta\,\mathbf{k}_1) = R\omega\sin\theta\,\mathbf{j}_1$).
+> [!derivation] Relative velocity and relative acceleration
+> **Law:** time derivatives in $S_1$; product rule
+> **Source:** Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.24
+>
+> $$\begin{aligned}
+> \mathbf v_1^P &= \left.\frac{d}{dt}\right|_1\left(R\,\mathbf e_r\right) = R\dot\theta\,\mathbf e_\theta \quad &\text{($R$ constant)} \\
+> \mathbf a_1^P &= R\ddot\theta\,\mathbf e_\theta + R\dot\theta\left.\frac{d\mathbf e_\theta}{dt}\right|_1 = R\ddot\theta\,\mathbf e_\theta - R\dot\theta^2\,\mathbf e_r \quad &\text{(product rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_1^P = R\dot\theta\,\mathbf e_\theta, \qquad \mathbf a_1^P = R\ddot\theta\,\mathbf e_\theta - R\dot\theta^2\,\mathbf e_r}$$
+>
+> **Units:** $[R\dot\theta] = [\mathrm{L\,T^{-1}}]$; $[R\ddot\theta] = [R\dot\theta^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** in $S_1$ the particle moves on a fixed circle: a tangential acceleration and a centripetal one towards $O$.
+
+> [!derivation] Absolute velocity and acceleration: relative, transport, Coriolis and centripetal terms
+> **Law:** time derivative in $S_0$ of the position written in the turning basis $\mathcal B_1$; product rule
+> **Source:** Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.21; Notes.pdf, Eq. 3.22; Notes.pdf, Eq. 3.23; [Lecture 5, Slide 24]; [Lecture 5, Slide 25]
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \left.\frac{d}{dt}\right|_0\left(R\sin\theta\,\mathbf i_1 - R\cos\theta\,\mathbf k_1\right) = R\dot\theta\cos\theta\,\mathbf i_1 + R\sin\theta\,\omega\,\mathbf j_1 + R\dot\theta\sin\theta\,\mathbf k_1 \quad &\text{(product rule; chain rule; derivatives of $\mathbf i_1$, $\mathbf k_1$)} \\
+> &= \underbrace{R\dot\theta\,\mathbf e_\theta}_{\mathbf v_1^P} + \underbrace{\omega R\sin\theta\,\mathbf j_1}_{\boldsymbol\omega_{10}\times\mathbf r_1^P} \quad &\text{(grouped; $\omega\,\mathbf k_1\times\mathbf r_1^P = \omega R\sin\theta\,\mathbf j_1$)} \\
+> \left.\frac{d\mathbf v_1^P}{dt}\right|_0 &= \frac{d}{dt}\left(R\dot\theta\cos\theta\right)\mathbf i_1 + \frac{d}{dt}\left(R\dot\theta\sin\theta\right)\mathbf k_1 + R\dot\theta\cos\theta\,\omega\,\mathbf j_1 = \mathbf a_1^P + \omega R\dot\theta\cos\theta\,\mathbf j_1 \quad &\text{(components in $S_1$ plus the turning of $\mathbf i_1$)} \\
+> \left.\frac{d}{dt}\right|_0\left(\omega R\sin\theta\,\mathbf j_1\right) &= \omega R\dot\theta\cos\theta\,\mathbf j_1 - \omega^2R\sin\theta\,\mathbf i_1 \quad &\text{(chain rule; derivative of $\mathbf j_1$)} \\
+> 2\,\boldsymbol\omega_{10}\times\mathbf v_1^P &= 2\omega R\dot\theta\,\mathbf k_1\times\left(\cos\theta\,\mathbf i_1 + \sin\theta\,\mathbf k_1\right) = 2\omega R\dot\theta\cos\theta\,\mathbf j_1 \quad &\text{(the two $\mathbf j_1$ terms above)} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) &= \omega\,\mathbf k_1\times\left(\omega R\sin\theta\,\mathbf j_1\right) = -\omega^2R\sin\theta\,\mathbf i_1 \quad &\text{(the $\mathbf i_1$ term above; $\mathbf k_1\times\mathbf j_1 = -\mathbf i_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = R\dot\theta\,\mathbf e_\theta + \omega R\sin\theta\,\mathbf j_1, \qquad \mathbf a_0^P = R\ddot\theta\,\mathbf e_\theta - R\dot\theta^2\,\mathbf e_r + 2\omega R\dot\theta\cos\theta\,\mathbf j_1 - \omega^2R\sin\theta\,\mathbf i_1}$$
+>
+> **Units:** every acceleration term $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** the Coriolis acceleration is normal to the plane of the wire; it appears because the distance to the axis changes while the plane turns. The centripetal one points horizontally to the axis.
 
 ### Forces and Equations of Motion
 
-Forces seen from $S_1$ (Notes Eqs. 4.62–4.63):
+The free-body diagram of the particle in $S_1$ shows the weight, the reaction (in the plane along $\mathbf e_r$, normal to the plane along $\mathbf j_1$), the centrifugal force, horizontal and away from the axis, and the Coriolis force, normal to the plane. The inertia force of the origin and the Euler force vanish ($O$ fixed, $\omega$ constant).
 
-* weight $-mg\,\mathbf{k}_1$ and reaction $\mathbf{N} = N_r\,\mathbf{e}_r + N_b\,\mathbf{j}_1$ (actual forces);
-* $\mathbf{F}_A = \mathbf{0}$ ($O$ fixed) and $\mathbf{F}_E = \mathbf{0}$ ($\boldsymbol{\alpha}_{10} = \mathbf{0}$);
-* centrifugal force: $\mathbf{r}_\perp = R\sin\theta\,\mathbf{i}_1$ (the part of $\mathbf{r}_1^P$ normal to $\mathbf{k}_1$), so (Slide 30)
-$$ \mathbf{F}_C = -m\boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) = m\omega^2R\sin\theta\,\mathbf{i}_1 $$
+![[attachments/EM-SOL/p20-fbd.svg]]
 
-Component check: $\omega\mathbf{k}_1\times(R\sin\theta\,\mathbf{i}_1 - R\cos\theta\,\mathbf{k}_1) = R\omega\sin\theta\,\mathbf{j}_1$, then $\omega\mathbf{k}_1\times R\omega\sin\theta\,\mathbf{j}_1 = -R\omega^2\sin\theta\,\mathbf{i}_1$, and the minus sign of $\mathbf{F}_C$ gives $+m\omega^2R\sin\theta\,\mathbf{i}_1$;
-
-* Coriolis force, with $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$ and $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$:
-$$ \mathbf{F}_{COR} = -2m\,\omega\mathbf{k}_1\times R\dot{\theta}\left(\cos\theta\,\mathbf{i}_1 + \sin\theta\,\mathbf{k}_1\right) = -2m\omega R\dot{\theta}\cos\theta\,\mathbf{j}_1 $$
-
-**Equation of motion** (projection on $\mathbf{e}_\theta$, where $\mathbf{N}$ has no component). Using $\mathbf{k}_1\cdot\mathbf{e}_\theta = \sin\theta$, $\mathbf{i}_1\cdot\mathbf{e}_\theta = \cos\theta$, $\mathbf{j}_1\cdot\mathbf{e}_\theta = 0$:
-
-$$ mR\ddot{\theta} = -mg\sin\theta + m\omega^2R\sin\theta\cos\theta \quad\Longrightarrow\quad \ddot{\theta} = -\frac{g}{R}\sin\theta + \omega^2\sin\theta\cos\theta $$
-
-**Projection on $\mathbf{j}_1$** (normal to the plane). The relative motion stays in the plane, so $\mathbf{a}_1^P\cdot\mathbf{j}_1 = 0$; the weight and the centrifugal force lie in the plane; only $N_b$ and the Coriolis force remain:
-
-$$ m\,\mathbf{a}_1^P\cdot\mathbf{j}_1 = 0 = N_b - 2m\omega R\dot{\theta}\cos\theta \quad\Longrightarrow\quad N_b = 2m\omega R\dot{\theta}\cos\theta $$
-
-**Projection on $\mathbf{e}_r$** ($\mathbf{k}_1\cdot\mathbf{e}_r = -\cos\theta$, $\mathbf{i}_1\cdot\mathbf{e}_r = \sin\theta$):
-
-$$ -mR\dot{\theta}^2 = N_r + mg\cos\theta + m\omega^2R\sin^2\theta \quad\Longrightarrow\quad N_r = -mR\dot{\theta}^2 - mg\cos\theta - m\omega^2R\sin^2\theta $$
+> [!derivation] Newton's second law in the rotating frame, projected on the wire basis
+> **Law:** Newton's second law in a non-inertial frame with the inertia forces; reaction of a smooth curve
+> **Source:** Notes.pdf, Eq. 4.62; Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.16; [Lecture 5, Slide 28]
+>
+> $$\begin{aligned}
+> \mathbf F_C &= -m\,\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) = m\omega^2R\sin\theta\,\mathbf i_1 \quad &\text{(centripetal term times $-m$)} \\
+> \mathbf F_{COR} &= -2m\,\boldsymbol\omega_{10}\times\mathbf v_1^P = -2m\omega R\dot\theta\cos\theta\,\mathbf j_1 \quad &\text{(Coriolis term times $-m$)} \\
+> m\,\mathbf a_1^P &= -mg\,\mathbf k_1 + N_r\,\mathbf e_r + N_b\,\mathbf j_1 + \mathbf F_C + \mathbf F_{COR} \quad &\text{(Eq. 4.63; $\mathbf F_A$, $\mathbf F_E$ zero)} \\
+> \mathbf k_1\cdot\mathbf e_\theta &= \sin\theta, \quad \mathbf i_1\cdot\mathbf e_\theta = \cos\theta, \quad \mathbf k_1\cdot\mathbf e_r = -\cos\theta, \quad \mathbf i_1\cdot\mathbf e_r = \sin\theta \quad &\text{(components of the wire basis)} \\
+> \mathbf e_\theta:\ mR\ddot\theta &= -mg\sin\theta + m\omega^2R\sin\theta\cos\theta \quad &\text{(tangent: no reaction)} \\
+> \mathbf e_r:\ -mR\dot\theta^2 &= mg\cos\theta + N_r + m\omega^2R\sin^2\theta \quad &\text{(in the plane, along the radius)} \\
+> \mathbf j_1:\ 0 &= N_b - 2m\omega R\dot\theta\cos\theta \quad &\text{(normal to the plane: no relative motion there)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\theta = -\frac{g}{R}\sin\theta + \omega^2\sin\theta\cos\theta, \qquad N_r = -mR\dot\theta^2 - mg\cos\theta - m\omega^2R\sin^2\theta, \qquad N_b = 2m\omega R\dot\theta\cos\theta}$$
+>
+> **Units:** $[g/R] = [\omega^2] = [\mathrm{T^{-2}}]$; $[m\omega R\dot\theta] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** three scalar equations for the three unknowns $\theta$, $N_r$ and $N_b$: the tangent equation is the equation of motion, the other two give the reaction afterwards. The normal reaction balances the Coriolis force alone.
 
 ### Answers and Checks
 
-##### (a) Mechanical energy in the moving frame
-* **Justification:** $E_1^P$ is conserved when every force that does work in $S_1$ derives from a potential (Slide 29). We check the forces one by one using their power in $S_1$, $\mathbf{F}\cdot\mathbf{v}_1^P$.
-* **Reaction:** $\mathbf{N}\cdot\mathbf{v}_1^P = R\dot{\theta}\left(N_r\,\mathbf{e}_r + N_b\,\mathbf{j}_1\right)\cdot\mathbf{e}_\theta = 0$: the wire is smooth and **fixed in $S_1$**, so it does no work in $S_1$.
-* **Coriolis force:** $\mathbf{F}_{COR}\cdot\mathbf{v}_1^P = 0$ always (Slide 31); here explicitly $\mathbf{j}_1\cdot\mathbf{e}_\theta = 0$.
-* **Euler force and origin force:** both zero.
-* **Weight:** conservative, $V_g = mgz_1 = -mgR\cos\theta$ (zero at the height of $O$).
-* **Centrifugal force:** $\boldsymbol{\omega}_{10}$ is constant, so it has the potential (Slide 30) $V_1 = -\tfrac12 m\omega^2 r_\perp^2 = -\tfrac12 m\omega^2R^2\sin^2\theta$ (zero on the axis).
+#### (a) Mechanical energy in the moving frame
 
-Therefore $E_1^P$ **is conserved**:
+> [!derivation] Which forces do work in the rotating frame, and their potentials
+> **Law:** power of each force on the relative velocity; potential as minus the work along the wire, with Barrow's rule
+> **Source:** [Lecture 5, Slide 29]; [Lecture 5, Slide 30]; [Lecture 5, Slide 31]; Notes.pdf, Eq. 4.14; Notes.pdf, Sec. 6.4
+>
+> The energy in $S_1$ is conserved if every force that does work in $S_1$ has a potential. Two reasons hold here. First, the forces that do no work in $S_1$: the reaction, because the wire is smooth and at rest in $S_1$, so the reaction is normal to the relative velocity; the Coriolis force, always normal to the relative velocity; and the force of the origin and the Euler force, which vanish. Second, the forces that do work have potentials: the weight, and the centrifugal force because $\boldsymbol\omega_{10}$ is constant. Along the wire the displacement is $R\,\mathbf e_\theta\,d\theta'$.
+>
+> $$\begin{aligned}
+> \mathbf N\cdot\mathbf v_1^P &= R\dot\theta\left(N_r\,\mathbf e_r + N_b\,\mathbf j_1\right)\cdot\mathbf e_\theta = 0, \quad \mathbf F_{COR}\cdot\mathbf v_1^P = -2m\omega R^2\dot\theta^2\cos\theta\,\mathbf j_1\cdot\mathbf e_\theta = 0 \quad &\text{(no power in $S_1$)} \\
+> V_g(\theta) - V_g(0) &= -\int_0^{\theta}\left(-mg\,\mathbf k_1\right)\cdot\mathbf e_\theta\,R\,d\theta' = mgR\int_0^{\theta}\sin\theta'\,d\theta' \quad &\text{(Eq. 4.14; $\mathbf k_1\cdot\mathbf e_\theta = \sin\theta'$)} \\
+> &= mgR\left[-\cos\theta'\right]_0^{\theta} = mgR\left(1 - \cos\theta\right) \quad &\text{(antiderivative $-\cos\theta'$; Barrow's rule)} \\
+> V_C(\theta) - V_C(0) &= -\int_0^{\theta} m\omega^2R\sin\theta'\,\mathbf i_1\cdot\mathbf e_\theta\,R\,d\theta' = -m\omega^2R^2\int_0^{\theta}\sin\theta'\cos\theta'\,d\theta' \quad &\text{(Eq. 4.14; $\mathbf i_1\cdot\mathbf e_\theta = \cos\theta'$)} \\
+> &= -m\omega^2R^2\left[\tfrac12\sin^2\theta'\right]_0^{\theta} = -\tfrac12 m\omega^2R^2\sin^2\theta \quad &\text{(antiderivative $\tfrac12\sin^2\theta'$; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{V_g = -mgR\cos\theta \ \ \text{(zero at the height of $O$)}, \qquad V_C = -\tfrac12 m\omega^2R^2\sin^2\theta = -\tfrac12 m\omega^2 r_\perp^2}$$
+>
+> **Units:** $[mgR] = [m\omega^2R^2] = [\mathrm{M\,L^2\,T^{-2}}]$, energies
+> **Meaning:** the centrifugal potential of the wire is the potential of Slide 30 with the distance to the axis $R\sin\theta$; it is lowest where the particle is farthest from the axis.
 
-$$ \boxed{E_1^P = \frac12 mR^2\dot{\theta}^2 - mgR\cos\theta - \frac12 m\omega^2R^2\sin^2\theta = \frac12 mR^2\dot{\theta}_0^2 - mgR\cos\theta_0 - \frac12 m\omega^2R^2\sin^2\theta_0} $$
+> [!derivation] Energy integral in the rotating frame
+> **Law:** the tangent equation multiplied by the relative speed is an exact derivative (chain rule); Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]
+>
+> $$\begin{aligned}
+> mR^2\dot\theta\ddot\theta + mgR\sin\theta\,\dot\theta - m\omega^2R^2\sin\theta\cos\theta\,\dot\theta &= 0 \quad &\text{(tangent equation times $R\dot\theta$)} \\
+> \frac{d}{dt}\left(\tfrac12 mR^2\dot\theta^2\right) &= mR^2\dot\theta\ddot\theta \quad &\text{(chain rule)} \\
+> \frac{d}{dt}\left(-mgR\cos\theta\right) &= mgR\sin\theta\,\dot\theta \quad &\text{(chain rule)} \\
+> \frac{d}{dt}\left(-\tfrac12 m\omega^2R^2\sin^2\theta\right) &= -m\omega^2R^2\sin\theta\cos\theta\,\dot\theta \quad &\text{(chain rule on $\sin^2\theta$)} \\
+> \left[\tfrac12 mR^2\dot\theta^2 - mgR\cos\theta - \tfrac12 m\omega^2R^2\sin^2\theta\right]_0^t &= 0 \quad &\text{(Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{E_1^P = \tfrac12 mR^2\dot\theta^2 - mgR\cos\theta - \tfrac12 m\omega^2R^2\sin^2\theta = \tfrac12 mR^2\dot\theta_0^2 - mgR\cos\theta_0 - \tfrac12 m\omega^2R^2\sin^2\theta_0}$$
+>
+> **Units:** each term $[\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the mechanical energy in $S_1$ (kinetic energy of the relative motion plus the potentials of the weight and of the centrifugal force) is conserved; its value is fixed by the initial angle and rate, which the statement leaves free.
 
-its value being fixed by the initial conditions $\theta(0) = \theta_0$, $\dot{\theta}(0) = \dot{\theta}_0$ (the statement gives none, so the constant is left in terms of them).
+> [!derivation] The energy in the inertial frame is not conserved
+> **Law:** power of the reaction on the absolute velocity; kinetic energy in $S_0$
+> **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.31
+>
+> $$\begin{aligned}
+> \mathbf N\cdot\mathbf v_0^P &= \left(N_r\,\mathbf e_r + N_b\,\mathbf j_1\right)\cdot\left(R\dot\theta\,\mathbf e_\theta + \omega R\sin\theta\,\mathbf j_1\right) = N_b\,\omega R\sin\theta \quad &\text{(absolute velocity box)} \\
+> &= 2m\omega^2R^2\dot\theta\sin\theta\cos\theta \quad &\text{($N_b$ of the equations of motion)} \\
+> E_0^P &= \tfrac12 m\left(R^2\dot\theta^2 + \omega^2R^2\sin^2\theta\right) - mgR\cos\theta = E_1^P + m\omega^2R^2\sin^2\theta \quad &\text{(kinetic energy in $S_0$ plus the weight potential)} \\
+> \frac{dE_0^P}{dt} &= 0 + 2m\omega^2R^2\sin\theta\cos\theta\,\dot\theta \quad &\text{($E_1^P$ constant; chain rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{dE_0^P}{dt} = \mathbf N\cdot\mathbf v_0^P = N_b\,\omega R\sin\theta \ne 0}$$
+>
+> **Units:** $[N_b\,\omega R] = [\mathrm{M\,L^2\,T^{-3}}]$, a power
+> **Meaning:** in $S_0$ the wire moves and its reaction does work, so the energy there changes at the rate of that power (Eq. 4.11); in $S_1$ the wire is at rest and the energy is a constant.
 
-**Check by differentiation** (chain rule on each term, then the EOM):
+#### (b) Reaction normal to the plane of the circumference
 
-$$ \frac{dE_1^P}{dt} = mR^2\dot{\theta}\ddot{\theta} + mgR\sin\theta\,\dot{\theta} - m\omega^2R^2\sin\theta\cos\theta\,\dot{\theta} = mR^2\dot{\theta}\left[\ddot{\theta} + \frac{g}{R}\sin\theta - \omega^2\sin\theta\cos\theta\right] = 0 $$
+> [!derivation] Normal reaction as a function of theta
+> **Law:** equation normal to the plane with the rate eliminated through the energy integral
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.19; [Lecture 5, Slide 29]
+>
+> $$\begin{aligned}
+> N_b &= 2m\omega R\dot\theta\cos\theta \quad &\text{(equation along $\mathbf j_1$)} \\
+> R^2\dot\theta^2 &= \frac{2E_1^P}{m} + 2gR\cos\theta + \omega^2R^2\sin^2\theta \quad &\text{(energy integral solved for the squared rate)} \\
+> &= R^2\dot\theta_0^2 + 2gR\left(\cos\theta - \cos\theta_0\right) + \omega^2R^2\left(\sin^2\theta - \sin^2\theta_0\right) \quad &\text{(value of $E_1^P$)} \\
+> R\dot\theta &= \pm\sqrt{R^2\dot\theta_0^2 + 2gR\left(\cos\theta - \cos\theta_0\right) + \omega^2R^2\left(\sin^2\theta - \sin^2\theta_0\right)} \quad &\text{(sign of $\dot\theta$)}
+> \end{aligned}$$
+>
+> $$\boxed{N_b(\theta) = \pm\,2m\omega\cos\theta\sqrt{\frac{2E_1^P}{m} + 2gR\cos\theta + \omega^2R^2\sin^2\theta} \quad (\text{sign of } \dot\theta), \qquad \text{along } \mathbf j_1}$$
+>
+> **Units:** $[2E_1^P/m] = [gR] = [\omega^2R^2] = [\mathrm{L^2\,T^{-2}}]$, so $[N_b] = [\mathrm{M}][\mathrm{T^{-1}}][\mathrm{L\,T^{-1}}]$, a force
+> **Meaning:** the normal reaction vanishes when the particle is at rest on the wire and when it crosses the horizontal diameter; it pushes the particle forwards, in the sense of the rotation, while the particle moves away from the axis, and backwards while it comes closer (the angular momentum box below shows why).
 
-**The energy in $S_0$ is not conserved.** In $S_0$ the wire moves, and its reaction does work: with $\mathbf{v}_0^P = R\dot{\theta}\,\mathbf{e}_\theta + \omega R\sin\theta\,\mathbf{j}_1$, the power of $\mathbf{N}$ in $S_0$ is $\mathbf{N}\cdot\mathbf{v}_0^P = N_b\,\omega R\sin\theta \neq 0$. This is why the moving frame is the natural one for an energy integral here.
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Energy in the moving frame | conserved: the reaction and the Coriolis force do no work in $S_1$, the origin and Euler forces vanish, and the weight and the centrifugal force (constant $\omega$) have potentials; $E_1^P = \frac12 mR^2\dot\theta^2 - mgR\cos\theta - \frac12 m\omega^2R^2\sin^2\theta$, equal to its initial value $\frac12 mR^2\dot\theta_0^2 - mgR\cos\theta_0 - \frac12 m\omega^2R^2\sin^2\theta_0$ |
+| (b) Reaction normal to the plane | $N_b = 2m\omega R\dot\theta\cos\theta = \pm 2m\omega\cos\theta\sqrt{2E_1^P/m + 2gR\cos\theta + \omega^2R^2\sin^2\theta}$ along $\mathbf j_1$ |
+| Intermediate results | equation of motion $\ddot\theta = -(g/R)\sin\theta + \omega^2\sin\theta\cos\theta$; reaction in the plane $N_r = -mR\dot\theta^2 - mg\cos\theta - m\omega^2R\sin^2\theta$; energy in $S_0$ not conserved, its rate is $N_b\,\omega R\sin\theta$ |
 
-##### (b) Reaction normal to the plane of the circumference
-* **Pedagogical Justification:** the projection of Notes Eq. 4.63 on $\mathbf{j}_1$ gave $N_b = 2m\omega R\dot{\theta}\cos\theta$; to write it as a function of $\theta$ we eliminate $\dot{\theta}$ with the energy integral of part (a).
+**Check against the official key:** Problems.pdf, p. 72 lists item 20 with no answer, so there is no key to compare with. Independent checks: the normal reaction follows again from the angular momentum about the vertical axis in $S_0$ (box below), without inertia forces, and the limiting cases close the results.
 
-Solving the energy integral for $R\dot{\theta}$:
+> [!derivation] Independent check: angular momentum about the vertical axis
+> **Law:** angular momentum about the fixed point $O$ and its rate, equal to the moment of the forces
+> **Source:** Notes.pdf, Eq. 4.48; Notes.pdf, Eq. 4.51; Notes.pdf, Eq. 4.53
+>
+> $$\begin{aligned}
+> \mathbf H_{O,0}\cdot\mathbf k_1 &= m\left(\mathbf r_0^P\times\mathbf v_0^P\right)\cdot\mathbf k_1 = m\left(x_1v_{y1} - y_1v_{x1}\right) \quad &\text{(Eq. 4.48; $x_1$, $y_1$ the components on $\mathbf i_1$, $\mathbf j_1$)} \\
+> &= m\left(R\sin\theta\cdot\omega R\sin\theta - 0\cdot R\dot\theta\cos\theta\right) = m\omega R^2\sin^2\theta \quad &\text{(absolute velocity box)} \\
+> \mathbf M_O\cdot\mathbf k_1 &= \left(\mathbf r_0^P\times N_b\,\mathbf j_1\right)\cdot\mathbf k_1 = R\sin\theta\,N_b \quad &\text{(weight vertical and $N_r\,\mathbf e_r$ through $O$: no axial moment)} \\
+> \frac{d}{dt}\left(m\omega R^2\sin^2\theta\right) &= 2m\omega R^2\sin\theta\cos\theta\,\dot\theta \quad &\text{(chain rule; $\mathbf k_1$ fixed)} \\
+> R\sin\theta\,N_b &= 2m\omega R^2\sin\theta\cos\theta\,\dot\theta \quad &\text{(Eq. 4.53, axial component)}
+> \end{aligned}$$
+>
+> $$\boxed{N_b = 2m\omega R\dot\theta\cos\theta \quad (\sin\theta \ne 0)}$$
+>
+> **Units:** $[H] = [\mathrm{M\,L^2\,T^{-1}}]$; $[R\,N_b] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** to keep turning at the rate $\omega$ while its distance to the axis changes, the particle needs an axial moment, and only the normal reaction can give it: the same result as the Coriolis balance in $S_1$.
 
-$$ R^2\dot{\theta}^2 = \frac{2E_1^P}{m} + 2gR\cos\theta + \omega^2R^2\sin^2\theta \quad\Longrightarrow\quad R\dot{\theta} = \pm\sqrt{\frac{2E_1^P}{m} + 2gR\cos\theta + \omega^2R^2\sin^2\theta} $$
-$$ \boxed{N_b(\theta) = \pm\,2m\omega\cos\theta\,\sqrt{\frac{2E_1^P}{m} + 2gR\cos\theta + \omega^2R^2\sin^2\theta}} $$
-
-with the sign of $\dot{\theta}$ (positive when $\theta$ increases) and $E_1^P$ from part (a). For completeness, the in-plane component is $N_r = -mR\dot{\theta}^2 - mg\cos\theta - m\omega^2R\sin^2\theta$.
-
-##### Checks
-* **Origin of $N_b$.** The normal-to-plane reaction is entirely due to the Coriolis force: the wire must push the particle sideways so that it keeps turning with the plane while its distance to the axis changes. It vanishes when $\dot{\theta} = 0$ and when $\cos\theta = 0$ (the particle crosses the horizontal diameter, where $\mathbf{v}_1^P \parallel \boldsymbol{\omega}_{10}$).
-* **Relative equilibria** (extension, from $\ddot{\theta} = 0$ with $\dot{\theta} = 0$): $\sin\theta\left(\omega^2\cos\theta - g/R\right) = 0$, i.e. $\theta = 0$, $\theta = \pi$, and, if $\omega^2R \gt g$, $\cos\theta = g/(\omega^2R)$; at all of them $N_b = 0$.
-* **Limit $\omega \to 0$:** $N_b \to 0$ and $E_1^P \to \tfrac12 mR^2\dot{\theta}^2 - mgR\cos\theta$, the energy of the simple pendulum.
-* **Orthogonality:** $\mathbf{e}_r\cdot\mathbf{e}_\theta = \sin\theta\cos\theta - \cos\theta\sin\theta = 0$, and both are normal to $\mathbf{j}_1$.
-* **Dimensions:** each term of $E_1^P$ is $\text{kg}\,\text{m}^2\,\text{s}^{-2} = \text{J}$; $[N_b] = [m\omega R\dot{\theta}] = \text{kg}\,\text{s}^{-1}\,\text{m}\,\text{s}^{-1} = \text{N}$; inside the root, $[2E_1^P/m] = [gR] = [\omega^2R^2] = \text{m}^2\,\text{s}^{-2}$.
-* **Verification (sympy):** the inertial double derivative of $[{}_0R_1]\{\mathbf{r}_1^P\}$ equals the Notes Eq. 3.27 decomposition; solving $m\mathbf{a}_0^P = -mg\mathbf{k} + \mathbf{N}$ in $S_0$ returns the same EOM, $N_b$ and $N_r$; $dE_1^P/dt = 0$ along the EOM, while $dE_0^P/dt$ equals the power $N_b\,\omega R\sin\theta$ of the reaction in $S_0$.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 20 in its solution keys, so the results are verified by independent derivation (the sympy check above).
+> [!derivation] Limiting cases and relative equilibria
+> **Law:** the results at extreme values of the data; rest in $S_1$ in the equation of motion
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Eq. 4.63
+>
+> $$\begin{aligned}
+> \omega \to 0:\quad N_b &\to 0, \quad E_1^P \to \tfrac12 mR^2\dot\theta^2 - mgR\cos\theta \quad &\text{(simple pendulum of length $R$)} \\
+> \dot\theta = 0,\ \ddot\theta = 0:\quad \sin\theta\left(\omega^2\cos\theta - \frac{g}{R}\right) &= 0 \quad &\text{(relative equilibria)} \\
+> \theta_e &= 0, \quad \theta_e = \pi, \quad \cos\theta_e = \frac{g}{\omega^2R} \ \ (\omega^2R \gt g) \quad &\text{(the three families)} \\
+> N_b(\theta_e) &= 0 \quad &\text{(no relative velocity)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega \to 0: \ N_b \to 0; \qquad \text{relative equilibria } \theta = 0,\ \pi \ \text{and}\ \cos\theta = g/(\omega^2R) \ \text{if}\ \omega^2R \gt g}$$
+>
+> **Units:** $[g/(\omega^2R)] = [1]$
+> **Meaning:** without rotation the bead is a pendulum and the wire does not push sideways; a bead at rest on the turning wire needs no normal reaction either, and above the critical rate it can rest off the bottom (extension: these equilibria are not asked for).
 
 ---
 
 ## Problem 21: Apparent Weight on a Spinning Planet
 
 ### Reference Frames, Bases and Coordinates
-* **Physical system:** a spherical planet of radius $R$ spins with constant angular velocity $\Omega$ about its polar axis. At its surface the gravitational attraction is $g_p$ per unit mass, directed toward the centre. A body of mass $m$ rests on the ground.
-* **Why the planet frame.** "Weight" is what a scale fixed to the ground reads: it is defined in the frame of the planet, where the body is at rest. In that frame the dynamics reduce to a static balance once the inertia forces (Notes Eq. 4.62) are added; the centrifugal force is what makes the weight depend on latitude.
-* **Hypotheses:**
-  1. The frame $S_0$ with origin at the centre $O$ of the planet and axes fixed with respect to the stars is inertial ($O$ unaccelerated).
-  2. $\Omega$ is constant; the planet is a rigid sphere and $g_p$ is the same everywhere on its surface (spherical mass distribution).
-  3. The apparent weight is the magnitude of the contact force $\mathbf{N}$ the ground (or a scale) exerts on the body at rest.
-* **Fixed (inertial) frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, $\mathbf{k}_0$ along the polar axis (towards the north pole).
-* **Moving frame:** $S_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$ fixed to the planet, $\mathbf{k}_1 = \mathbf{k}_0$, with $\mathbf{i}_1$ in the equatorial plane and in the meridian plane of the body; $S_1$ coincides with $S_0$ at $t = 0$.
-* **Radial unit vector:** $\mathbf{e}_r$, from $O$ to the body; deduced in the next section.
-* **Coordinates and degrees of freedom:** the body is at rest in $S_1$ at latitude $\lambda$ (angle of $OP$ above the equatorial plane): there is no motion to determine; the unknown is $\Omega$ (and then the day $T_{\text{day}} = 2\pi/\Omega$).
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $R$ | radius of the planet | m |
-| $g_p$ | gravitational acceleration at the surface | m/s$^2$ |
-| $\Omega$ | spin rate of the planet | rad/s |
-| $\lambda$ | latitude of the body | rad |
-| $m$ | mass of the body | kg |
-| $T_{\text{day}}$ | duration of the day (one rotation, sidereal) | s |
+On a spinning spherical planet of radius $R$ and gravitational acceleration $g_p$, bodies weigh twice as much at the poles as at the equator; the statement asks for the duration of the day (Problems.pdf, p. 10). The weight of a body is what a scale on the ground reads, a quantity defined in the frame of the planet, where the body is at rest; the solution works in that frame, with the composition of motions of Notes.pdf, Sec. 3.2 and the inertia forces of Notes.pdf, Sec. 4.9.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, $O$ at the centre of the planet, axes fixed with respect to the stars; $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$ with $\mathbf k_0$ along the polar axis, towards the north pole (Notes.pdf, Eq. 2.1) |
+| Moving frame | $S_1 = \{O;\ \mathcal B_1\}$ fixed to the planet: $\mathbf k_1 = \mathbf k_0$; $\mathbf i_1$ in the equatorial plane and in the meridian plane of the body; $\mathbf j_1$ the cross product of $\mathbf k_1$ and $\mathbf i_1$ (towards the east); it turns by $\Omega t$ about $\mathbf k_0$ |
+| Local basis at the body | $\mathcal B_2 = \{\mathbf e_r, \mathbf e_n, -\mathbf j_1\}$: $\mathbf e_r$ the local vertical, from $O$ to the body $P$; $\mathbf e_n$ horizontal, towards the north pole |
+| Coordinate | $\lambda$, the latitude of $P$: the angle at $O$ from the equatorial plane to $OP$, positive towards the north |
+| Degrees of freedom | none to find: the body is at rest on the ground, at a fixed latitude |
+| Data | $R$ [m], $g_p$ [m s$^{-2}$], $m$ [kg] the mass of the body; the ratio 2 between the weights at a pole and at the equator |
+| Unknowns | the spin rate $\Omega$ [rad s$^{-1}$] and the day $T_{day}$ [s]; on the way, the contact force $\mathbf N$ [N] |
+| Applied force | the attraction of the planet, $-mg_p\,\mathbf e_r$ at the surface |
+| Constraint force | the contact force of the ground (or of a scale) $\mathbf N$ |
+| Inertia forces (in $S_1$) | of the origin, Euler, centrifugal and Coriolis (Notes.pdf, Eq. 4.62) |
+| Weight | the magnitude $W$ of the contact force on a body at rest on the ground, what a scale reads |
+| Hypotheses | the frame of the centre is inertial; $\Omega$ constant; rigid spherical planet with a spherical mass distribution, so the attraction at the surface has the same magnitude $g_p$ everywhere and points to $O$; the ground can push but not pull; the day is the period of one rotation with respect to the stars (the statement gives no orbit, so a solar day is not computed) |
 
 ### Change of Basis and Position Vector
 
-#### The basis $\mathcal{B}_1$ seen from the north pole
-
 ![[attachments/EM-SOL/p21-top-view.svg]]
 
-The planet turns about $\mathbf{k}_0$, so the equatorial plane is drawn looking down from $+\mathbf{k}_0$ (from above the north pole): $\mathbf{k}_0 = \mathbf{k}_1$ points out of the paper ($\odot$), $\mathbf{i}_0$ to the right and, by the right-hand rule $\mathbf{i}_0\times\mathbf{j}_0 = \mathbf{k}_0$, $\mathbf{j}_0$ up the page. With $\Omega \gt 0$ the planet turns counter-clockwise, and after a time $t$ the angle from $\mathbf{i}_0$ to $\mathbf{i}_1$ is $\Omega t$:
-
-* $\mathbf{i}_1$: hypotenuse 1, adjacent leg $\cos\Omega t$ along $\mathbf{i}_0$, opposite leg $\sin\Omega t$ along $+\mathbf{j}_0$, so $\mathbf{i}_1 = \cos\Omega t\,\mathbf{i}_0 + \sin\Omega t\,\mathbf{j}_0$.
-* $\mathbf{j}_1$ turns the same angle from $\mathbf{j}_0$, towards the left: adjacent leg $\cos\Omega t$ along $\mathbf{j}_0$, opposite leg $\sin\Omega t$ along $-\mathbf{i}_0$, so $\mathbf{j}_1 = -\sin\Omega t\,\mathbf{i}_0 + \cos\Omega t\,\mathbf{j}_0$ (the minus sign).
-* $\mathbf{k}_1 = \mathbf{k}_0$.
-
-$$ [{}_0R_1] = \begin{pmatrix} \cos\Omega t & -\sin\Omega t & 0 \\ \sin\Omega t & \cos\Omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos\Omega t\cos\Omega t - (-\sin\Omega t)\sin\Omega t = \cos^2\Omega t + \sin^2\Omega t = 1 $$
-
-The columns have unit length and $-\cos\Omega t\sin\Omega t + \sin\Omega t\cos\Omega t = 0$, so $[{}_0R_1][{}_0R_1]^T = I$.
-
-**Motion of $S_1$:** $\boldsymbol{\omega}_{10} = \Omega\mathbf{k}_1$, $\boldsymbol{\alpha}_{10} = \mathbf{0}$, $\mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0}$. Poisson check (chain rule): $\left.\frac{d\mathbf{i}_1}{dt}\right|_0 = -\Omega\sin\Omega t\,\mathbf{i}_0 + \Omega\cos\Omega t\,\mathbf{j}_0 = \Omega\,\mathbf{j}_1 = \Omega\,\mathbf{k}_1\times\mathbf{i}_1$.
-
-#### The position of the body in its meridian plane
+> [!derivation] Basis of the planet: rotation by Omega t about k0
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; [Lecture 5, Slide 16]
+>
+> View from above the north pole, along $\mathbf k_0$, out of the paper (⊙) because it is the cross product of $\mathbf i_0$ (to the right) and $\mathbf j_0$ (up); a positive $\Omega$ turns the planet counterclockwise. $\mathbf i_1$ is $\mathbf i_0$ turned by $\Omega t$: hypotenuse 1, adjacent leg $\cos\Omega t$ along $\mathbf i_0$, opposite leg $\sin\Omega t$ along $\mathbf j_0$. $\mathbf j_1$ is $\mathbf j_0$ turned by the same angle: adjacent leg $\cos\Omega t$ along $\mathbf j_0$, opposite leg $\sin\Omega t$ along minus $\mathbf i_0$ (the upward vector turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\Omega t\,\mathbf i_0 + \sin\Omega t\,\mathbf j_0, \quad \mathbf j_1 = -\sin\Omega t\,\mathbf i_0 + \cos\Omega t\,\mathbf j_0, \quad \mathbf k_1 = \mathbf k_0 \quad &\text{(the two right triangles; axis)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\Omega t + \sin^2\Omega t\right) = 1 \quad &\text{(expansion along the third row)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\Omega t + \sin^2\Omega t = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{12} = \cos\Omega t\sin\Omega t - \sin\Omega t\cos\Omega t = 0 \quad &\text{(rows times rows)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\Omega t & -\sin\Omega t & 0 \cr \sin\Omega t & \cos\Omega t & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** dimensionless: $[1]$
+> **Meaning:** the planet axes come back to their initial position after the time in which $\Omega t$ grows by $2\pi$: that time is the day.
 
 ![[attachments/EM-SOL/p21-meridian.svg]]
 
-The meridian plane of the body contains $\mathbf{i}_1$ and $\mathbf{k}_1$; it is drawn with $\mathbf{i}_1$ to the right and $\mathbf{k}_1$ up, so $\mathbf{j}_1 = \mathbf{k}_1\times\mathbf{i}_1$ points into the paper ($\otimes$; fingers from "up" to "right", clockwise, thumb away from the reader).
+> [!derivation] Position of the body in its meridian plane
+> **Law:** right triangle in the meridian plane; part of the position normal to the spin axis
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 3.16; [Lecture 5, Slide 30]
+>
+> Meridian plane of the body, drawn with $\mathbf i_1$ to the right and $\mathbf k_1$ up; $\mathbf j_1$, the cross product of $\mathbf k_1$ (up) and $\mathbf i_1$ (right), points into the paper (⊗). Let $F$ be the foot of the perpendicular from $P$ to the equatorial line: in the right triangle $OFP$ the hypotenuse is $R$, the leg adjacent to $\lambda$ is $R\cos\lambda$ along $\mathbf i_1$ and the leg opposite to $\lambda$ is $R\sin\lambda$ along $\mathbf k_1$. $\lambda$ is measured from $\mathbf i_1$ towards $\mathbf k_1$, so it is already the standard polar angle of this plane.
+>
+> $$\begin{aligned}
+> \mathbf r_0^O &= \mathbf 0, \quad \mathbf r_0^P = \mathbf r_1^P = \overrightarrow{OP} \quad &\text{(origin of $S_1$ at the centre; Eq. 3.16)} \\
+> \mathbf r_1^P &= R\cos\lambda\,\mathbf i_1 + R\sin\lambda\,\mathbf k_1 = R\,\mathbf e_r \quad &\text{(legs of $OFP$)} \\
+> \mathbf r_\parallel &= \left(\mathbf r_1^P\cdot\mathbf k_1\right)\mathbf k_1 = R\sin\lambda\,\mathbf k_1 \quad &\text{(part along the spin axis)} \\
+> \mathbf r_\perp &= \mathbf r_1^P - \mathbf r_\parallel = R\cos\lambda\,\mathbf i_1 \quad &\text{(part normal to the spin axis, Slide 30)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^P = R\cos\lambda\,\mathbf i_1 + R\sin\lambda\,\mathbf k_1, \qquad \mathbf r_\perp = R\cos\lambda\,\mathbf i_1}$$
+>
+> **Units:** $[R] = [\mathrm{L}]$
+> **Meaning:** at a pole the body is on the axis and its distance to it is zero; at the equator the distance is the whole radius.
 
-$P$ is on the surface, at distance $R$ from the centre: $\mathbf{r}_1^P = \overrightarrow{OP} = R\,\mathbf{e}_r$. Let $F$ be the foot of the perpendicular from $P$ to the equatorial line. In the shaded right triangle $OFP$ (right angle at $F$) the hypotenuse is $|OP| = R$, the leg adjacent to $\lambda$ is $OF = R\cos\lambda$ along $\mathbf{i}_1$ and the leg opposite to $\lambda$ is $FP = R\sin\lambda$ along $\mathbf{k}_1$:
+![[attachments/EM-SOL/p21-local-basis.svg]]
 
-$$ \mathbf{r}_1^P = R\,\mathbf{e}_r, \qquad \mathbf{e}_r = \cos\lambda\,\mathbf{i}_1 + \sin\lambda\,\mathbf{k}_1 $$
-
-(here the latitude is the usual polar angle of the meridian plane, measured from $\mathbf{i}_1$ towards $\mathbf{k}_1$, so no shift is needed). The part of $\mathbf{r}_1^P$ normal to the axis is the horizontal dashed segment from the axis to $P$, of length equal to the leg $OF$:
-
-$$ \mathbf{r}_\perp = R\cos\lambda\,\mathbf{i}_1 $$
-
-Checks: $\lambda = \pi/2$ gives $R\,\mathbf{k}_1$ (north pole, $\mathbf{r}_\perp = \mathbf{0}$); $\lambda = 0$ gives $R\,\mathbf{i}_1$ (equator, $r_\perp = R$).
+> [!derivation] Local basis: rotation by the latitude in the meridian plane
+> **Law:** elementary rotation in the meridian plane; change of basis matrix, its checks and its inverse
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19
+>
+> Same meridian view: $\mathbf j_1$ into the paper (⊗), so minus $\mathbf j_1$, the cross product of $\mathbf i_1$ and $\mathbf k_1$, points out of it (⊙), and positive angles about minus $\mathbf j_1$ are counterclockwise. $\mathbf e_r$ is $\mathbf i_1$ turned by $\lambda$: adjacent leg $\cos\lambda$ along $\mathbf i_1$, opposite leg $\sin\lambda$ along $\mathbf k_1$. $\mathbf e_n$ is $\mathbf k_1$ turned by $\lambda$: adjacent leg $\cos\lambda$ along $\mathbf k_1$, opposite leg $\sin\lambda$ along minus $\mathbf i_1$ (the upward vector turned counterclockwise leans to the left: the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf e_r &= \cos\lambda\,\mathbf i_1 + \sin\lambda\,\mathbf k_1, \quad \mathbf e_n = -\sin\lambda\,\mathbf i_1 + \cos\lambda\,\mathbf k_1 \quad &\text{(the two right triangles)} \\
+> \mathbf e_r\times\mathbf e_n &= \cos^2\lambda\,\mathbf i_1\times\mathbf k_1 - \sin^2\lambda\,\mathbf k_1\times\mathbf i_1 = -\mathbf j_1 \quad &\text{($\mathbf i_1\times\mathbf k_1 = -\mathbf j_1$, $\mathbf k_1\times\mathbf i_1 = \mathbf j_1$)} \\
+> \det[{}_1R_2] &= \cos^2\lambda + \sin^2\lambda = 1, \quad \mathbf e_r\cdot\mathbf e_n = -\cos\lambda\sin\lambda + \sin\lambda\cos\lambda = 0 \quad &\text{(checks: $[{}_1R_2][{}_1R_2]^T = I$)} \\
+> \mathbf i_1 &= \cos\lambda\,\mathbf e_r - \sin\lambda\,\mathbf e_n \quad &\text{(inverse: first row of the matrix)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_1R_2] = \begin{pmatrix} \cos\lambda & -\sin\lambda & 0 \cr 0 & 0 & -1 \cr \sin\lambda & \cos\lambda & 0 \end{pmatrix}, \quad \det[{}_1R_2] = 1, \quad \mathbf i_1 = \cos\lambda\,\mathbf e_r - \sin\lambda\,\mathbf e_n}$$
+>
+> **Units:** dimensionless: $[1]$
+> **Meaning:** the inverse relation splits the horizontal centrifugal force into a part along the local vertical and a part along the local horizontal towards the north.
 
 ### Kinematics
 
-The body is at rest in $S_1$: $\lambda$ and $R$ are constant and $\mathbf{i}_1, \mathbf{k}_1$ are fixed in $S_1$, so $\mathbf{v}_1^P = \mathbf{0}$ and $\mathbf{a}_1^P = \mathbf{0}$: there are no relative-motion terms and no Coriolis force. (Its absolute acceleration, by Notes Eq. 3.27, is only the centripetal term $\boldsymbol{\omega}_{10}\times(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P) = -\Omega^2R\cos\lambda\,\mathbf{i}_1$.)
+> [!derivation] Composition of motions for a body at rest on the planet
+> **Law:** derivatives of the unit vectors of a turning basis; time derivatives in $S_0$ of the position written in $\mathcal B_1$
+> **Source:** Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.5; Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.21; Notes.pdf, Eq. 3.25; [Lecture 5, Slide 25]
+>
+> In $S_1$ the latitude and the radius are constant and $\mathbf i_1$, $\mathbf k_1$ are fixed, so the relative velocity and the relative acceleration vanish.
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \Omega\,\mathbf k_1, \quad \boldsymbol\alpha_{10} = \mathbf 0 \quad &\text{(simple rotation about the polar axis; $\Omega$ constant)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \Omega\,\mathbf k_1\times\mathbf i_1 = \Omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = -\Omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0 \quad &\text{(Eq. 3.3 to 3.5)} \\
+> \mathbf v_1^P &= \mathbf 0, \quad \mathbf a_1^P = \mathbf 0 \quad &\text{(constant components in $S_1$)} \\
+> \mathbf v_0^P &= \left.\frac{d}{dt}\right|_0\left(R\cos\lambda\,\mathbf i_1 + R\sin\lambda\,\mathbf k_1\right) = R\cos\lambda\,\Omega\,\mathbf j_1 = \boldsymbol\omega_{10}\times\mathbf r_1^P \quad &\text{(only the turning of $\mathbf i_1$: transport term)} \\
+> \mathbf a_0^P &= \left.\frac{d}{dt}\right|_0\left(\Omega R\cos\lambda\,\mathbf j_1\right) = -\Omega^2R\cos\lambda\,\mathbf i_1 \quad &\text{(only the turning of $\mathbf j_1$)} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) &= \Omega\,\mathbf k_1\times\left(\Omega R\cos\lambda\,\mathbf j_1\right) = -\Omega^2R\cos\lambda\,\mathbf i_1 \quad &\text{(the same vector: centripetal term)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_1^P = \mathbf a_1^P = \mathbf 0, \qquad \mathbf v_0^P = \Omega R\cos\lambda\,\mathbf j_1, \qquad \mathbf a_0^P = \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) = -\Omega^2\,\mathbf r_\perp}$$
+>
+> **Units:** $[\Omega R] = [\mathrm{L\,T^{-1}}]$; $[\Omega^2R] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** of the terms of Eq. 3.27 only the centripetal one survives: the body describes its parallel of latitude, of radius $R\cos\lambda$, once per day; with no relative velocity there is no Coriolis term.
 
 ### Forces and Equations of Motion
 
-##### 1. Forces on the body in the planet frame
-* **Pedagogical Justification:** the body is at rest in $S_1$, so $\mathbf{v}_1^P = \mathbf{0}$ and $\mathbf{a}_1^P = \mathbf{0}$. In Notes Eq. 4.63, $m\mathbf{a}_1^P = \mathbf{F} + \mathbf{F}_i$, the Coriolis force vanishes ($\mathbf{v}_1^P = \mathbf{0}$), $\mathbf{F}_A = \mathbf{0}$ and $\mathbf{F}_E = \mathbf{0}$; only the centrifugal force remains.
+The free-body diagram of the body in $S_1$ shows the attraction of the planet towards $O$, the contact force of the ground and the centrifugal force, horizontal and away from the axis. The Coriolis force vanishes (the body is at rest in $S_1$), and so do the inertia force of the origin and the Euler force.
 
-Actual forces: attraction $-mg_p\,\mathbf{e}_r$ and contact force $\mathbf{N}$. Centrifugal force (Slide 30), with $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$, $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$:
+![[attachments/EM-SOL/p21-fbd.svg]]
 
-$$ \mathbf{F}_C = -m\,\Omega\mathbf{k}_1\times\left(\Omega\mathbf{k}_1\times R\,\mathbf{e}_r\right) = -m\,\Omega\mathbf{k}_1\times\left(R\Omega\cos\lambda\,\mathbf{j}_1\right) = m\Omega^2R\cos\lambda\,\mathbf{i}_1 = m\Omega^2\,\mathbf{r}_\perp $$
-
-It is horizontal and points away from the axis, as drawn.
-
-##### Static balance in $S_1$
-The equation of motion is the static balance of Notes Eq. 4.63 with $\mathbf{a}_1^P = \mathbf{0}$:
-
-$$ \mathbf{0} = -mg_p\,\mathbf{e}_r + \mathbf{N} + m\Omega^2R\cos\lambda\,\mathbf{i}_1 \quad\Longrightarrow\quad \mathbf{N} = mg_p\left(\cos\lambda\,\mathbf{i}_1 + \sin\lambda\,\mathbf{k}_1\right) - m\Omega^2R\cos\lambda\,\mathbf{i}_1 $$
+> [!derivation] Static balance in the planet frame
+> **Law:** Newton's second law in a non-inertial frame with the inertia forces, at relative rest
+> **Source:** Notes.pdf, Eq. 4.62; Notes.pdf, Eq. 4.63; [Lecture 5, Slide 28]; [Lecture 5, Slide 30]
+>
+> $$\begin{aligned}
+> \mathbf F_C &= -m\,\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) = m\Omega^2R\cos\lambda\,\mathbf i_1 \quad &\text{(centripetal term times $-m$)} \\
+> \mathbf F_{COR} &= -2m\,\boldsymbol\omega_{10}\times\mathbf v_1^P = \mathbf 0, \quad \mathbf F_A = \mathbf F_E = \mathbf 0 \quad &\text{(rest in $S_1$; $O$ fixed; $\Omega$ constant)} \\
+> m\,\mathbf a_1^P &= \mathbf 0 = -mg_p\,\mathbf e_r + \mathbf N + m\Omega^2R\cos\lambda\,\mathbf i_1 \quad &\text{(Eq. 4.63)} \\
+> \mathbf N &= mg_p\,\mathbf e_r - m\Omega^2R\cos\lambda\,\mathbf i_1 \quad &\text{(solved)} \\
+> &= m\left(g_p - \Omega^2R\cos^2\lambda\right)\mathbf e_r + m\Omega^2R\cos\lambda\sin\lambda\,\mathbf e_n \quad &\text{($\mathbf i_1 = \cos\lambda\,\mathbf e_r - \sin\lambda\,\mathbf e_n$)} \\
+> W^2 &= \left|\mathbf N\right|^2 = m^2\left[\left(g_p - \Omega^2R\cos^2\lambda\right)^2 + \Omega^4R^2\cos^2\lambda\sin^2\lambda\right] \quad &\text{(components squared and added)} \\
+> &= m^2\left[g_p^2 - \left(2g_p\Omega^2R - \Omega^4R^2\right)\cos^2\lambda\right] \quad &\text{($\cos^4\lambda + \cos^2\lambda\sin^2\lambda = \cos^2\lambda$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf N = m\left(g_p - \Omega^2R\cos^2\lambda\right)\mathbf e_r + m\Omega^2R\cos\lambda\sin\lambda\,\mathbf e_n, \qquad W = m\sqrt{g_p^2 - \left(2g_p\Omega^2R - \Omega^4R^2\right)\cos^2\lambda}}$$
+>
+> **Units:** $[g_p] = [\Omega^2R] = [\mathrm{L\,T^{-2}}]$, so $[W] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** three scalar equations give the three components of the contact force. Away from the poles and the equator it has a horizontal part towards the north (in the northern hemisphere), which a rigid spherical ground must supply by friction: the plumb line does not point to the centre.
 
 ### Answers and Checks
 
-##### 2. Weight at the pole and at the equator
-* **Pole** ($\lambda = \pi/2$): $\cos\lambda = 0$, $\mathbf{r}_\perp = \mathbf{0}$, no centrifugal force:
-$$ \mathbf{N}_{\text{pole}} = mg_p\,\mathbf{k}_1, \qquad W_{\text{pole}} = mg_p $$
-* **Equator** ($\lambda = 0$): $\mathbf{e}_r = \mathbf{i}_1$ and the centrifugal force is radial and outward:
-$$ \mathbf{N}_{\text{eq}} = m\left(g_p - \Omega^2R\right)\mathbf{i}_1, \qquad W_{\text{eq}} = m\left(g_p - \Omega^2R\right) $$
+> [!derivation] Weights at a pole and at the equator
+> **Law:** static balance of the previous box at the latitudes of a pole and of the equator; contact condition of a unilateral constraint
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Sec. 6.4; Problems.pdf, p. 10
+>
+> $$\begin{aligned}
+> \lambda = \tfrac{\pi}{2}:\quad \mathbf N_{pole} &= mg_p\,\mathbf k_1, \quad W_{pole} = mg_p \quad &\text{($\cos\lambda = 0$: on the axis, no centrifugal force)} \\
+> \lambda = 0:\quad \mathbf N_{eq} &= m\left(g_p - \Omega^2R\right)\mathbf i_1 \quad &\text{($\mathbf e_r = \mathbf i_1$: centrifugal force radial and outward)} \\
+> g_p - \Omega^2R &\ge 0 \ \Rightarrow\ W_{eq} = m\left(g_p - \Omega^2R\right) \quad &\text{(the ground pushes, it cannot pull)}
+> \end{aligned}$$
+>
+> $$\boxed{W_{pole} = mg_p, \qquad W_{eq} = m\left(g_p - \Omega^2R\right) \ \ \left(\Omega^2R \le g_p\right)}$$
+>
+> **Units:** $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the spin does not change the weight at a pole and lightens it at the equator; a body could not stay on the equator of a planet spinning faster than the break-up rate.
 
-A body can rest on the equator only if $N_{\text{eq}} \ge 0$ (the ground can push but not pull), i.e. $\Omega^2R \le g_p$.
+> [!derivation] Spin rate and duration of the day
+> **Law:** condition of the statement on the two weights; period of a uniform rotation
+> **Source:** Notes.pdf, Eq. 4.63; Problems.pdf, p. 10
+>
+> $$\begin{aligned}
+> W_{pole} &= 2W_{eq} \ \Rightarrow\ mg_p = 2m\left(g_p - \Omega^2R\right) \quad &\text{(statement)} \\
+> 2\Omega^2R &= 2g_p - g_p = g_p \ \Rightarrow\ \Omega = \sqrt{\frac{g_p}{2R}} \quad &\text{(solved; positive root)} \\
+> \Omega^2R &= \frac{g_p}{2} \le g_p \quad &\text{(the contact condition holds)} \\
+> \Omega\,T_{day} &= 2\pi \quad &\text{(one turn of $\mathcal B_1$, first box)} \\
+> T_{day} &= \frac{2\pi}{\Omega} = 2\pi\sqrt{\frac{2R}{g_p}} = 2\sqrt2\,\pi\sqrt{\frac{R}{g_p}} \simeq 8.886\sqrt{\frac{R}{g_p}} \quad &\text{(substituted)}
+> \end{aligned}$$
+>
+> $$\boxed{\Omega = \sqrt{\frac{g_p}{2R}}, \qquad T_{day} = 2\pi\sqrt{\frac{2R}{g_p}}}$$
+>
+> **Units:** $[\sqrt{R/g_p}] = [\mathrm{L}\,\mathrm{L^{-1}\,T^{2}}]^{1/2} = [\mathrm{T}]$
+> **Meaning:** the centrifugal force at the equator cancels half of the attraction there. The other sign of the weight equation, with the centrifugal force larger than the attraction, would need the ground to pull the body, so it is rejected.
 
-##### 3. Condition $W_{\text{pole}} = 2W_{\text{eq}}$ and length of the day
-$$ mg_p = 2m\left(g_p - \Omega^2R\right) \quad\Longrightarrow\quad 2\Omega^2R = 2g_p - g_p = g_p \quad\Longrightarrow\quad \Omega = \sqrt{\frac{g_p}{2R}} $$
+| Part of the statement | Answer |
+| :--- | :--- |
+| Duration of the day | $T_{day} = 2\pi\sqrt{2R/g_p} \simeq 8.886\sqrt{R/g_p}$ (one rotation with respect to the stars) |
+| Intermediate results | $\Omega = \sqrt{g_p/(2R)}$; $W_{pole} = mg_p$, $W_{eq} = m(g_p - \Omega^2R) = mg_p/2$; contact force $\mathbf N = m(g_p - \Omega^2R\cos^2\lambda)\,\mathbf e_r + m\Omega^2R\cos\lambda\sin\lambda\,\mathbf e_n$ |
 
-(this satisfies $\Omega^2R = g_p/2 \le g_p$. The other possibility, $mg_p = 2m(\Omega^2R - g_p)$, would mean $\Omega^2R \gt g_p$: equatorial bodies would fly off, so it is rejected.) The day is the time of one rotation:
+**Check against the official key:** Problems.pdf, p. 72 lists item 21 with no answer, so there is no key to compare with. Independent checks: Newton's law in the inertial frame gives the same contact force (box below), and the limiting cases close the result.
 
-$$ \boxed{T_{\text{day}} = \frac{2\pi}{\Omega} = 2\pi\sqrt{\frac{2R}{g_p}}} $$
+> [!derivation] Independent check in the inertial frame
+> **Law:** Newton's second law in $S_0$ with the absolute acceleration of the kinematics box
+> **Source:** Notes.pdf, Eq. 4.59
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^P &= -mg_p\,\mathbf e_r + \mathbf N \quad &\text{(Eq. 4.59: attraction and contact are the only forces)} \\
+> -m\Omega^2R\cos\lambda\,\mathbf i_1 &= -mg_p\,\mathbf e_r + \mathbf N \quad &\text{(kinematics box)} \\
+> \mathbf N &= mg_p\,\mathbf e_r - m\Omega^2R\cos\lambda\,\mathbf i_1 \quad &\text{(solved)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf N = mg_p\,\mathbf e_r - m\Omega^2R\cos\lambda\,\mathbf i_1 \quad \text{(same as in } S_1\text{)}}$$
+>
+> **Units:** $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** seen from the stars the body moves on its parallel of latitude and needs a centripetal force towards the axis; the attraction minus the contact force provides it.
 
-##### Checks
-* **Meaning.** The centrifugal force at the equator cancels half of the attraction, so $\Omega^2R = g_p/2$: the planet spins at $1/\sqrt2 \approx 0.71$ of the break-up rate $\sqrt{g_p/R}$ at which equatorial bodies would float ($W_{\text{eq}} = 0$).
-* **Any latitude** (extension, same balance): $|\mathbf{N}|^2 = m^2\left[g_p^2 - \left(2g_p\Omega^2R - \Omega^4R^2\right)\cos^2\lambda\right]$, which with $\Omega^2R = g_p/2$ gives $W(\lambda) = mg_p\sqrt{1 - \tfrac34\cos^2\lambda}$: from $mg_p/2$ at the equator to $mg_p$ at the poles (e.g. $mg_p\sqrt{10}/4 \approx 0.79\,mg_p$ at $45^\circ$). Away from the poles and the equator $\mathbf{N}$ is not radial: the plumb line does not point to the centre.
-* **Numbers** (illustration only, Earth-like $R = 6.371\times 10^6$ m, $g_p = 9.81$ m/s$^2$): $T_{\text{day}} \approx 7.16\times 10^3$ s $\approx 1.99$ h.
-* **Limit:** a slower spin ($\Omega \to 0$) gives $W_{\text{eq}} \to W_{\text{pole}}$; the ratio 2 requires a fast rotation.
-* **Orthogonality:** $\mathbf{e}_r\cdot\mathbf{j}_1 = 0$ and $|\mathbf{e}_r| = \sqrt{\cos^2\lambda + \sin^2\lambda} = 1$.
-* **Dimensions:** $[\Omega^2R] = \text{s}^{-2}\,\text{m} = [g_p]$; $[T_{\text{day}}] = \sqrt{\text{m}/(\text{m}\,\text{s}^{-2})} = \text{s}$.
-* **Verification (sympy):** the inertial acceleration of a point at rest on the planet, obtained by differentiating $[{}_0R_1]\{\mathbf{r}_1^P\}$ twice, equals $\boldsymbol{\omega}_{10}\times(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P)$; the balance gives $W_{\text{pole}} = mg_p$, $W_{\text{eq}} = m|g_p - \Omega^2R|$, $\Omega = \sqrt{g_p/(2R)}$ and $T_{\text{day}} = 2\pi\sqrt{2R/g_p}$.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 21 in its solution keys, so the results are verified by independent derivation (the sympy check above).
+> [!derivation] Limiting cases and the weight at any latitude
+> **Law:** the weight formula of the balance box at extreme values and with the rate found
+> **Source:** Notes.pdf, Eq. 4.63; Problems.pdf, p. 10
+>
+> $$\begin{aligned}
+> \Omega \to 0:\quad W_{eq} &\to mg_p = W_{pole} \quad &\text{(no spin, no difference)} \\
+> \Omega_b &= \sqrt{\frac{g_p}{R}}:\quad W_{eq} = 0 \quad &\text{(break-up rate: weightless equator)} \\
+> \frac{\Omega}{\Omega_b} &= \sqrt{\frac{g_p/(2R)}{g_p/R}} = \frac{1}{\sqrt2} \simeq 0.707 \quad &\text{(the planet of the statement)} \\
+> \Omega^2R = \frac{g_p}{2}:\quad W(\lambda) &= m\sqrt{g_p^2 - \left(g_p^2 - \tfrac14 g_p^2\right)\cos^2\lambda} = mg_p\sqrt{1 - \tfrac34\cos^2\lambda} \quad &\text{(balance box, extension)} \\
+> \lambda = \tfrac{\pi}{4}:\quad W &= mg_p\sqrt{1 - \tfrac38} = mg_p\sqrt{\tfrac58} \simeq 0.791\,mg_p \quad &\text{($\cos^2\tfrac{\pi}{4} = \tfrac12$)}
+> \end{aligned}$$
+>
+> $$\boxed{W(\lambda) = mg_p\sqrt{1 - \tfrac34\cos^2\lambda}: \ \ mg_p/2 \ \text{at the equator}, \ \ mg_p \ \text{at the poles}}$$
+>
+> **Units:** $[mg_p] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the planet spins at 0.707 of its break-up rate; the weight grows monotonically from the equator to the poles (0.791 of the polar value at 45 degrees), so the ratio 2 of the statement is the largest ratio of weights between two places of the planet.
 
 ---
 
