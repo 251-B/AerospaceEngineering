@@ -19,7 +19,7 @@ bytes: 2767697
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.8 MB
-- **Status:** referenced by 27 note(s) below
+- **Status:** referenced by 28 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -43,6 +43,7 @@ bytes: 2767697
 - [[03 - Engineering Mechanics/Solution Set - Topic 4 Angular Momentum and Central Forces]]
 - [[03 - Engineering Mechanics/Solution Set - Topic 6 Rigid Body Kinematics and Inertia]]
 - [[03 - Engineering Mechanics/Solution Set - Topic 7 Rigid Body Momentum, Energy and Dynamics]]
+- [[03 - Engineering Mechanics/Solution Set - Topic 8 Constraints, Rolling, Multibody and Torque-Free Motion]]
 - [[03 - Engineering Mechanics/Topic 1 - Kinematics of a Point Particle]]
 - [[03 - Engineering Mechanics/Topic 2 - Dynamics of a Point Particle, Equilibrium and Oscillations]]
 - [[03 - Engineering Mechanics/Topic 3 - Constraints and Reaction Forces]]

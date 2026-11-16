@@ -215,6 +215,10 @@
     {
      "page": "topic-7.html",
      "label": "7 · Momentum, energy, dynamics"
+    },
+    {
+     "page": "topic-8.html",
+     "label": "8 · Rolling, multibody, torque-free"
     }
    ],
    "extra-problems": [

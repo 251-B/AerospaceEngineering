@@ -20,7 +20,7 @@
 <circle cx="490.0" cy="370.0" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
 <text x="476.0" y="358.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
 <circle cx="644.8" cy="131.8" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
-<text x="628.8" y="151.8" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G′</text>
+<text x="628.8" y="151.8" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G (disk)</text>
 <line x1="644.8" y1="131.8" x2="732.9" y2="42.0" stroke="#10b981" stroke-width="3.0"/>
 <path d="M737.9,36.9 L733.5,48.0 L726.8,41.5 Z" fill="#10b981"/>
 <text x="755.9" y="30.9" fill="#10b981" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="sub" font-size="70%">bd</tspan></text>

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-16-mechanics-problems-8",
+    "date": "2026-11-16",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 8 problems: rolling, multibody and torque-free motion",
+    "text": "26 official rigid body problems solved step by step: rolling, a yo-yo, Euler's disk, multibody systems with exploded views, and a free spinning asteroid.",
+    "link": "subjects/engineering-mechanics/problemas/topic-8.html"
+  },
+  {
     "id": "2026-11-16-mechanics-rigid-body-problems-7",
     "date": "2026-11-16",
     "tag": "Engineering Mechanics",

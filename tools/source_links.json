@@ -1824,6 +1824,124 @@
     ]
    }
   },
+  "subjects/engineering-mechanics/problemas/topic-8.html": {
+   "panel": [
+    [
+     "em-problems",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   },
+   "cards": {
+    "rb-12": [
+     "em-problems",
+     44
+    ],
+    "rb-13": [
+     "em-problems",
+     45
+    ],
+    "rb-14": [
+     "em-problems",
+     45
+    ],
+    "rb-15": [
+     "em-problems",
+     46
+    ],
+    "rb-16": [
+     "em-problems",
+     46
+    ],
+    "rb-17": [
+     "em-problems",
+     47
+    ],
+    "rb-18": [
+     "em-problems",
+     48
+    ],
+    "rb-19": [
+     "em-problems",
+     49
+    ],
+    "rb-20": [
+     "em-problems",
+     50
+    ],
+    "rb-21": [
+     "em-problems",
+     51
+    ],
+    "rb-22": [
+     "em-problems",
+     52
+    ],
+    "rb-23": [
+     "em-problems",
+     53
+    ],
+    "rb-26": [
+     "em-problems",
+     56
+    ],
+    "rb-27": [
+     "em-problems",
+     57
+    ],
+    "rb-28": [
+     "em-problems",
+     58
+    ],
+    "rb-29": [
+     "em-problems",
+     59
+    ],
+    "rb-30": [
+     "em-problems",
+     60
+    ],
+    "rb-31": [
+     "em-problems",
+     61
+    ],
+    "rb-32": [
+     "em-problems",
+     62
+    ],
+    "rb-33": [
+     "em-problems",
+     63
+    ],
+    "rb-36": [
+     "em-problems",
+     65
+    ],
+    "rb-37": [
+     "em-problems",
+     66
+    ],
+    "rb-39": [
+     "em-problems",
+     68
+    ],
+    "rb-40": [
+     "em-problems",
+     69
+    ],
+    "rb-41": [
+     "em-problems",
+     70
+    ],
+    "rb-42": [
+     "em-problems",
+     71
+    ]
+   }
+  },
   "subjects/engineering-mechanics/teoria/topic-1.html": {
    "panel": [
     [

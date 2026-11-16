@@ -268,6 +268,10 @@ window.AE_NAV = {
             {
               "href": "subjects/engineering-mechanics/problemas/topic-7.html",
               "label": "7 · Momentum, energy, dynamics"
+            },
+            {
+              "href": "subjects/engineering-mechanics/problemas/topic-8.html",
+              "label": "8 · Rolling, multibody, torque-free"
             }
           ]
         },

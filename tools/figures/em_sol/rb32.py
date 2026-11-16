@@ -167,7 +167,7 @@ def exploded():
     for p in (BL, BR, PL, PR):
         x, y = sc.P(pr(p))
         sc.c.add(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="7" fill="none" stroke="HEAD" stroke-width="2"/>')
-    for p, nm, off in ((G, "G", (-14, -12)), (Gd, "G′", (-16, 20))):
+    for p, nm, off in ((G, "G", (-14, -12)), (Gd, "G (disk)", (-16, 20))):
         sc.mass(pr(p), None, r=4.5, col="BLUE")
         sc.label(pr(p), nm, "HEAD", "middle", 17, dx=off[0], dy=off[1])
     # ---- disk alone: F_bd, M_bd (normal to the axle), weight
