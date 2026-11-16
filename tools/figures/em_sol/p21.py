@@ -3,7 +3,9 @@ import math
 
 from figures.em_solutions import (axis_in, axis_out, figure, fixed_axis, right_angle, spin_about_vertical, triangle,
                                   unit)
+from figures.em_sol.rb01 import rotation_view
 from figures.mech import S, Scene, bold
+from figures.svgkit import arrow_head
 
 WT = 35.0            # drawn value of Omega t, degrees
 LAT = 40.0           # drawn latitude, degrees
@@ -78,4 +80,83 @@ def meridian():
     sc.vec(P, (P[0] + 0.42, P[1]), S(bold("F"), "C"), "PINK", 2.4, name_off=(10, -10), size=16)
     unit(sc, P, LAT, 0.26, bold("e") + S("", "r"), "ACC", off=(8, -10))
     sc.mass(P, "P", r=7, name_off=(24, 22))
+    return sc
+
+
+def _dvec(sc, a, b, col="PINK", w=2.4, head=10):
+    """Dashed arrow (inertia force) from world point a to b."""
+    ax, ay = sc.P(a)
+    bx, by = sc.P(b)
+    ang = math.atan2(by - ay, bx - ax)
+    tip = (bx - head * 0.6 * math.cos(ang), by - head * 0.6 * math.sin(ang))
+    sc.c.add(f'<line x1="{ax:.1f}" y1="{ay:.1f}" x2="{tip[0]:.1f}" y2="{tip[1]:.1f}" stroke="{col}" stroke-width="{w}" '
+             f'stroke-dasharray="7 4"/>')
+    arrow_head(sc.c, (ax, ay), (bx, by), col, head)
+
+
+@figure("p21-local-basis",
+        "Meridian view of the local basis e_r, e_n turned by the latitude from i1, k1, with the two unit right triangles",
+        r"Rotation by $\lambda$ in the meridian plane ($-\mathbf j_1$ out of the paper). The triangle of $\mathbf e_n$ has "
+        r"its opposite leg along $-\mathbf i_1$: the minus sign of $\mathbf e_n = -\sin\lambda\,\mathbf i_1 + "
+        r"\cos\lambda\,\mathbf k_1$.")
+def local_basis():
+    def post(sc):
+        sc.label((0.0, -0.42), "positive λ counterclockwise", "GREEN", "middle", 14, weight="700")
+        x0, y0, dx, dy = 1.30, -0.45, 0.40, 0.19
+        cells = (("cos λ", "−sin λ", "0"), ("0", "0", "−1"), ("sin λ", "cos λ", "0"))
+        sc.label((x0 - 0.30, y0 - dy), "[" + S("", "1") + "R" + S("", "2") + "] =", "TEXT", "end", 16)
+        for r, row in enumerate(cells):
+            for c, t in enumerate(row):
+                sc.label((x0 + c * dx + 0.04, y0 - r * dy), t, "TEXT", "middle", 15)
+        top, bot = y0 + 0.16, y0 - 2 * dy - 0.08
+        for xb, sg in ((x0 - 0.22, 1), (x0 + 2 * dx + 0.26, -1)):
+            sc.poly([(xb + sg * 0.05, top), (xb, top), (xb, bot), (xb + sg * 0.05, bot)], "TEXT", 1.4)
+        sc.note((x0 - 0.22, bot - 0.17), "columns: e_r, e_n, −j₁", "TEXT", "start", 13)
+    return rotation_view(980, 720, (360, 450), 250, LAT, S(bold("i"), "1"), S(bold("k"), "1"),
+                         S(bold("e"), "r") + " (local vertical)", S(bold("e"), "n") + " (towards the north)",
+                         "−" + S(bold("j"), "1") + " (⊙)", ("λ", ""), col="ACC", tri="ACC", out_off=(-14, 5), post=post)
+
+
+@figure("p21-fbd",
+        "Free-body diagrams of a body at rest at the north pole and at the equator of the spinning planet, with the "
+        "attraction, the contact force and the centrifugal force",
+        r"At the pole the body is on the spin axis: the contact force balances the attraction alone, "
+        r"$W_{pole} = mg_p$. At the equator the centrifugal force $m\Omega^2R$ takes away part of it, "
+        r"$W_{eq} = m(g_p - \Omega^2R)$; the ratio 2 of the statement means $\Omega^2R = g_p/2$.")
+def fbd():
+    sc = Scene(1000, 760, (330, 420), 115)
+    R = 1.6
+    O = (0.0, 0.0)
+    sc.disk(O, R, "EDGE", "EDGE", 0.14, 1.8)
+    sc.line((0.0, -R - 0.35), (0.0, R + 1.55), "EDGE", 1.3, "10 3 2 3")
+    spin_about_vertical(sc, (0.0, R + 1.62), 0.16, 0.05, "Ω")
+    axis_in(sc, O, None, "BLUE", 8)
+    sc.label(O, "O", "HEAD", "start", 17, dx=14, dy=-12)
+    sc.label(O, S(bold("j"), "1") + " (⊗)", "BLUE", "start", 14, weight="700", dx=14, dy=22)
+    g0 = (-2.5, -1.9)
+    fixed_axis(sc, g0, 0, 0.5, S(bold("i"), "1"), off=(14, 5))
+    fixed_axis(sc, g0, 90, 0.5, S(bold("k"), "1"), off=(0, -8))
+    # body at the north pole
+    top = (0.0, R)
+    sc.poly([(-0.07, R - 0.07), (0.07, R - 0.07), (0.07, R + 0.07), (-0.07, R + 0.07)], "HEAD", 2.0, fill="ACC", close=True)
+    sc.vec((0.12, R), (0.12, R - 0.8), None, "PINK", 2.8, head=11)
+    sc.label((0.12, R - 0.8), "−m " + S("g", "p") + " " + S(bold("e"), "r"), "PINK", "start", 15, weight="700", dx=10, dy=6)
+    sc.vec((-0.12, R + 0.1), (-0.12, R + 0.9), None, "PINK", 2.8, head=11)
+    sc.label((-0.12, R + 0.9), S("N", "pole") + " = m " + S("g", "p") + " " + S(bold("k"), "1"), "PINK", "end", 15,
+             weight="700", dx=-10, dy=-2)
+    sc.label((0.0, R), "pole", "HEAD", "start", 16, dx=16, dy=-8)
+    sc.note((0.35, R + 0.62), "on the axis: F_C = 0", "TEXT", "start", 13)
+    # body at the equator
+    sc.poly([(R - 0.07, -0.07), (R + 0.07, -0.07), (R + 0.07, 0.07), (R - 0.07, 0.07)], "HEAD", 2.0, fill="ACC", close=True)
+    sc.vec((R - 0.1, -0.05), (R - 0.9, -0.05), None, "PINK", 2.8, head=11)
+    sc.label((R - 0.9, -0.05), "−m " + S("g", "p") + " " + S(bold("i"), "1"), "PINK", "middle", 15, weight="700", dy=24)
+    _dvec(sc, (R + 0.1, -0.05), (R + 0.5, -0.05), "PINK", 2.6)
+    sc.label((R + 0.5, -0.05), S(bold("F"), "C") + " = m Ω² R " + S(bold("i"), "1") + " (inertia)", "PINK", "start", 15,
+             weight="700", dx=10, dy=22)
+    sc.vec((R + 0.1, 0.17), (R + 0.5, 0.17), None, "PINK", 2.8, head=11)
+    sc.label((R + 0.5, 0.17), S("N", "eq") + " = m(" + S("g", "p") + " − Ω² R) " + S(bold("i"), "1"), "PINK", "start", 15,
+             weight="700", dx=10, dy=-6)
+    sc.label((R, 0.0), "equator", "HEAD", "middle", 16, dx=0, dy=-26)
+    sc.note((R + 0.1, -0.95), "W_eq = W_pole / 2 when Ω² R = g_p / 2", "TEXT", "start", 14)
+    sc.note((-1.0, -2.45), "body at rest in S₁: no Coriolis force; F_A = F_E = 0", "TEXT", "start", 14)
     return sc

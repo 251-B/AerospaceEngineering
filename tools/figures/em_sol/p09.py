@@ -69,3 +69,48 @@ def forces():
     sc.mass(P, "P", r=7, name_off=(-20, -12))
     sc.spin(O, 0.32, 30, 150, "ω", name_r=0.45)
     return sc
+
+
+GAMMA = 35.0         # drawn running direction, degrees from e_theta towards k1
+
+
+@figure("p09-running",
+        "The tangent plane of the floor seen from outside the hull, with the running velocity at the angle gamma from "
+        "the circumferential direction and its right triangle",
+        r"Running direction on the floor ($\mathbf e_r$ out of the paper). The leg along $\mathbf e_\theta$ is "
+        r"$u_\theta = u\cos\gamma$ and the leg along the axis is $u_z = u\sin\gamma$; only $u_\theta$ changes the "
+        r"artificial gravity.")
+def running():
+    sc = Scene(760, 560, (330, 290), 105)
+    P = (0.0, 0.0)
+    g = math.radians(GAMMA)
+    L = 2.2
+    tip = (L * math.cos(g), L * math.sin(g))
+    foot = (tip[0], 0.0)
+    for yy in (-1.1, 1.1):
+        sc.line((-2.9, yy), (2.9, yy), "EDGE", 0.8, "2 4")
+    for xx in (-1.3, 1.3):
+        sc.line((xx, -1.7), (xx, 1.9), "EDGE", 0.8, "2 4")
+    sc.arc((0.0, 0.0), 2.35, 112, 68, "EDGE", 1.8, head=True)
+    sc.label((0.0, 2.35), "floor moves with ωR in S₀", "TEXT", "middle", 14, dy=-10)
+    triangle(sc, [P, foot, tip], "GREEN", 0.16)
+    sc.dashed(foot, tip)
+    sc.line(P, foot, "EDGE", 1.1, "5 4")
+    right_angle(sc, foot, 180, 90, 0.07)
+    sc.vec(P, tip, None, "GREEN", 3.6, head=13)
+    sc.label(tip, bold("u"), "GREEN", "start", 20, weight="700", dx=10, dy=-6)
+    sc.angle(P, 0.55, 0, GAMMA, "γ", name_r=0.78, size=18)
+    sc.label((foot[0], 0.0), "u" + S("", "θ") + " = u cos γ (adjacent)", "GREEN", "end", 15, dy=50)
+    sc.label((foot[0], tip[1] / 2), "u" + S("", "z") + " = u sin γ", "GREEN", "start", 15, dx=12, dy=-6)
+    sc.label((foot[0], tip[1] / 2), "(opposite)", "GREEN", "start", 15, dx=12, dy=14)
+    # opposite direction, against the rotation
+    t2 = (-L * math.cos(g), -L * math.sin(g))
+    sc.vec(P, t2, None, "GREEN", 2.0, head=11)
+    sc.label(t2, "γ > 90°: against the rotation", "GREEN", "middle", 14, dy=24)
+    unit(sc, P, 0, 1.6, S(bold("e"), "θ"), "ACC", off=(4, 24))
+    fixed_axis(sc, P, 90, 1.6, S(bold("k"), "1"), off=(-16, 4))
+    axis_out(sc, P, None, "HEAD", 9)
+    sc.mass(P, None, r=6)
+    sc.label(P, "P", "HEAD", "start", 18, dx=10, dy=26)
+    sc.label(P, S(bold("e"), "r") + " (⊙, away from the axis)", "HEAD", "end", 14, weight="700", dx=-14, dy=-12)
+    return sc

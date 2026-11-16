@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" width="100%" class="fig-kit" style="max-width:1000px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the skater in the rotating frame with the bar force towards the vehicle, the centrifugal force away from O, the Coriolis force along the bar and the vertical weight and reaction">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="374.0" cy="300.0" r="224.0" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="6 5" stroke-linejoin="round"/>
+<text x="234.0" y="45.2" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">path of B in S₁ (circle of radius a about A)</text>
+<line x1="374.0" y1="300.0" x2="518.0" y2="471.6" stroke="#4b5563" stroke-width="4.0"/>
+<line x1="150.0" y1="300.0" x2="518.0" y2="471.6" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="330.0" y="375.8" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan><tspan baseline-shift="super" font-size="70%">B</tspan></text>
+<path d="M144.0,294.0 L156.0,306.0 M144.0,306.0 L156.0,294.0" stroke="#4b5563" stroke-width="2" fill="none"/>
+<text x="138.0" y="292.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<rect x="368.0" y="294.0" width="12" height="12" fill="#4b5563"/>
+<text x="374.0" y="286.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A (at rest in S₁)</text>
+<line x1="73.0" y1="167.0" x2="138.2" y2="167.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M143.0,167.0 L135.6,170.1 L135.6,163.9 Z" fill="#8a94a6"/>
+<text x="157.0" y="172.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="73.0" y1="167.0" x2="73.0" y2="101.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M73.0,97.0 L76.1,104.4 L69.9,104.4 Z" fill="#8a94a6"/>
+<text x="73.0" y="89.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="73.0" cy="167.0" r="7" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="73.0" cy="167.0" r="2.6" fill="#4b5563"/>
+<text x="61.0" y="172.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> (⊙)</text>
+<line x1="518.0" y1="471.6" x2="558.7" y2="520.2" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M563.0,525.2 L553.2,520.2 L559.7,514.7 Z" fill="#f59e0b"/>
+<text x="559.0" y="545.2" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">u</tspan><tspan baseline-shift="sub" font-size="70%">AB</tspan></text>
+<line x1="518.0" y1="471.6" x2="566.6" y2="430.8" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M571.6,426.6 L566.6,436.4 L561.1,429.8 Z" fill="#f59e0b"/>
+<text x="585.6" y="422.6" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">u</tspan><tspan baseline-shift="sub" font-size="70%">⊥</tspan></text>
+<line x1="518.0" y1="471.6" x2="441.2" y2="380.1" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M437.0,375.1 L446.8,380.1 L440.2,385.6 Z" fill="#ec4899"/>
+<text x="429.0" y="373.1" fill="#ec4899" font-size="15" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−T <tspan font-weight="700" font-style="normal">u</tspan><tspan baseline-shift="sub" font-size="70%">AB</tspan></text>
+<line x1="533.0" y1="459.0" x2="473.9" y2="388.5" stroke="#ec4899" stroke-width="2.4" stroke-dasharray="7 4"/>
+<path d="M470.0,383.9 L478.9,388.5 L472.9,393.5 Z" fill="#ec4899"/>
+<text x="480.0" y="377.9" fill="#ec4899" font-size="14" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="sub" font-size="70%">COR</tspan> = 2maωψ̇ <tspan font-weight="700" font-style="normal">u</tspan><tspan baseline-shift="sub" font-size="70%">AB</tspan> (inertia)</text>
+<line x1="518.0" y1="471.6" x2="639.4" y2="528.2" stroke="#ec4899" stroke-width="2.6" stroke-dasharray="7 4"/>
+<path d="M644.9,530.8 L634.9,530.4 L638.2,523.3 Z" fill="#ec4899"/>
+<text x="654.9" y="536.8" fill="#ec4899" font-size="14" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan><tspan baseline-shift="sub" font-size="70%">C</tspan> = mω² <tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan><tspan baseline-shift="super" font-size="70%">B</tspan> (inertia)</text>
+<line x1="518.0" y1="471.6" x2="457.8" y2="522.1" stroke="#10b981" stroke-width="2.4"/>
+<path d="M453.6,525.6 L457.7,517.6 L462.2,522.9 Z" fill="#10b981"/>
+<text x="447.6" y="541.6" fill="#10b981" font-size="14" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan><tspan baseline-shift="super" font-size="70%">B</tspan> = aψ̇ <tspan font-weight="700" font-style="normal">u</tspan><tspan baseline-shift="sub" font-size="70%">⊥</tspan></text>
+<circle cx="518.0" cy="471.6" r="7" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="538.0" y="469.6" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">B</text>
+<circle cx="584.0" cy="608.0" r="8" fill="none" stroke="#ec4899" stroke-width="1.8"/>
+<circle cx="584.0" cy="608.0" r="2.6" fill="#ec4899"/>
+<text x="600.0" y="613.0" fill="#ec4899" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="584.0" cy="652.8" r="8" fill="none" stroke="#ec4899" stroke-width="1.8"/>
+<path d="M579.0,647.8 L589.0,657.8 M579.0,657.8 L589.0,647.8" stroke="#ec4899" stroke-width="1.6" fill="none"/>
+<text x="600.0" y="657.8" fill="#ec4899" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m g (weight)</text>
+<text x="567.2" y="703.2" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">both act on B, normal to the paper: N = m g</text>
+<text x="80.0" y="650.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">F_A = 0 (O fixed), F_E = 0 (ω constant)</text>
+</g></svg>
