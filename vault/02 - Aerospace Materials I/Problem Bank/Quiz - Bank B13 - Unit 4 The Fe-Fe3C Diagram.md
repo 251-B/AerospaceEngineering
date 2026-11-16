@@ -32,7 +32,7 @@ tags:
 - format: diagram-reading
 - asks: figure-reading
 
-From the shown Fe-Fe₃C phase diagram, indicate the phases present at point 3:
+An Fe-C alloy sits at the point numbered 3 of the iron-carbon diagram below. Which two phases does it contain?
 
 ![[attachments/MAT-MT2/u4-fec-points.svg]]
 
