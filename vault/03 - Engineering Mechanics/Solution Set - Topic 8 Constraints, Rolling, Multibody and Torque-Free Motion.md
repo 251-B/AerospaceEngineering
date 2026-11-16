@@ -5847,3 +5847,888 @@ No external load acts. The exploded view cuts each wheel from the rod at its axl
 * **Dimensions.** Every angular velocity component is a rate; every velocity term is a length times a rate; every angular momentum term is a mass times a squared length times a rate.
 
 ---
+
+---
+
+## Problem RB-26: Unbalanced planetary bearings
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** four rigid bodies moving in the vertical plane $Oxy$. The disk $D$, homogeneous, of radius $d$ and mass $2m$; the three bearings $A$, $B$, $C$, homogeneous cylinders of radius $d/4$ and mass $m$ each (each body is named after its centre). The cavity is a fixed circle of radius $3d/2$ (read from the figure: the gap between the disk and the cavity is one bearing diameter, so the cavity radius is the sum of $d$ and twice $d/4$). Every contact disk-bearing and bearing-cavity rolls without slipping.
+* **Fixed frame:** $S_0\{O; \mathcal B_0\}$ attached to the cavity, $O$ its centre, $\mathbf i$ along $Ox$ (to the right), $\mathbf j$ along $Oy$ (up), $\mathbf k$ out of the paper (⊙). Gravity is $-g\,\mathbf j$.
+* **Angles:** $\theta$, angle of $\overrightarrow{OA}$ measured from $Ox$, counterclockwise about $\mathbf k$ (read from the arc of the figure). The two $45^\circ$ arcs of the figure are read as: $\overrightarrow{OB}$ and $\overrightarrow{OC}$ lie $45^\circ$ on either side of the prolongation of $\overrightarrow{AO}$ beyond $O$, so the polar angles of $B$ and $C$ are $\theta + 3\pi/4$ and $\theta + 5\pi/4$. Exchanging the labels $B$ and $C$ would change nothing below, since only the sum of their unit vectors enters.
+* **Auxiliary bases:** for each bearing, the polar basis $\{\mathbf e_r(\alpha), \mathbf e_\theta(\alpha), \mathbf k\}$ attached to its centre line, with $\alpha$ the polar angle of that bearing.
+* **Spin angles:** $\varphi_D$ for the disk and $\varphi_A$, $\varphi_B$, $\varphi_C$ for the bearings, all measured counterclockwise about $\mathbf k$, with rates $\omega_D$, $\omega_A$, $\omega_B$, $\omega_C$.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Radius of the disk | $d$ | m |
+| Mass of the disk | $2m$ | kg |
+| Radius of each bearing | $d/4$ | m |
+| Mass of each bearing | $m$ | kg |
+| Radius of the cavity (read from the figure) | $3d/2$ | m |
+| Gravity | $-g\,\mathbf j$ | m/s$^2$ |
+| Initial state | $\theta_0 = 0$, everything at rest | rad, - |
+
+#### Part (a): degrees of freedom
+
+> [!derivation] Part (a): count of the degrees of freedom
+> **Law:** three coordinates per body in planar motion; no-penetration and no-slip conditions at each contact
+> **Source:** Notes.pdf, Sec. 13.1; Notes.pdf, Eq. 13.1; Notes.pdf, Eq. 13.2; Notes.pdf, Sec. 13.4
+>
+> Position constraints first. The centre of a bearing touching the cavity lies at the distance from $O$ equal to the cavity radius minus the bearing radius; touching the disk, it lies at the distance from the disk centre $O'$ equal to the disk radius plus the bearing radius. The three centres are on a circle about $O$ and on a circle about $O'$ of the same radius; a circle through three points that do not lie on one line is unique, so $O'$ coincides with $O$ (the three bearings are not on one line: their polar angles differ by $3\pi/4$, $\pi/2$ and $3\pi/4$).
+>
+> $$\begin{aligned}
+> |\overrightarrow{OA}| &= \frac{3d}{2} - \frac d4 = \frac{5d}{4}, \qquad |\overrightarrow{O'A}| = d + \frac d4 = \frac{5d}{4} \quad &\text{(contact of $A$ with the cavity and with the disk)} \\
+> O' &\equiv O \quad &\text{(three such points fix the centre of the circle)} \\
+> n_q &= \underbrace{1}_{\varphi_D} + \underbrace{3}_{\theta_A, \theta_B, \theta_C} + \underbrace{3}_{\varphi_A, \varphi_B, \varphi_C} = 7 \quad &\text{(coordinates left after the position constraints)} \\
+> n_{\mathrm{dof}} &= 7 - 3\cdot 2 = 1 \quad &\text{(two independent no-slip conditions per bearing, Eq. 13.2)}
+> \end{aligned}$$
+>
+> $$\boxed{n_{\mathrm{dof}} = 1, \qquad \text{coordinate: } \theta}$$
+>
+> **Units:** dimensionless counts
+> **Meaning:** the whole train moves as one mechanism: the next box shows that the four rates are fixed multiples of the rate of $\theta$, and that the three bearings keep their angular spacing, so $\theta$ alone gives the configuration.
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb26-polar-basis.svg]]
+
+> [!derivation] Polar basis of a bearing: rotation by alpha about k
+> **Law:** simple rotation about the third axis; right-hand rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 12]
+>
+> View of the plane $Oxy$ with $\mathbf k$ out of the paper (⊙): a positive $\alpha$ turns counterclockwise. $\mathbf e_r$ is $\mathbf i$ turned by $\alpha$: hypotenuse 1, adjacent leg along $\mathbf i$ (cosine of $\alpha$), opposite leg along $\mathbf j$ (sine). $\mathbf e_\theta$ is $\mathbf j$ turned by $\alpha$: adjacent leg along $\mathbf j$ (cosine); the counterclockwise turn carries the tip of $\mathbf j$ to the left, towards minus $\mathbf i$, which is the minus sign of the opposite leg (sine). For the bearing $A$ the angle is $\theta$; for $B$ and $C$ it is $\theta$ plus a constant, so in every case its rate is the rate of $\theta$.
+>
+> $$\begin{aligned}
+> \mathbf e_r(\alpha) &= \cos\alpha\,\mathbf i + \sin\alpha\,\mathbf j, \qquad \mathbf e_\theta(\alpha) = -\sin\alpha\,\mathbf i + \cos\alpha\,\mathbf j \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_\alpha] &= \begin{bmatrix} \cos\alpha & -\sin\alpha & 0 \cr \sin\alpha & \cos\alpha & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf e_r$, $\mathbf e_\theta$, $\mathbf k$ in $\mathcal B_0$)} \\
+> \det[{}_0R_\alpha] &= 1\cdot\left(\cos^2\alpha + \sin^2\alpha\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_\alpha][{}_0R_\alpha]^T &= \begin{bmatrix} \cos^2\alpha + \sin^2\alpha & \cos\alpha\sin\alpha - \sin\alpha\cos\alpha & 0 \cr \sin\alpha\cos\alpha - \cos\alpha\sin\alpha & \sin^2\alpha + \cos^2\alpha & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \dot{\mathbf e}_r &= \dot\theta\,\mathbf k\times\mathbf e_r = \dot\theta\,\mathbf e_\theta, \qquad \dot{\mathbf e}_\theta = \dot\theta\,\mathbf k\times\mathbf e_\theta = -\dot\theta\,\mathbf e_r \quad &\text{(Poisson; rate of $\alpha$ equal to the rate of $\theta$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_r(\alpha) = \cos\alpha\,\mathbf i + \sin\alpha\,\mathbf j, \quad \mathbf e_\theta(\alpha) = -\sin\alpha\,\mathbf i + \cos\alpha\,\mathbf j, \quad \dot{\mathbf e}_r = \dot\theta\,\mathbf e_\theta, \quad \dot{\mathbf e}_\theta = -\dot\theta\,\mathbf e_r}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$ in the derivatives
+> **Meaning:** $\mathbf e_r$ points from $O$ to the centre of the bearing and $\mathbf e_\theta$ along its direction of travel for a growing $\theta$.
+
+![[attachments/EM-SOL/rb26-rolling.svg]]
+
+> [!derivation] Part (b): rolling of a bearing on the cavity and on the disk
+> **Law:** velocity field of a rigid body; rolling without slipping on a fixed body and between two moving bodies
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 13.2; Notes.pdf, Eq. 13.5; [Lecture 10, Slide 11]
+>
+> Take the bearing $A$, of polar angle $\theta$, centre at the distance $5d/4$ from $O$. Its contact $Q_A$ with the cavity is at the distance $3d/2$ from $O$ (outer side, a bearing radius further along $\mathbf e_r$), and its contact $P_A$ with the disk is at the distance $d$ (inner side, a bearing radius back along $\mathbf e_r$). The cavity is at rest; the disk turns about the fixed point $O$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^A &= \frac{5d}{4}\,\mathbf e_r \quad &\text{(position of the centre)} \\
+> \mathbf v_0^A &= \frac{5d}{4}\,\dot{\mathbf e}_r = \frac{5d}{4}\,\dot\theta\,\mathbf e_\theta \quad &\text{(derivative; $d$ constant; Poisson)} \\
+> \mathbf v_0^{Q_A(A)} &= \mathbf v_0^A + \omega_A\,\mathbf k\times\frac d4\,\mathbf e_r = \left(\frac{5d}{4}\dot\theta + \frac d4\,\omega_A\right)\mathbf e_\theta \quad &\text{(Eq. 9.3 from $A$ to $Q_A$; $\mathbf k\times\mathbf e_r = \mathbf e_\theta$)} \\
+> \frac{5d}{4}\dot\theta + \frac d4\,\omega_A &= 0 \;\Rightarrow\; \omega_A = -5\dot\theta \quad &\text{(Eq. 13.5: no slip on the fixed cavity)} \\
+> \mathbf v_0^{P_A(A)} &= \mathbf v_0^A + \omega_A\,\mathbf k\times\left(-\frac d4\,\mathbf e_r\right) = \left(\frac{5d}{4}\dot\theta + \frac{5d}{4}\dot\theta\right)\mathbf e_\theta = \frac{5d}{2}\,\dot\theta\,\mathbf e_\theta \quad &\text{(Eq. 9.3 from $A$ to $P_A$; value of $\omega_A$)} \\
+> \mathbf v_0^{P_A(D)} &= \omega_D\,\mathbf k\times d\,\mathbf e_r = d\,\omega_D\,\mathbf e_\theta \quad &\text{(Eq. 9.3 from the fixed point $O$ of the disk)} \\
+> d\,\omega_D &= \frac{5d}{2}\,\dot\theta \;\Rightarrow\; \omega_D = \frac52\,\dot\theta \quad &\text{(Eq. 13.2: equal velocities at $P_A$)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega_A = -5\dot\theta, \qquad \omega_D = \frac52\,\dot\theta, \qquad \mathbf v_0^A = \frac{5d}{4}\,\dot\theta\,\mathbf e_\theta(\theta)}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$; $[\mathrm L][\mathrm{T^{-1}}]$
+> **Meaning:** for a growing $\theta$ the bearing spins clockwise (negative rate) five times faster than its centre goes round, and the disk turns counterclockwise two and a half times faster than the centre of the bearing.
+
+> [!derivation] Part (b): the other two bearings keep their spacing
+> **Law:** the same two no-slip conditions for $B$ and $C$; integration of equal rates; Barrow's rule
+> **Source:** Notes.pdf, Eq. 13.2; Notes.pdf, Eq. 13.5; Notes.pdf, Eq. 9.3
+>
+> Repeat the previous box for $B$ with its own polar angle $\theta_B$ in place of $\theta$: the cavity contact gives the bearing rate minus five times the rate of $\theta_B$, and the disk contact gives the disk rate equal to five halves of the rate of $\theta_B$. The disk is one body, so its rate is the same in both results.
+>
+> $$\begin{aligned}
+> \omega_D &= \frac52\,\dot\theta_B = \frac52\,\dot\theta \;\Rightarrow\; \dot\theta_B = \dot\theta \quad &\text{(disk rate from the contact with $B$ and with $A$)} \\
+> \int_0^t\left(\dot\theta_B - \dot\theta\right)dt' &= \left[\theta_B - \theta\right]_0^t = 0 \;\Rightarrow\; \theta_B - \theta = \theta_B(0) - \theta_0 = \frac{3\pi}{4} \quad &\text{(antiderivative; Barrow's rule; initial spacing)} \\
+> \theta_C - \theta &= \frac{5\pi}{4}, \qquad \omega_B = \omega_C = -5\dot\theta \quad &\text{(same steps for $C$)} \\
+> \mathbf v_0^B &= \frac{5d}{4}\,\dot\theta\,\mathbf e_\theta\!\left(\theta + \frac{3\pi}{4}\right), \qquad \mathbf v_0^C = \frac{5d}{4}\,\dot\theta\,\mathbf e_\theta\!\left(\theta + \frac{5\pi}{4}\right) \quad &\text{(previous box with the angles of $B$ and $C$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf v_0^A = \tfrac{5d}{4}\dot\theta\left(-\sin\theta\,\mathbf i + \cos\theta\,\mathbf j\right), \quad \mathbf v_0^B = \tfrac{5d}{4}\dot\theta\left[-\sin\!\left(\theta + \tfrac{3\pi}{4}\right)\mathbf i + \cos\!\left(\theta + \tfrac{3\pi}{4}\right)\mathbf j\right], \quad \mathbf v_0^C = \tfrac{5d}{4}\dot\theta\left[-\sin\!\left(\theta + \tfrac{5\pi}{4}\right)\mathbf i + \cos\!\left(\theta + \tfrac{5\pi}{4}\right)\mathbf j\right] \\ \boldsymbol\omega_{D0} = \tfrac52\,\dot\theta\,\mathbf k, \qquad \boldsymbol\omega_{A0} = \boldsymbol\omega_{B0} = \boldsymbol\omega_{C0} = -5\dot\theta\,\mathbf k \end{gathered}}$$
+>
+> **Units:** $[\mathrm L][\mathrm{T^{-1}}]$; $[\mathrm{T^{-1}}]$
+> **Meaning:** the three bearings travel round together like the planets of a planetary gear whose carrier would turn with the rate of $\theta$; the cavity is the fixed ring and the disk the sun. The spacing of the figure is kept for ever.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Moment of inertia of a homogeneous cylinder about its axis
+> **Law:** moment of inertia as the integral of the squared distance to the axis, in polar coordinates (jacobian $\rho$); centre of mass of a symmetric body
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.6; [Lecture 8, Slide 10]
+>
+> A homogeneous cylinder (or disk) of mass $M$, radius $a$ and length $\ell$ has density $\rho_m$ equal to $M/(\pi a^2\ell)$. With polar coordinates $\rho$ from 0 to $a$ and $\chi$ from 0 to $2\pi$ in the cross section, and the axial coordinate $\zeta$ from 0 to $\ell$, the element of mass is $\rho_m\,\rho\,d\rho\,d\chi\,d\zeta$ and its distance to the axis is $\rho$.
+>
+> $$\begin{aligned}
+> I_{zz} &= \rho_m\int_0^{\ell}\!\!\int_0^{2\pi}\!\!\int_0^{a}\rho^2\,\rho\,d\rho\,d\chi\,d\zeta = \rho_m\left[\zeta\right]_0^{\ell}\left[\chi\right]_0^{2\pi}\left[\frac{\rho^4}{4}\right]_0^{a} \quad &\text{(separable integrand; antiderivatives)} \\
+> &= \rho_m\,\ell\cdot 2\pi\cdot\left(\frac{a^4}{4} - 0\right) = \frac{M}{\pi a^2\ell}\cdot\frac{\pi a^4\ell}{2} = \frac{M a^2}{2} \quad &\text{(Barrow's rule; value of $\rho_m$)} \\
+> \int\rho\cos\chi\,dm &= \rho_m\,\ell\left[\frac{\rho^3}{3}\right]_0^{a}\left[\sin\chi\right]_0^{2\pi} = 0 \quad &\text{(first moment along $\mathbf i$: centre of mass on the axis; same with the sine)} \\
+> I_D &= \frac{2m\,d^2}{2} = m d^2, \qquad I_b = \frac{m}{2}\left(\frac d4\right)^2 = \frac{m d^2}{32} \quad &\text{(disk: $M$ is $2m$, $a$ is $d$; bearing: $M$ is $m$, $a$ is $d/4$)}
+> \end{aligned}$$
+>
+> $$\boxed{I_D = m d^2 \ \text{(disk about } O\text{)}, \qquad I_b = \frac{m d^2}{32} \ \text{(each bearing about its centre)}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** only the moment about the axis $\mathbf k$ enters a planar motion; the centre of mass of each body is its geometric centre.
+
+> [!derivation] Part (c): centre of mass of the system
+> **Law:** centre of mass of a system of bodies
+> **Source:** Notes.pdf, Eq. 13.11; Notes.pdf, Eq. 10.6
+>
+> The disk centre is $O$; the bearing centres are at the distance $5d/4$ along their own radial unit vectors. The two unit vectors of $B$ and $C$ make the angles $\pm\pi/4$ with the prolongation of $\overrightarrow{AO}$, that is with minus $\mathbf e_r(\theta)$; their components normal to it cancel and their components along it add (adjacent leg of each triangle: cosine of $\pi/4$).
+>
+> $$\begin{aligned}
+> 5m\,\mathbf r_0^G &= 2m\,\mathbf 0 + m\,\frac{5d}{4}\left[\mathbf e_r(\theta) + \mathbf e_r\!\left(\theta + \frac{3\pi}{4}\right) + \mathbf e_r\!\left(\theta + \frac{5\pi}{4}\right)\right] \quad &\text{(Eq. 13.11; total mass $5m$)} \\
+> \mathbf e_r\!\left(\theta + \frac{3\pi}{4}\right) + \mathbf e_r\!\left(\theta + \frac{5\pi}{4}\right) &= 2\cos\frac{\pi}{4}\left(-\mathbf e_r(\theta)\right) = -\sqrt2\,\mathbf e_r(\theta) \quad &\text{(sum of the two adjacent legs along minus $\mathbf e_r$)} \\
+> \mathbf r_0^G &= \frac{d}{4}\left(1 - \sqrt2\right)\mathbf e_r(\theta) \quad &\text{(divide by $5m$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G = -\frac{\left(\sqrt2 - 1\right)d}{4}\left(\cos\theta\,\mathbf i + \sin\theta\,\mathbf j\right)}$$
+>
+> **Units:** $[\mathrm L]$
+> **Meaning:** the system is unbalanced: $G$ is not at $O$ but on the line $AO$, beyond $O$ on the side opposite to $A$, at a distance of about 0.104 times $d$ (the product of 0.25 and 0.4142). This offset is what makes gravity drive the train.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Part (d): kinetic energy of each body
+> **Law:** kinetic energy about a fixed body point (disk); Koenig's theorem about the centre of mass (bearings)
+> **Source:** Notes.pdf, Eq. 11.32; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 9]
+>
+> $$\begin{aligned}
+> T^D &= \frac12\,I_D\,\omega_D^2 = \frac12\,m d^2\left(\frac52\,\dot\theta\right)^2 = \frac{25}{8}\,m d^2\dot\theta^2 \quad &\text{(Eq. 11.32; $O$ is a fixed point of the disk)} \\
+> T^A &= \frac12\,m\left(v_0^A\right)^2 + \frac12\,I_b\,\omega_A^2 = \frac12\,m\,\frac{25 d^2}{16}\dot\theta^2 + \frac12\,\frac{m d^2}{32}\,25\dot\theta^2 \quad &\text{(Eq. 11.31, Koenig)} \\
+> &= \frac{50}{64}\,m d^2\dot\theta^2 + \frac{25}{64}\,m d^2\dot\theta^2 = \frac{75}{64}\,m d^2\dot\theta^2 \quad &\text{(common denominator)} \\
+> T^B &= T^C = \frac{75}{64}\,m d^2\dot\theta^2 \quad &\text{(same speed of the centre and same spin rate)} \\
+> T &= \frac{200}{64}\,m d^2\dot\theta^2 + 3\cdot\frac{75}{64}\,m d^2\dot\theta^2 = \frac{425}{64}\,m d^2\dot\theta^2 \quad &\text{(sum of the four bodies)}
+> \end{aligned}$$
+>
+> $$\boxed{T^D = \frac{25}{8}\,m d^2\dot\theta^2, \qquad T^A = T^B = T^C = \frac{75}{64}\,m d^2\dot\theta^2, \qquad T = \frac{425}{64}\,m d^2\dot\theta^2}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2][\mathrm{T^{-2}}]$, J in every term
+> **Meaning:** the disk carries 200 of the 425 parts of the kinetic energy (47.1 %, the ratio 200/425), because it is the heaviest body and spins fastest; in each bearing two thirds of the energy is translation (50 of 75 parts) and one third spin.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb26-exploded.svg]]
+
+The exploded view separates the disk from the three bearings and the bearings from the cavity. At the contact of bearing $i$ with the cavity (point $Q_i$) the cavity pushes the bearing with a normal force $N_i^c$ along minus $\mathbf e_r$ and a friction force $F_i^c$ along $\mathbf e_\theta$; at the contact with the disk (point $P_i$) the disk pushes the bearing with $N_i^d$ along $\mathbf e_r$ and $F_i^d$ along $\mathbf e_\theta$, and the bearing pushes the disk with the opposite pair (third law of Newton). The friction forces are unknowns (no slip: they are not given by Coulomb's law); the signs are those of the components, to be found.
+
+| Load | Body | Point | Expression | Kind |
+| :--- | :--- | :--- | :--- | :--- |
+| Weight of the disk | $D$ | $O$ | $-2mg\,\mathbf j$ | applied |
+| Contact of bearing $i$ on the disk | $D$ | $P_i$ | $-N_i^d\,\mathbf e_r(\theta_i) - F_i^d\,\mathbf e_\theta(\theta_i)$ | constraint (pair) |
+| Weight of bearing $i$ | $i$ | $i$ | $-mg\,\mathbf j$ | applied |
+| Cavity on bearing $i$ | $i$ | $Q_i$ | $-N_i^c\,\mathbf e_r(\theta_i) + F_i^c\,\mathbf e_\theta(\theta_i)$ | constraint |
+| Disk on bearing $i$ | $i$ | $P_i$ | $N_i^d\,\mathbf e_r(\theta_i) + F_i^d\,\mathbf e_\theta(\theta_i)$ | constraint (pair) |
+
+Here $\theta_i$ is $\theta$, $\theta + 3\pi/4$ or $\theta + 5\pi/4$ for $A$, $B$, $C$.
+
+> [!derivation] Equations of bearing i (force along e_theta, and moment about its centre)
+> **Law:** Newton's second law for the centre of mass; moment equation about the centre of mass
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.9; [Lecture 10, Slide 5]
+>
+> The pole of the moment equation is the centre of mass of the bearing, so the term in the velocity of the pole vanishes (the velocity of the centre crossed with the momentum, which is parallel to it). The normal forces and the weight pass through the centre. The second derivative of the velocity of the centre follows from the Poisson relations of the polar basis.
+>
+> $$\begin{aligned}
+> \mathbf a_0^i &= \frac{5d}{4}\left(\ddot\theta\,\mathbf e_\theta + \dot\theta\,\dot{\mathbf e}_\theta\right) = \frac{5d}{4}\,\ddot\theta\,\mathbf e_\theta - \frac{5d}{4}\,\dot\theta^2\,\mathbf e_r \quad &\text{(product rule; Poisson)} \\
+> -mg\,\mathbf j\cdot\mathbf e_\theta(\theta_i) &= -mg\cos\theta_i \quad &\text{(second component of $\mathbf e_\theta$)} \\
+> m\,\frac{5d}{4}\,\ddot\theta &= F_i^c + F_i^d - mg\cos\theta_i \quad &\text{(Eq. 12.8 along $\mathbf e_\theta$)} \\
+> -m\,\frac{5d}{4}\,\dot\theta^2 &= N_i^d - N_i^c - mg\sin\theta_i \quad &\text{(Eq. 12.8 along $\mathbf e_r$; $-mg\,\mathbf j\cdot\mathbf e_r$ is $-mg\sin\theta_i$)} \\
+> \frac d4\,\mathbf e_r\times F_i^c\,\mathbf e_\theta + \left(-\frac d4\,\mathbf e_r\right)\times F_i^d\,\mathbf e_\theta &= \frac d4\left(F_i^c - F_i^d\right)\mathbf k \quad &\text{(moments about the centre; $\mathbf e_r\times\mathbf e_\theta = \mathbf k$)} \\
+> I_b\,\dot\omega_i &= \frac{m d^2}{32}\left(-5\ddot\theta\right) = \frac d4\left(F_i^c - F_i^d\right) \quad &\text{(Eq. 12.13 along $\mathbf k$; derivative of the spin rate)}
+> \end{aligned}$$
+>
+> $$\boxed{F_i^c + F_i^d = \frac54\,m d\,\ddot\theta + mg\cos\theta_i, \qquad F_i^c - F_i^d = -\frac58\,m d\,\ddot\theta, \qquad N_i^d - N_i^c = mg\sin\theta_i - \frac54\,m d\,\dot\theta^2}$$
+>
+> **Units:** N in every term
+> **Meaning:** three equations per bearing; the third is the radial component of Eq. 12.8, with the weight component along $\mathbf e_r$ equal to minus $mg$ times the sine of the polar angle. The friction forces are fixed by the tangential and moment equations; the radial equation fixes only the difference of the two normal forces.
+
+> [!derivation] Equations of the disk (moment about the fixed point O, and force)
+> **Law:** moment equation about a fixed point; Newton's second law; third law of Newton for the contact pairs
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.10
+>
+> $O$ is a fixed point of the disk and its centre of mass, so the pole term vanishes and the acceleration of the centre of mass is zero. The disk receives minus the contact pair of each bearing at the point $P_i$, at the distance $d$ along $\mathbf e_r(\theta_i)$.
+>
+> $$\begin{aligned}
+> \sum_i d\,\mathbf e_r\times\left(-N_i^d\,\mathbf e_r - F_i^d\,\mathbf e_\theta\right) &= -d\sum_i F_i^d\,\mathbf k \quad &\text{(moment of the three pairs about $O$)} \\
+> I_D\,\dot\omega_D &= m d^2\,\frac52\,\ddot\theta = -d\sum_i F_i^d \quad &\text{(Eq. 12.13 along $\mathbf k$)} \\
+> \mathbf 0 &= -2mg\,\mathbf j - \sum_i\left(N_i^d\,\mathbf e_r(\theta_i) + F_i^d\,\mathbf e_\theta(\theta_i)\right) \quad &\text{(Eq. 12.8; $O$ at rest)}
+> \end{aligned}$$
+>
+> $$\boxed{\sum_i F_i^d = -\frac52\,m d\,\ddot\theta, \qquad \sum_i\left(N_i^d\,\mathbf e_r(\theta_i) + F_i^d\,\mathbf e_\theta(\theta_i)\right) = -2mg\,\mathbf j}$$
+>
+> **Units:** N in every term
+> **Meaning:** three equations of the disk. With the nine of the bearings: twelve equations for thirteen unknowns (the second rate of $\theta$, six friction forces, six normal forces). One unknown stays free, as shown in the next box.
+
+> [!derivation] Equation of motion of the system
+> **Law:** elimination of the contact forces among the twelve equations
+> **Source:** Notes.pdf, Sec. 13.4; Notes.pdf, Eq. 12.13
+>
+> Sum the boxed tangential equations of the three bearings and their moment equations; the sum of the cosines uses the same two adjacent legs as the centre of mass box.
+>
+> $$\begin{aligned}
+> \sum_i\cos\theta_i &= \cos\theta + \cos\!\left(\theta + \frac{3\pi}{4}\right) + \cos\!\left(\theta + \frac{5\pi}{4}\right) = \left(1 - \sqrt2\right)\cos\theta \quad &\text{(first components of the three $\mathbf e_r$)} \\
+> \sum_i F_i^c &= \sum_i F_i^d - \frac{15}{8}\,m d\,\ddot\theta \quad &\text{(sum of the three moment equations)} \\
+> \sum_i\left(F_i^c + F_i^d\right) &= 2\sum_i F_i^d - \frac{15}{8}\,m d\,\ddot\theta = -5\,m d\,\ddot\theta - \frac{15}{8}\,m d\,\ddot\theta = -\frac{55}{8}\,m d\,\ddot\theta \quad &\text{(disk moment equation)} \\
+> \frac{15}{4}\,m d\,\ddot\theta &= -\frac{55}{8}\,m d\,\ddot\theta + \left(\sqrt2 - 1\right)mg\cos\theta \quad &\text{(sum of the tangential equations)} \\
+> \frac{85}{8}\,m d\,\ddot\theta &= \left(\sqrt2 - 1\right)mg\cos\theta \quad &\text{(collect: 30/8 plus 55/8)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\theta = \frac{8\left(\sqrt2 - 1\right)}{85}\,\frac gd\,\cos\theta}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]/[\mathrm L] = [\mathrm{T^{-2}}]$
+> **Meaning:** with the second rate known, the tangential and moment equations of each bearing give its two friction forces, and the disk moment equation is then satisfied. The normal forces enter only the three radial equations and the two force equations of the disk: five equations for six normal forces, so one of them (a common preload with which the bearings are squeezed between disk and cavity) stays free. This matches the count of part (a), where one of the six no-penetration conditions repeated the others.
+
+> [!derivation] Part (e): reduction to quadratures
+> **Law:** first integral by multiplying by the rate (chain rule); separation of variables; Barrow's rule
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 12.30
+>
+> Write $\kappa$ for the positive constant $8(\sqrt2 - 1)/85$. The initial values are zero for $\theta$ and for its rate.
+>
+> $$\begin{aligned}
+> \ddot\theta\,\dot\theta &= \kappa\,\frac gd\,\cos\theta\,\dot\theta \quad &\text{(multiply the equation of motion by the rate)} \\
+> \frac{d}{dt}\left(\frac12\,\dot\theta^2\right) &= \frac{d}{dt}\left(\kappa\,\frac gd\,\sin\theta\right) \quad &\text{(chain rule on both sides)} \\
+> \left[\frac12\,\dot\theta^2 - \kappa\,\frac gd\,\sin\theta\right]_0^t &= 0 \;\Rightarrow\; \frac12\,\dot\theta^2 - \kappa\,\frac gd\,\sin\theta = \frac12\cdot 0^2 - \kappa\,\frac gd\,\sin 0 = 0 \quad &\text{(integrate from 0 to $t$; Barrow's rule; initial rest)} \\
+> \frac{425}{64}\,m d^2\dot\theta^2 &= \frac{425}{64}\,m d^2\cdot 2\kappa\,\frac gd\,\sin\theta = \frac{5\left(\sqrt2 - 1\right)}{4}\,m g d\,\sin\theta \quad &\text{(multiply by twice the coefficient of $T$; 425 times 16 over 64 times 85 is 5/4)} \\
+> \frac{d\theta}{dt} &= \sqrt{2\kappa\,\frac gd\,\sin\theta} \quad &\text{(positive root: the initial second rate is positive)} \\
+> t &= \int_0^{\theta}\frac{d\theta'}{\sqrt{2\kappa\,(g/d)\,\sin\theta'}} \quad &\text{(separate the variables and integrate)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{425}{64}\,m d^2\dot\theta^2 - \frac{5\left(\sqrt2 - 1\right)}{4}\,m g d\,\sin\theta = 0, \qquad t = \sqrt{\frac{85\,d}{16\left(\sqrt2 - 1\right)g}}\int_0^{\theta}\frac{d\theta'}{\sqrt{\sin\theta'}}}$$
+>
+> **Units:** J in the first equation; $\sqrt{[\mathrm L]/[\mathrm{L\,T^{-2}}]} = [\mathrm T]$ in the second
+> **Meaning:** the first equation is the kinetic energy of part (d) equal to the drop of potential energy of $G$; at the start the rate is zero and the second rate is positive (cosine of zero is 1), so $\theta$ grows. The rate vanishes again where the sine vanishes, at $\theta$ equal to $\pi$: the train swings between 0 and $\pi$. The integrand behaves as the inverse square root of $\theta$ near 0, which is integrable, so the time to leave the start is finite.
+
+#### Equilibrium and small oscillations
+
+> [!derivation] Part (f): equilibrium positions and stability
+> **Law:** equilibrium: zero second rate with zero rate; stability from the sign of the restoring term
+> **Source:** Notes.pdf, Sec. 14.4; Notes.pdf, Eq. 12.34
+>
+> At rest the equation of motion requires the right-hand side to vanish. Write a position near an equilibrium $\theta_e$ as $\theta_e$ plus a small $\delta$ and expand the cosine to first order.
+>
+> $$\begin{aligned}
+> \cos\theta_e &= 0 \;\Rightarrow\; \theta_e = \frac{\pi}{2} \ \text{or} \ \theta_e = -\frac{\pi}{2} \quad &\text{(zero second rate at rest)} \\
+> \cos\left(\theta_e + \delta\right) &= \cos\theta_e\cos\delta - \sin\theta_e\sin\delta \approx -\sin\theta_e\,\delta \quad &\text{(addition formula; first order in $\delta$)} \\
+> \ddot\delta &= -\kappa\,\frac gd\,\sin\theta_e\,\delta \quad &\text{(linearized equation of motion)} \\
+> V &= 5mg\,\mathbf j\cdot\mathbf r_0^G = -\frac{5\left(\sqrt2 - 1\right)}{4}\,m g d\,\sin\theta \quad &\text{(Eq. 12.34 with the centre of mass of part (c))}
+> \end{aligned}$$
+>
+> $$\boxed{\theta_e = \frac{\pi}{2}\ \text{(stable)}, \qquad \theta_e = -\frac{\pi}{2}\ \text{(unstable)}}$$
+>
+> **Units:** rad; $[\mathrm{T^{-2}}]$ in the linearized coefficient; J in $V$
+> **Meaning:** at $\theta$ equal to $\pi/2$ the sine is 1 and the linearized equation is a harmonic oscillator (restoring term); at minus $\pi/2$ the sine is minus 1 and the deviation grows exponentially. Equivalently, $G$ (opposite to $A$) is at its lowest point when $A$ is at the top, where the potential has its minimum, and at its highest when $A$ is at the bottom.
+
+> [!derivation] Part (g): angular frequency of the small oscillations
+> **Law:** harmonic oscillator
+> **Source:** Notes.pdf, Sec. 14.4; Notes.pdf, Eq. 5.6
+>
+> $$\begin{aligned}
+> \ddot\delta + \kappa\,\frac gd\,\delta &= 0 \quad &\text{(previous box with the sine of $\pi/2$ equal to 1)} \\
+> \omega_0^2 &= \kappa\,\frac gd = \frac{8\left(\sqrt2 - 1\right)}{85}\,\frac gd \quad &\text{(coefficient of the harmonic oscillator)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega_0 = \sqrt{\frac{8\left(\sqrt2 - 1\right)g}{85\,d}} \approx 0.197\sqrt{\frac gd}}$$
+>
+> **Units:** $\sqrt{[\mathrm{L\,T^{-2}}]/[\mathrm L]} = [\mathrm{T^{-1}}]$, rad/s
+> **Meaning:** the number is the square root of 8 times 0.41421 over 85 (0.038984), that is 0.1974. The train oscillates slowly because the restoring moment comes from a small offset of $G$ while the inertia is that of the whole train with its fast spins.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom | One; coordinate $\theta$ (the disk centre stays at $O$, and four rolling contacts tie every rate to $\dot\theta$) |
+| (b) Velocities and angular velocities | $\mathbf v_0^A = \tfrac{5d}{4}\dot\theta\,\mathbf e_\theta(\theta)$, $\mathbf v_0^B = \tfrac{5d}{4}\dot\theta\,\mathbf e_\theta(\theta + 3\pi/4)$, $\mathbf v_0^C = \tfrac{5d}{4}\dot\theta\,\mathbf e_\theta(\theta + 5\pi/4)$ with $\mathbf e_\theta(\alpha) = -\sin\alpha\,\mathbf i + \cos\alpha\,\mathbf j$; $\boldsymbol\omega_{D0} = \tfrac52\dot\theta\,\mathbf k$; $\boldsymbol\omega_{A0} = \boldsymbol\omega_{B0} = \boldsymbol\omega_{C0} = -5\dot\theta\,\mathbf k$ |
+| (c) Centre of mass | $\mathbf r_0^G = -\tfrac{(\sqrt2 - 1)d}{4}(\cos\theta\,\mathbf i + \sin\theta\,\mathbf j)$ |
+| (d) Kinetic energies | $T^D = \tfrac{25}{8}md^2\dot\theta^2$; $T^A = T^B = T^C = \tfrac{75}{64}md^2\dot\theta^2$; total $\tfrac{425}{64}md^2\dot\theta^2$ |
+| (e) Quadratures | $\tfrac{425}{64}md^2\dot\theta^2 - \tfrac{5(\sqrt2 - 1)}{4}mgd\sin\theta = 0$; $t = \sqrt{\tfrac{85d}{16(\sqrt2 - 1)g}}\int_0^\theta d\theta'/\sqrt{\sin\theta'}$ |
+| (f) Equilibria | $\theta = \pi/2$ stable; $\theta = -\pi/2$ unstable |
+| (g) Small oscillations about $\theta = \pi/2$ | $\omega_0 = \sqrt{8(\sqrt2 - 1)g/(85d)} \approx 0.197\sqrt{g/d}$ |
+
+> [!derivation] Check: the energy integral from the power of the loads
+> **Law:** power of the contact forces under rolling without slipping; energy theorem; potential of the weights
+> **Source:** Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34
+>
+> Second route to the first boxed equation of part (e), without the twelve equations. At a cavity contact the force acts on a bearing point of zero velocity; at a disk contact the pair acts on two body points with the same velocity, so the powers on the bearing and on the disk cancel.
+>
+> $$\begin{aligned}
+> \dot W^{c}_i &= \left(-N_i^c\,\mathbf e_r + F_i^c\,\mathbf e_\theta\right)\cdot\mathbf v_0^{Q_i(i)} = \left(-N_i^c\,\mathbf e_r + F_i^c\,\mathbf e_\theta\right)\cdot\mathbf 0 = 0 \quad &\text{(no slip on the cavity)} \\
+> \dot W^{d}_i &= \left(N_i^d\,\mathbf e_r + F_i^d\,\mathbf e_\theta\right)\cdot\left(\mathbf v_0^{P_i(i)} - \mathbf v_0^{P_i(D)}\right) = 0 \quad &\text{(pair on the bearing and on the disk; equal velocities)} \\
+> V &= 2mg\,\mathbf j\cdot\mathbf 0 + mg\,\mathbf j\cdot\left(\mathbf r_0^A + \mathbf r_0^B + \mathbf r_0^C\right) = 5mg\,\mathbf j\cdot\mathbf r_0^G = -\frac{5\left(\sqrt2 - 1\right)}{4}\,m g d\,\sin\theta \quad &\text{(Eq. 12.34; part (c))} \\
+> \left[T + V\right]_0^t &= 0 \;\Rightarrow\; \frac{425}{64}\,m d^2\dot\theta^2 - \frac{5\left(\sqrt2 - 1\right)}{4}\,m g d\,\sin\theta = 0 + 0 \quad &\text{(Eq. 12.33 integrated; Barrow's rule; initial rest at zero angle)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{425}{64}\,m d^2\dot\theta^2 + \frac{5\left(\sqrt2 - 1\right)}{4}\,m g d\left(1 - \sin\theta\right) = \frac{5\left(\sqrt2 - 1\right)}{4}\,m g d}$$
+>
+> **Units:** J in every term
+> **Meaning:** the same integral as part (e), written with the constant on the right as in the key; the rolling contacts do no work, so the energy of the train is the kinetic energy of part (d) plus the potential of its unbalanced centre of mass.
+
+**Check against the official key:** the key (Problems.pdf, pp. 80-81) prints the energy equation with the coefficient 425/64 for the kinetic energy and the potential term five times $mg$ times the factor of the square root of 2 minus 1 over 4 times $d$ times one minus the sine of $\theta$, equal to the same constant; the two equilibria at plus and minus $\pi/2$, the first one stable; and the angular frequency equal to the square root of $8g/(85d)$ times the square root of 2 minus 1. The boxes of parts (d), (e), (f) and (g) and the check box give the same expressions: **match**. The key prints no expressions for parts (a) to (c).
+
+**Limiting cases and consistency:**
+
+* **Balanced train.** If the three bearings were at $120^\circ$ from each other the sum of their unit vectors would vanish, $G$ would sit at $O$ and every position would be an equilibrium; the coefficient of the square root of 2 minus 1 comes only from the spacing of the figure.
+* **Carrier at rest.** If the bearing centres were held still (rate of $\theta$ zero), the two no-slip conditions of part (b) would give a zero spin of every bearing and a zero rate of the disk: with the ring fixed, a planetary train cannot turn its sun without moving its planets.
+* **Equilibrium position.** At $\theta$ equal to $\pi/2$ the bearing $A$ is at the top and $B$, $C$ are symmetric below, at $45^\circ$ on either side of the downward vertical: the configuration is symmetric about $Oy$, as an equilibrium of a symmetric heavy system should be.
+* **Dimensions.** Every term of the equation of motion is an angular acceleration, every term of the energy equation an energy and the frequency is in rad/s.
+
+---
+
+## Problem RB-27: Rectangle with weight, pulleys, and string
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a homogeneous rectangular block of mass $2m$, width $2L$ (along $x_B$) and height $L$ (along $y_B$), moving in the vertical plane $Oxy$; a point weight $P$ of mass $m$ that slides on the vertical through $C$ (read as a frictionless guide); a massless inextensible string of length $6L$ from $G$ over the pulleys $O$ and $C$ to $P$, always tense; a spring of stiffness $k$ and zero natural length from the midpoint $A$ of the right short edge to the fixed point $B$.
+* **Fixed frame:** $S_0\{O; \mathcal B_0\}$, $\mathbf i$ along $Ox$ (to the right, towards $B$), $\mathbf j$ along $Oy$ (up), $\mathbf k$ out of the paper (⊙, the axes of the pulleys). Gravity is $-g\,\mathbf j$. The fixed points are $B$ at $2L\,\mathbf i$ and $C$ at minus $2L\,\mathbf i$.
+* **String frame:** $S_1\{O; \mathcal B_1\}$, with $\mathbf i_1$ along $\overrightarrow{OG}$, $\mathbf k_1$ equal to $\mathbf k$ and $\mathbf j_1$ completing the right-handed basis (the choice of the key).
+* **Block frame:** $S_B\{G; \mathcal B_B\}$, $\mathbf i_B$ along $Gx_B$ (from $G$ towards $A$), $\mathbf j_B$ along $Gy_B$, $\mathbf k_B$ equal to $\mathbf k$.
+* **Coordinates (read from the figure):** $\xi$, depth of $P$ below $C$; $\theta$, angle of $\overrightarrow{OG}$ from the downward vertical, positive when $G$ is to the right of the vertical through $O$ (counterclockwise about $\mathbf k$, from minus $\mathbf j$ towards $\mathbf i$); $\varphi$, angle of $\mathbf i_B$ from the horizontal $\mathbf i$, counterclockwise. The figure marks only the angles and their arcs; the opposite reading of the sense of $\theta$ would change the sign of every term odd in $\theta$ (the sines of $\theta$), not the method.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the block | $2m$ | kg |
+| Width and height of the block | $2L$, $L$ | m |
+| Mass of the weight $P$ | $m$ | kg |
+| Length of the string | $6L$ | m |
+| Distance between the pulleys $O$ and $C$ | $2L$ | m |
+| Spring | stiffness $k$, natural length zero, from $A$ to $B$ | N/m |
+| Position of $B$ and of $C$ | $2L\,\mathbf i$, $-2L\,\mathbf i$ | m |
+| Gravity | $-g\,\mathbf j$ | m/s$^2$ |
+
+#### Part (a): degrees of freedom
+
+> [!derivation] Part (a): count of the degrees of freedom
+> **Law:** three coordinates for a rigid body in planar motion, two for a particle in the plane; one equation per constraint
+> **Source:** Notes.pdf, Sec. 13.1; Notes.pdf, Sec. 13.4
+>
+> $$\begin{aligned}
+> n_q &= 3 + 2 = 5 \quad &\text{(block in the plane: $G$ and $\varphi$; particle $P$ in the plane)} \\
+> n_c &= 1 + 1 = 2 \quad &\text{($P$ on the vertical through $C$; length of the tense string)} \\
+> n_{\mathrm{dof}} &= 5 - 2 = 3 \quad &\text{(the two constraints are independent: one fixes the abscissa of $P$, the other the distance $OG$)}
+> \end{aligned}$$
+>
+> $$\boxed{n_{\mathrm{dof}} = 3, \qquad \text{coordinates } \xi,\ \theta,\ \varphi}$$
+>
+> **Units:** dimensionless counts
+> **Meaning:** the depth of the weight fixes how much string is left between $O$ and $G$, the angle of the string fixes the direction of $G$, and the block can still turn freely about $G$ because the string is tied at $G$ itself.
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb27-string-basis.svg]]
+
+> [!derivation] String basis: the angle measured from the downward vertical
+> **Law:** simple rotation about the third axis; right-hand rule; relation of an angle from the vertical with the polar angle; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 12]
+>
+> View of the plane $Oxy$ with $\mathbf k$ out of the paper (⊙). The polar angle of $\mathbf i_1$ measured from $\mathbf i$ counterclockwise is $\theta - \pi/2$, because $\theta$ is measured from minus $\mathbf j$, which is itself $\mathbf i$ turned by minus $\pi/2$. Right triangle of $\mathbf i_1$ (hypotenuse 1): the leg along the vertical is adjacent to $\theta$ (cosine) and points down, towards minus $\mathbf j$; the horizontal leg is opposite to $\theta$ (sine) and points along $\mathbf i$. $\mathbf j_1$ is $\mathbf i_1$ turned counterclockwise by $\pi/2$ (the cross product of $\mathbf k$ and $\mathbf i_1$).
+>
+> $$\begin{aligned}
+> \cos\!\left(\theta - \frac{\pi}{2}\right) &= \cos\theta\cos\frac{\pi}{2} + \sin\theta\sin\frac{\pi}{2} = \sin\theta \quad &\text{(addition formula)} \\
+> \sin\!\left(\theta - \frac{\pi}{2}\right) &= \sin\theta\cos\frac{\pi}{2} - \cos\theta\sin\frac{\pi}{2} = -\cos\theta \quad &\text{(addition formula)} \\
+> \mathbf i_1 &= \sin\theta\,\mathbf i - \cos\theta\,\mathbf j \quad &\text{(polar components; legs of the triangle)} \\
+> \mathbf j_1 &= \mathbf k\times\mathbf i_1 = \sin\theta\,\mathbf k\times\mathbf i - \cos\theta\,\mathbf k\times\mathbf j = \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{($\mathbf k\times\mathbf i = \mathbf j$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> [{}_0R_1] &= \begin{bmatrix} \sin\theta & \cos\theta & 0 \cr -\cos\theta & \sin\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\sin^2\theta + \cos^2\theta\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \sin^2\theta + \cos^2\theta & -\sin\theta\cos\theta + \cos\theta\sin\theta & 0 \cr -\cos\theta\sin\theta + \sin\theta\cos\theta & \cos^2\theta + \sin^2\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \boldsymbol\omega_{10} &= \dot\theta\,\mathbf k, \qquad \dot{\mathbf i}_1 = \dot\theta\,\mathbf k\times\mathbf i_1 = \dot\theta\,\mathbf j_1, \qquad \dot{\mathbf j}_1 = \dot\theta\,\mathbf k\times\mathbf j_1 = -\dot\theta\,\mathbf i_1 \quad &\text{(Poisson)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_1 = \sin\theta\,\mathbf i - \cos\theta\,\mathbf j, \quad \mathbf j_1 = \cos\theta\,\mathbf i + \sin\theta\,\mathbf j, \quad \dot{\mathbf i}_1 = \dot\theta\,\mathbf j_1, \quad \dot{\mathbf j}_1 = -\dot\theta\,\mathbf i_1}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$ in the derivatives
+> **Meaning:** with $\theta$ zero the string hangs straight down from $O$ and $\mathbf j_1$ is horizontal, pointing towards $B$; the derivative of $\mathbf i_1$ is the direction in which $G$ swings for a growing $\theta$.
+
+![[attachments/EM-SOL/rb27-block-basis.svg]]
+
+> [!derivation] Block basis: rotation by phi about k
+> **Law:** simple rotation about the third axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.16; [Lecture 7, Slide 12]
+>
+> View of the plane $Oxy$ with $\mathbf k$ out of the paper (⊙): a positive $\varphi$ turns counterclockwise. $\mathbf i_B$: adjacent leg along $\mathbf i$ (cosine of $\varphi$), opposite leg along $\mathbf j$ (sine). $\mathbf j_B$: adjacent leg along $\mathbf j$ (cosine); the counterclockwise turn carries the tip of $\mathbf j$ to the left, towards minus $\mathbf i$, which is the minus sign.
+>
+> $$\begin{aligned}
+> \mathbf i_B &= \cos\varphi\,\mathbf i + \sin\varphi\,\mathbf j, \qquad \mathbf j_B = -\sin\varphi\,\mathbf i + \cos\varphi\,\mathbf j \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_B] &= \begin{bmatrix} \cos\varphi & -\sin\varphi & 0 \cr \sin\varphi & \cos\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_B$, $\mathbf j_B$, $\mathbf k$ in $\mathcal B_0$)} \\
+> \det[{}_0R_B] &= 1\cdot\left(\cos^2\varphi + \sin^2\varphi\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_B][{}_0R_B]^T &= \begin{bmatrix} \cos^2\varphi + \sin^2\varphi & \cos\varphi\sin\varphi - \sin\varphi\cos\varphi & 0 \cr \sin\varphi\cos\varphi - \cos\varphi\sin\varphi & \sin^2\varphi + \cos^2\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \boldsymbol\omega_{B0} &= \dot\varphi\,\mathbf k \quad &\text{(rate of the angle along its axis)} \\
+> \boldsymbol\alpha_{B0} &= \ddot\varphi\,\mathbf k + \dot\varphi\,\dot{\mathbf k} = \ddot\varphi\,\mathbf k \quad &\text{(product rule; $\mathbf k$ fixed)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_B = \cos\varphi\,\mathbf i + \sin\varphi\,\mathbf j, \quad \mathbf j_B = -\sin\varphi\,\mathbf i + \cos\varphi\,\mathbf j, \quad \boldsymbol\omega_{B0} = \dot\varphi\,\mathbf k, \quad \boldsymbol\alpha_{B0} = \ddot\varphi\,\mathbf k}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$; $[\mathrm{T^{-2}}]$
+> **Meaning:** the block turns about the fixed direction $\mathbf k$ only, so its angular acceleration is the second rate of $\varphi$ along $\mathbf k$, with no term from a turning axis.
+
+> [!derivation] Constraint of the string, and positions of G, P and A
+> **Law:** inextensible string over frictionless pulleys of negligible radius; position vectors
+> **Source:** Notes.pdf, Sec. 13.4; Notes.pdf, Sec. 6.6; Problems.pdf, p. 57
+>
+> The string runs straight from $G$ to $O$, from $O$ to $C$ along the axis $Ox$ and down from $C$ to $P$; the pulleys have negligible radius, so the three straight pieces add up to the whole length. $A$ is the midpoint of the short edge on the side of $\mathbf i_B$, at half the width from $G$.
+>
+> $$\begin{aligned}
+> |\overrightarrow{OG}| + |\overrightarrow{OC}| + |\overrightarrow{CP}| &= |\overrightarrow{OG}| + 2L + \xi = 6L \;\Rightarrow\; |\overrightarrow{OG}| = 4L - \xi \quad &\text{(length of the string)} \\
+> \mathbf r_0^G &= \left(4L - \xi\right)\mathbf i_1 \quad &\text{(along the string piece $OG$)} \\
+> \mathbf r_0^P &= \overrightarrow{OC} + \overrightarrow{CP} = -2L\,\mathbf i - \xi\,\mathbf j \quad &\text{($P$ below $C$)} \\
+> \mathbf r_0^A &= \mathbf r_0^G + L\,\mathbf i_B = \left(4L - \xi\right)\mathbf i_1 + L\,\mathbf i_B \quad &\text{(half of the width $2L$ along $\mathbf i_B$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G = \left(4L - \xi\right)\left(\sin\theta\,\mathbf i - \cos\theta\,\mathbf j\right), \qquad \mathbf r_0^P = -2L\,\mathbf i - \xi\,\mathbf j, \qquad \mathbf r_0^A = \mathbf r_0^G + L\left(\cos\varphi\,\mathbf i + \sin\varphi\,\mathbf j\right)}$$
+>
+> **Units:** $[\mathrm L]$
+> **Meaning:** when the weight goes down (growing $\xi$) the string piece $OG$ shortens by the same length and the block rises towards $O$.
+
+> [!derivation] Part (b): velocity and acceleration of G and of P
+> **Law:** derivative of a vector written in a moving basis; product rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 6]
+>
+> $$\begin{aligned}
+> \mathbf v_0^G &= \frac{d}{dt}\left(4L - \xi\right)\mathbf i_1 + \left(4L - \xi\right)\dot{\mathbf i}_1 = -\dot\xi\,\mathbf i_1 + \left(4L - \xi\right)\dot\theta\,\mathbf j_1 \quad &\text{(product rule; Poisson)} \\
+> \mathbf a_0^G &= -\ddot\xi\,\mathbf i_1 - \dot\xi\,\dot{\mathbf i}_1 - \dot\xi\dot\theta\,\mathbf j_1 + \left(4L - \xi\right)\ddot\theta\,\mathbf j_1 + \left(4L - \xi\right)\dot\theta\,\dot{\mathbf j}_1 \quad &\text{(product rule on both terms)} \\
+> &= -\ddot\xi\,\mathbf i_1 - 2\dot\xi\dot\theta\,\mathbf j_1 + \left(4L - \xi\right)\ddot\theta\,\mathbf j_1 - \left(4L - \xi\right)\dot\theta^2\,\mathbf i_1 \quad &\text{(Poisson; collect the two equal terms)} \\
+> \mathbf v_0^P &= -\dot\xi\,\mathbf j, \qquad \mathbf a_0^P = -\ddot\xi\,\mathbf j \quad &\text{(derivatives in the fixed basis)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf r_0^G = \left(4L - \xi\right)\mathbf i_1, \qquad \mathbf v_0^G = -\dot\xi\,\mathbf i_1 + \left(4L - \xi\right)\dot\theta\,\mathbf j_1 \\ \mathbf a_0^G = -\left[\ddot\xi + \left(4L - \xi\right)\dot\theta^2\right]\mathbf i_1 + \left[\left(4L - \xi\right)\ddot\theta - 2\dot\xi\dot\theta\right]\mathbf j_1, \qquad \mathbf a_0^P = -\ddot\xi\,\mathbf j \end{gathered}}$$
+>
+> **Units:** $[\mathrm L][\mathrm{T^{-1}}]$; $[\mathrm L][\mathrm{T^{-2}}]$ in every term
+> **Meaning:** along the string the acceleration of $G$ has the reeling term and the centripetal term (towards $O$); across it, the angular acceleration term and the Coriolis-like term of the reeling and swinging motions together.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Tensor of inertia of the block at G
+> **Law:** moments and products of inertia as volume integrals in Cartesian coordinates; symmetry of the rectangle
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.6; [Lecture 8, Slide 10]
+>
+> The block is homogeneous, of thickness $e$ along $\mathbf k$, so its density is $2m/(2L\cdot L\cdot e)$, written $\rho_m$. Body coordinates $x$ from minus $L$ to $L$ along $\mathbf i_B$, $y$ from minus $L/2$ to $L/2$ along $\mathbf j_B$, $z$ from minus $e/2$ to $e/2$; the element of mass is $\rho_m\,dx\,dy\,dz$. The centre of mass is the geometric centre $G$, because every first moment is the integral of an odd function over a symmetric interval.
+>
+> $$\begin{aligned}
+> \int_{-L}^{L}x^2\,dx &= \left[\frac{x^3}{3}\right]_{-L}^{L} = \frac{L^3}{3} - \left(-\frac{L^3}{3}\right) = \frac{2L^3}{3} \quad &\text{(antiderivative; Barrow's rule)} \\
+> \int_{-L/2}^{L/2}y^2\,dy &= \left[\frac{y^3}{3}\right]_{-L/2}^{L/2} = \frac{L^3}{24} - \left(-\frac{L^3}{24}\right) = \frac{L^3}{12} \quad &\text{(antiderivative; Barrow's rule)} \\
+> I_{zz} &= \rho_m\int_{-e/2}^{e/2}\!\!dz\left(\int_{-L}^{L}x^2\,dx\cdot L + 2L\cdot\int_{-L/2}^{L/2}y^2\,dy\right) = \rho_m\,e\left(\frac{2L^4}{3} + \frac{L^4}{6}\right) \quad &\text{(squared distance to the axis $Gz_B$ is the sum of the squares of $x$ and $y$)} \\
+> &= \frac{2m}{2L^2 e}\cdot e\cdot\frac{5L^4}{6} = \frac{5mL^2}{6} \quad &\text{(value of $\rho_m$)} \\
+> P_{xz} &= \rho_m\int x\,dx\int dy\int z\,dz = 0, \qquad P_{yz} = 0 \quad &\text{(odd integrands over symmetric intervals)}
+> \end{aligned}$$
+>
+> $$\boxed{I_{zz}^G = \frac{5mL^2}{6}, \qquad P_{xz} = P_{yz} = 0}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the axis $Gz_B$ is a principal axis, so the angular momentum of the planar motion is along $\mathbf k$; the thickness does not enter. The value is the one printed in the key.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Momenta and kinetic energy of the block and the weight
+> **Law:** linear momentum; angular momentum about the centre of mass; Koenig's theorem
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 9]
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= 2m\,\mathbf v_0^G + m\,\mathbf v_0^P = -2m\dot\xi\,\mathbf i_1 + 2m\left(4L - \xi\right)\dot\theta\,\mathbf j_1 - m\dot\xi\,\mathbf j \quad &\text{(Eq. 11.3 for each body)} \\
+> \mathbf H_G^B &= \bar{\bar I}_G\cdot\boldsymbol\omega_{B0} = \frac{5mL^2}{6}\,\dot\varphi\,\mathbf k \quad &\text{(Eq. 11.12; principal axis $\mathbf k$)} \\
+> T^B &= \frac12\,2m\left(v_0^G\right)^2 + \frac12\,I_{zz}^G\,\dot\varphi^2 = m\left[\dot\xi^2 + \left(4L - \xi\right)^2\dot\theta^2\right] + \frac{5mL^2}{12}\,\dot\varphi^2 \quad &\text{(Eq. 11.31; orthonormal $\mathbf i_1$, $\mathbf j_1$)} \\
+> T^P &= \frac12\,m\dot\xi^2 \quad &\text{(particle)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_G^B = \frac{5mL^2}{6}\,\dot\varphi\,\mathbf k, \qquad T = \frac32\,m\dot\xi^2 + m\left(4L - \xi\right)^2\dot\theta^2 + \frac{5mL^2}{12}\,\dot\varphi^2}$$
+>
+> **Units:** kg m$^2$/s; J in every term
+> **Meaning:** the reeling rate enters the energy with the mass of the block and of the weight together (the factor 3/2 is the half of $3m$), since both move with the speed of the string.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb27-exploded.svg]]
+
+The exploded view separates the block, the weight $P$, the string and the two pulleys. The string is massless and pulls each end along itself; the pulleys are massless and frictionless, so the tension $T$ is the same on both sides of each of them (box below). The guide on the vertical through $C$ is frictionless and pushes $P$ horizontally. The block moves in the plane $Oxy$ by hypothesis of the statement, and every load below lies in that plane.
+
+> [!derivation] Tension along the string
+> **Law:** equations of a massless pulley; moment about its fixed axle
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 13.4
+>
+> Take the pulley at $O$, of radius $r$ that later tends to zero, with tensions $T_1$ and $T_2$ on its two sides. The axle is frictionless (no torque about $\mathbf k$) and the pulley has no mass, so its angular momentum is zero.
+>
+> $$\begin{aligned}
+> \mathbf 0 &= \frac{d\mathbf H_O^{\text{pulley}}}{dt} = \left(r\,T_1 - r\,T_2\right)\mathbf k \quad &\text{(Eq. 12.13 about the fixed axle; zero mass)} \\
+> T_1 &= T_2 \quad &\text{(divide by $r$)}
+> \end{aligned}$$
+>
+> $$\boxed{T_{GO} = T_{OC} = T_{CP} \equiv T}$$
+>
+> **Units:** N
+> **Meaning:** one unknown tension for the whole string; the axle reactions act on the pulleys only and never on the block or on $P$.
+
+| Load | Body | Point | Expression | Kind |
+| :--- | :--- | :--- | :--- | :--- |
+| Weight of $P$ | $P$ | $P$ | $-mg\,\mathbf j$ | applied |
+| String on $P$ | $P$ | $P$ | $T\,\mathbf j$ (towards $C$) | constraint |
+| Guide on $P$ | $P$ | $P$ | $N_P\,\mathbf i$ | constraint |
+| Weight of the block | block | $G$ | $-2mg\,\mathbf j = 2mg\left(\cos\theta\,\mathbf i_1 - \sin\theta\,\mathbf j_1\right)$ | applied |
+| String on the block | block | $G$ | $-T\,\mathbf i_1$ (towards $O$) | constraint |
+| Spring on the block | block | $A$ | $\mathbf F_s = -k\left(\mathbf r_0^A - \mathbf r_0^B\right)$ | applied |
+
+> [!derivation] Part (c): spring force, its components in B1 and its moment about G
+> **Law:** linear spring of zero natural length; vector product expanded along the first row
+> **Source:** Notes.pdf, Eq. 12.34; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 11]
+>
+> Write $\mathbf d$ for the vector from $B$ to $A$. The weight in $\mathcal B_1$ uses the inverse of the string basis: minus $\mathbf j$ dotted with $\mathbf i_1$ is the cosine of $\theta$, dotted with $\mathbf j_1$ minus the sine.
+>
+> $$\begin{aligned}
+> \mathbf d &= \mathbf r_0^A - 2L\,\mathbf i = \left[\left(4L - \xi\right)\sin\theta + L\cos\varphi - 2L\right]\mathbf i + \left[-\left(4L - \xi\right)\cos\theta + L\sin\varphi\right]\mathbf j \quad &\text{(positions of $A$ and $B$)} \\
+> \mathbf d\cdot\mathbf i_1 &= \left(4L - \xi\right)\left(\sin^2\theta + \cos^2\theta\right) + L\left(\cos\varphi\sin\theta - \sin\varphi\cos\theta\right) - 2L\sin\theta \quad &\text{(dot product with $\sin\theta\,\mathbf i - \cos\theta\,\mathbf j$)} \\
+> &= 4L - \xi - L\sin\left(\varphi - \theta\right) - 2L\sin\theta \quad &\text{(Pythagoras; sine of a difference)} \\
+> \mathbf d\cdot\mathbf j_1 &= L\left(\cos\varphi\cos\theta + \sin\varphi\sin\theta\right) - 2L\cos\theta = L\cos\left(\varphi - \theta\right) - 2L\cos\theta \quad &\text{(dot product with $\cos\theta\,\mathbf i + \sin\theta\,\mathbf j$; the terms in $4L - \xi$ cancel)} \\
+> \overrightarrow{GA}\times\mathbf F_s &= -k\,L\begin{vmatrix} \mathbf i & \mathbf j & \mathbf k \cr \cos\varphi & \sin\varphi & 0 \cr d_x & d_y & 0 \end{vmatrix} = -kL\left(d_y\cos\varphi - d_x\sin\varphi\right)\mathbf k \quad &\text{(expand along the first row)} \\
+> d_y\cos\varphi - d_x\sin\varphi &= -\left(4L - \xi\right)\left(\cos\theta\cos\varphi + \sin\theta\sin\varphi\right) + 2L\sin\varphi = -\left(4L - \xi\right)\cos\left(\varphi - \theta\right) + 2L\sin\varphi \quad &\text{(the terms $L\sin\varphi\cos\varphi$ cancel)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf F_s = -k\left[4L - \xi - L\sin(\varphi - \theta) - 2L\sin\theta\right]\mathbf i_1 - k\left[L\cos(\varphi - \theta) - 2L\cos\theta\right]\mathbf j_1 \\ \mathbf M_G^s = kL\left[\left(4L - \xi\right)\cos(\varphi - \theta) - 2L\sin\varphi\right]\mathbf k \end{gathered}}$$
+>
+> **Units:** N; N m
+> **Meaning:** the spring pulls $A$ straight towards $B$ with a force proportional to their distance. Its moment about $G$ is the only moment on the block: the weight and the string act at $G$ itself.
+
+> [!derivation] Equations of the weight P and of the block
+> **Law:** Newton's second law for a particle and for the centre of mass of the block; moment equation about the centre of mass
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.9; Notes.pdf, Eq. 13.10
+>
+> The pole of the moment equation is $G$, the centre of mass, so the term in the velocity of the pole vanishes (velocity of $G$ crossed with a momentum parallel to it); the basis direction $\mathbf k$ is fixed, so the angular momentum is differentiated component by component.
+>
+> $$\begin{aligned}
+> m\left(-\ddot\xi\,\mathbf j\right) &= -mg\,\mathbf j + T\,\mathbf j + N_P\,\mathbf i \quad &\text{(Eq. 12.8 for $P$)} \\
+> 2m\,\mathbf a_0^G\cdot\mathbf i_1 &= -2m\left[\ddot\xi + \left(4L - \xi\right)\dot\theta^2\right] = 2mg\cos\theta - k\left[4L - \xi - L\sin(\varphi - \theta) - 2L\sin\theta\right] - T \quad &\text{(Eq. 12.8 for the block along $\mathbf i_1$)} \\
+> 2m\,\mathbf a_0^G\cdot\mathbf j_1 &= 2m\left[\left(4L - \xi\right)\ddot\theta - 2\dot\xi\dot\theta\right] = -2mg\sin\theta - k\left[L\cos(\varphi - \theta) - 2L\cos\theta\right] \quad &\text{(Eq. 12.8 for the block along $\mathbf j_1$)} \\
+> \frac{d\mathbf H_G^B}{dt} &= \frac{5mL^2}{6}\,\ddot\varphi\,\mathbf k = \mathbf M_G^s \quad &\text{(Eq. 12.13 about $G$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} -m\ddot\xi = -mg + T, \qquad N_P = 0 \\ -2m\left[\ddot\xi + \left(4L - \xi\right)\dot\theta^2\right] = 2mg\cos\theta - k\left[4L - \xi - L\sin(\varphi - \theta) - 2L\sin\theta\right] - T \\ 2m\left[\left(4L - \xi\right)\ddot\theta - 2\dot\xi\dot\theta\right] = -2mg\sin\theta - kL\left[\cos(\varphi - \theta) - 2\cos\theta\right] \\ \frac{5mL^2}{6}\,\ddot\varphi = kL\left[\left(4L - \xi\right)\cos(\varphi - \theta) - 2L\sin\varphi\right] \end{gathered}}$$
+>
+> **Units:** N in the force equations; N m in the moment equation
+> **Meaning:** five scalar equations for five unknowns: the three second rates, the tension and the guide force. The guide force vanishes because $P$ has no horizontal acceleration and no other horizontal load.
+
+> [!derivation] Part (d): three second order equations for xi, theta and phi
+> **Law:** elimination of the tension with the equation of $P$
+> **Source:** Notes.pdf, Sec. 13.4; Notes.pdf, Eq. 12.8
+>
+> $$\begin{aligned}
+> T &= m\left(g - \ddot\xi\right) \quad &\text{(equation of $P$)} \\
+> -2m\ddot\xi - 2m\left(4L - \xi\right)\dot\theta^2 &= 2mg\cos\theta - k\left[4L - \xi - L\sin(\varphi - \theta) - 2L\sin\theta\right] - mg + m\ddot\xi \quad &\text{(tension in the equation along $\mathbf i_1$)} \\
+> 3m\ddot\xi &= -2m\left(4L - \xi\right)\dot\theta^2 - mg\left(2\cos\theta - 1\right) + k\left[4L - \xi - L\sin(\varphi - \theta) - 2L\sin\theta\right] \quad &\text{(collect the second rates on the left)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} 3m\ddot\xi = -2m\left(4L - \xi\right)\dot\theta^2 - mg\left(2\cos\theta - 1\right) + k\left[4L - \xi - L\sin(\varphi - \theta) - 2L\sin\theta\right] \\ 2m\left[\left(4L - \xi\right)\ddot\theta - 2\dot\xi\dot\theta\right] = -2mg\sin\theta - kL\left[\cos(\varphi - \theta) - 2\cos\theta\right] \\ \frac{5mL^2}{6}\,\ddot\varphi = kL\left[\left(4L - \xi\right)\cos(\varphi - \theta) - 2L\sin\varphi\right] \end{gathered}}$$
+>
+> **Units:** N in the first two equations; N m in the third
+> **Meaning:** the three equations are coupled through the spring, which ties the rotation of the block to the swing and to the length of the string. The string stays tense, as assumed, while the tension, $m$ times the difference of $g$ and the second rate of $\xi$, is positive, that is while the weight falls with an acceleration smaller than $g$.
+
+> [!derivation] Part (e): conservation of mechanical energy
+> **Law:** power of the constraint forces; energy theorem; potential energy of the weights and of the spring
+> **Source:** Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; [Lecture 10, Slide 18]
+>
+> The tension acts on the block at $G$ and on $P$; the guide force is normal to the velocity of $P$; the pulley reactions act on fixed axles. The weights and the spring are conservative.
+>
+> $$\begin{aligned}
+> \dot W^{T} &= -T\,\mathbf i_1\cdot\mathbf v_0^G + T\,\mathbf j\cdot\mathbf v_0^P = -T\left(-\dot\xi\right) + T\left(-\dot\xi\right) = 0 \quad &\text{(string on the block plus string on $P$)} \\
+> \dot W^{N} &= N_P\,\mathbf i\cdot\left(-\dot\xi\,\mathbf j\right) = 0 \quad &\text{(guide normal to the motion of $P$)} \\
+> V &= 2mg\,\mathbf j\cdot\mathbf r_0^G + mg\,\mathbf j\cdot\mathbf r_0^P + \frac k2\,\mathbf d\cdot\mathbf d = -2mg\left(4L - \xi\right)\cos\theta - mg\,\xi + \frac k2\,|\mathbf d|^2 \quad &\text{(Eq. 12.34; spring of zero natural length)} \\
+> |\mathbf d|^2 &= \left(4L - \xi\right)^2 + L^2 + 4L^2 + 2L\left(4L - \xi\right)\left(\sin\theta\cos\varphi - \cos\theta\sin\varphi\right) - 4L\left(4L - \xi\right)\sin\theta - 4L^2\cos\varphi \quad &\text{(square of the two components of $\mathbf d$)} \\
+> &= \left(4L - \xi\right)^2 + 5L^2 - 2L\left(4L - \xi\right)\sin(\varphi - \theta) - 4L\left(4L - \xi\right)\sin\theta - 4L^2\cos\varphi \quad &\text{(sine of a difference)} \\
+> \int_0^t\frac{d}{dt'}\left(T + V\right)dt' &= \left[T + V\right]_0^t = 0 \quad &\text{(Eq. 12.33 with workless constraints; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac32\,m\dot\xi^2 + m\left(4L - \xi\right)^2\dot\theta^2 + \frac{5mL^2}{12}\,\dot\varphi^2 - 2mg\left(4L - \xi\right)\cos\theta - mg\,\xi + \frac k2\left[\left(4L - \xi\right)^2 + 5L^2 - 2L\left(4L - \xi\right)\sin(\varphi - \theta) - 4L\left(4L - \xi\right)\sin\theta - 4L^2\cos\varphi\right] = E_0}$$
+>
+> **Units:** J in every term
+> **Meaning:** yes, the mechanical energy is conserved: the tension does positive work on one end of the string and the same negative work on the other, the guide and the pulley axles do no work, and the remaining forces derive from a potential. The constant is the value of the left side at the initial instant.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom | Three: $\xi$, $\theta$, $\varphi$ |
+| (b) Kinematics of $G$ and of the block | $\mathbf r_0^G = (4L - \xi)\,\mathbf i_1$; $\mathbf v_0^G = -\dot\xi\,\mathbf i_1 + (4L - \xi)\dot\theta\,\mathbf j_1$; $\mathbf a_0^G = -[\ddot\xi + (4L - \xi)\dot\theta^2]\,\mathbf i_1 + [(4L - \xi)\ddot\theta - 2\dot\xi\dot\theta]\,\mathbf j_1$, with $\mathbf i_1 = \sin\theta\,\mathbf i - \cos\theta\,\mathbf j$, $\mathbf j_1 = \cos\theta\,\mathbf i + \sin\theta\,\mathbf j$; $\boldsymbol\omega_{B0} = \dot\varphi\,\mathbf k$, $\boldsymbol\alpha_{B0} = \ddot\varphi\,\mathbf k$ |
+| (c) Forces | On $P$: $-mg\,\mathbf j$, $T\,\mathbf j$, $N_P\,\mathbf i$ (zero). On the block: $-2mg\,\mathbf j$ and $-T\,\mathbf i_1$ at $G$; $\mathbf F_s = -k[4L - \xi - L\sin(\varphi - \theta) - 2L\sin\theta]\,\mathbf i_1 - k[L\cos(\varphi - \theta) - 2L\cos\theta]\,\mathbf j_1$ at $A$ |
+| (d) Equations of motion | $3m\ddot\xi = -2m(4L - \xi)\dot\theta^2 - mg(2\cos\theta - 1) + k[4L - \xi - L\sin(\varphi - \theta) - 2L\sin\theta]$; $2m[(4L - \xi)\ddot\theta - 2\dot\xi\dot\theta] = -2mg\sin\theta - kL[\cos(\varphi - \theta) - 2\cos\theta]$; $\tfrac{5mL^2}{6}\ddot\varphi = kL[(4L - \xi)\cos(\varphi - \theta) - 2L\sin\varphi]$ |
+| (e) Energy | Conserved: $\tfrac32 m\dot\xi^2 + m(4L - \xi)^2\dot\theta^2 + \tfrac{5mL^2}{12}\dot\varphi^2 - 2mg(4L - \xi)\cos\theta - mg\xi + \tfrac k2\lvert\overrightarrow{BA}\rvert^2 = E_0$ |
+
+**Check against the official key:** the key (Problems.pdf, p. 81) uses the same basis ($\mathbf i_1$ along $OG$, $\mathbf j_1$ by the right-hand rule) and prints Newton's second law of the block along $\mathbf i_1$ with the tension, along $\mathbf j_1$, the equation of $P$ that gives the tension, and the moment equation about $G$ with the moment of inertia $5mL^2/6$. Each printed equation coincides term by term with the boxed equations of the block and of $P$ in the Free-Body Diagram section (the equation along $\mathbf i_1$ is printed before the tension is eliminated; part (d) eliminates it): **match**. The key prints no expression for the energy of part (e).
+
+**Limiting cases and consistency:**
+
+* **No spring.** With $k$ zero the third equation gives a constant spin of the block, and with the string vertical and at rest the first equation gives a second rate of $\xi$ of minus $g/3$: the weight rises and the block descends with the acceleration of an Atwood machine with masses $2m$ and $m$, the difference of the weights over the sum of the masses.
+* **Tension in that case.** Then the tension is $m$ times the sum of $g$ and $g/3$, four thirds of $mg$: between the weight of $P$ and the weight of the block, as it must be for $P$ to accelerate upwards and the block downwards.
+* **Spring force at the reference position.** With the string vertical, $\varphi$ zero and $\xi$ equal to $2L$, $A$ lies at $L\,\mathbf i - 2L\,\mathbf j$ and $B$ at $2L\,\mathbf i$; the bracket of the $\mathbf j_1$ component is $L$ minus $2L$, so the spring pushes $G$ towards plus $\mathbf j_1$, which is $\mathbf i$ at that instant: towards $B$, as expected from its position.
+* **Dimensions.** $k$ times a length is a force like $mg$; $kL$ times a length is a moment like $mL^2$ times an angular acceleration; every term of the energy is in joules.
+
+---
+
+## Problem RB-29: Disk-bar train
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** two rigid bodies in the vertical plane of the wall. The disk $D$, homogeneous, of radius $R$ and mass $m$, turns about its centre $O$, fixed to the wall (an ideal pin). The bar $B$, homogeneous and slender, of length $L$ and mass $2m$, with centre of mass $G$ at its midpoint, is pinned to the rim of the disk at its end $C$ (ideal pin) and slides without friction, through its groove, over the knob $K$ fixed at the height $h$ above $O$. Its other end $A$ is pulled towards the axis $Oy_0$ by the force $\mathbf F_A$, horizontal and proportional to the distance of $A$ to that axis, with constant $k$.
+* **Fixed frame:** $S_0\{O; \mathcal B_0\}$, $\mathbf i_0$ along $Ox_0$ (to the right), $\mathbf j_0$ along $Oy_0$ (up), $\mathbf k_0$ out of the paper (⊙). Gravity is $-g\,\mathbf j_0$; the knob is at $h\,\mathbf j_0$.
+* **Disk basis:** $\mathcal B_2\{\mathbf i_2, \mathbf j_2, \mathbf k_0\}$, attached to the disk, with $\mathbf i_2$ along $\overrightarrow{OC}$.
+* **Bar frame:** $S_1\{C; \mathcal B_1\}$, attached to the bar, with $\mathbf j_1$ along the bar from $C$ towards $A$ (axis $y_1$ of the figure) and $\mathbf i_1$ normal to it (axis $x_1$).
+* **Angles (read from the figure):** $\theta$, from $\mathbf i_0$ to $\overrightarrow{OC}$, counterclockwise about $\mathbf k_0$; $\varphi$, from $\mathbf i_0$ (the horizontal through $C$) to $\mathbf i_1$, counterclockwise. Both arcs of the figure are drawn counterclockwise; the opposite reading of either sense would change the sign of that angle in every formula, not the method.
+* **Hypotheses:** the knob stays inside the groove, between $C$ and $A$ (its distance $s$ to $C$ is between 0 and $L$), and it is above the disk at every configuration used, with $h$ larger than $R$ (read from the figure), so that the height of $K$ above $C$ is positive.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Radius and mass of the disk | $R$, $m$ | m, kg |
+| Length and mass of the bar | $L$, $2m$ | m, kg |
+| Height of the knob above $O$ | $h$ | m |
+| Constant of the force on $A$ | $k$ | N/m |
+| Force on $A$ | $\mathbf F_A = -k\,x_0^A\,\mathbf i_0$ | N |
+| Distance from $C$ to $K$ along the bar | $s$ | m |
+| Gravity | $-g\,\mathbf j_0$ | m/s$^2$ |
+
+#### Part (a): degrees of freedom
+
+> [!derivation] Part (a): count of the degrees of freedom
+> **Law:** three coordinates per rigid body in planar motion; two equations per planar pin; one per sliding contact
+> **Source:** Notes.pdf, Sec. 13.1; Notes.pdf, Sec. 13.4
+>
+> $$\begin{aligned}
+> n_q &= 3 + 3 = 6 \quad &\text{(disk and bar in the plane)} \\
+> n_c &= 2 + 2 + 1 = 5 \quad &\text{(pin at $O$; pin at $C$; the line of the bar passes through $K$)} \\
+> n_{\mathrm{dof}} &= 6 - 5 = 1 \quad &\text{(independent constraints)}
+> \end{aligned}$$
+>
+> $$\boxed{n_{\mathrm{dof}} = 1, \qquad \text{coordinate } \theta;\ \varphi \text{ is a function of } \theta}$$
+>
+> **Units:** dimensionless counts
+> **Meaning:** the angle of the disk fixes $C$, and the bar must then point from $C$ through $K$: its direction is fixed too. The bar can still slide along the groove only as far as $C$ moves, so nothing is left free.
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb29-bases.svg]]
+
+> [!derivation] Disk basis and bar basis: rotations by theta and phi about k0
+> **Law:** simple rotation about the third axis; right-hand rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 12]
+>
+> View of the wall with $\mathbf k_0$ out of the paper (⊙): positive angles turn counterclockwise. For an angle $\alpha$ ($\theta$ for the disk, $\varphi$ for the bar) the first rotated vector has its adjacent leg along $\mathbf i_0$ (cosine) and its opposite leg along $\mathbf j_0$ (sine); the second one has its adjacent leg along $\mathbf j_0$ (cosine) and the counterclockwise turn carries the tip of $\mathbf j_0$ towards minus $\mathbf i_0$, which is the minus sign of the opposite leg (sine). For the bar, $\mathbf j_1$ is the direction from $C$ to $A$, up and to the left in the figure, which is that second vector.
+>
+> $$\begin{aligned}
+> \mathbf i_2 &= \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0, \qquad \mathbf j_2 = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0 \quad &\text{(legs, angle $\theta$)} \\
+> \mathbf i_1 &= \cos\varphi\,\mathbf i_0 + \sin\varphi\,\mathbf j_0, \qquad \mathbf j_1 = -\sin\varphi\,\mathbf i_0 + \cos\varphi\,\mathbf j_0 \quad &\text{(legs, angle $\varphi$)} \\
+> [{}_0R_1] &= \begin{bmatrix} \cos\varphi & -\sin\varphi & 0 \cr \sin\varphi & \cos\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_0$ in $\mathcal B_0$; same form for $[{}_0R_2]$ with $\theta$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\varphi + \sin^2\varphi\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\varphi + \sin^2\varphi & \cos\varphi\sin\varphi - \sin\varphi\cos\varphi & 0 \cr \sin\varphi\cos\varphi - \cos\varphi\sin\varphi & \sin^2\varphi + \cos^2\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products; same with $\theta$)} \\
+> \boldsymbol\omega_{D0} &= \dot\theta\,\mathbf k_0, \qquad \boldsymbol\omega_{B0} = \dot\varphi\,\mathbf k_0 \quad &\text{(rates of the angles along their axis)} \\
+> \dot{\mathbf i}_1 &= \dot\varphi\,\mathbf k_0\times\mathbf i_1 = \dot\varphi\,\mathbf j_1, \qquad \dot{\mathbf j}_1 = \dot\varphi\,\mathbf k_0\times\mathbf j_1 = -\dot\varphi\,\mathbf i_1 \quad &\text{(Poisson; same for $\mathcal B_2$ with the rate of $\theta$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_2 = \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0, \quad \mathbf i_1 = \cos\varphi\,\mathbf i_0 + \sin\varphi\,\mathbf j_0, \quad \mathbf j_1 = -\sin\varphi\,\mathbf i_0 + \cos\varphi\,\mathbf j_0, \quad \boldsymbol\omega_{D0} = \dot\theta\,\mathbf k_0, \quad \boldsymbol\omega_{B0} = \dot\varphi\,\mathbf k_0}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** both bodies turn about the fixed direction $\mathbf k_0$; the bar points along $\mathbf j_1$ and the knob pushes it along $\mathbf i_1$.
+
+![[attachments/EM-SOL/rb29-knob-triangle.svg]]
+
+> [!derivation] Part (b): geometric relation between theta and phi
+> **Law:** the line of the bar passes through the knob; components of a vector in the bar basis
+> **Source:** Notes.pdf, Sec. 13.1; Problems.pdf, p. 59
+>
+> The vector from $C$ to $K$ lies along the bar, so it has no component along $\mathbf i_1$, and its component along $\mathbf j_1$ is the distance $s$. Right triangle $C$-$K$ with the vertical through $K$: horizontal leg $R\cos\theta$ (from the axis $Oy_0$ to $C$), vertical leg $h - R\sin\theta$ (from the height of $C$ up to $K$), hypotenuse $s$. The bar makes the angle $\varphi$ with the vertical (since $\mathbf j_1$ is $\mathbf j_0$ turned by $\varphi$), so the horizontal leg is opposite to $\varphi$ (sine) and the vertical leg adjacent (cosine).
+>
+> $$\begin{aligned}
+> \overrightarrow{CK} &= h\,\mathbf j_0 - R\,\mathbf i_2 = -R\cos\theta\,\mathbf i_0 + \left(h - R\sin\theta\right)\mathbf j_0 \quad &\text{(positions of $K$ and $C$)} \\
+> \overrightarrow{CK}\cdot\mathbf i_1 &= -R\cos\theta\cos\varphi + \left(h - R\sin\theta\right)\sin\varphi = 0 \quad &\text{($K$ on the line of the bar)} \\
+> s &= \overrightarrow{CK}\cdot\mathbf j_1 = R\cos\theta\sin\varphi + \left(h - R\sin\theta\right)\cos\varphi \quad &\text{(distance from $C$ to $K$)} \\
+> s^2 &= R^2\cos^2\theta + \left(h - R\sin\theta\right)^2 = R^2 + h^2 - 2Rh\sin\theta \quad &\text{(Pythagoras in the triangle; $\cos^2 + \sin^2$)} \\
+> \sin\varphi &= \frac{R\cos\theta}{s}, \qquad \cos\varphi = \frac{h - R\sin\theta}{s} \quad &\text{(opposite and adjacent legs over the hypotenuse)}
+> \end{aligned}$$
+>
+> $$\boxed{\tan\varphi = \frac{R\cos\theta}{h - R\sin\theta}, \qquad s = \sqrt{R^2 + h^2 - 2Rh\sin\theta}}$$
+>
+> **Units:** dimensionless; $[\mathrm L]$
+> **Meaning:** with $\theta$ zero ($C$ on the right of $O$) the tangent of $\varphi$ is the ratio of $R$ to $h$; with $\theta$ equal to $\pi/2$ ($C$ right below $K$) the bar is vertical and $\varphi$ is zero.
+
+> [!derivation] Part (b): first and second rates of phi
+> **Law:** implicit differentiation with the chain rule; quotient rule
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Sec. 13.1
+>
+> Write $f(\theta, \varphi)$ for the left side of the condition of the previous box with its sign changed, $R\cos\theta\cos\varphi - (h - R\sin\theta)\sin\varphi$, which is zero at every instant; its time derivative is zero too. Write $N$ for the difference $R - h\sin\theta$.
+>
+> $$\begin{aligned}
+> \frac{df}{dt} &= \frac{\partial f}{\partial\theta}\,\dot\theta + \frac{\partial f}{\partial\varphi}\,\dot\varphi = 0 \quad &\text{(chain rule)} \\
+> \frac{\partial f}{\partial\theta} &= -R\sin\theta\cos\varphi + R\cos\theta\sin\varphi = R\sin\left(\varphi - \theta\right) \quad &\text{(sine of a difference)} \\
+> \frac{\partial f}{\partial\varphi} &= -R\cos\theta\sin\varphi - \left(h - R\sin\theta\right)\cos\varphi = -s \quad &\text{(previous box)} \\
+> \dot\varphi &= \frac{R\sin\left(\varphi - \theta\right)}{s}\,\dot\theta \quad &\text{(solve for the rate)} \\
+> \sin\left(\varphi - \theta\right) &= \sin\varphi\cos\theta - \cos\varphi\sin\theta = \frac{R\cos^2\theta - h\sin\theta + R\sin^2\theta}{s} = \frac{N}{s} \quad &\text{(sine and cosine of $\varphi$ from the previous box)} \\
+> \dot\varphi &= \frac{R\,N}{s^2}\,\dot\theta \quad &\text{(substitute)} \\
+> \dot N &= -h\cos\theta\,\dot\theta, \qquad \frac{d\left(s^2\right)}{dt} = -2Rh\cos\theta\,\dot\theta \quad &\text{(chain rule)} \\
+> \frac{d}{dt}\left(\frac{N}{s^2}\right) &= \frac{\dot N s^2 - N\,d(s^2)/dt}{s^4} = \frac{h\cos\theta\,\dot\theta\left(2RN - s^2\right)}{s^4} = \frac{h\left(R^2 - h^2\right)\cos\theta\,\dot\theta}{s^4} \quad &\text{(quotient rule; $2RN - s^2$ equals $R^2 - h^2$)} \\
+> \ddot\varphi &= \frac{R\,N}{s^2}\,\ddot\theta + R\,\dot\theta\,\frac{d}{dt}\left(\frac{N}{s^2}\right) \quad &\text{(product rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\varphi = \frac{R\left(R - h\sin\theta\right)}{R^2 + h^2 - 2Rh\sin\theta}\,\dot\theta, \qquad \ddot\varphi = \frac{R\left(R - h\sin\theta\right)}{R^2 + h^2 - 2Rh\sin\theta}\,\ddot\theta + \frac{R h\left(R^2 - h^2\right)\cos\theta}{\left(R^2 + h^2 - 2Rh\sin\theta\right)^2}\,\dot\theta^2}$$
+>
+> **Units:** $[\mathrm L^2]/[\mathrm L^2]$ times $[\mathrm{T^{-1}}]$ and $[\mathrm{T^{-2}}]$; $[\mathrm L^4]/[\mathrm L^4]$ times $[\mathrm{T^{-2}}]$
+> **Meaning:** the bar stops turning when the sine of $\theta$ is $R/h$: then the vector from $O$ to $C$ is normal to the bar (its dot product with the vector from $C$ to $K$ is $R$ times the difference of $h\sin\theta$ and $R$, zero), so the bar is tangent to the disk and $C$ moves along the bar itself.
+
+> [!derivation] Part (c): positions, velocities and accelerations of A and G
+> **Law:** velocity and acceleration fields of a rigid body (disk from $O$, bar from $C$); vector products expanded
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 6]
+>
+> $C$ belongs to both bodies; the disk gives its motion and the bar field carries it to $G$ (at half the length along $\mathbf j_1$) and to $A$ (at the full length). Write $\lambda$ for that distance, $L/2$ or $L$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^C &= R\,\mathbf i_2, \qquad \mathbf v_0^C = \dot\theta\,\mathbf k_0\times R\,\mathbf i_2 = R\dot\theta\,\mathbf j_2 \quad &\text{(Eq. 9.3 from the fixed point $O$)} \\
+> \mathbf a_0^C &= \ddot\theta\,\mathbf k_0\times R\,\mathbf i_2 + \dot\theta\,\mathbf k_0\times\left(\dot\theta\,\mathbf k_0\times R\,\mathbf i_2\right) = R\ddot\theta\,\mathbf j_2 + \dot\theta\,\mathbf k_0\times R\dot\theta\,\mathbf j_2 = R\ddot\theta\,\mathbf j_2 - R\dot\theta^2\,\mathbf i_2 \quad &\text{(Eq. 9.4 from $O$; inner product first)} \\
+> \mathbf r_0^P &= R\,\mathbf i_2 + \lambda\,\mathbf j_1 \quad &\text{($P$ is $G$ or $A$)} \\
+> \mathbf v_0^P &= \mathbf v_0^C + \dot\varphi\,\mathbf k_0\times\lambda\,\mathbf j_1 = R\dot\theta\,\mathbf j_2 - \lambda\dot\varphi\,\mathbf i_1 \quad &\text{(Eq. 9.3 from $C$; $\mathbf k_0\times\mathbf j_1 = -\mathbf i_1$)} \\
+> \mathbf a_0^P &= \mathbf a_0^C + \ddot\varphi\,\mathbf k_0\times\lambda\,\mathbf j_1 + \dot\varphi\,\mathbf k_0\times\left(-\lambda\dot\varphi\,\mathbf i_1\right) = \mathbf a_0^C - \lambda\ddot\varphi\,\mathbf i_1 - \lambda\dot\varphi^2\,\mathbf j_1 \quad &\text{(Eq. 9.4 from $C$; $\mathbf k_0\times\mathbf i_1 = \mathbf j_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf r_0^G = \left(R\cos\theta - \tfrac L2\sin\varphi\right)\mathbf i_0 + \left(R\sin\theta + \tfrac L2\cos\varphi\right)\mathbf j_0, \qquad \mathbf r_0^A = \left(R\cos\theta - L\sin\varphi\right)\mathbf i_0 + \left(R\sin\theta + L\cos\varphi\right)\mathbf j_0 \\ \mathbf v_0^G = R\dot\theta\,\mathbf j_2 - \tfrac L2\dot\varphi\,\mathbf i_1, \qquad \mathbf v_0^A = R\dot\theta\,\mathbf j_2 - L\dot\varphi\,\mathbf i_1 \\ \mathbf a_0^G = R\ddot\theta\,\mathbf j_2 - R\dot\theta^2\,\mathbf i_2 - \tfrac L2\ddot\varphi\,\mathbf i_1 - \tfrac L2\dot\varphi^2\,\mathbf j_1, \qquad \mathbf a_0^A = R\ddot\theta\,\mathbf j_2 - R\dot\theta^2\,\mathbf i_2 - L\ddot\varphi\,\mathbf i_1 - L\dot\varphi^2\,\mathbf j_1 \end{gathered}}$$
+>
+> **Units:** $[\mathrm L]$; $[\mathrm L][\mathrm{T^{-1}}]$; $[\mathrm L][\mathrm{T^{-2}}]$ in every term
+> **Meaning:** each point of the bar moves with $C$ on the circle of the rim plus a rotation about $C$; the bases $\mathcal B_2$ and $\mathcal B_1$ are those of the box of the rotations, and the rates of $\varphi$ are those of part (b).
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Moments of inertia of the disk about O and of the bar about G
+> **Law:** moment of inertia as the integral of the squared distance to the axis (polar coordinates with jacobian $\rho$ for the disk; a line integral for the slender bar)
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.6; [Lecture 8, Slide 10]
+>
+> Disk: surface density $m/(\pi R^2)$, element $\sigma\rho\,d\rho\,d\chi$, distance $\rho$ to the axis through $O$ normal to the wall. Bar: linear density $2m/L$, coordinate $u$ from minus $L/2$ to $L/2$ measured from $G$ along the bar, distance $|u|$ to the axis through $G$ normal to the wall. Both centres of mass are the geometric centres, since the first moments are integrals of odd functions over symmetric ranges.
+>
+> $$\begin{aligned}
+> I_O^D &= \frac{m}{\pi R^2}\int_0^{2\pi}\!\!\int_0^R\rho^2\,\rho\,d\rho\,d\chi = \frac{m}{\pi R^2}\left[\chi\right]_0^{2\pi}\left[\frac{\rho^4}{4}\right]_0^R = \frac{m}{\pi R^2}\cdot 2\pi\cdot\frac{R^4}{4} = \frac{mR^2}{2} \quad &\text{(antiderivatives; Barrow's rule)} \\
+> I_G^B &= \frac{2m}{L}\int_{-L/2}^{L/2}u^2\,du = \frac{2m}{L}\left[\frac{u^3}{3}\right]_{-L/2}^{L/2} = \frac{2m}{L}\left(\frac{L^3}{24} + \frac{L^3}{24}\right) = \frac{mL^2}{6} \quad &\text{(antiderivative; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{I_O^D = \frac{mR^2}{2}, \qquad I_G^B = \frac{mL^2}{6}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** only the moments about the normal to the wall enter the planar motion; both axes are principal by the symmetry of each body.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Part (e): kinetic energy of the disk and of the bar
+> **Law:** kinetic energy about a fixed body point (disk); Koenig's theorem (bar)
+> **Source:** Notes.pdf, Eq. 11.32; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 9]
+>
+> The dot product of $\mathbf j_2$ and $\mathbf i_1$ is minus the sine of $\theta$ times the cosine of $\varphi$ plus the cosine of $\theta$ times the sine of $\varphi$, that is the sine of the difference of $\varphi$ and $\theta$.
+>
+> $$\begin{aligned}
+> T^D &= \frac12\,I_O^D\,\dot\theta^2 = \frac{mR^2}{4}\,\dot\theta^2 \quad &\text{(Eq. 11.32; $O$ fixed)} \\
+> \left(v_0^G\right)^2 &= R^2\dot\theta^2 + \frac{L^2}{4}\,\dot\varphi^2 - 2R\dot\theta\,\frac L2\,\dot\varphi\,\mathbf j_2\cdot\mathbf i_1 = R^2\dot\theta^2 + \frac{L^2}{4}\,\dot\varphi^2 - RL\,\dot\theta\dot\varphi\sin\left(\varphi - \theta\right) \quad &\text{(square of the velocity of part (c))} \\
+> T^B &= \frac12\,2m\left(v_0^G\right)^2 + \frac12\,\frac{mL^2}{6}\,\dot\varphi^2 = mR^2\dot\theta^2 + \frac{mL^2}{4}\,\dot\varphi^2 - mRL\,\dot\theta\dot\varphi\sin\left(\varphi - \theta\right) + \frac{mL^2}{12}\,\dot\varphi^2 \quad &\text{(Eq. 11.31, Koenig)}
+> \end{aligned}$$
+>
+> $$\boxed{T^D = \frac{mR^2}{4}\,\dot\theta^2, \qquad T^B = mR^2\dot\theta^2 + \frac{mL^2}{3}\,\dot\varphi^2 - mRL\,\dot\theta\dot\varphi\sin\left(\varphi - \theta\right)}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2][\mathrm{T^{-2}}]$, J in every term
+> **Meaning:** the cross term couples the two rotations. It vanishes when $\varphi$ equals $\theta$, that is when the bar is tangent to the disk at $C$: the velocity of $C$ is then along the bar and the rotation part of the velocity of $G$ normal to it.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb29-exploded.svg]]
+
+The exploded view separates the disk and the bar at the pin $C$. The pin acts on the bar with the force $\mathbf R_C$, of components $X$ and $Y$ in $\mathcal B_0$, and on the disk with minus $\mathbf R_C$ (third law of Newton); being ideal, it transmits no torque. The pin $O$ acts on the disk with $\mathbf R_O$. The knob is frictionless: it can only push the bar normally to the groove, along $\mathbf i_1$, with the unknown $N_K$, and it acts at the bar point that coincides with $K$, at the distance $s$ from $C$. The problem is planar: the out-of-plane supports of the wall are not needed and every load below lies in the plane.
+
+| Load | Body | Point | Expression in $\mathcal B_0$ | Kind |
+| :--- | :--- | :--- | :--- | :--- |
+| Weight of the disk | $D$ | $O$ | $-mg\,\mathbf j_0$ | applied |
+| Pin $O$ on the disk | $D$ | $O$ | $\mathbf R_O = R_{Ox}\,\mathbf i_0 + R_{Oy}\,\mathbf j_0$ | constraint |
+| Bar on the disk | $D$ | $C$ | $-\mathbf R_C = -X\,\mathbf i_0 - Y\,\mathbf j_0$ | constraint (pair) |
+| Disk on the bar | $B$ | $C$ | $\mathbf R_C = X\,\mathbf i_0 + Y\,\mathbf j_0$ | constraint (pair) |
+| Weight of the bar | $B$ | $G$ | $-2mg\,\mathbf j_0$ | applied |
+| Knob on the bar | $B$ | $K$ | $N_K\,\mathbf i_1 = N_K(\cos\varphi\,\mathbf i_0 + \sin\varphi\,\mathbf j_0)$ | constraint |
+| Force on $A$ | $B$ | $A$ | $\mathbf F_A = -k\,x_0^A\,\mathbf i_0 = -k\left(R\cos\theta - L\sin\varphi\right)\mathbf i_0$ | applied |
+
+> [!derivation] Part (d): moments of the loads on the bar about G and on the disk about O
+> **Law:** moment of a force about a point; vector products expanded along the first row
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 1.37
+>
+> The arms from $G$ along the bar are minus $L/2$ to $C$, the difference of $s$ and $L/2$ to $K$, and $L/2$ to $A$, all along $\mathbf j_1$; the arm from $O$ to $C$ is $R\,\mathbf i_2$. The weights act at $G$ and at $O$ and have no moment about those points.
+>
+> $$\begin{aligned}
+> -\frac L2\,\mathbf j_1\times\mathbf R_C &= \frac L2\begin{vmatrix} \mathbf i_0 & \mathbf j_0 & \mathbf k_0 \cr \sin\varphi & -\cos\varphi & 0 \cr X & Y & 0 \end{vmatrix} = \frac L2\left(X\cos\varphi + Y\sin\varphi\right)\mathbf k_0 \quad &\text{(minus $\mathbf j_1$ in $\mathcal B_0$; expand along the first row)} \\
+> \left(s - \frac L2\right)\mathbf j_1\times N_K\,\mathbf i_1 &= -\left(s - \frac L2\right)N_K\,\mathbf k_0 \quad &\text{($\mathbf j_1\times\mathbf i_1 = -\mathbf k_0$)} \\
+> \frac L2\,\mathbf j_1\times\left(-k\,x_0^A\,\mathbf i_0\right) &= \frac L2\begin{vmatrix} \mathbf i_0 & \mathbf j_0 & \mathbf k_0 \cr -\sin\varphi & \cos\varphi & 0 \cr -k\,x_0^A & 0 & 0 \end{vmatrix} = \frac{kL}{2}\,x_0^A\cos\varphi\,\mathbf k_0 \quad &\text{(expand along the first row)} \\
+> R\,\mathbf i_2\times\left(-\mathbf R_C\right) &= -R\begin{vmatrix} \mathbf i_0 & \mathbf j_0 & \mathbf k_0 \cr \cos\theta & \sin\theta & 0 \cr X & Y & 0 \end{vmatrix} = R\left(X\sin\theta - Y\cos\theta\right)\mathbf k_0 \quad &\text{(expand along the first row)}
+> \end{aligned}$$
+>
+> $$\boxed{M_G^B = \frac L2\left(X\cos\varphi + Y\sin\varphi\right) - \left(s - \frac L2\right)N_K + \frac{kL}{2}\left(R\cos\theta - L\sin\varphi\right)\cos\varphi, \qquad M_O^D = R\left(X\sin\theta - Y\cos\theta\right)}$$
+>
+> **Units:** N m in every term
+> **Meaning:** the components along $\mathbf k_0$ of the moments that enter the two moment equations below. When $A$ is on the left of the axis (negative abscissa) and the cosine of $\varphi$ is positive, the moment of the pull on $A$ is negative, a clockwise turn: the force then points towards plus $\mathbf i_0$ and acts above $G$, so it tips the upper end of the bar back towards the axis.
+
+> [!derivation] Part (d): equations of the bar and of the disk
+> **Law:** Newton's second law for the centre of mass; moment equation about the centre of mass (bar) and about a fixed point (disk)
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.9; Notes.pdf, Eq. 13.10
+>
+> For the bar the pole is its centre of mass $G$, so the term in the velocity of the pole vanishes; for the disk the pole $O$ is fixed and is also its centre of mass, so its acceleration and the pole term are zero. Both angular momenta lie along the fixed $\mathbf k_0$.
+>
+> $$\begin{aligned}
+> 2m\,\mathbf a_0^G &= \mathbf R_C + N_K\,\mathbf i_1 - 2mg\,\mathbf j_0 - k\,x_0^A\,\mathbf i_0 \quad &\text{(Eq. 12.8 for the bar)} \\
+> \frac{mL^2}{6}\,\ddot\varphi &= M_G^B \quad &\text{(Eq. 12.13 about $G$)} \\
+> \frac{mR^2}{2}\,\ddot\theta &= M_O^D \quad &\text{(Eq. 12.13 about the fixed point $O$)} \\
+> \mathbf 0 &= \mathbf R_O - \mathbf R_C - mg\,\mathbf j_0 \quad &\text{(Eq. 12.8 for the disk; $O$ at rest)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} 2m\,\mathbf a_0^G\cdot\mathbf i_0 = X + N_K\cos\varphi - k\left(R\cos\theta - L\sin\varphi\right), \qquad 2m\,\mathbf a_0^G\cdot\mathbf j_0 = Y + N_K\sin\varphi - 2mg \\ \frac{mL^2}{6}\,\ddot\varphi = \frac L2\left(X\cos\varphi + Y\sin\varphi\right) - \left(s - \frac L2\right)N_K + \frac{kL}{2}\left(R\cos\theta - L\sin\varphi\right)\cos\varphi \\ \frac{mR^2}{2}\,\ddot\theta = R\left(X\sin\theta - Y\cos\theta\right), \qquad \mathbf R_O = X\,\mathbf i_0 + \left(Y + mg\right)\mathbf j_0 \end{gathered}}$$
+>
+> **Units:** N in the force equations; N m in the moment equations
+> **Meaning:** six scalar equations for six unknowns: the second rate of $\theta$ (those of $\varphi$ and the acceleration of $G$ follow from it by parts (b) and (c)), the two components of $\mathbf R_C$, the knob force and the two components of $\mathbf R_O$. Part (f) avoids solving them by an energy argument.
+
+> [!derivation] Part (f): power of the reactions and of the force on A
+> **Law:** power of a force on a body point; ideal pins; frictionless sliding contact; potential of a force proportional to a distance
+> **Source:** Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; Notes.pdf, Eq. 9.3
+>
+> The bar point at $K$ (call it $K(B)$) is at the distance $s$ from $C$ along $\mathbf j_1$; its velocity follows from the bar field. The first derivative of the geometric relation (part (b)) is used in the last step.
+>
+> $$\begin{aligned}
+> \dot W^{O} &= \mathbf R_O\cdot\mathbf v_0^O = \mathbf R_O\cdot\mathbf 0 = 0 \quad &\text{(pin at a fixed point)} \\
+> \dot W^{C} &= \mathbf R_C\cdot\mathbf v_0^{C(B)} - \mathbf R_C\cdot\mathbf v_0^{C(D)} = \mathbf R_C\cdot\left(R\dot\theta\,\mathbf j_2 - R\dot\theta\,\mathbf j_2\right) = 0 \quad &\text{(pair at the pin; same velocity of $C$ on both bodies)} \\
+> \mathbf v_0^{K(B)} &= \mathbf v_0^C + \dot\varphi\,\mathbf k_0\times s\,\mathbf j_1 = R\dot\theta\,\mathbf j_2 - s\dot\varphi\,\mathbf i_1 \quad &\text{(Eq. 9.3 from $C$)} \\
+> \dot W^{K} &= N_K\,\mathbf i_1\cdot\mathbf v_0^{K(B)} = N_K\left(R\dot\theta\sin\left(\varphi - \theta\right) - s\dot\varphi\right) = N_K\left(s\dot\varphi - s\dot\varphi\right) = 0 \quad &\text{($\mathbf j_2\cdot\mathbf i_1$ from part (e); rate of $\varphi$ from part (b))} \\
+> \dot W^{A} &= -k\,x_0^A\,\mathbf i_0\cdot\mathbf v_0^A = -k\,x_0^A\,\dot x_0^A = -\frac{d}{dt}\left(\frac k2\left(x_0^A\right)^2\right) \quad &\text{(first component of the velocity of $A$; chain rule)} \\
+> \dot W^{g} &= -2mg\,\mathbf j_0\cdot\mathbf v_0^G - mg\,\mathbf j_0\cdot\mathbf 0 = -\frac{d}{dt}\left(2mg\,y_0^G\right) \quad &\text{(Eq. 12.34; disk weight at the fixed point $O$)}
+> \end{aligned}$$
+>
+> $$\boxed{V = 2mg\left(R\sin\theta + \frac L2\cos\varphi\right) + \frac k2\left(R\cos\theta - L\sin\varphi\right)^2, \qquad \dot W^{O} = \dot W^{C} = \dot W^{K} = 0}$$
+>
+> **Units:** W in the powers; J in $V$
+> **Meaning:** the knob does no work although the bar slides over it, because the bar point at $K$ moves along the groove and the knob force is normal to it; the rest of the reactions act at points with no relative motion.
+
+> [!derivation] Part (f): equation of motion free of unknown reactions
+> **Law:** energy theorem with workless constraints; initial conditions; Barrow's rule
+> **Source:** Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33
+>
+> Initial values: $\theta_0$ is zero and the rate of $\theta$ is zero. The first derivative of part (b) gives the initial rate of $\varphi$; the relation of part (b) with $\theta$ zero gives $\varphi_0$, with the hypotenuse $s_0$ equal to the square root of the sum of the squares of $R$ and $h$.
+>
+> $$\begin{aligned}
+> \dot\varphi_0 &= \frac{R\left(R - h\sin 0\right)}{R^2 + h^2 - 2Rh\sin 0}\,\dot\theta_0 = \frac{R^2}{R^2 + h^2}\cdot 0 = 0 \quad &\text{(first rate of part (b) at the initial instant)} \\
+> \sin\varphi_0 &= \frac{R}{\sqrt{R^2 + h^2}}, \qquad \cos\varphi_0 = \frac{h}{\sqrt{R^2 + h^2}} \quad &\text{(part (b) with $\theta$ zero)} \\
+> \frac{d}{dt}\left(T^D + T^B + V\right) &= \dot W^{O} + \dot W^{C} + \dot W^{K} = 0 \quad &\text{(Eq. 12.29 summed over both bodies; previous box)} \\
+> \left[T^D + T^B + V\right]_0^t &= 0 \;\Rightarrow\; T^D + T^B + V = \left(T^D + T^B + V\right)\big|_{t = 0} \quad &\text{(integrate from 0 to $t$; Barrow's rule)} \\
+> \left(T^D + T^B + V\right)\big|_{t = 0} &= 0 + 2mg\,\frac L2\cdot\frac{h}{\sqrt{R^2 + h^2}} + \frac k2\left(R - \frac{LR}{\sqrt{R^2 + h^2}}\right)^2 \quad &\text{(zero rates; sine of 0 is 0, cosine of 0 is 1)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac54\,mR^2\dot\theta^2 + \frac{mL^2}{3}\,\dot\varphi^2 - mRL\,\dot\theta\dot\varphi\sin(\varphi - \theta) + 2mgR\sin\theta + mgL\cos\varphi + \frac k2\left(R\cos\theta - L\sin\varphi\right)^2 = \frac{mgLh}{\sqrt{R^2 + h^2}} + \frac{kR^2}{2}\left(1 - \frac{L}{\sqrt{R^2 + h^2}}\right)^2}$$
+>
+> **Units:** J in every term
+> **Meaning:** one equation in $\theta$, $\varphi$ and their rates, with no reaction in it; with the relation of part (b) and its first derivative it becomes a first order equation in $\theta$ alone, which can be separated and integrated.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom | One ($\theta$): six planar coordinates minus two pins (two equations each) minus the knob (one) |
+| (b) Relation and rates | $\tan\varphi = R\cos\theta/(h - R\sin\theta)$; $\dot\varphi = \dfrac{R(R - h\sin\theta)}{R^2 + h^2 - 2Rh\sin\theta}\dot\theta$; $\ddot\varphi = \dfrac{R(R - h\sin\theta)}{R^2 + h^2 - 2Rh\sin\theta}\ddot\theta + \dfrac{Rh(R^2 - h^2)\cos\theta}{(R^2 + h^2 - 2Rh\sin\theta)^2}\dot\theta^2$ |
+| (c) Kinematics of $A$ and $G$ | $\mathbf r_0^A = (R\cos\theta - L\sin\varphi)\,\mathbf i_0 + (R\sin\theta + L\cos\varphi)\,\mathbf j_0$; $\mathbf v_0^A = R\dot\theta\,\mathbf j_2 - L\dot\varphi\,\mathbf i_1$; $\mathbf a_0^A = R\ddot\theta\,\mathbf j_2 - R\dot\theta^2\,\mathbf i_2 - L\ddot\varphi\,\mathbf i_1 - L\dot\varphi^2\,\mathbf j_1$; the same for $G$ with $L/2$ in place of $L$; $\mathbf i_2 = \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0$, $\mathbf j_2 = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0$, $\mathbf i_1 = \cos\varphi\,\mathbf i_0 + \sin\varphi\,\mathbf j_0$, $\mathbf j_1 = -\sin\varphi\,\mathbf i_0 + \cos\varphi\,\mathbf j_0$ |
+| (d) Forces | Disk: $-mg\,\mathbf j_0$ and $\mathbf R_O$ at $O$, $-\mathbf R_C$ at $C$. Bar: $\mathbf R_C$ at $C$, $-2mg\,\mathbf j_0$ at $G$, $N_K\,\mathbf i_1$ at $K$, $\mathbf F_A = -k(R\cos\theta - L\sin\varphi)\,\mathbf i_0$ at $A$; six equations of the bar and the disk in the boxes above |
+| (e) Kinetic energies | $T^D = \tfrac{mR^2}{4}\dot\theta^2$; $T^B = mR^2\dot\theta^2 + \tfrac{mL^2}{3}\dot\varphi^2 - mRL\dot\theta\dot\varphi\sin(\varphi - \theta)$ |
+| (f) Equation free of unknowns | $\tfrac54 mR^2\dot\theta^2 + \tfrac{mL^2}{3}\dot\varphi^2 - mRL\dot\theta\dot\varphi\sin(\varphi - \theta) + 2mgR\sin\theta + mgL\cos\varphi + \tfrac k2(R\cos\theta - L\sin\varphi)^2 = \tfrac{mgLh}{\sqrt{R^2 + h^2}} + \tfrac{kR^2}{2}\left(1 - \tfrac{L}{\sqrt{R^2 + h^2}}\right)^2$ |
+
+**Limiting cases and consistency:** the key prints no answer for this problem (Problems.pdf, pp. 77 to 81 checked).
+
+* **Bar tangent to the disk.** Where the sine of $\theta$ equals $R/h$, part (b) gives a zero rate of $\varphi$: the bar is then tangent to the disk at $C$ (shown in the Meaning line of part (b)), so $C$ moves along the line of the bar and the bar slides over the knob without turning. In the same configuration $\varphi$ equals $\theta$ and the cross term of part (e) vanishes, consistently.
+* **Bar vertical.** With $\theta$ equal to $\pi/2$, $C$ is right below $K$ and part (b) gives $\varphi$ zero, with the distance $s$ equal to the difference of $h$ and $R$.
+* **No pull on A.** With $k$ zero the spring terms disappear on both sides of part (f); the force on $A$ enters only through its potential, as the power box shows.
+* **Dimensions.** Every term of the energy equation is an energy: $mR^2$ times a squared rate, $mgR$, and $k$ times a squared length.
