@@ -26,17 +26,13 @@ def _band(sc, x0, x1, hole=0.06, t=0.12):
         "Vertical section through the hole showing P1 on the plane at distance r and P2 hanging at depth 2a minus r on the cord of length 2a.",
         r"Section through the hole, $\mathbf k$ up. The cord has length $r$ on the plane and $2a - r$ below it, so $\mathbf r_0^{P_2} = (r - 2a)\,\mathbf k$; when $P_1$ moves away from the hole, $P_2$ rises by the same amount.")
 def elevation():
-    sc = Scene(760, 520, (250, 150), 110)
+    sc = Scene(760, 260, (250, 150), 110)
     O = (0.0, 0.0)
     r, d = 1.4, 0.6
     y0 = 0.06                                   # centre line of the cord on the plane
     _band(sc, -0.6, 2.6)
     sc.label((2.0, -0.12), "smooth horizontal plane", "TEXT", "middle", 14, dy=22)
     sc.label((-0.06, 0.0), "O (hole)", "TEXT", "end", 15, dx=-8, dy=-12)
-    # lowest possible depth
-    sc.line((-1.0, -2.0), (2.6, -2.0), "EDGE", 1.2, "6 5")
-    sc.label((2.6, -2.0), "depth 2a (r = 0)", "TEXT", "end", 14, italic=False, dy=-8)
-    sc.note((-1.0, -2.0), "r between a and 2a for v0 = √(8ag/3)", "TEXT", "start", 13, dy=22)
     # axes: k up, e_r along the cord (it points from O to P1)
     sc.vec(O, (0.0, 1.3), None, "EDGE", 1.4, head=8)
     sc.label((0.0, 1.3), K_, "TEXT", "start", 16, weight="700", dx=8, dy=6)
@@ -54,13 +50,13 @@ def elevation():
     sc.label((0.0, -d), P2, "HEAD", "start", 17, dx=12, dy=5)
     # e_theta into the paper at P1
     axis_in(sc, (r, 0.62), None, r_px=9)
-    sc.label((r, 0.62), ETH + " points into the paper here (⊗)", "HEAD", "start", 14, dx=16, dy=5)
+    sc.label((r, 0.62), ETH + " points into the paper here", "HEAD", "start", 14, dx=16, dy=5)
     # depth dimension of P2
     xd = -1.0
     sc.line((xd, 0.0), (-0.6, 0.0), "EDGE", 1.1, "5 4")
     sc.line((xd, -d), (-0.06, -d), "EDGE", 1.1, "5 4")
     sc.dim((xd, 0.0), (xd, -d), "", gap=0.0)
-    sc.label((xd, -d / 2), S("z", "2") + " = r − 2a", "TEXT", "end", 15, dx=-10, dy=5)
+    sc.label((xd, -d / 2), "|" + S("z", "2") + "| = 2a − r", "TEXT", "end", 15, dx=-10, dy=5)
     return sc
 
 
@@ -70,7 +66,7 @@ def elevation():
 def top():
     sc = Scene(780, 700, (390, 350), 120)
     O = (0.0, 0.0)
-    th, r = 40.0, 1.5
+    th, r = 55.0, 1.5
     c, s = math.cos(math.radians(th)), math.sin(math.radians(th))
     P = (r * c, r * s)
     F = (r * c, 0.0)
@@ -94,11 +90,11 @@ def top():
     sc.line(O, F, "EDGE", 1.2, "5 4")
     sc.line(F, P, "EDGE", 1.2, "5 4")
     right_angle(sc, F, 180, 90, 0.1)
-    sc.label((F[0] * 0.5, 0.0), "r cos θ", "TEXT", "middle", 15, dx=-4, dy=22)
-    sc.label((F[0], P[1] * 0.55), "r sin θ", "TEXT", "start", 15, dx=10, dy=5)
+    sc.label((F[0] * 0.5, 0.0), "r cos θ", "TEXT", "middle", 15, dx=22, dy=22)
+    sc.label((F[0], P[1] * 0.8), "r sin θ", "TEXT", "start", 15, dx=10, dy=5)
     # cord = position vector
     sc.line(P, O, "HEAD", 4.5)
-    _along(sc, O, P, _r0("P1") + " = r " + ER, "HEAD", 15, 0.5, 18)
+    _along(sc, O, P, _r0("P1") + " = r " + ER, "HEAD", 14, 0.47, 17)
     sc.arc(O, 0.4, 0, th, "GREEN", 1.8, head=True)
     sc.label(_pol(O, 0.62, 14), "θ", "GREEN", "middle", 16, dy=5)
     # polar basis at P1
@@ -114,7 +110,7 @@ def top():
     # initial position and push
     sc.circle((1.0, 0.0), 0.055, "HEAD", 2.0)
     sc.vec((1.0, 0.0), (1.0, 0.55), None, "GREEN", 3.2, head=12)
-    sc.label((1.0, 0.55), S(bold("v"), "0"), "GREEN", "middle", 17, weight="700", dy=-8, dx=-1)
+    sc.label((1.0, 0.55), S(bold("v"), "0"), "GREEN", "start", 17, weight="700", dx=10, dy=4)
     sc.label((1.0, 0.0), S("P", "1") + "(0), r = a", "HEAD", "start", 15, dx=10, dy=24)
     sc.label((-2.45, -2.3), S(bold("v"), "0") + " (perpendicular to the cord):", "TEXT", "start", 14, italic=False)
     sc.label((-2.45, -2.47), "push along " + ETH + " at θ = 0", "TEXT", "start", 14, italic=False)
@@ -264,7 +260,8 @@ def band():
         sc.label(pt(xr, 0.0), txt, "TEXT", anc, 15, dx=dx, dy=dy)
     xm = 14.0 / 9.0
     sc.dotp(pt(xm, _cubic(xm)), 3.6, "BLUE")
-    sc.label(pt(1.5, 2.45), "allowed: ṙ² = g a³ f(x) / (3 r²) ≥ 0", "BLUE", "middle", 15, italic=False)
+    sc.label(pt(1.5, 2.45), "allowed: ṙ² = g P(r) / (3 r²) ≥ 0", "BLUE", "middle", 15, italic=False, dy=-20)
+    sc.label(pt(1.5, 2.45), "P(r) = a³ (−3x³ + 7x² − 4)", "BLUE", "middle", 15, italic=False)
     sc.label(pt(0.5, -1.25), "forbidden", "TEXT", "middle", 15)
     sc.label(pt(2.2, 0.95), "forbidden", "TEXT", "middle", 15)
     # radial accelerations at the turning points

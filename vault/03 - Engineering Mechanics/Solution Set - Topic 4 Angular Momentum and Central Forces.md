@@ -418,7 +418,7 @@ The free-body diagram of $P$ shows a single force, the attraction towards $O$. $
 
 > [!derivation] Exponent 3: the orbit equation
 > **Law:** first integral and equation of part (b) with the exponent 3
-> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 8.12
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 8.9; Notes.pdf, Eq. 8.11
 >
 > $$\begin{aligned}
 > W(u) &= u^2 - K\,u^2 \quad &\text{($\Phi(u) = u^2/2$)} \\
@@ -453,14 +453,17 @@ The free-body diagram of $P$ shows a single force, the attraction towards $O$. $
 > **Meaning:** the centrifugal term wins: $W$ is an upward parabola with its minimum at $u = 0$, so the particle reaches infinity along an asymptote; if it starts moving inward it is first reflected at the closest distance $1/A$.
 
 > [!derivation] Exponent 3 with K above 1: escape or fall, decided by the initial data
-> **Law:** exponential solution of the linear equation; initial conditions
-> **Source:** Notes.pdf, Eq. 8.12
+> **Law:** exponential solution of the linear equation (characteristic equation with two real roots); initial conditions
+> **Source:** Notes.pdf, Eq. 5.21; Notes.pdf, Sec. 5.3.2; Notes.pdf, Eq. 5.30
 >
 > Write $\lambda = \sqrt{K - 1}$, positive.
 >
 > $$\begin{aligned}
 > u'' - \lambda^2 u &= 0 \quad &\text{(equation with $1 - K = -\lambda^2$)} \\
-> u &= C_1e^{\lambda\theta} + C_2e^{-\lambda\theta} \quad &\text{(general solution)} \\
+> p^2e^{p\theta} - \lambda^2e^{p\theta} &= 0 \quad &\text{(trial solution $u = e^{p\theta}$ substituted, as in Eq. 5.21)} \\
+> p^2 - \lambda^2 &= 0 \quad &\text{(divided by $e^{p\theta} \ne 0$: characteristic equation)} \\
+> p &= \pm\lambda \quad &\text{(two real roots)} \\
+> u &= C_1e^{\lambda\theta} + C_2e^{-\lambda\theta} \quad &\text{(superposition of the two real exponentials, as in Eq. 5.30)} \\
 > u_0 &= C_1 + C_2 \quad &\text{(value at $\theta = 0$)} \\
 > u_0' &= \lambda\left(C_1 - C_2\right) \quad &\text{(derivative at $\theta = 0$)} \\
 > C_1 &= \tfrac12\left(u_0 + \frac{u_0'}{\lambda}\right), \quad C_2 = \tfrac12\left(u_0 - \frac{u_0'}{\lambda}\right) \quad &\text{(sum and difference of the two rows)} \\
@@ -476,9 +479,30 @@ The free-body diagram of $P$ shows a single force, the attraction towards $O$. $
 > **Units:** $[C_1] = [C_2] = [\mathrm{L^{-1}}]$; $\lambda\theta$ dimensionless
 > **Meaning:** the attraction wins over the centrifugal term: with $C_1$ positive the growing exponential dominates and $P$ spirals into $O$ (when $C_2$ is negative, $u$ starts at $u_0$ with a positive slope and keeps growing); with $C_1$ negative $u$ falls to zero at the finite angle $\theta_e$. The energy row agrees with the shape of $W$, a downward parabola with its top at $u = 0$: a negative $E^*$ means $C_1$ and $C_2$ of the same sign, both positive, and a fall into $O$.
 
+> [!derivation] Exponent 3 with K above 1: boundary case C1 equal to zero
+> **Law:** general solution of the previous box with the growing term removed; areal integral for the time; Barrow's rule
+> **Source:** Notes.pdf, Eq. 5.30; Notes.pdf, Eq. 8.7
+>
+> $$\begin{aligned}
+> \tfrac12\left(u_0 + \frac{u_0'}{\lambda}\right) &= 0 \quad &\text{(the coefficient $C_1$ of the previous box set to zero)} \\
+> u_0' &= -\lambda\,u_0 = -\sqrt{K - 1}\,u_0 \quad &\text{(solved for $u_0'$)} \\
+> C_2 &= u_0 \quad &\text{($C_2 = u_0 - C_1$)} \\
+> u &= u_0\,e^{-\lambda\theta} \quad &\text{(general solution with $C_1 = 0$)} \\
+> E^* &= 0 \quad &\text{($E^* = -4\lambda^2C_1C_2$, previous box)} \\
+> dt &= \frac{d\theta}{h\,u^2} \quad &\text{(areal integral: $\dot\theta = h/r^2 = h\,u^2$)} \\
+> &= \frac{e^{2\lambda\theta}}{h\,u_0^2}\,d\theta \quad &\text{($u$ substituted)} \\
+> t(\theta) &= \left[\frac{e^{2\lambda\bar\theta}}{2\lambda\,h\,u_0^2}\right]_0^\theta \quad &\text{(antiderivative of $e^{2\lambda\bar\theta}$; Barrow's rule from $0$ to $\theta$)} \\
+> &= \frac{e^{2\lambda\theta} - 1}{2\lambda\,h\,u_0^2} \quad &\text{(limits substituted)}
+> \end{aligned}$$
+>
+> $$\boxed{u_0' = -\sqrt{K - 1}\,u_0: \ u = u_0\,e^{-\lambda\theta} \to 0 \ \text{and} \ t \to \infty \ \text{as} \ \theta \to \infty: \ \text{outward spiral that reaches infinity only asymptotically}}$$
+>
+> **Units:** $[\lambda\,h\,u_0^2] = [\mathrm{L^2\,T^{-1}}][\mathrm{L^{-2}}] = [\mathrm{T^{-1}}]$, so $[t] = [\mathrm{T}]$
+> **Meaning:** on the boundary between fall and escape the particle sits on top of the flat-topped barrier of zero level: it spirals outwards with infinitely many turns and never arrives at a finite angle or a finite time; it neither falls nor oscillates.
+
 > [!derivation] Exponent 3 with K equal to 1: reciprocal spiral
 > **Law:** equation of part (b) with the linear term cancelled; Barrow's rule twice
-> **Source:** Notes.pdf, Eq. 8.12
+> **Source:** Notes.pdf, Eq. 8.9; Notes.pdf, Eq. 8.11
 >
 > $$\begin{aligned}
 > u'' &= 0 \quad &\text{(equation with $1 - K = 0$)} \\
@@ -534,6 +558,28 @@ The free-body diagram of $P$ shows a single force, the attraction towards $O$. $
 > **Units:** $[E^*] = [W_{\max}] = [\mathrm{L^{-2}}]$
 > **Meaning:** a particle below the barrier stays on its side: outside it escapes (after a reflection at $u_1$ if it was moving in), inside it falls to $O$ (after a reflection at $u_2$ if it was moving out). Above the barrier nothing reflects it, so it escapes if it moves outward and falls if it moves inward. On the separatrix $E^* = W_{\max}$ the cases moving towards $u_b$ approach the unstable circle without reaching it.
 
+> [!derivation] Exponent 4 on the separatrix: asymptotic approach to the unstable circle
+> **Law:** first integral with the level of the top of the barrier; factorisation of the double root; Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.28; Notes.pdf, Eq. 8.7
+>
+> $$\begin{aligned}
+> u'^2 &= W_{\max} - W(u) \quad &\text{(first integral with $E^* = W_{\max}$)} \\
+> &= \frac{1}{3K^2} - u^2 + \tfrac23 K\,u^3 \quad &\text{($W_{\max}$ and $W$ of the shape box)} \\
+> &= \tfrac23 K\left(u^3 - \frac{3}{2K}\,u^2 + \frac{1}{2K^3}\right) \quad &\text{(common factor $\tfrac23 K$)} \\
+> \left(u - u_b\right)^2\left(u + \tfrac12 u_b\right) &= u^3 - \tfrac32 u_b\,u^2 + \tfrac12 u_b^3 \quad &\text{(product expanded)} \\
+> u'^2 &= \tfrac23 K\left(u - u_b\right)^2\left(u + \tfrac12 u_b\right) \quad &\text{(the bracket is this product with $u_b = 1/K$: a double root at $u_b$)} \\
+> u' &= -\left(u - u_b\right)\sqrt{\tfrac23 K\left(u + \tfrac12 u_b\right)} \quad &\text{(branches moving towards $u_b$: $u' \gt 0$ below $u_b$, $u' \lt 0$ above it)} \\
+> \tfrac23 K\left(u_b + \tfrac12 u_b\right) &= K\,u_b = 1 \quad &\text{(the root at $u = u_b$)} \\
+> \theta - \theta_* &= -\int_{u_*}^{u}\frac{d\bar u}{\left(\bar u - u_b\right)\sqrt{\tfrac23 K\left(\bar u + \tfrac12 u_b\right)}} \quad &\text{(separation of variables; Barrow's rule from a point $u_*$ of the branch)} \\
+> \theta - \theta_* &\approx -\left[\ln\left|\bar u - u_b\right|\right]_{u_*}^{u} \to +\infty \ \text{as} \ u \to u_b \quad &\text{(near $u_b$ the square root tends to 1: logarithmic divergence)} \\
+> dt &= \frac{d\theta}{h\,u^2} \ge \frac{d\theta}{h\,\max\left(u_0, u_b\right)^2} \quad &\text{(areal integral; $u$ stays between $u_0$ and $u_b$)}
+> \end{aligned}$$
+>
+> $$\boxed{E^* = W_{\max}, \ \left(u_0 \lt u_b,\ u_0' \gt 0\right) \text{ or } \left(u_0 \gt u_b,\ u_0' \lt 0\right): \ u \to u_b = \frac{h^2}{\mu} \ \text{as} \ \theta \to \infty \ \text{and} \ t \to \infty; \ \text{none of (i), (ii), (iii)}}$$
+>
+> **Units:** $[K\,u^3] = [\mathrm{L}][\mathrm{L^{-3}}] = [\mathrm{L^{-2}}] = [u'^2]$; $[K\,u_b] = [1]$
+> **Meaning:** on the separatrix the particle climbs to the top of the barrier and approaches the unstable circular orbit of radius $\mu/h^2$ with infinitely many turns, never reaching it in a finite time: it neither escapes, nor falls, nor oscillates.
+
 #### Answers
 
 | Part of the statement | Answer |
@@ -542,9 +588,9 @@ The free-body diagram of $P$ shows a single force, the attraction towards $O$. $
 | (b) Equation for $u(\theta)$ | $u'' + u = \dfrac{\mu}{h^2}\,u^{\alpha-2}$, with $h = r^2\dot\theta$ constant |
 | (c) First integral | $u'^2 + W(u) = E^*$, $W(u) = u^2 - \dfrac{2\mu}{h^2}\Phi(u)$, $\Phi = \dfrac{u^{\alpha-1}}{\alpha - 1}$ ($\alpha \ne 1$) or $\ln(u/u_0)$ ($\alpha = 1$), $E^* = u_0'^2 + W(u_0)$ ($= 2E_0/(mh^2)$ for $\alpha = 2, 3, 4$); motion only where $W(u) \le E^*$, turning points at $W(u) = E^*$ |
 | (c) $\alpha = 1$ | (i) never; (ii) never; (iii) always, between the two roots of $u^2 - \frac{2\mu}{h^2}\ln(u/u_0) = u_0'^2 + u_0^2$ (circle $r = h/\sqrt\mu$ if $u_0 = \sqrt\mu/h$, $u_0' = 0$) |
-| (c) $\alpha = 2$ | $u = \frac{\mu}{h^2}[1 + e\cos(\theta - \theta_p)]$, $e = \sqrt{1 + E^*h^4/\mu^2}$, $E^* = u_0'^2 + u_0^2 - 2\frac{\mu}{h^2}u_0$: (i) iff $E^* \ge 0$; (ii) never; (iii) iff $-\mu^2/h^4 \lt E^* \lt 0$, between $\frac{\mu}{h^2}(1 \mp e)$ |
-| (c) $\alpha = 3$ | $\mu/h^2 \lt 1$: (i) always. $\mu/h^2 \gt 1$: (ii) iff $u_0' \gt -\sqrt{\mu/h^2 - 1}\,u_0$, (i) iff $u_0' \lt -\sqrt{\mu/h^2 - 1}\,u_0$. $\mu/h^2 = 1$: (ii) if $u_0' \gt 0$, (i) if $u_0' \lt 0$, circle if $u_0' = 0$. (iii) never |
-| (c) $\alpha = 4$ | with $E^* = u_0'^2 + u_0^2 - \frac{2\mu}{3h^2}u_0^3$, $W_{\max} = \frac{h^4}{3\mu^2}$, $u_b = \frac{h^2}{\mu}$: (i) if $0 \lt E^* \lt W_{\max}$ and $u_0 \lt u_b$, or $E^* \ge W_{\max}$ and $u_0' \lt 0$ (with $u_0 \lt u_b$ when $E^* = W_{\max}$); (ii) if $E^* \le 0$, or $0 \lt E^* \lt W_{\max}$ and $u_0 \gt u_b$, or $E^* \ge W_{\max}$ and $u_0' \gt 0$ (with $u_0 \gt u_b$ when $E^* = W_{\max}$); (iii) never |
+| (c) $\alpha = 2$ | $u = \frac{\mu}{h^2}[1 + e\cos(\theta - \theta_p)]$, $e = \sqrt{1 + E^*h^4/\mu^2}$, $E^* = u_0'^2 + u_0^2 - 2\frac{\mu}{h^2}u_0$: (i) iff $E^* \ge 0$; (ii) never; (iii) iff $-\mu^2/h^4 \lt E^* \lt 0$, between $\frac{\mu}{h^2}(1 \mp e)$; circle $u = \mu/h^2$ iff $E^* = -\mu^2/h^4$ |
+| (c) $\alpha = 3$ | $\mu/h^2 \lt 1$: (i) always. $\mu/h^2 \gt 1$: (ii) iff $u_0' \gt -\sqrt{\mu/h^2 - 1}\,u_0$, (i) iff $u_0' \lt -\sqrt{\mu/h^2 - 1}\,u_0$; boundary $u_0' = -\sqrt{\mu/h^2 - 1}\,u_0$: $u = u_0e^{-\sqrt{\mu/h^2 - 1}\,\theta}$, outward spiral reaching infinity only as $\theta \to \infty$ (infinite time). $\mu/h^2 = 1$: (ii) if $u_0' \gt 0$, (i) if $u_0' \lt 0$, circle if $u_0' = 0$. (iii) never |
+| (c) $\alpha = 4$ | with $E^* = u_0'^2 + u_0^2 - \frac{2\mu}{3h^2}u_0^3$, $W_{\max} = \frac{h^4}{3\mu^2}$, $u_b = \frac{h^2}{\mu}$: (i) if $0 \lt E^* \lt W_{\max}$ and $u_0 \lt u_b$, or $E^* \ge W_{\max}$ and $u_0' \lt 0$ (with $u_0 \lt u_b$ when $E^* = W_{\max}$); (ii) if $E^* \le 0$, or $0 \lt E^* \lt W_{\max}$ and $u_0 \gt u_b$, or $E^* \ge W_{\max}$ and $u_0' \gt 0$ (with $u_0 \gt u_b$ when $E^* = W_{\max}$); separatrix $E^* = W_{\max}$ with $u_0 \lt u_b$, $u_0' \gt 0$ or $u_0 \gt u_b$, $u_0' \lt 0$: asymptotic approach to the unstable circle $u = u_b$ (none of the three); circle if $u_0 = u_b$, $u_0' = 0$; (iii) never |
 
 **Check against the official key:** Problems.pdf, p. 76 lists item 42 with no answer, so there is no key to compare with. Independent checks: the first integral was obtained from the equation of part (b) itself and agrees with the energy of part (a) (check box above); the classification is confirmed by integrating the equation of part (b) numerically (fourth-order Runge-Kutta, step $10^{-4}$ rad, the ratio $\mu/h^2$ set to 1 unless stated, "blow-up" meaning $u$ above $10^6$):
 
@@ -590,7 +636,34 @@ The free-body diagram of $P$ shows a single force, the attraction towards $O$. $
 > $$\boxed{h = 0: \ \text{motion on a fixed line through } O; \ \text{(i) only if } \alpha \gt 1,\ \dot r_0 \gt 0,\ E_0 \ge 0; \ \text{otherwise (ii)}; \ \text{(iii) never}}$$
 >
 > **Units:** $[\ddot r] = [\mu\,r^{-\alpha}] = [\mathrm{L\,T^{-2}}]$; $[\dot r^2] = [V_0/m] = [\mathrm{L^2\,T^{-2}}]$
-> **Meaning:** without angular momentum there is no centrifugal barrier: the acceleration always points to $O$. Moving inward, the particle reaches $O$; moving outward, it escapes only if its energy reaches the value zero of the potential at infinity (impossible for the exponent 1, whose potential is unbounded), and otherwise it stops and falls back to $O$ (Notes.pdf, Sec. 4.8.1, property 5).
+> **Meaning:** without angular momentum there is no centrifugal barrier: the acceleration always points to $O$. Moving inward, the particle reaches $O$; moving outward, it escapes only if its energy reaches the value zero of the potential at infinity (impossible for the exponent 1, whose potential is unbounded), and otherwise it stops and falls back to $O$, because the radial acceleration of the second row is negative at every distance.
+
+> [!warning] Erratum to Notes.pdf, Sec. 4.8.1, property 5
+> Property 5 of the list of properties of central force motion in Notes.pdf, Sec. 4.8.1 states that the particle $P$ can never reach $O$ unless the angular momentum $\mathbf H_{O,0}$ is zero. The list is written for any central force, but the property holds only under an extra hypothesis: the effective potential $W$ must grow without bound as $u$ grows, that is, the centrifugal barrier must dominate the attraction near $O$. For the power law of this problem that is the case for every exponent below 3 (gravity, the exponent 2 of Notes.pdf, Ch. 8, included) and for the exponent 3 with $K$ below 1. With nonzero angular momentum the particle does reach $O$, in a finite time, for the exponent 3 with $K$ of at least 1 and for the exponent 4 (boxes of part (c) and the box below). Zero angular momentum is not sufficient either: the radial motion of the previous box escapes for some data.
+
+> [!derivation] Property 5 tested on the power law
+> **Law:** first integral of part (c); behaviour of W for large u; time along the orbit from the areal integral; Barrow's rule
+> **Source:** Notes.pdf, Sec. 4.8.1; Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 8.7
+>
+> $$\begin{aligned}
+> u'^2 &= E^* - W(u), \quad W(u) = u^2 - 2K\,\Phi(u) \quad &\text{(first integral of part (c))} \\
+> \alpha \lt 3:\quad \lim_{u\to\infty}W(u) &= +\infty \quad &\text{($u^2$ grows faster than $u^{\alpha-1}$, and than $\ln u$ for $\alpha = 1$)} \\
+> \alpha = 3:\quad W(u) &= \left(1 - K\right)u^2 \quad &\text{(box of the exponent 3)} \\
+> \alpha = 3,\ K \lt 1:\quad \lim_{u\to\infty}W(u) &= +\infty \quad &\text{(positive coefficient)} \\
+> \alpha \gt 3:\quad \lim_{u\to\infty}W(u) &= \lim_{u\to\infty}\left(-\frac{2K\,u^{\alpha-1}}{\alpha - 1}\right) = -\infty \quad &\text{(the highest power dominates)} \\
+> \alpha = 3,\ K = 1,\ u_0' \gt 0:\quad u &= u_0 + u_0'\,\theta \quad &\text{(box of $K$ equal to 1)} \\
+> dt &= \frac{d\theta}{h\,u^2} \quad &\text{(areal integral: $\dot\theta = h\,u^2$)} \\
+> t_O &= \int_0^\infty\frac{d\theta}{h\left(u_0 + u_0'\theta\right)^2} \quad &\text{(time to reach $u \to \infty$)} \\
+> &= \left[-\frac{1}{h\,u_0'\left(u_0 + u_0'\theta\right)}\right]_0^\infty \quad &\text{(antiderivative, with $d(u_0 + u_0'\theta) = u_0'\,d\theta$; Barrow's rule)} \\
+> &= \frac{1}{h\,u_0\,u_0'} \quad &\text{(limits substituted)} \\
+> \alpha = 3,\ K \gt 1,\ C_1 \gt 0:\quad \frac{1}{h\,u^2} &\le \frac{4\,e^{-2\lambda\theta}}{h\,C_1^2} \ \text{for large } \theta \quad &\text{($u \ge \tfrac12 C_1e^{\lambda\theta}$ once $C_2e^{-\lambda\theta}$ is small: the integral of $dt$ converges)} \\
+> \alpha = 4,\ \text{cases (ii)}:\quad \int^{\infty}\frac{du}{u'} &\approx \int^{\infty}\frac{du}{\sqrt{\tfrac23 K}\,u^{3/2}} \lt \infty \quad &\text{($u'^2 \approx \tfrac23 K u^3$ for large $u$: $u \to \infty$ at a finite angle, so in a finite time)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{array}{l} \text{property 5 holds when } W \to +\infty \text{ as } u \to \infty: \ \alpha \lt 3, \text{ or } \alpha = 3 \text{ with } K \lt 1; \cr h \ne 0 \text{ and } P \text{ reaches } O \text{ in a finite time: } \alpha = 3,\ K \ge 1,\ u_0' \gt -\sqrt{K - 1}\,u_0; \ \alpha = 4 \text{ in the cases (ii) of its box} \end{array}}$$
+>
+> **Units:** $[t_O] = [h\,u_0\,u_0']^{-1} = \left([\mathrm{L^2\,T^{-1}}][\mathrm{L^{-1}}][\mathrm{L^{-1}}]\right)^{-1} = [\mathrm{T}]$
+> **Meaning:** the angular momentum protects $O$ only if the centrifugal term, which grows as the square of $u$ in $W$, beats the attraction; an attraction as strong as the inverse cube with $K$ of at least 1, or stronger, overcomes it and the particle spirals into $O$ in a finite time, as for $K$ equal to 1, where the time is finite even though the angle grows without bound.
 
 ---
 
@@ -629,7 +702,8 @@ Two point particles $P_1$ and $P_2$ of mass $m$ are tied to the ends of a massle
 > $$\begin{aligned}
 > \mathbf e_r &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_r$)} \\
 > \mathbf e_\theta &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_\theta$: opposite leg on $-\mathbf i$)} \\
-> \mathbf e_r\times\mathbf e_\theta &= \left(\cos^2\theta + \sin^2\theta\right)\mathbf k = \mathbf k \quad &\text{(right-handed; $\mathbf i\times\mathbf j = \mathbf k$, $\mathbf j\times\mathbf i = -\mathbf k$)} \\
+> \mathbf e_r\times\mathbf e_\theta &= \cos^2\theta\,\mathbf i\times\mathbf j - \sin^2\theta\,\mathbf j\times\mathbf i \quad &\text{(distributive law; $\mathbf i\times\mathbf i = \mathbf j\times\mathbf j = \mathbf 0$)} \\
+> &= \left(\cos^2\theta + \sin^2\theta\right)\mathbf k = \mathbf k \quad &\text{(right-handed; $\mathbf i\times\mathbf j = \mathbf k$, $\mathbf j\times\mathbf i = -\mathbf k$)} \\
 > \det[{}_0R_1] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expansion along the third row)} \\
 > \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\theta + \sin^2\theta = 1 \quad &\text{(row 1 times row 1)} \\
 > \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\theta\sin\theta - \sin\theta\cos\theta = 0 \quad &\text{(row 1 times row 2; row 3 is the unit row of $\mathbf k$)}
@@ -1046,7 +1120,7 @@ The little Prince throws a baobab seed from the equator of his spherical asteroi
 | Fixed basis | $\mathcal B_0 = \{\mathbf i, \mathbf j, \mathbf k\}$: $\mathbf i$ from $O$ through the launch point; $\mathbf j$ along the horizontal part of the launch velocity; $\mathbf k = \mathbf i\times\mathbf j$, perpendicular to the plane of the motion |
 | Polar basis | $\mathcal B_1 = \{\mathbf e_r, \mathbf e_\theta, \mathbf k\}$, $\mathcal B_0$ turned by $\theta$ about $\mathbf k$; $\mathbf e_r$ from $O$ towards the seed $P$ (Notes.pdf, Eq. 8.2) |
 | Coordinates | $r$, the distance $OP$; $\theta$, the polar angle of $P$ from $\mathbf i$, positive about $\mathbf k$ |
-| Hypotheses | spherically symmetric asteroid that attracts like a point mass $M$ at $O$ (the Earth of Notes.pdf, Ch. 8 is modelled the same way); seed mass $m \ll M$, so the acceleration of $O$ is neglected and $S_0$ is inertial; the asteroid does not rotate, so the launch velocity measured by the Prince is the velocity in $S_0$; no atmosphere; between launch and landing the seed moves outside the asteroid (checked below) |
+| Hypotheses | modelling hypothesis: the asteroid is modelled as a point mass $M$ at $O$ for every distance $r$ not smaller than $R$, as the Earth is modelled as a point particle in Notes.pdf, Ch. 8 (Fig. 8.1); seed mass $m \ll M$, so the acceleration of $O$ is neglected and $S_0$ is inertial; the asteroid does not rotate, so the launch velocity measured by the Prince is the velocity in $S_0$; no atmosphere; between launch and landing the seed moves outside the asteroid (checked below) |
 | Constraints | none in flight: the seed is a free particle; the central force keeps it in the plane of $\mathbf i$ and $\mathbf j$ (Notes.pdf, Sec. 4.8.1) |
 | Degrees of freedom | 3 in space; 2 in the plane of the motion ($r$, $\theta$) |
 | Data | $R$ [m], $M$ [kg], $G$ [m$^3$ kg$^{-1}$ s$^{-2}$], $\gamma$ of 60 degrees, apocentre $r_a$ equal to $3R$; gravitational parameter $\mu = GM$ [m$^3$ s$^{-2}$] |
@@ -1070,7 +1144,8 @@ The little Prince throws a baobab seed from the equator of his spherical asteroi
 > $$\begin{aligned}
 > \mathbf e_r &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_r$)} \\
 > \mathbf e_\theta &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(right triangle of $\mathbf e_\theta$: opposite leg on $-\mathbf i$)} \\
-> \mathbf e_r\times\mathbf e_\theta &= \left(\cos^2\theta + \sin^2\theta\right)\mathbf k = \mathbf k \quad &\text{(right-handed; $\mathbf i\times\mathbf j = \mathbf k$, $\mathbf j\times\mathbf i = -\mathbf k$)} \\
+> \mathbf e_r\times\mathbf e_\theta &= \cos^2\theta\,\mathbf i\times\mathbf j - \sin^2\theta\,\mathbf j\times\mathbf i \quad &\text{(distributive law; $\mathbf i\times\mathbf i = \mathbf j\times\mathbf j = \mathbf 0$)} \\
+> &= \left(\cos^2\theta + \sin^2\theta\right)\mathbf k = \mathbf k \quad &\text{(right-handed; $\mathbf i\times\mathbf j = \mathbf k$, $\mathbf j\times\mathbf i = -\mathbf k$)} \\
 > \det[{}_0R_1] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expansion along the third row)} \\
 > \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\theta + \sin^2\theta = 1 \quad &\text{(row 1 times row 1)} \\
 > \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\theta\sin\theta - \sin\theta\cos\theta = 0 \quad &\text{(row 1 times row 2; row 3 is the unit row of $\mathbf k$)}
@@ -1338,6 +1413,30 @@ The free-body diagram of the seed in flight shows only the attraction of the ast
 >
 > **Units:** $[\mu/a_o] = [\mathrm{L^2\,T^{-2}}]$
 > **Meaning:** the energy computed from the launch data equals the energy that Kepler's problem assigns to an ellipse with these apsides.
+
+> [!derivation] Check: position of the apocentre and of the landing point
+> **Law:** orbit equation of Kepler's problem at the launch point; symmetry of the conic about its apse line
+> **Source:** Notes.pdf, Eq. 8.10; Notes.pdf, Eq. 8.13; Notes.pdf, Eq. 8.14
+>
+> Write $\nu = \theta + \psi$ for the angle measured from the pericentre, so that $\nu_0 = \psi$ at the launch point.
+>
+> $$\begin{aligned}
+> \frac1R &= \frac{1}{p}\left(1 + e\cos\nu_0\right) \quad &\text{(Eq. 8.13 at launch, $p = h^2/\mu$)} \\
+> \cos\nu_0 &= \frac{p/R - 1}{e} \quad &\text{(solved for the cosine)} \\
+> &= \frac{12/35 - 1}{31/35} = -\frac{23}{31} \quad &\text{($p = 12R/35$, $e = 31/35$)} \\
+> \dot r(0) &= h\,\frac{e}{p}\sin\nu_0 \quad &\text{($\dot r = -h\,u'$, Eq. 8.10, with $u'$ of the conic check box)} \\
+> \sin\nu_0 &\gt 0 \quad &\text{(the seed climbs at launch: $\dot r(0) = v_0\sin\gamma \gt 0$)} \\
+> \sin\nu_0 &= \sqrt{1 - \frac{529}{961}} = \frac{\sqrt{432}}{31} = \frac{12\sqrt3}{31} \quad &\text{(positive root)} \\
+> \nu_0 &= \arccos\left(-\frac{23}{31}\right) = 137.9^\circ \quad &\text{(second quadrant: negative cosine, positive sine)} \\
+> \theta_a &= 180^\circ - \nu_0 = 42.1^\circ \quad &\text{(apocentre at $\nu = 180^\circ$)} \\
+> \nu_L &= 360^\circ - \nu_0 \quad &\text{(second root of $r = R$: the conic is symmetric about its apse line)} \\
+> \theta_L &= \nu_L - \nu_0 = 2\,\theta_a = 84.2^\circ \quad &\text{(angle swept from launch to landing)}
+> \end{aligned}$$
+>
+> $$\boxed{\cos\nu_0 = -\frac{23}{31}, \quad \nu_0 = 137.9^\circ, \quad \text{apocentre at } \theta_a = 42.1^\circ, \quad \text{landing at } \theta_L = 84.2^\circ}$$
+>
+> **Units:** $p/R$ and $e$ dimensionless; angles in degrees
+> **Meaning:** the seed reaches its largest distance after turning $42.1^\circ$ about the centre (the value found by the numerical integration) and lands, by symmetry, $84.2^\circ$ away from the Prince; the sine of the launch anomaly agrees with the radial rate of the conic check box, whose $u_0'$ gives the same $12\sqrt3/31$.
 
 > [!derivation] Limiting cases of the general launch speed
 > **Law:** the same two first integrals with the apocentre and the launch angle kept as symbols

@@ -44,7 +44,8 @@ def launch():
     # local horizontal (tangent plane), dashed through L
     sc.line((0.0, -1.2), (0.0, 1.95), "EDGE", 1.3, "7 5")
     sc.label((0.0, -1.2), "local horizontal (tangent plane)", "TEXT", "start", 14, italic=False, dx=10, dy=4)
-    sc.label((0.0, hz / 2), V0 + " cos γ (adjacent, horizontal)", "TEXT", "end", 15, italic=False, dx=-34, dy=5)
+    sc.label((0.0, 0.93), V0 + " cos γ", "TEXT", "start", 15, italic=False, dx=14)
+    sc.label((0.0, 0.75), "(adjacent, horizontal)", "TEXT", "start", 13, italic=False, dx=12)
     sc.label((vt / 2 + 0.2, hz), V0 + " sin γ (opposite, vertical)", "TEXT", "middle", 15, italic=False, dy=-12)
     # basis at L
     sc.vec(L, (1.4, 0.0), None, "BLUE", 2.8, head=11)
@@ -56,7 +57,7 @@ def launch():
     sc.label(T, V0, "GREEN", "start", 18, weight="700", dx=14, dy=22)
     # angle gamma between e_theta and v0 (clockwise from e_theta)
     sc.arc(L, 0.55, 90, 30, "GREEN", 1.8, head=True)
-    sc.label(_pol(L, 0.92, 62), "γ = 60°", "GREEN", "middle", 15, italic=False, dy=5)
+    sc.label(_pol(L, 0.74, 44), "γ = 60°", "GREEN", "middle", 15, italic=False, dy=5)
     sc.dotp(L, 6.0)
     sc.label(L, "launch point, r = R", "HEAD", "start", 16, dx=12, dy=26)
     axis_out(sc, (-2.4, 1.95), None)
@@ -117,8 +118,6 @@ def fbd():
         sc.label(e, ER, "BLUE", "start", 15, weight="700", dx=8, dy=14)
     sc.vec(Q, tip, None, "GREEN", 3.4, head=12)
     sc.label(tip, S(bold("v"), "0", "P"), "GREEN", "start", 17, weight="700", dx=10, dy=-4)
-    sc.arc(Q, 0.4, th, ang, "GREEN", 1.4, head=True)
-    sc.label(_pol(Q, 0.62, th + 38), "70°", "GREEN", "middle", 14, italic=False, dy=5)
     sc.dotp(Q, 4.0)
     sc.note((-1.0, -1.7), "inertial frame (m much smaller than M): no inertia forces; no constraint in flight", "TEXT", "start", 13)
     return sc
@@ -186,7 +185,7 @@ def orbit():
     vt = (-math.sin(ad), math.cos(ad))
     tipv = (A[0] + 0.16 * vt[0], A[1] + 0.16 * vt[1])
     sc.vec(A, tipv, None, "GREEN", 2.8, head=8)
-    sc.label(A, S("v", "a") + " = " + V0 + " / 6", "GREEN", "middle", 15, dx=-8, dy=-34)
+    sc.label(A, S("v", "a") + " = " + S("v", "0") + " / 6", "GREEN", "middle", 15, dx=-8, dy=-34)
     # 3R dimension (offset from the dash-dot axis)
     nrm = (math.sin(ad), -math.cos(ad))
     off = 0.12

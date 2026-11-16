@@ -12,7 +12,8 @@ TH = 35.0
 CT, ST = math.cos(math.radians(TH)), math.sin(math.radians(TH))
 EC, AA = 0.5, 2.2                      # sample orbit: eccentricity, semi-major axis
 PP = AA * (1 - EC * EC)                # semi-latus rectum 1.65
-RP_ = PP / (1 + EC * CT)               # r of P on the sample ellipse
+W0 = math.radians(70.0)                # direction of the pericentre of the sample ellipse
+RP_ = PP / (1 + EC * math.cos(math.radians(TH) - W0))   # r of P on the sample ellipse
 DARK = "#4b5563"
 
 
@@ -51,34 +52,33 @@ def plane():
     sc.line(O, (-3.0, 0.0), "EDGE", 1.4)
     sc.line(O, (0.0, -3.0), "EDGE", 1.4)
     # sample orbit (focus at O, pericentre on +x)
-    sc.curve(lambda t: (PP / (1 + EC * math.cos(t)) * math.cos(t), PP / (1 + EC * math.cos(t)) * math.sin(t)),
+    sc.curve(lambda t: (PP / (1 + EC * math.cos(t - W0)) * math.cos(t), PP / (1 + EC * math.cos(t - W0)) * math.sin(t)),
              0.0, 2 * math.pi, n=240, col="EDGE", w=1.4, dash="6 5")
     ang = math.radians(152)
-    q = (PP / (1 + EC * math.cos(ang)) * math.cos(ang), PP / (1 + EC * math.cos(ang)) * math.sin(ang))
-    away(sc, q, (-AA * EC, 0.0), "orbit (sample)", "TEXT", 14, "middle", 14)
+    q = (PP / (1 + EC * math.cos(ang - W0)) * math.cos(ang), PP / (1 + EC * math.cos(ang - W0)) * math.sin(ang))
+    away(sc, q, (-AA * EC * math.cos(W0), -AA * EC * math.sin(W0)), "orbit (sample)", "TEXT", 14, "middle", 14)
     # legs and right angle
     sc.line(O, F, "EDGE", 1.2, "5 4")
     sc.line(F, P, "EDGE", 1.2, "5 4")
     right_angle(sc, F, 180, 90, 0.1)
     sc.label((F[0] / 2, 0.0), "r cos θ", "TEXT", "middle", 15, dx=12, dy=22)
-    sc.label((F[0], P[1] / 2), "r sin θ", "TEXT", "start", 15, dx=24, dy=5)
+    sc.label((F[0], P[1] / 2), "r sin θ", "TEXT", "start", 15, dx=56, dy=16)
     # position vector and its label above the segment
     sc.vec(O, P, None, "HEAD", 3.6, head=13)
     _along(sc, O, P, _r0() + " = r " + ER, "HEAD", 15, 0.46, 20)
-    sc.label((0.78 * P[0], 0.78 * P[1]), "r", "HEAD", "middle", 16, dx=ST * 14, dy=CT * 14 + 5)
     # angle at O
     sc.arc(O, 0.42, 0, TH, "GREEN", 1.8, head=True)
     sc.label(_pol(O, 0.66, 12), "θ", "GREEN", "middle", 16, dy=5)
     # polar basis at P
-    L = 0.9
+    L = 0.65
     tr = (P[0] + L * CT, P[1] + L * ST)
     tt = (P[0] - L * ST, P[1] + L * CT)
     sc.vec(P, tr, None, "BLUE", 2.6, head=11)
     sc.vec(P, tt, None, "BLUE", 2.6, head=11)
     sc.label(tr, ER, "BLUE", "start", 17, weight="700", dx=10, dy=-4)
-    sc.label(tt, ETH, "BLUE", "end", 17, weight="700", dx=-14, dy=-10)
+    sc.label(tt, ETH, "BLUE", "start", 17, weight="700", dx=10, dy=-6)
     sc.dotp(P, 5.5)
-    sc.label(P, "P", "HEAD", "start", 17, dx=12, dy=22)
+    sc.label(P, "P", "HEAD", "start", 17, dx=34, dy=20)
     # O, k and the sense of theta
     axis_out(sc, O, None)
     sc.label(O, bold("k") + ", along " + S(bold("H"), "O"), "HEAD", "end", 16, dx=-16, dy=-10)
@@ -112,11 +112,10 @@ def fbd():
     er = (CT, ST)
     et = (-ST, CT)
     P = (r * CT, r * ST)
-    # O: cross, the angular momentum out of the paper
-    sc.line((-0.27, 0.0), (0.27, 0.0), "EDGE", 1.6)
-    sc.line((0.0, -0.27), (0.0, 0.27), "EDGE", 1.6)
+    # O: the angular momentum out of the paper
     axis_out(sc, (0.0, -0.0), None, r_px=14)
-    sc.label(O, S(bold("H"), "O") + " = m r × v (constant)", "HEAD", "start", 15, dx=-8, dy=44)
+    sc.label(O, S(bold("H"), "O,0") + " = m " + S(bold("r"), "0", "P") + " × " + S(bold("v"), "0", "P") + " (constant)",
+             "HEAD", "start", 15, dx=-8, dy=44)
     sc.label(O, "O", "TEXT", "end", 16, dx=-32, dy=6)
     sc.line(O, P, "EDGE", 1.2, "6 5")
     # attraction
@@ -147,8 +146,6 @@ def fbd():
     sc.label(tip, S(bold("v"), "0", "P") , "GREEN", "start", 17, weight="700", dx=10, dy=-4)
     sc.label((Q[0] + ve[0], Q[1] + ve[1]), "ṙ " + ER, "GREEN", "start", 15, dx=10, dy=18)
     sc.label((Q[0] + vt[0], Q[1] + vt[1]), "r θ̇ " + ETH, "GREEN", "end", 15, dx=-8, dy=18)
-    sc.arc(Q, 0.45, TH, TH + 60, "GREEN", 1.4, head=True)
-    sc.label(_pol(Q, 0.64, TH + 40), "60°", "GREEN", "middle", 14, italic=False, dy=5)
     sc.dotp(Q, 4.0)
     sc.note((-1.0, -1.05), "inertial frame: no inertia forces; no constraint", "TEXT", "start", 13)
     return sc
@@ -244,7 +241,7 @@ def weff():
     for rt in r1:
         p.dot(rt, 1.5, ORANGE)
     sc.label(p.pt(0.5 * (r1[0] + r1[1]), 1.5), "(iii) bounded", ORANGE, "middle", 14, italic=False, dy=-12)
-    sc.label(p.pt(2.4, 1.5), "E* = 1.5", ORANGE, "end", 13, italic=False, dy=16)
+    sc.label(p.pt(2.4, 1.5), "E*", ORANGE, "end", 13, italic=False, dy=16)
     # ---- alpha = 2
     p = _Panel(sc, 470, 400, pw, ph - 40, 2.6, -1.35, 1.35, "α = 2")
     f2 = lambda u: u * u - 2 * u
