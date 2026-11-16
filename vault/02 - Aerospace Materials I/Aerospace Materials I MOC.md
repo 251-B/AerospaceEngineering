@@ -250,16 +250,24 @@ tags:
 
 ### 🧪 Block V: Advanced Structural Materials: Ceramics, Polymers, Composites and Adhesives
 
-#### Topic 8: Ceramic Materials and Processing (planned)
+#### [[02 - Aerospace Materials I/Topic 8 - Ceramic Materials|Topic 8: Ceramic Materials]] (complete: Sessions 16 and 18 and the 7 problems of the sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-8-ceramics.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-8-ceramics.html`
 * **Official Sources:**
-  * Theory: `Session 16 T8 Ceramic materials.pdf`, `Session 18 T8 Processing of ceramic materials.pdf`
-  * Problems: `Problems T8_CeramicMaterials.pdf`
+  * Theory: `Session 16 T8 Ceramic materials.pdf` (Slides 1-32), `Session 18 T8 Processing of ceramic materials.pdf` (Slides 1-43)
+  * Problems: `Problems T8_CeramicMaterials.pdf` (problems 1-7)
+* **Official Solved Problems (7 of 7):**
+  * [[02 - Aerospace Materials I/Problem - T8-01 Zinc Blende Cell Density Packing and Densities|Problem T8-01: Zinc Blende (ZnS): Cell Volume, Density, Packing Factor, Linear and Planar Densities]]
+  * [[02 - Aerospace Materials I/Problem - T8-02 Perovskite CaTiO3 Cell Packing and Densities|Problem T8-02: Perovskite (CaTiO₃): Cell Volume, Packing Factor, Linear, Planar and Volumetric Densities]]
+  * [[02 - Aerospace Materials I/Problem - T8-03 Orthorhombic Perovskite ABC3 from Two Planes|Problem T8-03: Crystal System, Stoichiometry, Density and Structure of an AxByCz Ceramic from Two Planes]]
+  * [[02 - Aerospace Materials I/Problem - T8-04 Fluorite Structure AB2 from Two Planes|Problem T8-04: Fluorite-Type AxBy Ceramic from Two Planes: Structure, Stoichiometry, Density and Packing Factor]]
+  * [[02 - Aerospace Materials I/Problem - T8-05 Rock Salt Structure AB from Two Planes|Problem T8-05: Rock Salt AB Ceramic from Two Planes: Structure, Stoichiometry, Density and Packing Factor]]
+  * [[02 - Aerospace Materials I/Problem - T8-06 Perovskite SrSnO3 Linear and Planar Densities and Rod Mass|Problem T8-06: Perovskite SrSnO₃: Linear and Planar Densities and the Mass of a Rod]]
+  * [[02 - Aerospace Materials I/Problem - T8-07 MgO Rock Salt Cell Packing and Densities|Problem T8-07: MgO (Rock Salt): Cell Volume, Packing Factor, Linear, Planar and Volumetric Densities]]
 * **Main Content:**
-  * Crystalline ceramic structures ($NaCl$-type, $CsCl$, perovskites, silicates). Glasses and glass-ceramic materials.
-  * Mechanical properties of ceramics: brittleness, modulus of rupture (3/4-point bending), Weibull distribution.
-  * Ceramic processing: milling, forming (pressing, slip casting, extrusion) and sintering.
+  * Ionic and covalent bonding in ceramics, radius ratio and coordination, and the crystal structures CsCl, rock salt, zinc blende, fluorite, anti-fluorite, perovskite and corundum; covalent ceramics, silicates, glasses (glass transition, constituents, types) and glass-ceramics.
+  * Mechanical behaviour of ceramics: hardness and stiffness, porosity, tension, compression and bending tests (modulus of rupture), the Weibull distribution of strength, and thermal shock.
+  * Ceramic processing: powder manufacturing and conditioning, shaping (pressing, slip casting, tape casting, extrusion, injection moulding), drying and debinding, sintering (pressureless, liquid-phase, HIP, SPS), additive manufacturing, glass forming and tempering, and applications (Space Shuttle thermal protection, thermal barrier coatings).
 
 #### Topic 9: Polymers and Processing (planned)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-9-polymers.html`

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-16-materials-topic-8",
+    "date": "2026-11-16",
+    "tag": "Aerospace Materials I",
+    "title": "Aerospace Materials I: Topic 8, ceramic materials",
+    "text": "New theory page on ceramics and glasses, from crystal structures to processing and the Shuttle tiles, with the seven problems of the sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html"
+  },
+  {
     "id": "2026-11-16-materials-topic-11",
     "date": "2026-11-16",
     "tag": "Aerospace Materials I",

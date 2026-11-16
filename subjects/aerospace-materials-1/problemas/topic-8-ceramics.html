@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="aerospace-materials-1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 8: Solved Problems (Ceramic Materials) — Aerospace Materials I</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for pristine mathematical typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+      --accent-glow: rgba(245, 158, 11, 0.2);
+
+      --phase-1: #38bdf8;
+      --phase-1-bg: rgba(56, 189, 248, 0.08);
+      --phase-1-border: rgba(56, 189, 248, 0.25);
+
+      --phase-2: #f59e0b;
+      --phase-2-bg: rgba(245, 158, 11, 0.08);
+      --phase-2-border: rgba(245, 158, 11, 0.25);
+
+      --phase-3: #34d399;
+      --phase-3-bg: rgba(52, 211, 153, 0.08);
+      --phase-3-border: rgba(52, 211, 153, 0.25);
+
+      --phase-4: #c084fc;
+      --phase-4-bg: rgba(192, 132, 252, 0.08);
+      --phase-4-border: rgba(192, 132, 252, 0.25);
+
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(20, 30, 55, 0.95);
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.45);
+      --statement-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+      --shadow-elevation: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --statement-bg: #f8fafc;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, h4, .brand-title, .problem-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      color: var(--text-heading);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .nav-pill, .phase-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Header */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      width: 42px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* Sticky Navigation Bar with Pills */
+    nav.pills-bar,
+    .pills-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 58px;
+      z-index: 90;
+      padding: 10px 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill-group-title {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+    }
+
+    .nav-pill {
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-pill:hover, .nav-pill.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    main.problems-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px 96px;
+    }
+
+    /* Page Header */
+    .page-intro {
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .page-intro h1 {
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    .page-intro p {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Collapsible Problem Card */
+    details.problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-elevation);
+      transition: border-color var(--transition);
+      scroll-margin-top: 120px;
+    }
+
+    details.problem-card[open] {
+      border-color: var(--accent-border);
+    }
+
+    summary.problem-summary {
+      cursor: pointer;
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    summary.problem-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .problem-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .prob-num-badge {
+      background: var(--accent);
+      color: #070b14;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .prob-source-badge {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .problem-title {
+      font-size: 1.45rem;
+      color: var(--text-heading);
+      margin-top: 8px;
+    }
+
+    .card-body {
+      margin-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 20px;
+    }
+
+    /* Statement Box */
+    .statement-box {
+      background: var(--statement-bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-style: italic;
+      color: var(--text-heading);
+      font-size: 1.04rem;
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .solution-box {
+      margin-top: 10px;
+      font-style: normal;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid var(--accent-border);
+    }
+
+    /* 4-Phase Grid */
+    .phases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .phase-step {
+      background: var(--bg-surface);
+      border-radius: 10px;
+      padding: 20px 24px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .phase-1 .phase-badge { color: var(--phase-1); background: var(--phase-1-bg); border: 1px solid var(--phase-1-border); }
+    .phase-2 .phase-badge { color: var(--phase-2); background: var(--phase-2-bg); border: 1px solid var(--phase-2-border); }
+    .phase-3 .phase-badge { color: var(--phase-3); background: var(--phase-3-bg); border: 1px solid var(--phase-3-border); }
+    .phase-4 .phase-badge { color: var(--phase-4); background: var(--phase-4-bg); border: 1px solid var(--phase-4-border); }
+
+    .phase-step p {
+      margin-bottom: 14px;
+      color: var(--text-body);
+    }
+
+    .phase-step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .phase-step ul, .phase-step ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .phase-step li {
+      margin-bottom: 6px;
+    }
+
+    /* Reference Table Card */
+    .reference-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+
+    .reference-title {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .table-container {
+      position: relative;
+      overflow-x: auto;
+    }
+
+    table.ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    table.ref-table th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table.ref-table td {
+      padding: 6px 8px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    /* Footer */
+    footer.page-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 10px 16px; }
+      nav.pills-bar,
+      .pills-bar {
+        padding: 8px 16px;
+        top: 96px;
+      }
+      main.problems-container { padding: 24px 16px 64px; }
+      details.problem-card { padding: 20px 18px; }
+    }
+  
+    /* Topic 4: blocks generated from the vault notes */
+    .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin: 18px 0; border-top: 1px solid var(--accent-border);
+      border-right: 1px solid var(--accent-border); border-bottom: 1px solid var(--accent-border); }
+    .callout-warning { border-left-color: #ef4444; border-top-color: rgba(239, 68, 68, 0.3);
+      border-right-color: rgba(239, 68, 68, 0.3); border-bottom-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.06); }
+    .callout-title { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+    .math-block { overflow-x: auto; margin: 14px 0; }
+    .phase-step .table-container { overflow-x: auto; margin: 14px 0; border: 1px solid var(--border-subtle); border-radius: 8px; }
+    table.data-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; text-align: left; }
+    table.data-table th { background: var(--bg-subtle); color: var(--text-heading); padding: 9px 12px; font-weight: 600;
+      border-bottom: 1px solid var(--border-strong); }
+    table.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--text-body); }
+    table.data-table tr:last-child td { border-bottom: none; }
+    .sheet-intro { margin-top: 56px; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: 12px;
+      padding: 16px; margin: 18px 0; text-align: center; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <!-- Universal Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">MAT-I · Topic 8</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="problems-container">
+
+    <!-- Page Intro Header -->
+    <header class="page-intro">
+      <h1>Topic 8: Solved Problems</h1>
+      <p>
+        Step-by-step solutions of all 7 problems of the official sheet on ceramic materials (Problems T8_CeramicMaterials: volume, packing factor and densities of zinc blende, perovskite and rock salt cells, and the crystal system, stoichiometry, density and structure of an AB-type ceramic read from two planes, from Session 16). The sheet prints a numeric key for every item, so each solution is derived here and compared with that key.
+      </p>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf" target="_blank" rel="noopener">Problems T8_CeramicMaterials.pdf</a>
+      </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 1 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-1">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 1</span>
+            <span class="prob-source-badge">Problems T8_CeramicMaterials.pdf #1</span>
+            <span class="prob-source-badge">Zinc blende · density and packing</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Zinc Blende (ZnS): Cell Volume, Density, Packing Factor, Linear and Planar Densities</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf" target="_blank" rel="noopener">Original statement · Problems T8_CeramicMaterials.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>1.- For the following Zinc Blende structure (ZnS) calculate: a) The volume of the unit cell and volumetric density expressed in g/cm³. b) The packing factor. c) The linear density (ions/mm) in the direction [111]. d) The planar density (ions/mm²) in the plane (111).</p>
+<p>Data: r(Zn²⁺) = 0.060 nm; r(S²⁻) = 0.174 nm, M(Zn) = 63.54, M(S) = 32.06.</p>
+          <div class="solution-box">Official Solution: a) V = 1.57x10⁻²² cm³, ρv = 4.04 g/cm³; b) f = 0.585; c) ρ[111] = 2.13x10⁶ ions/mm; d) ρ(111) = 7.92x10¹² ions/mm²</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Structure.</strong> S²⁻ on the FCC lattice points, Zn²⁺ in half of the tetrahedral sites; 4 Zn²⁺ and 4 S²⁻ per cubic cell [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=9" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 9">9</a>]. The radius ratio $0.060/0.174 = 0.345$ is in the tetrahedral range 0.225-0.414 [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=6" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 6">6</a>].</li><li><strong>Hard spheres in contact.</strong> The cation touches the anions of its tetrahedron. A tetrahedral site lies at $(\frac14,\frac14,\frac14)$, a quarter of the body diagonal from the corner, so the contact is along the body diagonal: $a\sqrt3/4 = r_{Zn} + r_S$ (extension of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=9" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 9">9</a>, the geometry of the cell).</li><li><strong>Density of a cell</strong> (from Topic 2): $\rho = nM/(V N_A)$, with $N_A = 6.022\times10^{23}$ mol⁻¹ (not printed on this item of the sheet).</li><li><strong>Counting.</strong> A direction counts the ions whose centres lie on it, a plane the ions whose centres lie in it, with the fractions that belong to the segment or area of the cell.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>Radius of Zn²⁺</td><td>$r_{Zn}$</td><td style="text-align:right">0.060 nm</td></tr><tr><td>Radius of S²⁻</td><td>$r_S$</td><td style="text-align:right">0.174 nm</td></tr><tr><td>Atomic masses</td><td>$M_{Zn},\ M_S$</td><td style="text-align:right">63.54, 32.06 g/mol</td></tr><tr><td>Formula units per cell</td><td>$n$</td><td style="text-align:right">4</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $V$ and $\rho$; $f$; $\rho_L[111]$; $\rho_P(111)$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>The edge $a$ comes from the contact along the body diagonal; every other quantity is a count of ions divided by a volume, a length or an area of the cell.</p>
+<p><strong>Strategy.</strong></p>
+<ol><li>Lattice parameter from $a\sqrt3/4 = r_{Zn} + r_S$, then $V = a^3$.</li><li>Density $\rho = 4(M_{Zn} + M_S)/(V N_A)$.</li><li>Packing factor $f = 4(V_{Zn} + V_S)/V$.</li><li>Count the ions on the body diagonal and in the (111) triangle.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Lattice parameter and volume</strong></p>
+<div class="math-block">$$a = \frac{4(r_{Zn} + r_S)}{\sqrt3} = \frac{4\times(0.060 + 0.174)\ \text{nm}}{1.7321} = \frac{0.936\ \text{nm}}{1.7321} = 0.54040\ \text{nm}$$</div>
+<div class="math-block">$$V = a^3 = (0.54040\ \text{nm})^3 = 0.15781\ \text{nm}^3 = 0.15781\times10^{-21}\ \text{cm}^3 = \mathbf{1.578\times10^{-22}\ cm^3}$$</div>
+<p>using $1\ \text{nm} = 10^{-7}$ cm, so $1\ \text{nm}^3 = 10^{-21}$ cm³.</p>
+<p><strong>2. Volumetric density</strong></p>
+<p>Mass of the four formula units of the cell:</p>
+<div class="math-block">$$m_{cell} = \frac{4(M_{Zn} + M_S)}{N_A} = \frac{4\times(63.54 + 32.06)\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = \frac{382.40\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = 6.3500\times10^{-22}\ \text{g}$$</div>
+<div class="math-block">$$\rho_v = \frac{m_{cell}}{V} = \frac{6.3500\times10^{-22}\ \text{g}}{1.5781\times10^{-22}\ \text{cm}^3} = \mathbf{4.02\ g/cm^3}$$</div>
+<p><strong>3. Packing factor</strong></p>
+<p>Volume of each ion, $V_{ion} = \frac43\pi r^3$:</p>
+<div class="math-block">$$V_{Zn} = \tfrac43\pi(0.060\ \text{nm})^3 = 9.048\times10^{-4}\ \text{nm}^3 \qquad V_S = \tfrac43\pi(0.174\ \text{nm})^3 = 2.2067\times10^{-2}\ \text{nm}^3$$</div>
+<div class="math-block">$$f = \frac{4(V_{Zn} + V_S)}{V} = \frac{4\times(9.048\times10^{-4} + 2.2067\times10^{-2})\ \text{nm}^3}{0.15781\ \text{nm}^3} = \frac{0.091887\ \text{nm}^3}{0.15781\ \text{nm}^3} = \mathbf{0.582}$$</div>
+<p><strong>4. Linear density along [111]</strong></p>
+<p>The body diagonal runs from $(0,0,0)$ to $(1,1,1)$, length $a\sqrt3 = 0.936$ nm. On it lie S²⁻ at both corners (each shared with the next diagonal, $2\times\frac12 = 1$) and Zn²⁺ at $(\frac14,\frac14,\frac14)$ (1); the site $(\frac34,\frac34,\frac34)$ belongs to the empty half of the tetrahedral sites. So 2 ions per diagonal:</p>
+<div class="math-block">$$\rho_L[111] = \frac{2\ \text{ions}}{0.936\ \text{nm}} = 2.137\ \text{ions/nm} = 2.137\times10^{6}\ \text{ions/mm} \approx \mathbf{2.14\times10^{6}\ ions/mm}$$</div>
+<p>with $1\ \text{mm} = 10^{6}$ nm.</p>
+<p><strong>5. Planar density in (111)</strong></p>
+<p>The (111) plane cuts the cell in the equilateral triangle with vertices $(1,0,0)$, $(0,1,0)$, $(0,0,1)$, of side $a\sqrt2$ and area</p>
+<div class="math-block">$$A = \frac{\sqrt3}{4}(a\sqrt2)^2 = \frac{\sqrt3}{2}a^2 = 0.8660\times0.29203\ \text{nm}^2 = 0.25291\ \text{nm}^2$$</div>
+<p>The S²⁻ ions in it are the three corners, each contributing $\frac16$ of its area (the 60° angle of the triangle), and the three face centres on its sides, each $\frac12$: $3\times\frac16 + 3\times\frac12 = 2$. No Zn²⁺ lies in it (their positions have $x+y+z = \frac34$ or $\frac74$, not 1).</p>
+<div class="math-block">$$\rho_P(111) = \frac{2\ \text{ions}}{0.25291\ \text{nm}^2} = 7.908\ \text{ions/nm}^2 = \mathbf{7.91\times10^{12}\ ions/mm^2}$$</div>
+<p>with $1\ \text{mm}^2 = 10^{12}$ nm².</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $\rho = [\text{g/mol}]/([\text{mol}^{-1}][\text{cm}^3]) = \text{g/cm}^3$; $f$ = nm³/nm³, dimensionless; ions per length and per area.</li><li><strong>Anions do not overlap.</strong> The nearest S²⁻ ions are half a face diagonal apart, $a\sqrt2/2 = 0.382$ nm, more than $2r_S = 0.348$ nm, so the cation-anion contact is the one that sets $a$.</li><li><strong>Packing.</strong> $f = 0.58$ is below the 0.74 of an FCC metal: the tetrahedral cation is small and fills little of the space between the anions, as expected for an open, covalent-like structure.</li><li><strong>Density.</strong> 4.02 g/cm³ is close to the measured density of sphalerite (about 4.1 g/cm³, extension).</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The body diagonal is the close-contact direction of zinc blende, so it alternates S-Zn-gap-S; the (111) plane holds only the anions, the close-packed layer of the FCC sulfur lattice, with the cations between layers. That layering is why the (111) planar density equals that of an FCC packing of S²⁻ ions alone.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>$V$</td><td>$1.57\times10^{-22}$ cm³</td><td>$1.578\times10^{-22}$ cm³</td><td>agrees</td></tr><tr><td>$\rho_v$</td><td>4.04 g/cm³</td><td>4.02 g/cm³</td><td>the key divides by the rounded $V = 1.57\times10^{-22}$ cm³ (382.40/(6.022e23 × 1.57e-22) = 4.04)</td></tr><tr><td>$f$</td><td>0.585</td><td>0.582</td><td>same rounding: 0.091887/0.157 = 0.585</td></tr><tr><td>$\rho_L[111]$</td><td>$2.13\times10^{6}$ ions/mm</td><td>$2.14\times10^{6}$ ions/mm</td><td>agrees (2.137)</td></tr><tr><td>$\rho_P(111)$</td><td>$7.92\times10^{12}$ ions/mm²</td><td>$7.91\times10^{12}$ ions/mm²</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 2 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-2">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 2</span>
+            <span class="prob-source-badge">Problems T8_CeramicMaterials.pdf #2</span>
+            <span class="prob-source-badge">Perovskite CaTiO₃ · densities</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Perovskite (CaTiO₃): Cell Volume, Packing Factor, Linear, Planar and Volumetric Densities</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf" target="_blank" rel="noopener">Original statement · Problems T8_CeramicMaterials.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>2- The Perovskite structure (CaTiO₃) can be described as an FCC packing of Ca²⁺ and O²⁻ ions on which Ti⁴⁺ occupies ¼ of the octahedral sites. Calculate: a) The volume of the unit cell. b) The packing factor. c) The linear density (ions/nm) in the direction [111]. d) The planar density (ions/nm²) in the plane (111). e) The volumetric density expressed in g/cm³.</p>
+<p>Data: r(Ca²⁺) = 0.106 nm; r(O²⁻) = 0.132 nm; r(Ti⁴⁺) = 0.036 nm; M(Ca) = 40.08; M(O) = 16.00; M(Ti) = 47.90.</p>
+<p>The sheet prints "O² ions⁻" for O²⁻ ions.</p>
+          <div class="solution-box">Official Solution: a) V = 0.038 nm³; b) f = 0.897; c) ρ[111] = 3.44 ions/nm; d) ρ(111) = 20.4 ions/nm²; e) ρv = 5.95 g/cm³</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Structure.</strong> Ca²⁺ at the corners and O²⁻ at the face centres form together an FCC packing; Ti⁴⁺ sits in the octahedral site at the body centre, the only one of the four octahedral sites surrounded by six O²⁻. Per cell: 1 Ca²⁺, 3 O²⁻, 1 Ti⁴⁺ [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=12" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 12">12</a>].</li><li><strong>Contact.</strong> In a close packing the spheres touch along the face diagonal, here a Ca²⁺ at a corner and the O²⁻ at the centre of the face: $a\sqrt2 = 2(r_{Ca} + r_O)$ [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=12" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 12">12</a>, FCC packing of Ca²⁺ and O²⁻].</li><li><strong>Density:</strong> $\rho = \sum M/(V N_A)$, $N_A = 6.022\times10^{23}$ mol⁻¹ (Topic 2).</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$r_{Ca}$, $r_O$, $r_{Ti}$</td><td style="text-align:right">0.106, 0.132, 0.036 nm</td></tr><tr><td>$M_{Ca}$, $M_O$, $M_{Ti}$</td><td style="text-align:right">40.08, 16.00, 47.90 g/mol</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $V$, $f$, $\rho_L[111]$, $\rho_P(111)$, $\rho_v$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<ol><li>Edge from the Ca-O contact along the face diagonal; check that Ti⁴⁺ fits its octahedral hole.</li><li>Packing factor with the five ions of the cell.</li><li>Count the ions on the body diagonal and in the (111) triangle.</li><li>Density with one formula unit per cell.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Lattice parameter and volume</strong></p>
+<div class="math-block">$$a = \frac{2(r_{Ca} + r_O)}{\sqrt2} = \frac{2\times(0.106 + 0.132)\ \text{nm}}{1.4142} = \frac{0.476\ \text{nm}}{1.4142} = 0.33658\ \text{nm}$$</div>
+<div class="math-block">$$V = a^3 = (0.33658\ \text{nm})^3 = \mathbf{0.0381\ nm^3}$$</div>
+<p>Fit of Ti⁴⁺: along the edge direction the body-centre site is $a/2$ from the O²⁻ of each face centre, $a/2 = 0.16829$ nm, against $r_{Ti} + r_O = 0.036 + 0.132 = 0.168$ nm. The cation just touches the six oxygens, so the cell is consistent.</p>
+<p><strong>2. Packing factor</strong></p>
+<div class="math-block">$$V_{Ca} = \tfrac43\pi(0.106)^3 = 4.9889\times10^{-3}\ \text{nm}^3 \qquad V_O = \tfrac43\pi(0.132)^3 = 9.6341\times10^{-3}\ \text{nm}^3 \qquad V_{Ti} = \tfrac43\pi(0.036)^3 = 1.954\times10^{-4}\ \text{nm}^3$$</div>
+<div class="math-block">$$f = \frac{V_{Ca} + 3V_O + V_{Ti}}{V} = \frac{(4.9889\times10^{-3} + 3\times9.6341\times10^{-3} + 1.954\times10^{-4})\ \text{nm}^3}{0.038131\ \text{nm}^3} = \frac{0.034087\ \text{nm}^3}{0.038131\ \text{nm}^3} = \mathbf{0.894}$$</div>
+<p><strong>3. Linear density along [111]</strong></p>
+<p>Body diagonal, length $a\sqrt3 = 0.33658\times1.7321 = 0.58298$ nm. On it: Ca²⁺ at both corners ($2\times\frac12 = 1$) and Ti⁴⁺ at the body centre (1). The O²⁻ ions sit at face centres, off the diagonal.</p>
+<div class="math-block">$$\rho_L[111] = \frac{2\ \text{ions}}{0.58298\ \text{nm}} = \mathbf{3.43\ ions/nm}$$</div>
+<p><strong>4. Planar density in (111)</strong></p>
+<p>Triangle $(1,0,0)$, $(0,1,0)$, $(0,0,1)$, of area $\frac{\sqrt3}{2}a^2 = 0.8660\times0.11329\ \text{nm}^2 = 0.098110$ nm². In it: Ca²⁺ at the three vertices ($3\times\frac16 = \frac12$) and O²⁻ at the three face centres on its sides, $(\frac12,\frac12,0)$ and the like ($3\times\frac12 = \frac32$). Ti⁴⁺ at $(\frac12,\frac12,\frac12)$ has $x+y+z = \frac32$ and lies outside. Total 2 ions:</p>
+<div class="math-block">$$\rho_P(111) = \frac{2\ \text{ions}}{0.098110\ \text{nm}^2} = \mathbf{20.4\ ions/nm^2}$$</div>
+<p><strong>5. Volumetric density</strong></p>
+<div class="math-block">$$m_{cell} = \frac{M_{Ca} + M_{Ti} + 3M_O}{N_A} = \frac{(40.08 + 47.90 + 3\times16.00)\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = \frac{135.98\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = 2.2581\times10^{-22}\ \text{g}$$</div>
+<div class="math-block">$$\rho_v = \frac{2.2581\times10^{-22}\ \text{g}}{0.038131\times10^{-21}\ \text{cm}^3} = \mathbf{5.92\ g/cm^3}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> nm³ for $V$; $f$ dimensionless; ions/nm and ions/nm²; g/cm³ with $1\ \text{nm}^3 = 10^{-21}$ cm³.</li><li><strong>Charge balance.</strong> $+2 + 4 + 3\times(-2) = 0$ per cell.</li><li><strong>Packing.</strong> $f = 0.894$ is above the 0.74 of an FCC metal. It can be, because the Ti⁴⁺ ion fills an octahedral hole of the close packing of Ca²⁺ and O²⁻, which a metal leaves empty. The sum is a hard-sphere estimate: the Ca²⁺ ion is smaller than O²⁻, so the "close packing" of the two is itself an approximation.</li><li><strong>Two contacts at once.</strong> Both the Ca-O contact ($a = 0.3366$ nm) and the Ti-O contact ($a = 2\times0.168 = 0.336$ nm) give nearly the same edge, so the data describe an ideal perovskite.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The large Ca²⁺ and the O²⁻ ions build the frame together, and the small, highly charged Ti⁴⁺ sits in the octahedron of oxygens at the centre; the same corner-sharing TiO₆ octahedra are those of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=12" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 12">12</a>. The (111) planes hold Ca and O (composition CaO₃ per layer when extended), and the Ti⁴⁺ ions lie between them.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>$V$</td><td>0.038 nm³</td><td>0.0381 nm³</td><td>agrees</td></tr><tr><td>$f$</td><td>0.897</td><td>0.894</td><td>the key divides by the rounded $V = 0.038$ nm³ (0.034087/0.038 = 0.897)</td></tr><tr><td>$\rho_L[111]$</td><td>3.44 ions/nm</td><td>3.43 ions/nm</td><td>agrees within rounding (3.431)</td></tr><tr><td>$\rho_P(111)$</td><td>20.4 ions/nm²</td><td>20.4 ions/nm²</td><td>agrees</td></tr><tr><td>$\rho_v$</td><td>5.95 g/cm³</td><td>5.92 g/cm³</td><td>0.5 % apart; with the rounded $V = 0.038$ nm³ the density is 5.94 g/cm³, so the key rounds an intermediate value</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 3 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-3">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 3</span>
+            <span class="prob-source-badge">Problems T8_CeramicMaterials.pdf #3</span>
+            <span class="prob-source-badge">Two planes · orthorhombic perovskite</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Crystal System, Stoichiometry, Density and Structure of an AxByCz Ceramic from Two Planes</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf" target="_blank" rel="noopener">Original statement · Problems T8_CeramicMaterials.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>3.- In the figure, two crystallographic planes are represented. They correspond to a unit cell of a ceramic material with the following formula AxByCz. Determine: a) The crystalline system they belong to b) The stoichiometry and density (g/cm³) c) The structure type and the description of the structure in terms of the closed packing sequence.</p>
+<p>Data: M(A) = 40 g/mol, M(B) = 48 g/mol, M(C) = 16 g/mol.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T8/t8-p1-planes-110-100.png" alt="Planes (110) and (100) of AxByCz" loading="lazy" style="max-width:min(100%,560px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 1. Two planes of the cell of Problem 3, copied from Problems T8_CeramicMaterials, p. 1.</div>
+</div>
+<p>The sheet prints "AxByCz.." with a double full stop.</p>
+          <div class="solution-box">Official Solution: a) orthorhombic symmetry; b) ABC₃; ρ = 3.96 g/cm³, c) Perovskite-type structure</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Reading of the figure.</strong> In the (100) plane: A ions (large, dotted) at the four corners and one C ion (open circle) at the centre; edges 0.387 nm (horizontal) and 0.383 nm (vertical). In the (110) plane: A at the four corners, C at the middle of the two long edges, one small B ion at the centre; edges 0.546 nm (horizontal) and 0.383 nm (vertical). The identification of the circles is read from the labels of the figure.</li><li><strong>Axes.</strong> The (100) plane is the face $x = 0$, spanned by $b$ and $c$, so $b = 0.387$ nm and $c = 0.383$ nm. The (110) plane is the diagonal plane, spanned by the face diagonal $\sqrt{a^2 + b^2}$ of the base and by $c$; its vertical edge is again $c = 0.383$ nm, the same as in (100), which confirms the reading.</li><li><strong>Counting.</strong> Corner $\frac18$, face $\frac12$, interior 1 (the rules of Topic 2); $\rho = \sum M/(V N_A)$ with $N_A = 6.022\times10^{23}$ mol⁻¹.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>(100) plane</td><td style="text-align:right">$b = 0.387$ nm, $c = 0.383$ nm</td></tr><tr><td>(110) plane</td><td style="text-align:right">$\sqrt{a^2 + b^2} = 0.546$ nm, $c = 0.383$ nm</td></tr><tr><td>$M_A$, $M_B$, $M_C$</td><td style="text-align:right">40, 48, 16 g/mol</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> crystal system; formula and $\rho$; structure type and stacking.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<ol><li>Solve the face diagonal for $a$ and compare the three edges.</li><li>Place every ion of the two planes in the cell and count.</li><li>Compare the arrangement with the perovskite of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=12" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 12">12</a> of Session 16.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Crystal system</strong></p>
+<p>From the diagonal of the base, by Pythagoras in the right triangle with legs $a$ and $b$ and hypotenuse 0.546 nm:</p>
+<div class="math-block">$$a = \sqrt{0.546^2 - b^2} = \sqrt{(0.546\ \text{nm})^2 - (0.387\ \text{nm})^2} = \sqrt{0.298116 - 0.149769}\ \text{nm} = \sqrt{0.148347}\ \text{nm} = 0.3852\ \text{nm}$$</div>
+<p>The three edges $a = 0.385$ nm, $b = 0.387$ nm and $c = 0.383$ nm are all different, and the planes drawn are rectangles, so the axes are at right angles: three unequal edges at 90° is the <strong>orthorhombic</strong> system. A cube with $a = b = 0.387$ nm would need a diagonal $0.387\sqrt2 = 0.547$ nm; the printed 0.546 nm and the two different vertical and horizontal edges of (100) rule that out.</p>
+<p><strong>2. Positions and stoichiometry</strong></p>
+<ul><li><strong>A</strong>: at the corners of both planes, hence at the 8 corners of the cell: $8\times\frac18 = 1$.</li><li><strong>C</strong>: at the centre of the face (100), and at the middle of the long edges of (110). Those points of the diagonal plane are $(\frac12,\frac12,0)$ and $(\frac12,\frac12,1)$, the centres of the bottom and top faces. So C occupies the centres of all six faces: $6\times\frac12 = 3$.</li><li><strong>B</strong>: at the centre of (110), the point $(\frac12,\frac12,\frac12)$, the body centre: 1.</li></ul>
+<div class="math-block">$$\text{A}_1\text{B}_1\text{C}_3 = \mathbf{ABC_3}$$</div>
+<p><strong>3. Density</strong></p>
+<div class="math-block">$$V = abc = 0.3852\ \text{nm}\times0.387\ \text{nm}\times0.383\ \text{nm} = 0.05709\ \text{nm}^3 = 5.709\times10^{-23}\ \text{cm}^3$$</div>
+<div class="math-block">$$m_{cell} = \frac{M_A + M_B + 3M_C}{N_A} = \frac{(40 + 48 + 3\times16)\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = \frac{136\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = 2.2584\times10^{-22}\ \text{g}$$</div>
+<div class="math-block">$$\rho = \frac{2.2584\times10^{-22}\ \text{g}}{5.709\times10^{-23}\ \text{cm}^3} = \mathbf{3.96\ g/cm^3}$$</div>
+<p><strong>4. Structure type and close-packing description</strong></p>
+<p>The arrangement is that of the perovskite of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=12" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 12">12</a>: A at the corners, C at the face centres, B at the body centre [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=12" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 12">12</a>]. The masses match CaTiO₃ (Ca 40, Ti 48, O 16), with A = Ca²⁺, B = Ti⁴⁺ and C = O²⁻.</p>
+<ul><li><strong>Close packing:</strong> the A and C ions together (corners plus face centres) form a cubic close packing, the FCC arrangement, here slightly distorted into an orthorhombic cell. Along the body diagonal [111] the close-packed layers, each of composition AC₃, follow the sequence <strong>ABCABC...</strong> of the FCC packing.</li><li><strong>Interstitial:</strong> B fills <strong>¼ of the octahedral sites</strong> of that packing, the one at the body centre, surrounded by six C ions (C.I. 6); A has C.I. 12.</li></ul>
+<p><strong>Perovskite-type structure, ABC₃</strong>, with an orthorhombic distortion of the ideal cube.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> nm³ to cm³ with $10^{-21}$; g/mol over mol⁻¹ gives g.</li><li><strong>Charge balance</strong> with A²⁺, B⁴⁺, C²⁻: $+2 + 4 - 3\times2 = 0$.</li><li><strong>Limit of the cubic cell.</strong> As $a, b, c \to 0.387$ nm the cell becomes the cubic perovskite and the density changes only slightly (to 3.89 g/cm³ for $a = b = c = 0.387$ nm, extension), so the distortion is small: the edges differ by about 1 %.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Two planes are enough to fix a cell when they show all the ions: the face (100) gives two edges and the face centres, the diagonal plane (110) gives the third edge and the body centre. The distortion of real perovskites from the cube is common (CaTiO₃ itself is orthorhombic, extension), and it is what the three slightly different edges of the figure express.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Crystal system</td><td>orthorhombic</td><td>orthorhombic ($a = 0.385$, $b = 0.387$, $c = 0.383$ nm)</td><td>agrees</td></tr><tr><td>Stoichiometry</td><td>ABC₃</td><td>ABC₃</td><td>agrees</td></tr><tr><td>Density</td><td>3.96 g/cm³</td><td>3.96 g/cm³</td><td>agrees</td></tr><tr><td>Structure</td><td>perovskite-type</td><td>perovskite: AC₃ close packing ABCABC, B in ¼ of the octahedral sites</td><td>agrees; the stacking description is not printed in the key</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 4 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-4">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 4</span>
+            <span class="prob-source-badge">Problems T8_CeramicMaterials.pdf #4</span>
+            <span class="prob-source-badge">Two planes · fluorite AB₂</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Fluorite-Type AxBy Ceramic from Two Planes: Structure, Stoichiometry, Density and Packing Factor</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T8_CeramicMaterials.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>4.- In the figure, two crystallographic planes are represented. They correspond to a cubic unit cell of a ceramic material with the following formula AxBy. Determine. a) The structure type and its description b) The stoichiometry of the compound c) The density expressed in g/cm³ d) The packing factor</p>
+<p>Data: M(A) = 238 g/mol, M(B) = 16 g/mol, r(A) = 0.105 nm, r(B) = 0.132 nm.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T8/t8-p2-planes-100-110.png" alt="Planes (100) and (110) of AxBy" loading="lazy" style="max-width:min(100%,560px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 2. Two planes of the cubic cell of Problem 4, copied from Problems T8_CeramicMaterials, p. 2.</div>
+</div>
+<p>On the sheet each key is printed after its own item; they are collected here in one line.</p>
+          <div class="solution-box">Official Solution: a) Fluorite type structure, CaF₂. FCC close packing of A ions. The B atoms occupy all the tetrahedral sites; b) AB₂; c) 10.95 g/cm³; d) f = 0.589</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Reading of the figure.</strong> (100) plane: a square of edge 0.547 nm with A ions (open circles) at the corners and at the centre (the diagonal line joins a corner, the centre and the opposite corner). (110) plane: a rectangle $a\sqrt2$ wide and $a$ high, with A at the four corners and at the middle of the two long edges, and four B ions (black) inside, at a quarter and three quarters of the width and of the height. The cell is cubic (statement), $a = 0.547$ nm.</li><li><strong>Counting</strong> of Topic 2; $\rho = nM/(V N_A)$ with $N_A = 6.022\times10^{23}$ mol⁻¹.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>Edge</td><td style="text-align:right">$a = 0.547$ nm</td></tr><tr><td>$M_A$, $M_B$</td><td style="text-align:right">238, 16 g/mol</td></tr><tr><td>$r_A$, $r_B$</td><td style="text-align:right">0.105, 0.132 nm</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> structure; formula; $\rho$; $f$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<ol><li>Turn the points of the two planes into positions in the cell.</li><li>Count the ions and compare with the structures of Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=10" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 10">10-11</a> of Session 16.</li><li>Density and packing factor with the counted ions.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Positions</strong></p>
+<ul><li><strong>A in (100):</strong> corners and the centre of the face, $(0,\frac12,\frac12)$. Since the cell is cubic the same holds for every face: A sits at the corners and at all the face centres, the <strong>FCC</strong> lattice points.</li><li><strong>B in (110):</strong> the diagonal plane contains the points $(t, t, z)$. Its width is the face diagonal, so a point at a quarter of the width has $t = \frac14$, and at three quarters $t = \frac34$. The four B ions are therefore at $(\frac14,\frac14,\frac14)$, $(\frac14,\frac14,\frac34)$, $(\frac34,\frac34,\frac14)$ and $(\frac34,\frac34,\frac34)$: these are tetrahedral sites of the FCC cell. The (110) plane shows four of them; the other plane through the cell, (1̄10), shows the other four, and the sheet labels the figure (110)/(1̄10). B therefore fills <strong>all eight</strong> tetrahedral sites.</li><li><strong>A in (110):</strong> the corners and $(\frac12,\frac12,0)$, $(\frac12,\frac12,1)$, the face centres of the bottom and top faces, consistent with the FCC lattice.</li></ul>
+<p><strong>2. Structure type and stoichiometry</strong></p>
+<div class="math-block">$$n_A = 8\times\tfrac18 + 6\times\tfrac12 = 4 \qquad n_B = 8\times1 = 8 \qquad \Rightarrow\qquad \mathbf{AB_2}$$</div>
+<p>An FCC lattice of the cation with the anion in all the tetrahedral sites, 4 A and 8 B per cell, is the <strong>fluorite (CaF₂) type</strong> [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=10" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 10">10</a>]. With the masses, the compound is UO₂ (U 238, O 16), which Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=10" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 10">10</a> lists among the fluorite oxides. The radius ratio agrees: $r_A/r_B = 0.105/0.132 = 0.795$, in the range 0.732-1.0 of coordination 8 for the cation [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=6" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 6">6</a>], and each B has 4 A neighbours.</p>
+<p><strong>3. Density</strong></p>
+<div class="math-block">$$V = a^3 = (0.547\ \text{nm})^3 = 0.16367\ \text{nm}^3 = 1.6367\times10^{-22}\ \text{cm}^3$$</div>
+<div class="math-block">$$m_{cell} = \frac{4(M_A + 2M_B)}{N_A} = \frac{4\times(238 + 2\times16)\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = \frac{1080\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = 1.7934\times10^{-21}\ \text{g}$$</div>
+<div class="math-block">$$\rho = \frac{1.7934\times10^{-21}\ \text{g}}{1.6367\times10^{-22}\ \text{cm}^3} = \mathbf{10.96\ g/cm^3}$$</div>
+<p><strong>4. Packing factor</strong></p>
+<div class="math-block">$$V_A = \tfrac43\pi(0.105\ \text{nm})^3 = 4.849\times10^{-3}\ \text{nm}^3 \qquad V_B = \tfrac43\pi(0.132\ \text{nm})^3 = 9.634\times10^{-3}\ \text{nm}^3$$</div>
+<div class="math-block">$$f = \frac{4V_A + 8V_B}{V} = \frac{(4\times4.849\times10^{-3} + 8\times9.634\times10^{-3})\ \text{nm}^3}{0.16367\ \text{nm}^3} = \frac{0.096469\ \text{nm}^3}{0.16367\ \text{nm}^3} = \mathbf{0.589}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Contact.</strong> A tetrahedral site is $a\sqrt3/4 = 0.547\times1.7321/4 = 0.2369$ nm from its corner ion, and $r_A + r_B = 0.237$ nm: the A-B pairs touch, so the edge of the figure is consistent with the radii.</li><li><strong>No overlap of like ions.</strong> B-B along the edge: $a/2 = 0.2735$ nm $&gt; 2r_B = 0.264$ nm; A-A along the face diagonal: $a\sqrt2/2 = 0.387$ nm $&gt; 2r_A = 0.210$ nm.</li><li><strong>Charge</strong> with A⁴⁺ and B²⁻ (U⁴⁺, O²⁻): $4\times4 - 8\times2 = 0$.</li><li><strong>Units</strong> as in the previous problems; $f$ dimensionless.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The heavy uranium ions make the density high (UO₂ is the nuclear fuel), while the packing factor is moderate: the anions are the large ions here, and the eight of them fill the tetrahedral holes of a cation lattice that is far from close-packed by itself.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Structure</td><td>fluorite, FCC A, B in all tetrahedral sites</td><td>same</td><td>agrees</td></tr><tr><td>Stoichiometry</td><td>AB₂</td><td>AB₂</td><td>agrees</td></tr><tr><td>Density</td><td>10.95 g/cm³</td><td>10.96 g/cm³</td><td>agrees within rounding (10.958)</td></tr><tr><td>Packing factor</td><td>0.589</td><td>0.589</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 5 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-5">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 5</span>
+            <span class="prob-source-badge">Problems T8_CeramicMaterials.pdf #5</span>
+            <span class="prob-source-badge">Two planes · rock salt AB</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Rock Salt AB Ceramic from Two Planes: Structure, Stoichiometry, Density and Packing Factor</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T8_CeramicMaterials.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>5.- In the figure, two crystallographic planes are represented. They correspond to a cubic unit cell of a ceramic material with the following formula AB. If the diagonal of the cube is 0.824 nm, determine. a) The structure type and its description. b) The stoichiometry of the compound. c) The density expressed in g/cm³. d) The packing factor.</p>
+<p>Data: M(A) = 40 g/mol, M(B) = 16 g/mol, r(A) = 0.106 nm.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T8/t8-p2-planes-020-100.png" alt="Planes (020) and (100) of AB" loading="lazy" style="max-width:min(100%,560px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 3. Two planes of the cubic cell of Problem 5, copied from Problems T8_CeramicMaterials, p. 2.</div>
+</div>
+          <div class="solution-box">Official Solution: a) NaCl type; b) AB; c) 3.45 g/cm³; d) 0.54</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Reading of the figure.</strong> Plane (100): B ions (large open circles) at the corners and at the centre; A ions (small black) at the middles of the four edges. Plane (020), the plane parallel to (010) at half the edge ($y = a/2$): A at the corners and at the centre, B at the middles of the edges. The labels A (small black) and B (large open) are printed above the (020) plane.</li><li><strong>Diagonal of the cube.</strong> The diagonal of a cube is its body diagonal, $a\sqrt3$ (a face diagonal would be called so). Hence $a = 0.824/\sqrt3$ nm.</li><li><strong>Contact.</strong> The radius of B is not given; in the rock salt structure cation and anion touch along the edge, $a = 2(r_A + r_B)$, which gives it [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=8" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 8">8</a>].</li><li>$\rho = nM/(V N_A)$ with $N_A = 6.022\times10^{23}$ mol⁻¹ (Topic 2).</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>Body diagonal</td><td style="text-align:right">0.824 nm</td></tr><tr><td>$M_A$, $M_B$</td><td style="text-align:right">40, 16 g/mol</td></tr><tr><td>$r_A$</td><td style="text-align:right">0.106 nm</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> structure; formula; $\rho$; $f$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<ol><li>Positions from the two planes; count; compare with Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=8" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 8">8</a> of Session 16.</li><li>Edge from the body diagonal, then $\rho$.</li><li>$r_B$ from the edge contact, then $f$.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Positions and structure type</strong></p>
+<ul><li><strong>B in (100)</strong> at the corners and the face centre: B occupies the corners and face centres of the cell, an <strong>FCC</strong> lattice.</li><li><strong>A in (100)</strong> at the edge midpoints, $(0,\frac12,0)$ and the like, and <strong>A in (020)</strong> at the corners of that mid-plane, $(0,\frac12,0)$, $(1,\frac12,0)$, ..., which are again edge midpoints, and at its centre, $(\frac12,\frac12,\frac12)$, the body centre. The edge midpoints and the body centre are the <strong>octahedral sites</strong> of the FCC cell, and A fills all of them.</li><li><strong>B in (020)</strong> at the middles of the edges of the mid-plane, $(\frac12,\frac12,0)$ and $(0,\frac12,\frac12)$ and the like: face centres, consistent with the FCC lattice of B.</li></ul>
+<p>An FCC lattice of one ion with the other in all the octahedral sites is the <strong>rock salt (NaCl) type</strong> [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=8" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 8">8</a>]. With the masses the compound is CaO (Ca 40, O 16), one of the oxides that Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=8" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 8">8</a> lists, with A = Ca²⁺ and B = O²⁻.</p>
+<p><strong>2. Stoichiometry</strong></p>
+<div class="math-block">$$n_B = 8\times\tfrac18 + 6\times\tfrac12 = 4 \qquad n_A = 12\times\tfrac14 + 1 = 4 \qquad\Rightarrow\qquad \mathbf{AB}$$</div>
+<p><strong>3. Density</strong></p>
+<div class="math-block">$$a = \frac{0.824\ \text{nm}}{\sqrt3} = \frac{0.824\ \text{nm}}{1.7321} = 0.47574\ \text{nm}$$</div>
+<div class="math-block">$$V = a^3 = (0.47574\ \text{nm})^3 = 0.10767\ \text{nm}^3 = 1.0767\times10^{-22}\ \text{cm}^3$$</div>
+<div class="math-block">$$m_{cell} = \frac{4(M_A + M_B)}{N_A} = \frac{4\times(40 + 16)\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = \frac{224\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = 3.7197\times10^{-22}\ \text{g}$$</div>
+<div class="math-block">$$\rho = \frac{3.7197\times10^{-22}\ \text{g}}{1.0767\times10^{-22}\ \text{cm}^3} = \mathbf{3.45\ g/cm^3}$$</div>
+<p><strong>4. Radius of B and packing factor</strong></p>
+<p>From the contact along the edge:</p>
+<div class="math-block">$$r_B = \frac{a}{2} - r_A = \frac{0.47574\ \text{nm}}{2} - 0.106\ \text{nm} = 0.23787 - 0.106 = 0.13187\ \text{nm}$$</div>
+<div class="math-block">$$V_A = \tfrac43\pi(0.106\ \text{nm})^3 = 4.9889\times10^{-3}\ \text{nm}^3 \qquad V_B = \tfrac43\pi(0.13187\ \text{nm})^3 = 9.6056\times10^{-3}\ \text{nm}^3$$</div>
+<div class="math-block">$$f = \frac{4(V_A + V_B)}{V} = \frac{4\times(4.9889 + 9.6056)\times10^{-3}\ \text{nm}^3}{0.10767\ \text{nm}^3} = \frac{0.058378\ \text{nm}^3}{0.10767\ \text{nm}^3} = \mathbf{0.542}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Reading of the diagonal.</strong> With the face diagonal instead, $a = 0.824/\sqrt2 = 0.583$ nm and the density would be 1.88 g/cm³, half of the key and far below any oxide of calcium; the body diagonal is the consistent reading.</li><li><strong>Radius ratio.</strong> $r_A/r_B = 0.106/0.132 = 0.80$, which lies in the range 0.732-1.0 of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=6" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 6">6</a> (coordination 8), not in the octahedral range. The figure, the formula AB and the key all say NaCl type, so the structure is taken from the figure; the radius-ratio rule is a guide, not a law (extension, the same happens for real CaO, which is rock salt).</li><li><strong>No anion overlap.</strong> B-B along the face diagonal: $a\sqrt2/2 = 0.336$ nm $&gt; 2r_B = 0.264$ nm.</li><li><strong>Units</strong> as in the previous problems.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The same two planes describe the cell completely: (100) shows the face of the cell, (020) the mid-plane, and together they place an ion of each kind at every point of a simple cubic grid of step $a/2$, alternating A and B, which is the rock salt structure seen from the side. The derived $r_B = 0.132$ nm is the radius of O²⁻ used in the other problems of the sheet.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Structure</td><td>NaCl type</td><td>NaCl (rock salt), B FCC, A in all octahedral sites</td><td>agrees</td></tr><tr><td>Stoichiometry</td><td>AB</td><td>AB</td><td>agrees</td></tr><tr><td>Density</td><td>3.45 g/cm³</td><td>3.45 g/cm³</td><td>agrees, with $a = 0.824/\sqrt3$ nm (body diagonal)</td></tr><tr><td>Packing factor</td><td>0.54</td><td>0.542</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 6 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-6">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 6</span>
+            <span class="prob-source-badge">Problems T8_CeramicMaterials.pdf #6</span>
+            <span class="prob-source-badge">Perovskite SrSnO₃ · rod mass</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Perovskite SrSnO₃: Linear and Planar Densities and the Mass of a Rod</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T8_CeramicMaterials.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>6.-The compound SrSnO₃ has a perovskite structure, with Sn⁴⁺ occupying the octahedral interstitial position at the center of the cube. DATA: Atomic masses: O = 16, Sr = 87.6, Sn = 118.7; Ionic radii: O⁻² = 0,146 nm, Sn⁺⁴ = 0,071nm, Sr⁺² = 0,113nm. Calculate: a) The linear density in ions/nm along the [101] direction b) The surface density in ions/nm² in the (101) plane c) The mass of a cylindrical rod with a 5 mm radius and a 10 mm length</p>
+          <div class="solution-box">Official Solution: a) ρ [101] = 3.86 ions/nm; b) ρ(101) = 15.87 ions/nm²; c) m = 6.76 g</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Structure.</strong> Sr²⁺ at the corners, O²⁻ at the face centres, Sn⁴⁺ at the body centre (the octahedral site); 1 Sr, 3 O and 1 Sn per cell [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=12" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 12">12</a>].</li><li><strong>Hard spheres.</strong> The edge $a$ is set by the pair of ions that touch. Two contacts are possible: Sn⁴⁺ with its six O²⁻ along the edge direction, $a = 2(r_{Sn} + r_O)$, and Sr²⁺ with O²⁻ along the face diagonal, $a\sqrt2 = 2(r_{Sr} + r_O)$, the "FCC packing of A and O" of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=12" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 12">12</a>. The real edge is the <strong>larger</strong> of the two: with the smaller one the other pair of spheres would overlap.</li><li>$\rho = \sum M/(V N_A)$ with $N_A = 6.022\times10^{23}$ mol⁻¹ (Topic 2); the rod is a solid cylinder, $V = \pi R^2 L$, with no porosity.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$r_O$, $r_{Sn}$, $r_{Sr}$</td><td style="text-align:right">0.146, 0.071, 0.113 nm</td></tr><tr><td>$M_O$, $M_{Sr}$, $M_{Sn}$</td><td style="text-align:right">16, 87.6, 118.7 g/mol</td></tr><tr><td>Rod</td><td style="text-align:right">$R = 5$ mm, $L = 10$ mm</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $\rho_L[101]$, $\rho_P(101)$, $m$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<ol><li>Compute both contact edges and keep the one that leaves no overlap.</li><li>Count the ions on the face diagonal [101] and in the plane (101).</li><li>Density of the cell, then the mass of the rod.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Lattice parameter</strong></p>
+<p>Sn-O contact along the edge:</p>
+<div class="math-block">$$a_1 = 2(r_{Sn} + r_O) = 2\times(0.071 + 0.146)\ \text{nm} = 0.434\ \text{nm}$$</div>
+<p>Sr-O contact along the face diagonal:</p>
+<div class="math-block">$$a_2 = \frac{2(r_{Sr} + r_O)}{\sqrt2} = \frac{2\times(0.113 + 0.146)\ \text{nm}}{1.4142} = \frac{0.518\ \text{nm}}{1.4142} = 0.36628\ \text{nm}$$</div>
+<p>With $a_2$ the Sn⁴⁺ ion would be $a_2/2 = 0.183$ nm from its oxygens, less than $r_{Sn} + r_O = 0.217$ nm: the spheres would overlap by 0.034 nm. With $a_1$ the Sr-O distance is $a_1\sqrt2/2 = 0.307$ nm, more than $r_{Sr} + r_O = 0.259$ nm: no overlap. The cell is fixed by the Sn-O contact:</p>
+<div class="math-block">$$a = 0.434\ \text{nm}$$</div>
+<p><strong>2. Linear density along [101]</strong></p>
+<p>The direction [101] is the diagonal of the face $y = 0$, from $(0,0,0)$ to $(1,0,1)$, of length $a\sqrt2 = 0.434\times1.4142 = 0.61377$ nm. On it: Sr²⁺ at both corners ($2\times\frac12 = 1$) and O²⁻ at the centre of the face, $(\frac12,0,\frac12)$ (1). Two ions:</p>
+<div class="math-block">$$\rho_L[101] = \frac{2\ \text{ions}}{0.61377\ \text{nm}} = \mathbf{3.26\ ions/nm}$$</div>
+<p><strong>3. Planar density in (101)</strong></p>
+<p>The plane (101) of the cell, $x + z = 1$, is the rectangle with corners $(1,0,0)$, $(0,0,1)$, $(1,1,0)$, $(0,1,1)$: one side is the face diagonal $a\sqrt2$, the other the edge $a$, so its area is</p>
+<div class="math-block">$$A = a\cdot a\sqrt2 = \sqrt2\,a^2 = 1.4142\times(0.434\ \text{nm})^2 = 0.26638\ \text{nm}^2$$</div>
+<p>Ions in it: Sr²⁺ at the four corners ($4\times\frac14 = 1$); O²⁻ at $(\frac12,0,\frac12)$ and $(\frac12,1,\frac12)$, the midpoints of the two long sides ($2\times\frac12 = 1$); Sn⁴⁺ at $(\frac12,\frac12,\frac12)$, the centre (1). The other face centres have $x + z = \frac12$ or $\frac32$ and lie outside. Three ions:</p>
+<div class="math-block">$$\rho_P(101) = \frac{3\ \text{ions}}{0.26638\ \text{nm}^2} = \mathbf{11.26\ ions/nm^2}$$</div>
+<p><strong>4. Mass of the rod</strong></p>
+<p>Density of the cell:</p>
+<div class="math-block">$$V_{cell} = a^3 = (0.434\ \text{nm})^3 = 0.081747\ \text{nm}^3 = 8.1747\times10^{-23}\ \text{cm}^3$$</div>
+<div class="math-block">$$m_{cell} = \frac{M_{Sr} + M_{Sn} + 3M_O}{N_A} = \frac{(87.6 + 118.7 + 3\times16)\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = \frac{254.3\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = 4.2228\times10^{-22}\ \text{g}$$</div>
+<div class="math-block">$$\rho = \frac{4.2228\times10^{-22}\ \text{g}}{8.1747\times10^{-23}\ \text{cm}^3} = 5.166\ \text{g/cm}^3$$</div>
+<p>Volume of the rod, with $R = 0.5$ cm and $L = 1.0$ cm:</p>
+<div class="math-block">$$V_{rod} = \pi R^2 L = \pi\times(0.5\ \text{cm})^2\times1.0\ \text{cm} = 0.78540\ \text{cm}^3$$</div>
+<div class="math-block">$$m = \rho V_{rod} = 5.166\ \text{g/cm}^3\times0.78540\ \text{cm}^3 = \mathbf{4.06\ g}$$</div>
+<p><strong>5. The edge of the key</strong></p>
+<p>The key corresponds to the second edge, $a_2 = 0.36628$ nm (Sr-O contact):</p>
+<div class="math-block">$$\rho_L[101] = \frac{2}{0.518\ \text{nm}} = 3.86\ \text{ions/nm} \qquad \rho_P(101) = \frac{3}{\sqrt2\,(0.36628)^2\ \text{nm}^2} = 15.81\ \text{ions/nm}^2$$</div>
+<div class="math-block">$$\rho = \frac{4.2228\times10^{-22}\ \text{g}}{0.049141\times10^{-21}\ \text{cm}^3} = 8.593\ \text{g/cm}^3 \qquad m = 8.593\times0.78540 = 6.75\ \text{g}$$</div>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key (3.86 ions/nm, 15.87 ions/nm², 6.76 g) takes the edge from the Sr-O contact along the face diagonal, $a = 0.366$ nm, the rule used in Problem 2 for CaTiO₃. With the radii of this problem that cell is too small for the Sn⁴⁺ ion: the body-centre site leaves $a/2 - r_O = 0.183 - 0.146 = 0.037$ nm for a cation of radius 0.071 nm, so Sn-O would overlap by 0.034 nm. In CaTiO₃ the two contacts happened to give the same edge (0.3366 and 0.336 nm, Problem T8-02), which is why the rule worked there. The hard-sphere cell that respects every radius is $a = 2(r_{Sn} + r_O) = 0.434$ nm, and it gives 3.26 ions/nm, 11.26 ions/nm² and 4.06 g. The computed values are kept; the key's values are reproduced in step 5 for comparison. (The key's 15.87 is also slightly above the 15.81 of its own edge, a rounding of $a$.)</p></div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> ions/nm, ions/nm²; $[\rho V] = (\text{g/cm}^3)(\text{cm}^3) = \text{g}$; 5 mm = 0.5 cm, 10 mm = 1.0 cm.</li><li><strong>Radius ratio.</strong> $r_{Sn}/r_O = 0.071/0.146 = 0.486$, inside the octahedral range 0.414-0.732 of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=6" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 6">6</a>: the cation is larger than the minimum for its hole, so it touches its anions and pushes them apart, which is exactly the Sn-O contact used here.</li><li><strong>Charge.</strong> $+2 + 4 - 3\times2 = 0$.</li><li><strong>Order of magnitude.</strong> The measured edge of SrSnO₃ is about 0.403 nm (extension), between the two hard-sphere edges; real ions are not hard spheres, and these radii are not those of a single consistent table.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>In a perovskite the B cation sits in the octahedron of oxygens and the A cation in the twelve-fold hole between octahedra. Which contact sets the cell depends on the sizes (the tolerance of the perovskite structure, an extension): here the B-O contact dominates, the A cation rattles in a hole a little too large for it, and the cell is larger and lighter than the key assumes.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>$\rho_L[101]$</td><td>3.86 ions/nm</td><td>3.26 ions/nm</td><td>key uses $a = 0.366$ nm (Sr-O contact), which overlaps Sn-O; see the warning</td></tr><tr><td>$\rho_P(101)$</td><td>15.87 ions/nm²</td><td>11.26 ions/nm²</td><td>same cause (15.81 with the key's edge)</td></tr><tr><td>$m$</td><td>6.76 g</td><td>4.06 g</td><td>same cause (6.75 g with the key's edge)</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 7 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-7">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 7</span>
+            <span class="prob-source-badge">Problems T8_CeramicMaterials.pdf #7</span>
+            <span class="prob-source-badge">MgO rock salt · densities</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">MgO (Rock Salt): Cell Volume, Packing Factor, Linear, Planar and Volumetric Densities</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems%20T8_CeramicMaterials.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T8_CeramicMaterials.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>7- Considering that MgO crystallizes in a NaCl-type structure, determine: DATA: r(Mg²⁺) = 0,078 nm; r(O²⁻) = 0,132 nm; M(MgO) = 40 g/mol; $N_A$ = 6,023·10²³ átomos/mol a) The volume of the unit cell b) The packing factor c) The linear density (in ions/nm) in the [111] direction d) The planar density (in ions/nm²) in the (111) plane e) The volumetric density (in g/cm³)</p>
+<p>The sheet prints the volume of the key as "V = 0.074nm", with the unit nm; a volume is in nm³. It writes Avogadro's number with decimal commas and in Spanish, "6,023·10²³ átomos/mol".</p>
+          <div class="solution-box">Official Solution: a) V = 0.074 nm³; b) f = 0.63; c) ρ[111] = 2.75 ions/nm; d) ρ(111) = 13.1 ions/nm²; e) ρv = 3.59 g/cm³</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Structure.</strong> O²⁻ on the FCC lattice points, Mg²⁺ in all the octahedral sites (edge midpoints and body centre); 4 Mg²⁺ and 4 O²⁻ per cell [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=8" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 8">8</a>]. The ratio $r_{Mg}/r_O = 0.078/0.132 = 0.591$ is in the octahedral range 0.414-0.732 [Session 16 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session%2016%20T8%20Ceramic%20materials.pdf#page=6" target="_blank" rel="noopener" title="Open Session 16 T8 Ceramic materials.pdf at page 6">6</a>].</li><li><strong>Contact</strong> of cation and anion along the edge: $a = 2(r_{Mg} + r_O)$.</li><li>$\rho = 4M_{MgO}/(V N_A)$ with the $N_A = 6.023\times10^{23}$ mol⁻¹ of the sheet.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$r_{Mg}$, $r_O$</td><td style="text-align:right">0.078, 0.132 nm</td></tr><tr><td>$M_{MgO}$</td><td style="text-align:right">40 g/mol</td></tr><tr><td>$N_A$</td><td style="text-align:right">$6.023\times10^{23}$ mol⁻¹</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $V$, $f$, $\rho_L[111]$, $\rho_P(111)$, $\rho_v$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>Edge from the contact; packing factor with 4 + 4 ions; count the ions on the body diagonal and in the (111) triangle; density with four formula units.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Volume of the cell</strong></p>
+<div class="math-block">$$a = 2(r_{Mg} + r_O) = 2\times(0.078 + 0.132)\ \text{nm} = 0.420\ \text{nm}$$</div>
+<div class="math-block">$$V = a^3 = (0.420\ \text{nm})^3 = \mathbf{0.0741\ nm^3}$$</div>
+<p><strong>2. Packing factor</strong></p>
+<div class="math-block">$$V_{Mg} = \tfrac43\pi(0.078\ \text{nm})^3 = 1.9878\times10^{-3}\ \text{nm}^3 \qquad V_O = \tfrac43\pi(0.132\ \text{nm})^3 = 9.6341\times10^{-3}\ \text{nm}^3$$</div>
+<div class="math-block">$$f = \frac{4(V_{Mg} + V_O)}{V} = \frac{4\times(1.9878 + 9.6341)\times10^{-3}\ \text{nm}^3}{0.074088\ \text{nm}^3} = \frac{0.046488\ \text{nm}^3}{0.074088\ \text{nm}^3} = \mathbf{0.627}$$</div>
+<p><strong>3. Linear density along [111]</strong></p>
+<p>Body diagonal, length $a\sqrt3 = 0.420\times1.7321 = 0.72746$ nm. On it: O²⁻ at the two corners ($2\times\frac12 = 1$) and Mg²⁺ at the body centre (1). Two ions:</p>
+<div class="math-block">$$\rho_L[111] = \frac{2\ \text{ions}}{0.72746\ \text{nm}} = \mathbf{2.75\ ions/nm}$$</div>
+<p><strong>4. Planar density in (111)</strong></p>
+<p>Triangle $(1,0,0)$, $(0,1,0)$, $(0,0,1)$, of area $\frac{\sqrt3}{2}a^2 = 0.8660\times(0.420\ \text{nm})^2 = 0.15277$ nm². It holds only O²⁻: three corners ($3\times\frac16$) and three face centres ($3\times\frac12$), 2 ions. The Mg²⁺ ions at the edge midpoints, such as $(\frac12,0,0)$, have $x+y+z = \frac12$, and the body centre $\frac32$: they lie in the parallel planes between the oxygen layers.</p>
+<div class="math-block">$$\rho_P(111) = \frac{2\ \text{ions}}{0.15277\ \text{nm}^2} = \mathbf{13.1\ ions/nm^2}$$</div>
+<p><strong>5. Volumetric density</strong></p>
+<div class="math-block">$$m_{cell} = \frac{4M_{MgO}}{N_A} = \frac{4\times40\ \text{g/mol}}{6.023\times10^{23}\ \text{mol}^{-1}} = 2.6565\times10^{-22}\ \text{g}$$</div>
+<div class="math-block">$$\rho_v = \frac{2.6565\times10^{-22}\ \text{g}}{0.074088\times10^{-21}\ \text{cm}^3} = \mathbf{3.59\ g/cm^3}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>No anion overlap.</strong> O-O along the face diagonal: $a\sqrt2/2 = 0.297$ nm $&gt; 2r_O = 0.264$ nm, so the Mg-O contact sets the edge.</li><li><strong>Units.</strong> nm³; dimensionless $f$; ions/nm, ions/nm²; g/cm³ with $1\ \text{nm}^3 = 10^{-21}$ cm³.</li><li><strong>Physical value.</strong> 3.59 g/cm³ is the known density of periclase, MgO (about 3.58 g/cm³, extension).</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Rock salt is two interpenetrating FCC lattices, one of each ion, shifted by half an edge. Along the body diagonal the ions alternate O-Mg-O-Mg at steps of $a\sqrt3/2$, and the (111) planes are alternately all-oxygen and all-magnesium layers, which is why a (111) plane of the cell contains a single kind of ion.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>$V$</td><td>0.074 (printed in nm)</td><td>0.0741 nm³</td><td>agrees; the unit of the key should read nm³</td></tr><tr><td>$f$</td><td>0.63</td><td>0.627</td><td>agrees</td></tr><tr><td>$\rho_L[111]$</td><td>2.75 ions/nm</td><td>2.75 ions/nm</td><td>agrees</td></tr><tr><td>$\rho_P(111)$</td><td>13.1 ions/nm²</td><td>13.1 ions/nm²</td><td>agrees</td></tr><tr><td>$\rho_v$</td><td>3.59 g/cm³</td><td>3.59 g/cm³</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 24px;">
+      Aerospace Materials I · Department of Materials Science and Engineering · Universidad Carlos III de Madrid (UC3M)
+    </div>
+  </footer>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+
+

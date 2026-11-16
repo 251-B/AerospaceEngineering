@@ -68,6 +68,13 @@ TOPICS = {
         "title": "Topic 7: Solved Problems (Magnetic Properties) — Aerospace Materials I",
         "scope_of": "of the magnetic part of the official sheet (Problems T6andT7_Electric and Magnetic Properties, problems 11 and 12: the hysteresis loops of soft and hard magnetic materials and the effect of the microstructure on a ferromagnetic material, from Session 15). Problems 1 to 10 of the sheet are electrical and belong to Topic 6. The sheet prints no solution for these two, so both are derived here.",
     },
+    8: {
+        "code": "T8", "figures": "materials_t8", "total": 7,
+        "page": "subjects/aerospace-materials-1/problemas/topic-8-ceramics.html",
+        "sheet": "Problems T8_CeramicMaterials.pdf",
+        "title": "Topic 8: Solved Problems (Ceramic Materials) — Aerospace Materials I",
+        "scope_of": "of the official sheet on ceramic materials (Problems T8_CeramicMaterials: volume, packing factor and densities of zinc blende, perovskite and rock salt cells, and the crystal system, stoichiometry, density and structure of an AB-type ceramic read from two planes, from Session 16). The sheet prints a numeric key for every item, so each solution is derived here and compared with that key.",
+    },
 }
 
 

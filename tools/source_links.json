@@ -772,6 +772,21 @@
    "label": "10 Rigid body dynamics.pdf",
    "pages": 20
   },
+  "mat-s16": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session 16 T8 Ceramic materials.pdf",
+   "label": "Session 16 T8 Ceramic materials.pdf",
+   "pages": 32
+  },
+  "mat-s18": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session 18 T8 Processing of ceramic materials.pdf",
+   "label": "Session 18 T8 Processing of ceramic materials.pdf",
+   "pages": 43
+  },
+  "mat-t8": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems T8_CeramicMaterials.pdf",
+   "label": "Problems T8_CeramicMaterials.pdf",
+   "pages": 3
+  },
   "mat-s24": {
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session 24 T11 Adhesives.pdf",
    "label": "Session 24 T11 Adhesives.pdf",
@@ -3284,6 +3299,79 @@
     "vf20": [
      "fm-vf20",
      1
+    ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html": {
+   "panel": [
+    [
+     "mat-s16",
+     1
+    ],
+    [
+     "mat-s18",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": [
+     [
+      "mat-s16",
+      0
+     ],
+     [
+      "mat-s18",
+      "id=\"section-25\""
+     ]
+    ],
+    "sessions": {
+     "16": "mat-s16",
+     "18": "mat-s18"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-8-ceramics.html": {
+   "panel": [
+    [
+     "mat-t8",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s16",
+    "sessions": {
+     "16": "mat-s16",
+     "18": "mat-s18"
+    }
+   },
+   "cards": {
+    "prob-1": [
+     "mat-t8",
+     1
+    ],
+    "prob-2": [
+     "mat-t8",
+     1
+    ],
+    "prob-3": [
+     "mat-t8",
+     1
+    ],
+    "prob-4": [
+     "mat-t8",
+     2
+    ],
+    "prob-5": [
+     "mat-t8",
+     2
+    ],
+    "prob-6": [
+     "mat-t8",
+     3
+    ],
+    "prob-7": [
+     "mat-t8",
+     3
     ]
    }
   },

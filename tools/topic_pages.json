@@ -182,6 +182,20 @@
     "label": "2 solved problems for this topic (Problems T6andT7, problems 11-12, the magnetic part of the sheet)"
    }
   },
+  "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 8 - Ceramic Materials.md",
+   "figures": "materials_t8",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 8: Ceramic Materials — Aerospace Materials I",
+   "category": "Topic 08 · Ceramic Materials",
+   "title": "Ceramic Materials",
+   "subtitle": "Ceramic bonding and crystal structures, brittle behaviour and Weibull statistics, silicates, glasses and glass-ceramics, and the processing route from powder to sintered part, with the Shuttle tiles and turbine coatings as applications.",
+   "source": "Universidad Carlos III de Madrid · Session 16 T8 Ceramic materials.pdf, Session 18 T8 Processing of ceramic materials.pdf",
+   "problems": {
+    "href": "../problemas/topic-8-ceramics.html",
+    "label": "7 solved problems for this topic (Problems T8_CeramicMaterials)"
+   }
+  },
   "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html": {
    "note": "vault/02 - Aerospace Materials I/Topic 11 - Adhesives.md",
    "figures": "materials_t11",
