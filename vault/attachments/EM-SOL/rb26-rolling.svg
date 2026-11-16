@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 740" width="100%" class="fig-kit" style="max-width:820px;margin:0 auto;display:block" role="img" aria-label="Bearing A between the disk and the fixed cavity with the linear velocity distribution across its diameter, zero at the cavity contact.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polyline points="290.4,556.8 295.0,546.9 299.3,536.9 303.2,526.7 306.7,516.4 309.9,506.0 312.7,495.5 315.2,484.9 317.3,474.2 319.0,463.4 320.3,452.6 321.2,441.8 321.8,430.9 322.0,420.0 321.8,409.1 321.2,398.2 320.3,387.4 319.0,376.6 317.3,365.8 315.2,355.1 312.7,344.5 309.9,334.0 306.7,323.6 303.2,313.3 299.3,303.1 295.0,293.1 290.4,283.2" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="455.1,564.6 459.9,549.0 464.1,533.2 467.8,517.3 470.9,501.3 473.4,485.1 475.4,468.9 476.9,452.6 477.7,436.3 478.0,420.0 477.7,403.7 476.9,387.4 475.4,371.1 473.4,354.9 470.9,338.7 467.8,322.7 464.1,306.8 459.9,291.0 455.1,275.4" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="455.1" y1="564.6" x2="465.4" y2="578.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="459.9" y1="549.0" x2="470.7" y2="562.3" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="464.1" y1="533.2" x2="475.4" y2="546.2" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="467.8" y1="517.3" x2="479.5" y2="529.9" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="470.9" y1="501.3" x2="483.0" y2="513.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="473.4" y1="485.1" x2="486.0" y2="496.8" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="475.4" y1="468.9" x2="488.4" y2="480.2" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="476.9" y1="452.6" x2="490.2" y2="463.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="477.7" y1="436.3" x2="491.4" y2="446.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="478.0" y1="420.0" x2="492.1" y2="429.8" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="477.7" y1="403.7" x2="492.1" y2="413.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="476.9" y1="387.4" x2="491.6" y2="396.2" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="475.4" y1="371.1" x2="490.4" y2="379.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="473.4" y1="354.9" x2="488.7" y2="362.7" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="470.9" y1="338.7" x2="486.4" y2="346.0" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="467.8" y1="322.7" x2="483.6" y2="329.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="464.1" y1="306.8" x2="480.1" y2="312.9" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="459.9" y1="291.0" x2="476.1" y2="296.6" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="455.1" y1="275.4" x2="471.5" y2="280.4" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="245.8" y="540.9" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">disk D</text>
+<text x="554.2" y="540.9" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">cavity, fixed</text>
+<circle cx="400.0" cy="420.0" r="78.0" fill="#8a94a6" fill-opacity="0.12" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<circle cx="400.0" cy="420.0" r="3.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="418.0" y="416.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<circle cx="322.0" cy="420.0" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="312.0" y="442.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P<tspan baseline-shift="sub" font-size="70%">A</tspan></text>
+<circle cx="478.0" cy="420.0" r="0.0" fill="none" stroke="#4b5563" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="478.0" cy="420.0" r="5.5" fill="none" stroke="#4b5563" stroke-width="1.9"/>
+<text x="504.0" y="450.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Q<tspan baseline-shift="sub" font-size="70%">A</tspan></text>
+<text x="514.0" y="414.0" fill="#10b981" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">v = 0</text>
+<line x1="400.0" y1="420.0" x2="400.0" y2="271.2" stroke="#10b981" stroke-width="3.0"/>
+<path d="M400.0,264.0 L404.7,275.1 L395.3,275.1 Z" fill="#10b981"/>
+<text x="412.0" y="250.0" fill="#10b981" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">(5d/4) θ̇</text>
+<line x1="322.0" y1="420.0" x2="322.0" y2="115.2" stroke="#10b981" stroke-width="3.0"/>
+<path d="M322.0,108.0 L326.7,119.1 L317.3,119.1 Z" fill="#10b981"/>
+<text x="314.0" y="94.0" fill="#10b981" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">(5d/2) θ̇</text>
+<line x1="298.6" y1="420.0" x2="298.6" y2="115.2" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M298.6,108.0 L303.3,119.1 L293.9,119.1 Z" fill="#f59e0b"/>
+<line x1="322.0" y1="420.0" x2="298.6" y2="420.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="286.6" y="114.0" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">d ω<tspan baseline-shift="sub" font-size="70%">D</tspan></text>
+<line x1="322.0" y1="108.0" x2="478.0" y2="420.0" stroke="#10b981" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="464.9" y="221.1" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">velocity along <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<path d="M429.7,433.8 A32.8,32.8 0 0 1 370.3,433.8" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M369.0,431.1 L375.7,437.2 L369.4,440.1 Z" fill="#10b981"/>
+<text x="400.0" y="467.6" fill="#10b981" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="400.0" y="522.0" fill="#10b981" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ω<tspan baseline-shift="sub" font-size="70%">A</tspan> = −5 θ̇</text>
+<line x1="322.0" y1="556.5" x2="400.0" y2="556.5" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M322.0,556.5 L328.4,553.8 L328.4,559.2 Z" fill="#8a94a6"/>
+<path d="M400.0,556.5 L393.6,559.2 L393.6,553.8 Z" fill="#8a94a6"/>
+<text x="361.0" y="576.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">d/4</text>
+<line x1="400.0" y1="556.5" x2="478.0" y2="556.5" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M400.0,556.5 L406.4,553.8 L406.4,559.2 Z" fill="#8a94a6"/>
+<path d="M478.0,556.5 L471.6,559.2 L471.6,553.8 Z" fill="#8a94a6"/>
+<text x="439.0" y="576.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">d/4</text>
+<line x1="322.0" y1="420.0" x2="322.0" y2="564.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="478.0" y1="420.0" x2="478.0" y2="564.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="400.0" y1="548.7" x2="400.0" y2="564.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="556.0" y1="646.2" x2="628.0" y2="646.2" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M634.0,646.2 L624.8,650.1 L624.8,642.3 Z" fill="#3b82f6"/>
+<text x="644.0" y="666.2" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">r</tspan></text>
+<line x1="556.0" y1="646.2" x2="556.0" y2="574.2" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M556.0,568.2 L559.9,577.4 L552.1,577.4 Z" fill="#3b82f6"/>
+<text x="552.0" y="558.2" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<circle cx="556.0" cy="646.2" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="556.0" cy="646.2" r="2.6" fill="#4b5563"/>
+<text x="542.0" y="670.2" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan> (⊙)</text>
+</g></svg>
