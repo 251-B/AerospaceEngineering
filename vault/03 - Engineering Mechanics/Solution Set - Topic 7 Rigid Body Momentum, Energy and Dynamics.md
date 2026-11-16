@@ -1265,3 +1265,950 @@ The forces on the triangle, in the inertial frame (no inertia forces):
 * **Equilibrium alignment.** At the equilibrium of part (c) the four points $O_1$, $A$, $G$ and $C$ are on one vertical line; the statement figure draws the configuration schematically (read from the figure: $G$ appears to the right of $O_1Y_1$), but the horizontal force balance requires the spring to be vertical, which puts $G$ on that axis.
 * **Part (d).** Only the part of the spring force due to the segment $O_1G$ has a moment about the fixed $G$ (the part along $GA$ has no arm), so the restoring moment per radian is the stiffness times the length $O_1G$, $a/4$, times the length $GA$, $a$: that is the coefficient $ka^2/4$ found above. It does not depend on $g$, because the weight acts at the fixed point.
 * **Dimensions.** Force equations in N, moment equations in N m, frequencies in rad/s.
+
+---
+
+## Problem RB-10: Firedoor motion
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a heavy rectangular plate (the door) of mass $m$ and height $h$, moving in a vertical plane. It hangs from the ceiling by two rigid massless links of length $L$, pinned to the ceiling at $O_A$ and $O_B$ and to the top edge of the door at $A$ and $B$. The cable to the wall is cut at the initial instant and plays no part afterwards.
+* **Geometry read from the figure:** the two ceiling pins are a distance $b$ apart, the same as $A$ and $B$, and the links are drawn parallel; $A$ and $B$ lie on the top edge, symmetric about the vertical midline of the door (the door is slightly wider than $b$). The centre of mass $G$ is the centre of the plate, a depth $h/2$ below the top edge, straight below the midpoint of $AB$.
+* **Pins:** smooth, so each link carries only a force along its own line (proved in the free-body section); the force is called a tension, positive when it pulls the door towards the ceiling.
+* **Fixed frame:** $S_0\{O_A; \mathbf i, \mathbf j, \mathbf k\}$ with origin at the ceiling pin of the left link, $\mathbf i$ horizontal to the right (towards the wall), $\mathbf j$ up and $\mathbf k$ out of the paper (⊙). It is inertial.
+* **Body frame:** $S_B\{G; \mathbf i_B, \mathbf j_B, \mathbf k\}$ attached to the door, with $\mathbf i_B$ along the top edge from $A$ to $B$ and $\mathbf j_B$ up along the side.
+* **Coordinate:** the angle $\theta$ of the links from the downward vertical, positive when the lower ends lie to the right of the ceiling pins, as drawn (door pushed towards the wall).
+* **Degrees of freedom:** a plane rigid body has three; each link fixes the distance from a body point to a fixed point, which removes one each. One degree of freedom remains, $\theta$ (the door turns out not to rotate, see the next section).
+* **Unknowns of the dynamics:** $\theta(t)$ and the two link tensions $T_A$ and $T_B$; three scalar equations are needed: two force components and one moment component.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the door, homogeneous | $m$ | kg |
+| Height of the door | $h$ | m |
+| Distance between the pins (ceiling and door) | $b$ | m |
+| Length of each link, massless | $L$ | m |
+| Gravity | $g$, along $-\mathbf j$ | m/s$^2$ |
+| Initial angle when the cable is cut (not given; used only for the link forces) | $\theta_0$, at rest | rad |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb10-parallelogram.svg]]
+
+> [!derivation] The links form a parallelogram: the door does not rotate
+> **Law:** constraint of a rigid link (fixed distance between its two pins); vector sum around a closed loop
+> **Source:** Notes.pdf, Sec. 9.3; Notes.pdf, Eq. 9.3; Problems.pdf, p. 44
+>
+> Call $\mathbf e_L$ the unit vector along the left link, from $O_A$ to $A$. Going around the loop $O_A \to A \to B \to O_B \to O_A$ the vectors add to zero.
+>
+> $$\begin{aligned}
+> \overrightarrow{O_AA} + \overrightarrow{AB} + \overrightarrow{BO_B} + \overrightarrow{O_BO_A} &= \mathbf 0 \quad &\text{(closed loop)} \\
+> L\,\mathbf e_L + b\,\mathbf i_B - \overrightarrow{O_BB} - b\,\mathbf i &= \mathbf 0 \quad &\text{(lengths of the links and of the two pin spacings)} \\
+> \overrightarrow{O_BB} &= L\,\mathbf e_L + b\left(\mathbf i_B - \mathbf i\right) \quad &\text{(solve for the right link)} \\
+> \overrightarrow{O_BB} &= L\,\mathbf e_L, \qquad \mathbf i_B = \mathbf i \quad &\text{(the parallel position drawn in the figure: the uncrossed branch of the four-bar loop)} \\
+> \boldsymbol\omega_{B0} &= \mathbf 0, \qquad \boldsymbol\alpha_{B0} = \mathbf 0 \quad &\text{($\mathbf i_B$ keeps its direction at every instant)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_B = \mathbf i, \qquad \mathbf j_B = \mathbf j, \qquad \boldsymbol\omega_{B0} = \mathbf 0}$$
+>
+> **Units:** dimensionless basis; $\boldsymbol\omega_{B0}$ in $[\mathrm{T^{-1}}]$
+> **Meaning:** with equal links and equal pin spacings the quadrilateral $O_A A B O_B$ is a parallelogram, so the top edge stays parallel to the ceiling: the door moves in curvilinear translation and every point of it describes a circle of radius $L$.
+
+> [!derivation] Link basis: the right triangle of the link
+> **Law:** projection of a unit vector on two perpendicular axes; rotation about the axis normal to the plane
+> **Source:** Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]
+>
+> The left link is the hypotenuse, of length $L$, of a right triangle whose horizontal leg (opposite to $\theta$) is $L\sin\theta$ and whose vertical leg (adjacent to $\theta$, measured from the downward vertical) is $L\cos\theta$. Define the unit vector $\mathbf e_n$ along the link from the door to the ceiling and the unit vector $\mathbf e_t$ normal to it, in the sense of increasing $\theta$. View with $\mathbf k$ out of the paper (⊙): $\mathbf e_t$ is $\mathbf i$ turned counterclockwise by $\theta$, and $\mathbf e_n$ is $\mathbf j$ turned by the same angle.
+>
+> $$\begin{aligned}
+> \overrightarrow{O_AA} &= L\sin\theta\,\mathbf i - L\cos\theta\,\mathbf j \quad &\text{(opposite leg to the right, adjacent leg downwards)} \\
+> \mathbf e_t &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf i$, opposite leg along $\mathbf j$)} \\
+> \mathbf e_n &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{($\mathbf j$ turned counterclockwise about $\mathbf k$, out of the paper, leans to negative $\mathbf i$)} \\
+> \det\begin{bmatrix} \cos\theta & -\sin\theta \cr \sin\theta & \cos\theta \end{bmatrix} &= \cos^2\theta + \sin^2\theta = 1 \quad &\text{(columns $\mathbf e_t$, $\mathbf e_n$ in $\{\mathbf i, \mathbf j\}$; orthonormal and right-handed)} \\
+> \mathbf e_t\cdot\mathbf e_n &= -\cos\theta\sin\theta + \sin\theta\cos\theta = 0 \quad &\text{(product of the matrix by its transpose gives the identity)} \\
+> \mathbf j &= \sin\theta\,\mathbf e_t + \cos\theta\,\mathbf e_n \quad &\text{(inverse change: rows of the matrix)} \\
+> \frac{d\mathbf e_t}{dt} &= -\sin\theta\,\dot\theta\,\mathbf i + \cos\theta\,\dot\theta\,\mathbf j = \dot\theta\,\mathbf e_n \quad &\text{(chain rule; $\mathbf i$, $\mathbf j$ fixed)} \\
+> \frac{d\mathbf e_n}{dt} &= -\cos\theta\,\dot\theta\,\mathbf i - \sin\theta\,\dot\theta\,\mathbf j = -\dot\theta\,\mathbf e_t \quad &\text{(chain rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_t = \cos\theta\,\mathbf i + \sin\theta\,\mathbf j, \qquad \mathbf e_n = -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j, \qquad \overrightarrow{O_AA} = -L\,\mathbf e_n}$$
+>
+> **Units:** $[\mathrm L]$ for the position, unit vectors dimensionless
+> **Meaning:** the link points from the ceiling down to the door along $-\mathbf e_n$; the derivatives of the two unit vectors are those of a basis turning at the rate of the links, which is not the rate of the door (zero).
+
+![[attachments/EM-SOL/rb10-kinematics.svg]]
+
+> [!derivation] Position, velocity and acceleration of G
+> **Law:** position vector as a sum of segments; time derivatives in $S_0$ with the chain and product rules
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 9.3; [Lecture 7, Slide 6]
+>
+> $$\begin{aligned}
+> \mathbf r_0^G &= \overrightarrow{O_AA} + \overrightarrow{AG} = L\sin\theta\,\mathbf i - L\cos\theta\,\mathbf j + \frac b2\,\mathbf i - \frac h2\,\mathbf j \quad &\text{(link, then half the pin spacing to the right and half the height down)} \\
+> \mathbf r_0^G &= \left(L\sin\theta + \frac b2\right)\mathbf i - \left(L\cos\theta + \frac h2\right)\mathbf j \quad &\text{(collect)} \\
+> \mathbf v_0^G &= L\cos\theta\,\dot\theta\,\mathbf i + L\sin\theta\,\dot\theta\,\mathbf j = L\,\dot\theta\,\mathbf e_t \quad &\text{(chain rule; $b$, $h$, $L$ constant)} \\
+> \mathbf a_0^G &= L\,\ddot\theta\,\mathbf e_t + L\,\dot\theta\,\frac{d\mathbf e_t}{dt} \quad &\text{(product rule)} \\
+> &= L\,\ddot\theta\,\mathbf e_t + L\,\dot\theta^2\,\mathbf e_n \quad &\text{(derivative of $\mathbf e_t$ from the link box)} \\
+> \mathbf v_0^A &= \mathbf v_0^G + \boldsymbol\omega_{B0}\times\mathbf r_G^A = \mathbf v_0^G \quad &\text{(velocity field with zero angular velocity: all points move alike)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G = \left(L\sin\theta + \frac b2\right)\mathbf i - \left(L\cos\theta + \frac h2\right)\mathbf j, \qquad \mathbf v_0^G = L\,\dot\theta\,\mathbf e_t, \qquad \mathbf a_0^G = L\,\ddot\theta\,\mathbf e_t + L\,\dot\theta^2\,\mathbf e_n}$$
+>
+> **Units:** $[\mathrm L]$, $[\mathrm{L\,T^{-1}}]$, $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** $G$ moves on a circle of radius $L$ centred a distance $b/2$ to the right of $O_A$ and $h/2$ below it; its acceleration has a tangential part and a centripetal part pointing along the links, towards the ceiling.
+
+### Center of Mass and Inertia Tensor
+
+![[attachments/EM-SOL/rb10-plate.svg]]
+
+> [!derivation] Centre of mass of the door
+> **Law:** definition of the centre of mass of a homogeneous plate; symmetric limits
+> **Source:** Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.8; Notes.pdf, Sec. 10.3; [Lecture 8, Slide 9]
+>
+> Take provisional axes $x'$, $y'$ through the centre of the rectangle, parallel to $\mathbf i_B$ and $\mathbf j_B$; call $w$ the width of the door (not given: read from the figure it is slightly larger than $b$). The plate covers $x'$ from $-w/2$ to $w/2$ and $y'$ from $-h/2$ to $h/2$.
+>
+> $$\begin{aligned}
+> dm &= \frac{m}{w h}\,dx'\,dy' \quad &\text{(homogeneous: mass over area)} \\
+> \int x'\,dm &= \frac{m}{wh}\,h\left[\frac{x'^2}{2}\right]_{-w/2}^{w/2} = \frac{m}{w}\left(\frac{w^2}{8} - \frac{w^2}{8}\right) = 0 \quad &\text{(inner integral in $y'$ gives $h$; Barrow with both limits)} \\
+> \int y'\,dm &= \frac{m}{wh}\,w\left[\frac{y'^2}{2}\right]_{-h/2}^{h/2} = \frac{m}{h}\left(\frac{h^2}{8} - \frac{h^2}{8}\right) = 0 \quad &\text{(same steps)} \\
+> \mathbf r_G^A &= -\frac b2\,\mathbf i + \frac h2\,\mathbf j, \qquad \mathbf r_G^B = \frac b2\,\mathbf i + \frac h2\,\mathbf j \quad &\text{(pins on the top edge, symmetric about the midline: read from the figure)}
+> \end{aligned}$$
+>
+> $$\boxed{G \text{ at the centre of the plate}, \qquad \mathbf r_G^A = -\frac b2\,\mathbf i + \frac h2\,\mathbf j, \qquad \mathbf r_G^B = \frac b2\,\mathbf i + \frac h2\,\mathbf j}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L]$ for the first moments, $[\mathrm L]$ for the arms
+> **Meaning:** the first moments about the centre vanish, so $G$ is the centre of the rectangle; the arms from $G$ to the two pins are mirror images.
+
+The inertia tensor of the door about $G$ is not needed: the angular momentum about $G$ is the tensor applied to the angular velocity, which is zero (see the next box), whatever the moments of inertia are. The width $w$ therefore never enters the answer.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Momentum, angular momentum about G and kinetic energy
+> **Law:** linear momentum from $G$; angular momentum about $G$ from the inertia tensor; kinetic energy decomposed at $G$
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 9]
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= m\,\mathbf v_0^G = m L\,\dot\theta\,\mathbf e_t \quad &\text{(Eq. 11.3)} \\
+> \mathbf H_{G,0} &= \bar{\bar I}_G\cdot\boldsymbol\omega_{B0} = \bar{\bar I}_G\cdot\mathbf 0 = \mathbf 0 \quad &\text{(Eq. 11.12; translation)} \\
+> T_0 &= \frac12\,m\left(v_0^G\right)^2 + \frac12\,\boldsymbol\omega_{B0}\cdot\bar{\bar I}_G\cdot\boldsymbol\omega_{B0} = \frac12\,m L^2\dot\theta^2 + 0 \quad &\text{(Eq. 11.31; $\mathbf e_t$ is a unit vector)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf p_0 = m L\,\dot\theta\,\mathbf e_t, \qquad \mathbf H_{G,0} = \mathbf 0, \qquad T_0 = \frac12\,m L^2\dot\theta^2}$$
+>
+> **Units:** kg m/s, kg m$^2$/s, J
+> **Meaning:** the door carries the kinetic energy of a point mass $m$ at the end of a pendulum of length $L$; it has no angular momentum about its own centre of mass.
+
+### Free-Body Diagram and Equations of Motion
+
+> [!derivation] Each massless link pulls along its own line
+> **Law:** force and moment equations of a body of zero mass, with the pin forces at its two ends
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 4]
+>
+> Isolate the left link: the ceiling pin applies $\mathbf F_1$ at $O_A$, the door applies $\mathbf F_2$ at $A$; smooth pins apply no torque, and the link has no weight.
+>
+> $$\begin{aligned}
+> \mathbf F_1 + \mathbf F_2 &= 0\cdot\mathbf a_0^{G_\ell} = \mathbf 0 \quad &\text{(Eq. 12.8 with zero mass)} \\
+> \overrightarrow{O_AA}\times\mathbf F_2 &= \left.\frac{d\mathbf H_{O_A,0}}{dt}\right|_0 = \mathbf 0 \quad &\text{(Eq. 12.13 about the fixed pin; zero mass, zero angular momentum)} \\
+> \mathbf F_2 &\parallel \overrightarrow{O_AA} \quad &\text{(a vector product of non-zero vectors vanishes only if they are parallel)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{force of the left link on the door: } T_A\,\mathbf e_n \text{ at } A, \qquad \text{right link: } T_B\,\mathbf e_n \text{ at } B}$$
+>
+> **Units:** N
+> **Meaning:** by the third law the door receives the opposite of the force it applies to the link; it lies along the link, and $\mathbf e_n$ points from the door towards the ceiling, so positive $T_A$ and $T_B$ are tensions. The right link is parallel to the left one, so its force is along the same $\mathbf e_n$.
+
+![[attachments/EM-SOL/rb10-fbd.svg]]
+
+| Force | Point of application | Expression | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $G$ | $-mg\,\mathbf j = -mg(\sin\theta\,\mathbf e_t + \cos\theta\,\mathbf e_n)$ | applied |
+| Left link | $A$ | $T_A\,\mathbf e_n$, $T_A$ unknown | constraint (two-force member) |
+| Right link | $B$ | $T_B\,\mathbf e_n$, $T_B$ unknown | constraint (two-force member) |
+
+> [!derivation] Force equation in the link basis
+> **Law:** Newton's second law for the centre of mass of a rigid body
+> **Source:** Notes.pdf, Eq. 12.8; [Lecture 10, Slide 4]
+>
+> $$\begin{aligned}
+> m\left(L\,\ddot\theta\,\mathbf e_t + L\,\dot\theta^2\,\mathbf e_n\right) &= \left(T_A + T_B\right)\mathbf e_n - mg\left(\sin\theta\,\mathbf e_t + \cos\theta\,\mathbf e_n\right) \quad &\text{(Eq. 12.8 with the forces of the table)} \\
+> m L\,\ddot\theta &= -mg\sin\theta \quad &\text{($\mathbf e_t$ component: the links have no component along $\mathbf e_t$)} \\
+> m L\,\dot\theta^2 &= T_A + T_B - mg\cos\theta \quad &\text{($\mathbf e_n$ component)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\theta + \frac gL\sin\theta = 0, \qquad T_A + T_B = m\left(g\cos\theta + L\,\dot\theta^2\right)}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$ in the first equation ($g/L$ in s$^{-2}$); N in the second
+> **Meaning:** the door swings exactly like a simple pendulum of length $L$, independently of its size and mass; the sum of the tensions carries the normal component of the weight plus the centripetal force.
+
+> [!derivation] Moment equation about G
+> **Law:** moment equation about the centre of mass; moments of the link forces by their determinants
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 12.16; [Lecture 10, Slide 5]
+>
+> The pole is $G$: the extra term of Eq. 12.13 vanishes for the pole $G$, and the weight has no moment about it. The components of $\mathbf e_n$ in $\{\mathbf i, \mathbf j\}$ are $-\sin\theta$ and $\cos\theta$.
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 &= \mathbf 0 \quad &\text{(angular momentum identically zero)} \\
+> \mathbf r_G^A\times T_A\,\mathbf e_n &= \begin{vmatrix} \mathbf i & \mathbf j & \mathbf k \cr -b/2 & h/2 & 0 \cr -T_A\sin\theta & T_A\cos\theta & 0 \end{vmatrix} = T_A\left(-\frac b2\cos\theta + \frac h2\sin\theta\right)\mathbf k \quad &\text{(expand along the first row: only $\mathbf k$ survives)} \\
+> \mathbf r_G^B\times T_B\,\mathbf e_n &= \begin{vmatrix} \mathbf i & \mathbf j & \mathbf k \cr b/2 & h/2 & 0 \cr -T_B\sin\theta & T_B\cos\theta & 0 \end{vmatrix} = T_B\left(\frac b2\cos\theta + \frac h2\sin\theta\right)\mathbf k \quad &\text{(expand along the first row)} \\
+> 0 &= T_A\left(h\sin\theta - b\cos\theta\right) + T_B\left(h\sin\theta + b\cos\theta\right) \quad &\text{(Eq. 12.13 at $G$, $\mathbf k$ component, times 2)} \\
+> 0 &= \left(T_A + T_B\right)h\sin\theta + \left(T_B - T_A\right)b\cos\theta \quad &\text{(regroup)}
+> \end{aligned}$$
+>
+> $$\boxed{T_A - T_B = \left(T_A + T_B\right)\frac hb\tan\theta}$$
+>
+> **Units:** N m in every term before dividing by $b\cos\theta$
+> **Meaning:** the door cannot rotate, so the two link forces must have no net moment about $G$; when the links lean ($\theta$ positive) the left link must pull harder.
+
+> [!derivation] Link forces
+> **Law:** solution of the two linear equations for the tensions
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 8]
+>
+> $$\begin{aligned}
+> T_A &= \frac12\left[\left(T_A + T_B\right) + \left(T_A - T_B\right)\right] = \frac12\left(T_A + T_B\right)\left(1 + \frac hb\tan\theta\right) \quad &\text{(half the sum plus half the difference)} \\
+> T_B &= \frac12\left[\left(T_A + T_B\right) - \left(T_A - T_B\right)\right] = \frac12\left(T_A + T_B\right)\left(1 - \frac hb\tan\theta\right) \quad &\text{(half the sum minus half the difference)}
+> \end{aligned}$$
+>
+> $$\boxed{T_A = \frac m2\left(g\cos\theta + L\,\dot\theta^2\right)\left(1 + \frac hb\tan\theta\right), \qquad T_B = \frac m2\left(g\cos\theta + L\,\dot\theta^2\right)\left(1 - \frac hb\tan\theta\right)}$$
+>
+> **Units:** kg times m/s$^2$: N
+> **Meaning:** at $\theta$ equal to zero each link carries half the load. The right link goes slack (and the model with taut links fails) if the tangent of the angle exceeds the ratio of the pin spacing to the height.
+
+#### First-order equation of motion
+
+> [!derivation] First integral of the equation of motion
+> **Law:** multiplication by the rate of the angle and integration in time (chain rule and Barrow's rule)
+> **Source:** Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33; [Lecture 10, Slide 18]
+>
+> $$\begin{aligned}
+> \dot\theta\,\ddot\theta + \frac gL\sin\theta\,\dot\theta &= 0 \quad &\text{(multiply the equation of motion by the rate of the angle)} \\
+> \frac{d}{dt}\left(\frac12\,\dot\theta^2\right) &= \dot\theta\,\ddot\theta, \qquad \frac{d}{dt}\left(-\cos\theta\right) = \sin\theta\,\dot\theta \quad &\text{(chain rule on each term)} \\
+> \frac{d}{dt}\left(\frac12\,\dot\theta^2 - \frac gL\cos\theta\right) &= 0 \quad &\text{(sum of the two exact derivatives)} \\
+> \left[\frac12\,\dot\theta^2 - \frac gL\cos\theta\right]_0^t &= 0 \quad &\text{(integrate from the initial instant; Barrow's rule)} \\
+> \frac L2\,\dot\theta^2 - g\cos\theta &= \frac L2\,\dot\theta_0^2 - g\cos\theta_0 \equiv C \quad &\text{(multiply by $L$; both limits substituted)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{L\,\dot\theta^2}{2} - g\cos\theta = C, \qquad C = -g\cos\theta_0 \text{ if released from rest at } \theta_0}$$
+>
+> **Units:** $[\mathrm L][\mathrm{T^{-2}}] = [\mathrm{L\,T^{-2}}]$ for both terms (energy per unit mass and length)
+> **Meaning:** this is the energy integral of the door divided by $mL$: with the potential energy of the weight, the energy $\tfrac12 mL^2\dot\theta^2 - mg(L\cos\theta + h/2)$ is constant, because the link forces are normal to the velocity of their points of application.
+
+> [!derivation] Link forces as functions of the angle (release from rest)
+> **Law:** substitution of the first integral in the link forces
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.30
+>
+> $$\begin{aligned}
+> L\,\dot\theta^2 &= 2g\left(\cos\theta - \cos\theta_0\right) \quad &\text{(first integral with $C = -g\cos\theta_0$)} \\
+> T_A + T_B &= m\left(g\cos\theta + 2g\cos\theta - 2g\cos\theta_0\right) = mg\left(3\cos\theta - 2\cos\theta_0\right) \quad &\text{(sum of the tensions)}
+> \end{aligned}$$
+>
+> $$\boxed{T_{A,B} = \frac{mg}{2}\left(3\cos\theta - 2\cos\theta_0\right)\left(1 \pm \frac hb\tan\theta\right)}$$
+>
+> **Units:** N
+> **Meaning:** at the release ($\theta$ equal to $\theta_0$) the sum of the tensions drops to $mg\cos\theta_0$; at the bottom it reaches $mg(3 - 2\cos\theta_0)$, more than the weight, because of the centripetal force.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| Kinematics | curvilinear translation: $\boldsymbol\omega_{B0} = \mathbf 0$; $\mathbf v_0^G = L\dot\theta\,\mathbf e_t$ |
+| First-order equation of motion | $\tfrac12 L\dot\theta^2 - g\cos\theta = C$ (from $\ddot\theta + \tfrac gL\sin\theta = 0$); $C = -g\cos\theta_0$ for release from rest |
+| Force of the left link on the door (at $A$) | $T_A\,\mathbf e_n$, $T_A = \tfrac m2(g\cos\theta + L\dot\theta^2)(1 + \tfrac hb\tan\theta)$ |
+| Force of the right link on the door (at $B$) | $T_B\,\mathbf e_n$, $T_B = \tfrac m2(g\cos\theta + L\dot\theta^2)(1 - \tfrac hb\tan\theta)$ |
+| Unit vector along the links | $\mathbf e_n = -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j$ (from the door to the ceiling) |
+
+**Check against the official key:** `Problems.pdf` (p. 79, see [[Problem Set - Rigid Body Official Key]]) prints the first-order equation of motion, with the constant $C$ fixed by the initial conditions. It is the boxed first integral above, term by term: match. The key prints no link forces.
+
+| Quantity | Official key | This solution |
+| :--- | :--- | :--- |
+| Equation of motion | $L\dot\theta^2/2 - g\cos\theta = C$ | $\tfrac12 L\dot\theta^2 - g\cos\theta = C$ |
+
+**Limiting cases and consistency:**
+
+* **Small swings.** For a small angle the sine is replaced by the angle and the door oscillates with the angular frequency of a simple pendulum, the square root of $g/L$, whatever its height and width: in translation the door behaves as a point mass at $G$ (Notes.pdf, Eq. 5.6; [Lecture 6, Slide 15]).
+* **Vertical links.** At $\theta$ equal to zero the two tensions are equal, each one half of the weight plus the centripetal force: the symmetric case.
+* **Moment balance.** About $G$ the horizontal components of the two tensions (both to the left, total $(T_A + T_B)\sin\theta$) act with the arm $h/2$ above $G$ and tend to turn the door; the unequal vertical components with arms $\mp b/2$ cancel that moment. Checked symbolically: the three equations solved together give the same tensions.
+* **Energy.** The links do no work: each force is along $\mathbf e_n$ while its point moves along $\mathbf e_t$. Differentiating the boxed first integral returns the equation of motion.
+* **Dimensions.** The equation of motion in s$^{-2}$, the first integral in m/s$^2$, the forces in N.
+
+---
+
+## Problem RB-24: Lagrange's top (Heavy axisymmetric pegtop)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a heavy axisymmetric pegtop of mass $m$ whose vertex $O$ stays fixed at the origin of the inertial frame. The centre of mass $G$ lies on the symmetry axis at the distance $\ell$ from $O$. Gravity acts along $-\mathbf k$ (read from the figure: $g$ points down, along $-z$).
+* **Support:** the vertex rests on a fixed point, modelled as a spherical joint without friction: it applies a force $\mathbf R$ at $O$ and no torque.
+* **Fixed frame:** $S_0\{O; \mathbf i, \mathbf j, \mathbf k\}$, the frame $Oxyz$ of the statement, with $\mathbf k$ vertical upwards. It is inertial.
+* **Intermediate frames:** $S_1\{O; \mathbf i_1, \mathbf j_1, \mathbf k_1\}$ (precession $\psi$ about $\mathbf k$) and $S_2\{O; \mathbf i_2, \mathbf j_2, \mathbf k_2\}$ (nutation $\theta$ about $\mathbf i_1$). The axis $\mathbf k_2$ is the symmetry axis of the top; $S_2$ follows the axis but does not spin with the body.
+* **Body frame:** $S_B\{G; \mathbf i_B, \mathbf j_B, \mathbf k_B\}$, principal axes of inertia at $G$, obtained from $S_2$ by the spin $\varphi$ about $\mathbf k_2$; so $\mathbf k_B$ and $\mathbf k_2$ coincide.
+* **Coordinates:** the 3-1-3 Euler angles $\psi$, $\theta$, $\varphi$ of the statement.
+* **Degrees of freedom:** a free rigid body has six; the fixed vertex removes the three coordinates of a body point. Three remain: $\psi$, $\theta$, $\varphi$.
+* **Unknowns of the dynamics:** the three angles and the three components of $\mathbf R$; six scalar equations: the force equation (three) and the moment equation (three).
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass | $m$ | kg |
+| Distance from the vertex to the centre of mass | $OG = \ell$ | m |
+| Inertia tensor about $G$, principal axes | $m\ell^2\,\mathrm{diag}(A, A, B)$ in $\mathcal B_B$, with $A$ and $B$ dimensionless | kg m$^2$ |
+| Gravity | $g$, along $-\mathbf k$ | m/s$^2$ |
+| Initial conditions | $\psi = 0$, $\theta = \pi/6$, $\varphi = 0$, $\dot\psi = 0$, $\dot\theta = \Omega_1$, $\dot\varphi = \Omega_2$ | rad, rad/s |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb24-psi.svg]]
+
+> [!derivation] Precession: rotation psi about k
+> **Law:** simple rotation about the third axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 1.20; [Lecture 7, Slide 12]
+>
+> View with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up; positive $\psi$ is counterclockwise.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\psi\,\mathbf i + \sin\psi\,\mathbf j \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf i$, opposite leg along $\mathbf j$)} \\
+> \mathbf j_1 &= -\sin\psi\,\mathbf i + \cos\psi\,\mathbf j \quad &\text{($\mathbf j$ turned counterclockwise about $\mathbf k$, out of the paper, leans to negative $\mathbf i$)} \\
+> \mathbf k_1 &= \mathbf k \quad &\text{(the rotation axis does not move)} \\
+> [{}_0R_1] &= \begin{bmatrix} \cos\psi & -\sin\psi & 0 \cr \sin\psi & \cos\psi & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\psi + \sin^2\psi\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\psi + \sin^2\psi & \cos\psi\sin\psi - \sin\psi\cos\psi & 0 \cr \sin\psi\cos\psi - \cos\psi\sin\psi & \sin^2\psi + \cos^2\psi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_1 = \cos\psi\,\mathbf i + \sin\psi\,\mathbf j, \qquad \mathbf j_1 = -\sin\psi\,\mathbf i + \cos\psi\,\mathbf j, \qquad \mathbf k_1 = \mathbf k}$$
+>
+> **Units:** dimensionless
+> **Meaning:** $\mathbf i_1$ is the line of nodes, the horizontal line about which the axis of the top tilts.
+
+![[attachments/EM-SOL/rb24-theta.svg]]
+
+> [!derivation] Nutation: rotation theta about i1
+> **Law:** simple rotation about the first axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 9.17; Notes.pdf, Eq. 1.18; [Lecture 7, Slide 12]
+>
+> View with $\mathbf i_1$ out of the paper (⊙), $\mathbf j_1$ to the right and $\mathbf k_1$ up (because $\mathbf j_1\times\mathbf k_1$ is $\mathbf i_1$); positive $\theta$ is counterclockwise, turning $\mathbf k_1$ towards $-\mathbf j_1$, as the figure of the statement draws the axis $z_2$ leaning away from $y$.
+>
+> $$\begin{aligned}
+> \mathbf i_2 &= \mathbf i_1 \quad &\text{(the rotation axis does not move)} \\
+> \mathbf j_2 &= \cos\theta\,\mathbf j_1 + \sin\theta\,\mathbf k_1 \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf j_1$, opposite leg along $\mathbf k_1$)} \\
+> \mathbf k_2 &= -\sin\theta\,\mathbf j_1 + \cos\theta\,\mathbf k_1 \quad &\text{($\mathbf k_1$, pointing up, turned counterclockwise about $\mathbf i_1$ (⊙) leans to negative $\mathbf j_1$)} \\
+> [{}_1R_2] &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\theta & -\sin\theta \cr 0 & \sin\theta & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_2$, $\mathbf j_2$, $\mathbf k_2$ in $\mathcal B_1$)} \\
+> \det[{}_1R_2] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the first row)} \\
+> [{}_1R_2][{}_1R_2]^T &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos^2\theta + \sin^2\theta & \cos\theta\sin\theta - \sin\theta\cos\theta \cr 0 & \sin\theta\cos\theta - \cos\theta\sin\theta & \sin^2\theta + \cos^2\theta \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf k &= \mathbf k_1 = \sin\theta\,\mathbf j_2 + \cos\theta\,\mathbf k_2 \quad &\text{(inverse change: third row of $[{}_1R_2]$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf j_2 = \cos\theta\,\mathbf j_1 + \sin\theta\,\mathbf k_1, \qquad \mathbf k_2 = -\sin\theta\,\mathbf j_1 + \cos\theta\,\mathbf k_1, \qquad \mathbf k = \sin\theta\,\mathbf j_2 + \cos\theta\,\mathbf k_2}$$
+>
+> **Units:** dimensionless
+> **Meaning:** $\theta$ is the angle between the vertical and the symmetry axis: the scalar product of $\mathbf k$ and $\mathbf k_2$ is the cosine of $\theta$.
+
+![[attachments/EM-SOL/rb24-phi.svg]]
+
+> [!derivation] Spin: rotation phi about k2
+> **Law:** simple rotation about the third axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 9.18; Notes.pdf, Eq. 1.20; [Lecture 7, Slide 12]
+>
+> View with $\mathbf k_2$ out of the paper (⊙), $\mathbf i_2$ to the right and $\mathbf j_2$ up; positive $\varphi$ is counterclockwise.
+>
+> $$\begin{aligned}
+> \mathbf i_B &= \cos\varphi\,\mathbf i_2 + \sin\varphi\,\mathbf j_2 \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf i_2$, opposite leg along $\mathbf j_2$)} \\
+> \mathbf j_B &= -\sin\varphi\,\mathbf i_2 + \cos\varphi\,\mathbf j_2 \quad &\text{($\mathbf j_2$ turned counterclockwise about $\mathbf k_2$ (⊙) leans to negative $\mathbf i_2$)} \\
+> \mathbf k_B &= \mathbf k_2 \quad &\text{(the rotation axis does not move)} \\
+> [{}_2R_B] &= \begin{bmatrix} \cos\varphi & -\sin\varphi & 0 \cr \sin\varphi & \cos\varphi & 0 \cr 0 & 0 & 1 \end{bmatrix}, \qquad \det[{}_2R_B] = \cos^2\varphi + \sin^2\varphi = 1 \quad &\text{(columns in $\mathcal B_2$; expand along the third row)} \\
+> [{}_2R_B][{}_2R_B]^T &= [U] \quad &\text{(same row by row products as the precession, with $\varphi$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_B = \cos\varphi\,\mathbf i_2 + \sin\varphi\,\mathbf j_2, \qquad \mathbf j_B = -\sin\varphi\,\mathbf i_2 + \cos\varphi\,\mathbf j_2, \qquad \mathbf k_B = \mathbf k_2}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the spin turns the body about its own symmetry axis; because the top is axisymmetric, this rotation will not change its inertia tensor (next section).
+
+> [!derivation] Angular velocities by additivity, in the axle basis
+> **Law:** derivative of the unit vectors of a simple rotation (Poisson); additivity of angular velocities
+> **Source:** Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 9.21; [Lecture 7, Slide 12]
+>
+> $$\begin{aligned}
+> \frac{d\mathbf i_1}{dt} &= -\sin\psi\,\dot\psi\,\mathbf i + \cos\psi\,\dot\psi\,\mathbf j = \dot\psi\,\mathbf j_1 = \dot\psi\,\mathbf k\times\mathbf i_1 \quad &\text{(chain rule; $\mathbf k\times\mathbf i_1 = \mathbf j_1$)} \\
+> \boldsymbol\omega_{10} &= \dot\psi\,\mathbf k, \qquad \boldsymbol\omega_{21} = \dot\theta\,\mathbf i_1, \qquad \boldsymbol\omega_{B2} = \dot\varphi\,\mathbf k_2 \quad &\text{(each simple rotation: its rate along its own axis)} \\
+> \boldsymbol\omega_{20} &= \boldsymbol\omega_{21} + \boldsymbol\omega_{10} = \dot\theta\,\mathbf i_2 + \dot\psi\left(\sin\theta\,\mathbf j_2 + \cos\theta\,\mathbf k_2\right) \quad &\text{(Eq. 3.14; $\mathbf i_1 = \mathbf i_2$ and $\mathbf k$ from the nutation box)} \\
+> \boldsymbol\omega_{B0} &= \boldsymbol\omega_{B2} + \boldsymbol\omega_{20} = \dot\theta\,\mathbf i_2 + \dot\psi\sin\theta\,\mathbf j_2 + \left(\dot\psi\cos\theta + \dot\varphi\right)\mathbf k_2 \quad &\text{(Eq. 3.14 again)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{20} = \dot\theta\,\mathbf i_2 + \dot\psi\sin\theta\,\mathbf j_2 + \dot\psi\cos\theta\,\mathbf k_2, \qquad \boldsymbol\omega_{B0} = \dot\theta\,\mathbf i_2 + \dot\psi\sin\theta\,\mathbf j_2 + r\,\mathbf k_2, \qquad r \equiv \dot\psi\cos\theta + \dot\varphi}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in every term
+> **Meaning:** the body and the axle frame $S_2$ share the first two components and differ only by the spin rate along the axis; $r$ is the total spin, the component of the angular velocity along the symmetry axis.
+
+> [!derivation] Position and velocity of G
+> **Law:** position along the symmetry axis; Poisson formula for the axis unit vector
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 9.3; [Lecture 7, Slide 6]
+>
+> $$\begin{aligned}
+> \mathbf r_0^G &= \ell\,\mathbf k_2 \quad &\text{(G on the axis at the distance $\ell$ from $O$)} \\
+> \frac{d\mathbf k_2}{dt} &= \boldsymbol\omega_{20}\times\mathbf k_2 = \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr \dot\theta & \dot\psi\sin\theta & \dot\psi\cos\theta \cr 0 & 0 & 1 \end{vmatrix} = \dot\psi\sin\theta\,\mathbf i_2 - \dot\theta\,\mathbf j_2 \quad &\text{(Poisson in $S_2$; expand along the first row)} \\
+> \mathbf v_0^G &= \ell\,\dot\psi\sin\theta\,\mathbf i_2 - \ell\,\dot\theta\,\mathbf j_2 \quad &\text{($\ell$ constant)} \\
+> z_G &= \mathbf r_0^G\cdot\mathbf k = \ell\,\mathbf k_2\cdot\left(\sin\theta\,\mathbf j_2 + \cos\theta\,\mathbf k_2\right) = \ell\cos\theta \quad &\text{(height of $G$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G = \ell\,\mathbf k_2, \qquad \mathbf v_0^G = \ell\left(\dot\psi\sin\theta\,\mathbf i_2 - \dot\theta\,\mathbf j_2\right), \qquad z_G = \ell\cos\theta}$$
+>
+> **Units:** $[\mathrm L]$, $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** $G$ moves on a sphere of radius $\ell$ about $O$: along $\mathbf i_2$ through the precession (horizontal circle of radius $\ell\sin\theta$) and along $-\mathbf j_2$ through the nutation. The spin does not move $G$.
+
+### Center of Mass and Inertia Tensor
+
+![[attachments/EM-SOL/rb24-steiner.svg]]
+
+> [!derivation] Part (a): inertia tensor about O in the axes parallel to the body axes
+> **Law:** Steiner's theorem, term by term
+> **Source:** Notes.pdf, Eq. 10.48; Notes.pdf, Eq. 10.38; [Lecture 8, Slide 15]
+>
+> The vector from $O$ to $G$ has components $(0, 0, \ell)$ in $\mathcal B_B$.
+>
+> $$\begin{aligned}
+> \bar{\bar I}_O &= \bar{\bar I}_G + m\left[\left(r_O^G\right)^2\bar{\bar U} - \mathbf r_O^G\otimes\mathbf r_O^G\right] \quad &\text{(Eq. 10.48)} \\
+> I_{x_B,O} &= A\,m\ell^2 + m\left(0^2 + \ell^2\right) = (A + 1)\,m\ell^2 \quad &\text{(entry $xx$: $y^2 + z^2$ of $G$)} \\
+> I_{y_B,O} &= A\,m\ell^2 + m\left(0^2 + \ell^2\right) = (A + 1)\,m\ell^2 \quad &\text{(entry $yy$: $x^2 + z^2$ of $G$)} \\
+> I_{z_B,O} &= B\,m\ell^2 + m\left(0^2 + 0^2\right) = B\,m\ell^2 \quad &\text{(entry $zz$: $x^2 + y^2$ of $G$; $G$ is on this axis)} \\
+> P_{O} &= 0 + m\cdot 0\cdot 0 = 0 \quad &\text{(every product: at least one coordinate of $G$ among $x$, $y$ is zero)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_O = m\ell^2\begin{bmatrix} A + 1 & 0 & 0 \cr 0 & A + 1 & 0 \cr 0 & 0 & B \end{bmatrix}_{BB}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** moving the pole along the symmetry axis adds $m\ell^2$ to the two transverse moments and nothing to the axial one; the axes stay principal.
+
+> [!derivation] The same tensor in the axle basis (axisymmetry)
+> **Law:** change of basis of the inertia tensor by the rotation about the symmetry axis
+> **Source:** Notes.pdf, Eq. 10.41; Notes.pdf, Eq. 1.16; [Lecture 8, Slide 13]
+>
+> Write $a$ for $(A + 1)m\ell^2$ and $c$ for $Bm\ell^2$, and $c_\varphi$, $s_\varphi$ for the cosine and sine of $\varphi$.
+>
+> $$\begin{aligned}
+> [\bar{\bar I}_O]_{22} &= [{}_2R_B]\,[\bar{\bar I}_O]_{BB}\,[{}_2R_B]^T \quad &\text{(Eq. 10.41: components in $\mathcal B_2$ from those in $\mathcal B_B$)} \\
+> [{}_2R_B]\,[\bar{\bar I}_O]_{BB} &= \begin{bmatrix} a\,c_\varphi & -a\,s_\varphi & 0 \cr a\,s_\varphi & a\,c_\varphi & 0 \cr 0 & 0 & c \end{bmatrix} \quad &\text{(row by column; each column of the rotation times its diagonal moment)} \\
+> [\bar{\bar I}_O]_{22} &= \begin{bmatrix} a\left(c_\varphi^2 + s_\varphi^2\right) & a\left(c_\varphi s_\varphi - s_\varphi c_\varphi\right) & 0 \cr a\left(s_\varphi c_\varphi - c_\varphi s_\varphi\right) & a\left(s_\varphi^2 + c_\varphi^2\right) & 0 \cr 0 & 0 & c \end{bmatrix} \quad &\text{(times the transpose, row by column)}
+> \end{aligned}$$
+>
+> $$\boxed{[\bar{\bar I}_O]_{22} = m\ell^2\begin{bmatrix} A + 1 & 0 & 0 \cr 0 & A + 1 & 0 \cr 0 & 0 & B \end{bmatrix}, \text{ constant}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** because the two transverse moments are equal, every pair of perpendicular axes normal to the symmetry axis is principal. The tensor has the same constant components in $\mathcal B_2$ as in $\mathcal B_B$, so the dynamics can be written in the axle basis, which does not spin, and $\varphi$ drops out of every coefficient.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Parts (b) and (c): angular momentum about O and kinetic energy
+> **Law:** angular momentum and kinetic energy about a fixed body point; linear momentum from $G$
+> **Source:** Notes.pdf, Eq. 11.13; Notes.pdf, Eq. 11.32; Notes.pdf, Eq. 11.3; [Lecture 9, Slide 5]; [Lecture 9, Slide 9]
+>
+> $O$ is a body point (the vertex) with zero velocity, so Eqs. 11.13 and 11.32 apply with the tensor about $O$.
+>
+> $$\begin{aligned}
+> [\mathbf H_{O,0}]_2 &= m\ell^2\begin{bmatrix} A + 1 & 0 & 0 \cr 0 & A + 1 & 0 \cr 0 & 0 & B \end{bmatrix}\begin{bmatrix} \dot\theta \cr \dot\psi\sin\theta \cr \dot\psi\cos\theta + \dot\varphi \end{bmatrix} \quad &\text{(Eq. 11.13 in $\mathcal B_2$)} \\
+> &= m\ell^2\begin{bmatrix} (A + 1)\,\dot\theta \cr (A + 1)\,\dot\psi\sin\theta \cr B\left(\dot\psi\cos\theta + \dot\varphi\right) \end{bmatrix} \quad &\text{(row by column)} \\
+> T_0 &= \frac12\,\boldsymbol\omega_{B0}\cdot\mathbf H_{O,0} = \frac12\,m\ell^2\left[(A + 1)\dot\theta^2 + (A + 1)\dot\psi^2\sin^2\theta + B\left(\dot\psi\cos\theta + \dot\varphi\right)^2\right] \quad &\text{(Eq. 11.32: dot product of the two columns)} \\
+> \mathbf p_0 &= m\,\mathbf v_0^G = m\ell\left(\dot\psi\sin\theta\,\mathbf i_2 - \dot\theta\,\mathbf j_2\right) \quad &\text{(Eq. 11.3)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{O,0} = m\ell^2\left[(A + 1)\dot\theta\,\mathbf i_2 + (A + 1)\dot\psi\sin\theta\,\mathbf j_2 + B\left(\dot\psi\cos\theta + \dot\varphi\right)\mathbf k_2\right], \qquad T_0 = \frac{m\ell^2}{2}\left[(A + 1)\left(\dot\theta^2 + \dot\psi^2\sin^2\theta\right) + B\left(\dot\psi\cos\theta + \dot\varphi\right)^2\right]}$$
+>
+> **Units:** $[\mathrm{M\,L^2\,T^{-1}}]$ for the angular momentum; J for the energy
+> **Meaning:** the angular momentum is not parallel to the angular velocity unless $A + 1$ equals $B$; its component along the axis is the axial moment times the total spin.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb24-fbd.svg]]
+
+| Force | Point of application | Expression | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $G$ | $-mg\,\mathbf k = -mg(\sin\theta\,\mathbf j_2 + \cos\theta\,\mathbf k_2)$ | applied, conservative |
+| Support reaction | $O$ | $\mathbf R$, three unknown components | constraint (no torque) |
+
+> [!derivation] Moment of the forces about O
+> **Law:** moment of a system of forces about a point; vector product by its determinant
+> **Source:** Notes.pdf, Eq. 12.14; [Lecture 10, Slide 12]
+>
+> The reaction acts at $O$ itself and has no moment about it.
+>
+> $$\begin{aligned}
+> \mathbf M_O &= \mathbf r_0^G\times\left(-mg\,\mathbf k\right) + \mathbf 0\times\mathbf R \quad &\text{(Eq. 12.14)} \\
+> &= \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr 0 & 0 & \ell \cr 0 & -mg\sin\theta & -mg\cos\theta \end{vmatrix} = \mathbf i_2\left(0 + mg\ell\sin\theta\right) - \mathbf j_2\left(0 - 0\right) + \mathbf k_2\left(0 - 0\right) \quad &\text{(expand along the first row)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf M_O = mg\ell\sin\theta\,\mathbf i_2}$$
+>
+> **Units:** N m
+> **Meaning:** the weight tends to increase the tilt; its moment is horizontal, along the line of nodes, normal both to the vertical and to the symmetry axis.
+
+> [!derivation] Moment equation about O in the axle basis
+> **Law:** moment equation about a fixed point; derivative of a vector in a moving frame
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 12.20; [Lecture 10, Slide 13]
+>
+> The pole $O$ is a fixed point, so the extra term of Eq. 12.13 (the velocity of the pole times the momentum) vanishes. The derivative is taken through $S_2$, where the components of the tensor are constant (previous section). Write $a$ for $(A + 1)m\ell^2$, $c$ for $Bm\ell^2$ and $r$ for the total spin.
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf H_{O,0}}{dt}\right|_0 &= \left.\frac{d\mathbf H_{O,0}}{dt}\right|_2 + \boldsymbol\omega_{20}\times\mathbf H_{O,0} \quad &\text{(Eq. 3.8 with the frame $S_2$)} \\
+> \left.\frac{d\mathbf H_{O,0}}{dt}\right|_2 &= a\,\ddot\theta\,\mathbf i_2 + a\left(\ddot\psi\sin\theta + \dot\psi\,\dot\theta\cos\theta\right)\mathbf j_2 + c\,\dot r\,\mathbf k_2 \quad &\text{(product and chain rules on each component)} \\
+> \boldsymbol\omega_{20}\times\mathbf H_{O,0} &= \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr \dot\theta & \dot\psi\sin\theta & \dot\psi\cos\theta \cr a\,\dot\theta & a\,\dot\psi\sin\theta & c\,r \end{vmatrix} \quad &\text{(vector product)} \\
+> &= \left(c\,r\,\dot\psi\sin\theta - a\,\dot\psi^2\sin\theta\cos\theta\right)\mathbf i_2 - \left(c\,r\,\dot\theta - a\,\dot\psi\,\dot\theta\cos\theta\right)\mathbf j_2 + \left(a\,\dot\theta\,\dot\psi\sin\theta - a\,\dot\psi\sin\theta\,\dot\theta\right)\mathbf k_2 \quad &\text{(expand along the first row; the third bracket is zero)} \\
+> a\,\ddot\theta + c\,r\,\dot\psi\sin\theta - a\,\dot\psi^2\sin\theta\cos\theta &= mg\ell\sin\theta \quad &\text{($\mathbf i_2$ component equal to the moment)} \\
+> a\left(\ddot\psi\sin\theta + 2\dot\psi\,\dot\theta\cos\theta\right) - c\,r\,\dot\theta &= 0 \quad &\text{($\mathbf j_2$ component)} \\
+> c\,\dot r &= 0 \quad &\text{($\mathbf k_2$ component)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} (A + 1)\left(\ddot\theta - \dot\psi^2\sin\theta\cos\theta\right) + B\,r\,\dot\psi\sin\theta = \frac g\ell\sin\theta \\ (A + 1)\left(\ddot\psi\sin\theta + 2\dot\psi\,\dot\theta\cos\theta\right) - B\,r\,\dot\theta = 0 \\ \dot r = 0, \qquad r = \dot\psi\cos\theta + \dot\varphi \end{gathered}}$$
+>
+> **Units:** each equation divided by $m\ell^2$: $[\mathrm{T^{-2}}]$ in every term ($g/\ell$ in s$^{-2}$)
+> **Meaning:** three second-order equations for the three Euler angles; the reaction does not appear, because its moment about $O$ is zero. The term in $B\,r$ is the gyroscopic coupling between spin, precession and nutation.
+
+#### Parts (d) and (e): conserved quantities
+
+> [!derivation] Part (d): conservation of the mechanical energy
+> **Law:** power of the forces on a rigid body reduced at a body point; work and energy theorem; potential of the weight
+> **Source:** Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; [Lecture 10, Slide 18]
+>
+> $$\begin{aligned}
+> \dot W_{\mathbf R} &= \mathbf R\cdot\mathbf v_0^O = \mathbf R\cdot\mathbf 0 = 0 \quad &\text{(Eq. 12.29 at $O$: the reaction acts at a point at rest and has no moment about it)} \\
+> V_0 &= m g\,z_G = m g\ell\cos\theta \quad &\text{(Eq. 12.34; height of $G$ from the kinematics)} \\
+> \frac{dE}{dt} &= \dot\theta\left[\mathbf i_2\right] + \dot\psi\sin\theta\left[\mathbf j_2\right] + r\left[\mathbf k_2\right] = 0 \quad &\text{(check: the three component equations times the components of $\boldsymbol\omega_{B0}$, added)} \\
+> &= a\,\dot\theta\,\ddot\theta + a\,\dot\psi\,\ddot\psi\sin^2\theta + a\,\dot\psi^2\dot\theta\sin\theta\cos\theta + c\,r\,\dot r - mg\ell\sin\theta\,\dot\theta \quad &\text{(the gyroscopic terms in $c\,r$ cancel)} \\
+> &= \frac{d}{dt}\left[\frac a2\left(\dot\theta^2 + \dot\psi^2\sin^2\theta\right) + \frac c2\,r^2 + mg\ell\cos\theta\right] \quad &\text{(chain and product rules read backwards)}
+> \end{aligned}$$
+>
+> $$\boxed{E = \frac{m\ell^2}{2}\left[(A + 1)\left(\dot\theta^2 + \dot\psi^2\sin^2\theta\right) + B\,r^2\right] + mg\ell\cos\theta = \frac{m\ell^2}{2}\left[(A + 1)\,\Omega_1^2 + B\,\Omega_2^2\right] + \frac{\sqrt3}{2}\,mg\ell}$$
+>
+> **Units:** J
+> **Meaning:** yes, the energy is conserved: the weight is conservative and the reaction at the fixed vertex does no work. The constant follows from the initial conditions, where $r$ equals $\Omega_2$ (the precession rate is zero) and the cosine of $\pi/6$ is the square root of three over two.
+
+> [!derivation] Part (e): conserved components of the angular momentum about O
+> **Law:** moment equation about the fixed point, projected on a fixed direction and on the axis
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; [Lecture 10, Slide 13]
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\mathbf H_{O,0}\cdot\mathbf k\right) &= \left.\frac{d\mathbf H_{O,0}}{dt}\right|_0\cdot\mathbf k = \mathbf M_O\cdot\mathbf k = mg\ell\sin\theta\,\mathbf i_2\cdot\mathbf k = 0 \quad &\text{(product rule; $\mathbf k$ fixed in $S_0$; $\mathbf i_2$ is horizontal)} \\
+> \mathbf H_{O,0}\cdot\mathbf k &= \mathbf H_{O,0}\cdot\left(\sin\theta\,\mathbf j_2 + \cos\theta\,\mathbf k_2\right) = a\,\dot\psi\sin^2\theta + c\,r\cos\theta \quad &\text{(components of $\mathbf k$ in $\mathcal B_2$)} \\
+> \frac{d}{dt}\left(a\,\dot\psi\sin^2\theta + c\,r\cos\theta\right) &= \sin\theta\left[\mathbf j_2\right] + \cos\theta\left[\mathbf k_2\right] = 0 \quad &\text{(check: the $\mathbf j_2$ and $\mathbf k_2$ equations combined)} \\
+> \mathbf H_{O,0}\cdot\mathbf k_2 &= c\,r, \qquad \frac{d}{dt}\left(c\,r\right) = 0 \quad &\text{(the $\mathbf k_2$ equation: no moment about the axis)}
+> \end{aligned}$$
+>
+> $$\boxed{H_z \equiv \mathbf H_{O,0}\cdot\mathbf k = m\ell^2\left[(A + 1)\,\dot\psi\sin^2\theta + B\,r\cos\theta\right] = \frac{\sqrt3}{2}\,B\,m\ell^2\,\Omega_2, \qquad \mathbf H_{O,0}\cdot\mathbf k_2 = B\,m\ell^2\,r = B\,m\ell^2\,\Omega_2}$$
+>
+> **Units:** $[\mathrm{M\,L^2\,T^{-1}}]$
+> **Meaning:** yes, two: the vertical component (the moment of the weight about $O$ is horizontal) and the component along the symmetry axis (the moment is normal to the axis, and the axisymmetry removes the term that would otherwise couple it to the transverse rates). The values come from the initial conditions.
+
+#### Part (f): three first-order equations
+
+> [!derivation] Part (f): precession, spin and nutation rates
+> **Law:** the three first integrals solved for the three rates
+> **Source:** Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 18]
+>
+> $$\begin{aligned}
+> (A + 1)\,\dot\psi\sin^2\theta + B\,\Omega_2\cos\theta &= \frac{\sqrt3}{2}\,B\,\Omega_2 \quad &\text{(vertical angular momentum over $m\ell^2$, with $r = \Omega_2$)} \\
+> \dot\psi &= \frac{B\,\Omega_2}{A + 1}\,\frac{\tfrac{\sqrt3}{2} - \cos\theta}{\sin^2\theta} \quad &\text{(solve; $\sin\theta \neq 0$)} \\
+> \dot\varphi &= \Omega_2 - \dot\psi\cos\theta \quad &\text{(definition of the total spin $r$)} \\
+> (A + 1)\left(\dot\theta^2 + \dot\psi^2\sin^2\theta\right) &= (A + 1)\,\Omega_1^2 + \frac{2g}{\ell}\left(\frac{\sqrt3}{2} - \cos\theta\right) \quad &\text{(energy over $m\ell^2/2$; the terms in $B\,\Omega_2^2$ cancel)} \\
+> \dot\theta^2 &= \Omega_1^2 + \frac{2g}{(A + 1)\,\ell}\left(\frac{\sqrt3}{2} - \cos\theta\right) - \left(\frac{B\,\Omega_2}{A + 1}\right)^2\frac{\left(\tfrac{\sqrt3}{2} - \cos\theta\right)^2}{\sin^2\theta} \quad &\text{(substitute the precession rate)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \dot\psi = \frac{B\,\Omega_2}{A + 1}\,\frac{\tfrac{\sqrt3}{2} - \cos\theta}{\sin^2\theta}, \qquad \dot\varphi = \Omega_2 - \dot\psi\cos\theta \\ \dot\theta = \pm\sqrt{\Omega_1^2 + \frac{2g}{(A + 1)\,\ell}\left(\frac{\sqrt3}{2} - \cos\theta\right) - \left(\frac{B\,\Omega_2}{A + 1}\right)^2\frac{\left(\tfrac{\sqrt3}{2} - \cos\theta\right)^2}{\sin^2\theta}} \end{gathered}}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ on both sides of each equation ($\sqrt{g/\ell}$ in s$^{-1}$)
+> **Meaning:** the nutation equation contains $\theta$ only, so it can be integrated first (sign of $\Omega_1$ at the start, sign changes at the turning points where the radicand vanishes: these are the nutation bounds); then the precession and spin follow by quadrature. Checked numerically: integrating the second-order equations keeps the energy, the vertical angular momentum and $r$ constant, and the rates satisfy these three relations.
+
+#### Part (g): reaction at O
+
+> [!derivation] Part (g): procedure for the reaction and its expression
+> **Law:** Newton's second law for the centre of mass; acceleration of $G$ by the derivative theorem in $S_2$
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 3.8; [Lecture 10, Slide 4]
+>
+> Once $\psi(t)$, $\theta(t)$ and $\varphi(t)$ are known, the moment equation has been used up; the reaction comes from the force equation, with the acceleration of $G$ computed from the angles.
+>
+> $$\begin{aligned}
+> \mathbf a_0^G &= \left.\frac{d\mathbf v_0^G}{dt}\right|_2 + \boldsymbol\omega_{20}\times\mathbf v_0^G \quad &\text{(Eq. 3.8 with the frame $S_2$)} \\
+> \left.\frac{d\mathbf v_0^G}{dt}\right|_2 &= \ell\left(\ddot\psi\sin\theta + \dot\psi\,\dot\theta\cos\theta\right)\mathbf i_2 - \ell\,\ddot\theta\,\mathbf j_2 \quad &\text{(product and chain rules)} \\
+> \boldsymbol\omega_{20}\times\mathbf v_0^G &= \ell\begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr \dot\theta & \dot\psi\sin\theta & \dot\psi\cos\theta \cr \dot\psi\sin\theta & -\dot\theta & 0 \end{vmatrix} = \ell\left[\dot\psi\,\dot\theta\cos\theta\,\mathbf i_2 + \dot\psi^2\sin\theta\cos\theta\,\mathbf j_2 - \left(\dot\theta^2 + \dot\psi^2\sin^2\theta\right)\mathbf k_2\right] \quad &\text{(expand along the first row)} \\
+> \mathbf R &= m\,\mathbf a_0^G + mg\,\mathbf k = m\,\mathbf a_0^G + mg\left(\sin\theta\,\mathbf j_2 + \cos\theta\,\mathbf k_2\right) \quad &\text{(Eq. 12.8 solved for the reaction)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf R = m\ell\left(\ddot\psi\sin\theta + 2\dot\psi\,\dot\theta\cos\theta\right)\mathbf i_2 + m\left[\ell\left(\dot\psi^2\sin\theta\cos\theta - \ddot\theta\right) + g\sin\theta\right]\mathbf j_2 + m\left[g\cos\theta - \ell\left(\dot\theta^2 + \dot\psi^2\sin^2\theta\right)\right]\mathbf k_2}$$
+>
+> **Units:** N in every term
+> **Meaning:** the second derivatives are taken from the moment equations (or by differentiating the first-order ones), so the reaction is a known function of time. The vertical vertex force equals the weight only on average; the term in $\dot\theta^2 + \dot\psi^2\sin^2\theta$ is the centripetal force of $G$ on its sphere.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) $\bar{\bar I}_O$ in $Ox_By_Bz_B$ | $m\ell^2\,\mathrm{diag}(A + 1, A + 1, B)$ |
+| (b) $\mathbf H_{O,0}$ | $m\ell^2[(A + 1)\dot\theta\,\mathbf i_2 + (A + 1)\dot\psi\sin\theta\,\mathbf j_2 + B(\dot\psi\cos\theta + \dot\varphi)\,\mathbf k_2]$ |
+| (c) $T_0$ | $\tfrac12 m\ell^2[(A + 1)(\dot\theta^2 + \dot\psi^2\sin^2\theta) + B(\dot\psi\cos\theta + \dot\varphi)^2]$ |
+| (d) Energy | conserved (weight conservative, reaction at a fixed point does no work): $T_0 + mg\ell\cos\theta = \tfrac12 m\ell^2[(A + 1)\Omega_1^2 + B\Omega_2^2] + \tfrac{\sqrt3}{2}mg\ell$ |
+| (e) Conserved angular momentum | vertical component $m\ell^2[(A + 1)\dot\psi\sin^2\theta + B r\cos\theta] = \tfrac{\sqrt3}{2}Bm\ell^2\Omega_2$; also the axial component $Bm\ell^2 r$, with $r = \dot\psi\cos\theta + \dot\varphi = \Omega_2$ |
+| (f) First-order equations | $\dot\psi = \tfrac{B\Omega_2}{A+1}\tfrac{\sqrt3/2 - \cos\theta}{\sin^2\theta}$; $\dot\varphi = \Omega_2 - \dot\psi\cos\theta$; $\dot\theta^2 = \Omega_1^2 + \tfrac{2g}{(A+1)\ell}(\tfrac{\sqrt3}{2} - \cos\theta) - (\tfrac{B\Omega_2}{A+1})^2\tfrac{(\sqrt3/2 - \cos\theta)^2}{\sin^2\theta}$ |
+| (g) Reaction at $O$ | $\mathbf R = m\mathbf a_0^G + mg\,\mathbf k$, with $\mathbf a_0^G$ from the angles (boxed expression in $\mathcal B_2$) |
+
+`Problems.pdf` prints no answer for this problem (see [[Problem Set - Rigid Body Official Key]]), so the results are checked by consistency and limiting cases.
+
+> [!derivation] Check: initial instant and steady precession
+> **Law:** the nutation equation evaluated at the initial conditions and with constant nutation
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.23; [Lecture 10, Slide 14]
+>
+> $$\begin{aligned}
+> (A + 1)\,\ddot\theta(0) &= \frac g\ell\sin\frac{\pi}{6} - 0 + 0 \quad &\text{(nutation equation with zero precession rate)} \\
+> \ddot\theta(0) &= \frac{g}{2(A + 1)\,\ell} \quad &\text{($\sin(\pi/6) = 1/2$)} \\
+> B\,r\,\dot\psi - (A + 1)\,\dot\psi^2\cos\theta &= \frac g\ell \quad &\text{(steady precession: zero nutation rate and acceleration, divide by $\sin\theta$)} \\
+> \dot\psi &\approx \frac{g}{B\,\ell\,r} \quad &\text{(fast top: large spin, the quadratic term is negligible)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\theta(0) = \frac{g}{2(A + 1)\ell}, \qquad \text{fast top: } \dot\psi \approx \frac{g}{B\,\ell\,r} = \frac{mg\ell}{B\,m\ell^2\,r}}$$
+>
+> **Units:** s$^{-2}$ and s$^{-1}$
+> **Meaning:** at the start only the weight acts on the nutation, so the top begins to fall like a compound pendulum about $O$ with moment of inertia $(A + 1)m\ell^2$; a fast top precesses slowly at the rate "moment of the weight over axial angular momentum".
+
+**Limiting cases and consistency:**
+
+* **Zero spin.** With $\Omega_2$ equal to zero the conserved spin $r$ is zero, the precession rate stays zero (part f) and the top is a compound pendulum about the fixed point, inverted: the nutation equation reduces to the pendulum equation with the sine of $\theta$ on the right and the positive sign of an unstable (upright) equilibrium. With a non-zero initial precession it would be the spherical pendulum of a body.
+* **Fast top.** For a large spin the last term of the nutation radicand dominates away from the initial angle, so the nutation stays in a narrow band around $\pi/6$ and the axis precesses slowly at the rate found above: the gyroscopic behaviour.
+* **Sleeping top (extension).** The upright spinning top, $\theta$ equal to zero, is an equilibrium where the 3-1-3 angles are singular. Linearizing the nutation equation with the vertical angular momentum equal to $Bm\ell^2r$ gives the classical condition for the upright spin to be stable: the square of the product of $B$ and $r$ must exceed four times $A + 1$ times the ratio of $g$ to $\ell$ (the gyroscopic stiffness must beat the toppling moment). It is beyond the notes.
+* **Nutation bounds.** At the initial angle the radicand equals the square of $\Omega_1$; the turning points are the roots of the radicand on either side, and $\theta$ oscillates between them (checked numerically for sample data).
+* **Dimensions.** $A$ and $B$ are dimensionless, so every equation divided by $m\ell^2$ is in s$^{-2}$, every rate in s$^{-1}$.
+
+---
+
+## Problem RB-25: Cylinder hanging from the ceiling by two strings
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a homogeneous cylinder of mass $m$, length $2l$ and radius $l/3$, hanging from the fixed points $A$ and $B$ of the ceiling by two massless strings of length $l$, always straight, attached to the cylinder at $C$ and $D$. Gravity acts along $-\mathbf k$.
+* **Attachment points, read from the figure:** $C$ and $D$ are the centres of the two end faces, on the axis $Gx_B$, with $D$ on the side of positive $x_B$; so each one is at the distance $l$ from $G$. The strings are assumed taut (positive tensions), as the statement says.
+* **Fixed frame:** $S_0\{A; \mathbf i, \mathbf j, \mathbf k\}$, the frame $Axyz$ of the figure: $\mathbf j$ along $AB$, $\mathbf k$ up, $\mathbf i$ towards the reader; $B$ is at the distance $3l$ from $A$ along $\mathbf j$. It is inertial.
+* **Intermediate frames (3-2-1 sequence):** $S_1$ (yaw $\beta$ about $\mathbf k$), $S_2$ (pitch $\theta$ about $\mathbf j_1$); the axis $\mathbf i_2$ is the axis of the cylinder.
+* **Body frame:** $S_B\{G; \mathbf i_B, \mathbf j_B, \mathbf k_B\}$, obtained from $S_2$ by the roll $\phi$ about $\mathbf i_2$, so $\mathbf i_B$ and $\mathbf i_2$ coincide; principal axes of inertia.
+* **Coordinates:** $x_G$, $y_G$, $z_G$ and the angles $\beta$, $\theta$, $\phi$: six numbers, the configuration of a free rigid body.
+* **Units:** all lengths in m, angles in rad, the tensions in N; $\lambda$ and $\mu$ are dimensionless.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass, homogeneous cylinder | $m$ | kg |
+| Length, radius | $2l$, $l/3$ | m |
+| Strings | length $l$, from $A$ to $C$ and from $B$ to $D$ | m |
+| Fixed points | $\mathbf r_0^A = \mathbf 0$, $\mathbf r_0^B = 3l\,\mathbf j$ | m |
+| Inertia tensor about $G$ | $ml^2\,\mathrm{diag}(\lambda, \mu, \mu)$ in $\mathcal B_B$ | kg m$^2$ |
+| Gravity | $g$, along $-\mathbf k$ | m/s$^2$ |
+
+> [!derivation] Part (a): degrees of freedom, unknowns and equations
+> **Law:** counting of coordinates and holonomic constraints; Newton-Euler equations of a rigid body
+> **Source:** Notes.pdf, Sec. 9.3; Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 7, Slide 13]
+>
+> $$\begin{aligned}
+> n_{\text{DOF}} &= 6 - 2 = 4 \quad &\text{(six coordinates minus one distance constraint per taut string)} \\
+> n_{\text{unknowns}} &= 6 + 2 = 8 \quad &\text{(the six coordinates plus the two tensions $T_C$, $T_D$)} \\
+> n_{\text{equations}} &= 3 + 3 + 2 = 8 \quad &\text{(force equation, moment equation, two constraint equations)}
+> \end{aligned}$$
+>
+> $$\boxed{4 \text{ degrees of freedom}; \quad 8 \text{ unknowns } (x_G, y_G, z_G, \beta, \theta, \phi, T_C, T_D); \quad 8 \text{ equations}}$$
+>
+> **Units:** pure numbers
+> **Meaning:** the coordinates are not independent, so the six Newton-Euler equations, which contain the tensions, must be solved together with the two constraints; they cannot be decoupled.
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb25-beta.svg]]
+
+> [!derivation] Yaw: rotation beta about k
+> **Law:** simple rotation about the third axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 1.20; Notes.pdf, Sec. 9.2.1; [Lecture 7, Slide 12]
+>
+> View from above with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up; positive $\beta$ is counterclockwise, from $Gx_0$ to $Gx_1$ as in the figure.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\beta\,\mathbf i + \sin\beta\,\mathbf j \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf i$, opposite leg along $\mathbf j$)} \\
+> \mathbf j_1 &= -\sin\beta\,\mathbf i + \cos\beta\,\mathbf j \quad &\text{($\mathbf j$ turned counterclockwise about $\mathbf k$ (⊙) leans to negative $\mathbf i$)} \\
+> \mathbf k_1 &= \mathbf k \quad &\text{(the rotation axis does not move)} \\
+> \det[{}_0R_1] &= \cos^2\beta + \sin^2\beta = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\beta + \sin^2\beta & \cos\beta\sin\beta - \sin\beta\cos\beta & 0 \cr \sin\beta\cos\beta - \cos\beta\sin\beta & \sin^2\beta + \cos^2\beta & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{bmatrix} \cos\beta & -\sin\beta & 0 \cr \sin\beta & \cos\beta & 0 \cr 0 & 0 & 1 \end{bmatrix}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** $\mathbf i_1$ is the horizontal projection of the axis of the cylinder.
+
+![[attachments/EM-SOL/rb25-theta.svg]]
+
+> [!derivation] Pitch: rotation theta about j1
+> **Law:** simple rotation about the second axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 1.19; Notes.pdf, Sec. 9.2.1; [Lecture 7, Slide 12]
+>
+> View with $\mathbf j_1$ out of the paper (⊙), $\mathbf k_1$ to the right and $\mathbf i_1$ up (because $\mathbf k_1\times\mathbf i_1$ is $\mathbf j_1$); positive $\theta$ is counterclockwise, turning $\mathbf i_1$ towards $-\mathbf k_1$: the axis of the cylinder dips below the horizontal, as the figure draws $x_B$ below $x_1$.
+>
+> $$\begin{aligned}
+> \mathbf i_2 &= \cos\theta\,\mathbf i_1 - \sin\theta\,\mathbf k_1 \quad &\text{($\mathbf i_1$, pointing up in this view, turned counterclockwise leans to negative $\mathbf k_1$; hypotenuse 1)} \\
+> \mathbf k_2 &= \sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf k_1 \quad &\text{(adjacent leg along $\mathbf k_1$, opposite leg along $\mathbf i_1$)} \\
+> \mathbf j_2 &= \mathbf j_1 \quad &\text{(the rotation axis does not move)} \\
+> [{}_1R_2] &= \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_2$, $\mathbf j_2$, $\mathbf k_2$ in $\mathcal B_1$)} \\
+> \det[{}_1R_2] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_1R_2][{}_1R_2]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & 0 & -\cos\theta\sin\theta + \sin\theta\cos\theta \cr 0 & 1 & 0 \cr -\sin\theta\cos\theta + \cos\theta\sin\theta & 0 & \sin^2\theta + \cos^2\theta \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_2 = \cos\theta\cos\beta\,\mathbf i + \cos\theta\sin\beta\,\mathbf j - \sin\theta\,\mathbf k, \quad \mathbf j_2 = -\sin\beta\,\mathbf i + \cos\beta\,\mathbf j, \quad \mathbf k_2 = \sin\theta\cos\beta\,\mathbf i + \sin\theta\sin\beta\,\mathbf j + \cos\theta\,\mathbf k}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the boxed components follow by substituting the yaw box ($\mathbf i_1$ in $\mathcal B_0$); $\theta$ is the angle by which the axis of the cylinder dips below the horizontal.
+
+![[attachments/EM-SOL/rb25-phi.svg]]
+
+> [!derivation] Roll: rotation phi about i2
+> **Law:** simple rotation about the first axis, positive by the right-hand rule
+> **Source:** Notes.pdf, Eq. 1.18; Notes.pdf, Sec. 9.2.1; [Lecture 7, Slide 12]
+>
+> View with $\mathbf i_2$ out of the paper (⊙), $\mathbf j_2$ to the right and $\mathbf k_2$ up; positive $\phi$ is counterclockwise.
+>
+> $$\begin{aligned}
+> \mathbf j_B &= \cos\phi\,\mathbf j_2 + \sin\phi\,\mathbf k_2 \quad &\text{(hypotenuse 1: adjacent leg along $\mathbf j_2$, opposite leg along $\mathbf k_2$)} \\
+> \mathbf k_B &= -\sin\phi\,\mathbf j_2 + \cos\phi\,\mathbf k_2 \quad &\text{($\mathbf k_2$ turned counterclockwise about $\mathbf i_2$ (⊙) leans to negative $\mathbf j_2$)} \\
+> \mathbf i_B &= \mathbf i_2, \qquad \det[{}_2R_B] = \cos^2\phi + \sin^2\phi = 1 \quad &\text{(the rotation axis does not move; expand along the first row)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_2R_B] = \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\phi & -\sin\phi \cr 0 & \sin\phi & \cos\phi \end{bmatrix}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the roll turns the cylinder about its own axis; it moves no point of the axis, so $C$ and $D$ do not depend on $\phi$.
+
+> [!derivation] Inverse components of the fixed vectors in the axle basis
+> **Law:** inverse change of basis: the rows of the matrix give the fixed vectors in the rotated basis
+> **Source:** Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.16
+>
+> $$\begin{aligned}
+> \mathbf k &= \left(\mathbf k\cdot\mathbf i_2\right)\mathbf i_2 + \left(\mathbf k\cdot\mathbf j_2\right)\mathbf j_2 + \left(\mathbf k\cdot\mathbf k_2\right)\mathbf k_2 = -\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2 \quad &\text{(third components of the boxed $\mathbf i_2$, $\mathbf j_2$, $\mathbf k_2$)} \\
+> \mathbf j &= \cos\theta\sin\beta\,\mathbf i_2 + \cos\beta\,\mathbf j_2 + \sin\theta\sin\beta\,\mathbf k_2 \quad &\text{(second components)} \\
+> \mathbf r_0^G\cdot\mathbf j_2 &= -x_G\sin\beta + y_G\cos\beta \equiv \rho_2 \quad &\text{(projection of the position of $G$)} \\
+> \mathbf r_0^G\cdot\mathbf k_2 &= x_G\sin\theta\cos\beta + y_G\sin\theta\sin\beta + z_G\cos\theta \equiv \rho_3 \quad &\text{(projection of the position of $G$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf k = -\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2, \qquad \mathbf j = \cos\theta\sin\beta\,\mathbf i_2 + \cos\beta\,\mathbf j_2 + \sin\theta\sin\beta\,\mathbf k_2}$$
+>
+> **Units:** dimensionless; $\rho_2$, $\rho_3$ in m
+> **Meaning:** these projections are needed to write the moments of the string forces in the axle basis.
+
+> [!derivation] Part (b): position vectors of C and D
+> **Law:** position vector as a sum of segments along the axis of the cylinder
+> **Source:** Notes.pdf, Eq. 9.1; Notes.pdf, Sec. 7.4; Problems.pdf, p. 55
+>
+> $$\begin{aligned}
+> \mathbf r_0^C &= \mathbf r_0^G - l\,\mathbf i_2 \quad &\text{(C at the centre of the end face on the negative side of $x_B$)} \\
+> &= \left(x_G - l\cos\theta\cos\beta\right)\mathbf i + \left(y_G - l\cos\theta\sin\beta\right)\mathbf j + \left(z_G + l\sin\theta\right)\mathbf k \quad &\text{(components of $\mathbf i_2$ from the pitch box)} \\
+> \mathbf r_0^D &= \mathbf r_0^G + l\,\mathbf i_2 \quad &\text{(D at the opposite end face)} \\
+> &= \left(x_G + l\cos\theta\cos\beta\right)\mathbf i + \left(y_G + l\cos\theta\sin\beta\right)\mathbf j + \left(z_G - l\sin\theta\right)\mathbf k \quad &\text{(same components with the opposite sign)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^C = \mathbf r_0^G - l\,\mathbf i_2, \qquad \mathbf r_0^D = \mathbf r_0^G + l\,\mathbf i_2, \qquad \mathbf i_2 = \cos\theta\cos\beta\,\mathbf i + \cos\theta\sin\beta\,\mathbf j - \sin\theta\,\mathbf k}$$
+>
+> **Units:** $[\mathrm L]$
+> **Meaning:** for positive $\theta$ the end $D$ hangs lower than $C$ by $2l\sin\theta$.
+
+> [!derivation] Part (c): angular velocity and angular acceleration
+> **Law:** additivity of angular velocities; derivative of a vector through the moving frame $S_2$
+> **Source:** Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 9.21; [Lecture 7, Slide 12]
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{B0} &= \dot\phi\,\mathbf i_2 + \dot\theta\,\mathbf j_1 + \dot\beta\,\mathbf k \quad &\text{(Eq. 3.14: each rate along its own axis)} \\
+> &= \dot\phi\,\mathbf i_2 + \dot\theta\,\mathbf j_2 + \dot\beta\left(-\sin\theta\,\mathbf i_2 + \cos\theta\,\mathbf k_2\right) \quad &\text{($\mathbf j_1 = \mathbf j_2$; inverse box for $\mathbf k$)} \\
+> \boldsymbol\omega_{20} &= \dot\theta\,\mathbf j_2 + \dot\beta\,\mathbf k = -\dot\beta\sin\theta\,\mathbf i_2 + \dot\theta\,\mathbf j_2 + \dot\beta\cos\theta\,\mathbf k_2 \quad &\text{(the same without the roll)} \\
+> \boldsymbol\alpha_{B0} &= \left.\frac{d\boldsymbol\omega_{B0}}{dt}\right|_2 + \boldsymbol\omega_{20}\times\boldsymbol\omega_{B0} \quad &\text{(Eq. 3.8 with the frame $S_2$)} \\
+> \left.\frac{d\boldsymbol\omega_{B0}}{dt}\right|_2 &= \left(\ddot\phi - \ddot\beta\sin\theta - \dot\beta\,\dot\theta\cos\theta\right)\mathbf i_2 + \ddot\theta\,\mathbf j_2 + \left(\ddot\beta\cos\theta - \dot\beta\,\dot\theta\sin\theta\right)\mathbf k_2 \quad &\text{(product and chain rules)} \\
+> \boldsymbol\omega_{20}\times\boldsymbol\omega_{B0} &= \boldsymbol\omega_{20}\times\left(\boldsymbol\omega_{20} + \dot\phi\,\mathbf i_2\right) = \dot\phi\,\boldsymbol\omega_{20}\times\mathbf i_2 = \dot\phi\left(\dot\beta\cos\theta\,\mathbf j_2 - \dot\theta\,\mathbf k_2\right) \quad &\text{($\mathbf j_2\times\mathbf i_2 = -\mathbf k_2$, $\mathbf k_2\times\mathbf i_2 = \mathbf j_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \boldsymbol\omega_{B0} = \left(\dot\phi - \dot\beta\sin\theta\right)\mathbf i_2 + \dot\theta\,\mathbf j_2 + \dot\beta\cos\theta\,\mathbf k_2 \\ \boldsymbol\alpha_{B0} = \left(\ddot\phi - \ddot\beta\sin\theta - \dot\beta\,\dot\theta\cos\theta\right)\mathbf i_2 + \left(\ddot\theta + \dot\beta\,\dot\phi\cos\theta\right)\mathbf j_2 + \left(\ddot\beta\cos\theta - \dot\beta\,\dot\theta\sin\theta - \dot\theta\,\dot\phi\right)\mathbf k_2 \end{gathered}}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ and $[\mathrm{T^{-2}}]$
+> **Meaning:** the axial component is the roll rate corrected by the part of the yaw rate along the tilted axis; the last terms of the acceleration come from the turning of the axle basis itself.
+
+> [!derivation] Part (d): constraint equations of the strings
+> **Law:** inextensible taut string: fixed distance between its two ends
+> **Source:** Notes.pdf, Sec. 7.4; Notes.pdf, Eq. 9.1; Problems.pdf, p. 55
+>
+> $$\begin{aligned}
+> \left|\mathbf r_0^C - \mathbf r_0^A\right|^2 &= l^2 \quad &\text{(string AC of length $l$; $A$ at the origin)} \\
+> \left(x_G - l\cos\theta\cos\beta\right)^2 + \left(y_G - l\cos\theta\sin\beta\right)^2 + \left(z_G + l\sin\theta\right)^2 &= l^2 \quad &\text{(components of $C$)} \\
+> \left|\mathbf r_0^D - \mathbf r_0^B\right|^2 &= l^2 \quad &\text{(string BD; $B$ at $3l\,\mathbf j$)} \\
+> \left(x_G + l\cos\theta\cos\beta\right)^2 + \left(y_G + l\cos\theta\sin\beta - 3l\right)^2 + \left(z_G - l\sin\theta\right)^2 &= l^2 \quad &\text{(components of $D$ minus those of $B$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \left(\frac{x_G}{l} - \cos\theta\cos\beta\right)^2 + \left(\frac{y_G}{l} - \cos\theta\sin\beta\right)^2 + \left(\frac{z_G}{l} + \sin\theta\right)^2 = 1 \\ \left(\frac{x_G}{l} + \cos\theta\cos\beta\right)^2 + \left(3 - \cos\theta\sin\beta - \frac{y_G}{l}\right)^2 + \left(\sin\theta - \frac{z_G}{l}\right)^2 = 1 \end{gathered}}$$
+>
+> **Units:** dimensionless after dividing by $l^2$
+> **Meaning:** two holonomic, time-independent constraints; they hold while the tensions are positive.
+
+### Center of Mass and Inertia Tensor
+
+![[attachments/EM-SOL/rb25-cylinder.svg]]
+
+> [!derivation] Moments of inertia of the cylinder about G (value of the constants)
+> **Law:** definition of the moments of inertia; cylindrical coordinates with their Jacobian
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.13; Notes.pdf, Sec. 10.4; [Lecture 8, Slide 10]
+>
+> The statement keeps $\lambda$ and $\mu$ as known constants; the integrals give their values for the homogeneous cylinder. Cylindrical coordinates about $Gx_B$: $x_B$ from $-l$ to $l$, the radius $s$ from $0$ to $R$ (with $R$ equal to $l/3$), the angle $\alpha$ from $0$ to $2\pi$, with $y_B$ equal to $s\cos\alpha$ and $z_B$ equal to $s\sin\alpha$. By symmetry $G$ is the centre and the axes are principal (the products vanish: odd integrands over symmetric limits).
+>
+> $$\begin{aligned}
+> dm &= \frac{m}{\pi R^2\,2l}\,s\,ds\,d\alpha\,dx_B \quad &\text{(density times volume element; Jacobian $s$)} \\
+> I_{x_B} &= \int s^2\,dm = \frac{m}{2\pi R^2 l}\,(2l)(2\pi)\left[\frac{s^4}{4}\right]_0^R = \frac{m R^2}{2} = \frac{m l^2}{18} \quad &\text{(antiderivative; Barrow with both limits; $R^2 = l^2/9$)} \\
+> \int x_B^2\,dm &= \frac{m}{2\pi R^2 l}\,(2\pi)\left[\frac{s^2}{2}\right]_0^R\left[\frac{x_B^3}{3}\right]_{-l}^{l} = \frac{m}{2l}\cdot\frac{2l^3}{3} = \frac{m l^2}{3} \quad &\text{(Barrow: $l^3/3 - (-l^3/3)$)} \\
+> \int z_B^2\,dm &= \frac{m}{2\pi R^2 l}\,(2l)\left[\frac{s^4}{4}\right]_0^R\int_0^{2\pi}\sin^2\alpha\,d\alpha = \frac{m}{2\pi R^2 l}\,(2l)\,\frac{R^4}{4}\,\pi = \frac{m R^2}{4} = \frac{m l^2}{36} \quad &\text{($\sin^2\alpha = (1 - \cos 2\alpha)/2$ integrates to $\pi$)} \\
+> I_{y_B} &= \int\left(x_B^2 + z_B^2\right)dm = \frac{m l^2}{3} + \frac{m l^2}{36} = \frac{13}{36}\,m l^2 \quad &\text{(sum of the two integrals)} \\
+> I_{z_B} &= I_{y_B} \quad &\text{(axisymmetry: same steps with $\cos^2\alpha$)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}_G = ml^2\begin{bmatrix} \lambda & 0 & 0 \cr 0 & \mu & 0 \cr 0 & 0 & \mu \end{bmatrix}_{BB}, \qquad \lambda = \frac{1}{18}, \qquad \mu = \frac{13}{36}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the long cylinder has a much larger transverse moment than axial one. The equations below keep $\lambda$ and $\mu$ symbolic, as the statement asks.
+
+> [!derivation] The same tensor in the axle basis (axisymmetry)
+> **Law:** change of basis of the inertia tensor by a rotation about the symmetry axis
+> **Source:** Notes.pdf, Eq. 10.41; Notes.pdf, Eq. 1.16; [Lecture 8, Slide 13]
+>
+> $$\begin{aligned}
+> [\bar{\bar I}_G]_{22} &= [{}_2R_B]\,[\bar{\bar I}_G]_{BB}\,[{}_2R_B]^T \quad &\text{(Eq. 10.41)} \\
+> &= ml^2\begin{bmatrix} \lambda & 0 & 0 \cr 0 & \mu\left(\cos^2\phi + \sin^2\phi\right) & \mu\left(\cos\phi\sin\phi - \sin\phi\cos\phi\right) \cr 0 & \mu\left(\sin\phi\cos\phi - \cos\phi\sin\phi\right) & \mu\left(\sin^2\phi + \cos^2\phi\right) \end{bmatrix} \quad &\text{(row by column twice)}
+> \end{aligned}$$
+>
+> $$\boxed{[\bar{\bar I}_G]_{22} = ml^2\,\mathrm{diag}(\lambda, \mu, \mu), \text{ constant}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the equal transverse moments make the tensor independent of the roll, so the rotational dynamics can be written in the axle basis $\mathcal B_2$, which does not roll with the body.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Momentum, angular momentum about G and kinetic energy
+> **Law:** linear momentum from $G$; angular momentum about $G$; kinetic energy decomposed at $G$
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 9]
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= m\,\mathbf v_0^G = m\left(\dot x_G\,\mathbf i + \dot y_G\,\mathbf j + \dot z_G\,\mathbf k\right) \quad &\text{(Eq. 11.3)} \\
+> [\mathbf H_{G,0}]_2 &= ml^2\begin{bmatrix} \lambda & 0 & 0 \cr 0 & \mu & 0 \cr 0 & 0 & \mu \end{bmatrix}\begin{bmatrix} \dot\phi - \dot\beta\sin\theta \cr \dot\theta \cr \dot\beta\cos\theta \end{bmatrix} = ml^2\begin{bmatrix} \lambda\left(\dot\phi - \dot\beta\sin\theta\right) \cr \mu\,\dot\theta \cr \mu\,\dot\beta\cos\theta \end{bmatrix} \quad &\text{(Eq. 11.12 in $\mathcal B_2$; row by column)} \\
+> T_0 &= \frac12\,m\left(\dot x_G^2 + \dot y_G^2 + \dot z_G^2\right) + \frac12\,\boldsymbol\omega_{B0}\cdot\mathbf H_{G,0} \quad &\text{(Eq. 11.31)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{G,0} = ml^2\left[\lambda\left(\dot\phi - \dot\beta\sin\theta\right)\mathbf i_2 + \mu\,\dot\theta\,\mathbf j_2 + \mu\,\dot\beta\cos\theta\,\mathbf k_2\right], \qquad T_0 = \frac m2\left(\dot x_G^2 + \dot y_G^2 + \dot z_G^2\right) + \frac{ml^2}{2}\left[\lambda\left(\dot\phi - \dot\beta\sin\theta\right)^2 + \mu\,\dot\theta^2 + \mu\,\dot\beta^2\cos^2\theta\right]}$$
+>
+> **Units:** kg m/s, kg m$^2$/s, J
+> **Meaning:** translation of $G$ and rotation about $G$ separate in the energy (Koenig); the axial term carries the small moment $\lambda$.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb25-fbd.svg]]
+
+| Force | Point of application | Expression | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $G$ | $-mg\,\mathbf k$ | applied, conservative |
+| String $AC$ | $C$ | $T_C\,(\mathbf r_0^A - \mathbf r_0^C)/l = -T_C\,\mathbf r_0^C/l$ | constraint, $T_C$ unknown |
+| String $BD$ | $D$ | $T_D\,(\mathbf r_0^B - \mathbf r_0^D)/l$ | constraint, $T_D$ unknown |
+
+> [!derivation] Part (e): resultant force of the strings and the weight
+> **Law:** a taut massless string pulls its end towards the fixed point, along the string; sum of forces
+> **Source:** Notes.pdf, Sec. 7.4; Notes.pdf, Eq. 12.8; [Lecture 10, Slide 4]
+>
+> Each string is straight and has length $l$, so the unit vector from its end on the cylinder to its fixed point is the difference of positions divided by $l$.
+>
+> $$\begin{aligned}
+> \mathbf F_C &= -\frac{T_C}{l}\left[\left(x_G - l\cos\theta\cos\beta\right)\mathbf i + \left(y_G - l\cos\theta\sin\beta\right)\mathbf j + \left(z_G + l\sin\theta\right)\mathbf k\right] \quad &\text{(position of $C$ from part b)} \\
+> \mathbf F_D &= \frac{T_D}{l}\left[-\left(x_G + l\cos\theta\cos\beta\right)\mathbf i + \left(3l - y_G - l\cos\theta\sin\beta\right)\mathbf j + \left(l\sin\theta - z_G\right)\mathbf k\right] \quad &\text{($\mathbf r_0^B - \mathbf r_0^D$)} \\
+> \mathbf F &= \mathbf F_C + \mathbf F_D - mg\,\mathbf k \quad &\text{(resultant)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} F_x = \left(T_C - T_D\right)\cos\theta\cos\beta - \left(T_C + T_D\right)\frac{x_G}{l} \\ F_y = \left(T_C - T_D\right)\cos\theta\sin\beta - \left(T_C + T_D\right)\frac{y_G}{l} + 3T_D \\ F_z = -mg + \left(T_D - T_C\right)\sin\theta - \left(T_C + T_D\right)\frac{z_G}{l} \end{gathered}}$$
+>
+> **Units:** N in every term
+> **Meaning:** each tension enters through the position of $G$ (the part common to both ends) and through the axis direction (opposite for the two ends); $3T_D$ is the pull of the right string towards $B$.
+
+> [!derivation] Part (e): moment of the forces about G
+> **Law:** moment of a system of forces about a point; vector products by their determinants in $\mathcal B_2$
+> **Source:** Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 12.16; [Lecture 10, Slide 12]
+>
+> The weight acts at $G$. The arms are the vectors from $G$ to $C$ and to $D$, along the axis $\mathbf i_2$; the components $\rho_2$, $\rho_3$ of the position of $G$ and those of $\mathbf j$ come from the inverse box.
+>
+> $$\begin{aligned}
+> \mathbf M_G &= \left(-l\,\mathbf i_2\right)\times\left[-\frac{T_C}{l}\left(\mathbf r_0^G - l\,\mathbf i_2\right)\right] + l\,\mathbf i_2\times\frac{T_D}{l}\left(3l\,\mathbf j - \mathbf r_0^G - l\,\mathbf i_2\right) \quad &\text{(Eq. 12.14 with the forces of the table)} \\
+> &= \left(T_C - T_D\right)\mathbf i_2\times\mathbf r_0^G + 3l\,T_D\,\mathbf i_2\times\mathbf j \quad &\text{($\mathbf i_2\times\mathbf i_2 = \mathbf 0$; collect)} \\
+> \mathbf i_2\times\mathbf r_0^G &= \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr 1 & 0 & 0 \cr \mathbf r_0^G\cdot\mathbf i_2 & \rho_2 & \rho_3 \end{vmatrix} = -\rho_3\,\mathbf j_2 + \rho_2\,\mathbf k_2 \quad &\text{(expand along the first row)} \\
+> \mathbf i_2\times\mathbf j &= \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr 1 & 0 & 0 \cr \cos\theta\sin\beta & \cos\beta & \sin\theta\sin\beta \end{vmatrix} = -\sin\theta\sin\beta\,\mathbf j_2 + \cos\beta\,\mathbf k_2 \quad &\text{(expand along the first row)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf M_G = \left[\left(T_D - T_C\right)\rho_3 - 3l\,T_D\sin\theta\sin\beta\right]\mathbf j_2 + \left[\left(T_D - T_C\right)\left(x_G\sin\beta - y_G\cos\beta\right) + 3l\,T_D\cos\beta\right]\mathbf k_2, \qquad \rho_3 = x_G\sin\theta\cos\beta + y_G\sin\theta\sin\beta + z_G\cos\theta}$$
+>
+> **Units:** N m
+> **Meaning:** the strings attach on the axis, so they exert no moment about it: the $\mathbf i_2$ component is zero.
+
+> [!derivation] Part (f): moment equation about G in the axle basis
+> **Law:** moment equation about the centre of mass; derivative through the frame $S_2$
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 12.20; [Lecture 10, Slide 13]
+>
+> The pole is $G$, so the extra term of Eq. 12.13 vanishes; the derivative is taken through $S_2$, where the tensor is constant. Write $\omega_1$ for the axial component of the angular velocity.
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 &= \left.\frac{d\mathbf H_{G,0}}{dt}\right|_2 + \boldsymbol\omega_{20}\times\mathbf H_{G,0} \quad &\text{(Eq. 3.8)} \\
+> \frac{1}{ml^2}\left.\frac{d\mathbf H_{G,0}}{dt}\right|_2 &= \lambda\,\dot\omega_1\,\mathbf i_2 + \mu\,\ddot\theta\,\mathbf j_2 + \mu\left(\ddot\beta\cos\theta - \dot\beta\,\dot\theta\sin\theta\right)\mathbf k_2 \quad &\text{(product and chain rules)} \\
+> \frac{1}{ml^2}\,\boldsymbol\omega_{20}\times\mathbf H_{G,0} &= \begin{vmatrix} \mathbf i_2 & \mathbf j_2 & \mathbf k_2 \cr -\dot\beta\sin\theta & \dot\theta & \dot\beta\cos\theta \cr \lambda\,\omega_1 & \mu\,\dot\theta & \mu\,\dot\beta\cos\theta \end{vmatrix} \quad &\text{(vector product)} \\
+> &= 0\,\mathbf i_2 + \left(\mu\,\dot\beta^2\sin\theta\cos\theta + \lambda\,\omega_1\dot\beta\cos\theta\right)\mathbf j_2 - \left(\mu\,\dot\beta\,\dot\theta\sin\theta + \lambda\,\omega_1\dot\theta\right)\mathbf k_2 \quad &\text{(expand along the first row)} \\
+> \lambda\,\omega_1\dot\beta\cos\theta &= \lambda\,\dot\beta\,\dot\phi\cos\theta - \lambda\,\dot\beta^2\sin\theta\cos\theta \quad &\text{(substitute $\omega_1 = \dot\phi - \dot\beta\sin\theta$)} \\
+> \lambda\,\omega_1\dot\theta &= \lambda\,\dot\theta\,\dot\phi - \lambda\,\dot\beta\,\dot\theta\sin\theta \quad &\text{(same substitution)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf i_2\!: \ \ \ddot\phi - \ddot\beta\sin\theta - \dot\beta\,\dot\theta\cos\theta = 0 \\ \mathbf j_2\!: \ \ ml^2\left[\mu\,\ddot\theta - (\lambda - \mu)\,\dot\beta^2\sin\theta\cos\theta + \lambda\,\dot\beta\,\dot\phi\cos\theta\right] = \left(T_D - T_C\right)\rho_3 - 3l\,T_D\sin\theta\sin\beta \\ \mathbf k_2\!: \ \ ml^2\left[\mu\,\ddot\beta\cos\theta - (2\mu - \lambda)\,\dot\beta\,\dot\theta\sin\theta - \lambda\,\dot\theta\,\dot\phi\right] = \left(T_D - T_C\right)\left(x_G\sin\beta - y_G\cos\beta\right) + 3l\,T_D\cos\beta \end{gathered}}$$
+>
+> **Units:** N m in the last two equations; $[\mathrm{T^{-2}}]$ in the first
+> **Meaning:** the axial equation integrates at once: the axial spin $\dot\phi - \dot\beta\sin\theta$ is constant, because no force has a moment about the axis. The other two couple the attitude to the position of $G$ and the tensions.
+
+> [!derivation] Part (f): force equation and the complete system
+> **Law:** Newton's second law for the centre of mass; constraint equations
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Sec. 7.4; [Lecture 10, Slide 4]
+>
+> $$\begin{aligned}
+> m\,\ddot x_G &= \left(T_C - T_D\right)\cos\theta\cos\beta - \left(T_C + T_D\right)\frac{x_G}{l} \quad &\text{(Eq. 12.8, $\mathbf i$ component)} \\
+> m\,\ddot y_G &= \left(T_C - T_D\right)\cos\theta\sin\beta - \left(T_C + T_D\right)\frac{y_G}{l} + 3T_D \quad &\text{($\mathbf j$ component)} \\
+> m\,\ddot z_G &= -mg + \left(T_D - T_C\right)\sin\theta - \left(T_C + T_D\right)\frac{z_G}{l} \quad &\text{($\mathbf k$ component)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{3 force equations} + \text{3 moment equations} + \text{2 constraint equations (part d)} = 8 \text{ equations for } x_G, y_G, z_G, \beta, \theta, \phi, T_C, T_D}$$
+>
+> **Units:** N in the force equations
+> **Meaning:** a differential-algebraic system: the tensions appear only algebraically and are fixed by the constraints (differentiating each constraint twice gives two equations linear in the tensions). Integrated from initial positions and velocities compatible with the strings, it gives the motion.
+
+#### Part (g): mechanical energy
+
+> [!derivation] Part (g): the strings do no work and the energy is conserved
+> **Law:** power of the forces on a rigid body; time derivative of a constraint; potential of the weight
+> **Source:** Notes.pdf, Eq. 12.27; Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; [Lecture 10, Slide 18]
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\mathbf r_0^C\cdot\mathbf r_0^C\right) &= 2\,\mathbf r_0^C\cdot\mathbf v_0^C = \frac{d}{dt}\,l^2 = 0 \quad &\text{(product rule on the first constraint)} \\
+> \mathbf F_C\cdot\mathbf v_0^C &= -\frac{T_C}{l}\,\mathbf r_0^C\cdot\mathbf v_0^C = 0 \quad &\text{(power of the string at $C$)} \\
+> \mathbf F_D\cdot\mathbf v_0^D &= -\frac{T_D}{l}\left(\mathbf r_0^D - \mathbf r_0^B\right)\cdot\mathbf v_0^D = -\frac{T_D}{2l}\,\frac{d}{dt}\left|\mathbf r_0^D - \mathbf r_0^B\right|^2 = 0 \quad &\text{(same with the second constraint; $B$ fixed)} \\
+> V_0 &= mg\,z_G \quad &\text{(Eq. 12.34)} \\
+> T_0 + V_0 &= \text{const.} \quad &\text{(Eq. 12.33: only the weight does work)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac m2\left(\dot x_G^2 + \dot y_G^2 + \dot z_G^2\right) + \frac{ml^2}{2}\left[\lambda\left(\dot\phi - \dot\beta\sin\theta\right)^2 + \mu\,\dot\theta^2 + \mu\,\dot\beta^2\cos^2\theta\right] + mg\,z_G = \text{const.}}$$
+>
+> **Units:** J in every term
+> **Meaning:** yes, the energy is conserved: each string pulls along itself while its end moves on a sphere centred at the fixed point, normal to the string. It is not an independent equation: dotting the force equation with the velocity of $G$ and the moment equation with the angular velocity, adding (Eq. 12.36) and using the time derivatives of the two constraints gives exactly the derivative of this energy. It is a first integral of the system of part (f) and may replace one of its equations, not add to them.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom; unknowns; equations | 4; 8 ($x_G$, $y_G$, $z_G$, $\beta$, $\theta$, $\phi$, $T_C$, $T_D$); 8 (6 Newton-Euler + 2 constraints), solved together |
+| (b) Positions | $\mathbf r_0^C = \mathbf r_0^G - l\,\mathbf i_2$, $\mathbf r_0^D = \mathbf r_0^G + l\,\mathbf i_2$, $\mathbf i_2 = \cos\theta\cos\beta\,\mathbf i + \cos\theta\sin\beta\,\mathbf j - \sin\theta\,\mathbf k$ |
+| (c) Angular velocity | $(\dot\phi - \dot\beta\sin\theta)\mathbf i_2 + \dot\theta\,\mathbf j_2 + \dot\beta\cos\theta\,\mathbf k_2$ |
+| (c) Angular acceleration | $(\ddot\phi - \ddot\beta\sin\theta - \dot\beta\dot\theta\cos\theta)\mathbf i_2 + (\ddot\theta + \dot\beta\dot\phi\cos\theta)\mathbf j_2 + (\ddot\beta\cos\theta - \dot\beta\dot\theta\sin\theta - \dot\theta\dot\phi)\mathbf k_2$ |
+| (d) Constraints | $(x_G/l - \cos\theta\cos\beta)^2 + (y_G/l - \cos\theta\sin\beta)^2 + (z_G/l + \sin\theta)^2 = 1$; $(x_G/l + \cos\theta\cos\beta)^2 + (3 - \cos\theta\sin\beta - y_G/l)^2 + (\sin\theta - z_G/l)^2 = 1$ |
+| (e) Forces and moment at $G$ | resultant $(F_x, F_y, F_z)$ and $\mathbf M_G$ as boxed (no axial moment) |
+| (f) Equations of motion | three force equations, three moment equations in $\mathcal B_2$ (axial one: $\dot\phi - \dot\beta\sin\theta$ constant), two constraints |
+| (g) Energy | conserved; $\tfrac m2 v_G^2 + \tfrac{ml^2}{2}[\lambda(\dot\phi - \dot\beta\sin\theta)^2 + \mu\dot\theta^2 + \mu\dot\beta^2\cos^2\theta] + mgz_G$ constant; not independent |
+
+**Check against the official key:** `Problems.pdf` (p. 80, see [[Problem Set - Rigid Body Official Key]]) prints the same counts (4 degrees of freedom, 8 unknowns, 8 equations), the same two constraint equations, the same three force equations, the same three moment equations in the axle basis (with the first integral of the axial one) and the same energy integral: match, term by term. The key also projects the moment equation on the body basis; that form follows from the one above by the roll rotation, since $\mathbf j_B$ is the cosine of $\phi$ times $\mathbf j_2$ plus its sine times $\mathbf k_2$, and gives nothing new.
+
+**Limiting cases and consistency:**
+
+* **Symmetric equilibrium.** At rest with the cylinder horizontal and parallel to $AB$ ($\beta$ equal to a right angle, $\theta$ and $\phi$ zero), $G$ sits at $3l/2$ along $\mathbf j$ and at the depth $\sqrt3\,l/2$ below the ceiling. Each string then leans inwards by $\pi/6$ from the vertical (horizontal leg $l/2$ opposite to that angle, hypotenuse $l$, vertical leg $\sqrt3\,l/2$), so the constraints hold. The force equations give equal tensions, each $mg/\sqrt3$ (the two vertical components, each the tension times the cosine of $\pi/6$, carry the weight; the horizontal ones cancel), and both moment equations reduce to zero because the sine of $\theta$ and the cosine of $\beta$ vanish. Checked by substitution.
+* **No axial moment.** The strings attach on the axis, so the axial component of the angular momentum is conserved; this matches the first boxed moment equation.
+* **Values of the constants.** For the homogeneous cylinder of the statement $\lambda$ is $1/18$ and $\mu$ is $13/36$.
+* **Dimensions.** Force equations in N, moment equations in N m, constraints dimensionless, energy in J.
