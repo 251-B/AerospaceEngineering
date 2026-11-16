@@ -200,9 +200,11 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 .star-hit { fill: transparent; }
 .star-flare { opacity: 0.42; transition: opacity 0.4s; }
 .star-core { fill: #ffffff; r: 2.4px; filter: drop-shadow(0 0 calc(var(--u, 1) * 3px) var(--c)); }
-.star-glyph { fill: var(--c); transform-box: fill-box; transform-origin: center; transform: scale(0.52); transition: transform 0.5s ease, opacity 0.4s;
+.star-dot { fill: var(--c); filter: drop-shadow(0 0 calc(var(--u, 1) * 2px) var(--c)); transition: opacity 0.4s; }
+.const.is-active .star-dot { opacity: 0; }
+.star-glyph { opacity: 0; fill: var(--c); transform-box: fill-box; transform-origin: center; transform: scale(0.4); transition: transform 0.5s ease, opacity 0.4s;
   filter: drop-shadow(0 0 calc(var(--u, 1) * 2.5px) var(--c)); }
-.const.is-active .star-glyph { transform: scale(1.3); }
+.const.is-active .star-glyph { transform: scale(1.3); opacity: 1; }
 .star-icon { opacity: 0; transition: opacity 0.4s 0.15s; pointer-events: none; }
 .star-icon-bg { fill: var(--sk-halo); stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.4px); }
 .star-icon-glyph { color: var(--ct); }

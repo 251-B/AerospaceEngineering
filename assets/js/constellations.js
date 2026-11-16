@@ -277,7 +277,8 @@
       }, g);
       s('circle', { 'class': 'star-hit', r: 26 }, a);
       s('circle', { 'class': 'star-flare', r: 56, fill: 'url(#flare-' + meta.color + ')' }, a);
-      s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, a);
+      s('path', { 'class': 'star-dot', d: starPath(4, 15, 0.24, 0) }, a);   // every star is the same small sparkle in the panorama
+      s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, a);   // its own shape appears when the constellation is open
       s('circle', { 'class': 'star-core', r: 3.4 }, a);
       var ic = s('g', { 'class': 'star-icon' }, a);
       s('circle', { 'class': 'star-icon-bg', r: 13 }, ic);
