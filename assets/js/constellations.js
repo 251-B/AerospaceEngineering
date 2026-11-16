@@ -14,7 +14,7 @@
  * the portal theme through window.AETheme, like the reading palettes of the subject pages.
  *
  * Map: one SVG with a camera (the viewBox). Panorama = the five first-semester subjects joined by
- * faint guide lines, plus a pulsar for the second semester. A constellation takes the shape of its
+ * faint guide lines. A constellation takes the shape of its
  * subject icon; its stars are the main areas of the subject (Theory, Solved Problems, Extra Problems,
  * Formula Sheet, Exam Simulator, PDFs, Exams) read from window.AE_NAV, with the counters of the
  * classic cards. Click or Enter on a constellation: the camera glides to it. Escape, the back button or
@@ -167,9 +167,9 @@
     return null;
   }
 
-  /* Layouts of the panorama (centres of the five constellations and of the pulsar). */
-  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[350, 350], [930, 215], [1660, 350], [470, 880], [1290, 900]], pulsar: [1800, 760] };
-  var PORT = { box: [1000, 2900], centre: [500, 1450], slots: [[260, 260], [740, 800], [240, 1380], [760, 1960], [270, 2540]], pulsar: [780, 2800] };
+  /* Layouts of the panorama (centres of the five constellations). */
+  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[350, 350], [930, 215], [1660, 350], [470, 880], [1290, 900]] };
+  var PORT = { box: [1000, 2900], centre: [500, 1450], slots: [[260, 260], [740, 800], [240, 1380], [760, 1960], [270, 2540]] };
   var GUIDES = [[0, 1], [1, 2], [2, 4], [4, 3], [3, 0], [1, 3], [1, 4]];
 
   var ZOOM_H = 480;          // height of the camera box on a constellation (user units)
@@ -180,7 +180,7 @@
      --------------------------------------------------------------------------------------- */
   var stage, svg, back, caption, titleEl, select, toggle;
   var items = [];           // { slug, g, stars[], slot, title }
-  var guides = [], pulsarG;
+  var guides = [];
   var selected = null;
   var cam = null, camAnim = 0;
   var built = false;
@@ -300,17 +300,17 @@
       var anchor = dx > 0.35 ? 'start' : dx < -0.35 ? 'end' : 'middle';
       var ny = Math.abs(dy) > 0.5 ? dy * 52 + (dy > 0 ? 10 : -4) : dy * 44 + 5;
       var attrs = { 'text-anchor': anchor, x: Math.round(dx * (anchor === 'middle' ? 0 : 46)), y: Math.round(ny) };
-      var name = s('text', attrs, a); name.setAttribute('class', 'star-name'); name.textContent = sec.label;
+      var name = s('text', attrs, a); name.setAttribute('class', 'star-name'); name.setAttribute('display', 'none'); name.textContent = sec.label;
       var cAttrs = {}; for (var k in attrs) cAttrs[k] = attrs[k];
       cAttrs.y = Math.round(ny) + (dy < -0.5 ? -17 : 18);
-      var count = s('text', cAttrs, a); count.setAttribute('class', 'star-count'); count.textContent = sec.count;
+      var count = s('text', cAttrs, a); count.setAttribute('class', 'star-count'); count.setAttribute('display', 'none'); count.textContent = sec.count;
       return a;
     });
 
     // The name of a subject shows when the pointer rests on its constellation (or it has focus), and in the caption once opened.
     var ys = anchors.map(function (q) { return q[1]; });
-    var title = s('text', { 'class': 'const-title', x: 0, y: 0 }, g); title.textContent = meta.latin;
-    var subtitle = s('text', { 'class': 'const-sub', x: 0, y: 0 }, g); subtitle.textContent = sub.name;
+    var title = s('text', { 'class': 'const-title', x: 0, y: 0, opacity: 0 }, g); title.textContent = meta.latin;
+    var subtitle = s('text', { 'class': 'const-sub', x: 0, y: 0, opacity: 0 }, g); subtitle.textContent = sub.name;
 
     return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys) };
   }
@@ -334,7 +334,6 @@
       var a = L.slots[gl.a], b = L.slots[gl.b];
       gl.el.setAttribute('x1', a[0]); gl.el.setAttribute('y1', a[1]); gl.el.setAttribute('x2', b[0]); gl.el.setAttribute('y2', b[1]);
     });
-    pulsarG.setAttribute('transform', 'translate(' + L.pulsar[0] + ' ' + L.pulsar[1] + ')');
     return L;
   }
 
@@ -535,11 +534,6 @@
       items.push(it);
       svg.appendChild(it.g);
     });
-
-    pulsarG = s('g', { 'class': 'pulsar', 'aria-label': 'Second semester: in preparation', role: 'img' }, svg);
-    s('circle', { 'class': 'pulsar-ring', r: 10 }, pulsarG);
-    s('circle', { 'class': 'pulsar-core', r: 4 }, pulsarG);
-    var pl = s('text', { 'class': 'pulsar-label', x: -20, y: 5 }, pulsarG); pl.textContent = 'In Preparation · Q2';
 
     applyLayout();
     renderState(false);

@@ -30,8 +30,8 @@ def contrast(a, b):
 
 class StaticTests(unittest.TestCase):
     def test_index_loads_the_files_and_keeps_the_classic_view(self):
-        self.assertIn('href="assets/css/constellations.css?v=20261116d"', INDEX)
-        self.assertIn('src="assets/js/constellations.js?v=20261116d"', INDEX)
+        self.assertIn('href="assets/css/constellations.css?v=20261116e"', INDEX)
+        self.assertIn('src="assets/js/constellations.js?v=20261116e"', INDEX)
         self.assertLess(INDEX.index("theme.js"), INDEX.index("constellations.js"))
         self.assertEqual(INDEX.count('class="subject-card'), 5)
         for slug in SLUGS:
@@ -89,9 +89,9 @@ class BrowserTests(unittest.TestCase):
             self.assertIn(title, self.dom)
         self.assertGreaterEqual(len(re.findall(r'<a class="star', self.dom)), 25)
 
-    def test_defaults_to_the_stellar_view_and_pulsar(self):
+    def test_defaults_to_the_stellar_view_and_has_no_preparation_label(self):
         self.assertRegex(self.dom, r'<html[^>]*data-home-view="constellations"')
-        self.assertIn("In Preparation", self.dom)
+        self.assertNotIn("In Preparation", self.dom)
 
 
 if __name__ == "__main__":

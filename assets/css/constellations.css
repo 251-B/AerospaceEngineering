@@ -165,7 +165,7 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 /* ---- SVG layers ------------------------------------------------------------------------ */
 .sky-svg text { font-family: var(--font-body); font-weight: 600; fill: var(--sk-text); paint-order: stroke; stroke: var(--sk-halo); stroke-width: calc(var(--u, 1) * 2.6px); stroke-linejoin: round; }
 .guide-line { stroke: var(--sk-guide); stroke-width: calc(var(--u, 1) * 1px); stroke-dasharray: 2 10; stroke-linecap: round; fill: none; transition: opacity 0.6s; }
-.sky-svg.is-zoomed .guide-line, .sky-svg.is-zoomed .pulsar { opacity: 0.10; }
+.sky-svg.is-zoomed .guide-line { opacity: 0.10; }
 
 .dust { fill: var(--sk-text); opacity: 0.55; animation: twinkle 4.6s ease-in-out var(--d, 0s) infinite; }
 .dust.far { opacity: 0.5; animation: none; r: calc(var(--u, 1) * 0.9px); fill: #fff; }
@@ -217,10 +217,6 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 .star:focus-visible .star-hit { stroke: var(--sk-text); stroke-width: calc(var(--u, 1) * 2px); }
 .star.is-soon .star-glyph { opacity: 0.7; }
 
-.pulsar-core { fill: var(--sk-text); filter: drop-shadow(0 0 calc(var(--u, 1) * 6px) var(--sk-text-2)); }
-.pulsar-ring { fill: none; stroke: var(--sk-text-2); stroke-width: calc(var(--u, 1) * 1.2px); opacity: 0.6; transform-box: fill-box; transform-origin: center; animation: pulsar 3.2s ease-out infinite; }
-.sky-svg .pulsar-label { font-size: calc(var(--u, 1) * 13px); fill: var(--sk-text-2); font-family: var(--font-mono); text-anchor: end; }
-@keyframes pulsar { from { transform: scale(0.5); opacity: 0.7; } to { transform: scale(2.4); opacity: 0; } }
 
 /* ---- Small screens ---------------------------------------------------------------------- */
 @media (max-width: 700px) {
@@ -233,7 +229,6 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 @media (prefers-reduced-motion: reduce) {
   .const, .guide-line, .star-glyph, .const-edge { transition: none; }
   .dust { animation: none; opacity: 0.5; }
-  .pulsar-ring { animation: none; opacity: 0.35; }
 }
 
 @media print { .sky-view, .view-toggle, .sky-palette-select { display: none !important; } html[data-home-view] .classic-only { display: block !important; } }
