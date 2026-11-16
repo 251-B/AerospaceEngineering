@@ -203,12 +203,13 @@ def loop_points():
     o = (210, 150)
     _bh_axes(c, o, 190, 135)
     span, amp = 160, 105
-    br = _draw_loop(c, o, amp, 60, 45, span, "BLUE")
+    hc = 60 / (1 - (60 / span) ** 2)                      # B = 0 exactly at H = -60 px
+    br = _draw_loop(c, o, amp, hc, 45, span, "BLUE")
     tip = amp * math.tanh(span / 45)
     pts = {"P": (o[0] + span, o[1] - tip), "Q": (o[0], o[1] - br), "R": (o[0] - 60, o[1]), "S": (o[0] - span, o[1] + tip)}
     for name, p in pts.items():
         dot(c, p, 5, "PINK", "PINK")
-    text(c, (pts["P"][0] + 4, pts["P"][1] - 10), "P", "PINK", "start", 15, "700")
+    text(c, (pts["P"][0] - 6, pts["P"][1] - 12), "P", "PINK", "end", 15, "700")
     text(c, (pts["Q"][0] - 10, pts["Q"][1] - 8), "Q", "PINK", "end", 15, "700")
     text(c, (pts["R"][0] - 10, pts["R"][1] + 22), "R", "PINK", "end", 15, "700")
     text(c, (pts["S"][0] - 4, pts["S"][1] + 22), "S", "PINK", "end", 15, "700")
@@ -234,25 +235,37 @@ def loop_hard_scale():
     o = (260, 170)
     sx = 1.4                     # px per kA/m
     sy = 110.0                   # px per T
-    _bh_axes(c, o, 235, 155, "H (kA/m)", "B (T)")
+    _bh_axes(c, o, 235, 155, "", "B (T)")
+    text(c, (o[0] + 235, o[1] + 42), "H (kA/m)", "HEAD", "end", 14, "700")
     span = 150 * sx
-    # a loop with Bs = 1.2 T at +-150 kA/m, remanence 0.9 T and coercivity 50 kA/m
-    hc_px, w = 50 * sx, 40.0
-    amp_needed = 1.2 * sy
-
-    # choose amp so that the tip reaches Bs and the remanence is 0.9 T: tanh(hc/w)*amp = 0.9*sy
-    amp = 0.9 * sy / math.tanh(hc_px / w)
-    w = span / math.atanh(min(0.999, amp_needed / amp)) if amp > amp_needed else w
-    amp = 0.9 * sy / math.tanh(hc_px / w)
-    _draw_loop(c, o, amp, hc_px, w, span, "BLUE")
+    # loop with Bs = 1.2 T at +-150 kA/m, remanence Br = 0.9 T and coercivity Hc = 50 kA/m (exact crossings)
+    hc_cross = 50 * sx
+    hc = hc_cross / (1 - (hc_cross / span) ** 2)          # shift parameter that puts B = 0 at H = -50 kA/m
+    lo, hi = 10.0, 2000.0                                  # width w such that tanh(span/w)/tanh(hc/w) = 1.2/0.9
+    for _ in range(80):
+        w = (lo + hi) / 2
+        if math.tanh(span / w) / math.tanh(hc / w) > 1.2 / 0.9:
+            hi = w                                         # the ratio grows with w
+        else:
+            lo = w
+    amp = 0.9 * sy / math.tanh(hc / w)
+    _draw_loop(c, o, amp, hc, w, span, "BLUE")
     for v in (-150, -100, -50, 50, 100, 150):
         x = o[0] + v * sx
         line(c, (x, o[1] - 4), (x, o[1] + 4), "EDGE", 1.2)
-        text(c, (x, o[1] + 20 if v > 0 else o[1] - 10), str(v), "TEXT", "middle", 11)
+        if v == -50:      # the loop crosses the axis here: label above and to the left of the crossing
+            text(c, (x - 6, o[1] - 8), str(v), "TEXT", "end", 11)
+        elif v == 50:     # label below and to the right of the crossing
+            text(c, (x + 6, o[1] + 18), str(v), "TEXT", "start", 11)
+        else:
+            text(c, (x, o[1] + 20 if v > 0 else o[1] - 10), str(v), "TEXT", "middle", 11)
     for v in (-1.2, -0.9, 0.9, 1.2):
         y = o[1] - v * sy
         line(c, (o[0] - 4, y), (o[0] + 4, y), "EDGE", 1.2)
-        text(c, (o[0] - 8, y + 4), f"{v:g}", "TEXT", "end", 11)
+        if v > 0:
+            text(c, (o[0] - 8, y + 4), f"{v:g}", "TEXT", "end", 11)
+        else:
+            text(c, (o[0] + 8, y + 14), f"{v:g}", "TEXT", "start", 11)
     line(c, (o[0], o[1] - 1.2 * sy), (o[0] + span, o[1] - 1.2 * sy), "EDGE", 1.0, "4,4")
     line(c, (o[0], o[1] + 1.2 * sy), (o[0] - span, o[1] + 1.2 * sy), "EDGE", 1.0, "4,4")
     return c
