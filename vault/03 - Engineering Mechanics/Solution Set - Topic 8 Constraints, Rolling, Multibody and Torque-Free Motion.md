@@ -7818,3 +7818,708 @@ The exploded view separates the disk, the sphere with its axle, and the plane. T
 * **Horizontal plane.** With $\gamma$ zero the potential term vanishes and the kinetic energy itself is constant.
 * **No disk.** With the mass and the tensor of the disk set to zero, part (f) leaves the hollow sphere alone (moment two thirds of $mR^2$, isotropic), the spin integral disappears with the disk, and the normal component of the angular momentum about $G$ becomes two thirds of $mR^2$ times the component of the angular velocity along $\mathbf k_0$, which the moment equation keeps constant as before.
 * **Dimensions.** Every term of the energy integral is a mass times a squared length times a squared rate, or a weight times a length; the spin integral is a rate.
+
+---
+
+## Problem RB-30: Free spinning asteroid (Poinsot's construction)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** one rigid body, the asteroid $b$, of mass $m$ and centre of mass $G$, floating in space with no force and no torque acting on it.
+* **Inertial frame:** $S_0\{G; \mathcal B_0\}$, with $\mathcal B_0$ made of $\mathbf i_0$, $\mathbf j_0$, $\mathbf k_0$, given as inertial by the statement. With no force the centre of mass moves with constant velocity (first box of the equations of motion), so a frame with origin $G$ and fixed directions is inertial.
+* **Body frame:** $S_b\{G; \mathcal B_b\}$, with $\mathcal B_b$ made of $\mathbf i_b$, $\mathbf j_b$, $\mathbf k_b$ attached to the asteroid. The figure of the statement labels these vectors $\mathbf e_1$, $\mathbf e_2$, $\mathbf e_3$ (read from the figure: $\mathbf e_1$ is $\mathbf i_b$, $\mathbf e_2$ is $\mathbf j_b$, $\mathbf e_3$ is $\mathbf k_b$, and the label of $\mathbf e_3$ says it is also $\mathbf k_2$, the axis of the last rotation).
+* **Euler angles 1-2-3:** $\psi$ about $\mathbf i_0$ gives $\mathcal B_1$; $\theta$ about $\mathbf j_1$ gives $\mathcal B_2$; $\phi$ about $\mathbf k_2$ gives $\mathcal B_b$.
+* **Degrees of freedom:** the three coordinates of $G$ and the three Euler angles. The motion of $G$ is trivial (constant velocity) and $G$ is the origin of $S_0$, so only the three angles remain to be studied.
+* **Point $P$:** the point with position vector from $G$ equal to $\tau\ell$ times the angular velocity, components $x_b$, $y_b$, $z_b$ in $\mathcal B_b$. It moves both in $S_b$ and in $S_0$; since both frames have their origin at $G$, its position vector is the same arrow in both.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the asteroid | $m$ | kg |
+| Characteristic length and time | $\ell$, $\tau$ | m, s |
+| Tensor of inertia at $G$, in $\mathcal B_b$ | $m\ell^2\,\mathrm{diag}(2, 4, 8)$, so $I_x = 2m\ell^2$, $I_y = 4m\ell^2$, $I_z = 8m\ell^2$ | kg m$^2$ |
+| Initial angles | $(\psi_0, \theta_0, \phi_0) = (\pi/3, 0, \pi/2)$ | rad |
+| Initial rates | $(\dot\psi_0, \dot\theta_0, \dot\phi_0) = (-2, 0, 1)/\tau$ | rad/s |
+| Components of the angular velocity in $\mathcal B_b$ | $\omega_{xb}$, $\omega_{yb}$, $\omega_{zb}$ | rad/s |
+| Coordinates of $P$ in $\mathcal B_b$ | $x_b = \tau\ell\,\omega_{xb}$, $y_b = \tau\ell\,\omega_{yb}$, $z_b = \tau\ell\,\omega_{zb}$ | m |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb30-rot-psi.svg]]
+
+> [!derivation] Part (a): first rotation, psi about i0
+> **Law:** simple rotation about the first axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.17; Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]
+>
+> View along $\mathbf i_0$ with $\mathbf i_0$ out of the paper (⊙), $\mathbf j_0$ to the right and $\mathbf k_0$ up; this is right-handed because the product of $\mathbf j_0$ and $\mathbf k_0$ is $\mathbf i_0$. A positive $\psi$ turns counterclockwise. Triangle of $\mathbf j_1$: hypotenuse 1, adjacent leg along $\mathbf j_0$ (cosine of $\psi$), opposite leg along $\mathbf k_0$ (sine). Triangle of $\mathbf k_1$: adjacent leg along $\mathbf k_0$ (cosine), opposite leg along minus $\mathbf j_0$ (sine), because the counterclockwise turn carries the tip of $\mathbf k_0$, which points up, to the left.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \mathbf i_0, \qquad \mathbf j_1 = \cos\psi\,\mathbf j_0 + \sin\psi\,\mathbf k_0, \qquad \mathbf k_1 = -\sin\psi\,\mathbf j_0 + \cos\psi\,\mathbf k_0 \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_1] &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\psi & -\sin\psi \cr 0 & \sin\psi & \cos\psi \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\psi + \sin^2\psi\right) = 1 \quad &\text{(expand along the first row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos^2\psi + \sin^2\psi & \cos\psi\sin\psi - \sin\psi\cos\psi \cr 0 & \sin\psi\cos\psi - \cos\psi\sin\psi & \sin^2\psi + \cos^2\psi \end{bmatrix} = [U] \quad &\text{(row by row products)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_1 = \mathbf i_0, \qquad \mathbf j_1 = \cos\psi\,\mathbf j_0 + \sin\psi\,\mathbf k_0, \qquad \mathbf k_1 = -\sin\psi\,\mathbf j_0 + \cos\psi\,\mathbf k_0}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the first turn leaves $\mathbf i_0$ in place and tilts the other two axes in the plane normal to it.
+
+![[attachments/EM-SOL/rb30-rot-theta.svg]]
+
+> [!derivation] Part (a): second rotation, theta about j1
+> **Law:** simple rotation about the second axis; right-hand rule
+> **Source:** Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]
+>
+> View along $\mathbf j_1$ with $\mathbf j_1$ out of the paper (⊙), $\mathbf k_1$ to the right and $\mathbf i_1$ up; this is right-handed because the product of $\mathbf k_1$ and $\mathbf i_1$ is $\mathbf j_1$. A positive $\theta$ turns counterclockwise. Triangle of $\mathbf k_2$: adjacent leg along $\mathbf k_1$ (cosine of $\theta$), opposite leg along $\mathbf i_1$ (sine), because the counterclockwise turn carries the tip of $\mathbf k_1$, which points right, upwards. Triangle of $\mathbf i_2$: adjacent leg along $\mathbf i_1$ (cosine), opposite leg along minus $\mathbf k_1$ (sine), because the same turn carries the tip of $\mathbf i_1$, which points up, to the left. This is why the minus sign of a rotation about the second axis sits in the first row, third column, and not under the diagonal.
+>
+> $$\begin{aligned}
+> \mathbf i_2 &= \cos\theta\,\mathbf i_1 - \sin\theta\,\mathbf k_1, \qquad \mathbf j_2 = \mathbf j_1, \qquad \mathbf k_2 = \sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf k_1 \quad &\text{(legs of the two triangles)} \\
+> [{}_1R_2] &= \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr 0 & 1 & 0 \cr -\sin\theta & 0 & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_2$, $\mathbf j_2$, $\mathbf k_2$ in $\mathcal B_1$)} \\
+> \det[{}_1R_2] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_1R_2][{}_1R_2]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & 0 & -\cos\theta\sin\theta + \sin\theta\cos\theta \cr 0 & 1 & 0 \cr -\sin\theta\cos\theta + \cos\theta\sin\theta & 0 & \sin^2\theta + \cos^2\theta \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf i_1 &= \cos\theta\,\mathbf i_2 + \sin\theta\,\mathbf k_2 \quad &\text{(first row: the inverse is the transpose)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_2 = \cos\theta\,\mathbf i_1 - \sin\theta\,\mathbf k_1, \qquad \mathbf j_2 = \mathbf j_1, \qquad \mathbf k_2 = \sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf k_1, \qquad \mathbf i_0 = \mathbf i_1 = \cos\theta\,\mathbf i_2 + \sin\theta\,\mathbf k_2}$$
+>
+> **Units:** dimensionless
+> **Meaning:** $\theta$ is the angle between $\mathbf k_2$ (the last axis, $\mathbf k_b$) and $\mathbf k_1$; the last relation is used for the angular velocity in part (b).
+
+![[attachments/EM-SOL/rb30-rot-phi.svg]]
+
+> [!derivation] Part (a): third rotation, phi about k2, and the full matrix
+> **Law:** simple rotation about the third axis; product of rotation matrices
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.19; [Lecture 7, Slide 12]
+>
+> View along $\mathbf k_2$ with $\mathbf k_2$ out of the paper (⊙), $\mathbf i_2$ to the right and $\mathbf j_2$ up; a positive $\phi$ turns counterclockwise. Triangle of $\mathbf i_b$: adjacent leg along $\mathbf i_2$ (cosine of $\phi$), opposite leg along $\mathbf j_2$ (sine). Triangle of $\mathbf j_b$: adjacent leg along $\mathbf j_2$ (cosine), opposite leg along minus $\mathbf i_2$ (sine), because the counterclockwise turn carries the tip of $\mathbf j_2$, which points up, to the left.
+>
+> $$\begin{aligned}
+> \mathbf i_b &= \cos\phi\,\mathbf i_2 + \sin\phi\,\mathbf j_2, \qquad \mathbf j_b = -\sin\phi\,\mathbf i_2 + \cos\phi\,\mathbf j_2, \qquad \mathbf k_b = \mathbf k_2 \quad &\text{(legs of the two triangles)} \\
+> [{}_2R_b] &= \begin{bmatrix} \cos\phi & -\sin\phi & 0 \cr \sin\phi & \cos\phi & 0 \cr 0 & 0 & 1 \end{bmatrix}, \qquad \det[{}_2R_b] = 1\cdot\left(\cos^2\phi + \sin^2\phi\right) = 1 \quad &\text{(columns in $\mathcal B_2$; expand along the third row)} \\
+> [{}_2R_b][{}_2R_b]^T &= \begin{bmatrix} \cos^2\phi + \sin^2\phi & \cos\phi\sin\phi - \sin\phi\cos\phi & 0 \cr \sin\phi\cos\phi - \cos\phi\sin\phi & \sin^2\phi + \cos^2\phi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf i_2 &= \cos\phi\,\mathbf i_b - \sin\phi\,\mathbf j_b, \qquad \mathbf j_2 = \sin\phi\,\mathbf i_b + \cos\phi\,\mathbf j_b \quad &\text{(rows: the inverse is the transpose)} \\
+> [{}_0R_1][{}_1R_2] &= \begin{bmatrix} \cos\theta & 0 & \sin\theta \cr \sin\psi\sin\theta & \cos\psi & -\sin\psi\cos\theta \cr -\cos\psi\sin\theta & \sin\psi & \cos\psi\cos\theta \end{bmatrix} \quad &\text{(row of the first times column of the second)} \\
+> [{}_0R_b] &= [{}_0R_1][{}_1R_2][{}_2R_b] = \begin{bmatrix} c_\theta c_\phi & -c_\theta s_\phi & s_\theta \cr c_\psi s_\phi + s_\psi s_\theta c_\phi & c_\psi c_\phi - s_\psi s_\theta s_\phi & -s_\psi c_\theta \cr s_\psi s_\phi - c_\psi s_\theta c_\phi & s_\psi c_\phi + c_\psi s_\theta s_\phi & c_\psi c_\theta \end{bmatrix} \quad &\text{(Eq. 9.19 for this sequence; $c$ and $s$ for cosine and sine)} \\
+> \det[{}_0R_b] &= 1\cdot 1\cdot 1 = 1, \qquad [{}_0R_b][{}_0R_b]^T = [{}_0R_1][{}_1R_2][{}_2R_b][{}_2R_b]^T[{}_1R_2]^T[{}_0R_1]^T = [U] \quad &\text{(product of the three checked factors)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf i_b = \cos\theta\cos\phi\,\mathbf i_0 + \left(\cos\psi\sin\phi + \sin\psi\sin\theta\cos\phi\right)\mathbf j_0 + \left(\sin\psi\sin\phi - \cos\psi\sin\theta\cos\phi\right)\mathbf k_0 \\ \mathbf j_b = -\cos\theta\sin\phi\,\mathbf i_0 + \left(\cos\psi\cos\phi - \sin\psi\sin\theta\sin\phi\right)\mathbf j_0 + \left(\sin\psi\cos\phi + \cos\psi\sin\theta\sin\phi\right)\mathbf k_0 \\ \mathbf k_b = \sin\theta\,\mathbf i_0 - \sin\psi\cos\theta\,\mathbf j_0 + \cos\psi\cos\theta\,\mathbf k_0 \end{gathered}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the three columns of $[{}_0R_b]$ are the body vectors in $\mathcal B_0$. Each column has unit length; for the third, the sum of the squares is the square of the sine of $\theta$ plus the square of its cosine times the sum of the squares of the sine and cosine of $\psi$, which is 1.
+
+> [!derivation] Initial attitude of the body basis
+> **Law:** the matrix of the previous box evaluated at the initial angles
+> **Source:** Notes.pdf, Eq. 9.19; Problems.pdf, p. 60
+>
+> At the initial instant the sine of $\theta$ is 0 and its cosine 1, the sine of $\phi$ is 1 and its cosine 0, the cosine of $\psi$ is one half and its sine is the square root of 3 over 2.
+>
+> $$\begin{aligned}
+> [{}_0R_b]_{t = 0} &= \begin{bmatrix} 1\cdot 0 & -1\cdot 1 & 0 \cr \tfrac12\cdot 1 + \tfrac{\sqrt3}{2}\cdot 0\cdot 0 & \tfrac12\cdot 0 - \tfrac{\sqrt3}{2}\cdot 0\cdot 1 & -\tfrac{\sqrt3}{2}\cdot 1 \cr \tfrac{\sqrt3}{2}\cdot 1 - \tfrac12\cdot 0\cdot 0 & \tfrac{\sqrt3}{2}\cdot 0 + \tfrac12\cdot 0\cdot 1 & \tfrac12\cdot 1 \end{bmatrix} = \begin{bmatrix} 0 & -1 & 0 \cr \tfrac12 & 0 & -\tfrac{\sqrt3}{2} \cr \tfrac{\sqrt3}{2} & 0 & \tfrac12 \end{bmatrix} \quad &\text{(substitution, entry by entry)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_b(0) = \tfrac12\,\mathbf j_0 + \tfrac{\sqrt3}{2}\,\mathbf k_0, \qquad \mathbf j_b(0) = -\mathbf i_0, \qquad \mathbf k_b(0) = -\tfrac{\sqrt3}{2}\,\mathbf j_0 + \tfrac12\,\mathbf k_0}$$
+>
+> **Units:** dimensionless
+> **Meaning:** at the start the intermediate axis $\mathbf j_b$ points along minus $\mathbf i_0$ and the other two lie in the plane of $\mathbf j_0$ and $\mathbf k_0$; the angular momentum in $\mathcal B_0$ in part (d) uses this matrix.
+
+> [!derivation] Part (b): angular velocity of the asteroid in the body basis
+> **Law:** composition of angular velocities, each rate along its own axis
+> **Source:** Notes.pdf, Eq. 9.21; Notes.pdf, Sec. 15.1
+>
+> The rate of $\psi$ acts along $\mathbf i_0$, the rate of $\theta$ along $\mathbf j_1$ and the rate of $\phi$ along $\mathbf k_2$. Each of them is written in $\mathcal B_b$ with the boxes of part (a): $\mathbf k_2$ is $\mathbf k_b$; $\mathbf j_1$ is $\mathbf j_2$; $\mathbf i_0$ is $\mathbf i_1$, written in $\mathcal B_2$ and then in $\mathcal B_b$.
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{b0} &= \boldsymbol\omega_{b2} + \boldsymbol\omega_{21} + \boldsymbol\omega_{10} = \dot\phi\,\mathbf k_2 + \dot\theta\,\mathbf j_1 + \dot\psi\,\mathbf i_0 \quad &\text{(composition, Eq. 9.21)} \\
+> \mathbf i_0 &= \cos\theta\left(\cos\phi\,\mathbf i_b - \sin\phi\,\mathbf j_b\right) + \sin\theta\,\mathbf k_b \quad &\text{(second box, then the rows of the third)} \\
+> \mathbf j_1 &= \mathbf j_2 = \sin\phi\,\mathbf i_b + \cos\phi\,\mathbf j_b \quad &\text{(third box)} \\
+> \boldsymbol\omega_{b0} &= \dot\phi\,\mathbf k_b + \dot\theta\left(\sin\phi\,\mathbf i_b + \cos\phi\,\mathbf j_b\right) + \dot\psi\left(\cos\theta\cos\phi\,\mathbf i_b - \cos\theta\sin\phi\,\mathbf j_b + \sin\theta\,\mathbf k_b\right) \quad &\text{(substitution)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{b0} = \left(\dot\psi\cos\theta\cos\phi + \dot\theta\sin\phi\right)\mathbf i_b + \left(-\dot\psi\cos\theta\sin\phi + \dot\theta\cos\phi\right)\mathbf j_b + \left(\dot\psi\sin\theta + \dot\phi\right)\mathbf k_b}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in every component
+> **Meaning:** these are the components of the statement, in order the first, second and third components of the angular velocity in $\mathcal B_b$; they enter the momenta because the tensor is known in $\mathcal B_b$.
+
+> [!derivation] Initial angular velocity and initial position of P
+> **Law:** the expression of part (b) evaluated at the initial angles and rates; definition of $P$
+> **Source:** Notes.pdf, Eq. 9.21; Problems.pdf, p. 60
+>
+> The rates are the first time derivatives of the angles; at the initial instant they are given, minus 2, 0 and 1 over $\tau$; the sines and cosines are those of the previous box.
+>
+> $$\begin{aligned}
+> \omega_{xb}(0) &= \left(-\frac2\tau\right)\cdot 1\cdot 0 + 0\cdot 1 = 0 \quad &\text{(first component)} \\
+> \omega_{yb}(0) &= -\left(-\frac2\tau\right)\cdot 1\cdot 1 + 0\cdot 0 = \frac2\tau \quad &\text{(second component)} \\
+> \omega_{zb}(0) &= \left(-\frac2\tau\right)\cdot 0 + \frac1\tau = \frac1\tau \quad &\text{(third component)} \\
+> \mathbf r_b^P(0) &= \tau\ell\left(0\,\mathbf i_b + \frac2\tau\,\mathbf j_b + \frac1\tau\,\mathbf k_b\right) = \ell\left(2\,\mathbf j_b + \mathbf k_b\right) \quad &\text{(definition of $P$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{b0}(0) = \frac1\tau\left(0\,\mathbf i_b + 2\,\mathbf j_b + \mathbf k_b\right), \qquad (x_b, y_b, z_b)_{t = 0} = \ell\,(0, 2, 1)}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$; $[\mathrm{T}][\mathrm L][\mathrm{T^{-1}}] = [\mathrm L]$
+> **Meaning:** the initial angular velocity lies in the plane of $\mathbf j_b$ and $\mathbf k_b$; the cosine of its angle with $\mathbf k_b$ is 1 over the square root of 5 (63.4 degrees) and with $\mathbf j_b$ it is 2 over the square root of 5 (26.6 degrees), so it is geometrically closer to the intermediate axis $\mathbf j_b$. Part (f) shows that it nevertheless circulates about $\mathbf k_b$.
+
+### Center of Mass and Inertia Tensor
+
+$G$ is the centre of mass by the statement, and the tensor at $G$ is given in $\mathcal B_b$ with no products of inertia, so $\mathcal B_b$ is a principal basis with $I_x$, $I_y$, $I_z$ equal to 2, 4 and 8 times $m\ell^2$ (minor, intermediate and major axes); the shape is irregular and not described, so there is no integral to set up. The tensor is constant in $\mathcal B_b$ because the basis is attached to the body.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Part (c): kinetic energy of the asteroid
+> **Law:** Koenig's theorem; rotational energy about $G$ with the tensor in the principal basis
+> **Source:** Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 15.20
+>
+> $G$ is the origin of $S_0$ and moves with constant velocity; in $S_0$, which is attached to $G$, the velocity of $G$ is zero, so only the rotational part remains.
+>
+> $$\begin{aligned}
+> T_0^b &= \frac12 m\left|\mathbf v_0^G\right|^2 + \frac12\,\boldsymbol\omega_{b0}\cdot\bar{\bar I}_G\cdot\boldsymbol\omega_{b0} \quad &\text{(Koenig, Eq. 11.31)} \\
+> \bar{\bar I}_G\cdot\boldsymbol\omega_{b0} &= m\ell^2\left(2\omega_{xb}\,\mathbf i_b + 4\omega_{yb}\,\mathbf j_b + 8\omega_{zb}\,\mathbf k_b\right) \quad &\text{(diagonal tensor times the components)} \\
+> T_0^b &= 0 + \frac12 m\ell^2\left(2\omega_{xb}^2 + 4\omega_{yb}^2 + 8\omega_{zb}^2\right) \quad &\text{(dot product with the angular velocity)} \\
+> T_0^b(0) &= \frac12 m\ell^2\left(2\cdot 0 + 4\cdot\frac{4}{\tau^2} + 8\cdot\frac{1}{\tau^2}\right) = \frac12 m\ell^2\cdot\frac{24}{\tau^2} \quad &\text{(initial components)}
+> \end{aligned}$$
+>
+> $$\boxed{T_0^b = m\ell^2\left(\omega_{xb}^2 + 2\omega_{yb}^2 + 4\omega_{zb}^2\right), \qquad T_0^b(0) = 12\,\frac{m\ell^2}{\tau^2}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2][\mathrm{T^{-2}}]$, J
+> **Meaning:** the energy weighs each component with its principal moment; the initial value comes from the components along $\mathbf j_b$ (16 of the 24 units) and $\mathbf k_b$ (8 units).
+
+> [!derivation] Part (d): angular momentum about G
+> **Law:** angular momentum of a rigid body about its centre of mass; change of basis to $\mathcal B_0$
+> **Source:** Notes.pdf, Eq. 11.21; Notes.pdf, Eq. 15.9
+>
+> $$\begin{aligned}
+> \mathbf H_{G0}^b &= \bar{\bar I}_G\cdot\boldsymbol\omega_{b0} = m\ell^2\left(2\omega_{xb}\,\mathbf i_b + 4\omega_{yb}\,\mathbf j_b + 8\omega_{zb}\,\mathbf k_b\right) \quad &\text{(Eq. 11.21 at $G$, Eq. 15.9)} \\
+> \mathbf H_{G0}^b(0) &= m\ell^2\left(2\cdot 0\,\mathbf i_b + 4\cdot\frac2\tau\,\mathbf j_b + 8\cdot\frac1\tau\,\mathbf k_b\right) = \frac{m\ell^2}{\tau}\left(8\,\mathbf j_b + 8\,\mathbf k_b\right) \quad &\text{(initial components)} \\
+> \left|\mathbf H_{G0}^b\right| &= \frac{m\ell^2}{\tau}\sqrt{0 + 64 + 64} = 8\sqrt2\,\frac{m\ell^2}{\tau} \quad &\text{(orthonormal basis)} \\
+> \left[\mathbf H_{G0}^b(0)\right]_0 &= [{}_0R_b]_{t = 0}\begin{bmatrix} 0 \cr 8 \cr 8 \end{bmatrix}\frac{m\ell^2}{\tau} = \begin{bmatrix} 0 - 8 + 0 \cr 0 + 0 - 4\sqrt3 \cr 0 + 0 + 4 \end{bmatrix}\frac{m\ell^2}{\tau} \quad &\text{(initial matrix times the body components)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{G0}^b = m\ell^2\left(2\omega_{xb}\,\mathbf i_b + 4\omega_{yb}\,\mathbf j_b + 8\omega_{zb}\,\mathbf k_b\right), \qquad \mathbf H_{G0}^b(0) = \frac{m\ell^2}{\tau}\left(-8\,\mathbf i_0 - 4\sqrt3\,\mathbf j_0 + 4\,\mathbf k_0\right), \qquad \left|\mathbf H_{G0}^b\right| = 8\sqrt2\,\frac{m\ell^2}{\tau}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2][\mathrm{T^{-1}}]$
+> **Meaning:** the angular momentum is not parallel to the angular velocity (the components 0, 8, 8 against 0, 2, 1); the check of the magnitude in $\mathcal B_0$ gives 64 plus 48 plus 16, which is 128, the square of 8 times the square root of 2.
+
+### Free-Body Diagram and Equations of Motion
+
+No force acts on the asteroid (it floats freely in space): the free-body diagram is the body alone, with no load, and the resultant and the moment about $G$ are zero.
+
+> [!derivation] Conservation of momentum and angular momentum; Euler's equations
+> **Law:** force equation; moment equation about the centre of mass; derivative of a vector known in the body basis
+> **Source:** Notes.pdf, Eq. 15.6; Notes.pdf, Eq. 15.7; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 15.11; Notes.pdf, Eq. 15.12; Notes.pdf, Eq. 15.13
+>
+> The pole of the moment equation is $G$, the centre of mass, so the pole term (the velocity of $G$ times the linear momentum, which is a vector times a multiple of itself) is zero. The angular velocity in the vector product is written with its components in $\mathcal B_b$.
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^G &= \mathbf 0 \;\Rightarrow\; \mathbf v_0^G = \text{const} \quad &\text{(Eq. 15.6: no force)} \\
+> \left.\frac{d\mathbf H_{G0}^b}{dt}\right|_0 &= \mathbf M_G - \mathbf v_0^G\times m\,\mathbf v_0^G = \mathbf 0 - \mathbf 0 \quad &\text{(Eq. 12.13 at $G$, Eq. 15.7)} \\
+> \left.\frac{d\mathbf H_{G0}^b}{dt}\right|_0 &= \left.\frac{d\mathbf H_{G0}^b}{dt}\right|_b + \boldsymbol\omega_{b0}\times\mathbf H_{G0}^b \quad &\text{(Eq. 3.8 with the frame $S_b$)} \\
+> \boldsymbol\omega_{b0}\times\mathbf H_{G0}^b &= m\ell^2\begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr \omega_{xb} & \omega_{yb} & \omega_{zb} \cr 2\omega_{xb} & 4\omega_{yb} & 8\omega_{zb} \end{vmatrix} = m\ell^2\left[\left(8 - 4\right)\omega_{yb}\omega_{zb}\,\mathbf i_b - \left(8 - 2\right)\omega_{xb}\omega_{zb}\,\mathbf j_b + \left(4 - 2\right)\omega_{xb}\omega_{yb}\,\mathbf k_b\right] \quad &\text{(expand along the first row)} \\
+> \mathbf 0 &= m\ell^2\left(2\dot\omega_{xb}\,\mathbf i_b + 4\dot\omega_{yb}\,\mathbf j_b + 8\dot\omega_{zb}\,\mathbf k_b\right) + \boldsymbol\omega_{b0}\times\mathbf H_{G0}^b \quad &\text{(derivatives of the components in $S_b$, constant tensor)} \\
+> \dot\omega_{xb}(0) &= -2\cdot\frac2\tau\cdot\frac1\tau = -\frac{4}{\tau^2}, \qquad \dot\omega_{yb}(0) = \frac32\cdot\frac1\tau\cdot 0 = 0, \qquad \dot\omega_{zb}(0) = -\frac14\cdot 0\cdot\frac2\tau = 0 \quad &\text{(previous row, component by component, at the initial instant)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{G0}^b = \text{const in } S_0, \qquad \dot\omega_{xb} = -2\,\omega_{yb}\omega_{zb}, \qquad \dot\omega_{yb} = \frac32\,\omega_{zb}\omega_{xb}, \qquad \dot\omega_{zb} = -\frac14\,\omega_{xb}\omega_{yb}}$$
+>
+> **Units:** $[\mathrm{M\,L\,T^{-2}}]$ for the force equation; $[\mathrm{T^{-2}}]$ in each of Euler's equations
+> **Meaning:** these are Euler's equations with no torque for moments 2, 4 and 8 (each component equation divided by its moment). At the start only the first component changes, and it becomes negative: the tip of the angular velocity leaves the plane of $\mathbf j_b$ and $\mathbf k_b$ towards minus $\mathbf i_b$.
+
+> [!derivation] Conservation of kinetic energy
+> **Law:** time derivative of the rotational energy with a constant tensor in the body basis; Euler's equations
+> **Source:** Notes.pdf, Eq. 15.20; Notes.pdf, Eq. 15.10
+>
+> $$\begin{aligned}
+> \frac{dT_0^b}{dt} &= m\ell^2\left(2\omega_{xb}\dot\omega_{xb} + 4\omega_{yb}\dot\omega_{yb} + 8\omega_{zb}\dot\omega_{zb}\right) \quad &\text{(chain rule on each square of the part (c) box)} \\
+> &= m\ell^2\left(-4\,\omega_{xb}\omega_{yb}\omega_{zb} + 6\,\omega_{xb}\omega_{yb}\omega_{zb} - 2\,\omega_{xb}\omega_{yb}\omega_{zb}\right) = 0 \quad &\text{(Euler's equations of the previous box)} \\
+> \left[T_0^b\right]_0^t &= 0 \;\Rightarrow\; T_0^b(t) = T_0^b(0) \quad &\text{(integrate from 0 to $t$; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{T_0^b = 12\,\frac{m\ell^2}{\tau^2}\ \text{at all times}}$$
+>
+> **Units:** J
+> **Meaning:** with no force there is no power, and the energy keeps its initial value; the three terms cancel because 4 minus 8, 8 minus 2 and 2 minus 4 add up to zero.
+
+> [!derivation] Part (c): the body-fixed ellipsoid of P
+> **Law:** constant kinetic energy written with the coordinates of $P$
+> **Source:** Notes.pdf, Eq. 15.29
+>
+> Each angular velocity component is the matching coordinate of $P$ divided by $\tau\ell$.
+>
+> $$\begin{aligned}
+> T_0^b &= m\ell^2\,\frac{x_b^2 + 2y_b^2 + 4z_b^2}{\tau^2\ell^2} = \frac{m}{\tau^2}\left(x_b^2 + 2y_b^2 + 4z_b^2\right) \quad &\text{(substitution in the part (c) box)} \\
+> x_b^2 + 2y_b^2 + 4z_b^2 &= \frac{\tau^2}{m}\,T_0^b = \frac{\tau^2}{m}\cdot 12\,\frac{m\ell^2}{\tau^2} = 12\,\ell^2 \quad &\text{(energy constant)} \\
+> \frac{x_b^2}{12} + \frac{y_b^2}{6} + \frac{z_b^2}{3} &= \ell^2 \quad &\text{(division by 12: the form of the hint)} \\
+> a_x &= \sqrt{12}\,\ell, \qquad a_y = \sqrt6\,\ell, \qquad a_z = \sqrt3\,\ell \quad &\text{(semi-axes: set two coordinates to zero)} \\
+> \frac{0}{12} + \frac{4}{6} + \frac{1}{3} &= 1 \quad &\text{(check with the initial $P$, in units of $\ell$)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{x_b^2}{12} + \frac{y_b^2}{6} + \frac{z_b^2}{3} = \ell^2, \qquad a_x = 2\sqrt3\,\ell \approx 3.464\,\ell,\quad a_y = \sqrt6\,\ell \approx 2.449\,\ell,\quad a_z = \sqrt3\,\ell \approx 1.732\,\ell}$$
+>
+> **Units:** $[\mathrm L^2]$ in every term; semi-axes $[\mathrm L]$
+> **Meaning:** the coordinates are in $\mathcal B_b$ and the right-hand side is constant, so $P$ stays on an ellipsoid fixed to the asteroid (the inertia ellipsoid of the notes, scaled by $\tau\ell$). The largest moment, along $\mathbf k_b$, gives the shortest semi-axis; the ratios of the semi-axes are the square roots of 4, 2 and 1.
+
+> [!derivation] Part (d): the component of the angular velocity along the angular momentum
+> **Law:** kinetic energy as half the dot product of angular velocity and angular momentum; both constant
+> **Source:** Notes.pdf, Eq. 15.30; Notes.pdf, Eq. 15.31
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{b0}\cdot\mathbf H_{G0}^b &= m\ell^2\left(2\omega_{xb}^2 + 4\omega_{yb}^2 + 8\omega_{zb}^2\right) = 2T_0^b \quad &\text{(components in $\mathcal B_b$; part (c) box)} \\
+> \omega_H &\equiv \boldsymbol\omega_{b0}\cdot\frac{\mathbf H_{G0}^b}{\left|\mathbf H_{G0}^b\right|} = \frac{2T_0^b}{\left|\mathbf H_{G0}^b\right|} \quad &\text{(definition of the component)} \\
+> \omega_H &= \frac{24\,m\ell^2/\tau^2}{8\sqrt2\,m\ell^2/\tau} = \frac{3}{\sqrt2\,\tau} \quad &\text{(constant values of both boxes)} \\
+> \omega_H(0) &= \frac{\left(0, 2, 1\right)\cdot\left(0, 8, 8\right)}{8\sqrt2\,\tau} = \frac{24}{8\sqrt2\,\tau} \quad &\text{(check with the initial components)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega_H = \frac{3\sqrt2}{2\,\tau} \approx \frac{2.121}{\tau}\ \text{(constant)}}$$
+>
+> **Units:** $[\mathrm{M\,L^2\,T^{-2}}]/[\mathrm{M\,L^2\,T^{-1}}] = [\mathrm{T^{-1}}]$
+> **Meaning:** the angular velocity changes in direction and size, but its projection on the fixed direction of the angular momentum stays the same, because the energy and the magnitude of the angular momentum are both constant.
+
+> [!derivation] Part (d): the invariant plane of P and its distance from G
+> **Law:** projection of the position of $P$ on the fixed unit vector of the angular momentum
+> **Source:** Notes.pdf, Eq. 15.31; Notes.pdf, Sec. 15.4
+>
+> Write $\mathbf u_H$ for the unit vector of the angular momentum. It is constant in $S_0$ (first box of this section), and $G$ is the origin of $S_0$.
+>
+> $$\begin{aligned}
+> \mathbf u_H &= \frac{1}{8\sqrt2}\left(-8\,\mathbf i_0 - 4\sqrt3\,\mathbf j_0 + 4\,\mathbf k_0\right) = -\frac{1}{\sqrt2}\,\mathbf i_0 - \frac{\sqrt3}{2\sqrt2}\,\mathbf j_0 + \frac{1}{2\sqrt2}\,\mathbf k_0 \quad &\text{(part (d) box, divided by the magnitude)} \\
+> \mathbf r_b^P\cdot\mathbf u_H &= \tau\ell\,\boldsymbol\omega_{b0}\cdot\mathbf u_H = \tau\ell\,\omega_H = \tau\ell\cdot\frac{3\sqrt2}{2\,\tau} \quad &\text{(definition of $P$; previous box)} \\
+> \mathbf r_b^P(0)\cdot\mathbf u_H &= \ell\,\frac{\left(0, 2, 1\right)\cdot\left(0, 8, 8\right)}{8\sqrt2} = \frac{24}{8\sqrt2}\,\ell \quad &\text{(check with the initial $P$, components in $\mathcal B_b$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_b^P\cdot\mathbf u_H = \delta, \qquad \delta = \frac{3\sqrt2}{2}\,\ell \approx 2.121\,\ell, \qquad \mathbf u_H = -\frac{1}{\sqrt2}\,\mathbf i_0 - \frac{\sqrt6}{4}\,\mathbf j_0 + \frac{\sqrt2}{4}\,\mathbf k_0}$$
+>
+> **Units:** $[\mathrm T][\mathrm L][\mathrm{T^{-1}}] = [\mathrm L]$
+> **Meaning:** the points whose projection on a fixed unit vector has a fixed value form a plane normal to that vector, fixed in $S_0$, at the distance $\delta$ from $G$: this is the invariant plane. The distance lies between the shortest and the intermediate semi-axes (1.732, 2.121 and 2.449 times $\ell$), as it must for the plane to touch the ellipsoid, and part (f) uses this order.
+
+![[attachments/EM-SOL/rb30-poinsot.svg]]
+
+> [!derivation] Part (e): the ellipsoid and the plane are tangent at P
+> **Law:** the gradient of an implicit surface is normal to it; a weighted Cauchy-Schwarz inequality
+> **Source:** Notes.pdf, Eq. 15.32; Problems.pdf, p. 81
+>
+> Write the ellipsoid of part (c) as $F$ equal to $12\ell^2$, with $F$ the sum of the square of $x_b$, twice the square of $y_b$ and four times the square of $z_b$. Its normal at $P$ is the gradient of $F$ there; the plane of part (d) has the normal $\mathbf u_H$. $P$ lies on both surfaces (parts (c) and (d)). For the last rows, $Q$ is any point of the ellipsoid with coordinates $x$, $y$, $z$, and the inequality is the Cauchy-Schwarz inequality for the inner product with weights 1, 2 and 4.
+>
+> $$\begin{aligned}
+> \nabla F\big|_P &= 2x_b\,\mathbf i_b + 4y_b\,\mathbf j_b + 8z_b\,\mathbf k_b = 2\tau\ell\left(\omega_{xb}\,\mathbf i_b + 2\omega_{yb}\,\mathbf j_b + 4\omega_{zb}\,\mathbf k_b\right) \quad &\text{(partial derivatives; definition of $P$)} \\
+> &= 2\tau\ell\cdot\frac{\mathbf H_{G0}^b}{2m\ell^2} = \frac{\tau}{m\ell}\,\mathbf H_{G0}^b \quad &\text{(part (d) box: components 2, 4, 8 times $m\ell^2$)} \\
+> \mathbf r^Q\cdot\mathbf H_{G0}^b &= \frac{2m\ell}{\tau}\left(x\,x_b + 2\,y\,y_b + 4\,z\,z_b\right) \quad &\text{(the components of the angular momentum in terms of $P$)} \\
+> &\le \frac{2m\ell}{\tau}\sqrt{x^2 + 2y^2 + 4z^2}\,\sqrt{x_b^2 + 2y_b^2 + 4z_b^2} = \frac{2m\ell}{\tau}\cdot 12\ell^2 = \mathbf r_b^P\cdot\mathbf H_{G0}^b \quad &\text{(Cauchy-Schwarz; both points on the ellipsoid)}
+> \end{aligned}$$
+>
+> $$\boxed{\nabla F\big|_P = \frac{\tau}{m\ell}\,\mathbf H_{G0}^b\ \parallel\ \mathbf u_H, \qquad \mathbf r^Q\cdot\mathbf u_H \le \delta \ \text{for every point } Q \text{ of the ellipsoid}}$$
+>
+> **Units:** $[\mathrm L]$ for the gradient, and $[\mathrm T][\mathrm{M\,L^2\,T^{-1}}]/([\mathrm M][\mathrm L]) = [\mathrm L]$ for its expression; $[\mathrm L][\mathrm{M\,L^2\,T^{-1}}]$ on both sides of the inequality
+> **Meaning:** at $P$ the normal of the ellipsoid and the normal of the plane are the same direction, which is the statement of the key; the surfaces share the point and the tangent plane, so they are tangent there. The inequality adds that the whole ellipsoid stays on the side of the plane where $G$ is: the plane touches it at $P$ and never cuts it.
+
+#### Part (f): motion of the ellipsoid on the plane
+
+> [!derivation] Part (f): the ellipsoid rolls without slipping on the invariant plane
+> **Law:** velocity field of a rigid body; the vector product of a vector with itself is zero
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Sec. 15.4
+>
+> The material point of the asteroid (or of its ellipsoid) that is at $P$ at a given instant has the velocity of the field of the body at that position; $G$ is at rest in $S_0$.
+>
+> $$\begin{aligned}
+> \mathbf v_0^{P(b)} &= \mathbf v_0^G + \boldsymbol\omega_{b0}\times\mathbf r_b^P \quad &\text{(Eq. 9.3)} \\
+> &= \mathbf 0 + \boldsymbol\omega_{b0}\times\tau\ell\,\boldsymbol\omega_{b0} = \tau\ell\left(\boldsymbol\omega_{b0}\times\boldsymbol\omega_{b0}\right) = \mathbf 0 \quad &\text{(definition of $P$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^{P(b)} = \mathbf 0: \ \text{the ellipsoid rolls without slipping on the fixed plane, with its centre } G \text{ fixed at the distance } \delta}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$
+> **Meaning:** $P$ lies on the instantaneous axis of rotation (the line through $G$ along the angular velocity), so the body point in contact is at rest at every instant. The contact point moves over the ellipsoid along a body-fixed curve (the polhode) and over the plane along a curve fixed in $S_0$ (the herpolhode).
+
+![[attachments/EM-SOL/rb30-polhode.svg]]
+
+> [!derivation] Part (f): the polhode of this motion
+> **Law:** intersection of the energy ellipsoid with the ellipsoid of constant magnitude of the angular momentum
+> **Source:** Notes.pdf, Eq. 15.29; Notes.pdf, Eq. 15.33; Notes.pdf, Sec. 15.4
+>
+> In units of the inverse of $\tau$, the energy gives the first row and the square of the magnitude of the angular momentum (divided by the square of $m\ell^2$) gives the second; the other rows combine them to remove one component at a time.
+>
+> $$\begin{aligned}
+> 2\omega_{xb}^2 + 4\omega_{yb}^2 + 8\omega_{zb}^2 &= 24 \quad &\text{(twice the energy, divided by $m\ell^2$)} \\
+> 4\omega_{xb}^2 + 16\omega_{yb}^2 + 64\omega_{zb}^2 &= 128 \quad &\text{(square of the magnitude, Eq. 15.33)} \\
+> 3\omega_{xb}^2 + 4\omega_{yb}^2 &= 16 \quad &\text{(8 times the first row minus the second, divided by 4)} \\
+> 8\omega_{zb}^2 - \omega_{xb}^2 &= 8 \quad &\text{(the second row minus 4 times the first, divided by 4)} \\
+> \omega_{yb}^2 + 6\,\omega_{zb}^2 &= 10 \quad &\text{(the second row minus 2 times the first, divided by 8)} \\
+> \omega_{zb}^2 &= 1 + \frac{\omega_{xb}^2}{8} \ge 1, \qquad \omega_{xb}^2 \le \frac{16}{3}, \qquad \omega_{yb}^2 \le 4 \quad &\text{(ranges: squares are non-negative)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{polhode: } 3\omega_{xb}^2 + 4\omega_{yb}^2 = \frac{16}{\tau^2}, \quad 1 \le \tau\omega_{zb} \le \sqrt{5/3} \approx 1.291, \quad \left|\tau\omega_{xb}\right| \le \frac{4}{\sqrt3} \approx 2.309, \quad \left|\tau\omega_{yb}\right| \le 2}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$ in every row (the factors of $\tau$ restored)
+> **Meaning:** the third component of the angular velocity never vanishes and keeps the sign it had at the start (positive), so the polhode is a closed curve around plus $\mathbf k_b$, the major axis of inertia (shortest semi-axis of the ellipsoid), whose projection on the plane of $\mathbf i_b$ and $\mathbf j_b$ is the ellipse of the boxed equation. The initial angular velocity sits on it at the end of the $\mathbf j_b$ semi-axis of that ellipse, where the third component takes its smallest value, 1 over $\tau$. The motion is not a rotation about the intermediate axis: the second row minus 4 times the first is 32, positive, which is the sign of a polhode about the major axis (zero would be the separatrix through the intermediate axis). The polhode does not pass through any principal axis, where the right-hand sides of Euler's equations would all vanish, so the tip of the angular velocity never stops on it and travels round it periodically, in the sense from plus $\mathbf j_b$ towards minus $\mathbf i_b$ found in Euler's equations at the start.
+
+> [!derivation] Part (f): the herpolhode lies in an annulus of the plane
+> **Law:** right triangle formed by $G$, the foot of the perpendicular from $G$ to the plane, and $P$
+> **Source:** Notes.pdf, Sec. 15.4; Notes.pdf, Eq. 15.31
+>
+> Let $N$ be the foot of the perpendicular from $G$ to the invariant plane. In the right triangle $GNP$ the hypotenuse is the distance from $G$ to $P$, one leg is $\delta$ (along $\mathbf u_H$) and the other leg, $\rho$, lies in the plane. The magnitude of the angular velocity is written with the rows of the polhode box.
+>
+> $$\begin{aligned}
+> \rho^2 &= \left|\mathbf r_b^P\right|^2 - \delta^2 = \tau^2\ell^2\left(\omega_{xb}^2 + \omega_{yb}^2 + \omega_{zb}^2\right) - \frac92\,\ell^2 \quad &\text{(Pythagoras in the triangle $GNP$)} \\
+> \tau^2\left(\omega_{xb}^2 + \omega_{yb}^2 + \omega_{zb}^2\right) &= \left(8\tau^2\omega_{zb}^2 - 8\right) + \left(10 - 6\tau^2\omega_{zb}^2\right) + \tau^2\omega_{zb}^2 = 3\tau^2\omega_{zb}^2 + 2 \quad &\text{(polhode rows)} \\
+> \rho^2 &= \left(3\tau^2\omega_{zb}^2 + 2 - \frac92\right)\ell^2, \qquad 1 \le \tau^2\omega_{zb}^2 \le \frac53 \quad &\text{(substitution; range of the polhode box)} \\
+> \rho_{\min}^2 &= \left(3 + 2 - \frac92\right)\ell^2 = \frac12\,\ell^2, \qquad \rho_{\max}^2 = \left(5 + 2 - \frac92\right)\ell^2 = \frac52\,\ell^2 \quad &\text{(both ends of the range)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{\ell}{\sqrt2} \approx 0.707\,\ell \le \rho \le \sqrt{\frac52}\,\ell \approx 1.581\,\ell, \qquad \rho(0) = \frac{\ell}{\sqrt2}}$$
+>
+> **Units:** $[\mathrm L^2]$ in every row of $\rho^2$
+> **Meaning:** the contact point moves on the plane between two circles centred at $N$, of radii 0.707 and 1.581 times $\ell$. It starts on the inner circle (the third component of the angular velocity is then smallest) and touches the outer one when the second component vanishes. Whether the herpolhode closes depends on the ratio of the period of the polhode to the turn of the contact point about $N$; in general it does not (**extension**, not shown here).
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Body basis in $\mathcal B_0$ | $\mathbf i_b = c_\theta c_\phi\,\mathbf i_0 + (c_\psi s_\phi + s_\psi s_\theta c_\phi)\mathbf j_0 + (s_\psi s_\phi - c_\psi s_\theta c_\phi)\mathbf k_0$; $\mathbf j_b = -c_\theta s_\phi\,\mathbf i_0 + (c_\psi c_\phi - s_\psi s_\theta s_\phi)\mathbf j_0 + (s_\psi c_\phi + c_\psi s_\theta s_\phi)\mathbf k_0$; $\mathbf k_b = s_\theta\,\mathbf i_0 - s_\psi c_\theta\,\mathbf j_0 + c_\psi c_\theta\,\mathbf k_0$; initially $\mathbf i_b = \tfrac12\mathbf j_0 + \tfrac{\sqrt3}2\mathbf k_0$, $\mathbf j_b = -\mathbf i_0$, $\mathbf k_b = -\tfrac{\sqrt3}2\mathbf j_0 + \tfrac12\mathbf k_0$ |
+| (b) Angular velocity in $\mathcal B_b$ | $\omega_{xb} = \dot\psi c_\theta c_\phi + \dot\theta s_\phi$, $\omega_{yb} = -\dot\psi c_\theta s_\phi + \dot\theta c_\phi$, $\omega_{zb} = \dot\psi s_\theta + \dot\phi$; initially $(0, 2, 1)/\tau$ |
+| (c) Kinetic energy and ellipsoid | $T_0^b = m\ell^2(\omega_{xb}^2 + 2\omega_{yb}^2 + 4\omega_{zb}^2) = 12\,m\ell^2/\tau^2$ (constant); $x_b^2/12 + y_b^2/6 + z_b^2/3 = \ell^2$, semi-axes $2\sqrt3\,\ell$, $\sqrt6\,\ell$, $\sqrt3\,\ell$ along $\mathbf i_b$, $\mathbf j_b$, $\mathbf k_b$ |
+| (d) Angular momentum and invariant plane | $\mathbf H_{G0}^b = m\ell^2(2\omega_{xb}\mathbf i_b + 4\omega_{yb}\mathbf j_b + 8\omega_{zb}\mathbf k_b) = (m\ell^2/\tau)(-8\mathbf i_0 - 4\sqrt3\mathbf j_0 + 4\mathbf k_0)$, magnitude $8\sqrt2\,m\ell^2/\tau$; component of $\boldsymbol\omega_{b0}$ along it $2T_0^b/H = 3\sqrt2/(2\tau)$; plane normal to $\mathbf H_{G0}^b$ at the distance $\delta = 3\sqrt2\,\ell/2 \approx 2.121\,\ell$ from $G$ |
+| (e) Tangency | $\nabla F$ at $P$ is $(\tau/m\ell)\,\mathbf H_{G0}^b$, the normal of the plane; the ellipsoid lies on the side of $G$ |
+| (f) Motion | The ellipsoid rolls without slipping on the invariant plane with $G$ fixed; polhode $3\omega_{xb}^2 + 4\omega_{yb}^2 = 16/\tau^2$ around $+\mathbf k_b$ (major axis of inertia, not the intermediate one), with $\tau\omega_{zb}$ between 1 and 1.291; initial $\boldsymbol\omega_{b0}$ 26.6 degrees from $\mathbf j_b$, at the end of the polhode nearest to it; herpolhode between the circles of radii $0.707\,\ell$ and $1.581\,\ell$ about the foot $N$ of the perpendicular from $G$ |
+
+**Check against the official key:** the key (Problems.pdf, p. 81) prints only, for part (e), that the ellipsoid and the plane are tangent if their normals at $P$ coincide. Part (e) shows exactly that: the gradient of the ellipsoid at $P$ is a positive multiple of the angular momentum, which is the normal of the invariant plane. Match. The key gives no numbers for the other parts.
+
+* **Order of the distances.** The distance of the plane lies between the shortest and the intermediate semi-axes, so the plane can only touch the ellipsoid near the end of the shortest semi-axis; this agrees with the polhode about $\mathbf k_b$.
+* **Separatrix.** If the square of the magnitude of the angular momentum equalled 4 times twice the energy (in the units of the polhode box, 96 instead of 128), the polhode would pass through the intermediate axis; this motion is away from that case by 32.
+* **Dimensions.** The semi-axes and the distance of the plane are lengths; the component of the angular velocity along the angular momentum is a rate.
+
+---
+
+## Problem RB-32: Rate gyro on aircraft
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** three rigid bodies. The aircraft $a$, whose motion is prescribed; the gimbal $b$, of negligible mass and moments of inertia, turning about an axis fixed in the aircraft; the disk $d$, of centre of mass $G$, spinning about an axle fixed in the gimbal, with principal moments $2I$ about the axle and $I$ about any perpendicular axis through $G$. A torsional spring (constant $k$) and a torsional damper (constant $\lambda$) act between the aircraft and the gimbal about the gimbal axis.
+* **Inertial frame:** $S_0$, arbitrary, not shown in the figure.
+* **Aircraft frame:** $S_a\{G; \mathcal B_a\}$, with $\mathcal B_a$ made of $\mathbf i_a$, $\mathbf j_a$, $\mathbf k_a$ as in the figure ($\mathbf k_a$ is the yaw axis). Its angular velocity relative to $S_0$ is the known yaw rate $\Omega$ along $\mathbf k_a$. Its origin is placed at $G$, which lies on the gimbal axis and on the spin axle, so $G$ is a point fixed in the aircraft.
+* **Gimbal frame:** $S_b\{G; \mathcal B_b\}$, simple rotation $\theta$ about the gimbal axis.
+* **Disk frame:** $S_d\{G; \mathcal B_d\}$, simple rotation $\phi$ about the spin axle.
+* **Reading of the figure (axes):** the gimbal axis is the horizontal bar that carries the spring and the damper, drawn parallel to $\mathbf i_a$, so the first rotation is about $\mathbf i_a$, which equals $\mathbf i_b$. The angle $\theta$ is drawn at the bearing between a dashed line parallel to $\mathbf j_a$ and $\mathbf j_b$. The middle bar of the gimbal frame, parallel to $\mathbf j_b$, passes through $G$ and is drawn dashed behind the disk: it is read as the spin axle, so the spin axis is $\mathbf j_b$, which equals $\mathbf j_d$, and $\phi$ is the angle drawn in the plane of the disk between the dashed gimbal axis through $G$ (along $\mathbf i_b$) and $\mathbf i_d$. With the other possible reading (disk lying in the plane of the gimbal frame, spin about $\mathbf k_b$) the gyroscopic term of the gimbal equation would carry the sine of $\theta$ instead of its cosine, so it would vanish at small $\theta$ and the device would not measure the yaw rate; the reading used here is the one that makes it a rate gyroscope.
+* **Reading of the figure (senses):** $\mathbf j_b$ is drawn above the dashed line, towards $\mathbf k_a$, which is the positive sense of a rotation about $\mathbf i_a$ by the right-hand rule. The figure marks the angle $\phi$ but no sense of turning; it is taken positive by the right-hand rule about $\mathbf j_b$. The opposite sense would replace $\phi$ by minus $\phi$ in every formula below.
+* **Coordinates and degrees of freedom:** the motion of the aircraft is known (yaw rate $\Omega$, and a translation that does not enter the moment equations about $G$). The gimbal turns only about its axis (one coordinate, $\theta$) and the disk only about its axle relative to the gimbal (one coordinate, $\phi$): two degrees of freedom, $\theta$ and $\phi$.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Principal moments of the disk at $G$ | $2I$ about the spin axle, $I$ about perpendicular axes | kg m$^2$ |
+| Mass and moments of the gimbal | negligible | |
+| Spring constant (torque per angle) | $k$ | N m/rad |
+| Damper constant (torque per angular rate) | $\lambda$ | N m s/rad |
+| Yaw rate of the aircraft, known | $\Omega(t)$, along $\mathbf k_a$ | rad/s |
+| Coordinates | $\theta$ (gimbal), $\phi$ (spin) | rad |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb32-rot-theta.svg]]
+
+> [!derivation] Part (a): gimbal basis, rotation by theta about ia
+> **Law:** simple rotation about the first axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.17; Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]
+>
+> View along the gimbal axis with $\mathbf i_a$ out of the paper (⊙), $\mathbf j_a$ to the right and $\mathbf k_a$ up; this is right-handed because the product of $\mathbf j_a$ and $\mathbf k_a$ is $\mathbf i_a$. A positive $\theta$ turns counterclockwise. Triangle of $\mathbf j_b$: hypotenuse 1, adjacent leg along $\mathbf j_a$ (cosine of $\theta$), opposite leg along $\mathbf k_a$ (sine). Triangle of $\mathbf k_b$: adjacent leg along $\mathbf k_a$ (cosine), opposite leg along minus $\mathbf j_a$ (sine), because the counterclockwise turn carries the tip of $\mathbf k_a$, which points up, to the left.
+>
+> $$\begin{aligned}
+> \mathbf i_b &= \mathbf i_a, \qquad \mathbf j_b = \cos\theta\,\mathbf j_a + \sin\theta\,\mathbf k_a, \qquad \mathbf k_b = -\sin\theta\,\mathbf j_a + \cos\theta\,\mathbf k_a \quad &\text{(legs of the two triangles)} \\
+> [{}_aR_b] &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos\theta & -\sin\theta \cr 0 & \sin\theta & \cos\theta \end{bmatrix} \quad &\text{(columns: $\mathbf i_b$, $\mathbf j_b$, $\mathbf k_b$ in $\mathcal B_a$)} \\
+> \det[{}_aR_b] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the first row)} \\
+> [{}_aR_b][{}_aR_b]^T &= \begin{bmatrix} 1 & 0 & 0 \cr 0 & \cos^2\theta + \sin^2\theta & \cos\theta\sin\theta - \sin\theta\cos\theta \cr 0 & \sin\theta\cos\theta - \cos\theta\sin\theta & \sin^2\theta + \cos^2\theta \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf j_a &= \cos\theta\,\mathbf j_b - \sin\theta\,\mathbf k_b, \qquad \mathbf k_a = \sin\theta\,\mathbf j_b + \cos\theta\,\mathbf k_b \quad &\text{(rows: the inverse is the transpose)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_b = \mathbf i_a, \qquad \mathbf j_b = \cos\theta\,\mathbf j_a + \sin\theta\,\mathbf k_a, \qquad \mathbf k_b = -\sin\theta\,\mathbf j_a + \cos\theta\,\mathbf k_a, \qquad \mathbf k_a = \sin\theta\,\mathbf j_b + \cos\theta\,\mathbf k_b}$$
+>
+> **Units:** dimensionless
+> **Meaning:** at zero $\theta$ the spin axle $\mathbf j_b$ is along $\mathbf j_a$, normal to the yaw axis; a positive $\theta$ lifts it towards $\mathbf k_a$. The last relation writes the yaw axis in the gimbal basis for part (b).
+
+![[attachments/EM-SOL/rb32-rot-phi.svg]]
+
+> [!derivation] Part (a): disk basis, rotation by phi about jb
+> **Law:** simple rotation about the second axis; right-hand rule; product of rotation matrices
+> **Source:** Notes.pdf, Sec. 9.2; Notes.pdf, Eq. 9.19; [Lecture 7, Slide 12]
+>
+> View along the spin axle with $\mathbf j_b$ out of the paper (⊙), $\mathbf k_b$ to the right and $\mathbf i_b$ up; this is right-handed because the product of $\mathbf k_b$ and $\mathbf i_b$ is $\mathbf j_b$. A positive $\phi$ turns counterclockwise. Triangle of $\mathbf k_d$: adjacent leg along $\mathbf k_b$ (cosine of $\phi$), opposite leg along $\mathbf i_b$ (sine), because the counterclockwise turn carries the tip of $\mathbf k_b$, which points right, upwards. Triangle of $\mathbf i_d$: adjacent leg along $\mathbf i_b$ (cosine), opposite leg along minus $\mathbf k_b$ (sine), because the same turn carries the tip of $\mathbf i_b$, which points up, to the left.
+>
+> $$\begin{aligned}
+> \mathbf i_d &= \cos\phi\,\mathbf i_b - \sin\phi\,\mathbf k_b, \qquad \mathbf j_d = \mathbf j_b, \qquad \mathbf k_d = \sin\phi\,\mathbf i_b + \cos\phi\,\mathbf k_b \quad &\text{(legs of the two triangles)} \\
+> [{}_bR_d] &= \begin{bmatrix} \cos\phi & 0 & \sin\phi \cr 0 & 1 & 0 \cr -\sin\phi & 0 & \cos\phi \end{bmatrix}, \qquad \det[{}_bR_d] = 1\cdot\left(\cos^2\phi + \sin^2\phi\right) = 1 \quad &\text{(columns in $\mathcal B_b$; expand along the second row)} \\
+> [{}_bR_d][{}_bR_d]^T &= \begin{bmatrix} \cos^2\phi + \sin^2\phi & 0 & -\cos\phi\sin\phi + \sin\phi\cos\phi \cr 0 & 1 & 0 \cr -\sin\phi\cos\phi + \cos\phi\sin\phi & 0 & \sin^2\phi + \cos^2\phi \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> [{}_aR_d] &= [{}_aR_b][{}_bR_d] = \begin{bmatrix} \cos\phi & 0 & \sin\phi \cr \sin\theta\sin\phi & \cos\theta & -\sin\theta\cos\phi \cr -\cos\theta\sin\phi & \sin\theta & \cos\theta\cos\phi \end{bmatrix} \quad &\text{(row of the first times column of the second)} \\
+> \det[{}_aR_d] &= 1\cdot 1 = 1, \qquad [{}_aR_d][{}_aR_d]^T = [{}_aR_b][{}_bR_d][{}_bR_d]^T[{}_aR_b]^T = [U] \quad &\text{(product of the two checked factors)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf i_d = \cos\phi\,\mathbf i_a + \sin\theta\sin\phi\,\mathbf j_a - \cos\theta\sin\phi\,\mathbf k_a, \qquad \mathbf j_d = \cos\theta\,\mathbf j_a + \sin\theta\,\mathbf k_a \\ \mathbf k_d = \sin\phi\,\mathbf i_a - \sin\theta\cos\phi\,\mathbf j_a + \cos\theta\cos\phi\,\mathbf k_a \end{gathered}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the columns of $[{}_aR_d]$ are the disk vectors in $\mathcal B_a$; the second column is the axle, the same as $\mathbf j_b$, because the spin does not move it.
+
+> [!derivation] Part (b): angular velocities of the gimbal and of the disk
+> **Law:** composition of angular velocities, each rate along its own axis
+> **Source:** Notes.pdf, Eq. 9.21; Notes.pdf, Eq. 3.14
+>
+> The aircraft turns about $\mathbf k_a$ at the rate $\Omega$, the gimbal turns relative to it about $\mathbf i_b$ at the rate of $\theta$, the disk relative to the gimbal about $\mathbf j_b$ at the rate of $\phi$. The yaw axis is written in $\mathcal B_b$ with the last relation of the first box.
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{b0} &= \boldsymbol\omega_{ba} + \boldsymbol\omega_{a0} = \dot\theta\,\mathbf i_b + \Omega\,\mathbf k_a \quad &\text{(composition, Eq. 9.21)} \\
+> &= \dot\theta\,\mathbf i_b + \Omega\left(\sin\theta\,\mathbf j_b + \cos\theta\,\mathbf k_b\right) \quad &\text{($\mathbf k_a$ in $\mathcal B_b$)} \\
+> \boldsymbol\omega_{d0} &= \boldsymbol\omega_{db} + \boldsymbol\omega_{b0} = \dot\phi\,\mathbf j_b + \dot\theta\,\mathbf i_b + \Omega\sin\theta\,\mathbf j_b + \Omega\cos\theta\,\mathbf k_b \quad &\text{(composition, Eq. 9.21)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{b0} = \dot\theta\,\mathbf i_b + \Omega\sin\theta\,\mathbf j_b + \Omega\cos\theta\,\mathbf k_b, \qquad \boldsymbol\omega_{d0} = \dot\theta\,\mathbf i_b + \left(\Omega\sin\theta + \dot\phi\right)\mathbf j_b + \Omega\cos\theta\,\mathbf k_b}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in every component
+> **Meaning:** the gimbal and the disk differ only by the spin about the axle. The disk vectors are not used for the components: the disk is symmetric about its axle, so its tensor is constant in $\mathcal B_b$ (inertia section), and $\mathcal B_b$ is the convenient basis.
+
+> [!derivation] Part (b): angular accelerations of the gimbal and of the disk
+> **Law:** derivative in $S_0$ of a vector known in $\mathcal B_b$ (Coriolis theorem); product rule and chain rule; vector product by its determinant
+> **Source:** Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 3.9; Notes.pdf, Eq. 9.21
+>
+> The frame $S_b$ turns with $\boldsymbol\omega_{b0}$. Each component of the previous box is differentiated with the product rule and the chain rule; for instance the derivative of $\Omega\sin\theta$ is the rate of $\Omega$ times the sine of $\theta$ plus $\Omega$ times the derivative of the sine, which is its cosine times the rate of $\theta$.
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\Omega\sin\theta\right) &= \dot\Omega\sin\theta + \Omega\,\frac{d\sin\theta}{d\theta}\,\frac{d\theta}{dt} = \dot\Omega\sin\theta + \Omega\dot\theta\cos\theta \quad &\text{(product rule; chain rule)} \\
+> \frac{d}{dt}\left(\Omega\cos\theta\right) &= \dot\Omega\cos\theta + \Omega\,\frac{d\cos\theta}{d\theta}\,\frac{d\theta}{dt} = \dot\Omega\cos\theta - \Omega\dot\theta\sin\theta \quad &\text{(product rule; chain rule)} \\
+> \boldsymbol\alpha_{b0} &= \left.\frac{d\boldsymbol\omega_{b0}}{dt}\right|_b + \boldsymbol\omega_{b0}\times\boldsymbol\omega_{b0} = \ddot\theta\,\mathbf i_b + \left(\dot\Omega\sin\theta + \Omega\dot\theta\cos\theta\right)\mathbf j_b + \left(\dot\Omega\cos\theta - \Omega\dot\theta\sin\theta\right)\mathbf k_b \quad &\text{(Eq. 3.8; a vector times itself is zero)} \\
+> \boldsymbol\omega_{b0}\times\dot\phi\,\mathbf j_b &= \dot\phi\begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr \dot\theta & \Omega\sin\theta & \Omega\cos\theta \cr 0 & 1 & 0 \end{vmatrix} = \dot\phi\left[\left(0 - \Omega\cos\theta\right)\mathbf i_b - \left(0 - 0\right)\mathbf j_b + \left(\dot\theta - 0\right)\mathbf k_b\right] \quad &\text{(expand along the first row)} \\
+> \boldsymbol\alpha_{d0} &= \left.\frac{d\boldsymbol\omega_{d0}}{dt}\right|_b + \boldsymbol\omega_{b0}\times\boldsymbol\omega_{d0} = \boldsymbol\alpha_{b0} + \ddot\phi\,\mathbf j_b + \boldsymbol\omega_{b0}\times\dot\phi\,\mathbf j_b \quad &\text{(Eq. 3.8 with $S_b$; the disk vector is the gimbal one plus the spin)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \boldsymbol\alpha_{b0} = \ddot\theta\,\mathbf i_b + \left(\dot\Omega\sin\theta + \Omega\dot\theta\cos\theta\right)\mathbf j_b + \left(\dot\Omega\cos\theta - \Omega\dot\theta\sin\theta\right)\mathbf k_b \\ \boldsymbol\alpha_{d0} = \left(\ddot\theta - \Omega\dot\phi\cos\theta\right)\mathbf i_b + \left(\dot\Omega\sin\theta + \Omega\dot\theta\cos\theta + \ddot\phi\right)\mathbf j_b + \left(\dot\Omega\cos\theta - \Omega\dot\theta\sin\theta + \dot\phi\dot\theta\right)\mathbf k_b \end{gathered}}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$ in every term
+> **Meaning:** the gimbal acceleration is the derivative of its components alone, because $\mathcal B_b$ turns with the gimbal itself. The disk gains two transport terms from the spin: the axle is carried round by the gimbal, which turns the spin vector.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Inertia tensor of the disk in the gimbal basis
+> **Law:** change of basis of a tensor; moments of a thin disk as surface integrals (jacobian $\rho$)
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.15; Notes.pdf, Eq. 10.35; [Lecture 8, Slide 16]
+>
+> The statement gives the principal moments at $G$ in $\mathcal B_d$: $2I$ along $\mathbf j_d$, $I$ along $\mathbf i_d$ and $\mathbf k_d$. The integrals of the last rows only check the ratio 2 for a thin homogeneous disk, of surface density $\sigma$ and radius $a$ (neither is given; both cancel in the ratio), with polar coordinates $(\rho, \chi)$ in its plane, $\chi$ measured from $\mathbf i_d$; the squared distance to the axle is the square of $\rho$, to the diameter along $\mathbf i_d$ the square of $\rho\sin\chi$.
+>
+> $$\begin{aligned}
+> [{}_bR_d]\,\mathrm{diag}\left(I, 2I, I\right)[{}_bR_d]^T &= \begin{bmatrix} I\cos^2\phi + I\sin^2\phi & 0 & -I\cos\phi\sin\phi + I\sin\phi\cos\phi \cr 0 & 2I & 0 \cr -I\sin\phi\cos\phi + I\cos\phi\sin\phi & 0 & I\sin^2\phi + I\cos^2\phi \end{bmatrix} \quad &\text{(row by column products)} \\
+> &= \mathrm{diag}\left(I, 2I, I\right) \quad &\text{(equal transverse moments)} \\
+> I_{\mathrm{axle}} &= \sigma\int_0^{2\pi}\!\!\int_0^{a}\rho^2\,\rho\,d\rho\,d\chi = \sigma\left[\chi\right]_0^{2\pi}\left[\frac{\rho^4}{4}\right]_0^{a} = \frac{\pi\sigma a^4}{2} \quad &\text{(antiderivatives; Barrow's rule)} \\
+> I_{\mathrm{diam}} &= \sigma\int_0^{2\pi}\sin^2\chi\,d\chi\int_0^{a}\rho^3\,d\rho = \sigma\left[\frac{\chi}{2} - \frac{\sin 2\chi}{4}\right]_0^{2\pi}\left[\frac{\rho^4}{4}\right]_0^{a} = \sigma\,\pi\,\frac{a^4}{4} \quad &\text{(antiderivatives; Barrow's rule)} \\
+> \frac{I_{\mathrm{axle}}}{I_{\mathrm{diam}}} &= \frac{\pi\sigma a^4/2}{\pi\sigma a^4/4} = 2 \quad &\text{(ratio)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}{}^{\,d}_G = \begin{bmatrix} I & 0 & 0 \cr 0 & 2I & 0 \cr 0 & 0 & I \end{bmatrix} \ \text{in } \mathcal B_b \text{ and in } \mathcal B_d}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the tensor does not depend on $\phi$, so it is constant in the gimbal basis, which does not spin with the disk; the ratio 2 of the statement is that of a thin disk. $G$ is the centre of mass of the disk and the gimbal carries no mass, so the moment equations below are written at $G$.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Angular momentum of the disk and of the gimbal about G
+> **Law:** angular momentum of a rigid body about its centre of mass; a body with negligible mass and inertia
+> **Source:** Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.21
+>
+> $$\begin{aligned}
+> \mathbf H_G^d &= \bar{\bar I}{}^{\,d}_G\cdot\boldsymbol\omega_{d0} = I\dot\theta\,\mathbf i_b + 2I\left(\Omega\sin\theta + \dot\phi\right)\mathbf j_b + I\Omega\cos\theta\,\mathbf k_b \quad &\text{(Eq. 11.21; tensor in $\mathcal B_b$, part (b))} \\
+> \mathbf H_G^b &= \mathbf 0, \qquad \mathbf p^b = \mathbf 0 \quad &\text{(negligible mass and moments of the gimbal)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_G^d = I\dot\theta\,\mathbf i_b + 2I\left(\Omega\sin\theta + \dot\phi\right)\mathbf j_b + I\Omega\cos\theta\,\mathbf k_b, \qquad \mathbf H_G^b = \mathbf 0}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2][\mathrm{T^{-1}}]$
+> **Meaning:** the axial part, twice $I$ times the spin measured in $S_0$, dominates when the disk spins fast; the transverse part comes from the nutation rate and from the yaw rate projected on $\mathbf k_b$. The kinetic energy is not needed: the problem is solved with the moment equations.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb32-exploded.svg]]
+
+#### Part (c): loads on each body
+
+The exploded view separates the disk, the gimbal and the aircraft. The spin axle joins the disk to the gimbal along $\mathbf j_b$ through $G$; the gimbal bearings join the gimbal to the aircraft along $\mathbf i_b$ through $G$; the spring and the damper act between the aircraft and the gimbal about the same axis. Both bearings are ideal (no friction torque about their own axis) and there is no motor on the spin axle. Every reaction is reduced at $G$ to a force and a moment. Write $\mathbf F_{bd}$ and $\mathbf M_{bd}$ for the force and moment of the gimbal on the disk, $\mathbf F_{ab}$ and $\mathbf M_{ab}$ for those of the aircraft on the gimbal at its bearings, and $m_d$ for the mass of the disk (not given; it enters only the force equations).
+
+| Load | Body | Point | Expression | Kind |
+| :--- | :--- | :--- | :--- | :--- |
+| Weight of the disk | $d$ | $G$ | $m_d\,\mathbf g$ | applied |
+| Gimbal on the disk (spin axle) | $d$ | $G$ | $\mathbf F_{bd}$, three components; $\mathbf M_{bd} = M_1\,\mathbf i_b + M_3\,\mathbf k_b$, none along $\mathbf j_b$ | constraint (pair) |
+| Disk on the gimbal (spin axle) | $b$ | $G$ | $-\mathbf F_{bd}$ and $-\mathbf M_{bd}$ | constraint (pair) |
+| Aircraft on the gimbal (bearings) | $b$ | $G$ | $\mathbf F_{ab}$, three components; $\mathbf M_{ab} = N_2\,\mathbf j_b + N_3\,\mathbf k_b$, none along $\mathbf i_b$ | constraint (pair) |
+| Spring on the gimbal | $b$ | axis | $-k\theta\,\mathbf i_b$ | applied (pair) |
+| Damper on the gimbal | $b$ | axis | $-\lambda\dot\theta\,\mathbf i_b$ | applied (pair) |
+| Gimbal on the aircraft | $a$ | $G$ and axis | $-\mathbf F_{ab}$, $-\mathbf M_{ab}$, $+k\theta\,\mathbf i_b$, $+\lambda\dot\theta\,\mathbf i_b$ | pairs |
+| Loads that drive the aircraft | $a$ | | whatever produces the prescribed motion | not needed |
+
+> [!derivation] Part (c): why each bearing moment has no component along its own axis
+> **Law:** moment of a force about a point; vector product by its determinant; ideal bearing
+> **Source:** Notes.pdf, Eq. 12.14; Notes.pdf, Sec. 13.2
+>
+> Take a bearing force $\mathbf F$ with components $F_1$, $F_2$, $F_3$ in $\mathcal B_b$, applied at a point of the spin axle at the distance $s$ from $G$, that is at $s\,\mathbf j_b$; an ideal bearing transmits only such forces (no friction torque about the axle).
+>
+> $$\begin{aligned}
+> s\,\mathbf j_b\times\mathbf F &= \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr 0 & s & 0 \cr F_1 & F_2 & F_3 \end{vmatrix} = s F_3\,\mathbf i_b - \left(0 - 0\right)\mathbf j_b - s F_1\,\mathbf k_b \quad &\text{(expand along the first row)} \\
+> \left(s\,\mathbf j_b\times\mathbf F\right)\cdot\mathbf j_b &= 0 \quad &\text{(second component)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf M_{bd}\cdot\mathbf j_b = 0, \qquad \mathbf M_{ab}\cdot\mathbf i_b = 0 \ \ \text{(the same argument with the points on the gimbal axis, at } s\,\mathbf i_b\text{)}}$$
+>
+> **Units:** N m
+> **Meaning:** summed over all the points of a bearing, the moment about $G$ of its forces is normal to the bearing axis. The only torques about the gimbal axis are the spring and the damper; about the spin axle there is none.
+
+> [!derivation] Part (c): equations of the massless gimbal and the torque on the disk
+> **Law:** force and moment equations of a body with zero momentum and zero angular momentum
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13
+>
+> The gimbal has zero linear momentum and zero angular momentum about $G$ at every instant, so their derivatives vanish, and so does the pole term at $G$. The resultant moment about $G$ on the gimbal is the sum of the moments of the table, projected on $\mathcal B_b$.
+>
+> $$\begin{aligned}
+> \mathbf 0 &= -\mathbf F_{bd} + \mathbf F_{ab} \quad &\text{(Eq. 12.8 with zero momentum)} \\
+> \mathbf 0 &= -\left(M_1\,\mathbf i_b + M_3\,\mathbf k_b\right) + N_2\,\mathbf j_b + N_3\,\mathbf k_b - k\theta\,\mathbf i_b - \lambda\dot\theta\,\mathbf i_b \quad &\text{(Eq. 12.13 at $G$ with zero angular momentum)} \\
+> 0 &= -M_1 - k\theta - \lambda\dot\theta, \qquad 0 = N_2, \qquad 0 = -M_3 + N_3 \quad &\text{(components along $\mathbf i_b$, $\mathbf j_b$, $\mathbf k_b$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf M_{bd} = -\left(k\theta + \lambda\dot\theta\right)\mathbf i_b + M_3\,\mathbf k_b, \qquad \mathbf M_{ab} = M_3\,\mathbf k_b, \qquad \mathbf F_{ab} = \mathbf F_{bd}}$$
+>
+> **Units:** N m; N
+> **Meaning:** the massless gimbal passes the spring and damper torque straight to the disk; the moment along $\mathbf k_b$ is a bearing reaction $M_3$, found in part (d). The total torque about $G$ on the disk is $\mathbf M_{bd}$, since its weight acts at $G$.
+
+#### Part (d): equations of motion
+
+> [!derivation] Part (d): moment equation of the disk about G
+> **Law:** moment equation about the centre of mass; derivative in $S_0$ of a vector known in $\mathcal B_b$ (gyroscopic term)
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.20; Notes.pdf, Eq. 3.8
+>
+> The pole is $G$, the centre of mass of the disk: the pole term, the velocity of $G$ times the momentum of the disk (its mass times the same velocity), is zero even though $G$ is carried by the aircraft. Write $n$ for the spin of the disk measured in $S_0$, the second component of its angular velocity, $\Omega\sin\theta$ plus the rate of $\phi$.
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf H_G^d}{dt}\right|_0 &= \left.\frac{d\mathbf H_G^d}{dt}\right|_b + \boldsymbol\omega_{b0}\times\mathbf H_G^d \quad &\text{(Eq. 3.8 with the frame $S_b$)} \\
+> \left.\frac{d\mathbf H_G^d}{dt}\right|_b &= I\ddot\theta\,\mathbf i_b + 2I\dot n\,\mathbf j_b + I\left(\dot\Omega\cos\theta - \Omega\dot\theta\sin\theta\right)\mathbf k_b \quad &\text{(derivatives of the components; chain rule of part (b))} \\
+> \boldsymbol\omega_{b0}\times\mathbf H_G^d &= \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr \dot\theta & \Omega\sin\theta & \Omega\cos\theta \cr I\dot\theta & 2In & I\Omega\cos\theta \end{vmatrix} \quad &\text{(vector product by its determinant)} \\
+> &= \left(I\Omega^2\sin\theta\cos\theta - 2In\Omega\cos\theta\right)\mathbf i_b - \left(I\dot\theta\Omega\cos\theta - I\dot\theta\Omega\cos\theta\right)\mathbf j_b + \left(2In\dot\theta - I\Omega\dot\theta\sin\theta\right)\mathbf k_b \quad &\text{(expand along the first row)} \\
+> \left.\frac{d\mathbf H_G^d}{dt}\right|_0 &= \mathbf M_{bd} = -\left(k\theta + \lambda\dot\theta\right)\mathbf i_b + M_3\,\mathbf k_b \quad &\text{(Eq. 12.13 at $G$; previous box)} \\
+> I\ddot\theta + I\Omega^2\sin\theta\cos\theta - 2In\Omega\cos\theta &= -k\theta - \lambda\dot\theta \quad &\text{(component along $\mathbf i_b$)} \\
+> 2I\dot n + 0 &= 0 \quad &\text{(component along $\mathbf j_b$)} \\
+> I\dot\Omega\cos\theta - I\Omega\dot\theta\sin\theta + 2In\dot\theta - I\Omega\dot\theta\sin\theta &= M_3 \quad &\text{(component along $\mathbf k_b$)} \\
+> \dot n &= \dot\Omega\sin\theta + \Omega\dot\theta\cos\theta + \ddot\phi \quad &\text{(chain rule of part (b))} \\
+> -2I\Omega\cos\theta\left(\Omega\sin\theta + \dot\phi\right) + I\Omega^2\sin\theta\cos\theta &= -I\Omega^2\sin\theta\cos\theta - 2I\Omega\dot\phi\cos\theta \quad &\text{($n$ substituted in the first equation)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} I\ddot\theta + \lambda\dot\theta + k\theta - I\Omega^2\sin\theta\cos\theta - 2I\Omega\dot\phi\cos\theta = 0 \\ \ddot\phi + \dot\Omega\sin\theta + \Omega\dot\theta\cos\theta = 0 \\ M_3 = I\dot\Omega\cos\theta + 2I\dot\phi\dot\theta \end{gathered}}$$
+>
+> **Units:** N m in the first and third equations; $[\mathrm{T^{-2}}]$ in the second
+> **Meaning:** three scalar equations for $\theta$, $\phi$ and the bearing moment $M_3$: the first two are the equations of motion, with only $\theta$, $\phi$, the known $\Omega$ and the data $I$, $k$, $\lambda$; the third gives the reaction (the $\mathbf k_b$ equation simplifies because the two terms in the sine of $\theta$ cancel against part of the $n$ term). The term in the product of $\Omega$, the spin rate and the cosine of $\theta$ is the gyroscopic torque that the turning aircraft imposes on the spinning disk about the gimbal axis. The force equation of the disk gives the axle force, which needs the translation of the aircraft and is not asked.
+
+> [!derivation] Part (e): the axial component of the angular momentum is constant
+> **Law:** derivative of the projection on a moving unit vector (product rule); moment equation at $G$; derivative of a unit vector of $\mathcal B_b$
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 13.10
+>
+> The axle $\mathbf j_b$ turns with the gimbal, so its derivative in $S_0$ is the angular velocity of the gimbal times $\mathbf j_b$ (vector product computed in part (b), divided by the rate of $\phi$).
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\mathbf H_G^d\cdot\mathbf j_b\right) &= \left.\frac{d\mathbf H_G^d}{dt}\right|_0\cdot\mathbf j_b + \mathbf H_G^d\cdot\left.\frac{d\mathbf j_b}{dt}\right|_0 \quad &\text{(product rule)} \\
+> \left.\frac{d\mathbf H_G^d}{dt}\right|_0\cdot\mathbf j_b &= \mathbf M_{bd}\cdot\mathbf j_b = 0 \quad &\text{(first reason: no moment along the axle)} \\
+> \mathbf H_G^d\cdot\left(\boldsymbol\omega_{b0}\times\mathbf j_b\right) &= \left(I\dot\theta, 2In, I\Omega\cos\theta\right)\cdot\left(-\Omega\cos\theta, 0, \dot\theta\right) = -I\dot\theta\,\Omega\cos\theta + I\Omega\cos\theta\,\dot\theta = 0 \quad &\text{(second reason: the gyroscopic term vanishes)} \\
+> \left[\mathbf H_G^d\cdot\mathbf j_b\right]_0^t &= 0 \;\Rightarrow\; 2I\left(\Omega\sin\theta + \dot\phi\right) = 2I\left(\Omega\sin\theta + \dot\phi\right)\big|_{t = 0} \quad &\text{(integrate from 0 to $t$; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{H_s \equiv \mathbf H_G^d\cdot\mathbf j_b = 2I\left(\Omega\sin\theta + \dot\phi\right) = 2I\,n_0 \ \ (\text{constant}), \qquad n_0 = \left(\Omega\sin\theta + \dot\phi\right)\big|_{t = 0}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2][\mathrm{T^{-1}}]$
+> **Meaning:** the spin angular momentum is a constant of motion although the axle turns, for two reasons: the moment about the axle is zero (ideal bearing, weight through $G$), and the gyroscopic part vanishes because the two transverse moments of the disk are equal, so the transverse angular momentum stays in the plane of the transverse angular velocity. This is the second equation of part (d) integrated once. With it the equation of $\theta$ can also be written with the constant $n_0$ in place of the rate of $\phi$: the rate of $\phi$ is $n_0$ minus $\Omega$ times the sine of $\theta$.
+
+> [!derivation] Part (e): the equation of theta with the spin integral
+> **Law:** elimination of the rate of $\phi$ with the first integral
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.10
+>
+> $$\begin{aligned}
+> -I\Omega^2\sin\theta\cos\theta - 2I\Omega\cos\theta\left(n_0 - \Omega\sin\theta\right) &= I\Omega^2\sin\theta\cos\theta - 2In_0\Omega\cos\theta \quad &\text{(rate of $\phi$ replaced; terms collected)}
+> \end{aligned}$$
+>
+> $$\boxed{I\ddot\theta + \lambda\dot\theta + k\theta + I\Omega^2\sin\theta\cos\theta = 2In_0\,\Omega\cos\theta}$$
+>
+> **Units:** N m in every term
+> **Meaning:** one equation for $\theta$ alone, forced by the yaw rate through the constant spin angular momentum $2In_0$.
+
+#### Parts (f) and (g): linearized equation, steady reading and critical damping
+
+> [!derivation] Part (f): linearization for small theta and slow yaw
+> **Law:** first-order Taylor expansion; comparison of the orders of the terms
+> **Source:** Notes.pdf, Sec. 14.4; Notes.pdf, Eq. 13.10
+>
+> With $\theta$ small, the sine of $\theta$ is $\theta$ and its cosine is 1 to first order. With $\Omega$ small compared with the spin, $n_0$ and the rate of $\phi$ differ by $\Omega$ times the sine of $\theta$, a small fraction of either. The term in the square of $\Omega$ is compared with the forcing term.
+>
+> $$\begin{aligned}
+> \sin\theta &= \theta + O(\theta^3), \qquad \cos\theta = 1 + O(\theta^2) \quad &\text{(Taylor series at zero)} \\
+> \frac{I\Omega^2\sin\theta\cos\theta}{2In_0\Omega\cos\theta} &= \frac{\Omega\sin\theta}{2n_0} \approx \frac{\Omega\,\theta}{2\dot\phi} \ll 1 \quad &\text{(ratio of the two terms: product of two small numbers)} \\
+> n_0 &= \dot\phi + \Omega\sin\theta \approx \dot\phi \quad &\text{(spin integral; the correction is of the order of $\Omega\theta$)} \\
+> I\ddot\theta + \lambda\dot\theta + k\theta &= 2In_0\,\Omega(t) \quad &\text{(previous box, linearized)}
+> \end{aligned}$$
+>
+> $$\boxed{I\ddot\theta + \lambda\dot\theta + k\theta = 2I\dot\phi\,\Omega(t), \qquad \dot\phi \approx n_0 \ \text{constant}}$$
+>
+> **Units:** N m in every term
+> **Meaning:** a damped linear oscillator about the gimbal axis, forced by the yaw rate times the spin angular momentum. The dropped term is also small compared with the spring term when $\theta$ follows the forcing (next box: there the spring term equals the forcing, so the same ratio applies).
+
+> [!derivation] Part (f): steady deflection for a constant yaw rate
+> **Law:** constant particular solution of a linear equation; decay of the homogeneous solution
+> **Source:** Notes.pdf, Sec. 14.4
+>
+> With $\Omega$ constant, try a constant $\theta_s$: its first and second derivatives are zero. The homogeneous equation has solutions with the exponential of $st$, with $s$ a root of the characteristic polynomial; with $I$, $k$, $\lambda$ positive both roots have a negative real part (their sum is minus $\lambda$ over $I$, their product $k$ over $I$), so the homogeneous part dies out and $\theta$ tends to $\theta_s$.
+>
+> $$\begin{aligned}
+> I\cdot 0 + \lambda\cdot 0 + k\,\theta_s &= 2I\dot\phi\,\Omega \quad &\text{(constant trial solution)} \\
+> \theta_s &= \frac{2I\dot\phi\,\Omega}{k} \quad &\text{(division by $k$)} \\
+> I s^2 + \lambda s + k &= 0 \;\Rightarrow\; s_{1,2} = \frac{-\lambda \pm \sqrt{\lambda^2 - 4Ik}}{2I} \quad &\text{(characteristic polynomial)}
+> \end{aligned}$$
+>
+> $$\boxed{\theta_s = \frac{2I\dot\phi}{k}\,\Omega \quad\Longleftrightarrow\quad \Omega = \frac{k}{2I\dot\phi}\,\theta_s}$$
+>
+> **Units:** $[\mathrm M\,\mathrm L^2][\mathrm{T^{-1}}][\mathrm{T^{-1}}]/[\mathrm{M\,L^2\,T^{-2}}] = 1$ (rad)
+> **Meaning:** the steady gimbal angle is proportional to the yaw rate: reading $\theta$ measures $\Omega$, which is what a rate gyro does. The sensitivity grows with the spin angular momentum and falls with the stiffness. With positive $\Omega$ and positive spin, $\theta_s$ is positive: the axle tilts towards $\mathbf k_a$; the check below confirms this sign with the angular momentum.
+
+> [!derivation] Part (g): critical damping
+> **Law:** roots of the characteristic polynomial of the linearized equation; a double real root
+> **Source:** Notes.pdf, Sec. 14.4
+>
+> The system is critically damped when the two roots of the previous box coincide, that is when the discriminant is zero; below that value of $\lambda$ the roots are complex (damped oscillation), above it they are real and distinct (overdamped).
+>
+> $$\begin{aligned}
+> \lambda^2 - 4Ik &= 0 \quad &\text{(zero discriminant)} \\
+> \lambda_c &= \sqrt{4Ik} = 2\sqrt{Ik} \quad &\text{(positive root, $\lambda$ positive)} \\
+> s_{1} &= s_{2} = -\frac{\lambda_c}{2I} = -\sqrt{\frac{k}{I}} \quad &\text{(double root)}
+> \end{aligned}$$
+>
+> $$\boxed{\lambda_c = 2\sqrt{kI}}$$
+>
+> **Units:** $\sqrt{[\mathrm{M\,L^2\,T^{-2}}][\mathrm{M\,L^2}]} = [\mathrm{M\,L^2\,T^{-1}}]$, the units of a torque per angular rate (N m s)
+> **Meaning:** with this damping the gimbal reaches the steady reading as fast as possible without overshoot, with the time scale of the square root of $I$ over $k$; it does not depend on the spin or on the yaw rate, because in the linearized equation they appear only in the forcing.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Bases of $S_b$ and $S_d$ in $\mathcal B_a$ | $\mathbf i_b = \mathbf i_a$, $\mathbf j_b = \cos\theta\,\mathbf j_a + \sin\theta\,\mathbf k_a$, $\mathbf k_b = -\sin\theta\,\mathbf j_a + \cos\theta\,\mathbf k_a$; $\mathbf i_d = \cos\phi\,\mathbf i_a + \sin\theta\sin\phi\,\mathbf j_a - \cos\theta\sin\phi\,\mathbf k_a$, $\mathbf j_d = \mathbf j_b$, $\mathbf k_d = \sin\phi\,\mathbf i_a - \sin\theta\cos\phi\,\mathbf j_a + \cos\theta\cos\phi\,\mathbf k_a$ |
+| (b) Angular velocities and accelerations | $\boldsymbol\omega_{b0} = \dot\theta\,\mathbf i_b + \Omega\sin\theta\,\mathbf j_b + \Omega\cos\theta\,\mathbf k_b$, $\boldsymbol\omega_{d0} = \boldsymbol\omega_{b0} + \dot\phi\,\mathbf j_b$; $\boldsymbol\alpha_{b0} = \ddot\theta\,\mathbf i_b + (\dot\Omega\sin\theta + \Omega\dot\theta\cos\theta)\mathbf j_b + (\dot\Omega\cos\theta - \Omega\dot\theta\sin\theta)\mathbf k_b$, $\boldsymbol\alpha_{d0} = (\ddot\theta - \Omega\dot\phi\cos\theta)\mathbf i_b + (\dot\Omega\sin\theta + \Omega\dot\theta\cos\theta + \ddot\phi)\mathbf j_b + (\dot\Omega\cos\theta - \Omega\dot\theta\sin\theta + \dot\phi\dot\theta)\mathbf k_b$ |
+| (c) Torques | On the gimbal: spring $-k\theta\,\mathbf i_b$, damper $-\lambda\dot\theta\,\mathbf i_b$, bearing moment of the aircraft $\mathbf M_{ab}$ normal to $\mathbf i_b$ (found $M_3\,\mathbf k_b$), spin-axle moment of the disk $-\mathbf M_{bd}$; on the disk: $\mathbf M_{bd} = -(k\theta + \lambda\dot\theta)\mathbf i_b + M_3\,\mathbf k_b$ (none along the axle), weight and axle force through $G$ (no moment); on the aircraft: the opposite pairs |
+| (d) Equations of motion | $I\ddot\theta + \lambda\dot\theta + k\theta - I\Omega^2\sin\theta\cos\theta - 2I\Omega\dot\phi\cos\theta = 0$; $\ddot\phi + \dot\Omega\sin\theta + \Omega\dot\theta\cos\theta = 0$; reaction $M_3 = I\dot\Omega\cos\theta + 2I\dot\phi\dot\theta$ |
+| (e) Constant of motion | $\mathbf H_G^d\cdot\mathbf j_b = 2I(\Omega\sin\theta + \dot\phi) = 2In_0$ |
+| (f) Linearized equation and steady relation | $I\ddot\theta + \lambda\dot\theta + k\theta = 2I\dot\phi\,\Omega(t)$; for constant $\Omega$, $\theta \to \theta_s = 2I\dot\phi\,\Omega/k$, i.e. $\Omega = k\theta_s/(2I\dot\phi)$ |
+| (g) Critical damping | $\lambda_c = 2\sqrt{kI}$ |
+
+**Limiting cases and consistency:** the key prints no answer for this problem (Problems.pdf, pp. 77 to 81 checked).
+
+> [!derivation] Check: sign of the steady deflection from the turning angular momentum
+> **Law:** moment equation at $G$ in steady state; derivative of a vector carried by the aircraft
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8
+>
+> In the steady state with small $\theta$ the angular momentum of the disk is, to leading order, $2I$ times the spin along $\mathbf j_b$, close to $\mathbf j_a$, a vector fixed in the aircraft; it is carried round by the yaw rate.
+>
+> $$\begin{aligned}
+> \left.\frac{d\mathbf H_G^d}{dt}\right|_0 &\approx \Omega\,\mathbf k_a\times 2I\dot\phi\,\mathbf j_a = 2I\dot\phi\,\Omega\left(\mathbf k_a\times\mathbf j_a\right) = -2I\dot\phi\,\Omega\,\mathbf i_a \quad &\text{(Eq. 3.8: the components are constant in $S_a$; $\mathbf k_a\times\mathbf j_a = -\mathbf i_a$)} \\
+> -k\theta_s\,\mathbf i_b &= -2I\dot\phi\,\Omega\,\mathbf i_a \;\Rightarrow\; \theta_s = \frac{2I\dot\phi\,\Omega}{k} \quad &\text{(the only torque about $\mathbf i_b$ at rest is the spring)}
+> \end{aligned}$$
+>
+> $$\boxed{\theta_s = \frac{2I\dot\phi\,\Omega}{k}\ \text{by both routes}}$$
+>
+> **Units:** rad
+> **Meaning:** to turn the spin angular momentum with the aircraft, the disk needs a torque along minus $\mathbf i_a$; the spring gives it only when $\theta$ is positive (for positive spin and yaw rate), so the axle tilts towards $\mathbf k_a$, as found from the linearized equation.
+
+* **No yaw rate.** With $\Omega$ zero the equation of $\theta$ is a free damped oscillator and $\theta$ returns to zero; the second equation leaves the rate of $\phi$ constant.
+* **No spin.** With the spin integral $n_0$ zero, the forcing of the linearized equation vanishes: a disk that does not spin gives no reading, the instrument works through the gyroscopic term only.
+* **Exact equation.** Before linearizing, the equation of $\theta$ also carries the term in the square of $\Omega$; by the ratio of part (f) it is smaller than the forcing by the product of $\theta$ and the ratio of $\Omega$ to the spin.
+* **Dimensions.** Every term of the equation of $\theta$ is a torque (N m); the steady angle is dimensionless; the critical damping is a torque per angular rate.
