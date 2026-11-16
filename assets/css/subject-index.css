@@ -172,3 +172,109 @@ section.container:has(#quoteContainer), section:has(> #quoteContainer) { display
     & :is(.page-footer, .site-footer) { margin-top: 8px; padding: 8px 0 10px; }
   }
 }
+
+/* ---------------------------------------------------------------- starry sky behind the page
+   A quiet night sky in the colours of the subject: a tiled SVG of dust and four-point stars
+   (assets/img/sky/<subject>-<polarity>.svg) over two faint nebulae. It sits on the body's own
+   colour, so every reading palette keeps its background and its AAA text (cards stay opaque). */
+html[data-celestial-subject="fluid-mechanics"]       { --sky-a: 6 182 212;   --sky-b: 139 92 246; }
+html[data-celestial-subject="aerospace-materials-1"] { --sky-a: 245 158 11;  --sky-b: 244 114 182; }
+html[data-celestial-subject="engineering-mechanics"] { --sky-a: 16 185 129;  --sky-b: 34 211 238; }
+html[data-celestial-subject="advanced-maths"]        { --sky-a: 99 102 241;  --sky-b: 217 70 239; }
+html[data-celestial-subject="business-management"]   { --sky-a: 239 68 68;   --sky-b: 251 146 60; }
+html[data-theme="dark"]  { --sky-n1: .15; --sky-n2: .10; }
+html[data-theme="light"] { --sky-n1: .10; --sky-n2: .07; }
+html[data-celestial-subject="fluid-mechanics"][data-theme="dark"] body {
+  background-image: url(../img/sky/fluid-mechanics-dark.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+html[data-celestial-subject="fluid-mechanics"][data-theme="light"] body {
+  background-image: url(../img/sky/fluid-mechanics-light.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+html[data-celestial-subject="aerospace-materials-1"][data-theme="dark"] body {
+  background-image: url(../img/sky/aerospace-materials-1-dark.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+html[data-celestial-subject="aerospace-materials-1"][data-theme="light"] body {
+  background-image: url(../img/sky/aerospace-materials-1-light.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+html[data-celestial-subject="engineering-mechanics"][data-theme="dark"] body {
+  background-image: url(../img/sky/engineering-mechanics-dark.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+html[data-celestial-subject="engineering-mechanics"][data-theme="light"] body {
+  background-image: url(../img/sky/engineering-mechanics-light.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+html[data-celestial-subject="advanced-maths"][data-theme="dark"] body {
+  background-image: url(../img/sky/advanced-maths-dark.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+html[data-celestial-subject="advanced-maths"][data-theme="light"] body {
+  background-image: url(../img/sky/advanced-maths-light.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+html[data-celestial-subject="business-management"][data-theme="dark"] body {
+  background-image: url(../img/sky/business-management-dark.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+html[data-celestial-subject="business-management"][data-theme="light"] body {
+  background-image: url(../img/sky/business-management-light.svg),
+    radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
+    radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
+  background-size: 1280px 960px, auto, auto !important;
+  background-repeat: repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+  background-position: 0 0, 0 0, 0 0 !important;
+}
+@media print { html body { background-image: none !important; } }
+
+/* the page header lets the sky through */
+html[data-theme] :is(header.page-header, .page-hero) { background: transparent !important; }
