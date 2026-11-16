@@ -65,17 +65,17 @@ def plane():
     # angles
     sc.arc(O, 0.6, -90, -90 + TH, "GREEN", 1.8, head=True)
     sc.label(_pol(O, 0.85, -90 + TH / 2), "θ", "GREEN", "middle", 16, dy=5)
-    sc.arc(P, 0.6, -90, -90 + PH, "GREEN", 1.8, head=True)
-    sc.label(_pol(P, 0.95, -90 + 0.85 * PH), "φ", "GREEN", "middle", 16, dy=5)
+    sc.arc(P, 0.94, -90, -90 + PH, "GREEN", 1.8, head=True)
+    sc.label(_pol(P, 1.16, -90 + 38.0), "φ", "GREEN", "middle", 16, dy=5)
     # bases at P and Q
     e1, n1 = _dirs(TH)
     e2, n2 = _dirs(PH)
     for pt, ev, nv, col, ne, nn in ((P, e1, n1, "BLUE", I1, J1), (Q, e2, n2, "GREEN", I2, J2)):
-        te = _add(pt, ev, 0.6)
+        te = _add(pt, ev, 0.55 if col == "BLUE" else 0.6)
         tn = _add(pt, nv, 0.6)
         sc.vec(pt, te, None, col, 2.6, head=11)
         sc.vec(pt, tn, None, col, 2.6, head=11)
-    sc.label(_add(P, e1, 0.6), I1, "BLUE", "middle", 17, weight="700", dx=2, dy=22)
+    sc.label(_pol(P, 0.70, -90 + 11.0), I1, "BLUE", "middle", 17, weight="700", dy=6)
     sc.label(_add(P, n1, 0.6), J1, "BLUE", "start", 17, weight="700", dx=8, dy=-4)
     sc.label(_add(Q, e2, 0.6), I2, "GREEN", "start", 17, weight="700", dx=8, dy=12)
     sc.label(_add(Q, n2, 0.6), J2, "GREEN", "start", 17, weight="700", dx=8, dy=-4)
@@ -88,10 +88,10 @@ def plane():
     return sc
 
 
-def _panel(sc, o, ang, col, nrot, name, title):
+def _panel(sc, o, ang, col, nrot, name, title, ones=None):
     th = ang - 90.0
     basis_view(sc, o, th, (bold("i"), bold("j")), nrot, col=col, L=1.9, u=1.4, axl=2.2, ang=name, arcs=False,
-               legs=("", "−cos " + name + " on " + bold("j"), "", ""), ls=14, one=-11, tri2=False)
+               legs=("", "−cos " + name + " on " + bold("j"), "", ""), ls=14, one=-11, tri2=False, ones=ones)
     xl = 1.4 * math.cos(math.radians(th))
     sc.label((o[0] + xl, o[1]), "sin " + name, "TEXT", "start", 14, dx=10, dy=-8)
     # dashed -j and the two angle arcs
@@ -112,7 +112,7 @@ def _panel(sc, o, ang, col, nrot, name, title):
         r"Rotations about $\mathbf k$ (out of the paper). An angle from the downward vertical is the polar angle plus $\pi/2$; with $\cos(\theta - \pi/2) = \sin\theta$ and $\sin(\theta - \pi/2) = -\cos\theta$ the triangle gives $\mathbf i_1 = \sin\theta\,\mathbf i - \cos\theta\,\mathbf j$.")
 def rotations_k():
     sc = Scene(1140, 640, (230, 280), 85)
-    _panel(sc, (0.0, 0.0), TH, "BLUE", (I1, J1), "θ", "bar OP")
+    _panel(sc, (0.0, 0.0), TH, "BLUE", (I1, J1), "θ", "bar OP", ones=((0.1, -0.62),))
     _panel(sc, (6.4, 0.0), PH, "GREEN", (I2, J2), "φ", "bar PQ")
     return sc
 

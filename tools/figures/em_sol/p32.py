@@ -30,10 +30,13 @@ def arrow(sc, a, v, col, w=3.0, head=12, k=1.0):
 
 
 def basis_view(sc, O, th, nfix, nrot, col="BLUE", L=2.0, u=1.4, axl=2.5, ang="θ", ra=0.7, rl=1.0, ls=15,
-               legs=None, arcs=True, cf=0.5, lf=0.5, ra2=None, rl2=None, one=18, one2=None, l1dx=0, l4=(0, "middle", None), tri2=True):
+               legs=None, arcs=True, cf=0.5, lf=0.5, ra2=None, rl2=None, one=18, one2=None, l1dx=0, l4=(0, "middle", None), tri2=True,
+               la=None, ones=None):
     """View along a rotation axis: fixed axes at 0 and 90 degrees (grey), the rotated pair at th and 90 + th (th signed,
     counter-clockwise positive), arcs with arrowheads and the two right triangles of hypotenuse u.
-    legs: (adjacent 1, opposite 1, adjacent 2, opposite 2) texts."""
+    legs: (adjacent 1, opposite 1, adjacent 2, opposite 2) texts.
+    la: optional (angle 1, angle 2) in degrees for the two arc labels; ones: optional two points (relative to O) for the
+    two hypotenuse labels "1". Both default to the automatic placement."""
     c, s = math.cos(math.radians(th)), math.sin(math.radians(th))
     leg = legs or ("cos " + ang, "sin " + ang, "cos " + ang, "sin " + ang)
     sh = lambda p: (O[0] + p[0], O[1] + p[1])
@@ -55,8 +58,9 @@ def basis_view(sc, O, th, nfix, nrot, col="BLUE", L=2.0, u=1.4, axl=2.5, ang="θ
     if arcs:
         sc.arc(O, ra, 0, th, "GREEN", 1.8, head=True)
         sc.arc(O, ra2 or ra, 90, 90 + th, "GREEN", 1.8, head=True)
-        sc.label(_pol(O, rl, th * lf), ang, "GREEN", "middle", 16, dy=5)
-        sc.label(_pol(O, rl2 or rl, 90 + th * lf), ang, "GREEN", "middle", 16, dy=5)
+        a1, a2 = la or (th * lf, 90 + th * lf)
+        sc.label(_pol(O, rl, a1), ang, "GREEN", "middle", 16, dy=5)
+        sc.label(_pol(O, rl2 or rl, a2), ang, "GREEN", "middle", 16, dy=5)
     sc.dashed(t1[2], t1[1])
     if tri2:
         sc.dashed(t2[2], t2[1])
@@ -68,6 +72,10 @@ def basis_view(sc, O, th, nfix, nrot, col="BLUE", L=2.0, u=1.4, axl=2.5, ang="θ
     if tri2:
         sc.label((O[0], O[1] + u * c * cf), leg[2], "TEXT", "start" if s > 0 else "end", ls, dx=10 if s > 0 else -10, dy=5)
         sc.label((O[0] - u * s / 2 + l4[0] / sc.k, O[1] + u * c), leg[3], "TEXT", l4[1], l4[2] or ls, dy=-10 if c > 0 else 24)
+    if ones:
+        for pt in ones[:2 if tri2 else 1]:
+            sc.label(sh(pt), "1", "TEXT", "middle", ls, dy=5)
+        return e1, e2
     away(sc, sh((u * c / 2, u * s / 2)), sh((u * c, 0)), "1", "TEXT", one, "middle", ls)
     if tri2:
         away(sc, sh((-u * s / 2, u * c / 2)), sh((0, u * c)), "1", "TEXT", one if one2 is None else one2, "middle", ls)
@@ -116,8 +124,8 @@ def plane():
     # radius OB and angle at O
     sc.line(O, Bp, "HEAD", 1.4)
     sc.label((Bp[0] / 2, Bp[1] / 2), "a", "HEAD", "middle", 16, dx=-13, dy=-3)
-    sc.arc(O, 0.42, 0, PH, "GREEN", 1.8, head=True)
-    sc.label(_pol(O, 0.66, PH / 2), PHI, "GREEN", "middle", 16, dy=5)
+    sc.arc(O, 0.58, 0, PH, "GREEN", 1.8, head=True)
+    sc.label(_pol(O, 0.40, PH / 2), PHI, "GREEN", "middle", 16, dy=5)
     # attachment A and its rotation
     sc.dotp(Aa, 4.5)
     sc.label(Aa, "A", "HEAD", "end", 17, dx=-10, dy=-10)
@@ -147,7 +155,7 @@ def plane():
     sc.label(Pp, "P", "HEAD", "start", 17, dx=14, dy=5)
     # position vector O-P
     _dvec(sc, O, (Pp[0] - 0.05, Pp[1] + 0.03), "HEAD", 1.6, 9)
-    sc.label((-1.55, -2.4), _r0("P") + " = a " + I1 + " − s " + J1, "HEAD", "start", 17)
+    sc.label((1.86, -0.86), _r0("P"), "HEAD", "middle", 17)
     axis_out(sc, O, None)
     sc.label(O, bold("k"), "HEAD", "end", 17, dx=-14, dy=24)
     return sc

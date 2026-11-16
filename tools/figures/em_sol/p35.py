@@ -46,6 +46,8 @@ def _spring(sc, a, b, col="EDGE", amp=5.0):
 def plane():
     sc = Scene(900, 620, (400, 250), 95)
     O = (0.0, 0.0)
+    # drawing value of xi larger than in the other views: P lower than Q, so the spring clears the dashed legs
+    P_ = (A_[0] - 3.0 * etA[0], A_[1] - 3.0 * etA[1])
     CA = (A_[0], P_[1])
     CB = (B_[0], Q_[1])
     triangle(sc, [A_, CA, P_], YELLOW, 0.26)
@@ -57,7 +59,8 @@ def plane():
     sc.line(O, (0.0, -2.2), "EDGE", 1.4)
     # wound string and radii
     sc.arc(O, R, TH, PS, "HEAD", 4.5)
-    sc.label((-0.1, 1.3), "R (ψ − θ)", "HEAD", "middle", 15, dx=-48)
+    sc.line(_pol(O, 1.04, 116), _pol(O, 1.16, 119), "HEAD", 1.0)
+    sc.label(_pol(O, 1.2, 120), "R (ψ − θ)", "HEAD", "end", 15, dx=-2, dy=0)
     sc.line(O, A_, "HEAD", 1.3)
     sc.line(O, B_, "HEAD", 1.3)
     sc.label((A_[0] / 2, A_[1] / 2), "R", "HEAD", "middle", 16, dx=-8, dy=-10)
@@ -72,7 +75,12 @@ def plane():
         sc.line(Cc, Pn, "EDGE", 1.1, "5 4")
     right_angle(sc, CA, 90, 0, 0.12)
     right_angle(sc, CB, 90, 180, 0.12)
-    _spring(sc, Q_, P_)
+    # spring: thin straight ends, zigzag only in the middle stretch between the two triangles
+    m1 = _add(Q_, (P_[0] - Q_[0], P_[1] - Q_[1]), 0.24)
+    m2 = _add(Q_, (P_[0] - Q_[0], P_[1] - Q_[1]), 0.56)
+    sc.line(Q_, m1, "EDGE", 1.4)
+    sc.line(m2, P_, "EDGE", 1.4)
+    sc.spring(m1, m2, coils=6, amp=5.0, col="EDGE", lead=0.04, w=1.4)
     sc.line(A_, P_, "HEAD", 4.5)
     sc.line(B_, Q_, "HEAD", 4.5)
     right_angle(sc, A_, 180 + TH, 270 + TH, 0.14)
@@ -89,7 +97,8 @@ def plane():
     sc.label(((B_[0] + Q_[0]) / 2, CB[1]), "ζ sin ψ", "TEXT", "middle", 15, dy=26)
     mq = _add(B_, (Q_[0] - B_[0], Q_[1] - B_[1]), 0.84)
     sc.label(mq, "ζ = L − ξ − R (ψ − θ)", "HEAD", "end", 16, dx=-16, dy=5)
-    sc.label((-0.3, Q_[1] - 0.05), "k", "TEXT", "middle", 17, dy=34)
+    km = _add(Q_, (P_[0] - Q_[0], P_[1] - Q_[1]), 0.40)
+    sc.label(km, "k", "TEXT", "middle", 17, dx=-22, dy=28)
     # bases at A and B
     for pt, vec_r, vec_t, col, nr, nt in ((A_, (math.cos(math.radians(TH)), math.sin(math.radians(TH))), etA, "BLUE", EA, ETH),
                                          (B_, (math.cos(math.radians(PS)), math.sin(math.radians(PS))), etB, "GREEN", EB, EPS)):
@@ -102,7 +111,7 @@ def plane():
     sc.dotp(A_, 4.5)
     sc.label(A_, "A", "HEAD", "start", 17, dx=16, dy=22)
     sc.dotp(B_, 4.5)
-    sc.label(B_, "B", "HEAD", "end", 17, dx=-14, dy=-6)
+    sc.label(B_, "B", "HEAD", "end", 17, dx=-16, dy=20)
     sc.dotp(P_, 5.5)
     sc.label(P_, "P", "HEAD", "start", 17, dx=14, dy=5)
     sc.dotp(Q_, 5.5)
@@ -113,7 +122,8 @@ def plane():
 
 
 def _panel(sc, O, th, col, nfix, nrot, ang, legs, mat, title, lf, big=False):
-    kw = dict(ra=0.45, ra2=0.58, rl=0.8, rl2=0.82, l1dx=-34, one=27) if big else dict(ra=0.65, rl=1.0, l1dx=8)
+    kw = dict(ra=0.85, ra2=0.5, rl=1.05, rl2=0.74, l1dx=-50, la=(30.0, 225.0),
+              ones=((-0.95, 0.61), (-0.61, -0.95))) if big else dict(ra=0.65, rl=1.0, l1dx=8)
     basis_view(sc, O, th, nfix, nrot, col=col, L=1.8, u=1.3, axl=2.1, ang=ang, ls=14,
                legs=legs, cf=0.9, lf=lf, l4=(0, "middle", None), **kw)
     axis_out(sc, O, None)
@@ -135,7 +145,7 @@ def rotations_k():
     i_, j_ = bold("i"), bold("j")
     _panel(sc, (0.0, 0.0), TH, "BLUE", (i_, j_), (EA, ETH), "θ", ("cos θ", "sin θ", "cos θ", "sin θ"),
            (_mname("0", "1"), (("cos θ", "−sin θ", "0"), ("sin θ", "cos θ", "0"), ("0", "0", "1"))), "rotation θ", 0.5)
-    _panel(sc, (7.6, 0.0), PS, "GREEN", (i_, j_), (EB, EPS), "ψ", ("cos ψ &lt; 0", "sin ψ", "cos ψ", "sin ψ"),
+    _panel(sc, (7.6, 0.0), PS, "GREEN", (i_, j_), (EB, EPS), "ψ", ("cos ψ &lt; 0", "sin ψ", "cos ψ &lt; 0", "sin ψ"),
            (_mname("0", "2"), (("cos ψ", "−sin ψ", "0"), ("sin ψ", "cos ψ", "0"), ("0", "0", "1"))), "rotation ψ", 0.3, big=True)
     return sc
 
