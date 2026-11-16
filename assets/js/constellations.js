@@ -74,13 +74,13 @@
     return d + 'Z';
   }
   var SHAPES = {
-    theory:  starPath(4, 30, 0.2, 0),
-    problems: starPath(5, 28, 0.45, 0),
-    extra:   starPath(6, 28, 0.55, 0),
-    formula: starPath(4, 28, 0.55, Math.PI / 4),
-    sim:     starPath(8, 29, 0.42, 0),
-    pdfs:    starPath(3, 30, 0.42, Math.PI),
-    exams:   starPath(12, 27, 0.7, 0)
+    theory:   starPath(4, 30, 0.2, 0),                              // a fine four-point sparkle
+    problems: starPath(5, 28, 0.45, 0),                             // the classic five-point star
+    extra:    starPath(6, 28, 0.55, 0),                             // a six-point star
+    formula:  'M0 -34 L17 0 L0 34 L-17 0Z',                         // a tall gem
+    sim:      starPath(8, 29, 0.42, 0),                             // an eight-point burst
+    pdfs:     'M29 -25 A34 34 0 1 0 29 25 A27 27 0 1 1 29 -25Z',       // a crescent moon
+    exams:    starPath(12, 27, 0.7, 0)                              // a toothed seal
   };
 
   function chain(n, closed) {
@@ -168,7 +168,7 @@
   }
 
   /* Layouts of the panorama (centres of the five constellations and of the pulsar). */
-  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[350, 350], [930, 215], [1660, 350], [470, 880], [1290, 900]], pulsar: [1790, 1060] };
+  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[350, 350], [930, 215], [1660, 350], [470, 880], [1290, 900]], pulsar: [1800, 760] };
   var PORT = { box: [1000, 2900], centre: [500, 1450], slots: [[260, 260], [740, 800], [240, 1380], [760, 1960], [270, 2540]], pulsar: [780, 2800] };
   var GUIDES = [[0, 1], [1, 2], [2, 4], [4, 3], [3, 0], [1, 3], [1, 4]];
 
@@ -280,8 +280,8 @@
       s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, a);
       s('circle', { 'class': 'star-core', r: 3.4 }, a);
       var ic = s('g', { 'class': 'star-icon' }, a);
-      s('circle', { 'class': 'star-icon-bg', r: 13 }, ic);
-      s('use', { href: '#' + sec.icon, x: -9, y: -9, width: 18, height: 18, 'class': 'star-icon-glyph' }, ic);
+      s('circle', { 'class': 'star-icon-bg', r: 15 }, ic);
+      s('use', { href: '#' + sec.icon, x: -11, y: -11, width: 22, height: 22, 'class': 'star-icon-glyph' }, ic);
       // The name goes on the free side of the star: away from the lines that reach it and from the figure.
       var incident = [];
       meta.edges.forEach(function (e) {

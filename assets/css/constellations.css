@@ -123,7 +123,7 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 
 .sky-title {
   position: absolute; z-index: 0; left: 50%; top: 47%; transform: translate(-50%, -50%); margin: 0; pointer-events: none; text-align: center; white-space: nowrap;
-  font-family: var(--font-display); font-weight: 400; font-size: clamp(2.6rem, 6.2vw, 5.2rem); line-height: 1; letter-spacing: 0.03em; color: var(--sk-text);
+  font-family: var(--font-display); font-weight: 400; font-size: clamp(1.7rem, 3.6vw, 3rem); line-height: 1; letter-spacing: 0.03em; color: var(--sk-text);
   opacity: 0.5; transition: opacity 0.7s;
 }
 .sky-title .gradient-text {
@@ -248,9 +248,83 @@ html[data-home-view="constellations"] .site-footer {
 html[data-home-view="constellations"] .footer-inner { font-size: 0.78rem; color: var(--sk-text-2); }
 html[data-home-view="constellations"] .footer-separator { background: var(--sk-text-2); opacity: 0.5; }
 @media (max-width: 700px) {
-  .sky-title { top: 45%; font-size: clamp(2.4rem, 12vw, 3.6rem); }
+  .sky-title { top: 45%; font-size: clamp(1.7rem, 8vw, 2.4rem); }
   .sky-back { left: 16px; top: 64px; }
   html[data-home-view="constellations"] .site-footer { display: none; }
   .sky-caption { bottom: 20px; }
 }
 html[data-theme="light"] .sky-caption h2 { background: none; -webkit-text-fill-color: var(--ct); color: var(--ct); filter: none; }
+
+/* ---- Header controls and floating tools, dressed as part of the sky (stellar view only) ---------- */
+html[data-home-view="constellations"] .header-actions .view-toggle,
+html[data-home-view="constellations"] .header-actions .sky-palette-select,
+html[data-home-view="constellations"] .ae-nav-btn,
+html[data-home-view="constellations"] .upd-bell,
+html[data-home-view="constellations"] .theme-toggle {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  background-image: linear-gradient(rgba(10, 14, 32, 0.55), rgba(10, 14, 32, 0.55)), linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.06) 55%, rgba(186, 160, 255, 0.34));
+  background-origin: border-box; background-clip: padding-box, border-box;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  box-shadow: 0 0 0 rgba(160, 190, 255, 0);
+  transition: box-shadow 0.35s, transform 0.35s;
+}
+html[data-theme="light"][data-home-view="constellations"] .header-actions .view-toggle,
+html[data-theme="light"][data-home-view="constellations"] .header-actions .sky-palette-select,
+html[data-theme="light"][data-home-view="constellations"] .ae-nav-btn,
+html[data-theme="light"][data-home-view="constellations"] .upd-bell,
+html[data-theme="light"][data-home-view="constellations"] .theme-toggle {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(135deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.06) 55%, rgba(109, 74, 255, 0.34));
+}
+html[data-home-view="constellations"] .header-actions .view-toggle:hover,
+html[data-home-view="constellations"] .header-actions .sky-palette-select:hover,
+html[data-home-view="constellations"] .ae-nav-btn:hover,
+html[data-home-view="constellations"] .upd-bell:hover,
+html[data-home-view="constellations"] .theme-toggle:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); }
+/* a small four-point star in front of the two text controls */
+html[data-home-view="constellations"] .header-actions .view-toggle::before {
+  content: ''; display: inline-block; width: 9px; height: 9px; margin-right: 8px; vertical-align: -1px; background: currentColor;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+/* Timer and Focus: two lost astros drifting at the edge of the sky */
+html[data-home-view="constellations"] .fl-launcher,
+html[data-home-view="constellations"] .pm-launcher {
+  min-width: 0; width: 48px; height: 48px; padding: 0; justify-content: center; border: 0; border-radius: 50%;
+  animation: astro-drift 9s ease-in-out infinite;
+}
+html[data-home-view="constellations"] .fl-launcher__label,
+html[data-home-view="constellations"] .pm-launcher:not(.is-compact) .pm-launcher__label {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+html[data-home-view="constellations"] .fl-launcher {   /* a ringed planet */
+  right: 34px; bottom: 54px; color: #ffffff;
+  background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.55), transparent 38%), linear-gradient(145deg, #8b6cff, #2c1a78);
+  box-shadow: 0 0 22px rgba(139, 108, 255, 0.45);
+}
+html[data-home-view="constellations"] .fl-launcher::after {
+  content: ''; position: absolute; left: -9px; right: -9px; top: 50%; height: 16px; margin-top: -8px; border-radius: 50%;
+  border: 1.5px solid rgba(214, 200, 255, 0.75); transform: rotate(-22deg); pointer-events: none; clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
+}
+html[data-home-view="constellations"] .fl-launcher svg { stroke: #ffffff; }
+html[data-home-view="constellations"] .pm-launcher {   /* a small moon */
+  right: 96px; bottom: 22px; color: #2f2a18; animation-delay: -4s;
+  background: radial-gradient(circle at 34% 28%, #fffdf0, #e4dbb4 48%, #9a9068);
+  box-shadow: 0 0 20px rgba(255, 244, 200, 0.4);
+}
+html[data-home-view="constellations"] .pm-launcher.is-compact { width: auto; min-width: 48px; padding: 0 14px; border-radius: 999px; }
+html[data-home-view="constellations"] .pm-launcher .pm-mini { stroke: #2f2a18; }
+html[data-home-view="constellations"] .pm-launcher svg { stroke: #2f2a18; }
+html[data-home-view="constellations"] .fl-launcher::before,
+html[data-home-view="constellations"] .pm-launcher::before {
+  position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%); padding: 3px 9px; border-radius: 999px; white-space: nowrap; opacity: 0; pointer-events: none;
+  font: 500 0.72rem/1.2 var(--font-mono); color: var(--sk-text); background: var(--sk-panel); border: 1px solid var(--sk-border); transition: opacity 0.25s;
+}
+html[data-home-view="constellations"] .fl-launcher::before { content: 'Focus'; }
+html[data-home-view="constellations"] .pm-launcher:not(.is-compact)::before { content: 'Timer'; }
+html[data-home-view="constellations"] .fl-launcher:hover::before, html[data-home-view="constellations"] .pm-launcher:hover::before,
+html[data-home-view="constellations"] .fl-launcher:focus-visible::before, html[data-home-view="constellations"] .pm-launcher:focus-visible::before { opacity: 1; }
+@keyframes astro-drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-3px, -7px); } }
+@media (prefers-reduced-motion: reduce) {
+  html[data-home-view="constellations"] .fl-launcher, html[data-home-view="constellations"] .pm-launcher { animation: none; }
+}
