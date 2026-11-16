@@ -29,9 +29,9 @@
 <text x="446.9" y="418.7" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
 <path d="M340.0,340.0 A90.0,90.0 0 0 0 295.0,352.1" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
 <path d="M292.4,353.6 L297.8,346.4 L301.3,352.4 Z" fill="#10b981"/>
-<text x="300.7" y="345.1" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<text x="273.8" y="347.1" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
 <circle cx="340.0" cy="430.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
 <circle cx="340.0" cy="430.0" r="2.6" fill="#4b5563"/>
 <text x="326.0" y="460.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> = <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan> (⊙)</text>
-<text x="55.0" y="580.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">k₁ × i₁ = j₁ (right-handed view)</text>
+<text x="55.0" y="580.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> × <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> = <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> (right-handed view)</text>
 </g></svg>

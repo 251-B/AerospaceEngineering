@@ -31,7 +31,7 @@
 <text x="523.2" y="400.8" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
 <path d="M430.0,330.0 A75.0,75.0 0 0 0 398.3,337.0" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
 <path d="M395.6,338.3 L401.6,331.6 L404.6,338.0 Z" fill="#10b981"/>
-<text x="381.8" y="337.8" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<text x="379.9" y="335.8" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
 <circle cx="430.0" cy="405.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
 <circle cx="430.0" cy="405.0" r="2.6" fill="#4b5563"/>
 <text x="416.0" y="435.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">2</tspan> = <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan> (⊙)</text>

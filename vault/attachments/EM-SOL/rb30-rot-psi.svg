@@ -29,7 +29,7 @@
 <text x="445.8" y="404.9" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ψ</text>
 <path d="M340.0,330.0 A90.0,90.0 0 0 0 288.4,346.3" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
 <path d="M285.9,348.0 L290.7,340.4 L294.7,346.1 Z" fill="#10b981"/>
-<text x="296.9" y="336.2" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ψ</text>
+<text x="263.9" y="338.2" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ψ</text>
 <circle cx="340.0" cy="420.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
 <circle cx="340.0" cy="420.0" r="2.6" fill="#4b5563"/>
 <text x="326.0" y="450.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan> = <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> (⊙)</text>

@@ -22,6 +22,14 @@ I2, J2, K2 = S(I, "2"), S(J, "2"), S(K, "2")
 IB, JB, KB = S(I, "b"), S(J, "b"), S(K, "b")
 
 
+def left_lab(ang, arc_r, k, gap=16.0):
+    """Pixel shift that puts the label of the second angle arc just left of the rotated axis (the arc is too narrow for it)."""
+    mid = math.radians(90.0 + ang / 2)
+    px, py = arc_r * k * math.cos(mid), arc_r * k * math.sin(mid)
+    vx = py * math.cos(math.radians(90.0 + ang)) / math.sin(math.radians(90.0 + ang))
+    return (vx - gap - px, 4)
+
+
 # ------------------------------------------------------------------------------------------------ rb30-rot-psi
 @figure("rb30-rot-psi",
         "First Euler rotation: the basis B1 turned by psi about i0, which points out of the paper.",
@@ -30,7 +38,7 @@ IB, JB, KB = S(I, "b"), S(J, "b"), S(K, "b")
 def rot_psi():
     sc = Scene(860, 560, (340, 420), 150)
     rot_pair(sc, 35.0, (J0, K0, J1, K1), "ψ", I0 + " = " + I1 + " (⊙)", "out", (-14, 30), L=1.9, Lf=2.6, arc_r=0.6,
-             arc_lab=((20, 12), (-16, 2)), lab_offs=((24, 4), (-18, -6)))
+             arc_lab=((20, 12), left_lab(35.0, 0.6, 150)), lab_offs=((24, 4), (-18, -6)))
     return sc
 
 
@@ -43,8 +51,8 @@ def rot_psi():
 def rot_theta():
     sc = Scene(860, 600, (340, 430), 150)
     rot_pair(sc, 30.0, (K1, I1, K2, I2), "θ", J1 + " = " + J2 + " (⊙)", "out", (-14, 30), L=1.9, Lf=2.6, arc_r=0.6,
-             arc_lab=((20, 12), (-16, 2)), lab_offs=((24, 4), (-22, -8)))
-    sc.note((-1.9, -1.0), "k₁ × i₁ = j₁ (right-handed view)", "TEXT", "start", 14)
+             arc_lab=((20, 12), left_lab(30.0, 0.6, 150)), lab_offs=((24, 4), (-22, -8)))
+    sc.note((-1.9, -1.0), K1 + " × " + I1 + " = " + J1 + " (right-handed view)", "TEXT", "start", 14)
     return sc
 
 
@@ -66,7 +74,7 @@ def rot_phi():
     sc = Scene(860, 700, (430, 405), 125)
     asteroid(sc, 2.45)
     sc.label((0.7, -1.6), "asteroid", "TEXT", "start", 14)
-    rot_pair(sc, 25.0, (I2, J2, IB, JB), "φ", K2 + " = " + KB + " (⊙)", "out", (-14, 30), L=1.9, Lf=3.0, arc_r=0.6, col=DRED, arc_lab=((20, 12), (-32, 6)), lab_offs=((24, 4), (-22, -8)))
+    rot_pair(sc, 25.0, (I2, J2, IB, JB), "φ", K2 + " = " + KB + " (⊙)", "out", (-14, 30), L=1.9, Lf=3.0, arc_r=0.6, col=DRED, arc_lab=((20, 12), left_lab(25.0, 0.6, 125)), lab_offs=((24, 4), (-22, -8)))
     return sc
 
 
@@ -78,7 +86,7 @@ def rot_phi():
         r"both normals at $P$ are along $\mathbf H_{G0}^b$, so the surfaces are tangent, and $P$, on the instantaneous axis, "
         r"is at rest.")
 def poinsot():
-    sc = Scene(1000, 770, (330, 300), 105)
+    sc = Scene(1000, 730, (330, 300), 105)
     dl, rho = 3 * math.sqrt(2) / 2, math.sqrt(2) / 2
     G, N, P = (0.0, 0.0), (0.0, -dl), (rho, -dl)
     # the plane (edge-on), at the distance delta from G along u_H (drawn downwards: the plane is at +delta along u_H)
