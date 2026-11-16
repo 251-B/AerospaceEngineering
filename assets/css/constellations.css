@@ -204,8 +204,8 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
   filter: drop-shadow(0 0 calc(var(--u, 1) * 2.5px) var(--c)); }
 .const.is-active .star-glyph { transform: scale(0.85); }
 .star-icon { opacity: 0; transition: opacity 0.4s 0.15s; pointer-events: none; }
-.star-icon-bg { fill: var(--c); filter: drop-shadow(0 0 calc(var(--u, 1) * 3px) var(--c)); }
-.star-icon-glyph { color: var(--sk-halo); }
+.star-icon-bg { fill: var(--sk-halo); stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.4px); }
+.star-icon-glyph { color: var(--ct); }
 .const.is-active .star-icon { opacity: 1; }
 .const.is-active .star-core { opacity: 0; }
 .star-name, .star-count { display: none; }
