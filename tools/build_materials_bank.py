@@ -86,7 +86,7 @@ PROBLEM_POINTS = 5.0
 UNITS = {4: "Unit 4 · Phase diagrams", 5: "Unit 5 · Mechanical properties", 6: "Unit 6 · Electrical properties",
          7: "Unit 7 · Magnetic and thermal properties"}
 # Minimum number of test questions per unit (Rules - Midterm 2 Exam Style Analysis, quota table).
-QUOTAS = {4: 150, 5: 170, 6: 100, 7: 100}
+QUOTAS = {4: 150, 5: 170, 6: 150, 7: 150}
 MIN_PROBLEMS_PER_ARCHETYPE = 4
 FORMATS = {
     "true-statement": "Which of the following statements is TRUE",

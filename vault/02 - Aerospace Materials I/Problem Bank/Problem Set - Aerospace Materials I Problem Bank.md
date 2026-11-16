@@ -69,6 +69,11 @@ Practice items written for the portal in the style of Assessment Test II (Units 
 - [[Quiz - Bank B40 - Unit 6 Dopant Levels and Extrinsic Conductivity with Temperature|B40]]: Dopant levels and extrinsic conductivity with temperature
 - [[Quiz - Bank B41 - Unit 6 Temperature Ranges and Semiconductor Devices|B41]]: Temperature ranges and semiconductor devices
 - [[Quiz - Bank B42 - Unit 6 Dielectrics, Ferroelectrics and Piezoelectrics|B42]]: Dielectrics, ferroelectrics and piezoelectrics
+- [[Quiz - Bank B53 - Unit 6 Metallic and Ionic Conduction Applied|B53]]: Metallic and ionic conduction applied
+- [[Quiz - Bank B54 - Unit 6 Intrinsic Semiconductors Applied|B54]]: Intrinsic semiconductors applied
+- [[Quiz - Bank B55 - Unit 6 Extrinsic Semiconductors Dopants and Carrier Data|B55]]: Extrinsic semiconductors, dopants and carrier data
+- [[Quiz - Bank B56 - Unit 6 Extrinsic Conductivity against Temperature and Devices|B56]]: Extrinsic conductivity against temperature and devices
+- [[Quiz - Bank B57 - Unit 6 Dielectrics Ferroelectrics and Piezoelectrics Applied|B57]]: Dielectrics, ferroelectrics and piezoelectrics applied
 
 ### Unit 7 · Magnetic and thermal properties
 
@@ -82,6 +87,11 @@ Practice items written for the portal in the style of Assessment Test II (Units 
 - [[Quiz - Bank B50 - Unit 7 Thermal Expansion|B50]]: Thermal expansion
 - [[Quiz - Bank B51 - Unit 7 Thermal Conductivity|B51]]: Thermal conductivity and expansion
 - [[Quiz - Bank B52 - Unit 7 Thermal Stresses and Thermal Shock|B52]]: Thermal stresses and thermal shock
+- [[Quiz - Bank B58 - Unit 7 Magnetic Moments Fields and Types of Magnetism Applied|B58]]: Magnetic moments, fields and types of magnetism applied
+- [[Quiz - Bank B59 - Unit 7 Domains Hysteresis and the Tables of Magnetic Materials|B59]]: Domains, hysteresis and the tables of magnetic materials
+- [[Quiz - Bank B60 - Unit 7 Loop Factors Curie and Neel Temperatures and Superconductors|B60]]: Loop factors, Curie and Néel temperatures and superconductors
+- [[Quiz - Bank B61 - Unit 7 Superconductor Applications Heat Capacity and Thermal Expansion|B61]]: Superconductor applications, heat capacity and thermal expansion
+- [[Quiz - Bank B62 - Unit 7 Thermal Conduction Thermocouples Stresses and Thermal Shock|B62]]: Thermal conduction, thermocouples, thermal stresses and thermal shock
 
 ## Part II problems
 
