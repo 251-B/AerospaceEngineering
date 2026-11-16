@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 760" width="100%" class="fig-kit" style="max-width:780px;margin:0 auto;display:block" role="img" aria-label="The cylinder basis i1, j1 turned clockwise by phi from the slope basis i0, j0, with the slot along i1 and the particle P on it.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="630.0,340.0 629.5,324.3 627.9,308.7 625.4,293.2 621.8,277.9 617.3,262.9 611.7,248.2 605.2,233.9 597.8,220.0 589.6,206.7 580.4,193.9 570.4,181.8 559.7,170.3 548.2,159.6 536.1,149.6 523.3,140.4 510.0,132.2 496.1,124.8 481.8,118.3 467.1,112.7 452.1,108.2 436.8,104.6 421.3,102.1 405.7,100.5 390.0,100.0 374.3,100.5 358.7,102.1 343.2,104.6 327.9,108.2 312.9,112.7 298.2,118.3 283.9,124.8 270.0,132.2 256.7,140.4 243.9,149.6 231.8,159.6 220.3,170.3 209.6,181.8 199.6,193.9 190.4,206.7 182.2,220.0 174.8,233.9 168.3,248.2 162.7,262.9 158.2,277.9 154.6,293.2 152.1,308.7 150.5,324.3 150.0,340.0 150.5,355.7 152.1,371.3 154.6,386.8 158.2,402.1 162.7,417.1 168.3,431.8 174.8,446.1 182.2,460.0 190.4,473.3 199.6,486.1 209.6,498.2 220.3,509.7 231.8,520.4 243.9,530.4 256.7,539.6 270.0,547.8 283.9,555.2 298.2,561.7 312.9,567.3 327.9,571.8 343.2,575.4 358.7,577.9 374.3,579.5 390.0,580.0 405.7,579.5 421.3,577.9 436.8,575.4 452.1,571.8 467.1,567.3 481.8,561.7 496.1,555.2 510.0,547.8 523.3,539.6 536.1,530.4 548.2,520.4 559.7,509.7 570.4,498.2 580.4,486.1 589.6,473.3 597.8,460.0 605.2,446.1 611.7,431.8 617.3,417.1 621.8,402.1 625.4,386.8 627.9,371.3 629.5,355.7 630.0,340.0" fill="#8a94a6" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<polygon points="535.6,439.8 538.9,441.1 542.4,441.6 545.9,441.1 549.2,439.8 552.0,437.6 554.2,434.8 555.6,431.5 556.0,428.0 555.6,424.5 554.2,421.2 552.0,418.4 549.2,416.2 244.4,240.2 241.1,238.9 237.6,238.4 234.1,238.9 230.8,240.2 228.0,242.4 225.8,245.2 224.4,248.5 224.0,252.0 224.4,255.5 225.8,258.8 228.0,261.6 230.8,263.8" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="246.0" y1="580.0" x2="534.0" y2="580.0" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="246.0" y1="580.0" x2="239.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="255.0" y1="580.0" x2="248.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="264.0" y1="580.0" x2="257.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="273.0" y1="580.0" x2="266.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="282.0" y1="580.0" x2="275.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="291.0" y1="580.0" x2="284.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="300.0" y1="580.0" x2="293.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="309.0" y1="580.0" x2="302.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="318.0" y1="580.0" x2="311.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="327.0" y1="580.0" x2="320.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="336.0" y1="580.0" x2="329.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="345.0" y1="580.0" x2="338.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="354.0" y1="580.0" x2="347.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="363.0" y1="580.0" x2="356.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="372.0" y1="580.0" x2="365.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="381.0" y1="580.0" x2="374.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="390.0" y1="580.0" x2="383.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="399.0" y1="580.0" x2="392.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="408.0" y1="580.0" x2="401.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="417.0" y1="580.0" x2="410.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="426.0" y1="580.0" x2="419.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="435.0" y1="580.0" x2="428.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="444.0" y1="580.0" x2="437.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="453.0" y1="580.0" x2="446.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="462.0" y1="580.0" x2="455.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="471.0" y1="580.0" x2="464.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="480.0" y1="580.0" x2="473.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="489.0" y1="580.0" x2="482.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="498.0" y1="580.0" x2="491.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="507.0" y1="580.0" x2="500.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="516.0" y1="580.0" x2="509.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="525.0" y1="580.0" x2="518.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="534.0" y1="580.0" x2="527.6" y2="586.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="390.0" y1="340.0" x2="673.2" y2="340.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M678.0,340.0 L670.6,343.1 L670.6,336.9 Z" fill="#8a94a6"/>
+<text x="694.0" y="348.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="390.0" y1="340.0" x2="390.0" y2="64.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M390.0,60.0 L393.1,67.4 L386.9,67.4 Z" fill="#8a94a6"/>
+<text x="404.0" y="60.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<polygon points="390.0,340.0 549.3,340.0 549.3,432.0" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="549.3" y1="340.0" x2="549.3" y2="432.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="542.9,340.0 542.9,346.4 549.3,346.4" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polygon points="390.0,340.0 390.0,180.7 482.0,180.7" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="390.0" y1="180.7" x2="482.0" y2="180.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="390.0,187.1 396.4,187.1 396.4,180.7" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="390.0" y1="340.0" x2="543.6" y2="428.7" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M549.3,432.0 L538.4,430.6 L542.7,423.2 Z" fill="#3b82f6"/>
+<text x="571.3" y="444.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="390.0" y1="340.0" x2="478.7" y2="186.4" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M482.0,180.7 L480.6,191.6 L473.2,187.3 Z" fill="#3b82f6"/>
+<text x="494.0" y="168.7" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="469.7" y="331.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos φ</text>
+<text x="557.3" y="391.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin φ</text>
+<text x="382.0" y="265.3" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos φ</text>
+<text x="436.0" y="171.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin φ</text>
+<text x="485.6" y="376.6" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<text x="454.6" y="256.4" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<path d="M446.0,340.0 A56.0,56.0 0 0 1 438.5,368.0" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M437.0,370.6 L438.1,361.7 L444.2,365.2 Z" fill="#10b981"/>
+<text x="460.1" y="372.5" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<path d="M390.0,284.0 A56.0,56.0 0 0 1 418.0,291.5" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M420.6,293.0 L411.7,291.9 L415.2,285.8 Z" fill="#10b981"/>
+<text x="412.5" y="273.9" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<path d="M351.7,445.2 A112.0,112.0 0 0 1 281.8,369.0" fill="none" stroke="#10b981" stroke-width="2.0" stroke-linejoin="round"/>
+<path d="M281.0,366.1 L286.6,373.2 L279.8,375.0 Z" fill="#10b981"/>
+<text x="296.8" y="418.9" fill="#10b981" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ω<tspan baseline-shift="sub" font-size="70%">10</tspan> = −φ̇ <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<circle cx="390.0" cy="340.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="390.0" cy="340.0" r="2.6" fill="#4b5563"/>
+<text x="370.0" y="366.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<text x="370.0" y="156.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan> (⊙) at C</text>
+<circle cx="493.9" cy="400.0" r="6" fill="#4b5563" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="507.9" y="428.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<line x1="390.0" y1="340.0" x2="349.2" y2="410.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="493.9" y1="400.0" x2="453.1" y2="470.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="352.0" y1="405.8" x2="455.9" y2="465.8" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M352.0,405.8 L358.9,406.7 L356.2,411.4 Z" fill="#8a94a6"/>
+<path d="M455.9,465.8 L449.0,465.0 L451.7,460.2 Z" fill="#8a94a6"/>
+<text x="396.0" y="459.8" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="390.0" cy="580.0" r="4.5" fill="#3b82f6" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="408.0" y="570.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+</g></svg>

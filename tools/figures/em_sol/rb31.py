@@ -83,7 +83,7 @@ def meridian():
     sc.note((6.9, 2.4), "frame d", "TEXT", "start", 14)
     # basis at O: j1 into the paper
     axis_in(sc, O, None, "HEAD")
-    sc.label(O, J1 + " (⊗)", "HEAD", "end", 16, weight="700", dx=-14, dy=-12)
+    sc.label(O, J1 + " (⊗)", "HEAD", "end", 16, weight="700", dx=-20, dy=-16)
     # the arm AI with its right triangle (corner (A.x, I.z)) and the angle beta at A
     corner = (A[0], I_PT[1])
     triangle(sc, [I_PT, corner, A], ORANGE, 0.20)
@@ -92,9 +92,9 @@ def meridian():
     sc.line(A, I_PT, "EDGE", 1.4)
     sc.label(((I_PT[0] + corner[0]) / 2, I_PT[1]), "R cos β", "TEXT", "middle", 15, dy=-8)
     sc.label((corner[0], corner[1] / 2), "R sin β", "TEXT", "start", 15, dx=8, dy=5)
-    sc.label(add(I_PT, (A[0] - I_PT[0], A[1] - I_PT[1]), 0.22), "R", "TEXT", "middle", 16, dx=-4, dy=20)
+    sc.label(add(I_PT, (A[0] - I_PT[0], A[1] - I_PT[1]), 0.8), "R", "TEXT", "middle", 16, dx=12, dy=-8)
     sc.arc(A, 0.6, 180 - BETA, 180, "GREEN", 1.7, head=True)
-    sc.label(add(A, d(180 - BETA / 2), 1.0), "β", "GREEN", "middle", 17, dx=0, dy=14)
+    sc.label(add(A, d(180 - BETA / 2), 1.2), "β", "GREEN", "middle", 17, dx=0, dy=8)
     # apex arc
     sc.arc(V, 1.5, 90 - BETA, 90, "GREEN", 1.7, head=True)
     sc.label(add(V, d(90 - BETA / 2), 1.5), "β", "GREEN", "middle", 17, dx=18, dy=-4)
@@ -107,9 +107,9 @@ def meridian():
     sc.dashed(Fv, T)
     sc.label(((I_PT[0] + Fv[0]) / 2, (I_PT[1] + Fv[1]) / 2), "cos β", "TEXT", "end", 15, dx=-8, dy=5)
     sc.label(((Fv[0] + T[0]) / 2, Fv[1]), "sin β", "TEXT", "middle", 15, dy=-8)
-    sc.label(add(I_PT, ETV, L * 0.5), "1", "TEXT", "middle", 15, dx=14, dy=8)
+    sc.label(add(I_PT, ETV, L * 0.5), "1", "TEXT", "middle", 15, dx=-10, dy=2)
     unit(sc, I_PT, 90 - BETA, L, ET, "BLUE", off=(16, -10))
-    unit(sc, I_PT, -BETA, 1.2, N, "BLUE", off=(2, 20))
+    unit(sc, I_PT, -BETA, 0.9, N, "BLUE", off=(-2, -14))
     # instantaneous axis through Q and P, down to the axis of the cone
     X0 = (0.0, -3 * R)
     sc.line(X0, P, "PINK", 1.8, "9 5")
@@ -117,7 +117,8 @@ def meridian():
     sc.label(X0, "IAR, z = −3R", "PINK", "start", 16, weight="700", dx=12, dy=22)
     # angular velocity of the ball (orange) from A
     w = (-1 / math.sqrt(2), -1 / math.sqrt(2))
-    sc.vec(A, add(A, w, 1.6), S("ω", "b0"), ORANGE, 3.0, name_off=(-6, 24), size=18, head=12)
+    sc.vec(A, add(A, w, 1.6), None, ORANGE, 3.0, head=12)
+    sc.label(add(A, w, 1.6), S("ω", "b0"), ORANGE, "start", 18, weight="700", dx=14, dy=10)
     sc.label((3.4, -3.15), S("ω", "b0") + " = −2 " + "θ̇" + " (" + I1 + " + " + K1 + ")", ORANGE, "start", 16, weight="700")
     sc.note((3.4, -3.65), "drawn for a positive θ̇", "TEXT", "start", 13)
     # points
@@ -141,27 +142,26 @@ def rot_theta():
     sc = Scene(800, 800, (400, 400), 74)
     O = (0.0, 0.0)
     sc.poly(circle_pts(O, 3 * Rb), "HEAD", 2.4)
-    sc.label(add(O, d(-52), 3 * Rb), "wall of the frame, 3R", "TEXT", "start", 14, italic=False, dx=44, dy=22)
+    sc.note((-4.4, -4.15), "wall of the frame, 3R", "TEXT", "start", 14)
     sc.poly(circle_pts(O, 2 * Rb), "EDGE", 1.4, "7 5", fill="EDGE", close=True, opacity=0.14)
-    sc.label(add(O, d(-98), 2 * Rb), "path of A = base of the cone, 2R", "TEXT", "middle", 14, italic=False, dx=0, dy=-12)
+    sc.label(add(O, d(-98), 2 * Rb), "path of A = base of the cone, 2R", "TEXT", "middle", 14, italic=False, dx=0, dy=-55)
     Ap = add(O, d(th), 2 * Rb)
     sc.poly(circle_pts(Ap, Rb), "HEAD", 1.6, fill="EDGE", close=True, opacity=0.10)
     sc.dashed(O, Ap)
-    rot_pair(sc, th, (I0, J0, I1, J1), "θ", K0 + " (⊙)", "out", (-14, -14), L=1.3, Lf=4.9, arc_r=0.55, arc_lab=((20, 12), (-2, -2)),
+    rot_pair(sc, th, (I0, J0, I1, J1), "θ", K0 + " (⊙)", "out", (-14, -14), L=2.0, Lf=4.9, arc_r=0.6, arc_lab=((20, 12), (-2, -2)),
              lab_offs=((22, 8), (-16, -12)))
     sc.mass(Ap, None, r=4.5, col="BLUE")
-    sc.label(Ap, "A", "HEAD", "middle", 17, dx=-14, dy=22)
+    sc.label(Ap, "A", "HEAD", "middle", 17, dx=16, dy=24)
     # velocity of A, along j1
     vt = add(Ap, d(th + 90), 1.2)
-    sc.vec(Ap, vt, S("v", "A") + " = 2R θ̇ " + J1, ORANGE, 3.0, name_off=(-10, -14), size=16, head=12)
-    sc.label(vt, "", ORANGE, "end")
+    sc.vec(Ap, vt, None, ORANGE, 3.0, head=12)
+    sc.label(vt, S("v", "A") + " = 2R θ̇ " + J1, ORANGE, "start", 16, weight="700", dx=10, dy=-6)
     # rotation of the cone: phi tick on the base, arc from i0, rate
     tk0, tk1 = add(O, d(ph), 2 * Rb - 0.18), add(O, d(ph), 2 * Rb + 0.18)
     sc.line(O, tk0, "GREEN", 1.3, "3 4")
     sc.line(tk0, tk1, "GREEN", 3.0)
     sc.arc(O, 2.1, 0, ph, "GREEN", 1.7, head=True)
-    sc.label(add(O, d(ph / 2 + 12), 2.1), "φ", "GREEN", "middle", 17, dx=8, dy=-14)
-    sc.label(tk1, "tick on the cone", "GREEN", "start", 14, italic=False, dx=8, dy=-8)
+    sc.label(add(O, d(ph / 2 + 18), 2.1), "φ", "GREEN", "middle", 17, dx=8, dy=-12)
     sc.arc(O, 2.45, 150, 215, "GREEN", 2.0, head=True)
     sc.label(add(O, d(182), 2.45), "φ̇ " + K0 + " (cone)", "GREEN", "end", 16, weight="700", dx=-8, dy=6)
     return sc
@@ -187,69 +187,64 @@ def out_sym(sc, p, kind, name, col, off, size=15):
         r"and the ball on the cone with $-\mathbf F_I$; the frame acts with $\mathbf F_Q$ and $\mathbf F_P$; the joint holds "
         r"the cone normal to its axis only.")
 def exploded():
-    sc = Scene(960, 700, (330, 300), 52)
+    sc = Scene(900, 600, (290, 300), 52)
     cx, fx, fz = -2.4, 1.6, -1.6                         # cone shifted by -1.2R, frame by (+0.8R, -0.8R)
     Ic, Qf, Pf = (I_PT[0] + cx, I_PT[1]), (Q[0] + fx, Q[1] + fz), (P[0] + fx, P[1] + fz)
     Gc = (cx, GZ)
-    # bodies
     cone_poly(sc, cx)
     hatch_lshape(sc, fx, fz)
     sc.poly(circle_pts(A, R), "HEAD", 2.0, fill="EDGE", close=True, opacity=0.10)
-    axis_line(sc, cx, V[1] - 0.5, TOP + 1.9)
-    sc.note((cx + 0.6, 3.2), "cone c", "TEXT", "start", 14)
-    sc.note((A[0] - 0.2, 2.35), "ball b", "TEXT", "middle", 14)
-    sc.note((P[0] + fx + 0.5, 1.2), "frame d", "TEXT", "start", 14)
-    # action-reaction links
+    axis_line(sc, cx, V[1] - 0.5, TOP + 1.5)
+    sc.note((cx + 1.0, TOP + 0.3), "cone c", "TEXT", "middle", 14)
+    sc.note((A[0] + 0.2, 1.2), "ball b", "TEXT", "middle", 14)
+    sc.note((P[0] + fx + 0.5, 1.4), "frame d", "TEXT", "start", 14)
+    sc.note((-5.0, -4.3), "dashed grey: action – reaction pairs", "TEXT", "start", 13)
     for p, q in ((I_PT, Ic), (Q, Qf), (P, Pf)):
         sc.line(p, q, "EDGE", 1.3, "6 5")
-    sc.note(((I_PT[0] + Ic[0]) / 2, 1.0), "action – reaction", "TEXT", "middle", 13, dy=-8)
     # ---- ball alone
-    force(sc, A, (0, -1), 0.8, "", "PINK", (0, 0), w=3.2)
-    sc.label((A[0], A[1] - 0.45), "mg", "PINK", "end", 17, weight="700", dx=-8, dy=4)
-    force(sc, Q, (0, 1), 1.0, sub("N", "Q") + K1, "GREEN", (10, 4))
-    force(sc, Q, (1, 0), 1.3, sub("F", "Qx") + I1, "GREEN", (26, 20))
-    out_sym(sc, Q, "in", sub("F", "Qy") + J1, "GREEN", (-6, -22))
-    force(sc, P, (-1, 0), 1.2, sub("N", "P"), "GREEN", (-4, -10))
-    force(sc, P, (0, 1), 1.1, sub("F", "Pz") + K1, "GREEN", (8, 14))
-    out_sym(sc, P, "in", sub("F", "Py") + J1, "GREEN", (10, 22))
-    force(sc, I_PT, EN, 1.1, sub("N", "I") + N, "GREEN", (10, 20))
-    force(sc, I_PT, ETV, 1.1, sub("F", "It") + ET, "GREEN", (20, 0))
-    out_sym(sc, I_PT, "in", sub("F", "Ij") + J1, "GREEN", (-70, 28))
+    force(sc, A, (0, -1), 0.55, "", "PINK", (0, 0), w=3.2)
+    sc.label((A[0], A[1] - 0.3), "mg", "PINK", "end", 17, weight="700", dx=-8, dy=4)
+    force(sc, Q, (0, 1), 0.95, sub("N", "Q"), "GREEN", (-22, 2))
+    force(sc, Q, (1, 0), 1.3, sub("F", "Qx"), "GREEN", (28, 5))
+    out_sym(sc, Q, "in", sub("F", "Qy"), "GREEN", (-44, 28))
+    force(sc, P, (-1, 0), 1.2, sub("N", "P"), "GREEN", (0, 20))
+    force(sc, P, (0, 1), 1.0, sub("F", "Pz"), "GREEN", (26, 4))
+    out_sym(sc, P, "in", sub("F", "Py"), "GREEN", (14, -12))
+    force(sc, I_PT, EN, 1.1, sub("N", "I"), "GREEN", (6, 20))
+    force(sc, I_PT, ETV, 1.1, sub("F", "It"), "GREEN", (26, -4))
+    out_sym(sc, I_PT, "in", sub("F", "Ij"), "GREEN", (-52, 28))
     # ---- cone alone
-    force(sc, Ic, (-EN[0], -EN[1]), 1.1, "−" + sub("N", "I") + N, ORANGE, (-14, -10))
-    force(sc, Ic, (-ETV[0], -ETV[1]), 1.1, "−" + sub("F", "It") + ET, ORANGE, (-8, 22))
-    out_sym(sc, Ic, "out", "−" + sub("F", "Ij") + J1, ORANGE, (10, 24))
-    # sleeve (joint) at G and the weight 2mg
+    force(sc, Ic, (-EN[0], -EN[1]), 1.1, "−" + sub("N", "I"), ORANGE, (-14, -8))
+    force(sc, Ic, (-ETV[0], -ETV[1]), 1.1, "−" + sub("F", "It"), ORANGE, (-22, 8))
+    out_sym(sc, Ic, "out", "−" + sub("F", "Ij"), ORANGE, (-4, 28))
     sc.poly([(cx - 0.2, GZ - 0.45), (cx + 0.2, GZ - 0.45), (cx + 0.2, GZ + 0.45), (cx - 0.2, GZ + 0.45)], "HEAD", 1.8,
             fill="BLUE", close=True, opacity=0.18)
-    sc.mass(Gc, None, r=4.5, col="BLUE")
-    sc.label(Gc, "G", "HEAD", "middle", 17, dx=-16, dy=-14)
     force(sc, (cx, GZ - 0.45), (0, -1), 0.9, "", "PINK", (0, 0), w=3.2)
     sc.label((cx, GZ - 0.9), "2mg", "PINK", "start", 17, weight="700", dx=8, dy=6)
-    force(sc, (cx + 0.2, GZ), (1, 0), 0.9, "X" + I1, "GREEN", (4, -12))
-    out_sym(sc, (cx, GZ + 0.12), "in", "Y" + J1, "GREEN", (12, -14))
-    zt = GZ + 0.95
+    force(sc, (cx + 0.2, GZ + 0.2), (1, 0), 0.9, "X", "GREEN", (14, -4))
+    out_sym(sc, (cx, GZ - 0.1), "in", "Y", "GREEN", (-26, 24))
+    zt = GZ + 1.0
     sc.vec((cx, zt), (cx - 1.5, zt), None, "GREEN", 2.8, head=11)
     sc.vec((cx, zt), (cx + 1.5, zt), None, "GREEN", 2.8, head=11)
-    sc.label((cx, zt), sub("M", "x") + I1 + " + " + sub("M", "y") + J1, "GREEN", "middle", 15, weight="700", dx=0, dy=-10)
+    sc.label((cx, zt), sub("M", "x") + I1 + " + " + sub("M", "y") + J1, "GREEN", "middle", 15, weight="700", dx=-30, dy=-16)
     sc.note((cx - 0.3, GZ - 1.7), "joint: no axial force,", "TEXT", "end", 13)
     sc.note((cx - 0.3, GZ - 2.1), "no axial moment", "TEXT", "end", 13)
     from figures.em_solutions import spin_about_vertical
-    spin_about_vertical(sc, (cx, TOP + 1.25), 0.95, 0.28, "Γ " + K0 + " (part g)", "GREEN", name_off=(12, -4))
+    spin_about_vertical(sc, (cx, TOP + 1.0), 0.95, 0.28, "Γ " + K0 + " (part g)", "GREEN", name_off=(12, -4))
     # ---- frame alone
-    force(sc, Qf, (0, -1), 0.9, "−" + sub("N", "Q") + K1, ORANGE, (6, 18))
-    force(sc, Qf, (-1, 0), 1.3, "−" + sub("F", "Qx") + I1, ORANGE, (-30, -8))
-    out_sym(sc, Qf, "out", "−" + sub("F", "Qy") + J1, ORANGE, (12, 20))
-    force(sc, Pf, (1, 0), 1.2, "+" + sub("N", "P"), ORANGE, (-2, -14))
-    force(sc, Pf, (0, -1), 1.1, "−" + sub("F", "Pz") + K1, ORANGE, (10, 20))
-    out_sym(sc, Pf, "out", "−" + sub("F", "Py") + J1, ORANGE, (-70, 24))
-    # points
-    for p, nm, off in ((A, "A", (-10, -34)), (Q, "Q", (-22, -16)), (P, "P", (-16, -8)), (I_PT, "I", (-8, 22)),
-                       (Ic, "I", (14, 22)), (Qf, "Q", (-10, 36)), (Pf, "P", (-20, -8))):
+    force(sc, Qf, (0, -1), 0.9, "−" + sub("N", "Q"), ORANGE, (26, 6))
+    force(sc, Qf, (-1, 0), 1.3, "−" + sub("F", "Qx"), ORANGE, (-8, -14))
+    out_sym(sc, Qf, "out", "−" + sub("F", "Qy"), ORANGE, (12, -12))
+    force(sc, Pf, (1, 0), 1.2, sub("N", "P"), ORANGE, (0, -12))
+    force(sc, Pf, (0, -1), 1.1, "−" + sub("F", "Pz"), ORANGE, (42, 4))
+    out_sym(sc, Pf, "out", "−" + sub("F", "Py"), ORANGE, (-58, 36))
+    for p, nm, off in ((A, "A", (-14, -12)), (Q, "Q", (-16, -16)), (P, "P", (-14, -14)), (I_PT, "I", (-12, -12)),
+                       (Ic, "I", (14, -12)), (Qf, "Q", (16, 20)), (Pf, "P", (12, 22))):
         sc.mass(p, None, r=4.0, col="BLUE")
         sc.label(p, nm, "HEAD", "middle", 16, dx=off[0], dy=off[1])
-    # basis
-    b0 = (8.2, 3.2)
+    sc.mass(Gc, None, r=4.0, col="BLUE")
+    sc.label(Gc, "G", "HEAD", "middle", 16, dx=-24, dy=-8)
+    b0 = (8.4, 3.2)
     sc.vec(b0, add(b0, (1, 0), 1.0), I1, "BLUE", 2.6, name_off=(14, 6), size=16, head=10)
     sc.vec(b0, add(b0, (0, 1), 1.0), K1, "BLUE", 2.6, name_off=(-12, -4), size=16, head=10)
     axis_in(sc, b0, None, "HEAD")
