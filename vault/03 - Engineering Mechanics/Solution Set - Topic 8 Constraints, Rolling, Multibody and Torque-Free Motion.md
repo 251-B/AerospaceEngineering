@@ -3952,3 +3952,868 @@ The forces on the sheet while it touches the line, in the inertial frame:
 * **Dimensions.** $k/m$ and $g/R$ are both squared rates; every force term is a multiple of $kR$ or $mg$.
 
 ---
+
+## Problem RB-39: Yo-yo
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** the yo-yo $b$ (two homogeneous disks of radius $R$ joined by an inner cylinder of radius $a$), of mass $m$ and centre $C$, hangs from the fixed point $O$ of the ceiling by a thin, massless, inextensible string that is wound on the inner cylinder and stays taut. The string, the centre $C$ and gravity lie in one vertical plane (the mid-plane of the yo-yo), so the motion is planar.
+* **Fixed frame:** $S_0\{O; \mathbf i_0, \mathbf j_0, \mathbf k_0\}$, with $\mathbf i_0$ horizontal to the right, $\mathbf j_0$ up and $\mathbf k_0$ out of the paper (⊙). The ceiling is at rest, so the frame is inertial. Gravity is $g$ along minus $\mathbf j_0$.
+* **Basis of the string:** $\mathcal B_1$, the basis $\{\mathbf i_1, \mathbf j_1, \mathbf k_0\}$ turned by $\theta$ about $\mathbf k_0$; minus $\mathbf j_1$ points along the straight part of the string, from $O$ towards the yo-yo, and $\mathbf i_1$ is normal to the string. Read from the figure: $\theta$ is measured from the downward vertical to the string, counterclockwise (the string leans to the right of $O$). The opposite reading (clockwise) would replace $\theta$ by its opposite in every formula below; the method is the same.
+* **Generalized coordinates:** $\xi$, the length of the straight part of the string, from $O$ to the point $T$ where it leaves the inner cylinder, and $\theta$. Read from the figure: the string leaves the inner cylinder on its right-hand side, so the radius $CT$ points along $\mathbf i_1$ and $C$ lies at the distance $a$ on the left of the string.
+* **Body angle:** $\varphi$, the angle from $\mathbf i_0$ to a line fixed in the yo-yo, counterclockwise. It is not a free coordinate: the string unwinds without slipping on the inner cylinder, and that relation is integrated below.
+* **Degrees of freedom:** a plane body has three coordinates ($\xi$, $\theta$, $\varphi$ describe them: the first two fix $C$, the third the orientation). The taut, inextensible string wound without slip gives one relation among their rates, which integrates into a relation among the coordinates themselves: **two degrees of freedom**, $\xi$ and $\theta$, as the statement says.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the yo-yo | $m$ | kg |
+| Radius of the outer disks | $R$ | m |
+| Radius of the inner cylinder (string) | $a$ | m |
+| Moment of inertia about the spin axis (statement) | $mR^2/2$ | kg m$^2$ |
+| Length of the straight part of the string | $\xi$ | m |
+| Angle of the string from the downward vertical | $\theta$ | rad |
+| Tension of the string (unknown) | $F \ge 0$ | N |
+| Gravity | $g$, along $-\mathbf j_0$ | m/s$^2$ |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb39-rot-theta.svg]]
+
+> [!derivation] Basis of the string: rotation by theta about k0
+> **Law:** simple rotation about the third axis; right-hand rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.4; Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]
+>
+> View of the plane of the figure with $\mathbf k_0$ out of the paper (⊙): a positive $\theta$ turns counterclockwise. $\mathbf i_1$ is $\mathbf i_0$ turned by $\theta$: its triangle has the hypotenuse 1, the adjacent leg along $\mathbf i_0$ (cosine of $\theta$) and the opposite leg along $\mathbf j_0$ (sine). $\mathbf j_1$ is $\mathbf j_0$ turned by $\theta$: adjacent leg along $\mathbf j_0$ (cosine), opposite leg along minus $\mathbf i_0$ (sine): the counterclockwise turn carries the tip of $\mathbf j_0$ to the left, which is the minus sign. The unit vector along the string, minus $\mathbf j_1$, then has the components sine of $\theta$ to the right and cosine of $\theta$ downwards, as in the figure.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0, \qquad \mathbf j_1 = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0 \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_1] &= \begin{bmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_0$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & \cos\theta\sin\theta - \sin\theta\cos\theta & 0 \cr \sin\theta\cos\theta - \cos\theta\sin\theta & \sin^2\theta + \cos^2\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf j_0 &= \sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf j_1 \quad &\text{(second row: the inverse is the transpose)} \\
+> \dot{\mathbf i}_1 &= \dot\theta\,\mathbf k_0\times\mathbf i_1 = \dot\theta\,\mathbf j_1, \qquad \dot{\mathbf j}_1 = \dot\theta\,\mathbf k_0\times\mathbf j_1 = -\dot\theta\,\mathbf i_1 \quad &\text{(Poisson, with $\boldsymbol\omega_{10} = \dot\theta\,\mathbf k_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_1 = \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0, \qquad \mathbf j_1 = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0, \qquad \boldsymbol\omega_{10} = \dot\theta\,\mathbf k_0}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** with $\theta$ zero the string hangs vertically and $\mathcal B_1$ coincides with $\mathcal B_0$.
+
+![[attachments/EM-SOL/rb39-position.svg]]
+
+> [!derivation] Part (a): position, velocity and acceleration of C
+> **Law:** position as a sum of segments; derivative of a vector written in a moving basis; Poisson's formula; product rule
+> **Source:** Notes.pdf, Eq. 9.4; Notes.pdf, Eq. 2.6; [Lecture 7, Slide 6]
+>
+> The straight string runs from $O$ to $T$ along minus $\mathbf j_1$ with length $\xi$; the radius from $T$ to $C$ is normal to the string (the string is tangent to the inner cylinder at $T$) and points along minus $\mathbf i_1$. The triangle $OTC$ has its right angle at $T$, legs $\xi$ and $a$, and hypotenuse $OC$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^C &= \overrightarrow{OT} + \overrightarrow{TC} = -\xi\,\mathbf j_1 - a\,\mathbf i_1 \quad &\text{(sum of segments)} \\
+> &= \left(\xi\sin\theta - a\cos\theta\right)\mathbf i_0 + \left(-\xi\cos\theta - a\sin\theta\right)\mathbf j_0 \quad &\text{(substitute $\mathbf i_1$, $\mathbf j_1$ from the previous box)} \\
+> \mathbf v_0^C &= -\dot\xi\,\mathbf j_1 - \xi\,\dot{\mathbf j}_1 - a\,\dot{\mathbf i}_1 = -\dot\xi\,\mathbf j_1 + \xi\dot\theta\,\mathbf i_1 - a\dot\theta\,\mathbf j_1 \quad &\text{(product rule; Poisson; $a$ constant)} \\
+> &= \xi\dot\theta\,\mathbf i_1 - \left(\dot\xi + a\dot\theta\right)\mathbf j_1 \quad &\text{(collect)} \\
+> \mathbf a_0^C &= \left(\dot\xi\dot\theta + \xi\ddot\theta\right)\mathbf i_1 + \xi\dot\theta\,\dot{\mathbf i}_1 - \left(\ddot\xi + a\ddot\theta\right)\mathbf j_1 - \left(\dot\xi + a\dot\theta\right)\dot{\mathbf j}_1 \quad &\text{(product rule on each term)} \\
+> &= \left(\dot\xi\dot\theta + \xi\ddot\theta\right)\mathbf i_1 + \xi\dot\theta^2\,\mathbf j_1 - \left(\ddot\xi + a\ddot\theta\right)\mathbf j_1 + \left(\dot\xi + a\dot\theta\right)\dot\theta\,\mathbf i_1 \quad &\text{(Poisson)} \\
+> &= \left(\xi\ddot\theta + 2\dot\xi\dot\theta + a\dot\theta^2\right)\mathbf i_1 + \left(\xi\dot\theta^2 - \ddot\xi - a\ddot\theta\right)\mathbf j_1 \quad &\text{(collect)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^C = -a\,\mathbf i_1 - \xi\,\mathbf j_1, \quad \mathbf v_0^C = \xi\dot\theta\,\mathbf i_1 - \left(\dot\xi + a\dot\theta\right)\mathbf j_1, \quad \mathbf a_0^C = \left(\xi\ddot\theta + 2\dot\xi\dot\theta + a\dot\theta^2\right)\mathbf i_1 + \left(\xi\dot\theta^2 - \ddot\xi - a\ddot\theta\right)\mathbf j_1}$$
+>
+> **Units:** $[\mathrm L]$; $[\mathrm L][\mathrm{T^{-1}}]$; $[\mathrm L][\mathrm{T^{-2}}]$ in every term
+> **Meaning:** along the string ($\mathbf j_1$) the term in the square of the rate of $\theta$ is the centripetal part (towards $O$) and the second rate of $\xi$ the unwinding; normal to it, the term in twice the product of the rates is the Coriolis-type term of a length that changes while it turns.
+
+> [!derivation] Part (a): string without slip on the inner cylinder; angular velocity and acceleration
+> **Law:** velocity field of the rigid body; rolling without slip (equal velocities of the two points in contact); integration with Barrow's rule
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 13.2; Notes.pdf, Sec. 13.2
+>
+> The string point that touches the cylinder at $T$ is at the fixed arc length $\xi$ from $O$ along a straight string that turns about $O$ with $\boldsymbol\omega_{10}$; since the string is inextensible and fixed at $O$, that material point does not slide along the string, so its position is $\xi$ times minus $\mathbf j_1$ with $\xi$ frozen. The yo-yo point at $T$ is $C$ plus $a\,\mathbf i_1$. With no slip both velocities are equal. The angular velocity of $b$ is the rate of $\varphi$ times $\mathbf k_0$.
+>
+> $$\begin{aligned}
+> \mathbf v_0^{T(\text{string})} &= -\xi\,\dot{\mathbf j}_1 = \xi\dot\theta\,\mathbf i_1 \quad &\text{(arc length of the material point frozen; Poisson)} \\
+> \mathbf v_0^{T(b)} &= \mathbf v_0^C + \dot\varphi\,\mathbf k_0\times a\,\mathbf i_1 = \xi\dot\theta\,\mathbf i_1 - \left(\dot\xi + a\dot\theta\right)\mathbf j_1 + a\dot\varphi\,\mathbf j_1 \quad &\text{(velocity field from $C$, Eq. 9.3; $\mathbf k_0\times\mathbf i_1 = \mathbf j_1$)} \\
+> \mathbf v_0^{T(b)} - \mathbf v_0^{T(\text{string})} &= \left(a\dot\varphi - \dot\xi - a\dot\theta\right)\mathbf j_1 = \mathbf 0 \quad &\text{(no slip, Eq. 13.2)} \\
+> \dot\varphi &= \dot\theta + \frac{\dot\xi}{a} \quad &\text{(divide by $a$)} \\
+> \int_{0}^{t}\dot\varphi\,dt' &= \int_0^t\dot\theta\,dt' + \frac1a\int_0^t\dot\xi\,dt' \;\Rightarrow\; \left[\varphi\right]_0^t = \left[\theta\right]_0^t + \frac1a\left[\xi\right]_0^t \quad &\text{(antiderivatives; Barrow's rule)} \\
+> \varphi - \varphi_0 &= \theta - \theta_0 + \frac{\xi - \xi_0}{a} \quad &\text{(holonomic: a relation among coordinates)} \\
+> \boldsymbol\alpha_{b0} &= \frac{d}{dt}\left[\left(\dot\theta + \frac{\dot\xi}{a}\right)\mathbf k_0\right] = \left(\ddot\theta + \frac{\ddot\xi}{a}\right)\mathbf k_0 \quad &\text{($\mathbf k_0$ constant)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{b0} = \left(\dot\theta + \frac{\dot\xi}{a}\right)\mathbf k_0, \qquad \boldsymbol\alpha_{b0} = \left(\ddot\theta + \frac{\ddot\xi}{a}\right)\mathbf k_0}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ and $[\mathrm L\,\mathrm T^{-1}]/[\mathrm L]$; $[\mathrm{T^{-2}}]$
+> **Meaning:** with the string vertical and fixed ($\theta$ constant), a growing $\xi$ (the yo-yo falls) makes the rate of $\varphi$ positive: the yo-yo spins counterclockwise, as a reel unwinding a string held on its right-hand side does. The yo-yo point at $T$ is not at rest: it moves with the string, normal to it.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Centre of mass and moment of inertia about the spin axis
+> **Law:** symmetry of a homogeneous body of revolution; moment of inertia as an area integral in polar coordinates (jacobian $\rho$)
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.5; Notes.pdf, Sec. 10.3; [Lecture 8, Slide 16]
+>
+> The two equal disks and the inner cylinder are coaxial and symmetric about the mid-plane, so $C$ is the centre of mass and $\mathbf k_0$ (the spin axis) is a principal axis: the products of inertia with $\mathbf k_0$ vanish. The statement gives the moment about the spin axis; the value is the one of the two disks alone (inner cylinder of negligible mass), each of mass one half of $m$ and surface density $\sigma$ equal to $m/(2\pi R^2)$, which the integral checks.
+>
+> $$\begin{aligned}
+> I_{\text{one disk}} &= \sigma\int_0^{2\pi}\int_0^R\rho^2\,\rho\,d\rho\,d\chi = \sigma\left[\chi\right]_0^{2\pi}\left[\frac{\rho^4}{4}\right]_0^R \quad &\text{(Eq. 10.11; separable integral; antiderivatives)} \\
+> &= \sigma\cdot 2\pi\cdot\frac{R^4}{4} = \frac{m}{2\pi R^2}\cdot\frac{\pi R^4}{2} = \frac{mR^2}{4} \quad &\text{(Barrow's rule; value of $\sigma$)} \\
+> I &= 2\,I_{\text{one disk}} = \frac{mR^2}{2} \quad &\text{(the two disks share the axis)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G = \mathbf r_0^C, \qquad I = \frac{mR^2}{2}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the datum of the statement; a massive inner cylinder would lower the value, since its mass sits closer to the axis.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Momentum, angular momentum about C and energies
+> **Law:** linear momentum from the centre of mass; angular momentum about $G$ of a body turning about a principal axis; kinetic energy about $G$; potential of the weight
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 12.34
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= m\,\mathbf v_0^C = m\xi\dot\theta\,\mathbf i_1 - m\left(\dot\xi + a\dot\theta\right)\mathbf j_1 \quad &\text{(Eq. 11.3)} \\
+> \mathbf H_C &= I\,\dot\varphi\,\mathbf k_0 = \frac{mR^2}{2}\left(\dot\theta + \frac{\dot\xi}{a}\right)\mathbf k_0 \quad &\text{(Eq. 11.12; principal axis $\mathbf k_0$)} \\
+> T_0 &= \frac12\,m\left(v_0^C\right)^2 + \frac12\,I\dot\varphi^2 = \frac m2\left[\xi^2\dot\theta^2 + \left(\dot\xi + a\dot\theta\right)^2\right] + \frac{mR^2}{4}\left(\dot\theta + \frac{\dot\xi}{a}\right)^2 \quad &\text{(Eq. 11.31; $\mathbf i_1$ and $\mathbf j_1$ orthonormal)} \\
+> V_0 &= m\,g\,\mathbf r_0^C\cdot\mathbf j_0 = -m\,g\left(\xi\cos\theta + a\sin\theta\right) \quad &\text{(Eq. 12.34; height of $C$ from the position box)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_C = \frac{mR^2}{2}\left(\dot\theta + \frac{\dot\xi}{a}\right)\mathbf k_0, \qquad T_0 = \frac m2\left[\xi^2\dot\theta^2 + \left(\dot\xi + a\dot\theta\right)^2\right] + \frac{mR^2}{4}\left(\dot\theta + \frac{\dot\xi}{a}\right)^2, \qquad V_0 = -mg\left(\xi\cos\theta + a\sin\theta\right)}$$
+>
+> **Units:** kg m$^2$/s; J in every term of $T_0$ and $V_0$
+> **Meaning:** the rotational part grows with the square of the ratio $R/a$: for a thin axle most of the energy of a falling yo-yo goes into its spin.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb39-fbd.svg]]
+
+| Force on the yo-yo | Point of application | Expression | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $C$ | $-mg\,\mathbf j_0 = -mg(\sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf j_1)$ | applied |
+| Tension of the string | $T$ (at $a\,\mathbf i_1$ from $C$) | $F\,\mathbf j_1$, along the string towards $O$, with $F \ge 0$ (taut string) | constraint |
+
+> [!derivation] Part (b): resultant force and resultant torque at C
+> **Law:** sum of forces; moment of a force about $C$ by a determinant expanded along the first row
+> **Source:** Notes.pdf, Eq. 12.4; Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 2.6
+>
+> The weight acts at $C$ and has no moment about it. The arm of the tension is $a\,\mathbf i_1$.
+>
+> $$\begin{aligned}
+> \mathbf F &= F\,\mathbf j_1 - mg\left(\sin\theta\,\mathbf i_1 + \cos\theta\,\mathbf j_1\right) = -mg\sin\theta\,\mathbf i_1 + \left(F - mg\cos\theta\right)\mathbf j_1 \quad &\text{(sum by components; $\mathbf j_0$ in $\mathcal B_1$)} \\
+> \mathbf M_C &= a\,\mathbf i_1\times F\,\mathbf j_1 = \begin{vmatrix} \mathbf i_1 & \mathbf j_1 & \mathbf k_0 \cr a & 0 & 0 \cr 0 & F & 0 \end{vmatrix} = a\,F\,\mathbf k_0 \quad &\text{(expand along the first row)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F = -mg\sin\theta\,\mathbf i_1 + \left(F - mg\cos\theta\right)\mathbf j_1 \ \text{ at } C, \qquad \mathbf M_C = aF\,\mathbf k_0}$$
+>
+> **Units:** N; m N
+> **Meaning:** the tension pulls up on the right-hand side of the axle: its torque is counterclockwise, the sense in which the yo-yo spins while it falls.
+
+> [!derivation] Part (c): equations of motion
+> **Law:** Newton's second law for the centre of mass; moment equation about the centre of mass
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 4]; [Lecture 10, Slide 5]
+>
+> The pole $C$ is the centre of mass, so Eq. 12.13 has no term in the velocity of the pole; the derivative of the angular momentum is $I$ times the angular acceleration, because $\mathbf k_0$ is fixed.
+>
+> $$\begin{aligned}
+> m\left(\xi\ddot\theta + 2\dot\xi\dot\theta + a\dot\theta^2\right) &= -mg\sin\theta \quad &\text{(force along $\mathbf i_1$)} \\
+> m\left(\xi\dot\theta^2 - \ddot\xi - a\ddot\theta\right) &= F - mg\cos\theta \quad &\text{(force along $\mathbf j_1$)} \\
+> \frac{mR^2}{2}\left(\ddot\theta + \frac{\ddot\xi}{a}\right) &= aF \quad &\text{(moment along $\mathbf k_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\xi\ddot\theta + 2\dot\xi\dot\theta + a\dot\theta^2 + g\sin\theta = 0, \qquad m\left(\ddot\xi + a\ddot\theta - \xi\dot\theta^2\right) = mg\cos\theta - F, \qquad \frac{mR^2}{2a}\left(\ddot\theta + \frac{\ddot\xi}{a}\right) = F}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$ in the first line; N in the second and third
+> **Meaning:** three equations for three unknown functions of time, $\xi$, $\theta$ and the tension $F$ (the rotation is already eliminated by the no-slip relation). Substituting the third into the second leaves two equations for the two coordinates; the motion is valid while $F$ stays non-negative.
+
+> [!derivation] Part (d): first integral of the energy
+> **Law:** power of the forces reduced at $C$; energy theorem; conservation of the mechanical energy
+> **Source:** Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34
+>
+> Justification: the tension acts on the yo-yo point $T$, whose velocity is $\xi$ times the rate of $\theta$ along $\mathbf i_1$ (previous box), normal to the tension: its power is zero, because the string is fixed at $O$ and does not slip. The weight is conservative. The power is computed below with the resultant at $C$ and the equations of part (c) are not needed for it, so the integral holds for any motion with taut string.
+>
+> $$\begin{aligned}
+> \dot W_0 &= \mathbf F\cdot\mathbf v_0^C + \mathbf M_C\cdot\boldsymbol\omega_{b0} \quad &\text{(power reduced at $C$, Eq. 12.29)} \\
+> &= \left(F\,\mathbf j_1 - mg\,\mathbf j_0\right)\cdot\mathbf v_0^C + aF\left(\dot\theta + \frac{\dot\xi}{a}\right) \quad &\text{(part (b); angular velocity)} \\
+> &= -F\left(\dot\xi + a\dot\theta\right) - mg\,\mathbf j_0\cdot\mathbf v_0^C + aF\dot\theta + F\dot\xi \quad &\text{($\mathbf j_1\cdot\mathbf v_0^C$ from part (a))} \\
+> &= -mg\,\frac{d}{dt}\left(\mathbf r_0^C\cdot\mathbf j_0\right) = -\frac{dV_0}{dt} \quad &\text{(the tension terms cancel; $\mathbf j_0$ constant)} \\
+> \frac{dT_0}{dt} &= -\frac{dV_0}{dt} \;\Rightarrow\; \int_0^t\frac{d}{dt'}\left(T_0 + V_0\right)dt' = \left[T_0 + V_0\right]_0^t = 0 \quad &\text{(energy theorem, Eq. 12.30; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac m2\left[\xi^2\dot\theta^2 + \left(\dot\xi + a\dot\theta\right)^2\right] + \frac{mR^2}{4}\left(\dot\theta + \frac{\dot\xi}{a}\right)^2 - mg\left(\xi\cos\theta + a\sin\theta\right) = E_0}$$
+>
+> **Units:** J in every term
+> **Meaning:** $E_0$ is fixed by the initial values of $\xi$, $\theta$ and their rates; the equation holds no second derivatives. The angular momentum about $O$ is not conserved: the tension passes through $O$, but the weight has a moment about it.
+
+#### The yo-yo kept on the vertical (theta fixed at zero)
+
+> [!derivation] Part (e): initial acceleration from rest
+> **Law:** equations of part (c) with the extra constraint; reaction of the ideal guide
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 13.1
+>
+> The extra constraint (a guide that keeps the string vertical) adds a horizontal reaction $H\,\mathbf i_1$ at $C$; with $\theta$ and its rates zero, $\mathcal B_1$ is $\mathcal B_0$. Write $\rho$ for the ratio $R/a$.
+>
+> $$\begin{aligned}
+> 0 &= -mg\cdot 0 + H \;\Rightarrow\; H = 0 \quad &\text{(force along $\mathbf i_1$ with $\theta$ zero: the guide does not act)} \\
+> m\ddot\xi &= mg - F, \qquad F = \frac{mR^2}{2a^2}\,\ddot\xi \quad &\text{(the other two equations with $\theta$ zero)} \\
+> m\ddot\xi\left(1 + \frac{R^2}{2a^2}\right) &= mg \quad &\text{(eliminate $F$)} \\
+> \ddot\xi &= \frac{2a^2 g}{2a^2 + R^2} = \frac{2g}{2 + \rho^2} \quad &\text{(solve; divide numerator and denominator by $a^2$)} \\
+> F &= \frac{mR^2}{2a^2}\cdot\frac{2a^2 g}{2a^2 + R^2} = \frac{mgR^2}{2a^2 + R^2} \quad &\text{(back into the moment equation)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\xi_0 = \frac{2g}{2 + (R/a)^2}, \qquad F = \frac{mg\,(R/a)^2}{2 + (R/a)^2}}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$; N
+> **Meaning:** the acceleration does not depend on the velocity, so it is the same at every instant, at rest or not. It is two thirds of $g$ (0.667 g) for $R$ equal to $a$, one third of $g$ for $R$ twice $a$, one ninth for four times $a$, and decays like twice $g$ over the square of $R/a$ for a large ratio (graph below). The tension stays between one third of $mg$ and $mg$: positive, so the string is indeed taut.
+
+![[attachments/EM-SOL/rb39-graph-accel.svg]]
+
+> [!derivation] Part (f): minimum initial spin to climb back to the origin
+> **Law:** first integral of part (d) with $\theta$ zero; condition of a real rate at the target position
+> **Source:** Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; Notes.pdf, Eq. 13.2
+>
+> With $\theta$ zero, the no-slip relation gives the rate of $\xi$ as $a$ times the rate of $\varphi$; $\xi$ can only decrease if the yo-yo spins clockwise (rate of $\varphi$ negative): it winds the string up. Initially $\xi$ is $2R$ and the spin has magnitude $\Omega_0$; at a later instant the spin has magnitude $\Omega$.
+>
+> $$\begin{aligned}
+> T_0 &= \frac m2\,a^2\dot\varphi^2 + \frac{mR^2}{4}\,\dot\varphi^2 = \frac m4\left(2a^2 + R^2\right)\dot\varphi^2, \qquad V_0 = -mg\,\xi \quad &\text{(part (d) with $\theta$ zero; rate of $\xi$ equal to $a$ times the rate of $\varphi$)} \\
+> \frac m4\left(2a^2 + R^2\right)\Omega^2 - mg\,\xi &= \frac m4\left(2a^2 + R^2\right)\Omega_0^2 - 2mgR \quad &\text{(energy at a later instant and at the start)} \\
+> \Omega^2 &= \Omega_0^2 - \frac{4g\left(2R - \xi\right)}{2a^2 + R^2} \quad &\text{(solve for the square of the spin)} \\
+> \Omega^2\big|_{\xi = 0} &= \Omega_0^2 - \frac{8gR}{2a^2 + R^2} \ge 0 \quad &\text{(the origin is reached only with a real rate there)} \\
+> \Omega_{0,\min} &= \sqrt{\frac{8gR}{R^2 + 2a^2}} \;\approx\; \sqrt{\frac{8g}{R}} \quad &\text{(equality; for $a$ much smaller than $R$, drop $2a^2$ next to $R^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\Omega_{0,\min} = \sqrt{\frac{8gR}{R^2 + 2a^2}} \approx 2\sqrt{\frac{2g}{R}} \quad (a \ll R), \ \text{clockwise}}$$
+>
+> **Units:** $\sqrt{[\mathrm{L\,T^{-2}}][\mathrm L]/[\mathrm L^2]} = [\mathrm{T^{-1}}]$
+> **Meaning:** the climb uses up the kinetic energy at the constant rate of the weight. With $a$ much smaller than $R$, the minimum spin falls like one over the square root of $R$ (graph below): a large yo-yo stores more rotational energy per unit of spin. With the minimum value the yo-yo arrives at the origin with zero spin and then falls again.
+
+![[attachments/EM-SOL/rb39-graph-omega.svg]]
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Kinematics | $\mathbf r^C = -a\,\mathbf i_1 - \xi\,\mathbf j_1$; $\mathbf v^C = \xi\dot\theta\,\mathbf i_1 - (\dot\xi + a\dot\theta)\,\mathbf j_1$; $\mathbf a^C = (\xi\ddot\theta + 2\dot\xi\dot\theta + a\dot\theta^2)\,\mathbf i_1 + (\xi\dot\theta^2 - \ddot\xi - a\ddot\theta)\,\mathbf j_1$; $\boldsymbol\omega = (\dot\theta + \dot\xi/a)\,\mathbf k_0$; $\boldsymbol\alpha = (\ddot\theta + \ddot\xi/a)\,\mathbf k_0$, with $\mathbf i_1 = \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0$, $\mathbf j_1 = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0$ |
+| (b) Forces and reduction at $C$ | weight $-mg\,\mathbf j_0$ at $C$; tension $F\,\mathbf j_1$ at $T$; $\mathbf F = -mg\sin\theta\,\mathbf i_1 + (F - mg\cos\theta)\,\mathbf j_1$, $\mathbf M_C = aF\,\mathbf k_0$ |
+| (c) Equations of motion | $\xi\ddot\theta + 2\dot\xi\dot\theta + a\dot\theta^2 + g\sin\theta = 0$; $m(\ddot\xi + a\ddot\theta - \xi\dot\theta^2) = mg\cos\theta - F$; $\tfrac{mR^2}{2a}(\ddot\theta + \ddot\xi/a) = F$ (unknowns $\xi$, $\theta$, $F$) |
+| (d) First integral | $\tfrac m2[\xi^2\dot\theta^2 + (\dot\xi + a\dot\theta)^2] + \tfrac{mR^2}{4}(\dot\theta + \dot\xi/a)^2 - mg(\xi\cos\theta + a\sin\theta) = E_0$ (the tension does no work) |
+| (e) Initial acceleration with $\theta = 0$ | $\ddot\xi_0 = 2g/(2 + (R/a)^2)$: $2g/3$ at $R/a = 1$, decreasing to zero like $2g\,a^2/R^2$ |
+| (f) Minimum initial spin from $\xi_0 = 2R$ | $\Omega_{0,\min} = \sqrt{8gR/(R^2 + 2a^2)} \approx \sqrt{8g/R}$ for $a \ll R$, clockwise (winding up) |
+
+`Problems.pdf` prints no answer for this problem (see [[Problem Set - Rigid Body Official Key]]), so the results are checked with a second route and limiting cases.
+
+> [!derivation] Check: part (f) from the constant acceleration of part (e)
+> **Law:** integration of a constant acceleration (multiply by the rate and integrate); Barrow's rule
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 12.8
+>
+> With $\theta$ zero the second rate of $\xi$ is the constant $c$ of part (e), whatever the velocity. The product of the rate of $\xi$ and its second rate is the derivative of one half of its square (chain rule).
+>
+> $$\begin{aligned}
+> \int_0^t\ddot\xi\,\dot\xi\,dt' &= \int_0^t c\,\dot\xi\,dt' \;\Rightarrow\; \left[\frac{\dot\xi^2}{2}\right]_0^t = c\left[\xi\right]_0^t \quad &\text{(antiderivatives; Barrow's rule)} \\
+> \dot\xi^2 &= a^2\Omega_0^2 + 2c\left(\xi - 2R\right) \quad &\text{(initial rate of $\xi$ of magnitude $a\Omega_0$; initial $\xi$ equal to $2R$)} \\
+> 0 &\le a^2\Omega_0^2 - 4cR = a^2\Omega_0^2 - \frac{8a^2gR}{2a^2 + R^2} \quad &\text{(at $\xi$ zero; value of $c$)}
+> \end{aligned}$$
+>
+> $$\boxed{\Omega_0^2 \ge \frac{8gR}{R^2 + 2a^2}}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$
+> **Meaning:** the same bound as from the energy: the climbing yo-yo decelerates uniformly, at the rate $c$, and the bound says that it stops exactly at the origin.
+
+**Limiting cases and consistency:**
+
+* **Thin string on the rim.** With $a$ equal to $R$ the acceleration of part (e) is two thirds of $g$, the known value for a uniform disk unwinding from its rim; with $a$ tending to zero it tends to zero: all the work of the weight goes into the spin.
+* **Pendulum limit.** With $\xi$ held constant (no unwinding) and $a$ tending to zero, the first equation of part (c) becomes the simple pendulum of length $\xi$, with $g$ times the sine of $\theta$.
+* **Ceiling.** The model of the statement treats the ceiling as no obstacle. A real yo-yo touches the ceiling when $\xi$ reaches $R$ (top of the disks at $O$); the energy of part (f) shows that this needs only half of the energy, a squared initial spin of $4gR$ over the sum of the square of $R$ and twice the square of $a$.
+* **Dimensions.** Every term of part (c) is an acceleration or a force; every term of the first integral is an energy.
+
+---
+
+## Problem RB-40: Disk on parabolic groove
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** a homogeneous disk $b$ of mass $m$, radius $R$ and centre $G$ rolls without slip inside a fixed cavity whose section is the parabola of the statement (vertex at $O$, depth $3R$, so its rims are at the abscissas plus and minus $2\sqrt3\,R$, where the parabola reaches the height $3R$). The disk stays in contact with the parabola at the point $P$, of abscissa $x_P$. A constant torque $Q\,\mathbf k_0$ acts on the disk through an axle at $G$. Gravity acts downwards. The motion is planar.
+* **Fixed frame:** $S_0\{O; \mathbf i_0, \mathbf j_0, \mathbf k_0\}$ at the vertex of the parabola, $\mathbf i_0$ horizontal to the right, $\mathbf j_0$ up, $\mathbf k_0$ out of the paper (⊙). The cavity is at rest, so the frame is inertial. Read from the figure: the arrow of $Q$, drawn above the disk and pointing to the left, turns counterclockwise, the sense of $\mathbf k_0$; a positive $Q$ is a counterclockwise torque.
+* **Intrinsic basis of the parabola at P:** $\mathcal B_P\{\mathbf e_t, \mathbf e_n, \mathbf k_0\}$, with $\mathbf e_t$ tangent to the parabola in the sense of growing $x$ and $\mathbf e_n$ normal to it, towards the concave side (into the cavity, towards $G$). It is $\mathcal B_0$ turned by the slope angle $\beta$ of the tangent.
+* **Body frame:** $S_b\{G; \mathbf i_b, \mathbf j_b, \mathbf k_0\}$. Read from the figure: $\phi$ is measured at $G$ from the horizontal direction $\mathbf i_0$ to $\mathbf i_b$, counterclockwise.
+* **Part (a), degrees of freedom:** a plane body has three coordinates. Contact with the parabola (Notes.pdf, Eq. 13.1) places $G$ at the distance $R$ from $P$ along the normal: the two coordinates $x_P$ and $\phi$ remain. Rolling without slip adds one relation between their rates, which integrates into $\phi$ as a function of $x_P$ (part (d)): **one degree of freedom**, $x_P$.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the disk, homogeneous | $m$ | kg |
+| Radius of the disk | $R$ | m |
+| Moment of inertia about the normal axis through $G$ (statement) | $mR^2/2$ | kg m$^2$ |
+| Parabola of the cavity | $y = x^2/(4R)$, depth $3R$, rims at $x = \pm 2\sqrt3\,R$ | m |
+| Abscissa of the contact point | $x_P$ | m |
+| Constant torque on the disk | $Q\,\mathbf k_0$ | N m |
+| Friction coefficient | $\mu$ infinite (no slip) | - |
+| Initial state | $x_P = 0$, $\phi = 0$, at rest | m, rad |
+| Gravity | $g$, along $-\mathbf j_0$ | m/s$^2$ |
+| Shorthand | $s = \sqrt{4R^2 + x_P^2}$ | m |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb40-tangent.svg]]
+
+> [!derivation] Part (a): tangent and normal unit vectors at P
+> **Law:** slope of a plane curve; simple rotation about the third axis; chain rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 3.8; Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]
+>
+> The slope of the parabola at $P$ is the derivative of $y$ with respect to $x$ at $x_P$. A tangent step of $2R$ along $\mathbf i_0$ rises by $x_P$ along $\mathbf j_0$: the right triangle has the horizontal leg $2R$ (adjacent to $\beta$), the vertical leg $x_P$ (opposite) and the hypotenuse $s$. View with $\mathbf k_0$ out of the paper (⊙): $\mathbf e_n$ is $\mathbf e_t$ turned counterclockwise by a right angle, so its $\mathbf i_0$ component carries the minus sign (for $x_P$ positive the normal leans to the left, towards the axis of the cavity).
+>
+> $$\begin{aligned}
+> \tan\beta &= \frac{d}{dx}\left(\frac{x^2}{4R}\right)\bigg|_{x_P} = \frac{x_P}{2R}, \qquad \cos\beta = \frac{2R}{s}, \qquad \sin\beta = \frac{x_P}{s} \quad &\text{(derivative; adjacent and opposite legs over the hypotenuse)} \\
+> \mathbf e_t &= \frac{2R\,\mathbf i_0 + x_P\,\mathbf j_0}{s}, \qquad \mathbf e_n = \mathbf k_0\times\mathbf e_t = \frac{-x_P\,\mathbf i_0 + 2R\,\mathbf j_0}{s} \quad &\text{(legs of the triangle; $\mathbf k_0\times\mathbf i_0 = \mathbf j_0$, $\mathbf k_0\times\mathbf j_0 = -\mathbf i_0$)} \\
+> [{}_0R_P] &= \begin{bmatrix} \cos\beta & -\sin\beta & 0 \cr \sin\beta & \cos\beta & 0 \cr 0 & 0 & 1 \end{bmatrix}, \qquad \det[{}_0R_P] = \cos^2\beta + \sin^2\beta = 1 \quad &\text{(columns $\mathbf e_t$, $\mathbf e_n$, $\mathbf k_0$; expand along the third row)} \\
+> [{}_0R_P][{}_0R_P]^T &= \begin{bmatrix} \cos^2\beta + \sin^2\beta & \cos\beta\sin\beta - \sin\beta\cos\beta & 0 \cr \sin\beta\cos\beta - \cos\beta\sin\beta & \sin^2\beta + \cos^2\beta & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf j_0 &= \sin\beta\,\mathbf e_t + \cos\beta\,\mathbf e_n \quad &\text{(second row: the inverse is the transpose)} \\
+> \dot\beta &= \frac{d}{dt}\arctan\frac{x_P}{2R} = \frac{1}{1 + x_P^2/(4R^2)}\cdot\frac{\dot x_P}{2R} = \frac{2R\,\dot x_P}{s^2} \quad &\text{(chain rule)} \\
+> \dot{\mathbf e}_t &= \dot\beta\,\mathbf k_0\times\mathbf e_t = \dot\beta\,\mathbf e_n, \qquad \dot{\mathbf e}_n = \dot\beta\,\mathbf k_0\times\mathbf e_n = -\dot\beta\,\mathbf e_t \quad &\text{(Poisson)} \\
+> \rho_c &= \frac{\left|\dot{\mathbf r}_0^P\right|}{\left|\dot\beta\right|} = \frac{s/(2R)}{2R/s^2} = \frac{s^3}{4R^2} \ge \frac{(2R)^3}{4R^2} = 2R \quad &\text{(radius of curvature: arc rate over turning rate; speed of $P$ from the next box; $s$ smallest at the vertex)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_t = \frac{2R\,\mathbf i_0 + x_P\,\mathbf j_0}{\sqrt{4R^2 + x_P^2}}, \qquad \mathbf e_n = \frac{-x_P\,\mathbf i_0 + 2R\,\mathbf j_0}{\sqrt{4R^2 + x_P^2}}, \qquad \dot\beta = \frac{2R\,\dot x_P}{4R^2 + x_P^2}}$$
+>
+> **Units:** dimensionless; $[\mathrm{L\,T^{-1}}]/[\mathrm{L^2}] = [\mathrm{T^{-1}}]$; $[\mathrm L]$
+> **Meaning:** at the vertex the tangent is $\mathbf i_0$ and the normal $\mathbf j_0$. The parabola is curved most at its vertex, with a radius of curvature of $2R$, larger than the radius of the disk: the disk touches the cavity at one point only, as assumed.
+
+![[attachments/EM-SOL/rb40-rot-phi.svg]]
+
+> [!derivation] Body basis: rotation by phi about k0
+> **Law:** simple rotation about the third axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]
+>
+> View at $G$ with $\mathbf k_0$ out of the paper (⊙). $\mathbf i_b$ is $\mathbf i_0$ turned counterclockwise by $\phi$: adjacent leg along $\mathbf i_0$ (cosine), opposite leg along $\mathbf j_0$ (sine). $\mathbf j_b$: adjacent leg along $\mathbf j_0$ (cosine), opposite leg along minus $\mathbf i_0$ (sine), the counterclockwise turn carrying the tip of $\mathbf j_0$ to the left.
+>
+> $$\begin{aligned}
+> \mathbf i_b &= \cos\phi\,\mathbf i_0 + \sin\phi\,\mathbf j_0, \qquad \mathbf j_b = -\sin\phi\,\mathbf i_0 + \cos\phi\,\mathbf j_0 \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_b] &= \begin{bmatrix} \cos\phi & -\sin\phi & 0 \cr \sin\phi & \cos\phi & 0 \cr 0 & 0 & 1 \end{bmatrix}, \qquad \det[{}_0R_b] = \cos^2\phi + \sin^2\phi = 1 \quad &\text{(columns $\mathbf i_b$, $\mathbf j_b$, $\mathbf k_0$; expand along the third row)} \\
+> [{}_0R_b][{}_0R_b]^T &= \begin{bmatrix} \cos^2\phi + \sin^2\phi & \cos\phi\sin\phi - \sin\phi\cos\phi & 0 \cr \sin\phi\cos\phi - \cos\phi\sin\phi & \sin^2\phi + \cos^2\phi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \boldsymbol\omega_{b0} &= \dot\phi\,\mathbf k_0, \qquad \boldsymbol\alpha_{b0} = \ddot\phi\,\mathbf k_0 \quad &\text{(simple rotation about the fixed $\mathbf k_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_b = \cos\phi\,\mathbf i_0 + \sin\phi\,\mathbf j_0, \qquad \mathbf j_b = -\sin\phi\,\mathbf i_0 + \cos\phi\,\mathbf j_0, \qquad \boldsymbol\omega_{b0} = \dot\phi\,\mathbf k_0}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** $\phi$ is the absolute rotation of the disk; a positive rate of $\phi$ is a counterclockwise spin.
+
+> [!derivation] Part (b): position and velocity of G
+> **Law:** position as a sum of segments; chain rule; derivative of a unit vector of a turning basis (Poisson)
+> **Source:** Notes.pdf, Eq. 9.4; Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 13.1; [Lecture 7, Slide 6]
+>
+> The centre of the disk lies on the normal at the contact point, at the distance $R$ on the concave side.
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= x_P\,\mathbf i_0 + \frac{x_P^2}{4R}\,\mathbf j_0, \qquad \dot{\mathbf r}_0^P = \dot x_P\,\mathbf i_0 + \frac{x_P\dot x_P}{2R}\,\mathbf j_0 = \dot x_P\,\frac{s}{2R}\,\mathbf e_t \quad &\text{(chain rule; $2R\,\mathbf i_0 + x_P\,\mathbf j_0$ is $s\,\mathbf e_t$)} \\
+> \mathbf r_0^G &= \mathbf r_0^P + R\,\mathbf e_n = \left(x_P - \frac{R\,x_P}{s}\right)\mathbf i_0 + \left(\frac{x_P^2}{4R} + \frac{2R^2}{s}\right)\mathbf j_0 \quad &\text{(sum of segments; $\mathbf e_n$ of the previous box)} \\
+> \mathbf v_0^G &= \dot{\mathbf r}_0^P + R\,\dot{\mathbf e}_n = \dot x_P\,\frac{s}{2R}\,\mathbf e_t - R\,\dot\beta\,\mathbf e_t \quad &\text{(derivative of the sum; Poisson)} \\
+> &= \dot x_P\left(\frac{s}{2R} - \frac{2R^2}{s^2}\right)\mathbf e_t \quad &\text{(rate of $\beta$ from the first box)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G = \left(x_P - \frac{R\,x_P}{\sqrt{4R^2 + x_P^2}}\right)\mathbf i_0 + \left(\frac{x_P^2}{4R} + \frac{2R^2}{\sqrt{4R^2 + x_P^2}}\right)\mathbf j_0, \qquad \mathbf v_0^G = \dot x_P\left(\frac{s}{2R} - \frac{2R^2}{s^2}\right)\mathbf e_t, \qquad \boldsymbol\omega_{b0} = \dot\phi\,\mathbf k_0}$$
+>
+> **Units:** $[\mathrm L]$; $[\mathrm{L\,T^{-1}}]$ (the bracket is dimensionless)
+> **Meaning:** $G$ moves parallel to the tangent at $P$. At the vertex the bracket is one half: $G$ is on a curve of radius of curvature $2R$ minus $R$, half that of the parabola, so it moves at half the speed of the contact point.
+
+> [!derivation] Rolling without slip at P
+> **Law:** velocity field of the rigid body; rolling without slipping on a body at rest
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 13.5; Notes.pdf, Sec. 13.2
+>
+> $$\begin{aligned}
+> \mathbf v_0^{P(b)} &= \mathbf v_0^G + \dot\phi\,\mathbf k_0\times\left(-R\,\mathbf e_n\right) = \mathbf v_0^G + R\dot\phi\,\mathbf e_t \quad &\text{(velocity field from $G$, Eq. 9.3; $\mathbf k_0\times\mathbf e_n = -\mathbf e_t$)} \\
+> &= \left[\dot x_P\left(\frac{s}{2R} - \frac{2R^2}{s^2}\right) + R\dot\phi\right]\mathbf e_t = \mathbf 0 \quad &\text{(no slip on the fixed cavity, Eq. 13.5)} \\
+> \dot\phi &= -f(x_P)\,\dot x_P, \qquad f(x_P) = \frac{s}{2R^2} - \frac{2R}{s^2} \quad &\text{(solve for the rate of $\phi$)} \\
+> \mathbf v_0^G &= -R\dot\phi\,\mathbf e_t \quad &\text{(the bracket of the previous box is $R$ times $f$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\phi = -\left(\frac{\sqrt{4R^2 + x_P^2}}{2R^2} - \frac{2R}{4R^2 + x_P^2}\right)\dot x_P, \qquad \mathbf v_0^G = -R\dot\phi\,\mathbf e_t}$$
+>
+> **Units:** $[\mathrm{L^{-1}}][\mathrm{L\,T^{-1}}] = [\mathrm{T^{-1}}]$
+> **Meaning:** $f$ is positive for every $x_P$ (its first term is at least $1/R$ and its second at most $1/(2R)$): moving to the right the disk turns clockwise, and moving to the left counterclockwise. The speed of $G$ is exactly $R$ times the spin.
+
+> [!derivation] Part (d): phi as a function of x_P
+> **Law:** integration of the rolling relation; antiderivatives (the hint, verified by differentiation, and the arctangent); Barrow's rule
+> **Source:** Notes.pdf, Eq. 13.3; Notes.pdf, Eq. 13.5; Problems.pdf, p. 69
+>
+> Integrate from the initial state, $x_P$ and $\phi$ zero, with the substitution $u = x_P(t')$, $du = \dot x_P\,dt'$. Write $A(u)$ for the antiderivative of the hint with $a$ equal to $R$.
+>
+> $$\begin{aligned}
+> \int_0^{\phi}d\phi' &= -\int_0^{x_P}\left(\frac{\sqrt{u^2 + 4R^2}}{2R^2} - \frac{2R}{u^2 + 4R^2}\right)du \quad &\text{(separate; substitution $du = \dot x_P\,dt'$)} \\
+> A(u) &= \frac{u\sqrt{u^2 + 4R^2}}{4R^2} + \ln\left(\sqrt{u^2 + 4R^2} + u\right) \quad &\text{(hint with $a$ equal to $R$)} \\
+> \frac{dA}{du} &= \frac{\sqrt{u^2 + 4R^2}}{4R^2} + \frac{u^2}{4R^2\sqrt{u^2 + 4R^2}} + \frac{1 + u/\sqrt{u^2 + 4R^2}}{\sqrt{u^2 + 4R^2} + u} \quad &\text{(product rule; chain rule)} \\
+> &= \frac{2u^2 + 4R^2}{4R^2\sqrt{u^2 + 4R^2}} + \frac{1}{\sqrt{u^2 + 4R^2}} = \frac{u^2 + 4R^2}{2R^2\sqrt{u^2 + 4R^2}} = \frac{\sqrt{u^2 + 4R^2}}{2R^2} \quad &\text{(common denominators: the hint is right)} \\
+> \int\frac{2R\,du}{u^2 + 4R^2} &= \int\frac{dv}{1 + v^2} = \arctan v = \arctan\frac{u}{2R} \quad &\text{(substitution $v = u/(2R)$, $du = 2R\,dv$)} \\
+> \left[\phi'\right]_0^{\phi} &= -\left[A(u) - \arctan\frac{u}{2R}\right]_0^{x_P} = -\left[\frac{x_P\,s}{4R^2} + \ln\left(s + x_P\right) - \ln 2R - \arctan\frac{x_P}{2R}\right] \quad &\text{(Barrow's rule; $A(0) = \ln 2R$, $\arctan 0 = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\phi(x_P) = -\frac{x_P\sqrt{4R^2 + x_P^2}}{4R^2} - \ln\frac{x_P + \sqrt{4R^2 + x_P^2}}{2R} + \arctan\frac{x_P}{2R}}$$
+>
+> **Units:** dimensionless in every term (the logarithm has a dimensionless argument after Barrow's rule)
+> **Meaning:** $R$ times the first two terms is the arc length of the parabola from $O$ to $P$, and the last term is the slope angle $\beta$: the disk turns clockwise by the arc rolled over $R$, and the turning of the tangent gives back $\beta$ (equal arcs, Eq. 13.3). The function is odd. At the left rim, with $x_P$ equal to minus $2\sqrt3\,R$, it is $2\sqrt3 + \ln(2 + \sqrt3) - \pi/3$, that is 3.734 rad.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Centre of mass and moment of inertia of the disk
+> **Law:** symmetry of the homogeneous disk; moment of inertia as an area integral in polar coordinates (jacobian $\rho$)
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.5; Notes.pdf, Sec. 10.3; [Lecture 8, Slide 16]
+>
+> Polar coordinates $(\rho, \chi)$ about $G$, area element $\rho\,d\rho\,d\chi$, surface density $\sigma$ equal to $m$ over $\pi R^2$. $G$ is the centre of the disk by symmetry, and $\mathbf k_0$ is a principal axis (the disk is symmetric about its plane).
+>
+> $$\begin{aligned}
+> I &= \sigma\int_0^{2\pi}\int_0^R\rho^2\,\rho\,d\rho\,d\chi = \sigma\left[\chi\right]_0^{2\pi}\left[\frac{\rho^4}{4}\right]_0^R \quad &\text{(Eq. 10.11; separable integral; antiderivatives)} \\
+> &= \sigma\cdot 2\pi\cdot\frac{R^4}{4} = \frac{m}{\pi R^2}\cdot\frac{\pi R^4}{2} = \frac{mR^2}{2} \quad &\text{(Barrow's rule; value of $\sigma$)}
+> \end{aligned}$$
+>
+> $$\boxed{I = \frac{mR^2}{2}}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the datum of the statement; the plane motion needs only this component.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Momentum, angular momentum about G and energies
+> **Law:** linear momentum from $G$; angular momentum about $G$ about a principal axis; kinetic energy about $G$; potential of the weight
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 12.34
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= m\,\mathbf v_0^G = -mR\dot\phi\,\mathbf e_t, \qquad \mathbf H_G = \frac{mR^2}{2}\,\dot\phi\,\mathbf k_0 \quad &\text{(Eq. 11.3 with rolling; Eq. 11.12)} \\
+> T_0 &= \frac12\,m\left(R\dot\phi\right)^2 + \frac12\cdot\frac{mR^2}{2}\,\dot\phi^2 = \frac{mR^2}{2}\dot\phi^2 + \frac{mR^2}{4}\dot\phi^2 = \frac34\,mR^2\dot\phi^2 \quad &\text{(Eq. 11.31; speed of $G$ equal to $R$ times the spin)} \\
+> V_0 &= m\,g\,\mathbf r_0^G\cdot\mathbf j_0 = m\,g\left(\frac{x_P^2}{4R} + \frac{2R^2}{s}\right) \quad &\text{(Eq. 12.34; height of $G$ from part (b))}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_G = \frac{mR^2}{2}\dot\phi\,\mathbf k_0, \qquad T_0 = \frac34\,mR^2\dot\phi^2, \qquad V_0 = mg\left(\frac{x_P^2}{4R} + \frac{2R^2}{\sqrt{4R^2 + x_P^2}}\right)}$$
+>
+> **Units:** kg m$^2$/s; J
+> **Meaning:** two thirds of the kinetic energy is in the motion of $G$ and one third in the spin. At the start $G$ is at the height $R$ above $O$; at a rim, at $3.5R$.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb40-fbd.svg]]
+
+| Force on the disk | Point of application | Expression | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $G$ | $-mg\,\mathbf j_0 = -mg(\sin\beta\,\mathbf e_t + \cos\beta\,\mathbf e_n)$ | applied |
+| Torque of the axle | couple on the disk (axle through $G$) | $Q\,\mathbf k_0$ | applied |
+| Normal reaction of the cavity | $P$ | $N\,\mathbf e_n$, with $N \ge 0$ (pushes the disk towards the concave side) | constraint |
+| Friction of the cavity | $P$ | $T_f\,\mathbf e_t$ (unknown: no slip, $\mu$ infinite) | constraint |
+
+> [!derivation] Part (c): resultant force and moment about G
+> **Law:** sum of forces; moment of a force about $G$ by a determinant expanded along the first row; a couple has the same moment about every point
+> **Source:** Notes.pdf, Eq. 12.4; Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 2.6
+>
+> The arm of the contact force from $G$ is minus $R\,\mathbf e_n$; the weight acts at $G$.
+>
+> $$\begin{aligned}
+> \mathbf F &= \left(T_f - mg\sin\beta\right)\mathbf e_t + \left(N - mg\cos\beta\right)\mathbf e_n \quad &\text{(sum by components; $\mathbf j_0$ in $\mathcal B_P$)} \\
+> -R\,\mathbf e_n\times\left(T_f\,\mathbf e_t + N\,\mathbf e_n\right) &= \begin{vmatrix} \mathbf e_t & \mathbf e_n & \mathbf k_0 \cr 0 & -R & 0 \cr T_f & N & 0 \end{vmatrix} = R\,T_f\,\mathbf k_0 \quad &\text{(expand along the first row)} \\
+> \mathbf M_G &= Q\,\mathbf k_0 + R\,T_f\,\mathbf k_0 \quad &\text{(couple plus moment of the contact force)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F = \left(T_f - mg\sin\beta\right)\mathbf e_t + \left(N - mg\cos\beta\right)\mathbf e_n, \qquad \mathbf M_G = \left(Q + R\,T_f\right)\mathbf k_0, \qquad \sin\beta = \frac{x_P}{s}, \ \cos\beta = \frac{2R}{s}}$$
+>
+> **Units:** N; N m
+> **Meaning:** the contact adds two unknowns, $N$ and $T_f$, to the coordinate $x_P$.
+
+> [!derivation] Equations of motion
+> **Law:** Newton's second law for the centre of mass; moment equation about the centre of mass; elimination of the friction
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 4]; [Lecture 10, Slide 5]
+>
+> The pole $G$ is the centre of mass, so Eq. 12.13 has no term in the velocity of the pole. The acceleration of $G$ is the derivative of minus $R$ times the rate of $\phi$ times $\mathbf e_t$ (product rule, Poisson for $\mathbf e_t$).
+>
+> $$\begin{aligned}
+> \mathbf a_0^G &= -R\ddot\phi\,\mathbf e_t - R\dot\phi\,\dot{\mathbf e}_t = -R\ddot\phi\,\mathbf e_t - R\dot\phi\dot\beta\,\mathbf e_n \quad &\text{(product rule; Poisson)} \\
+> -mR\ddot\phi &= T_f - mg\sin\beta \quad &\text{(force along $\mathbf e_t$)} \\
+> -mR\dot\phi\dot\beta &= N - mg\cos\beta \quad &\text{(force along $\mathbf e_n$)} \\
+> \frac{mR^2}{2}\,\ddot\phi &= Q + R\,T_f \quad &\text{(moment along $\mathbf k_0$)} \\
+> \frac{mR^2}{2}\,\ddot\phi &= Q + mgR\sin\beta - mR^2\ddot\phi \quad &\text{(friction from the first force equation)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac32\,mR^2\ddot\phi = Q + mgR\,\frac{x_P}{\sqrt{4R^2 + x_P^2}}, \qquad T_f = mg\sin\beta - mR\ddot\phi, \qquad N = mg\cos\beta - mR\dot\phi\dot\beta}$$
+>
+> **Units:** N m in the first equation; N in the other two
+> **Meaning:** three equations for the three unknowns $x_P$ (with $\phi$ tied to it by part (d)), $T_f$ and $N$. On the right-hand side of the cavity gravity gives a positive (counterclockwise) moment that rolls the disk back to the left; a positive torque does the same everywhere. While the disk moves left the rate of $\phi$ is positive and that of $\beta$ negative, so $N$ exceeds the normal component of the weight.
+
+> [!derivation] Part (e): first-order equation for x_P
+> **Law:** energy theorem with the power of the torque; the contact force does no work (its body point is at rest); Barrow's rule
+> **Source:** Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.34; Notes.pdf, Eq. 13.5
+>
+> The power of the contact force is its dot product with the velocity of the body point $P$, which is zero; the power of the torque is $Q$ times the rate of $\phi$ (statement); the weight derives from $V_0$. Integrate from the initial rest, where $\phi$ is zero and $V_0$ is $mgR$.
+>
+> $$\begin{aligned}
+> \frac{dT_0}{dt} &= Q\dot\phi - \frac{dV_0}{dt} \quad &\text{(energy theorem, Eq. 12.30 per unit time; power Eq. 12.29)} \\
+> \int_0^t\frac{d}{dt'}\left(T_0 + V_0 - Q\phi\right)dt' &= \left[T_0 + V_0 - Q\phi\right]_0^t = 0 \quad &\text{($Q$ constant; antiderivative; Barrow's rule)} \\
+> \frac34\,mR^2\dot\phi^2 + mg\left(\frac{x_P^2}{4R} + \frac{2R^2}{s}\right) - Q\phi &= 0 + mgR - 0 \quad &\text{(values at the start)} \\
+> \frac34\,mR^2 f(x_P)^2\,\dot x_P^2 &= Q\,\phi(x_P) - mg\left(\frac{x_P^2}{4R} + \frac{2R^2}{s} - R\right) \quad &\text{(rate of $\phi$ equal to minus $f$ times the rate of $x_P$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot x_P^2 = \frac{4\left[Q\,\phi(x_P) - mg\left(\dfrac{x_P^2}{4R} + \dfrac{2R^2}{\sqrt{4R^2 + x_P^2}} - R\right)\right]}{3mR^2\left(\dfrac{\sqrt{4R^2 + x_P^2}}{2R^2} - \dfrac{2R}{4R^2 + x_P^2}\right)^2}, \qquad x_P(0) = 0}$$
+>
+> **Units:** numerator J; denominator kg ($f$ is an inverse length); quotient m$^2$/s$^2$
+> **Meaning:** the only unknown is $x_P$, with $\phi(x_P)$ of part (d). The first-order equation is the square root with the sign opposite to $Q$: with $Q$ positive the second rate of $\phi$ starts at $2Q/(3mR^2)$, positive, so $\phi$ grows and $x_P$ decreases (the disk climbs the left-hand side). At $x_P$ zero the right-hand side vanishes; as in any start from rest, the second-order equation selects the motion.
+
+> [!derivation] Part (f): condition to leave the cavity
+> **Law:** the first-order equation of part (e) must keep a positive right-hand side all the way to the rim
+> **Source:** Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; Problems.pdf, p. 69
+>
+> Take $Q$ positive (a negative $Q$ is the mirror image, towards the right-hand rim). The disk moves left; write $z$ for minus $x_P$ over $R$, from 0 to $2\sqrt3$ at the left rim. Because $\phi$ is odd, $\phi(x_P)$ is $\Phi(z)$, the bracket of part (d) evaluated at $z$, which is positive. The disk gets out when the contact point reaches the rim with the right-hand side still positive at every intermediate point.
+>
+> $$\begin{aligned}
+> \Phi(z) &= \frac{z\sqrt{4 + z^2}}{4} + \ln\frac{z + \sqrt{4 + z^2}}{2} - \arctan\frac z2, \qquad Y(z) = \frac{z^2}{4} + \frac{2}{\sqrt{4 + z^2}} - 1 \quad &\text{(part (d) and the height of $G$ over $R$, minus 1, in terms of $z$)} \\
+> Q\,\Phi(z) - mgR\,Y(z) &\gt 0 \;\Leftrightarrow\; \frac{Q}{mgR} \gt \frac{Y(z)}{\Phi(z)} \quad \text{for every } z \in \left(0, 2\sqrt3\right] \quad &\text{(positive kinetic energy; $\Phi$ positive)} \\
+> \Phi\left(2\sqrt3\right) &= \frac{2\sqrt3\cdot 4}{4} + \ln\frac{2\sqrt3 + 4}{2} - \arctan\sqrt3 = 2\sqrt3 + \ln\left(2 + \sqrt3\right) - \frac\pi3 \quad &\text{(at the rim, the square root is 4)} \\
+> Y\left(2\sqrt3\right) &= 3 + \frac12 - 1 = \frac52 \quad &\text{(the rim: $G$ at $3.5R$)} \\
+> Q_c &= \frac{5\,mgR}{2\left(2\sqrt3 + \ln\left(2 + \sqrt3\right) - \pi/3\right)} = \frac{2.5}{3.7339}\,mgR \approx 0.6695\,mgR \quad &\text{(the ratio $Y/\Phi$ grows with $z$, table below: its largest value is at the rim)}
+> \end{aligned}$$
+>
+> $$\boxed{|Q| \gt Q_c = \frac{5\,mgR}{2\left(2\sqrt3 + \ln(2 + \sqrt3) - \pi/3\right)} \approx 0.670\,mgR}$$
+>
+> **Units:** N m on both sides
+> **Meaning:** the work of the torque over the rotation 3.734 rad must exceed the rise of $G$ from $R$ to $3.5R$. With $Q$ exactly $Q_c$ the disk would reach the rim at rest and roll back, because there the moment of the weight, $mgR$ times the sine of 60 degrees, about $0.866\,mgR$, exceeds $Q_c$.
+
+| $z = -x_P/R$ | $\Phi(z)$ (rad) | $Y(z)$ | $Y/\Phi$ |
+| :--- | :--- | :--- | :--- |
+| 0.5 | 0.2602 | 0.0326 | 0.1255 |
+| 1 | 0.5766 | 0.1444 | 0.2505 |
+| 2 | 1.5102 | 0.7071 | 0.4682 |
+| 3 | 2.9161 | 1.8047 | 0.6189 |
+| $2\sqrt3 \approx 3.464$ (rim) | 3.7339 | 2.5000 | 0.6695 |
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom; tangent and normal | one ($x_P$); $\mathbf e_t = (2R\,\mathbf i_0 + x_P\,\mathbf j_0)/\sqrt{4R^2 + x_P^2}$, $\mathbf e_n = (-x_P\,\mathbf i_0 + 2R\,\mathbf j_0)/\sqrt{4R^2 + x_P^2}$ |
+| (b) Kinematics | $\mathbf r^G = \mathbf r^P + R\,\mathbf e_n$ (components in part (b)); $\mathbf v^G = \dot x_P(s/(2R) - 2R^2/s^2)\,\mathbf e_t$; $\boldsymbol\omega = \dot\phi\,\mathbf k_0$; rolling: $\dot\phi = -(s/(2R^2) - 2R/s^2)\,\dot x_P$ |
+| (c) Forces and reduction at $G$ | $-mg\,\mathbf j_0$ at $G$; $N\,\mathbf e_n + T_f\,\mathbf e_t$ at $P$; couple $Q\,\mathbf k_0$; $\mathbf F = (T_f - mg\sin\beta)\,\mathbf e_t + (N - mg\cos\beta)\,\mathbf e_n$, $\mathbf M_G = (Q + RT_f)\,\mathbf k_0$ |
+| (d) $\phi(x_P)$ | $\phi = -\tfrac{x_P s}{4R^2} - \ln\tfrac{x_P + s}{2R} + \arctan\tfrac{x_P}{2R}$ |
+| (e) First-order equation | $\tfrac34 mR^2 f(x_P)^2\,\dot x_P^2 = Q\,\phi(x_P) - mg(\tfrac{x_P^2}{4R} + \tfrac{2R^2}{s} - R)$, $f = s/(2R^2) - 2R/s^2$, $x_P(0) = 0$ |
+| (f) Leaving the cavity | $\lvert Q\rvert > 5mgR/[2(2\sqrt3 + \ln(2 + \sqrt3) - \pi/3)] \approx 0.670\,mgR$ |
+
+`Problems.pdf` prints no answer for this problem (see [[Problem Set - Rigid Body Official Key]]), so the results are checked with a second route and limiting cases.
+
+> [!derivation] Check: the energy equation from the Newton-Euler equations
+> **Law:** the equation of motion multiplied by the rate of $\phi$; chain rule on the height of $G$
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.33
+>
+> $$\begin{aligned}
+> \frac{d}{dx_P}\left(\frac{x_P^2}{4R} + \frac{2R^2}{s}\right) &= \frac{x_P}{2R} - \frac{2R^2 x_P}{s^3} = R\,\frac{x_P}{s}\left(\frac{s}{2R^2} - \frac{2R}{s^2}\right) = R\sin\beta\,f(x_P) \quad &\text{(chain rule on $s$; factor out $R\sin\beta$)} \\
+> \frac{dV_0}{dt} &= mgR\sin\beta\,f\,\dot x_P = -mgR\sin\beta\,\dot\phi \quad &\text{(chain rule; rolling)} \\
+> \frac{d}{dt}\left(\frac34\,mR^2\dot\phi^2\right) &= \frac32\,mR^2\dot\phi\ddot\phi = \left(Q + mgR\sin\beta\right)\dot\phi = Q\dot\phi - \frac{dV_0}{dt} \quad &\text{(chain rule; equation of motion times the rate of $\phi$)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{dT_0}{dt} = Q\dot\phi - \frac{dV_0}{dt}}$$
+>
+> **Units:** W in every term
+> **Meaning:** the Newton-Euler equation gives exactly the power balance used in part (e): the reactions do no work.
+
+**Limiting cases and consistency:**
+
+* **No torque.** With $Q$ zero the disk released at the vertex stays there: the equation of motion has zero right-hand side at $x_P$ zero, and the first-order equation gives no motion. Near the vertex the slope sine is about $x_P/(2R)$ and $\phi$ about minus $x_P/(2R)$, so the equation of motion becomes three halves of $R$ times the second rate of $\phi$ equal to minus $g$ times $\phi$: small oscillations with the squared angular frequency $2g/(3R)$, the value of a disk rolling in a circular track of radius $2R$ (centre path of radius $R$).
+* **Insufficient torque.** The ratio of the table grows continuously from zero at the vertex to 0.6695 at the rim. For $Q$ between zero and $Q_c$ it therefore equals $Q/(mgR)$ at some point short of the rim, where the right-hand side of part (e) vanishes: the disk stops there and rolls back.
+* **Edge of the cavity (extension).** The statement keeps the disk on the parabola; beyond the rim the disk would pivot about the corner, turning a further 60 degrees while $G$ rises from $3.5R$ to $4R$. If it kept rolling round the corner without losing contact, the energy condition along that pivot raises the threshold slightly, to about $0.678\,mgR$ (largest ratio of the potential rise to the rotation, reached with the line from the corner to $G$ at about 43 degrees from the vertical).
+* **Dimensions.** Every term of the energy equation is an energy; $Q_c$ is a multiple of $mgR$.
+
+---
+
+## Problem RB-41: Sail sledge
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** the sledge $b$, a rigid body of mass $m$ with centre of mass $G$ at a negligible height above the ice and moment of inertia $I$ about the vertical axis through $G$, slides on a horizontal sheet of ice on three blades $A$, $B$ and $C$. Each blade slides freely along its own direction and cannot slip across it. The wind acts on the sail at the centre of pressure $P$, at the height $\ell$ above $G$.
+* **Fixed frame:** $S_0\{O; \mathbf i_0, \mathbf j_0, \mathbf k_0\}$ with $\mathbf i_0$ and $\mathbf j_0$ on the ice and $\mathbf k_0$ vertical, up, out of the paper in the top view of the figure (⊙); gravity points into the paper (⊗), along minus $\mathbf k_0$. The ice is at rest, so the frame is inertial. The wind blows along $\mathbf j_0$ with the ground speed $U_\infty$.
+* **Body frame:** $S_b\{G; \mathbf i_b, \mathbf j_b, \mathbf k_0\}$, with $\mathbf i_b$ along the axis of the sledge, from the rear blade $C$ through $G$ towards the front. Read from the figure: $\psi$ is measured at $G$ from the direction of $\mathbf i_0$ to $\mathbf i_b$, counterclockwise in the top view.
+* **Blades (read from the figure):** $C$ lies on the axis behind $G$, and $A$ (on the side of $\mathbf j_b$) and $B$ (on the side of minus $\mathbf j_b$) lie on a line normal to the axis, ahead of $G$. The blades at $A$ and $B$ are parallel to $\mathbf i_b$; the blade at $C$ is turned from $\mathbf i_b$ by $\theta$, counterclockwise in the top view. The opposite reading of $\theta$ (clockwise) would replace $\theta$ by its opposite in parts (b) and (c); parts (e) and (f) use $\theta$ zero and do not change. $\theta$ is a fixed setting of the blade.
+* **Degrees of freedom:** while the three blades stay on the ice, the sledge moves in the plane of the ice: three coordinates $x$, $y$, $\psi$. Each blade gives one condition on the velocities; the conditions at $A$ and $B$ turn out to be the same (blade conditions, below), so there are two independent conditions and **one degree of freedom** remains. For a fixed $\theta$ other than zero the motion is a rotation about a point $I$ fixed on the ice (part (b)), so the two conditions fix $x$ and $y$ as functions of $\psi$: they are integrable for a fixed blade setting.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the sledge | $m$ | kg |
+| Moment of inertia about the vertical axis through $G$ | $I$ | kg m$^2$ |
+| Side of the triangle of blades | $\sqrt3\,\ell$ | m |
+| Height of the centre of pressure above $G$ | $\ell$ | m |
+| Angle of the blade at $C$ from $\mathbf i_b$ | $\theta$ (fixed) | rad |
+| Aerodynamic constants | $b_L$, $b_D$ | kg/m |
+| Ground speed of the wind | $U_\infty$, along $\mathbf j_0$ | m/s |
+| Gravity | $g$, along $-\mathbf k_0$ | m/s$^2$ |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb41-rot-psi.svg]]
+
+> [!derivation] Body basis: rotation by psi about k0
+> **Law:** simple rotation about the third axis; right-hand rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.4; Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]
+>
+> Top view with $\mathbf k_0$ out of the paper (⊙): a positive $\psi$ turns counterclockwise. $\mathbf i_b$: hypotenuse 1, adjacent leg along $\mathbf i_0$ (cosine of $\psi$), opposite leg along $\mathbf j_0$ (sine). $\mathbf j_b$: adjacent leg along $\mathbf j_0$ (cosine), opposite leg along minus $\mathbf i_0$ (sine): the counterclockwise turn carries the tip of $\mathbf j_0$ to the left, which is the minus sign.
+>
+> $$\begin{aligned}
+> \mathbf i_b &= \cos\psi\,\mathbf i_0 + \sin\psi\,\mathbf j_0, \qquad \mathbf j_b = -\sin\psi\,\mathbf i_0 + \cos\psi\,\mathbf j_0 \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_b] &= \begin{bmatrix} \cos\psi & -\sin\psi & 0 \cr \sin\psi & \cos\psi & 0 \cr 0 & 0 & 1 \end{bmatrix}, \qquad \det[{}_0R_b] = 1\cdot\left(\cos^2\psi + \sin^2\psi\right) = 1 \quad &\text{(columns $\mathbf i_b$, $\mathbf j_b$, $\mathbf k_0$; expand along the third row)} \\
+> [{}_0R_b][{}_0R_b]^T &= \begin{bmatrix} \cos^2\psi + \sin^2\psi & \cos\psi\sin\psi - \sin\psi\cos\psi & 0 \cr \sin\psi\cos\psi - \cos\psi\sin\psi & \sin^2\psi + \cos^2\psi & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf i_0 &= \cos\psi\,\mathbf i_b - \sin\psi\,\mathbf j_b, \qquad \mathbf j_0 = \sin\psi\,\mathbf i_b + \cos\psi\,\mathbf j_b \quad &\text{(rows: the inverse is the transpose)} \\
+> \dot{\mathbf i}_b &= \dot\psi\,\mathbf k_0\times\mathbf i_b = \dot\psi\,\mathbf j_b, \qquad \dot{\mathbf j}_b = \dot\psi\,\mathbf k_0\times\mathbf j_b = -\dot\psi\,\mathbf i_b \quad &\text{(Poisson, with $\boldsymbol\omega_{b0} = \dot\psi\,\mathbf k_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_b = \cos\psi\,\mathbf i_0 + \sin\psi\,\mathbf j_0, \qquad \mathbf j_b = -\sin\psi\,\mathbf i_0 + \cos\psi\,\mathbf j_0, \qquad \boldsymbol\omega_{b0} = \dot\psi\,\mathbf k_0}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** with $\psi$ zero the sledge points along $\mathbf i_0$, across the wind.
+
+> [!derivation] Part (a): kinematics of G and of the sledge
+> **Law:** position of the centre of mass in the fixed frame; time derivatives; simple rotation
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 6]
+>
+> $G$ stays at its (negligible) height on the ice; its position is given by the coordinates $x$ and $y$. The components of the velocity of $G$ in $\mathcal B_b$ are called $u$ (forward) and $w$ (sideways); they follow from the rows of the previous box.
+>
+> $$\begin{aligned}
+> \mathbf r_0^G &= x\,\mathbf i_0 + y\,\mathbf j_0, \qquad \mathbf v_0^G = \dot x\,\mathbf i_0 + \dot y\,\mathbf j_0, \qquad \mathbf a_0^G = \ddot x\,\mathbf i_0 + \ddot y\,\mathbf j_0 \quad &\text{($\mathbf i_0$, $\mathbf j_0$ constant)} \\
+> \boldsymbol\omega_{b0} &= \dot\psi\,\mathbf k_0, \qquad \boldsymbol\alpha_{b0} = \ddot\psi\,\mathbf k_0 \quad &\text{(simple rotation; $\mathbf k_0$ constant)} \\
+> u &= \mathbf v_0^G\cdot\mathbf i_b = \dot x\cos\psi + \dot y\sin\psi, \qquad w = \mathbf v_0^G\cdot\mathbf j_b = -\dot x\sin\psi + \dot y\cos\psi \quad &\text{(projections on the body basis)} \\
+> \mathbf a_0^G &= \frac{d}{dt}\left(u\,\mathbf i_b + w\,\mathbf j_b\right) = \left(\dot u - w\dot\psi\right)\mathbf i_b + \left(\dot w + u\dot\psi\right)\mathbf j_b \quad &\text{(product rule; Poisson)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G = x\,\mathbf i_0 + y\,\mathbf j_0, \quad \mathbf v_0^G = \dot x\,\mathbf i_0 + \dot y\,\mathbf j_0, \quad \mathbf a_0^G = \ddot x\,\mathbf i_0 + \ddot y\,\mathbf j_0, \quad \boldsymbol\omega_{b0} = \dot\psi\,\mathbf k_0, \quad \boldsymbol\alpha_{b0} = \ddot\psi\,\mathbf k_0}$$
+>
+> **Units:** $[\mathrm L]$; $[\mathrm{L\,T^{-1}}]$; $[\mathrm{L\,T^{-2}}]$; $[\mathrm{T^{-1}}]$; $[\mathrm{T^{-2}}]$
+> **Meaning:** the body-basis form of the acceleration will be used with the blade conditions, which are written in $\mathcal B_b$.
+
+![[attachments/EM-SOL/rb41-blades.svg]]
+
+> [!derivation] Position of the blades and their directions
+> **Law:** geometry of the equilateral triangle (its centre divides each median in the ratio 2 to 1); simple rotation by theta
+> **Source:** Notes.pdf, Eq. 9.16; Problems.pdf, p. 70
+>
+> The median of the triangle, from $C$ to the midpoint $M$ of $AB$, lies on the axis and has the length of the side times the sine of 60 degrees. $G$ is two thirds of the way from $C$ to $M$. In the right triangle $GMA$ the leg $GM$ is along $\mathbf i_b$, the leg $MA$ along $\mathbf j_b$ (half the side) and the hypotenuse is $GA$. The blade at $C$ is $\mathbf i_b$ turned counterclockwise by $\theta$ (adjacent leg along $\mathbf i_b$, cosine; opposite leg along $\mathbf j_b$, sine); its normal on the ice is $\mathbf k_0$ crossed with it.
+>
+> $$\begin{aligned}
+> CM &= \sqrt3\,\ell\cdot\frac{\sqrt3}{2} = \frac{3\ell}{2}, \qquad GC = \frac23\cdot\frac{3\ell}{2} = \ell, \qquad GM = \frac13\cdot\frac{3\ell}{2} = \frac{\ell}{2}, \qquad MA = \frac{\sqrt3\,\ell}{2} \quad &\text{(median; ratio 2 to 1; half side)} \\
+> GA &= \sqrt{\frac{\ell^2}{4} + \frac{3\ell^2}{4}} = \ell \quad &\text{(Pythagoras in $GMA$: the three blades are at $\ell$ from $G$)} \\
+> \overrightarrow{GA} &= \frac{\ell}{2}\,\mathbf i_b + \frac{\sqrt3\,\ell}{2}\,\mathbf j_b, \qquad \overrightarrow{GB} = \frac{\ell}{2}\,\mathbf i_b - \frac{\sqrt3\,\ell}{2}\,\mathbf j_b, \qquad \overrightarrow{GC} = -\ell\,\mathbf i_b, \qquad \overrightarrow{GP} = \ell\,\mathbf k_0 \quad &\text{(legs; $C$ behind $G$; $P$ above $G$)} \\
+> \mathbf e_C &= \cos\theta\,\mathbf i_b + \sin\theta\,\mathbf j_b, \qquad \mathbf n_C = \mathbf k_0\times\mathbf e_C = -\sin\theta\,\mathbf i_b + \cos\theta\,\mathbf j_b \quad &\text{(blade at $C$ and its normal on the ice)}
+> \end{aligned}$$
+>
+> $$\boxed{\overrightarrow{GA} = \frac{\ell}{2}\,\mathbf i_b + \frac{\sqrt3\,\ell}{2}\,\mathbf j_b, \quad \overrightarrow{GB} = \frac{\ell}{2}\,\mathbf i_b - \frac{\sqrt3\,\ell}{2}\,\mathbf j_b, \quad \overrightarrow{GC} = -\ell\,\mathbf i_b, \quad \mathbf n_C = -\sin\theta\,\mathbf i_b + \cos\theta\,\mathbf j_b}$$
+>
+> **Units:** $[\mathrm L]$; dimensionless
+> **Meaning:** the blades at $A$ and $B$ are $\sqrt3\,\ell$ apart, and they stand $\ell/2$ ahead of $G$; the rear blade is $\ell$ behind it.
+
+> [!derivation] Blade conditions: velocities of the blade points
+> **Law:** velocity field of the rigid body; a blade cannot slip across its own direction
+> **Source:** Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 13.5; Notes.pdf, Sec. 13.2
+>
+> $$\begin{aligned}
+> \mathbf v_0^A &= u\,\mathbf i_b + w\,\mathbf j_b + \dot\psi\,\mathbf k_0\times\left(\frac{\ell}{2}\,\mathbf i_b + \frac{\sqrt3\,\ell}{2}\,\mathbf j_b\right) = \left(u - \frac{\sqrt3\,\ell}{2}\dot\psi\right)\mathbf i_b + \left(w + \frac{\ell}{2}\dot\psi\right)\mathbf j_b \quad &\text{(Eq. 9.3; $\mathbf k_0\times\mathbf i_b = \mathbf j_b$, $\mathbf k_0\times\mathbf j_b = -\mathbf i_b$)} \\
+> \mathbf v_0^B &= \left(u + \frac{\sqrt3\,\ell}{2}\dot\psi\right)\mathbf i_b + \left(w + \frac{\ell}{2}\dot\psi\right)\mathbf j_b \quad &\text{(same with the opposite $\mathbf j_b$ component of the arm)} \\
+> \mathbf v_0^C &= u\,\mathbf i_b + w\,\mathbf j_b + \dot\psi\,\mathbf k_0\times\left(-\ell\,\mathbf i_b\right) = u\,\mathbf i_b + \left(w - \ell\dot\psi\right)\mathbf j_b \quad &\text{(Eq. 9.3)} \\
+> \mathbf v_0^A\cdot\mathbf j_b &= w + \frac{\ell}{2}\dot\psi = 0, \qquad \mathbf v_0^B\cdot\mathbf j_b = w + \frac{\ell}{2}\dot\psi = 0 \quad &\text{(no slip across $A$ and $B$: one and the same condition)} \\
+> \mathbf v_0^C\cdot\mathbf n_C &= -u\sin\theta + \left(w - \ell\dot\psi\right)\cos\theta = 0 \quad &\text{(no slip across $C$)} \\
+> w &= -\frac{\ell}{2}\dot\psi, \qquad u\sin\theta = -\frac{3\ell}{2}\dot\psi\cos\theta \quad &\text{(substitute $w$ in the condition at $C$)}
+> \end{aligned}$$
+>
+> $$\boxed{w = -\frac{\ell}{2}\,\dot\psi, \qquad u = -\frac{3\ell}{2}\,\dot\psi\cot\theta \quad (\theta \neq 0); \qquad \theta = 0:\ \ \dot\psi = 0, \ w = 0, \ u \text{ free}}$$
+>
+> **Units:** $[\mathrm L][\mathrm{T^{-1}}]$ in each term
+> **Meaning:** with the rear blade turned counterclockwise ($\theta$ positive and less than a right angle), forward motion ($u$ positive) needs a negative rate of $\psi$: the sledge turns clockwise, like a vehicle steered by its rear wheel. With $\theta$ zero all blades are parallel: the sledge can only slide straight along $\mathbf i_b$.
+
+> [!derivation] Part (b): instantaneous centre of rotation
+> **Law:** instantaneous axis of rotation of a plane motion; velocity field of the rigid body
+> **Source:** Notes.pdf, Eq. 9.10; Notes.pdf, Eq. 9.3; [Lecture 7, Slide 9]
+>
+> The point $I$ of the plane of the ice with zero velocity is found from $G$ with Eq. 9.10 (the velocity of $G$ is normal to the rotation axis, so the axis meets the ice at $I$).
+>
+> $$\begin{aligned}
+> \overrightarrow{GI} &= \frac{\boldsymbol\omega_{b0}\times\mathbf v_0^G}{\omega_{b0}^2} = \frac{\dot\psi\,\mathbf k_0\times\left(u\,\mathbf i_b + w\,\mathbf j_b\right)}{\dot\psi^2} = \frac{u\,\mathbf j_b - w\,\mathbf i_b}{\dot\psi} \quad &\text{(Eq. 9.10; cross products of the basis)} \\
+> &= \frac{\ell}{2}\,\mathbf i_b - \frac{3\ell}{2}\cot\theta\,\mathbf j_b \quad &\text{(blade conditions)} \\
+> \mathbf v_0^G + \dot\psi\,\mathbf k_0\times\overrightarrow{GI} &= u\,\mathbf i_b + w\,\mathbf j_b + \dot\psi\left(\frac{\ell}{2}\,\mathbf j_b + \frac{3\ell}{2}\cot\theta\,\mathbf i_b\right) = \mathbf 0 \quad &\text{(check with Eq. 9.3: both components cancel)} \\
+> \frac{d}{dt}\left(\mathbf r_0^G + \overrightarrow{GI}\right) &= \mathbf v_0^G + \dot\psi\,\mathbf k_0\times\overrightarrow{GI} = \mathbf 0 \quad &\text{(the components of $\overrightarrow{GI}$ in $\mathcal B_b$ are constant for a fixed $\theta$; Poisson)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_b^I = \overrightarrow{GI} = \frac{\ell}{2}\,\mathbf i_b - \frac{3\ell}{2}\cot\theta\,\mathbf j_b}$$
+>
+> **Units:** $[\mathrm L]$
+> **Meaning:** $I$ is where the normals to the blades meet: on the line of $A$ and $B$ (normal to their blades) and on the normal to the blade at $C$. For $\theta$ positive it lies on the side of minus $\mathbf j_b$, the side towards which the sledge turns when it moves forward. With $\theta$ a right angle it is the midpoint of $AB$; as $\theta$ tends to zero it goes to infinity (pure translation). For a fixed $\theta$ the point $I$ is also fixed on the ice (last row), so $G$ moves on a circle about it.
+
+> [!derivation] Part (c): rates of x and y
+> **Law:** components of the velocity of $G$ in $\mathcal B_0$ from those in $\mathcal B_b$
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 2.6
+>
+> $$\begin{aligned}
+> \mathbf v_0^G &= u\,\mathbf i_b + w\,\mathbf j_b = u\left(\cos\psi\,\mathbf i_0 + \sin\psi\,\mathbf j_0\right) + w\left(-\sin\psi\,\mathbf i_0 + \cos\psi\,\mathbf j_0\right) \quad &\text{(body basis in $\mathcal B_0$)} \\
+> \dot x &= u\cos\psi - w\sin\psi = -\frac{3\ell}{2}\dot\psi\cot\theta\cos\psi + \frac{\ell}{2}\dot\psi\sin\psi \quad &\text{(component along $\mathbf i_0$; blade conditions)} \\
+> \dot y &= u\sin\psi + w\cos\psi = -\frac{3\ell}{2}\dot\psi\cot\theta\sin\psi - \frac{\ell}{2}\dot\psi\cos\psi \quad &\text{(component along $\mathbf j_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot x = \frac{\ell\dot\psi}{2}\left(\sin\psi - 3\cot\theta\cos\psi\right), \qquad \dot y = -\frac{\ell\dot\psi}{2}\left(3\cot\theta\sin\psi + \cos\psi\right)}$$
+>
+> **Units:** $[\mathrm L][\mathrm{T^{-1}}]$
+> **Meaning:** both rates are proportional to the rate of $\psi$: one degree of freedom. The speed of $G$ is the rate of $\psi$ times the distance $GI$, the square root of one plus nine times the square of the cotangent of $\theta$, times $\ell/2$.
+
+### Center of Mass and Inertia Tensor
+
+The statement gives the centre of mass $G$ (at a negligible height above the ice) and the moment of inertia $I$ about the vertical axis through $G$ as data; the shape of the sledge is not given, so there is no integral to set up. For a turning sledge the model also takes $\mathbf k_0$ as a principal axis of inertia at $G$ (no products of inertia between the vertical and the horizontal axes), so the angular momentum about $G$ is vertical; in parts (e) and (f) the sledge does not turn at all and this assumption is not needed.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Momentum, angular momentum about G and kinetic energy
+> **Law:** linear momentum from $G$; angular momentum about $G$ for a rotation about a principal axis; kinetic energy about $G$
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= m\,\mathbf v_0^G = m\left(u\,\mathbf i_b + w\,\mathbf j_b\right), \qquad \mathbf H_G = I\,\dot\psi\,\mathbf k_0 \quad &\text{(Eq. 11.3; Eq. 11.12 with $\mathbf k_0$ principal)} \\
+> T_0 &= \frac12\,m\left(u^2 + w^2\right) + \frac12\,I\dot\psi^2 = \frac12\left[m\,\frac{\ell^2}{4}\left(9\cot^2\theta + 1\right) + I\right]\dot\psi^2 \quad &\text{(Eq. 11.31; blade conditions for $\theta \neq 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf p_0 = m\,\mathbf v_0^G, \qquad \mathbf H_G = I\dot\psi\,\mathbf k_0, \qquad T_0 = \frac12\left(I + m\,\left|GI\right|^2\right)\dot\psi^2, \quad \left|GI\right|^2 = \frac{\ell^2}{4}\left(1 + 9\cot^2\theta\right)}$$
+>
+> **Units:** kg m/s; kg m$^2$/s; J
+> **Meaning:** for a fixed $\theta$ the sledge turns about the fixed point $I$, and its kinetic energy is that of a rotation about $I$ (Steiner's moment about $I$ times one half of the square of the rate of $\psi$).
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb41-fbd.svg]]
+
+| Force on the sledge | Point of application | Expression | Kind |
+| :--- | :--- | :--- | :--- |
+| Weight | $G$ | $-mg\,\mathbf k_0$ | applied |
+| Normal reactions of the ice | $A$, $B$, $C$ | $N_A\,\mathbf k_0$, $N_B\,\mathbf k_0$, $N_C\,\mathbf k_0$, each $\ge 0$ (the ice only pushes) | constraint |
+| Side reactions of the blades at $A$ and $B$ | $A$, $B$ | $Y\,\mathbf j_b$ at each, equal (statement) | constraint |
+| Side reaction of the blade at $C$ | $C$ | $Y_C\,\mathbf n_C = Y_C(-\sin\theta\,\mathbf i_b + \cos\theta\,\mathbf j_b)$ | constraint |
+| Lift | $P$ | $\mathbf L = b_L\,u_b^w\,(\mathbf u_b^w\times\mathbf k_0)$, horizontal, normal to the relative wind | applied |
+| Drag | $P$ | $\mathbf D = b_D\,u_b^w\,\mathbf u_b^w$, along the relative wind | applied |
+
+No blade exerts a force along its own direction (no friction along the blades).
+
+> [!derivation] Part (d): aerodynamic forces at P
+> **Law:** relative velocity of the wind with respect to the sledge; velocity field of the rigid body; magnitudes of the statement
+> **Source:** Notes.pdf, Eq. 9.3; Problems.pdf, p. 70
+>
+> The relative wind at the sail is the wind velocity minus the velocity of the body point $P$. The lift is normal to it in the horizontal plane; of the two normal directions, the one along the relative wind crossed with $\mathbf k_0$ is taken, which is the side for which the statement asks $\mathbf L\cdot\mathbf i_b \ge 0$ in part (e) (the other side is the sail set on the other tack).
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \mathbf v_0^G + \dot\psi\,\mathbf k_0\times\ell\,\mathbf k_0 = \mathbf v_0^G \quad &\text{(Eq. 9.3; $\mathbf k_0\times\mathbf k_0 = \mathbf 0$)} \\
+> \mathbf u_b^w &= U_\infty\,\mathbf j_0 - \mathbf v_0^G = \left(U_\infty\sin\psi - u\right)\mathbf i_b + \left(U_\infty\cos\psi - w\right)\mathbf j_b \quad &\text{(relative velocity; $\mathbf j_0$ in $\mathcal B_b$)} \\
+> \left|\mathbf u_b^w\times\mathbf k_0\right| &= u_b^w, \qquad \mathbf L = b_L\,u_b^w\left(\mathbf u_b^w\times\mathbf k_0\right), \qquad \mathbf D = b_D\,u_b^w\,\mathbf u_b^w \quad &\text{(normal to both; magnitudes $b_L (u_b^w)^2$ and $b_D (u_b^w)^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf L + \mathbf D = u_b^w\left[b_L\left(\mathbf u_b^w\times\mathbf k_0\right) + b_D\,\mathbf u_b^w\right] \ \text{ at } P, \qquad \mathbf u_b^w = U_\infty\,\mathbf j_0 - \mathbf v_0^G}$$
+>
+> **Units:** kg/m times m$^2$/s$^2$: N
+> **Meaning:** the forces depend on the motion of the sledge through the relative wind; at rest the relative wind is the wind itself.
+
+> [!derivation] Part (d): resultant force and moment about G
+> **Law:** sum of forces; moments about $G$ by determinants expanded along the first row
+> **Source:** Notes.pdf, Eq. 12.4; Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 2.6
+>
+> Write $F_{a1}$ and $F_{a2}$ for the components of $\mathbf L + \mathbf D$ along $\mathbf i_b$ and $\mathbf j_b$. Arms from the blade box; the weight acts at $G$.
+>
+> $$\begin{aligned}
+> \mathbf F &= \left(F_{a1} - Y_C\sin\theta\right)\mathbf i_b + \left(F_{a2} + 2Y + Y_C\cos\theta\right)\mathbf j_b + \left(N_A + N_B + N_C - mg\right)\mathbf k_0 \quad &\text{(sum by components)} \\
+> \overrightarrow{GA}\times\left(Y\,\mathbf j_b + N_A\,\mathbf k_0\right) &= \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_0 \cr \ell/2 & \sqrt3\,\ell/2 & 0 \cr 0 & Y & N_A \end{vmatrix} = \frac{\sqrt3\,\ell}{2}N_A\,\mathbf i_b - \frac{\ell}{2}N_A\,\mathbf j_b + \frac{\ell}{2}Y\,\mathbf k_0 \quad &\text{(expand along the first row)} \\
+> \overrightarrow{GB}\times\left(Y\,\mathbf j_b + N_B\,\mathbf k_0\right) &= \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_0 \cr \ell/2 & -\sqrt3\,\ell/2 & 0 \cr 0 & Y & N_B \end{vmatrix} = -\frac{\sqrt3\,\ell}{2}N_B\,\mathbf i_b - \frac{\ell}{2}N_B\,\mathbf j_b + \frac{\ell}{2}Y\,\mathbf k_0 \quad &\text{(expand along the first row)} \\
+> \overrightarrow{GC}\times\left(Y_C\,\mathbf n_C + N_C\,\mathbf k_0\right) &= \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_0 \cr -\ell & 0 & 0 \cr -Y_C\sin\theta & Y_C\cos\theta & N_C \end{vmatrix} = \ell N_C\,\mathbf j_b - \ell Y_C\cos\theta\,\mathbf k_0 \quad &\text{(expand along the first row)} \\
+> \overrightarrow{GP}\times\left(\mathbf L + \mathbf D\right) &= \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_0 \cr 0 & 0 & \ell \cr F_{a1} & F_{a2} & 0 \end{vmatrix} = -\ell F_{a2}\,\mathbf i_b + \ell F_{a1}\,\mathbf j_b \quad &\text{(expand along the first row)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf M_G = \left[\frac{\sqrt3\,\ell}{2}\left(N_A - N_B\right) - \ell F_{a2}\right]\mathbf i_b + \left[\ell N_C + \ell F_{a1} - \frac{\ell}{2}\left(N_A + N_B\right)\right]\mathbf j_b + \ell\left(Y - Y_C\cos\theta\right)\mathbf k_0}$$
+>
+> **Units:** N; N m
+> **Meaning:** the sail force, applied at the height $\ell$, tilts the sledge about horizontal axes; the blades answer with unequal normal reactions. The equal side reactions at $A$ and $B$ (statement) leave five reaction unknowns.
+
+> [!derivation] Equations of motion
+> **Law:** Newton's second law for the centre of mass; moment equation about the centre of mass
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 4]; [Lecture 10, Slide 5]
+>
+> The pole $G$ is the centre of mass, so Eq. 12.13 has no term in the velocity of the pole, even though $G$ accelerates. While the blades stay on the ice the sledge does not tilt, and with $\mathbf k_0$ principal the derivative of the angular momentum about $G$ is $I$ times the second rate of $\psi$ along $\mathbf k_0$.
+>
+> $$\begin{aligned}
+> m\left(\dot u - w\dot\psi\right) &= F_{a1} - Y_C\sin\theta \quad &\text{(force along $\mathbf i_b$)} \\
+> m\left(\dot w + u\dot\psi\right) &= F_{a2} + 2Y + Y_C\cos\theta \quad &\text{(force along $\mathbf j_b$)} \\
+> 0 &= N_A + N_B + N_C - mg \quad &\text{(force along $\mathbf k_0$: no vertical motion)} \\
+> 0 &= \frac{\sqrt3\,\ell}{2}\left(N_A - N_B\right) - \ell F_{a2} \quad &\text{(moment along $\mathbf i_b$: no roll)} \\
+> 0 &= \ell N_C + \ell F_{a1} - \frac{\ell}{2}\left(N_A + N_B\right) \quad &\text{(moment along $\mathbf j_b$: no pitch)} \\
+> I\ddot\psi &= \ell\left(Y - Y_C\cos\theta\right) \quad &\text{(moment along $\mathbf k_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{six equations for } \psi(t),\ Y,\ Y_C,\ N_A,\ N_B,\ N_C, \quad \text{with } u, w \text{ from the blade conditions}}$$
+>
+> **Units:** N in the force equations; N m in the moment equations
+> **Meaning:** six unknowns, the coordinate $\psi$ (which gives $u$ and $w$) and five reactions, for six equations. The motion is valid while the three normal reactions stay non-negative; when one reaches zero the sledge starts to tip.
+
+#### Sledge at psi and theta zero
+
+> [!derivation] Part (e): largest wind speed without tipping, from rest
+> **Law:** equations of motion with $\psi$ and $\theta$ zero; unilateral contact (normal reactions non-negative)
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 13.1
+>
+> With $\theta$ zero the blade conditions give a zero rate of $\psi$ and a zero $w$ (blade box), at every instant, so $\psi$ stays zero and $\mathcal B_b$ is $\mathcal B_0$. At rest the relative wind is the wind, $U_\infty\,\mathbf j_b$; with $b_D$ zero only the lift acts.
+>
+> $$\begin{aligned}
+> \mathbf L &= b_L\,U_\infty\left(U_\infty\,\mathbf j_b\times\mathbf k_0\right) = b_L U_\infty^2\,\mathbf i_b, \qquad F_{a1} = L = b_L U_\infty^2, \quad F_{a2} = 0 \quad &\text{(part (d); $\mathbf j_b\times\mathbf k_0 = \mathbf i_b$: forward, as the statement asks)} \\
+> m\dot u &= L, \qquad 0 = 2Y + Y_C, \qquad 0 = \ell\left(Y - Y_C\right) \;\Rightarrow\; Y = Y_C = 0 \quad &\text{(forces in the plane; moment along $\mathbf k_0$)} \\
+> N_A &= N_B, \qquad \frac{\ell}{2}\left(N_A + N_B\right) = \ell N_C + \ell L \quad &\text{(moments along $\mathbf i_b$ and $\mathbf j_b$)} \\
+> N_A + N_B &= 2N_C + 2L, \qquad 2N_C + 2L + N_C = mg \quad &\text{(multiply by $2/\ell$; vertical force)} \\
+> N_C &= \frac{mg - 2L}{3}, \qquad N_A = N_B = \frac{mg + L}{3} \quad &\text{(solve)} \\
+> N_C \ge 0 &\;\Leftrightarrow\; b_L U_\infty^2 \le \frac{mg}{2} \quad &\text{(the rear blade must stay on the ice)}
+> \end{aligned}$$
+>
+> $$\boxed{U_{\infty,\max} = \sqrt{\frac{mg}{2\,b_L}}}$$
+>
+> **Units:** $\sqrt{\mathrm N/(\mathrm{kg/m})} = \sqrt{\mathrm{m^2/s^2}}$, m/s
+> **Meaning:** the lift pushes the sledge forward, at the height $\ell$ of the sail, and nothing resists it along the blades: the sledge accelerates at $L/m$. Its moment about $G$ pitches the sledge forward, unloading the rear blade $C$ and loading $A$ and $B$; the sledge tips about the line $AB$ when the lift reaches half the weight.
+
+![[attachments/EM-SOL/rb41-wind.svg]]
+
+> [!derivation] Part (f): largest steady speed
+> **Law:** force equation along $\mathbf i_b$ with the relative wind of a moving sledge; steady motion
+> **Source:** Notes.pdf, Eq. 12.8; Problems.pdf, p. 70
+>
+> With $\psi$ and $\theta$ zero the sledge moves along $\mathbf i_0$ with the speed $v$ (zero $w$ and rate of $\psi$). The blades take every force along $\mathbf j_0$; only the forward component matters.
+>
+> $$\begin{aligned}
+> \mathbf u_b^w &= U_\infty\,\mathbf j_0 - v\,\mathbf i_0, \qquad u_b^w = \sqrt{U_\infty^2 + v^2} \quad &\text{(relative wind; Pythagoras)} \\
+> \mathbf u_b^w\times\mathbf k_0 &= U_\infty\left(\mathbf j_0\times\mathbf k_0\right) - v\left(\mathbf i_0\times\mathbf k_0\right) = U_\infty\,\mathbf i_0 + v\,\mathbf j_0 \quad &\text{($\mathbf j_0\times\mathbf k_0 = \mathbf i_0$, $\mathbf i_0\times\mathbf k_0 = -\mathbf j_0$)} \\
+> F_{a1} &= \sqrt{U_\infty^2 + v^2}\left(b_L U_\infty - b_D v\right) \quad &\text{(component of $\mathbf L + \mathbf D$ along $\mathbf i_0$)} \\
+> m\dot v &= \sqrt{U_\infty^2 + v^2}\left(b_L U_\infty - b_D v\right) \quad &\text{(force along $\mathbf i_b$; no blade force along it)} \\
+> \dot v &= 0 \;\Leftrightarrow\; b_L U_\infty - b_D v = 0 \quad &\text{(steady motion; the square root is positive)}
+> \end{aligned}$$
+>
+> $$\boxed{v_{\max} = \frac{b_L}{b_D}\,U_\infty}$$
+>
+> **Units:** dimensionless ratio times m/s
+> **Meaning:** below this speed the forward force is positive and the sledge speeds up; above it, negative: it is the largest speed at which the sledge can travel steadily. It exceeds the wind speed when $b_L$ is larger than $b_D$, as with real ice yachts: the lift, normal to the relative wind, keeps a forward component however fast the sledge goes.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Kinematics | $\mathbf r^G = x\,\mathbf i_0 + y\,\mathbf j_0$, $\mathbf v^G = \dot x\,\mathbf i_0 + \dot y\,\mathbf j_0$, $\mathbf a^G = \ddot x\,\mathbf i_0 + \ddot y\,\mathbf j_0$, $\boldsymbol\omega = \dot\psi\,\mathbf k_0$, $\boldsymbol\alpha = \ddot\psi\,\mathbf k_0$ |
+| (b) Instantaneous centre | $\mathbf r_b^I = \overrightarrow{GI} = \tfrac{\ell}{2}\,\mathbf i_b - \tfrac{3\ell}{2}\cot\theta\,\mathbf j_b$ |
+| (c) Rates of $x$, $y$ | $\dot x = \tfrac{\ell\dot\psi}{2}(\sin\psi - 3\cot\theta\cos\psi)$, $\dot y = -\tfrac{\ell\dot\psi}{2}(3\cot\theta\sin\psi + \cos\psi)$ |
+| (d) Forces | $-mg\,\mathbf k_0$ at $G$; $N_A\mathbf k_0 + Y\mathbf j_b$ at $A$; $N_B\mathbf k_0 + Y\mathbf j_b$ at $B$; $N_C\mathbf k_0 + Y_C\mathbf n_C$ at $C$; $\mathbf L = b_L u_b^w(\mathbf u_b^w\times\mathbf k_0)$ and $\mathbf D = b_D u_b^w\,\mathbf u_b^w$ at $P$, $\mathbf u_b^w = U_\infty\mathbf j_0 - \mathbf v_0^G$ |
+| (e) No tipping from rest | $U_\infty \le \sqrt{mg/(2b_L)}$ (then $N_C = (mg - 2L)/3 \ge 0$) |
+| (f) Largest steady speed | $v_{\max} = b_L U_\infty/b_D$ |
+
+`Problems.pdf` prints no answer for this problem (see [[Problem Set - Rigid Body Official Key]]), so the results are checked with a second route and limiting cases.
+
+> [!derivation] Check: the tipping limit from moments about the line AB
+> **Law:** moment equation about a point of the line $AB$ with the inertia term of an accelerating pole
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 2.6
+>
+> Take the pole at $M$, the midpoint of $AB$, at $\ell/2$ ahead of $G$; at the limit $N_C$ is zero. The sledge does not rotate, so the angular momentum about $M$ is $\overrightarrow{MG}$ crossed with the momentum, whose derivative is $\overrightarrow{MG}$ crossed with $m$ times the acceleration of $G$; $G$ is on the ice, so that acceleration, along $\mathbf i_b$, is parallel to $\overrightarrow{MG}$ and the product vanishes.
+>
+> $$\begin{aligned}
+> \overrightarrow{MG}\times\left(-mg\,\mathbf k_0\right) &= -\frac{\ell}{2}\,\mathbf i_b\times\left(-mg\,\mathbf k_0\right) = -\frac{\ell}{2}\,mg\,\mathbf j_b \quad &\text{(weight at $G$; $\mathbf i_b\times\mathbf k_0 = -\mathbf j_b$)} \\
+> \overrightarrow{MP}\times L\,\mathbf i_b &= \left(-\frac{\ell}{2}\,\mathbf i_b + \ell\,\mathbf k_0\right)\times L\,\mathbf i_b = \ell L\,\mathbf j_b \quad &\text{(lift at $P$; $\mathbf k_0\times\mathbf i_b = \mathbf j_b$)} \\
+> \ell L - \frac{\ell}{2}\,mg &= 0 \;\Rightarrow\; L = \frac{mg}{2} \quad &\text{(the reactions at $A$ and $B$ pass through the line $AB$)}
+> \end{aligned}$$
+>
+> $$\boxed{b_L U_{\infty,\max}^2 = \frac{mg}{2}}$$
+>
+> **Units:** N m before the division by $\ell$
+> **Meaning:** the same limit as part (e): the lever arm of the lift about the tipping line is $\ell$, that of the weight $\ell/2$.
+
+**Limiting cases and consistency:**
+
+* **Blade at C across the axis.** With $\theta$ a right angle the cotangent vanishes: the forward speed is zero and $G$ moves sideways with the rate of $\psi$ times $\ell/2$, the sledge pivoting about the midpoint of $AB$, which is the centre of part (b).
+* **Straight blades.** As $\theta$ tends to zero, $I$ recedes to infinity and the rate of $\psi$ needed for a given forward speed tends to zero: the straight sliding of parts (e) and (f).
+* **No drag.** With $b_D$ zero the forward force of part (f) is positive at every speed: no finite steady speed exists, in agreement with the ratio of part (f).
+* **No lift.** With $b_L$ zero the steady speed is zero: a sledge pushed only by drag cannot sail across the wind, since the drag then has no component along $\mathbf i_0$ at rest and opposes any motion along it.
+* **Dimensions.** $b_L$ times a squared speed is a force; $mg$ over $b_L$ is a squared speed; $b_L/b_D$ is dimensionless.
+
+---
