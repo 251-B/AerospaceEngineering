@@ -5146,3 +5146,619 @@ The exploded view separates the two bodies at the bearing $CD$. The bearing acts
 * **Dimensions.** Every term of the swing equation is a moment (N m); every term of the energy integral is an energy; the reactions are forces and moments.
 
 ---
+
+## Problem RB-20: Pioneer III spacecraft (Yo-yo de-spin)
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** three bodies in free space. The probe, an axisymmetric rigid body of mass $m$, radius $R$ and moment of inertia $I$ about its axis of symmetry, with centre $G$; two yo-yo masses of $m/2$ each, modelled as particles $P$ and $P'$; two massless, inextensible cords, wound on the rim of the probe, attached to it at $H$ and $H'$. No external force acts (gravity negligible).
+* **Plane of the motion:** the spin axis of the probe is normal to the plane of the figure and the masses move in that plane, so the motion is planar.
+* **Inertial frame:** $S_0\{G; \mathcal B_0\}$, with $\mathbf i_0$, $\mathbf j_0$ in the plane of the figure and $\mathbf k_0$ out of the paper (⊙) along the spin axis. Its origin is the position of $G$, which is shown below to stay at rest.
+* **Probe frame:** $S_1\{G; \mathcal B_1\}$, attached to the probe, with $\mathbf i_1$ along $GA$, the radius through the point $A$ of the rim where the mass sat before the release (the axes $x$, $y$ of the figure), and $\mathbf j_1$ normal to it. The angle $\theta$ goes from $\mathbf i_0$ to $\mathbf i_1$ about $\mathbf k_0$; the spin of the statement is the rate of $\theta$, with the initial value $\omega_0$.
+* **Cord basis:** $\mathcal B_2\{\mathbf e_r, \mathbf e_t, \mathbf k_0\}$, with $\mathbf e_r$ along $GT$ (the radius to the point of tangency $T$) and $\mathbf e_t$ tangent to the rim at $T$, counterclockwise. The angle $\phi$ goes from $\mathbf i_1$ to $\mathbf e_r$ about $\mathbf k_0$, measured in the probe, as in the figure.
+* **Senses, read from the figure:** the cord is wound counterclockwise from $A$ over the top towards $H$, the point $T$ moves counterclockwise from $A$ towards $H$, and the straight part of the cord leaves $T$ in the clockwise tangent direction, towards $P$ (the figure, with $T$ at about 70 degrees, puts $P$ at about 1.5 $R$ to the right and 0.5 $R$ up, which the position vector below reproduces). With this winding the cord pulls the rim clockwise, so it slows the probe only if the spin is counterclockwise: the spin is read as counterclockwise (rate of $\theta$ positive). The mirror reading (cord and spin both clockwise) changes the sign of every angle and leaves every magnitude unchanged.
+* **Degrees of freedom:** the planar probe has three coordinates and each particle two (seven); each taut cord leaves its particle on the curve given by its angle of tangency, one condition per cord. **Five degrees of freedom**: the two coordinates of $G$, $\theta$ and the two angles of tangency. Both masses are released at the same instant from diametrically opposite points with equal cords, and the motion considered is the symmetric one, in which $P'$ is the image of $P$ by the half-turn about $G$ (it satisfies every equation below, written once for $P$); then the two angles of tangency are equal to $\phi$, $G$ stays at rest (shown in the next sections) and **two coordinates remain**, $\theta$ and $\phi$.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass of the probe | $m$ | kg |
+| Radius of the probe (rim on which the cords are wound) | $R$ | m |
+| Moment of inertia of the probe about its axis | $I$ | kg m$^2$ |
+| Mass of each yo-yo weight | $m/2$ | kg |
+| Initial spin, desired final spin | $\omega_0$, $\omega_f$ | rad/s |
+| Length of each cord (unknown of part (b)) | $L$ | m |
+| Tension of each cord (unknown of part (c)) | $T_c \ge 0$ | N |
+| Ratio used by the key | $K$, equal to $mR^2/(I + mR^2)$ | - |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb20-bases.svg]]
+
+> [!derivation] Probe basis and cord basis: two rotations about k0
+> **Law:** simple rotations about the third axis; right-hand rule; additivity of angular velocities; Poisson's formula
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 12]
+>
+> View of the plane of the figure with $\mathbf k_0$ out of the paper (⊙): positive angles turn counterclockwise. $\mathbf i_1$ is $\mathbf i_0$ turned by $\theta$: hypotenuse 1, adjacent leg along $\mathbf i_0$ (cosine), opposite leg along $\mathbf j_0$ (sine). $\mathbf j_1$ is $\mathbf j_0$ turned by $\theta$: adjacent leg along $\mathbf j_0$ (cosine); the counterclockwise turn carries the tip of $\mathbf j_0$ to the left, towards minus $\mathbf i_0$, which is the minus sign. The cord basis is the probe basis turned by $\phi$ in the same way.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0, \qquad \mathbf j_1 = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0 \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_1] &= \begin{bmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_0$ in $\mathcal B_0$)} \\
+> \det[{}_0R_1] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_1][{}_0R_1]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & \cos\theta\sin\theta - \sin\theta\cos\theta & 0 \cr \sin\theta\cos\theta - \cos\theta\sin\theta & \sin^2\theta + \cos^2\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \mathbf e_r &= \cos\phi\,\mathbf i_1 + \sin\phi\,\mathbf j_1, \qquad \mathbf e_t = -\sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf j_1 \quad &\text{(same triangles with $\phi$; same matrix with $\phi$ in place of $\theta$)} \\
+> \boldsymbol\omega_{10} &= \dot\theta\,\mathbf k_0, \qquad \boldsymbol\omega_{21} = \dot\phi\,\mathbf k_0, \qquad \boldsymbol\omega_{20} = \boldsymbol\omega_{21} + \boldsymbol\omega_{10} = \left(\dot\theta + \dot\phi\right)\mathbf k_0 \quad &\text{(rates along the common axis; Eq. 3.14)} \\
+> \dot{\mathbf e}_r &= \left(\dot\theta + \dot\phi\right)\mathbf k_0\times\mathbf e_r = \left(\dot\theta + \dot\phi\right)\mathbf e_t, \qquad \dot{\mathbf e}_t = \left(\dot\theta + \dot\phi\right)\mathbf k_0\times\mathbf e_t = -\left(\dot\theta + \dot\phi\right)\mathbf e_r \quad &\text{(Poisson in $S_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_r = \cos\phi\,\mathbf i_1 + \sin\phi\,\mathbf j_1, \quad \mathbf e_t = -\sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf j_1, \quad \dot{\mathbf e}_r = \left(\dot\theta + \dot\phi\right)\mathbf e_t, \quad \dot{\mathbf e}_t = -\left(\dot\theta + \dot\phi\right)\mathbf e_r}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** the absolute angle of the radius to the point of tangency is the sum of $\theta$ and $\phi$, so the cord basis turns with the sum of the two rates.
+
+![[attachments/EM-SOL/rb20-involute.svg]]
+
+> [!derivation] Position, velocity and acceleration of the yo-yo mass P
+> **Law:** position as a sum of segments (taut, inextensible cord leaving the rim tangentially); product rule; Poisson's formula
+> **Source:** Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 9.4; Notes.pdf, Sec. 13.1
+>
+> The cord was wound on the rim from $A$; the free part, from $T$ to $P$, is straight and tangent to the rim at $T$, and its length is the unwound arc from $A$ to $T$, of length $R$ times $\phi$ (inextensible cord). The triangle $GTP$ has its right angle at $T$, the leg $R$ along $\mathbf e_r$, the leg of length $R\phi$ along minus $\mathbf e_t$, and the hypotenuse $GP$. The probe point at $T$ moves with the probe.
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{GT} + \overrightarrow{TP} = R\,\mathbf e_r - R\phi\,\mathbf e_t \quad &\text{(sum of segments; $G$ at rest at the origin)} \\
+> \left|\mathbf r_0^P\right| &= R\sqrt{1 + \phi^2} \quad &\text{(Pythagoras in the triangle $GTP$)} \\
+> \mathbf v_0^P &= R\,\dot{\mathbf e}_r - R\dot\phi\,\mathbf e_t - R\phi\,\dot{\mathbf e}_t \quad &\text{(product rule; $R$ constant)} \\
+> &= R\left(\dot\theta + \dot\phi\right)\mathbf e_t - R\dot\phi\,\mathbf e_t + R\phi\left(\dot\theta + \dot\phi\right)\mathbf e_r = R\phi\left(\dot\theta + \dot\phi\right)\mathbf e_r + R\dot\theta\,\mathbf e_t \quad &\text{(Poisson; collect)} \\
+> \mathbf a_0^P &= R\left[\dot\phi\left(\dot\theta + \dot\phi\right) + \phi\left(\ddot\theta + \ddot\phi\right)\right]\mathbf e_r + R\phi\left(\dot\theta + \dot\phi\right)\dot{\mathbf e}_r + R\ddot\theta\,\mathbf e_t + R\dot\theta\,\dot{\mathbf e}_t \quad &\text{(product rule on each term)} \\
+> &= R\left[\left(\dot\phi - \dot\theta\right)\left(\dot\theta + \dot\phi\right) + \phi\left(\ddot\theta + \ddot\phi\right)\right]\mathbf e_r + R\left[\phi\left(\dot\theta + \dot\phi\right)^2 + \ddot\theta\right]\mathbf e_t \quad &\text{(Poisson; collect)} \\
+> \mathbf v_0^{T(\text{probe})} &= \dot\theta\,\mathbf k_0\times R\,\mathbf e_r = R\dot\theta\,\mathbf e_t \quad &\text{(velocity field of the probe from $G$, Eq. 9.3)} \\
+> \mathbf v_0^P - \mathbf v_0^{T(\text{probe})} &= R\phi\left(\dot\theta + \dot\phi\right)\mathbf e_r \quad &\text{(difference: normal to the cord)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = R\,\mathbf e_r - R\phi\,\mathbf e_t, \quad \mathbf v_0^P = R\phi\left(\dot\theta + \dot\phi\right)\mathbf e_r + R\dot\theta\,\mathbf e_t, \quad \mathbf a_0^P = R\left[\left(\dot\phi - \dot\theta\right)\left(\dot\theta + \dot\phi\right) + \phi\left(\ddot\theta + \ddot\phi\right)\right]\mathbf e_r + R\left[\phi\left(\dot\theta + \dot\phi\right)^2 + \ddot\theta\right]\mathbf e_t}$$
+>
+> **Units:** $[\mathrm L]$; $[\mathrm L][\mathrm{T^{-1}}]$; $[\mathrm L][\mathrm{T^{-2}}]$ in every term
+> **Meaning:** relative to the probe, $P$ moves on the involute of the rim. Along the cord ($\mathbf e_t$) the mass and the probe point at $T$ have the same velocity, as an inextensible cord requires; their relative velocity is normal to the cord. At the release the angle $\phi$ is zero and the velocity of $P$ is the rim velocity, whatever the rate of $\phi$.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Centre of mass of the system and rotational inertia
+> **Law:** definition of the centre of mass of a system; moment of inertia of particles; symmetry of the probe
+> **Source:** Notes.pdf, Eq. 13.11; Notes.pdf, Eq. 10.9; Notes.pdf, Eq. 10.5
+>
+> The probe is axisymmetric: its centre of mass is $G$, on the axis $\mathbf k_0$, which is a principal axis with the moment $I$ (datum). In the symmetric motion the position of $P'$ from $G$ is minus that of $P$. The masses are particles: they have no inertia about their own centre.
+>
+> $$\begin{aligned}
+> \left(m + \frac m2 + \frac m2\right)\mathbf r_0^{C} &= m\,\mathbf r_0^G + \frac m2\left(\mathbf r_0^G + \mathbf r_G^P\right) + \frac m2\left(\mathbf r_0^G - \mathbf r_G^P\right) \quad &\text{(Eq. 13.11 with the three parts)} \\
+> \mathbf r_0^{C} &= \mathbf r_0^G \quad &\text{(the two terms in $\mathbf r_G^P$ cancel; divide by $2m$)} \\
+> I_{\text{masses}}(t = 0) &= \frac m2 R^2 + \frac m2 R^2 = mR^2 \quad &\text{(Eq. 10.9 for two particles at the distance $R$ from the axis)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^{C} = \mathbf r_0^G, \qquad I_{\text{probe}} = I, \qquad I_{\text{masses}}(t = 0) = mR^2}$$
+>
+> **Units:** $[\mathrm L]$; $[\mathrm{M\,L^2}]$
+> **Meaning:** the centre of mass of the whole system is the centre of the probe at every instant of the symmetric motion; before the release the system turns as one body with the moment $I$ plus $mR^2$, the sum that appears in the key.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Momenta and kinetic energy of the system
+> **Law:** linear momentum from the centre of mass; angular momentum of a body about its centre of mass and of a particle about a point; kinetic energy (Koenig) and kinetic energy of a particle
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 13.12
+>
+> The probe turns about its principal axis $\mathbf k_0$ with $\boldsymbol\omega_{10}$; each mass contributes the moment of its momentum about $G$, and $P'$ contributes the same as $P$ (both its position and its velocity are reversed).
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= 2m\,\mathbf v_0^{C} = 2m\,\mathbf v_0^G \quad &\text{(Eq. 11.3 for the system; previous box)} \\
+> \mathbf r_0^P\times\mathbf v_0^P &= \begin{vmatrix} \mathbf e_r & \mathbf e_t & \mathbf k_0 \cr R & -R\phi & 0 \cr R\phi\left(\dot\theta + \dot\phi\right) & R\dot\theta & 0 \end{vmatrix} = \left[R^2\dot\theta + R^2\phi^2\left(\dot\theta + \dot\phi\right)\right]\mathbf k_0 \quad &\text{(expand along the first row)} \\
+> \mathbf H_G &= I\dot\theta\,\mathbf k_0 + 2\cdot\frac m2\,\mathbf r_0^P\times\mathbf v_0^P = \left[\left(I + mR^2\right)\dot\theta + mR^2\phi^2\left(\dot\theta + \dot\phi\right)\right]\mathbf k_0 \quad &\text{(Eq. 11.12 for the probe; two equal particle terms)} \\
+> \left(v_0^P\right)^2 &= R^2\phi^2\left(\dot\theta + \dot\phi\right)^2 + R^2\dot\theta^2 \quad &\text{($\mathbf e_r$ and $\mathbf e_t$ orthonormal)} \\
+> T_0 &= \frac12\,I\dot\theta^2 + 2\cdot\frac12\cdot\frac m2\left(v_0^P\right)^2 = \frac12\left(I + mR^2\right)\dot\theta^2 + \frac12\,mR^2\phi^2\left(\dot\theta + \dot\phi\right)^2 \quad &\text{(Eq. 11.31 with $G$ at rest; two particles)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_G = \left[\left(I + mR^2\right)\dot\theta + mR^2\phi^2\left(\dot\theta + \dot\phi\right)\right]\mathbf k_0, \qquad T_0 = \frac12\left(I + mR^2\right)\dot\theta^2 + \frac12\,mR^2\phi^2\left(\dot\theta + \dot\phi\right)^2}$$
+>
+> **Units:** kg m$^2$/s; J
+> **Meaning:** as the cords unwind, the masses move out and their share of the angular momentum grows with the square of $\phi$; since the total does not change (next section), the probe's own share, and so its spin, must decrease.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb20-exploded.svg]]
+
+The exploded view cuts each cord at the probe. A cord is massless and straight between $T$ and $P$, so it transmits the same tension $T_c$ along its own direction to both ends: on the mass it pulls towards $T$, along $\mathbf e_t$; on the probe it pulls at $T$ towards $P$, along minus $\mathbf e_t$. For the image cord, $T'$ is minus $R\,\mathbf e_r$ and the cord direction is reversed.
+
+| Load | Body | Point | Expression | Kind |
+| :--- | :--- | :--- | :--- | :--- |
+| Cord 1 on the probe | probe | $T$, at $R\,\mathbf e_r$ from $G$ | $-T_c\,\mathbf e_t$ | constraint (pair) |
+| Cord 2 on the probe | probe | $T'$, at $-R\,\mathbf e_r$ from $G$ | $T_c\,\mathbf e_t$ | constraint (pair) |
+| Cord 1 on the mass | $P$ | $P$ | $T_c\,\mathbf e_t$ | constraint (pair) |
+| Cord 2 on the mass | $P'$ | $P'$ | $-T_c\,\mathbf e_t$ | constraint (pair) |
+| Gravity | all | - | negligible (statement) | - |
+
+> [!derivation] Equations of the probe (force, and moment about its centre G)
+> **Law:** Newton's second law for the centre of mass; moment equation about the centre of mass; moments by determinants expanded along the first row
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.9
+>
+> The pole $G$ is the centre of mass of the probe, so the pole term of Eq. 12.13 vanishes. The probe turns about its fixed principal axis $\mathbf k_0$, so its angular momentum is $I$ times the rate of $\theta$ along $\mathbf k_0$ and its derivative is $I$ times the second rate.
+>
+> $$\begin{aligned}
+> m\,\mathbf a_0^G &= -T_c\,\mathbf e_t + T_c\,\mathbf e_t = \mathbf 0 \quad &\text{(Eq. 12.8; the two cord forces cancel)} \\
+> \mathbf M_G &= R\,\mathbf e_r\times\left(-T_c\,\mathbf e_t\right) + \left(-R\,\mathbf e_r\right)\times T_c\,\mathbf e_t = \begin{vmatrix} \mathbf e_r & \mathbf e_t & \mathbf k_0 \cr R & 0 & 0 \cr 0 & -T_c & 0 \end{vmatrix} + \begin{vmatrix} \mathbf e_r & \mathbf e_t & \mathbf k_0 \cr -R & 0 & 0 \cr 0 & T_c & 0 \end{vmatrix} = -2RT_c\,\mathbf k_0 \quad &\text{(expand along the first row)} \\
+> I\ddot\theta\,\mathbf k_0 &= -2RT_c\,\mathbf k_0 \quad &\text{(Eq. 12.13 about $G$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^G = \mathbf 0, \qquad I\ddot\theta = -2RT_c}$$
+>
+> **Units:** N; N m
+> **Meaning:** the centre of the probe does not accelerate, so with $G$ initially at rest it stays at rest, as assumed in the position vector. Each taut cord pulls the rim clockwise with the arm $R$: the spin decreases while the tension is positive.
+
+> [!derivation] Equations of the yo-yo mass P
+> **Law:** Newton's second law for a particle
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 13.10
+>
+> $$\begin{aligned}
+> \frac m2\,\mathbf a_0^P &= T_c\,\mathbf e_t \quad &\text{(the cord is the only force)} \\
+> \frac m2\,R\left[\left(\dot\phi - \dot\theta\right)\left(\dot\theta + \dot\phi\right) + \phi\left(\ddot\theta + \ddot\phi\right)\right] &= 0 \quad &\text{(component along $\mathbf e_r$; acceleration box)} \\
+> \frac m2\,R\left[\phi\left(\dot\theta + \dot\phi\right)^2 + \ddot\theta\right] &= T_c \quad &\text{(component along $\mathbf e_t$)}
+> \end{aligned}$$
+>
+> $$\boxed{\left(\dot\phi - \dot\theta\right)\left(\dot\theta + \dot\phi\right) + \phi\left(\ddot\theta + \ddot\phi\right) = 0, \qquad T_c = \frac{mR}{2}\left[\phi\left(\dot\theta + \dot\phi\right)^2 + \ddot\theta\right]}$$
+>
+> **Units:** $[\mathrm{T^{-2}}]$ in the first equation; N in the second
+> **Meaning:** with the probe equation, three equations for three unknowns ($\theta$, $\phi$ and $T_c$); the equations of $P'$ are the same, by the symmetry.
+
+> [!derivation] Combination: conservation of the angular momentum about G
+> **Law:** elimination of the tension between the probe and the mass; product rule
+> **Source:** Notes.pdf, Sec. 13.4; Notes.pdf, Eq. 13.12; Notes.pdf, Eq. 12.13
+>
+> Write $\Omega$ for the sum of the rates of $\theta$ and $\phi$ (the absolute rate of the cord basis). The radial equation of the mass, multiplied by $\phi$, gives the square of $\phi$ times the rate of $\Omega$.
+>
+> $$\begin{aligned}
+> I\ddot\theta &= -2R\cdot\frac{mR}{2}\left(\phi\,\Omega^2 + \ddot\theta\right) \;\Rightarrow\; \left(I + mR^2\right)\ddot\theta + mR^2\phi\,\Omega^2 = 0 \quad &\text{(probe equation with the tangential equation of the mass)} \\
+> \phi^2\dot\Omega &= -\phi\left(\dot\phi - \dot\theta\right)\Omega \quad &\text{(radial equation of the mass times $\phi$)} \\
+> \frac{d}{dt}\left(\phi^2\Omega\right) &= 2\phi\dot\phi\,\Omega + \phi^2\dot\Omega = 2\phi\dot\phi\,\Omega - \phi\dot\phi\,\Omega + \phi\dot\theta\,\Omega = \phi\,\Omega^2 \quad &\text{(product rule; previous row; collect)} \\
+> \frac{d}{dt}\left[\left(I + mR^2\right)\dot\theta + mR^2\phi^2\Omega\right] &= \left(I + mR^2\right)\ddot\theta + mR^2\phi\,\Omega^2 = 0 \quad &\text{(first row)} \\
+> \left[H_G\right]_0^t &= 0 \;\Rightarrow\; H_G(t) = H_G(0) \quad &\text{(integrate from 0 to $t$; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\left(I + mR^2\right)\dot\theta + mR^2\phi^2\left(\dot\theta + \dot\phi\right) = H_G(0)}$$
+>
+> **Units:** kg m$^2$/s
+> **Meaning:** the bracket is the angular momentum of the previous section: the equations of the parts reproduce the conservation that Eq. 13.12 gives directly for the whole system, on which no external moment acts and whose centre of mass $G$ is at rest (no pole term).
+
+> [!derivation] Combination: conservation of the kinetic energy
+> **Law:** probe equation times the rate of $\theta$ plus the mass equations; product rule; Barrow's rule
+> **Source:** Notes.pdf, Eq. 12.30; Notes.pdf, Sec. 13.4
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\phi^2\Omega^2\right) &= 2\phi\dot\phi\,\Omega^2 + 2\phi^2\Omega\dot\Omega = 2\phi\dot\phi\,\Omega^2 - 2\phi\left(\dot\phi - \dot\theta\right)\Omega^2 = 2\phi\dot\theta\,\Omega^2 \quad &\text{(product rule; radial equation times $\phi$)} \\
+> \frac{d}{dt}\left[\left(I + mR^2\right)\dot\theta^2 + mR^2\phi^2\Omega^2\right] &= 2\dot\theta\left[\left(I + mR^2\right)\ddot\theta + mR^2\phi\,\Omega^2\right] = 0 \quad &\text{(chain rule; first row of the previous box)} \\
+> \left[T_0\right]_0^t &= 0 \;\Rightarrow\; T_0(t) = T_0(0) \quad &\text{(integrate; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\left(I + mR^2\right)\dot\theta^2 + mR^2\phi^2\left(\dot\theta + \dot\phi\right)^2 = 2\,T_0(0)}$$
+>
+> **Units:** J
+> **Meaning:** the cords do no net work: they only transfer energy from the spin of the probe to the motion of the masses (checked with the power of the pairs in Answers and Checks).
+
+> [!derivation] Part (a): initial values and the spin of the probe as a function of time
+> **Law:** the two first integrals with the state at the release; solution of two algebraic equations; Barrow's rule
+> **Source:** Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 13.12; Notes.pdf, Eq. 2.6
+>
+> At the release ($t$ zero) the masses ride on the rim: $\phi$ is zero and the velocity of $P$, from the velocity box with $\phi$ zero, is $R$ times the initial spin along $\mathbf e_t$, whatever the rate of $\phi$. The integrals are evaluated with that velocity. Write $\omega$ for the rate of $\theta$ and $c$ for the ratio of $I + mR^2$ to $mR^2$ (the inverse of $K$).
+>
+> $$\begin{aligned}
+> H_G(0) &= I\omega_0 + m\,R\cdot R\omega_0 = \left(I + mR^2\right)\omega_0, \qquad 2T_0(0) = I\omega_0^2 + m\left(R\omega_0\right)^2 = \left(I + mR^2\right)\omega_0^2 \quad &\text{(state at the release)} \\
+> \phi^2\,\Omega &= c\left(\omega_0 - \omega\right), \qquad \phi^2\,\Omega^2 = c\left(\omega_0^2 - \omega^2\right) = c\left(\omega_0 - \omega\right)\left(\omega_0 + \omega\right) \quad &\text{(the two integrals divided by $mR^2$)} \\
+> \Omega &= \omega_0 + \omega \;\Rightarrow\; \dot\phi = \Omega - \omega = \omega_0 \quad &\text{(divide the second by the first, allowed while the spin differs from $\omega_0$)} \\
+> \int_0^t\dot\phi\,dt' &= \int_0^t\omega_0\,dt' \;\Rightarrow\; \left[\phi\right]_0^t = \omega_0\left[t'\right]_0^t \;\Rightarrow\; \phi = \omega_0 t \quad &\text{(antiderivatives; Barrow's rule; $\phi$ zero at the release)} \\
+> \omega_0^2 t^2\left(\omega_0 + \omega\right) &= c\left(\omega_0 - \omega\right) \quad &\text{(first integral with $\phi$ and $\Omega$)} \\
+> \omega\left(c + \omega_0^2 t^2\right) &= \omega_0\left(c - \omega_0^2 t^2\right) \;\Rightarrow\; \omega = \omega_0\,\frac{c - \omega_0^2 t^2}{c + \omega_0^2 t^2} = \omega_0\,\frac{1 - K\omega_0^2 t^2}{1 + K\omega_0^2 t^2} \quad &\text{(collect the spin; divide numerator and denominator by $c$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\phi = \omega_0, \quad \phi = \omega_0 t, \qquad \omega(t) = \dot\theta = \omega_0\,\frac{1 - K\omega_0^2 t^2}{1 + K\omega_0^2 t^2}, \quad K = \frac{mR^2}{I + mR^2}}$$
+>
+> **Units:** $K\omega_0^2 t^2$ is $[\mathrm{T^{-2}}][\mathrm{T^2}]$, dimensionless; $\omega$ in $[\mathrm{T^{-1}}]$
+> **Meaning:** the cords unwind at the constant relative rate $\omega_0$, from the first instant: the rate of $\phi$ is not continuous at the release, which is allowed because at $\phi$ zero the velocity of the mass does not depend on it. The other root of the division, a spin equal to $\omega_0$ for all time, needs the product of the square of $\phi$ and $\Omega$ to stay zero: either the masses stay on the rim, or the cords wind back with $\phi$ negative; neither is the released motion. The spin falls monotonically; it is zero when the product of $K$ and the square of the time and of $\omega_0$ equals one, and negative (reversed) afterwards.
+
+> [!derivation] Part (a): attitude of the probe and motion of the masses
+> **Law:** integration of the spin with Barrow's rule; derivative of the arctangent (chain rule)
+> **Source:** Notes.pdf, Eq. 2.6
+>
+> The spin is rewritten as twice $\omega_0$ over the denominator, minus $\omega_0$. The derivative of the arctangent of $\sqrt K\,\omega_0 t$ is $\sqrt K\,\omega_0$ over the same denominator (chain rule).
+>
+> $$\begin{aligned}
+> \omega &= \frac{2\omega_0}{1 + K\omega_0^2 t^2} - \omega_0 \quad &\text{(add and subtract one in the fraction)} \\
+> \int_0^t\omega\,dt' &= \left[\frac{2}{\sqrt K}\arctan\left(\sqrt K\,\omega_0 t'\right) - \omega_0 t'\right]_0^t \quad &\text{(antiderivative)} \\
+> \theta(t) - \theta(0) &= \frac{2}{\sqrt K}\arctan\left(\sqrt K\,\omega_0 t\right) - \omega_0 t \quad &\text{(Barrow's rule; the arctangent of zero is zero)} \\
+> \theta + \phi &= \theta(0) + \frac{2}{\sqrt K}\arctan\left(\sqrt K\,\omega_0 t\right) \quad &\text{(absolute angle of the point of tangency, with $\phi$ from part (a))}
+> \end{aligned}$$
+>
+> $$\boxed{\theta(t) = \theta(0) + \frac{2}{\sqrt K}\arctan\left(\sqrt K\,\omega_0 t\right) - \omega_0 t, \qquad \mathbf r_0^P = R\,\mathbf e_r - R\,\omega_0 t\,\mathbf e_t}$$
+>
+> **Units:** radians; m
+> **Meaning:** the point of tangency turns in space at the rate $\Omega$, twice $\omega_0$ over the denominator: it starts at twice $\omega_0$ and decreases towards zero as time grows, so its absolute angle tends to the finite value $\pi$ over $\sqrt K$. When the cords are released, each mass leaves along a straight line with its velocity at that instant, and the probe keeps its final spin, since no torque acts on it any longer.
+
+> [!derivation] Part (b): length of the cord for the final spin
+> **Law:** part (a) at the instant of release of the cords
+> **Source:** Notes.pdf, Eq. 13.12
+>
+> The cords leave the probe when $T$ reaches $H$: the whole cord, of length $L$, is then straight, so the unwound arc $R\phi$ equals $L$; at that instant the spin must be $\omega_f$.
+>
+> $$\begin{aligned}
+> \phi_f &= \frac LR = \omega_0 t_f \quad &\text{(whole cord unwound; part (a))} \\
+> \omega_f &= \omega_0\,\frac{1 - K\phi_f^2}{1 + K\phi_f^2} \;\Rightarrow\; \omega_f + K\phi_f^2\omega_f = \omega_0 - K\phi_f^2\omega_0 \quad &\text{(part (a) at $t_f$; multiply out)} \\
+> K\phi_f^2 &= \frac{\omega_0 - \omega_f}{\omega_0 + \omega_f} \quad &\text{(collect)} \\
+> L^2 &= R^2\phi_f^2 = \frac{R^2}{K}\cdot\frac{\omega_0 - \omega_f}{\omega_0 + \omega_f} = \frac{I + mR^2}{m}\cdot\frac{\omega_0 - \omega_f}{\omega_0 + \omega_f} \quad &\text{(value of $K$)}
+> \end{aligned}$$
+>
+> $$\boxed{L^2 = \frac{\left(I + mR^2\right)\left(\omega_0 - \omega_f\right)}{m\left(\omega_0 + \omega_f\right)}, \qquad t_f = \frac{L}{R\,\omega_0}}$$
+>
+> **Units:** $[\mathrm{M\,L^2}]/[\mathrm M] = [\mathrm{L^2}]$; $[\mathrm L]/([\mathrm L][\mathrm{T^{-1}}]) = [\mathrm T]$
+> **Meaning:** the length does not depend on $\omega_0$ itself, only on the ratio of the two spins. To stop the spin completely the cord must be the square root of the ratio of $I + mR^2$ to $m$; with $I$ equal to $mR^2$ this is $\sqrt 2$ times $R$, about 1.414 $R$. A longer cord reverses the spin.
+
+> [!derivation] Part (c): tension of each cord as a function of time
+> **Law:** probe equation; derivative of the spin of part (a) by the chain rule
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.8
+>
+> Write $u$ for the product of $K$, the square of $\omega_0$ and the square of $t$; its rate is twice the product of $K$, the square of $\omega_0$ and $t$.
+>
+> $$\begin{aligned}
+> \frac{d\omega}{du} &= \omega_0\,\frac{-\left(1 + u\right) - \left(1 - u\right)}{\left(1 + u\right)^2} = -\frac{2\omega_0}{\left(1 + u\right)^2} \quad &\text{(quotient rule)} \\
+> \ddot\theta &= \frac{d\omega}{du}\,\frac{du}{dt} = -\frac{2\omega_0}{\left(1 + u\right)^2}\cdot 2K\omega_0^2 t = -\frac{4K\omega_0^3 t}{\left(1 + K\omega_0^2 t^2\right)^2} \quad &\text{(chain rule)} \\
+> T_c &= -\frac{I\ddot\theta}{2R} = \frac{2KI\omega_0^3 t}{R\left(1 + K\omega_0^2 t^2\right)^2} \quad &\text{(probe equation)} \\
+> \frac{d}{dt}\left[\frac{t}{\left(1 + u\right)^2}\right] &= \frac{\left(1 + u\right) - 4u}{\left(1 + u\right)^3} = 0 \;\Rightarrow\; u = \frac13 \quad &\text{(quotient and chain rules; maximum)} \\
+> T_{c,\max} &= \frac{2KI\omega_0^3}{R}\cdot\frac{1}{\omega_0\sqrt{3K}}\cdot\frac{9}{16} = \frac{3\sqrt3}{8}\,\sqrt K\,\frac{I\omega_0^2}{R} \quad &\text{(time of the maximum; value of the bracket at $u$ one third)}
+> \end{aligned}$$
+>
+> $$\boxed{T_c(t) = \frac{2KI\omega_0^3\,t}{R\left(1 + K\omega_0^2 t^2\right)^2} \quad (0 \le t \le t_f), \qquad T_{c,\max} = \frac{3\sqrt3}{8}\sqrt K\,\frac{I\omega_0^2}{R} \ \text{ at } \ t = \frac{1}{\omega_0\sqrt{3K}}}$$
+>
+> **Units:** $[\mathrm{M\,L^2}][\mathrm{T^{-3}}][\mathrm T]/[\mathrm L] = [\mathrm{M\,L\,T^{-2}}]$, N
+> **Meaning:** the tension starts at zero, is positive for every later time (the cords stay taut, as assumed), peaks and then decays; it vanishes after the release of the cords. With $K$ equal to one half the peak is about 0.459 times the ratio of $I$ times the square of $\omega_0$ to $R$, at $\omega_0 t$ about 0.816 (graph below).
+
+![[attachments/EM-SOL/rb20-graph.svg]]
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Motion and spin of the probe | $G$ at rest; cords unwind at the constant rate $\dot\phi = \omega_0$, $\phi = \omega_0 t$; $\omega(t) = \omega_0(1 - K\omega_0^2t^2)/(1 + K\omega_0^2t^2)$ with $K = mR^2/(I + mR^2)$; $\theta = \theta_0 + (2/\sqrt K)\arctan(\sqrt K\omega_0 t) - \omega_0 t$; masses on the involute $\mathbf r^P = R\,\mathbf e_r - R\omega_0 t\,\mathbf e_t$ |
+| (b) Cord length | $L^2 = (I + mR^2)(\omega_0 - \omega_f)/[m(\omega_0 + \omega_f)]$, released at $t_f = L/(R\omega_0)$ |
+| (c) Tension of each cord | $T_c = 2KI\omega_0^3 t/[R(1 + K\omega_0^2t^2)^2]$ for $0 \le t \le t_f$; maximum $\tfrac{3\sqrt3}{8}\sqrt K\,I\omega_0^2/R$ at $t = 1/(\omega_0\sqrt{3K})$ |
+
+> [!derivation] Check: power of the cord pairs and the tension from the mass equation
+> **Law:** power of the forces of a pair on two bodies; tangential equation of the mass with the motion of part (a)
+> **Source:** Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.8
+>
+> First, the energy integral without the equations: the pair of cord 1 acts on $P$ and on the probe point at $T$. Second, the tension from the equation of the mass instead of the probe, with the rate of $\phi$ equal to $\omega_0$ and $\Omega$ equal to $\omega_0 + \omega$.
+>
+> $$\begin{aligned}
+> \dot W^{\text{cord 1}} &= T_c\,\mathbf e_t\cdot\mathbf v_0^P - T_c\,\mathbf e_t\cdot\mathbf v_0^{T(\text{probe})} = T_c\,\mathbf e_t\cdot R\phi\,\Omega\,\mathbf e_r = 0 \quad &\text{(relative velocity normal to the cord, position box)} \\
+> \omega_0 + \omega &= \frac{2\omega_0}{1 + u}, \qquad \phi\left(\omega_0 + \omega\right)^2 = \frac{4\omega_0^2\,\omega_0 t}{\left(1 + u\right)^2} \quad &\text{(part (a); $u$ of part (c))} \\
+> \phi\,\Omega^2 + \ddot\theta &= \frac{4\omega_0^3 t - 4K\omega_0^3 t}{\left(1 + u\right)^2} = \frac{4\left(1 - K\right)\omega_0^3 t}{\left(1 + u\right)^2} \quad &\text{(second rate of $\theta$ from part (c))} \\
+> 1 - K &= \frac{I}{I + mR^2} = \frac{KI}{mR^2} \quad &\text{(value of $K$)} \\
+> \frac{mR}{2}\left(\phi\,\Omega^2 + \ddot\theta\right) &= \frac{mR}{2}\cdot\frac{4KI\omega_0^3 t}{mR^2\left(1 + u\right)^2} = \frac{2KI\omega_0^3 t}{R\left(1 + u\right)^2} \quad &\text{(tangential equation of the mass)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot W^{\text{cord}} = 0, \qquad T_c\big|_{\text{mass}} = T_c\big|_{\text{probe}} = \frac{2KI\omega_0^3 t}{R\left(1 + K\omega_0^2t^2\right)^2}}$$
+>
+> **Units:** W; N
+> **Meaning:** the cords are workless, which confirms the energy integral; the tension computed from either end of the cord is the same, so the three equations are satisfied together by the motion of part (a).
+
+**Check against the official key:** the key (Problems.pdf, p. 80) prints the required length, the square of $L$ equal to $(I + mR^2)(\omega_0 - \omega_f)$ over $m(\omega_0 + \omega_f)$, and the tension $2KI\omega_0^3 t$ over $R(1 + K\omega_0^2t^2)^2$, with $K$ equal to $mR^2/(I + mR^2)$. Both coincide with the boxes of parts (b) and (c); the key's tension is that of one cord (the probe equation holds twice that tension, one per cord): **match**. The key prints no expression for part (a); the spin of part (a) is the one consistent with both printed results.
+
+**Limiting cases and consistency:**
+
+* **Light weights.** With $m$ much smaller than the ratio of $I$ to the square of $R$, $K$ tends to zero: the spin hardly changes during any finite time and the length of part (b) grows without bound.
+* **No de-spin requested.** With $\omega_f$ equal to $\omega_0$ the length of part (b) is zero: no cord, no change.
+* **Complete stop.** With $\omega_f$ zero, the square of $\phi_f$ is the inverse of $K$; at that instant the angular momentum is carried by the masses alone, each at the distance $R\sqrt{1 + \phi_f^2}$ from $G$.
+* **Tension at the start.** At the release the tension is zero, consistent with the masses riding on the rim at that instant.
+* **Dimensions.** $K$ is a ratio of two moments of inertia; $K\omega_0^2t^2$ is dimensionless; $L^2$ is a moment of inertia over a mass; $T_c$ is a moment of inertia times an angular acceleration over a length.
+
+---
+
+## Problem RB-21: Reaction wheel spacecraft attitude control
+
+### Reference Frames, Bases and Degrees of Freedom
+
+* **Physical system:** three rigid bodies in deep space, with no external force or torque. The spacecraft $b$ is a homogeneous rod of mass $6M$, length $L$ and negligible diameter, with centre $G$. The reaction wheels $w_1$ and $w_2$ are thin homogeneous discs of radius $R$ and mass $M$ (the tensor of the statement is that of a thin disc), with centres $G_1$ and $G_2$ at the two ends of the rod and their axes along the rod; each turns relative to the rod about the rod axis, driven by its motor.
+* **Inertial frame:** $S_0\{O; \mathcal B_0\}$, with $\mathcal B_0\{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$ along the axes $x$, $y$, $z$ of the figure ($z$ up). The frame $S_G\{G; \mathcal B_0\}$ translates with $G$ without rotating.
+* **Intermediate basis:** $\mathcal B'\{\mathbf i', \mathbf j', \mathbf k_0\}$, turned by $\theta$ about $\mathbf k_0$; $\mathbf i'$ is the horizontal projection of the rod direction (the dashed line of the figure).
+* **Spacecraft frame:** $S_b\{G; \mathcal B_b\}$, with $\mathbf i_b$ along the rod from wheel 2 to wheel 1, $\mathbf j_b$ equal to $\mathbf j'$ (horizontal) and $\mathbf k_b$ completing the right-handed basis (the axes $x_B$, $y_B$, $z_B$ of the figure; the statement writes $\mathbf i_B$ for $\mathbf i_b$).
+* **Angles, read from the figure:** $\theta$ is the azimuth, from $\mathbf i_0$ to the projection $\mathbf i'$, about $\mathbf k_0$; $\varphi$ is the elevation of the rod above the horizontal plane $Gxy$ (its arc runs from the dashed projection up to $x_B$), about minus $\mathbf j'$. If $\varphi$ were read as the polar angle from $\mathbf k_0$, sine and cosine of $\varphi$ would swap in every formula below; at the initial instant both readings give the same direction, since $\varphi$ is $\pi/4$. The wheel angles $\phi_1$ and $\phi_2$ are measured relative to $\mathcal B_b$ about $\mathbf i_b$.
+* **The degenerate rod.** A rod of negligible diameter has no moment of inertia about its own axis, so a spin of the rod about that axis carries no momentum and no energy: the frame $\mathcal B_b$ is fixed to the direction of the rod by $\theta$ and $\varphi$ alone, and the wheel rates are measured from it. The initial angular velocity of the statement is consistent with this (checked in the next section).
+* **Coordinates:** the position of $G$ (three), $\theta$, $\varphi$, $\phi_1$ and $\phi_2$. The momentum of the system is conserved and initially zero, so $G$ stays at the origin (shown below) and four coordinates remain.
+
+| Datum | Symbol | SI unit |
+| :--- | :--- | :--- |
+| Mass and length of the spacecraft rod | $6M$, $L$ | kg, m |
+| Mass and radius of each wheel | $M$, $R$ | kg, m |
+| Position of the wheel centres | $G_1$ and $G_2$ at $\pm(L/2)\,\mathbf i_b$ from $G$ | m |
+| Tensor of the rod at $G$, in $\mathcal B_b$ | $\tfrac{1}{12}(6M)L^2\,\mathrm{diag}(0, 1, 1)$ | kg m$^2$ |
+| Tensor of each wheel at its centre, in $\mathcal B_b$ | $\tfrac14 MR^2\,\mathrm{diag}(2, 1, 1)$ | kg m$^2$ |
+| Initial state | $\mathbf r_0^G = \mathbf 0$, $\mathbf v_0^G = \mathbf 0$, $\theta = 0$, $\varphi = \pi/4$, $\phi_1 = \phi_2 = 0$, $\dot\phi_1 = \dot\phi_2 = \Omega/2$, $\boldsymbol\omega_{b0} = \tfrac{\Omega}{\sqrt2}\left[\tfrac{1}{\sqrt2}\mathbf i_b + \mathbf j_b + \tfrac{1}{\sqrt2}\mathbf k_b\right]$ | m, m/s, rad, rad/s |
+
+### Change of Basis, Position Vectors and Constraint Kinematics
+
+![[attachments/EM-SOL/rb21-rot-theta.svg]]
+
+> [!derivation] Intermediate basis: rotation by theta about k0
+> **Law:** simple rotation about the third axis; right-hand rule
+> **Source:** Notes.pdf, Eq. 9.16; [Lecture 7, Slide 12]
+>
+> View from above, $\mathbf k_0$ out of the paper (⊙): a positive $\theta$ turns counterclockwise. $\mathbf i'$: hypotenuse 1, adjacent leg along $\mathbf i_0$ (cosine), opposite leg along $\mathbf j_0$ (sine). $\mathbf j'$: adjacent leg along $\mathbf j_0$ (cosine); the counterclockwise turn carries the tip of $\mathbf j_0$ towards minus $\mathbf i_0$, which is the minus sign.
+>
+> $$\begin{aligned}
+> \mathbf i' &= \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0, \qquad \mathbf j' = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0 \quad &\text{(legs of the two triangles)} \\
+> [{}_0R_{'}] &= \begin{bmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} \quad &\text{(columns: $\mathbf i'$, $\mathbf j'$, $\mathbf k_0$ in $\mathcal B_0$)} \\
+> \det[{}_0R_{'}] &= 1\cdot\left(\cos^2\theta + \sin^2\theta\right) = 1 \quad &\text{(expand along the third row)} \\
+> [{}_0R_{'}][{}_0R_{'}]^T &= \begin{bmatrix} \cos^2\theta + \sin^2\theta & \cos\theta\sin\theta - \sin\theta\cos\theta & 0 \cr \sin\theta\cos\theta - \cos\theta\sin\theta & \sin^2\theta + \cos^2\theta & 0 \cr 0 & 0 & 1 \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> \boldsymbol\omega_{'0} &= \dot\theta\,\mathbf k_0 \quad &\text{(rate of the angle along its axis)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i' = \cos\theta\,\mathbf i_0 + \sin\theta\,\mathbf j_0, \qquad \mathbf j' = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0, \qquad \boldsymbol\omega_{'0} = \dot\theta\,\mathbf k_0}$$
+>
+> **Units:** dimensionless; $[\mathrm{T^{-1}}]$
+> **Meaning:** $\mathbf i'$ is the horizontal direction under the rod; $\mathbf j'$ is horizontal and normal to the vertical plane of the rod.
+
+![[attachments/EM-SOL/rb21-rot-phi.svg]]
+
+> [!derivation] Spacecraft basis: rotation by phi (elevation) about minus j'
+> **Law:** simple rotation about the second axis; right-hand rule; product of rotation matrices
+> **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.19; [Lecture 7, Slide 12]
+>
+> View of the vertical plane of the rod with $\mathbf i'$ to the right and $\mathbf k_0$ up; then $\mathbf j'$ points into the paper (⊗), because the cross product of $\mathbf i'$ and $\mathbf k_0$ is minus $\mathbf j'$, out of the paper. Raising the rod by $\varphi$ is a counterclockwise turn as seen, that is a positive rotation about the axis out of the paper, minus $\mathbf j'$. $\mathbf i_b$: adjacent leg along $\mathbf i'$ (cosine of $\varphi$), opposite leg along $\mathbf k_0$ (sine). $\mathbf k_b$: adjacent leg along $\mathbf k_0$ (cosine); the counterclockwise turn carries the tip of $\mathbf k_0$ to the left, towards minus $\mathbf i'$, which is the minus sign.
+>
+> $$\begin{aligned}
+> \mathbf i_b &= \cos\varphi\,\mathbf i' + \sin\varphi\,\mathbf k_0, \qquad \mathbf j_b = \mathbf j', \qquad \mathbf k_b = -\sin\varphi\,\mathbf i' + \cos\varphi\,\mathbf k_0 \quad &\text{(legs of the two triangles)} \\
+> [{}_{'}R_b] &= \begin{bmatrix} \cos\varphi & 0 & -\sin\varphi \cr 0 & 1 & 0 \cr \sin\varphi & 0 & \cos\varphi \end{bmatrix} \quad &\text{(columns: $\mathbf i_b$, $\mathbf j_b$, $\mathbf k_b$ in $\mathcal B'$)} \\
+> \det[{}_{'}R_b] &= 1\cdot\left(\cos^2\varphi + \sin^2\varphi\right) = 1 \quad &\text{(expand along the second row)} \\
+> [{}_{'}R_b][{}_{'}R_b]^T &= \begin{bmatrix} \cos^2\varphi + \sin^2\varphi & 0 & \cos\varphi\sin\varphi - \sin\varphi\cos\varphi \cr 0 & 1 & 0 \cr \sin\varphi\cos\varphi - \cos\varphi\sin\varphi & 0 & \sin^2\varphi + \cos^2\varphi \end{bmatrix} = [U] \quad &\text{(row by row products)} \\
+> [{}_0R_b] &= [{}_0R_{'}][{}_{'}R_b] = \begin{bmatrix} \cos\theta\cos\varphi & -\sin\theta & -\cos\theta\sin\varphi \cr \sin\theta\cos\varphi & \cos\theta & -\sin\theta\sin\varphi \cr \sin\varphi & 0 & \cos\varphi \end{bmatrix} \quad &\text{(row of the first times column of the second)} \\
+> \mathbf k_0 &= \sin\varphi\,\mathbf i_b + \cos\varphi\,\mathbf k_b \quad &\text{(third row: the inverse is the transpose)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf i_b = \cos\theta\cos\varphi\,\mathbf i_0 + \sin\theta\cos\varphi\,\mathbf j_0 + \sin\varphi\,\mathbf k_0, \quad \mathbf j_b = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0, \quad \mathbf k_b = -\cos\theta\sin\varphi\,\mathbf i_0 - \sin\theta\sin\varphi\,\mathbf j_0 + \cos\varphi\,\mathbf k_0}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the first column is the unit vector of spherical coordinates with azimuth $\theta$ and elevation $\varphi$; $\mathbf k_b$ leans away from the vertical, backwards from the rod, as $z_B$ in the figure.
+
+> [!derivation] Part (a): angular velocities of the spacecraft and of the wheels
+> **Law:** additivity of angular velocities; rate of each angle along its own axis
+> **Source:** Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 9.21; [Lecture 7, Slide 12]
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{b0} &= \boldsymbol\omega_{b'} + \boldsymbol\omega_{'0} = -\dot\varphi\,\mathbf j_b + \dot\theta\,\mathbf k_0 \quad &\text{(Eq. 3.14; elevation about minus $\mathbf j'$)} \\
+> &= \dot\theta\sin\varphi\,\mathbf i_b - \dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b \quad &\text{($\mathbf k_0$ in $\mathcal B_b$, previous box)} \\
+> \boldsymbol\omega_{10} &= \boldsymbol\omega_{1b} + \boldsymbol\omega_{b0} = \left(\dot\theta\sin\varphi + \dot\phi_1\right)\mathbf i_b - \dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b \quad &\text{(Eq. 3.14; wheel 1 turns about $\mathbf i_b$ relative to $b$)} \\
+> \boldsymbol\omega_{20} &= \left(\dot\theta\sin\varphi + \dot\phi_2\right)\mathbf i_b - \dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b \quad &\text{(same for wheel 2)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{b0} = \dot\theta\sin\varphi\,\mathbf i_b - \dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b, \qquad \boldsymbol\omega_{i0} = \left(\dot\theta\sin\varphi + \dot\phi_i\right)\mathbf i_b - \dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b \quad (i = 1, 2)}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in every component
+> **Meaning:** the wheels share the transverse components of the spacecraft and differ from it only along the rod, by their own rates.
+
+> [!derivation] Initial angular velocity: values of the rates of theta and phi
+> **Law:** comparison of components in $\mathcal B_b$
+> **Source:** Notes.pdf, Eq. 3.14
+>
+> At the initial instant the elevation is $\pi/4$, so the sine and the cosine of $\varphi$ are both $1/\sqrt2$.
+>
+> $$\begin{aligned}
+> \frac{\dot\theta(0)}{\sqrt2}\,\mathbf i_b - \dot\varphi(0)\,\mathbf j_b + \frac{\dot\theta(0)}{\sqrt2}\,\mathbf k_b &= \frac{\Omega}{2}\,\mathbf i_b + \frac{\Omega}{\sqrt2}\,\mathbf j_b + \frac{\Omega}{2}\,\mathbf k_b \quad &\text{(part (a) against the statement)} \\
+> \dot\theta(0) &= \frac{\Omega}{\sqrt2}, \qquad \dot\varphi(0) = -\frac{\Omega}{\sqrt2} \quad &\text{(components along $\mathbf i_b$ or $\mathbf k_b$, and along $\mathbf j_b$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\theta(0) = \frac{\Omega}{\sqrt2}, \qquad \dot\varphi(0) = -\frac{\Omega}{\sqrt2}}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$
+> **Meaning:** three components fix two rates, and the statement's components along $\mathbf i_b$ and $\mathbf k_b$ are equal, as part (a) requires at this elevation: the data are consistent with a frame that has no own spin about the rod (an own spin would change the $\mathbf i_b$ component only). Initially the azimuth grows and the elevation decreases: the rod turns counterclockwise seen from above while tilting down towards the horizontal plane.
+
+> [!derivation] Part (b): positions and absolute velocities of G1 and G2
+> **Law:** velocity field of the rigid body $b$ (the wheel centres are points of the rod); vector product by a determinant expanded along the first row
+> **Source:** Notes.pdf, Eq. 9.3; [Lecture 7, Slide 6]
+>
+> $$\begin{aligned}
+> \mathbf r_0^{G_1} &= \mathbf r_0^G + \frac L2\,\mathbf i_b, \qquad \mathbf r_0^{G_2} = \mathbf r_0^G - \frac L2\,\mathbf i_b \quad &\text{(wheels at the ends of the rod)} \\
+> \boldsymbol\omega_{b0}\times\frac L2\,\mathbf i_b &= \frac L2\begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr \dot\theta\sin\varphi & -\dot\varphi & \dot\theta\cos\varphi \cr 1 & 0 & 0 \end{vmatrix} = \frac L2\left(\dot\theta\cos\varphi\,\mathbf j_b + \dot\varphi\,\mathbf k_b\right) \quad &\text{(expand along the first row)} \\
+> \mathbf v_0^{G_1} &= \mathbf v_0^G + \frac L2\left(\dot\theta\cos\varphi\,\mathbf j_b + \dot\varphi\,\mathbf k_b\right), \qquad \mathbf v_0^{G_2} = \mathbf v_0^G - \frac L2\left(\dot\theta\cos\varphi\,\mathbf j_b + \dot\varphi\,\mathbf k_b\right) \quad &\text{(Eq. 9.3 from $G$)} \\
+> \frac{d\mathbf i_b}{dt} &= \left(-\dot\theta\sin\theta\cos\varphi - \dot\varphi\cos\theta\sin\varphi\right)\mathbf i_0 + \left(\dot\theta\cos\theta\cos\varphi - \dot\varphi\sin\theta\sin\varphi\right)\mathbf j_0 + \dot\varphi\cos\varphi\,\mathbf k_0 \quad &\text{(second route: chain and product rules on the components of $\mathbf i_b$)} \\
+> &= \dot\theta\cos\varphi\left(-\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0\right) + \dot\varphi\left(-\cos\theta\sin\varphi\,\mathbf i_0 - \sin\theta\sin\varphi\,\mathbf j_0 + \cos\varphi\,\mathbf k_0\right) = \dot\theta\cos\varphi\,\mathbf j_b + \dot\varphi\,\mathbf k_b \quad &\text{(group; $\mathbf j_b$ and $\mathbf k_b$ in $\mathcal B_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^{G_{1,2}} = \mathbf v_0^G \pm \frac L2\left[\dot\theta\cos\varphi\left(-\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0\right) + \dot\varphi\left(-\cos\theta\sin\varphi\,\mathbf i_0 - \sin\theta\sin\varphi\,\mathbf j_0 + \cos\varphi\,\mathbf k_0\right)\right]}$$
+>
+> **Units:** $[\mathrm L][\mathrm{T^{-1}}]$ in every term
+> **Meaning:** relative to $G$ the wheel centres move on a sphere of radius $L/2$, along the azimuthal direction (rate of $\theta$, scaled by the cosine of the elevation: the radius of the parallel) and the meridian direction (rate of $\varphi$); the two velocities are opposite, so their mean is the velocity of $G$.
+
+### Center of Mass and Inertia Tensor
+
+> [!derivation] Centre of mass of the assembly
+> **Law:** centre of mass of a system of bodies
+> **Source:** Notes.pdf, Eq. 13.11
+>
+> $$\begin{aligned}
+> 8M\,\mathbf r_0^{C} &= 6M\,\mathbf r_0^G + M\left(\mathbf r_0^G + \frac L2\,\mathbf i_b\right) + M\left(\mathbf r_0^G - \frac L2\,\mathbf i_b\right) \quad &\text{(Eq. 13.11 with the three bodies)} \\
+> \mathbf r_0^{C} &= \mathbf r_0^G \quad &\text{(the terms in $\mathbf i_b$ cancel; divide by $8M$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^{C} = \mathbf r_0^G}$$
+>
+> **Units:** $[\mathrm L]$
+> **Meaning:** as the statement says, $G$ is the centre of mass of the rod and of the whole assembly.
+
+> [!derivation] Tensor of the rod at G
+> **Law:** moments of inertia of a thin rod as a line integral; Barrow's rule
+> **Source:** Notes.pdf, Eq. 10.9; Notes.pdf, Eq. 10.11; [Lecture 8, Slide 10]
+>
+> The rod lies on the axis $\mathbf i_b$, from minus $L/2$ to $L/2$, with linear density $\lambda$ equal to $6M/L$; a point at the abscissa $x$ is at the distance $x$ from the axes $\mathbf j_b$ and $\mathbf k_b$ and at zero distance from $\mathbf i_b$ (negligible diameter); the products of inertia contain a zero coordinate.
+>
+> $$\begin{aligned}
+> I^b_{yy} &= \int_{-L/2}^{L/2}x^2\,\lambda\,dx = \lambda\left[\frac{x^3}{3}\right]_{-L/2}^{L/2} = \lambda\left(\frac{L^3}{24} + \frac{L^3}{24}\right) = \frac{\lambda L^3}{12} \quad &\text{(antiderivative; Barrow's rule)} \\
+> &= \frac{6M}{L}\cdot\frac{L^3}{12} = \frac{6ML^2}{12} = \frac{ML^2}{2}, \qquad I^b_{zz} = I^b_{yy}, \qquad I^b_{xx} = 0 \quad &\text{(value of $\lambda$; same distance; zero distance)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}{}^b_G = \frac{ML^2}{2}\begin{bmatrix} 0 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix}_b}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the datum of the statement, one twelfth of $6ML^2$; the rod resists turning about any transverse axis, not about its own axis.
+
+> [!derivation] Tensor of each wheel at its centre, and of the two wheels at G
+> **Law:** moments of inertia of a thin disc as area integrals (jacobian $\rho$); symmetry of revolution; Steiner's theorem
+> **Source:** Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.35; Notes.pdf, Eq. 10.48; [Lecture 8, Slide 15]
+>
+> Surface density $\sigma$ equal to $M/(\pi R^2)$; a point of the wheel is at $\rho\cos\chi\,\mathbf j + \rho\sin\chi\,\mathbf k$ from its centre, in the plane normal to $\mathbf i_b$.
+>
+> $$\begin{aligned}
+> I^w_{xx} &= \sigma\int_0^{2\pi}\!\!\int_0^R\rho^2\,\rho\,d\rho\,d\chi = \sigma\left[\chi\right]_0^{2\pi}\left[\frac{\rho^4}{4}\right]_0^R = \frac{M}{\pi R^2}\cdot\frac{2\pi R^4}{4} = \frac{MR^2}{2} \quad &\text{(antiderivatives; Barrow's rule)} \\
+> I^w_{yy} &= \sigma\int_0^{2\pi}\!\!\sin^2\chi\,d\chi\int_0^R\rho^3\,d\rho = \sigma\left[\frac\chi2 - \frac{\sin2\chi}{4}\right]_0^{2\pi}\frac{R^4}{4} = \frac{M}{\pi R^2}\cdot\pi\cdot\frac{R^4}{4} = \frac{MR^2}{4} \quad &\text{(squared distance to the diameter $\mathbf j_b$; Barrow's rule)} \\
+> I^w_{zz} &= \frac{MR^2}{4}, \qquad P_{yz} = \sigma\left[\frac{\sin^2\chi}{2}\right]_0^{2\pi}\frac{R^4}{4} = 0 \quad &\text{(cosine in place of the sine; antiderivative and Barrow's rule)} \\
+> \bar{\bar I}{}^{w}_{G}\Big|_{\text{position}} &= M\left[\left(\frac L2\right)^2\mathcal U - \left(\frac L2\right)^2\mathbf i_b\otimes\mathbf i_b\right] = \frac{ML^2}{4}\,\mathrm{diag}\left(0, 1, 1\right) \quad &\text{(Steiner, Eq. 10.48, term of a mass $M$ at $\pm\frac L2\,\mathbf i_b$)}
+> \end{aligned}$$
+>
+> $$\boxed{\bar{\bar I}{}^{w_i}_{G_i} = \frac{MR^2}{4}\begin{bmatrix} 2 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix}_b, \qquad \bar{\bar I}{}^{w_1 + w_2}_G = \begin{bmatrix} MR^2 & 0 & 0 \cr 0 & \frac{MR^2}{2} + \frac{ML^2}{2} & 0 \cr 0 & 0 & \frac{MR^2}{2} + \frac{ML^2}{2} \end{bmatrix}_b}$$
+>
+> **Units:** $[\mathrm M][\mathrm L^2]$
+> **Meaning:** the datum of the statement. The wheel is symmetric about $\mathbf i_b$, so its tensor keeps these components in $\mathcal B_b$ although it spins relative to the rod; this is why $\mathcal B_b$ is used for the wheels below. With the rod, the whole assembly has the moment $MR^2$ about the rod and $ML^2$ plus $MR^2/2$ about any transverse axis.
+
+### Linear Momentum, Angular Momentum and Kinetic Energy
+
+> [!derivation] Part (c): angular momentum of each wheel about its centre
+> **Law:** angular momentum about the centre of mass
+> **Source:** Notes.pdf, Eq. 11.12; [Lecture 9, Slide 5]
+>
+> $$\begin{aligned}
+> \mathbf H_{G_1}^{w_1} &= \bar{\bar I}{}^{w_1}_{G_1}\cdot\boldsymbol\omega_{10} = \frac{MR^2}{4}\begin{bmatrix} 2 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} \dot\theta\sin\varphi + \dot\phi_1 \cr -\dot\varphi \cr \dot\theta\cos\varphi \end{bmatrix} \quad &\text{(Eq. 11.12; components in $\mathcal B_b$)} \\
+> &= \frac{MR^2}{4}\left[2\left(\dot\theta\sin\varphi + \dot\phi_1\right)\mathbf i_b - \dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right] \quad &\text{(matrix product)} \\
+> \mathbf H_{G_2}^{w_2} &= \frac{MR^2}{4}\left[2\left(\dot\theta\sin\varphi + \dot\phi_2\right)\mathbf i_b - \dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right] \quad &\text{(same with $\boldsymbol\omega_{20}$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_{G_i}^{w_i} = \frac{MR^2}{2}\left(\dot\theta\sin\varphi + \dot\phi_i\right)\mathbf i_b - \frac{MR^2}{4}\dot\varphi\,\mathbf j_b + \frac{MR^2}{4}\dot\theta\cos\varphi\,\mathbf k_b \quad (i = 1, 2)}$$
+>
+> **Units:** $[\mathrm{M\,L^2}][\mathrm{T^{-1}}]$, kg m$^2$/s
+> **Meaning:** the spin of each wheel relative to the rod enters only the axial component, with the axial moment; the transverse components are those of a disc turning with the spacecraft.
+
+> [!derivation] Linear momentum, total angular momentum about G and kinetic energy
+> **Law:** linear momentum of a system; change of pole from the centre of each body (Eq. 11.21); Koenig's theorem for each body
+> **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.21; Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 13.12
+>
+> Write $\mathbf u$ for the bracket of part (b), the velocity of $G_1$ relative to $G$ divided by $L/2$: its components in $\mathcal B_b$ are zero, the rate of $\theta$ times the cosine of $\varphi$, and the rate of $\varphi$.
+>
+> $$\begin{aligned}
+> \mathbf p_0 &= 6M\,\mathbf v_0^G + M\,\mathbf v_0^{G_1} + M\,\mathbf v_0^{G_2} = 8M\,\mathbf v_0^G \quad &\text{(Eq. 11.3 per body; part (b): the relative terms cancel)} \\
+> \mathbf H_G^{b} &= \bar{\bar I}{}^b_G\cdot\boldsymbol\omega_{b0} = \frac{ML^2}{2}\left(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right) \quad &\text{(Eq. 11.12 for the rod)} \\
+> \sum_i M\,\mathbf r_G^{G_i}\times\mathbf v_0^{G_i} &= 2M\,\frac L2\,\mathbf i_b\times\frac L2\,\mathbf u + M\left(\frac L2\,\mathbf i_b - \frac L2\,\mathbf i_b\right)\times\mathbf v_0^G = \frac{ML^2}{2}\begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr 1 & 0 & 0 \cr 0 & \dot\theta\cos\varphi & \dot\varphi \end{vmatrix} \quad &\text{(Eq. 11.21; the terms in the velocity of $G$ cancel, the relative terms add)} \\
+> &= \frac{ML^2}{2}\left(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right) \quad &\text{(expand along the first row)} \\
+> \mathbf H_G &= \mathbf H_G^b + \sum_i\left(\mathbf H_{G_i}^{w_i} + M\,\mathbf r_G^{G_i}\times\mathbf v_0^{G_i}\right) \quad &\text{(sum over the three bodies)} \\
+> &= \frac{MR^2}{2}\left(2\dot\theta\sin\varphi + \dot\phi_1 + \dot\phi_2\right)\mathbf i_b + \left(ML^2 + \frac{MR^2}{2}\right)\left(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right) \quad &\text{(part (c); collect)} \\
+> T_0 &= \frac12\,8M\left(v_0^G\right)^2 + \left(\frac{ML^2}{2} + \frac{MR^2}{4}\right)\left(\dot\varphi^2 + \dot\theta^2\cos^2\varphi\right) + \frac{MR^2}{4}\sum_i\left(\dot\theta\sin\varphi + \dot\phi_i\right)^2 \quad &\text{(Eq. 11.31 per body; cross terms in the velocity of $G$ cancel)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf p_0 = 8M\,\mathbf v_0^G, \quad \mathbf H_G = \frac{MR^2}{2}\left(2\dot\theta\sin\varphi + \dot\phi_1 + \dot\phi_2\right)\mathbf i_b + \left(ML^2 + \frac{MR^2}{2}\right)\left(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right)}$$
+>
+> **Units:** kg m/s; kg m$^2$/s; J
+> **Meaning:** the angular momentum along the rod is held only by the wheels; the transverse part is that of the whole assembly turning with the rod.
+
+### Free-Body Diagram and Equations of Motion
+
+![[attachments/EM-SOL/rb21-exploded.svg]]
+
+No external load acts. The exploded view cuts each wheel from the rod at its axle: the rod acts on wheel $i$ at $G_i$ with the force $\mathbf F_i$ and the torque $\mathbf Q_i$ (bearing reactions normal to the axle plus the motor torque along $\mathbf i_b$), and the wheel acts on the rod with $-\mathbf F_i$ and $-\mathbf Q_i$ (third law of Newton).
+
+| Load | Body | Point | Expression | Kind |
+| :--- | :--- | :--- | :--- | :--- |
+| Axle 1 | $w_1$ | $G_1$ | $\mathbf F_1$, $\mathbf Q_1$ (its $\mathbf i_b$ component is the motor torque) | internal (pair) |
+| Axle 2 | $w_2$ | $G_2$ | $\mathbf F_2$, $\mathbf Q_2$ | internal (pair) |
+| Wheels on the rod | $b$ | $G_1$, $G_2$ | $-\mathbf F_1$, $-\mathbf Q_1$; $-\mathbf F_2$, $-\mathbf Q_2$ | internal (pair) |
+| Gravity and other external loads | all | - | negligible (deep space) | - |
+
+> [!derivation] Equations of each body
+> **Law:** Newton's second law for each centre of mass; moment equation about each centre of mass
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 13.9; Notes.pdf, Eq. 13.10
+>
+> Each moment equation is taken about the centre of mass of its own body, so the pole term of Eq. 12.13 is a velocity crossed with itself, zero. The axle force on a wheel acts at its centre and has no moment about it.
+>
+> $$\begin{aligned}
+> M\,\mathbf a_0^{G_i} &= \mathbf F_i, \qquad \frac{d\mathbf H_{G_i}^{w_i}}{dt}\bigg|_0 = \mathbf Q_i \quad (i = 1, 2) \quad &\text{(wheel $i$)} \\
+> 6M\,\mathbf a_0^{G} &= -\mathbf F_1 - \mathbf F_2 \quad &\text{(rod, force)} \\
+> \frac{d\mathbf H_{G}^{b}}{dt}\bigg|_0 &= \frac L2\,\mathbf i_b\times\left(-\mathbf F_1\right) - \frac L2\,\mathbf i_b\times\left(-\mathbf F_2\right) - \mathbf Q_1 - \mathbf Q_2 \quad &\text{(rod, moment about $G$; arms of $G_1$ and $G_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{M\mathbf a_0^{G_i} = \mathbf F_i, \quad \dot{\mathbf H}_{G_i}^{w_i} = \mathbf Q_i, \quad 6M\mathbf a_0^G = -\mathbf F_1 - \mathbf F_2, \quad \dot{\mathbf H}_G^b = -\frac L2\,\mathbf i_b\times\left(\mathbf F_1 - \mathbf F_2\right) - \mathbf Q_1 - \mathbf Q_2}$$
+>
+> **Units:** N; N m
+> **Meaning:** eighteen scalar equations; the asked parts need only their combinations below, which contain no axle load.
+
+> [!derivation] Combination: the centre of mass stays at rest and the total angular momentum is constant
+> **Law:** sum of the equations of the parts; derivative of the moment of momentum; Barrow's rule
+> **Source:** Notes.pdf, Eq. 13.12; Notes.pdf, Sec. 13.4; Notes.pdf, Eq. 15.6; Notes.pdf, Eq. 15.7
+>
+> From part (b), the mean of the velocities of $G_1$ and $G_2$ is the velocity of $G$, and so is the mean of their accelerations (time derivative).
+>
+> $$\begin{aligned}
+> 6M\,\mathbf a_0^G + M\,\mathbf a_0^{G_1} + M\,\mathbf a_0^{G_2} &= \mathbf 0 \;\Rightarrow\; 8M\,\mathbf a_0^G = \mathbf 0 \quad &\text{(sum of the force equations; the pairs cancel)} \\
+> \left[\mathbf v_0^G\right]_0^t &= \mathbf 0 \;\Rightarrow\; \mathbf v_0^G = \mathbf 0, \qquad \left[\mathbf r_0^G\right]_0^t = \mathbf 0 \;\Rightarrow\; \mathbf r_0^G = \mathbf 0 \quad &\text{(integrate twice; Barrow's rule; initial values zero)} \\
+> \frac{d}{dt}\left(\mathbf r_G^{G_i}\times M\,\mathbf v_0^{G_i}\right) &= \mathbf v_0^{G_i}\times M\,\mathbf v_0^{G_i} + \mathbf r_G^{G_i}\times M\,\mathbf a_0^{G_i} = \mathbf r_G^{G_i}\times\mathbf F_i \quad &\text{(product rule; $G$ at rest, so the rate of the arm is the velocity of $G_i$)} \\
+> \frac{d\mathbf H_G}{dt}\bigg|_0 &= \dot{\mathbf H}_G^b + \sum_i\left(\mathbf Q_i + \mathbf r_G^{G_i}\times\mathbf F_i\right) = -\frac L2\,\mathbf i_b\times\left(\mathbf F_1 - \mathbf F_2\right) - \mathbf Q_1 - \mathbf Q_2 + \mathbf Q_1 + \mathbf Q_2 + \frac L2\,\mathbf i_b\times\left(\mathbf F_1 - \mathbf F_2\right) = \mathbf 0 \quad &\text{(sum of the moment equations)} \\
+> \left[\mathbf H_G\right]_0^t &= \mathbf 0 \;\Rightarrow\; \mathbf H_G(t) = \mathbf H_G(0) \quad &\text{(integrate; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^G(t) = \mathbf 0, \qquad \mathbf v_0^G(t) = \mathbf 0, \qquad \mathbf H_G(t) = \mathbf H_G(0)}$$
+>
+> **Units:** m; m/s; kg m$^2$/s
+> **Meaning:** the motors only exchange angular momentum between the wheels and the spacecraft: the total vector, fixed in $S_0$, cannot change, and changing the wheel rates is how the attitude is controlled. The kinetic energy is not conserved: the motors do work on the wheels.
+
+> [!derivation] Values of the conserved quantities from the initial conditions
+> **Law:** the expressions of the previous section at the initial instant; change of basis
+> **Source:** Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 13.12
+>
+> At the initial instant the sine and cosine of $\varphi$ are $1/\sqrt2$, $\theta$ is zero, the rates are those found above and each wheel rate is $\Omega/2$; the products of the rate of $\theta$ with the sine and with the cosine of $\varphi$ are both $\Omega/2$.
+>
+> $$\begin{aligned}
+> \mathbf H_G(0) &= \frac{MR^2}{2}\left(\Omega + \Omega\right)\mathbf i_b + \left(ML^2 + \frac{MR^2}{2}\right)\left(\frac{\Omega}{\sqrt2}\,\mathbf j_b + \frac{\Omega}{2}\,\mathbf k_b\right) \quad &\text{(previous section at $t$ zero)} \\
+> \mathbf i_b(0) &= \frac{\mathbf i_0 + \mathbf k_0}{\sqrt2}, \qquad \mathbf j_b(0) = \mathbf j_0, \qquad \mathbf k_b(0) = \frac{-\mathbf i_0 + \mathbf k_0}{\sqrt2} \quad &\text{(columns of $[{}_0R_b]$ at $\theta$ zero, $\varphi$ equal to $\pi/4$)} \\
+> \mathbf H_G(0) &= \frac{M\Omega}{2\sqrt2}\left[\left(2R^2 - L^2 - \frac{R^2}{2}\right)\mathbf i_0 + \left(2L^2 + R^2\right)\mathbf j_0 + \left(2R^2 + L^2 + \frac{R^2}{2}\right)\mathbf k_0\right] \quad &\text{(substitute; collect)} \\
+> T_0(0) &= \left(\frac{ML^2}{2} + \frac{MR^2}{4}\right)\left(\frac{\Omega^2}{2} + \frac{\Omega^2}{4}\right) + \frac{MR^2}{4}\left(\Omega^2 + \Omega^2\right) = \frac{3ML^2\Omega^2}{8} + \frac{11MR^2\Omega^2}{16} \quad &\text{(kinetic energy at $t$ zero; $G$ at rest)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_G = \frac{\sqrt2\,M\Omega}{8}\left[\left(3R^2 - 2L^2\right)\mathbf i_0 + 2\left(2L^2 + R^2\right)\mathbf j_0 + \left(2L^2 + 5R^2\right)\mathbf k_0\right] \ \text{(constant)}, \qquad T_0(0) = \frac{M\Omega^2\left(6L^2 + 11R^2\right)}{16}}$$
+>
+> **Units:** $[\mathrm M][\mathrm{T^{-1}}][\mathrm{L^2}]$; $[\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the constant vector fixes, at every later instant, one vector relation among the four rates; with the wheel rates prescribed by the controller, it gives the attitude rates. The boxed form takes a factor one half out of each bracket of the previous line.
+
+### Answers and Checks
+
+| Asked | Answer |
+| :--- | :--- |
+| (a) Angular velocities, in $\mathcal B_b$ | $\boldsymbol\omega_{b0} = \dot\theta\sin\varphi\,\mathbf i_b - \dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b$; $\boldsymbol\omega_{10} = \boldsymbol\omega_{b0} + \dot\phi_1\,\mathbf i_b$; $\boldsymbol\omega_{20} = \boldsymbol\omega_{b0} + \dot\phi_2\,\mathbf i_b$ |
+| (b) Velocities of $G_1$, $G_2$ | $\mathbf v^{G_{1,2}} = \mathbf v^G \pm \tfrac L2(\dot\theta\cos\varphi\,\mathbf j_b + \dot\varphi\,\mathbf k_b)$, with $\mathbf j_b = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0$, $\mathbf k_b = -\cos\theta\sin\varphi\,\mathbf i_0 - \sin\theta\sin\varphi\,\mathbf j_0 + \cos\varphi\,\mathbf k_0$ (and $\mathbf v^G = \mathbf 0$ for the given data) |
+| (c) Angular momentum of each wheel about its centre | $\mathbf H_{G_i} = \tfrac{MR^2}{2}(\dot\theta\sin\varphi + \dot\phi_i)\,\mathbf i_b - \tfrac{MR^2}{4}\dot\varphi\,\mathbf j_b + \tfrac{MR^2}{4}\dot\theta\cos\varphi\,\mathbf k_b$ |
+| Initial rates (from the data) | $\dot\theta(0) = \Omega/\sqrt2$, $\dot\varphi(0) = -\Omega/\sqrt2$ |
+| Conserved angular momentum | $\mathbf H_G = \tfrac{\sqrt2 M\Omega}{8}[(3R^2 - 2L^2)\,\mathbf i_0 + 2(2L^2 + R^2)\,\mathbf j_0 + (2L^2 + 5R^2)\,\mathbf k_0]$ |
+
+`Problems.pdf` prints no answer for this problem (see [[Problem Set - Rigid Body Official Key]]), so the results are checked with a second route and limiting cases.
+
+> [!derivation] Check: total angular momentum with the wheels locked
+> **Law:** angular momentum of one rigid body about its centre of mass, with the tensor of the assembly
+> **Source:** Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 10.48
+>
+> With the wheel rates zero the assembly is one rigid body turning with the spacecraft; its tensor at $G$ is the rod tensor plus the two wheel tensors plus their Steiner terms (Center of Mass and Inertia Tensor).
+>
+> $$\begin{aligned}
+> \bar{\bar I}{}^S_G &= \mathrm{diag}\left(MR^2,\ \frac{ML^2}{2} + \frac{ML^2}{2} + \frac{MR^2}{2},\ ML^2 + \frac{MR^2}{2}\right) \quad &\text{(sum of the boxed tensors)} \\
+> \bar{\bar I}{}^S_G\cdot\boldsymbol\omega_{b0} &= MR^2\dot\theta\sin\varphi\,\mathbf i_b + \left(ML^2 + \frac{MR^2}{2}\right)\left(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right) \quad &\text{(matrix product)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf H_G\big|_{\text{locked}} = MR^2\dot\theta\sin\varphi\,\mathbf i_b + \left(ML^2 + \frac{MR^2}{2}\right)\left(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right)}$$
+>
+> **Units:** kg m$^2$/s
+> **Meaning:** the same as the total of the momentum section with the wheel rates set to zero: the change of pole and the Steiner route agree.
+
+**Limiting cases and consistency:**
+
+* **Rod at rest in attitude.** With the rates of $\theta$ and $\varphi$ zero, the wheel centres move with $G$ and each wheel's angular momentum is only its axial spin term, along the rod.
+* **Point wheels.** With $R$ tending to zero the wheels hold no angular momentum about their centres and only their positions count: the transverse moment of the assembly tends to $ML^2$.
+* **Horizontal rod.** With $\varphi$ zero the rod is horizontal, $\mathbf k_b$ is vertical and the azimuth rate appears only in the $\mathbf k_b$ component, as a rotation about the vertical should.
+* **Orthonormality.** The matrix $[{}_0R_b]$ is the product of two rotations, each checked above, so its determinant is one and its transpose is its inverse.
+* **Dimensions.** Every angular velocity component is a rate; every velocity term is a length times a rate; every angular momentum term is a mass times a squared length times a rate.
+
+---
