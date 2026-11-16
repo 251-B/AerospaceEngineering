@@ -276,12 +276,12 @@
         'aria-label': sec.label + (sec.count ? ', ' + sec.count : '') + ', ' + sub.name
       }, g);
       s('circle', { 'class': 'star-hit', r: 26 }, a);
-      s('circle', { 'class': 'star-flare', r: 46, fill: 'url(#flare-' + meta.color + ')' }, a);
+      s('circle', { 'class': 'star-flare', r: 56, fill: 'url(#flare-' + meta.color + ')' }, a);
       s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, a);
       s('circle', { 'class': 'star-core', r: 3.4 }, a);
       var ic = s('g', { 'class': 'star-icon' }, a);
-      s('circle', { 'class': 'star-icon-bg', r: 15 }, ic);
-      s('use', { href: '#' + sec.icon, x: -11, y: -11, width: 22, height: 22, 'class': 'star-icon-glyph' }, ic);
+      s('circle', { 'class': 'star-icon-bg', r: 13 }, ic);
+      s('use', { href: '#' + sec.icon, x: -9.5, y: -9.5, width: 19, height: 19, 'class': 'star-icon-glyph' }, ic);
       // The name goes on the free side of the star: away from the lines that reach it and from the figure.
       var incident = [];
       meta.edges.forEach(function (e) {
@@ -298,8 +298,8 @@
         if (score > best) { best = score; dx = Math.cos(ang); dy = Math.sin(ang); }
       }
       var anchor = dx > 0.35 ? 'start' : dx < -0.35 ? 'end' : 'middle';
-      var ny = Math.abs(dy) > 0.5 ? dy * 36 + (dy > 0 ? 10 : -4) : dy * 30 + 5;
-      var attrs = { 'text-anchor': anchor, x: Math.round(dx * (anchor === 'middle' ? 0 : 32)), y: Math.round(ny) };
+      var ny = Math.abs(dy) > 0.5 ? dy * 52 + (dy > 0 ? 10 : -4) : dy * 44 + 5;
+      var attrs = { 'text-anchor': anchor, x: Math.round(dx * (anchor === 'middle' ? 0 : 46)), y: Math.round(ny) };
       var name = s('text', attrs, a); name.setAttribute('class', 'star-name'); name.textContent = sec.label;
       var cAttrs = {}; for (var k in attrs) cAttrs[k] = attrs[k];
       cAttrs.y = Math.round(ny) + (dy < -0.5 ? -17 : 18);
