@@ -4,7 +4,7 @@
   "title": "Rocket Helical Trajectory",
   "badge": "MIT OCW Benchmark",
   "source_note": "(Taken from MIT OCW)",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 2"
   ]
@@ -14,35 +14,35 @@
   "title": "Kinematics, Spiral",
   "badge": "Polar Kinematics",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "03": {
   "topic": 1,
   "title": "Kinematics, Astroid",
   "badge": "Intrinsic Kinematics",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "04": {
   "topic": 1,
   "title": "Plane at Constant Altitude",
   "badge": "Coordinate Transformations",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "05": {
   "topic": 1,
   "title": "Plane and Glider",
   "badge": "Aerospace Towed Flight",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "06": {
   "topic": 1,
   "title": "Particle on Sinusoidal Curve",
   "badge": "Frenet-Serret Frame",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "07": {
   "topic": 5,
@@ -76,14 +76,14 @@
   "title": "Conservative Force and Potential I",
   "badge": "Work & Potential Energy",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "11": {
   "topic": 2,
   "title": "Conservative Force and Potential II",
   "badge": "1D Energy Landscapes",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 4"
   ]
@@ -93,7 +93,7 @@
   "title": "Conservative Force and Potential III",
   "badge": "Oscillation Period",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6"
   ]
@@ -103,28 +103,28 @@
   "title": "Conservative Force and Potential IV",
   "badge": "Quadratures & Trajectory",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "14": {
   "topic": 2,
   "title": "Conservative Force and Potential V",
-  "badge": "Phase Analysis",
+  "badge": "Types of Motion",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "15": {
   "topic": 2,
   "title": "Stokes Drag and Terminal Velocity",
   "badge": "Viscous Aerodynamics",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "16": {
   "topic": 2,
   "title": "Drag on Falling Football",
   "badge": "Quadratic Drag",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 4"
   ]
@@ -134,7 +134,7 @@
   "title": "Linear Central Force",
   "badge": "Newtonian Restoring Force",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 4"
   ]
@@ -144,14 +144,14 @@
   "title": "Heavy Particle on a Cone",
   "badge": "Conical Surface",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "19": {
   "topic": 3,
   "title": "Heavy Particle on a Paraboloid",
   "badge": "Paraboloid Surface",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 8"
   ]
@@ -185,14 +185,14 @@
   "title": "Simple Pendulum (Unilateral Constraint)",
   "badge": "Pendulum & Liftoff",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "24": {
   "topic": 3,
   "title": "Particle on a Circumference with a Spring",
   "badge": "Wire & Elastic Potential",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6"
   ]
@@ -237,7 +237,7 @@
   "title": "Heavy Particle on a Tilted Cylinder",
   "badge": "Unilateral Liftoff",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 6"
   ]
@@ -255,14 +255,14 @@
   "title": "Two Particles on Cone with String",
   "badge": "Multi-Particle Cable Constraint",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "32": {
   "topic": 3,
   "title": "Particle with String on Spool",
   "badge": "Rheonomic Spool Constraint",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 6"
   ]
@@ -292,7 +292,7 @@
   "title": "String with Two Particles on a Cylinder",
   "badge": "Multi-Particle Cylinder Contact",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 13",
    "Oscillations - Lecture 6 (part f)"
@@ -319,7 +319,7 @@
   "title": "Particle on Torus",
   "badge": "Toroidal Geometry",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 12"
   ]
@@ -329,7 +329,7 @@
   "title": "Particle on a String with a Plate",
   "badge": "Plate Edge Contact",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "40": {
   "topic": 5,
@@ -352,14 +352,14 @@
   "title": "Particle Attracted to the Origin by $F = m\\mu/r^\\alpha$",
   "badge": "Binet + Effective Potential",
   "source_note": "(PDF page 29); no key available",
-  "structure": 2
+  "structure": 3
  },
  "43": {
   "topic": 4,
   "title": "Two Connected Particles through a Hole",
   "badge": "Angular Momentum + Energy",
   "source_note": "(PDF page 30); no key available",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "In-Class Session 8"
   ]
@@ -369,14 +369,14 @@
   "title": "The Little Prince Throwing Seeds",
   "badge": "Angular Momentum + Vis-Viva",
   "source_note": "(PDF page 31); no key available",
-  "structure": 2
+  "structure": 3
  },
  "45": {
   "topic": 2,
   "title": "Vibrating Rotor (Unbalanced Turbojet)",
   "badge": "Forced Oscillations",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6"
   ]
@@ -386,7 +386,7 @@
   "title": "Bumpy Taxiway",
   "badge": "Resonance & Damping",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6"
   ]
@@ -404,7 +404,7 @@
   "title": "Two Connected Particles, One on Paraboloid",
   "badge": "Multi-Particle Manifold",
   "source_note": "",
-  "structure": 2
+  "structure": 3
  },
  "49": {
   "topic": 5,
@@ -422,7 +422,7 @@
   "title": "Double Pendulum",
   "badge": "Kinematic Linkage",
   "source_note": "",
-  "structure": 2,
+  "structure": 3,
   "badges": [
    "Oscillations - Lecture 6 (part f)"
   ]

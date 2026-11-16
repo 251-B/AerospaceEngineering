@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="Section through the axis at t = 0 showing P at (a,0,0), the normal toward the axis and the centre of curvature beyond the axis">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="160.0" y1="377.0" x2="160.0" y2="37.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="6 4"/>
+<line x1="500.0" y1="377.0" x2="500.0" y2="37.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="6 4"/>
+<line x1="330.0" y1="377.0" x2="330.0" y2="37.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="2 4"/>
+<line x1="126.0" y1="360.0" x2="580.2" y2="360.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M585.0,360.0 L577.6,363.1 L577.6,356.9 Z" fill="#8a94a6"/>
+<text x="599.0" y="365.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="330.0" y1="377.0" x2="330.0" y2="16.3" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M330.0,11.5 L333.1,18.9 L326.9,18.9 Z" fill="#8a94a6"/>
+<text x="344.0" y="13.5" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<path d="M500.0,360.0 A272.0,272.0 0 0 0 321.0,104.4" fill="none" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="3 4" stroke-linejoin="round"/>
+<path d="M321.0,615.6 A272.0,272.0 0 0 0 500.0,360.0" fill="none" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="3 4" stroke-linejoin="round"/>
+<text x="185.5" y="62.5" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">osculating circle (edge-on,</text>
+<text x="185.5" y="76.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">in the plane of <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">t</tspan> and <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">n</tspan>)</text>
+<line x1="500.0" y1="360.0" x2="430.1" y2="360.0" stroke="#10b981" stroke-width="2.6"/>
+<path d="M423.5,360.0 L433.6,355.7 L433.6,364.3 Z" fill="#10b981"/>
+<text x="417.5" y="346.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">n</tspan> = −<tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="500.0" y1="360.0" x2="500.0" y2="289.5" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M500.0,283.5 L503.9,292.7 L496.1,292.7 Z" fill="#f59e0b"/>
+<text x="510.0" y="287.5" fill="#f59e0b" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">v<tspan baseline-shift="sub" font-size="70%">z</tspan>/V <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<circle cx="500.0" cy="360.0" r="9" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+<path d="M494.4,354.4 L505.6,365.6 M494.4,365.6 L505.6,354.4" stroke="#f59e0b" stroke-width="1.6" fill="none"/>
+<text x="514.0" y="398.0" fill="#f59e0b" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">t</tspan> component a ω/V</text>
+<text x="514.0" y="414.0" fill="#f59e0b" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">along j₀ (into the paper)</text>
+<circle cx="500.0" cy="360.0" r="4.0" fill="#4b5563"/>
+<circle cx="228.0" cy="360.0" r="5.0" fill="#4b5563"/>
+<circle cx="330.0" cy="360.0" r="3.5" fill="#4b5563"/>
+<text x="512.0" y="344.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P = (a, 0, 0)</text>
+<text x="216.0" y="348.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<text x="320.0" y="348.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<line x1="500.0" y1="397.4" x2="228.0" y2="397.4" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M500.0,397.4 L493.6,400.1 L493.6,394.7 Z" fill="#8a94a6"/>
+<path d="M228.0,397.4 L234.4,394.7 L234.4,400.1 Z" fill="#8a94a6"/>
+<text x="364.0" y="421.4" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ρ = a + v<tspan baseline-shift="sub" font-size="70%">z</tspan>² / (a ω²)</text>
+<line x1="330.0" y1="458.6" x2="228.0" y2="458.6" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M330.0,458.6 L323.6,461.3 L323.6,455.9 Z" fill="#8a94a6"/>
+<path d="M228.0,458.6 L234.4,455.9 L234.4,461.3 Z" fill="#8a94a6"/>
+<text x="279.0" y="482.6" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">v<tspan baseline-shift="sub" font-size="70%">z</tspan>² / (a ω²)</text>
+<line x1="330.0" y1="458.6" x2="500.0" y2="458.6" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M330.0,458.6 L336.4,455.9 L336.4,461.3 Z" fill="#8a94a6"/>
+<path d="M500.0,458.6 L493.6,461.3 L493.6,455.9 Z" fill="#8a94a6"/>
+<text x="415.0" y="482.6" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">a</text>
+<circle cx="75.0" cy="62.5" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<path d="M69.4,56.9 L80.6,68.1 M69.4,68.1 L80.6,56.9" stroke="#4b5563" stroke-width="1.6" fill="none"/>
+<text x="91.0" y="67.5" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+</g></svg>

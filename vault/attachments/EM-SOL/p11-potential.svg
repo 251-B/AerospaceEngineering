@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 954 480" width="100%" class="fig-kit" style="max-width:954px;margin:0 auto;display:block" role="img" aria-label="The inverted double well V = -(c/2)(x^2 - a^2)^2 with three energy levels and their allowed regions.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="67.5" y1="130.0" x2="733.4" y2="130.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M738.2,130.0 L730.8,133.1 L730.8,126.9 Z" fill="#8a94a6"/>
+<text x="750.2" y="135.0" fill="#6b7280" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x</text>
+<line x1="400.0" y1="453.0" x2="400.0" y2="37.9" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M400.0,33.1 L403.1,40.5 L396.9,40.5 Z" fill="#8a94a6"/>
+<text x="412.0" y="35.1" fill="#6b7280" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">V(x)</text>
+<line x1="77.0" y1="81.5" x2="723.0" y2="81.5" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="7 4"/>
+<polygon points="77.0,87.2 723.0,87.2 723.0,75.8 77.0,75.8" fill="#f59e0b" fill-opacity="0.35" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="105.5" y1="81.5" x2="67.2" y2="81.5" stroke="#f59e0b" stroke-width="2.0"/>
+<path d="M61.8,81.5 L70.1,78.0 L70.1,85.1 Z" fill="#f59e0b"/>
+<line x1="694.5" y1="81.5" x2="732.8" y2="81.5" stroke="#f59e0b" stroke-width="2.0"/>
+<path d="M738.2,81.5 L729.9,85.1 L729.9,78.0 Z" fill="#f59e0b"/>
+<text x="750.2" y="86.5" fill="#f59e0b" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">(a) E > 0</text>
+<line x1="77.0" y1="210.8" x2="723.0" y2="210.8" stroke="#10b981" stroke-width="1.8" stroke-dasharray="7 4"/>
+<polygon points="297.2,216.4 502.8,216.4 502.8,205.1 297.2,205.1" fill="#10b981" fill-opacity="0.35" stroke="#10b981" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="648.2,216.4 723.0,216.4 723.0,205.1 648.2,205.1" fill="#10b981" fill-opacity="0.35" stroke="#10b981" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="77.0,216.4 151.8,216.4 151.8,205.1 77.0,205.1" fill="#10b981" fill-opacity="0.35" stroke="#10b981" stroke-width="0.0" stroke-linejoin="round"/>
+<text x="735.0" y="215.8" fill="#10b981" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">(c) −c a<tspan baseline-shift="sub" font-size="70%"></tspan><tspan baseline-shift="super" font-size="70%">4</tspan>/2 < E < 0</text>
+<line x1="77.0" y1="388.4" x2="723.0" y2="388.4" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="7 4"/>
+<polygon points="685.9,394.1 723.0,394.1 723.0,382.7 685.9,382.7" fill="#ef4444" fill-opacity="0.35" stroke="#ef4444" stroke-width="0.0" stroke-linejoin="round"/>
+<polygon points="77.0,394.1 114.1,394.1 114.1,382.7 77.0,382.7" fill="#ef4444" fill-opacity="0.35" stroke="#ef4444" stroke-width="0.0" stroke-linejoin="round"/>
+<text x="735.0" y="393.4" fill="#ef4444" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">(b) E < −c a<tspan baseline-shift="sub" font-size="70%"></tspan><tspan baseline-shift="super" font-size="70%">4</tspan>/2</text>
+<polyline points="104.8,453.0 107.2,435.0 109.7,417.6 112.2,400.8 114.6,384.8 117.1,369.3 119.5,354.4 122.0,340.2 124.5,326.5 126.9,313.4 129.4,300.9 131.8,288.9 134.3,277.5 136.8,266.5 139.2,256.1 141.7,246.2 144.1,236.8 146.6,227.9 149.1,219.5 151.5,211.5 154.0,203.9 156.4,196.8 158.9,190.1 161.4,183.9 163.8,178.0 166.3,172.5 168.7,167.4 171.2,162.7 173.7,158.4 176.1,154.4 178.6,150.7 181.0,147.4 183.5,144.4 186.0,141.7 188.4,139.3 190.9,137.2 193.3,135.4 195.8,133.9 198.3,132.6 200.7,131.6 203.2,130.9 205.6,130.3 208.1,130.1 210.6,130.0 213.0,130.2 215.5,130.5 217.9,131.1 220.4,131.8 222.9,132.8 225.3,133.9 227.8,135.1 230.3,136.6 232.7,138.2 235.2,139.9 237.6,141.7 240.1,143.7 242.6,145.9 245.0,148.1 247.5,150.4 249.9,152.9 252.4,155.4 254.9,158.0 257.3,160.7 259.8,163.5 262.2,166.3 264.7,169.2 267.2,172.2 269.6,175.2 272.1,178.3 274.5,181.4 277.0,184.5 279.5,187.6 281.9,190.8 284.4,194.0 286.8,197.2 289.3,200.5 291.8,203.7 294.2,206.9 296.7,210.1 299.1,213.3 301.6,216.5 304.1,219.6 306.5,222.8 309.0,225.9 311.4,228.9 313.9,232.0 316.4,235.0 318.8,237.9 321.3,240.8 323.7,243.7 326.2,246.4 328.7,249.2 331.1,251.8 333.6,254.4 336.0,257.0 338.5,259.4 341.0,261.8 343.4,264.1 345.9,266.4 348.3,268.5 350.8,270.6 353.3,272.5 355.7,274.4 358.2,276.2 360.6,277.9 363.1,279.5 365.6,281.1 368.0,282.5 370.5,283.8 372.9,285.0 375.4,286.1 377.9,287.1 380.3,288.1 382.8,288.9 385.2,289.6 387.7,290.1 390.2,290.6 392.6,291.0 395.1,291.3 397.5,291.4 400.0,291.5 402.5,291.4 404.9,291.3 407.4,291.0 409.8,290.6 412.3,290.1 414.8,289.6 417.2,288.9 419.7,288.1 422.1,287.1 424.6,286.1 427.1,285.0 429.5,283.8 432.0,282.5 434.4,281.1 436.9,279.5 439.4,277.9 441.8,276.2 444.3,274.4 446.7,272.5 449.2,270.6 451.7,268.5 454.1,266.4 456.6,264.1 459.0,261.8 461.5,259.4 464.0,257.0 466.4,254.4 468.9,251.8 471.3,249.2 473.8,246.4 476.3,243.7 478.7,240.8 481.2,237.9 483.6,235.0 486.1,232.0 488.6,228.9 491.0,225.9 493.5,222.8 495.9,219.6 498.4,216.5 500.9,213.3 503.3,210.1 505.8,206.9 508.2,203.7 510.7,200.5 513.2,197.2 515.6,194.0 518.1,190.8 520.5,187.6 523.0,184.5 525.5,181.4 527.9,178.3 530.4,175.2 532.8,172.2 535.3,169.2 537.8,166.3 540.2,163.5 542.7,160.7 545.1,158.0 547.6,155.4 550.1,152.9 552.5,150.4 555.0,148.1 557.4,145.9 559.9,143.7 562.4,141.7 564.8,139.9 567.3,138.2 569.7,136.6 572.2,135.1 574.7,133.9 577.1,132.8 579.6,131.8 582.1,131.1 584.5,130.5 587.0,130.2 589.4,130.0 591.9,130.1 594.4,130.3 596.8,130.9 599.3,131.6 601.7,132.6 604.2,133.9 606.7,135.4 609.1,137.2 611.6,139.3 614.0,141.7 616.5,144.4 619.0,147.4 621.4,150.7 623.9,154.4 626.3,158.4 628.8,162.7 631.3,167.4 633.7,172.5 636.2,178.0 638.6,183.9 641.1,190.1 643.6,196.8 646.0,203.9 648.5,211.5 650.9,219.5 653.4,227.9 655.9,236.8 658.3,246.2 660.8,256.1 663.2,266.5 665.7,277.5 668.2,288.9 670.6,300.9 673.1,313.4 675.5,326.5 678.0,340.2 680.5,354.4 682.9,369.3 685.4,384.8 687.8,400.8 690.3,417.6 692.8,435.0 695.2,453.0" fill="none" stroke="#3b82f6" stroke-width="2.8" stroke-linejoin="round"/>
+<circle cx="210.0" cy="130.0" r="4.5" fill="#3b82f6"/>
+<text x="210.0" y="118.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">unstable</text>
+<circle cx="590.0" cy="130.0" r="4.5" fill="#3b82f6"/>
+<text x="590.0" y="118.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">unstable</text>
+<circle cx="400.0" cy="291.5" r="4.5" fill="#3b82f6"/>
+<text x="410.0" y="315.5" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">stable, −c a<tspan baseline-shift="sub" font-size="70%"></tspan><tspan baseline-shift="super" font-size="70%">4</tspan>/2</text>
+<circle cx="290.3" cy="201.8" r="4.0" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="509.7" cy="201.8" r="4.0" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="151.8" cy="210.8" r="4.0" fill="#10b981"/>
+<text x="143.8" y="200.8" fill="#10b981" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−x<tspan baseline-shift="sub" font-size="70%">out</tspan></text>
+<circle cx="297.2" cy="210.8" r="4.0" fill="#10b981"/>
+<text x="303.2" y="200.8" fill="#10b981" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−x<tspan baseline-shift="sub" font-size="70%">in</tspan></text>
+<circle cx="502.8" cy="210.8" r="4.0" fill="#10b981"/>
+<text x="496.8" y="200.8" fill="#10b981" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">in</tspan></text>
+<circle cx="648.2" cy="210.8" r="4.0" fill="#10b981"/>
+<text x="656.2" y="200.8" fill="#10b981" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">out</tspan></text>
+<line x1="337.3" y1="224.1" x2="457.3" y2="224.1" stroke="#10b981" stroke-width="2.0"/>
+<path d="M462.7,224.1 L454.4,227.6 L454.4,220.5 Z" fill="#10b981"/>
+<line x1="462.7" y1="224.1" x2="342.7" y2="224.1" stroke="#10b981" stroke-width="2.0"/>
+<path d="M337.3,224.1 L345.6,220.5 L345.6,227.6 Z" fill="#10b981"/>
+<text x="410.0" y="244.1" fill="#10b981" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">oscillation</text>
+<circle cx="114.1" cy="388.4" r="4.0" fill="#ef4444"/>
+<text x="120.1" y="408.4" fill="#ef4444" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−x<tspan baseline-shift="sub" font-size="70%">out(b)</tspan></text>
+<circle cx="685.9" cy="388.4" r="4.0" fill="#ef4444"/>
+<text x="679.9" y="408.4" fill="#ef4444" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">out(b)</tspan></text>
+<line x1="715.4" y1="374.2" x2="705.6" y2="374.2" stroke="#ef4444" stroke-width="2.0"/>
+<path d="M700.2,374.2 L708.5,370.6 L708.5,377.7 Z" fill="#ef4444"/>
+<path d="M700.2,374.2 A14.2,14.2 0 0 0 700.2,402.7" fill="none" stroke="#ef4444" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="700.2" y1="402.7" x2="710.0" y2="402.7" stroke="#ef4444" stroke-width="2.0"/>
+<path d="M715.4,402.7 L707.1,406.2 L707.1,399.1 Z" fill="#ef4444"/>
+</g></svg>

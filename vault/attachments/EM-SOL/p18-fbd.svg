@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the particle on the cone: weight down, normal reaction towards the axis at 45 degrees, and their horizontal resultant.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="330.0" y1="440.0" x2="330.0" y2="132.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M330.0,128.0 L333.1,135.4 L326.9,135.4 Z" fill="#8a94a6"/>
+<text x="318.0" y="132.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">z</text>
+<line x1="330.0" y1="440.0" x2="602.0" y2="168.0" stroke="#8a94a6" stroke-width="1.3"/>
+<line x1="483.6" y1="369.6" x2="400.4" y2="286.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="394.0" y1="192.0" x2="394.0" y2="272.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="490.0" y1="280.0" x2="490.0" y2="368.8" stroke="#ef4444" stroke-width="3.0"/>
+<path d="M490.0,376.0 L485.3,364.9 L494.7,364.9 Z" fill="#ef4444"/>
+<text x="500.0" y="333.0" fill="#ef4444" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g <tspan font-weight="700" font-style="normal">k</tspan></text>
+<line x1="490.0" y1="280.0" x2="399.1" y2="189.1" stroke="#8b5cf6" stroke-width="3.0"/>
+<path d="M394.0,184.0 L405.1,188.5 L398.5,195.1 Z" fill="#8b5cf6"/>
+<text x="384.0" y="184.0" fill="#8b5cf6" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N <tspan font-weight="700" font-style="normal">n</tspan></text>
+<line x1="490.0" y1="280.0" x2="402.0" y2="280.0" stroke="#8b5cf6" stroke-width="2.6" stroke-dasharray="7 4"/>
+<path d="M394.0,280.0 L404.1,275.7 L404.1,284.3 Z" fill="#8b5cf6"/>
+<line x1="320.4" y1="280.0" x2="384.4" y2="280.0" stroke="#8b5cf6" stroke-width="1.0" stroke-dasharray="2 3"/>
+<text x="314.0" y="285.0" fill="#8b5cf6" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">resultant −m g <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">R</tspan> (centripetal)</text>
+<circle cx="490.0" cy="280.0" r="9" fill="#4b5563" fill-opacity="0.22" stroke="#4b5563" stroke-width="1.8"/>
+<path d="M484.4,274.4 L495.6,285.6 M484.4,285.6 L495.6,274.4" stroke="#4b5563" stroke-width="1.6" fill="none"/>
+<text x="504.0" y="272.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="504.0" y="302.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<text x="58.0" y="496.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">inertial frame S<tspan baseline-shift="sub" font-size="70%">0</tspan>: no inertia forces; smooth cone: reaction along n only</text>
+</g></svg>

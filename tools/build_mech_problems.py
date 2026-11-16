@@ -823,12 +823,14 @@ def main(argv=None):
             print(f"build_mech_problems: topic {topic}: notes '{SET_NAMES[topic]}' do not exist yet, skipped")
             continue
         built += 1
+        before = len(errors)
         path, want = build_page(topic, meta, errors)
+        own_errors = len(errors) > before      # a page is held back only by errors of its own problems
         have = sl.strip_links(path.read_text(encoding="utf-8")) if path.exists() else None
         if have == want:
             continue
         stale.append(path)
-        if not args.check and not errors:
+        if not args.check and not own_errors:
             path.write_text(want, encoding="utf-8", newline="\n")
             print(f"build_mech_problems: wrote {path.relative_to(REPO)}")
     unused = sorted(set(emsol.FIGURES) - USED)

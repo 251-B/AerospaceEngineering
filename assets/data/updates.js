@@ -15,6 +15,22 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-16-mechanics-topic-4-problems",
+    "date": "2026-11-16",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 4 problems rewritten step by step",
+    "text": "The three central-force problems now show every step in boxed derivations, with new figures: orbits, effective potentials and free-body diagrams.",
+    "link": "subjects/engineering-mechanics/problemas/topic-4.html"
+  },
+  {
+    "id": "2026-11-16-mechanics-topic-3-problems",
+    "date": "2026-11-16",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 3 problems rewritten step by step",
+    "text": "The twelve problems on constraints and reaction forces now show every step in boxed derivations, with new figures for each rotation and each free-body diagram.",
+    "link": "subjects/engineering-mechanics/problemas/topic-3.html"
+  },
+  {
     "id": "2026-11-16-materials-unit-6-7-practice",
     "date": "2026-11-16",
     "tag": "Aerospace Materials I",

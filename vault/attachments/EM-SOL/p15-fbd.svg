@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 430" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the sphere with the weight down and the buoyancy and the drag up.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="275.0" cy="135.0" r="70.0" fill="#4b5563" fill-opacity="0.14" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="275.0" y1="135.0" x2="275.0" y2="337.8" stroke="#ef4444" stroke-width="3.0"/>
+<path d="M275.0,345.0 L270.3,333.9 L279.7,333.9 Z" fill="#ef4444"/>
+<text x="289.0" y="350.0" fill="#ef4444" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m g <tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="257.5" y1="135.0" x2="257.5" y2="37.2" stroke="#8b5cf6" stroke-width="3.0"/>
+<path d="M257.5,30.0 L262.2,41.1 L252.8,41.1 Z" fill="#8b5cf6"/>
+<text x="245.5" y="35.0" fill="#8b5cf6" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−ρ<tspan baseline-shift="sub" font-size="70%">0</tspan> V g <tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="292.5" y1="135.0" x2="292.5" y2="72.2" stroke="#f97316" stroke-width="3.0"/>
+<path d="M292.5,65.0 L297.2,76.1 L287.8,76.1 Z" fill="#f97316"/>
+<text x="306.5" y="55.0" fill="#f97316" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−6π μ r ẋ <tspan font-weight="700" font-style="normal">i</tspan></text>
+<circle cx="275.0" cy="135.0" r="4.0" fill="#4b5563"/>
+<line x1="415.0" y1="100.0" x2="415.0" y2="178.0" stroke="#10b981" stroke-width="2.2"/>
+<path d="M415.0,184.0 L411.1,174.8 L418.9,174.8 Z" fill="#10b981"/>
+<text x="415.0" y="208.0" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ẋ > 0</text>
+<circle cx="72.0" cy="205.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="72.0" cy="205.0" r="2.6" fill="#4b5563"/>
+<text x="56.0" y="193.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<line x1="72.0" y1="205.0" x2="72.0" y2="255.0" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M72.0,261.0 L68.1,251.8 L75.9,251.8 Z" fill="#3b82f6"/>
+<text x="58.0" y="265.0" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="72.0" y1="205.0" x2="122.0" y2="205.0" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M128.0,205.0 L118.8,208.9 L118.8,201.1 Z" fill="#3b82f6"/>
+<text x="128.0" y="227.0" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<text x="275.0" y="408.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">free sphere: no reaction; inertial frame: no inertia forces</text>
+</g></svg>

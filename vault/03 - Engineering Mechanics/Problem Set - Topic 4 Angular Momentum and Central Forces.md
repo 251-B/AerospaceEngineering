@@ -40,7 +40,7 @@ where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known const
 
 * **(a)** Show that the angular momentum vector and the mechanical energy of $P$ are conserved quantities of motion, and that the motion of $P$ occurs in a plane.
 * **(b)** Using polar coordinates $(r, \theta)$ in the plane of motion, find a second-order differential equation to solve for $u \equiv 1/r$ as a function of $\theta$ (i.e., $u = u(\theta)$).
-* **(c)** Find a first integral of this equation and discuss the limits of motion of $u$ as a function of $\mu/h^2$, $\alpha$, and the values of $u$ and $u' \equiv du/d\theta$ at $t = 0$, where $h$ is the magnitude of the angular momentum vector about the origin per unit mass. For $\alpha = 1, 2, 3,$ and $4$, determine under which conditions: (i) the particle escapes to infinity ($u \to 0$); (ii) the particle reaches $r = 0$ ($u \to \infty$); (iii) the particle oscillates between two values of $u$.
+* **(c)** Find a first integral of this equation and discuss the limits of motion of $u$ as a function of $\mu/h^2$, $\alpha$, and the value of $u$ and $u' \equiv du/d\theta$ at $t = 0$, where $h$ is the magnitude of the angular momentum vector about the origin per unit mass. For $\alpha = 1, 2, 3,$ and $4$, determine under which conditions: (i) the particle escapes to infinity ($u = 0$); (ii) the particle reaches $r = 0$ ($u \to \infty$); (iii) the particle oscillates between two values of $u$.
 
 *Hint: try to solve first the problem with $\alpha = 2$, and then try the other values.*
 

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="100%" class="fig-kit" style="max-width:900px;margin:0 auto;display:block" role="img" aria-label="Exploded free-body diagram of P and Q: weights, the equal tensions towards the tangency points and the equal and opposite spring forces.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="400.0" cy="230.0" r="95.0" fill="#8a94a6" fill-opacity="0.1" stroke="#8a94a6" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M482.3,182.5 A95.0,95.0 0 0 0 310.7,197.5" fill="none" stroke="#8a94a6" stroke-width="3.0" stroke-linejoin="round"/>
+<line x1="482.3" y1="182.5" x2="601.0" y2="388.2" stroke="#8a94a6" stroke-width="1.6"/>
+<line x1="310.7" y1="197.5" x2="245.7" y2="376.0" stroke="#8a94a6" stroke-width="1.6"/>
+<circle cx="482.3" cy="182.5" r="3.5" fill="#8a94a6"/>
+<circle cx="310.7" cy="197.5" r="3.5" fill="#8a94a6"/>
+<text x="494.3" y="176.5" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<text x="298.7" y="191.5" fill="#6b7280" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">B</text>
+<line x1="601.0" y1="388.2" x2="601.0" y2="476.0" stroke="#ef4444" stroke-width="3.0"/>
+<path d="M601.0,483.2 L596.3,472.1 L605.7,472.1 Z" fill="#ef4444"/>
+<text x="611.0" y="445.4" fill="#ef4444" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g <tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="601.0" y1="388.2" x2="552.4" y2="303.9" stroke="#ec4899" stroke-width="3.0"/>
+<path d="M548.8,297.7 L558.3,304.9 L550.3,309.6 Z" fill="#ec4899"/>
+<text x="560.8" y="293.7" fill="#ec4899" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">T <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<line x1="601.0" y1="388.2" x2="531.7" y2="385.8" stroke="#f97316" stroke-width="3.0"/>
+<path d="M525.1,385.6 L535.3,381.7 L535.0,390.2 Z" fill="#f97316"/>
+<text x="517.1" y="375.6" fill="#f97316" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">k PQ</text>
+<circle cx="601.0" cy="388.2" r="5.5" fill="#4b5563"/>
+<text x="615.0" y="410.2" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<line x1="245.7" y1="376.0" x2="245.7" y2="463.8" stroke="#ef4444" stroke-width="3.0"/>
+<path d="M245.7,471.0 L241.1,460.0 L250.4,460.0 Z" fill="#ef4444"/>
+<text x="235.7" y="433.3" fill="#ef4444" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g <tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="245.7" y1="376.0" x2="279.0" y2="284.6" stroke="#ec4899" stroke-width="3.0"/>
+<path d="M281.5,277.9 L282.1,289.8 L273.3,286.6 Z" fill="#ec4899"/>
+<text x="271.5" y="271.9" fill="#ec4899" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−T <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">ψ</tspan></text>
+<line x1="245.7" y1="376.0" x2="315.1" y2="378.4" stroke="#f97316" stroke-width="3.0"/>
+<path d="M321.7,378.6 L311.4,382.6 L311.7,374.0 Z" fill="#f97316"/>
+<text x="329.7" y="366.6" fill="#f97316" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−k PQ</text>
+<circle cx="245.7" cy="376.0" r="5.5" fill="#4b5563"/>
+<text x="231.7" y="398.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Q</text>
+<text x="124.5" y="548.2" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">same tension T at both ends (massless string, smooth cylinder); the cylinder acts on the string only;</text>
+<text x="124.5" y="567.2" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">inertial frame: no inertia forces</text>
+</g></svg>

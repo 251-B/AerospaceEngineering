@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Positions of O, C and G on one line below and above the natural frequency.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="155.0" y="47.5" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">ω < ω<tspan baseline-shift="sub" font-size="70%">0</tspan>  (ω = 0.6 ω<tspan baseline-shift="sub" font-size="70%">0</tspan>)</text>
+<circle cx="155.0" cy="225.0" r="45.0" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<circle cx="155.0" cy="225.0" r="125.0" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<line x1="155.0" y1="225.0" x2="278.4" y2="153.8" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="6 4"/>
+<line x1="194.0" y1="202.5" x2="263.3" y2="162.5" stroke="#1d4ed8" stroke-width="3.4"/>
+<circle cx="155.0" cy="225.0" r="4.0" fill="#4b5563"/>
+<circle cx="194.0" cy="202.5" r="5.0" fill="#4b5563"/>
+<circle cx="263.3" cy="162.5" r="5.0" fill="#1d4ed8"/>
+<text x="143.0" y="247.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<text x="208.0" y="186.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<text x="277.3" y="146.5" fill="#1d4ed8" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<text x="224.6" y="208.5" fill="#1d4ed8" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ℓ</text>
+<line x1="155.0" y1="225.0" x2="191.9" y2="250.8" stroke="#8a94a6" stroke-width="0.9"/>
+<text x="198.8" y="268.3" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">|OC|</text>
+<line x1="155.0" y1="225.0" x2="181.0" y2="347.3" stroke="#8a94a6" stroke-width="0.9"/>
+<text x="184.2" y="367.1" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">|OG|</text>
+<text x="505.0" y="47.5" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">ω > ω<tspan baseline-shift="sub" font-size="70%">0</tspan>  (ω = 1.5 ω<tspan baseline-shift="sub" font-size="70%">0</tspan>)</text>
+<circle cx="505.0" cy="225.0" r="144.0" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<circle cx="505.0" cy="225.0" r="64.0" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<line x1="505.0" y1="225.0" x2="365.1" y2="305.8" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="6 4"/>
+<line x1="380.3" y1="297.0" x2="449.6" y2="257.0" stroke="#1d4ed8" stroke-width="3.4"/>
+<circle cx="505.0" cy="225.0" r="4.0" fill="#4b5563"/>
+<circle cx="380.3" cy="297.0" r="5.0" fill="#4b5563"/>
+<circle cx="449.6" cy="257.0" r="5.0" fill="#1d4ed8"/>
+<text x="493.0" y="247.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<text x="394.3" y="281.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<text x="463.6" y="241.0" fill="#1d4ed8" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<text x="410.9" y="303.0" fill="#1d4ed8" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ℓ</text>
+<line x1="505.0" y1="225.0" x2="623.0" y2="307.6" stroke="#8a94a6" stroke-width="0.9"/>
+<text x="629.9" y="325.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">|OC|</text>
+<line x1="505.0" y1="225.0" x2="518.3" y2="287.6" stroke="#8a94a6" stroke-width="0.9"/>
+<text x="521.6" y="307.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">|OG|</text>
+<line x1="505.0" y1="225.0" x2="551.2" y2="198.3" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M557.0,195.0 L550.3,203.8 L546.0,196.4 Z" fill="#3b82f6"/>
+<text x="571.0" y="189.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+</g></svg>

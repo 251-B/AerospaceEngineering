@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" width="100%" class="fig-kit" style="max-width:1100px;margin:0 auto;display:block" role="img" aria-label="Two views along k of the polar bases at the tangency points, turned by theta and by psi from i, j.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="220.0,270.0 296.6,270.0 296.6,225.8" fill="#eab308" fill-opacity="0.24" stroke="#eab308" stroke-width="0.0" stroke-linejoin="round"/>
+<polyline points="288.4,270.0 288.4,261.8 296.6,261.8" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polygon points="220.0,270.0 220.0,193.4 175.8,193.4" fill="#eab308" fill-opacity="0.24" stroke="#eab308" stroke-width="0.0" stroke-linejoin="round"/>
+<polyline points="220.0,201.6 211.8,201.6 211.8,193.4" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="220.0" y1="270.0" x2="358.0" y2="270.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M362.8,270.0 L355.4,273.1 L355.4,266.9 Z" fill="#8a94a6"/>
+<text x="378.8" y="275.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="220.0" y1="270.0" x2="220.0" y2="132.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M220.0,127.2 L223.1,134.6 L216.9,134.6 Z" fill="#8a94a6"/>
+<text x="220.0" y="117.2" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="220.0" y1="270.0" x2="320.3" y2="212.1" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M326.0,208.8 L319.4,217.6 L315.1,210.2 Z" fill="#3b82f6"/>
+<line x1="220.0" y1="270.0" x2="162.1" y2="169.7" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M158.8,164.0 L167.6,170.6 L160.2,174.9 Z" fill="#3b82f6"/>
+<text x="341.6" y="204.8" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">A</tspan></text>
+<text x="149.8" y="153.4" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<path d="M264.2,270.0 A44.2,44.2 0 0 0 258.3,247.9" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M256.8,245.3 L264.0,250.7 L257.9,254.2 Z" fill="#10b981"/>
+<path d="M220.0,225.8 A44.2,44.2 0 0 0 197.9,231.7" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M195.3,233.2 L200.7,226.0 L204.2,232.1 Z" fill="#10b981"/>
+<text x="285.7" y="257.4" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<text x="202.4" y="209.3" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<line x1="296.6" y1="225.8" x2="296.6" y2="270.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="175.8" y1="193.4" x2="220.0" y2="193.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="266.3" y="292.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos θ</text>
+<text x="306.6" y="252.9" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin θ</text>
+<text x="230.0" y="206.1" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos θ</text>
+<text x="197.9" y="183.4" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin θ</text>
+<text x="242.7" y="243.9" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<text x="188.9" y="252.3" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<circle cx="220.0" cy="270.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="220.0" cy="270.0" r="2.6" fill="#4b5563"/>
+<text x="206.0" y="262.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<path d="M202.1,276.5 A19.0,19.0 0 0 0 237.9,276.5" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M238.9,273.7 L239.4,282.7 L232.8,280.3 Z" fill="#10b981"/>
+<text x="200.0" y="314.0" fill="#10b981" font-size="13" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">positive about k</text>
+<text x="196.4" y="474.9" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">[<tspan baseline-shift="sub" font-size="70%">0</tspan>R<tspan baseline-shift="sub" font-size="70%">1</tspan>] =</text>
+<line x1="206.4" y1="433.2" x2="206.4" y2="506.6" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="206.4" y1="433.2" x2="211.2" y2="433.2" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="206.4" y1="506.6" x2="211.2" y2="506.6" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="365.5" y1="433.2" x2="365.5" y2="506.6" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="365.5" y1="433.2" x2="360.8" y2="433.2" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="365.5" y1="506.6" x2="360.8" y2="506.6" stroke="#4b5563" stroke-width="1.6"/>
+<text x="232.9" y="450.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">cos θ</text>
+<text x="286.0" y="450.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">−sin θ</text>
+<text x="339.0" y="450.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
+<text x="232.9" y="474.9" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">sin θ</text>
+<text x="286.0" y="474.9" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">cos θ</text>
+<text x="339.0" y="474.9" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
+<text x="232.9" y="499.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
+<text x="286.0" y="499.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
+<text x="339.0" y="499.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">1</text>
+<text x="90.8" y="93.2" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">rotation θ</text>
+<polygon points="736.8,270.0 653.7,270.0 653.7,239.8" fill="#eab308" fill-opacity="0.24" stroke="#eab308" stroke-width="0.0" stroke-linejoin="round"/>
+<polyline points="661.9,270.0 661.9,261.8 653.7,261.8" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polygon points="736.8,270.0 736.8,353.1 706.6,353.1" fill="#eab308" fill-opacity="0.24" stroke="#eab308" stroke-width="0.0" stroke-linejoin="round"/>
+<polyline points="736.8,344.9 728.6,344.9 728.6,353.1" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="736.8" y1="270.0" x2="874.8" y2="270.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M879.6,270.0 L872.2,273.1 L872.2,266.9 Z" fill="#8a94a6"/>
+<text x="895.6" y="275.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="736.8" y1="270.0" x2="736.8" y2="132.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M736.8,127.2 L739.9,134.6 L733.7,134.6 Z" fill="#8a94a6"/>
+<text x="736.8" y="117.2" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="736.8" y1="270.0" x2="628.0" y2="230.4" stroke="#10b981" stroke-width="2.6"/>
+<path d="M621.8,228.1 L632.8,227.6 L629.8,235.6 Z" fill="#10b981"/>
+<line x1="736.8" y1="270.0" x2="697.2" y2="378.8" stroke="#10b981" stroke-width="2.6"/>
+<path d="M694.9,385.0 L694.4,374.0 L702.4,377.0 Z" fill="#10b981"/>
+<text x="604.9" y="227.0" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<text x="688.8" y="406.9" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">ψ</tspan></text>
+<path d="M794.6,270.0 A57.8,57.8 0 0 0 682.5,250.2" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M681.5,253.1 L681.0,244.1 L687.6,246.5 Z" fill="#10b981"/>
+<path d="M736.8,236.0 A34.0,34.0 0 0 0 725.2,301.9" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M728.0,303.0 L719.0,303.4 L721.4,296.8 Z" fill="#10b981"/>
+<text x="798.6" y="239.3" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ψ</text>
+<text x="701.2" y="310.6" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ψ</text>
+<line x1="653.7" y1="239.8" x2="653.7" y2="270.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="706.6" y1="353.1" x2="736.8" y2="353.1" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="645.3" y="292.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos ψ &lt; 0</text>
+<text x="643.7" y="259.9" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin ψ</text>
+<text x="746.8" y="349.8" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos ψ &lt; 0</text>
+<text x="721.7" y="377.1" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin ψ</text>
+<text x="672.2" y="233.5" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<text x="695.3" y="339.6" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">1</text>
+<circle cx="736.8" cy="270.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="736.8" cy="270.0" r="2.6" fill="#4b5563"/>
+<text x="750.8" y="264.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<path d="M718.9,276.5 A19.0,19.0 0 0 0 754.7,276.5" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M755.7,273.7 L756.2,282.7 L749.6,280.3 Z" fill="#10b981"/>
+<text x="766.8" y="322.0" fill="#10b981" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">positive about k</text>
+<text x="713.2" y="474.9" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">[<tspan baseline-shift="sub" font-size="70%">0</tspan>R<tspan baseline-shift="sub" font-size="70%">2</tspan>] =</text>
+<line x1="723.2" y1="433.2" x2="723.2" y2="506.6" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="723.2" y1="433.2" x2="728.0" y2="433.2" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="723.2" y1="506.6" x2="728.0" y2="506.6" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="882.3" y1="433.2" x2="882.3" y2="506.6" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="882.3" y1="433.2" x2="877.6" y2="433.2" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="882.3" y1="506.6" x2="877.6" y2="506.6" stroke="#4b5563" stroke-width="1.6"/>
+<text x="749.7" y="450.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">cos ψ</text>
+<text x="802.8" y="450.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">−sin ψ</text>
+<text x="855.8" y="450.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
+<text x="749.7" y="474.9" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">sin ψ</text>
+<text x="802.8" y="474.9" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">cos ψ</text>
+<text x="855.8" y="474.9" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
+<text x="749.7" y="499.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
+<text x="802.8" y="499.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
+<text x="855.8" y="499.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">1</text>
+<text x="607.6" y="93.2" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">rotation ψ</text>
+</g></svg>

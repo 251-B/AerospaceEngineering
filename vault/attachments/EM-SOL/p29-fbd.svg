@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="100%" class="fig-kit" style="max-width:900px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram in the cross-section: the in-plane part of the weight with its radial and tangential components, the radial reaction, and the axial part of the weight into the paper.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="330.0" cy="330.0" r="144.0" fill="none" stroke="#8a94a6" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="330.0" cy="330.0" r="3.0" fill="#4b5563"/>
+<text x="338.0" y="350.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<line x1="500.2" y1="216.5" x2="458.0" y2="183.5" stroke="#ef4444" stroke-width="1.0" stroke-dasharray="4 4"/>
+<line x1="500.2" y1="222.9" x2="471.9" y2="255.9" stroke="#ef4444" stroke-width="1.0" stroke-dasharray="4 4"/>
+<line x1="422.6" y1="219.7" x2="452.1" y2="184.4" stroke="#ef4444" stroke-width="2.0" stroke-dasharray="6 4"/>
+<path d="M455.6,180.3 L453.0,188.9 L447.6,184.4 Z" fill="#ef4444"/>
+<line x1="422.6" y1="219.7" x2="465.4" y2="255.6" stroke="#ef4444" stroke-width="2.0" stroke-dasharray="6 4"/>
+<path d="M469.5,259.1 L460.9,256.4 L465.4,251.1 Z" fill="#ef4444"/>
+<line x1="422.6" y1="219.7" x2="495.4" y2="219.7" stroke="#ef4444" stroke-width="3.0"/>
+<path d="M502.6,219.7 L491.5,224.4 L491.5,215.0 Z" fill="#ef4444"/>
+<text x="512.6" y="224.7" fill="#ef4444" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m g sin α <tspan font-weight="700" font-style="normal">i</tspan></text>
+<text x="463.6" y="170.3" fill="#ef4444" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m g sin α cos θ</text>
+<text x="479.5" y="277.1" fill="#ef4444" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m g sin α sin θ</text>
+<line x1="422.6" y1="219.7" x2="355.2" y2="300.0" stroke="#8b5cf6" stroke-width="3.0"/>
+<path d="M350.6,305.5 L354.1,294.0 L361.3,300.0 Z" fill="#8b5cf6"/>
+<text x="340.6" y="297.5" fill="#8b5cf6" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">R</tspan></text>
+<text x="340.6" y="317.5" fill="#8b5cf6" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">(drawn for N < 0)</text>
+<circle cx="422.6" cy="219.7" r="9" fill="#ef4444" fill-opacity="0.18" stroke="#ef4444" stroke-width="1.8"/>
+<path d="M417.0,214.1 L428.1,225.3 M417.0,225.3 L428.1,214.1" stroke="#ef4444" stroke-width="1.6" fill="none"/>
+<line x1="414.6" y1="211.7" x2="398.0" y2="146.0" stroke="#ef4444" stroke-width="0.9" stroke-dasharray="3 3"/>
+<text x="394.0" y="132.0" fill="#ef4444" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g cos α <tspan font-weight="700" font-style="normal">k</tspan></text>
+<text x="394.0" y="152.0" fill="#ef4444" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">(axial part of the weight)</text>
+<text x="408.6" y="229.7" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="18.0" y="534.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">inertial frame S<tspan baseline-shift="sub" font-size="70%">0</tspan>: no inertia forces; smooth cylinder: reaction along <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">R</tspan> only</text>
+</g></svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 290" width="100%" class="fig-kit" style="max-width:800px;margin:0 auto;display:block" role="img" aria-label="The axis Ox with the fixed basis; inside |x| < a the force points towards the origin, beyond a it points away.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="7.0" y1="175.0" x2="779.5" y2="175.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="37.0" y1="184.0" x2="37.0" y2="166.0" stroke="#8a94a6" stroke-width="1.4"/>
+<text x="37.0" y="201.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−a</text>
+<line x1="132.1" y1="184.0" x2="132.1" y2="166.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="262.0" y1="184.0" x2="262.0" y2="166.0" stroke="#8a94a6" stroke-width="1.4"/>
+<text x="246.0" y="201.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">0</text>
+<line x1="391.9" y1="184.0" x2="391.9" y2="166.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="487.0" y1="184.0" x2="487.0" y2="166.0" stroke="#8a94a6" stroke-width="1.4"/>
+<text x="487.0" y="201.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">+a</text>
+<line x1="262.0" y1="175.0" x2="302.2" y2="175.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M307.0,175.0 L299.6,178.1 L299.6,171.9 Z" fill="#8a94a6"/>
+<text x="309.0" y="163.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="262.0" y1="175.0" x2="262.0" y2="104.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M262.0,100.0 L265.1,107.4 L258.9,107.4 Z" fill="#8a94a6"/>
+<text x="276.0" y="104.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<circle cx="262.0" cy="175.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="262.0" cy="175.0" r="2.6" fill="#4b5563"/>
+<text x="242.0" y="161.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<line x1="262.0" y1="175.0" x2="262.0" y2="216.2" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="374.5" y1="175.0" x2="374.5" y2="216.2" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="262.0" y1="216.2" x2="368.5" y2="216.2" stroke="#4b5563" stroke-width="2.2"/>
+<path d="M374.5,216.2 L365.3,220.1 L365.3,212.4 Z" fill="#4b5563"/>
+<text x="318.2" y="238.2" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="super" font-size="70%">P</tspan><tspan baseline-shift="sub" font-size="70%" dx="-6">0</tspan></text>
+<line x1="374.5" y1="175.0" x2="324.9" y2="175.0" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M318.2,175.0 L328.4,170.7 L328.4,179.3 Z" fill="#ec4899"/>
+<text x="365.5" y="141.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan> (towards O)</text>
+<line x1="577.0" y1="175.0" x2="757.9" y2="175.0" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M764.5,175.0 L754.4,179.3 L754.4,170.7 Z" fill="#ec4899"/>
+<text x="670.8" y="153.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan> (away from O)</text>
+<line x1="374.5" y1="175.0" x2="374.5" y2="106.6" stroke="#8b5cf6" stroke-width="2.8"/>
+<path d="M374.5,100.0 L378.8,110.1 L370.2,110.1 Z" fill="#8b5cf6"/>
+<text x="384.5" y="105.0" fill="#8b5cf6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">R</tspan><tspan baseline-shift="sub" font-size="70%">⊥</tspan></text>
+<circle cx="374.5" cy="175.0" r="6.0" fill="#4b5563"/>
+<text x="366.5" y="197.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="577.0" cy="175.0" r="6.0" fill="#4b5563"/>
+<text x="569.0" y="165.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P<tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<text x="764.5" y="276.2" fill="#6b7280" font-size="13" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">S₀ inertial: no inertia forces</text>
+</g></svg>

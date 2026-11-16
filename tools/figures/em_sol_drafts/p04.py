@@ -86,7 +86,7 @@ def rotation_view():
     sc.label((-s * 0.35, c), "cos θ", "TEXT", "middle", 15, dy=-10)
     sc.spin(O, 0.2, 200, 340, "", "GREEN")
     axis_out(sc, O, None)
-    sc.label(O, bold("k") + S("", "0") + " (⊙)", "HEAD", "middle", 15, dx=2, dy=64)
+    sc.label(O, bold("k") + S("", "0") + " (⊙)", "HEAD", "middle", 15, dx=2, dy=80)
     return sc
 
 

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 640" width="100%" class="fig-kit" style="max-width:780px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of P with its weight and the string tension towards the tangency point B, and the weight split along i_1 and j_1.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="230.0" cy="230.0" r="100.0" fill="#8a94a6" fill-opacity="0.1" stroke="#8a94a6" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="300.7" y1="159.3" x2="583.6" y2="442.1" stroke="#8a94a6" stroke-width="1.6"/>
+<circle cx="300.7" cy="159.3" r="3.5" fill="#8a94a6"/>
+<text x="312.7" y="153.3" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">B</text>
+<line x1="583.6" y1="562.1" x2="523.6" y2="502.1" stroke="#ef4444" stroke-width="1.0" stroke-dasharray="4 4"/>
+<line x1="583.6" y1="562.1" x2="643.6" y2="502.1" stroke="#ef4444" stroke-width="1.0" stroke-dasharray="4 4"/>
+<line x1="583.6" y1="442.1" x2="527.4" y2="498.3" stroke="#ef4444" stroke-width="2.0" stroke-dasharray="6 4"/>
+<path d="M523.6,502.1 L526.9,493.8 L531.9,498.7 Z" fill="#ef4444"/>
+<line x1="583.6" y1="442.1" x2="639.7" y2="498.3" stroke="#ef4444" stroke-width="2.0" stroke-dasharray="6 4"/>
+<path d="M643.6,502.1 L635.2,498.7 L640.2,493.8 Z" fill="#ef4444"/>
+<line x1="583.6" y1="442.1" x2="583.6" y2="554.9" stroke="#ef4444" stroke-width="3.0"/>
+<path d="M583.6,562.1 L578.9,551.1 L588.2,551.1 Z" fill="#ef4444"/>
+<text x="583.6" y="584.1" fill="#ef4444" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g <tspan font-weight="700" font-style="normal">j</tspan></text>
+<text x="515.6" y="520.1" fill="#ef4444" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g sin φ</text>
+<text x="653.6" y="508.1" fill="#ef4444" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g cos φ</text>
+<line x1="583.6" y1="442.1" x2="503.8" y2="362.4" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M498.7,357.3 L509.8,361.8 L503.2,368.4 Z" fill="#ec4899"/>
+<text x="486.7" y="349.3" fill="#ec4899" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">T <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="583.6" y1="442.1" x2="628.8" y2="396.9" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M633.1,392.6 L629.3,401.9 L623.8,396.4 Z" fill="#3b82f6"/>
+<text x="641.1" y="388.6" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="583.6" y1="442.1" x2="538.3" y2="396.9" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M534.1,392.6 L543.3,396.4 L537.8,401.9 Z" fill="#3b82f6"/>
+<text x="541.7" y="424.3" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="583.6" cy="442.1" r="5.5" fill="#4b5563"/>
+<text x="599.6" y="447.1" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="80.0" y="620.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">inertial frame: no inertia forces; the spool acts on the string only</text>
+</g></svg>
