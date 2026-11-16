@@ -5072,7 +5072,7 @@ The exploded view separates the two bodies at the bearing $CD$. The bearing acts
 > $$\boxed{\dot\varphi = C_1, \qquad \left(\frac{I_2}{2} + \frac{mR^2}{8} + \frac{mb^2}{2}\right)\dot\theta^2 + \frac{mR^2}{4}\dot\varphi^2 - \left(mb + Ma\right)g\cos\theta = C_2, \qquad t = \pm\int_{\theta_0}^{\theta}\frac{\sqrt J\,d\theta'}{\sqrt{2\left(E_\theta + Kg\cos\theta'\right)}}}$$
 >
 > **Units:** $[\mathrm{T^{-1}}]$; J; s
-> **Meaning:** the second boxed integral is the first integral of the swing plus the constant term of the spin, with the constant $C_2$ equal to the sum of $E_\theta$ and the spin term: it is the total mechanical energy, as checked with the power of the reactions in Answers and Checks. The last integral gives the time as a function of $\theta$; its inverse is the motion of the fork, and the spin grows linearly with time.
+> **Meaning:** the second boxed integral is the first integral of the swing plus the constant term of the spin, with the constant $C_2$ equal to the sum of $E_\theta$ and the spin term: it is the total mechanical energy, as checked with the power of the reactions in Answers and Checks. The last integral gives the time as a function of $\theta$; its inverse is the motion of the fork, and the spin rate stays constant while the spin angle grows linearly with time.
 
 #### Reactions
 
@@ -5103,7 +5103,7 @@ The exploded view separates the two bodies at the bearing $CD$. The bearing acts
 > $$\boxed{\mathbf R_{O_1} = \left[\left(Ma + mb\right)\ddot\theta + \left(M + m\right)g\sin\theta\right]\mathbf i_2 - \left[\left(Ma + mb\right)\dot\theta^2 + \left(M + m\right)g\cos\theta\right]\mathbf k_2, \qquad \mathbf Q_{O_1} = -\frac{mR^2}{2}\dot\varphi\dot\theta\,\mathbf k_2}$$
 >
 > **Units:** N; N m
-> **Meaning:** the force is the total weight plus the rate of the total linear momentum of the assembly; the pin carries the gyroscopic torque of the spinning disc to the ground, and the fork transmits it unchanged because its own angular momentum lies along the pin. With the second rate of $\theta$ from part (d) the force depends only on $\theta$ and its rate.
+> **Meaning:** the force is the rate of the total linear momentum of the assembly minus the total weight (at rest it holds the weight up); the pin carries the gyroscopic torque of the spinning disc to the ground, and the fork transmits it unchanged because its own angular momentum lies along the pin. With the second rate of $\theta$ from part (d) the force depends only on $\theta$ and its rate.
 
 ### Answers and Checks
 
@@ -5156,7 +5156,7 @@ The exploded view separates the two bodies at the bearing $CD$. The bearing acts
 * **Inertial frame:** $S_0\{G; \mathcal B_0\}$, with $\mathbf i_0$, $\mathbf j_0$ in the plane of the figure and $\mathbf k_0$ out of the paper (⊙) along the spin axis. Its origin is the position of $G$, which is shown below to stay at rest.
 * **Probe frame:** $S_1\{G; \mathcal B_1\}$, attached to the probe, with $\mathbf i_1$ along $GA$, the radius through the point $A$ of the rim where the mass sat before the release (the axes $x$, $y$ of the figure), and $\mathbf j_1$ normal to it. The angle $\theta$ goes from $\mathbf i_0$ to $\mathbf i_1$ about $\mathbf k_0$; the spin of the statement is the rate of $\theta$, with the initial value $\omega_0$.
 * **Cord basis:** $\mathcal B_2\{\mathbf e_r, \mathbf e_t, \mathbf k_0\}$, with $\mathbf e_r$ along $GT$ (the radius to the point of tangency $T$) and $\mathbf e_t$ tangent to the rim at $T$, counterclockwise. The angle $\phi$ goes from $\mathbf i_1$ to $\mathbf e_r$ about $\mathbf k_0$, measured in the probe, as in the figure.
-* **Senses, read from the figure:** the cord is wound counterclockwise from $A$ over the top towards $H$, the point $T$ moves counterclockwise from $A$ towards $H$, and the straight part of the cord leaves $T$ in the clockwise tangent direction, towards $P$ (the figure, with $T$ at about 70 degrees, puts $P$ at about 1.5 $R$ to the right and 0.5 $R$ up, which the position vector below reproduces). With this winding the cord pulls the rim clockwise, so it slows the probe only if the spin is counterclockwise: the spin is read as counterclockwise (rate of $\theta$ positive). The mirror reading (cord and spin both clockwise) changes the sign of every angle and leaves every magnitude unchanged.
+* **Senses, read from the figure (the velocity arrow drawn at $P$ in the statement is only schematic: the true velocity has a radial part from the winding):** the cord is wound counterclockwise from $A$ over the top towards $H$, the point $T$ moves counterclockwise from $A$ towards $H$, and the straight part of the cord leaves $T$ in the clockwise tangent direction, towards $P$ (the figure, with $T$ at about 70 degrees, puts $P$ at about 1.5 $R$ to the right and 0.5 $R$ up, which the position vector below reproduces). With this winding the cord pulls the rim clockwise, so it slows the probe only if the spin is counterclockwise: the spin is read as counterclockwise (rate of $\theta$ positive). The mirror reading (cord and spin both clockwise) changes the sign of every angle and leaves every magnitude unchanged.
 * **Degrees of freedom:** the planar probe has three coordinates and each particle two (seven); each taut cord leaves its particle on the curve given by its angle of tangency, one condition per cord. **Five degrees of freedom**: the two coordinates of $G$, $\theta$ and the two angles of tangency. Both masses are released at the same instant from diametrically opposite points with equal cords, and the motion considered is the symmetric one, in which $P'$ is the image of $P$ by the half-turn about $G$ (it satisfies every equation below, written once for $P$); then the two angles of tangency are equal to $\phi$, $G$ stays at rest (shown in the next sections) and **two coordinates remain**, $\theta$ and $\phi$.
 
 | Datum | Symbol | SI unit |
@@ -5441,7 +5441,7 @@ The exploded view cuts each cord at the probe. A cord is massless and straight b
 > $$\boxed{\dot W^{\text{cord}} = 0, \qquad T_c\big|_{\text{mass}} = T_c\big|_{\text{probe}} = \frac{2KI\omega_0^3 t}{R\left(1 + K\omega_0^2t^2\right)^2}}$$
 >
 > **Units:** W; N
-> **Meaning:** the cords are workless, which confirms the energy integral; the tension computed from either end of the cord is the same, so the three equations are satisfied together by the motion of part (a).
+> **Meaning:** the cords are workless, which confirms the energy integral; the tension computed from either end of the cord is the same, so the tangential equation of the mass is satisfied by the motion of part (a); the radial equation is satisfied too, because its two terms cancel for the same motion (centripetal term of the mass against the term of the winding rate).
 
 **Check against the official key:** the key (Problems.pdf, p. 80) prints the required length, the square of $L$ equal to $(I + mR^2)(\omega_0 - \omega_f)$ over $m(\omega_0 + \omega_f)$, and the tension $2KI\omega_0^3 t$ over $R(1 + K\omega_0^2t^2)^2$, with $K$ equal to $mR^2/(I + mR^2)$. Both coincide with the boxes of parts (b) and (c); the key's tension is that of one cord (the probe equation holds twice that tension, one per cord): **match**. The key prints no expression for part (a); the spin of part (a) is the one consistent with both printed results.
 
@@ -5463,7 +5463,7 @@ The exploded view cuts each cord at the probe. A cord is massless and straight b
 * **Inertial frame:** $S_0\{O; \mathcal B_0\}$, with $\mathcal B_0\{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$ along the axes $x$, $y$, $z$ of the figure ($z$ up). The frame $S_G\{G; \mathcal B_0\}$ translates with $G$ without rotating.
 * **Intermediate basis:** $\mathcal B'\{\mathbf i', \mathbf j', \mathbf k_0\}$, turned by $\theta$ about $\mathbf k_0$; $\mathbf i'$ is the horizontal projection of the rod direction (the dashed line of the figure).
 * **Spacecraft frame:** $S_b\{G; \mathcal B_b\}$, with $\mathbf i_b$ along the rod from wheel 2 to wheel 1, $\mathbf j_b$ equal to $\mathbf j'$ (horizontal) and $\mathbf k_b$ completing the right-handed basis (the axes $x_B$, $y_B$, $z_B$ of the figure; the statement writes $\mathbf i_B$ for $\mathbf i_b$).
-* **Angles, read from the figure:** $\theta$ is the azimuth, from $\mathbf i_0$ to the projection $\mathbf i'$, about $\mathbf k_0$; $\varphi$ is the elevation of the rod above the horizontal plane $Gxy$ (its arc runs from the dashed projection up to $x_B$), about minus $\mathbf j'$. If $\varphi$ were read as the polar angle from $\mathbf k_0$, sine and cosine of $\varphi$ would swap in every formula below; at the initial instant both readings give the same direction, since $\varphi$ is $\pi/4$. The wheel angles $\phi_1$ and $\phi_2$ are measured relative to $\mathcal B_b$ about $\mathbf i_b$.
+* **Angles, read from the figure:** $\theta$ is the azimuth, from $\mathbf i_0$ to the projection $\mathbf i'$, about $\mathbf k_0$; $\varphi$ is the elevation of the rod above the horizontal plane $Gxy$ (its arc runs from the dashed projection up to $x_B$), about minus $\mathbf j'$. If $\varphi$ were read as the polar angle from $\mathbf k_0$, sine and cosine of $\varphi$ would swap in every formula below and the sign of its rate would flip, since the polar angle grows when the elevation falls: the $\mathbf j_b$ component of the spacecraft angular velocity would be plus the rate of the polar angle, and its initial value would be plus $\Omega/\sqrt2$. At the initial instant both readings give the same direction, since $\varphi$ is $\pi/4$. The wheel angles $\phi_1$ and $\phi_2$ are measured relative to $\mathcal B_b$ about $\mathbf i_b$.
 * **The degenerate rod.** A rod of negligible diameter has no moment of inertia about its own axis, so a spin of the rod about that axis carries no momentum and no energy: the frame $\mathcal B_b$ is fixed to the direction of the rod by $\theta$ and $\varphi$ alone, and the wheel rates are measured from it. The initial angular velocity of the statement is consistent with this (checked in the next section).
 * **Coordinates:** the position of $G$ (three), $\theta$, $\varphi$, $\phi_1$ and $\phi_2$. The momentum of the system is conserved and initially zero, so $G$ stays at the origin (shown below) and four coordinates remain.
 
@@ -5637,7 +5637,7 @@ The exploded view cuts each cord at the probe. A cord is massless and straight b
 > **Units:** $[\mathrm{M\,L^2}][\mathrm{T^{-1}}]$, kg m$^2$/s
 > **Meaning:** the spin of each wheel relative to the rod enters only the axial component, with the axial moment; the transverse components are those of a disc turning with the spacecraft.
 
-> [!derivation] Linear momentum, total angular momentum about G and kinetic energy
+> [!derivation] Parts (d) and (e): linear momentum, total angular momentum about G and kinetic energy
 > **Law:** linear momentum of a system; change of pole from the centre of each body (Eq. 11.21); Koenig's theorem for each body
 > **Source:** Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.21; Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 13.12
 >
@@ -5653,7 +5653,7 @@ The exploded view cuts each cord at the probe. A cord is massless and straight b
 > T_0 &= \frac12\,8M\left(v_0^G\right)^2 + \left(\frac{ML^2}{2} + \frac{MR^2}{4}\right)\left(\dot\varphi^2 + \dot\theta^2\cos^2\varphi\right) + \frac{MR^2}{4}\sum_i\left(\dot\theta\sin\varphi + \dot\phi_i\right)^2 \quad &\text{(Eq. 11.31 per body; cross terms in the velocity of $G$ cancel)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf p_0 = 8M\,\mathbf v_0^G, \quad \mathbf H_G = \frac{MR^2}{2}\left(2\dot\theta\sin\varphi + \dot\phi_1 + \dot\phi_2\right)\mathbf i_b + \left(ML^2 + \frac{MR^2}{2}\right)\left(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right)}$$
+> $$\boxed{\mathbf p_0 = 8M\,\mathbf v_0^G, \quad \mathbf H_G = \frac{MR^2}{2}\left(2\dot\theta\sin\varphi + \dot\phi_1 + \dot\phi_2\right)\mathbf i_b + \left(ML^2 + \frac{MR^2}{2}\right)\left(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right), \quad T_0 = 4M\left(v_0^G\right)^2 + \left(\frac{ML^2}{2} + \frac{MR^2}{4}\right)\left(\dot\varphi^2 + \dot\theta^2\cos^2\varphi\right) + \frac{MR^2}{4}\left[\left(\dot\theta\sin\varphi + \dot\phi_1\right)^2 + \left(\dot\theta\sin\varphi + \dot\phi_2\right)^2\right]}$$
 >
 > **Units:** kg m/s; kg m$^2$/s; J
 > **Meaning:** the angular momentum along the rod is held only by the wheels; the transverse part is that of the whole assembly turning with the rod.
@@ -5686,7 +5686,7 @@ No external load acts. The exploded view cuts each wheel from the rod at its axl
 > $$\boxed{M\mathbf a_0^{G_i} = \mathbf F_i, \quad \dot{\mathbf H}_{G_i}^{w_i} = \mathbf Q_i, \quad 6M\mathbf a_0^G = -\mathbf F_1 - \mathbf F_2, \quad \dot{\mathbf H}_G^b = -\frac L2\,\mathbf i_b\times\left(\mathbf F_1 - \mathbf F_2\right) - \mathbf Q_1 - \mathbf Q_2}$$
 >
 > **Units:** N; N m
-> **Meaning:** eighteen scalar equations; the asked parts need only their combinations below, which contain no axle load.
+> **Meaning:** eighteen scalar equations of the three bodies; their combinations below contain no axle load, and the axle loads of part (g) follow from the equations of the wheels.
 
 > [!derivation] Combination: the centre of mass stays at rest and the total angular momentum is constant
 > **Law:** sum of the equations of the parts; derivative of the moment of momentum; Barrow's rule
@@ -5705,9 +5705,9 @@ No external load acts. The exploded view cuts each wheel from the rod at its axl
 > $$\boxed{\mathbf r_0^G(t) = \mathbf 0, \qquad \mathbf v_0^G(t) = \mathbf 0, \qquad \mathbf H_G(t) = \mathbf H_G(0)}$$
 >
 > **Units:** m; m/s; kg m$^2$/s
-> **Meaning:** the motors only exchange angular momentum between the wheels and the spacecraft: the total vector, fixed in $S_0$, cannot change, and changing the wheel rates is how the attitude is controlled. The kinetic energy is not conserved: the motors do work on the wheels.
+> **Meaning:** the axle loads are internal, so the total angular momentum about the fixed centre of mass is a constant vector of $S_0$. What this allows the motors to do is worked out in part (f): with the wheels on the axis of a rod that has no axial inertia, they cannot change the direction of the rod.
 
-> [!derivation] Values of the conserved quantities from the initial conditions
+> [!derivation] Initial values: the conserved angular momentum and the initial kinetic energy
 > **Law:** the expressions of the previous section at the initial instant; change of basis
 > **Source:** Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 13.12
 >
@@ -5723,7 +5723,88 @@ No external load acts. The exploded view cuts each wheel from the rod at its axl
 > $$\boxed{\mathbf H_G = \frac{\sqrt2\,M\Omega}{8}\left[\left(3R^2 - 2L^2\right)\mathbf i_0 + 2\left(2L^2 + R^2\right)\mathbf j_0 + \left(2L^2 + 5R^2\right)\mathbf k_0\right] \ \text{(constant)}, \qquad T_0(0) = \frac{M\Omega^2\left(6L^2 + 11R^2\right)}{16}}$$
 >
 > **Units:** $[\mathrm M][\mathrm{T^{-1}}][\mathrm{L^2}]$; $[\mathrm{M\,L^2\,T^{-2}}]$
-> **Meaning:** the constant vector fixes, at every later instant, one vector relation among the four rates; with the wheel rates prescribed by the controller, it gives the attitude rates. The boxed form takes a factor one half out of each bracket of the previous line.
+> **Meaning:** the angular momentum keeps this value for all time (combination box); the kinetic energy is only its initial value, since the motors can do work (part (f)). The boxed form of the angular momentum takes a factor one half out of each bracket of the previous line, and its components are called $h_x$, $h_y$, $h_z$ below.
+
+> [!derivation] Part (f): what the constant angular momentum imposes on the rod
+> **Law:** conservation of the total angular momentum; derivative of a scalar product (product rule); scalar triple product with a repeated vector
+> **Source:** Notes.pdf, Eq. 15.6; Notes.pdf, Eq. 15.7; Notes.pdf, Eq. 9.4
+>
+> Write $J$ for the transverse moment of the assembly, $ML^2$ plus $MR^2/2$, $\mathbf h$ for the constant value of $\mathbf H_G$ and $A$ for its component along the rod. The rate of $\mathbf i_b$ is the bracket of part (b).
+>
+> $$\begin{aligned}
+> \mathbf h &= A\,\mathbf i_b + J\left(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b\right), \qquad A = \frac{MR^2}{2}\left(2\dot\theta\sin\varphi + \dot\phi_1 + \dot\phi_2\right) \quad &\text{(part (d))} \\
+> \mathbf h\times\mathbf i_b &= \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr A & -J\dot\varphi & J\dot\theta\cos\varphi \cr 1 & 0 & 0 \end{vmatrix} = J\left(\dot\theta\cos\varphi\,\mathbf j_b + \dot\varphi\,\mathbf k_b\right) = J\,\dot{\mathbf i}_b \quad &\text{(expand along the first row; part (b))} \\
+> \dot{\mathbf i}_b &= \frac{\mathbf h}{J}\times\mathbf i_b \quad &\text{(divide by $J$)} \\
+> \frac{d}{dt}\left(\mathbf h\cdot\mathbf i_b\right) &= \dot{\mathbf h}\cdot\mathbf i_b + \mathbf h\cdot\dot{\mathbf i}_b = 0 + \frac1J\,\mathbf h\cdot\left(\mathbf h\times\mathbf i_b\right) = 0 \quad &\text{(product rule; no external moment; triple product with $\mathbf h$ twice)} \\
+> A(t) &= A(0) = \frac{MR^2}{2}\left(\Omega + \Omega\right) = MR^2\,\Omega \;\Rightarrow\; 2\dot\theta\sin\varphi + \dot\phi_1 + \dot\phi_2 = 2\Omega \quad &\text{(initial values; divide by $MR^2/2$)} \\
+> \left|\mathbf h\right|^2 &= A^2 + J^2\left(\dot\varphi^2 + \dot\theta^2\cos^2\varphi\right) = M^2R^4\Omega^2 + \frac34\,J^2\Omega^2 = \frac{M^2\Omega^2\left(12L^4 + 12L^2R^2 + 19R^4\right)}{16} \quad &\text{(orthonormal components at $t$ zero; value of $J$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf i}_b = \frac{\mathbf H_G}{J}\times\mathbf i_b, \qquad 2\dot\theta\sin\varphi + \dot\phi_1 + \dot\phi_2 = 2\Omega, \qquad J = ML^2 + \frac{MR^2}{2}, \qquad \left|\mathbf H_G\right| = \frac{M\Omega}{4}\sqrt{12L^4 + 12L^2R^2 + 19R^4}}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$; $[\mathrm{M\,L^2\,T^{-1}}]$
+> **Meaning:** the component of the angular momentum along the moving rod is constant for two reasons: the angular momentum itself does not change (no external moment) and the rate of $\mathbf i_b$ is normal to it. The direction of the rod turns about the fixed direction of $\mathbf H_G$ at the constant rate $|\mathbf H_G|/J$, keeping a constant angle to it, and the wheel rates do not appear in that equation: a rod with no inertia about its own axis, carrying the wheels on that axis, cannot be steered by them. The motors only exchange axial spin between the two wheels; the sum in the boxed relation is fixed and only the difference of the wheel rates is free.
+
+> [!derivation] Part (g): axle force on each wheel
+> **Law:** Newton's second law for the centre of each wheel; second derivative of the unit vector of the rod (product rule, Poisson's formula)
+> **Source:** Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 9.4; Notes.pdf, Eq. 13.9
+>
+> With $G$ at rest, the acceleration of $G_1$ is $L/2$ times the second rate of $\mathbf i_b$, and that of $G_2$ is its opposite. The rates of $\mathbf j_b$ and $\mathbf k_b$ come from Poisson's formula with $\boldsymbol\omega_{b0}$ of part (a); $s$ and $c$ stand for the sine and cosine of $\varphi$.
+>
+> $$\begin{aligned}
+> \dot{\mathbf j}_b &= \boldsymbol\omega_{b0}\times\mathbf j_b = \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr \dot\theta s & -\dot\varphi & \dot\theta c \cr 0 & 1 & 0 \end{vmatrix} = -\dot\theta c\,\mathbf i_b + \dot\theta s\,\mathbf k_b \quad &\text{(Poisson; expand along the first row)} \\
+> \dot{\mathbf k}_b &= \boldsymbol\omega_{b0}\times\mathbf k_b = \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr \dot\theta s & -\dot\varphi & \dot\theta c \cr 0 & 0 & 1 \end{vmatrix} = -\dot\varphi\,\mathbf i_b - \dot\theta s\,\mathbf j_b \quad &\text{(Poisson; expand along the first row)} \\
+> \ddot{\mathbf i}_b &= \frac{d}{dt}\left(\dot\theta c\,\mathbf j_b + \dot\varphi\,\mathbf k_b\right) = \left(\ddot\theta c - \dot\theta\dot\varphi s\right)\mathbf j_b + \dot\theta c\,\dot{\mathbf j}_b + \ddot\varphi\,\mathbf k_b + \dot\varphi\,\dot{\mathbf k}_b \quad &\text{(product rule; chain rule on the cosine)} \\
+> &= -\left(\dot\varphi^2 + \dot\theta^2 c^2\right)\mathbf i_b + \left(\ddot\theta c - 2\dot\theta\dot\varphi s\right)\mathbf j_b + \left(\ddot\varphi + \dot\theta^2 s c\right)\mathbf k_b \quad &\text{(substitute the two rates; collect)} \\
+> \mathbf F_1 &= M\,\mathbf a_0^{G_1} = M\,\frac L2\,\ddot{\mathbf i}_b, \qquad \mathbf F_2 = M\,\mathbf a_0^{G_2} = -M\,\frac L2\,\ddot{\mathbf i}_b \quad &\text{(Eq. 12.8 for each wheel)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_1 = -\mathbf F_2 = \frac{ML}{2}\left[-\left(\dot\varphi^2 + \dot\theta^2\cos^2\varphi\right)\mathbf i_b + \left(\ddot\theta\cos\varphi - 2\dot\theta\dot\varphi\sin\varphi\right)\mathbf j_b + \left(\ddot\varphi + \dot\theta^2\sin\varphi\cos\varphi\right)\mathbf k_b\right]}$$
+>
+> **Units:** $[\mathrm M][\mathrm L][\mathrm{T^{-2}}]$, N
+> **Meaning:** the $\mathbf i_b$ part is the centripetal force that keeps each wheel on the sphere of radius $L/2$ about $G$, pointing from the wheel towards $G$; the other two are the tangential parts. The rod receives minus these forces, which cancel each other, in agreement with $G$ at rest; the two forces form a couple on the rod.
+
+> [!derivation] Part (g): axle torque on each wheel
+> **Law:** moment equation about the centre of each wheel; derivative in the rotating basis of the rod
+> **Source:** Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 13.9
+>
+> The tensor of the wheel has constant components in $\mathcal B_b$ (symmetry about $\mathbf i_b$), so the components of part (c) are differentiated and the turning of $\mathcal B_b$ is added (Eq. 3.8 with $\boldsymbol\omega_{b0}$). Write $a_i$, $b$, $c_3$ for the components of $\mathbf H_{G_i}$ of part (c): $a_i$ is $MR^2/2$ times the axial rate of the wheel, $b$ is minus $MR^2/4$ times the rate of $\varphi$, and $c_3$ is $MR^2/4$ times the rate of $\theta$ times the cosine of $\varphi$.
+>
+> $$\begin{aligned}
+> \mathbf Q_i &= \frac{d\mathbf H_{G_i}}{dt}\bigg|_b + \boldsymbol\omega_{b0}\times\mathbf H_{G_i} \quad &\text{(Eq. 12.13 about $G_i$; Eq. 3.8)} \\
+> \frac{d\mathbf H_{G_i}}{dt}\bigg|_b &= \frac{MR^2}{2}\left(\ddot\theta s + \dot\theta\dot\varphi c + \ddot\phi_i\right)\mathbf i_b - \frac{MR^2}{4}\ddot\varphi\,\mathbf j_b + \frac{MR^2}{4}\left(\ddot\theta c - \dot\theta\dot\varphi s\right)\mathbf k_b \quad &\text{(product and chain rules on each component)} \\
+> \boldsymbol\omega_{b0}\times\mathbf H_{G_i} &= \begin{vmatrix} \mathbf i_b & \mathbf j_b & \mathbf k_b \cr \dot\theta s & -\dot\varphi & \dot\theta c \cr a_i & b & c_3 \end{vmatrix} = \left(-\dot\varphi c_3 - \dot\theta c\,b\right)\mathbf i_b + \left(\dot\theta c\,a_i - \dot\theta s\,c_3\right)\mathbf j_b + \left(\dot\theta s\,b + \dot\varphi\,a_i\right)\mathbf k_b \quad &\text{(expand along the first row)} \\
+> &= 0\,\mathbf i_b + \left[\frac{MR^2}{2}\dot\theta c\left(\dot\theta s + \dot\phi_i\right) - \frac{MR^2}{4}\dot\theta^2 s c\right]\mathbf j_b + \left[-\frac{MR^2}{4}\dot\theta\dot\varphi s + \frac{MR^2}{2}\dot\varphi\left(\dot\theta s + \dot\phi_i\right)\right]\mathbf k_b \quad &\text{(values of $a_i$, $b$, $c_3$)} \\
+> \mathbf Q_i &= \frac{MR^2}{2}\frac{d}{dt}\left(\dot\theta s + \dot\phi_i\right)\mathbf i_b + \frac{MR^2}{4}\left(-\ddot\varphi + \dot\theta^2 s c + 2\dot\theta c\,\dot\phi_i\right)\mathbf j_b + \frac{MR^2}{4}\left(\ddot\theta c + 2\dot\varphi\,\dot\phi_i\right)\mathbf k_b \quad &\text{(sum; collect)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf Q_i = \frac{MR^2}{2}\frac{d}{dt}\left(\dot\theta\sin\varphi + \dot\phi_i\right)\mathbf i_b + \frac{MR^2}{4}\left(-\ddot\varphi + \dot\theta^2\sin\varphi\cos\varphi + 2\dot\theta\cos\varphi\,\dot\phi_i\right)\mathbf j_b + \frac{MR^2}{4}\left(\ddot\theta\cos\varphi + 2\dot\varphi\,\dot\phi_i\right)\mathbf k_b \quad (i = 1, 2)}$$
+>
+> **Units:** $[\mathrm{M\,L^2}][\mathrm{T^{-2}}]$, N m
+> **Meaning:** the $\mathbf i_b$ component is the motor torque $\tau_i$; the two transverse components are the bearing torques, which turn the axis of the wheel with the rod and contain the gyroscopic terms in the product of the wheel rate and the rates of the rod. The rod receives minus these torques.
+
+> [!derivation] Part (f): the set of ordinary differential equations and the count
+> **Law:** force equation of the system; components of the precession equation; axial moment equations of the rod and of the wheels; power of the motor pair
+> **Source:** Notes.pdf, Eq. 13.12; Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.29; Notes.pdf, Sec. 13.4
+>
+> The rod has no angular momentum along $\mathbf i_b$, and the rates of $\mathbf j_b$ and $\mathbf k_b$ along $\mathbf i_b$ are minus the rate of $\theta$ times the cosine of $\varphi$ and minus the rate of $\varphi$ (previous boxes). The components of $\mathbf h$ in $\mathcal B_0$ are $h_x$, $h_y$, $h_z$ (initial-values box). The moments of the axle forces about $G$ have no $\mathbf i_b$ component, since their arms lie along $\mathbf i_b$.
+>
+> $$\begin{aligned}
+> \ddot{\mathbf r}_0^G &= \mathbf 0, \quad \mathbf r_0^G(0) = \mathbf 0, \quad \dot{\mathbf r}_0^G(0) = \mathbf 0 \;\Rightarrow\; \mathbf r_0^G(t) = \mathbf 0 \quad &\text{(combination box)} \\
+> \dot{\mathbf i}_b\cdot\mathbf j_b &= \dot\theta\cos\varphi = \frac1J\left(\mathbf h\times\mathbf i_b\right)\cdot\mathbf j_b = \frac1J\,\mathbf h\cdot\left(\mathbf i_b\times\mathbf j_b\right) = \frac{\mathbf h\cdot\mathbf k_b}{J} \quad &\text{(precession box; cyclic triple product)} \\
+> \dot{\mathbf i}_b\cdot\mathbf k_b &= \dot\varphi = \frac1J\,\mathbf h\cdot\left(\mathbf i_b\times\mathbf k_b\right) = -\frac{\mathbf h\cdot\mathbf j_b}{J} \quad &\text{(same; the cross product of $\mathbf i_b$ and $\mathbf k_b$ is minus $\mathbf j_b$)} \\
+> \dot\theta\cos\varphi &= \frac{-h_x\cos\theta\sin\varphi - h_y\sin\theta\sin\varphi + h_z\cos\varphi}{J}, \qquad \dot\varphi = \frac{h_x\sin\theta - h_y\cos\theta}{J} \quad &\text{($\mathbf j_b$, $\mathbf k_b$ in $\mathcal B_0$)} \\
+> \frac{d\mathbf H^b_G}{dt}\cdot\mathbf i_b &= \frac{ML^2}{2}\left[-\dot\varphi\,\dot{\mathbf j}_b\cdot\mathbf i_b + \dot\theta\cos\varphi\,\dot{\mathbf k}_b\cdot\mathbf i_b\right] = \frac{ML^2}{2}\left(\dot\varphi\dot\theta\cos\varphi - \dot\theta\cos\varphi\,\dot\varphi\right) = 0 = -\tau_1 - \tau_2 \quad &\text{(rod, moment along $\mathbf i_b$)} \\
+> \frac{MR^2}{2}\frac{d}{dt}\left(\dot\theta\sin\varphi + \dot\phi_1\right) &= \tau_1, \qquad \frac{MR^2}{2}\frac{d}{dt}\left(\dot\theta\sin\varphi + \dot\phi_2\right) = \tau_2 = -\tau_1 \quad &\text{(wheels along $\mathbf i_b$, torque box)} \\
+> \dot W^{\text{motors}} &= \mathbf Q_1\cdot\left(\boldsymbol\omega_{10} - \boldsymbol\omega_{b0}\right) + \mathbf Q_2\cdot\left(\boldsymbol\omega_{20} - \boldsymbol\omega_{b0}\right) = \tau_1\dot\phi_1 + \tau_2\dot\phi_2 = \tau_1\left(\dot\phi_1 - \dot\phi_2\right) \quad &\text{(power of the axle pairs, Eq. 12.29; relative rates along $\mathbf i_b$)} \\
+> \dot\theta(0)\cos\frac{\pi}{4} &= \frac{h_z - h_x}{\sqrt2\,J} = \frac{\sqrt2\,M\Omega\left(4L^2 + 2R^2\right)}{8\sqrt2\,J} = \frac{\Omega}{2}, \qquad \dot\varphi(0) = -\frac{h_y}{J} = -\frac{\sqrt2\,M\Omega\left(2L^2 + R^2\right)}{4J} = -\frac{\Omega}{\sqrt2} \quad &\text{(check at $t$ zero; $J$ equal to $M(2L^2 + R^2)/2$)} \\
+> n_{\text{unknowns}} &= 3 + 4 + 3 + 3 + 3 + 3 = 19, \qquad n_{\text{eq}} = 6 + 6 + 6 = 18 \quad &\text{($\mathbf r_0^G$, four angles, $\mathbf F_1$, $\mathbf F_2$, $\mathbf Q_1$, $\mathbf Q_2$; three bodies)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \ddot{\mathbf r}_0^G = \mathbf 0 \ (\mathbf r_0^G = \mathbf 0), \qquad \dot\theta\cos\varphi = \frac{\mathbf H_G\cdot\mathbf k_b}{J}, \qquad \dot\varphi = -\frac{\mathbf H_G\cdot\mathbf j_b}{J}, \\ \frac{MR^2}{2}\frac{d}{dt}\left(\dot\theta\sin\varphi + \dot\phi_1\right) = \tau_1, \qquad \frac{MR^2}{2}\frac{d}{dt}\left(\dot\theta\sin\varphi + \dot\phi_2\right) = -\tau_1, \qquad \tau_1(t) \text{ free (motor law)} \end{gathered}}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ in the attitude equations; N m in the wheel equations
+> **Meaning:** nineteen unknowns and eighteen equations: the problem is underdetermined by one, the law of one motor, which must be given (for example the torque or the difference of the wheel rates). The attitude equations are first-order and closed in $\theta$ and $\varphi$; the wheel equations, given the motor law, fix the two wheel rates, whose sum with twice the axial rate of the rod stays equal to twice $\Omega$. At the initial instant the attitude equations return the rates found from the data (row before the count). The kinetic energy changes only through the motor power, the motor torque times the difference of the wheel rates.
 
 ### Answers and Checks
 
@@ -5732,8 +5813,12 @@ No external load acts. The exploded view cuts each wheel from the rod at its axl
 | (a) Angular velocities, in $\mathcal B_b$ | $\boldsymbol\omega_{b0} = \dot\theta\sin\varphi\,\mathbf i_b - \dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b$; $\boldsymbol\omega_{10} = \boldsymbol\omega_{b0} + \dot\phi_1\,\mathbf i_b$; $\boldsymbol\omega_{20} = \boldsymbol\omega_{b0} + \dot\phi_2\,\mathbf i_b$ |
 | (b) Velocities of $G_1$, $G_2$ | $\mathbf v^{G_{1,2}} = \mathbf v^G \pm \tfrac L2(\dot\theta\cos\varphi\,\mathbf j_b + \dot\varphi\,\mathbf k_b)$, with $\mathbf j_b = -\sin\theta\,\mathbf i_0 + \cos\theta\,\mathbf j_0$, $\mathbf k_b = -\cos\theta\sin\varphi\,\mathbf i_0 - \sin\theta\sin\varphi\,\mathbf j_0 + \cos\varphi\,\mathbf k_0$ (and $\mathbf v^G = \mathbf 0$ for the given data) |
 | (c) Angular momentum of each wheel about its centre | $\mathbf H_{G_i} = \tfrac{MR^2}{2}(\dot\theta\sin\varphi + \dot\phi_i)\,\mathbf i_b - \tfrac{MR^2}{4}\dot\varphi\,\mathbf j_b + \tfrac{MR^2}{4}\dot\theta\cos\varphi\,\mathbf k_b$ |
+| (d) Angular momentum of the system about $G$ | $\mathbf H_G = \tfrac{MR^2}{2}(2\dot\theta\sin\varphi + \dot\phi_1 + \dot\phi_2)\,\mathbf i_b + (ML^2 + \tfrac{MR^2}{2})(-\dot\varphi\,\mathbf j_b + \dot\theta\cos\varphi\,\mathbf k_b)$, constant |
+| (e) Kinetic energy | $T = 4M(v^G)^2 + (\tfrac{ML^2}{2} + \tfrac{MR^2}{4})(\dot\varphi^2 + \dot\theta^2\cos^2\varphi) + \tfrac{MR^2}{4}[(\dot\theta\sin\varphi + \dot\phi_1)^2 + (\dot\theta\sin\varphi + \dot\phi_2)^2]$; $T(0) = M\Omega^2(6L^2 + 11R^2)/16$ |
+| (f) Equations of motion | $\ddot{\mathbf r}^G = \mathbf 0$ ($\mathbf r^G = \mathbf 0$); $\dot\theta\cos\varphi = \mathbf H_G\cdot\mathbf k_b/J$, $\dot\varphi = -\mathbf H_G\cdot\mathbf j_b/J$ with $J = ML^2 + MR^2/2$ (the rod precesses about $\mathbf H_G$ at the rate $\lvert\mathbf H_G\rvert/J$); $\tfrac{MR^2}{2}\tfrac{d}{dt}(\dot\theta\sin\varphi + \dot\phi_{1,2}) = \pm\tau_1$; $2\dot\theta\sin\varphi + \dot\phi_1 + \dot\phi_2 = 2\Omega$; 19 unknowns, 18 equations: one motor law free |
+| (g) Axle loads on the wheels | $\mathbf F_1 = -\mathbf F_2 = \tfrac{ML}{2}[-(\dot\varphi^2 + \dot\theta^2\cos^2\varphi)\,\mathbf i_b + (\ddot\theta\cos\varphi - 2\dot\theta\dot\varphi\sin\varphi)\,\mathbf j_b + (\ddot\varphi + \dot\theta^2\sin\varphi\cos\varphi)\,\mathbf k_b]$; $\mathbf Q_i = \tfrac{MR^2}{2}\tfrac{d}{dt}(\dot\theta\sin\varphi + \dot\phi_i)\,\mathbf i_b + \tfrac{MR^2}{4}(-\ddot\varphi + \dot\theta^2\sin\varphi\cos\varphi + 2\dot\theta\cos\varphi\,\dot\phi_i)\,\mathbf j_b + \tfrac{MR^2}{4}(\ddot\theta\cos\varphi + 2\dot\varphi\dot\phi_i)\,\mathbf k_b$; on the rod, the opposites |
 | Initial rates (from the data) | $\dot\theta(0) = \Omega/\sqrt2$, $\dot\varphi(0) = -\Omega/\sqrt2$ |
-| Conserved angular momentum | $\mathbf H_G = \tfrac{\sqrt2 M\Omega}{8}[(3R^2 - 2L^2)\,\mathbf i_0 + 2(2L^2 + R^2)\,\mathbf j_0 + (2L^2 + 5R^2)\,\mathbf k_0]$ |
+| Value of the conserved angular momentum | $\mathbf H_G = \tfrac{\sqrt2 M\Omega}{8}[(3R^2 - 2L^2)\,\mathbf i_0 + 2(2L^2 + R^2)\,\mathbf j_0 + (2L^2 + 5R^2)\,\mathbf k_0]$ |
 
 `Problems.pdf` prints no answer for this problem (see [[Problem Set - Rigid Body Official Key]]), so the results are checked with a second route and limiting cases.
 
