@@ -19,7 +19,7 @@ window.AE_UPDATES = [
     "date": "2026-11-16",
     "tag": "Portal",
     "title": "A starry sky on every subject index",
-    "text": "The index pages of Theory, Problems, Extra problems, PDFs and Exams now sit on a night sky tinted with the colour of the subject. Cards and text are unchanged.",
+    "text": "The index pages of Theory, Problems, Extra problems, PDFs and Exams now sit on a slowly drifting night sky tinted with the colour of the subject. Cards and text are unchanged.",
     "link": "subjects/fluid-mechanics/teoria/index.html"
   },
   {

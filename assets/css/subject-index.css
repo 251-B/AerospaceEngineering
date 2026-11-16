@@ -174,107 +174,128 @@ section.container:has(#quoteContainer), section:has(> #quoteContainer) { display
 }
 
 /* ---------------------------------------------------------------- starry sky behind the page
-   A quiet night sky in the colours of the subject: a tiled SVG of dust and four-point stars
-   (assets/img/sky/<subject>-<polarity>.svg) over two faint nebulae. It sits on the body's own
-   colour, so every reading palette keeps its background and its AAA text (cards stay opaque). */
+   A quiet, slowly drifting night sky in the colours of the subject: two layers of a tiled SVG of dust
+   and four-point stars (assets/img/sky/<subject>-<polarity>.svg) over two faint nebulae. The layers
+   move at different speeds and in opposite directions, so the stars shimmer past each other. The
+   drift is one registered custom property (--sky-x) animated on the root, so the loop is seamless
+   and the !important background of the reading palettes does not stop it. It sits on the body's own
+   colour: every reading palette keeps its background and its AAA text (cards stay opaque). */
+@property --sky-x { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@keyframes sky-drift { to { --sky-x: 1280px; } }
+html[data-celestial-subject] { animation: sky-drift 420s linear infinite; }
+@media (prefers-reduced-motion: reduce) { html[data-celestial-subject] { animation: none; } }
 html[data-celestial-subject="fluid-mechanics"]       { --sky-a: 6 182 212;   --sky-b: 139 92 246; }
 html[data-celestial-subject="aerospace-materials-1"] { --sky-a: 245 158 11;  --sky-b: 244 114 182; }
 html[data-celestial-subject="engineering-mechanics"] { --sky-a: 16 185 129;  --sky-b: 34 211 238; }
 html[data-celestial-subject="advanced-maths"]        { --sky-a: 99 102 241;  --sky-b: 217 70 239; }
 html[data-celestial-subject="business-management"]   { --sky-a: 239 68 68;   --sky-b: 251 146 60; }
 html[data-theme="dark"]  { --sky-n1: .15; --sky-n2: .10; }
-html[data-theme="light"] { --sky-n1: .10; --sky-n2: .07; }
+html[data-theme="light"] { --sky-n1: .08; --sky-n2: .06; }
 html[data-celestial-subject="fluid-mechanics"][data-theme="dark"] body {
-  background-image: url(../img/sky/fluid-mechanics-dark.svg),
+  background-image: url(../img/sky/fluid-mechanics-dark.svg), url(../img/sky/fluid-mechanics-dark.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 html[data-celestial-subject="fluid-mechanics"][data-theme="light"] body {
-  background-image: url(../img/sky/fluid-mechanics-light.svg),
+  background-image: url(../img/sky/fluid-mechanics-light.svg), url(../img/sky/fluid-mechanics-light.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 html[data-celestial-subject="aerospace-materials-1"][data-theme="dark"] body {
-  background-image: url(../img/sky/aerospace-materials-1-dark.svg),
+  background-image: url(../img/sky/aerospace-materials-1-dark.svg), url(../img/sky/aerospace-materials-1-dark.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 html[data-celestial-subject="aerospace-materials-1"][data-theme="light"] body {
-  background-image: url(../img/sky/aerospace-materials-1-light.svg),
+  background-image: url(../img/sky/aerospace-materials-1-light.svg), url(../img/sky/aerospace-materials-1-light.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 html[data-celestial-subject="engineering-mechanics"][data-theme="dark"] body {
-  background-image: url(../img/sky/engineering-mechanics-dark.svg),
+  background-image: url(../img/sky/engineering-mechanics-dark.svg), url(../img/sky/engineering-mechanics-dark.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 html[data-celestial-subject="engineering-mechanics"][data-theme="light"] body {
-  background-image: url(../img/sky/engineering-mechanics-light.svg),
+  background-image: url(../img/sky/engineering-mechanics-light.svg), url(../img/sky/engineering-mechanics-light.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 html[data-celestial-subject="advanced-maths"][data-theme="dark"] body {
-  background-image: url(../img/sky/advanced-maths-dark.svg),
+  background-image: url(../img/sky/advanced-maths-dark.svg), url(../img/sky/advanced-maths-dark.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 html[data-celestial-subject="advanced-maths"][data-theme="light"] body {
-  background-image: url(../img/sky/advanced-maths-light.svg),
+  background-image: url(../img/sky/advanced-maths-light.svg), url(../img/sky/advanced-maths-light.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 html[data-celestial-subject="business-management"][data-theme="dark"] body {
-  background-image: url(../img/sky/business-management-dark.svg),
+  background-image: url(../img/sky/business-management-dark.svg), url(../img/sky/business-management-dark.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 html[data-celestial-subject="business-management"][data-theme="light"] body {
-  background-image: url(../img/sky/business-management-light.svg),
+  background-image: url(../img/sky/business-management-light.svg), url(../img/sky/business-management-light.svg),
     radial-gradient(ellipse 60% 46% at 12% 6%, rgb(var(--sky-a) / var(--sky-n1)), transparent 72%),
     radial-gradient(ellipse 54% 42% at 92% 90%, rgb(var(--sky-b) / var(--sky-n2)), transparent 72%) !important;
-  background-size: 1280px 960px, auto, auto !important;
-  background-repeat: repeat, no-repeat, no-repeat !important;
-  background-attachment: fixed, fixed, fixed !important;
-  background-position: 0 0, 0 0, 0 0 !important;
+  background-size: 1280px 960px, 768px 576px, auto, auto !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+  background-position: var(--sky-x) calc(var(--sky-x) * .75), calc(var(--sky-x) * -.6) calc(var(--sky-x) * .45), 0 0, 0 0 !important;
 }
 @media print { html body { background-image: none !important; } }
 
-/* the page header lets the sky through */
+/* the page header, the top bar and the footer let the sky through (no dark bands) */
 html[data-theme] :is(header.page-header, .page-hero) { background: transparent !important; }
+html[data-theme="dark"][data-celestial-subject] :is(.back-bar, .site-header, .top-nav, .sticky-nav, .pdf-library .site-header) {
+  background: color-mix(in srgb, var(--study-bg-dark, #0a0e17) 38%, transparent) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+  -webkit-backdrop-filter: blur(10px) !important; backdrop-filter: blur(10px) !important;
+}
+html[data-theme="light"][data-celestial-subject] :is(.back-bar, .site-header, .top-nav, .sticky-nav, .pdf-library .site-header) {
+  background: color-mix(in srgb, var(--study-bg-light, #f6f8fa) 55%, transparent) !important;
+  border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+  -webkit-backdrop-filter: blur(10px) !important; backdrop-filter: blur(10px) !important;
+}
+html[data-celestial-subject] :is(footer, .site-footer, .page-footer) { background: transparent !important; border-top-color: rgba(128, 140, 160, 0.18) !important; }
+
+/* short pages: the sky reaches the bottom of the window (no plain band under the footer) */
+html[data-celestial-subject] body { min-height: 100vh; min-height: 100dvh; }

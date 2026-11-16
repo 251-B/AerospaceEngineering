@@ -330,7 +330,7 @@ def _page(root, slug, area, h1, title, description, body, accent, script=False) 
     icon = f'\n      <div class="icon" aria-hidden="true">{icon}</div>' if icon else ""
     tail = '\n  <script defer src="../../../assets/js/pdf-library.js"></script>' if script else ""
     return f"""<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-celestial-subject="{slug}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
