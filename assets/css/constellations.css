@@ -328,3 +328,11 @@ html[data-home-view="constellations"] .fl-launcher:focus-visible::before, html[d
 @media (prefers-reduced-motion: reduce) {
   html[data-home-view="constellations"] .fl-launcher, html[data-home-view="constellations"] .pm-launcher { animation: none; }
 }
+
+/* Name of a constellation: only while the pointer is on it (or it has focus) and the map is not zoomed */
+.sky-svg .const-title, .sky-svg .const-sub { opacity: 0; transition: opacity 0.35s; pointer-events: none; text-anchor: middle; stroke-width: calc(var(--u, 1) * 3px); }
+.sky-svg .const-title { font-family: var(--font-display); font-weight: 400; font-size: calc(var(--u, 1) * 30px * var(--tk, 1)); letter-spacing: 0.02em; fill: var(--ct); }
+.sky-svg .const-sub { font-family: var(--font-mono); font-weight: 500; font-size: calc(var(--u, 1) * 13px * var(--tk, 1)); letter-spacing: 0.08em; text-transform: uppercase; fill: var(--sk-text-2); }
+.sky-svg:not(.is-zoomed) .const:hover .const-title, .sky-svg:not(.is-zoomed) .const:hover .const-sub,
+.sky-svg:not(.is-zoomed) .const:focus-visible .const-title, .sky-svg:not(.is-zoomed) .const:focus-visible .const-sub { opacity: 1; }
+.sky-svg.is-zoomed .const-title, .sky-svg.is-zoomed .const-sub { display: none; }

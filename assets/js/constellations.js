@@ -307,9 +307,12 @@
       return a;
     });
 
-    // the name of a subject appears only when its constellation is opened (caption)
+    // The name of a subject shows when the pointer rests on its constellation (or it has focus), and in the caption once opened.
+    var ys = anchors.map(function (q) { return q[1]; });
+    var title = s('text', { 'class': 'const-title', x: 0, y: 0 }, g); title.textContent = meta.latin;
+    var subtitle = s('text', { 'class': 'const-sub', x: 0, y: 0 }, g); subtitle.textContent = sub.name;
 
-    return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list };
+    return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys) };
   }
 
   function currentLayout() {
@@ -322,6 +325,10 @@
     items.forEach(function (it) {
       it.slot = L.slots[it.index];
       it.g.setAttribute('transform', 'translate(' + it.slot[0] + ' ' + it.slot[1] + ')');
+      var lower = it.slot[1] > L.centre[1] - 60;   // the name goes on the side facing the middle of the map, clear of the page edge
+      var ty = lower ? it.minY - 70 : it.maxY + 66;
+      it.title.setAttribute('y', ty);
+      it.subtitle.setAttribute('y', ty + 26);
     });
     guides.forEach(function (gl) {
       var a = L.slots[gl.a], b = L.slots[gl.b];
