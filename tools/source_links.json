@@ -1777,6 +1777,53 @@
     ]
    }
   },
+  "subjects/engineering-mechanics/problemas/topic-7.html": {
+   "panel": [
+    [
+     "em-problems",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes",
+    "slides": "em-s9",
+    "bare_eq": "em-notes"
+   },
+   "cards": {
+    "rb-06": [
+     "em-problems",
+     40
+    ],
+    "rb-07": [
+     "em-problems",
+     41
+    ],
+    "rb-08": [
+     "em-problems",
+     42
+    ],
+    "rb-09": [
+     "em-problems",
+     43
+    ],
+    "rb-10": [
+     "em-problems",
+     44
+    ],
+    "rb-24": [
+     "em-problems",
+     54
+    ],
+    "rb-25": [
+     "em-problems",
+     55
+    ],
+    "rb-38": [
+     "em-problems",
+     67
+    ]
+   }
+  },
   "subjects/engineering-mechanics/teoria/topic-1.html": {
    "panel": [
     [

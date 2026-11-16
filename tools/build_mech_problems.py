@@ -505,6 +505,19 @@ def render_statement(md, pid, errors, figures=None):
                 f'<li class="question-item">\n<span class="question-label">{inl(mq.group(1))}</span>\n'
                 f'<div class="question-text">{inl(text)}</div>\n</li>')
             continue
+        if re.match(r"^[-*] \S", line):                      # plain bullet list of the statement (data and conditions)
+            flush_para()
+            flush_math()
+            items = []
+            while i < n and re.match(r"^[-*] \S", lines[i]) and not re.match(r"^[-*] \*\*(\(?[A-Za-z0-9]+\)?)\*\*", lines[i]):
+                text = lines[i][2:].strip()
+                i += 1
+                while i < n and lines[i].startswith("  ") and lines[i].strip():
+                    text += " " + lines[i].strip()
+                    i += 1
+                items.append(f"<li>{inl(text)}</li>")
+            add("t", '<ul class="statement-list">\n' + "\n".join(items) + "\n</ul>")
+            continue
         if line.startswith(">"):
             flush_para()
             flush_math()

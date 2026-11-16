@@ -394,6 +394,7 @@
   <script defer src="../../../assets/js/ask-ai.js"></script>
   <script defer src="../../../assets/js/pdf-export.js"></script>
   <link rel="stylesheet" href="../../../assets/css/derivation-box.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
   <link rel="stylesheet" href="../../../assets/css/responsive.css">
   <style id="em-solution-figures">
     /* Deduction figures of the worked solutions (written by tools/build_mech_problems.py) */
@@ -429,6 +430,10 @@
       <div class="source-box">
         Source: sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf (2026 Edition)
       </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=40" target="_blank" rel="noopener">Problems.pdf · p. 40</a>
+      </nav>
     </header>
 
     <div class="note-banner">
@@ -444,12 +449,20 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem RB 06</div>
           <h2 class="problem-title">Blade Runner (Spinner)</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=40" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 40</a>
         </div>
         <span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;"><span class="problem-badge">Group C: Momentum and Energy</span><span class="problem-badge">In-Class Session 19</span></span>
       </div>
       <div class="problem-statement">
 <p>Los Angeles 2019. Deckard is a special policeman (a blade runner) specialized in “retiring” Nexus 6 replicants. He goes around in a spinner, his flying car. We want to analyze the flying motion of the spinner with respect to an inertial reference frame $S_0 : \{O; B_0\}$ with $B_0 : \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ as shown in the figure. We are going to consider the spinner as a rigid body. A body-fixed reference frame $S_B : \{G; B_B\}$ with $B_B : \{\mathbf{i}_B, \mathbf{j}_B, \mathbf{k}_B\}$ is also defined. In the instant considered,</p>
-<p>* the center of mass $G$ and the axes $Gx_B$ and $Gy_B$ are contained in the plane $Oxy$, * the distance between $G$ and $O$ is $3L/2$, where $L$ is the length of the spinner as indicated in the figure, * the angle between the axis $Ox$ and $Gx_B$ is $45^\circ$ * the velocity of $G$ is $\boldsymbol{v}_0^G = 3\sqrt{2}\Omega L(-\boldsymbol{i} + \boldsymbol{j})/4$, * the velocity of point $A$ of the body is $\boldsymbol{v}_0^A = \Omega L(\boldsymbol{i}_B - 8\boldsymbol{j}_B + \sqrt{2}\boldsymbol{k}_B)/4$, where the position vector of $A$ is given by $\boldsymbol{r}_B^A = (2\boldsymbol{i}_B + \boldsymbol{j}_B)L/4$, * we also know that $\boldsymbol{v}_0^G \cdot \boldsymbol{\omega}_{B0} = 0$, where $\boldsymbol{\omega}_{B0}$ is the angular velocity of the spinner.</p>
+<ul class="statement-list">
+<li>the center of mass $G$ and the axes $Gx_B$ and $Gy_B$ are contained in the plane $Oxy$,</li>
+<li>the distance between $G$ and $O$ is $3L/2$, where $L$ is the length of the spinner as indicated in the figure,</li>
+<li>the angle between the axis $Ox$ and $Gx_B$ is $45^\circ$</li>
+<li>the velocity of $G$ is $\boldsymbol{v}_0^G = 3\sqrt{2}\Omega L(-\boldsymbol{i} + \boldsymbol{j})/4$,</li>
+<li>the velocity of point $A$ of the body is $\boldsymbol{v}_0^A = \Omega L(\boldsymbol{i}_B - 8\boldsymbol{j}_B + \sqrt{2}\boldsymbol{k}_B)/4$, where the position vector of $A$ is given by $\boldsymbol{r}_B^A = (2\boldsymbol{i}_B + \boldsymbol{j}_B)L/4$,</li>
+<li>we also know that $\boldsymbol{v}_0^G \cdot \boldsymbol{\omega}_{B0} = 0$, where $\boldsymbol{\omega}_{B0}$ is the angular velocity of the spinner.</li>
+</ul>
 <p>The mass of the spinner is $M$. The inertia tensor about $G$ is</p>
 <div class="math-block">
 $$ \overline{\overline{I}}_G = ML^2 \begin{bmatrix} B &amp; 0 &amp; E \\ 0 &amp; C &amp; F \\ E &amp; F &amp; D \end{bmatrix}_b , $$
@@ -490,7 +503,7 @@ $$ \overline{\overline{I}}_G = ML^2 \begin{bmatrix} B &amp; 0 &amp; E \\ 0 &amp;
 <li><strong>Physical system:</strong> the spinner, one rigid body $b$ of mass $M$, observed at a single instant from an inertial frame.</li>
 <li><strong>Fixed frame:</strong> $S_0\{O; \mathcal B_0\}$ with the right-handed basis $\{\mathbf i, \mathbf j, \mathbf k\}$; read from the figure, $\mathbf k$ points up, $\mathbf j$ to the right and $\mathbf i$ towards the viewer.</li>
 <li><strong>Body frame:</strong> $S_B\{G; \mathcal B_B\}$ with origin at the centre of mass $G$ and basis $\{\mathbf i_B, \mathbf j_B, \mathbf k_B\}$. Read from the figure: $\mathbf k_B$ points vertically down (the side view draws it from $G$ downwards), $\mathbf i_B$ lies in the plane $Oxy$ at 45 degrees from $Ox$ and points to the front of the car, and $\mathbf j_B$ completes the right-handed triad.</li>
-<li><strong>Degrees of freedom:</strong> a free rigid body has six (three for the position of $G$, three for the attitude). The problem is a snapshot: the velocity field at this instant is fixed by six scalars, the velocity of $G$ and the angular velocity $\boldsymbol\omega_{B0}$ (Notes.pdf, Sec. 9.1.3).</li>
+<li><strong>Degrees of freedom:</strong> a free rigid body has six (three for the position of $G$, three for the attitude). The problem is a snapshot: the velocity field at this instant is fixed by six scalars, the velocity of $G$ and the angular velocity $\boldsymbol\omega_{B0}$ (Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=79" target="_blank" rel="noopener" title="Open Notes.pdf at page 79">9.1.3</a>).</li>
 <li><strong>Basis of work:</strong> every vector is written in $\mathcal B_B$, because the inertia tensor and the data of $A$ are given there.</li>
 </ul>
 <div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Datum</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Value</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">SI unit</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Mass of the spinner</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$M$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">kg</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Length of the spinner</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$L$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Angular rate scale</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\Omega$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">rad/s</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Distance $OG$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$3L/2$, with $G$ in the plane $Oxy$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Angle from $Ox$ to $Gx_B$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$45^\circ$, with $Gx_B$ and $Gy_B$ in the plane $Oxy$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">rad</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Velocity of $G$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mathbf v_0^G = \tfrac{3\sqrt2}{4}\,\Omega L\,(-\mathbf i + \mathbf j)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Position of $A$ from $G$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mathbf r_G^A = \tfrac{L}{4}\,(2\,\mathbf i_B + \mathbf j_B)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Velocity of $A$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mathbf v_0^A = \tfrac{\Omega L}{4}\,(\mathbf i_B - 8\,\mathbf j_B + \sqrt2\,\mathbf k_B)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Extra condition</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mathbf v_0^G\cdot\boldsymbol\omega_{B0} = 0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m rad/s$^2$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Inertia tensor about $G$ in $\mathcal B_B$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$ML^2\,[B, 0, E;\ 0, C, F;\ E, F, D]$, constants $B$, $C$, $D$, $E$, $F$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">kg m$^2$</td></tr></tbody></table></div>
@@ -544,7 +557,7 @@ $$ \overline{\overline{I}}_G = ML^2 \begin{bmatrix} B &amp; 0 &amp; E \\ 0 &amp;
   <div class="derivation-head">
     <span class="derivation-title">First rotation: 45 degrees about k</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the third axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View from above, with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up, since $\mathbf i\times\mathbf j = \mathbf k$. The turn from $Ox$ to $Gx_B$ is counterclockwise in this view, so its angle is positive.</p>
@@ -592,7 +605,7 @@ $$ \overline{\overline{I}}_G = ML^2 \begin{bmatrix} B &amp; 0 &amp; E \\ 0 &amp;
   <div class="derivation-head">
     <span class="derivation-title">Second rotation: half turn about i1</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the first axis by the angle pi; chaining of two changes of basis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.18; Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.18</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.16</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View with $\mathbf i_1$ out of the paper (⊙), $\mathbf j_1$ to the right and $\mathbf k_1$ up, since $\mathbf j_1\times\mathbf k_1 = \mathbf i_1$. A half turn sends both axes of the plane of the view to their opposites.</p>
@@ -615,7 +628,7 @@ $$ \overline{\overline{I}}_G = ML^2 \begin{bmatrix} B &amp; 0 &amp; E \\ 0 &amp;
   <div class="derivation-head">
     <span class="derivation-title">Velocity of G in the body basis</span>
     <span class="derivation-law"><strong>Law:</strong> components of a vector in another basis, with the inverse matrix equal to the transpose</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.12; Notes.pdf, Eq. 1.14</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.14</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -634,7 +647,7 @@ $$ \overline{\overline{I}}_G = ML^2 \begin{bmatrix} B &amp; 0 &amp; E \\ 0 &amp;
   <div class="derivation-head">
     <span class="derivation-title">Two components of the angular velocity from the velocity field</span>
     <span class="derivation-law"><strong>Law:</strong> velocity field of a rigid body between two body points; vector product by its determinant</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 9.7; Notes.pdf, Eq. 1.31; [Lecture 7, Slide 6]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.7</a>; Notes.pdf, Eq. 1.31; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=6" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 6">6</a>]</span>
   </div>
   <div class="derivation-body">
     <p>Write the unknown angular velocity as $\boldsymbol\omega_{B0} = p\,\mathbf i_B + q\,\mathbf j_B + r\,\mathbf k_B$.</p>
@@ -652,13 +665,13 @@ p - 2q &amp;= \sqrt2\,\Omega \quad &amp;\text{(equate the $\mathbf k_B$ componen
     <div class="derivation-result">$$\boxed{r = -\Omega, \qquad p - 2q = \sqrt2\,\Omega}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{L\,T^{-1}}] = [\mathrm{T^{-1}}][\mathrm L]$, so $p$, $q$, $r$ are in $[\mathrm{T^{-1}}]$</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the $\mathbf j_B$ equation repeats the $\mathbf i_B$ one because the two velocities have equal projections on the segment $GA$ (Eq. 9.7): the data are those of a rigid body. A rotation about $GA$ itself moves neither point, so one more condition is needed.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the $\mathbf j_B$ equation repeats the $\mathbf i_B$ one because the two velocities have equal projections on the segment $GA$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.7</a>): the data are those of a rigid body. A rotation about $GA$ itself moves neither point, so one more condition is needed.</p>
 </div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Third component from the condition on the velocity of G</span>
     <span class="derivation-law"><strong>Law:</strong> scalar product in an orthonormal basis; the condition given in the statement</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.5; Notes.pdf, Eq. 1.40; Problems.pdf, p. 40</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.5</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.40</a>; Problems.pdf, p. 40</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -671,7 +684,7 @@ p &amp;= \sqrt2\,\Omega + 2q = \sqrt2\,\Omega \quad &amp;\text{(previous box)} \
     <div class="derivation-result">$$\boxed{\boldsymbol\omega_{B0} = \Omega\left(\sqrt2\,\mathbf i_B - \mathbf k_B\right), \qquad \omega_{B0} = \sqrt3\,\Omega}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{T^{-1}}]$</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the condition says that the slip velocity (the component of the velocity of any body point along the angular velocity, Eq. 9.5) is zero: the spinner is in pure rotation at this instant. It turns about an axis in the vertical plane that contains its length.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the condition says that the slip velocity (the component of the velocity of any body point along the angular velocity, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.5</a>) is zero: the spinner is in pure rotation at this instant. It turns about an axis in the vertical plane that contains its length.</p>
 </div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Instantaneous axis of rotation</h4>
 <div class="diagram-card">
@@ -715,7 +728,7 @@ p &amp;= \sqrt2\,\Omega + 2q = \sqrt2\,\Omega \quad &amp;\text{(previous box)} \
   <div class="derivation-head">
     <span class="derivation-title">A point of the instantaneous axis of rotation</span>
     <span class="derivation-law"><strong>Law:</strong> the point $I$ of the axis closest to $G$; double vector product</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.8; Notes.pdf, Eq. 9.10; Notes.pdf, Eq. 1.37; [Lecture 7, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">9.10</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener" title="Open Notes.pdf at page 20">1.37</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=9" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -738,7 +751,7 @@ p &amp;= \sqrt2\,\Omega + 2q = \sqrt2\,\Omega \quad &amp;\text{(previous box)} \
   <div class="derivation-head">
     <span class="derivation-title">Reading the given inertia tensor</span>
     <span class="derivation-law"><strong>Law:</strong> matrix of the tensor of inertia: moments of inertia on the diagonal, products of inertia with a minus sign off the diagonal</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.38; Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.15; [Lecture 8, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.38</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=85" target="_blank" rel="noopener" title="Open Notes.pdf at page 85">10.11</a>; Notes.pdf, Eq. 10.15; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=12" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -757,7 +770,7 @@ P_{x_Bz_B,y_Bz_B} &amp;= 0, \quad P_{x_By_B,y_Bz_B} = -E\,ML^2, \quad P_{x_By_B,
   <div class="derivation-head">
     <span class="derivation-title">Linear momentum</span>
     <span class="derivation-law"><strong>Law:</strong> linear momentum of a rigid body equals the mass times the velocity of the centre of mass</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.3; [Lecture 9, Slide 3]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=3" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 3">3</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -773,7 +786,7 @@ P_{x_Bz_B,y_Bz_B} &amp;= 0, \quad P_{x_By_B,y_Bz_B} = -E\,ML^2, \quad P_{x_By_B,
   <div class="derivation-head">
     <span class="derivation-title">Angular momentum about G</span>
     <span class="derivation-law"><strong>Law:</strong> angular momentum about the centre of mass equals the inertia tensor about $G$ applied to the angular velocity</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.19; [Lecture 9, Slide 5]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.19</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=5" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 5">5</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -790,7 +803,7 @@ P_{x_Bz_B,y_Bz_B} &amp;= 0, \quad P_{x_By_B,y_Bz_B} = -E\,ML^2, \quad P_{x_By_B,
   <div class="derivation-head">
     <span class="derivation-title">Kinetic energy by Koenig's decomposition</span>
     <span class="derivation-law"><strong>Law:</strong> kinetic energy of a rigid body: translation of $G$ plus rotation about $G$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 11.37; [Lecture 9, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.37</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=10" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -811,7 +824,7 @@ T_0 &amp;= \frac98\,M\Omega^2L^2 + \frac12\,M\Omega^2L^2\left(2B + D - 2\sqrt2\,
   <div class="derivation-head">
     <span class="derivation-title">Angular momentum about A</span>
     <span class="derivation-law"><strong>Law:</strong> change of pole of the angular momentum from the centre of mass to a point $A$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.20; Notes.pdf, Eq. 11.21; [Lecture 9, Slide 7]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.21</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=7" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 7">7</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -837,7 +850,7 @@ T_0 &amp;= \frac98\,M\Omega^2L^2 + \frac12\,M\Omega^2L^2\left(2B + D - 2\sqrt2\,
   <div class="derivation-head">
     <span class="derivation-title">Check: the angular velocity found reproduces the velocity of A</span>
     <span class="derivation-law"><strong>Law:</strong> velocity field from $G$ to $A$ with the values found</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.3</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -873,12 +886,20 @@ T_0 &amp;= \frac98\,M\Omega^2L^2 + \frac12\,M\Omega^2L^2\left(2B + D - 2\sqrt2\,
         <div class="problem-title-area">
           <div class="problem-num">Problem RB 07</div>
           <h2 class="problem-title">One problem to rule them all (One Ring)</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=41" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 41</a>
         </div>
         <span class="problem-badge">Group C: Momentum and Energy</span>
       </div>
       <div class="problem-statement">
 <p>We want to analyze the motion of the ring with respect to an inertial reference frame $S_0 : \{O; B_0\}$ (with unit vectors $\boldsymbol{i}$, $\boldsymbol{j}$ and $\boldsymbol{k}$) as shown in the figure. We are going to consider the ring as a rigid body, with a body-fixed reference frame $S_B : \{G; B_B\}$ (with unit vectors $\boldsymbol{i}_B$, $\boldsymbol{j}_B$ and $\boldsymbol{k}_B$) attached to it. In the instant considered,</p>
-<p>* the ring is rolling without slipping. * the centre of mass $G$ and the axes $Gx_B$ and $Gz_B$ are contained in the plane $Oxz$ * the angle between the axis $Ox$ and $Gx_B$ is $45^\circ$ * the contact point of the ring with the plane $Oxy$ is $C$. The coordinates of $C$ in the body-fixed reference frame are $R(-1, 0, -19)/20$. * the velocity of $G$ is $\boldsymbol{v}_G = \Omega R \left(-\boldsymbol{i} + \frac{\sqrt{5}}{2}\boldsymbol{j} - \frac{9}{10}\boldsymbol{k}\right)$ * the angular velocity fulfills the condition $\boldsymbol{\omega} \cdot \boldsymbol{i}_B = \boldsymbol{\omega} \cdot \boldsymbol{k}_B$</p>
+<ul class="statement-list">
+<li>the ring is rolling without slipping.</li>
+<li>the centre of mass $G$ and the axes $Gx_B$ and $Gz_B$ are contained in the plane $Oxz$</li>
+<li>the angle between the axis $Ox$ and $Gx_B$ is $45^\circ$</li>
+<li>the contact point of the ring with the plane $Oxy$ is $C$. The coordinates of $C$ in the body-fixed reference frame are $R(-1, 0, -19)/20$.</li>
+<li>the velocity of $G$ is $\boldsymbol{v}_G = \Omega R \left(-\boldsymbol{i} + \frac{\sqrt{5}}{2}\boldsymbol{j} - \frac{9}{10}\boldsymbol{k}\right)$</li>
+<li>the angular velocity fulfills the condition $\boldsymbol{\omega} \cdot \boldsymbol{i}_B = \boldsymbol{\omega} \cdot \boldsymbol{k}_B$</li>
+</ul>
 <p>The mass of the ring is $M$ and the inertia tensor with respect to the reference frame $S_B$ is approximately given by</p>
 <div class="math-block">
 $$ \overline{\overline{I}}_G = MR^2 \begin{bmatrix} B &amp; 0 &amp; 0 \\ 0 &amp; D &amp; 0 \\ 0 &amp; 0 &amp; D \end{bmatrix} $$
@@ -973,7 +994,7 @@ $$ \overline{\overline{I}}_G = MR^2 \begin{bmatrix} B &amp; 0 &amp; 0 \\ 0 &amp;
   <div class="derivation-head">
     <span class="derivation-title">Body basis: rotation about j by 45 degrees</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the second axis, positive by the right-hand rule about the axis that points out of the paper</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.19; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.19</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View of the plane $Oxz$ with $\mathbf i$ to the right and $\mathbf k$ up. The vector out of the paper is then right times up, $\mathbf i\times\mathbf k = -\mathbf j$, so $\mathbf j$ points into the paper (⊗). The figure turns $Gx_B$ counterclockwise by 45 degrees from $Ox$: a positive rotation about the axis out of the paper, $-\mathbf j$.</p>
@@ -1087,7 +1108,7 @@ $$ \overline{\overline{I}}_G = MR^2 \begin{bmatrix} B &amp; 0 &amp; 0 \\ 0 &amp;
   <div class="derivation-head">
     <span class="derivation-title">Contact point in the fixed basis and position of G</span>
     <span class="derivation-law"><strong>Law:</strong> components of a vector in another basis; the contact point lies on the plane z = 0</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.12; Problems.pdf, p. 41</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.12</a>; Problems.pdf, p. 41</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1107,7 +1128,7 @@ z_G &amp;= \frac{\sqrt2}{2}R, \qquad y_G = 0 \quad &amp;\text{(solve; $G$ is in 
   <div class="derivation-head">
     <span class="derivation-title">Velocity of G in the body basis</span>
     <span class="derivation-law"><strong>Law:</strong> components of a vector in another basis, with the inverse matrix equal to the transpose</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.12; Notes.pdf, Eq. 1.14</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.14</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1124,7 +1145,7 @@ z_G &amp;= \frac{\sqrt2}{2}R, \qquad y_G = 0 \quad &amp;\text{(solve; $G$ is in 
   <div class="derivation-head">
     <span class="derivation-title">Consistency of the data with rolling</span>
     <span class="derivation-law"><strong>Law:</strong> equal projections of the velocities of two body points on the segment that joins them; zero velocity of the contact point</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.7; Notes.pdf, Eq. 9.3</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.7</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1142,7 +1163,7 @@ z_G &amp;= \frac{\sqrt2}{2}R, \qquad y_G = 0 \quad &amp;\text{(solve; $G$ is in 
   <div class="derivation-head">
     <span class="derivation-title">Angular velocity from the rolling condition</span>
     <span class="derivation-law"><strong>Law:</strong> velocity field from $G$ to the contact point $C$, with zero velocity at $C$; vector product by its determinant</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 1.31; [Lecture 7, Slide 6]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; Notes.pdf, Eq. 1.31; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=6" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 6">6</a>]</span>
   </div>
   <div class="derivation-body">
     <p>The condition of the statement lets the angular velocity be written as $\boldsymbol\omega_{B0} = p\,\mathbf i_B + q\,\mathbf j_B + p\,\mathbf k_B$.</p>
@@ -1167,7 +1188,7 @@ p &amp;= -\frac{10\sqrt5}{18}\,\Omega = -\frac{5\sqrt5}{9}\,\Omega \quad &amp;\t
   <div class="derivation-head">
     <span class="derivation-title">Angular velocity in the fixed basis</span>
     <span class="derivation-law"><strong>Law:</strong> components of a vector in another basis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.12</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.12</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1184,7 +1205,7 @@ p &amp;= -\frac{10\sqrt5}{18}\,\Omega = -\frac{5\sqrt5}{9}\,\Omega \quad &amp;\t
   <div class="derivation-head">
     <span class="derivation-title">Instantaneous axis of rotation</span>
     <span class="derivation-law"><strong>Law:</strong> a body point of zero velocity lies on the instantaneous axis; the slip velocity is zero when one body point is at rest</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.5; Notes.pdf, Eq. 9.8; Notes.pdf, Eq. 9.11; [Lecture 7, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.5</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=79" target="_blank" rel="noopener" title="Open Notes.pdf at page 79">9.11</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=9" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1206,7 +1227,7 @@ v_{0\parallel} &amp;= \mathbf v_0^C\cdot\mathbf e_\omega = 0 \quad &amp;\text{(s
   <div class="derivation-head">
     <span class="derivation-title">Part (d): the constants B and D</span>
     <span class="derivation-law"><strong>Law:</strong> the polar moment of inertia about a point is half the sum of the moments about three orthogonal axes through it</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.13; Notes.pdf, Eq. 10.38; [Lecture 8, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.13; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.38</a>; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=10" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1225,7 +1246,7 @@ D &amp;= \frac12, \qquad B = 1 \quad &amp;\text{(solve)}
   <div class="derivation-head">
     <span class="derivation-title">Check: moments of inertia of a thin circular ring by integration</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the moment of inertia about an axis; mass element of a homogeneous wire</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.11; Notes.pdf, Sec. 10.5; [Lecture 8, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=85" target="_blank" rel="noopener" title="Open Notes.pdf at page 85">10.11</a>; Notes.pdf, Sec. 10.5; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=10" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <p>Model the ring as a wire of radius $R$ in the plane $Gy_Bz_B$, with the point at angle $\phi$ at $y_B = R\cos\phi$ and $z_B = R\sin\phi$.</p>
@@ -1249,7 +1270,7 @@ I_{z_B} &amp;= I_{y_B} = \frac{MR^2}{2} \quad &amp;\text{(same steps with $\cos^
   <div class="derivation-head">
     <span class="derivation-title">Linear momentum and angular momentum about G</span>
     <span class="derivation-law"><strong>Law:</strong> linear momentum from the velocity of $G$; angular momentum about $G$ from the inertia tensor</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.19; [Lecture 9, Slide 5]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=93" target="_blank" rel="noopener" title="Open Notes.pdf at page 93">11.19</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=5" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 5">5</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1267,7 +1288,7 @@ I_{z_B} &amp;= I_{y_B} = \frac{MR^2}{2} \quad &amp;\text{(same steps with $\cos^
   <div class="derivation-head">
     <span class="derivation-title">Kinetic energy by Koenig's decomposition</span>
     <span class="derivation-law"><strong>Law:</strong> kinetic energy of a rigid body: translation of $G$ plus rotation about $G$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.31; Notes.pdf, Eq. 11.37; [Lecture 9, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.37</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=10" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1322,7 +1343,7 @@ T_0 &amp;= \frac{153}{100}\,M\Omega^2R^2 + \frac{125B + 287D}{162}\,M\Omega^2R^2
   <div class="derivation-head">
     <span class="derivation-title">Part (c): resultant force of the attraction of Mordor</span>
     <span class="derivation-law"><strong>Law:</strong> an attraction towards $O$ proportional to the mass element and to its distance; definition of the centre of mass</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.7; Notes.pdf, Eq. 12.14; [Lecture 10, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.7; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=9" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1340,7 +1361,7 @@ d\mathbf F &amp;= -\beta\,\mathbf r_0^P\,dm \quad &amp;\text{(modulus $\beta\,r_
   <div class="derivation-head">
     <span class="derivation-title">Part (c): moment of the attraction about G</span>
     <span class="derivation-law"><strong>Law:</strong> moment of a distributed force about a point; the first moment about the centre of mass vanishes</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 10.44; [Lecture 10, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.44</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=12" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1384,6 +1405,7 @@ d\mathbf F &amp;= -\beta\,\mathbf r_0^P\,dm \quad &amp;\text{(modulus $\beta\,r_
         <div class="problem-title-area">
           <div class="problem-num">Problem RB 08</div>
           <h2 class="problem-title">Triangle with spring and vertical constraint</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=42" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 42</a>
         </div>
         <span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;"><span class="problem-badge">Group D: Dynamics</span><span class="problem-badge">In-Class Session 19</span></span>
       </div>
@@ -1480,7 +1502,7 @@ d\mathbf F &amp;= -\beta\,\mathbf r_0^P\,dm \quad &amp;\text{(modulus $\beta\,r_
   <div class="derivation-head">
     <span class="derivation-title">Body basis: rotation about k by the angle theta</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the third axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View of the plane of motion with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up; positive $\theta$ is counterclockwise.</p>
@@ -1551,7 +1573,7 @@ d\mathbf F &amp;= -\beta\,\mathbf r_0^P\,dm \quad &amp;\text{(modulus $\beta\,r_
   <div class="derivation-head">
     <span class="derivation-title">Height of the triangle and distance from G to A</span>
     <span class="derivation-law"><strong>Law:</strong> Pythagoras in the right triangle formed by half the base, the height and one side</span>
-    <span class="derivation-source"><strong>Source:</strong> Problems.pdf, p. 42; Notes.pdf, Eq. 10.8</span>
+    <span class="derivation-source"><strong>Source:</strong> Problems.pdf, p. 42; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=84" target="_blank" rel="noopener" title="Open Notes.pdf at page 84">10.8</a></span>
   </div>
   <div class="derivation-body">
     <p>The triangle $MCA$ has its right angle at $M$: hypotenuse $AC$ of length $a$, leg $MC$ of length $a/2$, leg $MA$ equal to the height $h$.</p>
@@ -1610,7 +1632,7 @@ h &amp;= \sqrt{a^2 - \frac{a^2}{4}} = \frac{\sqrt3}{2}\,a \quad &amp;\text{(posi
   <div class="derivation-head">
     <span class="derivation-title">Positions of G and of A</span>
     <span class="derivation-law"><strong>Law:</strong> constraint of the guide; position vector built as a sum of segments</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.3; Notes.pdf, Sec. 7.4; Problems.pdf, p. 42</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; Notes.pdf, Sec. 7.4; Problems.pdf, p. 42</span>
   </div>
   <div class="derivation-body">
     <p>In the right triangle with hypotenuse $GA$ of length $a/\sqrt3$ and the angle $\theta$ between $GA$ and the vertical (the same angle as between $\mathbf i_B$ and $\mathbf i$), the horizontal leg is the opposite one and the vertical leg the adjacent one.</p>
@@ -1628,7 +1650,7 @@ h &amp;= \sqrt{a^2 - \frac{a^2}{4}} = \frac{\sqrt3}{2}\,a \quad &amp;\text{(posi
   <div class="derivation-head">
     <span class="derivation-title">Velocities and accelerations</span>
     <span class="derivation-law"><strong>Law:</strong> time derivative in $S_0$ with the chain rule; velocity field of the rigid body</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 6]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.4</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=6" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 6">6</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1689,7 +1711,7 @@ h &amp;= \sqrt{a^2 - \frac{a^2}{4}} = \frac{\sqrt3}{2}\,a \quad &amp;\text{(posi
   <div class="derivation-head">
     <span class="derivation-title">Part (a): centre of mass in the frame x1y1</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the centre of mass; first symmetry theorem</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.8; Notes.pdf, Sec. 10.3; [Lecture 8, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=84" target="_blank" rel="noopener" title="Open Notes.pdf at page 84">10.6</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=84" target="_blank" rel="noopener" title="Open Notes.pdf at page 84">10.8</a>; Notes.pdf, Sec. 10.3; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=9" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <p>In $x_1y_1$ the vertices are $B$ at $(-a/2, 0)$, $C$ at $(a/2, 0)$ and $A$ at $(0, h)$. At height $y_1$ the plate spans the horizontal strip from $-w$ to $w$, with the half width $w$ given by similar triangles (it falls linearly from $a/2$ at the base to zero at $A$).</p>
@@ -1711,7 +1733,7 @@ y_{1G} &amp;= \frac{a h^2}{6}\cdot\frac{2}{a h} = \frac h3 = \frac{\sqrt3}{6}\,a
   <div class="derivation-head">
     <span class="derivation-title">Moments of inertia about the axes of x1y1</span>
     <span class="derivation-law"><strong>Law:</strong> moment of inertia of a flat body about an axis in its plane and about the normal axis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.22; [Lecture 8, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=85" target="_blank" rel="noopener" title="Open Notes.pdf at page 85">10.11</a>; Notes.pdf, Eq. 10.22; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=10" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1733,7 +1755,7 @@ I_{z_1} &amp;= I_{x_1} + I_{y_1} = \frac{m a^2}{8} + \frac{m a^2}{24} = \frac{m 
   <div class="derivation-head">
     <span class="derivation-title">Part (b): inertia tensor about G by Steiner's theorem</span>
     <span class="derivation-law"><strong>Law:</strong> parallel axis theorem in components from $G$ to the point $M$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.48; Notes.pdf, Eq. 10.38; [Lecture 8, Slide 15]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.48</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.38</a>; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=15" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 15">15</a>]</span>
   </div>
   <div class="derivation-body">
     <p>The vector from $M$ to $G$ is $(0, y_{1G}, 0)$ in $x_1y_1$.</p>
@@ -1756,7 +1778,7 @@ P_{x_By_B,x_Bz_B} &amp;= P_{x_By_B,y_Bz_B} = 0 \quad &amp;\text{(flat body in th
   <div class="derivation-head">
     <span class="derivation-title">Momentum, angular momentum about G and kinetic energy</span>
     <span class="derivation-law"><strong>Law:</strong> linear momentum from $G$; angular momentum about $G$ from the inertia tensor; Koenig's decomposition</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=5" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 5">5</a>]; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=10" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1806,7 +1828,7 @@ T_0 &amp;= \frac12\,m\left(v_0^G\right)^2 + \frac12\,\boldsymbol\omega_{B0}\cdot
   <div class="derivation-head">
     <span class="derivation-title">Force equation</span>
     <span class="derivation-law"><strong>Law:</strong> Newton's second law for the centre of mass of a rigid body</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Sec. 7.5; [Lecture 10, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Sec. 7.5; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1823,10 +1845,10 @@ m\,\ddot y_G &amp;= -mg - k\left(y_G + \frac{\sqrt3}{3}\,a\cos\theta\right) \qua
   <div class="derivation-head">
     <span class="derivation-title">Moment equation about G</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about the centre of mass; moment of the spring force by its determinant</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.16; Notes.pdf, Eq. 12.14; [Lecture 10, Slide 5]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.16</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=5" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 5">5</a>]</span>
   </div>
   <div class="derivation-body">
-    <p>The pole is $G$: the weight and the guide reaction pass through it, so they give no moment, and the extra term of Eq. 12.13 vanishes because the velocity of the pole is that of $G$ itself.</p>
+    <p>The pole is $G$: the weight and the guide reaction pass through it, so they give no moment, and the extra term of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> vanishes because the velocity of the pole is that of $G$ itself.</p>
     <div class="derivation-steps">$$\begin{aligned}
 \mathbf M_G &amp;= \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 + m\,\mathbf v_0^G\times\mathbf v_0^G = \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 \quad &amp;\text{(Eq. 12.13 with $A$ at $G$)} \\
 \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 &amp;= \frac{m a^2}{12}\,\ddot\theta\,\mathbf k + \frac{m a^2}{12}\,\dot\theta\,\dot{\mathbf k} = \frac{m a^2}{12}\,\ddot\theta\,\mathbf k \quad &amp;\text{(product rule; $\mathbf k$ is fixed in $S_0$)} \\
@@ -1848,7 +1870,7 @@ m a\,\ddot\theta &amp;= \frac{12}{\sqrt3}\,k\left(y_G\sin\theta + 2a\cos\theta\r
   <div class="derivation-head">
     <span class="derivation-title">Part (d.i): initial conditions</span>
     <span class="derivation-law"><strong>Law:</strong> configuration at the initial instant; velocity of $A$ from the kinematics box</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.3; Problems.pdf, p. 42</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; Problems.pdf, p. 42</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1899,7 +1921,7 @@ u_0\,\mathbf i + v_0\,\mathbf j &amp;= \dot y_G(0)\,\mathbf j - \frac{a}{\sqrt3}
   <div class="derivation-head">
     <span class="derivation-title">Part (d.ii): instantaneous axis of rotation at t = 0</span>
     <span class="derivation-law"><strong>Law:</strong> point of zero velocity of a plane motion: foot of the perpendicular from $G$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.10; Notes.pdf, Eq. 9.8; [Lecture 7, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">9.10</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.8</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=9" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1917,7 +1939,7 @@ u_0\,\mathbf i + v_0\,\mathbf j &amp;= \dot y_G(0)\,\mathbf j - \frac{a}{\sqrt3}
   <div class="derivation-head">
     <span class="derivation-title">Part (e): equilibrium position, spring constant and reaction</span>
     <span class="derivation-law"><strong>Law:</strong> equilibrium of a rigid body: zero resultant force and zero moment, with all time derivatives zero</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.24; Notes.pdf, Eq. 12.25; [Lecture 10, Slide 19]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.24</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.25</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=19" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 19">19</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1937,7 +1959,7 @@ R &amp;= ka\left(2 - \frac{\sqrt3}{3}\cdot\frac{\sqrt2}{2}\right) = ka\left(2 - 
   <div class="derivation-head">
     <span class="derivation-title">Part (f): linearized equation and frequency</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about the fixed point $G$; Taylor expansion to first order about the equilibrium; harmonic oscillator</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 14.4; Notes.pdf, Eq. 5.6; [Lecture 6, Slide 15]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=113" target="_blank" rel="noopener" title="Open Notes.pdf at page 113">14.4</a>; Notes.pdf, Eq. 5.6; [Lecture 6, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/06-oscillations-and-linearization.pdf#page=15" target="_blank" rel="noopener" title="Open 06 Oscillations and linearization.pdf at page 15">15</a>]</span>
   </div>
   <div class="derivation-body">
     <p>With $G$ fixed at the equilibrium height, the support at $G$ is a force applied at $G$ and has no moment about it; the moment equation keeps its form with the height of $G$ frozen.</p>
@@ -1964,7 +1986,7 @@ R &amp;= ka\left(2 - \frac{\sqrt3}{3}\cdot\frac{\sqrt2}{2}\right) = ka\left(2 - 
   <div class="derivation-head">
     <span class="derivation-title">Check: conservation of the mechanical energy</span>
     <span class="derivation-law"><strong>Law:</strong> work and energy theorem: the guide reaction does no work and the weight and spring are conservative</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; Notes.pdf, Eq. 5.2; [Lecture 10, Slide 18]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a>; Notes.pdf, Eq. 5.2; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2000,6 +2022,7 @@ E &amp;= \frac12\,m\,\dot y_G^2 + \frac{m a^2}{24}\,\dot\theta^2 + mg\,y_G + \fr
         <div class="problem-title-area">
           <div class="problem-num">Problem RB 09</div>
           <h2 class="problem-title">Rectangle with spring hanging from a corner</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=43" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 43</a>
         </div>
         <span class="problem-badge">Group D: Dynamics</span>
       </div>
@@ -2091,7 +2114,7 @@ E &amp;= \frac12\,m\,\dot y_G^2 + \frac{m a^2}{24}\,\dot\theta^2 + mg\,y_G + \fr
   <div class="derivation-head">
     <span class="derivation-title">Body basis: rotation about k1 by the angle theta</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the third axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View of the plane with $\mathbf k_1$ out of the paper (⊙), $\mathbf i_1$ to the right and $\mathbf j_1$ up; positive $\theta$ is counterclockwise.</p>
@@ -2154,7 +2177,7 @@ E &amp;= \frac12\,m\,\dot y_G^2 + \frac{m a^2}{24}\,\dot\theta^2 + mg\,y_G + \fr
   <div class="derivation-head">
     <span class="derivation-title">Vector from G to C: the half diagonal</span>
     <span class="derivation-law"><strong>Law:</strong> position vector as a sum of segments along the body axes; Pythagoras and the addition formulas</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 7.4; Notes.pdf, Eq. 1.12; Problems.pdf, p. 43</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 7.4; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.12</a>; Problems.pdf, p. 43</span>
   </div>
   <div class="derivation-body">
     <p>In the right triangle with legs $b/2$ along $\mathbf i_B$ and $a/2$ along $\mathbf j_B$ and hypotenuse $GC$, the angle at $G$ between $\mathbf i_B$ and $GC$ is the one whose tangent is the opposite leg over the adjacent leg.</p>
@@ -2175,7 +2198,7 @@ GC &amp;= \sqrt{\frac34\,a^2 + \frac14\,a^2} = a \quad &amp;\text{(Pythagoras: t
   <div class="derivation-head">
     <span class="derivation-title">Positions, velocities and accelerations</span>
     <span class="derivation-law"><strong>Law:</strong> guide constraint on $C$; time derivatives in $S_0$ with the chain rule; velocity field</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 6]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.4</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=6" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 6">6</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2232,7 +2255,7 @@ y_G + a\sin\beta &amp;= \frac54\,a \quad &amp;\text{(height of $C$ fixed by the 
   <div class="derivation-head">
     <span class="derivation-title">Part (a): moments of inertia of the rectangle about G</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the moments and products of inertia of a homogeneous plate; first symmetry theorem</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.15; Notes.pdf, Eq. 10.22; Notes.pdf, Sec. 10.5; [Lecture 8, Slide 19]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=85" target="_blank" rel="noopener" title="Open Notes.pdf at page 85">10.11</a>; Notes.pdf, Eq. 10.15; Notes.pdf, Eq. 10.22; Notes.pdf, Sec. 10.5; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=19" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 19">19</a>]</span>
   </div>
   <div class="derivation-body">
     <p>The centre of mass is the centre of the rectangle: the two midlines are axes of symmetry. In $S_B$ the plate covers the coordinates from $-b/2$ to $b/2$ along $\mathbf i_B$ and from $-a/2$ to $a/2$ along $\mathbf j_B$.</p>
@@ -2256,7 +2279,7 @@ P_{x_By_B,x_Bz_B} &amp;= P_{x_By_B,y_Bz_B} = 0 \quad &amp;\text{(flat body in th
   <div class="derivation-head">
     <span class="derivation-title">Momentum, angular momentum about G and kinetic energy</span>
     <span class="derivation-law"><strong>Law:</strong> linear momentum from $G$; angular momentum about $G$ from the inertia tensor; Koenig's decomposition</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=5" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 5">5</a>]; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=10" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2357,7 +2380,7 @@ T_0 &amp;= \frac12\,m\left(\dot x_G^2 + a^2\cos^2\beta\,\dot\theta^2\right) + \f
   <div class="derivation-head">
     <span class="derivation-title">Force equation</span>
     <span class="derivation-law"><strong>Law:</strong> Newton's second law for the centre of mass of a rigid body</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Sec. 7.5; [Lecture 10, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Sec. 7.5; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2374,10 +2397,10 @@ m\left(a\sin\beta\,\dot\theta^2 - a\cos\beta\,\ddot\theta\right) &amp;= N - mg -
   <div class="derivation-head">
     <span class="derivation-title">Moment equation about G</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about the centre of mass; moments of the spring and guide forces by their determinants</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.16; Notes.pdf, Eq. 12.14; [Lecture 10, Slide 5]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.16</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=5" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 5">5</a>]</span>
   </div>
   <div class="derivation-body">
-    <p>The pole is $G$: the weight passes through it, and the extra term of Eq. 12.13 vanishes for the pole $G$.</p>
+    <p>The pole is $G$: the weight passes through it, and the extra term of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> vanishes for the pole $G$.</p>
     <div class="derivation-steps">$$\begin{aligned}
 \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 &amp;= \frac{m a^2}{3}\,\ddot\theta\,\mathbf k_1 \quad &amp;\text{(product rule; $\mathbf k_1$ fixed)} \\
 \mathbf r_G^A\times\left(-k\,\mathbf r_0^A\right) &amp;= \begin{vmatrix} \mathbf i_1 &amp; \mathbf j_1 &amp; \mathbf k_1 \cr -a\cos\beta &amp; -a\sin\beta &amp; 0 \cr -k x_A &amp; -k y_A &amp; 0 \end{vmatrix} = ka\left(y_A\cos\beta - x_A\sin\beta\right)\mathbf k_1 \quad &amp;\text{(expand along the first row: only $\mathbf k_1$ survives)} \\
@@ -2395,7 +2418,7 @@ y_A\cos\beta - x_A\sin\beta &amp;= \frac54\,a\cos\beta - 2a\sin\beta\cos\beta - 
   <div class="derivation-head">
     <span class="derivation-title">Equations of motion with the reaction eliminated</span>
     <span class="derivation-law"><strong>Law:</strong> substitution of the vertical force equation into the moment equation</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 8]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=8" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 8">8</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2412,7 +2435,7 @@ m a^2\left(\frac13 + \cos^2\beta\right)\ddot\theta &amp;= m a^2\sin\beta\cos\bet
   <div class="derivation-head">
     <span class="derivation-title">Part (b): initial conditions</span>
     <span class="derivation-law"><strong>Law:</strong> configuration at the initial instant; velocity of $A$ from the kinematics box</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.3; Problems.pdf, p. 43</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; Problems.pdf, p. 43</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2467,7 +2490,7 @@ u_0\,\mathbf i_1 + v_0\,\mathbf j_1 &amp;= \left(\dot x_G + \frac{\sqrt3}{2}\,a\
   <div class="derivation-head">
     <span class="derivation-title">Part (b): instantaneous axis of rotation at t = 0</span>
     <span class="derivation-law"><strong>Law:</strong> point of zero velocity of a plane motion, from the known velocity of $A$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.10; Notes.pdf, Eq. 9.8; [Lecture 7, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=78" target="_blank" rel="noopener" title="Open Notes.pdf at page 78">9.10</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.8</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=9" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2486,7 +2509,7 @@ u_0\,\mathbf i_1 + v_0\,\mathbf j_1 &amp;= \left(\dot x_G + \frac{\sqrt3}{2}\,a\
   <div class="derivation-head">
     <span class="derivation-title">Part (c): position of G and reaction force</span>
     <span class="derivation-law"><strong>Law:</strong> equilibrium of a rigid body: zero resultant force and zero moment at rest</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.24; Notes.pdf, Eq. 12.25; [Lecture 10, Slide 19]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.24</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.25</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=19" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 19">19</a>]</span>
   </div>
   <div class="derivation-body">
     <p>At $\theta$ equal to $\pi/3$ the angle of the half diagonal is $\beta$ equal to $\pi/2$: $C$ is straight above $G$ and $A$ straight below it.</p>
@@ -2507,7 +2530,7 @@ N &amp;= mg + k\left(\frac54\,a - 2a\right) = mg - \frac34\,ka \quad &amp;\text{
   <div class="derivation-head">
     <span class="derivation-title">Part (d): linearized equation and frequency</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about the fixed point $G$; Taylor expansion to first order about the equilibrium; harmonic oscillator</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Sec. 14.4; Notes.pdf, Eq. 5.6; [Lecture 6, Slide 15]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=113" target="_blank" rel="noopener" title="Open Notes.pdf at page 113">14.4</a>; Notes.pdf, Eq. 5.6; [Lecture 6, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/06-oscillations-and-linearization.pdf#page=15" target="_blank" rel="noopener" title="Open 06 Oscillations and linearization.pdf at page 15">15</a>]</span>
   </div>
   <div class="derivation-body">
     <p>With $G$ held at its equilibrium position and $C$ free, the only force with a moment about $G$ is the spring; the support at $G$ acts at the pole.</p>
@@ -2532,7 +2555,7 @@ y_A\cos\beta - x_A\sin\beta &amp;= \frac a4\cos\beta - a\sin\beta\cos\beta + a\c
   <div class="derivation-head">
     <span class="derivation-title">Check: the guide does no work and the energy is conserved</span>
     <span class="derivation-law"><strong>Law:</strong> power of a constraint force on a point whose velocity is normal to it; conservation of the mechanical energy</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.27; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; [Lecture 10, Slide 18]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.27</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2568,6 +2591,7 @@ E &amp;= \frac12\,m\,\dot x_G^2 + \frac12\,m a^2\left(\tfrac13 + \cos^2\beta\rig
         <div class="problem-title-area">
           <div class="problem-num">Problem RB 10</div>
           <h2 class="problem-title">Firedoor motion</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=44" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 44</a>
         </div>
         <span class="problem-badge">Group D: Dynamics</span>
       </div>
@@ -2690,7 +2714,7 @@ E &amp;= \frac12\,m\,\dot x_G^2 + \frac12\,m a^2\left(\tfrac13 + \cos^2\beta\rig
   <div class="derivation-head">
     <span class="derivation-title">The links form a parallelogram: the door does not rotate</span>
     <span class="derivation-law"><strong>Law:</strong> constraint of a rigid link (fixed distance between its two pins); vector sum around a closed loop</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 9.3; Notes.pdf, Eq. 9.3; Problems.pdf, p. 44</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=82" target="_blank" rel="noopener" title="Open Notes.pdf at page 82">9.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; Problems.pdf, p. 44</span>
   </div>
   <div class="derivation-body">
     <p>Call $\mathbf e_L$ the unit vector along the left link, from $O_A$ to $A$. Going around the loop $O_A \to A \to B \to O_B \to O_A$ the vectors add to zero.</p>
@@ -2710,7 +2734,7 @@ L\,\mathbf e_L + b\,\mathbf i_B - \overrightarrow{O_BB} - b\,\mathbf i &amp;= \m
   <div class="derivation-head">
     <span class="derivation-title">Link basis: the right triangle of the link</span>
     <span class="derivation-law"><strong>Law:</strong> projection of a unit vector on two perpendicular axes; rotation about the axis normal to the plane</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>The left link is the hypotenuse, of length $L$, of a right triangle whose horizontal leg (opposite to $\theta$) is $L\sin\theta$ and whose vertical leg (adjacent to $\theta$, measured from the downward vertical) is $L\cos\theta$. Define the unit vector $\mathbf e_n$ along the link from the door to the ceiling and the unit vector $\mathbf e_t$ normal to it, in the sense of increasing $\theta$. View with $\mathbf k$ out of the paper (⊙): $\mathbf e_t$ is $\mathbf i$ turned counterclockwise by $\theta$, and $\mathbf e_n$ is $\mathbf j$ turned by the same angle.</p>
@@ -2789,7 +2813,7 @@ L\,\mathbf e_L + b\,\mathbf i_B - \overrightarrow{O_BB} - b\,\mathbf i &amp;= \m
   <div class="derivation-head">
     <span class="derivation-title">Position, velocity and acceleration of G</span>
     <span class="derivation-law"><strong>Law:</strong> position vector as a sum of segments; time derivatives in $S_0$ with the chain and product rules</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 9.3; [Lecture 7, Slide 6]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=6" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 6">6</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2854,7 +2878,7 @@ L\,\mathbf e_L + b\,\mathbf i_B - \overrightarrow{O_BB} - b\,\mathbf i &amp;= \m
   <div class="derivation-head">
     <span class="derivation-title">Centre of mass of the door</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the centre of mass of a homogeneous plate; symmetric limits</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.6; Notes.pdf, Eq. 10.8; Notes.pdf, Sec. 10.3; [Lecture 8, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=84" target="_blank" rel="noopener" title="Open Notes.pdf at page 84">10.6</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=84" target="_blank" rel="noopener" title="Open Notes.pdf at page 84">10.8</a>; Notes.pdf, Sec. 10.3; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=9" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <p>Take provisional axes $x'$, $y'$ through the centre of the rectangle, parallel to $\mathbf i_B$ and $\mathbf j_B$; call $w$ the width of the door (not given: read from the figure it is slightly larger than $b$). The plate covers $x'$ from $-w/2$ to $w/2$ and $y'$ from $-h/2$ to $h/2$.</p>
@@ -2876,7 +2900,7 @@ dm &amp;= \frac{m}{w h}\,dx'\,dy' \quad &amp;\text{(homogeneous: mass over area)
   <div class="derivation-head">
     <span class="derivation-title">Momentum, angular momentum about G and kinetic energy</span>
     <span class="derivation-law"><strong>Law:</strong> linear momentum from $G$; angular momentum about $G$ from the inertia tensor; kinetic energy decomposed at $G$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=5" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 5">5</a>]; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=9" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2895,7 +2919,7 @@ T_0 &amp;= \frac12\,m\left(v_0^G\right)^2 + \frac12\,\boldsymbol\omega_{B0}\cdot
   <div class="derivation-head">
     <span class="derivation-title">Each massless link pulls along its own line</span>
     <span class="derivation-law"><strong>Law:</strong> force and moment equations of a body of zero mass, with the pin forces at its two ends</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <p>Isolate the left link: the ceiling pin applies $\mathbf F_1$ at $O_A$, the door applies $\mathbf F_2$ at $A$; smooth pins apply no torque, and the link has no weight.</p>
@@ -2947,7 +2971,7 @@ T_0 &amp;= \frac12\,m\left(v_0^G\right)^2 + \frac12\,\boldsymbol\omega_{B0}\cdot
   <div class="derivation-head">
     <span class="derivation-title">Force equation in the link basis</span>
     <span class="derivation-law"><strong>Law:</strong> Newton's second law for the centre of mass of a rigid body</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; [Lecture 10, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2964,10 +2988,10 @@ m L\,\dot\theta^2 &amp;= T_A + T_B - mg\cos\theta \quad &amp;\text{($\mathbf e_n
   <div class="derivation-head">
     <span class="derivation-title">Moment equation about G</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about the centre of mass; moments of the link forces by their determinants</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 12.16; [Lecture 10, Slide 5]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.16</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=5" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 5">5</a>]</span>
   </div>
   <div class="derivation-body">
-    <p>The pole is $G$: the extra term of Eq. 12.13 vanishes for the pole $G$, and the weight has no moment about it. The components of $\mathbf e_n$ in $\{\mathbf i, \mathbf j\}$ are $-\sin\theta$ and $\cos\theta$.</p>
+    <p>The pole is $G$: the extra term of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> vanishes for the pole $G$, and the weight has no moment about it. The components of $\mathbf e_n$ in $\{\mathbf i, \mathbf j\}$ are $-\sin\theta$ and $\cos\theta$.</p>
     <div class="derivation-steps">$$\begin{aligned}
 \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 &amp;= \mathbf 0 \quad &amp;\text{(angular momentum identically zero)} \\
 \mathbf r_G^A\times T_A\,\mathbf e_n &amp;= \begin{vmatrix} \mathbf i &amp; \mathbf j &amp; \mathbf k \cr -b/2 &amp; h/2 &amp; 0 \cr -T_A\sin\theta &amp; T_A\cos\theta &amp; 0 \end{vmatrix} = T_A\left(-\frac b2\cos\theta + \frac h2\sin\theta\right)\mathbf k \quad &amp;\text{(expand along the first row: only $\mathbf k$ survives)} \\
@@ -2984,7 +3008,7 @@ m L\,\dot\theta^2 &amp;= T_A + T_B - mg\cos\theta \quad &amp;\text{($\mathbf e_n
   <div class="derivation-head">
     <span class="derivation-title">Link forces</span>
     <span class="derivation-law"><strong>Law:</strong> solution of the two linear equations for the tensions</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 8]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=8" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 8">8</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3001,7 +3025,7 @@ T_B &amp;= \frac12\left[\left(T_A + T_B\right) - \left(T_A - T_B\right)\right] =
   <div class="derivation-head">
     <span class="derivation-title">First integral of the equation of motion</span>
     <span class="derivation-law"><strong>Law:</strong> multiplication by the rate of the angle and integration in time (chain rule and Barrow's rule)</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33; [Lecture 10, Slide 18]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.30</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3020,7 +3044,7 @@ T_B &amp;= \frac12\left[\left(T_A + T_B\right) - \left(T_A - T_B\right)\right] =
   <div class="derivation-head">
     <span class="derivation-title">Link forces as functions of the angle (release from rest)</span>
     <span class="derivation-law"><strong>Law:</strong> substitution of the first integral in the link forces</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.30</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.30</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3039,7 +3063,7 @@ T_A + T_B &amp;= m\left(g\cos\theta + 2g\cos\theta - 2g\cos\theta_0\right) = mg\
 <div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Quantity</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Official key</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">This solution</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Equation of motion</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$L\dot\theta^2/2 - g\cos\theta = C$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\tfrac12 L\dot\theta^2 - g\cos\theta = C$</td></tr></tbody></table></div>
 <p style="margin-bottom: 10px;"><strong>Limiting cases and consistency:</strong></p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Small swings.</strong> For a small angle the sine is replaced by the angle and the door oscillates with the angular frequency of a simple pendulum, the square root of $g/L$, whatever its height and width: in translation the door behaves as a point mass at $G$ (Notes.pdf, Eq. 5.6; [Lecture 6, Slide 15]).</li>
+<li><strong>Small swings.</strong> For a small angle the sine is replaced by the angle and the door oscillates with the angular frequency of a simple pendulum, the square root of $g/L$, whatever its height and width: in translation the door behaves as a point mass at $G$ (Notes.pdf, Eq. 5.6; [Lecture 6, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/06-oscillations-and-linearization.pdf#page=15" target="_blank" rel="noopener" title="Open 06 Oscillations and linearization.pdf at page 15">15</a>]).</li>
 <li><strong>Vertical links.</strong> At $\theta$ equal to zero the two tensions are equal, each one half of the weight plus the centripetal force: the symmetric case.</li>
 <li><strong>Moment balance.</strong> About $G$ the horizontal components of the two tensions (both to the left, total $(T_A + T_B)\sin\theta$) act with the arm $h/2$ above $G$ and tend to turn the door; the unequal vertical components with arms $\mp b/2$ cancel that moment. Checked symbolically: the three equations solved together give the same tensions.</li>
 <li><strong>Energy.</strong> The links do no work: each force is along $\mathbf e_n$ while its point moves along $\mathbf e_t$. Differentiating the boxed first integral returns the equation of motion.</li>
@@ -3061,6 +3085,7 @@ T_A + T_B &amp;= m\left(g\cos\theta + 2g\cos\theta - 2g\cos\theta_0\right) = mg\
         <div class="problem-title-area">
           <div class="problem-num">Problem RB 24</div>
           <h2 class="problem-title">Lagrange's top (Heavy axisymmetric pegtop)</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=54" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 54</a>
         </div>
         <span style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;"><span class="problem-badge">Group D: Dynamics</span><span class="problem-badge">In-Class Session 21</span></span>
       </div>
@@ -3168,7 +3193,7 @@ $$ \overline{\overline{I}}_G = m\ell^2 \begin{bmatrix} A &amp; 0 &amp; 0 \\ 0 &a
   <div class="derivation-head">
     <span class="derivation-title">Precession: rotation psi about k</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the third axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 1.20; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=80" target="_blank" rel="noopener" title="Open Notes.pdf at page 80">9.16</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up; positive $\psi$ is counterclockwise.</p>
@@ -3236,7 +3261,7 @@ $$ \overline{\overline{I}}_G = m\ell^2 \begin{bmatrix} A &amp; 0 &amp; 0 \\ 0 &a
   <div class="derivation-head">
     <span class="derivation-title">Nutation: rotation theta about i1</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the first axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.17; Notes.pdf, Eq. 1.18; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=81" target="_blank" rel="noopener" title="Open Notes.pdf at page 81">9.17</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.18</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View with $\mathbf i_1$ out of the paper (⊙), $\mathbf j_1$ to the right and $\mathbf k_1$ up (because $\mathbf j_1\times\mathbf k_1$ is $\mathbf i_1$); positive $\theta$ is counterclockwise, turning $\mathbf k_1$ towards $-\mathbf j_1$, as the figure of the statement draws the axis $z_2$ leaning away from $y$.</p>
@@ -3297,7 +3322,7 @@ $$ \overline{\overline{I}}_G = m\ell^2 \begin{bmatrix} A &amp; 0 &amp; 0 \\ 0 &a
   <div class="derivation-head">
     <span class="derivation-title">Spin: rotation phi about k2</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the third axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.18; Notes.pdf, Eq. 1.20; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=81" target="_blank" rel="noopener" title="Open Notes.pdf at page 81">9.18</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View with $\mathbf k_2$ out of the paper (⊙), $\mathbf i_2$ to the right and $\mathbf j_2$ up; positive $\varphi$ is counterclockwise.</p>
@@ -3317,7 +3342,7 @@ $$ \overline{\overline{I}}_G = m\ell^2 \begin{bmatrix} A &amp; 0 &amp; 0 \\ 0 &a
   <div class="derivation-head">
     <span class="derivation-title">Angular velocities by additivity, in the axle basis</span>
     <span class="derivation-law"><strong>Law:</strong> derivative of the unit vectors of a simple rotation (Poisson); additivity of angular velocities</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 9.21; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.14</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=81" target="_blank" rel="noopener" title="Open Notes.pdf at page 81">9.21</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3335,7 +3360,7 @@ $$ \overline{\overline{I}}_G = m\ell^2 \begin{bmatrix} A &amp; 0 &amp; 0 \\ 0 &a
   <div class="derivation-head">
     <span class="derivation-title">Position and velocity of G</span>
     <span class="derivation-law"><strong>Law:</strong> position along the symmetry axis; Poisson formula for the axis unit vector</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 9.3; [Lecture 7, Slide 6]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=6" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 6">6</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3393,7 +3418,7 @@ z_G &amp;= \mathbf r_0^G\cdot\mathbf k = \ell\,\mathbf k_2\cdot\left(\sin\theta\
   <div class="derivation-head">
     <span class="derivation-title">Part (a): inertia tensor about O in the axes parallel to the body axes</span>
     <span class="derivation-law"><strong>Law:</strong> Steiner's theorem, term by term</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.48; Notes.pdf, Eq. 10.38; [Lecture 8, Slide 15]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=89" target="_blank" rel="noopener" title="Open Notes.pdf at page 89">10.48</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=88" target="_blank" rel="noopener" title="Open Notes.pdf at page 88">10.38</a>; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=15" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 15">15</a>]</span>
   </div>
   <div class="derivation-body">
     <p>The vector from $O$ to $G$ has components $(0, 0, \ell)$ in $\mathcal B_B$.</p>
@@ -3413,7 +3438,7 @@ P_{O} &amp;= 0 + m\cdot 0\cdot 0 = 0 \quad &amp;\text{(every product: at least o
   <div class="derivation-head">
     <span class="derivation-title">The same tensor in the axle basis (axisymmetry)</span>
     <span class="derivation-law"><strong>Law:</strong> change of basis of the inertia tensor by the rotation about the symmetry axis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.41; Notes.pdf, Eq. 1.16; [Lecture 8, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.41; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.16</a>; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=13" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <p>Write $a$ for $(A + 1)m\ell^2$ and $c$ for $Bm\ell^2$, and $c_\varphi$, $s_\varphi$ for the cosine and sine of $\varphi$.</p>
@@ -3433,10 +3458,10 @@ P_{O} &amp;= 0 + m\cdot 0\cdot 0 = 0 \quad &amp;\text{(every product: at least o
   <div class="derivation-head">
     <span class="derivation-title">Parts (b) and (c): angular momentum about O and kinetic energy</span>
     <span class="derivation-law"><strong>Law:</strong> angular momentum and kinetic energy about a fixed body point; linear momentum from $G$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.13; Notes.pdf, Eq. 11.32; Notes.pdf, Eq. 11.3; [Lecture 9, Slide 5]; [Lecture 9, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.32</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=5" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 5">5</a>]; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=9" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
-    <p>$O$ is a body point (the vertex) with zero velocity, so Eqs. 11.13 and 11.32 apply with the tensor about $O$.</p>
+    <p>$O$ is a body point (the vertex) with zero velocity, so Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.13</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.32</a> apply with the tensor about $O$.</p>
     <div class="derivation-steps">$$\begin{aligned}
 [\mathbf H_{O,0}]_2 &amp;= m\ell^2\begin{bmatrix} A + 1 &amp; 0 &amp; 0 \cr 0 &amp; A + 1 &amp; 0 \cr 0 &amp; 0 &amp; B \end{bmatrix}\begin{bmatrix} \dot\theta \cr \dot\psi\sin\theta \cr \dot\psi\cos\theta + \dot\varphi \end{bmatrix} \quad &amp;\text{(Eq. 11.13 in $\mathcal B_2$)} \\
 &amp;= m\ell^2\begin{bmatrix} (A + 1)\,\dot\theta \cr (A + 1)\,\dot\psi\sin\theta \cr B\left(\dot\psi\cos\theta + \dot\varphi\right) \end{bmatrix} \quad &amp;\text{(row by column)} \\
@@ -3496,7 +3521,7 @@ T_0 &amp;= \frac12\,\boldsymbol\omega_{B0}\cdot\mathbf H_{O,0} = \frac12\,m\ell^
   <div class="derivation-head">
     <span class="derivation-title">Moment of the forces about O</span>
     <span class="derivation-law"><strong>Law:</strong> moment of a system of forces about a point; vector product by its determinant</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.14; [Lecture 10, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=12" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>The reaction acts at $O$ itself and has no moment about it.</p>
@@ -3513,10 +3538,10 @@ T_0 &amp;= \frac12\,\boldsymbol\omega_{B0}\cdot\mathbf H_{O,0} = \frac12\,m\ell^
   <div class="derivation-head">
     <span class="derivation-title">Moment equation about O in the axle basis</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about a fixed point; derivative of a vector in a moving frame</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 12.20; [Lecture 10, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.20</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=13" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
-    <p>The pole $O$ is a fixed point, so the extra term of Eq. 12.13 (the velocity of the pole times the momentum) vanishes. The derivative is taken through $S_2$, where the components of the tensor are constant (previous section). Write $a$ for $(A + 1)m\ell^2$, $c$ for $Bm\ell^2$ and $r$ for the total spin.</p>
+    <p>The pole $O$ is a fixed point, so the extra term of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> (the velocity of the pole times the momentum) vanishes. The derivative is taken through $S_2$, where the components of the tensor are constant (previous section). Write $a$ for $(A + 1)m\ell^2$, $c$ for $Bm\ell^2$ and $r$ for the total spin.</p>
     <div class="derivation-steps">$$\begin{aligned}
 \left.\frac{d\mathbf H_{O,0}}{dt}\right|_0 &amp;= \left.\frac{d\mathbf H_{O,0}}{dt}\right|_2 + \boldsymbol\omega_{20}\times\mathbf H_{O,0} \quad &amp;\text{(Eq. 3.8 with the frame $S_2$)} \\
 \left.\frac{d\mathbf H_{O,0}}{dt}\right|_2 &amp;= a\,\ddot\theta\,\mathbf i_2 + a\left(\ddot\psi\sin\theta + \dot\psi\,\dot\theta\cos\theta\right)\mathbf j_2 + c\,\dot r\,\mathbf k_2 \quad &amp;\text{(product and chain rules on each component)} \\
@@ -3536,7 +3561,7 @@ c\,\dot r &amp;= 0 \quad &amp;\text{($\mathbf k_2$ component)}
   <div class="derivation-head">
     <span class="derivation-title">Part (d): conservation of the mechanical energy</span>
     <span class="derivation-law"><strong>Law:</strong> power of the forces on a rigid body reduced at a body point; work and energy theorem; potential of the weight</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.29; Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; [Lecture 10, Slide 18]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.29</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.30</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3555,7 +3580,7 @@ V_0 &amp;= m g\,z_G = m g\ell\cos\theta \quad &amp;\text{(Eq. 12.34; height of $
   <div class="derivation-head">
     <span class="derivation-title">Part (e): conserved components of the angular momentum about O</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about the fixed point, projected on a fixed direction and on the axis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; [Lecture 10, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=13" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3574,7 +3599,7 @@ V_0 &amp;= m g\,z_G = m g\ell\cos\theta \quad &amp;\text{(Eq. 12.34; height of $
   <div class="derivation-head">
     <span class="derivation-title">Part (f): precession, spin and nutation rates</span>
     <span class="derivation-law"><strong>Law:</strong> the three first integrals solved for the three rates</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 18]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3594,7 +3619,7 @@ V_0 &amp;= m g\,z_G = m g\ell\cos\theta \quad &amp;\text{(Eq. 12.34; height of $
   <div class="derivation-head">
     <span class="derivation-title">Part (g): procedure for the reaction and its expression</span>
     <span class="derivation-law"><strong>Law:</strong> Newton's second law for the centre of mass; acceleration of $G$ by the derivative theorem in $S_2$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 3.8; [Lecture 10, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <p>Once $\psi(t)$, $\theta(t)$ and $\varphi(t)$ are known, the moment equation has been used up; the reaction comes from the force equation, with the acceleration of $G$ computed from the angles.</p>
@@ -3617,7 +3642,7 @@ V_0 &amp;= m g\,z_G = m g\ell\cos\theta \quad &amp;\text{(Eq. 12.34; height of $
   <div class="derivation-head">
     <span class="derivation-title">Check: initial instant and steady precession</span>
     <span class="derivation-law"><strong>Law:</strong> the nutation equation evaluated at the initial conditions and with constant nutation</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.23; [Lecture 10, Slide 14]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.23</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=14" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 14">14</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3655,6 +3680,7 @@ B\,r\,\dot\psi - (A + 1)\,\dot\psi^2\cos\theta &amp;= \frac g\ell \quad &amp;\te
         <div class="problem-title-area">
           <div class="problem-num">Problem RB 25</div>
           <h2 class="problem-title">Cylinder hanging from the ceiling by two strings</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=55" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 55</a>
         </div>
         <span class="problem-badge">Group D: Dynamics</span>
       </div>
@@ -3720,7 +3746,7 @@ $$ \overline{\overline{I}}_G = ml^2 \begin{bmatrix} \lambda &amp; 0 &amp; 0 \\ 0
   <div class="derivation-head">
     <span class="derivation-title">Part (a): degrees of freedom, unknowns and equations</span>
     <span class="derivation-law"><strong>Law:</strong> counting of coordinates and holonomic constraints; Newton-Euler equations of a rigid body</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 9.3; Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 7, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=82" target="_blank" rel="noopener" title="Open Notes.pdf at page 82">9.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=13" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3777,7 +3803,7 @@ n_{\text{equations}} &amp;= 3 + 3 + 2 = 8 \quad &amp;\text{(force equation, mome
   <div class="derivation-head">
     <span class="derivation-title">Yaw: rotation beta about k</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the third axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.20; Notes.pdf, Sec. 9.2.1; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=81" target="_blank" rel="noopener" title="Open Notes.pdf at page 81">9.2.1</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View from above with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right and $\mathbf j$ up; positive $\beta$ is counterclockwise, from $Gx_0$ to $Gx_1$ as in the figure.</p>
@@ -3848,7 +3874,7 @@ n_{\text{equations}} &amp;= 3 + 3 + 2 = 8 \quad &amp;\text{(force equation, mome
   <div class="derivation-head">
     <span class="derivation-title">Pitch: rotation theta about j1</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the second axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.19; Notes.pdf, Sec. 9.2.1; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.19</a>; Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=81" target="_blank" rel="noopener" title="Open Notes.pdf at page 81">9.2.1</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View with $\mathbf j_1$ out of the paper (⊙), $\mathbf k_1$ to the right and $\mathbf i_1$ up (because $\mathbf k_1\times\mathbf i_1$ is $\mathbf j_1$); positive $\theta$ is counterclockwise, turning $\mathbf i_1$ towards $-\mathbf k_1$: the axis of the cylinder dips below the horizontal, as the figure draws $x_B$ below $x_1$.</p>
@@ -3908,7 +3934,7 @@ n_{\text{equations}} &amp;= 3 + 3 + 2 = 8 \quad &amp;\text{(force equation, mome
   <div class="derivation-head">
     <span class="derivation-title">Roll: rotation phi about i2</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the first axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.18; Notes.pdf, Sec. 9.2.1; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.18</a>; Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=81" target="_blank" rel="noopener" title="Open Notes.pdf at page 81">9.2.1</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View with $\mathbf i_2$ out of the paper (⊙), $\mathbf j_2$ to the right and $\mathbf k_2$ up; positive $\phi$ is counterclockwise.</p>
@@ -3926,7 +3952,7 @@ n_{\text{equations}} &amp;= 3 + 3 + 2 = 8 \quad &amp;\text{(force equation, mome
   <div class="derivation-head">
     <span class="derivation-title">Inverse components of the fixed vectors in the axle basis</span>
     <span class="derivation-law"><strong>Law:</strong> inverse change of basis: the rows of the matrix give the fixed vectors in the rotated basis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.16</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.14</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.16</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3944,7 +3970,7 @@ n_{\text{equations}} &amp;= 3 + 3 + 2 = 8 \quad &amp;\text{(force equation, mome
   <div class="derivation-head">
     <span class="derivation-title">Part (b): position vectors of C and D</span>
     <span class="derivation-law"><strong>Law:</strong> position vector as a sum of segments along the axis of the cylinder</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.1; Notes.pdf, Sec. 7.4; Problems.pdf, p. 55</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.1</a>; Notes.pdf, Sec. 7.4; Problems.pdf, p. 55</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3962,7 +3988,7 @@ n_{\text{equations}} &amp;= 3 + 3 + 2 = 8 \quad &amp;\text{(force equation, mome
   <div class="derivation-head">
     <span class="derivation-title">Part (c): angular velocity and angular acceleration</span>
     <span class="derivation-law"><strong>Law:</strong> additivity of angular velocities; derivative of a vector through the moving frame $S_2$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 9.21; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.14</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=81" target="_blank" rel="noopener" title="Open Notes.pdf at page 81">9.21</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3982,7 +4008,7 @@ n_{\text{equations}} &amp;= 3 + 3 + 2 = 8 \quad &amp;\text{(force equation, mome
   <div class="derivation-head">
     <span class="derivation-title">Part (d): constraint equations of the strings</span>
     <span class="derivation-law"><strong>Law:</strong> inextensible taut string: fixed distance between its two ends</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 7.4; Notes.pdf, Eq. 9.1; Problems.pdf, p. 55</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 7.4; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.1</a>; Problems.pdf, p. 55</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4047,7 +4073,7 @@ n_{\text{equations}} &amp;= 3 + 3 + 2 = 8 \quad &amp;\text{(force equation, mome
   <div class="derivation-head">
     <span class="derivation-title">Moments of inertia of the cylinder about G (value of the constants)</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the moments of inertia; cylindrical coordinates with their Jacobian</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.11; Notes.pdf, Eq. 10.13; Notes.pdf, Sec. 10.4; [Lecture 8, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=85" target="_blank" rel="noopener" title="Open Notes.pdf at page 85">10.11</a>; Notes.pdf, Eq. 10.13; Notes.pdf, Sec. 10.4; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=10" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <p>The statement keeps $\lambda$ and $\mu$ as known constants; the integrals give their values for the homogeneous cylinder. Cylindrical coordinates about $Gx_B$: $x_B$ from $-l$ to $l$, the radius $s$ from $0$ to $R$ (with $R$ equal to $l/3$), the angle $\alpha$ from $0$ to $2\pi$, with $y_B$ equal to $s\cos\alpha$ and $z_B$ equal to $s\sin\alpha$. By symmetry $G$ is the centre and the axes are principal (the products vanish: odd integrands over symmetric limits).</p>
@@ -4068,7 +4094,7 @@ I_{z_B} &amp;= I_{y_B} \quad &amp;\text{(axisymmetry: same steps with $\cos^2\al
   <div class="derivation-head">
     <span class="derivation-title">The same tensor in the axle basis (axisymmetry)</span>
     <span class="derivation-law"><strong>Law:</strong> change of basis of the inertia tensor by a rotation about the symmetry axis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.41; Notes.pdf, Eq. 1.16; [Lecture 8, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.41; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.16</a>; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=13" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4086,7 +4112,7 @@ I_{z_B} &amp;= I_{y_B} \quad &amp;\text{(axisymmetry: same steps with $\cos^2\al
   <div class="derivation-head">
     <span class="derivation-title">Momentum, angular momentum about G and kinetic energy</span>
     <span class="derivation-law"><strong>Law:</strong> linear momentum from $G$; angular momentum about $G$; kinetic energy decomposed at $G$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=5" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 5">5</a>]; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=9" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4200,7 +4226,7 @@ T_0 &amp;= \frac12\,m\left(\dot x_G^2 + \dot y_G^2 + \dot z_G^2\right) + \frac12
   <div class="derivation-head">
     <span class="derivation-title">Part (e): resultant force of the strings and the weight</span>
     <span class="derivation-law"><strong>Law:</strong> a taut massless string pulls its end towards the fixed point, along the string; sum of forces</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 7.4; Notes.pdf, Eq. 12.8; [Lecture 10, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 7.4; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <p>Each string is straight and has length $l$, so the unit vector from its end on the cylinder to its fixed point is the difference of positions divided by $l$.</p>
@@ -4218,7 +4244,7 @@ T_0 &amp;= \frac12\,m\left(\dot x_G^2 + \dot y_G^2 + \dot z_G^2\right) + \frac12
   <div class="derivation-head">
     <span class="derivation-title">Part (e): moment of the forces about G</span>
     <span class="derivation-law"><strong>Law:</strong> moment of a system of forces about a point; vector products by their determinants in $\mathcal B_2$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 12.16; [Lecture 10, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.16</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=12" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>The weight acts at $G$. The arms are the vectors from $G$ to $C$ and to $D$, along the axis $\mathbf i_2$; the components $\rho_2$, $\rho_3$ of the position of $G$ and those of $\mathbf j$ come from the inverse box.</p>
@@ -4237,10 +4263,10 @@ T_0 &amp;= \frac12\,m\left(\dot x_G^2 + \dot y_G^2 + \dot z_G^2\right) + \frac12
   <div class="derivation-head">
     <span class="derivation-title">Part (f): moment equation about G in the axle basis</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about the centre of mass; derivative through the frame $S_2$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 12.20; [Lecture 10, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.20</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=13" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
-    <p>The pole is $G$, so the extra term of Eq. 12.13 vanishes; the derivative is taken through $S_2$, where the tensor is constant. Write $\omega_1$ for the axial component of the angular velocity.</p>
+    <p>The pole is $G$, so the extra term of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> vanishes; the derivative is taken through $S_2$, where the tensor is constant. Write $\omega_1$ for the axial component of the angular velocity.</p>
     <div class="derivation-steps">$$\begin{aligned}
 \left.\frac{d\mathbf H_{G,0}}{dt}\right|_0 &amp;= \left.\frac{d\mathbf H_{G,0}}{dt}\right|_2 + \boldsymbol\omega_{20}\times\mathbf H_{G,0} \quad &amp;\text{(Eq. 3.8)} \\
 \frac{1}{ml^2}\left.\frac{d\mathbf H_{G,0}}{dt}\right|_2 &amp;= \lambda\,\dot\omega_1\,\mathbf i_2 + \mu\,\ddot\theta\,\mathbf j_2 + \mu\left(\ddot\beta\cos\theta - \dot\beta\,\dot\theta\sin\theta\right)\mathbf k_2 \quad &amp;\text{(product and chain rules)} \\
@@ -4258,7 +4284,7 @@ T_0 &amp;= \frac12\,m\left(\dot x_G^2 + \dot y_G^2 + \dot z_G^2\right) + \frac12
   <div class="derivation-head">
     <span class="derivation-title">Part (f): force equation and the complete system</span>
     <span class="derivation-law"><strong>Law:</strong> Newton's second law for the centre of mass; constraint equations</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Sec. 7.4; [Lecture 10, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Sec. 7.4; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4276,7 +4302,7 @@ m\,\ddot z_G &amp;= -mg + \left(T_D - T_C\right)\sin\theta - \left(T_C + T_D\rig
   <div class="derivation-head">
     <span class="derivation-title">Part (g): the strings do no work and the energy is conserved</span>
     <span class="derivation-law"><strong>Law:</strong> power of the forces on a rigid body; time derivative of a constraint; potential of the weight</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.27; Notes.pdf, Eq. 12.30; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; [Lecture 10, Slide 18]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.27</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.30</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4289,7 +4315,7 @@ T_0 + V_0 &amp;= \text{const.} \quad &amp;\text{(Eq. 12.33: only the weight does
     <div class="derivation-result">$$\boxed{\frac m2\left(\dot x_G^2 + \dot y_G^2 + \dot z_G^2\right) + \frac{ml^2}{2}\left[\lambda\left(\dot\phi - \dot\beta\sin\theta\right)^2 + \mu\,\dot\theta^2 + \mu\,\dot\beta^2\cos^2\theta\right] + mg\,z_G = \text{const.}}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> J in every term</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> yes, the energy is conserved: each string pulls along itself while its end moves on a sphere centred at the fixed point, normal to the string. It is not an independent equation: dotting the force equation with the velocity of $G$ and the moment equation with the angular velocity, adding (Eq. 12.36) and using the time derivatives of the two constraints gives exactly the derivative of this energy. It is a first integral of the system of part (f) and may replace one of its equations, not add to them.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> yes, the energy is conserved: each string pulls along itself while its end moves on a sphere centred at the fixed point, normal to the string. It is not an independent equation: dotting the force equation with the velocity of $G$ and the moment equation with the angular velocity, adding (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.36</a>) and using the time derivatives of the two constraints gives exactly the derivative of this energy. It is a first integral of the system of part (f) and may replace one of its equations, not add to them.</p>
 </div>
 </div><div class="phase-block">
 <h3 class="phase-heading">Answers and Checks</h3>
@@ -4318,6 +4344,7 @@ T_0 + V_0 &amp;= \text{const.} \quad &amp;\text{(Eq. 12.33: only the weight does
         <div class="problem-title-area">
           <div class="problem-num">Problem RB 38</div>
           <h2 class="problem-title">Disk on hanging axle</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=67" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 67</a>
         </div>
         <span class="problem-badge">Group D: Dynamics</span>
       </div>
@@ -4385,7 +4412,7 @@ $$ \overline{\overline{I}}_G = \begin{bmatrix} A &amp; 0 &amp; 0 \\ 0 &amp; B &a
   <div class="derivation-head">
     <span class="derivation-title">Part (a): degrees of freedom</span>
     <span class="derivation-law"><strong>Law:</strong> counting of coordinates and holonomic constraints of a rigid body</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 9.3; [Lecture 7, Slide 13]; Problems.pdf, p. 67</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=82" target="_blank" rel="noopener" title="Open Notes.pdf at page 82">9.3</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=13" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 13">13</a>]; Problems.pdf, p. 67</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4546,7 +4573,7 @@ OG &amp;= OM + MG = 2\ell\sin\tfrac{\theta}{2} \quad &amp;\text{(G below O on th
   <div class="derivation-head">
     <span class="derivation-title">Part (b): S1 from S0, rotation psi about k0</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the third axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 1.20; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=80" target="_blank" rel="noopener" title="Open Notes.pdf at page 80">9.16</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View from above with $\mathbf k_0$ out of the paper (⊙), $\mathbf i_0$ to the right and $\mathbf j_0$ up; positive $\psi$ is counterclockwise, from the plane $Oy_0z_0$ to the plane $OAG$.</p>
@@ -4606,7 +4633,7 @@ OG &amp;= OM + MG = 2\ell\sin\tfrac{\theta}{2} \quad &amp;\text{(G below O on th
   <div class="derivation-head">
     <span class="derivation-title">Part (b): S2 from S1, rotation by minus theta/2 about i1</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the first axis; the axis $\mathbf j_2$ along $AG$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.18; Notes.pdf, Eq. 1.15; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.18</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View with $\mathbf i_1$ out of the paper (⊙), $\mathbf j_1$ to the right and $\mathbf k_1$ up (because $\mathbf j_1\times\mathbf k_1$ is $\mathbf i_1$). The axis $AG$ descends to the right at $\theta/2$ below $\mathbf j_1$ (triangle box), so $S_2$ is $S_1$ turned clockwise by $\theta/2$: a rotation by $-\theta/2$ about $\mathbf i_1$.</p>
@@ -4666,7 +4693,7 @@ OG &amp;= OM + MG = 2\ell\sin\tfrac{\theta}{2} \quad &amp;\text{(G below O on th
   <div class="derivation-head">
     <span class="derivation-title">Part (b): Sb from S2, rotation phi about j2</span>
     <span class="derivation-law"><strong>Law:</strong> simple rotation about the second axis, positive by the right-hand rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.19; Notes.pdf, Sec. 9.2.1; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.19</a>; Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=81" target="_blank" rel="noopener" title="Open Notes.pdf at page 81">9.2.1</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <p>View with $\mathbf j_2$ out of the paper (⊙), $\mathbf k_2$ to the right and $\mathbf i_2$ up (because $\mathbf k_2\times\mathbf i_2$ is $\mathbf j_2$); positive $\varphi$ is counterclockwise.</p>
@@ -4686,7 +4713,7 @@ OG &amp;= OM + MG = 2\ell\sin\tfrac{\theta}{2} \quad &amp;\text{(G below O on th
   <div class="derivation-head">
     <span class="derivation-title">Part (c): position, velocity and acceleration of G; the string constraint</span>
     <span class="derivation-law"><strong>Law:</strong> time derivatives in $S_0$ with the chain and product rules; distance constraint of the string</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 9.3; [Lecture 7, Slide 6]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=77" target="_blank" rel="noopener" title="Open Notes.pdf at page 77">9.3</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=6" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 6">6</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4705,7 +4732,7 @@ OG &amp;= OM + MG = 2\ell\sin\tfrac{\theta}{2} \quad &amp;\text{(G below O on th
   <div class="derivation-head">
     <span class="derivation-title">Part (c): angular velocity and angular acceleration</span>
     <span class="derivation-law"><strong>Law:</strong> additivity of angular velocities; derivative through the moving frame $S_2$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 3.14; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 9.21; [Lecture 7, Slide 12]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.14</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=81" target="_blank" rel="noopener" title="Open Notes.pdf at page 81">9.21</a>; [Lecture 7, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/07-rigid-body-kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 07 Rigid body kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4727,7 +4754,7 @@ OG &amp;= OM + MG = 2\ell\sin\tfrac{\theta}{2} \quad &amp;\text{(G below O on th
   <div class="derivation-head">
     <span class="derivation-title">The inertia tensor in the axle basis (axisymmetry)</span>
     <span class="derivation-law"><strong>Law:</strong> change of basis of the inertia tensor by the rotation about the symmetry axis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.41; Notes.pdf, Eq. 1.16; [Lecture 8, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 10.41; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.16</a>; [Lecture 8, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-06-kinematics-rigid-bodies-inertia/slides/08-inertia-properties.pdf#page=13" target="_blank" rel="noopener" title="Open 08 Inertia properties.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <p>The tensor is given by the statement; $G$ is on the symmetry axis. With $c_\varphi$, $s_\varphi$ the cosine and sine of $\varphi$:</p>
@@ -4746,7 +4773,7 @@ OG &amp;= OM + MG = 2\ell\sin\tfrac{\theta}{2} \quad &amp;\text{(G below O on th
   <div class="derivation-head">
     <span class="derivation-title">Momentum, angular momentum about G and kinetic energy</span>
     <span class="derivation-law"><strong>Law:</strong> linear momentum from $G$; angular momentum about $G$; kinetic energy decomposed at $G$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 11.3; Notes.pdf, Eq. 11.12; Notes.pdf, Eq. 11.31; [Lecture 9, Slide 5]; [Lecture 9, Slide 9]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=91" target="_blank" rel="noopener" title="Open Notes.pdf at page 91">11.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=92" target="_blank" rel="noopener" title="Open Notes.pdf at page 92">11.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=94" target="_blank" rel="noopener" title="Open Notes.pdf at page 94">11.31</a>; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=5" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 5">5</a>]; [Lecture 9, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/09-momentum-and-energy.pdf#page=9" target="_blank" rel="noopener" title="Open 09 Momentum and energy.pdf at page 9">9</a>]</span>
   </div>
   <div class="derivation-body">
     <p>Write $\omega_s$ for the total spin, the component of the angular velocity along $\mathbf j_2$.</p>
@@ -4835,7 +4862,7 @@ T_0 &amp;= \frac12\,m\ell^2c^2\dot\theta^2 + \frac12\left[A\left(\frac{\dot\thet
   <div class="derivation-head">
     <span class="derivation-title">Part (d): direction of the string and reduction of the forces at G</span>
     <span class="derivation-law"><strong>Law:</strong> a taut string pulls its end towards the fixed point; resultant and moment about $G$ by its determinant</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.14; Notes.pdf, Eq. 12.15; [Lecture 10, Slide 10]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=98" target="_blank" rel="noopener" title="Open Notes.pdf at page 98">12.14</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=99" target="_blank" rel="noopener" title="Open Notes.pdf at page 99">12.15</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=10" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 10">10</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4854,7 +4881,7 @@ T_0 &amp;= \frac12\,m\ell^2c^2\dot\theta^2 + \frac12\left[A\left(\frac{\dot\thet
   <div class="derivation-head">
     <span class="derivation-title">Part (e): force equation</span>
     <span class="derivation-law"><strong>Law:</strong> Newton's second law for the centre of mass</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; [Lecture 10, Slide 4]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 4">4</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4871,10 +4898,10 @@ m\ell\left(\tfrac12\sin\tfrac{\theta}{2}\,\dot\theta^2 - \cos\tfrac{\theta}{2}\,
   <div class="derivation-head">
     <span class="derivation-title">Part (e): moment equation about G in the axle basis</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about the centre of mass; derivative through the frame $S_2$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 12.20; [Lecture 10, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.20</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=13" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
-    <p>The pole is $G$ (the extra term of Eq. 12.13 vanishes for it); $G$ moves, so a fixed point would not do, and $G$ is where the weight and the guide act. The derivative goes through $S_2$, where the tensor is constant.</p>
+    <p>The pole is $G$ (the extra term of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> vanishes for it); $G$ moves, so a fixed point would not do, and $G$ is where the weight and the guide act. The derivative goes through $S_2$, where the tensor is constant.</p>
     <div class="derivation-steps">$$\begin{aligned}
 \left.\frac{d\mathbf H_{G,0}}{dt}\right|_2 &amp;= -\frac A2\,\ddot\theta\,\mathbf i_2 + B\,\dot\omega_s\,\mathbf j_2 + A\left(\ddot\psi\,c - \frac12\dot\psi\,\dot\theta\,s\right)\mathbf k_2 \quad &amp;\text{(product and chain rules)} \\
 \boldsymbol\omega_{20}\times\mathbf H_{G,0} &amp;= \begin{vmatrix} \mathbf i_2 &amp; \mathbf j_2 &amp; \mathbf k_2 \cr -\dot\theta/2 &amp; -\dot\psi\,s &amp; \dot\psi\,c \cr -A\,\dot\theta/2 &amp; B\,\omega_s &amp; A\,\dot\psi\,c \end{vmatrix} \quad &amp;\text{(vector product)} \\
@@ -4892,7 +4919,7 @@ A\left(\ddot\psi\,c - \dot\psi\,\dot\theta\,s\right) - \frac B2\,\omega_s\dot\th
   <div class="derivation-head">
     <span class="derivation-title">Part (e): the complete system, with the tension eliminated</span>
     <span class="derivation-law"><strong>Law:</strong> substitution of the force equation into the moment equation</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.8; Notes.pdf, Eq. 12.13; [Lecture 10, Slide 8]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=96" target="_blank" rel="noopener" title="Open Notes.pdf at page 96">12.8</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=8" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 8">8</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4910,7 +4937,7 @@ A\left(\ddot\psi\,c - \dot\psi\,\dot\theta\,s\right) - \frac B2\,\omega_s\dot\th
   <div class="derivation-head">
     <span class="derivation-title">Part (f): condition for theta constant</span>
     <span class="derivation-law"><strong>Law:</strong> the equations of motion with zero rate and acceleration of $\theta$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 12.23; [Lecture 10, Slide 14]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=100" target="_blank" rel="noopener" title="Open Notes.pdf at page 100">12.23</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=14" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 14">14</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4929,7 +4956,7 @@ A\left(\ddot\psi\,c - \dot\psi\,\dot\theta\,s\right) - \frac B2\,\omega_s\dot\th
   <div class="derivation-head">
     <span class="derivation-title">Part (g): spin and vertical angular momentum about G</span>
     <span class="derivation-law"><strong>Law:</strong> moment equation about $G$ projected on the axis and on the fixed vertical</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.13; Notes.pdf, Eq. 3.8; [Lecture 10, Slide 13]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=13" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4941,13 +4968,13 @@ A\left(\ddot\psi\,c - \dot\psi\,\dot\theta\,s\right) - \frac B2\,\omega_s\dot\th
     <div class="derivation-result">$$\boxed{\dot\varphi - \dot\psi\sin\tfrac{\theta}{2} = C_1, \qquad 6\,\dot\psi\cos^2\tfrac{\theta}{2} - 2\,C_1\sin\tfrac{\theta}{2} = C_2}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{T^{-1}}]$ (the second divided by $m\ell^2$)</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the axial spin is constant because no force has a moment about the axis through $G$; the vertical component of the angular momentum about $G$ is constant because the only torque about $G$ is horizontal. The pole $G$ is allowed because Eq. 12.13 holds about $G$ without extra term even though $G$ moves.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the axial spin is constant because no force has a moment about the axis through $G$; the vertical component of the angular momentum about $G$ is constant because the only torque about $G$ is horizontal. The pole $G$ is allowed because Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=97" target="_blank" rel="noopener" title="Open Notes.pdf at page 97">12.13</a> holds about $G$ without extra term even though $G$ moves.</p>
 </div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Part (g): conservation of the mechanical energy</span>
     <span class="derivation-law"><strong>Law:</strong> power of the constraint forces; work and energy theorem; potential of the weight</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 12.27; Notes.pdf, Eq. 12.33; Notes.pdf, Eq. 12.34; [Lecture 10, Slide 18]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=101" target="_blank" rel="noopener" title="Open Notes.pdf at page 101">12.27</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.33</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=102" target="_blank" rel="noopener" title="Open Notes.pdf at page 102">12.34</a>; [Lecture 10, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 10 Rigid body dynamics.pdf at page 18">18</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -4969,7 +4996,7 @@ T_0 + V_0 &amp;= E \quad &amp;\text{(Eq. 12.33: only the weight does work)}
   <div class="derivation-head">
     <span class="derivation-title">Check: small swing about the vertical hanging position</span>
     <span class="derivation-law"><strong>Law:</strong> energy integral expanded to second order about the equilibrium; harmonic oscillator</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 14.4; Notes.pdf, Eq. 5.6; [Lecture 6, Slide 15]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=113" target="_blank" rel="noopener" title="Open Notes.pdf at page 113">14.4</a>; Notes.pdf, Eq. 5.6; [Lecture 6, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-dynamics-point-particle/slides/06-oscillations-and-linearization.pdf#page=15" target="_blank" rel="noopener" title="Open 06 Oscillations and linearization.pdf at page 15">15</a>]</span>
   </div>
   <div class="derivation-body">
     <p>Plane motion without precession or spin ($\dot\psi$ and $C_1$ zero). The lowest position of $G$ is $\theta$ equal to $\pi$ (string and axis on the vertical); write $\theta$ as $\pi - 2\varepsilon$ with $\varepsilon$ small.</p>
