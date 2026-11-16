@@ -18,7 +18,9 @@ Working log of the build of the Midterm 2 bank, kept so that the work can be res
 - `tools/build_materials_bank.py`, `tools/materials_bank/verify_mt2.py`, `update_index.py`, `preview_figures.py`, figure package `tools/figures/mat_mt2/`.
 - `assets/js/exam-simulator.js`: multiple-choice parts and block practice; `assets/css/mcq.css`.
 - Blueprint, Extra problems pages, simulator page, tab strips, nav, landing chips, updates entry, docs, tests.
-- **Test bank complete: 52 blocks, 520 questions** (Unit 4 B01-B15, Unit 5 B16-B32, Unit 6 B33-B42, Unit 7 B43-B52), all recomputed by `verify_mt2.py`; PDFs printed; published.
+- **Test bank: 62 blocks, 620 questions** (Unit 4 B01-B15, Unit 5 B16-B32, Unit 6 B33-B42 and B53-B57, Unit 7 B43-B52 and B58-B62), all recomputed by `verify_mt2.py`.
+- Units 6 and 7 audit: 24 questions rewritten for answer-form tells; 100 new questions (B53-B62); see section 8 of the rules note.
+- Simulator practice scopes: real paper, focus on Units 6 and 7, and one unit only (`modes` of the blueprint).
 
 ## Pending
 

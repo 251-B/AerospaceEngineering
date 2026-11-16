@@ -1,4 +1,5 @@
 """Unit 6 figures of the Midterm 2 bank: energy-band diagrams, ln(sigma) against 1/T plots and a ferroelectric loop."""
+import math
 from figures.svgkit import Canvas, line, text, poly, dot, rect, circle, arrow, sub, dim
 from figures.mat_mt2.common import figure
 
@@ -268,4 +269,151 @@ def pe_loop():
     text(c, (ox - 12, oy - pr - 8), "M", "HEAD", "end", 14, "700")
     dot(c, (ox, oy), 4.5, "HEAD")
     text(c, (ox + 10, oy + 20), "N", "HEAD", "start", 14, "700")
+    return c
+
+
+# ---------------------------------------------------------------- b53 figures
+"""Block B53 figure: effect of small additions of four elements on the room-temperature resistivity of copper (after Session 13, Slide 16)."""
+
+
+@figure("u6-b53-cu-impurity",
+        "Resistivity of copper against percent impurity by weight for additions of iron, aluminium, lead and silver: four straight lines of different slope from the same starting point",
+        "Resistivity of copper against percent impurity by weight (schematic after Session 13, Slide 16)")
+def cu_impurity():
+    c = Canvas(470, 300)
+    x0, y0 = 80, 250
+    sx, sy = 1500.0, 190.0          # px per wt%, px per 1e-8 ohm m
+    def P(u, v):
+        return (x0 + u * sx, y0 - (v - 1.5) * sy)
+    arrow(c, (x0, y0), (x0 + 0.215 * sx, y0), "EDGE", 1.5, 9)
+    arrow(c, (x0, y0), (x0, y0 - 1.15 * sy), "EDGE", 1.5, 9)
+    for u in (0, 0.05, 0.10, 0.15, 0.20):
+        line(c, P(u, 1.5), (P(u, 1.5)[0], y0 + 5), "EDGE", 1.0)
+        text(c, (P(u, 1.5)[0], y0 + 20), f"{u:.2f}", "TEXT", "middle", 12)
+    text(c, (x0 + 0.1 * sx, y0 + 42), "Percent impurity by weight", "TEXT", "middle", 12)
+    for v in (1.5, 2.0, 2.5):
+        line(c, (x0 - 5, P(0, v)[1]), P(0, v), "EDGE", 1.0)
+        text(c, (x0 - 9, P(0, v)[1] + 4), f"{v:.1f}", "TEXT", "end", 12)
+    c.add(f'<text x="26" y="{y0 - 0.5 * sy:.1f}" fill="TEXT" font-size="13" text-anchor="middle" '
+          f'transform="rotate(-90 26 {y0 - 0.5 * sy:.1f})">ρ ({sub("10", "−8", True)} Ω·m)</text>')
+    for name, end, col in (("Fe", (0.104, 2.5), "PINK"), ("Al", (0.20, 1.95), "BLUE"),
+                           ("Pb", (0.20, 1.72), "GREEN"), ("Ag", (0.20, 1.58), "ACC")):
+        poly(c, [P(0, 1.5), P(*end)], col, 2.2)
+        e = P(*end)
+        text(c, (e[0] + 8, e[1] + 4), name, "HEAD", "start", 13, "600")
+    return c
+
+
+# ---------------------------------------------------------------- b54 figures
+"""Block B54 figure: ln(sigma) against 1/T for two intrinsic semiconductors A and B with two exactly marked points each."""
+
+
+@figure("u6-b54-two-lines",
+        "ln sigma against 1/T for two intrinsic semiconductors A and B: two straight lines of negative slope, each through two marked points",
+        "ln σ against 1/T for two intrinsic semiconductors A and B")
+def two_lines():
+    c = Canvas(450, 300)
+    x0, y0 = 70, 250
+    sx, sy = 120.0, 24.0          # px per 1e-3 K^-1, px per unit of ln sigma
+    def P(u, v):
+        return (x0 + u * sx, y0 - v * sy)
+    arrow(c, (x0, y0), (x0 + 3.0 * sx, y0), "EDGE", 1.5, 9)
+    arrow(c, (x0, y0), (x0, y0 - 9.4 * sy), "EDGE", 1.5, 9)
+    for u in (1, 2):
+        line(c, P(u, 0), (P(u, 0)[0], y0 + 5), "EDGE", 1.0)
+        text(c, (P(u, 0)[0], y0 + 20), f"{u}.0", "TEXT", "middle", 12)
+    text(c, (x0 + 1.5 * sx, y0 + 42), "1/T (" + sub("10", "−3", True) + " K" + sub("", "−1", True) + ")", "TEXT", "middle", 12)
+    for v in (0, 2, 4, 6, 8):
+        line(c, (x0 - 5, P(0, v)[1]), P(0, v), "EDGE", 1.0)
+        text(c, (x0 - 9, P(0, v)[1] + 4), str(v), "TEXT", "end", 12)
+    c.add(f'<text x="24" y="{y0 - 4.4 * sy:.1f}" fill="TEXT" font-size="13" text-anchor="middle" '
+          f'transform="rotate(-90 24 {y0 - 4.4 * sy:.1f})">ln σ, σ in (Ω·m)⁻¹</text>')
+    # A: ln s = 14 - 6u ; B: ln s = 9 - 3u
+    poly(c, [P(0.8, 9.2), P(2.2, 0.8)], "PINK", 2.4)
+    poly(c, [P(0.8, 6.6), P(2.2, 2.4)], "BLUE", 2.4)
+    for u, v in ((1.0, 8.0), (2.0, 2.0), (1.0, 6.0), (2.0, 3.0)):
+        line(c, P(u, 0), P(u, v), "EDGE", 1.0, "4 4")
+        line(c, P(0, v), P(u, v), "EDGE", 1.0, "4 4")
+        dot(c, P(u, v), 4.2, "HEAD")
+    text(c, (P(0.8, 9.2)[0] + 8, P(0.8, 9.2)[1] + 4), "A", "HEAD", "start", 14, "700")
+    text(c, (P(2.2, 2.4)[0] + 8, P(2.2, 2.4)[1] + 4), "B", "HEAD", "start", 14, "700")
+    return c
+
+
+# ---------------------------------------------------------------- b56 figures
+"""Unit 6, block B56: ln(sigma) against 1/T for two n-type semiconductors with the same donor concentration."""
+
+
+@figure("u6-b56-two-curves",
+        "ln σ against 1/T for two n-type semiconductors A and B with the same donor concentration: A leaves the flat "
+        "range at a higher temperature and its high-temperature line is steeper than that of B",
+        "ln σ against 1/T for two n-type semiconductors, A and B, doped with the same number of donors")
+def two_curves():
+    c = Canvas(480, 290)
+    x0, y0 = 60, 240
+    arrow(c, (x0, y0), (455, y0), "EDGE", 1.5, 9)
+    arrow(c, (x0, y0), (x0, 20), "EDGE", 1.5, 9)
+    text(c, (255, 278), "1/T", "TEXT", "middle", 13)
+    text(c, (x0 - 6, 258), "High T", "TEXT", "start", 12)
+    text(c, (445, 258), "Low T", "TEXT", "end", 12)
+    c.add('<text x="36" y="130" fill="TEXT" font-size="13" text-anchor="middle" transform="rotate(-90 36 130)">ln σ</text>')
+    # shared flat range and extrinsic range (same donor concentration)
+    poly(c, [(175, 150), (240, 150), (420, 211)], "EDGE", 2.2)
+    # curve A leaves the flat range at a higher temperature (smaller 1/T) and rises steeply
+    poly(c, [(175, 150), (100, 32)], "PINK", 2.6)
+    # curve B leaves it at a lower temperature (larger 1/T) and rises less steeply
+    poly(c, [(240, 150), (100, 56)], "BLUE", 2.6)
+    text(c, (88, 36), "A", "PINK", "middle", 15, "700")
+    text(c, (88, 64), "B", "BLUE", "middle", 15, "700")
+    return c
+
+
+# ---------------------------------------------------------------- b57 figures
+"""Unit 6 figures of block B57 (dielectrics, ferroelectrics and piezoelectrics, applied).
+
+    u6-b57-pe-pair  polarisation against electric field of two ferroelectrics, loops 1 (wide) and 2 (narrow); both have
+                    the same remanent polarisation (70) and the same polarisation at the tips of the loop (95); schematic.
+"""
+
+
+SPAN = 150.0
+PR, PS = 70.0, 95.0
+
+
+def _params(ec):
+    """amp, w such that amp*tanh(ec/w) = PR (remanence) and amp*tanh(SPAN/w) = PS (tip of the loop)."""
+    lo, hi = 5.0, 5000.0
+    for _ in range(100):
+        w = (lo + hi) / 2
+        if math.tanh(SPAN / w) / math.tanh(ec / w) > PS / PR:
+            hi = w
+        else:
+            lo = w
+    return PR / math.tanh(ec / w), w
+
+
+def _loop(c, o, ec, col):
+    amp, w = _params(ec)
+    es = [-SPAN + 2 * SPAN * i / 150 for i in range(151)]
+    sh = lambda e: ec * (1 - (e / SPAN) ** 2)  # noqa: E731
+    up = [(o[0] + e, o[1] - amp * math.tanh((e + sh(e)) / w)) for e in es]
+    dn = [(o[0] + e, o[1] - amp * math.tanh((e - sh(e)) / w)) for e in es]
+    poly(c, up, col, 2.5)
+    poly(c, dn, col, 2.5)
+
+
+@figure("u6-b57-pe-pair", "Polarisation against electric field for two ferroelectrics: loop 1 is wide and loop 2 is narrow, both with the same height at the tips")
+def pe_pair():
+    c = Canvas(440, 300)
+    o = (220, 150)
+    arrow(c, (40, o[1]), (415, o[1]), "EDGE", 1.5, 9)
+    arrow(c, (o[0], 285), (o[0], 15), "EDGE", 1.5, 9)
+    text(c, (412, o[1] + 20), "E", "TEXT", "end", 13)
+    text(c, (o[0] + 8, 26), "P", "TEXT", "start", 13)
+    _loop(c, o, 70, "PINK")
+    _loop(c, o, 18, "BLUE")
+    text(c, (o[0] + 118, o[1] + 62), "1", "PINK", "middle", 16, "700")
+    text(c, (o[0] - 118, o[1] - 62), "1", "PINK", "middle", 16, "700")
+    text(c, (o[0] + 40, o[1] - 108), "2", "BLUE", "middle", 16, "700")
+    text(c, (o[0] - 40, o[1] + 112), "2", "BLUE", "middle", 16, "700")
     return c

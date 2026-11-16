@@ -120,17 +120,17 @@ No absurd options: each wrong option is the result of one nameable mistake, and 
 
 ## 5. Frequency per unit and quota of the bank
 
-Real paper: Unit 5 four questions (1, 2, 3, 8), Units 4, 6 and 7 two each, and the 5-point problem on Unit 4. The finals add problems on Units 4, 5 and 6 and short questions on Unit 7. The bank keeps Unit 5 as the largest unit for the test, gives Unit 4 more than its two test questions because it also carries Part II, and never goes below 100 per unit.
+Real paper: Unit 5 four questions (1, 2, 3, 8), Units 4, 6 and 7 two each, and the 5-point problem on Unit 4. The finals add problems on Units 4, 5 and 6 and short questions on Unit 7. The bank keeps Unit 5 as the largest unit for the test, gives Unit 4 more than its two test questions because it also carries Part II, and never goes below 100 per unit. Units 6 and 7 were raised to 150 after the audit of the first 100 (see below).
 
 | Unit | Share of the real test | Questions in the bank | Blocks of ten | Block ids |
 | :--- | :--- | :--- | :--- | :--- |
 | 4 Phase diagrams | 2 of 10 (+ the problem) | 150 | 15 | B01 to B15 |
 | 5 Mechanical properties | 4 of 10 | 170 | 17 | B16 to B32 |
-| 6 Electrical properties | 2 of 10 | 100 | 10 | B33 to B42 |
-| 7 Magnetic and thermal properties | 2 of 10 | 100 | 10 | B43 to B52 |
-| Total | 10 | 520 | 52 | |
+| 6 Electrical properties | 2 of 10 | 150 | 15 | B33 to B42, B53 to B57 |
+| 7 Magnetic and thermal properties | 2 of 10 | 150 | 15 | B43 to B52, B58 to B62 |
+| Total | 10 | 620 | 62 | |
 
-The simulator draws 2 + 4 + 2 + 2, the mix of the real paper.
+The simulator offers six practice scopes (`modes` of `exam-blueprint-midterm-2.json`): **Mixed (real paper)** draws 2 + 4 + 2 + 2 and the Part II problem; **Mixed (focus on Units 6 and 7)** draws 1 + 2 + 4 + 3 (Unit 4 is already examined by the Part II problem, Unit 5 keeps two questions, Units 6 and 7 carry the extra weight expected this course) and the problem; **Unit 4 only** to **Unit 7 only** draw the ten test questions of one unit from ten different blocks, graded out of 5 with the same rule, with a 20-minute clock (an assumption). The validator checks that every mode adds up to ten and that the bank holds enough questions and blocks for it.
 
 Target mix of formats over the whole bank (the real paper has 1 true-statement, 3 complete-sentence, 1 cause-effect, 1 what-happens, 1 identify, 1 diagram-reading, 1 numeric, 1 choose-figure): true-statement and false-statement 20 %, complete-sentence 20 %, cause-effect 12 %, numeric 15 %, identify 9 %, what-happens 8 %, diagram-reading 8 % (most of it in Unit 4), choose-figure 4 %, ordering 4 %. Each unit may move these by a few points to fit its content.
 
@@ -190,6 +190,7 @@ At most four questions share one `concept_id`, and those that do differ in forma
 | Extrinsic semiconductors and temperature | Session 13, 43-44 | 8 |
 | Devices: p-n junction, photoconductivity, LED, thermistor | Session 13, 45-49 | 6 |
 | Dielectrics, ferroelectrics and piezoelectrics | Session 13, 51-60 | 10 |
+| Added in B53-B57: inverse resistivity problems, wire strategies, ionic against metallic conduction, intrinsic ratios and gaps, dopant energy tables, mobility against doping, extrinsic regions, dielectric calculations | Session 13, 14-23, 25-34, 35-49, 51-60 | 50 |
 
 **Unit 7 (100)**
 
@@ -205,6 +206,7 @@ At most four questions share one `concept_id`, and those that do differ in forma
 | Thermal expansion: coefficient, bonding, allotropy, bimetals | Session 15, 36-39 | 12 |
 | Thermal conductivity | Session 15, 40-44 | 10 |
 | Thermal stresses and thermal shock | Session 15, 45-48 | 8 |
+| Added in B58-B62: moments and fields from the 3d table, tables of soft and hard magnets, loop factors, Curie and Néel conversions, superconductor envelope and Josephson effect, heat capacity, expansion, thermal conduction and thermocouple, stress and shock | Session 15, 3-48 | 50 |
 
 ## 6. Problem types of Part II
 
@@ -227,5 +229,9 @@ Unit 7 appears in the finals only as short questions (labelling B-H loops, the M
 - Physical data come from the slides and the official sheets and are cited in `### Source`. Anything outside the course is left out, or marked **extension** with its definition.
 - Known errata of the web pages of these units (`sources/cuatrimestre-1/02-aerospace-materials-1/Auditoría Temas 4 A 7.md`) are not carried into the questions.
 - Every number is recomputed by `tools/materials_bank/verify_mt2.py`.
+
+## 8. Answer-form audit (Units 6 and 7)
+
+An audit of the first 200 questions of Units 6 and 7 found tells in the form of the answer and rewrote 24 questions (same id and right letter): a wrong option carrying an absolute ("only", "depends only on X", "does not change, as ... only") that no right option ever carries (33 cases, 10 of them the template "does not change, as it depends only on X"), a right option clearly the longest (5), and absurd options (3). Rules that follow, enforced by review and by the blind solve: no absolute only in wrong options; the right option is not systematically the longest; every wrong option is one nameable mistake; at most two definition questions per block; at least three calculations and two table or graph readings per block.
 
 **Back to:** [[Problem Set - Aerospace Materials I Problem Bank]] · [[Aerospace Materials I MOC]]

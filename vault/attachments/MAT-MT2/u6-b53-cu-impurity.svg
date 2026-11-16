@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 300" width="100%" class="fig-kit" style="max-width:470px;margin:0 auto;display:block" role="img" aria-label="Resistivity of copper against percent impurity by weight for additions of iron, aluminium, lead and silver: four straight lines of different slope from the same starting point">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="80.0" y1="250.0" x2="397.1" y2="250.0" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M402.5,250.0 L394.2,253.5 L394.2,246.5 Z" fill="#8a94a6"/>
+<line x1="80.0" y1="250.0" x2="80.0" y2="36.9" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M80.0,31.5 L83.5,39.8 L76.5,39.8 Z" fill="#8a94a6"/>
+<line x1="80.0" y1="250.0" x2="80.0" y2="255.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="80.0" y="270.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.00</text>
+<line x1="155.0" y1="250.0" x2="155.0" y2="255.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="155.0" y="270.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.05</text>
+<line x1="230.0" y1="250.0" x2="230.0" y2="255.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="230.0" y="270.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.10</text>
+<line x1="305.0" y1="250.0" x2="305.0" y2="255.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="305.0" y="270.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.15</text>
+<line x1="380.0" y1="250.0" x2="380.0" y2="255.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="380.0" y="270.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.20</text>
+<text x="230.0" y="292.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Percent impurity by weight</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="71.0" y="254.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1.5</text>
+<line x1="75.0" y1="155.0" x2="80.0" y2="155.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="71.0" y="159.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">2.0</text>
+<line x1="75.0" y1="60.0" x2="80.0" y2="60.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="71.0" y="64.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">2.5</text>
+<text x="26" y="155.0" fill="#6b7280" font-size="13" text-anchor="middle" transform="rotate(-90 26 155.0)">ρ (10<tspan baseline-shift="super" font-size="72%">−8</tspan> Ω·m)</text>
+<polyline points="80.0,250.0 236.0,60.0" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="244.0" y="64.0" fill="#4b5563" font-size="13" font-weight="600" text-anchor="start">Fe</text>
+<polyline points="80.0,250.0 380.0,164.5" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="388.0" y="168.5" fill="#4b5563" font-size="13" font-weight="600" text-anchor="start">Al</text>
+<polyline points="80.0,250.0 380.0,208.2" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="388.0" y="212.2" fill="#4b5563" font-size="13" font-weight="600" text-anchor="start">Pb</text>
+<polyline points="80.0,250.0 380.0,234.8" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="388.0" y="238.8" fill="#4b5563" font-size="13" font-weight="600" text-anchor="start">Ag</text>
+</g></svg>
