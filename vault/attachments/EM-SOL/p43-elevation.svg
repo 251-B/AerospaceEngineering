@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" width="100%" class="fig-kit" style="max-width:760px;margin:0 auto;display:block" role="img" aria-label="Vertical section through the hole showing P1 on the plane at distance r and P2 hanging at depth 2a minus r on the cord of length 2a.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="184.0,150.0 243.4,150.0 243.4,163.2 184.0,163.2" fill="#8a94a6" fill-opacity="0.35" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<polygon points="256.6,150.0 536.0,150.0 536.0,163.2 256.6,163.2" fill="#8a94a6" fill-opacity="0.35" stroke="#8a94a6" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="470.0" y="185.2" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">smooth horizontal plane</text>
+<text x="235.4" y="138.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O (hole)</text>
+<line x1="250.0" y1="150.0" x2="250.0" y2="11.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M250.0,7.0 L253.1,14.4 L246.9,14.4 Z" fill="#8a94a6"/>
+<text x="258.0" y="13.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<line x1="250.0" y1="143.4" x2="498.2" y2="143.4" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M503.0,143.4 L495.6,146.5 L495.6,140.3 Z" fill="#8a94a6"/>
+<text x="503.0" y="133.4" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">r</tspan></text>
+<line x1="404.0" y1="143.4" x2="250.0" y2="143.4" stroke="#4b5563" stroke-width="4.5"/>
+<line x1="250.0" y1="143.4" x2="250.0" y2="216.0" stroke="#4b5563" stroke-width="4.5"/>
+<text x="327.0" y="131.4" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r</text>
+<text x="240.0" y="188.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">2a − r</text>
+<circle cx="404.0" cy="136.8" r="6.5" fill="#4b5563"/>
+<text x="416.0" y="130.8" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="250.0" cy="216.0" r="6.5" fill="#4b5563"/>
+<text x="262.0" y="221.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P<tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+<circle cx="404.0" cy="81.8" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<path d="M398.4,76.2 L409.6,87.4 M398.4,87.4 L409.6,76.2" stroke="#4b5563" stroke-width="1.6" fill="none"/>
+<text x="420.0" y="86.8" fill="#4b5563" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan> points into the paper here</text>
+<line x1="140.0" y1="150.0" x2="184.0" y2="150.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="140.0" y1="216.0" x2="243.4" y2="216.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="140.0" y1="150.0" x2="140.0" y2="216.0" stroke="#8a94a6" stroke-width="1.1"/>
+<path d="M140.0,150.0 L142.7,156.4 L137.3,156.4 Z" fill="#8a94a6"/>
+<path d="M140.0,216.0 L137.3,209.6 L142.7,209.6 Z" fill="#8a94a6"/>
+<text x="140.0" y="183.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="130.0" y="188.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">|z<tspan baseline-shift="sub" font-size="70%">2</tspan>| = 2a − r</text>
+</g></svg>
