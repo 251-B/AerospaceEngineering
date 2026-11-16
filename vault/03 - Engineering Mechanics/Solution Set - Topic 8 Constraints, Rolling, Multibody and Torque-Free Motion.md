@@ -5881,7 +5881,9 @@ No external load acts. The exploded view cuts each wheel from the rod at its axl
 > $$\begin{aligned}
 > |\overrightarrow{OA}| &= \frac{3d}{2} - \frac d4 = \frac{5d}{4}, \qquad |\overrightarrow{O'A}| = d + \frac d4 = \frac{5d}{4} \quad &\text{(contact of $A$ with the cavity and with the disk)} \\
 > O' &\equiv O \quad &\text{(three such points fix the centre of the circle)} \\
-> n_q &= \underbrace{1}_{\varphi_D} + \underbrace{3}_{\theta_A, \theta_B, \theta_C} + \underbrace{3}_{\varphi_A, \varphi_B, \varphi_C} = 7 \quad &\text{(coordinates left after the position constraints)} \\
+> n_{\mathrm{planar}} &= 12 \quad &\text{(disk and three bearings, three planar coordinates each)} \\
+> n_{\mathrm{no\text{-}penetration}} &= 6 - 1 = 5 \quad &\text{(six contact conditions, but the centre of the circle through three points needs only two equations for the two coordinates of $O'$, so one condition repeats the others)} \\
+> n_q &= \underbrace{1}_{\varphi_D} + \underbrace{3}_{\theta_A, \theta_B, \theta_C} + \underbrace{3}_{\varphi_A, \varphi_B, \varphi_C} = 12 - 5 = 7 \quad &\text{(coordinates left after the position constraints)} \\
 > n_{\mathrm{dof}} &= 7 - 3\cdot 2 = 1 \quad &\text{(two independent no-slip conditions per bearing, Eq. 13.2)}
 > \end{aligned}$$
 >
@@ -5898,7 +5900,7 @@ No external load acts. The exploded view cuts each wheel from the rod at its axl
 > **Law:** simple rotation about the third axis; right-hand rule; Poisson's formula
 > **Source:** Notes.pdf, Eq. 9.16; Notes.pdf, Eq. 9.4; [Lecture 7, Slide 12]
 >
-> View of the plane $Oxy$ with $\mathbf k$ out of the paper (⊙): a positive $\alpha$ turns counterclockwise. $\mathbf e_r$ is $\mathbf i$ turned by $\alpha$: hypotenuse 1, adjacent leg along $\mathbf i$ (cosine of $\alpha$), opposite leg along $\mathbf j$ (sine). $\mathbf e_\theta$ is $\mathbf j$ turned by $\alpha$: adjacent leg along $\mathbf j$ (cosine); the counterclockwise turn carries the tip of $\mathbf j$ to the left, towards minus $\mathbf i$, which is the minus sign of the opposite leg (sine). For the bearing $A$ the angle is $\theta$; for $B$ and $C$ it is $\theta$ plus a constant, so in every case its rate is the rate of $\theta$.
+> View of the plane $Oxy$ with $\mathbf k$ out of the paper (⊙): a positive $\alpha$ turns counterclockwise. $\mathbf e_r$ is $\mathbf i$ turned by $\alpha$: hypotenuse 1, adjacent leg along $\mathbf i$ (cosine of $\alpha$), opposite leg along $\mathbf j$ (sine). $\mathbf e_\theta$ is $\mathbf j$ turned by $\alpha$: adjacent leg along $\mathbf j$ (cosine); the counterclockwise turn carries the tip of $\mathbf j$ to the left, towards minus $\mathbf i$, which is the minus sign of the opposite leg (sine). For the bearing $A$ the angle is $\theta$; for $B$ and $C$ it is $\theta$ plus a constant, and its rate is the rate of $\theta$ as soon as the constant spacing of the bearings is shown in the box of part (b) below.
 >
 > $$\begin{aligned}
 > \mathbf e_r(\alpha) &= \cos\alpha\,\mathbf i + \sin\alpha\,\mathbf j, \qquad \mathbf e_\theta(\alpha) = -\sin\alpha\,\mathbf i + \cos\alpha\,\mathbf j \quad &\text{(legs of the two triangles)} \\
@@ -5940,7 +5942,7 @@ No external load acts. The exploded view cuts each wheel from the rod at its axl
 > **Law:** the same two no-slip conditions for $B$ and $C$; integration of equal rates; Barrow's rule
 > **Source:** Notes.pdf, Eq. 13.2; Notes.pdf, Eq. 13.5; Notes.pdf, Eq. 9.3
 >
-> Repeat the previous box for $B$ with its own polar angle $\theta_B$ in place of $\theta$: the cavity contact gives the bearing rate minus five times the rate of $\theta_B$, and the disk contact gives the disk rate equal to five halves of the rate of $\theta_B$. The disk is one body, so its rate is the same in both results.
+> Repeat the previous box for $B$ with its own polar angle $\theta_B$ in place of $\theta$: the cavity contact gives a bearing rate equal to minus five times the rate of $\theta_B$, and the disk contact gives the disk rate equal to five halves of the rate of $\theta_B$. The disk is one body, so its rate is the same in both results.
 >
 > $$\begin{aligned}
 > \omega_D &= \frac52\,\dot\theta_B = \frac52\,\dot\theta \;\Rightarrow\; \dot\theta_B = \dot\theta \quad &\text{(disk rate from the contact with $B$ and with $A$)} \\
@@ -6080,7 +6082,7 @@ Here $\theta_i$ is $\theta$, $\theta + 3\pi/4$ or $\theta + 5\pi/4$ for $A$, $B$
 > $$\boxed{\ddot\theta = \frac{8\left(\sqrt2 - 1\right)}{85}\,\frac gd\,\cos\theta}$$
 >
 > **Units:** $[\mathrm{L\,T^{-2}}]/[\mathrm L] = [\mathrm{T^{-2}}]$
-> **Meaning:** with the second rate known, the tangential and moment equations of each bearing give its two friction forces, and the disk moment equation is then satisfied. The normal forces enter only the three radial equations and the two force equations of the disk: five equations for six normal forces, so one of them (a common preload with which the bearings are squeezed between disk and cavity) stays free. This matches the count of part (a), where one of the six no-penetration conditions repeated the others.
+> **Meaning:** with the second rate known, the tangential and moment equations of each bearing give its two friction forces, and the disk moment equation is then satisfied. The normal forces enter only the three radial equations and the two force equations of the disk: five equations for six normal forces, so one of them (a preload with which the bearings are squeezed between disk and cavity, shared among the three bearings in the ratio root two to one to one) stays free. This matches the count of part (a), where one of the six no-penetration conditions repeated the others.
 
 > [!derivation] Part (e): reduction to quadratures
 > **Law:** first integral by multiplying by the rate (chain rule); separation of variables; Barrow's rule
@@ -6090,7 +6092,8 @@ Here $\theta_i$ is $\theta$, $\theta + 3\pi/4$ or $\theta + 5\pi/4$ for $A$, $B$
 >
 > $$\begin{aligned}
 > \ddot\theta\,\dot\theta &= \kappa\,\frac gd\,\cos\theta\,\dot\theta \quad &\text{(multiply the equation of motion by the rate)} \\
-> \frac{d}{dt}\left(\frac12\,\dot\theta^2\right) &= \frac{d}{dt}\left(\kappa\,\frac gd\,\sin\theta\right) \quad &\text{(chain rule on both sides)} \\
+> \frac{d}{dt}\left(\frac12\,\dot\theta^2\right) &= \frac{d}{dt}\left(\kappa\,\frac gd\,\sin\theta\right) \quad &\text{(equal rates of the two sides)} \\
+> \dot\theta\,\ddot\theta &= \kappa\,\frac gd\cos\theta\,\dot\theta \quad &\text{(chain rule: $d(\dot\theta^2/2)/dt = \dot\theta\ddot\theta$ and $d(\sin\theta)/dt = \cos\theta\,\dot\theta$)} \\
 > \left[\frac12\,\dot\theta^2 - \kappa\,\frac gd\,\sin\theta\right]_0^t &= 0 \;\Rightarrow\; \frac12\,\dot\theta^2 - \kappa\,\frac gd\,\sin\theta = \frac12\cdot 0^2 - \kappa\,\frac gd\,\sin 0 = 0 \quad &\text{(integrate from 0 to $t$; Barrow's rule; initial rest)} \\
 > \frac{425}{64}\,m d^2\dot\theta^2 &= \frac{425}{64}\,m d^2\cdot 2\kappa\,\frac gd\,\sin\theta = \frac{5\left(\sqrt2 - 1\right)}{4}\,m g d\,\sin\theta \quad &\text{(multiply by twice the coefficient of $T$; 425 times 16 over 64 times 85 is 5/4)} \\
 > \frac{d\theta}{dt} &= \sqrt{2\kappa\,\frac gd\,\sin\theta} \quad &\text{(positive root: the initial second rate is positive)} \\
@@ -6140,7 +6143,7 @@ Here $\theta_i$ is $\theta$, $\theta + 3\pi/4$ or $\theta + 5\pi/4$ for $A$, $B$
 
 | Asked | Answer |
 | :--- | :--- |
-| (a) Degrees of freedom | One; coordinate $\theta$ (the disk centre stays at $O$, and four rolling contacts tie every rate to $\dot\theta$) |
+| (a) Degrees of freedom | One; coordinate $\theta$ (the disk centre stays at $O$, and six rolling contacts tie the four rates to $\dot\theta$) |
 | (b) Velocities and angular velocities | $\mathbf v_0^A = \tfrac{5d}{4}\dot\theta\,\mathbf e_\theta(\theta)$, $\mathbf v_0^B = \tfrac{5d}{4}\dot\theta\,\mathbf e_\theta(\theta + 3\pi/4)$, $\mathbf v_0^C = \tfrac{5d}{4}\dot\theta\,\mathbf e_\theta(\theta + 5\pi/4)$ with $\mathbf e_\theta(\alpha) = -\sin\alpha\,\mathbf i + \cos\alpha\,\mathbf j$; $\boldsymbol\omega_{D0} = \tfrac52\dot\theta\,\mathbf k$; $\boldsymbol\omega_{A0} = \boldsymbol\omega_{B0} = \boldsymbol\omega_{C0} = -5\dot\theta\,\mathbf k$ |
 | (c) Centre of mass | $\mathbf r_0^G = -\tfrac{(\sqrt2 - 1)d}{4}(\cos\theta\,\mathbf i + \sin\theta\,\mathbf j)$ |
 | (d) Kinetic energies | $T^D = \tfrac{25}{8}md^2\dot\theta^2$; $T^A = T^B = T^C = \tfrac{75}{64}md^2\dot\theta^2$; total $\tfrac{425}{64}md^2\dot\theta^2$ |
@@ -6427,7 +6430,7 @@ The exploded view separates the block, the weight $P$, the string and the two pu
 > The tension acts on the block at $G$ and on $P$; the guide force is normal to the velocity of $P$; the pulley reactions act on fixed axles. The weights and the spring are conservative.
 >
 > $$\begin{aligned}
-> \dot W^{T} &= -T\,\mathbf i_1\cdot\mathbf v_0^G + T\,\mathbf j\cdot\mathbf v_0^P = -T\left(-\dot\xi\right) + T\left(-\dot\xi\right) = 0 \quad &\text{(string on the block plus string on $P$)} \\
+> \dot W^{T} &= -T\,\mathbf i_1\cdot\mathbf v_0^G + T\,\mathbf j\cdot\mathbf v_0^P = -T\left(-\dot\xi\right) + T\left(-\dot\xi\right) = 0 \quad &\text{(string on the block plus string on $P$; here $T$ is the tension, not the kinetic energy)} \\
 > \dot W^{N} &= N_P\,\mathbf i\cdot\left(-\dot\xi\,\mathbf j\right) = 0 \quad &\text{(guide normal to the motion of $P$)} \\
 > V &= 2mg\,\mathbf j\cdot\mathbf r_0^G + mg\,\mathbf j\cdot\mathbf r_0^P + \frac k2\,\mathbf d\cdot\mathbf d = -2mg\left(4L - \xi\right)\cos\theta - mg\,\xi + \frac k2\,|\mathbf d|^2 \quad &\text{(Eq. 12.34; spring of zero natural length)} \\
 > |\mathbf d|^2 &= \left(4L - \xi\right)^2 + L^2 + 4L^2 + 2L\left(4L - \xi\right)\left(\sin\theta\cos\varphi - \cos\theta\sin\varphi\right) - 4L\left(4L - \xi\right)\sin\theta - 4L^2\cos\varphi \quad &\text{(square of the two components of $\mathbf d$)} \\
@@ -6456,7 +6459,7 @@ The exploded view separates the block, the weight $P$, the string and the two pu
 
 * **No spring.** With $k$ zero the third equation gives a constant spin of the block, and with the string vertical and at rest the first equation gives a second rate of $\xi$ of minus $g/3$: the weight rises and the block descends with the acceleration of an Atwood machine with masses $2m$ and $m$, the difference of the weights over the sum of the masses.
 * **Tension in that case.** Then the tension is $m$ times the sum of $g$ and $g/3$, four thirds of $mg$: between the weight of $P$ and the weight of the block, as it must be for $P$ to accelerate upwards and the block downwards.
-* **Spring force at the reference position.** With the string vertical, $\varphi$ zero and $\xi$ equal to $2L$, $A$ lies at $L\,\mathbf i - 2L\,\mathbf j$ and $B$ at $2L\,\mathbf i$; the bracket of the $\mathbf j_1$ component is $L$ minus $2L$, so the spring pushes $G$ towards plus $\mathbf j_1$, which is $\mathbf i$ at that instant: towards $B$, as expected from its position.
+* **Spring force at the reference position.** With the string vertical, $\varphi$ zero and $\xi$ equal to $2L$, $A$ lies at $L\,\mathbf i - 2L\,\mathbf j$ and $B$ at $2L\,\mathbf i$; the bracket of the $\mathbf j_1$ component is $L$ minus $2L$, so the spring pulls $A$, and with it the block, towards plus $\mathbf j_1$, which is $\mathbf i$ at that instant: towards $B$, as expected from its position.
 * **Dimensions.** $k$ times a length is a force like $mg$; $kL$ times a length is a moment like $mL^2$ times an angular acceleration; every term of the energy is in joules.
 
 ---
