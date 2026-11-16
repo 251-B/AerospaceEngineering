@@ -1,0 +1,810 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="aerospace-materials-1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 11: Adhesives — Aerospace Materials I</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for Pristine Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+      --accent-glow: rgba(245, 158, 11, 0.2);
+
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.7);
+      --bg-card-hover: rgba(20, 30, 55, 0.9);
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.45);
+      --callout-bg: rgba(245, 158, 11, 0.06);
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+      --shadow-elevation: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --callout-bg: rgba(245, 158, 11, 0.05);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.08rem;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    h1, h2, h3, h4, .article-title, .section-heading {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      color: var(--text-heading);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .nav-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Header */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      width: 42px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* Continuous Article Container */
+    main.article-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 96px;
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1.article-title {
+      font-size: clamp(2.1rem, 4.5vw, 2.75rem);
+      line-height: 1.22;
+      color: var(--text-heading);
+      margin-bottom: 14px;
+    }
+
+    .article-subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.18rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .source-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--accent);
+    }
+
+    /* Headings */
+    h2.section-heading {
+      font-size: 1.68rem;
+      color: var(--text-heading);
+      margin: 54px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin: 32px 0 12px;
+    }
+
+    p {
+      margin-bottom: 18px;
+      color: var(--text-body);
+    }
+
+    /* Cards & Blocks */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 24px 26px;
+      margin: 24px 0;
+      box-shadow: var(--shadow-elevation);
+    }
+
+    .math-block {
+      background: var(--bg-surface);
+      border-left: 3px solid var(--accent);
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin: 22px 0;
+      overflow-x: auto;
+    }
+
+    .callout {
+      background: var(--callout-bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 20px 22px;
+      margin: 26px 0;
+      border-top: 1px solid var(--accent-border);
+      border-right: 1px solid var(--accent-border);
+      border-bottom: 1px solid var(--accent-border);
+    }
+
+    .callout-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 24px 0;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-sans);
+      font-size: 0.94rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-strong);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table tr:hover td {
+      background: var(--bg-input);
+    }
+
+    /* Diagram Containers */
+    .diagram-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 28px 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* Exam Question Callout Box */
+    .exam-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      margin: 32px 0;
+      overflow: hidden;
+      box-shadow: var(--shadow-elevation);
+    }
+
+    .exam-header {
+      background: var(--accent-soft);
+      border-bottom: 1px solid var(--accent-border);
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .exam-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--bg-base);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .exam-title {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .exam-body {
+      padding: 24px;
+    }
+
+    .phase-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .phase-1 { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .phase-2 { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .phase-3 { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .phase-4 { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .exam-step {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed var(--border-subtle);
+    }
+
+    .exam-step:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    /* Page Footer */
+    footer.page-footer {
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      padding: 32px 0;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .callout-warning { border-left-color: #ef4444; border-top-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.06); }
+    h4.sub-heading { font-family: var(--font-sans); font-size: 1.05rem; font-weight: 600; color: var(--text-heading); margin: 26px 0 10px; }
+    .article-container ul, .article-container ol { margin: 0 0 18px 1.4em; color: var(--text-body); }
+    .article-container li { margin-bottom: 6px; }
+    .part-divider { font-family: var(--font-display); font-size: 1.9rem; color: var(--accent); margin: 72px 0 8px; padding-top: 24px; border-top: 1px solid var(--border-subtle); }
+    .diagram-card svg text tspan { text-decoration-thickness: 1px; }
+    .table-container, .math-block { position: relative; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <!-- Top Sticky Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">UC3M · AEROSPACE MATERIALS I</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Continuous Article Layout -->
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-category">Topic 11 · Adhesives</div>
+      <h1 class="article-title">Adhesives</h1>
+      <p class="article-subtitle">How adhesion works, the main adhesive families, how to design and prepare a bonded joint, how it is tested, and how adhesive joints fail and degrade.</p>
+      <div class="source-box">
+        <span>📖 Source: Universidad Carlos III de Madrid · Session 24 T11 Adhesives.pdf</span>
+      </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf" target="_blank" rel="noopener">Session 24 T11 Adhesives.pdf</a>
+      </nav>
+    </header>
+
+    <section id="section-0">
+      <div class="callout"><p><strong>Central idea:</strong> an adhesive is a chemical joining method: a polymer that wets the surfaces of two parts, fills their roughness and hardens, so the load passes from one part to the other over the whole bonded area instead of through a few holes or a weld bead. How well it holds depends on two things that act in series: <strong>adhesion</strong> (the forces across the adhesive-adherent interface, explained by mechanical, electrostatic, diffusive, adsorption and chemical mechanisms) and <strong>cohesion</strong> (the strength of the adhesive itself). A good joint is therefore built in a chain of steps (selection, joint design, surface preparation, application, assembly, curing and testing), is loaded in shear or compression and never in peel or cleavage, fails cohesively rather than at the interface, and is degraded over time by temperature, moisture, corrosion and ageing.</p></div>
+<p>This page follows the single official session of Topic 11 (Session 24) slide by slide. Part I covers the introduction and the mechanisms of adhesion (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 1">1 to 9</a>), Part II the classification and types of adhesives (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=10" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 10">10 to 14</a>), Part III design and processing (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=15" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 15">15 to 24</a>), Part IV testing, failure and degradation (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=25" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 25">25 to 34</a>) and Part V the examples and property tables (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=35" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 35">35 to 38</a>). Every section names the slides it comes from. Figures are copied from the slides as PNG crops, and each caption names its slide. Anything that is not printed on the slides is marked as an extension. The topic has no problem sheet.</p>
+    </section>
+    <h2 class="part-divider">Part I — Introduction and Mechanisms of Adhesion (Session 24, Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 1">1–9</a>)</h2>
+    <section id="section-1">
+      <h2 class="section-heading"><span class="section-num">§ 1</span> Overview of joining methods [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 1">1-2</a>]</h2>
+<p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 1">1</a> is the title and the agenda: introduction, mechanisms of adhesion, classification and types of adhesives, design and processing considerations, testing methods, modes of failure, degradation mechanisms and examples.</p>
+<p>A <strong>structure</strong> is a group of assembled elements that behaves like a whole under mechanical stresses [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=2" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 2">2</a>]. To make it behave as one piece, its elements must be joined, and the slide groups the joining methods in three families:</p>
+<ul><li><strong>Physical systems:</strong> mechanical bonding with fasteners, screws, bolts and nuts, rivets, etc.</li><li><strong>Metallurgical systems:</strong> welding.</li><li><strong>Chemical systems:</strong> adhesives.</li></ul>
+<p>The advantage of adhesives that the slide singles out is the <strong>uniform stress distribution</strong>. A rivet or a bolt carries the load through a hole, so the stress concentrates around each fastener (and the hole itself is a notch); a weld concentrates the load along its bead and changes the microstructure of the heat-affected metal. An adhesive layer instead transfers the load over the whole overlap, which is why it suits the thin sheets and composite skins of aircraft.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-joining-methods.png" alt="Joining methods" loading="lazy" style="max-width:min(100%,620px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 1. Physical, metallurgical and chemical joining systems (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=2" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 2">2</a>).</div>
+</div>
+    </section>
+    <section id="section-2">
+      <h2 class="section-heading"><span class="section-num">§ 2</span> Definitions, advantages and disadvantages [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=3" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 3">3</a>]</h2>
+<ul><li><strong>Adhesive:</strong> a compound or substance that adheres or bonds two items together; a substance capable of holding other materials together by surface attachment.</li><li><strong>Adhesion:</strong> the property of sticking together, or the joining of surfaces usually of different composition; the state of two surfaces kept together through interfacial forces (intermolecular, chemical, mechanical or both).</li><li><strong>Adherent:</strong> the substrate over which the adhesive is applied (the later slides also write "adherend").</li></ul>
+<p>The advantages and disadvantages printed on the slide follow from the fact that the joint is a thin polymer layer working through its surfaces:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Advantages</th><th>Disadvantages</th></tr></thead><tbody><tr><td>Uniform stress distribution</td><td>Surface preparation required</td></tr><tr><td>No distortion of substrates</td><td>Curing time</td></tr><tr><td>Bonding of dissimilar materials</td><td>Limited temperature capability</td></tr><tr><td>Simultaneous sealing</td><td>Poor peel strength</td></tr><tr><td>Corrosion protection by isolation</td><td>Limited reliability in hostile environmental conditions</td></tr><tr><td>Reduction of the number of components</td><td>Toxicity</td></tr><tr><td>Aesthetics: flatter surfaces, hiding joints</td><td></td></tr><tr><td>Delicate and complicated components can be joined</td><td></td></tr></tbody></table></div>
+<p>No heat is needed to melt the parts, so the substrates do not distort and dissimilar materials (a composite to a metal) can be joined; the polymer layer seals the joint and insulates the two metals electrically, which prevents galvanic corrosion. On the other side, a polymer softens at moderate temperature (limited temperature capability), the interface must be clean to form (surface preparation), the polymer needs time to harden (curing time), and a thin layer pulled at its edge concentrates the load on a line (poor peel strength, Section 13).</p>
+    </section>
+    <section id="section-3">
+      <h2 class="section-heading"><span class="section-num">§ 3</span> Adhesion versus cohesion [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=4" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 4">4</a>]</h2>
+<p>A bonded joint has two kinds of links in series: <strong>adhesion</strong>, the mechanism that bonds the adhesive to the substrate, and <strong>cohesion</strong>, the intermolecular force that holds together the molecules of the adhesive. The joint breaks through its weakest link, which gives the two basic failure types:</p>
+<ul><li><strong>Adhesive failure:</strong> failure that occurs between two phases (at the adhesive-substrate interface).</li><li><strong>Cohesive failure:</strong> failure that occurs within a phase (inside the adhesive).</li></ul>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-adhesion-cohesion-schematic.png" alt="Adhesion and cohesion" loading="lazy" style="max-width:min(100%,420px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 2. Adhesive molecules between two substrates: adhesion at the substrates, cohesion inside the adhesive (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=4" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 4">4</a>).</div>
+</div>
+<div class="callout"><div class="callout-title">Labels of the figure</div><p>The figure of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=4" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 4">4</a> is labelled in Spanish: "Sustrato 1" and "Sustrato 2" are substrate 1 and 2, "Moléculas adhesivas" are the adhesive molecules, and the legend marks adhesion (at the substrates) and cohesion (between the adhesive molecules).</p></div>
+    </section>
+    <section id="section-4">
+      <h2 class="section-heading"><span class="section-num">§ 4</span> The mechanisms of adhesion [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=5" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 5">5-8</a>]</h2>
+<p>The theories of adhesion try to explain why two materials stick, and there is <strong>no universal adhesion theory</strong> [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=5" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 5">5</a>]: in a real joint several mechanisms act at once. The slides list five.</p>
+<h3 class="sub-heading">4.1 Mechanical adhesion</h3>
+<p>The oldest theory: the adhesive <strong>interlocks mechanically</strong> in the surface roughness of the interface or in the pores of the substrate, like a key in a lock [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=6" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 6">6</a>]. Adhesive joints often have an important mechanical component, but it does not suffice as the only mechanism. It is favoured by a larger substrate surface area (more roughness) and by penetration of the adhesive into the pores. Examples on the slide: sewing (at a large scale) and Velcro.</p>
+<h3 class="sub-heading">4.2 Electrostatic adhesion</h3>
+<p>In metal/adhesive joints the different nature of the two materials allows electrons to transfer from the metal to the adhesive, so a difference of electrical charge forms at the joint. The result is a structure similar to a <strong>capacitor</strong>, and the opposite charges attract each other [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=6" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 6">6</a>].</p>
+<h3 class="sub-heading">4.3 Diffusive adhesion</h3>
+<p>When the molecules of both materials (adhesive and adherent) are mobile and soluble in each other, they interdiffuse across the interface, and the interface disappears into an interphase [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=7" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 7">7</a>]. It explains the adhesion between polymers by <strong>chain migration</strong> (the polymers must be soluble in each other), and it is also the mechanism of sintering (compare the diffusion of Topic 3).</p>
+<h3 class="sub-heading">4.4 Adsorption (physical adsorption) or dispersive adhesion</h3>
+<p>The adhesion forces are interface molecular forces, <strong>secondary bonds</strong> such as van der Waals forces or hydrogen bonds [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=7" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 7">7</a>]; a van der Waals force is the attraction between two molecules with positively and negatively charged ends. These forces act only at very short distances, so the adhesive must come into molecular contact with the whole surface: adhesion is produced when the adhesive <strong>wets</strong> the adherent, and good wetting is necessary.</p>
+<h3 class="sub-heading">4.5 Chemical adhesion (chemisorption)</h3>
+<p><strong>Primary bonds</strong> (ionic or covalent) form between the adhesive and the adherent [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=8" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 8">8</a>]. The strongest joins are those where the atoms of the two materials swap (ionic bonding) or share (covalent bonding) outer electrons; a weaker bond forms when oxygen, nitrogen or fluorine atoms of the two materials share a hydrogen nucleus (hydrogen bond). It needs reactive adhesives, such as epoxies or cyanoacrylates, and it can be promoted by a surface treatment of the substrate. Because primary bonds are much stronger than secondary ones (Topic 1), chemisorption gives the strongest interfaces.</p>
+<div class="callout"><div class="callout-title">Spellings of the slides</div><p>Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=5" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 5">5</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=8" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 8">8</a> print "chemibsorption" for chemisorption, and Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=5" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 5">5</a> repeats "of of".</p></div>
+    </section>
+    <section id="section-5">
+      <h2 class="section-heading"><span class="section-num">§ 5</span> Other factors: wetting and surface roughness [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=9" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 9">9</a>]</h2>
+<ul><li><strong>Wetting:</strong> the adhesive must wet the adherent for good adhesion. A liquid that wets spreads over the surface and reaches the bottom of its roughness; one that does not wet stays as a rounded drop and touches the surface only at a few points.</li><li><strong>Surface roughness:</strong> increasing the roughness (by abrasion) improves the bond strength, because it (1) raises the contact area and (2) removes surface contaminants. However, the roughness must not be too high, because air may remain trapped in the deep valleys and the joint may lose its strength.</li></ul>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-surface-roughness-block.png" alt="Rough substrate surface" loading="lazy" style="max-width:min(100%,360px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 3. Block of a rough substrate with the peaks and pores the adhesive fills (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=9" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 9">9</a>).</div>
+</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-surface-roughness-profile.png" alt="Roughness profile" loading="lazy" style="max-width:min(100%,560px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 4. Roughness profile of a surface with its height parameters (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=9" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 9">9</a>).</div>
+</div>
+<p>The drops of the slide show the three degrees of wetting: deficient, partial and total (the slide labels them in Spanish, "mojado deficiente", "mojado parcial" and "mojado total"). Total wetting is what the adhesive needs.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-wetting-states.png" alt="Degrees of wetting" loading="lazy" style="max-width:min(100%,520px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 5. Deficient, partial and total wetting of a drop on a rough surface (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=9" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 9">9</a>).</div>
+</div>
+<div class="callout"><div class="callout-title">Contact angle (extension)</div><p>The degree of wetting is usually measured by the contact angle $\theta$ of the drop on the surface: small $\theta$ means good wetting, $\theta$ above $90^\circ$ poor wetting. The slides do not define it.</p></div>
+    </section>
+    <h2 class="part-divider">Part II — Classification and Types of Adhesives (Session 24, Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=10" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 10">10–14</a>)</h2>
+    <section id="section-6">
+      <h2 class="section-heading"><span class="section-num">§ 6</span> General components of an adhesive [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=10" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 10">10</a>]</h2>
+<ul><li><strong>Base product:</strong> the polymer, which forms the mass of the adhesive.</li><li><strong>Additives:</strong> substances added to modify the physical and chemical properties of the bulk polymer before and after curing:<ol><li>Colorants.</li><li>Antioxidants.</li><li>Primers: a low-viscosity adhesive applied before making the joint to improve adherence; it reduces the surface energy of the adherent (see Section 11).</li><li>Plasticizers: solvents for the polymer; they separate the polymer chains and enable deformation, and they modify $T_g$ (the glass transition temperature falls as the chains slide more easily).</li><li>Tackifiers: improve tack (the ability to stick) by reducing viscosity or improving wetting.</li><li>Coupling agents: chemically reactive agents that promote adhesion by absorption (chemical or physical).</li><li>Fluorescent substances.</li></ol></li><li><strong>Fillers:</strong> substances that modify the rheology (flow) of the adhesive; inert fillers make the product cheaper or modify its density.</li></ul>
+    </section>
+    <section id="section-7">
+      <h2 class="section-heading"><span class="section-num">§ 7</span> Classification of adhesives [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=11" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 11">11-12</a>]</h2>
+<p>The slide classifies adhesives by four criteria [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=11" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 11">11</a>]:</p>
+<ul><li><strong>By application:</strong> <em>structural</em> (must withstand and transmit high stresses from one surface to another), <em>support, light-duty or fixing</em> (they only hold the weight of the adherent) and <em>sealants</em> (gap-filling adhesives).</li><li><strong>By temperature stability:</strong> thermoplastics (soften again on heating) and thermosets (cross-linked, they do not melt).</li><li><strong>By composition:</strong> animal origin (animal proteins, egg white, spider web, casein "glues"), vegetal origin ("resins": starch, dextrin, rubber, vegetable proteins) and synthetic (from the chemical industry).</li><li><strong>By curing:</strong> <em>hot melts</em> (thermoplastics; a molten polymer solidifies), <em>prepolymerized</em> (a solvent evaporates) and <em>high-resistance or polymerizing</em> (they polymerize in the joint).</li></ul>
+<p>The last criterion decides how well the final adhesive can be controlled [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=12" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 12">12</a>]. <strong>Prepolymerized</strong> adhesives contain a polymer in solution or suspension in a solvent (paper glue, sticky tapes); when the solvent evaporates the volume decreases, and it is difficult to remove all the solvent, so the adhesion cannot be easily controlled. In <strong>polymerizing</strong> adhesives, monomers polymerize in the joint itself: the process can be controlled and these are the high-resistance adhesives. By mechanical behaviour the slide groups them as:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Group</th><th>Adhesives (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=12" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 12">12</a>)</th></tr></thead><tbody><tr><td>Rigid</td><td>Anaerobics; cyanoacrylates (bad for vibrations, $T_{max} = 80\ ^\circ\text{C}$); epoxies (very hard, bond almost any substrate, high strength, $T_{max} = 180\ ^\circ\text{C}$)</td></tr><tr><td>Tough</td><td>Acrylics (tougher than epoxies)</td></tr><tr><td>Flexible</td><td>Silicones (need room moisture to cure); polyurethanes (car windscreens)</td></tr></tbody></table></div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-rigid-tough-flexible.png" alt="Rigid, tough and flexible adhesives" loading="lazy" style="max-width:min(100%,620px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 6. Polymerizing adhesives grouped by mechanical behaviour (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=12" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 12">12</a>).</div>
+</div>
+<p>The slide closes with a rule of thumb: if it is a polymer, you can probably make an adhesive out of it.</p>
+<div class="callout"><div class="callout-title">Spellings of the slides</div><p>Cyanoacrylates are printed "Cyanocrilycs" (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=12" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 12">12</a>), "Cyanolacrylics" (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=13" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 13">13</a>) and "Cyanoacrylate" (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=36" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 36">36</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=38" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 38">38</a>); polyurethanes are printed "Polyurathenes" on Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=14" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 14">14</a>. This page uses the standard names. Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=12" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 12">12</a> also places "Anaerobic" among the curing types; Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=24" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 24">24</a> gives the curing reaction of each family.</p></div>
+    </section>
+    <section id="section-8">
+      <h2 class="section-heading"><span class="section-num">§ 8</span> Anaerobics and cyanoacrylates [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=13" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 13">13</a>]</h2>
+<p><strong>Anaerobic adhesives</strong> are single-component systems based on acrylic resins. They set in the <strong>absence of oxygen</strong>, usually in the presence of a metal, and can set without heating; oxygen inhibits them. This is why they stay liquid in the bottle (in contact with air) and harden only once trapped between two metal surfaces, such as the threads of a bolt. They have good sealing and damping properties, are brittle and are limited to $T &lt; 150\ ^\circ\text{C}$. Example: Loctite, used for threaded fasteners.</p>
+<p><strong>Cyanoacrylates</strong> are single-component systems based on acrylic resins that react with the <strong>moisture on the surface</strong>: they harden in a few seconds in the presence of surface water. Advantages: fast with good adherence, high strength, rapidly evolving. Drawbacks: brittle, poor moisture resistance, expensive. Example: "Super glue".</p>
+<div class="callout"><div class="callout-title">Thermoset or thermoplastic: the slides disagree</div><p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=13" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 13">13</a> prints both families as "acrylic resins (thermosetting)". Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=36" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 36">36</a> lists the anaerobics as thermoset but the cyanoacrylates (and the acrylics) as thermoplastic. The cure of a cyanoacrylate is an anionic chain polymerization of a monofunctional monomer (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=24" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 24">24</a>), which gives linear chains, so the thermoplastic label of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=36" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 36">36</a> is the consistent one (extension: this reasoning is not on the slides). Keep in mind that both labels appear in the official material.</p></div>
+    </section>
+    <section id="section-9">
+      <h2 class="section-heading"><span class="section-num">§ 9</span> Epoxies and polyurethanes [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=14" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 14">14</a>]</h2>
+<p><strong>Epoxies</strong> are based on an epoxide resin plus a hardener (two-component systems), or are single-component systems cured by heat, usually at $180\ ^\circ\text{C}$. They are the structural adhesives: high strength and excellent high-temperature performance; their drawback is that they are viscous and unsuitable for intricate work.</p>
+<p><strong>Polyurethanes</strong> are usually two-component systems, very reactive with other polymers (good adhesion), formulated for a wide range of applications. They are for low-temperature applications ($&lt; 65\ ^\circ\text{C}$), flexible and tough, and sensitive to moisture and chemical environments.</p>
+<p>The two families are the two ends of the rigid-flexible scale of Section 7, and Section 13 shows what that means in a peel test.</p>
+<div class="callout"><div class="callout-title">Temperature limits</div><p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=14" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 14">14</a> limits polyurethanes to $&lt; 65\ ^\circ\text{C}$, while the table of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=38" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 38">38</a> gives them a service range up to $80\ ^\circ\text{C}$. Both values are printed; they come from different sources.</p></div>
+    </section>
+    <h2 class="part-divider">Part III — Design and Processing (Session 24, Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=15" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 15">15–24</a>)</h2>
+    <section id="section-10">
+      <h2 class="section-heading"><span class="section-num">§ 10</span> The chain of an adhesive joint and its design [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=15" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 15">15-20</a>]</h2>
+<p>An adhesive joint is made in a fixed sequence of steps [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=15" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 15">15-16</a>], and each step can ruin the joint:</p>
+<ol><li>Adhesive selection.</li><li>Design of the adhesive joint.</li><li>Adherent preparation: control of roughness, cleanliness and contamination; stabilizing surface layers (pretreatment).</li><li>Adhesive preparation: storage, mixing, etc.</li><li>Adhesive application: brushing, flowing, film lay-up, etc.</li><li>Joint assembly: jigging, application of pressure, etc.</li><li>Formation of the adhesive joint.</li><li>Curing.</li><li>Testing (assessment of joint resistance).</li></ol>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-adhesive-joint-process-flow.png" alt="Making an adhesive joint" loading="lazy" style="max-width:min(100%,620px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 7. Stages of an adhesive joint, from selection to assessment of joint resistance (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=15" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 15">15</a>).</div>
+</div>
+<h3 class="sub-heading">10.1 Adhesive selection</h3>
+<p>The choice weighs [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=17" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 17">17</a>]: the inherent ability to adhere to the substrate; the stresses in service; the environment (temperature, chemical environment); <strong>compatible coefficients of thermal expansion</strong> (a mismatch produces residual stresses on every temperature change, Section 15); special requirements (conductivity, appearance); production restrictions; cost; and health and safety (toxicity).</p>
+<h3 class="sub-heading">10.2 Design of the joint</h3>
+<p>The joint is designed by studying its stress distribution (shape, size and thickness of the parts) and adapting it to the strengths of the adhesive [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=18" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 18">18</a>]:</p>
+<ul><li>Adhesives should ideally be loaded in <strong>shear</strong> or in compression.</li><li>The design should <strong>minimize tensile peel and tensile loading</strong> (butt joints in thin sheet in tension, cleavage and peel are marked NO on the slide).</li><li>Large bonding surfaces between the members are desirable.</li></ul>
+<p>The reason is the one of Section 2: in shear the whole overlap carries the load, while in peel or cleavage only the edge line of the adhesive does, so the same adhesive fails at a much smaller load.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-joint-design-yes-no.png" alt="Joint design: yes and no" loading="lazy" style="max-width:min(100%,620px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 8. Tension, cleavage and peel joints to avoid, and their redesigned versions (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=18" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 18">18</a>).</div>
+</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-joint-design-poor-good.png" alt="Poor, good and very good joint designs" loading="lazy" style="max-width:min(100%,620px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 9. Joint designs ranked as poor, good and very good, and combination joints of an adhesive with a rivet or a spot weld, copied from Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=19" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 19">19</a>.</div>
+</div>
+<p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=19" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 19">19</a> adds that subassemblies should be designed to minimize adhesive operations and that parts with complex curvature should be avoided; its figure ranks joint designs as poor, good, very good and combination joints (adhesive with a rivet or a spot weld). Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=20" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 20">20</a> shows the standard cross-sections: simple lap, tapered lap, scarf, butt, strap, double strap, tapered double strap, double lap and stepped lap joints. The tapered, scarf and stepped variants spread the load transfer over the overlap and avoid the stress peaks at its ends.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-lap-joint-types.png" alt="Types of adhesive joints" loading="lazy" style="max-width:min(100%,600px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 10. Lap, scarf, butt, strap and stepped joint cross-sections (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=20" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 20">20</a>).</div>
+</div>
+    </section>
+    <section id="section-11">
+      <h2 class="section-heading"><span class="section-num">§ 11</span> Adherent preparation and primers [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=21" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 21">21-23</a>]</h2>
+<p>The adhesive has to adapt to the surface and then harden [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=21" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 21">21</a>]. Three conditions:</p>
+<ul><li><strong>Surface roughness</strong> appropriate for the substrate (Section 5).</li><li><strong>Wettability:</strong> the fluid has to fill the roughness, so it must have a <strong>lower surface tension than the substrate</strong> (a liquid spreads on a solid of higher surface energy).</li><li><strong>Viscosity</strong> adequate to let the adhesive wet the roughness.</li></ul>
+<p>The objectives of the preparation are a sound adhesive-substrate interface, reproducible results, and no low-adhesion films such as oxides [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=22" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 22">22</a>]. The surface treatments are:</p>
+<ul><li>Removal of surface contaminants: mechanical methods (abrasion, oxide removal) and chemical methods (solvents, acetone, alcohols, etc.: degreasing).</li><li>Physical or chemical modification of the surface: appropriate roughness (grit blasting, anodizing on the slide) and improved adherence with primers.</li></ul>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-surface-treatments.png" alt="Surface treatments of the adherent" loading="lazy" style="max-width:min(100%,300px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 11. A grit-blasted rough surface (surface roughness) and an anodized surface with its porous oxide layer (surface cleanliness), copied from Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=22" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 22">22</a>.</div>
+</div>
+<p>Good surface contact creates adhesion, and <strong>primers</strong> help to get it [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=23" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 23">23</a>]. A primer is a low-viscosity adhesive applied before making the joint to improve adherence: it prevents capillary absorption of the adhesive solution into a porous adherent and optimizes the interaction between substrate and adhesive (wetting, reactivity). Its objectives are to protect the substrate surface, optimize that interaction, increase the strength of the union, improve stress transfer, give flexibility to the process (a primed part can wait before bonding) and protect against UV radiation.</p>
+<div class="callout"><div class="callout-title">Spellings of the slides</div><p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=21" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 21">21</a> prints "Wettiability" and Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=23" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 23">23</a> runs "adhesionadhesión" together (English and Spanish).</p></div>
+    </section>
+    <section id="section-12">
+      <h2 class="section-heading"><span class="section-num">§ 12</span> Application and curing [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=24" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 24">24</a>]</h2>
+<p>The slide shows adhesive applied by brush or film, dispensing gun and spray. Curing can be induced by:</p>
+<ul><li><strong>Anaerobic reaction:</strong> in the absence of oxygen; curing begins when the adhesive is trapped in a closed system in the presence of metal ions (anaerobics).</li><li><strong>Radiation or light (UV):</strong> photoinitiation.</li><li><strong>Anionic reaction (cyanoacrylates):</strong> almost all substrates carry adsorbed water, whose OH⁻ initiates the polymerization by an anionic reaction (this is why Section 8 says they react with surface moisture).</li><li><strong>Activators</strong> (modified acrylics).</li><li><strong>Thermal treatment</strong> (epoxies).</li><li><strong>Biological components.</strong></li></ul>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-adhesive-application-photos.png" alt="Adhesive application" loading="lazy" style="max-width:min(100%,620px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 12. Adhesive applied by brush or film, dispensing gun and spray (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=24" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 24">24</a>).</div>
+</div>
+    </section>
+    <h2 class="part-divider">Part IV — Testing, Failure and Degradation (Session 24, Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=25" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 25">25–34</a>)</h2>
+    <section id="section-13">
+      <h2 class="section-heading"><span class="section-num">§ 13</span> Testing methods [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=25" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 25">25-29</a>]</h2>
+<p>The geometric factors that characterize an adhesive joint are the <strong>width</strong> of the bond, the <strong>overlap length</strong> and the <strong>thickness</strong> of adhesive and substrate [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=25" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 25">25</a>]. The tests are:</p>
+<ol><li><strong>Tack (instantaneous adhesion):</strong> the ability to stick and the wettability. The slide sketches a block touched to a surface and lifted, and a drop rolling a distance down an inclined plane.</li><li><strong>Peel test</strong> [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=26" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 26">26</a>]: gives the compatibility of a tape with a surface, like peeling adhesive tape from a solid. It depends on the substrate (roughness, nature), the peeling angle, the rate, the type of adhesive mechanism and the temperature. Variants: 180° peel, 90° peel and T-peel. Adhesive joints should not be loaded this way in service. The small graph of the slide shows the shear strength falling as the adhesive thickness grows.</li></ol>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-tack-tests.png" alt="Tack tests" loading="lazy" style="max-width:min(100%,700px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 13. Tack tests of instantaneous adhesion: a block touched to the adhesive and lifted, and a drop rolling down an inclined plane over a distance, copied from Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=25" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 25">25</a>.</div>
+</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-peel-tests.png" alt="Peel tests" loading="lazy" style="max-width:min(100%,600px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 14. 180 degree, 90 degree and T-peel tests, and shear strength against adhesive thickness (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=26" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 26">26</a>).</div>
+</div>
+<p>In a peel test a <strong>brittle</strong> adhesive and a <strong>tough</strong> one behave differently [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=27" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 27">27</a>]. In a rigid adhesive (epoxy) only the line at the adhesion front stands the stress, so the stress there is very high and the bond opens with little energy. In a flexible adhesive (polyurethane) a volume of adhesive deforms and withstands the stress, so more surface supports it. This explains the peel strengths of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=38" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 38">38</a>: below 525 N/m for epoxy against 14 000 N/m for polyurethane (Section 17).</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-brittle-tough-peel.png" alt="Peeling of a brittle and a tough adhesive" loading="lazy" style="max-width:min(100%,600px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 15. Behaviour of a brittle adhesive (left) and a tough adhesive (right) in a peeling test, copied from Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=27" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 27">27</a>.</div>
+</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-epoxy-polyurethane-peel.png" alt="Peeling of an epoxy and a polyurethane" loading="lazy" style="max-width:min(100%,700px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 16. Peeling of a rigid epoxy, where only the line at the adhesion front carries the stress, and of a flexible polyurethane, where a volume of adhesive carries it, copied from Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=27" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 27">27</a>.</div>
+</div>
+<ol><li><strong>Normal and shear stresses</strong> [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=28" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 28">28</a>]: specimens in compression, tension and shear. Under these loads the stresses are uniformly distributed in the joint and the whole surface works, so structural adhesives must have high strength.</li></ol>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-normal-shear-stresses.png" alt="Normal and shear stresses on a joint" loading="lazy" style="max-width:min(100%,640px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 17. Joints under normal stresses (compression and tension) and shear stresses, copied from Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=28" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 28">28</a>.</div>
+</div>
+<p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=29" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 29">29</a> links three videos of the tests.</p>
+<div class="callout"><div class="callout-title">Spelling of the slide</div><p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=26" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 26">26</a> prints "d typo adhesive mechanism", read here as "type of adhesive mechanism".</p></div>
+    </section>
+    <section id="section-14">
+      <h2 class="section-heading"><span class="section-num">§ 14</span> Modes of failure [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=30" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 30">30-31</a>]</h2>
+<p>As in Section 3, the failure is <strong>adhesive</strong> (between two phases) or <strong>cohesive</strong> (within a phase) [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=30" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 30">30</a>]. The slide shows four outcomes of a tensile shear test (standard UNE-EN 1465): cohesive failure, 50 % cohesive failure, adhesive failure, and substrate failure (the adhesive is over-dimensioned, so the substrate breaks first), with photographs of tested specimens labelled in Spanish ("rotura cohesiva", "rotura adhesiva", "rotura del material").</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-failure-modes-photos.png" alt="Photographs of failed specimens" loading="lazy" style="max-width:min(100%,620px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 18. Photographs of tensile shear specimens after cohesive failure (adhesive on both faces), adhesive failure (substrate and adhesive faces) and material failure, labelled in Spanish on the slide, copied from Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=30" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 30">30</a>.</div>
+</div>
+<p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=31" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 31">31</a> separates the modes a designer accepts from those that reveal a defect:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Acceptable failure modes</th><th>Unacceptable failure modes</th></tr></thead><tbody><tr><td>Cohesive failure of the adhesive</td><td>Adhesion failure of the adhesive/adherend interface</td></tr><tr><td>Surface ply delaminations (composite adherends)</td><td>Adhesive peel (excessive out-of-plane loads)</td></tr><tr><td>Adherend failure (static or fatigue)</td><td>Adhesive creep (flow)</td></tr></tbody></table></div>
+<p>A cohesive failure means the interface was sound and the adhesive reached its own strength, which is predictable; an interface failure means bad preparation or contamination, a peel failure a joint loaded the wrong way, and creep an adhesive used above its temperature limit.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-acceptable-failure-modes.png" alt="Acceptable failure modes" loading="lazy" style="max-width:min(100%,520px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 19. Cohesive failure of the adhesive, surface ply delamination and adherend failure (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=31" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 31">31</a>).</div>
+</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-unacceptable-failure-modes.png" alt="Unacceptable failure modes" loading="lazy" style="max-width:min(100%,520px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 20. Interface adhesion failure, adhesive peel and adhesive creep (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=31" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 31">31</a>).</div>
+</div>
+    </section>
+    <section id="section-15">
+      <h2 class="section-heading"><span class="section-num">§ 15</span> Degradation mechanisms [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=32" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 32">32-34</a>]</h2>
+<p>Adhesive joints degrade gradually and fail: degradation reduces the properties and causes the failure, and it is the main problem of a bonded joint [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=32" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 32">32</a>]. The factors that affect durability are:</p>
+<ol><li><strong>Temperature:</strong> it modifies the interface properties; when $T$ rises the adherence falls, and differential thermal expansion produces residual stresses.</li><li><strong>Moisture:</strong> (a) the adhesive becomes more plastic, (b) hydrolysis, (c) micro-cracking; countered with fillers (mineral fillers, sealants, etc.).</li><li><strong>Electrochemical effects:</strong> corrosion of the adherents.</li><li><strong>The combination</strong> of temperature, moisture and mechanical loads.</li><li><strong>Ageing,</strong> due to UV light and temperature: if O₂ diffuses into the adhesive it forms hydroperoxides (polymer–O–O–H), and with temperature these split into R–O· + ·OH, free radicals that break the polymer chains.</li></ol>
+<p><strong>Temperature</strong> [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=33" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 33">33</a>]. The tensile curves of an adhesive at −40 °C, ambient and 80 °C show that as $T$ decreases the adhesive becomes stronger and stiffer but breaks at a smaller strain, while at high temperature it softens. A difference in the coefficients of thermal expansion of the adherents causes residual stresses ($\sigma_{residual}$), in the way of the thermal stresses of Topic 7.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-tensile-characteristics.png" alt="Tensile characteristics of adhesives" loading="lazy" style="max-width:min(100%,480px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 21. Stress-strain curves of an adhesive at -40 C, ambient and 80 C (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=33" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 33">33</a>).</div>
+</div>
+<p><strong>Moisture</strong> [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=33" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 33">33</a>]: water weakens the adhesive (it becomes more plastic); it displaces the adhesive bond at the interface by preferential attraction of water (<strong>segregation</strong>); it changes the adherents chemically (corrosion of the metal, <strong>hydrolysis</strong> of the oxide layer); and it can cause micro-cracking. The effect grows with temperature and humidity. The figure shows the three attacks at the interface.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T11/s24-moisture-attack-interface.png" alt="Moisture attack at the interface" loading="lazy" style="max-width:min(100%,440px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 22. Segregation, hydrolysis and corrosion at the adhesive-adherent interface (Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=33" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 33">33</a>).</div>
+</div>
+<div class="callout"><div class="callout-title">Spellings of the slides</div><p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=33" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 33">33</a> prints "expasion" and "microcraking"; Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=32" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 32">32</a> writes "joins" for joints.</p></div>
+<p>The performance of an adhesive is judged by [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=34" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 34">34</a>]:</p>
+<ul><li><strong>Mechanical criteria:</strong> resistance to static loading, to fatigue and to impact.</li><li><strong>Physical-chemical criteria:</strong> temperature resistance, ageing with temperature, resistance to moisture and resistance to chemical agents.</li></ul>
+    </section>
+    <h2 class="part-divider">Part V — Examples and Properties (Session 24, Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=35" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 35">35–38</a>)</h2>
+    <section id="section-16">
+      <h2 class="section-heading"><span class="section-num">§ 16</span> Examples of use [Session 24 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=35" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 35">35</a>]</h2>
+<div class="table-container"><table class="data-table"><thead><tr><th>Field</th><th>Use (adhesive)</th></tr></thead><tbody><tr><td>Aircraft components</td><td>Structural joints (epoxies)</td></tr><tr><td>Automotive components</td><td>Trim, stiffeners (epoxies, acrylics)</td></tr><tr><td>Railway carriages</td><td>Joining composites to steel</td></tr><tr><td>Loudspeaker cones</td><td>Quick assembly (cyanoacrylates)</td></tr><tr><td>Footwear</td><td>Hot-melt adhesives</td></tr><tr><td>Shafts, bearings, studs</td><td>Anaerobics</td></tr></tbody></table></div>
+<p>Each choice matches the properties above: epoxies where strength and temperature matter, cyanoacrylates where speed matters, anaerobics where the adhesive cures between close-fitting metal parts.</p>
+    </section>
+    <section id="section-17">
+      <h2 class="section-heading"><span class="section-num">§ 17</span> General properties and the property table [Session 24 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=36" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 36">36-38</a>]</h2>
+<p>Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=36" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 36">36</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=37" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 37">37</a> give the general properties of each family:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Type</th><th>Comments</th><th>Applications</th></tr></thead><tbody><tr><td>Acrylic</td><td>Thermoplastic; quick setting; tough bond at room temperature; two component; good solvent, chemical and impact resistance; short work life; odorous; ventilation required</td><td>Fiberglass and steel sandwich bonds, tennis racquets, metal parts, plastics</td></tr><tr><td>Anaerobic</td><td>Thermoset; easy to use; slow curing; bonds at room temperature; curing occurs in absence of air, will not cure where air contacts adherents; one component; not good on permeable surfaces</td><td>Close-fitting machine parts such as shafts and pulleys, nuts and bolts, bushings and pins</td></tr><tr><td>Epoxy</td><td>Thermoset; one or two component; tough bond; strongest of engineering adhesives; high tensile and low peel strengths; resists moisture and high temperature; difficult to use</td><td>Metal, ceramic and rigid plastic parts</td></tr><tr><td>Cyanoacrylate</td><td>Thermoplastic; quick setting; tough bond at room temperature; easy to use; colorless</td><td>"Crazy glue"</td></tr><tr><td>Hot melt</td><td>Thermoplastic; quick setting; rigid or flexible bonds; easy to apply; brittle at low temperatures; based on ethylene vinyl acetate, polyolefins, polyamides and polyesters</td><td>Bonds most materials; packaging, book binding, metal can joints</td></tr><tr><td>Pressure sensitive</td><td>Thermoplastic; variable strength bonds; a primer anchors the adhesive to the tape backing, a release agent on the back of the web permits unwinding; made of polyacrylate esters and various natural and synthetic rubbers</td><td>Tapes, labels, stickers</td></tr><tr><td>Phenolic</td><td>Thermoset; oven cured, strong bond; high tensile and low impact strength; brittle; easy to use; cures by solvent evaporation</td><td>Acoustical padding, brake lining and clutch pads, abrasive grain bonding, honeycomb structures</td></tr><tr><td>Silicone</td><td>Thermoset; slow curing; flexible; bonds at room temperature; high impact and peel strength; rubber-like</td><td>Gaskets, sealants</td></tr><tr><td>Formaldehyde (urea, melamine, phenol, resorcinol)</td><td>Thermoset; strong with wood; urea is inexpensive, available as powder or liquid and requires a catalyst; melamine is more expensive, cures with heat, bond is waterproof; resorcinol forms a waterproof bond at room temperature; types can be combined</td><td>Wood joints, plywood, bonding</td></tr><tr><td>Urethane</td><td>Thermoset; bonds at room temperature or oven cure; good gap-filling qualities</td><td>Fiberglass body parts, rubber, fabric</td></tr><tr><td>Water-base (animal, vegetable, rubbers)</td><td>Inexpensive, nontoxic, nonflammable</td><td>Wood, paper, fabric, leather, dry-seal envelopes</td></tr></tbody></table></div>
+<div class="callout"><div class="callout-title">Printed on Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=36" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 36">36</a></div><p>The anaerobic row is printed "Anaearobic". On the thermoset/thermoplastic labels of the acrylic-based families see the note of Section 8.</p></div>
+<p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=38" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 38">38</a> (Table 30.3, source: Advanced Materials &amp; Processes, July 1990, ASM International) compares the chemically reactive structural adhesives. Values in SI with the US units of the slide in brackets:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Property</th><th>Epoxy</th><th>Polyurethane</th><th>Modified acrylic</th><th>Cyanoacrylate</th><th>Anaerobic</th></tr></thead><tbody><tr><td>Impact resistance</td><td>Poor</td><td>Excellent</td><td>Good</td><td>Poor</td><td>Fair</td></tr><tr><td>Tension-shear strength, MPa (10³ psi)</td><td>15.4 (2.2)</td><td>15.4 (2.2)</td><td>25.9 (3.7)</td><td>18.9 (2.7)</td><td>17.5 (2.5)</td></tr><tr><td>Peel strength, N/m (lbf/in.)</td><td>&lt; 525 (3)</td><td>14 000 (80)</td><td>5250 (30)</td><td>&lt; 525 (3)</td><td>1750 (10)</td></tr><tr><td>Substrates bonded</td><td>Most materials</td><td>Most smooth, nonporous</td><td>Most smooth, nonporous</td><td>Most nonporous metals or plastics</td><td>Metals, glass, thermosets</td></tr><tr><td>Service temperature range, °C (°F)</td><td>−55 to 120 (−70 to 250)</td><td>−160 to 80 (−250 to 175)</td><td>−70 to 120 (−100 to 250)</td><td>−55 to 80 (−70 to 175)</td><td>−55 to 150 (−70 to 300)</td></tr><tr><td>Heat cure or mixing required</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr><tr><td>Solvent resistance</td><td>Excellent</td><td>Good</td><td>Good</td><td>Good</td><td>Excellent</td></tr><tr><td>Moisture resistance</td><td>Excellent</td><td>Fair</td><td>Good</td><td>Poor</td><td>Good</td></tr><tr><td>Gap limitation, mm (in.)</td><td>None</td><td>None</td><td>0.75 (0.03)</td><td>0.25 (0.01)</td><td>0.60 (0.025)</td></tr><tr><td>Odor</td><td>Mild</td><td>Mild</td><td>Strong</td><td>Moderate</td><td>Mild</td></tr><tr><td>Toxicity</td><td>Moderate</td><td>Moderate</td><td>Moderate</td><td>Low</td><td>Low</td></tr><tr><td>Flammability</td><td>Low</td><td>Low</td><td>High</td><td>Low</td><td>Low</td></tr></tbody></table></div>
+<div class="callout"><div class="callout-title">Printed on Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session%2024%20T11%20Adhesives.pdf#page=38" target="_blank" rel="noopener" title="Open Session 24 T11 Adhesives.pdf at page 38">38</a></div><p>The slide prints the lower service temperature of the modified acrylic as "70" °C. Its own Fahrenheit value, −100 °F, is $(-100 - 32)/1.8 = -73\ ^\circ\text{C}$, so the Celsius value is −70 °C and the minus sign is missing; the table above uses −70. The other unit pairs agree: 1 lbf/in. = 175 N/m, so 3, 80, 30 and 10 lbf/in. are 525, 14 000, 5250 and 1750 N/m, and 1 ksi = 6.895 MPa reproduces the tension-shear column.</p></div>
+<p>Read together, the table shows the trade-off of the whole topic: the rigid epoxy and cyanoacrylate have tension-shear strengths of the same order as the others but a peel strength below 525 N/m, while the flexible polyurethane peels at 14 000 N/m with the same shear strength as epoxy. Strength in shear and resistance to peel are different properties, and the joint design of Section 10 is what keeps a rigid structural adhesive out of peel.</p>
+<p>## Summary</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Idea</th><th>Content</th><th>Section</th></tr></thead><tbody><tr><td>Adhesion vs cohesion</td><td>Interface bond vs strength of the adhesive; adhesive vs cohesive failure</td><td>3, 14</td></tr><tr><td>Mechanisms</td><td>Mechanical, electrostatic, diffusive, adsorption (secondary bonds, wetting), chemical (primary bonds)</td><td>4</td></tr><tr><td>Wetting</td><td>Adhesive surface tension lower than that of the substrate</td><td>5, 11</td></tr><tr><td>Rigid / tough / flexible</td><td>Anaerobics, cyanoacrylates, epoxies / acrylics / silicones, polyurethanes</td><td>7</td></tr><tr><td>Joint design</td><td>Load in shear or compression, avoid peel, cleavage and tension</td><td>10</td></tr><tr><td>Durability factors</td><td>Temperature, moisture, corrosion, combined loads, ageing</td><td>15</td></tr><tr><td>Peel strength</td><td>Epoxy &lt; 525 N/m, polyurethane 14 000 N/m</td><td>17</td></tr></tbody></table></div>
+    </section>
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;" data-i18n="materials.footer">
+      Aerospace Materials I · Department of Materials Science and Engineering · Universidad Carlos III de Madrid (UC3M)
+    </div>
+  </footer>
+
+  <!-- Scripts: i18n & Motivational Quotes -->
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

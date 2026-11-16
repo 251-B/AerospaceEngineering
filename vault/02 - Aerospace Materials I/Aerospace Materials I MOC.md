@@ -283,14 +283,14 @@ tags:
   * Micromechanics of unidirectional laminae: longitudinal and transverse rule of mixtures ($E_1, E_2, \nu_{12}, G_{12}$).
   * Aeronautical manufacturing: prepregs, autoclave, resin infusion (RTM/VARTM), filament winding.
 
-#### Topic 11: Structural Adhesives and Joint Design (planned)
+#### [[02 - Aerospace Materials I/Topic 11 - Adhesives|Topic 11: Adhesives]] (theory complete: Session 24; the topic has no problem sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-11-adhesives.html`
 * **Official Sources:**
-  * Theory: `Session 24 T11 Adhesives.pdf`
+  * Theory: `Session 24 T11 Adhesives.pdf` (Slides 1-38)
 * **Main Content:**
-  * Adhesion mechanisms (mechanical, physicochemical, diffusion).
-  * Failure modes in adhesive joints (adhesive vs cohesive vs substrate delamination).
-  * Types of structural adhesives (epoxies, polyurethanes, acrylics). Joint design and mechanical testing.
+  * Adhesion versus cohesion and the mechanisms of adhesion (mechanical, electrostatic, diffusive, adsorption, chemical), wetting and surface roughness.
+  * Components and classification of adhesives (anaerobics, cyanoacrylates, epoxies, polyurethanes, acrylics), joint design, adherent preparation, primers, application and curing.
+  * Testing (tack, peel, normal and shear stresses), modes of failure (adhesive, cohesive, substrate) and degradation by temperature, moisture and corrosion.
 
 ---
 

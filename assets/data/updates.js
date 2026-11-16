@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-16-materials-topic-11",
+    "date": "2026-11-16",
+    "tag": "Aerospace Materials I",
+    "title": "Aerospace Materials I: Topic 11 Adhesives theory",
+    "text": "New theory page on adhesives: how adhesion works, the main adhesive families, how to design and prepare a bonded joint, and how joints fail and degrade.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html"
+  },
+  {
     "id": "2026-11-16-subject-skies",
     "date": "2026-11-16",
     "tag": "Portal",

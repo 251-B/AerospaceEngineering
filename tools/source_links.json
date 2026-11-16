@@ -771,6 +771,11 @@
    "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf",
    "label": "10 Rigid body dynamics.pdf",
    "pages": 20
+  },
+  "mat-s24": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session 24 T11 Adhesives.pdf",
+   "label": "Session 24 T11 Adhesives.pdf",
+   "pages": 38
   }
  },
  "lectures": {
@@ -3280,6 +3285,20 @@
      "fm-vf20",
      1
     ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html": {
+   "panel": [
+    [
+     "mat-s24",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s24",
+    "sessions": {
+     "24": "mat-s24"
+    }
    }
   }
  }

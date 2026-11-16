@@ -182,6 +182,16 @@
     "label": "2 solved problems for this topic (Problems T6andT7, problems 11-12, the magnetic part of the sheet)"
    }
   },
+  "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 11 - Adhesives.md",
+   "figures": "materials_t11",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 11: Adhesives — Aerospace Materials I",
+   "category": "Topic 11 · Adhesives",
+   "title": "Adhesives",
+   "subtitle": "How adhesion works, the main adhesive families, how to design and prepare a bonded joint, how it is tested, and how adhesive joints fail and degrade.",
+   "source": "Universidad Carlos III de Madrid · Session 24 T11 Adhesives.pdf"
+  },
   "subjects/fluid-mechanics/teoria/topic-6.html": {
    "flavor": "fluids",
    "template": "subjects/fluid-mechanics/teoria/topic-3-2-mass.html",

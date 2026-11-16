@@ -146,6 +146,10 @@ window.AE_NAV = {
             {
               "href": "subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html",
               "label": "7 · Magnetic and thermal properties"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html",
+              "label": "11 · Adhesives"
             }
           ]
         },
