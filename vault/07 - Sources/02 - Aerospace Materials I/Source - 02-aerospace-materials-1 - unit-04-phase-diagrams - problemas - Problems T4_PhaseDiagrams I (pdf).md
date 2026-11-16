@@ -19,7 +19,7 @@ bytes: 626247
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams I.pdf`
 - **Kind:** problemas
 - **Size:** 626.2 kB
-- **Status:** referenced by 17 note(s) below
+- **Status:** referenced by 18 note(s) below
 
 ## Referenced by
 
@@ -39,4 +39,5 @@ bytes: 626247
 - [[02 - Aerospace Materials I/Problem - T4-PD13 Compounds and Cooling of a Ti-30 Si Alloy]]
 - [[02 - Aerospace Materials I/Problem - T4-PD14 Reading a Hypothetical Diagram with Several Compounds]]
 - [[02 - Aerospace Materials I/Problem - T4-PD15 The Ti-B System and Ti-10 B and Ti-18 B Alloys]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B07 - Unit 4 Eutectic Systems and the Pb-Sn Diagram]]
 - [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification]]

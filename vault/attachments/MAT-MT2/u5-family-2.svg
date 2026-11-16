@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="100%" class="fig-kit" style="max-width:200px;margin:0 auto;display:block" role="img" aria-label="Tensile curve 2">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="26.0" y1="128.0" x2="186.0" y2="128.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M186.0,128.0 L177.7,131.5 L177.7,124.5 Z" fill="#8a94a6"/>
+<line x1="26.0" y1="128.0" x2="26.0" y2="20.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M26.0,20.0 L29.5,28.3 L22.5,28.3 Z" fill="#8a94a6"/>
+<text x="186.0" y="144.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">ε</text>
+<text x="33.0" y="24.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="start">σ</text>
+<polyline points="26.0,128.0 40.4,39.4" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="40.4" y="44.4" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">×</text>
+</g></svg>

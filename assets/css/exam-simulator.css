@@ -364,3 +364,4 @@ body:has(#examSimulator) .page-header > p { display: none; }
   .sim-mcq__opt input { appearance: none; width: 11px; height: 11px; border: 1px solid #000; border-radius: 0; }
   .sim-block-card, #simBlock .sim-actions { display: none; }
 }
+.sim-question--mcq .sim-question__head a { color: var(--text-primary); }

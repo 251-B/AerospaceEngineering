@@ -137,7 +137,7 @@ d
 Session 12, Slide 4: strain hardening, solid solution strengthening, grain size reduction strengthening and precipitation strengthening. Growth of the grains removes barriers to slip, the opposite of grain size reduction (Slide 10).
 
 - a) It is listed: solute atoms distort the lattice (Slides 4 and 8).
-- b) It is listed: particles of a second phase obstruct dislocations (Slides 4 and 12).
+- b) It is listed: particles of a secondary phase obstruct dislocations (Slides 4 and 12).
 - c) It is listed: cold work raises the dislocation density (Slides 4-5).
 
 ### Source
@@ -183,7 +183,7 @@ Session 12, Slides 2-4.
 
 Which one of the following statements about strain hardening is TRUE?
 
-a) It works by particles of a second phase in the grains
+a) It works by particles of a secondary phase in the grains
 b) Cold deformation multiplies dislocations, which tangle together
 c) It works by solute atoms that distort the lattice
 d) Cold deformation removes dislocations, so slip becomes easier

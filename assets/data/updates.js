@@ -15,11 +15,11 @@
  */
 window.AE_UPDATES = [
   {
-    "id": "2026-11-15-materials-midterm-2-simulator",
-    "date": "2026-11-15",
+    "id": "2026-11-16-materials-midterm-2-simulator",
+    "date": "2026-11-16",
     "tag": "Aerospace Materials I",
     "title": "Materials: Midterm 2 test bank and exam simulator",
-    "text": "520 test questions on Units 4 to 7 with every answer explained, 20 solved problems, and a timed exam that marks the test with the real penalty.",
+    "text": "Test questions on Units 4 to 7 in blocks of ten, every answer explained, and a timed test marked with the real penalty. The solved problems come next.",
     "link": "subjects/aerospace-materials-1/simulator/index.html"
   },
   {

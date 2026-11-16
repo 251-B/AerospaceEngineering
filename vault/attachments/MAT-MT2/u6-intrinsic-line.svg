@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 300" width="100%" class="fig-kit" style="max-width:440px;margin:0 auto;display:block" role="img" aria-label="ln σ against 1/T for an intrinsic semiconductor: a straight line through two marked points">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="70.0" y1="250.0" x2="438.6" y2="250.0" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M444.0,250.0 L435.7,253.5 L435.7,246.5 Z" fill="#8a94a6"/>
+<line x1="70.0" y1="250.0" x2="70.0" y2="26.6" stroke="#8a94a6" stroke-width="1.5"/>
+<path d="M70.0,21.2 L73.5,29.5 L66.5,29.5 Z" fill="#8a94a6"/>
+<line x1="180.0" y1="250.0" x2="180.0" y2="255.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="180.0" y="270.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">1.0</text>
+<line x1="290.0" y1="250.0" x2="290.0" y2="255.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="290.0" y="270.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">2.0</text>
+<line x1="400.0" y1="250.0" x2="400.0" y2="255.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="400.0" y="270.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">3.0</text>
+<text x="257.0" y="292.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">1/T (10<tspan baseline-shift="super" font-size="72%">−3</tspan> K<tspan baseline-shift="super" font-size="72%">−1</tspan>)</text>
+<line x1="65.0" y1="250.0" x2="70.0" y2="250.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="61.0" y="254.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">0</text>
+<line x1="65.0" y1="198.0" x2="70.0" y2="198.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="61.0" y="202.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">2</text>
+<line x1="65.0" y1="146.0" x2="70.0" y2="146.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="61.0" y="150.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">4</text>
+<line x1="65.0" y1="94.0" x2="70.0" y2="94.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="61.0" y="98.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">6</text>
+<line x1="65.0" y1="42.0" x2="70.0" y2="42.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="61.0" y="46.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">8</text>
+<text x="24" y="135.6" fill="#6b7280" font-size="13" text-anchor="middle" transform="rotate(-90 24 135.6)">ln σ, σ in (Ω·m)⁻¹</text>
+<polyline points="163.5,43.0 299.9,249.5" fill="none" stroke="#ec4899" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="180.0" y1="250.0" x2="180.0" y2="68.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4 4"/>
+<line x1="70.0" y1="68.0" x2="180.0" y2="68.0" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4 4"/>
+<circle cx="180.0" cy="68.0" r="4.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<line x1="290.0" y1="250.0" x2="290.0" y2="234.4" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4 4"/>
+<line x1="70.0" y1="234.4" x2="290.0" y2="234.4" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="4 4"/>
+<circle cx="290.0" cy="234.4" r="4.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="190.0" y="62.0" fill="#4b5563" font-size="12" font-weight="400" text-anchor="start">(1.0, 7.0)</text>
+<text x="300.0" y="226.4" fill="#4b5563" font-size="12" font-weight="400" text-anchor="start">(2.0, 0.6)</text>
+</g></svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160" width="100%" class="fig-kit" style="max-width:220px;margin:0 auto;display:block" role="img" aria-label="Cooling curve A">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="30.0" y1="130.0" x2="200.0" y2="130.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="30.0" y1="20.0" x2="30.0" y2="130.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="200.0" y="148.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="end">time</text>
+<text x="24.0" y="24.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">T</text>
+<polyline points="34.0,24.0 80.0,70.0 140.0,70.0 196.0,118.0" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="200.0" y="34.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="end">Curve A</text>
+</g></svg>

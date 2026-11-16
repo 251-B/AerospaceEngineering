@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 148" width="100%" class="fig-kit" style="max-width:200px;margin:0 auto;display:block" role="img" aria-label="Arrangement of magnetic dipoles (option picture)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="34.0" cy="30.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="80.0" cy="30.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="126.0" cy="30.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="172.0" cy="30.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="34.0" cy="74.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="80.0" cy="74.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="126.0" cy="74.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="172.0" cy="74.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="34.0" cy="118.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="80.0" cy="118.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="126.0" cy="118.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<circle cx="172.0" cy="118.0" r="13.0" fill="#8a94a6" fill-opacity="0.12" stroke="#8a94a6" stroke-width="1.0" stroke-linejoin="round"/>
+<line x1="34.0" y1="46.0" x2="34.0" y2="18.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M34.0,14.0 L37.1,21.4 L30.9,21.4 Z" fill="#3b82f6"/>
+<line x1="80.0" y1="23.0" x2="80.0" y2="32.2" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M80.0,37.0 L76.9,29.6 L83.1,29.6 Z" fill="#3b82f6"/>
+<line x1="126.0" y1="46.0" x2="126.0" y2="18.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M126.0,14.0 L129.1,21.4 L122.9,21.4 Z" fill="#3b82f6"/>
+<line x1="172.0" y1="23.0" x2="172.0" y2="32.2" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M172.0,37.0 L168.9,29.6 L175.1,29.6 Z" fill="#3b82f6"/>
+<line x1="34.0" y1="67.0" x2="34.0" y2="76.2" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M34.0,81.0 L30.9,73.6 L37.1,73.6 Z" fill="#3b82f6"/>
+<line x1="80.0" y1="90.0" x2="80.0" y2="62.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M80.0,58.0 L83.1,65.4 L76.9,65.4 Z" fill="#3b82f6"/>
+<line x1="126.0" y1="67.0" x2="126.0" y2="76.2" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M126.0,81.0 L122.9,73.6 L129.1,73.6 Z" fill="#3b82f6"/>
+<line x1="172.0" y1="90.0" x2="172.0" y2="62.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M172.0,58.0 L175.1,65.4 L168.9,65.4 Z" fill="#3b82f6"/>
+<line x1="34.0" y1="134.0" x2="34.0" y2="106.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M34.0,102.0 L37.1,109.4 L30.9,109.4 Z" fill="#3b82f6"/>
+<line x1="80.0" y1="111.0" x2="80.0" y2="120.2" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M80.0,125.0 L76.9,117.6 L83.1,117.6 Z" fill="#3b82f6"/>
+<line x1="126.0" y1="134.0" x2="126.0" y2="106.8" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M126.0,102.0 L129.1,109.4 L122.9,109.4 Z" fill="#3b82f6"/>
+<line x1="172.0" y1="111.0" x2="172.0" y2="120.2" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M172.0,125.0 L168.9,117.6 L175.1,117.6 Z" fill="#3b82f6"/>
+</g></svg>

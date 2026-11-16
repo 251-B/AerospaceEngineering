@@ -385,7 +385,8 @@ def _question(block_id, number, title, rest, meta, where, figs, path):
         "source_html": emb.render(named["Source"].split("\n"), where, figs),
         "calc": info.get("calc"), "check": info.get("check"),
         "vault_note": path.relative_to(REPO).as_posix() if path.is_relative_to(REPO) else path.name,
-        "_text": plain_stem + " || " + " | ".join(options[k] for k in LETTERS),
+        # for the similarity check an option that is only a picture counts as its figure name
+        "_text": plain_stem + " || " + " | ".join(_EMBED.sub(lambda m: m.group(2), options[k]) for k in LETTERS),
     }
 
 
@@ -709,6 +710,10 @@ def _problem_card(item):
 
 
 def render_problems_page(problems):
+    if not problems:
+        return ('      <p class="midterm-part-lead">The Part II problems of the bank are being written and will appear here. '
+                'Meanwhile, the official problems of Units 4 to 6 are solved on the <a href="../problemas/index.html">Problems</a> '
+                'page and the test questions are on the <a href="midterm-2-test.html">test page</a>.</p>\n')
     lead = (f'      <p class="midterm-part-lead">{len(problems)} exam-style problems of 5 points, written for this portal. '
             'Part II of Assessment Test II is one problem of 5 points with four parts on a binary phase diagram; the other '
             'types follow the problems on Units 5 and 6 of the final exams. These are practice items, not official '
