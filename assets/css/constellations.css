@@ -8,7 +8,11 @@
 
 /* ---- Palettes -------------------------------------------------------------------------- */
 html, html[data-sky-palette="deep-cosmos"] {
-  --sk-bg: radial-gradient(ellipse at 50% 38%, rgba(18, 28, 72, 0.50), rgba(5, 8, 17, 0.62));
+  --sk-bg:
+    radial-gradient(ellipse 45% 38% at 18% 28%, rgba(0, 200, 255, 0.10), transparent 70%),
+    radial-gradient(ellipse 40% 36% at 82% 24%, rgba(170, 90, 255, 0.13), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 60% 84%, rgba(255, 60, 140, 0.09), transparent 70%),
+    radial-gradient(ellipse at 50% 40%, rgba(16, 20, 64, 0.55), rgba(4, 6, 16, 0.72));
   --sk-text: #f8fafc;
   --sk-text-2: #cbd5e1;
   --sk-halo: #050811;
@@ -30,7 +34,10 @@ html[data-sky-palette="observatory-charcoal"] {
   --sk-grid: none;
 }
 html[data-sky-palette="nebula-indigo"] {
-  --sk-bg: linear-gradient(160deg, rgba(40, 22, 92, 0.90), rgba(12, 10, 38, 0.94));
+  --sk-bg:
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(255, 110, 200, 0.16), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 80% 25%, rgba(110, 160, 255, 0.14), transparent 70%),
+    linear-gradient(160deg, rgba(40, 22, 92, 0.90), rgba(12, 10, 38, 0.94));
   --sk-text: #f5f3ff;
   --sk-text-2: #ddd6fe;
   --sk-halo: #1a1048;
@@ -65,9 +72,16 @@ html[data-sky-palette="blueprint-cyan"] {
     linear-gradient(90deg, rgba(125, 211, 252, 0.10) 1px, transparent 1px);
 }
 
-/* Subject accents: neon on dark polarities, the plain accent on the light one. */
-.sky-view { --c-fluid: var(--neon-fluid); --c-materials: var(--neon-materials); --c-mechanics: var(--neon-mechanics); --c-maths: var(--neon-maths); --c-business: var(--neon-business); }
-html[data-theme="light"] .sky-view { --c-fluid: #0e7490; --c-materials: #b45309; --c-mechanics: #047857; --c-maths: #4338ca; --c-business: #b91c1c; }
+/* Subject colours: neon stars on the dark palettes, deeper hues on the light one.
+   --c-* is the star and line colour, --ct-* the colour of the constellation name (7:1 or better on its palette). */
+.sky-view {
+  --c-fluid: #19f3ff; --c-materials: #ffc21a; --c-mechanics: #22ffb0; --c-maths: #b794ff; --c-business: #ff3d8b;
+  --ct-fluid: #7af7ff; --ct-materials: #ffd866; --ct-mechanics: #6dffcb; --ct-maths: #cdb8ff; --ct-business: #ff8fb8;
+}
+html[data-theme="light"] .sky-view {
+  --c-fluid: #0891b2; --c-materials: #d97706; --c-mechanics: #059669; --c-maths: #6d4aff; --c-business: #e11d6a;
+  --ct-fluid: #0e5f76; --ct-materials: #8a3d0a; --ct-mechanics: #065f46; --ct-maths: #3b2bb5; --ct-business: #9f1239;
+}
 
 /* ---- Switching between the two views -------------------------------------------------- */
 html[data-home-view="constellations"] .classic-only { display: none !important; }
@@ -101,11 +115,11 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
   border: 1px solid var(--sk-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background-image: var(--sk-grid), var(--sk-bg);
-  background-size: 48px 48px, auto;
+  background: var(--sk-bg);
   color: var(--sk-text);
   touch-action: manipulation;
 }
+.sky-view::before { content: ''; position: absolute; inset: 0; background-image: var(--sk-grid); background-size: 48px 48px; pointer-events: none; }
 .sky-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
 .sky-title {
@@ -139,41 +153,58 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 
 /* ---- SVG layers ------------------------------------------------------------------------ */
 .sky-svg text { font-family: var(--font-body); fill: var(--sk-text); paint-order: stroke; stroke: var(--sk-halo); stroke-width: calc(var(--u, 1) * 3.4px); stroke-linejoin: round; }
-.guide-line { stroke: var(--sk-guide); stroke-width: calc(var(--u, 1) * 1px); stroke-dasharray: 3 9; fill: none; transition: opacity 0.5s; }
-.sky-svg.is-zoomed .guide-line, .sky-svg.is-zoomed .pulsar { opacity: 0.12; }
+.guide-line { stroke: var(--sk-guide); stroke-width: calc(var(--u, 1) * 1px); stroke-dasharray: 2 10; stroke-linecap: round; fill: none; transition: opacity 0.6s; }
+.sky-svg.is-zoomed .guide-line, .sky-svg.is-zoomed .pulsar { opacity: 0.10; }
 
-.const { cursor: pointer; outline: none; transition: opacity 0.5s; }
+.dust { fill: var(--sk-text); opacity: 0.55; animation: twinkle 4.6s ease-in-out var(--d, 0s) infinite; }
+.dust.far { opacity: 0.35; }
+@keyframes twinkle { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.9; } }
+
+.const { cursor: pointer; outline: none; transition: opacity 0.6s; }
 .const-hit { fill: transparent; }
-.const-edge { stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.5px); opacity: 0.75; fill: none; stroke-linecap: round; }
-.const-decor { stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.1px); opacity: 0.35; fill: none; stroke-dasharray: 4 7; stroke-linecap: round; }
-.const-dot { fill: var(--c); opacity: 0.55; }
-.const-glow { fill: var(--c); opacity: 0.05; transition: opacity 0.4s; }
-.const:hover .const-glow, .const:focus-visible .const-glow, .const.is-active .const-glow { opacity: 0.12; }
-.const:focus-visible .const-hit { stroke: var(--sk-text); stroke-width: calc(var(--u, 1) * 2px); stroke-dasharray: 6 6; }
-.sky-svg.is-zoomed .const:not(.is-active) { opacity: 0.10; pointer-events: none; }
+/* No fill or disc behind a figure: its lines and stars are the light. */
+.const-edge { stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.6px); opacity: 0.8; fill: none; stroke-linecap: round;
+  filter: drop-shadow(0 0 calc(var(--u, 1) * 2px) var(--c)); transition: opacity 0.4s, filter 0.4s, stroke-width 0.4s; }
+.const-edge.is-faint { opacity: 0.4; stroke-dasharray: 3 7; }
+.const-decor { stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.2px); opacity: 0.30; fill: none; stroke-dasharray: 1 9; stroke-linecap: round; }
+.const-dot { fill: var(--c); opacity: 0.6; filter: drop-shadow(0 0 calc(var(--u, 1) * 3px) var(--c)); }
+.const:hover .const-edge, .const:focus-visible .const-edge, .const.is-active .const-edge {
+  opacity: 1; stroke-width: calc(var(--u, 1) * 2.2px);
+  filter: drop-shadow(0 0 calc(var(--u, 1) * 4px) var(--c)) drop-shadow(0 0 calc(var(--u, 1) * 10px) var(--c)); }
+.const:hover .const-edge.is-faint, .const.is-active .const-edge.is-faint { opacity: 0.5; }
+.const:focus-visible .const-hit { stroke: var(--sk-text-2); stroke-width: calc(var(--u, 1) * 1.5px); stroke-dasharray: 2 8; }
+.sky-svg.is-zoomed .const:not(.is-active) { opacity: 0.08; pointer-events: none; }
 
-.const-title { font-family: var(--font-display); font-size: calc(var(--u, 1) * 17px); text-anchor: middle; }
-.const-sub { font-size: calc(var(--u, 1) * 12px); text-anchor: middle; fill: var(--sk-text-2); font-family: var(--font-mono); }
+.sky-svg .const-title { font-family: var(--font-display); font-size: calc(var(--u, 1) * 24px * var(--tk, 1)); text-anchor: middle; fill: var(--ct); letter-spacing: 0.04em;
+  stroke-width: calc(var(--u, 1) * 4px); filter: drop-shadow(0 0 calc(var(--u, 1) * 7px) var(--c)); transition: filter 0.4s; }
+.const:hover .const-title { filter: drop-shadow(0 0 calc(var(--u, 1) * 4px) var(--c)) drop-shadow(0 0 calc(var(--u, 1) * 12px) var(--c)); }
+.sky-svg .const-sub { font-size: calc(var(--u, 1) * 12px * var(--tk, 1)); text-anchor: middle; fill: var(--sk-text-2); font-family: var(--font-mono); letter-spacing: 0.06em; }
 .sky-svg.is-zoomed .const-title, .sky-svg.is-zoomed .const-sub { display: none; }
 
 .star { cursor: pointer; outline: none; }
 .star-hit { fill: transparent; }
-.star-core { fill: var(--c); }
-.star-halo { fill: var(--c); opacity: 0.20; }
-.star-glyph { fill: var(--c); transform-box: fill-box; transform-origin: center; transform: scale(0.34); transition: transform 0.4s ease; }
-.const.is-active .star-glyph { transform: scale(0.95); }
+.star-flare { opacity: 0.8; transition: opacity 0.4s; }
+.star-core { fill: #ffffff; filter: drop-shadow(0 0 calc(var(--u, 1) * 3px) var(--c)); }
+.star-glyph { fill: var(--c); transform-box: fill-box; transform-origin: center; transform: scale(0.28); transition: transform 0.5s ease, opacity 0.4s;
+  filter: drop-shadow(0 0 calc(var(--u, 1) * 3px) var(--c)) drop-shadow(0 0 calc(var(--u, 1) * 8px) var(--c)); }
+.const.is-active .star-glyph { transform: scale(0.85); }
+.star-icon { opacity: 0; transition: opacity 0.4s 0.15s; pointer-events: none; }
+.star-icon-bg { fill: var(--c); filter: drop-shadow(0 0 calc(var(--u, 1) * 5px) var(--c)); }
+.star-icon-glyph { color: var(--sk-halo); }
+.const.is-active .star-icon { opacity: 1; }
+.const.is-active .star-core { opacity: 0; }
 .star-name, .star-count { display: none; }
-.const.is-active .star-name { display: block; font-size: calc(var(--u, 1) * 14px); }
+.const.is-active .star-name { display: block; font-size: calc(var(--u, 1) * 15px * var(--tk, 1)); }
 .const.is-active .star-count { display: none; font-size: calc(var(--u, 1) * 12px); fill: var(--sk-text-2); font-family: var(--font-mono); }
 .const.is-active .star:hover .star-count, .const.is-active .star:focus-visible .star-count { display: block; }
-.const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(1.35); }
-.const.is-active .star:hover .star-halo, .const.is-active .star:focus-visible .star-halo { opacity: 0.45; }
+.const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(1.2); }
+.const.is-active .star:hover .star-flare, .const.is-active .star:focus-visible .star-flare { opacity: 1; }
 .star:focus-visible .star-hit { stroke: var(--sk-text); stroke-width: calc(var(--u, 1) * 2px); }
-.star.is-soon .star-glyph { opacity: 0.6; }
+.star.is-soon .star-glyph { opacity: 0.7; }
 
-.pulsar-core { fill: var(--sk-text-2); }
+.pulsar-core { fill: var(--sk-text); filter: drop-shadow(0 0 calc(var(--u, 1) * 6px) var(--sk-text-2)); }
 .pulsar-ring { fill: none; stroke: var(--sk-text-2); stroke-width: calc(var(--u, 1) * 1.2px); opacity: 0.6; transform-box: fill-box; transform-origin: center; animation: pulsar 3.2s ease-out infinite; }
-.pulsar-label { font-size: calc(var(--u, 1) * 13px); fill: var(--sk-text-2); font-family: var(--font-mono); text-anchor: end; }
+.sky-svg .pulsar-label { font-size: calc(var(--u, 1) * 13px); fill: var(--sk-text-2); font-family: var(--font-mono); text-anchor: end; }
 @keyframes pulsar { from { transform: scale(0.5); opacity: 0.7; } to { transform: scale(2.4); opacity: 0; } }
 
 /* ---- Small screens ---------------------------------------------------------------------- */
@@ -186,7 +217,8 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .const, .guide-line, .star-glyph, .const-glow { transition: none; }
+  .const, .guide-line, .star-glyph, .const-edge, .const-title { transition: none; }
+  .dust { animation: none; opacity: 0.5; }
   .pulsar-ring { animation: none; opacity: 0.35; }
 }
 

@@ -64,80 +64,77 @@
      +-180). anchors() are the places the stars take, in section order; edges join anchors by
      index; decor are faint extra paths that complete the silhouette.
      --------------------------------------------------------------------------------------- */
-  function ring(n, rx, ry, start, rot) {
-    var out = [], c = Math.cos(rot || 0), s = Math.sin(rot || 0);
-    for (var k = 0; k < n; k++) {
-      var a = start + k * 2 * Math.PI / n, x = rx * Math.cos(a), y = ry * Math.sin(a);
-      out.push([Math.round(x * c - y * s), Math.round(x * s + y * c)]);
-    }
-    return out;
-  }
   function chain(n, closed) {
     var e = [];
     for (var k = 0; k < n - 1; k++) e.push([k, k + 1]);
     if (closed) e.push([n - 1, 0]);
     return e;
   }
+  function rotate(points, deg) {
+    var a = deg * Math.PI / 180, c = Math.cos(a), sn = Math.sin(a);
+    return points.map(function (p) { return [Math.round(p[0] * c - p[1] * sn), Math.round(p[0] * sn + p[1] * c)]; });
+  }
+  function seeded(seed) {   // mulberry32: the same sky every visit
+    return function () {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
 
+  /* Hand-placed, loose silhouettes: a vortex, a distorted lattice cell, an open orbit, a damped wave
+     and a network. `use` says which anchors take a star when the subject has fewer areas than
+     anchors; the others stay as faint stars of the figure. `rot` turns the whole figure. */
   var META = {
     'fluid-mechanics': {
-      latin: 'Stella Fluidorum', color: 'fluid',
-      anchors: (function () {
-        var out = [];
-        for (var k = 0; k < 7; k++) {   // a spiral that unwinds like a vortex
-          var a = -2.7 + k * 0.98, r = 182 - k * 21;
-          out.push([Math.round(r * Math.cos(a)), Math.round(r * Math.sin(a) * 0.82)]);
-        }
-        return out;
-      })(),
-      edges: chain(7, false),
-      decor: ['M-190 -100 C-110 -150 -20 -50 60 -100 S160 -90 195 -120', 'M-195 120 C-115 80 -35 160 45 120 S150 130 195 100']
+      latin: 'Stella Fluidorum', color: 'fluid', rot: -14,
+      anchors: [[-205, 62], [-140, -28], [-62, -98], [42, -84], [110, -8], [72, 74], [-8, 44]],
+      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]],
+      use: { 4: [0, 2, 4, 6] },
+      flow: [[[-215, 20], [-150, -70], [-70, -128], [30, -120], [120, -60]], [[-190, 108], [-100, 70], [-20, 96], [70, 118], [150, 76]]]
     },
     'aerospace-materials-1': {
-      latin: 'Stella Materiae', color: 'materials',
-      anchors: ring(6, 118, 118, -Math.PI / 2).concat([[0, 0]]),   // a hexagonal lattice cell and its centre
-      edges: chain(6, true).concat([[0, 6], [2, 6], [4, 6]]),
-      decor: ['M0 -160 L139 -80 L139 80 L0 160 L-139 80 L-139 -80 Z']
+      latin: 'Stella Materiae', color: 'materials', rot: 9,
+      anchors: [[-12, -150], [118, -88], [138, 46], [28, 138], [-108, 90], [-142, -46], [-6, -4]],
+      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [2, 6], [4, 6]],
+      use: { 6: [0, 1, 2, 3, 4, 5] },
+      flow: [[[-196, -120], [-60, -196], [60, -190]], [[150, 150], [60, 200], [-70, 196]]]
     },
     'engineering-mechanics': {
-      latin: 'Stella Mechanicae', color: 'mechanics',
-      anchors: ring(7, 175, 88, -2.2, -0.35),   // an elliptic orbit
-      edges: chain(7, true),
-      decor: ['M0 0 L165 -62', 'M-190 40 L190 -40']
+      latin: 'Stella Mechanicae', color: 'mechanics', rot: 12,
+      anchors: [[-205, 40], [-150, -48], [-52, -96], [70, -78], [168, -16], [128, 66], [12, 88]],
+      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0]],
+      use: {},
+      flow: [[[-30, 4], [60, -40], [140, -100]], [[-210, 100], [-100, 150], [60, 160]]]
     },
     'advanced-maths': {
-      latin: 'Stella Matheseos', color: 'maths',
-      anchors: (function () {   // one period of a harmonic wave, a star at every node and extremum
-        var out = [];
-        for (var k = 0; k < 7; k++) out.push([-240 + k * 80, Math.round(-100 * Math.sin(k * Math.PI / 3))]);
-        return out;
-      })(),
-      labels: ['l', 't', 'b', 't', 'b', 't', 'r'],
-      edges: chain(7, false),
-      decor: (function () {
-        var d = 'M-240 0';
-        for (var x = -230; x <= 240; x += 10) d += ' L' + x + ' ' + (-115.5 * Math.sin((x + 240) / 80 * Math.PI / 3)).toFixed(1);
-        return ['M-250 0 L250 0', d];
-      })()
+      latin: 'Stella Matheseos', color: 'maths', rot: -8,
+      anchors: [[-235, 12], [-168, -84], [-88, -66], [-12, 28], [62, 100], [142, 52], [226, -34]],
+      labels: ['l', 't', 't', 'b', 'b', 't', 'r'],
+      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]],
+      use: {},
+      flow: [[[-240, 36], [-120, 60], [0, 90], [120, 120]], [[-200, -120], [-60, -140], [90, -110], [210, -90]]]
     },
     'business-management': {
-      latin: 'Stella Oeconomiae', color: 'business',
-      anchors: [[-155, 38], [-82, -76], [0, 22], [76, -84], [158, -8], [62, 92], [-64, 104]],   // a network graph
+      latin: 'Stella Oeconomiae', color: 'business', rot: 16,
+      anchors: [[-168, 52], [-98, -74], [-8, 22], [64, -92], [158, -22], [88, 88], [-62, 108]],
       edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 2], [2, 6], [6, 0], [1, 6]],
-      decor: ['M-155 38 L62 92']
+      use: { 6: [0, 1, 2, 3, 4, 5] },
+      flow: [[[100, -150], [170, -90]], [[-190, -20], [-140, -120]]]
     }
   };
   var ORDER = ['fluid-mechanics', 'aerospace-materials-1', 'engineering-mechanics', 'advanced-maths', 'business-management'];
 
   // Main areas of a subject, in this order. Labels follow the brief; keys come from nav.json.
   var SECTIONS = [
-    { key: 'theory',  label: 'Theory' },
-    { key: 'problems', label: 'Solved Problems' },
-    { key: 'extra',   label: 'Extra Problems' },
-    { key: 'formula', label: 'Formula Sheet' },
-    { key: 'sim',     label: 'Exam Simulator' },
-    { key: 'pdfs',    label: 'Theory & exercise PDFs' },
-    { key: 'exams',   label: 'Exams' }
+    { key: 'theory',  label: 'Theory',                 icon: 'i-theory' },
+    { key: 'problems', label: 'Solved Problems',        icon: 'i-problems' },
+    { key: 'extra',   label: 'Extra Problems',         icon: 'i-extra' },
+    { key: 'formula', label: 'Formula Sheet',          icon: 'i-formula' },
+    { key: 'sim',     label: 'Exam Simulator',         icon: 'i-sim' },
+    { key: 'pdfs',    label: 'Theory & exercise PDFs', icon: 'i-pdf' },
+    { key: 'exams',   label: 'Exams',                  icon: 'i-exams' }
   ];
   function keyOf(id, label) {
     if (id === 'teoria') return 'theory';
@@ -152,12 +149,12 @@
   }
 
   /* Layouts of the panorama (centres of the five constellations and of the pulsar). */
-  var LAND = { box: [1600, 960], centre: [800, 480], slots: [[330, 255], [800, 205], [1270, 265], [560, 590], [1065, 600]], pulsar: [1490, 800] };
-  var PORT = { box: [1000, 2150], centre: [500, 1075], slots: [[260, 210], [740, 610], [260, 1010], [740, 1410], [260, 1810]], pulsar: [800, 2050] };
+  var LAND = { box: [1600, 1030], centre: [800, 515], slots: [[300, 250], [820, 165], [1300, 285], [500, 600], [1060, 585]], pulsar: [1500, 800] };
+  var PORT = { box: [1000, 2500], centre: [500, 1250], slots: [[290, 240], [720, 700], [270, 1160], [730, 1620], [290, 2080]], pulsar: [800, 2400] };
   var GUIDES = [[0, 1], [1, 2], [2, 4], [4, 3], [3, 0], [1, 3], [1, 4]];
 
-  var ZOOM_H = 400;          // height of the camera box on a constellation (user units)
-  var ZOOM_BW = [640, 800];  // minimum width of that box: landscape, portrait
+  var ZOOM_H = 430;          // height of the camera box on a constellation (user units)
+  var ZOOM_BW = [700, 980];  // minimum width of that box: landscape, portrait
 
   /* ---------------------------------------------------------------------------------------
      Build
@@ -199,59 +196,88 @@
     (sub.groups || []).forEach(function (g) { var k = keyOf(g.id, g.label); if (k) found[k] = g.href; });
     (sub.extras || []).forEach(function (e) { var k = keyOf(null, e.label); if (k) found[k] = e.href; });
     return SECTIONS.filter(function (sec) { return found[sec.key]; }).map(function (sec) {
-      return { key: sec.key, label: sec.label, href: found[sec.key], count: counterFor(sub.slug, found[sec.key]) };
+      return { key: sec.key, label: sec.label, icon: sec.icon, href: found[sec.key], count: counterFor(sub.slug, found[sec.key]) };
     });
   }
 
-  function buildConstellation(sub, index, defs) {
+  function buildConstellation(sub, index) {
     var meta = META[sub.slug];
     var g = s('g', {
       'class': 'const', 'data-slug': sub.slug, tabindex: '0', role: 'button',
       'aria-label': meta.latin + ', ' + sub.name + '. Press Enter to open its areas.'
     });
     g.style.setProperty('--c', 'var(--c-' + meta.color + ')');
+    g.style.setProperty('--ct', 'var(--ct-' + meta.color + ')');
     var list = sectionsOf(sub);
+    var anchors = rotate(meta.anchors, meta.rot);
+    var n = list.length;
+    var pick = meta.use[n];
+    if (!pick) { pick = []; for (var q = 0; q < n; q++) pick.push(n === anchors.length ? q : Math.round(q * (anchors.length - 1) / Math.max(1, n - 1))); }
 
-    s('circle', { 'class': 'const-hit', cx: 0, cy: 0, r: 215 }, g);
-    s('circle', { 'class': 'const-glow', cx: 0, cy: 0, r: 140 }, g);
-    meta.decor.forEach(function (d) { s('path', { 'class': 'const-decor', d: d }, g); });
+    s('circle', { 'class': 'const-hit', cx: 0, cy: 0, r: 235 }, g);
 
-    var used = list.length;
-    meta.edges.forEach(function (e) {
-      if (e[0] >= used && e[1] >= used) return;
-      var a = meta.anchors[e[0]], b = meta.anchors[e[1]];
-      s('line', { 'class': 'const-edge', x1: a[0], y1: a[1], x2: b[0], y2: b[1] }, g);
+    // flowing guide curves of the figure, faint and dashed
+    meta.flow.forEach(function (line) {
+      var pts = rotate(line, meta.rot), d = 'M' + pts[0][0] + ' ' + pts[0][1];
+      for (var k = 1; k < pts.length; k++) {
+        var m = [(pts[k - 1][0] + pts[k][0]) / 2, (pts[k - 1][1] + pts[k][1]) / 2];
+        d += ' Q' + pts[k - 1][0] + ' ' + pts[k - 1][1] + ' ' + m[0].toFixed(0) + ' ' + m[1].toFixed(0);
+      }
+      d += ' T' + pts[pts.length - 1][0] + ' ' + pts[pts.length - 1][1];
+      s('path', { 'class': 'const-decor', d: d }, g);
     });
-    meta.anchors.slice(used).forEach(function (p) { s('circle', { 'class': 'const-dot', cx: p[0], cy: p[1], r: 3.2 }, g); });
+
+    // the dust of the figure: small stars that twinkle, placed by a fixed seed
+    var rnd = seeded(sub.slug.length * 7919 + index * 104729);
+    for (var dI = 0; dI < 16; dI++) {
+      var ang = rnd() * 6.2832, rad = 70 + rnd() * 190;
+      var dx = Math.round(Math.cos(ang) * rad * 1.15), dy = Math.round(Math.sin(ang) * rad * 0.8);
+      var tooClose = anchors.some(function (p) { return Math.abs(p[0] - dx) + Math.abs(p[1] - dy) < 34; });
+      if (tooClose) continue;
+      var dot = s('circle', { 'class': 'dust', cx: dx, cy: dy, r: (0.9 + rnd() * 1.7).toFixed(1) }, g);
+      dot.style.setProperty('--d', (rnd() * 5).toFixed(2) + 's');
+    }
+
+    var chosen = {};
+    pick.forEach(function (ai, i) { chosen[ai] = i; });
+    meta.edges.forEach(function (e) {
+      var a = anchors[e[0]], b = anchors[e[1]];
+      var lit = chosen[e[0]] !== undefined && chosen[e[1]] !== undefined;
+      s('line', { 'class': 'const-edge' + (lit ? '' : ' is-faint'), x1: a[0], y1: a[1], x2: b[0], y2: b[1] }, g);
+    });
+    anchors.forEach(function (p, ai) {
+      if (chosen[ai] === undefined) s('circle', { 'class': 'const-dot', cx: p[0], cy: p[1], r: 3.4 }, g);
+    });
 
     var stars = list.map(function (sec, i) {
-      var p = meta.anchors[i];
+      var ai = pick[i], p = anchors[ai];
       var a = s('a', {
         'class': 'star' + (/soon/i.test(sec.count) ? ' is-soon' : ''), href: sec.href, tabindex: '-1',
         transform: 'translate(' + p[0] + ' ' + p[1] + ')',
         'aria-label': sec.label + (sec.count ? ', ' + sec.count : '') + ', ' + sub.name
       }, g);
-      s('circle', { 'class': 'star-hit', r: 24 }, a);
-      s('circle', { 'class': 'star-halo', r: 15 }, a);
-      var glyph = s('path', { 'class': 'star-glyph', d: 'M0 -17 L4 -4 L17 0 L4 4 L0 17 L-4 4 L-17 0 L-4 -4Z' }, a);
-      s('circle', { 'class': 'star-core', r: 3.2 }, a);
-      // label side: from the constellation when it lists one, else the star's own side of the shape
-      var side = (meta.labels && meta.labels[i]) || (Math.abs(p[0]) < 22 ? (p[1] < 0 ? 't' : 'b') : (p[0] < 0 ? 'l' : 'r'));
+      s('circle', { 'class': 'star-hit', r: 26 }, a);
+      s('circle', { 'class': 'star-flare', r: 46, fill: 'url(#flare-' + meta.color + ')' }, a);
+      s('path', { 'class': 'star-glyph', d: 'M0 -26 L4.5 -5 L26 0 L4.5 5 L0 26 L-4.5 5 L-26 0 L-4.5 -5Z' }, a);
+      s('circle', { 'class': 'star-core', r: 3.4 }, a);
+      var ic = s('g', { 'class': 'star-icon' }, a);
+      s('circle', { 'class': 'star-icon-bg', r: 13 }, ic);
+      s('use', { href: '#' + sec.icon, x: -9, y: -9, width: 18, height: 18, 'class': 'star-icon-glyph' }, ic);
+      var side = (meta.labels && meta.labels[ai]) || (Math.abs(p[0]) < 26 ? (p[1] < 0 ? 't' : 'b') : (p[0] < 0 ? 'l' : 'r'));
       var vertical = side === 't' || side === 'b';
       var attrs = vertical
-        ? { 'text-anchor': 'middle', x: 0, y: side === 't' ? -26 : 34 }
-        : { 'text-anchor': side === 'l' ? 'end' : 'start', x: side === 'l' ? -22 : 22, y: 5 };
+        ? { 'text-anchor': 'middle', x: 0, y: side === 't' ? -30 : 40 }
+        : { 'text-anchor': side === 'l' ? 'end' : 'start', x: side === 'l' ? -24 : 24, y: 5 };
       var name = s('text', attrs, a); name.setAttribute('class', 'star-name'); name.textContent = sec.label;
       var cAttrs = {}; for (var k in attrs) cAttrs[k] = attrs[k];
-      cAttrs.y = Number(attrs.y) + (side === 't' ? -16 : 18);
+      cAttrs.y = Number(attrs.y) + (side === 't' ? -17 : 19);
       var count = s('text', cAttrs, a); count.setAttribute('class', 'star-count'); count.textContent = sec.count;
-      void glyph;
       return a;
     });
 
     // panorama labels (hidden while zoomed)
-    var t = s('text', { 'class': 'const-title', x: 0, y: 232 }, g); t.textContent = meta.latin;
-    var u = s('text', { 'class': 'const-sub', x: 0, y: 256 }, g); u.textContent = sub.name;
+    var t = s('text', { 'class': 'const-title', x: 0, y: 248 }, g); t.textContent = meta.latin;
+    var u = s('text', { 'class': 'const-sub', x: 0, y: 274 }, g); u.textContent = sub.name;
 
     return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list };
   }
@@ -296,7 +322,8 @@
   function paint(b) {
     svg.setAttribute('viewBox', b.x.toFixed(2) + ' ' + b.y.toFixed(2) + ' ' + b.w.toFixed(2) + ' ' + b.h.toFixed(2));
     var px = svg.getBoundingClientRect().width || 1;
-    svg.style.setProperty('--u', (b.w / px).toFixed(4));   // user units per CSS pixel: keeps text at a readable size
+    svg.style.setProperty('--u', (b.w / px).toFixed(4));
+    svg.style.setProperty('--tk', b.w / b.h < 0.85 ? '0.7' : '1');   // text scale on a portrait screen   // user units per CSS pixel: keeps text at a readable size
   }
 
   function reduced() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
@@ -436,6 +463,19 @@
     var subjects = {};
     nav.subjects.forEach(function (sub) { subjects[sub.slug] = sub; });
 
+    var defs = s('defs', null, svg);
+    Object.keys(META).forEach(function (k) {
+      var color = META[k].color;
+      var grad = s('radialGradient', { id: 'flare-' + color }, defs);
+      var s0 = s('stop', { offset: '0', style: 'stop-color: var(--c-' + color + '); stop-opacity: 0.55' }, grad); void s0;
+      s('stop', { offset: '0.35', style: 'stop-color: var(--c-' + color + '); stop-opacity: 0.16' }, grad);
+      s('stop', { offset: '1', style: 'stop-color: var(--c-' + color + '); stop-opacity: 0' }, grad);
+    });
+    for (var bs = 0; bs < 70; bs++) {   // the far sky: tiny twinkling stars behind everything
+      var r2 = seeded(31337 + bs), bx = Math.round(r2() * 1800 - 100), by = Math.round(r2() * 2300 - 100);
+      var bd = s('circle', { 'class': 'dust far', cx: bx, cy: by, r: (0.8 + r2() * 1.6).toFixed(1) }, svg);
+      bd.style.setProperty('--d', (r2() * 6).toFixed(2) + 's');
+    }
     var guideLayer = s('g', { 'aria-hidden': 'true' }, svg);
     GUIDES.forEach(function (pair) { guides.push({ a: pair[0], b: pair[1], el: s('line', { 'class': 'guide-line' }, guideLayer) }); });
 
