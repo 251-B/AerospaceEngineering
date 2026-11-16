@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the triangle with the weight, the guide reaction and the spring force.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polyline points="110.0,90.0 130.1,110.1 129.6,119.5 148.6,118.7 147.8,137.7 166.8,136.9 165.9,155.8 184.9,155.0 184.1,174.0 203.1,173.2 202.2,192.1 221.2,191.3 220.4,210.3 239.3,209.4 238.5,228.4 257.5,227.6 257.1,237.1 277.1,257.1" fill="none" stroke="#8a94a6" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="320.0" y1="58.5" x2="320.0" y2="394.5" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="12 3 2 3"/>
+<polygon points="277.1,257.1 304.3,358.6 378.6,284.3" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="110.0" cy="90.0" r="5" fill="#4b5563" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="96.0" y="80.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<line x1="320.0" y1="300.0" x2="320.0" y2="387.3" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M320.0,394.5 L315.3,383.4 L324.7,383.4 Z" fill="#ec4899"/>
+<text x="302.0" y="400.5" fill="#ec4899" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">mg</text>
+<line x1="320.0" y1="300.0" x2="407.3" y2="300.0" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M414.5,300.0 L403.4,304.7 L403.4,295.3 Z" fill="#ec4899"/>
+<text x="418.5" y="320.0" fill="#ec4899" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R</text>
+<line x1="277.1" y1="257.1" x2="189.4" y2="169.4" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M184.3,164.3 L195.4,168.8 L188.8,175.4 Z" fill="#ec4899"/>
+<text x="198.3" y="158.3" fill="#ec4899" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">k|<tspan font-weight="700" font-style="normal">r</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">A</tspan>|</text>
+<text x="320.0" y="52.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">guide</text>
+<circle cx="320.0" cy="300.0" r="4.0" fill="#4b5563"/>
+<text x="306.0" y="292.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">G</text>
+<text x="291.1" y="253.1" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<text x="290.3" y="370.6" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">B</text>
+<text x="394.6" y="296.3" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<path d="M345.2,300.0 A25.2,25.2 0 0 0 337.8,282.2" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M335.7,280.1 L344.0,283.4 L339.1,288.4 Z" fill="#10b981"/>
+<text x="357.3" y="288.4" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+</g></svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 500" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="View of the plane Oxz showing the body axes of the ring turned 45 degrees about the axis normal to the paper.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="250.0" y1="340.0" x2="504.4" y2="340.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M509.2,340.0 L501.8,343.1 L501.8,336.9 Z" fill="#8a94a6"/>
+<text x="525.2" y="346.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="250.0" y1="340.0" x2="250.0" y2="85.6" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M250.0,80.8 L253.1,88.2 L246.9,88.2 Z" fill="#8a94a6"/>
+<text x="266.0" y="84.8" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+<polygon points="250.0,340.0 363.1,340.0 363.1,226.9" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="363.1" y1="340.0" x2="363.1" y2="226.9" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="351.9,340.0 351.9,328.8 363.1,328.8" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<polygon points="250.0,340.0 250.0,226.9 136.9,226.9" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="250.0" y1="226.9" x2="136.9" y2="226.9" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="250.0,238.1 238.8,238.1 238.8,226.9" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="250.0" y1="340.0" x2="358.5" y2="231.5" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M363.1,226.9 L359.0,237.1 L352.9,231.0 Z" fill="#3b82f6"/>
+<text x="381.1" y="216.9" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<line x1="250.0" y1="340.0" x2="141.5" y2="231.5" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M136.9,226.9 L147.1,231.0 L141.0,237.1 Z" fill="#3b82f6"/>
+<text x="130.9" y="212.9" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<text x="306.6" y="364.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos 45°</text>
+<text x="372.1" y="288.4" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin 45°</text>
+<text x="193.4" y="218.9" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−sin 45°</text>
+<text x="259.0" y="263.5" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos 45°</text>
+<path d="M317.2,340.0 A67.2,67.2 0 0 0 297.5,292.5" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M295.4,290.4 L303.7,293.7 L298.8,298.7 Z" fill="#10b981"/>
+<path d="M250.0,272.8 A67.2,67.2 0 0 0 202.5,292.5" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M200.4,294.6 L203.7,286.3 L208.7,291.2 Z" fill="#10b981"/>
+<text x="344.6" y="305.8" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">45°</text>
+<text x="210.8" y="250.4" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">45°</text>
+<circle cx="250.0" cy="340.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<path d="M244.4,334.4 L255.6,345.6 M244.4,345.6 L255.6,334.4" stroke="#4b5563" stroke-width="1.6" fill="none"/>
+<text x="234.0" y="370.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan> = <tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan> (⊗)</text>
+<text x="266.0" y="384.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">rotation +45° about −j (out of the paper)</text>
+</g></svg>
