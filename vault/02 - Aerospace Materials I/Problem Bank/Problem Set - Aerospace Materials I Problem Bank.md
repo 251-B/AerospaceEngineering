@@ -98,17 +98,20 @@ Practice items written for the portal in the style of Assessment Test II (Units 
 ### Binary diagram with intermetallics and invariant reactions
 
 - [[Problem - Bank P01 - Two Eutectics Around a Congruently Melting Compound|P01]]: Two eutectics around a congruently melting compound in a hypothetical A-B system
+- [[Problem - Bank P02 - Alloy Composition from the Eutectic Fraction in a Peritectic System|P02]]: Alloy composition from the eutectic fraction in an M-N system with an incongruent compound (at%)
 
 ### Eutectic system: lever rule and microconstituents
 
 - [[Problem - Bank P05 - Cooling of a Pb-50 Sn Alloy Read from the Pb-Sn Diagram|P05]]: Cooling of a Pb-50 wt% Sn alloy read from the Pb-Sn diagram
 - [[Problem - Bank P06 - Building a Eutectic Diagram from a Description and Using It|P06]]: Building a eutectic diagram from a description and using it
+- [[Problem - Bank P07 - Composition of an Ag-Cu Alloy from its Micrograph|P07]]: Composition of an Ag-Cu alloy worked backwards from its micrograph
 
 ### Fe-Fe3C diagram and steel microstructures
 
 - [[Problem - Bank P09 - Hypoeutectoid Steel Bar Above and Below the Eutectoid|P09]]: Hypoeutectoid steel bar above and below the eutectoid temperature
 - [[Problem - Bank P10 - Slow Cooling of a Hypereutectoid Tool Steel|P10]]: Slow cooling of a hypereutectoid tool steel read on the Fe-Fe3C diagram
 - [[Problem - Bank P11 - Carbon Content of a Steel from Its Micrograph|P11]]: Carbon content of an unknown steel worked back from its micrograph
+- [[Problem - Bank P12 - Three Steels Compared Microconstituents Hardness and Alloying|P12]]: Three steels compared: microconstituents, hardness and alloying elements
 
 ### Tensile test and mechanical properties
 
