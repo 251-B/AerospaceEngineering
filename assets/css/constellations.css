@@ -81,7 +81,7 @@ html[data-sky-palette="blueprint-cyan"] {
 }
 html[data-theme="light"] .sky-view {
   --c-fluid: #0891b2; --c-materials: #d97706; --c-mechanics: #059669; --c-maths: #6d4aff; --c-business: #e11d6a;
-  --ct-fluid: #0e5f76; --ct-materials: #8a3d0a; --ct-mechanics: #065f46; --ct-maths: #3b2bb5; --ct-business: #9f1239;
+  --ct-fluid: #0b5266; --ct-materials: #7a3508; --ct-mechanics: #04513b; --ct-maths: #3b2bb5; --ct-business: #9f1239;
 }
 
 /* ---- Switching between the two views -------------------------------------------------- */
@@ -222,10 +222,6 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 .star-icon-glyph { color: var(--ct); }
 .const.is-active .star-icon { opacity: 1; }
 .const.is-active .star-core { opacity: 0; }
-.star-name, .star-count { display: none; }
-.const.is-active .star:hover .star-name, .const.is-active .star:focus-visible .star-name, .const.is-active .star.is-shown .star-name { display: block; font-size: calc(var(--u, 1) * 15px * var(--tk, 1)); }
-.const.is-active .star-count { display: none; font-size: calc(var(--u, 1) * 12px); fill: var(--sk-text-2); font-family: var(--font-mono); }
-.const.is-active .star:hover .star-count, .const.is-active .star:focus-visible .star-count, .const.is-active .star.is-shown .star-count { display: block; }
 .const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(0.9); }
 .const.is-active .star:hover .star-flare, .const.is-active .star:focus-visible .star-flare { opacity: 0.8; }
 .star:focus-visible .star-hit { stroke: var(--sk-text); stroke-width: calc(var(--u, 1) * 2px); }
@@ -352,9 +348,7 @@ html[data-home-view="constellations"] .fl-launcher:focus-visible::before, html[d
 .sky-view.is-compact .sky-back { top: 66px; left: 14px; font-size: 1rem; padding: 12px 18px; min-height: 44px; }
 .sky-view.is-compact:not(.has-selection) .sky-caption { display: none; }   /* the hint would sit on the figures while scrolling */
 .sky-svg.is-compact .const.is-active .star-glyph { transform: scale(0.8); }
-.sky-svg.is-compact .const.is-active .star:hover .star-glyph, .sky-svg.is-compact .const.is-active .star.is-shown .star-glyph { transform: scale(1.2); }
-.sky-svg.is-compact .const.is-active .star-name { font-size: calc(var(--u, 1) * 16px); }
-.sky-svg.is-compact .const.is-active .star-count { font-size: calc(var(--u, 1) * 13px); }
+.sky-svg.is-compact .const.is-active .star:hover .star-glyph { transform: scale(1.2); }
 @media (max-width: 899px) {
   .header-actions { gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
   .header-actions .view-toggle, .header-actions .sky-palette-select { min-height: 42px; padding: 10px 14px; font-size: 0.88rem; }
@@ -431,10 +425,9 @@ html[data-theme="light"] .sky-view::after { opacity: 0.55; }
 /* ---- Stars without icons: only their small shapes; the figures blink --------------------------- */
 .const.is-active .star-core { opacity: 1; fill: #ffffff; r: 2.2px; }
 .const.is-active .star-glyph { transform: scale(0.52); }
-.const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph, .const.is-active .star.is-shown .star-glyph { transform: scale(0.7); }
+.const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(0.7); }
 .sky-svg.is-compact .const.is-active .star-glyph { transform: scale(0.55); }
-.sky-svg.is-compact .const.is-active .star:hover .star-glyph, .sky-svg.is-compact .const.is-active .star.is-shown .star-glyph { transform: scale(0.72); }
-.const.is-active .star-name { font-size: calc(var(--u, 1) * 14px); }
+.sky-svg.is-compact .const.is-active .star:hover .star-glyph { transform: scale(0.72); }
 
 .const-extra-link { stroke: var(--c); stroke-width: calc(var(--u, 1) * 0.9px); stroke-dasharray: 1 6; stroke-linecap: round; opacity: 0.45; }
 .const-extra { fill: var(--c); opacity: 0.7; transform-box: fill-box; transform-origin: center; animation: star-twinkle 3.1s ease-in-out var(--sd, 0s) infinite; }
@@ -457,7 +450,7 @@ html[data-theme="light"] .sky-view::after { opacity: 0.55; }
 @keyframes star-halo { 0%, 60%, 100% { opacity: 0.12; transform: scale(0.8); } 70% { opacity: 0.95; transform: scale(1.7); } 85% { opacity: 0.3; transform: scale(1.1); } }
 @media (prefers-reduced-motion: reduce) { .const-sway, .const-float, .const .star-core, .const:not(.is-active) .star-flare { animation: none; } }
 
-/* ====================================================================================================
+/* =============================================================================================
    Second screen: no name in the middle (the welcome screen carries it), calmer rhythms, the entrance
    ==================================================================================================== */
 /* the heading stays for screen readers and search engines, out of sight */
@@ -520,3 +513,26 @@ html[data-theme="light"] .header-actions .intro-replay { background-image: linea
 .header-actions .intro-replay svg { width: 20px; height: 20px; }
 html[data-home-view="classic"] .intro-replay { display: none !important; }
 @media (max-width: 599px) { .header-actions .intro-replay { display: none; } }
+/* ---- HUD satellites: an open constellation names every star with a leader, a ring and its icon ---------- */
+/* Hidden in the panorama; geometry is written by layoutHud() in screen pixels, so only colours and strokes live here. */
+.star-sat { visibility: hidden; opacity: 0; transition: opacity 0.3s, visibility 0s 0.3s; }
+.const.is-active .star-sat { visibility: visible; opacity: 1; transition: opacity 0.45s 0.3s, visibility 0s; }
+.sat-hit { fill: transparent; }
+.sat-leader { fill: none; stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.2px); stroke-linejoin: round; stroke-linecap: round; opacity: 0.65;
+  stroke-dasharray: 1 1; stroke-dashoffset: 1; transition: stroke-dashoffset 0.7s ease 0.35s, opacity 0.3s, stroke-width 0.3s; }
+.const.is-active .sat-leader { stroke-dashoffset: 0; }
+.sat-ring { fill: var(--sk-halo); fill-opacity: 0.86; stroke: var(--c); stroke-opacity: 0.9; stroke-width: calc(var(--u, 1) * 1.3px);
+  transition: stroke-width 0.3s, fill-opacity 0.3s, filter 0.3s; }
+.sat-icon { color: var(--ct); pointer-events: none; }
+.sky-svg text.sat-name { fill: var(--sk-text); font-family: var(--font-body); font-weight: 600; letter-spacing: 0.01em; }
+.sky-svg text.sat-tag { fill: var(--ct); font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.04em; }
+/* one target: star, leader and satellite light up together */
+.const.is-active .star:hover .sat-leader, .const.is-active .star:focus-visible .sat-leader { opacity: 1; stroke-width: calc(var(--u, 1) * 2px); }
+.const.is-active .star:hover .sat-ring, .const.is-active .star:focus-visible .sat-ring { fill-opacity: 1; stroke-width: calc(var(--u, 1) * 2.2px);
+  filter: drop-shadow(0 0 calc(var(--u, 1) * 5px) var(--c)); }
+.const.is-active .star:focus-visible .sat-hit { stroke: var(--sk-text); stroke-width: calc(var(--u, 1) * 1.6px); stroke-dasharray: calc(var(--u, 1) * 4px) calc(var(--u, 1) * 3px); }
+.star.is-soon .sat-ring, .star.is-soon .sat-name { opacity: 0.8; }
+@media (prefers-reduced-motion: reduce) {
+  .star-sat, .const.is-active .star-sat, .sat-leader, .sat-ring { transition: none; }
+  .sat-leader { stroke-dasharray: none; }
+}
