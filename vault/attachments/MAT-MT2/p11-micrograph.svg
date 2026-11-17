@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 280" width="100%" class="fig-kit" style="max-width:430px;margin:0 auto;display:block" role="img" aria-label="Schematic micrograph of a slowly cooled steel: lamellar colonies surrounded by a continuous light network labelled X">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 280" width="100%" class="fig-kit" style="max-width:430px;margin:0 auto;display:block" role="img" aria-label="Schematic micrograph of a slowly cooled steel: lamellar colonies surrounded by a continuous network labelled X">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
 <clipPath id="cl-p11g0"><polygon points="20.0,20.0 88.7,20.0 103.7,88.7 20.0,100.7"/></clipPath><g clip-path="url(#cl-p11g0)">
 <line x1="-26.1" y1="-178.1" x2="260.5" y2="-89.4" stroke="#4b5563" stroke-width="1.0"/>
@@ -761,7 +761,7 @@
 <circle cx="208.7" cy="212.4" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
 <line x1="183.3" y1="89.7" x2="272.0" y2="70.0" stroke="#10b981" stroke-width="1.2"/>
 <line x1="208.7" y1="212.4" x2="272.0" y2="200.0" stroke="#10b981" stroke-width="1.2"/>
-<text x="278.0" y="66.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">X: continuous light</text>
+<text x="278.0" y="66.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">X: continuous</text>
 <text x="278.0" y="84.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">network at the grain</text>
 <text x="278.0" y="100.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">boundaries</text>
 <text x="278.0" y="196.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Lamellar colonies</text>

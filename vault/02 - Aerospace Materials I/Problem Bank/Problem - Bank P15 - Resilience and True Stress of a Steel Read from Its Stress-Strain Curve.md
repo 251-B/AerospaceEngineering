@@ -104,7 +104,7 @@ Replacing $\varepsilon_y = \sigma_y/E$: $U_r = \dfrac{E}{2}\,\dfrac{\sigma_y^2}{
 
 $$U_r = \frac{\sigma_y^2}{2E} = \frac{(450\ \text{MPa})^2}{2\times206\,667\ \text{MPa}} = \frac{202\,500}{413\,333}\ \text{MPa} = 0.490\ \text{MPa}$$
 
-Since $1\ \text{MPa} = 10^6\ \text{N/m}^2 = 10^6\ \text{N·m/m}^3 = 1\ \text{MJ/m}^3$, each cubic metre of this steel stores 0.490 MJ of recoverable elastic energy before it yields. Check with the triangle: $\tfrac12\times450\ \text{MPa}\times0.002177 = 0.490$ MPa.
+Since $1\ \text{MPa} = 10^6\ \text{N/m}^2 = 10^6\ \text{N}\cdot\text{m/m}^3 = 1\ \text{MJ/m}^3$, each cubic metre of this steel stores 0.490 MJ of recoverable elastic energy before it yields. Check with the triangle: $\tfrac12\times450\ \text{MPa}\times0.002177 = 0.490$ MPa.
 
 ## (b) Calculate the true stress and the true strain at point B, deriving the formulas you use, and say why they cannot be used after point U [1.0 pts]
 
@@ -177,5 +177,7 @@ Point U is the maximum of the curve, the tensile strength (600 MPa), and necking
 - true strain B | ln(1+0.08) | 0.0770
 - true stress B (MPa) | 560*(1+0.08) | 604.8
 - area ratio at B | 1/(1+0.08) | 0.926
+- strain difference A (%) | (0.0015-ln(1.0015))/0.0015*100 | 0.075
+- strain difference B (%) | (0.08-ln(1.08))/0.08*100 | 3.8
 
 **Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

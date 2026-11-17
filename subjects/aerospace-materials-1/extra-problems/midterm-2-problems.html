@@ -512,7 +512,7 @@
           <h3 class="phase-title">Part (c) · 0.75 points</h3>
           <div class="prompt"><p>Sketch the microstructure of A-20 wt% B at 700 + ΔT and 700 − ΔT °C</p></div>
 <h4 class="step-title">Follow the cooling path to the eutectic line</h4>
-<p>The vertical line of 20 wt% B crosses the α liquidus (at about 830 °C, a reading of the figure): grains of primary α nucleate and grow, while the liquid becomes richer in B along the liquidus. Just above 700 °C the α has 10 wt% B and the liquid 35 wt% B, the eutectic composition [Session 7 Slides 30-31].</p>
+<p>The vertical line of 20 wt% B crosses the α liquidus (at about 800 °C, a reading of the figure): grains of primary α nucleate and grow, while the liquid becomes richer in B along the liquidus. Just above 700 °C the α has 10 wt% B and the liquid 35 wt% B, the eutectic composition [Session 7 Slides 30-31].</p>
 <h4 class="step-title">Amounts at 700 + ΔT °C</h4>
 <p>Lever rule derived in part (b), on the tie line from α (10) to L (35), length 25 wt% B:</p>
 <div class="math-block">$$W_\alpha = \frac{35 - 20}{35 - 10} = \frac{15}{25} = 0.600 \qquad W_L = \frac{20 - 10}{35 - 10} = \frac{10}{25} = 0.400$$</div>
@@ -973,8 +973,14 @@
 <h4 class="step-title">Derive the lever rule and apply it at 1100 + ΔT</h4>
 <p>On a tie line with phases α and L the alloy and the element Y must both be conserved:</p>
 <div class="math-block">$$W_\alpha + W_L = 1 \qquad W_\alpha C_\alpha + W_L C_L = C_0$$</div>
-<p>Substituting $W_L = 1 - W_\alpha$ and grouping the terms in $W_\alpha$:</p>
-<div class="math-block">$$W_\alpha (C_\alpha - C_L) = C_0 - C_L \qquad\Rightarrow\qquad W_\alpha = \frac{C_L - C_0}{C_L - C_\alpha} \qquad W_L = \frac{C_0 - C_\alpha}{C_L - C_\alpha}$$</div>
+<p>Substituting $W_L = 1 - W_\alpha$ in the balance of Y:</p>
+<div class="math-block">$$W_\alpha C_\alpha + (1 - W_\alpha) C_L = C_0$$</div>
+<p>Expanding the bracket:</p>
+<div class="math-block">$$W_\alpha C_\alpha + C_L - W_\alpha C_L = C_0$$</div>
+<p>Grouping the terms in $W_\alpha$ and moving $C_L$ to the right-hand side:</p>
+<div class="math-block">$$W_\alpha (C_\alpha - C_L) = C_0 - C_L$$</div>
+<p>Dividing by $(C_\alpha - C_L)$ and changing the sign of numerator and denominator:</p>
+<div class="math-block">$$W_\alpha = \frac{C_L - C_0}{C_L - C_\alpha} \qquad W_L = 1 - W_\alpha = \frac{C_0 - C_\alpha}{C_L - C_\alpha}$$</div>
 <p>Just above 1100 °C, α has 15 and L has 45 wt% Y (length 30):</p>
 <div class="math-block">$$W_\alpha = \frac{45 - 40}{45 - 15} = \frac{5}{30} = 0.167 \qquad W_L = \frac{40 - 15}{45 - 15} = \frac{25}{30} = 0.833$$</div>
 <h4 class="step-title">The peritectic reaction at 1100 °C</h4>
@@ -1732,7 +1738,10 @@
 <p>With W the mass fractions of the two phases, the total mass balance and the mass balance of B are</p>
 <div class="math-block">$$W_L + W_\beta = 1$$</div>
 <div class="math-block">$$W_L C_L + W_\beta C_\beta = C_0$$</div>
-<p>Putting $W_L = 1 - W_\beta$ into the second equation: $C_L + W_\beta (C_\beta - C_L) = C_0$, so</p>
+<p>Putting $W_L = 1 - W_\beta$ into the second equation and expanding:</p>
+<div class="math-block">$$(1 - W_\beta)\,C_L + W_\beta C_\beta = C_0$$</div>
+<div class="math-block">$$C_L + W_\beta\,(C_\beta - C_L) = C_0$$</div>
+<p>so</p>
 <div class="math-block">$$W_\beta = \frac{C_0 - C_L}{C_\beta - C_L} \qquad W_L = 1 - W_\beta = \frac{C_\beta - C_0}{C_\beta - C_L}$$</div>
 <p>With a tie line of length $94.67 - 80 = 14.67$ wt% B [Session 7 Slide 16]:</p>
 <div class="math-block">$$W_\beta = \frac{85 - 80}{94.67 - 80} = \frac{5}{14.67} = 0.341$$</div>
@@ -1978,7 +1987,10 @@
 <p>Just above $T_E$ the alloy holds a primary solid and liquid of composition $C_E$; that liquid becomes the eutectic, so $W_E = W_L(T_E + \Delta T)$. For a tie line from a solid of composition $C_s$ to the liquid $C_E$, the total mass balance and the Cu balance are</p>
 <div class="math-block">$$W_s + W_L = 1$$</div>
 <div class="math-block">$$W_s C_s + W_L C_E = C_0$$</div>
-<p>Putting $W_s = 1 - W_L$ in the second equation: $C_s + W_L (C_E - C_s) = C_0$, hence</p>
+<p>Putting $W_s = 1 - W_L$ in the second equation and expanding:</p>
+<div class="math-block">$$(1 - W_L)\,C_s + W_L C_E = C_0$$</div>
+<div class="math-block">$$C_s + W_L\,(C_E - C_s) = C_0$$</div>
+<p>hence</p>
 <div class="math-block">$$W_E = W_L = \frac{C_0 - C_s}{C_E - C_s}$$</div>
 <h4 class="step-title">Hypoeutectic candidate (solid α, $C_s = 8.8$)</h4>
 <div class="math-block">$$0.55 = \frac{C_0 - 8.8}{28.1 - 8.8} = \frac{C_0 - 8.8}{19.3}$$</div>
@@ -2034,7 +2046,7 @@
 <div class="math-block">$$W_E(50) = \frac{92 - 50}{92 - 28.1} = \frac{42}{63.9} = 0.657$$</div>
 <p>and its primary (Cu) is $1 - 0.657 = 0.343$.</p>
 <h4 class="step-title">Compare with the measurement</h4>
-<p>The micrograph shows 0.55 eutectic, not 0.657: about 11 points less eutectic and therefore more primary (Cu) than the certified alloy would have. Because $W_E$ falls as $C_0$ moves from E towards β, less eutectic means more Cu: the measurement corresponds to 56.86 wt% Cu, not 50. Within the hypotheses of the problem (equilibrium cooling, area fraction equal to mass fraction), the certificate is not consistent with the micrograph. A check that does not depend on the image is the total phase fraction: the certified alloy would hold $W_\alpha = 42/83.2 = 0.505$, against 0.422 for the measured one.</p>
+<p>The micrograph shows 0.55 eutectic, not 0.657: about 11 points less eutectic and therefore more primary (Cu) than the certified alloy would have. Because $W_E$ falls as $C_0$ moves from E towards β, less eutectic means more Cu: the measurement corresponds to 56.86 wt% Cu, not 50. Within the hypotheses of the problem (equilibrium cooling, area fraction equal to mass fraction), the certificate is not consistent with the micrograph. The two alloys would also differ in their total phase fractions: α would be $42/83.2 = 0.505$ for the certified alloy, against 0.422 for the alloy of the micrograph.</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Ag-50 wt% Cu would show $W_E = 0.657$ eutectic and 0.343 primary (Cu).</li><li>Measured 0.55: the certificate overstates the Ag content of the alloy (or understates its Cu); the micrograph points to 56.86 wt% Cu.</li></ul></div>
         </div>
         <div class="phase-block">
@@ -2165,7 +2177,10 @@
 <p>The two phases make up the whole alloy (total mass balance), and the B of the alloy is the B of α plus the B of the liquid (mass balance of B):</p>
 <div class="math-block">$$W_\alpha + W_L = 1$$</div>
 <div class="math-block">$$W_\alpha C_\alpha + W_L C_L = C_0$$</div>
-<p>Replacing $W_\alpha = 1 - W_L$: $C_\alpha + W_L (C_L - C_\alpha) = C_0$, so</p>
+<p>Replacing $W_\alpha = 1 - W_L$ and expanding:</p>
+<div class="math-block">$$(1 - W_L)\,C_\alpha + W_L C_L = C_0$$</div>
+<div class="math-block">$$C_\alpha + W_L\,(C_L - C_\alpha) = C_0$$</div>
+<p>so</p>
 <div class="math-block">$$W_L = \frac{C_0 - C_\alpha}{C_L - C_\alpha} \qquad W_\alpha = 1 - W_L = \frac{C_L - C_0}{C_L - C_\alpha}$$</div>
 <h4 class="step-title">Substitute and convert to kg</h4>
 <div class="math-block">$$W_L = \frac{30 - 12}{36 - 12} = \frac{18}{24} = 0.75 \qquad W_\alpha = \frac{36 - 30}{24} = \frac{6}{24} = 0.25$$</div>
@@ -2200,8 +2215,8 @@
 <div class="math-block">$$W_\alpha = \frac{94 - 30}{94 - 3} = \frac{64}{91} = 0.7033 \qquad W_\beta = \frac{30 - 3}{91} = \frac{27}{91} = 0.2967$$</div>
 <div class="math-block">$$m_\alpha = 0.7033 \times 50 = 35.16\ \text{kg} \qquad m_\beta = 0.2967 \times 50 = 14.84\ \text{kg}$$</div>
 <h4 class="step-title">β formed in the solid state</h4>
-<div class="math-block">$$\Delta m_\beta = m_\beta(20\ ^\circ\text{C}) - m_\beta(800 - \Delta T) = 14.84 - 10.14 = 4.69\ \text{kg}$$</div>
-<p>(with unrounded values, $50\,(27/91 - 14/69) = 4.69$ kg). The α column falls from 16 wt% B at 800 °C to 3 wt% B at 20 °C: α can hold less and less B, so the α of the casting (primary α and the α of the eutectic) becomes supersaturated and rejects the excess as small β particles, which grow as the temperature falls [Session 8 Slides 3-4]. The β column also moves (85 → 94 wt% B), so the β already present gets slightly richer in B too. The microconstituents keep their names; the primary α now holds fine β precipitates.</p>
+<div class="math-block">$$\Delta m_\beta = m_\beta(20\ ^\circ\text{C}) - m_\beta(800 - \Delta T) = 14.835 - 10.145 = 4.69\ \text{kg}$$</div>
+<p>(with the unrounded masses $50 \times 27/91 = 14.835$ kg and $50 \times 14/69 = 10.145$ kg). The α column falls from 16 wt% B at 800 °C to 3 wt% B at 20 °C: α can hold less and less B, so the α of the casting (primary α and the α of the eutectic) becomes supersaturated and rejects the excess as small β particles, which grow as the temperature falls [Session 8 Slides 3-4]. The β column also moves (85 → 94 wt% B), so the β already present gets slightly richer in B too. The microconstituents keep their names; the primary α now holds fine β precipitates.</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>α (3 wt% B) 35.16 kg; β (94 wt% B) 14.84 kg.</li><li>4.69 kg of β precipitate below 800 °C, from the α (primary and eutectic).</li></ul></div>
         </div>
         <div class="phase-block">
@@ -2290,7 +2305,7 @@
           <h3 class="phase-title">Part (d) · 0.75 points</h3>
           <div class="prompt"><p>Sketch of the microstructure and effect of a faster cooling</p></div>
 <h4 class="step-title">Draw the two microconstituents in their proportions</h4>
-<p>The proeutectoid ferrite nucleated at the austenite grain boundaries between the A3 line and 727 °C and grew into equiaxed, light grains; the remaining austenite became pearlite, alternating lamellae of ferrite and cementite (Session 9, Slides 12 and 14). The densities of ferrite and pearlite are close, so mass fractions are close to area fractions on a section: about 42 % of light ferrite grains and 58 % of lamellar colonies.</p>
+<p>The proeutectoid ferrite nucleated at the austenite grain boundaries between the A3 line and 727 °C and grew into equiaxed, light grains; the remaining austenite became pearlite, alternating lamellae of ferrite and cementite (Session 9, Slides 12 and 14). As an approximation (not stated on the slides), the densities of ferrite and pearlite are taken as close, so the mass fractions are drawn as area fractions on the section: about 42 % of light ferrite grains and 58 % of lamellar colonies.</p>
 <div class="diagram-card">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="100%" class="fig-kit" style="max-width:480px;margin:0 auto;display:block" role="img" aria-label="Sketch of a 0.45 wt% C steel just below 727 °C: light proeutectoid ferrite grains and lamellar pearlite colonies">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
@@ -3268,9 +3283,9 @@
         <span class="problem-tag">Part II problem · Unit 4 · Fe-Fe3C diagram and steel microstructures · 3 points · 30 min · Practice item, not an official exercise</span>
         <h4 class="problem-title">P11 — Carbon content of an unknown steel worked back from its micrograph</h4>
         <div class="statement-box">
-<p>A bar of plain carbon steel of unknown composition (less than 2.14 wt% C) has been cooled slowly from the austenite field. A polished and etched section shows the structure of the figure. Point counting gives <strong>88.0 % of lamellar colonies</strong>; the remaining 12.0 % is a constituent X that forms a <strong>thin, continuous, light network along the former austenite grain boundaries</strong>, around the colonies, and etches like the light lamellae of the colonies. Take the area fractions as mass fractions; they are the fractions formed just below 727 °C, which the slow cooling to room temperature keeps.</p>
+<p>A bar of plain carbon steel of unknown composition (less than 2.14 wt% C) has been cooled slowly from the austenite field. A polished and etched section shows the structure of the figure. Point counting gives <strong>88.0 % of lamellar colonies</strong>; the remaining 12.0 % is a constituent X that forms a <strong>thin, continuous network along the former austenite grain boundaries</strong>, around the colonies. Microhardness indentations show that X is <strong>much harder</strong> than the lamellar colonies. Take the area fractions as mass fractions; they are the fractions formed just below 727 °C, which the slow cooling to room temperature keeps.</p>
 <div class="diagram-card">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 280" width="100%" class="fig-kit" style="max-width:430px;margin:0 auto;display:block" role="img" aria-label="Schematic micrograph of a slowly cooled steel: lamellar colonies surrounded by a continuous light network labelled X">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 280" width="100%" class="fig-kit" style="max-width:430px;margin:0 auto;display:block" role="img" aria-label="Schematic micrograph of a slowly cooled steel: lamellar colonies surrounded by a continuous network labelled X">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
 <clipPath id="cl-p11g0"><polygon points="20.0,20.0 88.7,20.0 103.7,88.7 20.0,100.7"/></clipPath><g clip-path="url(#cl-p11g0)">
 <line x1="-26.1" y1="-178.1" x2="260.5" y2="-89.4" stroke="var(--text-heading)" stroke-width="1.0"/>
@@ -4033,14 +4048,14 @@
 <circle cx="208.7" cy="212.4" r="3.2" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
 <line x1="183.3" y1="89.7" x2="272.0" y2="70.0" stroke="var(--fig-green, #10b981)" stroke-width="1.2"/>
 <line x1="208.7" y1="212.4" x2="272.0" y2="200.0" stroke="var(--fig-green, #10b981)" stroke-width="1.2"/>
-<text x="278.0" y="66.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">X: continuous light</text>
+<text x="278.0" y="66.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">X: continuous</text>
 <text x="278.0" y="84.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="start">network at the grain</text>
 <text x="278.0" y="100.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="start">boundaries</text>
 <text x="278.0" y="196.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">Lamellar colonies</text>
 <text x="278.0" y="214.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="start">88.0 % of the area</text>
 <text x="20.0" y="272.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="start">Slowly cooled, room temperature</text>
 </g></svg>
-<div class="diagram-caption">Figure 1. Bank P11: schematic micrograph of the unknown steel after slow cooling (polished and etched). Lamellar colonies are surrounded by a thin, continuous, light network X along the former austenite grain boundaries.</div>
+<div class="diagram-caption">Figure 1. Bank P11: schematic micrograph of the unknown steel after slow cooling (polished and etched). Lamellar colonies are surrounded by a thin, continuous network X along the former austenite grain boundaries.</div>
 </div>
 <p>(a) Identify the lamellar constituent. Show that a fraction of 88.0 % of it is compatible with two different carbon contents, one on each side of the eutectoid, and calculate both.</p>
 <p>(b) Use the description of X to decide which of the two carbon contents is the right one, and justify it. For that steel, estimate the lowest temperature at which it is fully austenitic.</p>
@@ -4078,14 +4093,14 @@
           <h3 class="phase-title">Part (b) · 0.75 points</h3>
           <div class="prompt"><p>Choice of the right carbon content and full austenitisation</p></div>
 <h4 class="step-title">What X is</h4>
-<p>In a hypoeutectoid steel the proeutectoid constituent is ferrite, which forms <strong>equiaxed grains</strong> of its own between the pearlite colonies (Session 9, Slide 14). In a hypereutectoid steel it is cementite, which forms a <strong>thin network along the boundaries of the former austenite grains</strong> around the pearlite (Session 9, Slide 19). X is a thin, continuous network, and it etches like the light lamellae of the pearlite, which are cementite. So X is <strong>proeutectoid cementite</strong>: the steel is hypereutectoid and</p>
+<p>In a hypoeutectoid steel the proeutectoid constituent is ferrite, which forms <strong>equiaxed grains</strong> of its own between the pearlite colonies (Session 9, Slide 14). In a hypereutectoid steel it is cementite, which forms a <strong>thin network along the boundaries of the former austenite grains</strong> around the pearlite (Session 9, Slide 19). The grain-boundary position alone does not decide, because proeutectoid ferrite also nucleates on the austenite grain boundaries (Session 9, Slide 15; Topic 4, section 14.2), and a large amount of it can outline them too. The hardness does decide: ferrite is a soft phase (Session 9, Slide 5) and would be softer than the pearlite, which contains 11 % of cementite, whereas cementite is hard and brittle (Session 9, Slide 8) and is harder than the pearlite. X is much harder than the colonies, so X is <strong>proeutectoid cementite</strong>, and its thin continuous network is the shape Slide 19 shows for it. The steel is hypereutectoid and</p>
 <div class="math-block">$$C_0 = 1.469\ \text{wt\% C}$$</div>
 <p>The other candidate, 0.671 wt% C, would show 12.0 % of ferrite grains, not a grain-boundary network, and is rejected.</p>
 <h4 class="step-title">Lowest temperature of the single-phase austenite field</h4>
 <p>A hypereutectoid steel is fully austenitic above the Acm line (Session 9, Slides 4 and 11). On the straight Acm segment the temperature grows by $(1147 - 727)/(2.14 - 0.76) = 420/1.38 = 304.3$ °C per wt% C above the eutectoid point:</p>
 <div class="math-block">$$T_{Acm} = 727 + (1.469 - 0.76) \times 304.3 = 727 + 0.709 \times 304.3 = 727 + 215.8 = 942.8\ ^\circ\text{C}$$</div>
-<p><strong>Result:</strong> the bar must have been above about 943 °C to be entirely austenite. (Had the steel been the 0.671 wt% C candidate, the A3 line would have been crossed only a few degrees above 727 °C.)</p>
-          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>X is proeutectoid cementite (continuous grain-boundary network), so the steel is hypereutectoid: $C_0 = 1.469$ wt% C</li><li>Fully austenitic above about 943 °C (Acm line)</li></ul></div>
+<p><strong>Result:</strong> the bar must have been above about 943 °C to be entirely austenite. (Had the steel been the 0.671 wt% C candidate, it would have been fully austenitic above the A3 line, which at 0.671 wt% C lies only some 5 to 20 °C above 727 °C, depending on how its curve is read: the slides do not give A3 in numbers.)</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>X is much harder than the pearlite, so it is proeutectoid cementite (not ferrite): the steel is hypereutectoid, $C_0 = 1.469$ wt% C</li><li>Fully austenitic above about 943 °C (Acm line)</li></ul></div>
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Part (c) · 0.75 points</h3>
@@ -4145,7 +4160,9 @@
 <h4 class="step-title">Classify the three steels</h4>
 <p>S1 (0.25) and S2 (0.60) are below 0.76 wt% C: <strong>hypoeutectoid</strong>, with proeutectoid ferrite and pearlite (Session 9, Slide 14). S3 (1.35) lies between 0.76 and 2.14 wt% C: <strong>hypereutectoid</strong>, with proeutectoid cementite and pearlite (Session 9, Slide 19).</p>
 <h4 class="step-title">Derive the lever rule once</h4>
-<p>At 727 + ΔT the steel is a proeutectoid phase of composition $C_p$ plus austenite of $C_E = 0.76$. Mass balance: $W_p + W_\gamma = 1$. Carbon balance: $W_p C_p + W_\gamma C_E = C_0$. Substitute $W_\gamma = 1 - W_p$ and group the terms in $W_p$:</p>
+<p>At 727 + ΔT the steel is a proeutectoid phase of composition $C_p$ plus austenite of $C_E = 0.76$. Mass balance: $W_p + W_\gamma = 1$. Carbon balance: $W_p C_p + W_\gamma C_E = C_0$. Substitute $W_\gamma = 1 - W_p$ into the carbon balance:</p>
+<div class="math-block">$$W_p C_p + (1 - W_p) C_E = C_0$$</div>
+<p>Expand, subtract $C_E$ and group the terms in $W_p$:</p>
 <div class="math-block">$$W_p (C_p - C_E) = C_0 - C_E \quad\Rightarrow\quad W_p = \frac{C_0 - C_E}{C_p - C_E} = \frac{C_E - C_0}{C_E - C_p}$$</div>
 <p>All that austenite becomes pearlite at 727 °C, and the proeutectoid phase does not change, so just below 727 °C $W_P = 1 - W_p$ (Session 9, Slides 18 and 20).</p>
 <h4 class="step-title">S1 and S2: proeutectoid ferrite ($C_p = C_\alpha = 0.022$, tie line length $0.76 - 0.022 = 0.738$)</h4>
@@ -4199,7 +4216,7 @@
 <div class="math-block">$$W_{\text{Fe}_3\text{C}}(S3) = \frac{1.35 - 0.022}{6.648} = \frac{1.328}{6.648} = 0.1998, \qquad W_\alpha(S3) = 0.8002$$</div>
 <h4 class="step-title">Ranking by hardness</h4>
 <p>Ferrite is a soft phase and cementite is hard and brittle (Session 9, Slides 5 and 8), so at the same (slow) cooling the hardness grows with the fraction of cementite: <strong>S3 (20.0 % Fe₃C) &gt; S2 (8.7 %) &gt; S1 (3.4 %)</strong>. The fraction of cementite grows linearly with $C_0$, which is why harder steels are those with more carbon. S3 pays for its hardness with a brittle network of proeutectoid cementite at the grain boundaries (Session 9, Slide 19).</p>
-<p><strong>Check:</strong> the cementite of S3 splits into 0.0998 proeutectoid and $0.9002 \times 0.1110 = 0.0999$ inside the pearlite (0.1110 is the cementite of any pearlite, Session 9, Slide 13); $0.0998 + 0.0999 = 0.1998$.</p>
+<p><strong>Check:</strong> the cementite of S3 splits into 0.0998 proeutectoid and $0.9002 \times 0.1110 = 0.0999$ inside the pearlite (0.1110 is the cementite of any pearlite, Session 9, Slide 13); $0.09983 + 0.09993 = 0.1998$.</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$W_{\text{Fe}_3\text{C}}$: S1 0.0343, S2 0.0869, S3 0.1998 (ferrite: 0.9657, 0.9131, 0.8002)</li><li>Hardness: S3 &gt; S2 &gt; S1, in the order of the cementite fraction</li></ul></div>
         </div>
         <div class="phase-block">
@@ -4224,7 +4241,7 @@
 <p>Session 9, Slide 22: elements that favour α (Si, P, Al, Be, Sn, Sb, As, Ti, Nb, V, Ta, Mo, W, <strong>Cr</strong>) stabilise ferrite and displace the eutectoid to <strong>higher temperature and lower %C</strong>; elements that favour γ (<strong>Mn</strong>, Co, Ni, Cu, Zn, Au) stabilise austenite and displace it to <strong>lower temperature and lower %C</strong>. Slide 23 gives the size of the shifts against the alloy content; the statement gives no content, so only the direction is asked.</p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Version of S2</th><th>Eutectoid temperature</th><th>Eutectoid composition</th></tr></thead><tbody><tr><td>S2 + Cr (α-stabiliser)</td><td>above 727 °C</td><td>below 0.76 wt% C</td></tr><tr><td>S2 + Mn (γ-stabiliser)</td><td>below 727 °C</td><td>below 0.76 wt% C</td></tr></tbody></table></div>
 <h4 class="step-title">Consequence for the microconstituents of S2</h4>
-<p>In both versions the eutectoid composition $C_E'$ is lower than 0.76, so the pearlite (which always has the eutectoid composition) carries less than 0.76 wt% C. The proeutectoid ferrite is $W_{\alpha_p} = (C_E' - C_0)/(C_E' - C_\alpha)$: a smaller $C_E'$ shrinks the numerator, so S2 has <strong>less proeutectoid ferrite and more pearlite</strong> than the plain 0.60 wt% C steel of part (a), and is harder.</p>
+<p>In both versions the eutectoid composition $C_E'$ is lower than 0.76, so the pearlite (which always has the eutectoid composition) carries less than 0.76 wt% C. The proeutectoid ferrite is $W_{\alpha_p} = (C_E' - C_0)/(C_E' - C_\alpha)$: a smaller $C_E'$ shrinks the numerator, so S2 has <strong>less proeutectoid ferrite and more pearlite</strong> than the plain 0.60 wt% C steel of part (a). Its total cementite fraction (the long tie line from ferrite to cementite) does not change when the eutectoid point moves; what changes is how the cementite is distributed: more of the soft proeutectoid ferrite is replaced by pearlite, which is harder than ferrite (it contains the hard cementite lamellae, Session 9, Slides 8 and 12).</p>
 <h4 class="step-title">If the eutectoid composition fell below 0.60 wt% C</h4>
 <p>Then $C_0 = 0.60 &gt; C_E'$ and S2 would sit on the cementite side of the new eutectoid: on slow cooling it would form <strong>proeutectoid cementite</strong> at the austenite grain boundaries, followed by pearlite, like a hypereutectoid plain steel (Session 9, Slide 19).</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Cr (favours α): eutectoid at higher temperature and lower %C</li><li>Mn (favours γ): eutectoid at lower temperature and lower %C</li><li>In both cases S2 is closer to the eutectoid: less proeutectoid ferrite, more pearlite, and the pearlite has less than 0.76 wt% C</li><li>If the eutectoid composition fell below 0.60 wt% C, S2 would behave as hypereutectoid: proeutectoid cementite + pearlite</li></ul></div>
@@ -4480,18 +4497,22 @@
 <p>The true stress is the load over the area that actually carries it at that instant [Session 11 Slide 37]. At fracture that area is the neck, $A_f$:</p>
 <div class="math-block">$$\sigma_{T,f} = \frac{F_f}{A_f} = \frac{17\,800\ \text{N}}{29.22\ \text{mm}^2} = 609.1\ \text{MPa}$$</div>
 <p>Equivalently $\sigma_{T,f} = \sigma_f\,A_0/A_f = 354.1\ \text{MPa}\times1.720 = 609.1$ MPa [Session 11 Slide 38].</p>
-<h4 class="step-title">True strain at fracture from the area ratio</h4>
-<p>After necking the length between the marks no longer describes the strain of the neck, so the slide writes the true strain with the areas [Session 11 Slide 38]. With $A = \pi D^2/4$ the factor $\pi/4$ cancels in the ratio, and the logarithm of a square is twice the logarithm:</p>
+<h4 class="step-title">True strain at fracture: derivation from constant volume in the neck</h4>
+<p>The true strain adds each small elongation $dl$ divided by the current length $l$ [Session 11 Slide 37]. An antiderivative of $1/l$ is $\ln l$, and Barrow's rule with the limits substituted gives</p>
+<div class="math-block">$$\varepsilon_T = \int_{l_0}^{l}\frac{dl}{l} = \left[\ln l\right]_{l_0}^{l} = \ln l - \ln l_0 = \ln\frac{l}{l_0}$$</div>
+<p>After necking the length between the marks no longer describes the strain of the neck, so the integral is applied to a thin slice of the neck itself. Plastic deformation keeps the volume of that slice constant: its initial length $l_0$ and area $A_0$ become $l$ and $A$ with $A_0 l_0 = A l$. Dividing both sides by $A\,l_0$:</p>
+<div class="math-block">$$\frac{l}{l_0} = \frac{A_0}{A} \qquad\Rightarrow\qquad \varepsilon_T = \ln\frac{A_0}{A}$$</div>
+<p>which is the expression of the slide for the necked region [Session 11 Slide 38]. At the fracture surface $A = A_f$. With $A = \pi D^2/4$ the factor $\pi/4$ cancels in the ratio, and the logarithm of a square is twice the logarithm:</p>
 <div class="math-block">$$\varepsilon_{T,f} = \ln\frac{A_0}{A_f} = \ln\frac{d_0^2}{d_f^2} = 2\ln\frac{d_0}{d_f} = 2\ln\frac{8.00}{6.10} = 2\times0.2712 = 0.542$$</div>
 <h4 class="step-title">Why the uniform-deformation formulas fail here</h4>
-<p>The formulas $\sigma_T = \sigma(1+\varepsilon)$ and $\varepsilon_T = \ln(1+\varepsilon)$ of Slide 38 come from constant volume, $A_0 l_0 = A l$, applied to a gauge length that deforms <strong>uniformly</strong>, so that one strain $\varepsilon$ describes every cross-section. After the maximum load the strain concentrates in the neck: the average strain of the gauge length (0.14) is much smaller than the local strain at the fracture surface. Using them anyway gives</p>
+<p>The formulas $\sigma_T = \sigma(1+\varepsilon)$ and $\varepsilon_T = \ln(1+\varepsilon)$ of Slide 38 come from constant volume, $A_0 l_0 = A l$, applied to a gauge length that deforms <strong>uniformly</strong>, so that one strain $\varepsilon$ describes every cross-section: from $A_0 l_0 = A l$, $A = A_0 l_0/l = A_0/(1+\varepsilon)$ and $\sigma_T = F/A = (F/A_0)(1+\varepsilon) = \sigma(1+\varepsilon)$. After the maximum load the strain concentrates in the neck: the average strain of the gauge length (0.14) is much smaller than the local strain at the fracture surface. Using them anyway gives</p>
 <div class="math-block">$$\sigma_f\,(1 + 0.140) = 354.1\ \text{MPa}\times1.140 = 403.7\ \text{MPa} \qquad \ln(1 + 0.140) = 0.131$$</div>
 <p>against 609.1 MPa and 0.542 from the measured neck: the area ratio of the neck is $A_0/A_f = 1.720$, not $1 + \varepsilon = 1.140$. That is why the slide switches to $F_i/A_i$ and $\ln(A_0/A)$ after necking [Session 11 Slide 38].</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\sigma_{T,f} = 609.1$ MPa</li><li>$\varepsilon_{T,f} = 0.542$</li><li>$\sigma_f(1 + EL/100) = 403.7$ MPa underestimates it by about a third</li></ul></div>
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Interpretation and checks</h3>
-<ul><li><strong>Physical meaning.</strong> The engineering curve falls after the maximum (427.7 to 354.1 MPa) only because it divides by the original area; the metal in the neck is still hardening, and at fracture it carries 609.1 MPa. True stress above engineering stress and true strain different from the engineering one are the two signs the slide gives [Session 11 Slide 37].</li><li><strong>Control checks.</strong> $\sigma_f &lt; \sigma_{TS} &lt; \sigma_{T,f}$; $0 &lt; RA &lt; 100$ %; if the specimen had broken without necking ($d_f \to d_0$), $RA \to 0$ and $\sigma_{T,f} \to \sigma_f$, the behaviour of a brittle material.</li><li><strong>Dimensions.</strong> $F/A$ is N/m² = Pa; %EL and %RA are ratios of lengths and of areas, and $\ln(A_0/A_f)$ is the logarithm of a pure number, so both strains are dimensionless.</li><li><strong>Common exam mistake.</strong> Dividing the fracture load by the original area and calling it the true fracture stress, or computing %RA with the diameters instead of their squares ($1 - 6.10/8.00 = 23.8$ %, wrong).</li></ul>
+<ul><li><strong>Physical meaning.</strong> The engineering curve falls after the maximum (427.7 to 354.1 MPa) only because it divides by the original area; the metal in the neck is still hardening, and at fracture it carries 609.1 MPa. The slide states $\sigma_{\text{real}} &gt; \sigma_{\text{eng}}$ and $\varepsilon_{\text{real}} &lt; \varepsilon_{\text{eng}}$ [Session 11 Slide 37]. The stress inequality holds here (609.1 &gt; 354.1 MPa). The strain inequality is written for the uniform deformation of the gauge length, where $\ln(1+\varepsilon) &lt; \varepsilon$ (0.131 &lt; 0.140); the 0.542 found above is not a counterexample, because it is the local strain of the neck, while 0.14 is the average over the whole gauge length.</li><li><strong>Control checks.</strong> $\sigma_f &lt; \sigma_{TS} &lt; \sigma_{T,f}$; $0 &lt; RA &lt; 100$ %; if the specimen had broken without necking ($d_f \to d_0$), $RA \to 0$ and $\sigma_{T,f} \to \sigma_f$, the behaviour of a brittle material.</li><li><strong>Dimensions.</strong> $F/A$ is N/m² = Pa; %EL and %RA are ratios of lengths and of areas, and $\ln(A_0/A_f)$ is the logarithm of a pure number, so both strains are dimensionless.</li><li><strong>Common exam mistake.</strong> Dividing the fracture load by the original area and calling it the true fracture stress, or computing %RA with the diameters instead of their squares ($1 - 6.10/8.00 = 23.8$ %, wrong).</li></ul>
         </div>
       </section>
       <section class="problem-box" id="P15">
@@ -4609,7 +4630,7 @@
         <div class="phase-block">
           <h3 class="phase-title">Data and model</h3>
 <h4 class="step-title">Data</h4>
-<p>Values read from the figure (the dashed projections of each marked point end on a printed axis value):</p>
+<p>Values read from the figure: A, B and Y have dashed projections that end on a printed axis value; U lies on the 0.15 and 600 gridlines; F is at (0.25, 500) and is not needed.</p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Point</th><th>What it is</th><th style="text-align:right">Strain $\varepsilon$</th><th style="text-align:right">Stress $\sigma$ (MPa)</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>A</td><td>point of the straight part (right panel)</td><td style="text-align:right">0.0015</td><td style="text-align:right">310</td><td style="text-align:right">$3.10\times10^{8}$ Pa</td></tr><tr><td>Y</td><td>crossing with the 0.2 % offset line (right panel)</td><td style="text-align:right">read below</td><td style="text-align:right">450</td><td style="text-align:right">$4.50\times10^{8}$ Pa</td></tr><tr><td>B</td><td>rising part, before the maximum (left panel)</td><td style="text-align:right">0.08</td><td style="text-align:right">560</td><td style="text-align:right">$5.60\times10^{8}$ Pa</td></tr><tr><td>U</td><td>maximum of the curve (left panel)</td><td style="text-align:right">0.15</td><td style="text-align:right">600</td><td style="text-align:right">$6.00\times10^{8}$ Pa</td></tr></tbody></table></div>
 <h4 class="step-title">Model</h4>
 <ul><li>Hooke's law $\sigma = E\varepsilon$ on the straight part; $E$ is its slope [Session 11 Slide 12].</li><li>Conventional yield strength at the crossing with the line parallel to the elastic one from $\varepsilon = 0.002$ [Session 11 Slide 28].</li><li>Modulus of resilience: energy per unit volume up to yielding, $U_r = \int_0^{\varepsilon_y}\sigma\,d\varepsilon$ [Session 11 Slide 35].</li><li>True stress $\sigma_T = F/A_i$ and true strain $\varepsilon_T = \int_{l_0}^{l} dl/l$ [Session 11 Slide 37]; before necking the volume is constant, $A_0 l_0 = A_i l_i$ [Session 11 Slide 38].</li><li>Hypothesis for $U_r$: as on Slide 35, the elastic region is taken as linear up to $\sigma_y$ (the small rounding of the curve between about 380 and 450 MPa is neglected).</li></ul>
@@ -4624,7 +4645,7 @@
 <h4 class="step-title">Yield strength from point Y</h4>
 <p>The yield strength is the stress at the crossing of the curve with the offset line [Session 11 Slide 28]; the horizontal projection of Y ends at 450 on the stress axis:</p>
 <div class="math-block">$$\sigma_y = 450\ \text{MPa}$$</div>
-<p>Check of the reading: on the offset line $\sigma = E(\varepsilon - 0.002)$, so the strain of Y must be $\varepsilon_Y = 0.002 + \sigma_y/E = 0.002 + 450/206\,667 = 0.004177$, which is where Y sits in the right panel (just above the 0.004 gridline).</p>
+<p>Check of the reading: on the offset line $\sigma = E(\varepsilon - 0.002)$, so the strain of Y must be $\varepsilon_Y = 0.002 + \sigma_y/E = 0.002 + 450/206\,667 = 0.004177$, which is where Y sits in the right panel (just to the right of the 0.004 gridline).</p>
 <h4 class="step-title">Elastic strain at the yield strength</h4>
 <p>Treating the elastic region as linear up to $\sigma_y$ (Slide 35) and isolating the strain from Hooke's law $\sigma_y = E\,\varepsilon_y$:</p>
 <div class="math-block">$$\varepsilon_y = \frac{\sigma_y}{E} = \frac{450\ \text{MPa}}{206\,667\ \text{MPa}} = 0.002177$$</div>
@@ -4636,7 +4657,7 @@
 <p>Replacing $\varepsilon_y = \sigma_y/E$: $U_r = \dfrac{E}{2}\,\dfrac{\sigma_y^2}{E^2} = \dfrac{\sigma_y^2}{2E}$, the formula of the slide, which is also the area of the triangle $\tfrac12\sigma_y\varepsilon_y$.</p>
 <h4 class="step-title">Numerical value</h4>
 <div class="math-block">$$U_r = \frac{\sigma_y^2}{2E} = \frac{(450\ \text{MPa})^2}{2\times206\,667\ \text{MPa}} = \frac{202\,500}{413\,333}\ \text{MPa} = 0.490\ \text{MPa}$$</div>
-<p>Since $1\ \text{MPa} = 10^6\ \text{N/m}^2 = 10^6\ \text{N·m/m}^3 = 1\ \text{MJ/m}^3$, each cubic metre of this steel stores 0.490 MJ of recoverable elastic energy before it yields. Check with the triangle: $\tfrac12\times450\ \text{MPa}\times0.002177 = 0.490$ MPa.</p>
+<p>Since $1\ \text{MPa} = 10^6\ \text{N/m}^2 = 10^6\ \text{N}\cdot\text{m/m}^3 = 1\ \text{MJ/m}^3$, each cubic metre of this steel stores 0.490 MJ of recoverable elastic energy before it yields. Check with the triangle: $\tfrac12\times450\ \text{MPa}\times0.002177 = 0.490$ MPa.</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$E = 206.7$ GPa</li><li>$\sigma_y = 450$ MPa, $\varepsilon_y = \sigma_y/E = 0.002177$</li><li>$U_r = 0.490$ MPa $= 0.490$ MJ/m³</li></ul></div>
         </div>
         <div class="phase-block">
@@ -4666,7 +4687,7 @@
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Interpretation and checks</h3>
-<ul><li><strong>Physical meaning.</strong> $U_r = 0.490$ MJ/m³ is small next to the area under the whole curve (the toughness: a mean stress of about 530 MPa over a strain of 0.25 gives roughly $530\ \text{MPa}\times0.25 \approx 130$ MJ/m³): a structural steel absorbs almost all its energy plastically. A spring material needs high $\sigma_y$ and low $E$ [Session 11 Slide 35].</li><li><strong>Limiting case.</strong> For small strains $\ln(1+\varepsilon) \approx \varepsilon$ and $1+\varepsilon \approx 1$: at A ($\varepsilon = 0.0015$) true and engineering values differ by 0.15 %, at B by 8 %. The distinction matters only in the plastic range.</li><li><strong>Dimensions.</strong> $\int\sigma\,d\varepsilon$ is Pa × (dimensionless) = Pa = J/m³; $\sigma_y^2/E$ is Pa²/Pa = Pa; $\ln(l/l_0)$ is the logarithm of a pure number; $\sigma(1+\varepsilon)$ is Pa.</li><li><strong>Common exam mistake.</strong> Taking $\varepsilon_y = 0.002$ or $\varepsilon_Y = 0.004177$ (the strain of the crossing, which includes the plastic offset) in the resilience: $U_r$ uses only the elastic strain $\sigma_y/E$.</li></ul>
+<ul><li><strong>Physical meaning.</strong> $U_r = 0.490$ MJ/m³ is small next to the area under the whole curve (the toughness: a mean stress of about 530 MPa over a strain of 0.25 gives roughly $530\ \text{MPa}\times0.25 \approx 130$ MJ/m³): a structural steel absorbs almost all its energy plastically. A spring material needs high $\sigma_y$ and low $E$ [Session 11 Slide 35].</li><li><strong>Limiting case.</strong> For small strains $\ln(1+\varepsilon) \approx \varepsilon$ and $1+\varepsilon \approx 1$: at A ($\varepsilon = 0.0015$) the true stress exceeds the engineering one by 0.15 % and the true strain is smaller by about 0.075 %; at B the stresses differ by 8 % and the strains by about 3.8 % (0.0770 against 0.08). The distinction matters only in the plastic range.</li><li><strong>Dimensions.</strong> $\int\sigma\,d\varepsilon$ is Pa × (dimensionless) = Pa = J/m³; $\sigma_y^2/E$ is Pa²/Pa = Pa; $\ln(l/l_0)$ is the logarithm of a pure number; $\sigma(1+\varepsilon)$ is Pa.</li><li><strong>Common exam mistake.</strong> Taking $\varepsilon_y = 0.002$ or $\varepsilon_Y = 0.004177$ (the strain of the crossing, which includes the plastic offset) in the resilience: $U_r$ uses only the elastic strain $\sigma_y/E$.</li></ul>
         </div>
       </section>
       <section class="problem-box" id="P16">
@@ -4757,7 +4778,7 @@
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Interpretation and checks</h3>
-<ul><li><strong>Consistency of the report.</strong> The neck diameter after fracture (8.39 mm) is smaller than the uniform diameter at the maximum load (8.66 mm): the neck kept thinning after the maximum, as it must [Session 11 Slide 30]. And $l_f = 49.95$ mm is longer than the length at the maximum, $45.00\times1.080 = 48.60$ mm, because the neck added plastic elongation even though the elastic part was recovered.</li><li><strong>Order of magnitude.</strong> $E = 45$ GPa is the magnesium value of the slide's table [Session 11 Slide 17]; the small %RA (13 %) is typical of an hcp metal with few slip systems [Session 11 Slide 25].</li><li><strong>Limiting case.</strong> If $RA \to 0$ (no neck), $d_f \to d_0$; if $\varepsilon_u \to 0$, $d_u \to d_0$ and $\sigma_T \to \sigma$.</li><li><strong>Dimensions.</strong> $F = \sigma A_0$ is Pa·m² = N; $l_0(1 + \varepsilon)$ is m; $d_0\sqrt{1 - RA}$ is m; $F/A_u$ is Pa.</li><li><strong>Common exam mistake.</strong> Getting the diameter after fracture as $d_0(1 - RA)$ = 7.83 mm: %RA is a reduction of the area, so the diameter scales with the square root.</li></ul>
+<ul><li><strong>Consistency of the report.</strong> The neck diameter after fracture (8.39 mm) is smaller than the uniform diameter at the maximum load (8.66 mm): the neck kept thinning after the maximum, as it must [Session 11 Slide 30]. And $l_f = 49.95$ mm is longer than the length at the maximum, $45.00\times1.080 = 48.60$ mm, because the neck added plastic elongation even though the elastic part was recovered.</li><li><strong>Order of magnitude.</strong> $E = 45$ GPa is the magnesium value of the slide's table [Session 11 Slide 17]; magnesium is hcp, with 6 slip systems against 12 for fcc and bcc [Session 11 Slide 25]. <strong>Extension</strong> (not on the slides): fewer slip systems usually mean less ductility, which fits the small %RA of 13 %.</li><li><strong>Limiting case.</strong> If $RA \to 0$ (no neck), $d_f \to d_0$; if $\varepsilon_u \to 0$, $d_u \to d_0$ and $\sigma_T \to \sigma$.</li><li><strong>Dimensions.</strong> $F = \sigma A_0$ is Pa·m² = N; $l_0(1 + \varepsilon)$ is m; $d_0\sqrt{1 - RA}$ is m; $F/A_u$ is Pa.</li><li><strong>Common exam mistake.</strong> Getting the diameter after fracture as $d_0(1 - RA)$ = 7.83 mm: %RA is a reduction of the area, so the diameter scales with the square root.</li></ul>
         </div>
       </section>
       <section class="problem-box" id="P17">
@@ -4870,7 +4891,7 @@
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Interpretation and checks</h3>
-<ul><li>The three requirements pull in different directions: steel is stiff and strong but heavy, the light alloys are too weak for $N = 2$, and the titanium alloy is the only one with both a high strength and a moderate density. This is the logic of the specific properties of Slide 13 ($E/\rho$).</li><li>D fails twice: a low yield strength and a low modulus (a large elastic strain, hence a large diameter loss). A low $E$ makes $\lvert\Delta d\rvert$ grow as $\nu/E$.</li><li>Limiting check: the diameter loss of B, 6.07 µm, is $5\times10^{-4}$ of the diameter, a typical elastic strain of a metal, far below 1 %.</li><li>SI check: $\nu\,\sigma\,d_0/E$ has units Pa·m/Pa = m; $\rho\,V$ in (kg/m³)·m³ = kg.</li><li>Common mistake: rejecting A because "it yields". It does not yield at 159.2 MPa; it is rejected because its safety factor would be 1.88 &lt; 2.</li></ul>
+<ul><li>The three requirements pull in different directions: steel is stiff and strong but heavy, the light alloys are too weak for $N = 2$, and the titanium alloy wins on strength per unit density. <strong>Extension</strong> (not on the slides): the specific strength $\sigma_y/\rho$ is the yield strength divided by the density; with the table it is about 111 (A), 189 (B), 61.5 (C) and 122 (D) MPa per g/cm³, so B is clearly ahead. On the specific modulus $E/\rho$ B is actually the lowest of the four (23.8 against 25.0 to 26.5 GPa per g/cm³): here stiffness is not the deciding property.</li><li>D fails twice: a low yield strength and a low modulus (a large elastic strain, hence a large diameter loss). A low $E$ makes $\lvert\Delta d\rvert$ grow as $\nu/E$.</li><li>Limiting check: the diameter loss of B, 6.07 µm, is $5\times10^{-4}$ of the diameter, a typical elastic strain of a metal, far below 1 %.</li><li>SI check: $\nu\,\sigma\,d_0/E$ has units Pa·m/Pa = m; $\rho\,V$ in (kg/m³)·m³ = kg.</li><li>Common mistake: rejecting A because "it yields". It does not yield at 159.2 MPa; it is rejected because its safety factor would be 1.88 &lt; 2.</li></ul>
         </div>
       </section>
       <section class="problem-box" id="P19">
@@ -4884,7 +4905,7 @@
 <h4 class="step-title">Data</h4>
 <div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value given</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Initial diameter</td><td>$d_0$</td><td style="text-align:right">12.0 mm</td><td style="text-align:right">$12.0\times10^{-3}$ m</td></tr><tr><td>Gauge length</td><td>$l_0$</td><td style="text-align:right">50.0 mm</td><td style="text-align:right">$50.0\times10^{-3}$ m</td></tr><tr><td>Maximum load</td><td>$F_B$</td><td style="text-align:right">40 kN</td><td style="text-align:right">$40\times10^{3}$ N</td></tr><tr><td>Total strain at $F_B$</td><td>$\varepsilon_B$</td><td style="text-align:right">0.035</td><td style="text-align:right">dimensionless</td></tr><tr><td>Reloading force</td><td>$F_R$</td><td style="text-align:right">30 kN</td><td style="text-align:right">$30\times10^{3}$ N</td></tr><tr><td>Young's modulus</td><td>$E$</td><td style="text-align:right">69 GPa</td><td style="text-align:right">$69\times10^{9}$ Pa</td></tr><tr><td>Yield strength</td><td>$\sigma_y$</td><td style="text-align:right">275 MPa</td><td style="text-align:right">$275\times10^{6}$ Pa</td></tr></tbody></table></div>
 <h4 class="step-title">Model</h4>
-<ul><li>Engineering stress $\sigma = F/A_0$ and strain $\varepsilon = (l - l_0)/l_0$ [Session 11, Slide 9]; elastic zone for $\sigma &lt; \sigma_y$, plastic for $\sigma &gt; \sigma_y$ [Session 11, Slide 10].</li><li>Hooke's law $\sigma = E\,\varepsilon$ for the elastic part [Session 11, Slide 12].</li><li>Beyond yield the total strain is the sum of an elastic and a plastic part, $\varepsilon_t = \varepsilon_e + \varepsilon_p$; on unloading the elastic part is recovered along a line parallel to the elastic line and the plastic part remains [Session 11, Slides 21 and 32].</li><li>Hypotheses: uniform uniaxial stress; the engineering stress uses the initial area $A_0$; the unloading and the later reloading below the previous maximum stress are elastic with the same modulus $E$.</li></ul>
+<ul><li>Engineering stress $\sigma = F/A_0$ and strain $\varepsilon = (l - l_0)/l_0$ [Session 11, Slide 9]; elastic zone for $\sigma &lt; \sigma_y$, plastic for $\sigma &gt; \sigma_y$ [Session 11, Slide 10].</li><li>Hooke's law $\sigma = E\,\varepsilon$ for the elastic part [Session 11, Slide 12].</li><li>Beyond yield the total strain is the sum of an elastic and a plastic part, $\varepsilon_t = \varepsilon_e + \varepsilon_p$; on unloading the elastic part is recovered along a line parallel to the elastic line and the plastic part remains [Session 11, Slide 32].</li><li><strong>Extension</strong> (idealisation, not stated on the slides): on reloading, the unloaded specimen follows the unloading line elastically up to the previous maximum stress before it yields again. The slides only state that cold work raises the yield strength [Session 12, Slide 5].</li><li>Yielding is drawn, as an idealisation, at the end of the straight elastic line; the real 0.2 % offset value of 275 MPa lies on the curve at a strain of about 0.0060.</li><li>Hypotheses: uniform uniaxial stress; the engineering stress uses the initial area $A_0$; the unloading is elastic with the same modulus $E$; the elastic reloading of part (c) rests on the idealisation marked <strong>extension</strong> above.</li></ul>
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Part (a) · 0.6 points</h3>
@@ -4905,7 +4926,7 @@
           <h3 class="phase-title">Part (b) · 0.8 points</h3>
           <div class="prompt"><p>Length of the specimen after the 40 kN load is removed. Draw the loading and unloading path.</p></div>
 <h4 class="step-title">Split the total strain into its elastic and plastic parts</h4>
-<p>At point B of the curve the total strain is $\varepsilon_B = \varepsilon_e + \varepsilon_p$ [Session 11, Slide 32]. Unloading removes the stress from $\sigma_B$ to 0 along a straight line parallel to the elastic line, of slope $E$ [Session 11, Slide 21]. The strain recovered is therefore Hooke's law applied to the stress drop $\sigma_B - 0$:</p>
+<p>At point B of the curve the total strain is $\varepsilon_B = \varepsilon_e + \varepsilon_p$ [Session 11, Slide 32]. Unloading removes the stress from $\sigma_B$ to 0 along a straight line parallel to the elastic line, of slope $E$ [Session 11, Slide 32]. The strain recovered is therefore Hooke's law applied to the stress drop $\sigma_B - 0$:</p>
 <div class="math-block">$$\varepsilon_e = \frac{\sigma_B}{E} = \frac{353.7\times10^{6}\ \text{Pa}}{69\times10^{9}\ \text{Pa}} = 5.126\times10^{-3}$$</div>
 <h4 class="step-title">Permanent strain</h4>
 <p>Isolating the plastic part from $\varepsilon_B = \varepsilon_e + \varepsilon_p$ (subtract $\varepsilon_e$ from both sides):</p>
@@ -4966,16 +4987,17 @@
 <text x="443.5" y="230.0" fill="var(--text-muted)" font-size="11.5" font-weight="400" text-anchor="start">ε = 0.035</text>
 <text x="396.5" y="184.0" fill="var(--fig-blue, #3b82f6)" font-size="11.5" font-weight="400" text-anchor="end">slope E</text>
 </g></svg>
-<div class="diagram-caption">Figure 1. Loading O-Y-B beyond yield, unloading B-P parallel to the elastic line, reloading P-R (to scale).</div>
+<div class="diagram-caption">Figure 1. Loading O-Y-B beyond yield (yielding idealised at the end of the elastic line Y), unloading B-P parallel to the elastic line, reloading P-R (to scale).</div>
 </div>
-<p>O to Y is the elastic line up to $\sigma_y$; Y to B is the plastic loading up to 353.7 MPa at $\varepsilon = 0.035$; B to P is the unloading, parallel to OY, ending at the permanent strain 0.0299.</p>
+<p>O to Y is the elastic line, with yielding idealised at its end (the 0.2 % offset value lies a little further along the curve); Y to B is the plastic loading up to 353.7 MPa at $\varepsilon = 0.035$; B to P is the unloading, parallel to OY, ending at the permanent strain 0.0299.</p>
           <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Recovered elastic strain $\varepsilon_e = 5.126\times10^{-3}$</li><li>Permanent strain $\varepsilon_p = 0.02987$</li><li>Final length $l_P = 51.494$ mm (the specimen shortens by 0.256 mm on unloading)</li></ul></div>
         </div>
         <div class="phase-block">
           <h3 class="phase-title">Part (c) · 0.6 points</h3>
           <div class="prompt"><p>Length of the specimen when it is loaded again to 30 kN.</p></div>
 <h4 class="step-title">Is the reloading elastic?</h4>
-<p>On reloading, the specimen climbs back along the unloading line PB and stays elastic until the stress reaches the value at which it was unloaded, 353.7 MPa [Session 11, Slides 21 and 32]: the plastic deformation of the first loading has hardened the alloy (strain hardening, Session 12, Slide 5), so its yield point is now the stress reached at B. The new stress is</p>
+<div class="callout"><div class="callout-title">Extension: reloading to the previous maximum</div><p>The idealisation used here is not stated on the slides: a specimen unloaded from B climbs back along the unloading line PB elastically and yields again only when the stress reaches the previous maximum, 353.7 MPa. The slides only say that cold work raises the yield strength [Session 12, Slide 5].</p></div>
+<p>With that idealisation, the reloading is elastic if the new stress stays below 353.7 MPa. The new stress is</p>
 <div class="math-block">$$\sigma_R = \frac{F_R}{A_0} = \frac{30\times10^{3}\ \text{N}}{1.131\times10^{-4}\ \text{m}^2} = 265.3\ \text{MPa} &lt; 353.7\ \text{MPa}$$</div>
 <p>so the specimen is elastic on the line PB (point R of the figure), even though 265.3 MPa is close to the original $\sigma_y = 275$ MPa.</p>
 <h4 class="step-title">Strain and length at R</h4>

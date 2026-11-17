@@ -196,6 +196,8 @@ def _figures_for(text, where):
 def _common_checks(text, where):
     if _EMOJI.search(text):
         raise bpb.BankError(f"{where}: emojis are not allowed")
+    if re.search(r"\\text\{[^{}]*·", text):
+        raise bpb.BankError(f"{where}: '·' inside \\text{{}} breaks KaTeX; close the text and use \\cdot")
     if "\\euro" in text:
         raise bpb.BankError(f"{where}: \\euro is undefined in KaTeX")
     m = _PHASE.search(text)

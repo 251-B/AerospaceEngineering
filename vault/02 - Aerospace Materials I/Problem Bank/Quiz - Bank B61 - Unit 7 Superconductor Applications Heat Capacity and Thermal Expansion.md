@@ -202,7 +202,7 @@ b
 
 ### Explanation
 
-Session 15, Slides 34, 35 and 38: specific heat is the heat capacity divided by the atomic weight, so $C = c_p\,M = 448\ \text{J/(kg·K)}\times 0.05585\ \text{kg/mol} = 25.0$ J/(mol·K), very close to the plateau $3R$ reached above the Debye temperature.
+Session 15, Slides 34, 35 and 38: specific heat is the heat capacity divided by the atomic weight, so $C = c_p\,M = 448\ \text{J/(kg}\cdot\text{K)}\times 0.05585\ \text{kg/mol} = 25.0$ J/(mol·K), very close to the plateau $3R$ reached above the Debye temperature.
 
 - a) The specific heat was divided by the atomic weight ($448/55.85$) instead of multiplied.
 - c) The atomic weight was used in g/mol without converting to kg/mol: the result is 1000 times too large.
