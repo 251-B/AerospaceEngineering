@@ -89,7 +89,7 @@ $$N = n\,N_A = 4.000\times10^{-6}\ \text{mol}\times6.022\times10^{23}\ \text{mol
 - **Limit.** If the chains were shorter (smaller $X_n$), the same gram would contain more chains: $N$ is inversely proportional to $M$.
 
 ### Interpretation
-Each PMMA chain is a molecule of 2500 repeat units, about four hundred thousand times smaller in mass than a microgram, so even one gram of plastic holds a few $10^{18}$ macromolecules. In a real PMMA the chains are not all the same size; then $M$ in the statement would be the number average $M_n$, and the same two formulas would give the average degree of polymerization and the number of chains.
+Each PMMA chain is a molecule of 2500 repeat units, with a mass of about $4.15	imes10^{-19}$ g, some $2.4	imes10^{12}$ times smaller than a microgram, so even one gram of plastic holds a few $10^{18}$ macromolecules. In a real PMMA the chains are not all the same size; then $M$ in the statement would be the number average $M_n$, and the same two formulas would give the average degree of polymerization and the number of chains.
 
 ## ✅ Check against the official solution
 | Item | Official | Computed | Comment |

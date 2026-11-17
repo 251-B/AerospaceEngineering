@@ -386,7 +386,7 @@ Slide 38 (Table 30.3, source: Advanced Materials & Processes, July 1990, ASM Int
 | Flammability | Low | Low | High | Low | Low |
 
 > [!note] Printed on Slide 38
-> The slide prints the lower service temperature of the modified acrylic as "70" °C. Its own Fahrenheit value, −100 °F, is $(-100 - 32)/1.8 = -73\ ^\circ\text{C}$, so the Celsius value is −70 °C and the minus sign is missing; the table above uses −70. The other unit pairs agree: 1 lbf/in. = 175 N/m, so 3, 80, 30 and 10 lbf/in. are 525, 14 000, 5250 and 1750 N/m, and 1 ksi = 6.895 MPa reproduces the tension-shear column.
+> The slide prints the lower service temperature of the modified acrylic as "70" °C. Its own Fahrenheit value, −100 °F, is $(-100 - 32)/1.8 = -73\ ^\circ\text{C}$, so the Celsius value is −70 °C and the minus sign is missing; the table above uses −70. The other unit pairs agree: 1 lbf/in. = 175 N/m, so 3, 80, 30 and 10 lbf/in. are 525, 14 000, 5250 and 1750 N/m, and 1 ksi = 6.895 MPa reproduces the tension-shear column within rounding (25.9 MPa is 3.76 ksi; the slide prints 3.7).
 
 Read together, the table shows the trade-off of the whole topic: the rigid epoxy and cyanoacrylate have tension-shear strengths of the same order as the others but a peel strength below 525 N/m, while the flexible polyurethane peels at 14 000 N/m with the same shear strength as epoxy. Strength in shear and resistance to peel are different properties, and the joint design of Section 10 is what keeps a rigid structural adhesive out of peel.
 

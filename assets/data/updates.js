@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-17-materials-topics-8-11-review",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topics 8-11: corrections and phone layout",
+    "text": "Small corrections after checking Topics 8 to 11 against the slides and the solutions, and section titles that now wrap on phones instead of running off the screen.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-9-polymers.html"
+  },
+  {
     "id": "2026-11-17-living-sky",
     "date": "2026-11-17",
     "tag": "Portal",
