@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-constellation-phone-fit",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "The star map fits phones better",
+    "text": "On a phone the header buttons now fit the screen, the subject name sits above the Focus and Timer planets, and star labels never run off the edge.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-18-telescope-welcome",
     "date": "2026-11-18",
     "tag": "Portal",

@@ -165,7 +165,7 @@
   ];
   function tagOf(sec) {
     if (/soon/i.test(sec.count)) return 'Coming soon';
-    return sec.count && sec.count.length <= 16 ? sec.count : sec.tag;
+    return sec.count && sec.count.length <= 18 ? sec.count : sec.tag;   // the real counter whenever it fits
   }
   function keyOf(id, label) {
     if (id === 'teoria') return 'theory';
@@ -446,8 +446,8 @@
 
   /* ---------------------------------------------------------------------------------------
      HUD satellites of the open constellation: sizes are screen pixels (u = user units per pixel),
-     placement is a greedy search over the four diagonals and three leader lengths that avoids
-     the other labels, the stars and the lines of the figure, leaning to each star's free side.
+     placement is a greedy search over the four diagonals and several leader lengths (plus vertical leaders on
+     phones) that avoids the other labels, the stars and the lines of the figure, leaning to each star's free side.
      --------------------------------------------------------------------------------------- */
   function boxHit(a, b) { return a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3]; }
   function cross(p, q, r) { return (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]); }
@@ -469,11 +469,15 @@
     var gap = 6 * q, run = (phone ? 6 : 16) * q, r0 = 12 * q * ks, pad = 5 * q;
     var segs = it.edges.map(function (e) { return [it.anchors[e[0]], it.anchors[e[1]]]; });
     var boxes = [], legs = [];
+    var fx0 = Math.min.apply(null, it.anchors.map(function (a) { return a[0]; })), fx1 = Math.max.apply(null, it.anchors.map(function (a) { return a[0]; }));
     function candidates(hd) {
       var out = [], tw = Math.max(hd.name.length * fN * 0.56, hd.tag.length * fT * 0.62);
-      (phone ? [true, false] : [false]).forEach(function (stack) {
-      [1, 1.7, 2.5, 3.4].forEach(function (len) { [-1, 1].forEach(function (sy) { [-1, 1].forEach(function (sx) {
-        var D = (phone ? 16 : 24) * q * len + r0, ex = sx * D, ey = sy * D, nx = ex + sx * (run + R), ny = ey, b;
+      // shapes: the 45-degree leader everywhere; on phones also a vertical one (up or down, then the short run),
+      // since a tall narrow screen has room above and below a figure and none beside it
+      (phone ? [[true, false], [false, false], [true, true]] : [[false, false]]).forEach(function (shape) {
+      var stack = shape[0], vert = shape[1];
+      (vert ? [1, 1.7, 2.5, 3.4, 4.4, 5.6, 7] : phone ? [1, 1.7, 2.5, 3.4, 4.4] : [1, 1.7, 2.5, 3.4]).forEach(function (len) { [-1, 1].forEach(function (sy) { [-1, 1].forEach(function (sx) {
+        var D = (phone ? 16 : 24) * q * len + r0, ex = vert ? 0 : sx * D, ey = sy * D, nx = ex + sx * (run + R), ny = ey, b;
         if (stack) {   // narrow screens: the text sits under (or over) the ring, so labels stay narrow
           var hw = Math.max(R, tw / 2), th = gap + fN + fT * 1.25;
           b = [nx - hw, sy > 0 ? ny - R : ny - R - th, nx + hw, sy > 0 ? ny + R + th : ny + R];
@@ -482,27 +486,34 @@
           b = sx > 0 ? [nx - R, ny - hh, nx + R + gap + tw, ny + hh] : [nx - R - gap - tw, ny - hh, nx + R, ny + hh];
         }
         var p = hd.p;
-        out.push({ stack: stack, sx: sx, sy: sy, len: len, ex: ex, ey: ey, nx: nx, ny: ny, tw: tw, box: [p[0] + b[0] - pad, p[1] + b[1] - pad, p[0] + b[2] + pad, p[1] + b[3] + pad],
-          l1: [[p[0] + sx * r0 * 0.7, p[1] + sy * r0 * 0.7], [p[0] + ex, p[1] + ey]], l2: [[p[0] + ex, p[1] + ey], [p[0] + nx - sx * R, p[1] + ny]] });
+        var s0 = vert ? [0, sy * r0] : [sx * r0 * 0.7, sy * r0 * 0.7];   // the leader starts just clear of the star
+        out.push({ stack: stack, vert: vert, sx: sx, sy: sy, len: len, s0: s0, ex: ex, ey: ey, nx: nx, ny: ny, tw: tw, box: [p[0] + b[0] - pad, p[1] + b[1] - pad, p[0] + b[2] + pad, p[1] + b[3] + pad],
+          l1: [[p[0] + s0[0], p[1] + s0[1]], [p[0] + ex, p[1] + ey]], l2: [[p[0] + ex, p[1] + ey], [p[0] + nx - sx * R, p[1] + ny]] });
       }); }); }); });
       return out;
     }
     function score(c, hd, i) {
-      var sc = -8 * (c.sx * hd.dx + c.sy * hd.dy) + (c.len - 1) * 10 + (phone && !c.stack ? 15 : 0);   // side text on a phone only when stacking collides
-      boxes.forEach(function (b, j) { if (j !== i && b && boxHit(b, c.box)) sc += 1000; });
-      legs.forEach(function (l, j) { if (j !== i && l && (segCross(l[0], l[1], c.l1[0], c.l1[1]) || segCross(l[0], l[1], c.l2[0], c.l2[1]) || segBox(l[0], l[1], c.box))) sc += 300; });
+      var sc = -8 * (c.sx * hd.dx + c.sy * hd.dy) + (c.len - 1) * 10 + (phone && !c.stack ? 15 : 0) + (c.vert ? 6 : 0);   // side text on a phone only when stacking collides
+      // narrow screens: labels sticking out sideways would leave no width for the figure (and the fit would not
+      // converge), so each pixel beyond the figure's sides costs; above and below there is room
+      if (phone) sc += 0.6 * (Math.max(0, fx0 - c.box[0]) + Math.max(0, c.box[2] - fx1)) / q;
+      var hard = 0;
+      boxes.forEach(function (b, j) { if (j !== i && b && boxHit(b, c.box)) hard += 1000; });
+      legs.forEach(function (l, j) { if (j !== i && l && (segCross(l[0], l[1], c.l1[0], c.l1[1]) || segCross(l[0], l[1], c.l2[0], c.l2[1]) || segBox(l[0], l[1], c.box))) hard += 300; });
       it.anchors.forEach(function (a, j) { if (j !== hd.ai && a[0] > c.box[0] - 8 * q && a[0] < c.box[2] + 8 * q && a[1] > c.box[1] - 8 * q && a[1] < c.box[3] + 8 * q) sc += 250; });
       segs.forEach(function (sg) {
         if (segBox(sg[0], sg[1], c.box)) sc += 160;
         if (segCross(sg[0], sg[1], c.l1[0], c.l1[1]) || segCross(sg[0], sg[1], c.l2[0], c.l2[1])) sc += 90;
       });
-      return sc;
+      c.hard = hard;   // label on label or crossing leaders: only these make the camera step back
+      return sc + hard;
     }
-    var pick = [];
+    var pick = [], clash = 0;
     for (var pass = 0; pass < 2; pass++) {   // the second pass lets early labels move out of the way of later ones
       it.stars.forEach(function (a, i) {
         var best = null, bs = Infinity;
         candidates(a._hud).forEach(function (c) { var v = score(c, a._hud, i); if (v < bs) { bs = v; best = c; } });
+        if (pass) clash += best.hard;
         pick[i] = best; boxes[i] = best.box; legs[i] = best.l1;   // the diagonal; the short run lies inside the box margin
       });
     }
@@ -514,7 +525,7 @@
       var b = c.box;
       hd.hit.setAttribute('x', f(b[0] - p[0])); hd.hit.setAttribute('y', f(b[1] - p[1]));
       hd.hit.setAttribute('width', f(b[2] - b[0])); hd.hit.setAttribute('height', f(b[3] - b[1])); hd.hit.setAttribute('rx', f(6 * q));
-      hd.leader.setAttribute('d', 'M' + f(c.sx * r0 * 0.7) + ' ' + f(c.sy * r0 * 0.7) + 'L' + f(c.ex) + ' ' + f(c.ey) + 'L' + f(c.nx - c.sx * R) + ' ' + f(c.ny));
+      hd.leader.setAttribute('d', 'M' + f(c.s0[0]) + ' ' + f(c.s0[1]) + 'L' + f(c.ex) + ' ' + f(c.ey) + 'L' + f(c.nx - c.sx * R) + ' ' + f(c.ny));
       hd.ring.setAttribute('cx', f(c.nx)); hd.ring.setAttribute('cy', f(c.ny)); hd.ring.setAttribute('r', f(R));
       var ic = R * 1.15;
       hd.icon.setAttribute('x', f(c.nx - ic / 2)); hd.icon.setAttribute('y', f(c.ny - ic / 2)); hd.icon.setAttribute('width', f(ic)); hd.icon.setAttribute('height', f(ic));
@@ -528,7 +539,7 @@
       if (!c.stack) { hd.nm.setAttribute('y', f(c.ny - 1.5 * q)); hd.tg.setAttribute('y', f(c.ny + fT * 1.1)); }
       a.setAttribute('data-sat', (c.sx > 0 ? 'e' : 'w') + (c.sy > 0 ? 's' : 'n'));
     });
-    return { x0: it.slot[0] + x0 * k, x1: it.slot[0] + x1 * k, y0: it.slot[1] + y0 * k, y1: it.slot[1] + y1 * k };
+    return { x0: it.slot[0] + x0 * k, x1: it.slot[0] + x1 * k, y0: it.slot[1] + y0 * k, y1: it.slot[1] + y1 * k, clash: clash };
   }
 
   /* ---------------------------------------------------------------------------------------
@@ -555,16 +566,24 @@
     // the caption (bottom) and the window sides, plus the drift of the figure. Labels are sized in pixels, so the
     // box and the labels are solved together by a few fixed-point steps.
     var W = Math.max(1, r.width), Hh = Math.max(1, r.height);
-    var mt = compact ? 118 : 112, mb = compact ? 112 : 132, ms = phone ? 14 : 30, drift = 24 * k;
+    var mt = compact ? 118 : 112, mb = compact ? 112 : 132, ms = phone ? 14 : 30, drift = 8 * k;   // the open figure holds still
+    // the real caption keeps the labels above it; its layout box, not its rect, since it slides in on arrival
+    if (caption && caption.firstChild && caption.offsetHeight) mb = Math.max(mb, r.height - caption.offsetTop + 12);
     var bw0 = (compact ? (phone ? ZOOM_BW[2] : ZOOM_BW[1]) : ZOOM_BW[0]) * k, bh0 = (compact ? ZOOM_H + 140 : ZOOM_H) * k;
-    var w = Math.max(bw0, bh0 * asp), hh = w / asp, bb = null;
-    for (var i = 0; i < 5; i++) {
+    var fitW = 1 / Math.max(0.3, 1 - 2 * ms / W), fitH = 1 / Math.max(0.3, 1 - (mt + mb) / Hh);
+    function needOf(b) { return Math.max((b.x1 - b.x0 + 2 * drift) * fitW, (b.y1 - b.y0 + 2 * drift) * fitH * asp); }
+    // Labels are pixel-sized, so they grow with the box. Search from the tightest view outward and keep the first box
+    // that holds every label with no collision; failing that, the fitting box with the fewest collisions.
+    var w = Math.max(bw0, bh0 * asp, (it.maxX - it.minX) * k * fitW, (it.maxY - it.minY) * k * fitH * asp), hh, bb, best = null;
+    for (var i = 0; i < 10; i++, w *= 1.1) {   // at most about 2.5 times the tightest view
       bb = layoutHud(it, w / W, phone);
-      var needW = (bb.x1 - bb.x0 + 2 * drift) / Math.max(0.3, 1 - 2 * ms / W);
-      var needH = (bb.y1 - bb.y0 + 2 * drift) / Math.max(0.3, 1 - (mt + mb) / Hh);
-      w = Math.max(bw0, bh0 * asp, needW, needH * asp); hh = w / asp;
+      if (needOf(bb) > w) continue;
+      if (!best || bb.clash < best.clash) best = { w: w, clash: bb.clash };
+      if (!bb.clash) break;
     }
-    bb = layoutHud(it, w / W, phone);   // the labels drawn match the final camera
+    w = best ? best.w : needOf(bb);
+    bb = layoutHud(it, w / W, phone);   // the labels drawn match the chosen camera
+    hh = w / asp;
     var uu = w / W, free = hh - (bb.y1 - bb.y0 + 2 * drift) - (mt + mb) * uu;
     var top = bb.y0 - drift - mt * uu - Math.max(0, free) / 2;
     return { cx: (bb.x0 + bb.x1) / 2, cy: top + hh / 2, bw: w, bh: hh, asp: asp };
@@ -589,6 +608,8 @@
   function reduced() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
 
   function moveCamera(instant) {
+    var r = stage.getBoundingClientRect();
+    if (!r.width || !r.height) return;   // the map is hidden (classic view): keep the camera, setView() moves it on return
     var to = boxOf(target());
     cancelAnimationFrame(camAnim);
     if (instant || reduced() || !cam || isCompact()) { cam = to; paint(cam); return; }
@@ -650,8 +671,8 @@
     if (isCompact() && !selected) savedScroll = stage.scrollTop;
     selected = slug;
     sizeSvg(currentLayout());
+    renderState(fromKeyboard ? true : false);   // first: the camera measures the new caption
     moveCamera(false);
-    renderState(fromKeyboard ? true : false);
   }
 
   function backToPanorama() {

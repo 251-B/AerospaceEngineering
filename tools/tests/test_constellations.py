@@ -31,8 +31,8 @@ def contrast(a, b):
 
 class StaticTests(unittest.TestCase):
     def test_index_loads_the_files_and_keeps_the_classic_view(self):
-        self.assertIn('href="assets/css/constellations.css?v=20261124b"', INDEX)
-        self.assertIn('src="assets/js/constellations.js?v=20261124b"', INDEX)
+        self.assertIn('href="assets/css/constellations.css?v=20261124d"', INDEX)
+        self.assertIn('src="assets/js/constellations.js?v=20261124c"', INDEX)
         self.assertLess(INDEX.index("theme.js"), INDEX.index("constellations.js"))
         self.assertEqual(INDEX.count('class="subject-card'), 5)
         for slug in SLUGS:
@@ -127,7 +127,7 @@ class BrowserTests(unittest.TestCase):
         match = re.search(r'<pre id="result">(.*?)</pre>', proc.stdout, re.S)
         self.assertTrue(match and match.group(1).startswith("{"), proc.stdout[-500:])
         result = json.loads(match.group(1).replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">"))
-        self.assertEqual(set(result), {"1280x800", "375x812"})
+        self.assertEqual(set(result), {"1280x800", "768x1024", "375x812"})
         for size, slugs in result.items():
             self.assertTrue(slugs.pop("panoramaHidden"), size)
             for slug, issues in slugs.items():
