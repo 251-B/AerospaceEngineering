@@ -47,7 +47,7 @@
     return null;
   }
 
-  var view = read(VIEW_KEY) === 'classic' ? 'classic' : 'constellations';
+  var view = read(VIEW_KEY) === 'classic' && !/[?&]intro=1/.test(location.search) ? 'classic' : 'constellations';   // ?intro=1 also brings the stellar view back
   var palette = findPalette(read(PALETTE_KEY)) || PALETTES[0];
   root.setAttribute('data-home-view', view);
   root.setAttribute('data-sky-palette', palette.id);
@@ -707,6 +707,11 @@
       }
     });
 
+    var replay = document.getElementById('introReplay');   // plays the welcome screen again (a reload with ?intro=1)
+    if (replay) replay.addEventListener('click', function () {
+      try { sessionStorage.removeItem('ae_intro'); } catch (e) { /* storage blocked: the parameter is enough */ }
+      location.href = location.pathname + '?intro=1';
+    });
     if (toggle) toggle.addEventListener('click', function () { setView(view === 'constellations' ? 'classic' : 'constellations'); });
     if (select) {
       PALETTES.forEach(function (p) {

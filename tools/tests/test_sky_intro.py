@@ -14,7 +14,7 @@ INDEX = (REPO / "index.html").read_text(encoding="utf-8")
 
 class SkyIntroTests(unittest.TestCase):
     def test_index_carries_the_welcome_screen_and_the_scripts(self):
-        for needle in ('id="skyIntro"', 'id="introIgnite"', 'id="introSkip"', 'id="soundToggle"', "Ready to ignite?"):
+        for needle in ('id="skyIntro"', 'id="introIgnite"', 'id="introSkip"', 'id="soundToggle"', 'id="introReplay"', "Ready to ignite?"):
             self.assertIn(needle, INDEX)
         self.assertRegex(INDEX, r'src="assets/js/sky-sound\.js(\?v=\w+)?"')
         self.assertRegex(INDEX, r'src="assets/js/sky-intro\.js(\?v=\w+)?"')
