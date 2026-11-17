@@ -90,7 +90,7 @@ Because the matrix contributes less than 1 % of the modulus, the requirement is 
 ## ✅ Check against the official solution
 | Item | Official | Computed | Comment |
 | :--- | :--- | :--- | :--- |
-| $m_f$ | 3.37 kg | 3.364 kg | agrees within 0.2 % (rounding of $V_f$) |
+| $m_f$ | 3.37 kg | 3.364 kg | agrees within 0.2 % (the key rounds $\rho_c$ to 1.61 g/cm³) |
 
 ## 🔗 Related Links
 * [[Topic 10 - Composite Materials|Topic 10: Composite Materials]]

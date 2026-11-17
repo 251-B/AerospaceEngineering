@@ -377,7 +377,7 @@ Separating the faces multiplies the bending stiffness of the panel with very lit
 
 ## 16. Mechanical properties of the reinforcements [Session 21 Slides 40-43]
 
-The stress-strain curves of the fibres (Slide 40) are straight lines up to fracture: the fibres are linear elastic and brittle. Their slopes are the moduli: HM graphite yarn 414 GPa, boron fibre 379 GPa, HT graphite yarn 262 GPa, Kevlar 49 roving 131 GPa, S-glass roving 82.7 GPa and E-glass roving 68.9 GPa, with Nomex far below. The stiffest fibres break at the smallest strains (under 1 %), while glass reaches 3 to 4 %.
+The stress-strain curves of the fibres (Slide 40) are straight lines up to fracture: the fibres are linear elastic and brittle. Their slopes are the moduli: HM graphite yarn 414 GPa, boron fibre 379 GPa, HT graphite yarn 262 GPa, Kevlar 49 roving 131 GPa, S-glass roving 82.7 GPa and E-glass roving 68.9 GPa, with Nomex far below. The stiffest fibres break at the smallest strains (under 1 %), while E-glass roving breaks near 2.5 % and the S-glass line runs past 3.5 %.
 
 ![[attachments/T10/s21-mechanical-properties-fibres-chart.png]]
 
