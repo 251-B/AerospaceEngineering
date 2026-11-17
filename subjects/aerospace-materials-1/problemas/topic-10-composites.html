@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="aerospace-materials-1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 10: Solved Problems (Composite Materials) — Aerospace Materials I</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for pristine mathematical typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+      --accent-glow: rgba(245, 158, 11, 0.2);
+
+      --phase-1: #38bdf8;
+      --phase-1-bg: rgba(56, 189, 248, 0.08);
+      --phase-1-border: rgba(56, 189, 248, 0.25);
+
+      --phase-2: #f59e0b;
+      --phase-2-bg: rgba(245, 158, 11, 0.08);
+      --phase-2-border: rgba(245, 158, 11, 0.25);
+
+      --phase-3: #34d399;
+      --phase-3-bg: rgba(52, 211, 153, 0.08);
+      --phase-3-border: rgba(52, 211, 153, 0.25);
+
+      --phase-4: #c084fc;
+      --phase-4-bg: rgba(192, 132, 252, 0.08);
+      --phase-4-border: rgba(192, 132, 252, 0.25);
+
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(20, 30, 55, 0.95);
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.45);
+      --statement-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+      --shadow-elevation: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --statement-bg: #f8fafc;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, h4, .brand-title, .problem-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      color: var(--text-heading);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .nav-pill, .phase-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Header */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      width: 42px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* Sticky Navigation Bar with Pills */
+    nav.pills-bar,
+    .pills-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 58px;
+      z-index: 90;
+      padding: 10px 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill-group-title {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+    }
+
+    .nav-pill {
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-pill:hover, .nav-pill.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    main.problems-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px 96px;
+    }
+
+    /* Page Header */
+    .page-intro {
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .page-intro h1 {
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    .page-intro p {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Collapsible Problem Card */
+    details.problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-elevation);
+      transition: border-color var(--transition);
+      scroll-margin-top: 120px;
+    }
+
+    details.problem-card[open] {
+      border-color: var(--accent-border);
+    }
+
+    summary.problem-summary {
+      cursor: pointer;
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    summary.problem-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .problem-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .prob-num-badge {
+      background: var(--accent);
+      color: #070b14;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .prob-source-badge {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .problem-title {
+      font-size: 1.45rem;
+      color: var(--text-heading);
+      margin-top: 8px;
+    }
+
+    .card-body {
+      margin-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 20px;
+    }
+
+    /* Statement Box */
+    .statement-box {
+      background: var(--statement-bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-style: italic;
+      color: var(--text-heading);
+      font-size: 1.04rem;
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .solution-box {
+      margin-top: 10px;
+      font-style: normal;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid var(--accent-border);
+    }
+
+    /* 4-Phase Grid */
+    .phases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .phase-step {
+      background: var(--bg-surface);
+      border-radius: 10px;
+      padding: 20px 24px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .phase-1 .phase-badge { color: var(--phase-1); background: var(--phase-1-bg); border: 1px solid var(--phase-1-border); }
+    .phase-2 .phase-badge { color: var(--phase-2); background: var(--phase-2-bg); border: 1px solid var(--phase-2-border); }
+    .phase-3 .phase-badge { color: var(--phase-3); background: var(--phase-3-bg); border: 1px solid var(--phase-3-border); }
+    .phase-4 .phase-badge { color: var(--phase-4); background: var(--phase-4-bg); border: 1px solid var(--phase-4-border); }
+
+    .phase-step p {
+      margin-bottom: 14px;
+      color: var(--text-body);
+    }
+
+    .phase-step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .phase-step ul, .phase-step ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .phase-step li {
+      margin-bottom: 6px;
+    }
+
+    /* Reference Table Card */
+    .reference-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+
+    .reference-title {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .table-container {
+      position: relative;
+      overflow-x: auto;
+    }
+
+    table.ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    table.ref-table th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table.ref-table td {
+      padding: 6px 8px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    /* Footer */
+    footer.page-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 10px 16px; }
+      nav.pills-bar,
+      .pills-bar {
+        padding: 8px 16px;
+        top: 96px;
+      }
+      main.problems-container { padding: 24px 16px 64px; }
+      details.problem-card { padding: 20px 18px; }
+    }
+  
+    /* Topic 4: blocks generated from the vault notes */
+    .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin: 18px 0; border-top: 1px solid var(--accent-border);
+      border-right: 1px solid var(--accent-border); border-bottom: 1px solid var(--accent-border); }
+    .callout-warning { border-left-color: #ef4444; border-top-color: rgba(239, 68, 68, 0.3);
+      border-right-color: rgba(239, 68, 68, 0.3); border-bottom-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.06); }
+    .callout-title { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+    .math-block { overflow-x: auto; margin: 14px 0; }
+    .phase-step .table-container { overflow-x: auto; margin: 14px 0; border: 1px solid var(--border-subtle); border-radius: 8px; }
+    table.data-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; text-align: left; }
+    table.data-table th { background: var(--bg-subtle); color: var(--text-heading); padding: 9px 12px; font-weight: 600;
+      border-bottom: 1px solid var(--border-strong); }
+    table.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--text-body); }
+    table.data-table tr:last-child td { border-bottom: none; }
+    .sheet-intro { margin-top: 56px; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: 12px;
+      padding: 16px; margin: 18px 0; text-align: center; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <!-- Universal Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">MAT-I · Topic 10</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="problems-container">
+
+    <!-- Page Intro Header -->
+    <header class="page-intro">
+      <h1>Topic 10: Solved Problems</h1>
+      <p>
+        Step-by-step solutions of all 12 problems of the official sheet on composite materials (Problems T10_CompositeMaterials: weight and volume fractions, density, longitudinal and transverse moduli by the rule of mixtures, load carried by the fibres, specific modulus and strength, fibre selection and the density of an infiltrated porous matrix, from Sessions 21 to 23). The sheet prints a numeric key for the items, so each solution is derived here and compared with that key.
+      </p>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf" target="_blank" rel="noopener">Problems T10_CompositeMaterials.pdf</a>
+      </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 1 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-1">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 1</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #1</span>
+            <span class="prob-source-badge">Weight fraction · density · isostrain modulus</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Weight Fractions, Density and Modulus of a Carbon-Epoxy Composite</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="1"><li>A composite material has an epoxy matrix reinforced with 68% in volume of unidirectional carbon fiber. The density of carbon fiber is 1.79 g/cm³ and of the epoxy resin is 1.20 g/cm³.</li></ol>
+<p>a) What's the percentage in weight of the carbon fibers and the epoxy resin? b) What's the average density of the composite? c) If the average density of the composite is 1.65 g/cm³, what's the percentage in volume of the carbon fibers inside the material? d) Which of the two materials has a higher Elastic modulus? Calculate its value.</p>
+<p>Data: E_FC = 400 GPa and E_epoxy = 3 GPa. Assume isostrain conditions.</p>
+<p>"The two materials" of part d) are the two composites of the statement: the one with 68 vol% fibres (parts a and b) and the one whose density is 1.65 g/cm³ (part c).</p>
+          <div class="solution-box">Official Solution: a) 76%; b) 1.6 g/cm³; c) 76%; d) 304.7 GPa</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Two phases, no porosity.</strong> The composite is fibre plus matrix only, so $V_f + V_m = 1$.</li><li><strong>Rule of mixtures.</strong> A property of the composite is the volume-weighted sum of the properties of its phases, $P_{CM} = \sum_i f_i p_i$ with $\sum_i f_i = 1$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]; for the density, $\rho_c = V_f\rho_f + V_m\rho_m$.</li><li><strong>Mass of a phase.</strong> By the definition of density, the mass of each phase in a volume $V_c$ of composite is $m_i = \rho_i V_i = \rho_i f_i V_c$, so the weight fraction is $w_f = V_f\rho_f/\rho_c$.</li><li><strong>Isostrain.</strong> Load along the continuous, aligned fibres with a perfect bond: $E_{1C} = V_f E_f + (1 - V_f)E_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, Eq. 1].</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$V_f$ (parts a, b)</td><td style="text-align:right">0.68</td></tr><tr><td>$\rho_f$ (carbon fibre)</td><td style="text-align:right">1.79 g/cm³</td></tr><tr><td>$\rho_m$ (epoxy)</td><td style="text-align:right">1.20 g/cm³</td></tr><tr><td>$\rho_c$ (part c)</td><td style="text-align:right">1.65 g/cm³</td></tr><tr><td>$E_f$, $E_m$</td><td style="text-align:right">400 GPa, 3 GPa</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> (a) $w_f$, $w_m$; (b) $\rho_c$; (c) $V_f$ when $\rho_c = 1.65$ g/cm³; (d) which composite is stiffer and its $E_{1C}$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]:</p>
+<div class="math-block">$$\rho_c = V_f\rho_f + (1 - V_f)\rho_m \qquad w_f = \frac{V_f\rho_f}{\rho_c} \qquad E_{1C} = V_f E_f + (1 - V_f)E_m$$</div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Work with $1\ \text{cm}^3$ of composite: the mass of each phase is $\rho_i V_i$; their sum is $\rho_c$ (part b) and their ratio gives the weight fractions (part a).</li><li>Invert the density rule of mixtures for $V_f$ (part c).</li><li>Apply the isostrain rule to both composites and compare (part d).</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. a) and b) Masses in 1 cm³ of composite [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<p>In $1\ \text{cm}^3$ there are $0.68\ \text{cm}^3$ of fibre and $0.32\ \text{cm}^3$ of epoxy:</p>
+<div class="math-block">$$m_f = 0.68\ \text{cm}^3 \times 1.79\ \text{g/cm}^3 = 1.2172\ \text{g} \qquad m_m = 0.32\ \text{cm}^3 \times 1.20\ \text{g/cm}^3 = 0.3840\ \text{g}$$</div>
+<p>Their sum is the mass of $1\ \text{cm}^3$ of composite, which is the density of part b):</p>
+<div class="math-block">$$\rho_c = 1.2172\ \text{g} + 0.3840\ \text{g} = 1.6012\ \text{g in } 1\ \text{cm}^3 \ \Rightarrow\ \mathbf{\rho_c = 1.60\ g/cm^3}$$</div>
+<p>Weight fractions:</p>
+<div class="math-block">$$w_f = \frac{1.2172\ \text{g}}{1.6012\ \text{g}} = 0.760 \ \Rightarrow\ \mathbf{76.0\ \%\ \text{carbon fibre}} \qquad w_m = \frac{0.3840\ \text{g}}{1.6012\ \text{g}} = 0.240 \ \Rightarrow\ \mathbf{24.0\ \%\ \text{epoxy}}$$</div>
+<p><strong>2. c) Volume fraction from the density [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<p>Writing $V_m = 1 - V_f$ in the density rule and solving for $V_f$:</p>
+<div class="math-block">$$\rho_c = V_f\rho_f + (1 - V_f)\rho_m = \rho_m + V_f(\rho_f - \rho_m) \ \Rightarrow\ V_f = \frac{\rho_c - \rho_m}{\rho_f - \rho_m}$$</div>
+<div class="math-block">$$V_f = \frac{1.65 - 1.20}{1.79 - 1.20} = \frac{0.45\ \text{g/cm}^3}{0.59\ \text{g/cm}^3} = 0.763 \ \Rightarrow\ \mathbf{76.3\ vol\%\ \text{carbon fibre}}$$</div>
+<p><strong>3. d) Isostrain modulus of the two composites [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]</strong></p>
+<p>Composite of parts a) and b), $V_f = 0.68$:</p>
+<div class="math-block">$$E_{1C} = 0.68 \times 400\ \text{GPa} + 0.32 \times 3\ \text{GPa} = 272.0 + 0.96 = 272.96\ \text{GPa}$$</div>
+<p>Composite of part c), $V_f = 0.7627$:</p>
+<div class="math-block">$$E_{1C} = 0.7627 \times 400\ \text{GPa} + 0.2373 \times 3\ \text{GPa} = 305.08 + 0.71 = 305.8\ \text{GPa}$$</div>
+<p><strong>Answer:</strong> the composite of part c), with more fibre, is the stiffer one: $\mathbf{E_{1C} \approx 306\ GPa}$ (against 273 GPa for the 68 vol% composite).</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $V_f$ and $w_f$ are dimensionless; $\rho_c$ is a volume-weighted sum of densities, in g/cm³; $E_{1C}$ is a sum of moduli, in GPa.</li><li><strong>Bounds.</strong> $1.20 &lt; 1.60 &lt; 1.79$ g/cm³ and $3 &lt; 273 &lt; 400$ GPa: each mixture value lies between those of its phases.</li><li><strong>Weight against volume.</strong> The fibre is the denser phase, so its weight fraction (76.0 %) is larger than its volume fraction (68 %).</li><li><strong>Back-substitution.</strong> $0.7627 \times 1.79 + 0.2373 \times 1.20 = 1.650$ g/cm³, the density given in c).</li><li><strong>Limit.</strong> For $V_f \to 1$ the modulus tends to $E_f = 400$ GPa; with $E_f \gg E_m$ the matrix adds less than 1 GPa, which is why $E_{1C} \approx V_f E_f$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>].</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Because the modulus along the fibres is almost proportional to $V_f$, the composite of part c), with 8 more volume percent of fibre, is 12 % stiffer and only 3 % denser. This is the reason aerospace laminates are made with as high a fibre fraction as processing allows.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) $w_f$</td><td>76%</td><td>76.0 % fibre, 24.0 % epoxy</td><td>agrees</td></tr><tr><td>b) $\rho_c$</td><td>1.6 g/cm³</td><td>1.601 g/cm³</td><td>agrees</td></tr><tr><td>c) $V_f$</td><td>76%</td><td>76.3 vol%</td><td>agrees</td></tr><tr><td>d) $E$</td><td>304.7 GPa</td><td>305.8 GPa (composite of part c)</td><td>agrees within rounding: the key uses $V_f = 0.76$, and $0.76 \times 400 + 0.24 \times 3 = 304.7$ GPa</td></tr></tbody></table></div>
+<p>The key value 304.7 GPa is the modulus of the composite of part c) with $V_f$ rounded to 0.76, not the modulus of the 68 vol% composite (273.0 GPa); this is consistent with reading part d) as a comparison of the two composites of the statement.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 2 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-2">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 2</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #2</span>
+            <span class="prob-source-badge">Material selection · modulus and strength limits</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Choosing the Fibre for an Epoxy Composite with 40 Percent Fibres</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="2"><li>A composite material is planned to be manufactured using an epoxy matrix reinforced with continuous, longitudinally aligned fibers . The composite must contain a maximum fiber volume fraction of 40%,, and the minimum values for the elastic modulus and longitudinal tensile strength are set at 5.5·10⁴ and 1.2·10³ MPa respectively. he available candidate reinforcement materials include glass fibers, carbon fibers, and aramid fibers. Determine which reinforcement material is best suited to meet the specified requirements.</li></ol>
+<div class="table-container"><table class="data-table"><thead><tr><th>Material</th><th style="text-align:right">σ (MPa)</th><th style="text-align:right">E (Gpa)</th></tr></thead><tbody><tr><td>Epoxy Resin</td><td style="text-align:right">69</td><td style="text-align:right">3.1</td></tr><tr><td>Fiberglass</td><td style="text-align:right">2000</td><td style="text-align:right">72</td></tr><tr><td>Carbon Fiber</td><td style="text-align:right">3500</td><td style="text-align:right">350</td></tr><tr><td>Aramid Fiber</td><td style="text-align:right">3500</td><td style="text-align:right">124</td></tr></tbody></table></div>
+<p>The sheet prints "40%,," and "he available"; the requirement is $E_{1C} \ge 5.5\times10^4$ MPa = 55 GPa and $\sigma_{1C} \ge 1.2\times10^3$ MPa = 1200 MPa along the fibres.</p>
+          <div class="solution-box">Official Solution: carbon fiber reinforced composite</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Isostrain.</strong> Continuous, aligned fibres loaded along their length with a perfect bond: $E_{1C} = V_f E_f + (1 - V_f)E_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, Eq. 1].</li><li><strong>Longitudinal strength.</strong> The strength follows the same rule of mixtures, $\sigma_C = \sigma_f V_f + \sigma_{y,m}(1 - V_f)$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>]. The table gives only one matrix stress (69 MPa), so it is used as the matrix term, as the key of the sheet does; the term is small next to the fibre term.</li><li><strong>Worst case.</strong> Both properties grow with $V_f$, so if a fibre fails at the largest allowed fraction, $V_f = 0.40$, it fails at any lower fraction.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Constituent</th><th style="text-align:right">$\sigma$ (MPa)</th><th style="text-align:right">$E$ (GPa)</th></tr></thead><tbody><tr><td>Epoxy (m)</td><td style="text-align:right">69</td><td style="text-align:right">3.1</td></tr><tr><td>Glass fibre</td><td style="text-align:right">2000</td><td style="text-align:right">72</td></tr><tr><td>Carbon fibre</td><td style="text-align:right">3500</td><td style="text-align:right">350</td></tr><tr><td>Aramid fibre</td><td style="text-align:right">3500</td><td style="text-align:right">124</td></tr></tbody></table></div>
+<p>Limits: $V_f \le 0.40$, $E_{1C} \ge 55$ GPa, $\sigma_{1C} \ge 1200$ MPa.</p>
+<p><strong>Unknown:</strong> the fibre that meets both limits.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>]:</p>
+<div class="math-block">$$E_{1C} = V_f E_f + (1 - V_f)E_m \qquad \sigma_{1C} = V_f\sigma_f + (1 - V_f)\sigma_m$$</div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Evaluate both properties for each fibre at $V_f = 0.40$ and compare them with the limits.</li><li>As a second view, solve each rule for the smallest $V_f$ that reaches the limit and compare it with 0.40.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Properties at the largest fraction, $V_f = 0.40$ [Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>]</strong></p>
+<p>The matrix terms are common to the three candidates: $0.60 \times 3.1\ \text{GPa} = 1.86$ GPa and $0.60 \times 69\ \text{MPa} = 41.4$ MPa.</p>
+<p>Glass:</p>
+<div class="math-block">$$E_{1C} = 0.40 \times 72 + 1.86 = 30.66\ \text{GPa} \qquad \sigma_{1C} = 0.40 \times 2000 + 41.4 = 841.4\ \text{MPa}$$</div>
+<p>Carbon:</p>
+<div class="math-block">$$E_{1C} = 0.40 \times 350 + 1.86 = 141.86\ \text{GPa} \qquad \sigma_{1C} = 0.40 \times 3500 + 41.4 = 1441.4\ \text{MPa}$$</div>
+<p>Aramid:</p>
+<div class="math-block">$$E_{1C} = 0.40 \times 124 + 1.86 = 51.46\ \text{GPa} \qquad \sigma_{1C} = 0.40 \times 3500 + 41.4 = 1441.4\ \text{MPa}$$</div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Fibre</th><th style="text-align:right">$E_{1C}$ (GPa)</th><th>$\ge 55$?</th><th style="text-align:right">$\sigma_{1C}$ (MPa)</th><th>$\ge 1200$?</th></tr></thead><tbody><tr><td>Glass</td><td style="text-align:right">30.7</td><td>no</td><td style="text-align:right">841</td><td>no</td></tr><tr><td>Carbon</td><td style="text-align:right">141.9</td><td>yes</td><td style="text-align:right">1441</td><td>yes</td></tr><tr><td>Aramid</td><td style="text-align:right">51.5</td><td>no</td><td style="text-align:right">1441</td><td>yes</td></tr></tbody></table></div>
+<p><strong>2. Minimum fibre fraction for each limit</strong></p>
+<p>Solving $E_{1C} = 55$ GPa and $\sigma_{1C} = 1200$ MPa for $V_f$:</p>
+<div class="math-block">$$V_{f,E} = \frac{E_{min} - E_m}{E_f - E_m} \qquad V_{f,\sigma} = \frac{\sigma_{min} - \sigma_m}{\sigma_f - \sigma_m}$$</div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Fibre</th><th style="text-align:right">$V_{f,E}$</th><th style="text-align:right">$V_{f,\sigma}$</th><th style="text-align:right">Needed $V_f$</th><th>$\le 0.40$?</th></tr></thead><tbody><tr><td>Glass</td><td style="text-align:right">$(55 - 3.1)/(72 - 3.1) = 0.753$</td><td style="text-align:right">$(1200 - 69)/(2000 - 69) = 0.586$</td><td style="text-align:right">0.753</td><td>no</td></tr><tr><td>Carbon</td><td style="text-align:right">$(55 - 3.1)/(350 - 3.1) = 0.150$</td><td style="text-align:right">$(1200 - 69)/(3500 - 69) = 0.330$</td><td style="text-align:right">0.330</td><td>yes</td></tr><tr><td>Aramid</td><td style="text-align:right">$(55 - 3.1)/(124 - 3.1) = 0.429$</td><td style="text-align:right">$(1200 - 69)/(3500 - 69) = 0.330$</td><td style="text-align:right">0.429</td><td>no</td></tr></tbody></table></div>
+<p><strong>Answer: carbon fibre.</strong> It is the only candidate that meets both limits with at most 40 vol% fibre; it needs only 33 vol% (set by the strength). Aramid meets the strength but misses the modulus by a small margin (it would need 42.9 vol%), and glass misses both.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> Each term of $E_{1C}$ is a fraction times a modulus (GPa) and each term of $\sigma_{1C}$ a fraction times a stress (MPa); the limits were converted to the same units (55 GPa, 1200 MPa).</li><li><strong>Consistency.</strong> The two methods agree: a fibre passes at $V_f = 0.40$ exactly when its needed $V_f$ is below 0.40.</li><li><strong>Limit.</strong> For $V_f \to 0$ both rules return the epoxy (3.1 GPa, 69 MPa), far below the limits: the matrix alone cannot do the job.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Strength and stiffness select differently: aramid and carbon have the same tensile strength, but aramid is about three times less stiff, so the modulus limit is the one that rules it out. This matches the slides: glass fibres have a low modulus and aramid a lower modulus than carbon [Session 21 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=17" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 17">17</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=30" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 30">30</a>], and carbon fibres give the best combination of strength, stiffness and low weight [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=21" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 21">21</a>].</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Fibre</td><td>carbon fiber reinforced composite</td><td>carbon fibre ($E_{1C} = 141.9$ GPa, $\sigma_{1C} = 1441$ MPa at 40 vol%)</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 3 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-3">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 3</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #3</span>
+            <span class="prob-source-badge">Hybrid composite · specific modulus and strength</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Graphite-Epoxy and Graphite-Kevlar Hybrid Composite</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="3"><li>A composite material has a 69.5% in weight of unidirectional graphite-HM fibers in an epoxy matrix.</li></ol>
+<p>a) Estimate the density and elastic modulus of the composite. b) If a 50% of the graphite fibers are replaced with Kevlar fibers, estimate the specific elastic modulus and the specific tensile strength in the longitudinal direction in this new hybrid composite. c) Calculate the minimum volumetric fraction of the graphite-HM fibers so that the initial composite has more strength than the hybrid composite of section b). d) Do the same calculations as in (c) considering Kevlar fibers.</p>
+<p>Data:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Material</th><th style="text-align:right">Density g/cm³</th><th style="text-align:right">Elastic modulus GPa</th><th style="text-align:right">Tensile strength MPa</th></tr></thead><tbody><tr><td>Epoxy resin</td><td style="text-align:right">1.23</td><td style="text-align:right">3.5</td><td style="text-align:right">70</td></tr><tr><td>Graphite-HM fiber</td><td style="text-align:right">1.86</td><td style="text-align:right">390</td><td style="text-align:right">2400</td></tr><tr><td>Kevlar-49 fiber</td><td style="text-align:right">1.44</td><td style="text-align:right">131</td><td style="text-align:right">3700</td></tr></tbody></table></div>
+          <div class="solution-box">Official Solution: a) 1.61 g/cm³, 235.4 GPa; b) 106.5×10⁶ m²/s², 1.24×10⁶ m²/s²; c) 0.77; d) 0.49</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Weight to volume.</strong> The composition is given by weight. In 1 g of composite each phase occupies $w_i/\rho_i$; the sum of these volumes is $1/\rho_c$, and $V_i = (w_i/\rho_i)/\sum_j (w_j/\rho_j)$ (definition of density).</li><li><strong>Rule of mixtures</strong> along the fibres, for the modulus, the strength and the density, extended term by term to three phases: $P_{CM} = \sum_i f_i p_i$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]; isostrain modulus [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]; strength $\sigma_C = \sigma_f V_f + \sigma_m(1 - V_f)$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>], with the tabulated matrix strength as the matrix term.</li><li><strong>Hybrid of part b).</strong> Half of the graphite <strong>volume</strong> is replaced by the same volume of Kevlar, so $V_{gr} = V_K = V_f/2$ and $V_m$ is unchanged.</li><li><strong>Specific property</strong> = property / density [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=43" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 43">43</a>]; in SI, Pa/(kg/m³) = m²/s².</li><li><strong>Parts c) and d).</strong> "Initial composite" means the two-phase composite fibre + epoxy with the fibre of each part; its strength must exceed that of the hybrid.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Constituent</th><th style="text-align:right">$\rho$ (g/cm³)</th><th style="text-align:right">$E$ (GPa)</th><th style="text-align:right">$\sigma$ (MPa)</th></tr></thead><tbody><tr><td>Epoxy (m)</td><td style="text-align:right">1.23</td><td style="text-align:right">3.5</td><td style="text-align:right">70</td></tr><tr><td>Graphite-HM (gr)</td><td style="text-align:right">1.86</td><td style="text-align:right">390</td><td style="text-align:right">2400</td></tr><tr><td>Kevlar 49 (K)</td><td style="text-align:right">1.44</td><td style="text-align:right">131</td><td style="text-align:right">3700</td></tr></tbody></table></div>
+<p>$w_{gr} = 0.695$, $w_m = 0.305$.</p>
+<p><strong>Unknowns:</strong> (a) $\rho_c$, $E_{1C}$; (b) $E/\rho$ and $\sigma/\rho$ of the hybrid; (c) minimum $V_{gr}$; (d) minimum $V_K$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]:</p>
+<div class="math-block">$$V_i = \frac{w_i/\rho_i}{\sum_j w_j/\rho_j} \qquad \rho_c = \sum_i V_i\rho_i \qquad E_{1C} = \sum_i V_i E_i \qquad \sigma_{1C} = \sum_i V_i\sigma_i$$</div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Convert the weight fractions to volume fractions; then density and modulus (a).</li><li>Split the fibre volume in two halves; density, modulus and strength of the hybrid; divide by the density (b).</li><li>Set the strength of a two-phase composite equal to the hybrid strength and solve for $V_f$ (c, d).</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. a) Volume fractions, density and modulus [Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<p>Volumes of the phases in 1 g of composite:</p>
+<div class="math-block">$$\frac{w_{gr}}{\rho_{gr}} = \frac{0.695\ \text{g}}{1.86\ \text{g/cm}^3} = 0.37366\ \text{cm}^3 \qquad \frac{w_m}{\rho_m} = \frac{0.305\ \text{g}}{1.23\ \text{g/cm}^3} = 0.24797\ \text{cm}^3$$</div>
+<p>Total volume $0.62163\ \text{cm}^3$, so</p>
+<div class="math-block">$$V_{gr} = \frac{0.37366}{0.62163} = 0.6011 \qquad V_m = 0.3989 \qquad \rho_c = \frac{1\ \text{g}}{0.62163\ \text{cm}^3} = \mathbf{1.609\ g/cm^3}$$</div>
+<p>Isostrain modulus:</p>
+<div class="math-block">$$E_{1C} = 0.6011 \times 390\ \text{GPa} + 0.3989 \times 3.5\ \text{GPa} = 234.43 + 1.40 = \mathbf{235.8\ GPa}$$</div>
+<p><strong>2. b) The hybrid composite [Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<p>$V_{gr} = V_K = 0.6011/2 = 0.30055$, $V_m = 0.3989$.</p>
+<div class="math-block">$$\rho_h = 0.30055 \times 1.86 + 0.30055 \times 1.44 + 0.3989 \times 1.23 = 0.5590 + 0.4328 + 0.4906 = 1.4825\ \text{g/cm}^3$$</div>
+<div class="math-block">$$E_h = 0.30055 \times 390 + 0.30055 \times 131 + 0.3989 \times 3.5 = 117.21 + 39.37 + 1.40 = 157.98\ \text{GPa}$$</div>
+<div class="math-block">$$\sigma_h = 0.30055 \times 2400 + 0.30055 \times 3700 + 0.3989 \times 70 = 721.3 + 1112.0 + 27.9 = 1861.3\ \text{MPa}$$</div>
+<p>Specific values, with $\rho_h = 1482.5\ \text{kg/m}^3$:</p>
+<div class="math-block">$$\frac{E_h}{\rho_h} = \frac{157.98\times10^9\ \text{Pa}}{1482.5\ \text{kg/m}^3} = \mathbf{106.6\times10^6\ m^2/s^2} \qquad \frac{\sigma_h}{\rho_h} = \frac{1861.3\times10^6\ \text{Pa}}{1482.5\ \text{kg/m}^3} = \mathbf{1.26\times10^6\ m^2/s^2}$$</div>
+<p><strong>3. c) Minimum graphite fraction [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>]</strong></p>
+<p>Strength of a graphite-epoxy composite with fraction $V$, set greater than the hybrid strength:</p>
+<div class="math-block">$$2400\,V + 70\,(1 - V) &gt; 1861.3 \ \Rightarrow\ 2330\,V &gt; 1791.3 \ \Rightarrow\ V &gt; \frac{1791.3}{2330} = 0.769$$</div>
+<p><strong>$V_{gr,min} = 0.77$.</strong> The initial composite of part a), with $V_{gr} = 0.60$, has $2400 \times 0.6011 + 70 \times 0.3989 = 1470.6$ MPa, weaker than the hybrid.</p>
+<p><strong>4. d) Minimum Kevlar fraction [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>]</strong></p>
+<div class="math-block">$$3700\,V + 70\,(1 - V) &gt; 1861.3 \ \Rightarrow\ 3630\,V &gt; 1791.3 \ \Rightarrow\ V &gt; \frac{1791.3}{3630} = 0.493$$</div>
+<p><strong>$V_{K,min} = 0.49$.</strong></p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $\text{Pa}/(\text{kg/m}^3) = (\text{kg}\,\text{m}^{-1}\text{s}^{-2})/(\text{kg}\,\text{m}^{-3}) = \text{m}^2/\text{s}^2$, the unit of the key.</li><li><strong>Fractions.</strong> $0.30055 + 0.30055 + 0.3989 = 1.0000$.</li><li><strong>Trends.</strong> Kevlar is lighter, stronger and less stiff than graphite, so the hybrid is lighter (1.48 against 1.61 g/cm³), less stiff (158 against 236 GPa) and stronger (1861 against 1471 MPa) than the initial composite.</li><li><strong>c) against d).</strong> Kevlar is the stronger fibre, so it needs a smaller fraction (0.49) than graphite (0.77) to beat the hybrid; both are below 1, so both are possible in principle.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>A hybrid trades stiffness for strength and lower density: replacing half the graphite by Kevlar lowers the specific modulus from $235.8\times10^9/1609 = 146.6\times10^6$ to $106.6\times10^6$ m²/s² but raises the strength by 27 %. To match the hybrid strength with graphite alone, more than 77 vol% of fibre would be needed, above the 50 to 60 % of typical fibre composites [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>].</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key gives $1.24\times10^6$ m²/s² for the specific strength of part b); the rule of mixtures gives $1.861\times10^9/1482.5 = 1.26\times10^6$ m²/s² (with $V_f$ rounded to 0.60: $1858/1.482 = 1.25\times10^6$). The key value is reproduced only if the matrix term is dropped, $(0.30055 \times 6100)/1482.5 = 1.24\times10^6$ m²/s², but parts c) and d) of the same key (0.77, 0.49) need the full hybrid strength of about 1860 MPa, so the computed $1.26\times10^6$ m²/s² is kept. The other key values agree after rounding ($E_{1C} = 235.4$ GPa is the result for $V_f = 0.60$).</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) $\rho_c$</td><td>1.61 g/cm³</td><td>1.609 g/cm³</td><td>agrees</td></tr><tr><td>a) $E_{1C}$</td><td>235.4 GPa</td><td>235.8 GPa</td><td>agrees within rounding (key uses $V_f = 0.60$)</td></tr><tr><td>b) $E/\rho$</td><td>106.5×10⁶ m²/s²</td><td>106.6×10⁶ m²/s²</td><td>agrees</td></tr><tr><td>b) $\sigma/\rho$</td><td>1.24×10⁶ m²/s²</td><td>1.26×10⁶ m²/s²</td><td>differs (see the warning)</td></tr><tr><td>c) $V_{gr,min}$</td><td>0.77</td><td>0.769</td><td>agrees</td></tr><tr><td>d) $V_{K,min}$</td><td>0.49</td><td>0.493</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 4 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-4">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 4</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #4</span>
+            <span class="prob-source-badge">Isostrain modulus · strength · load fraction</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Modulus, Strength and Load Fraction of a Kevlar 49-Epoxy Composite</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="4"><li>Calculate the elastic modulus of a unidirectional composite material with epoxy matrix and Kevlar 49 fibers, where 63% of its volume is fibers and is under isostrain conditions. If the tensile strength of Kevlar 49 fibers is 3700 MPa and the tensile strength of the epoxy resin is 70 MPa, calculate the tensile strength of the composite material. What fraction of load is carried by the Kevlar fibers?</li></ol>
+<p>Data: E_kevlar = 131 GPa; E_epoxy = 3.5 GPa.</p>
+          <div class="solution-box">Official Solution: a) 83.82 GPa; b) 2.36 GPa; c) 0.984</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Isostrain.</strong> Load along the aligned fibres, perfect bond: $\varepsilon_C = \varepsilon_f = \varepsilon_m$ and $E_{1C} = V_f E_f + (1 - V_f)E_m$ [Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21-22</a>].</li><li><strong>Strength.</strong> $\sigma_C = \sigma_f V_f + \sigma_{y,m}(1 - V_f)$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>], with the given resin strength as the matrix term.</li><li><strong>Load sharing.</strong> The total force is the sum of the forces in the phases, $F_C = F_f + F_m$, and $F_i = \sigma_i A_i$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>]. With a common strain, $\sigma_f = E_f\varepsilon$ and $\sigma_C = E_{1C}\varepsilon$, and $A_f/A_C = V_f$ for continuous fibres, so</li></ol>
+<div class="math-block">$$\frac{F_f}{F_C} = \frac{\sigma_f A_f}{\sigma_C A_C} = \frac{E_f\varepsilon\,V_f}{E_{1C}\varepsilon} = \frac{V_f E_f}{E_{1C}}$$</div>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$V_f$</td><td style="text-align:right">0.63</td></tr><tr><td>$E_f$, $E_m$</td><td style="text-align:right">131 GPa, 3.5 GPa</td></tr><tr><td>$\sigma_f$, $\sigma_m$</td><td style="text-align:right">3700 MPa, 70 MPa</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $E_{1C}$, $\sigma_C$, $F_f/F_C$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>]:</p>
+<div class="math-block">$$E_{1C} = V_f E_f + (1 - V_f)E_m \qquad \sigma_C = V_f\sigma_f + (1 - V_f)\sigma_m \qquad \frac{F_f}{F_C} = \frac{V_f E_f}{E_{1C}}$$</div>
+<p><strong>Strategy.</strong> Apply the three relations in order; the load fraction needs the modulus of the first step.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Elastic modulus [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]</strong></p>
+<div class="math-block">$$E_{1C} = 0.63 \times 131\ \text{GPa} + 0.37 \times 3.5\ \text{GPa} = 82.53 + 1.295 = \mathbf{83.83\ GPa}$$</div>
+<p><strong>2. Tensile strength [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>]</strong></p>
+<div class="math-block">$$\sigma_C = 0.63 \times 3700\ \text{MPa} + 0.37 \times 70\ \text{MPa} = 2331 + 25.9 = 2356.9\ \text{MPa} = \mathbf{2.36\ GPa}$$</div>
+<p><strong>3. Fraction of the load carried by the fibres [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>]</strong></p>
+<div class="math-block">$$\frac{F_f}{F_C} = \frac{0.63 \times 131\ \text{GPa}}{83.825\ \text{GPa}} = \frac{82.53}{83.825} = \mathbf{0.985}$$</div>
+<p>The fibres carry 98.5 % of the load and the epoxy the remaining 1.5 %.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> GPa in the modulus, MPa in the strength; the load fraction is GPa/GPa, dimensionless.</li><li><strong>Bounds.</strong> $3.5 &lt; 83.8 &lt; 131$ GPa and $70 &lt; 2357 &lt; 3700$ MPa.</li><li><strong>Approximation of the slides.</strong> With $E_f \gg E_m$, $E_{1C} \approx V_f E_f = 82.5$ GPa, within 1.5 % of the full result [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>].</li><li><strong>Limits.</strong> $F_f/F_C \to 1$ when $E_m \to 0$, and $F_f/F_C = V_f$ when $E_f = E_m$ (a homogeneous material shares the load by area).</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Under isostrain the stress in each phase is proportional to its modulus, so the fibre, 37 times stiffer than the epoxy, works at 37 times the stress. That is the "redistribution of the load" of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=22" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 22">22</a>: the matrix holds the fibres in place and transfers the load, but almost all of it is carried by the fibres [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=16" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 16">16</a>].</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) $E_{1C}$</td><td>83.82 GPa</td><td>83.83 GPa</td><td>agrees</td></tr><tr><td>b) $\sigma_C$</td><td>2.36 GPa</td><td>2.357 GPa</td><td>agrees</td></tr><tr><td>c) $F_f/F_C$</td><td>0.984</td><td>0.9846 (0.985)</td><td>agrees; the key truncates instead of rounding</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 5 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-5">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 5</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #5</span>
+            <span class="prob-source-badge">Isostrain rod · phase forces · elongation</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">E-Glass Polyester Rod: Modulus, Fibre and Matrix Forces and Extension</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="5"><li>For an E-glass fiber reinforced polyester composite with continuous aligned fibers, with 40% vol fraction fibers:</li></ol>
+<p>a) Determine the Modulus of elasticity in the longitudinal direction b) If a cylindrical rod 19 mm in diameter of this composite is stressed in the longitudinal direction to 50 MPa, determine the forces in the fiber and matrix phases, respectively. c) Estimate the specific tensile strength of the composite. d) If the rod was originally 1.5 m long, estimate its extension under the applied stress.</p>
+<p>Data: E_m = 3400 MPa; σ_m = 69 MPa; ρ_m = 1.3 g/cm³; E_f = 72000 MPa, σ_f = 3500 MPa; ρ_f = 2.5 g/cm³.</p>
+          <div class="solution-box">Official Solution: a) 30.8 GPa; b) 13212N; 964N; c ) 809.8 kN m/kg; d) 2.44 mm</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Isostrain</strong> along the fibres with a perfect bond, $\varepsilon_C = \varepsilon_f = \varepsilon_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>]; linear elastic phases, so $\sigma_i = E_i\varepsilon$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=20" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 20">20</a>].</li><li><strong>Forces.</strong> $F_C = F_f + F_m$ with $F_i = \sigma_i A_i$ and $A_f = V_f A_C$, $A_m = V_m A_C$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>].</li><li><strong>Strength and density</strong> by the rule of mixtures [Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26-27</a>]; specific strength = strength/density [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=43" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 43">43</a>].</li><li><strong>Extension.</strong> Uniform strain over the length, $\Delta L = \varepsilon L_0$.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Fibre (E-glass)</th><th style="text-align:right">Matrix (polyester)</th></tr></thead><tbody><tr><td>$V$</td><td style="text-align:right">0.40</td><td style="text-align:right">0.60</td></tr><tr><td>$E$ (MPa)</td><td style="text-align:right">72 000</td><td style="text-align:right">3 400</td></tr><tr><td>$\sigma$ (MPa)</td><td style="text-align:right">3 500</td><td style="text-align:right">69</td></tr><tr><td>$\rho$ (g/cm³)</td><td style="text-align:right">2.5</td><td style="text-align:right">1.3</td></tr></tbody></table></div>
+<p>Rod: $d = 19$ mm, $\sigma_C = 50$ MPa, $L_0 = 1.5$ m.</p>
+<p><strong>Unknowns:</strong> (a) $E_{1C}$; (b) $F_f$, $F_m$; (c) $\sigma_C/\rho_c$ at failure; (d) $\Delta L$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21-22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26-27</a>]:</p>
+<div class="math-block">$$E_{1C} = V_f E_f + V_m E_m \qquad \varepsilon = \frac{\sigma_C}{E_{1C}} \qquad F_i = E_i\,\varepsilon\,V_i A_C \qquad \Delta L = \varepsilon L_0$$</div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Modulus by the isostrain rule (a).</li><li>Common strain from the applied stress; stress in each phase from Hooke's law; force = stress × phase area (b).</li><li>Strength and density by the rule of mixtures, then their ratio (c).</li><li>Extension from the same strain (d).</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. a) Longitudinal modulus [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]</strong></p>
+<div class="math-block">$$E_{1C} = 0.40 \times 72\,000\ \text{MPa} + 0.60 \times 3\,400\ \text{MPa} = 28\,800 + 2\,040 = 30\,840\ \text{MPa} = \mathbf{30.8\ GPa}$$</div>
+<p><strong>2. b) Forces in the fibre and matrix [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>]</strong></p>
+<p>Cross-section and total force:</p>
+<div class="math-block">$$A_C = \frac{\pi d^2}{4} = \frac{\pi\,(19\ \text{mm})^2}{4} = 283.53\ \text{mm}^2 \qquad F_C = \sigma_C A_C = 50\ \text{N/mm}^2 \times 283.53\ \text{mm}^2 = 14\,176\ \text{N}$$</div>
+<p>Common strain and phase stresses:</p>
+<div class="math-block">$$\varepsilon = \frac{50\ \text{MPa}}{30\,840\ \text{MPa}} = 1.6213\times10^{-3} \qquad \sigma_f = 72\,000 \times 1.6213\times10^{-3} = 116.73\ \text{MPa} \qquad \sigma_m = 3\,400 \times 1.6213\times10^{-3} = 5.512\ \text{MPa}$$</div>
+<p>Forces:</p>
+<div class="math-block">$$F_f = \sigma_f V_f A_C = 116.73\ \text{N/mm}^2 \times 0.40 \times 283.53\ \text{mm}^2 = \mathbf{13\,239\ N}$$</div>
+<div class="math-block">$$F_m = \sigma_m V_m A_C = 5.512\ \text{N/mm}^2 \times 0.60 \times 283.53\ \text{mm}^2 = \mathbf{938\ N}$$</div>
+<p><strong>3. c) Specific tensile strength [Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26-27</a>]</strong></p>
+<div class="math-block">$$\sigma_C = 0.40 \times 3\,500 + 0.60 \times 69 = 1\,400 + 41.4 = 1\,441.4\ \text{MPa} \qquad \rho_c = 0.40 \times 2.5 + 0.60 \times 1.3 = 1.78\ \text{g/cm}^3$$</div>
+<div class="math-block">$$\frac{\sigma_C}{\rho_c} = \frac{1\,441.4\times10^6\ \text{N/m}^2}{1\,780\ \text{kg/m}^3} = 809.8\times10^3\ \text{N m/kg} = \mathbf{809.8\ kN\,m/kg}$$</div>
+<p><strong>4. d) Extension of the rod</strong></p>
+<div class="math-block">$$\Delta L = \varepsilon L_0 = 1.6213\times10^{-3} \times 1\,500\ \text{mm} = \mathbf{2.43\ mm}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> MPa = N/mm², so N/mm² × mm² = N. $(\text{N/m}^2)/(\text{kg/m}^3) = \text{N m/kg}$ (J/kg, the same as m²/s²).</li><li><strong>Force balance.</strong> $13\,239 + 938 = 14\,177$ N $= F_C$ (rounding).</li><li><strong>Ratio of forces.</strong> $F_f/F_m = V_f E_f/(V_m E_m) = 28\,800/2\,040 = 14.12$; also $13\,239/938 = 14.1$.</li><li><strong>Stress balance.</strong> $0.40 \times 116.73 + 0.60 \times 5.512 = 46.69 + 3.31 = 50.0$ MPa, the applied stress [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>].</li><li><strong>Strain.</strong> $1.6\times10^{-3}$ is far below the failure strain of the glass fibre, about $3500/72\,000 = 4.9\times10^{-3}$, so the rod is elastic.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>At 40 vol% the glass carries 93.4 % of the load. The specific strength, about 810 kN m/kg, is the property where glass-fibre composites stand well above steel and aluminium in the comparisons of the slides [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=43" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 43">43</a>; Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=29" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 29">29</a>], while their modulus (30.8 GPa) stays below that of aluminium: glass is chosen for strength and cost, not stiffness [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=17" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 17">17</a>].</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key splits the 14 176 N as 13 212 N (fibre) and 964 N (matrix). Under isostrain the ratio of the two forces is fixed by the data: $F_f/F_m = V_f E_f/(V_m E_m) = (0.40 \times 72\,000)/(0.60 \times 3\,400) = 14.12$, while the key gives $13\,212/964 = 13.71$, and its fibre share $13\,212/14\,176 = 0.932$ differs from $V_f E_f/E_{1C} = 28\,800/30\,840 = 0.934$. The computed forces, 13 239 N and 938 N, satisfy both the force balance and the isostrain ratio, so they are kept. Part d): $\Delta L = 2.43$ mm; the key's 2.44 mm follows from rounding $E_{1C}$ to 30.8 GPa ($50/30\,800 \times 1500 = 2.435$ mm).</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) $E_{1C}$</td><td>30.8 GPa</td><td>30.84 GPa</td><td>agrees</td></tr><tr><td>b) $F_f$, $F_m$</td><td>13212 N; 964 N</td><td>13 239 N; 938 N</td><td>differs (see the warning)</td></tr><tr><td>c) $\sigma_C/\rho_c$</td><td>809.8 kN m/kg</td><td>809.8 kN m/kg</td><td>agrees</td></tr><tr><td>d) $\Delta L$</td><td>2.44 mm</td><td>2.43 mm</td><td>agrees within rounding</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 6 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-6">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 6</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #6</span>
+            <span class="prob-source-badge">Isostrain modulus · strength in psi · load fraction</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Carbon-Epoxy Composite in psi: Modulus, Strength and Load Fraction</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="6"><li>Calculate the tensile modulus of elasticity of a unidirectional carbon-fiber-reinforced plastic composite material that contains 64 percent by volume of carbon fibers and is stressed under isostrain conditions. If the tensile strength of the carbon fibers of the 64 percent carbon-fiber-epoxy composite material is 0.31×10⁶ psi and that of the epoxy resin 9.20×10³ psi, calculate the strength of the composite material in psi. What fraction of the load is carried by the carbon fibers? The carbon fibers have a tensile modulus of elasticity of 54.0×10⁶ psi and the epoxy matrix a tensile modulus of elasticity of 0.530×10⁶ psi.</li></ol>
+          <div class="solution-box">Official Solution: a) 1.39 GPa; b) 0.995</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Isostrain</strong>, perfect bond: $E_{1C} = V_f E_f + (1 - V_f)E_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, Eq. 1].</li><li><strong>Strength</strong> by the rule of mixtures, $\sigma_C = \sigma_f V_f + \sigma_{y,m}(1 - V_f)$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>], with the resin strength as the matrix term.</li><li><strong>Load fraction</strong> $F_f/F_C = V_f E_f/E_{1C}$, from $F_C = F_f + F_m$ under a common strain [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>].</li><li><strong>Units.</strong> The rules are linear, so they are applied in psi and converted at the end with 1 psi = 6894.757 Pa.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Fibre (carbon)</th><th style="text-align:right">Matrix (epoxy)</th></tr></thead><tbody><tr><td>$V$</td><td style="text-align:right">0.64</td><td style="text-align:right">0.36</td></tr><tr><td>$E$ (psi)</td><td style="text-align:right">$54.0\times10^6$</td><td style="text-align:right">$0.530\times10^6$</td></tr><tr><td>$\sigma$ (psi)</td><td style="text-align:right">$0.31\times10^6$</td><td style="text-align:right">$9.20\times10^3$</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $E_{1C}$, $\sigma_C$ (psi), $F_f/F_C$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>]:</p>
+<div class="math-block">$$E_{1C} = V_f E_f + V_m E_m \qquad \sigma_C = V_f\sigma_f + V_m\sigma_m \qquad \frac{F_f}{F_C} = \frac{V_f E_f}{E_{1C}}$$</div>
+<p><strong>Strategy.</strong> Apply the three relations in psi; convert the modulus and the strength to SI.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Tensile modulus [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]</strong></p>
+<div class="math-block">$$E_{1C} = 0.64 \times 54.0\times10^6 + 0.36 \times 0.530\times10^6 = 34.56\times10^6 + 0.191\times10^6 = \mathbf{34.75\times10^6\ psi}$$</div>
+<p>In SI:</p>
+<div class="math-block">$$E_{1C} = 34.75\times10^6\ \text{psi} \times 6894.757\ \text{Pa/psi} = 239.6\times10^9\ \text{Pa} = \mathbf{239.6\ GPa}$$</div>
+<p><strong>2. Tensile strength [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=26" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 26">26</a>]</strong></p>
+<div class="math-block">$$\sigma_C = 0.64 \times 0.31\times10^6 + 0.36 \times 9.20\times10^3 = 198\,400 + 3\,312 = \mathbf{201\,712\ psi}$$</div>
+<div class="math-block">$$\sigma_C = 201\,712\ \text{psi} \times 6894.757\ \text{Pa/psi} = 1.391\times10^9\ \text{Pa} = 1.39\ \text{GPa}$$</div>
+<p><strong>3. Fraction of the load carried by the fibres [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>]</strong></p>
+<div class="math-block">$$\frac{F_f}{F_C} = \frac{0.64 \times 54.0\times10^6}{34.75\times10^6} = \frac{34.56}{34.75} = \mathbf{0.995}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> All moduli and strengths in psi, so the sums are in psi and the load fraction is dimensionless; the conversion factor has units Pa/psi.</li><li><strong>Bounds.</strong> $0.53\times10^6 &lt; 34.75\times10^6 &lt; 54.0\times10^6$ psi.</li><li><strong>Approximation of the slides.</strong> $E_{1C} \approx V_f E_f = 34.56\times10^6$ psi, 0.5 % below the full result, because $E_f/E_m \approx 100$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>].</li><li><strong>Order of magnitude.</strong> 240 GPa lies in the range of the unidirectional carbon-epoxy laminates of the slides (UD carbon-epoxy, 57 vol%: 134 GPa with a lower-modulus fibre, [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=41" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 41">41</a>]); the fibre modulus here, 372 GPa, is that of a high-modulus fibre [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=22" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 22">22</a>].</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>With a fibre about 100 times stiffer than the matrix, 99.5 % of the load goes through the carbon. The matrix adds almost nothing to the stiffness or the strength; its role is to bond, protect and align the fibres and to transfer the load into them [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=16" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 16">16</a>].</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key gives "a) 1.39 GPa" for the first question, the tensile modulus. The value 1.39 GPa is the <strong>strength</strong> of the composite: $201\,712\ \text{psi} \times 6894.757\ \text{Pa/psi} = 1.39$ GPa. The isostrain modulus from the data of the statement is $34.75\times10^6$ psi = 239.6 GPa, and the statement asks for the strength in psi (201 712 psi). The key's b) = 0.995 is the load fraction and agrees.</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Modulus</td><td>(not given)</td><td>$34.75\times10^6$ psi = 239.6 GPa</td><td>the key's a) is the strength (see the warning)</td></tr><tr><td>Strength</td><td>1.39 GPa (printed as a)</td><td>201 712 psi = 1.39 GPa</td><td>agrees</td></tr><tr><td>Load fraction</td><td>0.995</td><td>0.995</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 7 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-7">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 7</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #7</span>
+            <span class="prob-source-badge">Density · weight fraction · weight saving against Al 2024</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Carbon-Epoxy Composite against the Aluminium Alloy 2024</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="7"><li>A composite material is composed of an epoxy matrix and 68% in volume of unidirectional continuous carbon fibers. Calculate:</li></ol>
+<p>a) The average density of the composite material. b) The weight percentage of the carbon fibers and the epoxy resin in the composite. If the composite material is substituted by an Aluminium alloy AL2024, calculate: c) The young's modulus of the composite material and the percentage change of the young's modulus with respect to the aluminium alloy. Assume isostrain conditions d) The weight change for a cylindrical bar of material with 1 cm² cross-sectional area and 1 m in length.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Material</th><th style="text-align:right">Density (g/cm³)</th><th style="text-align:right">E (GPa)</th></tr></thead><tbody><tr><td>Epoxy resin</td><td style="text-align:right">1.2</td><td style="text-align:right">3.0</td></tr><tr><td>Carbon fiber</td><td style="text-align:right">1.79</td><td style="text-align:right">220</td></tr><tr><td>Al2024</td><td style="text-align:right">2.28</td><td style="text-align:right">73.4</td></tr></tbody></table></div>
+<p>The sentence "If the composite material is substituted by an Aluminium alloy" is read, as the key does, as a comparison: the composite replaces the aluminium alloy, and the changes are those of the composite with respect to Al 2024.</p>
+          <div class="solution-box">Official Solution: a) 1.601 g/cm³; b) 76% fiber-24% resin; c) 105.1%; d) 67.9 g lighter, -29.8%</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Rule of mixtures</strong> for the density, $\rho_c = V_f\rho_f + V_m\rho_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>], and the mass of a phase $m_i = \rho_i V_i$ (definition of density).</li><li><strong>Isostrain</strong> modulus along the fibres, $E_{1C} = V_f E_f + (1 - V_f)E_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>].</li><li><strong>Same bar.</strong> Composite and alloy bars have the same volume, $V = 1\ \text{cm}^2 \times 100\ \text{cm} = 100\ \text{cm}^3$, so their masses differ only through the density.</li><li>The density of Al 2024 is used as printed on the sheet (2.28 g/cm³).</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$V_f$, $V_m$</td><td style="text-align:right">0.68, 0.32</td></tr><tr><td>$\rho_f$, $\rho_m$</td><td style="text-align:right">1.79, 1.2 g/cm³</td></tr><tr><td>$E_f$, $E_m$</td><td style="text-align:right">220, 3.0 GPa</td></tr><tr><td>$\rho_{Al}$, $E_{Al}$</td><td style="text-align:right">2.28 g/cm³, 73.4 GPa</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> (a) $\rho_c$; (b) $w_f$, $w_m$; (c) $E_{1C}$ and its change against Al 2024; (d) the mass change of the bar.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]:</p>
+<div class="math-block">$$\rho_c = V_f\rho_f + V_m\rho_m \qquad w_f = \frac{V_f\rho_f}{\rho_c} \qquad E_{1C} = V_f E_f + V_m E_m \qquad \Delta = \frac{X_c - X_{Al}}{X_{Al}}$$</div>
+<p><strong>Strategy.</strong> Density and weight fractions from the masses in 1 cm³; modulus by isostrain; relative changes with respect to the alloy; masses of the two bars from their common volume.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. a) Density [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<div class="math-block">$$\rho_c = 0.68 \times 1.79 + 0.32 \times 1.2 = 1.2172 + 0.3840 = \mathbf{1.601\ g/cm^3}$$</div>
+<p><strong>2. b) Weight fractions</strong></p>
+<p>The two terms of the density are the masses of fibre and epoxy in 1 cm³:</p>
+<div class="math-block">$$w_f = \frac{1.2172}{1.6012} = 0.760 \ \Rightarrow\ \mathbf{76\ \%\ fibre} \qquad w_m = \frac{0.3840}{1.6012} = 0.240 \ \Rightarrow\ \mathbf{24\ \%\ resin}$$</div>
+<p><strong>3. c) Modulus and change with respect to Al 2024 [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]</strong></p>
+<div class="math-block">$$E_{1C} = 0.68 \times 220\ \text{GPa} + 0.32 \times 3.0\ \text{GPa} = 149.6 + 0.96 = \mathbf{150.6\ GPa}$$</div>
+<div class="math-block">$$\Delta E = \frac{150.56 - 73.4}{73.4} = \frac{77.16}{73.4} = 1.051 \ \Rightarrow\ \mathbf{+105.1\ \%}$$</div>
+<p>The composite is about twice as stiff as the alloy along the fibres.</p>
+<p><strong>4. d) Mass change of the bar</strong></p>
+<p>Volume $V = 1\ \text{cm}^2 \times 100\ \text{cm} = 100\ \text{cm}^3$:</p>
+<div class="math-block">$$m_c = 1.6012\ \text{g/cm}^3 \times 100\ \text{cm}^3 = 160.12\ \text{g} \qquad m_{Al} = 2.28\ \text{g/cm}^3 \times 100\ \text{cm}^3 = 228.0\ \text{g}$$</div>
+<div class="math-block">$$\Delta m = 160.12 - 228.0 = \mathbf{-67.9\ g} \qquad \frac{\Delta m}{m_{Al}} = \frac{-67.88}{228.0} = \mathbf{-29.8\ \%}$$</div>
+<p>The composite bar is 67.9 g lighter.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> g/cm³ × cm³ = g; percentages are ratios of equal units.</li><li><strong>Bounds.</strong> $1.2 &lt; 1.601 &lt; 1.79$ g/cm³; $3 &lt; 150.6 &lt; 220$ GPa.</li><li><strong>Specific modulus.</strong> Composite $150.56/1.601 = 94.0$ GPa cm³/g against the alloy $73.4/2.28 = 32.2$ GPa cm³/g: 2.9 times higher along the fibres.</li><li><strong>Same composite as T10-01.</strong> Parts a) and b) repeat T10-01 (same fractions and densities), and give the same values.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Replacing the alloy by the unidirectional composite doubles the stiffness and saves about 30 % of the mass (with the printed density of the alloy). The gain holds only along the fibres: across them the modulus falls towards the matrix value (isostress, [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=24" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 24">24</a>]), which is why real parts are laminated in several orientations [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=37" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 37">37</a>].</p>
+<div class="callout"><div class="callout-title">Density of Al 2024 on the sheet</div><p>The sheet prints 2.28 g/cm³ for Al 2024, and the key uses it. Handbook values for aluminium alloys of the 2xxx series are close to 2.78 g/cm³ (extension, not on the slides); with that value the saving would be $160.12 - 278.0 = -117.9$ g, that is $-42.4\ \%$. The solution above keeps the printed datum.</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) $\rho_c$</td><td>1.601 g/cm³</td><td>1.601 g/cm³</td><td>agrees</td></tr><tr><td>b) $w_f$, $w_m$</td><td>76% fiber-24% resin</td><td>76.0 %, 24.0 %</td><td>agrees</td></tr><tr><td>c) $\Delta E$</td><td>105.1%</td><td>+105.1 % ($E_{1C} = 150.6$ GPa)</td><td>agrees</td></tr><tr><td>d) $\Delta m$</td><td>67.9 g lighter, -29.8%</td><td>$-67.9$ g, $-29.8$ %</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 8 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-8">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 8</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #8</span>
+            <span class="prob-source-badge">Masses to volume fractions · isostrain and isostress</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Boron-Aluminium Composite: Density and Longitudinal and Transverse Moduli</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="8"><li>Five kilograms of continuous boron fibers are introduced in a unidirectional orientation into 8 kg of an aluminum matrix. Calculate</li></ol>
+<p>a) The density of the composite. b) The modulus of elasticity parallel to the fibers. c) The modulus of elasticity perpendicular to the fibers.</p>
+<p>Data: E_Al = 70 GPa; ρ_Al = 2.7 g/cm³; E_Boron = 380 GPa; ρ_Boron = 2.3 g/cm³.</p>
+          <div class="solution-box">Official Solution: a) 2.530 g/cm³; b) 201.1×10³ MPa; c) 106.4×10³ MPa</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Volumes from masses.</strong> $V_i = m_i/\rho_i$; the composite has no porosity, so its volume is the sum of the two.</li><li><strong>Parallel to the fibres: isostrain</strong>, $E_{1C} = V_f E_f + (1 - V_f)E_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, Eq. 1].</li><li><strong>Perpendicular to the fibres: isostress</strong>, the same stress in both phases and strains that add, $1/E_{2C} = V_f/E_f + V_m/E_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=24" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 24">24</a>, Eq. 2]. The boron fibre is taken as isotropic, so its transverse modulus $E'_f$ equals 380 GPa.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Constituent</th><th style="text-align:right">Mass (kg)</th><th style="text-align:right">$\rho$ (g/cm³)</th><th style="text-align:right">$E$ (GPa)</th></tr></thead><tbody><tr><td>Boron fibre (f)</td><td style="text-align:right">5</td><td style="text-align:right">2.3</td><td style="text-align:right">380</td></tr><tr><td>Aluminium (m)</td><td style="text-align:right">8</td><td style="text-align:right">2.7</td><td style="text-align:right">70</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $\rho_c$, $E_{1C}$, $E_{2C}$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=24" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 24">24</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]:</p>
+<div class="math-block">$$\rho_c = \frac{m_f + m_m}{V_f + V_m} \qquad E_{1C} = V_f E_f + V_m E_m \qquad \frac{1}{E_{2C}} = \frac{V_f}{E_f} + \frac{V_m}{E_m}$$</div>
+<p><strong>Strategy.</strong> Volumes of the two phases → volume fractions → density; then the upper (isostrain) and lower (isostress) rules.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Volumes and volume fractions</strong></p>
+<p>With 5 kg = 5000 g and 8 kg = 8000 g:</p>
+<div class="math-block">$$V_B = \frac{5000\ \text{g}}{2.3\ \text{g/cm}^3} = 2173.9\ \text{cm}^3 \qquad V_{Al} = \frac{8000\ \text{g}}{2.7\ \text{g/cm}^3} = 2963.0\ \text{cm}^3 \qquad V_c = 5136.9\ \text{cm}^3$$</div>
+<div class="math-block">$$V_f = \frac{2173.9}{5136.9} = 0.4232 \qquad V_m = \frac{2963.0}{5136.9} = 0.5768$$</div>
+<p><strong>2. a) Density [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<div class="math-block">$$\rho_c = \frac{13\,000\ \text{g}}{5136.9\ \text{cm}^3} = \mathbf{2.531\ g/cm^3}$$</div>
+<p>The rule of mixtures gives the same: $0.4232 \times 2.3 + 0.5768 \times 2.7 = 0.9734 + 1.5574 = 2.531$ g/cm³.</p>
+<p><strong>3. b) Modulus parallel to the fibres [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]</strong></p>
+<div class="math-block">$$E_{1C} = 0.4232 \times 380\ \text{GPa} + 0.5768 \times 70\ \text{GPa} = 160.82 + 40.38 = \mathbf{201.2\ GPa} = 201.2\times10^3\ \text{MPa}$$</div>
+<p><strong>4. c) Modulus perpendicular to the fibres [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=24" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 24">24</a>]</strong></p>
+<div class="math-block">$$\frac{1}{E_{2C}} = \frac{0.4232}{380\ \text{GPa}} + \frac{0.5768}{70\ \text{GPa}} = 0.0011137 + 0.0082400 = 0.0093537\ \text{GPa}^{-1}$$</div>
+<div class="math-block">$$E_{2C} = \frac{1}{0.0093537\ \text{GPa}^{-1}} = \mathbf{106.9\ GPa} = 106.9\times10^3\ \text{MPa}$$</div>
+<p>The closed form of the slide gives the same: $E_{2C} = E_f E_m/(V_f E_m + V_m E_f) = (380 \times 70)/(0.4232 \times 70 + 0.5768 \times 380) = 26\,600/248.81 = 106.9$ GPa.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> g/cm³ from g over cm³; in the isostress rule each term is dimensionless over GPa, so $1/E_{2C}$ is in GPa⁻¹.</li><li><strong>Bounds.</strong> $E_m = 70 &lt; E_{2C} = 106.9 &lt; E_{1C} = 201.2 &lt; E_f = 380$ GPa: the isostress value is the lower bound and the isostrain value the upper bound [Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=25" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 25">25</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=28" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 28">28</a>].</li><li><strong>Density.</strong> Boron is lighter than aluminium here, so adding fibre lowers the density (2.531 &lt; 2.7 g/cm³) while it nearly triples the stiffness along the fibres.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Across the fibres the compliant aluminium layers deform the most and control the response, so $E_{2C}$ is only half of $E_{1C}$. The anisotropy is milder than in polymer composites ($E_f/E_m = 5.4$ here against about 100 for carbon-epoxy), because the metal matrix is itself stiff: one of the reasons boron-aluminium is used in structural MMC parts such as the DC-10 aft pylon skin [Session 23 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2023%20T10%20Composites%20III.pdf#page=47" target="_blank" rel="noopener" title="Open Session 23 T10 Composites III.pdf at page 47">47</a>].</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key gives $106.4\times10^3$ MPa for part c). With the volume fraction of part a), $V_f = 0.4232$, the isostress rule gives $106.9\times10^3$ MPa (the bracket is written out above). The key value corresponds to $V_f = (1/70 - 1/106.4)/(1/70 - 1/380) = 0.419$, which does not follow from the data (5 kg of boron at 2.3 g/cm³ in 8 kg of aluminium at 2.7 g/cm³), so the computed $106.9\times10^3$ MPa is kept. The difference is 0.5 %.</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) $\rho_c$</td><td>2.530 g/cm³</td><td>2.531 g/cm³</td><td>agrees</td></tr><tr><td>b) $E_{1C}$</td><td>201.1×10³ MPa</td><td>201.2×10³ MPa</td><td>agrees</td></tr><tr><td>c) $E_{2C}$</td><td>106.4×10³ MPa</td><td>106.9×10³ MPa</td><td>differs by 0.5 % (see the warning)</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 9 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-9">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 9</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #9</span>
+            <span class="prob-source-badge">Design for a modulus · volume to mass</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Mass of Carbon Fibres for a Carbon-Polyimide Composite</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="9"><li>We want to produce 5 kg of a continuous unidirectional fiber-reinforced composite of HS (High Strength) carbon in a polyimide matrix that has a modulus of elasticity of at least 172×10³ MPa parallel to the fibers. How many kilograms of fibers are required?</li></ol>
+<p>Data: E_carbon fiber = 276×10³ MPa; E_PI = 2070 MPa; ρ_carbon fiber = 1.75 g/cm³; ρ_PI = 1.39 g/cm³.</p>
+          <div class="solution-box">Official Solution: 3.37 Kg</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Isostrain</strong> parallel to the continuous fibres: $E_{1C} = V_f E_f + (1 - V_f)E_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, Eq. 1].</li><li><strong>Minimum fibre content.</strong> $E_{1C}$ grows with $V_f$, so the least fibre that meets the requirement is the one that gives exactly $E_{1C} = 172\times10^3$ MPa.</li><li><strong>Mass fraction</strong> $w_f = V_f\rho_f/\rho_c$ with $\rho_c = V_f\rho_f + V_m\rho_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]; no porosity.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$E_f$ (HS carbon)</td><td style="text-align:right">$276\times10^3$ MPa</td></tr><tr><td>$E_m$ (polyimide)</td><td style="text-align:right">2070 MPa</td></tr><tr><td>$\rho_f$, $\rho_m$</td><td style="text-align:right">1.75, 1.39 g/cm³</td></tr><tr><td>$E_{1C,min}$</td><td style="text-align:right">$172\times10^3$ MPa</td></tr><tr><td>$m_c$</td><td style="text-align:right">5 kg</td></tr></tbody></table></div>
+<p><strong>Unknown:</strong> $m_f$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]:</p>
+<div class="math-block">$$V_f = \frac{E_{1C} - E_m}{E_f - E_m} \qquad w_f = \frac{V_f\rho_f}{V_f\rho_f + V_m\rho_m} \qquad m_f = w_f\,m_c$$</div>
+<p><strong>Strategy.</strong> Invert the isostrain rule for $V_f$; convert the volume fraction into a mass fraction with the densities; multiply by the 5 kg of composite.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Volume fraction of fibre [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]</strong></p>
+<p>Writing $V_m = 1 - V_f$ and solving the isostrain rule for $V_f$:</p>
+<div class="math-block">$$E_{1C} = E_m + V_f(E_f - E_m) \ \Rightarrow\ V_f = \frac{172\,000 - 2\,070}{276\,000 - 2\,070} = \frac{169\,930\ \text{MPa}}{273\,930\ \text{MPa}} = 0.6203$$</div>
+<p><strong>2. Mass fraction of fibre [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<p>Masses of fibre and matrix in 1 cm³ of composite:</p>
+<div class="math-block">$$V_f\rho_f = 0.6203 \times 1.75 = 1.0856\ \text{g} \qquad V_m\rho_m = 0.3797 \times 1.39 = 0.5278\ \text{g} \qquad \rho_c = 1.6134\ \text{g/cm}^3$$</div>
+<div class="math-block">$$w_f = \frac{1.0856}{1.6134} = 0.6729$$</div>
+<p><strong>3. Mass of fibres</strong></p>
+<div class="math-block">$$m_f = 0.6729 \times 5\ \text{kg} = \mathbf{3.36\ kg}$$</div>
+<p>and $5 - 3.36 = 1.64$ kg of polyimide.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $V_f$ is MPa/MPa and $w_f$ is (g/cm³)/(g/cm³), both dimensionless, so $m_f$ is in kg.</li><li><strong>Back-substitution.</strong> $0.6203 \times 276\,000 + 0.3797 \times 2\,070 = 171\,203 + 786 = 171\,989 \approx 172\,000$ MPa.</li><li><strong>Weight against volume.</strong> The fibre is the denser phase, so $w_f = 0.673 &gt; V_f = 0.620$.</li><li><strong>Feasibility.</strong> $V_f = 62$ % is slightly above the 50 to 60 % of typical fibre composites [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]: the requirement asks for a well-packed unidirectional composite.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Because the matrix contributes less than 1 % of the modulus, the requirement is essentially $V_f \approx E_{1C}/E_f = 172/276 = 0.623$. A stiffer (HM) fibre would meet the same target with less fibre and a lighter part.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>$m_f$</td><td>3.37 kg</td><td>3.364 kg</td><td>agrees within 0.2 % (rounding of $V_f$)</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 10 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-10">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 10</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #10</span>
+            <span class="prob-source-badge">Isostrain · stress in the fibres</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Stress on the Fibres of a Glass-Epoxy Rod</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="10"><li>An epoxy matrix is reinforced with 40 vol% E-glass fibers to produce a 2-cm-diameter composite that is to withstand a load of 25000 N that is applied parallel to the fiber length. Calculate the stress acting on each fiber.</li></ol>
+<p>Data: E_glass fiber = 72.4 x10³ MPa MPa; E_matrix = 2.8 x10³ MPa MPa.</p>
+<p>The sheet prints the unit twice ("MPa MPa").</p>
+          <div class="solution-box">Official Solution: 188 MPa</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Isostrain.</strong> The load is parallel to the fibres and the bond is perfect, so fibre, matrix and composite share the strain [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>]; each phase is linear elastic, $\sigma_i = E_i\varepsilon$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=20" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 20">20</a>].</li><li><strong>Force balance.</strong> $F_C = F_f + F_m$, with $F_i = \sigma_i A_i$ and $A_i = V_i A_C$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21</a>].</li><li><strong>"Each fiber"</strong> carries the same stress, the fibre stress $\sigma_f$, because all fibres have the same strain and the same modulus.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$V_f$, $V_m$</td><td style="text-align:right">0.40, 0.60</td></tr><tr><td>$E_f$, $E_m$</td><td style="text-align:right">$72.4\times10^3$, $2.8\times10^3$ MPa</td></tr><tr><td>$d$</td><td style="text-align:right">2 cm = 20 mm</td></tr><tr><td>$F_C$</td><td style="text-align:right">25 000 N</td></tr></tbody></table></div>
+<p><strong>Unknown:</strong> $\sigma_f$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=21" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 21">21-22</a>]:</p>
+<div class="math-block">$$\sigma_C = \frac{F_C}{A_C} \qquad E_{1C} = V_f E_f + V_m E_m \qquad \varepsilon = \frac{\sigma_C}{E_{1C}} \qquad \sigma_f = E_f\,\varepsilon$$</div>
+<p>Combining them, $\sigma_f = \sigma_C E_f/E_{1C}$: the fibre stress is the mean stress amplified by the ratio of the fibre modulus to the composite modulus.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Mean stress on the rod</strong></p>
+<div class="math-block">$$A_C = \frac{\pi d^2}{4} = \frac{\pi\,(20\ \text{mm})^2}{4} = 314.16\ \text{mm}^2 \qquad \sigma_C = \frac{25\,000\ \text{N}}{314.16\ \text{mm}^2} = 79.58\ \text{MPa}$$</div>
+<p><strong>2. Modulus and common strain [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>]</strong></p>
+<div class="math-block">$$E_{1C} = 0.40 \times 72.4\times10^3 + 0.60 \times 2.8\times10^3 = 28\,960 + 1\,680 = 30\,640\ \text{MPa}$$</div>
+<div class="math-block">$$\varepsilon = \frac{79.58\ \text{MPa}}{30\,640\ \text{MPa}} = 2.597\times10^{-3}$$</div>
+<p><strong>3. Stress on the fibres</strong></p>
+<div class="math-block">$$\sigma_f = E_f\,\varepsilon = 72\,400\ \text{MPa} \times 2.597\times10^{-3} = \mathbf{188.0\ MPa}$$</div>
+<p>The matrix, at the same strain, carries $\sigma_m = 2\,800 \times 2.597\times10^{-3} = 7.27$ MPa.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> N/mm² = MPa; the strain is MPa/MPa, dimensionless; MPa × dimensionless = MPa.</li><li><strong>Force balance.</strong> $F_f + F_m = (188.04 \times 0.40 + 7.272 \times 0.60) \times 314.16 = (75.22 + 4.36) \times 314.16 = 25\,000$ N.</li><li><strong>Stress ratio.</strong> $\sigma_f/\sigma_m = E_f/E_m = 25.9$, as isostrain requires [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>].</li><li><strong>Limit.</strong> If the matrix were as stiff as the fibre, $\sigma_f$ would equal the mean stress 79.6 MPa; the soft matrix pushes the fibre stress up to 2.4 times the mean.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The fibres work at 188 MPa, far below the strength of E-glass (3450 MPa [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=18" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 18">18</a>]), while the epoxy works at only 7 MPa: the rod has a large margin, and the margin is set by the fibres, which carry $75.2/79.6 = 94.5$ % of the load.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>$\sigma_f$</td><td>188 MPa</td><td>188.0 MPa</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 11 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-11">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 11</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #11</span>
+            <span class="prob-source-badge">Equal stiffness · mass of the part · specific modulus</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Lighter Replacements for a Titanium Part</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf#page=4" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf, p. 4</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="11"><li>A titanium alloy with a modulus of elasticity of 110x10³ MPa is used to make a 450 kg part for a manned space vehicle. Determine the weight of a part having the same modulus of elasticity parallel to the fibers, if the part is made of:</li></ol>
+<p>a) Aluminium reinforced with boron fibers. b) Polyester (with a modulus of 4500 MPa) reinforced with high modulus carbon fibers. c) Compare the specific modulus for all three materials.</p>
+<p>Data: ρ_Ti = 4.507 g/cm³; E_Al = 70 GPa; ρ_Al = 2.699 g/cm³; E_Boron = 380 GPa; ρ_Boron = 2.36 g/cm³; E_carbon fiber = 530x10³ MPa; ρ_carbon fiber = 1.9 g/cm³; ρ_polyester = 1.28 g/cm³.</p>
+          <div class="solution-box">Official Solution: a) 265 kg b) 140.3 kg c) Ti Ti:24406 kN m/kg ; B-Al: 41431 kN m/kg ; C-PE: 78314 kN m/kg</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Same part, same volume.</strong> The new part has the shape and size of the titanium part, so its volume is $V = m_{Ti}/\rho_{Ti}$ and its mass is $m = \rho_c V$.</li><li><strong>Same modulus parallel to the fibres.</strong> Isostrain, $E_{1C} = V_f E_f + (1 - V_f)E_m = 110$ GPa [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, Eq. 1]; the least fibre that reaches it is used.</li><li><strong>Density</strong> by the rule of mixtures, $\rho_c = V_f\rho_f + V_m\rho_m$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>].</li><li><strong>Specific modulus</strong> $E/\rho$ [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=43" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 43">43</a>], in N m/kg (= m²/s²).</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Material</th><th style="text-align:right">$E$ (GPa)</th><th style="text-align:right">$\rho$ (g/cm³)</th></tr></thead><tbody><tr><td>Titanium alloy</td><td style="text-align:right">110</td><td style="text-align:right">4.507</td></tr><tr><td>Aluminium (matrix a)</td><td style="text-align:right">70</td><td style="text-align:right">2.699</td></tr><tr><td>Boron fibre</td><td style="text-align:right">380</td><td style="text-align:right">2.36</td></tr><tr><td>Polyester (matrix b)</td><td style="text-align:right">4.5</td><td style="text-align:right">1.28</td></tr><tr><td>HM carbon fibre</td><td style="text-align:right">530</td><td style="text-align:right">1.9</td></tr></tbody></table></div>
+<p>$m_{Ti} = 450$ kg.</p>
+<p><strong>Unknowns:</strong> (a) $m_{B\text{-}Al}$; (b) $m_{C\text{-}PE}$; (c) $E/\rho$ of the three materials.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]:</p>
+<div class="math-block">$$V = \frac{m_{Ti}}{\rho_{Ti}} \qquad V_f = \frac{E_{Ti} - E_m}{E_f - E_m} \qquad \rho_c = V_f\rho_f + V_m\rho_m \qquad m = \rho_c V$$</div>
+<p><strong>Strategy.</strong> Volume of the part; for each composite, the fibre fraction that matches 110 GPa, its density and the mass of the part; finally the three specific moduli.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Volume of the part</strong></p>
+<p>With $\rho_{Ti} = 4.507\ \text{g/cm}^3 = 4507\ \text{kg/m}^3$:</p>
+<div class="math-block">$$V = \frac{450\ \text{kg}}{4507\ \text{kg/m}^3} = 0.099845\ \text{m}^3$$</div>
+<p><strong>2. a) Boron-aluminium [Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<div class="math-block">$$V_f = \frac{110 - 70}{380 - 70} = \frac{40\ \text{GPa}}{310\ \text{GPa}} = 0.1290 \qquad \rho_c = 0.1290 \times 2.36 + 0.8710 \times 2.699 = 0.3045 + 2.3508 = 2.6553\ \text{g/cm}^3$$</div>
+<div class="math-block">$$m = 2655.3\ \text{kg/m}^3 \times 0.099845\ \text{m}^3 = \mathbf{265.1\ kg}$$</div>
+<p><strong>3. b) Carbon-polyester [Session 22 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=22" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<div class="math-block">$$V_f = \frac{110 - 4.5}{530 - 4.5} = \frac{105.5\ \text{GPa}}{525.5\ \text{GPa}} = 0.2008 \qquad \rho_c = 0.2008 \times 1.9 + 0.7992 \times 1.28 = 0.3814 + 1.0230 = 1.4045\ \text{g/cm}^3$$</div>
+<div class="math-block">$$m = 1404.5\ \text{kg/m}^3 \times 0.099845\ \text{m}^3 = \mathbf{140.2\ kg}$$</div>
+<p><strong>4. c) Specific modulus [Session 21 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=43" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 43">43</a>]</strong></p>
+<p>All three materials have $E = 110\times10^9$ Pa:</p>
+<div class="math-block">$$\left(\frac{E}{\rho}\right)_{Ti} = \frac{110\times10^9\ \text{N/m}^2}{4507\ \text{kg/m}^3} = 24.41\times10^6\ \text{N m/kg} = \mathbf{24\,406\ kN\,m/kg}$$</div>
+<div class="math-block">$$\left(\frac{E}{\rho}\right)_{B\text{-}Al} = \frac{110\times10^9}{2655.3} = \mathbf{41\,427\ kN\,m/kg} \qquad \left(\frac{E}{\rho}\right)_{C\text{-}PE} = \frac{110\times10^9}{1404.5} = \mathbf{78\,321\ kN\,m/kg}$$</div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Material</th><th style="text-align:right">$\rho$ (g/cm³)</th><th style="text-align:right">Mass of the part (kg)</th><th style="text-align:right">$E/\rho$ (kN m/kg)</th><th style="text-align:right">Relative to Ti</th></tr></thead><tbody><tr><td>Titanium alloy</td><td style="text-align:right">4.507</td><td style="text-align:right">450</td><td style="text-align:right">24 406</td><td style="text-align:right">1.00</td></tr><tr><td>Boron-aluminium</td><td style="text-align:right">2.655</td><td style="text-align:right">265.1</td><td style="text-align:right">41 427</td><td style="text-align:right">1.70</td></tr><tr><td>Carbon-polyester</td><td style="text-align:right">1.404</td><td style="text-align:right">140.2</td><td style="text-align:right">78 321</td><td style="text-align:right">3.21</td></tr></tbody></table></div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> kg/(kg/m³) = m³; (kg/m³) × m³ = kg; (N/m²)/(kg/m³) = N m/kg.</li><li><strong>Mass ratio.</strong> At equal volume and modulus, $m/m_{Ti} = \rho_c/\rho_{Ti} = (E/\rho)_{Ti}/(E/\rho)_c$: $265.1/450 = 0.589 = 24\,406/41\,427$.</li><li><strong>Fractions.</strong> Both $V_f$ are well below 1 (0.13 and 0.20), so both composites are possible; the carbon fibre needs only 20 % because it is 4.8 times stiffer than the titanium.</li><li><strong>Limit.</strong> If the fibre modulus fell to 110 GPa, $V_f \to 1$ and the part would be made of fibre only.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>For a part designed for stiffness, the mass is inversely proportional to the specific modulus. The carbon-polyester part weighs less than a third of the titanium one (saving 310 kg), and the boron-aluminium part 59 %. This is the argument of the slides for composites in aerospace: high specific modulus and specific strength [Session 21 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=16" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 16">16</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2021%20T10%20Composites%20I.pdf#page=43" target="_blank" rel="noopener" title="Open Session 21 T10 Composites I.pdf at page 43">43</a>].</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) $m_{B\text{-}Al}$</td><td>265 kg</td><td>265.1 kg</td><td>agrees</td></tr><tr><td>b) $m_{C\text{-}PE}$</td><td>140.3 kg</td><td>140.2 kg</td><td>agrees</td></tr><tr><td>c) $E/\rho$</td><td>Ti 24406; B-Al 41431; C-PE 78314 kN m/kg</td><td>24 406; 41 427; 78 321 kN m/kg</td><td>agrees within rounding of the densities</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 12 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-12">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 12</span>
+            <span class="prob-source-badge">Problems T10_CompositeMaterials.pdf #12</span>
+            <span class="prob-source-badge">Porosity · infiltration · density</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Density of a Porous Tungsten Matrix Infiltrated with Silver</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems%20T10_CompositeMaterials.pdf#page=4" target="_blank" rel="noopener">Original statement · Problems T10_CompositeMaterials.pdf, p. 4</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="12"><li>A tungsten matrix with 20% porosity is infiltrated with silver. Assuming that the pores are interconnected, what is the density of the composite before and after infiltration with silver? The density of pure tungsten is 19.25 g/cm³ and that of pure silver is 10.49 g/cm³.</li></ol>
+<p><em>(Solution 17.5g/cm³)</em></p>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Porosity by volume.</strong> 20 % of the volume of the tungsten body is pores, 80 % is solid tungsten.</li><li><strong>Empty pores before infiltration.</strong> The air in the pores has negligible mass, so the pores add volume but no mass.</li><li><strong>Complete infiltration.</strong> The pores are interconnected, so the liquid silver reaches all of them and fills the whole 20 % (the principle of liquid infiltration of a porous preform [Session 23 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2023%20T10%20Composites%20III.pdf#page=33" target="_blank" rel="noopener" title="Open Session 23 T10 Composites III.pdf at page 33">33-35</a>]).</li><li><strong>Rule of mixtures</strong> for the density, $\rho_c = \sum_i f_i\rho_i$ [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>], with a pore phase of zero density before infiltration.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Constituent</th><th style="text-align:right">Volume fraction</th><th style="text-align:right">$\rho$ (g/cm³)</th></tr></thead><tbody><tr><td>Tungsten</td><td style="text-align:right">0.80</td><td style="text-align:right">19.25</td></tr><tr><td>Pores / silver</td><td style="text-align:right">0.20</td><td style="text-align:right">0 / 10.49</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $\rho$ before and after infiltration.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]:</p>
+<div class="math-block">$$\rho_{before} = f_W\rho_W + f_p \cdot 0 \qquad \rho_{after} = f_W\rho_W + f_p\rho_{Ag}$$</div>
+<p><strong>Strategy.</strong> Work with 1 cm³ of the body: tungsten mass plus the mass that fills the pores (none before, silver after).</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Before infiltration [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<div class="math-block">$$\rho_{before} = 0.80 \times 19.25\ \text{g/cm}^3 = \mathbf{15.40\ g/cm^3}$$</div>
+<p><strong>2. After infiltration [Session 22 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2022%20T10%20Composites%20II.pdf#page=27" target="_blank" rel="noopener" title="Open Session 22 T10 Composites II.pdf at page 27">27</a>]</strong></p>
+<div class="math-block">$$\rho_{after} = 0.80 \times 19.25 + 0.20 \times 10.49 = 15.40 + 2.098 = \mathbf{17.50\ g/cm^3}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> Volume fraction × g/cm³ = g/cm³.</li><li><strong>Bounds.</strong> $\rho_{Ag} = 10.49 &lt; 17.50 &lt; \rho_W = 19.25$ g/cm³: the infiltrated body is a two-phase mixture and lies between its phases.</li><li><strong>Mass gained.</strong> Each cm³ gains $0.20 \times 10.49 = 2.10$ g of silver, 13.6 % of the mass of the porous tungsten.</li><li><strong>Limits.</strong> Zero porosity gives pure tungsten (19.25 g/cm³); 100 % porosity filled with silver gives pure silver.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The porous tungsten acts as a preform and the silver as the infiltrated phase, the route of the liquid-phase processing of metal matrix composites [Session 23 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session%2023%20T10%20Composites%20III.pdf#page=33" target="_blank" rel="noopener" title="Open Session 23 T10 Composites III.pdf at page 33">33-35</a>]. The infiltration closes the porosity and raises the density by 2.1 g/cm³; if the pores were closed (not interconnected), the silver could not enter and the density would stay at 15.4 g/cm³.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Before infiltration</td><td>(not given)</td><td>15.40 g/cm³</td><td>the key gives only the value after infiltration</td></tr><tr><td>After infiltration</td><td>17.5 g/cm³</td><td>17.50 g/cm³</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 24px;">
+      Aerospace Materials I · Department of Materials Science and Engineering · Universidad Carlos III de Madrid (UC3M)
+    </div>
+  </footer>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+
+

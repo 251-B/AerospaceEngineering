@@ -19,8 +19,9 @@ bytes: 2912111
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session 24 T11 Adhesives.pdf`
 - **Kind:** teoria
 - **Size:** 2.9 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Topic 11 - Adhesives]]

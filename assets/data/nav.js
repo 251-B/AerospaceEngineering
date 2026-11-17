@@ -146,6 +146,22 @@ window.AE_NAV = {
             {
               "href": "subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html",
               "label": "7 · Magnetic and thermal properties"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html",
+              "label": "8 · Ceramic materials"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-9-polymers.html",
+              "label": "9 · Polymers"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-10-composites.html",
+              "label": "10 · Composite materials"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html",
+              "label": "11 · Adhesives"
             }
           ]
         },
@@ -154,6 +170,18 @@ window.AE_NAV = {
           "label": "Problems",
           "href": "subjects/aerospace-materials-1/problemas/index.html",
           "pages": [
+            {
+              "href": "subjects/aerospace-materials-1/problemas/topic-10-composites.html",
+              "label": "10 · Composite materials"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/problemas/topic-9-polymers.html",
+              "label": "9 · Polymers"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/problemas/topic-8-ceramics.html",
+              "label": "8 · Ceramic materials"
+            },
             {
               "href": "subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html",
               "label": "7 · Magnetic properties"

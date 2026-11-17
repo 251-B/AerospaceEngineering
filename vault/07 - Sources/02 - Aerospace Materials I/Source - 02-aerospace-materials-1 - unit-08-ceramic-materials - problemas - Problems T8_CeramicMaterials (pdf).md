@@ -19,8 +19,15 @@ bytes: 240487
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems T8_CeramicMaterials.pdf`
 - **Kind:** problemas
 - **Size:** 240.5 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 8 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem - T8-01 Zinc Blende Cell Density Packing and Densities]]
+- [[02 - Aerospace Materials I/Problem - T8-02 Perovskite CaTiO3 Cell Packing and Densities]]
+- [[02 - Aerospace Materials I/Problem - T8-03 Orthorhombic Perovskite ABC3 from Two Planes]]
+- [[02 - Aerospace Materials I/Problem - T8-04 Fluorite Structure AB2 from Two Planes]]
+- [[02 - Aerospace Materials I/Problem - T8-05 Rock Salt Structure AB from Two Planes]]
+- [[02 - Aerospace Materials I/Problem - T8-06 Perovskite SrSnO3 Linear and Planar Densities and Rod Mass]]
+- [[02 - Aerospace Materials I/Problem - T8-07 MgO Rock Salt Cell Packing and Densities]]

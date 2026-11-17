@@ -68,6 +68,27 @@ TOPICS = {
         "title": "Topic 7: Solved Problems (Magnetic Properties) — Aerospace Materials I",
         "scope_of": "of the magnetic part of the official sheet (Problems T6andT7_Electric and Magnetic Properties, problems 11 and 12: the hysteresis loops of soft and hard magnetic materials and the effect of the microstructure on a ferromagnetic material, from Session 15). Problems 1 to 10 of the sheet are electrical and belong to Topic 6. The sheet prints no solution for these two, so both are derived here.",
     },
+    8: {
+        "code": "T8", "figures": "materials_t8", "total": 7,
+        "page": "subjects/aerospace-materials-1/problemas/topic-8-ceramics.html",
+        "sheet": "Problems T8_CeramicMaterials.pdf",
+        "title": "Topic 8: Solved Problems (Ceramic Materials) — Aerospace Materials I",
+        "scope_of": "of the official sheet on ceramic materials (Problems T8_CeramicMaterials: volume, packing factor and densities of zinc blende, perovskite and rock salt cells, and the crystal system, stoichiometry, density and structure of an AB-type ceramic read from two planes, from Session 16). The sheet prints a numeric key for every item, so each solution is derived here and compared with that key.",
+    },
+    9: {
+        "code": "T9", "figures": "materials_t9", "total": 9,
+        "page": "subjects/aerospace-materials-1/problemas/topic-9-polymers.html",
+        "sheet": "Problems T9_Polymers.pdf",
+        "title": "Topic 9: Solved Problems (Polymers) — Aerospace Materials I",
+        "scope_of": "of the official sheet on polymers (Problems T9_Polymers: degree of polymerization, crystallinity from the density, number and weight average molecular weights, and the effect of structure, crystallinity and temperature on the melting temperature, the stiffness and the strength, from Sessions 19 and 20). The sheet prints a numeric key for the numerical items, so each solution is derived here and compared with that key.",
+    },
+    10: {
+        "code": "T10", "figures": "materials_t10", "total": 12,
+        "page": "subjects/aerospace-materials-1/problemas/topic-10-composites.html",
+        "sheet": "Problems T10_CompositeMaterials.pdf",
+        "title": "Topic 10: Solved Problems (Composite Materials) — Aerospace Materials I",
+        "scope_of": "of the official sheet on composite materials (Problems T10_CompositeMaterials: weight and volume fractions, density, longitudinal and transverse moduli by the rule of mixtures, load carried by the fibres, specific modulus and strength, fibre selection and the density of an infiltrated porous matrix, from Sessions 21 to 23). The sheet prints a numeric key for the items, so each solution is derived here and compared with that key.",
+    },
 }
 
 

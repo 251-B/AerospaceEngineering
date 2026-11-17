@@ -120,9 +120,37 @@
     {
      "page": "topic-7-magnetic-thermal.html",
      "label": "7 · Magnetic and thermal properties"
+    },
+    {
+     "page": "topic-8-ceramics.html",
+     "label": "8 · Ceramic materials"
+    },
+    {
+     "page": "topic-9-polymers.html",
+     "label": "9 · Polymers"
+    },
+    {
+     "page": "topic-10-composites.html",
+     "label": "10 · Composite materials"
+    },
+    {
+     "page": "topic-11-adhesives.html",
+     "label": "11 · Adhesives"
     }
    ],
    "problemas": [
+    {
+     "page": "topic-10-composites.html",
+     "label": "10 · Composite materials"
+    },
+    {
+     "page": "topic-9-polymers.html",
+     "label": "9 · Polymers"
+    },
+    {
+     "page": "topic-8-ceramics.html",
+     "label": "8 · Ceramic materials"
+    },
     {
      "page": "topic-7-magnetic-thermal.html",
      "label": "7 · Magnetic properties"

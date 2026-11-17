@@ -250,47 +250,78 @@ tags:
 
 ### 🧪 Block V: Advanced Structural Materials: Ceramics, Polymers, Composites and Adhesives
 
-#### Topic 8: Ceramic Materials and Processing (planned)
+#### [[02 - Aerospace Materials I/Topic 8 - Ceramic Materials|Topic 8: Ceramic Materials]] (complete: Sessions 16 and 18 and the 7 problems of the sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-8-ceramics.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-8-ceramics.html`
 * **Official Sources:**
-  * Theory: `Session 16 T8 Ceramic materials.pdf`, `Session 18 T8 Processing of ceramic materials.pdf`
-  * Problems: `Problems T8_CeramicMaterials.pdf`
+  * Theory: `Session 16 T8 Ceramic materials.pdf` (Slides 1-32), `Session 18 T8 Processing of ceramic materials.pdf` (Slides 1-43)
+  * Problems: `Problems T8_CeramicMaterials.pdf` (problems 1-7)
+* **Official Solved Problems (7 of 7):**
+  * [[02 - Aerospace Materials I/Problem - T8-01 Zinc Blende Cell Density Packing and Densities|Problem T8-01: Zinc Blende (ZnS): Cell Volume, Density, Packing Factor, Linear and Planar Densities]]
+  * [[02 - Aerospace Materials I/Problem - T8-02 Perovskite CaTiO3 Cell Packing and Densities|Problem T8-02: Perovskite (CaTiO₃): Cell Volume, Packing Factor, Linear, Planar and Volumetric Densities]]
+  * [[02 - Aerospace Materials I/Problem - T8-03 Orthorhombic Perovskite ABC3 from Two Planes|Problem T8-03: Crystal System, Stoichiometry, Density and Structure of an AxByCz Ceramic from Two Planes]]
+  * [[02 - Aerospace Materials I/Problem - T8-04 Fluorite Structure AB2 from Two Planes|Problem T8-04: Fluorite-Type AxBy Ceramic from Two Planes: Structure, Stoichiometry, Density and Packing Factor]]
+  * [[02 - Aerospace Materials I/Problem - T8-05 Rock Salt Structure AB from Two Planes|Problem T8-05: Rock Salt AB Ceramic from Two Planes: Structure, Stoichiometry, Density and Packing Factor]]
+  * [[02 - Aerospace Materials I/Problem - T8-06 Perovskite SrSnO3 Linear and Planar Densities and Rod Mass|Problem T8-06: Perovskite SrSnO₃: Linear and Planar Densities and the Mass of a Rod]]
+  * [[02 - Aerospace Materials I/Problem - T8-07 MgO Rock Salt Cell Packing and Densities|Problem T8-07: MgO (Rock Salt): Cell Volume, Packing Factor, Linear, Planar and Volumetric Densities]]
 * **Main Content:**
-  * Crystalline ceramic structures ($NaCl$-type, $CsCl$, perovskites, silicates). Glasses and glass-ceramic materials.
-  * Mechanical properties of ceramics: brittleness, modulus of rupture (3/4-point bending), Weibull distribution.
-  * Ceramic processing: milling, forming (pressing, slip casting, extrusion) and sintering.
+  * Ionic and covalent bonding in ceramics, radius ratio and coordination, and the crystal structures CsCl, rock salt, zinc blende, fluorite, anti-fluorite, perovskite and corundum; covalent ceramics, silicates, glasses (glass transition, constituents, types) and glass-ceramics.
+  * Mechanical behaviour of ceramics: hardness and stiffness, porosity, tension, compression and bending tests (modulus of rupture), the Weibull distribution of strength, and thermal shock.
+  * Ceramic processing: powder manufacturing and conditioning, shaping (pressing, slip casting, tape casting, extrusion, injection moulding), drying and debinding, sintering (pressureless, liquid-phase, HIP, SPS), additive manufacturing, glass forming and tempering, and applications (Space Shuttle thermal protection, thermal barrier coatings).
 
-#### Topic 9: Polymers and Processing (planned)
+#### [[02 - Aerospace Materials I/Topic 9 - Polymers|Topic 9: Polymers]] (complete: Sessions 19 and 20 and the 9 problems of the sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-9-polymers.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-9-polymers.html`
 * **Official Sources:**
-  * Theory: `Session 19 T9 Polymers.pdf`, `Session 20 T9 Classification and Polymer Processing.pdf`
-  * Problems: `Problems T9_Polymers.pdf`
+  * Theory: `Session 19 T9 Polymers.pdf` (Slides 1-50), `Session 20 T9 Classification and Polymer Processing.pdf` (Slides 1-38)
+  * Problems: `Problems T9_Polymers.pdf` (problems 1-9)
+* **Official Solved Problems (9 of 9):**
+  * [[02 - Aerospace Materials I/Problem - T9-01 Degree of Polymerization and Number of Chains of PMMA|Problem T9-01: Degree of Polymerization and Number of Chains of PMMA]]
+  * [[02 - Aerospace Materials I/Problem - T9-02 Which Polymer Crystallizes More Easily|Problem T9-02: Which Polymer of Each Pair Crystallizes More Easily]]
+  * [[02 - Aerospace Materials I/Problem - T9-03 Rolling or Fast-Cooled Casting for Higher Strength|Problem T9-03: Rolling or Fast-Cooled Casting for a Stronger Thermoplastic]]
+  * [[02 - Aerospace Materials I/Problem - T9-04 Which Polymer Has the Higher Melting Temperature|Problem T9-04: Which Polymer of Each Pair Has the Higher Melting Temperature]]
+  * [[02 - Aerospace Materials I/Problem - T9-05 Log Modulus Against Temperature for an Amorphous Polymer|Problem T9-05: Logarithm of Young's Modulus Against Temperature for an Amorphous Polymer]]
+  * [[02 - Aerospace Materials I/Problem - T9-06 Degree of Crystallinity of Polypropylene from Its Density|Problem T9-06: Degree of Crystallinity of Polypropylene from Its Density]]
+  * [[02 - Aerospace Materials I/Problem - T9-07 Weight Average Polydispersity and Repeat Unit of a Polyalkene|Problem T9-07: Weight Average, Polydispersity and Repeat Unit of a Polyalkene]]
+  * [[02 - Aerospace Materials I/Problem - T9-08 Number and Weight Averages and Monomer of an Unknown Polymer|Problem T9-08: Number and Weight Averages and Monomer of an Unknown Polymer]]
+  * [[02 - Aerospace Materials I/Problem - T9-09 Densities of Crystalline and Amorphous Polypropylene|Problem T9-09: Densities of Crystalline and Amorphous Polypropylene from Two Samples]]
 * **Main Content:**
-  * Chemical structure, monomers, addition and condensation polymerization. Degree of polymerization and molecular mass ($M_n, M_w$).
-  * Classification: thermoplastics, thermosets and elastomers. Glass transition ($T_g$) and melting ($T_m$).
-  * Viscoelastic behavior (relaxation moduli, creep). Polymer processing (extrusion, injection, blow molding).
+  * Polymer structure: monomers and repeat units, addition and condensation polymerization, molecular weight ($M_n$, $M_w$, polydispersity, degree of polymerization), conformation, tacticity, copolymers, molecular structure and crystallinity (degree of crystallinity from the density).
+  * Thermal transitions $T_g$ and $T_m$ and the factors that set them; stress-strain behaviour, plastic deformation and strain hardening, elastomers, modulus against temperature, and viscoelasticity (creep and relaxation).
+  * Classification (thermoplastics, thermosets, elastomers, fibres) and processing: extrusion, injection, blow, rotational and compression molding, thermoforming and transfer molding.
 
-#### Topic 10: Composite Materials and Reinforcements (planned)
+#### [[02 - Aerospace Materials I/Topic 10 - Composite Materials|Topic 10: Composite Materials]] (complete: Sessions 21 to 23 and the 12 problems of the sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-10-composites.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-10-composites.html`
 * **Official Sources:**
-  * Theory: `Session 21 T10 Composites I.pdf`, `Session 22 T10 Composites II.pdf`, `Session 23 T10 Composites III.pdf`
-  * Problems: `Problems T10_CompositeMaterials.pdf`
+  * Theory: `Session 21 T10 Composites I.pdf` (Slides 1-43), `Session 22 T10 Composites II.pdf` (Slides 1-29), `Session 23 T10 Composites III.pdf` (Slides 1-65)
+  * Problems: `Problems T10_CompositeMaterials.pdf` (problems 1-12)
+* **Official Solved Problems (12 of 12):**
+  * [[02 - Aerospace Materials I/Problem - T10-01 Weight Fractions Density and Modulus of a Carbon-Epoxy Composite|Problem T10-01: Weight Fractions, Density and Modulus of a Carbon-Epoxy Composite]]
+  * [[02 - Aerospace Materials I/Problem - T10-02 Choosing the Fibre for an Epoxy Composite with 40 Percent Fibres|Problem T10-02: Choosing the Fibre for an Epoxy Composite with 40 Percent Fibres]]
+  * [[02 - Aerospace Materials I/Problem - T10-03 Graphite-Epoxy and Graphite-Kevlar Hybrid Composite|Problem T10-03: Graphite-Epoxy and Graphite-Kevlar Hybrid Composite]]
+  * [[02 - Aerospace Materials I/Problem - T10-04 Modulus Strength and Load Fraction of a Kevlar 49-Epoxy Composite|Problem T10-04: Modulus, Strength and Load Fraction of a Kevlar 49-Epoxy Composite]]
+  * [[02 - Aerospace Materials I/Problem - T10-05 E-Glass Polyester Rod Modulus Fibre and Matrix Forces and Extension|Problem T10-05: E-Glass Polyester Rod: Modulus, Fibre and Matrix Forces and Extension]]
+  * [[02 - Aerospace Materials I/Problem - T10-06 Carbon-Epoxy Composite in psi Modulus Strength and Load Fraction|Problem T10-06: Carbon-Epoxy Composite in psi: Modulus, Strength and Load Fraction]]
+  * [[02 - Aerospace Materials I/Problem - T10-07 Carbon-Epoxy Composite against the Aluminium Alloy 2024|Problem T10-07: Carbon-Epoxy Composite against the Aluminium Alloy 2024]]
+  * [[02 - Aerospace Materials I/Problem - T10-08 Boron-Aluminium Composite Density and Longitudinal and Transverse Moduli|Problem T10-08: Boron-Aluminium Composite: Density and Longitudinal and Transverse Moduli]]
+  * [[02 - Aerospace Materials I/Problem - T10-09 Mass of Carbon Fibres for a Carbon-Polyimide Composite|Problem T10-09: Mass of Carbon Fibres for a Carbon-Polyimide Composite]]
+  * [[02 - Aerospace Materials I/Problem - T10-10 Stress on the Fibres of a Glass-Epoxy Rod|Problem T10-10: Stress on the Fibres of a Glass-Epoxy Rod]]
+  * [[02 - Aerospace Materials I/Problem - T10-11 Lighter Replacements for a Titanium Part|Problem T10-11: Lighter Replacements for a Titanium Part]]
+  * [[02 - Aerospace Materials I/Problem - T10-12 Density of a Porous Tungsten Matrix Infiltrated with Silver|Problem T10-12: Density of a Porous Tungsten Matrix Infiltrated with Silver]]
 * **Main Content:**
-  * Definition and phase synergy: polymer matrices (epoxy, BMI, PEEK) and reinforcements (carbon, glass, aramid fibers).
-  * Micromechanics of unidirectional laminae: longitudinal and transverse rule of mixtures ($E_1, E_2, \nu_{12}, G_{12}$).
-  * Aeronautical manufacturing: prepregs, autoclave, resin infusion (RTM/VARTM), filament winding.
+  * Constituents and classification: matrix, reinforcement and interface; particle, dispersion-strengthened, fibre and structural composites; fibres (glass, carbon, aramid, boron, SiC) and whiskers.
+  * Polymer matrices and the mean elastic properties of a composite: rule of mixtures for the isostrain (longitudinal) and isostress (transverse) cases, load carried by the fibres, specific modulus and strength.
+  * Processing and applications: prepregs and autoclave laminating, filament winding, pultrusion, resin infusion, MMC and CMC processing, sandwich structures and aircraft applications.
 
-#### Topic 11: Structural Adhesives and Joint Design (planned)
+#### [[02 - Aerospace Materials I/Topic 11 - Adhesives|Topic 11: Adhesives]] (theory complete: Session 24; the topic has no problem sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-11-adhesives.html`
 * **Official Sources:**
-  * Theory: `Session 24 T11 Adhesives.pdf`
+  * Theory: `Session 24 T11 Adhesives.pdf` (Slides 1-38)
 * **Main Content:**
-  * Adhesion mechanisms (mechanical, physicochemical, diffusion).
-  * Failure modes in adhesive joints (adhesive vs cohesive vs substrate delamination).
-  * Types of structural adhesives (epoxies, polyurethanes, acrylics). Joint design and mechanical testing.
+  * Adhesion versus cohesion and the mechanisms of adhesion (mechanical, electrostatic, diffusive, adsorption, chemical), wetting and surface roughness.
+  * Components and classification of adhesives (anaerobics, cyanoacrylates, epoxies, polyurethanes, acrylics), joint design, adherent preparation, primers, application and curing.
+  * Testing (tack, peel, normal and shear stresses), modes of failure (adhesive, cohesive, substrate) and degradation by temperature, moisture and corrosion.
 
 ---
 

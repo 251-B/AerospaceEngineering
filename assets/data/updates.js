@@ -23,6 +23,38 @@ window.AE_UPDATES = [
     "link": "index.html"
   },
   {
+    "id": "2026-11-17-materials-topic-10",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Composite materials: theory and 12 solved problems",
+    "text": "Topic 10 of Aerospace Materials I: fibres, matrices, laminates, the rule of mixtures and how composites are made, with the 12 problems of the sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-10-composites.html"
+  },
+  {
+    "id": "2026-11-17-materials-topic-9",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 9: polymers, theory and nine solved problems",
+    "text": "New theory page on polymers (structure, crystallinity, Tg and Tm, mechanical behaviour, families and processing) and the nine problems of the Topic 9 sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-9-polymers.html"
+  },
+  {
+    "id": "2026-11-16-materials-topic-8",
+    "date": "2026-11-16",
+    "tag": "Aerospace Materials I",
+    "title": "Aerospace Materials I: Topic 8, ceramic materials",
+    "text": "New theory page on ceramics and glasses, from crystal structures to processing and the Shuttle tiles, with the seven problems of the sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html"
+  },
+  {
+    "id": "2026-11-16-materials-topic-11",
+    "date": "2026-11-16",
+    "tag": "Aerospace Materials I",
+    "title": "Aerospace Materials I: Topic 11 Adhesives theory",
+    "text": "New theory page on adhesives: how adhesion works, the main adhesive families, how to design and prepare a bonded joint, and how joints fail and degrade.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html"
+  },
+  {
     "id": "2026-11-16-subject-skies",
     "date": "2026-11-16",
     "tag": "Portal",

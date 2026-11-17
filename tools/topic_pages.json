@@ -182,6 +182,58 @@
     "label": "2 solved problems for this topic (Problems T6andT7, problems 11-12, the magnetic part of the sheet)"
    }
   },
+  "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 8 - Ceramic Materials.md",
+   "figures": "materials_t8",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 8: Ceramic Materials — Aerospace Materials I",
+   "category": "Topic 08 · Ceramic Materials",
+   "title": "Ceramic Materials",
+   "subtitle": "Ceramic bonding and crystal structures, brittle behaviour and Weibull statistics, silicates, glasses and glass-ceramics, and the processing route from powder to sintered part, with the Shuttle tiles and turbine coatings as applications.",
+   "source": "Universidad Carlos III de Madrid · Session 16 T8 Ceramic materials.pdf, Session 18 T8 Processing of ceramic materials.pdf",
+   "problems": {
+    "href": "../problemas/topic-8-ceramics.html",
+    "label": "7 solved problems for this topic (Problems T8_CeramicMaterials)"
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-9-polymers.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 9 - Polymers.md",
+   "figures": "materials_t9",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 9: Polymers — Aerospace Materials I",
+   "category": "Topic 09 · Polymers",
+   "title": "Polymers",
+   "subtitle": "Polymer structure (molecular weight, tacticity, copolymers, crystallinity), the glass transition and melting, stress-strain and viscoelastic behaviour, and the classification and processing of thermoplastics, thermosets and elastomers.",
+   "source": "Universidad Carlos III de Madrid · Session 19 T9 Polymers.pdf, Session 20 T9 Classification and Polymer Processing.pdf",
+   "problems": {
+    "href": "../problemas/topic-9-polymers.html",
+    "label": "9 solved problems for this topic (Problems T9_Polymers)"
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-10-composites.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 10 - Composite Materials.md",
+   "figures": "materials_t10",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 10: Composite Materials — Aerospace Materials I",
+   "category": "Topic 10 · Composite Materials",
+   "title": "Composite Materials",
+   "subtitle": "Matrices, reinforcements and interfaces, particle, fibre and structural composites, the rule of mixtures (isostrain and isostress), polymer matrices and the processing of polymer, metal and ceramic matrix composites.",
+   "source": "Universidad Carlos III de Madrid · Session 21 T10 Composites I.pdf, Session 22 T10 Composites II.pdf, Session 23 T10 Composites III.pdf",
+   "problems": {
+    "href": "../problemas/topic-10-composites.html",
+    "label": "12 solved problems for this topic (Problems T10_CompositeMaterials)"
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 11 - Adhesives.md",
+   "figures": "materials_t11",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 11: Adhesives — Aerospace Materials I",
+   "category": "Topic 11 · Adhesives",
+   "title": "Adhesives",
+   "subtitle": "How adhesion works, the main adhesive families, how to design and prepare a bonded joint, how it is tested, and how adhesive joints fail and degrade.",
+   "source": "Universidad Carlos III de Madrid · Session 24 T11 Adhesives.pdf"
+  },
   "subjects/fluid-mechanics/teoria/topic-6.html": {
    "flavor": "fluids",
    "template": "subjects/fluid-mechanics/teoria/topic-3-2-mass.html",
