@@ -168,10 +168,10 @@
   }
 
   /* Layouts of the panorama (centres of the five constellations). */
-  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[350, 350], [930, 215], [1660, 350], [470, 880], [1290, 900]] };
-  var PORT_T = { box: [1000, 2400], centre: [500, 1200], slots: [[300, 440], [700, 850], [260, 1270], [720, 1690], [290, 2110]] };   // tablet portrait and landscape phones: a zigzag, scrolled; the top 200 units hold the title
-  var PORT_S = { box: [640, 3160], centre: [320, 1580], slots: [[300, 490], [350, 1060], [290, 1630], [350, 2200], [300, 2770]] };       // phones: one column, scrolled; the top 160 units hold the title
-  var GUIDES = [[0, 1], [1, 2], [2, 4], [4, 3], [3, 0], [1, 3], [1, 4]];
+  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[260, 330, 1.05], [820, 175, 0.85], [1650, 420, 1.12], [500, 900, 1.0], [1250, 880, 0.9]] };   // [x, y, scale]: scattered round the name, not on a ring
+  var PORT_T = { box: [1000, 2400], centre: [500, 1200], slots: [[250, 440, 1.0], [740, 840, 0.9], [230, 1290, 1.08], [700, 1670, 0.95], [330, 2120, 1.0]] };   // tablet portrait and landscape phones: a loose zigzag, scrolled; the top 200 units hold the title
+  var PORT_S = { box: [640, 3160], centre: [320, 1580], slots: [[260, 490, 1.0], [400, 1050, 0.9], [270, 1640, 1.06], [390, 2210, 0.94], [280, 2790, 1.0]] };       // phones: one loose column, scrolled; the top 160 units hold the title
+  var GUIDES = [[0, 1], [1, 2], [0, 3], [3, 4], [2, 4], [1, 3]];
 
   var ZOOM_H = 480;          // height of the camera box on a constellation (user units)
   var ZOOM_BW = [700, 820, 620];  // minimum width of that box: landscape, tablet portrait, phone
@@ -394,7 +394,7 @@
     sizeSvg(L);
     items.forEach(function (it) {
       it.slot = L.slots[it.index];
-      it.g.setAttribute('transform', 'translate(' + it.slot[0] + ' ' + it.slot[1] + ')');
+      it.g.setAttribute('transform', 'translate(' + it.slot[0] + ' ' + it.slot[1] + ') scale(' + (it.slot[2] || 1) + ')');
       var lower = it.slot[1] > L.centre[1] - 60;   // the name goes on the side facing the middle of the map, clear of the page edge
       var ty = lower ? it.minY - 70 : it.maxY + 66;
       it.title.setAttribute('y', ty);
@@ -419,7 +419,8 @@
     if (!selected) return { cx: L.centre[0], cy: L.centre[1], bw: L.box[0], bh: L.box[1], asp: asp };
     var it = byslug(selected);
     var bw = compact ? (r.width < 600 ? ZOOM_BW[2] : ZOOM_BW[1]) : ZOOM_BW[0];
-    return { cx: it.slot[0], cy: it.slot[1] + (compact ? 60 : 38), bw: bw, bh: compact ? ZOOM_H + 140 : ZOOM_H, asp: asp };
+    var k = it.slot[2] || 1;
+    return { cx: it.slot[0], cy: it.slot[1] + (compact ? 60 : 38) * k, bw: bw * k, bh: (compact ? ZOOM_H + 140 : ZOOM_H) * k, asp: asp };
   }
 
   function boxOf(t) {   // the viewBox that holds the target box at the container's aspect ratio
