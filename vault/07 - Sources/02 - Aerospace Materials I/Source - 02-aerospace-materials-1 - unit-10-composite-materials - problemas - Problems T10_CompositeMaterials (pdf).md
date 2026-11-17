@@ -19,8 +19,20 @@ bytes: 234430
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems T10_CompositeMaterials.pdf`
 - **Kind:** problemas
 - **Size:** 234.4 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 13 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem - T10-01 Weight Fractions Density and Modulus of a Carbon-Epoxy Composite]]
+- [[02 - Aerospace Materials I/Problem - T10-02 Choosing the Fibre for an Epoxy Composite with 40 Percent Fibres]]
+- [[02 - Aerospace Materials I/Problem - T10-03 Graphite-Epoxy and Graphite-Kevlar Hybrid Composite]]
+- [[02 - Aerospace Materials I/Problem - T10-04 Modulus Strength and Load Fraction of a Kevlar 49-Epoxy Composite]]
+- [[02 - Aerospace Materials I/Problem - T10-05 E-Glass Polyester Rod Modulus Fibre and Matrix Forces and Extension]]
+- [[02 - Aerospace Materials I/Problem - T10-06 Carbon-Epoxy Composite in psi Modulus Strength and Load Fraction]]
+- [[02 - Aerospace Materials I/Problem - T10-07 Carbon-Epoxy Composite against the Aluminium Alloy 2024]]
+- [[02 - Aerospace Materials I/Problem - T10-08 Boron-Aluminium Composite Density and Longitudinal and Transverse Moduli]]
+- [[02 - Aerospace Materials I/Problem - T10-09 Mass of Carbon Fibres for a Carbon-Polyimide Composite]]
+- [[02 - Aerospace Materials I/Problem - T10-10 Stress on the Fibres of a Glass-Epoxy Rod]]
+- [[02 - Aerospace Materials I/Problem - T10-11 Lighter Replacements for a Titanium Part]]
+- [[02 - Aerospace Materials I/Problem - T10-12 Density of a Porous Tungsten Matrix Infiltrated with Silver]]

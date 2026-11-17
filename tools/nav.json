@@ -130,11 +130,19 @@
      "label": "9 · Polymers"
     },
     {
+     "page": "topic-10-composites.html",
+     "label": "10 · Composite materials"
+    },
+    {
      "page": "topic-11-adhesives.html",
      "label": "11 · Adhesives"
     }
    ],
    "problemas": [
+    {
+     "page": "topic-10-composites.html",
+     "label": "10 · Composite materials"
+    },
     {
      "page": "topic-9-polymers.html",
      "label": "9 · Polymers"

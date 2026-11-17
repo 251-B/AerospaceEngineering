@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-17-materials-topic-10",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Composite materials: theory and 12 solved problems",
+    "text": "Topic 10 of Aerospace Materials I: fibres, matrices, laminates, the rule of mixtures and how composites are made, with the 12 problems of the sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-10-composites.html"
+  },
+  {
     "id": "2026-11-17-materials-topic-9",
     "date": "2026-11-17",
     "tag": "Aerospace Materials I",

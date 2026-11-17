@@ -290,16 +290,29 @@ tags:
   * Thermal transitions $T_g$ and $T_m$ and the factors that set them; stress-strain behaviour, plastic deformation and strain hardening, elastomers, modulus against temperature, and viscoelasticity (creep and relaxation).
   * Classification (thermoplastics, thermosets, elastomers, fibres) and processing: extrusion, injection, blow, rotational and compression molding, thermoforming and transfer molding.
 
-#### Topic 10: Composite Materials and Reinforcements (planned)
+#### [[02 - Aerospace Materials I/Topic 10 - Composite Materials|Topic 10: Composite Materials]] (complete: Sessions 21 to 23 and the 12 problems of the sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-10-composites.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-10-composites.html`
 * **Official Sources:**
-  * Theory: `Session 21 T10 Composites I.pdf`, `Session 22 T10 Composites II.pdf`, `Session 23 T10 Composites III.pdf`
-  * Problems: `Problems T10_CompositeMaterials.pdf`
+  * Theory: `Session 21 T10 Composites I.pdf` (Slides 1-43), `Session 22 T10 Composites II.pdf` (Slides 1-29), `Session 23 T10 Composites III.pdf` (Slides 1-65)
+  * Problems: `Problems T10_CompositeMaterials.pdf` (problems 1-12)
+* **Official Solved Problems (12 of 12):**
+  * [[02 - Aerospace Materials I/Problem - T10-01 Weight Fractions Density and Modulus of a Carbon-Epoxy Composite|Problem T10-01: Weight Fractions, Density and Modulus of a Carbon-Epoxy Composite]]
+  * [[02 - Aerospace Materials I/Problem - T10-02 Choosing the Fibre for an Epoxy Composite with 40 Percent Fibres|Problem T10-02: Choosing the Fibre for an Epoxy Composite with 40 Percent Fibres]]
+  * [[02 - Aerospace Materials I/Problem - T10-03 Graphite-Epoxy and Graphite-Kevlar Hybrid Composite|Problem T10-03: Graphite-Epoxy and Graphite-Kevlar Hybrid Composite]]
+  * [[02 - Aerospace Materials I/Problem - T10-04 Modulus Strength and Load Fraction of a Kevlar 49-Epoxy Composite|Problem T10-04: Modulus, Strength and Load Fraction of a Kevlar 49-Epoxy Composite]]
+  * [[02 - Aerospace Materials I/Problem - T10-05 E-Glass Polyester Rod Modulus Fibre and Matrix Forces and Extension|Problem T10-05: E-Glass Polyester Rod: Modulus, Fibre and Matrix Forces and Extension]]
+  * [[02 - Aerospace Materials I/Problem - T10-06 Carbon-Epoxy Composite in psi Modulus Strength and Load Fraction|Problem T10-06: Carbon-Epoxy Composite in psi: Modulus, Strength and Load Fraction]]
+  * [[02 - Aerospace Materials I/Problem - T10-07 Carbon-Epoxy Composite against the Aluminium Alloy 2024|Problem T10-07: Carbon-Epoxy Composite against the Aluminium Alloy 2024]]
+  * [[02 - Aerospace Materials I/Problem - T10-08 Boron-Aluminium Composite Density and Longitudinal and Transverse Moduli|Problem T10-08: Boron-Aluminium Composite: Density and Longitudinal and Transverse Moduli]]
+  * [[02 - Aerospace Materials I/Problem - T10-09 Mass of Carbon Fibres for a Carbon-Polyimide Composite|Problem T10-09: Mass of Carbon Fibres for a Carbon-Polyimide Composite]]
+  * [[02 - Aerospace Materials I/Problem - T10-10 Stress on the Fibres of a Glass-Epoxy Rod|Problem T10-10: Stress on the Fibres of a Glass-Epoxy Rod]]
+  * [[02 - Aerospace Materials I/Problem - T10-11 Lighter Replacements for a Titanium Part|Problem T10-11: Lighter Replacements for a Titanium Part]]
+  * [[02 - Aerospace Materials I/Problem - T10-12 Density of a Porous Tungsten Matrix Infiltrated with Silver|Problem T10-12: Density of a Porous Tungsten Matrix Infiltrated with Silver]]
 * **Main Content:**
-  * Definition and phase synergy: polymer matrices (epoxy, BMI, PEEK) and reinforcements (carbon, glass, aramid fibers).
-  * Micromechanics of unidirectional laminae: longitudinal and transverse rule of mixtures ($E_1, E_2, \nu_{12}, G_{12}$).
-  * Aeronautical manufacturing: prepregs, autoclave, resin infusion (RTM/VARTM), filament winding.
+  * Constituents and classification: matrix, reinforcement and interface; particle, dispersion-strengthened, fibre and structural composites; fibres (glass, carbon, aramid, boron, SiC) and whiskers.
+  * Polymer matrices and the mean elastic properties of a composite: rule of mixtures for the isostrain (longitudinal) and isostress (transverse) cases, load carried by the fibres, specific modulus and strength.
+  * Processing and applications: prepregs and autoclave laminating, filament winding, pultrusion, resin infusion, MMC and CMC processing, sandwich structures and aircraft applications.
 
 #### [[02 - Aerospace Materials I/Topic 11 - Adhesives|Topic 11: Adhesives]] (theory complete: Session 24; the topic has no problem sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-11-adhesives.html`
