@@ -103,11 +103,18 @@ Practice items written for the portal in the style of Assessment Test II (Units 
 
 ### Fe-Fe3C diagram and steel microstructures
 
+- [[Problem - Bank P09 - Hypoeutectoid Steel Bar Above and Below the Eutectoid|P09]]: Hypoeutectoid steel bar above and below the eutectoid temperature
 
 ### Tensile test and mechanical properties
 
+- [[Problem - Bank P13 - Titanium Alloy Tensile Test from a Load and Gauge Length Table|P13]]: Titanium alloy tensile test from a load and gauge length table
+- [[Problem - Bank P14 - Ductility and True Fracture Stress of an Aluminium Alloy from the Broken Specimen|P14]]: Ductility and true fracture stress of an aluminium alloy from the broken specimen
 
-### Conductivity of metals and semiconductors
+### Bar or rod under load: elastic check, Poisson, design and unloading
 
+- [[Problem - Bank P17 - Nickel Alloy Tie Rod under a Tensile Load|P17]]: Nickel alloy tie rod under a tensile load
+- [[Problem - Bank P18 - Choosing the Alloy of a Light Control Rod|P18]]: Choosing the alloy of a light control rod
+- [[Problem - Bank P19 - Aluminium Alloy Specimen Loaded beyond Yield and Unloaded|P19]]: Aluminium alloy specimen loaded beyond yield and unloaded
+- [[Problem - Bank P20 - Minimum Diameter of a Titanium Hanger Rod|P20]]: Minimum diameter of a titanium hanger rod
 
 **Back to:** [[Aerospace Materials I MOC]]
