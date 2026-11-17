@@ -99,12 +99,14 @@ Practice items written for the portal in the style of Assessment Test II (Units 
 
 - [[Problem - Bank P01 - Two Eutectics Around a Congruently Melting Compound|P01]]: Two eutectics around a congruently melting compound in a hypothetical A-B system
 - [[Problem - Bank P02 - Alloy Composition from the Eutectic Fraction in a Peritectic System|P02]]: Alloy composition from the eutectic fraction in an M-N system with an incongruent compound (at%)
+- [[Problem - Bank P03 - Cooling Through a Peritectic a Eutectic and a Eutectoid|P03]]: Cooling an X-40 wt% Y alloy through a peritectic, a eutectic and a eutectoid
 
 ### Eutectic system: lever rule and microconstituents
 
 - [[Problem - Bank P05 - Cooling of a Pb-50 Sn Alloy Read from the Pb-Sn Diagram|P05]]: Cooling of a Pb-50 wt% Sn alloy read from the Pb-Sn diagram
 - [[Problem - Bank P06 - Building a Eutectic Diagram from a Description and Using It|P06]]: Building a eutectic diagram from a description and using it
 - [[Problem - Bank P07 - Composition of an Ag-Cu Alloy from its Micrograph|P07]]: Composition of an Ag-Cu alloy worked backwards from its micrograph
+- [[Problem - Bank P08 - Cooling History of a 50 kg Casting from a Tie-Line Table|P08]]: Cooling history of a 50 kg casting from a table of tie-line compositions
 
 ### Fe-Fe3C diagram and steel microstructures
 
