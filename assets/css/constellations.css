@@ -359,3 +359,58 @@ html[data-home-view="constellations"] .fl-launcher:focus-visible::before, html[d
 
 .sky-view.is-compact .sky-title small { font-size: 0.85rem; letter-spacing: 0.06em; }
 @media (max-width: 899px) { html[data-home-view="constellations"] .site-footer { display: none; } }
+
+/* ---- Life: the sky is never still -------------------------------------------------------------- */
+/* each figure drifts a few units on its own slow loop */
+.const-float { animation: const-float var(--fdur, 14s) ease-in-out var(--fdel, 0s) infinite alternate; will-change: transform; }
+@keyframes const-float { from { transform: translate(calc(var(--fx, 6px) * -1), calc(var(--fy, 5px) * -1)); } to { transform: translate(var(--fx, 6px), var(--fy, 5px)); } }
+.sky-svg.is-zoomed .const-float { animation-play-state: paused; }
+
+/* stars twinkle at their own pace (the open constellation shows its shapes instead) */
+.const:not(.is-active) .star-dot { transform-box: fill-box; transform-origin: center; animation: star-twinkle 3.8s ease-in-out var(--sd, 0s) infinite; }
+@keyframes star-twinkle { 0%, 100% { opacity: 0.55; transform: scale(0.8); } 45% { opacity: 1; transform: scale(1.18); } 70% { opacity: 0.8; transform: scale(1); } }
+.const:not(.is-active) .star-flare { animation: star-halo 5.2s ease-in-out var(--sd, 0s) infinite; }
+@keyframes star-halo { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.6; } }
+.const.is-active .star-glyph { animation: glyph-breathe 4.6s ease-in-out var(--sd, 0s) infinite; }
+@keyframes glyph-breathe { 0%, 100% { filter: drop-shadow(0 0 calc(var(--u, 1) * 2px) var(--c)); } 50% { filter: drop-shadow(0 0 calc(var(--u, 1) * 6px) var(--c)); } }
+
+/* a small light runs along every line of a figure */
+.const-flow { stroke: #ffffff; stroke-width: calc(var(--u, 1) * 2.2px); stroke-linecap: round; fill: none; opacity: 0.9; stroke-dashoffset: 0;
+  animation: const-flow var(--fs, 6s) linear var(--fd, 0s) infinite; pointer-events: none; }
+@keyframes const-flow { to { stroke-dashoffset: calc(var(--fl, 100px) * -1 - 10px); } }
+html[data-theme="light"] .const-flow { stroke: var(--c); opacity: 0.75; }
+
+/* the lines breathe */
+.const-edge:not(.is-faint) { animation: edge-breathe 6.5s ease-in-out infinite alternate; }
+@keyframes edge-breathe { from { opacity: 0.5; } to { opacity: 0.85; } }
+.const:hover .const-edge:not(.is-faint), .const.is-active .const-edge:not(.is-faint) { animation: none; opacity: 1; }
+
+/* shooting stars across the far sky */
+.shoot { stroke: #ffffff; stroke-width: calc(var(--u, 1) * 1.6px); stroke-linecap: round; opacity: 0; animation: shoot var(--sdur, 18s) linear var(--sdel, 0s) infinite; }
+html[data-theme="light"] .shoot { stroke: var(--sk-text-2); }
+@keyframes shoot { 0%, 92% { opacity: 0; transform: translate(0, 0); } 93% { opacity: 0.95; } 100% { opacity: 0; transform: translate(260px, 142px); } }
+
+/* parallax of the far sky and a slow breath of the title and the nebula */
+.far-layer { transform: translate(calc(var(--mx, 0) * -16px), calc(var(--my, 0) * -12px)); transition: transform 0.9s ease-out; }
+.sky-title { animation: title-breathe 9s ease-in-out infinite alternate; }
+@keyframes title-breathe { from { opacity: 0.42; } to { opacity: 0.66; } }
+.sky-view.has-selection .sky-title { animation: none; opacity: 0; }
+.sky-view::after {
+  content: ''; position: absolute; inset: -12%; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 34% 30% at 22% 30%, rgba(0, 200, 255, 0.09), transparent 70%),
+    radial-gradient(ellipse 30% 28% at 78% 24%, rgba(170, 100, 255, 0.10), transparent 70%),
+    radial-gradient(ellipse 36% 30% at 56% 78%, rgba(255, 80, 150, 0.08), transparent 70%);
+  animation: nebula-drift 46s ease-in-out infinite alternate;
+}
+html[data-theme="light"] .sky-view::after { opacity: 0.55; }
+@keyframes nebula-drift { from { transform: translate(-2.5%, -1.5%) scale(1); } to { transform: translate(2.5%, 2%) scale(1.08); } }
+.sky-svg { z-index: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .const-float, .const:not(.is-active) .star-dot, .const:not(.is-active) .star-flare, .const.is-active .star-glyph, .const-flow,
+  .const-edge:not(.is-faint), .shoot, .sky-title, .sky-view::after { animation: none; }
+  .shoot, .const-flow { display: none; }
+  .far-layer { transform: none; transition: none; }
+}
+.sky-title { z-index: 1; }

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-17-living-sky",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "The star map now has a life of its own",
+    "text": "Stars twinkle, the constellations drift, small lights run along their lines and shooting stars cross the sky. Everything calms down if your device asks for reduced motion.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-16-subject-skies",
     "date": "2026-11-16",
     "tag": "Portal",

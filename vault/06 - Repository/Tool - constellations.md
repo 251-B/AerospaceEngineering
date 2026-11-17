@@ -27,3 +27,7 @@ Silhouettes and Latin titles are in `META` of the script; the two panorama layou
 ## Phones and tablets
 
 Below 900 px (and on phones held on their side) the map is a taller sky that scrolls: `PORT_S` (one column, phones) and `PORT_T` (zigzag, tablets), with the title in the first screen. Opening a constellation fixes the map to the window, grows the stars (`--ks`, icon at least 20 px) and keeps every text at 13 px or more; going back restores the scroll position. The far sky is redrawn for the layout in use.
+
+## Motion
+
+Everything moves slowly and stops with `prefers-reduced-motion`: each figure drifts on its own loop (`.const-float`), stars twinkle and their halos breathe, a small light runs along every lit line (`.const-flow`), three shooting stars cross the far sky, the far sky follows the pointer a little (parallax) and the nebula and the title breathe. Animations are CSS only; the open constellation stops drifting so its stars stay easy to hit.
