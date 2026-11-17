@@ -322,6 +322,9 @@ tags:
 
 ---
 
+### 🧮 Formula Sheet (Units 4 to 7)
+* [[Formula Sheet - Aerospace Materials I]]: every formula and way of calculating for phase diagrams, mechanical, electrical, magnetic and thermal properties, with linear interpolation and the 0.2 % offset. **Web Page:** `subjects/aerospace-materials-1/formula-sheet/index.html`
+
 ### 📝 Official Assessment and Exams
 * **Test 1 (First Partial):** Topics 1, 2 and 3.
   * Sources: `1stPartial2022.pdf`, `1stPartial2023.pdf`, `1stPartialTipoTestsVariados.pdf`, `First Partial Aerospace Materials.pdf`.

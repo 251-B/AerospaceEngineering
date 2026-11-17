@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-17-materials-formula-sheet",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Formula sheet for Units 4 to 7",
+    "text": "A new formula sheet covers phase diagrams, mechanical, electrical, magnetic and thermal properties, with linear interpolation, the 0.2 % offset, solving steps and exam traps.",
+    "link": "subjects/aerospace-materials-1/formula-sheet/index.html"
+  },
+  {
     "id": "2026-11-17-materials-topic-9",
     "date": "2026-11-17",
     "tag": "Aerospace Materials I",

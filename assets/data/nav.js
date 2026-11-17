@@ -222,6 +222,10 @@ window.AE_NAV = {
           "label": "Exam simulator"
         },
         {
+          "href": "subjects/aerospace-materials-1/formula-sheet/index.html",
+          "label": "Formula sheet"
+        },
+        {
           "href": "subjects/aerospace-materials-1/sources/index.html",
           "label": "PDFs"
         },

@@ -19,7 +19,7 @@ bytes: 2646391
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2019.pdf`
 - **Kind:** examenes
 - **Size:** 2.6 MB
-- **Status:** referenced by 54 note(s) below
+- **Status:** referenced by 64 note(s) below
 
 ## Referenced by
 
@@ -76,4 +76,14 @@ bytes: 2646391
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B50 - Unit 7 Thermal Expansion]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B51 - Unit 7 Thermal Conductivity]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B52 - Unit 7 Thermal Stresses and Thermal Shock]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B53 - Unit 6 Metallic and Ionic Conduction Applied]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B54 - Unit 6 Intrinsic Semiconductors Applied]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B55 - Unit 6 Extrinsic Semiconductors Dopants and Carrier Data]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B56 - Unit 6 Extrinsic Conductivity against Temperature and Devices]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B57 - Unit 6 Dielectrics Ferroelectrics and Piezoelectrics Applied]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B58 - Unit 7 Magnetic Moments Fields and Types of Magnetism Applied]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B59 - Unit 7 Domains Hysteresis and the Tables of Magnetic Materials]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B60 - Unit 7 Loop Factors Curie and Neel Temperatures and Superconductors]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B61 - Unit 7 Superconductor Applications Heat Capacity and Thermal Expansion]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B62 - Unit 7 Thermal Conduction Thermocouples Stresses and Thermal Shock]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
