@@ -81,15 +81,8 @@
     }
     return d + 'Z';
   }
-  var SHAPES = {
-    theory:   starPath(4, 30, 0.2, 0),                              // a fine four-point sparkle
-    problems: starPath(5, 28, 0.45, 0),                             // the classic five-point star
-    extra:    starPath(6, 28, 0.55, 0),                             // a six-point star
-    formula:  'M0 -34 L17 0 L0 34 L-17 0Z',                         // a tall gem
-    sim:      starPath(8, 29, 0.42, 0),                             // an eight-point burst
-    pdfs:     'M29 -25 A34 34 0 1 0 29 25 A27 27 0 1 1 29 -25Z',       // a crescent moon
-    exams:    starPath(12, 27, 0.7, 0)                              // a toothed seal
-  };
+  // An open constellation keeps plain four-point sparkles at its vertices; the satellite label says what each star is.
+  var SPARKLE = starPath(4, 30, 0.2, 0);
 
   function chain(n, closed) {
     var e = [];
@@ -160,15 +153,20 @@
   var ORDER = ['fluid-mechanics', 'aerospace-materials-1', 'engineering-mechanics', 'advanced-maths', 'business-management'];
 
   // Main areas of a subject, in this order. Labels follow the brief; keys come from nav.json.
+  // short + tag: the two lines of the satellite label (tag stands in when the counter is missing or too long).
   var SECTIONS = [
-    { key: 'theory',  label: 'Theory',                 icon: 'i-theory' },
-    { key: 'problems', label: 'Solved Problems',        icon: 'i-problems' },
-    { key: 'extra',   label: 'Extra Problems',         icon: 'i-extra' },
-    { key: 'formula', label: 'Formula Sheet',          icon: 'i-formula' },
-    { key: 'sim',     label: 'Exam Simulator',         icon: 'i-sim' },
-    { key: 'pdfs',    label: 'Theory & exercise PDFs', icon: 'i-pdf' },
-    { key: 'exams',   label: 'Exams',                  icon: 'i-exams' }
+    { key: 'theory',  label: 'Theory',                 short: 'Theory',        tag: 'Notes',     icon: 'i-theory' },
+    { key: 'problems', label: 'Solved Problems',        short: 'Solved',        tag: 'Worked',    icon: 'i-problems' },
+    { key: 'extra',   label: 'Extra Problems',         short: 'Extra',         tag: 'Practice',  icon: 'i-extra' },
+    { key: 'formula', label: 'Formula Sheet',          short: 'Formula sheet', tag: 'Reference', icon: 'i-formula' },
+    { key: 'sim',     label: 'Exam Simulator',         short: 'Simulator',     tag: 'Test mode', icon: 'i-sim' },
+    { key: 'pdfs',    label: 'Theory & exercise PDFs', short: 'PDFs',          tag: 'Docs',      icon: 'i-pdf' },
+    { key: 'exams',   label: 'Exams',                  short: 'Exams',         tag: 'Archive',   icon: 'i-exams' }
   ];
+  function tagOf(sec) {
+    if (/soon/i.test(sec.count)) return 'Coming soon';
+    return sec.count && sec.count.length <= 16 ? sec.count : sec.tag;
+  }
   function keyOf(id, label) {
     if (id === 'teoria') return 'theory';
     if (id === 'problemas') return 'problems';
@@ -230,7 +228,7 @@
     (sub.groups || []).forEach(function (g) { var k = keyOf(g.id, g.label); if (k) found[k] = g.href; });
     (sub.extras || []).forEach(function (e) { var k = keyOf(null, e.label); if (k) found[k] = e.href; });
     return SECTIONS.filter(function (sec) { return found[sec.key]; }).map(function (sec) {
-      return { key: sec.key, label: sec.label, icon: sec.icon, href: found[sec.key], count: counterFor(sub.slug, found[sec.key]) };
+      return { key: sec.key, label: sec.label, short: sec.short, tag: sec.tag, icon: sec.icon, href: found[sec.key], count: counterFor(sub.slug, found[sec.key]) };
     });
   }
 
@@ -312,9 +310,9 @@
       s('circle', { 'class': 'star-hit', r: 26 }, body);
       s('circle', { 'class': 'star-flare', r: 34, fill: 'url(#flare-' + meta.color + ')' }, body);
       s('path', { 'class': 'star-dot', d: starPath(4, 9.5, 0.26, 0) }, body);   // every star is the same small sparkle in the panorama
-      s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, body);   // its own shape appears when the constellation is open
+      s('path', { 'class': 'star-glyph', d: SPARKLE }, body);   // a brighter sparkle when the constellation is open
       s('circle', { 'class': 'star-core', r: 3.4 }, body);
-      // The name goes on the free side of the star: away from the lines that reach it and from the figure.
+      // The satellite label prefers the free side of the star: away from the lines that reach it and from the figure.
       var incident = [];
       meta.edges.forEach(function (e) {
         var other = e[0] === ai ? e[1] : e[1] === ai ? e[0] : -1;
@@ -329,13 +327,21 @@
         var score = Math.min(gap, 1.2) + 0.35 * Math.cos(ang - out);
         if (score > best) { best = score; dx = Math.cos(ang); dy = Math.sin(ang); }
       }
-      var anchor = dx > 0.35 ? 'start' : dx < -0.35 ? 'end' : 'middle';
-      var ny = Math.abs(dy) > 0.5 ? dy * 38 + (dy > 0 ? 10 : -4) : dy * 30 + 5;
-      var attrs = { 'text-anchor': anchor, x: Math.round(dx * (anchor === 'middle' ? 0 : 34)), y: Math.round(ny) };
-      var name = s('text', attrs, a); name.setAttribute('class', 'star-name'); name.setAttribute('display', 'none'); name.textContent = sec.label;
-      var cAttrs = {}; for (var k in attrs) cAttrs[k] = attrs[k];
-      cAttrs.y = Math.round(ny) + (dy < -0.5 ? -17 : 18);
-      var count = s('text', cAttrs, a); count.setAttribute('class', 'star-count'); count.setAttribute('display', 'none'); count.textContent = sec.count;
+      // HUD satellite: a 45-degree leader with a short horizontal run, a ring with the area icon, name and counter.
+      // Inside the same <a>, so the whole label opens the area. Positions are set by layoutHud() once the camera is known.
+      var sat = s('g', { 'class': 'star-sat', 'aria-hidden': 'true' }, a);
+      var tag = tagOf(sec);
+      a._hud = {
+        ai: ai, p: p, dx: dx, dy: dy, name: sec.short, tag: tag,
+        hit: s('rect', { 'class': 'sat-hit' }, sat),
+        leader: s('path', { 'class': 'sat-leader', pathLength: 1 }, sat),
+        ring: s('circle', { 'class': 'sat-ring' }, sat),
+        icon: s('use', { 'class': 'sat-icon', href: '#' + sec.icon }, sat),
+        nm: s('text', { 'class': 'sat-name' }, sat),
+        tg: s('text', { 'class': 'sat-tag' }, sat)
+      };
+      a._hud.nm.textContent = sec.short;
+      a._hud.tg.textContent = tag;
       return a;
     });
 
@@ -361,7 +367,7 @@
     float.style.setProperty('--bdel', (-rnd() * 9).toFixed(1) + 's');
 
     var allX = anchors.concat(ex).map(function (q) { return q[0]; }), allY = anchors.concat(ex).map(function (q) { return q[1]; });
-    return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys), minX: Math.min.apply(null, anchors.map(function (q) { return q[0]; })), maxX: Math.max.apply(null, anchors.map(function (q) { return q[0]; })),
+    return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, anchors: anchors, edges: meta.edges, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys), minX: Math.min.apply(null, anchors.map(function (q) { return q[0]; })), maxX: Math.max.apply(null, anchors.map(function (q) { return q[0]; })),
       // bounds of the whole figure, companions included: the camera keeps all of it away from the window edge
       bx0: Math.min.apply(null, allX), bx1: Math.max.apply(null, allX), by0: Math.min.apply(null, allY), by1: Math.max.apply(null, allY) };
   }
@@ -439,6 +445,93 @@
   }
 
   /* ---------------------------------------------------------------------------------------
+     HUD satellites of the open constellation: sizes are screen pixels (u = user units per pixel),
+     placement is a greedy search over the four diagonals and three leader lengths that avoids
+     the other labels, the stars and the lines of the figure, leaning to each star's free side.
+     --------------------------------------------------------------------------------------- */
+  function boxHit(a, b) { return a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3]; }
+  function cross(p, q, r) { return (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]); }
+  function segCross(a, b, c, d) {   // strict: segments that only share an end do not cross
+    return cross(a, b, c) * cross(a, b, d) < 0 && cross(c, d, a) * cross(c, d, b) < 0;
+  }
+  function segBox(a, b, x) {
+    function inside(p) { return p[0] > x[0] && p[0] < x[2] && p[1] > x[1] && p[1] < x[3]; }
+    if (inside(a) || inside(b)) return true;
+    var c = [[x[0], x[1]], [x[2], x[1]], [x[2], x[3]], [x[0], x[3]]];
+    for (var i = 0; i < 4; i++) if (segCross(a, b, c[i], c[(i + 1) % 4])) return true;
+    return false;
+  }
+
+  function layoutHud(it, u, phone) {
+    var k = it.slot[2] || 1, q = u / k;   // local units per screen pixel
+    var ks = isCompact() ? Math.min(1.9, Math.max(1, 15 * u / 16)) : 1;
+    var R = (phone ? 13 : 16) * q, fN = (phone ? 13 : 15) * q, fT = (phone ? 10.5 : 11.5) * q;
+    var gap = 6 * q, run = (phone ? 6 : 16) * q, r0 = 12 * q * ks, pad = 5 * q;
+    var segs = it.edges.map(function (e) { return [it.anchors[e[0]], it.anchors[e[1]]]; });
+    var boxes = [], legs = [];
+    function candidates(hd) {
+      var out = [], tw = Math.max(hd.name.length * fN * 0.56, hd.tag.length * fT * 0.62);
+      (phone ? [true, false] : [false]).forEach(function (stack) {
+      [1, 1.7, 2.5, 3.4].forEach(function (len) { [-1, 1].forEach(function (sy) { [-1, 1].forEach(function (sx) {
+        var D = (phone ? 16 : 24) * q * len + r0, ex = sx * D, ey = sy * D, nx = ex + sx * (run + R), ny = ey, b;
+        if (stack) {   // narrow screens: the text sits under (or over) the ring, so labels stay narrow
+          var hw = Math.max(R, tw / 2), th = gap + fN + fT * 1.25;
+          b = [nx - hw, sy > 0 ? ny - R : ny - R - th, nx + hw, sy > 0 ? ny + R + th : ny + R];
+        } else {
+          var hh = Math.max(R, fN * 1.05);
+          b = sx > 0 ? [nx - R, ny - hh, nx + R + gap + tw, ny + hh] : [nx - R - gap - tw, ny - hh, nx + R, ny + hh];
+        }
+        var p = hd.p;
+        out.push({ stack: stack, sx: sx, sy: sy, len: len, ex: ex, ey: ey, nx: nx, ny: ny, tw: tw, box: [p[0] + b[0] - pad, p[1] + b[1] - pad, p[0] + b[2] + pad, p[1] + b[3] + pad],
+          l1: [[p[0] + sx * r0 * 0.7, p[1] + sy * r0 * 0.7], [p[0] + ex, p[1] + ey]], l2: [[p[0] + ex, p[1] + ey], [p[0] + nx - sx * R, p[1] + ny]] });
+      }); }); }); });
+      return out;
+    }
+    function score(c, hd, i) {
+      var sc = -8 * (c.sx * hd.dx + c.sy * hd.dy) + (c.len - 1) * 10 + (phone && !c.stack ? 15 : 0);   // side text on a phone only when stacking collides
+      boxes.forEach(function (b, j) { if (j !== i && b && boxHit(b, c.box)) sc += 1000; });
+      legs.forEach(function (l, j) { if (j !== i && l && (segCross(l[0], l[1], c.l1[0], c.l1[1]) || segCross(l[0], l[1], c.l2[0], c.l2[1]) || segBox(l[0], l[1], c.box))) sc += 300; });
+      it.anchors.forEach(function (a, j) { if (j !== hd.ai && a[0] > c.box[0] - 8 * q && a[0] < c.box[2] + 8 * q && a[1] > c.box[1] - 8 * q && a[1] < c.box[3] + 8 * q) sc += 250; });
+      segs.forEach(function (sg) {
+        if (segBox(sg[0], sg[1], c.box)) sc += 160;
+        if (segCross(sg[0], sg[1], c.l1[0], c.l1[1]) || segCross(sg[0], sg[1], c.l2[0], c.l2[1])) sc += 90;
+      });
+      return sc;
+    }
+    var pick = [];
+    for (var pass = 0; pass < 2; pass++) {   // the second pass lets early labels move out of the way of later ones
+      it.stars.forEach(function (a, i) {
+        var best = null, bs = Infinity;
+        candidates(a._hud).forEach(function (c) { var v = score(c, a._hud, i); if (v < bs) { bs = v; best = c; } });
+        pick[i] = best; boxes[i] = best.box; legs[i] = best.l1;   // the diagonal; the short run lies inside the box margin
+      });
+    }
+    var x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    it.anchors.forEach(function (a) { x0 = Math.min(x0, a[0]); x1 = Math.max(x1, a[0]); y0 = Math.min(y0, a[1]); y1 = Math.max(y1, a[1]); });
+    it.stars.forEach(function (a, i) {
+      var c = pick[i], hd = a._hud, p = hd.p, f = function (v) { return v.toFixed(1); };
+      x0 = Math.min(x0, c.box[0]); x1 = Math.max(x1, c.box[2]); y0 = Math.min(y0, c.box[1]); y1 = Math.max(y1, c.box[3]);
+      var b = c.box;
+      hd.hit.setAttribute('x', f(b[0] - p[0])); hd.hit.setAttribute('y', f(b[1] - p[1]));
+      hd.hit.setAttribute('width', f(b[2] - b[0])); hd.hit.setAttribute('height', f(b[3] - b[1])); hd.hit.setAttribute('rx', f(6 * q));
+      hd.leader.setAttribute('d', 'M' + f(c.sx * r0 * 0.7) + ' ' + f(c.sy * r0 * 0.7) + 'L' + f(c.ex) + ' ' + f(c.ey) + 'L' + f(c.nx - c.sx * R) + ' ' + f(c.ny));
+      hd.ring.setAttribute('cx', f(c.nx)); hd.ring.setAttribute('cy', f(c.ny)); hd.ring.setAttribute('r', f(R));
+      var ic = R * 1.15;
+      hd.icon.setAttribute('x', f(c.nx - ic / 2)); hd.icon.setAttribute('y', f(c.ny - ic / 2)); hd.icon.setAttribute('width', f(ic)); hd.icon.setAttribute('height', f(ic));
+      var tx, ty, anchor;
+      if (c.stack) { anchor = 'middle'; tx = c.nx; ty = c.sy > 0 ? c.ny + R + gap + fN * 0.85 : c.ny - R - gap - fT * 1.25; }
+      else { anchor = c.sx > 0 ? 'start' : 'end'; tx = c.nx + c.sx * (R + gap); ty = c.ny - 1 * q; }
+      [hd.nm, hd.tg].forEach(function (t, j) {
+        t.setAttribute('text-anchor', anchor); t.setAttribute('x', f(tx));
+        t.setAttribute('y', f(j ? ty + fT * 1.2 : ty)); t.setAttribute('font-size', f(j ? fT : fN));
+      });
+      if (!c.stack) { hd.nm.setAttribute('y', f(c.ny - 1.5 * q)); hd.tg.setAttribute('y', f(c.ny + fT * 1.1)); }
+      a.setAttribute('data-sat', (c.sx > 0 ? 'e' : 'w') + (c.sy > 0 ? 's' : 'n'));
+    });
+    return { x0: it.slot[0] + x0 * k, x1: it.slot[0] + x1 * k, y0: it.slot[1] + y0 * k, y1: it.slot[1] + y1 * k };
+  }
+
+  /* ---------------------------------------------------------------------------------------
      Camera
      --------------------------------------------------------------------------------------- */
   function target() {
@@ -457,12 +550,24 @@
       return { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2, bw: x1 - x0 + 300, bh: y1 - y0 + 340, asp: asp };
     }
     var it = byslug(selected);
-    var k = it.slot[2] || 1;
-    // the box follows the figure: centred on it, as wide and as tall as it is plus room for the labels and the caption
-    var fw = it.maxX - it.minX, fh = it.maxY - it.minY, mx = (it.minX + it.maxX) / 2, my = (it.minY + it.maxY) / 2;
-    var bw0 = compact ? (r.width < 600 ? ZOOM_BW[2] : ZOOM_BW[1]) : ZOOM_BW[0];
-    var bw = Math.max(bw0, fw + (compact ? 300 : 460)), bh = Math.max(compact ? ZOOM_H + 140 : ZOOM_H, fh + (compact ? 330 : 300));
-    return { cx: it.slot[0] + mx * k, cy: it.slot[1] + (my + (compact ? 50 : 30)) * k, bw: bw * k, bh: bh * k, asp: asp };
+    var k = it.slot[2] || 1, phone = r.width < 600;
+    // The box holds the figure and every satellite label, with screen margins for the header and back button (top),
+    // the caption (bottom) and the window sides, plus the drift of the figure. Labels are sized in pixels, so the
+    // box and the labels are solved together by a few fixed-point steps.
+    var W = Math.max(1, r.width), Hh = Math.max(1, r.height);
+    var mt = compact ? 118 : 112, mb = compact ? 112 : 132, ms = phone ? 14 : 30, drift = 24 * k;
+    var bw0 = (compact ? (phone ? ZOOM_BW[2] : ZOOM_BW[1]) : ZOOM_BW[0]) * k, bh0 = (compact ? ZOOM_H + 140 : ZOOM_H) * k;
+    var w = Math.max(bw0, bh0 * asp), hh = w / asp, bb = null;
+    for (var i = 0; i < 5; i++) {
+      bb = layoutHud(it, w / W, phone);
+      var needW = (bb.x1 - bb.x0 + 2 * drift) / Math.max(0.3, 1 - 2 * ms / W);
+      var needH = (bb.y1 - bb.y0 + 2 * drift) / Math.max(0.3, 1 - (mt + mb) / Hh);
+      w = Math.max(bw0, bh0 * asp, needW, needH * asp); hh = w / asp;
+    }
+    bb = layoutHud(it, w / W, phone);   // the labels drawn match the final camera
+    var uu = w / W, free = hh - (bb.y1 - bb.y0 + 2 * drift) - (mt + mb) * uu;
+    var top = bb.y0 - drift - mt * uu - Math.max(0, free) / 2;
+    return { cx: (bb.x0 + bb.x1) / 2, cy: top + hh / 2, bw: w, bh: hh, asp: asp };
   }
 
   function boxOf(t) {   // the viewBox that holds the target box at the container's aspect ratio
@@ -530,7 +635,7 @@
       caption.style.setProperty('--c', 'var(--c-' + META[it.slug].color + ')');
       caption.style.setProperty('--ct', 'var(--ct-' + META[it.slug].color + ')');
       caption.appendChild(h('h2', '', it.latin));
-      caption.appendChild(h('p', '', it.name + ' · ' + it.sections.length + ' areas · hover or tap a star for its name · Esc goes back'));
+      caption.appendChild(h('p', '', it.name + ' · ' + it.sections.length + ' areas · choose a star or its label · Esc goes back'));
     } else {
       caption.appendChild(h('p', '', HINT));
     }
@@ -553,7 +658,6 @@
     if (!selected) return;
     var prev = byslug(selected);
     selected = null;
-    prev.stars.forEach(function (x) { x.classList.remove('is-shown'); });
     sizeSvg(currentLayout());
     moveCamera(false);
     renderState(prev.g);
@@ -655,8 +759,6 @@
     moveCamera(true);
 
     // Clicks: a constellation selects (a star of a closed one must not navigate), empty sky goes back.
-    var lastPointer = 'mouse';
-    svg.addEventListener('pointerdown', function (event) { lastPointer = event.pointerType || 'mouse'; });
     // a soft chime when the pointer reaches a constellation (when the sound is on), a different note for each
     var lastChime = 0, lastGroup = null;
     svg.addEventListener('pointerover', function (event) {
@@ -671,14 +773,8 @@
       if (it) window.AESkySound.chime(it.index * 2 + 1, true);
     });
     svg.addEventListener('pointerleave', function () { lastGroup = null; });
-    svg.addEventListener('click', function (event) {
+    svg.addEventListener('click', function (event) {   // the satellite labels name every star, so one tap opens it
       var star = event.target.closest && event.target.closest('.star');
-      if (star && lastPointer === 'touch' && !star.classList.contains('is-shown')) {   // first tap: show the name, second: go
-        event.preventDefault();
-        items.forEach(function (it) { it.stars.forEach(function (x) { x.classList.remove('is-shown'); }); });
-        star.classList.add('is-shown');
-        return;
-      }
       var group = event.target.closest && event.target.closest('.const');
       if (group && group.getAttribute('data-slug') !== selected) {
         event.preventDefault();

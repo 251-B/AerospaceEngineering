@@ -23,6 +23,14 @@ window.AE_UPDATES = [
     "link": "index.html"
   },
   {
+    "id": "2026-11-17-constellation-labels",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "Open a constellation and every star is labelled",
+    "text": "Each star of an open constellation now points to a small badge with its icon, name and count, so you can see at once which star is Theory, Problems or PDFs.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-17-sideris-emblem",
     "date": "2026-11-17",
     "tag": "Portal",

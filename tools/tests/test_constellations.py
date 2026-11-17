@@ -1,5 +1,6 @@
 """Home page stellar view (assets/js/constellations.js + assets/css/constellations.css): the files and
 keys it must keep, the contrast of its palettes, and the map built from the real nav data in a browser."""
+import json
 import pathlib
 import re
 import subprocess
@@ -30,8 +31,8 @@ def contrast(a, b):
 
 class StaticTests(unittest.TestCase):
     def test_index_loads_the_files_and_keeps_the_classic_view(self):
-        self.assertIn('href="assets/css/constellations.css?v=20261119a"', INDEX)
-        self.assertIn('src="assets/js/constellations.js?v=20261119a"', INDEX)
+        self.assertIn('href="assets/css/constellations.css?v=20261119b"', INDEX)
+        self.assertIn('src="assets/js/constellations.js?v=20261119b"', INDEX)
         self.assertLess(INDEX.index("theme.js"), INDEX.index("constellations.js"))
         self.assertEqual(INDEX.count('class="subject-card'), 5)
         for slug in SLUGS:
@@ -68,6 +69,26 @@ class StaticTests(unittest.TestCase):
                 self.assertGreaterEqual(contrast(text, halo), 7.0)
                 self.assertGreaterEqual(contrast(text2, halo), 7.0)
 
+    def test_open_constellation_names_every_star_with_a_hud_satellite(self):
+        self.assertNotIn("SHAPES", JS)   # one plain sparkle per vertex, no per-area polygons
+        for cls in ("star-sat", "sat-leader", "sat-ring", "sat-icon", "sat-name", "sat-tag", "sat-hit"):
+            self.assertIn(cls, JS)
+            self.assertIn("." + cls, CSS)
+        self.assertIn("href: '#' + sec.icon", JS)
+        self.assertRegex(CSS, r"\.const\.is-active \.star-sat \{ visibility: visible")
+        for icon in ("i-theory", "i-problems", "i-extra", "i-formula", "i-sim", "i-pdf", "i-exams"):
+            self.assertIn(f'<symbol id="{icon}"', INDEX)
+
+    def test_subject_tag_colours_are_aaa_on_every_palette(self):
+        dark = dict(re.findall(r"--ct-(\w+): (#[0-9a-f]{6})", CSS.split("html[data-theme=\"light\"] .sky-view")[0].split(".sky-view {")[1]))
+        light = dict(re.findall(r"--ct-(\w+): (#[0-9a-f]{6})", CSS.split("html[data-theme=\"light\"] .sky-view {")[1].split("}")[0]))
+        halos = dict(re.findall(r'data-sky-palette="([^"]+)"\]\s*\{[^}]*?--sk-halo:\s*(#[0-9a-f]{6})', CSS))
+        self.assertEqual(len(halos), 5)
+        for name, halo in halos.items():
+            for subject, colour in (light if name == "stratospheric-light" else dark).items():
+                with self.subTest(palette=name, subject=subject):
+                    self.assertGreaterEqual(contrast(colour, halo), 7.0)
+
 
 @unittest.skipUnless(BROWSER, "no Chromium-based browser available for headless tests")
 class BrowserTests(unittest.TestCase):
@@ -92,6 +113,26 @@ class BrowserTests(unittest.TestCase):
     def test_defaults_to_the_stellar_view_and_has_no_preparation_label(self):
         self.assertRegex(self.dom, r'<html[^>]*data-home-view="constellations"')
         self.assertNotIn("In Preparation", self.dom)
+
+    def test_hud_labels_do_not_overlap_or_clip_on_desktop_and_phone(self):
+        harness = REPO / "tools/tests/constellations_harness.html"
+        try:
+            with tempfile.TemporaryDirectory() as profile:
+                proc = subprocess.run(
+                    [BROWSER, "--headless=new", "--no-sandbox", "--disable-gpu", "--no-first-run", "--allow-file-access-from-files",
+                     f"--user-data-dir={profile}", "--window-size=1400,1000", "--virtual-time-budget=60000", "--dump-dom", harness.as_uri()],
+                    capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        except subprocess.TimeoutExpired:
+            raise unittest.SkipTest("headless browser did not finish")
+        match = re.search(r'<pre id="result">(.*?)</pre>', proc.stdout, re.S)
+        self.assertTrue(match and match.group(1).startswith("{"), proc.stdout[-500:])
+        result = json.loads(match.group(1).replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">"))
+        self.assertEqual(set(result), {"1280x800", "375x812"})
+        for size, slugs in result.items():
+            self.assertTrue(slugs.pop("panoramaHidden"), size)
+            for slug, issues in slugs.items():
+                with self.subTest(size=size, slug=slug):
+                    self.assertEqual(issues, [])
 
 
 if __name__ == "__main__":
