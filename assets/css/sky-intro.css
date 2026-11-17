@@ -24,7 +24,7 @@ html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
 @keyframes milky { from { transform: rotate(-24deg) translateX(-4%); } to { transform: rotate(-20deg) translateX(4%); } }
 .intro-glow { position: absolute; left: -10%; right: -10%; bottom: 0; height: 46vh; pointer-events: none;
   background: radial-gradient(ellipse 60% 70% at 50% 100%, rgba(255, 140, 100, 0.34), rgba(192, 132, 252, 0.2) 40%, transparent 72%); }
-.intro-mountains { position: absolute; left: 0; bottom: 0; width: 100%; height: 30vh; display: block; pointer-events: none; }
+.intro-ground { position: absolute; left: 0; bottom: 0; width: 100%; height: 30vh; display: block; pointer-events: none; transform-origin: 50% 0; transition: opacity 1.2s ease 0.2s, transform 1.8s cubic-bezier(0.6, 0, 0.8, 0.4); }
 
 /* the stage: telescope and call to action */
 .intro-stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: clamp(0px, 1vw, 20px); }
@@ -100,10 +100,19 @@ html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
 .intro-sound.is-on .waves { opacity: 1; animation: waves-pulse 3.2s ease-in-out infinite; }
 
 /* ignition: the camera rushes into the lens, the text lets go, a flash, then the sky opens */
-.sky-intro.is-igniting .intro-scope { transform: scale(22); opacity: 0; }
+.sky-intro.is-igniting .intro-scope { animation: scope-dive 1.9s cubic-bezier(0.55, 0, 0.8, 0.45) forwards; }
+/* through the telescope: it swings to face you, then the view turns as the camera goes in through the lens */
+@keyframes scope-dive {
+  0% { transform: perspective(1100px) rotateX(0deg) rotate(0deg) scale(1); opacity: 1; }
+  32% { transform: perspective(1100px) rotateX(18deg) rotate(-14deg) scale(1.9); opacity: 1; }
+  72% { opacity: 1; }
+  100% { transform: perspective(1100px) rotateX(0deg) rotate(-165deg) scale(26); opacity: 0; }
+}
+.sky-intro.is-igniting .intro-milkyway { transform: rotate(40deg) scale(1.3); transition: transform 2.2s cubic-bezier(0.6, 0, 0.8, 0.4); animation: none; }
 .sky-intro.is-igniting .intro-emblem { transform: scale(1.3); filter: drop-shadow(0 0 60px rgba(210, 220, 255, 0.95)); animation: none; }
 .sky-intro.is-igniting .intro-cta { opacity: 0; transform: translateY(24px); }
-.sky-intro.is-igniting .intro-mountains, .sky-intro.is-igniting .intro-glow { opacity: 0; transition: opacity 1.4s ease 0.3s; }
+.sky-intro.is-igniting .intro-ground { opacity: 0; transform: rotate(-24deg) scale(1.3) translateY(12vh); }
+.sky-intro.is-igniting .intro-glow { opacity: 0; transition: opacity 1.4s ease 0.3s; }
 .intro-flash { position: absolute; left: var(--cx, 38%); top: var(--cy, 40%); width: 130vmax; height: 130vmax; margin: -65vmax 0 0 -65vmax; border-radius: 50%; opacity: 0; pointer-events: none;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.97) 0%, rgba(160, 190, 255, 0.6) 18%, rgba(120, 90, 255, 0.2) 42%, transparent 66%); }
 .sky-intro.is-flash .intro-flash { animation: intro-flash 1.5s ease-out forwards; }
@@ -119,7 +128,7 @@ html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
   .intro-emblem { width: 36px; height: 36px; margin-bottom: 4px; }
   .intro-title { font-size: clamp(2.1rem, 5vh, 3rem); }
   .intro-phrase { margin-bottom: 14px; }
-  .intro-mountains { height: 22vh; }
+  .intro-ground { height: 24vh; }
 }
 @media (max-width: 700px) {
   .intro-eyebrow { display: none; }
@@ -147,7 +156,8 @@ html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
   .intro-ticks, .intro-ticks-slow, .intro-ring, .intro-scope, .intro-emblem, .intro-title .gradient-text, .intro-aero, .intro-eyebrow, .intro-phrase, .intro-ignite, .intro-skip, .intro-sound,
   .ig-core svg, .ig-ripple, .intro-milkyway { animation: none; }
   .ig-ripple { display: none; }
-  .sky-intro.is-igniting .intro-scope { transform: none; transition: opacity 0.6s ease; }
+  .sky-intro.is-igniting .intro-scope { animation: none; opacity: 0; transition: opacity 0.6s ease; }
+  .sky-intro.is-igniting .intro-ground, .sky-intro.is-igniting .intro-milkyway { transform: none; }
   .sky-intro.is-flash .intro-flash { animation: none; }
 }
 @media print { .sky-intro { display: none !important; } }

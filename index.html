@@ -114,13 +114,16 @@
     <canvas class="intro-canvas" id="introCanvas" aria-hidden="true"></canvas>
     <div class="intro-milkyway" aria-hidden="true"></div>
     <div class="intro-glow" aria-hidden="true"></div>
-    <svg class="intro-mountains" viewBox="0 0 1600 320" preserveAspectRatio="none" aria-hidden="true">
+    <svg class="intro-ground" viewBox="0 0 1600 320" preserveAspectRatio="none" aria-hidden="true">
       <defs>
-        <linearGradient id="ridgeRim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.55"/><stop offset="0.5" stop-color="#c084fc" stop-opacity="0.7"/><stop offset="1" stop-color="#6366f1" stop-opacity="0.55"/></linearGradient>
-        <linearGradient id="ridgeFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101744"/><stop offset="1" stop-color="#04060f"/></linearGradient>
+        <linearGradient id="groundFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121a52"/><stop offset="0.35" stop-color="#080c2a"/><stop offset="1" stop-color="#03050d"/></linearGradient>
+        <linearGradient id="horizonLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee" stop-opacity="0"/><stop offset="0.3" stop-color="#22d3ee" stop-opacity="0.7"/><stop offset="0.5" stop-color="#a5b4fc"/><stop offset="0.7" stop-color="#c084fc" stop-opacity="0.7"/><stop offset="1" stop-color="#c084fc" stop-opacity="0"/></linearGradient>
+        <linearGradient id="gridFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#818cf8" stop-opacity="0"/><stop offset="0.25" stop-color="#818cf8" stop-opacity="0.16"/><stop offset="1" stop-color="#818cf8" stop-opacity="0.05"/></linearGradient>
       </defs>
-      <path d="M0 320V170L130 120 250 160 390 70 540 150 690 104 860 190 1020 110 1170 170 1330 82 1480 150 1600 112V320Z" fill="#0b1038" fill-opacity="0.85"/>
-      <path d="M0 320V236L110 196 230 232 370 160 520 226 690 178 850 244 1010 190 1180 238 1340 176 1480 226 1600 196V320Z" fill="url(#ridgeFill)" stroke="url(#ridgeRim)" stroke-width="2.2"/>
+      <rect x="0" y="96" width="1600" height="224" fill="url(#groundFill)"/>
+      <g stroke="url(#gridFade)" stroke-width="1.2" fill="none" vector-effect="non-scaling-stroke"><path d="M800 96L-1600 320"/><path d="M800 96L-1400 320"/><path d="M800 96L-1200 320"/><path d="M800 96L-1000 320"/><path d="M800 96L-800 320"/><path d="M800 96L-600 320"/><path d="M800 96L-400 320"/><path d="M800 96L-200 320"/><path d="M800 96L0 320"/><path d="M800 96L200 320"/><path d="M800 96L400 320"/><path d="M800 96L600 320"/><path d="M800 96L800 320"/><path d="M800 96L1000 320"/><path d="M800 96L1200 320"/><path d="M800 96L1400 320"/><path d="M800 96L1600 320"/><path d="M800 96L1800 320"/><path d="M800 96L2000 320"/><path d="M800 96L2200 320"/><path d="M800 96L2400 320"/><path d="M800 96L2600 320"/><path d="M800 96L2800 320"/><path d="M800 96L3000 320"/><path d="M800 96L3200 320"/><path d="M0 102H1600"/><path d="M0 110H1600"/><path d="M0 122H1600"/><path d="M0 140H1600"/><path d="M0 166H1600"/><path d="M0 204H1600"/><path d="M0 256H1600"/></g>
+      <path d="M0 96H1600" stroke="url(#horizonLine)" stroke-width="10" stroke-opacity="0.25" vector-effect="non-scaling-stroke"/>
+      <path d="M0 96H1600" stroke="url(#horizonLine)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
     </svg>
     <button type="button" class="intro-sound" id="introSound" aria-pressed="false" title="Sound" aria-label="Sound">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path class="waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.6a7.6 7.6 0 0 1 0 10.8"/></svg>
