@@ -19,8 +19,10 @@ bytes: 357215
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf`
 - **Kind:** examenes
 - **Size:** 357.2 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 3 note(s) below
 
 ## Referenced by
 
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P09 - Hypoeutectoid Steel Bar Above and Below the Eutectoid]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P11 - Carbon Content of a Steel from Its Micrograph]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
