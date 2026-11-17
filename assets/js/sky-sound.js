@@ -10,6 +10,7 @@
  * never a key with "theme" in it, always in try/catch. The speaker button (#soundToggle) mutes and
  * unmutes; the sound stops while the tab is hidden and while the classic view is shown.
  *
+ * Three moods: mystery on the welcome screen, a stellar journey when the visitor ignites, then the calm celestial pad.
  * API: window.AESkySound = { start(), whoosh(), chime(i), setOn(bool), isOn(), supported }
  */
 (function () {
@@ -27,7 +28,7 @@
   var wanted = read(KEY) !== 'off';          // the visitor's choice; default on after the first ignite
   var VOLUME = 0.5;
   var phase = document.documentElement.getAttribute('data-intro') === 'on' ? 'mystery' : 'celestial';   // the welcome screen is dark and mysterious; the map is celestial
-  var mys = null, gongTimer = 0, pulseTimer = 0;
+  var mys = null, gongTimer = 0, pulseTimer = 0, journeyNext = false;
   var PENTATONIC = [587.33, 659.25, 739.99, 880.0, 987.77, 1174.66, 1318.51];   // D major pentatonic, D5 to E6
   var CHORDS = [
     [146.83, 220.0, 329.63, 369.99, 493.88],   // D add9
@@ -70,6 +71,11 @@
         osc.connect(g); g.connect(padBus); osc.start(); pair.push(osc);
       });
       padVoices.push(pair);
+    });
+    // a soft open fifth far below the pad: the mystic floor of the sky
+    [[73.42, 0.035], [110.0, 0.022]].forEach(function (n) {
+      var o2 = ctx.createOscillator(), g2 = ctx.createGain();
+      o2.type = 'sine'; o2.frequency.value = n[0]; g2.gain.value = n[1]; o2.connect(g2); g2.connect(padBus); o2.start();
     });
   }
 
@@ -125,10 +131,56 @@
     [0, 2, 4].forEach(function (n, k) { setTimeout(function () { chime(n + 2, false); }, 1500 + k * 260); });   // an arpeggio as the sky opens
   }
 
+  /* The stellar journey, played once when the visitor ignites: a stack of sawtooth voices opening through a rising
+     filter, an arpeggio that speeds up as the stars stretch, and a shimmer on top. It fades while the celestial pad
+     rises, so the three moods (mystery, journey, celestial calm) follow one another without a gap. */
+  function journey() {
+    if (!ctx || !running) return;
+    var t = ctx.currentTime;
+    var bus = ctx.createGain(); bus.gain.setValueAtTime(0.0001, t);
+    bus.gain.exponentialRampToValueAtTime(0.11, t + 1.6); bus.gain.setValueAtTime(0.11, t + 3.2); bus.gain.exponentialRampToValueAtTime(0.0001, t + 8.5);
+    var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.Q.value = 4;
+    lp.frequency.setValueAtTime(160, t); lp.frequency.exponentialRampToValueAtTime(4200, t + 2.4); lp.frequency.exponentialRampToValueAtTime(800, t + 8);
+    bus.connect(lp); lp.connect(master); lp.connect(reverbIn);
+    [73.42, 110.0, 146.83, 185.0, 220.0, 293.66].forEach(function (f, i) {
+      [-9, 8].forEach(function (cents) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'sawtooth'; o.frequency.value = f; o.detune.value = cents + i; g.gain.value = 0.11 / (1 + i * 0.6);
+        o.connect(g); g.connect(bus); o.start(t); o.stop(t + 9);
+      });
+    });
+    // the arpeggio: D major climbing through three octaves, faster and faster
+    var NOTES = [293.66, 369.99, 440.0, 587.33, 739.99, 880.0, 1174.66, 1479.98, 1760.0];
+    var at = t + 0.15;
+    for (var n = 0; n < 30; n++) {
+      var k = n / 29, step = 0.17 - 0.115 * k;
+      (function (when, f, idx) {
+        var o = ctx.createOscillator(), g = ctx.createGain(), pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+        o.type = 'triangle'; o.frequency.value = f;
+        g.gain.setValueAtTime(0.0001, when); g.gain.exponentialRampToValueAtTime(0.06, when + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, when + 0.5);
+        o.connect(g);
+        if (pan) { pan.pan.value = idx % 2 ? 0.55 : -0.55; g.connect(pan); pan.connect(master); pan.connect(reverbIn); } else { g.connect(master); g.connect(reverbIn); }
+        o.start(when); o.stop(when + 0.6);
+      })(at, NOTES[(n + Math.floor(n / 9) * 2) % NOTES.length] * (n > 17 ? 2 : 1), n);
+      at += step;
+    }
+    // shimmer: bright noise climbing
+    var len = Math.floor(ctx.sampleRate * 4), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+    for (var i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    var src = ctx.createBufferSource(); src.buffer = buf;
+    var hp = ctx.createBiquadFilter(); hp.type = 'bandpass'; hp.Q.value = 6;
+    hp.frequency.setValueAtTime(2000, t); hp.frequency.exponentialRampToValueAtTime(9000, t + 3.2);
+    var sg = ctx.createGain(); sg.gain.setValueAtTime(0.0001, t); sg.gain.exponentialRampToValueAtTime(0.05, t + 2); sg.gain.exponentialRampToValueAtTime(0.0001, t + 4);
+    src.connect(hp); hp.connect(sg); sg.connect(reverbIn); sg.connect(master); src.start(t); src.stop(t + 4);
+  }
+
   function fadeIn() {
     var t = ctx.currentTime;
     master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(master.gain.value, t); master.gain.linearRampToValueAtTime(VOLUME, t + 3);
-    if (phase === 'celestial') { padBus.gain.cancelScheduledValues(t); padBus.gain.setValueAtTime(padBus.gain.value, t); padBus.gain.linearRampToValueAtTime(1, t + 6); }
+    if (phase === 'celestial') {
+      var wait = journeyNext ? 3 : 0;
+      padBus.gain.cancelScheduledValues(t); padBus.gain.setValueAtTime(padBus.gain.value, t); padBus.gain.setValueAtTime(padBus.gain.value, t + wait); padBus.gain.linearRampToValueAtTime(1, t + wait + 7);
+    }
   }
 
   /* The mystery of the welcome screen: a deep drone that beats slowly, a whisper of filtered noise, a heartbeat far below
@@ -201,7 +253,9 @@
     var go = function () {
       fadeIn();
       if (phase === 'mystery') { startMystery(); return; }
-      scheduleChime(); clearInterval(chordTimer); chordTimer = setInterval(glideChord, 21000);
+      if (journeyNext) { journey(); journeyNext = false; clearTimeout(chimeTimer); chimeTimer = setTimeout(function () { chime(); scheduleChime(); }, 5000); }
+      else scheduleChime();
+      clearInterval(chordTimer); chordTimer = setInterval(glideChord, 21000);
     };
     if (ctx.state === 'suspended') ctx.resume().then(go); else go();
     return true;
@@ -243,8 +297,8 @@
   function start() {
     if (read(KEY) === 'off') { wanted = false; renderToggle(); return false; }
     wanted = true; write(KEY, 'on');
-    phase = 'celestial';
-    stopMystery(3.4);
+    phase = 'celestial'; journeyNext = true;
+    stopMystery(2.2);
     var ok = engage(); renderToggle(); return ok;
   }
 

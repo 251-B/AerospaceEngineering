@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-telescope-welcome",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "The welcome screen is now a telescope you fly into",
+    "text": "A telescope on its stand greets you. Press Ignite and the camera dives into its lens, with music that turns from mystery to a stellar journey and then a calm sky.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-18-sideris-intro",
     "date": "2026-11-18",
     "tag": "Portal",

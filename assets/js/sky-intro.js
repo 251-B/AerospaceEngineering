@@ -55,9 +55,11 @@
       canvas.style.width = window.innerWidth + 'px'; canvas.style.height = window.innerHeight + 'px';
     }
     var disc = document.getElementById('introDisc');
+    var lensX = window.innerWidth / 2, lensY = window.innerHeight / 2;   // the warp flies out of the lens once ignited
     function placeDisc() {   // the flash opens at the centre of the lens glass
       if (!disc) return;
       var r = disc.getBoundingClientRect();
+      lensX = r.left; lensY = r.top;
       intro.style.setProperty('--cx', Math.round(r.left) + 'px');
       intro.style.setProperty('--cy', Math.round(r.top) + 'px');
     }
@@ -97,6 +99,10 @@
       }
       mx += (tmx - mx) * Math.min(1, dt * 2.5); my += (tmy - my) * Math.min(1, dt * 2.5);
       var cx = W / 2 - mx * 26 * dpr, cy = H / 2 - my * 18 * dpr, scale = Math.max(W, H) * 0.55;
+      if (phase !== 'idle') {   // the camera dives into the lens: the vanishing point slides onto it
+        var pull = Math.min(1, (phase === 'warp' ? el : 2) / 0.7), e = pull * pull * (3 - 2 * pull);
+        cx += (lensX * dpr - cx) * e; cy += (lensY * dpr - cy) * e;
+      }
       ctx.clearRect(0, 0, W, H);
       var warping = phase !== 'idle' && speed > 0.06;
       var warmth = phase === 'warp' ? Math.min(1, el / 1.5) : 0;
