@@ -31,3 +31,7 @@ Below 900 px (and on phones held on their side) the map is a taller sky that scr
 ## Motion
 
 Everything moves slowly and stops with `prefers-reduced-motion`: each figure drifts on its own loop (`.const-float`), stars twinkle and their halos breathe, a small light runs along every lit line (`.const-flow`), three shooting stars cross the far sky, the far sky follows the pointer a little (parallax) and the nebula and the title breathe. Animations are CSS only; the open constellation stops drifting so its stars stay easy to hit.
+
+## The figures
+
+Each subject is a real constellation: Delphinus (Fluid Mechanics), Cygnus (Aerospace Materials I), Ursa Major (Engineering Mechanics), Orion (Advanced Maths) and Leo (Business Management). Coordinates, `sc` (scale), `rot`, `use` (which anchors carry a star) and the faint `extra` companion stars are in `META` of the script. When a constellation is opened, the camera box follows the figure's own size.

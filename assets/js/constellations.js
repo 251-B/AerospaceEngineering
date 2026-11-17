@@ -102,50 +102,51 @@
     };
   }
 
-  /* Hand-placed, loose silhouettes: a vortex, a distorted lattice cell, an open orbit, a damped wave
-     and a network. `use` says which anchors take a star when the subject has fewer areas than
-     anchors; the others stay as faint stars of the figure. `rot` turns the whole figure. */
+  /* Real constellations, drawn from memory of the sky and tilted a little: Delphinus (the dolphin) for the
+     fluids, Cygnus (the Northern Cross) for the crystal lattice of the materials, Ursa Major (the Big Dipper)
+     for mechanics, Orion for maths and Leo for management. `sc` scales a figure, `rot` turns it; `use` says
+     which anchors take a star when the subject has fewer areas than anchors (the others stay as faint stars
+     of the figure); `extra` are faint companion stars [x, y, anchor they hang from]. */
   var META = {
-    'fluid-mechanics': {
-      latin: 'Stella Fluidorum', color: 'fluid', rot: -22,
-      extra: [[-60, 14, 1], [-20, 120, 6], [190, -78, 4], [175, 24, 5], [-205, -52, 0], [30, -150, 3]],
-      anchors: [[-215, 70], [-150, -10], [-95, -92], [-12, -60], [58, -128], [120, -20], [40, 50]],
-      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [3, 5], [5, 6]],
-      use: { 4: [0, 2, 4, 6] },
-      flow: [[[-215, 20], [-150, -70], [-70, -128], [30, -120], [120, -60]], [[-190, 108], [-100, 70], [-20, 96], [70, 118], [150, 76]]]
+    'fluid-mechanics': {   // Delphinus: the small kite, its tail and its head
+      latin: 'Stella Fluidorum', color: 'fluid', rot: -18, sc: 1.75,
+      anchors: [[-45, -30], [5, -58], [58, -12], [2, 16], [112, 42], [-36, 108]],
+      edges: [[0, 1], [1, 2], [2, 3], [3, 0], [2, 4], [3, 5]],
+      use: { 4: [0, 1, 2, 3] },
+      extra: [[-100, -70, 0], [80, -80, 1], [150, -10, 2], [60, 90, 4], [-90, 60, 5], [40, 160, 5]],
+      flow: []
     },
-    'aerospace-materials-1': {
-      latin: 'Stella Materiae', color: 'materials', rot: 17,
-      extra: [[-170, -110, 5], [160, -150, 1], [190, 80, 2], [60, 190, 3], [-150, 160, 4], [-40, -205, 0]],
-      anchors: [[-20, -155], [95, -92], [158, 22], [60, 118], [-85, 150], [-150, 40], [-12, 6]],
-      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [2, 6], [4, 6]],
-      use: { 6: [0, 1, 2, 3, 4, 5] },
-      flow: [[[-196, -120], [-60, -196], [60, -190]], [[150, 150], [60, 200], [-70, 196]]]
-    },
-    'engineering-mechanics': {
-      latin: 'Stella Mechanicae', color: 'mechanics', rot: 24,
-      extra: [[225, -50, 4], [-40, 150, 6], [-200, -130, 1], [90, -150, 3], [220, 80, 5], [-235, 110, 0]],
-      anchors: [[-215, 52], [-170, -52], [-70, -110], [48, -64], [150, -92], [196, 18], [92, 98]],
-      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [3, 6]],
+    'aerospace-materials-1': {   // Cygnus: the Northern Cross
+      latin: 'Stella Materiae', color: 'materials', rot: 20, sc: 1.05,
+      anchors: [[0, -150], [0, -6], [0, 150], [-105, -40], [112, -12], [-48, 72]],
+      edges: [[0, 1], [1, 2], [3, 1], [1, 4], [1, 5]],
       use: {},
-      flow: [[[-30, 4], [60, -40], [140, -100]], [[-210, 100], [-100, 150], [60, 160]]]
+      extra: [[-150, -120, 3], [60, -110, 0], [160, 40, 4], [90, 130, 2], [-110, 130, 5], [-60, -60, 1]],
+      flow: []
     },
-    'advanced-maths': {
-      latin: 'Stella Matheseos', color: 'maths', rot: -15,
-      extra: [[-210, -70, 0], [-130, -150, 1], [-40, -110, 2], [30, 110, 3], [110, 140, 4], [180, -20, 5], [250, -110, 6]],
-      anchors: [[-250, 30], [-186, -82], [-96, -40], [-24, 56], [58, 112], [120, 10], [214, -70]],
-      labels: ['l', 't', 't', 'b', 'b', 't', 'r'],
-      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]],
+    'engineering-mechanics': {   // Ursa Major: the Big Dipper and the pointer to the pole star
+      latin: 'Stella Mechanicae', color: 'mechanics', rot: -8, sc: 1.2,
+      anchors: [[-215, -22], [-148, -55], [-80, -46], [-18, -20], [-6, 52], [112, 64], [124, -8]],
+      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 3]],
       use: {},
-      flow: [[[-240, 36], [-120, 60], [0, 90], [120, 120]], [[-200, -120], [-60, -140], [90, -110], [210, -90]]]
+      extra: [[205, -140, 6], [-170, 70, 0], [40, 140, 4], [-60, -110, 2], [190, 40, 5], [90, -90, 6]],
+      flow: []
     },
-    'business-management': {
-      latin: 'Stella Oeconomiae', color: 'business', rot: 31,
-      extra: [[-210, -10, 0], [-130, -150, 1], [10, 110, 2], [110, -165, 3], [210, 30, 4], [150, 150, 5], [-90, 190, 6]],
-      anchors: [[-180, 60], [-112, -92], [-24, 10], [52, -110], [170, -38], [122, 96], [-48, 120]],
-      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 2], [2, 6], [6, 0], [1, 6]],
-      use: { 6: [0, 1, 2, 3, 4, 5] },
-      flow: [[[100, -150], [170, -90]], [[-190, -20], [-140, -120]]]
+    'advanced-maths': {   // Orion: shoulders, belt, feet
+      latin: 'Stella Matheseos', color: 'maths', rot: 8, sc: 1.3,
+      anchors: [[-62, -128], [62, -122], [32, -8], [0, 0], [-32, 6], [-50, 124], [72, 118]],
+      edges: [[0, 1], [0, 4], [1, 2], [4, 3], [3, 2], [4, 5], [2, 6]],
+      use: {},
+      extra: [[0, -170, 0], [-110, -70, 0], [120, -60, 1], [150, 60, 2], [-120, 90, 5], [20, 175, 6], [-20, 50, 3]],
+      flow: []
+    },
+    'business-management': {   // Leo: the Sickle and the triangle of the hindquarters
+      latin: 'Stella Oeconomiae', color: 'business', rot: -4, sc: 1.2,
+      anchors: [[-170, -128], [-128, -124], [-96, -72], [-104, -14], [-138, 38], [-128, 98], [42, -30], [172, 12], [52, 58]],
+      edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [3, 6], [6, 7], [7, 8], [8, 6], [8, 5]],
+      use: { 6: [1, 2, 3, 5, 6, 7] },
+      extra: [[-200, -60, 3], [-60, 130, 5], [110, -70, 6], [150, 90, 7], [-20, 30, 3], [10, 120, 8]],
+      flow: []
     }
   };
   var ORDER = ['fluid-mechanics', 'aerospace-materials-1', 'engineering-mechanics', 'advanced-maths', 'business-management'];
@@ -173,9 +174,9 @@
   }
 
   /* Layouts of the panorama (centres of the five constellations). */
-  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[260, 330, 1.05], [820, 175, 0.85], [1650, 420, 1.12], [500, 900, 1.0], [1250, 880, 0.9]] };   // [x, y, scale]: scattered round the name, not on a ring
-  var PORT_T = { box: [1000, 2400], centre: [500, 1200], slots: [[250, 440, 1.0], [740, 840, 0.9], [230, 1290, 1.08], [700, 1670, 0.95], [330, 2120, 1.0]] };   // tablet portrait and landscape phones: a loose zigzag, scrolled; the top 200 units hold the title
-  var PORT_S = { box: [640, 3160], centre: [320, 1580], slots: [[260, 490, 1.0], [400, 1050, 0.9], [270, 1640, 1.06], [390, 2210, 0.94], [280, 2790, 1.0]] };       // phones: one loose column, scrolled; the top 160 units hold the title
+  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[260, 330, 1.05], [830, 255, 0.9], [1650, 420, 1.12], [540, 820, 0.92], [1250, 880, 0.9]] };   // [x, y, scale]: scattered round the name, not on a ring
+  var PORT_T = { box: [1000, 2400], centre: [500, 1200], slots: [[250, 440, 1.0], [740, 840, 0.9], [340, 1290, 1.02], [700, 1670, 0.95], [330, 2120, 1.0]] };   // tablet portrait and landscape phones: a loose zigzag, scrolled; the top 200 units hold the title
+  var PORT_S = { box: [640, 3160], centre: [320, 1580], slots: [[250, 490, 1.0], [330, 1050, 0.95], [372, 1640, 1.0], [330, 2210, 1.0], [320, 2790, 0.9]] };       // phones: one loose column, scrolled; the top 160 units hold the title
   var GUIDES = [[0, 1], [1, 2], [0, 3], [3, 4], [2, 4], [1, 3]];
 
   var ZOOM_H = 480;          // height of the camera box on a constellation (user units)
@@ -234,7 +235,9 @@
     g.style.setProperty('--c', 'var(--c-' + meta.color + ')');
     g.style.setProperty('--ct', 'var(--ct-' + meta.color + ')');
     var list = sectionsOf(sub);
-    var anchors = rotate(meta.anchors, meta.rot);
+    var sc = meta.sc || 1;
+    function place(list) { return rotate(list.map(function (q) { return [q[0] * sc, q[1] * sc]; }), meta.rot); }
+    var anchors = place(meta.anchors);
     var n = list.length;
     var pick = meta.use[n];
     if (!pick) { pick = []; for (var q = 0; q < n; q++) pick.push(n === anchors.length ? q : Math.round(q * (anchors.length - 1) / Math.max(1, n - 1))); }
@@ -243,7 +246,7 @@
 
     // flowing guide curves of the figure, faint and dashed
     meta.flow.forEach(function (line) {
-      var pts = rotate(line, meta.rot), d = 'M' + pts[0][0] + ' ' + pts[0][1];
+      var pts = place(line), d = 'M' + pts[0][0] + ' ' + pts[0][1];
       for (var k = 1; k < pts.length; k++) {
         var m = [(pts[k - 1][0] + pts[k][0]) / 2, (pts[k - 1][1] + pts[k][1]) / 2];
         d += ' Q' + pts[k - 1][0] + ' ' + pts[k - 1][1] + ' ' + m[0].toFixed(0) + ' ' + m[1].toFixed(0);
@@ -278,7 +281,7 @@
       }
     });
     // faint extra stars round the figure, each tied to one of its stars by a thin dotted line
-    var ex = rotate((meta.extra || []).map(function (e) { return [e[0], e[1]]; }), meta.rot);
+    var ex = place((meta.extra || []).map(function (e) { return [e[0], e[1]]; }));
     (meta.extra || []).forEach(function (e, i) {
       var q = ex[i], base = anchors[e[2]];
       s('line', { 'class': 'const-extra-link', x1: base[0], y1: base[1], x2: q[0], y2: q[1] }, g);
@@ -345,7 +348,7 @@
     float.style.setProperty('--bd', (4.5 + rnd() * 4).toFixed(1) + 's');
     float.style.setProperty('--bdel', (-rnd() * 9).toFixed(1) + 's');
 
-    return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys) };
+    return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys), minX: Math.min.apply(null, anchors.map(function (q) { return q[0]; })), maxX: Math.max.apply(null, anchors.map(function (q) { return q[0]; })) };
   }
 
   // Phones, tablets held upright and phones on their side get a taller map that scrolls, so the figures stay big
@@ -431,9 +434,12 @@
     var asp = r.width / Math.max(1, r.height);
     if (!selected) return { cx: L.centre[0], cy: L.centre[1], bw: L.box[0], bh: L.box[1], asp: asp };
     var it = byslug(selected);
-    var bw = compact ? (r.width < 600 ? ZOOM_BW[2] : ZOOM_BW[1]) : ZOOM_BW[0];
     var k = it.slot[2] || 1;
-    return { cx: it.slot[0], cy: it.slot[1] + (compact ? 60 : 38) * k, bw: bw * k, bh: (compact ? ZOOM_H + 140 : ZOOM_H) * k, asp: asp };
+    // the box follows the figure: centred on it, as wide and as tall as it is plus room for the labels and the caption
+    var fw = it.maxX - it.minX, fh = it.maxY - it.minY, mx = (it.minX + it.maxX) / 2, my = (it.minY + it.maxY) / 2;
+    var bw0 = compact ? (r.width < 600 ? ZOOM_BW[2] : ZOOM_BW[1]) : ZOOM_BW[0];
+    var bw = Math.max(bw0, fw + (compact ? 300 : 460)), bh = Math.max(compact ? ZOOM_H + 140 : ZOOM_H, fh + (compact ? 330 : 300));
+    return { cx: it.slot[0] + mx * k, cy: it.slot[1] + (my + (compact ? 50 : 30)) * k, bw: bw * k, bh: bh * k, asp: asp };
   }
 
   function boxOf(t) {   // the viewBox that holds the target box at the container's aspect ratio
