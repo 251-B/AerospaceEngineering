@@ -97,18 +97,25 @@ Practice items written for the portal in the style of Assessment Test II (Units 
 
 ### Binary diagram with intermetallics and invariant reactions
 
+- [[Problem - Bank P01 - Two Eutectics Around a Congruently Melting Compound|P01]]: Two eutectics around a congruently melting compound in a hypothetical A-B system
 
 ### Eutectic system: lever rule and microconstituents
 
+- [[Problem - Bank P05 - Cooling of a Pb-50 Sn Alloy Read from the Pb-Sn Diagram|P05]]: Cooling of a Pb-50 wt% Sn alloy read from the Pb-Sn diagram
+- [[Problem - Bank P06 - Building a Eutectic Diagram from a Description and Using It|P06]]: Building a eutectic diagram from a description and using it
 
 ### Fe-Fe3C diagram and steel microstructures
 
 - [[Problem - Bank P09 - Hypoeutectoid Steel Bar Above and Below the Eutectoid|P09]]: Hypoeutectoid steel bar above and below the eutectoid temperature
+- [[Problem - Bank P10 - Slow Cooling of a Hypereutectoid Tool Steel|P10]]: Slow cooling of a hypereutectoid tool steel read on the Fe-Fe3C diagram
+- [[Problem - Bank P11 - Carbon Content of a Steel from Its Micrograph|P11]]: Carbon content of an unknown steel worked back from its micrograph
 
 ### Tensile test and mechanical properties
 
 - [[Problem - Bank P13 - Titanium Alloy Tensile Test from a Load and Gauge Length Table|P13]]: Titanium alloy tensile test from a load and gauge length table
 - [[Problem - Bank P14 - Ductility and True Fracture Stress of an Aluminium Alloy from the Broken Specimen|P14]]: Ductility and true fracture stress of an aluminium alloy from the broken specimen
+- [[Problem - Bank P15 - Resilience and True Stress of a Steel Read from Its Stress-Strain Curve|P15]]: Resilience and true stress of a steel read from its stress-strain curve
+- [[Problem - Bank P16 - Rebuilding the Raw Measurements of a Magnesium Alloy Tensile Test from Its Report|P16]]: Rebuilding the raw measurements of a magnesium alloy tensile test from its report
 
 ### Bar or rod under load: elastic check, Poisson, design and unloading
 
