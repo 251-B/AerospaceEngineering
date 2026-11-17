@@ -1,264 +1,149 @@
 /* ==========================================================================
-   Home page welcome screen (assets/js/sky-intro.js): a night sky through a telescope lens, the name,
-   "Ready to ignite?" and a button. Shown only while <html data-intro="on">.
-   Colours are fixed (it is always a night sky); text is white or near white on a near-black sky (AAA).
+   Home page welcome screen (assets/js/sky-intro.js): a telescope on a tripod facing the visitor, against the Milky Way
+   and a mountain horizon. The front of the tube is a lens with the logo and the name on the glass; the call to action
+   sits beside it (wide screens) or under it (tall screens). Shown only while <html data-intro="on">.
+   The colours are fixed (it is always a night sky): white or near-white text on a near-black sky (AAA).
+   One gradient (cyan, indigo, violet) runs through the logo, the letters, the rings and the button.
    ========================================================================== */
 .sky-intro { display: none; }
 html[data-intro="on"] .sky-intro {
   display: block; position: fixed; inset: 0; z-index: 3000; overflow: hidden; color: #f8fafc;
   background:
-    radial-gradient(ellipse 60% 50% at 50% 46%, rgba(40, 52, 120, 0.38), transparent 70%),
-    radial-gradient(ellipse 70% 60% at 14% 90%, rgba(120, 40, 140, 0.20), transparent 70%),
-    radial-gradient(ellipse 60% 60% at 90% 12%, rgba(20, 110, 150, 0.22), transparent 70%),
+    radial-gradient(ellipse 60% 44% at 50% 92%, rgba(255, 150, 110, 0.14), transparent 70%),
+    radial-gradient(ellipse 54% 46% at 40% 36%, rgba(60, 70, 190, 0.16), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 10% 90%, rgba(110, 40, 140, 0.20), transparent 70%),
+    radial-gradient(ellipse 60% 60% at 92% 8%, rgba(20, 110, 150, 0.22), transparent 70%),
     #03050d;
 }
 html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
 
 .intro-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.intro-milkyway { position: absolute; inset: -25%; pointer-events: none; transform: rotate(-24deg);
+  background: linear-gradient(90deg, transparent 26%, rgba(99, 102, 241, 0.07) 38%, rgba(192, 132, 252, 0.11) 48%, rgba(255, 190, 150, 0.07) 54%, rgba(34, 211, 238, 0.06) 62%, transparent 74%);
+  filter: blur(18px); animation: milky 80s ease-in-out infinite alternate; }
+@keyframes milky { from { transform: rotate(-24deg) translateX(-4%); } to { transform: rotate(-20deg) translateX(4%); } }
+.intro-glow { position: absolute; left: -10%; right: -10%; bottom: 0; height: 46vh; pointer-events: none;
+  background: radial-gradient(ellipse 60% 70% at 50% 100%, rgba(255, 140, 100, 0.34), rgba(192, 132, 252, 0.2) 40%, transparent 72%); }
+.intro-mountains { position: absolute; left: 0; bottom: 0; width: 100%; height: 30vh; display: block; pointer-events: none; }
 
-/* the lens */
-.intro-lens {
-  position: absolute; left: 50%; top: 40%; width: min(66vmin, 560px); aspect-ratio: 1; transform: translate(-50%, -50%);
-  transition: transform 2.3s cubic-bezier(0.55, 0, 0.9, 0.35), opacity 1.5s ease 0.7s; will-change: transform;
+/* the stage: telescope and call to action */
+.intro-stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: clamp(0px, 1vw, 20px); }
+.intro-scope {
+  --W: min(82vh, 52vw, 700px);
+  position: relative; flex: none; width: var(--W); aspect-ratio: 600 / 760; margin: -2vh 0 -8vh;
+  transform-origin: 50% 39.5%; transition: transform 2.4s cubic-bezier(0.55, 0, 0.9, 0.35), opacity 1.5s ease 0.7s; will-change: transform;
+  animation: scope-in 2.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s backwards;
 }
-.intro-lens svg { width: 100%; height: 100%; display: block; overflow: visible; }
+@keyframes scope-in { from { opacity: 0; transform: translateY(26px) scale(0.97); } }
+.intro-scope-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; overflow: visible; filter: drop-shadow(0 0 22px rgba(80, 90, 220, 0.28)); }
 .intro-ticks { transform-origin: 0 0; animation: intro-turn 120s linear infinite; }
 .intro-ticks-slow { transform-origin: 0 0; animation: intro-turn 200s linear infinite reverse; }
 @keyframes intro-turn { to { transform: rotate(360deg); } }
-.intro-lens::after {   /* a glint on the glass */
-  content: ''; position: absolute; inset: 6%; border-radius: 50%; pointer-events: none;
-  background: radial-gradient(ellipse 34% 20% at 28% 22%, rgba(255, 255, 255, 0.10), transparent 70%);
-}
-
-/* the text inside the lens */
-.intro-text {
-  position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); width: min(62vmin, 520px); text-align: center; pointer-events: none;
-  transition: opacity 0.8s ease, transform 1.2s ease;
-}
-.intro-eyebrow { margin: 0 0 6px; font: 500 0.78rem/1.4 var(--font-mono); letter-spacing: 0.26em; text-transform: uppercase; color: #cbd5e1; }
-.intro-title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(3rem, 11vmin, 6.6rem); line-height: 1.02; letter-spacing: 0.03em; }
-.intro-title .gradient-text {
-  display: inline-block; background: linear-gradient(135deg, #22d3ee, #6366f1 55%, #c084fc);
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: url(#stardust);
-}
-.intro-aero { margin: 4px 0 0; font: 500 clamp(0.8rem, 2.2vmin, 1.05rem)/1.4 var(--font-mono); letter-spacing: 0.6em; text-indent: 0.6em; text-transform: uppercase; color: #e2e8f0; }
-
-/* the call to action under the lens */
-.intro-cta {
-  position: absolute; left: 50%; bottom: max(4vh, 22px); transform: translateX(-50%); width: min(92vw, 560px); text-align: center;
-  transition: opacity 0.7s ease, transform 1s ease;
-}
-.intro-phrase { margin: 0 0 14px; font: italic 400 clamp(1.4rem, 3.4vmin, 2.1rem)/1.25 var(--font-body); color: #f1f5f9; letter-spacing: 0.01em; }
-.intro-phrase small { display: block; margin-top: 4px; font-size: 0.62em; font-style: normal; letter-spacing: 0.05em; color: #cbd5e1; }
-.intro-ignite {
-  position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 14px 34px; border: 1px solid transparent; border-radius: 999px; cursor: pointer;
-  font: 600 1.02rem/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff;
-  background: linear-gradient(rgba(8, 12, 30, 0.82), rgba(8, 12, 30, 0.82)) padding-box, linear-gradient(135deg, #22d3ee, #6366f1, #c084fc) border-box;
-  box-shadow: 0 0 26px rgba(99, 102, 241, 0.45); animation: intro-pulse 2.6s ease-in-out infinite; transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.intro-ignite::before { content: ''; width: 12px; height: 12px; background: currentColor; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
-.intro-ignite:hover { transform: scale(1.06); box-shadow: 0 0 44px rgba(129, 140, 248, 0.75); }
-.intro-ignite:focus-visible { outline: 2px solid #ffffff; outline-offset: 4px; }
-@keyframes intro-pulse { 0%, 100% { box-shadow: 0 0 22px rgba(99, 102, 241, 0.40); } 50% { box-shadow: 0 0 46px rgba(129, 140, 248, 0.80); } }
-.intro-skip {
-  display: block; margin: 16px auto 0; padding: 8px 14px; background: none; border: 0; cursor: pointer;
-  font: 500 0.78rem/1 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: #cbd5e1; text-decoration: underline; text-underline-offset: 4px;
-}
-.intro-skip:hover { color: #ffffff; }
-.intro-skip:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
-
-/* a telescope on the horizon */
-.intro-telescope { position: absolute; left: clamp(-60px, 2vw, 40px); bottom: -24px; width: min(46vw, 430px); color: rgba(226, 232, 255, 0.5); transition: opacity 0.9s ease; pointer-events: none; }
-.intro-telescope svg { width: 100%; height: auto; display: block; }
-
-/* ignition: the lens rushes at the viewer, the text lets go, a flash, then the sky opens */
-.sky-intro.is-igniting .intro-lens { transform: translate(-50%, -50%) scale(7); opacity: 0; }
-.sky-intro.is-igniting .intro-text { opacity: 0; transform: translate(-50%, -56%) scale(1.14); }
-.sky-intro.is-igniting .intro-cta { opacity: 0; transform: translate(-50%, 24px); }
-.sky-intro.is-igniting .intro-telescope { opacity: 0; }
-.intro-flash { position: absolute; left: 50%; top: 40%; width: 130vmax; height: 130vmax; margin: -65vmax 0 0 -65vmax; border-radius: 50%; opacity: 0; pointer-events: none;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(160, 190, 255, 0.55) 18%, rgba(120, 90, 255, 0.18) 42%, transparent 66%); }
-.sky-intro.is-flash .intro-flash { animation: intro-flash 1.5s ease-out forwards; }
-@keyframes intro-flash { 0% { opacity: 0; transform: scale(0.15); } 30% { opacity: 1; transform: scale(0.7); } 100% { opacity: 0; transform: scale(1.6); } }
-.sky-intro.is-leaving { opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
-
-@media (max-width: 700px) {
-  .intro-telescope { width: 78vw; left: -12vw; opacity: 0.7; }
-  .intro-lens, .intro-text, .intro-flash { top: 38%; }
-  .intro-lens { width: 84vw; }
-  .intro-text { width: 76vw; }
-}
-@media (max-height: 520px) {
-  .intro-lens, .intro-text, .intro-flash { top: 40%; }
-  .intro-title { font-size: clamp(2.6rem, 14vh, 5rem); }
-  .intro-phrase small { display: none; }
-  .intro-telescope { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .intro-ticks, .intro-ticks-slow, .intro-ignite { animation: none; }
-  .sky-intro.is-igniting .intro-lens { transform: translate(-50%, -50%); transition: opacity 0.6s ease; }
-  .sky-intro.is-flash .intro-flash { animation: none; }
-}
-@media print { .sky-intro { display: none !important; } }
-
-@media (max-width: 700px) {
-  .intro-eyebrow { font-size: 0.64rem; letter-spacing: 0.14em; }
-  .intro-aero { letter-spacing: 0.5em; text-indent: 0.5em; }
-}
-@media (max-height: 520px) {
-  .intro-eyebrow { display: none; }
-  .intro-lens, .intro-text, .intro-flash { top: 36%; }
-  .intro-lens { width: 58vh; }
-  .intro-text { width: 52vh; }
-  .intro-title { font-size: clamp(2.4rem, 14vh, 4.4rem); }
-  .intro-aero { font-size: 0.7rem; letter-spacing: 0.4em; text-indent: 0.4em; }
-  .intro-cta { bottom: 8px; }
-  .intro-phrase { margin-bottom: 8px; font-size: 1.15rem; }
-  .intro-ignite { padding: 10px 26px; font-size: 0.9rem; }
-  .intro-skip { margin-top: 4px; padding: 4px 10px; }
-}
-
-/* ====================================================================================================
-   Second pass: the gold emblem, a gold lens, a cinematic entrance and a round ignition button
-   ==================================================================================================== */
-html[data-intro="on"] .sky-intro {
-  background:
-    radial-gradient(ellipse 54% 46% at 50% 40%, rgba(225, 193, 112, 0.07), transparent 70%),
-    radial-gradient(ellipse 60% 50% at 50% 46%, rgba(40, 52, 120, 0.34), transparent 70%),
-    radial-gradient(ellipse 70% 60% at 12% 92%, rgba(110, 40, 120, 0.20), transparent 70%),
-    radial-gradient(ellipse 60% 60% at 92% 10%, rgba(20, 100, 140, 0.20), transparent 70%),
-    #03050d;
-}
-.intro-milkyway { position: absolute; inset: -25%; pointer-events: none; transform: rotate(-18deg);
-  background: linear-gradient(90deg, transparent 30%, rgba(225, 193, 112, 0.05) 42%, rgba(200, 185, 255, 0.07) 50%, rgba(140, 200, 255, 0.05) 58%, transparent 70%);
-  animation: milky 80s ease-in-out infinite alternate; }
-@keyframes milky { from { transform: rotate(-18deg) translateX(-4%); } to { transform: rotate(-14deg) translateX(4%); } }
-
-.intro-text { display: flex; flex-direction: column; align-items: center; }
-.intro-emblem { width: clamp(84px, 19vmin, 168px); height: clamp(84px, 19vmin, 168px); color: #E1C170; margin-bottom: 4px;
-  filter: drop-shadow(0 0 22px rgba(225, 193, 112, 0.5)); transition: transform 1.4s ease, filter 1.2s ease;
-  animation: emblem-in 2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s backwards, emblem-glow 6s ease-in-out 2.4s infinite alternate; }
-@keyframes emblem-in { from { opacity: 0; transform: scale(0.78); filter: blur(10px) drop-shadow(0 0 0 transparent); } }
-@keyframes emblem-glow { from { filter: drop-shadow(0 0 16px rgba(225, 193, 112, 0.35)); } to { filter: drop-shadow(0 0 34px rgba(255, 228, 150, 0.7)); } }
-.sky-intro.is-igniting .intro-emblem { transform: scale(1.3); filter: drop-shadow(0 0 70px rgba(255, 240, 190, 0.95)); animation: none; }
-
-.intro-ring { stroke-dasharray: 1; stroke-dashoffset: 0; animation: ring-draw 2.6s cubic-bezier(0.3, 0.6, 0.2, 1) backwards; }
+.intro-ring { stroke-dasharray: 1; stroke-dashoffset: 0; animation: ring-draw 2.6s cubic-bezier(0.3, 0.6, 0.2, 1) 0.4s backwards; }
 @keyframes ring-draw { from { stroke-dashoffset: 1; opacity: 0.2; } }
-.intro-title .gradient-text { animation: title-wipe 1.8s cubic-bezier(0.3, 0.6, 0.2, 1) 1.1s backwards; }
+.intro-disc { position: absolute; left: 50%; top: 39.47%; width: 0; height: 0; }
+
+/* the text on the glass, measured in scope units so nothing overlaps (the glass is 0.633 of the width) */
+.intro-text {
+  position: absolute; left: 50%; top: 39.47%; transform: translate(-50%, -50%); width: calc(var(--W) * 0.45);
+  display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none; transition: opacity 0.8s ease, transform 1.2s ease;
+}
+.intro-emblem { width: calc(var(--W) * 0.16); height: calc(var(--W) * 0.16); margin: 0 0 calc(var(--W) * 0.022); flex: none;
+  filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.55)); transition: transform 1.4s ease, filter 1.2s ease;
+  animation: emblem-in 2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s backwards, emblem-glow 6s ease-in-out 3s infinite alternate; }
+@keyframes emblem-in { from { opacity: 0; transform: scale(0.78); filter: blur(10px) drop-shadow(0 0 0 transparent); } }
+@keyframes emblem-glow { from { filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.35)); } to { filter: drop-shadow(0 0 22px rgba(192, 132, 252, 0.7)); } }
+.intro-title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: calc(var(--W) * 0.108); line-height: 1.04; letter-spacing: 0.03em; }
+.intro-title .gradient-text {
+  display: inline-block; background: linear-gradient(135deg, #67e8f9, #a5b4fc 55%, #e0b3ff);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none; filter: drop-shadow(0 0 10px rgba(129,140,248,0.55));
+  animation: title-wipe 1.8s cubic-bezier(0.3, 0.6, 0.2, 1) 1.7s backwards;
+}
 @keyframes title-wipe { from { clip-path: inset(-20% 100% -20% 0); opacity: 0; } to { clip-path: inset(-20% -5% -20% -5%); opacity: 1; } }
-.intro-aero, .intro-eyebrow { animation: intro-fade 1.6s ease-out 1.9s backwards; }
-.intro-eyebrow { margin: 10px 0 0; font-size: 0.7rem; letter-spacing: 0.28em; color: #e8d9a6; }
-.intro-phrase { animation: intro-fade 1.6s ease-out 2.4s backwards; }
-.intro-ignite { animation: intro-fade 1.6s ease-out 2.9s backwards; }
-.intro-skip { animation: intro-fade 1.6s ease-out 3.4s backwards; }
+.intro-aero { margin: calc(var(--W) * 0.012) 0 0; font: 500 max(11px, calc(var(--W) * 0.0225))/1.3 var(--font-mono); letter-spacing: 0.6em; text-indent: 0.6em; text-transform: uppercase; color: #e6eaff; animation: intro-fade 1.6s ease-out 2.5s backwards; }
+.intro-eyebrow { margin: calc(var(--W) * 0.014) 0 0; font: 500 max(10px, calc(var(--W) * 0.0145))/1.3 var(--font-mono); letter-spacing: 0.24em; text-transform: uppercase; color: #b9c4ff; animation: intro-fade 1.6s ease-out 2.5s backwards; }
 @keyframes intro-fade { from { opacity: 0; transform: translateY(10px); } }
 
-/* the ignition button: a gold ring with a star, rippling like a pilot light */
+/* the call to action */
+.intro-cta { flex: none; width: min(36vw, 400px); text-align: center; transition: opacity 0.7s ease, transform 1s ease; }
+.intro-phrase { margin: 0 0 18px; font: italic 400 clamp(1.5rem, 3.2vmin, 2.2rem)/1.25 var(--font-body); color: #f1f5f9; letter-spacing: 0.01em; animation: intro-fade 1.6s ease-out 3s backwards; }
+.intro-phrase small { display: block; margin-top: 6px; font-size: 0.6em; font-style: normal; letter-spacing: 0.05em; color: #cbd5e1; }
 .intro-ignite {
-  display: inline-flex; flex-direction: column; align-items: center; gap: 12px; padding: 0; border: 0; background: none; box-shadow: none; border-radius: 0;
-  text-transform: none; letter-spacing: 0; color: #fff3c9; transform: none; position: relative;
+  position: relative; display: inline-flex; flex-direction: column; align-items: center; gap: 12px; padding: 0; border: 0; background: none; cursor: pointer; color: #e8ecff;
+  animation: intro-fade 1.6s ease-out 3.4s backwards;
 }
-.intro-ignite::before { display: none; }
-.intro-ignite:hover { transform: none; box-shadow: none; }
 .ig-core {
-  position: relative; z-index: 1; width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; color: #fff3c9;
-  border: 1.5px solid transparent;
-  background: radial-gradient(circle at 50% 38%, rgba(48, 38, 12, 0.92), rgba(8, 10, 24, 0.94)) padding-box, linear-gradient(135deg, #fff3c9, #E1C170 55%, #a87a2c) border-box;
-  box-shadow: 0 0 30px rgba(225, 193, 112, 0.45), inset 0 0 18px rgba(225, 193, 112, 0.28); transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative; z-index: 1; width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center; color: #e8ecff; border: 1.5px solid transparent;
+  background: radial-gradient(circle at 50% 38%, rgba(20, 24, 70, 0.92), rgba(6, 8, 24, 0.95)) padding-box, linear-gradient(135deg, #22d3ee, #6366f1 55%, #c084fc) border-box;
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.5), inset 0 0 18px rgba(99, 102, 241, 0.3); transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-.ig-core svg { width: 30px; height: 30px; filter: drop-shadow(0 0 6px #E1C170); animation: ig-spin 18s linear infinite; }
+.ig-core svg { width: 32px; height: 32px; filter: drop-shadow(0 0 6px #818cf8); animation: ig-spin 18s linear infinite; }
 @keyframes ig-spin { to { transform: rotate(360deg); } }
-.ig-ripple { position: absolute; top: 0; left: 50%; width: 72px; height: 72px; margin-left: -36px; border-radius: 50%; border: 1.5px solid rgba(225, 193, 112, 0.6); pointer-events: none; animation: ig-ripple 3.4s ease-out infinite; }
+.ig-ripple { position: absolute; top: 0; left: 50%; width: 76px; height: 76px; margin-left: -38px; border-radius: 50%; border: 1.5px solid rgba(129, 140, 248, 0.6); pointer-events: none; animation: ig-ripple 3.4s ease-out infinite; }
 .ig-ripple--2 { animation-delay: 1.7s; }
 @keyframes ig-ripple { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(2.6); opacity: 0; } }
-.ig-label { font: 600 0.84rem/1 var(--font-mono); letter-spacing: 0.4em; text-indent: 0.4em; text-transform: uppercase; color: #f6e7b4; }
-.intro-ignite:hover .ig-core { transform: scale(1.1); box-shadow: 0 0 52px rgba(255, 228, 150, 0.75), inset 0 0 22px rgba(225, 193, 112, 0.4); }
+.ig-label { font: 600 0.86rem/1 var(--font-mono); letter-spacing: 0.4em; text-indent: 0.4em; text-transform: uppercase; color: #d6dcff; }
+.intro-ignite:hover .ig-core { transform: scale(1.1); box-shadow: 0 0 52px rgba(129, 140, 248, 0.8), inset 0 0 22px rgba(129, 140, 248, 0.45); }
 .intro-ignite:hover .ig-core svg { animation-duration: 4s; }
 .intro-ignite:focus-visible { outline: none; }
 .intro-ignite:focus-visible .ig-core { outline: 2px solid #ffffff; outline-offset: 5px; }
 .intro-ignite:disabled { cursor: default; }
+.intro-skip { display: block; margin: 16px auto 0; padding: 8px 14px; background: none; border: 0; cursor: pointer; font: 500 0.78rem/1 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: #c9d1ff; text-decoration: underline; text-underline-offset: 4px; animation: intro-fade 1.6s ease-out 3.8s backwards; }
+.intro-skip:hover { color: #ffffff; }
+.intro-skip:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
 
-/* the speaker of the welcome screen */
-.intro-sound { position: absolute; top: 18px; right: 18px; z-index: 2; width: 46px; height: 46px; border-radius: 50%; padding: 0; cursor: pointer; color: #f6e7b4;
-  display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(225, 193, 112, 0.45); background: rgba(8, 10, 24, 0.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+/* the speaker */
+.intro-sound { position: absolute; top: 18px; right: 18px; z-index: 2; width: 46px; height: 46px; border-radius: 50%; padding: 0; cursor: pointer; color: #d6dcff;
+  display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(129, 140, 248, 0.5); background: rgba(8, 10, 24, 0.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
   transition: box-shadow 0.3s, border-color 0.3s; animation: intro-fade 1.6s ease-out 3.2s backwards; }
-.intro-sound:hover { box-shadow: 0 0 18px rgba(225, 193, 112, 0.5); border-color: #E1C170; }
+.intro-sound:hover { box-shadow: 0 0 18px rgba(129, 140, 248, 0.6); border-color: #a5b4fc; }
 .intro-sound:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
 .intro-sound svg { width: 22px; height: 22px; }
 .intro-sound .waves { opacity: 0.25; transition: opacity 0.3s; }
 .intro-sound.is-on .waves { opacity: 1; animation: waves-pulse 3.2s ease-in-out infinite; }
 
-.intro-telescope { color: rgba(240, 225, 170, 0.5); }
-.intro-flash { background: radial-gradient(circle, rgba(255, 252, 240, 0.97) 0%, rgba(255, 224, 150, 0.6) 18%, rgba(190, 140, 255, 0.2) 42%, transparent 66%); }
-.intro-skip { color: #d8cfa8; }
+/* ignition: the camera rushes into the lens, the text lets go, a flash, then the sky opens */
+.sky-intro.is-igniting .intro-scope { transform: scale(9); opacity: 0; }
+.sky-intro.is-igniting .intro-emblem { transform: scale(1.3); filter: drop-shadow(0 0 60px rgba(210, 220, 255, 0.95)); animation: none; }
+.sky-intro.is-igniting .intro-cta { opacity: 0; transform: translateY(24px); }
+.sky-intro.is-igniting .intro-mountains, .sky-intro.is-igniting .intro-glow { opacity: 0; transition: opacity 1.4s ease 0.3s; }
+.intro-flash { position: absolute; left: var(--cx, 38%); top: var(--cy, 40%); width: 130vmax; height: 130vmax; margin: -65vmax 0 0 -65vmax; border-radius: 50%; opacity: 0; pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.97) 0%, rgba(160, 190, 255, 0.6) 18%, rgba(120, 90, 255, 0.2) 42%, transparent 66%); }
+.sky-intro.is-flash .intro-flash { animation: intro-flash 1.5s ease-out forwards; }
+@keyframes intro-flash { 0% { opacity: 0; transform: scale(0.15); } 30% { opacity: 1; transform: scale(0.7); } 100% { opacity: 0; transform: scale(1.6); } }
+.sky-intro.is-leaving { opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
 
-@media (max-width: 700px) { .intro-eyebrow { font-size: 0.62rem; letter-spacing: 0.2em; } }
-@media (max-height: 520px) {
-  .intro-emblem { width: 46px; height: 46px; margin-bottom: 0; }
+/* tall screens: the telescope on top, the call to action under it */
+@media (max-aspect-ratio: 23/20) {
+  .intro-stage { flex-direction: column; justify-content: flex-start; gap: 0; padding-top: 2vh; }
+  .intro-scope { --W: min(100vw, 54vh, 640px); margin: 0; -webkit-mask-image: linear-gradient(#000 78%, transparent 92%); mask-image: linear-gradient(#000 78%, transparent 92%); }
+  .intro-cta { width: min(92vw, 520px); margin-top: -2vh; position: relative; z-index: 2; }
+  .intro-phrase { margin-bottom: 14px; }
+  .intro-mountains { height: 22vh; }
+}
+@media (max-width: 700px) {
   .intro-eyebrow { display: none; }
-  .ig-core, .ig-ripple { width: 50px; height: 50px; margin-left: 0; }
-  .ig-ripple { margin-left: -25px; }
-  .ig-core svg { width: 22px; height: 22px; }
+  .ig-core, .ig-ripple { width: 68px; height: 68px; }
+  .ig-ripple { margin-left: -34px; }
+}
+/* short, wide screens (a phone on its side) */
+@media (max-height: 520px) and (min-aspect-ratio: 23/20) {
+  .intro-scope { --W: min(104vh, 46vw); margin: -6vh 0 -12vh; }
+  .intro-cta { width: min(38vw, 320px); }
+  .intro-eyebrow { display: none; }
+  .intro-phrase { font-size: 1.25rem; margin-bottom: 8px; }
+  .intro-phrase small { display: none; }
+  .ig-core, .ig-ripple { width: 54px; height: 54px; }
+  .ig-ripple { margin-left: -27px; }
+  .ig-core svg { width: 24px; height: 24px; }
   .intro-ignite { gap: 6px; }
+  .intro-skip { margin-top: 4px; padding: 4px 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .intro-emblem, .intro-ring, .intro-title .gradient-text, .intro-aero, .intro-eyebrow, .intro-phrase, .intro-ignite, .intro-skip, .intro-sound,
+  .intro-ticks, .intro-ticks-slow, .intro-ring, .intro-scope, .intro-emblem, .intro-title .gradient-text, .intro-aero, .intro-eyebrow, .intro-phrase, .intro-ignite, .intro-skip, .intro-sound,
   .ig-core svg, .ig-ripple, .intro-milkyway { animation: none; }
   .ig-ripple { display: none; }
+  .sky-intro.is-igniting .intro-scope { transform: none; transition: opacity 0.6s ease; }
+  .sky-intro.is-flash .intro-flash { animation: none; }
 }
-.intro-lens { top: 38%; width: min(64vmin, 540px); }
-.intro-text { top: 38%; }
-.intro-flash { top: 38%; }
-.intro-emblem { width: clamp(96px, 23vmin, 190px); height: clamp(96px, 23vmin, 190px); }
-@media (max-width: 700px) { .intro-lens, .intro-text, .intro-flash { top: 36%; } .intro-emblem { width: clamp(84px, 24vw, 130px); height: clamp(84px, 24vw, 130px); } }
-@media (max-height: 520px) { .intro-lens, .intro-text, .intro-flash { top: 36%; } .intro-emblem { width: 46px; height: 46px; } }
-@media (max-width: 700px) { .intro-eyebrow { display: none; } }
-
-/* ====================================================================================================
-   Third pass: a telescope seen from the front (the lens is the end of the tube), one gradient for the logo, the
-   letters, the rings and the button, and a layout measured in lens units so nothing overlaps
-   ==================================================================================================== */
-.sky-intro { --L: min(62vmin, 520px); }
-.intro-lens { width: var(--L); top: 38%; }
-.intro-flash { top: 38%; }
-.intro-text { top: 38%; width: calc(var(--L) * 0.72); gap: 0; }
-.intro-emblem { width: calc(var(--L) * 0.25); height: calc(var(--L) * 0.25); margin: 0 0 calc(var(--L) * 0.035); color: inherit;
-  filter: drop-shadow(0 0 14px rgba(99, 102, 241, 0.55));
-  animation: emblem-in 2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s backwards, emblem-glow2 6s ease-in-out 2.4s infinite alternate; }
-@keyframes emblem-glow2 { from { filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.35)); } to { filter: drop-shadow(0 0 26px rgba(192, 132, 252, 0.7)); } }
-.sky-intro.is-igniting .intro-emblem { transform: scale(1.3); filter: drop-shadow(0 0 60px rgba(210, 220, 255, 0.95)); animation: none; }
-.intro-title { font-size: calc(var(--L) * 0.165); line-height: 1.04; margin: 0; }
-.intro-aero { font-size: calc(var(--L) * 0.034); margin: calc(var(--L) * 0.016) 0 0; letter-spacing: 0.6em; text-indent: 0.6em; color: #e6eaff; }
-.intro-eyebrow { font-size: calc(var(--L) * 0.0225); margin: calc(var(--L) * 0.018) 0 0; letter-spacing: 0.26em; color: #b9c4ff; }
-
-/* the cool palette of the logo and the letters, on the button too */
-.ig-core { color: #e8ecff;
-  background: radial-gradient(circle at 50% 38%, rgba(20, 24, 70, 0.92), rgba(6, 8, 24, 0.95)) padding-box, linear-gradient(135deg, #22d3ee, #6366f1 55%, #c084fc) border-box;
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.5), inset 0 0 18px rgba(99, 102, 241, 0.3); }
-.ig-core svg { filter: drop-shadow(0 0 6px #818cf8); }
-.ig-ripple { border-color: rgba(129, 140, 248, 0.6); }
-.ig-label { color: #d6dcff; }
-.intro-ignite:hover .ig-core { box-shadow: 0 0 52px rgba(129, 140, 248, 0.8), inset 0 0 22px rgba(129, 140, 248, 0.45); }
-.intro-sound { color: #d6dcff; border-color: rgba(129, 140, 248, 0.5); }
-.intro-sound:hover { box-shadow: 0 0 18px rgba(129, 140, 248, 0.6); border-color: #a5b4fc; }
-.intro-flash { background: radial-gradient(circle, rgba(255, 255, 255, 0.97) 0%, rgba(160, 190, 255, 0.6) 18%, rgba(120, 90, 255, 0.2) 42%, transparent 66%); }
-.intro-skip { color: #c9d1ff; }
-.intro-milkyway { background: linear-gradient(90deg, transparent 30%, rgba(99, 102, 241, 0.06) 42%, rgba(192, 132, 252, 0.08) 50%, rgba(34, 211, 238, 0.05) 58%, transparent 70%); }
-html[data-intro="on"] .sky-intro { background:
-    radial-gradient(ellipse 54% 46% at 50% 38%, rgba(60, 70, 190, 0.16), transparent 70%),
-    radial-gradient(ellipse 70% 60% at 12% 92%, rgba(110, 40, 140, 0.2), transparent 70%),
-    radial-gradient(ellipse 60% 60% at 92% 10%, rgba(20, 110, 150, 0.2), transparent 70%),
-    #03050d; }
-
-@media (max-width: 700px) {
-  .sky-intro { --L: min(84vw, 56vh); }
-  .intro-lens, .intro-text, .intro-flash { top: 36%; }
-  .intro-eyebrow { display: none; }
-}
-@media (max-height: 520px) {
-  .sky-intro { --L: 62vh; }
-  .intro-lens, .intro-text, .intro-flash { top: 38%; }
-  .intro-emblem { width: calc(var(--L) * 0.22); height: calc(var(--L) * 0.22); margin-bottom: calc(var(--L) * 0.02); }
-  .intro-eyebrow { display: none; }
-}
-@media (max-height: 520px) { .sky-intro { --L: 56vh; } .intro-lens, .intro-text, .intro-flash { top: 36%; } }
+@media print { .sky-intro { display: none !important; } }

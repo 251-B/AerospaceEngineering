@@ -17,12 +17,12 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/celestial-sky.css">
   <link rel="stylesheet" href="assets/css/hub.css">
-  <link rel="stylesheet" href="assets/css/constellations.css?v=20261121c">
-  <link rel="stylesheet" href="assets/css/sky-intro.css?v=20261121c">
+  <link rel="stylesheet" href="assets/css/constellations.css?v=20261122a">
+  <link rel="stylesheet" href="assets/css/sky-intro.css?v=20261122a">
   <script src="assets/js/theme.js"></script>
-  <script src="assets/js/constellations.js?v=20261121c"></script>
-  <script defer src="assets/js/sky-sound.js?v=20261121c"></script>
-  <script defer src="assets/js/sky-intro.js?v=20261121c"></script>
+  <script src="assets/js/constellations.js?v=20261122a"></script>
+  <script defer src="assets/js/sky-sound.js?v=20261122a"></script>
+  <script defer src="assets/js/sky-intro.js?v=20261122a"></script>
 
 </head>
 <body>
@@ -113,35 +113,78 @@
   <section class="sky-intro" id="skyIntro" aria-label="Welcome to Sideris">
     <canvas class="intro-canvas" id="introCanvas" aria-hidden="true"></canvas>
     <div class="intro-milkyway" aria-hidden="true"></div>
+    <div class="intro-glow" aria-hidden="true"></div>
+    <svg class="intro-mountains" viewBox="0 0 1600 320" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="ridgeRim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.55"/><stop offset="0.5" stop-color="#c084fc" stop-opacity="0.7"/><stop offset="1" stop-color="#6366f1" stop-opacity="0.55"/></linearGradient>
+        <linearGradient id="ridgeFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101744"/><stop offset="1" stop-color="#04060f"/></linearGradient>
+      </defs>
+      <path d="M0 320V170L130 120 250 160 390 70 540 150 690 104 860 190 1020 110 1170 170 1330 82 1480 150 1600 112V320Z" fill="#0b1038" fill-opacity="0.85"/>
+      <path d="M0 320V236L110 196 230 232 370 160 520 226 690 178 850 244 1010 190 1180 238 1340 176 1480 226 1600 196V320Z" fill="url(#ridgeFill)" stroke="url(#ridgeRim)" stroke-width="2.2"/>
+    </svg>
     <button type="button" class="intro-sound" id="introSound" aria-pressed="false" title="Sound" aria-label="Sound">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path class="waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.6a7.6 7.6 0 0 1 0 10.8"/></svg>
     </button>
-    <div class="intro-lens" aria-hidden="true">
-      <svg viewBox="-300 -300 600 600" fill="none">
-        <defs>
-          <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#6366f1"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
-          <radialGradient id="barrelShade" cx="50%" cy="50%" r="50%"><stop offset="0.80" stop-color="#05070f" stop-opacity="0"/><stop offset="0.90" stop-color="#0a1030" stop-opacity="0.85"/><stop offset="1" stop-color="#03050d" stop-opacity="0.2"/></radialGradient>
-          <radialGradient id="glass" cx="50%" cy="46%" r="52%"><stop offset="0" stop-color="#6d7dff" stop-opacity="0.07"/><stop offset="0.7" stop-color="#1a2260" stop-opacity="0.16"/><stop offset="1" stop-color="#03050d" stop-opacity="0.55"/></radialGradient>
-          <radialGradient id="depth" cx="50%" cy="50%" r="50%"><stop offset="0.62" stop-color="#000" stop-opacity="0"/><stop offset="0.8" stop-color="#000" stop-opacity="0.42"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
-        </defs>
-        <circle r="298" fill="url(#barrelShade)"/>
-        <circle class="intro-ring" r="291" pathLength="1" stroke="url(#ringGrad)" stroke-width="3"/>
-        <circle r="284" stroke="rgba(190,200,255,0.30)" stroke-width="1"/>
-        <g class="intro-ticks"><circle r="272" stroke="rgba(205,214,255,0.55)" stroke-width="14" stroke-dasharray="2.4 11.5"/></g>
-        <circle r="262" stroke="url(#ringGrad)" stroke-width="1.4" stroke-opacity="0.8"/>
-        <circle r="254" fill="url(#depth)"/>
-        <g class="intro-ticks-slow"><circle r="244" stroke="rgba(150,170,255,0.30)" stroke-width="5" stroke-dasharray="1.5 15.5"/></g>
-        <circle r="236" stroke="rgba(190,200,255,0.34)" stroke-width="1.2"/>
-        <circle r="228" fill="url(#glass)" stroke="url(#ringGrad)" stroke-width="2" stroke-opacity="0.9"/>
-        <path d="M-190 -92A212 212 0 0 1 -76 -198" stroke="rgba(255,255,255,0.30)" stroke-width="3" stroke-linecap="round"/>
-        <path d="M-170 -118A208 208 0 0 1 -112 -176" stroke="rgba(180,200,255,0.5)" stroke-width="1.4" stroke-linecap="round"/>
-        <path d="M168 120A208 208 0 0 1 96 184" stroke="rgba(192,132,252,0.55)" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M184 92A210 210 0 0 1 148 150" stroke="rgba(34,211,238,0.45)" stroke-width="1.6" stroke-linecap="round"/>
-        <circle cx="0" cy="-262" r="3.2" fill="#e8ecff"/><circle cx="262" cy="0" r="2.4" fill="#67e8f9"/><circle cx="-262" cy="0" r="2.4" fill="#c4b5fd"/><circle cx="0" cy="262" r="2.4" fill="#e8ecff"/>
-      </svg>
-    </div>
-    <div class="intro-text">
-      <svg class="intro-emblem" viewBox="96 96 832 832" aria-hidden="true">
+    <div class="intro-stage">
+      <div class="intro-scope" id="introScope">
+        <svg class="intro-scope-svg" viewBox="0 0 600 760" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#6366f1"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+            <linearGradient id="bodyG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0a0f2e"/><stop offset="0.38" stop-color="#1a2260"/><stop offset="0.7" stop-color="#121848"/><stop offset="1" stop-color="#080c26"/></linearGradient>
+            <linearGradient id="legG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#070a22"/><stop offset="0.5" stop-color="#1a2260"/><stop offset="1" stop-color="#070a22"/></linearGradient>
+            <linearGradient id="rimG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#67e8f9" stop-opacity="0.9"/><stop offset="0.5" stop-color="#818cf8" stop-opacity="0.35"/><stop offset="1" stop-color="#c084fc" stop-opacity="0.85"/></linearGradient>
+            <radialGradient id="barrelShade" cx="50%" cy="50%" r="50%"><stop offset="0.80" stop-color="#05070f" stop-opacity="0"/><stop offset="0.90" stop-color="#0a1030" stop-opacity="0.85"/><stop offset="1" stop-color="#03050d" stop-opacity="0.2"/></radialGradient>
+            <radialGradient id="glass" cx="50%" cy="46%" r="52%"><stop offset="0" stop-color="#6d7dff" stop-opacity="0.09"/><stop offset="0.7" stop-color="#1a2260" stop-opacity="0.2"/><stop offset="1" stop-color="#03050d" stop-opacity="0.6"/></radialGradient>
+            <radialGradient id="depth" cx="50%" cy="50%" r="50%"><stop offset="0.62" stop-color="#000" stop-opacity="0"/><stop offset="0.8" stop-color="#000" stop-opacity="0.42"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+          </defs>
+          <!-- tripod -->
+          <g class="scope-legs">
+            <path d="M262 590L290 596L226 770L192 770Z" fill="url(#legG)" stroke="url(#rimG)" stroke-width="1.4"/>
+            <path d="M338 590L310 596L374 770L408 770Z" fill="url(#legG)" stroke="url(#rimG)" stroke-width="1.4"/>
+            <path d="M291 596H309L305 770H295Z" fill="url(#legG)" stroke="url(#rimG)" stroke-width="1.2"/>
+            <path d="M246 690H354M252 660H348" stroke="rgba(150,170,255,0.35)" stroke-width="2"/>
+            <ellipse cx="300" cy="590" rx="58" ry="15" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
+            <rect x="284" y="548" width="32" height="44" rx="6" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.2"/>
+            <circle cx="338" cy="566" r="10" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/><circle cx="338" cy="566" r="4" fill="rgba(190,200,255,0.5)"/>
+            <circle cx="262" cy="566" r="9" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/>
+          </g>
+          <!-- mount head -->
+          <rect x="262" y="486" width="76" height="70" rx="12" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
+          <ellipse cx="300" cy="490" rx="46" ry="12" fill="#0a0f2e" stroke="url(#rimG)" stroke-width="1.2"/>
+          <path d="M270 520H330M270 534H330" stroke="rgba(150,170,255,0.3)" stroke-width="1.6"/>
+          <!-- tube, seen from the front and slightly below -->
+          <path d="M112 300L152 76Q300 40 448 76L488 300Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="2"/>
+          <ellipse cx="300" cy="76" rx="148" ry="22" fill="#080c26" stroke="url(#rimG)" stroke-width="2"/>
+          <ellipse cx="300" cy="76" rx="120" ry="15" fill="none" stroke="rgba(150,170,255,0.3)" stroke-width="1.2"/>
+          <path d="M120 250Q300 292 480 250M128 206Q300 244 472 206M138 150Q300 184 462 150M146 112Q300 142 454 112" stroke="rgba(160,178,255,0.42)" stroke-width="2.2"/>
+          <path d="M116 276Q300 322 484 276" stroke="rgba(34,211,238,0.35)" stroke-width="1.4"/>
+          <path d="M170 90L150 280" stroke="rgba(255,255,255,0.09)" stroke-width="22" stroke-linecap="round"/>
+          <!-- focuser, finder and the lever -->
+          <rect x="338" y="30" width="38" height="34" rx="6" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/><circle cx="357" cy="30" r="9" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/>
+          <path d="M492 322L520 236" stroke="#0e1440" stroke-width="12" stroke-linecap="round"/><path d="M492 322L520 236" stroke="url(#rimG)" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="521" cy="232" r="10" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.6"/>
+          <rect x="478" y="296" width="30" height="46" rx="8" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
+          <circle cx="104" cy="300" r="12" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/>
+          <!-- the front of the tube: the lens -->
+          <g transform="translate(300 300) scale(0.64)">
+            <circle r="298" fill="url(#barrelShade)"/>
+            <circle class="intro-ring" r="291" pathLength="1" stroke="url(#ringGrad)" stroke-width="3"/>
+            <circle r="284" stroke="rgba(190,200,255,0.30)" stroke-width="1"/>
+            <g class="intro-ticks"><circle r="272" stroke="rgba(205,214,255,0.55)" stroke-width="14" stroke-dasharray="2.4 11.5"/></g>
+            <circle r="262" stroke="url(#ringGrad)" stroke-width="1.4" stroke-opacity="0.8"/>
+            <circle r="254" fill="url(#depth)"/>
+            <g class="intro-ticks-slow"><circle r="244" stroke="rgba(150,170,255,0.30)" stroke-width="5" stroke-dasharray="1.5 15.5"/></g>
+            <circle r="236" stroke="rgba(190,200,255,0.34)" stroke-width="1.2"/>
+            <circle r="228" fill="url(#glass)" stroke="url(#ringGrad)" stroke-width="2" stroke-opacity="0.9"/>
+            <path d="M-190 -92A212 212 0 0 1 -76 -198" stroke="rgba(255,255,255,0.30)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M-170 -118A208 208 0 0 1 -112 -176" stroke="rgba(180,200,255,0.5)" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M168 120A208 208 0 0 1 96 184" stroke="rgba(192,132,252,0.55)" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M184 92A210 210 0 0 1 148 150" stroke="rgba(34,211,238,0.45)" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="intro-disc" id="introDisc" aria-hidden="true"></div>
+        <div class="intro-text">
+        <svg class="intro-emblem" viewBox="96 96 832 832" aria-hidden="true">
         <defs><linearGradient id="emblemGrad" gradientUnits="userSpaceOnUse" x1="150" y1="150" x2="880" y2="880"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#6366f1"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs>
         <g stroke="url(#emblemGrad)" fill="url(#emblemGrad)">
           <path d="M 398.51,379.43 A 355,160 -14 0 1 652.50,634.24" fill="none" stroke-width="15" stroke-linecap="round"/>
@@ -156,18 +199,20 @@
           <circle cx="298" cy="176" r="7"/><circle cx="734" cy="700" r="7"/><circle cx="406" cy="864" r="6.5"/><circle cx="158" cy="676" r="6.5"/><circle cx="854" cy="240" r="6.5"/><circle cx="466" cy="314" r="5.5"/><circle cx="556" cy="710" r="5.5"/></g>
         </g>
       </svg>
-      <h2 class="intro-title"><span class="gradient-text">Sideris</span></h2>
-      <p class="intro-aero">Aerospace</p>
-      <p class="intro-eyebrow">Engineering &middot; 2nd Year</p>
-    </div>
-    <div class="intro-cta">
-      <p class="intro-phrase">Ready to ignite?<small>Every star is a sun waiting to be read.</small></p>
-      <button type="button" class="intro-ignite" id="introIgnite" aria-label="Ignite">
-        <span class="ig-ripple" aria-hidden="true"></span><span class="ig-ripple ig-ripple--2" aria-hidden="true"></span>
-        <span class="ig-core" aria-hidden="true"><svg viewBox="-12 -12 24 24"><path d="M0 -11 L2.6 -2.6 L11 0 L2.6 2.6 L0 11 L-2.6 2.6 L-11 0 L-2.6 -2.6Z" fill="currentColor"/></svg></span>
-        <span class="ig-label">Ignite</span>
-      </button>
-      <button type="button" class="intro-skip" id="introSkip">Skip intro</button>
+          <h2 class="intro-title"><span class="gradient-text">Sideris</span></h2>
+          <p class="intro-aero">Aerospace</p>
+          <p class="intro-eyebrow">Engineering &middot; 2nd Year</p>
+        </div>
+      </div>
+      <div class="intro-cta">
+        <p class="intro-phrase">Ready to ignite?<small>Every star is a sun waiting to be read.</small></p>
+        <button type="button" class="intro-ignite" id="introIgnite" aria-label="Ignite">
+          <span class="ig-ripple" aria-hidden="true"></span><span class="ig-ripple ig-ripple--2" aria-hidden="true"></span>
+          <span class="ig-core" aria-hidden="true"><svg viewBox="-12 -12 24 24"><path d="M0 -11 L2.6 -2.6 L11 0 L2.6 2.6 L0 11 L-2.6 2.6 L-11 0 L-2.6 -2.6Z" fill="currentColor"/></svg></span>
+          <span class="ig-label">Ignite</span>
+        </button>
+        <button type="button" class="intro-skip" id="introSkip">Skip intro</button>
+      </div>
     </div>
     <div class="intro-flash" aria-hidden="true"></div>
   </section>

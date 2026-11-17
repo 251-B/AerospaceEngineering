@@ -54,8 +54,15 @@
       H = canvas.height = Math.round(window.innerHeight * dpr);
       canvas.style.width = window.innerWidth + 'px'; canvas.style.height = window.innerHeight + 'px';
     }
-    resize();
-    window.addEventListener('resize', resize);
+    var disc = document.getElementById('introDisc');
+    function placeDisc() {   // the flash opens at the centre of the lens glass
+      if (!disc) return;
+      var r = disc.getBoundingClientRect();
+      intro.style.setProperty('--cx', Math.round(r.left) + 'px');
+      intro.style.setProperty('--cy', Math.round(r.top) + 'px');
+    }
+    resize(); placeDisc();
+    window.addEventListener('resize', function () { resize(); placeDisc(); });
 
     var TINTS = ['255,255,255', '255,255,255', '200,225,255', '255,235,205', '190,170,255', '150,230,255'];
     function seed(star, anywhere) {

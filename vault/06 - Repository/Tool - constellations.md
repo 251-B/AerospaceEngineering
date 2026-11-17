@@ -49,3 +49,7 @@ The lens is gold (`#E1C170`, the colour of the emblem) and carries the emblem (`
 ### Welcome screen, third pass
 
 The lens is now the front of a telescope: concentric rings (barrel, knurled focus ring, inner rings) round a curved piece of glass with soft reflections, and the name sits on the glass as if it were the end of the tube. The logo (an inline copy of the emblem, `#emblemGrad`), the letters, the rings and the Ignite button share one gradient (cyan, indigo, violet). Every size is a multiple of the lens diameter (`--L`), so the logo, the name and the lines never overlap; the old side view of the telescope is gone.
+
+## Welcome screen, fourth pass: the whole telescope
+
+The welcome screen now shows a complete telescope on a tripod (tube, mount, finder, front lens) against the Milky Way and a mountain horizon, after the reference photo. The lens glass carries the gradient emblem, "Sideris", "Aerospace" and the course line; the call to action sits beside it (wide screens) or under it (tall screens). Igniting dollies the camera into the lens (scale about 9 around the glass centre, `--cx/--cy` set by `sky-intro.js` from `#introDisc`) before the unchanged warp.
