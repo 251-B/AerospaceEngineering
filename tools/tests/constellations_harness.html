@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Constellation HUD harness</title>
+<!-- Loaded by test_constellations.py: opens the portal at a desktop and a phone size, enters every
+     constellation and writes the satellite-label problems (overlap, text outside its box, clipped) as JSON. -->
+</head>
+<body>
+<pre id="result">pending</pre>
+<script>
+var SIZES = [[1280, 800], [375, 812]];
+var SLUGS = ['fluid-mechanics', 'aerospace-materials-1', 'engineering-mechanics', 'advanced-maths', 'business-management'];
+function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+function load(w, h) {
+  return new Promise(function (resolve) {
+    var f = document.createElement('iframe');
+    f.style.width = w + 'px'; f.style.height = h + 'px'; f.style.border = '0';
+    f.src = '../../index.html';
+    f.onload = function () { resolve(f); };
+    document.body.appendChild(f);
+  });
+}
+async function check(f, w, h) {
+  var win = f.contentWindow, doc = f.contentDocument, out = {};
+  for (var t = 0; t < 50 && !(win.AEConstellations && doc.querySelector('.const')); t++) await wait(100);
+  // the panorama shows plain stars only: no satellite is visible before a constellation is opened
+  out.panoramaHidden = Array.prototype.every.call(doc.querySelectorAll('.star-sat'), function (s) { return getComputedStyle(s).visibility === 'hidden'; });
+  for (var i = 0; i < SLUGS.length; i++) {
+    var slug = SLUGS[i], issues = [];
+    win.AEConstellations.back(); await wait(50);
+    win.AEConstellations.select(slug); await wait(1200);
+    var g = doc.querySelector('.const.is-active');
+    if (!g) { out[slug] = ['not opened']; continue; }
+    var labels = Array.prototype.map.call(g.querySelectorAll('.star'), function (a) {
+      var box = a.querySelector('.sat-hit').getBoundingClientRect(), name = a.querySelector('.sat-name').textContent;
+      if (getComputedStyle(a.querySelector('.star-sat')).visibility !== 'visible') issues.push('hidden ' + name);
+      if (!a.querySelector('use.sat-icon')) issues.push('no icon ' + name);
+      Array.prototype.forEach.call(a.querySelectorAll('text'), function (tx) {
+        var r = tx.getBoundingClientRect();
+        if (r.left < box.left - 1 || r.right > box.right + 1 || r.top < box.top - 1 || r.bottom > box.bottom + 1) issues.push('text outside its box ' + tx.textContent);
+        if (r.left < 0 || r.right > w || r.top < 56 || r.bottom > h) issues.push('clipped ' + tx.textContent);
+      });
+      return { name: name, box: box };
+    });
+    labels.forEach(function (a, p) { labels.forEach(function (b, q) {
+      if (q > p && a.box.left < b.box.right - 2 && b.box.left < a.box.right - 2 && a.box.top < b.box.bottom - 2 && b.box.top < a.box.bottom - 2) issues.push('overlap ' + a.name + ' / ' + b.name);
+    }); });
+    out[slug] = issues;
+  }
+  win.AEConstellations.back(); await wait(50);
+  return out;
+}
+(async function () {
+  var all = {};
+  for (var k = 0; k < SIZES.length; k++) {
+    var f = await load(SIZES[k][0], SIZES[k][1]);
+    all[SIZES[k].join('x')] = await check(f, SIZES[k][0], SIZES[k][1]);
+    f.remove();
+  }
+  document.getElementById('result').textContent = JSON.stringify(all);
+})();
+</script>
+</body>
+</html>

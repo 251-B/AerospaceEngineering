@@ -95,7 +95,7 @@ The arrangement is that of the perovskite of Slide 12: A at the corners, C at th
 ### Checks
 - **Units.** nm³ to cm³ with $10^{-21}$; g/mol over mol⁻¹ gives g.
 - **Charge balance** with A²⁺, B⁴⁺, C²⁻: $+2 + 4 - 3\times2 = 0$.
-- **Limit of the cubic cell.** As $a, b, c \to 0.387$ nm the cell becomes the cubic perovskite and the density changes only slightly (to 3.89 g/cm³ for $a = b = c = 0.387$ nm, extension), so the distortion is small: the edges differ by about 1 %.
+- **Limit of the cubic cell.** As $a, b, c \to 0.387$ nm the cell becomes the cubic perovskite and the density changes only slightly (to 3.90 g/cm³ for $a = b = c = 0.387$ nm, extension), so the distortion is small: the edges differ by about 1 %.
 
 ### Interpretation
 Two planes are enough to fix a cell when they show all the ions: the face (100) gives two edges and the face centres, the diagonal plane (110) gives the third edge and the body centre. The distortion of real perovskites from the cube is common (CaTiO₃ itself is orthorhombic, extension), and it is what the three slightly different edges of the figure express.

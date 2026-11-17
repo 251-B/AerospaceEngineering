@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sideris</title>
   <meta name="description" content="Centralized study portal for the 2nd Year of the Bachelor's Degree in Aerospace Engineering.">
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg?v=20261117a">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png?v=20261117a">
 
   <!-- Google Fonts: Abril Fatface, Newsreader, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,9 +17,12 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/celestial-sky.css">
   <link rel="stylesheet" href="assets/css/hub.css">
-  <link rel="stylesheet" href="assets/css/constellations.css?v=20261116l">
+  <link rel="stylesheet" href="assets/css/constellations.css?v=20261124b">
+  <link rel="stylesheet" href="assets/css/sky-intro.css?v=20261124b">
   <script src="assets/js/theme.js"></script>
-  <script src="assets/js/constellations.js?v=20261116l"></script>
+  <script src="assets/js/constellations.js?v=20261124b"></script>
+  <script defer src="assets/js/sky-sound.js?v=20261124b"></script>
+  <script defer src="assets/js/sky-intro.js?v=20261124b"></script>
 
 </head>
 <body>
@@ -77,6 +81,24 @@
       <symbol id="i-star" viewBox="0 0 24 24">
         <path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" fill="currentColor"/>
       </symbol>
+      <symbol id="i-sideris" viewBox="96 96 832 832">
+        <path d="M 398.51,379.43 A 355,160 -14 0 1 652.50,634.24" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" stroke-opacity="0.94"/>
+        <path d="M 624.34,644.98 A 355,160 -14 0 1 370.40,390.21" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" stroke-opacity="0.94"/>
+        <polyline points="652,286 512,212 368,290 392,430 512,512 632,594 652,736 510,812 368,738" fill="none" stroke="currentColor" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="652" cy="286" r="20" fill="currentColor"/><circle cx="512" cy="212" r="23" fill="currentColor"/>
+        <circle cx="368" cy="290" r="19" fill="currentColor"/><circle cx="392" cy="430" r="22" fill="currentColor"/>
+        <circle cx="632" cy="594" r="21" fill="currentColor"/><circle cx="652" cy="736" r="23" fill="currentColor"/>
+        <circle cx="510" cy="812" r="21" fill="currentColor"/><circle cx="368" cy="738" r="22" fill="currentColor"/>
+        <path d="M 512,456 Q 520.9,503.1 568,512 Q 520.9,520.9 512,568 Q 503.1,520.9 456,512 Q 503.1,503.1 512,456 Z" fill="currentColor"/>
+        <path d="M 612,371 Q 613.3,390.7 633,392 Q 613.3,393.3 612,413 Q 610.7,393.3 591,392 Q 610.7,390.7 612,371 Z" fill="currentColor" fill-opacity="0.94"/>
+        <path d="M 410,617 Q 411.1,634.9 429,636 Q 411.1,637.1 410,655 Q 408.9,637.1 391,636 Q 408.9,634.9 410,617 Z" fill="currentColor" fill-opacity="0.92"/>
+        <path d="M 222,336 Q 223.8,358.2 246,360 Q 223.8,361.8 222,384 Q 220.2,361.8 198,360 Q 220.2,358.2 222,336 Z" fill="currentColor" fill-opacity="0.94"/>
+        <path d="M 800,600 Q 801.4,618.6 820,620 Q 801.4,621.4 800,640 Q 798.6,621.4 780,620 Q 798.6,618.6 800,600 Z" fill="currentColor" fill-opacity="0.92"/>
+        <circle cx="298" cy="176" r="7" fill="currentColor" fill-opacity="0.84"/><circle cx="734" cy="700" r="7" fill="currentColor" fill-opacity="0.86"/>
+        <circle cx="406" cy="864" r="6.5" fill="currentColor" fill-opacity="0.82"/><circle cx="158" cy="676" r="6.5" fill="currentColor" fill-opacity="0.82"/>
+        <circle cx="854" cy="240" r="6.5" fill="currentColor" fill-opacity="0.82"/><circle cx="466" cy="314" r="5.5" fill="currentColor" fill-opacity="0.72"/>
+        <circle cx="556" cy="710" r="5.5" fill="currentColor" fill-opacity="0.72"/>
+      </symbol>
     </defs>
   </svg>
 
@@ -84,6 +106,121 @@
        ANIMATED CELESTIAL CANVAS BACKGROUND
        ============================================ -->
   <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
+
+  <!-- ============================================
+       WELCOME SCREEN: the sky through a telescope, shown once per session (assets/js/sky-intro.js)
+       ============================================ -->
+  <section class="sky-intro" id="skyIntro" aria-label="Welcome to Sideris">
+    <canvas class="intro-canvas" id="introCanvas" aria-hidden="true"></canvas>
+    <div class="intro-milkyway" aria-hidden="true"></div>
+    <div class="intro-glow" aria-hidden="true"></div>
+    <svg class="intro-ground" viewBox="0 0 1600 320" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="groundFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121a52"/><stop offset="0.35" stop-color="#080c2a"/><stop offset="1" stop-color="#03050d"/></linearGradient>
+        <linearGradient id="horizonLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee" stop-opacity="0"/><stop offset="0.3" stop-color="#22d3ee" stop-opacity="0.7"/><stop offset="0.5" stop-color="#a5b4fc"/><stop offset="0.7" stop-color="#c084fc" stop-opacity="0.7"/><stop offset="1" stop-color="#c084fc" stop-opacity="0"/></linearGradient>
+        <linearGradient id="gridFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#818cf8" stop-opacity="0"/><stop offset="0.25" stop-color="#818cf8" stop-opacity="0.16"/><stop offset="1" stop-color="#818cf8" stop-opacity="0.05"/></linearGradient>
+      </defs>
+      <rect x="0" y="96" width="1600" height="224" fill="url(#groundFill)"/>
+      <g stroke="url(#gridFade)" stroke-width="1.2" fill="none" vector-effect="non-scaling-stroke"><path d="M800 96L-1600 320"/><path d="M800 96L-1400 320"/><path d="M800 96L-1200 320"/><path d="M800 96L-1000 320"/><path d="M800 96L-800 320"/><path d="M800 96L-600 320"/><path d="M800 96L-400 320"/><path d="M800 96L-200 320"/><path d="M800 96L0 320"/><path d="M800 96L200 320"/><path d="M800 96L400 320"/><path d="M800 96L600 320"/><path d="M800 96L800 320"/><path d="M800 96L1000 320"/><path d="M800 96L1200 320"/><path d="M800 96L1400 320"/><path d="M800 96L1600 320"/><path d="M800 96L1800 320"/><path d="M800 96L2000 320"/><path d="M800 96L2200 320"/><path d="M800 96L2400 320"/><path d="M800 96L2600 320"/><path d="M800 96L2800 320"/><path d="M800 96L3000 320"/><path d="M800 96L3200 320"/><path d="M0 102H1600"/><path d="M0 110H1600"/><path d="M0 122H1600"/><path d="M0 140H1600"/><path d="M0 166H1600"/><path d="M0 204H1600"/><path d="M0 256H1600"/></g>
+      <path d="M0 96H1600" stroke="url(#horizonLine)" stroke-width="10" stroke-opacity="0.25" vector-effect="non-scaling-stroke"/>
+      <path d="M0 96H1600" stroke="url(#horizonLine)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <button type="button" class="intro-sound" id="introSound" aria-pressed="false" title="Sound" aria-label="Sound">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path class="waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.6a7.6 7.6 0 0 1 0 10.8"/></svg>
+    </button>
+    <div class="intro-stage">
+      <div class="intro-scope" id="introScope">
+        <svg class="intro-scope-svg" viewBox="0 0 600 760" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#6366f1"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+            <linearGradient id="bodyG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0a0f2e"/><stop offset="0.38" stop-color="#1a2260"/><stop offset="0.7" stop-color="#121848"/><stop offset="1" stop-color="#080c26"/></linearGradient>
+            <linearGradient id="legG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#070a22"/><stop offset="0.5" stop-color="#1a2260"/><stop offset="1" stop-color="#070a22"/></linearGradient>
+            <linearGradient id="rimG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#67e8f9" stop-opacity="0.9"/><stop offset="0.5" stop-color="#818cf8" stop-opacity="0.35"/><stop offset="1" stop-color="#c084fc" stop-opacity="0.85"/></linearGradient>
+            <radialGradient id="barrelShade" cx="50%" cy="50%" r="50%"><stop offset="0.80" stop-color="#05070f" stop-opacity="0"/><stop offset="0.90" stop-color="#0a1030" stop-opacity="0.85"/><stop offset="1" stop-color="#03050d" stop-opacity="0.2"/></radialGradient>
+            <radialGradient id="glass" cx="50%" cy="46%" r="52%"><stop offset="0" stop-color="#6d7dff" stop-opacity="0.09"/><stop offset="0.7" stop-color="#1a2260" stop-opacity="0.2"/><stop offset="1" stop-color="#03050d" stop-opacity="0.6"/></radialGradient>
+            <radialGradient id="depth" cx="50%" cy="50%" r="50%"><stop offset="0.62" stop-color="#000" stop-opacity="0"/><stop offset="0.8" stop-color="#000" stop-opacity="0.42"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+          </defs>
+          <!-- pedestal -->
+          <g class="scope-legs">
+            <ellipse cx="300" cy="752" rx="96" ry="8" fill="#070a22" stroke="url(#rimG)" stroke-width="1.4"/>
+            <path d="M266 690L230 748H370L334 690Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.6"/>
+            <path d="M276 712H324M268 732H332" stroke="url(#ringGrad)" stroke-width="2" stroke-opacity="0.6"/>
+            <rect x="280" y="652" width="40" height="40" rx="6" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
+            <ellipse cx="300" cy="672" rx="9" ry="8" fill="#0e1440" stroke="url(#ringGrad)" stroke-width="1.6"/>
+          </g>
+          <!-- fork: its arms rise beside the tube and hold the trunnions on the collar -->
+          <path d="M162 391V600Q162 654 222 656H378Q438 654 438 600V391H418V598Q418 634 376 636H224Q182 634 182 598V391Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.8" stroke-linejoin="round"/>
+          <!-- rear tube: the wider one, running far back towards the objective, so perspective narrows it -->
+          <path d="M215.4 390.8L263.3 146.7A36.7 29.3 0 0 1 336.7 146.7L384.6 390.8Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M260.7 146.7A39.3 31.5 0 0 1 339.3 146.7" stroke="url(#ringGrad)" stroke-width="4"/>
+          <path d="M260.7 160.0A39.3 31.4 0 0 1 339.3 160.0M258.5 171.3A41.5 33.2 0 0 1 341.5 171.3" stroke="url(#ringGrad)" stroke-width="2" stroke-opacity="0.75"/>
+          <!-- collar: the bolted flange where the tube steps down, with the trunnions -->
+          <ellipse cx="300" cy="374.8" rx="90.4" ry="72.3" fill="#0a0f2e" stroke="url(#rimG)" stroke-width="1.4"/>
+          <ellipse cx="300" cy="390.8" rx="93.8" ry="75.1" fill="url(#bodyG)" stroke="url(#ringGrad)" stroke-width="2.6"/>
+          <g fill="#0e1440" stroke="url(#ringGrad)" stroke-width="1.1"><circle cx="379.5" cy="379.6" r="2.6"/><circle cx="369.9" cy="358.5" r="2.6"/><circle cx="351.9" cy="341.3" r="2.6"/><circle cx="327.6" cy="330.1" r="2.6"/><circle cx="300.0" cy="326.2" r="2.6"/><circle cx="272.4" cy="330.1" r="2.6"/><circle cx="248.1" cy="341.3" r="2.6"/><circle cx="230.1" cy="358.5" r="2.6"/><circle cx="220.5" cy="379.6" r="2.6"/></g>
+          <rect x="176" y="375" width="36" height="32" rx="5" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
+          <rect x="388" y="375" width="36" height="32" rx="5" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
+          <ellipse cx="172" cy="391" rx="10" ry="19" fill="#0e1440" stroke="url(#ringGrad)" stroke-width="2"/>
+          <ellipse cx="428" cy="391" rx="10" ry="19" fill="#0e1440" stroke="url(#ringGrad)" stroke-width="2"/>
+          <!-- front tube: the narrow one, from the collar to the lens -->
+          <path d="M244.6 390.8A55.4 44.3 0 0 1 355.4 390.8L372.0 520.0H228.0Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M232.7 483.4A67.3 53.8 0 0 1 367.3 483.4M235.1 464.5A64.9 51.9 0 0 1 364.9 464.5M237.4 447.0A62.6 50.1 0 0 1 362.6 447.0" stroke="url(#ringGrad)" stroke-width="2.4" stroke-opacity="0.85"/>
+          <rect x="353" y="440" width="18" height="14" rx="4" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.3"/><ellipse cx="372" cy="447" rx="4" ry="9" fill="#0e1440" stroke="url(#ringGrad)" stroke-width="1.5"/>
+          <!-- the near end: a ring around the small lens -->
+          <ellipse cx="300" cy="520" rx="80" ry="64.0" fill="#070a22" stroke="url(#ringGrad)" stroke-width="3"/>
+          <ellipse cx="300" cy="520" rx="74" ry="59.2" stroke="url(#ringGrad)" stroke-width="1.1" stroke-opacity="0.5"/>
+          <ellipse cx="300" cy="520" rx="60" ry="48.0" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.3" stroke-opacity="0.6"/>
+          <!-- the front of the tube: the lens -->
+          <g transform="translate(300 520) scale(0.175 0.14)">
+            <circle r="298" fill="url(#barrelShade)"/>
+            <circle class="intro-ring" r="291" pathLength="1" stroke="url(#ringGrad)" stroke-width="3"/>
+            <circle r="284" stroke="rgba(190,200,255,0.30)" stroke-width="1"/>
+            <g class="intro-ticks"><circle r="272" stroke="rgba(205,214,255,0.55)" stroke-width="14" stroke-dasharray="2.4 11.5"/></g>
+            <circle r="262" stroke="url(#ringGrad)" stroke-width="1.4" stroke-opacity="0.8"/>
+            <circle r="254" fill="url(#depth)"/>
+            <g class="intro-ticks-slow"><circle r="244" stroke="rgba(150,170,255,0.30)" stroke-width="5" stroke-dasharray="1.5 15.5"/></g>
+            <circle r="236" stroke="rgba(190,200,255,0.34)" stroke-width="1.2"/>
+            <circle r="228" fill="url(#glass)" stroke="url(#ringGrad)" stroke-width="2" stroke-opacity="0.9"/>
+            <path d="M-190 -92A212 212 0 0 1 -76 -198" stroke="rgba(255,255,255,0.30)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M-170 -118A208 208 0 0 1 -112 -176" stroke="rgba(180,200,255,0.5)" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M168 120A208 208 0 0 1 96 184" stroke="rgba(192,132,252,0.55)" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M184 92A210 210 0 0 1 148 150" stroke="rgba(34,211,238,0.45)" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="intro-disc" id="introDisc" aria-hidden="true"></div>
+      </div>
+      <div class="intro-cta">
+        <div class="intro-text">
+        <svg class="intro-emblem" viewBox="96 96 832 832" aria-hidden="true">
+        <defs><linearGradient id="emblemGrad" gradientUnits="userSpaceOnUse" x1="150" y1="150" x2="880" y2="880"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#6366f1"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs>
+        <g stroke="url(#emblemGrad)" fill="url(#emblemGrad)">
+          <path d="M 398.51,379.43 A 355,160 -14 0 1 652.50,634.24" fill="none" stroke-width="15" stroke-linecap="round"/>
+          <path d="M 624.34,644.98 A 355,160 -14 0 1 370.40,390.21" fill="none" stroke-width="15" stroke-linecap="round"/>
+          <polyline points="652,286 512,212 368,290 392,430 512,512 632,594 652,736 510,812 368,738" fill="none" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+          <g stroke="none"><circle cx="652" cy="286" r="20"/><circle cx="512" cy="212" r="23"/><circle cx="368" cy="290" r="19"/><circle cx="392" cy="430" r="22"/><circle cx="632" cy="594" r="21"/><circle cx="652" cy="736" r="23"/><circle cx="510" cy="812" r="21"/><circle cx="368" cy="738" r="22"/>
+          <path d="M 512,456 Q 520.9,503.1 568,512 Q 520.9,520.9 512,568 Q 503.1,520.9 456,512 Q 503.1,503.1 512,456 Z"/>
+          <path d="M 612,371 Q 613.3,390.7 633,392 Q 613.3,393.3 612,413 Q 610.7,393.3 591,392 Q 610.7,390.7 612,371 Z"/>
+          <path d="M 410,617 Q 411.1,634.9 429,636 Q 411.1,637.1 410,655 Q 408.9,637.1 391,636 Q 408.9,634.9 410,617 Z"/>
+          <path d="M 222,336 Q 223.8,358.2 246,360 Q 223.8,361.8 222,384 Q 220.2,361.8 198,360 Q 220.2,358.2 222,336 Z"/>
+          <path d="M 800,600 Q 801.4,618.6 820,620 Q 801.4,621.4 800,640 Q 798.6,621.4 780,620 Q 798.6,618.6 800,600 Z"/>
+          <circle cx="298" cy="176" r="7"/><circle cx="734" cy="700" r="7"/><circle cx="406" cy="864" r="6.5"/><circle cx="158" cy="676" r="6.5"/><circle cx="854" cy="240" r="6.5"/><circle cx="466" cy="314" r="5.5"/><circle cx="556" cy="710" r="5.5"/></g>
+        </g>
+      </svg>
+          <h2 class="intro-title"><span class="gradient-text">Sideris</span></h2>
+          <p class="intro-aero">Aerospace</p>
+          <p class="intro-eyebrow">Engineering &middot; 2nd Year</p>
+        </div>
+        <p class="intro-phrase">Ready to ignite?<small>Every star is a sun waiting to be read.</small></p>
+        <button type="button" class="intro-ignite" id="introIgnite" aria-label="Ignite">
+          <span class="ig-ripple" aria-hidden="true"></span><span class="ig-ripple ig-ripple--2" aria-hidden="true"></span>
+          <span class="ig-core" aria-hidden="true"><svg viewBox="-12 -12 24 24"><path d="M0 -11 L2.6 -2.6 L11 0 L2.6 2.6 L0 11 L-2.6 2.6 L-11 0 L-2.6 -2.6Z" fill="currentColor"/></svg></span>
+          <span class="ig-label">Ignite</span>
+        </button>
+        <button type="button" class="intro-skip" id="introSkip">Skip intro</button>
+      </div>
+    </div>
+    <div class="intro-flash" aria-hidden="true"></div>
+  </section>
 
   <div class="app-wrapper">
 
@@ -93,6 +230,12 @@
     <header class="utility-bar">
       <div class="container header-inner">
         <div class="header-actions">
+          <button class="intro-replay sky-only" id="introReplay" type="button" title="Replay the welcome screen" aria-label="Replay the welcome screen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 4.5a8.5 8.5 0 1 1-1 5"/><path d="M3.5 2.5v3h3"/><path d="M12 8l1.2 2.8L16 12l-2.8 1.2L12 16l-1.2-2.8L8 12l2.8-1.2z"/></svg>
+          </button>
+          <button class="sound-toggle sky-only" id="soundToggle" type="button" aria-pressed="false" title="Play the sound of the sky" aria-label="Play the sound of the sky">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path class="waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.6a7.6 7.6 0 0 1 0 10.8"/></svg>
+          </button>
           <select class="sky-palette-select sky-only" id="skyPalette" aria-label="Sky palette" title="Sky palette"></select>
           <button class="view-toggle" id="homeViewToggle" type="button">Classic view</button>
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme (T)">
@@ -124,7 +267,7 @@
     <main>
       <!-- STELLAR VIEW: interactive constellation map (assets/js/constellations.js) -->
       <section class="sky-view" id="skyView" aria-label="Constellation map of the subjects">
-        <h1 class="sky-title"><span class="gradient-text" data-site-name>Sideris</span><small>Aerospace Engineering &middot; 2nd Year</small></h1>
+        <h1 class="sky-title"><span class="sky-title__lockup"><svg class="sky-emblem" width="44" height="44" aria-hidden="true"><use href="#i-sideris"/></svg><span class="gradient-text" data-site-name>Sideris</span></span><small>Aerospace Engineering &middot; 2nd Year</small></h1>
         <button class="sky-back" id="skyBack" type="button" hidden>&larr; All Constellations</button>
         <svg class="sky-svg" id="skySvg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Five subject constellations"></svg>
         <div class="sky-caption" id="skyCaption" aria-live="polite"></div>
@@ -153,6 +296,10 @@
           <use class="hero-star" href="#i-star" x="672" y="18" width="9" height="9"/>
           <use class="hero-star hero-star--late" href="#i-star" x="212" y="30" width="10" height="10"/>
         </svg>
+
+        <div class="hero-brand" aria-hidden="true">
+          <svg class="hero-emblem" width="76" height="76"><use href="#i-sideris"/></svg>
+        </div>
 
         <p class="hero-eyebrow">
           <svg class="eyebrow-star" aria-hidden="true"><use href="#i-star"/></svg>
@@ -233,11 +380,11 @@
             <div class="area-grid">
               <a class="area-link" href="subjects/aerospace-materials-1/teoria/index.html">
                 <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-theory"/></svg><span class="area-name">Theory</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-                <span class="area-badge available">10 of 11 units</span>
+                <span class="area-badge available">11 of 11 units</span>
               </a>
               <a class="area-link" href="subjects/aerospace-materials-1/problemas/index.html">
                 <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-problems"/></svg><span class="area-name">Problems</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-                <span class="area-badge available">101 problems</span>
+                <span class="area-badge available">113 problems</span>
               </a>
               <a class="area-link" href="subjects/aerospace-materials-1/sources/index.html">
                 <span class="area-top"><svg class="area-icon" aria-hidden="true"><use href="#i-pdf"/></svg><span class="area-name">PDFs</span><svg class="area-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
@@ -424,7 +571,10 @@
          ============================================ -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span data-site-name>Sideris</span>
+        <span class="footer-brand">
+          <svg class="footer-emblem" width="18" height="18" aria-hidden="true"><use href="#i-sideris"/></svg>
+          <span data-site-name>Sideris</span>
+        </span>
         <span class="footer-separator" aria-hidden="true"></span>
         <span>2nd Year Aerospace Engineering</span>
         <span class="footer-separator" aria-hidden="true"></span>

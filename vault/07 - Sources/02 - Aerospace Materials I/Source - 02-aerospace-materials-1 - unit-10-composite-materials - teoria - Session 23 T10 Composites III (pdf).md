@@ -19,8 +19,9 @@ bytes: 5028374
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session 23 T10 Composites III.pdf`
 - **Kind:** teoria
 - **Size:** 5.0 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Topic 10 - Composite Materials]]

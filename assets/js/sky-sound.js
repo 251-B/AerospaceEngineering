@@ -1,0 +1,334 @@
+/*!
+ * Home page, stellar view: celestial sound (root index.html only).
+ *
+ * Synthesised with the Web Audio API, no audio files: a slow pad of open chords through a soft low-pass
+ * filter and a generated reverb, random glass-like chimes on a pentatonic scale, a rising "whoosh" for
+ * the ignition and small chimes when the pointer rests on a constellation.
+ *
+ * Browsers only allow sound after a gesture, so the sound starts from the intro's "ignite" button (or from
+ * the first click or key press when the visitor had it on). Storage: key ae_sky_sound ('on' | 'off'),
+ * never a key with "theme" in it, always in try/catch. The speaker button (#soundToggle) mutes and
+ * unmutes; the sound stops while the tab is hidden and while the classic view is shown.
+ *
+ * Three moods: mystery on the welcome screen, a stellar journey when the visitor ignites, then the calm celestial pad.
+ * API: window.AESkySound = { start(), whoosh(), chime(i), setOn(bool), isOn(), supported }
+ */
+(function () {
+  'use strict';
+
+  var KEY = 'ae_sky_sound';
+  var AC = window.AudioContext || window.webkitAudioContext;
+  var supported = !!AC;
+
+  function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function write(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage blocked: keep it in memory */ } }
+
+  var ctx = null, master = null, reverbIn = null, padBus = null, running = false;
+  var chimeTimer = 0, chordTimer = 0, chordIndex = 0, padVoices = [];
+  var wanted = read(KEY) !== 'off';          // the visitor's choice; default on after the first ignite
+  var VOLUME = 0.5;
+  var phase = document.documentElement.getAttribute('data-intro') === 'on' ? 'mystery' : 'celestial';   // the welcome screen is dark and mysterious; the map is celestial
+  var mys = null, gongTimer = 0, pulseTimer = 0, journeyNext = false;
+  var PENTATONIC = [587.33, 659.25, 739.99, 880.0, 987.77, 1174.66, 1318.51];   // D major pentatonic, D5 to E6
+  var CHORDS = [
+    [146.83, 220.0, 329.63, 369.99, 493.88],   // D add9
+    [123.47, 185.0, 293.66, 329.63, 440.0],    // B minor 9
+    [98.0, 146.83, 246.94, 293.66, 440.0],     // G add9
+    [110.0, 164.81, 277.18, 329.63, 493.88]    // A sus
+  ];
+
+  function impulse(seconds, decay) {
+    var rate = ctx.sampleRate, length = Math.floor(rate * seconds), buffer = ctx.createBuffer(2, length, rate);
+    for (var c = 0; c < 2; c++) {
+      var data = buffer.getChannelData(c);
+      for (var i = 0; i < length; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, decay);
+    }
+    return buffer;
+  }
+
+  function build() {
+    if (ctx || !supported) return;
+    ctx = new AC();
+    master = ctx.createGain(); master.gain.value = 0;
+    var comp = ctx.createDynamicsCompressor();
+    master.connect(comp); comp.connect(ctx.destination);
+    var reverb = ctx.createConvolver(); reverb.buffer = impulse(5.5, 2.6);
+    reverbIn = ctx.createGain(); reverbIn.gain.value = 0.9;
+    reverbIn.connect(reverb); reverb.connect(master);
+    padBus = ctx.createGain(); padBus.gain.value = 0;
+    var filter = ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 1100; filter.Q.value = 0.6;
+    padBus.connect(filter); filter.connect(master); filter.connect(reverbIn);
+    // the filter breathes
+    var lfo = ctx.createOscillator(), lfoGain = ctx.createGain();
+    lfo.frequency.value = 0.07; lfoGain.gain.value = 420; lfo.connect(lfoGain); lfoGain.connect(filter.frequency); lfo.start();
+    // the pad: five notes, each two slightly detuned oscillators
+    CHORDS[0].forEach(function (f, i) {
+      var pair = [];
+      ['sine', 'triangle'].forEach(function (type, j) {
+        var osc = ctx.createOscillator(), g = ctx.createGain();
+        osc.type = type; osc.frequency.value = f; osc.detune.value = (j ? 7 : -6) + i;
+        g.gain.value = type === 'sine' ? 0.05 : 0.022;
+        osc.connect(g); g.connect(padBus); osc.start(); pair.push(osc);
+      });
+      padVoices.push(pair);
+    });
+    // a soft open fifth far below the pad: the mystic floor of the sky
+    [[73.42, 0.035], [110.0, 0.022]].forEach(function (n) {
+      var o2 = ctx.createOscillator(), g2 = ctx.createGain();
+      o2.type = 'sine'; o2.frequency.value = n[0]; g2.gain.value = n[1]; o2.connect(g2); g2.connect(padBus); o2.start();
+    });
+  }
+
+  function glideChord() {
+    chordIndex = (chordIndex + 1) % CHORDS.length;
+    var chord = CHORDS[chordIndex], t = ctx.currentTime;
+    padVoices.forEach(function (pair, i) {
+      pair.forEach(function (osc) {
+        osc.frequency.cancelScheduledValues(t);
+        osc.frequency.setValueAtTime(osc.frequency.value, t);
+        osc.frequency.exponentialRampToValueAtTime(chord[i], t + 7);
+      });
+    });
+  }
+
+  function chime(index, quiet) {
+    if (!ctx || !running) return;
+    var f = PENTATONIC[(index === undefined ? Math.floor(Math.random() * PENTATONIC.length) : index) % PENTATONIC.length];
+    var t = ctx.currentTime, pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+    var vol = quiet ? 0.045 : 0.085;
+    [[1, 1], [2.01, 0.28], [3.98, 0.1]].forEach(function (part) {
+      var osc = ctx.createOscillator(), g = ctx.createGain();
+      osc.type = 'sine'; osc.frequency.value = f * part[0];
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol * part[1], t + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + (quiet ? 2.4 : 4.2) / part[0] + 0.6);
+      osc.connect(g);
+      if (pan) { pan.pan.value = Math.random() * 1.6 - 0.8; g.connect(pan); pan.connect(master); pan.connect(reverbIn); }
+      else { g.connect(master); g.connect(reverbIn); }
+      osc.start(t); osc.stop(t + 5);
+    });
+  }
+
+  function scheduleChime() {
+    clearTimeout(chimeTimer);
+    chimeTimer = setTimeout(function () { chime(); scheduleChime(); }, 2200 + Math.random() * 4200);
+  }
+
+  function whoosh() {
+    if (!ctx || !running) return;
+    var t = ctx.currentTime, len = Math.floor(ctx.sampleRate * 3), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+    for (var i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    var src = ctx.createBufferSource(); src.buffer = buf;
+    var band = ctx.createBiquadFilter(); band.type = 'bandpass'; band.Q.value = 1.2;
+    band.frequency.setValueAtTime(180, t); band.frequency.exponentialRampToValueAtTime(5200, t + 1.9);
+    var g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.32, t + 1.4); g.gain.exponentialRampToValueAtTime(0.0001, t + 2.8);
+    src.connect(band); band.connect(g); g.connect(master); g.connect(reverbIn); src.start(t); src.stop(t + 3);
+    var sub = ctx.createOscillator(), sg = ctx.createGain();
+    sub.type = 'sine'; sub.frequency.setValueAtTime(70, t + 1.1); sub.frequency.exponentialRampToValueAtTime(28, t + 2.6);
+    sg.gain.setValueAtTime(0.0001, t + 1.1); sg.gain.exponentialRampToValueAtTime(0.5, t + 1.25); sg.gain.exponentialRampToValueAtTime(0.0001, t + 2.8);
+    sub.connect(sg); sg.connect(master); sub.start(t + 1.1); sub.stop(t + 3);
+    [0, 2, 4].forEach(function (n, k) { setTimeout(function () { chime(n + 2, false); }, 1500 + k * 260); });   // an arpeggio as the sky opens
+  }
+
+  /* The stellar journey, played once when the visitor ignites: a stack of sawtooth voices opening through a rising
+     filter, an arpeggio that speeds up as the stars stretch, and a shimmer on top. It fades while the celestial pad
+     rises, so the three moods (mystery, journey, celestial calm) follow one another without a gap. */
+  function journey() {
+    if (!ctx || !running) return;
+    var t = ctx.currentTime;
+    var bus = ctx.createGain(); bus.gain.setValueAtTime(0.0001, t);
+    bus.gain.exponentialRampToValueAtTime(0.11, t + 1.6); bus.gain.setValueAtTime(0.11, t + 3.2); bus.gain.exponentialRampToValueAtTime(0.0001, t + 8.5);
+    var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.Q.value = 4;
+    lp.frequency.setValueAtTime(160, t); lp.frequency.exponentialRampToValueAtTime(4200, t + 2.4); lp.frequency.exponentialRampToValueAtTime(800, t + 8);
+    bus.connect(lp); lp.connect(master); lp.connect(reverbIn);
+    [73.42, 110.0, 146.83, 185.0, 220.0, 293.66].forEach(function (f, i) {
+      [-9, 8].forEach(function (cents) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'sawtooth'; o.frequency.value = f; o.detune.value = cents + i; g.gain.value = 0.11 / (1 + i * 0.6);
+        o.connect(g); g.connect(bus); o.start(t); o.stop(t + 9);
+      });
+    });
+    // the arpeggio: D major climbing through three octaves, faster and faster
+    var NOTES = [293.66, 369.99, 440.0, 587.33, 739.99, 880.0, 1174.66, 1479.98, 1760.0];
+    var at = t + 0.15;
+    for (var n = 0; n < 30; n++) {
+      var k = n / 29, step = 0.17 - 0.115 * k;
+      (function (when, f, idx) {
+        var o = ctx.createOscillator(), g = ctx.createGain(), pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+        o.type = 'triangle'; o.frequency.value = f;
+        g.gain.setValueAtTime(0.0001, when); g.gain.exponentialRampToValueAtTime(0.06, when + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, when + 0.5);
+        o.connect(g);
+        if (pan) { pan.pan.value = idx % 2 ? 0.55 : -0.55; g.connect(pan); pan.connect(master); pan.connect(reverbIn); } else { g.connect(master); g.connect(reverbIn); }
+        o.start(when); o.stop(when + 0.6);
+      })(at, NOTES[(n + Math.floor(n / 9) * 2) % NOTES.length] * (n > 17 ? 2 : 1), n);
+      at += step;
+    }
+    // shimmer: bright noise climbing
+    var len = Math.floor(ctx.sampleRate * 4), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+    for (var i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    var src = ctx.createBufferSource(); src.buffer = buf;
+    var hp = ctx.createBiquadFilter(); hp.type = 'bandpass'; hp.Q.value = 6;
+    hp.frequency.setValueAtTime(2000, t); hp.frequency.exponentialRampToValueAtTime(9000, t + 3.2);
+    var sg = ctx.createGain(); sg.gain.setValueAtTime(0.0001, t); sg.gain.exponentialRampToValueAtTime(0.05, t + 2); sg.gain.exponentialRampToValueAtTime(0.0001, t + 4);
+    src.connect(hp); hp.connect(sg); sg.connect(reverbIn); sg.connect(master); src.start(t); src.stop(t + 4);
+  }
+
+  function fadeIn() {
+    var t = ctx.currentTime;
+    master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(master.gain.value, t); master.gain.linearRampToValueAtTime(VOLUME, t + 3);
+    if (phase === 'celestial') {
+      var wait = journeyNext ? 3 : 0;
+      padBus.gain.cancelScheduledValues(t); padBus.gain.setValueAtTime(padBus.gain.value, t); padBus.gain.setValueAtTime(padBus.gain.value, t + wait); padBus.gain.linearRampToValueAtTime(1, t + wait + 7);
+    }
+  }
+
+  /* The mystery of the welcome screen: a deep drone that beats slowly, a whisper of filtered noise, a heartbeat far below
+     and the occasional distant bell, all drowned in reverb. It melts into the celestial pad when the visitor ignites. */
+  function startMystery() {
+    var t = ctx.currentTime;
+    if (!mys) {
+      var bus = ctx.createGain(); bus.gain.value = 0;
+      var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 560; lp.Q.value = 2.2;
+      bus.connect(lp); lp.connect(master); lp.connect(reverbIn);
+      var lfo = ctx.createOscillator(), lg = ctx.createGain(); lfo.frequency.value = 0.05; lg.gain.value = 280; lfo.connect(lg); lg.connect(lp.frequency); lfo.start();
+      var nodes = [lfo];
+      [[36.71, 'sine', 0.17], [73.42, 'triangle', 0.09], [77.78, 'sine', 0.06], [110.0, 'sine', 0.035], [116.54, 'triangle', 0.022], [220.0, 'sine', 0.012]].forEach(function (n) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = n[1]; o.frequency.value = n[0]; g.gain.value = n[2]; o.connect(g); g.connect(bus); o.start(); nodes.push(o);
+      });
+      var len = ctx.sampleRate * 4, buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+      for (var i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+      var ns = ctx.createBufferSource(); ns.buffer = buf; ns.loop = true;
+      var bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 1500; bp.Q.value = 9;
+      var ng = ctx.createGain(); ng.gain.value = 0.02;
+      var tr = ctx.createOscillator(), trg = ctx.createGain(); tr.frequency.value = 0.11; trg.gain.value = 0.017; tr.connect(trg); trg.connect(ng.gain);
+      ns.connect(bp); bp.connect(ng); ng.connect(bus); ns.start(); tr.start(); nodes.push(ns, tr);
+      mys = { bus: bus, nodes: nodes };
+    }
+    mys.bus.gain.cancelScheduledValues(t); mys.bus.gain.setValueAtTime(mys.bus.gain.value, t); mys.bus.gain.linearRampToValueAtTime(1, t + 6);
+    scheduleGong(4000); schedulePulse();
+  }
+
+  function gong() {
+    if (!ctx || !running || phase !== 'mystery') return;
+    var f = [146.83, 98.0, 110.0, 123.47][Math.floor(Math.random() * 4)], t = ctx.currentTime;
+    [[1, 0.2], [2.76, 0.1], [5.4, 0.055], [8.93, 0.03]].forEach(function (part) {
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = f * part[0];
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(part[1], t + 0.03); g.gain.exponentialRampToValueAtTime(0.0001, t + 9 / Math.sqrt(part[0]));
+      o.connect(g); g.connect(master); g.connect(reverbIn); o.start(t); o.stop(t + 10);
+    });
+  }
+  function scheduleGong(first) { clearTimeout(gongTimer); gongTimer = setTimeout(function () { gong(); scheduleGong(); }, first || 8000 + Math.random() * 8000); }
+  function pulse() {
+    if (!ctx || !running || phase !== 'mystery') return;
+    var t = ctx.currentTime, o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = 'sine'; o.frequency.setValueAtTime(56, t); o.frequency.exponentialRampToValueAtTime(34, t + 0.5);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.16, t + 0.03); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.8);
+  }
+  function schedulePulse() { clearInterval(pulseTimer); pulseTimer = setInterval(pulse, 2800); }
+
+  function stopMystery(seconds) {
+    clearTimeout(gongTimer); clearInterval(pulseTimer);
+    if (!mys || !ctx) return;
+    var t = ctx.currentTime, dead = mys;
+    dead.bus.gain.cancelScheduledValues(t); dead.bus.gain.setValueAtTime(dead.bus.gain.value, t); dead.bus.gain.linearRampToValueAtTime(0, t + seconds);
+    mys = null;
+    setTimeout(function () { dead.nodes.forEach(function (n) { try { n.stop(); } catch (e) { /* already stopped */ } }); try { dead.bus.disconnect(); } catch (e) { /* already gone */ } }, seconds * 1000 + 500);
+  }
+
+  function fadeOut(done) {
+    if (!ctx) return;
+    var t = ctx.currentTime;
+    master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(master.gain.value, t); master.gain.linearRampToValueAtTime(0, t + 0.7);
+    setTimeout(function () { if (!running && ctx && ctx.state === 'running') ctx.suspend(); if (done) done(); }, 800);
+  }
+
+  function engage() {
+    if (!supported) return false;
+    build();
+    running = true;
+    var go = function () {
+      fadeIn();
+      if (phase === 'mystery') { startMystery(); return; }
+      if (journeyNext) { journey(); journeyNext = false; clearTimeout(chimeTimer); chimeTimer = setTimeout(function () { chime(); scheduleChime(); }, 5000); }
+      else scheduleChime();
+      clearInterval(chordTimer); chordTimer = setInterval(glideChord, 21000);
+    };
+    if (ctx.state === 'suspended') ctx.resume().then(go); else go();
+    return true;
+  }
+
+  function disengage() {
+    running = false; clearTimeout(chimeTimer); clearInterval(chordTimer); clearTimeout(gongTimer); clearInterval(pulseTimer);
+    fadeOut();
+  }
+
+  var toggle = null, introToggle = null;
+  function renderToggle() {
+    [toggle, introToggle].forEach(function (b) {
+      if (!b) return;
+      var on = running;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.title = on ? 'Mute the sound' : 'Play the sound of the sky';
+      b.setAttribute('aria-label', b.title);
+      b.classList.toggle('is-on', on);
+    });
+  }
+
+  function setOn(on) {
+    wanted = !!on;
+    write(KEY, wanted ? 'on' : 'off');
+    if (wanted) engage(); else disengage();
+    renderToggle();
+  }
+
+  // the welcome screen's first gesture (or an allowed autoplay): the mystery begins
+  function begin(auto) {
+    if (!supported || read(KEY) === 'off') return false;
+    phase = 'mystery'; build();
+    if (auto) { ctx.resume().catch(function () { /* needs a gesture */ }); setTimeout(function () { if (ctx.state === 'running' && !running) { engage(); renderToggle(); } }, 350); return false; }
+    var ok = engage(); renderToggle(); return ok;
+  }
+
+  // the ignite button: the mystery melts into the celestial sky
+  function start() {
+    if (read(KEY) === 'off') { wanted = false; renderToggle(); return false; }
+    wanted = true; write(KEY, 'on');
+    phase = 'celestial'; journeyNext = true;
+    stopMystery(2.2);
+    var ok = engage(); renderToggle(); return ok;
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (!ctx) return;
+    if (document.hidden) { if (ctx.state === 'running') ctx.suspend(); }
+    else if (running && ctx.state === 'suspended') ctx.resume();
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    toggle = document.getElementById('soundToggle');
+    introToggle = document.getElementById('introSound');
+    if (introToggle) { if (!supported) introToggle.hidden = true; introToggle.addEventListener('click', function () { if (!running && phase !== 'mystery' && document.documentElement.getAttribute('data-intro') === 'on') phase = 'mystery'; setOn(!running); }); renderToggle(); }
+    if (toggle) {
+      if (!supported) toggle.hidden = true;
+      toggle.addEventListener('click', function () { setOn(!running); });
+      renderToggle();
+    }
+    // sound already chosen "on" but the intro was skipped: start at the first gesture
+    if (supported && wanted && read(KEY) === 'on' && document.documentElement.getAttribute('data-intro') !== 'on') {
+      var arm = function () { document.removeEventListener('pointerdown', arm, true); document.removeEventListener('keydown', arm, true); if (!running) { engage(); renderToggle(); } };
+      document.addEventListener('pointerdown', arm, true); document.addEventListener('keydown', arm, true);
+    }
+  });
+
+  // the classic view is quiet
+  document.addEventListener('ae-home-view', function (event) {
+    if (event.detail && event.detail.view === 'classic') { if (running) { disengage(); renderToggle(); } }
+    else if (wanted && read(KEY) === 'on' && ctx) { engage(); renderToggle(); }
+  });
+
+  window.AESkySound = { begin: begin, start: start, whoosh: whoosh, chime: chime, setOn: setOn, isOn: function () { return running; }, supported: supported };
+})();

@@ -802,6 +802,26 @@
    "label": "Problems T9_Polymers.pdf",
    "pages": 2
   },
+  "mat-s21": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session 21 T10 Composites I.pdf",
+   "label": "Session 21 T10 Composites I.pdf",
+   "pages": 43
+  },
+  "mat-s22": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session 22 T10 Composites II.pdf",
+   "label": "Session 22 T10 Composites II.pdf",
+   "pages": 29
+  },
+  "mat-s23": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session 23 T10 Composites III.pdf",
+   "label": "Session 23 T10 Composites III.pdf",
+   "pages": 65
+  },
+  "mat-t10": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems T10_CompositeMaterials.pdf",
+   "label": "Problems T10_CompositeMaterials.pdf",
+   "pages": 4
+  },
   "mat-s24": {
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session 24 T11 Adhesives.pdf",
    "label": "Session 24 T11 Adhesives.pdf",
@@ -3468,6 +3488,109 @@
     "prob-9": [
      "mat-t9",
      2
+    ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-10-composites.html": {
+   "panel": [
+    [
+     "mat-s21",
+     1
+    ],
+    [
+     "mat-s22",
+     1
+    ],
+    [
+     "mat-s23",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": [
+     [
+      "mat-s21",
+      0
+     ],
+     [
+      "mat-s22",
+      "id=\"section-17\""
+     ],
+     [
+      "mat-s23",
+      "id=\"section-28\""
+     ]
+    ],
+    "sessions": {
+     "21": "mat-s21",
+     "22": "mat-s22",
+     "23": "mat-s23"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-10-composites.html": {
+   "panel": [
+    [
+     "mat-t10",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s21",
+    "sessions": {
+     "21": "mat-s21",
+     "22": "mat-s22",
+     "23": "mat-s23"
+    }
+   },
+   "cards": {
+    "prob-1": [
+     "mat-t10",
+     1
+    ],
+    "prob-2": [
+     "mat-t10",
+     1
+    ],
+    "prob-3": [
+     "mat-t10",
+     1
+    ],
+    "prob-4": [
+     "mat-t10",
+     2
+    ],
+    "prob-5": [
+     "mat-t10",
+     2
+    ],
+    "prob-6": [
+     "mat-t10",
+     2
+    ],
+    "prob-7": [
+     "mat-t10",
+     3
+    ],
+    "prob-8": [
+     "mat-t10",
+     3
+    ],
+    "prob-9": [
+     "mat-t10",
+     3
+    ],
+    "prob-10": [
+     "mat-t10",
+     3
+    ],
+    "prob-11": [
+     "mat-t10",
+     4
+    ],
+    "prob-12": [
+     "mat-t10",
+     4
     ]
    }
   },

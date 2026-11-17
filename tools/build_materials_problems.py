@@ -82,6 +82,13 @@ TOPICS = {
         "title": "Topic 9: Solved Problems (Polymers) — Aerospace Materials I",
         "scope_of": "of the official sheet on polymers (Problems T9_Polymers: degree of polymerization, crystallinity from the density, number and weight average molecular weights, and the effect of structure, crystallinity and temperature on the melting temperature, the stiffness and the strength, from Sessions 19 and 20). The sheet prints a numeric key for the numerical items, so each solution is derived here and compared with that key.",
     },
+    10: {
+        "code": "T10", "figures": "materials_t10", "total": 12,
+        "page": "subjects/aerospace-materials-1/problemas/topic-10-composites.html",
+        "sheet": "Problems T10_CompositeMaterials.pdf",
+        "title": "Topic 10: Solved Problems (Composite Materials) — Aerospace Materials I",
+        "scope_of": "of the official sheet on composite materials (Problems T10_CompositeMaterials: weight and volume fractions, density, longitudinal and transverse moduli by the rule of mixtures, load carried by the fibres, specific modulus and strength, fibre selection and the density of an infiltrated porous matrix, from Sessions 21 to 23). The sheet prints a numeric key for the items, so each solution is derived here and compared with that key.",
+    },
 }
 
 

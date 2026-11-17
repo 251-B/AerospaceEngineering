@@ -15,12 +15,68 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-telescope-welcome",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "The welcome screen is now a telescope you fly into",
+    "text": "A telescope on its stand greets you. Press Ignite and the camera dives into its lens, with music that turns from mystery to a stellar journey and then a calm sky.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-18-sideris-intro",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "A welcome screen and the sound of the sky",
+    "text": "The home page opens on a telescope view of the night sky. Press Ignite to fly into the constellations, with celestial sound you can mute from the speaker button.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-17-materials-formula-sheet",
     "date": "2026-11-17",
     "tag": "Aerospace Materials I",
     "title": "Formula sheet for Units 4 to 7",
     "text": "A new formula sheet covers phase diagrams, mechanical, electrical, magnetic and thermal properties, with linear interpolation, the 0.2 % offset, solving steps and exam traps.",
     "link": "subjects/aerospace-materials-1/formula-sheet/index.html"
+  },
+  {
+    "id": "2026-11-17-constellation-labels",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "Open a constellation and every star is labelled",
+    "text": "Each star of an open constellation now points to a small badge with its icon, name and count, so you can see at once which star is Theory, Problems or PDFs.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-17-sideris-emblem",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "New Sideris constellation favicon and gold emblem",
+    "text": "The browser tab now shows the subject-gradient constellation icon, while the gold orbital emblem marks the portal, Focus Lab, study timer and PDF library.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-17-materials-topics-8-11-review",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topics 8-11: corrections and phone layout",
+    "text": "Small corrections after checking Topics 8 to 11 against the slides and the solutions, and section titles that now wrap on phones instead of running off the screen.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-9-polymers.html"
+  },
+  {
+    "id": "2026-11-17-living-sky",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "The star map now has a life of its own",
+    "text": "Stars twinkle, the constellations drift, small lights run along their lines and shooting stars cross the sky. Everything calms down if your device asks for reduced motion.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-17-materials-topic-10",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Composite materials: theory and 12 solved problems",
+    "text": "Topic 10 of Aerospace Materials I: fibres, matrices, laminates, the rule of mixtures and how composites are made, with the 12 problems of the sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-10-composites.html"
   },
   {
     "id": "2026-11-17-materials-topic-9",

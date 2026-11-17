@@ -210,6 +210,20 @@
     "label": "9 solved problems for this topic (Problems T9_Polymers)"
    }
   },
+  "subjects/aerospace-materials-1/teoria/topic-10-composites.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 10 - Composite Materials.md",
+   "figures": "materials_t10",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 10: Composite Materials — Aerospace Materials I",
+   "category": "Topic 10 · Composite Materials",
+   "title": "Composite Materials",
+   "subtitle": "Matrices, reinforcements and interfaces, particle, fibre and structural composites, the rule of mixtures (isostrain and isostress), polymer matrices and the processing of polymer, metal and ceramic matrix composites.",
+   "source": "Universidad Carlos III de Madrid · Session 21 T10 Composites I.pdf, Session 22 T10 Composites II.pdf, Session 23 T10 Composites III.pdf",
+   "problems": {
+    "href": "../problemas/topic-10-composites.html",
+    "label": "12 solved problems for this topic (Problems T10_CompositeMaterials)"
+   }
+  },
   "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html": {
    "note": "vault/02 - Aerospace Materials I/Topic 11 - Adhesives.md",
    "figures": "materials_t11",

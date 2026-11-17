@@ -156,6 +156,10 @@ window.AE_NAV = {
               "label": "9 · Polymers"
             },
             {
+              "href": "subjects/aerospace-materials-1/teoria/topic-10-composites.html",
+              "label": "10 · Composite materials"
+            },
+            {
               "href": "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html",
               "label": "11 · Adhesives"
             }
@@ -166,6 +170,10 @@ window.AE_NAV = {
           "label": "Problems",
           "href": "subjects/aerospace-materials-1/problemas/index.html",
           "pages": [
+            {
+              "href": "subjects/aerospace-materials-1/problemas/topic-10-composites.html",
+              "label": "10 · Composite materials"
+            },
             {
               "href": "subjects/aerospace-materials-1/problemas/topic-9-polymers.html",
               "label": "9 · Polymers"

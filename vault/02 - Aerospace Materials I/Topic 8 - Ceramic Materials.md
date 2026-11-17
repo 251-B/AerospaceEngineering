@@ -154,7 +154,7 @@ The anti-fluorite structure exchanges the roles of the ions: the O²⁻ anions s
 ![[attachments/T8/s16-anti-fluorite-structure.png]]
 
 > [!note] Printed ions on Slide 11
-> The slide writes "Li²⁺: all tetrahedral interstitials" and "O⁻²⁻"; the ions are Li⁺ and O²⁻, as its own line "8 Li⁺ and 4 O²⁻ per unit cell" and the charge balance of Li₂O require. The radius ratio printed on the slide, $r_{Ca^{2+}}/r_{F^-} = 0.752 \Rightarrow$ C.I. = 8, is the one of fluorite copied from Slide 10; in Li₂O the cation is tetrahedral (C.I. = 4) and the coordination 8 belongs to the anion. Mg₂Si, listed among the "oxides", is a silicide with the same anti-fluorite arrangement.
+> The slide writes "Li²⁺: all tetrahedral interstitials" and "O⁻²⁻"; the ions are Li⁺ and O²⁻, as its own line "8 Li⁺ and 4 O⁻²⁻ per unit cell" gives for the cation, and as the charge balance of Li₂O requires for the anion. The radius ratio printed on the slide, $r_{Ca^{2+}}/r_{F^-} = 0.752 \Rightarrow$ C.I. = 8, is the one of fluorite copied from Slide 10; in Li₂O the cation is tetrahedral (C.I. = 4) and the coordination 8 belongs to the anion. Mg₂Si, listed among the "oxides", is a silicide with the same anti-fluorite arrangement.
 
 ## 7. Perovskite, ABO₃ [Session 16 Slide 12]
 
@@ -463,7 +463,7 @@ The conductivity of a glass is ionic: the modifier cations (Na⁺, K⁺) sit loo
 ![[attachments/T8/s16-thermal-shock-resistance-table.png]]
 
 > [!note] Printed exponents on Slide 31
-> In the table the first two expansion coefficients are printed as $10^{5}$ and $3\times10^{4}$, without the minus sign of the exponent; they are $10^{-5}$ and $3\times10^{-6}$ °C⁻¹ (the others are printed with $10^{-6}$, and a positive exponent is not a physical expansion coefficient). The slide writes the conductivity unit as Ωcm⁻¹; the unit of conductivity is (Ω·cm)⁻¹.
+> In the scanned table the exponents of the first two expansion coefficients are hard to read (they look like $10^{5}$ and $3\times10^{4}$, with no minus sign; this is a reading of the scan); they are $10^{-5}$ and $3\times10^{-6}$ °C⁻¹ (the others are printed with $10^{-6}$, and a positive exponent is not a physical expansion coefficient). The slide writes the conductivity unit as Ωcm⁻¹; the unit of conductivity is (Ω·cm)⁻¹.
 
 The table follows the thermal stress of Section 15: the temperature jump a glass survives grows as $\alpha$ falls, from 80 °C for soda-lime glass to 1600 °C for fused silica, whose $\alpha$ is twenty times smaller.
 

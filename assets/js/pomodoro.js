@@ -548,14 +548,22 @@
 
     // header
     var head = el('header', 'pm-head');
+    var brand = el('div', 'pm-head__brand');
+    if (window.AESite && typeof window.AESite.mark === 'function') {
+      var seal = el('span', 'pm-brand-seal');
+      seal.setAttribute('aria-hidden', 'true');
+      seal.appendChild(window.AESite.mark(24));
+      brand.appendChild(seal);
+    }
     var titles = el('div');
     titles.appendChild(el('p', 'pm-kicker', 'Pomodoro · session planner'));
     var title = el('h2', 'pm-title', 'Study timer');
     title.id = 'pomodoroTitle';
     titles.appendChild(title);
+    brand.appendChild(titles);
     var close = button('pm-icon-btn', '', 'Close study timer');
     close.appendChild(svgIcon(ICONS.close, 18));
-    head.appendChild(titles);
+    head.appendChild(brand);
     head.appendChild(close);
 
     // timer: ring + readout
