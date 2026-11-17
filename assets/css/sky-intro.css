@@ -213,3 +213,52 @@ html[data-intro="on"] .sky-intro {
 @media (max-width: 700px) { .intro-lens, .intro-text, .intro-flash { top: 36%; } .intro-emblem { width: clamp(84px, 24vw, 130px); height: clamp(84px, 24vw, 130px); } }
 @media (max-height: 520px) { .intro-lens, .intro-text, .intro-flash { top: 36%; } .intro-emblem { width: 46px; height: 46px; } }
 @media (max-width: 700px) { .intro-eyebrow { display: none; } }
+
+/* ====================================================================================================
+   Third pass: a telescope seen from the front (the lens is the end of the tube), one gradient for the logo, the
+   letters, the rings and the button, and a layout measured in lens units so nothing overlaps
+   ==================================================================================================== */
+.sky-intro { --L: min(62vmin, 520px); }
+.intro-lens { width: var(--L); top: 38%; }
+.intro-flash { top: 38%; }
+.intro-text { top: 38%; width: calc(var(--L) * 0.72); gap: 0; }
+.intro-emblem { width: calc(var(--L) * 0.25); height: calc(var(--L) * 0.25); margin: 0 0 calc(var(--L) * 0.035); color: inherit;
+  filter: drop-shadow(0 0 14px rgba(99, 102, 241, 0.55));
+  animation: emblem-in 2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s backwards, emblem-glow2 6s ease-in-out 2.4s infinite alternate; }
+@keyframes emblem-glow2 { from { filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.35)); } to { filter: drop-shadow(0 0 26px rgba(192, 132, 252, 0.7)); } }
+.sky-intro.is-igniting .intro-emblem { transform: scale(1.3); filter: drop-shadow(0 0 60px rgba(210, 220, 255, 0.95)); animation: none; }
+.intro-title { font-size: calc(var(--L) * 0.165); line-height: 1.04; margin: 0; }
+.intro-aero { font-size: calc(var(--L) * 0.034); margin: calc(var(--L) * 0.016) 0 0; letter-spacing: 0.6em; text-indent: 0.6em; color: #e6eaff; }
+.intro-eyebrow { font-size: calc(var(--L) * 0.0225); margin: calc(var(--L) * 0.018) 0 0; letter-spacing: 0.26em; color: #b9c4ff; }
+
+/* the cool palette of the logo and the letters, on the button too */
+.ig-core { color: #e8ecff;
+  background: radial-gradient(circle at 50% 38%, rgba(20, 24, 70, 0.92), rgba(6, 8, 24, 0.95)) padding-box, linear-gradient(135deg, #22d3ee, #6366f1 55%, #c084fc) border-box;
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.5), inset 0 0 18px rgba(99, 102, 241, 0.3); }
+.ig-core svg { filter: drop-shadow(0 0 6px #818cf8); }
+.ig-ripple { border-color: rgba(129, 140, 248, 0.6); }
+.ig-label { color: #d6dcff; }
+.intro-ignite:hover .ig-core { box-shadow: 0 0 52px rgba(129, 140, 248, 0.8), inset 0 0 22px rgba(129, 140, 248, 0.45); }
+.intro-sound { color: #d6dcff; border-color: rgba(129, 140, 248, 0.5); }
+.intro-sound:hover { box-shadow: 0 0 18px rgba(129, 140, 248, 0.6); border-color: #a5b4fc; }
+.intro-flash { background: radial-gradient(circle, rgba(255, 255, 255, 0.97) 0%, rgba(160, 190, 255, 0.6) 18%, rgba(120, 90, 255, 0.2) 42%, transparent 66%); }
+.intro-skip { color: #c9d1ff; }
+.intro-milkyway { background: linear-gradient(90deg, transparent 30%, rgba(99, 102, 241, 0.06) 42%, rgba(192, 132, 252, 0.08) 50%, rgba(34, 211, 238, 0.05) 58%, transparent 70%); }
+html[data-intro="on"] .sky-intro { background:
+    radial-gradient(ellipse 54% 46% at 50% 38%, rgba(60, 70, 190, 0.16), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 12% 92%, rgba(110, 40, 140, 0.2), transparent 70%),
+    radial-gradient(ellipse 60% 60% at 92% 10%, rgba(20, 110, 150, 0.2), transparent 70%),
+    #03050d; }
+
+@media (max-width: 700px) {
+  .sky-intro { --L: min(84vw, 56vh); }
+  .intro-lens, .intro-text, .intro-flash { top: 36%; }
+  .intro-eyebrow { display: none; }
+}
+@media (max-height: 520px) {
+  .sky-intro { --L: 62vh; }
+  .intro-lens, .intro-text, .intro-flash { top: 38%; }
+  .intro-emblem { width: calc(var(--L) * 0.22); height: calc(var(--L) * 0.22); margin-bottom: calc(var(--L) * 0.02); }
+  .intro-eyebrow { display: none; }
+}
+@media (max-height: 520px) { .sky-intro { --L: 56vh; } .intro-lens, .intro-text, .intro-flash { top: 36%; } }

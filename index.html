@@ -17,12 +17,12 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/celestial-sky.css">
   <link rel="stylesheet" href="assets/css/hub.css">
-  <link rel="stylesheet" href="assets/css/constellations.css?v=20261120d">
-  <link rel="stylesheet" href="assets/css/sky-intro.css?v=20261120d">
+  <link rel="stylesheet" href="assets/css/constellations.css?v=20261121c">
+  <link rel="stylesheet" href="assets/css/sky-intro.css?v=20261121c">
   <script src="assets/js/theme.js"></script>
-  <script src="assets/js/constellations.js?v=20261120d"></script>
-  <script defer src="assets/js/sky-sound.js?v=20261120d"></script>
-  <script defer src="assets/js/sky-intro.js?v=20261120d"></script>
+  <script src="assets/js/constellations.js?v=20261121c"></script>
+  <script defer src="assets/js/sky-sound.js?v=20261121c"></script>
+  <script defer src="assets/js/sky-intro.js?v=20261121c"></script>
 
 </head>
 <body>
@@ -116,39 +116,46 @@
     <button type="button" class="intro-sound" id="introSound" aria-pressed="false" title="Sound" aria-label="Sound">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path class="waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.6a7.6 7.6 0 0 1 0 10.8"/></svg>
     </button>
-    <div class="intro-telescope" aria-hidden="true">
-      <svg viewBox="0 0 430 390" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <g transform="rotate(-34 190 190)">
-          <rect x="62" y="158" width="250" height="64" rx="10" fill="rgba(255,255,255,0.04)"/>
-          <rect x="300" y="150" width="34" height="80" rx="8" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="334" cy="190" rx="9" ry="38" stroke="rgba(225,193,112,0.95)"/>
-          <path d="M70 158v-14h30v14M70 222v14h30v-14"/>
-          <rect x="22" y="172" width="42" height="36" rx="6"/>
-          <rect x="4" y="180" width="20" height="20" rx="4"/>
-          <path d="M120 158v64M230 158v64" stroke="rgba(225,193,112,0.4)"/>
-        </g>
-        <path d="M168 232L108 380M168 232L168 384M168 232L232 380"/>
-        <circle cx="168" cy="232" r="9" fill="rgba(225,193,112,0.2)"/>
-        <path d="M130 322h76" stroke="rgba(225,193,112,0.4)"/>
-      </svg>
-    </div>
     <div class="intro-lens" aria-hidden="true">
       <svg viewBox="-300 -300 600 600" fill="none">
         <defs>
-          <radialGradient id="lensGlow"><stop offset="0.78" stop-color="#E1C170" stop-opacity="0"/><stop offset="0.96" stop-color="#E1C170" stop-opacity="0.20"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
-          <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3c9"/><stop offset="0.5" stop-color="#E1C170"/><stop offset="1" stop-color="#a87a2c"/></linearGradient>
+          <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#6366f1"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+          <radialGradient id="barrelShade" cx="50%" cy="50%" r="50%"><stop offset="0.80" stop-color="#05070f" stop-opacity="0"/><stop offset="0.90" stop-color="#0a1030" stop-opacity="0.85"/><stop offset="1" stop-color="#03050d" stop-opacity="0.2"/></radialGradient>
+          <radialGradient id="glass" cx="50%" cy="46%" r="52%"><stop offset="0" stop-color="#6d7dff" stop-opacity="0.07"/><stop offset="0.7" stop-color="#1a2260" stop-opacity="0.16"/><stop offset="1" stop-color="#03050d" stop-opacity="0.55"/></radialGradient>
+          <radialGradient id="depth" cx="50%" cy="50%" r="50%"><stop offset="0.62" stop-color="#000" stop-opacity="0"/><stop offset="0.8" stop-color="#000" stop-opacity="0.42"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
         </defs>
-        <circle r="298" fill="url(#lensGlow)"/>
-        <circle class="intro-ring" r="290" pathLength="1" stroke="url(#ringGrad)" stroke-width="2.6"/>
-        <circle r="262" stroke="rgba(225,193,112,0.32)" stroke-width="1"/>
-        <g class="intro-ticks"><circle r="276" stroke="rgba(246,231,180,0.6)" stroke-width="12" stroke-dasharray="2 22.08"/></g>
-        <g class="intro-ticks-slow"><circle r="246" stroke="rgba(225,193,112,0.38)" stroke-width="5" stroke-dasharray="1.5 15.5"/></g>
-        <path d="M-292 0H-236M236 0H292M0 -292V-236M0 236V292" stroke="rgba(246,231,180,0.6)" stroke-width="1.4"/>
-        <circle cx="0" cy="-262" r="3.4" fill="#fff3c9"/><circle cx="262" cy="0" r="2.4" fill="#E1C170"/><circle cx="-262" cy="0" r="2.4" fill="#E1C170"/><circle cx="0" cy="262" r="2.4" fill="#fff3c9"/>
+        <circle r="298" fill="url(#barrelShade)"/>
+        <circle class="intro-ring" r="291" pathLength="1" stroke="url(#ringGrad)" stroke-width="3"/>
+        <circle r="284" stroke="rgba(190,200,255,0.30)" stroke-width="1"/>
+        <g class="intro-ticks"><circle r="272" stroke="rgba(205,214,255,0.55)" stroke-width="14" stroke-dasharray="2.4 11.5"/></g>
+        <circle r="262" stroke="url(#ringGrad)" stroke-width="1.4" stroke-opacity="0.8"/>
+        <circle r="254" fill="url(#depth)"/>
+        <g class="intro-ticks-slow"><circle r="244" stroke="rgba(150,170,255,0.30)" stroke-width="5" stroke-dasharray="1.5 15.5"/></g>
+        <circle r="236" stroke="rgba(190,200,255,0.34)" stroke-width="1.2"/>
+        <circle r="228" fill="url(#glass)" stroke="url(#ringGrad)" stroke-width="2" stroke-opacity="0.9"/>
+        <path d="M-190 -92A212 212 0 0 1 -76 -198" stroke="rgba(255,255,255,0.30)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M-170 -118A208 208 0 0 1 -112 -176" stroke="rgba(180,200,255,0.5)" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M168 120A208 208 0 0 1 96 184" stroke="rgba(192,132,252,0.55)" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M184 92A210 210 0 0 1 148 150" stroke="rgba(34,211,238,0.45)" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="0" cy="-262" r="3.2" fill="#e8ecff"/><circle cx="262" cy="0" r="2.4" fill="#67e8f9"/><circle cx="-262" cy="0" r="2.4" fill="#c4b5fd"/><circle cx="0" cy="262" r="2.4" fill="#e8ecff"/>
       </svg>
     </div>
     <div class="intro-text">
-      <svg class="intro-emblem" aria-hidden="true"><use href="#i-sideris"/></svg>
+      <svg class="intro-emblem" viewBox="96 96 832 832" aria-hidden="true">
+        <defs><linearGradient id="emblemGrad" gradientUnits="userSpaceOnUse" x1="150" y1="150" x2="880" y2="880"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#6366f1"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs>
+        <g stroke="url(#emblemGrad)" fill="url(#emblemGrad)">
+          <path d="M 398.51,379.43 A 355,160 -14 0 1 652.50,634.24" fill="none" stroke-width="15" stroke-linecap="round"/>
+          <path d="M 624.34,644.98 A 355,160 -14 0 1 370.40,390.21" fill="none" stroke-width="15" stroke-linecap="round"/>
+          <polyline points="652,286 512,212 368,290 392,430 512,512 632,594 652,736 510,812 368,738" fill="none" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+          <g stroke="none"><circle cx="652" cy="286" r="20"/><circle cx="512" cy="212" r="23"/><circle cx="368" cy="290" r="19"/><circle cx="392" cy="430" r="22"/><circle cx="632" cy="594" r="21"/><circle cx="652" cy="736" r="23"/><circle cx="510" cy="812" r="21"/><circle cx="368" cy="738" r="22"/>
+          <path d="M 512,456 Q 520.9,503.1 568,512 Q 520.9,520.9 512,568 Q 503.1,520.9 456,512 Q 503.1,503.1 512,456 Z"/>
+          <path d="M 612,371 Q 613.3,390.7 633,392 Q 613.3,393.3 612,413 Q 610.7,393.3 591,392 Q 610.7,390.7 612,371 Z"/>
+          <path d="M 410,617 Q 411.1,634.9 429,636 Q 411.1,637.1 410,655 Q 408.9,637.1 391,636 Q 408.9,634.9 410,617 Z"/>
+          <path d="M 222,336 Q 223.8,358.2 246,360 Q 223.8,361.8 222,384 Q 220.2,361.8 198,360 Q 220.2,358.2 222,336 Z"/>
+          <path d="M 800,600 Q 801.4,618.6 820,620 Q 801.4,621.4 800,640 Q 798.6,621.4 780,620 Q 798.6,618.6 800,600 Z"/>
+          <circle cx="298" cy="176" r="7"/><circle cx="734" cy="700" r="7"/><circle cx="406" cy="864" r="6.5"/><circle cx="158" cy="676" r="6.5"/><circle cx="854" cy="240" r="6.5"/><circle cx="466" cy="314" r="5.5"/><circle cx="556" cy="710" r="5.5"/></g>
+        </g>
+      </svg>
       <h2 class="intro-title"><span class="gradient-text">Sideris</span></h2>
       <p class="intro-aero">Aerospace</p>
       <p class="intro-eyebrow">Engineering &middot; 2nd Year</p>

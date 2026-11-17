@@ -45,3 +45,7 @@ The welcome screen does not show again in the same tab (`ae_intro`) nor when the
 ### Welcome screen, second pass
 
 The lens is gold (`#E1C170`, the colour of the emblem) and carries the emblem (`#i-sideris`), "Sideris", "Aerospace" and "Engineering · 2nd Year"; it is built in stages on load (ring drawn, emblem rises, title wiped in, then the phrase and the button). The button is a round gold ring with a rippling star and the label "Ignite". Stars follow the pointer a little and a shooting star crosses now and then. Sound: a dark, mysterious drone with a whisper, a distant heartbeat and bells starts at the first click, key press or touch (or at once when the browser allows it); pressing Ignite melts it into the celestial sound. The speaker button of the welcome screen (`#introSound`) mutes both. Enter or Space ignites.
+
+### Welcome screen, third pass
+
+The lens is now the front of a telescope: concentric rings (barrel, knurled focus ring, inner rings) round a curved piece of glass with soft reflections, and the name sits on the glass as if it were the end of the tube. The logo (an inline copy of the emblem, `#emblemGrad`), the letters, the rings and the Ignite button share one gradient (cyan, indigo, violet). Every size is a multiple of the lens diameter (`--L`), so the logo, the name and the lines never overlap; the old side view of the telescope is gone.
