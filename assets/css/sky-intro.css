@@ -100,23 +100,28 @@ html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
 .intro-sound.is-on .waves { opacity: 1; animation: waves-pulse 3.2s ease-in-out infinite; }
 
 /* ignition: the camera rushes into the lens, the text lets go, a flash, then the sky opens */
-.sky-intro.is-igniting .intro-scope { animation: scope-dive 1.9s cubic-bezier(0.55, 0, 0.8, 0.45) forwards; }
-/* through the telescope: it swings to face you, then the view turns as the camera goes in through the lens */
+.sky-intro.is-igniting .intro-scope { animation: scope-dive 2s linear forwards; }
+/* into the telescope: a short breath back, then the camera glides straight into the lens, faster and faster,
+   while the glass lights up from inside; the light becomes the flash and the warp carries on beyond it */
 @keyframes scope-dive {
-  0% { transform: perspective(1100px) rotateX(0deg) rotate(0deg) scale(1); opacity: 1; }
-  32% { transform: perspective(1100px) rotateX(18deg) rotate(-14deg) scale(1.9); opacity: 1; }
-  72% { opacity: 1; }
-  100% { transform: perspective(1100px) rotateX(0deg) rotate(-165deg) scale(26); opacity: 0; }
+  0% { transform: scale(1); opacity: 1; animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1); }
+  14% { transform: scale(0.96); opacity: 1; animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.6); }
+  62% { transform: scale(4.2); opacity: 1; animation-timing-function: cubic-bezier(0.6, 0, 1, 0.7); }
+  88% { transform: scale(18); opacity: 1; }
+  100% { transform: scale(34); opacity: 0; }
 }
-.sky-intro.is-igniting .intro-milkyway { transform: rotate(40deg) scale(1.3); transition: transform 2.2s cubic-bezier(0.6, 0, 0.8, 0.4); animation: none; }
+.sky-intro.is-igniting .intro-scope-svg { filter: drop-shadow(0 0 34px rgba(129, 140, 248, 0.6)); transition: filter 1s ease; }
+.sky-intro.is-igniting .intro-flash { animation: lens-glow 1.15s cubic-bezier(0.5, 0, 0.9, 0.6) forwards; }
+@keyframes lens-glow { from { opacity: 0; transform: scale(0.02); } to { opacity: 0.85; transform: scale(0.3); } }
+.sky-intro.is-igniting .intro-milkyway { transform: rotate(-24deg) scale(1.18); transition: transform 2.2s cubic-bezier(0.6, 0, 0.8, 0.4); animation: none; }
 .sky-intro.is-igniting .intro-emblem { transform: scale(1.3); filter: drop-shadow(0 0 60px rgba(210, 220, 255, 0.95)); animation: none; }
 .sky-intro.is-igniting .intro-cta { opacity: 0; transform: translateY(24px); }
-.sky-intro.is-igniting .intro-ground { opacity: 0; transform: rotate(-24deg) scale(1.3) translateY(12vh); }
+.sky-intro.is-igniting .intro-ground { opacity: 0; transform: translateY(14vh) scale(1.15); }
 .sky-intro.is-igniting .intro-glow { opacity: 0; transition: opacity 1.4s ease 0.3s; }
 .intro-flash { position: absolute; left: var(--cx, 38%); top: var(--cy, 40%); width: 130vmax; height: 130vmax; margin: -65vmax 0 0 -65vmax; border-radius: 50%; opacity: 0; pointer-events: none;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.97) 0%, rgba(160, 190, 255, 0.6) 18%, rgba(120, 90, 255, 0.2) 42%, transparent 66%); }
 .sky-intro.is-flash .intro-flash { animation: intro-flash 1.5s ease-out forwards; }
-@keyframes intro-flash { 0% { opacity: 0; transform: scale(0.15); } 30% { opacity: 1; transform: scale(0.7); } 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes intro-flash { 0% { opacity: 0.85; transform: scale(0.3); } 30% { opacity: 1; transform: scale(0.7); } 100% { opacity: 0; transform: scale(1.6); } }
 .sky-intro.is-leaving { opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
 
 /* tall screens: the telescope on top, the call to action under it */

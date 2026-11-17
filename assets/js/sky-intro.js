@@ -32,7 +32,6 @@
     var stars = [];
     var phase = 'idle', t0 = 0;           // idle | warp | decel
     var speed = 0.012;                    // depth units per second
-    var rot = 0, spin = 0;                // the sky turns as the camera goes through the lens (radians, radians per second)
 
     // sound: try to start the mystery at once (some browsers allow it); otherwise the first click, key or touch does
     if (window.AESkySound) window.AESkySound.begin(true);
@@ -94,11 +93,9 @@
       if (phase === 'warp') {
         var k = Math.min(1, el / 1.7);
         speed = 0.012 + 4.2 * k * k * k;
-        spin = 2.6 * k * k;
         if (el > 2.0) { phase = 'decel'; t0 = now; }
       } else if (phase === 'decel') {
         speed = Math.max(0.2, speed * Math.pow(0.02, dt));
-        spin *= Math.pow(0.05, dt);
       }
       mx += (tmx - mx) * Math.min(1, dt * 2.5); my += (tmy - my) * Math.min(1, dt * 2.5);
       var cx = W / 2 - mx * 26 * dpr, cy = H / 2 - my * 18 * dpr, scale = Math.max(W, H) * 0.55;
@@ -107,16 +104,14 @@
         cx += (lensX * dpr - cx) * e; cy += (lensY * dpr - cy) * e;
       }
       ctx.clearRect(0, 0, W, H);
-      rot += spin * dt;
       var warping = phase !== 'idle' && speed > 0.06;
       var warmth = phase === 'warp' ? Math.min(1, el / 1.5) : 0;
       for (var n = 0; n < stars.length; n++) {
         var st = stars[n], pz = st.z;
         st.z -= speed * dt;
         if (st.z <= 0.015) { seed(st, false); st.z = 1; pz = 1; }
-        var ca = Math.cos(rot), sa = Math.sin(rot), pa = rot - spin * dt * 2.5, cb = Math.cos(pa), sb = Math.sin(pa);
-        var sx = cx + (st.x * ca - st.y * sa) / st.z * scale * 0.5, sy = cy + (st.x * sa + st.y * ca) / st.z * scale * 0.5;
-        var px = cx + (st.x * cb - st.y * sb) / pz * scale * 0.5, py = cy + (st.x * sb + st.y * cb) / pz * scale * 0.5;
+        var sx = cx + st.x / st.z * scale * 0.5, sy = cy + st.y / st.z * scale * 0.5;
+        var px = cx + st.x / pz * scale * 0.5, py = cy + st.y / pz * scale * 0.5;
         var depth = 1 - st.z;
         var alpha = Math.min(1, 0.45 + depth * 0.9);
         if (phase === 'idle') {
