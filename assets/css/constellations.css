@@ -415,3 +415,20 @@ html[data-theme="light"] .sky-view::after { opacity: 0.55; }
   .far-layer { transform: none; translate: none; transition: none; animation: none; }
 }
 .sky-title { z-index: 1; }
+
+/* ---- Stars without icons: only their small shapes; the figures blink --------------------------- */
+.const.is-active .star-core { opacity: 1; fill: #ffffff; r: 2.2px; }
+.const.is-active .star-glyph { transform: scale(0.52); }
+.const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph, .const.is-active .star.is-shown .star-glyph { transform: scale(0.7); }
+.sky-svg.is-compact .const.is-active .star-glyph { transform: scale(0.55); }
+.sky-svg.is-compact .const.is-active .star:hover .star-glyph, .sky-svg.is-compact .const.is-active .star.is-shown .star-glyph { transform: scale(0.72); }
+.const.is-active .star-name { font-size: calc(var(--u, 1) * 14px); }
+
+.const-extra-link { stroke: var(--c); stroke-width: calc(var(--u, 1) * 0.9px); stroke-dasharray: 1 6; stroke-linecap: round; opacity: 0.45; }
+.const-extra { fill: var(--c); opacity: 0.7; transform-box: fill-box; transform-origin: center; animation: star-twinkle 3.1s ease-in-out var(--sd, 0s) infinite; }
+
+/* the whole figure flickers: lines and stars dim and flare together, each figure on its own beat */
+.const-float { animation: const-float var(--fdur, 14s) ease-in-out var(--fdel, 0s) infinite alternate, const-blink var(--bd, 6s) ease-in-out var(--bdel, 0s) infinite; }
+@keyframes const-blink { 0%, 100% { opacity: 1; } 22% { opacity: 0.38; } 30% { opacity: 1; } 38% { opacity: 0.55; } 46% { opacity: 1; } 70% { opacity: 0.8; } }
+.sky-svg.is-zoomed .const-float { animation-play-state: running; }
+@media (prefers-reduced-motion: reduce) { .const-float, .const-extra { animation: none; } }

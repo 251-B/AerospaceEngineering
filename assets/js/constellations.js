@@ -108,6 +108,7 @@
   var META = {
     'fluid-mechanics': {
       latin: 'Stella Fluidorum', color: 'fluid', rot: -22,
+      extra: [[-60, 14, 1], [-20, 120, 6], [190, -78, 4], [175, 24, 5], [-205, -52, 0], [30, -150, 3]],
       anchors: [[-215, 70], [-150, -10], [-95, -92], [-12, -60], [58, -128], [120, -20], [40, 50]],
       edges: [[0, 1], [1, 2], [2, 3], [3, 4], [3, 5], [5, 6]],
       use: { 4: [0, 2, 4, 6] },
@@ -115,6 +116,7 @@
     },
     'aerospace-materials-1': {
       latin: 'Stella Materiae', color: 'materials', rot: 17,
+      extra: [[-170, -110, 5], [160, -150, 1], [190, 80, 2], [60, 190, 3], [-150, 160, 4], [-40, -205, 0]],
       anchors: [[-20, -155], [95, -92], [158, 22], [60, 118], [-85, 150], [-150, 40], [-12, 6]],
       edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [2, 6], [4, 6]],
       use: { 6: [0, 1, 2, 3, 4, 5] },
@@ -122,6 +124,7 @@
     },
     'engineering-mechanics': {
       latin: 'Stella Mechanicae', color: 'mechanics', rot: 24,
+      extra: [[225, -50, 4], [-40, 150, 6], [-200, -130, 1], [90, -150, 3], [220, 80, 5], [-235, 110, 0]],
       anchors: [[-215, 52], [-170, -52], [-70, -110], [48, -64], [150, -92], [196, 18], [92, 98]],
       edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [3, 6]],
       use: {},
@@ -129,6 +132,7 @@
     },
     'advanced-maths': {
       latin: 'Stella Matheseos', color: 'maths', rot: -15,
+      extra: [[-210, -70, 0], [-130, -150, 1], [-40, -110, 2], [30, 110, 3], [110, 140, 4], [180, -20, 5], [250, -110, 6]],
       anchors: [[-250, 30], [-186, -82], [-96, -40], [-24, 56], [58, 112], [120, 10], [214, -70]],
       labels: ['l', 't', 't', 'b', 'b', 't', 'r'],
       edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]],
@@ -137,6 +141,7 @@
     },
     'business-management': {
       latin: 'Stella Oeconomiae', color: 'business', rot: 31,
+      extra: [[-210, -10, 0], [-130, -150, 1], [10, 110, 2], [110, -165, 3], [210, 30, 4], [150, 150, 5], [-90, 190, 6]],
       anchors: [[-180, 60], [-112, -92], [-24, 10], [52, -110], [170, -38], [122, 96], [-48, 120]],
       edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 2], [2, 6], [6, 0], [1, 6]],
       use: { 6: [0, 1, 2, 3, 4, 5] },
@@ -272,6 +277,14 @@
         flow.style.setProperty('--fs', (2.6 + rnd() * 2.4).toFixed(2) + 's');
       }
     });
+    // faint extra stars round the figure, each tied to one of its stars by a thin dotted line
+    var ex = rotate((meta.extra || []).map(function (e) { return [e[0], e[1]]; }), meta.rot);
+    (meta.extra || []).forEach(function (e, i) {
+      var q = ex[i], base = anchors[e[2]];
+      s('line', { 'class': 'const-extra-link', x1: base[0], y1: base[1], x2: q[0], y2: q[1] }, g);
+      var xd = s('path', { 'class': 'const-extra', d: starPath(4, 4.5 + (i % 3), 0.3, 0), transform: 'translate(' + q[0] + ' ' + q[1] + ')' }, g);
+      xd.style.setProperty('--sd', (-rnd() * 5).toFixed(2) + 's');
+    });
     anchors.forEach(function (p, ai) {
       if (chosen[ai] === undefined) s('circle', { 'class': 'const-dot', cx: p[0], cy: p[1], r: 3.4 }, g);
     });
@@ -290,9 +303,6 @@
       s('path', { 'class': 'star-dot', d: starPath(4, 9.5, 0.26, 0) }, body);   // every star is the same small sparkle in the panorama
       s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, body);   // its own shape appears when the constellation is open
       s('circle', { 'class': 'star-core', r: 3.4 }, body);
-      var ic = s('g', { 'class': 'star-icon' }, body);
-      s('circle', { 'class': 'star-icon-bg', r: 11.5 }, ic);
-      s('use', { href: '#' + sec.icon, x: -8, y: -8, width: 16, height: 16, 'class': 'star-icon-glyph' }, ic);
       // The name goes on the free side of the star: away from the lines that reach it and from the figure.
       var incident = [];
       meta.edges.forEach(function (e) {
@@ -309,8 +319,8 @@
         if (score > best) { best = score; dx = Math.cos(ang); dy = Math.sin(ang); }
       }
       var anchor = dx > 0.35 ? 'start' : dx < -0.35 ? 'end' : 'middle';
-      var ny = Math.abs(dy) > 0.5 ? dy * 62 + (dy > 0 ? 10 : -4) : dy * 52 + 5;
-      var attrs = { 'text-anchor': anchor, x: Math.round(dx * (anchor === 'middle' ? 0 : 58)), y: Math.round(ny) };
+      var ny = Math.abs(dy) > 0.5 ? dy * 38 + (dy > 0 ? 10 : -4) : dy * 30 + 5;
+      var attrs = { 'text-anchor': anchor, x: Math.round(dx * (anchor === 'middle' ? 0 : 34)), y: Math.round(ny) };
       var name = s('text', attrs, a); name.setAttribute('class', 'star-name'); name.setAttribute('display', 'none'); name.textContent = sec.label;
       var cAttrs = {}; for (var k in attrs) cAttrs[k] = attrs[k];
       cAttrs.y = Math.round(ny) + (dy < -0.5 ? -17 : 18);
@@ -332,6 +342,8 @@
     float.style.setProperty('--fy', (12 + rnd() * 16).toFixed(1) + 'px');
     float.style.setProperty('--fdur', (7 + rnd() * 6).toFixed(1) + 's');
     float.style.setProperty('--fdel', (-rnd() * 14).toFixed(1) + 's');
+    float.style.setProperty('--bd', (4.5 + rnd() * 4).toFixed(1) + 's');
+    float.style.setProperty('--bdel', (-rnd() * 9).toFixed(1) + 's');
 
     return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys) };
   }
@@ -436,7 +448,7 @@
     svg.style.setProperty('--u', (b.w / px).toFixed(4));
     svg.style.setProperty('--tk', '1');
     // on a touch screen the stars of an open constellation grow until the icon is at least ~20 px across
-    var ks = selected && isCompact() ? Math.min(1.45, Math.max(1, 20 * (b.w / px) / 11.5)) : 1;
+    var ks = selected && isCompact() ? Math.min(1.9, Math.max(1, 15 * (b.w / px) / 16)) : 1;
     svg.style.setProperty('--ks', ks.toFixed(3));
   }
 
