@@ -31,7 +31,7 @@ html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
 .intro-scope {
   --W: min(82vh, 52vw, 700px);
   position: relative; flex: none; width: var(--W); aspect-ratio: 600 / 760; margin: -2vh 0 -8vh;
-  transform-origin: 50% 39.5%; transition: transform 2.4s cubic-bezier(0.55, 0, 0.9, 0.35), opacity 1.5s ease 0.7s; will-change: transform;
+  transform-origin: 50% 43.4%; transition: transform 2.4s cubic-bezier(0.55, 0, 0.9, 0.35), opacity 1.5s ease 0.7s; will-change: transform;
   animation: scope-in 2.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s backwards;
 }
 @keyframes scope-in { from { opacity: 0; transform: translateY(26px) scale(0.97); } }
@@ -41,11 +41,11 @@ html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
 @keyframes intro-turn { to { transform: rotate(360deg); } }
 .intro-ring { stroke-dasharray: 1; stroke-dashoffset: 0; animation: ring-draw 2.6s cubic-bezier(0.3, 0.6, 0.2, 1) 0.4s backwards; }
 @keyframes ring-draw { from { stroke-dashoffset: 1; opacity: 0.2; } }
-.intro-disc { position: absolute; left: 50%; top: 39.47%; width: 0; height: 0; }
+.intro-disc { position: absolute; left: 50%; top: 43.42%; width: 0; height: 0; }
 
 /* the text on the glass, measured in scope units so nothing overlaps (the glass is 0.633 of the width) */
 .intro-text {
-  position: absolute; left: 50%; top: 39.47%; transform: translate(-50%, -50%); width: calc(var(--W) * 0.25);
+  position: absolute; left: 50%; top: 43.42%; transform: translate(-50%, -50%); width: calc(var(--W) * 0.3);
   display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none; transition: opacity 0.8s ease, transform 1.2s ease;
 }
 .intro-emblem { width: calc(var(--W) * 0.085); height: calc(var(--W) * 0.085); margin: 0 0 calc(var(--W) * 0.022); flex: none;
