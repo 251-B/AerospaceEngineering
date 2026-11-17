@@ -131,7 +131,7 @@ def p11_micro():
     grains = _grid_grains(ox, oy, size, 3, JIT)
     for k, g in enumerate(grains):
         _lamellae(c, g, 0.3 + 1.05 * k, f"p11g{k}", gap=5.0)
-    for g in grains:                       # the network: a wide light band along every boundary
+    for g in grains:                       # the network: a wide band along every boundary
         poly(c, g, "ACC", 7.0, close=True)
     rect(c, ox, oy, size, size, "HEAD", 1.8)
     nx, ny = grains[4][1]                  # a vertex of the central grain lies on the network
