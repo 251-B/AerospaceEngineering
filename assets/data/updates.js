@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-17-sideris-emblem",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "New Sideris constellation favicon and gold emblem",
+    "text": "The browser tab now shows the subject-gradient constellation icon, while the gold orbital emblem marks the portal, Focus Lab, study timer and PDF library.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-17-materials-topics-8-11-review",
     "date": "2026-11-17",
     "tag": "Aerospace Materials I",

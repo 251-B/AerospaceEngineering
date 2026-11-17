@@ -66,6 +66,12 @@ html.ae-nav-lock { overflow: hidden; }
   position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between;
   padding: 14px 14px 10px 18px; background: var(--nav-surface); border-bottom: 1px solid var(--nav-border);
 }
+.ae-nav__brand { display: flex; align-items: center; gap: 9px; min-width: 0; }
+.ae-nav__mark { flex: none; width: 24px; height: 24px; display: block; }
+.ae-nav__mark .sideris-stroke { stroke: #E1C170; fill: none; }
+.ae-nav__mark .sideris-fill { fill: #E1C170; stroke: none; }
+html[data-theme="light"] .ae-nav__mark .sideris-stroke { stroke: #9a6e17; }
+html[data-theme="light"] .ae-nav__mark .sideris-fill { fill: #9a6e17; }
 .ae-nav__title { font: 400 21px/1.2 var(--nav-display); color: var(--nav-text); }
 .ae-nav__close {
   display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0;

@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sideris</title>
   <meta name="description" content="Centralized study portal for the 2nd Year of the Bachelor's Degree in Aerospace Engineering.">
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg?v=20261117a">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png?v=20261117a">
 
   <!-- Google Fonts: Abril Fatface, Newsreader, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +78,24 @@
       <symbol id="i-star" viewBox="0 0 24 24">
         <path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" fill="currentColor"/>
       </symbol>
+      <symbol id="i-sideris" viewBox="96 96 832 832">
+        <path d="M 398.51,379.43 A 355,160 -14 0 1 652.50,634.24" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" stroke-opacity="0.94"/>
+        <path d="M 624.34,644.98 A 355,160 -14 0 1 370.40,390.21" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" stroke-opacity="0.94"/>
+        <polyline points="652,286 512,212 368,290 392,430 512,512 632,594 652,736 510,812 368,738" fill="none" stroke="currentColor" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="652" cy="286" r="20" fill="currentColor"/><circle cx="512" cy="212" r="23" fill="currentColor"/>
+        <circle cx="368" cy="290" r="19" fill="currentColor"/><circle cx="392" cy="430" r="22" fill="currentColor"/>
+        <circle cx="632" cy="594" r="21" fill="currentColor"/><circle cx="652" cy="736" r="23" fill="currentColor"/>
+        <circle cx="510" cy="812" r="21" fill="currentColor"/><circle cx="368" cy="738" r="22" fill="currentColor"/>
+        <path d="M 512,456 Q 520.9,503.1 568,512 Q 520.9,520.9 512,568 Q 503.1,520.9 456,512 Q 503.1,503.1 512,456 Z" fill="currentColor"/>
+        <path d="M 612,371 Q 613.3,390.7 633,392 Q 613.3,393.3 612,413 Q 610.7,393.3 591,392 Q 610.7,390.7 612,371 Z" fill="currentColor" fill-opacity="0.94"/>
+        <path d="M 410,617 Q 411.1,634.9 429,636 Q 411.1,637.1 410,655 Q 408.9,637.1 391,636 Q 408.9,634.9 410,617 Z" fill="currentColor" fill-opacity="0.92"/>
+        <path d="M 222,336 Q 223.8,358.2 246,360 Q 223.8,361.8 222,384 Q 220.2,361.8 198,360 Q 220.2,358.2 222,336 Z" fill="currentColor" fill-opacity="0.94"/>
+        <path d="M 800,600 Q 801.4,618.6 820,620 Q 801.4,621.4 800,640 Q 798.6,621.4 780,620 Q 798.6,618.6 800,600 Z" fill="currentColor" fill-opacity="0.92"/>
+        <circle cx="298" cy="176" r="7" fill="currentColor" fill-opacity="0.84"/><circle cx="734" cy="700" r="7" fill="currentColor" fill-opacity="0.86"/>
+        <circle cx="406" cy="864" r="6.5" fill="currentColor" fill-opacity="0.82"/><circle cx="158" cy="676" r="6.5" fill="currentColor" fill-opacity="0.82"/>
+        <circle cx="854" cy="240" r="6.5" fill="currentColor" fill-opacity="0.82"/><circle cx="466" cy="314" r="5.5" fill="currentColor" fill-opacity="0.72"/>
+        <circle cx="556" cy="710" r="5.5" fill="currentColor" fill-opacity="0.72"/>
+      </symbol>
     </defs>
   </svg>
 
@@ -124,7 +143,7 @@
     <main>
       <!-- STELLAR VIEW: interactive constellation map (assets/js/constellations.js) -->
       <section class="sky-view" id="skyView" aria-label="Constellation map of the subjects">
-        <h1 class="sky-title"><span class="gradient-text" data-site-name>Sideris</span><small>Aerospace Engineering &middot; 2nd Year</small></h1>
+        <h1 class="sky-title"><span class="sky-title__lockup"><svg class="sky-emblem" width="44" height="44" aria-hidden="true"><use href="#i-sideris"/></svg><span class="gradient-text" data-site-name>Sideris</span></span><small>Aerospace Engineering &middot; 2nd Year</small></h1>
         <button class="sky-back" id="skyBack" type="button" hidden>&larr; All Constellations</button>
         <svg class="sky-svg" id="skySvg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Five subject constellations"></svg>
         <div class="sky-caption" id="skyCaption" aria-live="polite"></div>
@@ -153,6 +172,10 @@
           <use class="hero-star" href="#i-star" x="672" y="18" width="9" height="9"/>
           <use class="hero-star hero-star--late" href="#i-star" x="212" y="30" width="10" height="10"/>
         </svg>
+
+        <div class="hero-brand" aria-hidden="true">
+          <svg class="hero-emblem" width="76" height="76"><use href="#i-sideris"/></svg>
+        </div>
 
         <p class="hero-eyebrow">
           <svg class="eyebrow-star" aria-hidden="true"><use href="#i-star"/></svg>
@@ -421,7 +444,10 @@
          ============================================ -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span data-site-name>Sideris</span>
+        <span class="footer-brand">
+          <svg class="footer-emblem" width="18" height="18" aria-hidden="true"><use href="#i-sideris"/></svg>
+          <span data-site-name>Sideris</span>
+        </span>
         <span class="footer-separator" aria-hidden="true"></span>
         <span>2nd Year Aerospace Engineering</span>
         <span class="footer-separator" aria-hidden="true"></span>

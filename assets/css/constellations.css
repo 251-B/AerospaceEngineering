@@ -124,7 +124,19 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 .sky-title {
   position: absolute; z-index: 0; left: 50%; top: 47%; transform: translate(-50%, -50%); margin: 0; pointer-events: none; text-align: center; white-space: nowrap;
   font-family: var(--font-display); font-weight: 400; font-size: clamp(1.7rem, 3.6vw, 3rem); line-height: 1; letter-spacing: 0.03em; color: var(--sk-text);
-  opacity: 0.5; transition: opacity 0.7s;
+  opacity: 0.72; transition: opacity 0.7s;
+}
+.sky-title__lockup {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.28em;
+}
+.sky-emblem {
+  width: 0.96em; height: 0.96em; flex: none;
+  color: #E1C170;
+  filter: drop-shadow(0 0 12px rgba(225, 193, 112, 0.35));
+}
+html[data-theme="light"] .sky-emblem {
+  color: #9a6e17;
+  filter: none;
 }
 .sky-title .gradient-text {
   display: inline-block;

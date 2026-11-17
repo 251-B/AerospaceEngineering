@@ -366,7 +366,12 @@
     drawer.hidden = true;   // hidden without the stylesheet too
 
     var head = el('div', 'ae-nav__head');
-    head.appendChild(el('span', 'ae-nav__title', 'Study Portal'));
+    var brand = el('div', 'ae-nav__brand');
+    if (window.AESite && typeof window.AESite.mark === 'function') {
+      brand.appendChild(window.AESite.mark(24, 'ae-nav__mark'));
+    }
+    brand.appendChild(el('span', 'ae-nav__title', 'Study Portal'));
+    head.appendChild(brand);
     var close = el('button', 'ae-nav__close');
     close.type = 'button';
     close.setAttribute('aria-label', 'Close menu');
