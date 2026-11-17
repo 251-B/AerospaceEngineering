@@ -100,6 +100,7 @@ Practice items written for the portal in the style of Assessment Test II (Units 
 - [[Problem - Bank P01 - Two Eutectics Around a Congruently Melting Compound|P01]]: Two eutectics around a congruently melting compound in a hypothetical A-B system
 - [[Problem - Bank P02 - Alloy Composition from the Eutectic Fraction in a Peritectic System|P02]]: Alloy composition from the eutectic fraction in an M-N system with an incongruent compound (at%)
 - [[Problem - Bank P03 - Cooling Through a Peritectic a Eutectic and a Eutectoid|P03]]: Cooling an X-40 wt% Y alloy through a peritectic, a eutectic and a eutectoid
+- [[Problem - Bank P04 - Building a Diagram with a Congruent and an Incongruent Compound|P04]]: Building a G-H diagram with a congruent and an incongruent compound from a table of equilibria
 
 ### Eutectic system: lever rule and microconstituents
 

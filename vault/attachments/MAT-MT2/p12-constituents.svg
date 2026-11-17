@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Stacked bars of proeutectoid ferrite, pearlite and proeutectoid cementite for steels S1 (0.25), S2 (0.60) and S3 (1.35 wt% C)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="160.0" y="53.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">S1, 0.25 wt% C</text>
+<rect x="170.0" y="30.0" width="290.2" height="34.0" fill="#3b82f6" fill-opacity="0.22" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="315.1" y="52.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">αp 69.1 %</text>
+<rect x="460.2" y="30.0" width="129.8" height="34.0" fill="#4b5563" fill-opacity="0.18" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="525.1" y="52.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">pearlite 30.9 %</text>
+<text x="160.0" y="115.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">S2, 0.60 wt% C</text>
+<rect x="170.0" y="92.0" width="91.1" height="34.0" fill="#3b82f6" fill-opacity="0.22" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="215.5" y="114.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">αp 21.7 %</text>
+<rect x="261.1" y="92.0" width="328.9" height="34.0" fill="#4b5563" fill-opacity="0.18" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="425.5" y="114.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">pearlite 78.3 %</text>
+<text x="160.0" y="177.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">S3, 1.35 wt% C</text>
+<rect x="170.0" y="154.0" width="378.1" height="34.0" fill="#4b5563" fill-opacity="0.18" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="359.0" y="176.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">pearlite 90.0 %</text>
+<rect x="548.1" y="154.0" width="41.9" height="34.0" fill="#f59e0b" fill-opacity="0.55" stroke="#4b5563" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="569.0" y="206.0" fill="#4b5563" font-size="11.5" font-weight="700" text-anchor="middle">Fe₃Cp 10.0 %</text>
+<line x1="170.0" y1="222.0" x2="170.0" y2="227.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="170.0" y="242.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">0 %</text>
+<line x1="275.0" y1="222.0" x2="275.0" y2="227.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="275.0" y="242.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">25 %</text>
+<line x1="380.0" y1="222.0" x2="380.0" y2="227.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="380.0" y="242.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">50 %</text>
+<line x1="485.0" y1="222.0" x2="485.0" y2="227.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="485.0" y="242.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">75 %</text>
+<line x1="590.0" y1="222.0" x2="590.0" y2="227.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="590.0" y="242.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">100 %</text>
+<line x1="170.0" y1="222.0" x2="590.0" y2="222.0" stroke="#8a94a6" stroke-width="1.2"/>
+</g></svg>
