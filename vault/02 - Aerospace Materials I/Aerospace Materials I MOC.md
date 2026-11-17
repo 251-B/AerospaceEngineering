@@ -269,16 +269,26 @@ tags:
   * Mechanical behaviour of ceramics: hardness and stiffness, porosity, tension, compression and bending tests (modulus of rupture), the Weibull distribution of strength, and thermal shock.
   * Ceramic processing: powder manufacturing and conditioning, shaping (pressing, slip casting, tape casting, extrusion, injection moulding), drying and debinding, sintering (pressureless, liquid-phase, HIP, SPS), additive manufacturing, glass forming and tempering, and applications (Space Shuttle thermal protection, thermal barrier coatings).
 
-#### Topic 9: Polymers and Processing (planned)
+#### [[02 - Aerospace Materials I/Topic 9 - Polymers|Topic 9: Polymers]] (complete: Sessions 19 and 20 and the 9 problems of the sheet)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-9-polymers.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-9-polymers.html`
 * **Official Sources:**
-  * Theory: `Session 19 T9 Polymers.pdf`, `Session 20 T9 Classification and Polymer Processing.pdf`
-  * Problems: `Problems T9_Polymers.pdf`
+  * Theory: `Session 19 T9 Polymers.pdf` (Slides 1-50), `Session 20 T9 Classification and Polymer Processing.pdf` (Slides 1-38)
+  * Problems: `Problems T9_Polymers.pdf` (problems 1-9)
+* **Official Solved Problems (9 of 9):**
+  * [[02 - Aerospace Materials I/Problem - T9-01 Degree of Polymerization and Number of Chains of PMMA|Problem T9-01: Degree of Polymerization and Number of Chains of PMMA]]
+  * [[02 - Aerospace Materials I/Problem - T9-02 Which Polymer Crystallizes More Easily|Problem T9-02: Which Polymer of Each Pair Crystallizes More Easily]]
+  * [[02 - Aerospace Materials I/Problem - T9-03 Rolling or Fast-Cooled Casting for Higher Strength|Problem T9-03: Rolling or Fast-Cooled Casting for a Stronger Thermoplastic]]
+  * [[02 - Aerospace Materials I/Problem - T9-04 Which Polymer Has the Higher Melting Temperature|Problem T9-04: Which Polymer of Each Pair Has the Higher Melting Temperature]]
+  * [[02 - Aerospace Materials I/Problem - T9-05 Log Modulus Against Temperature for an Amorphous Polymer|Problem T9-05: Logarithm of Young's Modulus Against Temperature for an Amorphous Polymer]]
+  * [[02 - Aerospace Materials I/Problem - T9-06 Degree of Crystallinity of Polypropylene from Its Density|Problem T9-06: Degree of Crystallinity of Polypropylene from Its Density]]
+  * [[02 - Aerospace Materials I/Problem - T9-07 Weight Average Polydispersity and Repeat Unit of a Polyalkene|Problem T9-07: Weight Average, Polydispersity and Repeat Unit of a Polyalkene]]
+  * [[02 - Aerospace Materials I/Problem - T9-08 Number and Weight Averages and Monomer of an Unknown Polymer|Problem T9-08: Number and Weight Averages and Monomer of an Unknown Polymer]]
+  * [[02 - Aerospace Materials I/Problem - T9-09 Densities of Crystalline and Amorphous Polypropylene|Problem T9-09: Densities of Crystalline and Amorphous Polypropylene from Two Samples]]
 * **Main Content:**
-  * Chemical structure, monomers, addition and condensation polymerization. Degree of polymerization and molecular mass ($M_n, M_w$).
-  * Classification: thermoplastics, thermosets and elastomers. Glass transition ($T_g$) and melting ($T_m$).
-  * Viscoelastic behavior (relaxation moduli, creep). Polymer processing (extrusion, injection, blow molding).
+  * Polymer structure: monomers and repeat units, addition and condensation polymerization, molecular weight ($M_n$, $M_w$, polydispersity, degree of polymerization), conformation, tacticity, copolymers, molecular structure and crystallinity (degree of crystallinity from the density).
+  * Thermal transitions $T_g$ and $T_m$ and the factors that set them; stress-strain behaviour, plastic deformation and strain hardening, elastomers, modulus against temperature, and viscoelasticity (creep and relaxation).
+  * Classification (thermoplastics, thermosets, elastomers, fibres) and processing: extrusion, injection, blow, rotational and compression molding, thermoforming and transfer molding.
 
 #### Topic 10: Composite Materials and Reinforcements (planned)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-10-composites.html`

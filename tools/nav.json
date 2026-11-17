@@ -126,11 +126,19 @@
      "label": "8 · Ceramic materials"
     },
     {
+     "page": "topic-9-polymers.html",
+     "label": "9 · Polymers"
+    },
+    {
      "page": "topic-11-adhesives.html",
      "label": "11 · Adhesives"
     }
    ],
    "problemas": [
+    {
+     "page": "topic-9-polymers.html",
+     "label": "9 · Polymers"
+    },
     {
      "page": "topic-8-ceramics.html",
      "label": "8 · Ceramic materials"

@@ -19,8 +19,9 @@ bytes: 2693016
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session 20 T9 Classification and Polymer Processing.pdf`
 - **Kind:** teoria
 - **Size:** 2.7 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Topic 9 - Polymers]]

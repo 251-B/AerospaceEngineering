@@ -75,6 +75,13 @@ TOPICS = {
         "title": "Topic 8: Solved Problems (Ceramic Materials) — Aerospace Materials I",
         "scope_of": "of the official sheet on ceramic materials (Problems T8_CeramicMaterials: volume, packing factor and densities of zinc blende, perovskite and rock salt cells, and the crystal system, stoichiometry, density and structure of an AB-type ceramic read from two planes, from Session 16). The sheet prints a numeric key for every item, so each solution is derived here and compared with that key.",
     },
+    9: {
+        "code": "T9", "figures": "materials_t9", "total": 9,
+        "page": "subjects/aerospace-materials-1/problemas/topic-9-polymers.html",
+        "sheet": "Problems T9_Polymers.pdf",
+        "title": "Topic 9: Solved Problems (Polymers) — Aerospace Materials I",
+        "scope_of": "of the official sheet on polymers (Problems T9_Polymers: degree of polymerization, crystallinity from the density, number and weight average molecular weights, and the effect of structure, crystallinity and temperature on the melting temperature, the stiffness and the strength, from Sessions 19 and 20). The sheet prints a numeric key for the numerical items, so each solution is derived here and compared with that key.",
+    },
 }
 
 

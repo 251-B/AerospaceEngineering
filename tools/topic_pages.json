@@ -196,6 +196,20 @@
     "label": "7 solved problems for this topic (Problems T8_CeramicMaterials)"
    }
   },
+  "subjects/aerospace-materials-1/teoria/topic-9-polymers.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 9 - Polymers.md",
+   "figures": "materials_t9",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 9: Polymers — Aerospace Materials I",
+   "category": "Topic 09 · Polymers",
+   "title": "Polymers",
+   "subtitle": "Polymer structure (molecular weight, tacticity, copolymers, crystallinity), the glass transition and melting, stress-strain and viscoelastic behaviour, and the classification and processing of thermoplastics, thermosets and elastomers.",
+   "source": "Universidad Carlos III de Madrid · Session 19 T9 Polymers.pdf, Session 20 T9 Classification and Polymer Processing.pdf",
+   "problems": {
+    "href": "../problemas/topic-9-polymers.html",
+    "label": "9 solved problems for this topic (Problems T9_Polymers)"
+   }
+  },
   "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html": {
    "note": "vault/02 - Aerospace Materials I/Topic 11 - Adhesives.md",
    "figures": "materials_t11",

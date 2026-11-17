@@ -19,8 +19,9 @@ bytes: 4256003
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session 19 T9 Polymers.pdf`
 - **Kind:** teoria
 - **Size:** 4.3 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Topic 9 - Polymers]]

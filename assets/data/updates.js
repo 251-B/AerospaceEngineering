@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-17-materials-topic-9",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 9: polymers, theory and nine solved problems",
+    "text": "New theory page on polymers (structure, crystallinity, Tg and Tm, mechanical behaviour, families and processing) and the nine problems of the Topic 9 sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-9-polymers.html"
+  },
+  {
     "id": "2026-11-16-materials-topic-8",
     "date": "2026-11-16",
     "tag": "Aerospace Materials I",

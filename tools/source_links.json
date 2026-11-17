@@ -787,6 +787,21 @@
    "label": "Problems T8_CeramicMaterials.pdf",
    "pages": 3
   },
+  "mat-s19": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session 19 T9 Polymers.pdf",
+   "label": "Session 19 T9 Polymers.pdf",
+   "pages": 50
+  },
+  "mat-s20": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session 20 T9 Classification and Polymer Processing.pdf",
+   "label": "Session 20 T9 Classification and Polymer Processing.pdf",
+   "pages": 38
+  },
+  "mat-t9": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems T9_Polymers.pdf",
+   "label": "Problems T9_Polymers.pdf",
+   "pages": 2
+  },
   "mat-s24": {
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session 24 T11 Adhesives.pdf",
    "label": "Session 24 T11 Adhesives.pdf",
@@ -3372,6 +3387,87 @@
     "prob-7": [
      "mat-t8",
      3
+    ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-9-polymers.html": {
+   "panel": [
+    [
+     "mat-s19",
+     1
+    ],
+    [
+     "mat-s20",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": [
+     [
+      "mat-s19",
+      0
+     ],
+     [
+      "mat-s20",
+      "id=\"section-21\""
+     ]
+    ],
+    "sessions": {
+     "19": "mat-s19",
+     "20": "mat-s20"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-9-polymers.html": {
+   "panel": [
+    [
+     "mat-t9",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s19",
+    "sessions": {
+     "19": "mat-s19",
+     "20": "mat-s20"
+    }
+   },
+   "cards": {
+    "prob-1": [
+     "mat-t9",
+     1
+    ],
+    "prob-2": [
+     "mat-t9",
+     1
+    ],
+    "prob-3": [
+     "mat-t9",
+     1
+    ],
+    "prob-4": [
+     "mat-t9",
+     1
+    ],
+    "prob-5": [
+     "mat-t9",
+     1
+    ],
+    "prob-6": [
+     "mat-t9",
+     1
+    ],
+    "prob-7": [
+     "mat-t9",
+     2
+    ],
+    "prob-8": [
+     "mat-t9",
+     2
+    ],
+    "prob-9": [
+     "mat-t9",
+     2
     ]
    }
   },
