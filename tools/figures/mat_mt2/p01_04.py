@@ -143,9 +143,9 @@ BL_P01 = [(-40, -35, 24, "solid"), (20, -50, 24, "solid"), (-50, 25, 24, "solid"
         "the same primary α grains in the lamellar eutectic α + γ (40 %)")
 def p01_sketches():
     c = Canvas(720, 260)
-    micro(c, 110, 125, 90, "p01a", "liquid", BL_P01, [("primary α", 55, -5), ("liquid L", 32, 25)])
+    micro(c, 110, 125, 90, "p01a", "liquid", BL_P01, [("primary α", 28, -58), ("liquid L", 76, -42)])
     text(c, (110, 248), "700 + ΔT °C", "HEAD", "middle", 13, "700")
-    micro(c, 450, 125, 90, "p01b", "lam", BL_P01, [("primary α", 55, -5), ("eutectic (α + γ)", 32, 25)])
+    micro(c, 450, 125, 90, "p01b", "lam", BL_P01, [("primary α", 28, -58), ("eutectic (α + γ)", 76, -42)])
     text(c, (450, 248), "700 − ΔT °C", "HEAD", "middle", 13, "700")
     return c
 
