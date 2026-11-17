@@ -538,3 +538,12 @@ html[data-home-view="classic"] .intro-replay { display: none !important; }
 .const.is-active .const-sway { animation: none; }
 .const.is-active .const-float { animation: const-blink var(--bd, 6s) ease-in-out var(--bdel, 0s) infinite; }
 @media (prefers-reduced-motion: reduce) { .const.is-active .const-float { animation: none; } }
+
+/* ---- Phones: the header fits and the planets leave the caption alone ---------------------------------- */
+@media (max-width: 599px) {
+  /* in the stellar view the sky palette sets light or dark (Stratospheric Light is the light one), so the switch
+     can go and the header fits a 375 px screen */
+  html[data-home-view="constellations"] .theme-toggle { display: none; }
+  /* the subject name sits above the Focus and Timer planets; the camera measures it and keeps the labels above */
+  .sky-view.is-compact .sky-caption { bottom: 92px; }
+}
