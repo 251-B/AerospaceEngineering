@@ -137,34 +137,26 @@
             <radialGradient id="glass" cx="50%" cy="46%" r="52%"><stop offset="0" stop-color="#6d7dff" stop-opacity="0.09"/><stop offset="0.7" stop-color="#1a2260" stop-opacity="0.2"/><stop offset="1" stop-color="#03050d" stop-opacity="0.6"/></radialGradient>
             <radialGradient id="depth" cx="50%" cy="50%" r="50%"><stop offset="0.62" stop-color="#000" stop-opacity="0"/><stop offset="0.8" stop-color="#000" stop-opacity="0.42"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
           </defs>
-          <!-- tripod -->
+          <!-- pedestal: a cone with panels, like a viewpoint telescope -->
           <g class="scope-legs">
-            <path d="M262 590L290 596L226 770L192 770Z" fill="url(#legG)" stroke="url(#rimG)" stroke-width="1.4"/>
-            <path d="M338 590L310 596L374 770L408 770Z" fill="url(#legG)" stroke="url(#rimG)" stroke-width="1.4"/>
-            <path d="M291 596H309L305 770H295Z" fill="url(#legG)" stroke="url(#rimG)" stroke-width="1.2"/>
-            <path d="M246 690H354M252 660H348" stroke="rgba(150,170,255,0.35)" stroke-width="2"/>
-            <ellipse cx="300" cy="590" rx="58" ry="15" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
-            <rect x="284" y="548" width="32" height="44" rx="6" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.2"/>
-            <circle cx="338" cy="566" r="10" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/><circle cx="338" cy="566" r="4" fill="rgba(190,200,255,0.5)"/>
-            <circle cx="262" cy="566" r="9" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/>
+            <ellipse cx="300" cy="742" rx="132" ry="18" fill="#070a22" stroke="url(#rimG)" stroke-width="1.4"/>
+            <path d="M236 560L196 738Q300 762 404 738L364 560Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.6"/>
+            <path d="M262 600L232 716Q300 730 368 716L338 600Z" fill="#0a0f2e" stroke="rgba(150,170,255,0.45)" stroke-width="1.2"/>
+            <path d="M276 624H324M272 644H328M268 664H332" stroke="rgba(150,170,255,0.4)" stroke-width="2"/>
+            <path d="M214 650L204 712M386 650L396 712" stroke="rgba(150,170,255,0.3)" stroke-width="6" stroke-linecap="round"/>
           </g>
-          <!-- mount head -->
-          <rect x="262" y="486" width="76" height="70" rx="12" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
-          <ellipse cx="300" cy="490" rx="46" ry="12" fill="#0a0f2e" stroke="url(#rimG)" stroke-width="1.2"/>
-          <path d="M270 520H330M270 534H330" stroke="rgba(150,170,255,0.3)" stroke-width="1.6"/>
-          <!-- tube, seen from the front and slightly below -->
-          <path d="M112 300L152 76Q300 40 448 76L488 300Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="2"/>
-          <ellipse cx="300" cy="76" rx="148" ry="22" fill="#080c26" stroke="url(#rimG)" stroke-width="2"/>
-          <ellipse cx="300" cy="76" rx="120" ry="15" fill="none" stroke="rgba(150,170,255,0.3)" stroke-width="1.2"/>
-          <path d="M120 250Q300 292 480 250M128 206Q300 244 472 206M138 150Q300 184 462 150M146 112Q300 142 454 112" stroke="rgba(160,178,255,0.42)" stroke-width="2.2"/>
-          <path d="M116 276Q300 322 484 276" stroke="rgba(34,211,238,0.35)" stroke-width="1.4"/>
-          <path d="M170 90L150 280" stroke="rgba(255,255,255,0.09)" stroke-width="22" stroke-linecap="round"/>
-          <!-- focuser, finder and the lever -->
-          <rect x="338" y="30" width="38" height="34" rx="6" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/><circle cx="357" cy="30" r="9" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/>
-          <path d="M492 322L520 236" stroke="#0e1440" stroke-width="12" stroke-linecap="round"/><path d="M492 322L520 236" stroke="url(#rimG)" stroke-width="1.6" stroke-linecap="round"/>
-          <circle cx="521" cy="232" r="10" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.6"/>
-          <rect x="478" y="296" width="30" height="46" rx="8" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
-          <circle cx="104" cy="300" r="12" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/>
+          <!-- yoke: the fork that holds the tube -->
+          <path d="M118 400Q112 556 210 572H390Q488 556 482 400L452 400Q452 520 390 528H210Q148 520 148 400Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.8"/>
+          <ellipse cx="300" cy="566" rx="102" ry="14" fill="#0a0f2e" stroke="url(#rimG)" stroke-width="1.4"/>
+          <rect x="80" y="352" width="46" height="72" rx="14" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.6"/>
+          <rect x="474" y="352" width="46" height="72" rx="14" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.6"/>
+          <circle cx="103" cy="388" r="9" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/><circle cx="497" cy="388" r="9" fill="#0e1440" stroke="url(#rimG)" stroke-width="1.4"/>
+          <!-- hood: the tube running back from the lens, seen end-on so only its dome rises above the rim -->
+          <path d="M126 330C104 200 160 54 300 38C440 54 496 200 474 330Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="2"/>
+          <path d="M300 38C292 90 292 140 300 180" stroke="rgba(190,205,255,0.45)" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M196 120Q300 84 404 120M170 190Q300 150 430 190" stroke="rgba(160,178,255,0.35)" stroke-width="2"/>
+          <path d="M178 96C150 150 140 220 146 290" stroke="rgba(255,255,255,0.12)" stroke-width="16" stroke-linecap="round"/>
+          <rect x="268" y="18" width="64" height="26" rx="10" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="1.4"/>
           <!-- the front of the tube: the lens -->
           <g transform="translate(300 300) scale(0.64)">
             <circle r="298" fill="url(#barrelShade)"/>
