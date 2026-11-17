@@ -20,6 +20,13 @@ window.AE_UPDATES = [
     "tag": "Portal",
     "title": "A welcome screen and the sound of the sky",
     "text": "The home page opens on a telescope view of the night sky. Press Ignite to fly into the constellations, with celestial sound you can mute from the speaker button.",
+  },
+  {
+    "id": "2026-11-17-sideris-emblem",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "New Sideris constellation favicon and gold emblem",
+    "text": "The browser tab now shows the subject-gradient constellation icon, while the gold orbital emblem marks the portal, Focus Lab, study timer and PDF library.",
     "link": "index.html"
   },
   {
