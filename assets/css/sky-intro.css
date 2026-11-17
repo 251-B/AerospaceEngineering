@@ -45,10 +45,10 @@ html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
 
 /* the text on the glass, measured in scope units so nothing overlaps (the glass is 0.633 of the width) */
 .intro-text {
-  position: absolute; left: 50%; top: 68.4%; transform: translate(-50%, -50%); width: calc(var(--W) * 0.15);
+  position: absolute; left: 50%; top: 68.4%; transform: translate(-50%, -50%); width: calc(var(--W) * 0.115);
   display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none; transition: opacity 0.8s ease, transform 1.2s ease;
 }
-.intro-emblem { width: calc(var(--W) * 0.04); height: calc(var(--W) * 0.04); margin: 0 0 calc(var(--W) * 0.022); flex: none;
+.intro-emblem { width: calc(var(--W) * 0.024); height: calc(var(--W) * 0.03); margin: 0 0 calc(var(--W) * 0.022); flex: none;
   filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.55)); transition: transform 1.4s ease, filter 1.2s ease;
   animation: emblem-in 2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s backwards, emblem-glow 6s ease-in-out 3s infinite alternate; }
 @keyframes emblem-in { from { opacity: 0; transform: scale(0.78); filter: blur(10px) drop-shadow(0 0 0 transparent); } }

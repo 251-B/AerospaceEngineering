@@ -152,9 +152,10 @@
           <!-- the near part of the tube -->
           <path d="M219 324L178 520H422L381 324Z" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="2" stroke-linejoin="round"/>
           <!-- the open end: a wide rim and a dark face -->
-          <circle cx="300" cy="520" r="134" fill="#070a22" stroke="url(#ringGrad)" stroke-width="3"/>
+          <ellipse cx="300" cy="520" rx="134" ry="118" fill="#070a22" stroke="url(#ringGrad)" stroke-width="3"/>
+          <ellipse cx="300" cy="520" rx="104" ry="91" fill="url(#bodyG)" stroke="rgba(120,140,255,0.35)" stroke-width="1.4"/>
           <!-- the front of the tube: the lens -->
-          <g transform="translate(300 520) scale(0.30)">
+          <g transform="translate(300 520) scale(0.235 0.205)">
             <circle r="298" fill="url(#barrelShade)"/>
             <circle class="intro-ring" r="291" pathLength="1" stroke="url(#ringGrad)" stroke-width="3"/>
             <circle r="284" stroke="rgba(190,200,255,0.30)" stroke-width="1"/>
