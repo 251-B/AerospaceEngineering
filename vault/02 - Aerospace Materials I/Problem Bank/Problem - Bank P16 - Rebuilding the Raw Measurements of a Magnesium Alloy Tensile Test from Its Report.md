@@ -149,7 +149,7 @@ the same as $\sigma_{TS}(1 + \varepsilon_u) = 255\ \text{MPa}\times1.080 = 275.4
 ## Interpretation
 
 - **Consistency of the report.** The neck diameter after fracture (8.39 mm) is smaller than the uniform diameter at the maximum load (8.66 mm): the neck kept thinning after the maximum, as it must [Session 11 Slide 30]. And $l_f = 49.95$ mm is longer than the length at the maximum, $45.00\times1.080 = 48.60$ mm, because the neck added plastic elongation even though the elastic part was recovered.
-- **Order of magnitude.** $E = 45$ GPa is the magnesium value of the slide's table [Session 11 Slide 17]; the small %RA (13 %) is typical of an hcp metal with few slip systems [Session 11 Slide 25].
+- **Order of magnitude.** $E = 45$ GPa is the magnesium value of the slide's table [Session 11 Slide 17]; magnesium is hcp, with 6 slip systems against 12 for fcc and bcc [Session 11 Slide 25]. **Extension** (not on the slides): fewer slip systems usually mean less ductility, which fits the small %RA of 13 %.
 - **Limiting case.** If $RA \to 0$ (no neck), $d_f \to d_0$; if $\varepsilon_u \to 0$, $d_u \to d_0$ and $\sigma_T \to \sigma$.
 - **Dimensions.** $F = \sigma A_0$ is Pa·m² = N; $l_0(1 + \varepsilon)$ is m; $d_0\sqrt{1 - RA}$ is m; $F/A_u$ is Pa.
 - **Common exam mistake.** Getting the diameter after fracture as $d_0(1 - RA)$ = 7.83 mm: %RA is a reduction of the area, so the diameter scales with the square root.

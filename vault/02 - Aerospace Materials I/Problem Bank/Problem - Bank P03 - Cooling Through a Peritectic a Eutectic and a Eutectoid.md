@@ -68,7 +68,7 @@ Units: 40 wt% Y is a mass fraction of 0.40 kg of Y per kg of alloy; the lever ru
 
 ### Hint
 
-There are four horizontal lines. Two of them have a liquid on the line, one has a solid field closing in a V from above (no liquid), and one has a new solid appearing below the line between the two phases above it.
+There are four horizontal lines. Two of them have a liquid whose composition lies between the two solids (a V-shaped meeting of the liquidus), one has a solid field closing in a V from above (no liquid at all), and one has a new solid appearing below the line between a solid and a liquid above it.
 
 ### Checkpoint
 
@@ -173,9 +173,21 @@ On a tie line with phases α and L the alloy and the element Y must both be cons
 
 $$W_\alpha + W_L = 1 \qquad W_\alpha C_\alpha + W_L C_L = C_0$$
 
-Substituting $W_L = 1 - W_\alpha$ and grouping the terms in $W_\alpha$:
+Substituting $W_L = 1 - W_\alpha$ in the balance of Y:
 
-$$W_\alpha (C_\alpha - C_L) = C_0 - C_L \qquad\Rightarrow\qquad W_\alpha = \frac{C_L - C_0}{C_L - C_\alpha} \qquad W_L = \frac{C_0 - C_\alpha}{C_L - C_\alpha}$$
+$$W_\alpha C_\alpha + (1 - W_\alpha) C_L = C_0$$
+
+Expanding the bracket:
+
+$$W_\alpha C_\alpha + C_L - W_\alpha C_L = C_0$$
+
+Grouping the terms in $W_\alpha$ and moving $C_L$ to the right-hand side:
+
+$$W_\alpha (C_\alpha - C_L) = C_0 - C_L$$
+
+Dividing by $(C_\alpha - C_L)$ and changing the sign of numerator and denominator:
+
+$$W_\alpha = \frac{C_L - C_0}{C_L - C_\alpha} \qquad W_L = 1 - W_\alpha = \frac{C_0 - C_\alpha}{C_L - C_\alpha}$$
 
 Just above 1100 °C, α has 15 and L has 45 wt% Y (length 30):
 

@@ -27,7 +27,7 @@ tags:
 
 ## Statement
 
-A bar of plain carbon steel of unknown composition (less than 2.14 wt% C) has been cooled slowly from the austenite field. A polished and etched section shows the structure of the figure. Point counting gives **88.0 % of lamellar colonies**; the remaining 12.0 % is a constituent X that forms a **thin, continuous, light network along the former austenite grain boundaries**, around the colonies, and etches like the light lamellae of the colonies. Take the area fractions as mass fractions; they are the fractions formed just below 727 °C, which the slow cooling to room temperature keeps.
+A bar of plain carbon steel of unknown composition (less than 2.14 wt% C) has been cooled slowly from the austenite field. A polished and etched section shows the structure of the figure. Point counting gives **88.0 % of lamellar colonies**; the remaining 12.0 % is a constituent X that forms a **thin, continuous network along the former austenite grain boundaries**, around the colonies. Microhardness indentations show that X is **much harder** than the lamellar colonies. Take the area fractions as mass fractions; they are the fractions formed just below 727 °C, which the slow cooling to room temperature keeps.
 
 ![[attachments/MAT-MT2/p11-micrograph.svg]]
 
@@ -108,18 +108,18 @@ $$C_0 = C_{\text{Fe}_3\text{C}} - W_P (C_{\text{Fe}_3\text{C}} - C_E) = 6.67 - 0
 
 ### Hint
 
-Proeutectoid ferrite and proeutectoid cementite look different on a micrograph (Session 9, Slides 14 and 19). For the temperature, find where the vertical line of the steel meets the boundary of the γ field.
+Both proeutectoid phases nucleate on the austenite grain boundaries, so the position of X is not enough; its hardness decides (Session 9, Slides 5 and 8). For the temperature, find where the vertical line of the steel meets the boundary of the γ field.
 
 ### Checkpoint
 
-- X is proeutectoid cementite (continuous grain-boundary network), so the steel is hypereutectoid: $C_0 = 1.469$ wt% C
+- X is much harder than the pearlite, so it is proeutectoid cementite (not ferrite): the steel is hypereutectoid, $C_0 = 1.469$ wt% C
 - Fully austenitic above about 943 °C (Acm line)
 
 ### Solution
 
 #### What X is
 
-In a hypoeutectoid steel the proeutectoid constituent is ferrite, which forms **equiaxed grains** of its own between the pearlite colonies (Session 9, Slide 14). In a hypereutectoid steel it is cementite, which forms a **thin network along the boundaries of the former austenite grains** around the pearlite (Session 9, Slide 19). X is a thin, continuous network, and it etches like the light lamellae of the pearlite, which are cementite. So X is **proeutectoid cementite**: the steel is hypereutectoid and
+In a hypoeutectoid steel the proeutectoid constituent is ferrite, which forms **equiaxed grains** of its own between the pearlite colonies (Session 9, Slide 14). In a hypereutectoid steel it is cementite, which forms a **thin network along the boundaries of the former austenite grains** around the pearlite (Session 9, Slide 19). The grain-boundary position alone does not decide, because proeutectoid ferrite also nucleates on the austenite grain boundaries (Session 9, Slide 15; Topic 4, section 14.2), and a large amount of it can outline them too. The hardness does decide: ferrite is a soft phase (Session 9, Slide 5) and would be softer than the pearlite, which contains 11 % of cementite, whereas cementite is hard and brittle (Session 9, Slide 8) and is harder than the pearlite. X is much harder than the colonies, so X is **proeutectoid cementite**, and its thin continuous network is the shape Slide 19 shows for it. The steel is hypereutectoid and
 
 $$C_0 = 1.469\ \text{wt\% C}$$
 
@@ -131,7 +131,7 @@ A hypereutectoid steel is fully austenitic above the Acm line (Session 9, Slides
 
 $$T_{Acm} = 727 + (1.469 - 0.76) \times 304.3 = 727 + 0.709 \times 304.3 = 727 + 215.8 = 942.8\ ^\circ\text{C}$$
 
-**Result:** the bar must have been above about 943 °C to be entirely austenite. (Had the steel been the 0.671 wt% C candidate, the A3 line would have been crossed only a few degrees above 727 °C.)
+**Result:** the bar must have been above about 943 °C to be entirely austenite. (Had the steel been the 0.671 wt% C candidate, it would have been fully austenitic above the A3 line, which at 0.671 wt% C lies only some 5 to 20 °C above 727 °C, depending on how its curve is read: the slides do not give A3 in numbers.)
 
 ## (c) Phases below 727 °C and where the cementite is [0.75 pts]
 

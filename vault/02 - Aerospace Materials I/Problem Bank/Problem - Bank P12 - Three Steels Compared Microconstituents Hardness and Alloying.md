@@ -85,7 +85,11 @@ S1 (0.25) and S2 (0.60) are below 0.76 wt% C: **hypoeutectoid**, with proeutecto
 
 #### Derive the lever rule once
 
-At 727 + ΔT the steel is a proeutectoid phase of composition $C_p$ plus austenite of $C_E = 0.76$. Mass balance: $W_p + W_\gamma = 1$. Carbon balance: $W_p C_p + W_\gamma C_E = C_0$. Substitute $W_\gamma = 1 - W_p$ and group the terms in $W_p$:
+At 727 + ΔT the steel is a proeutectoid phase of composition $C_p$ plus austenite of $C_E = 0.76$. Mass balance: $W_p + W_\gamma = 1$. Carbon balance: $W_p C_p + W_\gamma C_E = C_0$. Substitute $W_\gamma = 1 - W_p$ into the carbon balance:
+
+$$W_p C_p + (1 - W_p) C_E = C_0$$
+
+Expand, subtract $C_E$ and group the terms in $W_p$:
 
 $$W_p (C_p - C_E) = C_0 - C_E \quad\Rightarrow\quad W_p = \frac{C_0 - C_E}{C_p - C_E} = \frac{C_E - C_0}{C_E - C_p}$$
 
@@ -134,7 +138,7 @@ $$W_{\text{Fe}_3\text{C}}(S3) = \frac{1.35 - 0.022}{6.648} = \frac{1.328}{6.648}
 
 Ferrite is a soft phase and cementite is hard and brittle (Session 9, Slides 5 and 8), so at the same (slow) cooling the hardness grows with the fraction of cementite: **S3 (20.0 % Fe₃C) > S2 (8.7 %) > S1 (3.4 %)**. The fraction of cementite grows linearly with $C_0$, which is why harder steels are those with more carbon. S3 pays for its hardness with a brittle network of proeutectoid cementite at the grain boundaries (Session 9, Slide 19).
 
-**Check:** the cementite of S3 splits into 0.0998 proeutectoid and $0.9002 \times 0.1110 = 0.0999$ inside the pearlite (0.1110 is the cementite of any pearlite, Session 9, Slide 13); $0.0998 + 0.0999 = 0.1998$.
+**Check:** the cementite of S3 splits into 0.0998 proeutectoid and $0.9002 \times 0.1110 = 0.0999$ inside the pearlite (0.1110 is the cementite of any pearlite, Session 9, Slide 13); $0.09983 + 0.09993 = 0.1998$.
 
 ## (c) Lowest carbon content for at least 50 % pearlite [0.75 pts]
 
@@ -195,7 +199,7 @@ Session 9, Slide 22: elements that favour α (Si, P, Al, Be, Sn, Sb, As, Ti, Nb,
 
 #### Consequence for the microconstituents of S2
 
-In both versions the eutectoid composition $C_E'$ is lower than 0.76, so the pearlite (which always has the eutectoid composition) carries less than 0.76 wt% C. The proeutectoid ferrite is $W_{\alpha_p} = (C_E' - C_0)/(C_E' - C_\alpha)$: a smaller $C_E'$ shrinks the numerator, so S2 has **less proeutectoid ferrite and more pearlite** than the plain 0.60 wt% C steel of part (a), and is harder.
+In both versions the eutectoid composition $C_E'$ is lower than 0.76, so the pearlite (which always has the eutectoid composition) carries less than 0.76 wt% C. The proeutectoid ferrite is $W_{\alpha_p} = (C_E' - C_0)/(C_E' - C_\alpha)$: a smaller $C_E'$ shrinks the numerator, so S2 has **less proeutectoid ferrite and more pearlite** than the plain 0.60 wt% C steel of part (a). Its total cementite fraction (the long tie line from ferrite to cementite) does not change when the eutectoid point moves; what changes is how the cementite is distributed: more of the soft proeutectoid ferrite is replaced by pearlite, which is harder than ferrite (it contains the hard cementite lamellae, Session 9, Slides 8 and 12).
 
 #### If the eutectoid composition fell below 0.60 wt% C
 

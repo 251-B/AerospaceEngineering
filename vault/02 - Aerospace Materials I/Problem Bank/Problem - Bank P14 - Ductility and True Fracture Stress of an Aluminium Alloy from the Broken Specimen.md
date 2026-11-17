@@ -121,15 +121,23 @@ $$\sigma_{T,f} = \frac{F_f}{A_f} = \frac{17\,800\ \text{N}}{29.22\ \text{mm}^2} 
 
 Equivalently $\sigma_{T,f} = \sigma_f\,A_0/A_f = 354.1\ \text{MPa}\times1.720 = 609.1$ MPa [Session 11 Slide 38].
 
-#### True strain at fracture from the area ratio
+#### True strain at fracture: derivation from constant volume in the neck
 
-After necking the length between the marks no longer describes the strain of the neck, so the slide writes the true strain with the areas [Session 11 Slide 38]. With $A = \pi D^2/4$ the factor $\pi/4$ cancels in the ratio, and the logarithm of a square is twice the logarithm:
+The true strain adds each small elongation $dl$ divided by the current length $l$ [Session 11 Slide 37]. An antiderivative of $1/l$ is $\ln l$, and Barrow's rule with the limits substituted gives
+
+$$\varepsilon_T = \int_{l_0}^{l}\frac{dl}{l} = \left[\ln l\right]_{l_0}^{l} = \ln l - \ln l_0 = \ln\frac{l}{l_0}$$
+
+After necking the length between the marks no longer describes the strain of the neck, so the integral is applied to a thin slice of the neck itself. Plastic deformation keeps the volume of that slice constant: its initial length $l_0$ and area $A_0$ become $l$ and $A$ with $A_0 l_0 = A l$. Dividing both sides by $A\,l_0$:
+
+$$\frac{l}{l_0} = \frac{A_0}{A} \qquad\Rightarrow\qquad \varepsilon_T = \ln\frac{A_0}{A}$$
+
+which is the expression of the slide for the necked region [Session 11 Slide 38]. At the fracture surface $A = A_f$. With $A = \pi D^2/4$ the factor $\pi/4$ cancels in the ratio, and the logarithm of a square is twice the logarithm:
 
 $$\varepsilon_{T,f} = \ln\frac{A_0}{A_f} = \ln\frac{d_0^2}{d_f^2} = 2\ln\frac{d_0}{d_f} = 2\ln\frac{8.00}{6.10} = 2\times0.2712 = 0.542$$
 
 #### Why the uniform-deformation formulas fail here
 
-The formulas $\sigma_T = \sigma(1+\varepsilon)$ and $\varepsilon_T = \ln(1+\varepsilon)$ of Slide 38 come from constant volume, $A_0 l_0 = A l$, applied to a gauge length that deforms **uniformly**, so that one strain $\varepsilon$ describes every cross-section. After the maximum load the strain concentrates in the neck: the average strain of the gauge length (0.14) is much smaller than the local strain at the fracture surface. Using them anyway gives
+The formulas $\sigma_T = \sigma(1+\varepsilon)$ and $\varepsilon_T = \ln(1+\varepsilon)$ of Slide 38 come from constant volume, $A_0 l_0 = A l$, applied to a gauge length that deforms **uniformly**, so that one strain $\varepsilon$ describes every cross-section: from $A_0 l_0 = A l$, $A = A_0 l_0/l = A_0/(1+\varepsilon)$ and $\sigma_T = F/A = (F/A_0)(1+\varepsilon) = \sigma(1+\varepsilon)$. After the maximum load the strain concentrates in the neck: the average strain of the gauge length (0.14) is much smaller than the local strain at the fracture surface. Using them anyway gives
 
 $$\sigma_f\,(1 + 0.140) = 354.1\ \text{MPa}\times1.140 = 403.7\ \text{MPa} \qquad \ln(1 + 0.140) = 0.131$$
 
@@ -137,7 +145,7 @@ against 609.1 MPa and 0.542 from the measured neck: the area ratio of the neck i
 
 ## Interpretation
 
-- **Physical meaning.** The engineering curve falls after the maximum (427.7 to 354.1 MPa) only because it divides by the original area; the metal in the neck is still hardening, and at fracture it carries 609.1 MPa. True stress above engineering stress and true strain different from the engineering one are the two signs the slide gives [Session 11 Slide 37].
+- **Physical meaning.** The engineering curve falls after the maximum (427.7 to 354.1 MPa) only because it divides by the original area; the metal in the neck is still hardening, and at fracture it carries 609.1 MPa. The slide states $\sigma_{\text{real}} > \sigma_{\text{eng}}$ and $\varepsilon_{\text{real}} < \varepsilon_{\text{eng}}$ [Session 11 Slide 37]. The stress inequality holds here (609.1 > 354.1 MPa). The strain inequality is written for the uniform deformation of the gauge length, where $\ln(1+\varepsilon) < \varepsilon$ (0.131 < 0.140); the 0.542 found above is not a counterexample, because it is the local strain of the neck, while 0.14 is the average over the whole gauge length.
 - **Control checks.** $\sigma_f < \sigma_{TS} < \sigma_{T,f}$; $0 < RA < 100$ %; if the specimen had broken without necking ($d_f \to d_0$), $RA \to 0$ and $\sigma_{T,f} \to \sigma_f$, the behaviour of a brittle material.
 - **Dimensions.** $F/A$ is N/m² = Pa; %EL and %RA are ratios of lengths and of areas, and $\ln(A_0/A_f)$ is the logarithm of a pure number, so both strains are dimensionless.
 - **Common exam mistake.** Dividing the fracture load by the original area and calling it the true fracture stress, or computing %RA with the diameters instead of their squares ($1 - 6.10/8.00 = 23.8$ %, wrong).

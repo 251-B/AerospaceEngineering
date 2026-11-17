@@ -136,7 +136,13 @@ $$W_L + W_\beta = 1$$
 
 $$W_L C_L + W_\beta C_\beta = C_0$$
 
-Putting $W_L = 1 - W_\beta$ into the second equation: $C_L + W_\beta (C_\beta - C_L) = C_0$, so
+Putting $W_L = 1 - W_\beta$ into the second equation and expanding:
+
+$$(1 - W_\beta)\,C_L + W_\beta C_\beta = C_0$$
+
+$$C_L + W_\beta\,(C_\beta - C_L) = C_0$$
+
+so
 
 $$W_\beta = \frac{C_0 - C_L}{C_\beta - C_L} \qquad W_L = 1 - W_\beta = \frac{C_\beta - C_0}{C_\beta - C_L}$$
 

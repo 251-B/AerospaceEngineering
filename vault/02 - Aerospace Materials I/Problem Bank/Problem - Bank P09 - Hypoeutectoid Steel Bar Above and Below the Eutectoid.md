@@ -198,7 +198,7 @@ Draw two kinds of grains in the proportion of part (b). For the cooling rate, re
 
 #### Draw the two microconstituents in their proportions
 
-The proeutectoid ferrite nucleated at the austenite grain boundaries between the A3 line and 727 °C and grew into equiaxed, light grains; the remaining austenite became pearlite, alternating lamellae of ferrite and cementite (Session 9, Slides 12 and 14). The densities of ferrite and pearlite are close, so mass fractions are close to area fractions on a section: about 42 % of light ferrite grains and 58 % of lamellar colonies.
+The proeutectoid ferrite nucleated at the austenite grain boundaries between the A3 line and 727 °C and grew into equiaxed, light grains; the remaining austenite became pearlite, alternating lamellae of ferrite and cementite (Session 9, Slides 12 and 14). As an approximation (not stated on the slides), the densities of ferrite and pearlite are taken as close, so the mass fractions are drawn as area fractions on the section: about 42 % of light ferrite grains and 58 % of lamellar colonies.
 
 ![[attachments/MAT-MT2/p09-microstructure.svg]]
 

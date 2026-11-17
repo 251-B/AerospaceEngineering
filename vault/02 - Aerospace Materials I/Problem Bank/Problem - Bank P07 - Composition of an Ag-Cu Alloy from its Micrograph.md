@@ -87,7 +87,13 @@ $$W_s + W_L = 1$$
 
 $$W_s C_s + W_L C_E = C_0$$
 
-Putting $W_s = 1 - W_L$ in the second equation: $C_s + W_L (C_E - C_s) = C_0$, hence
+Putting $W_s = 1 - W_L$ in the second equation and expanding:
+
+$$(1 - W_L)\,C_s + W_L C_E = C_0$$
+
+$$C_s + W_L\,(C_E - C_s) = C_0$$
+
+hence
 
 $$W_E = W_L = \frac{C_0 - C_s}{C_E - C_s}$$
 
@@ -208,7 +214,7 @@ and its primary (Cu) is $1 - 0.657 = 0.343$.
 
 #### Compare with the measurement
 
-The micrograph shows 0.55 eutectic, not 0.657: about 11 points less eutectic and therefore more primary (Cu) than the certified alloy would have. Because $W_E$ falls as $C_0$ moves from E towards β, less eutectic means more Cu: the measurement corresponds to 56.86 wt% Cu, not 50. Within the hypotheses of the problem (equilibrium cooling, area fraction equal to mass fraction), the certificate is not consistent with the micrograph. A check that does not depend on the image is the total phase fraction: the certified alloy would hold $W_\alpha = 42/83.2 = 0.505$, against 0.422 for the measured one.
+The micrograph shows 0.55 eutectic, not 0.657: about 11 points less eutectic and therefore more primary (Cu) than the certified alloy would have. Because $W_E$ falls as $C_0$ moves from E towards β, less eutectic means more Cu: the measurement corresponds to 56.86 wt% Cu, not 50. Within the hypotheses of the problem (equilibrium cooling, area fraction equal to mass fraction), the certificate is not consistent with the micrograph. The two alloys would also differ in their total phase fractions: α would be $42/83.2 = 0.505$ for the certified alloy, against 0.422 for the alloy of the micrograph.
 
 ## Interpretation
 

@@ -157,7 +157,7 @@ $$\Delta l_B = \frac{\sigma}{E_B}\,l_0 = \frac{159.2\times10^{6}\ \text{Pa}}{107
 
 ## Interpretation
 
-- The three requirements pull in different directions: steel is stiff and strong but heavy, the light alloys are too weak for $N = 2$, and the titanium alloy is the only one with both a high strength and a moderate density. This is the logic of the specific properties of Slide 13 ($E/\rho$).
+- The three requirements pull in different directions: steel is stiff and strong but heavy, the light alloys are too weak for $N = 2$, and the titanium alloy wins on strength per unit density. **Extension** (not on the slides): the specific strength $\sigma_y/\rho$ is the yield strength divided by the density; with the table it is about 111 (A), 189 (B), 61.5 (C) and 122 (D) MPa per g/cm³, so B is clearly ahead. On the specific modulus $E/\rho$ B is actually the lowest of the four (23.8 against 25.0 to 26.5 GPa per g/cm³): here stiffness is not the deciding property.
 - D fails twice: a low yield strength and a low modulus (a large elastic strain, hence a large diameter loss). A low $E$ makes $\lvert\Delta d\rvert$ grow as $\nu/E$.
 - Limiting check: the diameter loss of B, 6.07 µm, is $5\times10^{-4}$ of the diameter, a typical elastic strain of a metal, far below 1 %.
 - SI check: $\nu\,\sigma\,d_0/E$ has units Pa·m/Pa = m; $\rho\,V$ in (kg/m³)·m³ = kg.

@@ -46,8 +46,10 @@ A cylindrical specimen of an aluminium alloy, 12.0 mm in diameter and with a gau
 
 - Engineering stress $\sigma = F/A_0$ and strain $\varepsilon = (l - l_0)/l_0$ [Session 11, Slide 9]; elastic zone for $\sigma < \sigma_y$, plastic for $\sigma > \sigma_y$ [Session 11, Slide 10].
 - Hooke's law $\sigma = E\,\varepsilon$ for the elastic part [Session 11, Slide 12].
-- Beyond yield the total strain is the sum of an elastic and a plastic part, $\varepsilon_t = \varepsilon_e + \varepsilon_p$; on unloading the elastic part is recovered along a line parallel to the elastic line and the plastic part remains [Session 11, Slides 21 and 32].
-- Hypotheses: uniform uniaxial stress; the engineering stress uses the initial area $A_0$; the unloading and the later reloading below the previous maximum stress are elastic with the same modulus $E$.
+- Beyond yield the total strain is the sum of an elastic and a plastic part, $\varepsilon_t = \varepsilon_e + \varepsilon_p$; on unloading the elastic part is recovered along a line parallel to the elastic line and the plastic part remains [Session 11, Slide 32].
+- **Extension** (idealisation, not stated on the slides): on reloading, the unloaded specimen follows the unloading line elastically up to the previous maximum stress before it yields again. The slides only state that cold work raises the yield strength [Session 12, Slide 5].
+- Yielding is drawn, as an idealisation, at the end of the straight elastic line; the real 0.2 % offset value of 275 MPa lies on the curve at a strain of about 0.0060.
+- Hypotheses: uniform uniaxial stress; the engineering stress uses the initial area $A_0$; the unloading is elastic with the same modulus $E$; the elastic reloading of part (c) rests on the idealisation marked **extension** above.
 
 ## (a) Show that the specimen deforms plastically at 40 kN and give its length under that load. [0.6 pts]
 
@@ -98,7 +100,7 @@ On unloading only the elastic part of the strain is recovered, along a line of s
 
 #### Split the total strain into its elastic and plastic parts
 
-At point B of the curve the total strain is $\varepsilon_B = \varepsilon_e + \varepsilon_p$ [Session 11, Slide 32]. Unloading removes the stress from $\sigma_B$ to 0 along a straight line parallel to the elastic line, of slope $E$ [Session 11, Slide 21]. The strain recovered is therefore Hooke's law applied to the stress drop $\sigma_B - 0$:
+At point B of the curve the total strain is $\varepsilon_B = \varepsilon_e + \varepsilon_p$ [Session 11, Slide 32]. Unloading removes the stress from $\sigma_B$ to 0 along a straight line parallel to the elastic line, of slope $E$ [Session 11, Slide 32]. The strain recovered is therefore Hooke's law applied to the stress drop $\sigma_B - 0$:
 
 $$\varepsilon_e = \frac{\sigma_B}{E} = \frac{353.7\times10^{6}\ \text{Pa}}{69\times10^{9}\ \text{Pa}} = 5.126\times10^{-3}$$
 
@@ -120,7 +122,7 @@ The specimen shortens on unloading by $l_B - l_P = 51.750 - 51.494 = 0.256$ mm, 
 
 ![[attachments/MAT-MT2/p19-load-unload-path.svg]]
 
-O to Y is the elastic line up to $\sigma_y$; Y to B is the plastic loading up to 353.7 MPa at $\varepsilon = 0.035$; B to P is the unloading, parallel to OY, ending at the permanent strain 0.0299.
+O to Y is the elastic line, with yielding idealised at its end (the 0.2 % offset value lies a little further along the curve); Y to B is the plastic loading up to 353.7 MPa at $\varepsilon = 0.035$; B to P is the unloading, parallel to OY, ending at the permanent strain 0.0299.
 
 ## (c) Length of the specimen when it is loaded again to 30 kN. [0.6 pts]
 
@@ -137,7 +139,10 @@ Compare the new stress with the highest stress the specimen has already carried.
 
 #### Is the reloading elastic?
 
-On reloading, the specimen climbs back along the unloading line PB and stays elastic until the stress reaches the value at which it was unloaded, 353.7 MPa [Session 11, Slides 21 and 32]: the plastic deformation of the first loading has hardened the alloy (strain hardening, Session 12, Slide 5), so its yield point is now the stress reached at B. The new stress is
+> [!note] Extension: reloading to the previous maximum
+> The idealisation used here is not stated on the slides: a specimen unloaded from B climbs back along the unloading line PB elastically and yields again only when the stress reaches the previous maximum, 353.7 MPa. The slides only say that cold work raises the yield strength [Session 12, Slide 5].
+
+With that idealisation, the reloading is elastic if the new stress stays below 353.7 MPa. The new stress is
 
 $$\sigma_R = \frac{F_R}{A_0} = \frac{30\times10^{3}\ \text{N}}{1.131\times10^{-4}\ \text{m}^2} = 265.3\ \text{MPa} < 353.7\ \text{MPa}$$
 

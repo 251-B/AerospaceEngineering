@@ -7,7 +7,7 @@ problem it belongs to:
 * p09-microstructure  sketch of the 0.45 wt% C steel just below 727 °C (P09, part d);
 * p10-diagram         steel corner of the Fe-Fe3C diagram with the 1.10 wt% C steel of P10 (Acm drawn straight
                       between (0.76, 727) and (2.14, 1147), as in tools/figures/materials_t4.py);
-* p11-micrograph      schematic micrograph of the unknown steel of P11 (light continuous network around lamellar
+* p11-micrograph      schematic micrograph of the unknown steel of P11 (continuous network around lamellar
                       colonies; the network is labelled only "X" so the figure does not name it);
 * p12-constituents    microconstituent fractions of the three steels of P12 just below 727 °C.
 """
@@ -122,9 +122,9 @@ def p10_diagram():
 
 # --------------------------------------------------------------------------- P11
 @figure("p11-micrograph", "Schematic micrograph of a slowly cooled steel: lamellar colonies surrounded by a continuous "
-        "light network labelled X",
+        "network labelled X",
         "Bank P11: schematic micrograph of the unknown steel after slow cooling (polished and etched). Lamellar "
-        "colonies are surrounded by a thin, continuous, light network X along the former austenite grain boundaries")
+        "colonies are surrounded by a thin, continuous network X along the former austenite grain boundaries")
 def p11_micro():
     c = Canvas(430, 280)
     ox, oy, size = 20, 20, 230
@@ -141,7 +141,7 @@ def p11_micro():
     dot(c, (gx, gy), 3.2, "GREEN")
     line(c, (nx, ny), (272, 70), "GREEN", 1.2)
     line(c, (gx, gy), (272, 200), "GREEN", 1.2)
-    text(c, (278, 66), "X: continuous light", "HEAD", "start", 13, "700")
+    text(c, (278, 66), "X: continuous", "HEAD", "start", 13, "700")
     text(c, (278, 84), "network at the grain", "TEXT", "start", 12)
     text(c, (278, 100), "boundaries", "TEXT", "start", 12)
     text(c, (278, 196), "Lamellar colonies", "HEAD", "start", 13, "700")

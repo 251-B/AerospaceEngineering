@@ -168,7 +168,7 @@ At 700 − ΔT °C: phases α (10 wt% B, 20.0 %) and γ (60 wt% B, 80.0 %); micr
 
 #### Follow the cooling path to the eutectic line
 
-The vertical line of 20 wt% B crosses the α liquidus (at about 830 °C, a reading of the figure): grains of primary α nucleate and grow, while the liquid becomes richer in B along the liquidus. Just above 700 °C the α has 10 wt% B and the liquid 35 wt% B, the eutectic composition [Session 7 Slides 30-31].
+The vertical line of 20 wt% B crosses the α liquidus (at about 800 °C, a reading of the figure): grains of primary α nucleate and grow, while the liquid becomes richer in B along the liquidus. Just above 700 °C the α has 10 wt% B and the liquid 35 wt% B, the eutectic composition [Session 7 Slides 30-31].
 
 #### Amounts at 700 + ΔT °C
 

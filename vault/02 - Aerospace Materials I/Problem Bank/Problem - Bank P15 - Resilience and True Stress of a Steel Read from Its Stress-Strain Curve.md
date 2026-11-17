@@ -35,7 +35,7 @@ The figure shows the engineering stress-strain curve of a steel, drawn to fractu
 
 #### Data
 
-Values read from the figure (the dashed projections of each marked point end on a printed axis value):
+Values read from the figure: A, B and Y have dashed projections that end on a printed axis value; U lies on the 0.15 and 600 gridlines; F is at (0.25, 500) and is not needed.
 
 | Point | What it is | Strain $\varepsilon$ | Stress $\sigma$ (MPa) | In SI |
 | :--- | :--- | ---: | ---: | ---: |
@@ -80,7 +80,7 @@ The yield strength is the stress at the crossing of the curve with the offset li
 
 $$\sigma_y = 450\ \text{MPa}$$
 
-Check of the reading: on the offset line $\sigma = E(\varepsilon - 0.002)$, so the strain of Y must be $\varepsilon_Y = 0.002 + \sigma_y/E = 0.002 + 450/206\,667 = 0.004177$, which is where Y sits in the right panel (just above the 0.004 gridline).
+Check of the reading: on the offset line $\sigma = E(\varepsilon - 0.002)$, so the strain of Y must be $\varepsilon_Y = 0.002 + \sigma_y/E = 0.002 + 450/206\,667 = 0.004177$, which is where Y sits in the right panel (just to the right of the 0.004 gridline).
 
 #### Elastic strain at the yield strength
 
@@ -163,7 +163,7 @@ Point U is the maximum of the curve, the tensile strength (600 MPa), and necking
 ## Interpretation
 
 - **Physical meaning.** $U_r = 0.490$ MJ/m³ is small next to the area under the whole curve (the toughness: a mean stress of about 530 MPa over a strain of 0.25 gives roughly $530\ \text{MPa}\times0.25 \approx 130$ MJ/m³): a structural steel absorbs almost all its energy plastically. A spring material needs high $\sigma_y$ and low $E$ [Session 11 Slide 35].
-- **Limiting case.** For small strains $\ln(1+\varepsilon) \approx \varepsilon$ and $1+\varepsilon \approx 1$: at A ($\varepsilon = 0.0015$) true and engineering values differ by 0.15 %, at B by 8 %. The distinction matters only in the plastic range.
+- **Limiting case.** For small strains $\ln(1+\varepsilon) \approx \varepsilon$ and $1+\varepsilon \approx 1$: at A ($\varepsilon = 0.0015$) the true stress exceeds the engineering one by 0.15 % and the true strain is smaller by about 0.075 %; at B the stresses differ by 8 % and the strains by about 3.8 % (0.0770 against 0.08). The distinction matters only in the plastic range.
 - **Dimensions.** $\int\sigma\,d\varepsilon$ is Pa × (dimensionless) = Pa = J/m³; $\sigma_y^2/E$ is Pa²/Pa = Pa; $\ln(l/l_0)$ is the logarithm of a pure number; $\sigma(1+\varepsilon)$ is Pa.
 - **Common exam mistake.** Taking $\varepsilon_y = 0.002$ or $\varepsilon_Y = 0.004177$ (the strain of the crossing, which includes the plastic offset) in the resilience: $U_r$ uses only the elastic strain $\sigma_y/E$.
 

@@ -133,7 +133,13 @@ $$W_\alpha + W_L = 1$$
 
 $$W_\alpha C_\alpha + W_L C_L = C_0$$
 
-Replacing $W_\alpha = 1 - W_L$: $C_\alpha + W_L (C_L - C_\alpha) = C_0$, so
+Replacing $W_\alpha = 1 - W_L$ and expanding:
+
+$$(1 - W_L)\,C_\alpha + W_L C_L = C_0$$
+
+$$C_\alpha + W_L\,(C_L - C_\alpha) = C_0$$
+
+so
 
 $$W_L = \frac{C_0 - C_\alpha}{C_L - C_\alpha} \qquad W_\alpha = 1 - W_L = \frac{C_L - C_0}{C_L - C_\alpha}$$
 
@@ -210,9 +216,9 @@ $$m_\alpha = 0.7033 \times 50 = 35.16\ \text{kg} \qquad m_\beta = 0.2967 \times 
 
 #### β formed in the solid state
 
-$$\Delta m_\beta = m_\beta(20\ ^\circ\text{C}) - m_\beta(800 - \Delta T) = 14.84 - 10.14 = 4.69\ \text{kg}$$
+$$\Delta m_\beta = m_\beta(20\ ^\circ\text{C}) - m_\beta(800 - \Delta T) = 14.835 - 10.145 = 4.69\ \text{kg}$$
 
-(with unrounded values, $50\,(27/91 - 14/69) = 4.69$ kg). The α column falls from 16 wt% B at 800 °C to 3 wt% B at 20 °C: α can hold less and less B, so the α of the casting (primary α and the α of the eutectic) becomes supersaturated and rejects the excess as small β particles, which grow as the temperature falls [Session 8 Slides 3-4]. The β column also moves (85 → 94 wt% B), so the β already present gets slightly richer in B too. The microconstituents keep their names; the primary α now holds fine β precipitates.
+(with the unrounded masses $50 \times 27/91 = 14.835$ kg and $50 \times 14/69 = 10.145$ kg). The α column falls from 16 wt% B at 800 °C to 3 wt% B at 20 °C: α can hold less and less B, so the α of the casting (primary α and the α of the eutectic) becomes supersaturated and rejects the excess as small β particles, which grow as the temperature falls [Session 8 Slides 3-4]. The β column also moves (85 → 94 wt% B), so the β already present gets slightly richer in B too. The microconstituents keep their names; the primary α now holds fine β precipitates.
 
 ## Interpretation
 

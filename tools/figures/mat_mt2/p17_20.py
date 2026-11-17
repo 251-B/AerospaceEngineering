@@ -25,7 +25,7 @@ def _harden(e):
         "Stress-strain path of the specimen: elastic line to the yield strength of 275 MPa, plastic loading to "
         "353.7 MPa at a strain of 0.035, unloading along a line parallel to the elastic line to a permanent strain "
         "of 0.0299, and elastic reloading to 265.3 MPa",
-        "Loading O-Y-B beyond yield, unloading B-P parallel to the elastic line, reloading P-R (to scale)")
+        "Loading O-Y-B beyond yield (yielding idealised at the end of the elastic line Y), unloading B-P parallel to the elastic line, reloading P-R (to scale)")
 def load_unload():
     c = Canvas(520, 330)
     m = Map(70, 270, 10500, 0.6)
