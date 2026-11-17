@@ -339,11 +339,15 @@
     // the whole figure drifts a few units, slowly and out of step with the others
     var float = s('g', { 'class': 'const-float' });
     while (g.firstChild) float.appendChild(g.firstChild);
-    g.appendChild(float);
-    float.style.setProperty('--fx', (16 + rnd() * 18).toFixed(1) + 'px');
-    float.style.setProperty('--fr', (0.8 + rnd() * 1.6).toFixed(2) + 'deg');
-    float.style.setProperty('--fy', (12 + rnd() * 16).toFixed(1) + 'px');
-    float.style.setProperty('--fdur', (7 + rnd() * 6).toFixed(1) + 's');
+    var sway = s('g', { 'class': 'const-sway' });   // two slow motions, one on top of the other, so the figure floats instead of sliding to and fro
+    sway.appendChild(float);
+    g.appendChild(sway);
+    sway.style.setProperty('--sx', (9 + rnd() * 9).toFixed(1) + 'px');
+    sway.style.setProperty('--sdur2', (8 + rnd() * 5).toFixed(1) + 's');
+    sway.style.setProperty('--sdel2', (-rnd() * 10).toFixed(1) + 's');
+        float.style.setProperty('--fr', (0.8 + rnd() * 1.6).toFixed(2) + 'deg');
+    float.style.setProperty('--fy', (11 + rnd() * 9).toFixed(1) + 'px');
+    float.style.setProperty('--fdur', (5.5 + rnd() * 3).toFixed(1) + 's');
     float.style.setProperty('--fdel', (-rnd() * 14).toFixed(1) + 's');
     float.style.setProperty('--bd', (4.5 + rnd() * 4).toFixed(1) + 's');
     float.style.setProperty('--bdel', (-rnd() * 9).toFixed(1) + 's');

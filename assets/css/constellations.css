@@ -432,3 +432,15 @@ html[data-theme="light"] .sky-view::after { opacity: 0.55; }
 @keyframes const-blink { 0%, 100% { opacity: 1; } 22% { opacity: 0.38; } 30% { opacity: 1; } 38% { opacity: 0.55; } 46% { opacity: 1; } 70% { opacity: 0.8; } }
 .sky-svg.is-zoomed .const-float { animation-play-state: running; }
 @media (prefers-reduced-motion: reduce) { .const-float, .const-extra { animation: none; } }
+
+/* ---- Floating like the planets: a slow bob up and down plus a slower sway, and bright flashes of light ---- */
+.const-sway { animation: const-sway var(--sdur2, 10s) ease-in-out var(--sdel2, 0s) infinite alternate; will-change: transform; }
+@keyframes const-sway { from { transform: translateX(calc(var(--sx, 10px) * -1)); } to { transform: translateX(var(--sx, 10px)); } }
+.const-float { animation: const-bob var(--fdur, 7s) ease-in-out var(--fdel, 0s) infinite alternate, const-blink var(--bd, 6s) ease-in-out var(--bdel, 0s) infinite; }
+@keyframes const-bob { from { transform: translateY(calc(var(--fy, 14px) * -1)) rotate(calc(var(--fr, 1deg) * -1)); } to { transform: translateY(var(--fy, 14px)) rotate(var(--fr, 1deg)); } }
+/* a flash of light on every star, each at its own moment */
+.const .star-core { transform-box: fill-box; transform-origin: center; animation: star-flash 4.2s ease-in-out var(--sd, 0s) infinite; }
+@keyframes star-flash { 0%, 62%, 100% { transform: scale(1); opacity: 0.85; } 70% { transform: scale(2.8); opacity: 1; } 78% { transform: scale(1.2); opacity: 0.9; } }
+.const:not(.is-active) .star-flare { animation: star-halo 4.2s ease-in-out var(--sd, 0s) infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes star-halo { 0%, 60%, 100% { opacity: 0.12; transform: scale(0.8); } 70% { opacity: 0.95; transform: scale(1.7); } 85% { opacity: 0.3; transform: scale(1.1); } }
+@media (prefers-reduced-motion: reduce) { .const-sway, .const-float, .const .star-core, .const:not(.is-active) .star-flare { animation: none; } }
