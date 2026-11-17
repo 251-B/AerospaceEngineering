@@ -4,20 +4,21 @@
   "title": "Aerospace Materials I — Assessment Test II (Midterm 2)",
   "short_title": "Midterm 2",
   "generate_label": "Generate New Midterm 2 Exam",
-  "note": "Assessment Test II of 22 November 2019 (model B) is Part I, a test of 10 questions with four options and one right answer (+0.5 right, -0.15 wrong, 0 blank, the mark never below 0; 5 points), and Part II, one problem of 5 points on a binary phase diagram with four parts (1.2 + 1.3 + 1.3 + 1.2). The 2018 paper has the same ten questions and the same problem. The paper prints no duration: the test takes part of one class session, so 60 minutes is the standard here. The ten questions of the real paper are four on Unit 5 and two on each of Units 4, 6 and 7; the simulator keeps that mix. Practice scopes (modes): the real mix, a mix weighted towards Units 6 and 7 (1 + 2 + 4 + 3: Unit 4 is already examined by the Part II problem and Unit 5 keeps two questions), and the ten questions of a single unit. A single-unit mode trains only Part I, graded out of 5 with the same rule, and has a shorter clock (20 minutes standard: an assumption, no paper prints it).",
+  "note": "Assessment Test II of 22 November 2019 (model B) is Part I, a test of 10 questions with four options and one right answer (+0.5 right, -0.15 wrong, 0 blank, the mark never below 0; 5 points), and Part II, one problem of 5 points on a binary phase diagram. For 2026-27 Part II is two problems: a longer one on phase diagrams and a shorter one on Unit 5 (mechanical properties). The split 3 + 2 points follows the finals of 2016 and 2017, where the phase-diagram problem is worth 2 points and the Unit 5 problem 1 point. No paper prints a duration; 75 minutes is the standard here. The ten questions of the real paper are four on Unit 5 and two on each of Units 4, 6 and 7; the default scope keeps that mix.",
   "provenance": {
     "structure_source": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2019.pdf: p. 2 (header: scoring rule, 'Part I (5 points)', questions 1 to 5), p. 3 (questions 6 to 10 and the Pb-Sn diagram), p. 4 (problem '2. (5 points)' on the Ni-Nb diagram, parts a 1.2p, b 1.3p, c 1.3p, d 1.2p). MATERIALS_SECONDPARTIAL_2018.docx: the same ten questions and problem, without the scoring header.",
     "duration_source": "Not printed on either paper. Schedule_MAT AERO I 2026 - 27.pdf lists 'TEST 2 (Topics 4, 5, 6 and 7). Resolution of PROBLEMS' as one session. 60 minutes is an assumption.",
-    "verify_when": "The official duration of the current course's Test 2 is confirmed; update duration_minutes and drop this note."
+    "verify_when": "The official duration of the current course's Test 2 and the points of its two problems are confirmed; update this file and drop this note.",
+    "structure_2026_27": "Part II as two problems (a longer phase-diagram problem and a shorter Unit 5 problem): course announcement for 2026-27, given by the student. Points 3 + 2: assumption from the ratio of the finals, MATERIALS_FINALEXAM_2016_ORD_SOL.pdf (question 4 phase diagram 2 points, question 5 rod 1 point), MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf (questions 4 and 6), MATERIALS_FINALEXAM_2017_ORD.pdf and MATERIALS_FINALEXAM_2017_EXTRA.pdf (question 4, 2 points; question 5, 1 point)."
   },
   "content_scope_source": "Units 4 to 7: phase diagrams, mechanical properties, electrical properties, magnetic and thermal properties (Sessions 7 to 13 and 15).",
   "simulator_page": "subjects/aerospace-materials-1/simulator/index.html",
   "problem_bank": "subjects/aerospace-materials-1/data/problems.json",
   "total_points": 10.0,
-  "duration_minutes": 60,
+  "duration_minutes": 75,
   "duration_options_minutes": [
-    45,
     60,
+    75,
     90
   ],
   "parts": [
@@ -46,21 +47,49 @@
     },
     {
       "id": "part-2",
-      "label": "Part II — Problem",
+      "label": "Part II — Problem 1 · Phase diagrams",
       "category": "mt2_problem",
       "count": 1,
-      "points_each": 5.0,
-      "points_total": 5.0,
-      "description": "One problem of 5 points with four or five parts. The real paper asks a binary phase diagram; the other types follow the problems on Units 5 and 6 of the final exams.",
+      "points_each": 3.0,
+      "points_total": 3.0,
+      "description": "The longer problem: a binary phase diagram (invariant reactions, lever rule, microconstituents, microstructure sketches, congruent melting, solubility) or the steels of the Fe-Fe3C diagram, with four or five parts.",
       "selection_rules": {
         "distinct_units": false,
         "distinct_themes": false,
+        "units": [
+          4
+        ],
         "archetypes": [
           "phase-diagram-invariant",
           "eutectic-lever-rule",
-          "fe-c-steels",
+          "fe-c-steels"
+        ]
+      },
+      "grading_steps": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    {
+      "id": "part-3",
+      "label": "Part II — Problem 2 · Mechanical properties",
+      "category": "mt2_problem",
+      "count": 1,
+      "points_each": 2.0,
+      "points_total": 2.0,
+      "description": "The shorter problem on Unit 5: a tensile test from data or a curve, or a bar under load (yielding, elongation and Poisson contraction, design with a safety factor, unloading), with two or three parts.",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [
+          5
+        ],
+        "must_archetypes": [
           "tensile-test",
-          "semiconductors-conductivity"
+          "loaded-bar"
         ]
       },
       "grading_steps": [
@@ -83,7 +112,7 @@
       "label": "Mixed (real paper)",
       "default": true,
       "include_problem": true,
-      "description": "The mix of the real paper: 2 + 4 + 2 + 2 questions (Units 4, 5, 6, 7) and the Part II problem.",
+      "description": "The mix of the real paper: 2 + 4 + 2 + 2 questions (Units 4, 5, 6, 7) and the two Part II problems (phase diagrams, 3 points; Unit 5, 2 points).",
       "per_unit": {
         "4": 2,
         "5": 4,
@@ -95,7 +124,7 @@
       "id": "focus-6-7",
       "label": "Mixed (focus on Units 6 and 7)",
       "include_problem": true,
-      "description": "Weighted towards Units 6 and 7: 1 + 2 + 4 + 3 questions and the Part II problem.",
+      "description": "Weighted towards Units 6 and 7: 1 + 2 + 4 + 3 questions and the two Part II problems (phase diagrams, 3 points; Unit 5, 2 points).",
       "per_unit": {
         "4": 1,
         "5": 2,

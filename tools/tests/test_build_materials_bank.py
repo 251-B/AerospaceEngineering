@@ -59,8 +59,8 @@ archetype: tensile-test
 level: standard
 unit: 5
 difficulty: 2
-points: 5.0
-time_minutes: 30
+points: 2.0
+time_minutes: 15
 origen: "demo"
 tags:
   - problem-bank
@@ -75,7 +75,7 @@ tags:
 
 A bar of 10 mm diameter carries 22 kN.
 
-## (a) Stress [2.5 pts]
+## (a) Stress [1.0 pts]
 
 ### Hint
 
@@ -91,7 +91,7 @@ Divide by the area.
 
 $$\\sigma = F/A_0$$
 
-## (b) Strain [2.5 pts]
+## (b) Strain [1.0 pts]
 
 ### Hint
 
@@ -356,11 +356,11 @@ class ProblemNoteTests(NoteCase):
     def test_valid_problem_and_its_verification(self):
         path = self.write(PROBLEM, self.NAME)
         item = bmb.parse_problem_note(path)
-        self.assertEqual((item["points"], len(item["subquestions"]), len(item["verify"])), (5.0, 2, 1))
+        self.assertEqual((item["points"], len(item["subquestions"]), len(item["verify"])), (2.0, 2, 1))
         self.assertEqual(verify_mt2.verify_problem(item, path), [])
 
     def test_points_must_add_up(self):
-        self.assertBankError("add up to 4.5", bmb.parse_problem_note, self.write(PROBLEM.replace("[2.5 pts]", "[2.0 pts]", 1), self.NAME))
+        self.assertBankError("add up to 1.5", bmb.parse_problem_note, self.write(PROBLEM.replace("[1.0 pts]", "[0.5 pts]", 1), self.NAME))
 
     def test_solution_needs_step_titles(self):
         self.assertBankError("step titles", bmb.parse_problem_note,
@@ -437,10 +437,12 @@ class RealBankTests(unittest.TestCase):
 
     def test_blueprint_is_the_real_structure(self):
         bp = json.loads((bmb.OUT_DIR / bmb.BLUEPRINT).read_text(encoding="utf-8"))
-        mc, prob = bp["parts"]
+        mc, long_problem, short_problem = bp["parts"]
         self.assertEqual((mc["type"], mc["count"], mc["points_correct"], mc["points_wrong"], mc["points_blank"], mc["floor"]),
                          ("multiple_choice", 10, 0.5, -0.15, 0, 0))
-        self.assertEqual((prob["count"], prob["points_each"], bp["total_points"]), (1, 5.0, 10.0))
+        self.assertEqual((long_problem["count"], long_problem["points_each"], long_problem["selection_rules"]["units"]), (1, 3.0, [4]))
+        self.assertEqual((short_problem["count"], short_problem["points_each"], short_problem["selection_rules"]["units"]), (1, 2.0, [5]))
+        self.assertEqual(bp["total_points"], 10.0)
         self.assertIn("MATERIALS_SECONDPARTIAL_2019.pdf", bp["provenance"]["structure_source"])
 
     def test_simulator_page_reads_the_bank_and_the_blueprint(self):

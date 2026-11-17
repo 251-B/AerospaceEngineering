@@ -31,6 +31,7 @@ This note is the specification of the Midterm 2 bank: what the real paper looks 
 | Answer sheet | "Mark the right answer with a X in the table below" | 2019, p. 2, header |
 | Material allowed | "Neither books nor any other extra material is allowed in the exam but the calculator." | 2019, p. 2, header |
 | Part II | One problem, "2. (5 points)", on the Ni-Nb phase diagram, four parts: a) 1.2 p, b) 1.3 p, c) 1.3 p, d) 1.2 p | 2019, p. 4 |
+| Part II in 2026-27 | Two problems: a longer one on phase diagrams and a shorter one on Unit 5 (mechanical properties). Points used here: 3.0 + 2.0, from the 2:1 ratio of the finals (section 6) | Course announcement for 2026-27, given by the student; points are an assumption |
 | Figures | Pb-Sn diagram printed under question 10 (used by question 7); four dipole pictures as the options of question 9; the Ni-Nb diagram of the problem | 2019, pp. 3 and 4 |
 | Duration | Not printed | 2019 and 2018 |
 | 2018 paper | The same ten questions (question 2 with 6400 N instead of 6000 N) and the same problem, with no header | MATERIALS_SECONDPARTIAL_2018.docx |
@@ -210,17 +211,43 @@ At most four questions share one `concept_id`, and those that do differ in forma
 
 ## 6. Problem types of Part II
 
-Each problem of the bank is worth 5 points, like the real one, with four or five parts.
+### 6.1 Structure for 2026-27
+
+Part II is **two problems** this year: a longer problem on phase diagrams and a shorter problem on Unit 5. The 2019 and 2018 papers had one 5-point problem on a binary diagram; the finals, re-read for this section, always pair the two topics with a 2:1 weight:
+
+| Final | Phase-diagram problem | Unit 5 problem | Source |
+| :--- | :--- | :--- | :--- |
+| January 2017 (ordinary) | Q4, 2 points, Ag-Sn in wt%: invariant reactions with name, temperature and compositions; phases and amounts at 480 - ΔT °C for Ag-30 Sn; microconstituents and fractions at 221 - ΔT °C for Ag-60 Sn; congruent melting and maximum solubility (4 × 0.5 p) | Q5, 1 point: titanium bar, 10 mm, 204 mm, σy 345 MPa, E 110 GPa, ν 0.30: does it yield under 22 kN; length and diameter under the load (2 × 0.5 p) | MATERIALS_FINALEXAM_2017_ORD.pdf, pp. 2-4 |
+| 2017 (extraordinary) | Q4, 2 points, Fe-C: 5 kg bar of 0.55 % C, kg of proeutectoid ferrite, eutectoid ferrite and cementite at 727 - ΔT; phases and microconstituents at 600 °C; carbon content from 64.7 % austenite and 35.3 % cementite at 800 °C; effect of alloying on the eutectoid point (4 × 0.5 p) | Q5, 1 point: brass specimen 10 mm × 120 mm: length under 11 750 N; length after unloading from 23 500 N with a strain of 2.2·10⁻² before unloading (elastic recovery) | MATERIALS_FINALEXAM_2017_EXTRA.pdf, pp. 2-4 |
+| 2016 (ordinary) | Q4, 2 points, Ni-Ti in at%: invariant reactions at 765, 984 and 1118 °C; microstructure sketch at 765 - ΔT for 8 at% Ni; microconstituents at 1304 - ΔT for 80 at% Ni; congruent melting and maximum solubility (4 × 0.5 p) | Q5, 1 point: material selection for a 120 mm rod of 14 mm carrying 30 kN without yielding, diameter loss under 10 µm and mass under 100 g, from a table of four alloys (E, σy, ν, ρ) | MATERIALS_FINALEXAM_2016_ORD_SOL.pdf, pp. 2-4 |
+| 2016 (extraordinary) | Q4, 1 point, Fe-Fe3C: kg of proeutectoid ferrite, eutectoid ferrite and cementite for a 5 kg bar of 0.55 % C; carbon content from 63.3 % proeutectoid ferrite | Q6, 1 point: two square bars of materials A and B (E, ν): back-calculate dimensions and force from lateral and axial changes | MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf, pp. 2-4 |
+| June 2015 | Q2, 2 marks, Fe-C steel, 100 g at 400 °C, effect of 8 % Mn | Q3, 2 marks: rod of 3 m and 20 mm under 65 kN with Δd = 0.014 mm and ν = 0.36: loaded length; yield from a hanging mass of 26 608 kg, safety factor 2; E and resilience; two curves | Compilation 2013-2017, pp. 34-36 |
+| January 2015 | Q2, 2 marks, Ni-Mo: judge statements on the reactions and microconstituents | Q8, 1 mark: draw a curve from σy, σUTS, σf and %EL; elastic against plastic; tube with safety factor 2 under 12 000 N | Compilation, pp. 27-31 |
+| January 2014 | Q1, 2 marks, Al-Ni in at%: reactions at 639.9, 700, 1133 and 1385 °C; sketch and amounts at 638 °C for 10 at% Ni; congruent melting | Q2, 2 marks: magnesium specimen 12 mm, l0 = 30.00 mm, load-length table: curve, σy, UTS, E, resilience, %EL, %RA, engineering and true fracture stress, true stress and strain at 176.8 MPa, Δd under 10 kN with ν = 0.29 | Compilation, pp. 4-14 |
+| 2013 and 2012 | Ag-Sn (2.5 p) and Al-Pt (2 p) diagrams; June 2014 Q3 builds a diagram from a list of features | Magnesium table (2 marks), brass table of rectangular section (1.5 p, key E 40 GPa, σy 150 MPa, R 234 MPa, Ur 0.28 MPa) | MATERIALS_FINALEXAM_2012_ORD.pdf, pp. 1-2; 2012_EXTRA, pp. 1-2; compilation p. 21 |
+
+Since 2016 the phase-diagram problem is worth twice the Unit 5 problem (2 against 1 point). Part II keeps its 5 points, so the bank uses **3.0 points for the phase-diagram problem and 2.0 for the Unit 5 problem**. This split is an assumption until the paper confirms it (`exam-blueprint-midterm-2.json`, `provenance`).
+
+### 6.2 The long problem: phase diagrams (3.0 points)
+
+Four or five parts (e.g. 4 × 0.75). The recurring parts, in the order of the papers: (a) every invariant reaction with its name, temperature and the composition of the three phases; (b) phases, compositions and amounts of one alloy just above or below an invariant temperature (lever rule); (c) microconstituents and their amounts, or a sketch of the microstructure at T ± ΔT; (d) congruent or incongruent melting of the compounds and the maximum solubility with its temperature. Steel variants replace (a) to (d) with kg of proeutectoid and eutectoid phases for a given bar, phases at a second temperature, the carbon content worked backwards from a microstructure, and the effect of an alloying element on the eutectoid point. Compositions in wt% or at%, as printed on the diagram.
+
+| Type (archetype) | Real model | Problems |
+| :--- | :--- | :--- |
+| `phase-diagram-invariant` Binary diagram with intermetallic compounds | 2019 (Ni-Nb), 2017 (Ag-Sn), 2016 (Ni-Ti), 2014 (Al-Ni), 2015 (Ni-Mo) | P01 to P04 |
+| `eutectic-lever-rule` Eutectic system with terminal solid solutions | Question 7 of the test; June 2014 Q3 (building a diagram); sheets of Unit 4 | P05 to P08 |
+| `fe-c-steels` Fe-Fe3C diagram and steels | 2017 extraordinary, 2016 extraordinary, January 2013, June 2015 | P09 to P12 |
+
+### 6.3 The short problem: Unit 5 (2.0 points)
+
+Two or three parts (e.g. 1.0 + 1.0), about 15 minutes. The papers ask one of two things:
 
 | Type (archetype) | Real model | Typical parts | Problems |
 | :--- | :--- | :--- | :--- |
-| `phase-diagram-invariant` Binary diagram with intermetallics | 2019 and 2018 Part II (Ni-Nb); finals: Ag-Sn (2017), Al-Ni (January 2014), Ni-Mo (January 2015) | all invariant reactions with name, temperature and compositions; microconstituents and amounts just below an invariant temperature; sketch of the microstructure above and below it; congruent or incongruent melting; maximum solubility | P01 to P04 |
-| `eutectic-lever-rule` Eutectic system | Question 7 of the test; sheets of Unit 4; June 2014 question 3 | phases, compositions and amounts on a tie line; primary and eutectic microconstituents; total and eutectic fractions of a phase; cooling description; building the diagram from data | P05 to P08 |
-| `fe-c-steels` Fe-Fe3C diagram | Finals of January 2013 and June 2015 (steel, 100 g of alloy at 400 °C, 8 % Ni or Mn) | phases and amounts above and below 727 °C; proeutectoid and eutectoid ferrite or cementite; carbon content from a microstructure; effect of an alloying element | P09 to P12 |
-| `tensile-test` Tensile test | Finals of January 2013, January 2014, June 2015, January 2017 | engineering stress and strain from a table; E; 0.2 % offset yield strength; tensile strength; ductility; resilience; true stress and strain; lateral contraction | P13 to P16 |
-| `semiconductors-conductivity` Conductivity | Finals of January 2013, January 2014, June 2015; sheet of Units 6 and 7 | type of semiconductor; carrier concentrations; conductivity with $\sigma = n|e|\mu_e + p|e|\mu_h$; temperature dependence and gap; resistivity of a metal with Matthiessen's rule | P17 to P20 |
+| `tensile-test` Tensile test from data or a curve | January 2014 and 2013 (magnesium table), 2012 (brass table), January 2015 Q8 a | engineering stress and strain of chosen rows; E; 0.2 % offset yield; tensile strength; %EL and %RA; resilience; true stress and strain | P13 to P16 |
+| `loaded-bar` Bar or rod under load | 2017 ordinary (titanium bar), 2017 extraordinary (brass, unloading), 2016 ordinary (material selection), 2016 extraordinary (two bars), June 2015 (rod with a hanging mass), January 2015 Q8 c (tube with a safety factor) | does it yield; elongation and change of diameter with Poisson's ratio; minimum size or material choice with a safety factor and a limit on the deformation; length after unloading from the plastic range | P17 to P20 |
 
-Unit 7 appears in the finals only as short questions (labelling B-H loops, the Meissner effect), so it has test questions and no Part II type.
+Units 6 and 7 appear in the finals only as short questions, so they have test questions and no Part II type this year.
 
 ## 7. Rules for the bank notes
 

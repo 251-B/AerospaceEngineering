@@ -31,7 +31,7 @@ The bank lives in vault/02 - Aerospace Materials I/Problem Bank/ and has two kin
       ### Source
       Session 7, Slide 32.
 
-* "Problem - Bank Pnn - <title>.md": one exam-style problem of Part II (5 points), in the note format of
+* "Problem - Bank Pnn - <title>.md": one exam-style problem of Part II, in the note format of
   tools/build_mechanics_bank.py (## Statement / ## Setup / ## (a) ... [1.2 pts] with ### Hint, ### Checkpoint,
   ### Solution / ## Interpretation), category mt2_problem, plus an optional "## Verification" section with one bullet
   per recomputed result, "- <label> | <python expression> | <stated value>", read by tools/materials_bank/verify_mt2.py.
@@ -82,7 +82,9 @@ HUB, TEST_PAGE, PROBLEMS_PAGE = EXTRA / "index.html", EXTRA / "midterm-2-test.ht
 
 TEST_CATEGORY, PROBLEM_CATEGORY, BLOCK_CATEGORY = "mt2_test_question", "mt2_problem", "mt2_test_block"
 PAGES = {TEST_CATEGORY: TEST_PAGE.name, PROBLEM_CATEGORY: PROBLEMS_PAGE.name}
-PROBLEM_POINTS = 5.0
+# Part II of the 2026-27 paper: one longer problem on phase diagrams (Unit 4, 3.0 points) and one shorter problem on
+# mechanical properties (Unit 5, 2.0 points); the 2:1 ratio is the one of the finals of 2016 and 2017 (Rules note, section 6).
+PROBLEM_POINTS = 5.0  # the whole of Part II
 UNITS = {4: "Unit 4 · Phase diagrams", 5: "Unit 5 · Mechanical properties", 6: "Unit 6 · Electrical properties",
          7: "Unit 7 · Magnetic and thermal properties"}
 # Minimum number of test questions per unit (Rules - Midterm 2 Exam Style Analysis, quota table).
@@ -106,10 +108,14 @@ ARCHETYPES = {
     "eutectic-lever-rule": "Eutectic system: lever rule and microconstituents",
     "fe-c-steels": "Fe-Fe3C diagram and steel microstructures",
     "tensile-test": "Tensile test and mechanical properties",
-    "semiconductors-conductivity": "Conductivity of metals and semiconductors",
+    "loaded-bar": "Bar or rod under load: elastic check, Poisson, design and unloading",
 }
 LEVELS = emb.LEVELS
 MAX_PER_CONCEPT = 4
+# Points and unit of each problem type (Part II: the long phase-diagram problem and the short Unit 5 problem).
+ARCH_POINTS = {"phase-diagram-invariant": 3.0, "eutectic-lever-rule": 3.0, "fe-c-steels": 3.0,
+               "tensile-test": 2.0, "loaded-bar": 2.0}
+ARCH_UNIT = {"phase-diagram-invariant": 4, "eutectic-lever-rule": 4, "fe-c-steels": 4, "tensile-test": 5, "loaded-bar": 5}
 SIM_FAIL, SIM_WARN = 0.80, 0.65
 LETTERS = "abcd"
 QUIZ_REQUIRED = ("bank_id", "title", "category", "unit", "concepts", "difficulty", "tags", "origen")
@@ -407,10 +413,12 @@ def parse_problem_note(path):
     if meta["category"] != PROBLEM_CATEGORY:
         raise bpb.BankError(f"{where}: category must be {PROBLEM_CATEGORY}")
     points = float(meta["points"])
-    if points != PROBLEM_POINTS:
-        raise bpb.BankError(f"{where}: a Part II problem is worth {PROBLEM_POINTS} points, not {points}")
     if meta["archetype"] not in ARCHETYPES:
         raise bpb.BankError(f"{where}: unknown archetype {meta['archetype']!r}")
+    if points != ARCH_POINTS[meta["archetype"]]:
+        raise bpb.BankError(f"{where}: a {meta['archetype']} problem is worth {ARCH_POINTS[meta['archetype']]} points, not {points}")
+    if meta["unit"] != ARCH_UNIT[meta["archetype"]]:
+        raise bpb.BankError(f"{where}: a {meta['archetype']} problem belongs to unit {ARCH_UNIT[meta['archetype']]}")
     if meta["level"] not in LEVELS:
         raise bpb.BankError(f"{where}: unknown level {meta['level']!r}")
     if meta["unit"] not in UNITS or meta["difficulty"] not in (1, 2, 3):
@@ -556,9 +564,14 @@ def check_blueprint(blueprint, blocks, problems, partial=False):
                     if have < 2 * n:
                         raise bpb.BankError(f"{BLUEPRINT}: unit {unit} needs at least {2 * n} test questions")
         else:
-            if part["points_each"] != PROBLEM_POINTS:
-                raise bpb.BankError(f"{BLUEPRINT}: {part['id']} expects {PROBLEM_POINTS}-point problems")
-            for a in part.get("selection_rules", {}).get("archetypes", []):
+            rules = part.get("selection_rules", {})
+            kinds = rules.get("archetypes", []) + rules.get("must_archetypes", [])
+            if not kinds:
+                raise bpb.BankError(f"{BLUEPRINT}: {part['id']} must list its problem types (archetypes or must_archetypes)")
+            for a in kinds:
+                if ARCH_POINTS.get(a) != part["points_each"]:
+                    raise bpb.BankError(f"{BLUEPRINT}: {part['id']} is worth {part['points_each']} points but {a} problems are worth {ARCH_POINTS.get(a)}")
+            for a in kinds:
                 if a not in ARCHETYPES or (not partial and not any(p["archetype"] == a for p in problems)):
                     raise bpb.BankError(f"{BLUEPRINT}: archetype {a!r} has no problem in the bank")
     _check_modes(blueprint, parts, blocks, partial)
@@ -642,6 +655,7 @@ def build(partial=False):
         "subject": "aerospace-materials-1",
         "categories": {TEST_CATEGORY: {"label": "Test questions", "points": 0.5},
                        PROBLEM_CATEGORY: {"label": "Part II problems", "points": PROBLEM_POINTS}},
+        "archetype_points": ARCH_POINTS,
         "pages": PAGES, "archetypes": ARCHETYPES, "levels": LEVELS, "formats": FORMATS,
         "units": {str(k): v for k, v in UNITS.items()},
         "counts": {TEST_CATEGORY: len(questions), PROBLEM_CATEGORY: len(problems), BLOCK_CATEGORY: len(blocks)},
@@ -755,11 +769,22 @@ def render_problems_page(problems):
         return ('      <p class="midterm-part-lead">The Part II problems of the bank are being written and will appear here. '
                 'Meanwhile, the official problems of Units 4 to 6 are solved on the <a href="../problemas/index.html">Problems</a> '
                 'page and the test questions are on the <a href="midterm-2-test.html">test page</a>.</p>\n')
-    lead = (f'      <p class="midterm-part-lead">{len(problems)} exam-style problems of 5 points, written for this portal. '
-            'Part II of Assessment Test II is one problem of 5 points with four parts on a binary phase diagram; the other '
-            'types follow the problems on Units 5 and 6 of the final exams. These are practice items, not official '
-            'exercises. The <a href="../simulator/index.html">Exam simulator</a> draws one of them after the test.</p>')
-    return "\n".join([lead] + [_problem_card(p) for p in problems]) + "\n"
+    lead = (f'      <p class="midterm-part-lead">{len(problems)} exam-style problems written for this portal. Part II of '
+            'Assessment Test II this year is two problems: a longer one on phase diagrams (3 points: a binary diagram with '
+            'its invariant reactions, the lever rule and the microconstituents, or the steels of the Fe-Fe<sub>3</sub>C '
+            'diagram) and a shorter one on the mechanical properties of Unit 5 (2 points: a tensile test or a loaded bar). '
+            'These are practice items, not official exercises. The <a href="../simulator/index.html">Exam simulator</a> '
+            'draws one of each after the test.</p>')
+    order = list(ARCHETYPES)
+    problems = sorted(problems, key=lambda p: (ARCH_UNIT[p["archetype"]], order.index(p["archetype"]), int(p["id"][1:])))
+    out = [lead]
+    for unit, title in ((4, "Problem 1 · Phase diagrams (3 points)"), (5, "Problem 2 · Mechanical properties (2 points)")):
+        mine = [p for p in problems if ARCH_UNIT[p["archetype"]] == unit]
+        if mine:
+            out.append(f'      <h2 class="mcq-unit-title" id="unit-{unit}">{title} '
+                       f'<span class="mcq-unit-count">{len(mine)} problems</span></h2>')
+            out += [_problem_card(p) for p in mine]
+    return "\n".join(out) + "\n"
 
 
 def render_hub(blocks, problems):
@@ -774,14 +799,14 @@ def render_hub(blocks, problems):
     if problems:
         cards.append(emb._hub_card(
             PROBLEMS_PAGE.name, "2nd Midterm • Problems", f"Exam-Style Problems {problems[0]['id']} to {problems[-1]['id']}",
-            f"{len(problems)} problems of 5 points solved step by step: phase diagrams, steels, the tensile test and "
-            "semiconductors.", problems,
-            [f"{len(problems)} Problems", "5 points each", "Step-by-step solutions", "Results recomputed"]))
+            f"{len(problems)} problems solved step by step: the long phase-diagram problem (3 points) and the short "
+            "Unit 5 problem (2 points).", problems,
+            [f"{len(problems)} Problems", "3 + 2 points", "Step-by-step solutions", "Results recomputed"]))
     return "\n".join([
         '    <section class="exam-block" id="midterm-2" aria-labelledby="midterm-2-title">',
         '      <h2 class="exam-block-title" id="midterm-2-title">2nd Midterm</h2>',
         '      <p class="exam-block-lead">Assessment Test II covers Units 4 to 7: phase diagrams, mechanical, electrical, '
-        'magnetic and thermal properties. It is a test of ten questions (5 points) and one problem (5 points). Practise '
+        'magnetic and thermal properties. It is a test of ten questions (5 points) and two problems: a longer one on phase diagrams (3 points) and a shorter one on mechanical properties (2 points). Practise '
         'the questions block by block, work through the problems, or take a timed exam in the '
         '<a href="../simulator/index.html">Exam simulator</a>.</p>',
         '      <div class="problem-sets-grid">', "\n\n".join(cards), "      </div>", "    </section>"]) + "\n"

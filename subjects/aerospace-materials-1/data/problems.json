@@ -11,6 +11,13 @@
    "points": 5.0
   }
  },
+ "archetype_points": {
+  "phase-diagram-invariant": 3.0,
+  "eutectic-lever-rule": 3.0,
+  "fe-c-steels": 3.0,
+  "tensile-test": 2.0,
+  "loaded-bar": 2.0
+ },
  "pages": {
   "mt2_test_question": "midterm-2-test.html",
   "mt2_problem": "midterm-2-problems.html"
@@ -20,7 +27,7 @@
   "eutectic-lever-rule": "Eutectic system: lever rule and microconstituents",
   "fe-c-steels": "Fe-Fe3C diagram and steel microstructures",
   "tensile-test": "Tensile test and mechanical properties",
-  "semiconductors-conductivity": "Conductivity of metals and semiconductors"
+  "loaded-bar": "Bar or rod under load: elastic check, Poisson, design and unloading"
  },
  "levels": {
   "standard": "Standard exam level",

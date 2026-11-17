@@ -56,7 +56,7 @@
       var cur = current(w);
       var mcs = cur.items.filter(function (e) { return byId[e.id].kind === 'multiple_choice'; });
       var probs = cur.items.filter(function (e) { return byId[e.id].kind !== 'multiple_choice'; });
-      ok('exam has 10 test questions and 1 problem', mcs.length === 10 && probs.length === 1, mcs.length + ' + ' + probs.length);
+      ok('exam has 10 test questions and 2 problems', mcs.length === 10 && probs.length === 2 && byId[probs[0].id].unit === 4 && byId[probs[1].id].unit === 5, mcs.length + ' + ' + probs.length);
       var units = {};
       mcs.forEach(function (e) { var u = byId[e.id].unit; units[u] = (units[u] || 0) + 1; });
       ok('unit mix of the real paper', JSON.stringify(units) === JSON.stringify(mc.selection_rules.per_unit), JSON.stringify(units));
