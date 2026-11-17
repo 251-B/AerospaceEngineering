@@ -175,8 +175,8 @@
 
   /* Layouts of the panorama (centres of the five constellations). */
   var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[260, 330, 1.05], [830, 255, 0.9], [1650, 420, 1.12], [540, 820, 0.92], [1250, 880, 0.9]] };   // [x, y, scale]: scattered round the name, not on a ring
-  var PORT_T = { box: [1000, 2400], centre: [500, 1200], slots: [[250, 440, 1.0], [740, 840, 0.9], [340, 1290, 1.02], [700, 1670, 0.95], [330, 2120, 1.0]] };   // tablet portrait and landscape phones: a loose zigzag, scrolled; the top 200 units hold the title
-  var PORT_S = { box: [640, 3160], centre: [320, 1580], slots: [[250, 490, 1.0], [330, 1050, 0.95], [372, 1640, 1.0], [330, 2210, 1.0], [320, 2790, 0.9]] };       // phones: one loose column, scrolled; the top 160 units hold the title
+  var PORT_T = { box: [1100, 2400], centre: [550, 1200], slots: [[300, 440, 1.0], [790, 840, 0.9], [390, 1290, 1.02], [750, 1670, 0.95], [380, 2120, 1.0]] };   // tablet portrait and landscape phones: a loose zigzag, scrolled; the top 200 units hold the title
+  var PORT_S = { box: [680, 3160], centre: [340, 1580], slots: [[270, 490, 1.0], [350, 1050, 0.95], [392, 1640, 1.0], [350, 2210, 1.0], [340, 2790, 0.9]] };       // phones: one loose column, scrolled; the top 160 units hold the title
   var GUIDES = [[0, 1], [1, 2], [0, 3], [3, 4], [2, 4], [1, 3]];
 
   var ZOOM_H = 480;          // height of the camera box on a constellation (user units)
@@ -348,7 +348,10 @@
     float.style.setProperty('--bd', (4.5 + rnd() * 4).toFixed(1) + 's');
     float.style.setProperty('--bdel', (-rnd() * 9).toFixed(1) + 's');
 
-    return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys), minX: Math.min.apply(null, anchors.map(function (q) { return q[0]; })), maxX: Math.max.apply(null, anchors.map(function (q) { return q[0]; })) };
+    var allX = anchors.concat(ex).map(function (q) { return q[0]; }), allY = anchors.concat(ex).map(function (q) { return q[1]; });
+    return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys), minX: Math.min.apply(null, anchors.map(function (q) { return q[0]; })), maxX: Math.max.apply(null, anchors.map(function (q) { return q[0]; })),
+      // bounds of the whole figure, companions included: the camera keeps all of it away from the window edge
+      bx0: Math.min.apply(null, allX), bx1: Math.max.apply(null, allX), by0: Math.min.apply(null, allY), by1: Math.max.apply(null, allY) };
   }
 
   // Phones, tablets held upright and phones on their side get a taller map that scrolls, so the figures stay big
@@ -432,7 +435,15 @@
     var compact = isCompact();
     if (compact && !selected) return { cx: L.box[0] / 2, cy: L.box[1] / 2, bw: L.box[0], bh: L.box[1], asp: L.box[0] / L.box[1] };
     var asp = r.width / Math.max(1, r.height);
-    if (!selected) return { cx: L.centre[0], cy: L.centre[1], bw: L.box[0], bh: L.box[1], asp: asp };
+    if (!selected) {   // the box holds every figure (drift and hover titles included) and the name, with a margin all round
+      var x0 = L.centre[0] - 320, x1 = L.centre[0] + 320, y0 = L.centre[1] - 110, y1 = L.centre[1] + 110;
+      items.forEach(function (q) {
+        var kk = q.slot[2] || 1;
+        x0 = Math.min(x0, q.slot[0] + q.bx0 * kk); x1 = Math.max(x1, q.slot[0] + q.bx1 * kk);
+        y0 = Math.min(y0, q.slot[1] + q.by0 * kk); y1 = Math.max(y1, q.slot[1] + q.by1 * kk);
+      });
+      return { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2, bw: x1 - x0 + 300, bh: y1 - y0 + 340, asp: asp };
+    }
     var it = byslug(selected);
     var k = it.slot[2] || 1;
     // the box follows the figure: centred on it, as wide and as tall as it is plus room for the labels and the caption
