@@ -217,10 +217,6 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 .star-glyph { opacity: 0; fill: var(--c); transform-box: fill-box; transform-origin: center; transform: scale(0.4); transition: transform 0.5s ease, opacity 0.4s;
   filter: drop-shadow(0 0 calc(var(--u, 1) * 2.5px) var(--c)); }
 .const.is-active .star-glyph { transform: scale(0.72); opacity: 1; }
-.star-icon { opacity: 0; transition: opacity 0.4s 0.15s; pointer-events: none; }
-.star-icon-bg { fill: var(--sk-halo); stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.4px); }
-.star-icon-glyph { color: var(--ct); }
-.const.is-active .star-icon { opacity: 1; }
 .const.is-active .star-core { opacity: 0; }
 .const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(0.9); }
 .const.is-active .star:hover .star-flare, .const.is-active .star:focus-visible .star-flare { opacity: 0.8; }
@@ -536,3 +532,9 @@ html[data-home-view="classic"] .intro-replay { display: none !important; }
   .star-sat, .const.is-active .star-sat, .sat-leader, .sat-ring { transition: none; }
   .sat-leader { stroke-dasharray: none; }
 }
+
+/* The open constellation holds still, so its satellite labels stay inside the frame and are easy to read and hit;
+   it keeps its blink. Placed last: later blocks above redefine the float animation. */
+.const.is-active .const-sway { animation: none; }
+.const.is-active .const-float { animation: const-blink var(--bd, 6s) ease-in-out var(--bdel, 0s) infinite; }
+@media (prefers-reduced-motion: reduce) { .const.is-active .const-float { animation: none; } }
