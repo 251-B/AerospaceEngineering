@@ -266,10 +266,10 @@
       s('line', { 'class': 'const-edge' + (lit ? '' : ' is-faint'), x1: a[0], y1: a[1], x2: b[0], y2: b[1] }, g);
       if (lit) {   // a small light that runs along the line, again and again
         var len = Math.round(Math.sqrt((b[0] - a[0]) * (b[0] - a[0]) + (b[1] - a[1]) * (b[1] - a[1])));
-        var flow = s('line', { 'class': 'const-flow', x1: a[0], y1: a[1], x2: b[0], y2: b[1], 'stroke-dasharray': '10 ' + len }, g);
+        var flow = s('line', { 'class': 'const-flow', x1: a[0], y1: a[1], x2: b[0], y2: b[1], 'stroke-dasharray': '16 ' + len }, g);
         flow.style.setProperty('--fl', len + 'px');
         flow.style.setProperty('--fd', (-rnd() * 8).toFixed(2) + 's');
-        flow.style.setProperty('--fs', (4.5 + rnd() * 3.5).toFixed(2) + 's');
+        flow.style.setProperty('--fs', (2.6 + rnd() * 2.4).toFixed(2) + 's');
       }
     });
     anchors.forEach(function (p, ai) {
@@ -286,13 +286,13 @@
       a.style.setProperty('--sd', (-rnd() * 5).toFixed(2) + 's');
       var body = s('g', { 'class': 'star-body' }, a);
       s('circle', { 'class': 'star-hit', r: 26 }, body);
-      s('circle', { 'class': 'star-flare', r: 56, fill: 'url(#flare-' + meta.color + ')' }, body);
-      s('path', { 'class': 'star-dot', d: starPath(4, 15, 0.24, 0) }, body);   // every star is the same small sparkle in the panorama
+      s('circle', { 'class': 'star-flare', r: 34, fill: 'url(#flare-' + meta.color + ')' }, body);
+      s('path', { 'class': 'star-dot', d: starPath(4, 9.5, 0.26, 0) }, body);   // every star is the same small sparkle in the panorama
       s('path', { 'class': 'star-glyph', d: SHAPES[sec.key] || SHAPES.theory }, body);   // its own shape appears when the constellation is open
       s('circle', { 'class': 'star-core', r: 3.4 }, body);
       var ic = s('g', { 'class': 'star-icon' }, body);
-      s('circle', { 'class': 'star-icon-bg', r: 13 }, ic);
-      s('use', { href: '#' + sec.icon, x: -9.5, y: -9.5, width: 19, height: 19, 'class': 'star-icon-glyph' }, ic);
+      s('circle', { 'class': 'star-icon-bg', r: 11.5 }, ic);
+      s('use', { href: '#' + sec.icon, x: -8, y: -8, width: 16, height: 16, 'class': 'star-icon-glyph' }, ic);
       // The name goes on the free side of the star: away from the lines that reach it and from the figure.
       var incident = [];
       meta.edges.forEach(function (e) {
@@ -327,9 +327,10 @@
     var float = s('g', { 'class': 'const-float' });
     while (g.firstChild) float.appendChild(g.firstChild);
     g.appendChild(float);
-    float.style.setProperty('--fx', (4 + rnd() * 6).toFixed(1) + 'px');
-    float.style.setProperty('--fy', (3 + rnd() * 6).toFixed(1) + 'px');
-    float.style.setProperty('--fdur', (11 + rnd() * 9).toFixed(1) + 's');
+    float.style.setProperty('--fx', (16 + rnd() * 18).toFixed(1) + 'px');
+    float.style.setProperty('--fr', (0.8 + rnd() * 1.6).toFixed(2) + 'deg');
+    float.style.setProperty('--fy', (12 + rnd() * 16).toFixed(1) + 'px');
+    float.style.setProperty('--fdur', (7 + rnd() * 6).toFixed(1) + 's');
     float.style.setProperty('--fdel', (-rnd() * 14).toFixed(1) + 's');
 
     return { slug: sub.slug, name: sub.name, latin: meta.latin, g: g, stars: stars, index: index, sections: list, title: title, subtitle: subtitle, minY: Math.min.apply(null, ys), maxY: Math.max.apply(null, ys) };
@@ -359,24 +360,24 @@
     var n = Math.min(800, Math.round(w * hgt / 7500));
     for (var i = 0; i < n; i++) {
       var pk = rs(), size = pk < 0.72 ? 's1' : pk < 0.93 ? 's2' : 's3';
-      var bd = s('circle', { 'class': 'dust far ' + size + ' ' + tints[Math.floor(rs() * tints.length)] + (rs() < 0.12 ? ' tw' : ''), cx: Math.round(x0 + rs() * w), cy: Math.round(y0 + rs() * hgt), r: 1 }, farLayer);
+      var bd = s('circle', { 'class': 'dust far ' + size + ' ' + tints[Math.floor(rs() * tints.length)] + (rs() < 0.28 ? ' tw' : ''), cx: Math.round(x0 + rs() * w), cy: Math.round(y0 + rs() * hgt), r: 1 }, farLayer);
       bd.style.setProperty('--d', (rs() * 7).toFixed(2) + 's');
     }
     var sparks = Math.round(n / 42);
     farLayer.setAttribute('class', 'far-layer');
     // shooting stars: three, each on its own long cycle, crossing a different part of the map
     while (shootLayer && shootLayer.firstChild) shootLayer.removeChild(shootLayer.firstChild);
-    for (var q = 0; shootLayer && q < 3; q++) {
-      var holder2 = s('g', { transform: 'translate(' + Math.round(L.box[0] * (0.15 + 0.3 * q + rs() * 0.2)) + ' ' + Math.round(L.box[1] * (0.05 + 0.3 * rs() + 0.25 * q)) + ')' }, shootLayer);
-      var streak = s('line', { 'class': 'shoot', x1: 0, y1: 0, x2: -70, y2: -38 }, holder2);
-      streak.style.setProperty('--sdur', (15 + q * 7 + rs() * 4).toFixed(1) + 's');
+    for (var q = 0; shootLayer && q < 5; q++) {
+      var holder2 = s('g', { transform: 'translate(' + Math.round(L.box[0] * (0.1 + 0.17 * q + rs() * 0.12)) + ' ' + Math.round(L.box[1] * (0.04 + 0.5 * rs())) + ')' }, shootLayer);
+      var streak = s('line', { 'class': 'shoot', x1: 0, y1: 0, x2: -110, y2: -60 }, holder2);
+      streak.style.setProperty('--sdur', (7 + q * 2.5 + rs() * 3).toFixed(1) + 's');
       streak.style.setProperty('--sdel', (-rs() * 20).toFixed(1) + 's');
     }
     for (var k = 0; k < sparks; k++) {
       var holder = s('g', { transform: 'translate(' + Math.round(x0 + rs() * w) + ' ' + Math.round(y0 + rs() * hgt) + ')' }, farLayer);
       var spark = s('path', { 'class': 'far-spark ' + tints[Math.floor(rs() * tints.length)], d: 'M0 -9 L1.4 -1.4 L9 0 L1.4 1.4 L0 9 L-1.4 1.4 L-9 0 L-1.4 -1.4Z' }, holder);
       spark.style.setProperty('--d', (rs() * 6).toFixed(2) + 's');
-      spark.style.setProperty('--k', (0.5 + rs() * 0.7).toFixed(2));
+      spark.style.setProperty('--k', (0.28 + rs() * 0.34).toFixed(2));
     }
   }
 
@@ -435,7 +436,7 @@
     svg.style.setProperty('--u', (b.w / px).toFixed(4));
     svg.style.setProperty('--tk', '1');
     // on a touch screen the stars of an open constellation grow until the icon is at least ~20 px across
-    var ks = selected && isCompact() ? Math.min(1.45, Math.max(1, 20 * (b.w / px) / 13)) : 1;
+    var ks = selected && isCompact() ? Math.min(1.45, Math.max(1, 20 * (b.w / px) / 11.5)) : 1;
     svg.style.setProperty('--ks', ks.toFixed(3));
   }
 

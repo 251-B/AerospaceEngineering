@@ -168,17 +168,17 @@ html[data-home-view="classic"] .sky-only { display: none !important; }
 .sky-svg.is-zoomed .guide-line { opacity: 0.10; }
 
 .dust { fill: var(--sk-text); opacity: 0.55; animation: twinkle 4.6s ease-in-out var(--d, 0s) infinite; }
-.dust.far { opacity: 0.5; animation: none; r: calc(var(--u, 1) * 0.9px); fill: #fff; }
-.dust.far.tw { animation: twinkle 5.2s ease-in-out var(--d, 0s) infinite; }
-.dust.far.s2 { r: calc(var(--u, 1) * 1.3px); }
-.dust.far.s3 { r: calc(var(--u, 1) * 1.9px); opacity: 0.8; }
+.dust.far { opacity: 0.5; animation: none; r: calc(var(--u, 1) * 0.75px); fill: #fff; }
+.dust.far.tw { animation: twinkle 3s ease-in-out var(--d, 0s) infinite; }
+.dust.far.s2 { r: calc(var(--u, 1) * 1.05px); }
+.dust.far.s3 { r: calc(var(--u, 1) * 1.4px); opacity: 0.8; }
 .dust.far.t-c, .far-spark.t-c { fill: #bfe6ff; }
 .dust.far.t-a, .far-spark.t-a { fill: #ffe2b8; }
 .far-spark { fill: #ffffff; opacity: 0.55; transform: scale(calc(var(--u, 1) * var(--k, 1))); animation: twinkle 6s ease-in-out var(--d, 0s) infinite; }
 html[data-theme="light"] .dust.far, html[data-theme="light"] .far-spark { fill: #475569; }
 html[data-theme="light"] .dust.far.t-c, html[data-theme="light"] .far-spark.t-c { fill: #0e7490; }
 html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a { fill: #b45309; }
-@keyframes twinkle { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.9; } }
+@keyframes twinkle { 0%, 100% { opacity: 0.05; } 50% { opacity: 1; } }
 
 .const { cursor: pointer; outline: none; transition: opacity 0.6s; }
 .const-hit { fill: transparent; }
@@ -204,7 +204,7 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 .const.is-active .star-dot { opacity: 0; }
 .star-glyph { opacity: 0; fill: var(--c); transform-box: fill-box; transform-origin: center; transform: scale(0.4); transition: transform 0.5s ease, opacity 0.4s;
   filter: drop-shadow(0 0 calc(var(--u, 1) * 2.5px) var(--c)); }
-.const.is-active .star-glyph { transform: scale(1.3); opacity: 1; }
+.const.is-active .star-glyph { transform: scale(0.72); opacity: 1; }
 .star-icon { opacity: 0; transition: opacity 0.4s 0.15s; pointer-events: none; }
 .star-icon-bg { fill: var(--sk-halo); stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.4px); }
 .star-icon-glyph { color: var(--ct); }
@@ -214,7 +214,7 @@ html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a 
 .const.is-active .star:hover .star-name, .const.is-active .star:focus-visible .star-name, .const.is-active .star.is-shown .star-name { display: block; font-size: calc(var(--u, 1) * 15px * var(--tk, 1)); }
 .const.is-active .star-count { display: none; font-size: calc(var(--u, 1) * 12px); fill: var(--sk-text-2); font-family: var(--font-mono); }
 .const.is-active .star:hover .star-count, .const.is-active .star:focus-visible .star-count, .const.is-active .star.is-shown .star-count { display: block; }
-.const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(1.5); }
+.const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(0.9); }
 .const.is-active .star:hover .star-flare, .const.is-active .star:focus-visible .star-flare { opacity: 0.8; }
 .star:focus-visible .star-hit { stroke: var(--sk-text); stroke-width: calc(var(--u, 1) * 2px); }
 .star.is-soon .star-glyph { opacity: 0.7; }
@@ -339,7 +339,7 @@ html[data-home-view="constellations"] .fl-launcher:focus-visible::before, html[d
 .sky-view.is-compact .sky-caption h2 { font-size: 2.1rem; }
 .sky-view.is-compact .sky-back { top: 66px; left: 14px; font-size: 1rem; padding: 12px 18px; min-height: 44px; }
 .sky-view.is-compact:not(.has-selection) .sky-caption { display: none; }   /* the hint would sit on the figures while scrolling */
-.sky-svg.is-compact .const.is-active .star-glyph { transform: scale(1); }
+.sky-svg.is-compact .const.is-active .star-glyph { transform: scale(0.8); }
 .sky-svg.is-compact .const.is-active .star:hover .star-glyph, .sky-svg.is-compact .const.is-active .star.is-shown .star-glyph { transform: scale(1.2); }
 .sky-svg.is-compact .const.is-active .star-name { font-size: calc(var(--u, 1) * 16px); }
 .sky-svg.is-compact .const.is-active .star-count { font-size: calc(var(--u, 1) * 13px); }
@@ -363,37 +363,38 @@ html[data-home-view="constellations"] .fl-launcher:focus-visible::before, html[d
 /* ---- Life: the sky is never still -------------------------------------------------------------- */
 /* each figure drifts a few units on its own slow loop */
 .const-float { animation: const-float var(--fdur, 14s) ease-in-out var(--fdel, 0s) infinite alternate; will-change: transform; }
-@keyframes const-float { from { transform: translate(calc(var(--fx, 6px) * -1), calc(var(--fy, 5px) * -1)); } to { transform: translate(var(--fx, 6px), var(--fy, 5px)); } }
+@keyframes const-float { from { transform: translate(calc(var(--fx, 6px) * -1), calc(var(--fy, 5px) * -1)) rotate(calc(var(--fr, 1deg) * -1)); } to { transform: translate(var(--fx, 6px), var(--fy, 5px)) rotate(var(--fr, 1deg)); } }
 .sky-svg.is-zoomed .const-float { animation-play-state: paused; }
 
 /* stars twinkle at their own pace (the open constellation shows its shapes instead) */
-.const:not(.is-active) .star-dot { transform-box: fill-box; transform-origin: center; animation: star-twinkle 3.8s ease-in-out var(--sd, 0s) infinite; }
-@keyframes star-twinkle { 0%, 100% { opacity: 0.55; transform: scale(0.8); } 45% { opacity: 1; transform: scale(1.18); } 70% { opacity: 0.8; transform: scale(1); } }
-.const:not(.is-active) .star-flare { animation: star-halo 5.2s ease-in-out var(--sd, 0s) infinite; }
-@keyframes star-halo { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.6; } }
+.const:not(.is-active) .star-dot { transform-box: fill-box; transform-origin: center; animation: star-twinkle 2.4s ease-in-out var(--sd, 0s) infinite; }
+@keyframes star-twinkle { 0%, 100% { opacity: 0.35; transform: scale(0.65); } 40% { opacity: 1; transform: scale(1.3); } 65% { opacity: 0.7; transform: scale(0.95); } 80% { opacity: 1; transform: scale(1.15); } }
+.const:not(.is-active) .star-flare { animation: star-halo 3.4s ease-in-out var(--sd, 0s) infinite; }
+@keyframes star-halo { 0%, 100% { opacity: 0.12; } 50% { opacity: 0.6; } }
 .const.is-active .star-glyph { animation: glyph-breathe 4.6s ease-in-out var(--sd, 0s) infinite; }
 @keyframes glyph-breathe { 0%, 100% { filter: drop-shadow(0 0 calc(var(--u, 1) * 2px) var(--c)); } 50% { filter: drop-shadow(0 0 calc(var(--u, 1) * 6px) var(--c)); } }
 
 /* a small light runs along every line of a figure */
-.const-flow { stroke: #ffffff; stroke-width: calc(var(--u, 1) * 2.2px); stroke-linecap: round; fill: none; opacity: 0.9; stroke-dashoffset: 0;
+.const-flow { stroke: #ffffff; stroke-width: calc(var(--u, 1) * 2.6px); stroke-linecap: round; fill: none; opacity: 0.9; stroke-dashoffset: 0;
   animation: const-flow var(--fs, 6s) linear var(--fd, 0s) infinite; pointer-events: none; }
 @keyframes const-flow { to { stroke-dashoffset: calc(var(--fl, 100px) * -1 - 10px); } }
 html[data-theme="light"] .const-flow { stroke: var(--c); opacity: 0.75; }
 
 /* the lines breathe */
-.const-edge:not(.is-faint) { animation: edge-breathe 6.5s ease-in-out infinite alternate; }
-@keyframes edge-breathe { from { opacity: 0.5; } to { opacity: 0.85; } }
+.const-edge:not(.is-faint) { animation: edge-breathe 3.6s ease-in-out infinite alternate; }
+@keyframes edge-breathe { from { opacity: 0.4; } to { opacity: 0.95; } }
 .const:hover .const-edge:not(.is-faint), .const.is-active .const-edge:not(.is-faint) { animation: none; opacity: 1; }
 
 /* shooting stars across the far sky */
-.shoot { stroke: #ffffff; stroke-width: calc(var(--u, 1) * 1.6px); stroke-linecap: round; opacity: 0; animation: shoot var(--sdur, 18s) linear var(--sdel, 0s) infinite; }
+.shoot { stroke: #ffffff; stroke-width: calc(var(--u, 1) * 1.8px); stroke-linecap: round; opacity: 0; animation: shoot var(--sdur, 18s) linear var(--sdel, 0s) infinite; }
 html[data-theme="light"] .shoot { stroke: var(--sk-text-2); }
-@keyframes shoot { 0%, 92% { opacity: 0; transform: translate(0, 0); } 93% { opacity: 0.95; } 100% { opacity: 0; transform: translate(260px, 142px); } }
+@keyframes shoot { 0%, 78% { opacity: 0; transform: translate(0, 0); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(420px, 229px); } }
 
 /* parallax of the far sky and a slow breath of the title and the nebula */
-.far-layer { transform: translate(calc(var(--mx, 0) * -16px), calc(var(--my, 0) * -12px)); transition: transform 0.9s ease-out; }
+.far-layer { translate: calc(var(--mx, 0) * -22px) calc(var(--my, 0) * -16px); transition: translate 0.9s ease-out; animation: far-drift 70s ease-in-out infinite alternate; }
+@keyframes far-drift { from { transform: translate(-40px, -22px) rotate(-0.6deg); } to { transform: translate(40px, 22px) rotate(0.6deg); } }
 .sky-title { animation: title-breathe 9s ease-in-out infinite alternate; }
-@keyframes title-breathe { from { opacity: 0.42; } to { opacity: 0.66; } }
+@keyframes title-breathe { from { opacity: 0.38; } to { opacity: 0.7; } }
 .sky-view.has-selection .sky-title { animation: none; opacity: 0; }
 .sky-view::after {
   content: ''; position: absolute; inset: -12%; pointer-events: none; z-index: 0;
@@ -401,16 +402,16 @@ html[data-theme="light"] .shoot { stroke: var(--sk-text-2); }
     radial-gradient(ellipse 34% 30% at 22% 30%, rgba(0, 200, 255, 0.09), transparent 70%),
     radial-gradient(ellipse 30% 28% at 78% 24%, rgba(170, 100, 255, 0.10), transparent 70%),
     radial-gradient(ellipse 36% 30% at 56% 78%, rgba(255, 80, 150, 0.08), transparent 70%);
-  animation: nebula-drift 46s ease-in-out infinite alternate;
+  animation: nebula-drift 26s ease-in-out infinite alternate;
 }
 html[data-theme="light"] .sky-view::after { opacity: 0.55; }
-@keyframes nebula-drift { from { transform: translate(-2.5%, -1.5%) scale(1); } to { transform: translate(2.5%, 2%) scale(1.08); } }
+@keyframes nebula-drift { from { transform: translate(-5%, -3%) scale(1); } to { transform: translate(5%, 4%) scale(1.15); } }
 .sky-svg { z-index: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .const-float, .const:not(.is-active) .star-dot, .const:not(.is-active) .star-flare, .const.is-active .star-glyph, .const-flow,
   .const-edge:not(.is-faint), .shoot, .sky-title, .sky-view::after { animation: none; }
   .shoot, .const-flow { display: none; }
-  .far-layer { transform: none; transition: none; }
+  .far-layer { transform: none; translate: none; transition: none; animation: none; }
 }
 .sky-title { z-index: 1; }
