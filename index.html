@@ -16,9 +16,12 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/celestial-sky.css">
   <link rel="stylesheet" href="assets/css/hub.css">
-  <link rel="stylesheet" href="assets/css/constellations.css?v=20261117m">
+  <link rel="stylesheet" href="assets/css/constellations.css?v=20261118d">
+  <link rel="stylesheet" href="assets/css/sky-intro.css?v=20261118d">
   <script src="assets/js/theme.js"></script>
-  <script src="assets/js/constellations.js?v=20261117m"></script>
+  <script src="assets/js/constellations.js?v=20261118d"></script>
+  <script defer src="assets/js/sky-sound.js?v=20261118d"></script>
+  <script defer src="assets/js/sky-intro.js?v=20261118d"></script>
 
 </head>
 <body>
@@ -85,6 +88,55 @@
        ============================================ -->
   <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
 
+  <!-- ============================================
+       WELCOME SCREEN: the sky through a telescope, shown once per session (assets/js/sky-intro.js)
+       ============================================ -->
+  <section class="sky-intro" id="skyIntro" aria-label="Welcome to Sideris">
+    <canvas class="intro-canvas" id="introCanvas" aria-hidden="true"></canvas>
+    <div class="intro-telescope" aria-hidden="true">
+      <svg viewBox="0 0 430 390" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="rotate(-34 190 190)">
+          <rect x="62" y="158" width="250" height="64" rx="10" fill="rgba(255,255,255,0.04)"/>
+          <rect x="300" y="150" width="34" height="80" rx="8" fill="rgba(255,255,255,0.07)"/>
+          <ellipse cx="334" cy="190" rx="9" ry="38" stroke="rgba(190,215,255,0.9)"/>
+          <path d="M70 158v-14h30v14M70 222v14h30v-14"/>
+          <rect x="22" y="172" width="42" height="36" rx="6"/>
+          <rect x="4" y="180" width="20" height="20" rx="4"/>
+          <path d="M120 158v64M230 158v64" stroke="rgba(255,255,255,0.25)"/>
+        </g>
+        <path d="M168 232L108 380M168 232L168 384M168 232L232 380"/>
+        <circle cx="168" cy="232" r="9" fill="rgba(255,255,255,0.12)"/>
+        <path d="M130 322h76" stroke="rgba(255,255,255,0.3)"/>
+      </svg>
+    </div>
+    <div class="intro-lens" aria-hidden="true">
+      <svg viewBox="-300 -300 600 600" fill="none">
+        <defs>
+          <radialGradient id="lensGlow"><stop offset="0.80" stop-color="#6366f1" stop-opacity="0"/><stop offset="0.96" stop-color="#a5b4fc" stop-opacity="0.24"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+          <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.55" stop-color="#6366f1"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+        </defs>
+        <circle r="298" fill="url(#lensGlow)"/>
+        <circle r="290" stroke="url(#ringGrad)" stroke-width="2.4" stroke-opacity="0.9"/>
+        <circle r="262" stroke="rgba(226,232,255,0.30)" stroke-width="1"/>
+        <g class="intro-ticks"><circle r="276" stroke="rgba(226,232,255,0.55)" stroke-width="12" stroke-dasharray="2 22.08"/></g>
+        <g class="intro-ticks-slow"><circle r="246" stroke="rgba(190,215,255,0.35)" stroke-width="5" stroke-dasharray="1.5 15.5"/></g>
+        <path d="M-292 0H-236M236 0H292M0 -292V-236M0 236V292" stroke="rgba(226,232,255,0.55)" stroke-width="1.4"/>
+        <circle cx="0" cy="-262" r="3.4" fill="#ffffff"/><circle cx="262" cy="0" r="2.4" fill="#a5f3fc"/><circle cx="-262" cy="0" r="2.4" fill="#c4b5fd"/><circle cx="0" cy="262" r="2.4" fill="#ffffff"/>
+      </svg>
+    </div>
+    <div class="intro-text">
+      <p class="intro-eyebrow">Aerospace Engineering &middot; 2nd Year</p>
+      <h2 class="intro-title"><span class="gradient-text">Sideris</span></h2>
+      <p class="intro-aero">Aerospace</p>
+    </div>
+    <div class="intro-cta">
+      <p class="intro-phrase">Ready to ignite?<small>Every star is a sun waiting to be read.</small></p>
+      <button type="button" class="intro-ignite" id="introIgnite">Ignite</button>
+      <button type="button" class="intro-skip" id="introSkip">Skip intro</button>
+    </div>
+    <div class="intro-flash" aria-hidden="true"></div>
+  </section>
+
   <div class="app-wrapper">
 
     <!-- ============================================
@@ -93,6 +145,9 @@
     <header class="utility-bar">
       <div class="container header-inner">
         <div class="header-actions">
+          <button class="sound-toggle sky-only" id="soundToggle" type="button" aria-pressed="false" title="Play the sound of the sky" aria-label="Play the sound of the sky">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path class="waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.6a7.6 7.6 0 0 1 0 10.8"/></svg>
+          </button>
           <select class="sky-palette-select sky-only" id="skyPalette" aria-label="Sky palette" title="Sky palette"></select>
           <button class="view-toggle" id="homeViewToggle" type="button">Classic view</button>
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme (T)">

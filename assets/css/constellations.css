@@ -444,3 +444,56 @@ html[data-theme="light"] .sky-view::after { opacity: 0.55; }
 .const:not(.is-active) .star-flare { animation: star-halo 4.2s ease-in-out var(--sd, 0s) infinite; transform-box: fill-box; transform-origin: center; }
 @keyframes star-halo { 0%, 60%, 100% { opacity: 0.12; transform: scale(0.8); } 70% { opacity: 0.95; transform: scale(1.7); } 85% { opacity: 0.3; transform: scale(1.1); } }
 @media (prefers-reduced-motion: reduce) { .const-sway, .const-float, .const .star-core, .const:not(.is-active) .star-flare { animation: none; } }
+
+/* ====================================================================================================
+   Second screen: no name in the middle (the welcome screen carries it), calmer rhythms, the entrance
+   ==================================================================================================== */
+/* the heading stays for screen readers and search engines, out of sight */
+.sky-view .sky-title { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; animation: none; opacity: 1; }
+
+/* slower blinking, flashing and light along the lines */
+.const:not(.is-active) .star-dot { animation: star-twinkle 6s ease-in-out var(--sd, 0s) infinite; }
+.const .star-core { animation: star-flash 10s ease-in-out var(--sd, 0s) infinite; }
+.const:not(.is-active) .star-flare { animation: star-halo 10s ease-in-out var(--sd, 0s) infinite; }
+.const.is-active .star-glyph { animation: glyph-breathe 9s ease-in-out var(--sd, 0s) infinite; }
+.const-extra { animation: star-twinkle 7s ease-in-out var(--sd, 0s) infinite; }
+.const-edge:not(.is-faint) { animation: edge-breathe 10s ease-in-out infinite alternate; }
+.const:hover .const-edge:not(.is-faint), .const.is-active .const-edge:not(.is-faint) { animation: none; opacity: 1; }
+@keyframes const-blink { 0%, 100% { opacity: 1; } 20% { opacity: 0.55; } 32% { opacity: 1; } 55% { opacity: 0.8; } 70% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .const:not(.is-active) .star-dot, .const .star-core, .const:not(.is-active) .star-flare, .const.is-active .star-glyph, .const-extra, .const-edge:not(.is-faint) { animation: none; }
+}
+
+/* arriving: the map comes up out of the warp and each constellation lights in turn */
+.sky-view.is-entering .sky-svg { animation: space-in 2.8s cubic-bezier(0.16, 0.7, 0.2, 1) backwards; transform-origin: 50% 50%; }
+@keyframes space-in { 0% { transform: scale(2.4); opacity: 0; filter: blur(6px); } 35% { opacity: 1; } 100% { transform: scale(1); opacity: 1; filter: blur(0); } }
+.sky-view.is-entering .const { animation: const-in 2.2s ease-out backwards; animation-delay: calc(0.7s + var(--ci, 0) * 0.32s); }
+@keyframes const-in { 0% { opacity: 0; } 40% { opacity: 1; } 55% { opacity: 0.4; } 100% { opacity: 1; } }
+.sky-view.is-entering .sky-caption, .sky-view.is-entering .sky-back { animation: fade-up 1.4s ease-out 1.6s backwards; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(10px); } }
+@media (prefers-reduced-motion: reduce) {
+  .sky-view.is-entering .sky-svg { animation: fade-in-quick 0.8s ease-out backwards; }
+  .sky-view.is-entering .const { animation: none; }
+  @keyframes fade-in-quick { from { opacity: 0; } }
+}
+
+/* the speaker button */
+.header-actions .sound-toggle {
+  display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; border-radius: 50%; cursor: pointer; color: var(--text-primary);
+  border: 1px solid transparent; background-color: rgba(255, 255, 255, 0.04);
+  background-image: linear-gradient(rgba(10, 14, 32, 0.55), rgba(10, 14, 32, 0.55)), linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.06) 55%, rgba(186, 160, 255, 0.34));
+  background-origin: border-box; background-clip: padding-box, border-box; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: box-shadow 0.35s;
+}
+html[data-theme="light"] .header-actions .sound-toggle { background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(135deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.06) 55%, rgba(109, 74, 255, 0.34)); }
+.header-actions .sound-toggle:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); }
+.header-actions .sound-toggle:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+.header-actions .sound-toggle svg { width: 20px; height: 20px; }
+.header-actions .sound-toggle .waves { opacity: 0.25; transition: opacity 0.3s; }
+.header-actions .sound-toggle.is-on .waves { opacity: 1; animation: waves-pulse 3.2s ease-in-out infinite; }
+@keyframes waves-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+html[data-home-view="classic"] .sound-toggle { display: none !important; }
+@media (max-width: 599px) { .header-actions .sound-toggle { width: 40px; height: 40px; } }
+@media (max-width: 599px) {
+  .header-actions { gap: 4px; }
+  .header-actions .sky-palette-select { max-width: 104px; font-size: 0.72rem; padding-left: 8px; }
+}

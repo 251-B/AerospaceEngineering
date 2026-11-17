@@ -35,3 +35,7 @@ Everything moves slowly and stops with `prefers-reduced-motion`: each figure dri
 ## The figures
 
 Each subject is a real constellation: Delphinus (Fluid Mechanics), Cygnus (Aerospace Materials I), Ursa Major (Engineering Mechanics), Orion (Advanced Maths) and Leo (Business Management). Coordinates, `sc` (scale), `rot`, `use` (which anchors carry a star) and the faint `extra` companion stars are in `META` of the script. When a constellation is opened, the camera box follows the figure's own size.
+
+## Welcome screen and sound
+
+`assets/js/sky-intro.js` + `assets/css/sky-intro.css` show a night sky through a telescope lens with the name, "Ready to ignite?" and an Ignite button (once per browser session, key `ae_intro` in `sessionStorage`; `?intro=1` forces it, `?intro=0` skips it; the head part of `constellations.js` sets `<html data-intro="on">`). Pressing Ignite starts the sound, throws the stars into a warp, flashes and drops the visitor into the map (`.is-entering`: the map rises out of the warp and each constellation lights in turn). `assets/js/sky-sound.js` synthesises the sound with the Web Audio API (no audio files): a slow pad of open chords, pentatonic chimes, a whoosh, and a soft chime when the pointer reaches a constellation; key `ae_sky_sound`, speaker button `#soundToggle`. The map has no name in the middle: the heading stays for screen readers and the five figures fill the whole sky. On the map the blinking, the flashes and the light running along the lines are slow on purpose. With reduced motion the warp becomes a short fade.

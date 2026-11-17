@@ -52,6 +52,14 @@
   root.setAttribute('data-home-view', view);
   root.setAttribute('data-sky-palette', palette.id);
 
+  // The welcome screen (assets/js/sky-intro.js): once per browser session, only in the stellar view.
+  // ?intro=1 shows it again, ?intro=0 never.
+  var introSeen = false;
+  try { introSeen = sessionStorage.getItem('ae_intro') === 'seen'; } catch (e) { /* storage blocked: show it every time */ }
+  if (view === 'constellations' && !/[?&]intro=0/.test(location.search) && (/[?&]intro=1/.test(location.search) || !introSeen)) {
+    root.setAttribute('data-intro', 'on');
+  }
+
   // The palette decides the polarity of the portal while the stellar view is on.
   function syncTheme() {
     if (view !== 'constellations' || !window.AETheme) return;
@@ -174,9 +182,9 @@
   }
 
   /* Layouts of the panorama (centres of the five constellations). */
-  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[260, 330, 1.05], [830, 255, 0.9], [1650, 420, 1.12], [540, 820, 0.92], [1250, 880, 0.9]] };   // [x, y, scale]: scattered round the name, not on a ring
-  var PORT_T = { box: [1100, 2400], centre: [550, 1200], slots: [[300, 440, 1.0], [790, 840, 0.9], [390, 1290, 1.02], [750, 1670, 0.95], [380, 2120, 1.0]] };   // tablet portrait and landscape phones: a loose zigzag, scrolled; the top 200 units hold the title
-  var PORT_S = { box: [680, 3160], centre: [340, 1580], slots: [[270, 490, 1.0], [350, 1050, 0.95], [392, 1640, 1.0], [350, 2210, 1.0], [340, 2790, 0.9]] };       // phones: one loose column, scrolled; the top 160 units hold the title
+  var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[390, 310, 1.05], [930, 540, 0.92], [1490, 330, 1.1], [520, 850, 0.95], [1320, 860, 0.9]] };   // [x, y, scale]: scattered over the whole sky, one near the middle
+  var PORT_T = { box: [1100, 2200], centre: [550, 1100], slots: [[300, 270, 1.0], [790, 670, 0.9], [390, 1100, 1.02], [750, 1480, 0.95], [380, 1900, 1.0]] };   // tablet portrait and landscape phones: a loose zigzag, scrolled
+  var PORT_S = { box: [680, 3000], centre: [340, 1500], slots: [[270, 340, 1.0], [350, 900, 0.95], [392, 1490, 1.0], [350, 2060, 1.0], [340, 2640, 0.9]] };       // phones: one loose column, scrolled
   var GUIDES = [[0, 1], [1, 2], [0, 3], [3, 4], [2, 4], [1, 3]];
 
   var ZOOM_H = 480;          // height of the camera box on a constellation (user units)
@@ -277,7 +285,7 @@
         var flow = s('line', { 'class': 'const-flow', x1: a[0], y1: a[1], x2: b[0], y2: b[1], 'stroke-dasharray': '16 ' + len }, g);
         flow.style.setProperty('--fl', len + 'px');
         flow.style.setProperty('--fd', (-rnd() * 8).toFixed(2) + 's');
-        flow.style.setProperty('--fs', (2.6 + rnd() * 2.4).toFixed(2) + 's');
+        flow.style.setProperty('--fs', (8 + rnd() * 6).toFixed(2) + 's');
       }
     });
     // faint extra stars round the figure, each tied to one of its stars by a thin dotted line
@@ -349,7 +357,7 @@
     float.style.setProperty('--fy', (11 + rnd() * 9).toFixed(1) + 'px');
     float.style.setProperty('--fdur', (5.5 + rnd() * 3).toFixed(1) + 's');
     float.style.setProperty('--fdel', (-rnd() * 14).toFixed(1) + 's');
-    float.style.setProperty('--bd', (4.5 + rnd() * 4).toFixed(1) + 's');
+    float.style.setProperty('--bd', (12 + rnd() * 9).toFixed(1) + 's');
     float.style.setProperty('--bdel', (-rnd() * 9).toFixed(1) + 's');
 
     var allX = anchors.concat(ex).map(function (q) { return q[0]; }), allY = anchors.concat(ex).map(function (q) { return q[1]; });
@@ -439,8 +447,8 @@
     var compact = isCompact();
     if (compact && !selected) return { cx: L.box[0] / 2, cy: L.box[1] / 2, bw: L.box[0], bh: L.box[1], asp: L.box[0] / L.box[1] };
     var asp = r.width / Math.max(1, r.height);
-    if (!selected) {   // the box holds every figure (drift and hover titles included) and the name, with a margin all round
-      var x0 = L.centre[0] - 320, x1 = L.centre[0] + 320, y0 = L.centre[1] - 110, y1 = L.centre[1] + 110;
+    if (!selected) {   // the box holds every figure (drift and hover titles included), with a margin all round
+      var x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
       items.forEach(function (q) {
         var kk = q.slot[2] || 1;
         x0 = Math.min(x0, q.slot[0] + q.bx0 * kk); x1 = Math.max(x1, q.slot[0] + q.bx1 * kk);
@@ -567,6 +575,7 @@
     view = next;
     write(VIEW_KEY, view);
     root.setAttribute('data-home-view', view);
+    document.dispatchEvent(new CustomEvent('ae-home-view', { detail: { view: view } }));
     if (view === 'constellations') {
       syncTheme();
       if (built) moveCamera(true);
@@ -635,6 +644,7 @@
     ORDER.forEach(function (slug, i) {
       if (!subjects[slug] || !META[slug]) return;
       var it = buildConstellation(subjects[slug], i);
+      it.g.style.setProperty('--ci', String(i));
       items.push(it);
       svg.appendChild(it.g);
     });
@@ -647,6 +657,20 @@
     // Clicks: a constellation selects (a star of a closed one must not navigate), empty sky goes back.
     var lastPointer = 'mouse';
     svg.addEventListener('pointerdown', function (event) { lastPointer = event.pointerType || 'mouse'; });
+    // a soft chime when the pointer reaches a constellation (when the sound is on), a different note for each
+    var lastChime = 0, lastGroup = null;
+    svg.addEventListener('pointerover', function (event) {
+      if (event.pointerType === 'touch' || !window.AESkySound || !window.AESkySound.isOn()) return;
+      var group = event.target.closest && event.target.closest('.const');
+      if (!group || group === lastGroup) return;
+      lastGroup = group;
+      var now = Date.now();
+      if (now - lastChime < 500) return;
+      lastChime = now;
+      var it = byslug(group.getAttribute('data-slug'));
+      if (it) window.AESkySound.chime(it.index * 2 + 1, true);
+    });
+    svg.addEventListener('pointerleave', function () { lastGroup = null; });
     svg.addEventListener('click', function (event) {
       var star = event.target.closest && event.target.closest('.star');
       if (star && lastPointer === 'touch' && !star.classList.contains('is-shown')) {   // first tap: show the name, second: go

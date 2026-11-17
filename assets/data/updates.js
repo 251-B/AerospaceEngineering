@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-sideris-intro",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "A welcome screen and the sound of the sky",
+    "text": "The home page opens on a telescope view of the night sky. Press Ignite to fly into the constellations, with celestial sound you can mute from the speaker button.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-17-materials-topics-8-11-review",
     "date": "2026-11-17",
     "tag": "Aerospace Materials I",

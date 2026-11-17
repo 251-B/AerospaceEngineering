@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Home page welcome screen (assets/js/sky-intro.js): a night sky through a telescope lens, the name,
+   "Ready to ignite?" and a button. Shown only while <html data-intro="on">.
+   Colours are fixed (it is always a night sky); text is white or near white on a near-black sky (AAA).
+   ========================================================================== */
+.sky-intro { display: none; }
+html[data-intro="on"] .sky-intro {
+  display: block; position: fixed; inset: 0; z-index: 3000; overflow: hidden; color: #f8fafc;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 46%, rgba(40, 52, 120, 0.38), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 14% 90%, rgba(120, 40, 140, 0.20), transparent 70%),
+    radial-gradient(ellipse 60% 60% at 90% 12%, rgba(20, 110, 150, 0.22), transparent 70%),
+    #03050d;
+}
+html[data-intro="on"], html[data-intro="on"] body { overflow: hidden; }
+
+.intro-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* the lens */
+.intro-lens {
+  position: absolute; left: 50%; top: 40%; width: min(66vmin, 560px); aspect-ratio: 1; transform: translate(-50%, -50%);
+  transition: transform 2.3s cubic-bezier(0.55, 0, 0.9, 0.35), opacity 1.5s ease 0.7s; will-change: transform;
+}
+.intro-lens svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.intro-ticks { transform-origin: 0 0; animation: intro-turn 120s linear infinite; }
+.intro-ticks-slow { transform-origin: 0 0; animation: intro-turn 200s linear infinite reverse; }
+@keyframes intro-turn { to { transform: rotate(360deg); } }
+.intro-lens::after {   /* a glint on the glass */
+  content: ''; position: absolute; inset: 6%; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(ellipse 34% 20% at 28% 22%, rgba(255, 255, 255, 0.10), transparent 70%);
+}
+
+/* the text inside the lens */
+.intro-text {
+  position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); width: min(62vmin, 520px); text-align: center; pointer-events: none;
+  transition: opacity 0.8s ease, transform 1.2s ease;
+}
+.intro-eyebrow { margin: 0 0 6px; font: 500 0.78rem/1.4 var(--font-mono); letter-spacing: 0.26em; text-transform: uppercase; color: #cbd5e1; }
+.intro-title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(3rem, 11vmin, 6.6rem); line-height: 1.02; letter-spacing: 0.03em; }
+.intro-title .gradient-text {
+  display: inline-block; background: linear-gradient(135deg, #22d3ee, #6366f1 55%, #c084fc);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: url(#stardust);
+}
+.intro-aero { margin: 4px 0 0; font: 500 clamp(0.8rem, 2.2vmin, 1.05rem)/1.4 var(--font-mono); letter-spacing: 0.6em; text-indent: 0.6em; text-transform: uppercase; color: #e2e8f0; }
+
+/* the call to action under the lens */
+.intro-cta {
+  position: absolute; left: 50%; bottom: max(4vh, 22px); transform: translateX(-50%); width: min(92vw, 560px); text-align: center;
+  transition: opacity 0.7s ease, transform 1s ease;
+}
+.intro-phrase { margin: 0 0 14px; font: italic 400 clamp(1.4rem, 3.4vmin, 2.1rem)/1.25 var(--font-body); color: #f1f5f9; letter-spacing: 0.01em; }
+.intro-phrase small { display: block; margin-top: 4px; font-size: 0.62em; font-style: normal; letter-spacing: 0.05em; color: #cbd5e1; }
+.intro-ignite {
+  position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 14px 34px; border: 1px solid transparent; border-radius: 999px; cursor: pointer;
+  font: 600 1.02rem/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff;
+  background: linear-gradient(rgba(8, 12, 30, 0.82), rgba(8, 12, 30, 0.82)) padding-box, linear-gradient(135deg, #22d3ee, #6366f1, #c084fc) border-box;
+  box-shadow: 0 0 26px rgba(99, 102, 241, 0.45); animation: intro-pulse 2.6s ease-in-out infinite; transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.intro-ignite::before { content: ''; width: 12px; height: 12px; background: currentColor; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+.intro-ignite:hover { transform: scale(1.06); box-shadow: 0 0 44px rgba(129, 140, 248, 0.75); }
+.intro-ignite:focus-visible { outline: 2px solid #ffffff; outline-offset: 4px; }
+@keyframes intro-pulse { 0%, 100% { box-shadow: 0 0 22px rgba(99, 102, 241, 0.40); } 50% { box-shadow: 0 0 46px rgba(129, 140, 248, 0.80); } }
+.intro-skip {
+  display: block; margin: 16px auto 0; padding: 8px 14px; background: none; border: 0; cursor: pointer;
+  font: 500 0.78rem/1 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: #cbd5e1; text-decoration: underline; text-underline-offset: 4px;
+}
+.intro-skip:hover { color: #ffffff; }
+.intro-skip:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
+
+/* a telescope on the horizon */
+.intro-telescope { position: absolute; left: clamp(-60px, 2vw, 40px); bottom: -24px; width: min(46vw, 430px); color: rgba(226, 232, 255, 0.5); transition: opacity 0.9s ease; pointer-events: none; }
+.intro-telescope svg { width: 100%; height: auto; display: block; }
+
+/* ignition: the lens rushes at the viewer, the text lets go, a flash, then the sky opens */
+.sky-intro.is-igniting .intro-lens { transform: translate(-50%, -50%) scale(7); opacity: 0; }
+.sky-intro.is-igniting .intro-text { opacity: 0; transform: translate(-50%, -56%) scale(1.14); }
+.sky-intro.is-igniting .intro-cta { opacity: 0; transform: translate(-50%, 24px); }
+.sky-intro.is-igniting .intro-telescope { opacity: 0; }
+.intro-flash { position: absolute; left: 50%; top: 40%; width: 130vmax; height: 130vmax; margin: -65vmax 0 0 -65vmax; border-radius: 50%; opacity: 0; pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(160, 190, 255, 0.55) 18%, rgba(120, 90, 255, 0.18) 42%, transparent 66%); }
+.sky-intro.is-flash .intro-flash { animation: intro-flash 1.5s ease-out forwards; }
+@keyframes intro-flash { 0% { opacity: 0; transform: scale(0.15); } 30% { opacity: 1; transform: scale(0.7); } 100% { opacity: 0; transform: scale(1.6); } }
+.sky-intro.is-leaving { opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+
+@media (max-width: 700px) {
+  .intro-telescope { width: 78vw; left: -12vw; opacity: 0.7; }
+  .intro-lens, .intro-text, .intro-flash { top: 38%; }
+  .intro-lens { width: 84vw; }
+  .intro-text { width: 76vw; }
+}
+@media (max-height: 520px) {
+  .intro-lens, .intro-text, .intro-flash { top: 40%; }
+  .intro-title { font-size: clamp(2.6rem, 14vh, 5rem); }
+  .intro-phrase small { display: none; }
+  .intro-telescope { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-ticks, .intro-ticks-slow, .intro-ignite { animation: none; }
+  .sky-intro.is-igniting .intro-lens { transform: translate(-50%, -50%); transition: opacity 0.6s ease; }
+  .sky-intro.is-flash .intro-flash { animation: none; }
+}
+@media print { .sky-intro { display: none !important; } }
+
+@media (max-width: 700px) {
+  .intro-eyebrow { font-size: 0.64rem; letter-spacing: 0.14em; }
+  .intro-aero { letter-spacing: 0.5em; text-indent: 0.5em; }
+}
+@media (max-height: 520px) {
+  .intro-eyebrow { display: none; }
+  .intro-lens, .intro-text, .intro-flash { top: 36%; }
+  .intro-lens { width: 58vh; }
+  .intro-text { width: 52vh; }
+  .intro-title { font-size: clamp(2.4rem, 14vh, 4.4rem); }
+  .intro-aero { font-size: 0.7rem; letter-spacing: 0.4em; text-indent: 0.4em; }
+  .intro-cta { bottom: 8px; }
+  .intro-phrase { margin-bottom: 8px; font-size: 1.15rem; }
+  .intro-ignite { padding: 10px 26px; font-size: 0.9rem; }
+  .intro-skip { margin-top: 4px; padding: 4px 10px; }
+}
