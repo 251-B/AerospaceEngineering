@@ -33,6 +33,18 @@
     var phase = 'idle', t0 = 0;           // idle | warp | decel
     var speed = 0.012;                    // depth units per second
 
+    // sound: try to start the mystery at once (some browsers allow it); otherwise the first click, key or touch does
+    if (window.AESkySound) window.AESkySound.begin(true);
+    var armed = false;
+    function arm(event) {
+      if (armed) return;
+      if (event && event.target && event.target.closest && event.target.closest('#introSound')) return;   // that button decides by itself
+      armed = true;
+      document.removeEventListener('pointerdown', arm, true); document.removeEventListener('keydown', arm, true);
+      if (window.AESkySound && !window.AESkySound.isOn()) window.AESkySound.begin(false);
+    }
+    document.addEventListener('pointerdown', arm, true); document.addEventListener('keydown', arm, true);
+
     if (app) app.setAttribute('inert', '');
     try { document.activeElement && document.activeElement.blur(); } catch (e) { /* nothing focused */ }
 
@@ -57,6 +69,13 @@
     var COUNT = Math.round(Math.min(620, Math.max(260, window.innerWidth * window.innerHeight / 3600)));
     for (var i = 0; i < COUNT; i++) { var s0 = {}; seed(s0, true); stars.push(s0); }
 
+    var mx = 0, my = 0, tmx = 0, tmy = 0;   // pointer parallax
+    window.addEventListener('pointermove', function (event) { tmx = event.clientX / window.innerWidth - 0.5; tmy = event.clientY / window.innerHeight - 0.5; });
+    var meteor = null, nextMeteor = 3500;     // a shooting star now and then
+    function newMeteor() {
+      var fromLeft = Math.random() < 0.5;
+      meteor = { x: (fromLeft ? 0.05 : 0.55 + Math.random() * 0.4) * W, y: Math.random() * H * 0.45, vx: (fromLeft ? 1 : -1) * (0.9 + Math.random() * 0.5) * W, vy: (0.35 + Math.random() * 0.25) * W * 0.5, life: 0 };
+    }
     var last = 0;
     function frame(now) {
       if (!running) return;
@@ -69,7 +88,8 @@
       } else if (phase === 'decel') {
         speed = Math.max(0.2, speed * Math.pow(0.02, dt));
       }
-      var cx = W / 2, cy = H / 2, scale = Math.max(W, H) * 0.55;
+      mx += (tmx - mx) * Math.min(1, dt * 2.5); my += (tmy - my) * Math.min(1, dt * 2.5);
+      var cx = W / 2 - mx * 26 * dpr, cy = H / 2 - my * 18 * dpr, scale = Math.max(W, H) * 0.55;
       ctx.clearRect(0, 0, W, H);
       var warping = phase !== 'idle' && speed > 0.06;
       var warmth = phase === 'warp' ? Math.min(1, el / 1.5) : 0;
@@ -90,6 +110,18 @@
           ctx.strokeStyle = 'rgba(' + (warmth > 0.6 && n % 5 === 0 ? '170,200,255' : st.tint) + ',' + alpha.toFixed(3) + ')';
           ctx.lineWidth = Math.max(0.6, st.size * dpr * (0.5 + depth * 1.4));
           ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(sx, sy); ctx.stroke();
+        }
+      }
+      if (phase === 'idle') {
+        nextMeteor -= dt * 1000;
+        if (!meteor && nextMeteor <= 0) { newMeteor(); nextMeteor = 5000 + Math.random() * 5000; }
+        if (meteor) {
+          meteor.life += dt; meteor.x += meteor.vx * dt; meteor.y += meteor.vy * dt;
+          var tail = 0.14, k = Math.max(0, 1 - meteor.life / 1.1);
+          var g = ctx.createLinearGradient(meteor.x, meteor.y, meteor.x - meteor.vx * tail, meteor.y - meteor.vy * tail);
+          g.addColorStop(0, 'rgba(255,245,215,' + (0.95 * k).toFixed(3) + ')'); g.addColorStop(1, 'rgba(255,245,215,0)');
+          ctx.strokeStyle = g; ctx.lineWidth = 1.6 * dpr; ctx.beginPath(); ctx.moveTo(meteor.x, meteor.y); ctx.lineTo(meteor.x - meteor.vx * tail, meteor.y - meteor.vy * tail); ctx.stroke();
+          if (meteor.life > 1.1) meteor = null;
         }
       }
       requestAnimationFrame(frame);
@@ -138,7 +170,8 @@
     document.addEventListener('keydown', function (event) {
       if (root.getAttribute('data-intro') !== 'on') return;
       if (event.key === 'Escape') { event.preventDefault(); enter(false); }
+      else if ((event.key === 'Enter' || event.key === ' ') && !(event.target && event.target.closest && event.target.closest('button'))) { event.preventDefault(); enter(true); }
     });
-    setTimeout(function () { try { button.focus({ preventScroll: true }); } catch (e) { /* focus not possible */ } }, 400);
+
   });
 })();

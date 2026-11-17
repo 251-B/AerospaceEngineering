@@ -14,7 +14,7 @@ INDEX = (REPO / "index.html").read_text(encoding="utf-8")
 
 class SkyIntroTests(unittest.TestCase):
     def test_index_carries_the_welcome_screen_and_the_scripts(self):
-        for needle in ('id="skyIntro"', 'id="introIgnite"', 'id="introSkip"', 'id="soundToggle"', 'id="introReplay"', "Ready to ignite?"):
+        for needle in ('id="skyIntro"', 'id="introIgnite"', 'id="introSkip"', 'id="soundToggle"', 'id="introReplay"', 'id="introSound"', "intro-emblem", "Ready to ignite?"):
             self.assertIn(needle, INDEX)
         self.assertRegex(INDEX, r'src="assets/js/sky-sound\.js(\?v=\w+)?"')
         self.assertRegex(INDEX, r'src="assets/js/sky-intro\.js(\?v=\w+)?"')
@@ -48,6 +48,12 @@ class SkyIntroTests(unittest.TestCase):
         self.assertIn("introSkip", INTRO)
         self.assertIn("sessionStorage", HEAD)
         self.assertIn("intro=0", HEAD)
+
+    def test_mystery_then_celestial(self):
+        self.assertIn("function startMystery", SOUND)
+        self.assertIn("function stopMystery", SOUND)
+        self.assertIn("begin:", SOUND)
+        self.assertIn("AESkySound.begin", INTRO)
 
     def test_no_emoji(self):
         for text in (INTRO, SOUND, CSS):

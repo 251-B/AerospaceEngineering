@@ -26,6 +26,8 @@
   var chimeTimer = 0, chordTimer = 0, chordIndex = 0, padVoices = [];
   var wanted = read(KEY) !== 'off';          // the visitor's choice; default on after the first ignite
   var VOLUME = 0.5;
+  var phase = document.documentElement.getAttribute('data-intro') === 'on' ? 'mystery' : 'celestial';   // the welcome screen is dark and mysterious; the map is celestial
+  var mys = null, gongTimer = 0, pulseTimer = 0;
   var PENTATONIC = [587.33, 659.25, 739.99, 880.0, 987.77, 1174.66, 1318.51];   // D major pentatonic, D5 to E6
   var CHORDS = [
     [146.83, 220.0, 329.63, 369.99, 493.88],   // D add9
@@ -126,7 +128,63 @@
   function fadeIn() {
     var t = ctx.currentTime;
     master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(master.gain.value, t); master.gain.linearRampToValueAtTime(VOLUME, t + 3);
-    padBus.gain.cancelScheduledValues(t); padBus.gain.setValueAtTime(padBus.gain.value, t); padBus.gain.linearRampToValueAtTime(1, t + 6);
+    if (phase === 'celestial') { padBus.gain.cancelScheduledValues(t); padBus.gain.setValueAtTime(padBus.gain.value, t); padBus.gain.linearRampToValueAtTime(1, t + 6); }
+  }
+
+  /* The mystery of the welcome screen: a deep drone that beats slowly, a whisper of filtered noise, a heartbeat far below
+     and the occasional distant bell, all drowned in reverb. It melts into the celestial pad when the visitor ignites. */
+  function startMystery() {
+    var t = ctx.currentTime;
+    if (!mys) {
+      var bus = ctx.createGain(); bus.gain.value = 0;
+      var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 560; lp.Q.value = 2.2;
+      bus.connect(lp); lp.connect(master); lp.connect(reverbIn);
+      var lfo = ctx.createOscillator(), lg = ctx.createGain(); lfo.frequency.value = 0.05; lg.gain.value = 280; lfo.connect(lg); lg.connect(lp.frequency); lfo.start();
+      var nodes = [lfo];
+      [[36.71, 'sine', 0.17], [73.42, 'triangle', 0.09], [77.78, 'sine', 0.06], [110.0, 'sine', 0.035], [116.54, 'triangle', 0.022], [220.0, 'sine', 0.012]].forEach(function (n) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = n[1]; o.frequency.value = n[0]; g.gain.value = n[2]; o.connect(g); g.connect(bus); o.start(); nodes.push(o);
+      });
+      var len = ctx.sampleRate * 4, buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+      for (var i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+      var ns = ctx.createBufferSource(); ns.buffer = buf; ns.loop = true;
+      var bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 1500; bp.Q.value = 9;
+      var ng = ctx.createGain(); ng.gain.value = 0.02;
+      var tr = ctx.createOscillator(), trg = ctx.createGain(); tr.frequency.value = 0.11; trg.gain.value = 0.017; tr.connect(trg); trg.connect(ng.gain);
+      ns.connect(bp); bp.connect(ng); ng.connect(bus); ns.start(); tr.start(); nodes.push(ns, tr);
+      mys = { bus: bus, nodes: nodes };
+    }
+    mys.bus.gain.cancelScheduledValues(t); mys.bus.gain.setValueAtTime(mys.bus.gain.value, t); mys.bus.gain.linearRampToValueAtTime(1, t + 6);
+    scheduleGong(4000); schedulePulse();
+  }
+
+  function gong() {
+    if (!ctx || !running || phase !== 'mystery') return;
+    var f = [146.83, 98.0, 110.0, 123.47][Math.floor(Math.random() * 4)], t = ctx.currentTime;
+    [[1, 0.2], [2.76, 0.1], [5.4, 0.055], [8.93, 0.03]].forEach(function (part) {
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = f * part[0];
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(part[1], t + 0.03); g.gain.exponentialRampToValueAtTime(0.0001, t + 9 / Math.sqrt(part[0]));
+      o.connect(g); g.connect(master); g.connect(reverbIn); o.start(t); o.stop(t + 10);
+    });
+  }
+  function scheduleGong(first) { clearTimeout(gongTimer); gongTimer = setTimeout(function () { gong(); scheduleGong(); }, first || 8000 + Math.random() * 8000); }
+  function pulse() {
+    if (!ctx || !running || phase !== 'mystery') return;
+    var t = ctx.currentTime, o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = 'sine'; o.frequency.setValueAtTime(56, t); o.frequency.exponentialRampToValueAtTime(34, t + 0.5);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.16, t + 0.03); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.8);
+  }
+  function schedulePulse() { clearInterval(pulseTimer); pulseTimer = setInterval(pulse, 2800); }
+
+  function stopMystery(seconds) {
+    clearTimeout(gongTimer); clearInterval(pulseTimer);
+    if (!mys || !ctx) return;
+    var t = ctx.currentTime, dead = mys;
+    dead.bus.gain.cancelScheduledValues(t); dead.bus.gain.setValueAtTime(dead.bus.gain.value, t); dead.bus.gain.linearRampToValueAtTime(0, t + seconds);
+    mys = null;
+    setTimeout(function () { dead.nodes.forEach(function (n) { try { n.stop(); } catch (e) { /* already stopped */ } }); try { dead.bus.disconnect(); } catch (e) { /* already gone */ } }, seconds * 1000 + 500);
   }
 
   function fadeOut(done) {
@@ -140,24 +198,30 @@
     if (!supported) return false;
     build();
     running = true;
-    var go = function () { fadeIn(); scheduleChime(); clearInterval(chordTimer); chordTimer = setInterval(glideChord, 21000); };
+    var go = function () {
+      fadeIn();
+      if (phase === 'mystery') { startMystery(); return; }
+      scheduleChime(); clearInterval(chordTimer); chordTimer = setInterval(glideChord, 21000);
+    };
     if (ctx.state === 'suspended') ctx.resume().then(go); else go();
     return true;
   }
 
   function disengage() {
-    running = false; clearTimeout(chimeTimer); clearInterval(chordTimer);
+    running = false; clearTimeout(chimeTimer); clearInterval(chordTimer); clearTimeout(gongTimer); clearInterval(pulseTimer);
     fadeOut();
   }
 
-  var toggle = null;
+  var toggle = null, introToggle = null;
   function renderToggle() {
-    if (!toggle) return;
-    var on = running;
-    toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
-    toggle.title = on ? 'Mute the sky' : 'Play the sound of the sky';
-    toggle.setAttribute('aria-label', toggle.title);
-    toggle.classList.toggle('is-on', on);
+    [toggle, introToggle].forEach(function (b) {
+      if (!b) return;
+      var on = running;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.title = on ? 'Mute the sound' : 'Play the sound of the sky';
+      b.setAttribute('aria-label', b.title);
+      b.classList.toggle('is-on', on);
+    });
   }
 
   function setOn(on) {
@@ -167,9 +231,20 @@
     renderToggle();
   }
 
-  function start() {   // called from a click: the intro's ignite button
+  // the welcome screen's first gesture (or an allowed autoplay): the mystery begins
+  function begin(auto) {
+    if (!supported || read(KEY) === 'off') return false;
+    phase = 'mystery'; build();
+    if (auto) { ctx.resume().catch(function () { /* needs a gesture */ }); setTimeout(function () { if (ctx.state === 'running' && !running) { engage(); renderToggle(); } }, 350); return false; }
+    var ok = engage(); renderToggle(); return ok;
+  }
+
+  // the ignite button: the mystery melts into the celestial sky
+  function start() {
     if (read(KEY) === 'off') { wanted = false; renderToggle(); return false; }
     wanted = true; write(KEY, 'on');
+    phase = 'celestial';
+    stopMystery(3.4);
     var ok = engage(); renderToggle(); return ok;
   }
 
@@ -181,6 +256,8 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     toggle = document.getElementById('soundToggle');
+    introToggle = document.getElementById('introSound');
+    if (introToggle) { if (!supported) introToggle.hidden = true; introToggle.addEventListener('click', function () { if (!running && phase !== 'mystery' && document.documentElement.getAttribute('data-intro') === 'on') phase = 'mystery'; setOn(!running); }); renderToggle(); }
     if (toggle) {
       if (!supported) toggle.hidden = true;
       toggle.addEventListener('click', function () { setOn(!running); });
@@ -199,5 +276,5 @@
     else if (wanted && read(KEY) === 'on' && ctx) { engage(); renderToggle(); }
   });
 
-  window.AESkySound = { start: start, whoosh: whoosh, chime: chime, setOn: setOn, isOn: function () { return running; }, supported: supported };
+  window.AESkySound = { begin: begin, start: start, whoosh: whoosh, chime: chime, setOn: setOn, isOn: function () { return running; }, supported: supported };
 })();
