@@ -32,8 +32,8 @@
  * same reason): appends <script src="assets/js/focus-lab.js">, <script src="assets/js/pomodoro.js">,
  * <script src="assets/data/updates.js"> (reached as ../data/updates.js from this file),
  * <script src="assets/js/updates.js">, <script src="assets/data/nav.js"> and
- * <script src="assets/js/sidebar.js">, <script src="assets/js/account.js">,
- * <script src="assets/js/problem-collapse.js"> and <script src="assets/js/solution-close.js"> next to this file,
+ * <script src="assets/js/sidebar.js">, <script src="assets/js/problem-collapse.js"> and
+ * <script src="assets/js/solution-close.js"> next to this file (account.js right after pomodoro.js),
  * so the study-sound widget, the Pomodoro timer, the updates bell, the side menu and the "Close" bar
  * at the end of worked solutions are on every page that loads theme.js. Skipped in the PDF print
  * mode (?print=...).
@@ -372,7 +372,8 @@
     // pages (sign-in, sign-up, settings) do not load them.
     var studyTools = !(document.documentElement.getAttribute('data-celestial-subject') === 'portal' ||
       /\/account\/[^\/]*$/.test(location.pathname));
-    ['focus-lab.js', 'pomodoro.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'account.js', 'problem-collapse.js', 'solution-close.js'].forEach(function (name) {
+    // account.js comes before the updates data: it leaves a filter for updates.js (the reader's subjects).
+    ['focus-lab.js', 'pomodoro.js', 'account.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'problem-collapse.js', 'solution-close.js'].forEach(function (name) {
       if (!studyTools && (name === 'focus-lab.js' || name === 'pomodoro.js')) return;
       var script = document.createElement('script');
       script.async = false;   // run in this order, so the widgets always land in the DOM the same way

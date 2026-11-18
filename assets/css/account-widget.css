@@ -146,6 +146,48 @@ html[data-theme="light"] .acc-menu {
 .acc-menu__item:hover { background: var(--bg-input, rgba(128, 128, 128, 0.12)); }
 .acc-menu .acc-menu__item--quiet { color: var(--study-text-2, var(--text-secondary, inherit)) !important; }
 
+/* ---- the portal arranged around the reader's subjects (account.js arrangeNav / arrangeHome) ---- */
+/* side menu: "Your subjects" / "Other subjects" headings, in the drawer's own muted colour */
+.ae-nav .acc-nav-label {
+  margin: 16px 12px 6px;
+  font: 600 10.5px/1.2 var(--nav-mono, var(--font-mono, monospace));
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--nav-muted, var(--study-text-2, inherit));
+}
+.ae-nav .acc-nav-mine > .ae-nav__toggle .ae-nav__dot { box-shadow: 0 0 0 3px color-mix(in srgb, var(--dot) 30%, transparent); }
+
+/* home page, stellar view: the reader's constellations in front, the others dimmed until pointed at */
+.sky-svg .const.acc-const-other { opacity: 0.4; transition: opacity 0.35s ease; }
+.sky-svg .const.acc-const-other:hover,
+.sky-svg .const.acc-const-other:focus-visible,
+.sky-svg.is-zoomed .const.acc-const-other { opacity: 1; }
+.sky-svg .const.acc-const-mine { filter: drop-shadow(0 0 6px rgba(199, 210, 254, 0.35)); }
+
+/* home page, classic view: a small mark on the reader's cards */
+.subject-card .acc-mine-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--card-accent, currentColor);
+  font: 600 0.68rem/1.4 var(--font-mono, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary, inherit);
+}
+.subject-card .acc-mine-badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--card-accent, currentColor);
+}
+
 @media print {
-  .acc-widget, .acc-menu { display: none !important; }
+  .acc-widget, .acc-menu, .acc-mine-badge, .ae-nav .acc-nav-label { display: none !important; }
 }

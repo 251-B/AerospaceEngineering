@@ -35,7 +35,9 @@
   var ROOT = SCRIPT && SCRIPT.src ? SCRIPT.src.replace(/assets\/js\/updates\.js(\?.*)?$/, '') : '';
 
   var entries = (Array.isArray(window.AE_UPDATES) ? window.AE_UPDATES : []).filter(function (e) {
-    return e && typeof e.id === 'string' && typeof e.title === 'string';
+    return e && typeof e.id === 'string' && typeof e.title === 'string' &&
+      // a signed-in reader sees the entries of their own subjects and the portal's (assets/js/account.js)
+      (typeof window.AE_UPDATES_FILTER !== 'function' || window.AE_UPDATES_FILTER(e));
   });
 
   /* ---------------------------------------------------------------- state */

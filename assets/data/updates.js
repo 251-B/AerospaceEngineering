@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-your-subjects-first",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "The portal now puts your subjects first",
+    "text": "Signed in, the side menu lists your subjects first, What's new only shows their news and the portal's, and the home page brings their constellations forward.",
+    "link": "account/settings.html"
+  },
+  {
     "id": "2026-11-18-favourites-and-notes",
     "date": "2026-11-18",
     "tag": "Portal",

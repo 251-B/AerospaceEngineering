@@ -688,6 +688,98 @@
     document.head.appendChild(js);
   }
 
+  // ---- the portal arranged around the reader's subjects ---------------------------------------
+  // Signed in with subjects chosen: the side menu lists them first ("Your subjects", then "Other
+  // subjects"), "What's new" keeps only their entries and the portal's own, and the home page
+  // brings their constellations forward (classic view: their cards first, marked).
+  var TAG_SLUG = {
+    'Fluid Mechanics': 'fluid-mechanics', 'Aerospace Materials I': 'aerospace-materials-1',
+    'Engineering Mechanics': 'engineering-mechanics', 'Advanced Maths': 'advanced-maths',
+    'Business Management': 'business-management'
+  };
+
+  function mySubjects() {
+    var user = current();
+    return user && user.prefs.subjects.length ? user.prefs.subjects.slice() : null;
+  }
+
+  // Read by assets/js/updates.js when it loads (account.js is loaded before it).
+  window.AE_UPDATES_FILTER = function (entry) {
+    var mine = mySubjects();
+    var slug = entry && TAG_SLUG[entry.tag];
+    return !mine || !slug || mine.indexOf(slug) !== -1;
+  };
+
+  function navLabel(text) {
+    var d = el('p', 'acc-nav-label', text);
+    d.setAttribute('data-acc-nav', '');
+    return d;
+  }
+
+  function arrangeNav(tries) {
+    tries = tries || 0;
+    var tree = document.querySelector('.ae-nav__tree');
+    if (!tree) { if (tries < 60) setTimeout(function () { arrangeNav(tries + 1); }, 50); return; }
+    var groups = {};
+    SUBJECTS.forEach(function (sub) {
+      var body = document.getElementById('aeNav-s-' + sub.id);
+      if (body && body.parentNode) groups[sub.id] = body.parentNode;
+    });
+    [].forEach.call(tree.querySelectorAll('[data-acc-nav]'), function (n) { n.parentNode.removeChild(n); });
+    var mine = mySubjects();
+    var order = SUBJECTS.map(function (x) { return x.id; });
+    if (mine) order = mine.concat(order.filter(function (id) { return mine.indexOf(id) === -1; }));
+    var anchor = tree.querySelector('.ae-nav__home');
+    var after = anchor;
+    function put(node) {
+      if (after && after.nextSibling) tree.insertBefore(node, after.nextSibling); else tree.appendChild(node);
+      after = node;
+    }
+    if (mine) put(navLabel('Your subjects'));
+    order.forEach(function (id, i) {
+      if (!groups[id]) return;
+      if (mine && i === mine.length) put(navLabel('Other subjects'));
+      groups[id].classList.toggle('acc-nav-mine', !!mine && mine.indexOf(id) !== -1);
+      put(groups[id]);
+    });
+  }
+
+  function arrangeHome(tries) {
+    tries = tries || 0;
+    if (root.getAttribute('data-celestial-subject') !== 'portal') return;
+    var mine = mySubjects();
+    // classic view: the reader's cards first, in their order, with a small mark
+    var cards = document.querySelectorAll('.subject-card[data-subject]');
+    if (cards.length) {
+      var parent = cards[0].parentNode;
+      var list = [].slice.call(cards);
+      var order = SUBJECTS.map(function (x) { return x.id; });
+      if (mine) order = mine.concat(order.filter(function (id) { return mine.indexOf(id) === -1; }));
+      order.forEach(function (id) {
+        var card = list.filter(function (c) { return c.getAttribute('data-subject') === id; })[0];
+        if (!card) return;
+        var isMine = !!mine && mine.indexOf(id) !== -1;
+        card.classList.toggle('acc-card-mine', isMine);
+        var mark = card.querySelector('.acc-mine-badge');
+        if (isMine && !mark) {
+          mark = el('span', 'acc-mine-badge', 'Your subject');
+          card.insertBefore(mark, card.firstChild);
+        } else if (!isMine && mark) mark.parentNode.removeChild(mark);
+        parent.appendChild(card);
+      });
+    }
+    // stellar view: the reader's constellations in front, the others dimmed until pointed at
+    var consts = document.querySelectorAll('.sky-svg .const[data-slug]');
+    if (!consts.length) { if (tries < 80) setTimeout(function () { arrangeHome(tries + 1); }, 100); return; }
+    [].forEach.call(consts, function (g) {
+      var isMine = !!mine && mine.indexOf(g.getAttribute('data-slug')) !== -1;
+      g.classList.toggle('acc-const-mine', isMine);
+      g.classList.toggle('acc-const-other', !!mine && !isMine);
+    });
+  }
+
+  function arrange() { arrangeNav(0); arrangeHome(0); }
+
   function start(tries) {
     tries = tries || 0;
     var wantsPicker = !!document.querySelector('link[href*="study-surface.css"]') && !!document.getElementById('themeToggle');
@@ -700,9 +792,10 @@
     apply();
     trackStudy();
     loadMarks();
+    arrange();
   }
 
-  document.addEventListener('ae-account-change', function () { buildWidget(); });
+  document.addEventListener('ae-account-change', function () { buildWidget(); arrange(); });
   // Another tab signed in or out, or changed the preferences.
   window.addEventListener('storage', function (event) {
     if (event.key === SESSION_KEY || event.key === ACCOUNTS_KEY) { buildWidget(); apply(); }

@@ -125,9 +125,11 @@ Las reglas generales del repositorio siguen siendo las de `AGENTS.md` y `CLAUDE.
 
 En orden de prioridad aproximado:
 
-1. **Filtrar por las asignaturas del usuario.**
-   - Que el menú lateral (`sidebar.js`), la portada y "What's new" muestren primero o solo las asignaturas elegidas en `prefs.subjects`, con un "Ver todas".
-   - Se propuso al usuario y está pendiente de confirmar.
+1. ~~**Filtrar por las asignaturas del usuario.**~~ **Hecho** (commit "feat(portal): the portal arranged around your subjects"):
+   - menú lateral con "Your subjects" primero y "Other subjects" después;
+   - "What's new" filtrado mediante `window.AE_UPDATES_FILTER`, que deja `account.js` y lee `updates.js`; por eso `account.js` se carga ahora justo después de `pomodoro.js`;
+   - portada: constelaciones propias delante y las demás atenuadas hasta pasar el ratón; en la vista clásica, tarjetas propias primero con la marca "Your subject".
+   - Todo lo hacen `arrangeNav` y `arrangeHome` en `account.js`, sin tocar `sidebar.js` ni `constellations.js`.
 2. **Backend en la nube para entrar desde cualquier dispositivo.**
    - Recomendado: Supabase (Auth + Postgres con Row Level Security). Habilitaría Google/Microsoft (ahora "Soon"), sincronizar `ae_account`, `ae_marks`, `ae_study_log` y los historiales de los simuladores, y recuperar la contraseña.
    - Mantener `localStorage` como caché, primero en local, para que la web siga funcionando sin conexión y sin cuenta.
