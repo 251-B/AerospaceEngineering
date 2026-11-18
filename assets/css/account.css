@@ -343,36 +343,50 @@ body.acc-page {
 .acc-sky__dust circle:nth-child(3n) { animation: acc-twinkle 4.5s ease-in-out infinite; }
 .acc-sky__dust circle:nth-child(4n+1) { animation: acc-twinkle 6.5s ease-in-out 1.4s infinite; }
 
-.acc-sky__scene {
+.acc-sky__stage {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - var(--acc-panel) - var(--acc-pad) - 40px);
+  padding: 40px 32px 170px var(--acc-pad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-/* Solar system: thin orbits, a warm sun, planets in the subject colours (no labels) */
-.acc-sol__orbit { fill: none; stroke: rgba(226, 232, 240, 0.16); stroke-width: 1; stroke-dasharray: 2 6; }
-.acc-sol__sun { fill: #fff7d6; }
-.acc-sol__corona { animation: acc-pulse-sun 6s ease-in-out infinite; }
-.acc-planet__ring { fill: none; stroke: var(--c); stroke-width: 1.3; opacity: 0.7; }
+.acc-sky__map {
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  max-height: 640px;
+  overflow: visible;
+  transition: transform 0.9s cubic-bezier(0.6, 0, 0.2, 1);
+}
 
-.acc-star__halo { fill: var(--c); opacity: 0.12; transition: opacity 0.5s ease; }
-.acc-star__core { fill: color-mix(in srgb, var(--c) 45%, #64748b); transition: fill 0.4s ease; }
-.acc-star.is-lit .acc-star__halo { opacity: 0.4; animation: acc-pulse 3.2s ease-in-out infinite; }
+.acc-sky__lines line {
+  stroke: rgba(226, 232, 240, 0.22);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+
+.acc-star__halo { fill: var(--c); opacity: 0.10; transition: opacity 0.5s ease; }
+.acc-star__core { fill: #e2e8f0; transition: fill 0.4s ease; }
+.acc-star__ring { fill: none; stroke: var(--c); stroke-width: 1.2; opacity: 0; transition: opacity 0.4s ease; }
+.acc-star__label {
+  fill: rgba(226, 232, 240, 0.62);
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: fill 0.4s ease;
+}
+
+.acc-star.is-lit .acc-star__halo { opacity: 0.38; animation: acc-pulse 3.2s ease-in-out infinite; }
 .acc-star.is-lit .acc-star__core { fill: var(--c); }
-
-/* Spiral galaxy: turns once every few minutes */
-.acc-galaxy__spin { animation: acc-spin 300s linear infinite; }
-
-/* Loose constellations */
-.acc-const__lines line { stroke: rgba(226, 232, 240, 0.28); stroke-width: 1; }
-.acc-const__stars circle { fill: #e2e8f0; }
-.acc-const__stars .acc-const__halo { fill: #c7d2fe; opacity: 0.12; }
-
-@keyframes acc-spin { to { transform: rotate(360deg); } }
-@keyframes acc-pulse-sun { 0%, 100% { opacity: 0.85; } 50% { opacity: 1; } }
+.acc-star.is-lit .acc-star__ring { opacity: 0.9; }
+.acc-star.is-lit .acc-star__label { fill: #f8fafc; }
+.acc-sky__lines line.is-lit { stroke: rgba(226, 232, 240, 0.55); stroke-dasharray: none; }
 
 /* The personal star and the telescope reticle that locks onto it */
 .acc-me { opacity: 0; transition: opacity 0.35s ease; }
@@ -402,7 +416,7 @@ body.acc-page {
 /* Signing in: the panel steps back and the sky zooms towards your star */
 .acc-auth__side { transition: opacity 0.45s ease, transform 0.45s ease; }
 .acc-auth.is-launch .acc-auth__side { opacity: 0; transform: translateY(12px) scale(0.98); }
-.acc-auth.is-launch .acc-sky__scene { transform: scale(1.06); }
+.acc-auth.is-launch .acc-sky__map { transform: scale(1.12); }
 .acc-auth.is-launch .acc-me__reticle { animation: acc-close 0.8s cubic-bezier(0.6, 0, 0.2, 1) both; }
 .acc-auth.is-launch .acc-me__glow { animation: acc-flare 0.8s ease-out both; }
 @keyframes acc-close { to { transform: scale(0.35) rotate(-45deg); opacity: 0.2; } }
@@ -410,7 +424,7 @@ body.acc-page {
 .acc-auth.is-launch .acc-me__glow { filter: blur(8px); }
 
 @media (prefers-reduced-motion: reduce) {
-  .acc-sky__dust circle, .acc-star.is-lit .acc-star__halo, .acc-sol__corona,
+  .acc-sky__dust circle, .acc-star.is-lit .acc-star__halo,
   .acc-me.is-locked .acc-me__reticle, .acc-me.is-locked .acc-me__glow, .acc-me.is-locked .acc-me__label { animation: none; }
 }
 
@@ -1034,7 +1048,7 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
     padding: min(86vw, 400px) 16px 48px;
   }
   .acc-auth__side { grid-column: 1; }
-  .acc-sky__scene { height: min(86vw, 400px); bottom: auto; }
+  .acc-sky__stage { width: 100%; height: min(86vw, 400px); bottom: auto; padding: 12px; }
   .acc-sky__copy { display: none; }
   .acc-form-card { padding: 22px 20px 26px; }
   .acc-readout__coords { display: none; }
@@ -1059,147 +1073,4 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 
 @media print {
   .acc-header, .acc-side, .acc-toast { display: none !important; }
-}
-
-/* ---- the star-shaped sign-in box (login page) ---------------------------------------------- */
-.acc-auth--login { grid-template-columns: minmax(0, 1fr); justify-items: center; }
-.acc-auth--login .acc-auth__side { grid-column: 1; }
-
-.acc-starbox {
-  --S: clamp(600px, calc(100vh - 190px), 660px);
-  position: relative;
-  width: var(--S);
-  height: var(--S);
-  display: grid;
-  place-items: center;
-}
-
-.acc-starbox__rays,
-.acc-starbox__outline,
-.acc-starbox__shape {
-  position: absolute;
-  pointer-events: none;
-  overflow: visible;
-}
-
-.acc-starbox__rays {
-  width: 165%;
-  height: 165%;
-  left: -32.5%;
-  top: -32.5%;
-  animation: acc-rays 7s ease-in-out infinite;
-}
-
-.acc-starbox__outline {
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  animation: acc-spin 180s linear infinite;
-}
-.acc-starbox__outline path {
-  fill: none;
-  stroke: rgba(226, 232, 240, 0.28);
-  stroke-width: 1;
-  stroke-dasharray: 2 7;
-  vector-effect: non-scaling-stroke;
-}
-
-.acc-starbox__shape {
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 28px rgba(165, 180, 252, 0.18));
-}
-.acc-starbox__shape path {
-  fill: var(--study-surface);
-  stroke: var(--study-border);
-  stroke-width: 1;
-  stroke-linejoin: round;
-  vector-effect: non-scaling-stroke;
-}
-
-@keyframes acc-rays { 0%, 100% { opacity: 0.75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.04); } }
-
-.acc-starbox__body {
-  position: relative;
-  width: calc(var(--S) * 0.47);
-  text-align: center;
-}
-
-.acc-starbox__body .acc-readout { justify-content: center; margin-bottom: 14px; padding-bottom: 10px; }
-.acc-starbox__body .acc-readout__coords { display: none; }
-.acc-starbox__body h2 { font-size: 1.9rem; line-height: 1.1; }
-.acc-starbox__body .acc-form-card__sub { margin: 6px 0 16px; }
-.acc-starbox__body form { text-align: left; }
-.acc-starbox__body .acc-field { margin-bottom: 12px; }
-.acc-starbox__body .acc-btn--block { margin-top: 4px; }
-
-.acc-label-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-}
-.acc-label-row .acc-link-btn { font-size: 0.76rem; margin-bottom: 6px; }
-
-.acc-alt {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 14px;
-  font: 600 0.7rem/1 var(--font-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--acc-text-2);
-}
-.acc-alt .acc-soon { margin: 0; }
-.acc-alt__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--study-border);
-  background: var(--study-inset);
-  cursor: not-allowed;
-}
-
-.acc-sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
-
-.acc-starbox__body .acc-local { margin-top: 12px; }
-
-@media (prefers-reduced-motion: reduce) {
-  .acc-starbox__rays, .acc-starbox__outline, .acc-galaxy__spin, .acc-sol__corona { animation: none; }
-}
-
-/* Phones: the star does not leave room for a form, so the box becomes a card with a star on top */
-@media (max-width: 700px) {
-  .acc-starbox { --S: auto; width: 100%; height: auto; display: block; }
-  .acc-starbox__rays, .acc-starbox__outline { display: none; }
-  .acc-starbox__shape {
-    inset: auto;
-    top: -34px;
-    left: 50%;
-    width: 68px;
-    height: 68px;
-    transform: translateX(-50%);
-    z-index: 1;
-  }
-  .acc-starbox__body {
-    width: 100%;
-    padding: 46px 20px 24px;
-    border-radius: var(--radius-xl, 26px);
-    background: var(--study-surface);
-    border: 1px solid var(--study-border);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-  }
 }
