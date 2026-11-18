@@ -1074,3 +1074,38 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 @media print {
   .acc-header, .acc-side, .acc-toast { display: none !important; }
 }
+
+/* ---- observatory star chart beside the sign-in forms ---------------------------------------- */
+/* The nebula is pre-rendered from SVG fractal noise (assets/img/sky/account-nebula.jpg, black
+   background): screen blending drops the black, so only the clouds tint the sky. */
+.acc-sky__layer--nebula { object-fit: cover; mix-blend-mode: screen; }
+
+.acc-chart__rim { fill: none; stroke: rgba(226, 232, 240, 0.30); stroke-width: 1; }
+.acc-chart__rim--inner { stroke: rgba(226, 232, 240, 0.14); }
+.acc-chart__ring { fill: none; stroke: rgba(226, 232, 240, 0.09); stroke-width: 1; stroke-dasharray: 2 5; }
+.acc-chart__spoke { stroke: rgba(226, 232, 240, 0.07); stroke-width: 1; }
+.acc-chart__tick { stroke: rgba(226, 232, 240, 0.28); stroke-width: 1; }
+.acc-chart__tick--major { stroke: rgba(226, 232, 240, 0.55); }
+.acc-chart__cardinal { fill: rgba(253, 230, 138, 0.75); }
+.acc-chart__ecliptic { fill: none; stroke: rgba(253, 230, 138, 0.22); stroke-width: 1; stroke-dasharray: 6 6; }
+.acc-chart__star { fill: #e2e8f0; opacity: 0.55; }
+
+/* The rim turns very slowly, like a planisphere wheel */
+.acc-chart { transform-origin: 300px 300px; animation: acc-spin-chart 400s linear infinite; }
+@keyframes acc-spin-chart { to { transform: rotate(360deg); } }
+
+/* Subject stars without names: a core, a halo and a diffraction glint */
+.acc-star__glint {
+  stroke: var(--c);
+  stroke-width: 1;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.acc-star.is-lit .acc-star__glint { opacity: 0.7; }
+.acc-star__core { fill: #e2e8f0; }
+.acc-star.is-lit .acc-star__core { fill: #fff; filter: drop-shadow(0 0 4px var(--c)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .acc-chart { animation: none; }
+}
