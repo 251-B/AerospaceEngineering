@@ -190,13 +190,102 @@
   }
 
   // ---- login ----------------------------------------------------------------------------------
+  // ---- the sky of the sign-in pages ---------------------------------------------------------
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initSky() {
+    var clock = $('#accClock');
+    function tick() {
+      var d = new Date();
+      if (clock) clock.textContent = (d.getHours() < 10 ? '0' : '') + d.getHours() + ':' + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
+    }
+    tick();
+    setInterval(tick, 20000);
+    // Gentle parallax: far dust, near dust and the map drift at three depths with the pointer.
+    var sky = $('.acc-sky');
+    if (!sky || REDUCED || !window.matchMedia('(pointer: fine)').matches) return;
+    var layers = [['.acc-sky__layer--far', 6], ['.acc-sky__layer--near', 14], ['.acc-sky__stage', 9]].map(function (l) {
+      return [$(l[0]), l[1]];
+    });
+    var frame = 0;
+    document.addEventListener('pointermove', function (event) {
+      if (frame) return;
+      frame = requestAnimationFrame(function () {
+        frame = 0;
+        var dx = event.clientX / window.innerWidth - 0.5, dy = event.clientY / window.innerHeight - 0.5;
+        layers.forEach(function (l) {
+          if (l[0]) l[0].style.transform = 'translate3d(' + (-dx * l[1]).toFixed(2) + 'px,' + (-dy * l[1]).toFixed(2) + 'px,0)';
+        });
+      });
+    });
+  }
+
+  // Lock the telescope onto the star of an email (or let it go when the email is not valid).
+  var lockedId = null;
+  function lockStar(email) {
+    var me = $('#accMe'), pos = $('#accMePos'), target = $('#accTarget');
+    if (!me || !pos) return null;
+    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email || '').trim());
+    var star = valid ? AEAccount.starFor(email) : null;
+    if (!star) {
+      me.classList.remove('is-locked');
+      lockedId = null;
+      if (target) target.textContent = 'Scanning';
+      return null;
+    }
+    if (star.id === lockedId) return star;
+    lockedId = star.id;
+    pos.setAttribute('transform', 'translate(' + star.x + ' ' + star.y + ')');
+    $('#accMeLabel').textContent = star.id;
+    me.classList.remove('is-locked');
+    void me.getBoundingClientRect();   // restart the lock animation
+    me.classList.add('is-locked');
+    if (target) target.textContent = star.id;
+    return star;
+  }
+
+  function watchEmail(input) {
+    var timer = 0;
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { lockStar(input.value); }, 260);
+    });
+  }
+
+  function launch(then) {
+    var main = $('.acc-auth');
+    if (main) main.classList.add('is-launch');
+    setTimeout(then, REDUCED ? 0 : 850);
+  }
+
   function initLogin() {
+    initSky();
     lightStars(AEAccount.SUBJECTS.map(function (x) { return x.id; }));
     var form = $('#loginForm');
     var error = $('#loginError');
     wirePasswordToggles();
+    watchEmail(form.email);
     var user = AEAccount.current();
     if (user) $('#alreadyIn').hidden = false, $('#alreadyName').textContent = user.name;
+    // The browser remembers the last account: greet it by name and find its star at once.
+    var last = AEAccount.lastAccount();
+    if (last && !user) {
+      form.email.value = last.email;
+      $('#loginTitle').textContent = 'Welcome back, ' + last.name.split(' ')[0] + '.';
+      $('#loginSub').hidden = true;
+      $('#loginKnown').hidden = false;
+      lockStar(last.email);
+      setTimeout(function () { form.password.focus(); }, 60);
+    }
+    $('#notYou').addEventListener('click', function () {
+      AEAccount.forgetLast();
+      form.reset();
+      lockStar('');
+      $('#loginTitle').textContent = 'Sign in';
+      $('#loginSub').hidden = false;
+      $('#loginKnown').hidden = true;
+      form.email.focus();
+    });
     $('#forgotBtn').addEventListener('click', function () { $('#forgotNote').hidden = !$('#forgotNote').hidden; });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
@@ -204,7 +293,8 @@
       var submit = $('button[type="submit"]', form);
       submit.disabled = true;
       AEAccount.signIn({ email: form.email.value, password: form.password.value }).then(function () {
-        location.href = nextUrl();
+        lockStar(form.email.value);
+        launch(function () { location.href = nextUrl(); });
       }, function (err) {
         submit.disabled = false;
         showError(error, err);
@@ -219,7 +309,9 @@
     var form = $('#signupForm');
     var error = $('#signupError');
     var meter = $('#pwMeter');
+    initSky();
     wirePasswordToggles();
+    watchEmail(form.email);
     form.password.addEventListener('input', function () {
       meter.setAttribute('data-level', String(strength(form.password.value)));
     });
@@ -252,6 +344,8 @@
 
     function summary() {
       var user = AEAccount.current();
+      var star = user ? AEAccount.starFor(user.email) : null;
+      $('#doneStar').textContent = star ? star.id : '';
       $('#doneName').textContent = user ? user.name.split(' ')[0] : '';
       var names = AEAccount.SUBJECTS.filter(function (s) { return draft.subjects.indexOf(s.id) !== -1; }).map(function (s) { return s.short; });
       $('#doneSubjects').textContent = names.length ? names.join(', ') : 'No subjects yet';
@@ -304,6 +398,7 @@
       draft.exams = prefs.exams;
       lightStars(draft.subjects);
       renderSubjects($('#subjectList'), draft.subjects, onSubjects);
+      lockStar(AEAccount.current().email);
       go(/[?&]step=(\d)/.test(location.search) ? Number(RegExp.$1) : 1);
     }
   }

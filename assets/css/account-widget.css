@@ -95,7 +95,39 @@ html[data-theme="light"] .acc-menu {
 }
 
 .acc-menu__head strong { font-size: 0.86rem; font-weight: 600; }
-.acc-menu__head span { font-size: 0.74rem; color: var(--text-secondary, inherit); word-break: break-all; }
+.acc-menu__head > span { font-size: 0.74rem; color: var(--study-text-2, var(--text-secondary, inherit)); word-break: break-all; }
+
+/* Personal line: your star and the countdown to your next exam */
+.acc-menu__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+.acc-menu__star, .acc-menu__exam {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 0.68rem/1.3 var(--font-mono, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--study-text-2, var(--text-secondary, inherit));
+}
+.acc-menu__star i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fde68a;
+  box-shadow: 0 0 0 3px rgba(253, 230, 138, 0.25);
+}
+.acc-menu__exam::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+.acc-menu__exam strong { color: var(--study-text, var(--text-primary, inherit)); font-weight: 700; }
 
 .acc-menu__item {
   display: block;

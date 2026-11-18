@@ -31,6 +31,7 @@
 
   var ACCOUNTS_KEY = 'ae_account';
   var SESSION_KEY = 'ae_session';
+  var LAST_KEY = 'ae_account_last';   // email of the last account signed in here (kept after sign-out)
   var FORMULA_KEY = 'ae_formula_mode';
   var POMODORO_KEY = 'ae_pomodoro';
   var root = document.documentElement;
@@ -206,6 +207,7 @@
         } catch (e) { /* storage blocked */ }
         saveRecord({ name: name, email: email, salt: salt, hash: hash, created: new Date().toISOString(), prefs: prefs });
         writeJSON(SESSION_KEY, { email: email, since: new Date().toISOString() });
+        writeJSON(LAST_KEY, email);
         emit();
         return current();
       });
@@ -221,11 +223,74 @@
       return digest(data.password || '', record.salt).then(function (hash) {
         if (hash !== record.hash) throw fail;
         writeJSON(SESSION_KEY, { email: email, since: new Date().toISOString() });
+        writeJSON(LAST_KEY, email);
         emit();
         apply();
         return current();
       });
     });
+  }
+
+  // ---- personal star and next exam --------------------------------------------------------
+  // Every account owns one star of the Sideris sky, derived from its email: a catalogue name
+  // (SDR-1000 to SDR-9999) and a place on the 600 x 600 map of the sign-in pages, kept away from
+  // the five subject stars.
+  var SUBJECT_POINTS = [[110, 352], [200, 150], [330, 262], [452, 110], [420, 430]];
+
+  function hash(text, seed) {
+    var h = seed >>> 0 || 0x811c9dc5;
+    for (var i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+    return h >>> 0;
+  }
+
+  function starFor(email) {
+    var key = normEmail(email);
+    if (!key) return null;
+    var x = 0, y = 0;
+    for (var round = 1; round < 40; round++) {
+      var h = hash(key, round * 2654435761);
+      x = 70 + (h % 460);
+      y = 80 + ((h >>> 12) % 440);
+      var clear = SUBJECT_POINTS.every(function (p) { return Math.hypot(p[0] - x, p[1] - y) > 70; });
+      if (clear) break;
+    }
+    return { id: 'SDR-' + (1000 + hash(key, 7) % 9000), x: x, y: y };
+  }
+
+  function lastAccount() {
+    var email = readJSON(LAST_KEY);
+    var record = email ? accounts()[normEmail(email)] : null;
+    return record ? { name: record.name, email: record.email } : null;
+  }
+
+  function forgetLast() { writeJSON(LAST_KEY, null); }
+
+  var EXAM_KIND = { midterm: 'midterm', final: 'final exam' };
+
+  // The next exam on or after today: { subject, kind, date, days } or null.
+  function nextExam(prefs) {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var best = null;
+    Object.keys(prefs.exams || {}).forEach(function (id) {
+      if (prefs.subjects.indexOf(id) === -1) return;
+      ['midterm', 'final'].forEach(function (kind) {
+        var value = prefs.exams[id][kind];
+        if (!value) return;
+        var parts = value.split('-');
+        var date = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+        var days = Math.round((date - today) / 86400000);
+        if (days < 0) return;
+        if (!best || days < best.days) best = { subject: findSubject(id), kind: EXAM_KIND[kind], date: value, days: days };
+      });
+    });
+    return best;
+  }
+
+  function examPhrase(exam) {
+    if (!exam) return '';
+    var when = exam.days === 0 ? 'today' : exam.days === 1 ? 'tomorrow' : 'in ' + exam.days + ' days';
+    return exam.subject.short + ' ' + exam.kind + ' ' + when;
   }
 
   function signOut() {
@@ -469,6 +534,21 @@
       var head = el('div', 'acc-menu__head');
       head.appendChild(el('strong', '', user.name));
       head.appendChild(el('span', '', user.email));
+      var star = starFor(user.email);
+      var meta = el('div', 'acc-menu__meta');
+      var starRow = el('span', 'acc-menu__star');
+      starRow.appendChild(el('i', ''));
+      starRow.appendChild(document.createTextNode('Your star ' + star.id));
+      meta.appendChild(starRow);
+      var exam = nextExam(user.prefs);
+      if (exam) {
+        var examRow = el('span', 'acc-menu__exam' + (exam.days <= 7 ? ' is-soon' : ''));
+        examRow.style.setProperty('--dot', exam.subject.accent);
+        examRow.appendChild(el('strong', '', exam.days === 0 ? 'Today' : exam.days === 1 ? '1 day' : exam.days + ' days'));
+        examRow.appendChild(document.createTextNode(' to ' + exam.subject.short + ' ' + exam.kind));
+        meta.appendChild(examRow);
+      }
+      head.appendChild(meta);
       menu.appendChild(head);
       [['Settings', 'settings.html'], ['Appearance', 'settings.html#appearance'], ['Subjects', 'settings.html#subjects']].forEach(function (item) {
         var a = el('a', 'acc-menu__item', item[0]);
@@ -552,6 +632,11 @@
     apply: apply,
     url: url,
     initials: initials,
+    starFor: starFor,
+    lastAccount: lastAccount,
+    forgetLast: forgetLast,
+    nextExam: nextExam,
+    examPhrase: examPhrase,
     writeFormulaMode: writeFormulaMode,
     writePomodoroStyle: writePomodoroStyle
   };

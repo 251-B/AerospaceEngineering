@@ -300,42 +300,70 @@ body.acc-page {
 .acc-notice svg { flex: 0 0 auto; margin-top: 2px; color: var(--acc-text-2); }
 .acc-notice strong { color: var(--acc-text); font-weight: 600; }
 
-/* ---- auth layout (login / signup): the sky on one side, the form on the other ----------- */
+/* ---- auth layout (login / signup): the Sideris sky fills the page, the form floats on it ---- */
 .acc-auth {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  min-height: calc(100vh - 91px);
-}
-
-/* The sky panel: the portal's night sky with the five subjects as a constellation. It is an
-   illustration (aria-hidden), dark on every palette like the landing page. */
-.acc-sky {
+  --acc-panel: 470px;
+  --acc-pad: clamp(24px, 5vw, 72px);
   position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 48px 56px;
-  background:
-    radial-gradient(ellipse 70% 50% at 78% 18%, rgba(99, 102, 241, 0.30), transparent 70%),
-    radial-gradient(ellipse 60% 45% at 12% 92%, rgba(6, 182, 212, 0.18), transparent 70%),
-    radial-gradient(ellipse 45% 35% at 60% 60%, rgba(239, 68, 68, 0.07), transparent 70%),
-    linear-gradient(165deg, #0b1222 0%, #070b14 60%, #05070d 100%);
-  color: #f1f5f9;
   isolation: isolate;
+  overflow: hidden;
+  min-height: calc(100vh - 91px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, var(--acc-panel));
+  align-items: center;
+  gap: 40px;
+  padding: 40px var(--acc-pad);
 }
 
-.acc-sky__field {
+/* The sky: an illustration (aria-hidden), dark on every palette like the landing page. */
+.acc-sky {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   z-index: -1;
+  pointer-events: none;
+  color: #f1f5f9;
+  background:
+    radial-gradient(ellipse 55% 50% at 30% 18%, rgba(99, 102, 241, 0.30), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 8% 95%, rgba(6, 182, 212, 0.18), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 45% 70%, rgba(239, 68, 68, 0.07), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 95% 50%, rgba(167, 139, 250, 0.10), transparent 70%),
+    linear-gradient(165deg, #0b1222 0%, #070b14 60%, #05070d 100%);
+}
+
+.acc-sky__layer {
+  position: absolute;
+  top: -24px;
+  left: -24px;
+  width: calc(100% + 48px);
+  height: calc(100% + 48px);
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .acc-sky__dust circle { fill: #e2e8f0; }
 .acc-sky__dust circle:nth-child(3n) { animation: acc-twinkle 4.5s ease-in-out infinite; }
-.acc-sky__dust circle:nth-child(3n+1) { animation: acc-twinkle 6s ease-in-out 1.2s infinite; }
+.acc-sky__dust circle:nth-child(4n+1) { animation: acc-twinkle 6.5s ease-in-out 1.4s infinite; }
+
+.acc-sky__stage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - var(--acc-panel) - var(--acc-pad) - 40px);
+  padding: 40px 32px 170px var(--acc-pad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.acc-sky__map {
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  max-height: 640px;
+  overflow: visible;
+  transition: transform 0.9s cubic-bezier(0.6, 0, 0.2, 1);
+}
 
 .acc-sky__lines line {
   stroke: rgba(226, 232, 240, 0.22);
@@ -343,7 +371,7 @@ body.acc-page {
   stroke-dasharray: 3 5;
 }
 
-.acc-star__halo { fill: var(--c); opacity: 0.10; transition: opacity 0.5s ease, r 0.5s ease; }
+.acc-star__halo { fill: var(--c); opacity: 0.10; transition: opacity 0.5s ease; }
 .acc-star__core { fill: #e2e8f0; transition: fill 0.4s ease; }
 .acc-star__ring { fill: none; stroke: var(--c); stroke-width: 1.2; opacity: 0; transition: opacity 0.4s ease; }
 .acc-star__label {
@@ -360,16 +388,54 @@ body.acc-page {
 .acc-star.is-lit .acc-star__label { fill: #f8fafc; }
 .acc-sky__lines line.is-lit { stroke: rgba(226, 232, 240, 0.55); stroke-dasharray: none; }
 
+/* The personal star and the telescope reticle that locks onto it */
+.acc-me { opacity: 0; transition: opacity 0.35s ease; }
+.acc-me.is-locked { opacity: 1; }
+.acc-me__glow { fill: #fde68a; opacity: 0.16; }
+.acc-me__core { fill: #fff7d6; }
+.acc-me__reticle { fill: none; stroke: #fde68a; stroke-width: 1.6; stroke-linecap: round; }
+.acc-me__label {
+  fill: #fde68a;
+  font: 600 11px var(--font-mono);
+  letter-spacing: 0.14em;
+}
+.acc-me.is-locked .acc-me__reticle { animation: acc-lock 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.acc-me.is-locked .acc-me__glow { animation: acc-pulse-me 2.8s ease-in-out 0.75s infinite; }
+.acc-me.is-locked .acc-me__label { animation: acc-fade 0.4s ease 0.55s both; }
+
+@keyframes acc-lock {
+  0% { transform: scale(2.6) rotate(45deg); opacity: 0; }
+  60% { opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes acc-pulse-me { 0%, 100% { opacity: 0.14; } 50% { opacity: 0.32; } }
+@keyframes acc-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes acc-twinkle { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.25; } }
 @keyframes acc-pulse { 0%, 100% { opacity: 0.30; } 50% { opacity: 0.48; } }
 
+/* Signing in: the panel steps back and the sky zooms towards your star */
+.acc-auth__side { transition: opacity 0.45s ease, transform 0.45s ease; }
+.acc-auth.is-launch .acc-auth__side { opacity: 0; transform: translateY(12px) scale(0.98); }
+.acc-auth.is-launch .acc-sky__map { transform: scale(1.12); }
+.acc-auth.is-launch .acc-me__reticle { animation: acc-close 0.8s cubic-bezier(0.6, 0, 0.2, 1) both; }
+.acc-auth.is-launch .acc-me__glow { animation: acc-flare 0.8s ease-out both; }
+@keyframes acc-close { to { transform: scale(0.35) rotate(-45deg); opacity: 0.2; } }
+@keyframes acc-flare { to { opacity: 0.38; transform: scale(2.2); } }
+.acc-auth.is-launch .acc-me__glow { filter: blur(8px); }
+
 @media (prefers-reduced-motion: reduce) {
-  .acc-sky__dust circle, .acc-star.is-lit .acc-star__halo { animation: none; }
+  .acc-sky__dust circle, .acc-star.is-lit .acc-star__halo,
+  .acc-me.is-locked .acc-me__reticle, .acc-me.is-locked .acc-me__glow, .acc-me.is-locked .acc-me__label { animation: none; }
 }
 
-.acc-sky__copy { max-width: 30rem; }
+.acc-sky__copy {
+  position: absolute;
+  left: var(--acc-pad);
+  bottom: 40px;
+  max-width: 30rem;
+}
 
-.acc-sky__mark { width: 44px; height: 44px; color: #e2e8f0; margin-bottom: 18px; }
+.acc-sky__mark { width: 40px; height: 40px; color: #e2e8f0; margin-bottom: 16px; }
 .acc-sky__mark .sideris-stroke { stroke: currentColor; }
 .acc-sky__mark .sideris-fill { fill: currentColor; }
 
@@ -387,29 +453,64 @@ body.acc-page {
   line-height: 1.04;
 }
 
-/* The form side: no card, just the form on the reading surface. */
+/* The form panel floats on the sky, on the reading surface of the chosen palette. */
 .acc-auth__side {
+  grid-column: 2;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 48px 32px;
 }
 
 .acc-form-card {
   width: 100%;
-  max-width: 400px;
-  background: none;
-  border: 0;
-  box-shadow: none;
+  max-width: 440px;
+  padding: 26px 32px 30px;
+  background: var(--study-surface);
+  border: 1px solid var(--study-border);
+  border-radius: var(--radius-xl, 26px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 .acc-form-card h2 { font-size: 2.1rem; line-height: 1.1; }
 
 .acc-form-card__sub {
-  margin: 8px 0 28px;
+  margin: 8px 0 24px;
   color: var(--acc-text-2);
   font: 500 0.92rem/1.4 var(--font-sans);
 }
+
+.acc-readout {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--study-border);
+  font: 600 0.66rem/1.2 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acc-text-2);
+}
+.acc-readout__sep { opacity: 0.6; }
+.acc-readout__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #10b981 22%, transparent);
+  animation: acc-pulse-dot 2.4s ease-in-out infinite;
+}
+#accTarget { color: var(--acc-text); }
+@keyframes acc-pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+.acc-done__star {
+  margin: 4px 0 0;
+  font: 600 0.74rem/1.3 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--acc-text-2);
+}
+.acc-done__star strong { color: var(--acc-text); }
 
 .acc-providers {
   display: grid;
@@ -476,8 +577,9 @@ body.acc-page {
 }
 
 .acc-form-card .acc-notice { margin: 0 0 16px; }
+.acc-provider .acc-soon { background: var(--study-surface); }
 
-.acc-form-card--wide { max-width: 460px; }
+.acc-form-card--wide { max-width: 470px; }
 
 .acc-label__aside {
   float: right;
@@ -940,10 +1042,16 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 
 /* ---- responsive ----------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .acc-auth { grid-template-columns: 1fr; min-height: 0; }
-  .acc-sky { min-height: 0; height: min(90vw, 420px); padding: 0; }
+  .acc-auth {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding: min(86vw, 400px) 16px 48px;
+  }
+  .acc-auth__side { grid-column: 1; }
+  .acc-sky__stage { width: 100%; height: min(86vw, 400px); bottom: auto; padding: 12px; }
   .acc-sky__copy { display: none; }
-  .acc-auth__side { padding: 32px 16px 56px; }
+  .acc-form-card { padding: 22px 20px 26px; }
+  .acc-readout__coords { display: none; }
 
   .acc-settings { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-top: 20px; }
   .acc-settings > * { min-width: 0; }
