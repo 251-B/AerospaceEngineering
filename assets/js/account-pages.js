@@ -203,8 +203,13 @@
     setInterval(tick, 20000);
     // Gentle parallax: far dust, near dust and the map drift at three depths with the pointer.
     var sky = $('.acc-sky');
+    var scene = $('.acc-sky__scene');
+    // The planets orbit with SMIL: stop them when the system asks for less motion.
+    if (scene && REDUCED && scene.pauseAnimations) scene.pauseAnimations();
+    // Phones: show the left part of the scene (the solar system and the personal star).
+    if (scene && window.matchMedia('(max-width: 700px)').matches) scene.setAttribute('preserveAspectRatio', 'xMinYMid slice');
     if (!sky || REDUCED || !window.matchMedia('(pointer: fine)').matches) return;
-    var layers = [['.acc-sky__layer--far', 6], ['.acc-sky__layer--near', 14], ['.acc-sky__stage', 9]].map(function (l) {
+    var layers = [['.acc-sky__layer--far', 6], ['.acc-sky__layer--near', 14], ['.acc-sky__scene', 9]].map(function (l) {
       return [$(l[0]), l[1]];
     });
     var frame = 0;
@@ -235,8 +240,8 @@
     }
     if (star.id === lockedId) return star;
     lockedId = star.id;
-    pos.setAttribute('transform', 'translate(' + star.x + ' ' + star.y + ')');
-    $('#accMeLabel').textContent = star.id;
+    // The free corner of the scene, above the solar system (viewBox 1600 x 900).
+    pos.setAttribute('transform', 'translate(' + Math.round(150 + star.u * 340) + ' ' + Math.round(150 + star.v * 170) + ')');
     me.classList.remove('is-locked');
     void me.getBoundingClientRect();   // restart the lock animation
     me.classList.add('is-locked');
@@ -286,7 +291,11 @@
       $('#loginKnown').hidden = true;
       form.email.focus();
     });
-    $('#forgotBtn').addEventListener('click', function () { $('#forgotNote').hidden = !$('#forgotNote').hidden; });
+    $('#forgotBtn').addEventListener('click', function () {
+      var show = $('#forgotNote').hidden;
+      $('#forgotNote').hidden = !show;
+      if ($('#localLine')) $('#localLine').hidden = show;
+    });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       showError(error, null);

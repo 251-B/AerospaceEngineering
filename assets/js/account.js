@@ -233,10 +233,8 @@
 
   // ---- personal star and next exam --------------------------------------------------------
   // Every account owns one star of the Sideris sky, derived from its email: a catalogue name
-  // (SDR-1000 to SDR-9999) and a place on the 600 x 600 map of the sign-in pages, kept away from
-  // the five subject stars.
-  var SUBJECT_POINTS = [[110, 352], [200, 150], [330, 262], [452, 110], [420, 430]];
-
+  // (SDR-1000 to SDR-9999) and a place given as two fractions u, v in [0, 1], which each page maps
+  // into the free part of its own sky.
   function hash(text, seed) {
     var h = seed >>> 0 || 0x811c9dc5;
     for (var i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
@@ -246,15 +244,8 @@
   function starFor(email) {
     var key = normEmail(email);
     if (!key) return null;
-    var x = 0, y = 0;
-    for (var round = 1; round < 40; round++) {
-      var h = hash(key, round * 2654435761);
-      x = 70 + (h % 460);
-      y = 80 + ((h >>> 12) % 440);
-      var clear = SUBJECT_POINTS.every(function (p) { return Math.hypot(p[0] - x, p[1] - y) > 70; });
-      if (clear) break;
-    }
-    return { id: 'SDR-' + (1000 + hash(key, 7) % 9000), x: x, y: y };
+    var h = hash(key, 2654435761);
+    return { id: 'SDR-' + (1000 + hash(key, 7) % 9000), u: (h % 1000) / 999, v: ((h >>> 12) % 1000) / 999 };
   }
 
   function lastAccount() {
