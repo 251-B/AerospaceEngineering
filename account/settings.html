@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../assets/css/account.css">
+  <script src="../assets/js/theme.js"></script>
+  <script defer src="../assets/js/account-pages.js"></script>
+  <title>Settings</title>
+  <meta name="description" content="Your Sideris profile: subjects, reading palette, text size, study preferences and your data.">
+</head>
+<body class="acc-page" data-page="settings">
+  <header class="site-header acc-header">
+    <div class="acc-header__inner">
+      <div class="acc-header__left">
+        <a href="../index.html" class="acc-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="acc-brand"><span data-site-name>Sideris</span></span>
+      </div>
+      <div class="acc-header__actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="acc-card acc-gate" id="settingsGate" hidden>
+    <h1>Settings</h1>
+    <p>Sign in to choose your subjects, your reading palette and your study preferences.</p>
+    <div class="acc-inline">
+      <a class="acc-btn acc-btn--ghost" href="login.html?next=settings.html">Sign in</a>
+      <a class="acc-btn acc-btn--primary" href="signup.html">Create an account</a>
+    </div>
+  </section>
+
+  <div class="acc-settings" id="settingsApp" hidden>
+    <aside class="acc-side">
+      <div class="acc-card acc-profile-chip">
+        <span class="acc-big-avatar" aria-hidden="true"></span>
+        <span class="acc-profile-chip__text"><strong id="chipName"></strong><span class="acc-profile-chip__email" id="chipEmail"></span></span>
+      </div>
+      <nav class="acc-nav" aria-label="Settings sections">
+          <a href="#profile" aria-current="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profile</a>
+          <a href="#subjects" aria-current="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5z"/><path d="M8 7h6M8 11h6"/></svg>Subjects</a>
+          <a href="#appearance" aria-current="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" fill-opacity="0.25"/></svg>Appearance</a>
+          <a href="#study" aria-current="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>Study</a>
+          <a href="#privacy" aria-current="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg>Privacy and data</a>
+      </nav>
+    </aside>
+
+    <main class="acc-main">
+      <header>
+        <h1>Settings</h1>
+        <p>Changes are saved as you make them.</p>
+      </header>
+
+      <section class="acc-card acc-section" id="profile" aria-labelledby="profileTitle">
+        <div class="acc-section__head"><h2 id="profileTitle">Profile</h2><p>How you appear and how you sign in.</p></div>
+        <div class="acc-block">
+          <form id="nameForm" class="acc-grid-2">
+            <div>
+              <label class="acc-label" for="nameField">Name</label>
+              <input class="acc-input" id="nameField" name="name" type="text" autocomplete="name">
+              <p class="acc-error" id="nameError" role="alert"></p>
+            </div>
+            <div>
+              <label class="acc-label" for="emailField">Email</label>
+              <input class="acc-input" id="emailField" type="email" readonly aria-describedby="emailHint">
+              <p class="acc-hint" id="emailHint">Member since <span id="memberSince"></span>.</p>
+            </div>
+            <div class="acc-inline"><button class="acc-btn acc-btn--primary" type="submit">Save name</button></div>
+          </form>
+        </div>
+        <div class="acc-block">
+          <p class="acc-block__title">Password</p>
+          <form id="passwordForm" class="acc-grid-2" novalidate>
+            <div>
+              <label class="acc-label" for="pwCurrent">Current password</label>
+              <div class="acc-pw"><input class="acc-input" id="pwCurrent" name="current" type="password" autocomplete="current-password"><button type="button" class="acc-pw__toggle" aria-pressed="false" aria-label="Show password">Show</button></div>
+            </div>
+            <div>
+              <label class="acc-label" for="pwNext">New password</label>
+              <div class="acc-pw"><input class="acc-input" id="pwNext" name="next" type="password" autocomplete="new-password"><button type="button" class="acc-pw__toggle" aria-pressed="false" aria-label="Show password">Show</button></div>
+            </div>
+            <div class="acc-inline">
+              <button class="acc-btn acc-btn--ghost" type="submit">Change password</button>
+            </div>
+            <p class="acc-error" id="passwordError" role="alert"></p>
+          </form>
+        </div>
+        <div class="acc-block acc-inline" style="justify-content: space-between;">
+          <span class="acc-hint" style="margin:0">Signed in on this device.</span>
+          <button class="acc-btn acc-btn--ghost" type="button" id="signOutBtn">Sign out</button>
+        </div>
+      </section>
+
+      <section class="acc-card acc-section" id="subjects" aria-labelledby="subjectsTitle">
+        <div class="acc-section__head"><h2 id="subjectsTitle">Subjects</h2><p>The courses you take this term and when you are examined.</p></div>
+        <div class="acc-block">
+          <p class="acc-block__title">Your subjects</p>
+          <div class="acc-subjects" id="subjectList"></div>
+          <div class="acc-primary-row">
+            <label class="acc-label" for="primarySelect">Main subject</label>
+            <select class="acc-select" id="primarySelect" aria-describedby="primaryHint"></select>
+            <p class="acc-hint" id="primaryHint">Gives your avatar its colour and goes first on the portal.</p>
+          </div>
+        </div>
+        <div class="acc-block">
+          <p class="acc-block__title">Exam dates</p>
+          <div class="acc-dates" id="datesList"></div>
+        </div>
+      </section>
+
+      <section class="acc-card acc-section" id="appearance" aria-labelledby="appearanceTitle">
+        <div class="acc-section__head"><h2 id="appearanceTitle">Appearance</h2><p>The look you read best in. Every palette keeps the text at the highest contrast level (AAA).</p></div>
+        <div class="acc-block">
+          <p class="acc-block__title">Reading palette</p>
+          <div class="acc-swatches" id="swatchList"></div>
+        </div>
+        <div class="acc-block">
+          <label class="acc-toggle">
+            <span class="acc-toggle__text"><strong>Change the palette on its own</strong><span>A light palette by day and a dark one at night.</span></span>
+            <input type="checkbox" id="autoToggle"><span class="acc-toggle__track" aria-hidden="true"></span>
+          </label>
+          <div id="autoOptions" hidden style="margin-top:16px">
+            <div class="acc-seg" id="autoBy" role="group" aria-label="When to switch">
+              <button type="button" data-value="time">By the clock (07:00 to 20:00)</button>
+              <button type="button" data-value="system">Follow my device</button>
+            </div>
+            <div class="acc-grid-2" style="margin-top:14px">
+              <div>
+                <label class="acc-label" for="daySelect">By day</label>
+                <select class="acc-select" id="daySelect">
+                  <option value="default">Default</option><option value="cream">Cream</option><option value="sepia">Sepia</option><option value="slate-paper">Slate paper</option><option value="sage">Sage</option>
+                </select>
+              </div>
+              <div>
+                <label class="acc-label" for="nightSelect">At night</label>
+                <select class="acc-select" id="nightSelect"><option value="charcoal">Charcoal</option><option value="default">Default</option></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acc-block">
+          <p class="acc-block__title">Text size</p>
+          <div class="acc-range">
+            <span aria-hidden="true" style="font-size:0.8rem">A</span>
+            <input type="range" id="fontRange" min="90" max="125" step="5" aria-label="Text size">
+            <span aria-hidden="true" style="font-size:1.15rem">A</span>
+            <output id="fontOut" for="fontRange"></output>
+            <button type="button" class="acc-link-btn" id="fontReset">Reset</button>
+          </div>
+          <div class="acc-preview" aria-label="Preview">
+            <span class="acc-preview__kicker">Preview &middot; Engineering Mechanics</span>
+            <h3>Velocity of the particle</h3>
+            <p>The velocity is tangent to the circle, and its size grows with the radius and the angular rate.</p>
+            <code class="acc-preview__eq">v = d/dt (R e_r) = R &theta;&#775; e_&theta;</code>
+          </div>
+        </div>
+      </section>
+
+      <section class="acc-card acc-section" id="study" aria-labelledby="studyTitle">
+        <div class="acc-section__head"><h2 id="studyTitle">Study</h2><p>How the study tools open for you.</p></div>
+        <div class="acc-block">
+          <p class="acc-block__title">Formula sheets open in</p>
+          <div class="acc-seg" id="formulaSeg" role="group" aria-label="Formula sheet mode">
+            <button type="button" data-value="deep">Deep study</button>
+            <button type="button" data-value="compact">Compact (exam)</button>
+          </div>
+          <p class="acc-hint">Deep study opens every derivation with its reasons; Compact folds them to one line.</p>
+        </div>
+        <div class="acc-block">
+          <p class="acc-block__title">Study timer blocks</p>
+          <div class="acc-seg" id="pomodoroSeg" role="group" aria-label="Study timer style">
+            <button type="button" data-value="standard">Standard &middot; 25 / 5</button>
+            <button type="button" data-value="deep">Deep focus &middot; 50 / 10</button>
+          </div>
+          <p class="acc-hint">A timer that is already running keeps its block; the new style starts with the next one.</p>
+        </div>
+      </section>
+
+      <section class="acc-card acc-section" id="privacy" aria-labelledby="privacyTitle">
+        <div class="acc-section__head"><h2 id="privacyTitle">Privacy and data</h2><p>What is kept, where it is kept, and how to take it with you or delete it.</p></div>
+        <div class="acc-block">
+          <div class="acc-notice" role="note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span><strong>Kept on this device.</strong> For now your account and settings live only in this browser. Sign-in from other devices arrives with cloud sync.</span>
+        </div>
+        </div>
+        <div class="acc-block">
+          <p class="acc-block__title">Stored on this device</p>
+          <ul class="acc-data-list" id="dataList"></ul>
+          <div class="acc-inline" style="margin-top:14px">
+            <button class="acc-btn acc-btn--ghost" type="button" id="exportBtn">Download my data (JSON)</button>
+          </div>
+        </div>
+        <div class="acc-block">
+          <p class="acc-block__title">Delete account</p>
+          <p class="acc-hint" style="margin:0 0 12px">Removes your profile and settings. Your study history on this device stays until you clear the browser.</p>
+          <button class="acc-btn acc-btn--danger" type="button" id="deleteBtn">Delete my account</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="acc-dialog" id="deleteDialog" aria-labelledby="deleteTitle">
+    <form id="deleteForm" method="dialog" novalidate>
+      <h2 id="deleteTitle">Delete your account?</h2>
+      <p>This cannot be undone. Enter your password to confirm.</p>
+      <p class="acc-error" id="deleteError" role="alert"></p>
+      <div class="acc-field">
+        <label class="acc-label" for="deletePassword">Password</label>
+        <input class="acc-input" id="deletePassword" type="password" autocomplete="current-password">
+      </div>
+      <div class="acc-inline" style="justify-content:flex-end">
+        <button class="acc-btn acc-btn--ghost" type="button" id="deleteCancel">Cancel</button>
+        <button class="acc-btn acc-btn--danger" type="submit">Delete account</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="acc-toast" id="accToast" role="status" aria-live="polite"></div>
+</body>
+</html>

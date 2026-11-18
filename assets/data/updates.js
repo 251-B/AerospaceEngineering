@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-accounts-and-settings",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Create an account and set up the portal your way",
+    "text": "Sign in from the top right, pick the subjects you take and your exam dates, and choose your reading palette, text size and study timer style in Settings.",
+    "link": "account/signup.html"
+  },
+  {
     "id": "2026-11-18-business-topics-4-7",
     "date": "2026-11-18",
     "tag": "Business Management",

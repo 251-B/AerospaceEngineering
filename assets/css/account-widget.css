@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Account button and menu in the page header (built by assets/js/account.js,
+   which links this file; pages carry no markup for it). Text colours come from
+   the page and reading-palette variables; hidden in print.
+   ========================================================================== */
+.surface-picker > .acc-widget { margin-left: 10px; }
+
+.acc-widget {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.acc-signin {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border-card, rgba(128, 128, 128, 0.35));
+  background: var(--bg-input, transparent);
+  color: var(--study-text, var(--text-primary, inherit)) !important;
+  font: 600 0.78rem/1 var(--font-sans, system-ui, sans-serif);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.2s ease;
+}
+
+.acc-signin:hover { border-color: var(--text-secondary, currentColor); text-decoration: none; }
+
+.acc-avatar {
+  --acc-ring: var(--text-secondary, #94a3b8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--acc-ring);
+  background: var(--bg-input, transparent);
+  color: var(--study-text, var(--text-primary, inherit)) !important;
+  cursor: pointer;
+  transition: transform 0.16s ease;
+}
+
+.acc-avatar:hover { transform: scale(1.06); }
+
+.acc-avatar__initials {
+  font: 700 0.68rem/1 var(--font-mono, monospace);
+  letter-spacing: 0.02em;
+}
+
+.acc-signin:focus-visible,
+.acc-avatar:focus-visible,
+.acc-menu__item:focus-visible {
+  outline: 2px solid var(--accent, #6366f1);
+  outline-offset: 2px;
+}
+
+.acc-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  min-width: 220px;
+  max-width: calc(100vw - 24px);
+  padding: 6px;
+  border-radius: 14px;
+  border: 1px solid var(--study-border, var(--border-card, rgba(255, 255, 255, 0.1)));
+  background: var(--study-surface, var(--bg-secondary, #0d1321));
+  color: var(--text-primary, inherit);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  display: none;
+}
+
+html[data-theme="light"] .acc-menu {
+  border-color: var(--study-border, var(--border-card, rgba(0, 0, 0, 0.08)));
+  background: var(--study-surface, var(--bg-secondary, #ffffff));
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
+}
+
+.acc-menu.is-open { display: block; }
+
+.acc-menu__head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px 10px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--study-border, var(--border-subtle, rgba(128, 128, 128, 0.25)));
+}
+
+.acc-menu__head strong { font-size: 0.86rem; font-weight: 600; }
+.acc-menu__head span { font-size: 0.74rem; color: var(--text-secondary, inherit); word-break: break-all; }
+
+.acc-menu__item {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--study-text, var(--text-primary, inherit)) !important;
+  font: 500 0.82rem/1.3 var(--font-sans, system-ui, sans-serif);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.acc-menu__item:hover { background: var(--bg-input, rgba(128, 128, 128, 0.12)); }
+.acc-menu .acc-menu__item--quiet { color: var(--study-text-2, var(--text-secondary, inherit)) !important; }
+
+@media print {
+  .acc-widget, .acc-menu { display: none !important; }
+}
