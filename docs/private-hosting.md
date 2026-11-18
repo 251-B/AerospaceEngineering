@@ -18,7 +18,7 @@ Las invitaciones de Supabase siguen siendo las que crean la cuenta de estudio; A
 
 1. Crea una cuenta en <https://dash.cloudflare.com>.
 2. Workers & Pages → Create → Pages → **Connect to Git** → autoriza GitHub y elige `251-B/AerospaceEngineering`, rama `main`.
-3. Build settings: Framework preset **None**, Build command **vacío**, Build output directory **`/`**.
+3. Build settings: Framework preset **None**, Build command **`python tools/cloudflare/build_site.py`**, Build output directory **`_site`**. (Cloudflare no acepta archivos de más de 25 MiB; el script copia la web sin ellos y los lista en el log: hoy son `promo-aerospace.mp4`, el PDF de Materials Topic 10 y `MATHS_SECONDPARTIAL_2024_SOL_V2.pdf`.)
 4. Deploy. Queda en `https://<nombre>.pages.dev`. Ábrela y comprueba que el portal funciona igual.
 
 ### 2. Cloudflare Access

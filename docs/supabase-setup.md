@@ -27,7 +27,8 @@ Sin este paso cualquiera podría registrarse sin código. Compruébalo con el pa
 
 Authentication → Sign In / Providers → Email:
 
-- **Confirm email**: recomendado activado. El formulario muestra "Almost there: open the email we sent…" y la persona entra tras confirmar. Si lo desactivas, entra directamente.
+- **Confirm email**: **desactívalo** mientras uses el correo por defecto de Supabase, que solo envía a los miembros de tu equipo de Supabase (y unos pocos correos por hora): tus invitados no recibirían la confirmación. El código de invitación ya limita quién entra. Si más adelante configuras un SMTP propio (Authentication → Emails → SMTP Settings, p. ej. con Resend o Brevo), puedes activarlo: el formulario mostrará "Almost there: open the email we sent…".
+- Lo mismo vale para "Forgot it?": sin SMTP propio el correo de nueva contraseña solo llega a los miembros del equipo; mientras tanto, la contraseña se cambia desde Authentication → Users → la persona → Send password recovery (o borrando y volviendo a invitar).
 - Authentication → URL Configuration: **Site URL** = la dirección de la web (p. ej. `https://<tu-dominio>/`) y en **Redirect URLs** añade `https://<tu-dominio>/account/login.html`, para que los correos de confirmación y de nueva contraseña vuelvan a la web.
 
 ## 5. Generar códigos
