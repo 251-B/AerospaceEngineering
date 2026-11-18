@@ -111,24 +111,22 @@ def elasticity_limits():
 
 
 def p1_demand():
-    c = Canvas(560, 300)
+    c = Canvas(590, 305)
     x0, y0 = 70, 260
     X = lambda q: x0 + q * 4.2  # noqa: E731
     Y = lambda p: y0 - p * 9  # noqa: E731
-    _axes(c, x0, y0, 470, 252, "Quantity Q", "Price P (€)")
+    _axes(c, x0, y0, 470, 252, "", "Price P (€)")
+    text(c, (X(50), y0 + 34), "Quantity Q", "HEAD", "middle", 12)
     pts = [(25, 0, "A"), (20, 20, "B"), (15, 40, "C"), (10, 60, "D"), (5, 80, "E"), (0, 100, "F")]
     poly(c, [(X(q), Y(p)) for p, q, _ in pts], "BLUE", 2.4)
     for p, q, lab in pts:
         dot(c, (X(q), Y(p)), 4, "HEAD")
-        if lab == "F":
-            text(c, (X(q) - 4, Y(p) - 14), f"{lab} ({q}, {p})", "HEAD", "end", 12, "700")
-        else:
-            text(c, (X(q) + 10, Y(p) - 8), f"{lab} ({q}, {p})", "HEAD", "start", 12, "700")
+        text(c, (X(q) + 10, Y(p) - 8), f"{lab} ({q}, {p})", "HEAD", "start", 12, "700")
     for v in (0, 20, 40, 60, 80, 100):
         text(c, (X(v), y0 + 16), str(v), "TEXT", "middle", 11)
     for v in (5, 10, 15, 20, 25):
         text(c, (x0 - 8, Y(v) + 4), str(v), "TEXT", "end", 11)
-    text(c, (X(34), Y(22)), "elastic: |Ed| > 1", "PINK", "start", 12)
+    text(c, (X(46), Y(21)), "elastic: |Ed| > 1", "PINK", "start", 12)
     text(c, (X(72), Y(2)), "inelastic: |Ed| < 1", "GREEN", "middle", 12)
     dot(c, (X(50), Y(12.5)), 5, "ACC")
     text(c, (X(50) - 10, Y(12.5) + 22), "|Ed| = 1 at (50, 12.5)", "ACC", "end", 12, "700")
