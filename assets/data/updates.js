@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-weekly-goal",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Set a weekly study goal and follow it in My study",
+    "text": "Choose how many hours you want to study each week in Settings. My study shows a ring with how close you are over the last 7 days.",
+    "link": "account/settings.html"
+  },
+  {
     "id": "2026-11-18-your-subjects-first",
     "date": "2026-11-18",
     "tag": "Portal",

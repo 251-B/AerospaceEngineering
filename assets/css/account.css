@@ -1670,3 +1670,16 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
   .acc-marks a { grid-template-columns: 34px minmax(0, 1fr); }
   .acc-marks .acc-continue__ago { display: none; }
 }
+
+/* ---- My study: weekly goal ring ------------------------------------------------------------------- */
+.acc-goal { display: flex; align-items: center; gap: 12px; margin: -4px 0 14px; position: relative; }
+.acc-goal__ring { flex: 0 0 auto; }
+.acc-goal__track { fill: none; stroke: var(--study-inset); stroke-width: 6; }
+.acc-goal__arc { fill: none; stroke: var(--acc-accent); stroke-width: 6; stroke-linecap: round; transition: stroke-dashoffset 0.8s ease; }
+.acc-goal__arc.is-done { stroke: #36ac73; }
+.acc-goal__pct { position: absolute; left: 0; width: 56px; text-align: center; font: 700 0.74rem/1 var(--font-mono); color: var(--acc-text); }
+.acc-goal__text { display: flex; flex-direction: column; gap: 2px; }
+.acc-goal__text strong { font: 700 0.95rem/1.2 var(--font-sans); color: var(--acc-text); }
+.acc-goal__text span { font: 500 0.8rem/1.3 var(--font-sans); color: var(--acc-text-2); }
+.acc-goal__set { font: 600 0.84rem/1.3 var(--font-sans); }
+

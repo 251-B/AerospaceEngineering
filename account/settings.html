@@ -184,6 +184,16 @@
           </div>
           <p class="acc-hint">A timer that is already running keeps its block; the new style starts with the next one.</p>
         </div>
+        <div class="acc-block">
+          <p class="acc-block__title">Weekly goal</p>
+          <div class="acc-range">
+            <span aria-hidden="true" style="font-size:0.8rem">Off</span>
+            <input type="range" id="goalRange" min="0" max="40" step="1" aria-label="Study hours per week" aria-describedby="goalHint">
+            <span aria-hidden="true" style="font-size:0.8rem">40 h</span>
+            <output id="goalOut" for="goalRange"></output>
+          </div>
+          <p class="acc-hint" id="goalHint">Hours of study in the last 7 days. My study shows how close you are.</p>
+        </div>
       </section>
 
       <section class="acc-card acc-section" id="privacy" aria-labelledby="privacyTitle">

@@ -534,6 +534,13 @@
       AEAccount.writeFormulaMode(v);
       savePrefs({ formulaMode: v }, 'Formula sheet mode');
     });
+    var goalRange = $('#goalRange'), goalOut = $('#goalOut');
+    function goalText(v) { return +v ? v + ' h' : 'Off'; }
+    goalRange.value = prefs().weeklyGoal;
+    goalOut.textContent = goalText(goalRange.value);
+    goalRange.addEventListener('input', function () { goalOut.textContent = goalText(goalRange.value); });
+    goalRange.addEventListener('change', function () { savePrefs({ weeklyGoal: Number(goalRange.value) }, 'Weekly goal'); });
+
     seg($('#pomodoroSeg'), prefs().pomodoro, function (v) {
       var applied = AEAccount.writePomodoroStyle(v);
       savePrefs({ pomodoro: v }, applied ? 'Timer style' : 'Timer style (after the running block)');
@@ -673,7 +680,7 @@
     $('#studyLine').textContent = next
       ? AEAccount.examPhrase(next) + '. ' + (weekTotal ? 'Keep the rhythm.' : 'A good week to start.')
       : 'Add your exam dates and the countdowns appear here.';
-    $('#statWeek').textContent = duration(weekTotal);
+    $('#statWeek').textContent = duration(weekTotal) + (prefs.weeklyGoal ? ' / ' + prefs.weeklyGoal + ' h' : '');
     $('#statStreak').textContent = streak + (streak === 1 ? ' day' : ' days');
     $('#statNext').textContent = next ? (next.days === 0 ? 'Today' : next.days + (next.days === 1 ? ' day' : ' days')) : '-';
     $('#statNextLabel').textContent = next ? 'to ' + next.subject.short + ' ' + next.kind : 'next exam';
@@ -733,6 +740,7 @@
     var used = subjects.filter(function (s) { return week.some(function (day) { return day[s.id]; }); });
     var chartSubjects = used.length ? used : subjects.filter(function (s) { return prefs.subjects.indexOf(s.id) !== -1; });
     $('#weekTotal').textContent = weekTotal ? duration(weekTotal) + ' in the last 7 days' : 'No study time yet';
+    renderGoal(weekTotal, prefs.weeklyGoal);
     renderWeek(days, week, chartSubjects);
     renderHeatmap(log);
     wireMarks(byId);
@@ -826,6 +834,26 @@
     });
     renderMarks(byId);
     window.addEventListener('storage', function (e) { if (e.key === 'ae_marks') renderMarks(byId); });
+  }
+
+  // Weekly goal: a ring with the share of the goal reached in the last 7 days.
+  function renderGoal(weekSec, goalH) {
+    var box = $('#weekGoal');
+    if (!box) return;
+    if (!goalH) {
+      box.innerHTML = '<a class="acc-goal__set" href="settings.html#study">Set a weekly goal</a>';
+      return;
+    }
+    var share = Math.min(1, weekSec / 3600 / goalH);
+    var r = 22, c = 2 * Math.PI * r;
+    var done = share >= 1;
+    box.innerHTML = '<svg class="acc-goal__ring" viewBox="0 0 56 56" width="56" height="56" aria-hidden="true">' +
+      '<circle cx="28" cy="28" r="' + r + '" class="acc-goal__track"/>' +
+      '<circle cx="28" cy="28" r="' + r + '" class="acc-goal__arc' + (done ? ' is-done' : '') + '" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' +
+      (c * (1 - share)).toFixed(1) + '" transform="rotate(-90 28 28)"/></svg>' +
+      '<span class="acc-goal__pct">' + Math.round(share * 100) + '%</span>' +
+      '<span class="acc-goal__text"><strong>' + (done ? 'Goal reached' : duration(Math.max(0, goalH * 3600 - weekSec)) + ' to go') + '</strong>' +
+      '<span>of your ' + goalH + ' h weekly goal</span></span>';
   }
 
   // Sparkline of the grades out of 10: filled area, a point per attempt, the pass line at 5.
