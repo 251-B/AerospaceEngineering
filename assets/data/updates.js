@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-theory-section-rail",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Theory pages: section bars, wider text and shorter captions",
+    "text": "Bars at the right edge jump to each section of a theory page. The text uses more of the screen, and long figure notes and source remarks now fold away.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
     "id": "2026-11-18-business-topics-4-7",
     "date": "2026-11-18",
     "tag": "Business Management",
