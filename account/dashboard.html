@@ -69,6 +69,18 @@
         <ul class="acc-exams" id="examList"></ul>
       </section>
 
+      <section class="acc-card acc-panel acc-panel--wide" aria-labelledby="marksTitle">
+        <header class="acc-panel__head">
+          <h2 id="marksTitle">Favourites and notes</h2>
+          <div class="acc-chips" role="group" aria-label="Show">
+            <button type="button" class="acc-chip" data-filter="all" aria-pressed="true">All <span id="cntAll">0</span></button>
+            <button type="button" class="acc-chip" data-filter="fav" aria-pressed="false">Favourites <span id="cntFav">0</span></button>
+            <button type="button" class="acc-chip" data-filter="note" aria-pressed="false">Notes <span id="cntNote">0</span></button>
+          </div>
+        </header>
+        <ul class="acc-marks" id="marksList"></ul>
+      </section>
+
       <section class="acc-card acc-panel acc-panel--wide" aria-labelledby="weekTitle">
         <header class="acc-panel__head">
           <h2 id="weekTitle">This week</h2>

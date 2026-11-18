@@ -735,6 +735,7 @@
     $('#weekTotal').textContent = weekTotal ? duration(weekTotal) + ' in the last 7 days' : 'No study time yet';
     renderWeek(days, week, chartSubjects);
     renderHeatmap(log);
+    wireMarks(byId);
     var resizeTimer = 0;
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
@@ -772,6 +773,59 @@
       sims.innerHTML = '<p class="acc-empty">No simulations yet. Try one: ' + subjects.filter(function (s) { return SIM_KEYS[s.id]; })
         .map(function (s) { return '<a href="../subjects/' + s.id + '/simulator/index.html">' + esc(s.short) + '</a>'; }).join(' &middot; ') + '.</p>';
     }
+  }
+
+  // Favourites and notes, newest first, filterable; each row links back to its problem card.
+  var AREA_OF = { problemas: 'Problems', 'extra-problems': 'Extra problems' };
+  function renderMarks(byId) {
+    var list = $('#marksList');
+    if (!list) return;
+    var items = AEAccount.marks().items;
+    var rows = Object.keys(items).map(function (k) { return items[k]; })
+      .filter(function (m) { return byId[m.subject] && m.path; })
+      .sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); });
+    var counts = { all: rows.length, fav: rows.filter(function (m) { return m.fav; }).length, note: rows.filter(function (m) { return m.note; }).length };
+    $('#cntAll').textContent = counts.all;
+    $('#cntFav').textContent = counts.fav;
+    $('#cntNote').textContent = counts.note;
+    var filter = (list.getAttribute('data-filter') || 'all');
+    var shown = rows.filter(function (m) { return filter === 'all' || (filter === 'fav' ? m.fav : m.note); });
+    if (!rows.length) {
+      list.innerHTML = '<li class="acc-empty">Star a problem or write a note on it (the buttons beside its arrow) and it is kept here.</li>';
+      return;
+    }
+    if (!shown.length) {
+      list.innerHTML = '<li class="acc-empty">' + (filter === 'fav' ? 'No favourites yet.' : 'No notes yet.') + '</li>';
+      return;
+    }
+    list.innerHTML = '';
+    shown.forEach(function (m) {
+      var s = byId[m.subject];
+      var area = (/subjects\/[^\/]+\/([^\/]+)\//.exec(m.path) || [])[1];
+      var li = document.createElement('li');
+      li.innerHTML = '<a href="../' + esc(m.path) + '#' + esc(m.card) + '" style="--dot:' + s.accent + '">' +
+        '<span class="acc-marks__icon' + (m.fav ? ' is-fav' : '') + '" aria-hidden="true">' +
+        (m.fav ? '<svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 3.3l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.7l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z"/></svg>'
+               : '<svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5zM15 4v4h4M8.5 12h7M8.5 15.5h5"/></svg>') + '</span>' +
+        '<span class="acc-marks__body"><span class="acc-continue__meta"><i class="acc-marks__dot"></i>' + esc(s.short) + ' &middot; ' + esc(AREA_OF[area] || 'Problems') +
+        (m.fav ? ' &middot; <b>Favourite</b>' : '') + '</span>' +
+        '<span class="acc-marks__title">' + esc(m.title || m.card) + '</span>' +
+        (m.note ? '<span class="acc-marks__note">' + esc(m.note) + '</span>' : '') + '</span>' +
+        '<span class="acc-continue__ago">' + esc(ago(m.updated || Date.now())) + '</span></a>';
+      list.appendChild(li);
+    });
+  }
+
+  function wireMarks(byId) {
+    $$('.acc-chip[data-filter]').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        $$('.acc-chip[data-filter]').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+        $('#marksList').setAttribute('data-filter', chip.getAttribute('data-filter'));
+        renderMarks(byId);
+      });
+    });
+    renderMarks(byId);
+    window.addEventListener('storage', function (e) { if (e.key === 'ae_marks') renderMarks(byId); });
   }
 
   // Sparkline of the grades out of 10: filled area, a point per attempt, the pass line at 5.

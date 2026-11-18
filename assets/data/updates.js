@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-favourites-and-notes",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Star problems and keep your own notes on them",
+    "text": "Signed in, every problem card has a star and a note button. Your notes show under the title even when the card is folded, and My study lists them all.",
+    "link": "account/dashboard.html"
+  },
+  {
     "id": "2026-11-18-my-study-panel",
     "date": "2026-11-18",
     "tag": "Portal",

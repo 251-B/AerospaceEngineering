@@ -377,7 +377,8 @@
     ['ae_am_exams', 'Advanced Maths simulator history'],
     ['ae_em_exams', 'Engineering Mechanics simulator history'],
     ['ae_study_log', 'Study time per subject and day'],
-    ['ae_recent', 'Last page read in each subject']
+    ['ae_recent', 'Last page read in each subject'],
+    ['ae_marks', 'Favourite problems and your notes']
   ];
 
   function deviceData() {
@@ -652,6 +653,41 @@
     }, 15000);
   }
 
+  // ---- favourites and notes on problem cards -------------------------------------------------
+  // 'ae_marks' = { items: { '<subjects/...page.html>#<card id>': { fav, note, title, subject, path,
+  // card, updated } } }. An item with neither a star nor a note is removed.
+  var MARKS_KEY = 'ae_marks';
+
+  function marks() {
+    var m = readJSON(MARKS_KEY);
+    return m && m.items && typeof m.items === 'object' ? m : { items: {} };
+  }
+
+  function setMark(key, patch) {
+    var all = marks();
+    var item = all.items[key] || {};
+    Object.keys(patch).forEach(function (k) { item[k] = patch[k]; });
+    if ('note' in patch) item.note = String(item.note || '').slice(0, 4000);
+    item.updated = Date.now();
+    if (!item.fav && !item.note) delete all.items[key];
+    else all.items[key] = item;
+    writeJSON(MARKS_KEY, all);
+    return item;
+  }
+
+  function loadMarks() {
+    if (!BASE || !current() || !/\/(problemas|extra-problems)\/(?!index\.html)[^\/]+\.html$/.test(location.pathname)) return;
+    if (document.querySelector('script[data-problem-marks]')) return;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = BASE + 'assets/css/problem-marks.css';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = BASE + 'assets/js/problem-marks.js';
+    js.setAttribute('data-problem-marks', '');
+    document.head.appendChild(js);
+  }
+
   function start(tries) {
     tries = tries || 0;
     var wantsPicker = !!document.querySelector('link[href*="study-surface.css"]') && !!document.getElementById('themeToggle');
@@ -663,6 +699,7 @@
     buildWidget();
     apply();
     trackStudy();
+    loadMarks();
   }
 
   document.addEventListener('ae-account-change', function () { buildWidget(); });
@@ -688,6 +725,8 @@
     deleteAccount: deleteAccount,
     exportData: exportData,
     studyLog: studyLog,
+    marks: marks,
+    setMark: setMark,
     recentPages: recentPages,
     dayKey: dayKey,
     deviceData: deviceData,
