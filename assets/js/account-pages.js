@@ -34,6 +34,15 @@
 
   var TICK = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
 
+  // The constellation of the sign-in pages: a subject's star (and the line between two lit
+  // stars) lights up when the subject is chosen.
+  function lightStars(list) {
+    $$('.acc-star').forEach(function (g) { g.classList.toggle('is-lit', list.indexOf(g.getAttribute('data-star')) !== -1); });
+    $$('.acc-sky__lines line').forEach(function (l) {
+      l.classList.toggle('is-lit', list.indexOf(l.getAttribute('data-a')) !== -1 && list.indexOf(l.getAttribute('data-b')) !== -1);
+    });
+  }
+
   function $(sel, scope) { return (scope || document).querySelector(sel); }
   function $$(sel, scope) { return Array.prototype.slice.call((scope || document).querySelectorAll(sel)); }
 
@@ -182,6 +191,7 @@
 
   // ---- login ----------------------------------------------------------------------------------
   function initLogin() {
+    lightStars(AEAccount.SUBJECTS.map(function (x) { return x.id; }));
     var form = $('#loginForm');
     var error = $('#loginError');
     wirePasswordToggles();
@@ -244,15 +254,16 @@
       var user = AEAccount.current();
       $('#doneName').textContent = user ? user.name.split(' ')[0] : '';
       var names = AEAccount.SUBJECTS.filter(function (s) { return draft.subjects.indexOf(s.id) !== -1; }).map(function (s) { return s.short; });
-      $('#doneSubjects').textContent = names.length ? names.join(', ') : 'none yet';
+      $('#doneSubjects').textContent = names.length ? names.join(', ') : 'No subjects yet';
       var pal = PALETTES.filter(function (p) { return p.id === draft.surface; })[0];
-      $('#donePalette').textContent = pal ? pal.label : 'Default';
+      $('#donePalette').textContent = (pal ? pal.label : 'Default') + ' palette';
     }
 
     // Keep the order of the clicks: the first subject picked becomes the main one.
     function onSubjects(list) {
       draft.subjects = draft.subjects.filter(function (id) { return list.indexOf(id) !== -1; })
         .concat(list.filter(function (id) { return draft.subjects.indexOf(id) === -1; }));
+      lightStars(draft.subjects);
       $('#subjectsNext').textContent = list.length ? 'Continue with ' + list.length + (list.length === 1 ? ' subject' : ' subjects') : 'Continue';
     }
     renderSubjects($('#subjectList'), draft.subjects, onSubjects);
@@ -291,6 +302,7 @@
       var prefs = AEAccount.current().prefs;
       draft.subjects = prefs.subjects.slice();
       draft.exams = prefs.exams;
+      lightStars(draft.subjects);
       renderSubjects($('#subjectList'), draft.subjects, onSubjects);
       go(/[?&]step=(\d)/.test(location.search) ? Number(RegExp.$1) : 1);
     }

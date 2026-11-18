@@ -300,147 +300,144 @@ body.acc-page {
 .acc-notice svg { flex: 0 0 auto; margin-top: 2px; color: var(--acc-text-2); }
 .acc-notice strong { color: var(--acc-text); font-weight: 600; }
 
-/* ---- auth layout (login / signup) ------------------------------------------------------ */
+/* ---- auth layout (login / signup): the sky on one side, the form on the other ----------- */
 .acc-auth {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 40px 24px 64px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
-  gap: 40px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  min-height: calc(100vh - 91px);
 }
 
-.acc-hero {
+/* The sky panel: the portal's night sky with the five subjects as a constellation. It is an
+   illustration (aria-hidden), dark on every palette like the landing page. */
+.acc-sky {
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 560px;
-  padding: 40px;
-  border-radius: var(--radius-xl, 26px);
+  justify-content: flex-end;
+  padding: 48px 56px;
   background:
-    radial-gradient(1.2px 1.2px at 12% 18%, rgba(255, 255, 255, 0.9), transparent 60%),
-    radial-gradient(1px 1px at 28% 72%, rgba(255, 255, 255, 0.7), transparent 60%),
-    radial-gradient(1.4px 1.4px at 46% 34%, rgba(255, 255, 255, 0.85), transparent 60%),
-    radial-gradient(1px 1px at 63% 82%, rgba(255, 255, 255, 0.65), transparent 60%),
-    radial-gradient(1.2px 1.2px at 78% 22%, rgba(255, 255, 255, 0.8), transparent 60%),
-    radial-gradient(1px 1px at 88% 58%, rgba(255, 255, 255, 0.7), transparent 60%),
-    radial-gradient(1px 1px at 8% 88%, rgba(255, 255, 255, 0.6), transparent 60%),
-    radial-gradient(1.3px 1.3px at 54% 9%, rgba(255, 255, 255, 0.8), transparent 60%),
-    radial-gradient(1px 1px at 36% 52%, rgba(255, 255, 255, 0.55), transparent 60%),
-    radial-gradient(1px 1px at 93% 90%, rgba(255, 255, 255, 0.6), transparent 60%),
-    radial-gradient(ellipse 60% 45% at 85% 10%, rgba(99, 102, 241, 0.28), transparent 70%),
-    radial-gradient(ellipse 55% 40% at 10% 95%, rgba(6, 182, 212, 0.20), transparent 70%),
-    linear-gradient(160deg, #0b1222 0%, #070b14 100%);
+    radial-gradient(ellipse 70% 50% at 78% 18%, rgba(99, 102, 241, 0.30), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 12% 92%, rgba(6, 182, 212, 0.18), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 60% 60%, rgba(239, 68, 68, 0.07), transparent 70%),
+    linear-gradient(165deg, #0b1222 0%, #070b14 60%, #05070d 100%);
   color: #f1f5f9;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  isolation: isolate;
 }
 
-.acc-hero__mark { width: 72px; height: 72px; color: #e2e8f0; }
-.acc-hero__mark .sideris-stroke { stroke: currentColor; }
-.acc-hero__mark .sideris-fill { fill: currentColor; }
-
-.acc-hero h1 {
-  margin-top: 28px;
-  color: #f8fafc;
-  font-size: clamp(2rem, 3.4vw, 2.8rem);
-  line-height: 1.12;
+.acc-sky__field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-.acc-hero__lead {
-  margin: 14px 0 28px;
-  max-width: 34ch;
-  font-size: 1.12rem;
+.acc-sky__dust circle { fill: #e2e8f0; }
+.acc-sky__dust circle:nth-child(3n) { animation: acc-twinkle 4.5s ease-in-out infinite; }
+.acc-sky__dust circle:nth-child(3n+1) { animation: acc-twinkle 6s ease-in-out 1.2s infinite; }
+
+.acc-sky__lines line {
+  stroke: rgba(226, 232, 240, 0.22);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+
+.acc-star__halo { fill: var(--c); opacity: 0.10; transition: opacity 0.5s ease, r 0.5s ease; }
+.acc-star__core { fill: #e2e8f0; transition: fill 0.4s ease; }
+.acc-star__ring { fill: none; stroke: var(--c); stroke-width: 1.2; opacity: 0; transition: opacity 0.4s ease; }
+.acc-star__label {
+  fill: rgba(226, 232, 240, 0.62);
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: fill 0.4s ease;
+}
+
+.acc-star.is-lit .acc-star__halo { opacity: 0.38; animation: acc-pulse 3.2s ease-in-out infinite; }
+.acc-star.is-lit .acc-star__core { fill: var(--c); }
+.acc-star.is-lit .acc-star__ring { opacity: 0.9; }
+.acc-star.is-lit .acc-star__label { fill: #f8fafc; }
+.acc-sky__lines line.is-lit { stroke: rgba(226, 232, 240, 0.55); stroke-dasharray: none; }
+
+@keyframes acc-twinkle { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.25; } }
+@keyframes acc-pulse { 0%, 100% { opacity: 0.30; } 50% { opacity: 0.48; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .acc-sky__dust circle, .acc-star.is-lit .acc-star__halo { animation: none; }
+}
+
+.acc-sky__copy { max-width: 30rem; }
+
+.acc-sky__mark { width: 44px; height: 44px; color: #e2e8f0; margin-bottom: 18px; }
+.acc-sky__mark .sideris-stroke { stroke: currentColor; }
+.acc-sky__mark .sideris-fill { fill: currentColor; }
+
+.acc-sky__kicker {
+  margin: 0 0 10px;
+  font: 600 0.72rem/1 var(--font-mono);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: #cbd5e1;
 }
 
-.acc-hero__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 14px;
+.acc-sky h1 {
+  color: #f8fafc;
+  font-size: clamp(2.1rem, 3.5vw, 3.1rem);
+  line-height: 1.04;
 }
 
-.acc-hero__list li {
-  display: grid;
-  grid-template-columns: 34px 1fr;
-  gap: 12px;
-  align-items: start;
-  font-size: 0.98rem;
-  color: #dbe3ee;
-}
-
-.acc-hero__list strong { display: block; color: #f8fafc; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; }
-
-.acc-hero__icon {
-  display: inline-flex;
+/* The form side: no card, just the form on the reading surface. */
+.acc-auth__side {
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e2e8f0;
+  padding: 48px 32px;
 }
 
-.acc-hero__subjects {
-  margin-top: auto;
-  padding-top: 28px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.acc-form-card {
+  width: 100%;
+  max-width: 400px;
+  background: none;
+  border: 0;
+  box-shadow: none;
 }
 
-.acc-hero__subjects span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font: 500 0.72rem/1.3 var(--font-mono);
-  color: #dbe3ee;
-}
-
-.acc-hero__subjects i {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--dot);
-}
-
-.acc-form-card { padding: 32px; }
-
-.acc-form-card h2 { font-size: 1.9rem; line-height: 1.15; }
+.acc-form-card h2 { font-size: 2.1rem; line-height: 1.1; }
 
 .acc-form-card__sub {
-  margin: 8px 0 24px;
+  margin: 8px 0 28px;
   color: var(--acc-text-2);
-  font-size: 1rem;
+  font: 500 0.92rem/1.4 var(--font-sans);
 }
 
-.acc-providers { display: grid; gap: 10px; }
+.acc-providers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
 
 .acc-provider {
-  justify-content: flex-start;
-  padding: 0 16px;
+  position: relative;
+  height: 46px;
+  padding: 0 12px;
   font-weight: 600;
 }
 .acc-provider svg { flex: 0 0 auto; }
-.acc-provider .acc-soon { margin-left: auto; }
+.acc-provider .acc-soon {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  margin: 0;
+  background: var(--study-bg);
+}
 
 .acc-row-between {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 12px;
-  margin: -6px 0 18px;
-  font: 500 0.86rem/1.3 var(--font-sans);
-  color: var(--acc-text-2);
+  margin: -6px 0 20px;
 }
 
 .acc-check {
@@ -467,21 +464,26 @@ body.acc-page {
 .acc-check input:checked + .acc-check__box { background: var(--acc-accent); border-color: var(--acc-accent); }
 .acc-check input:checked + .acc-check__box svg { opacity: 1; }
 
-.acc-switch-line {
-  margin: 20px 0 0;
-  text-align: center;
-  font: 500 0.9rem/1.4 var(--font-sans);
+.acc-local {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 22px 0 0;
+  font: 500 0.78rem/1.3 var(--font-mono);
+  letter-spacing: 0.02em;
   color: var(--acc-text-2);
 }
 
-.acc-legal {
-  margin: 14px 0 0;
-  font-size: 0.82rem;
-  line-height: 1.45;
+.acc-form-card .acc-notice { margin: 0 0 16px; }
+
+.acc-form-card--wide { max-width: 460px; }
+
+.acc-label__aside {
+  float: right;
+  font: 500 0.72rem/1.3 var(--font-mono);
   color: var(--acc-text-2);
 }
-
-.acc-form-card .acc-notice { margin-top: 20px; }
 
 /* ---- onboarding wizard ------------------------------------------------------------------ */
 .acc-steps {
@@ -938,12 +940,10 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 
 /* ---- responsive ----------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .acc-auth { grid-template-columns: 1fr; padding-top: 24px; gap: 20px; }
-  .acc-hero { min-height: 0; padding: 28px; }
-  .acc-hero h1 { margin-top: 16px; }
-  .acc-hero__list { display: none; }
-  .acc-hero__lead { margin-bottom: 0; }
-  .acc-hero__subjects { padding-top: 20px; }
+  .acc-auth { grid-template-columns: 1fr; min-height: 0; }
+  .acc-sky { min-height: 0; height: min(90vw, 420px); padding: 0; }
+  .acc-sky__copy { display: none; }
+  .acc-auth__side { padding: 32px 16px 56px; }
 
   .acc-settings { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-top: 20px; }
   .acc-settings > * { min-width: 0; }
@@ -955,8 +955,8 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 @media (max-width: 600px) {
   .acc-header__inner { padding: 8px 16px; }
   .acc-brand span { display: none; }
-  .acc-auth, .acc-settings { padding-left: 16px; padding-right: 16px; }
-  .acc-form-card, .acc-section { padding: 22px 18px; }
+  .acc-settings { padding-left: 16px; padding-right: 16px; }
+  .acc-section { padding: 22px 18px; }
   .acc-swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .acc-grid-2 { grid-template-columns: 1fr; }
   .acc-range { grid-template-columns: auto 1fr auto; }
