@@ -147,6 +147,19 @@
     panel.hidden = true;   // hidden without the stylesheet too
     var head = el('div', 'upd-panel__head');
     head.appendChild(el('h2', 'upd-panel__title', 'What’s new'));
+    // Filter for signed-in visitors: their subjects (plus portal-wide news) or everything.
+    var filter = el('div', 'upd-filter');
+    filter.setAttribute('role', 'group');
+    filter.setAttribute('aria-label', 'Show');
+    filter.hidden = true;
+    [['mine', 'My subjects'], ['all', 'All']].forEach(function (f) {
+      var b = el('button', 'upd-filter__btn', f[1]);
+      b.type = 'button';
+      b.setAttribute('data-filter', f[0]);
+      b.addEventListener('click', function () { showAll = f[0] === 'all'; render(); });
+      filter.appendChild(b);
+    });
+    head.appendChild(filter);
     var list = el('ol', 'upd-list');
     panel.appendChild(head);
     panel.appendChild(list);
@@ -179,7 +192,7 @@
     live.setAttribute('aria-live', 'polite');
     document.body.appendChild(live);
 
-    ui = { bell: bell, badge: badge, panel: panel, list: list, toast: toast, toastTitle: toastTitle, live: live };
+    ui = { bell: bell, badge: badge, panel: panel, filter: filter, list: list, toast: toast, toastTitle: toastTitle, live: live };
 
     bell.addEventListener('click', function () { if (isOpen()) closePanel(false); else openPanel(); });
     toastOpen.addEventListener('click', function () { hideToast(); openPanel(); });
@@ -203,9 +216,28 @@
     maybeToast();
   }
 
+  // Tags of the signed-in visitor's subjects (window.AEAccount, from account.js); empty otherwise.
+  var showAll = false;
+  function myTags() {
+    try {
+      var user = window.AEAccount && window.AEAccount.current();
+      var chosen = user && user.prefs && user.prefs.subjects;
+      if (!chosen || !chosen.length || !Array.isArray(window.AEAccount.SUBJECTS)) return [];
+      return window.AEAccount.SUBJECTS.filter(function (s) { return chosen.indexOf(s.id) >= 0; }).map(function (s) { return s.name; });
+    } catch (e) { return []; }
+  }
+
   function render() {
     ui.list.textContent = '';
-    entries.forEach(function (entry) {
+    var tags = myTags();
+    var filtering = tags.length > 0 && !showAll;
+    ui.filter.hidden = tags.length === 0;
+    Array.prototype.forEach.call(ui.filter.children, function (b) {
+      b.setAttribute('aria-pressed', String((b.getAttribute('data-filter') === 'all') === !filtering));
+    });
+    var shown = entries.filter(function (e) { return !filtering || e.tag === 'Portal' || tags.indexOf(e.tag) >= 0; });
+    if (!shown.length) ui.list.appendChild(el('li', 'upd-item upd-item--empty', 'No news for your subjects yet.'));
+    shown.forEach(function (entry) {
       var item = el('li', 'upd-item');
       if (fresh.indexOf(entry.id) >= 0) item.classList.add('is-new');
       var meta = el('div', 'upd-item__meta');

@@ -688,6 +688,36 @@
     document.head.appendChild(js);
   }
 
+  // On the landing page: the signed-in visitor's subjects first (main one on top), each marked
+  // "Main subject" or "Your subject". Signed out, the cards go back to the order of the page.
+  var homeOrder = null;
+  function orderHomeCards() {
+    var grid = document.getElementById('subjectsGrid');
+    if (!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.subject-card[data-subject]'));
+    if (homeOrder === null) homeOrder = cards.map(function (c) { return c.getAttribute('data-subject'); });
+    var user = current();
+    var mine = user ? user.prefs.subjects.slice() : [];
+    var p = user ? mine.indexOf(user.prefs.primary) : -1;
+    if (p > 0) { mine.splice(p, 1); mine.unshift(user.prefs.primary); }
+    var rank = function (id) { var i = mine.indexOf(id); return i < 0 ? 99 + homeOrder.indexOf(id) : i; };
+    cards.sort(function (a, b) { return rank(a.getAttribute('data-subject')) - rank(b.getAttribute('data-subject')); });
+    cards.forEach(function (card) {
+      var id = card.getAttribute('data-subject');
+      var old = card.querySelector('.card-mine');
+      if (old) old.remove();
+      card.classList.toggle('is-mine', mine.indexOf(id) >= 0);
+      if (mine.indexOf(id) >= 0) {
+        var tag = document.createElement('span');
+        tag.className = 'card-mine';
+        tag.textContent = id === mine[0] ? 'Main subject' : 'Your subject';
+        var title = card.querySelector('.card-title');
+        if (title && title.parentNode) title.parentNode.insertBefore(tag, title.nextSibling);
+      }
+      grid.appendChild(card);
+    });
+  }
+
   function start(tries) {
     tries = tries || 0;
     var wantsPicker = !!document.querySelector('link[href*="study-surface.css"]') && !!document.getElementById('themeToggle');
@@ -700,12 +730,13 @@
     apply();
     trackStudy();
     loadMarks();
+    orderHomeCards();
   }
 
-  document.addEventListener('ae-account-change', function () { buildWidget(); });
+  document.addEventListener('ae-account-change', function () { buildWidget(); orderHomeCards(); });
   // Another tab signed in or out, or changed the preferences.
   window.addEventListener('storage', function (event) {
-    if (event.key === SESSION_KEY || event.key === ACCOUNTS_KEY) { buildWidget(); apply(); }
+    if (event.key === SESSION_KEY || event.key === ACCOUNTS_KEY) { buildWidget(); apply(); orderHomeCards(); }
   });
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { start(0); });

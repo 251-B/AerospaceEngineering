@@ -61,6 +61,15 @@ html[data-theme="light"] .upd-bell, html[data-theme="light"] .upd-panel, html[da
 .upd-panel.is-open { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
 .upd-panel__head { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
 .upd-panel__title { margin: 0; font: 400 22px/1.2 var(--upd-display); color: var(--upd-text); letter-spacing: 0; }
+.upd-filter { margin-left: auto; display: inline-flex; border: 1px solid var(--upd-border); border-radius: 999px; padding: 2px; }
+.upd-filter[hidden] { display: none; }
+.upd-panel .upd-filter__btn {
+  appearance: none; border: 0; margin: 0; border-radius: 999px; padding: 4px 10px; cursor: pointer;
+  background: transparent; color: var(--upd-muted); font: 600 11px/1.2 var(--upd-mono); letter-spacing: .03em;
+}
+.upd-panel .upd-filter__btn[aria-pressed="true"] { background: var(--upd-border); color: var(--upd-text); }
+.upd-filter__btn:focus-visible { outline: 2px solid var(--upd-accent); outline-offset: 1px; }
+.upd-item--empty { font: 400 15px/1.5 var(--upd-serif); color: var(--upd-muted); }
 .upd-panel:focus { outline: none; }   /* focus lands on the panel when it opens; its links keep their own ring */
 .upd-item__link:focus-visible, .upd-toast button:focus-visible { outline: 2px solid var(--upd-accent); outline-offset: 2px; }
 

@@ -127,7 +127,8 @@ En orden de prioridad aproximado:
 
 1. **Filtrar por las asignaturas del usuario.**
    - **Hecho en el menú lateral:** con sesión iniciada, `sidebar.js` (`applySubjectOrder`, en cada apertura) pone primero las asignaturas de `prefs.subjects` (la principal arriba) y mete las demás en un grupo "Other subjects". Lee la cuenta con `window.AEAccount.current()`, nunca del `localStorage` (test_sidebar exige que el menú solo use `ae_nav`). Mueve los nodos existentes, así que las secciones de la página actual no se pierden.
-   - Falta: la portada y "What's new".
+   - **Hecho en la portada:** `account.js` (`orderHomeCards`) reordena las tarjetas de `#subjectsGrid` (principal primero) y les pone "Main subject" / "Your subject" (estilo en `account-widget.css`). Al cerrar sesión vuelven al orden del HTML.
+   - **Hecho en "What's new":** con asignaturas elegidas, el panel tiene un selector "My subjects / All" (por defecto My subjects; las entradas `Portal` se ven siempre). El contador de no leídas sigue contando todo.
 2. **Backend en la nube para entrar desde cualquier dispositivo.**
    - Recomendado: Supabase (Auth + Postgres con Row Level Security). Habilitaría Google/Microsoft (ahora "Soon"), sincronizar `ae_account`, `ae_marks`, `ae_study_log` y los historiales de los simuladores, y recuperar la contraseña.
    - Mantener `localStorage` como caché, primero en local, para que la web siga funcionando sin conexión y sin cuenta.
