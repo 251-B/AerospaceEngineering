@@ -162,9 +162,10 @@ def render(box, inl, figure=None):
 
 
 def strip_boxes(fragment):
-    """The fragment without its <div class="derivation-box"> elements (nested divs included)."""
+    """The fragment without its <div class="derivation-box"> elements (nested divs included), nor its
+    <div class="essential-box"> summaries, which restate the boxed results of the section and develop nothing."""
     out, pos = [], 0
-    for m in re.finditer(r'<div class="derivation-box">', fragment):
+    for m in re.finditer(r'<div class="(?:derivation-box|essential-box[^"]*)">', fragment):
         if m.start() < pos:
             continue
         out.append(fragment[pos:m.start()])

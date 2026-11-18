@@ -40,3 +40,7 @@ Without `--check`, the tool writes each configured page under `subjects/` and ea
 ## Related
 
 [[Repository MOC]] · [[Agent - aerospace-pedagogue]] · [[Tool - audit_portal]] · [[Tool - Test suite]]
+
+## Summary and recap callouts (all flavors)
+
+`> [!summary] What you need to know` at the start of a `## ` section and `> [!recap] Review in one minute` at the end of the note become `<div class="essential-box">` (the recap adds `essential-recap`); a Markdown link to a portal page, `[text](../formula-sheet/index.html)`, is kept as a link inside them. They are the content of the Essential reading mode of `assets/js/theory-reader.js` and are exempt from `no-inline-calc` (`derivation.strip_boxes`), since they restate the boxed results of the section. Pilot: Engineering Mechanics Topic 6.

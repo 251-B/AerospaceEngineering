@@ -17,7 +17,13 @@
  *    keeps its first sentence, and the rest (long explanations, "Copied from Slide 3") folds behind a
  *    "More" button; a paragraph that only says how the page follows the official material ("This page
  *    follows ...") folds behind "About this page".
- * No storage. API: window.AETheoryReader = { init, sections }
+ *  - Sections, derivations and progress: every h2 section folds to its title ("Open all / Fold all"),
+ *    derivation boxes show their result until "Show derivation", a pill above the rail gives the
+ *    section in view and the minutes left; the arrow keys move between sections.
+ *  - Reading modes: pages with summary boxes (> [!summary] in the vault note, .essential-box) get an
+ *    Essential / Full switch (Essential shows each section's summary and first figure only), stored
+ *    under ae_theory_mode (try/catch: the page works without storage).
+ * API: window.AETheoryReader = { init, sections }
  */
 (function () {
   'use strict';
@@ -326,7 +332,7 @@
     while (node && node.parentElement) {
       var sib = node.nextElementSibling;
       while (sib && !holdsHead(sib)) {
-        if (!sib.matches('script, style, .tr-rail')) items.push(sib);
+        if (!sib.matches('script, style, .tr-rail, .essential-recap')) items.push(sib);
         sib = sib.nextElementSibling;
       }
       if (items.length || sib) break;
@@ -398,12 +404,20 @@
       toggle.appendChild(chevron());
       var sec = { h2: h2, head: head, items: items, toggle: toggle, open: true, title: headingText(h2),
         words: countWords(head) + items.reduce(function (n, el) { return n + countWords(el); }, 0) };
+      items.forEach(function (el) { el.classList.add('tr-sec-item'); });
+      sec.essential = items.filter(function (el) { return el.matches('.essential-box'); });
+      sec.ewords = sec.essential.reduce(function (n, el) { return n + countWords(el); }, 0);
+      if (sec.essential.length) {   // the first figure of the section goes with its summary
+        var fig = items.filter(function (el) { return el.matches(FIGURE); })[0];
+        if (fig) { fig.classList.add('tr-key-fig'); sec.ewords += 40; }
+      }
       head.classList.add('tr-sec-head');
       head.appendChild(toggle);
       head.addEventListener('click', function (event) {
         if (event.target.closest('a, input, select, textarea') ||
             (event.target.closest('button') && event.target.closest('button') !== toggle)) return;
         if (String(window.getSelection && window.getSelection()) !== '') return;
+        if (mode === 'essential') return;   // every summary is already shown
         setSection(sec, !sec.open);
         update();
       });
@@ -416,13 +430,12 @@
     }
     sections.forEach(function (sec) { setSection(sec, false); });
 
-    var total = sections.reduce(function (n, s) { return n + s.words; }, 0);
     var bar = document.createElement('div');
     bar.className = 'tr-secbar';
-    var info = document.createElement('span');
-    info.className = 'tr-secbar__info';
-    info.textContent = sections.length + ' sections · about ' + minutes(total) + ' min of reading';
-    bar.appendChild(info);
+    secInfo = document.createElement('span');
+    secInfo.className = 'tr-secbar__info';
+    bar.appendChild(secInfo);
+    if (hasEssential()) bar.appendChild(modeSwitch());
     [['Open all', true], ['Fold all', false]].forEach(function (pair) {
       var b = document.createElement('button');
       b.type = 'button';
@@ -434,7 +447,13 @@
       });
       bar.appendChild(b);
     });
+    var hint = document.createElement('span');
+    hint.className = 'tr-secbar__hint';
+    hint.textContent = 'Keys \u2190 \u2192 move between sections';
+    bar.appendChild(hint);
     sections[0].head.parentNode.insertBefore(bar, sections[0].head);
+    setMode(initialMode());
+    document.addEventListener('keydown', onKey);
 
     // a link to anything inside a folded section (side menu, #hash, citations) opens that section first
     function openHash() {
@@ -456,6 +475,70 @@
     }
   }
 
+  /* ------------------------------------------------------- reading modes */
+  /* Essential: every section shows only its "What you need to know" box and its first figure (the
+     page reads like a deck). Full: the whole page, sections folded as usual. Pages without summaries
+     have no switch. The choice is remembered under ae_theory_mode; ?mode=essential|full overrides it. */
+  var FIGURE = '.diagram-card, .diagram-container, figure.fig, .fig';
+  var MODE_KEY = 'ae_theory_mode';
+  var mode = 'full', secInfo = null, modeButtons = [];
+
+  function hasEssential() { return sections.some(function (sec) { return sec.essential.length; }); }
+  function wordsOf(sec) { return mode === 'essential' && sec.essential.length ? sec.ewords : sec.words; }
+
+  function initialMode() {
+    if (!hasEssential()) return 'full';
+    var q = /[?&]mode=(essential|full)\b/.exec(location.search);
+    if (q) return q[1];
+    try { return localStorage.getItem(MODE_KEY) === 'essential' ? 'essential' : 'full'; } catch (e) { return 'full'; }
+  }
+
+  function setMode(m, remember) {
+    mode = m === 'essential' && hasEssential() ? 'essential' : 'full';
+    document.documentElement.classList.toggle('tr-essential', mode === 'essential');
+    modeButtons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-mode') === mode)); });
+    if (remember) { try { localStorage.setItem(MODE_KEY, mode); } catch (e) {} }
+    var total = sections.reduce(function (n, s) { return n + wordsOf(s); }, 0);
+    if (secInfo) secInfo.textContent = sections.length + ' sections \u00b7 about ' + minutes(total) + ' min of reading';
+    update();
+  }
+
+  function modeSwitch() {
+    var group = document.createElement('div');
+    group.className = 'tr-mode';
+    group.setAttribute('role', 'group');
+    group.setAttribute('aria-label', 'Reading mode');
+    [['essential', 'Essential'], ['full', 'Full']].forEach(function (pair) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tr-mode__btn';
+      b.setAttribute('data-mode', pair[0]);
+      b.textContent = pair[1];
+      b.addEventListener('click', function () { setMode(pair[0], true); });
+      modeButtons.push(b);
+      group.appendChild(b);
+    });
+    return group;
+  }
+
+  /* Left and right arrows move to the previous or next section, like turning a slide: in Full mode
+     that section opens and the others fold. Ignored while typing and with a modifier key held. */
+  function onKey(event) {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+    if (event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) return;
+    var t = event.target;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    if (document.querySelector('[role="dialog"][aria-modal="true"]:not([hidden])')) return;
+    var cur = activeIndex >= 0 && marks[activeIndex] ? sectionIndexOf(marks[activeIndex].target) : -1;
+    var next = Math.max(0, Math.min(sections.length - 1, cur + (event.key === 'ArrowRight' ? 1 : -1)));
+    if (next === cur && cur >= 0) return;
+    event.preventDefault();
+    var sec = sections[next];
+    if (mode === 'full') sections.forEach(function (s) { setSection(s, s === sec); });
+    var mark = marks.filter(function (m) { return m.target === sec.h2; })[0];
+    if (mark) jump(mark); else place(sec.head);
+  }
+
   /* --------------------------------------------------------------- progress */
   var progress = null;
   function sectionIndexOf(el) {
@@ -469,7 +552,7 @@
   function updateProgress(markIndex) {
     if (!progress || !sections.length) return;
     var i = markIndex >= 0 ? sectionIndexOf(marks[markIndex].target) : -1;
-    var left = sections.slice(Math.max(0, i)).reduce(function (n, s) { return n + s.words; }, 0);
+    var left = sections.slice(Math.max(0, i)).reduce(function (n, s) { return n + wordsOf(s); }, 0);
     progress.textContent = (i < 0 ? sections.length + ' sections' : (i + 1) + ' / ' + sections.length) +
       ' \u00b7 ~' + minutes(left) + ' min';
     progress.title = i < 0

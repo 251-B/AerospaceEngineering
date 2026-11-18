@@ -44,6 +44,16 @@ This note follows `Notes.pdf` Chapter 9 (Kinematics of rigid bodies, Eqs. 9.1 to
 
 ## 1. The rigid body model and body-fixed reference frames
 
+> [!summary] What you need to know
+> - A **rigid body** never changes shape: the distance between any two of its points stays the same, and so does every angle between its segments.
+> - It is an idealisation. Real materials deform a little, but often too little to change the motion.
+> - Three body points $P$, $Q$, $R$ that are not on one line are enough to fix a frame $S_B$ to the body: origin at $P$, and an orthonormal basis $\{\mathbf i_B, \mathbf j_B, \mathbf k_B\}$ built from the segments $\mathbf{PQ}$ and $\mathbf{PR}$.
+> - Knowing where the body is and knowing where $S_B$ is are the same thing: both move together and turn with one angular velocity, $\boldsymbol\omega_{B0}$.
+>
+> $$\boxed{\frac{d}{dt}\lvert\mathbf{AB}\rvert = 0 \quad \text{for every pair of body points } A,\ B}$$
+>
+> **Slides:** [Lecture 7, Slide 3]; [Lecture 7, Slide 4]; Notes.pdf, Sec. 9
+
 The point particle model ignores the dimensions of an object, its mass distribution and its orientation (attitude) in space. The rigid body model keeps the last two: a rigid body is a body of finite, indeformable geometry (Notes.pdf, Sec. 9; [Lecture 7, Slide 3]). Like the point particle, it is an idealisation: all materials deform somewhat under load, but in many Flight Mechanics problems these small deformations do not affect the motion.
 
 The defining kinematic constraint is that the distance between any two body points stays constant in time ([Lecture 7, Slide 3]). The first consequence is that angles between body segments are also constant.
@@ -95,6 +105,17 @@ Two observations make the rigid body and its body-fixed frame interchangeable (N
 > From the kinematic point of view a rigid body is fully equivalent to a reference frame: its shape and dimensions can be ignored and it can be replaced by $S_B$. Conversely, any reference frame can be thought of as a rigid body with a Euclidean space attached to it ([Lecture 7, Slide 4]).
 
 ## 2. Velocity and acceleration fields of a rigid body
+
+> [!summary] What you need to know
+> - Take one body point $P$ whose motion you know. Every other body point $A$ moves like $P$, plus a rotation about $P$.
+> - **Velocity:** add the rotation term $\boldsymbol\omega_{B0}\times\mathbf{PA}$ to the velocity of $P$. **Acceleration:** add two terms, the angular acceleration term and the centripetal term.
+> - If $\boldsymbol\omega_{B0}$ is zero, every point has the same velocity: the body is in pure translation.
+> - All points share the velocity component along $\boldsymbol\omega_{B0}$ (the **slip velocity**). Only the perpendicular part changes from point to point.
+> - Two body points always have the same velocity projection on the line that joins them, otherwise their distance would change. Use it to check that measured velocities fit a rigid body.
+>
+> $$\boxed{\mathbf v_0^A = \mathbf v_0^P + \boldsymbol\omega_{B0}\times\mathbf{PA},\qquad \mathbf a_0^A = \mathbf a_0^P + \boldsymbol\alpha_{B0}\times\mathbf{PA} + \boldsymbol\omega_{B0}\times(\boldsymbol\omega_{B0}\times\mathbf{PA})}$$
+>
+> **Slides:** [Lecture 7, Slide 6]; [Lecture 7, Slide 7]; Notes.pdf, Eq. 9.3; Notes.pdf, Eq. 9.4
 
 Let $P$ be the origin of $S_B$ and $A$ any other body point (Fig. 9.1 of the notes). The composition laws of relative motion, Eqs. 3.26 and 3.27, are applied with the moving frame $S_B$; the relative velocity and acceleration of a body point in $S_B$ are zero by the definition of body point ([Lecture 7, Slide 5]).
 
@@ -227,6 +248,16 @@ The velocities of three non-collinear body points $A$, $C$, $D$ also fix the fie
 
 ## 3. Instantaneous axis of rotation and slip, and helical motion
 
+> [!summary] What you need to know
+> - At every instant there is one line, parallel to $\boldsymbol\omega_{B0}$, called the **instantaneous axis of rotation and slip**.
+> - The points on that line move only with the slip velocity $\mathbf v_{0\parallel}$, the smallest speed in the body.
+> - To find it, start from a point $A$ of known velocity: the formula below gives $I$, the point of the axis closest to $A$. The axis is the line through $I$ along $\boldsymbol\omega_{B0}$.
+> - Every other point moves like a screw: it turns around the axis at a speed $\omega_{B0}\,d$, where $d$ is its distance to the axis, and slides along it with the common slip. With zero slip the motion is a pure rotation about the axis.
+>
+> $$\boxed{\mathbf{AI} = \frac{\boldsymbol\omega_{B0}\times\mathbf v_0^A}{\omega_{B0}^2},\qquad \mathbf v_0^I = \mathbf v_{0\parallel}}$$
+>
+> **Slides:** [Lecture 7, Slide 8]; [Lecture 7, Slide 9]; Notes.pdf, Eq. 9.10; Notes.pdf, Eq. 9.11
+
 In a pure rotation (zero slip speed) the instantaneous axis of rotation is the locus of body points with zero velocity; it is the line parallel to $\boldsymbol\omega_{B0}$ through any one such point $I$ (Notes.pdf, Sec. 9.1.2).
 
 > [!derivation] Condition for a point of the instantaneous axis
@@ -323,6 +354,17 @@ The general instantaneous motion of a rigid body is therefore a pure rotation ab
 > **Meaning:** the derivative reproduces the screw velocity field, and the trajectory is a circular helix of radius $d$ wound about the axis.
 
 ## 4. Worked example: three measurements on a rigid airplane
+
+> [!summary] What you need to know
+> - **Data:** the velocities of three points $G$, $A$ and $C$ of an airplane.
+> - **Step 1.** Check the data fit a rigid body: equal projections for the three pairs of points.
+> - **Step 2.** Write the velocity field from $G$ to $A$ and from $G$ to $C$. One pair alone leaves the angular velocity undetermined; the two together fix it.
+> - **Step 3.** Project a velocity on $\boldsymbol\omega_{B0}$ to get the slip, then locate the axis with the formula of Section 3.
+> - **Result:** the slip is not zero, so the airplane screws about an axis parallel to $\mathbf i+\mathbf j+\mathbf k$.
+>
+> $$\boxed{\boldsymbol\omega_{B0} = \mathbf i + \mathbf j + \mathbf k\ \ \mathrm{rad/s},\qquad \mathbf v_{0\parallel} = 2\mathbf i + 2\mathbf j + 2\mathbf k\ \ \mathrm{m/s}}$$
+>
+> **Slides:** [Lecture 7, Slide 7]; [Lecture 7, Slide 10]
 
 > [!example] Rigid airplane ([Lecture 7, Slides 10-11])
 > Three simultaneous measurements are made of the motion of a rigid airplane: the centre of mass $G$, a point $A$ on the wing and a point $C$ on the vertical tail, with the positions and velocities of the table below (basis $\mathcal B_0$, metres and metres per second). Slide 11 is left blank for the classroom solution; the questions answered here are the ones the deck prepares in Slides 7 and 9: the data are checked for compatibility, the angular velocity of the airplane is found, and then the slip velocity and the instantaneous axis of rotation and slip.
@@ -422,6 +464,15 @@ The general instantaneous motion of a rigid body is therefore a pure rotation ab
 
 ## 5. Points of a rigid body
 
+> [!summary] What you need to know
+> - A geometric point $A$ (for example a contact point, or a point sliding over the body) can sit on top of a body point $A(B)$ at one instant.
+> - They are at the same place, but they need not have the same velocity: the difference is the velocity of $A$ relative to the body.
+> - The velocity and acceleration fields of Section 2 hold only for body points. Never put the velocity of a non-body point into them.
+>
+> $$\boxed{\mathbf r_0^A = \mathbf r_0^{A(B)},\qquad \mathbf v_0^A \neq \mathbf v_0^{A(B)} \ \text{ unless } \ \mathbf v_B^A = \mathbf 0}$$
+>
+> **Slides:** [Lecture 7, Slide 5]; Notes.pdf, Eq. 9.14; Notes.pdf, Eq. 9.15
+
 Equations 9.3 and 9.4 hold only when both points are body points: points that move with the body and have zero velocity and acceleration in $S_B$ ([Lecture 7, Slide 5]; Notes.pdf, Sec. 9.1.4). Often a body point is fixed by a geometric condition (the centre of a rectangular plate). Sometimes it must be defined as the body point that instantaneously coincides with a geometric point $A$ that does not belong to the body; the notes write it $A(B)$ and the slides $A(b)$. Both have the same position, but not the same velocity or acceleration.
 
 > [!derivation] A geometric point and the body point on top of it
@@ -443,6 +494,16 @@ Equations 9.3 and 9.4 hold only when both points are body points: points that mo
 The body point that lies on $A$ changes as the body moves, so $A(B)$ names a different material point at each instant. The notation is used only where ambiguity is possible; in every problem each point must be declared as a body point or not. Points outside the physical body that move rigidly with $S_B$ are also body points (Notes.pdf, Sec. 9.1.4).
 
 ## 6. Orthogonal rotation matrices
+
+> [!summary] What you need to know
+> - The matrix $[{}_0R_1]$ turns the components of a vector in basis $\mathcal B_1$ into its components in basis $\mathcal B_0$. The vector itself does not move.
+> - **How to build it:** column 1 is $\mathbf i_1$ written in $\mathcal B_0$, column 2 is $\mathbf j_1$, column 3 is $\mathbf k_1$.
+> - **How to undo it:** transpose it. Its determinant is $1$ because both bases are right-handed.
+> - **Several rotations in a row:** multiply the matrices from the first rotation to the last. The order matters.
+>
+> $$\boxed{[\mathbf b]_0 = [{}_0R_1]\,[\mathbf b]_1,\qquad [{}_1R_0] = [{}_0R_1]^T,\qquad [{}_0R_2] = [{}_0R_1]\,[{}_1R_2]}$$
+>
+> **Slides:** Notes.pdf, Eq. 1.12; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.16
 
 Since a rigid body is replaced by $S_B$, its attitude is the attitude of the basis $\mathcal B_B$ with respect to $\mathcal B_0$, described by a change of basis matrix (Notes.pdf, Sec. 1.5). This section collects the properties of those matrices that the Euler angles use. The notes state the orthogonality and the unit determinant without proof (Eqs. 1.14 and 1.15); the two boxes below prove them from the orthonormality and the handedness of the bases.
 
@@ -509,6 +570,16 @@ Since a rigid body is replaced by $S_B$, its attitude is the attitude of the bas
 > **Meaning:** a sequence of rotations is a product of matrices written from the first to the last; the product does not commute, so the order of the rotations matters.
 
 ## 7. Euler angles of type 3-1-3
+
+> [!summary] What you need to know
+> - Three angles give the attitude of the body. In the 3-1-3 sequence: **precession** $\psi$ about $\mathbf k_0$, then **nutation** $\theta$ about the new axis $\mathbf i_1$ (the line of nodes), then **spin** $\varphi$ about the body axis $\mathbf k_B$.
+> - Each turn is a simple rotation with its own $3\times 3$ matrix. The matrix of the body is their product, in that order.
+> - The nutation $\theta$ is the angle between $\mathbf k_0$ and $\mathbf k_B$.
+> - The angular velocity is the sum of the three angle rates, each along its own axis. Write the three in one basis before adding them.
+>
+> $$\boxed{[{}_0R_B] = [{}_0R_1(z,\psi)]\,[{}_1R_2(x,\theta)]\,[{}_2R_B(z,\varphi)],\qquad \boldsymbol\omega_{B0} = \dot\psi\,\mathbf k_0 + \dot\theta\,\mathbf i_1 + \dot\varphi\,\mathbf k_B}$$
+>
+> **Slides:** [Lecture 7, Slide 12]; Notes.pdf, Eq. 9.19; Notes.pdf, Eq. 9.21
 
 The attitude of $S_B$ with respect to $S_0$ is given by three angles; when they are three successive simple rotations they are called Euler angles (Notes.pdf, Sec. 9.2; [Lecture 7, Slide 12]). The standard set is the 3-1-3 sequence of Fig. 9.5: precession about the third axis, nutation about the new first axis, spin about the new third axis. Each simple rotation is drawn looking down its axis, which then points out of the paper, as recommended in Notes.pdf, Sec. 1.5.2.
 
@@ -676,6 +747,16 @@ The angular velocity follows from the additivity of angular velocities, Eq. 3.14
 
 ## 8. Other Euler sequences, singularities and equivalent sets
 
+> [!summary] What you need to know
+> - Aircraft use the 3-2-1 sequence: **yaw** $\psi$ about $\mathbf k_0$, **pitch** $\theta$ about the new axis $\mathbf j_1$, **roll** $\varphi$ about the nose axis $\mathbf i_B$.
+> - In the matrix of a rotation about the second axis, the minus sign moves below the diagonal.
+> - Every set of three angles has attitudes where two of its rotations turn about the same line, and only their sum or difference is defined. For 3-1-3 this happens at $\theta$ equal to $0$ or $\pi$; for yaw, pitch and roll at a pitch of a right angle (nose straight up or down).
+> - The same attitude can be described by more than one set of angles.
+>
+> $$\boxed{[{}_1R_2(y,\theta)] = \begin{bmatrix} \cos\theta & 0 & \sin\theta \\ 0 & 1 & 0 \\ -\sin\theta & 0 & \cos\theta \end{bmatrix}}$$
+>
+> **Slides:** [Lecture 7, Slide 12]; Notes.pdf, Sec. 9.2.1; Notes.pdf, Sec. 9.2.2
+
 Twelve sequences are possible, with the only rule that two successive rotations are never about the same axis (Notes.pdf, Sec. 9.2.1):
 
 | First axis 1 | First axis 2 | First axis 3 |
@@ -806,6 +887,14 @@ Any attitude also has several equivalent sets of Euler angles ([Lecture 7, Slide
 
 ## 9. Degrees of freedom of a rigid body
 
+> [!summary] What you need to know
+> - A free rigid body needs six numbers to place it: three for the position of one of its points and three angles for its attitude.
+> - Rigidity removes every other coordinate of its particles: once the six are known, the position of every point is known.
+>
+> $$\boxed{\text{free rigid body: } 3 \text{ coordinates} + 3 \text{ angles} = 6 \text{ degrees of freedom}}$$
+>
+> **Slides:** [Lecture 7, Slide 13]; Notes.pdf, Sec. 9.3
+
 The motion of a rigid body is the translation of one body point plus a rotation about it (Eq. 9.3). Without constraints the point needs three coordinates (commonly the centre of mass $G$, defined in Section 11) and the attitude three more, such as the Euler angles (Notes.pdf, Sec. 9.3; [Lecture 7, Slide 13]).
 
 > [!derivation] Six degrees of freedom of a free rigid body
@@ -829,6 +918,16 @@ The motion of a rigid body is the translation of one body point plus a rotation 
 
 
 ## 10. Mass distributions, their moments and second-order tensors
+
+> [!summary] What you need to know
+> - Everything about inertia comes from three integrals of the mass over the body: the **zeroth moment** (a number), the **first moment** (a vector) and the **second moment** (a tensor).
+> - The next sections turn them into the total mass, the centre of mass and the tensor of inertia.
+> - A second-order tensor is stored as a $3\times 3$ matrix in a basis. Its contraction with two vectors is computed as row, times matrix, times column.
+> - To integrate, use the volume element of the coordinates you chose, with its stretching factor: $R$ in cylindrical coordinates, $r^2\cos\phi$ in spherical ones (with $\phi$ the latitude).
+>
+> $$\boxed{dV = dx\,dy\,dz = R\,dR\,d\theta\,dz = r^2\cos\phi\,dr\,d\theta\,d\phi}$$
+>
+> **Slides:** [Lecture 8, Slide 3]; [Lecture 8, Slide 8]; Notes.pdf, Eq. 10.1; Notes.pdf, Eq. 10.5
 
 The point particle needs a single inertia property, its mass. A rigid body also keeps its spatial mass distribution $\mathcal D$, which governs its rotational dynamics: a metal bar is harder to set spinning about an axis across it than about its own long axis ([Lecture 8, Slide 7]). The inertia properties defined in this part of the note are the total mass, the centre of mass and the moments, products and tensor of inertia; they are built from the zeroth, first and second moments of the mass distribution and are valid for any material system, rigid or not (Notes.pdf, Sec. 10). A superscript naming the body is added when more than one body is present.
 
@@ -923,6 +1022,16 @@ The hard part of these integrals is writing the element of length, area or volum
 
 ## 11. Total mass and centre of mass
 
+> [!summary] What you need to know
+> - **Total mass:** add up all the mass elements of the body.
+> - **Centre of mass** $G$: the average position of the mass, each element weighted by its own mass.
+> - **Symmetry first:** a plane of symmetry contains $G$, and so does an axis of symmetry. This gives coordinates of $G$ before any integral.
+> - **Composite bodies:** treat each part as a particle of its own mass placed at its own centre of mass. A hole is a part with negative mass.
+>
+> $$\boxed{m = \int_{\mathcal D} dm,\qquad \mathbf r_0^G = \frac{1}{m}\int_{\mathcal D}\mathbf r_0^P\,dm = \frac{\sum_k m_k\,\mathbf r_0^{G_k}}{\sum_k m_k}}$$
+>
+> **Slides:** [Lecture 8, Slide 9]; [Lecture 8, Slide 17]; Notes.pdf, Eq. 10.8; Notes.pdf, Sec. 10.3
+
 | Symbol | Meaning |
 | :--- | :--- |
 | $m$ | total mass of the material system |
@@ -1000,6 +1109,17 @@ The lecture recommends to "divide and conquer": break a complex geometry into si
 > **Meaning:** each part acts as a point particle of its own mass at its own centre of mass; the same additivity holds for the moments, products and tensors of inertia, provided they are taken about the same point and in the same basis.
 
 ## 12. Moments and products of inertia
+
+> [!summary] What you need to know
+> - **Moment of inertia about an axis:** each mass element times the square of its distance to the axis, added over the body. It is never negative, and mass far from the axis counts most.
+> - **Products of inertia** keep the signs of the coordinates, so they can be negative. They measure how unevenly the mass is spread about the axes.
+> - A plane of symmetry makes zero every product of inertia that involves that plane.
+> - **Flat body** in the plane $Oxy$: the moment about $Oz$ is the sum of the moments about $Ox$ and $Oy$, so two integrals give all three.
+> - **Shortcut:** the three moments about the axes add up to twice the moment about the point $O$.
+>
+> $$\boxed{I_z = \int_{\mathcal D}(x^2+y^2)\,dm,\qquad P_{xz,yz} = \int_{\mathcal D} xy\,dm,\qquad I_x + I_y + I_z = 2\,I_O}$$
+>
+> **Slides:** [Lecture 8, Slide 10]; [Lecture 8, Slide 11]; Notes.pdf, Eq. 10.13; Notes.pdf, Eq. 10.22
 
 The moments and products of inertia come from the second moment of the mass distribution and govern rotational dynamics. They have dimensions $[\mathrm{M\,L^2}]$ and SI unit $\mathrm{kg\,m^2}$ (Notes.pdf, Sec. 10.4). The moment of inertia of a body about an axis is the "resistance" it offers to changes of its angular velocity about that axis ([Lecture 8, Slide 10]).
 
@@ -1108,6 +1228,17 @@ For a planar body of negligible thickness in the plane $Oxy$ every mass element 
 > **Meaning:** the moment about the axis normal to a flat body equals the sum of the moments about two orthogonal in-plane axes through the same point, so only two in-plane integrals are needed; the plane of the body acts as a plane of symmetry for the products.
 
 ## 13. Worked examples: wire, plate, half disk and half sphere
+
+> [!summary] What you need to know
+> - Four bodies, always worked in the same order: mass element, total mass, centre of mass (symmetry first), then the moments and products of inertia.
+> - **Half-circumference wire:** $G$ is on the axis of symmetry at about $0.64R$ from the centre, off the wire itself.
+> - **Half disk:** $G$ is at about $0.42R$, closer to the centre than for the wire, because more of the mass is near the centre.
+> - **Half sphere:** $G$ is on the axis, below mid-height, because most of the volume is near the flat face.
+> - **Rectangular plate** $L\times W$: the moment about an axis depends only on how far the mass spreads away from that axis.
+>
+> $$\boxed{y_G^{\text{wire}} = \frac{2R}{\pi},\qquad y_G^{\text{half disk}} = \frac{4R}{3\pi},\qquad z_G^{\text{half sphere}} = \frac{3R}{8},\qquad I_z^{\text{plate}} = \frac{M(L^2+W^2)}{12}}$$
+>
+> **Slides:** [Lecture 8, Slide 18]; [Lecture 8, Slide 19]; [Lecture 8, Slide 20]; [Lecture 8, Slide 21]
 
 The notes illustrate the definitions with four homogeneous bodies of Fig. 10.2, which the lecture repeats as its last four slides (Notes.pdf, Sec. 10.5; [Lecture 8, Slides 18-21]). The notes leave the moments of inertia of the half disk and of the half sphere as exercises; they are solved here and marked as extensions.
 
@@ -1358,6 +1489,15 @@ The notes illustrate the definitions with four homogeneous bodies of Fig. 10.2, 
 
 ## 14. The tensor of inertia
 
+> [!summary] What you need to know
+> - The **tensor of inertia** about $O$ puts all the moments and products about $O$ into one symmetric $3\times 3$ matrix: moments on the diagonal, products with a minus sign off it.
+> - With it, the moment of inertia about any line through $O$ (unit vector $\mathbf u$) is a single matrix product.
+> - Two planes of symmetry make every product zero: the matrix is diagonal and the coordinate axes are principal.
+>
+> $$\boxed{[\boldsymbol{\mathcal I}_O]_{00} = \begin{bmatrix} I_x & -P_{xz,yz} & -P_{xy,yz} \\ -P_{xz,yz} & I_y & -P_{xy,xz} \\ -P_{xy,yz} & -P_{xy,xz} & I_z \end{bmatrix},\qquad I_\ell = [\mathbf u]_0^T\,[\boldsymbol{\mathcal I}_O]_{00}\,[\mathbf u]_0}$$
+>
+> **Slides:** [Lecture 8, Slide 13]; Notes.pdf, Eq. 10.38; Notes.pdf, Eq. 10.39
+
 The moments and products of inertia appear in the dynamics of material systems as the components of one second-order tensor, the tensor of inertia (Notes.pdf, Sec. 10.6). The notes define it directly; Chapter 11 shows that it is the tensor that turns the angular velocity of a rigid body into its angular momentum and kinetic energy (Notes.pdf, Sec. 11.2), which is why it "describes the rotational inertia" of the body ([Lecture 8, Slide 12]).
 
 | Symbol | Meaning |
@@ -1454,6 +1594,16 @@ The moments and products of inertia appear in the dynamics of material systems a
 
 ## 15. Change of basis of the tensor and principal axes of inertia
 
+> [!summary] What you need to know
+> - To write the tensor in a rotated basis, multiply by the rotation matrix on both sides (transpose on the left).
+> - **Principal axes** are the directions in which the tensor is diagonal. They are the eigenvectors of its matrix, and the **principal moments** are the eigenvalues.
+> - Principal directions of different principal moments are perpendicular, so the principal basis is orthonormal.
+> - The symmetries of the body often give the principal axes without solving anything.
+>
+> $$\boxed{[\boldsymbol{\mathcal I}_O]_{11} = [{}_0R_1]^T\,[\boldsymbol{\mathcal I}_O]_{00}\,[{}_0R_1],\qquad \det\big([\boldsymbol{\mathcal I}_O]_{00} - I\,\mathbb 1\big) = 0}$$
+>
+> **Slides:** [Lecture 8, Slide 6]; [Lecture 8, Slide 13]; Notes.pdf, Eq. 10.41; Notes.pdf, Eq. 10.43
+
 A tensor and a vector can only be contracted when both are written in consistent bases: if the tensor is in $\mathcal B_0\otimes\mathcal B_0$, the vector must be in $\mathcal B_0$ (Notes.pdf, Sec. 10.7). A change of basis changes the component matrix, never the tensor, just as for a vector.
 
 | Symbol | Meaning |
@@ -1543,6 +1693,16 @@ There is always a rotated basis in which the tensor of inertia is diagonal; its 
 > **Meaning:** about the corner the axes along the sides are not principal, because the product of inertia is non-zero; the principal axes are the diagonal of the square through $A$, which is a line of symmetry of the plate, and the line perpendicular to it. The smallest moment is about the diagonal, along which the mass lies closest. The sum of the in-plane principal moments, $\tfrac23 Ma^2$, equals $I_3$, as a flat body requires.
 
 ## 16. Change of reference point: Steiner's theorem
+
+> [!summary] What you need to know
+> - **Steiner's theorem** moves the tensor of inertia from the centre of mass $G$ to any other point $O$: add the tensor of a single particle of mass $m$ placed at $G$.
+> - It only links $G$ with another point. To go from $A$ to $B$, go from $A$ to $G$ (subtract), then from $G$ to $B$ (add).
+> - Both tensors must be written in parallel bases.
+> - **Parallel axis theorem:** the moment about an axis is the moment about the parallel axis through $G$ plus $m$ times the squared distance between the two axes. The axis through $G$ gives the smallest moment.
+>
+> $$\boxed{\boldsymbol{\mathcal I}_O = \boldsymbol{\mathcal I}_G + m\Big[(r_0^G)^2\,\boldsymbol{\mathcal U} - \mathbf r_0^G\otimes\mathbf r_0^G\Big],\qquad I_{z_0} = I_{z_G} + m\Big[(x_0^G)^2+(y_0^G)^2\Big]}$$
+>
+> **Slides:** [Lecture 8, Slide 14]; [Lecture 8, Slide 15]; [Lecture 8, Slide 16]; Notes.pdf, Eq. 10.48
 
 The tensor of inertia depends on the point about which it is taken. Steiner's theorem relates the tensor about any point $O$ to the tensor about the centre of mass $G$ (Notes.pdf, Sec. 10.8; [Lecture 8, Slides 14-15]).
 
@@ -1673,3 +1833,17 @@ Often only the moment of inertia about an axis $Gz_G$ through $G$ is known and t
 
 > [!key] Computing the inertia properties of a rigid body ([Lecture 8, Slide 17])
 > The mass, centre of mass and tensor of inertia need triple integrals. Look for symmetries first: they place $G$ and cancel products of inertia. Divide complex geometries into simple parts and add their contributions, about the same point and in the same basis; treat holes by subtraction. Write the volume element in the coordinates that fit the body (Cartesian, cylindrical or spherical, Eq. 10.5) with explicit limits for every coordinate. Take the tensor about $G$, move it to any other point with Steiner's theorem, rotate it with the change of basis matrix, and diagonalise it to get the principal axes and moments.
+
+> [!recap] Review in one minute
+> 1. A rigid body keeps its shape; a frame $S_B$ fixed to it moves and turns with it.
+> 2. Velocity of any body point: the velocity of a known body point plus $\boldsymbol\omega_{B0}\times\mathbf{PA}$. Acceleration: two more terms.
+> 3. All points share the slip velocity along $\boldsymbol\omega_{B0}$; the axis of rotation and slip is where the speed is smallest.
+> 4. The fields hold only for body points.
+> 5. A change of basis matrix has the new basis vectors as columns, is undone by transposing, and rotations multiply in order.
+> 6. Euler angles (3-1-3 or yaw, pitch and roll) give the attitude; the angular velocity is the sum of the three angle rates, each on its own axis; every set has a singular attitude.
+> 7. A free rigid body has six degrees of freedom.
+> 8. Mass, centre of mass and tensor of inertia are the zeroth, first and second moments of the mass. Use symmetry before integrating.
+> 9. The tensor of inertia gives the moment about any line; its eigenvectors are the principal axes.
+> 10. Steiner's theorem moves the tensor between $G$ and any point; the axis through $G$ has the smallest moment.
+>
+> Keep the boxed results of each section at hand: [Engineering Mechanics formula sheet](../formula-sheet/index.html).

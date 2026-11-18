@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-mechanics-t6-essential",
+    "date": "2026-11-18",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 6 in Essential mode: what you need to know, section by section",
+    "text": "Rigid bodies and inertia now open each section with a short plain summary and its key result. Switch to Essential to read only those, like a slide deck.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
     "id": "2026-11-18-theory-folding",
     "date": "2026-11-18",
     "tag": "Portal",

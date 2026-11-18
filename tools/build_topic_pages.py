@@ -6,6 +6,8 @@ Each page configured in tools/topic_pages.json is generated from one vault note:
     - "# Part ..." headings become part dividers, "## N. Title" sections, "###"/"####" sub-headings;
     - Markdown paragraphs, lists, tables, $$ display math (one line), Obsidian callouts
       (> [!info] / [!note] / [!warning]) and inline **bold**, `code` and $math$ are converted;
+      > [!summary] (a section's "What you need to know" box) and > [!recap] (the one-minute review of
+      the topic) become <div class="essential-box">, the content of the Essential reading mode;
     - figure embeds ![[attachments/<folder>/<name>.svg]] are inlined from the topic's figure module
       in tools/figures/ (which also writes the vault copy of each SVG); ![[attachments/<folder>/<name>.png]]
       embeds a figure copied from the slides, registered with its caption in the same module;
@@ -166,6 +168,15 @@ def blocks(lines, figure=None):
             while i < len(lines) and lines[i].startswith(">"):
                 inner.append(lines[i][2:] if lines[i].startswith("> ") else lines[i][1:])
                 i += 1
+            if kind.lower() in ("summary", "recap"):
+                # "What you need to know" box of a section, or the one-minute review of the topic: the
+                # Essential reading mode of assets/js/theory-reader.js shows only these (and one figure)
+                cls = "essential-box essential-recap" if kind.lower() == "recap" else "essential-box"
+                body = blocks(inner, figure)
+                # a Markdown link to another portal page, e.g. [formula sheet](../formula-sheet/index.html)
+                body = re.sub(r"\[([^\]]+)\]\(((?:\.\./)*[\w./-]+\.html(?:#[\w-]+)?)\)", r'<a href="\2">\1</a>', body)
+                out.append(f'<div class="{cls}"><div class="essential-title">{inline(title)}</div>{body}</div>')
+                continue
             if STYLE.get("callout_fn"):
                 out.append(STYLE["callout_fn"](kind.lower(), title, blocks(inner, figure)))
                 continue

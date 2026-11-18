@@ -1,6 +1,6 @@
 """Theory reader (assets/js/theory-reader.js + assets/css/theory-reader.css): the loader in theme.js brings
 the script onto every page, no page carries its own tag, it acts on theory topic pages only, never runs in
-the PDF print mode, stores nothing, and everything it hides or folds is screen-only (print and the PDFs
+the PDF print mode, stores only the reading mode, and everything it hides or folds is screen-only (print and the PDFs
 show the page as written). The PDFs do not depend on these files."""
 import pathlib
 import re
@@ -23,11 +23,16 @@ class TheoryReaderStaticTests(unittest.TestCase):
         for page in sorted((REPO / "subjects").rglob("*.html")):
             self.assertNotIn("theory-reader", page.read_text(encoding="utf-8"), page)
 
-    def test_script_acts_on_theory_topic_pages_only_and_stores_nothing(self):
+    def test_script_acts_on_theory_topic_pages_only_and_stores_only_the_mode(self):
         js = JS.read_text(encoding="utf-8")
         self.assertIn("print=", js)
         self.assertIn(r"\/teoria\/topic-", js)
-        self.assertNotIn("localStorage", js)
+        # the only storage is the reading mode, under a key without "theme", always inside try/catch
+        self.assertEqual(re.findall(r"localStorage\.\w+\(([^,)]+)", js), ["MODE_KEY", "MODE_KEY"])
+        self.assertIn("var MODE_KEY = 'ae_theory_mode';", js)
+        self.assertNotIn("theme", "ae_theory_mode")
+        for use in re.finditer(r"localStorage", js):
+            self.assertIn("try {", js[max(0, use.start() - 80):use.start()])
         self.assertNotIn("sessionStorage", js)
         self.assertNotIn("eval(", js)
 

@@ -167,6 +167,63 @@ html.tr-on[data-theme="light"] {
   }
   html.tr-on:not([data-theme="print"]) .tr-secbar__btn:hover { border-color: var(--accent, currentColor); }
 
+  /* ---- Reading modes: Essential shows each section's summary and its first figure ---- */
+  html.tr-on:not([data-theme="print"]) .tr-mode { display: inline-flex; border: 1px solid var(--tr-border); border-radius: 999px; overflow: hidden; }
+  html.tr-on:not([data-theme="print"]) .tr-mode__btn {
+    padding: 5px 14px;
+    border: 0;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font: inherit;
+    font-size: 0.85em;
+    cursor: pointer;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-mode__btn[aria-pressed="true"] { background: var(--tr-text); color: var(--tr-surface); }
+  html.tr-on:not([data-theme="print"]) .tr-mode__btn:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -3px; }
+  html.tr-on:not([data-theme="print"]) .tr-secbar__hint { flex-basis: 100%; text-align: right; color: var(--tr-muted); font-size: 0.78em; }
+  @media (hover: none) { html.tr-on:not([data-theme="print"]) .tr-secbar__hint { display: none; } }
+
+  html.tr-essential:not([data-theme="print"]) .tr-sec-item:not(.essential-box, .tr-key-fig) { display: none !important; }
+  html.tr-essential:not([data-theme="print"]) .tr-hidden:is(.essential-box, .tr-key-fig) { display: block !important; }
+  html.tr-essential:not([data-theme="print"]) .tr-sec-toggle { display: none; }
+  html.tr-essential:not([data-theme="print"]) .tr-sec-head { cursor: default; }
+  html.tr-essential:not([data-theme="print"]) .tr-sec-head.tr-sec-closed { margin-top: 36px !important; margin-bottom: 14px !important; }
+  html.tr-essential:not([data-theme="print"]) .tr-sec-host-closed { margin-bottom: 0 !important; }
+  html.tr-essential:not([data-theme="print"]) body main .tr-key-fig { float: none !important; width: auto !important; max-width: 560px; margin: 0 0 8px !important; padding: 12px !important; }
+
+  /* The summary box itself, in Full and Essential mode alike */
+  html.tr-on:not([data-theme="print"]) .essential-box {
+    margin: 0 0 22px;
+    padding: 16px 22px 14px;
+    border: 1px solid var(--tr-border);
+    border-left: 4px solid var(--accent, var(--tr-text));
+    border-radius: 12px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+  }
+  html.tr-on:not([data-theme="print"]) .essential-title {
+    margin: 0 0 8px;
+    color: var(--tr-text);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  html.tr-on:not([data-theme="print"]) .essential-box :is(p, li) { color: var(--tr-text); }
+  html.tr-on:not([data-theme="print"]) .essential-box ul, html.tr-on:not([data-theme="print"]) .essential-box ol { margin-bottom: 10px; }
+  html.tr-on:not([data-theme="print"]) .essential-box li { margin-bottom: 6px; }
+  html.tr-on:not([data-theme="print"]) .essential-box .math-block,
+  html.tr-on:not([data-theme="print"]) .essential-box .math-block > *,
+  html.tr-on:not([data-theme="print"]) .essential-box .katex-display {
+    margin: 10px 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow-x: auto;
+  }
+  html.tr-essential:not([data-theme="print"]) .tr-secbar__btn { display: none; }
+  html.tr-on:not([data-theme="print"]) .essential-box a:not(.src-cite) { color: var(--tr-text); text-decoration: underline; }
+  html.tr-on:not([data-theme="print"]) .essential-recap { margin-top: 28px; }
+
   /* ---- Progress line above the rail ---- */
   .tr-progress {
     position: absolute;
@@ -272,6 +329,8 @@ html.tr-on[data-theme="light"] {
     .tr-bar--h3[aria-current] .tr-bar__line { width: 12px; }
     .tr-bar__tip { right: 26px; }
     .tr-progress { display: none; }
+    html.tr-on:not([data-theme="print"]) .essential-box { padding: 12px 14px 10px; }
+    html.tr-on:not([data-theme="print"]) .essential-box :is(ul, ol) { padding-left: 1.1em; }
   }
 }
 
