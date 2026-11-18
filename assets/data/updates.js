@@ -14,6 +14,7 @@
  *   link  optional, path from the repository root to an existing page (never laboratory material)
  */
 window.AE_UPDATES = [
+  {"id": "2026-11-18-weekly-goal", "date": "2026-11-18", "tag": "Portal", "title": "Set a weekly study goal", "text": "Choose how many hours a week you want to study in Settings, and My study shows how much of it you have done.", "link": "account/settings.html"},
   {"id": "2026-11-18-home-your-subjects", "date": "2026-11-18", "tag": "Portal", "title": "Your subjects first on the home page and in What's new", "text": "Signed in, the home page shows your subjects first, marked as yours, and What's new can show only the news of your subjects."},
   {"id": "2026-11-18-menu-your-subjects", "date": "2026-11-18", "tag": "Portal", "title": "The side menu puts your subjects first", "text": "When you are signed in, the side menu lists the subjects you chose first, your main one on top, and keeps the others under Other subjects."},
   {

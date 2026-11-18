@@ -57,7 +57,8 @@
       autoSurface: { on: false, by: 'time', day: 'cream', night: 'charcoal' },
       fontScale: 100,
       formulaMode: 'deep',
-      pomodoro: 'standard'
+      pomodoro: 'standard',
+      weeklyGoal: 0   // hours of study a week; 0 = no goal
     };
   }
 
@@ -111,6 +112,8 @@
     if (scale >= 90 && scale <= 125) out.fontScale = Math.round(scale / 5) * 5;
     if (prefs.formulaMode === 'compact') out.formulaMode = 'compact';
     if (prefs.pomodoro === 'deep') out.pomodoro = 'deep';
+    var goal = Math.round(Number(prefs.weeklyGoal));
+    if (goal >= 1 && goal <= 80) out.weeklyGoal = goal;
     return out;
   }
 

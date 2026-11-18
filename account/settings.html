@@ -184,6 +184,14 @@
           </div>
           <p class="acc-hint">A timer that is already running keeps its block; the new style starts with the next one.</p>
         </div>
+        <div class="acc-block">
+          <label class="acc-block__title" for="goalField">Weekly study goal</label>
+          <div class="acc-goal-field">
+            <input class="acc-input" id="goalField" type="number" min="0" max="80" step="1" inputmode="numeric" aria-describedby="goalHint">
+            <span>hours a week</span>
+          </div>
+          <p class="acc-hint" id="goalHint">My study shows how much of it the last seven days cover. Leave it at 0 for no goal.</p>
+        </div>
       </section>
 
       <section class="acc-card acc-section" id="privacy" aria-labelledby="privacyTitle">

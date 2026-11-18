@@ -539,6 +539,16 @@
       savePrefs({ pomodoro: v }, applied ? 'Timer style' : 'Timer style (after the running block)');
     });
 
+    var goal = $('#goalField');
+    goal.value = prefs().weeklyGoal || 0;
+    goal.addEventListener('change', function () {
+      var v = Math.round(Number(goal.value));
+      if (!(v >= 0)) v = 0;
+      if (v > 80) v = 80;
+      goal.value = v;
+      savePrefs({ weeklyGoal: v }, v ? 'Weekly goal' : 'Weekly goal (off)');
+    });
+
     // Privacy and data
     function fillData() {
       var list = $('#dataList');
@@ -674,6 +684,18 @@
       ? AEAccount.examPhrase(next) + '. ' + (weekTotal ? 'Keep the rhythm.' : 'A good week to start.')
       : 'Add your exam dates and the countdowns appear here.';
     $('#statWeek').textContent = duration(weekTotal);
+    // weekly goal: a bar under "this week" and how much is left
+    var goalH = prefs.weeklyGoal || 0;
+    var goalBox = $('#statGoal');
+    if (goalH && goalBox) {
+      var share = Math.min(1, weekTotal / (goalH * 3600));
+      var left = goalH * 3600 - weekTotal;
+      goalBox.hidden = false;
+      goalBox.querySelector('i').style.width = Math.round(share * 100) + '%';
+      goalBox.setAttribute('aria-valuenow', String(Math.round(share * 100)));
+      goalBox.classList.toggle('is-done', left <= 0);
+      $('#statWeekLabel').textContent = left <= 0 ? 'goal of ' + goalH + ' h reached' : 'of ' + goalH + ' h, ' + duration(left) + ' to go';
+    }
     $('#statStreak').textContent = streak + (streak === 1 ? ' day' : ' days');
     $('#statNext').textContent = next ? (next.days === 0 ? 'Today' : next.days + (next.days === 1 ? ' day' : ' days')) : '-';
     $('#statNextLabel').textContent = next ? 'to ' + next.subject.short + ' ' + next.kind : 'next exam';

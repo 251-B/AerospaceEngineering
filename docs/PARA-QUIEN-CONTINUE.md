@@ -98,7 +98,7 @@ Las reglas generales del repositorio siguen siendo las de `AGENTS.md` y `CLAUDE.
 
 | Clave | Contenido |
 | :--- | :--- |
-| `ae_account` | Cuentas del navegador: nombre, email, sal, hash y `prefs` (asignaturas, principal, fechas de examen, paleta, paleta automática, tamaño de texto, modo de la hoja de fórmulas, estilo del temporizador). |
+| `ae_account` | Cuentas del navegador: nombre, email, sal, hash y `prefs` (asignaturas, principal, fechas de examen, paleta, paleta automática, tamaño de texto, modo de la hoja de fórmulas, estilo del temporizador, objetivo semanal). |
 | `ae_session` | Email de la sesión abierta. |
 | `ae_account_last` | Último email que entró; se conserva al cerrar sesión. |
 | `ae_recent`, `ae_study_log`, `ae_marks` | Ver 1.4 y 1.5. |
@@ -136,7 +136,7 @@ En orden de prioridad aproximado:
    - Al hacerlo, añadir una política de privacidad real (RGPD).
 3. **Títulos del inicio de sesión.** "Find your star." y "Claim your star." ya no encajan, porque se quitó la estrella marcada. Proponer al usuario textos ligados a la galaxia.
 4. **Más gráficas o funciones en My study** que se mencionaron:
-   - objetivo semanal de horas (el campo no existe todavía en `prefs`);
+   - ~~objetivo semanal de horas~~ **hecho**: `prefs.weeklyGoal` (horas, 1-80; 0 = sin objetivo), campo en Settings > Study y barra bajo "this week" en My study (últimos 7 días);
    - "practicar mis falladas" en el simulador;
    - puntos débiles por unidad o concepto. El banco de Materials tiene `concept_id` en cada pregunta, pero el historial del simulador solo guarda el id del ítem, así que hay que cruzarlo con `problems.js`.
 5. **Idea propuesta y no hecha:** "tu cielo crece", una estrella o constelación personal que crece con los días estudiados o los temas terminados.

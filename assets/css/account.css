@@ -1670,3 +1670,13 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
   .acc-marks a { grid-template-columns: 34px minmax(0, 1fr); }
   .acc-marks .acc-continue__ago { display: none; }
 }
+
+/* weekly goal (prefs.weeklyGoal): bar under "this week" in My study, field in Settings */
+.acc-study-hero__stats .acc-goal-bar { display: block; height: 5px; margin-top: 3px; border-radius: 999px; background: rgba(255, 255, 255, 0.14); overflow: hidden; }
+.acc-study-hero__stats .acc-goal-bar[hidden] { display: none; }
+.acc-goal-bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: #7dd3fc; transition: width .6s ease; }
+.acc-goal-bar.is-done i { background: #6ee7b7; }
+.acc-goal-field { display: flex; align-items: center; gap: 10px; }
+.acc-goal-field .acc-input { width: 6.5em; }
+.acc-goal-field span { color: var(--acc-text-2, inherit); }
+@media (prefers-reduced-motion: reduce) { .acc-goal-bar i { transition: none; } }
