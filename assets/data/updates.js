@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-theory-folding",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Theory pages fold: sections, derivations and figures beside the text",
+    "text": "Each section opens on demand, derivations show their result first, and a counter shows how much reading is left. On wide screens figures sit beside their text.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
     "id": "2026-11-18-theory-section-rail",
     "date": "2026-11-18",
     "tag": "Portal",

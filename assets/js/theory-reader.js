@@ -255,6 +255,7 @@
   }
 
   function jump(mark) {
+    openSectionOf(mark.target);
     place(mark.target);
     if (history.replaceState) history.replaceState(null, '', '#' + mark.id);
     try { mark.target.setAttribute('tabindex', '-1'); mark.target.focus({ preventScroll: true }); } catch (e) {}
@@ -269,20 +270,247 @@
     if (i === activeIndex) return;
     activeIndex = i;
     marks.forEach(function (m, k) {
+      if (!m.button) return;
       m.button.classList.toggle('tr-bar--read', k < i);
       if (k === i) m.button.setAttribute('aria-current', 'location');
       else m.button.removeAttribute('aria-current');
     });
   }
 
+  function isHidden(el) { return !!el.closest('.tr-hidden'); }
+
   function update() {
     var line = headerHeight() + window.innerHeight * 0.25;
     var i = -1;
     for (var k = 0; k < marks.length; k++) {
+      if (isHidden(marks[k].target)) continue;   // a heading inside a folded section is never "current"
       if (marks[k].target.getBoundingClientRect().top <= line) i = k; else break;
     }
-    if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 4) i = marks.length - 1;
+    if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 4) {
+      for (var j = marks.length - 1; j >= 0; j--) if (!isHidden(marks[j].target)) { i = j; break; }
+    }
     setActive(i);
+    updateProgress(i);
+  }
+
+  /* ------------------------------------------------------------ derivations */
+  /* A derivation box shows its title, the boxed result and its meaning; the steps, units, law and
+     source open with "Show derivation". */
+  function foldDerivation(box) {
+    if (box.classList.contains('tr-dbox')) return;
+    var head = box.querySelector(':scope > .derivation-head');
+    if (!head || !box.querySelector('.derivation-steps')) return;
+    box.classList.add('tr-dbox', 'tr-dfolded');
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'tr-more tr-dbtn';
+    button.setAttribute('aria-expanded', 'false');
+    button.textContent = 'Show derivation';
+    button.addEventListener('click', function () {
+      var folded = box.classList.toggle('tr-dfolded');
+      button.setAttribute('aria-expanded', String(!folded));
+      button.textContent = folded ? 'Show derivation' : 'Hide derivation';
+    });
+    head.appendChild(button);
+  }
+
+  /* --------------------------------------------------------------- sections */
+  /* Each h2 folds to its title. The body of a section is the run of elements after its heading (or
+     after the heading's wrapper) up to the element that holds the next h2; nothing is moved, the
+     elements only get the class tr-hidden while the section is folded. */
+  var sections = [];
+
+  function bodyOf(head, heads) {
+    function holdsHead(el) { return heads.some(function (h) { return el === h || el.contains(h); }); }
+    var node = head, items = [];
+    while (node && node.parentElement) {
+      var sib = node.nextElementSibling;
+      while (sib && !holdsHead(sib)) {
+        if (!sib.matches('script, style, .tr-rail')) items.push(sib);
+        sib = sib.nextElementSibling;
+      }
+      if (items.length || sib) break;
+      if (node.parentElement.matches('main, body')) break;
+      node = node.parentElement;
+    }
+    return items;
+  }
+
+  function chevron() {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('width', '18');
+    svg.setAttribute('height', '18');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    var path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', 'M6 9l6 6 6-6');
+    svg.appendChild(path);
+    return svg;
+  }
+
+  function setSection(sec, open) {
+    sec.open = open;
+    sec.items.forEach(function (el) { el.classList.toggle('tr-hidden', !open); });
+    sec.head.classList.toggle('tr-sec-closed', !open);
+    // the wrapper of a section (<section>, .theory-section) loses its own spacing while folded
+    var host = sec.head.parentElement;
+    if (host && !host.matches('main, body, article') && sec.items.every(function (el) { return el.parentElement === host; }))
+      host.classList.toggle('tr-sec-host-closed', !open);
+    sec.toggle.setAttribute('aria-expanded', String(open));
+    sec.toggle.setAttribute('aria-label', (open ? 'Fold' : 'Open') + ' section: ' + sec.title);
+  }
+
+  function openSectionOf(target) {
+    sections.forEach(function (sec) {
+      if (!sec.open && (sec.items.some(function (el) { return el === target || el.contains(target); }) ||
+          sec.head === target || sec.head.contains(target))) setSection(sec, true);
+    });
+  }
+
+  function countWords(el) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), node, words = 0;
+    while ((node = walker.nextNode())) {
+      var parent = node.parentElement;
+      if (!parent || parent.closest('script, style, .tr-rail, .tr-more')) continue;
+      if (parent.closest('.katex')) continue;
+      var text = node.nodeValue;
+      var formulas = (text.match(/\$\$[\s\S]*?\$\$|\$[^$]+\$/g) || []).length;
+      text = text.replace(/\$\$[\s\S]*?\$\$|\$[^$]+\$/g, ' ');
+      words += (text.match(/\S+/g) || []).length + 3 * formulas;
+    }
+    return words + 3 * el.querySelectorAll('.katex').length;
+  }
+
+  var WPM = 180;
+  function minutes(words) { return Math.max(1, Math.round(words / WPM)); }
+
+  function buildSections(scope, heads) {
+    heads.forEach(function (h2) {
+      var head = h2.closest('.section-header') || h2;
+      if (!scope.contains(head)) head = h2;
+      var items = bodyOf(head, heads);
+      if (!items.length) return;
+      var toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'tr-sec-toggle';
+      toggle.appendChild(chevron());
+      var sec = { h2: h2, head: head, items: items, toggle: toggle, open: true, title: headingText(h2),
+        words: countWords(head) + items.reduce(function (n, el) { return n + countWords(el); }, 0) };
+      head.classList.add('tr-sec-head');
+      head.appendChild(toggle);
+      head.addEventListener('click', function (event) {
+        if (event.target.closest('a, input, select, textarea') ||
+            (event.target.closest('button') && event.target.closest('button') !== toggle)) return;
+        if (String(window.getSelection && window.getSelection()) !== '') return;
+        setSection(sec, !sec.open);
+        update();
+      });
+      sections.push(sec);
+    });
+    if (sections.length < 2) {   // nothing worth folding: undo
+      sections.forEach(function (sec) { sec.head.classList.remove('tr-sec-head'); sec.toggle.remove(); });
+      sections = [];
+      return;
+    }
+    sections.forEach(function (sec) { setSection(sec, false); });
+
+    var total = sections.reduce(function (n, s) { return n + s.words; }, 0);
+    var bar = document.createElement('div');
+    bar.className = 'tr-secbar';
+    var info = document.createElement('span');
+    info.className = 'tr-secbar__info';
+    info.textContent = sections.length + ' sections · about ' + minutes(total) + ' min of reading';
+    bar.appendChild(info);
+    [['Open all', true], ['Fold all', false]].forEach(function (pair) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tr-secbar__btn';
+      b.textContent = pair[0];
+      b.addEventListener('click', function () {
+        sections.forEach(function (sec) { setSection(sec, pair[1]); });
+        update();
+      });
+      bar.appendChild(b);
+    });
+    sections[0].head.parentNode.insertBefore(bar, sections[0].head);
+
+    // a link to anything inside a folded section (side menu, #hash, citations) opens that section first
+    function openHash() {
+      var id = decodeURIComponent(location.hash.slice(1));
+      var target = id && document.getElementById(id);
+      if (target) { openSectionOf(target); update(); }
+    }
+    document.addEventListener('click', function (event) {
+      var a = event.target.closest && event.target.closest('a[href*="#"]');
+      if (!a || a.pathname !== location.pathname) return;
+      var target = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+      if (target) openSectionOf(target);
+    }, true);
+    window.addEventListener('hashchange', openHash);
+    if (location.hash) {
+      openHash();
+      var t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (t) requestAnimationFrame(function () { place(t); });
+    }
+  }
+
+  /* --------------------------------------------------------------- progress */
+  var progress = null;
+  function sectionIndexOf(el) {
+    var found = -1;
+    sections.forEach(function (sec, i) {
+      if (sec.h2.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING || sec.h2 === el) found = i;
+    });
+    return found;
+  }
+
+  function updateProgress(markIndex) {
+    if (!progress || !sections.length) return;
+    var i = markIndex >= 0 ? sectionIndexOf(marks[markIndex].target) : -1;
+    var left = sections.slice(Math.max(0, i)).reduce(function (n, s) { return n + s.words; }, 0);
+    progress.textContent = (i < 0 ? sections.length + ' sections' : (i + 1) + ' / ' + sections.length) +
+      ' \u00b7 ~' + minutes(left) + ' min';
+    progress.title = i < 0
+      ? sections.length + ' sections, about ' + minutes(left) + ' min of reading'
+      : 'Section ' + (i + 1) + ' of ' + sections.length + ', about ' + minutes(left) + ' min left';
+  }
+
+  /* ---------------------------------------------------------- figure layout */
+  /* On a wide screen a narrow figure followed by text floats to the right of that text, like a slide
+     with the picture beside the words (CSS, at least 1100 px). */
+  function mediaWidth(card) {
+    var media = card.querySelector('img, svg');
+    if (!media) return 0;
+    var w = 0;
+    var mw = /max-width:\s*(?:min\(100%,\s*)?(\d+)px/.exec(media.getAttribute('style') || '');
+    if (mw) w = +mw[1];
+    if (!w && media.tagName.toLowerCase() === 'svg') {
+      var vb = (media.getAttribute('viewBox') || '').split(/[\s,]+/);
+      w = +media.getAttribute('width') || +vb[2] || 0;
+    }
+    if (!w && media.naturalWidth) w = media.naturalWidth;
+    return w;
+  }
+
+  function sideFigures(scope) {
+    [].forEach.call(scope.querySelectorAll('.diagram-card, .diagram-container, figure.fig'), function (card) {
+      if (card.closest('.callout, .derivation-box, table, .tr-side') || card.classList.contains('pair')) return;
+      if (card.querySelectorAll('img, svg').length !== 1) return;
+      var w = mediaWidth(card);
+      if (!w || w > 620) return;
+      var next = card.nextElementSibling, prev = card.previousElementSibling;
+      var textAfter = next && next.matches('p, ul, ol');
+      if (!textAfter) {
+        // the paragraph that introduces the figure comes first: the figure goes up beside it
+        if (!prev || !prev.matches('p') || prev.classList.contains('tr-side') || countWords(prev) < 30) return;
+        prev.parentNode.insertBefore(card, prev);
+      }
+      card.classList.add('tr-side');
+      card.style.setProperty('--tr-fig-w', Math.max(280, w + 40) + 'px');
+      card.parentElement.classList.add('tr-side-host');
+    });
   }
 
   function buildRail() {
@@ -314,6 +542,12 @@
       mark.button = button;
       mark.index = i;
     });
+    if (sections.length) {
+      progress = document.createElement('p');
+      progress.className = 'tr-progress';
+      progress.setAttribute('aria-live', 'off');
+      nav.insertBefore(progress, list);
+    }
     document.body.appendChild(nav);
     document.documentElement.classList.add('tr-has-rail');
     var queued = false;
@@ -339,7 +573,12 @@
     [].forEach.call(scope.querySelectorAll('.callout-title, .note-title'), function (title) {
       if (META_TITLE_RE.test(title.textContent.trim())) foldCallout(title);
     });
+    [].forEach.call(scope.querySelectorAll('.derivation-box'), foldDerivation);
+    sideFigures(scope);
     marks = collect(scope);
+    var heads = marks.filter(function (m) { return m.level === 2; }).map(function (m) { return m.target; });
+    if (heads.length < 2) heads = collect(scope).filter(function (m) { return m.level === 2; }).map(function (m) { return m.target; });
+    buildSections(scope, heads);
     if (marks.length >= MIN_MARKS) buildRail();
   }
 

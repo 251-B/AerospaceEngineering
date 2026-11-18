@@ -25,6 +25,9 @@ html.tr-on[data-theme="light"] {
   html.tr-wide:not([data-theme="print"]) {
     --tr-gutter: 64px;
   }
+  @media (min-width: 1100px) {
+    html.tr-wide.tr-has-rail:not([data-theme="print"]) { --tr-gutter: 104px; }
+  }
   html.tr-wide:not([data-theme="print"]) body main,
   html.tr-wide:not([data-theme="print"]) body main > .container,
   html.tr-wide:not([data-theme="print"]) body > .container,
@@ -89,6 +92,96 @@ html.tr-on[data-theme="light"] {
   html.tr-on:not([data-theme="print"]) .tr-folded > :not(.tr-folded-title) { display: none !important; }
   html.tr-on:not([data-theme="print"]) .tr-folded > .tr-folded-title { margin-bottom: 0 !important; }
   html.tr-on:not([data-theme="print"]) .tr-folded-title .tr-more { margin-left: 8px; text-transform: none; letter-spacing: normal; font-weight: 400; }
+
+  /* ---- Reading measure: running text keeps about 75 characters a line; figures, tables,
+     formulas and derivations use the full width. ---- */
+  html.tr-wide:not([data-theme="print"]) body main :is(p, ul, ol):not(table *, .tr-progress) { max-width: 76ch; }
+  html.tr-wide:not([data-theme="print"]) body main :is(.callout, .callout-box, .note-box, .derivation-box) :is(p, ul, ol) { max-width: none; }
+  html.tr-wide:not([data-theme="print"]) body main :is(.callout, .callout-box, .note-box):not(.tr-folded) { max-width: calc(76ch + 64px); }
+
+  /* ---- Figure beside the text (wide screens) ---- */
+  html.tr-wide:not([data-theme="print"]) .tr-side-host { display: flow-root; }
+  @media (min-width: 1100px) {
+    html.tr-wide:not([data-theme="print"]) body main .tr-side {
+      float: right;
+      clear: right;
+      width: min(46%, var(--tr-fig-w, 520px));
+      margin: 4px 0 18px 32px !important;
+    }
+    html.tr-wide:not([data-theme="print"]) .tr-side ~ :not(p, ul, ol, .tr-side, br) { clear: both; }
+  }
+
+  /* ---- Derivation boxes: title, boxed result and meaning; the steps open on demand ---- */
+  html.tr-on:not([data-theme="print"]) .tr-dfolded :is(.derivation-steps, .derivation-units, .derivation-law, .derivation-source) {
+    display: none !important;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-dbox > .derivation-head { position: relative; }
+  html.tr-on:not([data-theme="print"]) .tr-dbtn { margin: 6px 0 0; align-self: flex-start; }
+
+  /* ---- Sections in accordion ---- */
+  html.tr-on:not([data-theme="print"]) .tr-hidden { display: none !important; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-head { cursor: pointer; position: relative; padding-right: 48px; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-head.tr-sec-closed { margin-top: 10px !important; margin-bottom: 0 !important; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-host-closed { margin-top: 0 !important; margin-bottom: 14px !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+  html.tr-on:not([data-theme="print"]) :is(h2, h3)[tabindex="-1"]:focus { outline: none; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--tr-border);
+    border-radius: 50%;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    cursor: pointer;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.15s ease; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle:hover { border-color: var(--accent, currentColor); }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle:focus-visible,
+  html.tr-on:not([data-theme="print"]) .tr-secbar__btn:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+  html.tr-on:not([data-theme="print"]) .tr-secbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 0 0 16px;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-secbar__info { margin-right: auto; color: var(--tr-muted); font-size: 0.9em; }
+  html.tr-on:not([data-theme="print"]) .tr-secbar__btn {
+    padding: 5px 14px;
+    border: 1px solid var(--tr-border);
+    border-radius: 999px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font: inherit;
+    font-size: 0.85em;
+    cursor: pointer;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-secbar__btn:hover { border-color: var(--accent, currentColor); }
+
+  /* ---- Progress line above the rail ---- */
+  .tr-progress {
+    position: absolute;
+    right: 4px;
+    bottom: 100%;
+    margin: 0 0 8px;
+    padding: 4px 10px;
+    border: 1px solid var(--tr-border);
+    border-radius: 999px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font-size: 12px;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
 
   /* ---- Section rail ---- */
   .tr-rail {
@@ -178,11 +271,12 @@ html.tr-on[data-theme="light"] {
     .tr-bar[aria-current] .tr-bar__line { width: 18px; }
     .tr-bar--h3[aria-current] .tr-bar__line { width: 12px; }
     .tr-bar__tip { right: 26px; }
+    .tr-progress { display: none; }
   }
 }
 
 @media print {
-  .tr-rail, .tr-more { display: none !important; }
+  .tr-rail, .tr-more, .tr-sec-toggle, .tr-secbar { display: none !important; }
   .tr-fold { display: inline !important; }
   .tr-fold--block { display: block !important; }
 }

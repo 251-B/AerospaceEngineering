@@ -34,10 +34,11 @@ class TheoryReaderStaticTests(unittest.TestCase):
     def test_hiding_and_folding_are_screen_only(self):
         css = CSS.read_text(encoding="utf-8")
         screen = css.index("@media screen")
-        for rule in (".tr-cite { display: none", ".tr-fold { display: none", ".tr-folded > :not(.tr-folded-title)"):
+        for rule in (".tr-cite { display: none", ".tr-fold { display: none", ".tr-folded > :not(.tr-folded-title)",
+                     ".tr-hidden { display: none", ".tr-dfolded :is(.derivation-steps"):
             self.assertGreater(css.index(rule), screen, rule)
         printing = css[css.index("@media print"):]
-        self.assertIn(".tr-rail, .tr-more { display: none !important; }", printing)
+        self.assertIn(".tr-rail, .tr-more, .tr-sec-toggle, .tr-secbar { display: none !important; }", printing)
         self.assertIn(".tr-fold { display: inline !important; }", printing)
         for line in css[screen:css.index("@media print")].splitlines():
             if line.strip().startswith("html."):
