@@ -138,7 +138,7 @@ En orden de prioridad aproximado:
 3. **Títulos del inicio de sesión.** "Find your star." y "Claim your star." ya no encajan, porque se quitó la estrella marcada. Proponer al usuario textos ligados a la galaxia.
 4. **Más gráficas o funciones en My study** que se mencionaron:
    - ~~objetivo semanal de horas~~ **hecho**: `prefs.weeklyGoal` (0 = sin objetivo, 1 a 40 h), deslizador en Settings → Study y anillo de progreso en "This week" de My study;
-   - "practicar mis falladas" en el simulador;
+   - ~~"practicar mis falladas"~~ **hecho**: cada tarjeta del simulador en My study abre la lista de ítems aún fallados (último intento de cada ítem por debajo de la mitad; si se acierta después, sale de la lista), con enlace directo a cada ítem. El banco de la asignatura (`subjects/<slug>/data/problems.js`, hasta 2,3 MB) se carga solo al abrir la lista. También se arregló el estado vacío de "Upcoming exams";
    - puntos débiles por unidad o concepto. El banco de Materials tiene `concept_id` en cada pregunta, pero el historial del simulador solo guarda el id del ítem, así que hay que cruzarlo con `problems.js`.
 5. **Idea propuesta y no hecha:** "tu cielo crece", una estrella o constelación personal que crece con los días estudiados o los temas terminados.
 6. **Detalles menores:**

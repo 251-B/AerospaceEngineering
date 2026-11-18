@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-practise-mistakes",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "My study lists the simulator questions you still get wrong",
+    "text": "Each simulator card in My study opens the list of questions you missed and have not got right since, with a link straight to each one.",
+    "link": "account/dashboard.html"
+  },
+  {
     "id": "2026-11-18-weekly-goal",
     "date": "2026-11-18",
     "tag": "Portal",

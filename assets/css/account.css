@@ -1683,3 +1683,49 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 .acc-goal__text span { font: 500 0.8rem/1.3 var(--font-sans); color: var(--acc-text-2); }
 .acc-goal__set { font: 600 0.84rem/1.3 var(--font-sans); }
 
+/* ---- My study: mistakes to practise ------------------------------------------------------------- */
+.acc-sim__review {
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  color: var(--acc-accent);
+  font: 600 0.8rem/1.3 var(--font-sans);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.acc-sim__review[aria-expanded="true"] { text-decoration: none; }
+.acc-sim__review::after { content: " \25BE"; }
+.acc-sim__review[aria-expanded="true"]::after { content: " \25B4"; }
+.acc-sim__review:focus-visible { outline: 2px solid var(--acc-accent); outline-offset: 2px; }
+.acc-sim__list { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--study-border); }
+.acc-sim__loading, .acc-sim__more { margin: 6px 0; font: 500 0.78rem/1.3 var(--font-mono); color: var(--acc-text-2); }
+.acc-mistakes { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; counter-reset: mk; }
+.acc-mistakes a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--study-border);
+  border-left: 3px solid var(--dot);
+  background: var(--study-surface);
+  color: var(--acc-text) !important;
+  text-decoration: none;
+}
+.acc-mistakes a:hover { border-color: var(--dot); }
+.acc-mistakes__id { font: 600 0.66rem/1.2 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--acc-text-2); }
+.acc-mistakes__title {
+  font: 600 0.84rem/1.3 var(--font-sans);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.acc-sim__practise { margin-top: 10px; width: 100%; height: 38px; font-size: 0.82rem; }
+
+/* empty states inside the lists keep plain text flow */
+.acc-exams li.acc-empty, .acc-continue li.acc-empty { display: block; padding: 0; border: 0; background: none; }
+.acc-sim__links { flex-wrap: wrap; row-gap: 6px; }
+.acc-sim__links > a, .acc-sim__links > button, .acc-sim__links > span { white-space: nowrap; }
+

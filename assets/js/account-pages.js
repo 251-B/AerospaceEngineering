@@ -762,7 +762,8 @@
       any = true;
       var grades = hist.map(function (h) { return h.total / h.max * 10; });
       var last = hist[hist.length - 1];
-      var review = (last.items || []).filter(function (it) { return it.score < it.points / 2; }).length;
+      var mistakes = openMistakes(hist);
+      var review = mistakes.length;
       var avg = grades.reduce(function (a, b) { return a + b; }, 0) / grades.length;
       var best = Math.max.apply(null, grades);
       var card = document.createElement('article');
@@ -774,8 +775,10 @@
         '<dl class="acc-sim__facts"><div><dt>Attempts</dt><dd>' + hist.length + '</dd></div><div><dt>Average</dt><dd>' + avg.toFixed(1) +
         '</dd></div><div><dt>Best</dt><dd>' + best.toFixed(1) + '</dd></div></dl>' +
         '<div class="acc-sim__links"><a href="../subjects/' + s.id + '/simulator/index.html">New simulation</a>' +
-        (review ? '<a href="../subjects/' + s.id + '/extra-problems/index.html">' + review + (review === 1 ? ' item' : ' items') + ' to review</a>' : '<span>Nothing to review</span>') + '</div>';
+        (review ? '<button type="button" class="acc-sim__review" aria-expanded="false">' + review + (review === 1 ? ' mistake' : ' mistakes') + ' to practise</button>' : '<span>Nothing to review</span>') + '</div>' +
+        (review ? '<div class="acc-sim__list" hidden></div>' : '');
       sims.appendChild(card);
+      if (review) wireMistakes(card, s, mistakes);
     });
     if (!any) {
       sims.innerHTML = '<p class="acc-empty">No simulations yet. Try one: ' + subjects.filter(function (s) { return SIM_KEYS[s.id]; })
@@ -834,6 +837,73 @@
     });
     renderMarks(byId);
     window.addEventListener('storage', function (e) { if (e.key === 'ae_marks') renderMarks(byId); });
+  }
+
+  // ---- "Practise my mistakes" -----------------------------------------------------------------
+  // An item is still open when its latest attempt in any simulation scored below half of its
+  // points (a wrong or blank test question, a problem below half). Getting it right later closes it.
+  var BANKS = { 'business-management': 'AE_BM_BANK', 'aerospace-materials-1': 'AE_MAT_BANK', 'advanced-maths': 'AE_AM_BANK', 'engineering-mechanics': 'AE_EM_BANK' };
+  var bankLoads = {};
+
+  function openMistakes(hist) {
+    var latest = {};
+    hist.slice().sort(function (a, b) { return (a.finishedAt || 0) - (b.finishedAt || 0); }).forEach(function (h) {
+      (h.items || []).forEach(function (it) { latest[it.id] = { low: it.score < it.points / 2, at: h.finishedAt || 0 }; });
+    });
+    return Object.keys(latest).filter(function (id) { return latest[id].low; })
+      .sort(function (a, b) { return latest[b].at - latest[a].at; });
+  }
+
+  // The subject's bank (titles, units, pages) is loaded only when the list is opened.
+  function loadBank(slug) {
+    if (!bankLoads[slug]) {
+      bankLoads[slug] = new Promise(function (resolve) {
+        if (window[BANKS[slug]]) { resolve(window[BANKS[slug]]); return; }
+        var tag = document.createElement('script');
+        tag.src = '../subjects/' + slug + '/data/problems.js';
+        tag.onload = function () { resolve(window[BANKS[slug]] || null); };
+        tag.onerror = function () { resolve(null); };
+        document.head.appendChild(tag);
+      });
+    }
+    return bankLoads[slug];
+  }
+
+  function mistakeHref(slug, bank, item, id) {
+    var pages = (bank && bank.pages) || {};
+    var page = (item && pages[item.category]) ||
+      (item && item.category === 'short_theory_case' ? 'midterm-1-theory.html' : 'midterm-1-problems.html');
+    return '../subjects/' + slug + '/extra-problems/' + page + '#' + encodeURIComponent(id);
+  }
+
+  function wireMistakes(card, subject, ids) {
+    var btn = card.querySelector('.acc-sim__review');
+    var box = card.querySelector('.acc-sim__list');
+    var listId = 'mistakes-' + subject.id;
+    box.id = listId;
+    btn.setAttribute('aria-controls', listId);
+    var filled = false;
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', String(open));
+      box.hidden = !open;
+      if (!open || filled) return;
+      box.innerHTML = '<p class="acc-sim__loading">Loading your mistakes...</p>';
+      loadBank(subject.id).then(function (bank) {
+        filled = true;
+        var byId = {};
+        ((bank && bank.items) || []).forEach(function (it) { byId[it.id] = it; });
+        var shown = ids.slice(0, 12);
+        box.innerHTML = '<ol class="acc-mistakes">' + shown.map(function (id) {
+          var it = byId[id];
+          return '<li><a href="' + esc(mistakeHref(subject.id, bank, it, id)) + '">' +
+            '<span class="acc-mistakes__id">' + esc(id) + (it && it.unit ? ' &middot; Unit ' + esc(it.unit) : '') + '</span>' +
+            '<span class="acc-mistakes__title">' + esc(it ? it.title : 'Item ' + id) + '</span></a></li>';
+        }).join('') + '</ol>' +
+          (ids.length > shown.length ? '<p class="acc-sim__more">and ' + (ids.length - shown.length) + ' more</p>' : '') +
+          '<a class="acc-btn acc-btn--ghost acc-sim__practise" href="../subjects/' + subject.id + '/simulator/index.html">Start a new simulation</a>';
+      });
+    });
   }
 
   // Weekly goal: a ring with the share of the goal reached in the last 7 days.
