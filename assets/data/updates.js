@@ -14,6 +14,7 @@
  *   link  optional, path from the repository root to an existing page (never laboratory material)
  */
 window.AE_UPDATES = [
+  {"id": "2026-11-18-menu-your-subjects", "date": "2026-11-18", "tag": "Portal", "title": "The side menu puts your subjects first", "text": "When you are signed in, the side menu lists the subjects you chose first, your main one on top, and keeps the others under Other subjects."},
   {
     "id": "2026-11-18-favourites-and-notes",
     "date": "2026-11-18",

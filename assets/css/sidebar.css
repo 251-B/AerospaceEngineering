@@ -122,3 +122,8 @@ html[data-theme="light"] .ae-nav__mark .sideris-fill { fill: #9a6e17; }
 @media print {
   .ae-nav-btn, .ae-nav, .ae-nav-backdrop { display: none !important; }
 }
+
+/* "Other subjects": the subjects a signed-in visitor did not choose. */
+.ae-nav__group--others { margin-top: 10px; border-top: 1px solid color-mix(in srgb, var(--nav-muted) 30%, transparent); padding-top: 6px; }
+.ae-nav__group--others > .ae-nav__toggle { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--nav-muted); }
+.ae-nav__group--others > .ae-nav__body { margin-left: 4px; }

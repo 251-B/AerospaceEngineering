@@ -157,6 +157,54 @@
     return item;
   }
 
+  // The signed-in account's subjects, primary first, from window.AEAccount (account.js, loaded
+  // after this script, owns that storage). Empty when nobody is signed in or none was chosen.
+  function mySubjects() {
+    try {
+      var user = window.AEAccount && window.AEAccount.current();
+      var prefs = user && user.prefs;
+      if (!prefs || !Array.isArray(prefs.subjects)) return [];
+      var list = prefs.subjects.slice();
+      var p = list.indexOf(prefs.primary);
+      if (p > 0) { list.splice(p, 1); list.unshift(prefs.primary); }
+      return list;
+    } catch (e) { return []; }
+  }
+
+  // Puts the visitor's subjects first and moves the rest into an "Other subjects" group (open when
+  // the current page belongs to one of them). Moves the existing nodes, so the current page's
+  // sections stay where they are. Run on every opening: the account can change between openings.
+  var appliedOrder = null;
+  function applySubjectOrder() {
+    var mine = mySubjects();
+    var sig = mine.join(',');
+    if (!ui.tree || sig === appliedOrder) return;
+    appliedOrder = sig;
+    var tree = ui.tree;
+    var groups = {};
+    Array.prototype.forEach.call(tree.querySelectorAll('.ae-nav__group--subject[data-slug]'), function (g) { groups[g.getAttribute('data-slug')] = g; });
+    var old = tree.querySelector('.ae-nav__group--others');
+    var ordered = nav.subjects.map(function (s) { return s.slug; });
+    ordered.sort(function (a, b) {
+      var ia = mine.indexOf(a), ib = mine.indexOf(b);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    });
+    var rest = mine.length ? ordered.filter(function (s) { return mine.indexOf(s) < 0; }) : [];
+    var others = null;
+    if (rest.length) {
+      var inRest = rest.some(function (s) { return HERE.indexOf('/subjects/' + s + '/') >= 0; });
+      others = old || group('others', 'Other subjects', 'ae-nav__group--others', { forceOpen: inRest });
+    }
+    ordered.forEach(function (slug) {
+      var g = groups[slug];
+      if (!g) return;
+      if (others && rest.indexOf(slug) >= 0) others.aeBody.appendChild(g);
+      else tree.appendChild(g);
+    });
+    if (others) tree.appendChild(others);
+    else if (old) old.remove();
+  }
+
   function buildTree() {
     var tree = el('nav', 'ae-nav__tree');
     tree.setAttribute('aria-label', 'Portal');
@@ -175,6 +223,7 @@
         g.aeBody.appendChild(ag);
       });
       (subject.extras || []).forEach(function (x) { g.aeBody.appendChild(link(x.href, x.label, 'ae-nav__link--extra')); });
+      g.setAttribute('data-slug', subject.slug);
       tree.appendChild(g);
     });
     return tree;
@@ -276,6 +325,7 @@
     ['AEPomodoro', 'AEFocusLab', 'AEUpdates'].forEach(function (name) {
       if (window[name] && typeof window[name].close === 'function') window[name].close();
     });
+    applySubjectOrder();
     ui.drawer.hidden = false;
     ui.backdrop.hidden = false;
     void ui.drawer.offsetWidth;   // lets the slide-in start from its closed position
