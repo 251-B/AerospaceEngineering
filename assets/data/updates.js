@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-my-study-panel",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "My study: your exams, study time and where you left off",
+    "text": "Signed-in students get a personal panel with exam countdowns, minutes studied per subject this week, the last page of each subject and their simulator grades.",
+    "link": "account/dashboard.html"
+  },
+  {
     "id": "2026-11-18-planet-study-tools",
     "date": "2026-11-18",
     "tag": "Portal",

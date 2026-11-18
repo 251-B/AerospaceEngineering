@@ -589,12 +589,287 @@
     }
   }
 
+  // ---- My study (account/dashboard.html) ------------------------------------------------------
+  // Subject colours for the marks of the charts (validated for colour-vision deficiency on the
+  // dark and the light card); text never takes them.
+  var MARK = {
+    dark: { 'fluid-mechanics': '#0891b2', 'aerospace-materials-1': '#d97706', 'engineering-mechanics': '#059669', 'advanced-maths': '#8b5cf6', 'business-management': '#ef4444' },
+    light: { 'fluid-mechanics': '#0891b2', 'aerospace-materials-1': '#d97706', 'engineering-mechanics': '#059669', 'advanced-maths': '#7c3aed', 'business-management': '#dc2626' }
+  };
+  var SIM_KEYS = { 'business-management': 'ae_bm_exams', 'aerospace-materials-1': 'ae_mat_exams', 'advanced-maths': 'ae_am_exams', 'engineering-mechanics': 'ae_em_exams' };
+
+  function markColour(id) {
+    return MARK[document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'][id];
+  }
+
+  function duration(sec) {
+    var min = Math.round(sec / 60);
+    if (min < 60) return min + ' min';
+    var h = Math.floor(min / 60), m = min % 60;
+    return h + ' h' + (m ? ' ' + m + ' min' : '');
+  }
+
+  function ago(ms) {
+    var min = Math.round((Date.now() - ms) / 60000);
+    if (min < 1) return 'just now';
+    if (min < 60) return min + ' min ago';
+    var h = Math.round(min / 60);
+    if (h < 24) return h + ' h ago';
+    var d = Math.round(h / 24);
+    return d === 1 ? 'yesterday' : d + ' days ago';
+  }
+
+  function readStore(key) {
+    try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { return null; }
+  }
+
+  function lastDays(n) {
+    var out = [];
+    for (var i = n - 1; i >= 0; i--) {
+      var d = new Date();
+      d.setHours(12, 0, 0, 0);
+      d.setDate(d.getDate() - i);
+      out.push(d);
+    }
+    return out;
+  }
+
+  function initDashboard() {
+    var user = AEAccount.current();
+    if (!user) { $('#studyGate').hidden = false; return; }
+    $('#studyApp').hidden = false;
+    var prefs = user.prefs;
+    var subjects = AEAccount.SUBJECTS.slice().sort(function (a, b) {
+      var ia = prefs.subjects.indexOf(a.id), ib = prefs.subjects.indexOf(b.id);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    });
+    var byId = {};
+    AEAccount.SUBJECTS.forEach(function (s) { byId[s.id] = s; });
+    var log = AEAccount.studyLog();
+    var days = lastDays(7);
+    var week = days.map(function (d) { return log.days[AEAccount.dayKey(d)] || {}; });
+    var weekTotal = week.reduce(function (sum, day) {
+      return sum + Object.keys(day).reduce(function (s, k) { return s + day[k]; }, 0);
+    }, 0);
+
+    // streak: consecutive days with at least 10 minutes, ending today (or yesterday)
+    var streak = 0;
+    for (var i = 0; i < 70; i++) {
+      var d = new Date(); d.setDate(d.getDate() - i);
+      var rec = log.days[AEAccount.dayKey(d)] || {};
+      var sec = Object.keys(rec).reduce(function (s, k) { return s + rec[k]; }, 0);
+      if (sec >= 600) streak++;
+      else if (i > 0) break;
+    }
+
+    // hero
+    var now = new Date();
+    var hour = now.getHours();
+    var greet = hour < 6 ? 'Good night' : hour < 12 ? 'Good morning' : hour < 20 ? 'Good afternoon' : 'Good evening';
+    $('#studyDate').textContent = now.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+    $('#studyTitle').textContent = greet + ', ' + user.name.split(' ')[0] + '.';
+    var next = AEAccount.nextExam(prefs);
+    $('#studyLine').textContent = next
+      ? AEAccount.examPhrase(next) + '. ' + (weekTotal ? 'Keep the rhythm.' : 'A good week to start.')
+      : 'Add your exam dates and the countdowns appear here.';
+    $('#statWeek').textContent = duration(weekTotal);
+    $('#statStreak').textContent = streak + (streak === 1 ? ' day' : ' days');
+    $('#statNext').textContent = next ? (next.days === 0 ? 'Today' : next.days + (next.days === 1 ? ' day' : ' days')) : '-';
+    $('#statNextLabel').textContent = next ? 'to ' + next.subject.short + ' ' + next.kind : 'next exam';
+
+    // continue where you left off
+    var recent = AEAccount.recentPages();
+    var list = $('#continueList');
+    var rows = Object.keys(recent).filter(function (k) { return byId[k] && recent[k].path; })
+      .sort(function (a, b) { return recent[b].at - recent[a].at; });
+    if (!rows.length) {
+      list.innerHTML = '<li class="acc-empty">Open a theory or problem page and it will wait for you here.</li>';
+    } else {
+      rows.forEach(function (k) {
+        var r = recent[k], s = byId[k];
+        var li = document.createElement('li');
+        li.innerHTML = '<a href="../' + esc(r.path) + '" style="--dot:' + s.accent + '">' +
+          '<span class="acc-continue__dot" aria-hidden="true"></span>' +
+          '<span class="acc-continue__body"><span class="acc-continue__meta">' + esc(s.short) + (r.area ? ' &middot; ' + esc(r.area) : '') + '</span>' +
+          '<span class="acc-continue__title">' + esc(r.title || s.name) + '</span></span>' +
+          '<span class="acc-continue__ago">' + esc(ago(r.at)) + '</span>' +
+          '<svg class="acc-continue__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>';
+        list.appendChild(li);
+      });
+    }
+
+    // upcoming exams
+    var exams = [];
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    prefs.subjects.forEach(function (id) {
+      var e = prefs.exams[id] || {};
+      [['midterm', 'Midterm'], ['final', 'Final exam']].forEach(function (kind) {
+        if (!e[kind[0]]) return;
+        var p = e[kind[0]].split('-');
+        var date = new Date(+p[0], +p[1] - 1, +p[2]);
+        var left = Math.round((date - today) / 86400000);
+        if (left >= 0) exams.push({ s: byId[id], kind: kind[1], date: date, left: left });
+      });
+    });
+    exams.sort(function (a, b) { return a.left - b.left; });
+    var examList = $('#examList');
+    if (!exams.length) {
+      examList.innerHTML = '<li class="acc-empty">No dates yet. <a href="settings.html#subjects">Add your exams</a> and they count down here.</li>';
+    } else {
+      exams.slice(0, 6).forEach(function (x) {
+        var li = document.createElement('li');
+        li.className = x.left <= 7 ? 'is-soon' : '';
+        li.style.setProperty('--dot', x.s.accent);
+        li.innerHTML = '<span class="acc-exams__days"><strong>' + (x.left === 0 ? 'Today' : x.left) + '</strong>' +
+          (x.left === 0 ? '' : '<span>' + (x.left === 1 ? 'day' : 'days') + '</span>') + '</span>' +
+          '<span class="acc-exams__body"><span class="acc-exams__name">' + esc(x.s.name) + '</span>' +
+          '<span class="acc-exams__meta">' + esc(x.kind) + ' &middot; ' + esc(x.date.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })) + '</span></span>';
+        examList.appendChild(li);
+      });
+    }
+
+    // this week: stacked bars, one per day, one segment per subject
+    var used = subjects.filter(function (s) { return week.some(function (day) { return day[s.id]; }); });
+    var chartSubjects = used.length ? used : subjects.filter(function (s) { return prefs.subjects.indexOf(s.id) !== -1; });
+    $('#weekTotal').textContent = weekTotal ? duration(weekTotal) + ' in the last 7 days' : 'No study time yet';
+    renderWeek(days, week, chartSubjects);
+    var resizeTimer = 0;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { renderWeek(days, week, chartSubjects); }, 150);
+    });
+
+    // exam simulator
+    var sims = $('#simList');
+    var any = false;
+    subjects.forEach(function (s) {
+      var key = SIM_KEYS[s.id];
+      if (!key) return;
+      var store = readStore(key);
+      var hist = store && Array.isArray(store.history) ? store.history.filter(function (h) { return h.max > 0; }) : [];
+      if (!hist.length) return;
+      any = true;
+      var grades = hist.map(function (h) { return h.total / h.max * 10; });
+      var last = hist[hist.length - 1];
+      var review = (last.items || []).filter(function (it) { return it.score < it.points / 2; }).length;
+      var avg = grades.reduce(function (a, b) { return a + b; }, 0) / grades.length;
+      var best = Math.max.apply(null, grades);
+      var card = document.createElement('article');
+      card.className = 'acc-sim';
+      card.style.setProperty('--dot', s.accent);
+      card.innerHTML = '<header><span class="acc-continue__dot" aria-hidden="true"></span><h3>' + esc(s.name) + '</h3></header>' +
+        '<div class="acc-sim__main"><div class="acc-sim__grade"><strong>' + grades[grades.length - 1].toFixed(1) + '</strong><span>/ 10 last</span></div>' +
+        spark(grades.slice(-10), markColour(s.id)) + '</div>' +
+        '<dl class="acc-sim__facts"><div><dt>Attempts</dt><dd>' + hist.length + '</dd></div><div><dt>Average</dt><dd>' + avg.toFixed(1) +
+        '</dd></div><div><dt>Best</dt><dd>' + best.toFixed(1) + '</dd></div></dl>' +
+        '<div class="acc-sim__links"><a href="../subjects/' + s.id + '/simulator/index.html">New simulation</a>' +
+        (review ? '<a href="../subjects/' + s.id + '/extra-problems/index.html">' + review + (review === 1 ? ' item' : ' items') + ' to review</a>' : '<span>Nothing to review</span>') + '</div>';
+      sims.appendChild(card);
+    });
+    if (!any) {
+      sims.innerHTML = '<p class="acc-empty">No simulations yet. Try one: ' + subjects.filter(function (s) { return SIM_KEYS[s.id]; })
+        .map(function (s) { return '<a href="../subjects/' + s.id + '/simulator/index.html">' + esc(s.short) + '</a>'; }).join(' &middot; ') + '.</p>';
+    }
+  }
+
+  function spark(values, colour) {
+    if (values.length < 2) return '<span class="acc-sim__spark acc-sim__spark--empty">One attempt so far</span>';
+    var w = 140, h = 44, pad = 5;
+    var pts = values.map(function (v, i) {
+      return [pad + i * (w - 2 * pad) / (values.length - 1), h - pad - v / 10 * (h - 2 * pad)];
+    });
+    var line = pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
+    var lastPt = pts[pts.length - 1];
+    return '<svg class="acc-sim__spark" viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="Last ' + values.length + ' grades: ' +
+      values.map(function (v) { return v.toFixed(1); }).join(', ') + '">' +
+      '<line x1="' + pad + '" y1="' + (h / 2) + '" x2="' + (w - pad) + '" y2="' + (h / 2) + '" class="acc-sim__mid"/>' +
+      '<polyline points="' + line + '" fill="none" stroke="' + colour + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<circle cx="' + lastPt[0].toFixed(1) + '" cy="' + lastPt[1].toFixed(1) + '" r="4" fill="' + colour + '" class="acc-sim__end"/></svg>';
+  }
+
+  function renderWeek(days, week, subjects) {
+    var box = $('#weekChart');
+    var W = Math.max(300, Math.round(box.clientWidth || 700)), H = 230, left = 44, right = 8, top = 12, bottom = 30;
+    var totals = week.map(function (day) { return subjects.reduce(function (s, x) { return s + (day[x.id] || 0); }, 0) / 60; });
+    var maxMin = Math.max.apply(null, totals.concat([30]));
+    var step = maxMin <= 60 ? 15 : maxMin <= 180 ? 30 : maxMin <= 360 ? 60 : 120;
+    var yMax = Math.ceil(maxMin / step) * step;
+    var plotH = H - top - bottom, plotW = W - left - right;
+    var slot = plotW / days.length, barW = Math.min(46, slot * 0.56);
+    var y = function (m) { return top + plotH - m / yMax * plotH; };
+    var svg = ['<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Minutes studied per day in the last 7 days, by subject">'];
+    for (var g = 0; g <= yMax; g += step) {
+      svg.push('<line class="acc-week__grid" x1="' + left + '" x2="' + (W - right) + '" y1="' + y(g).toFixed(1) + '" y2="' + y(g).toFixed(1) + '"/>');
+      svg.push('<text class="acc-week__axis" x="' + (left - 8) + '" y="' + (y(g) + 4).toFixed(1) + '" text-anchor="end">' + (g < 60 ? g + 'm' : Math.floor(g / 60) + 'h' + (g % 60 ? (g % 60 < 10 ? '0' : '') + (g % 60) : '')) + '</text>');
+    }
+    days.forEach(function (d, i) {
+      var cx = left + slot * i + slot / 2;
+      var base = 0;
+      var segs = subjects.filter(function (s) { return week[i][s.id]; });
+      svg.push('<g class="acc-week__bar" data-i="' + i + '">');
+      svg.push('<rect class="acc-week__hit" x="' + (cx - slot / 2) + '" y="' + top + '" width="' + slot + '" height="' + plotH + '"/>');
+      segs.forEach(function (s, k) {
+        var m = week[i][s.id] / 60;
+        var y0 = y(base), y1 = y(base + m);
+        var hgt = Math.max(1, y0 - y1 - (k ? 2 : 0));   // 2 px surface gap between stacked segments
+        var isTop = k === segs.length - 1;
+        svg.push('<rect x="' + (cx - barW / 2).toFixed(1) + '" y="' + y1.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + hgt.toFixed(1) +
+          '" rx="' + (isTop ? 4 : 0) + '" fill="' + markColour(s.id) + '"/>');
+        if (isTop && hgt > 4) svg.push('<rect x="' + (cx - barW / 2).toFixed(1) + '" y="' + (y1 + 4).toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + (hgt - 4).toFixed(1) + '" fill="' + markColour(s.id) + '"/>');
+        base += m;
+      });
+      svg.push('</g>');
+      var label = i === days.length - 1 ? 'Today' : d.toLocaleDateString('en-GB', { weekday: 'short' });
+      svg.push('<text class="acc-week__axis' + (i === days.length - 1 ? ' is-today' : '') + '" x="' + cx.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle">' + label + '</text>');
+    });
+    svg.push('<line class="acc-week__base" x1="' + left + '" x2="' + (W - right) + '" y1="' + y(0) + '" y2="' + y(0) + '"/></svg>');
+    box.innerHTML = svg.join('');
+
+    // legend (identity is never colour alone: names beside the swatches, and a table view)
+    $('#weekLegend').innerHTML = subjects.map(function (s) {
+      return '<span><i style="background:' + markColour(s.id) + '"></i>' + esc(s.short) + '</span>';
+    }).join('');
+    var head = '<tr><th>Day</th>' + subjects.map(function (s) { return '<th>' + esc(s.short) + '</th>'; }).join('') + '<th>Total</th></tr>';
+    var body = days.map(function (d, i) {
+      return '<tr><td>' + esc(d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })) + '</td>' +
+        subjects.map(function (s) { return '<td>' + (week[i][s.id] ? Math.round(week[i][s.id] / 60) : 0) + '</td>'; }).join('') +
+        '<td>' + Math.round(totals[i]) + '</td></tr>';
+    }).join('');
+    $('#weekTable').innerHTML = '<table class="acc-table"><caption>Minutes per day</caption><thead>' + head + '</thead><tbody>' + body + '</tbody></table>';
+
+    // hover / focus tooltip per bar
+    var tip = $('#weekTip');
+    $$('.acc-week__bar', box).forEach(function (g) {
+      var i = +g.getAttribute('data-i');
+      g.setAttribute('tabindex', '0');
+      function show() {
+        var rows = subjects.filter(function (s) { return week[i][s.id]; }).map(function (s) {
+          return '<span><i style="background:' + markColour(s.id) + '"></i>' + esc(s.short) + '<b>' + duration(week[i][s.id]) + '</b></span>';
+        }).join('');
+        tip.innerHTML = '<strong>' + esc(days[i].toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short' })) + '</strong>' +
+          (rows || '<span>No study time</span>') + (totals[i] ? '<em>' + duration(totals[i] * 60) + ' in total</em>' : '');
+        tip.hidden = false;
+        var r = g.getBoundingClientRect();
+        var tw = tip.offsetWidth;
+        tip.style.left = Math.round(Math.max(8, Math.min(r.left + r.width / 2 - tw / 2, window.innerWidth - tw - 8))) + 'px';
+        tip.style.top = Math.round(r.top + window.scrollY + 4) + 'px';   // the CSS lifts it by its own height
+        g.classList.add('is-hover');
+      }
+      function hide() { tip.hidden = true; g.classList.remove('is-hover'); }
+      g.addEventListener('mouseenter', show);
+      g.addEventListener('focus', show);
+      g.addEventListener('mouseleave', hide);
+      g.addEventListener('blur', hide);
+    });
+  }
+
   function start() {
     if (!window.AEAccount || !window.AESurface) { setTimeout(start, 30); return; }
     var page = document.body.getAttribute('data-page');
     if (page === 'login') initLogin();
     else if (page === 'signup') initSignup();
     else if (page === 'settings') initSettings();
+    else if (page === 'dashboard') initDashboard();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);

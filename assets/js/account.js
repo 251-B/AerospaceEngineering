@@ -373,7 +373,11 @@
     ['ae_pomodoro', 'Study timer'],
     ['ae_focus_lab', 'Focus Lab settings'],
     ['ae_updates', 'What’s new read state'],
-    ['ae_nav', 'Side menu groups']
+    ['ae_nav', 'Side menu groups'],
+    ['ae_am_exams', 'Advanced Maths simulator history'],
+    ['ae_em_exams', 'Engineering Mechanics simulator history'],
+    ['ae_study_log', 'Study time per subject and day'],
+    ['ae_recent', 'Last page read in each subject']
   ];
 
   function deviceData() {
@@ -547,7 +551,7 @@
         head.appendChild(meta);
       }
       menu.appendChild(head);
-      [['Settings', 'settings.html'], ['Appearance', 'settings.html#appearance'], ['Subjects', 'settings.html#subjects']].forEach(function (item) {
+      [['My study', 'dashboard.html'], ['Settings', 'settings.html'], ['Appearance', 'settings.html#appearance']].forEach(function (item) {
         var a = el('a', 'acc-menu__item', item[0]);
         a.href = url(item[1]);
         a.setAttribute('role', 'menuitem');
@@ -591,6 +595,63 @@
 
   // On palette pages the button goes inside the picker, which theme.js builds on DOMContentLoaded:
   // wait for it (some pages load theme.js late) instead of falling back to another place.
+  // ---- study tracking (signed-in only, this browser only) ---------------------------------
+  // On a subject page: the page goes into 'ae_recent' (the last page read in each subject) and,
+  // every 15 s while the tab is visible and the reader moved in the last 2 minutes, 15 s go into
+  // 'ae_study_log' = { days: { 'YYYY-MM-DD': { <subject id>: seconds } } } (kept for 70 days).
+  var STUDY_KEY = 'ae_study_log';
+  var RECENT_KEY = 'ae_recent';
+  var AREAS = { teoria: 'Theory', problemas: 'Problems', 'extra-problems': 'Extra problems', simulator: 'Exam simulator',
+    'formula-sheet': 'Formula sheet', sources: 'PDFs', exams: 'Solved exams' };
+
+  function dayKey(date) {
+    var d = date || new Date();
+    return d.getFullYear() + '-' + (d.getMonth() < 9 ? '0' : '') + (d.getMonth() + 1) + '-' + (d.getDate() < 10 ? '0' : '') + d.getDate();
+  }
+
+  function studyLog() {
+    var log = readJSON(STUDY_KEY);
+    return log && log.days && typeof log.days === 'object' ? log : { days: {} };
+  }
+
+  function recentPages() {
+    var r = readJSON(RECENT_KEY);
+    return r && typeof r === 'object' && !Array.isArray(r) ? r : {};
+  }
+
+  function trackStudy() {
+    var match = /\/subjects\/([^\/]+)\/([^\/]+)\//.exec(location.pathname);
+    if (!match || !findSubject(match[1]) || /[?&]print=/.test(location.search)) return;
+    var subject = match[1];
+    if (!current()) return;
+    var heading = document.querySelector('main h1, h1');
+    var title = heading ? heading.textContent.replace(/\s+/g, ' ').trim().slice(0, 100) : '';
+    var recent = recentPages();
+    recent[subject] = {
+      path: location.pathname.slice(location.pathname.indexOf('subjects/')),
+      title: title,
+      area: AREAS[match[2]] || '',
+      at: Date.now()
+    };
+    writeJSON(RECENT_KEY, recent);
+
+    var lastMove = Date.now();
+    function moved() { lastMove = Date.now(); }
+    ['scroll', 'pointermove', 'keydown', 'click', 'touchstart'].forEach(function (type) {
+      window.addEventListener(type, moved, { passive: true });
+    });
+    setInterval(function () {
+      if (document.visibilityState !== 'visible' || Date.now() - lastMove > 120000 || !current()) return;
+      var log = studyLog();
+      var today = dayKey();
+      log.days[today] = log.days[today] || {};
+      log.days[today][subject] = (log.days[today][subject] || 0) + 15;
+      var keys = Object.keys(log.days).sort();
+      while (keys.length > 70) delete log.days[keys.shift()];
+      writeJSON(STUDY_KEY, log);
+    }, 15000);
+  }
+
   function start(tries) {
     tries = tries || 0;
     var wantsPicker = !!document.querySelector('link[href*="study-surface.css"]') && !!document.getElementById('themeToggle');
@@ -601,6 +662,7 @@
     injectStyles();
     buildWidget();
     apply();
+    trackStudy();
   }
 
   document.addEventListener('ae-account-change', function () { buildWidget(); });
@@ -625,6 +687,9 @@
     changePassword: changePassword,
     deleteAccount: deleteAccount,
     exportData: exportData,
+    studyLog: studyLog,
+    recentPages: recentPages,
+    dayKey: dayKey,
     deviceData: deviceData,
     apply: apply,
     url: url,
