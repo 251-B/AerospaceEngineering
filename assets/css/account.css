@@ -1480,3 +1480,116 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 @media (prefers-reduced-motion: reduce) {
   .acc-study-hero__nebula { animation: none; }
 }
+
+/* ---- My study: richer charts ----------------------------------------------------------------- */
+/* The galaxy sits whole inside the hero: tilted 52 degrees and turned -22, its disc spans about
+   0.9 x 0.64 of its box, so a 330 px box leaves a margin on every side of a 260 px hero. */
+.acc-study-hero__galaxy {
+  right: 6px;
+  width: 330px;
+  height: 330px;
+  margin-top: -165px;
+}
+
+.acc-sub {
+  margin: 0 0 12px;
+  font: 600 0.72rem/1.3 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--acc-text-2);
+}
+.acc-sub--rule { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--study-border); }
+
+.acc-week-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+  align-items: start;
+}
+.acc-week svg { width: 100%; height: auto; }
+.acc-week__grid { stroke: var(--study-border); stroke-dasharray: 2 5; }
+.acc-week__today { fill: color-mix(in srgb, var(--acc-accent) 7%, transparent); }
+.acc-week__value { fill: var(--acc-text); font: 700 11.5px var(--font-mono); }
+.acc-week__avg { stroke: var(--acc-text-2); stroke-width: 1.2; stroke-dasharray: 5 5; opacity: 0.8; }
+.acc-week__avglabel {
+  fill: var(--acc-text-2);
+  font: 600 10.5px var(--font-mono);
+  paint-order: stroke;
+  stroke: var(--study-surface);
+  stroke-width: 4px;
+}
+.acc-week__zero { fill: var(--study-border); }
+.acc-week__bar { transition: opacity 0.18s ease; }
+.acc-week.is-focus .acc-week__bar:not(.is-hover) { opacity: 0.4; }
+.acc-week__bar.is-hover .acc-week__hit, .acc-week__bar:focus-visible .acc-week__hit { fill: transparent; }
+
+/* by subject */
+.acc-share { display: grid; gap: 14px; padding-top: 4px; }
+.acc-share .acc-sub { margin-bottom: 2px; }
+.acc-share__top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font: 600 0.88rem/1.3 var(--font-sans); color: var(--acc-text); }
+.acc-share__val { font: 600 0.8rem/1 var(--font-mono); color: var(--acc-text); }
+.acc-share__val em { margin-left: 8px; font-style: normal; color: var(--acc-text-2); }
+.acc-share__track { margin-top: 6px; height: 8px; border-radius: 4px; background: var(--study-inset); overflow: hidden; }
+.acc-share__track i { display: block; height: 100%; border-radius: 4px; }
+
+/* last 10 weeks */
+.acc-heat { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 36px; }
+.acc-heat__grid {
+  display: grid;
+  grid-template-columns: 30px repeat(10, 18px);
+  grid-template-rows: 16px repeat(7, 18px);
+  gap: 4px;
+}
+.acc-heat__cell {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: var(--study-inset);
+  border: 1px solid var(--study-border);
+  outline: none;
+}
+.acc-heat__cell[data-l="-1"] { background: none; border-style: dashed; opacity: 0.4; }
+.acc-heat__cell[data-l="1"] { background: color-mix(in srgb, var(--acc-accent) 25%, var(--study-inset)); border-color: transparent; }
+.acc-heat__cell[data-l="2"] { background: color-mix(in srgb, var(--acc-accent) 45%, var(--study-inset)); border-color: transparent; }
+.acc-heat__cell[data-l="3"] { background: color-mix(in srgb, var(--acc-accent) 70%, var(--study-inset)); border-color: transparent; }
+.acc-heat__cell[data-l="4"] { background: var(--acc-accent); border-color: transparent; }
+.acc-heat__cell[data-tip]:hover, .acc-heat__cell[data-tip]:focus-visible { box-shadow: 0 0 0 2px var(--acc-text); }
+.acc-heat__day, .acc-heat__month { font: 500 10px/18px var(--font-mono); color: var(--acc-text-2); white-space: nowrap; }
+.acc-heat__month { line-height: 16px; }
+.acc-heat__side { display: flex; flex-direction: column; gap: 14px; }
+.acc-heat__side p { margin: 0; display: flex; flex-direction: column; gap: 2px; }
+.acc-heat__side strong { font: 700 1.25rem/1.1 var(--font-mono); color: var(--acc-text); }
+.acc-heat__side span { font: 500 0.78rem/1.3 var(--font-sans); color: var(--acc-text-2); }
+.acc-heat__legend { display: flex; align-items: center; gap: 4px; }
+.acc-heat__legend .acc-heat__cell { width: 12px; height: 12px; border-radius: 3px; }
+.acc-heat__legend span { font: 500 0.7rem/1 var(--font-mono); color: var(--acc-text-2); margin: 0 4px; }
+
+/* simulator sparklines */
+.acc-sim__spark { width: 190px; height: 64px; overflow: visible; }
+.acc-sim__axis { fill: var(--acc-text-2); font: 500 9px var(--font-mono); }
+.acc-sim__pt { stroke: var(--study-inset); stroke-width: 1.5; }
+.acc-sim__pt.is-last { stroke-width: 2.5; }
+.acc-sim__main { align-items: center; }
+
+@media (max-width: 900px) {
+  .acc-week-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .acc-study-hero__galaxy { right: 4px; top: 4px; margin-top: 0; width: 220px; height: 220px; opacity: 0.55; }
+  .acc-heat__grid { grid-template-columns: 28px repeat(10, minmax(14px, 1fr)); grid-template-rows: 16px repeat(7, auto); gap: 3px; }
+  .acc-heat__cell { width: auto; aspect-ratio: 1; height: auto; }
+  .acc-heat { width: 100%; }
+  .acc-heat__grid { width: 100%; }
+  .acc-sim__spark { width: 150px; }
+}
+
+/* sparkline fits its card; the grade label stays on one line */
+.acc-sim__main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.acc-sim__spark { width: 100%; max-width: none; height: auto; }
+.acc-sim__spark--empty { width: auto; }
+.acc-sim__grade span { white-space: nowrap; }
+.acc-week__avglabel--value { fill: var(--acc-text); font-weight: 700; }
+@media (max-width: 600px) {
+  .acc-sim__spark { max-width: 260px; }
+}

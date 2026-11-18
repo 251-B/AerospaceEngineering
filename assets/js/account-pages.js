@@ -733,6 +733,7 @@
     var chartSubjects = used.length ? used : subjects.filter(function (s) { return prefs.subjects.indexOf(s.id) !== -1; });
     $('#weekTotal').textContent = weekTotal ? duration(weekTotal) + ' in the last 7 days' : 'No study time yet';
     renderWeek(days, week, chartSubjects);
+    renderHeatmap(log);
     var resizeTimer = 0;
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
@@ -758,7 +759,7 @@
       card.className = 'acc-sim';
       card.style.setProperty('--dot', s.accent);
       card.innerHTML = '<header><span class="acc-continue__dot" aria-hidden="true"></span><h3>' + esc(s.name) + '</h3></header>' +
-        '<div class="acc-sim__main"><div class="acc-sim__grade"><strong>' + grades[grades.length - 1].toFixed(1) + '</strong><span>/ 10 last</span></div>' +
+        '<div class="acc-sim__main"><div class="acc-sim__grade"><strong>' + grades[grades.length - 1].toFixed(1) + '</strong><span>last, out of 10</span></div>' +
         spark(grades.slice(-10), markColour(s.id)) + '</div>' +
         '<dl class="acc-sim__facts"><div><dt>Attempts</dt><dd>' + hist.length + '</dd></div><div><dt>Average</dt><dd>' + avg.toFixed(1) +
         '</dd></div><div><dt>Best</dt><dd>' + best.toFixed(1) + '</dd></div></dl>' +
@@ -772,63 +773,124 @@
     }
   }
 
+  // Sparkline of the grades out of 10: filled area, a point per attempt, the pass line at 5.
+  var sparkId = 0;
   function spark(values, colour) {
-    if (values.length < 2) return '<span class="acc-sim__spark acc-sim__spark--empty">One attempt so far</span>';
-    var w = 140, h = 44, pad = 5;
-    var pts = values.map(function (v, i) {
-      return [pad + i * (w - 2 * pad) / (values.length - 1), h - pad - v / 10 * (h - 2 * pad)];
-    });
+    var w = 190, h = 64, pl = 16, pr = 8, pt = 8, pb = 8;
+    var x = function (i) { return values.length < 2 ? (pl + w - pr) / 2 : pl + i * (w - pl - pr) / (values.length - 1); };
+    var y = function (v) { return pt + (10 - v) / 10 * (h - pt - pb); };
+    var id = 'spk' + (++sparkId);
+    var pts = values.map(function (v, i) { return [x(i), y(v)]; });
     var line = pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
-    var lastPt = pts[pts.length - 1];
-    return '<svg class="acc-sim__spark" viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="Last ' + values.length + ' grades: ' +
-      values.map(function (v) { return v.toFixed(1); }).join(', ') + '">' +
-      '<line x1="' + pad + '" y1="' + (h / 2) + '" x2="' + (w - pad) + '" y2="' + (h / 2) + '" class="acc-sim__mid"/>' +
-      '<polyline points="' + line + '" fill="none" stroke="' + colour + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
-      '<circle cx="' + lastPt[0].toFixed(1) + '" cy="' + lastPt[1].toFixed(1) + '" r="4" fill="' + colour + '" class="acc-sim__end"/></svg>';
+    var area = values.length > 1
+      ? 'M' + pts[0][0].toFixed(1) + ',' + (h - pb) + ' L' + line.split(' ').join(' L') + ' L' + pts[pts.length - 1][0].toFixed(1) + ',' + (h - pb) + ' Z'
+      : '';
+    var out = ['<svg class="acc-sim__spark" viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="Grades of the last ' + values.length +
+      (values.length === 1 ? ' attempt: ' : ' attempts: ') + values.map(function (v) { return v.toFixed(1); }).join(', ') + ' out of 10">',
+      '<defs><linearGradient id="' + id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + colour + '" stop-opacity="0.35"/>' +
+      '<stop offset="1" stop-color="' + colour + '" stop-opacity="0"/></linearGradient></defs>',
+      '<line class="acc-sim__mid" x1="' + pl + '" x2="' + (w - pr) + '" y1="' + y(5).toFixed(1) + '" y2="' + y(5).toFixed(1) + '"/>',
+      '<text class="acc-sim__axis" x="0" y="' + (y(5) + 3).toFixed(1) + '">5</text>'];
+    if (area) out.push('<path d="' + area + '" fill="url(#' + id + ')"/>',
+      '<polyline points="' + line + '" fill="none" stroke="' + colour + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>');
+    pts.forEach(function (p, i) {
+      var lastOne = i === pts.length - 1;
+      out.push('<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + (lastOne ? 4.5 : 2.6) + '" fill="' + colour +
+        '" class="acc-sim__pt' + (lastOne ? ' is-last' : '') + '"/>');
+    });
+    out.push('</svg>');
+    return out.join('');
   }
 
+  function fmtMin(m) {
+    m = Math.round(m);
+    if (m < 60) return m + 'm';
+    return Math.floor(m / 60) + 'h' + (m % 60 ? (m % 60 < 10 ? '0' : '') + (m % 60) : '');
+  }
+
+  // This week: stacked bars, one per day, with rounded tops, a soft gradient per subject, the daily
+  // average as a dashed rule, and direct totals on today and on the best day only.
   function renderWeek(days, week, subjects) {
     var box = $('#weekChart');
-    var W = Math.max(300, Math.round(box.clientWidth || 700)), H = 230, left = 44, right = 8, top = 12, bottom = 30;
+    var W = Math.max(300, Math.round(box.clientWidth || 640)), H = 250, left = 40, right = 62, top = 26, bottom = 30;
     var totals = week.map(function (day) { return subjects.reduce(function (s, x) { return s + (day[x.id] || 0); }, 0) / 60; });
     var maxMin = Math.max.apply(null, totals.concat([30]));
     var step = maxMin <= 60 ? 15 : maxMin <= 180 ? 30 : maxMin <= 360 ? 60 : 120;
-    var yMax = Math.ceil(maxMin / step) * step;
+    var yMax = Math.ceil(maxMin * 1.08 / step) * step;
     var plotH = H - top - bottom, plotW = W - left - right;
-    var slot = plotW / days.length, barW = Math.min(46, slot * 0.56);
+    var slot = plotW / days.length, barW = Math.min(38, slot * 0.5);
     var y = function (m) { return top + plotH - m / yMax * plotH; };
-    var svg = ['<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Minutes studied per day in the last 7 days, by subject">'];
+    var avg = totals.reduce(function (a, b) { return a + b; }, 0) / days.length;
+    var best = totals.indexOf(Math.max.apply(null, totals));
+    var svg = ['<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="Minutes studied per day in the last 7 days, by subject"><defs>'];
+    subjects.forEach(function (s) {
+      var c = markColour(s.id);
+      svg.push('<linearGradient id="wk-' + s.id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="color-mix(in srgb, ' + c + ' 78%, #ffffff)"/>' +
+        '<stop offset="1" stop-color="' + c + '"/></linearGradient>');
+    });
+    svg.push('</defs>');
+    // today's column
+    var tx = left + slot * (days.length - 1);
+    svg.push('<rect class="acc-week__today" x="' + (tx + 4).toFixed(1) + '" y="' + (top - 18) + '" width="' + (slot - 8).toFixed(1) + '" height="' + (plotH + 18 + bottom - 4) + '" rx="10"/>');
     for (var g = 0; g <= yMax; g += step) {
       svg.push('<line class="acc-week__grid" x1="' + left + '" x2="' + (W - right) + '" y1="' + y(g).toFixed(1) + '" y2="' + y(g).toFixed(1) + '"/>');
-      svg.push('<text class="acc-week__axis" x="' + (left - 8) + '" y="' + (y(g) + 4).toFixed(1) + '" text-anchor="end">' + (g < 60 ? g + 'm' : Math.floor(g / 60) + 'h' + (g % 60 ? (g % 60 < 10 ? '0' : '') + (g % 60) : '')) + '</text>');
+      svg.push('<text class="acc-week__axis" x="' + (left - 8) + '" y="' + (y(g) + 4).toFixed(1) + '" text-anchor="end">' + fmtMin(g) + '</text>');
     }
     days.forEach(function (d, i) {
-      var cx = left + slot * i + slot / 2;
-      var base = 0;
+      var cx = left + slot * i + slot / 2, x0 = cx - barW / 2;
       var segs = subjects.filter(function (s) { return week[i][s.id]; });
       svg.push('<g class="acc-week__bar" data-i="' + i + '">');
-      svg.push('<rect class="acc-week__hit" x="' + (cx - slot / 2) + '" y="' + top + '" width="' + slot + '" height="' + plotH + '"/>');
-      segs.forEach(function (s, k) {
-        var m = week[i][s.id] / 60;
-        var y0 = y(base), y1 = y(base + m);
-        var hgt = Math.max(1, y0 - y1 - (k ? 2 : 0));   // 2 px surface gap between stacked segments
-        var isTop = k === segs.length - 1;
-        svg.push('<rect x="' + (cx - barW / 2).toFixed(1) + '" y="' + y1.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + hgt.toFixed(1) +
-          '" rx="' + (isTop ? 4 : 0) + '" fill="' + markColour(s.id) + '"/>');
-        if (isTop && hgt > 4) svg.push('<rect x="' + (cx - barW / 2).toFixed(1) + '" y="' + (y1 + 4).toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + (hgt - 4).toFixed(1) + '" fill="' + markColour(s.id) + '"/>');
-        base += m;
-      });
+      svg.push('<rect class="acc-week__hit" x="' + (cx - slot / 2) + '" y="' + (top - 18) + '" width="' + slot + '" height="' + (plotH + 18) + '"/>');
+      if (segs.length) {
+        var stackTop = y(totals[i]);
+        // one clip per bar: rounded top, square bottom on the baseline
+        svg.push('<clipPath id="wkc' + i + '"><rect x="' + x0.toFixed(1) + '" y="' + stackTop.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + (y(0) - stackTop + 8).toFixed(1) + '" rx="7"/></clipPath>');
+        svg.push('<g clip-path="url(#wkc' + i + ')">');
+        var base = 0;
+        segs.forEach(function (s, k) {
+          var m = week[i][s.id] / 60;
+          var y0 = y(base), y1 = y(base + m);
+          var hgt = Math.max(1, y0 - y1 - (k ? 2 : 0));   // 2 px surface gap between segments
+          svg.push('<rect x="' + x0.toFixed(1) + '" y="' + y1.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + hgt.toFixed(1) + '" fill="url(#wk-' + s.id + ')"/>');
+          base += m;
+        });
+        svg.push('</g>');
+        if (i === days.length - 1 || i === best) {
+          svg.push('<text class="acc-week__value" x="' + cx.toFixed(1) + '" y="' + (stackTop - 7).toFixed(1) + '" text-anchor="middle">' + fmtMin(totals[i]) + '</text>');
+        }
+      } else {
+        svg.push('<rect class="acc-week__zero" x="' + x0.toFixed(1) + '" y="' + (y(0) - 3) + '" width="' + barW.toFixed(1) + '" height="3" rx="1.5"/>');
+      }
       svg.push('</g>');
       var label = i === days.length - 1 ? 'Today' : d.toLocaleDateString('en-GB', { weekday: 'short' });
-      svg.push('<text class="acc-week__axis' + (i === days.length - 1 ? ' is-today' : '') + '" x="' + cx.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle">' + label + '</text>');
+      svg.push('<text class="acc-week__axis' + (i === days.length - 1 ? ' is-today' : '') + '" x="' + cx.toFixed(1) + '" y="' + (H - 9) + '" text-anchor="middle">' + label + '</text>');
     });
+    if (avg > 0) {
+      svg.push('<line class="acc-week__avg" x1="' + left + '" x2="' + (W - right + 4) + '" y1="' + y(avg).toFixed(1) + '" y2="' + y(avg).toFixed(1) + '"/>');
+      // the label sits in the right margin, outside the bars
+      svg.push('<text class="acc-week__avglabel" x="' + (W - right + 8) + '" y="' + (y(avg) - 2).toFixed(1) + '">avg</text>');
+      svg.push('<text class="acc-week__avglabel acc-week__avglabel--value" x="' + (W - right + 8) + '" y="' + (y(avg) + 11).toFixed(1) + '">' + fmtMin(avg) + '/day</text>');
+    }
     svg.push('<line class="acc-week__base" x1="' + left + '" x2="' + (W - right) + '" y1="' + y(0) + '" y2="' + y(0) + '"/></svg>');
     box.innerHTML = svg.join('');
 
-    // legend (identity is never colour alone: names beside the swatches, and a table view)
     $('#weekLegend').innerHTML = subjects.map(function (s) {
       return '<span><i style="background:' + markColour(s.id) + '"></i>' + esc(s.short) + '</span>';
     }).join('');
+
+    // by subject: share of the week, sorted
+    var sums = subjects.map(function (s) {
+      return { s: s, sec: week.reduce(function (a, day) { return a + (day[s.id] || 0); }, 0) };
+    }).filter(function (r) { return r.sec; }).sort(function (a, b) { return b.sec - a.sec; });
+    var all = sums.reduce(function (a, r) { return a + r.sec; }, 0);
+    $('#weekShare').innerHTML = '<h3 class="acc-sub">By subject</h3>' + (sums.length ? sums.map(function (r) {
+      var pct = Math.round(r.sec / all * 100);
+      return '<div class="acc-share__row"><div class="acc-share__top"><span>' + esc(r.s.short) + '</span><span class="acc-share__val">' + duration(r.sec) +
+        '<em>' + pct + '%</em></span></div><div class="acc-share__track"><i style="width:' + (r.sec / sums[0].sec * 100).toFixed(1) + '%;background:linear-gradient(90deg, ' +
+        markColour(r.s.id) + ', color-mix(in srgb, ' + markColour(r.s.id) + ' 72%, #ffffff))"></i></div></div>';
+    }).join('') : '<p class="acc-empty">No study time this week yet.</p>');
+
+    // table view (identity is never colour alone)
     var head = '<tr><th>Day</th>' + subjects.map(function (s) { return '<th>' + esc(s.short) + '</th>'; }).join('') + '<th>Total</th></tr>';
     var body = days.map(function (d, i) {
       return '<tr><td>' + esc(d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })) + '</td>' +
@@ -837,9 +899,10 @@
     }).join('');
     $('#weekTable').innerHTML = '<table class="acc-table"><caption>Minutes per day</caption><thead>' + head + '</thead><tbody>' + body + '</tbody></table>';
 
-    // hover / focus tooltip per bar
+    // hover / focus: tooltip, and the other days step back
     var tip = $('#weekTip');
-    $$('.acc-week__bar', box).forEach(function (g) {
+    var bars = $$('.acc-week__bar', box);
+    bars.forEach(function (g) {
       var i = +g.getAttribute('data-i');
       g.setAttribute('tabindex', '0');
       function show() {
@@ -848,18 +911,64 @@
         }).join('');
         tip.innerHTML = '<strong>' + esc(days[i].toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short' })) + '</strong>' +
           (rows || '<span>No study time</span>') + (totals[i] ? '<em>' + duration(totals[i] * 60) + ' in total</em>' : '');
-        tip.hidden = false;
-        var r = g.getBoundingClientRect();
-        var tw = tip.offsetWidth;
-        tip.style.left = Math.round(Math.max(8, Math.min(r.left + r.width / 2 - tw / 2, window.innerWidth - tw - 8))) + 'px';
-        tip.style.top = Math.round(r.top + window.scrollY + 4) + 'px';   // the CSS lifts it by its own height
+        placeTip(tip, g.querySelector('.acc-week__hit'));
+        box.classList.add('is-focus');
         g.classList.add('is-hover');
       }
-      function hide() { tip.hidden = true; g.classList.remove('is-hover'); }
+      function hide() { tip.hidden = true; box.classList.remove('is-focus'); g.classList.remove('is-hover'); }
       g.addEventListener('mouseenter', show);
       g.addEventListener('focus', show);
       g.addEventListener('mouseleave', hide);
       g.addEventListener('blur', hide);
+    });
+  }
+
+  function placeTip(tip, el) {
+    tip.hidden = false;
+    var r = el.getBoundingClientRect();
+    var tw = tip.offsetWidth;
+    tip.style.left = Math.round(Math.max(8, Math.min(r.left + r.width / 2 - tw / 2, window.innerWidth - tw - 8))) + 'px';
+    tip.style.top = Math.round(r.top + window.scrollY + 4) + 'px';   // the CSS lifts it by its own height
+  }
+
+  // Last 10 weeks: one cell per day, Monday to Sunday, in five steps of a single hue.
+  function renderHeatmap(log) {
+    var box = $('#heatmap');
+    if (!box) return;
+    var today = new Date(); today.setHours(12, 0, 0, 0);
+    var dow = (today.getDay() + 6) % 7;            // Monday = 0
+    var start = new Date(today); start.setDate(today.getDate() - dow - 9 * 7);
+    var cells = [], weeks = 10, total = 0, active = 0;
+    var levels = [0, 15, 45, 90, 150];
+    for (var w = 0; w < weeks; w++) {
+      for (var d = 0; d < 7; d++) {
+        var date = new Date(start); date.setDate(start.getDate() + w * 7 + d);
+        var future = date > today;
+        var rec = log.days[AEAccount.dayKey(date)] || {};
+        var min = Object.keys(rec).reduce(function (s, k) { return s + rec[k]; }, 0) / 60;
+        if (!future) { total += min; if (min >= 10) active++; }
+        var lvl = future ? -1 : min <= 0 ? 0 : levels.filter(function (t) { return min >= t; }).length;
+        cells.push('<span class="acc-heat__cell" data-l="' + lvl + '" style="grid-column:' + (w + 2) + ';grid-row:' + (d + 2) + '"' +
+          (future ? '' : ' tabindex="0" data-tip="' + esc(date.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })) + ' · ' + (min ? duration(min * 60) : 'no study') + '"') +
+          ' aria-label="' + esc(date.toDateString()) + ': ' + Math.round(min) + ' minutes"></span>');
+      }
+      var monday = new Date(start); monday.setDate(start.getDate() + w * 7);
+      if (w === 0 || monday.getDate() <= 7) {
+        cells.push('<span class="acc-heat__month" style="grid-column:' + (w + 2) + ';grid-row:1">' + monday.toLocaleDateString('en-GB', { month: 'short' }) + '</span>');
+      }
+    }
+    ['Mon', '', 'Wed', '', 'Fri', '', 'Sun'].forEach(function (n, i) {
+      if (n) cells.push('<span class="acc-heat__day" style="grid-column:1;grid-row:' + (i + 2) + '">' + n + '</span>');
+    });
+    box.innerHTML = '<div class="acc-heat__grid">' + cells.join('') + '</div>' +
+      '<div class="acc-heat__side"><p><strong>' + duration(total * 60) + '</strong><span>in 10 weeks</span></p><p><strong>' + active + '</strong><span>active days</span></p>' +
+      '<div class="acc-heat__legend"><span>Less</span>' + [0, 1, 2, 3, 4].map(function (l) { return '<i class="acc-heat__cell" data-l="' + l + '"></i>'; }).join('') + '<span>More</span></div></div>';
+    var tip = $('#weekTip');
+    $$('.acc-heat__cell[data-tip]', box).forEach(function (c) {
+      function show() { tip.innerHTML = '<strong>' + c.getAttribute('data-tip') + '</strong>'; placeTip(tip, c); }
+      function hide() { tip.hidden = true; }
+      c.addEventListener('mouseenter', show); c.addEventListener('focus', show);
+      c.addEventListener('mouseleave', hide); c.addEventListener('blur', hide);
     });
   }
 
