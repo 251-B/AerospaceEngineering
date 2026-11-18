@@ -236,7 +236,6 @@
     if (star.id === lockedId) return star;
     lockedId = star.id;
     pos.setAttribute('transform', 'translate(' + star.x + ' ' + star.y + ')');
-    $('#accMeLabel').textContent = star.id;
     me.classList.remove('is-locked');
     void me.getBoundingClientRect();   // restart the lock animation
     me.classList.add('is-locked');
@@ -344,8 +343,6 @@
 
     function summary() {
       var user = AEAccount.current();
-      var star = user ? AEAccount.starFor(user.email) : null;
-      $('#doneStar').textContent = star ? star.id : '';
       $('#doneName').textContent = user ? user.name.split(' ')[0] : '';
       var names = AEAccount.SUBJECTS.filter(function (s) { return draft.subjects.indexOf(s.id) !== -1; }).map(function (s) { return s.short; });
       $('#doneSubjects').textContent = names.length ? names.join(', ') : 'No subjects yet';

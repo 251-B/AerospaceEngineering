@@ -536,12 +536,7 @@
       var head = el('div', 'acc-menu__head');
       head.appendChild(el('strong', '', user.name));
       head.appendChild(el('span', '', user.email));
-      var star = starFor(user.email);
       var meta = el('div', 'acc-menu__meta');
-      var starRow = el('span', 'acc-menu__star');
-      starRow.appendChild(el('i', ''));
-      starRow.appendChild(document.createTextNode('Your star ' + star.id));
-      meta.appendChild(starRow);
       var exam = nextExam(user.prefs);
       if (exam) {
         var examRow = el('span', 'acc-menu__exam' + (exam.days <= 7 ? ' is-soon' : ''));
@@ -549,8 +544,8 @@
         examRow.appendChild(el('strong', '', exam.days === 0 ? 'Today' : exam.days === 1 ? '1 day' : exam.days + ' days'));
         examRow.appendChild(document.createTextNode(' to ' + exam.subject.short + ' ' + exam.kind));
         meta.appendChild(examRow);
+        head.appendChild(meta);
       }
-      head.appendChild(meta);
       menu.appendChild(head);
       [['Settings', 'settings.html'], ['Appearance', 'settings.html#appearance'], ['Subjects', 'settings.html#subjects']].forEach(function (item) {
         var a = el('a', 'acc-menu__item', item[0]);

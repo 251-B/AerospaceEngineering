@@ -1185,3 +1185,75 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 @media (prefers-reduced-motion: reduce) {
   .acc-galaxy__spin { animation: none; }
 }
+
+/* ---- a larger, turning galaxy and a living sky (sign-in pages) ------------------------------ */
+.acc-sky__frame { height: min(100%, 700px); }
+.acc-galaxy {
+  left: -26%;
+  top: -26%;
+  width: 152%;
+  height: 152%;
+  perspective: 1800px;
+}
+.acc-galaxy__tilt { transform: rotateZ(-22deg) rotateX(52deg); }
+.acc-galaxy__spin { animation: acc-spin 140s linear infinite; }
+.acc-galaxy__spin img { filter: saturate(1.15) brightness(1.12) drop-shadow(0 0 40px rgba(165, 180, 252, 0.25)); }
+.acc-galaxy__knots .acc-star__halo { r: 16; }
+
+/* the chart stays as a quiet frame behind the galaxy */
+.acc-chart__ring, .acc-chart__spoke { opacity: 0.6; }
+
+/* the nebula breathes and drifts */
+.acc-sky__layer--nebula { animation: acc-drift 48s ease-in-out infinite alternate; }
+@keyframes acc-drift {
+  from { transform: scale(1.04) translate(-1.2%, -0.8%); opacity: 0.9; }
+  to { transform: scale(1.1) translate(1.2%, 0.8%); opacity: 1; }
+}
+
+/* more twinkling, on many beats */
+.acc-sky__dust circle:nth-child(5n+2) { animation: acc-twinkle 3.2s ease-in-out 0.6s infinite; }
+.acc-sky__dust circle:nth-child(7n+3) { animation: acc-twinkle 5.4s ease-in-out 2.1s infinite; }
+
+/* bright stars with diffraction spikes */
+.acc-glint path { stroke-width: 1; stroke-linecap: round; opacity: 0.8; }
+.acc-glint { animation: acc-glint var(--d, 4s) ease-in-out var(--o, 0s) infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes acc-glint {
+  0%, 100% { opacity: 0.55; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* shooting stars: one every few seconds, from the upper right */
+.acc-meteors { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.acc-meteors i {
+  position: absolute;
+  top: 8%;
+  right: 10%;
+  width: 160px;
+  height: 1.5px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(199, 210, 254, 0.4) 30%, transparent);
+  opacity: 0;
+  transform: rotate(-32deg) translateX(0);
+  animation: acc-meteor 9s ease-in infinite;
+}
+.acc-meteors i:nth-child(2) { top: 22%; right: 34%; animation-delay: 3.6s; animation-duration: 11s; }
+.acc-meteors i:nth-child(3) { top: 4%; right: 52%; animation-delay: 7.1s; animation-duration: 13s; width: 110px; }
+@keyframes acc-meteor {
+  0%, 82% { opacity: 0; transform: rotate(-32deg) translateX(0); }
+  84% { opacity: 1; }
+  92% { opacity: 0; transform: rotate(-32deg) translateX(-420px); }
+  100% { opacity: 0; transform: rotate(-32deg) translateX(-420px); }
+}
+
+/* the personal star: a little larger, still cool white */
+.acc-me__core { r: 6; }
+.acc-me__glow { r: 34; }
+
+@media (prefers-reduced-motion: reduce) {
+  .acc-sky__layer--nebula, .acc-glint, .acc-meteors i, .acc-galaxy__spin { animation: none; }
+  .acc-meteors { display: none; }
+}
+
+@media (max-width: 900px) {
+  .acc-galaxy { left: -14%; top: -14%; width: 128%; height: 128%; }
+}
