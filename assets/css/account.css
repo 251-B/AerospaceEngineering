@@ -1819,3 +1819,13 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 @media (prefers-reduced-motion: reduce) {
   .acc-skymap__star, .acc-skymap__star.is-new .acc-skymap__halo { animation: none; }
 }
+
+/* ---- invite code (cloud mode) ----------------------------------------------------------------- */
+.acc-invite__input { font-family: var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; }
+.acc-invite__input::placeholder { letter-spacing: 0.14em; }
+.acc-invite__status { font: 600 0.74rem/1.2 var(--font-mono); color: var(--acc-text-2); }
+.acc-invite__status.is-ok { color: var(--acc-ok); }
+.acc-invite__status.is-ok::before { content: "\2713  "; }
+.acc-invite__status.is-bad { color: var(--acc-danger); }
+#signupDone { margin: 0 0 16px; }
+

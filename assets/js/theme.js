@@ -373,7 +373,7 @@
     var studyTools = !(document.documentElement.getAttribute('data-celestial-subject') === 'portal' ||
       /\/account\/[^\/]*$/.test(location.pathname));
     // account.js comes before the updates data: it leaves a filter for updates.js (the reader's subjects).
-    ['focus-lab.js', 'pomodoro.js', 'account.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'problem-collapse.js', 'solution-close.js'].forEach(function (name) {
+    ['focus-lab.js', 'pomodoro.js', '../data/account-config.js', 'account.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'problem-collapse.js', 'solution-close.js'].forEach(function (name) {
       if (!studyTools && (name === 'focus-lab.js' || name === 'pomodoro.js')) return;
       var script = document.createElement('script');
       script.async = false;   // run in this order, so the widgets always land in the DOM the same way

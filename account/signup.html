@@ -74,6 +74,15 @@
 
         <form id="signupForm" novalidate>
           <p class="acc-error" id="signupError" role="alert"></p>
+          <p class="acc-notice" id="signupDone" role="status" hidden></p>
+          <div class="acc-field acc-invite" id="inviteField" hidden>
+            <div class="acc-label-row">
+              <label class="acc-label" for="suInvite">Invite code</label>
+              <span class="acc-invite__status" id="inviteStatus" aria-live="polite"></span>
+            </div>
+            <input class="acc-input acc-invite__input" id="suInvite" name="invite" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="SIDR-XXXX-XXXX" aria-describedby="inviteHint">
+            <p class="acc-hint" id="inviteHint">Sideris is invite only. Each code works once.</p>
+          </div>
           <div class="acc-field">
             <label class="acc-label" for="suName">Name</label>
             <input class="acc-input" id="suName" name="name" type="text" autocomplete="name" required>
@@ -95,7 +104,7 @@
           </div>
           <button type="submit" class="acc-btn acc-btn--primary acc-btn--block">Create account</button>
         </form>
-        <p class="acc-local"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Saved in this browser for now</p>
+        <p class="acc-local" data-local-line><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Saved in this browser for now</p>
       </div>
 
       <div id="stepSubjects" hidden>

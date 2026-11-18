@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-invite-accounts",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Invite-only accounts that follow you to every device",
+    "text": "Sideris accounts can now be opened with a personal invite code that works once. Sign in anywhere and your subjects, notes and study time come with you.",
+    "link": "account/signup.html"
+  },
+  {
     "id": "2026-11-18-your-sky",
     "date": "2026-11-18",
     "tag": "Portal",

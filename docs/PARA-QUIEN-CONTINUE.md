@@ -102,6 +102,7 @@ Las reglas generales del repositorio siguen siendo las de `AGENTS.md` y `CLAUDE.
 | `ae_session` | Email de la sesión abierta. |
 | `ae_account_last` | Último email que entró; se conserva al cerrar sesión. |
 | `ae_recent`, `ae_study_log`, `ae_marks` | Ver 1.4 y 1.5. |
+| `ae_cloud` | Solo en modo nube: sesión de Supabase (tokens, id de usuario, última descarga). |
 
 ---
 
@@ -130,11 +131,13 @@ En orden de prioridad aproximado:
    - "What's new" filtrado mediante `window.AE_UPDATES_FILTER`, que deja `account.js` y lee `updates.js`; por eso `account.js` se carga ahora justo después de `pomodoro.js`;
    - portada: constelaciones propias delante y las demás atenuadas hasta pasar el ratón; en la vista clásica, tarjetas propias primero con la marca "Your subject".
    - Todo lo hacen `arrangeNav` y `arrangeHome` en `account.js`, sin tocar `sidebar.js` ni `constellations.js`.
-2. **Backend en la nube para entrar desde cualquier dispositivo.**
-   - Recomendado: Supabase (Auth + Postgres con Row Level Security). Habilitaría Google/Microsoft (ahora "Soon"), sincronizar `ae_account`, `ae_marks`, `ae_study_log` y los historiales de los simuladores, y recuperar la contraseña.
-   - Mantener `localStorage` como caché, primero en local, para que la web siga funcionando sin conexión y sin cuenta.
-   - `account.js` ya expone una API (`AEAccount.signUp`, `signIn`, `updatePrefs`…) pensada para cambiar el backend sin tocar las páginas.
-   - Al hacerlo, añadir una política de privacidad real (RGPD).
+2. ~~**Backend en la nube.**~~ **Hecho en código, falta conectarlo** (commit "feat(portal): invite-only cloud accounts"):
+   - Supabase con **códigos de invitación de un solo uso** (`SIDR-XXXX-XXXX`): `supabase/migrations/0001_sideris_accounts.sql` (tabla de hashes, hook `Before User Created`, `invite_status`, `user_state` con RLS, `delete_my_account`), generador `tools/invites/make_invites.py`, configuración `assets/data/account-config.js` (vacía = modo local, como hasta ahora).
+   - `account.js`: capa `cloud*` (registro, entrada, salida, cambio y recuperación de contraseña, borrado) y sincronización (`snapshot`/`absorb`/`pullState`/`pushState`; las preferencias llevan `prefsAt` y gana la copia más reciente; lo pendiente se envía con `keepalive` al salir de la página).
+   - Probado con un Postgres local que emula Supabase: 16 comprobaciones del SQL (incluida una carrera de 20 registros con el mismo código: entra uno) y un recorrido completo en el navegador contra un servidor simulado que llama al SQL real.
+   - **Falta que lo haga el usuario:** crear el proyecto y seguir `docs/supabase-setup.md` (activar el hook en el panel es imprescindible), pegar URL y clave anon en `account-config.js`.
+   - **Contenido privado** (lo pidió el usuario): plan en `docs/private-hosting.md` (Cloudflare Pages + Cloudflare Access, repo privado, cambiar `PORTAL` en `ask-ai.js`). Pendiente de que el usuario cree las cuentas.
+   - Pendiente: Google/Microsoft siguen en "Soon"; política de privacidad real (RGPD) antes de abrirlo.
 3. ~~**Títulos del inicio de sesión.**~~ **Hecho**: "Join the galaxy." (lo eligió el usuario) en el registro y "Enter your galaxy." en el inicio de sesión.
 4. **Más gráficas o funciones en My study** que se mencionaron:
    - ~~objetivo semanal de horas~~ **hecho**: `prefs.weeklyGoal` (0 = sin objetivo, 1 a 40 h), deslizador en Settings → Study y anillo de progreso en "This week" de My study;

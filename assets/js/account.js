@@ -381,7 +381,8 @@
     ['ae_em_exams', 'Engineering Mechanics simulator history'],
     ['ae_study_log', 'Study time per subject and day'],
     ['ae_recent', 'Last page read in each subject'],
-    ['ae_marks', 'Favourite problems and your notes']
+    ['ae_marks', 'Favourite problems and your notes'],
+    ['ae_cloud', 'Sign-in session with the account service']
   ];
 
   function deviceData() {
@@ -653,6 +654,7 @@
       var keys = Object.keys(log.days).sort();
       while (keys.length > 400) delete log.days[keys.shift()];
       writeJSON(STUDY_KEY, log);
+      schedulePush();
     }, 15000);
   }
 
@@ -783,6 +785,311 @@
 
   function arrange() { arrangeNav(0); arrangeHome(0); }
 
+  // ---- cloud backend (Supabase) ---------------------------------------------------------------
+  // On when assets/data/account-config.js holds the project's URL and public (anon) key. Then:
+  // sign-up needs an invite code (spent by the database gate, supabase/migrations), sign-in works
+  // on any device, and the reader's data (preferences, favourites and notes, study log, recent
+  // pages, simulator history) is synced to public.user_state. The anon key is public by design:
+  // what protects the data is row level security. Off (empty config): local mode, as before.
+  var CFG = window.AE_ACCOUNT_CONFIG || {};
+  var CLOUD = !!(CFG.supabaseUrl && CFG.supabaseAnonKey);
+  var CLOUD_KEY = 'ae_cloud';
+  var SYNC_KEYS = ['ae_study_log', 'ae_recent', 'ae_marks', 'ae_bm_exams', 'ae_mat_exams', 'ae_am_exams', 'ae_em_exams', 'ae_formula_mode'];
+
+  function cloudSession() { return readJSON(CLOUD_KEY); }
+
+  function api(path, opts) {
+    opts = opts || {};
+    var headers = { apikey: CFG.supabaseAnonKey, 'Content-Type': 'application/json' };
+    headers.Authorization = 'Bearer ' + (opts.token || CFG.supabaseAnonKey);
+    Object.keys(opts.headers || {}).forEach(function (k) { headers[k] = opts.headers[k]; });
+    return fetch(String(CFG.supabaseUrl).replace(/\/$/, '') + path, {
+      method: opts.method || 'GET',
+      headers: headers,
+      body: opts.body === undefined ? undefined : JSON.stringify(opts.body),
+      keepalive: !!opts.keepalive
+    }).then(function (res) {
+      return res.text().then(function (text) {
+        var data = null;
+        try { data = text ? JSON.parse(text) : null; } catch (e) { data = text; }
+        if (!res.ok) {
+          var msg = data && (data.msg || data.message || data.error_description || data.error) || ('Error ' + res.status);
+          if (/invalid login credentials/i.test(msg)) msg = 'The email or the password is not right.';
+          if (/already registered/i.test(msg)) msg = 'There is already an account with this email. Sign in instead.';
+          var err = new Error(msg);
+          err.status = res.status;
+          throw err;
+        }
+        return data;
+      });
+    }, function () { throw new Error('No connection to the account service. Check your internet and try again.'); });
+  }
+
+  function storeSession(s) {
+    if (!s || !s.access_token) return null;
+    var keep = {
+      access_token: s.access_token,
+      refresh_token: s.refresh_token,
+      expires_at: s.expires_at || Math.floor(Date.now() / 1000) + (s.expires_in || 3600),
+      user_id: s.user && s.user.id,
+      email: s.user && normEmail(s.user.email)
+    };
+    writeJSON(CLOUD_KEY, keep);
+    return keep;
+  }
+
+  // A valid access token, refreshed when it is about to expire.
+  function token() {
+    var s = cloudSession();
+    if (!s) return Promise.reject(new Error('You are not signed in.'));
+    if (s.expires_at * 1000 - Date.now() > 60000) return Promise.resolve(s.access_token);
+    return api('/auth/v1/token?grant_type=refresh_token', { method: 'POST', body: { refresh_token: s.refresh_token } })
+      .then(function (fresh) { return storeSession(fresh).access_token; }, function (err) {
+        if (err.status === 400 || err.status === 401) { writeJSON(CLOUD_KEY, null); writeJSON(SESSION_KEY, null); emit(); }
+        throw err;
+      });
+  }
+
+  // The local copy of a cloud account (the rest of the portal reads it as before).
+  function adoptCloudUser(user, fallbackName) {
+    var email = normEmail(user.email);
+    var record = accounts()[email] || { email: email, created: user.created_at || new Date().toISOString(), prefs: localPrefs() };
+    var meta = user.user_metadata || {};
+    record.name = record.name || meta.name || fallbackName || email.split('@')[0];
+    record.cloud = true;
+    delete record.salt;
+    delete record.hash;
+    saveRecord(record);
+    writeJSON(SESSION_KEY, { email: email, since: new Date().toISOString() });
+    writeJSON(LAST_KEY, email);
+  }
+
+  function localPrefs() {
+    var prefs = defaultPrefs();
+    try {
+      var surface = localStorage.getItem('ae_surface');
+      if (SURFACE_IDS.indexOf(surface) !== -1) prefs.surface = surface;
+      if (localStorage.getItem(FORMULA_KEY) === 'compact') prefs.formulaMode = 'compact';
+    } catch (e) { /* storage blocked */ }
+    return prefs;
+  }
+
+  function cloudSignUp(data) {
+    return attempt(function () {
+      var name = String(data.name || '').trim();
+      var email = normEmail(data.email);
+      var invite = String(data.invite || '').trim();
+      if (CFG.requireInvite !== false && !invite) throw new Error('Enter the invite code you were given.');
+      if (!name) throw new Error('Enter the name you want to be shown.');
+      checkEmail(email);
+      checkPassword(data.password);
+      return api('/auth/v1/signup', { method: 'POST', body: { email: email, password: data.password, data: { name: name, invite: invite } } })
+        .then(function (res) {
+          var session = res && res.access_token ? res : null;
+          if (!session) return { pending: true, email: email };   // the project asks to confirm the email first
+          storeSession(session);
+          adoptCloudUser(session.user, name);
+          emit();
+          return pushState(true).then(function () { return current(); }, function () { return current(); });
+        });
+    });
+  }
+
+  function cloudSignIn(data) {
+    return attempt(function () {
+      var email = normEmail(data.email);
+      return api('/auth/v1/token?grant_type=password', { method: 'POST', body: { email: email, password: data.password || '' } })
+        .then(function (session) {
+          storeSession(session);
+          adoptCloudUser(session.user);
+          return pullState().catch(function () { /* offline copy is fine */ }).then(function () {
+            emit();
+            apply();
+            return current();
+          });
+        });
+    });
+  }
+
+  function cloudSignOut() {
+    var s = cloudSession();
+    var done = function () { writeJSON(CLOUD_KEY, null); writeJSON(SESSION_KEY, null); emit(); };
+    if (!s) { done(); return; }
+    pushState(true).catch(function () {}).then(function () {
+      return api('/auth/v1/logout', { method: 'POST', token: s.access_token }).catch(function () {});
+    }).then(done);
+  }
+
+  function cloudChangePassword(oldPassword, nextPassword) {
+    return attempt(function () {
+      var user = current();
+      if (!user) throw new Error('You are not signed in.');
+      checkPassword(nextPassword);
+      return api('/auth/v1/token?grant_type=password', { method: 'POST', body: { email: user.email, password: oldPassword || '' } })
+        .then(function (s) { storeSession(s); return s.access_token; }, function () { throw new Error('The current password is not right.'); })
+        .then(function (tok) { return api('/auth/v1/user', { method: 'PUT', token: tok, body: { password: nextPassword } }); })
+        .then(function () { return true; });
+    });
+  }
+
+  function cloudDeleteAccount(password) {
+    return attempt(function () {
+      var user = current();
+      if (!user) throw new Error('You are not signed in.');
+      return api('/auth/v1/token?grant_type=password', { method: 'POST', body: { email: user.email, password: password || '' } })
+        .then(function (s) { return s.access_token; }, function () { throw new Error('The password is not right.'); })
+        .then(function (tok) { return api('/rest/v1/rpc/delete_my_account', { method: 'POST', token: tok, body: {} }); })
+        .then(function () {
+          var all = accounts();
+          delete all[normEmail(user.email)];
+          writeJSON(ACCOUNTS_KEY, Object.keys(all).length ? all : null);
+          writeJSON(CLOUD_KEY, null);
+          writeJSON(SESSION_KEY, null);
+          emit();
+          return true;
+        });
+    });
+  }
+
+  function recoverPassword(email) {
+    return attempt(function () {
+      email = normEmail(email);
+      checkEmail(email);
+      return api('/auth/v1/recover', { method: 'POST', body: { email: email } }).then(function () { return true; });
+    });
+  }
+
+  // 'valid' | 'used' | 'unknown': the sign-up form says so before the form is sent.
+  function inviteStatus(code) {
+    if (!CLOUD) return Promise.resolve('unknown');
+    return api('/rest/v1/rpc/invite_status', { method: 'POST', body: { code: String(code || '') } });
+  }
+
+  // ---- sync: one JSON document per reader --------------------------------------------------------
+  function snapshot() {
+    var user = current();
+    var keys = {};
+    SYNC_KEYS.forEach(function (k) { var v = readJSON(k); if (v !== null) keys[k] = v; });
+    try { var fm = localStorage.getItem(FORMULA_KEY); if (fm) keys[FORMULA_KEY] = fm; } catch (e) { /* blocked */ }
+    var record = sessionRecord();
+    return { v: 1, name: user ? user.name : '', prefs: user ? user.prefs : null, prefsAt: record && record.prefsAt || 0,
+             keys: keys, saved: new Date().toISOString() };
+  }
+
+  function mergeHistory(a, b) {
+    a = a && Array.isArray(a.history) ? a : { current: null, history: [] };
+    b = b && Array.isArray(b.history) ? b : { current: null, history: [] };
+    var seen = {}, out = [];
+    a.history.concat(b.history).forEach(function (h) {
+      var k = String(h.finishedAt) + '|' + h.total;
+      if (!seen[k]) { seen[k] = true; out.push(h); }
+    });
+    out.sort(function (x, y) { return (x.finishedAt || 0) - (y.finishedAt || 0); });
+    return { current: a.current || b.current || null, history: out };
+  }
+
+  // Cloud copy into this browser: study time per day and subject keeps the larger value, recent
+  // pages, favourites and notes keep the newer, simulator histories are joined.
+  function absorb(doc) {
+    if (!doc || typeof doc !== 'object') return;
+    var keys = doc.keys || {};
+    var log = studyLog(), cl = keys.ae_study_log && keys.ae_study_log.days ? keys.ae_study_log.days : {};
+    Object.keys(cl).forEach(function (d) {
+      log.days[d] = log.days[d] || {};
+      Object.keys(cl[d]).forEach(function (s) { log.days[d][s] = Math.max(log.days[d][s] || 0, cl[d][s]); });
+    });
+    writeJSON(STUDY_KEY, log);
+    var rec = recentPages(), cr = keys.ae_recent || {};
+    Object.keys(cr).forEach(function (s) { if (!rec[s] || (cr[s].at || 0) > (rec[s].at || 0)) rec[s] = cr[s]; });
+    writeJSON(RECENT_KEY, rec);
+    var mk = marks(), cm = keys.ae_marks && keys.ae_marks.items ? keys.ae_marks.items : {};
+    Object.keys(cm).forEach(function (k) { if (!mk.items[k] || (cm[k].updated || 0) > (mk.items[k].updated || 0)) mk.items[k] = cm[k]; });
+    writeJSON(MARKS_KEY, mk);
+    ['ae_bm_exams', 'ae_mat_exams', 'ae_am_exams', 'ae_em_exams'].forEach(function (k) {
+      if (keys[k]) writeJSON(k, mergeHistory(readJSON(k), keys[k]));
+    });
+    if (keys[FORMULA_KEY] && !(function () { try { return localStorage.getItem(FORMULA_KEY); } catch (e) { return null; } })()) {
+      try { localStorage.setItem(FORMULA_KEY, keys[FORMULA_KEY]); } catch (e) { /* blocked */ }
+    }
+    var record = sessionRecord();
+    // Preferences are one object: the copy changed last wins, so an older cloud copy never undoes
+    // a change made here that had not been pushed yet.
+    if (record && doc.prefs && (doc.prefsAt || 0) >= (record.prefsAt || 0)) {
+      record.prefs = mergePrefs(doc.prefs);
+      record.prefsAt = doc.prefsAt || 0;
+      if (doc.name) record.name = doc.name;
+      saveRecord(record);
+    }
+  }
+
+  function pullState() {
+    var s = cloudSession();
+    if (!CLOUD || !s) return Promise.resolve();
+    return token().then(function (tok) {
+      return api('/rest/v1/user_state?select=data&user_id=eq.' + encodeURIComponent(s.user_id), { token: tok });
+    }).then(function (rows) {
+      if (rows && rows[0]) absorb(rows[0].data);
+      var cur = cloudSession();
+      if (cur) { cur.pulled_at = Date.now(); writeJSON(CLOUD_KEY, cur); }
+    });
+  }
+
+  var lastPushed = '';
+  var pushTimer = 0;
+  function pushState(now, keepalive) {
+    var s = cloudSession();
+    if (!CLOUD || !s || !current()) return Promise.resolve();
+    clearTimeout(pushTimer);
+    var doc = snapshot();
+    var body = JSON.stringify(doc.keys) + JSON.stringify(doc.prefs) + doc.name;
+    if (!now && body === lastPushed) return Promise.resolve();
+    return token().then(function (tok) {
+      return api('/rest/v1/user_state', {
+        method: 'POST', token: tok, keepalive: !!keepalive,
+        headers: { Prefer: 'resolution=merge-duplicates,return=minimal' },
+        body: { user_id: s.user_id, data: doc, updated_at: new Date().toISOString() }
+      });
+    }).then(function () { lastPushed = body; });
+  }
+
+  function schedulePush() {
+    if (!CLOUD || !cloudSession()) return;
+    clearTimeout(pushTimer);
+    pushTimer = setTimeout(function () { pushTimer = 0; pushState(false).catch(function () {}); }, 2500);
+  }
+
+  // On every page of a signed-in cloud reader: pull at most every 5 minutes, push on changes,
+  // when the tab is hidden and once a minute while it is open.
+  function startSync() {
+    if (!CLOUD || !cloudSession() || !current()) return;
+    var s = cloudSession();
+    if (!s.pulled_at || Date.now() - s.pulled_at > 300000) {
+      pullState().then(function () { emit(); apply(); }, function () {});
+    }
+    document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') pushState(false, true).catch(function () {}); });
+    // Leaving the page with a change still waiting: send it now (keepalive outlives the page).
+    window.addEventListener('pagehide', function () { if (pushTimer) pushState(false, true).catch(function () {}); });
+    setInterval(function () { pushState(false).catch(function () {}); }, 60000);
+  }
+
+  // A change of name or preferences is stamped, so the newest copy wins when devices sync.
+  function withPrefsPush(fn) {
+    return withPush(function () {
+      var out = fn.apply(null, arguments);
+      var record = sessionRecord();
+      if (record) { record.prefsAt = Date.now(); saveRecord(record); }
+      return out;
+    });
+  }
+
+  function withPush(fn) {
+    return function () {
+      var out = fn.apply(null, arguments);
+      schedulePush();
+      return out;
+    };
+  }
+
   function start(tries) {
     tries = tries || 0;
     var wantsPicker = !!document.querySelector('link[href*="study-surface.css"]') && !!document.getElementById('themeToggle');
@@ -796,6 +1103,7 @@
     trackStudy();
     loadMarks();
     arrange();
+    startSync();
   }
 
   document.addEventListener('ae-account-change', function () { buildWidget(); arrange(); });
@@ -810,19 +1118,23 @@
   window.AEAccount = {
     SUBJECTS: SUBJECTS,
     SURFACES: SURFACE_IDS,
-    backend: 'local',
+    backend: CLOUD ? 'supabase' : 'local',
+    requiresInvite: CLOUD && CFG.requireInvite !== false,
     current: current,
-    signUp: signUp,
-    signIn: signIn,
-    signOut: signOut,
-    update: update,
-    updatePrefs: updatePrefs,
-    changePassword: changePassword,
-    deleteAccount: deleteAccount,
+    signUp: CLOUD ? cloudSignUp : signUp,
+    signIn: CLOUD ? cloudSignIn : signIn,
+    signOut: CLOUD ? cloudSignOut : signOut,
+    update: withPrefsPush(update),
+    updatePrefs: withPrefsPush(updatePrefs),
+    changePassword: CLOUD ? cloudChangePassword : changePassword,
+    deleteAccount: CLOUD ? cloudDeleteAccount : deleteAccount,
+    recoverPassword: recoverPassword,
+    inviteStatus: inviteStatus,
+    syncNow: function () { return pushState(true); },
     exportData: exportData,
     studyLog: studyLog,
     marks: marks,
-    setMark: setMark,
+    setMark: withPush(setMark),
     recentPages: recentPages,
     dayKey: dayKey,
     deviceData: deviceData,

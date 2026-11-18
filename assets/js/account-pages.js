@@ -285,7 +285,19 @@
       $('#loginKnown').hidden = true;
       form.email.focus();
     });
-    $('#forgotBtn').addEventListener('click', function () { $('#forgotNote').hidden = !$('#forgotNote').hidden; });
+    $('#forgotBtn').addEventListener('click', function () {
+      if (AEAccount.backend === 'supabase') {
+        var note = $('#forgotNote');
+        note.hidden = false;
+        if (!form.email.value) { note.textContent = 'Write your email above, then press "Forgot it?" again.'; form.email.focus(); return; }
+        note.textContent = 'Sending...';
+        AEAccount.recoverPassword(form.email.value).then(function () {
+          note.textContent = 'If that email has an account, a link to set a new password is on its way.';
+        }, function (err) { note.textContent = err.message; });
+        return;
+      }
+      $('#forgotNote').hidden = !$('#forgotNote').hidden;
+    });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       showError(error, null);
@@ -370,12 +382,20 @@
       if (!form.terms.checked) { showError(error, new Error('Please accept how your data is kept to continue.')); return; }
       var submit = $('button[type="submit"]', form);
       submit.disabled = true;
-      AEAccount.signUp({ name: form.elements['name'].value, email: form.email.value, password: form.password.value }).then(function () {
+      AEAccount.signUp({ name: form.elements['name'].value, email: form.email.value, password: form.password.value,
+                         invite: form.invite ? form.invite.value : '' }).then(function (res) {
+        if (res && res.pending) {
+          submit.disabled = false;
+          showError(error, null);
+          $('#signupDone').hidden = false;
+          $('#signupDone').textContent = 'Almost there: open the email we sent to ' + res.email + ' to confirm it, then sign in.';
+          return;
+        }
         go(1);
       }, function (err) {
         submit.disabled = false;
         showError(error, err);
-        var field = /email/i.test(err.message) ? form.email : /password/i.test(err.message) ? form.password : /name/i.test(err.message) ? form.elements['name'] : null;
+        var field = /invite/i.test(err.message) ? form.invite : /email/i.test(err.message) ? form.email : /password/i.test(err.message) ? form.password : /name/i.test(err.message) ? form.elements['name'] : null;
         if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
       });
     });
@@ -1287,8 +1307,42 @@
     });
   }
 
+  // Cloud mode: say where the account lives, and on the sign-up page ask for the invite code.
+  function initCloudBits() {
+    if (AEAccount.backend !== 'supabase') return;
+    $$('[data-local-line]').forEach(function (p) {
+      p.lastChild.textContent = 'Synced to your account on every device';
+    });
+    var field = $('#inviteField');
+    if (!field || !AEAccount.requiresInvite) return;
+    field.hidden = false;
+    var input = $('#suInvite'), status = $('#inviteStatus');
+    var m = /[?&]invite=([^&#]+)/.exec(location.search);
+    if (m) input.value = decodeURIComponent(m[1]).toUpperCase();
+    var timer = 0, asked = '';
+    function check() {
+      var code = input.value.replace(/\s/g, '').toUpperCase();
+      input.removeAttribute('aria-invalid');
+      if (code.length < 12) { status.textContent = ''; status.className = 'acc-invite__status'; return; }
+      if (code === asked) return;
+      asked = code;
+      status.textContent = 'Checking...';
+      status.className = 'acc-invite__status';
+      AEAccount.inviteStatus(code).then(function (st) {
+        if (code !== asked) return;
+        var text = { valid: 'Valid code', used: 'Already used', unknown: 'Not a Sideris code' }[st] || '';
+        status.textContent = text;
+        status.className = 'acc-invite__status is-' + (st === 'valid' ? 'ok' : 'bad');
+        if (st !== 'valid') input.setAttribute('aria-invalid', 'true');
+      }, function () { status.textContent = ''; asked = ''; });
+    }
+    input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(check, 350); });
+    if (input.value) check();
+  }
+
   function start() {
     if (!window.AEAccount || !window.AESurface) { setTimeout(start, 30); return; }
+    initCloudBits();
     var page = document.body.getAttribute('data-page');
     if (page === 'login') initLogin();
     else if (page === 'signup') initSignup();
