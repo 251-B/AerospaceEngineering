@@ -592,10 +592,11 @@
   // ---- My study (account/dashboard.html) ------------------------------------------------------
   // Subject colours for the marks of the charts (validated for colour-vision deficiency on the
   // dark and the light card); text never takes them.
-  var MARK = {
-    dark: { 'fluid-mechanics': '#0891b2', 'aerospace-materials-1': '#d97706', 'engineering-mechanics': '#059669', 'advanced-maths': '#8b5cf6', 'business-management': '#ef4444' },
-    light: { 'fluid-mechanics': '#0891b2', 'aerospace-materials-1': '#d97706', 'engineering-mechanics': '#059669', 'advanced-maths': '#7c3aed', 'business-management': '#dc2626' }
-  };
+  // One family: the same chroma (OKLCH C 0.135) and staggered lightness, so the five hues sit
+  // together; every pair separates for colour-vision deficiency (worst all-pairs dE 9.2) and for
+  // normal vision (15.6) on the dark card and on every light palette.
+  var MARK_SET = { 'fluid-mechanics': '#008bbc', 'aerospace-materials-1': '#bc7b04', 'engineering-mechanics': '#36ac73', 'advanced-maths': '#6651a9', 'business-management': '#b14955' };
+  var MARK = { dark: MARK_SET, light: MARK_SET };
   var SIM_KEYS = { 'business-management': 'ae_bm_exams', 'aerospace-materials-1': 'ae_mat_exams', 'advanced-maths': 'ae_am_exams', 'engineering-mechanics': 'ae_em_exams' };
 
   function markColour(id) {
@@ -825,7 +826,7 @@
     var svg = ['<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="Minutes studied per day in the last 7 days, by subject"><defs>'];
     subjects.forEach(function (s) {
       var c = markColour(s.id);
-      svg.push('<linearGradient id="wk-' + s.id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="color-mix(in srgb, ' + c + ' 78%, #ffffff)"/>' +
+      svg.push('<linearGradient id="wk-' + s.id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="color-mix(in srgb, ' + c + ' 86%, #ffffff)"/>' +
         '<stop offset="1" stop-color="' + c + '"/></linearGradient>');
     });
     svg.push('</defs>');
