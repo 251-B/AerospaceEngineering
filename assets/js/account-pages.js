@@ -743,6 +743,7 @@
     renderGoal(weekTotal, prefs.weeklyGoal);
     renderWeek(days, week, chartSubjects);
     renderHeatmap(log);
+    renderSky(log, prefs, byId);
     wireMarks(byId);
     var resizeTimer = 0;
     window.addEventListener('resize', function () {
@@ -837,6 +838,167 @@
     });
     renderMarks(byId);
     window.addEventListener('storage', function (e) { if (e.key === 'ae_marks') renderMarks(byId); });
+  }
+
+  // ---- Your sky: one star per day of study, constellations of consecutive days ---------------------
+  // A day with at least 10 minutes in ae_study_log is a star: its size grows with the minutes, its
+  // colour is the subject studied most that day. Consecutive days are joined into a constellation; a
+  // day without study closes it. Positions come from the dates (a seeded random walk per
+  // constellation, constellations laid on a golden-angle spiral), so the sky never reshuffles and
+  // only grows.
+  function seeded(text) {
+    var h = 2166136261;
+    for (var i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    return function () { h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0; h = Math.imul(h ^ (h >>> 13), 3266489909) >>> 0; return ((h ^= h >>> 16) >>> 0) / 4294967296; };
+  }
+
+  function skyDays(log) {
+    return Object.keys(log.days).sort().map(function (k) {
+      var rec = log.days[k];
+      var sec = 0, top = null, topSec = 0;
+      Object.keys(rec).forEach(function (s) { sec += rec[s]; if (rec[s] > topSec) { topSec = rec[s]; top = s; } });
+      return { key: k, sec: sec, top: top, subjects: Object.keys(rec).filter(function (s) { return rec[s] >= 300; }) };
+    }).filter(function (d) { return d.sec >= 600; });
+  }
+
+  function dayDiff(a, b) {
+    var pa = a.split('-'), pb = b.split('-');
+    return Math.round((new Date(+pb[0], pb[1] - 1, +pb[2]) - new Date(+pa[0], pa[1] - 1, +pa[2])) / 86400000);
+  }
+
+  function renderSky(log, prefs, byId) {
+    var map = $('#skyMap');
+    if (!map) return;
+    var days = skyDays(log);
+    var groups = [];
+    days.forEach(function (d, i) {
+      if (!i || dayDiff(days[i - 1].key, d.key) > 1) groups.push([]);
+      groups[groups.length - 1].push(d);
+    });
+    var narrow = (map.clientWidth || 1000) < 600;   // phones: a taller sky, so the stars keep their size
+    var W = narrow ? 600 : 1000, H = narrow ? 560 : 360;
+    var stars = [], lines = [];
+    // Each constellation gets its own cell of the sky, in date order (left to right, top to bottom);
+    // inside it, a seeded random walk that stays within the cell, so groups never overlap.
+    var n = Math.max(1, groups.length);
+    var cols = Math.max(1, Math.ceil(Math.sqrt(n * W / H))), rows = Math.ceil(n / cols);
+    var cw = W / cols, ch = H / rows;
+    groups.forEach(function (g, gi) {
+      var col = gi % cols, row = Math.floor(gi / cols);
+      var rnd = seeded(g[0].key);
+      var x0 = col * cw + 22, x1 = (col + 1) * cw - 22, y0 = row * ch + 22, y1 = (row + 1) * ch - 22;
+      var x = x0 + (x1 - x0) * (0.3 + rnd() * 0.4), y = y0 + (y1 - y0) * (0.3 + rnd() * 0.4);
+      var dir = rnd() * Math.PI * 2, step0 = Math.min(cw, ch) / (2.2 + Math.sqrt(g.length));
+      g.forEach(function (d, di) {
+        if (di) {
+          dir += (rnd() - 0.5) * 2.2;
+          var step = step0 * (0.75 + rnd() * 0.6);
+          var nx = x + Math.cos(dir) * step, ny = y + Math.sin(dir) * step;
+          if (nx < x0 || nx > x1) { dir = Math.PI - dir; nx = x + Math.cos(dir) * step; }
+          if (ny < y0 || ny > y1) { dir = -dir; ny = y + Math.sin(dir) * step; }
+          x = Math.max(x0, Math.min(x1, nx)); y = Math.max(y0, Math.min(y1, ny));
+          lines.push([stars[stars.length - 1].x, stars[stars.length - 1].y, x, y]);
+        }
+        stars.push({ x: x, y: y, d: d, size: 2.2 + Math.min(5, Math.sqrt(d.sec / 60) / 2.6) });
+      });
+    });
+    var best = days.reduce(function (b, d) { return !b || d.sec > b.sec ? d : b; }, null);
+    $('#skyStars').textContent = stars.length;
+    $('#skyConsts').textContent = groups.filter(function (g) { return g.length >= 2; }).length;
+    $('#skyBest').textContent = best ? duration(best.sec) : '-';
+
+    var rnd0 = seeded('dust');
+    var dust = '';
+    for (var i = 0; i < 140; i++) dust += '<circle cx="' + (rnd0() * W).toFixed(1) + '" cy="' + (rnd0() * H).toFixed(1) + '" r="' + (0.4 + rnd0() * 0.8).toFixed(2) + '" opacity="' + (0.15 + rnd0() * 0.5).toFixed(2) + '"/>';
+    var newest = stars.length ? stars[stars.length - 1] : null;
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Your sky: ' + stars.length + ' study days as stars, in ' +
+      groups.length + ' groups of consecutive days">' +
+      '<g class="acc-skymap__dust">' + dust + '</g>' +
+      '<g class="acc-skymap__lines">' + lines.map(function (l) {
+        return '<line x1="' + l[0].toFixed(1) + '" y1="' + l[1].toFixed(1) + '" x2="' + l[2].toFixed(1) + '" y2="' + l[3].toFixed(1) + '"/>';
+      }).join('') + '</g>' +
+      stars.map(function (st, i) {
+        var c = markColour(st.d.top) || '#e2e8f0';
+        return '<g class="acc-skymap__star' + (st === newest ? ' is-new' : '') + '" style="--c:' + c + ';--i:' + (i % 9) + '" data-tip="' +
+          esc(dateLabel(st.d.key) + ' · ' + duration(st.d.sec) + (byId[st.d.top] ? ' · mostly ' + byId[st.d.top].short : '')) + '" tabindex="0">' +
+          '<circle class="acc-skymap__halo" cx="' + st.x.toFixed(1) + '" cy="' + st.y.toFixed(1) + '" r="' + (st.size * 3.2).toFixed(1) + '"/>' +
+          '<circle class="acc-skymap__core" cx="' + st.x.toFixed(1) + '" cy="' + st.y.toFixed(1) + '" r="' + st.size.toFixed(1) + '"/></g>';
+      }).join('') +
+      (stars.length ? '' : '<text x="' + W / 2 + '" y="' + H / 2 + '" text-anchor="middle" class="acc-skymap__empty">Study for 10 minutes today and your first star appears here.</text>') +
+      '</svg>';
+    map.innerHTML = svg;
+    var used = {};
+    days.forEach(function (d) { if (d.top) used[d.top] = true; });
+    $('#skyLegend').innerHTML = Object.keys(used).length
+      ? Object.keys(used).map(function (id) { return '<span><i style="background:' + markColour(id) + '"></i>' + esc(byId[id] ? byId[id].short : id) + '</span>'; }).join('') +
+        '<span class="acc-sky-panel__hint">Size: minutes studied that day</span>'
+      : '';
+    var tip = $('#weekTip');
+    $$('.acc-skymap__star', map).forEach(function (g) {
+      function show() { tip.innerHTML = '<strong>' + g.getAttribute('data-tip') + '</strong>'; placeTip(tip, g.querySelector('.acc-skymap__core')); }
+      function hide() { tip.hidden = true; }
+      g.addEventListener('mouseenter', show); g.addEventListener('focus', show);
+      g.addEventListener('mouseleave', hide); g.addEventListener('blur', hide);
+    });
+    renderBadges(days, groups, prefs);
+  }
+
+  function dateLabel(key) {
+    var p = key.split('-');
+    return new Date(+p[0], p[1] - 1, +p[2]).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+  }
+
+  // Achievements, all computed from what is already stored; locked ones show how far along they are.
+  function renderBadges(days, groups, prefs) {
+    var box = $('#skyBadges');
+    if (!box) return;
+    var longest = groups.reduce(function (m, g) { return Math.max(m, g.length); }, 0);
+    // best 7-day window and subjects covered in one
+    var bestWeek = 0, fullWeek = false;
+    var mine = prefs.subjects || [];
+    days.forEach(function (d, i) {
+      var sum = 0, seen = {};
+      for (var j = i; j >= 0 && dayDiff(days[j].key, d.key) < 7; j--) {
+        sum += days[j].sec;
+        days[j].subjects.forEach(function (s) { seen[s] = true; });
+      }
+      bestWeek = Math.max(bestWeek, sum);
+      if (mine.length >= 2 && mine.every(function (s) { return seen[s]; })) fullWeek = true;
+    });
+    // a simulator item missed once and right in a later attempt
+    var corrected = 0;
+    Object.keys(SIM_KEYS).forEach(function (slug) {
+      var st = readStore(SIM_KEYS[slug]);
+      var hist = st && Array.isArray(st.history) ? st.history.slice().sort(function (a, b) { return (a.finishedAt || 0) - (b.finishedAt || 0); }) : [];
+      var missed = {};
+      hist.forEach(function (h) {
+        (h.items || []).forEach(function (it) {
+          var low = it.score < it.points / 2;
+          if (low) missed[it.id] = true;
+          else if (missed[it.id]) { corrected++; delete missed[it.id]; }
+        });
+      });
+    });
+    var goal = prefs.weeklyGoal || 0;
+    var list = [
+      { name: 'First light', text: 'Your first star', done: days.length >= 1, prog: Math.min(1, days.length) + ' / 1' },
+      { name: 'Constellation', text: '5 days in a row', done: longest >= 5, prog: Math.min(longest, 5) + ' / 5' },
+      { name: 'A week of nights', text: '7 days in a row', done: longest >= 7, prog: Math.min(longest, 7) + ' / 7' },
+      { name: 'Ten hours', text: '10 h in 7 days', done: bestWeek >= 36000, prog: Math.floor(Math.min(bestWeek, 36000) / 3600) + ' / 10 h' },
+      { name: 'On target', text: goal ? 'Your ' + goal + ' h weekly goal' : 'Set a weekly goal', done: !!goal && bestWeek >= goal * 3600,
+        prog: goal ? Math.floor(Math.min(bestWeek, goal * 3600) / 3600) + ' / ' + goal + ' h' : 'no goal yet' },
+      { name: 'Full sky', text: 'Every subject in one week', done: fullWeek, prog: mine.length >= 2 ? 'not yet' : 'choose 2+ subjects' },
+      { name: 'Second chance', text: 'Right on a question you missed', done: corrected >= 1, prog: corrected + ' / 1' },
+      { name: 'Fifty stars', text: '50 days of study', done: days.length >= 50, prog: Math.min(days.length, 50) + ' / 50' }
+    ];
+    box.innerHTML = list.map(function (b) {
+      return '<li class="acc-badge' + (b.done ? ' is-done' : '') + '"><span class="acc-badge__icon" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2.5l2.4 6.6 7 .3-5.5 4.3 1.9 6.8L12 16.6l-5.8 3.9 1.9-6.8-5.5-4.3 7-.3z"/></svg></span>' +
+        '<span class="acc-badge__body"><strong>' + esc(b.name) + '</strong><span>' + esc(b.text) + '</span>' +
+        '<em>' + (b.done ? 'Unlocked' : esc(b.prog)) + '</em></span></li>';
+    }).join('');
+    var n = list.filter(function (b) { return b.done; }).length;
+    box.setAttribute('aria-label', n + ' of ' + list.length + ' achievements unlocked');
   }
 
   // ---- "Practise my mistakes" -----------------------------------------------------------------

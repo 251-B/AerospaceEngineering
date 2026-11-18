@@ -602,7 +602,7 @@
   // ---- study tracking (signed-in only, this browser only) ---------------------------------
   // On a subject page: the page goes into 'ae_recent' (the last page read in each subject) and,
   // every 15 s while the tab is visible and the reader moved in the last 2 minutes, 15 s go into
-  // 'ae_study_log' = { days: { 'YYYY-MM-DD': { <subject id>: seconds } } } (kept for 70 days).
+  // 'ae_study_log' = { days: { 'YYYY-MM-DD': { <subject id>: seconds } } } (kept for 400 days: the 'Your sky' panel of My study draws them).
   var STUDY_KEY = 'ae_study_log';
   var RECENT_KEY = 'ae_recent';
   var AREAS = { teoria: 'Theory', problemas: 'Problems', 'extra-problems': 'Extra problems', simulator: 'Exam simulator',
@@ -651,7 +651,7 @@
       log.days[today] = log.days[today] || {};
       log.days[today][subject] = (log.days[today][subject] || 0) + 15;
       var keys = Object.keys(log.days).sort();
-      while (keys.length > 70) delete log.days[keys.shift()];
+      while (keys.length > 400) delete log.days[keys.shift()];
       writeJSON(STUDY_KEY, log);
     }, 15000);
   }

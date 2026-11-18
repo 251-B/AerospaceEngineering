@@ -135,12 +135,17 @@ En orden de prioridad aproximado:
    - Mantener `localStorage` como caché, primero en local, para que la web siga funcionando sin conexión y sin cuenta.
    - `account.js` ya expone una API (`AEAccount.signUp`, `signIn`, `updatePrefs`…) pensada para cambiar el backend sin tocar las páginas.
    - Al hacerlo, añadir una política de privacidad real (RGPD).
-3. **Títulos del inicio de sesión.** "Find your star." y "Claim your star." ya no encajan, porque se quitó la estrella marcada. Proponer al usuario textos ligados a la galaxia.
+3. ~~**Títulos del inicio de sesión.**~~ **Hecho**: "Join the galaxy." (lo eligió el usuario) en el registro y "Enter your galaxy." en el inicio de sesión.
 4. **Más gráficas o funciones en My study** que se mencionaron:
    - ~~objetivo semanal de horas~~ **hecho**: `prefs.weeklyGoal` (0 = sin objetivo, 1 a 40 h), deslizador en Settings → Study y anillo de progreso en "This week" de My study;
    - ~~"practicar mis falladas"~~ **hecho**: cada tarjeta del simulador en My study abre la lista de ítems aún fallados (último intento de cada ítem por debajo de la mitad; si se acierta después, sale de la lista), con enlace directo a cada ítem. El banco de la asignatura (`subjects/<slug>/data/problems.js`, hasta 2,3 MB) se carga solo al abrir la lista. También se arregló el estado vacío de "Upcoming exams";
    - puntos débiles por unidad o concepto. El banco de Materials tiene `concept_id` en cada pregunta, pero el historial del simulador solo guarda el id del ítem, así que hay que cruzarlo con `problems.js`.
-5. **Idea propuesta y no hecha:** "tu cielo crece", una estrella o constelación personal que crece con los días estudiados o los temas terminados.
+5. ~~"Tu cielo crece"~~ **hecho**: panel "Your sky" en My study (`renderSky` y `renderBadges` en `account-pages.js`).
+   - Cada día con 10 min o más es una estrella: el tamaño depende de los minutos y el color de la asignatura más estudiada ese día.
+   - Los días seguidos se unen en una constelación, y cada constelación ocupa su propia celda del cielo por orden de fecha. Las posiciones salen de las fechas, así que el cielo no se reordena: solo crece.
+   - Hay 8 logros calculados con lo ya guardado (First light, Constellation, A week of nights, Ten hours, On target, Full sky, Second chance, Fifty stars).
+   - Para que dure, `ae_study_log` guarda ahora 400 días en vez de 70.
+   - Títulos nuevos del login: "Enter your galaxy." (entrar) y "Join the galaxy." (registro).
 6. **Detalles menores:**
    - En móvil, los planetas Focus/Timer pueden tapar parte del contenido de abajo a la derecha. Se ofreció ocultarlos en páginas concretas.
    - Si se quiere que la portada vuelva a tener Focus/Timer, basta con cambiar la condición `studyTools` en `theme.js`; el usuario pidió quitarlos de la portada.

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-your-sky",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Your sky: every day you study lights a star",
+    "text": "My study now draws your own sky: a star for each day of study, joined into constellations on days in a row, plus eight achievements to unlock.",
+    "link": "account/dashboard.html"
+  },
+  {
     "id": "2026-11-18-practise-mistakes",
     "date": "2026-11-18",
     "tag": "Portal",
