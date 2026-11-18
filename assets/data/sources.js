@@ -946,8 +946,24 @@ window.AE_SOURCES = {
         {
           "id": "unit-03-financial-management-statements",
           "number": 3,
-          "other": [],
+          "other": [
+            {
+              "bytes": 176888,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/videos/LINKS%20TO%20FINANCIAL%20ACCOUNTING%20VIDEOS%20March%2017.pdf",
+              "name": "LINKS TO FINANCIAL ACCOUNTING VIDEOS March 17.pdf"
+            }
+          ],
           "problemas": [
+            {
+              "bytes": 137376,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf",
+              "name": "3_II_NPV IRR.pdf"
+            },
+            {
+              "bytes": 216977,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV_NPV%20IRR_solutions.pdf",
+              "name": "3_II_NPV_NPV IRR_solutions.pdf"
+            },
             {
               "bytes": 591176,
               "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/Background%20for%20Practice%20Financial%20Statements.pdf",
@@ -977,6 +993,11 @@ window.AE_SOURCES = {
           "slides": [],
           "teoria": [
             {
+              "bytes": 117600,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/The_3_Financial_Statements_EN.pdf",
+              "name": "The_3_Financial_Statements_EN.pdf"
+            },
+            {
               "bytes": 1491095,
               "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf",
               "name": "Topic 3_Financial Management (I).pdf"
@@ -985,47 +1006,91 @@ window.AE_SOURCES = {
           "title": "Financial Management Statements"
         },
         {
-          "id": "unit-04-financial-analysis-ratios",
+          "id": "unit-04-production-function",
           "number": 4,
           "other": [],
-          "problemas": [],
+          "problemas": [
+            {
+              "bytes": 332605,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements%20%20Solutions.pdf",
+              "name": "BEP  OL Statements  Solutions.pdf"
+            },
+            {
+              "bytes": 255075,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf",
+              "name": "BEP  OL Statements.pdf"
+            }
+          ],
           "slides": [],
-          "teoria": [],
-          "title": "Financial Analysis Ratios"
+          "teoria": [
+            {
+              "bytes": 376205,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf",
+              "name": "Topic 4_ The Production Function.pdf"
+            }
+          ],
+          "title": "Production Function"
         },
         {
-          "id": "unit-05-operations-marketing",
+          "id": "unit-05-marketing-sales",
           "number": 5,
           "other": [],
-          "problemas": [],
+          "problemas": [
+            {
+              "bytes": 155479,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity%20exercises%20STATEMENTS.pdf",
+              "name": "Elasticity exercises STATEMENTS.pdf"
+            },
+            {
+              "bytes": 231995,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/PED%20Exercises%20SOL.pdf",
+              "name": "PED Exercises SOL.pdf"
+            }
+          ],
           "slides": [],
-          "teoria": [],
-          "title": "Operations Marketing"
+          "teoria": [
+            {
+              "bytes": 416086,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/topic%205.2.2.pdf",
+              "name": "topic 5.2.2.pdf"
+            },
+            {
+              "bytes": 1976952,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf",
+              "name": "Topic 5_ Marketing _ Sales Management (I+II).pdf"
+            }
+          ],
+          "title": "Marketing Sales"
         },
         {
-          "id": "unit-06-business-plan",
+          "id": "unit-06-management-function",
           "number": 6,
           "other": [],
           "problemas": [],
           "slides": [],
           "teoria": [
             {
-              "bytes": 214986,
-              "href": "sources/cuatrimestre-1/05-business-management/unit-06-business-plan/teoria/BUSINESS%20PLAN_guide_26_27.pdf",
-              "name": "BUSINESS PLAN_guide_26_27.pdf"
-            },
-            {
-              "bytes": 1116289,
-              "href": "sources/cuatrimestre-1/05-business-management/unit-06-business-plan/teoria/Engineers%20%20Managing_Business%20Plan_26-27%20W1.pdf",
-              "name": "Engineers  Managing_Business Plan_26-27 W1.pdf"
-            },
-            {
-              "bytes": 195776,
-              "href": "sources/cuatrimestre-1/05-business-management/unit-06-business-plan/teoria/how-to-write-a-business-plan.pdf",
-              "name": "how-to-write-a-business-plan.pdf"
+              "bytes": 528668,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf",
+              "name": "Topic 6_ The Management Function.pdf"
             }
           ],
-          "title": "Business Plan"
+          "title": "Management Function"
+        },
+        {
+          "id": "unit-07-innovation-entrepreneurship",
+          "number": 7,
+          "other": [],
+          "problemas": [],
+          "slides": [],
+          "teoria": [
+            {
+              "bytes": 488087,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf",
+              "name": "Topic 7_Entrepreneurship  Innovation.pdf"
+            }
+          ],
+          "title": "Innovation Entrepreneurship"
         }
       ]
     },

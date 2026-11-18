@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 16
-- Referenced by at least one note (a mention counts): 13
-- Not referenced yet: 3
+- Files: 33
+- Referenced by at least one note (a mention counts): 21
+- Not referenced yet: 12
 - Build artifacts: 0
 - Working files: 0
 
@@ -21,6 +21,15 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 05-business-management - README (md)\|README.md]] | other | not-referenced |
+
+## business-plan/teoria
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 05-business-management - business-plan - teoria - Business plan index confirmation (pdf)\|Business plan index confirmation.pdf]] | teoria | not-referenced |
+| [[Source - 05-business-management - business-plan - teoria - BUSINESS PLAN_guide_26_27 (pdf)\|BUSINESS PLAN_guide_26_27.pdf]] | teoria | not-referenced |
+| [[Source - 05-business-management - business-plan - teoria - Engineers  Managing_Business Plan_26-27 W1 (pdf)\|Engineers  Managing_Business Plan_26-27 W1.pdf]] | teoria | not-referenced |
+| [[Source - 05-business-management - business-plan - teoria - how-to-write-a-business-plan (pdf)\|how-to-write-a-business-plan.pdf]] | teoria | not-referenced |
 
 ## unit-01-the-firm-types-objectives/problemas
 
@@ -51,6 +60,8 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
+| [[Source - 05-business-management - unit-03-financial-management-statements - problemas - 3_II_NPV IRR (pdf)\|3_II_NPV IRR.pdf]] | problemas | referenced |
+| [[Source - 05-business-management - unit-03-financial-management-statements - problemas - 3_II_NPV_NPV IRR_solutions (pdf)\|3_II_NPV_NPV IRR_solutions.pdf]] | problemas | referenced |
 | [[Source - 05-business-management - unit-03-financial-management-statements - problemas - Background for Practice Financial Statements (pdf)\|Background for Practice Financial Statements.pdf]] | problemas | not-referenced |
 | [[Source - 05-business-management - unit-03-financial-management-statements - problemas - T3_Additional_EXERCISES (pdf)\|T3_Additional_EXERCISES.pdf]] | problemas | referenced |
 | [[Source - 05-business-management - unit-03-financial-management-statements - problemas - T3_Additional_SOLUTIONS (pdf)\|T3_Additional_SOLUTIONS.pdf]] | problemas | referenced |
@@ -62,12 +73,53 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 05-business-management - unit-03-financial-management-statements - teoria - notebooklm-financial-accounting-videos (md)\|notebooklm-financial-accounting-videos.md]] | teoria | not-referenced |
+| [[Source - 05-business-management - unit-03-financial-management-statements - teoria - The_3_Financial_Statements_EN (pdf)\|The_3_Financial_Statements_EN.pdf]] | teoria | not-referenced |
 | [[Source - 05-business-management - unit-03-financial-management-statements - teoria - Topic 3_Financial Management (I) (pdf)\|Topic 3_Financial Management (I).pdf]] | teoria | referenced |
 
-## unit-06-business-plan/teoria
+## unit-03-financial-management-statements/videos
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 05-business-management - unit-06-business-plan - teoria - BUSINESS PLAN_guide_26_27 (pdf)\|BUSINESS PLAN_guide_26_27.pdf]] | teoria | referenced |
-| [[Source - 05-business-management - unit-06-business-plan - teoria - Engineers  Managing_Business Plan_26-27 W1 (pdf)\|Engineers  Managing_Business Plan_26-27 W1.pdf]] | teoria | referenced |
-| [[Source - 05-business-management - unit-06-business-plan - teoria - how-to-write-a-business-plan (pdf)\|how-to-write-a-business-plan.pdf]] | teoria | referenced |
+| [[Source - 05-business-management - unit-03-financial-management-statements - videos - LINKS TO FINANCIAL ACCOUNTING VIDEOS March 17 (pdf)\|LINKS TO FINANCIAL ACCOUNTING VIDEOS March 17.pdf]] | other | not-referenced |
+| [[Source - 05-business-management - unit-03-financial-management-statements - videos - links (txt)\|links.txt]] | other | not-referenced |
+
+## unit-04-production-function/problemas
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 05-business-management - unit-04-production-function - problemas - BEP  OL Statements  Solutions (pdf)\|BEP  OL Statements  Solutions.pdf]] | problemas | referenced |
+| [[Source - 05-business-management - unit-04-production-function - problemas - BEP  OL Statements (pdf)\|BEP  OL Statements.pdf]] | problemas | referenced |
+
+## unit-04-production-function/teoria
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 05-business-management - unit-04-production-function - teoria - Topic 4_ The Production Function (pdf)\|Topic 4_ The Production Function.pdf]] | teoria | referenced |
+| [[Source - 05-business-management - unit-04-production-function - teoria - video (txt)\|video.txt]] | teoria | not-referenced |
+
+## unit-05-marketing-sales/problemas
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 05-business-management - unit-05-marketing-sales - problemas - Elasticity exercises STATEMENTS (pdf)\|Elasticity exercises STATEMENTS.pdf]] | problemas | referenced |
+| [[Source - 05-business-management - unit-05-marketing-sales - problemas - PED Exercises SOL (pdf)\|PED Exercises SOL.pdf]] | problemas | referenced |
+
+## unit-05-marketing-sales/teoria
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 05-business-management - unit-05-marketing-sales - teoria - topic 5.2.2 (pdf)\|topic 5.2.2.pdf]] | teoria | referenced |
+| [[Source - 05-business-management - unit-05-marketing-sales - teoria - Topic 5_ Marketing _ Sales Management (I+II) (pdf)\|Topic 5_ Marketing _ Sales Management (I+II).pdf]] | teoria | referenced |
+| [[Source - 05-business-management - unit-05-marketing-sales - teoria - video (txt)\|video.txt]] | teoria | not-referenced |
+
+## unit-06-management-function/teoria
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 05-business-management - unit-06-management-function - teoria - Topic 6_ The Management Function (pdf)\|Topic 6_ The Management Function.pdf]] | teoria | referenced |
+
+## unit-07-innovation-entrepreneurship/teoria
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 05-business-management - unit-07-innovation-entrepreneurship - teoria - Topic 7_Entrepreneurship  Innovation (pdf)\|Topic 7_Entrepreneurship  Innovation.pdf]] | teoria | referenced |

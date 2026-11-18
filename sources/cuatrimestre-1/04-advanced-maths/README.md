@@ -3,7 +3,7 @@
 > **Course Code:** `251-15331` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `c27033c3-5a64-403f-a517-5847831aabcb`  
 > **Portal Web:** `subjects/04-advanced-maths/` | **Obsidian Vault:** `vault/04-advanced-maths/`  
-> **Last Synchronized:** `2026-10-23 10:32` | **Total Official Files:** `82` (92.9 MB)
+> **Last Synchronized:** `2026-11-17 23:20` | **Total Official Files:** `83` (92.9 MB)
 
 ---
 
@@ -11,7 +11,7 @@
 
 | Category | File Count | Status | Notes |
 | :--- | :---: | :---: | :--- |
-| 📖 **Theory & Slides** | `3` | 🟢 Active | Consolidated Notes & Session Slides |
+| 📖 **Theory & Slides** | `4` | 🟢 Active | Consolidated Notes & Session Slides |
 | ✏️ **Problem Sheets & Solutions** | `7` | 🟢 Active | Official problem sets & step-by-step solutions |
 | 📝 **Official Exams** | `67` | 🟢 Active | Partial midterms & final exams |
 | 📅 **Course Schedule** | `3` | 🟢 Available | Weekly lecture & evaluation calendar |
@@ -91,19 +91,20 @@
 | 67 | `MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` | 📝 Exam | 368.3 KB | `examenes/MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` |
 | 68 | `MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf` | 📝 Exam | 603.1 KB | `examenes/other-universities/MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf` |
 | 69 | `ODE_lecture_theory_to_Robinson_chapters.txt` | 📅 Schedule | 20.5 KB | `schedule/ODE_lecture_theory_to_Robinson_chapters.txt` |
-| 70 | `lecture_schedule_2026-27.txt` | 📅 Schedule | 5.3 KB | `schedule/lecture_schedule_2026-27.txt` |
+| 70 | `lecture_schedule_2026-27.txt` | 📅 Schedule | 5.6 KB | `schedule/lecture_schedule_2026-27.txt` |
 | 71 | `view.htm` | 📅 Schedule | 174.0 KB | `schedule/view.htm` |
 | 72 | `Notes.pdf` | 📖 Theory | 1.5 MB | `teoria/Notes.pdf` |
-| 73 | `ProblemsCh1.pdf` | ✏️ Problems | 38.8 KB | `unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf` |
-| 74 | `ProblemsCh2.pdf` | ✏️ Problems | 43.3 KB | `unit-02-first-order-odes/problemas/ProblemsCh2.pdf` |
-| 75 | `ProblemsCh3.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf` |
-| 76 | `probls_ch3-ii_2627.pdf` | ✏️ Problems | 34.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3-ii_2627.pdf` |
-| 77 | `probls_ch3_2627.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf` |
-| 78 | `probls_ch4-i_2627_v2.pdf` | ✏️ Problems | 38.7 KB | `unit-04-systems-of-odes/problemas/probls_ch4-i_2627_v2.pdf` |
-| 79 | `probls_ch4-ii_2627.pdf` | ✏️ Problems | 32.7 KB | `unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf` |
-| 80 | `definition_linear_ODE.pdf` | 📖 Theory | 98.4 KB | `unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf` |
-| 81 | `BookPDE's.pdf` | 📖 Theory | 6.2 MB | `unit-05-fourier-series-pdes/teoria/BookPDE's.pdf` |
-| 82 | `.gitkeep` | Other | 0.0 B | `unit-06-heat-wave-laplace/.gitkeep` |
+| 73 | `definition_linear_ODE.pdf` | 📖 Theory | 98.4 KB | `teoria/definition_linear_ODE.pdf` |
+| 74 | `question-about-Wronskian.pdf` | 📖 Theory | 28.9 KB | `teoria/question-about-Wronskian.pdf` |
+| 75 | `ProblemsCh1.pdf` | ✏️ Problems | 38.8 KB | `unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf` |
+| 76 | `ProblemsCh2.pdf` | ✏️ Problems | 43.3 KB | `unit-02-first-order-odes/problemas/ProblemsCh2.pdf` |
+| 77 | `ProblemsCh3.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf` |
+| 78 | `probls_ch3-ii_2627.pdf` | ✏️ Problems | 34.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3-ii_2627.pdf` |
+| 79 | `probls_ch3_2627.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf` |
+| 80 | `probls_ch4-i_2627_v2.pdf` | ✏️ Problems | 38.7 KB | `unit-04-systems-of-odes/problemas/probls_ch4-i_2627_v2.pdf` |
+| 81 | `probls_ch4-ii_2627.pdf` | ✏️ Problems | 32.7 KB | `unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf` |
+| 82 | `BookPDE's.pdf` | 📖 Theory | 6.2 MB | `unit-05-fourier-series-pdes/teoria/BookPDE's.pdf` |
+| 83 | `.gitkeep` | Other | 0.0 B | `unit-06-heat-wave-laplace/.gitkeep` |
 
 ---
 

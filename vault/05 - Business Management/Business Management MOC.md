@@ -1,6 +1,6 @@
 ---
 materia: Business Management
-tema: "Map of Content - Business Management (Units 1-3 with material; Units 4-6 pending)"
+tema: "Map of Content - Business Management (Topics 1-7)"
 fuentes:
   - "sources/cuatrimestre-1/05-business-management/ (unit-01 to unit-06)"
 tags:
@@ -73,10 +73,28 @@ tags:
 
 ---
 
-### Block III: Remaining Units in `sources/` (Not Yet Covered in the Vault)
-The units below are the folders present in `sources/cuatrimestre-1/05-business-management/`; their titles come from the folder names, and no note has been written for them yet.
-* *Unit 4: Financial Analysis and Ratios* (`unit-04-financial-analysis-ratios/`) — (no source material yet).
-* *Unit 5: Operations and Marketing* (`unit-05-operations-marketing/`) — (no source material yet).
-* *Unit 6: Business Plan* (`unit-06-business-plan/`) — source PDFs present (`BUSINESS PLAN_guide_26_27.pdf`, `Engineers  Managing_Business Plan_26-27 W1.pdf`, `how-to-write-a-business-plan.pdf`); not yet covered.
+#### 📈 Topic 3 (II): Investment Selection
+* **Solved problems:** [[05 - Business Management/Problem Set - T3 Investment Selection NPV and IRR|Problem Set: capitalization, payback, NPV, IRR and the Fisher rate (9 problems)]]
+
+---
+
+### Block III: Operations, Marketing, Management and Innovation
+
+#### 🏭 Topic 4: The Production Function
+* **Topic Note:** [[05 - Business Management/Topic 4 - The Production Function|Topic 4: The Production Function]]
+* **Solved problems:** [[05 - Business Management/Problem Set - T4 Break-Even Point and Operating Leverage|Problem Set: break-even point and operating leverage (8 exercises)]]
+
+#### 📣 Topic 5: Marketing and Sales Management
+* **Topic Note:** [[05 - Business Management/Topic 5 - Marketing and Sales Management|Topic 5: Marketing and Sales Management]]
+* **Solved problems:** [[05 - Business Management/Problem Set - T5 Price Elasticity of Demand|Problem Set: price elasticity of demand (6 exercises)]]
+
+#### 🧭 Topic 6: The Management Function
+* **Topic Note:** [[05 - Business Management/Topic 6 - The Management Function|Topic 6: The Management Function]] (no problem sheet in the course)
+
+#### 💡 Topic 7: Entrepreneurship and Innovation
+* **Topic Note:** [[05 - Business Management/Topic 7 - Entrepreneurship and Innovation|Topic 7: Entrepreneurship and Innovation]] (no problem sheet in the course)
+
+### Not covered in the vault
+* *Business Plan* (`business-plan/`): the group project's guide, W1 deck and reading; left out on purpose.
 * *Practice 3: Internal Analysis, Strategy and Resources* — `W3 Practice_3_Int_Analysis_Strategy_Resources.pdf` (in `unit-02-value-creation-environment/problemas/`); not yet covered.
 * *Official exams* (`examenes/`) and *course schedule* (`schedule/`) — no files yet.

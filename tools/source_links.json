@@ -297,6 +297,61 @@
    "label": "T3_Additional_SOLUTIONS.pdf",
    "pages": 25
   },
+  "bm-t4": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic 4_ The Production Function.pdf",
+   "label": "Topic 4 The Production Function.pdf",
+   "pages": 43
+  },
+  "bm-t4ex": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP  OL Statements.pdf",
+   "label": "BEP  OL Statements.pdf",
+   "pages": 2
+  },
+  "bm-t4sol": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP  OL Statements  Solutions.pdf",
+   "label": "BEP  OL Statements  Solutions.pdf",
+   "pages": 7
+  },
+  "bm-t5": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic 5_ Marketing _ Sales Management (I+II).pdf",
+   "label": "Topic 5 Marketing & Sales Management.pdf",
+   "pages": 37
+  },
+  "bm-t5ped": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/topic 5.2.2.pdf",
+   "label": "topic 5.2.2.pdf (price elasticity)",
+   "pages": 5
+  },
+  "bm-npv": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV IRR.pdf",
+   "label": "3_II_NPV IRR.pdf",
+   "pages": 2
+  },
+  "bm-npvsol": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV_NPV IRR_solutions.pdf",
+   "label": "3_II_NPV_NPV IRR_solutions.pdf",
+   "pages": 6
+  },
+  "bm-t6": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic 6_ The Management Function.pdf",
+   "label": "Topic 6 The Management Function.pdf",
+   "pages": 25
+  },
+  "bm-t7": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic 7_Entrepreneurship  Innovation.pdf",
+   "label": "Topic 7 Entrepreneurship & Innovation.pdf",
+   "pages": 19
+  },
+  "bm-t5ex": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity exercises STATEMENTS.pdf",
+   "label": "Elasticity exercises STATEMENTS.pdf",
+   "pages": 2
+  },
+  "bm-t5sol": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/PED Exercises SOL.pdf",
+   "label": "PED Exercises SOL.pdf",
+   "pages": 4
+  },
   "fm-cl1": {
    "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL1.pdf",
    "label": "CL1.pdf",
@@ -1513,6 +1568,213 @@
    ],
    "cite": {
     "slides": "bm-t3"
+   }
+  },
+  "subjects/business-management/teoria/topic-4.html": {
+   "panel": [
+    [
+     "bm-t4",
+     1
+    ],
+    [
+     "bm-t4ex",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t4"
+   }
+  },
+  "subjects/business-management/problemas/topic-4-break-even-leverage.html": {
+   "panel": [
+    [
+     "bm-t4ex",
+     1
+    ],
+    [
+     "bm-t4sol",
+     3
+    ],
+    [
+     "bm-t4",
+     36
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t4"
+   },
+   "cards": {
+    "exercise-1": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-2": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-3": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-4": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-5": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-6": [
+     "bm-t4ex",
+     2
+    ],
+    "exercise-7": [
+     "bm-t4ex",
+     2
+    ],
+    "exercise-8": [
+     "bm-t4ex",
+     2
+    ]
+   }
+  },
+  "subjects/business-management/teoria/topic-5.html": {
+   "panel": [
+    [
+     "bm-t5",
+     1
+    ],
+    [
+     "bm-t5ped",
+     1
+    ],
+    [
+     "bm-t5ex",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t5"
+   }
+  },
+  "subjects/business-management/problemas/topic-3-npv-irr.html": {
+   "panel": [
+    [
+     "bm-npv",
+     1
+    ],
+    [
+     "bm-npvsol",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t3"
+   },
+   "cards": {
+    "problem-1": [
+     "bm-npv",
+     1
+    ],
+    "problem-2": [
+     "bm-npv",
+     1
+    ],
+    "problem-3": [
+     "bm-npv",
+     1
+    ],
+    "problem-4": [
+     "bm-npv",
+     1
+    ],
+    "problem-5": [
+     "bm-npv",
+     1
+    ],
+    "problem-6": [
+     "bm-npv",
+     2
+    ],
+    "problem-7": [
+     "bm-npv",
+     2
+    ],
+    "problem-8": [
+     "bm-npv",
+     2
+    ],
+    "problem-9": [
+     "bm-npv",
+     2
+    ]
+   }
+  },
+  "subjects/business-management/teoria/topic-6.html": {
+   "panel": [
+    [
+     "bm-t6",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t6"
+   }
+  },
+  "subjects/business-management/teoria/topic-7.html": {
+   "panel": [
+    [
+     "bm-t7",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t7"
+   }
+  },
+  "subjects/business-management/problemas/topic-5-price-elasticity.html": {
+   "panel": [
+    [
+     "bm-t5ex",
+     1
+    ],
+    [
+     "bm-t5sol",
+     1
+    ],
+    [
+     "bm-t5ped",
+     2
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t5"
+   },
+   "cards": {
+    "exercise-1": [
+     "bm-t5ex",
+     1
+    ],
+    "exercise-2": [
+     "bm-t5ex",
+     1
+    ],
+    "exercise-3": [
+     "bm-t5ex",
+     1
+    ],
+    "exercise-4": [
+     "bm-t5ex",
+     2
+    ],
+    "exercise-5": [
+     "bm-t5ex",
+     2
+    ],
+    "exercise-6": [
+     "bm-t5ex",
+     2
+    ]
    }
   },
   "subjects/engineering-mechanics/problemas/topic-1.html": {

@@ -480,6 +480,22 @@ window.AE_NAV = {
             {
               "href": "subjects/business-management/teoria/topic-3.html",
               "label": "3 · Financial management (I)"
+            },
+            {
+              "href": "subjects/business-management/teoria/topic-4.html",
+              "label": "4 · The production function"
+            },
+            {
+              "href": "subjects/business-management/teoria/topic-5.html",
+              "label": "5 · Marketing and sales"
+            },
+            {
+              "href": "subjects/business-management/teoria/topic-6.html",
+              "label": "6 · The management function"
+            },
+            {
+              "href": "subjects/business-management/teoria/topic-7.html",
+              "label": "7 · Entrepreneurship and innovation"
             }
           ]
         },
@@ -495,6 +511,18 @@ window.AE_NAV = {
             {
               "href": "subjects/business-management/problemas/topic-3-extra-exam-problems.html",
               "label": "3 · Extra exam problems"
+            },
+            {
+              "href": "subjects/business-management/problemas/topic-3-npv-irr.html",
+              "label": "3 · NPV and IRR"
+            },
+            {
+              "href": "subjects/business-management/problemas/topic-4-break-even-leverage.html",
+              "label": "4 · Break-even and leverage"
+            },
+            {
+              "href": "subjects/business-management/problemas/topic-5-price-elasticity.html",
+              "label": "5 · Price elasticity"
             }
           ]
         },

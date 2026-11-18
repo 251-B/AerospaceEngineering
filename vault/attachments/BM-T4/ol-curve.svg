@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Operating leverage and the break-even point">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="60.0" y1="200.0" x2="520.0" y2="200.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M520.0,200.0 L511.7,203.5 L511.7,196.5 Z" fill="#8a94a6"/>
+<line x1="60.0" y1="300.0" x2="60.0" y2="20.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M60.0,20.0 L63.5,28.3 L56.5,28.3 Z" fill="#8a94a6"/>
+<text x="520.0" y="218.0" fill="#4b5563" font-size="12" font-weight="400" text-anchor="end">Q</text>
+<text x="66.0" y="26.0" fill="#4b5563" font-size="12" font-weight="400" text-anchor="start">OL</text>
+<polyline points="294.0,70.0 301.2,81.8 308.4,91.1 315.6,98.6 322.8,104.8 330.0,110.0 337.2,114.4 344.4,118.3 351.6,121.6 358.8,124.5 366.0,127.1 373.2,129.5 380.4,131.5 387.6,133.4 394.8,135.1 402.0,136.7 409.2,138.1 416.4,139.4 423.6,140.6 430.8,141.7 438.0,142.7 445.2,143.7 452.4,144.6 459.6,145.4 466.8,146.2 474.0,146.9 481.2,147.6 488.4,148.3 495.6,148.9 502.8,149.5 510.0,150.0" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="60.0,200.0 65.4,200.9 70.8,201.9 76.2,203.0 81.6,204.1 87.0,205.3 92.4,206.6 97.8,208.0 103.2,209.5 108.6,211.1 114.0,212.9 119.4,214.8 124.8,216.9 130.2,219.2 135.6,221.7 141.0,224.5 146.4,227.7 151.8,231.2 157.2,235.2 162.6,239.8 168.0,245.0 173.4,251.1 178.8,258.2 184.2,266.8 189.6,277.1 195.0,290.0" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="240.0" y1="20.0" x2="240.0" y2="300.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="246.0" y="218.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="start">Q* (BEP)</text>
+<line x1="60.0" y1="170.0" x2="520.0" y2="170.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="2 3"/>
+<text x="52.0" y="174.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1</text>
+<text x="52.0" y="204.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">0</text>
+<text x="390.0" y="120.0" fill="#3b82f6" font-size="12" font-weight="700" text-anchor="middle">profits: OL > 1</text>
+<text x="150.0" y="285.0" fill="#ec4899" font-size="12" font-weight="700" text-anchor="middle">losses: OL < 0</text>
+</g></svg>

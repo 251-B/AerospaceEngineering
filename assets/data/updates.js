@@ -15,12 +15,12 @@
  */
 window.AE_UPDATES = [
   {
-    "id": "2026-11-17-materials-midterm-2-problems",
-    "date": "2026-11-17",
-    "tag": "Aerospace Materials I",
-    "title": "Materials: 20 solved Midterm 2 problems in the simulator",
-    "text": "Part II now has a longer phase-diagram problem (3 points) and a shorter Unit 5 problem (2 points), each solved step by step and drawn in every simulated exam.",
-    "link": "subjects/aerospace-materials-1/extra-problems/midterm-2-problems.html"
+    "id": "2026-11-18-business-topics-4-7",
+    "date": "2026-11-18",
+    "tag": "Business Management",
+    "title": "Business Management Topics 4 to 7, with 23 more solved problems",
+    "text": "New theory on production, marketing, management and innovation, plus solved sheets on break-even and leverage, price elasticity, and NPV and IRR.",
+    "link": "subjects/business-management/teoria/index.html"
   },
   {
     "id": "2026-11-18-constellation-phone-fit",
@@ -45,6 +45,14 @@ window.AE_UPDATES = [
     "title": "A welcome screen and the sound of the sky",
     "text": "The home page opens on a telescope view of the night sky. Press Ignite to fly into the constellations, with celestial sound you can mute from the speaker button.",
     "link": "index.html"
+  },
+  {
+    "id": "2026-11-17-materials-midterm-2-problems",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Materials: 20 solved Midterm 2 problems in the simulator",
+    "text": "Part II now has a longer phase-diagram problem (3 points) and a shorter Unit 5 problem (2 points), each solved step by step and drawn in every simulated exam.",
+    "link": "subjects/aerospace-materials-1/extra-problems/midterm-2-problems.html"
   },
   {
     "id": "2026-11-17-materials-formula-sheet",

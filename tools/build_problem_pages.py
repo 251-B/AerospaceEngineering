@@ -36,6 +36,9 @@ VAULT = REPO / "vault" / "05 - Business Management"
 METHOD_NOTE = "Concept - Method to Build the Income Statement and Balance Sheet"
 EXTRA_PAGE = "subjects/business-management/problemas/topic-3-extra-exam-problems.html"
 STD_PAGE = "subjects/business-management/problemas/topic-3-financial-statements.html"
+T4_PAGE = "subjects/business-management/problemas/topic-4-break-even-leverage.html"
+T5_PAGE = "subjects/business-management/problemas/topic-5-price-elasticity.html"
+NPV_PAGE = "subjects/business-management/problemas/topic-3-npv-irr.html"
 # The notes still delimit their blocks with "## Phase N — ..." headings; the page shows the heading without that prefix
 NO_PHASE = re.compile(r"^Phase \d+[a-z]?\s*(?:[—:–-]\s*)?")
 
@@ -54,6 +57,35 @@ PAGES = {
         ("Problem - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends", "problem-3", "Additional Exercise 3 · Exam type"),
         ("Problem - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount", "problem-4", "Additional Exercise 4 · Exam type"),
     ]),
+    T4_PAGE: (None, [
+        ("Problem - T4 Exercise 1 - Price Equal to Variable Cost", "exercise-1", "Exercise 1"),
+        ("Problem - T4 Exercise 2 - Break-Even from a Loss and Full Capacity", "exercise-2", "Exercise 2"),
+        ("Problem - T4 Exercise 3 - Choosing Between Two Production Processes", "exercise-3", "Exercise 3"),
+        ("Problem - T4 Exercise 4 - Leverage After a Change in Volume or Price", "exercise-4", "Exercise 4"),
+        ("Problem - T4 Exercise 5 - Cost Structure from Two Observations", "exercise-5", "Exercise 5"),
+        ("Problem - T4 Exercise 6 - Leverage from the Break-Even Point Alone", "exercise-6", "Exercise 6"),
+        ("Problem - T4 Exercise 7 - Sumun Break-Even Point and Leverage", "exercise-7", "Exercise 7"),
+        ("Problem - T4 Exercise 8 - ENIR Break-Even Point Beyond Capacity", "exercise-8", "Exercise 8"),
+    ], "bm_t4"),
+    NPV_PAGE: (None, [
+        ("Problem - T3 NPV 1 - Capitalization of a Deferred Debt", "problem-1", "Problem 1"),
+        ("Problem - T3 NPV 2 - Alfa New Debt with a Constant Financial Structure", "problem-2", "Problem 2"),
+        ("Problem - T3 NPV 3 - Limite Payback of Three Projects", "problem-3", "Problem 3"),
+        ("Problem - T3 NPV 4 - Maximum Investment from the IRR", "problem-4", "Problem 4"),
+        ("Problem - T3 NPV 5 - NPV and Payback of Three Projects", "problem-5", "Problem 5"),
+        ("Problem - T3 NPV 6 - NPV from a Known IRR", "problem-6", "Problem 6"),
+        ("Problem - T3 NPV 7 - Ranking Projects by NPV with a Budget", "problem-7", "Problem 7"),
+        ("Problem - T3 NPV 8 - Gofres IRR Against the Cost of Capital", "problem-8", "Problem 8"),
+        ("Problem - T3 NPV 9 - Osopanda Payback, IRR and Fisher Rate", "problem-9", "Problem 9"),
+    ]),
+    T5_PAGE: (None, [
+        ("Problem - T5 Exercise 1 - Demand Curve and Midpoint Elasticities", "exercise-1", "Exercise 1"),
+        ("Problem - T5 Exercise 2 - Quantity Sold After a Price Rise", "exercise-2", "Exercise 2"),
+        ("Problem - T5 Exercise 3 - Mini Laptop Elasticity and Revenue", "exercise-3", "Exercise 3"),
+        ("Problem - T5 Exercise 4 - Quantity Change After a Price Cut", "exercise-4", "Exercise 4 · Multiple choice"),
+        ("Problem - T5 Exercise 5 - Elastic Demand and Revenue", "exercise-5", "Exercise 5 · Multiple choice"),
+        ("Problem - T5 Exercise 6 - Substitute Goods from Cross Effects", "exercise-6", "Exercise 6 · Multiple choice"),
+    ], "bm_t5"),
 }
 
 CSS = """
@@ -85,30 +117,30 @@ def sections(md):
     return out
 
 
-def render(md):
-    """Markdown (no '## ' headings) to HTML; '### ' becomes a step title."""
+def render(md, figure=None):
+    """Markdown (no '## ' headings) to HTML; '### ' becomes a step title, figure embeds use `figure`."""
     out, chunk = [], []
     for line in md.split("\n"):
         m = re.match(r"### (.*)", line)
         if m:
-            out.append(bt.blocks(chunk))
+            out.append(bt.blocks(chunk, figure))
             chunk = []
             out.append(f'<h4 class="step-title">{bt.inline(m.group(1))}</h4>')
         elif line.strip() == "---":
             continue
         else:
             chunk.append(line)
-    out.append(bt.blocks(chunk))
+    out.append(bt.blocks(chunk, figure))
     return "\n".join(x for x in out if x)
 
 
-def card(note, card_id, tag):
+def card(note, card_id, tag, figure=None):
     md = read_note(note)
     title = re.search(r"^# ✏️ Problem: (.*)$", md, re.M).group(1)
     parts = sections(md)
-    statement = render(parts[0][1])
+    statement = render(parts[0][1], figure)
     phases = "\n".join(
-        f'        <div class="phase-block">\n          <h3 class="phase-title">{bt.inline(NO_PHASE.sub("", t))}</h3>\n{render(b)}\n        </div>'
+        f'        <div class="phase-block">\n          <h3 class="phase-title">{bt.inline(NO_PHASE.sub("", t))}</h3>\n{render(b, figure)}\n        </div>'
         for t, b in parts[1:])
     return f'''      <section class="problem-box" id="{card_id}">
         <span class="problem-tag">{html.escape(tag)}</span>
@@ -141,16 +173,20 @@ def method_section(full):
 
 
 def build_page(rel):
-    """The page as it must be (without PDF deep links), starting from its current head and footer."""
-    full, cards = PAGES[rel]
+    """(page as it must be without PDF deep links, its FigureSet); starts from the page's current head and footer.
+
+    A PAGES entry is (full, cards) or (full, cards, figure module); full=None means no method box."""
+    full, cards, *mod = PAGES[rel]
+    figure = bt.FigureSet(mod[0] if mod else None)
     text = sl.strip_links((REPO / rel).read_text(encoding="utf-8"))
     if "phase-block {" not in text:
         text = text.replace("  </style>", CSS, 1)
     start = text.index('<header class="article-header">')
     start = text.index("      </header>\n", start) + len("      </header>\n")
     end = text.index('      <footer class="topic-nav">')
-    middle = "\n" + method_section(full) + "\n" + "\n".join(card(*c) for c in cards) + "\n"
-    return text[:start] + middle + text[end:]
+    method = "" if full is None else method_section(full) + "\n"
+    middle = "\n" + method + "\n".join(card(*c, figure) for c in cards) + "\n"
+    return text[:start] + middle + text[end:], figure
 
 
 def main(argv=None):
@@ -160,7 +196,13 @@ def main(argv=None):
     stale = []
     for rel in PAGES:
         path = REPO / rel
-        want = build_page(rel)
+        want, figure = build_page(rel)
+        if figure.reg is not None:
+            if args.check:
+                stale += figure.reg.stale(REPO)
+            else:
+                for f in figure.reg.write(REPO):
+                    print(f"build_problem_pages: wrote {f}")
         have = sl.strip_links(path.read_text(encoding="utf-8"))
         if have == want:
             continue

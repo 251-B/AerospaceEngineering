@@ -349,6 +349,22 @@
     {
      "page": "topic-3.html",
      "label": "3 · Financial management (I)"
+    },
+    {
+     "page": "topic-4.html",
+     "label": "4 · The production function"
+    },
+    {
+     "page": "topic-5.html",
+     "label": "5 · Marketing and sales"
+    },
+    {
+     "page": "topic-6.html",
+     "label": "6 · The management function"
+    },
+    {
+     "page": "topic-7.html",
+     "label": "7 · Entrepreneurship and innovation"
     }
    ],
    "problemas": [
@@ -359,6 +375,18 @@
     {
      "page": "topic-3-extra-exam-problems.html",
      "label": "3 · Extra exam problems"
+    },
+    {
+     "page": "topic-3-npv-irr.html",
+     "label": "3 · NPV and IRR"
+    },
+    {
+     "page": "topic-4-break-even-leverage.html",
+     "label": "4 · Break-even and leverage"
+    },
+    {
+     "page": "topic-5-price-elasticity.html",
+     "label": "5 · Price elasticity"
     }
    ],
    "extra-problems": [

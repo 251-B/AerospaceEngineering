@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 4: Break-Even Point and Operating Leverage — Solved Problems 1 to 8 | Business Management</title>
+  <meta name="description" content="Official solved problems for Topic 4: break-even point, operating leverage and margin of safety, solved step by step. UC3M Aerospace Engineering." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 4 SOLVED PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Official Course Problem Solutions</div>
+        <h1 class="article-title">Topic 4: Break-Even Point and Operating Leverage (Exercises 1 to 8)</h1>
+        <div class="article-meta">
+          <strong>Source Document:</strong> <code>BEP  OL Statements.pdf</code> (UC3M Business Management) • Each exercise: data and model, solution step by step, checks and the check against the official key.
+        </div>
+
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf" target="_blank" rel="noopener">BEP  OL Statements.pdf</a>
+          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements%20%20Solutions.pdf#page=3" target="_blank" rel="noopener">BEP  OL Statements  Solutions.pdf · p. 3</a>
+          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=36" target="_blank" rel="noopener">Topic 4 The Production Function.pdf · p. 36</a>
+        </nav>
+      </header>
+
+      <section class="problem-box" id="exercise-1">
+        <span class="problem-tag">Exercise 1</span>
+        <h2 class="problem-title">Exercise 1 — A price equal to the variable cost</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf" target="_blank" rel="noopener">Original statement · BEP  OL Statements.pdf</a>
+        <div class="statement-box">
+<p>A company's annual fixed costs are €2,000. The variable cost per unit equals its selling price, which is €2. What is the break-even point?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$FC$</td><td>annual fixed costs</td><td style="text-align:right">2,000 €</td></tr><tr><td>$P$</td><td>selling price per unit</td><td style="text-align:right">2 €/unit</td></tr><tr><td>$VC$</td><td>variable cost per unit</td><td style="text-align:right">2 €/unit</td></tr></tbody></table></div>
+<p>The break-even point is the volume at which the profit is zero [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=36" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 36">36</a>], and with the unit margin $m = P - VC$ it is $Q_0 = FC/m$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 37">37</a>].</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Unit margin</h4>
+<div class="math-block">$$m = P - VC = 2 - 2 = 0 \ \text{€/unit}$$</div>
+<h4 class="step-title">Step 2. Break-even point</h4>
+<div class="math-block">$$Q_0 = \frac{FC}{m} = \frac{2{,}000}{0} \to \infty$$</div>
+<p>The division has no finite result: no volume makes the profit zero. Writing the profit for any volume shows why,</p>
+<div class="math-block">$$\text{Profit} = Q\,m - FC = Q \times 0 - 2{,}000 = -2{,}000 \ \text{€}$$</div>
+<p>Every unit sold brings in exactly what it costs, so nothing is left to cover the fixed costs: the company loses 2,000 € a year whatever it sells.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Meaning:</strong> a break-even point only exists when $m &gt; 0$. With $m = 0$ the profit line is horizontal at $-FC$ and never reaches zero.</li><li><strong>Units:</strong> €/(€/unit) = units.</li><li><strong>Check against the official key</strong> (BEP  OL Statements  Solutions.pdf, p. 3): the key also obtains $Q^* = 2{,}000/(2 - 2) = \infty$ and concludes that the solution makes no economic sense, because the company will never cover its fixed costs. Same result.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-2">
+        <span class="problem-tag">Exercise 2</span>
+        <h2 class="problem-title">Exercise 2 — Break-even point from a known loss, and leverage at full capacity</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf" target="_blank" rel="noopener">Original statement · BEP  OL Statements.pdf</a>
+        <div class="statement-box">
+<p>A company has a unit margin of €5.</p>
+<p>a) Assuming that the manufacturing of 500 physical units produces a loss of €500, calculate the break-even point.</p>
+<p>b) Represent graphically the situation of this company assuming that the maximum capacity of the plant is 900 physical units. What is the maximum profit that can be obtained?</p>
+<p>c) Calculate the degree of operating leverage of this company for a production and sales volume of 900 physical units and interpret this result.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$m$</td><td>unit margin</td><td style="text-align:right">5 €/unit</td></tr><tr><td>$B(500)$</td><td>profit at 500 units</td><td style="text-align:right">−500 €</td></tr><tr><td>$Q_{max}$</td><td>maximum capacity</td><td style="text-align:right">900 units</td></tr></tbody></table></div>
+<p>The profit is $B = Q\,m - FC$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=39" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 39">39</a>], the break-even point $Q^* = FC/m$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 37">37</a>] and the operating leverage $OL = Q\,m/(Q\,m - FC)$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=40" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 40">40</a>]. Production equals sales, so $Q$ is both.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Part (a): fixed costs and break-even point</h4>
+<p>The fixed costs are the only unknown in the profit at 500 units:</p>
+<div class="math-block">$$\begin{aligned} B(500) &amp;= 500\,m - FC \\ -500 &amp;= 500 \times 5 - FC = 2{,}500 - FC \\ FC &amp;= 2{,}500 + 500 = 3{,}000 \ \text{€} \end{aligned}$$</div>
+<p>Then</p>
+<div class="math-block">$$Q^* = \frac{FC}{m} = \frac{3{,}000}{5} = 600 \ \text{units}$$</div>
+<h4 class="step-title">Step 2. Part (b): graph and maximum profit</h4>
+<p>The profit line is $B(Q) = 5\,Q - 3{,}000$, valid between 0 and the capacity of 900 units. It starts at $-3{,}000$ € (only the fixed costs) and crosses zero at 600 units. The line grows with $Q$, so the maximum profit is at the capacity limit:</p>
+<div class="math-block">$$B_{max} = B(900) = 900 \times 5 - 3{,}000 = 4{,}500 - 3{,}000 = 1{,}500 \ \text{€}$$</div>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Exercise 2: profit against volume">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="70.0" y1="150.0" x2="550.0" y2="150.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M550.0,150.0 L541.7,153.5 L541.7,146.5 Z" fill="var(--text-faint)"/>
+<line x1="70.0" y1="270.0" x2="70.0" y2="20.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M70.0,20.0 L73.5,28.3 L66.5,28.3 Z" fill="var(--text-faint)"/>
+<text x="550.0" y="142.0" fill="var(--text-heading)" font-size="12" font-weight="400" text-anchor="end">q (units)</text>
+<text x="76.0" y="26.0" fill="var(--text-heading)" font-size="12" font-weight="400" text-anchor="start">Profit (€)</text>
+<line x1="66.0" y1="240.0" x2="70.0" y2="240.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="62.0" y="244.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">-3,000</text>
+<line x1="66.0" y1="195.0" x2="70.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="62.0" y="199.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">-1,500</text>
+<line x1="66.0" y1="105.0" x2="70.0" y2="105.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="62.0" y="109.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">1,500</text>
+<line x1="70.0" y1="240.0" x2="520.0" y2="105.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.2"/>
+<circle cx="370.0" cy="150.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="370.0" y="140.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">q* = 600</text>
+<circle cx="320.0" cy="165.0" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="328.0" y="181.0" fill="var(--fig-pink, #ec4899)" font-size="12" font-weight="400" text-anchor="start">q = 500, B = −500</text>
+<line x1="520.0" y1="105.0" x2="520.0" y2="150.0" stroke="var(--text-faint)" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="520.0" cy="105.0" r="4" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="512.0" y="97.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="end">capacity 900: B = 1,500</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. Profit B = 5q − 3,000 between 0 and the maximum capacity of 900 units: break-even at 600 units and maximum profit 1,500 € at 900 units.</div>
+</div>
+<h4 class="step-title">Step 3. Part (c): operating leverage at 900 units</h4>
+<div class="math-block">$$OL_{900} = \frac{Q\,m}{Q\,m - FC} = \frac{900 \times 5}{900 \times 5 - 3{,}000} = \frac{4{,}500}{1{,}500} = 3$$</div>
+<p><strong>Interpretation:</strong> a 1% change in sales changes the profit by 3% [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=40" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 40">40</a>]. The company is at full capacity and cannot sell more, so only a fall in sales is possible: each 1% fall below 900 units cuts the profit by 3%.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check with the BEP form</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=42" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 42">42</a>]: $OL = Q/(Q - Q^*) = 900/(900 - 600) = 3$, the same value.</li><li><strong>Check of (a):</strong> $B(600) = 600 \times 5 - 3{,}000 = 0$.</li><li><strong>Units:</strong> $FC$ in €, $Q^*$ in units, OL dimensionless.</li><li><strong>Check against the official key</strong> (BEP  OL Statements  Solutions.pdf, pp. 3-4): $FC = 3{,}000$ €, $q^* = 600$ units, maximum profit 1,500 € and $AO = 3$, with the same reading for a decrease in sales. Same results.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-3">
+        <span class="problem-tag">Exercise 3</span>
+        <h2 class="problem-title">Exercise 3 — Choosing between two production processes</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf" target="_blank" rel="noopener">Original statement · BEP  OL Statements.pdf</a>
+        <div class="statement-box">
+<p>A company manager who wants to market a new product has to choose between two alternative production processes A and B. In both cases the selling price of the product is €20.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th></th><th style="text-align:right">Process A</th><th style="text-align:right">Process B</th></tr></thead><tbody><tr><td>Fixed costs</td><td style="text-align:right">40,000</td><td style="text-align:right">20,000</td></tr><tr><td>Unit variable costs</td><td style="text-align:right">13</td><td style="text-align:right">15</td></tr></tbody></table></div>
+<p>a) Assuming that the expected level of production and sales is 10,000 physical units, decide the most convenient process according to the break-even analysis and the graphic representation.</p>
+<p>b) If process B resulted in a higher quality product with a selling price of €25, how would this affect the choice of the most convenient process?</p>
+<p>c) If the rise in price of the product obtained with process B (€25) caused a drop in sales from 10,000 to 6,000 physical units, which production process would the company choose?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Magnitude</th><th style="text-align:right">Process A</th><th style="text-align:right">Process B</th></tr></thead><tbody><tr><td>Price $P$ (€/unit)</td><td style="text-align:right">20</td><td style="text-align:right">20</td></tr><tr><td>Fixed costs $FC$ (€)</td><td style="text-align:right">40,000</td><td style="text-align:right">20,000</td></tr><tr><td>Variable cost $VC$ (€/unit)</td><td style="text-align:right">13</td><td style="text-align:right">15</td></tr><tr><td>Unit margin $m = P - VC$ (€/unit)</td><td style="text-align:right">7</td><td style="text-align:right">5</td></tr></tbody></table></div>
+<p>Profit $B = Q\,m - FC$, break-even point $Q^* = FC/m$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 37">37</a>] and operating leverage $OL = Q\,m/(Q\,m - FC)$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=40" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 40">40</a>], the index of operating risk [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=41" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 41">41</a>].</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Part (a): profit, break-even point and leverage at 10,000 units</h4>
+<div class="math-block">$$\begin{aligned} B_A &amp;= (20 - 13) \times 10{,}000 - 40{,}000 = 70{,}000 - 40{,}000 = 30{,}000 \ \text{€} \\ B_B &amp;= (20 - 15) \times 10{,}000 - 20{,}000 = 50{,}000 - 20{,}000 = 30{,}000 \ \text{€} \end{aligned}$$</div>
+<p>Both processes give the same profit. The break-even points are</p>
+<div class="math-block">$$Q^*_A = \frac{40{,}000}{7} = 5{,}714.3 \ \text{units} \qquad Q^*_B = \frac{20{,}000}{5} = 4{,}000 \ \text{units}$$</div>
+<p>and the operating leverages at 10,000 units</p>
+<div class="math-block">$$OL_A = \frac{70{,}000}{30{,}000} = 2.33 \qquad OL_B = \frac{50{,}000}{30{,}000} = 1.67$$</div>
+<p>With the same profit, process <strong>B</strong> is chosen: its break-even point is lower, so 10,000 units are farther from it, and its leverage (operating risk) is lower. A fall in sales would hurt A's profit more.</p>
+<p>The two profit lines cross where $7\,Q - 40{,}000 = 5\,Q - 20{,}000$, that is $2\,Q = 20{,}000$ and $Q = 10{,}000$ units: below that volume B gives more profit, above it A does. The expected volume is exactly the crossing point.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 611 320" width="100%" class="fig-kit" style="max-width:611px;margin:0 auto;display:block" role="img" aria-label="Exercise 3: profit of processes A and B">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="70.0" y1="170.0" x2="530.8" y2="170.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M530.8,170.0 L522.5,173.5 L522.5,166.5 Z" fill="var(--text-faint)"/>
+<line x1="70.0" y1="300.0" x2="70.0" y2="20.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M70.0,20.0 L73.5,28.3 L66.5,28.3 Z" fill="var(--text-faint)"/>
+<text x="530.8" y="162.0" fill="var(--text-heading)" font-size="12" font-weight="400" text-anchor="end">q (units)</text>
+<text x="76.0" y="26.0" fill="var(--text-heading)" font-size="12" font-weight="400" text-anchor="start">Profit (€)</text>
+<line x1="66.0" y1="282.0" x2="70.0" y2="282.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="62.0" y="286.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">-40,000</text>
+<line x1="66.0" y1="226.0" x2="70.0" y2="226.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="62.0" y="230.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">-20,000</text>
+<line x1="66.0" y1="114.0" x2="70.0" y2="114.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="62.0" y="118.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">20,000</text>
+<line x1="66.0" y1="58.0" x2="70.0" y2="58.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="62.0" y="62.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">40,000</text>
+<line x1="70.0" y1="282.0" x2="502.0" y2="46.8" stroke="var(--fig-pink, #ec4899)" stroke-width="2.2"/>
+<line x1="70.0" y1="226.0" x2="502.0" y2="58.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.2" stroke-dasharray="7 4"/>
+<text x="508.0" y="48.8" fill="var(--fig-pink, #ec4899)" font-size="12" font-weight="700" text-anchor="start">A: 7q − 40,000</text>
+<text x="508.0" y="74.0" fill="var(--fig-blue, #3b82f6)" font-size="12" font-weight="700" text-anchor="start">B: 5q − 20,000</text>
+<circle cx="275.7" cy="170.0" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="281.7" y="188.0" fill="var(--fig-pink, #ec4899)" font-size="12" font-weight="400" text-anchor="start">A: 5,714</text>
+<circle cx="214.0" cy="170.0" r="4" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="208.0" y="160.0" fill="var(--fig-blue, #3b82f6)" font-size="12" font-weight="400" text-anchor="end">B: 4,000</text>
+<circle cx="430.0" cy="86.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<line x1="430.0" y1="86.0" x2="430.0" y2="170.0" stroke="var(--text-faint)" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="438.0" y="120.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">q = 10,000:</text>
+<text x="438.0" y="136.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">both 30,000 €</text>
+</g></svg>
+<div class="diagram-caption">Figure 2. Profit of process A (7q − 40,000) and process B (5q − 20,000) at a price of 20 €: break-even points 5,714 and 4,000 units; both lines give 30,000 € at the expected 10,000 units.</div>
+</div>
+<h4 class="step-title">Step 2. Part (b): process B sold at €25</h4>
+<p>The new unit margin of B is $m_B = 25 - 15 = 10$ €/unit, twice the old one. At 10,000 units:</p>
+<div class="math-block">$$B_B = 10 \times 10{,}000 - 20{,}000 = 80{,}000 \ \text{€} \qquad Q^*_B = \frac{20{,}000}{10} = 2{,}000 \ \text{units} \qquad OL_B = \frac{100{,}000}{80{,}000} = 1.25$$</div>
+<p>Process A is unchanged (30,000 €, $OL_A = 2.33$). B now gives more profit with less operating risk: <strong>B</strong> is chosen with even more reason.</p>
+<h4 class="step-title">Step 3. Part (c): B at €25 but only 6,000 units sold</h4>
+<div class="math-block">$$B_B = (25 - 15) \times 6{,}000 - 20{,}000 = 60{,}000 - 20{,}000 = 40{,}000 \ \text{€}$$</div>
+<p>Process A, which keeps the price of 20 € and the 10,000 units, still gives 30,000 €. Since $40{,}000 &gt; 30{,}000$, the company still chooses <strong>B</strong>. Its leverage is $OL_B = 60{,}000/40{,}000 = 1.5$, also below A's 2.33.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check of the crossing:</strong> at 10,000 units both lines give 30,000 €, as found in (a).</li><li><strong>Units:</strong> profits in €, break-even points in units, OL dimensionless.</li><li><strong>Check against the official key</strong> (BEP  OL Statements  Solutions.pdf, pp. 4-5): profits 30,000 € for both processes, $AO_A = 2.33$, $AO_B = 1.66$ (1.67 rounded up here), B chosen in (a), (b) and (c), with 40,000 € &gt; 30,000 € in (c). Same results.</li></ul>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>Two sentences of the key do not match its own numbers. In (a) it says that "A has a lower break-even point than B"; in fact $Q^*_A = 40{,}000/7 = 5{,}714$ units is <strong>higher</strong> than $Q^*_B = 4{,}000$ units, which is why B carries less risk, as the key itself concludes. In (b) it says the price rise increases "the unit margin by 5%"; the margin goes up by 5 € (from 5 to 10 €/unit, a 100% increase). The choices of the key are not affected.</p></div>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-4">
+        <span class="problem-tag">Exercise 4</span>
+        <h2 class="problem-title">Exercise 4 — Leverage after a change in volume or in price</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf" target="_blank" rel="noopener">Original statement · BEP  OL Statements.pdf</a>
+        <div class="statement-box">
+<p>Given the following information: selling price €10; variable cost per unit €3; fixed costs €1,000.</p>
+<p>a) How many units must be sold to start making a profit?</p>
+<p>b) What would the profit be if the company sold 200 units?</p>
+<p>c) What is the degree of operating leverage for 200 units sold?</p>
+<p>d) Will the degree of operating leverage vary if there is a 50 unit increase in sales?</p>
+<p>e) Will the degree of operating leverage vary if there is a 10% rise in price (for 200 units)?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$P$</td><td>selling price</td><td style="text-align:right">10 €/unit</td></tr><tr><td>$VC$</td><td>variable cost per unit</td><td style="text-align:right">3 €/unit</td></tr><tr><td>$FC$</td><td>fixed costs</td><td style="text-align:right">1,000 €</td></tr><tr><td>$m$</td><td>unit margin, $P - VC$</td><td style="text-align:right">7 €/unit</td></tr></tbody></table></div>
+<p>Break-even point $Q^* = FC/m$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 37">37</a>], profit $B = Q\,m - FC$ and operating leverage $OL = Q\,m/(Q\,m - FC)$ [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=39" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 39">39-40</a>].</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Part (a): break-even point</h4>
+<div class="math-block">$$Q^* = \frac{FC}{P - VC} = \frac{1{,}000}{10 - 3} = \frac{1{,}000}{7} = 142.86 \ \text{units}$$</div>
+<p>Units are whole, so at 142 units the profit is still negative ($142 \times 7 - 1{,}000 = -6$ €) and at 143 it becomes positive ($143 \times 7 - 1{,}000 = 1$ €): the company starts making a profit from <strong>143 units</strong>.</p>
+<h4 class="step-title">Step 2. Part (b): profit at 200 units</h4>
+<div class="math-block">$$B = (10 - 3) \times 200 - 1{,}000 = 1{,}400 - 1{,}000 = 400 \ \text{€}$$</div>
+<h4 class="step-title">Step 3. Part (c): leverage at 200 units</h4>
+<div class="math-block">$$OL_{200} = \frac{200 \times 7}{200 \times 7 - 1{,}000} = \frac{1{,}400}{400} = 3.5$$</div>
+<p>A 1% change in sales changes the profit by 3.5%.</p>
+<h4 class="step-title">Step 4. Part (d): 50 more units (250 units)</h4>
+<div class="math-block">$$OL_{250} = \frac{250 \times 7}{250 \times 7 - 1{,}000} = \frac{1{,}750}{750} = 2.33$$</div>
+<p>Yes, it varies: it falls from 3.5 to 2.33, because the volume has moved away from the break-even point [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=42" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 42">42</a>].</p>
+<h4 class="step-title">Step 5. Part (e): 10% higher price (200 units)</h4>
+<p>The new price is $10 \times 1.10 = 11$ €/unit, so $m = 11 - 3 = 8$ €/unit and</p>
+<div class="math-block">$$OL = \frac{200 \times 8}{200 \times 8 - 1{,}000} = \frac{1{,}600}{600} = 2.67$$</div>
+<p>Yes, it varies: it falls from 3.5 to 2.67. The higher margin lowers the break-even point to $1{,}000/8 = 125$ units, so 200 units are now farther from it.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check with the BEP form</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=42" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 42">42</a>]: (c) $200/(200 - 142.86) = 3.5$; (d) $250/(250 - 142.86) = 2.33$; (e) $200/(200 - 125) = 2.67$.</li><li><strong>Units:</strong> $Q^*$ in units, profit in €, OL dimensionless.</li><li><strong>Check against the official key</strong> (BEP  OL Statements  Solutions.pdf, p. 5): $q^* \approx 143$ units, profit 400 €, $AO = 3.5$, $2.33$ and $2.66$ (2.67 rounded up here), with the same explanation (the volume moves away from the break-even point; the price changes the break-even point). Same results.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-5">
+        <span class="problem-tag">Exercise 5</span>
+        <h2 class="problem-title">Exercise 5 — Cost structure from two observations</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf" target="_blank" rel="noopener">Original statement · BEP  OL Statements.pdf</a>
+        <div class="statement-box">
+<p>A visit to a company has provided the following information:</p>
+<ul><li>If the company produced and sold 300 physical units, it would make a profit of €56.</li><li>If the company produced and sold 160 physical units, it would make zero profit.</li><li>The company forecasts sales of 500 physical units.</li></ul>
+<p>Calculate the company's fixed costs, the forecast profit, its safety margin and the degree of operating leverage.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Observation</th><th style="text-align:right">Volume $Q$ (units)</th><th style="text-align:right">Profit $B$ (€)</th></tr></thead><tbody><tr><td>1</td><td style="text-align:right">300</td><td style="text-align:right">56</td></tr><tr><td>2 (break-even point)</td><td style="text-align:right">160</td><td style="text-align:right">0</td></tr><tr><td>Forecast</td><td style="text-align:right">500</td><td style="text-align:right">?</td></tr></tbody></table></div>
+<p>The profit is linear in the volume, $B = Q\,m - FC$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=39" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 39">39</a>]; the margin of safety is $Q - Q^*$ in units, $(Q - Q^*)\,m$ in monetary units and $(Q - Q^*)/Q^*$ in percentage [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=43" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 43">43</a>]; the leverage is $OL = Q\,m/(Q\,m - FC)$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=40" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 40">40</a>].</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Unit margin</h4>
+<p>Subtracting the two observations removes the fixed costs:</p>
+<div class="math-block">$$\begin{aligned} B(300) - B(160) &amp;= (300\,m - FC) - (160\,m - FC) = (300 - 160)\,m \\ 56 - 0 &amp;= 140\,m \\ m &amp;= \frac{56}{140} = 0.4 \ \text{€/unit} \end{aligned}$$</div>
+<h4 class="step-title">Step 2. Fixed costs</h4>
+<p>At the break-even point the profit is zero:</p>
+<div class="math-block">$$0 = 160 \times 0.4 - FC \quad\Rightarrow\quad FC = 64 \ \text{€}$$</div>
+<h4 class="step-title">Step 3. Forecast profit (500 units)</h4>
+<div class="math-block">$$B(500) = 500 \times 0.4 - 64 = 200 - 64 = 136 \ \text{€}$$</div>
+<h4 class="step-title">Step 4. Margin of safety</h4>
+<div class="math-block">$$MS = Q - Q^* = 500 - 160 = 340 \ \text{units}$$</div>
+<p>In monetary units, $MS = 340 \times 0.4 = 136$ €, and as a percentage of the break-even volume, $MS = 340/160 = 2.125$, that is 212.5%.</p>
+<h4 class="step-title">Step 5. Operating leverage</h4>
+<div class="math-block">$$OL_{500} = \frac{500 \times 0.4}{500 \times 0.4 - 64} = \frac{200}{136} = 1.47$$</div>
+<p>A 1% change in sales changes the profit by 1.47%.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check with observation 1:</strong> $300 \times 0.4 - 64 = 120 - 64 = 56$ €. ✓</li><li><strong>Check with the BEP form</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=42" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 42">42</a>]: $OL = 500/(500 - 160) = 1.47$. ✓</li><li><strong>Note:</strong> above the break-even point the margin of safety in m.u. equals the profit (136 €), since $(Q - Q^*)\,m = Q\,m - FC$.</li><li><strong>Check against the official key</strong> (BEP  OL Statements  Solutions.pdf, p. 6): $m = 0.4$ €/unit, $FC = 64$ €, forecast profit 136 €, $MS = 340$ units, $AO = 1.47$. Same results; the key gives the margin of safety in units only.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-6">
+        <span class="problem-tag">Exercise 6</span>
+        <h2 class="problem-title">Exercise 6 — Leverage from the break-even point alone</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf#page=2" target="_blank" rel="noopener">Original statement · BEP  OL Statements.pdf, p. 2</a>
+        <div class="statement-box">
+<p>On the financial pages of a Spanish newspaper it was recently announced that a manufacturing company specialized in certain automotive components had sold 100,000 units of its product last year, well above its break-even point, set at 20,000 physical units approximately. What is the degree of operating leverage for this company?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$Q$</td><td>units sold</td><td style="text-align:right">100,000 units</td></tr><tr><td>$Q^*$</td><td>break-even point</td><td style="text-align:right">20,000 units</td></tr></tbody></table></div>
+<p>Price, costs and margin are not given. The form of the leverage that uses only the two volumes is the one of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=42" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 42">42</a>.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. The leverage in terms of the break-even point</h4>
+<p>From $OL = Q\,m/(Q\,m - FC)$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=40" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 40">40</a>] and $Q^* = FC/m$, so $FC = Q^*\,m$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 37">37</a>]:</p>
+<div class="math-block">$$OL = \frac{Q\,m}{Q\,m - Q^*\,m} = \frac{m\,Q}{m\,(Q - Q^*)} = \frac{Q}{Q - Q^*}$$</div>
+<p>The unit margin cancels.</p>
+<h4 class="step-title">Step 2. Value</h4>
+<div class="math-block">$$OL = \frac{100{,}000}{100{,}000 - 20{,}000} = \frac{100{,}000}{80{,}000} = 1.25$$</div>
+<p>A 1% change in sales changes the profit by 1.25%. Being far above the break-even point, the company has a leverage close to 1, a low operating risk.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Limit:</strong> as $Q$ grows far beyond $Q^*$, $OL \to 1$; as $Q$ approaches $Q^*$ from above, $OL \to \infty$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=42" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 42">42</a>]. 1.25 fits a volume five times the break-even point.</li><li><strong>Units:</strong> units/units, dimensionless.</li><li><strong>Check against the official key</strong> (BEP  OL Statements  Solutions.pdf, p. 6): $AO = 100{,}000/(100{,}000 - 20{,}000) = 1.25$, obtained by the same substitution. Same result.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-7">
+        <span class="problem-tag">Exercise 7</span>
+        <h2 class="problem-title">Exercise 7 — Sumun S.A.: break-even point and leverage</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf#page=2" target="_blank" rel="noopener">Original statement · BEP  OL Statements.pdf, p. 2</a>
+        <div class="statement-box">
+<p>We have the following data corresponding to a certain product manufactured by Sumun S.A.:</p>
+<ul><li>Unit margin: €10</li><li>Annual sales volume: 2,000 units</li><li>Annual fixed costs: €1,000</li></ul>
+<p>Calculate: a) the break-even point of this product; b) its degree of operating leverage.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$m$</td><td>unit margin</td><td style="text-align:right">10 €/unit</td></tr><tr><td>$Q$</td><td>annual sales</td><td style="text-align:right">2,000 units</td></tr><tr><td>$FC$</td><td>annual fixed costs</td><td style="text-align:right">1,000 €</td></tr></tbody></table></div>
+<p>Break-even point $Q^* = FC/m$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 37">37</a>], operating leverage $OL = Q\,m/(Q\,m - FC)$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=40" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 40">40</a>].</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Part (a): break-even point</h4>
+<div class="math-block">$$Q^* = \frac{FC}{m} = \frac{1{,}000}{10} = 100 \ \text{units}$$</div>
+<h4 class="step-title">Step 2. Part (b): operating leverage</h4>
+<div class="math-block">$$OL_{2000} = \frac{2{,}000 \times 10}{2{,}000 \times 10 - 1{,}000} = \frac{20{,}000}{19{,}000} = 1.05$$</div>
+<p>A 1% change in sales changes the profit by about 1.05%: with sales twenty times the break-even point, the profit moves almost in proportion to the sales.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check with the BEP form</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=42" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 42">42</a>]: $2{,}000/(2{,}000 - 100) = 2{,}000/1{,}900 = 1.05$. ✓</li><li><strong>Check against the official key</strong> (BEP  OL Statements  Solutions.pdf, p. 7): $q^* = 100$ units and $AO = 20{,}000/19{,}000 = 1.05$. Same results.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-8">
+        <span class="problem-tag">Exercise 8</span>
+        <h2 class="problem-title">Exercise 8 — ENIR, S.A.: a break-even point beyond capacity</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf#page=2" target="_blank" rel="noopener">Original statement · BEP  OL Statements.pdf, p. 2</a>
+        <div class="statement-box">
+<p>Company ENIR, S.A., a black cigarette manufacturer, has not obtained profits during year 2008. It was established two years before and its maximum production capacity amounts to 11 million packs per year. Analyzing its management, we know that in 2008, the company produced 10 million packs, with financial costs relative to its external financing of €300,000, fixed costs of commercialization and administration of €1,000,000 and other fixed costs of €1,700,000. The selling price was €1.3 per pack, which was established by the Government, as this is an industry regulated by the State.</p>
+<p>For the following year 2009 and, maintaining the same facilities, the company expects an increase of 15% in its fixed costs, as well as a decrease of 1% in the variable cost per unit. Calculate:</p>
+<p>a) The break-even point for year 2009.</p>
+<p>b) Considering these plans, is it possible that the company obtains profits? Account for your answer.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Magnitude</th><th style="text-align:right">2008</th><th style="text-align:right">2009</th></tr></thead><tbody><tr><td>Capacity (packs)</td><td style="text-align:right">11,000,000</td><td style="text-align:right">11,000,000</td></tr><tr><td>Volume $Q$ (packs)</td><td style="text-align:right">10,000,000</td><td style="text-align:right">?</td></tr><tr><td>Price $P$ (€/pack)</td><td style="text-align:right">1.3</td><td style="text-align:right">1.3</td></tr><tr><td>Fixed costs $FC$ (€)</td><td style="text-align:right">3,000,000</td><td style="text-align:right">+15%</td></tr><tr><td>Variable cost $VC$ (€/pack)</td><td style="text-align:right">unknown</td><td style="text-align:right">−1%</td></tr></tbody></table></div>
+<p><strong>Reading of the statement (the same as the official key):</strong> "has not obtained profits" is read as a profit of exactly zero in 2008, so 10 million packs was the break-even point of 2008; and the financial costs of 300,000 € are counted among the fixed costs:</p>
+<div class="math-block">$$FC_{2008} = 300{,}000 + 1{,}000{,}000 + 1{,}700{,}000 = 3{,}000{,}000 \ \text{€}$$</div>
+<p>Break-even condition: profit $= Q\,(P - VC) - FC = 0$ [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=36" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 36">36-37</a>].</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Variable cost per pack in 2008</h4>
+<div class="math-block">$$\begin{aligned} 10{,}000{,}000 \times 1.3 - 3{,}000{,}000 - 10{,}000{,}000 \times VC &amp;= 0 \\ 13{,}000{,}000 - 3{,}000{,}000 &amp;= 10{,}000{,}000 \times VC \\ VC_{2008} &amp;= \frac{10{,}000{,}000}{10{,}000{,}000} = 1.0 \ \text{€/pack} \end{aligned}$$</div>
+<h4 class="step-title">Step 2. Cost structure of 2009</h4>
+<div class="math-block">$$FC_{2009} = 3{,}000{,}000 \times 1.15 = 3{,}450{,}000 \ \text{€} \qquad VC_{2009} = 1.0 \times 0.99 = 0.99 \ \text{€/pack}$$</div>
+<p>so the unit margin is $m_{2009} = 1.3 - 0.99 = 0.31$ €/pack.</p>
+<h4 class="step-title">Step 3. Part (a): break-even point of 2009</h4>
+<div class="math-block">$$Q^*_{2009} = \frac{FC}{m} = \frac{3{,}450{,}000}{0.31} = 11{,}129{,}032 \ \text{packs}$$</div>
+<h4 class="step-title">Step 4. Part (b): can the company make a profit?</h4>
+<p>No. The break-even point (11,129,032 packs) is above the maximum capacity of the facilities (11,000,000 packs), and the price is fixed by the Government. Even working at full capacity the company loses money:</p>
+<div class="math-block">$$B(11{,}000{,}000) = 11{,}000{,}000 \times 0.31 - 3{,}450{,}000 = 3{,}410{,}000 - 3{,}450{,}000 = -40{,}000 \ \text{€}$$</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check of Step 1:</strong> $10{,}000{,}000 \times (1.3 - 1.0) - 3{,}000{,}000 = 0$. ✓</li><li><strong>Units:</strong> €/(€/pack) = packs.</li><li><strong>Check against the official key</strong> (BEP  OL Statements  Solutions.pdf, p. 7): $FC = 3{,}000{,}000$ €, $VC = 1.0$ €/unit, $FC_{2009} = 3{,}450{,}000$ €, $VC_{2009} = 0.99$ €, break-even point 11,129,032 units, and no profit possible because the maximum volume is 11,000,000. Same results; the key calls the packs "bottles" in its last sentence.</li></ul>
+        </div>
+      </section>
+
+      <footer class="topic-nav">
+        <a href="index.html">← Back to Problems Hub</a>
+        <a href="../teoria/topic-4.html">Back to Topic 4 Theory →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

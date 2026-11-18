@@ -7,7 +7,7 @@ tags:
 path: "sources/update_inventory.py"
 kind: other
 status: referenced
-bytes: 32172
+bytes: 32640
 ---
 
 # Source: update_inventory.py
@@ -18,7 +18,7 @@ bytes: 32172
 
 - **Path:** `sources/update_inventory.py`
 - **Kind:** other
-- **Size:** 32.2 kB
+- **Size:** 32.6 kB
 - **Status:** referenced by 1 note(s) below
 
 ## Referenced by
