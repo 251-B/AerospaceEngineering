@@ -220,3 +220,43 @@ html[data-theme="light"] .fl-brand-seal .sideris-fill { fill: #9a6e17; }
   .fl-launcher, .fl-panel { display: none !important; }
 }
 html[data-theme="print"] .fl-launcher, html[data-theme="print"] .fl-panel { display: none !important; }
+
+/* ---------------------------------------------------------------- the launcher as a planet
+   A lit sphere in the page's subject accent (--accent), with a tilted ring. The name shows in a
+   small label on hover or keyboard focus; the label's text keeps the reading-palette colours. */
+.fl-launcher {
+  width: 44px; min-width: 0; height: 44px; padding: 0; gap: 0; justify-content: center;
+  border: 0; border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, color-mix(in srgb, var(--fl-accent) 30%, #ffffff) 0%, var(--fl-accent) 42%,
+      color-mix(in srgb, var(--fl-accent) 45%, #050816) 100%);
+  box-shadow: inset -7px -9px 14px rgba(3, 6, 20, .35), inset 2px 3px 6px rgba(255, 255, 255, .18),
+    0 0 18px color-mix(in srgb, var(--fl-accent) 45%, transparent), 0 8px 22px rgba(0, 0, 0, .32);
+}
+.fl-launcher svg { position: relative; z-index: 1; stroke: #ffffff; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .35)); }
+.fl-launcher::before {
+  content: ""; position: absolute; left: -9px; right: -9px; top: 16px; bottom: 16px;
+  border-radius: 50%; border: 1.5px solid color-mix(in srgb, var(--fl-accent) 55%, #ffffff);
+  transform: rotate(-22deg); opacity: .85; pointer-events: none;
+}
+.fl-launcher__label {
+  position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%);
+  padding: 6px 11px; border-radius: 999px; white-space: nowrap;
+  background: var(--fl-surface); color: var(--fl-text); border: 1px solid var(--fl-border);
+  font: 600 13px/1 var(--fl-serif); box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  opacity: 0; pointer-events: none; transition: opacity .15s ease;
+}
+.fl-launcher:hover .fl-launcher__label, .fl-launcher:focus-visible .fl-launcher__label { opacity: 1; }
+.fl-launcher__dot { position: absolute; top: 1px; right: 1px; z-index: 2; }
+.fl-launcher:hover, .fl-launcher:focus-visible {
+  box-shadow: inset -7px -9px 14px rgba(3, 6, 20, .35), inset 2px 3px 6px rgba(255, 255, 255, .18),
+    0 0 26px color-mix(in srgb, var(--fl-accent) 60%, transparent), 0 10px 26px rgba(0, 0, 0, .36);
+}
+.fl-launcher:focus-visible { outline: 2px solid var(--fl-accent); outline-offset: 4px; }
+.fl-launcher[aria-expanded="true"] { outline: 2px solid color-mix(in srgb, var(--fl-accent) 60%, transparent); outline-offset: 4px; }
+@media (max-width: 600px) {
+  .fl-launcher { width: 44px; height: 44px; padding: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fl-launcher__label { transition: none; }
+}

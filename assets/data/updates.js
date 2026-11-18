@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-18-planet-study-tools",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Timer and Focus are now planets in each subject's colour",
+    "text": "The study timer and Focus Lab buttons are drawn as small planets that take the colour of the subject you are reading. They now appear only on study pages.",
+    "link": "subjects/fluid-mechanics/teoria/index.html"
+  },
+  {
     "id": "2026-11-18-accounts-and-settings",
     "date": "2026-11-18",
     "tag": "Portal",

@@ -299,3 +299,54 @@ html[data-theme="light"] .pm-brand-seal .sideris-fill { fill: #9a6e17; }
   .pm-launcher, .pm-panel { display: none !important; }
 }
 html[data-theme="print"] .pm-launcher, html[data-theme="print"] .pm-panel { display: none !important; }
+
+/* ---------------------------------------------------------------- the launcher as a planet
+   A lit sphere in the page's subject accent (--accent) with a small moon in orbit, sitting 10 px
+   above the Focus planet. Its name shows on hover; while the timer runs the time stays visible
+   in the same label (text in the reading-palette colours). */
+.pm-launcher, .pm-panel { --pm-focus-h: 44px; }
+.pm-launcher {
+  width: 44px; min-width: 0; height: 44px; padding: 0; gap: 0; justify-content: center;
+  border: 0; border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, color-mix(in srgb, var(--pm-accent) 30%, #ffffff) 0%, var(--pm-accent) 42%,
+      color-mix(in srgb, var(--pm-accent) 45%, #050816) 100%);
+  box-shadow: inset -7px -9px 14px rgba(3, 6, 20, .35), inset 2px 3px 6px rgba(255, 255, 255, .18),
+    0 0 18px color-mix(in srgb, var(--pm-accent) 45%, transparent), 0 8px 22px rgba(0, 0, 0, .32);
+}
+.pm-launcher .pm-mini { position: relative; z-index: 1; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .35)); }
+.pm-launcher .pm-mini__track, .pm-launcher .pm-mini__arc, .pm-launcher .pm-mini__hands { stroke: #ffffff; }
+.pm-launcher::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%; background: color-mix(in srgb, var(--pm-accent) 25%, #e2e8f0);
+  box-shadow: 0 0 6px rgba(226, 232, 240, .6);
+  transform: rotate(0deg) translateX(30px); animation: pm-moon 14s linear infinite; pointer-events: none;
+}
+@keyframes pm-moon { to { transform: rotate(360deg) translateX(30px); } }
+.pm-launcher__label,
+.pm-launcher.is-compact .pm-launcher__label {
+  position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%);
+  padding: 6px 11px; border-radius: 999px; white-space: nowrap; min-width: 0;
+  background: var(--pm-surface); color: var(--pm-text); border: 1px solid var(--pm-border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  opacity: 0; pointer-events: none; transition: opacity .15s ease;
+}
+.pm-launcher__label { font: 600 13px/1 var(--pm-serif); }
+.pm-launcher:hover .pm-launcher__label, .pm-launcher:focus-visible .pm-launcher__label,
+.pm-launcher.is-compact .pm-launcher__label { opacity: 1; }
+.pm-launcher:hover, .pm-launcher:focus-visible {
+  box-shadow: inset -7px -9px 14px rgba(3, 6, 20, .35), inset 2px 3px 6px rgba(255, 255, 255, .18),
+    0 0 26px color-mix(in srgb, var(--pm-accent) 60%, transparent), 0 10px 26px rgba(0, 0, 0, .36);
+}
+.pm-launcher:focus-visible { outline: 2px solid var(--pm-accent); outline-offset: 4px; }
+.pm-launcher[aria-expanded="true"], .pm-launcher.is-running { outline: 2px solid color-mix(in srgb, var(--pm-accent) 60%, transparent); outline-offset: 4px; }
+.pm-launcher.is-running::after { top: 1px; right: 1px; z-index: 2; }
+@media (max-width: 600px) {
+  .pm-launcher, .pm-panel { --pm-focus-h: 44px; }
+  .pm-launcher, .pm-launcher.is-compact { width: 44px; height: 44px; padding: 0; }
+  .pm-launcher:not(.is-compact) .pm-launcher__label { display: inline-block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pm-launcher::before { animation: none; }
+  .pm-launcher__label { transition: none; }
+}

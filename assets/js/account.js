@@ -235,8 +235,9 @@
   // Every account owns one star of the Sideris sky, derived from its email: a catalogue name
   // (SDR-1000 to SDR-9999) and a place on the 600 x 600 map of the sign-in pages, kept away from
   // the five subject stars.
-  var SUBJECT_POINTS = [[110, 352], [200, 150], [330, 262], [452, 110], [420, 430]];
-
+  // The star sits in the inner disc of the galaxy drawn on the sign-in pages: on the 600 x 600 map
+  // its place is within 95 to 145 units of the centre, on the tilted disc (squashed to 0.47 and
+  // turned by -24 degrees like the picture).
   function hash(text, seed) {
     var h = seed >>> 0 || 0x811c9dc5;
     for (var i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
@@ -246,15 +247,16 @@
   function starFor(email) {
     var key = normEmail(email);
     if (!key) return null;
-    var x = 0, y = 0;
-    for (var round = 1; round < 40; round++) {
-      var h = hash(key, round * 2654435761);
-      x = 70 + (h % 460);
-      y = 80 + ((h >>> 12) % 440);
-      var clear = SUBJECT_POINTS.every(function (p) { return Math.hypot(p[0] - x, p[1] - y) > 70; });
-      if (clear) break;
-    }
-    return { id: 'SDR-' + (1000 + hash(key, 7) % 9000), x: x, y: y };
+    var h = hash(key, 2654435761);
+    var angle = (h % 3600) / 3600 * 2 * Math.PI;
+    var radius = 95 + ((h >>> 12) % 50);
+    var dx = radius * Math.cos(angle), dy = 0.47 * radius * Math.sin(angle);
+    var tilt = -24 * Math.PI / 180;
+    return {
+      id: 'SDR-' + (1000 + hash(key, 7) % 9000),
+      x: Math.round(300 + dx * Math.cos(tilt) - dy * Math.sin(tilt)),
+      y: Math.round(300 + dx * Math.sin(tilt) + dy * Math.cos(tilt))
+    };
   }
 
   function lastAccount() {

@@ -1109,3 +1109,79 @@ dialog.acc-dialog p { color: var(--acc-text-2); margin: 0 0 16px; }
 @media (prefers-reduced-motion: reduce) {
   .acc-chart { animation: none; }
 }
+
+/* ---- the galaxy at the centre of the star chart ---------------------------------------------- */
+.acc-sky__frame {
+  position: relative;
+  height: min(100%, 640px);
+  aspect-ratio: 1;
+  max-width: 100%;
+}
+.acc-sky__frame .acc-sky__map { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; }
+
+.acc-galaxy {
+  position: absolute;
+  left: -6%;
+  top: -6%;
+  width: 112%;
+  height: 112%;
+  perspective: 1600px;
+  pointer-events: none;
+}
+.acc-galaxy__tilt {
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(-24deg) rotateX(62deg);
+  transform-style: preserve-3d;
+}
+.acc-galaxy__spin {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: acc-spin 420s linear infinite;
+}
+.acc-galaxy__spin img,
+.acc-galaxy__knots {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.acc-galaxy__spin img { filter: saturate(1.1) brightness(1.08); }
+@keyframes acc-spin { to { transform: rotate(360deg); } }
+
+/* Subject knots on the arms (no names): they light up when the subject is chosen */
+.acc-galaxy__knots .acc-star__halo { fill: var(--c); opacity: 0.10; }
+.acc-galaxy__knots .acc-star__core { fill: rgba(226, 232, 240, 0.75); }
+.acc-galaxy__knots .acc-star__glint { stroke-width: 2; }
+.acc-galaxy__knots .acc-star.is-lit .acc-star__halo { opacity: 0.45; }
+.acc-galaxy__knots .acc-star.is-lit .acc-star__core { fill: #fff; }
+
+/* The personal star: cool white, at the heart of the galaxy */
+.acc-me__glow { fill: #c7d2fe; opacity: 0.22; }
+.acc-me__core { fill: #ffffff; }
+.acc-me__reticle { stroke: #e0e7ff; stroke-width: 1.4; }
+.acc-me__ring { fill: none; stroke: rgba(224, 231, 255, 0.45); stroke-dasharray: 2 4; }
+.acc-me__kicker, .acc-me__label {
+  paint-order: stroke;
+  stroke: rgba(5, 8, 20, 0.85);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.acc-me__kicker {
+  fill: rgba(224, 231, 255, 0.85);
+  font: 600 9px var(--font-mono);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+.acc-me__label {
+  fill: #ffffff;
+  font: 700 14px var(--font-mono);
+  letter-spacing: 0.16em;
+}
+.acc-me.is-locked .acc-me__glow { animation: acc-pulse-me 2.8s ease-in-out 0.75s infinite; }
+@keyframes acc-pulse-me { 0%, 100% { opacity: 0.18; } 50% { opacity: 0.38; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .acc-galaxy__spin { animation: none; }
+}
