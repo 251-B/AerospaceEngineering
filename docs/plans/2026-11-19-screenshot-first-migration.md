@@ -23,7 +23,14 @@ for f in tools/figures/*.py tools/figures/*/*.py; do echo "$f put=$(grep -c '\.p
 
 ## 2. Procedure per topic
 
-One topic per commit. Models as in `CLAUDE.md` (Model routing).
+One topic per commit. Models as in `CLAUDE.md` (Model routing), organised as a fan-out:
+
+- **Opus 5.5 (main session) orchestrates and decides; it does not read PDFs or crop.** It recounts the inventory, splits the subject into small jobs (one PDF, deck or topic per job, never a whole subject in one agent), writes one complete brief per job (files, figure names, output paths, what to report) and resolves every doubtful case the agents send back.
+- **Haiku 5.5 does the reading and cropping, many agents in parallel.** Launch every independent job of a step in a single message, in the background (`run_in_background`), so they run at the same time; each agent gets its own PDF and its own output folder in the scratchpad, so no two agents write the same file. They follow the brief literally and report in at most 10 lines; anything not covered by the brief comes back to Opus.
+- **Sonnet 5.5 reviews and wires.** A reviewer checks the Haiku output before anything is wired (opens a contact sheet of the crops and the classification table: cut labels, wrong figure, a crop that should be EXTRA) and returns only the rows to redo; a wiring agent then edits the modules, builds, runs the gates and commits. Wiring runs one topic at a time, because topics share `nav.json`, `source_links.json`, the manifest and `updates.js`.
+- Keep the main session lean: read agent reports, never their transcripts or the PDFs.
+
+Steps:
 
 1. **Classify (Haiku, read-only).** For every `REG.put` figure of the topic's module, find whether the same drawing is printed in the topic's PDFs (`sources/cuatrimestre-1/<subject>/unit-*/`). Output a table in the scratchpad: figure name, where it is embedded (note and line), class `MIGRATE` (with PDF file, page and a clip rectangle in PDF points) or `EXTRA` / `INVIABLE` (with the reason). No edits.
 2. **Decide (main session).** Review the doubtful rows; a figure that adds labels or steps the PDF does not have stays EXTRA. Engineering Mechanics deduction figures and free-body diagrams are always EXTRA.
@@ -39,5 +46,5 @@ Every `REG.put` left in the subject's modules has an `# EXTRA` or `# INVIABLE` c
 ## 4. Startup prompt for a new session
 
 ```
-Lee AGENTS.md (regla "Figures from the official PDFs (Screenshot-First, every subject)") y docs/plans/2026-11-19-screenshot-first-migration.md: quiero migrar las figuras del portal a recortes de los PDFs oficiales siguiendo ese plan, igual que ya está hecho en Aerospace Materials I. Antes de tocar nada, recuenta el inventario (comando del §1), enséñame la tabla por asignatura y pregúntame con qué asignatura empezamos. Después trabaja tema a tema con el procedimiento del §2 (Haiku clasifica y recorta, tú decides los dudosos, Sonnet cablea y construye), con commit y push por tema. No pases el humanizer. Para si llegas al 70 % del límite de 5 horas y dime qué queda.
+Lee AGENTS.md (regla "Figures from the official PDFs (Screenshot-First, every subject)") y docs/plans/2026-11-19-screenshot-first-migration.md: quiero migrar las figuras del portal a recortes de los PDFs oficiales siguiendo ese plan, igual que ya está hecho en Aerospace Materials I. Antes de tocar nada, recuenta el inventario (comando del §1), enséñame la tabla por asignatura y pregúntame con qué asignatura empezamos. Después trabaja tema a tema con el procedimiento del §2 (tú, Opus, organizas y decides; lanzas en paralelo muchos agentes Haiku 5.5, uno por PDF o tema, para clasificar y recortar; un Sonnet 5.5 revisa los recortes antes de cablear y otro Sonnet cablea, construye y pasa los gates), con commit y push por tema. No pases el humanizer. Para si llegas al 70 % del límite de 5 horas y dime qué queda.
 ```
