@@ -288,6 +288,22 @@ window.addEventListener('load', function () {
             return window.AESideris.sendUserMessage('And a pathline?');
           }).then(function (text) {
             check('local-failure-falls-back-to-cloud', text === 'CLOUD' && !L.isReady('sideris-aether') && !!L.state().failed['sideris-aether'], text);
+            // A device that stays silent hands the question to the cloud, with the full context
+            L.restore({ ready: { 'sideris-lux': true } });
+            window.AESideris.selectModel('sideris-lux');
+            window.AESideris._setLocalFirstWordMs(300);
+            var cloudSys = '';
+            window.AESiderisEngine.setMock(function (req, cb) {
+              if (req.model.backend === 'webgpu') return new Promise(function (r) { setTimeout(function () { r(''); }, 2000); });
+              cloudSys = req.messages[0].content; cb.onToken('CLOUD_AFTER_SILENCE', 'CLOUD_AFTER_SILENCE'); return Promise.resolve('CLOUD_AFTER_SILENCE');
+            });
+            window.AESideris.clearChat();
+            return window.AESideris.sendUserMessage('Is the device silent?');
+          }).then(function (text) {
+            window.AESideris._setLocalFirstWordMs(25000);
+            var log = L.state().log.join(' | ');
+            check('local-silence-falls-back-to-cloud', text === 'CLOUD_AFTER_SILENCE' && L.isReady('sideris-lux') && /no first word/.test(log), text + ' | ' + log.slice(-120));
+            window.AESideris.selectModel('sideris-aether');
             // Too slow on this device: not used
             L.restore({});
             // 4 tokens 700 ms apart after a quick warm-up: 1.4 tokens/s of real decoding
@@ -300,7 +316,7 @@ window.addEventListener('load', function () {
             });
             return L.start(window.AESideris.models(), sig({ maxBuffer: 1.5 * G }));
           }).then(function () {
-            check('local-slow-device-stays-in-cloud', !L.isReady('sideris-lux') && /slow/.test(L.state().failed['sideris-lux'] || ''), JSON.stringify(L.state().failed));
+            check('local-slow-device-stays-in-cloud', !L.isReady('sideris-lux') && /slow/.test(L.state().failed['sideris-lux'] || ''), JSON.stringify(L.state().failed) + ' | ' + L.state().log.slice(-4).join(' | '));
             // Out of the cloud allowance while a model downloads: the wait time replaces "tomorrow"
             var realEta = L.eta;
             L.eta = function () { return { seconds: 540, name: 'Sideris Aether' }; };
@@ -378,6 +394,25 @@ window.addEventListener('load', function () {
             T.setFetch(function (u, o) { return fetch(u, o); });
             T.setChunk(32 * 1048576);
             T.setStore(window.caches);
+          });
+        }).then(function () {
+          // Each model gets its own style; a greeting carries no page context or notes; on the device the rules are short
+          var seen = [];
+          window.AESiderisEngine.setMock(function (req, cb) { seen.push(req); cb.onToken('Hi!', 'Hi!'); return Promise.resolve('Hi!'); });
+          window.AESiderisEngine.local.restore({ ready: { 'sideris-lux': true } });
+          window.AESideris.selectModel('sideris-lux');
+          window.AESideris.clearChat();
+          return window.AESideris.sendUserMessage('hola').then(function () {
+            return window.AESideris.sendUserMessage('What is the velocity profile here?');
+          }).then(function () {
+            var hola = seen[0].messages[0].content, real = seen[1].messages[0].content;
+            check('prompt-per-model-and-greeting', /Sideris Lux/.test(hola) && /fast and brief/.test(hola) &&
+              hola.indexOf('[WHAT THE STUDENT') < 0 && hola.indexOf('COURSE NOTES') < 0 && real.indexOf('[WHAT THE STUDENT') >= 0,
+              'greeting ' + hola.length + ' chars, question ' + real.length + ' chars');
+            check('prompt-compact-on-device', seen[1].model.backend === 'webgpu' && real.length <= 5000 && real.indexOf('Be easy to scan') < 0,
+              seen[1].model.backend + ' ' + real.length + ' chars');
+            window.AESiderisEngine.local.restore({});
+            window.AESideris.selectModel('sideris-aether');
           });
         }).then(function () {
           // 3. The prebuilt index of build_ai_index.py must use the same tokens as the browser

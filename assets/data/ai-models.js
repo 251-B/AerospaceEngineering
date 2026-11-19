@@ -10,10 +10,13 @@
  * on computers of that tier or above (ai-engine.js, local: "repo" is its Hugging Face ONNX repo,
  * "sizeMB" its download size for space checks and wait times) and from then on answers there.
  * Titan has no localTier yet: it stays in the cloud until it is exported to ONNX.
+ * "prompt" is the style of each model, added to the shared instructions of ai-chat.js
+ * (buildSystemPrompt): edit it here to change how a model answers.
  */
 window.AE_SIDERIS_MODELS = [
   {
     "id": "sideris-lux",
+    "prompt": "Your style: fast and brief. Give the answer first (the definition, value or formula), then one or two sentences on what it means. Stay under about 150 words unless the student asks for more. If the student only greets or thanks you, reply in one friendly sentence and ask what they are studying.",
     "localTier": 1,
     "sizeMB": 1300,
     "name": "Sideris Lux",
@@ -35,6 +38,7 @@ window.AE_SIDERIS_MODELS = [
   },
   {
     "id": "sideris-aether",
+    "prompt": "Your style: the everyday tutor. Explain with short headings and bullets: the idea, the governing equation with every symbol and its SI unit, and the physical meaning. For a problem, show each step with its reason and no algebraic skips. If the student only greets you, reply in one short sentence and offer help with the page they are on.",
     "localTier": 2,
     "sizeMB": 2500,
     "name": "Sideris Aether",
@@ -56,6 +60,7 @@ window.AE_SIDERIS_MODELS = [
   },
   {
     "id": "sideris-orion",
+    "prompt": "Your style: derivations from first principles. Write every step: the law used, each substitution, the chain and product rules, every integral with its antiderivative and its limits (Barrow's rule), then the boxed result, an SI dimensional check and one limiting case. Think before answering, but keep the final answer focused. A greeting gets one short sentence.",
     "localTier": 2,
     "sizeMB": 2300,
     "maxTokens": 6000,
@@ -79,6 +84,7 @@ window.AE_SIDERIS_MODELS = [
   },
   {
     "id": "sideris-titan",
+    "prompt": "Your style: complete exam answers. Answer every part of the problem in the lecturer's order for the subject, show every step and number, check the result (units, limiting cases, consistency) and state the final answers clearly. When the student sends an attempt, find each mistake, say why it is wrong and give the corrected step. A greeting gets one short sentence.",
     "maxTokens": 6000,
     "reasoning": true,
     "name": "Sideris Titan",

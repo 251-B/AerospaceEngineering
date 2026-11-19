@@ -44,6 +44,7 @@
 
   var tfModule = null;
   var loaded = null;          // { key, repo, dtype, generator, mod }
+  var inflight = null;        // { key, promise } of the load in progress
   var activeAbort = null;     // { aborted: boolean, controller?: AbortController, stopper?: any }
   var mockFn = null;          // test hook: async (req, callbacks) -> string
 
@@ -130,7 +131,8 @@
 
     if (onProgress) onProgress({ status: 'init', progress: 2, text: 'Loading Transformers.js WebGPU runtime...' });
 
-    return navigator.gpu.requestAdapter().then(function (adapter) {
+    if (inflight && inflight.key === key) return inflight.promise;   // a question during its own preload waits for it
+    var promise = navigator.gpu.requestAdapter().then(function (adapter) {
       if (!adapter) {
         throw new Error('No WebGPU adapter found on this device, so Sideris answers from the cloud here.');
       }
@@ -150,6 +152,10 @@
         return loaded;
       });
     });
+    inflight = { key: key, promise: promise };
+    var clear = function () { if (inflight && inflight.promise === promise) inflight = null; };
+    promise.then(clear, clear);
+    return promise;
   }
 
   function generateWebGPU(req, onToken, onProgress) {
@@ -690,7 +696,8 @@
   }
 
   function startLocal(models, signals) {
-    if (localRunning) return localRunning;
+    // an explicit request (signals given) runs after the automatic one instead of sharing its result
+    if (localRunning) return signals ? localRunning.then(function () { return startLocal(models, signals); }) : localRunning;
     localRunning = (signals ? Promise.resolve(signals) : detectDevice()).then(function (sig) {
       localTier = classifyDevice(sig);
       note('tier ' + localTier + ' (webgpu ' + sig.webgpu + ', f16 ' + sig.f16 + ', mobile ' + sig.mobile + ', saveData ' + sig.saveData +
@@ -802,6 +809,16 @@
       isReady: function (id) { return !!localState.ready[id] && !localState.failed[id]; },
       busy: function () { return !!localJob && localJob.phase === 'gpu'; },   // downloads leave ready models usable
       eta: localEta,
+      // Load an installed model into the GPU ahead of the first question (not while another loads).
+      prewarm: function (m) {
+        if (!localState.ready[m.id] || localJob && localJob.phase === 'gpu' || mockFn) return Promise.resolve();
+        var t0 = Date.now();
+        return waitIdle().then(function () {
+          return loadWebGPU({ repo: m.repo, dtype: m.dtype, name: m.name, auto: true });
+        }).then(function () { note(m.id + ': preloaded in ' + Math.round((Date.now() - t0) / 1000) + ' s'); },
+          function (err) { note(m.id + ': preload error ' + String((err && err.message) || err).slice(0, 120)); });
+      },
+      log: note,
       markFailed: function (id, why) { delete localState.ready[id]; localState.failed[id] = String(why || 'error').slice(0, 120); saveLocal(); },
       state: function () { return { tier: localTier, job: localJob ? { id: localJob.id, phase: localJob.phase, loaded: localJob.loaded, total: localJob.total } : null, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id + ' (' + localJob.phase + ', ' + Math.round(localJob.loaded / 1048576) + ' MB)' : '', log: localState.log || [] }; },
       cache: modelCache,

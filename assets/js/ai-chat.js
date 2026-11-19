@@ -862,25 +862,40 @@
      system prompt here instead, in a fixed order: the rules and the Ask AI reference solution are
      never cut, the page context is shortened next, and the course notes take what room is left. */
   var SYSTEM_MAX = 15500;
+  // Tested on a real computer: a 2B model in the browser sat silent on the full 15000-character
+  // prompt (it has to read all of it before the first word). On the device the prompt is cut to
+  // this, in the same order (notes first, then page context), and a silent device hands the
+  // question to the cloud after LOCAL_FIRST_WORD_MS.
+  var LOCAL_SYSTEM_MAX = 5000;
+  var LOCAL_FIRST_WORD_MS = 25000;
 
-  function buildSystemPrompt(hits, lang, ctx) {
+  // Shared rules + the style of the model ("prompt" in ai-models.js). On the device (max given) a
+  // small model gets only the essential rules: a long rule list made it lose the question.
+  function buildSystemPrompt(hits, lang, ctx, max, model) {
+    var cap = max || SYSTEM_MAX;
+    var compact = !!max;
     var slug = window.AESiderisRAG ? window.AESiderisRAG.currentSubject() : '';
     var business = slug === 'business-management';
     var lines = [
-      'You are Sideris, a clear, rigorous engineering tutor for the 2nd year of the BSc in Aerospace Engineering at UC3M.',
-      'Current page: ' + pageTitle() + (slug ? ' (subject: ' + slug + ')' : '') + '.',
-      'Style and formatting rules:',
-      '- Be clear, structured, and easy to scan: use short headings (###), concise paragraphs, and clean bullet lists. Never write walls of text, never use emojis, and never use "Phase 1..4" labels.',
-      '- Match the depth to the question: for conceptual questions, give crisp intuition + governing equation + physical meaning; for problems and derivations, show every algebraic and numerical step explicitly with zero skips (chain rule, product rule, substitutions, Barrow limits, and justification of each law).',
-      business
-        ? '- For accounting problems, present clean tables showing EBITDA -> EBIT -> EBT -> Net Income and balance sheet reconciliation.'
-        : '- Define every symbol with its SI unit on first mention, and close solved problems with a brief SI dimensional check.',
-      '- ALWAYS write LaTeX cleanly for KaTeX: put EVERY standalone or key equation on its own lines inside $$...$$, and wrap inline symbols in $...$. Never use \\euro (write € inside \\text{}), and never put bare & inside \\text{}.',
-      '- Stay faithful to the UC3M course notation and sign conventions from the course notes below.',
-      lang === 'es'
-        ? '- Answer in natural, clear academic Spanish (unless the student writes in English). On first mention of a key English course term, add it in brackets, e.g. esfuerzo cortante [shear stress].'
-        : '- Answer in clear academic English (unless the student explicitly writes in Spanish, in which case reply in Spanish with [English technical terms] on first mention).'
+      'You are ' + ((model && model.name) || 'Sideris') + ', a clear, rigorous engineering tutor for the 2nd year of the BSc in Aerospace Engineering at UC3M.',
+      'Current page: ' + pageTitle() + (slug ? ' (subject: ' + (SUBJECT_NAMES[slug] || slug) + ')' : '') + '.'
     ];
+    if (model && model.prompt) lines.push(model.prompt);
+    lines.push(lang === 'es'
+      ? '- Answer in natural, clear academic Spanish (unless the student writes in English). On first mention of a key English course term, add it in brackets, e.g. esfuerzo cortante [shear stress].'
+      : '- Answer in clear academic English (unless the student explicitly writes in Spanish, in which case reply in Spanish with [English technical terms] on first mention).');
+    if (compact) {
+      lines.push('- Write formulas in LaTeX: $...$ inline, $$...$$ on their own line. Keep the notation of the course notes below.');
+    } else {
+      lines.push(
+        '- Be easy to scan: short headings (###), concise paragraphs, clean bullet lists. No walls of text, no emojis, never "Phase 1..4" labels.',
+        business
+          ? '- For accounting problems, present clean tables showing EBITDA -> EBIT -> EBT -> Net Income and balance sheet reconciliation.'
+          : '- Define every symbol with its SI unit on first mention, and close solved problems with a brief SI dimensional check.',
+        '- ALWAYS write LaTeX cleanly for KaTeX: put EVERY standalone or key equation on its own lines inside $$...$$, and wrap inline symbols in $...$. Never use \\euro (write € inside \\text{}), and never put bare & inside \\text{}.',
+        '- Stay faithful to the UC3M course notation and sign conventions from the course notes below.'
+      );
+    }
     if (session.socratic || (ctx && ctx.hidden)) {
       lines.push('- SOCRATIC MODE IS ACTIVE: never reveal the final solution or the next full step unless the student writes "show solution". Ask one focused guiding question at a time.');
     }
@@ -893,11 +908,11 @@
     var out = lines.join('\n');
     if (ctx && ctx.text) {
       var block = '\n\n[WHAT THE STUDENT IS LOOKING AT ON THIS PAGE — ' + ctx.label + '. "This", "here" or "this step" refer to it; answer about it first.]\n' + ctx.text;
-      var room = SYSTEM_MAX - out.length - 600;   // keep a little room for at least one note
+      var room = cap - out.length - 600;   // keep a little room for at least one note
       if (block.length > room) block = room > 300 ? block.slice(0, room - 1) + '…' : '';
       out += block;
     }
-    var ragRoom = Math.min(3600, SYSTEM_MAX - out.length - 2);
+    var ragRoom = Math.min(3600, cap - out.length - 2);
     var ragText = (hits && hits.length && ragRoom > 300 && window.AESiderisRAG) ? window.AESiderisRAG.formatContext(hits, ragRoom) : '';
     if (ragText) out += '\n\n' + ragText;
     return out;
@@ -1419,6 +1434,8 @@
     prefs.modelId = m.id;
     if (!m.reasoning) savedModelId = m.id;
     savePrefs();
+    var sel = activeModelConfig();
+    if (sel.autoLocal && window.AESiderisEngine) window.AESiderisEngine.local.prewarm(sel);
     syncUI();
     setStatus(m.reasoning
       ? m.name + ' for this conversation only · it thinks step by step first, so answers take longer.'
@@ -1595,6 +1612,11 @@
 
   /* Tested on the worker: "answer in Spanish unless the student writes in English" was ignored, so
      the language is decided here from the question; the ES/EN switch settles the unclear cases. */
+  function isSmallTalk(text) {
+    return /^(hola|holi|hi|hello|hey|buenas( tardes| noches)?|buenos d[ií]as|gracias|muchas gracias|thanks|thank you|ok|okay|vale|perfecto|genial|adi[oó]s|bye)[\s!.?¡¿,:)]*$/i
+      .test(String(text || '').trim());
+  }
+
   function guessLang(text) {
     var s = ' ' + String(text || '').toLowerCase().replace(/[^a-z\u00c0-\u017f¿¡]+/g, ' ') + ' ';
     if (/[¿¡ñáéíóú]/.test(s)) return 'es';
@@ -1651,10 +1673,13 @@
     );
 
     // An Ask AI handoff already carries its card; otherwise send what is on screen.
-    var ctx = session.systemExtra ? null : pageContext();
+    // "hola", "gracias", "ok": nothing to look up, so no page context and no notes (a small model
+    // given the whole page for a greeting stayed silent)
+    var small = isSmallTalk(text);
+    var ctx = session.systemExtra || small ? null : pageContext();
     if (ctx && !userMsg.tag) userMsg.tag = 'Context: ' + ctx.label.slice(0, 80);
     var ragQuery = opts.ragQuery || ((ctx && ctx.heading ? ctx.heading : pageTitle()) + ' ' + text);
-    var ragPromise = (prefs.rag && window.AESiderisRAG)
+    var ragPromise = (prefs.rag && !small && window.AESiderisRAG)
       ? window.AESiderisRAG.search(ragQuery, { limit: 4, anchor: ctx && ctx.anchor })
       : Promise.resolve([]);
 
@@ -1675,7 +1700,7 @@
 
     return ragPromise.then(function (hits) {
       assistantMsg.ragHits = hits || [];
-      var sys = buildSystemPrompt(hits, lang, ctx);
+      var sys = buildSystemPrompt(hits, lang, ctx, m.autoLocal ? LOCAL_SYSTEM_MAX : 0, m);
       var apiMessages = [{ role: 'system', content: sys }].concat(historyForModel(session.messages.slice(0, -1)));
       // Tested on the worker: with the rule only in the system prompt, "just tell me the result"
       // made the model print the hidden result. Repeat it in the student's own turn, where small
@@ -1707,15 +1732,49 @@
       // token budget thinking and wrote no answer, and the model ignores /no_think. Ask Aether (no
       // reasoning) for the answer then, keeping the reasoning already shown.
       // On this device first; if the device fails (lost GPU, evicted files), mark it and use the cloud.
-      var first = !m.autoLocal ? run(m, '') : run(m, '').catch(function (err) {
-        window.AESiderisEngine.local.markFailed(m.id, err && err.message);
+      // A device that stays silent (no first word in time) also hands over to the cloud.
+      var local = window.AESiderisEngine.local;
+      function toCloud(why) {
         var cloudCopy = {};
         for (var k in m) cloudCopy[k] = m[k];
         cloudCopy.backend = 'cloud';
         cloudCopy.autoLocal = false;
         assistantMsg.modelName = m.name;
-        setStatus(m.name + ' could not run on this device; answering from the cloud...');
+        assistantMsg.text = '';
+        setStatus(m.name + ' ' + why + '; answering from the cloud...');
+        apiMessages[0].content = buildSystemPrompt(hits, lang, ctx, 0, m);   // the cloud gets the full context
         return run(cloudCopy, '');
+      }
+      var first = !m.autoLocal ? run(m, '') : new Promise(function (resolve) {
+        var settled = false, t0 = Date.now();
+        setStatus(m.name + ' is answering on this device...');
+        var timer = setTimeout(function () {
+          if (settled || assistantMsg.text) return;
+          settled = true;
+          clearInterval(firstWord);
+          window.AESiderisEngine.abort();
+          local.log(m.id + ': no first word after ' + LOCAL_FIRST_WORD_MS / 1000 + ' s, cloud answered');
+          resolve(toCloud('took too long on this device'));
+        }, LOCAL_FIRST_WORD_MS);
+        var firstWord = setInterval(function () {
+          if (!assistantMsg.text) return;
+          clearInterval(firstWord);
+          local.log(m.id + ': first word after ' + ((Date.now() - t0) / 1000).toFixed(1) + ' s');
+        }, 200);
+        run(m, '').then(function (t) {
+          clearInterval(firstWord);
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          resolve(t);
+        }, function (err) {
+          clearInterval(firstWord);
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          local.markFailed(m.id, err && err.message);
+          resolve(toCloud('could not run on this device'));
+        });
       });
       return first.then(function (t) {
         var parts = splitThinking(t);
@@ -1858,7 +1917,11 @@
     // Install the models this computer can run, quietly, as soon as the page is up.
     var engine = window.AESiderisEngine;
     if (engine && engine.local) {
-      var go = function () { engine.local.start(MODELS); };
+      var go = function () {
+        engine.local.start(MODELS);
+        var sel = activeModelConfig();
+        if (sel.autoLocal) engine.local.prewarm(sel);   // first question without the load wait
+      };
       setTimeout(go, 1000);   // downloads are network only and resumable: start at once, no idle wait
     }
     // A request left by the account calendar ("Explain what I missed"), once.
@@ -1881,6 +1944,7 @@
     openWithAskRequest: openWithAskRequest,
     sendUserMessage: sendUserMessage,
     askAboutSelection: askAboutSelection,
+    _setLocalFirstWordMs: function (ms) { LOCAL_FIRST_WORD_MS = ms; },   // test hook
     setHintsOnly: function (on) { prefs.hintsOnly = !!on; savePrefs(); },
     clearChat: clearChat,
     history: function () { return chats.slice(); },

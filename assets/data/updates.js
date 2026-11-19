@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-model-styles",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Each Sideris model now answers in its own style",
+    "text": "Lux is brief, Aether explains, Orion derives step by step and Titan solves full exam problems. Greetings get a quick reply, and a slow computer hands the question to the cloud."
+  },
+  {
     "id": "2026-11-19-sideris-downloads-across-pages",
     "date": "2026-11-19",
     "tag": "Portal",
