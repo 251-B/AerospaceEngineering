@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="../assets/css/study-surface.css">
   <link rel="stylesheet" href="../assets/css/account.css">
   <script src="../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../assets/css/account-calendar.css">
+  <script defer src="../assets/data/timetable.js"></script>
+  <script defer src="../assets/js/calendar-core.js"></script>
+  <script defer src="../assets/js/account-calendar.js"></script>
   <script defer src="../assets/js/account-pages.js"></script>
   <title>My study</title>
   <meta name="description" content="Your Sideris study panel: where you left off, exam countdowns, study time this week and your exam simulator results.">
@@ -80,6 +84,11 @@
       <section class="acc-card acc-panel" aria-labelledby="continueTitle">
         <header class="acc-panel__head"><h2 id="continueTitle">Continue where you left off</h2></header>
         <ul class="acc-continue" id="continueList"></ul>
+      </section>
+
+      <section class="acc-card acc-panel" aria-labelledby="nextClassTitle">
+        <header class="acc-panel__head"><h2 id="nextClassTitle">Next class</h2></header>
+        <div class="acc-next-class" id="nextClass"></div>
       </section>
 
       <section class="acc-card acc-panel" aria-labelledby="examsTitle">

@@ -719,7 +719,39 @@
     return api;
   }
 
-  window.AECalendarUI = { mount: mount, groupPicker: groupPicker, MARK: MARK, dateLabel: function (iso, long) { return dateLabel(iso, long); } };
+  // Dashboard card: the next class with what will be done in it, and a link to the calendar.
+  function nextCard(container, o) {
+    var tt = o.tt || window.AE_TIMETABLE;
+    var base = o.base != null ? o.base : BASE;
+    container.innerHTML = '';
+    var link = el('a', 'acc-panel__link', 'Open the calendar');
+    link.href = base + 'account/calendar.html';
+    if (!tt || !Object.keys((o.rec && o.rec.groups) || {}).length) {
+      container.appendChild(el('p', 'cal-muted', 'Choose your groups in the calendar to see your next class and what will be done in it.'));
+      container.appendChild(link);
+      return null;
+    }
+    var occ = C().build(tt, o.rec, o.prefs, o.today, C().addDays(o.today, 60));
+    var n = C().next(occ, o.today + 'T' + o.now);
+    if (!n) { container.appendChild(el('p', 'cal-muted', 'No more classes this term.')); container.appendChild(link); return null; }
+    var box = el('div', 'cal-next');
+    box.style.setProperty('--cal-mark', MARK[n.subject] || 'currentColor');
+    box.appendChild(el('p', 'cal-kicker', dateLabel(n.date, true) + (n.start ? ' / ' + n.start + (n.end ? '-' + n.end : '') : '') + (n.room ? ' / ' + n.room : '')));
+    box.appendChild(el('p', 'cal-next__title', (subjectOf(n.subject) || { name: '' }).name + ': ' + n.title));
+    if (n.text) box.appendChild(el('p', 'cal-muted', n.text));
+    if (n.links.length) {
+      var p = el('p', 'cal-sheet__links');
+      n.links.forEach(function (l, i) { if (i) p.appendChild(document.createTextNode(' / ')); var a = el('a', '', l.label); a.href = base + l.href; p.appendChild(a); });
+      box.appendChild(p);
+    }
+    var pend = C().pending(C().build(tt, o.rec, o.prefs, tt.term.start, o.today), o.today).length;
+    if (pend) box.appendChild(el('p', 'cal-muted', pend + (pend === 1 ? ' class' : ' classes') + ' to catch up.'));
+    container.appendChild(box);
+    container.appendChild(link);
+    return n;
+  }
+
+  window.AECalendarUI = { mount: mount, groupPicker: groupPicker, nextCard: nextCard, MARK: MARK, dateLabel: function (iso, long) { return dateLabel(iso, long); } };
 
   function start() {
     if (document.body.getAttribute('data-page') !== 'calendar') return;

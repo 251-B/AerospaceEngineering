@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-account-calendar",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "A calendar of your classes and exams",
+    "text": "Choose your group and see each class with what will be done in it and the pages to prepare it. Mark the classes you missed and catch up from one list.",
+    "link": "account/calendar.html"
+  },
+  {
     "id": "2026-11-19-business-figures-from-slides",
     "date": "2026-11-19",
     "tag": "Business Management",

@@ -203,6 +203,16 @@
     record('list_default_on_narrow', m.api.state.view === 'list' && m.host.querySelector('.cal-list'), m.api.state.view);
     closeAll(m.host);
   });
+  run('dashboard_next_class', function () {
+    var host = document.createElement('div'); document.body.appendChild(host);
+    UI.nextCard(host, { tt: TT, rec: rec(G46), prefs: { subjects: ALL, exams: {} }, today: '2026-11-18', now: '09:00', base: '../../' });
+    var t = host.textContent;
+    var empty = document.createElement('div');
+    UI.nextCard(empty, { tt: TT, rec: C.empty(), prefs: { subjects: ALL, exams: {} }, today: '2026-11-18', now: '09:00', base: '../../' });
+    record('dashboard_next_class', /Mechanics/.test(t) && /15:30/.test(t) && /7\.2\.J01/.test(t) && /Problems 17, 24/.test(t) && host.querySelector('a[href$="calendar.html"]') &&
+      /Choose your groups/.test(empty.textContent), t + ' | ' + empty.textContent);
+    host.remove();
+  });
   seed(null);
 
   document.getElementById('results').textContent = JSON.stringify(results);

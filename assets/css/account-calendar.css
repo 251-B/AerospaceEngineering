@@ -165,3 +165,9 @@ textarea.cal-input { width: 100%; resize: vertical; }
 @media print {
   .cal-bar, .cal-side, .cal-dialog { display: none !important; }
 }
+
+/* ---- dashboard card */
+.cal-next { --cal-mark: var(--acc-text-2); border-left: 4px solid var(--cal-mark); padding: 2px 0 2px 12px; margin-bottom: 10px; }
+.cal-next__title { margin: 0 0 4px; font-weight: 600; font-size: 1.05rem; }
+.cal-next .cal-muted { margin: 4px 0; }
+.cal-next .cal-sheet__links { margin: 6px 0 0; font-size: 0.92rem; }

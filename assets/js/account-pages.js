@@ -667,6 +667,12 @@
     if (!user) { $('#studyGate').hidden = false; return; }
     $('#studyApp').hidden = false;
     var prefs = user.prefs;
+    var nextBox = $('#nextClass');
+    if (nextBox && window.AECalendarUI && window.AECalendar) {
+      var now = new Date();
+      var localNow = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString();
+      AECalendarUI.nextCard(nextBox, { rec: AECalendar.load(), prefs: prefs, today: localNow.slice(0, 10), now: localNow.slice(11, 16), base: '../' });
+    }
     var subjects = AEAccount.SUBJECTS.slice().sort(function (a, b) {
       var ia = prefs.subjects.indexOf(a.id), ib = prefs.subjects.indexOf(b.id);
       return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
