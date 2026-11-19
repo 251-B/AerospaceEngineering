@@ -247,6 +247,76 @@
     record('signup_dates_lists_official_tests', host.children.length === 5 && /Test 2/.test(t) && /Quiz 2/.test(t) && /official plan/i.test(t), host.children.length + ' ' + t.slice(0, 120));
     host.remove();
   });
+  // ---------------------------------------------------------------- 3. extras
+  var MAT = { 'aerospace-materials-1': { group: 'G46', labGroup: null, slots: [], at: 1 } };
+  function test2(occ) { return find(occ, function (x) { return x.sessionId === 'mat-test2'; }); }
+  run('revision_blocks_before_exam_only', function () {
+    var r = rec(MAT); var occ = term(r);
+    var ev = C.revisionPlan(TT, r, { subjects: ALL, exams: {} }, test2(occ), '2026-10-30', 1);
+    record('revision_blocks_before_exam_only', ev.length > 0 && ev.every(function (e) { return e.date > '2026-10-30' && e.date < '2026-11-11' && e.kind === 'study' && e.subject === 'aerospace-materials-1'; }) &&
+      ev.some(function (e) { return /Topic 4/.test(e.title); }) && ev.some(function (e) { return /Topic 7/.test(e.title); }) && !ev.some(function (e) { return /Topic 8/.test(e.title); }),
+      JSON.stringify(ev.map(function (e) { return e.date + ' ' + e.title; })));
+  });
+  run('revision_avoids_class_hours', function () {
+    var r = rec(MAT); var occ = term(r);
+    var ev = C.revisionPlan(TT, r, { subjects: ALL, exams: {} }, test2(occ), '2026-10-30', 2);
+    var clash = ev.filter(function (e) {
+      return occ.some(function (o) { return o.date === e.date && o.start && !(o.end <= e.start || o.start >= e.end); });
+    });
+    record('revision_avoids_class_hours', ev.length && !clash.length && ev.every(function (e) { return e.start && e.end; }), JSON.stringify(clash));
+  });
+  run('revision_missed_topics_first', function () {
+    var r = rec(MAT); r.marks['mat-s14'] = { status: 'missed', at: 1 };
+    var ev = C.revisionPlan(TT, r, { subjects: ALL, exams: {} }, test2(term(r)), '2026-10-30', 1);
+    record('revision_missed_topics_first', ev.length && /Topic 6/.test(ev[0].title), ev[0] && ev[0].title);
+  });
+  run('ics_escapes_and_folds', function () {
+    var occ = [{ key: 'k1', subject: 'fluid-mechanics', kind: 'lecture', title: 'A; B, C\\D', text: new Array(40).join('long text '), date: '2026-11-18', start: '15:30', end: '17:00', room: '7.2.J01', links: [] }];
+    var ics = C.toICS(occ, '2026-11-19T10:00');
+    var lines = ics.split('\r\n');
+    record('ics_escapes_and_folds', /SUMMARY:[^\r\n]*A\\; B\\, C\\\\D/.test(ics) && lines.every(function (l) { return l.length <= 75; }) && /\r\n /.test(ics) && /^BEGIN:VCALENDAR\r\n/.test(ics) && /END:VCALENDAR\r\n$/.test(ics),
+      ics.slice(0, 400));
+  });
+  run('ics_has_timezone', function () {
+    var ics = C.toICS(term(rec(G46)).slice(0, 3), '2026-11-19T10:00');
+    record('ics_has_timezone', /BEGIN:VTIMEZONE\r\nTZID:Europe\/Madrid/.test(ics) && /DTSTART;TZID=Europe\/Madrid:20260907T153000/.test(ics) && /UID:em-s1@sideris/.test(ics), ics.slice(0, 300));
+  });
+  run('ics_labs_have_no_url', function () {
+    var labs = term(rec(G46)).filter(function (o) { return o.kind === 'lab'; });
+    var ics = C.toICS(labs, '2026-11-19T10:00');
+    record('ics_labs_have_no_url', labs.length && !/URL|http|subjects\//.test(ics), ics.slice(0, 200));
+  });
+  run('attendance_counts', function () {
+    var r = rec(G46);
+    r.marks['em-s1'] = { status: 'missed', at: 1 };
+    r.marks['em-s2'] = { status: 'done', at: 1 };
+    r.marks['em-s3'] = { status: 'notheld', at: 1 };
+    var a = C.attendance(term(r), '2026-09-16')['engineering-mechanics'];
+    // classes up to 16 Sep: s1, s2, s3, s4 (4); s3 not held -> held 3; missed s1 + s2 (2); caught up s2 (1)
+    record('attendance_counts', a && a.held === 3 && a.missed === 2 && a.caughtUp === 1 && a.attended === 1, JSON.stringify(a));
+  });
+  run('explain_and_study_requests', function () {
+    var o = find(term(rec(G46)), function (x) { return x.sessionId === 'em-s21'; });
+    var ex = UI.explainRequest(o, '../../');
+    var pend = JSON.parse(sessionStorage.getItem('ae_sideris_pending'));
+    var st = UI.studyRequest(o, '../../');
+    var pp = JSON.parse(sessionStorage.getItem('ae_pomodoro_pending'));
+    record('explain_and_study_requests', ex === '../../subjects/engineering-mechanics/problemas/topic-8.html#rb-17' && /Problems 17, 24/.test(pend.hiddenContext) && pend.taskLabel &&
+      st === ex && pp.minutes === 90, ex + ' ' + JSON.stringify(pp));
+    sessionStorage.removeItem('ae_sideris_pending'); sessionStorage.removeItem('ae_pomodoro_pending');
+  });
+  run('sheet_revise_adds_blocks_and_attendance', function () {
+    var m = mountPage(rec(MAT), { today: '2026-11-04', now: '09:00', view: 'list' });
+    m.api.state.view = 'list'; m.api.render();
+    m.host.querySelector('.cal-ev[data-key="mat-test2"]').click();
+    var sheet = m.host.querySelector('#calSheet');
+    sheet.querySelector('[data-act="revise"]').click();
+    sheet.querySelector('[data-act="revise-go"]').click();
+    var evs = C.load().events.filter(function (e) { return e.kind === 'study' && !e.deleted; });
+    var att = m.host.querySelector('#calAttendance').textContent;
+    record('sheet_revise_adds_blocks_and_attendance', evs.length > 0 && m.host.querySelector('#calExport') && /Materials: \d+ of \d+ classes/.test(att), evs.length + ' ' + att);
+    closeAll(m.host);
+  });
   seed(null);
 
   document.getElementById('results').textContent = JSON.stringify(results);

@@ -15,7 +15,7 @@ REPO = pathlib.Path(__file__).resolve().parents[2]
 HARNESS = pathlib.Path(__file__).resolve().parent / "calendar_harness.html"
 CORE = REPO / "assets/js/calendar-core.js"
 EMOJI = re.compile("[\U0001F300-\U0001FAFF☀-➿]")
-EXPECTED_SCENARIOS = 28
+EXPECTED_SCENARIOS = 37
 
 
 class CalendarStaticTests(unittest.TestCase):
@@ -36,6 +36,14 @@ class CalendarStaticTests(unittest.TestCase):
     def test_account_menu_links_the_calendar(self):
         js = (REPO / "assets/js/account.js").read_text(encoding="utf-8")
         self.assertIn("[['My study', 'dashboard.html'], ['Calendar', 'calendar.html'], ['Settings', 'settings.html']", js)
+
+    def test_timer_and_sideris_pick_up_requests(self):
+        pom = (REPO / "assets/js/pomodoro.js").read_text(encoding="utf-8")
+        chat = (REPO / "assets/js/ai-chat.js").read_text(encoding="utf-8")
+        self.assertIn("sessionStorage.getItem('ae_pomodoro_pending')", pom)
+        self.assertIn("sessionStorage.removeItem('ae_pomodoro_pending')", pom)
+        self.assertIn("sessionStorage.getItem('ae_sideris_pending')", chat)
+        self.assertIn("sessionStorage.removeItem('ae_sideris_pending')", chat)
 
     def test_no_canvas_no_emoji(self):
         text = CORE.read_text(encoding="utf-8")

@@ -2061,6 +2061,10 @@
       if (window.requestIdleCallback) setTimeout(function () { requestIdleCallback(go, { timeout: 10000 }); }, 3000);
       else setTimeout(go, 5000);
     }
+    // A request left by the account calendar ("Explain what I missed"), once.
+    var pending = null;
+    try { pending = JSON.parse(sessionStorage.getItem('ae_sideris_pending') || 'null'); sessionStorage.removeItem('ae_sideris_pending'); } catch (e) { pending = null; }
+    if (pending && pending.visibleText) setTimeout(function () { openWithAskRequest(pending); }, 400);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

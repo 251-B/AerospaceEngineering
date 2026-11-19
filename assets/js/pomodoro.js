@@ -801,6 +801,11 @@
     render();
     setInterval(tick, 250);
     document.addEventListener('visibilitychange', tick);
+
+    // A request left by the account calendar ("Study this"), once: plan that many minutes.
+    var pending = null;
+    try { pending = JSON.parse(sessionStorage.getItem('ae_pomodoro_pending') || 'null'); sessionStorage.removeItem('ae_pomodoro_pending'); } catch (e) { pending = null; }
+    if (pending && pending.minutes > 0) { startPlan(pending.minutes, 'standard'); openPanel(); }
   }
 
   function tick() {

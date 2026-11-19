@@ -258,8 +258,134 @@
     return out;
   }
 
+  // ------------------------------------------------------------------ revision plan before an exam
+  function hm(min) { var h = Math.floor(min / 60), m = min % 60; return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m; }
+  function toMin(t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; }
+
+  // Topics an exam covers: "Topics 4, 5, 6 and 7" in its text, each with the plan sessions that
+  // teach it; without a list, every plan session of the subject before the exam, grouped by its
+  // first link.
+  function examTopics(tt, rec, exam) {
+    var subj = tt.subjects[exam.subject];
+    if (!subj) return [];
+    var sessions = subj.sessions.filter(function (s) { return CLASS_KINDS[s.kind] && (!s.date || s.date < exam.date); });
+    var m = /Topics?\s+([\d,\sand]+)/i.exec(exam.text || exam.title || '');
+    var groups = [];
+    if (m) {
+      (m[1].match(/\d+/g) || []).forEach(function (n) {
+        var re = new RegExp('Topic ' + n + '\\b', 'i');
+        var ss = subj.sessions.filter(function (s) { return CLASS_KINDS[s.kind] && re.test(s.title); });
+        if (ss.length) groups.push({ label: ss[0].title.replace(/\s+I+V?$/, ''), sessions: ss });
+      });
+    } else {
+      var byLink = {};
+      sessions.forEach(function (s) {
+        var l = s.links[0];
+        if (!l) return;
+        var k = l.href.split('#')[0];
+        if (!byLink[k]) { byLink[k] = { label: l.label, sessions: [] }; groups.push(byLink[k]); }
+        byLink[k].sessions.push(s);
+      });
+    }
+    groups.forEach(function (g) {
+      var seen = {};
+      g.links = [];
+      g.missed = g.sessions.some(function (s) { var mk = rec.marks[s.id]; return mk && mk.status === 'missed'; });
+      g.sessions.forEach(function (s) { s.links.forEach(function (l) { if (!seen[l.href]) { seen[l.href] = 1; g.links.push(l); } }); });
+    });
+    return groups.filter(function (g) { return g.missed; }).concat(groups.filter(function (g) { return !g.missed; }));
+  }
+
+  function revisionPlan(tt, rec, prefs, exam, todayISO, hoursPerDay) {
+    rec = normalise(rec);
+    var topics = examTopics(tt, rec, exam);
+    if (!topics.length) return [];
+    var len = Math.max(30, Math.round((hoursPerDay || 1) * 60));
+    var days = [];
+    for (var d = addDays(todayISO, 1); d < exam.date; d = addDays(d, 1)) if (!isDayOff(tt, rec, exam.subject, d)) days.push(d);
+    if (!days.length) return [];
+    var busy = {};
+    days.forEach(function (day) {
+      busy[day] = build(tt, rec, prefs, day, day).filter(function (o) { return o.start && o.status !== 'notheld'; })
+        .map(function (o) { return [toMin(o.start), o.end ? toMin(o.end) : toMin(o.start) + 60]; });
+    });
+    var candidates = [];
+    for (var h = 17 * 60; h + len <= 22 * 60; h += 30) candidates.push(h);
+    for (h = 9 * 60; h < 17 * 60; h += 30) candidates.push(h);
+    var out = [], n = Math.max(topics.length, days.length);
+    for (var k = 0; k < n; k++) {
+      var day = days[k % days.length], topic = topics[k % topics.length];
+      var start = null;
+      for (var i = 0; i < candidates.length; i++) {
+        var s = candidates[i], e = s + len;
+        if (!busy[day].some(function (b) { return s < b[1] && b[0] < e; })) { start = s; break; }
+      }
+      if (start === null) continue;
+      busy[day].push([start, start + len]);
+      out.push({ id: 'rev-' + exam.key + '-' + k, subject: exam.subject, kind: 'study', title: 'Revise: ' + topic.label + (k >= topics.length ? ' (second pass)' : ''),
+        date: day, start: hm(start), end: hm(start + len), room: '', note: '', links: topic.links.slice(), exam: exam.key, at: Date.now() });
+    }
+    return out.sort(function (a, b) { return (a.date + a.start) < (b.date + b.start) ? -1 : 1; });
+  }
+
+  // ------------------------------------------------------------------ attendance
+  function attendance(occ, todayISO) {
+    var out = {};
+    occ.forEach(function (o) {
+      if (o.isEvent || o.isExam || !o.subject || o.date > todayISO) return;
+      if (!(CLASS_KINDS[o.kind] || o.kind === 'lab')) return;
+      var a = out[o.subject] = out[o.subject] || { held: 0, attended: 0, missed: 0, caughtUp: 0 };
+      if (o.status === 'notheld') return;
+      a.held++;
+      if (o.status === 'missed' || o.status === 'done') a.missed++;
+      if (o.status === 'done') a.caughtUp++;
+    });
+    Object.keys(out).forEach(function (k) { out[k].attended = out[k].held - out[k].missed; });
+    return out;
+  }
+
+  // ------------------------------------------------------------------ iCalendar export (RFC 5545)
+  var SUBJECT_SHORT = { 'fluid-mechanics': 'Fluids', 'aerospace-materials-1': 'Materials', 'engineering-mechanics': 'Mechanics', 'advanced-maths': 'Maths', 'business-management': 'Management' };
+  var VTIMEZONE = ['BEGIN:VTIMEZONE', 'TZID:Europe/Madrid',
+    'BEGIN:DAYLIGHT', 'TZOFFSETFROM:+0100', 'TZOFFSETTO:+0200', 'TZNAME:CEST', 'DTSTART:19700329T020000', 'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU', 'END:DAYLIGHT',
+    'BEGIN:STANDARD', 'TZOFFSETFROM:+0200', 'TZOFFSETTO:+0100', 'TZNAME:CET', 'DTSTART:19701025T030000', 'RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU', 'END:STANDARD',
+    'END:VTIMEZONE'];
+
+  function icsText(s) { return String(s || '').replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n'); }
+  function fold(line) {
+    var out = [];
+    while (line.length > 74) { out.push(line.slice(0, 74)); line = ' ' + line.slice(74); }
+    out.push(line);
+    return out.join('\r\n');
+  }
+  function icsDate(d) { return d.replace(/-/g, ''); }
+  function icsTime(d, t) { return icsDate(d) + 'T' + t.replace(':', '') + '00'; }
+
+  function toICS(occ, nowISO) {
+    var stamp = icsDate(nowISO.slice(0, 10)) + 'T' + nowISO.slice(11, 16).replace(':', '') + '00Z';
+    var lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Sideris//Calendar//EN', 'CALSCALE:GREGORIAN'].concat(VTIMEZONE);
+    occ.forEach(function (o) {
+      if (o.status === 'notheld') return;
+      var who = SUBJECT_SHORT[o.subject] ? SUBJECT_SHORT[o.subject] + ': ' : '';
+      lines.push('BEGIN:VEVENT', 'UID:' + (o.key || o.id) + '@sideris', 'DTSTAMP:' + stamp);
+      if (o.start) {
+        var end = o.end || hm(toMin(o.start) + 60);
+        lines.push('DTSTART;TZID=Europe/Madrid:' + icsTime(o.date, o.start), 'DTEND;TZID=Europe/Madrid:' + icsTime(o.date, end));
+      } else {
+        lines.push('DTSTART;VALUE=DATE:' + icsDate(o.date), 'DTEND;VALUE=DATE:' + icsDate(addDays(o.date, 1)));
+      }
+      lines.push('SUMMARY:' + icsText(who + (o.title || KIND_LABEL[o.kind] || 'Class')));
+      if (o.room) lines.push('LOCATION:' + icsText(o.room));
+      var desc = [o.text, o.note, o.status === 'missed' ? 'Missed: to catch up.' : ''].filter(Boolean).join('\n');
+      if (desc) lines.push('DESCRIPTION:' + icsText(desc));
+      lines.push('END:VEVENT');
+    });
+    lines.push('END:VCALENDAR');
+    return lines.map(fold).join('\r\n') + '\r\n';
+  }
+
   window.AECalendar = {
     KEY: KEY, KIND_LABEL: KIND_LABEL, empty: empty, load: load, save: save, build: build, pending: pending, next: next,
-    merge: merge, occKey: occKey, addDays: addDays, dow: dow
+    merge: merge, occKey: occKey, addDays: addDays, dow: dow, revisionPlan: revisionPlan, attendance: attendance, toICS: toICS
   };
 })();

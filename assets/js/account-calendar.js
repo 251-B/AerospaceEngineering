@@ -225,7 +225,9 @@
     var acts = el('div', 'cal-bar__group');
     var addB = btn('Add', null, null, 'cal-btn--primary'); addB.id = 'calAdd';
     var grpB = btn('My groups', null, null); grpB.id = 'calGroups';
-    acts.appendChild(addB); acts.appendChild(grpB);
+    var expB = btn('Export .ics', null, null); expB.id = 'calExport';
+    expB.title = 'Download your term as a calendar file for Google Calendar or Outlook (a one-off copy)';
+    acts.appendChild(addB); acts.appendChild(grpB); acts.appendChild(expB);
     bar.appendChild(nav); bar.appendChild(views); bar.appendChild(acts);
     head.appendChild(bar);
     app.appendChild(head);
@@ -247,6 +249,7 @@
     var nextBox = sideCard('calNext', 'Next class');
     var catchBox = sideCard('calCatchup', 'To catch up');
     var comingBox = sideCard('calComing', 'Coming up');
+    var attBox = sideCard('calAttendance', 'Attendance');
     layout.appendChild(mainCol); layout.appendChild(side);
     app.appendChild(layout);
 
@@ -450,6 +453,30 @@
         ul2.appendChild(li);
       });
       if (coming.length) comingBox.appendChild(ul2);
+
+      attBox.innerHTML = '';
+      var att = C().attendance(occ, today);
+      var keys = Object.keys(att).filter(function (k) { return att[k].held; });
+      if (!keys.length) attBox.appendChild(el('p', 'cal-muted', 'Your attendance appears here once classes have been held.'));
+      var ul3 = el('ul', 'cal-items');
+      keys.forEach(function (k) {
+        var a = att[k];
+        var li = el('li', 'cal-item');
+        li.style.setProperty('--cal-mark', MARK[k] || 'var(--acc-text-2)');
+        li.appendChild(el('span', 'cal-item__title', shortName(k) + ': ' + a.attended + ' of ' + a.held + ' classes'));
+        li.appendChild(el('span', 'cal-item__when', a.missed ? a.missed + ' missed, ' + a.caughtUp + ' caught up' : 'none missed'));
+        ul3.appendChild(li);
+      });
+      if (keys.length) attBox.appendChild(ul3);
+    }
+
+    function exportICS() {
+      var text = C().toICS(all(), today + 'T' + nowTime);
+      var url = URL.createObjectURL(new Blob([text], { type: 'text/calendar;charset=utf-8' }));
+      var a = el('a'); a.href = url; a.download = 'sideris-calendar.ics';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+      announce('Calendar file downloaded');
     }
 
     function render() {
@@ -546,6 +573,31 @@
           moveBox.appendChild(ok); moveBox.appendChild(none);
         }
       }
+      if ((isClass && o.kind !== 'lab') || o.kind === 'study') {
+        act('study', 'Study this', function () { location.href = studyRequest(o, base); });
+      }
+      if (o.status === 'missed' && o.kind !== 'lab') {
+        act('explain', 'Explain what I missed', function () { location.href = explainRequest(o, base); });
+      }
+      var reviseBox = null;
+      if (o.isExam && o.date > today) {
+        act('revise', 'Plan my revision', function () { reviseBox.hidden = false; reviseBox.querySelector('input').focus(); });
+        reviseBox = el('div', 'cal-sheet__move'); reviseBox.hidden = true;
+        var rl = el('label', 'cal-field');
+        rl.appendChild(el('span', 'cal-field__label', 'Hours a day'));
+        var hours = el('input', 'cal-input cal-input--time'); hours.type = 'number'; hours.min = '0.5'; hours.max = '4'; hours.step = '0.5'; hours.value = '1';
+        rl.appendChild(hours); reviseBox.appendChild(rl);
+        var go = btn('Add study blocks', 'data-act', 'revise-go', 'cal-btn--primary');
+        go.addEventListener('click', function () {
+          rec.events.forEach(function (e) { if (e.exam === o.key && !e.deleted) { e.deleted = true; e.at = Date.now(); } });
+          var blocks = C().revisionPlan(tt, rec, prefs(), o, today, +hours.value || 1);
+          blocks.forEach(function (b) { rec.events.push(b); });
+          closeDialog(sheet);
+          persist(blocks.length ? blocks.length + ' study blocks added before the exam' : 'No free days left before this exam');
+        });
+        reviseBox.appendChild(go);
+        reviseBox.appendChild(el('p', 'cal-muted', 'Blocks go on your free hours, one topic each, the topics of missed classes first. Delete or move any block later.'));
+      }
       if (o.isEvent) act('delete', 'Delete', function () {
         rec.events.forEach(function (e) { if (e.id === o.key) { e.deleted = true; e.at = Date.now(); } });
         closeDialog(sheet); persist('Deleted');
@@ -555,6 +607,7 @@
       });
       form.appendChild(actions);
       if (moveBox) form.appendChild(moveBox);
+      if (reviseBox) form.appendChild(reviseBox);
 
       // edit time / room and note
       var det = el('details', 'cal-sheet__edit');
@@ -704,6 +757,7 @@
     });
     addB.addEventListener('click', openAdd);
     grpB.addEventListener('click', openGroups);
+    expB.addEventListener('click', exportICS);
     document.addEventListener('keydown', function (e) {
       if (e.ctrlKey || e.metaKey || e.altKey) return;
       if (sheet.open || groupsDlg.open || addDlg.open) return;
@@ -717,6 +771,36 @@
     render();
     if (!Object.keys(rec.groups).length && !opts.noFirstVisit) openGroups();
     return api;
+  }
+
+  // The study timer and Sideris run on study pages only, so the calendar leaves the request in
+  // sessionStorage and opens the class's first page; pomodoro.js / ai-chat.js pick it up there.
+  function studyPage(o, base) {
+    var l = (o.links || [])[0];
+    if (l) return base + l.href;
+    return base + 'subjects/' + (o.subject || 'engineering-mechanics') + '/teoria/index.html';
+  }
+  function put(key, value) { try { sessionStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* blocked */ } }
+
+  function explainRequest(o, base) {
+    base = base != null ? base : BASE;
+    var name = (subjectOf(o.subject) || { name: '' }).name;
+    put('ae_sideris_pending', {
+      visibleText: 'I missed this class. Explain what was covered and how to catch up.',
+      taskLabel: 'Catch up on a missed class',
+      location: name + ', ' + dateLabel(o.date, true),
+      hiddenContext: 'The student missed a class of ' + name + ' on ' + dateLabel(o.date, true) + '. Session: ' + (o.title || '') +
+        '. What was done: ' + (o.text || 'not stated') + '. Portal pages for it: ' + (o.links || []).map(function (l) { return l.label + ' (' + l.href + ')'; }).join('; ') +
+        '. Explain the essential ideas step by step, then suggest which problems to try first.'
+    });
+    return studyPage(o, base);
+  }
+
+  function studyRequest(o, base) {
+    base = base != null ? base : BASE;
+    var len = o.start && o.end ? minutes(o.end) - minutes(o.start) : 50;
+    put('ae_pomodoro_pending', { minutes: Math.max(25, len), label: shortName(o.subject) + ': ' + (o.title || ''), subject: o.subject || null });
+    return studyPage(o, base);
   }
 
   // Sign-up wizard, step "Your classes": the group editor on a draft of the record. save()
@@ -784,7 +868,8 @@
     return n;
   }
 
-  window.AECalendarUI = { mount: mount, groupPicker: groupPicker, nextCard: nextCard, signupClasses: signupClasses, officialExams: officialExams, MARK: MARK, dateLabel: function (iso, long) { return dateLabel(iso, long); } };
+  window.AECalendarUI = { mount: mount, groupPicker: groupPicker, nextCard: nextCard, signupClasses: signupClasses, officialExams: officialExams,
+    explainRequest: explainRequest, studyRequest: studyRequest, MARK: MARK, dateLabel: function (iso, long) { return dateLabel(iso, long); } };
 
   function start() {
     if (document.body.getAttribute('data-page') !== 'calendar') return;
