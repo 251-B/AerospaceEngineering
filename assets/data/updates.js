@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-katex-fix",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris chat: reliable KaTeX equations, tables and quotes",
+    "text": "Fixed LaTeX and KaTeX rendering in the Sideris chat across equations, reasoning panels, tables and index pages so every derivation displays cleanly.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-19-sideris-ai-chat",
     "date": "2026-11-19",
     "tag": "Portal",

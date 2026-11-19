@@ -283,44 +283,165 @@
   }
 
   /* ---------------------------------------------------------------- safe Markdown + KaTeX renderer */
+  var katexLoading = false;
+  var katexWaiters = [];
+
+  function ensureKaTeX() {
+    if (window.katex && typeof window.katex.render === 'function') return true;
+    if (katexLoading) return false;
+    katexLoading = true;
+    var tries = 0;
+    function flush() {
+      katexLoading = false;
+      if (session.messages.length && ui.messages) renderMessages();
+    }
+    function poll() {
+      if (window.katex && typeof window.katex.render === 'function') { flush(); return; }
+      if (++tries < 25) { setTimeout(poll, 150); return; }
+      // Page did not ship KaTeX (e.g. an index page): inject it once from CDN.
+      if (!document.querySelector('link[href*="katex"]')) {
+        var lk = document.createElement('link');
+        lk.rel = 'stylesheet';
+        lk.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';
+        document.head.appendChild(lk);
+      }
+      if (!document.querySelector('script[src*="katex.min.js"]')) {
+        var sc = document.createElement('script');
+        sc.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
+        sc.onload = flush;
+        document.head.appendChild(sc);
+      }
+    }
+    setTimeout(poll, 120);
+    return false;
+  }
+
+  function cleanTex(tex) {
+    return String(tex || '')
+      .replace(/\\euro\b/g, '\\text{€}')
+      .replace(/\\text\{([^{}]*)&([^{}]*)\}/g, '\\text{$1and$2}')
+      .trim();
+  }
+
   function renderMathSpan(tex, display) {
     var span = el(display ? 'div' : 'span', display ? 'sd-math-block' : 'sd-math-inline');
-    if (window.katex && typeof window.katex.render === 'function') {
+    var src = cleanTex(tex);
+    if (!src) return span;
+    if (ensureKaTeX()) {
       try {
-        window.katex.render(tex, span, { displayMode: !!display, throwOnError: false, strict: 'ignore' });
+        window.katex.render(src, span, {
+          displayMode: !!display,
+          throwOnError: false,
+          strict: 'ignore',
+          trust: false
+        });
         return span;
       } catch (e) { /* fall through */ }
     }
-    span.textContent = display ? '$$' + tex + '$$' : '$' + tex + '$';
+    span.textContent = display ? '$$' + src + '$$' : '$' + src + '$';
     return span;
   }
 
-  function appendInline(parent, text) {
-    var re = /(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$(?!\s)([^$\n]+?)(?!\s)\$|`([^`\n]+)`|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*)/g;
+  function appendFormattedText(parent, text) {
+    var re = /(`[^`\n]+`|\*\*[^*\n]+\*\*|\*[^*\n]+\*)/g;
     var last = 0, m;
     while ((m = re.exec(text)) !== null) {
       if (m.index > last) parent.appendChild(document.createTextNode(text.slice(last, m.index)));
       var tok = m[0];
-      if (tok.indexOf('$$') === 0 || tok.indexOf('\\[') === 0) {
-        parent.appendChild(renderMathSpan(tok.slice(2, -2).trim(), true));
-      } else if (tok.indexOf('\\(') === 0) {
-        parent.appendChild(renderMathSpan(tok.slice(2, -2).trim(), false));
-      } else if (m[2] != null) {
-        parent.appendChild(renderMathSpan(m[2].trim(), false));
-      } else if (m[3] != null) {
-        parent.appendChild(el('code', '', m[3]));
-      } else if (m[4] != null) {
+      if (tok.charAt(0) === '`') {
+        parent.appendChild(el('code', '', tok.slice(1, -1)));
+      } else if (tok.indexOf('**') === 0) {
         var strong = el('strong');
-        appendInline(strong, m[4]);
+        appendInline(strong, tok.slice(2, -2));
         parent.appendChild(strong);
-      } else if (m[5] != null) {
+      } else {
         var em = el('em');
-        appendInline(em, m[5]);
+        appendInline(em, tok.slice(1, -1));
         parent.appendChild(em);
       }
       last = re.lastIndex;
     }
     if (last < text.length) parent.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  function appendInline(parent, text) {
+    // Parse code & math delimiters BEFORE bold/italic so LaTeX `*`, `_`, and spaces never break!
+    var s = String(text || '');
+    var i = 0, buf = '';
+    function flushBuf() {
+      if (buf) { appendFormattedText(parent, buf); buf = ''; }
+    }
+    while (i < s.length) {
+      // Escaped dollar \$
+      if (s.charAt(i) === '\\' && s.charAt(i + 1) === '$') {
+        buf += '$';
+        i += 2;
+        continue;
+      }
+      // Inline code `...`
+      if (s.charAt(i) === '`') {
+        var ce = s.indexOf('`', i + 1);
+        if (ce > i) {
+          flushBuf();
+          parent.appendChild(el('code', '', s.slice(i + 1, ce)));
+          i = ce + 1;
+          continue;
+        }
+      }
+      // Display math $$...$$ inline
+      if (s.slice(i, i + 2) === '$$') {
+        var de = s.indexOf('$$', i + 2);
+        if (de > i + 2) {
+          flushBuf();
+          parent.appendChild(renderMathSpan(s.slice(i + 2, de), true));
+          i = de + 2;
+          continue;
+        }
+      }
+      // Display math \[...\]
+      if (s.slice(i, i + 2) === '\\[') {
+        var be = s.indexOf('\\]', i + 2);
+        if (be > i + 2) {
+          flushBuf();
+          parent.appendChild(renderMathSpan(s.slice(i + 2, be), true));
+          i = be + 2;
+          continue;
+        }
+      }
+      // Inline math \(...\)
+      if (s.slice(i, i + 2) === '\\(') {
+        var pe = s.indexOf('\\)', i + 2);
+        if (pe > i + 2) {
+          flushBuf();
+          parent.appendChild(renderMathSpan(s.slice(i + 2, pe), false));
+          i = pe + 2;
+          continue;
+        }
+      }
+      // Inline math $...$ (supports spaces like `$ \vec{v} $`, ignores currency like `$50 and $100`)
+      if (s.charAt(i) === '$' && s.charAt(i + 1) !== '$') {
+        var j = i + 1, found = -1;
+        while (j < s.length) {
+          if (s.charAt(j) === '\\') { j += 2; continue; }
+          if (s.charAt(j) === '\n') break;
+          if (s.charAt(j) === '$' && s.charAt(j + 1) !== '$') { found = j; break; }
+          j++;
+        }
+        if (found > i + 1) {
+          var inner = s.slice(i + 1, found);
+          var isCurrency = /^\d[\d,.\s]*(?:and|to|or|y|a|€|USD|EUR|m\.u\.)\b/i.test(inner.trim());
+          if (!isCurrency && inner.trim()) {
+            flushBuf();
+            parent.appendChild(renderMathSpan(inner, false));
+            i = found + 1;
+            continue;
+          }
+        }
+      }
+      buf += s.charAt(i);
+      i++;
+    }
+    flushBuf();
   }
 
   function splitThinking(raw) {
@@ -338,13 +459,32 @@
     };
   }
 
+  function normaliseBlockMath(text) {
+    // Wrap standalone \begin{equation|align|gather|multline}... blocks that lack $$ delimiters,
+    // without touching fenced code blocks.
+    var parts = String(text || '').replace(/\r\n/g, '\n').split(/(```[\s\S]*?```)/g);
+    return parts.map(function (seg, idx) {
+      if (idx % 2 === 1) return seg;
+      return seg.replace(/(^|\n)[ \t]*(\\begin\{(equation|align|gather|multline)\*?\}[\s\S]*?\\end\{\3\*?\})[ \t]*(?=\n|$)/g, '$1$$\n$2\n$$');
+    }).join('');
+  }
+
+  function isTableSep(line) {
+    return /^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)+\|?\s*$/.test(line || '');
+  }
+
+  function splitTableRow(line) {
+    return line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(function (c) { return c.trim(); });
+  }
+
   function renderMarkdownBlocks(container, text) {
-    var lines = String(text || '').replace(/\r\n/g, '\n').split('\n');
+    var lines = normaliseBlockMath(text).split('\n');
     var i = 0;
     while (i < lines.length) {
       var line = lines[i];
       if (!line.trim()) { i++; continue; }
 
+      // Fenced code block
       if (/^```/.test(line.trim())) {
         var codeLines = [];
         i++;
@@ -356,28 +496,55 @@
         continue;
       }
 
-      if (/^\s*(\$\$|\\\[)/.test(line)) {
-        var isDollar = line.trim().indexOf('$$') === 0;
-        var openTok = isDollar ? '$$' : '\\[';
-        var closeTok = isDollar ? '$$' : '\\]';
-        var trimmed = line.trim();
-        if (trimmed.length > openTok.length + closeTok.length && trimmed.slice(-closeTok.length) === closeTok) {
-          container.appendChild(renderMathSpan(trimmed.slice(openTok.length, -closeTok.length).trim(), true));
+      // Display math block starting line (handles trailing text after closing $$ or \] cleanly!)
+      var mStart = /^\s*(\$\$|\\\[)(.*)$/.exec(line);
+      if (mStart) {
+        var openTok = mStart[1];
+        var closeTok = openTok === '$$' ? '$$' : '\\]';
+        var rest = mStart[2];
+        var closeIdx = rest.indexOf(closeTok);
+        if (closeIdx >= 0) {
+          container.appendChild(renderMathSpan(rest.slice(0, closeIdx), true));
+          var after = rest.slice(closeIdx + closeTok.length).trim();
+          if (after) {
+            var tailP = el('p');
+            appendInline(tailP, after);
+            container.appendChild(tailP);
+          }
           i++;
           continue;
         }
-        var mathLines = [trimmed.slice(openTok.length)];
+        var mathLines = [rest];
+        var trailing = '';
         i++;
         while (i < lines.length) {
-          var idx = lines[i].indexOf(closeTok);
-          if (idx >= 0) { mathLines.push(lines[i].slice(0, idx)); i++; break; }
+          var ci = lines[i].indexOf(closeTok);
+          if (ci >= 0) {
+            mathLines.push(lines[i].slice(0, ci));
+            trailing = lines[i].slice(ci + closeTok.length).trim();
+            i++;
+            break;
+          }
           mathLines.push(lines[i]);
           i++;
         }
-        container.appendChild(renderMathSpan(mathLines.join('\n').trim(), true));
+        container.appendChild(renderMathSpan(mathLines.join('\n'), true));
+        if (trailing) {
+          var afterP = el('p');
+          appendInline(afterP, trailing);
+          container.appendChild(afterP);
+        }
         continue;
       }
 
+      // Horizontal rule
+      if (/^\s*(?:---+|\*\*\*+|___+)\s*$/.test(line)) {
+        container.appendChild(el('hr', 'sd-hr'));
+        i++;
+        continue;
+      }
+
+      // Headings
       var hm = /^(#{1,4})\s+(.+)$/.exec(line.trim());
       if (hm) {
         var h = el(hm[1].length <= 2 ? 'h3' : 'h4');
@@ -387,6 +554,51 @@
         continue;
       }
 
+      // Markdown table
+      if (line.indexOf('|') >= 0 && i + 1 < lines.length && isTableSep(lines[i + 1])) {
+        var wrap = el('div', 'sd-table-wrap');
+        var tbl = el('table', 'sd-table');
+        var thead = el('thead');
+        var htr = el('tr');
+        splitTableRow(line).forEach(function (cell) {
+          var th = el('th');
+          appendInline(th, cell);
+          htr.appendChild(th);
+        });
+        thead.appendChild(htr);
+        tbl.appendChild(thead);
+        i += 2;
+        var tbody = el('tbody');
+        while (i < lines.length && lines[i].trim() && lines[i].indexOf('|') >= 0) {
+          var btr = el('tr');
+          splitTableRow(lines[i]).forEach(function (cell) {
+            var td = el('td');
+            appendInline(td, cell);
+            btr.appendChild(td);
+          });
+          tbody.appendChild(btr);
+          i++;
+        }
+        tbl.appendChild(tbody);
+        wrap.appendChild(tbl);
+        container.appendChild(wrap);
+        continue;
+      }
+
+      // Blockquote
+      if (/^\s*>\s?/.test(line)) {
+        var qLines = [];
+        while (i < lines.length && /^\s*>\s?/.test(lines[i])) {
+          qLines.push(lines[i].replace(/^\s*>\s?/, ''));
+          i++;
+        }
+        var bq = el('blockquote', 'sd-quote');
+        renderMarkdownBlocks(bq, qLines.join('\n'));
+        container.appendChild(bq);
+        continue;
+      }
+
+      // Unordered list
       if (/^\s*[-*]\s+/.test(line)) {
         var ul = el('ul');
         while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
@@ -399,6 +611,7 @@
         continue;
       }
 
+      // Ordered list
       if (/^\s*\d+[.)]\s+/.test(line)) {
         var ol = el('ol');
         while (i < lines.length && /^\s*\d+[.)]\s+/.test(lines[i])) {
@@ -411,8 +624,11 @@
         continue;
       }
 
+      // Paragraph (preserves multi-line \[...\] or $$...$$ inside paragraph cleanly)
       var para = [];
-      while (i < lines.length && lines[i].trim() && !/^(```|#{1,4}\s|\s*[-*]\s+|\s*\d+[.)]\s+|\s*\$\$|\s*\\\[)/.test(lines[i])) {
+      while (i < lines.length && lines[i].trim() &&
+        !/^(```|#{1,4}\s|\s*[-*]\s+|\s*\d+[.)]\s+|\s*\$\$|\s*\\\[|\s*>\s?|\s*(?:---+|\*\*\*+)\s*$)/.test(lines[i]) &&
+        !(lines[i].indexOf('|') >= 0 && i + 1 < lines.length && isTableSep(lines[i + 1]))) {
         para.push(lines[i]);
         i++;
       }
@@ -429,7 +645,9 @@
       var det = el('details', 'sd-think');
       if (parts.thinking) det.open = true;
       det.appendChild(el('summary', '', parts.thinking ? 'Reasoning...' : 'Show reasoning'));
-      det.appendChild(el('div', 'sd-think__body', parts.think));
+      var thinkBody = el('div', 'sd-think__body');
+      renderMarkdownBlocks(thinkBody, parts.think);
+      det.appendChild(thinkBody);
       container.appendChild(det);
     }
     var body = el('div', 'sd-msg__body');
