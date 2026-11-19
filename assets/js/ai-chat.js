@@ -198,6 +198,7 @@
     messages: [],          // { role: 'user'|'assistant', text, displayText, tag, modelName, ragHits, error }
     systemExtra: '',       // hidden context from ask-ai.js (<reference_solution hidden="true">)
     socratic: false,
+    openSelection: null,   // page selection captured when the drawer opened
     lastFocus: null
   };
   var ui = {};
@@ -726,7 +727,80 @@
     return /\/(problemas|extra-problems)\//.test(location.pathname);
   }
 
-  function buildSystemPrompt(ragText, lang) {
+  /* What the student is looking at right now: the selection, else the open problem card in view,
+     else the h2 section in view. Formulas come back as LaTeX through ask-ai.js when it is loaded. */
+  var PAGE_CTX_MAX = 4000;
+  var CARD_SEL = '.problem-card, .problem-box';
+
+  function rangeText(range, max) {
+    if (window.AEAskAI && typeof window.AEAskAI.textOfRange === 'function') return window.AEAskAI.textOfRange(range, max);
+    var s = range.toString().replace(/\s+/g, ' ').trim();
+    return s.length > max ? s.slice(0, max - 1) + '…' : s;
+  }
+
+  function inView(node) {
+    var r = node.getBoundingClientRect();
+    return r.bottom > 0 && r.top < (window.innerHeight || 800);
+  }
+
+  // Starts below the sticky header (the portal's scroll-margin-top clears it) and above the fold.
+  function startsOnScreen(node) {
+    var top = node.getBoundingClientRect().top;
+    var edge = parseFloat(getComputedStyle(node).scrollMarginTop) || 0;
+    return top >= edge - 2 && top < (window.innerHeight || 800);
+  }
+
+  function cardIsOpen(card) {
+    return card.tagName === 'DETAILS' ? card.open : !card.classList.contains('pc-collapsed');
+  }
+
+  function selectionContext() {
+    var root = document.querySelector('main') || document.body;
+    var sel = window.getSelection ? window.getSelection() : null;
+    if (!sel || !sel.rangeCount || sel.isCollapsed) return null;
+    var r = sel.getRangeAt(0);
+    var host = r.commonAncestorContainer.nodeType === 1 ? r.commonAncestorContainer : r.commonAncestorContainer.parentElement;
+    if (!host || !root.contains(host) || (ui.drawer && ui.drawer.contains(host))) return null;
+    var st = rangeText(r, PAGE_CTX_MAX);
+    return st ? { label: 'Selected text', heading: '', text: st } : null;
+  }
+
+  function pageContext() {
+    var root = document.querySelector('main') || document.body;
+    var picked = selectionContext() || session.openSelection;
+    session.openSelection = null;   // a selection answers one question; later ones follow the scroll
+    if (picked) return picked;
+    // Open items win; when everything is folded, take the first one that starts on screen.
+    var cards = root.querySelectorAll(CARD_SEL), card = null;
+    for (var i = 0; i < cards.length && !card; i++) if (cardIsOpen(cards[i]) && inView(cards[i])) card = cards[i];
+    for (var j = 0; j < cards.length && !card; j++) if (startsOnScreen(cards[j])) card = cards[j];
+    if (card) {
+      var t = card.querySelector('.problem-title') || card.querySelector('summary, h2, h3');
+      var title = t ? t.textContent.replace(/\s+/g, ' ').trim() : (card.id || 'Problem');
+      var cr = document.createRange();
+      cr.selectNodeContents(card);
+      return { label: 'Problem: ' + title, heading: title, text: rangeText(cr, PAGE_CTX_MAX) };
+    }
+    var hs = root.querySelectorAll('h2');
+    if (!hs.length) return null;
+    var line = (window.innerHeight || 800) * 0.35, k = -1;
+    for (var n = 0; n < hs.length; n++) {
+      if (hs[n].classList.contains('tr-sec-closed')) continue;   // folded by theory-reader.js
+      var top = hs[n].getBoundingClientRect().top;
+      var nextTop = hs[n + 1] ? hs[n + 1].getBoundingClientRect().top : Infinity;
+      if (top <= line && nextTop > 0) k = n;
+      else if (k < 0 && inView(hs[n])) k = n;
+    }
+    for (var q = 0; q < hs.length && k < 0; q++) if (startsOnScreen(hs[q])) k = q;
+    if (k < 0) k = 0;
+    var sr = document.createRange();
+    sr.setStartBefore(hs[k]);
+    if (hs[k + 1]) sr.setEndBefore(hs[k + 1]); else sr.setEndAfter(root.lastChild || hs[k]);
+    var head = hs[k].textContent.replace(/\s+/g, ' ').trim();
+    return { label: 'Section: ' + head, heading: head, text: rangeText(sr, PAGE_CTX_MAX) };
+  }
+
+  function buildSystemPrompt(ragText, lang, ctx) {
     var slug = window.AESiderisRAG ? window.AESiderisRAG.currentSubject() : '';
     var business = slug === 'business-management';
     var lines = [
@@ -749,6 +823,9 @@
     }
     if (!prefs.thinking) lines.push('/no_think');
     if (session.systemExtra) lines.push('', session.systemExtra);
+    if (ctx && ctx.text) {
+      lines.push('', '[WHAT THE STUDENT IS LOOKING AT ON THIS PAGE — ' + ctx.label + '. "This", "here" or "this step" refer to it; answer about it first.]', ctx.text);
+    }
     if (ragText) lines.push('', ragText);
     return lines.join('\n');
   }
@@ -1593,6 +1670,28 @@
     ui.ta.disabled = busy;
   }
 
+  /* Earlier turns go in short: the student's own words (not the long Ask AI prompt) and capped
+     answers, newest first until HISTORY_BUDGET characters, so small models keep the system prompt. */
+  var HISTORY_BUDGET = 6000;
+  var OLD_TURN_MAX = 1500;
+  function historyForModel(list) {
+    var out = [], used = 0;
+    var last = list[list.length - 1];
+    for (var i = list.length - 2; i >= 0 && out.length < 9; i--) {
+      var m = list[i];
+      if (m.error) continue;
+      var c = String((m.role === 'user' ? (m.displayText || m.text) : m.text) || '');
+      c = c.replace(/<think>[\s\S]*?(<\/think>|$)/g, '').trim();
+      if (c.length > OLD_TURN_MAX) c = c.slice(0, OLD_TURN_MAX) + '…';
+      if (!c || used + c.length > HISTORY_BUDGET) break;
+      used += c.length;
+      out.unshift({ role: m.role, content: c });
+    }
+    while (out.length && out[0].role !== 'user') out.shift();   // start on a user turn
+    out.push({ role: last.role, content: last.text });
+    return out;
+  }
+
   function sendUserMessage(text, opts) {
     opts = opts || {};
     if (session.busy || !window.AESiderisEngine) return Promise.resolve();
@@ -1624,33 +1723,34 @@
         : 'Preparing ' + m.name + '...'
     );
 
-    var ragQuery = opts.ragQuery || (pageTitle() + ' ' + text);
+    // An Ask AI handoff already carries its card; otherwise send what is on screen.
+    var ctx = session.systemExtra ? null : pageContext();
+    if (ctx && !userMsg.tag) userMsg.tag = 'Context: ' + ctx.label.slice(0, 80);
+    var ragQuery = opts.ragQuery || ((ctx && ctx.heading ? ctx.heading : pageTitle()) + ' ' + text);
     var ragPromise = (prefs.rag && window.AESiderisRAG)
       ? window.AESiderisRAG.search(ragQuery, { limit: 4 })
       : Promise.resolve([]);
 
-    var rafPending = false;
+    // Re-rendering the whole answer (KaTeX included) on every token froze long answers:
+    // wait at least 250 ms, or four times the last render, between two renders.
+    var renderTimer = null, lastRenderMs = 0;
     function scheduleStreamRender() {
-      if (rafPending) return;
-      rafPending = true;
-      requestAnimationFrame(function () {
-        rafPending = false;
-        if (assistantMsg._contentEl) {
-          renderRichText(assistantMsg._contentEl, assistantMsg.text);
-          ui.messages.scrollTop = ui.messages.scrollHeight;
-        }
-      });
+      if (renderTimer) return;
+      renderTimer = setTimeout(function () {
+        renderTimer = null;
+        if (!session.busy || !assistantMsg._contentEl) return;
+        var t0 = Date.now();
+        renderRichText(assistantMsg._contentEl, assistantMsg.text);
+        ui.messages.scrollTop = ui.messages.scrollHeight;
+        lastRenderMs = Date.now() - t0;
+      }, Math.max(250, lastRenderMs * 4));
     }
 
     return ragPromise.then(function (hits) {
       assistantMsg.ragHits = hits || [];
       var ragText = (hits && hits.length && window.AESiderisRAG) ? window.AESiderisRAG.formatContext(hits) : '';
-      var sys = buildSystemPrompt(ragText, lang);
-      var apiMessages = [{ role: 'system', content: sys }];
-      var hist = session.messages.slice(0, -1).slice(-10);
-      hist.forEach(function (item) {
-        apiMessages.push({ role: item.role, content: item.text });
-      });
+      var sys = buildSystemPrompt(ragText, lang, ctx);
+      var apiMessages = [{ role: 'system', content: sys }].concat(historyForModel(session.messages.slice(0, -1)));
 
       return window.AESiderisEngine.generate(
         {
@@ -1739,6 +1839,7 @@
     if (window.AESidebar && typeof window.AESidebar.close === 'function') window.AESidebar.close();
 
     session.lastFocus = document.activeElement;
+    session.openSelection = selectionContext();   // focusing the composer clears the page selection
     session.open = true;
     ui.backdrop.hidden = false;
     ui.drawer.hidden = false;

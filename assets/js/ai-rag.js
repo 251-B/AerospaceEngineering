@@ -29,9 +29,13 @@
     'its into than then also only more most some such very how why when where which who whom whose ' +
     'los las del una uno unos unas por para con sin sobre entre desde hasta como cual cuales que ' +
     'este esta estos estas ese esa esos esas pero porque donde cuando quien quienes muy mas menos ' +
-    'todo toda todos todas cada otro otra otros otras ser estar son esta estan hay tiene tienen'
+    'todo toda todos todas cada otro otra otros otras ser estar son esta estan hay tiene tienen ' +
+    // chat filler: "explain this section", "explicame este paso" carry no topic
+    'explain explica explicame section seccion page pagina step paso part parte here aqui esto eso ' +
+    'do please favor help ayuda ayudame understand entender entiendo don dont know does mean significa'
   ).split(' ').forEach(function (w) { if (w) STOP[w] = 1; });
 
+  var MIN_SCORE = 3;                 // calibrated on the Mechanics shard: "torque" 4.6, "weather forecast" 1.7
   var shards = Object.create(null);   // slug -> { chunks, df, avgdl, N }
   var pending = Object.create(null);  // slug -> Promise
 
@@ -189,8 +193,15 @@
     var limit = opts.limit || 4;
     var qTokens = tokenize(query);
     if (!slug || !qTokens.length) return Promise.resolve([]);
+    // Weak matches are noise the model would treat as ground truth: drop the lot when even the
+    // best is below MIN_SCORE (an off-topic question), and anything under half of the best.
+    var cutoff = opts.cutoff != null ? opts.cutoff : 0.45;
     return loadSubject(slug).then(function (shard) {
-      return scoreShard(shard, qTokens, unit).slice(0, limit);
+      var hits = scoreShard(shard, qTokens, unit);
+      if (!cutoff) return hits.slice(0, limit);
+      if (!hits.length || hits[0].score < MIN_SCORE) return [];
+      var floor = hits[0].score * cutoff;
+      return hits.filter(function (h) { return h.score >= floor; }).slice(0, limit);
     }).catch(function () {
       return [];
     });

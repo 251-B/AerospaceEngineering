@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-reads-the-page",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris now sees the section or problem you are reading",
+    "text": "Sideris answers about your selected text, the open problem or the section on screen, picks closer course notes, and no longer freezes on long answers."
+  },
+  {
     "id": "2026-11-19-home-sky-on-phones",
     "date": "2026-11-19",
     "tag": "Portal",

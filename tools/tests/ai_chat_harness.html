@@ -102,10 +102,51 @@ window.addEventListener('load', function () {
         drawer.querySelector('.sd-picker-btn').click();
         window.AESideris.deleteConversation(savedId);
 
-        // Escape closes drawer
-        drawer.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
-        check('escape-closes', drawer.hidden && !window.AESideris.isOpen(), 'closed by Escape');
-        finish();
+        // Free chat sends what is on screen (the card in view), not just the page title
+        window.AESideris.clearChat();
+        return window.AESideris.sendUserMessage('explain this').then(function () {
+          var sys = lastReq.messages[0].content;
+          check('page-context-sent', sys.indexOf('Find the velocity profile') >= 0 && sys.indexOf('Problem: Couette flow') >= 0, 'card in view reaches the model');
+          // Long Ask AI prompts are not replayed: earlier turns go as the student's own words
+          window.AESideris.clearChat();
+          return window.AESideris.openWithAskRequest({
+            visibleText: 'Short visible question', modelPrompt: 'LONG_PROMPT_' + new Array(3000).join('x'), lang: 'en'
+          });
+        }).then(function () {
+          return window.AESideris.sendUserMessage('and now?');
+        }).then(function () {
+          var all = JSON.stringify(lastReq.messages.slice(1));
+          check('history-budget', all.indexOf('LONG_PROMPT_') < 0 && all.indexOf('Short visible question') >= 0, 'old turn sent as display text');
+          return window.AESiderisRAG.search('how do I cook pasta', { subject: 'fluid-mechanics' });
+        }).then(function (hits) {
+          check('rag-drops-off-topic', hits.length === 0, 'hits=' + hits.length);
+          // Streaming 60 tokens over ~600 ms must not re-render the answer on every token
+          window.AESideris.clearChat();
+          window.AESiderisEngine.setMock(function (req, cb) {
+            return new Promise(function (resolve) {
+              var full = '', n = 0;
+              (function tick() {
+                full += 'tok $x_' + n + '$ ';
+                cb.onToken('', full);
+                if (++n < 60) setTimeout(tick, 10); else resolve(full);
+              })();
+            });
+          });
+          var renders = 0;
+          var mo = new MutationObserver(function (list) {
+            list.forEach(function (rec) { if (rec.target.classList && rec.target.classList.contains('sd-msg__content') && rec.removedNodes.length) renders++; });
+          });
+          mo.observe(drawer, { childList: true, subtree: true });
+          return window.AESideris.sendUserMessage('stream test').then(function () {
+            mo.disconnect();
+            check('stream-render-throttled', renders <= 5, 'renders=' + renders);
+          });
+        }).then(function () {
+          // Escape closes drawer
+          drawer.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+          check('escape-closes', drawer.hidden && !window.AESideris.isOpen(), 'closed by Escape');
+          finish();
+        });
       }).catch(function (err) {
         check('async-error', false, String(err));
         finish();
