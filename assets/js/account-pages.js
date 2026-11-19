@@ -329,19 +329,25 @@
 
     var draft = { subjects: [], exams: {}, surface: AESurface.get() };
     var step = 0;
-    var panes = ['#stepAccount', '#stepSubjects', '#stepLook', '#stepDates', '#stepDone'];
+    var panes = ['#stepAccount', '#stepSubjects', '#stepClasses', '#stepLook', '#stepDates', '#stepDone'];
+    var classes = null;
+    function allSlugs() { return draft.subjects.length ? draft.subjects : AEAccount.SUBJECTS.map(function (s) { return s.id; }); }
 
     function go(n) {
       step = n;
       panes.forEach(function (sel, i) { $(sel).hidden = i !== n; });
       $$('.acc-steps__bar span').forEach(function (bar, i) { bar.classList.toggle('is-done', i < n); });
-      $('#stepCount').textContent = n >= 1 && n <= 3 ? 'Step ' + n + ' of 3' : '';
-      $('#wizardSteps').hidden = n < 1 || n > 3;
+      $('#stepCount').textContent = n >= 1 && n <= 4 ? 'Step ' + n + ' of 4' : '';
+      $('#wizardSteps').hidden = n < 1 || n > 4;
       var heading = $(panes[n] + ' h2');
       if (heading) { heading.setAttribute('tabindex', '-1'); heading.focus({ preventScroll: true }); }
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (n === 3) renderDates($('#datesList'), draft.subjects, draft.exams, function (exams) { draft.exams = exams; });
-      if (n === 4) summary();
+      if (n === 2 && window.AECalendarUI) classes = AECalendarUI.signupClasses($('#classesList'), allSlugs());
+      if (n === 4) {
+        if (window.AECalendarUI) AECalendarUI.officialExams($('#datesOfficial'), AECalendar.load(), { subjects: allSlugs(), exams: {} });
+        renderDates($('#datesList'), draft.subjects, draft.exams, function (exams) { draft.exams = exams; });
+      }
+      if (n === 5) summary();
     }
 
     function save() {
@@ -403,6 +409,7 @@
     $$('[data-go]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var target = Number(btn.getAttribute('data-go'));
+        if (step === 2 && target > step && classes && !btn.hasAttribute('data-skip-classes')) classes.save();
         if (target > step && step >= 1) save();
         go(target);
       });

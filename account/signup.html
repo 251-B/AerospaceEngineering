@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="../assets/css/study-surface.css">
   <link rel="stylesheet" href="../assets/css/account.css">
   <script src="../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../assets/css/account-calendar.css">
+  <script defer src="../assets/data/timetable.js"></script>
+  <script defer src="../assets/js/calendar-core.js"></script>
+  <script defer src="../assets/js/account-calendar.js"></script>
   <script defer src="../assets/js/account-pages.js"></script>
   <title>Create your account</title>
   <meta name="description" content="Create a Sideris account: choose your subjects, your reading palette and your exam dates.">
@@ -54,7 +58,7 @@
       </div>
       <div class="acc-steps" id="wizardSteps" hidden>
         <span id="stepCount"></span>
-        <span class="acc-steps__bar" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="acc-steps__bar" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
       </div>
 
       <div id="stepAccount">
@@ -117,23 +121,35 @@
         </div>
       </div>
 
+      <div id="stepClasses" hidden>
+        <h2>Your classes</h2>
+        <p class="acc-form-card__sub">Choose your group in each subject. Your calendar then shows every class, lab and test, and what will be done in each class.</p>
+        <div class="cal-grps" id="classesList"></div>
+        <div class="acc-wizard-actions">
+          <button type="button" class="acc-btn acc-btn--ghost" data-go="1">Back</button>
+          <button type="button" class="acc-link-btn" data-go="3" data-skip-classes>Skip for now</button>
+          <button type="button" class="acc-btn acc-btn--primary" data-go="3">Continue</button>
+        </div>
+      </div>
+
       <div id="stepLook" hidden>
         <h2>Your palette</h2>
         <p class="acc-form-card__sub">Tap one to try it on this page.</p>
         <div class="acc-swatches" id="swatchList"></div>
         <div class="acc-wizard-actions">
-          <button type="button" class="acc-btn acc-btn--ghost" data-go="1">Back</button>
-          <button type="button" class="acc-btn acc-btn--primary" data-go="3">Continue</button>
+          <button type="button" class="acc-btn acc-btn--ghost" data-go="2">Back</button>
+          <button type="button" class="acc-btn acc-btn--primary" data-go="4">Continue</button>
         </div>
       </div>
 
       <div id="stepDates" hidden>
         <h2>Your exams</h2>
         <p class="acc-form-card__sub">Optional.</p>
+        <ul class="cal-items acc-dates-official" id="datesOfficial"></ul>
         <div class="acc-dates" id="datesList"></div>
         <div class="acc-wizard-actions">
-          <button type="button" class="acc-btn acc-btn--ghost" data-go="2">Back</button>
-          <button type="button" class="acc-btn acc-btn--primary" data-go="4">Finish</button>
+          <button type="button" class="acc-btn acc-btn--ghost" data-go="3">Back</button>
+          <button type="button" class="acc-btn acc-btn--primary" data-go="5">Finish</button>
         </div>
       </div>
 

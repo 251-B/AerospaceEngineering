@@ -15,7 +15,7 @@ REPO = pathlib.Path(__file__).resolve().parents[2]
 HARNESS = pathlib.Path(__file__).resolve().parent / "calendar_harness.html"
 CORE = REPO / "assets/js/calendar-core.js"
 EMOJI = re.compile("[\U0001F300-\U0001FAFF☀-➿]")
-EXPECTED_SCENARIOS = 25
+EXPECTED_SCENARIOS = 28
 
 
 class CalendarStaticTests(unittest.TestCase):

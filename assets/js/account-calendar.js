@@ -719,6 +719,39 @@
     return api;
   }
 
+  // Sign-up wizard, step "Your classes": the group editor on a draft of the record. save()
+  // stores it; skip() leaves the stored record untouched (the calendar asks on the first visit).
+  function signupClasses(container, slugs, tt) {
+    var draft = C().load();
+    groupPicker(container, slugs, draft, function () {}, tt);
+    return {
+      draft: draft,
+      save: function () {
+        C().save(draft);
+        if (window.AEAccount && window.AEAccount.changed) window.AEAccount.changed();
+      },
+      skip: function () {}
+    };
+  }
+
+  // Sign-up wizard, step "Your exams": the official tests and quizzes of the chosen groups,
+  // read-only, above the midterm and final date inputs.
+  function officialExams(list, rec, prefs, tt) {
+    tt = tt || window.AE_TIMETABLE;
+    list.innerHTML = '';
+    if (!tt) return 0;
+    var occ = C().build(tt, rec, prefs, tt.term.start, tt.term.end).filter(function (o) { return o.isExam && o.official; });
+    occ.forEach(function (o) {
+      var li = el('li', 'cal-item');
+      li.style.setProperty('--cal-mark', MARK[o.subject] || 'var(--acc-text-2)');
+      li.appendChild(el('span', 'cal-item__when', dateLabel(o.date, true) + (o.start ? ' / ' + o.start : '')));
+      li.appendChild(el('span', 'cal-item__title', shortName(o.subject) + ': ' + o.title));
+      li.appendChild(el('span', 'cal-muted', 'From the official plan of your group.'));
+      list.appendChild(li);
+    });
+    return occ.length;
+  }
+
   // Dashboard card: the next class with what will be done in it, and a link to the calendar.
   function nextCard(container, o) {
     var tt = o.tt || window.AE_TIMETABLE;
@@ -751,7 +784,7 @@
     return n;
   }
 
-  window.AECalendarUI = { mount: mount, groupPicker: groupPicker, nextCard: nextCard, MARK: MARK, dateLabel: function (iso, long) { return dateLabel(iso, long); } };
+  window.AECalendarUI = { mount: mount, groupPicker: groupPicker, nextCard: nextCard, signupClasses: signupClasses, officialExams: officialExams, MARK: MARK, dateLabel: function (iso, long) { return dateLabel(iso, long); } };
 
   function start() {
     if (document.body.getAttribute('data-page') !== 'calendar') return;

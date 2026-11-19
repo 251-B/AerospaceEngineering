@@ -213,6 +213,40 @@
       /Choose your groups/.test(empty.textContent), t + ' | ' + empty.textContent);
     host.remove();
   });
+  run('signup_classes_step_saves_groups', function () {
+    seed(null);
+    var host = document.createElement('div'); document.body.appendChild(host);
+    var step = UI.signupClasses(host, ['engineering-mechanics', 'fluid-mechanics'], TT);
+    var sel = host.querySelector('select[data-grp="engineering-mechanics"]');
+    sel.value = 'G46'; sel.dispatchEvent(new Event('change'));
+    var lab = host.querySelector('select[data-lab="engineering-mechanics"]');
+    lab.value = 'B'; lab.dispatchEvent(new Event('change'));
+    var fl = host.querySelector('select[data-grp="fluid-mechanics"]');
+    fl.value = 'custom'; fl.dispatchEvent(new Event('change'));
+    host.querySelector('[data-add-slot="fluid-mechanics"]').click();
+    step.save();
+    var r = C.load();
+    record('signup_classes_step_saves_groups', r.groups['engineering-mechanics'].group === 'G46' && r.groups['engineering-mechanics'].labGroup === 'B' &&
+      r.groups['fluid-mechanics'].group === 'custom' && r.groups['fluid-mechanics'].slots.length === 1, JSON.stringify(r.groups));
+    host.remove();
+  });
+  run('signup_skip_leaves_groups_empty', function () {
+    seed(null);
+    var host = document.createElement('div'); document.body.appendChild(host);
+    var step = UI.signupClasses(host, ['engineering-mechanics'], TT);
+    var sel = host.querySelector('select[data-grp="engineering-mechanics"]');
+    sel.value = 'G46'; sel.dispatchEvent(new Event('change'));
+    step.skip();
+    record('signup_skip_leaves_groups_empty', Object.keys(C.load().groups).length === 0, JSON.stringify(C.load().groups));
+    host.remove();
+  });
+  run('signup_dates_lists_official_tests', function () {
+    var host = document.createElement('ul'); document.body.appendChild(host);
+    UI.officialExams(host, rec({ 'aerospace-materials-1': { group: 'G46', labGroup: null, slots: [], at: 1 }, 'engineering-mechanics': { group: 'G46', labGroup: null, slots: [], at: 1 } }), { subjects: ALL, exams: {} }, TT);
+    var t = host.textContent;
+    record('signup_dates_lists_official_tests', host.children.length === 5 && /Test 2/.test(t) && /Quiz 2/.test(t) && /official plan/i.test(t), host.children.length + ' ' + t.slice(0, 120));
+    host.remove();
+  });
   seed(null);
 
   document.getElementById('results').textContent = JSON.stringify(results);
