@@ -28,7 +28,7 @@ The topic covers [Slide 2]: the managerial functions (decisions and their types,
 
 **Management** is the process of setting and achieving goals through the execution of four basic managerial functions that use human, financial and material resources. The **management functions** are the four broad activities managers perform to achieve organizational goals: **planning, organizing, leading and controlling** [Slides 3-4].
 
-![[attachments/BM-T6/functions.svg]]
+![[attachments/BM-T6/functions.png]]
 
 ## 2. Decisions and types of decisions [Slide 5]
 
@@ -42,15 +42,15 @@ Managerial decisions are classified by two axes: the type of problem (from known
 
 ## 3. The decision-making process [Slide 6]
 
-The decision-making process has eight steps: 1. recognizing the problem or opportunity; 2. gathering information; 3. identifying the critical factors; 4. considering alternative courses of action; 5. evaluating the results; 6. choosing an alternative; 7. implementing the decision; 8. implementing changes. The slide groups them into analyzing the alternatives and implementing the changes.
+The decision-making process has eight steps: 1. recognizing the problem or opportunity; 2. gathering information (identifying the critical factors); 3. considering alternative courses of action; 4. analyzing the alternatives; 5. choosing an alternative; 6. implementing the decision; 7. evaluating the results; 8. implementing changes. The slide groups them into analyzing the alternatives and implementing the changes.
 
-![[attachments/BM-T6/decision-process.svg]]
+![[attachments/BM-T6/decision-process.png]]
 
 ## 4. Management levels [Slide 7]
 
 The **management pyramid** has three levels: **top management**, **middle management** and **low management** (first-line supervisors). By the scope of their activities, top management is **strategic** and **general**; the lower levels are **tactical** and **functional**.
 
-![[attachments/BM-T6/pyramid.svg]]
+![[attachments/BM-T6/pyramid.png]]
 
 ## 5. Basic managerial skills [Slide 8]
 
@@ -62,7 +62,7 @@ Three skills are used in different proportions along the hierarchy:
 | Interpersonal | the ability to interact with people at work successfully | at every level |
 | Conceptual | the ability to see the firm as a whole | top management |
 
-![[attachments/BM-T6/skills.svg]]
+![[attachments/BM-T6/skills.png]]
 
 ## 6. Managerial roles (Mintzberg, 1983) [Slide 9]
 
@@ -104,7 +104,7 @@ The middle column of the standardization and formalization rows explains the ter
 
 Any formal structure has five common parts: the **strategic apex** (top management), the **middle line** (middle management), the **operating core** (employees), the **technostructure** (analysts who design systems and processes) and the **support staff** (outside the operating workflow).
 
-![[attachments/BM-T6/parts.svg]]
+![[attachments/BM-T6/parts.png]]
 
 ## 12. Basic organizational configurations [Slides 15-22]
 
