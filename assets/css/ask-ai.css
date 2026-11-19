@@ -16,8 +16,8 @@
 
 /* ---------------------------------------------------------------- selection pill */
 .ask-ai-pill {
-  position: absolute; z-index: 1200; display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 12px 6px 10px; border-radius: 999px; cursor: pointer;
+  position: absolute; z-index: 1200; display: inline-flex; align-items: center; gap: 0;
+  padding: 0; border-radius: 999px; overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--ai-accent) 55%, transparent);
   background: color-mix(in srgb, var(--ai-surface) 88%, var(--ai-accent));
   color: var(--ai-accent); font: 600 12px/1.2 var(--ai-mono); letter-spacing: .02em;
@@ -27,7 +27,12 @@
   transition: opacity .16s ease, transform .16s ease, background .16s ease;
 }
 .ask-ai-pill.is-visible { opacity: 1; transform: none; pointer-events: auto; }
-.ask-ai-pill:hover, .ask-ai-pill:focus-visible {
+.ask-ai-pill__btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px 6px 10px;
+  border: 0; background: transparent; color: inherit; font: inherit; letter-spacing: inherit; cursor: pointer;
+}
+.ask-ai-pill__btn + .ask-ai-pill__btn { border-left: 1px solid color-mix(in srgb, var(--ai-accent) 40%, transparent); }
+.ask-ai-pill__btn:hover, .ask-ai-pill__btn:focus-visible {
   background: color-mix(in srgb, var(--ai-surface) 72%, var(--ai-accent)); outline: none;
 }
 

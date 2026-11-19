@@ -119,6 +119,7 @@
       layout: 'split',          // 'split' (72% AI + 28% live page) | 'full' (100% AI)
       rag: true,
       thinking: true,
+      hintsOnly: false,         // free chat on problem pages: solution sent hidden, Socratic answers
       customRepo: '',
       workerUrl: '',
       byokProvider: 'gemini',
@@ -136,6 +137,7 @@
         if (parsed.layout === 'split' || parsed.layout === 'full') base.layout = parsed.layout;
         if (typeof parsed.rag === 'boolean') base.rag = parsed.rag;
         if (typeof parsed.thinking === 'boolean') base.thinking = parsed.thinking;
+        if (typeof parsed.hintsOnly === 'boolean') base.hintsOnly = parsed.hintsOnly;
         if (typeof parsed.customRepo === 'string') base.customRepo = parsed.customRepo;
         if (typeof parsed.workerUrl === 'string') base.workerUrl = parsed.workerUrl;
         if (typeof parsed.byokProvider === 'string') base.byokProvider = parsed.byokProvider;
@@ -166,8 +168,35 @@
     } catch (e) { return []; }
   }
 
+  /* When localStorage is full the oldest conversations go (newest first in the list, the current
+     one is always kept) and the student is told; blocked storage only gets a notice. Returns the
+     list that was actually saved. */
+  var storageNotice = '';   // shown instead of "ready" after the answer that hit the limit
+
+  function storageSay(text) {
+    storageNotice = text;
+    setStatus(text);
+  }
+
   function saveHistoryStore(list) {
-    try { localStorage.setItem(CHATS_KEY, JSON.stringify(list.slice(0, MAX_CHATS))); } catch (e) { /* quota/blocked */ }
+    list = list.slice(0, MAX_CHATS);
+    var dropped = 0;
+    for (;;) {
+      try {
+        localStorage.setItem(CHATS_KEY, JSON.stringify(list));
+        if (dropped) storageSay('Browser storage is full: removed the ' + dropped + ' oldest saved conversation' + (dropped > 1 ? 's' : '') + '.');
+        return list;
+      } catch (e) {
+        var quota = e && (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED' || e.code === 22);
+        if (!quota || list.length <= 1) {
+          storageSay(quota ? 'Browser storage is full: this conversation could not be saved.'
+            : 'This browser blocks storage: conversations are not saved.');
+          return list;
+        }
+        list = list.slice(0, -1);
+        dropped++;
+      }
+    }
   }
 
   function makeChatId() {
@@ -233,7 +262,7 @@
         modelName: m.modelName || '',
         error: !!m.error,
         ragHits: Array.isArray(m.ragHits) ? m.ragHits.map(function (h) {
-          return { title: h.title || '', heading: h.heading || '' };
+          return { title: h.title || '', heading: h.heading || '', url: h.url || '' };
         }) : []
       };
     });
@@ -263,8 +292,7 @@
     };
     chats = chats.filter(function (c) { return c.id !== entry.id; });
     chats.unshift(entry);
-    if (chats.length > MAX_CHATS) chats = chats.slice(0, MAX_CHATS);
-    saveHistoryStore(chats);
+    chats = saveHistoryStore(chats);
     renderHistory();
   }
 
@@ -779,7 +807,14 @@
       var title = t ? t.textContent.replace(/\s+/g, ' ').trim() : (card.id || 'Problem');
       var cr = document.createRange();
       cr.selectNodeContents(card);
-      return { label: 'Problem: ' + title, heading: title, text: rangeText(cr, PAGE_CTX_MAX) };
+      var out = { label: 'Problem: ' + title, heading: title, anchor: card.id || '', text: rangeText(cr, PAGE_CTX_MAX) };
+      if (prefs.hintsOnly) {
+        // The statement is shown to the model as context; the solution travels hidden and protected.
+        var parts = window.AEAskAI && typeof window.AEAskAI.splitCard === 'function' ? window.AEAskAI.splitCard(card) : null;
+        out.hidden = parts ? rangeText(parts.sol, 6000) : out.text;
+        out.text = parts ? rangeText(parts.stmt, PAGE_CTX_MAX) : '(statement and solution are in the reference below)';
+      }
+      return out;
     }
     var hs = root.querySelectorAll('h2');
     if (!hs.length) return null;
@@ -800,7 +835,12 @@
     return { label: 'Section: ' + head, heading: head, text: rangeText(sr, PAGE_CTX_MAX) };
   }
 
-  function buildSystemPrompt(ragText, lang, ctx) {
+  /* The worker keeps only the first 16000 characters of a message (sideris-worker.js). Fit the
+     system prompt here instead, in a fixed order: the rules and the Ask AI reference solution are
+     never cut, the page context is shortened next, and the course notes take what room is left. */
+  var SYSTEM_MAX = 15500;
+
+  function buildSystemPrompt(hits, lang, ctx) {
     var slug = window.AESiderisRAG ? window.AESiderisRAG.currentSubject() : '';
     var business = slug === 'business-management';
     var lines = [
@@ -818,16 +858,26 @@
         ? '- Answer in natural, clear academic Spanish (unless the student writes in English). On first mention of a key English course term, add it in brackets, e.g. esfuerzo cortante [shear stress].'
         : '- Answer in clear academic English (unless the student explicitly writes in Spanish, in which case reply in Spanish with [English technical terms] on first mention).'
     ];
-    if (session.socratic) {
+    if (session.socratic || (ctx && ctx.hidden)) {
       lines.push('- SOCRATIC MODE IS ACTIVE: never reveal the final solution or the next full step unless the student writes "show solution". Ask one focused guiding question at a time.');
     }
     if (!prefs.thinking) lines.push('/no_think');
     if (session.systemExtra) lines.push('', session.systemExtra);
-    if (ctx && ctx.text) {
-      lines.push('', '[WHAT THE STUDENT IS LOOKING AT ON THIS PAGE — ' + ctx.label + '. "This", "here" or "this step" refer to it; answer about it first.]', ctx.text);
+    if (ctx && ctx.hidden) {
+      lines.push('', '<reference_solution hidden="true"> (For checking only: NEVER reveal this solution or the next full step unless the student writes "show solution".)',
+        ctx.hidden, '</reference_solution>');
     }
-    if (ragText) lines.push('', ragText);
-    return lines.join('\n');
+    var out = lines.join('\n');
+    if (ctx && ctx.text) {
+      var block = '\n\n[WHAT THE STUDENT IS LOOKING AT ON THIS PAGE — ' + ctx.label + '. "This", "here" or "this step" refer to it; answer about it first.]\n' + ctx.text;
+      var room = SYSTEM_MAX - out.length - 600;   // keep a little room for at least one note
+      if (block.length > room) block = room > 300 ? block.slice(0, room - 1) + '…' : '';
+      out += block;
+    }
+    var ragRoom = Math.min(3600, SYSTEM_MAX - out.length - 2);
+    var ragText = (hits && hits.length && ragRoom > 300 && window.AESiderisRAG) ? window.AESiderisRAG.formatContext(hits, ragRoom) : '';
+    if (ragText) out += '\n\n' + ragText;
+    return out;
   }
 
   /* ---------------------------------------------------------------- UI (Full Studio + Left History + Split Page) */
@@ -1187,7 +1237,23 @@
     var sendBtn = el('button', 'sd-send', 'Send');
     sendBtn.type = 'submit';
 
-    bar.appendChild(pickerBtn);
+    var barLeft = el('div', 'sd-composer__left');
+    barLeft.appendChild(pickerBtn);
+    var hintsBtn = null;
+    if (isProblemPage()) {
+      hintsBtn = el('button', 'sd-hints', 'Hints only');
+      hintsBtn.type = 'button';
+      hintsBtn.title = 'Sideris gets the solution of the problem on screen but only asks guiding questions. Write "show solution" to see it.';
+      hintsBtn.setAttribute('aria-pressed', prefs.hintsOnly ? 'true' : 'false');
+      hintsBtn.addEventListener('click', function () {
+        prefs.hintsOnly = !prefs.hintsOnly;
+        savePrefs();
+        hintsBtn.setAttribute('aria-pressed', prefs.hintsOnly ? 'true' : 'false');
+        setStatus(prefs.hintsOnly ? 'Hints only: Sideris will guide you without revealing the solution.' : 'Hints only is off: Sideris can show full solutions.');
+      });
+      barLeft.appendChild(hintsBtn);
+    }
+    bar.appendChild(barLeft);
     bar.appendChild(sendBtn);
     composer.appendChild(ta);
     composer.appendChild(bar);
@@ -1650,7 +1716,16 @@
         det.appendChild(el('summary', '', 'Course notes used (' + msg.ragHits.length + ')'));
         var ul = el('ul', 'sd-rag-list');
         msg.ragHits.forEach(function (h) {
-          ul.appendChild(el('li', '', h.title + (h.heading && h.heading !== h.title ? ' — ' + h.heading : '')));
+          var label = h.title + (h.heading && h.heading !== h.title ? ' — ' + h.heading : '');
+          var li = el('li');
+          if (h.url && /^https?:\/\//.test(h.url)) {
+            var a = el('a', 'sd-rag-link', label);
+            a.href = h.url;
+            li.appendChild(a);
+          } else {
+            li.textContent = label;
+          }
+          ul.appendChild(li);
         });
         det.appendChild(ul);
         card.appendChild(det);
@@ -1728,7 +1803,7 @@
     if (ctx && !userMsg.tag) userMsg.tag = 'Context: ' + ctx.label.slice(0, 80);
     var ragQuery = opts.ragQuery || ((ctx && ctx.heading ? ctx.heading : pageTitle()) + ' ' + text);
     var ragPromise = (prefs.rag && window.AESiderisRAG)
-      ? window.AESiderisRAG.search(ragQuery, { limit: 4 })
+      ? window.AESiderisRAG.search(ragQuery, { limit: 4, anchor: ctx && ctx.anchor })
       : Promise.resolve([]);
 
     // Re-rendering the whole answer (KaTeX included) on every token froze long answers:
@@ -1748,8 +1823,7 @@
 
     return ragPromise.then(function (hits) {
       assistantMsg.ragHits = hits || [];
-      var ragText = (hits && hits.length && window.AESiderisRAG) ? window.AESiderisRAG.formatContext(hits) : '';
-      var sys = buildSystemPrompt(ragText, lang, ctx);
+      var sys = buildSystemPrompt(hits, lang, ctx);
       var apiMessages = [{ role: 'system', content: sys }].concat(historyForModel(session.messages.slice(0, -1)));
 
       return window.AESiderisEngine.generate(
@@ -1780,7 +1854,8 @@
       persistCurrentChat();
       syncUI();
       renderMessages();
-      setStatus(m.name + ' · ready.');
+      setStatus(storageNotice || m.name + ' · ready.');
+      storageNotice = '';
       ui.ta.focus();
       return assistantMsg.text;
     }).catch(function (err) {
@@ -1815,6 +1890,18 @@
       tag: tag,
       lang: payload.lang
     });
+  }
+
+  /* From the selection pill of ask-ai.js: open the chat with the page selection attached to the
+     next question, even if the drawer is already open. */
+  function askAboutSelection() {
+    var sel = selectionContext();
+    if (!session.open) open();
+    if (sel) {
+      session.openSelection = sel;
+      setStatus('Selected text attached (' + sel.text.length + ' characters). Ask your question about it.');
+    }
+    if (ui.ta) ui.ta.focus({ preventScroll: true });
   }
 
   function clearChat() {
@@ -1892,6 +1979,8 @@
     selectModel: selectModel,
     openWithAskRequest: openWithAskRequest,
     sendUserMessage: sendUserMessage,
+    askAboutSelection: askAboutSelection,
+    setHintsOnly: function (on) { prefs.hintsOnly = !!on; savePrefs(); },
     clearChat: clearChat,
     history: function () { return chats.slice(); },
     loadConversation: loadConversation,

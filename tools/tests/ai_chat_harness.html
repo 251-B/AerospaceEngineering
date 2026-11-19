@@ -142,6 +142,68 @@ window.addEventListener('load', function () {
             check('stream-render-throttled', renders <= 5, 'renders=' + renders);
           });
         }).then(function () {
+          // 1. Prompt budget: a long hidden solution is kept whole, the rest fits the worker cap
+          window.AESiderisEngine.setMock(function (req, cb) { lastReq = req; cb.onToken('ok', 'ok'); return Promise.resolve('ok'); });
+          var bigSolution = 'SOLUTION_START ' + new Array(1400).join('step ') + ' SOLUTION_END';
+          return window.AESideris.openWithAskRequest({
+            visibleText: 'Check my work', modelPrompt: 'Check it', lang: 'en',
+            hiddenContext: '<reference_solution hidden="true">' + bigSolution + '</reference_solution>',
+            ragQuery: 'Couette flow parallel plates'
+          });
+        }).then(function () {
+          var sys = lastReq.messages[0].content;
+          check('prompt-budget', sys.length <= 15500 && sys.indexOf('SOLUTION_END') > 0, 'system=' + sys.length);
+          // 7. Hints only: the card statement is visible to the model, its solution travels hidden
+          window.AESideris.clearChat();
+          window.AESideris.setHintsOnly(true);
+          return window.AESideris.sendUserMessage('give me a hint');
+        }).then(function () {
+          var sys = lastReq.messages[0].content;
+          var hidden = sys.indexOf('<reference_solution hidden="true">');
+          check('hints-only', hidden >= 0 && sys.indexOf('SECRET_RESULT_42') > hidden && sys.indexOf('SOCRATIC MODE') >= 0 &&
+            sys.indexOf('Find the velocity profile') >= 0, 'solution hidden, Socratic rules on');
+          window.AESideris.setHintsOnly(false);
+          // 8. Ask Sideris from a selection: the selected text reaches the next question
+          window.AESideris.clearChat();
+          var p = document.querySelector('.problem-statement-box p');
+          var r = document.createRange(); r.selectNodeContents(p);
+          getSelection().removeAllRanges(); getSelection().addRange(r);
+          window.AESideris.askAboutSelection();
+          getSelection().removeAllRanges();
+          return window.AESideris.sendUserMessage('what is asked here?');
+        }).then(function () {
+          var sys = lastReq.messages[0].content;
+          check('ask-sideris-selection', sys.indexOf('Selected text') >= 0 && sys.indexOf('Find the velocity profile') >= 0, 'selection attached');
+          // 4. Full storage: the oldest conversations are dropped and the student is told
+          var realSet = Storage.prototype.setItem;
+          Storage.prototype.setItem = function (k, v) {
+            if (k === 'ae_sideris_chats' && JSON.parse(v).length > 1) { var e = new Error('full'); e.name = 'QuotaExceededError'; throw e; }
+            return realSet.call(this, k, v);
+          };
+          window.AESideris.clearChat();
+          return window.AESideris.sendUserMessage('another conversation').then(function () {
+            Storage.prototype.setItem = realSet;
+            var st = drawer.querySelector('.sd-status-line').textContent;
+            check('history-quota', window.AESideris.history().length === 1 && /storage is full/.test(st), st);
+          });
+        }).then(function () {
+          // 5 + 6. Spanish question finds the English note, and the hit links to its page
+          window.AESiderisRAG.setData('fluid-mechanics', {
+            subject: 'fluid-mechanics', label: 'Fluid Mechanics',
+            pages: ['subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html#fs4'],
+            chunks: [
+              { i: 1, u: 5, k: 'p', t: 'Problem - FS4 Square Valve', h: 'Moment balance', x: 'The hydrostatic pressure force on the gate and its moment about the hinge axis.', g: 1 },
+              { i: 2, u: 4, k: 't', t: 'Topic 4 - Navier-Stokes', h: 'Couette flow', x: 'Velocity profile between parallel plates with viscosity.' }
+            ].concat(['Reynolds number', 'Stream function', 'Vorticity', 'Boundary layer', 'Pipe flow', 'Jet thrust', 'Wake drag', 'Surface tension']
+              .map(function (h, n) { return { i: 3 + n, u: 3, k: 't', t: 'Filler note', h: h, x: h + ' explained with a worked example.' }; }))
+          });
+          return window.AESiderisRAG.search('presion sobre la compuerta', { subject: 'fluid-mechanics' });
+        }).then(function (hits) {
+          check('rag-spanish-synonyms-and-link', hits.length === 1 && /topic-5-hydrostatics\.html#fs4$/.test(hits[0].url), hits.map(function (h) { return h.title + ' ' + h.url; }).join('; '));
+          // 3. The prebuilt index of build_ai_index.py must use the same tokens as the browser
+          check('tokenizer-sample', true, JSON.stringify(window.AESiderisRAG.tokenize(
+            'Explícame el \\nabla \\cdot u = 0 con r_1, EBITDA y la Ecuación de Navier-Stokes (2024) of the fluid')));
+        }).then(function () {
           // Escape closes drawer
           drawer.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
           check('escape-closes', drawer.hidden && !window.AESideris.isOpen(), 'closed by Escape');

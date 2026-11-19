@@ -7,7 +7,9 @@
  *
  * Ranking: lightweight BM25 (k1=1.5, b=0.75) over normalised Spanish/English words + LaTeX
  * command tokens (\nabla, \omega, R_1, EBITDA...), boosted by title/heading match, current unit
- * and formula sheets.
+ * and formula sheets, and most of all by the note the current page is built from. Chat filler is a
+ * stop word, Spanish course words are expanded to the English of the notes, and weak hits are
+ * dropped. The inverted index comes prebuilt in the shard (see buildIndex).
  *
  * API: window.AESiderisRAG = { currentSubject, currentUnit, loadSubject, search, formatContext,
  *      setData, clearCache }
@@ -23,6 +25,7 @@
     ? SCRIPT.src.replace(/js\/ai-rag\.js(\?.*)?$/, 'data/ai-index/')
     : 'assets/data/ai-index/';
 
+  var ROOT = INDEX_BASE.replace(/assets\/data\/ai-index\/$/, '');
   var STOP = Object.create(null);
   (
     'the and for that this with from are was were have has had not but what all can will one two ' +
@@ -32,11 +35,88 @@
     'todo toda todos todas cada otro otra otros otras ser estar son esta estan hay tiene tienen ' +
     // chat filler: "explain this section", "explicame este paso" carry no topic
     'explain explica explicame section seccion page pagina step paso part parte here aqui esto eso ' +
+    'of to in on by an as at be or it is if de el la en lo le se su al es si un mi me te tu ya ' +
     'do please favor help ayuda ayudame understand entender entiendo don dont know does mean significa'
   ).split(' ').forEach(function (w) { if (w) STOP[w] = 1; });
 
+  /* Spanish course words -> English tokens of the notes (the vault is in English). Applied to the
+     query only, so the dictionary can grow without rebuilding any index; plurals are found by
+     dropping a final "s" or "es". Ambiguous words list every reading ("momento"). */
+  var SYN = Object.create(null);
+  (
+    // mechanics
+    'velocidad:velocity,speed aceleracion:acceleration fuerza:force par:torque,moment momento:moment,momentum ' +
+    'inercia:inertia masa:mass peso:weight energia:energy cinetica:kinetic potencial:potential trabajo:work ' +
+    'potencia:power rozamiento:friction friccion:friction gravedad:gravity centro:centre,center eje:axis ' +
+    'giro:rotation,spin rotacion:rotation traslacion:translation angulo:angle posicion:position base:basis ' +
+    'movimiento:motion trayectoria:trajectory,path curvatura:curvature radio:radius tangente:tangent ' +
+    'triedro:triad,frame intrinseca:intrinsic intrinseco:intrinsic relativo:relative relativa:relative ' +
+    'absoluto:absolute absoluta:absolute arrastre:transport,drag centrifuga:centrifugal centripeta:centripetal ' +
+    'solido:solid,body rigido:rigid cuerpo:body ligadura:constraint vinculo:constraint rodadura:rolling ' +
+    'deslizamiento:slip,sliding contacto:contact reaccion:reaction diagrama:diagram libre:free choque:impact,collision ' +
+    'impulso:impulse orbita:orbit gravitatoria:gravitational excentricidad:eccentricity conica:conic elipse:ellipse ' +
+    'hiperbola:hyperbola precesion:precession nutacion:nutation giroscopo:gyroscope,gyroscopic peonza:top ' +
+    'oscilador:oscillator oscilacion:oscillation amortiguamiento:damping amortiguado:damped resonancia:resonance ' +
+    'frecuencia:frequency periodo:period amplitud:amplitude pendulo:pendulum muelle:spring resorte:spring ' +
+    'particula:particle sistema:system referencia:reference ' +
+    // maths
+    'matriz:matrix determinante:determinant autovalor:eigenvalue autovector:eigenvector derivada:derivative ' +
+    'ecuacion:equation diferencial:differential solucion:solution lineal:linear homogenea:homogeneous ' +
+    'homogeneo:homogeneous condicion:condition contorno:boundary frontera:boundary inicial:initial ' +
+    'estabilidad:stability equilibrio:equilibrium retrato:portrait fase:phase plano:plane coeficiente:coefficient ' +
+    'constante:constant separacion:separation cambio:change funcion:function serie:series transformada:transform ' +
+    'orden:order grado:degree exacta:exact integrante:integrating wronskiano:wronskian existencia:existence ' +
+    'unicidad:uniqueness punto:point silla:saddle nodo:node foco:focus,spiral espiral:spiral traza:trace ' +
+    'cuerda:string vibrante:vibrating modelo:model poblacion:population logistica:logistic crecimiento:growth ' +
+    'mezcla:mixing,mixture tanque:tank circuito:circuit calor:heat onda:wave autonoma:autonomous ' +
+    // fluids
+    'temperatura:temperature presion:pressure densidad:density viscosidad:viscosity fluido:fluid flujo:flow,flux ' +
+    'caudal:flow,rate tension:stress,tension esfuerzo:stress deformacion:strain,deformation cortante:shear ' +
+    'superficie:surface volumen:volume continuidad:continuity conservacion:conservation hidrostatica:hydrostatics,hydrostatic ' +
+    'flotacion:buoyancy,floating empuje:thrust,buoyancy compuerta:gate manometro:manometer metacentro:metacentre,metacenter ' +
+    'adimensional:dimensionless semejanza:similarity numero:number capa:layer limite:boundary,limit tuberia:pipe ' +
+    'conducto:duct,pipe chorro:jet estela:wake resistencia:drag,resistance sustentacion:lift alabe:blade bomba:pump ' +
+    'turbina:turbine tobera:nozzle difusor:diffuser remanso:stagnation pelicula:film lubricacion:lubrication ' +
+    'cuna:wedge placa:plate cilindro:cylinder esfera:sphere viscoso:viscous estacionario:steady incompresible:incompressible ' +
+    // materials
+    'enlace:bond ionico:ionic covalente:covalent metalico:metallic cristal:crystal cristalina:crystalline red:lattice ' +
+    'celda:cell indice:index,indices difraccion:diffraction defecto:defect dislocacion:dislocation vacante:vacancy ' +
+    'difusion:diffusion dureza:hardness ductilidad:ductility fragil:brittle tenacidad:toughness fluencia:yield,creep ' +
+    'elastico:elastic plastico:plastic modulo:modulus traccion:tensile,tension compresion:compression fatiga:fatigue ' +
+    'fractura:fracture grieta:crack aleacion:alloy eutectico:eutectic eutectoide:eutectoid peritectico:peritectic ' +
+    'acero:steel hierro:iron carbono:carbon austenita:austenite ferrita:ferrite perlita:pearlite cementita:cementite ' +
+    'martensita:martensite templado:quenching,quenched temple:quenching revenido:tempering recocido:annealing ' +
+    'solubilidad:solubility palanca:lever regla:rule polimero:polymer ceramica:ceramic compuesto:composite ' +
+    'banda:band prohibida:gap conductividad:conductivity electrica:electrical termica:thermal dilatacion:expansion ' +
+    'oxidacion:oxidation grano:grain solidificacion:solidification enfriamiento:cooling ' +
+    // business
+    'empresa:company,firm beneficio:profit ingreso:revenue,income gasto:expense coste:cost costo:cost fijo:fixed ' +
+    'amortizacion:depreciation,amortization activo:asset,assets pasivo:liability,liabilities patrimonio:equity neto:net ' +
+    'cuenta:account resultado:income,result tesoreria:cash caja:cash cobro:collection,collections pago:payment,payments ' +
+    'venta:sales,sale compra:purchase,purchases inventario:inventory existencia:inventory deuda:debt interes:interest ' +
+    'impuesto:tax inversion:investment rentabilidad:return,profitability apalancamiento:leverage umbral:threshold,break ' +
+    'produccion:production productividad:productivity eficiencia:efficiency mercado:market precio:price demanda:demand ' +
+    'oferta:supply direccion:management gestion:management organizacion:organization estrategia:strategy ' +
+    'recurso:resources humano:human proveedor:supplier cliente:customer,client'
+  ).split(' ').forEach(function (pair) {
+    var i = pair.indexOf(':');
+    if (i > 0) SYN[pair.slice(0, i)] = pair.slice(i + 1).split(',');
+  });
+
+  function synonyms(tok) {
+    return SYN[tok] ||
+      (tok.length > 4 && /es$/.test(tok) && SYN[tok.slice(0, -2)]) ||
+      (tok.length > 3 && /s$/.test(tok) && SYN[tok.slice(0, -1)]) || null;
+  }
+
+  function expandQuery(tokens) {
+    var out = tokens.slice();
+    tokens.forEach(function (t) { var en = synonyms(t); if (en) out.push.apply(out, en); });
+    return out;
+  }
+
   var MIN_SCORE = 3;                 // calibrated on the Mechanics shard: "torque" 4.6, "weather forecast" 1.7
-  var shards = Object.create(null);   // slug -> { chunks, df, avgdl, N }
+  var shards = Object.create(null);   // slug -> { chunks, pages, ix, hx, dl, avgdl, N }
   var pending = Object.create(null);  // slug -> Promise
 
   function currentSubject() {
@@ -76,38 +156,47 @@
     return out;
   }
 
+  /* build_ai_index.py ships each shard with an inverted index already built ("ix": term -> [chunk,
+     tf, chunk, tf, ...] over the text, "hx": term -> [chunk, ...] over title and heading, "dl":
+     token count per chunk), made with a Python copy of tokenize() above. Tokenizing 3-4 MB here
+     took about half a second on a phone on every page; now loading a shard is a JSON.parse.
+     A shard without "ix" (tests, older builds) is indexed here with the same tokenize(). */
+  function buildIndex(chunks) {
+    var ix = Object.create(null), hx = Object.create(null), dl = [];
+    chunks.forEach(function (c, d) {
+      var body = tokenize(c.x), tf = Object.create(null), t;
+      for (var i = 0; i < body.length; i++) tf[body[i]] = (tf[body[i]] || 0) + 1;
+      for (t in tf) (ix[t] || (ix[t] = [])).push(d, tf[t]);
+      var head = tokenize((c.t || '') + ' ' + (c.h || '')), seen = Object.create(null);
+      for (var j = 0; j < head.length; j++) {
+        if (seen[head[j]]) continue;
+        seen[head[j]] = 1;
+        (hx[head[j]] || (hx[head[j]] = [])).push(d);
+      }
+      dl.push(body.length);
+    });
+    return { ix: ix, hx: hx, dl: dl };
+  }
+
+  function own(map, key) {
+    return Object.prototype.hasOwnProperty.call(map, key) ? map[key] : null;
+  }
+
   function prepareShard(raw) {
     var chunks = Array.isArray(raw && raw.chunks) ? raw.chunks : [];
-    var df = Object.create(null);
-    var totalLen = 0;
-    var prepared = chunks.map(function (c) {
-      var bodyTokens = tokenize(c.x);
-      var headTokens = tokenize((c.t || '') + ' ' + (c.h || ''));
-      var tf = Object.create(null);
-      var htf = Object.create(null);
-      var seen = Object.create(null);
-      for (var i = 0; i < bodyTokens.length; i++) {
-        var t = bodyTokens[i];
-        tf[t] = (tf[t] || 0) + 1;
-        seen[t] = 1;
-      }
-      for (var j = 0; j < headTokens.length; j++) {
-        var ht = headTokens[j];
-        htf[ht] = (htf[ht] || 0) + 1;
-        seen[ht] = 1;
-      }
-      for (var k in seen) df[k] = (df[k] || 0) + 1;
-      var dl = Math.max(1, bodyTokens.length);
-      totalLen += dl;
-      return { raw: c, tf: tf, htf: htf, dl: dl };
-    });
+    var idx = raw && raw.ix && raw.hx && Array.isArray(raw.dl) ? raw : buildIndex(chunks);
+    var total = 0;
+    var dl = idx.dl.map(function (n) { n = Math.max(1, n); total += n; return n; });
     return {
       subject: (raw && raw.subject) || '',
       label: (raw && raw.label) || '',
-      chunks: prepared,
-      df: df,
-      avgdl: prepared.length ? totalLen / prepared.length : 1,
-      N: prepared.length
+      pages: Array.isArray(raw && raw.pages) ? raw.pages : [],
+      chunks: chunks,
+      ix: idx.ix,
+      hx: idx.hx,
+      dl: dl,
+      avgdl: dl.length ? total / dl.length : 1,
+      N: chunks.length
     };
   }
 
@@ -145,44 +234,61 @@
     return '';
   }
 
-  function scoreShard(shard, qTokens, unit) {
+  // Chunks of the note this very page is built from rank first ("g" in the shard, see build_ai_index.py).
+  function currentPage() {
+    var m = location.pathname.match(/\/(subjects\/[^?#]+)$/);
+    return m ? m[1] : '';
+  }
+
+  function scoreShard(shard, qTokens, unit, anchor) {
+    var here = currentPage();
     if (!shard || !shard.N || !qTokens.length) return [];
     var k1 = 1.5, b = 0.75, N = shard.N, avgdl = shard.avgdl;
-    var unique = [];
-    var seen = Object.create(null);
-    for (var i = 0; i < qTokens.length; i++) {
-      if (!seen[qTokens[i]]) { seen[qTokens[i]] = 1; unique.push(qTokens[i]); }
+    var score = new Float64Array(N), touched = [], seenQ = Object.create(null);
+    for (var q = 0; q < qTokens.length; q++) {
+      var term = qTokens[q];
+      if (seenQ[term]) continue;
+      seenQ[term] = 1;
+      var post = own(shard.ix, term) || [], heads = own(shard.hx, term) || [];
+      if (!post.length && !heads.length) continue;
+      // df = chunks with the term in their text or in their title/heading
+      var inDoc = Object.create(null), df = 0, i;
+      for (i = 0; i < post.length; i += 2) { inDoc[post[i]] = 1; df++; }
+      for (i = 0; i < heads.length; i++) if (!inDoc[heads[i]]) df++;
+      var idf = Math.log(1 + (N - df + 0.5) / (df + 0.5));
+      for (i = 0; i < post.length; i += 2) {
+        var d = post[i], tf = post[i + 1];
+        if (!score[d]) touched.push(d);
+        score[d] += idf * ((tf * (k1 + 1)) / (tf + k1 * (1 - b + b * (shard.dl[d] / avgdl))));
+      }
+      for (i = 0; i < heads.length; i++) {
+        if (!score[heads[i]]) touched.push(heads[i]);
+        score[heads[i]] += idf * 2.2;
+      }
     }
     var scored = [];
-    for (var d = 0; d < N; d++) {
-      var doc = shard.chunks[d];
-      var s = 0;
-      for (var j = 0; j < unique.length; j++) {
-        var term = unique[j];
-        var tf = doc.tf[term] || 0;
-        var htf = doc.htf[term] || 0;
-        if (!tf && !htf) continue;
-        var df = shard.df[term] || 0;
-        var idf = Math.log(1 + (N - df + 0.5) / (df + 0.5));
-        if (tf) s += idf * ((tf * (k1 + 1)) / (tf + k1 * (1 - b + b * (doc.dl / avgdl))));
-        if (htf) s += idf * 2.2;
-      }
+    for (var t = 0; t < touched.length; t++) {
+      var di = touched[t], s = score[di];
       if (s <= 0) continue;
-      if (unit && doc.raw.u === unit) s *= 1.35;
-      if (doc.raw.k === 'f') s *= 1.15;
-      if (doc.raw.k === 't') s *= 1.08;
+      var c = shard.chunks[di];
+      var page = c.g ? shard.pages[c.g - 1] || '' : '';
+      if (page && here && page.split('#')[0] === here) s *= anchor && page === here + '#' + anchor ? 2.4 : 1.8;
+      if (unit && c.u === unit) s *= 1.35;
+      if (c.k === 'f') s *= 1.15;
+      if (c.k === 't') s *= 1.08;
       scored.push({
         score: s,
         subject: shard.subject,
         label: shard.label,
-        unit: doc.raw.u,
-        kind: doc.raw.k,
-        title: doc.raw.t,
-        heading: doc.raw.h,
-        text: doc.raw.x
+        unit: c.u,
+        kind: c.k,
+        title: c.t,
+        heading: c.h,
+        url: page ? ROOT + page : '',
+        text: c.x
       });
     }
-    scored.sort(function (a, b) { return b.score - a.score; });
+    scored.sort(function (x, y) { return y.score - x.score; });
     return scored;
   }
 
@@ -191,13 +297,13 @@
     var slug = opts.subject || currentSubject() || inferSubjectFromQuery(query);
     var unit = opts.unit != null ? opts.unit : currentUnit();
     var limit = opts.limit || 4;
-    var qTokens = tokenize(query);
+    var qTokens = expandQuery(tokenize(query));
     if (!slug || !qTokens.length) return Promise.resolve([]);
     // Weak matches are noise the model would treat as ground truth: drop the lot when even the
     // best is below MIN_SCORE (an off-topic question), and anything under half of the best.
     var cutoff = opts.cutoff != null ? opts.cutoff : 0.45;
     return loadSubject(slug).then(function (shard) {
-      var hits = scoreShard(shard, qTokens, unit);
+      var hits = scoreShard(shard, qTokens, unit, opts.anchor || '');
       if (!cutoff) return hits.slice(0, limit);
       if (!hits.length || hits[0].score < MIN_SCORE) return [];
       var floor = hits[0].score * cutoff;
@@ -237,6 +343,7 @@
     search: search,
     formatContext: formatContext,
     setData: setData,
+    tokenize: tokenize,
     clearCache: clearCache
   };
 })();

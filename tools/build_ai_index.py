@@ -16,6 +16,7 @@ import json
 import pathlib
 import re
 import sys
+import unicodedata
 
 REPO = pathlib.Path(__file__).resolve().parents[1]
 VAULT = REPO / "vault"
@@ -39,6 +40,10 @@ _QUOTE_PREFIX_RE = re.compile(r"^>\s?", re.M)
 _HEADING_RE = re.compile(r"^(#{1,3})\s+(.+?)\s*$", re.M)
 _UNIT_RE = re.compile(r"\b(?:topic|unit|tema|chapter)\s*0*(\d+)\b", re.I)
 _PROB_UNIT_RE = re.compile(r"\bT(\d+)\b")
+
+_CARD_RE = re.compile(r'<(?:article|div|details|section)\s+class="(?:problem-card|problem-box)[^"]*"\s+id="([^"]+)"(.{0,2500}?)class="problem-title"[^>]*>(.*?)</', re.S)
+_TAG_RE = re.compile(r"<[^>]+>")
+_PROBLEM_NOTE_RE = re.compile(r"^Problem - (?:Bank\s+)?([A-Za-z]{0,4}\d+[a-z]?)\s+(.*)$")
 
 MAX_CHUNK_CHARS = 1400
 MIN_CHUNK_CHARS = 120
@@ -152,6 +157,104 @@ def split_sections(body, default_title):
     return sections
 
 
+def _norm(text):
+    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+
+def page_index(slug):
+    """Where each vault note is shown on the portal: theory notes from tools/topic_pages.json (or the
+    single teoria/topic-N page of their unit), problem notes from the problem card whose id is the
+    note's code (FS3 -> #fs3) or whose title is the note's title."""
+    theory, by_unit, cards_by_id, cards_by_title = {}, {}, {}, {}
+    cfg = REPO / "tools/topic_pages.json"
+    if cfg.is_file():
+        for page, entry in json.loads(cfg.read_text(encoding="utf-8")).get("pages", {}).items():
+            note = entry.get("note", "") if isinstance(entry, dict) else ""
+            if page.startswith(f"subjects/{slug}/") and note:
+                theory[pathlib.PurePosixPath(note).stem] = page
+    base = REPO / "subjects" / slug
+    for page in sorted((base / "teoria").glob("topic-*.html")):
+        m = re.match(r"topic-0*(\d+)", page.name)
+        if m:
+            by_unit.setdefault(int(m.group(1)), []).append(page.relative_to(REPO).as_posix())
+    for area in ("problemas", "extra-problems"):
+        for page in sorted((base / area).glob("*.html")):
+            if page.name == "index.html":
+                continue
+            rel = page.relative_to(REPO).as_posix()
+            for cid, _, title in _CARD_RE.findall(page.read_text(encoding="utf-8", errors="replace")):
+                t = _norm(_TAG_RE.sub("", title))
+                cards_by_id.setdefault(cid.lower(), []).append((t, f"{rel}#{cid}"))
+                cards_by_title.setdefault(t, f"{rel}#{cid}")
+
+    def locate(stem, kind, unit):
+        if stem in theory:
+            return theory[stem]
+        if kind == "theory" and stem.lower().startswith("topic ") and len(by_unit.get(unit, [])) == 1:
+            return by_unit[unit][0]
+        m = _PROBLEM_NOTE_RE.match(stem)
+        if not m:
+            return ""
+        want = _norm(m.group(2))
+        if want in cards_by_title:
+            return cards_by_title[want]
+        # Same code (fs3 -> #fs3) is not enough: bank P12 and official p12 differ. Ask for half the words too.
+        words = set(want.split())
+        for t, where in cards_by_id.get(m.group(1).lower(), []):
+            if words and len(words & set(t.split())) * 2 >= len(words):
+                return where
+        return ""
+    return locate
+
+
+# ---------------------------------------------------------------- inverted index (same tokens as ai-rag.js)
+RAG_JS = REPO / "assets/js/ai-rag.js"
+_TOKEN_RE = re.compile(r"\\[a-z]+|[a-z0-9]+(?:_[a-z0-9]+)?")
+_LATEX_SKIP = {"text", "left", "right", "frac", "cdot"}
+
+
+def _stop_words():
+    """The stop words are written once, in ai-rag.js (the browser tokenizes the questions)."""
+    src = RAG_JS.read_text(encoding="utf-8")
+    block = src[src.index("var STOP = Object.create(null);"):src.index(".split(' ').forEach")]
+    return set(" ".join(re.findall(r"'([^']*)'", block)).split())
+
+
+STOP = _stop_words()
+
+
+def tokenize(text):
+    """Python copy of tokenize() in assets/js/ai-rag.js; test_ai_chat compares the two."""
+    s = unicodedata.normalize("NFD", str(text or "").lower())
+    s = re.sub("[\u0300-\u036f]", "", s)
+    out = []
+    for tok in _TOKEN_RE.findall(s):
+        if tok.startswith("\\"):
+            tok = tok[1:]
+            if len(tok) >= 2 and tok not in _LATEX_SKIP:
+                out.append(tok)
+            continue
+        if len(tok) < 2 or tok.isdigit() or tok in STOP:
+            continue
+        out.append(tok)
+    return out
+
+
+def inverted_index(chunks):
+    ix, hx, dl = {}, {}, []
+    for d, c in enumerate(chunks):
+        body = tokenize(c["x"])
+        tf = {}
+        for t in body:
+            tf[t] = tf.get(t, 0) + 1
+        for t, n in tf.items():
+            ix.setdefault(t, []).extend((d, n))
+        for t in dict.fromkeys(tokenize(f"{c['t']} {c['h']}")):
+            hx.setdefault(t, []).append(d)
+        dl.append(len(body))
+    return ix, hx, dl
+
+
 def build_shards():
     shards = {}
     summary = {}
@@ -160,6 +263,8 @@ def build_shards():
         root = VAULT / folder
         chunks = []
         cid = 0
+        locate = page_index(slug)
+        pages = []   # chunk "g" = 1-based index into this list (0 or missing: no page)
         if root.is_dir():
             for md in sorted(root.rglob("*.md"), key=lambda p: p.relative_to(VAULT).as_posix()):
                 rel = md.relative_to(VAULT).as_posix()
@@ -173,26 +278,35 @@ def build_shards():
                 kind = infer_kind(stem, meta)
                 unit = infer_unit(stem, meta)
                 title = meta.get("title") or stem
+                page = locate(stem, kind, unit)
+                if page and page not in pages:
+                    pages.append(page)
+                g = pages.index(page) + 1 if page else 0
                 for sec, content in split_sections(body, title):
                     for part in split_paragraphs(content):
                         if len(part) < MIN_CHUNK_CHARS:
                             continue
                         cid += 1
-                        chunks.append({
+                        chunk = {
                             "i": cid,
                             "u": unit,
                             "k": kind[0],          # 't' theory | 'p' problem | 'f' formula
                             "t": title[:110],
                             "h": sec[:110],
                             "x": part,
-                        })
+                        }
+                        if g:
+                            chunk["g"] = g
+                        chunks.append(chunk)
         shards[slug] = {
             "v": 1,
             "subject": slug,
             "label": label,
             "count": len(chunks),
+            "pages": pages,
             "chunks": chunks,
         }
+        shards[slug]["ix"], shards[slug]["hx"], shards[slug]["dl"] = inverted_index(chunks)
         summary[slug] = {"label": label, "chunks": len(chunks), "file": f"{slug}.json"}
         total += len(chunks)
 

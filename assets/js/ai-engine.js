@@ -51,6 +51,7 @@
   var tfModule = null;
   var loaded = null;          // { key, repo, dtype, generator, mod }
   var activeAbort = null;     // { aborted: boolean, controller?: AbortController, stopper?: any }
+  var confirmed = Object.create(null);   // models the student agreed to download on a small device
   var mockFn = null;          // test hook: async (req, callbacks) -> string
 
   function hasWebGPU() {
@@ -107,6 +108,21 @@
       return Promise.reject(new Error(
         'This browser does not expose WebGPU. Use Sideris Instant (zero download), Sideris Titan (Ollama), or open the prompt in Claude/Gemini.'
       ));
+    }
+
+    // 1.3-2.5 GB of weights in GPU memory is the usual reason a tab dies on phones and laptops
+    // with integrated graphics: ask first there (deviceMemory is reported in GB, at most 8).
+    var mem = navigator.deviceMemory || 0;
+    var mobile = /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent || '');
+    if ((mobile || (mem && mem < 8)) && !confirmed[key]) {
+      var size = (opts && opts.offlineSizeLabel) || 'over 1 GB';
+      var ok = typeof window.confirm !== 'function' || window.confirm(
+        'This device ' + (mem ? 'reports ' + mem + ' GB of memory' : 'looks like a phone or tablet') +
+        '. Loading ' + ((opts && opts.name) || 'this model') + ' (' + size + ') into the browser (downloaded the first time) may close the tab. ' +
+        'Instant mode (0 MB) works without a download. Load it anyway?'
+      );
+      if (!ok) return Promise.reject(new Error('Download cancelled. Switch Run mode to Instant (0 MB) to chat without downloading a model.'));
+      confirmed[key] = true;
     }
 
     var fileMap = Object.create(null);

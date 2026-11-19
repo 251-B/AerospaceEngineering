@@ -459,15 +459,29 @@
     '<path fill="currentColor" d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"/>' +
     '<path fill="currentColor" opacity=".7" d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>';
 
-  function buildPill() {
-    var b = el('button', 'ask-ai-pill');
+  function pillButton(label, aria, onClick) {
+    var b = el('button', 'ask-ai-pill__btn');
     b.type = 'button';
-    b.innerHTML = SPARK + '<span>Ask AI</span>';
-    b.setAttribute('aria-label', 'Ask AI about the selected text');
+    b.innerHTML = SPARK + '<span>' + label + '</span>';
+    b.setAttribute('aria-label', aria);
     b.addEventListener('mousedown', function (e) { e.preventDefault(); });   /* keep the selection */
-    b.addEventListener('click', openFromSelection);
-    document.body.appendChild(b);
+    b.addEventListener('click', onClick);
     return b;
+  }
+
+  /* "Ask AI" opens the prompt panel; "Ask Sideris" (when the in-page chat is loaded) opens the chat
+     with the selection attached, ready for the student's own question. */
+  function buildPill() {
+    var wrap = el('div', 'ask-ai-pill');
+    wrap.appendChild(pillButton('Ask AI', 'Ask AI about the selected text', openFromSelection));
+    if (window.AESideris && typeof window.AESideris.askAboutSelection === 'function') {
+      wrap.appendChild(pillButton('Ask Sideris', 'Ask Sideris about the selected text', function () {
+        hidePill();
+        window.AESideris.askAboutSelection();
+      }));
+    }
+    document.body.appendChild(wrap);
+    return wrap;
   }
 
   function hidePill() {

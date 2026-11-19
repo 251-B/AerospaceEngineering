@@ -179,7 +179,14 @@ class SiderisBrowserTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_harness_ran_every_scenario(self):
-        self.assertEqual(len(self.results), 21)
+        self.assertEqual(len(self.results), 27)
+
+    def test_prebuilt_index_tokenizer_matches_the_browser(self):
+        sys.path.insert(0, str(REPO / "tools"))
+        import build_ai_index
+        sample = [r for r in self.results if r["name"] == "tokenizer-sample"][0]
+        text = "Explícame el \\nabla \\cdot u = 0 con r_1, EBITDA y la Ecuación de Navier-Stokes (2024) of the fluid"
+        self.assertEqual(build_ai_index.tokenize(text), json.loads(sample["detail"]))
 
     def test_every_scenario_passes(self):
         failures = [f"{r['name']}: {r['detail']}" for r in self.results if not r["pass"]]

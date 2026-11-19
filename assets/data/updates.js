@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-hints-and-spanish",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris: hints only, Ask Sideris on selected text, Spanish questions",
+    "text": "On problem pages Sideris can guide you without revealing the solution. Select text to ask Sideris about it. Spanish questions now find the English course notes."
+  },
+  {
     "id": "2026-11-19-sideris-reads-the-page",
     "date": "2026-11-19",
     "tag": "Portal",
