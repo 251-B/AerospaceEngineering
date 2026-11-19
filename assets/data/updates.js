@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-deep-models-on-request",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Orion and Titan only when you choose them",
+    "text": "Sideris answers with Lux or Aether by default. Orion and Titan think step by step first, so they are used only for the conversation where you pick them."
+  },
+  {
     "id": "2026-11-19-sideris-own-cloud",
     "date": "2026-11-19",
     "tag": "Portal",

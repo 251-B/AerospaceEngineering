@@ -42,9 +42,16 @@ window.addEventListener('load', function () {
       check('four-sideris-models', names.join(',') === 'Sideris Lux,Sideris Aether,Sideris Orion,Sideris Titan', names.join(','));
 
       // Model switch persists in ae_sideris
-      window.AESideris.selectModel('sideris-orion');
+      window.AESideris.selectModel('sideris-lux');
       var stored = JSON.parse(localStorage.getItem('ae_sideris') || '{}');
-      check('model-persists', stored.modelId === 'sideris-orion', stored.modelId);
+      check('model-persists', stored.modelId === 'sideris-lux', stored.modelId);
+      // Reasoning models only on request: never saved, and a new chat goes back to Lux
+      window.AESideris.selectModel('sideris-orion');
+      var storedAfter = JSON.parse(localStorage.getItem('ae_sideris') || '{}').modelId;
+      var activeNow = window.AESideris.state().model.id;
+      window.AESideris.clearChat();
+      check('reasoning-model-only-on-request', storedAfter === 'sideris-lux' && activeNow === 'sideris-orion' &&
+        window.AESideris.state().model.id === 'sideris-lux', storedAfter + ' / ' + activeNow + ' / ' + window.AESideris.state().model.id);
       window.AESideris.selectModel('sideris-aether');
 
       // Seed a small RAG shard and test retrieval

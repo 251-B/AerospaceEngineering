@@ -130,7 +130,7 @@
       if (!raw) return base;
       var parsed = JSON.parse(raw);
       if (parsed && typeof parsed === 'object') {
-        if (typeof parsed.modelId === 'string') base.modelId = parsed.modelId;
+        if (typeof parsed.modelId === 'string' && !isReasoning(parsed.modelId)) base.modelId = parsed.modelId;
         if (parsed.runMode === 'instant' || parsed.runMode === 'offline') base.runMode = parsed.runMode;
         if (parsed.layout === 'split' || parsed.layout === 'full') base.layout = parsed.layout;
         if (typeof parsed.rag === 'boolean') base.rag = parsed.rag;
@@ -145,8 +145,27 @@
     return base;
   }
 
+  /* Reasoning models (Orion, Titan) spend many tokens thinking before they answer, so they are used
+     only on request: picking one lasts for the current conversation and is never saved; a new chat
+     goes back to the saved Lux or Aether. */
+  function isReasoning(id) {
+    for (var i = 0; i < MODELS.length; i++) if (MODELS[i].id === id) return !!MODELS[i].reasoning;
+    return false;
+  }
+
+  var savedModelId = '';   // last Lux/Aether choice, the one written to storage
+
   function savePrefs() {
-    try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch (e) { /* blocked */ }
+    var out = {};
+    for (var k in prefs) out[k] = prefs[k];
+    if (isReasoning(out.modelId)) out.modelId = savedModelId || defaultModelId();
+    try { localStorage.setItem(KEY, JSON.stringify(out)); } catch (e) { /* blocked */ }
+  }
+
+  function endReasoningChoice() {
+    if (!isReasoning(prefs.modelId)) return;
+    prefs.modelId = savedModelId || defaultModelId();
+    if (ui.drawer) syncUI();
   }
 
   function effectiveWorkerUrl() {
@@ -211,6 +230,7 @@
   }
 
   var prefs = loadPrefs();
+  savedModelId = prefs.modelId;
   var chats = loadHistoryStore();
   var session = {
     open: false,
@@ -1541,10 +1561,13 @@
   function selectModel(id) {
     var m = findModel(id);
     prefs.modelId = m.id;
+    if (!m.reasoning) savedModelId = m.id;
     savePrefs();
     hideProgress();
     syncUI();
-    setStatus(m.name + ' selected · ' + (m.bestFor || m.summary || 'ready.'));
+    setStatus(m.reasoning
+      ? m.name + ' for this conversation only · it thinks step by step first, so answers take longer.'
+      : m.name + ' selected · ' + (m.bestFor || m.summary || 'ready.'));
   }
 
   function preloadActiveModel() {
@@ -1899,6 +1922,7 @@
   function openWithAskRequest(payload) {
     if (!payload) return;
     open();
+    endReasoningChoice();
     session.chatId = makeChatId();
     session.messages = [];
     session.socratic = !!payload.socratic;
@@ -1932,6 +1956,7 @@
 
   function clearChat() {
     if (session.busy && window.AESiderisEngine) window.AESiderisEngine.abort();
+    endReasoningChoice();
     session.chatId = '';
     session.messages = [];
     session.systemExtra = '';
