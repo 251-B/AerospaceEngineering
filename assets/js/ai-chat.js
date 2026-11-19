@@ -1,23 +1,27 @@
 /*!
  * Aerospace Engineering Study Portal: Sideris in-page AI tutor chat drawer.
  *
- * Loaded on every page by assets/js/theme.js (after ai-models.js, ai-rag.js, ai-engine.js;
- * no HTML page carries its own <script> tag). Adds its own stylesheet (assets/css/ai-chat.css).
- * Skipped in PDF print mode (?print=...) and hidden in @media print (print.css untouched).
+ * Loaded on study pages by assets/js/theme.js (after sideris-config.js, ai-models.js,
+ * ai-rag.js and ai-engine.js; no HTML page carries its own <script> tag). Adds its own
+ * stylesheet (assets/css/ai-chat.css). Skipped in PDF print mode (?print=...) and hidden
+ * in @media print (print.css untouched).
  *
  * Features:
- *   - Four Sideris profiles: Sideris Lux (2B WebGPU), Sideris Aether (4B WebGPU, default),
- *     Sideris Orion (3.8B calculus WebGPU), Sideris Titan (9B local Ollama/LM Studio),
- *     plus custom Hugging Face ONNX repository or Ollama tag overrides.
- *   - Seamless handoff from assets/js/ask-ai.js: clean user bubble on screen while keeping
- *     <reference_solution hidden="true"> and structured engineering rules in system context.
- *   - Client-side RAG grounding over vault/ shards (assets/js/ai-rag.js).
- *   - Safe DOM-only Markdown + live KaTeX renderer ($...$, $$...$$) + collapsible <think> block.
+ *   - Clean chat-first UX: inline model picker right in the composer with clear explanations
+ *     for Sideris Lux, Sideris Aether (default), Sideris Orion and Sideris Titan (all work
+ *     instantly with 0 MB download via Cloudflare Workers AI; offline WebGPU / Ollama options
+ *     sit cleanly inside Advanced settings).
+ *   - Persistent conversation history across pages and reloads (stored under 'ae_sideris_chats').
+ *   - Seamless handoff from assets/js/ask-ai.js keeping <reference_solution hidden="true"> out
+ *     of the visible chat bubble.
+ *   - Client-side RAG grounding over vault/ shards (assets/js/ai-rag.js), safe DOM Markdown +
+ *     live KaTeX ($...$, $$...$$), collapsible <think> block and 1-click regenerate.
  *
- * Storage: 'ae_sideris' (JSON prefs; never a key containing "theme"). Answer language synced
- *          with 'ae_ask_lang' ('es' | 'en').
- * API: window.AESideris = { KEY, open, close, isOpen, models, selectModel,
- *      openWithAskRequest, sendUserMessage, clearChat, renderRichText, state }
+ * Storage: 'ae_sideris' (prefs) and 'ae_sideris_chats' (history) — never a key containing "theme".
+ *          Answer language synced with 'ae_ask_lang' ('es' | 'en').
+ * API: window.AESideris = { KEY, CHATS_KEY, open, close, isOpen, models, selectModel,
+ *      openWithAskRequest, sendUserMessage, clearChat, history, loadConversation,
+ *      deleteConversation, renderRichText, state }
  */
 (function () {
   'use strict';
@@ -27,14 +31,26 @@
 
   var SCRIPT = document.currentScript;
   var KEY = 'ae_sideris';
+  var CHATS_KEY = 'ae_sideris_chats';
   var LANG_KEY = 'ae_ask_lang';
+  var MAX_CHATS = 30;
   var MODELS = Array.isArray(window.AE_SIDERIS_MODELS) ? window.AE_SIDERIS_MODELS.slice() : [];
 
   var ICONS = {
     star: '<path fill="currentColor" stroke="none" d="M12 2l2.1 6.4L20.5 10.5l-6.4 2.1L12 19l-2.1-6.4L3.5 10.5l6.4-2.1z"/><path fill="currentColor" stroke="none" opacity=".7" d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+    history: '<circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>',
     gear: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.08a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.08a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.08a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
     plus: '<path d="M12 5v14M5 12h14"/>',
-    close: '<path d="M18 6L6 18M6 6l12 12"/>'
+    close: '<path d="M18 6L6 18M6 6l12 12"/>',
+    chevUp: '<polyline points="6 15 12 9 18 15"/>'
+  };
+
+  var SUBJECT_NAMES = {
+    'fluid-mechanics': 'Fluid Mechanics',
+    'aerospace-materials-1': 'Aerospace Materials I',
+    'engineering-mechanics': 'Engineering Mechanics',
+    'advanced-maths': 'Advanced Maths',
+    'business-management': 'Business Management'
   };
 
   function el(tag, cls, text) {
@@ -66,7 +82,7 @@
     document.head.appendChild(link);
   }
 
-  /* ---------------------------------------------------------------- state */
+  /* ---------------------------------------------------------------- state & persistence */
   function defaultModelId() {
     for (var i = 0; i < MODELS.length; i++) if (MODELS[i].default) return MODELS[i].id;
     return MODELS[0] ? MODELS[0].id : 'sideris-aether';
@@ -74,7 +90,7 @@
 
   function findModel(id) {
     for (var i = 0; i < MODELS.length; i++) if (MODELS[i].id === id) return MODELS[i];
-    return MODELS[0] || { id: 'sideris-aether', name: 'Sideris Aether', backend: 'webgpu', repo: 'onnx-community/Qwen3.5-4B-ONNX', dtype: 'q4f16', sizeLabel: '~2.5 GB' };
+    return MODELS[0] || { id: 'sideris-aether', name: 'Sideris Aether', tier: 'Recommended', backend: 'cloud', offlineBackend: 'webgpu', repo: 'onnx-community/Qwen3.5-4B-ONNX', dtype: 'q4f16', sizeLabel: '0 MB · Instant', offlineSizeLabel: '~2.5 GB' };
   }
 
   function readLang() {
@@ -89,7 +105,7 @@
   function loadPrefs() {
     var base = {
       modelId: defaultModelId(),
-      runMode: 'instant',       // 'instant' (0 MB cloud proxy) | 'offline' (WebGPU / Ollama)
+      runMode: 'instant',       // 'instant' (0 MB cloud) | 'offline' (WebGPU / Ollama)
       rag: true,
       thinking: true,
       customRepo: '',
@@ -115,8 +131,12 @@
         if (typeof parsed.ollamaEndpoint === 'string' && parsed.ollamaEndpoint.trim()) base.ollamaEndpoint = parsed.ollamaEndpoint;
         if (typeof parsed.ollamaModel === 'string' && parsed.ollamaModel.trim()) base.ollamaModel = parsed.ollamaModel;
       }
-    } catch (e) { /* ignore corrupted storage */ }
+    } catch (e) { /* ignore */ }
     return base;
+  }
+
+  function savePrefs() {
+    try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch (e) { /* blocked */ }
   }
 
   function effectiveWorkerUrl() {
@@ -126,17 +146,43 @@
     return (prefs.workerUrl && prefs.workerUrl.trim()) || cfg;
   }
 
-  function savePrefs() {
-    try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch (e) { /* blocked */ }
+  function loadHistoryStore() {
+    try {
+      var raw = localStorage.getItem(CHATS_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr.filter(function (c) { return c && typeof c.id === 'string' && Array.isArray(c.messages); }) : [];
+    } catch (e) { return []; }
+  }
+
+  function saveHistoryStore(list) {
+    try { localStorage.setItem(CHATS_KEY, JSON.stringify(list.slice(0, MAX_CHATS))); } catch (e) { /* quota/blocked */ }
+  }
+
+  function makeChatId() {
+    return 'c-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 6);
+  }
+
+  function formatStamp(ms) {
+    if (!ms) return '';
+    var d = new Date(ms);
+    var diff = Math.max(0, Date.now() - ms);
+    if (diff < 60000) return 'just now';
+    if (diff < 3600000) return Math.floor(diff / 60000) + ' min ago';
+    if (diff < 86400000) return Math.floor(diff / 3600000) + ' h ago';
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return d.getDate() + ' ' + months[d.getMonth()];
   }
 
   var prefs = loadPrefs();
+  var chats = loadHistoryStore();
   var session = {
     open: false,
-    settingsOpen: false,
+    panel: '',             // '' | 'history' | 'settings'
+    modelMenuOpen: false,
     busy: false,
-    messages: [],          // { role: 'user'|'assistant', text, displayText, tag, ragHits, error }
-    systemExtra: '',       // hidden context from ask-ai.js (e.g. <reference_solution hidden="true">)
+    chatId: '',
+    messages: [],          // { role: 'user'|'assistant', text, displayText, tag, modelName, ragHits, error }
+    systemExtra: '',       // hidden context from ask-ai.js (<reference_solution hidden="true">)
     socratic: false,
     lastFocus: null
   };
@@ -162,6 +208,80 @@
     return copy;
   }
 
+  function serialiseMessages(list) {
+    return list.map(function (m) {
+      return {
+        role: m.role,
+        text: m.text || '',
+        displayText: m.displayText || '',
+        tag: m.tag || '',
+        modelName: m.modelName || '',
+        error: !!m.error,
+        ragHits: Array.isArray(m.ragHits) ? m.ragHits.map(function (h) {
+          return { title: h.title || '', heading: h.heading || '' };
+        }) : []
+      };
+    });
+  }
+
+  function persistCurrentChat() {
+    if (!session.messages.length) return;
+    if (!session.chatId) session.chatId = makeChatId();
+    var firstUser = null;
+    for (var i = 0; i < session.messages.length; i++) {
+      if (session.messages[i].role === 'user') { firstUser = session.messages[i]; break; }
+    }
+    var rawTitle = (firstUser && (firstUser.displayText || firstUser.text)) || 'Conversation';
+    var title = rawTitle.replace(/\s+/g, ' ').trim();
+    if (title.length > 64) title = title.slice(0, 61) + '…';
+
+    var slug = window.AESiderisRAG ? window.AESiderisRAG.currentSubject() : '';
+    var entry = {
+      id: session.chatId,
+      title: title,
+      subject: SUBJECT_NAMES[slug] || pageTitle().slice(0, 32) || 'Portal',
+      modelId: prefs.modelId,
+      updatedAt: Date.now(),
+      socratic: !!session.socratic,
+      systemExtra: session.systemExtra || '',
+      messages: serialiseMessages(session.messages)
+    };
+    chats = chats.filter(function (c) { return c.id !== entry.id; });
+    chats.unshift(entry);
+    if (chats.length > MAX_CHATS) chats = chats.slice(0, MAX_CHATS);
+    saveHistoryStore(chats);
+    if (session.panel === 'history') renderHistory();
+  }
+
+  function loadConversation(id) {
+    var target = null;
+    for (var i = 0; i < chats.length; i++) if (chats[i].id === id) { target = chats[i]; break; }
+    if (!target) return false;
+    if (session.busy && window.AESiderisEngine) window.AESiderisEngine.abort();
+    session.chatId = target.id;
+    session.messages = serialiseMessages(target.messages);
+    session.socratic = !!target.socratic;
+    session.systemExtra = target.systemExtra || '';
+    setBusy(false);
+    setPanel('');
+    renderMessages();
+    setStatus('Loaded conversation: ' + target.title);
+    return true;
+  }
+
+  function deleteConversation(id) {
+    chats = chats.filter(function (c) { return c.id !== id; });
+    saveHistoryStore(chats);
+    if (session.chatId === id) {
+      session.chatId = '';
+      session.messages = [];
+      session.systemExtra = '';
+      session.socratic = false;
+      renderMessages();
+    }
+    renderHistory();
+  }
+
   /* ---------------------------------------------------------------- safe Markdown + KaTeX renderer */
   function renderMathSpan(tex, display) {
     var span = el(display ? 'div' : 'span', display ? 'sd-math-block' : 'sd-math-inline');
@@ -176,15 +296,12 @@
   }
 
   function appendInline(parent, text) {
-    // Matches display/inline math ($...$, \(...\)), inline code (`...`), bold (**...**), italic (*...*).
     var re = /(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$(?!\s)([^$\n]+?)(?!\s)\$|`([^`\n]+)`|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*)/g;
     var last = 0, m;
     while ((m = re.exec(text)) !== null) {
       if (m.index > last) parent.appendChild(document.createTextNode(text.slice(last, m.index)));
       var tok = m[0];
-      if (tok.indexOf('$$') === 0) {
-        parent.appendChild(renderMathSpan(tok.slice(2, -2).trim(), true));
-      } else if (tok.indexOf('\\[') === 0) {
+      if (tok.indexOf('$$') === 0 || tok.indexOf('\\[') === 0) {
         parent.appendChild(renderMathSpan(tok.slice(2, -2).trim(), true));
       } else if (tok.indexOf('\\(') === 0) {
         parent.appendChild(renderMathSpan(tok.slice(2, -2).trim(), false));
@@ -214,9 +331,11 @@
     if (close < 0) {
       return { think: text.slice(open + 7).trim(), answer: text.slice(0, open).trim(), thinking: true };
     }
-    var think = text.slice(open + 7, close).trim();
-    var answer = (text.slice(0, open) + text.slice(close + 8)).trim();
-    return { think: think, answer: answer, thinking: false };
+    return {
+      think: text.slice(open + 7, close).trim(),
+      answer: (text.slice(0, open) + text.slice(close + 8)).trim(),
+      thinking: false
+    };
   }
 
   function renderMarkdownBlocks(container, text) {
@@ -226,7 +345,6 @@
       var line = lines[i];
       if (!line.trim()) { i++; continue; }
 
-      // Fenced code block
       if (/^```/.test(line.trim())) {
         var codeLines = [];
         i++;
@@ -238,7 +356,6 @@
         continue;
       }
 
-      // Multi-line display math $$...$$ or \[...\]
       if (/^\s*(\$\$|\\\[)/.test(line)) {
         var isDollar = line.trim().indexOf('$$') === 0;
         var openTok = isDollar ? '$$' : '\\[';
@@ -261,7 +378,6 @@
         continue;
       }
 
-      // Heading
       var hm = /^(#{1,4})\s+(.+)$/.exec(line.trim());
       if (hm) {
         var h = el(hm[1].length <= 2 ? 'h3' : 'h4');
@@ -271,7 +387,6 @@
         continue;
       }
 
-      // Unordered list
       if (/^\s*[-*]\s+/.test(line)) {
         var ul = el('ul');
         while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
@@ -284,7 +399,6 @@
         continue;
       }
 
-      // Ordered list
       if (/^\s*\d+[.)]\s+/.test(line)) {
         var ol = el('ol');
         while (i < lines.length && /^\s*\d+[.)]\s+/.test(lines[i])) {
@@ -297,7 +411,6 @@
         continue;
       }
 
-      // Paragraph
       var para = [];
       while (i < lines.length && lines[i].trim() && !/^(```|#{1,4}\s|\s*[-*]\s+|\s*\d+[.)]\s+|\s*\$\$|\s*\\\[)/.test(lines[i])) {
         para.push(lines[i]);
@@ -312,7 +425,7 @@
   function renderRichText(container, rawText) {
     container.textContent = '';
     var parts = splitThinking(rawText);
-    if (parts.think) {
+    if (parts.think && prefs.thinking) {
       var det = el('details', 'sd-think');
       if (parts.thinking) det.open = true;
       det.appendChild(el('summary', '', parts.thinking ? 'Reasoning...' : 'Show reasoning'));
@@ -328,10 +441,21 @@
     container.appendChild(body);
   }
 
-  /* ---------------------------------------------------------------- system prompt & RAG */
+  /* ---------------------------------------------------------------- context & prompts */
   function pageTitle() {
     var h1 = document.querySelector('h1');
     return ((h1 ? h1.textContent : document.title) || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function contextSubtitle() {
+    var slug = window.AESiderisRAG ? window.AESiderisRAG.currentSubject() : '';
+    var subj = SUBJECT_NAMES[slug] || '';
+    var t = pageTitle();
+    return [subj, t].filter(Boolean).join(' · ') || 'UC3M Aerospace Tutor';
+  }
+
+  function isProblemPage() {
+    return /\/(problemas|extra-problems)\//.test(location.pathname);
   }
 
   function buildSystemPrompt(ragText, lang) {
@@ -355,15 +479,9 @@
     if (session.socratic) {
       lines.push('- SOCRATIC MODE IS ACTIVE: never reveal the final solution or the next full step unless the student writes "show solution". Ask one short guiding question at a time.');
     }
-    if (!prefs.thinking) {
-      lines.push('/no_think');
-    }
-    if (session.systemExtra) {
-      lines.push('', session.systemExtra);
-    }
-    if (ragText) {
-      lines.push('', ragText);
-    }
+    if (!prefs.thinking) lines.push('/no_think');
+    if (session.systemExtra) lines.push('', session.systemExtra);
+    if (ragText) lines.push('', ragText);
     return lines.join('\n');
   }
 
@@ -395,22 +513,21 @@
     // Header
     var head = el('div', 'sd-head');
     var headLeft = el('div', 'sd-head__left');
-    headLeft.appendChild(el('p', 'sd-kicker', 'Free In-Page Tutor'));
     var titleRow = el('div', 'sd-title-row');
     var title = el('h2', 'sd-title', 'Sideris');
     title.id = 'siderisTitle';
-    var modelPill = el('span', 'sd-model-pill');
     titleRow.appendChild(title);
-    titleRow.appendChild(modelPill);
+    var contextSub = el('p', 'sd-context-sub', contextSubtitle());
     headLeft.appendChild(titleRow);
+    headLeft.appendChild(contextSub);
 
     var headActions = el('div', 'sd-head__actions');
-    var settingsBtn = el('button', 'sd-icon-btn');
-    settingsBtn.type = 'button';
-    settingsBtn.setAttribute('aria-label', 'Model and engine settings');
-    settingsBtn.setAttribute('aria-expanded', 'false');
-    settingsBtn.title = 'Models & settings';
-    settingsBtn.appendChild(svg(ICONS.gear, 17));
+    var historyBtn = el('button', 'sd-icon-btn');
+    historyBtn.type = 'button';
+    historyBtn.setAttribute('aria-label', 'Conversation history');
+    historyBtn.setAttribute('aria-expanded', 'false');
+    historyBtn.title = 'Conversation history';
+    historyBtn.appendChild(svg(ICONS.history, 17));
 
     var newBtn = el('button', 'sd-icon-btn');
     newBtn.type = 'button';
@@ -418,21 +535,94 @@
     newBtn.title = 'New conversation';
     newBtn.appendChild(svg(ICONS.plus, 17));
 
+    var settingsBtn = el('button', 'sd-icon-btn');
+    settingsBtn.type = 'button';
+    settingsBtn.setAttribute('aria-label', 'Settings');
+    settingsBtn.setAttribute('aria-expanded', 'false');
+    settingsBtn.title = 'Settings';
+    settingsBtn.appendChild(svg(ICONS.gear, 17));
+
     var closeBtn = el('button', 'sd-icon-btn');
     closeBtn.type = 'button';
     closeBtn.setAttribute('aria-label', 'Close Sideris');
     closeBtn.title = 'Close';
     closeBtn.appendChild(svg(ICONS.close, 17));
 
-    headActions.appendChild(settingsBtn);
-    headActions.appendChild(newBtn);
-    headActions.appendChild(closeBtn);
+    [historyBtn, newBtn, settingsBtn, closeBtn].forEach(function (b) { headActions.appendChild(b); });
     head.appendChild(headLeft);
     head.appendChild(headActions);
 
-    // Settings / model selector
-    var settings = el('div', 'sd-settings');
-    settings.hidden = true;
+    // History subpanel
+    var historyPanel = el('div', 'sd-subpanel');
+    historyPanel.hidden = true;
+    var histHead = el('div', 'sd-subpanel__head');
+    histHead.appendChild(el('p', 'sd-section-label', 'Saved conversations'));
+    var clearAllHistBtn = el('button', 'sd-btn', 'Clear all');
+    clearAllHistBtn.type = 'button';
+    histHead.appendChild(clearAllHistBtn);
+    var historyList = el('div', 'sd-history-list');
+    historyPanel.appendChild(histHead);
+    historyPanel.appendChild(historyList);
+
+    // Simplified Settings subpanel
+    var settingsPanel = el('div', 'sd-subpanel');
+    settingsPanel.hidden = true;
+    var setHead = el('div', 'sd-subpanel__head');
+    setHead.appendChild(el('p', 'sd-section-label', 'Tutor preferences'));
+    settingsPanel.appendChild(setHead);
+
+    // Row 1: Answer language
+    var langRow = el('div', 'sd-setting-row');
+    var langInfo = el('div');
+    langInfo.appendChild(el('span', 'sd-setting-name', 'Answer language'));
+    langInfo.appendChild(el('span', 'sd-setting-hint', 'Synced with Ask AI'));
+    var langSeg = el('div', 'sd-seg');
+    langSeg.setAttribute('role', 'group');
+    langSeg.setAttribute('aria-label', 'Answer language');
+    var langBtns = [['es', 'Español'], ['en', 'English']].map(function (o) {
+      var b = el('button', 'sd-seg__btn', o[1]);
+      b.type = 'button';
+      b.dataset.lang = o[0];
+      b.addEventListener('click', function () { writeLang(o[0]); syncUI(); });
+      langSeg.appendChild(b);
+      return b;
+    });
+    langRow.appendChild(langInfo);
+    langRow.appendChild(langSeg);
+
+    // Row 2: Course notes (RAG)
+    var ragRow = el('div', 'sd-setting-row');
+    var ragInfo = el('div');
+    ragInfo.appendChild(el('span', 'sd-setting-name', 'Use UC3M course notes'));
+    ragInfo.appendChild(el('span', 'sd-setting-hint', 'Injects matching equations and definitions from the vault'));
+    var ragLabel = el('label', 'sd-check');
+    var ragCb = el('input');
+    ragCb.type = 'checkbox';
+    ragCb.checked = prefs.rag;
+    ragLabel.appendChild(ragCb);
+    ragLabel.appendChild(el('span', '', 'On'));
+    ragRow.appendChild(ragInfo);
+    ragRow.appendChild(ragLabel);
+
+    // Row 3: Reasoning trace
+    var thinkRow = el('div', 'sd-setting-row');
+    var thinkInfo = el('div');
+    thinkInfo.appendChild(el('span', 'sd-setting-name', 'Show reasoning steps'));
+    thinkInfo.appendChild(el('span', 'sd-setting-hint', 'Displays collapsible thinking blocks in Orion & Titan'));
+    var thinkLabel = el('label', 'sd-check');
+    var thinkCb = el('input');
+    thinkCb.type = 'checkbox';
+    thinkCb.checked = prefs.thinking;
+    thinkLabel.appendChild(thinkCb);
+    thinkLabel.appendChild(el('span', '', 'On'));
+    thinkRow.appendChild(thinkInfo);
+    thinkRow.appendChild(thinkLabel);
+
+    // Collapsed Advanced & Offline models drawer
+    var adv = el('details', 'sd-advanced');
+    adv.appendChild(el('summary', '', 'Advanced & offline models'));
+    var advBody = el('div', 'sd-advanced__body');
+
     var modeRow = el('div', 'sd-load-row');
     var modeSeg = el('div', 'sd-seg');
     modeSeg.setAttribute('role', 'group');
@@ -445,35 +635,16 @@
         prefs.runMode = o[0];
         savePrefs();
         hideProgress();
-        syncSettings();
+        syncUI();
         setStatus(o[0] === 'instant' ? 'Instant mode active (0 MB download).' : 'Offline / Local mode active.');
       });
       modeSeg.appendChild(b);
       return b;
     });
     modeRow.appendChild(modeSeg);
-    settings.appendChild(el('p', 'sd-section-label', 'Run mode'));
-    settings.appendChild(modeRow);
-    settings.appendChild(el('p', 'sd-section-label', 'Sideris models'));
-    var modelsGrid = el('div', 'sd-models');
-    modelsGrid.setAttribute('role', 'group');
-    modelsGrid.setAttribute('aria-label', 'Select a Sideris model');
 
-    var modelBtns = MODELS.map(function (m) {
-      var b = el('button', 'sd-model-card');
-      b.type = 'button';
-      b.dataset.model = m.id;
-      b.setAttribute('aria-pressed', 'false');
-      b.appendChild(el('span', 'sd-model-card__name', m.name));
-      b.appendChild(el('span', 'sd-model-card__meta', m.tier + ' · ' + m.sizeLabel));
-      b.addEventListener('click', function () { selectModel(m.id); });
-      modelsGrid.appendChild(b);
-      return b;
-    });
-
-    var modelDesc = el('p', 'sd-model-desc');
     var loadRow = el('div', 'sd-load-row');
-    var loadBtn = el('button', 'sd-btn sd-btn--primary', 'Download & load');
+    var loadBtn = el('button', 'sd-btn sd-btn--primary', 'Test cloud connection');
     loadBtn.type = 'button';
     var clearCacheBtn = el('button', 'sd-btn', 'Clear cache');
     clearCacheBtn.type = 'button';
@@ -489,59 +660,56 @@
     progressWrap.appendChild(progressBar);
     progressWrap.appendChild(progressText);
 
-    // Instant cloud proxy + optional personal free API key (for Sideris Instant)
+    var advNote = el('p', 'sd-help-note');
+
+    // Cloud override / BYOK
     var cloudWrap = el('div', 'sd-field');
     var wLab = el('label', '', 'Cloudflare Worker URL (optional override)');
     wLab.setAttribute('for', 'sdWorkerUrl');
     var wInput = el('input', 'sd-input');
     wInput.id = 'sdWorkerUrl';
     wInput.type = 'text';
-    wInput.placeholder = 'https://sideris-ai.<subdomain>.workers.dev';
+    wInput.placeholder = 'https://sideris-ai.fitplan.workers.dev';
     wInput.value = prefs.workerUrl || '';
-    var pLab = el('label', '', 'Or use your own free API key (stays in this browser)');
+    var pLab = el('label', '', 'Personal free API key provider (optional)');
     pLab.setAttribute('for', 'sdByokProvider');
     pLab.style.marginTop = '8px';
     var pSelect = el('select', 'sd-select');
     pSelect.id = 'sdByokProvider';
     [
-      ['gemini', 'Google AI Studio (Gemini Flash — free)'],
-      ['groq', 'Groq (Llama 3.3 70B — free)'],
-      ['openrouter', 'OpenRouter (:free models)']
+      ['gemini', 'Google AI Studio (Gemini Flash)'],
+      ['groq', 'Groq (Llama 3.3 70B)'],
+      ['openrouter', 'OpenRouter (:free)']
     ].forEach(function (o) {
       var opt = el('option', '', o[1]);
       opt.value = o[0];
       pSelect.appendChild(opt);
     });
     pSelect.value = prefs.byokProvider || 'gemini';
-    var kLab = el('label', '', 'Personal API key (optional)');
+    var kLab = el('label', '', 'Personal API key (stays in this browser only)');
     kLab.setAttribute('for', 'sdByokKey');
     kLab.style.marginTop = '6px';
     var kInput = el('input', 'sd-input');
     kInput.id = 'sdByokKey';
     kInput.type = 'password';
     kInput.autocomplete = 'off';
-    kInput.placeholder = 'Paste free key (stored locally only)';
+    kInput.placeholder = 'Optional';
     kInput.value = prefs.byokKey || '';
-    cloudWrap.appendChild(wLab);
-    cloudWrap.appendChild(wInput);
-    cloudWrap.appendChild(pLab);
-    cloudWrap.appendChild(pSelect);
-    cloudWrap.appendChild(kLab);
-    cloudWrap.appendChild(kInput);
+    [wLab, wInput, pLab, pSelect, kLab, kInput].forEach(function (n) { cloudWrap.appendChild(n); });
 
-    // Custom HF ONNX repo (for WebGPU models)
+    // Custom HF ONNX repo
     var customWrap = el('div', 'sd-field');
-    var customLab = el('label', '', 'Custom Hugging Face ONNX repo (optional)');
+    var customLab = el('label', '', 'Custom Hugging Face ONNX repo (offline WebGPU)');
     customLab.setAttribute('for', 'sdCustomRepo');
     var customInput = el('input', 'sd-input');
     customInput.id = 'sdCustomRepo';
     customInput.type = 'text';
-    customInput.placeholder = 'e.g. your-user/Sideris-Aether-v1-ONNX';
+    customInput.placeholder = 'e.g. your-user/Sideris-Aether-ONNX';
     customInput.value = prefs.customRepo;
     customWrap.appendChild(customLab);
     customWrap.appendChild(customInput);
 
-    // Local Ollama settings (for Sideris Titan)
+    // Local Ollama
     var ollamaWrap = el('div', 'sd-field');
     var epLab = el('label', '', 'Local Ollama / LM Studio endpoint');
     epLab.setAttribute('for', 'sdOllamaEp');
@@ -556,73 +724,89 @@
     tagInput.id = 'sdOllamaTag';
     tagInput.type = 'text';
     tagInput.value = prefs.ollamaModel;
-    ollamaWrap.appendChild(epLab);
-    ollamaWrap.appendChild(epInput);
-    ollamaWrap.appendChild(tagLab);
-    ollamaWrap.appendChild(tagInput);
+    [epLab, epInput, tagLab, tagInput].forEach(function (n) { ollamaWrap.appendChild(n); });
 
-    // Toggles: RAG, Thinking, Answer language
-    var toggles = el('div', 'sd-toggles');
-    var ragLabel = el('label', 'sd-check');
-    var ragCb = el('input');
-    ragCb.type = 'checkbox';
-    ragCb.checked = prefs.rag;
-    ragLabel.appendChild(ragCb);
-    ragLabel.appendChild(el('span', '', 'Course notes (RAG)'));
-
-    var thinkLabel = el('label', 'sd-check');
-    var thinkCb = el('input');
-    thinkCb.type = 'checkbox';
-    thinkCb.checked = prefs.thinking;
-    thinkLabel.appendChild(thinkCb);
-    thinkLabel.appendChild(el('span', '', 'Reasoning mode'));
-
-    var langSeg = el('div', 'sd-seg');
-    langSeg.setAttribute('role', 'group');
-    langSeg.setAttribute('aria-label', 'Answer language');
-    var langBtns = [['es', 'ES'], ['en', 'EN']].map(function (o) {
-      var b = el('button', 'sd-seg__btn', o[1]);
-      b.type = 'button';
-      b.dataset.lang = o[0];
-      b.addEventListener('click', function () { writeLang(o[0]); syncSettings(); });
-      langSeg.appendChild(b);
-      return b;
+    [modeRow, advNote, loadRow, progressWrap, cloudWrap, customWrap, ollamaWrap].forEach(function (n) {
+      advBody.appendChild(n);
     });
+    adv.appendChild(advBody);
 
-    toggles.appendChild(ragLabel);
-    toggles.appendChild(thinkLabel);
-    toggles.appendChild(langSeg);
-
-    [modelsGrid, modelDesc, loadRow, progressWrap, cloudWrap, customWrap, ollamaWrap, toggles].forEach(function (n) {
-      settings.appendChild(n);
-    });
+    [langRow, ragRow, thinkRow, adv].forEach(function (n) { settingsPanel.appendChild(n); });
 
     // Messages area
     var messages = el('div', 'sd-messages');
     messages.setAttribute('role', 'log');
     messages.setAttribute('aria-live', 'polite');
 
-    // Status bar
-    var status = el('div', 'sd-status', 'Ready. Select a model or ask a question about this page.');
+    // Composer + inline model picker popover
+    var composerWrap = el('div', 'sd-composer-wrap');
+
+    var modelMenu = el('div', 'sd-model-menu');
+    modelMenu.hidden = true;
+    modelMenu.setAttribute('role', 'radiogroup');
+    modelMenu.setAttribute('aria-label', 'Choose a Sideris model');
+    var menuHead = el('div', 'sd-model-menu__head');
+    menuHead.appendChild(el('span', 'sd-section-label', 'Choose Sideris model'));
+    menuHead.appendChild(el('span', 'sd-help-note', 'All 4 ready instantly'));
+    modelMenu.appendChild(menuHead);
+
+    var modelOptBtns = MODELS.map(function (m) {
+      var opt = el('button', 'sd-model-opt');
+      opt.type = 'button';
+      opt.setAttribute('role', 'radio');
+      opt.setAttribute('aria-checked', 'false');
+      opt.dataset.model = m.id;
+      var row = el('span', 'sd-model-opt__row');
+      row.appendChild(el('span', 'sd-model-opt__name', m.name));
+      row.appendChild(el('span', 'sd-model-opt__badge', m.tier));
+      opt.appendChild(row);
+      opt.appendChild(el('span', 'sd-model-opt__desc', m.bestFor || m.summary || ''));
+      opt.addEventListener('click', function () {
+        selectModel(m.id);
+        toggleModelMenu(false);
+      });
+      modelMenu.appendChild(opt);
+      return opt;
+    });
+
+    var status = el('div', 'sd-status', 'Ready · 0 MB instant mode.');
     status.setAttribute('role', 'status');
     status.setAttribute('aria-live', 'polite');
 
-    // Composer
     var composer = el('form', 'sd-composer');
     var ta = el('textarea', 'sd-textarea');
     ta.rows = 1;
-    ta.placeholder = 'Ask Sideris about this topic or problem...';
+    ta.placeholder = 'Ask Sideris anything about this page...';
     ta.setAttribute('aria-label', 'Message Sideris');
+
+    var compBar = el('div', 'sd-composer__bar');
+    var pickerBtn = el('button', 'sd-picker-btn');
+    pickerBtn.type = 'button';
+    pickerBtn.setAttribute('aria-haspopup', 'true');
+    pickerBtn.setAttribute('aria-expanded', 'false');
+    var pickerName = el('span', 'sd-picker-btn__name', 'Sideris Aether');
+    var pickerMode = el('span', 'sd-picker-btn__mode', '· Instant');
+    pickerBtn.appendChild(pickerName);
+    pickerBtn.appendChild(pickerMode);
+    pickerBtn.appendChild(svg(ICONS.chevUp, 13));
+
     var sendBtn = el('button', 'sd-send', 'Send');
     sendBtn.type = 'submit';
+    compBar.appendChild(pickerBtn);
+    compBar.appendChild(sendBtn);
+
     composer.appendChild(ta);
-    composer.appendChild(sendBtn);
+    composer.appendChild(compBar);
+
+    composerWrap.appendChild(modelMenu);
+    composerWrap.appendChild(status);
+    composerWrap.appendChild(composer);
 
     drawer.appendChild(head);
-    drawer.appendChild(settings);
+    drawer.appendChild(historyPanel);
+    drawer.appendChild(settingsPanel);
     drawer.appendChild(messages);
-    drawer.appendChild(status);
-    drawer.appendChild(composer);
+    drawer.appendChild(composerWrap);
 
     var live = el('span', 'sd-sr');
     live.setAttribute('aria-live', 'polite');
@@ -634,63 +818,57 @@
 
     ui = {
       launcher: launcher, backdrop: backdrop, drawer: drawer,
-      modelPill: modelPill, settingsBtn: settingsBtn, newBtn: newBtn, closeBtn: closeBtn,
-      settings: settings, modeBtns: modeBtns, modelBtns: modelBtns, modelDesc: modelDesc,
-      loadBtn: loadBtn, clearCacheBtn: clearCacheBtn,
+      historyBtn: historyBtn, newBtn: newBtn, settingsBtn: settingsBtn, closeBtn: closeBtn,
+      historyPanel: historyPanel, historyList: historyList, clearAllHistBtn: clearAllHistBtn,
+      settingsPanel: settingsPanel, langBtns: langBtns, ragCb: ragCb, thinkCb: thinkCb,
+      modeBtns: modeBtns, advNote: advNote, loadBtn: loadBtn, clearCacheBtn: clearCacheBtn,
       progressWrap: progressWrap, progressFill: progressFill, progressText: progressText,
-      customWrap: customWrap, customInput: customInput,
       cloudWrap: cloudWrap, wInput: wInput, pSelect: pSelect, kInput: kInput,
+      customWrap: customWrap, customInput: customInput,
       ollamaWrap: ollamaWrap, epInput: epInput, tagInput: tagInput,
-      ragCb: ragCb, thinkCb: thinkCb, langBtns: langBtns,
-      messages: messages, status: status, composer: composer, ta: ta, sendBtn: sendBtn, live: live
+      messages: messages, modelMenu: modelMenu, modelOptBtns: modelOptBtns,
+      pickerBtn: pickerBtn, pickerName: pickerName, pickerMode: pickerMode,
+      status: status, composer: composer, ta: ta, sendBtn: sendBtn, live: live
     };
 
     // Events
     launcher.addEventListener('click', function () { if (session.open) close(false); else open(); });
     backdrop.addEventListener('click', function () { close(true); });
     closeBtn.addEventListener('click', function () { close(true); });
-    newBtn.addEventListener('click', clearChat);
-    settingsBtn.addEventListener('click', function () { toggleSettings(); });
+    newBtn.addEventListener('click', function () { clearChat(); setPanel(''); });
+    historyBtn.addEventListener('click', function () { setPanel(session.panel === 'history' ? '' : 'history'); });
+    settingsBtn.addEventListener('click', function () { setPanel(session.panel === 'settings' ? '' : 'settings'); });
+    pickerBtn.addEventListener('click', function () { toggleModelMenu(); });
+
+    clearAllHistBtn.addEventListener('click', function () {
+      chats = [];
+      saveHistoryStore(chats);
+      renderHistory();
+      setStatus('Cleared saved conversation history.');
+    });
 
     loadBtn.addEventListener('click', function () { preloadActiveModel(); });
     clearCacheBtn.addEventListener('click', function () {
       if (!window.AESiderisEngine) return;
       window.AESiderisEngine.clearBrowserCache().then(function (n) {
         setStatus(n ? 'Cleared ' + n + ' browser model cache store(s).' : 'No cached browser models found.');
-        syncSettings();
+        syncUI();
       });
     });
 
-    customInput.addEventListener('change', function () {
-      prefs.customRepo = customInput.value.trim();
-      savePrefs();
-      syncSettings();
-    });
-    wInput.addEventListener('change', function () {
-      prefs.workerUrl = wInput.value.trim();
-      savePrefs();
-      syncSettings();
-    });
-    pSelect.addEventListener('change', function () {
-      prefs.byokProvider = pSelect.value;
-      savePrefs();
-      syncSettings();
-    });
-    kInput.addEventListener('change', function () {
-      prefs.byokKey = kInput.value.trim();
-      savePrefs();
-      syncSettings();
-    });
-    epInput.addEventListener('change', function () {
-      prefs.ollamaEndpoint = epInput.value.trim() || 'http://localhost:11434/v1';
-      savePrefs();
-    });
-    tagInput.addEventListener('change', function () {
-      prefs.ollamaModel = tagInput.value.trim() || 'qwen3.5:9b';
-      savePrefs();
-    });
+    customInput.addEventListener('change', function () { prefs.customRepo = customInput.value.trim(); savePrefs(); syncUI(); });
+    wInput.addEventListener('change', function () { prefs.workerUrl = wInput.value.trim(); savePrefs(); syncUI(); });
+    pSelect.addEventListener('change', function () { prefs.byokProvider = pSelect.value; savePrefs(); syncUI(); });
+    kInput.addEventListener('change', function () { prefs.byokKey = kInput.value.trim(); savePrefs(); syncUI(); });
+    epInput.addEventListener('change', function () { prefs.ollamaEndpoint = epInput.value.trim() || 'http://localhost:11434/v1'; savePrefs(); });
+    tagInput.addEventListener('change', function () { prefs.ollamaModel = tagInput.value.trim() || 'qwen3.5:9b'; savePrefs(); });
     ragCb.addEventListener('change', function () { prefs.rag = ragCb.checked; savePrefs(); });
-    thinkCb.addEventListener('change', function () { prefs.thinking = thinkCb.checked; savePrefs(); });
+    thinkCb.addEventListener('change', function () { prefs.thinking = thinkCb.checked; savePrefs(); renderMessages(); });
+
+    ta.addEventListener('input', function () {
+      ta.style.height = 'auto';
+      ta.style.height = Math.min(150, ta.scrollHeight) + 'px';
+    });
 
     composer.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -701,6 +879,8 @@
       var text = ta.value.trim();
       if (!text) return;
       ta.value = '';
+      ta.style.height = 'auto';
+      toggleModelMenu(false);
       sendUserMessage(text);
     });
 
@@ -712,7 +892,18 @@
     });
 
     drawer.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') { e.stopPropagation(); close(true); }
+      if (e.key === 'Escape') {
+        e.stopPropagation();
+        if (session.modelMenuOpen) { toggleModelMenu(false); ui.pickerBtn.focus(); return; }
+        if (session.panel) { setPanel(''); return; }
+        close(true);
+      }
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (session.modelMenuOpen && !ui.modelMenu.contains(e.target) && !ui.pickerBtn.contains(e.target)) {
+        toggleModelMenu(false);
+      }
     });
 
     // Mutual exclusion with Focus Lab, Pomodoro, Updates and Side menu
@@ -721,7 +912,7 @@
       if (e.target.closest('#focusLabButton, #pomodoroButton, .upd-bell, .ae-nav-btn')) close(false);
     }, true);
 
-    syncSettings();
+    syncUI();
     renderMessages();
   }
 
@@ -740,56 +931,108 @@
     if (ui.progressWrap) ui.progressWrap.hidden = true;
   }
 
-  function toggleSettings(force) {
-    session.settingsOpen = force != null ? !!force : !session.settingsOpen;
-    if (ui.settings) ui.settings.hidden = !session.settingsOpen;
-    if (ui.settingsBtn) ui.settingsBtn.setAttribute('aria-expanded', session.settingsOpen ? 'true' : 'false');
+  function setPanel(name) {
+    session.panel = name || '';
+    if (ui.historyPanel) ui.historyPanel.hidden = session.panel !== 'history';
+    if (ui.settingsPanel) ui.settingsPanel.hidden = session.panel !== 'settings';
+    if (ui.historyBtn) ui.historyBtn.setAttribute('aria-expanded', session.panel === 'history' ? 'true' : 'false');
+    if (ui.settingsBtn) ui.settingsBtn.setAttribute('aria-expanded', session.panel === 'settings' ? 'true' : 'false');
+    if (session.panel === 'history') renderHistory();
+    if (session.panel === 'settings') syncUI();
   }
 
-  function syncSettings() {
+  function toggleModelMenu(force) {
+    session.modelMenuOpen = force != null ? !!force : !session.modelMenuOpen;
+    if (ui.modelMenu) ui.modelMenu.hidden = !session.modelMenuOpen;
+    if (ui.pickerBtn) ui.pickerBtn.setAttribute('aria-expanded', session.modelMenuOpen ? 'true' : 'false');
+  }
+
+  function renderHistory() {
+    if (!ui.historyList) return;
+    ui.historyList.textContent = '';
+    ui.clearAllHistBtn.hidden = chats.length === 0;
+    if (!chats.length) {
+      ui.historyList.appendChild(el('p', 'sd-history-empty', 'No saved conversations yet. Your chats will appear here automatically.'));
+      return;
+    }
+    chats.forEach(function (c) {
+      var item = el('div', 'sd-history-item' + (c.id === session.chatId ? ' is-active' : ''));
+      var openBtn = el('button', 'sd-history-open');
+      openBtn.type = 'button';
+      openBtn.appendChild(el('span', 'sd-history-title', c.title));
+      var nMsg = Array.isArray(c.messages) ? c.messages.length : 0;
+      var mName = findModel(c.modelId).name;
+      openBtn.appendChild(el('span', 'sd-history-meta', [c.subject, mName, formatStamp(c.updatedAt), nMsg + ' msg'].filter(Boolean).join(' · ')));
+      openBtn.addEventListener('click', function () { loadConversation(c.id); });
+
+      var delBtn = el('button', 'sd-history-del', '×');
+      delBtn.type = 'button';
+      delBtn.setAttribute('aria-label', 'Delete conversation ' + c.title);
+      delBtn.addEventListener('click', function () { deleteConversation(c.id); });
+
+      item.appendChild(openBtn);
+      item.appendChild(delBtn);
+      ui.historyList.appendChild(item);
+    });
+  }
+
+  function syncUI() {
     if (!ui.drawer) return;
     var m = activeModelConfig();
-    ui.modelPill.textContent = m.name;
-    ui.modeBtns.forEach(function (b) {
-      b.setAttribute('aria-pressed', b.dataset.mode === prefs.runMode ? 'true' : 'false');
-    });
-    ui.modelBtns.forEach(function (b) {
-      b.setAttribute('aria-pressed', b.dataset.model === m.id ? 'true' : 'false');
-      var meta = b.querySelector('.sd-model-card__meta');
-      var info = findModel(b.dataset.model);
-      if (meta && info) {
-        meta.textContent = info.tier + ' · ' + (prefs.runMode === 'offline' ? (info.offlineSizeLabel || info.sizeLabel) : '0 MB · Instant');
-      }
-    });
     var isCloud = m.backend === 'cloud';
     var isOllama = m.backend === 'ollama';
     var isWebGPU = m.backend === 'webgpu';
-    var wUrl = effectiveWorkerUrl();
-    if (isCloud) {
-      var modeLabel = prefs.byokKey ? ('personal key · ' + prefs.byokProvider)
-        : wUrl ? ('Worker · ' + wUrl)
-        : 'not configured yet — deploy Worker or paste a free key below';
-      ui.modelDesc.textContent = (m.summary || '') + ' (' + modeLabel + ')';
-    } else {
-      ui.modelDesc.textContent = (m.summary || '') + ' (' + m.repo + ')';
-    }
-    ui.cloudWrap.hidden = !isCloud;
-    ui.customWrap.hidden = !isWebGPU;
-    ui.ollamaWrap.hidden = !isOllama;
-    ui.clearCacheBtn.hidden = !isWebGPU;
-    if (isCloud) {
-      ui.loadBtn.textContent = prefs.byokKey ? 'Clear personal key' : 'Test cloud connection';
-    } else if (isOllama) {
-      ui.loadBtn.textContent = 'Test local connection';
-    } else if (window.AESiderisEngine && window.AESiderisEngine.isLoaded(m.repo, m.dtype)) {
-      ui.loadBtn.textContent = 'Loaded in GPU';
-    } else {
-      ui.loadBtn.textContent = 'Download & load (' + m.sizeLabel + ')';
-    }
+
+    ui.pickerName.textContent = m.name;
+    ui.pickerMode.textContent = isCloud ? '· Instant' : isOllama ? '· Local' : '· Offline';
+
+    ui.modelOptBtns.forEach(function (b) {
+      b.setAttribute('aria-checked', b.dataset.model === m.id ? 'true' : 'false');
+      var badge = b.querySelector('.sd-model-opt__badge');
+      var info = findModel(b.dataset.model);
+      if (badge && info) {
+        badge.textContent = prefs.runMode === 'offline'
+          ? (info.tier + ' · ' + (info.offlineSizeLabel || info.sizeLabel))
+          : info.tier;
+      }
+    });
+
+    ui.modeBtns.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.dataset.mode === prefs.runMode ? 'true' : 'false');
+    });
+
     var lang = readLang();
     ui.langBtns.forEach(function (b) {
       b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
     });
+
+    ui.cloudWrap.hidden = !isCloud;
+    ui.customWrap.hidden = !isWebGPU;
+    ui.ollamaWrap.hidden = !isOllama;
+    ui.clearCacheBtn.hidden = !isWebGPU;
+
+    if (isCloud) {
+      var wUrl = effectiveWorkerUrl();
+      ui.advNote.textContent = prefs.byokKey
+        ? ('Using your personal ' + prefs.byokProvider + ' key (browser-only).')
+        : wUrl ? ('Connected to free Sideris cloud proxy (' + wUrl + ').')
+        : 'Paste a Worker URL or personal free key below, or switch to Offline / Local.';
+      ui.loadBtn.textContent = prefs.byokKey ? 'Clear personal key' : 'Test cloud connection';
+    } else if (isOllama) {
+      ui.advNote.textContent = 'Connects to Ollama or LM Studio on localhost (' + m.repo + ').';
+      ui.loadBtn.textContent = 'Test local connection';
+    } else {
+      ui.advNote.textContent = 'Downloads ' + m.repo + ' (' + m.sizeLabel + ') once into browser cache for offline use.';
+      ui.loadBtn.textContent = (window.AESiderisEngine && window.AESiderisEngine.isLoaded(m.repo, m.dtype))
+        ? 'Loaded in GPU'
+        : ('Download & load (' + m.sizeLabel + ')');
+    }
+
+    // Update active highlight on welcome guide cards if visible
+    var guideCards = ui.messages ? ui.messages.querySelectorAll('.sd-guide-card') : [];
+    for (var i = 0; i < guideCards.length; i++) {
+      guideCards[i].setAttribute('aria-pressed', guideCards[i].dataset.model === m.id ? 'true' : 'false');
+    }
   }
 
   function selectModel(id) {
@@ -797,9 +1040,9 @@
     prefs.modelId = m.id;
     savePrefs();
     hideProgress();
-    syncSettings();
-    var mode = m.backend === 'cloud' ? 'instant · 0 MB' : m.backend === 'ollama' ? 'local Ollama' : ('WebGPU ' + m.sizeLabel);
-    setStatus('Selected ' + m.name + ' (' + mode + ').');
+    syncUI();
+    var mode = prefs.runMode === 'offline' ? (m.offlineSizeLabel || 'offline') : '0 MB instant';
+    setStatus(m.name + ' selected (' + mode + ') — ' + (m.bestFor || m.tier) + '.');
   }
 
   function preloadActiveModel() {
@@ -810,18 +1053,18 @@
         prefs.byokKey = '';
         if (ui.kInput) ui.kInput.value = '';
         savePrefs();
-        syncSettings();
+        syncUI();
         setStatus('Cleared personal API key from this browser.');
         return Promise.resolve();
       }
       var wUrl = effectiveWorkerUrl();
-      setStatus(wUrl ? 'Checking Sideris cloud proxy...' : 'No Cloudflare Worker URL configured yet.');
+      setStatus(wUrl ? 'Checking Sideris cloud proxy...' : 'No Cloudflare Worker URL configured.');
       return window.AESiderisEngine.checkCloud(wUrl).then(function (res) {
         if (res.ok) {
-          var provs = res.providers && res.providers.length ? ' Active: ' + res.providers.join(', ') : '';
-          setStatus('Sideris Instant connected.' + provs);
+          var provs = res.providers && res.providers.length ? ' (' + res.providers.join(', ') + ')' : '';
+          setStatus('Sideris cloud connected' + provs + '.');
         } else {
-          setStatus('Cloud proxy not ready (' + res.error + '). Paste a free Gemini/Groq key below or deploy tools/cloudflare/sideris-worker.js.');
+          setStatus('Cloud proxy unreachable: ' + res.error);
         }
       });
     }
@@ -842,8 +1085,8 @@
       setStatus(p.text);
     }).then(function () {
       ui.loadBtn.disabled = false;
-      syncSettings();
-      setStatus(m.name + ' is ready in GPU memory (cached offline).');
+      syncUI();
+      setStatus(m.name + ' ready in GPU memory (cached offline).');
     }).catch(function (err) {
       ui.loadBtn.disabled = false;
       hideProgress();
@@ -851,46 +1094,101 @@
     });
   }
 
+  function regenerateLast() {
+    if (session.busy || session.messages.length < 2) return;
+    var last = session.messages[session.messages.length - 1];
+    if (last.role !== 'assistant') return;
+    session.messages.pop();
+    var prevUser = session.messages.pop();
+    if (!prevUser || prevUser.role !== 'user') return;
+    sendUserMessage(prevUser.displayText || prevUser.text, {
+      displayText: prevUser.displayText || prevUser.text,
+      modelPrompt: prevUser.text,
+      tag: prevUser.tag || ''
+    });
+  }
+
   function renderMessages() {
     if (!ui.messages) return;
     ui.messages.textContent = '';
+
     if (!session.messages.length) {
-      var empty = el('div', 'sd-empty');
-      empty.appendChild(el('p', 'sd-empty__title', 'Ask Sideris'));
-      empty.appendChild(el('p', 'sd-empty__body',
-        'Your free, downloadable aerospace tutor. Select any text on the page for Ask AI, or start a question below grounded in the UC3M course notes.'));
-      var quick = el('div', 'sd-quick');
-      [
-        'Summarise the key equations of this topic',
-        'Give me a 3-question check on this page',
-        'What are the typical exam traps here?'
-      ].forEach(function (q) {
-        var b = el('button', 'sd-quick__btn', q);
+      var wrap = el('div', 'sd-welcome');
+
+      var card = el('div', 'sd-welcome-card');
+      card.appendChild(el('p', 'sd-welcome__title', 'Choose your Sideris model'));
+      card.appendChild(el('p', 'sd-welcome__body',
+        'All four models run free and instantly with zero download, grounded in your UC3M notes. Switch anytime from the bar below:'));
+
+      var grid = el('div', 'sd-guide-grid');
+      MODELS.forEach(function (m) {
+        var b = el('button', 'sd-guide-card');
         b.type = 'button';
-        b.addEventListener('click', function () { sendUserMessage(q); });
-        quick.appendChild(b);
+        b.dataset.model = m.id;
+        b.setAttribute('aria-pressed', m.id === prefs.modelId ? 'true' : 'false');
+        var top = el('span', 'sd-guide-card__top');
+        top.appendChild(el('span', 'sd-guide-card__name', m.name));
+        top.appendChild(el('span', 'sd-guide-card__tier', m.tier));
+        b.appendChild(top);
+        b.appendChild(el('span', 'sd-guide-card__desc', m.bestFor || m.summary));
+        b.addEventListener('click', function () { selectModel(m.id); });
+        grid.appendChild(b);
       });
-      empty.appendChild(quick);
-      ui.messages.appendChild(empty);
+      card.appendChild(grid);
+      wrap.appendChild(card);
+
+      var starters = isProblemPage() ? [
+        'Summarise the step-by-step solving recipe for this unit',
+        'What are the most common exam traps in these problems?',
+        'Quiz me on the key equations needed for this problem set'
+      ] : [
+        'Summarise the key equations and hypotheses of this topic',
+        'Explain the physical intuition behind this page simply',
+        'Quiz me with 3 short questions on this topic'
+      ];
+      var qWrap = el('div', 'sd-quick');
+      starters.forEach(function (q) {
+        var qb = el('button', 'sd-quick__btn', q);
+        qb.type = 'button';
+        qb.addEventListener('click', function () { sendUserMessage(q); });
+        qWrap.appendChild(qb);
+      });
+      wrap.appendChild(qWrap);
+
+      ui.messages.appendChild(wrap);
       return;
     }
 
-    session.messages.forEach(function (msg) {
+    session.messages.forEach(function (msg, idx) {
+      var isLast = idx === session.messages.length - 1;
       var card = el('article', 'sd-msg sd-msg--' + msg.role + (msg.error ? ' sd-msg--error' : ''));
       var head = el('div', 'sd-msg__head');
-      head.appendChild(el('span', 'sd-msg__role', msg.role === 'user' ? 'You' : (msg.modelName || 'Sideris')));
-      if (msg.role === 'assistant' && msg.text && !msg.error) {
-        var copy = el('button', 'sd-msg__copy', 'Copy');
-        copy.type = 'button';
-        copy.addEventListener('click', function () {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(msg.text).then(function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy'; }, 1200); });
-          }
-        });
-        head.appendChild(copy);
+      var roleText = msg.role === 'user' ? 'You' : (msg.modelName || 'Sideris');
+      head.appendChild(el('span', 'sd-msg__role', roleText));
+      if (msg.role === 'assistant' && !session.busy) {
+        var acts = el('div', 'sd-msg__actions');
+        if (isLast) {
+          var retry = el('button', 'sd-msg__action', 'Retry');
+          retry.type = 'button';
+          retry.title = 'Regenerate with currently selected Sideris model';
+          retry.addEventListener('click', regenerateLast);
+          acts.appendChild(retry);
+        }
+        if (msg.text && !msg.error) {
+          var copy = el('button', 'sd-msg__action', 'Copy');
+          copy.type = 'button';
+          copy.addEventListener('click', function () {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(msg.text).then(function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy'; }, 1200); });
+            }
+          });
+          acts.appendChild(copy);
+        }
+        head.appendChild(acts);
       }
       card.appendChild(head);
       if (msg.tag) card.appendChild(el('p', 'sd-msg__tag', msg.tag));
+
       var content = el('div', 'sd-msg__content');
       if (msg.role === 'user') {
         var body = el('div', 'sd-msg__body');
@@ -931,6 +1229,7 @@
     var m = activeModelConfig();
     var lang = opts.lang || readLang();
 
+    if (!session.chatId) session.chatId = makeChatId();
     var userMsg = {
       role: 'user',
       text: opts.modelPrompt || text,
@@ -946,6 +1245,7 @@
       ragHits: []
     };
     session.messages.push(assistantMsg);
+    setPanel('');
     renderMessages();
     setBusy(true);
     setStatus(
@@ -964,7 +1264,6 @@
       var ragText = (hits && hits.length && window.AESiderisRAG) ? window.AESiderisRAG.formatContext(hits) : '';
       var sys = buildSystemPrompt(ragText, lang);
       var apiMessages = [{ role: 'system', content: sys }];
-      // Keep last 10 turns to stay fast inside compact context windows.
       var hist = session.messages.slice(0, -1).slice(-10);
       hist.forEach(function (item) {
         apiMessages.push({ role: item.role, content: item.text });
@@ -974,7 +1273,7 @@
         {
           model: m,
           messages: apiMessages,
-          maxTokens: session.socratic ? 512 : 1400,
+          maxTokens: session.socratic ? 512 : 1600,
           cloud: {
             workerUrl: effectiveWorkerUrl(),
             byokProvider: prefs.byokProvider || 'gemini',
@@ -998,9 +1297,10 @@
       if (!assistantMsg.text) assistantMsg.text = '(Generation stopped.)';
       hideProgress();
       setBusy(false);
-      syncSettings();
+      persistCurrentChat();
+      syncUI();
       renderMessages();
-      setStatus(m.name + ' · done.');
+      setStatus(m.name + ' · ready.');
       ui.ta.focus();
       return assistantMsg.text;
     }).catch(function (err) {
@@ -1008,9 +1308,9 @@
       setBusy(false);
       assistantMsg.error = true;
       assistantMsg.text = (err && err.message) ? err.message : String(err);
+      persistCurrentChat();
       renderMessages();
       setStatus('Error: ' + assistantMsg.text);
-      toggleSettings(true);
     });
   }
 
@@ -1018,12 +1318,13 @@
   function openWithAskRequest(payload) {
     if (!payload) return;
     open();
+    session.chatId = makeChatId();
     session.messages = [];
     session.socratic = !!payload.socratic;
     session.systemExtra = payload.hiddenContext || '';
     if (payload.lang === 'es' || payload.lang === 'en') {
       writeLang(payload.lang);
-      syncSettings();
+      syncUI();
     }
     var display = payload.visibleText || payload.taskLabel || 'Help me with this section.';
     var tag = [payload.taskLabel, payload.location].filter(Boolean).join(' · ');
@@ -1038,12 +1339,13 @@
 
   function clearChat() {
     if (session.busy && window.AESiderisEngine) window.AESiderisEngine.abort();
+    session.chatId = '';
     session.messages = [];
     session.systemExtra = '';
     session.socratic = false;
     setBusy(false);
     renderMessages();
-    setStatus('Conversation cleared.');
+    setStatus('New conversation.');
   }
 
   /* ---------------------------------------------------------------- open / close */
@@ -1060,7 +1362,7 @@
     ui.backdrop.hidden = false;
     ui.drawer.hidden = false;
     ui.launcher.setAttribute('aria-expanded', 'true');
-    syncSettings();
+    syncUI();
     requestAnimationFrame(function () {
       ui.backdrop.classList.add('is-open');
       ui.drawer.classList.add('is-open');
@@ -1071,6 +1373,8 @@
   function close(returnFocus) {
     if (!session.open || !ui.drawer) return;
     session.open = false;
+    toggleModelMenu(false);
+    setPanel('');
     ui.backdrop.classList.remove('is-open');
     ui.drawer.classList.remove('is-open');
     ui.backdrop.hidden = true;
@@ -1095,6 +1399,7 @@
 
   window.AESideris = {
     KEY: KEY,
+    CHATS_KEY: CHATS_KEY,
     open: open,
     close: close,
     isOpen: function () { return session.open; },
@@ -1103,7 +1408,22 @@
     openWithAskRequest: openWithAskRequest,
     sendUserMessage: sendUserMessage,
     clearChat: clearChat,
+    history: function () { return chats.slice(); },
+    loadConversation: loadConversation,
+    deleteConversation: deleteConversation,
     renderRichText: renderRichText,
-    state: function () { return { open: session.open, busy: session.busy, model: activeModelConfig(), rag: prefs.rag, thinking: prefs.thinking, count: session.messages.length }; }
+    state: function () {
+      return {
+        open: session.open,
+        busy: session.busy,
+        model: activeModelConfig(),
+        runMode: prefs.runMode,
+        rag: prefs.rag,
+        thinking: prefs.thinking,
+        chatId: session.chatId,
+        count: session.messages.length,
+        savedChats: chats.length
+      };
+    }
   };
 })();

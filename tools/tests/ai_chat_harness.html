@@ -88,6 +88,20 @@ window.addEventListener('load', function () {
         check('no-xss-execution', !window.__xss && !drawer.querySelector('img[onerror]'), 'safe DOM rendering');
         check('rag-citation-shown', !!drawer.querySelector('.sd-rag-notes'), 'RAG notes collapsible shown');
 
+        // Conversation history saved, survives clearChat, reloads and deletes cleanly
+        var saved = window.AESideris.history();
+        check('history-saved', saved.length === 1 && saved[0].messages.length === 2, 'saved=' + saved.length);
+        var savedId = saved[0].id;
+        window.AESideris.clearChat();
+        check('welcome-guide-shows-all-four', drawer.querySelectorAll('.sd-guide-card').length === 4, '4 model guide cards on welcome screen');
+        window.AESideris.loadConversation(savedId);
+        check('history-reloads', window.AESideris.state().count === 2 && drawer.querySelectorAll('.sd-msg').length === 2, 'reloaded 2 messages');
+        // Inline composer model picker opens and shows 4 model explanations
+        drawer.querySelector('.sd-picker-btn').click();
+        check('inline-picker-opens', !drawer.querySelector('.sd-model-menu').hidden && drawer.querySelectorAll('.sd-model-opt').length === 4, 'inline picker has 4 models');
+        drawer.querySelector('.sd-picker-btn').click();
+        window.AESideris.deleteConversation(savedId);
+
         // Escape closes drawer
         drawer.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
         check('escape-closes', drawer.hidden && !window.AESideris.isOpen(), 'closed by Escape');

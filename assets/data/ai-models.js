@@ -5,7 +5,8 @@
  * before assets/js/ai-rag.js, ai-engine.js and ai-chat.js. Keep everything between the brackets
  * pure JSON (tools/tests/test_ai_chat.py parses it directly).
  *
- * Every Sideris model works in TWO modes (selectable in Settings; Instant is the default):
+ * Every Sideris model works in TWO modes (Instant 0 MB is the default; Offline / Local lives
+ * under Advanced settings):
  *   - Instant (0 MB download) -> runs immediately via the Cloudflare Worker proxy
  *     (assets/data/sideris-config.js) on desktop and mobile with zero setup;
  *   - Offline / Local         -> downloads ONNX weights into the browser (WebGPU) or connects
@@ -15,7 +16,8 @@ window.AE_SIDERIS_MODELS = [
   {
     "id": "sideris-lux",
     "name": "Sideris Lux",
-    "tier": "Fast & light",
+    "tier": "Fast",
+    "bestFor": "Quick definitions, formula lookups and short theory doubts",
     "backend": "cloud",
     "offlineBackend": "webgpu",
     "repo": "onnx-community/Qwen3.5-2B-ONNX",
@@ -28,12 +30,13 @@ window.AE_SIDERIS_MODELS = [
     "vision": true,
     "default": false,
     "trained": false,
-    "summary": "Fastest tutor for quick theory doubts, definitions and course-note lookups. Instant in the cloud (0 MB) or ~1.3 GB offline."
+    "summary": "Fastest response time for crisp definitions, symbol meanings and quick course-note checks."
   },
   {
     "id": "sideris-aether",
     "name": "Sideris Aether",
     "tier": "Recommended",
+    "bestFor": "Everyday study, theory explanations and Socratic tutoring",
     "backend": "cloud",
     "offlineBackend": "webgpu",
     "repo": "onnx-community/Qwen3.5-4B-ONNX",
@@ -46,12 +49,13 @@ window.AE_SIDERIS_MODELS = [
     "vision": true,
     "default": true,
     "trained": false,
-    "summary": "Main aerospace tutor across all five subjects: step-by-step algebra, Socratic mode and bilingual ES/EN. Instant (0 MB) or ~2.5 GB offline."
+    "summary": "Balanced flagship tutor across all five UC3M subjects: clear step-by-step algebra, Socratic mode and bilingual ES/EN."
   },
   {
     "id": "sideris-orion",
     "name": "Sideris Orion",
     "tier": "Deep calculus",
+    "bestFor": "ODEs, Navier-Stokes, hydrostatics and 3D kinematics derivations",
     "backend": "cloud",
     "offlineBackend": "webgpu",
     "repo": "onnx-community/Phi-4-mini-instruct-web-q4f16",
@@ -64,12 +68,13 @@ window.AE_SIDERIS_MODELS = [
     "vision": false,
     "default": false,
     "trained": false,
-    "summary": "Deep step-by-step reasoning specialist for ODEs, Navier-Stokes, hydrostatics and 3D kinematics, with collapsible reasoning trace."
+    "summary": "Thinks visibly step by step before answering, with a collapsible reasoning trace for heavy derivations and proofs."
   },
   {
     "id": "sideris-titan",
     "name": "Sideris Titan",
-    "tier": "Max power",
+    "tier": "Max depth",
+    "bestFor": "Multi-part exam problems, full solutions and checking full attempts",
     "backend": "cloud",
     "offlineBackend": "ollama",
     "repo": "qwen3.5:9b",
@@ -82,6 +87,6 @@ window.AE_SIDERIS_MODELS = [
     "vision": true,
     "default": false,
     "trained": false,
-    "summary": "Maximum-depth tutor for full exam derivations and complex problems. Instant in the cloud (0 MB) or local via Ollama / LM Studio."
+    "summary": "Largest reasoning budget for long exam problems, full worked derivations and deep error checking."
   }
 ];

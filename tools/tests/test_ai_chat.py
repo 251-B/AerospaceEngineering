@@ -73,8 +73,9 @@ class SiderisStaticTests(unittest.TestCase):
     def test_storage_keys_never_contain_theme(self):
         js = CHAT_JS.read_text(encoding="utf-8")
         self.assertIn("var KEY = 'ae_sideris';", js)
+        self.assertIn("var CHATS_KEY = 'ae_sideris_chats';", js)
         keys = set(re.findall(r"localStorage\.(?:get|set)Item\(([^,)]+)", js))
-        self.assertEqual(keys, {"KEY", "LANG_KEY"})
+        self.assertEqual(keys, {"KEY", "CHATS_KEY", "LANG_KEY"})
 
     def test_no_dynamic_inner_html_in_chat(self):
         js = CHAT_JS.read_text(encoding="utf-8")
@@ -167,7 +168,7 @@ class SiderisBrowserTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_harness_ran_every_scenario(self):
-        self.assertEqual(len(self.results), 13)
+        self.assertEqual(len(self.results), 17)
 
     def test_every_scenario_passes(self):
         failures = [f"{r['name']}: {r['detail']}" for r in self.results if not r["pass"]]
