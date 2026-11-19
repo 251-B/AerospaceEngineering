@@ -28,7 +28,7 @@ The topic has three parts [Slide 2]: an introduction to the economic and the fin
 
 The **finance area** of a company is in charge of the **collection and management of the funds (capital)** the company uses. The finance manager faces two types of decision: what to invest in and when (**investing decisions**), and how to obtain the money to invest (**financing decisions**).
 
-![[attachments/BM-T3/finance-area.svg]]
+![[attachments/BM-T3/finance-area.png]]
 
 ## 2. Economic structure and financial structure [Slides 4-5]
 
@@ -38,7 +38,7 @@ The **financial structure** is defined by the **sources of financing**. It inclu
 
 The assets produce **profitability**, while equity and liabilities have a **cost**. The objective of the company is to **maximize value**, which requires **profitability > cost** [Slide 5].
 
-![[attachments/BM-T3/structures.svg]]
+![[attachments/BM-T3/structures.png]]
 
 ## 3. What the company's decisions focus on [Slide 6]
 
@@ -190,7 +190,7 @@ The sources of financing can be classified by their **nature**, equity or liabil
 | **Liabilities** | **External resources** | Long term: bonds, long-term loans and bank credits, leasing |
 | | | Short term: accounts payable, trade discount, short-term loans and bank credits, factoring |
 
-![[attachments/BM-T3/financial-map.svg]]
+![[attachments/BM-T3/financial-map.png]]
 
 ## 12. Self-financing [Slides 23-24]
 

@@ -39,7 +39,7 @@ The concept of **exchange** is crucial in marketing: exchange is the process by 
 | Active marketing | marketing era | producers turn to a market or customer orientation and produce what potential customers want; market segmentation arises |
 | Social marketing | — | main objective: finding out the needs and wants of the target market and contributing to a better welfare state |
 
-![[attachments/BM-T5/evolution.svg]]
+![[attachments/BM-T5/evolution.png]]
 
 The **sale** is a one-way process: the company puts goods and services in front of the customer. **Marketing** is a two-way process: the goods and services go to the customer and information about what is desired comes back to the company [Slide 5].
 
@@ -85,7 +85,7 @@ Three segmentation strategies [Slide 12]:
 - **Wide differentiated (multisegment) marketing:** the firm targets two or more segments and develops distinct products or services with a separate marketing mix for each.
 - **Differentiated concentrated (niche) marketing:** the product and the marketing message are aimed at a single, well-defined segment.
 
-![[attachments/BM-T5/segmentation.svg]]
+![[attachments/BM-T5/segmentation.png]]
 
 ## 5. Positioning [Slides 13-14]
 
@@ -133,7 +133,7 @@ By the law of demand the coefficient is **negative** (price and quantity move in
 
 **Limiting cases** (p. 4): **perfectly inelastic** demand, $E_d = 0$, does not respond to price changes (a vertical demand curve); **perfectly elastic** demand, $E_d = \infty$, changes indefinitely for a tiny price change (a horizontal demand curve).
 
-![[attachments/BM-T5/elasticity-limits.svg]]
+![[attachments/BM-T5/elasticity-limits.png]]
 
 **Cross elasticity** (p. 5) relates the demand for one good to the price of another:
 
@@ -159,11 +159,11 @@ The **product** is a bundle of tangible and intangible attributes that may satis
 
 **Product life-cycle** [Slide 25]: it can apply to a product category, a product form or a brand, and has four stages: introduction (launching a new product), growth (sales take off), maturity (the longest part) and decline (obsolescence).
 
-![[attachments/BM-T5/plc.svg]]
+![[attachments/BM-T5/plc.png]]
 
 Slide 26 asks which of three sales curves is a fashion product, an immediate failure and a product of a dilated life. Reading the curves: A, whose sales grow and then stay, is the product of a dilated life; B, which rises and falls, is the fashion product; C, which falls almost at once, is the immediate failure.
 
-![[attachments/BM-T5/plc-examples.svg]]
+![[attachments/BM-T5/plc-examples.png]]
 
 ## 10. Price [Slides 27-28]
 
@@ -171,7 +171,7 @@ Slide 26 asks which of three sales curves is a fashion product, an immediate fai
 
 There are three approaches to pricing [Slide 28]: the **competition** approach, the **demand** approach and the **cost** approach. The cost approach uses **cost-plus pricing** (the mark-up is the difference between the cost of a good and its selling price) or **break-even analysis** (Topic 4).
 
-![[attachments/BM-T5/pricing.svg]]
+![[attachments/BM-T5/pricing.png]]
 
 ## 11. Promotion [Slides 29-33]
 
