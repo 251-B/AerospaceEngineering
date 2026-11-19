@@ -30,7 +30,7 @@ A **production system** is a method for converting inputs into outputs. **Produc
 
 The system has four elements [Slide 4]: the **factors of production** (creative, basic and managerial), the **transformation process** (tasks, flows and storage), the **outputs**, and the **feedback** that returns information from the outputs to the inputs. The whole system sits inside the generic and specific **environment** of Topic 2.
 
-![[attachments/BM-T4/production-system.svg]]
+![[attachments/BM-T4/production-system.png]]
 
 ## 2. Objectives and their contradictions [Slides 5-6]
 
@@ -50,7 +50,7 @@ The right-hand column explains the pairs in plain words; the slide names only th
 
 Production systems are placed on the **product-process matrix** [Slide 7]: from **project** (civil engineering), **craft** (product under demand), **batch** (bakery) and **mass** (automobiles) to **continuous** production (petrochemistry). Towards the project end variability and flexibility grow; towards the continuous end volume grows.
 
-![[attachments/BM-T4/product-process.svg]]
+![[attachments/BM-T4/product-process.png]]
 
 The five generic types are grouped in three categories [Slides 8-9]: **rigid or continuous** (mass and continuous), **flexible or intermittent** (craft and batch) and **Just in Time**. The project type stands apart, with individualized products. Slide 23 summarises them:
 
@@ -76,7 +76,7 @@ The five generic types are grouped in three categories [Slides 8-9]: **rigid or 
 
 **Flexible versus rigid** [Slide 17]: drawn against the volume of production, the total cost of the rigid system starts higher (more fixed cost) but grows more slowly (less variable cost per unit). Below the volume where the two lines cross (zone A) the flexible system is cheaper; above it (zone B) the rigid one is.
 
-![[attachments/BM-T4/flexible-rigid.svg]]
+![[attachments/BM-T4/flexible-rigid.png]]
 
 ## 6. Just in Time [Slides 18-21]
 
@@ -118,7 +118,7 @@ There are three plant layouts [Slide 22]: **functional or process**, **product**
 
 The **Gantt chart**, named after Henry Gantt, who developed it in the early 1900s, represents the phases and activities of a project work breakdown structure [Slide 30]. It is a bar chart that shows the scheduled start and stop dates of each production step; it is a visual illustration of times, used for non-complex projects; it normally does not show the dependency relationships between activities; and it shows the current schedule status with percent-complete shading and a vertical "TODAY" line [Slide 31].
 
-![[attachments/BM-T4/gantt.svg]]
+![[attachments/BM-T4/gantt.png]]
 
 # Part IV — Control of efficiency
 
@@ -144,7 +144,7 @@ The **unit margin** is $m = P - VC$. At the break-even point the profit is zero,
 
 $$Q_0 = \frac{FC}{P - VC} = \frac{FC}{m}$$
 
-![[attachments/BM-T4/bep-chart.svg]]
+![[attachments/BM-T4/bep-chart.png]]
 
 Slide 38 compares two cost structures with the same revenue line: case A, with higher fixed costs and a steeper profit line, and case B, with lower fixed costs and a flatter one. The break-even point moves with the cost structure.
 
@@ -171,7 +171,7 @@ $$OL = \frac{Q\,m}{Q\,m - Q^*\,m} = \frac{Q}{Q - Q^*}$$
 - **Profits** ($Q > Q^*$): $OL > 1$, a more than proportional effect; the closer to the break-even point, the larger the leverage.
 - **Losses** ($Q < Q^*$): $OL \le 0$; for $OL < -1$ an amplifier (more than proportional) effect, for $-1 < OL < 0$ a less than proportional effect.
 
-![[attachments/BM-T4/ol-curve.svg]]
+![[attachments/BM-T4/ol-curve.png]]
 
 ## 14. Margin of safety [Slide 43]
 
