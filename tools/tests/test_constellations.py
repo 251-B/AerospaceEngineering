@@ -31,8 +31,8 @@ def contrast(a, b):
 
 class StaticTests(unittest.TestCase):
     def test_index_loads_the_files_and_keeps_the_classic_view(self):
-        self.assertIn('href="assets/css/constellations.css?v=20261124d"', INDEX)
-        self.assertIn('src="assets/js/constellations.js?v=20261124c"', INDEX)
+        self.assertIn('href="assets/css/constellations.css?v=20261125a"', INDEX)
+        self.assertIn('src="assets/js/constellations.js?v=20261125a"', INDEX)
         self.assertLess(INDEX.index("theme.js"), INDEX.index("constellations.js"))
         self.assertEqual(INDEX.count('class="subject-card'), 5)
         for slug in SLUGS:

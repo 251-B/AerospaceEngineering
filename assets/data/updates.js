@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-home-sky-on-phones",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Subject names on the sky, and all five subjects on one phone screen",
+    "text": "On phones and tablets each constellation now shows its subject name. On a phone the five fit one screen and the top bar fits in one row.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-11-19-index-solar-systems",
     "date": "2026-11-19",
     "tag": "Portal",

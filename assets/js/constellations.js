@@ -182,7 +182,9 @@
   /* Layouts of the panorama (centres of the five constellations). */
   var LAND = { box: [1900, 1150], centre: [950, 575], slots: [[390, 310, 1.05], [930, 540, 0.92], [1490, 330, 1.1], [520, 850, 0.95], [1320, 860, 0.9]] };   // [x, y, scale]: scattered over the whole sky, one near the middle
   var PORT_T = { box: [1100, 2200], centre: [550, 1100], slots: [[300, 270, 1.0], [790, 670, 0.9], [390, 1100, 1.02], [750, 1480, 0.95], [380, 1900, 1.0]] };   // tablet portrait and landscape phones: a loose zigzag, scrolled
-  var PORT_S = { box: [680, 3000], centre: [340, 1500], slots: [[270, 340, 1.0], [350, 900, 0.95], [392, 1490, 1.0], [350, 2060, 1.0], [340, 2640, 0.9]] };       // phones: one loose column, scrolled
+  // phones: a tight zigzag in two columns so the five figures fit one screen, each name always written under its figure
+  // (labels: title and subject line in screen pixels; set in applyLayout)
+  var PORT_S = { box: [680, 1500], centre: [340, 750], slots: [[205, 240, 0.53], [475, 490, 0.53], [205, 740, 0.53], [475, 990, 0.53], [205, 1240, 0.53]], labels: { title: 17, sub: 10.5, gap: 16, line: 16 } };
   var GUIDES = [[0, 1], [1, 2], [0, 3], [3, 4], [2, 4], [1, 3]];
 
   var ZOOM_H = 480;          // height of the camera box on a constellation (user units)
@@ -432,6 +434,16 @@
     items.forEach(function (it) {
       it.slot = L.slots[it.index];
       it.g.setAttribute('transform', 'translate(' + it.slot[0] + ' ' + it.slot[1] + ') scale(' + (it.slot[2] || 1) + ')');
+      if (L.labels) {   // fixed pixel sizes under each figure, whatever its scale
+        var sc = it.slot[2] || 1, upp = L.box[0] / Math.max(1, stage.clientWidth) / sc;   // group units per screen pixel
+        it.g.style.setProperty('--tkt', (L.labels.title / (30 * sc)).toFixed(4));
+        it.g.style.setProperty('--tks', (L.labels.sub / (13 * sc)).toFixed(4));
+        var by = it.maxY + L.labels.gap * upp;
+        it.title.setAttribute('y', by.toFixed(1));
+        it.subtitle.setAttribute('y', (by + L.labels.line * upp).toFixed(1));
+        return;
+      }
+      it.g.style.removeProperty('--tkt'); it.g.style.removeProperty('--tks');
       var lower = it.slot[1] > L.centre[1] - 60;   // the name goes on the side facing the middle of the map, clear of the page edge
       var ty = lower ? it.minY - 70 : it.maxY + 66;
       it.title.setAttribute('y', ty);
