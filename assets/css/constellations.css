@@ -268,7 +268,7 @@ html[data-home-view="constellations"] .theme-toggle {
   background-origin: border-box; background-clip: padding-box, border-box;
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   box-shadow: 0 0 0 rgba(160, 190, 255, 0);
-  transition: box-shadow 0.35s, transform 0.35s;
+  transition: box-shadow 0.35s, transform 0.12s cubic-bezier(0.23, 1, 0.32, 1);
 }
 html[data-theme="light"][data-home-view="constellations"] .header-actions .view-toggle,
 html[data-theme="light"][data-home-view="constellations"] .header-actions .sky-palette-select,
@@ -277,11 +277,22 @@ html[data-theme="light"][data-home-view="constellations"] .upd-bell,
 html[data-theme="light"][data-home-view="constellations"] .theme-toggle {
   background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(135deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.06) 55%, rgba(109, 74, 255, 0.34));
 }
-html[data-home-view="constellations"] .header-actions .view-toggle:hover,
-html[data-home-view="constellations"] .header-actions .sky-palette-select:hover,
-html[data-home-view="constellations"] .ae-nav-btn:hover,
-html[data-home-view="constellations"] .upd-bell:hover,
-html[data-home-view="constellations"] .theme-toggle:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); }
+/* the glow follows a mouse only: on touch a tap would leave it lit (design pass 2026-11) */
+@media (hover: hover) and (pointer: fine) {
+  html[data-home-view="constellations"] .header-actions .view-toggle:hover,
+  html[data-home-view="constellations"] .header-actions .sky-palette-select:hover,
+  html[data-home-view="constellations"] .ae-nav-btn:hover,
+  html[data-home-view="constellations"] .upd-bell:hover,
+  html[data-home-view="constellations"] .theme-toggle:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); }
+}
+/* press feedback: the control dips slightly while pressed, on mouse and touch alike */
+html[data-home-view="constellations"] .header-actions .view-toggle:active,
+html[data-home-view="constellations"] .header-actions .sky-palette-select:active,
+html[data-home-view="constellations"] .ae-nav-btn:active,
+html[data-home-view="constellations"] .upd-bell:active,
+html[data-home-view="constellations"] .theme-toggle:active,
+.header-actions .sound-toggle:active,
+.header-actions .intro-replay:active { transform: scale(0.96); }
 /* a small four-point star in front of the two text controls */
 html[data-home-view="constellations"] .header-actions .view-toggle::before {
   content: ''; display: inline-block; width: 9px; height: 9px; margin-right: 8px; vertical-align: -1px; background: currentColor;
@@ -483,10 +494,10 @@ html[data-theme="light"] .sky-view::after { opacity: 0.55; }
   display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; border-radius: 50%; cursor: pointer; color: var(--text-primary);
   border: 1px solid transparent; background-color: rgba(255, 255, 255, 0.04);
   background-image: linear-gradient(rgba(10, 14, 32, 0.55), rgba(10, 14, 32, 0.55)), linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.06) 55%, rgba(186, 160, 255, 0.34));
-  background-origin: border-box; background-clip: padding-box, border-box; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: box-shadow 0.35s;
+  background-origin: border-box; background-clip: padding-box, border-box; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: box-shadow 0.35s, transform 0.12s cubic-bezier(0.23, 1, 0.32, 1);
 }
 html[data-theme="light"] .header-actions .sound-toggle { background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(135deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.06) 55%, rgba(109, 74, 255, 0.34)); }
-.header-actions .sound-toggle:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); }
+@media (hover: hover) and (pointer: fine) { .header-actions .sound-toggle:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); } }
 .header-actions .sound-toggle:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
 .header-actions .sound-toggle svg { width: 20px; height: 20px; }
 .header-actions .sound-toggle .waves { opacity: 0.25; transition: opacity 0.3s; }
@@ -502,9 +513,9 @@ html[data-home-view="classic"] .sound-toggle { display: none !important; }
 .header-actions .intro-replay { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; border-radius: 50%; cursor: pointer; color: var(--text-primary);
   border: 1px solid transparent; background-color: rgba(255, 255, 255, 0.04);
   background-image: linear-gradient(rgba(10, 14, 32, 0.55), rgba(10, 14, 32, 0.55)), linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.06) 55%, rgba(186, 160, 255, 0.34));
-  background-origin: border-box; background-clip: padding-box, border-box; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: box-shadow 0.35s; }
+  background-origin: border-box; background-clip: padding-box, border-box; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: box-shadow 0.35s, transform 0.12s cubic-bezier(0.23, 1, 0.32, 1); }
 html[data-theme="light"] .header-actions .intro-replay { background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(135deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.06) 55%, rgba(109, 74, 255, 0.34)); }
-.header-actions .intro-replay:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); }
+@media (hover: hover) and (pointer: fine) { .header-actions .intro-replay:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); } }
 .header-actions .intro-replay:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
 .header-actions .intro-replay svg { width: 20px; height: 20px; }
 html[data-home-view="classic"] .intro-replay { display: none !important; }
@@ -582,3 +593,6 @@ html[data-home-view="classic"] .intro-replay { display: none !important; }
 /* the phone map scales its figures down; --tks lets the subject line keep a readable size of its own */
 .sky-svg .const-sub { font-size: calc(var(--u, 1) * 13px * var(--tks, var(--tk, 1))); }
 .sky-svg .const-title { font-size: calc(var(--u, 1) * 30px * var(--tkt, var(--tk, 1))); }
+@media (prefers-reduced-motion: reduce) {
+  html[data-home-view="constellations"] .header-actions > *:active, .ae-nav-btn:active, .upd-bell:active { transform: none; }
+}
