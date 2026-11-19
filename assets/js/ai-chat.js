@@ -1879,7 +1879,7 @@
           {
             model: model,
             messages: apiMessages,
-            maxTokens: guarded ? 512 : 1800,
+            maxTokens: guarded ? 512 : (model.maxTokens || 1800),   // ai-models.js: room for reasoning models
             cloud: {
               workerUrl: effectiveWorkerUrl(),
               byokProvider: prefs.byokProvider || 'gemini',

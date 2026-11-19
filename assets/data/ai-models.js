@@ -53,6 +53,7 @@ window.AE_SIDERIS_MODELS = [
   },
   {
     "id": "sideris-orion",
+    "maxTokens": 6000,
     "name": "Sideris Orion",
     "tier": "Deep calculus",
     "bestFor": "ODEs, Navier-Stokes, hydrostatics and 3D kinematics derivations",
@@ -72,6 +73,7 @@ window.AE_SIDERIS_MODELS = [
   },
   {
     "id": "sideris-titan",
+    "maxTokens": 6000,
     "name": "Sideris Titan",
     "tier": "Max depth",
     "bestFor": "Multi-part exam problems, full solutions and checking full attempts",

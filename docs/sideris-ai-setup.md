@@ -13,6 +13,16 @@ mobile), grounded in the portal's `vault/` RAG shards.
 
 ---
 
+### Answer length and the free daily quota
+
+Orion and Titan are reasoning models: on a long derivation their reasoning alone used the old
+2048-token limit and no answer was written. They now get up to 6144 tokens (`maxTokensCap` in the
+worker, `maxTokens` in `assets/data/ai-models.js`); Lux and Aether keep 2048. Measured on Workers
+AI, an output token costs about 0.29 Neurons, so the 10,000 free Neurons a day are about 34,000
+output tokens for the whole portal: roughly five full-length Orion/Titan answers, or about twenty
+short ones. When they run out, Sideris stops until 00:00 UTC unless a Gemini or Groq key is set
+(section 1): those are tried first and have far larger free quotas.
+
 ## 1. Get your free API keys (no credit card required)
 
 At least **one** key is enough; adding two or three gives automatic fallback during exam weeks:

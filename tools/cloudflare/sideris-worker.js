@@ -14,7 +14,7 @@
  */
 
 const MAX_BODY_BYTES = 48 * 1024;
-const MAX_TOKENS_CAP = 2048;
+const MAX_TOKENS_CAP = 2048;   // default; a profile may set its own maxTokensCap
 const RATE_WINDOW_MS = 60_000;
 const RATE_LIMIT = 25;
 
@@ -88,6 +88,10 @@ const PROFILE_DEFAULTS = {
     ],
   },
   'sideris-orion': {
+    // Reasoning models: the reasoning alone took the whole 2048 tokens on long derivations and no
+    // answer was written. 6144 leaves room for both; about 0.29 Neurons per output token on
+    // Workers AI, so one full-length answer uses ~1800 of the 10,000 free daily Neurons.
+    maxTokensCap: 6144,
     temperature: 0.2,
     maxTokens: 1800,
     geminiModel: 'gemini-3.8-flash',
@@ -99,6 +103,10 @@ const PROFILE_DEFAULTS = {
     ],
   },
   'sideris-titan': {
+    // Reasoning models: the reasoning alone took the whole 2048 tokens on long derivations and no
+    // answer was written. 6144 leaves room for both; about 0.29 Neurons per output token on
+    // Workers AI, so one full-length answer uses ~1800 of the 10,000 free daily Neurons.
+    maxTokensCap: 6144,
     temperature: 0.25,
     maxTokens: 2048,
     geminiModel: 'gemini-3.8-flash',
@@ -220,7 +228,7 @@ export default {
       ? Math.max(0, Math.min(1.2, body.temperature))
       : cfg.temperature;
     const maxTokens = typeof body.max_tokens === 'number'
-      ? Math.max(64, Math.min(MAX_TOKENS_CAP, Math.round(body.max_tokens)))
+      ? Math.max(64, Math.min(cfg.maxTokensCap || MAX_TOKENS_CAP, Math.round(body.max_tokens)))
       : cfg.maxTokens;
     const stream = body.stream !== false;
 
