@@ -108,6 +108,18 @@ html.tr-on[data-theme="light"] {
     html.tr-wide:not([data-theme="print"]) .tr-pair__fig > * { margin: 0 !important; max-width: 100% !important; width: 100% !important; }
     html.tr-wide:not([data-theme="print"]) .tr-pair__fig :is(img, svg) { max-width: 100% !important; height: auto; }
     html.tr-wide:not([data-theme="print"]) .tr-pair { align-items: center; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair__text2 { display: none; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair__text :is(.katex-display, .math-block, pre, table) { max-width: 100%; overflow-x: auto; }
+    /* Middle: the figure between two text columns (read left, then right). */
+    html.tr-wide:not([data-theme="print"]) .tr-pair--middle {
+      grid-template-columns: minmax(0, 1fr) min(var(--tr-fig-w, 420px), 36%) minmax(0, 1fr);
+      align-items: start;
+    }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--middle > .tr-pair__fig { align-self: center; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--middle > .tr-pair__text2 { display: block; }
+    /* Centre: a wide, low figure across both columns, under the text that introduces it. */
+    html.tr-wide:not([data-theme="print"]) .tr-pair--center { display: block; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--center > .tr-pair__fig { width: min(var(--tr-fig-w, 680px), 100%); margin: 14px auto 0; }
     /* Slide: little text beside a tall figure. One framed panel; the figure loses its own card. */
     html.tr-wide:not([data-theme="print"]) .tr-pair--slide {
       grid-template-columns: minmax(0, 1fr) min(var(--tr-fig-w, 520px), 55%);
@@ -138,7 +150,8 @@ html.tr-on[data-theme="light"] {
     html.tr-wide:not([data-theme="print"]) .tr-pair--slide.tr-pair--multi :is(img, svg) { max-height: 40vh; }
   }
   html.tr-essential:not([data-theme="print"]) .tr-pair.tr-key-fig { display: block !important; max-width: 560px; }
-  html.tr-essential:not([data-theme="print"]) .tr-pair.tr-key-fig > .tr-pair__text { display: none; }
+  html.tr-essential:not([data-theme="print"]) .tr-pair.tr-key-fig > .tr-pair__text { display: none !important; }
+  html.tr-essential:not([data-theme="print"]) .tr-pair.tr-key-fig > .tr-pair__fig { width: auto !important; margin: 0 !important; }
 
   /* ---- Derivation boxes: title, boxed result and meaning; the steps open on demand ---- */
   html.tr-on:not([data-theme="print"]) .tr-dfolded :is(.derivation-steps, .derivation-units, .derivation-law, .derivation-source) {
@@ -252,6 +265,11 @@ html.tr-on[data-theme="light"] {
   html.tr-essential:not([data-theme="print"]) .tr-secbar__btn { display: none; }
   html.tr-on:not([data-theme="print"]) .essential-box a:not(.src-cite) { color: var(--tr-text); text-decoration: underline; }
   html.tr-on:not([data-theme="print"]) .essential-recap { margin-top: 28px; }
+  /* Key points built by the script for sections with no written summary: Essential mode only. */
+  html.tr-on:not(.tr-essential):not([data-theme="print"]) .essential-box.tr-auto { display: none !important; }
+  html.tr-on:not([data-theme="print"]) .tr-auto__result { margin: 8px 0 4px; }
+  html.tr-on:not([data-theme="print"]) .tr-auto__result-title { display: block; color: var(--tr-muted); font-size: 0.88em; }
+  html.tr-on:not([data-theme="print"]) .tr-auto .callout { margin: 10px 0 0 !important; }
 
   /* ---- Key terms: first occurrence of each bold concept, and "Key ideas" under a folded title ---- */
   html.tr-on:not([data-theme="print"]) .tr-key {

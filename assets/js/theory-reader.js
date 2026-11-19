@@ -22,9 +22,10 @@
  *    section in view and the minutes left; the arrow keys move between sections.
  *  - Key terms: the first occurrence of each bold concept is underlined; a folded section lists up
  *    to five of them under its title ("Key ideas"), each a button to the place it is introduced.
- *  - Reading modes: pages with summary boxes (> [!summary] in the vault note, .essential-box) get an
- *    Essential / Full switch (Essential shows each section's summary and first figure only), stored
- *    under ae_theory_mode (try/catch: the page works without storage).
+ *  - Reading modes: every theory page gets an Essential / Full switch. Essential shows each section's
+ *    summary and its first figure only: the written summary (> [!summary] in the vault note,
+ *    .essential-box) where there is one, otherwise "Key points" built from the section's own content.
+ *    The mode is stored under ae_theory_mode (try/catch: the page works without storage).
  * API: window.AETheoryReader = { init, sections }
  */
 (function () {
@@ -408,6 +409,10 @@
       var sec = { h2: h2, head: head, items: items, toggle: toggle, open: true, title: headingText(h2),
         words: countWords(head) + items.reduce(function (n, el) { return n + countWords(el); }, 0) };
       items.forEach(function (el) { el.classList.add('tr-sec-item'); });
+      if (!items.some(function (el) { return el.matches('.essential-box'); })) {
+        var auto = autoSummary(sec);
+        if (auto) { items[0].parentNode.insertBefore(auto, items[0]); items.unshift(auto); }
+      }
       sec.essential = items.filter(function (el) { return el.matches('.essential-box'); });
       sec.ewords = sec.essential.reduce(function (n, el) { return n + countWords(el); }, 0);
       if (sec.essential.length) {   // the first figure of the section goes with its summary
@@ -537,11 +542,130 @@
     sec.keys = box;
   }
 
+  /* ------------------------------------------------- automatic key points */
+  /* A section with no written summary gets a "Key points" box for the Essential mode, built only
+     from the page's own content, nothing new: the sentence in which each of its bold concepts is
+     introduced (up to four), the boxed results of its derivation boxes (up to two), its first key
+     or theorem callout, and otherwise its opening sentence. Hidden in Full mode. */
+  var ABBR_RE = /\b(Fig|Figs|Eq|Eqs|Sec|p|pp|e\.g|i\.e|vs|cf|approx|No|Ref|Ch|[A-Z])$/;
+
+  function sentenceBounds(text, from, to) {
+    var re = /[.!?](?=\s+[A-Z(\[$‘“])/g, m, start = 0, end = text.length;
+    while ((m = re.exec(text))) {
+      var head = text.slice(0, m.index);
+      if (ABBR_RE.test(head) || (head.match(/\$/g) || []).length % 2) continue;
+      if (m.index < from) start = m.index + 1;
+      else if (m.index >= to) { end = m.index + 1; break; }
+    }
+    return [start, end];
+  }
+
+  function pointAt(block, offset) {
+    var walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT), node, seen = 0, last = null;
+    while ((node = walker.nextNode())) {
+      last = node;
+      if (seen + node.nodeValue.length >= offset) return { node: node, offset: offset - seen };
+      seen += node.nodeValue.length;
+    }
+    return last ? { node: last, offset: last.nodeValue.length } : null;
+  }
+
+  function cleanClone(frag) {
+    [].forEach.call(frag.querySelectorAll ? frag.querySelectorAll('[id]') : [], function (n) { n.removeAttribute('id'); });
+    return frag;
+  }
+
+  /* The sentence of `block` that contains `el`, cloned (formulas and links included). */
+  function sentenceOf(block, el) {
+    var pre = document.createRange();
+    pre.setStart(block, 0);
+    pre.setEnd(el, 0);
+    var from = pre.toString().length, to = from + el.textContent.length;
+    var b = sentenceBounds(block.textContent, from, to);
+    var a = pointAt(block, b[0]), z = pointAt(block, b[1]);
+    var range = document.createRange();
+    if (!a || !z || a.node.parentElement.closest('.katex') || z.node.parentElement.closest('.katex')) {
+      range.selectNodeContents(block);
+    } else {
+      range.setStart(a.node, a.offset);
+      range.setEnd(z.node, z.offset);
+    }
+    var frag = cleanClone(range.cloneContents());
+    // drop the leading space left by the previous sentence
+    var first = frag.firstChild;
+    if (first && first.nodeType === 3) first.nodeValue = first.nodeValue.replace(/^\s+/, '');
+    return frag;
+  }
+
+  function autoSummary(sec) {
+    var bullets = [], used = [];
+    sec.items.forEach(function (item) {
+      [].forEach.call(item.querySelectorAll('.tr-key'), function (el) {
+        if (bullets.length >= 4 || el.closest('table, .derivation-box, .essential-box')) return;
+        var block = el.closest('p, li');
+        if (!block) return;
+        var frag = sentenceOf(block, el);
+        var text = frag.textContent.replace(/\s+/g, ' ').trim();
+        if (text.length < 12 || used.indexOf(text) >= 0) return;
+        used.push(text);
+        bullets.push(frag);
+      });
+    });
+    var results = [];
+    sec.items.forEach(function (item) {
+      [].forEach.call(item.matches('.derivation-box') ? [item] : item.querySelectorAll('.derivation-box'), function (box) {
+        if (results.length >= 2) return;
+        var res = box.querySelector('.derivation-result'), title = box.querySelector('.derivation-title');
+        if (!res) return;
+        var div = document.createElement('div');
+        div.className = 'tr-auto__result';
+        if (title) {
+          var t = document.createElement('span');
+          t.className = 'tr-auto__result-title';
+          t.textContent = title.textContent;
+          div.appendChild(t);
+        }
+        div.appendChild(cleanClone(res.cloneNode(true)));
+        results.push(div);
+      });
+    });
+    var callout = null;
+    sec.items.some(function (item) {
+      var c = item.matches(KEY_CALLOUT) ? item : item.querySelector(KEY_CALLOUT);
+      if (c && !c.closest('.tr-folded')) { callout = cleanClone(c.cloneNode(true)); return true; }
+      return false;
+    });
+    if (!bullets.length && !results.length && !callout) {
+      var p = sec.items.map(function (item) { return item.matches('p') ? item : item.querySelector('p'); })
+        .filter(function (x) { return x && x.textContent.trim().length > 30; })[0];
+      if (p) {
+        var firstWord = document.createTreeWalker(p, NodeFilter.SHOW_TEXT).nextNode();
+        if (firstWord) bullets.push(sentenceOf(p, firstWord));
+      }
+    }
+    if (!bullets.length && !results.length && !callout) return null;
+    var box = document.createElement('div');
+    box.className = 'essential-box tr-auto tr-sec-item';
+    var head = document.createElement('div');
+    head.className = 'essential-title';
+    head.textContent = 'Key points';
+    box.appendChild(head);
+    if (bullets.length) {
+      var ul = document.createElement('ul');
+      bullets.forEach(function (frag) { var li = document.createElement('li'); li.appendChild(frag); ul.appendChild(li); });
+      box.appendChild(ul);
+    }
+    results.forEach(function (r) { box.appendChild(r); });
+    if (callout) box.appendChild(callout);
+    return box;
+  }
+
   /* ------------------------------------------------------- reading modes */
   /* Essential: every section shows only its "What you need to know" box and its first figure (the
      page reads like a deck). Full: the whole page, sections folded as usual. Pages without summaries
      have no switch. The choice is remembered under ae_theory_mode; ?mode=essential|full overrides it. */
   var FIGURE = '.diagram-card, .diagram-container, figure.fig, .fig';
+  var KEY_CALLOUT = '.callout-key, .callout.result, .callout.thm, .callout.def, .callout.callout-key';
   var MODE_KEY = 'ae_theory_mode';
   var mode = 'full', secInfo = null, modeButtons = [];
 
@@ -631,7 +755,9 @@
      preceding ones, until it is as tall as the figures; if there is no more text the figures shrink
      (not below 260 px), and if the text still covers less than 60 % of their height the row
      becomes a slide (one panel, the text centred beside the figure, the figure's height capped to
-     the screen), so no column is ever left as a hole. Wide
+     the screen), so no column is ever left as a hole. A wide, low figure (more than 2.1 times as wide
+     as high) goes centred across both columns instead, and a figure beside far more text than its
+     height goes in the middle of two text columns (screens of 1250 px or more). Wide
      figures and text with no figure keep the full width. Below
      1100 px the rows are plain blocks again (CSS). Screen only: the PDFs are printed without this
      script. */
@@ -682,12 +808,15 @@
       var side = document.createElement('div');
       side.className = 'tr-pair__fig';
       if (figs.length > 1) pair.classList.add('tr-pair--multi');
+      var col2 = document.createElement('div');
+      col2.className = 'tr-pair__text tr-pair__text2';
       pair.appendChild(col);
       pair.appendChild(side);
+      pair.appendChild(col2);
       (texts[0] === prev ? prev : card).parentNode.insertBefore(pair, texts[0] === prev ? prev : card);
       texts.forEach(function (t) { col.appendChild(t); });
       figs.forEach(function (f) { side.appendChild(f); });
-      var record = { el: pair, text: col, fig: side, after: [], width: Math.max(PAIR_MIN, w + 40) };
+      var record = { el: pair, text: col, text2: col2, fig: side, after: [], width: Math.max(PAIR_MIN, w + 40) };
       pair.style.setProperty('--tr-fig-w', record.width + 'px');
       [].forEach.call(side.querySelectorAll('img'), function (img) {
         if (!img.complete) img.addEventListener('load', function () { balance(record); });
@@ -698,8 +827,21 @@
 
   function balance(pair) {
     if (window.innerWidth < 1100 || !pair.el.offsetParent || pair.el.closest('.tr-hidden')) return;
-    pair.el.classList.remove('tr-pair--slide');
-    pair.el.style.setProperty('--tr-fig-w', pair.width + 'px');   // start again from the natural width
+    // start again: natural width, one text column (the second one is emptied back into the first)
+    pair.el.classList.remove('tr-pair--slide', 'tr-pair--middle', 'tr-pair--center');
+    while (pair.text2.firstChild) pair.text.appendChild(pair.text2.firstChild);
+    pair.el.style.setProperty('--tr-fig-w', pair.width + 'px');
+    var single = pair.fig.children.length === 1;
+    // 0. a wide, low figure is lost in a side column: it goes centred across both columns, between
+    //    the paragraph that introduces it and the text that follows (moved back out of the row)
+    var media = single && pair.fig.querySelector('img, svg');
+    var box = media && media.getBoundingClientRect();
+    if (box && box.height > 0 && box.width / box.height > 2.1) {
+      for (var k = pair.after.length - 1; k >= 0; k--) pair.el.parentNode.insertBefore(pair.after[k], pair.el.nextSibling);
+      pair.after = [];
+      pair.el.classList.add('tr-pair--center');
+      return;
+    }
     var figH = pair.fig.offsetHeight;
     function short() { return pair.text.offsetHeight + 24 < figH; }
     // 1. the text that follows the figure, then the text that leads to it (reading order is kept)
@@ -727,6 +869,29 @@
     var slide = pair.text.offsetHeight < 0.6 * figH;
     pair.el.classList.toggle('tr-pair--slide', slide);
     if (slide) pair.el.style.setProperty('--tr-fig-w', pair.width + 'px');   // the figure keeps its size
+    // 4. far more text than figure (a hole under the figure): on a wide screen the figure goes in
+    //    the middle and the text runs in two columns either side of it, read left then right
+    if (!slide && single && window.innerWidth >= 1250 && pair.text.offsetHeight > 1.25 * figH) {
+      pair.el.classList.add('tr-pair--middle');
+      // the right column takes the text that follows the row first (no paragraph is ever split)...
+      var nx = pair.el.nextElementSibling;
+      while (isText(nx) && !nx.classList.contains('tr-hidden') && pair.text2.offsetHeight < pair.text.offsetHeight) {
+        var nn = nx.nextElementSibling;
+        pair.text2.appendChild(nx);
+        pair.after.push(nx);
+        nx = nn;
+      }
+      // ...and otherwise the last paragraphs of the left column
+      if (!pair.text2.children.length) {
+        while (pair.text.children.length > 1 && pair.text2.offsetHeight < pair.text.offsetHeight) {
+          pair.text2.insertBefore(pair.text.lastElementChild, pair.text2.firstChild);
+        }
+      }
+      // the last move may overshoot: keep it only if the columns end up closer in height
+      if (pair.text2.children.length > 1 && pair.text2.offsetHeight - pair.text.offsetHeight >
+          pair.text2.firstElementChild.offsetHeight) pair.text.appendChild(pair.text2.firstElementChild);
+      if (!pair.text2.children.length) pair.el.classList.remove('tr-pair--middle');
+    }
   }
 
   var balanceQueued = false;

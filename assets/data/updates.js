@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-essential-everywhere",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Essential mode on every theory page, and figures between two columns",
+    "text": "Every theory page can now show just the key points of each section. Wide figures sit centred, and a figure beside long text sits between two columns.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html"
+  },
+  {
     "id": "2026-11-19-theory-slides-key-ideas",
     "date": "2026-11-19",
     "tag": "Portal",
