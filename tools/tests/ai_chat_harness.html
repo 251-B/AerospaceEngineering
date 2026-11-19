@@ -200,6 +200,44 @@ window.addEventListener('load', function () {
           return window.AESiderisRAG.search('presion sobre la compuerta', { subject: 'fluid-mechanics' });
         }).then(function (hits) {
           check('rag-spanish-synonyms-and-link', hits.length === 1 && /topic-5-hydrostatics\.html#fs4$/.test(hits[0].url), hits.map(function (h) { return h.title + ' ' + h.url; }).join('; '));
+          // The answer language follows the question (the model ignored the prompt rule)
+          window.AESiderisEngine.setMock(function (req, cb) { lastReq = req; cb.onToken('ok', 'ok'); return Promise.resolve('ok'); });
+          window.AESideris.clearChat();
+          return window.AESideris.sendUserMessage('What is the velocity profile here?').then(function () {
+            var en = lastReq.messages[0].content.indexOf('Answer in clear academic English') >= 0;
+            window.AESideris.clearChat();
+            return window.AESideris.sendUserMessage('¿Qué perfil de velocidad sale aquí?').then(function () {
+              check('answer-language-follows-question', en && lastReq.messages[0].content.indexOf('academic Spanish') >= 0, 'en then es');
+            });
+          });
+        }).then(function () {
+          // A reasoning model that spends the whole budget thinking: Aether writes the answer
+          var calls = [];
+          window.AESiderisEngine.setMock(function (req, cb) {
+            calls.push(req.model.id);
+            var out = calls.length === 1 ? '<think>long reasoning cut off</think>\n' : 'FINAL_ANSWER';
+            cb.onToken(out, out);
+            return Promise.resolve(out);
+          });
+          window.AESideris.clearChat();
+          window.AESideris.selectModel('sideris-titan');
+          return window.AESideris.sendUserMessage('Derive the momentum equation').then(function (text) {
+            check('reasoning-only-falls-back-to-aether', calls.join(',') === 'sideris-titan,sideris-aether' &&
+              /long reasoning/.test(text) && /FINAL_ANSWER$/.test(text), calls.join(',') + ' | ' + text);
+            window.AESideris.selectModel('sideris-aether');
+          });
+        }).then(function () {
+          // A connection that drops half way keeps the part of the answer that arrived
+          window.AESiderisEngine.setMock(function (req, cb) {
+            cb.onToken('PARTIAL_ANSWER', 'PARTIAL_ANSWER');
+            return Promise.reject(new Error('network error'));
+          });
+          window.AESideris.clearChat();
+          return window.AESideris.sendUserMessage('Derive it').then(function () {
+            var last = window.AESideris.history()[0].messages.slice(-1)[0];
+            check('dropped-stream-keeps-partial-answer', !last.error && /^PARTIAL_ANSWER/.test(last.text) && /connection dropped/.test(last.text), last.text.slice(0, 120));
+          });
+        }).then(function () {
           // 3. The prebuilt index of build_ai_index.py must use the same tokens as the browser
           check('tokenizer-sample', true, JSON.stringify(window.AESiderisRAG.tokenize(
             'Explícame el \\nabla \\cdot u = 0 con r_1, EBITDA y la Ecuación de Navier-Stokes (2024) of the fluid')));

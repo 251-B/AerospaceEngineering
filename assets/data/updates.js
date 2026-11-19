@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-steadier",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris keeps your place and answers in your language",
+    "text": "Opening Sideris no longer moves the page you are reading. It answers in the language you write in, and long answers no longer come back empty or vanish if the connection drops."
+  },
+  {
     "id": "2026-11-19-sideris-hints-and-spanish",
     "date": "2026-11-19",
     "tag": "Portal",

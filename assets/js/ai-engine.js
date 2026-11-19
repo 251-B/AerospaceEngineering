@@ -351,8 +351,21 @@
       body.profile = (req.model && req.model.id) || 'sideris-aether';
     }
 
-    return streamOpenAICompat(url, headers, body, onToken, token).catch(function (err) {
+    // A dropped connection before the first token (seen on the worker in testing, common on phones)
+    // is retried once; after that the student gets a plain message and the Retry button.
+    var gotToken = false;
+    function relay(chunk, full) { gotToken = true; if (onToken) onToken(chunk, full); }
+    function isNetwork(err) { return /failed to fetch|network ?error|load failed|network connection/i.test((err && err.message) || String(err)); }
+    return streamOpenAICompat(url, headers, body, relay, token).catch(function (err) {
+      if (token.aborted || gotToken || !isNetwork(err)) throw err;
+      if (typeof AbortController !== 'undefined') token.controller = new AbortController();
+      return new Promise(function (r) { setTimeout(r, 800); }).then(function () {
+        if (token.aborted) return '';
+        return streamOpenAICompat(url, headers, body, relay, token);
+      });
+    }).catch(function (err) {
       if (token.aborted) return '';
+      if (isNetwork(err)) throw new Error('Could not reach the Sideris cloud (the connection dropped). Check your connection and press Retry.');
       throw err;
     }).finally(function () {
       if (activeAbort === token) activeAbort = null;

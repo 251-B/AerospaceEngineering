@@ -179,7 +179,7 @@ class SiderisBrowserTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_harness_ran_every_scenario(self):
-        self.assertEqual(len(self.results), 27)
+        self.assertEqual(len(self.results), 30)
 
     def test_prebuilt_index_tokenizer_matches_the_browser(self):
         sys.path.insert(0, str(REPO / "tools"))

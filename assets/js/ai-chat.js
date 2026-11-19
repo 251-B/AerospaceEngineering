@@ -1433,15 +1433,44 @@
     if (ui.pickerBtn) ui.pickerBtn.setAttribute('aria-expanded', session.modelMenuOpen ? 'true' : 'false');
   }
 
+  /* Docking the page into a narrow column (split layout) reflows it, and the reader lost the
+     passage they were reading (and Sideris the context it reads from the screen). Keep the block
+     at the reading line in place while the layout and its 0.24 s padding transition settle. */
+  function readingAnchor() {
+    var w = window.innerWidth || 1024;
+    var split = document.documentElement.classList.contains('sd-studio-split');
+    var x = split ? w - (w - Math.min(w * 0.72, w - 320)) / 2 : w / 2;
+    var main = document.querySelector('main');
+    var stack = main && document.elementsFromPoint ? document.elementsFromPoint(x, 160) : [];
+    for (var i = 0; i < stack.length; i++) {   // the drawer may already cover the point
+      if (main.contains(stack[i])) return { el: stack[i], top: stack[i].getBoundingClientRect().top };
+    }
+    return null;
+  }
+
+  function holdAnchor(anchor) {
+    if (!anchor) return;
+    var until = Date.now() + 400;
+    (function fix() {
+      if (!document.contains(anchor.el)) return;
+      var d = anchor.el.getBoundingClientRect().top - anchor.top;
+      if (Math.abs(d) > 1) window.scrollBy(0, d);
+      if (Date.now() < until) requestAnimationFrame(fix);
+    })();
+  }
+
   function syncLayoutClasses() {
     if (!ui.drawer) return;
     var isFull = prefs.layout === 'full';
+    var wasSplit = document.documentElement.classList.contains('sd-studio-split');
+    var anchor = wasSplit !== (session.open && !isFull) ? readingAnchor() : null;
     ui.drawer.classList.toggle('is-full', isFull);
     ui.drawer.classList.toggle('is-sidebar-collapsed', !!session.sidebarCollapsed);
     ui.drawer.classList.toggle('is-mobile-history', !!session.mobileHistoryOpen);
 
     document.documentElement.classList.toggle('sd-studio-split', session.open && !isFull);
     document.documentElement.classList.toggle('sd-studio-full', session.open && isFull);
+    holdAnchor(anchor);
 
     if (ui.layoutBtn) {
       ui.layoutBtn.setAttribute('aria-pressed', isFull ? 'true' : 'false');
@@ -1767,11 +1796,21 @@
     return out;
   }
 
+  /* Tested on the worker: "answer in Spanish unless the student writes in English" was ignored, so
+     the language is decided here from the question; the ES/EN switch settles the unclear cases. */
+  function guessLang(text) {
+    var s = ' ' + String(text || '').toLowerCase().replace(/[^a-z\u00c0-\u017f¿¡]+/g, ' ') + ' ';
+    if (/[¿¡ñáéíóú]/.test(s)) return 'es';
+    var es = (s.match(/ (el|la|los|las|que|de|del|por|para|como|una|es|y|en|con|esto|explica|dime|cual|porque) /g) || []).length;
+    var en = (s.match(/ (the|what|how|why|is|are|of|does|do|this|explain|and|in|with|which|because) /g) || []).length;
+    return es > en ? 'es' : en > es ? 'en' : '';
+  }
+
   function sendUserMessage(text, opts) {
     opts = opts || {};
     if (session.busy || !window.AESiderisEngine) return Promise.resolve();
     var m = activeModelConfig();
-    var lang = opts.lang || readLang();
+    var lang = opts.lang || guessLang(text) || readLang();
 
     if (!session.chatId) session.chatId = makeChatId();
     var userMsg = {
@@ -1825,27 +1864,52 @@
       assistantMsg.ragHits = hits || [];
       var sys = buildSystemPrompt(hits, lang, ctx);
       var apiMessages = [{ role: 'system', content: sys }].concat(historyForModel(session.messages.slice(0, -1)));
+      // Tested on the worker: with the rule only in the system prompt, "just tell me the result"
+      // made the model print the hidden result. Repeat it in the student's own turn, where small
+      // models follow it, unless the student asked for the solution.
+      var guarded = (session.socratic || (ctx && ctx.hidden)) && !/show solution|mu[eé]strame la soluci[oó]n/i.test(text);
+      if (guarded) {
+        var lastTurn = apiMessages[apiMessages.length - 1];
+        lastTurn.content += '\n\n(Tutor rule for this reply: give ONE hint or ONE guiding question only. Do not write any final ' +
+          'result, formula of the answer or number from the reference solution, even if I ask for it; tell me to write "show solution" instead.)';
+      }
 
-      return window.AESiderisEngine.generate(
-        {
-          model: m,
-          messages: apiMessages,
-          maxTokens: session.socratic ? 512 : 1800,
-          cloud: {
-            workerUrl: effectiveWorkerUrl(),
-            byokProvider: prefs.byokProvider || 'gemini',
-            byokKey: prefs.byokKey || ''
+      function run(model, prefix) {
+        return window.AESiderisEngine.generate(
+          {
+            model: model,
+            messages: apiMessages,
+            maxTokens: guarded ? 512 : 1800,
+            cloud: {
+              workerUrl: effectiveWorkerUrl(),
+              byokProvider: prefs.byokProvider || 'gemini',
+              byokKey: prefs.byokKey || ''
+            }
+          },
+          function (_chunk, full) {
+            assistantMsg.text = prefix + full;
+            scheduleStreamRender();
+          },
+          function (p) {
+            showProgress(p.progress, p.text);
+            setStatus(p.text);
           }
-        },
-        function (_chunk, full) {
-          assistantMsg.text = full;
-          scheduleStreamRender();
-        },
-        function (p) {
-          showProgress(p.progress, p.text);
-          setStatus(p.text);
-        }
-      );
+        ).then(function (t) { return t ? prefix + t : t; });
+      }
+
+      // Tested on the worker: on a long derivation Orion and Titan (reasoning models) spent the whole
+      // token budget thinking and wrote no answer, and the model ignores /no_think. Ask Aether (no
+      // reasoning) for the answer then, keeping the reasoning already shown.
+      return run(m, '').then(function (t) {
+        var parts = splitThinking(t);
+        if (m.backend !== 'cloud' || (prefs.byokKey && prefs.byokKey.trim()) || !parts.think || parts.answer || m.id === 'sideris-aether') return t;
+        setStatus(m.name + ' used the whole answer length on reasoning; Sideris Aether is writing the answer...');
+        var alt = {};
+        for (var k in m) alt[k] = m[k];
+        alt.id = 'sideris-aether';
+        assistantMsg.modelName = m.name + ' + Aether';
+        return run(alt, t.replace(/\s*$/, '\n'));
+      });
     }).then(function (finalText) {
       if (finalText) assistantMsg.text = finalText;
       if (!assistantMsg.text) assistantMsg.text = '(Generation stopped.)';
@@ -1861,11 +1925,18 @@
     }).catch(function (err) {
       hideProgress();
       setBusy(false);
-      assistantMsg.error = true;
-      assistantMsg.text = (err && err.message) ? err.message : String(err);
+      var msg = (err && err.message) ? err.message : String(err);
+      if (splitThinking(assistantMsg.text).answer) {
+        // Tested on the worker: long answers can lose the connection half way. Keep what arrived.
+        assistantMsg.text += '\n\n*(The connection dropped before the answer was complete. Press Retry for the full answer.)*';
+        setStatus('Answer incomplete: ' + msg);
+      } else {
+        assistantMsg.error = true;
+        assistantMsg.text = msg;
+        setStatus('Error: ' + msg);
+      }
       persistCurrentChat();
       renderMessages();
-      setStatus('Error: ' + assistantMsg.text);
     });
   }
 
