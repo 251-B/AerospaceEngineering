@@ -457,8 +457,16 @@
     try { localStorage.setItem(LOCAL_KEY, JSON.stringify(localState)); } catch (e) { /* blocked */ }
   }
 
+  // Diagnostic trail kept across pages (last 20 steps), read with AESiderisEngine.local.state().log:
+  // a real computer can't be debugged from here, so it has to say what it did.
+  function note(msg) {
+    var d = new Date();
+    localState.log = (localState.log || []).concat(d.toTimeString().slice(0, 8) + ' ' + msg).slice(-20);
+    saveLocal();
+  }
+
   window.addEventListener('pagehide', function () {
-    if (localState.loading) { localState.loading = ''; saveLocal(); }
+    if (localState.loading) { var id = localState.loading; localState.loading = ''; note(id + ': page left before it finished'); }
   });
 
   // shortcut: thresholds are estimates (1 GiB / 2 GiB buffers, 8 GB RAM); tune them with real devices.
@@ -503,7 +511,7 @@
     }).then(function (reqs) {
       models.forEach(function (m) {
         var cached = reqs.some(function (r) { return r.url.indexOf(m.repo) >= 0; });
-        if (localState.ready[m.id] && !cached) delete localState.ready[m.id];
+        if (localState.ready[m.id] && !cached) { delete localState.ready[m.id]; note(m.id + ': files no longer cached'); }
       });
       saveLocal();
     }).catch(function () {});
@@ -529,16 +537,20 @@
   function fetchOne(m) {
     localJob = { id: m.id, name: m.name, startedAt: Date.now(), loaded: 0, total: (m.sizeMB || 0) * 1048576 };
     localState.loading = m.id;
-    saveLocal();
+    note(m.id + ': loading ' + m.repo);
+    var t0 = Date.now();
     return loadWebGPU({ repo: m.repo, dtype: m.dtype, name: m.name, auto: true }, function (p) {
       if (p && p.bytesLoaded) { localJob.loaded = p.bytesLoaded; if (p.bytesTotal) localJob.total = p.bytesTotal; }
     }).then(function () {
+      note(m.id + ': in GPU after ' + Math.round((Date.now() - t0) / 1000) + ' s (' + Math.round(localJob.loaded / 1048576) + ' MB fetched)');
       return probe(m);
     }).then(function (tps) {
+      note(m.id + ': probe ' + tps.toFixed(1) + ' tokens/s');
       if (tps < MIN_TOKENS_PER_SEC) localState.failed[m.id] = 'too slow on this device (' + tps.toFixed(1) + ' tokens/s)';
       else localState.ready[m.id] = true;
     }, function (err) {
       var msg = (err && err.message) || String(err);
+      note(m.id + ': error ' + msg.slice(0, 160));
       // a dropped download is tried again on a later visit; anything else means this device can't
       if (!/fetch|network|load failed|abort/i.test(msg)) localState.failed[m.id] = msg.slice(0, 120);
     }).then(function () {
@@ -552,6 +564,9 @@
     if (localRunning) return localRunning;
     localRunning = (signals ? Promise.resolve(signals) : detectDevice()).then(function (sig) {
       localTier = classifyDevice(sig);
+      note('tier ' + localTier + ' (webgpu ' + sig.webgpu + ', f16 ' + sig.f16 + ', mobile ' + sig.mobile + ', saveData ' + sig.saveData +
+        ', mem ' + (sig.memGB || '?') + ' GB, maxBuffer ' + Math.round(sig.maxBuffer / 1048576) + ' MB, free ' +
+        (isFinite(sig.freeMB) ? Math.round(sig.freeMB) + ' MB' : '?') + ')');
       var fit = (models || []).filter(function (m) {
         return m.offlineBackend === 'webgpu' && m.localTier && m.localTier <= localTier && !localState.failed[m.id];
       });
@@ -654,7 +669,7 @@
       busy: function () { return !!localJob; },
       eta: localEta,
       markFailed: function (id, why) { delete localState.ready[id]; localState.failed[id] = String(why || 'error').slice(0, 120); saveLocal(); },
-      state: function () { return { tier: localTier, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id : '' }; },
+      state: function () { return { tier: localTier, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id : '', log: localState.log || [] }; },
       restore: function (raw) { localState = parseLocal(raw); saveLocal(); }   // test hook, same path as a page load
     },
     setMock: setMock
