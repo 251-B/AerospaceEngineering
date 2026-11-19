@@ -35,16 +35,17 @@ def load_models():
 class SiderisStaticTests(unittest.TestCase):
     """Checks that need no browser."""
 
-    def test_models_catalogue_has_instant_and_the_four_sideris_models(self):
+    def test_models_catalogue_has_the_four_sideris_models(self):
         models = load_models()
         self.assertEqual(
             [m["name"] for m in models],
-            ["Sideris Instant", "Sideris Lux", "Sideris Aether", "Sideris Orion", "Sideris Titan"],
+            ["Sideris Lux", "Sideris Aether", "Sideris Orion", "Sideris Titan"],
         )
         defaults = [m["id"] for m in models if m.get("default")]
-        self.assertEqual(defaults, ["sideris-instant"])
+        self.assertEqual(defaults, ["sideris-aether"])
         for m in models:
-            self.assertIn(m["backend"], {"cloud", "webgpu", "ollama"})
+            self.assertEqual(m["backend"], "cloud")
+            self.assertIn(m["offlineBackend"], {"webgpu", "ollama"})
             self.assertTrue(m["repo"].strip())
 
     def test_cloud_worker_and_config_contain_no_secrets(self):

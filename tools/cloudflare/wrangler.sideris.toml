@@ -1,6 +1,9 @@
-# Cloudflare Worker configuration for Sideris Instant AI Proxy.
+# Cloudflare Worker configuration for Sideris AI (Instant 0 MB mode for Lux, Aether, Orion, Titan).
 # Deploy with: npx wrangler deploy --config tools/cloudflare/wrangler.sideris.toml
-# Secrets (never put keys here):
+#
+# Built-in free GPU inference runs immediately via Cloudflare Workers AI ([ai] binding = "AI",
+# 10,000 free Neurons/day, zero external API keys needed).
+# Optional extra free-tier keys (preferred first when set, never committed):
 #   npx wrangler secret put GEMINI_API_KEY --config tools/cloudflare/wrangler.sideris.toml
 #   npx wrangler secret put GROQ_API_KEY --config tools/cloudflare/wrangler.sideris.toml
 #   npx wrangler secret put OPENROUTER_API_KEY --config tools/cloudflare/wrangler.sideris.toml
@@ -9,9 +12,10 @@ name = "sideris-ai"
 main = "sideris-worker.js"
 compatibility_date = "2026-10-01"
 
+[ai]
+binding = "AI"
+
 [vars]
 GEMINI_MODEL = "gemini-3.8-flash"
 GROQ_MODEL = "llama-3.3-70b-versatile"
 OPENROUTER_MODEL = "openrouter/free"
-# Optional extra origins (comma-separated) if you use a custom domain:
-# ALLOWED_ORIGINS = "https://study.example.com"

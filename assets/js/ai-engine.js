@@ -247,9 +247,9 @@
             try {
               var obj = JSON.parse(chunkStr);
               var delta = obj && obj.choices && obj.choices[0] && obj.choices[0].delta;
-              if (!delta) continue;
-              var reason = delta.reasoning_content || delta.reasoning || '';
-              var content = delta.content || '';
+              var reason = (delta && (delta.reasoning_content || delta.reasoning)) || (obj && obj.reasoning_content) || '';
+              var content = (delta && delta.content != null) ? delta.content : (obj && typeof obj.response === 'string' ? obj.response : '');
+              if (!reason && !content) continue;
               var add = '';
               if (reason) {
                 if (!inReason) { inReason = true; add += '<think>'; }
@@ -304,7 +304,7 @@
 
     var url = '';
     var headers = { 'Content-Type': 'application/json' };
-    var modelName = 'sideris-instant';
+    var modelName = (req.model && req.model.id) || 'sideris-aether';
 
     if (cloud.byokKey && cloud.byokKey.trim()) {
       var prov = BYOK_PROVIDERS[cloud.byokProvider] || BYOK_PROVIDERS.gemini;
@@ -320,18 +320,22 @@
     } else {
       activeAbort = null;
       return Promise.reject(new Error(
-        'Sideris Instant needs either the portal Cloudflare Worker URL (see docs/sideris-ai-setup.md) ' +
-        'or your own free Gemini/Groq API key in Settings below — or switch to Sideris Lux / Aether for offline browser use.'
+        'Instant cloud mode is not configured. Switch Run mode to Offline (WebGPU / Ollama) or paste a free Gemini/Groq API key in Settings.'
       ));
     }
 
-    return streamOpenAICompat(url, headers, {
+    var body = {
       model: modelName,
       messages: req.messages,
       temperature: req.temperature != null ? req.temperature : 0.35,
       max_tokens: req.maxTokens || 1600,
       stream: true
-    }, onToken, token).catch(function (err) {
+    };
+    if (!(cloud.byokKey && cloud.byokKey.trim())) {
+      body.profile = (req.model && req.model.id) || 'sideris-aether';
+    }
+
+    return streamOpenAICompat(url, headers, body, onToken, token).catch(function (err) {
       if (token.aborted) return '';
       throw err;
     }).finally(function () {

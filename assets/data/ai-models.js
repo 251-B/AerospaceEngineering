@@ -5,92 +5,83 @@
  * before assets/js/ai-rag.js, ai-engine.js and ai-chat.js. Keep everything between the brackets
  * pure JSON (tools/tests/test_ai_chat.py parses it directly).
  *
- * Backends:
- *   - backend: "cloud"  -> zero-download instant streaming via your free Cloudflare Worker
- *                          (tools/cloudflare/sideris-worker.js: Gemini Flash -> Groq -> OpenRouter)
- *                          or a user's own free API key (BYOK, stored only in their browser);
- *   - backend: "webgpu" -> ONNX weights streamed from Hugging Face via Transformers.js v4 and
- *                          cached in the browser Cache API / IndexedDB for free offline use;
- *   - backend: "ollama" -> GGUF weights running locally via Ollama / LM Studio on localhost.
+ * Every Sideris model works in TWO modes (selectable in Settings; Instant is the default):
+ *   - Instant (0 MB download) -> runs immediately via the Cloudflare Worker proxy
+ *     (assets/data/sideris-config.js) on desktop and mobile with zero setup;
+ *   - Offline / Local         -> downloads ONNX weights into the browser (WebGPU) or connects
+ *     to local Ollama / LM Studio, including custom fine-tuned Sideris checkpoints.
  */
 window.AE_SIDERIS_MODELS = [
   {
-    "id": "sideris-instant",
-    "name": "Sideris Instant",
-    "tier": "Instant · 0 MB",
-    "backend": "cloud",
-    "repo": "sideris-cloud-cascade",
-    "base": "Gemini Flash / Groq / OpenRouter",
-    "sizeLabel": "0 MB download",
-    "minRamGb": 1,
-    "thinking": true,
-    "vision": false,
-    "default": true,
-    "trained": false,
-    "summary": "Ready immediately on any phone or laptop with zero download (free Cloudflare Worker cascade or your own free Gemini/Groq key), grounded in the UC3M vault."
-  },
-  {
     "id": "sideris-lux",
     "name": "Sideris Lux",
-    "tier": "Fast offline",
-    "backend": "webgpu",
+    "tier": "Fast & light",
+    "backend": "cloud",
+    "offlineBackend": "webgpu",
     "repo": "onnx-community/Qwen3.5-2B-ONNX",
     "base": "Qwen3.5-2B",
     "dtype": "q4f16",
-    "sizeLabel": "~1.3 GB",
+    "sizeLabel": "0 MB · Instant",
+    "offlineSizeLabel": "~1.3 GB",
     "minRamGb": 4,
-    "thinking": true,
+    "thinking": false,
     "vision": true,
     "default": false,
     "trained": false,
-    "summary": "Fast browser model for quick theory doubts, definitions and RAG lookups on modest laptops."
+    "summary": "Fastest tutor for quick theory doubts, definitions and course-note lookups. Instant in the cloud (0 MB) or ~1.3 GB offline."
   },
   {
     "id": "sideris-aether",
     "name": "Sideris Aether",
-    "tier": "Main offline",
-    "backend": "webgpu",
+    "tier": "Recommended",
+    "backend": "cloud",
+    "offlineBackend": "webgpu",
     "repo": "onnx-community/Qwen3.5-4B-ONNX",
     "base": "Qwen3.5-4B",
     "dtype": "q4f16",
-    "sizeLabel": "~2.5 GB",
+    "sizeLabel": "0 MB · Instant",
+    "offlineSizeLabel": "~2.5 GB",
     "minRamGb": 8,
     "thinking": true,
     "vision": true,
-    "default": false,
+    "default": true,
     "trained": false,
-    "summary": "Main downloadable in-browser engineering tutor across all five subjects: step-by-step algebra, Socratic mode and bilingual ES/EN."
+    "summary": "Main aerospace tutor across all five subjects: step-by-step algebra, Socratic mode and bilingual ES/EN. Instant (0 MB) or ~2.5 GB offline."
   },
   {
     "id": "sideris-orion",
     "name": "Sideris Orion",
     "tier": "Deep calculus",
-    "backend": "webgpu",
+    "backend": "cloud",
+    "offlineBackend": "webgpu",
     "repo": "onnx-community/Phi-4-mini-instruct-web-q4f16",
     "base": "Phi-4-mini-reasoning",
     "dtype": "q4f16",
-    "sizeLabel": "~2.3 GB",
+    "sizeLabel": "0 MB · Instant",
+    "offlineSizeLabel": "~2.3 GB",
     "minRamGb": 8,
     "thinking": true,
     "vision": false,
     "default": false,
     "trained": false,
-    "summary": "Pure calculus and derivation specialist for ODEs, Navier-Stokes, hydrostatics and 3D kinematics."
+    "summary": "Deep step-by-step reasoning specialist for ODEs, Navier-Stokes, hydrostatics and 3D kinematics, with collapsible reasoning trace."
   },
   {
     "id": "sideris-titan",
     "name": "Sideris Titan",
-    "tier": "Local heavy",
-    "backend": "ollama",
+    "tier": "Max power",
+    "backend": "cloud",
+    "offlineBackend": "ollama",
     "repo": "qwen3.5:9b",
     "base": "Qwen3.5-9B",
     "endpoint": "http://localhost:11434/v1",
-    "sizeLabel": "~5.5 GB (GGUF)",
+    "sizeLabel": "0 MB · Instant",
+    "offlineSizeLabel": "~5.5 GB (Ollama)",
     "minRamGb": 16,
     "thinking": true,
     "vision": true,
     "default": false,
     "trained": false,
-    "summary": "High-capacity local model via Ollama or LM Studio (also supports GLM-4.7-Flash on 24+ GB machines)."
+    "summary": "Maximum-depth tutor for full exam derivations and complex problems. Instant in the cloud (0 MB) or local via Ollama / LM Studio."
   }
 ];

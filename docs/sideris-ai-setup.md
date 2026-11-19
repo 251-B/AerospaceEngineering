@@ -1,11 +1,15 @@
 # Sideris Instant AI Setup (Free Cloudflare Worker)
 
-This guide enables **Sideris Instant** — zero-download, ~1 second streaming answers inside every
-study page (desktop and mobile), grounded in the portal's `vault/` RAG shards and backed by
-automatic cascade across three free-tier APIs (Google AI Studio Gemini Flash -> Groq -> OpenRouter `:free`).
+This guide covers the free Cloudflare Worker that powers **Sideris Lux**, **Sideris Aether**,
+**Sideris Orion** and **Sideris Titan** with **0 MB download** inside every study page (desktop and
+mobile), grounded in the portal's `vault/` RAG shards.
 
-All four downloadable own models (`Sideris Lux`, `Sideris Aether`, `Sideris Orion`, `Sideris Titan`)
-remain available in the model selector for offline or custom fine-tuned use.
+- **Works out of the box with zero external API keys** via Cloudflare Workers AI (`[ai] binding = "AI"`,
+  10,000 free Neurons/day: Llama 3.1 8B Fast, Llama 3.3 70B FP8 Fast, Qwen 3.8 27B).
+- **Optional higher quota & frontier boost:** adding free secrets (`GEMINI_API_KEY`, `GROQ_API_KEY`,
+  `OPENROUTER_API_KEY`) makes the Worker prefer those first and automatically fall back to Cloudflare AI.
+- **Offline / Local mode:** visitors can also switch **Run mode -> Offline / Local** inside Settings
+  to download WebGPU browser models (`Lux`, `Aether`, `Orion`) or connect local Ollama (`Titan`).
 
 ---
 

@@ -89,6 +89,7 @@
   function loadPrefs() {
     var base = {
       modelId: defaultModelId(),
+      runMode: 'instant',       // 'instant' (0 MB cloud proxy) | 'offline' (WebGPU / Ollama)
       rag: true,
       thinking: true,
       customRepo: '',
@@ -104,6 +105,7 @@
       var parsed = JSON.parse(raw);
       if (parsed && typeof parsed === 'object') {
         if (typeof parsed.modelId === 'string') base.modelId = parsed.modelId;
+        if (parsed.runMode === 'instant' || parsed.runMode === 'offline') base.runMode = parsed.runMode;
         if (typeof parsed.rag === 'boolean') base.rag = parsed.rag;
         if (typeof parsed.thinking === 'boolean') base.thinking = parsed.thinking;
         if (typeof parsed.customRepo === 'string') base.customRepo = parsed.customRepo;
@@ -144,10 +146,17 @@
     var base = findModel(prefs.modelId);
     var copy = {};
     for (var k in base) copy[k] = base[k];
+    if (prefs.runMode === 'offline') {
+      copy.backend = copy.offlineBackend || 'webgpu';
+      copy.sizeLabel = copy.offlineSizeLabel || copy.sizeLabel;
+    } else {
+      copy.backend = 'cloud';
+      copy.sizeLabel = '0 MB · Instant';
+    }
     if (copy.backend === 'ollama') {
       copy.endpoint = prefs.ollamaEndpoint || copy.endpoint || 'http://localhost:11434/v1';
       copy.repo = prefs.ollamaModel || copy.repo || 'qwen3.5:9b';
-    } else if (prefs.customRepo && prefs.customRepo.trim()) {
+    } else if (copy.backend === 'webgpu' && prefs.customRepo && prefs.customRepo.trim()) {
       copy.repo = prefs.customRepo.trim();
     }
     return copy;
@@ -424,6 +433,27 @@
     // Settings / model selector
     var settings = el('div', 'sd-settings');
     settings.hidden = true;
+    var modeRow = el('div', 'sd-load-row');
+    var modeSeg = el('div', 'sd-seg');
+    modeSeg.setAttribute('role', 'group');
+    modeSeg.setAttribute('aria-label', 'Execution mode');
+    var modeBtns = [['instant', 'Instant (0 MB)'], ['offline', 'Offline / Local']].map(function (o) {
+      var b = el('button', 'sd-seg__btn', o[1]);
+      b.type = 'button';
+      b.dataset.mode = o[0];
+      b.addEventListener('click', function () {
+        prefs.runMode = o[0];
+        savePrefs();
+        hideProgress();
+        syncSettings();
+        setStatus(o[0] === 'instant' ? 'Instant mode active (0 MB download).' : 'Offline / Local mode active.');
+      });
+      modeSeg.appendChild(b);
+      return b;
+    });
+    modeRow.appendChild(modeSeg);
+    settings.appendChild(el('p', 'sd-section-label', 'Run mode'));
+    settings.appendChild(modeRow);
     settings.appendChild(el('p', 'sd-section-label', 'Sideris models'));
     var modelsGrid = el('div', 'sd-models');
     modelsGrid.setAttribute('role', 'group');
@@ -605,7 +635,7 @@
     ui = {
       launcher: launcher, backdrop: backdrop, drawer: drawer,
       modelPill: modelPill, settingsBtn: settingsBtn, newBtn: newBtn, closeBtn: closeBtn,
-      settings: settings, modelBtns: modelBtns, modelDesc: modelDesc,
+      settings: settings, modeBtns: modeBtns, modelBtns: modelBtns, modelDesc: modelDesc,
       loadBtn: loadBtn, clearCacheBtn: clearCacheBtn,
       progressWrap: progressWrap, progressFill: progressFill, progressText: progressText,
       customWrap: customWrap, customInput: customInput,
@@ -720,8 +750,16 @@
     if (!ui.drawer) return;
     var m = activeModelConfig();
     ui.modelPill.textContent = m.name;
+    ui.modeBtns.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.dataset.mode === prefs.runMode ? 'true' : 'false');
+    });
     ui.modelBtns.forEach(function (b) {
       b.setAttribute('aria-pressed', b.dataset.model === m.id ? 'true' : 'false');
+      var meta = b.querySelector('.sd-model-card__meta');
+      var info = findModel(b.dataset.model);
+      if (meta && info) {
+        meta.textContent = info.tier + ' · ' + (prefs.runMode === 'offline' ? (info.offlineSizeLabel || info.sizeLabel) : '0 MB · Instant');
+      }
     });
     var isCloud = m.backend === 'cloud';
     var isOllama = m.backend === 'ollama';

@@ -35,11 +35,11 @@ window.addEventListener('load', function () {
       var drawer = document.getElementById('siderisDrawer');
       check('launcher-present', !!(btn && drawer && drawer.hidden), 'launcher + hidden drawer');
 
-      // Open drawer & verify Sideris Instant + the 4 downloadable Sideris models
+      // Open drawer & verify all 4 Sideris models (Instant 0 MB by default + optional Offline)
       window.AESideris.open();
       check('drawer-opens', !drawer.hidden && window.AESideris.isOpen(), 'drawer open');
       var names = window.AESideris.models().map(function (m) { return m.name; });
-      check('five-sideris-models', names.join(',') === 'Sideris Instant,Sideris Lux,Sideris Aether,Sideris Orion,Sideris Titan', names.join(','));
+      check('four-sideris-models', names.join(',') === 'Sideris Lux,Sideris Aether,Sideris Orion,Sideris Titan', names.join(','));
 
       // Model switch persists in ae_sideris
       window.AESideris.selectModel('sideris-orion');
