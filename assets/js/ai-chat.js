@@ -1,5 +1,5 @@
 /*!
- * Aerospace Engineering Study Portal: Sideris in-page AI tutor chat drawer.
+ * Aerospace Engineering Study Portal: Sideris AI Studio workspace.
  *
  * Loaded on study pages by assets/js/theme.js (after sideris-config.js, ai-models.js,
  * ai-rag.js and ai-engine.js; no HTML page carries its own <script> tag). Adds its own
@@ -7,15 +7,17 @@
  * in @media print (print.css untouched).
  *
  * Features:
- *   - Clean chat-first UX: inline model picker right in the composer with clear explanations
- *     for Sideris Lux, Sideris Aether (default), Sideris Orion and Sideris Titan (all work
- *     instantly with 0 MB download via Cloudflare Workers AI; offline WebGPU / Ollama options
- *     sit cleanly inside Advanced settings).
- *   - Persistent conversation history across pages and reloads (stored under 'ae_sideris_chats').
- *   - Seamless handoff from assets/js/ask-ai.js keeping <reference_solution hidden="true"> out
- *     of the visible chat bubble.
- *   - Client-side RAG grounding over vault/ shards (assets/js/ai-rag.js), safe DOM Markdown +
- *     live KaTeX ($...$, $$...$$), collapsible <think> block and 1-click regenerate.
+ *   - Full-height AI Studio workspace with persistent left conversation history sidebar
+ *     and live split-view docking (72% AI Studio + 28% live study page on desktop, with
+ *     one-click Split / Fullscreen toggle).
+ *   - Clean modern sans-serif UI (Inter / system-ui), inline model picker for Sideris Lux,
+ *     Sideris Aether (default), Sideris Orion and Sideris Titan (0 MB instant via Cloudflare
+ *     Workers AI; optional offline WebGPU / local Ollama inside Settings).
+ *   - Seamless handoff from assets/js/ask-ai.js keeping <reference_solution hidden="true">
+ *     out of the visible chat DOM.
+ *   - Client-side RAG grounding over vault/ shards (assets/js/ai-rag.js), safe DOM Markdown
+ *     (tables, quotes, lists, code) + bulletproof KaTeX ($...$, $$...$$, \(...\), \[...\],
+ *     standalone single-$ promotion, \begin{align/equation} support, auto CDN fallback).
  *
  * Storage: 'ae_sideris' (prefs) and 'ae_sideris_chats' (history) — never a key containing "theme".
  *          Answer language synced with 'ae_ask_lang' ('es' | 'en').
@@ -37,8 +39,11 @@
   var MODELS = Array.isArray(window.AE_SIDERIS_MODELS) ? window.AE_SIDERIS_MODELS.slice() : [];
 
   var ICONS = {
-    star: '<path fill="currentColor" stroke="none" d="M12 2l2.1 6.4L20.5 10.5l-6.4 2.1L12 19l-2.1-6.4L3.5 10.5l6.4-2.1z"/><path fill="currentColor" stroke="none" opacity=".7" d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
-    history: '<circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>',
+    // Minimal geometric orbital-diamond Sideris mark
+    brand: '<circle cx="12" cy="12" r="8.5" opacity=".45"/><path d="M12 4.5L14.2 9.8L19.5 12L14.2 14.2L12 19.5L9.8 14.2L4.5 12L9.8 9.8Z"/>',
+    sidebar: '<rect x="3" y="4" width="18" height="16" rx="2.5"/><line x1="9" y1="4" x2="9" y2="20"/>',
+    split: '<rect x="3" y="4" width="18" height="16" rx="2.5"/><line x1="15" y1="4" x2="15" y2="20"/>',
+    expand: '<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>',
     gear: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.08a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.08a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.08a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
     plus: '<path d="M12 5v14M5 12h14"/>',
     close: '<path d="M18 6L6 18M6 6l12 12"/>',
@@ -90,7 +95,12 @@
 
   function findModel(id) {
     for (var i = 0; i < MODELS.length; i++) if (MODELS[i].id === id) return MODELS[i];
-    return MODELS[0] || { id: 'sideris-aether', name: 'Sideris Aether', tier: 'Recommended', backend: 'cloud', offlineBackend: 'webgpu', repo: 'onnx-community/Qwen3.5-4B-ONNX', dtype: 'q4f16', sizeLabel: '0 MB · Instant', offlineSizeLabel: '~2.5 GB' };
+    return MODELS[0] || {
+      id: 'sideris-aether', name: 'Sideris Aether', tier: 'Recommended',
+      backend: 'cloud', offlineBackend: 'webgpu',
+      repo: 'onnx-community/Qwen3.5-4B-ONNX', dtype: 'q4f16',
+      sizeLabel: '0 MB · Instant', offlineSizeLabel: '~2.5 GB'
+    };
   }
 
   function readLang() {
@@ -106,6 +116,7 @@
     var base = {
       modelId: defaultModelId(),
       runMode: 'instant',       // 'instant' (0 MB cloud) | 'offline' (WebGPU / Ollama)
+      layout: 'split',          // 'split' (72% AI + 28% live page) | 'full' (100% AI)
       rag: true,
       thinking: true,
       customRepo: '',
@@ -122,6 +133,7 @@
       if (parsed && typeof parsed === 'object') {
         if (typeof parsed.modelId === 'string') base.modelId = parsed.modelId;
         if (parsed.runMode === 'instant' || parsed.runMode === 'offline') base.runMode = parsed.runMode;
+        if (parsed.layout === 'split' || parsed.layout === 'full') base.layout = parsed.layout;
         if (typeof parsed.rag === 'boolean') base.rag = parsed.rag;
         if (typeof parsed.thinking === 'boolean') base.thinking = parsed.thinking;
         if (typeof parsed.customRepo === 'string') base.customRepo = parsed.customRepo;
@@ -166,9 +178,9 @@
     if (!ms) return '';
     var d = new Date(ms);
     var diff = Math.max(0, Date.now() - ms);
-    if (diff < 60000) return 'just now';
-    if (diff < 3600000) return Math.floor(diff / 60000) + ' min ago';
-    if (diff < 86400000) return Math.floor(diff / 3600000) + ' h ago';
+    if (diff < 60000) return 'now';
+    if (diff < 3600000) return Math.floor(diff / 60000) + 'm';
+    if (diff < 86400000) return Math.floor(diff / 3600000) + 'h';
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return d.getDate() + ' ' + months[d.getMonth()];
   }
@@ -177,7 +189,9 @@
   var chats = loadHistoryStore();
   var session = {
     open: false,
-    panel: '',             // '' | 'history' | 'settings'
+    settingsOpen: false,
+    sidebarCollapsed: false,
+    mobileHistoryOpen: false,
     modelMenuOpen: false,
     busy: false,
     chatId: '',
@@ -239,7 +253,7 @@
     var entry = {
       id: session.chatId,
       title: title,
-      subject: SUBJECT_NAMES[slug] || pageTitle().slice(0, 32) || 'Portal',
+      subject: SUBJECT_NAMES[slug] || pageTitle().slice(0, 28) || 'Portal',
       modelId: prefs.modelId,
       updatedAt: Date.now(),
       socratic: !!session.socratic,
@@ -250,7 +264,7 @@
     chats.unshift(entry);
     if (chats.length > MAX_CHATS) chats = chats.slice(0, MAX_CHATS);
     saveHistoryStore(chats);
-    if (session.panel === 'history') renderHistory();
+    renderHistory();
   }
 
   function loadConversation(id) {
@@ -262,10 +276,13 @@
     session.messages = serialiseMessages(target.messages);
     session.socratic = !!target.socratic;
     session.systemExtra = target.systemExtra || '';
+    session.mobileHistoryOpen = false;
     setBusy(false);
-    setPanel('');
+    setSettings(false);
+    syncLayoutClasses();
+    renderHistory();
     renderMessages();
-    setStatus('Loaded conversation: ' + target.title);
+    setStatus('Loaded: ' + target.title);
     return true;
   }
 
@@ -282,9 +299,8 @@
     renderHistory();
   }
 
-  /* ---------------------------------------------------------------- safe Markdown + KaTeX renderer */
+  /* ---------------------------------------------------------------- bulletproof Markdown + KaTeX renderer */
   var katexLoading = false;
-  var katexWaiters = [];
 
   function ensureKaTeX() {
     if (window.katex && typeof window.katex.render === 'function') return true;
@@ -297,8 +313,7 @@
     }
     function poll() {
       if (window.katex && typeof window.katex.render === 'function') { flush(); return; }
-      if (++tries < 25) { setTimeout(poll, 150); return; }
-      // Page did not ship KaTeX (e.g. an index page): inject it once from CDN.
+      if (++tries < 20) { setTimeout(poll, 120); return; }
       if (!document.querySelector('link[href*="katex"]')) {
         var lk = document.createElement('link');
         lk.rel = 'stylesheet';
@@ -312,7 +327,7 @@
         document.head.appendChild(sc);
       }
     }
-    setTimeout(poll, 120);
+    setTimeout(poll, 100);
     return false;
   }
 
@@ -320,6 +335,7 @@
     return String(tex || '')
       .replace(/\\euro\b/g, '\\text{€}')
       .replace(/\\text\{([^{}]*)&([^{}]*)\}/g, '\\text{$1and$2}')
+      .replace(/\\\\(?=(?:frac|partial|nabla|vec|mathbf|mathrm|text|sqrt|int|sum|left|right|begin|end|cdot|times|alpha|beta|gamma|delta|rho|mu|sigma|tau|omega|theta|phi|pi|Delta|Omega|Sigma)\b)/g, '\\')
       .trim();
   }
 
@@ -365,7 +381,6 @@
   }
 
   function appendInline(parent, text) {
-    // Parse code & math delimiters BEFORE bold/italic so LaTeX `*`, `_`, and spaces never break!
     var s = String(text || '');
     var i = 0, buf = '';
     function flushBuf() {
@@ -418,7 +433,7 @@
           continue;
         }
       }
-      // Inline math $...$ (supports spaces like `$ \vec{v} $`, ignores currency like `$50 and $100`)
+      // Inline math $...$ (supports inner spaces like `$ \vec{v} $`, skips plain currency)
       if (s.charAt(i) === '$' && s.charAt(i + 1) !== '$') {
         var j = i + 1, found = -1;
         while (j < s.length) {
@@ -460,13 +475,39 @@
   }
 
   function normaliseBlockMath(text) {
-    // Wrap standalone \begin{equation|align|gather|multline}... blocks that lack $$ delimiters,
-    // without touching fenced code blocks.
     var parts = String(text || '').replace(/\r\n/g, '\n').split(/(```[\s\S]*?```)/g);
     return parts.map(function (seg, idx) {
       if (idx % 2 === 1) return seg;
-      return seg.replace(/(^|\n)[ \t]*(\\begin\{(equation|align|gather|multline)\*?\}[\s\S]*?\\end\{\3\*?\})[ \t]*(?=\n|$)/g, '$1$$\n$2\n$$');
+      // Normalise accidental double-escaped delimiters \\[ \\] \\( \\)
+      var out = seg
+        .replace(/\\\\\[/g, '\\[')
+        .replace(/\\\\\]/g, '\\]')
+        .replace(/\\\\\(/g, '\\(')
+        .replace(/\\\\\)/g, '\\)');
+      // Wrap standalone \begin{equation|align|gather|multline|cases|pmatrix|bmatrix}... blocks without $$
+      out = out.replace(
+        /(^|\n)[ \t]*(\\begin\{(equation|align|gather|multline|cases|pmatrix|bmatrix)\*?\}[\s\S]*?\\end\{\3\*?\})[ \t]*(?=\n|$)/g,
+        '$1$$\n$2\n$$'
+      );
+      return out;
     }).join('');
+  }
+
+  function isStandaloneSingleMath(line) {
+    // Promote standalone single-dollar or \(...\) equation lines (common from Llama 3.3 / Qwen)
+    // to crisp display math blocks!
+    var t = (line || '').trim();
+    if (!t || t.indexOf('$$') === 0) return null;
+    if (t.charAt(0) === '$' && t.charAt(t.length - 1) === '$' && t.length > 4) {
+      var body = t.slice(1, -1);
+      // Must not contain another unescaped $ inside (otherwise it's a sentence with 2 inline terms)
+      if (!/(^|[^\\])\$/.test(body) && /[=\\^_{}]/.test(body)) return body.trim();
+    }
+    if (t.indexOf('\\(') === 0 && t.slice(-2) === '\\)' && t.length > 6) {
+      var pbody = t.slice(2, -2);
+      if (pbody.indexOf('\\)') < 0 && /[=\\^_{}]/.test(pbody)) return pbody.trim();
+    }
+    return null;
   }
 
   function isTableSep(line) {
@@ -496,7 +537,7 @@
         continue;
       }
 
-      // Display math block starting line (handles trailing text after closing $$ or \] cleanly!)
+      // Display math block starting line ($$ or \[)
       var mStart = /^\s*(\$\$|\\\[)(.*)$/.exec(line);
       if (mStart) {
         var openTok = mStart[1];
@@ -534,6 +575,14 @@
           appendInline(afterP, trailing);
           container.appendChild(afterP);
         }
+        continue;
+      }
+
+      // Standalone single-$ or \(...\) equation line -> render in full display mode!
+      var singleEq = isStandaloneSingleMath(line);
+      if (singleEq) {
+        container.appendChild(renderMathSpan(singleEq, true));
+        i++;
         continue;
       }
 
@@ -624,10 +673,11 @@
         continue;
       }
 
-      // Paragraph (preserves multi-line \[...\] or $$...$$ inside paragraph cleanly)
+      // Paragraph
       var para = [];
       while (i < lines.length && lines[i].trim() &&
         !/^(```|#{1,4}\s|\s*[-*]\s+|\s*\d+[.)]\s+|\s*\$\$|\s*\\\[|\s*>\s?|\s*(?:---+|\*\*\*+)\s*$)/.test(lines[i]) &&
+        !isStandaloneSingleMath(lines[i]) &&
         !(lines[i].indexOf('|') >= 0 && i + 1 < lines.length && isTableSep(lines[i + 1]))) {
         para.push(lines[i]);
         i++;
@@ -659,7 +709,7 @@
     container.appendChild(body);
   }
 
-  /* ---------------------------------------------------------------- context & prompts */
+  /* ---------------------------------------------------------------- context & sharper system prompt */
   function pageTitle() {
     var h1 = document.querySelector('h1');
     return ((h1 ? h1.textContent : document.title) || '').replace(/\s+/g, ' ').trim();
@@ -680,22 +730,22 @@
     var slug = window.AESiderisRAG ? window.AESiderisRAG.currentSubject() : '';
     var business = slug === 'business-management';
     var lines = [
-      'You are Sideris, the dedicated engineering study tutor for the 2nd year of the BSc in Aerospace Engineering at UC3M.',
+      'You are Sideris, a clear, rigorous engineering tutor for the 2nd year of the BSc in Aerospace Engineering at UC3M.',
       'Current page: ' + pageTitle() + (slug ? ' (subject: ' + slug + ')' : '') + '.',
-      'Rules:',
-      '- Never skip algebraic or numerical steps. Write out the chain rule, product rule, substitutions with differentials, antiderivatives and Barrow limits explicitly.',
-      '- Justify each step with the law, assumption, definition or course equation used.',
+      'Style and formatting rules:',
+      '- Be clear, structured, and easy to scan: use short headings (###), concise paragraphs, and clean bullet lists. Never write walls of text, never use emojis, and never use "Phase 1..4" labels.',
+      '- Match the depth to the question: for conceptual questions, give crisp intuition + governing equation + physical meaning; for problems and derivations, show every algebraic and numerical step explicitly with zero skips (chain rule, product rule, substitutions, Barrow limits, and justification of each law).',
       business
-        ? '- Show every accounting entry, subtotal (EBITDA, EBIT, EBT, Net Income) and balance sheet classification.'
-        : '- Define every symbol with its SI unit on first use and include a dimensional check.',
-      '- Write all equations in KaTeX-compatible LaTeX: $...$ inline and $$...$$ for display equations. Never use \\euro (write € inside \\text{}).',
-      '- Stay faithful to the UC3M course notation and sign conventions from the course notes below. Mark anything beyond the syllabus as "Extension".',
+        ? '- For accounting problems, present clean tables showing EBITDA -> EBIT -> EBT -> Net Income and balance sheet reconciliation.'
+        : '- Define every symbol with its SI unit on first mention, and close solved problems with a brief SI dimensional check.',
+      '- ALWAYS write LaTeX cleanly for KaTeX: put EVERY standalone or key equation on its own lines inside $$...$$, and wrap inline symbols in $...$. Never use \\euro (write € inside \\text{}), and never put bare & inside \\text{}.',
+      '- Stay faithful to the UC3M course notation and sign conventions from the course notes below.',
       lang === 'es'
-        ? '- Answer in Spanish. On first mention of a technical term from the English notes, write it in Spanish with the English term in brackets.'
-        : '- Answer in English.'
+        ? '- Answer in natural, clear academic Spanish (unless the student writes in English). On first mention of a key English course term, add it in brackets, e.g. esfuerzo cortante [shear stress].'
+        : '- Answer in clear academic English (unless the student explicitly writes in Spanish, in which case reply in Spanish with [English technical terms] on first mention).'
     ];
     if (session.socratic) {
-      lines.push('- SOCRATIC MODE IS ACTIVE: never reveal the final solution or the next full step unless the student writes "show solution". Ask one short guiding question at a time.');
+      lines.push('- SOCRATIC MODE IS ACTIVE: never reveal the final solution or the next full step unless the student writes "show solution". Ask one focused guiding question at a time.');
     }
     if (!prefs.thinking) lines.push('/no_think');
     if (session.systemExtra) lines.push('', session.systemExtra);
@@ -703,7 +753,7 @@
     return lines.join('\n');
   }
 
-  /* ---------------------------------------------------------------- UI */
+  /* ---------------------------------------------------------------- UI (Full Studio + Left History + Split Page) */
   function buildUI() {
     ensureStyles();
 
@@ -714,8 +764,10 @@
     launcher.setAttribute('aria-expanded', 'false');
     launcher.setAttribute('aria-controls', 'siderisDrawer');
     launcher.setAttribute('aria-label', 'Open Sideris AI tutor');
-    launcher.title = 'Sideris AI tutor';
-    launcher.appendChild(svg(ICONS.star, 15));
+    launcher.title = 'Open Sideris AI tutor';
+    var lMark = el('span', 'sd-launcher__mark');
+    lMark.appendChild(svg(ICONS.brand, 15));
+    launcher.appendChild(lMark);
     launcher.appendChild(el('span', 'sd-launcher__label', 'Sideris'));
 
     var backdrop = el('div', 'sd-backdrop');
@@ -728,146 +780,189 @@
     drawer.setAttribute('aria-modal', 'false');
     drawer.setAttribute('aria-labelledby', 'siderisTitle');
 
-    // Header
-    var head = el('div', 'sd-head');
-    var headLeft = el('div', 'sd-head__left');
-    var titleRow = el('div', 'sd-title-row');
+    /* ---- LEFT SIDEBAR (History + New Chat + Current Page + Settings) ---- */
+    var sidebar = el('nav', 'sd-sidebar');
+    sidebar.setAttribute('aria-label', 'Sideris conversation history');
+
+    var sbTop = el('div', 'sd-sidebar__top');
+    var brand = el('div', 'sd-brand');
+    var bIcon = el('span', 'sd-brand__icon');
+    bIcon.appendChild(svg(ICONS.brand, 16));
     var title = el('h2', 'sd-title', 'Sideris');
     title.id = 'siderisTitle';
-    titleRow.appendChild(title);
-    var contextSub = el('p', 'sd-context-sub', contextSubtitle());
-    headLeft.appendChild(titleRow);
-    headLeft.appendChild(contextSub);
+    brand.appendChild(bIcon);
+    brand.appendChild(title);
+    sbTop.appendChild(brand);
 
-    var headActions = el('div', 'sd-head__actions');
-    var historyBtn = el('button', 'sd-icon-btn');
-    historyBtn.type = 'button';
-    historyBtn.setAttribute('aria-label', 'Conversation history');
-    historyBtn.setAttribute('aria-expanded', 'false');
-    historyBtn.title = 'Conversation history';
-    historyBtn.appendChild(svg(ICONS.history, 17));
-
-    var newBtn = el('button', 'sd-icon-btn');
+    var newBtn = el('button', 'sd-new-chat');
     newBtn.type = 'button';
-    newBtn.setAttribute('aria-label', 'New conversation');
-    newBtn.title = 'New conversation';
-    newBtn.appendChild(svg(ICONS.plus, 17));
+    newBtn.appendChild(svg(ICONS.plus, 15));
+    newBtn.appendChild(el('span', '', 'New chat'));
 
-    var settingsBtn = el('button', 'sd-icon-btn');
+    var sbHead = el('div', 'sd-sidebar__head');
+    sbHead.appendChild(el('p', 'sd-section-label', 'History'));
+    var clearAllHistBtn = el('button', 'sd-link-btn', 'Clear all');
+    clearAllHistBtn.type = 'button';
+    sbHead.appendChild(clearAllHistBtn);
+
+    var historyList = el('div', 'sd-history-list');
+
+    var sbFoot = el('div', 'sd-sidebar__foot');
+    var pagePill = el('div', 'sd-page-pill');
+    pagePill.appendChild(el('span', 'sd-page-pill__label', 'Current page'));
+    var contextSub = el('p', 'sd-context-sub', contextSubtitle());
+    pagePill.appendChild(contextSub);
+
+    var footRow = el('div', 'sd-foot-row');
+    var settingsBtn = el('button', 'sd-foot-btn');
     settingsBtn.type = 'button';
-    settingsBtn.setAttribute('aria-label', 'Settings');
     settingsBtn.setAttribute('aria-expanded', 'false');
-    settingsBtn.title = 'Settings';
-    settingsBtn.appendChild(svg(ICONS.gear, 17));
+    settingsBtn.appendChild(svg(ICONS.gear, 15));
+    settingsBtn.appendChild(el('span', '', 'Settings'));
+    footRow.appendChild(settingsBtn);
+
+    sbFoot.appendChild(pagePill);
+    sbFoot.appendChild(footRow);
+
+    sidebar.appendChild(sbTop);
+    sidebar.appendChild(newBtn);
+    sidebar.appendChild(sbHead);
+    sidebar.appendChild(historyList);
+    sidebar.appendChild(sbFoot);
+
+    /* ---- MAIN WORKSPACE COLUMN ---- */
+    var main = el('div', 'sd-main');
+
+    // Top bar
+    var topbar = el('div', 'sd-topbar');
+    var tbLeft = el('div', 'sd-topbar__left');
+    var sbToggleBtn = el('button', 'sd-icon-btn');
+    sbToggleBtn.type = 'button';
+    sbToggleBtn.setAttribute('aria-label', 'Toggle history sidebar');
+    sbToggleBtn.title = 'Toggle history sidebar';
+    sbToggleBtn.appendChild(svg(ICONS.sidebar, 17));
+    var topModelLabel = el('span', 'sd-topbar__model', 'Sideris Aether');
+    var topModeTag = el('span', 'sd-topbar__tag', 'Instant');
+    tbLeft.appendChild(sbToggleBtn);
+    tbLeft.appendChild(topModelLabel);
+    tbLeft.appendChild(topModeTag);
+
+    var tbRight = el('div', 'sd-topbar__right');
+    // Quick language switcher right in topbar
+    var topLangSeg = el('div', 'sd-seg');
+    var langBtns = [];
+    [['es', 'ES'], ['en', 'EN']].forEach(function (pair) {
+      var b = el('button', 'sd-seg__btn', pair[1]);
+      b.type = 'button';
+      b.dataset.lang = pair[0];
+      b.title = pair[0] === 'es' ? 'Answer in Spanish' : 'Answer in English';
+      b.addEventListener('click', function () { writeLang(pair[0]); syncUI(); });
+      topLangSeg.appendChild(b);
+      langBtns.push(b);
+    });
+
+    // Split page vs Fullscreen workspace toggle
+    var layoutBtn = el('button', 'sd-pill-btn');
+    layoutBtn.type = 'button';
+    layoutBtn.title = 'Toggle split view with study page or full-screen AI';
+    var layoutIconWrap = el('span');
+    var layoutLabel = el('span', '', 'Split');
+    layoutBtn.appendChild(layoutIconWrap);
+    layoutBtn.appendChild(layoutLabel);
 
     var closeBtn = el('button', 'sd-icon-btn');
     closeBtn.type = 'button';
     closeBtn.setAttribute('aria-label', 'Close Sideris');
-    closeBtn.title = 'Close';
+    closeBtn.title = 'Close (Esc)';
     closeBtn.appendChild(svg(ICONS.close, 17));
 
-    [historyBtn, newBtn, settingsBtn, closeBtn].forEach(function (b) { headActions.appendChild(b); });
-    head.appendChild(headLeft);
-    head.appendChild(headActions);
+    tbRight.appendChild(topLangSeg);
+    tbRight.appendChild(layoutBtn);
+    tbRight.appendChild(closeBtn);
+    topbar.appendChild(tbLeft);
+    topbar.appendChild(tbRight);
 
-    // History subpanel
-    var historyPanel = el('div', 'sd-subpanel');
-    historyPanel.hidden = true;
-    var histHead = el('div', 'sd-subpanel__head');
-    histHead.appendChild(el('p', 'sd-section-label', 'Saved conversations'));
-    var clearAllHistBtn = el('button', 'sd-btn', 'Clear all');
-    clearAllHistBtn.type = 'button';
-    histHead.appendChild(clearAllHistBtn);
-    var historyList = el('div', 'sd-history-list');
-    historyPanel.appendChild(histHead);
-    historyPanel.appendChild(historyList);
-
-    // Simplified Settings subpanel
+    // Settings panel (collapsible under topbar)
     var settingsPanel = el('div', 'sd-subpanel');
     settingsPanel.hidden = true;
-    var setHead = el('div', 'sd-subpanel__head');
-    setHead.appendChild(el('p', 'sd-section-label', 'Tutor preferences'));
-    settingsPanel.appendChild(setHead);
+    var spInner = el('div', 'sd-subpanel__inner');
+    var spHead = el('div', 'sd-subpanel__head');
+    spHead.appendChild(el('p', 'sd-section-label', 'Tutor preferences'));
+    var spClose = el('button', 'sd-link-btn', 'Done');
+    spClose.type = 'button';
+    spClose.addEventListener('click', function () { setSettings(false); });
+    spHead.appendChild(spClose);
+    spInner.appendChild(spHead);
 
-    // Row 1: Answer language
-    var langRow = el('div', 'sd-setting-row');
-    var langInfo = el('div');
-    langInfo.appendChild(el('span', 'sd-setting-name', 'Answer language'));
-    langInfo.appendChild(el('span', 'sd-setting-hint', 'Synced with Ask AI'));
-    var langSeg = el('div', 'sd-seg');
-    langSeg.setAttribute('role', 'group');
-    langSeg.setAttribute('aria-label', 'Answer language');
-    var langBtns = [['es', 'Español'], ['en', 'English']].map(function (o) {
-      var b = el('button', 'sd-seg__btn', o[1]);
-      b.type = 'button';
-      b.dataset.lang = o[0];
-      b.addEventListener('click', function () { writeLang(o[0]); syncUI(); });
-      langSeg.appendChild(b);
-      return b;
-    });
-    langRow.appendChild(langInfo);
-    langRow.appendChild(langSeg);
-
-    // Row 2: Course notes (RAG)
+    // RAG toggle
     var ragRow = el('div', 'sd-setting-row');
     var ragInfo = el('div');
     ragInfo.appendChild(el('span', 'sd-setting-name', 'Use UC3M course notes'));
-    ragInfo.appendChild(el('span', 'sd-setting-hint', 'Injects matching equations and definitions from the vault'));
-    var ragLabel = el('label', 'sd-check');
-    var ragCb = el('input');
+    ragInfo.appendChild(el('span', 'sd-setting-hint', 'Ground answers in your Obsidian notes for this subject.'));
+    var ragLab = el('label', 'sd-check');
+    var ragCb = document.createElement('input');
     ragCb.type = 'checkbox';
     ragCb.checked = prefs.rag;
-    ragLabel.appendChild(ragCb);
-    ragLabel.appendChild(el('span', '', 'On'));
+    ragLab.appendChild(ragCb);
+    ragLab.appendChild(el('span', '', 'On'));
     ragRow.appendChild(ragInfo);
-    ragRow.appendChild(ragLabel);
+    ragRow.appendChild(ragLab);
+    spInner.appendChild(ragRow);
 
-    // Row 3: Reasoning trace
+    // Reasoning toggle
     var thinkRow = el('div', 'sd-setting-row');
     var thinkInfo = el('div');
-    thinkInfo.appendChild(el('span', 'sd-setting-name', 'Show reasoning steps'));
-    thinkInfo.appendChild(el('span', 'sd-setting-hint', 'Displays collapsible thinking blocks in Orion & Titan'));
-    var thinkLabel = el('label', 'sd-check');
-    var thinkCb = el('input');
+    thinkInfo.appendChild(el('span', 'sd-setting-name', 'Show step-by-step reasoning'));
+    thinkInfo.appendChild(el('span', 'sd-setting-hint', 'Display collapsible reasoning blocks for Orion and Titan.'));
+    var thinkLab = el('label', 'sd-check');
+    var thinkCb = document.createElement('input');
     thinkCb.type = 'checkbox';
     thinkCb.checked = prefs.thinking;
-    thinkLabel.appendChild(thinkCb);
-    thinkLabel.appendChild(el('span', '', 'On'));
+    thinkLab.appendChild(thinkCb);
+    thinkLab.appendChild(el('span', '', 'On'));
     thinkRow.appendChild(thinkInfo);
-    thinkRow.appendChild(thinkLabel);
+    thinkRow.appendChild(thinkLab);
+    spInner.appendChild(thinkRow);
 
-    // Collapsed Advanced & Offline models drawer
+    // Advanced / Offline
     var adv = el('details', 'sd-advanced');
-    adv.appendChild(el('summary', '', 'Advanced & offline models'));
+    adv.appendChild(el('summary', '', 'Advanced: offline browser models, Ollama & API key'));
     var advBody = el('div', 'sd-advanced__body');
 
-    var modeRow = el('div', 'sd-load-row');
+    var modeRow = el('div', 'sd-setting-row');
+    var modeInfo = el('div');
+    modeInfo.appendChild(el('span', 'sd-setting-name', 'Run mode'));
+    modeInfo.appendChild(el('span', 'sd-setting-hint', 'Instant uses free cloud (0 MB). Offline downloads weights to GPU / Ollama.'));
     var modeSeg = el('div', 'sd-seg');
-    modeSeg.setAttribute('role', 'group');
-    modeSeg.setAttribute('aria-label', 'Execution mode');
-    var modeBtns = [['instant', 'Instant (0 MB)'], ['offline', 'Offline / Local']].map(function (o) {
-      var b = el('button', 'sd-seg__btn', o[1]);
+    var modeBtns = [];
+    [['instant', 'Instant (0 MB)'], ['offline', 'Offline / Local']].forEach(function (pair) {
+      var b = el('button', 'sd-seg__btn', pair[1]);
       b.type = 'button';
-      b.dataset.mode = o[0];
+      b.dataset.mode = pair[0];
       b.addEventListener('click', function () {
-        prefs.runMode = o[0];
+        prefs.runMode = pair[0];
         savePrefs();
         hideProgress();
         syncUI();
-        setStatus(o[0] === 'instant' ? 'Instant mode active (0 MB download).' : 'Offline / Local mode active.');
       });
       modeSeg.appendChild(b);
-      return b;
+      modeBtns.push(b);
     });
+    modeRow.appendChild(modeInfo);
     modeRow.appendChild(modeSeg);
+    advBody.appendChild(modeRow);
+
+    var advNote = el('p', 'sd-help-note');
+    advBody.appendChild(advNote);
 
     var loadRow = el('div', 'sd-load-row');
     var loadBtn = el('button', 'sd-btn sd-btn--primary', 'Test cloud connection');
     loadBtn.type = 'button';
-    var clearCacheBtn = el('button', 'sd-btn', 'Clear cache');
+    var clearCacheBtn = el('button', 'sd-btn', 'Clear browser cache');
     clearCacheBtn.type = 'button';
     loadRow.appendChild(loadBtn);
     loadRow.appendChild(clearCacheBtn);
+    advBody.appendChild(loadRow);
 
     var progressWrap = el('div', 'sd-progress');
     progressWrap.hidden = true;
@@ -877,47 +972,50 @@
     var progressText = el('p', 'sd-progress__text');
     progressWrap.appendChild(progressBar);
     progressWrap.appendChild(progressText);
+    advBody.appendChild(progressWrap);
 
-    var advNote = el('p', 'sd-help-note');
-
-    // Cloud override / BYOK
-    var cloudWrap = el('div', 'sd-field');
-    var wLab = el('label', '', 'Cloudflare Worker URL (optional override)');
+    var cloudWrap = el('div', 'sd-advanced__body');
+    var wField = el('div', 'sd-field');
+    var wLab = el('label', '', 'Cloud proxy URL (optional override)');
     wLab.setAttribute('for', 'sdWorkerUrl');
     var wInput = el('input', 'sd-input');
     wInput.id = 'sdWorkerUrl';
-    wInput.type = 'text';
-    wInput.placeholder = 'https://sideris-ai.fitplan.workers.dev';
-    wInput.value = prefs.workerUrl || '';
-    var pLab = el('label', '', 'Personal free API key provider (optional)');
+    wInput.type = 'url';
+    wInput.placeholder = effectiveWorkerUrl() || 'https://sideris-ai.<your-name>.workers.dev';
+    wInput.value = prefs.workerUrl;
+    wField.appendChild(wLab);
+    wField.appendChild(wInput);
+
+    var pField = el('div', 'sd-field');
+    var pLab = el('label', '', 'Personal free API key (optional, stored only in your browser)');
     pLab.setAttribute('for', 'sdByokProvider');
-    pLab.style.marginTop = '8px';
     var pSelect = el('select', 'sd-select');
     pSelect.id = 'sdByokProvider';
-    [
-      ['gemini', 'Google AI Studio (Gemini Flash)'],
-      ['groq', 'Groq (Llama 3.3 70B)'],
-      ['openrouter', 'OpenRouter (:free)']
-    ].forEach(function (o) {
-      var opt = el('option', '', o[1]);
-      opt.value = o[0];
-      pSelect.appendChild(opt);
+    [['gemini', 'Google Gemini (free AI Studio key)'], ['groq', 'Groq (free Llama 3.3 70B)'], ['openrouter', 'OpenRouter (:free models)']].forEach(function (pair) {
+      var o = el('option', '', pair[1]);
+      o.value = pair[0];
+      pSelect.appendChild(o);
     });
     pSelect.value = prefs.byokProvider || 'gemini';
-    var kLab = el('label', '', 'Personal API key (stays in this browser only)');
-    kLab.setAttribute('for', 'sdByokKey');
-    kLab.style.marginTop = '6px';
+    pField.appendChild(pLab);
+    pField.appendChild(pSelect);
+
+    var kField = el('div', 'sd-field');
     var kInput = el('input', 'sd-input');
     kInput.id = 'sdByokKey';
     kInput.type = 'password';
     kInput.autocomplete = 'off';
-    kInput.placeholder = 'Optional';
-    kInput.value = prefs.byokKey || '';
-    [wLab, wInput, pLab, pSelect, kLab, kInput].forEach(function (n) { cloudWrap.appendChild(n); });
+    kInput.placeholder = 'Optional API key (leave empty to use free Sideris cloud)';
+    kInput.value = prefs.byokKey;
+    kField.appendChild(kInput);
 
-    // Custom HF ONNX repo
+    cloudWrap.appendChild(wField);
+    cloudWrap.appendChild(pField);
+    cloudWrap.appendChild(kField);
+    advBody.appendChild(cloudWrap);
+
     var customWrap = el('div', 'sd-field');
-    var customLab = el('label', '', 'Custom Hugging Face ONNX repo (offline WebGPU)');
+    var customLab = el('label', '', 'Custom Hugging Face ONNX repo (for your fine-tuned Sideris weights)');
     customLab.setAttribute('for', 'sdCustomRepo');
     var customInput = el('input', 'sd-input');
     customInput.id = 'sdCustomRepo';
@@ -926,82 +1024,83 @@
     customInput.value = prefs.customRepo;
     customWrap.appendChild(customLab);
     customWrap.appendChild(customInput);
+    advBody.appendChild(customWrap);
 
-    // Local Ollama
-    var ollamaWrap = el('div', 'sd-field');
-    var epLab = el('label', '', 'Local Ollama / LM Studio endpoint');
-    epLab.setAttribute('for', 'sdOllamaEp');
+    var ollamaWrap = el('div', 'sd-advanced__body');
+    var epField = el('div', 'sd-field');
+    var epLab = el('label', '', 'Local OpenAI endpoint (Ollama / LM Studio)');
+    epLab.setAttribute('for', 'sdOllamaEndpoint');
     var epInput = el('input', 'sd-input');
-    epInput.id = 'sdOllamaEp';
-    epInput.type = 'text';
+    epInput.id = 'sdOllamaEndpoint';
+    epInput.type = 'url';
     epInput.value = prefs.ollamaEndpoint;
+    epField.appendChild(epLab);
+    epField.appendChild(epInput);
+
+    var tagField = el('div', 'sd-field');
     var tagLab = el('label', '', 'Local model tag');
-    tagLab.setAttribute('for', 'sdOllamaTag');
-    tagLab.style.marginTop = '6px';
+    tagLab.setAttribute('for', 'sdOllamaModel');
     var tagInput = el('input', 'sd-input');
-    tagInput.id = 'sdOllamaTag';
+    tagInput.id = 'sdOllamaModel';
     tagInput.type = 'text';
     tagInput.value = prefs.ollamaModel;
-    [epLab, epInput, tagLab, tagInput].forEach(function (n) { ollamaWrap.appendChild(n); });
+    tagField.appendChild(tagLab);
+    tagField.appendChild(tagInput);
+    ollamaWrap.appendChild(epField);
+    ollamaWrap.appendChild(tagField);
+    advBody.appendChild(ollamaWrap);
 
-    [modeRow, advNote, loadRow, progressWrap, cloudWrap, customWrap, ollamaWrap].forEach(function (n) {
-      advBody.appendChild(n);
-    });
     adv.appendChild(advBody);
+    spInner.appendChild(adv);
+    settingsPanel.appendChild(spInner);
 
-    [langRow, ragRow, thinkRow, adv].forEach(function (n) { settingsPanel.appendChild(n); });
-
-    // Messages area
+    // Scrollable message stream
     var messages = el('div', 'sd-messages');
-    messages.setAttribute('role', 'log');
     messages.setAttribute('aria-live', 'polite');
 
-    // Composer + inline model picker popover
-    var composerWrap = el('div', 'sd-composer-wrap');
+    // Centered composer + inline model picker popover
+    var compWrap = el('div', 'sd-composer-wrap');
+    var compBox = el('div', 'sd-composer-box');
 
     var modelMenu = el('div', 'sd-model-menu');
     modelMenu.hidden = true;
-    modelMenu.setAttribute('role', 'radiogroup');
-    modelMenu.setAttribute('aria-label', 'Choose a Sideris model');
-    var menuHead = el('div', 'sd-model-menu__head');
-    menuHead.appendChild(el('span', 'sd-section-label', 'Choose Sideris model'));
-    menuHead.appendChild(el('span', 'sd-help-note', 'All 4 ready instantly'));
-    modelMenu.appendChild(menuHead);
+    modelMenu.setAttribute('role', 'menu');
+    var mmHead = el('div', 'sd-model-menu__head');
+    mmHead.appendChild(el('p', 'sd-section-label', 'Choose Sideris model'));
+    modelMenu.appendChild(mmHead);
 
-    var modelOptBtns = MODELS.map(function (m) {
+    var modelOptBtns = [];
+    MODELS.forEach(function (m) {
       var opt = el('button', 'sd-model-opt');
       opt.type = 'button';
-      opt.setAttribute('role', 'radio');
-      opt.setAttribute('aria-checked', 'false');
+      opt.setAttribute('role', 'menuitemradio');
       opt.dataset.model = m.id;
       var row = el('span', 'sd-model-opt__row');
       row.appendChild(el('span', 'sd-model-opt__name', m.name));
       row.appendChild(el('span', 'sd-model-opt__badge', m.tier));
       opt.appendChild(row);
-      opt.appendChild(el('span', 'sd-model-opt__desc', m.bestFor || m.summary || ''));
+      opt.appendChild(el('span', 'sd-model-opt__desc', m.summary || m.bestFor || ''));
       opt.addEventListener('click', function () {
         selectModel(m.id);
         toggleModelMenu(false);
+        ui.ta.focus();
       });
       modelMenu.appendChild(opt);
-      return opt;
+      modelOptBtns.push(opt);
     });
-
-    var status = el('div', 'sd-status', 'Ready · 0 MB instant mode.');
-    status.setAttribute('role', 'status');
-    status.setAttribute('aria-live', 'polite');
 
     var composer = el('form', 'sd-composer');
     var ta = el('textarea', 'sd-textarea');
     ta.rows = 1;
-    ta.placeholder = 'Ask Sideris anything about this page...';
-    ta.setAttribute('aria-label', 'Message Sideris');
+    ta.placeholder = 'Ask Sideris anything about this topic, a derivation, or a problem...';
+    ta.setAttribute('aria-label', 'Message to Sideris');
 
-    var compBar = el('div', 'sd-composer__bar');
+    var bar = el('div', 'sd-composer__bar');
     var pickerBtn = el('button', 'sd-picker-btn');
     pickerBtn.type = 'button';
-    pickerBtn.setAttribute('aria-haspopup', 'true');
+    pickerBtn.setAttribute('aria-haspopup', 'menu');
     pickerBtn.setAttribute('aria-expanded', 'false');
+    pickerBtn.title = 'Switch Sideris model';
     var pickerName = el('span', 'sd-picker-btn__name', 'Sideris Aether');
     var pickerMode = el('span', 'sd-picker-btn__mode', '· Instant');
     pickerBtn.appendChild(pickerName);
@@ -1010,25 +1109,26 @@
 
     var sendBtn = el('button', 'sd-send', 'Send');
     sendBtn.type = 'submit';
-    compBar.appendChild(pickerBtn);
-    compBar.appendChild(sendBtn);
 
+    bar.appendChild(pickerBtn);
+    bar.appendChild(sendBtn);
     composer.appendChild(ta);
-    composer.appendChild(compBar);
+    composer.appendChild(bar);
 
-    composerWrap.appendChild(modelMenu);
-    composerWrap.appendChild(status);
-    composerWrap.appendChild(composer);
+    compBox.appendChild(modelMenu);
+    compBox.appendChild(composer);
+    var status = el('div', 'sd-status-line', 'Sideris ready · grounded in your UC3M notes.');
+    status.setAttribute('role', 'status');
+    compWrap.appendChild(compBox);
+    compWrap.appendChild(status);
 
-    drawer.appendChild(head);
-    drawer.appendChild(historyPanel);
-    drawer.appendChild(settingsPanel);
-    drawer.appendChild(messages);
-    drawer.appendChild(composerWrap);
+    main.appendChild(topbar);
+    main.appendChild(settingsPanel);
+    main.appendChild(messages);
+    main.appendChild(compWrap);
 
-    var live = el('span', 'sd-sr');
-    live.setAttribute('aria-live', 'polite');
-    drawer.appendChild(live);
+    drawer.appendChild(sidebar);
+    drawer.appendChild(main);
 
     document.body.appendChild(launcher);
     document.body.appendChild(backdrop);
@@ -1036,27 +1136,50 @@
 
     ui = {
       launcher: launcher, backdrop: backdrop, drawer: drawer,
-      historyBtn: historyBtn, newBtn: newBtn, settingsBtn: settingsBtn, closeBtn: closeBtn,
-      historyPanel: historyPanel, historyList: historyList, clearAllHistBtn: clearAllHistBtn,
-      settingsPanel: settingsPanel, langBtns: langBtns, ragCb: ragCb, thinkCb: thinkCb,
-      modeBtns: modeBtns, advNote: advNote, loadBtn: loadBtn, clearCacheBtn: clearCacheBtn,
+      sidebar: sidebar, sbToggleBtn: sbToggleBtn, layoutBtn: layoutBtn,
+      layoutIconWrap: layoutIconWrap, layoutLabel: layoutLabel,
+      topModelLabel: topModelLabel, topModeTag: topModeTag,
+      settingsBtn: settingsBtn, settingsPanel: settingsPanel,
+      historyList: historyList, clearAllHistBtn: clearAllHistBtn,
+      modelMenu: modelMenu, modelOptBtns: modelOptBtns,
+      pickerBtn: pickerBtn, pickerName: pickerName, pickerMode: pickerMode,
+      modeBtns: modeBtns, langBtns: langBtns, advNote: advNote,
+      loadBtn: loadBtn, clearCacheBtn: clearCacheBtn,
       progressWrap: progressWrap, progressFill: progressFill, progressText: progressText,
       cloudWrap: cloudWrap, wInput: wInput, pSelect: pSelect, kInput: kInput,
       customWrap: customWrap, customInput: customInput,
       ollamaWrap: ollamaWrap, epInput: epInput, tagInput: tagInput,
-      messages: messages, modelMenu: modelMenu, modelOptBtns: modelOptBtns,
-      pickerBtn: pickerBtn, pickerName: pickerName, pickerMode: pickerMode,
-      status: status, composer: composer, ta: ta, sendBtn: sendBtn, live: live
+      ragCb: ragCb, thinkCb: thinkCb,
+      messages: messages, status: status, ta: ta, sendBtn: sendBtn
     };
 
     // Events
     launcher.addEventListener('click', function () { if (session.open) close(false); else open(); });
     backdrop.addEventListener('click', function () { close(true); });
     closeBtn.addEventListener('click', function () { close(true); });
-    newBtn.addEventListener('click', function () { clearChat(); setPanel(''); });
-    historyBtn.addEventListener('click', function () { setPanel(session.panel === 'history' ? '' : 'history'); });
-    settingsBtn.addEventListener('click', function () { setPanel(session.panel === 'settings' ? '' : 'settings'); });
+    newBtn.addEventListener('click', function () {
+      clearChat();
+      session.mobileHistoryOpen = false;
+      setSettings(false);
+      syncLayoutClasses();
+    });
+    settingsBtn.addEventListener('click', function () { setSettings(!session.settingsOpen); });
     pickerBtn.addEventListener('click', function () { toggleModelMenu(); });
+
+    sbToggleBtn.addEventListener('click', function () {
+      if (window.innerWidth < 980) {
+        session.mobileHistoryOpen = !session.mobileHistoryOpen;
+      } else {
+        session.sidebarCollapsed = !session.sidebarCollapsed;
+      }
+      syncLayoutClasses();
+    });
+
+    layoutBtn.addEventListener('click', function () {
+      prefs.layout = prefs.layout === 'full' ? 'split' : 'full';
+      savePrefs();
+      syncLayoutClasses();
+    });
 
     clearAllHistBtn.addEventListener('click', function () {
       chats = [];
@@ -1085,7 +1208,7 @@
 
     ta.addEventListener('input', function () {
       ta.style.height = 'auto';
-      ta.style.height = Math.min(150, ta.scrollHeight) + 'px';
+      ta.style.height = Math.min(180, ta.scrollHeight) + 'px';
     });
 
     composer.addEventListener('submit', function (e) {
@@ -1113,7 +1236,8 @@
       if (e.key === 'Escape') {
         e.stopPropagation();
         if (session.modelMenuOpen) { toggleModelMenu(false); ui.pickerBtn.focus(); return; }
-        if (session.panel) { setPanel(''); return; }
+        if (session.settingsOpen) { setSettings(false); return; }
+        if (session.mobileHistoryOpen) { session.mobileHistoryOpen = false; syncLayoutClasses(); return; }
         close(true);
       }
     });
@@ -1122,15 +1246,19 @@
       if (session.modelMenuOpen && !ui.modelMenu.contains(e.target) && !ui.pickerBtn.contains(e.target)) {
         toggleModelMenu(false);
       }
+      if (session.mobileHistoryOpen && !ui.sidebar.contains(e.target) && !ui.sbToggleBtn.contains(e.target)) {
+        session.mobileHistoryOpen = false;
+        syncLayoutClasses();
+      }
     });
 
-    // Mutual exclusion with Focus Lab, Pomodoro, Updates and Side menu
     document.addEventListener('click', function (e) {
       if (!session.open || !e.target || !e.target.closest) return;
       if (e.target.closest('#focusLabButton, #pomodoroButton, .upd-bell, .ae-nav-btn')) close(false);
     }, true);
 
     syncUI();
+    renderHistory();
     renderMessages();
   }
 
@@ -1149,14 +1277,11 @@
     if (ui.progressWrap) ui.progressWrap.hidden = true;
   }
 
-  function setPanel(name) {
-    session.panel = name || '';
-    if (ui.historyPanel) ui.historyPanel.hidden = session.panel !== 'history';
-    if (ui.settingsPanel) ui.settingsPanel.hidden = session.panel !== 'settings';
-    if (ui.historyBtn) ui.historyBtn.setAttribute('aria-expanded', session.panel === 'history' ? 'true' : 'false');
-    if (ui.settingsBtn) ui.settingsBtn.setAttribute('aria-expanded', session.panel === 'settings' ? 'true' : 'false');
-    if (session.panel === 'history') renderHistory();
-    if (session.panel === 'settings') syncUI();
+  function setSettings(openFlag) {
+    session.settingsOpen = !!openFlag;
+    if (ui.settingsPanel) ui.settingsPanel.hidden = !session.settingsOpen;
+    if (ui.settingsBtn) ui.settingsBtn.setAttribute('aria-expanded', session.settingsOpen ? 'true' : 'false');
+    if (session.settingsOpen) syncUI();
   }
 
   function toggleModelMenu(force) {
@@ -1165,12 +1290,30 @@
     if (ui.pickerBtn) ui.pickerBtn.setAttribute('aria-expanded', session.modelMenuOpen ? 'true' : 'false');
   }
 
+  function syncLayoutClasses() {
+    if (!ui.drawer) return;
+    var isFull = prefs.layout === 'full';
+    ui.drawer.classList.toggle('is-full', isFull);
+    ui.drawer.classList.toggle('is-sidebar-collapsed', !!session.sidebarCollapsed);
+    ui.drawer.classList.toggle('is-mobile-history', !!session.mobileHistoryOpen);
+
+    document.documentElement.classList.toggle('sd-studio-split', session.open && !isFull);
+    document.documentElement.classList.toggle('sd-studio-full', session.open && isFull);
+
+    if (ui.layoutBtn) {
+      ui.layoutBtn.setAttribute('aria-pressed', isFull ? 'true' : 'false');
+      ui.layoutLabel.textContent = isFull ? 'Show page' : 'Full screen';
+      ui.layoutIconWrap.textContent = '';
+      ui.layoutIconWrap.appendChild(svg(isFull ? ICONS.split : ICONS.expand, 14));
+    }
+  }
+
   function renderHistory() {
     if (!ui.historyList) return;
     ui.historyList.textContent = '';
-    ui.clearAllHistBtn.hidden = chats.length === 0;
+    if (ui.clearAllHistBtn) ui.clearAllHistBtn.hidden = chats.length === 0;
     if (!chats.length) {
-      ui.historyList.appendChild(el('p', 'sd-history-empty', 'No saved conversations yet. Your chats will appear here automatically.'));
+      ui.historyList.appendChild(el('p', 'sd-history-empty', 'Your conversations will be saved here automatically.'));
       return;
     }
     chats.forEach(function (c) {
@@ -1178,9 +1321,8 @@
       var openBtn = el('button', 'sd-history-open');
       openBtn.type = 'button';
       openBtn.appendChild(el('span', 'sd-history-title', c.title));
-      var nMsg = Array.isArray(c.messages) ? c.messages.length : 0;
-      var mName = findModel(c.modelId).name;
-      openBtn.appendChild(el('span', 'sd-history-meta', [c.subject, mName, formatStamp(c.updatedAt), nMsg + ' msg'].filter(Boolean).join(' · ')));
+      var mName = findModel(c.modelId).name.replace(/^Sideris\s+/i, '');
+      openBtn.appendChild(el('span', 'sd-history-meta', [c.subject, mName, formatStamp(c.updatedAt)].filter(Boolean).join(' · ')));
       openBtn.addEventListener('click', function () { loadConversation(c.id); });
 
       var delBtn = el('button', 'sd-history-del', '×');
@@ -1201,8 +1343,11 @@
     var isOllama = m.backend === 'ollama';
     var isWebGPU = m.backend === 'webgpu';
 
+    var modeLabel = isCloud ? 'Instant' : isOllama ? 'Local' : 'Offline';
     ui.pickerName.textContent = m.name;
-    ui.pickerMode.textContent = isCloud ? '· Instant' : isOllama ? '· Local' : '· Offline';
+    ui.pickerMode.textContent = '· ' + modeLabel;
+    ui.topModelLabel.textContent = m.name;
+    ui.topModeTag.textContent = modeLabel;
 
     ui.modelOptBtns.forEach(function (b) {
       b.setAttribute('aria-checked', b.dataset.model === m.id ? 'true' : 'false');
@@ -1233,7 +1378,7 @@
       var wUrl = effectiveWorkerUrl();
       ui.advNote.textContent = prefs.byokKey
         ? ('Using your personal ' + prefs.byokProvider + ' key (browser-only).')
-        : wUrl ? ('Connected to free Sideris cloud proxy (' + wUrl + ').')
+        : wUrl ? ('Connected to free Sideris cloud (' + wUrl + ').')
         : 'Paste a Worker URL or personal free key below, or switch to Offline / Local.';
       ui.loadBtn.textContent = prefs.byokKey ? 'Clear personal key' : 'Test cloud connection';
     } else if (isOllama) {
@@ -1246,7 +1391,8 @@
         : ('Download & load (' + m.sizeLabel + ')');
     }
 
-    // Update active highlight on welcome guide cards if visible
+    syncLayoutClasses();
+
     var guideCards = ui.messages ? ui.messages.querySelectorAll('.sd-guide-card') : [];
     for (var i = 0; i < guideCards.length; i++) {
       guideCards[i].setAttribute('aria-pressed', guideCards[i].dataset.model === m.id ? 'true' : 'false');
@@ -1259,8 +1405,7 @@
     savePrefs();
     hideProgress();
     syncUI();
-    var mode = prefs.runMode === 'offline' ? (m.offlineSizeLabel || 'offline') : '0 MB instant';
-    setStatus(m.name + ' selected (' + mode + ') — ' + (m.bestFor || m.tier) + '.');
+    setStatus(m.name + ' selected · ' + (m.bestFor || m.summary || 'ready.'));
   }
 
   function preloadActiveModel() {
@@ -1276,7 +1421,7 @@
         return Promise.resolve();
       }
       var wUrl = effectiveWorkerUrl();
-      setStatus(wUrl ? 'Checking Sideris cloud proxy...' : 'No Cloudflare Worker URL configured.');
+      setStatus(wUrl ? 'Checking Sideris cloud...' : 'No Cloudflare Worker URL configured.');
       return window.AESiderisEngine.checkCloud(wUrl).then(function (res) {
         if (res.ok) {
           var provs = res.providers && res.providers.length ? ' (' + res.providers.join(', ') + ')' : '';
@@ -1333,10 +1478,11 @@
     if (!session.messages.length) {
       var wrap = el('div', 'sd-welcome');
 
-      var card = el('div', 'sd-welcome-card');
-      card.appendChild(el('p', 'sd-welcome__title', 'Choose your Sideris model'));
-      card.appendChild(el('p', 'sd-welcome__body',
-        'All four models run free and instantly with zero download, grounded in your UC3M notes. Switch anytime from the bar below:'));
+      var hero = el('div', 'sd-welcome-hero');
+      hero.appendChild(el('h3', 'sd-welcome__title', 'What are we studying today?'));
+      hero.appendChild(el('p', 'sd-welcome__body',
+        'Grounded in your UC3M Aerospace notes for ' + contextSubtitle() + '. Pick a Sideris model or ask directly below:'));
+      wrap.appendChild(hero);
 
       var grid = el('div', 'sd-guide-grid');
       MODELS.forEach(function (m) {
@@ -1352,17 +1498,18 @@
         b.addEventListener('click', function () { selectModel(m.id); });
         grid.appendChild(b);
       });
-      card.appendChild(grid);
-      wrap.appendChild(card);
+      wrap.appendChild(grid);
 
       var starters = isProblemPage() ? [
-        'Summarise the step-by-step solving recipe for this unit',
-        'What are the most common exam traps in these problems?',
-        'Quiz me on the key equations needed for this problem set'
+        'Summarise the step-by-step solving method for this unit',
+        'What are the most common exam mistakes in these problems?',
+        'Walk me through the governing equations and sign conventions',
+        'Quiz me with a quick conceptual check before I solve'
       ] : [
         'Summarise the key equations and hypotheses of this topic',
-        'Explain the physical intuition behind this page simply',
-        'Quiz me with 3 short questions on this topic'
+        'Explain the physical intuition behind this page clearly',
+        'Derive the main equation on this page step by step',
+        'Quiz me with 3 exam-style questions on this topic'
       ];
       var qWrap = el('div', 'sd-quick');
       starters.forEach(function (q) {
@@ -1377,6 +1524,7 @@
       return;
     }
 
+    var stream = el('div', 'sd-stream');
     session.messages.forEach(function (msg, idx) {
       var isLast = idx === session.messages.length - 1;
       var card = el('article', 'sd-msg sd-msg--' + msg.role + (msg.error ? ' sd-msg--error' : ''));
@@ -1397,7 +1545,10 @@
           copy.type = 'button';
           copy.addEventListener('click', function () {
             if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(msg.text).then(function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy'; }, 1200); });
+              navigator.clipboard.writeText(msg.text).then(function () {
+                copy.textContent = 'Copied';
+                setTimeout(function () { copy.textContent = 'Copy'; }, 1200);
+              });
             }
           });
           acts.appendChild(copy);
@@ -1428,9 +1579,10 @@
         card.appendChild(det);
       }
 
-      ui.messages.appendChild(card);
+      stream.appendChild(card);
       msg._contentEl = content;
     });
+    ui.messages.appendChild(stream);
     ui.messages.scrollTop = ui.messages.scrollHeight;
   }
 
@@ -1463,12 +1615,12 @@
       ragHits: []
     };
     session.messages.push(assistantMsg);
-    setPanel('');
+    setSettings(false);
     renderMessages();
     setBusy(true);
     setStatus(
-      m.backend === 'cloud' ? 'Streaming from ' + m.name + '...'
-        : m.backend === 'ollama' ? 'Streaming from ' + m.name + ' (local)...'
+      m.backend === 'cloud' ? m.name + ' is responding...'
+        : m.backend === 'ollama' ? m.name + ' (local) is responding...'
         : 'Preparing ' + m.name + '...'
     );
 
@@ -1476,6 +1628,19 @@
     var ragPromise = (prefs.rag && window.AESiderisRAG)
       ? window.AESiderisRAG.search(ragQuery, { limit: 4 })
       : Promise.resolve([]);
+
+    var rafPending = false;
+    function scheduleStreamRender() {
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(function () {
+        rafPending = false;
+        if (assistantMsg._contentEl) {
+          renderRichText(assistantMsg._contentEl, assistantMsg.text);
+          ui.messages.scrollTop = ui.messages.scrollHeight;
+        }
+      });
+    }
 
     return ragPromise.then(function (hits) {
       assistantMsg.ragHits = hits || [];
@@ -1491,7 +1656,7 @@
         {
           model: m,
           messages: apiMessages,
-          maxTokens: session.socratic ? 512 : 1600,
+          maxTokens: session.socratic ? 512 : 1800,
           cloud: {
             workerUrl: effectiveWorkerUrl(),
             byokProvider: prefs.byokProvider || 'gemini',
@@ -1500,10 +1665,7 @@
         },
         function (_chunk, full) {
           assistantMsg.text = full;
-          if (assistantMsg._contentEl) {
-            renderRichText(assistantMsg._contentEl, full);
-            ui.messages.scrollTop = ui.messages.scrollHeight;
-          }
+          scheduleStreamRender();
         },
         function (p) {
           showProgress(p.progress, p.text);
@@ -1562,6 +1724,7 @@
     session.systemExtra = '';
     session.socratic = false;
     setBusy(false);
+    renderHistory();
     renderMessages();
     setStatus('New conversation.');
   }
@@ -1581,6 +1744,7 @@
     ui.drawer.hidden = false;
     ui.launcher.setAttribute('aria-expanded', 'true');
     syncUI();
+    renderHistory();
     requestAnimationFrame(function () {
       ui.backdrop.classList.add('is-open');
       ui.drawer.classList.add('is-open');
@@ -1591,8 +1755,10 @@
   function close(returnFocus) {
     if (!session.open || !ui.drawer) return;
     session.open = false;
+    session.mobileHistoryOpen = false;
     toggleModelMenu(false);
-    setPanel('');
+    setSettings(false);
+    syncLayoutClasses();
     ui.backdrop.classList.remove('is-open');
     ui.drawer.classList.remove('is-open');
     ui.backdrop.hidden = true;
@@ -1636,6 +1802,7 @@
         busy: session.busy,
         model: activeModelConfig(),
         runMode: prefs.runMode,
+        layout: prefs.layout,
         rag: prefs.rag,
         thinking: prefs.thinking,
         chatId: session.chatId,

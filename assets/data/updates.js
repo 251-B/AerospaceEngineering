@@ -15,11 +15,11 @@
  */
 window.AE_UPDATES = [
   {
-    "id": "2026-11-19-sideris-katex-fix",
+    "id": "2026-11-19-sideris-studio-workspace",
     "date": "2026-11-19",
     "tag": "Portal",
-    "title": "Sideris chat: reliable KaTeX equations, tables and quotes",
-    "text": "Fixed LaTeX and KaTeX rendering in the Sideris chat across equations, reasoning panels, tables and index pages so every derivation displays cleanly.",
+    "title": "Sideris AI Studio: split workspace, left history and crisp KaTeX",
+    "text": "Sideris now opens as a full-height AI studio with history on the left, your study page docked live beside it, modern sans-serif typography, and reliable KaTeX equations.",
     "link": "index.html"
   },
   {
