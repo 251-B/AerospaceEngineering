@@ -151,6 +151,17 @@ class SiderisStaticTests(unittest.TestCase):
             [-1.0],
         )
 
+    def test_dataset_sanitiser_removes_legacy_phase_labels_and_emojis(self):
+        import build_dataset  # noqa: E402
+        dirty = "## 📊 1. Phase 1: Hypotheses and Data\n✅ Check result: $p = \\rho g h$."
+        cleaned = build_dataset.sanitise_text(dirty)
+        self.assertNotIn("Phase 1", cleaned)
+        self.assertNotIn("📊", cleaned)
+        self.assertNotIn("✅", cleaned)
+        self.assertIn("$p = \\rho g h$", cleaned)
+        self.assertTrue(build_dataset.katex_balanced(cleaned))
+        self.assertTrue((REPO / "tools/ai_training/Sideris_Train_Colab_Kaggle.ipynb").is_file())
+
 
 @unittest.skipUnless(BROWSER, "no Chromium-based browser available for headless tests")
 class SiderisBrowserTests(unittest.TestCase):
