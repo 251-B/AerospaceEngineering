@@ -57,7 +57,7 @@ _SUMMARY_CALLOUT_RE = re.compile(
     re.M | re.I,
 )
 _MCQ_BLOCK_RE = re.compile(r"^##\s+(Q\d+\.\d+)\s+(.+?)\s*$", re.M)
-_PROB_NUM_RE = re.compile(r"^##\s+Problem\s+(\d+)\b(.*)$", re.M | re.I)
+_PROB_NUM_RE = re.compile(r"^##\s+(?:[^\w\n]*\s*)?Problem\s+(RB-)?(\d+)\b(.*)$", re.M | re.I)
 _SUBQ_PART_RE = re.compile(r"^##\s+(?:Part\s*\(?[a-h]\)?|Question\s*\d+|Subquestion\s*\d+)", re.M | re.I)
 
 
@@ -253,37 +253,66 @@ def extract_mechanics_paired_sets(vault):
             out = {}
             ms = list(_PROB_NUM_RE.finditer(text))
             for idx, m in enumerate(ms):
-                num = int(m.group(1))
+                prefix = (m.group(1) or "").upper()
+                num = int(m.group(2))
+                key = f"{prefix}{num:02d}"
                 end = ms[idx + 1].start() if idx + 1 < len(ms) else len(text)
-                out[num] = (sanitise_text(m.group(2).lstrip(":-— ")), sanitise_text(text[m.end():end]))
+                out[key] = (sanitise_text(m.group(3).lstrip(":-— ")), sanitise_text(text[m.end():end]))
             return out
 
         probs = split_by_prob(p_body)
         sols = split_by_prob(s_body)
         rel = s_path.relative_to(vault).as_posix()
 
-        for num, (ptitle, stmt) in sorted(probs.items()):
-            if num not in sols:
+        for key, (ptitle, stmt) in sorted(probs.items()):
+            if key not in sols:
                 continue
-            stitle, sol = sols[num]
-            if len(stmt) < 60 or len(sol) < 200 or len(sol) > 12000:
+            stitle, sol = sols[key]
+            if len(stmt) < 60 or len(sol) < 200 or len(sol) > 20000:
                 continue
             if not (katex_balanced(stmt) and katex_balanced(sol)):
                 continue
-            label = ptitle or stitle or f"Problem {num}"
+            label = ptitle or stitle or f"Problem {key}"
+            group_key = f"{rel}::Problem-{key}"
             records.append({
-                "id": f"mech-official-t{unit}-p{num:02d}",
+                "id": f"mech-official-t{unit}-p{key.lower()}",
                 "task": "problem_solve",
                 "subject": "engineering-mechanics",
                 "unit": unit,
                 "source": rel,
+                "group": group_key,
                 "messages": [
                     {"role": "system", "content": system_prompt("engineering-mechanics", lang="en", socratic=False)},
                     {
                         "role": "user",
-                        "content": f"<problem_statement id=\"Problem {num}\" title=\"{label}\">\n{stmt}\n</problem_statement>\n\n# Task\nSolve this official Engineering Mechanics problem step by step in the UC3M lecturer's order (frames and bases, change of basis and position vector, kinematics, forces if applicable, answers and checks) with zero algebraic skips.",
+                        "content": f"<problem_statement id=\"Problem {key}\" title=\"{label}\">\n{stmt}\n</problem_statement>\n\n# Task\nSolve this official Engineering Mechanics problem step by step in the UC3M lecturer's order (frames and bases, change of basis and position vector, kinematics, forces if applicable, answers and checks) with zero algebraic skips.",
                     },
                     {"role": "assistant", "content": sol},
+                ],
+            })
+            # Pair a Socratic seed on the exact same group key (so train/eval never leaks!)
+            records.append({
+                "id": f"soc-mech-t{unit}-p{key.lower()}",
+                "task": "socratic_seed",
+                "subject": "engineering-mechanics",
+                "unit": unit,
+                "source": rel,
+                "group": group_key,
+                "hidden_solution": sol[:3200],
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": system_prompt("engineering-mechanics", lang="en", socratic=True)
+                        + f'\n\n<reference_solution hidden="true">\n{sol[:3200]}\n</reference_solution>',
+                    },
+                    {
+                        "role": "user",
+                        "content": f"<problem_statement id=\"Problem {key}\" title=\"{label}\">\n{stmt}\n</problem_statement>\n\n# Task\nHelp me solve this problem by myself, from the start. Begin now with your first question only.",
+                    },
+                    {
+                        "role": "assistant",
+                        "content": f"Let us work through **Problem {key} ({label})** together step by step. Before writing any equation, what are the degrees of freedom of the system, which reference frames and vector bases should we define first, and what are the given data with SI units?",
+                    },
                 ],
             })
     return records
@@ -529,7 +558,12 @@ def build_all():
 def split_train_eval(records, eval_mod=10):
     train, holdout = [], []
     for rec in records:
-        h = int(hashlib.sha256(rec["source"].encode("utf-8")).hexdigest()[:8], 16)
+        key = rec.get("group") or (
+            f"{rec['source']}::{rec['id']}"
+            if rec["task"] in ("derive_principles", "essential_summary", "quiz_mcq_tutor")
+            else rec["source"]
+        )
+        h = int(hashlib.sha256(key.encode("utf-8")).hexdigest()[:8], 16)
         if h % eval_mod == 0:
             holdout.append(rec)
         else:
