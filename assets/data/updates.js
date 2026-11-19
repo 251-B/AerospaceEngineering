@@ -27,7 +27,7 @@ window.AE_UPDATES = [
     "date": "2026-11-18",
     "tag": "Portal",
     "title": "Theory pages fold: sections, derivations and figures beside the text",
-    "text": "Each section opens on demand, derivations show their result first, and a counter shows how much reading is left. On wide screens figures sit beside their text.",
+    "text": "Each section opens on demand, derivations show their result first, and a counter shows how much reading is left. On wide screens figures sit beside the text that explains them.",
     "link": "subjects/engineering-mechanics/teoria/topic-6.html"
   },
   {

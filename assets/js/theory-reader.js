@@ -364,6 +364,7 @@
     var host = sec.head.parentElement;
     if (host && !host.matches('main, body, article') && sec.items.every(function (el) { return el.parentElement === host; }))
       host.classList.toggle('tr-sec-host-closed', !open);
+    if (open) balanceAll();
     sec.toggle.setAttribute('aria-expanded', String(open));
     sec.toggle.setAttribute('aria-label', (open ? 'Fold' : 'Open') + ' section: ' + sec.title);
   }
@@ -408,7 +409,7 @@
       sec.essential = items.filter(function (el) { return el.matches('.essential-box'); });
       sec.ewords = sec.essential.reduce(function (n, el) { return n + countWords(el); }, 0);
       if (sec.essential.length) {   // the first figure of the section goes with its summary
-        var fig = items.filter(function (el) { return el.matches(FIGURE); })[0];
+        var fig = items.filter(function (el) { return el.matches(FIGURE) || el.matches('.tr-pair'); })[0];
         if (fig) { fig.classList.add('tr-key-fig'); sec.ewords += 40; }
       }
       head.classList.add('tr-sec-head');
@@ -561,8 +562,21 @@
   }
 
   /* ---------------------------------------------------------- figure layout */
-  /* On a wide screen a narrow figure followed by text floats to the right of that text, like a slide
-     with the picture beside the words (CSS, at least 1100 px). */
+  /* Two columns, like a slide: a figure that is not too wide goes to the right of the text that
+     explains it. Each pairing is a row, <div class="tr-pair"> with a text column and a figure
+     column (consecutive figures stack in the same column). The text column starts with the
+     paragraph just before the figure (the one that introduces it), or the one just after when the
+     figure opens a passage; once the row is visible it takes the following paragraphs, then the
+     preceding ones, until it is as tall as the figures; if there is no more text the figures shrink
+     (not below 260 px), and if the text still covers less than 60 % of their height the row is
+     stacked (text at full width, figures centred below), so no column is ever left empty. Wide
+     figures and text with no figure keep the full width. Below
+     1100 px the rows are plain blocks again (CSS). Screen only: the PDFs are printed without this
+     script. */
+  var PAIR_MAX = 680;      // wider figures keep the full width
+  var PAIR_MIN = 260;      // a figure in a row never gets narrower than this
+  var pairs = [];
+
   function mediaWidth(card) {
     var media = card.querySelector('img, svg');
     if (!media) return 0;
@@ -577,22 +591,97 @@
     return w;
   }
 
-  function sideFigures(scope) {
-    [].forEach.call(scope.querySelectorAll('.diagram-card, .diagram-container, figure.fig'), function (card) {
-      if (card.closest('.callout, .derivation-box, table, .tr-side') || card.classList.contains('pair')) return;
-      if (card.querySelectorAll('img, svg').length !== 1) return;
-      var w = mediaWidth(card);
-      if (!w || w > 620) return;
-      var next = card.nextElementSibling, prev = card.previousElementSibling;
-      var textAfter = next && next.matches('p, ul, ol');
-      if (!textAfter) {
-        // the paragraph that introduces the figure comes first: the figure goes up beside it
-        if (!prev || !prev.matches('p') || prev.classList.contains('tr-side') || countWords(prev) < 30) return;
-        prev.parentNode.insertBefore(card, prev);
-      }
-      card.classList.add('tr-side');
-      card.style.setProperty('--tr-fig-w', Math.max(280, w + 40) + 'px');
-      card.parentElement.classList.add('tr-side-host');
+  function isText(el) {
+    return !!el && el.matches('p, ul, ol') && !el.closest('.tr-pair') && !el.matches('.tr-progress');
+  }
+
+  function pairable(card) {
+    if (!card || !card.matches(FIGURE) || card.classList.contains('pair')) return 0;
+    if (card.closest('.callout, .derivation-box, table, .tr-pair, .essential-box, .example-card')) return 0;
+    if (card.querySelectorAll('img, svg').length !== 1) return 0;
+    var w = mediaWidth(card);
+    return w && w <= PAIR_MAX ? w : 0;
+  }
+
+  function buildPairs(scope) {
+    [].forEach.call(scope.querySelectorAll(FIGURE), function (card) {
+      var w = pairable(card);
+      if (!w) return;
+      var figs = [card], next = card.nextElementSibling, nw;
+      while ((nw = pairable(next))) { figs.push(next); w = Math.max(w, nw); next = next.nextElementSibling; }
+      var prev = card.previousElementSibling, texts;
+      if (isText(prev)) texts = [prev];
+      else if (isText(next)) texts = [next];
+      else return;   // no text next to it: the figure keeps the full width
+      var pair = document.createElement('div');
+      pair.className = 'tr-pair';
+      var col = document.createElement('div');
+      col.className = 'tr-pair__text';
+      var side = document.createElement('div');
+      side.className = 'tr-pair__fig';
+      pair.appendChild(col);
+      pair.appendChild(side);
+      (texts[0] === prev ? prev : card).parentNode.insertBefore(pair, texts[0] === prev ? prev : card);
+      texts.forEach(function (t) { col.appendChild(t); });
+      figs.forEach(function (f) { side.appendChild(f); });
+      var record = { el: pair, text: col, fig: side, after: [], width: Math.max(PAIR_MIN, w + 40) };
+      pair.style.setProperty('--tr-fig-w', record.width + 'px');
+      [].forEach.call(side.querySelectorAll('img'), function (img) {
+        if (!img.complete) img.addEventListener('load', function () { balance(record); });
+      });
+      pairs.push(record);
+    });
+  }
+
+  function balance(pair) {
+    if (window.innerWidth < 1100 || !pair.el.offsetParent || pair.el.closest('.tr-hidden')) return;
+    pair.el.classList.remove('tr-pair--stacked');
+    pair.el.style.setProperty('--tr-fig-w', pair.width + 'px');   // start again from the natural width
+    var figH = pair.fig.offsetHeight;
+    function short() { return pair.text.offsetHeight + 24 < figH; }
+    // 1. the text that follows the figure, then the text that leads to it (reading order is kept)
+    var next = pair.el.nextElementSibling;
+    while (short() && isText(next) && !next.classList.contains('tr-hidden')) {
+      var after = next.nextElementSibling;
+      pair.text.appendChild(next);
+      pair.after.push(next);
+      next = after;
+    }
+    var prev = pair.el.previousElementSibling;
+    while (short() && isText(prev) && !prev.classList.contains('tr-hidden')) {
+      var before = prev.previousElementSibling;
+      pair.text.insertBefore(prev, pair.text.firstChild);
+      prev = before;
+    }
+    // 2. not enough text: the figure shrinks towards the height of the text
+    if (short()) {
+      var w = Math.max(PAIR_MIN, Math.round(pair.width * (pair.text.offsetHeight + 24) / figH));
+      pair.el.style.setProperty('--tr-fig-w', w + 'px');
+      figH = pair.fig.offsetHeight;
+    }
+    // 3. still far shorter: no columns (text at full width, the figure centred below it), so no
+    //    empty column is left beside the figure; the text brought from after the figure goes back
+    // a vector figure beside a much taller text grows (sharp at any size) up to half the row
+    if (pair.text.offsetHeight > figH + 160 && !pair.fig.querySelector('img')) {
+      var grown = Math.min(Math.round(pair.el.offsetWidth * 0.48),
+                           Math.round(pair.width * pair.text.offsetHeight / Math.max(1, figH)));
+      if (grown > pair.width) pair.el.style.setProperty('--tr-fig-w', grown + 'px');
+    }
+    if (pair.text.offsetHeight < 0.6 * figH) {
+      for (var k = pair.after.length - 1; k >= 0; k--) pair.el.parentNode.insertBefore(pair.after[k], pair.el.nextSibling);
+      pair.after = [];
+      pair.el.style.setProperty('--tr-fig-w', pair.width + 'px');
+      pair.el.classList.add('tr-pair--stacked');
+    }
+  }
+
+  var balanceQueued = false;
+  function balanceAll() {
+    if (balanceQueued) return;
+    balanceQueued = true;
+    requestAnimationFrame(function () {
+      balanceQueued = false;
+      pairs.forEach(balance);
     });
   }
 
@@ -657,12 +746,16 @@
       if (META_TITLE_RE.test(title.textContent.trim())) foldCallout(title);
     });
     [].forEach.call(scope.querySelectorAll('.derivation-box'), foldDerivation);
-    sideFigures(scope);
+    buildPairs(scope);
     marks = collect(scope);
     var heads = marks.filter(function (m) { return m.level === 2; }).map(function (m) { return m.target; });
     if (heads.length < 2) heads = collect(scope).filter(function (m) { return m.level === 2; }).map(function (m) { return m.target; });
     buildSections(scope, heads);
     if (marks.length >= MIN_MARKS) buildRail();
+    balanceAll();
+    window.addEventListener('load', balanceAll);
+    window.addEventListener('resize', balanceAll);
+    setTimeout(balanceAll, 800);   // after the formulas are typeset
   }
 
   linkStyles();
