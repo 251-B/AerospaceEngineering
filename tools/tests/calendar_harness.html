@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>calendar harness</title>
+<!-- Driven by test_calendar.py through headless Edge/Chrome (--dump-dom). Section 1 tests the
+     pure logic of assets/js/calendar-core.js against the real assets/data/timetable.js; later
+     sections load the account pages in iframes. -->
+<script src="../../assets/data/timetable.js"></script>
+<script src="../../assets/js/calendar-core.js"></script>
+</head>
+<body>
+<pre id="results">PENDING</pre>
+<script>
+(function () {
+  var results = [];
+  var C = window.AECalendar, TT = window.AE_TIMETABLE;
+  var ALL = ['fluid-mechanics', 'aerospace-materials-1', 'engineering-mechanics', 'advanced-maths', 'business-management'];
+  function record(name, ok, detail) { results.push({ name: name, pass: !!ok, detail: ok ? '' : String(detail) }); }
+  function run(name, fn) { try { fn(); } catch (e) { record(name, false, 'threw ' + (e && e.stack || e)); } }
+  function rec(groups, extra) { var r = C.empty(); r.groups = groups || {}; Object.keys(extra || {}).forEach(function (k) { r[k] = extra[k]; }); return r; }
+  function term(r, prefs) { return C.build(TT, r, prefs || { subjects: ALL, exams: {} }, TT.term.start, TT.term.end); }
+  function find(list, pred) { for (var i = 0; i < list.length; i++) if (pred(list[i])) return list[i]; return null; }
+  var EM_CUSTOM = { group: 'custom', labGroup: null, at: 1, slots: [
+    { id: 'a', dow: 1, start: '15:30', end: '17:00', room: 'X1', kind: 'lecture' },
+    { id: 'b', dow: 3, start: '15:30', end: '17:00', room: 'X2', kind: 'problems' }] };
+
+  // ---------------------------------------------------------------- 1. core logic
+  run('dated_g46_em_s21', function () {
+    var occ = term(rec({ 'engineering-mechanics': { group: 'G46', labGroup: null, slots: [], at: 1 } }));
+    var o = find(occ, function (x) { return x.sessionId === 'em-s21'; });
+    record('dated_g46_em_s21', o && o.date === '2026-11-18' && o.start === '15:30' && o.room === '7.2.J01' && o.official && o.links.length === 2,
+      JSON.stringify(o));
+  });
+  run('dated_slot_fill_materials', function () {
+    var occ = term(rec({ 'aerospace-materials-1': { group: 'G46', labGroup: null, slots: [], at: 1 } }));
+    var o = find(occ, function (x) { return x.sessionId === 'mat-s19'; });
+    record('dated_slot_fill_materials', o && o.date === '2026-11-18' && o.start === '17:15' && o.end === '18:45' && o.room === '7.2.J02', JSON.stringify(o));
+  });
+  run('custom_slots_weekly', function () {
+    var occ = term(rec({ 'fluid-mechanics': { group: 'custom', labGroup: null, at: 1, slots: [{ id: 's', dow: 5, start: '10:00', end: '11:30', room: 'R', kind: 'lecture' }] } }));
+    var fl = occ.filter(function (x) { return x.subject === 'fluid-mechanics'; });
+    record('custom_slots_weekly', fl.length === 14 && !find(fl, function (x) { return x.date === '2026-10-09'; }) && fl[0].date === '2026-09-11' && fl[0].sessionId === null,
+      fl.length + ' ' + (fl[0] && fl[0].date));
+  });
+  run('order_mapping_by_kind', function () {
+    var occ = term(rec({ 'engineering-mechanics': EM_CUSTOM }));
+    var got = ['2026-09-07', '2026-09-09', '2026-09-14', '2026-09-16'].map(function (d) {
+      var o = find(occ, function (x) { return x.date === d && x.subject === 'engineering-mechanics' && !x.isEvent; }); return o && o.sessionId; });
+    record('order_mapping_by_kind', got.join() === 'em-s1,em-s2,em-s3,em-s4', got.join());
+  });
+  run('notheld_shifts_plan', function () {
+    var r = rec({ 'engineering-mechanics': EM_CUSTOM });
+    r.marks[C.occKey('engineering-mechanics', '2026-09-07', '15:30')] = { status: 'notheld', at: 5 };
+    var occ = term(r);
+    var first = find(occ, function (x) { return x.date === '2026-09-07' && x.subject === 'engineering-mechanics'; });
+    var next = find(occ, function (x) { return x.date === '2026-09-14' && x.subject === 'engineering-mechanics'; });
+    record('notheld_shifts_plan', first && first.status === 'notheld' && first.sessionId === null && next && next.sessionId === 'em-s1',
+      JSON.stringify([first && first.sessionId, next && next.sessionId]));
+  });
+  run('missed_keeps_plan', function () {
+    var r = rec({ 'engineering-mechanics': EM_CUSTOM });
+    r.marks['em-s1'] = { status: 'missed', at: 5 };
+    var occ = term(r);
+    var first = find(occ, function (x) { return x.date === '2026-09-07' && x.subject === 'engineering-mechanics'; });
+    var pend = C.pending(occ, '2026-09-08');
+    record('missed_keeps_plan', first.sessionId === 'em-s1' && first.status === 'missed' && pend.length === 1 && pend[0].sessionId === 'em-s1',
+      JSON.stringify([first.sessionId, first.status, pend.length]));
+  });
+  run('dated_moveTo', function () {
+    var r = rec({ 'engineering-mechanics': { group: 'G46', labGroup: null, slots: [], at: 1 } });
+    r.marks['em-s21'] = { status: 'notheld', moveTo: '2026-11-20', at: 5 };
+    var o = find(term(r), function (x) { return x.sessionId === 'em-s21'; });
+    record('dated_moveTo', o && o.date === '2026-11-20' && o.movedFrom === '2026-11-18' && o.start === '15:30' && o.status === null, JSON.stringify(o));
+  });
+  run('lab_group_filter', function () {
+    var occ = term(rec({ 'engineering-mechanics': { group: 'G46', labGroup: 'A', slots: [], at: 1 } }));
+    var labs = occ.filter(function (x) { return x.kind === 'lab'; });
+    record('lab_group_filter', labs.length === 4 && labs.every(function (x) { return x.lab === 'A'; }), labs.length);
+  });
+  run('lab_no_links', function () {
+    var occ = term(rec({ 'engineering-mechanics': { group: 'G46', labGroup: null, slots: [], at: 1 }, 'aerospace-materials-1': { group: 'G46', labGroup: null, slots: [], at: 1 } }));
+    var labs = occ.filter(function (x) { return x.kind === 'lab'; });
+    var em = labs.filter(function (x) { return x.subject === 'engineering-mechanics'; });
+    record('lab_no_links', labs.length === 12 && labs.every(function (x) { return x.links.length === 0; }) && em.every(function (x) { return / \(A or B\)$/.test(x.title); }),
+      labs.length + ' ' + (em[0] && em[0].title));
+  });
+  run('events_and_tombstones', function () {
+    var r = rec({}, { events: [{ id: 'e1', subject: null, kind: 'other', title: 'Tutorial', date: '2026-11-19', start: '10:00', end: '11:00', room: '', note: '', at: 1 }] });
+    var before = find(term(r), function (x) { return x.key === 'e1'; });
+    var m = C.merge(r, rec({}, { events: [{ id: 'e1', deleted: true, at: 2 }] }));
+    var after = find(term(m), function (x) { return x.key === 'e1'; });
+    var back = C.merge(m, r);
+    var again = find(term(back), function (x) { return x.key === 'e1'; });
+    record('events_and_tombstones', before && before.isEvent && !after && !again, JSON.stringify([!!before, !!after, !!again]));
+  });
+  run('merge_marks_newer_wins', function () {
+    var a = rec({}, { marks: { 'em-s1': { status: 'missed', at: 1 }, 'em-s2': { status: 'done', at: 9 } }, daysOff: ['2026-11-02'] });
+    var b = rec({}, { marks: { 'em-s1': { status: 'done', at: 5 }, 'em-s2': { status: 'missed', at: 3 } }, daysOff: ['2026-12-01'] });
+    a.groups = { 'fluid-mechanics': { group: 'custom', slots: [], at: 1 } };
+    b.groups = { 'fluid-mechanics': { group: 'custom', slots: [{ id: 'z', dow: 2, start: '09:00', end: '10:00', room: '', kind: 'lecture' }], at: 4 } };
+    var m = C.merge(a, b);
+    record('merge_marks_newer_wins', m.marks['em-s1'].status === 'done' && m.marks['em-s2'].status === 'done' && m.daysOff.length === 2 && m.groups['fluid-mechanics'].slots.length === 1,
+      JSON.stringify(m));
+  });
+  run('exams_from_prefs', function () {
+    var occ = term(rec({}), { subjects: ALL, exams: { 'fluid-mechanics': { midterm: '2026-11-26', final: null } } });
+    var o = find(occ, function (x) { return x.isExam && x.subject === 'fluid-mechanics'; });
+    record('exams_from_prefs', o && o.date === '2026-11-26' && o.allDay, JSON.stringify(o));
+  });
+  run('maths_log_by_date', function () {
+    var occ = term(rec({ 'advanced-maths': { group: 'custom', labGroup: null, at: 1, slots: [{ id: 'm', dow: 2, start: '13:40', end: '15:10', room: '', kind: 'lecture' }] } }));
+    var a = find(occ, function (x) { return x.date === '2026-09-08' && x.subject === 'advanced-maths'; });
+    var b = find(occ, function (x) { return x.date === '2026-11-03' && x.subject === 'advanced-maths'; });
+    record('maths_log_by_date', a && a.sessionId === 'am-l1' && a.basis === 'log' && b && b.sessionId === null, JSON.stringify([a && a.sessionId, b && b.sessionId]));
+  });
+  run('empty_record_no_throw', function () {
+    var occ = term(C.empty(), { subjects: ALL, exams: {} });
+    record('empty_record_no_throw', Array.isArray(occ) && occ.length === 0, occ && occ.length);
+  });
+  run('next_class', function () {
+    var occ = term(rec({ 'engineering-mechanics': { group: 'G46', labGroup: null, slots: [], at: 1 } }));
+    var n = C.next(occ, '2026-11-18T09:00');
+    record('next_class', n && n.sessionId === 'em-s21', JSON.stringify(n));
+  });
+  run('storage_blocked_load', function () {
+    var orig = Storage.prototype.getItem;
+    Storage.prototype.getItem = function () { throw new Error('blocked'); };
+    try { var r = C.load(); record('storage_blocked_load', r && r.v === 1 && Array.isArray(r.events), JSON.stringify(r)); }
+    finally { Storage.prototype.getItem = orig; }
+  });
+
+  document.getElementById('results').textContent = JSON.stringify(results);
+})();
+</script>
+</body>
+</html>
