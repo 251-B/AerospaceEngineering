@@ -112,7 +112,7 @@
     // with integrated graphics: ask first there (deviceMemory is reported in GB, at most 8).
     var mem = navigator.deviceMemory || 0;
     var mobile = /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent || '');
-    if ((mobile || (mem && mem < 8)) && !confirmed[key]) {
+    if ((mobile || (mem && mem < 8)) && !confirmed[key] && !(opts && opts.auto)) {
       var size = (opts && opts.offlineSizeLabel) || 'over 1 GB';
       var ok = typeof window.confirm !== 'function' || window.confirm(
         'This device ' + (mem ? 'reports ' + mem + ' GB of memory' : 'looks like a phone or tablet') +
@@ -140,7 +140,7 @@
       var label = info.status === 'done' ? 'Preparing WebGPU kernels...'
         : info.file ? 'Downloading ' + info.file.split('/').pop() + mb
         : 'Initialising WebGPU runtime...';
-      onProgress({ status: info.status || 'progress', progress: pct, text: label });
+      onProgress({ status: info.status || 'progress', progress: pct, text: label, bytesLoaded: sumLoaded, bytesTotal: sumTotal });
     }
 
     if (onProgress) onProgress({ status: 'init', progress: 2, text: 'Loading Transformers.js WebGPU runtime...' });
@@ -416,6 +416,167 @@
     });
   }
 
+  /* ---------------------------------------------------------------- automatic local models
+     Device tiers: 0 = cloud only (phones, tablets, no WebGPU or shader-f16, data saver),
+     1 = small models, 2 = mid-size models. Every model of ai-models.js with offlineBackend "webgpu"
+     and a "localTier" up to the device tier is downloaded in the background, then probed (a short
+     real generation), and from then on answers on the device: free, with no daily allowance.
+     WebGPU limits only say a model may load, not that it will (phones with equal limits behave
+     differently), hence the probe and the crash guard. */
+  var LOCAL_KEY = 'ae_sideris_local';
+  var GIB = 1073741824;
+  var MIN_TOKENS_PER_SEC = 3;   // slower than this, an answer on the device is worse than the cloud
+  var localState = parseLocal(readStore(LOCAL_KEY));   // { ready: {id: true}, failed: {id: why}, loading: id }
+  var localJob = null;          // model being downloaded: { id, name, startedAt, loaded, total }
+  var localTodo = [];           // models still to download, in order
+  var localRunning = null;      // promise of the running startLocal(), shared by every caller
+  var localTier = null;
+  saveLocal();
+
+  function readStore(key) {
+    try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { return null; }
+  }
+
+  function parseLocal(raw) {
+    var st = raw && typeof raw === 'object' ? raw : {};
+    st.ready = st.ready && typeof st.ready === 'object' ? st.ready : {};
+    st.failed = st.failed && typeof st.failed === 'object' ? st.failed : {};
+    // Crash guard: "loading" is cleared on success, on failure and on a normal page exit (pagehide),
+    // so if it is still set the tab died while loading that model: never try it here again.
+    if (st.loading) { st.failed[st.loading] = 'the tab closed while loading'; delete st.ready[st.loading]; }
+    st.loading = '';
+    return st;
+  }
+
+  function saveLocal() {
+    try { localStorage.setItem(LOCAL_KEY, JSON.stringify(localState)); } catch (e) { /* blocked */ }
+  }
+
+  window.addEventListener('pagehide', function () {
+    if (localState.loading) { localState.loading = ''; saveLocal(); }
+  });
+
+  // shortcut: thresholds are estimates (1 GiB / 2 GiB buffers, 8 GB RAM); tune them with real devices.
+  function classifyDevice(sig) {
+    if (!sig.webgpu || !sig.f16 || sig.mobile || sig.saveData) return 0;
+    var tier = sig.maxBuffer >= 2 * GIB ? 2 : sig.maxBuffer >= GIB ? 1 : 0;
+    if (sig.memGB && sig.memGB < 8) tier = Math.min(tier, sig.memGB >= 4 ? 1 : 0);   // 0 = not reported
+    return tier;
+  }
+
+  function detectDevice() {
+    var ua = navigator.userAgent || '';
+    var conn = navigator.connection || {};
+    var sig = {
+      webgpu: hasWebGPU(),
+      f16: false,
+      // iPadOS reports a Mac user agent: a touch screen gives it away
+      mobile: /Android|iPhone|iPad|iPod|Mobile/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1),
+      saveData: !!conn.saveData || /^(slow-2g|2g|3g)$/.test(conn.effectiveType || ''),
+      memGB: navigator.deviceMemory || 0,
+      maxBuffer: 0,
+      freeMB: Infinity
+    };
+    if (!sig.webgpu || sig.mobile) return Promise.resolve(sig);
+    return navigator.gpu.requestAdapter().then(function (a) {
+      if (a) { sig.f16 = a.features.has('shader-f16'); sig.maxBuffer = a.limits.maxBufferSize || 0; }
+    }).catch(function () {}).then(function () {
+      return navigator.storage && navigator.storage.estimate ? navigator.storage.estimate() : null;
+    }).then(function (est) {
+      if (est && est.quota) sig.freeMB = (est.quota - (est.usage || 0)) / 1048576;
+      return sig;
+    }, function () { return sig; });
+  }
+
+  // A model marked ready whose files the browser has since evicted (Safari does it after 7 days)
+  // is downloaded again in the background instead of in front of the student.
+  function verifyCached(models) {
+    if (mockFn || typeof caches === 'undefined') return Promise.resolve();
+    return caches.keys().then(function (names) {
+      var name = names.filter(function (n) { return /transformers/i.test(n); })[0];
+      return name ? caches.open(name).then(function (c) { return c.keys(); }) : [];
+    }).then(function (reqs) {
+      models.forEach(function (m) {
+        var cached = reqs.some(function (r) { return r.url.indexOf(m.repo) >= 0; });
+        if (localState.ready[m.id] && !cached) delete localState.ready[m.id];
+      });
+      saveLocal();
+    }).catch(function () {});
+  }
+
+  function probe(m) {
+    var t0 = Date.now(), n = 0;
+    return generate({
+      model: { id: m.id, backend: 'webgpu', repo: m.repo, dtype: m.dtype },
+      messages: [{ role: 'user', content: 'Reply with one short sentence about fluids.' }],
+      maxTokens: 16
+    }, function () { n++; }).then(function () {
+      return n / Math.max(0.001, (Date.now() - t0) / 1000);
+    });
+  }
+
+  function fetchOne(m) {
+    localJob = { id: m.id, name: m.name, startedAt: Date.now(), loaded: 0, total: (m.sizeMB || 0) * 1048576 };
+    localState.loading = m.id;
+    saveLocal();
+    return loadWebGPU({ repo: m.repo, dtype: m.dtype, name: m.name, auto: true }, function (p) {
+      if (p && p.bytesLoaded) { localJob.loaded = p.bytesLoaded; if (p.bytesTotal) localJob.total = p.bytesTotal; }
+    }).then(function () {
+      return probe(m);
+    }).then(function (tps) {
+      if (tps < MIN_TOKENS_PER_SEC) localState.failed[m.id] = 'too slow on this device (' + tps.toFixed(1) + ' tokens/s)';
+      else localState.ready[m.id] = true;
+    }, function (err) {
+      var msg = (err && err.message) || String(err);
+      // a dropped download is tried again on a later visit; anything else means this device can't
+      if (!/fetch|network|load failed|abort/i.test(msg)) localState.failed[m.id] = msg.slice(0, 120);
+    }).then(function () {
+      localState.loading = '';
+      saveLocal();
+      localJob = null;
+    });
+  }
+
+  function startLocal(models, signals) {
+    if (localRunning) return localRunning;
+    localRunning = (signals ? Promise.resolve(signals) : detectDevice()).then(function (sig) {
+      localTier = classifyDevice(sig);
+      var fit = (models || []).filter(function (m) {
+        return m.offlineBackend === 'webgpu' && m.localTier && m.localTier <= localTier && !localState.failed[m.id];
+      });
+      return verifyCached(fit).then(function () {
+        var room = sig.freeMB, todo = [];
+        fit.forEach(function (m) {
+          if (localState.ready[m.id]) return;
+          var need = (m.sizeMB || 0) * 1.2;   // weights plus runtime files and some margin
+          if (need <= room) { todo.push(m); room -= need; }
+        });
+        localTodo = todo;
+        if (todo.length && navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(function () {});
+        return todo.reduce(function (chain, m) {
+          return chain.then(function () { localTodo.shift(); return fetchOne(m); });
+        }, Promise.resolve());
+      });
+    }).catch(function () {}).then(function () {
+      localRunning = null;
+      localJob = null;
+      localTodo = [];
+      return localTier;
+    });
+    return localRunning;
+  }
+
+  // Seconds until the next model on this device is ready, or null when nothing is coming or the
+  // speed is unknown. Uses the speed of the running download, else the reported connection speed.
+  function localEta() {
+    var next = localJob || (localTodo[0] && { name: localTodo[0].name, loaded: 0, total: (localTodo[0].sizeMB || 0) * 1048576 });
+    if (!next) return null;
+    var rate = localJob && localJob.loaded > 0 ? localJob.loaded / Math.max(1, (Date.now() - localJob.startedAt) / 1000) : 0;
+    if (!rate && navigator.connection && navigator.connection.downlink) rate = navigator.connection.downlink * 125000;   // Mbps -> bytes/s
+    if (!rate) return null;
+    return { seconds: Math.max(30, Math.round((next.total - next.loaded) / rate) + 20), name: next.name };   // +20 s GPU set-up and probe
+  }
+
   function generate(req, onToken, onProgress) {
     if (mockFn) {
       var token = { aborted: false };
@@ -449,6 +610,8 @@
 
   function clearBrowserCache() {
     loaded = null;
+    localState.ready = {};
+    saveLocal();
     if (typeof caches === 'undefined') return Promise.resolve(0);
     return caches.keys().then(function (names) {
       var targets = names.filter(function (n) { return /transformers|huggingface|onnx|sideris/i.test(n); });
@@ -473,6 +636,16 @@
     checkOllama: checkOllama,
     checkCloud: checkCloud,
     remaining: function () { return lastRemaining; },
-        setMock: setMock
+    local: {
+      classify: classifyDevice,
+      start: startLocal,
+      isReady: function (id) { return !!localState.ready[id] && !localState.failed[id]; },
+      busy: function () { return !!localJob; },
+      eta: localEta,
+      markFailed: function (id, why) { delete localState.ready[id]; localState.failed[id] = String(why || 'error').slice(0, 120); saveLocal(); },
+      state: function () { return { tier: localTier, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id : '' }; },
+      restore: function (raw) { localState = parseLocal(raw); saveLocal(); }   // test hook, same path as a page load
+    },
+    setMock: setMock
   };
 })();

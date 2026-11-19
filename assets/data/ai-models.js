@@ -11,10 +11,16 @@
  *     (assets/data/sideris-config.js) on desktop and mobile with zero setup;
  *   - Offline / Local         -> downloads ONNX weights into the browser (WebGPU) or connects
  *     to local Ollama / LM Studio, including custom fine-tuned Sideris checkpoints.
+ *
+ * Automatic local mode: a model with "localTier" (1 small, 2 mid-size) and offlineBackend "webgpu"
+ * is downloaded in the background on computers of that tier or above (ai-engine.js, local) and then
+ * answers there instead of the cloud. "sizeMB" is its download size, used for space and wait times.
  */
 window.AE_SIDERIS_MODELS = [
   {
     "id": "sideris-lux",
+    "localTier": 1,
+    "sizeMB": 1300,
     "name": "Sideris Lux",
     "tier": "Fast",
     "bestFor": "Quick definitions, formula lookups and short theory doubts",
@@ -34,6 +40,8 @@ window.AE_SIDERIS_MODELS = [
   },
   {
     "id": "sideris-aether",
+    "localTier": 2,
+    "sizeMB": 2500,
     "name": "Sideris Aether",
     "tier": "Recommended",
     "bestFor": "Everyday study, theory explanations and Socratic tutoring",
@@ -53,6 +61,8 @@ window.AE_SIDERIS_MODELS = [
   },
   {
     "id": "sideris-orion",
+    "localTier": 2,
+    "sizeMB": 2300,
     "maxTokens": 6000,
     "reasoning": true,
     "name": "Sideris Orion",

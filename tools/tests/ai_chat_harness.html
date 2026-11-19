@@ -245,6 +245,68 @@ window.addEventListener('load', function () {
             check('dropped-stream-keeps-partial-answer', !last.error && /^PARTIAL_ANSWER/.test(last.text) && /connection dropped/.test(last.text), last.text.slice(0, 120));
           });
         }).then(function () {
+          // Automatic local models: tiers from the device signals
+          var L = window.AESiderisEngine.local, G = 1073741824;
+          var base = { webgpu: true, f16: true, mobile: false, saveData: false, memGB: 8, maxBuffer: 4 * G, freeMB: 1e6 };
+          function sig(o) { var x = {}; for (var k in base) x[k] = base[k]; for (var j in o) x[j] = o[j]; return x; }
+          var tiers = [L.classify(base), L.classify(sig({ maxBuffer: 1.5 * G })), L.classify(sig({ mobile: true })),
+            L.classify(sig({ f16: false })), L.classify(sig({ webgpu: false })), L.classify(sig({ memGB: 4 })),
+            L.classify(sig({ memGB: 0 })), L.classify(sig({ saveData: true }))].join(',');
+          check('local-tiers', tiers === '2,1,0,0,0,1,2,0', tiers);
+          // Crash guard: a model still marked "loading" on the next visit is never tried again
+          L.restore({ loading: 'sideris-lux' });
+          check('local-crash-guard', !!L.state().failed['sideris-lux'] && !L.isReady('sideris-lux'), JSON.stringify(L.state().failed));
+          L.restore({});
+          // A tier-2 computer installs Lux, Aether and Orion (Titan stays in the cloud) and then answers on it
+          var calls = [];
+          window.AESiderisEngine.setMock(function (req, cb) {
+            calls.push(req.model.backend + ':' + req.model.id);
+            var out = 'LOCAL_OR_CLOUD ' + req.model.backend;
+            for (var i = 0; i < 16; i++) cb.onToken('t', out);
+            return Promise.resolve(out);
+          });
+          return L.start(window.AESideris.models(), base).then(function () {
+            var ready = L.state().ready.sort().join(',');
+            check('local-installs-what-fits', ready === 'sideris-aether,sideris-lux,sideris-orion', ready);
+            window.AESideris.clearChat();
+            window.AESideris.selectModel('sideris-aether');
+            return window.AESideris.sendUserMessage('What is a streamline?');
+          }).then(function (text) {
+            var last = window.AESideris.history()[0].messages.slice(-1)[0];
+            check('local-answers-on-device', /webgpu/.test(text) && /on this device/.test(last.modelName), text + ' | ' + last.modelName);
+            // The device fails: the model is marked and the cloud answers
+            window.AESiderisEngine.setMock(function (req, cb) {
+              if (req.model.backend === 'webgpu') return Promise.reject(new Error('GPU device lost'));
+              cb.onToken('CLOUD', 'CLOUD'); return Promise.resolve('CLOUD');
+            });
+            window.AESideris.clearChat();
+            return window.AESideris.sendUserMessage('And a pathline?');
+          }).then(function (text) {
+            check('local-failure-falls-back-to-cloud', text === 'CLOUD' && !L.isReady('sideris-aether') && !!L.state().failed['sideris-aether'], text);
+            // Too slow on this device: not used
+            L.restore({});
+            window.AESiderisEngine.setMock(function (req, cb) {
+              return new Promise(function (r) { setTimeout(function () { cb.onToken('t', 't'); r('t'); }, 700); });
+            });
+            return L.start(window.AESideris.models(), sig({ maxBuffer: 1.5 * G }));
+          }).then(function () {
+            check('local-slow-device-stays-in-cloud', !L.isReady('sideris-lux') && /slow/.test(L.state().failed['sideris-lux'] || ''), JSON.stringify(L.state().failed));
+            // Out of the cloud allowance while a model downloads: the wait time replaces "tomorrow"
+            var realEta = L.eta;
+            L.eta = function () { return { seconds: 540, name: 'Sideris Aether' }; };
+            window.AESiderisEngine.setMock(function () {
+              return Promise.reject(new Error("You have used today's Sideris allowance. It resets tomorrow (00:00 UTC)."));
+            });
+            window.AESideris.clearChat();
+            return window.AESideris.sendUserMessage('One more?').then(function () {
+              L.eta = realEta;
+              var last = window.AESideris.history()[0].messages.slice(-1)[0];
+              check('allowance-shows-local-wait', /about 9 minutes/.test(last.text) && /unlimited/.test(last.text), last.text);
+              L.restore({});
+              window.AESideris.selectModel('sideris-aether');
+            });
+          });
+        }).then(function () {
           // 3. The prebuilt index of build_ai_index.py must use the same tokens as the browser
           check('tokenizer-sample', true, JSON.stringify(window.AESiderisRAG.tokenize(
             'Explícame el \\nabla \\cdot u = 0 con r_1, EBITDA y la Ecuación de Navier-Stokes (2024) of the fluid')));

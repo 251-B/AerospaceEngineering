@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-on-your-computer",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris installs itself on computers that can run it",
+    "text": "On a capable computer Sideris quietly downloads its models and then answers there, with no daily limit. Phones and tablets keep using the cloud."
+  },
+  {
     "id": "2026-11-19-sideris-daily-allowance",
     "date": "2026-11-19",
     "tag": "Portal",

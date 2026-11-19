@@ -14,6 +14,10 @@ mobile), grounded in the portal's `vault/` RAG shards.
   (`PORTAL_DAILY_POINTS`). Counters live in the `SiderisQuota` Durable Object (SQLite, created by the
   deploy) and reset at 00:00 UTC; the student is an anonymous id kept in their browser
   (`ae_sideris_client`). Change the numbers with the commented `[vars]` of the wrangler config.
+- **Automatic local models:** on computers, the models with a `localTier` in `assets/data/ai-models.js`
+  (Lux 1, Aether and Orion 2) download in the background, are checked with a short real generation and
+  then answer on the device, with no daily limit. Phones and tablets always use the cloud. Titan stays
+  in the cloud until it is exported to ONNX (`offlineBackend: "webgpu"`, `localTier`, `sizeMB`).
 - **Offline / Local mode:** visitors can also switch **Run mode -> Offline / Local** inside Settings
   to download WebGPU browser models (`Lux`, `Aether`, `Orion`) or connect local Ollama (`Titan`).
 

@@ -258,6 +258,14 @@
     } else {
       copy.backend = 'cloud';
       copy.sizeLabel = '0 MB · Instant';
+      // Downloaded and probed on this computer: answer here (free, no daily allowance). Not while
+      // another model is downloading, so two models never compete for the GPU.
+      var local = window.AESiderisEngine && window.AESiderisEngine.local;
+      if (local && local.isReady(copy.id) && !local.busy()) {
+        copy.backend = 'webgpu';
+        copy.autoLocal = true;
+        copy.sizeLabel = 'On this device';
+      }
     }
     if (copy.backend === 'ollama') {
       copy.endpoint = prefs.ollamaEndpoint || copy.endpoint || 'http://localhost:11434/v1';
@@ -1788,6 +1796,23 @@
     return es > en ? 'es' : en > es ? 'en' : '';
   }
 
+  /* Out of today's cloud allowance: if Sideris is being installed on this computer, say when it
+     will be ready (from then on its questions here are unlimited) instead of "tomorrow". */
+  function allowanceMessage(msg) {
+    if (!/today's Sideris allowance/.test(msg) || !window.AESiderisEngine) return msg;
+    var local = window.AESiderisEngine.local;
+    var eta = local.eta();
+    if (eta) {
+      var min = Math.ceil(eta.seconds / 60);
+      return "You have used today's cloud allowance. " + eta.name + ' is being set up on this device and will be ready in about ' +
+        (min <= 1 ? 'a minute' : min + ' minutes') + '; from then on your questions here are unlimited.';
+    }
+    var ready = MODELS.filter(function (x) { return local.isReady(x.id); }).map(function (x) { return x.name; });
+    if (ready.length) return "You have used today's cloud allowance. " + ready.join(', ') + ' run' + (ready.length === 1 ? 's' : '') +
+      ' on this device without a limit: switch to ' + (ready.length === 1 ? 'it' : 'one of them') + ' to keep going.';
+    return msg;
+  }
+
   function sendUserMessage(text, opts) {
     opts = opts || {};
     if (session.busy || !window.AESiderisEngine) return Promise.resolve();
@@ -1806,7 +1831,7 @@
     var assistantMsg = {
       role: 'assistant',
       text: '',
-      modelName: m.name,
+      modelName: m.name + (m.autoLocal ? ' · on this device' : ''),
       ragHits: []
     };
     session.messages.push(assistantMsg);
@@ -1878,7 +1903,18 @@
       // Tested on the worker: on a long derivation Orion and Titan (reasoning models) spent the whole
       // token budget thinking and wrote no answer, and the model ignores /no_think. Ask Aether (no
       // reasoning) for the answer then, keeping the reasoning already shown.
-      return run(m, '').then(function (t) {
+      // On this device first; if the device fails (lost GPU, evicted files), mark it and use the cloud.
+      var first = !m.autoLocal ? run(m, '') : run(m, '').catch(function (err) {
+        window.AESiderisEngine.local.markFailed(m.id, err && err.message);
+        var cloudCopy = {};
+        for (var k in m) cloudCopy[k] = m[k];
+        cloudCopy.backend = 'cloud';
+        cloudCopy.autoLocal = false;
+        assistantMsg.modelName = m.name;
+        setStatus(m.name + ' could not run on this device; answering from the cloud...');
+        return run(cloudCopy, '');
+      });
+      return first.then(function (t) {
         var parts = splitThinking(t);
         if (m.backend !== 'cloud' || !parts.think || parts.answer || m.id === 'sideris-aether') return t;
         setStatus(m.name + ' used the whole answer length on reasoning; Sideris Aether is writing the answer...');
@@ -1906,7 +1942,7 @@
     }).catch(function (err) {
       hideProgress();
       setBusy(false);
-      var msg = (err && err.message) ? err.message : String(err);
+      var msg = allowanceMessage((err && err.message) ? err.message : String(err));
       if (splitThinking(assistantMsg.text).answer) {
         // Tested on the worker: long answers can lose the connection half way. Keep what arrived.
         assistantMsg.text += '\n\n*(The connection dropped before the answer was complete. Press Retry for the full answer.)*';
@@ -2018,6 +2054,13 @@
   function boot() {
     if (ui.drawer) return;
     buildUI();
+    // Install the models this computer can run, quietly, once the page has settled.
+    var engine = window.AESiderisEngine;
+    if (engine && engine.local && prefs.runMode === 'instant') {
+      var go = function () { engine.local.start(MODELS); };
+      if (window.requestIdleCallback) setTimeout(function () { requestIdleCallback(go, { timeout: 10000 }); }, 3000);
+      else setTimeout(go, 5000);
+    }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
