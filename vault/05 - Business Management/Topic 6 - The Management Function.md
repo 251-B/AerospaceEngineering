@@ -42,7 +42,7 @@ Managerial decisions are classified by two axes: the type of problem (from known
 
 ## 3. The decision-making process [Slide 6]
 
-The decision-making process has eight steps: 1. recognizing the problem or opportunity; 2. gathering information (identifying the critical factors); 3. considering alternative courses of action; 4. analyzing the alternatives; 5. choosing an alternative; 6. implementing the decision; 7. evaluating the results; 8. implementing changes. The slide groups them into analyzing the alternatives and implementing the changes.
+The decision-making process has eight steps: 1. recognizing the problem or opportunity; 2. gathering information (identifying the critical factors); 3. considering alternative courses of action; 4. analyzing the alternatives; 5. choosing an alternative; 6. implementing the decision; 7. evaluating the results; 8. implementing changes.
 
 ![[attachments/BM-T6/decision-process.png]]
 

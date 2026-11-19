@@ -8,7 +8,7 @@ Generated SVGs (`REG.put`) and crops (`REG.raster` or PNG) per vault attachment 
 
 | Subject | Figure modules | `vault/attachments/` | Likely class |
 | :--- | :--- | :--- | :--- |
-| Business Management | `bm_t1.py` to `bm_t7.py` (48 `put`) | `BM-T1` to `BM-T7`: 48 SVG | Mostly slide diagrams: **migrate** to crops |
+| Business Management | `bm_t1.py` to `bm_t7.py` (48 `put`) | `BM-T1` to `BM-T7`: 4 SVG left (EXTRA) + 46 PNG | **Done 2026-11-19**: 46 crops; EXTRA: T3 balance, T4 p2-profit and p3-profit, T5 p1-demand |
 | Fluid Mechanics theory | `fluids_t3.py` (40), `fluids_t4.py` (8), `fluids_t5.py` (6), `fluids_t6.py` (3), `fluids_t7.py` (7) | `FM-T3` 40 SVG + 4 PNG, `FM-T4` 8 + 8, `FM-T5` 28, `FM-T6` 13 + 1, `FM-T7` 25 | Figures of `Notes.pdf`: **migrate**; plots of formulas not in the notes are EXTRA |
 | Fluid Mechanics problems | `fluids_t5p.py`, `fluids_t6p.py`, `fluids_t7p.py`; `RASTER` in `tools/fluids_ns/` | in the same `FM-T*` folders | Statement figures: **migrate**; deduction and free-body figures are EXTRA |
 | Engineering Mechanics | `em_theory.py`, `em_solutions.py`, `em_midterm1.py` | `EM` 68 PNG (statements, already crops), `EM-T` 49 SVG, `EM-SOL` 217 SVG, `EM-M1` 20 SVG | `EM-SOL` and most `EM-T` are deduction figures (EXTRA, required by the problem-solving standard); only `EM-T` figures copied from `Notes.pdf` or the slides **migrate** |

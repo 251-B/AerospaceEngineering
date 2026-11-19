@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-business-figures-from-slides",
+    "date": "2026-11-19",
+    "tag": "Business Management",
+    "title": "Business figures now come straight from the slides",
+    "text": "The diagrams of Topics 1 to 7 are now crops of the official slides instead of redrawn versions. Two that had drifted from the slides were corrected.",
+    "link": "subjects/business-management/teoria/topic-1.html"
+  },
+  {
     "id": "2026-11-19-sideris-on-your-computer",
     "date": "2026-11-19",
     "tag": "Portal",
