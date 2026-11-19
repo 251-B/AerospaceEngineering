@@ -145,3 +145,7 @@ flowchart TD
 * **Fluid Mechanics (`01 - Fluid Mechanics`):** Direct application of Navier-Stokes simplification to Hagen-Poiseuille pipe flow ([[04 - Advanced Maths/Concept - Navier-Stokes Poiseuille Flow Reduction|Navier-Stokes Reduction]] $\leftrightarrow$ [[01 - Fluid Mechanics/Fluid Mechanics MOC|Fluid Mechanics MOC]]).
 * **Engineering Mechanics (`03 - Engineering Mechanics`):** Pendulum and mass-spring dynamics ([[04 - Advanced Maths/Problem - Ch1-P8 Simple Pendulum Equation of Motion|Pendulum Equation]] $\leftrightarrow$ [[03 - Engineering Mechanics/Engineering Mechanics MOC|Engineering Mechanics MOC]]).
 * **Aerodynamics & Aeroelastic Stability:** Pitchfork bifurcation and trim stability ([[04 - Advanced Maths/Problem - Ch2-P16 Pitchfork Phase Line and Stability Regimes|Problem 2.16]]).
+
+## Class schedule
+
+* [[04 - Advanced Maths/Schedule - Advanced Maths 2026-27|Schedule - Advanced Maths 2026-27]]: lecture log of the ODE part (what was covered in each lecture), used by the account calendar.

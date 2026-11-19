@@ -108,3 +108,6 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
 * [[Templates/Template - Exam Problem|Template: Solved Exam Problem]]
 * [[Templates/Plantilla Formulario Resumen|Template: Formula Cheat Sheet]]
 
+## Class schedule
+
+* [[03 - Engineering Mechanics/Schedule - Engineering Mechanics 2026-27|Schedule - Engineering Mechanics 2026-27]]: official weekly planning of G46 (sessions, labs, quizzes), used by the account calendar.
