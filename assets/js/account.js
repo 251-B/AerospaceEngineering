@@ -383,6 +383,7 @@
     ['ae_recent', 'Last page read in each subject'],
     ['ae_marks', 'Favourite problems and your notes'],
     ['ae_calendar', 'Calendar (classes, labs, exams)'],
+    ['ae_tour', 'Guided tour progress'],
     ['ae_cloud', 'Sign-in session with the account service']
   ];
 
@@ -563,6 +564,11 @@
         a.setAttribute('role', 'menuitem');
         menu.appendChild(a);
       });
+      var tourItem = el('button', 'acc-menu__item', 'Take the tour');
+      tourItem.type = 'button';
+      tourItem.setAttribute('role', 'menuitem');
+      tourItem.addEventListener('click', function () { closeMenu(false); loadTour(0); });
+      menu.appendChild(tourItem);
       var out = el('button', 'acc-menu__item acc-menu__item--quiet', 'Sign out');
       out.type = 'button';
       out.setAttribute('role', 'menuitem');
@@ -694,6 +700,21 @@
     document.head.appendChild(js);
   }
 
+  // ---- guided tour (assets/js/tour.js), loaded only when asked for: the menu item or ?tour=N
+  function loadTour(index) {
+    if (window.AETour) { if (index != null) window.AETour.start(index); return; }
+    if (!BASE || document.querySelector('script[data-tour]')) return;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = BASE + 'assets/css/tour.css';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = BASE + 'assets/js/tour.js';
+    js.setAttribute('data-tour', '');
+    if (index != null) js.onload = function () { if (window.AETour) window.AETour.start(index); };
+    document.head.appendChild(js);
+  }
+
   // ---- the portal arranged around the reader's subjects ---------------------------------------
   // Signed in with subjects chosen: the side menu lists them first ("Your subjects", then "Other
   // subjects"), "What's new" keeps only their entries and the portal's own, and the home page
@@ -795,7 +816,7 @@
   var CFG = window.AE_ACCOUNT_CONFIG || {};
   var CLOUD = !!(CFG.supabaseUrl && CFG.supabaseAnonKey);
   var CLOUD_KEY = 'ae_cloud';
-  var SYNC_KEYS = ['ae_study_log', 'ae_recent', 'ae_marks', 'ae_bm_exams', 'ae_mat_exams', 'ae_am_exams', 'ae_em_exams', 'ae_formula_mode', 'ae_calendar'];
+  var SYNC_KEYS = ['ae_study_log', 'ae_recent', 'ae_marks', 'ae_bm_exams', 'ae_mat_exams', 'ae_am_exams', 'ae_em_exams', 'ae_formula_mode', 'ae_calendar', 'ae_tour'];
   var CALENDAR_KEY = 'ae_calendar';
 
   // Calendar records merge entry by entry (assets/js/calendar-core.js); on pages without that
@@ -1019,6 +1040,8 @@
       if (keys[k]) writeJSON(k, mergeHistory(readJSON(k), keys[k]));
     });
     if (keys[CALENDAR_KEY]) writeJSON(CALENDAR_KEY, mergeCalendar(readJSON(CALENDAR_KEY), keys[CALENDAR_KEY]));
+    var tourLocal = readJSON('ae_tour');
+    if (keys.ae_tour && (!tourLocal || (keys.ae_tour.at || 0) > (tourLocal.at || 0))) writeJSON('ae_tour', keys.ae_tour);
     if (keys[FORMULA_KEY] && !(function () { try { return localStorage.getItem(FORMULA_KEY); } catch (e) { return null; } })()) {
       try { localStorage.setItem(FORMULA_KEY, keys[FORMULA_KEY]); } catch (e) { /* blocked */ }
     }
@@ -1113,6 +1136,7 @@
     apply();
     trackStudy();
     loadMarks();
+    if (current() && /[?&]tour=\d+/.test(location.search)) loadTour(null);
     arrange();
     startSync();
   }
@@ -1143,6 +1167,7 @@
     inviteStatus: inviteStatus,
     syncNow: function () { return pushState(true); },
     changed: function () { schedulePush(); },
+    startTour: loadTour,
     exportData: exportData,
     studyLog: studyLog,
     marks: marks,

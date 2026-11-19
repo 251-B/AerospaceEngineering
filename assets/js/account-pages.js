@@ -406,6 +406,12 @@
       });
     });
 
+    var skipTour = $('[data-skip-tour]');
+    if (skipTour) skipTour.addEventListener('click', function () {
+      try { localStorage.setItem('ae_tour', JSON.stringify({ done: true, step: 0, at: Date.now() })); } catch (e) { /* blocked */ }
+      if (AEAccount.changed) AEAccount.changed();
+    });
+
     $$('[data-go]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var target = Number(btn.getAttribute('data-go'));

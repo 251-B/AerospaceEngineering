@@ -15,6 +15,22 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-guided-tour",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "A short guided tour of everything the portal does",
+    "text": "New accounts are offered a two-minute tour of the portal. You can skip it and take it any time from your account menu.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-19-calendar-revision-plans",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Revision plans, attendance and calendar export",
+    "text": "Plan your revision before each exam, see your attendance per subject, export your term to Google Calendar, and ask Sideris to explain a class you missed.",
+    "link": "account/calendar.html"
+  },
+  {
     "id": "2026-11-19-account-calendar",
     "date": "2026-11-19",
     "tag": "Portal",
