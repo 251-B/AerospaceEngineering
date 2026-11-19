@@ -25,6 +25,18 @@ class CalendarStaticTests(unittest.TestCase):
         self.assertEqual(set(re.findall(r"localStorage\.(?:get|set)Item\(([^,)]+)", js)), {"KEY"})
         self.assertNotIn("theme", "ae_calendar")
 
+    def test_account_syncs_the_calendar(self):
+        js = (REPO / "assets/js/account.js").read_text(encoding="utf-8")
+        sync = re.search(r"var SYNC_KEYS = \[([^\]]*)\]", js).group(1)
+        self.assertIn("'ae_calendar'", sync)
+        self.assertIn("['ae_calendar', 'Calendar (classes, labs, exams)']", js)
+        self.assertIn("writeJSON(CALENDAR_KEY, mergeCalendar(readJSON(CALENDAR_KEY), keys[CALENDAR_KEY]))", js)
+        self.assertIn("changed: function () { schedulePush(); }", js)
+
+    def test_account_menu_links_the_calendar(self):
+        js = (REPO / "assets/js/account.js").read_text(encoding="utf-8")
+        self.assertIn("[['My study', 'dashboard.html'], ['Calendar', 'calendar.html'], ['Settings', 'settings.html']", js)
+
     def test_no_canvas_no_emoji(self):
         text = CORE.read_text(encoding="utf-8")
         self.assertNotIn("canvas", text.lower())

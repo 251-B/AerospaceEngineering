@@ -382,6 +382,7 @@
     ['ae_study_log', 'Study time per subject and day'],
     ['ae_recent', 'Last page read in each subject'],
     ['ae_marks', 'Favourite problems and your notes'],
+    ['ae_calendar', 'Calendar (classes, labs, exams)'],
     ['ae_cloud', 'Sign-in session with the account service']
   ];
 
@@ -556,7 +557,7 @@
         head.appendChild(meta);
       }
       menu.appendChild(head);
-      [['My study', 'dashboard.html'], ['Settings', 'settings.html'], ['Appearance', 'settings.html#appearance']].forEach(function (item) {
+      [['My study', 'dashboard.html'], ['Calendar', 'calendar.html'], ['Settings', 'settings.html'], ['Appearance', 'settings.html#appearance']].forEach(function (item) {
         var a = el('a', 'acc-menu__item', item[0]);
         a.href = url(item[1]);
         a.setAttribute('role', 'menuitem');
@@ -794,7 +795,16 @@
   var CFG = window.AE_ACCOUNT_CONFIG || {};
   var CLOUD = !!(CFG.supabaseUrl && CFG.supabaseAnonKey);
   var CLOUD_KEY = 'ae_cloud';
-  var SYNC_KEYS = ['ae_study_log', 'ae_recent', 'ae_marks', 'ae_bm_exams', 'ae_mat_exams', 'ae_am_exams', 'ae_em_exams', 'ae_formula_mode'];
+  var SYNC_KEYS = ['ae_study_log', 'ae_recent', 'ae_marks', 'ae_bm_exams', 'ae_mat_exams', 'ae_am_exams', 'ae_em_exams', 'ae_formula_mode', 'ae_calendar'];
+  var CALENDAR_KEY = 'ae_calendar';
+
+  // Calendar records merge entry by entry (assets/js/calendar-core.js); on pages without that
+  // script the record changed last wins.
+  function mergeCalendar(local, cloud) {
+    if (window.AECalendar && window.AECalendar.merge) return window.AECalendar.merge(local, cloud);
+    if (!local) return cloud;
+    return (cloud && (cloud.updated || 0) > (local.updated || 0)) ? cloud : local;
+  }
 
   function cloudSession() { return readJSON(CLOUD_KEY); }
 
@@ -1008,6 +1018,7 @@
     ['ae_bm_exams', 'ae_mat_exams', 'ae_am_exams', 'ae_em_exams'].forEach(function (k) {
       if (keys[k]) writeJSON(k, mergeHistory(readJSON(k), keys[k]));
     });
+    if (keys[CALENDAR_KEY]) writeJSON(CALENDAR_KEY, mergeCalendar(readJSON(CALENDAR_KEY), keys[CALENDAR_KEY]));
     if (keys[FORMULA_KEY] && !(function () { try { return localStorage.getItem(FORMULA_KEY); } catch (e) { return null; } })()) {
       try { localStorage.setItem(FORMULA_KEY, keys[FORMULA_KEY]); } catch (e) { /* blocked */ }
     }
@@ -1131,6 +1142,7 @@
     recoverPassword: recoverPassword,
     inviteStatus: inviteStatus,
     syncNow: function () { return pushState(true); },
+    changed: function () { schedulePush(); },
     exportData: exportData,
     studyLog: studyLog,
     marks: marks,
