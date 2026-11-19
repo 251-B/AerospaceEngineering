@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Favourites and notes on problem cards (assets/js/problem-marks.js, linked
+   by assets/js/account.js on problem pages for signed-in readers only).
+   Text colours are the page's own reading colours; the star's gold and the
+   accent tint are marks, never text. Hidden in print.
+   ========================================================================== */
+@media screen {
+  .mk-card > .mk-head { margin-right: 92px; }   /* + the 44 px of problem-collapse: room for three buttons */
+  details.mk-card > summary { padding-right: 124px; }
+
+  .mk-actions {
+    position: absolute;
+    top: 14px;
+    right: 54px;
+    z-index: 1;
+    display: flex;
+    gap: 6px;
+  }
+  details.mk-card > summary .mk-actions { top: 10px; right: 46px; }
+
+  .mk-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border-card, rgba(127, 127, 127, 0.3));
+    background: transparent;
+    color: var(--study-text, var(--text-primary, inherit));
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  }
+  .mk-btn svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .mk-btn:hover { border-color: var(--accent, currentColor); }
+  .mk-btn:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+
+  .mk-btn--star[aria-pressed="true"] {
+    border-color: #e0a100;
+    background: color-mix(in srgb, #f5b301 14%, transparent);
+  }
+  .mk-btn--star[aria-pressed="true"] svg { fill: #f5b301; stroke: #c98a00; }
+  .mk-btn--star.is-pop { animation: mk-pop 0.42s cubic-bezier(0.3, 1.6, 0.5, 1); }
+  @keyframes mk-pop { 0% { transform: scale(1); } 40% { transform: scale(1.28); } 100% { transform: scale(1); } }
+
+  .mk-btn--note.has-note::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent, #6366f1);
+    box-shadow: 0 0 0 2px var(--study-surface, var(--bg-card, #131b2b));
+  }
+
+  /* favourite cards carry a thin gold edge */
+  html[data-theme] .mk-card.mk-fav { box-shadow: inset 3px 0 0 #f5b301, 0 1px 2px rgba(0, 0, 0, 0.3) !important; }
+
+  /* the note */
+  .mk-note { flex: 1 0 100%; order: 99; width: 100%; margin-top: 12px; cursor: auto; }
+  .problem-header:has(> .mk-note:not([hidden])) { flex-wrap: wrap; }
+  .mk-note[hidden] { display: none !important; }
+  .mk-note--sibling { padding-right: 0 !important; }
+
+  .mk-note__view {
+    display: grid;
+    grid-template-columns: 18px minmax(0, 1fr);
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, var(--accent, #6366f1) 35%, transparent);
+    border-left: 3px solid var(--accent, #6366f1);
+    background: color-mix(in srgb, var(--accent, #6366f1) 7%, var(--study-surface, var(--bg-card, transparent)));
+    color: var(--study-text, var(--text-primary, inherit));
+    cursor: pointer;
+    text-align: left;
+  }
+  .mk-note__view[hidden] { display: none; }
+  .mk-note__view svg { margin-top: 2px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .mk-note__view:hover { border-color: var(--accent, #6366f1); }
+  .mk-note__view:focus-visible { outline: 2px solid var(--accent, #6366f1); outline-offset: 2px; }
+  .mk-note__text {
+    margin: 0;
+    white-space: pre-wrap;
+    font: 500 0.95rem/1.45 var(--font-sans, system-ui, sans-serif);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .mk-note__meta {
+    display: block;
+    margin-top: 4px;
+    font: 600 0.68rem/1.2 var(--font-mono, monospace);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--study-text-2, var(--text-primary, inherit));
+  }
+
+  .mk-note__editor {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--accent, #6366f1);
+    background: var(--study-surface, var(--bg-card, transparent));
+  }
+  .mk-note__editor[hidden] { display: none; }
+  .mk-note__label {
+    display: block;
+    margin-bottom: 6px;
+    font: 600 0.7rem/1.2 var(--font-mono, monospace);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--study-text, var(--text-primary, inherit));
+  }
+  .mk-note__input {
+    display: block;
+    width: 100%;
+    min-height: 74px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border-card, rgba(127, 127, 127, 0.3));
+    background: var(--study-inset, var(--bg-input, transparent));
+    color: var(--study-text, var(--text-primary, inherit));
+    font: 400 0.98rem/1.5 var(--font-sans, system-ui, sans-serif);
+    resize: none;
+  }
+  .mk-note__input:focus { outline: none; border-color: var(--accent, #6366f1); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent, #6366f1) 22%, transparent); }
+  .mk-note__foot { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+  .mk-note__status { margin-right: auto; font: 600 0.72rem/1 var(--font-mono, monospace); color: var(--study-text, var(--text-primary, inherit)); }
+  .mk-note__link, .mk-note__done {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font: 600 0.82rem/1.2 var(--font-sans, system-ui, sans-serif);
+    color: var(--study-text, var(--text-primary, inherit));
+  }
+  .mk-note__link { text-decoration: underline; text-underline-offset: 3px; }
+  .mk-note__done {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--accent, #6366f1);
+  }
+  .mk-note__link:focus-visible, .mk-note__done:focus-visible { outline: 2px solid var(--accent, #6366f1); outline-offset: 2px; }
+
+  .mk-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  @media (max-width: 600px) {
+    .mk-card > .mk-head { margin-right: 70px; }
+    .mk-actions { right: 50px; gap: 4px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mk-btn--star.is-pop { animation: none; }
+  }
+}
+
+@media print {
+  .mk-actions, .mk-note { display: none !important; }
+}

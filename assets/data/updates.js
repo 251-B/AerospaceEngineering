@@ -47,6 +47,78 @@ window.AE_UPDATES = [
     "link": "subjects/engineering-mechanics/teoria/topic-6.html"
   },
   {
+    "id": "2026-11-18-invite-accounts",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Invite-only accounts that follow you to every device",
+    "text": "Sideris accounts can now be opened with a personal invite code that works once. Sign in anywhere and your subjects, notes and study time come with you.",
+    "link": "account/signup.html"
+  },
+  {
+    "id": "2026-11-18-your-sky",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Your sky: every day you study lights a star",
+    "text": "My study now draws your own sky: a star for each day of study, joined into constellations on days in a row, plus eight achievements to unlock.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-18-practise-mistakes",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "My study lists the simulator questions you still get wrong",
+    "text": "Each simulator card in My study opens the list of questions you missed and have not got right since, with a link straight to each one.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-18-weekly-goal",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Set a weekly study goal and follow it in My study",
+    "text": "Choose how many hours you want to study each week in Settings. My study shows a ring with how close you are over the last 7 days.",
+    "link": "account/settings.html"
+  },
+  {
+    "id": "2026-11-18-your-subjects-first",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "The portal now puts your subjects first",
+    "text": "Signed in, the side menu lists your subjects first, What's new only shows their news and the portal's, and the home page brings their constellations forward.",
+    "link": "account/settings.html"
+  },
+  {
+    "id": "2026-11-18-favourites-and-notes",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Star problems and keep your own notes on them",
+    "text": "Signed in, every problem card has a star and a note button. Your notes show under the title even when the card is folded, and My study lists them all.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-18-my-study-panel",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "My study: your exams, study time and where you left off",
+    "text": "Signed-in students get a personal panel with exam countdowns, minutes studied per subject this week, the last page of each subject and their simulator grades.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-18-planet-study-tools",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Timer and Focus are now planets in each subject's colour",
+    "text": "The study timer and Focus Lab buttons are drawn as small planets that take the colour of the subject you are reading. They now appear only on study pages.",
+    "link": "subjects/fluid-mechanics/teoria/index.html"
+  },
+  {
+    "id": "2026-11-18-accounts-and-settings",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Create an account and set up the portal your way",
+    "text": "Sign in from the top right, pick the subjects you take and your exam dates, and choose your reading palette, text size and study timer style in Settings.",
+    "link": "account/signup.html"
+  },
+  {
     "id": "2026-11-18-business-topics-4-7",
     "date": "2026-11-18",
     "tag": "Business Management",

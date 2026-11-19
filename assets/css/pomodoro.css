@@ -299,3 +299,63 @@ html[data-theme="light"] .pm-brand-seal .sideris-fill { fill: #9a6e17; }
   .pm-launcher, .pm-panel { display: none !important; }
 }
 html[data-theme="print"] .pm-launcher, html[data-theme="print"] .pm-panel { display: none !important; }
+
+/* ---------------------------------------------------------------- the launcher as a planet
+   The twin of the Focus planet (assets/css/focus-lab.css), as on the home page's constellation
+   view: lower and to its left, drifting on its own beat, its ring tilted the other way, and a
+   darker shade of the page's subject accent. While the timer runs, the time stays visible in
+   its label (text in the reading-palette colours). */
+.pm-launcher, .pm-panel { --pm-focus-h: 64px; }
+.pm-launcher {
+  right: calc(98px + env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  width: 64px; min-width: 0; height: 64px; padding: 0; gap: 0; justify-content: center;
+  border: 0; border-radius: 50%; background: transparent; box-shadow: none;
+  --pm-planet: color-mix(in srgb, var(--pm-accent) 58%, #0b1020);
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--pm-accent) 35%, transparent));
+  animation: pm-drift 9s ease-in-out -4s infinite;
+}
+.pm-launcher::after,
+.pm-launcher.is-running::after,
+.pm-launcher.is-running.is-break::after {
+  content: ""; position: absolute; left: 15px; top: 15px; right: auto; width: 34px; height: 34px; border-radius: 50%; z-index: 0;
+  background: radial-gradient(circle at 34% 28%, color-mix(in srgb, var(--pm-accent) 45%, #ffffff) 0%,
+    var(--pm-planet) 48%, color-mix(in srgb, var(--pm-planet) 45%, #03050d) 100%);
+  box-shadow: inset -4px -5px 8px rgba(3, 6, 20, .4);
+  animation: none;
+}
+.pm-launcher::before {
+  content: ""; position: absolute; left: 2px; right: 2px; top: 23px; bottom: 23px; z-index: 1;
+  width: auto; height: auto; margin: 0; background: none; box-shadow: none;
+  border-radius: 50%; border: 1.4px solid color-mix(in srgb, var(--pm-accent) 50%, #ffffff);
+  border-top-color: color-mix(in srgb, var(--pm-accent) 40%, transparent);
+  transform: rotate(18deg); animation: none; pointer-events: none;
+}
+.pm-launcher .pm-mini { position: relative; z-index: 2; filter: drop-shadow(0 0 3px rgba(3, 6, 20, .7)); }
+.pm-launcher .pm-mini__track, .pm-launcher .pm-mini__arc, .pm-launcher .pm-mini__hands { stroke: #ffffff; }
+.pm-launcher__label,
+.pm-launcher.is-compact .pm-launcher__label {
+  position: absolute; left: 50%; right: auto; top: auto; bottom: calc(100% - 4px); transform: translateX(-50%);   /* above the planet, as on the home page */
+  padding: 5px 10px; border-radius: 999px; white-space: nowrap; min-width: 0;
+  background: var(--pm-surface); color: var(--pm-text); border: 1px solid var(--pm-border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  opacity: 0; pointer-events: none; transition: opacity .15s ease;
+}
+.pm-launcher__label { font: 600 12.5px/1 var(--pm-serif); }
+.pm-launcher:hover .pm-launcher__label, .pm-launcher:focus-visible .pm-launcher__label,
+.pm-launcher.is-compact .pm-launcher__label { opacity: 1; }
+.pm-launcher:hover, .pm-launcher:focus-visible {
+  transform: none; box-shadow: none;
+  filter: drop-shadow(0 0 16px color-mix(in srgb, var(--pm-accent) 60%, transparent));
+}
+.pm-launcher:focus-visible { outline: 2px solid var(--pm-accent); outline-offset: 0; }
+.pm-launcher[aria-expanded="true"], .pm-launcher.is-running { box-shadow: none; outline: 2px solid color-mix(in srgb, var(--pm-accent) 60%, transparent); outline-offset: 0; }
+@keyframes pm-drift { 0%, 100% { translate: 0 0; } 50% { translate: -3px -7px; } }
+@media (max-width: 600px) {
+  .pm-launcher, .pm-panel { --pm-focus-h: 64px; }
+  .pm-launcher, .pm-launcher.is-compact { right: calc(84px + env(safe-area-inset-right, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); width: 64px; height: 64px; padding: 0; }
+  .pm-launcher:not(.is-compact) .pm-launcher__label { display: inline-block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pm-launcher { animation: none; }
+  .pm-launcher__label { transition: none; }
+}

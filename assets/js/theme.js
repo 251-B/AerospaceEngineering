@@ -34,8 +34,8 @@
  * <script src="assets/js/updates.js">, <script src="assets/data/nav.js"> and
  * <script src="assets/js/sidebar.js">, <script src="assets/js/problem-collapse.js">,
  * <script src="assets/js/theory-reader.js"> and <script src="assets/js/solution-close.js"> next to this
- * file, so the study-sound widget, the Pomodoro timer, the updates bell, the side menu, the section rail
- * of theory pages and the "Close" bar
+ * file (account.js right after pomodoro.js), so the study-sound widget, the Pomodoro timer, the updates
+ * bell, the side menu, the section rail of theory pages and the "Close" bar
  * at the end of worked solutions are on every page that loads theme.js. Skipped in the PDF print
  * mode (?print=...).
  */
@@ -369,7 +369,13 @@
     if (!self || !self.src || /[?&]print=/.test(location.search)) return;
     // Each data file comes before its script: updates.js reads window.AE_UPDATES and sidebar.js
     // window.AE_NAV when they run.
-    ['focus-lab.js', 'pomodoro.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'problem-collapse.js', 'theory-reader.js', 'solution-close.js'].forEach(function (name) {
+    // Focus Lab and the study timer belong to the study pages: the landing page and the account
+    // pages (sign-in, sign-up, settings) do not load them.
+    var studyTools = !(document.documentElement.getAttribute('data-celestial-subject') === 'portal' ||
+      /\/account\/[^\/]*$/.test(location.pathname));
+    // account.js comes before the updates data: it leaves a filter for updates.js (the reader's subjects).
+    ['focus-lab.js', 'pomodoro.js', '../data/account-config.js', 'account.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'problem-collapse.js', 'theory-reader.js', 'solution-close.js'].forEach(function (name) {
+      if (!studyTools && (name === 'focus-lab.js' || name === 'pomodoro.js')) return;
       var script = document.createElement('script');
       script.async = false;   // run in this order, so the widgets always land in the DOM the same way
       script.src = self.src.replace(/theme\.js(\?.*)?$/, name);

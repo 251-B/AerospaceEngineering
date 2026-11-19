@@ -114,9 +114,12 @@
       record('theme.js loads the timer next to Focus Lab', !!(w.AEPomodoro && pm && fl), 'pm=' + !!pm + ' fl=' + !!fl);
       if (pm && fl) {
         var a = pm.getBoundingClientRect(), b = fl.getBoundingClientRect();
-        record('timer button sits 10 px above the Focus button, right-aligned', Math.abs(b.top - a.bottom - 10) <= 1 &&
-          Math.abs(a.right - b.right) <= 1 && Math.abs(a.height - b.height) <= 1,
-          'gap=' + (b.top - a.bottom) + ' right ' + a.right + '/' + b.right + ' h ' + a.height + '/' + b.height);
+        // The two planets of the home page's constellation view: Focus higher at the right, the
+        // timer lower and to its left, the same size, never overlapping (they drift a few px).
+        record('timer planet sits below and to the left of the Focus planet, same size, no overlap',
+          a.right <= b.left + 4 && a.top > b.top + 8 && Math.abs(a.height - b.height) <= 1,
+          'timer ' + Math.round(a.left) + '..' + Math.round(a.right) + ' top ' + Math.round(a.top) +
+          ' / focus ' + Math.round(b.left) + '..' + Math.round(b.right) + ' top ' + Math.round(b.top) + ' h ' + a.height + '/' + b.height);
       }
       w.AEFocusLab.open();
       w.AEPomodoro.open();

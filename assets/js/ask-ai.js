@@ -199,6 +199,7 @@
       if (c.contains('katex-display')) { out.push('\n$$' + texOf(node) + '$$\n'); return; }
       if (c.contains('katex')) { out.push('$' + texOf(node) + '$'); return; }
       if (c.contains('katex-mathml') || c.contains('ask-ai-bar') || c.contains('src-link') ||
+          c.contains('mk-note') || c.contains('mk-actions') ||   // the reader's own notes never go into a prompt
           tag === 'SCRIPT' || tag === 'STYLE' || tag === 'BUTTON' || tag === 'svg' || tag === 'SVG') return;
       if (tag === 'BR') { out.push('\n'); return; }
       if (tag === 'TD' || tag === 'TH') out.push(' | ');
@@ -712,9 +713,9 @@
     var q = state.ui.quote;
     q.textContent = '';
     var frag = range.cloneContents();
-    var drop = frag.querySelectorAll('[id], .ask-ai-bar, a.src-link');
+    var drop = frag.querySelectorAll('[id], .ask-ai-bar, a.src-link, .mk-note, .mk-actions');
     for (var i = 0; i < drop.length; i++) {
-      if (drop[i].matches('.ask-ai-bar, a.src-link')) drop[i].remove(); else drop[i].removeAttribute('id');
+      if (drop[i].matches('.ask-ai-bar, a.src-link, .mk-note, .mk-actions')) drop[i].remove(); else drop[i].removeAttribute('id');
     }
     q.appendChild(frag);
     if (note) q.appendChild(el('p', 'ask-ai-quote-note', note));
