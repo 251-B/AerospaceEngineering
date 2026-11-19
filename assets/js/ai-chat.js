@@ -253,7 +253,9 @@
       parts.push(findModel(st.job.id).name + (st.job.phase === 'gpu' ? ' getting ready' : ' downloading ' + pct + ' %') +
         (eta && st.job.phase !== 'gpu' ? ' · about ' + Math.ceil(eta.seconds / 60) + ' min' : ''));
     }
-    return parts.length ? parts.join(' · ') + '. Installed models answer here, with no daily limit.' : 'Answers come from the cloud for now.';
+    var ready = MODELS.some(function (x) { return local.isReady(x.id); });
+    if (!parts.length) return 'Answers come from the cloud for now.';
+    return parts.join(' · ') + (ready ? '. Ready models answer here, with no daily limit.' : '. Until then answers come from the cloud.');
   }
 
   function activeModelConfig() {
