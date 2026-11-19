@@ -16,7 +16,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 OUT = ROOT / '_site'
 LIMIT = 25 * 1024 * 1024
-SKIP_DIRS = {'.git', '_site', 'node_modules', '__pycache__', 'graphify-out', '.obsidian'}
+SKIP_DIRS = {'.git', '_site', 'node_modules', '__pycache__', 'graphify-out', '.obsidian', '.wrangler'}
 SKIP_PATHS = {'tools/invites/out'}
 
 
