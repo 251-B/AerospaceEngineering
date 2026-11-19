@@ -141,3 +141,21 @@ Use the cheapest model that can do the job well. The main session is the orchest
 - Guidelines (Spanish, fixed text): open the URLs, take data and derivations from that page, copy the repository's terminology, notation, sign convention and step-by-step style, and fall back to the pasted material when the links cannot be opened. The statement and reference solution are still pasted below as `# Material` (needed for the Socratic and "check my attempt" tasks), followed by `# Task`, `[MI PREGUNTA]` and `# How to answer`.
 - Adding a subject: add its slug to `SUBJECTS`. Adding a topic page needs nothing if it follows `topic-N-*.html`, loads `ask-ai.js` and keeps `problem-card` markup and h2/h3 headings. If a new page family labels its sub-questions differently from `a)`, extend `PART_RE`. If the portal moves, change `PORTAL`.
 - Scope: the script loads on `teoria/` and `problemas/` topic pages only (`audit_portal` `missing-ask-ai`); the index and generated `exams/`/`sources/` pages do not carry it.
+
+## Herramientas de diseño (instaladas globalmente en mi usuario)
+- Modo: GIT (rama base: `main`)
+- App local: `python -m http.server 8765` desde la raíz (configuración `portal` de `.claude/launch.json`), URL `http://localhost:8765/index.html`
+- Skills: `design-taste-frontend` (criterio anti-genérico; crea `.taste-skill/` y trae checkers que lanzan Chrome), `impeccable` (`init` crea PRODUCT.md, `document` crea DESIGN.md, `critique`, `audit`, `polish`, `shape`, `live`; `craft` está obsoleto), y las de Emil Kowalski: `emil-design-eng`, `animate`, `choreograph`, `review-animations`, `animation-performance`, `gestures`, `mobile-native`, `break-ui`, `remove-animations`.
+- MCP: `figma` (diseño de referencia; si pide autenticación, avisarme de que use /mcp), `playwright` con --caps=devtools (abrir la web, redimensionar, capturas, consola y red).
+- Antes de cambiar la UI, leer PRODUCT.md y DESIGN.md si existen.
+
+### Flujo
+- Una vez por proyecto: A) `/impeccable init` y B) `/impeccable document`.
+- Para cada página o sección: C) `/impeccable critique` (solo informe, sin cambios; yo elijo qué se aplica) → D) aplicar las mejoras con `design-taste-frontend` (y Figma si hay enlace) → E) animaciones con `/animate` y `emil-design-eng`, y revisar con `/review-animations` → F) `/impeccable polish` y `/impeccable audit`.
+- Tras D, E y F: abrir la app con Playwright a 375, 768 y 1440 px, mirar capturas y consola, y corregir lo que falle antes de decir que está listo.
+- Un paso cada vez, explicando en lenguaje simple y esperando mi OK entre pasos.
+
+### Reglas
+- Antes de empezar, working tree limpio (si no, preguntarme). Crear una rama `diseno/<tema>` desde la actual y hacer un commit por paso D, E y F con mensaje claro. Nunca push, merge ni PR sin mi permiso.
+- No cambiar textos reales (copy) ni añadir afirmaciones sin preguntarme.
+- Avisarme ANTES de: el primer uso de Impeccable (puede descargar un binario verificado con checksum), activar hooks (`impeccable hooks on` o el finish gate de Taste) o cualquier cosa que escriba fuera del proyecto.
