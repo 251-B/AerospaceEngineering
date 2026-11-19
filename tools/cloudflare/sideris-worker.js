@@ -8,9 +8,7 @@
  *   - sideris-orion  : deep calculus & step-by-step mathematical derivations
  *   - sideris-titan  : maximum reasoning depth for complex problems & exams
  *
- * Provider priority (automatic fallback):
- *   1. Optional free external secrets if configured (GEMINI_API_KEY, GROQ_API_KEY, OPENROUTER_API_KEY)
- *   2. Built-in Cloudflare Workers AI (`env.AI`, 0 external keys needed, works out of the box!)
+ * Inference runs only on Cloudflare Workers AI (`env.AI`); each profile tries its models in order.
  */
 
 const MAX_BODY_BYTES = 48 * 1024;
@@ -66,9 +64,6 @@ const PROFILE_DEFAULTS = {
   'sideris-lux': {
     temperature: 0.35,
     maxTokens: 1024,
-    geminiModel: 'gemini-2.5-flash-lite',
-    groqModel: 'llama-3.1-8b-instant',
-    openrouterModel: 'openrouter/free',
     cfModels: [
       '@cf/meta/llama-3.1-8b-instruct-fast',
       '@cf/meta/llama-3.2-3b-instruct',
@@ -78,9 +73,6 @@ const PROFILE_DEFAULTS = {
   'sideris-aether': {
     temperature: 0.35,
     maxTokens: 1600,
-    geminiModel: 'gemini-3.8-flash',
-    groqModel: 'llama-3.3-70b-versatile',
-    openrouterModel: 'openrouter/free',
     cfModels: [
       '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
       '@cf/qwen/qwen3.8-27b',
@@ -88,77 +80,26 @@ const PROFILE_DEFAULTS = {
     ],
   },
   'sideris-orion': {
-    // Reasoning models: the reasoning alone took the whole 2048 tokens on long derivations and no
-    // answer was written. 6144 leaves room for both; about 0.29 Neurons per output token on
-    // Workers AI, so one full-length answer uses ~1800 of the 10,000 free daily Neurons.
+    // Reasoning model: on long derivations the reasoning alone used 2048 tokens and no answer was written.
     maxTokensCap: 6144,
     temperature: 0.2,
     maxTokens: 1800,
-    geminiModel: 'gemini-3.8-flash',
-    groqModel: 'llama-3.3-70b-versatile',
-    openrouterModel: 'deepseek/deepseek-r1:free',
     cfModels: [
       '@cf/qwen/qwen3.8-27b',
       '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
     ],
   },
   'sideris-titan': {
-    // Reasoning models: the reasoning alone took the whole 2048 tokens on long derivations and no
-    // answer was written. 6144 leaves room for both; about 0.29 Neurons per output token on
-    // Workers AI, so one full-length answer uses ~1800 of the 10,000 free daily Neurons.
+    // Reasoning model: on long derivations the reasoning alone used 2048 tokens and no answer was written.
     maxTokensCap: 6144,
     temperature: 0.25,
     maxTokens: 2048,
-    geminiModel: 'gemini-3.8-flash',
-    groqModel: 'llama-3.3-70b-versatile',
-    openrouterModel: 'openrouter/free',
     cfModels: [
       '@cf/qwen/qwen3.8-27b',
       '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
     ],
   },
 };
-
-function buildExternalProviders(env, profile) {
-  const cfg = PROFILE_DEFAULTS[profile] || PROFILE_DEFAULTS['sideris-aether'];
-  const list = [];
-  if (env.GEMINI_API_KEY) {
-    list.push({
-      name: 'gemini',
-      url: 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions',
-      model: profile === 'sideris-lux' ? cfg.geminiModel : (env.GEMINI_MODEL || cfg.geminiModel),
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${env.GEMINI_API_KEY}`,
-      },
-    });
-  }
-  if (env.GROQ_API_KEY) {
-    list.push({
-      name: 'groq',
-      url: 'https://api.groq.com/openai/v1/chat/completions',
-      model: profile === 'sideris-lux' ? cfg.groqModel : (env.GROQ_MODEL || cfg.groqModel),
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${env.GROQ_API_KEY}`,
-      },
-    });
-  }
-  if (env.OPENROUTER_API_KEY) {
-    list.push({
-      name: 'openrouter',
-      url: 'https://openrouter.ai/api/v1/chat/completions',
-      model: env.OPENROUTER_MODEL || cfg.openrouterModel,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${env.OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://251-b.github.io/AerospaceEngineering/',
-        'X-Title': 'Sideris Aerospace Study Portal',
-      },
-    });
-  }
-  return list;
-}
 
 function jsonResponse(obj, status, headers) {
   return new Response(JSON.stringify(obj), {
@@ -180,8 +121,7 @@ export default {
     }
 
     if (request.method === 'GET' && (url.pathname === '/' || url.pathname === '/health')) {
-      const providers = buildExternalProviders(env, 'sideris-aether').map((p) => p.name);
-      if (env.AI) providers.push('cloudflare-ai');
+      const providers = env.AI ? ['cloudflare-ai'] : [];
       return jsonResponse({
         ok: providers.length > 0,
         providers,
@@ -232,44 +172,12 @@ export default {
       : cfg.maxTokens;
     const stream = body.stream !== false;
 
+    // Students only ever see these two generic messages; provider details (quota, plan, model
+    // errors) go to the Worker logs, never to the page.
     let lastStatus = 502;
-    let lastError = 'All configured providers are currently unavailable.';
+    let lastError = 'Sideris is temporarily unavailable. Please try again in a moment.';
 
-    // 1. Try external free-tier providers if secrets are configured (highest quota & frontier quality)
-    for (const p of buildExternalProviders(env, profile)) {
-      try {
-        const upstream = await fetch(p.url, {
-          method: 'POST',
-          headers: p.headers,
-          body: JSON.stringify({
-            model: p.model,
-            messages: cleanMessages,
-            temperature,
-            max_tokens: maxTokens,
-            stream,
-          }),
-        });
-        if (upstream.ok) {
-          return new Response(upstream.body, {
-            status: 200,
-            headers: {
-              ...cors,
-              'Content-Type': upstream.headers.get('Content-Type') || (stream ? 'text/event-stream; charset=utf-8' : 'application/json'),
-              'Cache-Control': 'no-store',
-              'X-Sideris-Provider': p.name,
-              'X-Sideris-Profile': profile,
-            },
-          });
-        }
-        lastStatus = upstream.status;
-        lastError = `${p.name} returned HTTP ${upstream.status}`;
-      } catch (err) {
-        lastStatus = 502;
-        lastError = `${p.name} unreachable: ${err && err.message ? err.message : 'network error'}`;
-      }
-    }
-
-    // 2. Built-in Cloudflare Workers AI fallback (works immediately with zero external keys!)
+    // Cloudflare Workers AI: try the profile's models in order
     if (env.AI) {
       for (const cfModel of cfg.cfModels) {
         try {
@@ -302,8 +210,13 @@ export default {
             'X-Sideris-Profile': profile,
           });
         } catch (err) {
-          lastStatus = 502;
-          lastError = `cloudflare-ai (${cfModel}): ${err && err.message ? err.message : 'error'}`;
+          const detail = err && err.message ? err.message : String(err);
+          console.error(`cloudflare-ai (${cfModel}): ${detail}`);
+          if (/\b4006\b|daily free allocation|neurons/i.test(detail)) {
+            lastStatus = 429;
+            lastError = 'Sideris has reached its daily limit. It will be back tomorrow; Offline mode still works.';
+            break;   // the daily allocation is shared by every model: no point trying the next one
+          }
         }
       }
     }

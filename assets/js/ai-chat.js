@@ -122,8 +122,6 @@
       hintsOnly: false,         // free chat on problem pages: solution sent hidden, Socratic answers
       customRepo: '',
       workerUrl: '',
-      byokProvider: 'gemini',
-      byokKey: '',
       ollamaEndpoint: 'http://localhost:11434/v1',
       ollamaModel: 'qwen3.5:9b'
     };
@@ -140,8 +138,6 @@
         if (typeof parsed.hintsOnly === 'boolean') base.hintsOnly = parsed.hintsOnly;
         if (typeof parsed.customRepo === 'string') base.customRepo = parsed.customRepo;
         if (typeof parsed.workerUrl === 'string') base.workerUrl = parsed.workerUrl;
-        if (typeof parsed.byokProvider === 'string') base.byokProvider = parsed.byokProvider;
-        if (typeof parsed.byokKey === 'string') base.byokKey = parsed.byokKey;
         if (typeof parsed.ollamaEndpoint === 'string' && parsed.ollamaEndpoint.trim()) base.ollamaEndpoint = parsed.ollamaEndpoint;
         if (typeof parsed.ollamaModel === 'string' && parsed.ollamaModel.trim()) base.ollamaModel = parsed.ollamaModel;
       }
@@ -1053,7 +1049,7 @@
 
     // Advanced / Offline
     var adv = el('details', 'sd-advanced');
-    adv.appendChild(el('summary', '', 'Advanced: offline browser models, Ollama & API key'));
+    adv.appendChild(el('summary', '', 'Advanced: offline browser models and Ollama'));
     var advBody = el('div', 'sd-advanced__body');
 
     var modeRow = el('div', 'sd-setting-row');
@@ -1113,32 +1109,7 @@
     wField.appendChild(wLab);
     wField.appendChild(wInput);
 
-    var pField = el('div', 'sd-field');
-    var pLab = el('label', '', 'Personal free API key (optional, stored only in your browser)');
-    pLab.setAttribute('for', 'sdByokProvider');
-    var pSelect = el('select', 'sd-select');
-    pSelect.id = 'sdByokProvider';
-    [['gemini', 'Google Gemini (free AI Studio key)'], ['groq', 'Groq (free Llama 3.3 70B)'], ['openrouter', 'OpenRouter (:free models)']].forEach(function (pair) {
-      var o = el('option', '', pair[1]);
-      o.value = pair[0];
-      pSelect.appendChild(o);
-    });
-    pSelect.value = prefs.byokProvider || 'gemini';
-    pField.appendChild(pLab);
-    pField.appendChild(pSelect);
-
-    var kField = el('div', 'sd-field');
-    var kInput = el('input', 'sd-input');
-    kInput.id = 'sdByokKey';
-    kInput.type = 'password';
-    kInput.autocomplete = 'off';
-    kInput.placeholder = 'Optional API key (leave empty to use free Sideris cloud)';
-    kInput.value = prefs.byokKey;
-    kField.appendChild(kInput);
-
     cloudWrap.appendChild(wField);
-    cloudWrap.appendChild(pField);
-    cloudWrap.appendChild(kField);
     advBody.appendChild(cloudWrap);
 
     var customWrap = el('div', 'sd-field');
@@ -1289,7 +1260,7 @@
       modeBtns: modeBtns, langBtns: langBtns, advNote: advNote,
       loadBtn: loadBtn, clearCacheBtn: clearCacheBtn,
       progressWrap: progressWrap, progressFill: progressFill, progressText: progressText,
-      cloudWrap: cloudWrap, wInput: wInput, pSelect: pSelect, kInput: kInput,
+      cloudWrap: cloudWrap, wInput: wInput,
       customWrap: customWrap, customInput: customInput,
       ollamaWrap: ollamaWrap, epInput: epInput, tagInput: tagInput,
       ragCb: ragCb, thinkCb: thinkCb,
@@ -1342,8 +1313,6 @@
 
     customInput.addEventListener('change', function () { prefs.customRepo = customInput.value.trim(); savePrefs(); syncUI(); });
     wInput.addEventListener('change', function () { prefs.workerUrl = wInput.value.trim(); savePrefs(); syncUI(); });
-    pSelect.addEventListener('change', function () { prefs.byokProvider = pSelect.value; savePrefs(); syncUI(); });
-    kInput.addEventListener('change', function () { prefs.byokKey = kInput.value.trim(); savePrefs(); syncUI(); });
     epInput.addEventListener('change', function () { prefs.ollamaEndpoint = epInput.value.trim() || 'http://localhost:11434/v1'; savePrefs(); });
     tagInput.addEventListener('change', function () { prefs.ollamaModel = tagInput.value.trim() || 'qwen3.5:9b'; savePrefs(); });
     ragCb.addEventListener('change', function () { prefs.rag = ragCb.checked; savePrefs(); });
@@ -1548,11 +1517,9 @@
 
     if (isCloud) {
       var wUrl = effectiveWorkerUrl();
-      ui.advNote.textContent = prefs.byokKey
-        ? ('Using your personal ' + prefs.byokProvider + ' key (browser-only).')
-        : wUrl ? ('Connected to free Sideris cloud (' + wUrl + ').')
-        : 'Paste a Worker URL or personal free key below, or switch to Offline / Local.';
-      ui.loadBtn.textContent = prefs.byokKey ? 'Clear personal key' : 'Test cloud connection';
+      ui.advNote.textContent = wUrl ? ('Connected to the Sideris cloud (' + wUrl + ').')
+        : 'Paste a Worker URL below, or switch to Offline / Local.';
+      ui.loadBtn.textContent = 'Test cloud connection';
     } else if (isOllama) {
       ui.advNote.textContent = 'Connects to Ollama or LM Studio on localhost (' + m.repo + ').';
       ui.loadBtn.textContent = 'Test local connection';
@@ -1584,14 +1551,6 @@
     if (!window.AESiderisEngine) return Promise.resolve();
     var m = activeModelConfig();
     if (m.backend === 'cloud') {
-      if (prefs.byokKey) {
-        prefs.byokKey = '';
-        if (ui.kInput) ui.kInput.value = '';
-        savePrefs();
-        syncUI();
-        setStatus('Cleared personal API key from this browser.');
-        return Promise.resolve();
-      }
       var wUrl = effectiveWorkerUrl();
       setStatus(wUrl ? 'Checking Sideris cloud...' : 'No Cloudflare Worker URL configured.');
       return window.AESiderisEngine.checkCloud(wUrl).then(function (res) {
@@ -1880,11 +1839,7 @@
             model: model,
             messages: apiMessages,
             maxTokens: guarded ? 512 : (model.maxTokens || 1800),   // ai-models.js: room for reasoning models
-            cloud: {
-              workerUrl: effectiveWorkerUrl(),
-              byokProvider: prefs.byokProvider || 'gemini',
-              byokKey: prefs.byokKey || ''
-            }
+            cloud: { workerUrl: effectiveWorkerUrl() }
           },
           function (_chunk, full) {
             assistantMsg.text = prefix + full;
@@ -1902,7 +1857,7 @@
       // reasoning) for the answer then, keeping the reasoning already shown.
       return run(m, '').then(function (t) {
         var parts = splitThinking(t);
-        if (m.backend !== 'cloud' || (prefs.byokKey && prefs.byokKey.trim()) || !parts.think || parts.answer || m.id === 'sideris-aether') return t;
+        if (m.backend !== 'cloud' || !parts.think || parts.answer || m.id === 'sideris-aether') return t;
         setStatus(m.name + ' used the whole answer length on reasoning; Sideris Aether is writing the answer...');
         var alt = {};
         for (var k in m) alt[k] = m[k];

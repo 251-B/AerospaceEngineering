@@ -1,5 +1,5 @@
 /*!
- * Aerospace Engineering Study Portal: Sideris inference engine (Cloud Worker/BYOK + WebGPU ONNX + local Ollama).
+ * Aerospace Engineering Study Portal: Sideris inference engine (Cloud Worker + WebGPU ONNX + local Ollama).
  *
  * Loaded on study pages by assets/js/theme.js (after sideris-config.js, ai-models.js and ai-rag.js).
  * Skipped in PDF print mode (?print=...). Zero external network requests occur until the user
@@ -7,8 +7,7 @@
  *
  * Backends:
  *   - cloud  : zero-download instant streaming via your free Cloudflare Worker
- *              (tools/cloudflare/sideris-worker.js) OR direct user-supplied free key (BYOK:
- *              Google AI Studio Gemini Flash, Groq or OpenRouter).
+ *              (tools/cloudflare/sideris-worker.js), which runs on Cloudflare Workers AI.
  *   - webgpu : lazily imports @huggingface/transformers v4 from jsDelivr ESM CDN, streams ONNX
  *              weights from Hugging Face into browser Cache API / IndexedDB, and runs locally on
  *              the GPU with token streaming.
@@ -17,7 +16,7 @@
  *   - mock   : test hook (setMock) used by tools/tests/test_ai_chat.py.
  *
  * API: window.AESiderisEngine = { hasWebGPU, isLoaded, loadedKey, loadWebGPU, generate,
- *      abort, clearBrowserCache, checkOllama, checkCloud, BYOK_PROVIDERS, setMock }
+ *      abort, clearBrowserCache, checkOllama, checkCloud, setMock }
  */
 (function () {
   'use strict';
@@ -29,24 +28,6 @@
     'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4',
     'https://cdn.jsdelivr.net/npm/@huggingface/transformers@next'
   ];
-
-  var BYOK_PROVIDERS = {
-    gemini: {
-      label: 'Google AI Studio (Gemini Flash)',
-      url: 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions',
-      model: 'gemini-3.8-flash'
-    },
-    groq: {
-      label: 'Groq (Llama 3.3 70B)',
-      url: 'https://api.groq.com/openai/v1/chat/completions',
-      model: 'llama-3.3-70b-versatile'
-    },
-    openrouter: {
-      label: 'OpenRouter (:free)',
-      url: 'https://openrouter.ai/api/v1/chat/completions',
-      model: 'openrouter/free'
-    }
-  };
 
   var tfModule = null;
   var loaded = null;          // { key, repo, dtype, generator, mod }
@@ -288,7 +269,7 @@
     });
   }
 
-  /* ---------------------------------------------------------------- Cloud (Worker + BYOK) */
+  /* ---------------------------------------------------------------- Cloud (Sideris worker) */
   function normaliseBase(ep, fallback) {
     var base = String(ep || fallback || '').trim().replace(/\/+$/, '');
     if (base && !/^https?:\/\//i.test(base)) base = 'https://' + base;
@@ -318,38 +299,25 @@
     var token = { aborted: false, controller: ctrl };
     activeAbort = token;
 
-    var url = '';
     var headers = { 'Content-Type': 'application/json' };
     var modelName = (req.model && req.model.id) || 'sideris-aether';
 
-    if (cloud.byokKey && cloud.byokKey.trim()) {
-      var prov = BYOK_PROVIDERS[cloud.byokProvider] || BYOK_PROVIDERS.gemini;
-      url = prov.url;
-      modelName = prov.model;
-      headers.Authorization = 'Bearer ' + cloud.byokKey.trim();
-      if (cloud.byokProvider === 'openrouter') {
-        headers['HTTP-Referer'] = 'https://251-b.github.io/AerospaceEngineering/';
-        headers['X-Title'] = 'Sideris Aerospace Study Portal';
-      }
-    } else if (cloud.workerUrl && cloud.workerUrl.trim()) {
-      url = normaliseBase(cloud.workerUrl, '') + '/v1/chat/completions';
-    } else {
+    if (!cloud.workerUrl || !cloud.workerUrl.trim()) {
       activeAbort = null;
       return Promise.reject(new Error(
-        'Instant cloud mode is not configured. Switch Run mode to Offline (WebGPU / Ollama) or paste a free Gemini/Groq API key in Settings.'
+        'Instant cloud mode is not configured. Switch Run mode to Offline (WebGPU / Ollama).'
       ));
     }
+    var url = normaliseBase(cloud.workerUrl, '') + '/v1/chat/completions';
 
     var body = {
       model: modelName,
       messages: req.messages,
       temperature: req.temperature != null ? req.temperature : 0.35,
       max_tokens: req.maxTokens || 1600,
-      stream: true
+      stream: true,
+      profile: modelName
     };
-    if (!(cloud.byokKey && cloud.byokKey.trim())) {
-      body.profile = (req.model && req.model.id) || 'sideris-aether';
-    }
 
     // A dropped connection before the first token (seen on the worker in testing, common on phones)
     // is retried once; after that the student gets a plain message and the Retry button.
@@ -366,6 +334,12 @@
     }).catch(function (err) {
       if (token.aborted) return '';
       if (isNetwork(err)) throw new Error('Could not reach the Sideris cloud (the connection dropped). Check your connection and press Retry.');
+      // Never show provider details (quota, plan, model names) to students, even from an old worker.
+      var m = (err && err.message) || '';
+      if (/HTTP 429|daily (free )?(allocation|limit)|\b4006\b|neurons/i.test(m)) {
+        throw new Error('Sideris has reached its daily limit. It will be back tomorrow; Offline mode still works.');
+      }
+      if (/HTTP 5\d\d/.test(m)) throw new Error('Sideris is temporarily unavailable. Please try again in a moment.');
       throw err;
     }).finally(function () {
       if (activeAbort === token) activeAbort = null;
@@ -476,7 +450,6 @@
     clearBrowserCache: clearBrowserCache,
     checkOllama: checkOllama,
     checkCloud: checkCloud,
-    BYOK_PROVIDERS: BYOK_PROVIDERS,
-    setMock: setMock
+        setMock: setMock
   };
 })();

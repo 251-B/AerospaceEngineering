@@ -52,9 +52,11 @@ class SiderisStaticTests(unittest.TestCase):
         cfg = (REPO / "assets/data/sideris-config.js").read_text(encoding="utf-8")
         worker = (REPO / "tools/cloudflare/sideris-worker.js").read_text(encoding="utf-8")
         self.assertIn("window.AE_SIDERIS_CONFIG", cfg)
-        self.assertIn("GEMINI_API_KEY", worker)
-        self.assertIn("GROQ_API_KEY", worker)
-        self.assertIn("OPENROUTER_API_KEY", worker)
+        # Workers AI only: no external provider in the worker, the engine or the settings
+        engine = (REPO / "assets/js/ai-engine.js").read_text(encoding="utf-8")
+        chat = (REPO / "assets/js/ai-chat.js").read_text(encoding="utf-8")
+        for text in (worker, engine, chat):
+            self.assertIsNone(re.search(r"(?i)GEMINI_API_KEY|GROQ_API_KEY|OPENROUTER_API_KEY|byok|api\.groq\.com|openrouter\.ai|generativelanguage", text))
         for text in (cfg, worker):
             self.assertIsNone(re.search(r"AIza[0-9A-Za-z_-]{20,}|gsk_[0-9A-Za-z]{20,}|sk-or-v1-[0-9a-f]{20,}", text))
 

@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-own-cloud",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris runs only on its own cloud",
+    "text": "Sideris no longer asks for personal API keys. Orion and Titan can now write longer step-by-step answers."
+  },
+  {
     "id": "2026-11-19-sideris-steadier",
     "date": "2026-11-19",
     "tag": "Portal",

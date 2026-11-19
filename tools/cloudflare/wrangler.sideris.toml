@@ -1,12 +1,7 @@
 # Cloudflare Worker configuration for Sideris AI (Instant 0 MB mode for Lux, Aether, Orion, Titan).
 # Deploy with: npx wrangler deploy --config tools/cloudflare/wrangler.sideris.toml
 #
-# Built-in free GPU inference runs immediately via Cloudflare Workers AI ([ai] binding = "AI",
-# 10,000 free Neurons/day, zero external API keys needed).
-# Optional extra free-tier keys (preferred first when set, never committed):
-#   npx wrangler secret put GEMINI_API_KEY --config tools/cloudflare/wrangler.sideris.toml
-#   npx wrangler secret put GROQ_API_KEY --config tools/cloudflare/wrangler.sideris.toml
-#   npx wrangler secret put OPENROUTER_API_KEY --config tools/cloudflare/wrangler.sideris.toml
+# Inference runs on Cloudflare Workers AI through the [ai] binding below; no other provider is used.
 
 name = "sideris-ai"
 main = "sideris-worker.js"
@@ -14,8 +9,3 @@ compatibility_date = "2026-10-01"
 
 [ai]
 binding = "AI"
-
-[vars]
-GEMINI_MODEL = "gemini-3.8-flash"
-GROQ_MODEL = "llama-3.3-70b-versatile"
-OPENROUTER_MODEL = "openrouter/free"
