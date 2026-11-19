@@ -22,6 +22,30 @@ window.AE_UPDATES = [
     "text": "Model downloads now carry on from where they stopped when you change page, and a model already installed keeps answering while another downloads. No settings to touch."
   },
   {
+    "id": "2026-11-19-guided-tour",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "A short guided tour of everything the portal does",
+    "text": "New accounts are offered a two-minute tour of the portal. You can skip it and take it any time from your account menu.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-19-calendar-revision-plans",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Revision plans, attendance and calendar export",
+    "text": "Plan your revision before each exam, see your attendance per subject, export your term to Google Calendar, and ask Sideris to explain a class you missed.",
+    "link": "account/calendar.html"
+  },
+  {
+    "id": "2026-11-19-account-calendar",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "A calendar of your classes and exams",
+    "text": "Choose your group and see each class with what will be done in it and the pages to prepare it. Mark the classes you missed and catch up from one list.",
+    "link": "account/calendar.html"
+  },
+  {
     "id": "2026-11-19-business-figures-from-slides",
     "date": "2026-11-19",
     "tag": "Business Management",

@@ -1859,6 +1859,10 @@
       var go = function () { engine.local.start(MODELS); };
       setTimeout(go, 1000);   // downloads are network only and resumable: start at once, no idle wait
     }
+    // A request left by the account calendar ("Explain what I missed"), once.
+    var pending = null;
+    try { pending = JSON.parse(sessionStorage.getItem('ae_sideris_pending') || 'null'); sessionStorage.removeItem('ae_sideris_pending'); } catch (e) { pending = null; }
+    if (pending && pending.visibleText) setTimeout(function () { openWithAskRequest(pending); }, 400);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

@@ -349,3 +349,7 @@ tags:
 
 ---
 *Return:* [[00 - Indice Central/Master Index|🗺️ Master Index]]
+
+## Class schedule
+
+* [[02 - Aerospace Materials I/Schedule - Aerospace Materials I 2026-27|Schedule - Aerospace Materials I 2026-27]]: official weekly planning (G45 and G46), used by the account calendar.
