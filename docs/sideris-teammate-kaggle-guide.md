@@ -6,12 +6,13 @@ Con dos cuentas gratuitas de Kaggle (**60 h/semana de GPU gratis entre los dos**
 
 ---
 
-## Qué archivos necesitas (solo 2 cosas)
+## Qué archivos necesitas (ya subidos a GitHub en `tools/ai_training/kaggle_pack/`)
 
-Todo viene empaquetado en **`sideris_pack_companero.zip`** (~3,2 MB, listo para pasar por WhatsApp/Telegram/Drive) o dentro de la carpeta del repo `tools/ai_training/out/kaggle_upload/` (si clonas el repo, los `.jsonl` no están en Git por tamaño — te los pasa Héctor o se regeneran con `python tools/ai_training/build_dataset.py`, pero **para tener los datos enriquecidos con Claude/Gemini usa el zip de Héctor**):
+Todo está guardado y listo para descargar directamente en la carpeta **`tools/ai_training/kaggle_pack/`** del repositorio (`git pull origin main`):
 
-1. **`sideris-data.zip`** — los 5 archivos de entrenamiento ya enriquecidos y verificados (`train_sft_enriched.jsonl`, `train_dpo_enriched.jsonl`, `train_grpo.jsonl`, `eval_holdout.jsonl`, `rewards.py`).
-2. **`Sideris_Train_Lux_Kaggle.ipynb`** — el notebook ya preconfigurado para entrenar **`Sideris Lux`** (`MODEL_CHOICE = "lux"`, `SFT_EPOCHS = 3`, `RUN_DPO = True`, `RUN_GRPO = False`).
+1. **`tools/ai_training/kaggle_pack/sideris-data.zip`** (3,2 MB) — los 5 archivos de entrenamiento ya enriquecidos con Neon 4 + Sonnet 5.5 + Opus y verificados (`train_sft_enriched.jsonl`, `train_dpo_enriched.jsonl`, `train_grpo.jsonl`, `eval_holdout.jsonl`, `rewards.py`).
+2. **`tools/ai_training/kaggle_pack/Sideris_Train_Lux_Kaggle.ipynb`** — el notebook ya preconfigurado para entrenar **`Sideris Lux`** (`MODEL_CHOICE = "lux"`, `SFT_EPOCHS = 3`, `RUN_DPO = True`, `RUN_GRPO = False`).
+3. **`tools/ai_training/kaggle_pack/Sideris_Train_Colab_Kaggle.ipynb`** — el notebook maestro para cualquier modelo (`lux`, `aether`, `orion`, `titan`).
 
 ---
 

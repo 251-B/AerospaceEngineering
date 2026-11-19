@@ -21,7 +21,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 OUT = ROOT / '_site'
 LIMIT = 25 * 1024 * 1024
 SKIP_DIRS = {'.git', '_site', 'node_modules', '__pycache__', 'graphify-out', '.obsidian', '.wrangler', 'sideris_out'}
-SKIP_PATHS = {'tools/invites/out', 'tools/ai_training/out'}
+SKIP_PATHS = {'tools/invites/out', 'tools/ai_training/out', 'tools/ai_training/kaggle_pack'}
 
 
 def shrink_pdf(src, dst):
