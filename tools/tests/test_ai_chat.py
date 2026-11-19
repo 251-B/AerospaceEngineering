@@ -35,24 +35,34 @@ def load_models():
 class SiderisStaticTests(unittest.TestCase):
     """Checks that need no browser."""
 
-    def test_models_catalogue_has_the_four_sideris_models(self):
+    def test_models_catalogue_has_instant_and_the_four_sideris_models(self):
         models = load_models()
         self.assertEqual(
             [m["name"] for m in models],
-            ["Sideris Lux", "Sideris Aether", "Sideris Orion", "Sideris Titan"],
+            ["Sideris Instant", "Sideris Lux", "Sideris Aether", "Sideris Orion", "Sideris Titan"],
         )
         defaults = [m["id"] for m in models if m.get("default")]
-        self.assertEqual(defaults, ["sideris-aether"])
+        self.assertEqual(defaults, ["sideris-instant"])
         for m in models:
-            self.assertIn(m["backend"], {"webgpu", "ollama"})
+            self.assertIn(m["backend"], {"cloud", "webgpu", "ollama"})
             self.assertTrue(m["repo"].strip())
+
+    def test_cloud_worker_and_config_contain_no_secrets(self):
+        cfg = (REPO / "assets/data/sideris-config.js").read_text(encoding="utf-8")
+        worker = (REPO / "tools/cloudflare/sideris-worker.js").read_text(encoding="utf-8")
+        self.assertIn("window.AE_SIDERIS_CONFIG", cfg)
+        self.assertIn("GEMINI_API_KEY", worker)
+        self.assertIn("GROQ_API_KEY", worker)
+        self.assertIn("OPENROUTER_API_KEY", worker)
+        for text in (cfg, worker):
+            self.assertIsNone(re.search(r"AIza[0-9A-Za-z_-]{20,}|gsk_[0-9A-Za-z]{20,}|sk-or-v1-[0-9a-f]{20,}", text))
 
     def test_theme_js_loads_sideris_in_order_before_solution_close(self):
         theme = (REPO / "assets/js/theme.js").read_text(encoding="utf-8")
         m = re.search(r"\[('focus-lab\.js'[^\]]*)\]\.forEach", theme)
         self.assertIsNotNone(m)
         names = re.findall(r"'([^']+)'", m.group(1))
-        seq = ["../data/ai-models.js", "ai-rag.js", "ai-engine.js", "ai-chat.js", "solution-close.js"]
+        seq = ["../data/sideris-config.js", "../data/ai-models.js", "ai-rag.js", "ai-engine.js", "ai-chat.js", "solution-close.js"]
         for item in seq:
             self.assertIn(item, names)
         positions = [names.index(item) for item in seq]

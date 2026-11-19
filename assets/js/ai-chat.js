@@ -92,6 +92,9 @@
       rag: true,
       thinking: true,
       customRepo: '',
+      workerUrl: '',
+      byokProvider: 'gemini',
+      byokKey: '',
       ollamaEndpoint: 'http://localhost:11434/v1',
       ollamaModel: 'qwen3.5:9b'
     };
@@ -104,11 +107,21 @@
         if (typeof parsed.rag === 'boolean') base.rag = parsed.rag;
         if (typeof parsed.thinking === 'boolean') base.thinking = parsed.thinking;
         if (typeof parsed.customRepo === 'string') base.customRepo = parsed.customRepo;
+        if (typeof parsed.workerUrl === 'string') base.workerUrl = parsed.workerUrl;
+        if (typeof parsed.byokProvider === 'string') base.byokProvider = parsed.byokProvider;
+        if (typeof parsed.byokKey === 'string') base.byokKey = parsed.byokKey;
         if (typeof parsed.ollamaEndpoint === 'string' && parsed.ollamaEndpoint.trim()) base.ollamaEndpoint = parsed.ollamaEndpoint;
         if (typeof parsed.ollamaModel === 'string' && parsed.ollamaModel.trim()) base.ollamaModel = parsed.ollamaModel;
       }
     } catch (e) { /* ignore corrupted storage */ }
     return base;
+  }
+
+  function effectiveWorkerUrl() {
+    var cfg = window.AE_SIDERIS_CONFIG && typeof window.AE_SIDERIS_CONFIG.workerUrl === 'string'
+      ? window.AE_SIDERIS_CONFIG.workerUrl.trim()
+      : '';
+    return (prefs.workerUrl && prefs.workerUrl.trim()) || cfg;
   }
 
   function savePrefs() {
@@ -446,6 +459,46 @@
     progressWrap.appendChild(progressBar);
     progressWrap.appendChild(progressText);
 
+    // Instant cloud proxy + optional personal free API key (for Sideris Instant)
+    var cloudWrap = el('div', 'sd-field');
+    var wLab = el('label', '', 'Cloudflare Worker URL (optional override)');
+    wLab.setAttribute('for', 'sdWorkerUrl');
+    var wInput = el('input', 'sd-input');
+    wInput.id = 'sdWorkerUrl';
+    wInput.type = 'text';
+    wInput.placeholder = 'https://sideris-ai.<subdomain>.workers.dev';
+    wInput.value = prefs.workerUrl || '';
+    var pLab = el('label', '', 'Or use your own free API key (stays in this browser)');
+    pLab.setAttribute('for', 'sdByokProvider');
+    pLab.style.marginTop = '8px';
+    var pSelect = el('select', 'sd-select');
+    pSelect.id = 'sdByokProvider';
+    [
+      ['gemini', 'Google AI Studio (Gemini Flash — free)'],
+      ['groq', 'Groq (Llama 3.3 70B — free)'],
+      ['openrouter', 'OpenRouter (:free models)']
+    ].forEach(function (o) {
+      var opt = el('option', '', o[1]);
+      opt.value = o[0];
+      pSelect.appendChild(opt);
+    });
+    pSelect.value = prefs.byokProvider || 'gemini';
+    var kLab = el('label', '', 'Personal API key (optional)');
+    kLab.setAttribute('for', 'sdByokKey');
+    kLab.style.marginTop = '6px';
+    var kInput = el('input', 'sd-input');
+    kInput.id = 'sdByokKey';
+    kInput.type = 'password';
+    kInput.autocomplete = 'off';
+    kInput.placeholder = 'Paste free key (stored locally only)';
+    kInput.value = prefs.byokKey || '';
+    cloudWrap.appendChild(wLab);
+    cloudWrap.appendChild(wInput);
+    cloudWrap.appendChild(pLab);
+    cloudWrap.appendChild(pSelect);
+    cloudWrap.appendChild(kLab);
+    cloudWrap.appendChild(kInput);
+
     // Custom HF ONNX repo (for WebGPU models)
     var customWrap = el('div', 'sd-field');
     var customLab = el('label', '', 'Custom Hugging Face ONNX repo (optional)');
@@ -510,7 +563,7 @@
     toggles.appendChild(thinkLabel);
     toggles.appendChild(langSeg);
 
-    [modelsGrid, modelDesc, loadRow, progressWrap, customWrap, ollamaWrap, toggles].forEach(function (n) {
+    [modelsGrid, modelDesc, loadRow, progressWrap, cloudWrap, customWrap, ollamaWrap, toggles].forEach(function (n) {
       settings.appendChild(n);
     });
 
@@ -556,6 +609,7 @@
       loadBtn: loadBtn, clearCacheBtn: clearCacheBtn,
       progressWrap: progressWrap, progressFill: progressFill, progressText: progressText,
       customWrap: customWrap, customInput: customInput,
+      cloudWrap: cloudWrap, wInput: wInput, pSelect: pSelect, kInput: kInput,
       ollamaWrap: ollamaWrap, epInput: epInput, tagInput: tagInput,
       ragCb: ragCb, thinkCb: thinkCb, langBtns: langBtns,
       messages: messages, status: status, composer: composer, ta: ta, sendBtn: sendBtn, live: live
@@ -579,6 +633,21 @@
 
     customInput.addEventListener('change', function () {
       prefs.customRepo = customInput.value.trim();
+      savePrefs();
+      syncSettings();
+    });
+    wInput.addEventListener('change', function () {
+      prefs.workerUrl = wInput.value.trim();
+      savePrefs();
+      syncSettings();
+    });
+    pSelect.addEventListener('change', function () {
+      prefs.byokProvider = pSelect.value;
+      savePrefs();
+      syncSettings();
+    });
+    kInput.addEventListener('change', function () {
+      prefs.byokKey = kInput.value.trim();
       savePrefs();
       syncSettings();
     });
@@ -654,12 +723,25 @@
     ui.modelBtns.forEach(function (b) {
       b.setAttribute('aria-pressed', b.dataset.model === m.id ? 'true' : 'false');
     });
-    ui.modelDesc.textContent = (m.summary || '') + ' (' + m.repo + ')';
+    var isCloud = m.backend === 'cloud';
     var isOllama = m.backend === 'ollama';
-    ui.customWrap.hidden = isOllama;
+    var isWebGPU = m.backend === 'webgpu';
+    var wUrl = effectiveWorkerUrl();
+    if (isCloud) {
+      var modeLabel = prefs.byokKey ? ('personal key · ' + prefs.byokProvider)
+        : wUrl ? ('Worker · ' + wUrl)
+        : 'not configured yet — deploy Worker or paste a free key below';
+      ui.modelDesc.textContent = (m.summary || '') + ' (' + modeLabel + ')';
+    } else {
+      ui.modelDesc.textContent = (m.summary || '') + ' (' + m.repo + ')';
+    }
+    ui.cloudWrap.hidden = !isCloud;
+    ui.customWrap.hidden = !isWebGPU;
     ui.ollamaWrap.hidden = !isOllama;
-    ui.clearCacheBtn.hidden = isOllama;
-    if (isOllama) {
+    ui.clearCacheBtn.hidden = !isWebGPU;
+    if (isCloud) {
+      ui.loadBtn.textContent = prefs.byokKey ? 'Clear personal key' : 'Test cloud connection';
+    } else if (isOllama) {
       ui.loadBtn.textContent = 'Test local connection';
     } else if (window.AESiderisEngine && window.AESiderisEngine.isLoaded(m.repo, m.dtype)) {
       ui.loadBtn.textContent = 'Loaded in GPU';
@@ -678,12 +760,33 @@
     savePrefs();
     hideProgress();
     syncSettings();
-    setStatus('Selected ' + m.name + ' (' + (m.backend === 'ollama' ? 'local Ollama' : 'WebGPU ' + m.sizeLabel) + ').');
+    var mode = m.backend === 'cloud' ? 'instant · 0 MB' : m.backend === 'ollama' ? 'local Ollama' : ('WebGPU ' + m.sizeLabel);
+    setStatus('Selected ' + m.name + ' (' + mode + ').');
   }
 
   function preloadActiveModel() {
     if (!window.AESiderisEngine) return Promise.resolve();
     var m = activeModelConfig();
+    if (m.backend === 'cloud') {
+      if (prefs.byokKey) {
+        prefs.byokKey = '';
+        if (ui.kInput) ui.kInput.value = '';
+        savePrefs();
+        syncSettings();
+        setStatus('Cleared personal API key from this browser.');
+        return Promise.resolve();
+      }
+      var wUrl = effectiveWorkerUrl();
+      setStatus(wUrl ? 'Checking Sideris cloud proxy...' : 'No Cloudflare Worker URL configured yet.');
+      return window.AESiderisEngine.checkCloud(wUrl).then(function (res) {
+        if (res.ok) {
+          var provs = res.providers && res.providers.length ? ' Active: ' + res.providers.join(', ') : '';
+          setStatus('Sideris Instant connected.' + provs);
+        } else {
+          setStatus('Cloud proxy not ready (' + res.error + '). Paste a free Gemini/Groq key below or deploy tools/cloudflare/sideris-worker.js.');
+        }
+      });
+    }
     if (m.backend === 'ollama') {
       setStatus('Checking local server at ' + m.endpoint + '...');
       return window.AESiderisEngine.checkOllama(m.endpoint).then(function (res) {
@@ -807,7 +910,11 @@
     session.messages.push(assistantMsg);
     renderMessages();
     setBusy(true);
-    setStatus(m.backend === 'ollama' ? 'Streaming from ' + m.name + ' (local)...' : 'Preparing ' + m.name + '...');
+    setStatus(
+      m.backend === 'cloud' ? 'Streaming from ' + m.name + '...'
+        : m.backend === 'ollama' ? 'Streaming from ' + m.name + ' (local)...'
+        : 'Preparing ' + m.name + '...'
+    );
 
     var ragQuery = opts.ragQuery || (pageTitle() + ' ' + text);
     var ragPromise = (prefs.rag && window.AESiderisRAG)
@@ -826,7 +933,16 @@
       });
 
       return window.AESiderisEngine.generate(
-        { model: m, messages: apiMessages, maxTokens: session.socratic ? 512 : 1400 },
+        {
+          model: m,
+          messages: apiMessages,
+          maxTokens: session.socratic ? 512 : 1400,
+          cloud: {
+            workerUrl: effectiveWorkerUrl(),
+            byokProvider: prefs.byokProvider || 'gemini',
+            byokKey: prefs.byokKey || ''
+          }
+        },
         function (_chunk, full) {
           assistantMsg.text = full;
           if (assistantMsg._contentEl) {

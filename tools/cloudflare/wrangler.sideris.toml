@@ -1,0 +1,17 @@
+# Cloudflare Worker configuration for Sideris Instant AI Proxy.
+# Deploy with: npx wrangler deploy --config tools/cloudflare/wrangler.sideris.toml
+# Secrets (never put keys here):
+#   npx wrangler secret put GEMINI_API_KEY --config tools/cloudflare/wrangler.sideris.toml
+#   npx wrangler secret put GROQ_API_KEY --config tools/cloudflare/wrangler.sideris.toml
+#   npx wrangler secret put OPENROUTER_API_KEY --config tools/cloudflare/wrangler.sideris.toml
+
+name = "sideris-ai"
+main = "sideris-worker.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+GEMINI_MODEL = "gemini-3.8-flash"
+GROQ_MODEL = "llama-3.3-70b-versatile"
+OPENROUTER_MODEL = "openrouter/free"
+# Optional extra origins (comma-separated) if you use a custom domain:
+# ALLOWED_ORIGINS = "https://study.example.com"

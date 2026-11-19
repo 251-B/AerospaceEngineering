@@ -1,11 +1,14 @@
 /*!
- * Aerospace Engineering Study Portal: Sideris inference engine (WebGPU ONNX + local Ollama).
+ * Aerospace Engineering Study Portal: Sideris inference engine (Cloud Worker/BYOK + WebGPU ONNX + local Ollama).
  *
- * Loaded on every page by assets/js/theme.js (after ai-models.js and ai-rag.js). Skipped in PDF
- * print mode (?print=...). Zero external network requests occur until the user explicitly loads
- * a WebGPU model or sends a message.
+ * Loaded on study pages by assets/js/theme.js (after sideris-config.js, ai-models.js and ai-rag.js).
+ * Skipped in PDF print mode (?print=...). Zero external network requests occur until the user
+ * explicitly loads a model, tests a connection or sends a message.
  *
  * Backends:
+ *   - cloud  : zero-download instant streaming via your free Cloudflare Worker
+ *              (tools/cloudflare/sideris-worker.js) OR direct user-supplied free key (BYOK:
+ *              Google AI Studio Gemini Flash, Groq or OpenRouter).
  *   - webgpu : lazily imports @huggingface/transformers v4 from jsDelivr ESM CDN, streams ONNX
  *              weights from Hugging Face into browser Cache API / IndexedDB, and runs locally on
  *              the GPU with token streaming.
@@ -14,7 +17,7 @@
  *   - mock   : test hook (setMock) used by tools/tests/test_ai_chat.py.
  *
  * API: window.AESiderisEngine = { hasWebGPU, isLoaded, loadedKey, loadWebGPU, generate,
- *      abort, clearBrowserCache, checkOllama, setMock }
+ *      abort, clearBrowserCache, checkOllama, checkCloud, BYOK_PROVIDERS, setMock }
  */
 (function () {
   'use strict';
@@ -27,9 +30,27 @@
     'https://cdn.jsdelivr.net/npm/@huggingface/transformers@next'
   ];
 
+  var BYOK_PROVIDERS = {
+    gemini: {
+      label: 'Google AI Studio (Gemini Flash)',
+      url: 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions',
+      model: 'gemini-3.8-flash'
+    },
+    groq: {
+      label: 'Groq (Llama 3.3 70B)',
+      url: 'https://api.groq.com/openai/v1/chat/completions',
+      model: 'llama-3.3-70b-versatile'
+    },
+    openrouter: {
+      label: 'OpenRouter (:free)',
+      url: 'https://openrouter.ai/api/v1/chat/completions',
+      model: 'openrouter/free'
+    }
+  };
+
   var tfModule = null;
-  var loaded = null;          // { key, repo, dtype, generator, tokenizer }
-  var activeAbort = null;     // { aborted: boolean, controller?: AbortController }
+  var loaded = null;          // { key, repo, dtype, generator, mod }
+  var activeAbort = null;     // { aborted: boolean, controller?: AbortController, stopper?: any }
   var mockFn = null;          // test hook: async (req, callbacks) -> string
 
   function hasWebGPU() {
@@ -84,7 +105,7 @@
     }
     if (!hasWebGPU()) {
       return Promise.reject(new Error(
-        'This browser does not expose WebGPU. Use Chrome or Edge on desktop, switch to Sideris Titan (Ollama), or open the prompt in Claude/Gemini.'
+        'This browser does not expose WebGPU. Use Sideris Instant (zero download), Sideris Titan (Ollama), or open the prompt in Claude/Gemini.'
       ));
     }
 
@@ -112,7 +133,7 @@
 
     return navigator.gpu.requestAdapter().then(function (adapter) {
       if (!adapter) {
-        throw new Error('No WebGPU adapter found on this device. Try Sideris Titan (Ollama) or Claude/Gemini.');
+        throw new Error('No WebGPU adapter found on this device. Switch to Sideris Instant or Sideris Titan (Ollama).');
       }
       return loadTransformersLib();
     }).then(function (mod) {
@@ -178,47 +199,22 @@
     });
   }
 
-  function normaliseEndpoint(ep) {
-    var base = String(ep || 'http://localhost:11434/v1').trim().replace(/\/+$/, '');
-    if (!/^https?:\/\//i.test(base)) base = 'http://' + base;
-    return base;
-  }
-
-  function checkOllama(endpoint) {
-    var base = normaliseEndpoint(endpoint);
-    return fetch(base + '/models', { method: 'GET' }).then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
-    }).then(function (data) {
-      var list = Array.isArray(data && data.data) ? data.data.map(function (m) { return m.id; }) : [];
-      return { ok: true, models: list, endpoint: base };
-    }).catch(function (err) {
-      return { ok: false, error: err && err.message ? err.message : 'Unreachable', endpoint: base };
-    });
-  }
-
-  function generateOllama(req, onToken) {
-    var base = normaliseEndpoint(req.model && req.model.endpoint);
-    var modelTag = String((req.model && req.model.repo) || 'qwen3.5:9b').trim();
-    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    var token = { aborted: false, controller: ctrl };
-    activeAbort = token;
-
-    return fetch(base + '/chat/completions', {
+  /* ---------------------------------------------------------------- shared OpenAI SSE streamer */
+  function streamOpenAICompat(url, headers, payload, onToken, token) {
+    return fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl ? ctrl.signal : undefined,
-      body: JSON.stringify({
-        model: modelTag,
-        messages: req.messages,
-        temperature: req.temperature != null ? req.temperature : 0.4,
-        max_tokens: req.maxTokens || 2048,
-        stream: true
-      })
+      headers: headers,
+      signal: token.controller ? token.controller.signal : undefined,
+      body: JSON.stringify(payload)
     }).then(function (res) {
       if (!res.ok) {
         return res.text().then(function (txt) {
-          throw new Error('Local server returned HTTP ' + res.status + (txt ? ': ' + txt.slice(0, 140) : ''));
+          var detail = '';
+          try {
+            var parsed = JSON.parse(txt);
+            detail = (parsed && parsed.error && (parsed.error.message || parsed.error)) || '';
+          } catch (e) { detail = txt ? txt.slice(0, 160) : ''; }
+          throw new Error('Server returned HTTP ' + res.status + (detail ? ': ' + detail : ''));
         });
       }
       if (!res.body || !res.body.getReader) {
@@ -246,10 +242,10 @@
           for (var i = 0; i < lines.length; i++) {
             var line = lines[i].trim();
             if (!line || line.indexOf('data:') !== 0) continue;
-            var payload = line.slice(5).trim();
-            if (payload === '[DONE]') continue;
+            var chunkStr = line.slice(5).trim();
+            if (chunkStr === '[DONE]') continue;
             try {
-              var obj = JSON.parse(payload);
+              var obj = JSON.parse(chunkStr);
               var delta = obj && obj.choices && obj.choices[0] && obj.choices[0].delta;
               if (!delta) continue;
               var reason = delta.reasoning_content || delta.reasoning || '';
@@ -273,7 +269,110 @@
         });
       }
       return read();
+    });
+  }
+
+  /* ---------------------------------------------------------------- Cloud (Worker + BYOK) */
+  function normaliseBase(ep, fallback) {
+    var base = String(ep || fallback || '').trim().replace(/\/+$/, '');
+    if (base && !/^https?:\/\//i.test(base)) base = 'https://' + base;
+    return base;
+  }
+
+  function checkCloud(workerUrl) {
+    var base = normaliseBase(workerUrl, '');
+    if (!base) return Promise.resolve({ ok: false, error: 'No Cloudflare Worker URL configured yet.' });
+    return fetch(base + '/health', { method: 'GET' }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    }).then(function (data) {
+      return {
+        ok: !!(data && data.ok),
+        providers: Array.isArray(data && data.providers) ? data.providers : [],
+        endpoint: base
+      };
     }).catch(function (err) {
+      return { ok: false, error: err && err.message ? err.message : 'Unreachable', endpoint: base };
+    });
+  }
+
+  function generateCloud(req, onToken) {
+    var cloud = req.cloud || {};
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var token = { aborted: false, controller: ctrl };
+    activeAbort = token;
+
+    var url = '';
+    var headers = { 'Content-Type': 'application/json' };
+    var modelName = 'sideris-instant';
+
+    if (cloud.byokKey && cloud.byokKey.trim()) {
+      var prov = BYOK_PROVIDERS[cloud.byokProvider] || BYOK_PROVIDERS.gemini;
+      url = prov.url;
+      modelName = prov.model;
+      headers.Authorization = 'Bearer ' + cloud.byokKey.trim();
+      if (cloud.byokProvider === 'openrouter') {
+        headers['HTTP-Referer'] = 'https://251-b.github.io/AerospaceEngineering/';
+        headers['X-Title'] = 'Sideris Aerospace Study Portal';
+      }
+    } else if (cloud.workerUrl && cloud.workerUrl.trim()) {
+      url = normaliseBase(cloud.workerUrl, '') + '/v1/chat/completions';
+    } else {
+      activeAbort = null;
+      return Promise.reject(new Error(
+        'Sideris Instant needs either the portal Cloudflare Worker URL (see docs/sideris-ai-setup.md) ' +
+        'or your own free Gemini/Groq API key in Settings below — or switch to Sideris Lux / Aether for offline browser use.'
+      ));
+    }
+
+    return streamOpenAICompat(url, headers, {
+      model: modelName,
+      messages: req.messages,
+      temperature: req.temperature != null ? req.temperature : 0.35,
+      max_tokens: req.maxTokens || 1600,
+      stream: true
+    }, onToken, token).catch(function (err) {
+      if (token.aborted) return '';
+      throw err;
+    }).finally(function () {
+      if (activeAbort === token) activeAbort = null;
+    });
+  }
+
+  /* ---------------------------------------------------------------- Local Ollama / LM Studio */
+  function normaliseEndpoint(ep) {
+    var base = String(ep || 'http://localhost:11434/v1').trim().replace(/\/+$/, '');
+    if (!/^https?:\/\//i.test(base)) base = 'http://' + base;
+    return base;
+  }
+
+  function checkOllama(endpoint) {
+    var base = normaliseEndpoint(endpoint);
+    return fetch(base + '/models', { method: 'GET' }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    }).then(function (data) {
+      var list = Array.isArray(data && data.data) ? data.data.map(function (m) { return m.id; }) : [];
+      return { ok: true, models: list, endpoint: base };
+    }).catch(function (err) {
+      return { ok: false, error: err && err.message ? err.message : 'Unreachable', endpoint: base };
+    });
+  }
+
+  function generateOllama(req, onToken) {
+    var base = normaliseEndpoint(req.model && req.model.endpoint);
+    var modelTag = String((req.model && req.model.repo) || 'qwen3.5:9b').trim();
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var token = { aborted: false, controller: ctrl };
+    activeAbort = token;
+
+    return streamOpenAICompat(base + '/chat/completions', { 'Content-Type': 'application/json' }, {
+      model: modelTag,
+      messages: req.messages,
+      temperature: req.temperature != null ? req.temperature : 0.4,
+      max_tokens: req.maxTokens || 2048,
+      stream: true
+    }, onToken, token).catch(function (err) {
       if (token.aborted) return '';
       var msg = (err && err.message) || String(err);
       if (/failed to fetch|networkerror|load failed/i.test(msg)) {
@@ -303,6 +402,7 @@
       });
     }
     var backend = (req && req.model && req.model.backend) || 'webgpu';
+    if (backend === 'cloud') return generateCloud(req, onToken);
     if (backend === 'ollama') return generateOllama(req, onToken);
     return generateWebGPU(req, onToken, onProgress);
   }
@@ -342,6 +442,8 @@
     abort: abort,
     clearBrowserCache: clearBrowserCache,
     checkOllama: checkOllama,
+    checkCloud: checkCloud,
+    BYOK_PROVIDERS: BYOK_PROVIDERS,
     setMock: setMock
   };
 })();

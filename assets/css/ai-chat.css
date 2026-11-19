@@ -153,12 +153,12 @@ html[data-theme="light"] .sd-launcher, html[data-theme="light"] .sd-drawer {
 .sd-field label {
   display: block; margin: 0 0 4px; font: 600 11px/1.3 var(--sd-mono); color: var(--sd-muted);
 }
-.sd-input {
+.sd-input, .sd-select {
   width: 100%; padding: 7px 10px; border-radius: 9px; border: 1px solid var(--sd-border);
   background: var(--sd-surface); color: var(--sd-text);
   font: 500 12px/1.35 var(--sd-mono) !important;
 }
-.sd-input:focus-visible { border-color: var(--sd-accent); outline: none; }
+.sd-input:focus-visible, .sd-select:focus-visible { border-color: var(--sd-accent); outline: none; }
 
 .sd-toggles { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 8px; }
 .sd-check {

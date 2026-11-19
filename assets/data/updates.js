@@ -18,8 +18,8 @@ window.AE_UPDATES = [
     "id": "2026-11-19-sideris-ai-chat",
     "date": "2026-11-19",
     "tag": "Portal",
-    "title": "Sideris: free in-page AI tutor with downloadable models",
-    "text": "A new Sideris chat drawer works with Ask AI and your course notes using free browser models (Lux, Aether, Orion) or local Ollama (Titan), with live equations.",
+    "title": "Sideris: free in-page AI tutor, instant or offline",
+    "text": "A new Sideris chat drawer works with Ask AI and your course notes: instant zero-download mode (Cloudflare Worker or free key) plus downloadable Lux, Aether, Orion and Titan.",
     "link": "index.html"
   },
   {

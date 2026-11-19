@@ -1,23 +1,38 @@
 /*!
  * Aerospace Engineering Study Portal: Sideris model catalogue.
  *
- * Loaded on every page by assets/js/theme.js right before assets/js/ai-rag.js, ai-engine.js
- * and ai-chat.js. Keep everything between the brackets pure JSON (tools/tests/test_ai_chat.py
- * parses it directly).
+ * Loaded on study pages by assets/js/theme.js right after assets/data/sideris-config.js and
+ * before assets/js/ai-rag.js, ai-engine.js and ai-chat.js. Keep everything between the brackets
+ * pure JSON (tools/tests/test_ai_chat.py parses it directly).
  *
- * Each model runs either:
+ * Backends:
+ *   - backend: "cloud"  -> zero-download instant streaming via your free Cloudflare Worker
+ *                          (tools/cloudflare/sideris-worker.js: Gemini Flash -> Groq -> OpenRouter)
+ *                          or a user's own free API key (BYOK, stored only in their browser);
  *   - backend: "webgpu" -> ONNX weights streamed from Hugging Face via Transformers.js v4 and
- *     cached in the browser Cache API / IndexedDB for free offline use;
+ *                          cached in the browser Cache API / IndexedDB for free offline use;
  *   - backend: "ollama" -> GGUF weights running locally via Ollama / LM Studio on localhost.
- *
- * Once the fine-tuned Sideris v1 checkpoints are published on Hugging Face (Phase 4), update
- * `repo` (and `trained: true`) here; no HTML page changes and no PDF is reprinted.
  */
 window.AE_SIDERIS_MODELS = [
   {
+    "id": "sideris-instant",
+    "name": "Sideris Instant",
+    "tier": "Instant · 0 MB",
+    "backend": "cloud",
+    "repo": "sideris-cloud-cascade",
+    "base": "Gemini Flash / Groq / OpenRouter",
+    "sizeLabel": "0 MB download",
+    "minRamGb": 1,
+    "thinking": true,
+    "vision": false,
+    "default": true,
+    "trained": false,
+    "summary": "Ready immediately on any phone or laptop with zero download (free Cloudflare Worker cascade or your own free Gemini/Groq key), grounded in the UC3M vault."
+  },
+  {
     "id": "sideris-lux",
     "name": "Sideris Lux",
-    "tier": "Fast & light",
+    "tier": "Fast offline",
     "backend": "webgpu",
     "repo": "onnx-community/Qwen3.5-2B-ONNX",
     "base": "Qwen3.5-2B",
@@ -33,7 +48,7 @@ window.AE_SIDERIS_MODELS = [
   {
     "id": "sideris-aether",
     "name": "Sideris Aether",
-    "tier": "Recommended",
+    "tier": "Main offline",
     "backend": "webgpu",
     "repo": "onnx-community/Qwen3.5-4B-ONNX",
     "base": "Qwen3.5-4B",
@@ -42,9 +57,9 @@ window.AE_SIDERIS_MODELS = [
     "minRamGb": 8,
     "thinking": true,
     "vision": true,
-    "default": true,
+    "default": false,
     "trained": false,
-    "summary": "Main in-browser engineering tutor across all five subjects: step-by-step algebra, Socratic mode and bilingual ES/EN."
+    "summary": "Main downloadable in-browser engineering tutor across all five subjects: step-by-step algebra, Socratic mode and bilingual ES/EN."
   },
   {
     "id": "sideris-orion",

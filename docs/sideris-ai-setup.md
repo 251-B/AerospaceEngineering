@@ -1,0 +1,65 @@
+# Sideris Instant AI Setup (Free Cloudflare Worker)
+
+This guide enables **Sideris Instant** — zero-download, ~1 second streaming answers inside every
+study page (desktop and mobile), grounded in the portal's `vault/` RAG shards and backed by
+automatic cascade across three free-tier APIs (Google AI Studio Gemini Flash -> Groq -> OpenRouter `:free`).
+
+All four downloadable own models (`Sideris Lux`, `Sideris Aether`, `Sideris Orion`, `Sideris Titan`)
+remain available in the model selector for offline or custom fine-tuned use.
+
+---
+
+## 1. Get your free API keys (no credit card required)
+
+At least **one** key is enough; adding two or three gives automatic fallback during exam weeks:
+
+1. **Google AI Studio (Primary — Gemini Flash):** https://aistudio.google.com/apikey -> Create API key.
+2. **Groq (Fallback 1 — ultra-fast open models):** https://console.groq.com/keys -> Create API key.
+3. **OpenRouter (Fallback 2 — `:free` reasoning models):** https://openrouter.ai/keys -> Create key.
+
+---
+
+## 2. Deploy the Worker to your free Cloudflare account
+
+From the repository root (free plan includes **100,000 requests/day**):
+
+```bash
+npx wrangler login
+npx wrangler deploy --config tools/cloudflare/wrangler.sideris.toml
+```
+
+Wrangler prints your public Worker URL, e.g.:
+`https://sideris-ai.<your-subdomain>.workers.dev`
+
+---
+
+## 3. Store the API keys as encrypted Worker secrets
+
+Never commit API keys to Git. Push them directly to Cloudflare:
+
+```bash
+npx wrangler secret put GEMINI_API_KEY --config tools/cloudflare/wrangler.sideris.toml
+npx wrangler secret put GROQ_API_KEY --config tools/cloudflare/wrangler.sideris.toml
+npx wrangler secret put OPENROUTER_API_KEY --config tools/cloudflare/wrangler.sideris.toml
+```
+
+Test the health endpoint in your browser:
+`https://sideris-ai.<your-subdomain>.workers.dev/health`
+You should see `{"ok":true,"providers":["gemini","groq","openrouter"]}`.
+
+---
+
+## 4. Connect the portal
+
+Edit `assets/data/sideris-config.js` and paste your public Worker URL:
+
+```js
+window.AE_SIDERIS_CONFIG = window.AE_SIDERIS_CONFIG || {
+  workerUrl: 'https://sideris-ai.<your-subdomain>.workers.dev'
+};
+```
+
+Commit and push. Every student now gets instant Sideris answers with zero downloads.
+
+> **Alternative without deploying a Worker (BYOK):** Any visitor can also open **Sideris -> Settings**
+> and paste their own free Google AI Studio, Groq or OpenRouter key; it stays only in their own browser.
