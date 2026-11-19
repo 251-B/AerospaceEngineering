@@ -8,6 +8,7 @@
      sections load the account pages in iframes. -->
 <script src="../../assets/data/timetable.js"></script>
 <script src="../../assets/js/calendar-core.js"></script>
+<script src="../../assets/js/account-calendar.js"></script>
 </head>
 <body>
 <pre id="results">PENDING</pre>
@@ -129,6 +130,80 @@
     try { var r = C.load(); record('storage_blocked_load', r && r.v === 1 && Array.isArray(r.events), JSON.stringify(r)); }
     finally { Storage.prototype.getItem = orig; }
   });
+
+  // ---------------------------------------------------------------- 2. calendar page (mounted here)
+  var UI = window.AECalendarUI;
+  var ACC = { current: function () { return { prefs: { subjects: ALL, exams: {} } }; }, changed: function () {} };
+  function seed(r) { try { if (r) localStorage.setItem(C.KEY, JSON.stringify(r)); else localStorage.removeItem(C.KEY); } catch (e) { /* blocked */ } }
+  function mountPage(r, opts) {
+    seed(r);
+    var host = document.createElement('div');
+    document.body.appendChild(host);
+    var o = { account: ACC, tt: TT, base: '../../', width: 1200 };
+    Object.keys(opts || {}).forEach(function (k) { o[k] = opts[k]; });
+    return { host: host, api: UI.mount(host, o) };
+  }
+  function closeAll(host) { Array.prototype.forEach.call(host.querySelectorAll('dialog'), function (d) { if (d.open) d.close(); }); host.remove(); }
+  var G46 = { 'engineering-mechanics': { group: 'G46', labGroup: null, slots: [], at: 1 } };
+
+  run('gate_when_signed_out', function () {
+    var m = mountPage(null, { account: { current: function () { return null; } } });
+    record('gate_when_signed_out', m.host.querySelector('#calGate') && !m.host.querySelector('#calApp'), m.host.innerHTML.slice(0, 80));
+    closeAll(m.host);
+  });
+  run('groups_dialog_first_visit', function () {
+    var m = mountPage(null, { today: '2026-11-18' });
+    var d = m.host.querySelector('#calGroupsDlg');
+    record('groups_dialog_first_visit', d && d.open && d.querySelectorAll('select[data-grp]').length === 5, d && d.open);
+    closeAll(m.host);
+  });
+  run('week_shows_em_s21', function () {
+    var m = mountPage(rec(G46), { today: '2026-11-18' });
+    var c = m.host.querySelector('.cal-ev[data-key="em-s21"]');
+    record('week_shows_em_s21', c && /Problems 17, 24/.test(c.textContent) && /7\.2\.J01/.test(c.textContent), c && c.textContent);
+    closeAll(m.host);
+  });
+  run('sheet_missed_moves_to_catchup', function () {
+    var m = mountPage(rec(G46), { today: '2026-11-18', now: '18:00' });
+    m.host.querySelector('.cal-ev[data-key="em-s21"]').click();
+    var sheet = m.host.querySelector('#calSheet');
+    var links = sheet.querySelectorAll('.cal-sheet__links a').length;
+    sheet.querySelector('[data-act="missed"]').click();
+    var cu = m.host.querySelector('#calCatchup').textContent;
+    var stored = C.load().marks['em-s21'];
+    record('sheet_missed_moves_to_catchup', links === 2 && /Problems 17, 24/.test(cu) && stored && stored.status === 'missed' && m.host.querySelector('.cal-ev--missed'),
+      links + ' ' + cu.slice(0, 60));
+    closeAll(m.host);
+  });
+  run('sheet_notheld_custom_shifts', function () {
+    var m = mountPage(rec({ 'engineering-mechanics': EM_CUSTOM }), { today: '2026-09-07', now: '08:00' });
+    m.host.querySelector('.cal-ev[data-key="em-s1"]').click();
+    m.host.querySelector('#calSheet [data-act="notheld"]').click();
+    var moved = find(m.api.occurrences, function (x) { return x.sessionId === 'em-s1'; });
+    record('sheet_notheld_custom_shifts', moved && moved.date === '2026-09-14', JSON.stringify(moved && moved.date));
+    closeAll(m.host);
+  });
+  run('no_lab_links_in_dom', function () {
+    var m = mountPage(rec(G46), { today: '2026-11-16' });
+    var lab = m.host.querySelector('.cal-ev--lab');
+    lab.click();
+    var sheet = m.host.querySelector('#calSheet');
+    record('no_lab_links_in_dom', lab && !sheet.querySelector('a') && /A or B/.test(lab.textContent), lab && lab.textContent);
+    closeAll(m.host);
+  });
+  run('view_switch_aria_pressed', function () {
+    var m = mountPage(rec(G46), { today: '2026-11-18' });
+    m.host.querySelector('[data-cal-view="month"]').click();
+    var pressed = m.host.querySelector('[data-cal-view="month"]').getAttribute('aria-pressed');
+    record('view_switch_aria_pressed', pressed === 'true' && m.host.querySelector('#calGrid').getAttribute('data-view') === 'month' && m.host.querySelector('.cal-month'), pressed);
+    closeAll(m.host);
+  });
+  run('list_default_on_narrow', function () {
+    var m = mountPage(rec(G46), { today: '2026-11-18', width: 375 });
+    record('list_default_on_narrow', m.api.state.view === 'list' && m.host.querySelector('.cal-list'), m.api.state.view);
+    closeAll(m.host);
+  });
+  seed(null);
 
   document.getElementById('results').textContent = JSON.stringify(results);
 })();

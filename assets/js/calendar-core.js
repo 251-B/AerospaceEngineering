@@ -65,7 +65,7 @@
   function base(slug, fields) {
     var o = { key: null, subject: slug, sessionId: null, kind: 'lecture', title: '', text: '', date: null, start: null, end: null,
       room: null, group: null, lab: null, links: [], status: null, note: '', official: false, basis: null, isEvent: false,
-      isExam: false, allDay: false, manual: false, movedFrom: null };
+      isExam: false, allDay: false, manual: false, fromSlot: false, movedFrom: null };
     Object.keys(fields).forEach(function (k) { o[k] = fields[k]; });
     o.allDay = !o.start;
     return o;
@@ -127,7 +127,7 @@
       slots.forEach(function (sl) {
         if (sl.dow !== wd || !sl.start) return;
         classes.push(base(slug, { kind: sl.kind || 'lecture', date: d, start: sl.start, end: sl.end, room: sl.room || null,
-          group: g.group, manual: true, title: KIND_LABEL[sl.kind] || 'Lecture' }));
+          group: g.group, manual: true, fromSlot: true, title: KIND_LABEL[sl.kind] || 'Lecture' }));
       });
     }
     classes.sort(function (a, b) { return (a.date + a.start) < (b.date + b.start) ? -1 : 1; });
@@ -168,7 +168,7 @@
   function applyMark(o, rec) {
     var m = rec.marks[o.sessionId || o.key];
     if (!m) return o;
-    if (m.moveTo && o.sessionId && !o.manual) {
+    if (m.moveTo && o.sessionId && !o.fromSlot) {
       o.movedFrom = o.date; o.date = m.moveTo; o.status = null;
     } else {
       o.status = m.status || null;
