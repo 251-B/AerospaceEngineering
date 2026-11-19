@@ -596,3 +596,18 @@ html[data-home-view="classic"] .intro-replay { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
   html[data-home-view="constellations"] .header-actions > *:active, .ae-nav-btn:active, .upd-bell:active { transform: none; }
 }
+
+/* ---- Polish pass (2026-11): Sign in as tall as the round controls on phones, and a header that also fits 320 px ---- */
+@media (max-width: 599px) {
+  html[data-home-view="constellations"] .acc-signin { height: 40px; padding: 0 14px; border-radius: 999px; }
+}
+@media (max-width: 359px) {
+  html[data-home-view="constellations"] .utility-bar .header-inner { padding-left: 10px; padding-right: 10px; gap: 6px; }
+  html[data-home-view="constellations"] .header-actions { gap: 3px; }
+  html[data-home-view="constellations"] .header-actions .sound-toggle,
+  html[data-home-view="constellations"] .header-actions .sky-palette-select,
+  html[data-home-view="constellations"] .header-actions .view-toggle,
+  html[data-home-view="constellations"] .ae-nav-btn,
+  html[data-home-view="constellations"] .upd-bell { width: 38px; min-width: 38px; height: 38px; min-height: 38px; }
+  html[data-home-view="constellations"] .acc-signin { padding: 0 11px; }
+}
