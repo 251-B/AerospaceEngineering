@@ -256,6 +256,11 @@ window.addEventListener('load', function () {
           // Crash guard: a model still marked "loading" on the next visit is never tried again
           L.restore({ loading: 'sideris-lux' });
           check('local-crash-guard', !!L.state().failed['sideris-lux'] && !L.isReady('sideris-lux'), JSON.stringify(L.state().failed));
+          // A "too slow" verdict of an older probe is dropped (the first probe timed the GPU warm-up);
+          // a crash verdict is kept
+          L.restore({ failed: { 'sideris-lux': 'too slow on this device (1.4 tokens/s)', 'sideris-orion': 'the tab closed while loading' } });
+          var f = L.state().failed;
+          check('local-old-slow-verdict-retried', !f['sideris-lux'] && !!f['sideris-orion'], JSON.stringify(f));
           L.restore({});
           // A tier-2 computer installs Lux, Aether and Orion (Titan stays in the cloud) and then answers on it
           var calls = [];
@@ -285,8 +290,13 @@ window.addEventListener('load', function () {
             check('local-failure-falls-back-to-cloud', text === 'CLOUD' && !L.isReady('sideris-aether') && !!L.state().failed['sideris-aether'], text);
             // Too slow on this device: not used
             L.restore({});
+            // 4 tokens 700 ms apart after a quick warm-up: 1.4 tokens/s of real decoding
             window.AESiderisEngine.setMock(function (req, cb) {
-              return new Promise(function (r) { setTimeout(function () { cb.onToken('t', 't'); r('t'); }, 700); });
+              if (req.maxTokens <= 4) return Promise.resolve('');
+              return new Promise(function (r) {
+                var i = 0;
+                (function tick() { cb.onToken('t', 't'); if (++i < 4) setTimeout(tick, 700); else r('tttt'); })();
+              });
             });
             return L.start(window.AESideris.models(), sig({ maxBuffer: 1.5 * G }));
           }).then(function () {

@@ -426,6 +426,7 @@
   var LOCAL_KEY = 'ae_sideris_local';
   var GIB = 1073741824;
   var MIN_TOKENS_PER_SEC = 3;   // slower than this, an answer on the device is worse than the cloud
+  var PROBE_V = 2;              // bump when the probe changes: "too slow" verdicts of an older probe are dropped
   var localState = parseLocal(readStore(LOCAL_KEY));   // { ready: {id: true}, failed: {id: why}, loading: id }
   var localJob = null;          // model being downloaded: { id, name, startedAt, loaded, total }
   var localTodo = [];           // models still to download, in order
@@ -445,6 +446,10 @@
     // so if it is still set the tab died while loading that model: never try it here again.
     if (st.loading) { st.failed[st.loading] = 'the tab closed while loading'; delete st.ready[st.loading]; }
     st.loading = '';
+    if (st.probe !== PROBE_V) {
+      for (var id in st.failed) if (/^too slow/.test(st.failed[id])) delete st.failed[id];
+      st.probe = PROBE_V;
+    }
     return st;
   }
 
@@ -504,14 +509,20 @@
     }).catch(function () {});
   }
 
+  // Tested on a real computer: the first WebGPU generation includes compiling the GPU kernels, so
+  // timing it gave 1.4 tokens/s for a model that runs fine. Warm up first, then time only from the
+  // first token to the last (decoding speed, what the student feels).
   function probe(m) {
-    var t0 = Date.now(), n = 0;
-    return generate({
-      model: { id: m.id, backend: 'webgpu', repo: m.repo, dtype: m.dtype },
-      messages: [{ role: 'user', content: 'Reply with one short sentence about fluids.' }],
-      maxTokens: 16
-    }, function () { n++; }).then(function () {
-      return n / Math.max(0.001, (Date.now() - t0) / 1000);
+    var model = { id: m.id, backend: 'webgpu', repo: m.repo, dtype: m.dtype };
+    var ask = [{ role: 'user', content: 'Reply with one short sentence about fluids.' }];
+    var n = 0, tFirst = 0, tLast = 0;
+    return generate({ model: model, messages: ask, maxTokens: 4 }, function () {}).then(function () {
+      return generate({ model: model, messages: ask, maxTokens: 24 }, function () {
+        tLast = Date.now();
+        if (!n++) tFirst = tLast;
+      });
+    }).then(function () {
+      return n > 1 ? (n - 1) / Math.max(0.001, (tLast - tFirst) / 1000) : 0;
     });
   }
 
