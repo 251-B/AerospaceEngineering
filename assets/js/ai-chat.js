@@ -1772,7 +1772,7 @@
           if (settled) return;
           settled = true;
           clearTimeout(timer);
-          local.markFailed(m.id, err && err.message);
+          local.pause(m.id, err && err.message);
           resolve(toCloud('could not run on this device'));
         });
       });

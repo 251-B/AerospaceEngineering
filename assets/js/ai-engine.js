@@ -369,12 +369,13 @@
   var LOCAL_KEY = 'ae_sideris_local';
   var GIB = 1073741824;
   var MIN_TOKENS_PER_SEC = 3;   // slower than this, an answer on the device is worse than the cloud
-  var PROBE_V = 2;              // bump when the probe changes: "too slow" verdicts of an older probe are dropped
+  var PROBE_V = 3;              // bump when the checks change: verdicts of older checks are dropped (crashes are kept)
   var localState = parseLocal(readStore(LOCAL_KEY));   // { ready: {id: true}, failed: {id: why}, loading: id }
   var localJob = null;          // model being downloaded: { id, name, startedAt, loaded, total }
   var localTodo = [];           // models still to download, in order
   var localRunning = null;      // promise of the running startLocal(), shared by every caller
   var localTier = null;
+  var paused = {};              // models set aside for this page after an error while answering
   saveLocal();
 
   function readStore(key) {
@@ -390,7 +391,7 @@
     if (st.loading) { st.failed[st.loading] = 'the tab closed while loading'; delete st.ready[st.loading]; }
     st.loading = '';
     if (st.probe !== PROBE_V) {
-      for (var id in st.failed) if (/^too slow/.test(st.failed[id])) delete st.failed[id];
+      for (var id in st.failed) if (!/tab closed/.test(st.failed[id])) delete st.failed[id];
       st.probe = PROBE_V;
     }
     return st;
@@ -412,10 +413,13 @@
     if (localState.loading) { var id = localState.loading; localState.loading = ''; note(id + ': page left before it finished'); }
   });
 
-  // shortcut: thresholds are estimates (1 GiB / 2 GiB buffers, 8 GB RAM); tune them with real devices.
+  // Measured on a real computer: with buffers capped at exactly 2 GiB, Lux (1.3 GB) ran at 8.8
+  // tokens/s but Aether (2.5 GB) failed to load and took the browser's GPU down with it. Mid-size
+  // models need buffers above 2 GiB.
+  // shortcut: the 1 GiB and 8 GB RAM limits are still estimates; tune them with more devices.
   function classifyDevice(sig) {
     if (!sig.webgpu || !sig.f16 || sig.mobile || sig.saveData) return 0;
-    var tier = sig.maxBuffer >= 2 * GIB ? 2 : sig.maxBuffer >= GIB ? 1 : 0;
+    var tier = sig.maxBuffer > 2 * GIB ? 2 : sig.maxBuffer >= GIB ? 1 : 0;
     if (sig.memGB && sig.memGB < 8) tier = Math.min(tier, sig.memGB >= 4 ? 1 : 0);   // 0 = not reported
     return tier;
   }
@@ -806,7 +810,10 @@
     local: {
       classify: classifyDevice,
       start: startLocal,
-      isReady: function (id) { return !!localState.ready[id] && !localState.failed[id]; },
+      isReady: function (id) { return !!localState.ready[id] && !localState.failed[id] && !paused[id] && localTier !== 0; },
+      // An error while answering (often a GPU the browser has just reset) sets the model aside for
+      // this page only; it is not a verdict on the device.
+      pause: function (id, why) { paused[id] = true; note(id + ': set aside for this page: ' + String(why || '').slice(0, 120)); },
       busy: function () { return !!localJob && localJob.phase === 'gpu'; },   // downloads leave ready models usable
       eta: localEta,
       // Load an installed model into the GPU ahead of the first question (not while another loads).

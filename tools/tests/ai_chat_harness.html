@@ -251,8 +251,8 @@ window.addEventListener('load', function () {
           function sig(o) { var x = {}; for (var k in base) x[k] = base[k]; for (var j in o) x[j] = o[j]; return x; }
           var tiers = [L.classify(base), L.classify(sig({ maxBuffer: 1.5 * G })), L.classify(sig({ mobile: true })),
             L.classify(sig({ f16: false })), L.classify(sig({ webgpu: false })), L.classify(sig({ memGB: 4 })),
-            L.classify(sig({ memGB: 0 })), L.classify(sig({ saveData: true }))].join(',');
-          check('local-tiers', tiers === '2,1,0,0,0,1,2,0', tiers);
+            L.classify(sig({ memGB: 0 })), L.classify(sig({ saveData: true })), L.classify(sig({ maxBuffer: 2 * G }))].join(',');
+          check('local-tiers', tiers === '2,1,0,0,0,1,2,0,1', tiers);
           // Crash guard: a model still marked "loading" on the next visit is never tried again
           L.restore({ loading: 'sideris-lux' });
           check('local-crash-guard', !!L.state().failed['sideris-lux'] && !L.isReady('sideris-lux'), JSON.stringify(L.state().failed));
@@ -287,7 +287,8 @@ window.addEventListener('load', function () {
             window.AESideris.clearChat();
             return window.AESideris.sendUserMessage('And a pathline?');
           }).then(function (text) {
-            check('local-failure-falls-back-to-cloud', text === 'CLOUD' && !L.isReady('sideris-aether') && !!L.state().failed['sideris-aether'], text);
+            check('local-failure-falls-back-to-cloud', text === 'CLOUD' && !L.isReady('sideris-aether') && !L.state().failed['sideris-aether'] &&
+              /set aside for this page/.test(L.state().log.join(' ')), text + ' | ' + JSON.stringify(L.state().failed));
             // A device that stays silent hands the question to the cloud, with the full context
             L.restore({ ready: { 'sideris-lux': true } });
             window.AESideris.selectModel('sideris-lux');

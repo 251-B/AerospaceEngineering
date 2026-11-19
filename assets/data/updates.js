@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-fits-your-gpu",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris only installs models your computer can hold",
+    "text": "Larger models are no longer tried on graphics cards too small for them, and a hiccup while answering no longer turns a model off for good: the cloud answers instead."
+  },
+  {
     "id": "2026-11-19-sideris-model-styles",
     "date": "2026-11-19",
     "tag": "Portal",
