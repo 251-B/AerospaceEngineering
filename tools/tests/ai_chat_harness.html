@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-surface="default">
+<head>
+<meta charset="utf-8">
+<title>Sideris AI chat harness</title>
+<link rel="stylesheet" href="../../assets/css/study-surface.css">
+<script src="../../assets/js/theme.js"></script>
+<script src="../../assets/js/ask-ai.js"></script>
+</head>
+<body>
+<main>
+  <h1>Topic 4: The Navier-Stokes Equations</h1>
+  <article class="problem-card" id="prob-1">
+    <h2 class="problem-title">Couette flow</h2>
+    <div class="problem-statement-box"><p>Find the velocity profile $u(y)$ between two parallel plates.</p></div>
+    <div class="phase-block"><p>The reference result is SECRET_RESULT_42: $u(y) = U y / h$.</p></div>
+  </article>
+</main>
+<pre id="results">PENDING</pre>
+<script>
+window.addEventListener('load', function () {
+  var out = [];
+  function check(name, pass, detail) {
+    out.push({ name: name, pass: !!pass, detail: detail || '' });
+  }
+  function finish() {
+    document.getElementById('results').textContent = JSON.stringify(out);
+  }
+
+  setTimeout(function () {
+    try {
+      localStorage.clear();
+      check('api-loaded', !!(window.AESideris && window.AESiderisEngine && window.AESiderisRAG), 'globals present');
+      var btn = document.getElementById('siderisButton');
+      var drawer = document.getElementById('siderisDrawer');
+      check('launcher-present', !!(btn && drawer && drawer.hidden), 'launcher + hidden drawer');
+
+      // Open drawer & verify all 4 Sideris models
+      window.AESideris.open();
+      check('drawer-opens', !drawer.hidden && window.AESideris.isOpen(), 'drawer open');
+      var names = window.AESideris.models().map(function (m) { return m.name; });
+      check('four-sideris-models', names.join(',') === 'Sideris Lux,Sideris Aether,Sideris Orion,Sideris Titan', names.join(','));
+
+      // Model switch persists in ae_sideris
+      window.AESideris.selectModel('sideris-orion');
+      var stored = JSON.parse(localStorage.getItem('ae_sideris') || '{}');
+      check('model-persists', stored.modelId === 'sideris-orion', stored.modelId);
+      window.AESideris.selectModel('sideris-aether');
+
+      // Seed a small RAG shard and test retrieval
+      window.AESiderisRAG.setData('fluid-mechanics', {
+        subject: 'fluid-mechanics',
+        label: 'Fluid Mechanics',
+        chunks: [
+          { i: 1, u: 4, k: 't', t: 'Topic 4 - The Navier-Stokes Equations', h: 'Couette flow', x: 'For steady incompressible Couette flow between parallel plates, $\\mu \\frac{d^2 u}{dy^2} = 0$, giving $u(y) = U y / h$.' },
+          { i: 2, u: 5, k: 't', t: 'Topic 5 - Hydrostatics', h: 'Pressure', x: 'Hydrostatic pressure increases linearly with depth: $p = p_0 + \\rho g z$.' }
+        ]
+      });
+
+      var lastReq = null;
+      window.AESiderisEngine.setMock(function (req, cb) {
+        lastReq = req;
+        var reply = '<think>Check Couette boundary conditions u(0)=0 and u(h)=U.</think>\n' +
+          '### Step 1\nUse the **momentum equation** with $u(0)=0$:\n\n$$\\mu \\frac{d^2 u}{dy^2} = 0$$\n\n' +
+          'Raw tag test: <img src=x onerror="window.__xss=1">';
+        cb.onToken(reply, reply);
+        return Promise.resolve(reply);
+      });
+
+      // Test Ask AI Socratic handoff (hidden solution MUST NOT appear in visible DOM!)
+      window.AESideris.openWithAskRequest({
+        taskLabel: 'Socratic tutor',
+        location: 'Problem 1 · Couette flow',
+        visibleText: 'Guide me through Couette flow.',
+        modelPrompt: '<problem_statement>Find u(y).</problem_statement>\n# Task\nAsk one guiding question.',
+        hiddenContext: '<reference_solution hidden="true">SECRET_RESULT_42</reference_solution>',
+        ragQuery: 'Navier-Stokes Couette flow parallel plates',
+        socratic: true,
+        lang: 'en'
+      }).then(function () {
+        var visibleText = drawer.textContent || '';
+        var sysMsg = lastReq && lastReq.messages && lastReq.messages[0] ? lastReq.messages[0].content : '';
+        check('socratic-hidden-not-leaked-in-dom', visibleText.indexOf('SECRET_RESULT_42') < 0, 'hidden solution kept out of UI');
+        check('socratic-hidden-sent-to-model', sysMsg.indexOf('SECRET_RESULT_42') >= 0, 'hidden solution in system prompt');
+        check('rag-grounded-in-system', sysMsg.indexOf('Couette flow') >= 0, 'RAG chunk injected');
+        check('think-accordion-rendered', !!drawer.querySelector('details.sd-think'), 'collapsible think block');
+        check('math-block-rendered', !!drawer.querySelector('.sd-math-block') && !!drawer.querySelector('.sd-math-inline'), 'math blocks rendered');
+        check('no-xss-execution', !window.__xss && !drawer.querySelector('img[onerror]'), 'safe DOM rendering');
+        check('rag-citation-shown', !!drawer.querySelector('.sd-rag-notes'), 'RAG notes collapsible shown');
+
+        // Escape closes drawer
+        drawer.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+        check('escape-closes', drawer.hidden && !window.AESideris.isOpen(), 'closed by Escape');
+        finish();
+      }).catch(function (err) {
+        check('async-error', false, String(err));
+        finish();
+      });
+    } catch (err) {
+      check('runtime-error', false, String(err));
+      finish();
+    }
+  }, 400);
+});
+</script>
+</body>
+</html>

@@ -823,6 +823,7 @@
 
   function openPanel() {
     if (window.AEFocusLab && typeof window.AEFocusLab.close === 'function') window.AEFocusLab.close();
+    if (window.AESideris && typeof window.AESideris.close === 'function') window.AESideris.close();
     ui.panel.hidden = false;
     ui.launcher.setAttribute('aria-expanded', 'true');
     ui.panel.scrollTop = 0;

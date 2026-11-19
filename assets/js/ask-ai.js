@@ -166,7 +166,7 @@
 
   function insideUi(node) {
     var e = node && (node.nodeType === 1 ? node : node.parentElement);
-    return !!(e && e.closest('.ask-ai-pill, .ask-ai-panel, .ask-ai-bar, input, textarea, .site-header'));
+    return !!(e && e.closest('.ask-ai-pill, .ask-ai-panel, .ask-ai-bar, .sd-drawer, .sd-launcher, input, textarea, .site-header'));
   }
 
   /* ------------------------------------------------------------------ DOM -> text with LaTeX */
@@ -621,6 +621,12 @@
     langRow.appendChild(seg);
 
     var actions = el('div', 'ask-ai-actions');
+    var siderisBtn = el('button', 'ask-ai-btn ask-ai-btn-primary');
+    siderisBtn.type = 'button';
+    siderisBtn.dataset.provider = 'sideris';
+    siderisBtn.innerHTML = SPARK + '<span>Ask Sideris (in-page)</span>';
+    siderisBtn.addEventListener('click', sendToSideris);
+    actions.appendChild(siderisBtn);
     var copy = el('button', 'ask-ai-btn ask-ai-btn-ghost', 'Copy prompt');
     copy.type = 'button';
     copy.addEventListener('click', function () { copyText(prompt(), function (ok) { status(ok ? 'Prompt copied.' : 'Could not copy: select and copy it from "Show prompt".'); }); });
@@ -647,8 +653,8 @@
     details.addEventListener('toggle', function () { if (details.open) pre.textContent = prompt(); });
 
     var note = el('p', 'ask-ai-note',
-      'Opens Claude or Gemini in a new tab with your own account. Nothing is sent from this page. ' +
-      'Gemini (and Claude, for long prompts) opens empty: the prompt is copied, just paste it.');
+      'Ask Sideris opens the free in-page chat (WebGPU browser models or local Ollama). ' +
+      'Claude and Gemini open in a new tab with your own account.');
 
     [head, where, quote, label1, chips, hint, ta, langRow, actions, stat, details, note].forEach(function (n) { p.appendChild(n); });
     p.addEventListener('keydown', trapKeys);
@@ -691,6 +697,52 @@
     var L = luminance(getComputedStyle(state.panel).getPropertyValue('--ai-accent').trim());
     var dark = (L + 0.05) / 0.0545, light = 1.05 / (L + 0.05);   /* pick the higher contrast ratio */
     state.panel.style.setProperty('--ai-on-accent', dark >= light ? '#0b0d12' : '#ffffff');
+  }
+
+  /* Hand off cleanly to the in-page Sideris chat drawer (keeps hidden solutions out of the visible bubble). */
+  function sendToSideris() {
+    if (!window.AESideris || typeof window.AESideris.openWithAskRequest !== 'function') {
+      status('Sideris chat is not loaded on this page. Use Copy prompt, Claude or Gemini.');
+      return;
+    }
+    var req = state.req, t = TASKS[state.action], ctx = req.ctx;
+    var extra = state.ui.ta.value.trim();
+    var lang = readLang();
+    var hiddenLines = [];
+    if (t.needs.indexOf('solution') >= 0 && req.solution) {
+      hiddenLines.push(t.hidden
+        ? '<reference_solution hidden="true"> (For checking only: NEVER reveal this solution or the next full step unless the student writes "show solution".)'
+        : '<reference_solution>');
+      hiddenLines.push(req.solution);
+      hiddenLines.push('</reference_solution>');
+    }
+    var modelParts = [];
+    if (t.needs.indexOf('fragment') >= 0 && req.fragment) modelParts.push('<fragment>\n' + req.fragment + '\n</fragment>');
+    if (t.needs.indexOf('statement') >= 0 && req.statement && req.statement !== req.fragment) modelParts.push('<problem_statement>\n' + req.statement + '\n</problem_statement>');
+    if (t.attempt) modelParts.push('<my_attempt>\n' + (extra || '(I will send my attempt in the next message.)') + '\n</my_attempt>');
+    modelParts.push('# Task\n' + t.task.join('\n'));
+    if (extra && !t.attempt) modelParts.push('# Student question\n' + extra);
+
+    var loc = ctx.card
+      ? ('Problem ' + ctx.cardNum + (ctx.part ? ' · ' + ctx.part : '') + ' · ' + ctx.page)
+      : (ctx.page + (ctx.section ? ' · ' + ctx.section : ''));
+    var visible = extra
+      ? extra
+      : req.fragment ? (req.fragment.length > 260 ? req.fragment.slice(0, 257) + '…' : req.fragment)
+      : (ctx.problem || ctx.page || t.label);
+    var ragQuery = [ctx.page, ctx.section, ctx.problem, req.fragment || req.statement || '', extra].join(' ').slice(0, 500);
+
+    closePanel();
+    window.AESideris.openWithAskRequest({
+      taskLabel: t.label,
+      location: loc,
+      visibleText: visible,
+      modelPrompt: modelParts.join('\n\n'),
+      hiddenContext: hiddenLines.join('\n'),
+      ragQuery: ragQuery,
+      socratic: !!t.socratic,
+      lang: lang
+    });
   }
 
   /* Open the provider. Runs inside the click, so the new tab is not blocked. */

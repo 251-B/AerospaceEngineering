@@ -29,3 +29,5 @@ yarn-debug.log*
 yarn-error.log*
 graphify-out/
 _site/
+tools/ai_training/out/
+sideris_out/

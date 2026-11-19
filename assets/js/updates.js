@@ -286,6 +286,7 @@
     // One floating panel at a time, like the study timer and Focus Lab.
     if (window.AEPomodoro && typeof window.AEPomodoro.close === 'function') window.AEPomodoro.close();
     if (window.AEFocusLab && typeof window.AEFocusLab.close === 'function') window.AEFocusLab.close();
+    if (window.AESideris && typeof window.AESideris.close === 'function') window.AESideris.close();
     hideToast();
     fresh = unread().map(function (e) { return e.id; });
     render();
