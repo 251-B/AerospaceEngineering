@@ -1,0 +1,164 @@
+/* ==========================================================================
+   PROBLEM READER (assets/js/problem-reader.js)
+   Linked by the script on the problem pages it acts on, after
+   theory-reader.css (rail, progress pill, mode switch, "More" folds, derivation
+   boxes and figure rows come from there). Screen only: the browser's own print
+   and the PDFs (print.css) show every step of every problem in full.
+   Text colours come from the reading palette (--tr-text, --tr-muted), never
+   from the subject accent, so every palette stays AAA.
+   ========================================================================== */
+@media screen {
+  /* ---- Wide view for the page wrappers the theory pages do not use ---- */
+  html.pr-on.tr-wide:not([data-theme="print"]) body main.content-container {
+    max-width: min(1280px, calc(100vw - 2 * var(--tr-gutter))) !important;
+    padding-left: clamp(12px, 2vw, 28px) !important;
+    padding-right: clamp(12px, 2vw, 28px) !important;
+  }
+  @media (max-width: 760px) {
+    html.pr-on.tr-has-rail:not([data-theme="print"]) body main.content-container { padding-right: 26px !important; }
+  }
+
+  /* ---- Mode bar (inside the "Open all / Fold all" bar of problem-collapse.js) ---- */
+  html.pr-on:not([data-theme="print"]) .pr-host { gap: 8px 10px; }
+  html.pr-on:not([data-theme="print"]) .pr-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-right: auto; }
+  html.pr-on:not([data-theme="print"]) .pr-bar__info { color: var(--tr-muted); font-size: 0.9em; }
+  html.pr-on:not([data-theme="print"]) .pr-bar__hint { flex-basis: 100%; text-align: right; color: var(--tr-muted); font-size: 0.78em; }
+  @media (hover: none) { html.pr-on:not([data-theme="print"]) .pr-bar__hint { display: none; } }
+
+  /* ---- Steps: one at a time ---- */
+  html.pr-on:not([data-theme="print"]) .pr-hidden { display: none !important; }
+  html.pr-on:not([data-theme="print"]) .pr-stepper,
+  html.pr-on:not([data-theme="print"]) .pr-stepnav,
+  html.pr-on:not([data-theme="print"]) .pr-answer-note { display: none; }
+  html.pr-on:not([data-theme="print"]) [data-pr-mode="steps"] .pr-stepper { display: block; margin: 0 0 18px; }
+  html.pr-on:not([data-theme="print"]) [data-pr-mode="steps"] .pr-stepnav { display: flex; }
+  html.pr-on:not([data-theme="print"]) [data-pr-mode="answer"] .pr-answer-note { display: flex; }
+  html.pr-on:not([data-theme="print"]) [data-pr-mode="steps"] .phase-block.pr-current,
+  html.pr-on:not([data-theme="print"]) [data-pr-mode="answer"] .phase-block {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom: 0 !important;
+  }
+  html.pr-on:not([data-theme="print"]) .pr-stepper__label {
+    margin: 0 0 8px !important;
+    color: var(--tr-muted);
+    font-size: 0.78em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  html.pr-on:not([data-theme="print"]) .pr-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none;
+  }
+  html.pr-on:not([data-theme="print"]) .pr-chips > li { margin: 0 !important; padding: 0; }
+  html.pr-on:not([data-theme="print"]) .pr-chips > li::before { content: none !important; }
+  html.pr-on:not([data-theme="print"]) .pr-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    max-width: 260px;
+    padding: 3px 12px 3px 4px;
+    border: 1px solid var(--tr-border);
+    border-radius: 999px;
+    background: var(--tr-surface);
+    color: var(--tr-muted);
+    font: inherit;
+    font-size: 0.84em;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  html.pr-on:not([data-theme="print"]) .pr-chip__n {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--tr-border);
+    border-radius: 50%;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.86em;
+  }
+  html.pr-on:not([data-theme="print"]) .pr-chip__t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  html.pr-on:not([data-theme="print"]) .pr-chip:hover { color: var(--tr-text); border-color: var(--accent, currentColor); }
+  html.pr-on:not([data-theme="print"]) .pr-chip--done { color: var(--tr-text); }
+  html.pr-on:not([data-theme="print"]) .pr-chip--done .pr-chip__n { border-color: var(--accent, currentColor); }
+  html.pr-on:not([data-theme="print"]) .pr-chip[aria-current="step"] {
+    color: var(--tr-text);
+    border-color: var(--accent, currentColor);
+    box-shadow: inset 0 0 0 1px var(--accent, currentColor);
+  }
+  html.pr-on:not([data-theme="print"]) .pr-chip[aria-current="step"] .pr-chip__n {
+    border-color: var(--tr-text);
+    background: var(--tr-text);
+    color: var(--tr-surface);
+  }
+  html.pr-on:not([data-theme="print"]) :is(.pr-chip, .pr-stepnav__btn):focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+
+  html.pr-on:not([data-theme="print"]) .pr-stepnav,
+  html.pr-on:not([data-theme="print"]) .pr-answer-note {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  html.pr-on:not([data-theme="print"]) .pr-stepnav {
+    justify-content: space-between;
+    margin: 0;
+    padding: 14px 24px 18px;
+    border-top: 1px solid var(--tr-border);
+  }
+  html.pr-on:not([data-theme="print"]) .pr-answer-note {
+    margin: 0 0 16px;
+    padding: 10px 14px;
+    border: 1px dashed var(--tr-border);
+    border-radius: 10px;
+    color: var(--tr-muted);
+    font-size: 0.92em;
+  }
+  html.pr-on:not([data-theme="print"]) .pr-answer-note > span { margin-right: auto; }
+  html.pr-on:not([data-theme="print"]) .pr-stepnav__count { color: var(--tr-muted); font-family: var(--font-mono, monospace); font-size: 0.8em; }
+  html.pr-on:not([data-theme="print"]) .pr-stepnav__btn {
+    max-width: 46%;
+    padding: 6px 16px;
+    border: 1px solid var(--tr-border);
+    border-radius: 999px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font: inherit;
+    font-size: 0.9em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  html.pr-on:not([data-theme="print"]) .pr-stepnav__next { border-color: var(--accent, currentColor); font-weight: 600; }
+  html.pr-on:not([data-theme="print"]) .pr-stepnav__prev::before { content: "\2190\00a0"; }
+  html.pr-on:not([data-theme="print"]) .pr-stepnav__next::after { content: "\00a0\2192"; }
+  html.pr-on:not([data-theme="print"]) .pr-stepnav__btn:hover:not(:disabled) { border-color: var(--accent, currentColor); }
+  html.pr-on:not([data-theme="print"]) .pr-stepnav__btn:disabled { opacity: 0.45; cursor: default; }
+
+  @media (max-width: 760px) {
+    html.pr-on:not([data-theme="print"]) .pr-chip { max-width: 100%; }
+    html.pr-on:not([data-theme="print"]) .pr-chip__t { display: none; }
+    html.pr-on:not([data-theme="print"]) .pr-chip[aria-current="step"] .pr-chip__t { display: inline; }
+    html.pr-on:not([data-theme="print"]) .pr-chip { padding-right: 4px; }
+    html.pr-on:not([data-theme="print"]) .pr-chip[aria-current="step"] { padding-right: 12px; }
+    html.pr-on:not([data-theme="print"]) .pr-stepnav { padding: 12px 14px 14px; }
+    html.pr-on:not([data-theme="print"]) .pr-stepnav__count { display: none; }
+    html.pr-on:not([data-theme="print"]) .pr-stepnav__btn { max-width: 100%; }
+    html.pr-on:not([data-theme="print"]) .pr-stepnav__next { flex: 1 1 auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.pr-on:not([data-theme="print"]) .pr-chip { transition: none; }
+  }
+}
+
+@media print {
+  .pr-stepper, .pr-stepnav, .pr-answer-note, .pr-bar, .pr-rail { display: none !important; }
+  .pr-hidden { display: block !important; }
+}

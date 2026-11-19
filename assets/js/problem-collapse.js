@@ -12,7 +12,8 @@
  * else is hidden by the .pc-collapsed class. Cards that already are a <details class="problem-card">
  * (Aerospace Materials I) are simply closed. A bar above the first card expands or folds them all.
  * A link to a card, or to anything inside one (#prob-07, a side-menu section), opens that card.
- * No storage. API: window.AEProblemCollapse = { init, expandAll, collapseAll }
+ * No storage. API: window.AEProblemCollapse = { init, expandAll, collapseAll, cards, isOpen, setOpen };
+ * a card that opens or folds fires 'toggle' (natively for <details>), which problem-reader.js listens to.
  */
 (function () {
   'use strict';
@@ -48,8 +49,10 @@
   }
 
   function setOpen(card, open) {
-    if (isDetails(card)) { card.open = open; return; }
+    if (isDetails(card)) { card.open = open; return; }   // <details> fires its own 'toggle'
+    var was = isOpen(card);
     card.classList.toggle('pc-collapsed', !open);
+    if (was !== open && typeof CustomEvent === 'function') card.dispatchEvent(new CustomEvent('toggle'));
     var button = card.querySelector('.pc-toggle');
     if (button) {
       button.setAttribute('aria-expanded', String(open));
@@ -136,7 +139,10 @@
     reveal(link.hash, false);
   });
 
-  window.AEProblemCollapse = { init: init, expandAll: function () { all(true); }, collapseAll: function () { all(false); } };
+  window.AEProblemCollapse = {
+    init: init, expandAll: function () { all(true); }, collapseAll: function () { all(false); },
+    cards: function () { return cards.slice(); }, isOpen: isOpen, setOpen: setOpen
+  };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

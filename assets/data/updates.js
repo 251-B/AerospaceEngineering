@@ -64,6 +64,21 @@ window.AE_UPDATES = [
     "text": "Sideris answers about your selected text, the open problem or the section on screen, picks closer course notes, and no longer freezes on long answers."
   },
   {
+    "id": "2026-11-19-problem-steps-everywhere",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Every worked problem, step by step",
+    "text": "All problem pages now show solutions one step at a time, or only the answer, with a bar per problem on the right and the arrow keys to move between problems."
+  },
+  {
+    "id": "2026-11-19-problem-steps-pilot",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Worked problems step by step (trial on two pages)",
+    "text": "Solutions now show one step at a time, or only the answer, with a bar per problem on the right. Trying it on Hydrostatics and Rigid Body Kinematics first.",
+    "link": "subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html"
+  },
+  {
     "id": "2026-11-19-home-sky-on-phones",
     "date": "2026-11-19",
     "tag": "Portal",
