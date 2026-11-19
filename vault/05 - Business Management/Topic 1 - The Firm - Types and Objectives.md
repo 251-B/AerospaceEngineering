@@ -33,7 +33,7 @@ A **business** is an economic activity that **transforms a set of inputs**, the 
 
 Making bread is a simple case. Salt, baking powder, flour, sugar and water are the inputs and bread is the output, but the ingredients do not become bread by themselves: something has to transform them, and that transformation is precisely the business activity.
 
-![[attachments/BM-T1/bread.svg]]
+![[attachments/BM-T1/bread.png]]
 
 ## 2. The circular flow of income [Slides 5-11]
 
@@ -49,13 +49,13 @@ The exchange between them takes place in two markets:
 
 Every exchange therefore has two sides [Slide 11]. **Real flows** are the goods, services and factors themselves; **financial flows** are their monetary compensation, which runs in the opposite direction. What the firm keeps after paying for the factors is its **profit**.
 
-![[attachments/BM-T1/circular-flow.svg]]
+![[attachments/BM-T1/circular-flow.png]]
 
 ## 3. The nature of business: market and enterprise [Slide 12]
 
 **Economics** studies how people and societies choose to use **scarce resources** (the factors of production) to satisfy **unlimited wants**. These wants are met through **specialization**, that is, the division of labour. Specialization in turn requires **coordination**, and coordination can be carried out in two ways: by the **market** or by the **enterprise**. An enterprise appears because there is a **dissatisfied need**.
 
-![[attachments/BM-T1/market-enterprise.svg]]
+![[attachments/BM-T1/market-enterprise.png]]
 
 ## 4. Business functional areas [Slide 13]
 
@@ -64,7 +64,7 @@ The functions of a business fall into three groups:
 - **Financial functions** run alongside the real cycle. The firm raises funds (searches for financial resources), pays for the acquisition of inputs, receives revenues from sales, and returns capital and interests to those who provided the funds. They include the functions related to **financing** and to **investing**.
 - **Management functions**: **planning**, **organization** and **control**.
 
-![[attachments/BM-T1/functions.svg]]
+![[attachments/BM-T1/functions.png]]
 
 ## 5. The management process [Slide 14]
 
@@ -77,7 +77,7 @@ Managing consists of four activities, as formulated by Henri Fayol (1841-1925), 
 | **Leading** | Directing and motivating all involved parties and resolving conflicts |
 | **Controlling** | Monitoring activities to ensure that they are accomplished as planned |
 
-![[attachments/BM-T1/fayol.svg]]
+![[attachments/BM-T1/fayol.png]]
 
 ## 6. The role of engineers in business management [Slide 15]
 
@@ -116,7 +116,7 @@ The internal organization of an enterprise is **teamwork**, and team production 
 
 The **entrepreneur is the person who holds all these rights**.
 
-![[attachments/BM-T1/rights.svg]]
+![[attachments/BM-T1/rights.png]]
 
 ## 8. Types of enterprises: classification criteria [Slide 19]
 
@@ -132,7 +132,7 @@ The **entrepreneur is the person who holds all these rights**.
 
 The forms of ownership are the **sole proprietorship**, the **partnership** (general partnership or limited liability partnership, LLP), the **corporation**, and **other forms** such as cooperative associations, joint ventures and mutual companies.
 
-![[attachments/BM-T1/forms.svg]]
+![[attachments/BM-T1/forms.png]]
 
 ## 10. The sole proprietorship [Slide 21]
 
@@ -199,7 +199,9 @@ The solution is for shareholders to be able to control the way managers act, so 
 
 Increasingly, the shareholders who own large blocks of shares are the ones taking the decisions.
 
-![[attachments/BM-T1/agency.svg]]
+![[attachments/BM-T1/agency.png]]
+
+![[attachments/BM-T1/agency-mechanisms.png]]
 
 ## 14. The cooperative [Slides 27-28]
 
