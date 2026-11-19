@@ -43,7 +43,7 @@ class TheoryReaderStaticTests(unittest.TestCase):
                      ".tr-hidden { display: none", ".tr-dfolded :is(.derivation-steps"):
             self.assertGreater(css.index(rule), screen, rule)
         printing = css[css.index("@media print"):]
-        self.assertIn(".tr-rail, .tr-more, .tr-sec-toggle, .tr-secbar { display: none !important; }", printing)
+        self.assertIn(".tr-rail, .tr-more, .tr-sec-toggle, .tr-secbar, .tr-keys { display: none !important; }", printing)
         self.assertIn(".tr-fold { display: inline !important; }", printing)
         for line in css[screen:css.index("@media print")].splitlines():
             if line.strip().startswith("html."):

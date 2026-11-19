@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-theory-slides-key-ideas",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Clearer figures in Charcoal, slide panels and key ideas",
+    "text": "Figures keep their colours and outlines in the Charcoal palette. Short text beside a tall figure becomes a slide, and folded sections list their key ideas.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html"
+  },
+  {
     "id": "2026-11-18-mechanics-t6-essential",
     "date": "2026-11-18",
     "tag": "Engineering Mechanics",

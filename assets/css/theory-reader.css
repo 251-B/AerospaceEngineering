@@ -107,8 +107,35 @@ html.tr-on[data-theme="light"] {
     html.tr-wide:not([data-theme="print"]) .tr-pair__fig { display: flex; flex-direction: column; gap: 14px; }
     html.tr-wide:not([data-theme="print"]) .tr-pair__fig > * { margin: 0 !important; max-width: 100% !important; width: 100% !important; }
     html.tr-wide:not([data-theme="print"]) .tr-pair__fig :is(img, svg) { max-width: 100% !important; height: auto; }
-    html.tr-wide:not([data-theme="print"]) .tr-pair.tr-pair--stacked { display: block; }
-    html.tr-wide:not([data-theme="print"]) .tr-pair--stacked > .tr-pair__fig { width: min(var(--tr-fig-w, 520px), 100%); margin: 6px auto 0; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair { align-items: center; }
+    /* Slide: little text beside a tall figure. One framed panel; the figure loses its own card. */
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide {
+      grid-template-columns: minmax(0, 1fr) min(var(--tr-fig-w, 520px), 55%);
+      padding: 22px 26px;
+      border: 1px solid var(--tr-border);
+      border-radius: 16px;
+      background: var(--tr-surface);
+    }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide > .tr-pair__text { font-size: 1.06em; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide > .tr-pair__text > :last-child { margin-bottom: 0 !important; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide > .tr-pair__fig > * {
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide :is(img, svg) { max-height: 62vh; width: auto; margin: 0 auto; }
+    /* Several figures in one slide: the text across the top, like the statement of a slide, and
+       the figures in a row below it (a gallery, equal heights), so nothing is left empty. */
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide.tr-pair--multi { display: block; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide.tr-pair--multi > .tr-pair__text { margin-bottom: 18px; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide.tr-pair--multi > .tr-pair__fig {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      align-items: start;
+      gap: 22px;
+    }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide.tr-pair--multi :is(img, svg) { max-height: 40vh; }
   }
   html.tr-essential:not([data-theme="print"]) .tr-pair.tr-key-fig { display: block !important; max-width: 560px; }
   html.tr-essential:not([data-theme="print"]) .tr-pair.tr-key-fig > .tr-pair__text { display: none; }
@@ -226,6 +253,45 @@ html.tr-on[data-theme="light"] {
   html.tr-on:not([data-theme="print"]) .essential-box a:not(.src-cite) { color: var(--tr-text); text-decoration: underline; }
   html.tr-on:not([data-theme="print"]) .essential-recap { margin-top: 28px; }
 
+  /* ---- Key terms: first occurrence of each bold concept, and "Key ideas" under a folded title ---- */
+  html.tr-on:not([data-theme="print"]) .tr-key {
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent, currentColor);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.22em;
+    text-decoration-skip-ink: auto;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-key--flash { outline: 2px solid var(--accent, currentColor); outline-offset: 3px; border-radius: 3px; }
+  html.tr-on:not([data-theme="print"]) .tr-keys {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    margin: 8px 0 4px;
+    padding-right: 48px;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-sec-head:not(.tr-sec-closed) + .tr-keys,
+  html.tr-essential:not([data-theme="print"]) .tr-keys { display: none; }
+  html.tr-on:not([data-theme="print"]) .tr-keys__label {
+    color: var(--tr-muted);
+    font-size: 0.78em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-keys__term {
+    padding: 2px 11px;
+    border: 1px solid var(--tr-border);
+    border-radius: 999px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font: inherit;
+    font-size: 0.86em;
+    line-height: 1.6;
+    cursor: pointer;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-keys__term:hover { border-color: var(--accent, currentColor); }
+  html.tr-on:not([data-theme="print"]) .tr-keys__term:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+
   /* ---- Progress line above the rail ---- */
   .tr-progress {
     position: absolute;
@@ -337,7 +403,7 @@ html.tr-on[data-theme="light"] {
 }
 
 @media print {
-  .tr-rail, .tr-more, .tr-sec-toggle, .tr-secbar { display: none !important; }
+  .tr-rail, .tr-more, .tr-sec-toggle, .tr-secbar, .tr-keys { display: none !important; }
   .tr-fold { display: inline !important; }
   .tr-fold--block { display: block !important; }
 }

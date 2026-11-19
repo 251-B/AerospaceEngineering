@@ -20,6 +20,8 @@
  *  - Sections, derivations and progress: every h2 section folds to its title ("Open all / Fold all"),
  *    derivation boxes show their result until "Show derivation", a pill above the rail gives the
  *    section in view and the minutes left; the arrow keys move between sections.
+ *  - Key terms: the first occurrence of each bold concept is underlined; a folded section lists up
+ *    to five of them under its title ("Key ideas"), each a button to the place it is introduced.
  *  - Reading modes: pages with summary boxes (> [!summary] in the vault note, .essential-box) get an
  *    Essential / Full switch (Essential shows each section's summary and first figure only), stored
  *    under ae_theory_mode (try/catch: the page works without storage).
@@ -429,7 +431,7 @@
       sections = [];
       return;
     }
-    sections.forEach(function (sec) { setSection(sec, false); });
+    sections.forEach(function (sec) { keyChips(sec); setSection(sec, false); });
 
     var bar = document.createElement('div');
     bar.className = 'tr-secbar';
@@ -474,6 +476,65 @@
       var t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
       if (t) requestAnimationFrame(function () { place(t); });
     }
+  }
+
+  /* ------------------------------------------------------------- key terms */
+  /* The bold words of the running text are the concepts of each passage. The first time each one
+     appears it is underlined in the subject colour (.tr-key); labels such as "Data:", "Step 1." or
+     "Meaning:" are not concepts and are left alone. A folded section lists up to five of its terms
+     under its title ("Key ideas"); a term opens the section at the place where it is introduced. */
+  var LABEL_RE = /[:.]\s*$|^(step|case|part|example|note|data|result|answer|meaning|units|law|source|slides|hint|check|verification|proof|solution|definition|remark|warning)\b/i;
+
+  function markKeyTerms(scope) {
+    var seen = {};
+    [].forEach.call(scope.querySelectorAll('p strong, p b, li strong, li b'), function (el) {
+      if (el.closest('table, h1, h2, h3, h4, .derivation-head, .derivation-units, .derivation-foot, figcaption, .diagram-caption, .callout-title, .essential-title, .tr-secbar, nav')) return;
+      if (el.querySelector('.katex, img, svg') || /\$/.test(el.textContent)) return;
+      var text = el.textContent.replace(/\s+/g, ' ').trim();
+      if (text.length < 3 || text.length > 48 || LABEL_RE.test(text) || !/[a-z]/i.test(text)) return;
+      var key = text.toLowerCase();
+      if (seen[key]) return;
+      seen[key] = true;
+      el.classList.add('tr-key');
+    });
+  }
+
+  function keyChips(sec) {
+    var terms = [], keys = {};
+    sec.items.forEach(function (item) {
+      if (item.matches('.essential-box')) return;
+      [].forEach.call(item.querySelectorAll('.tr-key'), function (el) {
+        var t = el.textContent.replace(/\s+/g, ' ').trim();
+        if (terms.length < 5 && !keys[t.toLowerCase()]) { keys[t.toLowerCase()] = true; terms.push({ text: t, el: el }); }
+      });
+    });
+    if (!terms.length) return;
+    var box = document.createElement('div');
+    box.className = 'tr-keys';
+    var label = document.createElement('span');
+    label.className = 'tr-keys__label';
+    label.textContent = 'Key ideas';
+    box.appendChild(label);
+    terms.forEach(function (term) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tr-keys__term';
+      b.textContent = term.text;
+      b.addEventListener('click', function () {
+        setSection(sec, true);
+        balanceAll();
+        requestAnimationFrame(function () {
+          var top = term.el.getBoundingClientRect().top + window.pageYOffset - headerHeight() - 90;
+          window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+          term.el.classList.add('tr-key--flash');
+          setTimeout(function () { term.el.classList.remove('tr-key--flash'); }, 1600);
+          update();
+        });
+      });
+      box.appendChild(b);
+    });
+    sec.head.parentNode.insertBefore(box, sec.head.nextSibling);
+    sec.keys = box;
   }
 
   /* ------------------------------------------------------- reading modes */
@@ -568,8 +629,9 @@
      paragraph just before the figure (the one that introduces it), or the one just after when the
      figure opens a passage; once the row is visible it takes the following paragraphs, then the
      preceding ones, until it is as tall as the figures; if there is no more text the figures shrink
-     (not below 260 px), and if the text still covers less than 60 % of their height the row is
-     stacked (text at full width, figures centred below), so no column is ever left empty. Wide
+     (not below 260 px), and if the text still covers less than 60 % of their height the row
+     becomes a slide (one panel, the text centred beside the figure, the figure's height capped to
+     the screen), so no column is ever left as a hole. Wide
      figures and text with no figure keep the full width. Below
      1100 px the rows are plain blocks again (CSS). Screen only: the PDFs are printed without this
      script. */
@@ -619,6 +681,7 @@
       col.className = 'tr-pair__text';
       var side = document.createElement('div');
       side.className = 'tr-pair__fig';
+      if (figs.length > 1) pair.classList.add('tr-pair--multi');
       pair.appendChild(col);
       pair.appendChild(side);
       (texts[0] === prev ? prev : card).parentNode.insertBefore(pair, texts[0] === prev ? prev : card);
@@ -635,7 +698,7 @@
 
   function balance(pair) {
     if (window.innerWidth < 1100 || !pair.el.offsetParent || pair.el.closest('.tr-hidden')) return;
-    pair.el.classList.remove('tr-pair--stacked');
+    pair.el.classList.remove('tr-pair--slide');
     pair.el.style.setProperty('--tr-fig-w', pair.width + 'px');   // start again from the natural width
     var figH = pair.fig.offsetHeight;
     function short() { return pair.text.offsetHeight + 24 < figH; }
@@ -659,20 +722,11 @@
       pair.el.style.setProperty('--tr-fig-w', w + 'px');
       figH = pair.fig.offsetHeight;
     }
-    // 3. still far shorter: no columns (text at full width, the figure centred below it), so no
-    //    empty column is left beside the figure; the text brought from after the figure goes back
-    // a vector figure beside a much taller text grows (sharp at any size) up to half the row
-    if (pair.text.offsetHeight > figH + 160 && !pair.fig.querySelector('img')) {
-      var grown = Math.min(Math.round(pair.el.offsetWidth * 0.48),
-                           Math.round(pair.width * pair.text.offsetHeight / Math.max(1, figH)));
-      if (grown > pair.width) pair.el.style.setProperty('--tr-fig-w', grown + 'px');
-    }
-    if (pair.text.offsetHeight < 0.6 * figH) {
-      for (var k = pair.after.length - 1; k >= 0; k--) pair.el.parentNode.insertBefore(pair.after[k], pair.el.nextSibling);
-      pair.after = [];
-      pair.el.style.setProperty('--tr-fig-w', pair.width + 'px');
-      pair.el.classList.add('tr-pair--stacked');
-    }
+    // 3. still far shorter: the row becomes a slide, one panel with the text centred beside the
+    //    figure, whose height is capped to the screen, so the space reads as a frame, not a hole
+    var slide = pair.text.offsetHeight < 0.6 * figH;
+    pair.el.classList.toggle('tr-pair--slide', slide);
+    if (slide) pair.el.style.setProperty('--tr-fig-w', pair.width + 'px');   // the figure keeps its size
   }
 
   var balanceQueued = false;
@@ -746,6 +800,7 @@
       if (META_TITLE_RE.test(title.textContent.trim())) foldCallout(title);
     });
     [].forEach.call(scope.querySelectorAll('.derivation-box'), foldDerivation);
+    markKeyTerms(scope);
     buildPairs(scope);
     marks = collect(scope);
     var heads = marks.filter(function (m) { return m.level === 2; }).map(function (m) { return m.target; });
