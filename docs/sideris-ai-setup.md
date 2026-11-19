@@ -9,6 +9,11 @@ mobile), grounded in the portal's `vault/` RAG shards.
   (`PROFILE_DEFAULTS` in `tools/cloudflare/sideris-worker.js`). No other provider is used.
 - **Answer length:** Orion and Titan are reasoning models and get up to 6144 tokens
   (`maxTokensCap` in the worker, `maxTokens` in `assets/data/ai-models.js`); Lux and Aether keep 2048.
+- **Daily allowance per student:** each question costs points by model (Lux 1, Aether 2, Orion and
+  Titan 5); a student gets 40 a day, an IP 400 (campus wifi), and an optional cap for the whole portal
+  (`PORTAL_DAILY_POINTS`). Counters live in the `SiderisQuota` Durable Object (SQLite, created by the
+  deploy) and reset at 00:00 UTC; the student is an anonymous id kept in their browser
+  (`ae_sideris_client`). Change the numbers with the commented `[vars]` of the wrangler config.
 - **Offline / Local mode:** visitors can also switch **Run mode -> Offline / Local** inside Settings
   to download WebGPU browser models (`Lux`, `Aether`, `Orion`) or connect local Ollama (`Titan`).
 

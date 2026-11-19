@@ -1896,7 +1896,10 @@
       persistCurrentChat();
       syncUI();
       renderMessages();
-      setStatus(storageNotice || m.name + ' · ready.');
+      var left = window.AESiderisEngine.remaining && window.AESiderisEngine.remaining();
+      var lowNote = left != null && left <= 10
+        ? 'Few Sideris questions left today; Lux uses the least of your daily allowance.' : '';
+      setStatus(storageNotice || lowNote || m.name + ' · ready.');
       storageNotice = '';
       ui.ta.focus();
       return assistantMsg.text;

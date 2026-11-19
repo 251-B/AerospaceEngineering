@@ -29,6 +29,23 @@
     'https://cdn.jsdelivr.net/npm/@huggingface/transformers@next'
   ];
 
+  /* Anonymous id for the worker's daily allowance per student: random, kept in this browser only,
+     never linked to an account. Without storage it lasts for the page. */
+  var CLIENT_KEY = 'ae_sideris_client';
+  var memClientId = '';
+  var lastRemaining = null;   // X-Sideris-Remaining of the last answer (points left today)
+
+  function clientId() {
+    var id = '';
+    try { id = localStorage.getItem(CLIENT_KEY) || ''; } catch (e) { /* blocked */ }
+    if (/^[A-Za-z0-9-]{8,64}$/.test(id)) return id;
+    id = memClientId || (window.crypto && crypto.randomUUID ? crypto.randomUUID()
+      : 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 12));
+    memClientId = id;
+    try { localStorage.setItem(CLIENT_KEY, id); } catch (e) { /* blocked */ }
+    return id;
+  }
+
   var tfModule = null;
   var loaded = null;          // { key, repo, dtype, generator, mod }
   var activeAbort = null;     // { aborted: boolean, controller?: AbortController, stopper?: any }
@@ -204,6 +221,8 @@
       signal: token.controller ? token.controller.signal : undefined,
       body: JSON.stringify(payload)
     }).then(function (res) {
+      var left = res.headers && res.headers.get('X-Sideris-Remaining');
+      if (left != null && left !== '') lastRemaining = parseInt(left, 10);
       if (!res.ok) {
         return res.text().then(function (txt) {
           var detail = '';
@@ -316,7 +335,8 @@
       temperature: req.temperature != null ? req.temperature : 0.35,
       max_tokens: req.maxTokens || 1600,
       stream: true,
-      profile: modelName
+      profile: modelName,
+      client: clientId()   // in the body, not a header: a new header would fail CORS on an older worker
     };
 
     // A dropped connection before the first token (seen on the worker in testing, common on phones)
@@ -336,9 +356,11 @@
       if (isNetwork(err)) throw new Error('Could not reach the Sideris cloud (the connection dropped). Check your connection and press Retry.');
       // Never show provider details (quota, plan, model names) to students, even from an old worker.
       var m = (err && err.message) || '';
-      if (/HTTP 429|daily (free )?(allocation|limit)|\b4006\b|neurons/i.test(m)) {
+      if (/daily free allocation|\b4006\b|neurons/i.test(m)) {
         throw new Error('Sideris has reached its daily limit. It will be back tomorrow; Offline mode still works.');
       }
+      // The worker's own 429 messages (daily allowance, too many requests) are written for students.
+      if (/HTTP 429: /.test(m)) throw new Error(m.replace(/^.*HTTP 429: /, ''));
       if (/HTTP 5\d\d/.test(m)) throw new Error('Sideris is temporarily unavailable. Please try again in a moment.');
       throw err;
     }).finally(function () {
@@ -450,6 +472,7 @@
     clearBrowserCache: clearBrowserCache,
     checkOllama: checkOllama,
     checkCloud: checkCloud,
+    remaining: function () { return lastRemaining; },
         setMock: setMock
   };
 })();

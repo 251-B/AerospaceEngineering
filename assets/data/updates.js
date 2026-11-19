@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-daily-allowance",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "A fair daily allowance of Sideris questions for everyone",
+    "text": "Each student now has a daily allowance of Sideris questions, so nobody can use up the service for the rest. Lux uses the least of it, Orion and Titan the most."
+  },
+  {
     "id": "2026-11-19-sideris-deep-models-on-request",
     "date": "2026-11-19",
     "tag": "Portal",

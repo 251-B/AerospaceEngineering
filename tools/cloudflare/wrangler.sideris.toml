@@ -9,3 +9,19 @@ compatibility_date = "2026-10-01"
 
 [ai]
 binding = "AI"
+
+# Daily allowance per student (see STUDENT_DAILY_POINTS in sideris-worker.js). The class is
+# SQLite-backed, the only kind the Workers Free plan allows; deploy creates it.
+[[durable_objects.bindings]]
+name = "QUOTA"
+class_name = "SiderisQuota"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SiderisQuota"]
+
+# Optional overrides of the daily points (uncomment to change):
+# [vars]
+# STUDENT_DAILY_POINTS = "40"
+# IP_DAILY_POINTS = "400"
+# PORTAL_DAILY_POINTS = "2000"   # cap for the whole portal; unset = no cap

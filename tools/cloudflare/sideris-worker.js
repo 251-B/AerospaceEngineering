@@ -16,6 +16,14 @@ const MAX_TOKENS_CAP = 2048;   // default; a profile may set its own maxTokensCa
 const RATE_WINDOW_MS = 60_000;
 const RATE_LIMIT = 25;
 
+// Daily allowance, counted in points so that a question costs roughly what its model costs:
+// Lux 1, Aether 2, Orion and Titan 5 (PROFILE_DEFAULTS[*].points). Counters live in the SiderisQuota
+// Durable Object below (one object per student, per IP and, if set, one for the whole portal) and
+// reset at 00:00 UTC. Values can be overridden with the vars of the same name in wrangler.
+const STUDENT_DAILY_POINTS = 40;   // e.g. 20 Aether questions or 8 Orion/Titan questions
+const IP_DAILY_POINTS = 400;       // many students share one IP on campus wifi; stops ID resetting
+const CLIENT_ID_RE = /^[A-Za-z0-9-]{8,64}$/;
+
 const ipHits = new Map();
 
 function checkRateLimit(ip) {
@@ -55,13 +63,14 @@ function corsHeaders(origin) {
     'Access-Control-Allow-Origin': origin,
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Expose-Headers': 'X-Sideris-Provider, X-Sideris-Profile',
+    'Access-Control-Expose-Headers': 'X-Sideris-Provider, X-Sideris-Profile, X-Sideris-Remaining',
     'Vary': 'Origin',
   };
 }
 
 const PROFILE_DEFAULTS = {
   'sideris-lux': {
+    points: 1,
     temperature: 0.35,
     maxTokens: 1024,
     cfModels: [
@@ -71,6 +80,7 @@ const PROFILE_DEFAULTS = {
     ],
   },
   'sideris-aether': {
+    points: 2,
     temperature: 0.35,
     maxTokens: 1600,
     cfModels: [
@@ -80,6 +90,7 @@ const PROFILE_DEFAULTS = {
     ],
   },
   'sideris-orion': {
+    points: 5,
     // Reasoning model: on long derivations the reasoning alone used 2048 tokens and no answer was written.
     maxTokensCap: 6144,
     temperature: 0.2,
@@ -90,6 +101,7 @@ const PROFILE_DEFAULTS = {
     ],
   },
   'sideris-titan': {
+    points: 5,
     // Reasoning model: on long derivations the reasoning alone used 2048 tokens and no answer was written.
     maxTokensCap: 6144,
     temperature: 0.25,
@@ -100,6 +112,64 @@ const PROFILE_DEFAULTS = {
     ],
   },
 };
+
+/* One counter per key ("student:<id>", "ip:<addr>", "portal"). A Durable Object runs one request at
+   a time, so read-check-write here is atomic. A negative cost gives points back. */
+export class SiderisQuota {
+  constructor(state) {
+    this.state = state;
+  }
+
+  async fetch(request) {
+    const { day, cost, limit } = await request.json();
+    const rec = (await this.state.storage.get('q')) || { day: '', used: 0 };
+    if (rec.day !== day) {
+      rec.day = day;
+      rec.used = 0;
+    }
+    if (cost > 0 && rec.used + cost > limit) return Response.json({ ok: false, used: rec.used });
+    rec.used = Math.max(0, rec.used + cost);
+    await this.state.storage.put('q', rec);
+    return Response.json({ ok: true, used: rec.used });
+  }
+}
+
+function quotaCall(env, key, body) {
+  const stub = env.QUOTA.get(env.QUOTA.idFromName(key));
+  return stub.fetch('https://quota/', { method: 'POST', body: JSON.stringify(body) }).then((r) => r.json());
+}
+
+// Takes `cost` points from every counter or from none. Returns { ok, remaining } (remaining for the
+// student), { ok: false, scope } when a limit is reached, or { ok: true } without a binding/on error:
+// a broken counter must not take Sideris down.
+async function takeQuota(env, studentKey, ip, cost) {
+  if (!env.QUOTA) return { ok: true };
+  const day = new Date().toISOString().slice(0, 10);
+  const num = (v, d) => (Number(v) > 0 ? Number(v) : d);
+  const studentLimit = num(env.STUDENT_DAILY_POINTS, STUDENT_DAILY_POINTS);
+  const counters = [
+    { key: studentKey, limit: studentLimit, scope: 'student' },
+    { key: 'ip:' + ip, limit: num(env.IP_DAILY_POINTS, IP_DAILY_POINTS), scope: 'ip' },
+  ];
+  if (Number(env.PORTAL_DAILY_POINTS) > 0) counters.push({ key: 'portal', limit: Number(env.PORTAL_DAILY_POINTS), scope: 'portal' });
+  const taken = [];
+  try {
+    let remaining;
+    for (const c of counters) {
+      const res = await quotaCall(env, c.key, { day, cost, limit: c.limit });
+      if (!res.ok) {
+        for (const t of taken) await quotaCall(env, t.key, { day, cost: -cost, limit: t.limit });
+        return { ok: false, scope: c.scope };
+      }
+      taken.push(c);
+      if (c.scope === 'student') remaining = Math.max(0, c.limit - res.used);
+    }
+    return { ok: true, remaining };
+  } catch (err) {
+    console.error('quota: ' + (err && err.message ? err.message : err));
+    return { ok: true };
+  }
+}
 
 function jsonResponse(obj, status, headers) {
   return new Response(JSON.stringify(obj), {
@@ -171,6 +241,19 @@ export default {
       ? Math.max(64, Math.min(cfg.maxTokensCap || MAX_TOKENS_CAP, Math.round(body.max_tokens)))
       : cfg.maxTokens;
     const stream = body.stream !== false;
+
+    const clientId = typeof body.client === 'string' ? body.client : '';
+    const studentKey = CLIENT_ID_RE.test(clientId) ? 'student:' + clientId : 'student-ip:' + ip;
+    const quota = await takeQuota(env, studentKey, ip, cfg.points || 1);
+    if (!quota.ok) {
+      return jsonResponse({
+        error: quota.scope === 'student'
+          ? "You have used today's Sideris allowance. It resets tomorrow (00:00 UTC). Lux uses the least of it, Orion and Titan the most."
+          : 'Sideris has reached its daily limit. It will be back tomorrow.',
+        limit: quota.scope,
+      }, 429, cors);
+    }
+    if (quota.remaining != null) cors['X-Sideris-Remaining'] = String(quota.remaining);
 
     // Students only ever see these two generic messages; provider details (quota, plan, model
     // errors) go to the Worker logs, never to the page.
