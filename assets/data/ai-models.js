@@ -5,16 +5,11 @@
  * before assets/js/ai-rag.js, ai-engine.js and ai-chat.js. Keep everything between the brackets
  * pure JSON (tools/tests/test_ai_chat.py parses it directly).
  *
- * Every Sideris model works in TWO modes (Instant 0 MB is the default; Offline / Local lives
- * under Advanced settings):
- *   - Instant (0 MB download) -> runs immediately via the Cloudflare Worker proxy
- *     (assets/data/sideris-config.js) on desktop and mobile with zero setup;
- *   - Offline / Local         -> downloads ONNX weights into the browser (WebGPU) or connects
- *     to local Ollama / LM Studio, including custom fine-tuned Sideris checkpoints.
- *
- * Automatic local mode: a model with "localTier" (1 small, 2 mid-size) and offlineBackend "webgpu"
- * is downloaded in the background on computers of that tier or above (ai-engine.js, local) and then
- * answers there instead of the cloud. "sizeMB" is its download size, used for space and wait times.
+ * Every model answers from the cloud at once (Cloudflare Worker, assets/data/sideris-config.js).
+ * A model with "localTier" (1 small, 2 mid-size) and offlineBackend "webgpu" also installs itself
+ * on computers of that tier or above (ai-engine.js, local: "repo" is its Hugging Face ONNX repo,
+ * "sizeMB" its download size for space checks and wait times) and from then on answers there.
+ * Titan has no localTier yet: it stays in the cloud until it is exported to ONNX.
  */
 window.AE_SIDERIS_MODELS = [
   {

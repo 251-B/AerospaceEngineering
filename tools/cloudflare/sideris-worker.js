@@ -297,7 +297,7 @@ export default {
           console.error(`cloudflare-ai (${cfModel}): ${detail}`);
           if (/\b4006\b|daily free allocation|neurons/i.test(detail)) {
             lastStatus = 429;
-            lastError = 'Sideris has reached its daily limit. It will be back tomorrow; Offline mode still works.';
+            lastError = 'Sideris has reached its daily limit. It will be back tomorrow.';
             break;   // the daily allocation is shared by every model: no point trying the next one
           }
         }

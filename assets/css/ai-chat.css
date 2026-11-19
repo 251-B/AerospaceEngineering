@@ -291,39 +291,6 @@ html.sd-studio-full body {
 }
 .sd-seg__btn[aria-pressed="true"] { background: var(--sd-text); color: var(--sd-surface); }
 
-.sd-advanced {
-  margin-top: 12px; padding: 10px 13px; border-radius: 11px;
-  border: 1px solid var(--sd-border); background: var(--sd-surface);
-}
-.sd-advanced > summary { cursor: pointer; font: 600 12.5px/1.3 var(--sd-sans); color: var(--sd-muted); }
-.sd-advanced__body { margin-top: 11px; display: flex; flex-direction: column; gap: 10px; }
-
-.sd-load-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.sd-btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  padding: 7px 13px; border-radius: 9px; border: 1px solid var(--sd-border);
-  background: var(--sd-surface); color: var(--sd-text); cursor: pointer;
-  font: 600 12.5px/1.2 var(--sd-sans);
-}
-.sd-btn:hover, .sd-btn:focus-visible { border-color: var(--sd-accent); outline: none; }
-.sd-btn--primary { background: var(--sd-text); color: var(--sd-surface); border-color: var(--sd-text); }
-.sd-btn:disabled { opacity: .5; cursor: not-allowed; }
-
-.sd-progress { margin: 2px 0 4px; }
-.sd-progress__bar { height: 6px; border-radius: 999px; background: var(--sd-track); overflow: hidden; margin-bottom: 5px; }
-.sd-progress__fill { height: 100%; width: 0; border-radius: inherit; background: var(--sd-accent); transition: width .2s ease; }
-.sd-progress__text { margin: 0; font: 500 12px/1.35 var(--sd-sans); color: var(--sd-muted); }
-
-.sd-field { margin: 0; }
-.sd-field label { display: block; margin: 0 0 4px; font: 500 12px/1.3 var(--sd-sans); color: var(--sd-muted); }
-.sd-input, .sd-select {
-  width: 100%; padding: 8px 11px; border-radius: 9px; border: 1px solid var(--sd-border);
-  background: var(--sd-inset); color: var(--sd-text);
-  font: 400 13px/1.35 var(--sd-mono);
-}
-.sd-input:focus-visible, .sd-select:focus-visible { border-color: var(--sd-accent); outline: none; }
-.sd-help-note { margin: 0; font: 400 12.5px/1.45 var(--sd-sans); color: var(--sd-muted); }
-
 /* ---------------------------------------------------------------- messages & spacious welcome */
 .sd-messages {
   flex: 1 1 auto; overflow-y: auto; overflow-x: hidden;

@@ -11,8 +11,9 @@
  *     and live split-view docking (72% AI Studio + 28% live study page on desktop, with
  *     one-click Split / Fullscreen toggle).
  *   - Clean modern sans-serif UI (Inter / system-ui), inline model picker for Sideris Lux,
- *     Sideris Aether (default), Sideris Orion and Sideris Titan (0 MB instant via Cloudflare
- *     Workers AI; optional offline WebGPU / local Ollama inside Settings).
+ *     Sideris Aether (default), Sideris Orion and Sideris Titan: the cloud (Cloudflare Workers AI)
+ *     at once, and each model on this computer as soon as it has installed itself (ai-engine.js);
+ *     nothing to set up.
  *   - Seamless handoff from assets/js/ask-ai.js keeping <reference_solution hidden="true">
  *     out of the visible chat DOM.
  *   - Client-side RAG grounding over vault/ shards (assets/js/ai-rag.js), safe DOM Markdown
@@ -115,15 +116,10 @@
   function loadPrefs() {
     var base = {
       modelId: defaultModelId(),
-      runMode: 'instant',       // 'instant' (0 MB cloud) | 'offline' (WebGPU / Ollama)
       layout: 'split',          // 'split' (72% AI + 28% live page) | 'full' (100% AI)
       rag: true,
       thinking: true,
-      hintsOnly: false,         // free chat on problem pages: solution sent hidden, Socratic answers
-      customRepo: '',
-      workerUrl: '',
-      ollamaEndpoint: 'http://localhost:11434/v1',
-      ollamaModel: 'qwen3.5:9b'
+      hintsOnly: false          // free chat on problem pages: solution sent hidden, Socratic answers
     };
     try {
       var raw = localStorage.getItem(KEY);
@@ -131,15 +127,10 @@
       var parsed = JSON.parse(raw);
       if (parsed && typeof parsed === 'object') {
         if (typeof parsed.modelId === 'string' && !isReasoning(parsed.modelId)) base.modelId = parsed.modelId;
-        if (parsed.runMode === 'instant' || parsed.runMode === 'offline') base.runMode = parsed.runMode;
         if (parsed.layout === 'split' || parsed.layout === 'full') base.layout = parsed.layout;
         if (typeof parsed.rag === 'boolean') base.rag = parsed.rag;
         if (typeof parsed.thinking === 'boolean') base.thinking = parsed.thinking;
         if (typeof parsed.hintsOnly === 'boolean') base.hintsOnly = parsed.hintsOnly;
-        if (typeof parsed.customRepo === 'string') base.customRepo = parsed.customRepo;
-        if (typeof parsed.workerUrl === 'string') base.workerUrl = parsed.workerUrl;
-        if (typeof parsed.ollamaEndpoint === 'string' && parsed.ollamaEndpoint.trim()) base.ollamaEndpoint = parsed.ollamaEndpoint;
-        if (typeof parsed.ollamaModel === 'string' && parsed.ollamaModel.trim()) base.ollamaModel = parsed.ollamaModel;
       }
     } catch (e) { /* ignore */ }
     return base;
@@ -172,7 +163,7 @@
     var cfg = window.AE_SIDERIS_CONFIG && typeof window.AE_SIDERIS_CONFIG.workerUrl === 'string'
       ? window.AE_SIDERIS_CONFIG.workerUrl.trim()
       : '';
-    return (prefs.workerUrl && prefs.workerUrl.trim()) || cfg;
+    return cfg;
   }
 
   function loadHistoryStore() {
@@ -248,30 +239,36 @@
   };
   var ui = {};
 
+  // The "On this device" line of the settings: what is installed and what is coming.
+  function deviceSummary() {
+    var local = window.AESiderisEngine && window.AESiderisEngine.local;
+    if (!local) return 'Answers come from the cloud.';
+    var st = local.state();
+    if (st.tier === null) return 'Checking this device...';
+    if (st.tier === 0) return 'Answers come from the cloud on this device.';
+    var parts = MODELS.filter(function (x) { return local.isReady(x.id); }).map(function (x) { return x.name + ' ready'; });
+    if (st.job) {
+      var pct = st.job.total ? Math.min(99, Math.floor(100 * st.job.loaded / st.job.total)) : 0;
+      var eta = local.eta();
+      parts.push(findModel(st.job.id).name + (st.job.phase === 'gpu' ? ' getting ready' : ' downloading ' + pct + ' %') +
+        (eta && st.job.phase !== 'gpu' ? ' · about ' + Math.ceil(eta.seconds / 60) + ' min' : ''));
+    }
+    return parts.length ? parts.join(' · ') + '. Installed models answer here, with no daily limit.' : 'Answers come from the cloud for now.';
+  }
+
   function activeModelConfig() {
     var base = findModel(prefs.modelId);
     var copy = {};
     for (var k in base) copy[k] = base[k];
-    if (prefs.runMode === 'offline') {
-      copy.backend = copy.offlineBackend || 'webgpu';
-      copy.sizeLabel = copy.offlineSizeLabel || copy.sizeLabel;
-    } else {
-      copy.backend = 'cloud';
-      copy.sizeLabel = '0 MB · Instant';
-      // Downloaded and probed on this computer: answer here (free, no daily allowance). Not while
-      // another model is downloading, so two models never compete for the GPU.
-      var local = window.AESiderisEngine && window.AESiderisEngine.local;
-      if (local && local.isReady(copy.id) && !local.busy()) {
-        copy.backend = 'webgpu';
-        copy.autoLocal = true;
-        copy.sizeLabel = 'On this device';
-      }
-    }
-    if (copy.backend === 'ollama') {
-      copy.endpoint = prefs.ollamaEndpoint || copy.endpoint || 'http://localhost:11434/v1';
-      copy.repo = prefs.ollamaModel || copy.repo || 'qwen3.5:9b';
-    } else if (copy.backend === 'webgpu' && prefs.customRepo && prefs.customRepo.trim()) {
-      copy.repo = prefs.customRepo.trim();
+    copy.backend = 'cloud';
+    copy.sizeLabel = 'Cloud';
+    // Downloaded and probed on this computer: answer here (free, no daily allowance). Not while
+    // another model is loading into the GPU; a model that is only downloading leaves it free.
+    var local = window.AESiderisEngine && window.AESiderisEngine.local;
+    if (local && local.isReady(copy.id) && !local.busy()) {
+      copy.backend = 'webgpu';
+      copy.autoLocal = true;
+      copy.sizeLabel = 'On this device';
     }
     return copy;
   }
@@ -1075,109 +1072,15 @@
     thinkRow.appendChild(thinkLab);
     spInner.appendChild(thinkRow);
 
-    // Advanced / Offline
-    var adv = el('details', 'sd-advanced');
-    adv.appendChild(el('summary', '', 'Advanced: offline browser models and Ollama'));
-    var advBody = el('div', 'sd-advanced__body');
-
-    var modeRow = el('div', 'sd-setting-row');
-    var modeInfo = el('div');
-    modeInfo.appendChild(el('span', 'sd-setting-name', 'Run mode'));
-    modeInfo.appendChild(el('span', 'sd-setting-hint', 'Instant uses free cloud (0 MB). Offline downloads weights to GPU / Ollama.'));
-    var modeSeg = el('div', 'sd-seg');
-    var modeBtns = [];
-    [['instant', 'Instant (0 MB)'], ['offline', 'Offline / Local']].forEach(function (pair) {
-      var b = el('button', 'sd-seg__btn', pair[1]);
-      b.type = 'button';
-      b.dataset.mode = pair[0];
-      b.addEventListener('click', function () {
-        prefs.runMode = pair[0];
-        savePrefs();
-        hideProgress();
-        syncUI();
-      });
-      modeSeg.appendChild(b);
-      modeBtns.push(b);
-    });
-    modeRow.appendChild(modeInfo);
-    modeRow.appendChild(modeSeg);
-    advBody.appendChild(modeRow);
-
-    var advNote = el('p', 'sd-help-note');
-    advBody.appendChild(advNote);
-
-    var loadRow = el('div', 'sd-load-row');
-    var loadBtn = el('button', 'sd-btn sd-btn--primary', 'Test cloud connection');
-    loadBtn.type = 'button';
-    var clearCacheBtn = el('button', 'sd-btn', 'Clear browser cache');
-    clearCacheBtn.type = 'button';
-    loadRow.appendChild(loadBtn);
-    loadRow.appendChild(clearCacheBtn);
-    advBody.appendChild(loadRow);
-
-    var progressWrap = el('div', 'sd-progress');
-    progressWrap.hidden = true;
-    var progressBar = el('div', 'sd-progress__bar');
-    var progressFill = el('div', 'sd-progress__fill');
-    progressBar.appendChild(progressFill);
-    var progressText = el('p', 'sd-progress__text');
-    progressWrap.appendChild(progressBar);
-    progressWrap.appendChild(progressText);
-    advBody.appendChild(progressWrap);
-
-    var cloudWrap = el('div', 'sd-advanced__body');
-    var wField = el('div', 'sd-field');
-    var wLab = el('label', '', 'Cloud proxy URL (optional override)');
-    wLab.setAttribute('for', 'sdWorkerUrl');
-    var wInput = el('input', 'sd-input');
-    wInput.id = 'sdWorkerUrl';
-    wInput.type = 'url';
-    wInput.placeholder = effectiveWorkerUrl() || 'https://sideris-ai.<your-name>.workers.dev';
-    wInput.value = prefs.workerUrl;
-    wField.appendChild(wLab);
-    wField.appendChild(wInput);
-
-    cloudWrap.appendChild(wField);
-    advBody.appendChild(cloudWrap);
-
-    var customWrap = el('div', 'sd-field');
-    var customLab = el('label', '', 'Custom Hugging Face ONNX repo (for your fine-tuned Sideris weights)');
-    customLab.setAttribute('for', 'sdCustomRepo');
-    var customInput = el('input', 'sd-input');
-    customInput.id = 'sdCustomRepo';
-    customInput.type = 'text';
-    customInput.placeholder = 'e.g. your-user/Sideris-Aether-ONNX';
-    customInput.value = prefs.customRepo;
-    customWrap.appendChild(customLab);
-    customWrap.appendChild(customInput);
-    advBody.appendChild(customWrap);
-
-    var ollamaWrap = el('div', 'sd-advanced__body');
-    var epField = el('div', 'sd-field');
-    var epLab = el('label', '', 'Local OpenAI endpoint (Ollama / LM Studio)');
-    epLab.setAttribute('for', 'sdOllamaEndpoint');
-    var epInput = el('input', 'sd-input');
-    epInput.id = 'sdOllamaEndpoint';
-    epInput.type = 'url';
-    epInput.value = prefs.ollamaEndpoint;
-    epField.appendChild(epLab);
-    epField.appendChild(epInput);
-
-    var tagField = el('div', 'sd-field');
-    var tagLab = el('label', '', 'Local model tag');
-    tagLab.setAttribute('for', 'sdOllamaModel');
-    var tagInput = el('input', 'sd-input');
-    tagInput.id = 'sdOllamaModel';
-    tagInput.type = 'text';
-    tagInput.value = prefs.ollamaModel;
-    tagField.appendChild(tagLab);
-    tagField.appendChild(tagInput);
-    ollamaWrap.appendChild(epField);
-    ollamaWrap.appendChild(tagField);
-    advBody.appendChild(ollamaWrap);
-
-    adv.appendChild(advBody);
-    spInner.appendChild(adv);
+    // What runs on this computer: read only, the models install themselves
+    var deviceRow = el('div', 'sd-setting-row');
+    var deviceInfo = el('div');
+    deviceInfo.appendChild(el('span', 'sd-setting-name', 'On this device'));
+    var deviceNote = el('span', 'sd-setting-hint', 'Checking this device...');
+    deviceInfo.appendChild(deviceNote);
+    deviceRow.appendChild(deviceInfo);
+    spInner.appendChild(deviceRow);
+    setInterval(function () { if (session.settingsOpen) deviceNote.textContent = deviceSummary(); }, 3000);
     settingsPanel.appendChild(spInner);
 
     // Scrollable message stream
@@ -1285,12 +1188,7 @@
       historyList: historyList, clearAllHistBtn: clearAllHistBtn,
       modelMenu: modelMenu, modelOptBtns: modelOptBtns,
       pickerBtn: pickerBtn, pickerName: pickerName, pickerMode: pickerMode,
-      modeBtns: modeBtns, langBtns: langBtns, advNote: advNote,
-      loadBtn: loadBtn, clearCacheBtn: clearCacheBtn,
-      progressWrap: progressWrap, progressFill: progressFill, progressText: progressText,
-      cloudWrap: cloudWrap, wInput: wInput,
-      customWrap: customWrap, customInput: customInput,
-      ollamaWrap: ollamaWrap, epInput: epInput, tagInput: tagInput,
+      langBtns: langBtns, deviceNote: deviceNote,
       ragCb: ragCb, thinkCb: thinkCb,
       messages: messages, status: status, ta: ta, sendBtn: sendBtn
     };
@@ -1330,19 +1228,6 @@
       setStatus('Cleared saved conversation history.');
     });
 
-    loadBtn.addEventListener('click', function () { preloadActiveModel(); });
-    clearCacheBtn.addEventListener('click', function () {
-      if (!window.AESiderisEngine) return;
-      window.AESiderisEngine.clearBrowserCache().then(function (n) {
-        setStatus(n ? 'Cleared ' + n + ' browser model cache store(s).' : 'No cached browser models found.');
-        syncUI();
-      });
-    });
-
-    customInput.addEventListener('change', function () { prefs.customRepo = customInput.value.trim(); savePrefs(); syncUI(); });
-    wInput.addEventListener('change', function () { prefs.workerUrl = wInput.value.trim(); savePrefs(); syncUI(); });
-    epInput.addEventListener('change', function () { prefs.ollamaEndpoint = epInput.value.trim() || 'http://localhost:11434/v1'; savePrefs(); });
-    tagInput.addEventListener('change', function () { prefs.ollamaModel = tagInput.value.trim() || 'qwen3.5:9b'; savePrefs(); });
     ragCb.addEventListener('change', function () { prefs.rag = ragCb.checked; savePrefs(); });
     thinkCb.addEventListener('change', function () { prefs.thinking = thinkCb.checked; savePrefs(); renderMessages(); });
 
@@ -1406,16 +1291,6 @@
     if (ui.status) ui.status.textContent = text;
   }
 
-  function showProgress(pct, text) {
-    if (!ui.progressWrap) return;
-    ui.progressWrap.hidden = false;
-    ui.progressFill.style.width = Math.max(0, Math.min(100, pct || 0)) + '%';
-    ui.progressText.textContent = text || '';
-  }
-
-  function hideProgress() {
-    if (ui.progressWrap) ui.progressWrap.hidden = true;
-  }
 
   function setSettings(openFlag) {
     session.settingsOpen = !!openFlag;
@@ -1508,11 +1383,7 @@
   function syncUI() {
     if (!ui.drawer) return;
     var m = activeModelConfig();
-    var isCloud = m.backend === 'cloud';
-    var isOllama = m.backend === 'ollama';
-    var isWebGPU = m.backend === 'webgpu';
-
-    var modeLabel = isCloud ? 'Instant' : isOllama ? 'Local' : 'Offline';
+    var modeLabel = m.backend === 'cloud' ? 'Cloud' : 'On this device';
     ui.pickerName.textContent = m.name;
     ui.pickerMode.textContent = '· ' + modeLabel;
     ui.topModelLabel.textContent = m.name;
@@ -1522,41 +1393,16 @@
       b.setAttribute('aria-checked', b.dataset.model === m.id ? 'true' : 'false');
       var badge = b.querySelector('.sd-model-opt__badge');
       var info = findModel(b.dataset.model);
-      if (badge && info) {
-        badge.textContent = prefs.runMode === 'offline'
-          ? (info.tier + ' · ' + (info.offlineSizeLabel || info.sizeLabel))
-          : info.tier;
-      }
+      if (badge && info) badge.textContent = info.tier;
     });
 
-    ui.modeBtns.forEach(function (b) {
-      b.setAttribute('aria-pressed', b.dataset.mode === prefs.runMode ? 'true' : 'false');
-    });
 
     var lang = readLang();
     ui.langBtns.forEach(function (b) {
       b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
     });
 
-    ui.cloudWrap.hidden = !isCloud;
-    ui.customWrap.hidden = !isWebGPU;
-    ui.ollamaWrap.hidden = !isOllama;
-    ui.clearCacheBtn.hidden = !isWebGPU;
-
-    if (isCloud) {
-      var wUrl = effectiveWorkerUrl();
-      ui.advNote.textContent = wUrl ? ('Connected to the Sideris cloud (' + wUrl + ').')
-        : 'Paste a Worker URL below, or switch to Offline / Local.';
-      ui.loadBtn.textContent = 'Test cloud connection';
-    } else if (isOllama) {
-      ui.advNote.textContent = 'Connects to Ollama or LM Studio on localhost (' + m.repo + ').';
-      ui.loadBtn.textContent = 'Test local connection';
-    } else {
-      ui.advNote.textContent = 'Downloads ' + m.repo + ' (' + m.sizeLabel + ') once into browser cache for offline use.';
-      ui.loadBtn.textContent = (window.AESiderisEngine && window.AESiderisEngine.isLoaded(m.repo, m.dtype))
-        ? 'Loaded in GPU'
-        : ('Download & load (' + m.sizeLabel + ')');
-    }
+    ui.deviceNote.textContent = deviceSummary();
 
     syncLayoutClasses();
 
@@ -1571,53 +1417,12 @@
     prefs.modelId = m.id;
     if (!m.reasoning) savedModelId = m.id;
     savePrefs();
-    hideProgress();
     syncUI();
     setStatus(m.reasoning
       ? m.name + ' for this conversation only · it thinks step by step first, so answers take longer.'
       : m.name + ' selected · ' + (m.bestFor || m.summary || 'ready.'));
   }
 
-  function preloadActiveModel() {
-    if (!window.AESiderisEngine) return Promise.resolve();
-    var m = activeModelConfig();
-    if (m.backend === 'cloud') {
-      var wUrl = effectiveWorkerUrl();
-      setStatus(wUrl ? 'Checking Sideris cloud...' : 'No Cloudflare Worker URL configured.');
-      return window.AESiderisEngine.checkCloud(wUrl).then(function (res) {
-        if (res.ok) {
-          var provs = res.providers && res.providers.length ? ' (' + res.providers.join(', ') + ')' : '';
-          setStatus('Sideris cloud connected' + provs + '.');
-        } else {
-          setStatus('Cloud proxy unreachable: ' + res.error);
-        }
-      });
-    }
-    if (m.backend === 'ollama') {
-      setStatus('Checking local server at ' + m.endpoint + '...');
-      return window.AESiderisEngine.checkOllama(m.endpoint).then(function (res) {
-        if (res.ok) {
-          var found = res.models.length ? ' Available: ' + res.models.slice(0, 4).join(', ') : '';
-          setStatus('Connected to local server.' + found);
-        } else {
-          setStatus('Local server unreachable at ' + res.endpoint + ' (' + res.error + ').');
-        }
-      });
-    }
-    ui.loadBtn.disabled = true;
-    return window.AESiderisEngine.loadWebGPU(m, function (p) {
-      showProgress(p.progress, p.text);
-      setStatus(p.text);
-    }).then(function () {
-      ui.loadBtn.disabled = false;
-      syncUI();
-      setStatus(m.name + ' ready in GPU memory (cached offline).');
-    }).catch(function (err) {
-      ui.loadBtn.disabled = false;
-      hideProgress();
-      setStatus(err && err.message ? err.message : String(err));
-    });
-  }
 
   function regenerateLast() {
     if (session.busy || session.messages.length < 2) return;
@@ -1840,7 +1645,6 @@
     setBusy(true);
     setStatus(
       m.backend === 'cloud' ? m.name + ' is responding...'
-        : m.backend === 'ollama' ? m.name + ' (local) is responding...'
         : 'Preparing ' + m.name + '...'
     );
 
@@ -1893,10 +1697,7 @@
             assistantMsg.text = prefix + full;
             scheduleStreamRender();
           },
-          function (p) {
-            showProgress(p.progress, p.text);
-            setStatus(p.text);
-          }
+          function (p) { setStatus(p.text); }
         ).then(function (t) { return t ? prefix + t : t; });
       }
 
@@ -1927,7 +1728,6 @@
     }).then(function (finalText) {
       if (finalText) assistantMsg.text = finalText;
       if (!assistantMsg.text) assistantMsg.text = '(Generation stopped.)';
-      hideProgress();
       setBusy(false);
       persistCurrentChat();
       syncUI();
@@ -1940,7 +1740,6 @@
       ui.ta.focus();
       return assistantMsg.text;
     }).catch(function (err) {
-      hideProgress();
       setBusy(false);
       var msg = allowanceMessage((err && err.message) ? err.message : String(err));
       if (splitThinking(assistantMsg.text).answer) {
@@ -2054,12 +1853,11 @@
   function boot() {
     if (ui.drawer) return;
     buildUI();
-    // Install the models this computer can run, quietly, once the page has settled.
+    // Install the models this computer can run, quietly, as soon as the page is up.
     var engine = window.AESiderisEngine;
-    if (engine && engine.local && prefs.runMode === 'instant') {
+    if (engine && engine.local) {
       var go = function () { engine.local.start(MODELS); };
-      if (window.requestIdleCallback) setTimeout(function () { requestIdleCallback(go, { timeout: 10000 }); }, 3000);
-      else setTimeout(go, 5000);
+      setTimeout(go, 1000);   // downloads are network only and resumable: start at once, no idle wait
     }
   }
 
@@ -2088,7 +1886,6 @@
         open: session.open,
         busy: session.busy,
         model: activeModelConfig(),
-        runMode: prefs.runMode,
         layout: prefs.layout,
         rag: prefs.rag,
         thinking: prefs.thinking,

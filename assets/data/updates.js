@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-sideris-downloads-across-pages",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris keeps installing while you move between pages",
+    "text": "Model downloads now carry on from where they stopped when you change page, and a model already installed keeps answering while another downloads. No settings to touch."
+  },
+  {
     "id": "2026-11-19-business-figures-from-slides",
     "date": "2026-11-19",
     "tag": "Business Management",

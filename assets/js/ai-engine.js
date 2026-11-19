@@ -1,22 +1,18 @@
 /*!
- * Aerospace Engineering Study Portal: Sideris inference engine (Cloud Worker + WebGPU ONNX + local Ollama).
+ * Aerospace Engineering Study Portal: Sideris inference engine (cloud worker + models installed on this computer).
  *
  * Loaded on study pages by assets/js/theme.js (after sideris-config.js, ai-models.js and ai-rag.js).
- * Skipped in PDF print mode (?print=...). Zero external network requests occur until the user
- * explicitly loads a model, tests a connection or sends a message.
+ * Skipped in PDF print mode (?print=...).
  *
  * Backends:
- *   - cloud  : zero-download instant streaming via your free Cloudflare Worker
- *              (tools/cloudflare/sideris-worker.js), which runs on Cloudflare Workers AI.
- *   - webgpu : lazily imports @huggingface/transformers v4 from jsDelivr ESM CDN, streams ONNX
- *              weights from Hugging Face into browser Cache API / IndexedDB, and runs locally on
- *              the GPU with token streaming.
- *   - ollama : connects to an OpenAI-compatible local server (Ollama http://localhost:11434/v1 or
- *              LM Studio http://localhost:1234/v1) with SSE streaming.
+ *   - cloud  : instant streaming via the Cloudflare Worker (tools/cloudflare/sideris-worker.js),
+ *              which runs on Cloudflare Workers AI.
+ *   - webgpu : Transformers.js v4 (jsDelivr ESM) running a model installed on this computer by the
+ *              automatic local section below; its files come from the resumable part cache.
  *   - mock   : test hook (setMock) used by tools/tests/test_ai_chat.py.
  *
- * API: window.AESiderisEngine = { hasWebGPU, isLoaded, loadedKey, loadWebGPU, generate,
- *      abort, clearBrowserCache, checkOllama, checkCloud, setMock }
+ * API: window.AESiderisEngine = { hasWebGPU, isLoaded, loadedKey, loadWebGPU, generate, abort,
+ *      clearBrowserCache, checkCloud, remaining, local, setMock }
  */
 (function () {
   'use strict';
@@ -49,7 +45,6 @@
   var tfModule = null;
   var loaded = null;          // { key, repo, dtype, generator, mod }
   var activeAbort = null;     // { aborted: boolean, controller?: AbortController, stopper?: any }
-  var confirmed = Object.create(null);   // models the student agreed to download on a small device
   var mockFn = null;          // test hook: async (req, callbacks) -> string
 
   function hasWebGPU() {
@@ -78,6 +73,11 @@
         if (mod.env) {
           mod.env.allowLocalModels = false;
           mod.env.useBrowserCache = true;
+          // Model files come from the resumable part cache below (see modelCache), not one big fetch.
+          if (typeof caches !== 'undefined') {
+            mod.env.useCustomCache = true;
+            mod.env.customCache = modelCache;
+          }
         }
         return mod;
       }).catch(function (err) {
@@ -104,23 +104,8 @@
     }
     if (!hasWebGPU()) {
       return Promise.reject(new Error(
-        'This browser does not expose WebGPU. Use Sideris Instant (zero download), Sideris Titan (Ollama), or open the prompt in Claude/Gemini.'
+        'This browser does not expose WebGPU, so Sideris answers from the cloud here.'
       ));
-    }
-
-    // 1.3-2.5 GB of weights in GPU memory is the usual reason a tab dies on phones and laptops
-    // with integrated graphics: ask first there (deviceMemory is reported in GB, at most 8).
-    var mem = navigator.deviceMemory || 0;
-    var mobile = /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent || '');
-    if ((mobile || (mem && mem < 8)) && !confirmed[key] && !(opts && opts.auto)) {
-      var size = (opts && opts.offlineSizeLabel) || 'over 1 GB';
-      var ok = typeof window.confirm !== 'function' || window.confirm(
-        'This device ' + (mem ? 'reports ' + mem + ' GB of memory' : 'looks like a phone or tablet') +
-        '. Loading ' + ((opts && opts.name) || 'this model') + ' (' + size + ') into the browser (downloaded the first time) may close the tab. ' +
-        'Instant mode (0 MB) works without a download. Load it anyway?'
-      );
-      if (!ok) return Promise.reject(new Error('Download cancelled. Switch Run mode to Instant (0 MB) to chat without downloading a model.'));
-      confirmed[key] = true;
     }
 
     var fileMap = Object.create(null);
@@ -147,7 +132,7 @@
 
     return navigator.gpu.requestAdapter().then(function (adapter) {
       if (!adapter) {
-        throw new Error('No WebGPU adapter found on this device. Switch to Sideris Instant or Sideris Titan (Ollama).');
+        throw new Error('No WebGPU adapter found on this device, so Sideris answers from the cloud here.');
       }
       return loadTransformersLib();
     }).then(function (mod) {
@@ -161,7 +146,7 @@
         progress_callback: emitProgress
       }).then(function (generator) {
         loaded = { key: key, repo: repo, dtype: dtype, generator: generator, mod: mod };
-        if (onProgress) onProgress({ status: 'ready', progress: 100, text: 'Ready (cached offline in browser).' });
+        if (onProgress) onProgress({ status: 'ready', progress: 100, text: 'Ready on this device.' });
         return loaded;
       });
     });
@@ -324,7 +309,7 @@
     if (!cloud.workerUrl || !cloud.workerUrl.trim()) {
       activeAbort = null;
       return Promise.reject(new Error(
-        'Instant cloud mode is not configured. Switch Run mode to Offline (WebGPU / Ollama).'
+        'The Sideris cloud is not configured (workerUrl in assets/data/sideris-config.js).'
       ));
     }
     var url = normaliseBase(cloud.workerUrl, '') + '/v1/chat/completions';
@@ -357,59 +342,11 @@
       // Never show provider details (quota, plan, model names) to students, even from an old worker.
       var m = (err && err.message) || '';
       if (/daily free allocation|\b4006\b|neurons/i.test(m)) {
-        throw new Error('Sideris has reached its daily limit. It will be back tomorrow; Offline mode still works.');
+        throw new Error('Sideris has reached its daily limit. It will be back tomorrow.');
       }
       // The worker's own 429 messages (daily allowance, too many requests) are written for students.
       if (/HTTP 429: /.test(m)) throw new Error(m.replace(/^.*HTTP 429: /, ''));
       if (/HTTP 5\d\d/.test(m)) throw new Error('Sideris is temporarily unavailable. Please try again in a moment.');
-      throw err;
-    }).finally(function () {
-      if (activeAbort === token) activeAbort = null;
-    });
-  }
-
-  /* ---------------------------------------------------------------- Local Ollama / LM Studio */
-  function normaliseEndpoint(ep) {
-    var base = String(ep || 'http://localhost:11434/v1').trim().replace(/\/+$/, '');
-    if (!/^https?:\/\//i.test(base)) base = 'http://' + base;
-    return base;
-  }
-
-  function checkOllama(endpoint) {
-    var base = normaliseEndpoint(endpoint);
-    return fetch(base + '/models', { method: 'GET' }).then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
-    }).then(function (data) {
-      var list = Array.isArray(data && data.data) ? data.data.map(function (m) { return m.id; }) : [];
-      return { ok: true, models: list, endpoint: base };
-    }).catch(function (err) {
-      return { ok: false, error: err && err.message ? err.message : 'Unreachable', endpoint: base };
-    });
-  }
-
-  function generateOllama(req, onToken) {
-    var base = normaliseEndpoint(req.model && req.model.endpoint);
-    var modelTag = String((req.model && req.model.repo) || 'qwen3.5:9b').trim();
-    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    var token = { aborted: false, controller: ctrl };
-    activeAbort = token;
-
-    return streamOpenAICompat(base + '/chat/completions', { 'Content-Type': 'application/json' }, {
-      model: modelTag,
-      messages: req.messages,
-      temperature: req.temperature != null ? req.temperature : 0.4,
-      max_tokens: req.maxTokens || 2048,
-      stream: true
-    }, onToken, token).catch(function (err) {
-      if (token.aborted) return '';
-      var msg = (err && err.message) || String(err);
-      if (/failed to fetch|networkerror|load failed/i.test(msg)) {
-        throw new Error(
-          'Could not reach local server at ' + base + '. Start Ollama with CORS enabled: ' +
-          'OLLAMA_ORIGINS="https://251-b.github.io,*" ollama serve (and run: ollama pull ' + modelTag + ').'
-        );
-      }
       throw err;
     }).finally(function () {
       if (activeAbort === token) activeAbort = null;
@@ -501,20 +438,204 @@
     }, function () { return sig; });
   }
 
+  /* ---------------------------------------------------------------- resumable model files
+     A model file (up to a few GB) is fetched in 32 MB ranges, each stored as it arrives in the
+     Cache API ('sideris-models'): leaving the page loses at most the range in flight and the next
+     page carries on from there. Transformers.js reads the files through env.customCache (match/put,
+     checked in its v4 source), so once a model is complete its GPU load never touches the network,
+     and a model whose file list is known downloads with no GPU work at all. */
+  var CHUNK = 32 * 1048576;
+  var MODEL_CACHE = 'sideris-models';
+  var LEGACY_CACHE = 'transformers-cache';   // where Transformers.js kept files before this cache
+  var FILES_KEY = 'ae_sideris_files';        // repo -> file URLs Transformers.js asked for
+  var filesSeen = readStore(FILES_KEY) || {};
+  var fetchFn = function (url, opts) { return fetch(url, opts); };   // test hook
+  var store = typeof caches !== 'undefined' ? caches : null;          // test hook: the harness swaps in a memory store
+  var dlProgress = null;                      // bytes callback of the running job
+
+  function partKey(url, i) { return url + (url.indexOf('?') < 0 ? '?' : '&') + 'sideris_part=' + i; }
+  function metaKey(url) { return url + (url.indexOf('?') < 0 ? '?' : '&') + 'sideris_meta=1'; }
+  function openParts() { return store.open(MODEL_CACHE); }
+
+  function readMeta(cache, url) {
+    return cache.match(metaKey(url)).then(function (r) { return r ? r.json() : null; });
+  }
+
+  function writeMeta(cache, url, meta) {
+    return cache.put(metaKey(url), new Response(JSON.stringify(meta))).then(function () { return meta; });
+  }
+
+  function repoOf(url) {
+    var m = /^https?:\/\/[^/]+\/([^/]+\/[^/]+)\/resolve\//.exec(url);
+    return m ? m[1] : '';
+  }
+
+  function remember(url) {
+    var repo = repoOf(url);
+    if (!repo) return;
+    var list = filesSeen[repo] || (filesSeen[repo] = []);
+    if (list.indexOf(url) < 0) {
+      list.push(url);
+      try { localStorage.setItem(FILES_KEY, JSON.stringify(filesSeen)); } catch (e) { /* blocked */ }
+    }
+  }
+
+  // Stores a whole response as parts (Transformers.js put() and files kept by the old cache).
+  function storeStream(url, res) {
+    return openParts().then(function (cache) {
+      var reader = res.body.getReader(), meta = { done: false, parts: 0, size: 0 }, buf = [], held = 0;
+      function flush() {
+        if (!held) return Promise.resolve();
+        var part = new Uint8Array(held), off = 0;
+        buf.forEach(function (b) { part.set(b, off); off += b.byteLength; });
+        buf = []; held = 0;
+        return cache.put(partKey(url, meta.parts), new Response(part)).then(function () { meta.parts++; meta.size += part.byteLength; });
+      }
+      function pump() {
+        return reader.read().then(function (step) {
+          if (step.done) return flush().then(function () { meta.done = true; return writeMeta(cache, url, meta); });
+          buf.push(step.value); held += step.value.byteLength;
+          return (held >= CHUNK ? flush() : Promise.resolve()).then(pump);
+        });
+      }
+      return pump();
+    });
+  }
+
+  // Completes url in the part cache, resuming after the last stored part. Resolves with its meta;
+  // a file that does not exist (Transformers.js asks for optional ones) is stored as missing.
+  function downloadFile(url) {
+    return openParts().then(function (cache) {
+      return readMeta(cache, url).then(function (meta) {
+        if (meta && meta.done) return meta;
+        if (!meta || !meta.parts) {
+          // a file the old cache already holds is moved here instead of downloaded again
+          var legacy = store.open(LEGACY_CACHE).then(function (c) {
+            return c.match(url).then(function (r) {
+              return r ? storeStream(url, r).then(function (m) { c.delete(url); return m; }) : null;
+            });
+          }).catch(function () { return null; });
+          return legacy.then(function (m) { return m || fetchParts(cache, url, meta || { done: false, parts: 0, size: 0 }); });
+        }
+        return fetchParts(cache, url, meta);
+      });
+    });
+  }
+
+  function fetchParts(cache, url, meta) {
+    var start = meta.size;
+    return fetchFn(url, { headers: { Range: 'bytes=' + start + '-' + (start + CHUNK - 1) } }).then(function (res) {
+      if (res.status === 404) return writeMeta(cache, url, { done: true, missing: true, parts: 0, size: 0 });
+      if (res.status === 416) { meta.done = true; return writeMeta(cache, url, meta); }   // size was a whole number of parts
+      if (!res.ok) throw new Error('HTTP ' + res.status + ' while downloading ' + url.split('/').pop());
+      var whole = res.status === 200;   // the server ignored the range: the body is the whole file
+      return res.arrayBuffer().then(function (data) {
+        if (whole) { meta.parts = 0; meta.size = 0; }
+        return cache.put(partKey(url, meta.parts), new Response(data)).then(function () {
+          meta.parts++;
+          meta.size += data.byteLength;
+          if (dlProgress) dlProgress(data.byteLength);
+          if (whole || data.byteLength < CHUNK) meta.done = true;
+          return writeMeta(cache, url, meta);
+        });
+      });
+    }).then(function (m) { return m.done ? m : fetchParts(cache, url, m); });
+  }
+
+  // The stored parts of a complete file, streamed back as one response.
+  function partsResponse(url) {
+    return openParts().then(function (cache) {
+      return readMeta(cache, url).then(function (meta) {
+        if (!meta || !meta.done || meta.missing) return undefined;
+        var i = 0;
+        var body = new ReadableStream({
+          pull: function (ctrl) {
+            if (i >= meta.parts) { ctrl.close(); return; }
+            return cache.match(partKey(url, i++)).then(function (r) {
+              if (!r) throw new Error('A stored part of ' + url.split('/').pop() + ' is missing.');
+              return r.arrayBuffer();
+            }).then(function (b) { ctrl.enqueue(new Uint8Array(b)); });
+          }
+        });
+        return new Response(body, { headers: { 'content-length': String(meta.size) } });
+      });
+    });
+  }
+
+  var modelCache = {
+    match: function (key) {
+      var url = String((key && key.url) || key);
+      if (!/^https?:\/\//.test(url)) return Promise.resolve(undefined);   // local paths: not ours
+      remember(url);
+      return downloadFile(url).then(function () { return partsResponse(url); })
+        .catch(function () { return undefined; });   // network trouble: Transformers.js fetches it itself
+    },
+    put: function (key, res) {
+      var url = String((key && key.url) || key);
+      return res && res.body && /^https?:\/\//.test(url) ? storeStream(url, res).then(function () {}) : Promise.resolve();
+    }
+  };
+
+  // The files of a model from the Hugging Face API (name and size): the config and tokenizer files
+  // at the root and the ONNX files of its dtype (graph and external data). Anything else
+  // Transformers.js asks for later still comes through the resumable cache.
+  function listRepo(m) {
+    var suffix = '_' + (m.dtype || 'q4f16') + '.onnx';
+    return fetchFn('https://huggingface.co/api/models/' + m.repo + '/tree/main?recursive=1').then(function (r) {
+      return r.ok ? r.json() : [];
+    }).then(function (items) {
+      return (Array.isArray(items) ? items : []).filter(function (it) {
+        return it.type === 'file' && (/^[^/]+\.(json|jinja|txt)$/.test(it.path) || (/^onnx\//.test(it.path) && it.path.indexOf(suffix) >= 0));
+      }).map(function (it) {
+        return { url: 'https://huggingface.co/' + m.repo + '/resolve/main/' + it.path, size: (it.lfs && it.lfs.size) || it.size || 0 };
+      });
+    }).catch(function () { return []; });
+  }
+
+  // Downloads every file of a model with no GPU work; false when its files could not be listed
+  // (then the GPU load asks Transformers.js for them, still through the resumable cache).
+  function prefetchModel(m) {
+    if (mockFn || typeof caches === 'undefined') return Promise.resolve(false);
+    var urls;
+    return listRepo(m).then(function (files) {
+      files.forEach(function (f) { remember(f.url); });
+      var total = files.reduce(function (a, f) { return a + f.size; }, 0);
+      if (total && localJob) localJob.total = total;
+      urls = filesSeen[m.repo] || [];
+      return urls.length ? openParts().then(function (cache) {
+        return Promise.all(urls.map(function (u) { return readMeta(cache, u); }));
+      }) : [];
+    }).then(function (metas) {
+      if (!urls.length) return false;
+      metas.forEach(function (x) { if (x && localJob) localJob.loaded += x.size || 0; });   // already stored
+      return urls.reduce(function (chain, u) { return chain.then(function () { return downloadFile(u); }); }, Promise.resolve())
+        .then(function () { return true; });
+    });
+  }
+
   // A model marked ready whose files the browser has since evicted (Safari does it after 7 days)
   // is downloaded again in the background instead of in front of the student.
   function verifyCached(models) {
     if (mockFn || typeof caches === 'undefined') return Promise.resolve();
-    return caches.keys().then(function (names) {
-      var name = names.filter(function (n) { return /transformers/i.test(n); })[0];
-      return name ? caches.open(name).then(function (c) { return c.keys(); }) : [];
-    }).then(function (reqs) {
-      models.forEach(function (m) {
-        var cached = reqs.some(function (r) { return r.url.indexOf(m.repo) >= 0; });
-        if (localState.ready[m.id] && !cached) { delete localState.ready[m.id]; note(m.id + ': files no longer cached'); }
-      });
-      saveLocal();
-    }).catch(function () {});
+    return openParts().then(function (cache) {
+      return Promise.all(models.map(function (m) {
+        if (!localState.ready[m.id]) return null;
+        var urls = filesSeen[m.repo] || [];
+        return Promise.all(urls.map(function (u) { return readMeta(cache, u); })).then(function (metas) {
+          if (!urls.length || metas.some(function (x) { return !x || !x.done; })) {
+            delete localState.ready[m.id];
+            note(m.id + ': files no longer stored');
+          }
+        });
+      }));
+    }).then(saveLocal, function () {});
+  }
+
+  // The GPU part waits until Sideris is not answering, so two models never share the GPU.
+  function waitIdle() {
+    return new Promise(function (resolve) {
+      (function poll() { if (!activeAbort) resolve(); else setTimeout(poll, 1500); })();
+    });
   }
 
   // Tested on a real computer: the first WebGPU generation includes compiling the GPU kernels, so
@@ -535,14 +656,21 @@
   }
 
   function fetchOne(m) {
-    localJob = { id: m.id, name: m.name, startedAt: Date.now(), loaded: 0, total: (m.sizeMB || 0) * 1048576 };
-    localState.loading = m.id;
-    note(m.id + ': loading ' + m.repo);
+    localJob = { id: m.id, name: m.name, startedAt: Date.now(), loaded: 0, total: (m.sizeMB || 0) * 1048576, phase: 'download' };
+    dlProgress = function (n) { if (localJob) { localJob.loaded += n; localJob.fetched = (localJob.fetched || 0) + n; } };
+    note(m.id + ': downloading ' + m.repo);
     var t0 = Date.now();
-    return loadWebGPU({ repo: m.repo, dtype: m.dtype, name: m.name, auto: true }, function (p) {
-      if (p && p.bytesLoaded) { localJob.loaded = p.bytesLoaded; if (p.bytesTotal) localJob.total = p.bytesTotal; }
+    return prefetchModel(m).then(function (known) {
+      if (known) note(m.id + ': files complete after ' + Math.round((Date.now() - t0) / 1000) + ' s');
+      return waitIdle();
     }).then(function () {
-      note(m.id + ': in GPU after ' + Math.round((Date.now() - t0) / 1000) + ' s (' + Math.round(localJob.loaded / 1048576) + ' MB fetched)');
+      localJob.phase = 'gpu';   // from here other local models wait (busy())
+      localState.loading = m.id;   // crash guard: only the GPU part can take the tab down
+      note(m.id + ': loading into the GPU');
+      t0 = Date.now();
+      return loadWebGPU({ repo: m.repo, dtype: m.dtype, name: m.name, auto: true }, function () {});
+    }).then(function () {
+      note(m.id + ': in GPU after ' + Math.round((Date.now() - t0) / 1000) + ' s');
       return probe(m);
     }).then(function (tps) {
       note(m.id + ': probe ' + tps.toFixed(1) + ' tokens/s');
@@ -552,11 +680,12 @@
       var msg = (err && err.message) || String(err);
       note(m.id + ': error ' + msg.slice(0, 160));
       // a dropped download is tried again on a later visit; anything else means this device can't
-      if (!/fetch|network|load failed|abort/i.test(msg)) localState.failed[m.id] = msg.slice(0, 120);
+      if (!/fetch|network|load failed|abort|HTTP 5/i.test(msg)) localState.failed[m.id] = msg.slice(0, 120);
     }).then(function () {
       localState.loading = '';
       saveLocal();
       localJob = null;
+      dlProgress = null;
     });
   }
 
@@ -579,9 +708,14 @@
         });
         localTodo = todo;
         if (todo.length && navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(function () {});
-        return todo.reduce(function (chain, m) {
-          return chain.then(function () { localTodo.shift(); return fetchOne(m); });
-        }, Promise.resolve());
+        var run = function () {
+          return todo.reduce(function (chain, m) {
+            return chain.then(function () { localTodo.shift(); return fetchOne(m); });
+          }, Promise.resolve());
+        };
+        if (!todo.length) return null;
+        // one tab downloads at a time; the others queue and take over when it closes
+        return navigator.locks && navigator.locks.request && !signals ? navigator.locks.request('sideris-models', run) : run();
       });
     }).catch(function () {}).then(function () {
       localRunning = null;
@@ -597,7 +731,7 @@
   function localEta() {
     var next = localJob || (localTodo[0] && { name: localTodo[0].name, loaded: 0, total: (localTodo[0].sizeMB || 0) * 1048576 });
     if (!next) return null;
-    var rate = localJob && localJob.loaded > 0 ? localJob.loaded / Math.max(1, (Date.now() - localJob.startedAt) / 1000) : 0;
+    var rate = localJob && localJob.fetched > 0 ? localJob.fetched / Math.max(1, (Date.now() - localJob.startedAt) / 1000) : 0;
     if (!rate && navigator.connection && navigator.connection.downlink) rate = navigator.connection.downlink * 125000;   // Mbps -> bytes/s
     if (!rate) return null;
     return { seconds: Math.max(30, Math.round((next.total - next.loaded) / rate) + 20), name: next.name };   // +20 s GPU set-up and probe
@@ -619,7 +753,6 @@
     }
     var backend = (req && req.model && req.model.backend) || 'webgpu';
     if (backend === 'cloud') return generateCloud(req, onToken);
-    if (backend === 'ollama') return generateOllama(req, onToken);
     return generateWebGPU(req, onToken, onProgress);
   }
 
@@ -638,6 +771,8 @@
     loaded = null;
     localState.ready = {};
     saveLocal();
+    filesSeen = {};
+    try { localStorage.removeItem(FILES_KEY); } catch (e) { /* blocked */ }
     if (typeof caches === 'undefined') return Promise.resolve(0);
     return caches.keys().then(function (names) {
       var targets = names.filter(function (n) { return /transformers|huggingface|onnx|sideris/i.test(n); });
@@ -659,17 +794,19 @@
     generate: generate,
     abort: abort,
     clearBrowserCache: clearBrowserCache,
-    checkOllama: checkOllama,
     checkCloud: checkCloud,
     remaining: function () { return lastRemaining; },
     local: {
       classify: classifyDevice,
       start: startLocal,
       isReady: function (id) { return !!localState.ready[id] && !localState.failed[id]; },
-      busy: function () { return !!localJob; },
+      busy: function () { return !!localJob && localJob.phase === 'gpu'; },   // downloads leave ready models usable
       eta: localEta,
       markFailed: function (id, why) { delete localState.ready[id]; localState.failed[id] = String(why || 'error').slice(0, 120); saveLocal(); },
-      state: function () { return { tier: localTier, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id : '', log: localState.log || [] }; },
+      state: function () { return { tier: localTier, job: localJob ? { id: localJob.id, phase: localJob.phase, loaded: localJob.loaded, total: localJob.total } : null, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id + ' (' + localJob.phase + ', ' + Math.round(localJob.loaded / 1048576) + ' MB)' : '', log: localState.log || [] }; },
+      cache: modelCache,
+      _test: { setFetch: function (f) { fetchFn = f; }, setChunk: function (n) { CHUNK = n; }, setStore: function (st) { store = st; }, download: downloadFile,
+        response: partsResponse, files: function () { return filesSeen; } },
       restore: function (raw) { localState = parseLocal(raw); saveLocal(); }   // test hook, same path as a page load
     },
     setMock: setMock

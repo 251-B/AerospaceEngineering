@@ -317,6 +317,69 @@ window.addEventListener('load', function () {
             });
           });
         }).then(function () {
+          // Resumable model files: a fake server with byte ranges, parts of 10 bytes
+          var T = window.AESiderisEngine.local._test, C = window.AESiderisEngine.local.cache;
+          var file = ''; for (var i = 0; i < 95; i++) file += String.fromCharCode(65 + (i % 26));
+          var reqs = [], failOnce = true, ignoreRange = false;
+          // The Cache API does real disk work that the headless virtual clock does not wait for, so the
+          // harness swaps in a memory store with the same match/put/delete (the real one is checked in a browser).
+          function memCache() {
+            var m = {};
+            return {
+              match: function (k) { var b = m[String(k.url || k)]; return Promise.resolve(b === undefined ? undefined : new Response(b)); },
+              put: function (k, r) { return r.arrayBuffer().then(function (b) { m[String(k.url || k)] = b; }); },
+              delete: function (k) { delete m[String(k.url || k)]; return Promise.resolve(true); }
+            };
+          }
+          var memStore = { c: {}, open: function (n) { return Promise.resolve(this.c[n] || (this.c[n] = memCache())); } };
+          T.setStore(memStore);
+          T.setChunk(10);
+          T.setFetch(function (url, opts) {
+            var range = /bytes=(\d+)-(\d+)/.exec((opts && opts.headers && opts.headers.Range) || '');
+            reqs.push(url.split('/').pop() + ':' + (range ? range[1] : 'all'));
+            if (/missing\.json$/.test(url)) return Promise.resolve(new Response('', { status: 404 }));
+            if (range && range[1] === '30' && failOnce) { failOnce = false; return Promise.reject(new TypeError('Failed to fetch')); }
+            if (!range || ignoreRange) return Promise.resolve(new Response(file, { status: 200 }));
+            var a = +range[1], b = Math.min(+range[2], file.length - 1);
+            if (a >= file.length) return Promise.resolve(new Response('', { status: 416 }));
+            return Promise.resolve(new Response(file.slice(a, b + 1), { status: 206 }));
+          });
+          var big = 'https://huggingface.co/test/model/resolve/main/onnx/model_q4f16.onnx_data';
+          return T.download(big).then(function () { return 'no failure'; }, function (e) { return e.message; }).then(function (first) {
+            var before = reqs.length;
+            return T.download(big).then(function (meta) {
+              var again = reqs.slice(before);
+              check('download-resumes-after-a-cut', first === 'Failed to fetch' && again[0] === 'model_q4f16.onnx_data:30' && meta.done && meta.size === 95,
+                first + ' | resumed with ' + again.join(','));
+              return C.match(big);
+            });
+          }).then(function (res) { return res.text(); }).then(function (text) {
+            check('download-parts-read-back-whole', text === file && (T.files()['test/model'] || []).indexOf(big) >= 0, text.length + ' chars');
+            return C.match('https://huggingface.co/test/model/resolve/main/missing.json');
+          }).then(function (res) {
+            check('download-missing-file', res === undefined, String(res));
+            ignoreRange = true;
+            return C.match('https://huggingface.co/test/model/resolve/main/config.json');
+          }).then(function (res) { return res.text(); }).then(function (text) {
+            check('download-server-ignores-range', text === file, text.length + ' chars');
+            ignoreRange = false;
+            // A file kept by the old Transformers.js cache moves over without a download
+            var old = 'https://huggingface.co/test/model/resolve/main/tokenizer.json';
+            return memStore.open('transformers-cache').then(function (c) { return c.put(old, new Response('LEGACY_TOKENIZER')).then(function () { return c; }); })
+              .then(function (c) {
+                var n = reqs.length;
+                return C.match(old).then(function (res) { return res.text(); }).then(function (text) {
+                  return c.match(old).then(function (left) {
+                    check('download-legacy-cache-moved', text === 'LEGACY_TOKENIZER' && reqs.length === n && !left, text + ' | requests ' + (reqs.length - n));
+                  });
+                });
+              });
+          }).then(function () {
+            T.setFetch(function (u, o) { return fetch(u, o); });
+            T.setChunk(32 * 1048576);
+            T.setStore(window.caches);
+          });
+        }).then(function () {
           // 3. The prebuilt index of build_ai_index.py must use the same tokens as the browser
           check('tokenizer-sample', true, JSON.stringify(window.AESiderisRAG.tokenize(
             'Explícame el \\nabla \\cdot u = 0 con r_1, EBITDA y la Ecuación de Navier-Stokes (2024) of the fluid')));
