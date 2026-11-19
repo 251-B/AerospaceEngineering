@@ -25,17 +25,16 @@
  *  - Reading modes: pages with summary boxes (> [!summary] in the vault note, .essential-box) get an
  *    Essential / Full switch (Essential shows each section's summary and first figure only), stored
  *    under ae_theory_mode (try/catch: the page works without storage).
- * API: window.AETheoryReader = { init, sections }
+ * API: window.AETheoryReader = { init, sections }; window.AEReaderKit (helpers for problem-reader.js)
  */
 (function () {
   'use strict';
 
   if (window.AETheoryReader) return;
   if (/[?&]print=/.test(location.search)) return;
-  if (!/\/teoria\/topic-[^\/]+\.html$/.test(location.pathname)) {
-    window.AETheoryReader = { init: function () {}, sections: function () { return []; } };
-    return;
-  }
+  // Acts on theory topic pages; on every other page it only lends its helpers (window.AEReaderKit)
+  // to the problem reader (assets/js/problem-reader.js).
+  var IS_THEORY = /\/teoria\/topic-[^\/]+\.html$/.test(location.pathname);
 
   var MAX_MARKS = 60;          // above this, the rail lists the h2 headings only
   var MIN_MARKS = 3;           // a page with fewer headings gets no rail
@@ -182,6 +181,9 @@
     var sourceAt = text.search(SOURCE_RE);
     var cut = text.length > CAPTION_KEEP ? firstSentenceEnd(text) : -1;
     if (sourceAt > 0 && (cut < 0 || sourceAt < cut)) cut = sourceAt;
+    // never leave an open bracket behind: "Statement figure (Source: ...)" folds from the bracket
+    var kept = text.slice(0, Math.max(0, cut));
+    if (cut > 0 && (kept.match(/\(/g) || []).length > (kept.match(/\)/g) || []).length) cut = kept.lastIndexOf('(');
     if (cut <= 0 || text.slice(cut).trim().length < 12) return;
 
     // find the text node holding the offset; the cut never falls inside an element other than text
@@ -811,6 +813,17 @@
     window.addEventListener('load', balanceAll);
     window.addEventListener('resize', balanceAll);
     setTimeout(balanceAll, 800);   // after the formulas are typeset
+  }
+
+  /* Helpers shared with the problem reader (assets/js/problem-reader.js), which loads after this file. */
+  window.AEReaderKit = {
+    linkStyles: linkStyles, wrapCitations: wrapCitations, foldCaption: foldCaption, foldDerivation: foldDerivation,
+    makeFold: makeFold, buildPairs: buildPairs, balanceAll: balanceAll, headerHeight: headerHeight, place: place,
+    chevron: chevron, countWords: countWords, minutes: minutes, headingText: headingText
+  };
+  if (!IS_THEORY) {
+    window.AETheoryReader = { init: function () {}, sections: function () { return []; } };
+    return;
   }
 
   linkStyles();

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-problem-steps-pilot",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Worked problems step by step (trial on two pages)",
+    "text": "Solutions now show one step at a time, or only the answer, with a bar per problem on the right. Trying it on Hydrostatics and Rigid Body Kinematics first.",
+    "link": "subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html"
+  },
+  {
     "id": "2026-11-19-home-sky-on-phones",
     "date": "2026-11-19",
     "tag": "Portal",
