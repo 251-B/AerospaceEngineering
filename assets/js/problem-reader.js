@@ -4,16 +4,17 @@
  * Loaded on every page by assets/js/theme.js (no page carries its own <script> tag for it), after
  * problem-collapse.js and theory-reader.js, whose helpers it borrows (window.AEReaderKit) together with
  * the styles of assets/css/theory-reader.css; its own styles are assets/css/problem-reader.css, linked by
- * this script. It acts on worked-problem pages (problemas/ and extra-problems/, not their index) listed
- * in PAGES, and is skipped in the PDF print mode (?print=...). Everything it hides or moves is
+ * this script. It acts on worked-problem pages (problemas/ and extra-problems/, not their index), and is
+ * skipped in the PDF print mode (?print=...). Everything it hides or moves is
  * screen-only: the browser's own print and the PDFs show every problem in full.
  *
  *  - Reading modes, one switch for the page ("Answer", "Steps", "Full"), stored under ae_problem_mode
  *    (try/catch: the page works without storage; ?mode=answer|steps|full overrides it):
- *      Steps  - a worked solution shows one step (.phase-block) at a time, with a row of numbered
+ *      Steps  - a worked solution shows one step (.phase-block, .phase-step or .phase-section) at a time, with a row of numbered
  *               step chips above it and "Previous" / "Next" buttons below it;
- *      Answer - an open problem shows its statement and its last step (answers and checks) only,
- *               with the worked solution already unfolded and a button to go through the steps;
+ *      Answer - an open problem shows its statement and its last step that names the answers, result,
+ *               checks or interpretation, with the worked solution already unfolded and a button to go
+ *               through the steps (a problem with no such step shows its full solution);
  *      Full   - the whole solution, as written.
  *  - Problem rail: a bar per problem at the right edge of the window (title on hover), the problem in
  *    view marked and the ones above it shown as read, and a pill "3 / 9 · ~25 min" above it. The left
@@ -29,16 +30,20 @@
   if (window.AEProblemReader) return;
   var stub = { init: function () {}, mode: function () { return 'full'; }, setMode: function () {} };
   if (/[?&]print=/.test(location.search)) return;
-  // Pilot pages first; the list grows to every problem page once the layout is approved.
-  var PAGES = /\/subjects\/(fluid-mechanics\/problemas\/topic-5-hydrostatics|engineering-mechanics\/problemas\/topic-6)\.html$/;
-  if (!/\/(problemas|extra-problems)\/(?!index\.html)[^\/]+\.html$/.test(location.pathname) || !PAGES.test(location.pathname)) {
+  if (!/\/(problemas|extra-problems)\/(?!index\.html)[^\/]+\.html$/.test(location.pathname)) {
     window.AEProblemReader = stub;
     return;
   }
 
   var MODE_KEY = 'ae_problem_mode';
   var MODES = [['answer', 'Answer'], ['steps', 'Steps'], ['full', 'Full']];
-  var ANSWER_RE = /answer|result|check|conclusion|interpretation|summary/i;
+  var ANSWER_RE = /answer|result|check|conclusion|interpretation|summary|verification/i;
+  // A step is a .phase-block (most pages), a .phase-step (Aerospace Materials I) or a .phase-section
+  // (Advanced Maths). A block that holds the statement stays visible, and test questions (.mcq-item)
+  // are not steps.
+  var STEP = '.phase-block, .phase-step, .phase-section';
+  var STATEMENT = '.statement-box, .problem-statement, .problem-statement-box, .enunciado-box';
+  var STEP_HEAD = '.phase-heading, .phase-title, .phase-badge-title, .phase-badge, h3, h4';
   var kit, collapse, problems = [], mode = 'steps', modeButtons = [], info = null, progress = null;
 
   function linkStyles() {
@@ -74,17 +79,25 @@
 
   /* The steps of a worked solution: its .phase-block elements (not nested ones), each with its title. */
   function stepsOf(card) {
-    return [].filter.call(card.querySelectorAll('.phase-block'), function (b) {
-      return !b.parentElement.closest('.phase-block');
+    return [].filter.call(card.querySelectorAll(STEP), function (b) {
+      return !b.parentElement.closest(STEP) && !b.matches('.mcq-item') && !b.querySelector(STATEMENT);
     }).map(function (block, i) {
-      var head = block.querySelector('.phase-heading, h3, h4');
-      return { el: block, title: textOf(head) || 'Step ' + (i + 1) };
+      // the first heading that names the step; an old "Phase 2 ·" prefix is left out of the chip
+      var title = '';
+      STEP_HEAD.split(', ').some(function (sel) {
+        var head = block.querySelector(sel);
+        title = textOf(head).replace(/^phase\s*\d+\s*[\u00b7:.\-\u2013\u2014]?\s*/i, '');
+        return !!title;
+      });
+      return { el: block, title: title || 'Step ' + (i + 1) };
     });
   }
 
+  /* The step that gives the answers; -1 when no title says so (a problem split into parts has its
+     answers spread over every part, so its answer view is the full solution). */
   function answerIndex(steps) {
     for (var i = steps.length - 1; i >= 0; i--) if (ANSWER_RE.test(steps[i].title)) return i;
-    return steps.length - 1;
+    return -1;
   }
 
   /* ----------------------------------------------------------------- steps */
@@ -118,6 +131,9 @@
       step.chip = b;
     });
     top.appendChild(list);
+    var host = first.parentElement;
+    // a column of steps (.phases-grid): the stepper is its first item, the buttons follow it
+    var grid = host && host.matches('.phases-grid') ? host : null;
     first.parentNode.insertBefore(top, first);
 
     var nav = document.createElement('div');
@@ -135,8 +151,8 @@
     nav.appendChild(count);
     nav.appendChild(next);
     // After the container of the steps, so .phase-block:last-child still matches the last step.
-    var host = last.parentElement;
-    if (host && host !== p.card && host.matches('.solution-content, .card-body')) host.parentNode.insertBefore(nav, host.nextSibling);
+    if (grid) grid.parentNode.insertBefore(nav, grid.nextSibling);
+    else if (host && host !== p.card && host.matches('.solution-content')) host.parentNode.insertBefore(nav, host.nextSibling);
     else last.parentNode.insertBefore(nav, last.nextSibling);
 
     // Answer view: a short line above the answer with the way into the steps.
@@ -153,7 +169,10 @@
     p.ui = { top: top, label: label, nav: nav, prev: prev, next: next, count: count, answer: ans };
   }
 
-  function modeOf(p) { return p.override || mode; }
+  function modeOf(p) {
+    var m = p.override || mode;
+    return m === 'answer' && p.answer < 0 ? 'full' : m;
+  }
 
   function go(p, i, scroll) {
     if (!p.steps.length) return;
@@ -229,14 +248,27 @@
     return group;
   }
 
+  function writeInfo() {
+    var total = problems.reduce(function (n, p) { return n + p.words; }, 0);
+    if (info) info.textContent = problems.length + ' problems \u00b7 about ' + kit.minutes(total) + ' min of reading';
+  }
+
+  /* The formulas may still be typeset after this script runs, which changes the word count: count
+     again once the page has loaded, so the reading times do not depend on that race. */
+  function recount() {
+    problems.forEach(function (p) { p.words = kit.countWords(p.card); });
+    writeInfo();
+    active = -2;   // force the rail and the pill to be written again
+    update();
+  }
+
   function buildBar() {
     var bar = document.querySelector('.pc-bar');
     var wrap = document.createElement('div');
     wrap.className = 'pr-bar';
     info = document.createElement('span');
     info.className = 'pr-bar__info';
-    var total = problems.reduce(function (n, p) { return n + p.words; }, 0);
-    info.textContent = problems.length + ' problems · about ' + kit.minutes(total) + ' min of reading';
+    writeInfo();
     wrap.appendChild(info);
     if (problems.some(function (p) { return p.steps.length; })) wrap.appendChild(modeSwitch());
     var hint = document.createElement('span');
@@ -387,7 +419,8 @@
     if (problems.length >= 2) buildRail();
     setMode(initialMode());
     document.addEventListener('keydown', onKey);
-    window.addEventListener('load', kit.balanceAll);
+    window.addEventListener('load', function () { recount(); kit.balanceAll(); });
+    if (document.readyState === 'complete') recount();
     window.addEventListener('resize', kit.balanceAll);
     setTimeout(kit.balanceAll, 800);   // after the formulas are typeset
     update();

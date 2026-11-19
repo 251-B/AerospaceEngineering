@@ -41,7 +41,7 @@
   };
 
   var SOLUTION_SEL = '.phase-block, .phase-section, .solution-box, .solution-details, .phases-grid, ' +
-    '.strategy-callout, .phase-title, .result-box, .result-callout';
+    '.strategy-callout, .phase-title, .result-box, .result-callout, .pr-stepper, .pr-answer-note';
   var STATEMENT_SEL = '.problem-statement-box, .statement-box, .problem-statement';
   var CARD_SEL = '.problem-card, .problem-box';
 
@@ -200,6 +200,7 @@
       if (c.contains('katex')) { out.push('$' + texOf(node) + '$'); return; }
       if (c.contains('katex-mathml') || c.contains('ask-ai-bar') || c.contains('src-link') ||
           c.contains('mk-note') || c.contains('mk-actions') ||   // the reader's own notes never go into a prompt
+          c.contains('pr-stepper') || c.contains('pr-stepnav') || c.contains('pr-answer-note') ||   // step controls (problem-reader.js)
           tag === 'SCRIPT' || tag === 'STYLE' || tag === 'BUTTON' || tag === 'svg' || tag === 'SVG') return;
       if (tag === 'BR') { out.push('\n'); return; }
       if (tag === 'TD' || tag === 'TH') out.push(' | ');
@@ -765,9 +766,10 @@
     var q = state.ui.quote;
     q.textContent = '';
     var frag = range.cloneContents();
-    var drop = frag.querySelectorAll('[id], .ask-ai-bar, a.src-link, .mk-note, .mk-actions');
+    var UI = '.ask-ai-bar, a.src-link, .mk-note, .mk-actions, .pr-stepper, .pr-stepnav, .pr-answer-note';
+    var drop = frag.querySelectorAll('[id], ' + UI);
     for (var i = 0; i < drop.length; i++) {
-      if (drop[i].matches('.ask-ai-bar, a.src-link, .mk-note, .mk-actions')) drop[i].remove(); else drop[i].removeAttribute('id');
+      if (drop[i].matches(UI)) drop[i].remove(); else drop[i].removeAttribute('id');
     }
     q.appendChild(frag);
     if (note) q.appendChild(el('p', 'ask-ai-quote-note', note));
