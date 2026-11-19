@@ -10,7 +10,8 @@
  * is the row level security of the database. Never put the service_role key here.
  */
 window.AE_ACCOUNT_CONFIG = window.AE_ACCOUNT_CONFIG || {
-  supabaseUrl: '',        // e.g. 'https://abcdefghijklmnop.supabase.co'
-  supabaseAnonKey: '',    // Project Settings > API > Project API keys > anon / public
+  supabaseUrl: 'https://qieouwnpffjquzhcnvoq.supabase.co',
+  // anon / public key: safe in the browser, the database's row level security protects the data
+  supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpZW91d25wZmZqcXV6aGNudm9xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUwNzY5MTksImV4cCI6MjExMDY1MjkxOX0.RyZD5JAMo0yd6553P0KOI-4YPj7tMkBJHpP6DiYEY3M',
   requireInvite: true     // sign-up asks for an invite code
 };
