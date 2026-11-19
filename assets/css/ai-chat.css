@@ -573,3 +573,39 @@ html.sd-studio-full body {
 
 @media print { .sd-launcher, .sd-drawer, .sd-backdrop { display: none !important; } }
 html[data-theme="print"] .sd-launcher, html[data-theme="print"] .sd-drawer, html[data-theme="print"] .sd-backdrop { display: none !important; }
+
+/* ---- Models as planets (design pass 2026-11): the size of each planet says how deep the model goes,
+   Lux the smallest and quickest, Titan the largest, with a ring. The welcome card gets a faint orbit. */
+.sd-welcome-card {
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--sd-accent) 22%, transparent) 0 22px, transparent 23px),
+    radial-gradient(ellipse 120% 70% at 100% 0%, transparent 62%, color-mix(in srgb, var(--sd-accent) 20%, transparent) 62.4%, transparent 63%),
+    var(--sd-inset);
+}
+.sd-guide-card, .sd-model-opt { position: relative; padding-left: 48px; }
+.sd-guide-card::before, .sd-model-opt::before {
+  content: ''; position: absolute; left: 24px; top: 50%; width: var(--sd-planet, 16px); height: var(--sd-planet, 16px);
+  border-radius: 50%; transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 34% 30%, color-mix(in srgb, var(--sd-accent) 55%, #fff), var(--sd-accent) 55%, color-mix(in srgb, var(--sd-accent) 45%, #000));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--sd-accent) 45%, transparent);
+  transition: transform .2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.sd-guide-card[data-model$="lux"], .sd-model-opt[data-model$="lux"] { --sd-planet: 12px; }
+.sd-guide-card[data-model$="aether"], .sd-model-opt[data-model$="aether"] { --sd-planet: 17px; }
+.sd-guide-card[data-model$="orion"], .sd-model-opt[data-model$="orion"] { --sd-planet: 22px; }
+.sd-guide-card[data-model$="titan"], .sd-model-opt[data-model$="titan"] { --sd-planet: 27px; }
+/* Titan wears a ring */
+.sd-guide-card[data-model$="titan"]::after, .sd-model-opt[data-model$="titan"]::after {
+  content: ''; position: absolute; left: 24px; top: 50%; width: 40px; height: 12px; border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--sd-accent) 70%, transparent);
+  transform: translate(-50%, -50%) rotate(-18deg); pointer-events: none;
+}
+.sd-guide-card[aria-pressed="true"]::before, .sd-model-opt[aria-checked="true"]::before {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--sd-accent) 22%, transparent), 0 0 16px color-mix(in srgb, var(--sd-accent) 70%, transparent);
+}
+@media (hover: hover) and (pointer: fine) {
+  .sd-guide-card:hover::before, .sd-model-opt:hover::before { transform: translate(-50%, -50%) scale(1.15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sd-guide-card::before, .sd-model-opt::before { transition: none; }
+}

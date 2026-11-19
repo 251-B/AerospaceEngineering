@@ -33,7 +33,8 @@
  * <script src="assets/data/updates.js"> (reached as ../data/updates.js from this file),
  * <script src="assets/js/updates.js">, <script src="assets/data/nav.js"> and
  * <script src="assets/js/sidebar.js">, <script src="assets/js/problem-collapse.js">,
- * <script src="assets/js/theory-reader.js"> and <script src="assets/js/solution-close.js"> next to this
+ * <script src="assets/js/theory-reader.js">, <script src="assets/js/subject-orbits.js"> (index pages as
+ * solar systems on desktop) and <script src="assets/js/solution-close.js"> next to this
  * file (account.js right after pomodoro.js), so the study-sound widget, the Pomodoro timer, the updates
  * bell, the side menu, the section rail of theory pages and the "Close" bar
  * at the end of worked solutions are on every page that loads theme.js. Skipped in the PDF print
@@ -374,7 +375,7 @@
     var studyTools = !(document.documentElement.getAttribute('data-celestial-subject') === 'portal' ||
       /\/account\/[^\/]*$/.test(location.pathname));
     // account.js comes before the updates data: it leaves a filter for updates.js (the reader's subjects).
-    ['focus-lab.js', 'pomodoro.js', '../data/account-config.js', 'account.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'problem-collapse.js', 'theory-reader.js', '../data/sideris-config.js', '../data/ai-models.js', 'ai-rag.js', 'ai-engine.js', 'ai-chat.js', 'solution-close.js'].forEach(function (name) {
+    ['focus-lab.js', 'pomodoro.js', '../data/account-config.js', 'account.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'problem-collapse.js', 'theory-reader.js', 'subject-orbits.js', '../data/sideris-config.js', '../data/ai-models.js', 'ai-rag.js', 'ai-engine.js', 'ai-chat.js', 'solution-close.js'].forEach(function (name) {
       if (!studyTools && (name === 'focus-lab.js' || name === 'pomodoro.js' || name === '../data/sideris-config.js' || name === '../data/ai-models.js' || name === 'ai-rag.js' || name === 'ai-engine.js' || name === 'ai-chat.js')) return;
       var script = document.createElement('script');
       script.async = false;   // run in this order, so the widgets always land in the DOM the same way

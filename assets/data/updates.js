@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-19-index-solar-systems",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Subject indexes as solar systems, Sideris models as planets",
+    "text": "On a computer, the topics of each subject index now orbit a star as numbered planets. In Sideris, the size of each planet shows how deep its model goes.",
+    "link": "subjects/engineering-mechanics/teoria/index.html"
+  },
+  {
     "id": "2026-11-19-sideris-studio-workspace",
     "date": "2026-11-19",
     "tag": "Portal",
