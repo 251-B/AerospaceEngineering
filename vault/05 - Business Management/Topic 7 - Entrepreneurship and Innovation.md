@@ -29,7 +29,7 @@ Innovation can arise from many sources: individuals (the lone inventor, or users
 
 The most important source of innovation is the **linkages between these players**. Networks of innovators that leverage knowledge and other resources from multiple sources are one of the most powerful agents of technological advance, so the sources of innovation form a complex system in which an innovation may emerge from one or more of its components or from the linkages between them [Slide 4].
 
-![[attachments/BM-T7/network.svg]]
+![[attachments/BM-T7/network.png]]
 
 ## 2. Individual and organizational creativity [Slide 5]
 
@@ -92,13 +92,13 @@ The path a technology follows through time is its **technology trajectory**, mos
 
 Plotted against the effort invested, the performance of a technology follows an **S-curve**: it improves slowly at first, then quickly, and finally flattens as it approaches the **limit of the technology**.
 
-![[attachments/BM-T7/s-curve.svg]]
+![[attachments/BM-T7/s-curve.png]]
 
 ## 9. Discontinuous technologies and diffusion [Slides 15-16]
 
 A **discontinuous technology** fulfils a similar market need by building on an entirely new knowledge base. The slide draws the S-curves of a first and a second technology: the second may start below the first and then overtake it [Slide 15].
 
-![[attachments/BM-T7/discontinuous.svg]]
+![[attachments/BM-T7/discontinuous.png]]
 
 **Technology diffusion** is the spread of a technology through a population [Slide 15]. Its adopters fall into five categories [Slide 16]:
 
@@ -110,7 +110,7 @@ A **discontinuous technology** fulfils a similar market need by building on an e
 | Late majority | 34% | slightly conservative and risk-averse; need convincing before investing in something new |
 | Laggards | 16% | extremely frugal, conservative and often technology-averse; invest only once an idea is extremely well established |
 
-![[attachments/BM-T7/adoption.svg]]
+![[attachments/BM-T7/adoption.png]]
 
 # Part III — Standards battles and design dominance
 
