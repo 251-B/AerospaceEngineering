@@ -26,7 +26,7 @@
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.setAttribute('data-orbits', '');
-    link.href = self.src.replace(/js\/subject-orbits\.js(\?.*)?$/, 'css/subject-orbits.css?v=20261119a');
+    link.href = self.src.replace(/js\/subject-orbits\.js(\?.*)?$/, 'css/subject-orbits.css?v=20261119e');
     document.head.appendChild(link);
   }
 

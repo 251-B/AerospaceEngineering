@@ -9,11 +9,12 @@
 
 /* ---------------------------------------------------------------- planet, star, ring */
 .orb-wide .orb-planet {
+  --orb-base: var(--bg-secondary, var(--study-surface, var(--bg-primary, #0d1321)));
   position: relative; z-index: 1; flex: none;
   display: inline-flex; align-items: center; justify-content: center;
   width: 46px; height: 46px; border-radius: 50%;
   font: 700 0.86rem/1 var(--font-mono, monospace); color: var(--text-primary);
-  background: radial-gradient(circle at 34% 30%, color-mix(in srgb, var(--accent) 30%, var(--bg-secondary, #0d1321)), var(--bg-secondary, #0d1321) 72%);
+  background: radial-gradient(circle at 34% 30%, color-mix(in srgb, var(--accent) 30%, var(--orb-base)), var(--orb-base) 72%);
   border: 2px solid color-mix(in srgb, var(--accent) 80%, transparent);
   box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 12%, transparent), 0 0 18px color-mix(in srgb, var(--accent) 40%, transparent);
   transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.2s ease;
@@ -42,14 +43,15 @@ html:root .orb-wide > .orb-body, html:root .orb-wide > .orb-body:hover {
   background: transparent !important; border: 0 !important; box-shadow: none !important;
   overflow: visible !important; text-decoration: none;
 }
-.orb-wide > .orb-body {
+html:root .orb-wide > .orb-body {   /* html:root: beats the index sheets' own transform: none !important */
   position: absolute !important; z-index: 1; width: var(--orb-label, 200px) !important; max-width: none !important;
   flex: none !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important;
   display: flex !important; flex-direction: column !important; align-items: center !important; gap: 8px !important;
   text-align: center !important; transform: translate(-50%, -23px) !important;
+  transition: none !important;   /* the cards' own transform transition would slide every planet into place on load */
 }
 .orb-wide > .orb-body::before, .orb-wide > .orb-body::after { display: none !important; }
-.orb-wide > .orb-body :is(.topic-num, .topic-number, .topic-accent, .topic-accent-bar, .topic-desc, .topic-tags, .content-badges,
+.orb-wide > .orb-body :is(.topic-num, .topic-number, .topic-accent, .topic-accent-bar, .topic-accent-strip, .set-accent-strip, .topic-desc, .topic-tags, .content-badges,
   .topic-badge, .topic-meta, .card-badge, .card-desc, .exercise-list, .set-desc, .set-badge, .set-meta, .set-num, .set-tags, .card-arrow, .topic-arrow) { display: none !important; }
 .orb-wide > .orb-body :is(.topic-body, .topic-content, .set-content, .set-body, .topic-top) {
   display: block !important; padding: 0 !important; margin: 0 !important; background: none !important; border: 0 !important;
@@ -68,7 +70,23 @@ html:root .orb-wide > .orb-body, html:root .orb-wide > .orb-body:hover {
   }
 }
 .orb-wide > a.orb-body:active .orb-planet { transform: scale(0.95); }
-.orb-wide > .orb-body:is([aria-disabled="true"], .disabled, .coming-soon, .soon) { opacity: 0.5; }
+/* a topic that is not built yet: a hollow, dashed planet and its own "Coming Soon" badge, at full
+   opacity so the title keeps its AAA contrast (the pages' own opacity 0.55-0.6 would halve it) */
+html:root .orb-wide > .orb-body:is([aria-disabled="true"], .disabled, .coming-soon, .soon) { opacity: 1 !important; cursor: default; }
+.orb-wide > .orb-body:is([aria-disabled="true"], .disabled, .coming-soon, .soon) .orb-planet {
+  background: var(--bg-primary, #070b14); color: var(--text-secondary);
+  border: 2px dashed color-mix(in srgb, var(--text-secondary) 70%, transparent); box-shadow: none;
+}
+.orb-wide > .orb-body:is([aria-disabled="true"], .disabled, .coming-soon, .soon) :is(h2, h3, .topic-title, .card-title, .set-title) {
+  color: var(--text-secondary) !important;
+}
+.orb-wide > .orb-body:is([aria-disabled="true"], .disabled, .coming-soon, .soon) :is(.topic-badge.soon, .badge-soon) {
+  display: inline-block !important; margin: 0 !important; padding: 2px 8px !important;
+  font: 600 0.68rem/1.4 var(--font-mono, monospace) !important; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--text-secondary) !important; background: none !important;
+  border: 1px solid color-mix(in srgb, var(--text-secondary) 45%, transparent) !important; border-radius: 999px !important;
+}
+.orb-wide > .orb-body :is(.topic-action, .set-action) { display: none !important; }
 
 @media (prefers-reduced-motion: reduce) {
   .orb-wide .orb-star, .orb-wide .orb-ring { animation: none; }

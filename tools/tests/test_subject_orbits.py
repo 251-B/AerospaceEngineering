@@ -30,6 +30,18 @@ class SubjectOrbitsTests(unittest.TestCase):
         self.assertIn("prefers-reduced-motion", CSS)
         self.assertRegex(CSS, r"@media print")
 
+    def test_cards_do_not_slide_on_load(self):
+        # the index cards carry their own transform transition; on the orbit it would slide every planet
+        self.assertIn("transition: none !important", CSS)
+
+    def test_unbuilt_topics_keep_full_opacity(self):
+        # the pages dim "Coming Soon" cards to 0.55-0.6, which drops their titles below AAA on the orbit
+        self.assertRegex(CSS, r"\.disabled[^{]*\{[^}]*opacity: 1 !important")
+
+    def test_planet_base_has_a_fallback_chain(self):
+        # the Extra problems hubs define no --bg-secondary: the planet must fall back to the page surface
+        self.assertIn("--orb-base: var(--bg-secondary, var(--study-surface", CSS)
+
     def test_desktop_only(self):
         self.assertRegex(JS, r"var WIDE = 900;")
         self.assertIn(".orb-system:not(.orb-wide)", CSS)

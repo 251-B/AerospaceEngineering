@@ -609,3 +609,7 @@ html[data-theme="print"] .sd-launcher, html[data-theme="print"] .sd-drawer, html
 @media (prefers-reduced-motion: reduce) {
   .sd-guide-card::before, .sd-model-opt::before { transition: none; }
 }
+/* the planet column narrows the welcome cards: keep each model name on one line and let the tier
+   badge drop below it when the row is too short */
+.sd-guide-card__top { flex-wrap: wrap; row-gap: 4px; }
+.sd-guide-card__name { white-space: nowrap; }
