@@ -15,7 +15,7 @@ REPO = pathlib.Path(__file__).resolve().parents[2]
 HARNESS = pathlib.Path(__file__).resolve().parent / "calendar_harness.html"
 CORE = REPO / "assets/js/calendar-core.js"
 EMOJI = re.compile("[\U0001F300-\U0001FAFF☀-➿]")
-EXPECTED_SCENARIOS = 37
+EXPECTED_SCENARIOS = 40
 
 
 class CalendarStaticTests(unittest.TestCase):
@@ -30,8 +30,17 @@ class CalendarStaticTests(unittest.TestCase):
         sync = re.search(r"var SYNC_KEYS = \[([^\]]*)\]", js).group(1)
         self.assertIn("'ae_calendar'", sync)
         self.assertIn("['ae_calendar', 'Calendar (classes, labs, exams)']", js)
-        self.assertIn("writeJSON(CALENDAR_KEY, mergeCalendar(readJSON(CALENDAR_KEY), keys[CALENDAR_KEY]))", js)
+        self.assertIn("absorbCalendar(keys[CALENDAR_KEY])", js)
         self.assertIn("changed: function () { schedulePush(); }", js)
+
+    def test_sync_merges_entry_by_entry_on_every_page(self):
+        # On pages without calendar-core.js, account.js loads it before merging, so a synced
+        # record is never replaced whole by the copy changed last.
+        js = (REPO / "assets/js/account.js").read_text(encoding="utf-8")
+        body = re.search(r"function absorbCalendar\(cloud\) \{(.*?)\n  \}\n", js, re.S).group(1)
+        self.assertIn("assets/js/calendar-core.js", body)
+        self.assertIn("window.AECalendar.merge(readJSON(CALENDAR_KEY), cloud)", body)
+        self.assertIn("schedulePush()", body)
 
     def test_account_menu_links_the_calendar(self):
         js = (REPO / "assets/js/account.js").read_text(encoding="utf-8")

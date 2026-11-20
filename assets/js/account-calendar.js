@@ -174,6 +174,8 @@
   }
 
   // ======================================================================== the page
+  var keyHandler = null;
+
   function mount(root, opts) {
     opts = opts || {};
     var account = opts.account || window.AEAccount;
@@ -593,7 +595,10 @@
           var blocks = C().revisionPlan(tt, rec, prefs(), o, today, +hours.value || 1);
           blocks.forEach(function (b) { rec.events.push(b); });
           closeDialog(sheet);
-          persist(blocks.length ? blocks.length + ' study blocks added before the exam' : 'No free days left before this exam');
+          persist(blocks.length ? blocks.length + ' study blocks added before the exam'
+            : blocks.reason === 'no-topics' ? 'The plan lists no topics for this exam: add study blocks yourself with Add'
+            : blocks.reason === 'no-days' ? 'No days left before this exam'
+            : 'No free hours left before this exam');
         });
         reviseBox.appendChild(go);
         reviseBox.appendChild(el('p', 'cal-muted', 'Blocks go on your free hours, one topic each, the topics of missed classes first. Delete or move any block later.'));
@@ -758,14 +763,18 @@
     addB.addEventListener('click', openAdd);
     grpB.addEventListener('click', openGroups);
     expB.addEventListener('click', exportICS);
-    document.addEventListener('keydown', function (e) {
+    // One arrow-key handler per page: a re-mount (account change) replaces the previous one.
+    if (keyHandler) document.removeEventListener('keydown', keyHandler);
+    keyHandler = function (e) {
+      if (!root.isConnected) return;
       if (e.ctrlKey || e.metaKey || e.altKey) return;
       if (sheet.open || groupsDlg.open || addDlg.open) return;
       var t = e.target;
       if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
       if (e.key === 'ArrowLeft') { prev.click(); e.preventDefault(); }
       else if (e.key === 'ArrowRight') { nextB.click(); e.preventDefault(); }
-    });
+    };
+    document.addEventListener('keydown', keyHandler);
 
     var api = { render: render, openSheet: openSheet, openGroups: openGroups, openAdd: openAdd, record: function () { return rec; }, state: state, occurrences: [], today: today, base: base, persist: persist, setMark: setMark };
     render();

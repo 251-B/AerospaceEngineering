@@ -819,12 +819,24 @@
   var SYNC_KEYS = ['ae_study_log', 'ae_recent', 'ae_marks', 'ae_bm_exams', 'ae_mat_exams', 'ae_am_exams', 'ae_em_exams', 'ae_formula_mode', 'ae_calendar', 'ae_tour'];
   var CALENDAR_KEY = 'ae_calendar';
 
-  // Calendar records merge entry by entry (assets/js/calendar-core.js); on pages without that
-  // script the record changed last wins.
-  function mergeCalendar(local, cloud) {
-    if (window.AECalendar && window.AECalendar.merge) return window.AECalendar.merge(local, cloud);
-    if (!local) return cloud;
-    return (cloud && (cloud.updated || 0) > (local.updated || 0)) ? cloud : local;
+  // Calendar records merge entry by entry (assets/js/calendar-core.js, pure logic). A page
+  // without that script loads it first; only if it cannot load does the record changed last win.
+  var calendarWaiting = null;
+  function absorbCalendar(cloud) {
+    function merged() { writeJSON(CALENDAR_KEY, window.AECalendar.merge(readJSON(CALENDAR_KEY), cloud)); }
+    function whole() { var local = readJSON(CALENDAR_KEY); if (!local || (cloud.updated || 0) > (local.updated || 0)) writeJSON(CALENDAR_KEY, cloud); }
+    if (window.AECalendar && window.AECalendar.merge) { merged(); return; }
+    if (!BASE) { whole(); return; }
+    if (calendarWaiting) { calendarWaiting.push(cloud); return; }
+    calendarWaiting = [cloud];
+    var js = document.createElement('script');
+    js.src = BASE + 'assets/js/calendar-core.js';
+    js.onload = js.onerror = function () {
+      var list = calendarWaiting; calendarWaiting = null;
+      list.forEach(function (c) { cloud = c; if (window.AECalendar && window.AECalendar.merge) merged(); else whole(); });
+      schedulePush();
+    };
+    document.head.appendChild(js);
   }
 
   function cloudSession() { return readJSON(CLOUD_KEY); }
@@ -1039,7 +1051,7 @@
     ['ae_bm_exams', 'ae_mat_exams', 'ae_am_exams', 'ae_em_exams'].forEach(function (k) {
       if (keys[k]) writeJSON(k, mergeHistory(readJSON(k), keys[k]));
     });
-    if (keys[CALENDAR_KEY]) writeJSON(CALENDAR_KEY, mergeCalendar(readJSON(CALENDAR_KEY), keys[CALENDAR_KEY]));
+    if (keys[CALENDAR_KEY]) absorbCalendar(keys[CALENDAR_KEY]);
     var tourLocal = readJSON('ae_tour');
     if (keys.ae_tour && (!tourLocal || (keys.ae_tour.at || 0) > (tourLocal.at || 0))) writeJSON('ae_tour', keys.ae_tour);
     if (keys[FORMULA_KEY] && !(function () { try { return localStorage.getItem(FORMULA_KEY); } catch (e) { return null; } })()) {

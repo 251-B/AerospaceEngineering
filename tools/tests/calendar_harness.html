@@ -317,6 +317,38 @@
     record('sheet_revise_adds_blocks_and_attendance', evs.length > 0 && m.host.querySelector('#calExport') && /Materials: \d+ of \d+ classes/.test(att), evs.length + ' ' + att);
     closeAll(m.host);
   });
+  run('ics_stamp_is_utc', function () {
+    var ics = C.toICS([], '2026-11-19T10:00');
+    var want = new Date('2026-11-19T10:00').toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z';
+    var occ = [{ key: 'k1', subject: 'fluid-mechanics', kind: 'lecture', title: 'X', date: '2026-11-18', start: '15:30', end: '17:00', links: [] }];
+    var ics2 = C.toICS(occ, '2026-11-19T10:00');
+    record('ics_stamp_is_utc', ics2.indexOf('DTSTAMP:' + want + '\r\n') >= 0, want + ' ' + (/DTSTAMP:[^\r]*/.exec(ics2) || [''])[0] + ics.length);
+  });
+  run('revision_without_topics_says_so', function () {
+    var r = rec(MAT);
+    var exam = { key: 'ev-x', subject: 'fluid-mechanics', kind: 'exam', title: 'Final exam', date: '2026-12-10', isExam: true };
+    var ev = C.revisionPlan(TT, r, { subjects: ALL, exams: {} }, exam, '2026-11-20', 1);
+    var ok = C.revisionPlan(TT, r, { subjects: ALL, exams: {} }, test2(term(r)), '2026-10-30', 1);
+    var late = C.revisionPlan(TT, r, { subjects: ALL, exams: {} }, test2(term(r)), '2026-11-10', 1);
+    record('revision_without_topics_says_so', ev.length === 0 && ev.reason === 'no-topics' && ok.length > 0 && !ok.reason && late.length === 0 && late.reason === 'no-days',
+      ev.reason + ' ' + ok.reason + ' ' + late.reason);
+  });
+  run('remount_keeps_one_key_listener', function () {
+    var add = document.addEventListener, rem = document.removeEventListener, net = 0;
+    document.addEventListener = function (t, f, o) { if (t === 'keydown') net++; return add.call(document, t, f, o); };
+    document.removeEventListener = function (t, f, o) { if (t === 'keydown') net--; return rem.call(document, t, f, o); };
+    try {
+      seed(rec(G46));
+      var host = document.createElement('div'); document.body.appendChild(host);
+      var o = { account: ACC, tt: TT, base: '../../', width: 1200, today: '2026-11-04', noFirstVisit: true };
+      UI.mount(host, o);
+      var api = UI.mount(host, o);
+      var before = api.state.anchor;
+      document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+      record('remount_keeps_one_key_listener', net <= 1 && api.state.anchor === C.addDays(before, 7), net + ' ' + before + ' ' + api.state.anchor);
+      closeAll(host);
+    } finally { document.addEventListener = add; document.removeEventListener = rem; }
+  });
   seed(null);
 
   document.getElementById('results').textContent = JSON.stringify(results);

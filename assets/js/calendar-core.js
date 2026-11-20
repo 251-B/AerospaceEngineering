@@ -296,14 +296,18 @@
     return groups.filter(function (g) { return g.missed; }).concat(groups.filter(function (g) { return !g.missed; }));
   }
 
+  // An empty plan says why: 'no-topics' (the plan lists nothing the exam covers), 'no-days'
+  // (no class day left before it) or 'no-time' (no free hour on those days).
+  function because(list, reason) { list.reason = reason; return list; }
+
   function revisionPlan(tt, rec, prefs, exam, todayISO, hoursPerDay) {
     rec = normalise(rec);
     var topics = examTopics(tt, rec, exam);
-    if (!topics.length) return [];
+    if (!topics.length) return because([], 'no-topics');
     var len = Math.max(30, Math.round((hoursPerDay || 1) * 60));
     var days = [];
     for (var d = addDays(todayISO, 1); d < exam.date; d = addDays(d, 1)) if (!isDayOff(tt, rec, exam.subject, d)) days.push(d);
-    if (!days.length) return [];
+    if (!days.length) return because([], 'no-days');
     var busy = {};
     days.forEach(function (day) {
       busy[day] = build(tt, rec, prefs, day, day).filter(function (o) { return o.start && o.status !== 'notheld'; })
@@ -325,6 +329,7 @@
       out.push({ id: 'rev-' + exam.key + '-' + k, subject: exam.subject, kind: 'study', title: 'Revise: ' + topic.label + (k >= topics.length ? ' (second pass)' : ''),
         date: day, start: hm(start), end: hm(start + len), room: '', note: '', links: topic.links.slice(), exam: exam.key, at: Date.now() });
     }
+    if (!out.length) return because(out, 'no-time');
     return out.sort(function (a, b) { return (a.date + a.start) < (b.date + b.start) ? -1 : 1; });
   }
 
@@ -362,7 +367,10 @@
   function icsTime(d, t) { return icsDate(d) + 'T' + t.replace(':', '') + '00'; }
 
   function toICS(occ, nowISO) {
-    var stamp = icsDate(nowISO.slice(0, 10)) + 'T' + nowISO.slice(11, 16).replace(':', '') + '00Z';
+    // DTSTAMP is UTC (RFC 5545): nowISO is local time, so convert it.
+    var t = new Date(nowISO);
+    var stamp = isNaN(t.getTime()) ? new Date().toISOString() : t.toISOString();
+    stamp = stamp.replace(/[-:]/g, '').slice(0, 15) + 'Z';
     var lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Sideris//Calendar//EN', 'CALSCALE:GREGORIAN'].concat(VTIMEZONE);
     occ.forEach(function (o) {
       if (o.status === 'notheld') return;
