@@ -37,8 +37,8 @@ tags_html:
 
 5. Determine $h$
 
-![[attachments/FM-T7/vf20-statement.svg]]
-*Statement figure (redrawn from VF20.pdf): a cylinder of radius R, height 2R and density ρ_s hovering at the height h above the bottom of a tank of liquid (ρ, μ, pressure P_0 far away) on a jet of flow rate Q injected at the centre of its base; z is vertical and r radial*
+![[attachments/FM-T7/vf20-statement.png]]
+*Statement figure: a cylinder of radius R, height 2R and density ρ_s hovering at the height h above the bottom of a tank of liquid (ρ, μ, pressure P_0 far away) on a jet of flow rate Q injected at the centre of its base; z is vertical and r radial. Copied from VF20.pdf, p. 1.*
 
 Source: VF20.pdf (page 1: statement; pages 2 and 3: handwritten key; exam of 16-01-2019). Notes.pdf, Chapter 7: slender films, Eqs. 7.67-7.71; the wedge effect, Eq. 7.72.
 

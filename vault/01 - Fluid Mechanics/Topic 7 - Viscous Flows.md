@@ -130,7 +130,7 @@ The balance of Fig. 7.1 shows where (7.16) comes from. For the control volume $\
 
 $$ \int_{\Sigma_c}\rho\bar{v}\bar{v}\cdot\bar{n}\,d\sigma = -\int_{\Sigma_c}P\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma \tag{7.17} $$
 
-![[attachments/FM-T7/t7-pipe-cv.svg]]
+![[attachments/FM-T7/t7-pipe-cv.png]]
 
 The left side is zero because the velocity profile does not change along the pipe: the momentum leaving through the right end equals the one entering on the left. The pressure term is $(P_1 - P_2)\pi a^2\bar{e}_x$ and the shear term $-\tau_p\,2\pi a L\,\bar{e}_x$, so
 
@@ -148,7 +148,7 @@ A semi-infinite liquid is bounded by a plane wall at rest for $t < 0$ that moves
 
 $$ \rho\frac{\partial v_x}{\partial t} = \mu\frac{\partial^2 v_x}{\partial y^2}; \qquad t = 0:\; v_x = 0; \qquad t > 0:\; y = 0:\; v_x = V,\; y\to\infty:\; v_x\to 0 \tag{7.19} $$
 
-![[attachments/FM-T7/t7-rayleigh.svg]]
+![[attachments/FM-T7/t7-rayleigh.png]]
 
 In terms of $\tilde{v} = v_x/V$ (Notes.pdf, Eq. 7.20):
 
@@ -247,7 +247,7 @@ the viscous time across the channel is much shorter than the time of variation o
 
 Consider a pipe of slowly varying diameter, of characteristic value $D$, with variations occurring over distances $L\gg D$, weakly curved (curvature radii $R\gg D$), discharging a container at reduced pressure $P_c(t)$ (Fig. 7.3). With the distance $x$ along the centre line and transverse coordinates $y$, $z$, the conservation equations reduce, with relative errors $O(D/R)$, to the Cartesian ones, with the order of magnitude of each term below it (Notes.pdf, Eqs. 7.36-7.38).
 
-![[attachments/FM-T7/t7-variable-pipe.svg]]
+![[attachments/FM-T7/t7-variable-pipe.png]]
 
 $$ \underbrace{\frac{\partial v_x}{\partial x}}_{v_L/L} + \underbrace{\frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}}_{v_T/D} = 0 \tag{7.36} $$
 
@@ -333,7 +333,7 @@ $$ \frac{O(\rho\bar{v}\cdot\nabla\bar{v})}{O(\mu\nabla^2\bar{v})} = \frac{\rho v
 
 Since (7.41) can hold for small and for large $\rho v_L D/\mu$, both cases appear (Fig. 7.4).
 
-![[attachments/FM-T7/t7-entrance.svg]]
+![[attachments/FM-T7/t7-entrance.png]]
 
 ### Small Reynolds number
 
@@ -385,7 +385,7 @@ so $P_e = P_c$ also holds for large Reynolds numbers. The relative error of usin
 
 Two solids in relative motion in contact produce friction that dissipates a large amount of energy and heats the materials; a thin layer of lubricant separates them. The shear stresses on the solids are much smaller than the pressure differences induced in the film, which keep the surfaces apart (fluid bearings, hydroplaning of tires, synovial fluid in joints).
 
-![[attachments/FM-T7/t7-bearing.svg]]
+![[attachments/FM-T7/t7-bearing.png]]
 
 ### Equations of the planar bearing
 
@@ -423,7 +423,7 @@ $$ \int_0^h\frac{\partial v_x}{\partial x}\,dy + \int_0^h\frac{\partial v_y}{\pa
 
 The flux is the sum of the Poiseuille part $P_l h^3/(12\mu)$ and the Couette part $Vh/2$, which grows with the local height. If $P_l$ were zero, $Q = V h(x)/2$ would change along the film, violating (7.72). Therefore, although $P = P_o$ at both ends, **pressure variations must appear within the film whenever $h$ varies with $x$**, so that $Q$ stays uniform (Fig. 7.6).
 
-![[attachments/FM-T7/t7-wedge.svg]]
+![[attachments/FM-T7/t7-wedge.png]]
 
 For a film whose thickness decreases (a converging channel) there are overpressures $P - P_o > 0$, with a maximum at $x_{max}$ where $P_l = 0$: for $x < x_{max}$, $P_l < 0$ and the reverse Poiseuille flow reduces the flux below the Couette one; for $x > x_{max}$, $P_l > 0$ adds a positive Poiseuille flow.
 

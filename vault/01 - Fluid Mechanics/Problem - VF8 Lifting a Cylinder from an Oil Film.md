@@ -34,8 +34,8 @@ We want to lift the cylindrical body shown in the figure. A layer of oil exists 
 
 The sheet prints "gradiente" and "pressuse".
 
-![[attachments/FM-T7/vf8-statement.svg]]
-*Statement figure (redrawn from VF8.pdf): a cylindrical body of radius R lifted with velocity ḣ from a horizontal surface; the oil film of thickness h(t) between them is fed by a radial inflow from the outer pressure P_o*
+![[attachments/FM-T7/vf8-statement.png]]
+*Statement figure: a cylindrical body of radius R lifted with velocity ḣ from a horizontal surface; the oil film of thickness h(t) between them is fed by a radial inflow from the outer pressure P_o. Copied from VF8.pdf, p. 1.*
 
 Source: VF8.pdf (page 1, statement and handwritten key; no date printed). Notes.pdf, Chapter 7: slender films, Eqs. 7.64-7.71; the wedge effect, Eq. 7.72; forces, Eq. 7.76.
 
