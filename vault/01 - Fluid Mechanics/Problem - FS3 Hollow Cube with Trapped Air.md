@@ -31,8 +31,8 @@ A hollow cube of side $L$ and weight $W < \rho g L^3$ is initially full of air a
 
 Translated from the Spanish original.
 
-![[attachments/FM-T5/fs3-statement.svg]]
-*Statement figure (redrawn from fluid_statics_3.pdf, p. 1): hollow cube of side $L$ with an orifice in its base; the inner interface is $H_1$ below the outer free surface and $H_2$ above the base; air at $p_c$ inside, $p_a$ outside*
+![[attachments/FM-T5/fs3-statement.png]]
+*Statement figure: hollow cube with an orifice in its base; air at $p_c$ inside, $p_a$ outside; the inner interface is $H_1$ below the outer free surface and the inner water layer is $H_2$ deep. Copied from fluid_statics_3.pdf, p. 1.*
 
 Source: fluid_statics_3.pdf (page 1, sheet of 27-01-03). Notes.pdf, Chapter 5: Eqs. 5.10, 5.15 and 5.18.
 

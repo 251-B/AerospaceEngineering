@@ -35,8 +35,8 @@ The square valve of side $L$ shown in the figure can turn about the horizontal a
 
 Translated from the Spanish original.
 
-![[attachments/FM-T5/fs4-statement.svg]]
-*Statement figure (redrawn from fluid_statics_4.pdf, p. 1): square valve of side $L$ at the bottom of the right wall, pivoting about the horizontal axis $O$ through its centre; water depth $h$; $F_A$ is applied at the base of the valve*
+![[attachments/FM-T5/fs4-statement.png]]
+*Statement figure: tank of depth $h$; the square valve of side $L$ sits at the bottom of the right wall; $F$ is the force of the water and $F_A$ the force applied at the base of the valve; axis $z$ upwards. Copied from fluid_statics_4.pdf, p. 1.*
 
 Source: fluid_statics_4.pdf (page 1, sheet of 10-09-03). Notes.pdf, Chapter 5: Eqs. 5.10 and 5.11.
 

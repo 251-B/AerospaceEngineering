@@ -236,7 +236,7 @@ The two consequences below are an **extension** of (5.15), used in the problem s
 
 ## 6. Stability of Submerged and Floating Bodies
 
-![[attachments/FM-T5/t5-stability.svg]]
+![[attachments/FM-T5/t5-stability.png]]
 
 A body in equilibrium is **stable** if, after a small perturbation, the forces bring it back. For a submerged body (Notes.pdf, p. 53, and Fig. 5.1 on p. 54), the buoyancy $\rho g V\vec{e}_z$ acts at the centroid $A$ of the displaced liquid and the weight $-W\vec{e}_z$ at the centre of gravity $B$ of the body; in equilibrium $W = \rho g V$ and $A$, $B$ are on the same vertical. If the body is tilted, $A$ and $B$ turn with it (the displaced volume is the body itself): with $A$ above $B$ the pair of forces is a restoring torque, with $B$ above $A$ it turns the body over. **A submerged body is stable when the centre of buoyancy lies above the centre of gravity**, so the centre of gravity should be as low as possible.
 
@@ -298,7 +298,7 @@ $$ p = p_{11}\exp\left[-\frac{g\,(z - 11000)}{R_g T_{11}}\right], \qquad 11000 <
 
 an exponential decay with the scale height $R_g T_{11}/g \approx 6.34$ km. At 20 km, $p \approx 0.054\,p_a \approx 5.5$ kPa.
 
-![[attachments/FM-T5/t5-atmosphere.svg]]
+![[attachments/FM-T5/t5-atmosphere.png]]
 
 The density follows from (5.18), $\rho/\rho_0 = (p/p_a)(T_0/T)$, with $\rho_0 = p_a/(R_g T_0) = 1.225$ kg/m$^3$. The values below are computed from (5.20), (5.24), (5.25) and (5.18); the four places are those marked in Fig. 5.2 of the notes.
 

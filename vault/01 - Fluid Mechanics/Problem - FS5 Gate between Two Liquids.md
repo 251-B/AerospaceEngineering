@@ -30,8 +30,8 @@ The gate of the attached figure separates two liquids of densities $\rho_1$ and 
 
 Translated from the Spanish original. The sheet gives no solution for this problem.
 
-![[attachments/FM-T5/fs5-statement.svg]]
-*Statement figure (redrawn from fluid_statics_5.pdf, p. 1): gate of height $H_1$ between the liquids $\rho_1$ (left, height $H_1$) and $\rho_2 > \rho_1$ (right, height $H_2 < H_1$), hinged at the bottom and resting on a stop at the top*
+![[attachments/FM-T5/fs5-statement.png]]
+*Statement figure: gate between the liquids $\rho_1$ (left, height $H_1$) and $\rho_2$ (right, height $H_2$), hinged at the bottom and held by a stop at the top; atmospheric pressure $p_a$ above both. Copied from fluid_statics_5.pdf, p. 1.*
 
 Source: fluid_statics_5.pdf (page 1, sheet of 11-2-00). Notes.pdf, Chapter 5: Eqs. 5.10 and 5.11.
 

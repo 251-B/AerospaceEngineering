@@ -10,7 +10,8 @@ assets/js/hydrostatics-sim.js); then "## Statement" ending with the "Source: ...
 the Fluid Mechanics order (every other "## " section, rendered in order, never labelled "Phase").
 
 Blocks are those of tools/fluids_cl/build.py (p, m, h4, ul, table, note), plus:
-    ![[attachments/FM-T5/<name>.svg]]  + caption line   a figure of tools/figures/fluids_t5.py (caption synced here)
+    ![[attachments/FM-T5/<name>.svg|png]] + caption line  a figure of tools/figures/fluids_t5.py (SVG, REG) or a crop of
+                                                         the sheet (PNG, RASTER of fluids_t5p.py); caption synced here
     > [!example] Interactive simulator + one line         the simulator of the frontmatter key `sim`, in that place
 
 Generated: subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html, the SVG figures in vault/attachments/FM-T5/,
@@ -58,7 +59,7 @@ BASE = "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas
 SHEET_PAGES = {6: 2, 7: 2}                          # sheets with more than one page
 SIMS = ("plane-gate", "curved-surface", "buoyancy-cube")
 MOC_HEAD = "  * **Solved Hydrostatics Problems (Official Problem Sheet FS):**\n"
-FIG_RE = re.compile(rf"^!\[\[{re.escape(FIG_DIR)}/([\w-]+)\.svg\]\]$")
+FIG_RE = re.compile(rf"^!\[\[{re.escape(FIG_DIR)}/([\w-]+)\.(?:svg|png)\]\]$")
 
 inline_html, block_html = CL.inline_html, CL.block_html
 EXTRA_CSS = CL.EXTRA_CSS + """
@@ -73,7 +74,7 @@ def _blocks(lines, sim):
     for ch in notes._chunks(lines):
         m = FIG_RE.match(ch[0])
         if m:
-            if m.group(1) not in REG.web:
+            if m.group(1) not in REG.web and m.group(1) not in FIG.RASTER:
                 raise ValueError(f"unknown figure {m.group(1)}")
             out.append(("fig", m.group(1)))
         elif ch[0].startswith("> [!example] Interactive simulator"):
@@ -132,13 +133,21 @@ def synced_note(text):
     lines = text.split("\n")
     for i, line in enumerate(lines[:-1]):
         m = FIG_RE.match(line)
-        if m and m.group(1) in REG.captions:
-            lines[i + 1] = f"*{REG.captions[m.group(1)]}*"
+        if m and (m.group(1) in REG.captions or m.group(1) in FIG.RASTER):
+            lines[i + 1] = f"*{REG.captions[m.group(1)] if m.group(1) in REG.captions else FIG.RASTER[m.group(1)][1]}*"
     return "\n".join(lines)
 
 
 # ----------------------------------------------------------------------------------------------- rendering
 def fig_html(name):
+    if name in FIG.RASTER:   # crop of the official sheet (PNG in the vault), not a generated SVG
+        alt, cap = FIG.RASTER[name]
+        src = f"../../../vault/{FIG_DIR}/{name}.png"
+        return (f'<figure class="statement-figure"><div class="diagram-scroll"><img src="{src}" alt="{html.escape(alt)}" '
+                'loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;'
+                'border-radius:8px;padding:8px"></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div>'
+                f'<figcaption>{html.escape(cap, quote=False)}</figcaption>'
+                f'<a class="diagram-open" href="{src}" target="_blank" rel="noopener">Open the figure full size</a></figure>')
     cap = REG.captions[name]
     return (f'<div class="diagram-card"><div class="diagram-scroll">{REG.web[name]}</div>'
             '<div class="diagram-hint">Swipe sideways to see the whole figure.</div>'
