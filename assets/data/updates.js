@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-21-fluids-official-figures",
+    "date": "2026-11-21",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics figures now come from the official material",
+    "text": "The figures of the theory and problem pages (Topics 3 to 7) are now crops of the official notes and problem sheets, so you see the diagrams exactly as the course prints them.",
+    "link": "subjects/fluid-mechanics/teoria/index.html"
+  },
+  {
     "id": "2026-11-20-business-midterm-2-simulator",
     "date": "2026-11-20",
     "tag": "Business Management",
