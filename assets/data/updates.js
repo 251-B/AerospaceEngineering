@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-20-sideris-no-gpu-wait",
+    "date": "2026-11-20",
+    "tag": "Portal",
+    "title": "Sideris answers at once while your local model loads",
+    "text": "When you open a page, Sideris answers from the cloud while the model on your computer loads, then switches to it. No more waiting on a loading message."
+  },
+  {
     "id": "2026-11-20-sideris-faster-downloads",
     "date": "2026-11-20",
     "tag": "Portal",

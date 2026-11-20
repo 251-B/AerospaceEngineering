@@ -24,6 +24,8 @@ window.addEventListener('load', function () {
   function check(name, pass, detail) {
     out.push({ name: name, pass: !!pass, detail: detail || '' });
   }
+  // put a model in the (mock) GPU, as the background preload does on a real page
+  function HOT(repo) { return window.AESiderisEngine.loadWebGPU({ repo: repo, dtype: 'q4f16' }); }
   function finish() {
     document.getElementById('results').textContent = JSON.stringify(out);
   }
@@ -283,8 +285,15 @@ window.addEventListener('load', function () {
               check('local-gpu-model-put-back', key === 'onnx-community/Qwen3.5-2B-ONNX::q4f16' && /back in GPU/.test(L.state().log.join(' ')), key);
             });
           }).then(function () {
+            // Installed but not yet in the GPU on this page: the cloud answers at once
             window.AESideris.clearChat();
             window.AESideris.selectModel('sideris-aether');
+            return window.AESideris.sendUserMessage('Not loaded yet?');
+          }).then(function (text) {
+            check('local-waits-for-gpu-cloud-answers', text === 'LOCAL_OR_CLOUD cloud', text);
+            return HOT('onnx-community/Qwen3.5-4B-ONNX');
+          }).then(function () {
+            window.AESideris.clearChat();
             return window.AESideris.sendUserMessage('What is a streamline?');
           }).then(function (text) {
             var last = window.AESideris.history()[0].messages.slice(-1)[0];
@@ -309,7 +318,7 @@ window.addEventListener('load', function () {
               cloudSys = req.messages[0].content; cb.onToken('CLOUD_AFTER_SILENCE', 'CLOUD_AFTER_SILENCE'); return Promise.resolve('CLOUD_AFTER_SILENCE');
             });
             window.AESideris.clearChat();
-            return window.AESideris.sendUserMessage('Is the device silent?');
+            return HOT('onnx-community/Qwen3.5-2B-ONNX').then(function () { return window.AESideris.sendUserMessage('Is the device silent?'); });
           }).then(function (text) {
             window.AESideris._setLocalFirstWordMs(25000);
             var log = L.state().log.join(' | ');
@@ -478,7 +487,7 @@ window.addEventListener('load', function () {
           window.AESiderisEngine.local.restore({ ready: { 'sideris-lux': true } });
           window.AESideris.selectModel('sideris-lux');
           window.AESideris.clearChat();
-          return window.AESideris.sendUserMessage('hola').then(function () {
+          return HOT('onnx-community/Qwen3.5-2B-ONNX').then(function () { return window.AESideris.sendUserMessage('hola'); }).then(function () {
             return window.AESideris.sendUserMessage('What is the velocity profile here?');
           }).then(function () {
             var hola = seen[0].messages[0].content, real = seen[1].messages[0].content;
@@ -488,6 +497,25 @@ window.addEventListener('load', function () {
             check('prompt-compact-on-device', seen[1].model.backend === 'webgpu' && real.length <= 5000 && real.indexOf('Be easy to scan') < 0,
               seen[1].model.backend + ' ' + real.length + ' chars');
             window.AESiderisEngine.local.restore({});
+            window.AESideris.selectModel('sideris-aether');
+          });
+        }).then(function () {
+          // Out of cloud allowance: a model installed but not yet in the GPU is waited for instead
+          var L3 = window.AESiderisEngine.local;
+          L3.restore({ ready: { 'sideris-lux': true } });
+          window.AESiderisEngine.setMock(function (req, cb) {
+            if (req.model.backend !== 'webgpu') return Promise.reject(new Error("You have used today's Sideris allowance. It resets tomorrow (00:00 UTC)."));
+            cb.onToken('LUX_LOCAL', 'LUX_LOCAL'); return Promise.resolve('LUX_LOCAL');
+          });
+          return HOT('onnx-community/Qwen3.5-4B-ONNX').then(function () {   // another model is in the GPU
+            window.AESideris.selectModel('sideris-lux');
+            window.AESideris.clearChat();
+            return window.AESideris.sendUserMessage('First question');
+          }).then(function () {
+            return window.AESideris.sendUserMessage('Second question');
+          }).then(function (text) {
+            check('cloud-out-waits-for-device', text === 'LUX_LOCAL', text);
+            L3.restore({});
             window.AESideris.selectModel('sideris-aether');
           });
         }).then(function () {

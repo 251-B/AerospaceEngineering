@@ -21,6 +21,8 @@ mobile), grounded in the portal's `vault/` RAG shards.
 - **Downloads:** four 32 MB parts at a time, retried on network errors, resumed across pages, at low
   network priority; GPUs without 16-bit maths get the `q4` build. Mid-size models (Aether, Orion) need
   GPU buffers above 2 GiB.
+- **No waiting for the GPU:** an installed model answers only once it is loaded on the page (a few
+  seconds); until then the cloud answers, unless the daily allowance is spent.
 - **Nothing to set up for students:** no run mode, no manual model links or keys. Downloads go in
   32 MB parts and carry on across pages; installed models keep answering while another downloads.
 

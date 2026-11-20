@@ -246,7 +246,10 @@
     var st = local.state();
     if (st.tier === null) return 'Checking this device...';
     if (st.tier === 0) return 'Answers come from the cloud on this device.';
-    var parts = MODELS.filter(function (x) { return local.isReady(x.id); }).map(function (x) { return x.name + ' ready'; });
+    var parts = MODELS.filter(function (x) { return local.isReady(x.id); }).map(function (x) {
+      var key = x.repo + '::' + local.dtypeFor(x);
+      return x.name + (st.hot === key ? ' ready' : st.warming === key ? ' loading on this device' : ' installed');
+    });
     if (st.job) {
       var pct = st.job.total ? Math.min(99, Math.floor(100 * st.job.loaded / st.job.total)) : 0;
       var eta = local.eta();
@@ -258,6 +261,19 @@
     return parts.join(' · ') + (ready ? '. Ready models answer here, with no daily limit.' : '. Until then answers come from the cloud.');
   }
 
+  // Load the selected model into the GPU in the background when it is installed on this device;
+  // the picker switches to "On this device" once it is in.
+  function warm() {
+    var engine = window.AESiderisEngine, local = engine && engine.local;
+    var m = findModel(prefs.modelId);
+    if (!local || !local.isReady(m.id)) return;
+    var copy = {};
+    for (var k in m) copy[k] = m[k];
+    copy.dtype = local.dtypeFor(m);
+    local.prewarm(copy).then(function () { if (ui.drawer) syncUI(); });
+    if (ui.drawer) syncUI();
+  }
+
   function activeModelConfig() {
     var base = findModel(prefs.modelId);
     var copy = {};
@@ -266,10 +282,14 @@
     copy.sizeLabel = 'Cloud';
     // Downloaded and probed on this computer: answer here (free, no daily allowance). Not while
     // another model is loading into the GPU; a model that is only downloading leaves it free.
-    var local = window.AESiderisEngine && window.AESiderisEngine.local;
-    if (local && local.isReady(copy.id) && !local.busy()) {
+    // Each page loads the model into the GPU again (a browser keeps nothing of the GPU across pages:
+    // ~15 s on a tested computer). Until it is in, questions go to the cloud and answer at once; a
+    // student out of cloud allowance waits for the device instead.
+    var engine = window.AESiderisEngine, local = engine && engine.local;
+    var dtype = local ? local.dtypeFor(copy) : copy.dtype;
+    if (local && local.isReady(copy.id) && !local.busy() && (engine.isLoaded(copy.repo, dtype) || session.cloudOut)) {
       copy.backend = 'webgpu';
-      copy.dtype = local.dtypeFor(copy);   // q4 on GPUs without shader-f16
+      copy.dtype = dtype;   // q4 on GPUs without shader-f16
       copy.autoLocal = true;
       copy.sizeLabel = 'On this device';
     }
@@ -1435,8 +1455,7 @@
     prefs.modelId = m.id;
     if (!m.reasoning) savedModelId = m.id;
     savePrefs();
-    var sel = activeModelConfig();
-    if (sel.autoLocal && window.AESiderisEngine) window.AESiderisEngine.local.prewarm(sel);
+    warm();
     syncUI();
     setStatus(m.reasoning
       ? m.name + ' for this conversation only · it thinks step by step first, so answers take longer.'
@@ -1749,7 +1768,7 @@
       var first = !m.autoLocal ? run(m, '') : new Promise(function (resolve) {
         var settled = false, t0 = Date.now();
         setStatus(m.name + ' is answering on this device...');
-        var timer = setTimeout(function () {
+        var timer = session.cloudOut ? null : setTimeout(function () {
           if (settled || assistantMsg.text) return;
           settled = true;
           clearInterval(firstWord);
@@ -1803,7 +1822,9 @@
       return assistantMsg.text;
     }).catch(function (err) {
       setBusy(false);
-      var msg = allowanceMessage((err && err.message) ? err.message : String(err));
+      var raw = (err && err.message) ? err.message : String(err);
+      if (/daily limit|today's Sideris allowance/.test(raw)) session.cloudOut = true;   // the device is the only way now
+      var msg = allowanceMessage(raw);
       if (splitThinking(assistantMsg.text).answer) {
         // Tested on the worker: long answers can lose the connection half way. Keep what arrived.
         assistantMsg.text += '\n\n*(The connection dropped before the answer was complete. Press Retry for the full answer.)*';
@@ -1920,8 +1941,7 @@
     if (engine && engine.local && !window.AE_SIDERIS_NO_AUTOSTART) {   // the flag: test harness only
       var go = function () {
         engine.local.start(MODELS);
-        var sel = activeModelConfig();
-        if (sel.autoLocal) engine.local.prewarm(sel);   // first question without the load wait
+        warm();
       };
       setTimeout(go, 1000);   // downloads are network only and resumable: start at once, no idle wait
     }

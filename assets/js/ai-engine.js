@@ -20,7 +20,10 @@
   if (window.AESiderisEngine) return;
   if (new URLSearchParams(location.search).has('print')) return;
 
+  // An exact version: jsDelivr lets browsers keep it for a year, so later pages load the runtime from
+  // disk (the open "@4" range is kept a week and re-resolved by the CDN every 12 hours).
   var TFJS_URLS = [
+    'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.2',
     'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4',
     'https://cdn.jsdelivr.net/npm/@huggingface/transformers@next'
   ];
@@ -951,7 +954,8 @@
       log: note,
       dtypeFor: dtypeFor,
       markFailed: function (id, why) { delete localState.ready[id]; localState.failed[id] = String(why || 'error').slice(0, 120); saveLocal(); },
-      state: function () { return { tier: localTier, job: localJob ? { id: localJob.id, phase: localJob.phase, loaded: localJob.loaded, total: localJob.total } : null, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id + ' (' + localJob.phase + ', ' + Math.round(localJob.loaded / 1048576) + ' MB)' : '', log: localState.log || [] }; },
+      // hot: the model in the GPU now; warming: the one being loaded into it
+      state: function () { return { hot: loaded ? loaded.key : '', warming: inflight ? inflight.key : '', tier: localTier, job: localJob ? { id: localJob.id, phase: localJob.phase, loaded: localJob.loaded, total: localJob.total } : null, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id + ' (' + localJob.phase + ', ' + Math.round(localJob.loaded / 1048576) + ' MB)' : '', log: localState.log || [] }; },
       cache: modelCache,
       _test: { setFetch: function (f) { fetchFn = f; }, setChunk: function (n) { CHUNK = n; },
         setRetryMs: function (n) { RETRY_MS = n; }, setSize: function (u, n) { sizes[u] = n; }, list: listRepo, setStore: function (st) { store = st; }, download: downloadFile,
