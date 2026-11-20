@@ -34,8 +34,8 @@ The propulsion device of a VTOL (vertical take-off and landing) aircraft include
 
 With the above simplifications, write the equations that determine the values of $U_i$, $U_e$, $p_i$, $\rho_e$ and $\alpha$ in terms of the known quantities ($p_a$, $Mg$, $\rho_a$, $A_i$, $A_e$, $\gamma$, $W$, and $Q$).
 
-![[attachments/FM-T3/cl11-statement.svg]]
-*Statement figure (redrawn from CL11.pdf, p. 1): intake $A_i$ ($p_i$, $U_i$, $\rho_a$), heat $Q$ and blades $W$ inside the duct, nozzle of exit section $A_e$ at the angle $\alpha$ from the vertical ($U_e$, $\rho_e$, $p_a$); axes $x$, $y$ at the centre of the rotating joint*
+![[attachments/FM-T3/cl11-statement.png]]
+*Statement figure: intake $A_i$ ($p_i$, $U_i$, $\rho_a$), heat $Q$ and blades $W$ inside the duct, nozzle of exit section $A_e$ at the angle $\alpha$ from the vertical ($U_e$, $\rho_e$, $p_a$); axes $x$, $y$ at the centre of the rotating joint. Copied from CL11.pdf, p. 1.*
 
 Source: CL11.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.
 

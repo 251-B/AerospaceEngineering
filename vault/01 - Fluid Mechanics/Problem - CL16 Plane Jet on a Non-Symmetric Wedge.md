@@ -33,8 +33,8 @@ A plane liquid jet of constant density $\rho$, thickness $h$ and uniform velocit
 - Determine the moment $\bar{M}_0$ due to the force $\bar{F}$ about the corner $\bar{x}_0$ of the wedge. Find the value of the fraction $\alpha$ that would produce a null moment, $\bar{M}_0 = 0$.
 - Knowing the uniform temperature $T_0$ of the incoming jet, the uniform temperatures $T_1$ and $T_2$ of the two liquid layers when they lose contact with the wedge, and the constant specific heat $c$ of the liquid, determine the heat $q$ transferred per unit surface from the liquid to the wedge. Assume that the heat flux is uniform on the wedge surface and that there is no heat transfer by conduction between the liquid and the ambient air.
 
-![[attachments/FM-T3/cl16-statement.svg]]
-*Statement figure (redrawn from CL16.pdf, p. 1): plane jet ($h$, $Q$, $v$, $T_0$) on the wedge with corner $\bar{x}_0$; the layer $\alpha Q$ ($T_1$) leaves at $\theta$ and $(1 - \alpha)Q$ ($T_2$) at $2\theta$; faces of horizontal extent $L$; heat flux $q$ into the wedge; ambient $p_a$*
+![[attachments/FM-T3/cl16-statement.png]]
+*Statement figure: plane jet ($h$, $Q$, $v$, $T_0$) on the wedge with corner $\bar{x}_0$; the layer $\alpha Q$ ($T_1$) leaves at $\theta$ and $(1 - \alpha)Q$ ($T_2$) at $2\theta$; faces of horizontal extent $L$; heat flux $q$ into the wedge; ambient $p_a$. Copied from CL16.pdf, p. 1.*
 
 Source: CL16.pdf (pages 1-2, exam of Jan 14, 2013, with handwritten results). Notes.pdf: Bernoulli's equation Eq. 4.17, integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 

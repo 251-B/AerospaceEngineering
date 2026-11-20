@@ -34,8 +34,8 @@ Figure (a) of CL22.pdf shows a cylinder of radius $a_0$ closed at the bottom tha
 
 Note: Neglect viscous dissipation within the liquid, viscous stresses at the free surface and take the pressure in the air as a constant $p_a$.
 
-![[attachments/FM-T3/cl22-statement.svg]]
-*Statement figure (redrawn from CL22.pdf, p. 1): (a) at $t = 0$, radius $a_0$ and level $h_0$; (b) at $t > 0$, radius $a(t)$, level $h(t)$ and the fixed control volume $V_2$ up to the level $z$*
+![[attachments/FM-T3/cl22-statement.png]]
+*Statement figure: (a) at $t = 0$, radius $a_0$ and level $h_0$; (b) at $t > 0$, radius $a(t)$, level $h(t)$ and the fixed control volume $V_2$ up to the level $z$. Copied from CL22.pdf, p. 1.*
 
 Source: CL22.pdf (pages 1-3, exam of 28-10-2018, with handwritten solution). Notes.pdf, Chapter 3: Reynolds transport theorem for a moving control volume Eqs. 3.7-3.8, integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, kinetic-energy balance Eq. 4.24 (with Eq. 3.8).
 

@@ -33,8 +33,8 @@ The elbow-shaped tube of circular cross section shown in the figure of CL19.pdf 
 
 Note: for a perfect gas, $p = \rho R_gT$, where $R_g$ is the gas constant.
 
-![[attachments/FM-T3/cl19-statement.svg]]
-*Statement figure (redrawn from CL19.pdf, p. 1): pipe of diameter $D$; at the inlet the inner stream (diameter $D/\sqrt{2}$, temperature $T_1$) and the outer coflow ($T_2$), both with $U_i$ and $p_i$; outlet at $U_o$, $T_o$ into the atmosphere at $p_a$*
+![[attachments/FM-T3/cl19-statement.png]]
+*Statement figure: pipe of diameter $D$; at the inlet the inner stream (diameter $D/\sqrt{2}$, temperature $T_1$) and the outer coflow ($T_2$), both with $U_i$ and $p_i$; outlet at $U_o$, $T_o$ into the atmosphere at $p_a$. Copied from CL19.pdf, p. 1.*
 
 Source: CL19.pdf (page 1, prefinal of Dec 16, 2013). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.
 
