@@ -78,7 +78,7 @@ The defining kinematic constraint is that the distance between any two body poin
 
 A body-fixed reference frame $S_B$ is built from three non-collinear body points $P$, $Q$, $R$: the origin is $P$ and the vectors $\mathbf{PQ}$, $\mathbf{PR}$ and their vector product are attached to the body (Notes.pdf, Sec. 9; [Lecture 7, Slide 4]). They need not be orthonormal, but we always choose a right-handed orthonormal basis built from them, as below. The choice of origin and basis is not unique.
 
-![[attachments/EM-T/t6-body-frame.svg]]
+![[attachments/EM-T/t6-body-frame.png]]
 
 > [!derivation] An orthonormal right-handed body basis from three body points
 > **Law:** normalisation and vector product; right-hand rule
@@ -224,7 +224,7 @@ To know the whole velocity field at an instant it is enough to know the velocity
 > **Units:** $[\mathrm{L\,T^{-1}}][\mathrm L] = [\mathrm{L^2\,T^{-1}}]$ on both sides
 > **Meaning:** any two body points have the same velocity projection on the line that joins them; otherwise their distance would change and the body would not be rigid.
 
-![[attachments/EM-T/t6-projection-property.svg]]
+![[attachments/EM-T/t6-projection-property.png]]
 
 The velocities of three non-collinear body points $A$, $C$, $D$ also fix the field, through Eqs. 9.12 and 9.13 ([Lecture 7, Slide 7] writes them with $B$ and $C$). The data must be compatible, or the object is not a rigid body.
 
@@ -291,7 +291,7 @@ In a pure rotation (zero slip speed) the instantaneous axis of rotation is the l
 > **Units:** $[\mathrm{T^{-1}}][\mathrm{L\,T^{-1}}]/[\mathrm{T^{-2}}] = [\mathrm L]$
 > **Meaning:** the axis is the line through $I$ parallel to $\boldsymbol\omega_{B0}$; any other choice $I'$ on it keeps the middle term of Eq. 9.9 and makes the computation longer.
 
-![[attachments/EM-T/t6-iar-foot.svg]]
+![[attachments/EM-T/t6-iar-foot.png]]
 
 Remarks of the notes (Notes.pdf, Sec. 9.1.2): the axis can change in time (hence "instantaneous"), and the ruled surfaces it sweeps, seen from $S_0$ and from $S_B$, help to picture the motion; the point $I$ and even the whole axis may lie outside the physical body, but it is still a point of the Euclidean space attached to $S_B$; and the axis depends on the frame from which it is computed.
 
@@ -314,7 +314,7 @@ In the general case the slip speed is not zero. The instantaneous axis of rotati
 
 The general instantaneous motion of a rigid body is therefore a pure rotation about the instantaneous axis plus a pure translation along it with the slip velocity: a screw, or helical, motion (Notes.pdf, Sec. 9.1.3; [Lecture 7, Slide 8]).
 
-![[attachments/EM-T/t6-screw-field.svg]]
+![[attachments/EM-T/t6-screw-field.png]]
 
 > [!derivation] The screw (helical) velocity field
 > **Law:** velocity field from a point $I$ of the axis; magnitude of a vector product of perpendicular vectors
@@ -974,7 +974,7 @@ The lecture also states the two facts about symmetric tensors that Section 15 us
 | $d\ell$, $dA$, $dV$ | length, area and volume elements |
 | homogeneous body | a body whose density is uniform in space |
 
-![[attachments/EM-T/t6-mass-distribution.svg]]
+![[attachments/EM-T/t6-mass-distribution.png]]
 
 > [!derivation] Zeroth, first and second moments of a mass distribution
 > **Law:** definition of the $n$-th moment of a mass distribution about $O$
@@ -1039,7 +1039,7 @@ The hard part of these integrals is writing the element of length, area or volum
 | $x_G$, $y_G$, $z_G$ | components of $\mathbf r_0^G$ in $\mathcal B_0$ |
 | $\mathcal D_1$, $\mathcal D_2$; $m_1$, $m_2$; $G_1$, $G_2$ | two parts of a composite body, their masses and centres of mass |
 
-![[attachments/EM-T/t6-centre-of-mass.svg]]
+![[attachments/EM-T/t6-centre-of-mass.png]]
 
 > [!derivation] Total mass and position of the centre of mass
 > **Law:** definitions of the total mass and of the centre of mass
@@ -1089,7 +1089,7 @@ When the mass distribution has a plane or an axis of symmetry, the centre of mas
 
 The lecture recommends to "divide and conquer": break a complex geometry into simpler parts, add their contributions, and treat holes by subtraction ([Lecture 8, Slide 17]). All the inertia properties are integrals over $\mathcal D$, so they are additive over disjoint parts.
 
-![[attachments/EM-T/t6-composite-bodies.svg]]
+![[attachments/EM-T/t6-composite-bodies.png]]
 
 > [!derivation] Centre of mass of a composite body and of a body with a hole
 > **Law:** additivity of the integral over disjoint domains; definition of the centre of mass
@@ -1319,10 +1319,10 @@ The notes illustrate the definitions with four homogeneous bodies of Fig. 10.2, 
 > [!example] Homogeneous plate (Notes.pdf, Sec. 10.5; [Lecture 8, Slide 19])
 > A homogeneous plate of mass $M$, length $L$ along $Ox$, width $W$ along $Oy$ and negligible thickness is centred at $O$. Find its moments and products of inertia in $S_0$, and the product of inertia with respect to the planes $Ax_1z_1$ and $Ay_1z_1$ of a frame $S_1$ with origin at a corner $A$ of the plate.
 
-![[attachments/EM-T/t6-plate.svg]]
+![[attachments/EM-T/t6-plate.png]]
 
 > [!info] Note on the source figure
-> The notes refer to the frame $S_1$ "as shown in Fig. 10.2(b)", but the figure does not draw it. The limits of Eq. 10.27 (from zero to $L$ and from zero to $W$, with a positive result) fix it: origin $A$ at a corner of the plate, $Ax_1$ along the side of length $L$ and $Ay_1$ along the side of width $W$, both pointing into the plate, parallel to $Ox$ and $Oy$. The figure above draws it that way, and the Steiner check of Section 16 confirms the value.
+> The notes refer to the frame $S_1$ "as shown in Fig. 10.2(b)", but the figure does not draw it. The limits of Eq. 10.27 (from zero to $L$ and from zero to $W$, with a positive result) fix it: origin $A$ at a corner of the plate, $Ax_1$ along the side of length $L$ and $Ay_1$ along the side of width $W$, both pointing into the plate, parallel to $Ox$ and $Oy$. The Steiner check of Section 16 confirms the value.
 
 > [!derivation] Surface density, mass element and centre of mass of the plate
 > **Law:** area density of a homogeneous body; first symmetry theorem
@@ -1377,7 +1377,7 @@ The notes illustrate the definitions with four homogeneous bodies of Fig. 10.2, 
 > [!example] Half disk (Notes.pdf, Sec. 10.5; [Lecture 8, Slide 20])
 > A homogeneous half disk of radius $R$ and area density $\sigma$ lies in the plane $Oxy$, centred at $O$, on the side of positive $y$. Find its mass and its centre of mass (notes), and its moments of inertia about the coordinate axes (left as an exercise in the notes).
 
-![[attachments/EM-T/t6-half-disk.svg]]
+![[attachments/EM-T/t6-half-disk.png]]
 
 > [!derivation] Mass element and mass of the half disk
 > **Law:** polar coordinates in the plane; area density
@@ -1432,7 +1432,7 @@ The notes illustrate the definitions with four homogeneous bodies of Fig. 10.2, 
 > [!example] Half sphere (Notes.pdf, Sec. 10.5; [Lecture 8, Slide 21])
 > A solid homogeneous half sphere (hemisphere) of radius $R$ and volume density $\rho$ has its flat face on the plane $Oxy$, centred at $O$, and lies on the side of positive $z$. Find its mass and its centre of mass (notes), and its moments and products of inertia about $O$ (left as an exercise in the notes). The spherical coordinates are those of Section 10: radius $r$, longitude $\theta$ measured in $Oxy$ from $Ox$, latitude $\phi$ measured from $Oxy$.
 
-![[attachments/EM-T/t6-half-sphere.svg]]
+![[attachments/EM-T/t6-half-sphere.png]]
 
 > [!warning] Erratum in the source
 > Eq. 10.32 of the notes reads "dm equals r squared cos phi dr dtheta dphi": the density is missing. The right-hand side is the volume element of Eq. 10.5, in cubic metres, so it cannot be a mass; Eq. 10.33, in the next line, does carry $\rho$. The note writes the mass element with $\rho$. The same paragraph refers to the half sphere as Fig. 10.2(c); it is Fig. 10.2(d).
@@ -1714,7 +1714,7 @@ The tensor of inertia depends on the point about which it is taken. Steiner's th
 | $\boldsymbol{\mathcal I}_G$ | tensor of inertia about $G$ |
 | $I_{z_G}$, $I_{z_0}$ | moments of inertia about the parallel axes $Gz_G$ and $Oz_0$ |
 
-![[attachments/EM-T/t6-steiner.svg]]
+![[attachments/EM-T/t6-steiner.png]]
 
 > [!derivation] The first moment about the centre of mass vanishes
 > **Law:** definition of the centre of mass; linearity of the integral
@@ -1798,7 +1798,7 @@ The tensor of inertia depends on the point about which it is taken. Steiner's th
 
 Often only the moment of inertia about an axis $Gz_G$ through $G$ is known and the moment about a parallel axis $Oz_0$ is needed, as in planar problems, where only the moment about the axis normal to the plane of motion enters (Notes.pdf, Sec. 10.8.1; [Lecture 8, Slide 16]).
 
-![[attachments/EM-T/t6-parallel-axis.svg]]
+![[attachments/EM-T/t6-parallel-axis.png]]
 
 > [!derivation] Parallel axis theorem
 > **Law:** Eq. 10.11 with the coordinates split at $G$; Eq. 10.44
