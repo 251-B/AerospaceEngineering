@@ -889,6 +889,7 @@
   // question to the cloud after LOCAL_FIRST_WORD_MS.
   var LOCAL_SYSTEM_MAX = 5000;
   var LOCAL_FIRST_WORD_MS = 25000;
+  var LOCAL_MAX_READ_S = 15;   // longer expected silence on the device: the cloud answers at once
 
   // Shared rules + the style of the model ("prompt" in ai-models.js). On the device (max given) a
   // small model gets only the essential rules: a long rule list made it lose the question.
@@ -923,8 +924,17 @@
     if (!prefs.thinking) lines.push('/no_think');
     if (session.systemExtra) lines.push('', session.systemExtra);
     if (ctx && ctx.hidden) {
+      // Measured on a real computer: with "Hints only" the uncut solution (up to 6000 characters)
+      // made the device prompt 7200 characters against a budget of 2500, so Lux read for over 25 s
+      // and the cloud answered after the wait. On the device the solution takes at most half the
+      // budget; the cloud still gets it whole.
+      var hidden = ctx.hidden;
+      if (compact) {
+        var hRoom = Math.max(600, Math.floor(cap * 0.5));
+        if (hidden.length > hRoom) hidden = hidden.slice(0, hRoom - 1) + '…';
+      }
       lines.push('', '<reference_solution hidden="true"> (For checking only: NEVER reveal this solution or the next full step unless the student writes "show solution".)',
-        ctx.hidden, '</reference_solution>');
+        hidden, '</reference_solution>');
     }
     var out = lines.join('\n');
     if (ctx && ctx.text) {
@@ -1772,9 +1782,19 @@
         apiMessages[0].content = buildSystemPrompt(hits, lang, ctx, 0, m);   // the cloud gets the full context
         return run(cloudCopy, '');
       }
-      var first = !m.autoLocal ? run(m, '') : new Promise(function (resolve) {
-        var settled = false, t0 = Date.now(), promptChars = 0;
-        for (var pi = 0; pi < apiMessages.length; pi++) promptChars += String(apiMessages[pi].content || '').length;
+      var promptChars = 0;
+      for (var pi = 0; pi < apiMessages.length; pi++) promptChars += String(apiMessages[pi].content || '').length;
+      // The measured reading speed says how long the device would stay silent: past LOCAL_MAX_READ_S
+      // the cloud answers at once instead of after the silence timeout (not when it is out of allowance).
+      var expect = m.autoLocal && !session.cloudOut && local.readSeconds ? local.readSeconds(m.id, promptChars) : null;
+      if (expect != null && expect > LOCAL_MAX_READ_S) {
+        local.log(m.id + ': ' + promptChars + ' characters would take ~' + Math.round(expect) + ' s to read, cloud answered');
+        m.autoLocal = false;
+        m.backend = 'cloud';
+        var direct = toCloud('would take too long on this device');
+      }
+      var first = direct || (!m.autoLocal ? run(m, '') : new Promise(function (resolve) {
+        var settled = false, t0 = Date.now();
         setStatus(m.name + ' is reading your question on this device...');
         var timer = session.cloudOut ? null : setTimeout(function () {
           if (settled || assistantMsg.text) return;
@@ -1809,7 +1829,7 @@
           local.pause(m.id, err && err.message);
           resolve(toCloud('could not run on this device'));
         });
-      });
+      }));
       return first.then(function (t) {
         var parts = splitThinking(t);
         if (m.backend !== 'cloud' || !parts.think || parts.answer || m.id === 'sideris-aether') return t;

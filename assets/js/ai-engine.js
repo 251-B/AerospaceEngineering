@@ -381,7 +381,7 @@
   var LOCAL_KEY = 'ae_sideris_local';
   var GIB = 1073741824;
   var MIN_TOKENS_PER_SEC = 3;   // slower than this, an answer on the device is worse than the cloud
-  var PROBE_V = 3;              // bump when the checks change: verdicts of older checks are dropped (crashes are kept)
+  var PROBE_V = 4;             // bump when the checks change: verdicts of older checks are dropped (crashes are kept)
   var localState = parseLocal(readStore(LOCAL_KEY));   // { ready: {id: true}, failed: {id: why}, loading: id }
   var localJob = null;          // model being downloaded: { id, name, startedAt, loaded, total }
   var localTodo = [];           // models still to download, in order
@@ -660,6 +660,18 @@
     }).then(function (m) { return m.done ? m : fetchParts(cache, url, m, src); });
   }
 
+  // True when every stored part of a complete file is still in the cache (lookups only, no reads).
+  function complete(url) {
+    return openParts().then(function (cache) {
+      return readMeta(cache, url).then(function (meta) {
+        if (!meta || !meta.done || meta.missing) return true;
+        var checks = [];
+        for (var i = 0; i < meta.parts; i++) checks.push(cache.match(partKey(url, i)));
+        return Promise.all(checks).then(function (rs) { return rs.every(Boolean); });
+      });
+    });
+  }
+
   // The stored parts of a complete file, streamed back as one response.
   function partsResponse(url) {
     return openParts().then(function (cache) {
@@ -685,7 +697,15 @@
       var url = String((key && key.url) || key);
       if (!/^https?:\/\//.test(url)) return Promise.resolve(undefined);   // local paths: not ours
       remember(url);
-      return downloadFile(url).then(function () { return partsResponse(url); })
+      return downloadFile(url).then(function () { return complete(url); }).then(function (ok) {
+        // Seen in testing: the browser evicted stored parts under storage pressure and the GPU load
+        // failed half way ("a stored part is missing"), which marked the model failed for good.
+        // A file with a part gone is forgotten and downloaded again before it is read.
+        return ok ? null : openParts().then(function (cache) {
+          note('parts of ' + url.split('/').pop() + ' were evicted, downloading again');
+          return cache.delete(metaKey(url));
+        }).then(function () { return downloadFile(url); });
+      }).then(function () { return partsResponse(url); })
         .catch(function () { return undefined; });   // network trouble: Transformers.js fetches it itself
     },
     put: function (key, res) {
@@ -817,7 +837,7 @@
       note(m.id + ': error ' + msg.slice(0, 160));
       // a dropped download is tried again (later on this page, or on the next one); anything else
       // means this device can't run the model
-      if (/fetch|network|load failed|abort|HTTP 5|HTTP 429|Incomplete part/i.test(msg)) retry = true;
+      if (/fetch|network|load failed|abort|HTTP 5|HTTP 429|Incomplete part|stored part/i.test(msg)) retry = true;
       else localState.failed[m.id] = msg.slice(0, 120);
     }).then(function () {
       localState.loading = '';
@@ -974,6 +994,11 @@
       promptBudget: function (id) {
         var v = localState.read[id];
         return v ? Math.max(1500, Math.min(5000, Math.round(v * 8))) : 2500;
+      },
+      // Expected seconds before the first word for a prompt of this size, or null before any measure.
+      readSeconds: function (id, chars) {
+        var v = localState.read[id];
+        return v > 0 && chars > 0 ? chars / v : null;
       },
       markFailed: function (id, why) { delete localState.ready[id]; localState.failed[id] = String(why || 'error').slice(0, 120); saveLocal(); },
       // hot: the model in the GPU now; warming: the one being loaded into it

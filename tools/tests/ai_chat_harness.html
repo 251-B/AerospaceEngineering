@@ -172,6 +172,32 @@ window.addEventListener('load', function () {
           var hidden = sys.indexOf('<reference_solution hidden="true">');
           check('hints-only', hidden >= 0 && sys.indexOf('SECRET_RESULT_42') > hidden && sys.indexOf('SOCRATIC MODE') >= 0 &&
             sys.indexOf('Find the velocity profile') >= 0, 'solution hidden, Socratic rules on');
+          // Hints only on the device: the hidden solution is cut to the device budget (it made a 7200-character prompt)
+          window.AESiderisEngine.local.restore({ ready: { 'sideris-lux': true } });
+          window.AESideris.selectModel('sideris-lux');
+          window.AESideris.clearChat();
+          var longStep = document.createElement('p');
+          longStep.id = 'longStep';
+          longStep.textContent = new Array(1200).join('step ');   // ~6000 characters of solution
+          document.querySelector('.phase-block').appendChild(longStep);
+          return HOT('onnx-community/Qwen3.5-2B-ONNX').then(function () { return window.AESideris.sendUserMessage('give me a hint'); });
+        }).then(function () {
+          document.getElementById('longStep').remove();
+          var sys = lastReq.messages[0].content;
+          check('hints-only-fits-device', lastReq.model.backend === 'webgpu' && sys.length <= 2600 && sys.indexOf('<reference_solution') >= 0,
+            lastReq.model.backend + ' ' + sys.length + ' chars');
+          // Measured reading speed too slow for this prompt: the cloud answers at once, no silent wait
+          window.AESiderisEngine.local.restore({ ready: { 'sideris-lux': true }, read: { 'sideris-lux': 20 } });
+          window.AESideris.clearChat();
+          var t0 = Date.now();
+          return window.AESideris.sendUserMessage('give me another hint').then(function () {
+            var log = window.AESiderisEngine.local.state().log.join(' | ');
+            check('slow-read-goes-to-cloud', lastReq.model.backend === 'cloud' && Date.now() - t0 < 3000 && /would take/.test(log),
+              lastReq.model.backend + ' ' + (Date.now() - t0) + ' ms');
+            window.AESiderisEngine.local.restore({});
+            window.AESideris.selectModel('sideris-aether');
+          });
+        }).then(function () {
           window.AESideris.setHintsOnly(false);
           // 8. Ask Sideris from a selection: the selected text reaches the next question
           window.AESideris.clearChat();
@@ -462,6 +488,16 @@ window.addEventListener('load', function () {
               ignoreRange = false;
               return C.match(url5).then(function (res) { return res.text(); }).then(function (text) {
                 check('download-parallel-server-ignores-range', text === file && meta.parts === 10, meta.parts + ' parts, ' + text.length + ' chars');
+              });
+            });
+          }).then(function () {
+            // A part evicted by the browser after the file was complete: downloaded again, not a failed model
+            var url3 = 'https://huggingface.co/test/model/resolve/main/onnx/par_q4f16.onnx_data';
+            return memStore.open('sideris-models').then(function (c) { return c.delete(url3 + '?sideris_part=3'); }).then(function () {
+              var n0 = reqs.length;
+              return C.match(url3).then(function (res) { return res ? res.text() : 'undefined'; }).then(function (text) {
+                var asked = reqs.slice(n0).filter(function (r) { return r.indexOf('par_q4f16') === 0; }).length;
+                check('download-evicted-part-refetched', text === file && asked > 0, asked + ' requests, ' + text.length + ' chars');
               });
             });
           }).then(function () {

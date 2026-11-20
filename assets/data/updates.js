@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-20-sideris-hints-on-device",
+    "date": "2026-11-20",
+    "tag": "Portal",
+    "title": "Hints only answers faster with Sideris on your computer",
+    "text": "With Hints only on, the model on your computer now reads a shorter question. If it would still be slow, the cloud answers at once instead of after a wait."
+  },
+  {
     "id": "2026-11-20-sideris-local-first-word",
     "date": "2026-11-20",
     "tag": "Portal",
