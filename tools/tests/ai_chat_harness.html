@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <title>Sideris AI chat harness</title>
 <link rel="stylesheet" href="../../assets/css/study-surface.css">
-<script>window.AE_SIDERIS_NO_AUTOSTART = true;   // the scenarios set the device themselves</script>
 <script src="../../assets/js/theme.js"></script>
 <script src="../../assets/js/ask-ai.js"></script>
 </head>
@@ -24,8 +23,6 @@ window.addEventListener('load', function () {
   function check(name, pass, detail) {
     out.push({ name: name, pass: !!pass, detail: detail || '' });
   }
-  // put a model in the (mock) GPU, as the background preload does on a real page
-  function HOT(repo) { return window.AESiderisEngine.loadWebGPU({ repo: repo, dtype: 'q4f16' }); }
   function finish() {
     document.getElementById('results').textContent = JSON.stringify(out);
   }
@@ -172,31 +169,18 @@ window.addEventListener('load', function () {
           var hidden = sys.indexOf('<reference_solution hidden="true">');
           check('hints-only', hidden >= 0 && sys.indexOf('SECRET_RESULT_42') > hidden && sys.indexOf('SOCRATIC MODE') >= 0 &&
             sys.indexOf('Find the velocity profile') >= 0, 'solution hidden, Socratic rules on');
-          // Hints only on the device: the hidden solution is cut to the device budget (it made a 7200-character prompt)
-          window.AESiderisEngine.local.restore({ ready: { 'sideris-lux': true } });
-          window.AESideris.selectModel('sideris-lux');
+          // Hints only: the cloud gets the whole solution, however long
           window.AESideris.clearChat();
           var longStep = document.createElement('p');
           longStep.id = 'longStep';
-          longStep.textContent = new Array(1200).join('step ');   // ~6000 characters of solution
+          longStep.textContent = new Array(900).join('step ') + 'LONG_STEP_END';   // ~4500 characters, under the 6000 of a card
           document.querySelector('.phase-block').appendChild(longStep);
-          return HOT('onnx-community/Qwen3.5-2B-ONNX').then(function () { return window.AESideris.sendUserMessage('give me a hint'); });
+          return window.AESideris.sendUserMessage('give me a hint');
         }).then(function () {
           document.getElementById('longStep').remove();
           var sys = lastReq.messages[0].content;
-          check('hints-only-fits-device', lastReq.model.backend === 'webgpu' && sys.length <= 2600 && sys.indexOf('<reference_solution') >= 0,
+          check('hints-only-cloud-full-solution', lastReq.model.backend === 'cloud' && sys.indexOf('LONG_STEP_END') > 0,
             lastReq.model.backend + ' ' + sys.length + ' chars');
-          // Measured reading speed too slow for this prompt: the cloud answers at once, no silent wait
-          window.AESiderisEngine.local.restore({ ready: { 'sideris-lux': true }, read: { 'sideris-lux': 20 } });
-          window.AESideris.clearChat();
-          var t0 = Date.now();
-          return window.AESideris.sendUserMessage('give me another hint').then(function () {
-            var log = window.AESiderisEngine.local.state().log.join(' | ');
-            check('slow-read-goes-to-cloud', lastReq.model.backend === 'cloud' && Date.now() - t0 < 3000 && /would take/.test(log),
-              lastReq.model.backend + ' ' + (Date.now() - t0) + ' ms');
-            window.AESiderisEngine.local.restore({});
-            window.AESideris.selectModel('sideris-aether');
-          });
         }).then(function () {
           window.AESideris.setHintsOnly(false);
           // 8. Ask Sideris from a selection: the selected text reaches the next question
@@ -274,291 +258,27 @@ window.addEventListener('load', function () {
             check('dropped-stream-keeps-partial-answer', !last.error && /^PARTIAL_ANSWER/.test(last.text) && /connection dropped/.test(last.text), last.text.slice(0, 120));
           });
         }).then(function () {
-          // Automatic local models: tiers from the device signals
-          var L = window.AESiderisEngine.local, G = 1073741824;
-          var base = { webgpu: true, f16: true, mobile: false, saveData: false, memGB: 8, maxBuffer: 4 * G, freeMB: 1e6 };
-          function sig(o) { var x = {}; for (var k in base) x[k] = base[k]; for (var j in o) x[j] = o[j]; return x; }
-          var tiers = [L.classify(base), L.classify(sig({ maxBuffer: 1.5 * G })), L.classify(sig({ mobile: true })),
-            L.classify(sig({ f16: false })), L.classify(sig({ webgpu: false })), L.classify(sig({ memGB: 4 })),
-            L.classify(sig({ memGB: 0 })), L.classify(sig({ saveData: true })), L.classify(sig({ maxBuffer: 2 * G }))].join(',');
-          check('local-tiers', tiers === '2,1,0,2,0,1,2,0,1', tiers);   // no shader-f16: the q4 build, same tier
-          // Crash guard: a model still marked "loading" on the next visit is never tried again
-          L.restore({ loading: 'sideris-lux' });
-          check('local-crash-guard', !!L.state().failed['sideris-lux'] && !L.isReady('sideris-lux'), JSON.stringify(L.state().failed));
-          // A "too slow" verdict of an older probe is dropped (the first probe timed the GPU warm-up);
-          // a crash verdict is kept
-          L.restore({ failed: { 'sideris-lux': 'too slow on this device (1.4 tokens/s)', 'sideris-orion': 'the tab closed while loading' } });
-          var f = L.state().failed;
-          check('local-old-slow-verdict-retried', !f['sideris-lux'] && !!f['sideris-orion'], JSON.stringify(f));
-          L.restore({});
-          // A tier-2 computer installs Lux, Aether and Orion (Titan stays in the cloud) and then answers on it
-          var calls = [];
-          window.AESiderisEngine.setMock(function (req, cb) {
-            calls.push(req.model.backend + ':' + req.model.id);
-            var out = 'LOCAL_OR_CLOUD ' + req.model.backend;
-            for (var i = 0; i < 16; i++) cb.onToken('t', out);
-            return Promise.resolve(out);
-          });
-          return L.start(window.AESideris.models(), base).then(function () {
-            var ready = L.state().ready.sort().join(',');
-            check('local-installs-what-fits', ready === 'sideris-aether,sideris-lux,sideris-orion', ready);
-            // after installing in the background, the model that was in the GPU is put back
-            return window.AESiderisEngine.loadWebGPU({ repo: 'onnx-community/Qwen3.5-2B-ONNX', dtype: 'q4f16' }).then(function () {
-              L.restore({ ready: { 'sideris-lux': true } });
-              return L.start(window.AESideris.models(), base);
-            }).then(function () {
-              var key = window.AESiderisEngine.loadedKey();
-              check('local-gpu-model-put-back', key === 'onnx-community/Qwen3.5-2B-ONNX::q4f16' && /back in GPU/.test(L.state().log.join(' ')), key);
-            });
-          }).then(function () {
-            // Installed but not yet in the GPU on this page: the cloud answers at once
-            window.AESideris.clearChat();
-            window.AESideris.selectModel('sideris-aether');
-            return window.AESideris.sendUserMessage('Not loaded yet?');
-          }).then(function (text) {
-            check('local-waits-for-gpu-cloud-answers', text === 'LOCAL_OR_CLOUD cloud', text);
-            return HOT('onnx-community/Qwen3.5-4B-ONNX');
-          }).then(function () {
-            window.AESideris.clearChat();
-            return window.AESideris.sendUserMessage('What is a streamline?');
-          }).then(function (text) {
-            var last = window.AESideris.history()[0].messages.slice(-1)[0];
-            check('local-answers-on-device', /webgpu/.test(text) && /on this device/.test(last.modelName), text + ' | ' + last.modelName);
-            // The device fails: the model is marked and the cloud answers
-            window.AESiderisEngine.setMock(function (req, cb) {
-              if (req.model.backend === 'webgpu') return Promise.reject(new Error('GPU device lost'));
-              cb.onToken('CLOUD', 'CLOUD'); return Promise.resolve('CLOUD');
-            });
-            window.AESideris.clearChat();
-            return window.AESideris.sendUserMessage('And a pathline?');
-          }).then(function (text) {
-            check('local-failure-falls-back-to-cloud', text === 'CLOUD' && !L.isReady('sideris-aether') && !L.state().failed['sideris-aether'] &&
-              /set aside for this page/.test(L.state().log.join(' ')), text + ' | ' + JSON.stringify(L.state().failed));
-            // A device that stays silent hands the question to the cloud, with the full context
-            L.restore({ ready: { 'sideris-lux': true } });
-            window.AESideris.selectModel('sideris-lux');
-            window.AESideris._setLocalFirstWordMs(300);
-            var cloudSys = '';
-            window.AESiderisEngine.setMock(function (req, cb) {
-              if (req.model.backend === 'webgpu') return new Promise(function (r) { setTimeout(function () { r(''); }, 2000); });
-              cloudSys = req.messages[0].content; cb.onToken('CLOUD_AFTER_SILENCE', 'CLOUD_AFTER_SILENCE'); return Promise.resolve('CLOUD_AFTER_SILENCE');
-            });
-            window.AESideris.clearChat();
-            return HOT('onnx-community/Qwen3.5-2B-ONNX').then(function () { return window.AESideris.sendUserMessage('Is the device silent?'); });
-          }).then(function (text) {
-            window.AESideris._setLocalFirstWordMs(25000);
-            var log = L.state().log.join(' | ');
-            check('local-silence-falls-back-to-cloud', text === 'CLOUD_AFTER_SILENCE' && L.isReady('sideris-lux') && /no first word/.test(log), text + ' | ' + log.slice(-120));
-            window.AESideris.selectModel('sideris-aether');
-            // Too slow on this device: not used
-            L.restore({});
-            // 4 tokens 700 ms apart after a quick warm-up: 1.4 tokens/s of real decoding
-            window.AESiderisEngine.setMock(function (req, cb) {
-              if (req.maxTokens <= 4) return Promise.resolve('');
-              return new Promise(function (r) {
-                var i = 0;
-                (function tick() { cb.onToken('t', 't'); if (++i < 4) setTimeout(tick, 700); else r('tttt'); })();
-              });
-            });
-            return L.start(window.AESideris.models(), sig({ maxBuffer: 1.5 * G }));
-          }).then(function () {
-            check('local-slow-device-stays-in-cloud', !L.isReady('sideris-lux') && /slow/.test(L.state().failed['sideris-lux'] || ''), JSON.stringify(L.state().failed) + ' | ' + L.state().log.slice(-4).join(' | '));
-            // Out of the cloud allowance while a model downloads: the wait time replaces "tomorrow"
-            var realEta = L.eta;
-            L.eta = function () { return { seconds: 540, name: 'Sideris Aether' }; };
-            window.AESiderisEngine.setMock(function () {
-              return Promise.reject(new Error("You have used today's Sideris allowance. It resets tomorrow (00:00 UTC)."));
-            });
-            window.AESideris.clearChat();
-            return window.AESideris.sendUserMessage('One more?').then(function () {
-              L.eta = realEta;
-              var last = window.AESideris.history()[0].messages.slice(-1)[0];
-              check('allowance-shows-local-wait', /about 9 minutes/.test(last.text) && /unlimited/.test(last.text), last.text);
-              L.restore({});
-              window.AESideris.selectModel('sideris-aether');
-            });
+          // Cloud only: the files and keys of the old on-device models are removed
+          try { localStorage.setItem('ae_sideris_local', '{}'); localStorage.setItem('ae_sideris_files', '{}'); } catch (e) { /* blocked */ }
+          return caches.open('sideris-models').then(function (c) { return c.put('https://example.test/part', new Response('x')); }).then(function () {
+            return window.AESiderisEngine.cleanupLocal();
+          }).then(function () { return caches.keys(); }).then(function (names) {
+            var keys = localStorage.getItem('ae_sideris_local') === null && localStorage.getItem('ae_sideris_files') === null;
+            check('old-local-models-cleaned', names.indexOf('sideris-models') < 0 && keys && !window.AESiderisEngine.local, names.join(',') + ' keys ' + keys);
           });
         }).then(function () {
-          // Resumable model files: a fake server with byte ranges, parts of 10 bytes
-          var T = window.AESiderisEngine.local._test, C = window.AESiderisEngine.local.cache;
-          var file = ''; for (var i = 0; i < 95; i++) file += String.fromCharCode(65 + (i % 26));
-          var reqs = [], fail = { '30': 6 }, ignoreRange = false;   // 6 failures: the first try and its 5 retries
-          // The Cache API does real disk work that the headless virtual clock does not wait for, so the
-          // harness swaps in a memory store with the same match/put/delete (the real one is checked in a browser).
-          function memCache() {
-            var m = {};
-            return {
-              match: function (k) { var b = m[String(k.url || k)]; return Promise.resolve(b === undefined ? undefined : new Response(b)); },
-              put: function (k, r) { return r.arrayBuffer().then(function (b) { m[String(k.url || k)] = b; }); },
-              delete: function (k) { delete m[String(k.url || k)]; return Promise.resolve(true); }
-            };
-          }
-          var memStore = { c: {}, open: function (n) { return Promise.resolve(this.c[n] || (this.c[n] = memCache())); } };
-          T.setStore(memStore);
-          T.setChunk(10);
-          T.setRetryMs(1);
-          T.setFetch(function (url, opts) {
-            var range = /bytes=(\d+)-(\d+)/.exec((opts && opts.headers && opts.headers.Range) || '');
-            reqs.push(url.split('/').pop() + ':' + (range ? range[1] : 'all'));
-            if (/\/api\/models\//.test(url)) return Promise.resolve(new Response(JSON.stringify([
-              { type: 'file', path: 'config.json', size: 700 }, { type: 'file', path: 'README.md', size: 50 },
-              { type: 'file', path: 'onnx/model_q4f16.onnx', size: 300 }, { type: 'file', path: 'onnx/model_q4f16.onnx_data', size: 9, lfs: { size: 1990 } },
-              { type: 'file', path: 'onnx/model_q4.onnx', size: 310 }, { type: 'file', path: 'onnx/model_q4.onnx_data', size: 9, lfs: { size: 2400 } },
-              { type: 'file', path: 'onnx/model_fp16.onnx', size: 320 }]), { status: 200 }));
-            if (/missing\.json$/.test(url)) return Promise.resolve(new Response('', { status: 404 }));
-            var key = range ? range[1] : '';
-            if (fail[key] > 0 && url.indexOf(failFile) >= 0) { fail[key]--; return Promise.reject(new TypeError('Failed to fetch')); }
-            if (!range || ignoreRange) return Promise.resolve(new Response(file, { status: 200 }));
-            var a = +range[1], b = Math.min(+range[2], file.length - 1);
-            if (a >= file.length) return Promise.resolve(new Response('', { status: 416 }));
-            // parts answer in a random order, as parallel requests do
-            return new Promise(function (r) { setTimeout(function () { r(new Response(file.slice(a, b + 1), { status: 206 })); }, Math.random() * 8); });
-          });
-          var big = 'https://huggingface.co/test/model/resolve/main/onnx/model_q4f16.onnx_data', failFile = 'model_q4f16.onnx_data';
-          return T.download(big).then(function () { return 'no failure'; }, function (e) { return e.message; }).then(function (first) {
-            var before = reqs.length;
-            return T.download(big).then(function (meta) {
-              var again = reqs.slice(before);
-              check('download-resumes-after-a-cut', first === 'Failed to fetch' && again[0] === 'model_q4f16.onnx_data:30' && again.indexOf('model_q4f16.onnx_data:0') < 0 && meta.done && meta.size === 95,
-                first + ' | resumed with ' + again.join(','));
-              return C.match(big);
-            });
-          }).then(function (res) { return res.text(); }).then(function (text) {
-            check('download-parts-read-back-whole', text === file && (T.files()['test/model'] || []).indexOf(big) >= 0, text.length + ' chars');
-            return C.match('https://huggingface.co/test/model/resolve/main/missing.json');
-          }).then(function (res) {
-            check('download-missing-file', res === undefined, String(res));
-            ignoreRange = true;
-            return C.match('https://huggingface.co/test/model/resolve/main/config.json');
-          }).then(function (res) { return res.text(); }).then(function (text) {
-            check('download-server-ignores-range', text === file, text.length + ' chars');
-            ignoreRange = false;
-            // A file kept by the old Transformers.js cache moves over without a download
-            var old = 'https://huggingface.co/test/model/resolve/main/tokenizer.json';
-            return memStore.open('transformers-cache').then(function (c) { return c.put(old, new Response('LEGACY_TOKENIZER')).then(function () { return c; }); })
-              .then(function (c) {
-                var n = reqs.length;
-                return C.match(old).then(function (res) { return res.text(); }).then(function (text) {
-                  return c.match(old).then(function (left) {
-                    check('download-legacy-cache-moved', text === 'LEGACY_TOKENIZER' && reqs.length === n && !left, text + ' | requests ' + (reqs.length - n));
-                  });
-                });
-              });
-          }).then(function () {
-            // A dropped part is retried on the same page (twice here) instead of stopping the download
-            var url2 = 'https://huggingface.co/test/model/resolve/main/onnx/retry_q4f16.onnx_data';
-            failFile = 'retry_q4f16.onnx_data'; fail = { '40': 2 };
-            var n0 = reqs.length;
-            return T.download(url2).then(function (meta) {
-              var tries = reqs.slice(n0).filter(function (r) { return r === 'retry_q4f16.onnx_data:40'; }).length;
-              check('download-retries-on-the-same-page', meta.done && meta.size === 95 && tries === 3, 'tries at 40: ' + tries);
-            });
-          }).then(function () {
-            // Size known: parts in parallel, answering out of order, read back in order
-            var url3 = 'https://huggingface.co/test/model/resolve/main/onnx/par_q4f16.onnx_data';
-            T.setSize(url3, 95);
-            failFile = 'none'; var n0 = reqs.length;
-            return T.download(url3).then(function (meta) {
-              var asked = reqs.slice(n0).filter(function (r) { return r.indexOf('par_q4f16') === 0; }).length;
-              return C.match(url3).then(function (res) { return res.text(); }).then(function (text) {
-                check('download-parallel-parts-in-order', text === file && asked === 10 && meta.parts === 10, asked + ' requests, ' + text.length + ' chars');
-              });
-            });
-          }).then(function () {
-            // Parallel and cut: the next visit asks only for the part that is missing
-            var url4 = 'https://huggingface.co/test/model/resolve/main/onnx/cut_q4f16.onnx_data';
-            T.setSize(url4, 95);
-            failFile = 'cut_q4f16.onnx_data'; fail = { '70': 6 };
-            return T.download(url4).then(function () { return 'no failure'; }, function (e) { return e.message; }).then(function (first) {
-              var n0 = reqs.length;
-              return T.download(url4).then(function (meta) {
-                var again = reqs.slice(n0).filter(function (r) { return r.indexOf('cut_q4f16') === 0; });
-                return C.match(url4).then(function (res) { return res.text(); }).then(function (text) {
-                  check('download-parallel-resumes-missing-only', first === 'Failed to fetch' && again.join(',') === 'cut_q4f16.onnx_data:70' && text === file,
-                    first + ' | then ' + again.join(','));
-                });
-              });
-            });
-          }).then(function () {
-            // Parallel against a server that ignores ranges: the whole body is streamed into parts
-            var url5 = 'https://huggingface.co/test/model/resolve/main/onnx/norange_q4f16.onnx_data';
-            T.setSize(url5, 95);
-            failFile = 'none'; ignoreRange = true;
-            return T.download(url5).then(function (meta) {
-              ignoreRange = false;
-              return C.match(url5).then(function (res) { return res.text(); }).then(function (text) {
-                check('download-parallel-server-ignores-range', text === file && meta.parts === 10, meta.parts + ' parts, ' + text.length + ' chars');
-              });
-            });
-          }).then(function () {
-            // A part evicted by the browser after the file was complete: downloaded again, not a failed model
-            var url3 = 'https://huggingface.co/test/model/resolve/main/onnx/par_q4f16.onnx_data';
-            return memStore.open('sideris-models').then(function (c) { return c.delete(url3 + '?sideris_part=3'); }).then(function () {
-              var n0 = reqs.length;
-              return C.match(url3).then(function (res) { return res ? res.text() : 'undefined'; }).then(function (text) {
-                var asked = reqs.slice(n0).filter(function (r) { return r.indexOf('par_q4f16') === 0; }).length;
-                check('download-evicted-part-refetched', text === file && asked > 0, asked + ' requests, ' + text.length + ' chars');
-              });
-            });
-          }).then(function () {
-            // The listing keeps the root files and the ONNX files of the device's build only; q4 without shader-f16
-            return T.list({ repo: 'test/model' }, 'q4').then(function (files) {
-              var names = files.map(function (f) { return f.url.split('/main/')[1] + ':' + f.size; }).join(',');
-              var L2 = window.AESiderisEngine.local;
-              L2.restore({ noF16: true });
-              var noF16 = L2.dtypeFor({ dtype: 'q4f16' });
-              L2.restore({});
-              check('download-list-and-build', names === 'config.json:700,onnx/model_q4.onnx:310,onnx/model_q4.onnx_data:2400' &&
-                noF16 === 'q4' && L2.dtypeFor({ dtype: 'q4f16' }) === 'q4f16', names + ' | ' + noF16);
-            });
-          }).then(function () {
-            T.setFetch(function (u, o) { return fetch(u, o); });
-            T.setChunk(32 * 1048576);
-            T.setStore(window.caches);
-          });
-        }).then(function () {
-          // Each model gets its own style; a greeting carries no page context or notes; on the device the rules are short
+          // Each model gets its own style; a greeting carries no page context or notes
           var seen = [];
           window.AESiderisEngine.setMock(function (req, cb) { seen.push(req); cb.onToken('Hi!', 'Hi!'); return Promise.resolve('Hi!'); });
-          window.AESiderisEngine.local.restore({ ready: { 'sideris-lux': true } });
           window.AESideris.selectModel('sideris-lux');
           window.AESideris.clearChat();
-          return HOT('onnx-community/Qwen3.5-2B-ONNX').then(function () { return window.AESideris.sendUserMessage('hola'); }).then(function () {
+          return window.AESideris.sendUserMessage('hola').then(function () {
             return window.AESideris.sendUserMessage('What is the velocity profile here?');
           }).then(function () {
             var hola = seen[0].messages[0].content, real = seen[1].messages[0].content;
             check('prompt-per-model-and-greeting', /Sideris Lux/.test(hola) && /fast and brief/.test(hola) &&
               hola.indexOf('[WHAT THE STUDENT') < 0 && hola.indexOf('COURSE NOTES') < 0 && real.indexOf('[WHAT THE STUDENT') >= 0,
               'greeting ' + hola.length + ' chars, question ' + real.length + ' chars');
-            check('prompt-compact-on-device', seen[1].model.backend === 'webgpu' && real.length <= 5000 && real.indexOf('Be easy to scan') < 0,
-              seen[1].model.backend + ' ' + real.length + ' chars');
-            window.AESiderisEngine.local.restore({});
-            window.AESideris.selectModel('sideris-aether');
-          });
-        }).then(function () {
-          // Out of cloud allowance: a model installed but not yet in the GPU is waited for instead
-          var L3 = window.AESiderisEngine.local;
-          L3.restore({ ready: { 'sideris-lux': true } });
-          window.AESiderisEngine.setMock(function (req, cb) {
-            if (req.model.backend !== 'webgpu') return Promise.reject(new Error("You have used today's Sideris allowance. It resets tomorrow (00:00 UTC)."));
-            cb.onToken('LUX_LOCAL', 'LUX_LOCAL'); return Promise.resolve('LUX_LOCAL');
-          });
-          return HOT('onnx-community/Qwen3.5-4B-ONNX').then(function () {   // another model is in the GPU
-            window.AESideris.selectModel('sideris-lux');
-            window.AESideris.clearChat();
-            return window.AESideris.sendUserMessage('First question');
-          }).then(function () {
-            return window.AESideris.sendUserMessage('Second question');
-          }).then(function (text) {
-            check('cloud-out-waits-for-device', text === 'LUX_LOCAL', text);
-            // Prompt size follows the measured reading speed of the device (default 2500, 1500..5000)
-            var b0 = L3.promptBudget('sideris-test-x');
-            L3.readSpeed('sideris-test-x', 3000, 30000);   // 100 characters/s: slow GPU
-            var b1 = L3.promptBudget('sideris-test-x');
-            L3.readSpeed('sideris-test-x', 3000, 1000);    // fast GPU now
-            var b2 = L3.promptBudget('sideris-test-x');
-            check('local-prompt-budget', b0 === 2500 && b1 === 1500 && b2 === 5000, [b0, b1, b2].join(' '));
-            L3.restore({});
             window.AESideris.selectModel('sideris-aether');
           });
         }).then(function () {

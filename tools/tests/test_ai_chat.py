@@ -45,8 +45,19 @@ class SiderisStaticTests(unittest.TestCase):
         self.assertEqual(defaults, ["sideris-aether"])
         for m in models:
             self.assertEqual(m["backend"], "cloud")
-            self.assertIn(m["offlineBackend"], {"webgpu", "ollama"})
-            self.assertTrue(m["repo"].strip())
+            # cloud only: nothing is installed on the device any more
+            for key in ("localTier", "offlineBackend", "repo", "sizeMB"):
+                self.assertNotIn(key, m)
+
+    def test_engine_is_cloud_only_and_cleans_old_downloads(self):
+        engine = ENGINE_JS.read_text(encoding="utf-8")
+        chat = CHAT_JS.read_text(encoding="utf-8")
+        for text in (engine, chat):
+            self.assertNotIn("transformers@", text)
+            self.assertNotIn("navigator.gpu", text)
+        self.assertIn("sideris-models|transformers-cache", engine)
+        self.assertIn("'ae_sideris_local', 'ae_sideris_files'", engine)
+        self.assertIn("engine.cleanupLocal", chat)
 
     def test_cloud_worker_and_config_contain_no_secrets(self):
         cfg = (REPO / "assets/data/sideris-config.js").read_text(encoding="utf-8")
@@ -181,7 +192,7 @@ class SiderisBrowserTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_harness_ran_every_scenario(self):
-        self.assertEqual(len(self.results), 59)
+        self.assertEqual(len(self.results), 34)
 
     def test_prebuilt_index_tokenizer_matches_the_browser(self):
         sys.path.insert(0, str(REPO / "tools"))

@@ -11,9 +11,8 @@
  *     and live split-view docking (72% AI Studio + 28% live study page on desktop, with
  *     one-click Split / Fullscreen toggle).
  *   - Clean modern sans-serif UI (Inter / system-ui), inline model picker for Sideris Lux,
- *     Sideris Aether (default), Sideris Orion and Sideris Titan: the cloud (Cloudflare Workers AI)
- *     at once, and each model on this computer as soon as it has installed itself (ai-engine.js);
- *     nothing to set up.
+ *     Sideris Aether (default), Sideris Orion and Sideris Titan, all answered by the cloud
+ *     (Cloudflare Workers AI, ai-engine.js); nothing to set up and nothing downloaded.
  *   - Seamless handoff from assets/js/ask-ai.js keeping <reference_solution hidden="true">
  *     out of the visible chat DOM.
  *   - Client-side RAG grounding over vault/ shards (assets/js/ai-rag.js), safe DOM Markdown
@@ -98,9 +97,7 @@
     for (var i = 0; i < MODELS.length; i++) if (MODELS[i].id === id) return MODELS[i];
     return MODELS[0] || {
       id: 'sideris-aether', name: 'Sideris Aether', tier: 'Recommended',
-      backend: 'cloud', offlineBackend: 'webgpu',
-      repo: 'onnx-community/Qwen3.5-4B-ONNX', dtype: 'q4f16',
-      sizeLabel: '0 MB · Instant', offlineSizeLabel: '~2.5 GB'
+      backend: 'cloud', sizeLabel: 'Cloud'
     };
   }
 
@@ -239,60 +236,13 @@
   };
   var ui = {};
 
-  // The "On this device" line of the settings: what is installed and what is coming.
-  function deviceSummary() {
-    var local = window.AESiderisEngine && window.AESiderisEngine.local;
-    if (!local) return 'Answers come from the cloud.';
-    var st = local.state();
-    if (st.tier === null) return 'Checking this device...';
-    if (st.tier === 0) return 'Answers come from the cloud on this device.';
-    var parts = MODELS.filter(function (x) { return local.isReady(x.id); }).map(function (x) {
-      var key = x.repo + '::' + local.dtypeFor(x);
-      return x.name + (st.hot === key ? ' ready' : st.warming === key ? ' loading on this device' : ' installed');
-    });
-    if (st.job) {
-      var pct = st.job.total ? Math.min(99, Math.floor(100 * st.job.loaded / st.job.total)) : 0;
-      var eta = local.eta();
-      parts.push(findModel(st.job.id).name + (st.job.phase === 'gpu' ? ' getting ready' : ' downloading ' + pct + ' %') +
-        (eta && st.job.phase !== 'gpu' ? ' · about ' + Math.ceil(eta.seconds / 60) + ' min' : ''));
-    }
-    var ready = MODELS.some(function (x) { return local.isReady(x.id); });
-    if (!parts.length) return 'Answers come from the cloud for now.';
-    return parts.join(' · ') + (ready ? '. Ready models answer here, with no daily limit.' : '. Until then answers come from the cloud.');
-  }
-
-  // Load the selected model into the GPU in the background when it is installed on this device;
-  // the picker switches to "On this device" once it is in.
-  function warm() {
-    var engine = window.AESiderisEngine, local = engine && engine.local;
-    var m = findModel(prefs.modelId);
-    if (!local || !local.isReady(m.id)) return;
-    var copy = {};
-    for (var k in m) copy[k] = m[k];
-    copy.dtype = local.dtypeFor(m);
-    local.prewarm(copy).then(function () { if (ui.drawer) syncUI(); });
-    if (ui.drawer) syncUI();
-  }
-
+  // Every model answers from the cloud (Cloudflare Workers AI): nothing is downloaded to the device.
   function activeModelConfig() {
     var base = findModel(prefs.modelId);
     var copy = {};
     for (var k in base) copy[k] = base[k];
     copy.backend = 'cloud';
     copy.sizeLabel = 'Cloud';
-    // Downloaded and probed on this computer: answer here (free, no daily allowance). Not while
-    // another model is loading into the GPU; a model that is only downloading leaves it free.
-    // Each page loads the model into the GPU again (a browser keeps nothing of the GPU across pages:
-    // ~15 s on a tested computer). Until it is in, questions go to the cloud and answer at once; a
-    // student out of cloud allowance waits for the device instead.
-    var engine = window.AESiderisEngine, local = engine && engine.local;
-    var dtype = local ? local.dtypeFor(copy) : copy.dtype;
-    if (local && local.isReady(copy.id) && !local.busy() && (engine.isLoaded(copy.repo, dtype) || session.cloudOut)) {
-      copy.backend = 'webgpu';
-      copy.dtype = dtype;   // q4 on GPUs without shader-f16
-      copy.autoLocal = true;
-      copy.sizeLabel = 'On this device';
-    }
     return copy;
   }
 
@@ -883,19 +833,10 @@
      system prompt here instead, in a fixed order: the rules and the Ask AI reference solution are
      never cut, the page context is shortened next, and the course notes take what room is left. */
   var SYSTEM_MAX = 15500;
-  // Tested on a real computer: a 2B model in the browser sat silent on the full 15000-character
-  // prompt (it has to read all of it before the first word). On the device the prompt is cut to
-  // this, in the same order (notes first, then page context), and a silent device hands the
-  // question to the cloud after LOCAL_FIRST_WORD_MS.
-  var LOCAL_SYSTEM_MAX = 5000;
-  var LOCAL_FIRST_WORD_MS = 25000;
-  var LOCAL_MAX_READ_S = 15;   // longer expected silence on the device: the cloud answers at once
 
-  // Shared rules + the style of the model ("prompt" in ai-models.js). On the device (max given) a
-  // small model gets only the essential rules: a long rule list made it lose the question.
-  function buildSystemPrompt(hits, lang, ctx, max, model) {
-    var cap = max || SYSTEM_MAX;
-    var compact = !!max;
+  // Shared rules + the style of the model ("prompt" in ai-models.js).
+  function buildSystemPrompt(hits, lang, ctx, model) {
+    var cap = SYSTEM_MAX;
     var slug = window.AESiderisRAG ? window.AESiderisRAG.currentSubject() : '';
     var business = slug === 'business-management';
     var lines = [
@@ -906,35 +847,22 @@
     lines.push(lang === 'es'
       ? '- Answer in natural, clear academic Spanish (unless the student writes in English). On first mention of a key English course term, add it in brackets, e.g. esfuerzo cortante [shear stress].'
       : '- Answer in clear academic English (unless the student explicitly writes in Spanish, in which case reply in Spanish with [English technical terms] on first mention).');
-    if (compact) {
-      lines.push('- Write formulas in LaTeX: $...$ inline, $$...$$ on their own line. Keep the notation of the course notes below.');
-    } else {
-      lines.push(
-        '- Be easy to scan: short headings (###), concise paragraphs, clean bullet lists. No walls of text, no emojis, never "Phase 1..4" labels.',
-        business
-          ? '- For accounting problems, present clean tables showing EBITDA -> EBIT -> EBT -> Net Income and balance sheet reconciliation.'
-          : '- Define every symbol with its SI unit on first mention, and close solved problems with a brief SI dimensional check.',
-        '- ALWAYS write LaTeX cleanly for KaTeX: put EVERY standalone or key equation on its own lines inside $$...$$, and wrap inline symbols in $...$. Never use \\euro (write € inside \\text{}), and never put bare & inside \\text{}.',
-        '- Stay faithful to the UC3M course notation and sign conventions from the course notes below.'
-      );
-    }
+    lines.push(
+      '- Be easy to scan: short headings (###), concise paragraphs, clean bullet lists. No walls of text, no emojis, never "Phase 1..4" labels.',
+      business
+        ? '- For accounting problems, present clean tables showing EBITDA -> EBIT -> EBT -> Net Income and balance sheet reconciliation.'
+        : '- Define every symbol with its SI unit on first mention, and close solved problems with a brief SI dimensional check.',
+      '- ALWAYS write LaTeX cleanly for KaTeX: put EVERY standalone or key equation on its own lines inside $$...$$, and wrap inline symbols in $...$. Never use \\euro (write € inside \\text{}), and never put bare & inside \\text{}.',
+      '- Stay faithful to the UC3M course notation and sign conventions from the course notes below.'
+    );
     if (session.socratic || (ctx && ctx.hidden)) {
       lines.push('- SOCRATIC MODE IS ACTIVE: never reveal the final solution or the next full step unless the student writes "show solution". Ask one focused guiding question at a time.');
     }
     if (!prefs.thinking) lines.push('/no_think');
     if (session.systemExtra) lines.push('', session.systemExtra);
     if (ctx && ctx.hidden) {
-      // Measured on a real computer: with "Hints only" the uncut solution (up to 6000 characters)
-      // made the device prompt 7200 characters against a budget of 2500, so Lux read for over 25 s
-      // and the cloud answered after the wait. On the device the solution takes at most half the
-      // budget; the cloud still gets it whole.
-      var hidden = ctx.hidden;
-      if (compact) {
-        var hRoom = Math.max(600, Math.floor(cap * 0.5));
-        if (hidden.length > hRoom) hidden = hidden.slice(0, hRoom - 1) + '…';
-      }
       lines.push('', '<reference_solution hidden="true"> (For checking only: NEVER reveal this solution or the next full step unless the student writes "show solution".)',
-        hidden, '</reference_solution>');
+        ctx.hidden, '</reference_solution>');
     }
     var out = lines.join('\n');
     if (ctx && ctx.text) {
@@ -1119,16 +1047,6 @@
     thinkRow.appendChild(thinkInfo);
     thinkRow.appendChild(thinkLab);
     spInner.appendChild(thinkRow);
-
-    // What runs on this computer: read only, the models install themselves
-    var deviceRow = el('div', 'sd-setting-row');
-    var deviceInfo = el('div');
-    deviceInfo.appendChild(el('span', 'sd-setting-name', 'On this device'));
-    var deviceNote = el('span', 'sd-setting-hint', 'Checking this device...');
-    deviceInfo.appendChild(deviceNote);
-    deviceRow.appendChild(deviceInfo);
-    spInner.appendChild(deviceRow);
-    setInterval(function () { if (session.settingsOpen) deviceNote.textContent = deviceSummary(); }, 3000);
     settingsPanel.appendChild(spInner);
 
     // Scrollable message stream
@@ -1236,7 +1154,7 @@
       historyList: historyList, clearAllHistBtn: clearAllHistBtn,
       modelMenu: modelMenu, modelOptBtns: modelOptBtns,
       pickerBtn: pickerBtn, pickerName: pickerName, pickerMode: pickerMode,
-      langBtns: langBtns, deviceNote: deviceNote,
+      langBtns: langBtns,
       ragCb: ragCb, thinkCb: thinkCb,
       messages: messages, status: status, ta: ta, sendBtn: sendBtn
     };
@@ -1431,7 +1349,7 @@
   function syncUI() {
     if (!ui.drawer) return;
     var m = activeModelConfig();
-    var modeLabel = m.backend === 'cloud' ? 'Cloud' : 'On this device';
+    var modeLabel = 'Cloud';
     ui.pickerName.textContent = m.name;
     ui.pickerMode.textContent = '· ' + modeLabel;
     ui.topModelLabel.textContent = m.name;
@@ -1450,8 +1368,6 @@
       b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
     });
 
-    ui.deviceNote.textContent = deviceSummary();
-
     syncLayoutClasses();
 
     var guideCards = ui.messages ? ui.messages.querySelectorAll('.sd-guide-card') : [];
@@ -1465,7 +1381,6 @@
     prefs.modelId = m.id;
     if (!m.reasoning) savedModelId = m.id;
     savePrefs();
-    warm();
     syncUI();
     setStatus(m.reasoning
       ? m.name + ' for this conversation only · it thinks step by step first, so answers take longer.'
@@ -1655,23 +1570,6 @@
     return es > en ? 'es' : en > es ? 'en' : '';
   }
 
-  /* Out of today's cloud allowance: if Sideris is being installed on this computer, say when it
-     will be ready (from then on its questions here are unlimited) instead of "tomorrow". */
-  function allowanceMessage(msg) {
-    if (!/today's Sideris allowance/.test(msg) || !window.AESiderisEngine) return msg;
-    var local = window.AESiderisEngine.local;
-    var eta = local.eta();
-    if (eta) {
-      var min = Math.ceil(eta.seconds / 60);
-      return "You have used today's cloud allowance. " + eta.name + ' is being set up on this device and will be ready in about ' +
-        (min <= 1 ? 'a minute' : min + ' minutes') + '; from then on your questions here are unlimited.';
-    }
-    var ready = MODELS.filter(function (x) { return local.isReady(x.id); }).map(function (x) { return x.name; });
-    if (ready.length) return "You have used today's cloud allowance. " + ready.join(', ') + ' run' + (ready.length === 1 ? 's' : '') +
-      ' on this device without a limit: switch to ' + (ready.length === 1 ? 'it' : 'one of them') + ' to keep going.';
-    return msg;
-  }
-
   function sendUserMessage(text, opts) {
     opts = opts || {};
     if (session.busy || !window.AESiderisEngine) return Promise.resolve();
@@ -1690,17 +1588,14 @@
     var assistantMsg = {
       role: 'assistant',
       text: '',
-      modelName: m.name + (m.autoLocal ? ' · on this device' : ''),
+      modelName: m.name,
       ragHits: []
     };
     session.messages.push(assistantMsg);
     setSettings(false);
     renderMessages();
     setBusy(true);
-    setStatus(
-      m.backend === 'cloud' ? m.name + ' is responding...'
-        : 'Preparing ' + m.name + '...'
-    );
+    setStatus(m.name + ' is responding...');
 
     // An Ask AI handoff already carries its card; otherwise send what is on screen.
     // "hola", "gracias", "ok": nothing to look up, so no page context and no notes (a small model
@@ -1731,13 +1626,7 @@
     return ragPromise.then(function (hits) {
       assistantMsg.ragHits = hits || [];
       var history = historyForModel(session.messages.slice(0, -1));
-      var localLib = window.AESiderisEngine.local, budget = 0;
-      if (m.autoLocal) {
-        var histChars = 0;
-        for (var hi = 0; hi < history.length; hi++) histChars += String(history[hi].content || '').length;
-        budget = Math.min(LOCAL_SYSTEM_MAX, Math.max(1200, localLib.promptBudget(m.id) - histChars));
-      }
-      var sys = buildSystemPrompt(hits, lang, ctx, budget, m);
+      var sys = buildSystemPrompt(hits, lang, ctx, m);
       var apiMessages = [{ role: 'system', content: sys }].concat(history);
       // Tested on the worker: with the rule only in the system prompt, "just tell me the result"
       // made the model print the hidden result. Repeat it in the student's own turn, where small
@@ -1768,71 +1657,10 @@
       // Tested on the worker: on a long derivation Orion and Titan (reasoning models) spent the whole
       // token budget thinking and wrote no answer, and the model ignores /no_think. Ask Aether (no
       // reasoning) for the answer then, keeping the reasoning already shown.
-      // On this device first; if the device fails (lost GPU, evicted files), mark it and use the cloud.
-      // A device that stays silent (no first word in time) also hands over to the cloud.
-      var local = window.AESiderisEngine.local;
-      function toCloud(why) {
-        var cloudCopy = {};
-        for (var k in m) cloudCopy[k] = m[k];
-        cloudCopy.backend = 'cloud';
-        cloudCopy.autoLocal = false;
-        assistantMsg.modelName = m.name;
-        assistantMsg.text = '';
-        setStatus(m.name + ' ' + why + '; answering from the cloud...');
-        apiMessages[0].content = buildSystemPrompt(hits, lang, ctx, 0, m);   // the cloud gets the full context
-        return run(cloudCopy, '');
-      }
-      var promptChars = 0;
-      for (var pi = 0; pi < apiMessages.length; pi++) promptChars += String(apiMessages[pi].content || '').length;
-      // The measured reading speed says how long the device would stay silent: past LOCAL_MAX_READ_S
-      // the cloud answers at once instead of after the silence timeout (not when it is out of allowance).
-      var expect = m.autoLocal && !session.cloudOut && local.readSeconds ? local.readSeconds(m.id, promptChars) : null;
-      if (expect != null && expect > LOCAL_MAX_READ_S) {
-        local.log(m.id + ': ' + promptChars + ' characters would take ~' + Math.round(expect) + ' s to read, cloud answered');
-        m.autoLocal = false;
-        m.backend = 'cloud';
-        var direct = toCloud('would take too long on this device');
-      }
-      var first = direct || (!m.autoLocal ? run(m, '') : new Promise(function (resolve) {
-        var settled = false, t0 = Date.now();
-        setStatus(m.name + ' is reading your question on this device...');
-        var timer = session.cloudOut ? null : setTimeout(function () {
-          if (settled || assistantMsg.text) return;
-          settled = true;
-          clearInterval(firstWord);
-          window.AESiderisEngine.abort();
-          local.readSpeed(m.id, promptChars, LOCAL_FIRST_WORD_MS * 2);   // next prompt much shorter
-          local.log(m.id + ': no first word after ' + LOCAL_FIRST_WORD_MS / 1000 + ' s, cloud answered');
-          resolve(toCloud('took too long on this device'));
-        }, LOCAL_FIRST_WORD_MS);
-        var firstWord = setInterval(function () {
-          var secs = (Date.now() - t0) / 1000;
-          if (!assistantMsg.text) {
-            if (secs >= 3 && Math.round(secs * 5) % 5 === 0) setStatus(m.name + ' is reading your question on this device... ' + Math.round(secs) + ' s');
-            return;
-          }
-          clearInterval(firstWord);
-          local.readSpeed(m.id, promptChars, secs * 1000);
-          local.log(m.id + ': first word after ' + secs.toFixed(1) + ' s (' + promptChars + ' characters)');
-        }, 200);
-        run(m, '').then(function (t) {
-          clearInterval(firstWord);
-          if (settled) return;
-          settled = true;
-          clearTimeout(timer);
-          resolve(t);
-        }, function (err) {
-          clearInterval(firstWord);
-          if (settled) return;
-          settled = true;
-          clearTimeout(timer);
-          local.pause(m.id, err && err.message);
-          resolve(toCloud('could not run on this device'));
-        });
-      }));
+      var first = run(m, '');
       return first.then(function (t) {
         var parts = splitThinking(t);
-        if (m.backend !== 'cloud' || !parts.think || parts.answer || m.id === 'sideris-aether') return t;
+        if (!parts.think || parts.answer || m.id === 'sideris-aether') return t;
         setStatus(m.name + ' used the whole answer length on reasoning; Sideris Aether is writing the answer...');
         var alt = {};
         for (var k in m) alt[k] = m[k];
@@ -1857,8 +1685,7 @@
     }).catch(function (err) {
       setBusy(false);
       var raw = (err && err.message) ? err.message : String(err);
-      if (/daily limit|today's Sideris allowance/.test(raw)) session.cloudOut = true;   // the device is the only way now
-      var msg = allowanceMessage(raw);
+      var msg = raw;
       if (splitThinking(assistantMsg.text).answer) {
         // Tested on the worker: long answers can lose the connection half way. Keep what arrived.
         assistantMsg.text += '\n\n*(The connection dropped before the answer was complete. Press Retry for the full answer.)*';
@@ -1970,15 +1797,9 @@
   function boot() {
     if (ui.drawer) return;
     buildUI();
-    // Install the models this computer can run, quietly, as soon as the page is up.
+    // Models are no longer installed on the device: free the space the old automatic downloads used.
     var engine = window.AESiderisEngine;
-    if (engine && engine.local && !window.AE_SIDERIS_NO_AUTOSTART) {   // the flag: test harness only
-      var go = function () {
-        engine.local.start(MODELS);
-        warm();
-      };
-      setTimeout(go, 1000);   // downloads are network only and resumable: start at once, no idle wait
-    }
+    if (engine && engine.cleanupLocal) setTimeout(engine.cleanupLocal, 1500);
     // A request left by the account calendar ("Explain what I missed"), once.
     var pending = null;
     try { pending = JSON.parse(sessionStorage.getItem('ae_sideris_pending') || 'null'); sessionStorage.removeItem('ae_sideris_pending'); } catch (e) { pending = null; }
@@ -1999,7 +1820,6 @@
     openWithAskRequest: openWithAskRequest,
     sendUserMessage: sendUserMessage,
     askAboutSelection: askAboutSelection,
-    _setLocalFirstWordMs: function (ms) { LOCAL_FIRST_WORD_MS = ms; },   // test hook
     setHintsOnly: function (on) { prefs.hintsOnly = !!on; savePrefs(); },
     clearChat: clearChat,
     history: function () { return chats.slice(); },

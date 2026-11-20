@@ -14,17 +14,12 @@ mobile), grounded in the portal's `vault/` RAG shards.
   (`PORTAL_DAILY_POINTS`). Counters live in the `SiderisQuota` Durable Object (SQLite, created by the
   deploy) and reset at 00:00 UTC; the student is an anonymous id kept in their browser
   (`ae_sideris_client`). Change the numbers with the commented `[vars]` of the wrangler config.
-- **Automatic local models:** on computers, the models with a `localTier` in `assets/data/ai-models.js`
-  (Lux 1, Aether and Orion 2) download in the background, are checked with a short real generation and
-  then answer on the device, with no daily limit. Phones and tablets always use the cloud. Titan stays
-  in the cloud until it is exported to ONNX (`offlineBackend: "webgpu"`, `localTier`, `sizeMB`).
-- **Downloads:** four 32 MB parts at a time, retried on network errors, resumed across pages, at low
-  network priority; GPUs without 16-bit maths get the `q4` build. Mid-size models (Aether, Orion) need
-  GPU buffers above 2 GiB.
-- **No waiting for the GPU:** an installed model answers only once it is loaded on the page (a few
-  seconds); until then the cloud answers, unless the daily allowance is spent.
-- **Nothing to set up for students:** no run mode, no manual model links or keys. Downloads go in
-  32 MB parts and carry on across pages; installed models keep answering while another downloads.
+- **Cloud only:** every model answers from the Worker; nothing is downloaded to the device. Models
+  used to install themselves on computers (Transformers.js + WebGPU); that was dropped on 2026-11-20
+  because integrated GPUs took tens of seconds to read a question, browsers evicted the 1.3-2.5 GB
+  files and few devices could run the mid-size models. `AESiderisEngine.cleanupLocal()` removes the
+  old files (`sideris-models`, `transformers-cache`) and keys (`ae_sideris_local`, `ae_sideris_files`).
+- **Nothing to set up for students:** no run mode, no model links or keys.
 
 ---
 
