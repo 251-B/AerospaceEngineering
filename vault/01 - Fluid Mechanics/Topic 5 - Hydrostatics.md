@@ -242,6 +242,8 @@ A body in equilibrium is **stable** if, after a small perturbation, the forces b
 
 **Floating bodies and the metacentre (extension).** For a floating body the displaced volume changes shape when it heels, so the centre of buoyancy moves sideways, from $B$ to $B'$, towards the side that goes down. The vertical through $B'$ cuts the symmetry line of the body at the **metacentre** $M$. For a small heel angle $\alpha$, the wedge of volume that emerges on one side and sinks on the other moves the centre of buoyancy by $BB' = I_{wl}\,\alpha/V$, where $I_{wl}$ is the second moment of the waterline area about the heel axis, so the metacentric radius is
 
+![[attachments/FM-T5/t5-metacentre.svg]]
+
 $$ BM = \frac{BB'}{\alpha} = \frac{I_{wl}}{V}, \qquad GM = BM - BG $$
 
 The body is stable when $M$ is above the centre of gravity $G$ ($GM > 0$): then the buoyancy at $B'$ and the weight at $G$ form a restoring torque even if $G$ is above $B$. This is why ships can carry their centre of gravity above the centre of buoyancy, while submarines cannot. Notation: the notes call the centroid $A$ and the centre of gravity $B$; ship stability uses $B$ for the centre of buoyancy and $G$ for the centre of gravity.

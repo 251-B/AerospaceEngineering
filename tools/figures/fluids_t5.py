@@ -231,6 +231,43 @@ def stability():
                "Copied from Notes.pdf, Fig. 5.1, p. 63.", 560)
 
 
+# ----------------------------------------------------------------------------------------------- metacentre
+# EXTRA: metacentre extension, not printed in Notes.pdf
+def metacentre():
+    c = Canvas(260, 320)
+    x0, wl = 130, 150
+    t = math.radians(14)
+    rot = lambda dx, dy: (x0 + dx * math.cos(t) - dy * math.sin(t), wl + dx * math.sin(t) + dy * math.cos(t))
+    hull = [rot(-70, -40), rot(70, -40), rot(70, 50), rot(-70, 50)]
+    poly(c, [(10, wl), (250, wl), (250, 290), (10, 290)], "BLUE", 0, fill="BLUE", close=True, opacity=0.08)
+    line(c, (10, wl), (250, wl), "BLUE", 1.8)
+    poly(c, hull, "HEAD", 2.0, fill="ACC", close=True, opacity=0.08)
+    line(c, rot(0, -70), rot(0, 60), "EDGE", 1.0, dash="4,4")
+    G = rot(0, -5)
+    M = rot(0, -50)
+    B = rot(0, 25)
+    Bp = (M[0], wl + 28)
+    dot(c, B, 3.6, "EDGE")
+    lab(c, (B[0] - 9, B[1] + 5), "B", "TEXT", "end", 15, italic=False)
+    line(c, Bp, (M[0], M[1] + 4), "ACC", 1.2, dash="4,3")
+    arrow(c, Bp, (Bp[0], Bp[1] - 26), "ACC", 2.4, 10)
+    dot(c, Bp, 4, "ACC")
+    lab(c, (Bp[0] + 11, Bp[1] + 14), "B′", "ACC", "start", 16, italic=False)
+    arrow(c, G, (G[0], G[1] + 50), "PINK", 2.4, 10)
+    lab(c, (G[0] + 2, G[1] + 82), "W", "PINK", "middle", 16)
+    dot(c, G, 4, "PINK")
+    lab(c, (G[0] - 9, G[1] + 2), "G", "PINK", "end", 16, italic=False)
+    dot(c, M, 4, "GREEN")
+    lab(c, (M[0] + 9, M[1] + 4), "M", "GREEN", "start", 16, italic=False)
+    note(c, (130, 312), "floating: M above G", "TEXT", size=12)
+    REG.put("t5-metacentre", c,
+            "Teaching sketch of a heeled floating body: the weight W at G, the buoyancy at the shifted centre of buoyancy B prime "
+            "and the metacentre M where the vertical through B prime cuts the symmetry line",
+            "Metacentre (extension; teaching sketch, not from the notes): a floating body heeled by a small angle. The centre of "
+            "buoyancy moves from $B$ to $B'$, the vertical through $B'$ cuts the symmetry line at the metacentre $M$, and the body "
+            "is stable when $M$ lies above the centre of gravity $G$")
+
+
 # ----------------------------------------------------------------------------------------------- manometer
 # EXTRA: not printed in Notes.pdf Chapter 5
 def manometer():
@@ -290,6 +327,7 @@ def build():
     curved_surface()
     archimedes()
     stability()
+    metacentre()
     manometer()
     atmosphere()
     try:
