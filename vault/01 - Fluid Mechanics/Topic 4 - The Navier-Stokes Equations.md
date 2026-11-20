@@ -342,7 +342,7 @@ For instance, to study a uniform stream of velocity $U_\infty$ over a solid body
 
 ### Example: a sphere in a liquid stream
 
-![[attachments/FM-T4/sphere-in-stream.svg]]
+![[attachments/FM-T4/sphere-in-stream.png]]
 
 Consider a liquid stream that moves with velocity $U_\infty(t)\vec{e}_x$ over a spherical body of radius $R$. If the density and transport properties of the fluid are constant and the effects of radiation and chemical reaction are negligible, the problem reduces to integrating (Notes.pdf, Eqs. 4.43-4.45)
 
