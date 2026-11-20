@@ -1720,8 +1720,15 @@
 
     return ragPromise.then(function (hits) {
       assistantMsg.ragHits = hits || [];
-      var sys = buildSystemPrompt(hits, lang, ctx, m.autoLocal ? LOCAL_SYSTEM_MAX : 0, m);
-      var apiMessages = [{ role: 'system', content: sys }].concat(historyForModel(session.messages.slice(0, -1)));
+      var history = historyForModel(session.messages.slice(0, -1));
+      var localLib = window.AESiderisEngine.local, budget = 0;
+      if (m.autoLocal) {
+        var histChars = 0;
+        for (var hi = 0; hi < history.length; hi++) histChars += String(history[hi].content || '').length;
+        budget = Math.min(LOCAL_SYSTEM_MAX, Math.max(1200, localLib.promptBudget(m.id) - histChars));
+      }
+      var sys = buildSystemPrompt(hits, lang, ctx, budget, m);
+      var apiMessages = [{ role: 'system', content: sys }].concat(history);
       // Tested on the worker: with the rule only in the system prompt, "just tell me the result"
       // made the model print the hidden result. Repeat it in the student's own turn, where small
       // models follow it, unless the student asked for the solution.
@@ -1766,20 +1773,27 @@
         return run(cloudCopy, '');
       }
       var first = !m.autoLocal ? run(m, '') : new Promise(function (resolve) {
-        var settled = false, t0 = Date.now();
-        setStatus(m.name + ' is answering on this device...');
+        var settled = false, t0 = Date.now(), promptChars = 0;
+        for (var pi = 0; pi < apiMessages.length; pi++) promptChars += String(apiMessages[pi].content || '').length;
+        setStatus(m.name + ' is reading your question on this device...');
         var timer = session.cloudOut ? null : setTimeout(function () {
           if (settled || assistantMsg.text) return;
           settled = true;
           clearInterval(firstWord);
           window.AESiderisEngine.abort();
+          local.readSpeed(m.id, promptChars, LOCAL_FIRST_WORD_MS * 2);   // next prompt much shorter
           local.log(m.id + ': no first word after ' + LOCAL_FIRST_WORD_MS / 1000 + ' s, cloud answered');
           resolve(toCloud('took too long on this device'));
         }, LOCAL_FIRST_WORD_MS);
         var firstWord = setInterval(function () {
-          if (!assistantMsg.text) return;
+          var secs = (Date.now() - t0) / 1000;
+          if (!assistantMsg.text) {
+            if (secs >= 3 && Math.round(secs * 5) % 5 === 0) setStatus(m.name + ' is reading your question on this device... ' + Math.round(secs) + ' s');
+            return;
+          }
           clearInterval(firstWord);
-          local.log(m.id + ': first word after ' + ((Date.now() - t0) / 1000).toFixed(1) + ' s');
+          local.readSpeed(m.id, promptChars, secs * 1000);
+          local.log(m.id + ': first word after ' + secs.toFixed(1) + ' s (' + promptChars + ' characters)');
         }, 200);
         run(m, '').then(function (t) {
           clearInterval(firstWord);

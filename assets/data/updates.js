@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-20-sideris-local-first-word",
+    "date": "2026-11-20",
+    "tag": "Portal",
+    "title": "Sideris on your computer starts writing sooner",
+    "text": "The model on your computer now gets a question sized to how fast your graphics card reads, and shows how long it has been reading instead of a silent wait."
+  },
+  {
     "id": "2026-11-20-sideris-no-gpu-wait",
     "date": "2026-11-20",
     "tag": "Portal",

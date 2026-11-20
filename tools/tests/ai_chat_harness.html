@@ -515,6 +515,13 @@ window.addEventListener('load', function () {
             return window.AESideris.sendUserMessage('Second question');
           }).then(function (text) {
             check('cloud-out-waits-for-device', text === 'LUX_LOCAL', text);
+            // Prompt size follows the measured reading speed of the device (default 2500, 1500..5000)
+            var b0 = L3.promptBudget('sideris-test-x');
+            L3.readSpeed('sideris-test-x', 3000, 30000);   // 100 characters/s: slow GPU
+            var b1 = L3.promptBudget('sideris-test-x');
+            L3.readSpeed('sideris-test-x', 3000, 1000);    // fast GPU now
+            var b2 = L3.promptBudget('sideris-test-x');
+            check('local-prompt-budget', b0 === 2500 && b1 === 1500 && b2 === 5000, [b0, b1, b2].join(' '));
             L3.restore({});
             window.AESideris.selectModel('sideris-aether');
           });

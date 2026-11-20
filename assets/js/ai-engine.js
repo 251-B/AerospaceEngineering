@@ -193,7 +193,16 @@
         genOpts.stopping_criteria = [stopper];
       }
 
-      return gen(req.messages, genOpts).then(function (out) {
+      // Plain prompt so the template's thinking switch can be set: hidden thinking before the first
+      // visible word only adds wait on a device. Reasoning models (Orion) keep it.
+      var input = req.messages;
+      try {
+        input = gen.tokenizer.apply_chat_template(req.messages, {
+          tokenize: false, add_generation_prompt: true, enable_thinking: !!(req.model && req.model.reasoning)
+        });
+        genOpts.return_full_text = false;
+      } catch (e) { input = req.messages; }
+      return gen(input, genOpts).then(function (out) {
         if (!full && Array.isArray(out) && out[0] && out[0].generated_text) {
           var gt = out[0].generated_text;
           var last = Array.isArray(gt) ? gt[gt.length - 1] : null;
@@ -390,6 +399,7 @@
     var st = raw && typeof raw === 'object' ? raw : {};
     st.ready = st.ready && typeof st.ready === 'object' ? st.ready : {};
     st.failed = st.failed && typeof st.failed === 'object' ? st.failed : {};
+    st.read = st.read && typeof st.read === 'object' ? st.read : {};   // prompt characters read per second, per model
     // Crash guard: "loading" is cleared on success, on failure and on a normal page exit (pagehide),
     // so if it is still set the tab died while loading that model: never try it here again.
     if (st.loading) { st.failed[st.loading] = 'the tab closed while loading'; delete st.ready[st.loading]; }
@@ -953,6 +963,18 @@
       },
       log: note,
       dtypeFor: dtypeFor,
+      // Reading the prompt is the slow part on an integrated GPU: a 5000-character prompt left Lux
+      // silent for over 25 s. Measure it on every answer and size the next prompt to ~8 s of reading.
+      readSpeed: function (id, chars, ms) {
+        if (!(chars > 0 && ms > 0)) return;
+        var v = chars / (ms / 1000), old = localState.read[id];
+        localState.read[id] = Math.round(old ? 0.5 * old + 0.5 * v : v);
+        saveLocal();
+      },
+      promptBudget: function (id) {
+        var v = localState.read[id];
+        return v ? Math.max(1500, Math.min(5000, Math.round(v * 8))) : 2500;
+      },
       markFailed: function (id, why) { delete localState.ready[id]; localState.failed[id] = String(why || 'error').slice(0, 120); saveLocal(); },
       // hot: the model in the GPU now; warming: the one being loaded into it
       state: function () { return { hot: loaded ? loaded.key : '', warming: inflight ? inflight.key : '', tier: localTier, job: localJob ? { id: localJob.id, phase: localJob.phase, loaded: localJob.loaded, total: localJob.total } : null, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id + ' (' + localJob.phase + ', ' + Math.round(localJob.loaded / 1048576) + ' MB)' : '', log: localState.log || [] }; },
