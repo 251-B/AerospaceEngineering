@@ -31,8 +31,8 @@ The gas circulating along the pipe of cross section $A$ depicted in the figure o
 - Compute the two components of the force $F_x$ and $F_y$ acting on the stretch of pipe considered.
 - Calculate the momentum on the pipe with respect to the origin of the coordinate system indicated in the figure.
 
-![[attachments/FM-T3/cl12-statement.svg]]
-*Statement figure (redrawn from CL12.pdf, p. 1): inverted U-pipe of section $A$; inlet state $T_u$, $p_u$, $V_u$ in the left leg, outlet $T_o$, $p_a$, $V_o$ in the right leg, legs $L$ apart; origin on the axis of the left leg*
+![[attachments/FM-T3/cl12-statement.png]]
+*Statement figure: inverted U-pipe of section $A$; inlet state $T_u$, $p_u$, $V_u$ in the left leg, outlet $T_o$, $p_a$, $V_o$ in the right leg, legs $L$ apart; origin on the axis of the left leg. Copied from CL12.pdf, p. 1.*
 
 Source: CL12.pdf (page 1, exam of Dec 16, 2011). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 

@@ -1,11 +1,12 @@
 """Topic 3 figures for Fluid Mechanics: the conservation-laws problems CL1 to CL22.
 
 Two figures per problem where the sources have them:
-  clN-statement : the figure of the official statement, redrawn (same symbols, arrows and labels);
+  clN-statement : the figure of the official statement (a crop of the sheet, or a redraw only where INVIABLE);
   clN-cv        : the control volume used in the worked solution (surfaces named exactly as in the text).
 Conventions: geometry and walls in HEAD, fluid shaded in BLUE, velocities in BLUE, the control volume
 dashed in GREEN with its surfaces and outward normals, forces and torques in ACC.
-Problems whose figure is too intricate to redraw use a cropped PNG of the original (RASTER below).
+The statement figures (and the printed control-volume figure of CL14) are PNG crops of the official sheets (RASTER below);
+a figure stays a generated SVG only as EXTRA (control-volume deduction) or INVIABLE (handwriting over the sheet's figure).
 """
 import math
 
@@ -44,23 +45,6 @@ def ellipse(c, cx, cy, rx, ry, col="HEAD", w=1.6, dash=None, fill="none", opacit
     o = f' fill-opacity="{opacity}"' if opacity is not None else ""
     c.add(f'<ellipse cx="{fmt(cx)}" cy="{fmt(cy)}" rx="{fmt(rx)}" ry="{fmt(ry)}" fill="{fill}"{o} '
           f'stroke="{col}" stroke-width="{w}"{d}/>')
-
-
-def hatched_ellipse(c, cx, cy, rx, ry, col="EDGE", step=9, w=1.0):
-    """Ellipse filled with 45-degree hatching (a solid bottom seen in perspective)."""
-    k = -rx - ry
-    while k <= rx + ry:
-        # line x - cx = (y - cy) + k  ->  points on the ellipse
-        a = 1 / rx ** 2 + 1 / ry ** 2
-        b = 2 * k / rx ** 2
-        cc = k ** 2 / rx ** 2 - 1
-        disc = b * b - 4 * a * cc
-        if disc > 0:
-            u1 = (-b - math.sqrt(disc)) / (2 * a)
-            u2 = (-b + math.sqrt(disc)) / (2 * a)
-            line(c, (cx + u1 + k, cy + u1), (cx + u2 + k, cy + u2), col, w)
-        k += step
-    ellipse(c, cx, cy, rx, ry)
 
 
 def normal(c, p, d, label=None, length=30, lab_off=(0, 0), anchor="middle"):
@@ -107,55 +91,6 @@ def caption_label(c, p, s):
 
 
 # ----------------------------------------------------------------------------------------- CL22
-def cl22_statement():
-    c = Canvas(560, 430)
-    bottom = 330
-    # (a) t = 0
-    xa, ra, ha = 150, 60, 100
-    line(c, (xa - ra, 40), (xa - ra, bottom)); line(c, (xa + ra, 40), (xa + ra, bottom))
-    rect(c, xa - ra, bottom - ha, 2 * ra, ha, "none", 0, fill="BLUE", opacity=0.13)
-    ellipse(c, xa, bottom - ha, ra, 12)
-    hatched_ellipse(c, xa, bottom, ra, 12)
-    lab(c, (xa + ra + 22, 52), sub("p", "a"))
-    arrow(c, (xa + ra + 40, 160), (xa + ra + 40, 215), "HEAD", 1.4, 8); lab(c, (xa + ra + 52, 195), "g", anchor="start")
-    dim(c, (xa - ra - 20, bottom - ha), (xa - ra - 20, bottom), "", "TEXT")
-    lab(c, (xa - ra - 30, bottom - ha / 2 + 6), sub("h", "0"), anchor="end")
-    arrow(c, (xa, bottom), (xa, bottom - 55), "HEAD", 1.3, 8); lab(c, (xa + 8, bottom - 44), "z", anchor="start", size=16)
-    arrow(c, (xa, bottom), (xa + 80, bottom), "HEAD", 1.3, 8); lab(c, (xa + 84, bottom + 16), "y", anchor="start", size=16)
-    arrow(c, (xa, bottom), (xa - 30, bottom + 26), "HEAD", 1.3, 8); lab(c, (xa - 36, bottom + 40), "x", anchor="end", size=16)
-    dim(c, (xa - ra, bottom + 62), (xa + ra, bottom + 62), "", "TEXT")
-    lab(c, (xa, bottom + 56), "2" + sub("a", "0"))
-    caption_label(c, (xa, bottom + 88), "t = 0   (a)")
-    # (b) t > 0: smaller radius, higher level; control volume V2 up to a fixed level z
-    xb, rb = 410, 42
-    hb = ha * (ra / rb) ** 2
-    zl = bottom - 95
-    line(c, (xb - rb, 40), (xb - rb, bottom)); line(c, (xb + rb, 40), (xb + rb, bottom))
-    rect(c, xb - rb, bottom - hb, 2 * rb, hb, "none", 0, fill="BLUE", opacity=0.13)
-    ellipse(c, xb, bottom - hb, rb, 10)
-    hatched_ellipse(c, xb, bottom, rb, 10)
-    ellipse(c, xb, zl, rb, 10, "HEAD", 1.4, "6,4")
-    line(c, (xb - rb, zl), (xb - rb, bottom), "HEAD", 1.4, "6,4"); line(c, (xb + rb, zl), (xb + rb, bottom), "HEAD", 1.4, "6,4")
-    for dx in (-24, -8, 8, 24):
-        arrow(c, (xb + dx, zl - 2), (xb + dx, zl - 26), "BLUE", 1.4, 7)
-    lab(c, (xb, zl - 34), sub("v", "z") + "(z, t)", size=15)
-    dim(c, (xb, bottom), (xb, zl + 12), "", "TEXT"); lab(c, (xb + 8, bottom - 40), "z", anchor="start", size=16)
-    line(c, (xb + rb, bottom - 50), (xb + rb + 26, bottom - 40), "TEXT", 1)
-    lab(c, (xb + rb + 30, bottom - 34), sub("V", "2"), anchor="start")
-    dim(c, (xb - rb - 22, bottom - hb), (xb - rb - 22, bottom), "", "TEXT")
-    lab(c, (xb - rb - 30, bottom - hb / 2 + 6), "h(t)", anchor="end")
-    lab(c, (xb + rb + 22, 52), sub("p", "a"))
-    arrow(c, (xb + rb + 40, 160), (xb + rb + 40, 215), "HEAD", 1.4, 8); lab(c, (xb + rb + 52, 195), "g", anchor="start")
-    dim(c, (xb - rb, bottom + 62), (xb + rb, bottom + 62), "", "TEXT")
-    lab(c, (xb, bottom + 56), "2a(t)")
-    caption_label(c, (xb, bottom + 88), "t > 0   (b)")
-    REG.put("cl22-statement", c,
-            "Cylinder of radius a0 with water up to h0 at t = 0, and at t > 0 a smaller radius a(t), a higher level h(t) "
-            "and the control volume V2 up to a fixed level z",
-            "Statement figure (redrawn from CL22.pdf, p. 1): (a) at $t = 0$, radius $a_0$ and level $h_0$; "
-            "(b) at $t > 0$, radius $a(t)$, level $h(t)$ and the fixed control volume $V_2$ up to the level $z$")
-
-
 def cl22_cv():
     c = Canvas(560, 420)
     bottom, top = 320, 110
@@ -197,6 +132,7 @@ def cl22_cv():
     dim(c, (x2 - r2 - 26, zl), (x2 - r2 - 26, bottom), "", "TEXT"); lab(c, (x2 - r2 - 32, (zl + bottom) / 2 + 6), "z", anchor="end")
     caption_label(c, (x2, bottom + 60), "(2) control volume V₂")
     note(c, (x2, bottom + 80), "top fixed at the level z, side moving with the wall", "TEXT", size=12)
+    # EXTRA: control-volume deduction figure; the key only has a hand sketch
     REG.put("cl22-cv", c,
             "The two control volumes of the solution: the water itself, bounded by the free surface, the lateral wall "
             "and the bottom; and V2, from the bottom up to the fixed level z",
@@ -223,6 +159,7 @@ def cl21_statement():
     lab(c, (420, ym - 14), sub("U", "2"), size=19)
     arrow(c, (390, ym), (480, ym), "BLUE", 2.0, 10)
     lab(c, (420, ym + 32), sub("p", "2"), size=19)
+    # INVIABLE: handwriting over the figure in the official sheet
     REG.put("cl21-statement", c,
             "Linear array of cylinders of radius R with centres 3R apart, across a gas stream U1, rho1, p1 that leaves "
             "with U2, p2",
@@ -256,6 +193,7 @@ def cl21_cv():
     dim(c, (x1 + 110, yt), (x1 + 110, yb), "", "TEXT"); lab(c, (x1 + 118, ym + 6), "3R", anchor="start", size=15)
     arrow(c, (40, 300), (80, 300), "HEAD", 1.3, 8); lab(c, (86, 305), "x", anchor="start", size=15)
     arrow(c, (40, 300), (40, 262), "HEAD", 1.3, 8); lab(c, (46, 266), "y", anchor="start", size=15)
+    # EXTRA: control-volume deduction figure
     REG.put("cl21-cv", c,
             "Control volume one period high around one cylinder: inlet and outlet sections, the two lines midway between "
             "cylinders and the cylinder surface",
@@ -279,29 +217,6 @@ def _contraction_walls(c, col="HEAD", w=2.6):
     return xa, xb
 
 
-def cl20_statement():
-    c = Canvas(600, 300)
-    xa, xb = _contraction_walls(c)
-    ellipse(c, xa, 150, 12, 110, "HEAD", 1.4)
-    ellipse(c, xb, 150, 6, 18, "HEAD", 1.6)
-    flow_arrows(c, 165, 210, [60, 90, 120, 150, 180, 210, 240])
-    lab(c, (150, 96), sub("p", "u"), anchor="end"); lab(c, (150, 156), sub("v", "u"), anchor="end")
-    lab(c, (150, 216), sub("T", "u"), anchor="end")
-    dim(c, (60, 40), (60, 260), "", "TEXT"); lab(c, (50, 156), "D", anchor="end", size=19)
-    flow_arrows(c, xb + 8, xb + 60, [138, 150, 162], "BLUE", 1.5)
-    lab(c, (xb + 70, 156), sub("T", "d"), anchor="start")
-    arrow(c, (xb, 100), (xb, 130), "TEXT", 1.1, 7); arrow(c, (xb, 200), (xb, 170), "TEXT", 1.1, 7)
-    lab(c, (xb + 8, 104), "d", anchor="start")
-    lab(c, (xb + 8, 214), sub("v", "d"), anchor="start")
-    lab(c, (345, 70), sub("p", "a"), anchor="start")
-    arrow(c, (30, 285), (72, 285), "HEAD", 1.3, 8); lab(c, (78, 290), "x", anchor="start", size=15)
-    REG.put("cl20-statement", c,
-            "Pipe of diameter D ending in a coaxial contraction with an orifice of diameter d; upstream pu, vu, Tu; "
-            "discharge vd, Td into the ambient pressure pa",
-            "Statement figure (redrawn from CL20.pdf, p. 1, axial section): pipe of diameter $D$ with uniform $p_u$, $v_u$, "
-            "$T_u$; contraction ending in the orifice of diameter $d$, discharging at $v_d$, $T_d$ into $p_a$")
-
-
 def cl20_cv():
     c = Canvas(600, 310)
     xa, xb = _contraction_walls(c, "EDGE", 2.2)
@@ -323,6 +238,7 @@ def cl20_cv():
     arrow(c, (260, 292), (340, 292), "ACC", 2.6, 11); lab(c, (350, 298), vec("F"), "ACC", "start", 18, weight="700")
     note(c, (372, 297), "force on the contraction", "ACC", "start", 12)
     lab(c, (395, 62), sub("p", "a") + " outside", anchor="start", size=14)
+    # EXTRA: control-volume deduction figure
     REG.put("cl20-cv", c,
             "Control volume: the liquid inside the contraction, from the upstream section to the orifice, bounded by the "
             "contraction wall",
@@ -340,28 +256,6 @@ def _u_pipe(c, col="HEAD", w=2.2, fill=None):
         poly(c, outer + inner[::-1], "none", 0, fill=fill, opacity=0.10, close=True)
     poly(c, outer, col, w); poly(c, inner, col, w)
     return xl, xr, yt, yb, half
-
-
-def cl12_statement():
-    c = Canvas(540, 410)
-    xl, xr, yt, yb, half = _u_pipe(c)
-    ellipse(c, xl, yb, half, 6); ellipse(c, xr, yb, half, 6)
-    arrow(c, (xl, yt + 4), (xl, yt - 40), "HEAD", 1.3, 8); lab(c, (xl - 8, yt - 36), "y", anchor="end", size=15)
-    arrow(c, (xl, yt + 4), (xl + 50, yt + 4), "HEAD", 1.3, 8); lab(c, (xl + 54, yt + 9), "x", anchor="start", size=15)
-    dim(c, (xl, 190), (xr, 190), "", "TEXT"); lab(c, ((xl + xr) / 2, 180), "L", size=19)
-    lab(c, ((xl + xr) / 2, 30), sub("p", "a"))
-    for dx in (-16, -8, 0, 8, 16):
-        arrow(c, (xl + dx, 365), (xl + dx, 318), "BLUE", 1.5, 7)
-        arrow(c, (xr + dx, 318), (xr + dx, 365), "BLUE", 1.5, 7)
-    lab(c, (xl - 32, 335), sub("T", "u"), anchor="end"); lab(c, (xl + 32, 335), sub("p", "u"), anchor="start")
-    lab(c, (xl, 392), sub("V", "u"))
-    lab(c, (xr - 32, 335), sub("T", "o"), anchor="end"); lab(c, (xr + 32, 335), sub("p", "a"), anchor="start")
-    lab(c, (xr, 392), sub("V", "o"))
-    REG.put("cl12-statement", c,
-            "Inverted U-pipe of constant section: the gas enters upwards at the left leg with Tu, pu, Vu and leaves "
-            "downwards at the right leg, a distance L away, with To, pa, Vo",
-            "Statement figure (redrawn from CL12.pdf, p. 1): inverted U-pipe of section $A$; inlet state $T_u$, $p_u$, $V_u$ "
-            "in the left leg, outlet $T_o$, $p_a$, $V_o$ in the right leg, legs $L$ apart; origin on the axis of the left leg")
 
 
 def cl12_cv():
@@ -386,6 +280,7 @@ def cl12_cv():
     arrow(c, (205, 175), (205, 120), "ACC", 2.6, 11); lab(c, (214, 140), vec("F"), "ACC", "start", 18, weight="700")
     arc_arrow(c, (320, 145), 22, 320, 200)
     lab(c, (350, 152), vec("M") + " (about O)", "ACC", "start", 16, weight="700")
+    # EXTRA: control-volume deduction figure; the key only has a hand sketch
     REG.put("cl12-cv", c,
             "Control volume: the gas inside the pipe between the measuring section and the outlet; origin O on the axis "
             "of the left leg; force and moment on the pipe",
@@ -428,6 +323,7 @@ def cl2_statement():
     arrow(c, (500, 220), (500, 192), "HEAD", 1.2, 7); lab(c, (506, 200), "z", anchor="start", size=15)
     arrow(c, (540, 220), (585, 220), "HEAD", 1.3, 8); lab(c, (590, 225), "x", anchor="start", size=15)
     arrow(c, (560, 105), (560, 150), "HEAD", 1.4, 8); lab(c, (570, 130), "g", anchor="start")
+    # INVIABLE: handwriting over the figure in the official sheet
     REG.put("cl2-statement", c,
             "Bore moving to the left with speed U over a stagnant layer of thickness h0, leaving behind a layer h1 moving "
             "to the left with U1; bottom wall, ambient pressure pa, gravity g",
@@ -479,6 +375,7 @@ def cl2_cv():
     c.add("</g>")
     caption_label(c, (300, dy + 40), "(2) mass and momentum, seen from the bore")
     note(c, (300, dy + 60), "frame B moves with −U ē" + sub("", "x") + ": the front is at rest", "TEXT", size=12)
+    # EXTRA: control-volume deduction figure
     REG.put("cl2-cv", c,
             "Control volumes of the solution: the hydrostatic column in the uniform layer, and the bore seen from its "
             "own frame with the inlet and outlet sections, the bottom and the free surface",
@@ -547,6 +444,7 @@ def cl6_statement():
         arrow(c, (x, 482), (x, 534), "BLUE", 1.5, 7)
     lab(c, (408, 525), sub("v", "o"), anchor="end"); lab(c, (470, 530), sub("T", "o"), anchor="start")
     lab(c, (486, 478), sub("A", "o"), anchor="start")
+    # INVIABLE: handwriting over the figure in the official sheet
     REG.put("cl6-statement", c,
             "Elbow-shaped pipe: horizontal inlet of area Ai with vi, pi, Ti; vertical outlet of area Ao discharging "
             "downwards with vo, To into the ambient pa; force components Fx, Fz and heat Q through the wall",
@@ -571,6 +469,7 @@ def cl6_cv():
     arrow(c, (178, 200), (240, 200), "BLUE", 2.0, 9); lab(c, (209, 190), sub("v", "i"), "BLUE", size=16)
     arrow(c, (456, 478), (456, 536), "BLUE", 2.0, 9); lab(c, (464, 524), sub("v", "o"), "BLUE", "start", 16)
     axes(c, (40, 520), "x", "z")
+    # EXTRA: control-volume deduction figure
     REG.put("cl6-cv", c,
             "Control volume: the liquid inside the elbow, bounded by the inlet section, the pipe wall and the outlet section",
             "Control volume of the solution (as in the class notes): the liquid inside the pipe, with $\\Sigma_i$ (inlet, "
@@ -584,37 +483,6 @@ def _cl19_pipe(c, col="HEAD", w=2.4):
     bot = [(100, 350), (418, 350), (430, 338), (430, 60)]
     poly(c, top + bot[::-1], "none", 0, fill="BLUE", opacity=0.10, close=True)
     poly(c, top, col, w); poly(c, bot, col, w)
-
-
-def cl19_statement():
-    c = Canvas(600, 430)
-    _cl19_pipe(c)
-    for k in range(12):
-        y = 255 + k * 8
-        arrow(c, (104, y), (160, y), "BLUE", 1.1, 6)
-    yl1, yl2 = 300 - 50 / math.sqrt(2), 300 + 50 / math.sqrt(2)
-    line(c, (66, yl1), (104, yl1), "HEAD", 1.0); line(c, (66, yl2), (104, yl2), "HEAD", 1.0)
-    lab(c, (84, 247), sub("T", "2"), size=16); lab(c, (84, 306), sub("T", "1"), size=16)
-    lab(c, (84, 368), sub("T", "2"), size=16)
-    dim(c, (58, yl1), (58, yl2), "", "TEXT"); lab(c, (50, 306), "D/√2", anchor="end", size=16)
-    lab(c, (172, 284), sub("U", "i"), anchor="start"); lab(c, (172, 330), sub("p", "i"), anchor="start")
-    arrow(c, (150, 212), (150, 249), "TEXT", 1.1, 7); arrow(c, (150, 392), (150, 351), "TEXT", 1.1, 7)
-    lab(c, (160, 226), "D", anchor="start")
-    for k in range(12):
-        x = 336 + k * 8.2
-        arrow(c, (x, 60), (x, 26), "BLUE", 1.1, 6)
-    lab(c, (380, 18), sub("T", "o"), size=16)
-    lab(c, (316, 70), sub("U", "o"), anchor="end"); lab(c, (448, 74), sub("p", "a"), anchor="start")
-    arrow(c, (292, 112), (329, 112), "TEXT", 1.1, 7); arrow(c, (470, 112), (431, 112), "TEXT", 1.1, 7)
-    lab(c, (340, 132), "D", anchor="start")
-    lab(c, (290, 190), sub("p", "a")); lab(c, (450, 400), sub("p", "a"))
-    axes(c, (360, 312), "x", "y", 36)
-    REG.put("cl19-statement", c,
-            "Elbow of diameter D: at the horizontal inlet an inner stream of diameter D over root 2 at T1 and an outer "
-            "coflow at T2, both with Ui and pi; the vertical outlet discharges at Uo and To into pa",
-            "Statement figure (redrawn from CL19.pdf, p. 1): pipe of diameter $D$; at the inlet the inner stream (diameter "
-            "$D/\\sqrt{2}$, temperature $T_1$) and the outer coflow ($T_2$), both with $U_i$ and $p_i$; outlet at $U_o$, "
-            "$T_o$ into the atmosphere at $p_a$")
 
 
 def cl19_cv():
@@ -632,6 +500,7 @@ def cl19_cv():
     arrow(c, (150, 300), (215, 300), "BLUE", 2.0, 9); lab(c, (182, 290), sub("U", "i"), "BLUE", size=16)
     arrow(c, (348, 120), (348, 70), "BLUE", 2.0, 9); lab(c, (356, 100), sub("U", "o"), "BLUE", "start", 16)
     axes(c, (500, 400), "x", "y", 36)
+    # EXTRA: control-volume deduction figure; the key only has a hand sketch
     REG.put("cl19-cv", c,
             "Control volume: the air inside the elbow, bounded by the inlet section, the pipe wall and the outlet section",
             "Control volume of the solution: $\\Sigma_i$ (inlet, $\\bar{n} = -\\bar{e}_x$), $\\Sigma_o$ (outlet, "
@@ -659,41 +528,6 @@ def _fan(c, x, y, col="HEAD"):
     poly(c, pts, col, 1.8, close=True)
 
 
-def cl10_statement():
-    c = Canvas(600, 540)
-    _cl10_device(c)
-    _fan(c, 315, 135)
-    line(c, (196, 332), (434, 332), "TEXT", 1.2, "5,4")
-    line(c, (470, 34), (470, 102), "TEXT", 1.2, "4,4")
-    flow_arrows(c, 490, 545, [56, 82], "BLUE", 1.5)
-    lab(c, (520, 40), sub("U", "s"), size=17); lab(c, (530, 120), sub("p", "a"), anchor="start")
-    arrow(c, (440, 4), (440, 39), "TEXT", 1.1, 7); arrow(c, (440, 140), (440, 97), "TEXT", 1.1, 7)
-    lab(c, (448, 20), sub("D", "s"), anchor="start")
-    lab(c, (250, 40), sub("p", "a"), anchor="end")
-    block_arrow_right(c, (278, 135))
-    overdot(c, (190, 142), "W", anchor="end", size=19)
-    line(c, (213, 280), (296, 280), "TEXT", 1.1); line(c, (334, 280), (417, 280), "TEXT", 1.1)
-    arrow_head(c, (240, 280), (211, 280), "TEXT", 7); arrow_head(c, (390, 280), (419, 280), "TEXT", 7)
-    lab(c, (315, 274), sub("D", "e"), size=17)
-    lab(c, (228, 322), "(e)", italic=False, size=14, anchor="start")
-    for x in (232, 266, 300, 334, 368, 402):
-        arrow(c, (x, 378), (x, 344), "BLUE", 1.4, 7)
-    lab(c, (290, 404), sub("U", "e"), size=16); lab(c, (345, 404), sub("p", "e"), size=16)
-    pathd(c, "M70,470 Q210,470 228,420 L232,336", "TEXT", 1.2)
-    c.add('<circle cx="70" cy="470" r="2.5" fill="TEXT"/>')
-    lab(c, (70, 452), "(0)", italic=False, size=14)
-    lab(c, (28, 450), sub("p", "a"), anchor="start"); lab(c, (24, 500), "U ≃ 0", anchor="start", size=16)
-    line(c, (226, 438), (250, 470), "TEXT", 1.0); note(c, (252, 486), "streamline", "TEXT", "start", 13)
-    axes(c, (520, 320), "x", "y", 36)
-    REG.put("cl10-statement", c,
-            "Ventilation device: air enters from the room through the entrance of diameter De with Ue, pe, passes a "
-            "fan that does work W per unit time, and leaves through the exit pipe of diameter Ds with Us into pa; "
-            "a streamline joins the still air (0) to the entrance (e)",
-            "Statement figure (redrawn from CL10.pdf, p. 1): entrance section (e) of diameter $D_e$ with $U_e$, $p_e$; fan "
-            "supplying the power $\\dot{W}$; exit pipe of diameter $D_s$ discharging at $U_s$ into $p_a$; the streamline "
-            "from the still room air (0) ($p_a$, $U \\simeq 0$) to (e)")
-
-
 def block_arrow_right(c, tip, length=70, half=9, head=20, col="HEAD"):
     x, y = tip
     pts = [(x, y), (x - head, y - half - 6), (x - head, y - half), (x - length, y - half),
@@ -718,6 +552,7 @@ def cl10_cv():
     block_arrow_right(c, (284, 135), length=60, half=7, head=16, col="ACC")
     overdot(c, (214, 142), "W", "ACC", "end", 18)
     axes(c, (520, 330), "x", "y", 36)
+    # EXTRA: control-volume deduction figure
     REG.put("cl10-cv", c,
             "Control volume: the air inside the device, from the entrance section to the exit section, bounded by the walls "
             "and the fan surface",
@@ -766,6 +601,7 @@ def cl3_statement():
     lab(c, (494, 214), sub("A", "o"), anchor="end")
     arrow(c, (528, 245), (585, 245), "BLUE", 1.8, 9); lab(c, (556, 236), sub("U", "o"))
     lab(c, (420, 292), sub("p", "a"))
+    # INVIABLE: handwriting over the figure in the official sheet
     REG.put("cl3-statement", c,
             "Double-elbow mouth piece at the end of a pipe of section Ap: entrance velocity Up and pressure pp, exit "
             "section Ao a height H lower, discharging at Uo into pa; force F and moment M at the entrance section",
@@ -794,6 +630,7 @@ def cl3_cv():
     arrow(c, (170, 270), (170, 232), "HEAD", 1.3, 8); lab(c, (176, 236), "y", anchor="start", size=15)
     arrow(c, (176, 84), (232, 84), "BLUE", 2.0, 9); lab(c, (202, 74), sub("U", "p"), "BLUE", size=16)
     arrow(c, (552, 245), (606, 245), "BLUE", 2.0, 9); lab(c, (580, 272), sub("U", "o"), "BLUE", size=16)
+    # EXTRA: control-volume deduction figure; the key only has a hand sketch
     REG.put("cl3-cv", c,
             "Control volume: the water inside the mouth piece, from the entrance section to the exit section; origin O at "
             "the centre of the entrance section and position of the exit centre",
@@ -837,6 +674,7 @@ def cl8_statement():
     lab(c, (522, 210), sub("D", "s"), anchor="end"); lab(c, (585, 226), sub("V", "s"), anchor="start")
     lab(c, (260, 130), sub("p", "a")); lab(c, (470, 300), sub("p", "a"))
     arrow(c, (24, 150), (78, 150), "HEAD", 1.4, 8); lab(c, (50, 140), vec("e") + sub("", "x"), size=16)
+    # INVIABLE: handwriting over the figure in the official sheet
     REG.put("cl8-statement", c,
             "Circular jet of diameter Dj and velocity Vj hitting a wall with a coaxial orifice of diameter Ds: a secondary "
             "jet Vs crosses the orifice and the rest spreads as a radial wall jet of velocity Vr and thickness h(r)",
@@ -871,6 +709,7 @@ def cl8_cv():
     arrow(c, (568, 234), (614, 234), "BLUE", 2.0, 9)
     arrow(c, (440, 98), (500, 98), "ACC", 2.6, 11); lab(c, (506, 104), vec("F") + sub("", "w"), "ACC", "start", 18, weight="700")
     note(c, (470, 124), "force on the wall", "ACC", "middle", 12)
+    # EXTRA: control-volume deduction figure
     REG.put("cl8-cv", c,
             "Control volume around the water: incoming jet section, free surfaces, the two cuts across the wall jet at "
             "radius r, the wetted wall and the section of the secondary jet",
@@ -929,46 +768,6 @@ def _cl16_shapes(c, edges=True):
     return band, s1e, s2e
 
 
-def cl16_statement():
-    c = Canvas(640, 500)
-    o = CL16_O
-    t1, t2, m1, m2, P, s1w, s2w = _cl16_geom()
-    band, s1e, s2e = _cl16_shapes(c)
-    line(c, (30, o[1]), (o[0] - 8, o[1]), "TEXT", 1.0, "10,3,2,3")
-    hollow_arrow(c, (18, o[1]), (1, 0), length=80, half=4, head=12)
-    lab(c, (40, o[1] - 26), "Q"); lab(c, (66, o[1] + 46), "v, " + sub("T", "0"), anchor="end")
-    arrow(c, (140, 150), (140, 193), "TEXT", 1.1, 7); arrow(c, (140, 285), (140, 237), "TEXT", 1.1, 7)
-    lab(c, (148, 168), "h", anchor="start")
-    arrow(c, (200, o[1]), (200, 168), "HEAD", 1.2, 7); lab(c, (206, 176), "y", anchor="start", size=16)
-    arrow(c, (200, o[1]), (250, o[1]), "HEAD", 1.2, 7); lab(c, (234, o[1] - 6), "x", size=16)
-    lab(c, (292, o[1] + 40), vec("x") + sub("", "0"), anchor="end")
-    dim(c, (o[0] + 2, o[1]), (o[0] + CL16_L, o[1]), "", "TEXT"); lab(c, (410, o[1] + 22), "L")
-    angle_arc(c, o, 44, 0, CL16_TH); lab(c, (o[0] + 54, o[1] - 6), "θ", anchor="start")
-    angle_arc(c, o, 34, 0, -2 * CL16_TH); lab(c, (o[0] + 42, o[1] + 36), "2θ", anchor="start")
-    for k in range(4):
-        a = P(t1, m1, 120 + 14 * k, 30)
-        arrow(c, a, P(t1, m1, 120 + 14 * k, 4), "PINK", 1.3, 7)
-    lab(c, P(t1, m1, 150, -26), "q", "PINK")
-    for k in range(4):
-        a = P(t2, m2, 150 + 14 * k, -30)
-        arrow(c, P(t2, m2, 150 + 14 * k, -2), a, "PINK", 1.3, 7)
-    lab(c, P(t2, m2, 190, -42), "q", "PINK", anchor="start")
-    e1, e2 = P(t1, m1, s1e - 30, CL16_H1 / 2), P(t2, m2, s2e - 30, CL16_H2 / 2)
-    hollow_arrow(c, e1, t1, length=58, half=4, head=12); hollow_arrow(c, e2, t2, length=58, half=4, head=12)
-    lab(c, P(t1, m1, s1e - 40, CL16_H1 + 14), sub("T", "1"), anchor="end")
-    lab(c, (e1[0] + 64, e1[1] + 4), "αQ", anchor="start")
-    lab(c, P(t2, m2, s2e - 60, -16), sub("T", "2"), anchor="start")
-    lab(c, (e2[0] + 46, e2[1] + 40), "(1 − α)Q", anchor="start")
-    lab(c, (390, 90), sub("p", "a")); lab(c, (585, 222), sub("p", "a")); lab(c, (200, 330), sub("p", "a"))
-    REG.put("cl16-statement", c,
-            "Plane jet of thickness h, flux Q, velocity v and temperature T0 hitting a wedge with its corner at x0: a part "
-            "alpha Q leaves along the face at angle theta (temperature T1) and the rest along the face at angle 2 theta "
-            "(T2); the faces end a distance L from the corner; heat q crosses the wetted faces",
-            "Statement figure (redrawn from CL16.pdf, p. 1): plane jet ($h$, $Q$, $v$, $T_0$) on the wedge with corner "
-            "$\\bar{x}_0$; the layer $\\alpha Q$ ($T_1$) leaves at $\\theta$ and $(1 - \\alpha)Q$ ($T_2$) at $2\\theta$; "
-            "faces of horizontal extent $L$; heat flux $q$ into the wedge; ambient $p_a$")
-
-
 def cl16_cv():
     c = Canvas(640, 500)
     o = CL16_O
@@ -998,6 +797,7 @@ def cl16_cv():
     lab(c, (o[0] + 12, o[1] + 6), vec("x") + sub("", "0"), anchor="start", size=16)
     arrow(c, (24, o[1] - 34), (74, o[1] - 34), "BLUE", 2.0, 9); lab(c, (48, o[1] - 44), "v", "BLUE", size=16)
     axes(c, (40, 440), "x", "y", 36)
+    # EXTRA: control-volume deduction figure
     REG.put("cl16-cv", c,
             "Control volume around the liquid: the incoming jet section, the free surfaces, the two sections across the "
             "deflected layers and the wetted faces of the wedge",
@@ -1043,6 +843,7 @@ def cl18_statement():
     for x in range(208, 326, 9):
         arrow(c, (x, 474), (x, 500), "BLUE", 1.1, 6)
     lab(c, (190, 494), sub("p", "a"), anchor="end", size=16); lab(c, (300, 524), sub("U", "o"), size=16)
+    # INVIABLE: handwriting over the figure in the official sheet
     REG.put("cl18-statement", c,
             "Ejector: a container at pa drains through a vertical pipe of section A; an injector tube brings the jet of "
             "section Aj and velocity Uj to the axis of the entrance section, where the surrounding liquid enters at Ue, pe; "
@@ -1066,6 +867,7 @@ def cl18_cv():
     arrow(c, (257, 176), (257, 260), "BLUE", 2.0, 9); lab(c, (248, 252), sub("U", "j"), "BLUE", "end", 15)
     arrow(c, (290, 474), (290, 530), "BLUE", 2.0, 9); lab(c, (298, 520), sub("U", "o"), "BLUE", "start", 15)
     arrow(c, (470, 200), (470, 250), "HEAD", 1.3, 8); lab(c, (478, 240), vec("e") + sub("", "x"), anchor="start", size=16)
+    # EXTRA: control-volume deduction figure
     REG.put("cl18-cv", c,
             "Control volume: the pipe between the entrance section (jet and annulus) and the outlet section, bounded by "
             "the straight pipe wall",
@@ -1109,6 +911,7 @@ def cl9_statement():
     lab(c, (450, 142), "s", anchor="start", size=15)
     flow_arrows(c, 452, 520, [106, 116, 132, 142], "BLUE", 1.4)
     lab(c, (530, 118), sub("U", "s"), anchor="start", size=16)
+    # INVIABLE: handwriting over the figure in the official sheet
     REG.put("cl9-statement", c,
             "Submarine propulsion device: a nozzle with inlet area Ae and outlet area As, a propeller inside driven with "
             "power W, thrust T; streamlines from the still water at point 1 (p infinity) reach the inlet e at Ue, pe; the "
@@ -1136,6 +939,7 @@ def cl9_cv():
     arrow(c, (400, 124), (340, 124), "ACC", 2.6, 11)
     lab(c, (370, 104), vec("F") + " = −T " + vec("e") + sub("", "x"), "ACC", "middle", 15, weight="700")
     arrow(c, (40, 200), (82, 200), "HEAD", 1.3, 8); lab(c, (88, 205), vec("e") + sub("", "x"), anchor="start", size=15)
+    # EXTRA: control-volume deduction figure
     REG.put("cl9-cv", c,
             "Control volume: the water inside the nozzle between the inlet and outlet sections, bounded by the nozzle walls "
             "and the propeller surface",
@@ -1145,80 +949,6 @@ def cl9_cv():
 
 
 # ----------------------------------------------------------------------------------------- CL14
-def _cl14_section(c, col="HEAD", w=2.4):
-    yc, ro, ri = 150, 130, 55
-    rect(c, 230, yc - ro, 460, 2 * ro, "none", 0, fill="BLUE", opacity=0.10)
-    hub = [(230, yc - ri), (330, yc - ri), (440, yc), (330, yc + ri), (230, yc + ri)]
-    poly(c, hub, "none", 0, fill="TEXT", opacity=0.16, close=True)
-    line(c, (230, yc - ro), (690, yc - ro), col, w); line(c, (230, yc + ro), (690, yc + ro), col, w)
-    poly(c, hub, col, 1.6)
-    for y0, y1 in ((yc - ro, yc - ri), (yc + ri, yc + ro)):
-        rect(c, 280, y0, 8, y1 - y0, col, 1.3, fill="none")
-    return yc, ro, ri
-
-
-def cl14_statement():
-    c = Canvas(760, 300)
-    yc, ro, ri = _cl14_section(c)
-    ellipse(c, 90, yc, 62, 120, "HEAD", 1.4); ellipse(c, 90, yc, 24, 52, "HEAD", 1.4)
-    ellipse(c, 90, yc, 42, 86, "TEXT", 1.2, "4,4")
-    arrow(c, (90, yc), (90, yc - 90), "HEAD", 1.2, 7); lab(c, (80, yc - 70), "r", anchor="end", size=16)
-    arrow(c, (90, yc), (196, yc), "HEAD", 1.2, 7); lab(c, (200, yc + 20), "z", anchor="start", size=16)
-    arrow(c, (118, yc - 82), (158, yc - 82), "BLUE", 1.4, 7); lab(c, (162, yc - 92), sub("u", "1"), "BLUE", "start", 16)
-    arrow(c, (118, yc - 82), (136, yc - 58), "BLUE", 1.4, 7); lab(c, (114, yc - 60), sub("u", "θ"), "BLUE", "end", 16)
-    lab(c, (150, yc + 98), sub("p", "1"), anchor="start", size=16); lab(c, (150, yc + 122), sub("ρ", "1"), anchor="start", size=16)
-    line(c, (230, yc - ro), (230, yc - ri), "TEXT", 1.2, "4,3"); line(c, (230, yc + ri), (230, yc + ro), "TEXT", 1.2, "4,3")
-    line(c, (690, yc - ro), (690, yc + ro), "TEXT", 1.2, "4,3")
-    line(c, (230, yc), (690, yc), "TEXT", 1.0, "10,3,2,3")
-    flow_arrows(c, 192, 226, [yc - 115, yc - 95, yc - 75, yc + 75, yc + 95, yc + 115], "BLUE", 1.3)
-    flow_arrows(c, 694, 728, [yc - 115, yc - 95, yc - 75, yc - 55, yc - 35, yc + 35, yc + 55, yc + 75, yc + 95, yc + 115],
-                "BLUE", 1.3)
-    lab(c, (735, yc - 108), sub("u", "2"), anchor="start", size=16); lab(c, (735, yc - 86), sub("p", "2"), anchor="start", size=16)
-    lab(c, (735, yc - 64), sub("ρ", "2"), anchor="start", size=16)
-    note(c, (300, yc - 98), "stator", "HEAD", "start", 13); line(c, (298, yc - 102), (288, yc - 92), "HEAD", 1.0)
-    note(c, (300, yc + 108), "stator", "HEAD", "start", 13); line(c, (298, yc + 102), (288, yc + 92), "HEAD", 1.0)
-    note(c, (390, yc - 60), "conical diffuser", "HEAD", "start", 13); line(c, (388, yc - 56), (372, yc - 36), "HEAD", 1.0)
-    dim(c, (246, yc), (246, yc - ri), "", "TEXT"); lab(c, (252, yc - 22), sub("R", "i"), anchor="start", size=16)
-    dim(c, (560, yc), (560, yc - ro), "", "TEXT"); lab(c, (566, yc - 70), sub("R", "o"), anchor="start", size=16)
-    REG.put("cl14-statement", c,
-            "Diffuser module: front view of the inlet annulus with the axial and azimuthal velocity components u1, u theta, "
-            "and axial section with the fixed stator of inner and outer radii Ri, Ro, the conical diffuser and the exit "
-            "with u2, p2, rho2",
-            "Statement figure (redrawn from CL14.pdf, p. 1): front view of the inlet ($u_1$, $u_\\theta$, $p_1$, $\\rho_1$) "
-            "and axial section of the module: fixed stator between $R_i$ and $R_o$, conical diffuser, purely axial exit "
-            "$u_2$, $p_2$, $\\rho_2$")
-
-
-def cl14_cv():
-    c = Canvas(700, 350)
-    c.add('<g transform="translate(0,30)">')
-    yc, ro, ri = _cl14_section(c, "EDGE", 2.0)
-    poly(c, [(234, yc - ri - 4), (234, yc - ro + 4), (686, yc - ro + 4), (686, yc + ro - 4), (234, yc + ro - 4),
-             (234, yc + ri + 4), (329, yc + ri + 4), (434, yc + 2), (434, yc - 2), (329, yc - ri - 4), (234, yc - ri - 4)],
-         "GREEN", 2.0, CV_DASH)
-    for y0, y1 in ((yc - ro + 4, yc - ri - 4), (yc + ri + 4, yc + ro - 4)):
-        rect(c, 276, y0 + 3, 16, y1 - y0 - 6, "GREEN", 1.6, "4,3", rx=4)
-    sigma(c, (220, 30), "in", "end"); leader(c, (222, 34), (234, 50))
-    sigma(c, (660, 304), "out", "end"); leader(c, (662, 300), (686, 270))
-    sigma(c, (500, 4), "w", "start"); leader(c, (498, 0), (480, yc - ro + 4)); leader(c, (508, 8), (420, yc - 18))
-    sigma(c, (330, 304), "a", "start"); leader(c, (328, 298), (292, 260))
-    normal(c, (234, 66), (-1, 0), length=30, lab_off=(-4, -6), anchor="end")
-    normal(c, (686, 66), (1, 0), length=30, lab_off=(4, -6), anchor="start")
-    normal(c, (600, yc - ro + 4), (0, -1), length=24, lab_off=(12, 6), anchor="start")
-    arrow(c, (150, 236), (226, 236), "BLUE", 2.0, 9); lab(c, (188, 226), vec("v") + sub("", "1"), "BLUE", size=16)
-    arrow(c, (600, yc + 60), (660, yc + 60), "BLUE", 2.0, 9); lab(c, (630, yc + 50), vec("v") + sub("", "2"), "BLUE", size=16)
-    line(c, (230, yc), (690, yc), "TEXT", 1.0, "10,3,2,3")
-    arrow(c, (40, 300), (84, 300), "HEAD", 1.3, 8); lab(c, (90, 305), vec("e") + sub("", "z"), anchor="start", size=15)
-    arrow(c, (40, 300), (40, 258), "HEAD", 1.3, 8); lab(c, (46, 262), vec("e") + sub("", "r"), anchor="start", size=15)
-    c.add("</g>")
-    REG.put("cl14-cv", c,
-            "Control volume in the axial section: inlet annulus, exit disc, the casing and cone walls and the surfaces "
-            "around the stator aerofoils",
-            "Control volume of the solution (axial section): $\\Sigma_{in}$ (inlet annulus, $\\bar{n} = -\\bar{e}_z$), "
-            "$\\Sigma_{out}$ (exit disc, $\\bar{n} = +\\bar{e}_z$), $\\Sigma_w$ (inner wall of the casing and outer wall "
-            "of the cone) and $\\Sigma_a$ (around the stator aerofoils); all are fixed")
-
-
 # ----------------------------------------------------------------------------------------- CL1
 CL1_YC, CL1_YM, CL1_Y0 = 165, 45, 130
 
@@ -1259,6 +989,7 @@ def cl1_statement():
     lab(c, (536, yc - CL1_Y0 + 6), sub("y", "0"), anchor="start", size=15)
     lab(c, (536, yc + CL1_Y0 + 6), "−" + sub("y", "0"), anchor="start", size=15)
     dim(c, (124, yc), (124, yc - CL1_YM), "", "TEXT"); lab(c, (130, yc - 18), sub("y", "−∞"), anchor="start", size=15)
+    # INVIABLE: handwriting over the figure in the official sheet
     REG.put("cl1-statement", c,
             "Airfoil in a wind tunnel: uniform velocity U upstream; the bounding streamlines start at y equal to plus or "
             "minus y minus infinity and reach plus or minus y0 at the section x0, where the wake profile drops linearly "
@@ -1290,6 +1021,7 @@ def cl1_cv():
     normal(c, (250, 184), (0, -1), length=16, lab_off=(0, 34))
     arrow(c, (30, 165), (90, 165), "BLUE", 2.0, 9); lab(c, (60, 155), "U", "BLUE", size=16)
     axes(c, (40, 300), "x", "y", 34)
+    # EXTRA: control-volume deduction figure
     REG.put("cl1-cv", c,
             "Control volume bounded by the far-upstream section, the two bounding streamlines, the wake section at x0 and "
             "the airfoil surface",
@@ -1340,45 +1072,6 @@ def _cl15_elbow(c, col="HEAD", w=2.2):
     return T, D
 
 
-def cl15_statement():
-    c = Canvas(560, 640)
-    T, D = _cl15_elbow(c)
-    line(c, T(102, 475), T(102, 613), "HEAD", 1.4, "4,3"); line(c, T(570, 640), T(598, 640), "HEAD", 1.4, "4,3")
-    line(c, T(40, 545), T(650, 545), "TEXT", 0.9, "10,3,2,3"); line(c, T(584, 30), T(584, 700), "TEXT", 0.9, "10,3,2,3")
-    line(c, T(378, 338), T(570, 530), "TEXT", 0.9, "3,3")
-    line(c, T(96, 545), T(108, 545), "HEAD", 1.4); line(c, T(102, 539), T(102, 551), "HEAD", 1.4)
-    lab(c, T(112, 534), vec("x") + sub("", "1"), anchor="start", size=15)
-    line(c, T(372, 338), T(384, 338), "HEAD", 1.2); line(c, T(378, 332), T(378, 344), "HEAD", 1.2)
-    line(c, T(460, 62), T(505, 62), "TEXT", 0.9); line(c, T(325, 338), T(505, 338), "TEXT", 0.9)
-    dim(c, T(473, 64), T(473, 336), "", "TEXT"); lab(c, T(458, 205), sub("L", "1"), anchor="end", size=16)
-    dim(c, T(336, 340), T(336, 473), "", "TEXT"); lab(c, T(324, 418), sub("D", "1"), anchor="end", size=16)
-    line(c, T(378, 345), T(378, 460), "TEXT", 0.9)
-    dim(c, T(155, 477), T(155, 611), "", "TEXT"); lab(c, T(166, 556), sub("D", "1"), anchor="start", size=16)
-    line(c, T(102, 620), T(102, 665), "TEXT", 0.9); line(c, T(378, 620), T(378, 665), "TEXT", 0.9)
-    dim(c, T(104, 655), T(376, 655), "", "TEXT"); lab(c, T(240, 690), sub("L", "1"), size=16)
-    line(c, T(610, 545), T(655, 545), "TEXT", 0.9); line(c, T(610, 640), T(655, 640), "TEXT", 0.9)
-    dim(c, T(638, 547), T(638, 638), "", "TEXT"); lab(c, T(646, 600), sub("L", "2"), anchor="start", size=16)
-    arrow(c, T(530, 612), T(569, 612), "TEXT", 1.0, 7); arrow(c, T(636, 612), T(599, 612), "TEXT", 1.0, 7)
-    lab(c, T(524, 622), sub("D", "2"), anchor="end", size=16)
-    for i, t in enumerate(("Density ρ", "Viscosity μ", "Conductivity k", "Specific heat c")):
-        note(c, T(115, 185 + 40 * i), t, "HEAD", "start", 13)
-    hollow_arrow(c, T(32, 545), (1, 0), length=40, half=4, head=11)
-    hollow_arrow(c, T(584, 58), (0, -1), length=38, half=4, head=11)
-    hollow_arrow(c, T(584, 708), (0, -1), length=38, half=4, head=11)
-    lab(c, T(612, 32), sub("p", "a"), anchor="start", size=16)
-    for i, s_ in enumerate((sub("v", "1"), sub("p", "1"), sub("T", "1"))):
-        lab(c, T(30, 600 + 38 * i), s_, anchor="start", size=16)
-    for i, s_ in enumerate((sub("v", "2"), sub("p", "2"), sub("T", "2"))):
-        lab(c, T(606, 712 + 36 * i), s_, anchor="start", size=16)
-    REG.put("cl15-statement", c,
-            "Mixing elbow: main pipe of diameter D1 and length L1 with inlet state v1, p1, T1 at the section centred on x1; "
-            "bend of radius D1; vertical exit pipe of length L1 discharging at pa; secondary pipe of diameter D2 entering "
-            "at the elbow from below with v2, p2, T2, its inlet a distance L2 below the main axis",
-            "Statement figure (redrawn from CL15.pdf, p. 1): main inlet ($D_1$, $v_1$, $p_1$, $T_1$, centre $\\bar{x}_1$), "
-            "bend and exit pipe of length $L_1$ discharging at $p_a$; secondary inlet ($D_2$, $v_2$, $p_2$, $T_2$) at the "
-            "elbow, $L_2$ below the main axis; the thin lines are the axes of the official figure")
-
-
 def cl15_cv():
     c = Canvas(560, 640)
     T, D = _cl15_elbow(c, "EDGE", 2.0)
@@ -1398,6 +1091,7 @@ def cl15_cv():
     c.add('<circle cx="{:.1f}" cy="{:.1f}" r="3.5" fill="HEAD"/>'.format(*T(102, 545)))
     lab(c, T(112, 534), vec("x") + sub("", "1"), anchor="start", size=15)
     axes(c, T(250, 760), "x", "y", 34)
+    # EXTRA: control-volume deduction figure; the key only has a hand sketch
     REG.put("cl15-cv", c,
             "Control volume: the water inside the elbow between the main inlet, the secondary inlet and the exit, bounded "
             "by the pipe wall; moments about the centre x1 of the main inlet",
@@ -1435,48 +1129,6 @@ def _cl11_blades(c, T, col="HEAD"):
         c.add(f'<ellipse cx="{fmt(x)}" cy="{fmt(yy)}" rx="{fmt(13 * CL11_K)}" ry="{fmt(48 * CL11_K)}" fill="{col}"/>')
 
 
-def cl11_statement():
-    c = Canvas(600, 500)
-    T, D = _cl11_device(c)
-    d, pp = _cl11_dirs()
-    o = (345, 262)
-    line(c, T(345, 230), T(345, 870), "TEXT", 0.9, "10,3,2,3")
-    line(c, T(*o), T(o[0] + d[0] * 600, o[1] + d[1] * 600), "TEXT", 0.9, "10,3,2,3")
-    cx, cy = T(*o)
-    angle_arc(c, (cx, cy), 150 * CL11_K, -90, -90 - CL11_A, "HEAD", 1.2)
-    lab(c, T(290, 470), "α", size=19)
-    arrow(c, T(*o), T(415, 262), "HEAD", 1.2, 7); lab(c, T(405, 290), "x", size=15)
-    arrow(c, T(*o), T(345, 185), "HEAD", 1.2, 7); lab(c, T(325, 200), "y", size=15)
-    E = (197, 507)
-    for k in (-64, -32, 0, 32, 64):
-        a = (E[0] + pp[0] * k + d[0] * 12, E[1] + pp[1] * k + d[1] * 12)
-        arrow(c, T(*a), T(a[0] + d[0] * 150, a[1] + d[1] * 150), "BLUE", 1.3, 7)
-    for e0 in ((125, 460), (269, 554)):
-        line(c, T(*e0), T(e0[0] + d[0] * 260, e0[1] + d[1] * 260), "TEXT", 1.1, "2,4")
-    arrow(c, T(60, 430), T(120, 456), "TEXT", 1.1, 7); arrow(c, T(335, 590), T(276, 557), "TEXT", 1.1, 7)
-    lab(c, T(55, 425), sub("A", "e"), anchor="end", size=17)
-    lab(c, T(70, 690), sub("p", "a"), size=16); lab(c, T(135, 700), sub("ρ", "e"), size=16)
-    lab(c, T(80, 760), sub("U", "e"), size=16)
-    for y in (165, 210, 255, 300, 345):
-        arrow(c, T(935, y), T(872, y), "BLUE", 1.3, 7)
-    line(c, T(866, 136), T(866, 384), "TEXT", 1.1, "4,3")
-    lab(c, T(945, 180), sub("p", "i"), anchor="start", size=16); lab(c, T(945, 265), sub("U", "i"), anchor="start", size=16)
-    lab(c, T(945, 350), sub("ρ", "a"), anchor="start", size=16)
-    arrow(c, T(866, 60), T(866, 126), "TEXT", 1.1, 7); arrow(c, T(880, 450), T(880, 394), "TEXT", 1.1, 7)
-    lab(c, T(890, 60), sub("A", "i"), anchor="start", size=17)
-    lab(c, T(730, 110), sub("p", "a"), size=16)
-    blob(c, T(535, 258), 32, "HEAD", 1.2, seed=0.6); lab(c, T(535, 272), "Q", size=17)
-    _cl11_blades(c, T)
-    lab(c, T(712, 275), "W", anchor="start", size=17)
-    REG.put("cl11-statement", c,
-            "VTOL propulsion device: horizontal intake of section Ai on the right (pi, Ui, rho a), duct with the heat "
-            "addition Q and the mobile blades W, and a thrust-vectoring nozzle of exit section Ae turned an angle alpha "
-            "from the vertical, discharging at Ue, rho e into pa",
-            "Statement figure (redrawn from CL11.pdf, p. 1): intake $A_i$ ($p_i$, $U_i$, $\\rho_a$), heat $Q$ and blades "
-            "$W$ inside the duct, nozzle of exit section $A_e$ at the angle $\\alpha$ from the vertical ($U_e$, $\\rho_e$, "
-            "$p_a$); axes $x$, $y$ at the centre of the rotating joint")
-
-
 def cl11_cv():
     c = Canvas(600, 500)
     T, D = _cl11_device(c, "EDGE", 2.0)
@@ -1501,6 +1153,7 @@ def cl11_cv():
     lab(c, T(a[0] + d[0] * 120 + 30, a[1] + d[1] * 120), sub("U", "e"), "BLUE", "start", 16)
     arrow(c, T(345, 262), T(415, 262), "HEAD", 1.2, 7); lab(c, T(405, 290), "x", size=15)
     arrow(c, T(345, 262), T(345, 185), "HEAD", 1.2, 7); lab(c, T(325, 200), "y", size=15)
+    # EXTRA: control-volume deduction figure
     REG.put("cl11-cv", c,
             "Control volume: the air inside the duct and the nozzle, from the intake section to the exit section, bounded "
             "by the fixed walls and the surface of the mobile blades",
@@ -1561,6 +1214,7 @@ def cl5_statement():
     lab(c, T(318, 215), sub("Σ", "3"), anchor="end", size=15)
     line(c, T(322, 200), T(338, 112), "HEAD", 0.9); line(c, T(322, 222), T(338, 330), "HEAD", 0.9)
     lab(c, T(404, 150), sub("Σ", "4"), anchor="end", size=15); line(c, T(406, 144), T(432, 136), "HEAD", 0.9)
+    # INVIABLE: handwriting over the figure in the official sheet
     REG.put("cl5-statement", c,
             "Turbojet on a testbench: entrance section A1 with v1, p1, rho1, exit section A2 with v2, p2, rho2; the rotor "
             "inside and the heat sources Qr and Qc; the official control volume with surfaces Sigma 1 to Sigma 4",
@@ -1593,6 +1247,7 @@ def cl5_cv():
     arrow(c, T(400, 430), T(320, 430), "ACC", 2.4, 10)
     lab(c, T(410, 436), vec("F") + " = −F " + vec("e") + sub("", "x"), "ACC", "start", 15, weight="700")
     arrow(c, T(120, 430), T(170, 430), "HEAD", 1.3, 8); lab(c, T(176, 436), vec("e") + sub("", "x"), anchor="start", size=15)
+    # EXTRA: control-volume deduction figure
     REG.put("cl5-cv", c,
             "Control volume, as in the class notes: entrance and exit sections, fixed walls and the surface of the moving "
             "rotor; power W extracted by the rotor, heat sources Qc and QR, force F on the testbench",
@@ -1600,6 +1255,31 @@ def cl5_cv():
             "$\\Sigma_2$ (exit, $\\bar{n} = +\\bar{e}_x$), the fixed walls $\\Sigma_w$ and the surface $\\Sigma_m$ of the "
             "mobile parts. The official figure calls them $\\Sigma_1$, $\\Sigma_2$, $\\Sigma_3$ and $\\Sigma_4$")
 
+
+# Figures copied from the official sheets (PNG crops, 200 dpi) and how they are wired: name -> (alt text, caption).
+# The control-volume drawings (clN-cv) and the statements with handwriting over the figure stay generated SVGs.
+RASTER.update({
+    'cl10-statement': ('Ventilation device: air enters from the room through the entrance of diameter De with Ue, pe, passes a fan that does work W per unit time, and leaves through the exit pipe of diameter Ds with Us into pa; a streamline joins the still air (0) to the entrance (e)',
+        'Statement figure: entrance section (e) of diameter $D_e$ with $U_e$, $p_e$; fan supplying the power $\\dot{W}$; exit pipe of diameter $D_s$ discharging at $U_s$ into $p_a$; the streamline from the still room air (0) ($p_a$, $U \\simeq 0$) to (e). Copied from CL10.pdf, p. 1.'),
+    'cl11-statement': ('VTOL propulsion device: horizontal intake of section Ai on the right (pi, Ui, rho a), duct with the heat addition Q and the mobile blades W, and a thrust-vectoring nozzle of exit section Ae turned an angle alpha from the vertical, discharging at Ue, rho e into pa',
+        'Statement figure: intake $A_i$ ($p_i$, $U_i$, $\\rho_a$), heat $Q$ and blades $W$ inside the duct, nozzle of exit section $A_e$ at the angle $\\alpha$ from the vertical ($U_e$, $\\rho_e$, $p_a$); axes $x$, $y$ at the centre of the rotating joint. Copied from CL11.pdf, p. 1.'),
+    'cl12-statement': ('Inverted U-pipe of constant section: the gas enters upwards at the left leg with Tu, pu, Vu and leaves downwards at the right leg, a distance L away, with To, pa, Vo',
+        'Statement figure: inverted U-pipe of section $A$; inlet state $T_u$, $p_u$, $V_u$ in the left leg, outlet $T_o$, $p_a$, $V_o$ in the right leg, legs $L$ apart; origin on the axis of the left leg. Copied from CL12.pdf, p. 1.'),
+    'cl14-statement': ('Diffuser module: front view of the inlet annulus with the axial and azimuthal velocity components u1, u theta, and axial section with the fixed stator of inner and outer radii Ri, Ro, the conical diffuser and the exit with u2, p2, rho2',
+        'Statement figure: front view of the inlet ($u_1$, $u_\\theta$, $p_1$, $\\rho_1$) and axial section of the module: fixed stator between $R_i$ and $R_o$, conical diffuser, purely axial exit $u_2$, $p_2$, $\\rho_2$. Copied from CL14.pdf, p. 1.'),
+    'cl14-cv': ('Control volume in the axial section: inlet annulus, exit disc, the casing and cone walls and the surfaces around the stator aerofoils',
+        'Control volume of the solution (axial section): $\\Sigma_{in}$ (inlet annulus), $\\Sigma_{out}$ (exit disc), $\\Sigma_w$ (inner wall of the casing and outer wall of the cone) and $\\Sigma_a$ (around the stator aerofoils); all are fixed. Copied from CL14.pdf, p. 3.'),
+    'cl15-statement': ('Mixing elbow: main pipe of diameter D1 and length L1 with inlet state v1, p1, T1 at the section centred on x1; bend of radius D1; vertical exit pipe of length L1 discharging at pa; secondary pipe of diameter D2 entering at the elbow from below with v2, p2, T2, its inlet a distance L2 below the main axis',
+        'Statement figure: main inlet ($D_1$, $v_1$, $p_1$, $T_1$, centre $\\bar{x}_1$), bend and exit pipe of length $L_1$ discharging at $p_a$; secondary inlet ($D_2$, $v_2$, $p_2$, $T_2$) at the elbow, $L_2$ below the main axis; the thin lines are the axes of the official figure. Copied from CL15.pdf, p. 1.'),
+    'cl16-statement': ('Plane jet of thickness h, flux Q, velocity v and temperature T0 hitting a wedge with its corner at x0: a part alpha Q leaves along the face at angle theta (temperature T1) and the rest along the face at angle 2 theta (T2); the faces end a distance L from the corner; heat q crosses the wetted faces',
+        'Statement figure: plane jet ($h$, $Q$, $v$, $T_0$) on the wedge with corner $\\bar{x}_0$; the layer $\\alpha Q$ ($T_1$) leaves at $\\theta$ and $(1 - \\alpha)Q$ ($T_2$) at $2\\theta$; faces of horizontal extent $L$; heat flux $q$ into the wedge; ambient $p_a$. Copied from CL16.pdf, p. 1.'),
+    'cl19-statement': ('Elbow of diameter D: at the horizontal inlet an inner stream of diameter D over root 2 at T1 and an outer coflow at T2, both with Ui and pi; the vertical outlet discharges at Uo and To into pa',
+        'Statement figure: pipe of diameter $D$; at the inlet the inner stream (diameter $D/\\sqrt{2}$, temperature $T_1$) and the outer coflow ($T_2$), both with $U_i$ and $p_i$; outlet at $U_o$, $T_o$ into the atmosphere at $p_a$. Copied from CL19.pdf, p. 1.'),
+    'cl20-statement': ('Pipe of diameter D ending in a coaxial contraction with an orifice of diameter d; upstream pu, vu, Tu; discharge vd, Td into the ambient pressure pa',
+        'Statement figure: pipe of diameter $D$ with uniform $p_u$, $v_u$, $T_u$; contraction ending in the orifice of diameter $d$, discharging at $v_d$, $T_d$ into $p_a$. Copied from CL20.pdf, p. 1.'),
+    'cl22-statement': ('Cylinder of radius a0 with water up to h0 at t = 0, and at t > 0 a smaller radius a(t), a higher level h(t) and the control volume V2 up to a fixed level z',
+        'Statement figure: (a) at $t = 0$, radius $a_0$ and level $h_0$; (b) at $t > 0$, radius $a(t)$, level $h(t)$ and the fixed control volume $V_2$ up to the level $z$. Copied from CL22.pdf, p. 1.'),
+})
 
 # ----------------------------------------------------------------------------------------- Lote 5
 # The statement figures of CL4, CL7, CL13 and CL17 are crops of the official PDFs (300 dpi, greyscale): their drawings
@@ -1663,6 +1343,7 @@ def cl4_cv():
         arrow(c, (540, 200 + 40 * k), (600, 228 + 40 * k), "BLUE", 1.6, 8)
     lab(c, (560, 192), vec("v") + sub("", "2"), "BLUE", "start", 16)
     axes(c, (40, 380), "x", "y", 32)
+    # EXTRA: control-volume deduction figure
     REG.put("cl4-cv", c,
             "Control volume one period high, as in the class notes: upstream and downstream sections of height L, the two "
             "stream surfaces and the surface of one aerofoil",
@@ -1713,6 +1394,7 @@ def cl7_cv():
     lab(c, (268, 205), "Q", "PINK", size=16)
     arrow(c, (520, 300), (564, 300), "HEAD", 1.3, 8); lab(c, (570, 305), vec("e") + sub("", "z"), anchor="start", size=15)
     arrow(c, (520, 300), (520, 258), "HEAD", 1.3, 8); lab(c, (526, 262), vec("e") + sub("", "r"), anchor="start", size=15)
+    # EXTRA: control-volume deduction figure
     REG.put("cl7-cv", c,
             "Control volume of the dryer: the radial inlet band, the exit disc, the fixed casing with the resistance, and "
             "the fan blades",
@@ -1769,6 +1451,7 @@ def cl13_cv():
     bis = (t_[0] + V[0], t_[1] + V[1]); nb = math.hypot(*bis)           # label on the bisector of the angle,
     lab(c, (P[0] + 66 * bis[0] / nb, P[1] + 66 * bis[1] / nb), "α", anchor="start", size=16)   # clear of the dashed line
     lab(c, (cx + R - 10, cy - R + 6), sub("Σ", "s"), "GREEN", "start", 16, weight="600")
+    # EXTRA: control-volume deduction figure
     REG.put("cl13-cv", c,
             "Control volume of the pump: meridional section with the inlet disc, the lateral exit cylinder, the fixed "
             "casing and the rotating blades; front view with the exit velocity at the angle alpha from the lateral surface",
@@ -1802,6 +1485,7 @@ def cl17_cv():
     normal(c, (556, 162), (1, 0), length=28, lab_off=(4, 16), anchor="start")
     dim(c, (196, 172), (196, 238), "", "TEXT"); lab(c, (204, 214), sub("a", "i"), anchor="start", size=15)
     dim(c, (530, 104), (530, 168), "", "TEXT"); lab(c, (522, 142), sub("a", "o"), anchor="end", size=15)
+    # EXTRA: control-volume deduction figure
     REG.put("cl17-cv", c,
             "Control volume: the air inside the engine, from the inlet section below the axis to the outlet section above "
             "it, bounded by the engine walls; origin at the centre of gravity",
@@ -1812,11 +1496,11 @@ def cl17_cv():
 
 # ----------------------------------------------------------------------------------------- build
 def build():
-    for fn in (cl22_statement, cl22_cv, cl21_statement, cl21_cv, cl20_statement, cl20_cv,
-               cl12_statement, cl12_cv, cl2_statement, cl2_cv,
-               cl6_statement, cl6_cv, cl19_statement, cl19_cv, cl10_statement, cl10_cv, cl3_statement, cl3_cv,
-               cl8_statement, cl8_cv, cl16_statement, cl16_cv, cl18_statement, cl18_cv, cl9_statement, cl9_cv,
-               cl14_statement, cl14_cv, cl1_statement, cl1_cv, cl15_statement, cl15_cv, cl11_statement, cl11_cv,
+    for fn in (cl22_cv, cl21_statement, cl21_cv, cl20_cv,
+               cl12_cv, cl2_statement, cl2_cv,
+               cl6_statement, cl6_cv, cl19_cv, cl10_cv, cl3_statement, cl3_cv,
+               cl8_statement, cl8_cv, cl16_cv, cl18_statement, cl18_cv, cl9_statement, cl9_cv,
+               cl1_statement, cl1_cv, cl15_cv, cl11_cv,
                cl5_statement, cl5_cv, cl4_cv, cl7_cv, cl13_cv, cl17_cv):
         fn()
     return REG

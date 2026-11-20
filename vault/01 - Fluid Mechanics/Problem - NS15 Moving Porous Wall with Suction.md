@@ -39,8 +39,8 @@ Problem 2: Consider a buoyancy-free, steady planar motion occurring in a semi-in
 
 The sheet is headed "INTRODUCTION TO FLUID MECHANICS, FINAL (Jan 21, 2014)". Transcribed as printed, including "and well as" in item 1.
 
-![[attachments/FM-T4/ns15-statement.svg]]
-*Statement figure (redrawn from NS15.pdf, p. 1): porous wall at temperature $T_w$ moving with $U_w$ and sucking with $V_w$, axes $x$, $y$, normals $\bar{n}$ and $\bar{n}_w$, far field $p_\infty$, $T_\infty$ and the fixed control volume $V_c$ of unit length ($\delta x = 1$)*
+![[attachments/FM-T4/ns15-statement.png]]
+*Statement figure (crop of NS15.pdf, p. 1): porous wall at temperature $T_w$ moving with $U_w$ and sucking with $V_w$, axes $x$, $y$, normals $\bar{n}$ and $\bar{n}_w$, far field $p_\infty$, $T_\infty$ and the fixed control volume $V_c$ of unit length ($\delta x = 1$)*
 
 Source: NS15.pdf (page 1). Notes.pdf, Chapter 4: continuity Eq. 4.40, momentum Eq. 4.41, energy Eq. 4.42, integral balances Eqs. 4.2 and 4.3.
 

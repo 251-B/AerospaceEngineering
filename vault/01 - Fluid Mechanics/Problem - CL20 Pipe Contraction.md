@@ -33,8 +33,8 @@ A liquid of density $\rho$ and specific heat $c$ flows steadily along a circular
 
 Simplify these last two results by further assuming that the effect of viscosity is entirely negligible, so that for this incompressible steady flow Bernoulli's equation can be used to relate the variation of the fluid properties along a given stream line.
 
-![[attachments/FM-T3/cl20-statement.svg]]
-*Statement figure (redrawn from CL20.pdf, p. 1, axial section): pipe of diameter $D$ with uniform $p_u$, $v_u$, $T_u$; contraction ending in the orifice of diameter $d$, discharging at $v_d$, $T_d$ into $p_a$*
+![[attachments/FM-T3/cl20-statement.png]]
+*Statement figure: pipe of diameter $D$ with uniform $p_u$, $v_u$, $T_u$; contraction ending in the orifice of diameter $d$, discharging at $v_d$, $T_d$ into $p_a$. Copied from CL20.pdf, p. 1.*
 
 Source: CL20.pdf (page 1, final of Jan 21, 2014). Notes.pdf: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.
 
