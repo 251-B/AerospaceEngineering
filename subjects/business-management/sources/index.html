@@ -44,9 +44,11 @@
 
     <section class="lib-tools" id="libTools" aria-label="Search and filters" hidden>
       <label class="lib-search"><input type="search" id="libSearch" placeholder="Search by file name, unit or year" aria-label="Search the PDFs" autocomplete="off"></label>
-      <div class="lib-row" role="group" aria-label="Type"><span class="lib-label">Type</span><button type="button" class="lib-chip" data-filter="kind" data-value="all" aria-pressed="true">All<span class="n">24</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="teoria" aria-pressed="false">Theory<span class="n">9</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="problemas" aria-pressed="false">Problem sheets<span class="n">14</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="other" aria-pressed="false">Other<span class="n">1</span></button></div>
+      <div class="lib-row" role="group" aria-label="Type"><span class="lib-label">Type</span><button type="button" class="lib-chip" data-filter="kind" data-value="all" aria-pressed="true">All<span class="n">25</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="teoria" aria-pressed="false">Theory<span class="n">9</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="problemas" aria-pressed="false">Problem sheets<span class="n">14</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="other" aria-pressed="false">Other<span class="n">1</span></button><button type="button" class="lib-chip" data-filter="kind" data-value="exam" aria-pressed="false">Exams<span class="n">1</span></button></div>
       <div class="lib-row" data-only="material"><label class="lib-label" for="libUnit">Unit</label><select class="lib-select" id="libUnit" data-filter="unit"><option value="all">All units</option><option value="1">Unit 1: The Firm Types Objectives</option><option value="2">Unit 2: Value Creation Environment</option><option value="3">Unit 3: Financial Management Statements</option><option value="4">Unit 4: Production Function</option><option value="5">Unit 5: Marketing Sales</option><option value="6">Unit 6: Management Function</option><option value="7">Unit 7: Innovation Entrepreneurship</option></select></div>
-      <div class="lib-status"><p class="lib-count" id="libCount" aria-live="polite">24 files</p><button type="button" class="lib-reset" id="libReset" hidden>Clear filters</button></div>
+      <div class="lib-row" data-only="exam" role="group" aria-label="Exam" hidden><span class="lib-label">Exam</span><button type="button" class="lib-chip" data-filter="exam" data-value="all" aria-pressed="true">All</button><button type="button" class="lib-chip" data-filter="exam" data-value="second" aria-pressed="false">Second partial</button></div>
+      <div class="lib-row" data-only="exam" hidden><label class="lib-label" for="libYear">Year</label><select class="lib-select" id="libYear" data-filter="year"><option value="all">All years</option><option value="2026">2026</option></select></div>
+      <div class="lib-status"><p class="lib-count" id="libCount" aria-live="polite">25 files</p><button type="button" class="lib-reset" id="libReset" hidden>Clear filters</button></div>
     </section>
     <section class="lib-group">
       <h2>Unit 1 · The Firm Types Objectives<span class="count">2 files</span></h2>
@@ -105,6 +107,12 @@
       <h2>Unit 7 · Innovation Entrepreneurship<span class="count">1 file</span></h2>
       <ul class="lib-list">
         <li class="lib-item" data-kind="teoria" data-unit="7" data-name="topic 7_entrepreneurship innovation.pdf theory unit 7 · innovation entrepreneurship"><a href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf"><span class="lib-name">Topic 7_Entrepreneurship  Innovation.pdf</span><span class="lib-meta">Theory</span><span class="lib-size">477 KB</span></a></li>
+      </ul>
+    </section>
+    <section class="lib-group" id="second">
+      <h2>Exams · Second partials<span class="count">1 file</span></h2>
+      <ul class="lib-list">
+        <li class="lib-item" data-kind="exam" data-exam="second" data-year="2026" data-name="2026 examples · solutions second partial exam business_secondpartial_2026_examples_sol.pdf"><a href="../../../sources/cuatrimestre-1/05-business-management/examenes/BUSINESS_SECONDPARTIAL_2026_EXAMPLES_SOL.pdf"><span class="lib-name">2026 · Examples · Solutions</span><span class="lib-meta">Second partial</span><span class="lib-size">456 KB</span></a></li>
       </ul>
     </section>
     <p class="lib-empty" id="libEmpty" hidden>No file matches these filters.</p>

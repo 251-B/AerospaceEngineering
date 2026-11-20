@@ -888,7 +888,13 @@ window.AE_SOURCES = {
     "business-management": {
       "folder": "05-business-management",
       "general": {
-        "examenes": [],
+        "examenes": [
+          {
+            "bytes": 467053,
+            "href": "sources/cuatrimestre-1/05-business-management/examenes/BUSINESS_SECONDPARTIAL_2026_EXAMPLES_SOL.pdf",
+            "name": "BUSINESS_SECONDPARTIAL_2026_EXAMPLES_SOL.pdf"
+          }
+        ],
         "other": [],
         "problemas": [],
         "schedule": [],
@@ -1006,6 +1012,15 @@ window.AE_SOURCES = {
           "title": "Financial Management Statements"
         },
         {
+          "id": "unit-04-financial-analysis-ratios",
+          "number": 4,
+          "other": [],
+          "problemas": [],
+          "slides": [],
+          "teoria": [],
+          "title": "Financial Analysis Ratios"
+        },
+        {
           "id": "unit-04-production-function",
           "number": 4,
           "other": [],
@@ -1061,6 +1076,24 @@ window.AE_SOURCES = {
             }
           ],
           "title": "Marketing Sales"
+        },
+        {
+          "id": "unit-05-operations-marketing",
+          "number": 5,
+          "other": [],
+          "problemas": [],
+          "slides": [],
+          "teoria": [],
+          "title": "Operations Marketing"
+        },
+        {
+          "id": "unit-06-business-plan",
+          "number": 6,
+          "other": [],
+          "problemas": [],
+          "slides": [],
+          "teoria": [],
+          "title": "Business Plan"
         },
         {
           "id": "unit-06-management-function",
@@ -1335,6 +1368,15 @@ window.AE_SOURCES = {
           "title": "Dynamics Point Particle"
         },
         {
+          "id": "unit-02-particle-dynamics",
+          "number": 2,
+          "other": [],
+          "problemas": [],
+          "slides": [],
+          "teoria": [],
+          "title": "Particle Dynamics"
+        },
+        {
           "id": "unit-03-constraints-reactions",
           "number": 3,
           "other": [],
@@ -1400,6 +1442,15 @@ window.AE_SOURCES = {
           "title": "Kinematics Rigid Bodies Inertia"
         },
         {
+          "id": "unit-06-particle-systems",
+          "number": 6,
+          "other": [],
+          "problemas": [],
+          "slides": [],
+          "teoria": [],
+          "title": "Particle Systems"
+        },
+        {
           "id": "unit-07-dynamics-rigid-bodies",
           "number": 7,
           "other": [],
@@ -1418,6 +1469,15 @@ window.AE_SOURCES = {
           ],
           "teoria": [],
           "title": "Dynamics Rigid Bodies"
+        },
+        {
+          "id": "unit-07-rigid-body-kinematics",
+          "number": 7,
+          "other": [],
+          "problemas": [],
+          "slides": [],
+          "teoria": [],
+          "title": "Rigid Body Kinematics"
         },
         {
           "id": "unit-08-rigid-body-dynamics",

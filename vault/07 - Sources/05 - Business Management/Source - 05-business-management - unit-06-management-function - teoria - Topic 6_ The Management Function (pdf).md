@@ -19,8 +19,9 @@ bytes: 528668
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic 6_ The Management Function.pdf`
 - **Kind:** teoria
 - **Size:** 528.7 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
+- [[05 - Business Management/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
 - [[05 - Business Management/Topic 6 - The Management Function]]

@@ -68,8 +68,9 @@ tags:
   * [[05 - Business Management/Problem - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends|Exam Problem 3: WIFINET S.L. — Telecommunications Accounting Cycle & Dividend Policies]]
   * [[05 - Business Management/Problem - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount|Exam Problem 4: CEMED — Industrial Accounting Cycle & Trade Discount Analysis]]
 
-### Problem Bank and Midterm 1 Simulator
+### Problem Bank and Exam Simulator (Midterms 1 and 2)
 * [[05 - Business Management/Problem Bank/Problem Set - Business Management Problem Bank|Extra problems]]: the 1st Midterm block of the Extra problems hub, with a page of 24 short theory cases on Topics 1-3 and a page of 6 exam-style practice problems (style of T3_Additional_EXERCISES.pdf). It feeds `subjects/business-management/data/problems.json` through `tools/build_problem_bank.py`; the exam structure is in `subjects/business-management/data/exam-blueprint.json`.
+* 2nd Midterm (Topics 3 Part II to 7): True/False blocks, multiple-choice blocks and problems and cases of 2.5 points, built by `tools/bm_mt2/bank.py` (called by `build_problem_bank.py`) into the pages `midterm-2-tf.html`, `midterm-2-test.html` and `midterm-2-problems.html`; structure in `subjects/business-management/data/exam-blueprint-midterm-2.json`. Rules and the analysis of the course's example exam: [[05 - Business Management/Problem Bank/Rules - Midterm 2 Exam Style Analysis|Rules - Midterm 2 Exam Style Analysis]]. The example exam is `sources/cuatrimestre-1/05-business-management/examenes/BUSINESS_SECONDPARTIAL_2026_EXAMPLES_SOL.pdf`.
 
 ---
 

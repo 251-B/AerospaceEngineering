@@ -19,7 +19,7 @@ bytes: 231995
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/PED Exercises SOL.pdf`
 - **Kind:** problemas
 - **Size:** 232.0 kB
-- **Status:** referenced by 7 note(s) below
+- **Status:** referenced by 9 note(s) below
 
 ## Referenced by
 
@@ -29,4 +29,6 @@ bytes: 231995
 - [[05 - Business Management/Problem - T5 Exercise 4 - Quantity Change After a Price Cut]]
 - [[05 - Business Management/Problem - T5 Exercise 5 - Elastic Demand and Revenue]]
 - [[05 - Business Management/Problem - T5 Exercise 6 - Substitute Goods from Cross Effects]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank B03 - Unit 5 Marketing Mix Segmentation and Price Elasticity]]
+- [[05 - Business Management/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
 - [[05 - Business Management/Problem Set - T5 Price Elasticity of Demand]]

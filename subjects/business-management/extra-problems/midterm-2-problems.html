@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extra Problems — 2nd Midterm Problems and Cases | Business Management</title>
+  <meta name="description" content="Exam-style problems and cases for the second midterm of Business Management (UC3M Aerospace Engineering), solved step by step." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+    /* Extra problems: the 1st Midterm block, split into Theory and Problems */
+    .midterm-block { margin: 8px 0 0; }
+    .midterm-block > h2.midterm-title { font-size: 2rem; margin: 8px 0 6px; }
+    .midterm-lead { color: var(--text-body, var(--text-primary)); margin: 0 0 8px; }
+    .midterm-part { font-size: 1.6rem; margin: 44px 0 4px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); }
+    .midterm-part-lead { color: var(--text-body, var(--text-primary)); margin: 8px 0 18px; }
+    .midterm-part-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .phase-block .prompt { font-style: italic; }
+    .problem-title { scroll-margin-top: 90px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">1ST MIDTERM · PRACTICE PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Extra problems · 2nd Midterm · Problems</div>
+        <h1 class="article-title">2nd Midterm: Exam-Style Problems and Cases</h1>
+        <div class="article-meta">
+          Problems and cases of 2.5 points on Topics 3 (Part II) to 7, written for this portal in the style of the course's example exam and solved step by step: NPV, IRR and Fisher's rate; break-even point, operating leverage and price elasticity; marketing, management and innovation cases. They are practice material, not official exercises; anything beyond the course slides is marked as an extension.
+        </div>
+      </header>
+
+
+<!-- EXTRA-PROBLEMS:START (generated by tools/build_problem_bank.py; edit the vault notes) -->
+      <p class="midterm-part-lead">5 exam-style problems and cases written for this portal, in the style of the course's example exam: investment selection with NPV, IRR and Fisher's rate; break-even point, operating leverage and price elasticity; and cases on marketing, management and innovation. Part III of the simulated exam is two of them, of different types, 2.5 points each. These are practice items, not official exercises.</p>
+      <h2 class="mcq-unit-title" id="npv-irr-fisher">NPV, IRR and Fisher&#x27;s rate <span class="mcq-unit-count">1 item</span></h2>
+      <section class="problem-box" id="M01">
+        <span class="problem-tag">Problem · Topic 3 · NPV, IRR and Fisher&#x27;s rate · 2.5 points · 25 min · Practice item, not an official exercise</span>
+        <h4 class="problem-title">M01 — Aldebaran Space Systems: IRR ranking against NPV at the cost of capital</h4>
+        <div class="statement-box">
+<p>Aldebaran Space Systems, a manufacturer of small satellites, is evaluating two investment projects:</p>
+<ul><li>Investment A: an automated integration line for satellite buses, requiring an initial outlay of 500,000 € and expected to generate net cash flows of 300,000 € in year 1 and 300,000 € in year 2.</li><li>Investment B: a test stand for reusable rocket engines with an unknown initial outlay, expected to generate net cash flows of 200,000 € in year 1 and 700,000 € in year 2.</li></ul>
+<p>The company is financed 40% with equity, whose cost is estimated at 9%, and 60% with liabilities, whose average cost is 4%. It uses the NPV criterion with its weighted average cost of capital as the yearly discount rate. The projects are mutually exclusive (only one can be accepted).</p>
+<p>a) Determine the discount rate of the company and the maximum initial outlay of project B for it to be interesting (NPV ≥ 0). (0.5 points)</p>
+<p>b) The initial outlay of project B is finally fixed at 750,000 €. Which investment is preferable under the IRR criterion? Does the NPV at the company's discount rate give the same ranking, and which project does the company undertake? (0.75 points)</p>
+<p>c) A third project C is presented, a ground-station network for a satellite data-download service (a new line of business), requiring an initial investment of 200,000 € and generating 100,000 € in year 1 and 150,000 € in year 2. Draw a schematic graph of the NPV of the three projects as a function of the discount rate and compute Fisher's rates of the pairs A–B, A–C and B–C. (0.75 points)</p>
+<p>d) Reason which project would be chosen depending on the discount rate, state from which discount rate no project should be selected, and say which project the company chooses at its own discount rate. (0.5 points)</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<h4 class="step-title">Data</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Project</th><th style="text-align:right">Initial outlay $A$ (€)</th><th style="text-align:right">$Q_1$ (€)</th><th style="text-align:right">$Q_2$ (€)</th></tr></thead><tbody><tr><td>A</td><td style="text-align:right">500,000</td><td style="text-align:right">300,000</td><td style="text-align:right">300,000</td></tr><tr><td>B</td><td style="text-align:right">unknown in (a); 750,000 from (b) on</td><td style="text-align:right">200,000</td><td style="text-align:right">700,000</td></tr><tr><td>C</td><td style="text-align:right">200,000</td><td style="text-align:right">100,000</td><td style="text-align:right">150,000</td></tr></tbody></table></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Financial structure</th><th style="text-align:right">Share</th><th style="text-align:right">Cost</th></tr></thead><tbody><tr><td>Equity $E$</td><td style="text-align:right">40%</td><td style="text-align:right">$K_{EQ}$ = 9%</td></tr><tr><td>Liabilities $L$</td><td style="text-align:right">60%</td><td style="text-align:right">$K_L$ = 4%</td></tr></tbody></table></div>
+<h4 class="step-title">Model</h4>
+<ul><li><strong>Cost of capital</strong> (Topic 3, Slide 37): the capital cost is the weighted average of the costs of the financial resources, $K_{WACC} = K_{EQ}\,\frac{E}{E+L} + K_L\,\frac{L}{E+L}$. The key of 3_II_NPV IRR.pdf, Exercise 8 uses it as the cut-off rate of the IRR.</li><li><strong>Net present value</strong> (Examples PDF, Exercise 5): with outlay $A$, flows $Q_t$ and discount rate $k$,</li></ul>
+<div class="math-block">$$NPV = -A + \frac{Q_1}{1+k} + \frac{Q_2}{(1+k)^2}$$</div>
+<p>A project is interesting when $NPV \geq 0$; of mutually exclusive projects, the one with the largest positive NPV is chosen.</p>
+<ul><li><strong>Internal rate of return</strong>: the rate $r$ at which $NPV = 0$ (3_II_NPV_NPV IRR_solutions.pdf, Exercise 4). For a two-year project, with $x = 1 + r$ and multiplying by $x^2 &gt; 0$, $NPV = 0$ becomes the quadratic $A\,x^2 - Q_1\,x - Q_2 = 0$, solved with $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. Only the root with $x &gt; 0$ has economic meaning.</li><li><strong>Fisher's rate</strong> of a pair: the rate at which both NPVs are equal (3_II_NPV_NPV IRR_solutions.pdf, Exercise 9). Multiplying $NPV_P = NPV_Q$ by $x^2$ gives $-A_P x^2 + Q_{1P} x + Q_{2P} = -A_Q x^2 + Q_{1Q} x + Q_{2Q}$, again a quadratic in $x$ (Examples PDF, Exercise 5 (c)).</li><li>Hypotheses: flows at the end of each year, a constant yearly discount rate, no taxes and no residual value.</li></ul>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.5 points</h3>
+          <div class="prompt"><p>Discount rate and maximum outlay of project B</p></div>
+<h4 class="step-title">Discount rate from the financial structure</h4>
+<p>The weights are the shares of equity and liabilities in the financial structure, $E/(E+L) = 0.40$ and $L/(E+L) = 0.60$ (Topic 3, Slide 37):</p>
+<div class="math-block">$$K_{WACC} = 0.40 \times 9\% + 0.60 \times 4\% = 3.60\% + 2.40\% = 6.00\%$$</div>
+<p>So $k = 0.06$ and the discount factors are $1 + k = 1.06$ and $(1 + k)^2 = 1.06 \times 1.06 = 1.1236$.</p>
+<h4 class="step-title">NPV of B with an unknown outlay</h4>
+<p>Writing every term of the NPV of B with outlay $X$:</p>
+<div class="math-block">$$NPV_B = -X + \frac{200{,}000}{1.06} + \frac{700{,}000}{1.1236} = -X + 188{,}679.245 + 622{,}997.508 = -X + 811{,}676.75$$</div>
+<h4 class="step-title">Condition NPV ≥ 0</h4>
+<div class="math-block">$$-X + 811{,}676.75 \geq 0 \quad\Longleftrightarrow\quad X \leq 811{,}676.75\ \text{€}$$</div>
+<p>Project B is interesting as long as its initial outlay does not exceed <strong>811,676.75 €</strong>, the present value of its flows at 6%. Units: each term is a sum of money in € divided by a dimensionless factor $(1.06)^t$, so the NPV is in €.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$K_{WACC}$ = 6.00%.</li><li>Present value of the flows of B at 6%: 811,676.75 €.</li><li>B is interesting for an outlay $X \leq$ 811,676.75 €.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>IRR ranking of A and B, and the NPV at the cost of capital</p></div>
+<h4 class="step-title">IRR of A</h4>
+<div class="math-block">$$-500{,}000 + \frac{300{,}000}{x} + \frac{300{,}000}{x^2} = 0 \quad\xrightarrow{\ \times x^2\ }\quad 500{,}000\,x^2 - 300{,}000\,x - 300{,}000 = 0$$</div>
+<p>Dividing by 100,000: $5x^2 - 3x - 3 = 0$, with $a = 5$, $b = -3$, $c = -3$:</p>
+<div class="math-block">$$x = \frac{3 \pm \sqrt{(-3)^2 - 4 \cdot 5 \cdot (-3)}}{2 \cdot 5} = \frac{3 \pm \sqrt{9 + 60}}{10} = \frac{3 \pm \sqrt{69}}{10} = \frac{3 \pm 8.30662}{10}$$</div>
+<p>The roots are $x = 1.130662$ and $x = -0.530662$; the negative one has no economic meaning. Hence $r_A = 1.130662 - 1 = 0.1307$, <strong>IRR(A) = 13.07%</strong>.</p>
+<h4 class="step-title">IRR of B</h4>
+<div class="math-block">$$-750{,}000 + \frac{200{,}000}{x} + \frac{700{,}000}{x^2} = 0 \quad\xrightarrow{\ \times x^2\ }\quad 750{,}000\,x^2 - 200{,}000\,x - 700{,}000 = 0$$</div>
+<p>Dividing by 50,000: $15x^2 - 4x - 14 = 0$, with $a = 15$, $b = -4$, $c = -14$:</p>
+<div class="math-block">$$x = \frac{4 \pm \sqrt{(-4)^2 - 4 \cdot 15 \cdot (-14)}}{2 \cdot 15} = \frac{4 \pm \sqrt{16 + 840}}{30} = \frac{4 \pm \sqrt{856}}{30} = \frac{4 \pm 29.25748}{30}$$</div>
+<p>The positive root is $x = 1.108583$ (the other, $-0.841916$, is rejected), so <strong>IRR(B) = 10.86%</strong>.</p>
+<h4 class="step-title">Ranking by IRR</h4>
+<p>Both IRRs exceed the 6% cost of capital, so each project is acceptable on its own (IRR &gt; k, 3_II_NPV IRR.pdf, Exercise 8). Under the IRR criterion <strong>A is preferable</strong>, because $13.07\% &gt; 10.86\%$.</p>
+<h4 class="step-title">NPVs at the company's discount rate</h4>
+<div class="math-block">$$NPV_A(6\%) = -500{,}000 + \frac{300{,}000}{1.06} + \frac{300{,}000}{1.1236} = -500{,}000 + 283{,}018.868 + 266{,}998.932 = 50{,}017.80\ \text{€}$$</div>
+<div class="math-block">$$NPV_B(6\%) = -750{,}000 + 188{,}679.245 + 622{,}997.508 = 61{,}676.75\ \text{€}$$</div>
+<p>(the two discounted terms of B are those of part (a); equivalently $811{,}676.75 - 750{,}000$).</p>
+<h4 class="step-title">The two rankings disagree</h4>
+<p>At 6% the NPV ranks <strong>B first</strong> ($61{,}676.75 &gt; 50{,}017.80$), the opposite of the IRR ranking. The company has adopted the NPV criterion and the projects are mutually exclusive, so it <strong>undertakes B</strong>. The IRR compares the projects at their own break-even rates, not at the company's 6%; B receives most of its money in year 2, so its NPV is high when the rate is low and falls fast when the rate rises. Part (c) shows that the two NPV profiles cross at Fisher's rate A–B of 8.06%, above the 6% of the company.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>IRR(A) = 13.07%; IRR(B) = 10.86%; both above 6%, and A ranks first by IRR.</li><li>$NPV_A(6\%)$ = 50,017.80 €; $NPV_B(6\%)$ = 61,676.75 €; B ranks first by NPV.</li><li>The company uses NPV, so it undertakes B (the conflict is explained by Fisher's rate A–B in (c)).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.75 points</h3>
+          <div class="prompt"><p>NPV profiles and Fisher's rates of the three pairs</p></div>
+<h4 class="step-title">IRR of C</h4>
+<div class="math-block">$$-200{,}000 + \frac{100{,}000}{x} + \frac{150{,}000}{x^2} = 0 \quad\xrightarrow{\ \times x^2\ }\quad 200{,}000\,x^2 - 100{,}000\,x - 150{,}000 = 0$$</div>
+<p>Dividing by 50,000: $4x^2 - 2x - 3 = 0$, so</p>
+<div class="math-block">$$x = \frac{2 \pm \sqrt{(-2)^2 - 4 \cdot 4 \cdot (-3)}}{2 \cdot 4} = \frac{2 \pm \sqrt{4 + 48}}{8} = \frac{2 \pm \sqrt{52}}{8} = \frac{2 \pm 7.21110}{8}$$</div>
+<p>The positive root is $x = 1.151388$ (the other, $-0.651388$, is rejected): <strong>IRR(C) = 15.14%</strong>.</p>
+<h4 class="step-title">Points of the profiles</h4>
+<p>At $r = 0$ every discount factor is 1, so the NPV is the sum of the flows minus the outlay:</p>
+<div class="math-block">$$NPV_A(0) = -500{,}000 + 300{,}000 + 300{,}000 = 100{,}000\ \text{€}$$</div>
+<div class="math-block">$$NPV_B(0) = -750{,}000 + 200{,}000 + 700{,}000 = 150{,}000\ \text{€}$$</div>
+<div class="math-block">$$NPV_C(0) = -200{,}000 + 100{,}000 + 150{,}000 = 50{,}000\ \text{€}$$</div>
+<p>At 6%, $NPV_C = -200{,}000 + \frac{100{,}000}{1.06} + \frac{150{,}000}{1.1236} = -200{,}000 + 94{,}339.623 + 133{,}499.466 = 27{,}839.09$ €.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Project</th><th style="text-align:right">NPV at 0% (€)</th><th style="text-align:right">NPV at 6% (€)</th><th style="text-align:right">IRR</th></tr></thead><tbody><tr><td>A</td><td style="text-align:right">100,000.00</td><td style="text-align:right">50,017.80</td><td style="text-align:right">13.07%</td></tr><tr><td>B</td><td style="text-align:right">150,000.00</td><td style="text-align:right">61,676.75</td><td style="text-align:right">10.86%</td></tr><tr><td>C</td><td style="text-align:right">50,000.00</td><td style="text-align:right">27,839.09</td><td style="text-align:right">15.14%</td></tr></tbody></table></div>
+<p>Each profile starts at its NPV at 0%, decreases as the rate rises (every flow is divided by a larger $(1+r)^t$), cuts the horizontal axis at its IRR and tends to minus the outlay for very large rates. B starts highest but falls fastest (its large flow is in year 2), and C starts lowest but reaches zero last.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 400" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="NPV of projects A, B and C of Aldebaran Space Systems as a function of the discount rate r, with the IRR of each project and the Fisher rates of the three pairs (schematic, drawn from the cash flows of the statement)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="78.0" y1="64.0" x2="78.0" y2="334.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="78.0" y1="221.3" x2="612.0" y2="221.3" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M612.0,221.3 L603.7,224.8 L603.7,217.8 Z" fill="var(--text-faint)"/>
+<text x="612.0" y="251.3" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">r (%)</text>
+<text x="70.0" y="58.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">NPV</text>
+<line x1="78.0" y1="218.3" x2="78.0" y2="224.3" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="208.5" y1="218.3" x2="208.5" y2="224.3" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="208.5" y="237.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">5</text>
+<line x1="339.0" y1="218.3" x2="339.0" y2="224.3" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="339.0" y="237.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">10</text>
+<line x1="469.5" y1="218.3" x2="469.5" y2="224.3" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="469.5" y="237.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">15</text>
+<line x1="600.0" y1="218.3" x2="600.0" y2="224.3" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="600.0" y="237.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">20</text>
+<line x1="75.0" y1="310.4" x2="81.0" y2="310.4" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="72.0" y="314.4" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">-100,000</text>
+<line x1="75.0" y1="221.3" x2="81.0" y2="221.3" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="72.0" y="225.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">0</text>
+<line x1="75.0" y1="132.2" x2="81.0" y2="132.2" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="72.0" y="136.2" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">100,000</text>
+<polyline points="78.0,132.2 80.6,133.0 83.2,133.8 85.8,134.6 88.4,135.4 91.0,136.2 93.7,137.0 96.3,137.8 98.9,138.5 101.5,139.3 104.1,140.1 106.7,140.9 109.3,141.7 111.9,142.4 114.5,143.2 117.2,144.0 119.8,144.8 122.4,145.5 125.0,146.3 127.6,147.1 130.2,147.8 132.8,148.6 135.4,149.3 138.0,150.1 140.6,150.8 143.2,151.6 145.9,152.3 148.5,153.1 151.1,153.8 153.7,154.6 156.3,155.3 158.9,156.1 161.5,156.8 164.1,157.5 166.7,158.3 169.4,159.0 172.0,159.7 174.6,160.5 177.2,161.2 179.8,161.9 182.4,162.6 185.0,163.4 187.6,164.1 190.2,164.8 192.8,165.5 195.4,166.2 198.1,166.9 200.7,167.7 203.3,168.4 205.9,169.1 208.5,169.8 211.1,170.5 213.7,171.2 216.3,171.9 218.9,172.6 221.5,173.3 224.2,174.0 226.8,174.7 229.4,175.4 232.0,176.0 234.6,176.7 237.2,177.4 239.8,178.1 242.4,178.8 245.0,179.5 247.6,180.2 250.3,180.8 252.9,181.5 255.5,182.2 258.1,182.9 260.7,183.5 263.3,184.2 265.9,184.9 268.5,185.5 271.1,186.2 273.8,186.9 276.4,187.5 279.0,188.2 281.6,188.8 284.2,189.5 286.8,190.1 289.4,190.8 292.0,191.4 294.6,192.1 297.2,192.7 299.9,193.4 302.5,194.0 305.1,194.7 307.7,195.3 310.3,196.0 312.9,196.6 315.5,197.2 318.1,197.9 320.7,198.5 323.3,199.1 326.0,199.8 328.6,200.4 331.2,201.0 333.8,201.7 336.4,202.3 339.0,202.9 341.6,203.5 344.2,204.1 346.8,204.8 349.4,205.4 352.0,206.0 354.7,206.6 357.3,207.2 359.9,207.8 362.5,208.4 365.1,209.1 367.7,209.7 370.3,210.3 372.9,210.9 375.5,211.5 378.1,212.1 380.8,212.7 383.4,213.3 386.0,213.9 388.6,214.5 391.2,215.1 393.8,215.7 396.4,216.2 399.0,216.8 401.6,217.4 404.2,218.0 406.9,218.6 409.5,219.2 412.1,219.8 414.7,220.4 417.3,220.9 419.9,221.5 422.5,222.1 425.1,222.7 427.7,223.2 430.3,223.8 433.0,224.4 435.6,225.0 438.2,225.5 440.8,226.1 443.4,226.7 446.0,227.2 448.6,227.8 451.2,228.4 453.8,228.9 456.4,229.5 459.1,230.0 461.7,230.6 464.3,231.2 466.9,231.7 469.5,232.3 472.1,232.8 474.7,233.4 477.3,233.9 479.9,234.5 482.5,235.0 485.2,235.6 487.8,236.1 490.4,236.7 493.0,237.2 495.6,237.7 498.2,238.3 500.8,238.8 503.4,239.4 506.0,239.9 508.7,240.4 511.3,241.0 513.9,241.5 516.5,242.0 519.1,242.6 521.7,243.1 524.3,243.6 526.9,244.2 529.5,244.7 532.1,245.2 534.8,245.7 537.4,246.2 540.0,246.8 542.6,247.3 545.2,247.8 547.8,248.3 550.4,248.8 553.0,249.4 555.6,249.9 558.2,250.4 560.8,250.9 563.5,251.4 566.1,251.9 568.7,252.4 571.3,252.9 573.9,253.4 576.5,254.0 579.1,254.5 581.7,255.0 584.3,255.5 587.0,256.0 589.6,256.5 592.2,257.0 594.8,257.5 597.4,258.0 600.0,258.5" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="622.0" y="263.5" fill="var(--fig-blue, #3b82f6)" font-size="13" font-weight="700" text-anchor="start">A</text>
+<circle cx="419.0" cy="221.3" r="4" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<polyline points="78.0,87.6 80.6,89.1 83.2,90.5 85.8,91.9 88.4,93.3 91.0,94.7 93.7,96.1 96.3,97.5 98.9,98.9 101.5,100.3 104.1,101.7 106.7,103.1 109.3,104.4 111.9,105.8 114.5,107.2 117.2,108.6 119.8,109.9 122.4,111.3 125.0,112.6 127.6,114.0 130.2,115.3 132.8,116.7 135.4,118.0 138.0,119.4 140.6,120.7 143.2,122.0 145.9,123.4 148.5,124.7 151.1,126.0 153.7,127.3 156.3,128.6 158.9,129.9 161.5,131.2 164.1,132.5 166.7,133.8 169.4,135.1 172.0,136.4 174.6,137.7 177.2,139.0 179.8,140.3 182.4,141.6 185.0,142.8 187.6,144.1 190.2,145.4 192.8,146.6 195.4,147.9 198.1,149.1 200.7,150.4 203.3,151.6 205.9,152.9 208.5,154.1 211.1,155.4 213.7,156.6 216.3,157.8 218.9,159.0 221.5,160.3 224.2,161.5 226.8,162.7 229.4,163.9 232.0,165.1 234.6,166.3 237.2,167.6 239.8,168.8 242.4,170.0 245.0,171.1 247.6,172.3 250.3,173.5 252.9,174.7 255.5,175.9 258.1,177.1 260.7,178.2 263.3,179.4 265.9,180.6 268.5,181.8 271.1,182.9 273.8,184.1 276.4,185.2 279.0,186.4 281.6,187.5 284.2,188.7 286.8,189.8 289.4,191.0 292.0,192.1 294.6,193.3 297.2,194.4 299.9,195.5 302.5,196.6 305.1,197.8 307.7,198.9 310.3,200.0 312.9,201.1 315.5,202.2 318.1,203.3 320.7,204.4 323.3,205.5 326.0,206.6 328.6,207.7 331.2,208.8 333.8,209.9 336.4,211.0 339.0,212.1 341.6,213.2 344.2,214.3 346.8,215.4 349.4,216.4 352.0,217.5 354.7,218.6 357.3,219.6 359.9,220.7 362.5,221.8 365.1,222.8 367.7,223.9 370.3,224.9 372.9,226.0 375.5,227.0 378.1,228.1 380.8,229.1 383.4,230.1 386.0,231.2 388.6,232.2 391.2,233.3 393.8,234.3 396.4,235.3 399.0,236.3 401.6,237.4 404.2,238.4 406.9,239.4 409.5,240.4 412.1,241.4 414.7,242.4 417.3,243.4 419.9,244.4 422.5,245.4 425.1,246.4 427.7,247.4 430.3,248.4 433.0,249.4 435.6,250.4 438.2,251.4 440.8,252.4 443.4,253.3 446.0,254.3 448.6,255.3 451.2,256.3 453.8,257.2 456.4,258.2 459.1,259.2 461.7,260.1 464.3,261.1 466.9,262.1 469.5,263.0 472.1,264.0 474.7,264.9 477.3,265.9 479.9,266.8 482.5,267.8 485.2,268.7 487.8,269.6 490.4,270.6 493.0,271.5 495.6,272.4 498.2,273.4 500.8,274.3 503.4,275.2 506.0,276.2 508.7,277.1 511.3,278.0 513.9,278.9 516.5,279.8 519.1,280.7 521.7,281.7 524.3,282.6 526.9,283.5 529.5,284.4 532.1,285.3 534.8,286.2 537.4,287.1 540.0,288.0 542.6,288.9 545.2,289.7 547.8,290.6 550.4,291.5 553.0,292.4 555.6,293.3 558.2,294.2 560.8,295.0 563.5,295.9 566.1,296.8 568.7,297.7 571.3,298.5 573.9,299.4 576.5,300.3 579.1,301.1 581.7,302.0 584.3,302.9 587.0,303.7 589.6,304.6 592.2,305.4 594.8,306.3 597.4,307.1 600.0,308.0" fill="none" stroke="var(--fig-pink, #ec4899)" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="622.0" y="313.0" fill="var(--fig-pink, #ec4899)" font-size="13" font-weight="700" text-anchor="start">B</text>
+<circle cx="361.4" cy="221.3" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<polyline points="78.0,176.8 80.6,177.1 83.2,177.5 85.8,177.8 88.4,178.2 91.0,178.5 93.7,178.9 96.3,179.2 98.9,179.6 101.5,179.9 104.1,180.3 106.7,180.6 109.3,181.0 111.9,181.3 114.5,181.6 117.2,182.0 119.8,182.3 122.4,182.7 125.0,183.0 127.6,183.4 130.2,183.7 132.8,184.0 135.4,184.4 138.0,184.7 140.6,185.0 143.2,185.4 145.9,185.7 148.5,186.0 151.1,186.4 153.7,186.7 156.3,187.0 158.9,187.4 161.5,187.7 164.1,188.0 166.7,188.3 169.4,188.7 172.0,189.0 174.6,189.3 177.2,189.6 179.8,189.9 182.4,190.3 185.0,190.6 187.6,190.9 190.2,191.2 192.8,191.5 195.4,191.9 198.1,192.2 200.7,192.5 203.3,192.8 205.9,193.1 208.5,193.4 211.1,193.7 213.7,194.0 216.3,194.4 218.9,194.7 221.5,195.0 224.2,195.3 226.8,195.6 229.4,195.9 232.0,196.2 234.6,196.5 237.2,196.8 239.8,197.1 242.4,197.4 245.0,197.7 247.6,198.0 250.3,198.3 252.9,198.6 255.5,198.9 258.1,199.2 260.7,199.5 263.3,199.8 265.9,200.1 268.5,200.4 271.1,200.7 273.8,201.0 276.4,201.3 279.0,201.6 281.6,201.8 284.2,202.1 286.8,202.4 289.4,202.7 292.0,203.0 294.6,203.3 297.2,203.6 299.9,203.9 302.5,204.1 305.1,204.4 307.7,204.7 310.3,205.0 312.9,205.3 315.5,205.6 318.1,205.8 320.7,206.1 323.3,206.4 326.0,206.7 328.6,207.0 331.2,207.2 333.8,207.5 336.4,207.8 339.0,208.1 341.6,208.3 344.2,208.6 346.8,208.9 349.4,209.2 352.0,209.4 354.7,209.7 357.3,210.0 359.9,210.2 362.5,210.5 365.1,210.8 367.7,211.0 370.3,211.3 372.9,211.6 375.5,211.8 378.1,212.1 380.8,212.4 383.4,212.6 386.0,212.9 388.6,213.2 391.2,213.4 393.8,213.7 396.4,213.9 399.0,214.2 401.6,214.5 404.2,214.7 406.9,215.0 409.5,215.2 412.1,215.5 414.7,215.7 417.3,216.0 419.9,216.3 422.5,216.5 425.1,216.8 427.7,217.0 430.3,217.3 433.0,217.5 435.6,217.8 438.2,218.0 440.8,218.3 443.4,218.5 446.0,218.8 448.6,219.0 451.2,219.3 453.8,219.5 456.4,219.8 459.1,220.0 461.7,220.2 464.3,220.5 466.9,220.7 469.5,221.0 472.1,221.2 474.7,221.5 477.3,221.7 479.9,221.9 482.5,222.2 485.2,222.4 487.8,222.7 490.4,222.9 493.0,223.1 495.6,223.4 498.2,223.6 500.8,223.9 503.4,224.1 506.0,224.3 508.7,224.6 511.3,224.8 513.9,225.0 516.5,225.3 519.1,225.5 521.7,225.7 524.3,226.0 526.9,226.2 529.5,226.4 532.1,226.7 534.8,226.9 537.4,227.1 540.0,227.3 542.6,227.6 545.2,227.8 547.8,228.0 550.4,228.3 553.0,228.5 555.6,228.7 558.2,228.9 560.8,229.2 563.5,229.4 566.1,229.6 568.7,229.8 571.3,230.0 573.9,230.3 576.5,230.5 579.1,230.7 581.7,230.9 584.3,231.1 587.0,231.4 589.6,231.6 592.2,231.8 594.8,232.0 597.4,232.2 600.0,232.5" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="622.0" y="237.5" fill="var(--fig-green, #10b981)" font-size="13" font-weight="700" text-anchor="start">C</text>
+<circle cx="473.1" cy="221.3" r="4" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="288.4" cy="190.5" r="4" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<line x1="288.4" y1="195.5" x2="288.4" y2="219.3" stroke="var(--text-faint)" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="288.4" y1="185.5" x2="288.4" y2="67.1" stroke="var(--text-faint)" stroke-width="0.8"/>
+<text x="288.4" y="63.1" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">A–B</text>
+<circle cx="326.0" cy="206.7" r="4" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<line x1="326.0" y1="211.7" x2="326.0" y2="219.3" stroke="var(--text-faint)" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="326.0" y1="201.7" x2="326.0" y2="49.1" stroke="var(--text-faint)" stroke-width="0.8"/>
+<text x="326.0" y="45.1" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">B–C</text>
+<circle cx="378.3" cy="212.1" r="4" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<line x1="378.3" y1="217.1" x2="378.3" y2="219.3" stroke="var(--text-faint)" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="378.3" y1="207.1" x2="378.3" y2="31.1" stroke="var(--text-faint)" stroke-width="0.8"/>
+<text x="378.3" y="27.1" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">A–C</text>
+<text x="78.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="start">IRR (curve meets the axis): A 13.07% · B 10.86% · C 15.14%</text>
+<text x="78.0" y="382.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="start">Fisher rates (two curves cross): A–B 8.06% · B–C 9.50% · A–C 11.51%</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. NPV of projects A, B and C of Aldebaran Space Systems as a function of the discount rate r, with the IRR of each project and the Fisher rates of the three pairs (schematic, drawn from the cash flows of the statement).</div>
+</div>
+<h4 class="step-title">Fisher's rate A–B</h4>
+<div class="math-block">$$-500{,}000\,x^2 + 300{,}000\,x + 300{,}000 = -750{,}000\,x^2 + 200{,}000\,x + 700{,}000$$</div>
+<p>Moving every term to the left: $250{,}000\,x^2 + 100{,}000\,x - 400{,}000 = 0$; dividing by 50,000, $5x^2 + 2x - 8 = 0$:</p>
+<div class="math-block">$$x = \frac{-2 \pm \sqrt{2^2 - 4 \cdot 5 \cdot (-8)}}{2 \cdot 5} = \frac{-2 \pm \sqrt{4 + 160}}{10} = \frac{-2 \pm \sqrt{164}}{10} = \frac{-2 \pm 12.80625}{10}$$</div>
+<p>The positive root is $x = 1.080625$ (the other, $-1.480625$, is rejected): <strong>FR(A–B) = 8.06%</strong>.</p>
+<h4 class="step-title">Fisher's rate A–C</h4>
+<div class="math-block">$$-500{,}000\,x^2 + 300{,}000\,x + 300{,}000 = -200{,}000\,x^2 + 100{,}000\,x + 150{,}000$$</div>
+<p>Moving every term to the right: $300{,}000\,x^2 - 200{,}000\,x - 150{,}000 = 0$; dividing by 50,000, $6x^2 - 4x - 3 = 0$:</p>
+<div class="math-block">$$x = \frac{4 \pm \sqrt{(-4)^2 - 4 \cdot 6 \cdot (-3)}}{2 \cdot 6} = \frac{4 \pm \sqrt{16 + 72}}{12} = \frac{4 \pm \sqrt{88}}{12} = \frac{4 \pm 9.38083}{12}$$</div>
+<p>The positive root is $x = 1.115069$ (the other, $-0.448403$, is rejected): <strong>FR(A–C) = 11.51%</strong>.</p>
+<h4 class="step-title">Fisher's rate B–C</h4>
+<div class="math-block">$$-750{,}000\,x^2 + 200{,}000\,x + 700{,}000 = -200{,}000\,x^2 + 100{,}000\,x + 150{,}000$$</div>
+<p>Moving every term to the right: $550{,}000\,x^2 - 100{,}000\,x - 550{,}000 = 0$; dividing by 50,000, $11x^2 - 2x - 11 = 0$:</p>
+<div class="math-block">$$x = \frac{2 \pm \sqrt{(-2)^2 - 4 \cdot 11 \cdot (-11)}}{2 \cdot 11} = \frac{2 \pm \sqrt{4 + 484}}{22} = \frac{2 \pm \sqrt{488}}{22} = \frac{2 \pm 22.09072}{22}$$</div>
+<p>The positive root is $x = 1.095033$ (the other, $-0.913215$, is rejected): <strong>FR(B–C) = 9.50%</strong>.</p>
+<h4 class="step-title">Who is above whom on each side of each crossing</h4>
+<p>Each pair crosses only once for $r &gt; 0$, so the project with the larger NPV at 0% stays ahead until the crossing:</p>
+<ul><li>A–B: B is ahead below 8.06% (150,000 &gt; 100,000 at 0%), A above it.</li><li>A–C: A is ahead below 11.51% (100,000 &gt; 50,000 at 0%), C above it.</li><li>B–C: B is ahead below 9.50% (150,000 &gt; 50,000 at 0%), C above it.</li></ul>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>IRR(C) = 15.14%; $NPV$ at 0%: A 100,000 €, B 150,000 €, C 50,000 €.</li><li>Fisher's rates: A–B 8.06%; A–C 11.51%; B–C 9.50%.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.5 points</h3>
+          <div class="prompt"><p>Decision intervals and the rate above which no project is chosen</p></div>
+<h4 class="step-title">The upper envelope of the three profiles</h4>
+<ul><li>From 0% to 8.06%, B is above A (A–B) and above C (B–C holds up to 9.50%): <strong>B</strong>.</li><li>At 8.06% A overtakes B. Between 8.06% and 11.51%, A is above B (A–B) and above C (A–C): <strong>A</strong>. The B–C crossing at 9.50% lies inside this interval, below A, so it does not change the decision.</li><li>At 11.51% C overtakes A, and C is already above B (since 9.50%). Between 11.51% and 15.14%, C has the largest NPV and it is positive: <strong>C</strong>.</li><li>Above 15.14%, the largest IRR, every NPV is negative: <strong>no project</strong> should be selected.</li></ul>
+<p>Check at one rate inside each interval: at 4%, $NPV_A$ = 65,828.40 €, $NPV_B$ = 89,497.04 €, $NPV_C$ = 34,837.28 € (B); at 10%, 20,661.16 €, 10,330.58 € and 14,876.03 € (A); at 14%, −6,001.85 €, −35,934.13 € and 3,139.43 € (C); at 16%, −18,430.44 €, −57,372.18 € and −2,318.67 € (none).</p>
+<h4 class="step-title">Decision of the company</h4>
+<div class="math-block">$$0\% \leq r &lt; 8.06\% \Rightarrow B, \qquad 8.06\% &lt; r &lt; 11.51\% \Rightarrow A, \qquad 11.51\% &lt; r &lt; 15.14\% \Rightarrow C, \qquad r &gt; 15.14\% \Rightarrow \text{no project}$$</div>
+<p>At exactly a Fisher's rate the two leading projects are indifferent. At its own discount rate of 6%, Aldebaran chooses <strong>project B</strong>. The trap is twofold: A beats B by IRR, and C has the highest IRR of the three, yet at 6% C has the lowest NPV (27,839.09 €). The IRR ranking only tells which project survives longest as the rate rises; at a given cost of capital the decision follows the NPV.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$0 \leq r &lt; 8.06\%$: B; $8.06\% &lt; r &lt; 11.51\%$: A; $11.51\% &lt; r &lt; 15.14\%$: C; $r &gt; 15.14\%$: no project.</li><li>At the company's 6%: project B.</li><li>The B–C crossing at 9.50% happens while A is ahead of both, so it changes nothing.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<p>The three profiles differ in how their money is spread over time. B concentrates 700,000 € in year 2, so a rising rate hits it hardest: it leads at low rates and is the first to drop out. C is small and returns most of its outlay in year 1, so its profile is flat and it is the last to become negative. Limiting cases: at $r = 0$ the NPV is the plain sum of flows minus the outlay, and as $r \to \infty$ every discounted flow tends to 0, so the NPV tends to minus the outlay. Dimensions: every NPV is a sum of amounts in € divided by dimensionless factors, so it is in €; the IRR and Fisher's rates are dimensionless rates per year. A common exam mistake is to stop at "A has the higher IRR, so A is chosen" without comparing the NPVs at the company's own rate, which here lies below Fisher's rate A–B.</p>
+        </div>
+      </section>
+      <h2 class="mcq-unit-title" id="bep-ol-elasticity">Break-even, leverage and elasticity <span class="mcq-unit-count">1 item</span></h2>
+      <section class="problem-box" id="M02">
+        <span class="problem-tag">Problem · Topic 4 · Break-even, leverage and elasticity · 2.5 points · 22 min · Practice item, not an official exercise</span>
+        <h4 class="problem-title">M02 — Helix Composites: break-even list price with a discount for one customer, profit margin target, leverage and a price cut</h4>
+        <div class="statement-box">
+<p>Helix Composites S.L. manufactures carbon-fibre rotor blades for cargo drones. Its expected annual costs are:</p>
+<ul><li>Lease of the autoclave hall: 380,000 €</li><li>Salaries of the lay-up operators, hired on fixed annual contracts: 460,000 €</li><li>Salaries of the engineering and quality staff: 200,000 €</li><li>Depreciation of the moulds and the autoclave: 100,000 €</li><li>Insurance and administration: 60,000 €</li><li>Interest on the bank loan that financed the autoclave: 60,000 €</li><li>Carbon prepreg and resin: 36 € per blade</li><li>Autoclave energy: 7 € per blade</li><li>Packaging and transport to the customer: 5 € per blade</li></ul>
+<p>The sales forecast is 25,000 blades a year. 40% of the blades are sold to one drone manufacturer (OEM) under a framework contract that gives it a 10% discount on the list price; the other customers buy the remaining 60% at the list price.</p>
+<p>a) Classify the costs and calculate the list price per blade that makes the firm break even (zero operating profit) at the forecast volume of 25,000 blades. (0.5 points)</p>
+<p>b) Using the list price found in (a), calculate the volume of blades the firm must sell to earn an operating profit equal to 10% of its net sales revenue. (0.5 points)</p>
+<p>c) Calculate the operating leverage (OL) at the volume found in (b) and at a volume of 40,000 blades. What do these values mean? (0.75 points)</p>
+<p>d) At 40,000 blades the price elasticity of demand is 1.5. The firm cuts its list price by 4%, keeping the OEM discount and the share of each group of customers. Calculate the new expected volume, the new operating profit and the change in sales revenue, and explain the result. (0.75 points)</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>Forecast volume</td><td>$Q = 25{,}000$ blades</td></tr><tr><td>Share of the OEM (10% discount)</td><td>40% of the units</td></tr><tr><td>Share of the other customers (list price)</td><td>60% of the units</td></tr><tr><td>Target of part (b)</td><td>operating profit = 10% of net sales revenue</td></tr><tr><td>Second volume of part (c)</td><td>40,000 blades</td></tr><tr><td>Price elasticity at 40,000 blades</td><td>$E_d = 1.5$ (absolute value)</td></tr><tr><td>Change of the list price in part (d)</td><td>−4%</td></tr></tbody></table></div>
+<p>Model of the course:</p>
+<ul><li>Profit $= P\,Q - (VC\,Q + FC) = Q\,(P - VC) - FC$, unit margin $m = P - VC$, break-even point $Q_0 = FC/m$ (Topic 4, Slide 37).</li><li>Operating leverage $OL = Q\,m/(Q\,m - FC) = Q/(Q - Q^*)$ (Topic 4, Slides 39, 40 and 42).</li><li>Price elasticity $E_d = (\Delta Q/Q)/(\Delta P/P)$, used in absolute value, so $\Delta Q/Q = -E_d\,\Delta P/P$ (Topic 5, Slide 17; topic 5.2.2.pdf, p. 2), as in Examples PDF, Exercise 1 (d).</li></ul>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.5 points</h3>
+          <div class="prompt"><p>Classify the costs and find the break-even list price</p></div>
+<h4 class="step-title">Classify the costs</h4>
+<p>The lease, the salaries of the operators (fixed annual contracts, as the direct labour of Examples PDF, Exercise 1), the salaries of the engineering and quality staff, the depreciation and the insurance and administration are the same whatever the number of blades: they are fixed costs.</p>
+<div class="math-block">$$FC = 380{,}000 + 460{,}000 + 200{,}000 + 100{,}000 + 60{,}000 = 1{,}200{,}000\ \text{€}$$</div>
+<p>The prepreg and resin, the energy of the autoclave and the packaging and transport are spent once per blade: they are variable costs per unit.</p>
+<div class="math-block">$$VC = 36 + 7 + 5 = 48\ \text{€/blade}$$</div>
+<p>The interest on the bank loan is a financial expense, a non-operating item of the income statement (Topic 3, Slide 11): it lies below the operating profit (EBIT) and does not enter a break-even point defined on the operating profit. It is left out of $FC$.</p>
+<h4 class="step-title">Average net price</h4>
+<p>Of every 100 blades, 40 are sold at $0.90\,P_L$ (list price minus the 10% discount) and 60 at $P_L$. The average net price per blade is the weighted mean:</p>
+<div class="math-block">$$P = 0.40 \times 0.90\,P_L + 0.60 \times P_L = (0.36 + 0.60)\,P_L = 0.96\,P_L$$</div>
+<h4 class="step-title">Break-even condition at 25,000 blades</h4>
+<p>At the break-even point revenue equals total cost, $P\,Q_0 = FC + VC\,Q_0$ (Topic 4, Slide 37). Solving for the net price:</p>
+<div class="math-block">$$P = \frac{FC + VC\,Q_0}{Q_0} = \frac{1{,}200{,}000 + 48 \times 25{,}000}{25{,}000} = \frac{2{,}400{,}000}{25{,}000} = 96\ \text{€/blade}$$</div>
+<h4 class="step-title">From the net price to the list price</h4>
+<div class="math-block">$$P_L = \frac{P}{0.96} = \frac{96}{0.96} = 100\ \text{€/blade}$$</div>
+<p>Check: $m = 96 - 48 = 48$ € and $Q_0 = FC/m = 1{,}200{,}000/48 = 25{,}000$ blades, the forecast volume. Units: € divided by € per blade gives blades. Had the interest been counted as a fixed cost, the net price would be $(1{,}260{,}000 + 1{,}200{,}000)/25{,}000 = 98.4$ € and the list price 102.5 €; had the discount been applied to all customers, as in Pegasus, the list price would be $96/0.90 = 106.67$ €.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$FC$ = 1,200,000 €; $VC$ = 48 € per blade; the interest (60,000 €) is not an operating cost</li><li>Average net price = 0.96 × list price</li><li>Net price = 96 € per blade; list price = 100 € per blade</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.5 points</h3>
+          <div class="prompt"><p>Volume for an operating profit of 10% of net sales</p></div>
+<h4 class="step-title">Set the target as an equation</h4>
+<p>With the list price of 100 €, the net price is $P = 96$ € and $m = P - VC = 96 - 48 = 48$ € per blade. The target is</p>
+<div class="math-block">$$Q\,m - FC = 0.10 \times P\,Q$$</div>
+<h4 class="step-title">Solve for the volume</h4>
+<p>Move the terms in $Q$ to the left and factor $Q$:</p>
+<div class="math-block">$$Q\,(m - 0.10\,P) = FC \quad\Longrightarrow\quad Q = \frac{FC}{m - 0.10\,P} = \frac{1{,}200{,}000}{48 - 0.10 \times 96} = \frac{1{,}200{,}000}{38.40} = 31{,}250\ \text{blades}$$</div>
+<p>Each blade leaves 48 € of margin, of which 9.60 € must be kept as profit, so only 38.40 € per blade is left to cover the fixed costs.</p>
+<h4 class="step-title">Check</h4>
+<p>Revenue $= 96 \times 31{,}250 = 3{,}000{,}000$ €. Operating profit $= 31{,}250 \times 48 - 1{,}200{,}000 = 1{,}500{,}000 - 1{,}200{,}000 = 300{,}000$ €, which is $300{,}000/3{,}000{,}000 = 10\%$ of the revenue. The volume is above the break-even point (25,000 blades), as a positive profit requires.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Unit margin $m$ = 48 € per blade, 10% of the net price = 9.60 € per blade</li><li>$Q$ = 31,250 blades</li><li>Revenue 3,000,000 €, operating profit 300,000 €</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.75 points</h3>
+          <div class="prompt"><p>Operating leverage at 31,250 and at 40,000 blades</p></div>
+<h4 class="step-title">Leverage at 31,250 blades</h4>
+<div class="math-block">$$OL = \frac{Q\,m}{Q\,m - FC} = \frac{31{,}250 \times 48}{31{,}250 \times 48 - 1{,}200{,}000} = \frac{1{,}500{,}000}{300{,}000} = 5.00$$</div>
+<p>Check with the break-even point, $Q^* = 25{,}000$ (Topic 4, Slide 42): $OL = 31{,}250/(31{,}250 - 25{,}000) = 31{,}250/6{,}250 = 5.00$.</p>
+<h4 class="step-title">Leverage at 40,000 blades</h4>
+<div class="math-block">$$OL = \frac{40{,}000 \times 48}{40{,}000 \times 48 - 1{,}200{,}000} = \frac{1{,}920{,}000}{720{,}000} = 2.67$$</div>
+<p>Check: $OL = 40{,}000/(40{,}000 - 25{,}000) = 40{,}000/15{,}000 = 2.67$.</p>
+<h4 class="step-title">Meaning</h4>
+<p>The OL measures how a change in sales translates into a change in operating profit (Topic 4, Slide 40). At 31,250 blades a 1% change in sales changes the operating profit by 5% in the same direction (a 10% fall in sales would cut profit by 50%); at 40,000 blades the same 1% changes the profit by only 2.67%. Both values are greater than 1 because the firm has profits ($Q &gt; Q^*$), and the leverage falls as the volume moves away from the break-even point (Topic 4, Slide 42). The OL is an index of economic risk (Topic 4, Slide 41): Helix is riskier at 31,250 blades, close to its break-even point, than at 40,000. The leverage is a pure number: € over €, or blades over blades.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>At 31,250 blades: $Q\,m$ = 1,500,000 €, profit 300,000 €, OL = 5.00</li><li>At 40,000 blades: $Q\,m$ = 1,920,000 €, profit 720,000 €, OL = 2.67</li><li>Meaning: a 1% change in sales changes the operating profit by 5% and by 2.67%</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.75 points</h3>
+          <div class="prompt"><p>A 4% cut in the list price with an elasticity of 1.5</p></div>
+<h4 class="step-title">New volume</h4>
+<p>The relative change of the list price is $\Delta P/P = -4\% = -0.04$. With $E_d = 1.5$ in absolute value (Topic 5, Slide 17; topic 5.2.2.pdf, p. 2):</p>
+<div class="math-block">$$\frac{\Delta Q}{Q} = -E_d\,\frac{\Delta P}{P} = -1.5 \times (-0.04) = +0.06$$</div>
+<div class="math-block">$$Q_{new} = 40{,}000 \times (1 + 0.06) = 42{,}400\ \text{blades}$$</div>
+<h4 class="step-title">New net price and margin</h4>
+<p>The average net price is $0.96\,P_L$, so it changes in the same proportion as the list price:</p>
+<div class="math-block">$$P_{new} = 96 \times (1 - 0.04) = 92.16\ \text{€/blade} \qquad m_{new} = 92.16 - 48 = 44.16\ \text{€/blade}$$</div>
+<p>(New list price $100 \times 0.96 = 96$ €; $0.96 \times 96 = 92.16$ €, the same result.)</p>
+<h4 class="step-title">New operating profit</h4>
+<div class="math-block">$$\text{Profit}_{new} = Q_{new}\,m_{new} - FC = 42{,}400 \times 44.16 - 1{,}200{,}000 = 1{,}872{,}384 - 1{,}200{,}000 = 672{,}384\ \text{€}$$</div>
+<p>Before the price cut: $\text{Profit} = 40{,}000 \times 48 - 1{,}200{,}000 = 720{,}000$ €. The profit falls by $720{,}000 - 672{,}384 = 47{,}616$ €.</p>
+<h4 class="step-title">Revenue and explanation</h4>
+<p>Revenue before: $40{,}000 \times 96 = 3{,}840{,}000$ €. Revenue after: $42{,}400 \times 92.16 = 3{,}907{,}584$ €, a rise of 67,584 €. The demand is elastic ($E_d &gt; 1$), so a price cut raises the volume more than proportionally and the revenue rises (topic 5.2.2.pdf, p. 3). The operating profit, however, falls: the unit margin drops from 48 € to 44.16 €, a fall of $3.84/48 = 8\%$, twice the 4% price cut because the variable cost does not fall, and the 6% gain in volume does not make up for it. Higher revenue does not mean higher profit; the decision must be judged on the margin.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>$\Delta Q/Q$ = +6%, new volume 42,400 blades</li><li>New net price 92.16 €, new margin 44.16 €</li><li>New operating profit 672,384 € (was 720,000 €: −47,616 €)</li><li>Revenue rises from 3,840,000 € to 3,907,584 € (+67,584 €)</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<p>Helix's break-even list price (100 €) already includes the fact that only 40% of the blades carry the discount, which lowers the average price by 4% instead of 10%. The leverage falls from 5.00 to 2.67 as the firm moves from 31,250 to 40,000 blades, so further away from its break-even point its profit is less sensitive to sales. The price cut of part (d) is the opposite of the price rise of Pegasus: with elastic demand it gains revenue but loses operating profit, because each blade sold earns 3.84 € less while the fixed costs stay at 1,200,000 €. Limiting cases: with no OEM customers the factor 0.96 becomes 1 and the list price would be 96 €; at $Q = Q^* = 25{,}000$ the OL is not defined (the profit is zero). Dimensions: prices and margins in € per blade, volumes in blades, profits and revenues in €, OL and elasticity dimensionless.</p>
+        </div>
+      </section>
+      <h2 class="mcq-unit-title" id="marketing-case">Marketing case <span class="mcq-unit-count">1 item</span></h2>
+      <section class="problem-box" id="M03">
+        <span class="problem-tag">Problem · Topic 5 · Marketing case · 2.5 points · 18 min · Practice item, not an official exercise</span>
+        <h4 class="problem-title">M03 — VectraSky survey drones: strategic marketing, product, range and distribution</h4>
+        <div class="statement-box">
+<p>VectraSky is a Portuguese company founded in 2016 in Porto that designs and builds small fixed-wing drones for surveying crops and forests. Before launching its first model, the founders studied the drone market and its competitors: the large manufacturers were focused on hobby users and film-makers, while medium-sized farms and forestry cooperatives in southern Europe had no affordable aircraft able to survey a whole estate in one flight. VectraSky decided to serve only these farms and cooperatives, and its slogan, "The whole farm on one charge", presents its drones as the long-endurance option at a moderate price.</p>
+<p>The drones carry the VectraSky name and a green swallow as logo. The wings fold so that the aircraft fits in the boot of a car, it is ready to fly in under five minutes, and it is flown from a tablet application with large buttons that can be used with work gloves. Every airframe is sealed against dust and rain and is flown for 20 hours in the factory before delivery, and the drone comes with a three-year warranty. It is delivered in a rugged, reusable transport case whose label gives the operating instructions in four languages. After the sale, VectraSky ships any spare part within 48 hours and trains the customer's pilots on site. To make itself known, the firm runs flight demonstrations at agricultural fairs and places advertisements in farming magazines.</p>
+<p>The current range has two product lines: survey drones (Field 60, Field 90 and Forest 120) and sensor payloads (a multispectral camera and a thermal camera); every product is used for the aerial survey of crops and forests. VectraSky does not sell to its customers directly: its drones are sold by agricultural-machinery dealers, who resell them to the farms and cooperatives. The firm chooses at most two dealers in each region, and only dealers that have a workshop able to repair the drones.</p>
+<p>a) Which elements of the strategic marketing approach appear in the text? Identify at least three and justify each with a fact of the text. (0.75 points)</p>
+<p>b) Which product attribute strategy does VectraSky follow? Identify at least four attributes, and say which facts of the text are not product attributes. (0.75 points)</p>
+<p>c) Describe the range of products of VectraSky (extension or width, depth, length and consistency), and say which characteristics change if the firm adds a Field 75 model to its drone line. (0.5 points)</p>
+<p>d) Which distribution strategy does VectraSky follow? Describe the type and length of the channel, whether it is B2B or B2C, and the distribution intensity. (0.5 points)</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.75 points</h3>
+          <div class="prompt"><p>Elements of the strategic marketing approach in the text</p></div>
+<h4 class="step-title">Analysis of the situation</h4>
+<p>"The founders studied the drone market and its competitors": this is the first stage of strategic marketing, the analysis of the situation (market analysis and competitors' analysis) [Topic 5, Slide 7]. The finding that the large manufacturers left farms and cooperatives without an affordable long-endurance aircraft is an opportunity in the sense of the slide: segmentation identifies the market needs that are not being satisfied [Topic 5, Slide 11].</p>
+<h4 class="step-title">Market segmentation and targeting</h4>
+<p>"Medium-sized farms and forestry cooperatives in southern Europe" defines a segment with a geographical criterion (southern Europe) and a criterion of type of use of the product (surveying crops and forests) [Topic 5, Slide 10]. "VectraSky decided to serve only these farms and cooperatives": the firm aims its product and its message at a single, well-defined segment, the differentiated concentrated (niche) strategy [Topic 5, Slide 12].</p>
+<h4 class="step-title">Positioning</h4>
+<p>"The whole farm on one charge ... the long-endurance option at a moderate price" is the image the firm wants to create in the mind of the target customer: positioning [Topic 5, Slide 13]. It is based on a benefit of the product (surveying a whole estate in one flight) and on the price-quality relationship [Topic 5, Slide 14]. Positioning is a strategic decision, not an operative one [Examples PDF, Exercise 4, statement 1].</p>
+<h4 class="step-title">Customer orientation</h4>
+<p>The whole offer starts from what the chosen customers need, which is the market (customer) orientation of the active marketing stage: producing what potential customers want [Topic 5, Slide 4]. Three of these four elements, each with its fact of the text, earn the full marks.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Analysis of the situation: market and competitors' analysis (the founders "studied the drone market and its competitors").</li><li>Market segmentation and targeting: medium-sized farms and forestry cooperatives in southern Europe, a single segment (differentiated concentrated, niche strategy), identified as an unmet need.</li><li>Positioning: "The whole farm on one charge", long endurance at a moderate price (benefits of the product, price-quality relationship).</li><li>Customer orientation (market orientation): the product is designed for the needs of the chosen customers.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Product attribute strategy</p></div>
+<h4 class="step-title">The attributes found in the text</h4>
+<p>The product is a bundle of tangible and intangible attributes; besides the basic product the customer buys quality, design, packaging, post-sale services and image, and the psychosocial attributes are brand, design, packaging and quality [Topic 5, Slide 19].</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Fact of the text</th><th>Attribute of the course</th></tr></thead><tbody><tr><td>"The VectraSky name and a green swallow as logo"</td><td>Brand: a name (the part that can be said) and a logo (design, symbol, colours) [Topic 5, Slide 20]</td></tr><tr><td>"The wings fold ... fits in the boot of a car ... ready to fly in under five minutes ... large buttons that can be used with work gloves"</td><td>Design, from the functional perspective of ease of use [Topic 5, Slide 22]</td></tr><tr><td>"Sealed against dust and rain ... flown for 20 hours in the factory before delivery"</td><td>Quality: the product satisfies the needs of customers who fly in the field [Topic 5, Slide 23]</td></tr><tr><td>"Rugged, reusable transport case whose label gives the operating instructions in four languages"</td><td>Packaging: it protects the content, eases transport and carries the label with information [Topic 5, Slide 22]</td></tr><tr><td>"Three-year warranty ... spare part within 48 hours ... trains the customer's pilots on site"</td><td>Warranty and post-sale services [Topic 5, Slide 23]</td></tr></tbody></table></div>
+<p>Four of these attributes, each with its fact, earn the full marks.</p>
+<h4 class="step-title">What is not a product attribute</h4>
+<p>"Flight demonstrations at agricultural fairs" and "advertisements in farming magazines" are not attributes of the product: they belong to the promotion (communication) policy of the marketing mix, the first as an activity close to personal selling and public relations at the fairs, the second as advertising, a paid, non-personal communication through the mass media [Topic 5, Slides 29-30]. The examples PDF draws the same line: communication is not a product attribute [Examples PDF, Exercise 2 (b)].</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Brand: name VectraSky and a green swallow as logo.</li><li>Design: folding wings, fits in a car boot, ready in under five minutes, tablet application usable with gloves (aesthetic and functional).</li><li>Quality: sealed against dust and rain, 20 hours of factory flight before delivery.</li><li>Packaging: rugged reusable transport case with the instructions in four languages on its label.</li><li>Warranty and post-sale service: three-year warranty, spare parts in 48 hours, on-site pilot training.</li><li>Not product attributes: flight demonstrations at fairs and advertisements in farming magazines belong to the promotion (communication) policy.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.5 points</h3>
+          <div class="prompt"><p>The range of products and the effect of a new model</p></div>
+<h4 class="step-title">Characteristics of the current range</h4>
+<p>A range of products is an offer of product lines and individual products, described by its extension, depth, length and consistency [Topic 5, Slide 24]. The examples PDF calls the extension the width (breadth) of the range [Examples PDF, Exercise 4, statement 3].</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Characteristic</th><th>Definition</th><th>VectraSky</th></tr></thead><tbody><tr><td>Extension (width)</td><td>number of product lines</td><td>2 (survey drones, sensor payloads)</td></tr><tr><td>Depth</td><td>number of products per line</td><td>3 drones; 2 payloads</td></tr><tr><td>Length</td><td>total number of individual products</td><td>$3 + 2 = 5$</td></tr><tr><td>Consistency</td><td>relation of the products with their final use</td><td>high: every product is used "for the aerial survey of crops and forests"</td></tr></tbody></table></div>
+<h4 class="step-title">A Field 75 model</h4>
+<p>The Field 75 enters the existing drone line, which is the strategy "extend the product lines" [Topic 5, Slide 24]: the depth of the drone line rises from 3 to 4 and the length of the range from 5 to 6. The extension (width) stays at 2, because no new line is created, and the consistency stays high, because the new drone has the same final use.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Extension (width): 2 lines.</li><li>Depth: 3 drones and 2 payloads.</li><li>Length: 5 products.</li><li>Consistency: high, every product serves the aerial survey of crops and forests.</li><li>Field 75: depth of the drone line 3 to 4, length 5 to 6; extension (width) and consistency unchanged.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.5 points</h3>
+          <div class="prompt"><p>Distribution strategy</p></div>
+<h4 class="step-title">Type and length of the channel</h4>
+<p>"VectraSky does not sell to its customers directly: its drones are sold by agricultural-machinery dealers": the producer entrusts the sale to independent intermediaries, so the channel is indirect [Topic 5, Slide 35]. One intermediary stands between the producer and the final buyer (producer, dealer, farm), a short channel of one level. Extension: the level of a channel is the number of intermediaries between the producer and the final buyer; the examples PDF calls a channel with none a zero-level channel [Examples PDF, Exercise 2 (c)].</p>
+<h4 class="step-title">B2B and intensity</h4>
+<p>The final buyers, farms and forestry cooperatives, are firms, so the market is business-to-business (B2B), as in the TechNova case [Examples PDF, Exercise 2 (c)]. "At most two dealers in each region, and only dealers that have a workshop able to repair the drones" is selective distribution, one of the three strategies of Slide 37 [Topic 5, Slide 37]. Extension (definitions not given on the slide): intensive distribution uses as many outlets as possible, selective distribution a limited number of chosen outlets per area, and exclusive distribution a single outlet per area. The workshop requirement shows the criteria of the choice: the characteristics of the product (it needs repairs) and of each intermediary [Topic 5, Slide 37].</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Indirect channel: independent agricultural-machinery dealers.</li><li>Short channel with one level of intermediaries: producer, dealer, farm.</li><li>B2B: the final buyers are farms and cooperatives, which are firms.</li><li>Selective intensity: at most two chosen dealers per region, with a repair workshop.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<p>Every decision of VectraSky follows from its strategic choice. A single segment (farms and cooperatives that survey large areas) explains the long-endurance design, the rugged case and the field service; a short, selective channel of dealers with workshops keeps that service close to the customer without the cost of an own sales network.</p>
+        </div>
+      </section>
+      <h2 class="mcq-unit-title" id="management-case">Management case <span class="mcq-unit-count">1 item</span></h2>
+      <section class="problem-box" id="M04">
+        <span class="problem-tag">Problem · Topic 6 · Management case · 2.5 points · 22 min · Practice item, not an official exercise</span>
+        <h4 class="problem-title">M04 — Altair MRO introduces a digital maintenance platform</h4>
+        <div class="statement-box">
+<p>Altair MRO is a maintenance, repair and overhaul company with 600 employees and three hangars that service regional aircraft. Today every inspection and repair is recorded on paper task cards; the cards travel by hand to the planning office, aircraft often leave the hangar late because a card or a spare part is missing, and the airlines that are its customers complain that they only learn about delays at the last minute.</p>
+<p>The Chief Executive Officer wants to replace the paper cards with a <strong>digital maintenance platform</strong>: technicians would record each task on a tablet at the aircraft, the stock of spare parts would update automatically, and the airline would follow the progress of its aircraft online. The firm has never used such a system and no competitor of its size has one. The firm is organized by functions (inspection, repair, planning, stores), each with its own head; every procedure is written in detailed manuals, there are six hierarchical levels between the technician and the CEO, and any change to a procedure must be approved by the technical director.</p>
+<p>Tasks:</p>
+<p>a) Describe at least one task that should be performed in each of the four managerial functions to introduce the platform. (0.5 points)</p>
+<p>b) List the steps of the decision-making process the CEO should follow, applying each one to the case. (0.5 points)</p>
+<p>c) Classify the decision to adopt the platform by type of decision and by management level, and say which basic managerial skill weighs most for the manager who takes it. (0.5 points)</p>
+<p>d) Define four KPIs (Key Performance Indicators) to control the introduction of the platform. (0.5 points)</p>
+<p>e) Using the basic organizational configurations of Mintzberg, state in which one the platform would be hardest to introduce and in which one easiest, justifying each answer with the features of the configuration. (0.5 points)</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.5 points</h3>
+          <div class="prompt"><p>One task per managerial function</p></div>
+<h4 class="step-title">Planning</h4>
+<p>Planning is setting goals and deciding on the strategy to achieve them, and a goal is a specific achievement to be attained at a future date (Topic 6, Slide 10). Task: set the objective "all three hangars working without paper task cards within twelve months", forecast the cost and the training time, compare a gradual roll-out (one hangar first) with a simultaneous one, and fix the calendar of the chosen option.</p>
+<h4 class="step-title">Organizing</h4>
+<p>Organizing arranges the human resources so that their activities contribute to the firm's goals, through differentiation (dividing the work) and integration (coordinating it) (Topic 6, Slide 11). Task: create a project team with members of inspection, repair, planning and stores, give each member a distinct task (data migration, tablet set-up, rewriting the procedures), name one person per hangar to coordinate, and update the organization chart with the new roles.</p>
+<h4 class="step-title">Leading</h4>
+<p>Leading is human resources management (Topic 6, Slides 2 and 23): directing (motivation, leadership, communication) and staffing (recruiting, selecting, training, appraisal and compensation). Task: explain to the technicians why the paper cards are being replaced, train every technician on the tablets, and recruit and then select a data specialist if nobody in the firm can run the platform. Recruitment (attracting candidates) comes before selection (choosing among them).</p>
+<h4 class="step-title">Controlling</h4>
+<p>Controlling ensures that activities provide the planned results: establishing standards, measuring actual performance, identifying deviations and taking corrective action (Topic 6, Slide 24). Task: compare every month the progress of the roll-out with the calendar set when planning, measure the KPIs of part (d), and correct the deviations (more training in a hangar that lags behind, for example). Buying the tablets is an operation of the project, not a managerial function in itself.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Planning: objectives and calendar of the roll-out (goal with a date, forecasts, alternatives, chosen course of action).</li><li>Organizing: who does what, a project team, new tasks and their coordination, the organization chart updated.</li><li>Leading: motivation, communication and training of technicians; recruiting and selecting new profiles if needed.</li><li>Controlling: standards, measurement, deviations, corrective action.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.5 points</h3>
+          <div class="prompt"><p>The decision-making process applied to the case</p></div>
+<h4 class="step-title">The eight steps in the case</h4>
+<p>The decision-making process has eight steps (Topic 6, Slide 6):</p>
+<ol><li><strong>Recognizing the problem or opportunity:</strong> aircraft leave late because paper cards and spare parts go missing, and customers learn about delays at the last minute.</li><li><strong>Gathering information, identifying the critical factors:</strong> how many delays come from lost cards or missing parts, how many technicians and aircraft are involved, the budget, and what the airlines expect.</li><li><strong>Considering alternative courses of action:</strong> keep paper but add a courier between hangar and office; scan the cards at the end of each shift; adopt the full digital platform.</li><li><strong>Analysing the alternatives:</strong> cost, time to introduce, training needed and expected reduction of delays of each one.</li><li><strong>Choosing an alternative:</strong> the digital platform, the only one that updates stock and informs the customer in real time.</li><li><strong>Implementing the decision:</strong> the roll-out planned and organized in part (a).</li><li><strong>Evaluating the results:</strong> compare delays and customer complaints before and after, with the KPIs of part (d).</li><li><strong>Implementing changes:</strong> adjust the platform, the procedures or the training where the evaluation shows deviations.</li></ol>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>The eight steps in the order of the course, each applied to Altair MRO.</li><li>Analysis (step 4) before choice (step 5); evaluation (step 7) before changes (step 8).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.5 points</h3>
+          <div class="prompt"><p>Type of decision, management level and skill</p></div>
+<h4 class="step-title">Type of decision</h4>
+<p>The firm "has never used such a system and no competitor of its size has one": the problem is unusual and the alternatives are ambiguous and not planned, so this is an <strong>innovative (not planned) decision</strong>, not a routine one, which would face a known, well-defined problem with known alternatives (Topic 6, Slide 5).</p>
+<h4 class="step-title">Management level</h4>
+<p>The platform changes the way the three hangars, the stores and the relation with the customers work: it affects the firm as a whole, so it is a <strong>strategic, general</strong> decision of <strong>top management</strong> (the CEO), not a tactical decision of middle management or an operational one of first-line supervisors (Topic 6, Slide 7; Examples PDF, Exercise 4, statement 5). Choosing which hangar team is trained first on Monday would, by contrast, be an operational decision.</p>
+<h4 class="step-title">Skill</h4>
+<p>The skill that weighs most in top management is the <strong>conceptual skill</strong>, the ability to see the firm as a whole: the CEO must see how the platform links maintenance, stores, planning and customers. Technical skill weighs most in low management (Topic 6, Slide 8).</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Innovative (not planned) decision: new and ambiguous problem, unplanned alternatives; quote "never used such a system", "no competitor of its size".</li><li>Top management, strategic and general decision.</li><li>Conceptual skill, the ability to see the firm as a whole.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.5 points</h3>
+          <div class="prompt"><p>Four KPIs to control the introduction</p></div>
+<h4 class="step-title">Definition and link with controlling</h4>
+<p>A KPI is a quantified measure of performance against an objective (Examples PDF, Exercise 3; <strong>extension</strong>). It serves the second activity of controlling, measuring actual performance, so that deviations from the standard can be identified and corrected (Topic 6, Slide 24).</p>
+<h4 class="step-title">Four KPIs for Altair MRO</h4>
+<ol><li><strong>On-time release rate:</strong> percentage of aircraft returned to the airline on or before the promised date (the problem that started the decision).</li><li><strong>Digital adoption rate:</strong> percentage of maintenance tasks recorded on the tablet instead of on paper, per hangar and per month.</li><li><strong>Spare-part waits:</strong> number of tasks stopped per month because a spare part was missing, which the automatic stock update should reduce.</li><li><strong>Customer satisfaction score:</strong> the airlines' rating of the information they receive on the progress of their aircraft, after each maintenance visit.</li></ol>
+<p>Other valid KPIs: hours of training completed per technician, number of task cards lost (should fall to zero), average turnaround time per check.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Four measurable indicators, each with its unit or ratio, linked to the objectives of the case: punctuality, data on time, spare parts, customer, adoption.</li><li>The link with controlling: standard, measurement, deviation, corrective action.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (e) · 0.5 points</h3>
+          <div class="prompt"><p>Hardest and easiest configuration</p></div>
+<h4 class="step-title">Hardest: machine bureaucracy</h4>
+<p>The <strong>machine bureaucracy</strong> has a proliferation of rules and very formalized procedures, highly specialized routine tasks, functional departmentalization, centralized decision-making and many layers with a low span of control (Topic 6, Slide 16). Altair MRO already shows these features: procedures "written in detailed manuals", a firm "organized by functions" with a head each, "six hierarchical levels" and every change "approved by the technical director". Every manual must be rewritten, the functional departments must start sharing data they keep separate today, and each change climbs six levels before it is approved, so the platform is hardest to introduce there.</p>
+<h4 class="step-title">Easiest: adhocracy</h4>
+<p>The <strong>adhocracy (innovative organization)</strong> has low standardization and formalization, decentralization as the key to flexibility, matrix departmentalization and a mix of middle line, operating core and staff, and it is used as a complementary structure for specific projects (Topic 6, Slide 22). A cross-functional project team can test the platform, change it and decide on the spot, so the introduction is easiest there; Altair MRO can use such a team for the pilot in one hangar, as part (a) proposes.</p>
+<h4 class="step-title">The other configurations and alternative answers</h4>
+<p>The <strong>simple structure</strong> decides quickly by direct supervision but is meant for start-ups and very small firms, not for 600 employees (Topic 6, Slide 15); in a <strong>professional bureaucracy</strong> qualified professionals decide on their own work (Topic 6, Slide 18), and in a <strong>division organization</strong> each division is a bureaucracy that can try the platform on its own (Topic 6, Slide 20). An answer that names a functional structure (departmental silos) as the hardest and a matrix structure as the easiest is also valid if it is reasoned (Examples PDF, Exercise 3): functional departmentalization is a feature of the machine bureaucracy and matrix departmentalization of the adhocracy (Topic 6, Slides 16 and 22).</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Hardest: machine bureaucracy, with its features (rules and formal procedures, routine specialized tasks, functional departmentalization, centralized decisions, many layers, low span of control) matched to the facts of the statement.</li><li>Easiest: adhocracy (low standardization and formalization, decentralization, matrix departmentalization, used for specific projects).</li><li>Functional, divisional or matrix arguments are also accepted when reasoned.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<p>The case uses the whole of Topic 6: the decision is innovative and strategic (Slides 5 and 7), it is taken through the eight-step process (Slide 6), carried out through the four managerial functions (Slides 3-4), checked with indicators that serve controlling (Slide 24), and its difficulty depends on the configuration of the firm (Slides 15-22). The present structure of Altair MRO is close to a machine bureaucracy, so the advice is to pilot the platform in an adhocracy-like project team before extending it to the three hangars.</p>
+        </div>
+      </section>
+      <h2 class="mcq-unit-title" id="innovation-case">Innovation case <span class="mcq-unit-count">1 item</span></h2>
+      <section class="problem-box" id="M05">
+        <span class="problem-tag">Problem · Topic 7 · Innovation case · 2.5 points · 20 min · Practice item, not an official exercise</span>
+        <h4 class="problem-title">M05 — Celeris reusable launcher against an expendable incumbent</h4>
+        <div class="statement-box">
+<p>Celeris Launch is a Spanish start-up founded in 2021 by four engineers who had worked for six years on the guidance of vertically landing vehicles in a university research group. The university's technology transfer office helped them license the guidance software and set up the company, and a private non-profit foundation, which does no research of its own, funded the last two years of the group's landing experiments. Celeris has its plant in an aerospace park where some twenty firms (structures, avionics, test services) share suppliers and customers; several of its engineers came from those neighbouring firms, bringing with them what they had learnt there. The national space agency granted Celeris access to the engine test stand of a government laboratory.</p>
+<p>Celeris's small launcher has a reusable first stage: after separation it restarts its engines, deploys grid fins and landing legs, and lands vertically on a barge, so the stage, its engines and its guidance work together in a way no expendable launcher needs. The firm also 3D-prints the injector of its engine as a single piece instead of machining and brazing forty parts; the injector keeps the same geometry and performance, its production time falls from six weeks to five days, and the printers were already used in the plant for brackets. Finally, Carbotec, a composites supplier of the park, co-developed with Celeris a carbon-fibre interstage that replaces the aluminium one with the same shape and the same interfaces, and is 30% lighter.</p>
+<p>The incumbent, Vektor Space, has built expendable launchers in series for thirty years; its strength is producing single-use stages cheaply, and it has no experience in landing guidance or in refurbishing a stage between flights. Its last three upgrades each cost more than the previous one and raised the payload delivered to orbit per million euros by less than 2%. Celeris's first flights delivered less payload per million euros than Vektor's launcher, but the figure has improved quickly with each landing and reuse. Celeris's chief executive says that "our design will become the standard of the industry as soon as the space agency declares it the official one".</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Concept of the course</th><th>Definition used</th><th>Source</th></tr></thead><tbody><tr><td>Product / process innovation</td><td>embodied in the outputs (goods or services) / a change in the way the organization conducts its business, such as the techniques of producing</td><td>Topic 7, Slide 11</td></tr><tr><td>Radical / incremental</td><td>very new and different from prior solutions / a relatively minor change to existing practices</td><td>Topic 7, Slide 12</td></tr><tr><td>Competence-enhancing / destroying</td><td>builds on / renders obsolete the existing knowledge and skills of a given firm; it depends on the perspective</td><td>Topic 7, Slide 12</td></tr><tr><td>Architectural / component</td><td>changes the overall design of a system or the way its components interact / changes one or more components without significantly affecting the overall configuration</td><td>Topic 7, Slide 13</td></tr><tr><td>S-curve of performance</td><td>performance against effort: slow, then fast, then flat near the limit of the technology</td><td>Topic 7, Slide 14</td></tr><tr><td>Discontinuous technology</td><td>fulfils a similar market need by building on an entirely new knowledge base</td><td>Topic 7, Slide 15</td></tr><tr><td>Dominant design</td><td>a single architecture with usually 50% or more of the market; a de facto standard, selected through learning effects and network externalities</td><td>Topic 7, Slides 17-19</td></tr></tbody></table></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Classify the three innovations of Celeris (reusable first stage, printed injector, composite interstage) along the four pairs of innovation types, with the reason for each</p></div>
+<h4 class="step-title">Reusable first stage</h4>
+<ul><li><strong>Product innovation:</strong> it is embodied in Celeris's output, the launcher and the launch service it sells ("Celeris's small launcher has a reusable first stage") [Topic 7, Slide 11].</li><li><strong>Radical:</strong> a stage that "restarts its engines, deploys grid fins and landing legs, and lands vertically on a barge" is very new and different from prior solutions, the expendable stages Vektor has built for thirty years [Topic 7, Slide 12].</li><li><strong>Architectural:</strong> the case says that "the stage, its engines and its guidance work together in a way no expendable launcher needs": the overall design of the vehicle and the way its components interact change [Topic 7, Slide 13].</li><li><strong>Competence-destroying for Vektor Space,</strong> whose strength is "producing single-use stages cheaply" and which has "no experience in landing guidance or in refurbishing a stage"; <strong>competence-enhancing for Celeris,</strong> whose founders "had worked for six years on the guidance of vertically landing vehicles". The same innovation enhances one firm's competences and destroys another's, as the course stresses [Topic 7, Slide 12].</li></ul>
+<h4 class="step-title">Printed injector</h4>
+<ul><li><strong>Process innovation:</strong> "the injector keeps the same geometry and performance"; what changes is the technique of producing it, with a gain in efficiency ("production time falls from six weeks to five days") [Topic 7, Slide 11].</li><li><strong>Incremental:</strong> the engine and the injector are unchanged and the printers "were already used in the plant for brackets", so it is a relatively minor change to the firm's existing practices [Topic 7, Slide 12].</li><li><strong>Component:</strong> only one component is affected and the configuration of the engine and of the launcher does not change [Topic 7, Slide 13].</li><li><strong>Competence-enhancing for Celeris,</strong> because it builds on the printing knowledge it already had. (It would be competence-destroying for a workshop whose skill is machining and brazing the forty parts; the case does not name one, so this remains a remark.)</li></ul>
+<h4 class="step-title">Composite interstage</h4>
+<ul><li><strong>Product innovation:</strong> the interstage is part of the launcher Celeris sells [Topic 7, Slide 11].</li><li><strong>Incremental:</strong> it replaces the aluminium interstage "with the same shape and the same interfaces" and makes it lighter, a relatively minor change to an existing solution [Topic 7, Slide 12].</li><li><strong>Component:</strong> one component changes without significantly affecting the overall configuration of the system, since the shape and interfaces are kept [Topic 7, Slide 13].</li><li><strong>Competence-enhancing for Carbotec,</strong> a composites supplier whose existing knowledge base it builds on [Topic 7, Slide 12].</li></ul>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Reusable first stage: product, radical, architectural; competence-destroying for Vektor Space, competence-enhancing for Celeris.</li><li>Printed injector: process, incremental, component; competence-enhancing for Celeris (printers already in use).</li><li>Composite interstage: product, incremental, component; competence-enhancing for Carbotec.</li><li>The competence pair is always stated from the perspective of a named firm.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.5 points</h3>
+          <div class="prompt"><p>Which sources of innovation and which features of collaborative networks appear in the case?</p></div>
+<h4 class="step-title">Sources of innovation</h4>
+<ul><li><strong>Universities:</strong> the founders come from "a university research group", and "the university's technology transfer office helped them license the guidance software", the role the course gives to these offices: to increase the degree to which university research leads to commercial innovation [Topic 7, Slide 8].</li><li><strong>Private non-profit organizations:</strong> the foundation "which does no research of its own, funded the last two years of the group's landing experiments", one of the nonprofits that fund the R&amp;D of other organizations without performing it [Topic 7, Slide 8].</li><li><strong>Government-funded research:</strong> the national space agency gives access to "the engine test stand of a government laboratory" [Topic 7, Slide 8].</li><li><strong>Firms:</strong> Celeris's own development work, and "Carbotec, a composites supplier ... co-developed" the interstage: suppliers' technology is the third source of development work in the ranking of Slide 6 [Topic 7, Slides 3 and 6].</li></ul>
+<h4 class="step-title">Collaborative networks</h4>
+<ul><li><strong>Technology cluster:</strong> the aerospace park where "some twenty firms ... share suppliers and customers" is a regional cluster of firms connected to a common technology, with buyer, supplier and complementary relationships, helped by geographical proximity [Topic 7, Slide 9].</li><li><strong>Technological spillovers:</strong> engineers who "came from those neighbouring firms, bringing with them what they had learnt there" spread knowledge across organizational boundaries, a positive externality of the R&amp;D of those firms [Topic 7, Slide 9].</li><li>Together, university, nonprofit, agency, laboratory and supplier form the network of linkages that the course calls the most important source of innovation [Topic 7, Slide 4].</li></ul>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>University research and its technology transfer office.</li><li>Government-funded research: the agency and the test stand of a government laboratory.</li><li>A private non-profit that funds the R&amp;D of others without doing its own.</li><li>Firms: Celeris's own R&amp;D and suppliers' technology (Carbotec), a source of development work.</li><li>A technology cluster (the aerospace park) and technological spillovers (engineers moving between firms).</li><li>The linkages among all of them, the most important source of innovation.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.5 points</h3>
+          <div class="prompt"><p>Where does Vektor's expendable technology sit on its S-curve, and what does Celeris's reusable technology mean for Vektor as a discontinuous technology?</p></div>
+<h4 class="step-title">Vektor's position on its S-curve</h4>
+<p>Each of Vektor's last three upgrades "cost more than the previous one and raised the payload delivered to orbit per million euros by less than 2%". More effort brings smaller and smaller gains in performance: the expendable technology is in the flat upper part of its S-curve, approaching the limit of the technology [Topic 7, Slide 14].</p>
+<h4 class="step-title">Celeris's technology as a discontinuous technology</h4>
+<p>Reusable launch fulfils the same market need (putting payloads in orbit) by building on an entirely new knowledge base (landing guidance, engine restart, refurbishment between flights), which makes it a discontinuous technology [Topic 7, Slide 15]. Its curve behaves like the second technology of Slide 15 (b): "Celeris's first flights delivered less payload per million euros than Vektor's launcher", so it starts below, "but the figure has improved quickly with each landing and reuse", so it is in the steep part of its own S-curve.</p>
+<h4 class="step-title">What it means for the incumbent</h4>
+<p>If the trend continues, the second curve crosses Vektor's curve, and further effort on the expendable technology yields little because it is near its limit. Since the new technology is competence-destroying for Vektor (part a), its thirty years of skill in series production of single-use stages do not carry over: to compete it must acquire a new knowledge base rather than keep investing in the old curve.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Vektor: flat upper part of its S-curve, near the limit of the technology (rising cost of each upgrade, gains below 2%).</li><li>Celeris: a discontinuous technology (same market need, entirely new knowledge base) on a second S-curve that starts below and improves quickly.</li><li>Risk for Vektor: the second curve can cross the first; its competences do not carry over.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.5 points</h3>
+          <div class="prompt"><p>Which factors of the course could make a reusable design dominant, and what is wrong with the chief executive's statement?</p></div>
+<h4 class="step-title">Learning effects</h4>
+<p>The figure of Celeris "has improved quickly with each landing and reuse": the more the technology is used, the more it is developed and the more efficient it becomes; the sales of each flight generate revenue to reinvest in refining it, and the firm's experience lets it use the technology more productively. Its absorptive capacity, the ability to recognize, assimilate and use new knowledge (here the university guidance research and the knowledge of engineers from the park), speeds this up [Topic 7, Slide 18].</p>
+<h4 class="step-title">Network externalities</h4>
+<p>The course defines network externalities as an increase in the value of a good to a user with the number of users, through the installed base and complementary goods, with the example of a video game console [Topic 7, Slide 19]. Applied to launchers (an application of the case, <strong>extension</strong> of the course example): the installed base would be the number of customers and satellites already flying on the reusable design, and the complementary goods the payload adapters, integration services and ground support built for it; the more of them there are, the more valuable the design is to the next customer.</p>
+<h4 class="step-title">Dominant design and the chief executive's statement</h4>
+<p>If these forces work, the reusable architecture could reach usually 50% or more of the market and become the dominant design, pushing the market towards winner-take-all, with alternative designs (expendable launchers) surviving in niches [Topic 7, Slides 17 and 19]. The chief executive's claim does not belong to the course's explanation: a dominant design is a <strong>de facto standard</strong>, a standard of the industry even if it is not officially enforced or acknowledged; it is selected by the market through learning effects and network externalities, not by an official declaration of the space agency [Topic 7, Slide 17].</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Dominant design: a single architecture with usually 50% or more of the market, a de facto standard.</li><li>Learning effects: each landing and reuse improves the design; revenue reinvested; absorptive capacity.</li><li>Network externalities: installed base and complementary goods (extension of the console example to launchers, stated as such).</li><li>Winner-take-all tendency, with alternatives surviving in niches.</li><li>The chief executive confuses a de facto standard with an officially declared one.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<p>The case shows that the pairs of innovation types are not exclusive alternatives for one innovation but four independent questions, and that the competence pair has no answer until the firm is named. The reusable stage is at once product, radical, architectural and competence-destroying for the incumbent, which is why it threatens Vektor far more than the lighter interstage or the printed injector, both incremental component changes.</p>
+        </div>
+      </section>
+<!-- EXTRA-PROBLEMS:END -->
+
+      <footer class="topic-nav">
+        <a href="midterm-2-test.html">← Multiple-choice questions</a>
+        <a href="../simulator/index.html?exam=midterm-2">Exam simulator →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

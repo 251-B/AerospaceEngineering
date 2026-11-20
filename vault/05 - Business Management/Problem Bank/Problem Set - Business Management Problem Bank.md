@@ -1,6 +1,6 @@
 ---
 materia: Business Management
-tema: "Topics 1-3: Problem Bank for the Midterm 1 simulator"
+tema: "Topics 1-7: Problem Bank for the Midterm 1 and Midterm 2 simulators"
 tags:
   - problem-bank
   - problem-set
@@ -87,6 +87,43 @@ The bank behind the Extra problems page (1st Midterm: Theory and Problems) and t
 | C22 | [[Problem - Bank C22 - Talon Avionics Dividend or Self-Financing\|Talon Avionics: pay a dividend or keep the profit?]] | self-financing | Medium |
 | C23 | [[Problem - Bank C23 - Flight School Simulator Leasing Loan or Credit Line\|A flight school's simulator: leasing, a long-term loan or a credit line?]] | long-short-financing | Medium |
 | C24 | [[Problem - Bank C24 - Radome Composites Accruals and Classification\|Radome Composites: revenues vs collections and current vs non-current items]] | accrual-classification | Medium |
+
+
+<!-- MT2-INDEX:START -->
+## 2nd Midterm (Topics 3 Part II to 7)
+
+Bank of the second partial: True/False blocks (`Quiz - Bank Fnn`), multiple-choice blocks (`Quiz - Bank Bnn`) and problems and cases of 2.5 points (`Problem - Bank Mnn`), all practice items written for the portal. Format and rules: [[Rules - Midterm 2 Exam Style Analysis]]. Structure of the simulated exam: `subjects/business-management/data/exam-blueprint-midterm-2.json`; pages `midterm-2-tf.html`, `midterm-2-test.html` and `midterm-2-problems.html` of the Extra problems section.
+
+### True/False blocks (ten statements each)
+
+| ID | Unit | Block |
+| :--- | :--- | :--- |
+| F01 | Topic 3 · Investment selection (Part II) | [[Quiz - Bank F01 - Unit 3 Investment Selection Criteria\|Investment selection criteria and the cost of capital]] |
+| F02 | Topic 4 · The production function | [[Quiz - Bank F02 - Unit 4 Production Systems Costs and Leverage\|Production systems, costs and operating leverage]] |
+| F03 | Topic 5 · Marketing and sales | [[Quiz - Bank F03 - Unit 5 Marketing Concepts Mix and Elasticity\|Marketing concepts, the marketing mix and elasticity]] |
+| F04 | Topic 6 · The management function | [[Quiz - Bank F04 - Unit 6 Decisions Structures and Control\|Decisions, structures and control]] |
+| F05 | Topic 7 · Entrepreneurship and innovation | [[Quiz - Bank F05 - Unit 7 Innovation Types and Technology Cycles\|Innovation types, S-curves and the dominant design]] |
+
+### Multiple-choice blocks (ten questions each)
+
+| ID | Unit | Block |
+| :--- | :--- | :--- |
+| B01 | Topic 3 · Investment selection (Part II) | [[Quiz - Bank B01 - Unit 3 NPV IRR Payback and Cost of Capital\|NPV, IRR, payback and the cost of capital]] |
+| B02 | Topic 4 · The production function | [[Quiz - Bank B02 - Unit 4 Break-Even Point Leverage and Production\|Break-even point, operating leverage and production]] |
+| B03 | Topic 5 · Marketing and sales | [[Quiz - Bank B03 - Unit 5 Marketing Mix Segmentation and Price Elasticity\|Marketing mix, segmentation and price elasticity]] |
+| B04 | Topic 6 · The management function | [[Quiz - Bank B04 - Unit 6 Roles Configurations and People\|Roles, configurations and people]] |
+| B05 | Topic 7 · Entrepreneurship and innovation | [[Quiz - Bank B05 - Unit 7 Sources of Innovation and Design Dominance\|Sources of innovation, innovation types and design dominance]] |
+
+### Problems and cases (2.5 points)
+
+| ID | Type | Problem |
+| :--- | :--- | :--- |
+| M01 | npv-irr-fisher | [[Problem - Bank M01 - Aldebaran Space Systems IRR Ranking against NPV\|Aldebaran Space Systems: IRR ranking against NPV at the cost of capital]] |
+| M02 | bep-ol-elasticity | [[Problem - Bank M02 - Helix Composites Break-Even with an OEM Discount\|Helix Composites: break-even list price with a discount for one customer, profit margin target, leverage and a price cut]] |
+| M03 | marketing-case | [[Problem - Bank M03 - VectraSky Survey Drones Marketing Strategy\|VectraSky survey drones: strategic marketing, product, range and distribution]] |
+| M04 | management-case | [[Problem - Bank M04 - Altair MRO Digital Maintenance Platform\|Altair MRO introduces a digital maintenance platform]] |
+| M05 | innovation-case | [[Problem - Bank M05 - Celeris Reusable Launcher Against an Expendable Incumbent\|Celeris reusable launcher against an expendable incumbent]] |
+<!-- MT2-INDEX:END -->
 
 ---
 

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-20-business-midterm-2-simulator",
+    "date": "2026-11-20",
+    "tag": "Business Management",
+    "title": "Midterm 2 practice: True/False, test questions and cases",
+    "text": "The exam simulator now has a Midterm 2 tab: a full timed exam, or practice of True/False or test questions by topic, corrected at the end or as you answer.",
+    "link": "subjects/business-management/simulator/index.html"
+  },
+  {
     "id": "2026-11-20-sideris-cloud-only",
     "date": "2026-11-20",
     "tag": "Portal",

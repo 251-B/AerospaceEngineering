@@ -538,6 +538,18 @@ window.AE_NAV = {
             {
               "href": "subjects/business-management/extra-problems/midterm-1-problems.html",
               "label": "1st Midterm · Practice problems"
+            },
+            {
+              "href": "subjects/business-management/extra-problems/midterm-2-tf.html",
+              "label": "2nd Midterm · True/False"
+            },
+            {
+              "href": "subjects/business-management/extra-problems/midterm-2-test.html",
+              "label": "2nd Midterm · Test"
+            },
+            {
+              "href": "subjects/business-management/extra-problems/midterm-2-problems.html",
+              "label": "2nd Midterm · Problems"
             }
           ]
         }

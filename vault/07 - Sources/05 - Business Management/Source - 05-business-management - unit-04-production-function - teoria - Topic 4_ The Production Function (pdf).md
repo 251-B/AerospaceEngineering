@@ -19,8 +19,9 @@ bytes: 376205
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic 4_ The Production Function.pdf`
 - **Kind:** teoria
 - **Size:** 376.2 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
+- [[05 - Business Management/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
 - [[05 - Business Management/Topic 4 - The Production Function]]

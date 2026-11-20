@@ -19,7 +19,7 @@ bytes: 332605
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP  OL Statements  Solutions.pdf`
 - **Kind:** problemas
 - **Size:** 332.6 kB
-- **Status:** referenced by 9 note(s) below
+- **Status:** referenced by 10 note(s) below
 
 ## Referenced by
 
@@ -31,4 +31,5 @@ bytes: 332605
 - [[05 - Business Management/Problem - T4 Exercise 6 - Leverage from the Break-Even Point Alone]]
 - [[05 - Business Management/Problem - T4 Exercise 7 - Sumun Break-Even Point and Leverage]]
 - [[05 - Business Management/Problem - T4 Exercise 8 - ENIR Break-Even Point Beyond Capacity]]
+- [[05 - Business Management/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
 - [[05 - Business Management/Problem Set - T4 Break-Even Point and Operating Leverage]]

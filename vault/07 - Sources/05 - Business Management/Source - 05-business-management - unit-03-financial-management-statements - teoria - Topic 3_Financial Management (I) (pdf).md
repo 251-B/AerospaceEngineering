@@ -19,7 +19,7 @@ bytes: 1491095
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic 3_Financial Management (I).pdf`
 - **Kind:** teoria
 - **Size:** 1.5 MB
-- **Status:** referenced by 10 note(s) below
+- **Status:** referenced by 11 note(s) below
 
 ## Referenced by
 
@@ -32,4 +32,5 @@ bytes: 1491095
 - [[05 - Business Management/Problem Bank/Problem - Bank C24 - Radome Composites Accruals and Classification]]
 - [[05 - Business Management/Problem Bank/Problem - Bank P15 - CAESA Financing an Expansion with a Loan or New Shares]]
 - [[05 - Business Management/Problem Bank/Problem - Bank P16 - HESECA Statements from a Summary of Ledger Accounts]]
+- [[05 - Business Management/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
 - [[05 - Business Management/Topic 3 - Financial Management I - Financial Statements]]

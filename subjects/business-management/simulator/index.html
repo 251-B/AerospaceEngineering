@@ -359,13 +359,17 @@
       <h1>Business Management — Exam simulator</h1>
     </header>
 
-    <div id="examSimulator" data-bank="AE_BM_BANK" data-blueprint="AE_BM_BLUEPRINT" data-storage="ae_bm_exams" data-bank-dir="../extra-problems/">
+    <div id="examSimulator" data-bank="AE_BM_BANK" data-blueprint="AE_BM_BLUEPRINT" data-blueprint-midterm-1="AE_BM_BLUEPRINT" data-blueprint-midterm-2="AE_BM_BLUEPRINT_MT2" data-default-exam="midterm-1" data-storage="ae_bm_exams" data-bank-dir="../extra-problems/">
 
       <section id="simSetup" aria-labelledby="simSetupTitle">
+        <nav class="sim-card sim-exam-tabs" aria-label="Choose the exam">
+          <a class="bank-btn" href="index.html?exam=midterm-1" data-exam-link="midterm-1">Midterm 1</a>
+          <a class="bank-btn" href="index.html?exam=midterm-2" data-exam-link="midterm-2">Midterm 2</a>
+        </nav>
         <div class="sim-card">
-          <h2 id="simSetupTitle">Midterm 1 structure</h2>
+          <h2 id="simSetupTitle"><span data-bp="short_title">Midterm 1</span> structure</h2>
           <div class="sim-table-wrap"><table class="sim-structure" id="simStructure"></table></div>
-          <details class="sim-about"><summary>About this structure</summary><p class="sim-muted">The structure comes from the exam blueprint of the subject; it has not yet been checked against an official Midterm 1 paper, because none is available among the course PDFs.</p></details>
+          <details class="sim-about"><summary>About this structure</summary><p class="sim-muted" data-bp="note">The structure comes from the exam blueprint of the subject; it has not yet been checked against an official Midterm 1 paper, because none is available among the course PDFs.</p></details>
         </div>
 
         <div class="sim-card">
@@ -376,13 +380,13 @@
               <div class="sim-radios" id="simDurations"></div>
             </fieldset>
             <div>
-              <label class="sim-label" for="simArchetype">Type of the 4-point problem</label>
+              <label class="sim-label" for="simArchetype">Type of problem</label>
               <select class="sim-select" id="simArchetype"><option value="any">Any type (random)</option></select>
             </div>
             <label class="sim-check"><input type="checkbox" id="simSkipPrevious" checked> <span>No repeats from my last exam</span></label>
           </div>
           <div class="sim-actions">
-            <button class="bank-btn sim-primary" type="button" id="simGenerate">Generate New Midterm 1 Exam</button>
+            <button class="bank-btn sim-primary" type="button" id="simGenerate"><span data-bp="generate_label">Generate New Midterm 1 Exam</span></button>
             <button class="bank-btn sim-icon-btn" type="button" id="simHelpOpen" aria-haspopup="dialog">Shortcuts <kbd class="bank-kbd" aria-hidden="true">?</kbd></button>
           </div>
         </div>
@@ -395,7 +399,7 @@
 
       <section id="simRunner" hidden aria-label="Exam in progress">
         <div class="sim-print-head">
-          <h1>Business Management — First Partial (Midterm 1) · Simulated exam</h1>
+          <h1><span data-bp="title">Business Management — First Partial (Midterm 1)</span> · Simulated exam</h1>
           <p id="simPrintMeta"></p>
           <div class="sim-print-lines"><p>Name: ______________________________</p><p>Group: ________</p><p>Date: ____________</p></div>
         </div>
@@ -418,9 +422,9 @@
           <h2 id="simResultsTitle">Grade your exam</h2>
           <p class="sim-notice" id="simTimeUp" hidden>Time is up: the exam was closed automatically.</p>
           <p class="sim-muted" id="simUsed"></p>
-          <p>For each question, compare your draft with the key results, open the full solution if you need it, and choose the points you would give yourself. Theory cases are graded as a whole; the problem part by part.</p>
+          <p>For each question, compare your draft with the key results, open the full solution if you need it, and choose the points you would give yourself. Theory cases are graded as a whole and problems part by part; True/False and multiple-choice parts are corrected automatically.</p>
           <div class="sim-total">
-            <span>Grade: <span class="sim-total__score" id="simScore">0.00</span> / 10.00</span>
+            <span>Grade: <span class="sim-total__score" id="simScore">0.00</span> / <span id="simMax">10.00</span></span>
             <span id="simScoreHint"></span>
           </div>
         </div>

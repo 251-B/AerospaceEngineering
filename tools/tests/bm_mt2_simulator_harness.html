@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exam simulator, Business Management Midterm 2: test harness</title>
+</head>
+<body>
+<!-- Drives subjects/business-management/simulator/index.html in an iframe (tools/tests/test_bm_mt2_bank.py). -->
+<pre id="results">PENDING</pre>
+<iframe id="frame" style="width:1100px;height:900px"></iframe>
+<script>
+(function () {
+  var results = [];
+  function ok(name, pass, detail) { results.push({ name: name, pass: !!pass, detail: String(detail == null ? '' : detail) }); }
+  function done() { document.getElementById('results').textContent = JSON.stringify(results); }
+  var frame = document.getElementById('frame');
+  var SRC = '../../subjects/business-management/simulator/index.html';
+  var errors = [];
+  function load(query) {
+    return new Promise(function (resolve) {
+      frame.onload = function () {
+        var w = frame.contentWindow;
+        w.confirm = function () { return true; };
+        w.addEventListener('error', function (e) { errors.push(e.message); });
+        setTimeout(function () { resolve(w); }, 400);
+      };
+      frame.src = SRC + (query || '') + (query ? '&' : '?') + 't=' + Date.now();
+    });
+  }
+  function current(w) { return JSON.parse(w.localStorage.getItem('ae_bm_exams') || '{}').current; }
+  function store(w) { return JSON.parse(w.localStorage.getItem('ae_bm_exams') || '{}'); }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  (async function () {
+    try {
+      var w = await load('?exam=midterm-2');
+      w.localStorage.removeItem('ae_bm_exams');
+      w = await load('?exam=midterm-2');
+      var d = w.document, bank = w.AE_BM_BANK, bp = w.AE_BM_BLUEPRINT_MT2;
+      function byId(id) { return bank.items.filter(function (i) { return i.id === id; })[0]; }
+      function chooseMode(id) { d.querySelector('#simModes input[value="' + id + '"]').click(); }
+      ok('the Midterm 2 tab is current', d.querySelector('[data-exam-link="midterm-2"]').getAttribute('aria-current') === 'page', '');
+      ok('the blueprint sets the title of the structure', /Midterm 2/.test(d.getElementById('simSetupTitle').textContent), d.getElementById('simSetupTitle').textContent);
+      ok('four practice scopes', d.querySelectorAll('#simModes input').length === 4, d.querySelectorAll('#simModes input').length);
+
+      // --- full exam: two objective parts and the problems
+      d.getElementById('simGenerate').click();
+      var cur = current(w);
+      var parts = {};
+      cur.items.forEach(function (e) { parts[e.part] = (parts[e.part] || 0) + 1; });
+      ok('full exam draws 20 + 8 + 2', JSON.stringify(parts) === '{"part-tf":20,"part-mc":8,"part-pr":2}', JSON.stringify(parts));
+      var tfUnits = {};
+      cur.items.filter(function (e) { return e.part === 'part-tf'; }).forEach(function (e) { var u = byId(e.id).unit; tfUnits[u] = (tfUnits[u] || 0) + 1; });
+      ok('True/False part keeps 4 statements per unit', JSON.stringify(tfUnits) === '{"3":4,"4":4,"5":4,"6":4,"7":4}', JSON.stringify(tfUnits));
+      var probs = cur.items.filter(function (e) { return e.part === 'part-pr'; }).map(function (e) { return byId(e.id).archetype; });
+      ok('the two problems are of different types', probs.length === 2 && probs[0] !== probs[1], probs.join(','));
+      ok('each statement has a reason box', d.querySelectorAll('#simQuestions .sim-reason textarea').length === 20, '');
+      // answer every statement right, the multiple-choice questions wrong
+      cur.items.forEach(function (e, idx) {
+        var it = byId(e.id), q = d.getElementById('q' + (idx + 1));
+        if (it.kind === 'true_false') q.querySelector('input[value="' + it.answer + '"]').click();
+        if (it.kind === 'multiple_choice') q.querySelector('input[value="' + (it.answer === 'a' ? 'b' : 'a') + '"]').click();
+      });
+      d.getElementById('simFinish').click();
+      await wait(100);
+      var sums = d.querySelectorAll('.sim-mcq-summary');
+      ok('one summary per objective part', sums.length === 2, sums.length);
+      ok('True/False part: 20 right = 3.00', /3\.00<\/strong> \/ 3\.00/.test(sums[0].innerHTML), sums[0].textContent.slice(0, 200));
+      ok('multiple-choice part: 8 wrong, floor 0', /0\.00<\/strong> \/ 2\.00/.test(sums[1].innerHTML), sums[1].textContent.slice(0, 200));
+      ok('the reasons are compared side by side', d.querySelectorAll('.sim-reason-compare').length === 20, '');
+      var voids = d.querySelectorAll('.sim-void input');
+      ok('every right statement can be voided', voids.length === 20, voids.length);
+      voids[0].click(); voids[1].click();
+      await wait(50);
+      ok('voiding two right answers takes 0.30 off', /2\.70<\/strong>/.test(sums[0].innerHTML), sums[0].textContent.slice(0, 200));
+      ok('the total follows the voided answers', d.getElementById('simScore').textContent === '2.70', d.getElementById('simScore').textContent);
+      ok('only the problems wait for a grade', d.getElementById('simSave').disabled === true, '');
+      d.querySelectorAll('#simGradeList select').forEach(function (s) { s.selectedIndex = s.options.length - 1; s.dispatchEvent(new Event('change')); });
+      d.getElementById('simSave').click();
+      var h = store(w).history.slice(-1)[0];
+      ok('history keeps a line per objective part', h.parts.length === 2 && h.parts[0].voided === 2, JSON.stringify(h.parts));
+      ok('history is filed under Midterm 2', h.exam === 'midterm-2', h.exam);
+      d.getElementById('simNew').click();
+
+      // --- True/False practice by unit
+      chooseMode('tf');
+      var box = d.getElementById('simCustom');
+      ok('the unit picker appears', box && !box.hidden && box.querySelectorAll('.sim-picks input').length === 5, '');
+      box.querySelectorAll('.sim-picks__quick button')[1].click();
+      ok('no unit ticked: generate is off', d.getElementById('simGenerate').disabled === true, '');
+      box.querySelector('.sim-picks input[value="5"]').click();
+      var sel = d.getElementById('simCount'); sel.value = '5'; sel.dispatchEvent(new Event('change'));
+      d.getElementById('simGenerate').click();
+      cur = current(w);
+      ok('one unit: five statements of Topic 5 only', cur.items.length === 5 && cur.items.every(function (e) { return byId(e.id).unit === 5 && byId(e.id).kind === 'true_false'; }), JSON.stringify(cur.items));
+      ok('one unit: no concept repeated', new Set(cur.items.map(function (e) { return byId(e.id).concept_id; })).size === 5, '');
+      d.getElementById('simAbandon').click();
+      box = d.getElementById('simCustom');
+      box.querySelector('.sim-picks input[value="3"]').click();
+      box.querySelector('.sim-picks input[value="7"]').click();
+      sel = d.getElementById('simCount'); sel.value = '15'; sel.dispatchEvent(new Event('change'));
+      d.getElementById('simGenerate').click();
+      cur = current(w);
+      var mix = {};
+      cur.items.forEach(function (e) { var u = byId(e.id).unit; mix[u] = (mix[u] || 0) + 1; });
+      ok('three units: 15 statements spread 5 + 5 + 5', JSON.stringify(mix) === '{"3":5,"5":5,"7":5}', JSON.stringify(mix));
+      ok('practice is graded out of its own points', Math.abs(w.AE_BM_BLUEPRINT_MT2.parts[0].points_each * 15 - 2.25) < 1e-9, '');
+      d.getElementById('simAbandon').click();
+      box = d.getElementById('simCustom');
+      box.querySelectorAll('.sim-picks__quick button')[0].click();
+      sel = d.getElementById('simCount'); sel.value = 'all'; sel.dispatchEvent(new Event('change'));
+      d.getElementById('simGenerate').click();
+      var nTF = bank.items.filter(function (i) { return i.kind === 'true_false'; }).length;
+      ok('all units, all available: every statement', current(w).items.length === nTF, current(w).items.length + ' of ' + nTF);
+      d.getElementById('simAbandon').click();
+
+      // --- multiple-choice practice, corrected as you answer
+      chooseMode('mc');
+      sel = d.getElementById('simCount'); sel.value = '10'; sel.dispatchEvent(new Event('change'));
+      d.getElementById('simInstant').click();
+      d.getElementById('simGenerate').click();
+      var blk = d.getElementById('simBlock');
+      ok('instant practice opens without a timer', blk && !blk.hidden && blk.querySelectorAll('.sim-question').length === 10, '');
+      ok('instant practice stores nothing', !current(w), JSON.stringify(current(w)));
+      blk.querySelector('input[type=radio]').click();
+      ok('instant practice corrects the first answer', /1 of 10 answered/.test(d.getElementById('simBlockTally').textContent), d.getElementById('simBlockTally').textContent);
+      d.getElementById('simBlockBack').click();
+
+      // --- problems practice by type
+      chooseMode('problems');
+      box = d.getElementById('simCustom');
+      box.querySelectorAll('.sim-picks__quick button')[1].click();
+      box.querySelector('.sim-picks input[value="marketing-case"]').click();
+      d.getElementById('simGenerate').click();
+      cur = current(w);
+      ok('problems practice draws the ticked type', cur.items.length === 1 && byId(cur.items[0].id).archetype === 'marketing-case', JSON.stringify(cur.items));
+      d.getElementById('simAbandon').click();
+
+      // --- Midterm 1 is unchanged
+      w = await load('');
+      d = w.document;
+      ok('Midterm 1 has no practice scopes', !d.getElementById('simModes') && !d.querySelector('.sim-block-card'), '');
+      d.getElementById('simGenerate').click();
+      cur = current(w);
+      ok('Midterm 1 still draws 3 cases and 1 problem', cur.items.length === 4 && cur.exam === 'midterm-1', JSON.stringify(cur.items));
+      d.getElementById('simAbandon').click();
+      ok('no script errors', errors.length === 0, errors.join(' | '));
+    } catch (e) {
+      ok('harness completed', false, e && e.stack || e);
+    }
+    done();
+  })();
+})();
+</script>
+</body>
+</html>

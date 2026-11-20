@@ -1,0 +1,128 @@
+{
+  "subject": "business-management",
+  "exam_id": "midterm-2",
+  "title": "Business Management — Second Partial (Midterm 2)",
+  "short_title": "Midterm 2",
+  "generate_label": "Generate New Midterm 2 Exam",
+  "note": "Part I follows Exercise 4 of the course's example exam (twenty True/False statements, +0.15 right, −0.15 wrong, 0 blank, 3 points, no answer accepted without its reasoning). The example exam has no multiple-choice part: Part II (8 questions, +0.25 / −0.08 / 0, 2 points) is a practice format of the portal. Part III is two problems or cases of different types, 2.5 points each, in the style of Exercises 1, 2, 3, 5 and 6 of the example exam (Topic 7 cases are written for the portal). The example exam prints no duration; 90 minutes is the standard here.",
+  "provenance": {
+    "structure_source": "sources/cuatrimestre-1/05-business-management/examenes/BUSINESS_SECONDPARTIAL_2026_EXAMPLES_SOL.pdf: p. 1 (contents and points of the eight example exercises), p. 5 (Exercise 4, the True/False rule), pp. 2-4 and 6-9 (Exercises 1, 2, 3, 5 and 6). Exercises 7 and 8 (financial statements, Topic 3 Part I) are outside Midterm 2.",
+    "portal_choices": "Agreed with the student on 2026-11-20: the 3.0 / 2.0 / 5.0 split, the multiple-choice part and its rule, 2.5 points per problem, 90 minutes.",
+    "verify_when": "An official Midterm 2 paper of the current course is added under sources/cuatrimestre-1/05-business-management/examenes/; update this file to match it and drop this note."
+  },
+  "content_scope_source": "Topic 3 Part II (investment selection: sheet 3_II_NPV IRR.pdf and its solutions), Topic 4 (production function), Topic 5 (marketing and sales), Topic 6 (management function), Topic 7 (entrepreneurship and innovation).",
+  "simulator_page": "subjects/business-management/simulator/index.html?exam=midterm-2",
+  "problem_bank": "subjects/business-management/data/problems.json",
+  "bank_complete": false,
+  "total_points": 10.0,
+  "duration_minutes": 90,
+  "duration_options_minutes": [60, 90, 120],
+  "currency_unit": "m.u.",
+  "unit_labels": {
+    "3": "Topic 3 · Investment selection (Part II)",
+    "4": "Topic 4 · The production function",
+    "5": "Topic 5 · Marketing and sales",
+    "6": "Topic 6 · The management function",
+    "7": "Topic 7 · Entrepreneurship and innovation"
+  },
+  "parts": [
+    {
+      "id": "part-tf",
+      "label": "Part I — True / False statements",
+      "type": "true_false",
+      "category": "mt2_true_false",
+      "count": 20,
+      "points_each": 0.15,
+      "points_total": 3.0,
+      "points_correct": 0.15,
+      "points_wrong": -0.15,
+      "points_blank": 0,
+      "floor": 0,
+      "justification_required": true,
+      "description": "Twenty independent statements: true (T) or false (F), each with a short written reason. In the exam no answer counts as right without its reasoning.",
+      "selection_rules": {"per_unit": {"3": 4, "4": 4, "5": 4, "6": 4, "7": 4}}
+    },
+    {
+      "id": "part-mc",
+      "label": "Part II — Multiple choice",
+      "type": "multiple_choice",
+      "category": "mt2_test_question",
+      "count": 8,
+      "points_each": 0.25,
+      "points_total": 2.0,
+      "points_correct": 0.25,
+      "points_wrong": -0.08,
+      "points_blank": 0,
+      "floor": 0,
+      "description": "Eight questions with four options and one right answer.",
+      "selection_rules": {"per_unit": {"3": 2, "4": 2, "5": 2, "6": 1, "7": 1}}
+    },
+    {
+      "id": "part-pr",
+      "label": "Part III — Problems and cases",
+      "category": "mt2_problem",
+      "count": 2,
+      "points_each": 2.5,
+      "points_total": 5.0,
+      "description": "Two problems or cases of different types: investment selection, break-even and leverage, or a marketing, management or innovation case.",
+      "selection_rules": {
+        "distinct_themes": true,
+        "archetype": "any",
+        "archetypes": ["npv-irr-fisher", "bep-ol-elasticity", "marketing-case", "management-case", "innovation-case"]
+      },
+      "grading": "per subquestion, using the points of each subquestion (they add up to 2.5)"
+    }
+  ],
+  "modes": [
+    {
+      "id": "full",
+      "label": "Full Midterm 2 exam",
+      "default": true,
+      "parts": ["part-tf", "part-mc", "part-pr"],
+      "description": "The whole simulated exam: 20 True/False statements, 8 multiple-choice questions and 2 problems or cases, timed, graded out of 10."
+    },
+    {
+      "id": "tf",
+      "label": "True / False practice",
+      "parts": ["part-tf"],
+      "unit_picker": true,
+      "count_options": [5, 10, 15, 20, "all"],
+      "default_count": 10,
+      "instant_feedback": true,
+      "duration_minutes": 15,
+      "duration_options_minutes": [10, 15, 25, 40],
+      "generate_label": "Start True / False practice",
+      "description": "Only True/False statements, from the units you tick, spread evenly over them. Timed and graded at the end, or corrected as you answer."
+    },
+    {
+      "id": "mc",
+      "label": "Multiple-choice practice",
+      "parts": ["part-mc"],
+      "unit_picker": true,
+      "count_options": [5, 10, 15, 20, "all"],
+      "default_count": 10,
+      "instant_feedback": true,
+      "duration_minutes": 15,
+      "duration_options_minutes": [10, 15, 25, 40],
+      "generate_label": "Start multiple-choice practice",
+      "description": "Only multiple-choice questions, from the units you tick, spread evenly over them. Timed and graded at the end, or corrected as you answer."
+    },
+    {
+      "id": "problems",
+      "label": "Problems and cases practice",
+      "parts": ["part-pr"],
+      "archetype_picker": true,
+      "count_options": [1, 2, 3],
+      "default_count": 1,
+      "duration_minutes": 25,
+      "duration_options_minutes": [25, 45, 60],
+      "generate_label": "Start problems practice",
+      "description": "Only problems and cases, of the types you tick, timed and graded part by part with the key results."
+    }
+  ],
+  "runner": {
+    "hide_hints_and_solutions_until_submit": true,
+    "allow_scratchpad_per_question": true,
+    "exclude_previous_attempt_option": true
+  }
+}

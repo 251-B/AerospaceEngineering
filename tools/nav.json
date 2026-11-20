@@ -397,6 +397,18 @@
     {
      "page": "midterm-1-problems.html",
      "label": "1st Midterm · Practice problems"
+    },
+    {
+     "page": "midterm-2-tf.html",
+     "label": "2nd Midterm · True/False"
+    },
+    {
+     "page": "midterm-2-test.html",
+     "label": "2nd Midterm · Test"
+    },
+    {
+     "page": "midterm-2-problems.html",
+     "label": "2nd Midterm · Problems"
     }
    ]
   }
