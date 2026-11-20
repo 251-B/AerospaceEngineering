@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-20-sideris-faster-downloads",
+    "date": "2026-11-20",
+    "tag": "Portal",
+    "title": "Faster, steadier Sideris downloads in more browsers",
+    "text": "Models now download in several parts at once, recover from dropped connections on their own and also install on graphics cards without 16-bit support."
+  },
+  {
     "id": "2026-11-19-sideris-fits-your-gpu",
     "date": "2026-11-19",
     "tag": "Portal",

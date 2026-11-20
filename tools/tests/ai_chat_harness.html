@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Sideris AI chat harness</title>
 <link rel="stylesheet" href="../../assets/css/study-surface.css">
+<script>window.AE_SIDERIS_NO_AUTOSTART = true;   // the scenarios set the device themselves</script>
 <script src="../../assets/js/theme.js"></script>
 <script src="../../assets/js/ask-ai.js"></script>
 </head>
@@ -252,7 +253,7 @@ window.addEventListener('load', function () {
           var tiers = [L.classify(base), L.classify(sig({ maxBuffer: 1.5 * G })), L.classify(sig({ mobile: true })),
             L.classify(sig({ f16: false })), L.classify(sig({ webgpu: false })), L.classify(sig({ memGB: 4 })),
             L.classify(sig({ memGB: 0 })), L.classify(sig({ saveData: true })), L.classify(sig({ maxBuffer: 2 * G }))].join(',');
-          check('local-tiers', tiers === '2,1,0,0,0,1,2,0,1', tiers);
+          check('local-tiers', tiers === '2,1,0,2,0,1,2,0,1', tiers);   // no shader-f16: the q4 build, same tier
           // Crash guard: a model still marked "loading" on the next visit is never tried again
           L.restore({ loading: 'sideris-lux' });
           check('local-crash-guard', !!L.state().failed['sideris-lux'] && !L.isReady('sideris-lux'), JSON.stringify(L.state().failed));
@@ -273,6 +274,15 @@ window.addEventListener('load', function () {
           return L.start(window.AESideris.models(), base).then(function () {
             var ready = L.state().ready.sort().join(',');
             check('local-installs-what-fits', ready === 'sideris-aether,sideris-lux,sideris-orion', ready);
+            // after installing in the background, the model that was in the GPU is put back
+            return window.AESiderisEngine.loadWebGPU({ repo: 'onnx-community/Qwen3.5-2B-ONNX', dtype: 'q4f16' }).then(function () {
+              L.restore({ ready: { 'sideris-lux': true } });
+              return L.start(window.AESideris.models(), base);
+            }).then(function () {
+              var key = window.AESiderisEngine.loadedKey();
+              check('local-gpu-model-put-back', key === 'onnx-community/Qwen3.5-2B-ONNX::q4f16' && /back in GPU/.test(L.state().log.join(' ')), key);
+            });
+          }).then(function () {
             window.AESideris.clearChat();
             window.AESideris.selectModel('sideris-aether');
             return window.AESideris.sendUserMessage('What is a streamline?');
@@ -337,7 +347,7 @@ window.addEventListener('load', function () {
           // Resumable model files: a fake server with byte ranges, parts of 10 bytes
           var T = window.AESiderisEngine.local._test, C = window.AESiderisEngine.local.cache;
           var file = ''; for (var i = 0; i < 95; i++) file += String.fromCharCode(65 + (i % 26));
-          var reqs = [], failOnce = true, ignoreRange = false;
+          var reqs = [], fail = { '30': 6 }, ignoreRange = false;   // 6 failures: the first try and its 5 retries
           // The Cache API does real disk work that the headless virtual clock does not wait for, so the
           // harness swaps in a memory store with the same match/put/delete (the real one is checked in a browser).
           function memCache() {
@@ -351,22 +361,30 @@ window.addEventListener('load', function () {
           var memStore = { c: {}, open: function (n) { return Promise.resolve(this.c[n] || (this.c[n] = memCache())); } };
           T.setStore(memStore);
           T.setChunk(10);
+          T.setRetryMs(1);
           T.setFetch(function (url, opts) {
             var range = /bytes=(\d+)-(\d+)/.exec((opts && opts.headers && opts.headers.Range) || '');
             reqs.push(url.split('/').pop() + ':' + (range ? range[1] : 'all'));
+            if (/\/api\/models\//.test(url)) return Promise.resolve(new Response(JSON.stringify([
+              { type: 'file', path: 'config.json', size: 700 }, { type: 'file', path: 'README.md', size: 50 },
+              { type: 'file', path: 'onnx/model_q4f16.onnx', size: 300 }, { type: 'file', path: 'onnx/model_q4f16.onnx_data', size: 9, lfs: { size: 1990 } },
+              { type: 'file', path: 'onnx/model_q4.onnx', size: 310 }, { type: 'file', path: 'onnx/model_q4.onnx_data', size: 9, lfs: { size: 2400 } },
+              { type: 'file', path: 'onnx/model_fp16.onnx', size: 320 }]), { status: 200 }));
             if (/missing\.json$/.test(url)) return Promise.resolve(new Response('', { status: 404 }));
-            if (range && range[1] === '30' && failOnce) { failOnce = false; return Promise.reject(new TypeError('Failed to fetch')); }
+            var key = range ? range[1] : '';
+            if (fail[key] > 0 && url.indexOf(failFile) >= 0) { fail[key]--; return Promise.reject(new TypeError('Failed to fetch')); }
             if (!range || ignoreRange) return Promise.resolve(new Response(file, { status: 200 }));
             var a = +range[1], b = Math.min(+range[2], file.length - 1);
             if (a >= file.length) return Promise.resolve(new Response('', { status: 416 }));
-            return Promise.resolve(new Response(file.slice(a, b + 1), { status: 206 }));
+            // parts answer in a random order, as parallel requests do
+            return new Promise(function (r) { setTimeout(function () { r(new Response(file.slice(a, b + 1), { status: 206 })); }, Math.random() * 8); });
           });
-          var big = 'https://huggingface.co/test/model/resolve/main/onnx/model_q4f16.onnx_data';
+          var big = 'https://huggingface.co/test/model/resolve/main/onnx/model_q4f16.onnx_data', failFile = 'model_q4f16.onnx_data';
           return T.download(big).then(function () { return 'no failure'; }, function (e) { return e.message; }).then(function (first) {
             var before = reqs.length;
             return T.download(big).then(function (meta) {
               var again = reqs.slice(before);
-              check('download-resumes-after-a-cut', first === 'Failed to fetch' && again[0] === 'model_q4f16.onnx_data:30' && meta.done && meta.size === 95,
+              check('download-resumes-after-a-cut', first === 'Failed to fetch' && again[0] === 'model_q4f16.onnx_data:30' && again.indexOf('model_q4f16.onnx_data:0') < 0 && meta.done && meta.size === 95,
                 first + ' | resumed with ' + again.join(','));
               return C.match(big);
             });
@@ -391,6 +409,63 @@ window.addEventListener('load', function () {
                   });
                 });
               });
+          }).then(function () {
+            // A dropped part is retried on the same page (twice here) instead of stopping the download
+            var url2 = 'https://huggingface.co/test/model/resolve/main/onnx/retry_q4f16.onnx_data';
+            failFile = 'retry_q4f16.onnx_data'; fail = { '40': 2 };
+            var n0 = reqs.length;
+            return T.download(url2).then(function (meta) {
+              var tries = reqs.slice(n0).filter(function (r) { return r === 'retry_q4f16.onnx_data:40'; }).length;
+              check('download-retries-on-the-same-page', meta.done && meta.size === 95 && tries === 3, 'tries at 40: ' + tries);
+            });
+          }).then(function () {
+            // Size known: parts in parallel, answering out of order, read back in order
+            var url3 = 'https://huggingface.co/test/model/resolve/main/onnx/par_q4f16.onnx_data';
+            T.setSize(url3, 95);
+            failFile = 'none'; var n0 = reqs.length;
+            return T.download(url3).then(function (meta) {
+              var asked = reqs.slice(n0).filter(function (r) { return r.indexOf('par_q4f16') === 0; }).length;
+              return C.match(url3).then(function (res) { return res.text(); }).then(function (text) {
+                check('download-parallel-parts-in-order', text === file && asked === 10 && meta.parts === 10, asked + ' requests, ' + text.length + ' chars');
+              });
+            });
+          }).then(function () {
+            // Parallel and cut: the next visit asks only for the part that is missing
+            var url4 = 'https://huggingface.co/test/model/resolve/main/onnx/cut_q4f16.onnx_data';
+            T.setSize(url4, 95);
+            failFile = 'cut_q4f16.onnx_data'; fail = { '70': 6 };
+            return T.download(url4).then(function () { return 'no failure'; }, function (e) { return e.message; }).then(function (first) {
+              var n0 = reqs.length;
+              return T.download(url4).then(function (meta) {
+                var again = reqs.slice(n0).filter(function (r) { return r.indexOf('cut_q4f16') === 0; });
+                return C.match(url4).then(function (res) { return res.text(); }).then(function (text) {
+                  check('download-parallel-resumes-missing-only', first === 'Failed to fetch' && again.join(',') === 'cut_q4f16.onnx_data:70' && text === file,
+                    first + ' | then ' + again.join(','));
+                });
+              });
+            });
+          }).then(function () {
+            // Parallel against a server that ignores ranges: the whole body is streamed into parts
+            var url5 = 'https://huggingface.co/test/model/resolve/main/onnx/norange_q4f16.onnx_data';
+            T.setSize(url5, 95);
+            failFile = 'none'; ignoreRange = true;
+            return T.download(url5).then(function (meta) {
+              ignoreRange = false;
+              return C.match(url5).then(function (res) { return res.text(); }).then(function (text) {
+                check('download-parallel-server-ignores-range', text === file && meta.parts === 10, meta.parts + ' parts, ' + text.length + ' chars');
+              });
+            });
+          }).then(function () {
+            // The listing keeps the root files and the ONNX files of the device's build only; q4 without shader-f16
+            return T.list({ repo: 'test/model' }, 'q4').then(function (files) {
+              var names = files.map(function (f) { return f.url.split('/main/')[1] + ':' + f.size; }).join(',');
+              var L2 = window.AESiderisEngine.local;
+              L2.restore({ noF16: true });
+              var noF16 = L2.dtypeFor({ dtype: 'q4f16' });
+              L2.restore({});
+              check('download-list-and-build', names === 'config.json:700,onnx/model_q4.onnx:310,onnx/model_q4.onnx_data:2400' &&
+                noF16 === 'q4' && L2.dtypeFor({ dtype: 'q4f16' }) === 'q4f16', names + ' | ' + noF16);
+            });
           }).then(function () {
             T.setFetch(function (u, o) { return fetch(u, o); });
             T.setChunk(32 * 1048576);

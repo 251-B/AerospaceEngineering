@@ -269,6 +269,7 @@
     var local = window.AESiderisEngine && window.AESiderisEngine.local;
     if (local && local.isReady(copy.id) && !local.busy()) {
       copy.backend = 'webgpu';
+      copy.dtype = local.dtypeFor(copy);   // q4 on GPUs without shader-f16
       copy.autoLocal = true;
       copy.sizeLabel = 'On this device';
     }
@@ -1916,7 +1917,7 @@
     buildUI();
     // Install the models this computer can run, quietly, as soon as the page is up.
     var engine = window.AESiderisEngine;
-    if (engine && engine.local) {
+    if (engine && engine.local && !window.AE_SIDERIS_NO_AUTOSTART) {   // the flag: test harness only
       var go = function () {
         engine.local.start(MODELS);
         var sel = activeModelConfig();

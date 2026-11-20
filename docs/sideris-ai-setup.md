@@ -18,6 +18,9 @@ mobile), grounded in the portal's `vault/` RAG shards.
   (Lux 1, Aether and Orion 2) download in the background, are checked with a short real generation and
   then answer on the device, with no daily limit. Phones and tablets always use the cloud. Titan stays
   in the cloud until it is exported to ONNX (`offlineBackend: "webgpu"`, `localTier`, `sizeMB`).
+- **Downloads:** four 32 MB parts at a time, retried on network errors, resumed across pages, at low
+  network priority; GPUs without 16-bit maths get the `q4` build. Mid-size models (Aether, Orion) need
+  GPU buffers above 2 GiB.
 - **Nothing to set up for students:** no run mode, no manual model links or keys. Downloads go in
   32 MB parts and carry on across pages; installed models keep answering while another downloads.
 

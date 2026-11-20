@@ -376,6 +376,7 @@
   var localRunning = null;      // promise of the running startLocal(), shared by every caller
   var localTier = null;
   var paused = {};              // models set aside for this page after an error while answering
+  var retries = 0;              // in-page retries of dropped downloads
   saveLocal();
 
   function readStore(key) {
@@ -418,7 +419,7 @@
   // models need buffers above 2 GiB.
   // shortcut: the 1 GiB and 8 GB RAM limits are still estimates; tune them with more devices.
   function classifyDevice(sig) {
-    if (!sig.webgpu || !sig.f16 || sig.mobile || sig.saveData) return 0;
+    if (!sig.webgpu || sig.mobile || sig.saveData) return 0;   // no shader-f16: the q4 build (dtypeFor)
     var tier = sig.maxBuffer > 2 * GIB ? 2 : sig.maxBuffer >= GIB ? 1 : 0;
     if (sig.memGB && sig.memGB < 8) tier = Math.min(tier, sig.memGB >= 4 ? 1 : 0);   // 0 = not reported
     return tier;
@@ -491,65 +492,159 @@
   }
 
   // Stores a whole response as parts (Transformers.js put() and files kept by the old cache).
-  function storeStream(url, res) {
+  function storeStream(url, res, moved) {
     return openParts().then(function (cache) {
       var reader = res.body.getReader(), meta = { done: false, parts: 0, size: 0 }, buf = [], held = 0;
-      function flush() {
-        if (!held) return Promise.resolve();
-        var part = new Uint8Array(held), off = 0;
-        buf.forEach(function (b) { part.set(b, off); off += b.byteLength; });
-        buf = []; held = 0;
-        return cache.put(partKey(url, meta.parts), new Response(part)).then(function () { meta.parts++; meta.size += part.byteLength; });
+      function put(part) {
+        return cache.put(partKey(url, meta.parts), new Response(part)).then(function () {
+          meta.parts++;
+          meta.size += part.byteLength;
+          if (dlProgress && !moved) dlProgress(part.byteLength);   // moved files are not download speed
+        });
+      }
+      // stores whole CHUNK-sized parts (all that is held when last), keeping the rest for later
+      function flush(last) {
+        if (!held || (!last && held < CHUNK)) return Promise.resolve();
+        var all = new Uint8Array(held), off = 0;
+        buf.forEach(function (b) { all.set(b, off); off += b.byteLength; });
+        var cut = last ? held : held - (held % CHUNK), chain = Promise.resolve();
+        for (var p = 0; p < cut; p += CHUNK) {
+          (function (part) { chain = chain.then(function () { return put(part); }); })(all.slice(p, Math.min(cut, p + CHUNK)));
+        }
+        buf = cut < held ? [all.slice(cut)] : [];
+        held -= cut;
+        return chain;
       }
       function pump() {
         return reader.read().then(function (step) {
-          if (step.done) return flush().then(function () { meta.done = true; return writeMeta(cache, url, meta); });
-          buf.push(step.value); held += step.value.byteLength;
-          return (held >= CHUNK ? flush() : Promise.resolve()).then(pump);
+          if (step.done) return flush(true).then(function () { meta.done = true; return writeMeta(cache, url, meta); });
+          buf.push(step.value);
+          held += step.value.byteLength;
+          return flush(false).then(pump);
         });
       }
       return pump();
     });
   }
 
+
   // Completes url in the part cache, resuming after the last stored part. Resolves with its meta;
   // a file that does not exist (Transformers.js asks for optional ones) is stored as missing.
+  /* Speed and resilience, from a real computer's log (Aether: 385 s one part after another; Orion
+     stopped by one dropped connection):
+     - with the file size known (Hugging Face listing), PARALLEL parts are fetched at once and every
+       part after the first goes straight to the CDN address the redirect gave (res.url);
+     - each part is retried on network errors, 5xx and 429 after 1, 2, 4, 8 and 16 s;
+     - a server or browser that ignores ranges (200) is streamed into parts, never held whole. */
+  var PARALLEL = 4;
+  var RETRY_MS = 1000;                        // test hook
+  var sizes = {};                             // url -> bytes, from the Hugging Face listing
+
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  function fetchRange(src, start, end, tries) {
+    tries = tries || 0;
+    // low priority (Fetch Priority, ignored where unsupported): the page and the cloud answers go first
+    return fetchFn(src.url, { headers: { Range: 'bytes=' + start + '-' + end }, priority: 'low' }).then(function (res) {
+      // a signed CDN address can expire: go back through the redirect
+      if ((res.status === 403 || res.status === 410) && src.url !== src.orig) { src.url = src.orig; return fetchRange(src, start, end, tries); }
+      if (res.status >= 500 || res.status === 429) throw new Error('HTTP ' + res.status);
+      return res;
+    }).catch(function (err) {
+      if (tries >= 5) throw err;
+      return sleep(RETRY_MS * Math.pow(2, tries)).then(function () { return fetchRange(src, start, end, tries + 1); });
+    });
+  }
+
   function downloadFile(url) {
     return openParts().then(function (cache) {
       return readMeta(cache, url).then(function (meta) {
         if (meta && meta.done) return meta;
-        if (!meta || !meta.parts) {
-          // a file the old cache already holds is moved here instead of downloaded again
-          var legacy = store.open(LEGACY_CACHE).then(function (c) {
-            return c.match(url).then(function (r) {
-              return r ? storeStream(url, r).then(function (m) { c.delete(url); return m; }) : null;
-            });
-          }).catch(function () { return null; });
-          return legacy.then(function (m) { return m || fetchParts(cache, url, meta || { done: false, parts: 0, size: 0 }); });
-        }
-        return fetchParts(cache, url, meta);
+        var started = meta && (meta.parts || (meta.got && meta.got.length));
+        // a file the old cache already holds is moved here instead of downloaded again
+        var legacy = started ? Promise.resolve(null) : store.open(LEGACY_CACHE).then(function (c) {
+          return c.match(url).then(function (r) {
+            return r ? storeStream(url, r, true).then(function (m) { c.delete(url); return m; }) : null;
+          });
+        }).catch(function () { return null; });
+        return legacy.then(function (m) {
+          if (m) return m;
+          meta = meta || { done: false, parts: 0, size: 0 };
+          var total = sizes[url] || meta.total;
+          return total ? fetchParallel(cache, url, meta, total) : fetchParts(cache, url, meta, { url: url, orig: url });
+        });
       });
     });
   }
 
-  function fetchParts(cache, url, meta) {
+  function fetchParallel(cache, url, meta, total) {
+    var n = Math.max(1, Math.ceil(total / CHUNK));
+    var got = {};
+    (meta.got || []).forEach(function (i) { got[i] = 1; });
+    if (!meta.got) for (var i = 0; i < (meta.parts || 0); i++) got[i] = 1;   // parts stored one after another
+    var todo = [];
+    for (var k = 0; k < n; k++) if (!got[k]) todo.push(k);
+    var src = { url: meta.final || url, orig: url };
+    var whole = false, saving = Promise.resolve();
+    function save() {   // one write at a time, each with everything stored so far
+      saving = saving.then(function () {
+        meta.got = Object.keys(got).map(Number);
+        meta.total = total;
+        meta.final = src.url !== url ? src.url : undefined;
+        return writeMeta(cache, url, meta);
+      });
+      return saving;
+    }
+    function worker() {
+      if (whole || !todo.length) return Promise.resolve();
+      var i = todo.shift(), start = i * CHUNK, end = Math.min(total, start + CHUNK) - 1;
+      return fetchRange(src, start, end).then(function (res) {
+        if (res.status === 200) { whole = true; return; }
+        if (res.status === 404) { whole = 'missing'; return; }
+        if (res.status !== 206) throw new Error('HTTP ' + res.status + ' while downloading ' + url.split('/').pop());
+        if (res.redirected && res.url) src.url = res.url;
+        return res.arrayBuffer().then(function (data) {
+          if (data.byteLength !== end - start + 1) throw new Error('Incomplete part of ' + url.split('/').pop());
+          return cache.put(partKey(url, i), new Response(data)).then(function () {
+            got[i] = 1;
+            if (dlProgress) dlProgress(data.byteLength);
+            return save();
+          });
+        });
+      }).then(worker);
+    }
+    var pool = [];
+    for (var w = 0; w < Math.min(PARALLEL, todo.length); w++) pool.push(worker());
+    return Promise.all(pool).then(function () { return saving; }).then(function () {
+      if (whole === 'missing') return writeMeta(cache, url, { done: true, missing: true, parts: 0, size: 0 });
+      if (whole) return fetchFn(url).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status + ' while downloading ' + url.split('/').pop());
+        return storeStream(url, res);
+      });
+      return writeMeta(cache, url, { done: true, parts: n, size: total });
+    });
+  }
+
+  // Size unknown (a file Transformers.js asked for that the listing did not give): one part after
+  // another until a short part or 416 marks the end.
+  function fetchParts(cache, url, meta, src) {
     var start = meta.size;
-    return fetchFn(url, { headers: { Range: 'bytes=' + start + '-' + (start + CHUNK - 1) } }).then(function (res) {
+    return fetchRange(src, start, start + CHUNK - 1).then(function (res) {
       if (res.status === 404) return writeMeta(cache, url, { done: true, missing: true, parts: 0, size: 0 });
       if (res.status === 416) { meta.done = true; return writeMeta(cache, url, meta); }   // size was a whole number of parts
+      if (res.status === 200) return storeStream(url, res);   // ranges ignored: the body is the whole file
       if (!res.ok) throw new Error('HTTP ' + res.status + ' while downloading ' + url.split('/').pop());
-      var whole = res.status === 200;   // the server ignored the range: the body is the whole file
+      if (res.redirected && res.url) src.url = res.url;
       return res.arrayBuffer().then(function (data) {
-        if (whole) { meta.parts = 0; meta.size = 0; }
         return cache.put(partKey(url, meta.parts), new Response(data)).then(function () {
           meta.parts++;
           meta.size += data.byteLength;
           if (dlProgress) dlProgress(data.byteLength);
-          if (whole || data.byteLength < CHUNK) meta.done = true;
+          if (data.byteLength < CHUNK) meta.done = true;
           return writeMeta(cache, url, meta);
         });
       });
-    }).then(function (m) { return m.done ? m : fetchParts(cache, url, m); });
+    }).then(function (m) { return m.done ? m : fetchParts(cache, url, m, src); });
   }
 
   // The stored parts of a complete file, streamed back as one response.
@@ -586,40 +681,54 @@
     }
   };
 
-  // The files of a model from the Hugging Face API (name and size): the config and tokenizer files
-  // at the root and the ONNX files of its dtype (graph and external data). Anything else
-  // Transformers.js asks for later still comes through the resumable cache.
-  function listRepo(m) {
-    var suffix = '_' + (m.dtype || 'q4f16') + '.onnx';
+  // The build this device runs: q4f16 needs the shader-f16 GPU feature; without it the q4 build
+  // (4-bit weights, 32-bit maths) runs on more GPUs and browsers (Firefox among them), a bit slower,
+  // and the probe still decides whether it is fast enough.
+  function dtypeFor(m) {
+    var d = m.dtype || 'q4f16';
+    return localState.noF16 && /f16$/.test(d) ? 'q4' : d;
+  }
+
+  function forDtype(url, dtype) {   // config and tokenizer files at the root, ONNX files of this build
+    return url.indexOf('/onnx/') < 0 || url.indexOf('_' + dtype + '.onnx') >= 0;
+  }
+
+  // The files of a model from the Hugging Face API, with their sizes (which allow parallel parts).
+  // Anything else Transformers.js asks for later still comes through the resumable cache.
+  function listRepo(m, dtype) {
     return fetchFn('https://huggingface.co/api/models/' + m.repo + '/tree/main?recursive=1').then(function (r) {
       return r.ok ? r.json() : [];
     }).then(function (items) {
       return (Array.isArray(items) ? items : []).filter(function (it) {
-        return it.type === 'file' && (/^[^/]+\.(json|jinja|txt)$/.test(it.path) || (/^onnx\//.test(it.path) && it.path.indexOf(suffix) >= 0));
+        return it.type === 'file' && (/^[^/]+\.(json|jinja|txt)$/.test(it.path) || (/^onnx\//.test(it.path) && forDtype('/' + it.path, dtype)));
       }).map(function (it) {
-        return { url: 'https://huggingface.co/' + m.repo + '/resolve/main/' + it.path, size: (it.lfs && it.lfs.size) || it.size || 0 };
+        var f = { url: 'https://huggingface.co/' + m.repo + '/resolve/main/' + it.path, size: (it.lfs && it.lfs.size) || it.size || 0 };
+        if (f.size) sizes[f.url] = f.size;
+        return f;
       });
     }).catch(function () { return []; });
   }
 
-  // Downloads every file of a model with no GPU work; false when its files could not be listed
-  // (then the GPU load asks Transformers.js for them, still through the resumable cache).
+  // Downloads every file of a model with no GPU work. Resolves false when the files could not be
+  // listed (the GPU load then asks Transformers.js for them, still through the resumable cache) and
+  // 'nobuild' when the repository has no ONNX file for this device's build.
   function prefetchModel(m) {
     if (mockFn || typeof caches === 'undefined') return Promise.resolve(false);
-    var urls;
-    return listRepo(m).then(function (files) {
+    var dtype = dtypeFor(m), urls;
+    return listRepo(m, dtype).then(function (files) {
+      if (files.length && !files.some(function (f) { return /\/onnx\//.test(f.url); })) return 'nobuild';
       files.forEach(function (f) { remember(f.url); });
       var total = files.reduce(function (a, f) { return a + f.size; }, 0);
       if (total && localJob) localJob.total = total;
-      urls = filesSeen[m.repo] || [];
-      return urls.length ? openParts().then(function (cache) {
-        return Promise.all(urls.map(function (u) { return readMeta(cache, u); }));
-      }) : [];
-    }).then(function (metas) {
+      urls = (filesSeen[m.repo] || []).filter(function (u) { return forDtype(u, dtype); });
       if (!urls.length) return false;
-      metas.forEach(function (x) { if (x && localJob) localJob.loaded += x.size || 0; });   // already stored
-      return urls.reduce(function (chain, u) { return chain.then(function () { return downloadFile(u); }); }, Promise.resolve())
-        .then(function () { return true; });
+      return openParts().then(function (cache) {
+        return Promise.all(urls.map(function (u) { return readMeta(cache, u); }));
+      }).then(function (metas) {
+        metas.forEach(function (x) { if (x && localJob) localJob.loaded += x.size || 0; });   // already stored
+        return urls.reduce(function (chain, u) { return chain.then(function () { return downloadFile(u); }); }, Promise.resolve())
+          .then(function () { return true; });
+      });
     });
   }
 
@@ -630,7 +739,8 @@
     return openParts().then(function (cache) {
       return Promise.all(models.map(function (m) {
         if (!localState.ready[m.id]) return null;
-        var urls = filesSeen[m.repo] || [];
+        var dtype = dtypeFor(m);
+        var urls = (filesSeen[m.repo] || []).filter(function (u) { return forDtype(u, dtype); });
         return Promise.all(urls.map(function (u) { return readMeta(cache, u); })).then(function (metas) {
           if (!urls.length || metas.some(function (x) { return !x || !x.done; })) {
             delete localState.ready[m.id];
@@ -652,7 +762,7 @@
   // timing it gave 1.4 tokens/s for a model that runs fine. Warm up first, then time only from the
   // first token to the last (decoding speed, what the student feels).
   function probe(m) {
-    var model = { id: m.id, backend: 'webgpu', repo: m.repo, dtype: m.dtype };
+    var model = { id: m.id, backend: 'webgpu', repo: m.repo, dtype: dtypeFor(m) };
     var ask = [{ role: 'user', content: 'Reply with one short sentence about fluids.' }];
     var n = 0, tFirst = 0, tLast = 0;
     return generate({ model: model, messages: ask, maxTokens: 4 }, function () {}).then(function () {
@@ -668,17 +778,20 @@
   function fetchOne(m) {
     localJob = { id: m.id, name: m.name, startedAt: Date.now(), loaded: 0, total: (m.sizeMB || 0) * 1048576, phase: 'download' };
     dlProgress = function (n) { if (localJob) { localJob.loaded += n; localJob.fetched = (localJob.fetched || 0) + n; } };
-    note(m.id + ': downloading ' + m.repo);
+    var dtype = dtypeFor(m), retry = false, before = null;
+    note(m.id + ': downloading ' + m.repo + ' (' + dtype + ')');
     var t0 = Date.now();
     return prefetchModel(m).then(function (known) {
+      if (known === 'nobuild') throw new Error('no ' + dtype + ' build of this model for this GPU');
       if (known) note(m.id + ': files complete after ' + Math.round((Date.now() - t0) / 1000) + ' s');
       return waitIdle();
     }).then(function () {
       localJob.phase = 'gpu';   // from here other local models wait (busy())
       localState.loading = m.id;   // crash guard: only the GPU part can take the tab down
+      before = loaded && loaded.repo !== m.repo ? { repo: loaded.repo, dtype: loaded.dtype, auto: true } : null;
       note(m.id + ': loading into the GPU');
       t0 = Date.now();
-      return loadWebGPU({ repo: m.repo, dtype: m.dtype, name: m.name, auto: true }, function () {});
+      return loadWebGPU({ repo: m.repo, dtype: dtype, name: m.name, auto: true }, function () {});
     }).then(function () {
       note(m.id + ': in GPU after ' + Math.round((Date.now() - t0) / 1000) + ' s');
       return probe(m);
@@ -689,13 +802,19 @@
     }, function (err) {
       var msg = (err && err.message) || String(err);
       note(m.id + ': error ' + msg.slice(0, 160));
-      // a dropped download is tried again on a later visit; anything else means this device can't
-      if (!/fetch|network|load failed|abort|HTTP 5/i.test(msg)) localState.failed[m.id] = msg.slice(0, 120);
+      // a dropped download is tried again (later on this page, or on the next one); anything else
+      // means this device can't run the model
+      if (/fetch|network|load failed|abort|HTTP 5|HTTP 429|Incomplete part/i.test(msg)) retry = true;
+      else localState.failed[m.id] = msg.slice(0, 120);
     }).then(function () {
       localState.loading = '';
       saveLocal();
+      // give the GPU back to the model that was in it, so the next question does not wait for it
+      return before ? loadWebGPU(before).then(function () { note('back in GPU: ' + before.repo.split('/').pop()); }, function () {}) : null;
+    }).then(function () {
       localJob = null;
       dlProgress = null;
+      return retry;
     });
   }
 
@@ -704,6 +823,7 @@
     if (localRunning) return signals ? localRunning.then(function () { return startLocal(models, signals); }) : localRunning;
     localRunning = (signals ? Promise.resolve(signals) : detectDevice()).then(function (sig) {
       localTier = classifyDevice(sig);
+      if (sig.webgpu && sig.maxBuffer) localState.noF16 = !sig.f16;   // remembered for the next page's preload
       note('tier ' + localTier + ' (webgpu ' + sig.webgpu + ', f16 ' + sig.f16 + ', mobile ' + sig.mobile + ', saveData ' + sig.saveData +
         ', mem ' + (sig.memGB || '?') + ' GB, maxBuffer ' + Math.round(sig.maxBuffer / 1048576) + ' MB, free ' +
         (isFinite(sig.freeMB) ? Math.round(sig.freeMB) + ' MB' : '?') + ')');
@@ -720,9 +840,12 @@
         localTodo = todo;
         if (todo.length && navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(function () {});
         var run = function () {
+          var again = false;
           return todo.reduce(function (chain, m) {
-            return chain.then(function () { localTodo.shift(); return fetchOne(m); });
-          }, Promise.resolve());
+            return chain.then(function () { localTodo.shift(); return fetchOne(m).then(function (r) { again = again || r; }); });
+          }, Promise.resolve()).then(function () {
+            if (again && retries++ < 5) setTimeout(function () { startLocal(models); }, 60000);
+          });
         };
         if (!todo.length) return null;
         // one tab downloads at a time; the others queue and take over when it closes
@@ -821,15 +944,17 @@
         if (!localState.ready[m.id] || localJob && localJob.phase === 'gpu' || mockFn) return Promise.resolve();
         var t0 = Date.now();
         return waitIdle().then(function () {
-          return loadWebGPU({ repo: m.repo, dtype: m.dtype, name: m.name, auto: true });
+          return loadWebGPU({ repo: m.repo, dtype: dtypeFor(m), name: m.name, auto: true });
         }).then(function () { note(m.id + ': preloaded in ' + Math.round((Date.now() - t0) / 1000) + ' s'); },
           function (err) { note(m.id + ': preload error ' + String((err && err.message) || err).slice(0, 120)); });
       },
       log: note,
+      dtypeFor: dtypeFor,
       markFailed: function (id, why) { delete localState.ready[id]; localState.failed[id] = String(why || 'error').slice(0, 120); saveLocal(); },
       state: function () { return { tier: localTier, job: localJob ? { id: localJob.id, phase: localJob.phase, loaded: localJob.loaded, total: localJob.total } : null, ready: Object.keys(localState.ready), failed: localState.failed, loading: localJob ? localJob.id + ' (' + localJob.phase + ', ' + Math.round(localJob.loaded / 1048576) + ' MB)' : '', log: localState.log || [] }; },
       cache: modelCache,
-      _test: { setFetch: function (f) { fetchFn = f; }, setChunk: function (n) { CHUNK = n; }, setStore: function (st) { store = st; }, download: downloadFile,
+      _test: { setFetch: function (f) { fetchFn = f; }, setChunk: function (n) { CHUNK = n; },
+        setRetryMs: function (n) { RETRY_MS = n; }, setSize: function (u, n) { sizes[u] = n; }, list: listRepo, setStore: function (st) { store = st; }, download: downloadFile,
         response: partsResponse, files: function () { return filesSeen; } },
       restore: function (raw) { localState = parseLocal(raw); saveLocal(); }   // test hook, same path as a page load
     },
