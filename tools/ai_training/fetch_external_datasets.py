@@ -19,9 +19,6 @@ import re
 import sys
 import zipfile
 
-import pyarrow.parquet as pq
-import requests
-
 REPO = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "tools/ai_training"))
 
@@ -192,6 +189,8 @@ def normalise_external_latex(text):
 
 def download_if_needed(url, dest_path):
     """Stream-download url to dest_path unless already cached cleanly."""
+    import requests
+
     dest = pathlib.Path(dest_path)
     if dest.is_file() and dest.stat().st_size > 0:
         return dest
@@ -234,6 +233,8 @@ def _iter_source_records(source_name, path):
     if kind == "zip":
         yield from _iter_zip_records(path)
     elif kind == "parquet":
+        import pyarrow.parquet as pq
+
         for row in pq.read_table(path).to_pylist():
             yield row
     elif kind == "json":
