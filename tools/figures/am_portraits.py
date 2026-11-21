@@ -335,5 +335,6 @@ def build(specs):
         uid = "clip-" + re.sub(r"[^A-Za-z0-9]", "-", name)
         kind = spec.get("kind", "portrait")
         canvas = {"series": draw_series, "response": draw_response}.get(kind, draw)(spec, uid)
+        # EXTRA: computed answer to "sketch the phase portrait"; the official sheets print no figure
         reg.put(name, canvas, spec.get("title", name), spec.get("caption"))
     return reg
