@@ -19,8 +19,9 @@ bytes: 1430924
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/00.pdf`
 - **Kind:** slides
 - **Size:** 1.4 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[06 - Repository/Rules - EM Mission Progress]]
+- [[06 - Repository/Rules - EM Theory Progress]]

@@ -26,6 +26,7 @@ Map of content for the repository's own tooling, agents and rules. The study con
 | [[Rules - CLAUDE.md]] | Rules | Claude Code framework: triggering pipeline, decision matrix, subagents and agent teams. |
 | [[Rules - GEMINI.md]] | Rules | Gemini session setup, NotebookLM scope and subagent definitions. |
 | [[Rules - EM Mission Progress]] | Rules | Progress log of the Engineering Mechanics mission: milestones, inventory, blockers and conflicts with the brief. |
+| [[Rules - EM Theory Progress]] | Rules | Progress log of the theory half of the Engineering Mechanics mission (Topics 1 to 5): state per topic, decisions and conflicts with the brief. |
 | [[Agent - aerospace-pedagogue]] | Agent | Writes theory from first principles, cited to the sources. |
 | [[Agent - problem-step-mentor]] | Agent | Enforces the problem-solving standard (lecturer's order, silent checklist) on problem solutions. |
 | [[Agent - source-researcher]] | Agent | Read-only extraction of formulas and statements from `sources/`. |
