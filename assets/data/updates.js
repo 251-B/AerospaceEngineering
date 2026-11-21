@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-21-business-midterm-2-full-bank",
+    "date": "2026-11-21",
+    "tag": "Business Management",
+    "title": "Midterm 2 bank complete: 250 questions and 15 cases",
+    "text": "The Midterm 2 practice now has 150 True/False statements, 100 test questions and 15 problems and cases, 30 statements and 20 questions per topic.",
+    "link": "subjects/business-management/extra-problems/index.html"
+  },
+  {
     "id": "2026-11-20-business-midterm-2-simulator",
     "date": "2026-11-20",
     "tag": "Business Management",

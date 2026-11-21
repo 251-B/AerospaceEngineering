@@ -1,19 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 400" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="NPV of projects A, B and C of Aldebaran Space Systems as a function of the discount rate r, with the IRR of each project and the Fisher rates of the three pairs (schematic, drawn from the cash flows of the statement)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 430" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="NPV of projects A, B and C of Aldebaran Space Systems as a function of the discount rate r, with the IRR of each project and the Fisher rates of the three pairs (schematic, drawn from the cash flows of the statement)">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
 <line x1="78.0" y1="64.0" x2="78.0" y2="334.0" stroke="#8a94a6" stroke-width="1.2"/>
 <line x1="78.0" y1="221.3" x2="612.0" y2="221.3" stroke="#8a94a6" stroke-width="1.2"/>
 <path d="M612.0,221.3 L603.7,224.8 L603.7,217.8 Z" fill="#8a94a6"/>
-<text x="612.0" y="251.3" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">r (%)</text>
 <text x="70.0" y="58.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">NPV</text>
+<line x1="78.0" y1="334.0" x2="600.0" y2="334.0" stroke="#8a94a6" stroke-width="0.8"/>
 <line x1="78.0" y1="218.3" x2="78.0" y2="224.3" stroke="#8a94a6" stroke-width="1"/>
+<line x1="78.0" y1="334.0" x2="78.0" y2="338.0" stroke="#8a94a6" stroke-width="1"/>
+<text x="78.0" y="350.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">0</text>
 <line x1="208.5" y1="218.3" x2="208.5" y2="224.3" stroke="#8a94a6" stroke-width="1"/>
-<text x="208.5" y="237.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">5</text>
+<line x1="208.5" y1="334.0" x2="208.5" y2="338.0" stroke="#8a94a6" stroke-width="1"/>
+<text x="208.5" y="350.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">5</text>
 <line x1="339.0" y1="218.3" x2="339.0" y2="224.3" stroke="#8a94a6" stroke-width="1"/>
-<text x="339.0" y="237.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">10</text>
+<line x1="339.0" y1="334.0" x2="339.0" y2="338.0" stroke="#8a94a6" stroke-width="1"/>
+<text x="339.0" y="350.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">10</text>
 <line x1="469.5" y1="218.3" x2="469.5" y2="224.3" stroke="#8a94a6" stroke-width="1"/>
-<text x="469.5" y="237.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">15</text>
+<line x1="469.5" y1="334.0" x2="469.5" y2="338.0" stroke="#8a94a6" stroke-width="1"/>
+<text x="469.5" y="350.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">15</text>
 <line x1="600.0" y1="218.3" x2="600.0" y2="224.3" stroke="#8a94a6" stroke-width="1"/>
-<text x="600.0" y="237.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">20</text>
+<line x1="600.0" y1="334.0" x2="600.0" y2="338.0" stroke="#8a94a6" stroke-width="1"/>
+<text x="600.0" y="350.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">20</text>
+<text x="600.0" y="364.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">discount rate r (%)</text>
 <line x1="75.0" y1="310.4" x2="81.0" y2="310.4" stroke="#8a94a6" stroke-width="1"/>
 <text x="72.0" y="314.4" fill="#6b7280" font-size="11" font-weight="400" text-anchor="end">-100,000</text>
 <line x1="75.0" y1="221.3" x2="81.0" y2="221.3" stroke="#8a94a6" stroke-width="1"/>
@@ -41,6 +48,6 @@
 <line x1="378.3" y1="217.1" x2="378.3" y2="219.3" stroke="#8a94a6" stroke-width="1" stroke-dasharray="3 3"/>
 <line x1="378.3" y1="207.1" x2="378.3" y2="31.1" stroke="#8a94a6" stroke-width="0.8"/>
 <text x="378.3" y="27.1" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">A–C</text>
-<text x="78.0" y="364.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">IRR (curve meets the axis): A 13.07% · B 10.86% · C 15.14%</text>
-<text x="78.0" y="382.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">Fisher rates (two curves cross): A–B 8.06% · B–C 9.50% · A–C 11.51%</text>
+<text x="78.0" y="386.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">IRR (curve meets the axis): A 13.07% · B 10.86% · C 15.14%</text>
+<text x="78.0" y="404.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">Fisher rates (two curves cross): A–B 8.06% · B–C 9.50% · A–C 11.51%</text>
 </g></svg>

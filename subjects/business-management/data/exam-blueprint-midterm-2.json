@@ -13,7 +13,7 @@
   "content_scope_source": "Topic 3 Part II (investment selection: sheet 3_II_NPV IRR.pdf and its solutions), Topic 4 (production function), Topic 5 (marketing and sales), Topic 6 (management function), Topic 7 (entrepreneurship and innovation).",
   "simulator_page": "subjects/business-management/simulator/index.html?exam=midterm-2",
   "problem_bank": "subjects/business-management/data/problems.json",
-  "bank_complete": false,
+  "bank_complete": true,
   "total_points": 10.0,
   "duration_minutes": 90,
   "duration_options_minutes": [60, 90, 120],

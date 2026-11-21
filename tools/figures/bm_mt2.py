@@ -21,6 +21,18 @@ PROFILES = {
         "project and the Fisher rates of the three pairs (schematic, drawn from the cash flows of the statement)",
         {"A": (500_000, [300_000, 300_000]), "B": (750_000, [200_000, 700_000]), "C": (200_000, [100_000, 150_000])},
         20),
+    # Bank M06, Corvus Flight Simulators: projects A, B and C (D is rejected at 8% and left out of the graph).
+    "m06-npv-profile": (
+        "NPV of projects A, B and C of Corvus Flight Simulators as a function of the discount rate r, with the IRR of each "
+        "project and the Fisher rates of the pairs that cross (schematic, drawn from the cash flows of the statement)",
+        {"A": (400_000, [380_000, 100_000]), "B": (600_000, [90_000, 680_000]), "C": (300_000, [60_000, 300_000])},
+        25),
+    # Bank M07, Boreal Hydrogen Aviation: outlays and cash flows in euros, B with the year-2 flow of part (b).
+    "m07-npv-profile": (
+        "NPV of projects A, B and C of Boreal Hydrogen Aviation as a function of the discount rate r, with the IRR of each "
+        "project and the Fisher rates of the three pairs (schematic, drawn from the cash flows of the statement)",
+        {"A": (600_000, [400_000, 280_000]), "B": (800_000, [300_000, 610_000]), "C": (400_000, [360_000, 110_000])},
+        18),
 }
 
 COLOURS = ("BLUE", "PINK", "GREEN", "ACC")
@@ -49,7 +61,7 @@ def _root(fn, lo, hi):
 
 def npv_profile(projects, rmax):
     """Canvas with the NPV(r) curves of `projects` for r in [0, rmax] (rmax in %)."""
-    W, H, L, R, T, B = 660, 400, 78, 600, 70, 330
+    W, H, L, R, T, B = 660, 430, 78, 600, 70, 330
     rs = [rmax / 100 * i / 200 for i in range(201)]
     values = [npv(o, f, r) for o, f in projects.values() for r in rs]
     top, bottom = max(values), min(min(values), 0)
@@ -67,14 +79,16 @@ def npv_profile(projects, rmax):
     y0 = py(0)
     line(c, (L, T - 6), (L, B + 4), "EDGE", 1.2, head=False)
     line(c, (L, y0), (R + 12, y0), "EDGE", 1.2, head=True)
-    text(c, (R + 12, y0 + 30), "r (%)", "TEXT", anchor="end", size=12)
     text(c, (L - 8, T - 12), "NPV", "TEXT", anchor="end", size=12)
+    # rate marks on the axis, their numbers along the bottom edge of the plot, clear of the curves
+    line(c, (L, B + 4), (R, B + 4), "EDGE", 0.8)
     step = 5 if rmax <= 30 else 10
     for k in range(0, int(rmax) + 1, step):
         x = px(k / 100)
         line(c, (x, y0 - 3), (x, y0 + 3), "EDGE", 1)
-        if k:
-            text(c, (x, y0 + 16), str(k), "TEXT", anchor="middle", size=11)
+        line(c, (x, B + 4), (x, B + 8), "EDGE", 1)
+        text(c, (x, B + 20), str(k), "TEXT", anchor="middle", size=11)
+    text(c, (R, B + 34), "discount rate r (%)", "TEXT", anchor="end", size=12)
     for v in _nice_ticks(bottom, top):
         y = py(v)
         line(c, (L - 3, y), (L + 3, y), "EDGE", 1)
@@ -107,8 +121,8 @@ def npv_profile(projects, rmax):
         line(c, (p[0], p[1] - 5), (p[0], ty + 4), "EDGE", 0.8)
         text(c, (p[0], ty), pair, "HEAD", anchor="middle", size=11, weight="700")
         fisher_txt.append(f"{pair} {100 * fr:.2f}%")
-    text(c, (L, B + 34), "IRR (curve meets the axis): " + " · ".join(irr_txt), "TEXT", size=12)
-    text(c, (L, B + 52), "Fisher rates (two curves cross): " + " · ".join(fisher_txt), "TEXT", size=12)
+    text(c, (L, B + 56), "IRR (curve meets the axis): " + " · ".join(irr_txt), "TEXT", size=12)
+    text(c, (L, B + 74), "Fisher rates (two curves cross): " + " · ".join(fisher_txt), "TEXT", size=12)
     return c
 
 

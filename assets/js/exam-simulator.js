@@ -801,12 +801,16 @@
     var sel = document.createElement('select');
     sel.className = 'sim-select';
     sel.setAttribute('aria-label', label);
-    for (var v = 0; v <= max + 1e-9; v += step) {
+    var values = [];
+    for (var v = 0; v <= max + 1e-9; v += step) values.push(Math.round(v * 100) / 100);
+    // A part worth a value that is not a multiple of the step (1.3, 0.6) still gets its full mark.
+    if (values[values.length - 1] < Math.round(max * 100) / 100) values.push(Math.round(max * 100) / 100);
+    values.forEach(function (x) {
       var o = document.createElement('option');
-      o.value = String(Math.round(v * 100) / 100);
-      o.textContent = fmt1(v) + ' pts';
+      o.value = String(x);
+      o.textContent = fmt1(x) + ' pts';
       sel.appendChild(o);
-    }
+    });
     if (value != null) sel.value = String(value);
     else sel.selectedIndex = -1;
     sel.addEventListener('change', function () { onChange(Number(sel.value)); });
