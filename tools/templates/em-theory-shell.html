@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="engineering-mechanics">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 5: Relative Motion | Mechanics Applied to Aerospace Engineering</title>
+
+  <!-- Google Fonts & KaTeX CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Abril+Fatface&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: 0.25s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0e17;
+      --bg-surface: #111827;
+      --bg-subtle: #1e293b;
+      --bg-input: #0f172a;
+      --text-main: #e2e8f0;
+      --text-heading: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-subtle: #1e293b;
+      --border-strong: #334155;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-border: rgba(56, 189, 248, 0.35);
+      --badge-bg: #1e293b;
+      --badge-text: #38bdf8;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: #e2e8f0;
+      --text-main: #1e293b;
+      --text-heading: #0f172a;
+      --text-muted: #64748b;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --accent: #0284c7;
+      --accent-soft: rgba(2, 132, 199, 0.08);
+      --accent-border: rgba(2, 132, 199, 0.3);
+      --badge-bg: #e0f2fe;
+      --badge-text: #0369a1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-size: 16px;
+      transition: background-color var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Sticky Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      content: "☀️";
+    }
+
+    [data-theme="light"] .theme-toggle::before {
+      content: "🌙";
+    }
+
+    /* Main Container */
+    .article-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .article-meta {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .source-box {
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      display: inline-block;
+    }
+
+    /* Table of contents */
+    .toc-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0 36px;
+    }
+
+    .toc-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 8px 20px;
+    }
+
+    .toc-item {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-item:hover {
+      color: var(--accent);
+    }
+
+    /* Headings */
+    h2.section-heading {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 44px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 30px 0 12px;
+    }
+
+    h4.minor-heading {
+      font-family: var(--font-sans);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      margin: 0 0 18px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      border: 1px solid;
+    }
+
+    .callout-info {
+      background: var(--bg-surface);
+      border-color: var(--border-subtle);
+    }
+
+    .callout-key {
+      background: color-mix(in srgb, var(--accent) 7%, var(--bg-surface));
+      border-color: var(--accent-border);
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-warning .callout-title { color: #f59e0b; }
+    .callout-key .callout-title { color: var(--accent); }
+
+    /* Math Blocks */
+    .math-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 22px 0;
+      overflow-x: auto;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .math-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* Comparison Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Diagrams */
+    .diagram-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 26px 0;
+      text-align: center;
+    }
+
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* Example Box */
+    .example-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .example-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .example-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* Footer Navigation */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      min-width: 220px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--bg-subtle);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    /* Editorial Typography & Minimalist Space Aesthetic */
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    
+    h1.article-title, .problem-title {
+      font-family: var(--font-display);
+      letter-spacing: 0.01em;
+    }
+    
+    /* Language Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+    
+    /* Celestial light background & Neon dark glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 25%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <!-- Top Sticky Bar -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14165</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="article-container">
+    <!-- Page shell of the Engineering Mechanics theory pages (tools/build_topic_pages.py, flavor "mechanics").
+         Only the head above <main> and the tail from </main> are used; the body is generated from the vault note. -->
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

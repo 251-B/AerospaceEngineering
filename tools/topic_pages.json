@@ -240,7 +240,7 @@
   },
   "subjects/engineering-mechanics/teoria/topic-6.html": {
    "flavor": "mechanics",
-   "template": "subjects/engineering-mechanics/teoria/topic-5.html",
+   "template": "tools/templates/em-theory-shell.html",
    "note": "vault/03 - Engineering Mechanics/Topic 6 - Kinematics of Rigid Bodies and Inertia Properties.md",
    "figures": "em_theory",
    "html_title": "Topic 6: Kinematics of Rigid Bodies and Inertia Properties — Engineering Mechanics",
@@ -268,7 +268,7 @@
   },
   "subjects/engineering-mechanics/teoria/topic-7.html": {
    "flavor": "mechanics",
-   "template": "subjects/engineering-mechanics/teoria/topic-5.html",
+   "template": "tools/templates/em-theory-shell.html",
    "note": "vault/03 - Engineering Mechanics/Topic 7 - Momentum, Kinetic Energy and Rigid Body Dynamics.md",
    "figures": "em_theory",
    "html_title": "Topic 7: Momentum, Kinetic Energy and Rigid Body Dynamics — Engineering Mechanics",
@@ -296,7 +296,7 @@
   },
   "subjects/engineering-mechanics/teoria/topic-8.html": {
    "flavor": "mechanics",
-   "template": "subjects/engineering-mechanics/teoria/topic-5.html",
+   "template": "tools/templates/em-theory-shell.html",
    "note": "vault/03 - Engineering Mechanics/Topic 8 - Constraints, Rolling Motion, Multibody Systems and Torque-Free Motion.md",
    "figures": "em_theory",
    "html_title": "Topic 8: Constraints, Rolling Motion, Multibody Systems and Torque-Free Motion — Engineering Mechanics",
