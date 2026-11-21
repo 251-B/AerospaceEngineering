@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 855 430" width="100%" class="fig-kit" style="max-width:855px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the astronaut in the moving frame: cord tension, gravity and the four inertia forces">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="270.0" y1="300.0" x2="411.7" y2="181.1" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="270.0" y1="300.0" x2="355.9" y2="300.0" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M362.5,300.0 L352.4,304.3 L352.4,295.7 Z" fill="#3b82f6"/>
+<text x="364.5" y="322.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="270.0" y1="300.0" x2="270.0" y2="214.1" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M270.0,207.5 L274.3,217.6 L265.7,217.6 Z" fill="#3b82f6"/>
+<text x="254.0" y="211.5" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<circle cx="270.0" cy="300.0" r="9" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+<circle cx="270.0" cy="300.0" r="2.6" fill="#3b82f6"/>
+<text x="254.0" y="288.0" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> (⊙)</text>
+<text x="258.0" y="326.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">S</text>
+<path d="M217.8,319.0 A55.5,55.5 0 0 0 322.2,319.0" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M323.2,316.2 L323.6,325.2 L317.1,322.8 Z" fill="#10b981"/>
+<text x="270.0" y="379.0" fill="#10b981" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"></text>
+<text x="270.0" y="389.5" fill="#10b981" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ω₁₀ = ν̇ <tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="411.7" y1="181.1" x2="303.4" y2="272.0" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M298.3,276.2 L303.4,266.4 L308.9,273.0 Z" fill="#ec4899"/>
+<text x="335.9" y="220.6" fill="#ec4899" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−T <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">c</tspan></text>
+<line x1="411.7" y1="181.1" x2="307.3" y2="181.1" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M300.7,181.1 L310.8,176.8 L310.8,185.4 Z" fill="#ec4899"/>
+<text x="292.7" y="169.1" fill="#ec4899" font-size="15" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m g<tspan baseline-shift="sub" font-size="70%">S</tspan> = −m μ<tspan baseline-shift="sub" font-size="70%">F</tspan> / r² <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="411.7" y1="181.1" x2="516.7" y2="181.1" stroke="#ec4899" stroke-width="2.6" stroke-dasharray="7 4"/>
+<path d="M522.7,181.1 L513.5,185.0 L513.5,177.2 Z" fill="#ec4899"/>
+<text x="532.7" y="186.1" fill="#ec4899" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">A</tspan> = −m a<tspan baseline-shift="sub" font-size="70%">S</tspan> (inertia)</text>
+<text x="532.7" y="205.1" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">equal and opposite to m g_S in free flight</text>
+<line x1="411.7" y1="181.1" x2="467.3" y2="247.3" stroke="#ec4899" stroke-width="2.6" stroke-dasharray="7 4"/>
+<path d="M471.2,251.9 L462.3,247.4 L468.2,242.4 Z" fill="#ec4899"/>
+<text x="481.2" y="257.9" fill="#ec4899" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">E</tspan> = −m L ν̈ <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<text x="481.2" y="275.9" fill="#ec4899" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">(inertia)</text>
+<line x1="411.7" y1="181.1" x2="485.1" y2="119.5" stroke="#ec4899" stroke-width="2.6" stroke-dasharray="7 4"/>
+<path d="M489.7,115.7 L485.1,124.6 L480.1,118.6 Z" fill="#ec4899"/>
+<text x="499.7" y="101.7" fill="#ec4899" font-size="15" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">C</tspan> = m L ν̇² <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">c</tspan></text>
+<text x="499.7" y="117.7" fill="#ec4899" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">(inertia)</text>
+<line x1="401.0" y1="168.3" x2="460.2" y2="118.7" stroke="#ec4899" stroke-width="2.6" stroke-dasharray="7 4"/>
+<path d="M464.8,114.8 L460.2,123.7 L455.2,117.8 Z" fill="#ec4899"/>
+<text x="454.8" y="100.8" fill="#ec4899" font-size="15" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">COR</tspan> = 2 m L ν̇ θ̇ <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">c</tspan> (inertia)</text>
+<line x1="411.7" y1="181.1" x2="449.2" y2="149.7" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M454.2,145.4 L449.2,155.2 L443.7,148.6 Z" fill="#f59e0b"/>
+<text x="470.2" y="157.4" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">c</tspan></text>
+<line x1="411.7" y1="181.1" x2="380.3" y2="143.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M376.0,138.6 L385.8,143.6 L379.3,149.1 Z" fill="#f59e0b"/>
+<text x="360.0" y="130.6" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<circle cx="411.7" cy="181.1" r="7" fill="#f59e0b" fill-opacity="0.95" stroke="#4b5563" stroke-width="1.6"/>
+<text x="407.7" y="205.1" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+</g></svg>
