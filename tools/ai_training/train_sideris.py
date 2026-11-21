@@ -2,6 +2,7 @@
 """Train and export the Sideris model family (Lux, Aether, Orion, Titan) with Unsloth.
 
 Designed to run for FREE on Kaggle (2xT4 / P100) or Google Colab (T4 15 GB) in three stages:
+  Stage 0: CPT (optional) on reference-textbook chunks from extract_books.py (books_cpt.jsonl)
   Stage 1: SFT (QLoRA 4-bit) on UC3M engineering & Socratic conversations
   Stage 2: DPO (optional preference alignment against algebraic skips & Socratic leaks)
   Stage 3: GRPO (verifiable RL using rewards.py: SymPy + KaTeX + SI checks + Socratic guard)
@@ -58,26 +59,28 @@ MODEL_RECIPES = {
 TARGET_MODULES = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
 
 
-def run_sft(recipe, data_path, out_dir, epochs):
+def run_sft(recipe, data_path, out_dir, epochs, adapter_dir=None):
     from datasets import load_dataset  # type: ignore
     from trl import SFTConfig, SFTTrainer  # type: ignore
     from unsloth import FastLanguageModel  # type: ignore
 
+    # With --adapter (e.g. the CPT adapter) SFT continues training that LoRA instead of a fresh one.
     model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name=recipe["base_model"],
+        model_name=str(adapter_dir) if adapter_dir else recipe["base_model"],
         max_seq_length=recipe["max_seq_length"],
         load_in_4bit=True,
     )
-    model = FastLanguageModel.get_peft_model(
-        model,
-        r=recipe["lora_r"],
-        lora_alpha=recipe["lora_alpha"],
-        target_modules=TARGET_MODULES,
-        lora_dropout=0,
-        bias="none",
-        use_gradient_checkpointing="unsloth",
-        random_state=42,
-    )
+    if not adapter_dir:
+        model = FastLanguageModel.get_peft_model(
+            model,
+            r=recipe["lora_r"],
+            lora_alpha=recipe["lora_alpha"],
+            target_modules=TARGET_MODULES,
+            lora_dropout=0,
+            bias="none",
+            use_gradient_checkpointing="unsloth",
+            random_state=42,
+        )
 
     ds = load_dataset("json", data_files=str(data_path), split="train")
 
@@ -115,6 +118,62 @@ def run_sft(recipe, data_path, out_dir, epochs):
     model.save_pretrained(str(out_dir))
     tokenizer.save_pretrained(str(out_dir))
     print(f"Saved SFT LoRA adapter to {out_dir}")
+
+
+def run_cpt(recipe, data_path, out_dir, epochs):
+    """Stage 0: continued pre-training (LoRA) on raw textbook chunks from extract_books.py.
+
+    Teaches domain vocabulary and notation from the reference books before SFT. Uses a low LR and
+    1 epoch by default so the chat behaviour of the base model is not washed out.
+    """
+    from datasets import load_dataset  # type: ignore
+    from trl import SFTConfig, SFTTrainer  # type: ignore
+    from unsloth import FastLanguageModel  # type: ignore
+
+    model, tokenizer = FastLanguageModel.from_pretrained(
+        model_name=recipe["base_model"],
+        max_seq_length=recipe["max_seq_length"],
+        load_in_4bit=True,
+    )
+    model = FastLanguageModel.get_peft_model(
+        model,
+        r=recipe["lora_r"],
+        lora_alpha=recipe["lora_alpha"],
+        target_modules=TARGET_MODULES,
+        lora_dropout=0,
+        bias="none",
+        use_gradient_checkpointing="unsloth",
+        random_state=42,
+    )
+    ds = load_dataset("json", data_files=str(data_path), split="train")
+    ds = ds.map(lambda b: {"text": [t + tokenizer.eos_token for t in b["text"]]}, batched=True)
+    trainer = SFTTrainer(
+        model=model,
+        tokenizer=tokenizer,
+        train_dataset=ds,
+        args=SFTConfig(
+            output_dir=str(out_dir),
+            dataset_text_field="text",
+            max_seq_length=recipe["max_seq_length"],
+            packing=True,
+            per_device_train_batch_size=2,
+            gradient_accumulation_steps=8,
+            num_train_epochs=epochs,
+            learning_rate=recipe["lr"] / 4,
+            lr_scheduler_type="cosine",
+            warmup_ratio=0.03,
+            fp16=True,
+            logging_steps=10,
+            save_strategy="steps",
+            save_steps=500,
+            optim="adamw_8bit",
+            seed=42,
+        ),
+    )
+    trainer.train()
+    model.save_pretrained(str(out_dir))
+    tokenizer.save_pretrained(str(out_dir))
+    print(f"Saved CPT LoRA adapter to {out_dir} (pass it to --stage sft --adapter)")
 
 
 def run_dpo(recipe, adapter_dir, data_path, out_dir):
@@ -225,9 +284,9 @@ def run_export(recipe, adapter_dir, out_dir, hf_repo):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Train and export Sideris models with Unsloth.")
     ap.add_argument("--model", required=True, choices=sorted(MODEL_RECIPES))
-    ap.add_argument("--stage", required=True, choices=("sft", "dpo", "grpo", "export"))
-    ap.add_argument("--data", help="Input JSONL file (for sft, dpo or grpo).")
-    ap.add_argument("--adapter", help="Existing LoRA adapter directory (for dpo, grpo or export).")
+    ap.add_argument("--stage", required=True, choices=("cpt", "sft", "dpo", "grpo", "export"))
+    ap.add_argument("--data", help="Input JSONL file (books_cpt.jsonl for cpt; sft, dpo or grpo data).")
+    ap.add_argument("--adapter", help="Existing LoRA adapter directory (optional for sft; for dpo, grpo or export).")
     ap.add_argument("--out", default="./sideris_out", help="Output directory.")
     ap.add_argument("--epochs", type=int, default=3)
     ap.add_argument("--hf-repo", default="", help="Optional Hugging Face target repo for upload command.")
@@ -237,8 +296,10 @@ def main(argv=None):
     out_dir = pathlib.Path(args.out) / f"sideris-{args.model}-{args.stage}"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    if args.stage == "sft":
-        run_sft(recipe, args.data, out_dir, args.epochs)
+    if args.stage == "cpt":
+        run_cpt(recipe, args.data, out_dir, epochs=1 if args.epochs == 3 else args.epochs)
+    elif args.stage == "sft":
+        run_sft(recipe, args.data, out_dir, args.epochs, args.adapter)
     elif args.stage == "dpo":
         run_dpo(recipe, args.adapter, args.data, out_dir)
     elif args.stage == "grpo":

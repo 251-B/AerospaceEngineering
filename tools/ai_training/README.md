@@ -27,6 +27,22 @@ file-grouped split plus `train_dpo.jsonl` and `train_grpo.jsonl`.
 
 ---
 
+## Step 1b — (Optional) Reference-textbook corpus for continued pre-training
+
+The 20 official reference books (Callister, White, Batchelor, Haberman, ...) live in
+`sources/libros/` **locally only** (copyrighted; PDFs are git-ignored, only `libros.json` is
+tracked). Extract them into chunked raw text and run a CPT stage before SFT:
+
+```bash
+python tools/ai_training/extract_books.py   # -> out/books_cpt.jsonl + out/books_report.json
+python tools/ai_training/train_sideris.py --model aether --stage cpt --data tools/ai_training/out/books_cpt.jsonl
+# then: --stage sft --adapter ./sideris_out/sideris-aether-cpt ...
+```
+
+`books_cpt.jsonl` is book-derived text: never commit it or upload it to a public dataset.
+
+---
+
 ## Step 2 — Enrich & Cross-Audit with Claude Pro + Gemini Pro
 
 Export stratified batches across all 5 subjects for bilingual Spanish + `[English term]` adaptation,

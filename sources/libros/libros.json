@@ -1,0 +1,205 @@
+{
+  "_comment": "Reference textbooks (PDFs untracked: see .gitignore). Rebuild with extract_books.py --manifest-only.",
+  "books": [
+    {
+      "id": "a-crespo-mart-nez-mec-nica-de-fluidos-thompson-2006",
+      "file": "01-fluid-mechanics/A. Crespo Martínez. Mecánica de Fluidos. Thompson. 2006.pdf",
+      "subject": "01-fluid-mechanics",
+      "role": "principal",
+      "citation": "A. Crespo Martínez. Mecánica de Fluidos. Thompson. 2006",
+      "lang": "es",
+      "size_mb": 67.9,
+      "use_for_training": true
+    },
+    {
+      "id": "g-f-carrier-c-e-pearson-ordinary-differential-equations-siam-siam-classics-in-ap",
+      "file": "01-fluid-mechanics/adicional/G.F. Carrier, C.E. Pearson.. Ordinary Differential Equations. . SIAM (SIAM Classics in Applied Mathematics vol. 6). . 1991.pdf",
+      "subject": "01-fluid-mechanics",
+      "role": "adicional",
+      "citation": "G.F. Carrier, C.E. Pearson.. Ordinary Differential Equations. . SIAM (SIAM Classics in Applied Mathematics vol. 6). . 1991",
+      "lang": "en",
+      "size_mb": 6.2,
+      "use_for_training": true
+    },
+    {
+      "id": "t-m-apostol-calculus-john-wiley-and-sons-1969",
+      "file": "01-fluid-mechanics/adicional/T. M. Apostol. Calculus. John Wiley and Sons. 1969.pdf",
+      "subject": "01-fluid-mechanics",
+      "role": "adicional",
+      "citation": "T. M. Apostol. Calculus. John Wiley and Sons. 1969",
+      "lang": "en",
+      "size_mb": 29.9,
+      "use_for_training": true
+    },
+    {
+      "id": "d-j-tritton-physical-fluid-dynamics-oxford-science-publications-1988",
+      "file": "01-fluid-mechanics/D. J. Tritton. Physical Fluid Dynamics. Oxford Science Publications. 1988.pdf",
+      "subject": "01-fluid-mechanics",
+      "role": "principal",
+      "citation": "D. J. Tritton. Physical Fluid Dynamics. Oxford Science Publications. 1988",
+      "lang": "en",
+      "size_mb": 78.7,
+      "use_for_training": true
+    },
+    {
+      "id": "f-m-white-fluid-mechanics-mc-graw-hill-2015",
+      "file": "01-fluid-mechanics/F. M. White. Fluid Mechanics. Mc-Graw Hill. 2015.pdf",
+      "subject": "01-fluid-mechanics",
+      "role": "principal",
+      "citation": "F. M. White. Fluid Mechanics. Mc-Graw Hill. 2015",
+      "lang": "en",
+      "size_mb": 75.9,
+      "use_for_training": true
+    },
+    {
+      "id": "g-k-batchelor-an-introduction-to-fluid-mechanics-cambridge-university-press-1967",
+      "file": "01-fluid-mechanics/G. K. Batchelor. An Introduction to Fluid Mechanics. Cambridge University Press. 1967.pdf",
+      "subject": "01-fluid-mechanics",
+      "role": "principal",
+      "citation": "G. K. Batchelor. An Introduction to Fluid Mechanics. Cambridge University Press. 1967",
+      "lang": "en",
+      "size_mb": 38.4,
+      "use_for_training": true
+    },
+    {
+      "id": "l-d-landau-e-m-lifshitz-fluid-mechanics-pergamon-press-1987",
+      "file": "01-fluid-mechanics/L. D. Landau & E. M. Lifshitz. Fluid Mechanics. Pergamon Press. 1987.pdf",
+      "subject": "01-fluid-mechanics",
+      "role": "principal",
+      "citation": "L. D. Landau & E. M. Lifshitz. Fluid Mechanics. Pergamon Press. 1987",
+      "lang": "en",
+      "size_mb": 32.6,
+      "use_for_training": true
+    },
+    {
+      "id": "p-a-lagerstrom-laminar-flow-theory-princeton-university-press-1996",
+      "file": "01-fluid-mechanics/P. A. Lagerstrom. Laminar Flow Theory. Princeton University Press. 1996.pdf",
+      "subject": "01-fluid-mechanics",
+      "role": "principal",
+      "citation": "P. A. Lagerstrom. Laminar Flow Theory. Princeton University Press. 1996",
+      "lang": "en",
+      "size_mb": 15.2,
+      "use_for_training": true
+    },
+    {
+      "id": "adrian-p-mouritz-introduction-to-aerospace-materials-woodhead-publishing-2012",
+      "file": "02-aerospace-materials-1/Adrian P. Mouritz. Introduction to Aerospace Materials. Woodhead Publishing. 2012.pdf",
+      "subject": "02-aerospace-materials-1",
+      "role": "principal",
+      "citation": "Adrian P. Mouritz. Introduction to Aerospace Materials. Woodhead Publishing. 2012",
+      "lang": "en",
+      "size_mb": 20.9,
+      "use_for_training": true
+    },
+    {
+      "id": "ashby-mf-engineering-materials-an-introduction-to-their-properties-and-applicati",
+      "file": "02-aerospace-materials-1/ASHBY MF . Engineering materials an introduction to their properties and applications. Pergamon Press. 1981.pdf",
+      "subject": "02-aerospace-materials-1",
+      "role": "principal",
+      "citation": "ASHBY MF . Engineering materials an introduction to their properties and applications. Pergamon Press. 1981",
+      "lang": "en",
+      "size_mb": 13.8,
+      "use_for_training": true
+    },
+    {
+      "id": "askeland-dr-essentials-of-materials-science-and-engineering-2nd-ed-ed-cengage-le",
+      "file": "02-aerospace-materials-1/ASKELAND DR.. Essentials of materials science and engineering. 2nd ed Ed. Cengage Learning. 2010.pdf",
+      "subject": "02-aerospace-materials-1",
+      "role": "principal",
+      "citation": "ASKELAND DR.. Essentials of materials science and engineering. 2nd ed Ed. Cengage Learning. 2010",
+      "lang": "en",
+      "size_mb": 28.7,
+      "use_for_training": true
+    },
+    {
+      "id": "callister-wd-materials-science-and-engineering-an-introduction-10thed-john-wiley",
+      "file": "02-aerospace-materials-1/CALLISTER WD. . Materials science and engineering an introduction . 10thed John Wiley & Sons. 2017.pdf",
+      "subject": "02-aerospace-materials-1",
+      "role": "principal",
+      "citation": "CALLISTER WD. . Materials science and engineering an introduction . 10thed John Wiley & Sons. 2017",
+      "lang": "en",
+      "size_mb": 29.8,
+      "use_for_training": true
+    },
+    {
+      "id": "mangonon-pl-the-principles-of-materials-selection-for-engineering-design-ed-pren",
+      "file": "02-aerospace-materials-1/MANGONON PL. . The principles of materials selection for engineering design . Ed. Prentice Hall,. 1999.pdf",
+      "subject": "02-aerospace-materials-1",
+      "role": "principal",
+      "citation": "MANGONON PL. . The principles of materials selection for engineering design . Ed. Prentice Hall,. 1999",
+      "lang": "en",
+      "size_mb": 61.2,
+      "use_for_training": true
+    },
+    {
+      "id": "shackelford-jf-introducci-n-a-la-ciencia-de-materiales-para-ingenieros-6th-ed-pe",
+      "file": "02-aerospace-materials-1/SHACKELFORD JF. . Introducción a la Ciencia de Materiales para ingenieros. 6th ed. Pearson Prentice-Hall..pdf",
+      "subject": "02-aerospace-materials-1",
+      "role": "principal",
+      "citation": "SHACKELFORD JF. . Introducción a la Ciencia de Materiales para ingenieros. 6th ed. Pearson Prentice-Hall.",
+      "lang": "es",
+      "size_mb": 63.0,
+      "use_for_training": true
+    },
+    {
+      "id": "smith-wf-fundations-of-materials-science-and-engineering-mcgraw-hill-2013-6th-ed",
+      "file": "02-aerospace-materials-1/SMITH WF. Fundations of Materials Science and Engineering. McGraw-Hill. 2013 6th ed.pdf",
+      "subject": "02-aerospace-materials-1",
+      "role": "principal",
+      "citation": "SMITH WF. Fundations of Materials Science and Engineering. McGraw-Hill. 2013 6th ed",
+      "lang": "en",
+      "size_mb": 45.0,
+      "use_for_training": true
+    },
+    {
+      "id": "a-c-kermode-mechanics-of-flight-pearson-2006",
+      "file": "03-engineering-mechanics/adicional/A.C. Kermode. Mechanics of Flight. Pearson. 2006.pdf",
+      "subject": "03-engineering-mechanics",
+      "role": "adicional",
+      "citation": "A.C. Kermode. Mechanics of Flight. Pearson. 2006",
+      "lang": "en",
+      "size_mb": 45.9,
+      "use_for_training": true
+    },
+    {
+      "id": "j-h-ginsberg-engineering-dynamics-cambridge-univ-press-2007",
+      "file": "03-engineering-mechanics/J. H. Ginsberg. Engineering Dynamics. Cambridge Univ. Press. 2007.pdf",
+      "subject": "03-engineering-mechanics",
+      "role": "principal",
+      "citation": "J. H. Ginsberg. Engineering Dynamics. Cambridge Univ. Press. 2007",
+      "lang": "en",
+      "size_mb": 6.0,
+      "use_for_training": true
+    },
+    {
+      "id": "j-c-robinson-an-introduction-to-ordinary-differential-equations-cambridge-univer",
+      "file": "04-advanced-maths/J. C. Robinson. An Introduction to Ordinary Differential Equations. Cambridge University Press. 2004.pdf",
+      "subject": "04-advanced-maths",
+      "role": "principal",
+      "citation": "J. C. Robinson. An Introduction to Ordinary Differential Equations. Cambridge University Press. 2004",
+      "lang": "en",
+      "size_mb": 4.6,
+      "use_for_training": true
+    },
+    {
+      "id": "j-r-brannan-w-e-boyce-differential-equations-with-boundary-value-problems-modern",
+      "file": "04-advanced-maths/J.R.Brannan, W.E.Boyce. Differential Equations with Boundary Value Problems Modern Methods and Applications. Wiley. 2010.pdf",
+      "subject": "04-advanced-maths",
+      "role": "principal",
+      "citation": "J.R.Brannan, W.E.Boyce. Differential Equations with Boundary Value Problems Modern Methods and Applications. Wiley. 2010",
+      "lang": "en",
+      "size_mb": 255.3,
+      "use_for_training": true
+    },
+    {
+      "id": "r-haberman-elementary-applied-partial-differential-equations-2nd-ed-prentice-hal",
+      "file": "04-advanced-maths/R. Haberman. Elementary applied partial differential equations. 2nd ed.. Prentice Hall. 1987.pdf",
+      "subject": "04-advanced-maths",
+      "role": "principal",
+      "citation": "R. Haberman. Elementary applied partial differential equations. 2nd ed.. Prentice Hall. 1987",
+      "lang": "en",
+      "size_mb": 6.2,
+      "use_for_training": true
+    }
+  ]
+}

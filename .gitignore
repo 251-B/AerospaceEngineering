@@ -31,3 +31,9 @@ graphify-out/
 _site/
 tools/ai_training/out/
 sideris_out/
+
+# Reference textbooks: copyrighted, kept local only (repo is public). Manifest + README are tracked.
+sources/libros/**/*.pdf
+
+# Sideris generated datasets (book-derived text must never be published)
+tools/ai_training/out/books_*
