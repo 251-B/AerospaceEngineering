@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/04-advanced-maths/schedule/ODE_lecture_theory_to_Robinson_chapters.txt"
 kind: schedule
 status: referenced
-bytes: 31259
+bytes: 34069
 ---
 
 # Source: ODE_lecture_theory_to_Robinson_chapters.txt
@@ -18,7 +18,7 @@ bytes: 31259
 
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/schedule/ODE_lecture_theory_to_Robinson_chapters.txt`
 - **Kind:** schedule
-- **Size:** 31.3 kB
+- **Size:** 34.1 kB
 - **Status:** referenced by 1 note(s) below
 
 ## Referenced by

@@ -391,6 +391,11 @@ window.AE_SOURCES = {
               "name": "probls_ch4-ii_2627.pdf"
             },
             {
+              "bytes": 32113,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch5_2627.pdf",
+              "name": "probls_ch5_2627.pdf"
+            },
+            {
               "bytes": 1206349,
               "href": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/Solved_exer_nonlinear_system.pdf",
               "name": "Solved_exer_nonlinear_system.pdf"
@@ -410,7 +415,13 @@ window.AE_SOURCES = {
           "id": "unit-05-fourier-series-pdes",
           "number": 5,
           "other": [],
-          "problemas": [],
+          "problemas": [
+            {
+              "bytes": 34958,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf",
+              "name": "probls_ch6_2627.pdf"
+            }
+          ],
           "slides": [],
           "teoria": [
             {

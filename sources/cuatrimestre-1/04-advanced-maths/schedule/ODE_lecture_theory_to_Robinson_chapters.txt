@@ -574,8 +574,9 @@ Course sheets (sources/.../unit-0N-*/problemas/):
   "1.n"   = ProblemsCh1.pdf          "2.n"   = ProblemsCh2.pdf
   "3-1.n" = probls_ch3_2627.pdf      "3-2.n" = probls_ch3-ii_2627.pdf
   "4-1.n" = probls_ch4-i_2627_v2.pdf "4-2.n" = probls_ch4-ii_2627.pdf
-  "5.n"   = Chapter 5 sheet (nonlinear systems; not in sources/ yet,
-            items identified from the lecturer's solutions)
+  "5.n"   = probls_ch5_2627.pdf (unit-04, nonlinear systems)
+  "6.n"   = probls_ch6_2627.pdf (unit-05, Sturm-Liouville problems and
+            Fourier series; mapped to Haberman, see the last table)
 "= Ex. R" means the sheet item is Robinson's exercise R word for word
 (same items and data); "-> Sec." gives the theory to read when the
 book has no matching exercise.
@@ -642,6 +643,25 @@ Course ex.        Date          Robinson
                                 (double-well oscillator); theory
                                 Sec. 34.1 and 32.4. Solved in
                                 Notes03-05-Nov_v2.pdf, p. 15-17
+
+Whole Chapter 5 sheet (probls_ch5_2627.pdf), not yet done in class
+unless listed above:
+5.1               -             = Ex. 32.1 (linearised centre that is
+                                not a centre); theory Sec. 32.4.3
+5.2 (i)-(vii)     -             = Ex. 33.1 (i)-(vii); theory Ch. 33
+5.3 (i), (ii)     -             = Ex. 33.2 (i), (ii) (cooperation)
+5.4 (i)-(iii)     -             = Ex. 34.1 (i)-(iii); theory Sec. 34.1.
+                                Item (iii): the sheet prints
+                                V = x^6/2 - 5x^4/4 + 2x^2, the book
+                                V = x^6/6 - 5x^4/4 + 2x^2 (p. 350)
+5.5               -             = Ex. 34.2 (bead on a wire, Sec. 34.2)
+5.6               -             = Ex. 34.3; theory Sec. 34.3
+5.7               -             = Ex. 34.4 (T)
+5.8               -             -> Sec. 35.1 (p. 352-355), undamped
+                                pendulum
+5.9               -             -> Sec. 35.2 (p. 356-357); closest
+                                Ex. 35.1 (damped pendulum, k = 2, 3)
+5.10              -             = Ex. 35.2 (quadratic damping)
 
 Unnamed exercises: "Exercise on exact equations" (Sep 17) -> Sec. 10.1
 examples; "Exercise" (Oct 15) is not identified in the schedule.
@@ -741,3 +761,32 @@ NOTES ON DIFFERENCES BETWEEN LECTURE AND BOOK
   lecture's order is the book's: Sec. 2.3 (heat equation by separation
   of variables) first, then Ch. 3 (Fourier series, convergence,
   sine and cosine series, term-by-term differentiation).
+
+======================================================================
+CHAPTER 6 SHEET (probls_ch6_2627.pdf) -> HABERMAN (BookPDE's.pdf)
+======================================================================
+Not yet done in class (lecture log up to Nov 12). Theory to read for
+each exercise; Haberman printed page = PDF page - 11.
+
+6.1 (i)-(iv)      Eigenvalue problems phi'' + lambda phi = 0 on (0, 1):
+                  Dirichlet, mixed and Neumann ends -> Sec. 2.3-2.4
+                  (p. 31-60); Robin end phi'(1) + h phi(1) = 0 ->
+                  Sec. 5.8 (p. 167, boundary conditions of the third
+                  kind)
+6.2 (i)-(iii)     Constant-coefficient problems with a first-derivative
+                  term -> Sec. 5.3 (p. 133) after Exercise 6.3's
+                  integrating factor
+6.3               Sturm-Liouville form by an integrating factor ->
+                  Sec. 5.3 (p. 133)
+6.4               x^2 phi'' + x phi' + lambda phi = 0 on [1, 2] (Euler
+                  equation) -> Sec. 5.3 (p. 133), Rayleigh quotient
+                  Sec. 5.6 (p. 159) for lambda >= 0
+6.5 (i)-(ix)      Fourier series -> Sec. 3.2 (p. 77-80); (vi) and (ix)
+                  are given on [0, pi] only -> Sec. 3.3 (p. 81)
+6.6               Series read off trigonometric identities -> Sec. 3.2
+6.7               Orthogonality of sines and cosines -> Appendix to
+                  Sec. 2.3 (p. 49), Sec. 3.2 (p. 77)
+6.8 (i)-(iii)     Sketch of the Fourier series vs f -> Sec. 3.2
+                  (p. 77-80, periodic extension and jumps)
+6.9               Even and odd 2L-periodic functions -> Sec. 3.3 (p. 81)
+

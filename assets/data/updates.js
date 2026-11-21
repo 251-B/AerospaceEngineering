@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-21-maths-sheets-ch5-ch6",
+    "date": "2026-11-21",
+    "tag": "Advanced Maths",
+    "title": "New problem sheets: Chapter 5 and Chapter 6",
+    "text": "The exercise sheets on nonlinear systems (Chapter 5) and on Sturm-Liouville problems and Fourier series (Chapter 6) are in the PDFs page.",
+    "link": "subjects/advanced-maths/sources/index.html"
+  },
+  {
     "id": "2026-11-21-maths-lecture-log-november",
     "date": "2026-11-21",
     "tag": "Advanced Maths",
