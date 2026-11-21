@@ -3208,258 +3208,424 @@ The free-body diagram of $P$ in $S_1$ shows the pull of the cord towards $A$, th
 ## Problem 30: Particle on a Rotating Quarter Circumference with a Spring
 
 ### Reference Frames, Bases and Coordinates
-* **System:** a particle $P$ of mass $m$ slides on a smooth quarter circumference of radius $R$ and centre $O$, drawn in the vertical plane $X_1Z_1$ of a frame that rotates with constant angular velocity $\omega\mathbf{k}_1$ about the vertical axis $x_1 = -R$, $y_1 = 0$. A spring of constant $K = \alpha m\omega^2$ joins $P$ to the point $B = (-2R, 0, 0)$ of the rotating frame. Gravity is neglected.
-* **Why a rotating frame.** The wire and the spring anchor $B$ are fixed in $OX_1Y_1Z_1$, so the constraint is a fixed circle there and the position of $P$ is described by one angle. The price is the inertia force of Notes Eqs. 4.62–4.63, which is easy to compute because $\boldsymbol{\omega}_{10}$ is constant. In the inertial frame the wire itself moves, and the constraint would be harder to write.
-* **Hypotheses:** <br>1. $OXYZ$ is inertial; the frame rotates uniformly, $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_1$ with $\omega$ constant. <br>2. The arc is smooth (no friction) and acts as a bilateral constraint (a bead on a wire): the reaction has no tangential component but its normal and binormal components can take either sign. <br>3. The spring is linear and, since no natural length is given, of **zero natural length**: $\mathbf{F}_K = -K\,\overrightarrow{BP}$. <br>4. Gravity is neglected, as the statement says.
-* **Fixed (inertial) frame.** The only points that do not move are those of the rotation axis. We take $S_0 = \{Q; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, basis $\mathcal{B}_0$, with origin at the point $Q$ of the axis at the height of $O$ (the point $x_1 = -R$, $y_1 = z_1 = 0$, the upper end of the arc). It plays the role of the statement's $OXYZ$; moving the origin of an inertial frame to another fixed point does not change any velocity or acceleration. $\mathbf{k}_0 = \mathbf{k}$ is vertical.
-* **Moving frame.** $S_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, basis $\mathcal{B}_1$, is the statement's $OX_1Y_1Z_1$, attached to the arc, with $\mathbf{k}_1 = \mathbf{k}_0$. Its origin $O$ is at distance $R$ from the axis, so it moves on a horizontal circle. We choose $\mathbf{i}_1 = \mathbf{i}_0$ at $t = 0$.
-* **Path (intrinsic) basis** $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$ at $P$: tangent in the direction of increasing $\phi$, principal normal towards the centre of curvature and binormal; it is deduced in the next section.
-* **Degrees of freedom and coordinate:** on the arc, $P$ has one degree of freedom, the angle $\phi \in [0, \pi/2]$ between $\overline{OP}$ and the negative $z_1$ axis. After leaving the arc in part (f), $P$ is free: three degrees of freedom $(x_1, y_1, z_1)$.
-* **Initial conditions:** $\phi(0) = 0$, $\mathbf{v}_1^P(0) = -\beta\omega R\,\mathbf{i}_1$.
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $m$ | mass of $P$ | kg |
-| $R$ | radius of the arc and distance from $O$ to the axis | m |
-| $\omega$ | constant angular velocity of the frame | rad/s |
-| $K = \alpha m\omega^2$ | spring constant | N/m = kg/s$^2$ |
-| $\alpha$, $\beta$ | positive nondimensional parameters | 1 |
-| $\phi$ | angle between $\overline{OP}$ and the $-z_1$ axis | rad |
-| $N_n$, $N_b$ | components of the reaction of the arc | N |
+A particle $P$ of mass $m$ slides on a smooth quarter circumference of radius $R$ and centre $O$, drawn in the plane $X_1Z_1$ of a frame that turns with the constant rate $\omega$ about the vertical axis through the point $(-R, 0, 0)$ of that frame; a spring of constant $K$ joins $P$ to the point $B$ of that frame, and gravity is neglected (Problems.pdf, p. 18). The statement asks for the relative velocity and acceleration in the path basis, the three components of Newton's second law, the energy equation of the relative motion, the value of $\alpha$ that gives an equilibrium at $\pi/6$, the types of motion with that value, and the maximum height after the particle leaves the arc. The arc and the point $B$ are at rest in the turning frame, so the solution works there, with the composition of motions of Notes.pdf, Sec. 3.2 and the inertia forces of Notes.pdf, Sec. 4.9.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{Q;\ \mathcal B_0\}$, $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$, origin $Q$ on the rotation axis at the height of $O$, $\mathbf k_0$ vertical, up; it plays the role of the inertial frame $OXYZ$ of the statement (see Readings) |
+| Moving frame | $S_1 = \{O;\ \mathcal B_1\}$, the frame $OX_1Y_1Z_1$ of the statement, attached to the arc: $\mathbf i_1$ horizontal, from the axis through $O$; $\mathbf k_1 = \mathbf k_0$; $\mathbf j_1 = \mathbf k_1\times\mathbf i_1$; $\mathbf i_1 = \mathbf i_0$ at $t = 0$ |
+| Points fixed in $S_1$ | $O$ (centre of the arc), at distance $R$ from the axis; $Q$, at $-R\,\mathbf i_1$ from $O$ (upper end of the arc); $B$, at $-2R\,\mathbf i_1$ from $O$ |
+| Path basis | $\{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$ at $P$: tangent in the sense of growing $\phi$, principal normal towards the centre of curvature $O$, binormal (deduced below) |
+| Coordinate | $\phi$, angle at $O$ between $\overline{OP}$ and the negative $z_1$ axis, $0 \le \phi \le \pi/2$ |
+| Constraints | $y_1 = 0$ and $x_1^2 + z_1^2 = R^2$ (quarter with $x_1 \le 0$, $z_1 \le 0$): two holonomic, smooth, bilateral constraints, fixed in $S_1$ |
+| Degrees of freedom | 3 minus 2: 1, the coordinate $\phi(t)$, while $P$ is on the arc; 3 after it leaves the arc (part (f)) |
+| Data | $m$ [kg], $R$ [m], $\omega$ [rad s$^{-1}$], $K = \alpha m\omega^2$ [N m$^{-1}$]; $\alpha$, $\beta$ positive numbers [1] |
+| Initial conditions | $\phi(0) = 0$; relative velocity $-\beta\omega R\,\mathbf i_1$ |
+| Unknowns | $\phi(t)$; the reaction $\mathbf N = N_n\,\mathbf e_n + N_b\,\mathbf e_b$ (no tangential component: smooth arc) |
+| Applied forces | spring only (no gravity) |
+| Inertia forces (in $S_1$) | of the origin, Euler, centrifugal and Coriolis (Notes.pdf, Eq. 4.62) |
+| Hypotheses | $S_0$ inertial; $\omega$ constant; smooth arc acting as a bead on a wire; massless linear spring |
+| Readings | (1) The origin $O$ of the statement's inertial frame cannot be the centre of the arc, which moves on a circle; the fixed origin is taken at $Q$, on the axis. Any fixed origin gives the same velocities and accelerations. (2) No natural length is given: the spring is taken with zero natural length, force $-K$ times the vector from $B$ to $P$. With a natural length $\ell_0$ the spring potential becomes $\frac12 K\left(R\sqrt{5 - 4\sin\phi} - \ell_0\right)^2$ and every spring term below changes. (3) The arc ends at $\phi = 0$ (on the $-z_1$ axis) and at $\phi = \pi/2$ (on the rotation axis), as drawn |
 
 ### Change of Basis and Position Vector
 
-#### The basis $\mathcal{B}_1$ seen from above
-
 ![[attachments/EM-SOL/p30-top-view.svg]]
 
-The rotation is about the vertical $\mathbf{k}_0$, so it is drawn looking down the axis, from $+z$, with the axis at $Q$. In that view $\mathbf{k}_0$ points out of the paper, towards the reader ($\odot$). Take $\mathbf{i}_0$ to the right. Then $\mathbf{j}_0 = \mathbf{k}_0\times\mathbf{i}_0$ (right-hand rule: thumb along $\mathbf{k}_0$, towards the reader, and the fingers turn $\mathbf{i}_0$ counter-clockwise by $90^\circ$) points up the page.
-
-With $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_0$ and $\omega \gt 0$, the frame turns counter-clockwise in this view (thumb towards the reader). After a time $t$ it has turned the angle $\omega t$:
-
-* $\mathbf{i}_1$ is the hypotenuse (length 1) of the dashed right triangle. The leg adjacent to $\omega t$ lies along $\mathbf{i}_0$ and measures $\cos\omega t$; the leg opposite to $\omega t$ points up the page, along $+\mathbf{j}_0$, and measures $\sin\omega t$. Hence $\mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$, with no minus sign.
-* $\mathbf{j}_1$ starts on $\mathbf{j}_0$ (up the page) and turns the same angle counter-clockwise, so its tip moves to the left, towards $-\mathbf{i}_0$. Its leg along $\mathbf{j}_0$ (adjacent) is $\cos\omega t$ and its leg along $-\mathbf{i}_0$ (opposite) is $\sin\omega t$: $\mathbf{j}_1 = -\sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{j}_0$. **The minus sign comes from the counter-clockwise turn carrying the upward axis to the left.**
-* $\mathbf{k}_1 = \mathbf{k}_0$, the axis of the rotation.
-
-The columns of $[{}_0R_1]$ are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$:
-
-$$ [{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
-
-* **Checks.** Expanding along the third row, $\det[{}_0R_1] = 1\cdot\left(\cos\omega t\cos\omega t - (-\sin\omega t)\sin\omega t\right) = \cos^2\omega t + \sin^2\omega t = 1$. The columns have unit length ($\cos^2\omega t + \sin^2\omega t = 1$) and the first two are orthogonal ($-\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0$), so $[{}_0R_1][{}_0R_1]^T = I$.
-* **Angular motion of $S_1$:** $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_1$ and, $\omega$ being constant, $\boldsymbol{\alpha}_{10} = \left.\dfrac{d\boldsymbol{\omega}_{10}}{dt}\right|_0 = \mathbf{0}$.
-* **Motion of the origin $O$.** $O$ lies on the line of $\mathbf{i}_1$ through $Q$, at distance $R$ from the axis (the figure shows its dashed circle), so $\mathbf{r}_0^O = \overrightarrow{QO} = R\,\mathbf{i}_1$. By the Coriolis theorem (Notes Eq. 3.8), since $R\,\mathbf{i}_1$ is constant in $S_1$:
-$$ \mathbf{v}_0^O = \left.\frac{d(R\mathbf{i}_1)}{dt}\right|_1 + \boldsymbol{\omega}_{10}\times R\,\mathbf{i}_1 = \mathbf{0} + \omega R\,(\mathbf{k}_1\times\mathbf{i}_1) = \omega R\,\mathbf{j}_1 $$
-$$ \mathbf{a}_0^O = \left.\frac{d(\omega R\mathbf{j}_1)}{dt}\right|_1 + \boldsymbol{\omega}_{10}\times\omega R\,\mathbf{j}_1 = \omega^2 R\,(\mathbf{k}_1\times\mathbf{j}_1) = -\omega^2 R\,\mathbf{i}_1 $$
-* **Direct check in $\mathcal{B}_0$.** $\mathbf{r}_0^O = R\cos\omega t\,\mathbf{i}_0 + R\sin\omega t\,\mathbf{j}_0$. By the chain rule, $\frac{d}{dt}\cos\omega t = -\omega\sin\omega t$ and $\frac{d}{dt}\sin\omega t = \omega\cos\omega t$, so $\mathbf{v}_0^O = \omega R\left(-\sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{j}_0\right) = \omega R\,\mathbf{j}_1$ and, differentiating again, $\mathbf{a}_0^O = -\omega^2R\left(\cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0\right) = -\omega^2R\,\mathbf{i}_1$, the vectors drawn at $O$ in orange.
-
-#### The position vector in the plane of the arc
+> [!derivation] Basis of the turning frame: rotation by omega t about k0
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; [Lecture 5, Slide 16]
+>
+> View from above, along $\mathbf k_0$, which points out of the paper (⊙), with the axis at $Q$. With $\mathbf i_0$ to the right, $\mathbf j_0$, the cross product of $\mathbf k_0$ and $\mathbf i_0$, points up the page (right-hand rule: thumb towards the reader, the fingers turn $\mathbf i_0$ counterclockwise by a quarter turn). A positive $\omega$ turns the frame counterclockwise. $\mathbf i_1$ is $\mathbf i_0$ turned by $\omega t$: hypotenuse 1, adjacent leg $\cos\omega t$ along $\mathbf i_0$, opposite leg $\sin\omega t$ up the page, along plus $\mathbf j_0$ (no minus sign). $\mathbf j_1$ is $\mathbf j_0$ turned by the same angle: adjacent leg $\cos\omega t$ along $\mathbf j_0$, and the counterclockwise turn carries its tip to the left, so the opposite leg $\sin\omega t$ lies along minus $\mathbf i_0$ (the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0, \quad \mathbf j_1 = -\sin\omega t\,\mathbf i_0 + \cos\omega t\,\mathbf j_0, \quad \mathbf k_1 = \mathbf k_0 \quad &\text{(the two right triangles; axis)} \\
+> \det[{}_0R_1] &= (+1)\cdot 1\cdot\left(\cos\omega t\cos\omega t - \left(-\sin\omega t\right)\sin\omega t\right) = 1 \quad &\text{(expansion along the third row, cofactor sign $(-1)^{3+3}$)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\omega t + \sin^2\omega t = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{12} = -\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0 \quad &\text{(rows times rows)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \cr \sin\omega t & \cos\omega t & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** $[\omega t] = [1]$
+> **Meaning:** it is the matrix of Eq. 1.20 with the angle $\omega t$; the vertical keeps its direction, so heights are the same in both frames.
 
 ![[attachments/EM-SOL/p30-arc-plane.svg]]
 
-The plane $X_1Z_1$ is fixed in $S_1$; it is drawn with $\mathbf{i}_1$ to the right and $\mathbf{k}_1$ up. The direction out of the paper is then $\mathbf{i}_1\times\mathbf{k}_1 = -\mathbf{j}_1$, so $\mathbf{j}_1$ points **into** the paper ($\otimes$).
+> [!derivation] Position vector of P in the plane of the arc
+> **Law:** position as the sum of its legs; right triangle; relation with the standard polar angle
+> **Source:** Notes.pdf, Eq. 2.5; Notes.pdf, Eq. 3.16; Problems.pdf, p. 18
+>
+> The plane $X_1Z_1$, fixed in $S_1$, is drawn with $\mathbf i_1$ to the right and $\mathbf k_1$ up; the direction out of the paper is the cross product of $\mathbf i_1$ and $\mathbf k_1$, which is minus $\mathbf j_1$, so $\mathbf j_1$ points into the paper (⊗). Let $F$ be the point of the $z_1$ axis at the height of $P$. In the shaded right triangle $OFP$ (right angle at $F$) the hypotenuse is $OP$, of length $R$, and the angle at $O$ is $\phi$: the adjacent leg $OF$ has length $R\cos\phi$ and points down, the opposite leg $FP$ has length $R\sin\phi$ and points to the left, towards $B$. The standard polar angle $\vartheta$ of the plane, measured from $\mathbf i_1$ towards $\mathbf k_1$, is minus the sum of a quarter turn and $\phi$.
+>
+> $$\begin{aligned}
+> \mathbf r_1^P &= \overrightarrow{OF} + \overrightarrow{FP} = -R\cos\phi\,\mathbf k_1 - R\sin\phi\,\mathbf i_1 \quad &\text{(the two legs, with their directions)} \\
+> \cos\vartheta &= \cos\left(\tfrac{\pi}{2} + \phi\right) = \cos\tfrac{\pi}{2}\cos\phi - \sin\tfrac{\pi}{2}\sin\phi = -\sin\phi \quad &\text{($\vartheta = -\pi/2 - \phi$; cosine even; sum formula)} \\
+> \sin\vartheta &= -\sin\left(\tfrac{\pi}{2} + \phi\right) = -\left(\sin\tfrac{\pi}{2}\cos\phi + \cos\tfrac{\pi}{2}\sin\phi\right) = -\cos\phi \quad &\text{(sine odd; sum formula)} \\
+> R\cos\vartheta\,\mathbf i_1 + R\sin\vartheta\,\mathbf k_1 &= -R\sin\phi\,\mathbf i_1 - R\cos\phi\,\mathbf k_1 \quad &\text{(polar form gives the same vector)} \\
+> \mathbf r_1^Q &= -R\,\mathbf i_1, \quad \rho = x_1^P - x_1^Q = -R\sin\phi + R = R\left(1 - \sin\phi\right) \quad &\text{(horizontal distance from $P$ to the rotation axis)} \\
+> \mathbf r_0^O &= \overrightarrow{QO} = R\,\mathbf i_1, \quad \mathbf r_0^P = \mathbf r_0^O + \mathbf r_1^P = R\left(1 - \sin\phi\right)\mathbf i_1 - R\cos\phi\,\mathbf k_1 \quad &\text{(Eq. 3.16)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^P = -R\sin\phi\,\mathbf i_1 - R\cos\phi\,\mathbf k_1, \qquad \mathbf r_0^P = R\left(1 - \sin\phi\right)\mathbf i_1 - R\cos\phi\,\mathbf k_1, \qquad \rho = R\left(1 - \sin\phi\right)}$$
+>
+> **Units:** $[R\sin\phi] = [R\cos\phi] = [\rho] = [\mathrm{L}]$
+> **Meaning:** at the start the particle is at the lowest point of the arc, a distance $R$ from the axis; at a quarter turn it is at the upper end, on the axis. The angle grows clockwise in the drawing, from the downward axis towards $B$.
 
-Let $F$ be the point of the $z_1$ axis at the height of $P$. In the shaded right triangle $OFP$ (right angle at $F$) the hypotenuse is $|OP| = R$ and the angle at $O$ is $\phi$:
-
-* the leg adjacent to $\phi$ is $OF = R\cos\phi$, along the $z_1$ axis and pointing down: $\overrightarrow{OF} = -R\cos\phi\,\mathbf{k}_1$;
-* the leg opposite to $\phi$ is $FP = R\sin\phi$, horizontal and pointing to the left, towards $B$: $\overrightarrow{FP} = -R\sin\phi\,\mathbf{i}_1$.
-
-So $\mathbf{r}_1^P = \overrightarrow{OF} + \overrightarrow{FP}$:
-
-$$ \mathbf{r}_1^P = -R\sin\phi\,\mathbf{i}_1 - R\cos\phi\,\mathbf{k}_1 $$
-
-Checks: $\phi = 0$ gives $-R\,\mathbf{k}_1$, the lowest point of the arc on the $-z_1$ axis (the initial position); $\phi = \pi/2$ gives $-R\,\mathbf{i}_1$, the upper end of the arc, which lies on the rotation axis $x_1 = -R$. The horizontal distance from $P$ to the rotation axis is $x_1 - (-R) = R - R\sin\phi = R(1 - \sin\phi)$, the dimension drawn in the figure; it is the lever arm of the centrifugal force.
-
-**Relation with the standard polar angle.** In the plane $X_1Z_1$ the usual polar angle $\vartheta$ about $O$ is measured from $\mathbf{i}_1$ towards $\mathbf{k}_1$, with $\mathbf{r}_1^P = R\left(\cos\vartheta\,\mathbf{i}_1 + \sin\vartheta\,\mathbf{k}_1\right)$. Comparing with the expression above requires $\cos\vartheta = -\sin\phi$ and $\sin\vartheta = -\cos\phi$, which holds for
-
-$$ \vartheta = -\frac{\pi}{2} - \phi: \qquad \cos\left(\tfrac{\pi}{2} + \phi\right) = \cos\tfrac{\pi}{2}\cos\phi - \sin\tfrac{\pi}{2}\sin\phi = -\sin\phi, \qquad \sin\left(\tfrac{\pi}{2} + \phi\right) = \sin\tfrac{\pi}{2}\cos\phi + \cos\tfrac{\pi}{2}\sin\phi = \cos\phi $$
-
-so $\cos\vartheta = \cos\left(\tfrac{\pi}{2} + \phi\right) = -\sin\phi$ (the cosine is even) and $\sin\vartheta = -\sin\left(\tfrac{\pi}{2} + \phi\right) = -\cos\phi$ (the sine is odd), with $\cos\frac{\pi}{2} = 0$, $\sin\frac{\pi}{2} = 1$. Thus $\phi$ is measured from $-\mathbf{k}_1$ instead of $\mathbf{i}_1$, and it grows clockwise in the drawing (from the downward axis towards $B$), while $\vartheta$ grows counter-clockwise.
-
-**Path basis.** On the arc we take the arc length $s = R\phi$ (increasing with $\phi$). The tangent is the derivative of the position with respect to $\phi$, divided by its length. With $\frac{d}{d\phi}(-R\sin\phi) = -R\cos\phi$ and $\frac{d}{d\phi}(-R\cos\phi) = R\sin\phi$:
-
-$$ \frac{d\mathbf{r}_1^P}{d\phi} = -R\cos\phi\,\mathbf{i}_1 + R\sin\phi\,\mathbf{k}_1, \qquad \left|\frac{d\mathbf{r}_1^P}{d\phi}\right| = R\sqrt{\cos^2\phi + \sin^2\phi} = R \;\Rightarrow\; \mathbf{e}_t = -\cos\phi\,\mathbf{i}_1 + \sin\phi\,\mathbf{k}_1 $$
-
-Differentiating $\mathbf{e}_t$ with respect to $\phi$ ($\frac{d}{d\phi}(-\cos\phi) = \sin\phi$, $\frac{d}{d\phi}\sin\phi = \cos\phi$) gives a vector of length $\sqrt{\sin^2\phi + \cos^2\phi} = 1$, the principal normal:
-
-$$ \mathbf{e}_n = \frac{d\mathbf{e}_t}{d\phi} = \sin\phi\,\mathbf{i}_1 + \cos\phi\,\mathbf{k}_1 = -\frac{\mathbf{r}_1^P}{R} $$
-
-so $\mathbf{e}_n$ points from $P$ to the centre of curvature $O$, along the hypotenuse of the triangle, as drawn. The binormal:
-
-$$ \mathbf{e}_b = \mathbf{e}_t\times\mathbf{e}_n = \begin{vmatrix} \mathbf{i}_1 & \mathbf{j}_1 & \mathbf{k}_1 \\ -\cos\phi & 0 & \sin\phi \\ \sin\phi & 0 & \cos\phi \end{vmatrix} = (0 - 0)\,\mathbf{i}_1 - (-\cos^2\phi - \sin^2\phi)\,\mathbf{j}_1 + (0 - 0)\,\mathbf{k}_1 = \mathbf{j}_1 $$
-
-the direction into the paper, normal to the plane of the arc. The matrix whose columns are $\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b$ in $\mathcal{B}_1$ is
-
-$$ [{}_1R_t] = \begin{pmatrix} -\cos\phi & \sin\phi & 0 \\ 0 & 0 & 1 \\ \sin\phi & \cos\phi & 0 \end{pmatrix}, \qquad \det[{}_1R_t] = -\cos\phi\,(0 - \cos\phi) - \sin\phi\,(0 - \sin\phi) = 1 $$
-
-and its columns are unit and mutually orthogonal ($\mathbf{e}_t\cdot\mathbf{e}_n = -\cos\phi\sin\phi + \sin\phi\cos\phi = 0$), so $[{}_1R_t][{}_1R_t]^T = I$.
-
-* **Useful projections** (read from the columns): $\mathbf{i}_1\cdot\mathbf{e}_t = -\cos\phi$, $\mathbf{i}_1\cdot\mathbf{e}_n = \sin\phi$, $\mathbf{k}_1\cdot\mathbf{e}_t = \sin\phi$, $\mathbf{k}_1\cdot\mathbf{e}_n = \cos\phi$, $\mathbf{j}_1 = \mathbf{e}_b$.
+> [!derivation] Path basis of the arc
+> **Law:** unit tangent as the derivative of the position with respect to the arc length; principal normal; binormal as a vector product
+> **Source:** Notes.pdf, Eq. 2.9; Notes.pdf, Eq. 2.11; Notes.pdf, Eq. 2.13; Notes.pdf, Eq. 2.15
+>
+> The arc length from the lowest point is $s$, equal to $R$ times $\phi$, so the derivative with respect to $s$ is the derivative with respect to $\phi$ divided by $R$ (chain rule). The binormal is the determinant expanded along its first row, with the cofactor signs plus, minus, plus.
+>
+> $$\begin{aligned}
+> \frac{d\mathbf r_1^P}{d\phi} &= -R\cos\phi\,\mathbf i_1 + R\sin\phi\,\mathbf k_1 \quad &\text{($\tfrac{d}{d\phi}\sin\phi = \cos\phi$, $\tfrac{d}{d\phi}\cos\phi = -\sin\phi$)} \\
+> \mathbf e_t &= \frac{d\mathbf r_1^P}{ds} = \frac{1}{R}\frac{d\mathbf r_1^P}{d\phi} = -\cos\phi\,\mathbf i_1 + \sin\phi\,\mathbf k_1 \quad &\text{(Eq. 2.9; chain rule with $ds = R\,d\phi$)} \\
+> \frac{d\mathbf e_t}{ds} &= \frac{1}{R}\left(\sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf k_1\right), \quad \left|\frac{d\mathbf e_t}{ds}\right| = \frac{1}{R} \quad &\text{(curvature of the circle)} \\
+> \mathbf e_n &= \sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf k_1 = -\frac{\mathbf r_1^P}{R} \quad &\text{(Eq. 2.11: towards $O$)} \\
+> \mathbf e_b &= \mathbf e_t\times\mathbf e_n = \begin{vmatrix} \mathbf i_1 & \mathbf j_1 & \mathbf k_1 \cr -\cos\phi & 0 & \sin\phi \cr \sin\phi & 0 & \cos\phi \end{vmatrix} = (+1)(0 - 0)\,\mathbf i_1 + (-1)\left(-\cos^2\phi - \sin^2\phi\right)\mathbf j_1 + (+1)(0 - 0)\,\mathbf k_1 = \mathbf j_1 \quad &\text{(first row; cofactor signs)} \\
+> \det[{}_1R_F] &= -\cos\phi\left(0\cdot 0 - 1\cdot\cos\phi\right) - \sin\phi\left(0\cdot 0 - 1\cdot\sin\phi\right) + 0 = \cos^2\phi + \sin^2\phi = 1 \quad &\text{(columns $\mathbf e_t, \mathbf e_n, \mathbf e_b$; first row; signs $+, -, +$)} \\
+> \mathbf e_t\cdot\mathbf e_n &= -\cos\phi\sin\phi + \sin\phi\cos\phi = 0 \quad &\text{(orthogonal)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_t = -\cos\phi\,\mathbf i_1 + \sin\phi\,\mathbf k_1, \quad \mathbf e_n = \sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf k_1, \quad \mathbf e_b = \mathbf j_1, \quad [{}_1R_F] = \begin{pmatrix} -\cos\phi & \sin\phi & 0 \cr 0 & 0 & 1 \cr \sin\phi & \cos\phi & 0 \end{pmatrix}}$$
+>
+> **Units:** the three vectors are dimensionless; $[d\mathbf e_t/ds] = [\mathrm{L^{-1}}]$
+> **Meaning:** the tangent starts as minus $\mathbf i_1$ at the lowest point and ends as $\mathbf k_1$ at the upper end; the normal points along the radius to the centre; the binormal is the normal to the plane of the arc, into the paper.
 
 ### Kinematics
 
-##### (a) Relative velocity and acceleration in the path basis
-* **Pedagogical Justification:** The relative velocity and acceleration are the first and second derivatives of $\mathbf{r}_1^P$ taken in $S_1$, where $\mathbf{i}_1, \mathbf{k}_1$ are constant. Only $\phi$ depends on time, so each derivative is a chain rule.
+> [!derivation] Motion of the turning frame and derivatives of its unit vectors
+> **Law:** angular velocity of a simple rotation; derivative of a unit vector of a turning basis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.4; Notes.pdf, Eq. 3.5; Notes.pdf, Eq. 3.9
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \omega\,\mathbf k_1, \quad \boldsymbol\alpha_{10} = \mathbf 0 \quad &\text{(simple rotation about the fixed vertical; $\omega$ constant)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \omega\,\mathbf k_1\times\mathbf i_1 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = \omega\,\mathbf k_1\times\mathbf j_1 = -\omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0 \quad &\text{(Eq. 3.3 to 3.5)} \\
+> \frac{d}{dt}\left(\cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0\right) &= -\omega\sin\omega t\,\mathbf i_0 + \omega\cos\omega t\,\mathbf j_0 = \omega\,\mathbf j_1 \quad &\text{(check: chain rule on the components of $\mathbf i_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{10} = \omega\,\mathbf k_1, \quad \boldsymbol\alpha_{10} = \mathbf 0, \quad \left.\frac{d\mathbf i_1}{dt}\right|_0 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = -\omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0}$$
+>
+> **Units:** $[\omega] = [\mathrm{T^{-1}}]$
+> **Meaning:** seen from $S_1$ the three unit vectors are constant; seen from $S_0$ the horizontal ones turn with the frame.
 
-Differentiate $\mathbf{r}_1^P = -R\sin\phi\,\mathbf{i}_1 - R\cos\phi\,\mathbf{k}_1$ with $\dfrac{d}{dt}\sin\phi = \cos\phi\,\dot\phi$ and $\dfrac{d}{dt}\cos\phi = -\sin\phi\,\dot\phi$:
+#### (a) Relative velocity and acceleration in the path basis
 
-$$ \mathbf{v}_1^P = \left.\frac{d\mathbf{r}_1^P}{dt}\right|_1 = -R\cos\phi\,\dot\phi\,\mathbf{i}_1 + R\sin\phi\,\dot\phi\,\mathbf{k}_1 = R\dot\phi\left(-\cos\phi\,\mathbf{i}_1 + \sin\phi\,\mathbf{k}_1\right) = R\dot\phi\,\mathbf{e}_t $$
+> [!derivation] Relative velocity and relative acceleration
+> **Law:** time derivatives in $S_1$, where $\mathbf i_1$ and $\mathbf k_1$ are constant; chain rule and product rule
+> **Source:** Notes.pdf, Eq. 2.16; Notes.pdf, Eq. 2.17; Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.24; Problems.pdf, p. 18
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\sin\phi &= \cos\phi\,\dot\phi, \quad \frac{d}{dt}\cos\phi = -\sin\phi\,\dot\phi \quad &\text{(chain rule)} \\
+> \mathbf v_1^P &= \left.\frac{d\mathbf r_1^P}{dt}\right|_1 = -R\cos\phi\,\dot\phi\,\mathbf i_1 + R\sin\phi\,\dot\phi\,\mathbf k_1 = R\dot\phi\,\mathbf e_t \quad &\text{(components differentiated; Eq. 3.19)} \\
+> \left.\frac{d\mathbf e_t}{dt}\right|_1 &= \frac{d\mathbf e_t}{d\phi}\,\dot\phi = \left(\sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf k_1\right)\dot\phi = \dot\phi\,\mathbf e_n \quad &\text{(chain rule on $\mathbf e_t(\phi(t))$)} \\
+> \mathbf a_1^P &= \left.\frac{d}{dt}\left(R\dot\phi\,\mathbf e_t\right)\right|_1 = R\ddot\phi\,\mathbf e_t + R\dot\phi\,\dot\phi\,\mathbf e_n \quad &\text{(product rule; Eq. 3.24)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_1^P = R\dot\phi\,\mathbf e_t, \qquad \mathbf a_1^P = R\ddot\phi\,\mathbf e_t + R\dot\phi^2\,\mathbf e_n}$$
+>
+> **Units:** $[R\dot\phi] = [\mathrm{L\,T^{-1}}]$; $[R\ddot\phi] = [R\dot\phi^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the relative velocity is tangent to the arc; the relative acceleration has the tangential part of the change of speed and the normal part towards the centre of the circle; nothing along the binormal.
 
-which is $\dot s\,\mathbf{e}_t$ with $s = R\phi$. For the acceleration use the product rule on $R\dot\phi\,\mathbf{e}_t$, and the chain rule on $\mathbf{e}_t(\phi(t))$:
-
-$$ \left.\frac{d\mathbf{e}_t}{dt}\right|_1 = \frac{d\mathbf{e}_t}{d\phi}\,\dot\phi = \left(\sin\phi\,\mathbf{i}_1 + \cos\phi\,\mathbf{k}_1\right)\dot\phi = \dot\phi\,\mathbf{e}_n $$
-$$ \mathbf{a}_1^P = \left.\frac{d\mathbf{v}_1^P}{dt}\right|_1 = R\ddot\phi\,\mathbf{e}_t + R\dot\phi\left.\frac{d\mathbf{e}_t}{dt}\right|_1 = R\ddot\phi\,\mathbf{e}_t + R\dot\phi^2\,\mathbf{e}_n $$
-
-The normal part is $\dot s^2/\rho$ with radius of curvature $\rho = R$, as expected for a circle. There is no binormal component.
+> [!derivation] Absolute velocity and acceleration: origin, centripetal and Coriolis terms
+> **Law:** time derivative in $S_0$ of the position written in the turning basis; product rule; derivatives of the unit vectors
+> **Source:** Notes.pdf, Eq. 3.16; Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.21; Notes.pdf, Eq. 3.22; Notes.pdf, Eq. 3.23; Notes.pdf, Eq. 3.27; [Lecture 5, Slide 24]; [Lecture 5, Slide 25]
+>
+> The absolute position is differentiated as it stands, term by term; the terms are named afterwards.
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \frac{d}{dt}\left[R\left(1 - \sin\phi\right)\right]\mathbf i_1 + R\left(1 - \sin\phi\right)\omega\,\mathbf j_1 + R\sin\phi\,\dot\phi\,\mathbf k_1 \quad &\text{(product rule; derivative of $\mathbf i_1$; $\mathbf k_1$ constant)} \\
+> &= -R\cos\phi\,\dot\phi\,\mathbf i_1 + R\sin\phi\,\dot\phi\,\mathbf k_1 + \omega R\left(1 - \sin\phi\right)\mathbf j_1 = \mathbf v_1^P + \omega\rho\,\mathbf j_1 \quad &\text{(chain rule; relative velocity recognised)} \\
+> \mathbf v_0^O + \boldsymbol\omega_{10}\times\mathbf r_1^P &= \omega R\,\mathbf j_1 + \omega\,\mathbf k_1\times\left(-R\sin\phi\,\mathbf i_1 - R\cos\phi\,\mathbf k_1\right) = \omega R\,\mathbf j_1 - \omega R\sin\phi\,\mathbf j_1 \quad &\text{(the transport part is Eq. 3.26)} \\
+> \left.\frac{d\mathbf v_1^P}{dt}\right|_0 &= \mathbf a_1^P + \left(-R\cos\phi\,\dot\phi\right)\omega\,\mathbf j_1 \quad &\text{(product rule; the turning of $\mathbf i_1$ inside $\mathbf v_1^P$)} \\
+> \left.\frac{d}{dt}\right|_0\left[\omega R\left(1 - \sin\phi\right)\mathbf j_1\right] &= -\omega R\cos\phi\,\dot\phi\,\mathbf j_1 + \omega R\left(1 - \sin\phi\right)\left(-\omega\,\mathbf i_1\right) \quad &\text{(product rule; chain rule; derivative of $\mathbf j_1$)} \\
+> \mathbf a_0^P &= \mathbf a_1^P - 2\omega R\cos\phi\,\dot\phi\,\mathbf j_1 - \omega^2R\left(1 - \sin\phi\right)\mathbf i_1 \quad &\text{(sum of the two lines above)} \\
+> 2\,\boldsymbol\omega_{10}\times\mathbf v_1^P &= 2\omega R\dot\phi\,\mathbf k_1\times\left(-\cos\phi\,\mathbf i_1 + \sin\phi\,\mathbf k_1\right) = -2\omega R\cos\phi\,\dot\phi\,\mathbf j_1 \quad &\text{(the $\mathbf j_1$ term: Coriolis)} \\
+> \mathbf a_0^O &= R\,\omega\left(-\omega\,\mathbf i_1\right) = -\omega^2R\,\mathbf i_1 \quad &\text{(second derivative of $R\,\mathbf i_1$: origin term)} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) &= \omega\,\mathbf k_1\times\left(-\omega R\sin\phi\,\mathbf j_1\right) = \omega^2R\sin\phi\,\mathbf i_1 \quad &\text{($\mathbf k_1\times\mathbf j_1 = -\mathbf i_1$: centripetal term)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \underbrace{-\omega^2R\,\mathbf i_1}_{\mathbf a_0^O} + \mathbf a_1^P + \underbrace{\omega^2R\sin\phi\,\mathbf i_1}_{\boldsymbol\omega_{10}\times(\boldsymbol\omega_{10}\times\mathbf r_1^P)} + \underbrace{\left(-2\omega R\cos\phi\,\dot\phi\,\mathbf j_1\right)}_{2\boldsymbol\omega_{10}\times\mathbf v_1^P}}$$
+>
+> **Units:** $[\omega^2R] = [\omega R\dot\phi] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the origin term and the centripetal term add up to minus the square of the rate times the distance to the true axis, along $\mathbf i_1$: the point is pulled towards the axis, not towards $O$. The Coriolis term is normal to the plane of the arc. There is no Euler term, the rate being constant.
 
 ### Forces and Equations of Motion
 
-##### (b) Newton's second law in the path basis
-* **Pedagogical Justification:** $S_1$ is not inertial, so we use Newton's law with inertia forces, $m\mathbf{a}_1^P = \mathbf{F} + \mathbf{F}_i$ (Notes Eqs. 4.62–4.63, Slides 27–28). This keeps the simple relative acceleration of part (a) and puts the frame's motion into four forces.
+![[attachments/EM-SOL/p30-fbd.svg]]
 
-**Actual forces.**
+#### (b) Newton's second law in the path basis
 
-* Spring (zero natural length): $\overrightarrow{BP} = \mathbf{r}_1^P - \mathbf{r}_1^B = (-R\sin\phi + 2R)\,\mathbf{i}_1 - R\cos\phi\,\mathbf{k}_1 = (2R - R\sin\phi)\,\mathbf{i}_1 - R\cos\phi\,\mathbf{k}_1$, with $\mathbf{r}_1^B = -2R\,\mathbf{i}_1$, so
-$$ \mathbf{F}_K = -\alpha m\omega^2 R\left[(2 - \sin\phi)\,\mathbf{i}_1 - \cos\phi\,\mathbf{k}_1\right] $$
-* Reaction of the smooth arc: $\mathbf{N} = N_n\,\mathbf{e}_n + N_b\,\mathbf{e}_b$ (no $\mathbf{e}_t$ component, because the arc is smooth).
+> [!derivation] Actual and inertia forces on the particle
+> **Law:** linear spring of zero natural length; smooth reaction normal to the tangent; inertia forces of a non-inertial frame
+> **Source:** Notes.pdf, Eq. 5.1; Notes.pdf, Eq. 4.62; Notes.pdf, Eq. 6.16; [Lecture 5, Slide 28]; [Lecture 5, Slide 30]
+>
+> $$\begin{aligned}
+> \overrightarrow{BP} &= \mathbf r_1^P - \mathbf r_1^B = \left(-R\sin\phi + 2R\right)\mathbf i_1 - R\cos\phi\,\mathbf k_1 \quad &\text{($\mathbf r_1^B = -2R\,\mathbf i_1$)} \\
+> \mathbf F_K &= -K\,\overrightarrow{BP} = -\alpha m\omega^2R\left[\left(2 - \sin\phi\right)\mathbf i_1 - \cos\phi\,\mathbf k_1\right] \quad &\text{(Eq. 5.1 in vector form; $K = \alpha m\omega^2$)} \\
+> \mathbf N &= N_n\,\mathbf e_n + N_b\,\mathbf e_b \quad &\text{(smooth arc: no component along $\mathbf e_t$)} \\
+> \mathbf F_A &= -m\,\mathbf a_0^O = m\omega^2R\,\mathbf i_1, \quad \mathbf F_E = -m\,\boldsymbol\alpha_{10}\times\mathbf r_1^P = \mathbf 0 \quad &\text{(Eq. 4.62, first two terms)} \\
+> \mathbf F_C &= -m\,\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) = -m\omega^2R\sin\phi\,\mathbf i_1 \quad &\text{(centrifugal: composition box times $-m$)} \\
+> \mathbf F_{COR} &= -2m\,\boldsymbol\omega_{10}\times\mathbf v_1^P = 2m\omega R\cos\phi\,\dot\phi\,\mathbf j_1 \quad &\text{(Coriolis: composition box times $-m$)} \\
+> \mathbf F_A + \mathbf F_C &= m\omega^2R\left(1 - \sin\phi\right)\mathbf i_1 = m\omega^2\rho\,\mathbf i_1 \quad &\text{(sum; Slide 30 about the true axis)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_K = -\alpha m\omega^2R\left[\left(2 - \sin\phi\right)\mathbf i_1 - \cos\phi\,\mathbf k_1\right], \quad \mathbf F_A + \mathbf F_C = m\omega^2R\left(1 - \sin\phi\right)\mathbf i_1, \quad \mathbf F_E = \mathbf 0, \quad \mathbf F_{COR} = 2m\omega R\cos\phi\,\dot\phi\,\mathbf j_1}$$
+>
+> **Units:** $[K\,R] = [\alpha m\omega^2R] = [m\omega R\dot\phi] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** one actual applied force (the spring, towards $B$), the reaction with two unknown components, and the inertia forces: the origin and centrifugal terms together push the particle horizontally away from the true axis, and the Coriolis force is normal to the plane of the arc.
 
-**Inertia forces** (Slide 28), with $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_1$, $\boldsymbol{\alpha}_{10} = \mathbf{0}$, $\mathbf{a}_0^O = -\omega^2R\,\mathbf{i}_1$:
+> [!derivation] Projections of the forces on the path basis
+> **Law:** scalar products with the columns of $[{}_1R_F]$
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 2.13
+>
+> From the columns of $[{}_1R_F]$: the projections of $\mathbf i_1$ on $\mathbf e_t$ and $\mathbf e_n$ are minus the cosine and the sine; those of $\mathbf k_1$ are the sine and the cosine; $\mathbf j_1$ is $\mathbf e_b$.
+>
+> $$\begin{aligned}
+> \mathbf F_K\cdot\mathbf e_t &= -\alpha m\omega^2R\left[\left(2 - \sin\phi\right)\left(-\cos\phi\right) - \cos\phi\sin\phi\right] = -\alpha m\omega^2R\left(-2\cos\phi\right) = 2\alpha m\omega^2R\cos\phi \quad &\text{(the two sine-cosine products cancel)} \\
+> \mathbf F_K\cdot\mathbf e_n &= -\alpha m\omega^2R\left[\left(2 - \sin\phi\right)\sin\phi - \cos^2\phi\right] = -\alpha m\omega^2R\left(2\sin\phi - 1\right) \quad &\text{($\sin^2\phi + \cos^2\phi = 1$)} \\
+> \left(\mathbf F_A + \mathbf F_C\right)\cdot\mathbf e_t &= -m\omega^2R\left(1 - \sin\phi\right)\cos\phi, \quad \left(\mathbf F_A + \mathbf F_C\right)\cdot\mathbf e_n = m\omega^2R\left(1 - \sin\phi\right)\sin\phi \quad &\text{(along $\mathbf i_1$)} \\
+> \mathbf F_K\cdot\mathbf e_b &= 0, \quad \left(\mathbf F_A + \mathbf F_C\right)\cdot\mathbf e_b = 0, \quad \mathbf F_{COR}\cdot\mathbf e_b = 2m\omega R\cos\phi\,\dot\phi \quad &\text{(only the Coriolis force leaves the plane)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf F_K = 2\alpha m\omega^2R\cos\phi\,\mathbf e_t + \alpha m\omega^2R\left(1 - 2\sin\phi\right)\mathbf e_n, \quad \mathbf F_A + \mathbf F_C = m\omega^2R\left(1 - \sin\phi\right)\left(-\cos\phi\,\mathbf e_t + \sin\phi\,\mathbf e_n\right)}$$
+>
+> **Units:** every component $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** along the arc the spring always pulls towards larger angles, up towards $B$, and the inertia forces of the rotation pull towards smaller angles, away from the axis.
 
-* Force due to the acceleration of the origin: $\mathbf{F}_A = -m\mathbf{a}_0^O = m\omega^2R\,\mathbf{i}_1$.
-* Euler force: $\mathbf{F}_E = -m\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P = \mathbf{0}$.
-* Centrifugal force. First $\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P = \omega\mathbf{k}_1\times(-R\sin\phi\,\mathbf{i}_1 - R\cos\phi\,\mathbf{k}_1) = -\omega R\sin\phi\,\mathbf{j}_1$ (using $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$); then $\boldsymbol{\omega}_{10}\times(-\omega R\sin\phi\,\mathbf{j}_1) = -\omega^2R\sin\phi\,(\mathbf{k}_1\times\mathbf{j}_1) = \omega^2R\sin\phi\,\mathbf{i}_1$ (using $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$), so $\mathbf{F}_C = -m\omega^2R\sin\phi\,\mathbf{i}_1$.
-* Coriolis force: $\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P = \omega R\dot\phi\,\mathbf{k}_1\times(-\cos\phi\,\mathbf{i}_1 + \sin\phi\,\mathbf{k}_1) = -\omega R\dot\phi\cos\phi\,\mathbf{j}_1$, so $\mathbf{F}_{COR} = -2m\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P = 2m\omega R\dot\phi\cos\phi\,\mathbf{j}_1$.
-
-The first and third combine into the centrifugal force about the **true** rotation axis, whose distance to $P$ is $x_1 + R = R(1 - \sin\phi)$ (Slide 30, and the dimension of the figure of the arc):
-
-$$ \mathbf{F}_A + \mathbf{F}_C = m\omega^2R\,(1 - \sin\phi)\,\mathbf{i}_1 $$
-
-**Projections.** With the projections listed at the end of the change-of-basis section:
-
-$$ \mathbf{F}_K\cdot\mathbf{e}_t = -\alpha m\omega^2R\left[(2 - \sin\phi)(-\cos\phi) + (-\cos\phi)(\sin\phi)\right] = -\alpha m\omega^2R\left[-2\cos\phi + \sin\phi\cos\phi - \sin\phi\cos\phi\right] = 2\alpha m\omega^2R\cos\phi $$
-$$ \mathbf{F}_K\cdot\mathbf{e}_n = -\alpha m\omega^2R\left[(2 - \sin\phi)\sin\phi - \cos^2\phi\right] = -\alpha m\omega^2R\left[2\sin\phi - 1\right] = \alpha m\omega^2R\,(1 - 2\sin\phi) $$
-$$ (\mathbf{F}_A + \mathbf{F}_C)\cdot\mathbf{e}_t = -m\omega^2R\,(1 - \sin\phi)\cos\phi, \qquad (\mathbf{F}_A + \mathbf{F}_C)\cdot\mathbf{e}_n = m\omega^2R\,(1 - \sin\phi)\sin\phi $$
-
-(in the second line $\sin^2\phi + \cos^2\phi = 1$ was used), and $\mathbf{F}_K$, $\mathbf{F}_A + \mathbf{F}_C$ have no $\mathbf{e}_b = \mathbf{j}_1$ component, while $\mathbf{F}_{COR}$ lies entirely along $\mathbf{e}_b$.
-
-##### (b, continued) Equation of motion and reaction
-
-**The three components** of $m\mathbf{a}_1^P = \mathbf{F}_K + \mathbf{N} + \mathbf{F}_A + \mathbf{F}_E + \mathbf{F}_C + \mathbf{F}_{COR}$:
-
-$$ \mathbf{e}_t:\quad mR\ddot\phi = 2\alpha m\omega^2R\cos\phi - m\omega^2R\,(1 - \sin\phi)\cos\phi $$
-$$ \mathbf{e}_n:\quad mR\dot\phi^2 = N_n + \alpha m\omega^2R\,(1 - 2\sin\phi) + m\omega^2R\,(1 - \sin\phi)\sin\phi $$
-$$ \mathbf{e}_b:\quad 0 = N_b + 2m\omega R\dot\phi\cos\phi $$
-
-The tangential component contains no reaction and is the **equation of motion**; the other two give the **reaction**:
-
-$$ \boxed{\ddot\phi = \omega^2\cos\phi\,\left(2\alpha - 1 + \sin\phi\right)} $$
-$$ \boxed{N_n = mR\dot\phi^2 - \alpha m\omega^2R\,(1 - 2\sin\phi) - m\omega^2R\,\sin\phi\,(1 - \sin\phi), \qquad N_b = -2m\omega R\dot\phi\cos\phi} $$
-
-The binormal reaction balances the Coriolis force: the arc has to push $P$ sideways to keep it in the rotating plane.
+> [!derivation] Three components of Newton's second law in the path basis
+> **Law:** Newton's second law in a non-inertial frame, projected on $\{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.17; [Lecture 5, Slide 28]; Problems.pdf, p. 18
+>
+> Three scalar equations for three unknowns: the coordinate and the two components of the reaction.
+>
+> $$\begin{aligned}
+> \mathbf e_t:\ mR\ddot\phi &= 2\alpha m\omega^2R\cos\phi - m\omega^2R\left(1 - \sin\phi\right)\cos\phi \quad &\text{(no reaction along the tangent)} \\
+> \mathbf e_n:\ mR\dot\phi^2 &= N_n + \alpha m\omega^2R\left(1 - 2\sin\phi\right) + m\omega^2R\left(1 - \sin\phi\right)\sin\phi \quad &\text{(normal)} \\
+> \mathbf e_b:\ 0 &= N_b + 2m\omega R\cos\phi\,\dot\phi \quad &\text{(binormal)} \\
+> \ddot\phi &= \omega^2\cos\phi\left(2\alpha - 1 + \sin\phi\right) \quad &\text{(tangential equation divided by $mR$; $\cos\phi$ factored)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\phi = \omega^2\cos\phi\left(2\alpha - 1 + \sin\phi\right), \quad N_n = mR\dot\phi^2 - \alpha m\omega^2R\left(1 - 2\sin\phi\right) - m\omega^2R\sin\phi\left(1 - \sin\phi\right), \quad N_b = -2m\omega R\cos\phi\,\dot\phi}$$
+>
+> **Units:** $[\ddot\phi] = [\omega^2] = [\mathrm{T^{-2}}]$; $[N_n] = [N_b] = [m\omega^2R] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the tangential component is the equation of motion; the normal and binormal components give the reaction once the motion is known. The binormal reaction balances the Coriolis force: the arc pushes the particle sideways so that it keeps turning with the plane while its distance to the axis changes.
 
 ### Answers and Checks
 
-##### (a) Relative velocity and acceleration
-$$ \boxed{\mathbf{v}_1^P = R\dot\phi\,\mathbf{e}_t, \qquad \mathbf{a}_1^P = R\ddot\phi\,\mathbf{e}_t + R\dot\phi^2\,\mathbf{e}_n} $$
+#### (c) Energy conservation in the relative frame
 
-##### (b) Newton's second law in the path basis
-The three components are the $\mathbf{e}_t$, $\mathbf{e}_n$ and $\mathbf{e}_b$ equations of the previous section: $\ddot\phi = \omega^2\cos\phi\,(2\alpha - 1 + \sin\phi)$, $N_n = mR\dot\phi^2 - \alpha m\omega^2R\,(1 - 2\sin\phi) - m\omega^2R\sin\phi\,(1 - \sin\phi)$ and $N_b = -2m\omega R\dot\phi\cos\phi$.
+> [!derivation] Why the energy of the relative motion is conserved
+> **Law:** power of each force on the relative velocity; potentials of the forces that work
+> **Source:** Notes.pdf, Eq. 4.14; Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]; [Lecture 5, Slide 30]; [Lecture 5, Slide 31]
+>
+> Two reasons. First, the forces that do no work in $S_1$: the reaction (the arc is at rest in $S_1$ and the reaction is normal to the tangent), the Coriolis force (normal to the relative velocity) and the Euler force (zero). Second, the forces that do work have potentials that depend on the position in $S_1$ only: the spring (its end $B$ is fixed in $S_1$), and the sum of the origin and centrifugal forces, a function of the position alone because the rate $\omega$ is constant and the acceleration of the origin is a constant vector of $S_1$. With a variable rate the centrifugal force would change in time at a fixed point and the Euler force would appear: no potential.
+>
+> $$\begin{aligned}
+> \mathbf N\cdot\mathbf v_1^P &= \left(N_n\,\mathbf e_n + N_b\,\mathbf e_b\right)\cdot R\dot\phi\,\mathbf e_t = 0 \quad &\text{(reaction: no power in $S_1$)} \\
+> \mathbf F_{COR}\cdot\mathbf v_1^P &= 2m\omega R\cos\phi\,\dot\phi\,\mathbf e_b\cdot R\dot\phi\,\mathbf e_t = 0 \quad &\text{(Coriolis: no power)} \\
+> \mathbf F_E\cdot\mathbf v_1^P &= 0 \quad &\text{($\mathbf F_E = \mathbf 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{only } \mathbf F_K \text{ and } \mathbf F_A + \mathbf F_C \text{ work in } S_1, \text{ and both have potentials}}$$
+>
+> **Units:** $[\mathbf F\cdot\mathbf v_1^P] = [\mathrm{M\,L^2\,T^{-3}}]$, a power
+> **Meaning:** the conditions of Slide 29 are met, so the mechanical energy of the relative motion is a constant of the motion.
 
-##### (c) Energy conservation in the relative frame
-* **Pedagogical Justification:** In $S_1$ (Slide 29) the mechanical energy $E_1^P$ is conserved if every force that does work in $S_1$ has a potential. Here: $\mathbf{N}$ does no work in $S_1$ because the arc is fixed in $S_1$ and $\mathbf{N}\perp\mathbf{v}_1^P = R\dot\phi\,\mathbf{e}_t$; $\mathbf{F}_{COR}\perp\mathbf{v}_1^P$ never does work (Slide 31); $\mathbf{F}_E = \mathbf{0}$; the spring is conservative; and $\mathbf{F}_A + \mathbf{F}_C$ is the centrifugal force about an axis fixed in $S_1$ with constant $\omega$, which has the potential of Slide 30.
+> [!derivation] Potentials along the arc and energy integral
+> **Law:** potential as minus the work along the path, with Barrow's rule; change of variable in the integral
+> **Source:** Notes.pdf, Eq. 4.14; Notes.pdf, Eq. 4.24; Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]
+>
+> Along the arc the displacement is $\mathbf e_t$ times $R\,d\phi'$, so each potential is minus the integral of the tangential component times $R$. In the second integral the substitution $u$ equal to $\sin\phi'$ has the differential $\cos\phi'\,d\phi'$ and the limits 0 and $\sin\phi$. Potentials are taken zero at the lowest point.
+>
+> $$\begin{aligned}
+> V_K(\phi) &= -\int_0^{\phi}2\alpha m\omega^2R\cos\phi'\,R\,d\phi' = -2\alpha m\omega^2R^2\left[\sin\phi'\right]_0^{\phi} = -2\alpha m\omega^2R^2\left(\sin\phi - 0\right) \quad &\text{(Eq. 4.14; antiderivative of the cosine; Barrow's rule)} \\
+> V_{AC}(\phi) &= -\int_0^{\phi}\left(-m\omega^2R\left(1 - \sin\phi'\right)\cos\phi'\right)R\,d\phi' = m\omega^2R^2\int_0^{\sin\phi}\left(1 - u\right)du \quad &\text{(Eq. 4.14; $u = \sin\phi'$, $du = \cos\phi'\,d\phi'$)} \\
+> &= m\omega^2R^2\left[u - \tfrac12 u^2\right]_0^{\sin\phi} = m\omega^2R^2\left(\sin\phi - \tfrac12\sin^2\phi\right) \quad &\text{(antiderivative; Barrow's rule)} \\
+> T_1^P &= \tfrac12 m\,\mathbf v_1^P\cdot\mathbf v_1^P = \tfrac12 mR^2\dot\phi^2 \quad &\text{(kinetic energy in $S_1$)} \\
+> E_1^P &= T_1^P + V_K + V_{AC} \quad &\text{(Eq. 4.31 in $S_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{E_1^P = \tfrac12 mR^2\dot\phi^2 - 2\alpha m\omega^2R^2\sin\phi + m\omega^2R^2\left(\sin\phi - \tfrac12\sin^2\phi\right) = \text{const}}$$
+>
+> **Units:** $[mR^2\dot\phi^2] = [m\omega^2R^2] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the spring potential falls as the particle climbs towards $B$; the rotation potential rises as the particle approaches the axis. Up to additive constants they are one half of the spring constant times the squared length of the spring and minus one half of the mass times the squared rate times the squared distance to the axis (Slide 30).
 
-**Potentials.** Spring: $V_K = \tfrac12 K\,|\overrightarrow{BP}|^2$ with
+> [!derivation] Constant of the motion and relation with the tangential equation
+> **Law:** initial conditions; time derivative of the energy along the motion; chain rule
+> **Source:** Notes.pdf, Eq. 4.22; Notes.pdf, Eq. 4.29; Problems.pdf, p. 18
+>
+> The initial relative velocity is the velocity of part (a) at the start, where the tangent is minus $\mathbf i_1$.
+>
+> $$\begin{aligned}
+> \mathbf v_1^P(0) &= R\dot\phi(0)\,\mathbf e_t(0) = R\dot\phi(0)\left(-\cos 0\,\mathbf i_1 + \sin 0\,\mathbf k_1\right) = -R\dot\phi(0)\,\mathbf i_1 = -\beta\omega R\,\mathbf i_1 \quad &\text{(part (a) at $t = 0$; statement)} \\
+> \dot\phi(0) &= \beta\omega, \quad E_1^P(0) = \tfrac12 mR^2\beta^2\omega^2 + 0 + 0 \quad &\text{(at $\phi = 0$ both potentials vanish)} \\
+> \dot\phi^2 &= \beta^2\omega^2 + 4\alpha\omega^2\sin\phi - 2\omega^2\sin\phi + \omega^2\sin^2\phi \quad &\text{(energy equation divided by $\tfrac12 mR^2$)} \\
+> \frac{dE_1^P}{dt} &= mR^2\dot\phi\ddot\phi - 2\alpha m\omega^2R^2\cos\phi\,\dot\phi + m\omega^2R^2\left(\cos\phi - \sin\phi\cos\phi\right)\dot\phi \quad &\text{(product rule; chain rule $\tfrac{d}{dt}\sin^2\phi = 2\sin\phi\cos\phi\,\dot\phi$)} \\
+> &= mR^2\dot\phi\left[\ddot\phi - \omega^2\cos\phi\left(2\alpha - 1 + \sin\phi\right)\right] \quad &\text{(factor $mR^2\dot\phi$)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\phi^2 = \omega^2\left[\beta^2 + \left(4\alpha - 2\right)\sin\phi + \sin^2\phi\right], \qquad \frac{dE_1^P}{dt} = mR^2\dot\phi\times\left(\text{tangential equation of part (b)}\right)}$$
+>
+> **Units:** $[\dot\phi^2] = [\omega^2] = [\mathrm{T^{-2}}]$; $[dE_1^P/dt] = [\mathrm{M\,L^2\,T^{-3}}]$
+> **Meaning:** the energy equation is not new information: it is the first integral of the tangential component (that equation times the relative speed, integrated once), and its derivative gives it back wherever the rate is not zero. The normal and binormal components are independent of it and give the reaction.
 
-$$ |\overrightarrow{BP}|^2 = R^2\left[(2 - \sin\phi)^2 + \cos^2\phi\right] = R^2\left[4 - 4\sin\phi + \sin^2\phi + \cos^2\phi\right] = R^2\,(5 - 4\sin\phi) $$
+#### (d) Value of alpha for an equilibrium at pi/6
 
-so $V_K = \tfrac12\alpha m\omega^2R^2\,(5 - 4\sin\phi)$. Centrifugal (Slide 30), with $r_\perp = x_1 + R = R(1 - \sin\phi)$:
+> [!derivation] Equilibrium positions and the value of alpha
+> **Law:** relative equilibrium: rate and angular acceleration zero for all time, so the tangential force vanishes
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Sec. 4.6; Problems.pdf, p. 18
+>
+> $$\begin{aligned}
+> 0 &= \omega^2\cos\phi_e\left(2\alpha - 1 + \sin\phi_e\right) \quad &\text{(tangential equation with $\dot\phi = \ddot\phi = 0$)} \\
+> \cos\phi_e = 0 &\Rightarrow \phi_e = \tfrac{\pi}{2} \quad &\text{(first factor: the upper end, on the axis, for every $\alpha$)} \\
+> \sin\phi_e &= 1 - 2\alpha \quad &\text{(second factor: interior points, only for $0 \le 1 - 2\alpha \le 1$)} \\
+> \sin\tfrac{\pi}{6} &= \tfrac12 = 1 - 2\alpha \;\Rightarrow\; 2\alpha = \tfrac12 \quad &\text{(the required position)} \\
+> N_n &= 0 - \tfrac14 m\omega^2R\left(1 - 1\right) - m\omega^2R\cdot\tfrac12\left(1 - \tfrac12\right) = -\tfrac14 m\omega^2R, \quad N_b = 0 \quad &\text{(part (b) at rest at $\pi/6$ with $\alpha = 1/4$)}
+> \end{aligned}$$
+>
+> $$\boxed{\alpha = \tfrac14 \qquad \left(\text{reaction at that equilibrium } \mathbf N = -\tfrac14 m\omega^2R\,\mathbf e_n\right)}$$
+>
+> **Units:** $[\alpha] = [1]$; $[N_n] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** a soft spring, a quarter of the reference stiffness, balances along the arc the outward pull of the rotation at thirty degrees. At rest there the reaction points away from $O$: the arc holds the particle against the net pull towards the centre.
 
-$$ V_C = -\tfrac12 m\omega^2 r_\perp^2 = -\tfrac12 m\omega^2R^2\,(1 - \sin\phi)^2 $$
+#### (e) Types of motion for alpha equal to 1/4, critical beta and reaction at pi/2
 
-(Check: in Cartesian form $V_C = -\tfrac12 m\omega^2(x_1 + R)^2$ and $-\partial V_C/\partial x_1 = m\omega^2(x_1 + R)$, the $\mathbf{i}_1$ component of $\mathbf{F}_A + \mathbf{F}_C$.)
+> [!derivation] Barrier function and quadrature
+> **Law:** energy integral of part (c); the motion is possible only where the kinetic energy is not negative
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.28; Notes.pdf, Sec. 4.6
+>
+> With $\alpha$ equal to one quarter, the factor $4\alpha - 2$ is minus one. The function $U(\phi)$ below plays the role of a potential: the motion is allowed where $U$ does not exceed $\beta^2$.
+>
+> $$\begin{aligned}
+> \dot\phi^2 &= \omega^2\left[\beta^2 - \sin\phi + \sin^2\phi\right] = \omega^2\left[\beta^2 - U(\phi)\right], \quad U(\phi) = \sin\phi\left(1 - \sin\phi\right) \quad &\text{(part (c) with $\alpha = 1/4$)} \\
+> U(0) &= 0, \quad U\left(\tfrac{\pi}{2}\right) = 1\cdot 0 = 0 \quad &\text{(ends of the arc)} \\
+> U'(\phi) &= \cos\phi\left(1 - \sin\phi\right) + \sin\phi\left(-\cos\phi\right) = \cos\phi\left(1 - 2\sin\phi\right) \quad &\text{(product rule; chain rule)} \\
+> U'(\phi) = 0,\ 0 \lt \phi \lt \tfrac{\pi}{2} &\Rightarrow \sin\phi = \tfrac12,\ \phi = \tfrac{\pi}{6}, \quad U\left(\tfrac{\pi}{6}\right) = \tfrac12\cdot\tfrac12 = \tfrac14 \quad &\text{(single interior stationary point)} \\
+> U''(\phi) &= -\sin\phi\left(1 - 2\sin\phi\right) - 2\cos^2\phi, \quad U''\left(\tfrac{\pi}{6}\right) = 0 - 2\cdot\tfrac34 = -\tfrac32 \lt 0 \quad &\text{(a maximum: a barrier)} \\
+> t &= \int_0^{\phi}\frac{d\phi'}{\omega\sqrt{\beta^2 - U(\phi')}} \quad &\text{(quadrature while $\dot\phi \gt 0$; separation of variables)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\phi^2 = \omega^2\left[\beta^2 - U(\phi)\right], \qquad U(\phi) = \sin\phi\left(1 - \sin\phi\right), \qquad \max_{[0,\pi/2]}U = U\left(\tfrac{\pi}{6}\right) = \tfrac14}$$
+>
+> **Units:** $[U] = [\beta^2] = [1]$
+> **Meaning:** the barrier has its top at the equilibrium of part (d), which is therefore unstable (a maximum of the potential); the particle crosses it only if the square of $\beta$ exceeds one quarter.
 
-**Energy equation:**
+![[attachments/EM-SOL/p30-barrier.svg]]
 
-$$ \boxed{E_1^P = \tfrac12 mR^2\dot\phi^2 + \tfrac12\alpha m\omega^2R^2\,(5 - 4\sin\phi) - \tfrac12 m\omega^2R^2\,(1 - \sin\phi)^2 = \text{const}} $$
+> [!derivation] Three types of motion
+> **Law:** turning points where the kinetic energy vanishes; sign of the tangential force there; linearisation about the unstable equilibrium by Taylor expansion
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.28; Notes.pdf, Sec. 4.6
+>
+> For small $\beta$ the rate vanishes where $U$ reaches the square of $\beta$; the quadratic in the sine has two roots, and the particle, starting at the lowest point, meets the smaller one first. For $\beta$ equal to one half, write $\eta$ for the angle minus its equilibrium value.
+>
+> $$\begin{aligned}
+> \sin^2\phi^* - \sin\phi^* + \beta^2 &= 0 \;\Rightarrow\; \sin\phi^* = \frac{1 \pm \sqrt{1 - 4\beta^2}}{2} \quad &\text{(turning points, $\beta \le 1/2$; both roots)} \\
+> \sin\phi^*_- &= \frac{1 - \sqrt{1 - 4\beta^2}}{2} \le \tfrac12, \quad \sin\phi^*_+ = \frac{1 + \sqrt{1 - 4\beta^2}}{2} \ge \tfrac12 \quad &\text{(the root $+$ lies beyond the barrier: not reached from $\phi = 0$)} \\
+> \ddot\phi\left(\phi^*_-\right) &= \omega^2\cos\phi^*_-\left(\sin\phi^*_- - \tfrac12\right) \lt 0 \quad &\text{(tangential equation, $\beta \lt 1/2$: it turns back)} \\
+> \beta = \tfrac12:\quad \dot\phi^2 &= \omega^2\left(\tfrac14 - \sin\phi + \sin^2\phi\right) = \omega^2\left(\tfrac12 - \sin\phi\right)^2 \quad &\text{(perfect square)} \\
+> \dot\phi &= \omega\left(\tfrac12 - \sin\phi\right) \quad &\text{(positive root: the rate starts at $\omega/2$)} \\
+> \sin\left(\tfrac{\pi}{6} + \eta\right) &\simeq \tfrac12 + \tfrac{\sqrt3}{2}\eta \;\Rightarrow\; \dot\eta \simeq -\tfrac{\sqrt3}{2}\omega\,\eta \quad &\text{(Taylor expansion to first order; $\cos\tfrac{\pi}{6} = \tfrac{\sqrt3}{2}$)} \\
+> \int_{\eta_1}^{\eta}\frac{d\eta'}{\eta'} &= \left[\ln\left|\eta'\right|\right]_{\eta_1}^{\eta} = \ln\frac{\eta}{\eta_1} = -\tfrac{\sqrt3}{2}\omega\left(t - t_1\right) \quad &\text{(separation of variables from a time $t_1$ near the top; Barrow's rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \beta \lt \tfrac12: \text{ turns back at } \sin\phi^* = \tfrac12\left(1 - \sqrt{1 - 4\beta^2}\right) \text{ and leaves the arc at its lower end}; \cr \beta = \tfrac12: \ \eta = \eta_1 e^{-\sqrt3\,\omega(t - t_1)/2} \text{ (creeps towards } \pi/6 \text{ without reaching it)}; \quad \beta \gt \tfrac12: \text{ reaches } \tfrac{\pi}{2} \end{gathered}}$$
+>
+> **Units:** $[\beta] = [1]$; $[\omega\,t] = [1]$; $[\eta] = [1]$
+> **Meaning:** below the critical value the particle climbs part of the way, stops, comes back to the lowest point with its initial speed (energy conservation) and leaves the arc there, which ends at that point. At the critical value the distance to the top of the barrier decays exponentially and is never zero. Above it the rate never vanishes and the particle runs to the upper end.
 
-**Initial value.** At $t = 0$, $\mathbf{e}_t(0) = -\mathbf{i}_1$, so $\mathbf{v}_1^P(0) = R\dot\phi(0)\,(-\mathbf{i}_1) = -\beta\omega R\,\mathbf{i}_1$ gives $\dot\phi(0) = \beta\omega$, and $E_1^P(0) = \tfrac12 m\omega^2R^2\,(\beta^2 + 5\alpha - 1)$. Equating and dividing by $\tfrac12 mR^2$:
+> [!derivation] Critical beta and reaction at pi/2
+> **Law:** energy integral at the end of the arc; normal and binormal components of part (b)
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 4.27; Problems.pdf, p. 18
+>
+> At the upper end the sine is 1 and the cosine 0, the normal is the column of $[{}_1R_F]$ with these values, and the rate follows from the energy integral.
+>
+> $$\begin{aligned}
+> \dot\phi^2\left(\tfrac{\pi}{2}\right) &= \omega^2\left[\beta^2 - U\left(\tfrac{\pi}{2}\right)\right] = \beta^2\omega^2, \quad \dot\phi\left(\tfrac{\pi}{2}\right) = \beta\omega \quad &\text{(barrier crossed: the rate stayed positive)} \\
+> \mathbf e_n\left(\tfrac{\pi}{2}\right) &= \sin\tfrac{\pi}{2}\,\mathbf i_1 + \cos\tfrac{\pi}{2}\,\mathbf k_1 = \mathbf i_1 \quad &\text{(towards $O$)} \\
+> N_b &= -2m\omega R\cos\tfrac{\pi}{2}\,\beta\omega = 0 \quad &\text{(binormal component)} \\
+> N_n &= mR\beta^2\omega^2 - \tfrac14 m\omega^2R\left(1 - 2\right) - m\omega^2R\cdot 1\cdot\left(1 - 1\right) = m\omega^2R\left(\beta^2 + \tfrac14\right) \quad &\text{(normal component, $\alpha = 1/4$)} \\
+> \lim_{\beta\to 1/2^+}N_n &= m\omega^2R\left(\tfrac14 + \tfrac14\right) = \tfrac12 m\omega^2R \quad &\text{(at the critical value)}
+> \end{aligned}$$
+>
+> $$\boxed{\beta_c = \tfrac12, \qquad \mathbf N\left(\tfrac{\pi}{2}\right) = m\omega^2R\left(\beta^2 + \tfrac14\right)\mathbf i_1 \ \xrightarrow{\ \beta\to\beta_c^+\ }\ \tfrac12 m\omega^2R\,\mathbf i_1}$$
+>
+> **Units:** $[m\omega^2R] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** at the upper end the particle is on the axis and moves along it, so the centrifugal and Coriolis forces vanish there; the reaction points to $O$ and supplies the centripetal force of the circular path plus the balance of the spring, which there pulls towards $B$ with a quarter of the mass times the squared rate times $R$.
 
-$$ \dot\phi^2 = \omega^2\left[\beta^2 + 5\alpha - 1 - \alpha(5 - 4\sin\phi) + (1 - \sin\phi)^2\right] \implies \boxed{\dot\phi^2 = \omega^2\left[\beta^2 + (4\alpha - 2)\sin\phi + \sin^2\phi\right]} $$
+#### (f) Maximum height after leaving the arc
 
-**Equivalence.** Differentiate $E_1^P$ in time with the chain rule ($\tfrac{d}{dt}\sin\phi = \cos\phi\,\dot\phi$, $\tfrac{d}{dt}(1 - \sin\phi)^2 = 2(1 - \sin\phi)(-\cos\phi\,\dot\phi)$):
+> [!derivation] Vertical motion of the free particle
+> **Law:** Newton's second law in $S_1$, vertical component; harmonic oscillator; initial conditions
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 5.6; Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.8; Notes.pdf, Eq. 5.9
+>
+> Once free, the particle has three coordinates in $S_1$; time $\tau$ is counted from the separation. Every inertia force is normal to $\mathbf k_1$: the origin and centrifugal forces lie along the horizontal from the axis, and the Coriolis force is the cross product of $\mathbf k_1$ with a vector. Only the spring has a vertical component.
+>
+> $$\begin{aligned}
+> \mathbf r_1^P(0) &= -R\,\mathbf i_1, \quad \mathbf v_1^P(0) = R\beta\omega\,\mathbf e_t\left(\tfrac{\pi}{2}\right) = \beta\omega R\,\mathbf k_1 \quad &\text{(state at the separation: on the axis, moving up)} \\
+> \mathbf k_1\cdot\mathbf F_K &= -K\,\mathbf k_1\cdot\left[\left(x_1 + 2R\right)\mathbf i_1 + y_1\,\mathbf j_1 + z_1\,\mathbf k_1\right] = -\alpha m\omega^2z_1 \quad &\text{(spring, free position)} \\
+> \mathbf k_1\cdot\left(\mathbf F_A + \mathbf F_C + \mathbf F_{COR}\right) &= 0 \quad &\text{(all three normal to $\mathbf k_1$)} \\
+> m\ddot z_1 &= -\alpha m\omega^2z_1 \;\Rightarrow\; \ddot z_1 + \omega_z^2z_1 = 0, \quad \omega_z = \sqrt{\alpha}\,\omega \quad &\text{(Eq. 4.63, vertical; Eq. 5.6)} \\
+> z_1(\tau) &= C_1\cos\omega_z\tau + C_2\sin\omega_z\tau \quad &\text{(Eq. 5.7)} \\
+> \dot z_1(\tau) &= -\omega_zC_1\sin\omega_z\tau + \omega_zC_2\cos\omega_z\tau \quad &\text{(chain rule)} \\
+> z_1(0) &= C_1 = 0, \quad \dot z_1(0) = \omega_zC_2 = \beta\omega R \;\Rightarrow\; C_2 = \frac{\beta\omega R}{\sqrt{\alpha}\,\omega} = \frac{\beta R}{\sqrt{\alpha}} \quad &\text{(Eq. 5.8 and 5.9)} \\
+> z_{max} &= C_2 = \frac{\beta R}{\sqrt{1/4}} = 2\beta R, \quad \omega_z\tau_{max} = \tfrac{\pi}{2} \Rightarrow \tau_{max} = \frac{\pi}{2\sqrt{\alpha}\,\omega} = \frac{\pi}{\omega} \quad &\text{(maximum of the sine; $\alpha = 1/4$)}
+> \end{aligned}$$
+>
+> $$\boxed{z_{max} = \frac{\beta R}{\sqrt{\alpha}} = 2\beta R \quad \left(\alpha = \tfrac14,\ \beta \gt \tfrac12\right), \text{ reached a time } \pi/\omega \text{ after leaving the arc}}$$
+>
+> **Units:** $[\beta R] = [\mathrm{L}]$; $[\tau_{max}] = [\mathrm{T}]$
+> **Meaning:** the vertical motion is a harmonic oscillation driven only by the vertical pull of the spring; the horizontal motion, coupled by the rotation, does not affect it. The height is measured from the horizontal plane through $O$ and $B$, the same in $S_0$ because the frames share the vertical. The result assumes the particle does not touch the arc again, which lies below that plane while the height stays positive.
 
-$$ \frac{dE_1^P}{dt} = mR^2\dot\phi\ddot\phi - 2\alpha m\omega^2R^2\cos\phi\,\dot\phi + m\omega^2R^2(1 - \sin\phi)\cos\phi\,\dot\phi = mR^2\dot\phi\left[\ddot\phi - 2\alpha\omega^2\cos\phi + \omega^2(1 - \sin\phi)\cos\phi\right] $$
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Relative velocity and acceleration | $\mathbf v_1^P = R\dot\phi\,\mathbf e_t$, $\mathbf a_1^P = R\ddot\phi\,\mathbf e_t + R\dot\phi^2\,\mathbf e_n$, with $\mathbf e_t = -\cos\phi\,\mathbf i_1 + \sin\phi\,\mathbf k_1$, $\mathbf e_n = \sin\phi\,\mathbf i_1 + \cos\phi\,\mathbf k_1$, $\mathbf e_b = \mathbf j_1$ |
+| (b) Newton, $\mathbf e_t$ | $mR\ddot\phi = 2\alpha m\omega^2R\cos\phi - m\omega^2R(1 - \sin\phi)\cos\phi$, i.e. $\ddot\phi = \omega^2\cos\phi\,(2\alpha - 1 + \sin\phi)$ |
+| (b) Newton, $\mathbf e_n$ | $mR\dot\phi^2 = N_n + \alpha m\omega^2R(1 - 2\sin\phi) + m\omega^2R(1 - \sin\phi)\sin\phi$ |
+| (b) Newton, $\mathbf e_b$ | $0 = N_b + 2m\omega R\cos\phi\,\dot\phi$ |
+| (c) Energy | $\frac12 mR^2\dot\phi^2 - 2\alpha m\omega^2R^2\sin\phi + m\omega^2R^2(\sin\phi - \frac12\sin^2\phi) = \frac12 m\beta^2\omega^2R^2$; equivalently $\dot\phi^2 = \omega^2[\beta^2 + (4\alpha - 2)\sin\phi + \sin^2\phi]$; it is the first integral of the $\mathbf e_t$ equation |
+| (d) Equilibrium at $\pi/6$ | $\alpha = 1/4$ (and $\pi/2$ is an equilibrium for every $\alpha$); reaction there $-\frac14 m\omega^2R\,\mathbf e_n$ |
+| (e) Types of motion | $\beta \lt 1/2$: turns back at $\sin\phi^* = \frac12(1 - \sqrt{1 - 4\beta^2})$, returns to $\phi = 0$ and leaves the arc; $\beta = 1/2$: approaches the unstable equilibrium $\pi/6$ asymptotically; $\beta \gt 1/2$: reaches $\pi/2$ with $\dot\phi = \beta\omega$ |
+| (e) Critical value and reaction | $\beta_c = 1/2$; $\mathbf N(\pi/2) = m\omega^2R(\beta^2 + \frac14)\,\mathbf i_1$, tending to $\frac12 m\omega^2R\,\mathbf i_1$ as $\beta \to \beta_c$ |
+| (f) Maximum height | $z_{max} = \beta R/\sqrt\alpha = 2\beta R$, at $\pi/\omega$ after leaving the arc |
+| Reading of the spring | zero natural length; with a natural length $\ell_0$ the spring potential is $\frac12 K(R\sqrt{5 - 4\sin\phi} - \ell_0)^2$ and parts (b) to (f) change |
+| Reading of the end of the arc | the arc ends at $\phi = 0$; if it continued below, the particle with $\beta \lt 1/2$ would keep moving to negative $\phi$ instead of leaving it there |
 
-The bracket is zero exactly when the $\mathbf{e}_t$ equation of part (b) holds. So the energy equation is **not new information**: it is the first integral of the tangential component (the $\mathbf{e}_t$ equation multiplied by $R\dot\phi$ and integrated once). The $\mathbf{e}_n$ and $\mathbf{e}_b$ components are independent of it and are needed to compute the reaction.
+**Check against the official key:** Problems.pdf, p. 74 lists the number 30 with nothing after it: the key prints no answer. The results are checked independently below, with the axial angular momentum about the fixed rotation axis and with limiting cases.
 
-##### (d) Value of $\alpha$ for equilibrium at $\phi = \pi/6$
-* **Pedagogical Justification:** Relative equilibrium in $S_1$ means $\dot\phi = 0$ and $\ddot\phi = 0$ for all time. The $\mathbf{e}_t$ equation then requires that the tangential force vanish.
-$$ \ddot\phi = 0 \iff \cos\phi\,(2\alpha - 1 + \sin\phi) = 0 $$
+> [!derivation] Independent check: angular momentum about the rotation axis
+> **Law:** angular momentum about a fixed point of the axis and its rate, equal to the moment of the actual forces
+> **Source:** Notes.pdf, Eq. 4.48; Notes.pdf, Eq. 4.53
+>
+> In $\mathcal B_1$, with $Q$ as the fixed point, the position has the components $(\rho, 0, -R\cos\phi)$ and the absolute velocity $(-R\cos\phi\,\dot\phi,\ \omega\rho,\ R\sin\phi\,\dot\phi)$. The component along $\mathbf k_1$ of a vector product is the first component of the first factor times the second of the second, minus the second of the first times the first of the second. The spring force and the normal reaction lie in the plane of the arc, which contains the axis: no axial moment.
+>
+> $$\begin{aligned}
+> \mathbf H_{Q,0}\cdot\mathbf k_1 &= m\left(\rho\cdot\omega\rho - 0\right) = m\omega\rho^2 \quad &\text{(Eq. 4.48)} \\
+> \mathbf M_Q\cdot\mathbf k_1 &= \rho\,N_b - 0 = \rho\,N_b \quad &\text{(only the binormal reaction, $N_b\,\mathbf j_1$, at the lever arm $\rho$)} \\
+> \frac{d}{dt}\left(m\omega\rho^2\right) &= 2m\omega\rho\dot\rho, \quad \dot\rho = \frac{d}{dt}\left[R\left(1 - \sin\phi\right)\right] = -R\cos\phi\,\dot\phi \quad &\text{(chain rule)} \\
+> 2m\omega\rho\left(-R\cos\phi\,\dot\phi\right) &= \rho\,N_b \quad &\text{(Eq. 4.53, axial component)}
+> \end{aligned}$$
+>
+> $$\boxed{N_b = -2m\omega R\cos\phi\,\dot\phi \quad (\rho \ne 0)}$$
+>
+> **Units:** $[\rho N_b] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the same value as the binormal component of part (b), obtained without inertia forces: the sideways push of the arc is what changes the angular momentum about the axis as the particle moves towards it.
 
-The root $\cos\phi = 0$ ($\phi = \pi/2$, the particle on the axis) is an equilibrium for every $\alpha$. Any other equilibrium must satisfy $\sin\phi_e = 1 - 2\alpha$. For $\phi_e = \pi/6$, $\sin\phi_e = \tfrac12$:
-
-$$ 2\alpha - 1 + \tfrac12 = 0 \implies \boxed{\alpha = \tfrac14} $$
-
-At that equilibrium, from part (b) with $\dot\phi = 0$: $N_b = 0$ and $N_n = -\tfrac14 m\omega^2R\,(1 - 1) - m\omega^2R\cdot\tfrac12\cdot\tfrac12 = -\tfrac14 m\omega^2R$, i.e. the arc pulls $P$ away from $O$ with force $\tfrac14 m\omega^2R$.
-
-##### (e) Types of motion for $\alpha = 1/4$, critical $\beta$ and reaction at $\phi = \pi/2$
-* **Pedagogical Justification:** The energy integral of part (c) is a first-order equation $\dot\phi^2 = \omega^2[\beta^2 - W(\phi)]$; motion is possible only where $W(\phi) \le \beta^2$, so the shape of $W$ classifies the motions, as with a one-dimensional potential.
-
-With $\alpha = \tfrac14$, $4\alpha - 2 = -1$:
-
-$$ \dot\phi^2 = \omega^2\left[\beta^2 - W(\phi)\right], \qquad W(\phi) = \sin\phi\,(1 - \sin\phi) $$
-
-On $[0, \pi/2]$: $W(0) = 0$, $W(\pi/2) = 0$, and $\dfrac{dW}{d\phi} = \cos\phi\,(1 - 2\sin\phi)$ vanishes inside the interval only at $\sin\phi = \tfrac12$, i.e. $\phi = \pi/6$, where $W$ has its maximum $W(\pi/6) = \tfrac12\cdot\tfrac12 = \tfrac14$. $W$ plays the role of a potential barrier, so the equilibrium $\phi = \pi/6$ is **unstable**. Three types of motion follow:
-
-* **$\beta \gt \tfrac12$:** $\dot\phi^2 \ge \omega^2(\beta^2 - \tfrac14) \gt 0$ on the whole arc, so $\phi$ increases monotonically, crosses the barrier at $\pi/6$ and reaches $\phi = \pi/2$ with $\dot\phi^2 = \omega^2[\beta^2 - 0]$, i.e. $\dot\phi = \beta\omega$: the relative speed there equals the initial one, $\beta\omega R$. The particle then leaves the arc at its upper end (part f).
-* **$\beta = \tfrac12$:** $\beta^2 - W = \tfrac14 - \sin\phi + \sin^2\phi = (\tfrac12 - \sin\phi)^2$, so $\dot\phi = \omega(\tfrac12 - \sin\phi)$. The particle approaches the unstable equilibrium $\phi = \pi/6$ asymptotically and never reaches it: near it, $\sin\phi \approx \tfrac12 + \tfrac{\sqrt3}{2}(\phi - \tfrac{\pi}{6})$ and $\dot\phi \approx -\tfrac{\sqrt3}{2}\omega\,(\phi - \tfrac{\pi}{6})$, an exponential approach with rate $\tfrac{\sqrt3}{2}\omega$.
-* **$\beta \lt \tfrac12$:** $\dot\phi$ vanishes at the turning point $\phi^*$ with $W(\phi^*) = \beta^2$, i.e. $\sin^2\phi^* - \sin\phi^* + \beta^2 = 0$; the root reached first is
-$$ \sin\phi^* = \frac{1 - \sqrt{1 - 4\beta^2}}{2} \lt \frac12 $$
-
-There $\ddot\phi = \omega^2\cos\phi^*\,(\sin\phi^* - \tfrac12) \lt 0$, so the particle turns back, returns to $\phi = 0$ with $\dot\phi = -\beta\omega$ (relative velocity $+\beta\omega R\,\mathbf{i}_1$, same speed by energy conservation) and leaves the quarter circumference at its lower end.
-
-**Critical value.** The particle reaches $\phi = \pi/2$ if and only if $\beta$ exceeds
-
-$$ \boxed{\beta_c = \tfrac12} $$
-
-**Reaction at $\phi = \pi/2$.** Here $\cos\phi = 0$, $\sin\phi = 1$, $\dot\phi = \beta\omega$, and $\mathbf{e}_n(\pi/2) = \mathbf{i}_1$. From part (b) with $\alpha = \tfrac14$:
-
-$$ N_b = -2m\omega R\,\beta\omega\cdot 0 = 0, \qquad N_n = mR\beta^2\omega^2 - \tfrac14 m\omega^2R\,(1 - 2) - m\omega^2R\cdot 1\cdot 0 = m\omega^2R\left(\beta^2 + \tfrac14\right) $$
-$$ \boxed{\mathbf{N}(\phi = \tfrac{\pi}{2}) = m\omega^2R\left(\beta^2 + \tfrac14\right)\mathbf{i}_1 \;\xrightarrow{\;\beta\to\beta_c\;}\; \tfrac12 m\omega^2R\,\mathbf{i}_1} $$
-
-It points towards $O$: it supplies the centripetal force $mR\dot\phi^2$ and also balances the spring, which pulls $P$ towards $B$ with $\tfrac14 m\omega^2R$. The centrifugal and Coriolis forces vanish there because $P$ is on the axis and moves parallel to it.
-
-##### (f) Maximum height after leaving the arc ($\beta \gt \beta_c$)
-* **Pedagogical Justification:** Once free, $P$ has three degrees of freedom, and the horizontal motion is coupled through the Coriolis and centrifugal forces. But every inertia force of a frame rotating about the vertical is horizontal, so the vertical component of $m\mathbf{a}_1^P = \mathbf{F} + \mathbf{F}_i$ involves only the spring and decouples.
-
-**Initial state of the free motion** (time $\tau = 0$ at separation): $\phi = \pi/2$ gives $\mathbf{r}_1^P = -R\,\mathbf{i}_1$ (on the axis, $z_1 = 0$), and $\mathbf{v}_1^P = R\dot\phi\,\mathbf{e}_t(\pi/2) = \beta\omega R\,\mathbf{k}_1$ (vertical, upward).
-
-**Vertical equation.** For a free position $\mathbf{r}_1^P = x_1\mathbf{i}_1 + y_1\mathbf{j}_1 + z_1\mathbf{k}_1$:
-
-* $\mathbf{k}_1\cdot\mathbf{F}_K = -K\,\mathbf{k}_1\cdot\left[(x_1 + 2R)\mathbf{i}_1 + y_1\mathbf{j}_1 + z_1\mathbf{k}_1\right] = -\alpha m\omega^2 z_1$;
-* $\mathbf{k}_1\cdot(\mathbf{F}_A + \mathbf{F}_C) = 0$, because $\mathbf{F}_A + \mathbf{F}_C = m\omega^2\left[(x_1 + R)\mathbf{i}_1 + y_1\mathbf{j}_1\right]$ is horizontal;
-* $\mathbf{k}_1\cdot\mathbf{F}_{COR} = -2m\,\mathbf{k}_1\cdot(\omega\mathbf{k}_1\times\mathbf{v}_1^P) = 0$, because $\mathbf{k}_1\times\mathbf{v}_1^P\perp\mathbf{k}_1$.
-
-Hence, with $\alpha = \tfrac14$,
-
-$$ m\ddot z_1 = -\alpha m\omega^2 z_1 \implies \ddot z_1 + \frac{\omega^2}{4}z_1 = 0 $$
-
-a harmonic oscillator of angular frequency $\omega/2$. Its general solution and derivative (chain rule $\tfrac{d}{d\tau}\sin\tfrac{\omega\tau}{2} = \tfrac{\omega}{2}\cos\tfrac{\omega\tau}{2}$) are
-
-$$ z_1 = C_1\cos\frac{\omega\tau}{2} + C_2\sin\frac{\omega\tau}{2}, \qquad \dot z_1 = -\frac{\omega}{2}C_1\sin\frac{\omega\tau}{2} + \frac{\omega}{2}C_2\cos\frac{\omega\tau}{2} $$
-
-Initial conditions: $z_1(0) = C_1 = 0$ and $\dot z_1(0) = \tfrac{\omega}{2}C_2 = \beta\omega R$, so $C_2 = 2\beta R$:
-
-$$ z_1(\tau) = 2\beta R\,\sin\frac{\omega\tau}{2} \implies \boxed{z_{max} = 2\beta R}\quad\text{reached at } \tau = \pi/\omega $$
-
-Since $\mathbf{k}_1 = \mathbf{k}$, this is also the height in the inertial frame, measured from the horizontal plane through $O$ and $B$. For a general $\alpha$ the same steps give $z_{max} = \beta R/\sqrt{\alpha}$. (Equivalently, the vertical motion conserves $\tfrac12 m\dot z_1^2 + \tfrac12 Kz_1^2$, and $\tfrac12 m(\beta\omega R)^2 = \tfrac12\cdot\tfrac14 m\omega^2 z_{max}^2$ gives the same result.) The result assumes that the free particle does not hit the wire again.
-
-##### Checks
-* **Competition of two forces.** Along the arc the spring pulls $P$ towards $B$ (towards larger $\phi$) with tangential force $2\alpha m\omega^2R\cos\phi$, while the centrifugal force about the axis pushes it away from the axis (towards smaller $\phi$) with $m\omega^2R(1 - \sin\phi)\cos\phi$. Both scale with $\omega^2$ because $K = \alpha m\omega^2$, so $\omega$ only sets the time scale $1/\omega$ and the dynamics depends on $\alpha$ and $\beta$ alone.
-* **Limiting cases.** For $\alpha \gt \tfrac12$ the factor $2\alpha - 1 + \sin\phi$ is positive on the whole arc and there is no interior equilibrium. For $\beta \to \beta_c^+$ the time to cross the barrier grows without bound (logarithmically), consistent with the asymptotic motion at $\beta = \beta_c$. As $\phi\to\pi/2$, both the Coriolis force and $N_b$ vanish, as they must for motion parallel to $\boldsymbol{\omega}_{10}$.
-* **Orthogonality:** $\mathbf{e}_t\cdot\mathbf{e}_n = 0$, $\mathbf{e}_t\times\mathbf{e}_n = \mathbf{j}_1$ and $\det[{}_1R_t] = \det[{}_0R_1] = 1$ (change-of-basis section).
-* **Inertial check.** Computing $\mathbf{a}_0^P$ by differentiating $\mathbf{r}_0^P = \mathbf{r}_0^O + [{}_0R_1]\mathbf{r}_1^P$ twice gives exactly $\mathbf{a}_0^O + \mathbf{a}_1^P + \boldsymbol{\omega}_{10}\times(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P) + 2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P$ (Notes Eq. 3.27), and $m\mathbf{a}_0^P = \mathbf{F}_K + \mathbf{N}$ holds with the reactions of part (b) (checked symbolically with sympy).
-* **Dimensions.** $[R\sin\phi] = [R\cos\phi] = \text{m}$; $[K] = [\alpha m\omega^2] = \text{kg}\cdot\text{s}^{-2} = \text{N/m}$; $[\ddot\phi] = [\omega^2] = \text{s}^{-2}$; $[N_n] = [m\omega^2R] = \text{kg}\cdot\text{m}\cdot\text{s}^{-2} = \text{N}$; $[E_1^P] = [m\omega^2R^2] = \text{J}$; $[z_{max}] = [\beta R] = \text{m}$.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 30 in its solution keys, so the results are verified by independent derivation (energy equivalence of part (c) and the symbolic inertial check above).
+> [!derivation] Limiting cases
+> **Law:** the results at extreme values of the data
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Sec. 4.6
+>
+> $$\begin{aligned}
+> \alpha \to 0:\quad \ddot\phi &= -\omega^2\cos\phi\left(1 - \sin\phi\right) \le 0 \quad &\text{(no spring: pushed to the lowest point, farthest from the axis)} \\
+> \alpha \gt \tfrac12:\quad 2\alpha - 1 + \sin\phi &\gt 0 \text{ on } \left[0, \tfrac{\pi}{2}\right] \quad &\text{(no interior equilibrium: the spring wins everywhere)} \\
+> \phi = \tfrac{\pi}{2}:\quad \mathbf F_A + \mathbf F_C &= \mathbf 0, \quad \mathbf F_{COR} = \mathbf 0 \quad &\text{(on the axis, moving along it)} \\
+> \beta \to \tfrac12^+:\quad t\left(\tfrac{\pi}{2}\right) &\to \infty \quad &\text{(the quadrature diverges like the logarithm at the top of the barrier)}
+> \end{aligned}$$
+>
+> $$\boxed{\alpha \to 0: \text{ particle driven to } \phi = 0; \quad \alpha \gt \tfrac12: \text{ no interior equilibrium}; \quad \beta \to \beta_c^+: \text{ infinite time to reach } \tfrac{\pi}{2}}$$
+>
+> **Units:** $[\alpha] = [\beta] = [1]$
+> **Meaning:** both forces scale with the square of the rate, because the stiffness is a multiple of the mass times the squared rate; the rate only sets the time scale, and the type of motion depends on $\alpha$ and $\beta$ alone.
 
 ---
 

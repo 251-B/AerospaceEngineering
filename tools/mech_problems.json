@@ -237,8 +237,7 @@
   "title": "Particle on a Rotating Quarter Circumference with a Spring",
   "badge": "Rotating Frame + Path Variables",
   "source_note": "",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "31": {
   "topic": 3,
@@ -262,8 +261,7 @@
   "title": "Two Repelling Particles on a Rotating Parabola",
   "badge": "Rotating Wire + Two Particles",
   "source_note": "(PDF page 21); key on PDF page 75",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "34": {
   "topic": 5,
@@ -271,7 +269,6 @@
   "badge": "Oscillating Plane + Euler Force",
   "source_note": "(PDF page 22); key on PDF page 75",
   "structure": 3,
-  "boxed": false,
   "badges": [
    "In-Class Session 12",
    "Oscillations - Lecture 6 (part f)"
@@ -293,16 +290,14 @@
   "title": "Pendulum String Dragged by a Rotating Bar",
   "badge": "Rotating Frame + String Constraint",
   "source_note": "(PDF page 24); key on PDF page 75",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "37": {
   "topic": 5,
   "title": "Particle on a Spinning Elliptic Cone",
   "badge": "Rotating Constraint Surface",
   "source_note": "(PDF page 25); key on PDF page 75",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "38": {
   "topic": 3,
