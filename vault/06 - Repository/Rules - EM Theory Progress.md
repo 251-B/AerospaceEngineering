@@ -19,7 +19,7 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 
 | Topic | Note | Figures | Page | Links | PDF | Audit | State | Commit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 Kinematics of a Point Particle | done: 97 boxes, Ch. 1-2, Lecture 1 Slides 3-29 | done: 28 (`em_th/t1.py`, `t1b.py`) | generated | done | pending | in progress | in progress | `48ba132` |
+| 1 Kinematics of a Point Particle | done: 102 boxes, Ch. 1-2, Lecture 1 Slides 3-29 | done: 28 (`em_th/t1.py`, `t1b.py`) | generated | done | printed | done: 22 findings, all verified and applied | done | see `git log` (`feat(mechanics): close Topic 1 theory`) |
 | 2 Dynamics, Equilibrium and Oscillations | | | | | | | not started | |
 | 3 Constraints and Reaction Forces | | | | | | | not started | |
 | 4 Angular Momentum and Central Forces | | | | | | | not started | |
@@ -39,6 +39,8 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 
 - **Anchors of chapters 1 to 8.** `tools/source_anchors.json` had few anchors for chapters 1 to 8 (none for chapter 7). They are refreshed with a script that runs `--refresh-anchors` and keeps every other block as it was (`em-notes`: 320 to 565 anchors). Side effect: citations of chapters 1 to 8 already present on the problem pages of Topics 1-4 and 6-8 and on the Topic 6 theory page become links too, so those pages change (tool output, committed) and their PDFs become stale. Their PDFs are not reprinted on this branch, to avoid binary conflicts with the orchestrator, who reprints the problem PDFs at the closing (98 problem PDFs were already stale at the start of this branch).
 - **Source issues found in Topic 1** (callouts in the note): erratum to Notes.pdf Eq. 1.76, every component of the curl printed with the opposite sign (checked on the PDF page by the orchestrator); reversed wording in Sec. 1.5.3; two typos in Sec. 1.6.7 and Eq. 1.44.
+
+- **Topic 1 audit** (read-only, Opus): no wrong result or citation; 22 findings applied (latitude and colatitude glyphs swapped in four figures, the Cartesian projections of Slides 19 and 22 written out, the helix example derived from its position vector, merged rows split, symbols used twice renamed, four attributions to the sources toned down, the stray comma of Eq. 2.29 noted, seven figure defects).
 
 ## Conflicts between the brief and the repository (not resolved silently)
 

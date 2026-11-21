@@ -6,6 +6,16 @@
 <line x1="130.0" y1="265.0" x2="130.0" y2="118.6" stroke="#8a94a6" stroke-width="1.4"/>
 <path d="M130.0,113.8 L133.1,121.2 L126.9,121.2 Z" fill="#8a94a6"/>
 <text x="146.0" y="117.8" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<polygon points="130.0,265.0 226.5,265.0 226.5,184.0" fill="#f59e0b" fill-opacity="0.18" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="226.5" y1="265.0" x2="226.5" y2="184.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="220.9,265.0 220.9,259.4 226.5,259.4" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<text x="178.3" y="287.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos θ<tspan baseline-shift="sub" font-size="70%">z</tspan></text>
+<text x="235.5" y="229.5" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin θ<tspan baseline-shift="sub" font-size="70%">z</tspan></text>
+<polygon points="130.0,265.0 130.0,168.5 49.0,168.5" fill="#f59e0b" fill-opacity="0.18" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="130.0" y1="168.5" x2="49.0" y2="168.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="130.0,174.1 124.4,174.1 124.4,168.5" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<text x="140.0" y="221.7" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos θ<tspan baseline-shift="sub" font-size="70%">z</tspan></text>
+<text x="85.5" y="158.5" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−sin θ<tspan baseline-shift="sub" font-size="70%">z</tspan> <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan></text>
 <line x1="130.0" y1="265.0" x2="221.5" y2="188.3" stroke="#3b82f6" stroke-width="2.6"/>
 <path d="M226.5,184.0 L221.5,193.8 L216.0,187.2 Z" fill="#3b82f6"/>
 <text x="248.5" y="176.0" fill="#4b5563" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>

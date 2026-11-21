@@ -17,12 +17,12 @@
 <text x="417.2" y="321.9" fill="#f59e0b" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r</text>
 <path d="M290.0,450.0 A100.0,100.0 0 0 0 271.9,392.6" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
 <path d="M270.2,390.2 L277.8,395.0 L272.1,399.0 Z" fill="#10b981"/>
-<text x="327.5" y="413.9" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<text x="327.5" y="413.9" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ϕ</text>
 <path d="M190.0,280.0 A170.0,170.0 0 0 1 329.3,352.5" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
 <path d="M331.0,354.9 L323.4,350.2 L329.1,346.1 Z" fill="#10b981"/>
-<text x="287.0" y="268.7" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ϕ</text>
-<text x="329.3" y="476.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r cos φ (adjacent, the cylindrical radius R)</text>
-<text x="480.5" y="357.5" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">z = r sin φ (opposite)</text>
+<text x="287.0" y="268.7" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<text x="329.3" y="476.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r cos ϕ (adjacent, the cylindrical radius R)</text>
+<text x="480.5" y="357.5" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">z = r sin ϕ (opposite)</text>
 <text x="476.5" y="442.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P′</text>
 <polygon points="468.5,255.0 591.4,255.0 591.4,168.9" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
 <polygon points="468.5,255.0 468.5,132.1 382.5,132.1" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
@@ -37,17 +37,17 @@
 <text x="615.4" y="164.9" fill="#3b82f6" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">r</tspan></text>
 <line x1="468.5" y1="255.0" x2="386.6" y2="138.0" stroke="#3b82f6" stroke-width="3.4"/>
 <path d="M382.5,132.1 L392.6,138.5 L385.0,143.8 Z" fill="#3b82f6"/>
-<text x="356.5" y="124.1" fill="#3b82f6" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">φ</tspan></text>
+<text x="356.5" y="124.1" fill="#3b82f6" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">ϕ</tspan></text>
 <path d="M523.5,255.0 A55.0,55.0 0 0 0 513.6,223.4" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
 <path d="M511.8,221.0 L519.5,225.8 L513.7,229.8 Z" fill="#10b981"/>
-<text x="556.3" y="232.9" fill="#10b981" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<text x="556.3" y="232.9" fill="#10b981" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ϕ</text>
 <path d="M468.5,200.0 A55.0,55.0 0 0 0 437.0,209.9" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
 <path d="M434.5,211.7 L439.3,204.0 L443.3,209.8 Z" fill="#10b981"/>
-<text x="439.4" y="174.1" fill="#10b981" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
-<text x="529.9" y="273.0" fill="#4b5563" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos φ</text>
-<text x="599.4" y="217.0" fill="#4b5563" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin φ</text>
-<text x="476.5" y="156.8" fill="#4b5563" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos φ</text>
-<text x="425.5" y="124.1" fill="#4b5563" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−sin φ <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">R</tspan></text>
+<text x="439.4" y="174.1" fill="#10b981" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ϕ</text>
+<text x="529.9" y="273.0" fill="#4b5563" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos ϕ</text>
+<text x="599.4" y="217.0" fill="#4b5563" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">sin ϕ</text>
+<text x="476.5" y="156.8" fill="#4b5563" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">cos ϕ</text>
+<text x="425.5" y="124.1" fill="#4b5563" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−sin ϕ <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">R</tspan></text>
 <circle cx="468.5" cy="255.0" r="4.4" fill="#f59e0b"/>
 <text x="462.5" y="291.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
 <circle cx="190.0" cy="450.0" r="2.0" fill="#4b5563"/>
@@ -55,14 +55,14 @@
 <text x="833.0" y="226.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">[<tspan baseline-shift="sub" font-size="70%">cyl</tspan>R<tspan baseline-shift="sub" font-size="70%">sph</tspan>]</text>
 <polyline points="718.0,244.0 712.0,244.0 712.0,325.0 718.0,325.0" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
 <polyline points="948.0,244.0 954.0,244.0 954.0,325.0 948.0,325.0" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
-<text x="755.0" y="263.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">cos φ</text>
+<text x="755.0" y="263.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">cos ϕ</text>
 <text x="833.0" y="263.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
-<text x="911.0" y="263.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">−sin φ</text>
+<text x="911.0" y="263.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">−sin ϕ</text>
 <text x="755.0" y="290.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
 <text x="833.0" y="290.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">1</text>
 <text x="911.0" y="290.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
-<text x="755.0" y="317.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">sin φ</text>
+<text x="755.0" y="317.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">sin ϕ</text>
 <text x="833.0" y="317.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">0</text>
-<text x="911.0" y="317.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">cos φ</text>
-<text x="828.0" y="350.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">rotation by −φ about <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<text x="911.0" y="317.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">cos ϕ</text>
+<text x="828.0" y="350.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">rotation by −ϕ about <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
 </g></svg>

@@ -207,8 +207,8 @@ def trajectory_triad():
     P1, P2 = _space(ub), _space(uc)
     et, en, eb = _triad(_space, ub)
     L = 1.4
-    corners = [_v3(_v3(P1, et, L * a), en, L * b) for a, b in ((-0.5, -0.4), (1.5, -0.4), (1.5, 1.5), (-0.5, 1.5))]
-    _poly3(sc, corners, "EDGE", 1.2, "5 4", "EDGE", True, 0.10)
+    corners = [_v3(_v3(P1, et, L * a), en, L * b) for a, b in ((-0.35, -0.3), (1.3, -0.3), (1.3, 1.05), (-0.35, 1.05))]
+    _poly3(sc, corners, "EDGE", 1.4, "5 4", "EDGE", True, 0.16)
     sc.label(P3(corners[1]), "osculating plane", "TEXT", "start", 15, dx=10, dy=4, italic=False)
     _vec3(sc, O, P1, None, ORANGE, 2.2, head=10)
     _vec3(sc, O, P2, None, ORANGE, 2.2, head=10)
@@ -225,7 +225,7 @@ def trajectory_triad():
     sc.label(P3(_space((ub + uc) / 2)), "Δs", "HEAD", "start", 17, dx=12, dy=22)
     p0 = P3(_space(u0))
     _tick2(sc, p0, P3(_deriv3(_space, u0)))
-    sc.label(p0, "s = s(t)", "HEAD", "end", 16, dx=-10, dy=14)
+    sc.label(p0, "s = 0", "HEAD", "end", 16, dx=-10, dy=14)
     sc.dotp(P3(O), 3.5)
     sc.label(P3(O), "O", "HEAD", "end", 17, dx=-8, dy=-6)
     return sc

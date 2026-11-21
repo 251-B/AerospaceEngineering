@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-21-mechanics-topic-1-theory",
+    "date": "2026-11-21",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 1 theory rewritten step by step",
+    "text": "Point particle kinematics now builds every result in boxed steps, from rotation matrices to cylindrical and spherical coordinates, with 28 new figures.",
+    "link": "subjects/engineering-mechanics/teoria/topic-1.html"
+  },
+  {
     "id": "2026-11-16-mechanics-topic-4-problems",
     "date": "2026-11-16",
     "tag": "Engineering Mechanics",

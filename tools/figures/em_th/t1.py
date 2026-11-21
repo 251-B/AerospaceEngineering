@@ -326,7 +326,7 @@ def two_rotations():
     i2, j2, k2 = (bold(c) + S("", "2") for c in "ijk")
     # panel 1: plane Oxy, k0 = k1 out of the paper
     O1 = (0.0, 0.0)
-    _rot2d(sc, O1, 1.8, tz, {"h0": i0, "v0": j0, "h1": i1, "v1": j1}, tzn, "", 0.62, 0.98, tri_h=False, tri_v=False, sz=14)
+    _rot2d(sc, O1, 1.8, tz, {"h0": i0, "v0": j0, "h1": i1, "v1": j1}, tzn, MINUS + _cs("sin", "z") + " " + i0, 0.62, 0.98, tri_h=True, tri_v=True, sz=14)
     axis_out(sc, O1, k0 + " ≡ " + k1, "HEAD", off=(-48, 28))
     sc.dotp(O1, 2.0, "HEAD")
     _pl(sc, 20, 24, "first rotation, about " + k0, "TEXT", "start", 13)
@@ -427,7 +427,16 @@ def dot_product():
         r"Direction angles $\alpha$, $\beta$, $\gamma$ of a unit vector, each between $0$ and $\pi$; their cosines are the "
         r"components of $\mathbf e$ (Notes.pdf Fig. 1.4).")
 def direction_angles():
-    sc = Scene(600, 450, (200, 322), 78)
+    global EX
+    saved, EX = EX, (-0.66, -0.20)      # the usual view is edge-on to the plane of i and e: tilt it so that alpha curves
+    try:
+        return _direction_angles()
+    finally:
+        EX = saved
+
+
+def _direction_angles():
+    sc = Scene(640, 450, (245, 322), 78)
     U = 2.4
     O = (0.0, 0.0, 0.0)
     e = _unit3((0.5, 0.6, 0.62))
@@ -440,7 +449,7 @@ def direction_angles():
     for v, nm, off in (((1, 0, 0), "i", (-12, 12)), ((0, 1, 0), "j", (8, 20)), ((0, 0, 1), "k", (-12, 4))):
         _vec3(sc, O, _mul(v, U), bold(nm), "HEAD", 3.0, off=off, size=17, head=11)
     _vec3(sc, O, _mul(e, U), bold("e"), ORANGE, 3.4, off=(14, -6), size=18, head=12)
-    for v, nm, r, dxy in (((1, 0, 0), "α", 2.0, (18, 22)), ((0, 1, 0), "β", 1.0, (14, 8)), ((0, 0, 1), "γ", 1.4, (-14, -2))):
+    for v, nm, r, dxy in (((1, 0, 0), "α", 2.0, (-14, -10)), ((0, 1, 0), "β", 1.0, (14, 8)), ((0, 0, 1), "γ", 1.4, (-4, -22))):
         mid = _arc3(sc, v, e, r, "GREEN")
         sc.label(mid, nm, "GREEN", "middle", 17, dx=dxy[0], dy=dxy[1])
     sc.dotp(P3(O), 3.5)
@@ -553,7 +562,7 @@ def moment():
     sc.vec(O, P, None, "HEAD", 3.0, head=11)
     sc.vec(P, tip, bold("A"), ORANGE, 3.6, name_off=(4, -16), size=18, head=12)
     right_angle(sc, H, 90 + a, a, 0.12)
-    sc.label(_add(O, nrm, h / 2), "h = " + bold("OP") + S("", "⊥"), "HEAD", "start", 16, dx=12, dy=0)
+    sc.label(_add(O, nrm, h / 2), "h = |" + bold("OP") + S("", "⊥") + "|", "HEAD", "start", 16, dx=12, dy=0)
     sc.label(_add(H, u, 1.2), bold("OP") + S("", "∥"), "HEAD", "middle", 16, dx=-6, dy=26)
     sc.label(_add(O, P, 0.5), bold("OP"), "HEAD", "middle", 16, dx=24, dy=-10)
     sc.label(_add(O, Q, 0.62), bold("OP") + "′", "TEXT", "middle", 16, dx=36, dy=-14)
@@ -626,7 +635,7 @@ def rotating_vector_3d():
     _vec3(sc, O, Apar, None, ORANGE, 2.2, head=9)
     _line3(sc, Apar, A, "TEXT", 1.5, "6 4")
     _vec3(sc, O, _mul(ew, 1.2), None, DRED, 4.0, head=12)
-    sc.label(P3(_mul(ew, 2.5)), bold("e") + S("", "ω"), "HEAD", "start", 17, dx=12, dy=4)
+    sc.label(P3(_mul(ew, 1.2)), bold("e") + S("", "ω"), "HEAD", "start", 17, dx=14, dy=-2)
     _vec3(sc, O, A, bold("A"), ORANGE, 3.2, off=(16, 6), size=18, head=11)
     sc.label(P3(_mul(Apar, 0.55)), bold("A") + S("", "∥"), ORANGE, "end", 16, dx=-26, dy=6)
     sc.label(P3(_v3(Apar, _mul(m, R), 0.5)), bold("A") + S("", "⊥"), ORANGE, "middle", 16, dx=4, dy=26)
@@ -638,10 +647,11 @@ def rotating_vector_3d():
     Aperp2 = _v3(_mul(m, R * math.cos(f)), _mul(nn, R * math.sin(f)))
     A2 = _v3(Apar, Aperp2)
     _vec3(sc, Apar, Aperp2, None, ORANGE, 1.8, head=9)
+    sc.label(P3(_v3(Apar, Aperp2, 0.5)), bold("A") + S("", "⊥") + " + d" + bold("A") + S("", "⊥"), ORANGE, "middle", 15, dx=-4, dy=-12)
     _vec3(sc, A, _v3(A2, A, -1.0), None, DRED, 3.0, head=10)
     sc.label(P3(A2), "d" + bold("A") + S("", "⊥"), "HEAD", "start", 16, dx=12, dy=-4)
     _circ3(sc, Apar, m, nn, 0.8, 0, dth, "GREEN", head=True)
-    sc.label(P3(_v3(Apar, _v3(_mul(m, 1.35 * math.cos(f / 2)), _mul(nn, 1.35 * math.sin(f / 2))))), "dθ", "GREEN", "middle", 16, dx=0, dy=-8)
+    sc.label(P3(_v3(Apar, _v3(_mul(m, 1.35 * math.cos(f / 2)), _mul(nn, 1.35 * math.sin(f / 2))))), "dθ", "GREEN", "middle", 16, dx=-24, dy=-4)
     # rotation sense about the axis (right-hand rule)
     _circ3(sc, _mul(ew, 3.6), m, nn, 0.5, 30, 300, "GREEN", head=True, w=1.8)
     sc.label(P3(_mul(ew, 3.6)), dot1("θ"), "GREEN", "start", 17, weight="700", dx=46, dy=-6)
