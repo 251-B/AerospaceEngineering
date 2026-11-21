@@ -240,7 +240,7 @@ The free-body diagram of the skater in $S_1$ shows the weight and the normal rea
 > $$\boxed{\ddot\psi + \omega^2\sin\psi = 0, \qquad T = ma\left[\dot\psi^2 + 2\omega\dot\psi + \omega^2\left(1 + \cos\psi\right)\right], \qquad N = mg}$$
 >
 > **Units:** $[\ddot\psi] = [\omega^2] = [\mathrm{T^{-2}}]$; $[T] = [ma\dot\psi^2] = [\mathrm{M\,L\,T^{-2}}]$
-> **Meaning:** three scalar equations for the three unknowns $\psi$, $T$ and $N$. In $S_1$ the skater swings like a pendulum of length $a$ hung from $A$, with the effective field $a\omega^2$ pointing along plus $\mathbf i_1$, away from $O$; $\psi$ zero is its stable bottom.
+> **Meaning:** three scalar equations for the three unknowns $\psi$, $T$ and $N$. In $S_1$ the skater swings like a pendulum of length $a$ hung from $A$, with the effective field $a\omega^2$ pointing along plus $\mathbf i_1$, away from $O$; $\psi$ zero is its stable bottom. The analogy is exact for the motion (the component along $\mathbf u_\perp$) but not for the tension: along the bar the centrifugal force is $ma\omega^2(1 + \cos\psi)$, not the $ma\omega^2\cos\psi$ of a uniform field, and the Coriolis force adds to it.
 
 ### Answers and Checks
 
@@ -309,7 +309,9 @@ The free-body diagram of the skater in $S_1$ shows the weight and the normal rea
 > \int_0^{\psi}\frac{d\psi'}{2\cos(\psi'/2)} &= \int_0^{\psi/2}\frac{2\,dw}{2\cos w} = \int_0^{\psi/2}\frac{dw}{\cos w} \quad &\text{(substitution $\psi' = 2w$)} \\
 > &= \left[\ln\left|\sec w + \tan w\right|\right]_0^{\psi/2} = \ln\left(\sec\frac{\psi}{2} + \tan\frac{\psi}{2}\right) - \ln 1 \quad &\text{(Barrow's rule; the argument is positive for $|\psi/2| \lt \pi/2$)} \\
 > -\int_0^t\omega\,dt' &= -\omega\left[t'\right]_0^t = -\omega t \quad &\text{(antiderivative $t'$; Barrow's rule)} \\
-> \sec x + \tan x &= \frac{1 + \sin x}{\cos x} = \frac{\left(\cos\tfrac{x}{2} + \sin\tfrac{x}{2}\right)^2}{\cos^2\tfrac{x}{2} - \sin^2\tfrac{x}{2}} = \frac{1 + \tan\tfrac{x}{2}}{1 - \tan\tfrac{x}{2}} = \tan\left(\frac{\pi}{4} + \frac{x}{2}\right) \quad &\text{(half-angle forms; tangent of a sum)} \\
+> \sec x + \tan x &= \frac{1 + \sin x}{\cos x} = \frac{\left(\cos\tfrac{x}{2} + \sin\tfrac{x}{2}\right)^2}{\cos^2\tfrac{x}{2} - \sin^2\tfrac{x}{2}} \quad &\text{(half-angle forms: $1 + \sin x = (\cos\tfrac{x}{2} + \sin\tfrac{x}{2})^2$, $\cos x = \cos^2\tfrac{x}{2} - \sin^2\tfrac{x}{2}$)} \\
+> &= \frac{\left(\cos\tfrac{x}{2} + \sin\tfrac{x}{2}\right)^2}{\left(\cos\tfrac{x}{2} - \sin\tfrac{x}{2}\right)\left(\cos\tfrac{x}{2} + \sin\tfrac{x}{2}\right)} = \frac{\cos\tfrac{x}{2} + \sin\tfrac{x}{2}}{\cos\tfrac{x}{2} - \sin\tfrac{x}{2}} \quad &\text{(difference of squares; common factor cancelled)} \\
+> &= \frac{1 + \tan\tfrac{x}{2}}{1 - \tan\tfrac{x}{2}} = \tan\left(\frac{\pi}{4} + \frac{x}{2}\right) \quad &\text{(numerator and denominator divided by $\cos\tfrac{x}{2}$; tangent of a sum with $\tan\tfrac{\pi}{4} = 1$)} \\
 > \tan\left(\frac{\pi}{4} + \frac{\psi}{4}\right) &= e^{-\omega t} \quad &\text{(exponential of both sides, $x = \psi/2$)} \\
 > \psi &= 4\arctan\left(e^{-\omega t}\right) - \pi \quad &\text{(solved; $\pi/4 + \psi/4$ lies between 0 and $\pi/4$)} \\
 > \cos\frac{\psi}{2} &= \cos\left(2\arctan e^{-\omega t} - \frac{\pi}{2}\right) = \sin\left(2\arctan e^{-\omega t}\right) = \frac{2e^{-\omega t}}{1 + e^{-2\omega t}} = \frac{1}{\cosh\omega t} \quad &\text{($\sin 2\beta = 2\tan\beta/(1 + \tan^2\beta)$)}
@@ -353,7 +355,7 @@ The free-body diagram of the skater in $S_1$ shows the weight and the normal rea
 > T &= 0 \iff 3c - 2 = 0 \iff \cos\frac{\psi}{2} = \frac23 \quad &\text{(first zero of the tension)} \\
 > \psi_\ell &= -2\arccos\frac23 = -1.6821\ \text{rad} = -96.38^\circ \quad &\text{(negative branch of the motion)} \\
 > \cosh\omega t_\ell &= \frac32 \quad &\text{($c = 1/\cosh\omega t$)} \\
-> e^{\omega t_\ell} &= \frac32 + \sqrt{\frac94 - 1} = \frac{3 + \sqrt5}{2} \quad &\text{(positive root of $e^{2x} - 3e^x + 1 = 0$)} \\
+> e^{\omega t_\ell} &= \frac32 + \sqrt{\frac94 - 1} = \frac{3 + \sqrt5}{2} \quad &\text{(roots of $e^{2x} - 3e^x + 1 = 0$ are $(3\pm\sqrt5)/2$, both positive; $t_\ell \gt 0$ needs $e^{\omega t_\ell} \gt 1$, so the larger one; the other is the mirror time $-t_\ell$)} \\
 > \omega t_\ell &= \ln\frac{3 + \sqrt5}{2} = 0.9624 \quad &\text{(logarithm)} \\
 > \left|\mathbf r_1^B\right| &= a\sqrt{2\left(1 + \cos\psi_\ell\right)} = 2a\cos\frac{\psi_\ell}{2} = \frac43\,a \quad &\text{(distance from $O$ at that instant)}
 > \end{aligned}$$
@@ -361,7 +363,7 @@ The free-body diagram of the skater in $S_1$ shows the weight and the normal rea
 > $$\boxed{\text{the string goes slack at } \psi_\ell = -2\arccos\frac23 \simeq -96.38^\circ, \quad t_\ell = \frac{1}{\omega}\ln\frac{3 + \sqrt5}{2} \simeq \frac{0.9624}{\omega}}$$
 >
 > **Units:** $[t_\ell] = [\omega^{-1}] = [\mathrm{T}]$; angles dimensionless
-> **Meaning:** yes, it goes slack, once, after the string has turned 96.38 degrees clockwise from $Ox_1$ (it lags behind the vehicle), when the skater is at four thirds of $a$ from the centre. From then on no force acts in the plane and the skater moves in a straight line in $S_0$.
+> **Meaning:** yes, it goes slack, once, after the string has turned 96.38 degrees clockwise from $Ox_1$ (it lags behind the vehicle), when the skater is at four thirds of $a$ from the centre. From then on, until the string becomes taut again (not studied here), no force acts in the plane and the skater moves in a straight line in $S_0$.
 
 | Part of the statement | Answer |
 | :--- | :--- |
@@ -450,7 +452,7 @@ The free-body diagram of the skater in $S_1$ shows the weight and the normal rea
 
 ### Reference Frames, Bases and Coordinates
 
-Two trains $A$ and $B$ run on parallel tracks separated by the distance $a$, with absolute velocities $v_A$ and $v_B$; the statement asks for the velocity of each train relative to the other, first for the two straight tracks and then when train $B$ runs on a circular track of radius $R$ whose minimum distance to the straight track of $A$ is $a$ (Problems.pdf, p. 8). The problem is kinematic only: both motions are given. The observer of each train is a reference frame attached to it, and the velocity seen by a moving observer follows from the derivative of a vector in a moving frame, Notes.pdf, Sec. 3.1 and Sec. 3.2.
+Two trains $A$ and $B$ run on parallel tracks separated by the distance $a$, with absolute velocities $v_A$ and $v_B$; the statement asks for the velocity of each train relative to the other, first for the two straight tracks and then when train $B$ runs on a circular track of radius $R$ whose minimum distance to the straight track of $A$ is $a$ (Problems.pdf, p. 8). The problem is kinematic only: both motions are given. The observer of each train is read as a reference frame attached to it; on the circular track that frame turns with train $B$ (a reading: an observer on $B$ that only translates is also considered in the answers), and the velocity seen by a moving observer follows from the derivative of a vector in a moving frame, Notes.pdf, Sec. 3.1 and Sec. 3.2.
 
 | Item | Definition |
 | :--- | :--- |
@@ -463,7 +465,7 @@ Two trains $A$ and $B$ run on parallel tracks separated by the distance $a$, wit
 | Coordinates | case 1: abscissas of the trains along $\mathbf i_0$; case 2: abscissa of $A$ and the angle $\theta_B$ of the segment from $C$ to $B$, measured at $C$ from the downward vertical (minus $\mathbf j_0$), positive about $\mathbf k$ |
 | Degrees of freedom | 1 per train (each is constrained to its track), both prescribed: no unknown coordinate |
 | Data | $a$ [m], $R$ [m], $v_A$, $v_B$ [m s$^{-1}$]; angular rate of train $B$ on the circle $\omega_B = v_B/R$ [rad s$^{-1}$] |
-| Hypotheses | the tracks lie in one plane; the speeds are constant; $v_A$ and $v_B$ are signed components (positive along $\mathbf i_0$ where the trains are side by side; a train running the other way has a negative value); at the initial instant $A$ is at $O$ and $B$ at the point of its track closest to the track of $A$ (another initial position of $A$ only adds a constant to its abscissa) |
+| Hypotheses | the tracks lie in one plane; the speeds are constant; $v_A$ and $v_B$ are signed components (positive along $\mathbf i_0$ where the trains are side by side; a train running the other way has a negative value); at the initial instant $A$ is at $O$ and $B$ at the point of its track closest to the track of $A$; the case 2 answers hold for this initial configuration: with $A$ starting at the abscissa $x_{A0}$ the observer on $B$ reads $[v_A - v_B(R + a)/R]\,\mathbf i_0 - (v_B/R)(x_{A0} + v_A t)\,\mathbf j_0$, and another initial angle of $B$ shifts every sine and cosine of $\theta_B$ |
 | Unknowns | the relative velocities $\mathbf v_A^B$ and $\mathbf v_B^A$ in each case |
 
 ### Change of Basis and Position Vector
@@ -676,19 +678,21 @@ Two trains $A$ and $B$ run on parallel tracks separated by the distance $a$, wit
 > $$\begin{aligned}
 > \mathbf v_A^B &= \left(v_B\cos\frac{v_Bt}{R} - v_A\right)\mathbf i_0 + v_B\sin\frac{v_Bt}{R}\,\mathbf j_0 \quad &\text{(observer on $A$, not turning)} \\
 > \mathbf v_B^A &= \left[v_A - v_B\,\frac{R + a}{R}\right]\mathbf i_0 - \frac{v_Av_Bt}{R}\,\mathbf j_0 \quad &\text{(observer on $B$, turning with the train)} \\
-> \left|\mathbf v_B^A\right|^2 &= \left(v_A - v_B\,\frac{R + a}{R}\right)^2 + \left(\frac{v_Av_Bt}{R}\right)^2 \quad &\text{(sum of squares)}
+> \left|\mathbf v_B^A\right|^2 &= \left(v_A - v_B\,\frac{R + a}{R}\right)^2 + \left(\frac{v_Av_Bt}{R}\right)^2 \quad &\text{(sum of squares)} \\
+> \mathbf v_{B'}^A &= \mathbf v_0^A - \mathbf v_0^B = -\mathbf v_A^B = \left(v_A - v_B\cos\theta_B\right)\mathbf i_0 - v_B\sin\theta_B\,\mathbf j_0 \quad &\text{(other reading: observer $S_{B'} = \{B;\ \mathcal B_0\}$ that only translates, Eq. 3.28)}
 > \end{aligned}$$
 >
 > $$\boxed{\mathbf v_A^B = \left(v_B\cos\frac{v_Bt}{R} - v_A\right)\mathbf i_0 + v_B\sin\frac{v_Bt}{R}\,\mathbf j_0, \qquad \mathbf v_B^A = \left[v_A - v_B\,\frac{R + a}{R}\right]\mathbf i_0 - \frac{v_Av_Bt}{R}\,\mathbf j_0 \ne -\mathbf v_A^B}$$
 >
 > **Units:** $[\mathrm{L\,T^{-1}}]$
-> **Meaning:** the two answers are no longer opposite: the observer on $B$ turns, and the transport term adds to his reading a part proportional to the distance of $A$ from him, which here grows with time.
+> **Meaning:** with the reading of an observer that turns with $B$, the two answers are no longer opposite: the observer on $B$ turns, and the transport term adds to his reading a part proportional to the distance of $A$ from him, which here grows with time. With the other reading, an observer on $B$ that does not turn, the answer is just minus the velocity of $B$ relative to $A$.
 
 | Part of the statement | Answer |
 | :--- | :--- |
 | Case 1, velocity of $B$ relative to $A$ | $\mathbf v_A^B = (v_B - v_A)\,\mathbf i_0$ |
 | Case 1, velocity of $A$ relative to $B$ | $\mathbf v_B^A = (v_A - v_B)\,\mathbf i_0$ |
 | Case 2, velocity of $B$ relative to $A$ | $\mathbf v_A^B = (v_B\cos(v_Bt/R) - v_A)\,\mathbf i_0 + v_B\sin(v_Bt/R)\,\mathbf j_0$, modulus $\sqrt{v_A^2 + v_B^2 - 2v_Av_B\cos(v_Bt/R)}$ |
+| Case 2, velocity of $A$ relative to $B$, observer not turning (other reading) | $\mathbf v_{B'}^A = -\mathbf v_A^B = (v_A - v_B\cos(v_Bt/R))\,\mathbf i_0 - v_B\sin(v_Bt/R)\,\mathbf j_0$ |
 | Case 2, velocity of $A$ relative to $B$ (frame turning with $B$) | $\mathbf v_B^A = [v_A - v_B(R + a)/R]\,\mathbf i_0 - (v_Av_Bt/R)\,\mathbf j_0$; in the basis of the train, $\dot x\,\mathbf i_B + \dot y\,\mathbf j_B$ with $\dot x$ and $\dot y$ of the kinematics box |
 | Intermediate results | $\omega_B = v_B/R$; $\mathbf r_B^A = x\,\mathbf i_B + y\,\mathbf j_B$ with $x = v_At\cos\theta_B - (R + a)\sin\theta_B$, $y = R - (R + a)\cos\theta_B - v_At\sin\theta_B$ |
 
@@ -733,7 +737,7 @@ A cylindrical spaceship of radius $R$ spins with constant angular velocity $\ome
 | Applied forces | none other than the floor: no external gravity (deep space) |
 | Constraint force | the total force of the floor on her feet, $\mathbf N$ (normal part and any friction) |
 | Inertia forces (in $S_1$) | of the origin, Euler, centrifugal and Coriolis (Notes.pdf, Eq. 4.62) |
-| Artificial gravity | what she feels as weight is the force she must receive from the floor: $g_{art}$ is the magnitude of $\mathbf N$ per unit mass, felt in the direction opposite to $\mathbf N$ (the reading of a scale under her feet) |
+| Artificial gravity | what she feels as weight is the force she must receive from the floor: $g_{art}$ is the magnitude of $\mathbf N$ per unit mass, felt in the direction opposite to $\mathbf N$ (the reading of a scale under her feet). Another reading, the sum of the inertia forces per unit mass, $\omega^2R + 2\omega u\cos\gamma$, would vanish at the circumferential running speed $-\omega R/2$; it is rejected because there the floor still pushes her with $m u_\theta^2/R$, so a scale would not read zero |
 | Hypotheses | $\omega$ constant; $O$ fixed in an inertial frame; her height $h$ is negligible against $R$ (statement), so she is a point particle at the distance $R$ from the axis; the running is uniform (constant components) |
 
 ### Change of Basis and Position Vector
@@ -871,7 +875,7 @@ The free-body diagram of the astronaut in $S_1$ shows the floor force, the centr
 > $$\boxed{\mathbf N = -\frac{m}{R}\left(\omega R + u_\theta\right)^2\mathbf e_r, \qquad N_\theta = N_z = 0}$$
 >
 > **Units:** $[m\,\omega^2R] = [\mathrm{M\,L\,T^{-2}}]$
-> **Meaning:** three scalar equations give the three components of the floor force; it points to the axis and has no part along the floor, so uniform running needs no friction on average.
+> **Meaning:** three scalar equations give the three components of the floor force; it points to the axis and has no part along the floor, so uniform running needs no friction.
 
 ### Answers and Checks
 
@@ -1227,7 +1231,7 @@ The free-body diagram of the particle in $S_1$ shows the weight, the reaction (i
 > $$\boxed{\omega \to 0: \ N_b \to 0; \qquad \text{relative equilibria } \theta = 0,\ \pi \ \text{and}\ \cos\theta = g/(\omega^2R) \ \text{if}\ \omega^2R \gt g}$$
 >
 > **Units:** $[g/(\omega^2R)] = [1]$
-> **Meaning:** without rotation the bead is a pendulum and the wire does not push sideways; a bead at rest on the turning wire needs no normal reaction either, and above the critical rate it can rest off the bottom (extension: these equilibria are not asked for).
+> **Meaning:** without rotation the bead is a pendulum and the wire does not push sideways; a bead at rest on the turning wire needs no normal reaction either, and above the critical rate it can rest off the bottom (these equilibria are not asked for).
 
 ---
 
@@ -1304,14 +1308,15 @@ On a spinning spherical planet of radius $R$ and gravitational acceleration $g_p
 > $$\begin{aligned}
 > \mathbf e_r &= \cos\lambda\,\mathbf i_1 + \sin\lambda\,\mathbf k_1, \quad \mathbf e_n = -\sin\lambda\,\mathbf i_1 + \cos\lambda\,\mathbf k_1 \quad &\text{(the two right triangles)} \\
 > \mathbf e_r\times\mathbf e_n &= \cos^2\lambda\,\mathbf i_1\times\mathbf k_1 - \sin^2\lambda\,\mathbf k_1\times\mathbf i_1 = -\mathbf j_1 \quad &\text{($\mathbf i_1\times\mathbf k_1 = -\mathbf j_1$, $\mathbf k_1\times\mathbf i_1 = \mathbf j_1$)} \\
-> \det[{}_1R_2] &= \cos^2\lambda + \sin^2\lambda = 1, \quad \mathbf e_r\cdot\mathbf e_n = -\cos\lambda\sin\lambda + \sin\lambda\cos\lambda = 0 \quad &\text{(checks: $[{}_1R_2][{}_1R_2]^T = I$)} \\
+> \det[{}_1R_2] &= (-1)\cdot(-1)^{2+3}\left(\cos^2\lambda + \sin^2\lambda\right) = 1 \quad &\text{(expansion along the second row, entry $-1$ in place (2,3), cofactor sign $(-1)^5$)} \\
+> \mathbf e_r\cdot\mathbf e_n &= -\cos\lambda\sin\lambda + \sin\lambda\cos\lambda = 0 \quad &\text{(checks: $[{}_1R_2][{}_1R_2]^T = I$)} \\
 > \mathbf i_1 &= \cos\lambda\,\mathbf e_r - \sin\lambda\,\mathbf e_n \quad &\text{(inverse: first row of the matrix)}
 > \end{aligned}$$
 >
 > $$\boxed{[{}_1R_2] = \begin{pmatrix} \cos\lambda & -\sin\lambda & 0 \cr 0 & 0 & -1 \cr \sin\lambda & \cos\lambda & 0 \end{pmatrix}, \quad \det[{}_1R_2] = 1, \quad \mathbf i_1 = \cos\lambda\,\mathbf e_r - \sin\lambda\,\mathbf e_n}$$
 >
 > **Units:** dimensionless: $[1]$
-> **Meaning:** the inverse relation splits the horizontal centrifugal force into a part along the local vertical and a part along the local horizontal towards the north.
+> **Meaning:** the inverse relation splits the centrifugal force, along $\mathbf i_1$, into a part along the local vertical and a local horizontal part along minus $\mathbf e_n$, towards the equator (south in the northern hemisphere).
 
 ### Kinematics
 
@@ -1382,9 +1387,10 @@ The free-body diagram of the body in $S_1$ shows the attraction of the planet to
 > **Source:** Notes.pdf, Eq. 4.63; Problems.pdf, p. 10
 >
 > $$\begin{aligned}
-> W_{pole} &= 2W_{eq} \ \Rightarrow\ mg_p = 2m\left(g_p - \Omega^2R\right) \quad &\text{(statement)} \\
-> 2\Omega^2R &= 2g_p - g_p = g_p \ \Rightarrow\ \Omega = \sqrt{\frac{g_p}{2R}} \quad &\text{(solved; positive root)} \\
-> \Omega^2R &= \frac{g_p}{2} \le g_p \quad &\text{(the contact condition holds)} \\
+> W_{eq} &= m\left|g_p - \Omega^2R\right|, \quad W_{pole} = 2W_{eq} \ \Rightarrow\ mg_p = 2m\left|g_p - \Omega^2R\right| \quad &\text{(statement; magnitude of $\mathbf N_{eq}$)} \\
+> g_p - \Omega^2R &= \pm\frac{g_p}{2} \ \Rightarrow\ \Omega^2R = \frac{g_p}{2} \ \ \text{or} \ \ \Omega^2R = \frac{3g_p}{2} \quad &\text{(two roots)} \\
+> \Omega^2R = \frac{3g_p}{2}:\quad \mathbf N_{eq} &= m\left(g_p - \frac{3g_p}{2}\right)\mathbf i_1 = -\frac{mg_p}{2}\,\mathbf i_1 \quad &\text{(the ground would pull: rejected; it gives $T = 2\pi\sqrt{2R/(3g_p)} \simeq 5.130\sqrt{R/g_p}$)} \\
+> \Omega^2R &= \frac{g_p}{2} \le g_p \ \Rightarrow\ \Omega = \sqrt{\frac{g_p}{2R}} \quad &\text{(kept: the contact condition holds; positive root)} \\
 > \Omega\,T_{day} &= 2\pi \quad &\text{(one turn of $\mathcal B_1$, first box)} \\
 > T_{day} &= \frac{2\pi}{\Omega} = 2\pi\sqrt{\frac{2R}{g_p}} = 2\sqrt2\,\pi\sqrt{\frac{R}{g_p}} \simeq 8.886\sqrt{\frac{R}{g_p}} \quad &\text{(substituted)}
 > \end{aligned}$$
@@ -1392,7 +1398,7 @@ The free-body diagram of the body in $S_1$ shows the attraction of the planet to
 > $$\boxed{\Omega = \sqrt{\frac{g_p}{2R}}, \qquad T_{day} = 2\pi\sqrt{\frac{2R}{g_p}}}$$
 >
 > **Units:** $[\sqrt{R/g_p}] = [\mathrm{L}\,\mathrm{L^{-1}\,T^{2}}]^{1/2} = [\mathrm{T}]$
-> **Meaning:** the centrifugal force at the equator cancels half of the attraction there. The other sign of the weight equation, with the centrifugal force larger than the attraction, would need the ground to pull the body, so it is rejected.
+> **Meaning:** the centrifugal force at the equator cancels half of the attraction there. The second root would need the ground to pull the body.
 
 | Part of the statement | Answer |
 | :--- | :--- |
@@ -1424,7 +1430,7 @@ The free-body diagram of the body in $S_1$ shows the attraction of the planet to
 > \Omega \to 0:\quad W_{eq} &\to mg_p = W_{pole} \quad &\text{(no spin, no difference)} \\
 > \Omega_b &= \sqrt{\frac{g_p}{R}}:\quad W_{eq} = 0 \quad &\text{(break-up rate: weightless equator)} \\
 > \frac{\Omega}{\Omega_b} &= \sqrt{\frac{g_p/(2R)}{g_p/R}} = \frac{1}{\sqrt2} \simeq 0.707 \quad &\text{(the planet of the statement)} \\
-> \Omega^2R = \frac{g_p}{2}:\quad W(\lambda) &= m\sqrt{g_p^2 - \left(g_p^2 - \tfrac14 g_p^2\right)\cos^2\lambda} = mg_p\sqrt{1 - \tfrac34\cos^2\lambda} \quad &\text{(balance box, extension)} \\
+> \Omega^2R = \frac{g_p}{2}:\quad W(\lambda) &= m\sqrt{g_p^2 - \left(g_p^2 - \tfrac14 g_p^2\right)\cos^2\lambda} = mg_p\sqrt{1 - \tfrac34\cos^2\lambda} \quad &\text{(balance box at a general latitude)} \\
 > \lambda = \tfrac{\pi}{4}:\quad W &= mg_p\sqrt{1 - \tfrac38} = mg_p\sqrt{\tfrac58} \simeq 0.791\,mg_p \quad &\text{($\cos^2\tfrac{\pi}{4} = \tfrac12$)}
 > \end{aligned}$$
 >
