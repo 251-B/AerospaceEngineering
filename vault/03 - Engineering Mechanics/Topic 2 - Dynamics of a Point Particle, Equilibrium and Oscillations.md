@@ -25,7 +25,7 @@ tags:
 
 > Dynamics asks what causes motion: in an inertial reference frame $S_0$ Newton's second law ties the rate of change of the linear momentum $\mathbf p_0$ of a particle to the resultant force $\mathbf F$ and gives the differential equations whose integration, with the initial position and velocity, yields the trajectory. Dotting that law with the velocity turns it into a statement about energy: the power of the forces changes the kinetic energy $T_0$, a force that derives from a potential energy $V_0$ can be absorbed into a mechanical energy $E_0$ that stays constant when no other force works, and the shape of $V_0$ alone shows the allowed regions, the equilibria (its critical points) and their stability (its minima). Near a stable equilibrium every such system behaves, to first order, as a harmonic oscillator, free or damped, driven or not, which is why the simple pendulum leads to the oscillator and to the linearisation of the equations of motion.
 
-This note follows `Notes.pdf` Chapter 4, Sections 4.1 to 4.7 (Dynamics of the point particle, Eqs. 4.1 to 4.47: force, linear momentum and kinetic energy; Newton's laws; the equations of motion; power, work and potential energy; the conservation of mechanical energy; equilibrium; the simple pendulum) and Chapter 5 (The harmonic oscillator, Eqs. 5.1 to 5.47: undamped motion, the complex representation, the damped oscillator with small, large and critical damping, the oscillator under a periodic force and resonance), with the decks of Lecture 2 (Particle dynamics, Slides 1 to 23) and Lecture 6 (Oscillations and linearisation: the free and forced oscillator, resonance, beats, damping, the amplification factor and the phase lag, Taylor linearisation about an equilibrium and the bead on a rotating hoop), in the order of the notes. Sections 4.8 (angular momentum and central forces) and 4.9 (dynamics of relative motion) of the same chapter belong to Topics 4 and 5. Kinematic results of Topic 1 are cited, not re-derived: the velocity and acceleration (Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4) and their Cartesian (Eqs. 2.5 to 2.7), intrinsic (Eqs. 2.16 to 2.18) and cylindrical (Eqs. 2.23 to 2.29) forms, the dot product (Eqs. 1.24 to 1.28), the rules of differentiation of vectors (Eqs. 1.64 to 1.67) and the gradient and curl (Eqs. 1.74, 1.76 and 1.77). See also [[Concept - Newton Laws and Equations of Motion]], [[Concept - Work Power and Kinetic Energy Theorem]], [[Concept - Conservative Forces and Potential Energy]], [[Concept - Conservation of Mechanical Energy and Energy Diagrams]], [[Concept - Equilibrium Configurations and Stability Criteria]] and [[Concept - The Simple Pendulum Nonlinear Dynamics and Linearization]].
+This note follows `Notes.pdf` Chapter 4, Sections 4.1 to 4.7 (Dynamics of the point particle, Eqs. 4.1 to 4.47: force, linear momentum and kinetic energy; Newton's laws; the equations of motion; power, work and potential energy; the conservation of mechanical energy; equilibrium; the simple pendulum) and Chapter 5 (The harmonic oscillator, Eqs. 5.1 to 5.47: undamped motion, the complex representation, the damped oscillator with small, large and critical damping, the oscillator under a periodic force and resonance), with the decks of Lecture 2 (Particle dynamics, Slides 1 to 23) and Lecture 6 (Oscillations, Slides 1 to 15: linear equations with constant coefficients, complex exponentials, the free oscillator without damping and with small, large and critical damping, the forced oscillator, resonance and the linearisation about an equilibrium), in the order of the notes. Two topics that neither the notes nor the slides treat are added as extensions, marked as such: the beats of the undamped forced oscillator and the bead on a rotating hoop with its bifurcation. Sections 4.8 (angular momentum and central forces) and 4.9 (dynamics of relative motion) of the same chapter belong to Topics 4 and 5. Kinematic results of Topic 1 are cited, not re-derived: the velocity and acceleration (Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4) and their Cartesian (Eqs. 2.5 to 2.7), intrinsic (Eqs. 2.16 to 2.18) and cylindrical (Eqs. 2.23 to 2.29) forms, the dot product (Eqs. 1.24 to 1.28), the rules of differentiation of vectors (Eqs. 1.64 to 1.67) and the gradient and curl (Eqs. 1.74, 1.76 and 1.77). See also [[Concept - Newton Laws and Equations of Motion]], [[Concept - Work Power and Kinetic Energy Theorem]], [[Concept - Conservative Forces and Potential Energy]], [[Concept - Conservation of Mechanical Energy and Energy Diagrams]], [[Concept - Equilibrium Configurations and Stability Criteria]] and [[Concept - The Simple Pendulum Nonlinear Dynamics and Linearization]].
 
 | Symbol | Meaning |
 | :--- | :--- |
@@ -87,6 +87,47 @@ This note follows `Notes.pdf` Chapter 4, Sections 4.1 to 4.7 (Dynamics of the po
 | $\tau$, $t^*$ | period of the oscillation, and the instant at which the bob reaches $\theta^*$ ($-\theta^*$ at $-t^*$) |
 | $\tilde V_0$ | potential energy of the linearised pendulum |
 | $u$ | substitution variable of the period integral |
+| $x$, $\dot x$, $\ddot x$ (Sections 8 to 12) | displacement of the oscillator along $Ox$ from the position where the spring is relaxed, and its time derivatives; as in Chapter 5 of the notes, the indices $P$ and $0$ are dropped for the single particle in the single frame $S_0$ |
+| $V$, $E$, $T$ (Sections 8 to 14) | potential, mechanical and kinetic energy with the indices dropped (the $V_0$, $E_0$, $T_0$ of Sections 4 to 7) |
+| $\tilde f(t)$ | forcing term of the general equation of a harmonic oscillator (the notes and [Lecture 6, Slide 3] write $f(t)$; here $f$ is the frequency) |
+| $\xi$, $b_2$, $b_1$, $b_0$ | generalised coordinate (the notes' name; near an equilibrium it is the small displacement defined above) and the constant coefficients of a linear second-order equation $b_2\ddot\xi + b_1\dot\xi + b_0\xi = \tilde f(t)$ ([Lecture 6, Slide 3] writes $a$, $b$, $c$ and $y$) |
+| $\lambda$ | damping constant of the viscous damper, in $\mathrm{N\,s/m}$ |
+| $F_x(t)$ | external force applied along $Ox$ ([Lecture 6, Slide 5]; the notes write $F(t)$) |
+| $\mathbf F_k$, $\mathbf F_\lambda$, $\mathbf N_s$ | force of the spring, force of the damper, and the vertical reaction of the smooth support on the mass, Section 8 |
+| $\omega_0$ (Sections 8 to 13) | natural angular frequency of the undamped oscillator, $\sqrt{k/m}$ (the $\omega_0$ of Section 6 with $k$ the second derivative of the potential) |
+| $\gamma$ | damping coefficient $\lambda/(2m)$, in $\mathrm{s^{-1}}$ ([Lecture 6, Slide 5] also calls it damping ratio) |
+| $\gamma/\omega_0$ | dimensionless damping ratio, the abscissa of [Lecture 6, Slide 10]: below one, equal to one and above one for small, critical and large damping |
+| $\omega$ | angular frequency of the damped oscillator, $\sqrt{\omega_0^2 - \gamma^2}$ |
+| $\gamma_+$, $\gamma_-$ | the two decay rates of the overdamped oscillator, $\gamma \pm \sqrt{\gamma^2 - \omega_0^2}$ |
+| $p_+$, $p_-$ | the two roots of a characteristic equation ([Lecture 6, Slides 3, 8 and 9] write $p_1$, $p_2$; here $p_1$ is the growth rate of Section 6) |
+| $D_1$, $D_2$ | constants of a linear combination of two solutions (Notes.pdf, Eq. 5.5 writes $a_1$, $a_2$; [Lecture 6, Slides 3 and 6] write $A_1$, $A_2$) |
+| $x_0$, $\dot x_0$ | initial displacement and initial velocity of the oscillator, at $t = 0$ |
+| $a$, $\phi$ | amplitude and initial phase of a free oscillation ($\phi$ is the phase of Chapter 5, not an angle of a basis) |
+| $f$ | frequency, the number of oscillations per unit time, in $\mathrm{Hz}$ |
+| $i$, $z$, $z^*$ | imaginary unit (italic; the bold $\mathbf i$ is the unit vector), a complex solution (Sections 9 to 12; not the Cartesian coordinate $z$) and its complex conjugate |
+| $A$, $A^*$ | complex amplitude of a free oscillation, $a\exp(i\phi)$, and its conjugate |
+| $\Re$, $\Im$ | real part and imaginary part of a complex number |
+| $\beta$ | real argument of Euler's relation (the notes write $\theta$, which is an angle of the particle in this note) |
+| $t_r$ | relaxation time, the time in which the amplitude of the damped oscillator falls by the factor $1/e$ |
+| $Q$ (Sections 10 to 12) | quality factor $\omega_0/(2\gamma)$; not the second particle $Q$ of Sections 1 to 4, which does not appear after Section 4 |
+| $C_+$, $C_-$ | real constants of the overdamped solution ([Lecture 6, Slide 9]; the notes write $\tfrac12 A$ and $\tfrac12 B$) |
+| $F_1$, $\omega_1$ | amplitude and angular frequency of the periodic applied force $F_1\cos(\omega_1 t)$ |
+| $A_1$, $a_1$, $\phi_1$; $a_{1,\max}$ | complex amplitude, amplitude and phase of the forced (particular) response; $\phi_1$ is the phase lag behind the force; the amplitude at the resonant frequency |
+| $z_h$, $z_p$; $x_h$, $x_p$ | homogeneous and particular solutions of the complex and of the real forced equations |
+| $a_1 k/F_1$ | amplification factor: the forced amplitude divided by the static deflection $F_1/k$ |
+| $\omega_1/\omega_0$ | frequency ratio, the abscissa of the amplification and phase curves |
+| $B_1$ | coefficient of the particular solution of the undamped forced oscillator (beats, Section 11) |
+| $F(x,\dot x)$ | force of a one-dimensional nonlinear system that may depend on the velocity (Section 13, [Lecture 6, Slide 15]) |
+| $k$, $\lambda$ (Section 13) | equivalent stiffness and damping of a linearised system: minus the partial derivatives of $F$ with respect to $x$ and $\dot x$ at the equilibrium |
+| $b$, $\Omega$, $\Omega_c$ | radius of the hoop, its constant rotation rate about the vertical, and the critical rate $\sqrt{g/b}$ (Section 14) |
+| $\theta$ (Section 14) | angle of the bead from the downward vertical, measured in the plane of the hoop; $\theta^*_{\mathrm{eq}}$ is an equilibrium value of it |
+| $S_h : \{O;\mathcal B_h\}$, $\mathcal B_h : \{\mathbf i_h, \mathbf j_h, \mathbf k\}$ | frame that turns with the hoop and its basis: $\mathbf i_h$ horizontal in the plane of the hoop, $\mathbf j_h$ normal to that plane |
+| $[{}_0R_h]$ | change of basis matrix from $\mathcal B_h$ to $\mathcal B_0$ |
+| $\mathbf u_r$, $\mathbf u_\theta$ | unit vectors in the plane of the hoop: from the centre to the bead, and tangent to the hoop in the sense of growing $\theta$ |
+| $\mathbf N$, $N_r$, $N_h$ | reaction of the smooth hoop on the bead and its components along $\mathbf u_r$ and $\mathbf j_h$ |
+| $V_{\mathrm{eff}}$ | effective potential of the bead on the rotating hoop |
+| $\theta_e$ | angle of the off-axis equilibria of the bead, which exist above the critical rate |
+| $\omega_{\mathrm{eq}}$ | angular frequency of the small oscillations of the bead about a stable equilibrium |
 
 ## 1. Force, linear momentum and kinetic energy
 
@@ -1359,3 +1400,1083 @@ If the mechanical energy is small compared with $2\,m g\ell$, the oscillations a
 >
 > **Units:** $\sqrt{\mathrm m/(\mathrm{m/s^2})} = \mathrm s$
 > **Meaning:** for small oscillations the period does not depend on the amplitude or on the mass; it is $2\pi$ over the imaginary part $\sqrt{g/\ell}$ of the characteristic roots found at $\theta = 0$, as the harmonic oscillator of Chapter 5 will confirm. For a rod of $1\ \mathrm m$ and $g = 9.81\ \mathrm{m/s^2}$ it is about $2.01\ \mathrm s$.
+
+## 8. The harmonic oscillator: undamped motion
+
+From the classical spring-mass-damper system to the linearised aeroelastic oscillations of an airfoil or the vibrations of an aircraft structure, many mechanical systems have an equation of motion that reduces to a linear second-order equation with constant coefficients in a generalised coordinate $\xi$, with two constants $\gamma$ and $\omega_0$ and a forcing term $\tilde f(t)$: this is the most general expression of the equation of a harmonic oscillator (Notes.pdf, Ch. 5), and any physical system governed by such an equation is termed a harmonic oscillator ([Lecture 6, Slide 5]). Since a single particle is studied in the single frame $S_0$, the indices $P$ and $0$ of the previous sections are dropped for many quantities: the displacement is $x$, the potential energy $V$, the mechanical energy $E$ (Notes.pdf, Ch. 5). The sections that follow take Chapter 5 of the notes in its order (Eqs. 5.1 to 5.47) with the slides of Lecture 6 at the places where they treat the same material, and close with the linearisation about an equilibrium of [Lecture 6, Slide 15] and an extended example.
+
+> [!example] The spring-mass-damper system ([Lecture 6, Slide 5]; Notes.pdf, Sec. 5.1)
+> A point particle $P$ of mass $m$ moves along the horizontal line $Ox$ of the inertial frame $S_0$, on a smooth support. It is attached to the wall at $O$ by a linear spring of stiffness $k$ and zero natural length and by a viscous damper of damping constant $\lambda$, and an external force $F_x(t)$ may be applied to it along $Ox$. Its weight and the reaction of the support are vertical. The undamped oscillator of this section is the case of no damper and no applied force; the damper is added in Section 10 and the applied force in Section 11.
+>
+> | Data | Value |
+> | :--- | :--- |
+> | frame | $S_0$, inertial; $\mathbf i$ along the line of motion, away from the wall; $\mathbf j$ vertical upwards |
+> | particle | mass $m$, position $x$ along $Ox$ (the length of the spring) |
+> | spring | stiffness $k > 0$, zero natural length |
+> | damper | damping constant $\lambda \geq 0$ |
+> | applied force | $F_x(t)$ along $\mathbf i$ |
+
+![[attachments/EM-T/t2-spring-mass.svg]]
+
+> [!derivation] Equation of motion of the spring-mass-damper
+> **Law:** Newton's second law projected on the line of motion; linear spring and viscous damper
+> **Source:** [Lecture 6, Slide 5]; Notes.pdf, Eq. 5.1; Notes.pdf, Eq. 5.19; Notes.pdf, Eq. 5.20; Notes.pdf, Eq. 5.32; Notes.pdf, Eq. 5.23; Notes.pdf, Eq. 4.4
+>
+> The spring has zero natural length, so its elongation is the displacement $x$ itself; the damper opposes the velocity. $\mathbf N_s$ is the reaction of the smooth support, vertical.
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= x\,\mathbf i \quad &\text{(the particle moves on $Ox$)} \\
+> \mathbf a_0^P &= \ddot x\,\mathbf i \quad &\text{(differentiate twice in $S_0$, where $\mathbf i$ is constant, Eq. 2.4)} \\
+> \mathbf F_k &= -k\,x\,\mathbf i \quad &\text{(linear spring: proportional to the elongation, towards the wall; Eq. 5.1)} \\
+> \mathbf F_\lambda &= -\lambda\,\dot x\,\mathbf i \quad &\text{(viscous damper: proportional and opposite to the velocity)} \\
+> m\ddot x\,\mathbf i &= -k\,x\,\mathbf i - \lambda\dot x\,\mathbf i + F_x(t)\,\mathbf i + \left(\mathbf N_s - m g\,\mathbf j\right) \quad &\text{(second law, Eq. 4.4, with every force)} \\
+> \mathbf N_s &= m g\,\mathbf j \quad &\text{(component along $\mathbf j$: the left side has none)} \\
+> m\ddot x &= -k\,x - \lambda\dot x + F_x(t) \quad &\text{(component along $\mathbf i$)} \\
+> m\ddot x + \lambda\dot x + k\,x &= F_x(t) \quad &\text{(move the spring and damper terms to the left; Eq. 5.32)} \\
+> \ddot x + \frac{\lambda}{m}\,\dot x + \frac{k}{m}\,x &= \frac{F_x(t)}{m} \quad &\text{(divide by $m$)} \\
+> \ddot x + 2\gamma\,\dot x + \omega_0^2\,x &= \frac{F_x(t)}{m} \quad &\text{(name the coefficients: $\gamma = \lambda/(2m)$, $\omega_0 = \sqrt{k/m}$, Eq. 5.23)} \\
+> m\ddot x + k\,x &= 0 \quad &\text{(no damper and no applied force: $\lambda = 0$, $F_x = 0$; Eq. 5.4)}
+> \end{aligned}$$
+>
+> $$\boxed{m\ddot x + \lambda\dot x + k\,x = F_x(t) \ \Longleftrightarrow\ \ddot x + 2\gamma\,\dot x + \omega_0^2\,x = \frac{F_x(t)}{m},\qquad \gamma = \frac{\lambda}{2m},\ \ \omega_0 = \sqrt{\frac{k}{m}}}$$
+>
+> **Units:** every term of the first form in $\mathrm N$ ($\mathrm{kg\,m/s^2}$, $\mathrm{(N\,s/m)(m/s)}$, $\mathrm{(N/m)\,m}$); $\gamma$ in $\mathrm{(N\,s/m)/kg} = \mathrm{s^{-1}}$; $\omega_0$ in $\sqrt{\mathrm{(N/m)/kg}} = \mathrm{s^{-1}}$; every term of the second form in $\mathrm{m/s^2}$
+> **Meaning:** the spring and the damper give forces linear in $x$ and $\dot x$, so the equation of motion is linear with constant coefficients: it is the general equation of a harmonic oscillator with $x$ as the coordinate and $F_x/m$ as the forcing term ([Lecture 6, Slide 5]). The weight is carried by the support and does not enter the motion. The last row, Eq. 5.4, is the undamped free oscillator studied in this section.
+
+> [!derivation] Potential energy of the spring and the turning points
+> **Law:** potential energy of a one-dimensional force depending only on the position; conservation of mechanical energy; a turning point has zero velocity
+> **Source:** Notes.pdf, Eq. 5.1; Notes.pdf, Eq. 5.2; Notes.pdf, Eq. 5.3; Notes.pdf, Eq. 4.15; Notes.pdf, Eq. 4.26; [Lecture 6, Slide 7]
+>
+> The reference position, where the potential is zero, is the relaxed spring, $x$ equal to zero; $x'$ is the integration variable.
+>
+> $$\begin{aligned}
+> V(x) &= -\int_0^x F(x')\,dx' \quad &\text{(one-dimensional potential, Eq. 4.15)} \\
+> &= -\int_0^x\left(-k\,x'\right)dx' \quad &\text{(spring force, Eq. 5.1)} \\
+> &= k\int_0^x x'\,dx' \quad &\text{(take the constant $-k$ out of the integral)} \\
+> &= k\left[\frac{x'^2}{2}\right]_0^x \quad &\text{(antiderivative of $x'$)} \\
+> &= k\left(\frac{x^2}{2} - \frac{0^2}{2}\right) \quad &\text{(Barrow)} \\
+> &= \tfrac12\,k\,x^2 \quad &\text{(Eq. 5.2)} \\
+> &= \tfrac12\,m\,\omega_0^2\,x^2 \quad &\text{($k = m\omega_0^2$, Eq. 5.23)} \\
+> \tfrac12\,m\,\dot x^2 + \tfrac12\,k\,x^2 &= E \quad &\text{(the only working force is conservative: $E$ is constant, Eq. 4.26)} \\
+> \tfrac12\,k\,x^2 &= E \quad &\text{(at a turning point $\dot x = 0$)} \\
+> x &= \pm\sqrt{2E/k} \quad &\text{(multiply by $2/k$ and take the square root; Eq. 5.3)}
+> \end{aligned}$$
+>
+> $$\boxed{V(x) = \tfrac12\,k\,x^2 = \tfrac12\,m\,\omega_0^2\,x^2,\qquad x = \pm a = \pm\sqrt{2E/k}}$$
+>
+> **Units:** $\mathrm{(N/m)\,m^2} = \mathrm J$ for the potential; $\sqrt{\mathrm J/(\mathrm{N/m})} = \mathrm m$ for the turning points
+> **Meaning:** the potential is a parabola (Notes.pdf Fig. 5.1). With $k$ positive, every energy $E$ above zero meets it at exactly two points, the turning points $\pm a$, where the particle stops and turns back: the motion is a harmonic oscillation between them (Notes.pdf, Sec. 5.1). The constant $a$ is identified with the amplitude in the box on the energy of the oscillation below.
+
+![[attachments/EM-T/t2-oscillator-potential.svg]]
+
+> [!derivation] Linear homogeneous equations: superposition and the characteristic equation
+> **Law:** linearity of differentiation; trial exponential solution; independence of two solutions
+> **Source:** Notes.pdf, Eq. 5.5; Notes.pdf, Sec. 5.1; [Lecture 6, Slide 3]
+>
+> The equation is the homogeneous one, $\tilde f$ equal to zero, with constant coefficients $b_2$ (nonzero), $b_1$, $b_0$. $\xi_1$ and $\xi_2$ are two of its solutions and $D_1$, $D_2$ any two constants.
+>
+> $$\begin{aligned}
+> b_2\ddot\xi_1 + b_1\dot\xi_1 + b_0\xi_1 &= 0,\qquad b_2\ddot\xi_2 + b_1\dot\xi_2 + b_0\xi_2 = 0 \quad &\text{(both are solutions)} \\
+> \xi &= D_1\xi_1 + D_2\xi_2 \quad &\text{(a linear combination, Eq. 5.5)} \\
+> \dot\xi &= D_1\dot\xi_1 + D_2\dot\xi_2 \quad &\text{(derivative of a sum; the constants come out)} \\
+> \ddot\xi &= D_1\ddot\xi_1 + D_2\ddot\xi_2 \quad &\text{(differentiate again)} \\
+> b_2\ddot\xi + b_1\dot\xi + b_0\xi &= D_1\left(b_2\ddot\xi_1 + b_1\dot\xi_1 + b_0\xi_1\right) + D_2\left(b_2\ddot\xi_2 + b_1\dot\xi_2 + b_0\xi_2\right) \quad &\text{(substitute and group by constant)} \\
+> &= 0 \quad &\text{(first row: both brackets vanish)} \\
+> \xi &= \exp(p\,t) \quad &\text{(trial solution, $p$ a constant, possibly complex)} \\
+> \dot\xi &= p\exp(p\,t) \quad &\text{(chain rule: the derivative of $p\,t$ is $p$)} \\
+> \ddot\xi &= p^2\exp(p\,t) \quad &\text{(chain rule again)} \\
+> \left(b_2\,p^2 + b_1\,p + b_0\right)\exp(p\,t) &= 0 \quad &\text{(substitute in the homogeneous equation and take out the exponential)} \\
+> b_2\,p^2 + b_1\,p + b_0 &= 0 \quad &\text{(the exponential is never zero: characteristic equation)} \\
+> \frac{\exp(p_+ t)}{\exp(p_- t)} &= \exp\big((p_+ - p_-)\,t\big) \quad &\text{(two roots $p_+$, $p_-$: the quotient of the two solutions)} \\
+> \xi &= D_1\exp(p_+ t) + D_2\exp(p_- t) \quad &\text{(if $p_+ \neq p_-$ the quotient is not constant: two independent solutions, combined)}
+> \end{aligned}$$
+>
+> $$\boxed{b_2\,p^2 + b_1\,p + b_0 = 0;\qquad p_+ \neq p_-:\ \ \xi = D_1\exp(p_+ t) + D_2\exp(p_- t)}$$
+>
+> **Units:** $p$ in $\mathrm{s^{-1}}$, so that $p\,t$ is dimensionless; $b_2\,p^2$, $b_1\,p$ and $b_0$ have the same units, those of the coefficient $b_0$
+> **Meaning:** the solutions of the homogeneous equation satisfy the superposition principle and form a two-dimensional vector space of functions: the two exponentials are a basis of it and $D_1$, $D_2$ are the components of a solution in that basis ([Lecture 6, Slide 3]). A second-order equation has exactly two arbitrary constants, so this is the general solution (Notes.pdf, Sec. 5.1); adding the initial values of $\xi$ and of its derivative gives a Cauchy problem, whose unique solution is found by computing $D_1$ and $D_2$ from them ([Lecture 6, Slide 3]). The case of a double root is treated with critical damping, in Section 10.
+
+> [!derivation] General solution of the undamped oscillator
+> **Law:** characteristic equation; direct substitution of two real trial functions; superposition
+> **Source:** Notes.pdf, Eq. 5.4; Notes.pdf, Eq. 5.6; Notes.pdf, Eq. 5.7; [Lecture 6, Slide 6]
+>
+> $$\begin{aligned}
+> m\ddot x + k\,x &= 0 \quad &\text{(Eq. 5.4)} \\
+> \ddot x + \omega_0^2\,x &= 0 \quad &\text{(divide by $m$, with $\omega_0 = \sqrt{k/m}$; Eq. 5.6)} \\
+> p^2 + \omega_0^2 &= 0 \quad &\text{(characteristic equation: $b_2 = 1$, $b_1 = 0$, $b_0 = \omega_0^2$)} \\
+> p &= \pm\,i\,\omega_0 \quad &\text{($p^2 = -\omega_0^2$ is negative: two imaginary roots)} \\
+> x &= D_1\exp(i\omega_0 t) + D_2\exp(-i\omega_0 t) \quad &\text{(general solution with two distinct roots; [Lecture 6, Slide 6])} \\
+> \frac{d}{dt}\cos(\omega_0 t) &= -\omega_0\sin(\omega_0 t) \quad &\text{(chain rule)} \\
+> \frac{d^2}{dt^2}\cos(\omega_0 t) &= -\omega_0^2\cos(\omega_0 t) \quad &\text{(chain rule again)} \\
+> \frac{d^2}{dt^2}\cos(\omega_0 t) + \omega_0^2\cos(\omega_0 t) &= 0 \quad &\text{(substitute in Eq. 5.6: the cosine is a solution)} \\
+> \frac{d}{dt}\sin(\omega_0 t) &= \omega_0\cos(\omega_0 t) \quad &\text{(chain rule)} \\
+> \frac{d^2}{dt^2}\sin(\omega_0 t) &= -\omega_0^2\sin(\omega_0 t) \quad &\text{(chain rule again)} \\
+> \frac{d^2}{dt^2}\sin(\omega_0 t) + \omega_0^2\sin(\omega_0 t) &= 0 \quad &\text{(substitute: the sine is a solution)} \\
+> \frac{\sin(\omega_0 t)}{\cos(\omega_0 t)} &= \tan(\omega_0 t) \quad &\text{(not constant: the two solutions are independent)} \\
+> x &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) \quad &\text{(superposition, Eq. 5.5; Eq. 5.7)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot x + \omega_0^2\,x = 0:\qquad p = \pm\,i\,\omega_0,\qquad x = C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t)}$$
+>
+> **Units:** $\omega_0$ in $\mathrm{s^{-1}}$, so $\omega_0 t$ is in radians; $C_1$, $C_2$ in $\mathrm m$
+> **Meaning:** the cosine and the sine of $\omega_0 t$ are two real, independent solutions, so their combination with two arbitrary constants is the general solution (Notes.pdf, Sec. 5.1). The complex form of the fifth row and this real form describe the same solutions; the passage from one to the other is Euler's relation, in Section 9.
+
+> [!derivation] Constants from the initial conditions
+> **Law:** evaluation of the solution and of its first derivative at the initial instant
+> **Source:** Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.8; Notes.pdf, Eq. 5.9; [Lecture 6, Slide 6]
+>
+> At $t$ equal to zero the particle is at $x_0$ with velocity $\dot x_0$.
+>
+> $$\begin{aligned}
+> x(0) &= C_1\cos 0 + C_2\sin 0 \quad &\text{(Eq. 5.7 at $t = 0$)} \\
+> &= C_1 \quad &\text{($\cos 0 = 1$, $\sin 0 = 0$)} \\
+> C_1 &= x_0 \quad &\text{(first initial condition; Eq. 5.8)} \\
+> \dot x &= -C_1\,\omega_0\sin(\omega_0 t) + C_2\,\omega_0\cos(\omega_0 t) \quad &\text{(differentiate Eq. 5.7; chain rule on each term)} \\
+> \dot x(0) &= C_2\,\omega_0 \quad &\text{(at $t = 0$)} \\
+> C_2 &= \dot x_0/\omega_0 \quad &\text{(second initial condition, divided by $\omega_0$; Eq. 5.9)}
+> \end{aligned}$$
+>
+> $$\boxed{C_1 = x_0,\qquad C_2 = \frac{\dot x_0}{\omega_0},\qquad x = x_0\cos(\omega_0 t) + \frac{\dot x_0}{\omega_0}\sin(\omega_0 t)}$$
+>
+> **Units:** $\mathrm m$ for $C_1$; $\mathrm{(m/s)/s^{-1}} = \mathrm m$ for $C_2$
+> **Meaning:** the cosine carries the initial displacement and the sine the initial velocity; a particle released from rest ($\dot x_0$ zero) oscillates as a pure cosine, and a particle kicked from the rest position ($x_0$ zero) as a pure sine.
+
+> [!derivation] Amplitude and initial phase
+> **Law:** cosine of a sum; equal coefficients of independent functions; right triangle of the two constants
+> **Source:** Notes.pdf, Eq. 5.10; Notes.pdf, Eq. 5.11; Notes.pdf, Eq. 5.12; [Lecture 6, Slide 6]
+>
+> The general solution is written as one cosine of amplitude $a$, not negative, and initial phase $\phi$. In the right triangle with hypotenuse $a$ and the angle $\phi$ at its vertex, the leg $C_1$ is adjacent to $\phi$ and the leg $-C_2$ is opposite to it.
+>
+> $$\begin{aligned}
+> a\cos(\omega_0 t + \phi) &= a\cos\phi\cos(\omega_0 t) - a\sin\phi\sin(\omega_0 t) \quad &\text{(cosine of a sum)} \\
+> C_1 &= a\cos\phi \quad &\text{(equal coefficients of $\cos(\omega_0 t)$ in Eq. 5.7 and Eq. 5.10; Eq. 5.11)} \\
+> C_2 &= -a\sin\phi \quad &\text{(equal coefficients of $\sin(\omega_0 t)$; Eq. 5.12)} \\
+> C_1^2 + C_2^2 &= a^2\cos^2\phi + a^2\sin^2\phi \quad &\text{(square both rows and add)} \\
+> &= a^2 \quad &\text{(Pythagoras)} \\
+> a &= \sqrt{C_1^2 + C_2^2} \quad &\text{(positive root)} \\
+> &= \sqrt{x_0^2 + \left(\dot x_0/\omega_0\right)^2} \quad &\text{(Eqs. 5.8 and 5.9)} \\
+> \tan\phi &= -\frac{C_2}{C_1} \quad &\text{(divide Eq. 5.12 by Eq. 5.11, sign changed)} \\
+> &= -\frac{\dot x_0}{\omega_0\,x_0} \quad &\text{(Eqs. 5.8 and 5.9)}
+> \end{aligned}$$
+>
+> $$\boxed{x = a\cos(\omega_0 t + \phi),\qquad C_1 = a\cos\phi,\ \ C_2 = -a\sin\phi,\qquad a = \sqrt{x_0^2 + \left(\dot x_0/\omega_0\right)^2},\ \ \tan\phi = -\frac{\dot x_0}{\omega_0\,x_0}}$$
+>
+> **Units:** $a$ in $\mathrm m$; $\phi$ in radians; the tangent is a quotient of two lengths, dimensionless
+> **Meaning:** $a$ is the amplitude and $\phi$ the initial phase of the oscillator at $t$ equal to zero (Notes.pdf, Sec. 5.1); at that instant [Lecture 6, Slide 6] reads the same relations as $x_0$ equal to $a\cos\phi$ and $\dot x_0$ equal to $-a\,\omega_0\sin\phi$. The tangent alone leaves two possible angles; the right one is fixed by the signs of the legs: $\cos\phi$ has the sign of $x_0$ and $\sin\phi$ the sign of $-\dot x_0$.
+
+> [!derivation] Energy of the oscillation and the amplitude
+> **Law:** conservation of mechanical energy evaluated on the solution
+> **Source:** [Lecture 6, Slide 7]; Notes.pdf, Eq. 5.3; Notes.pdf, Eq. 5.10
+>
+> $$\begin{aligned}
+> E &= \tfrac12\,m\,\dot x^2 + \tfrac12\,k\,x^2 \quad &\text{(kinetic plus potential energy; [Lecture 6, Slide 7])} \\
+> \dot x &= -a\,\omega_0\sin(\omega_0 t + \phi) \quad &\text{(differentiate Eq. 5.10; chain rule)} \\
+> E &= \tfrac12\,m\,a^2\omega_0^2\sin^2(\omega_0 t + \phi) + \tfrac12\,k\,a^2\cos^2(\omega_0 t + \phi) \quad &\text{(substitute $x$ and $\dot x$)} \\
+> &= \tfrac12\,k\,a^2\sin^2(\omega_0 t + \phi) + \tfrac12\,k\,a^2\cos^2(\omega_0 t + \phi) \quad &\text{($m\,\omega_0^2 = k$)} \\
+> &= \tfrac12\,k\,a^2 \quad &\text{(Pythagoras)} \\
+> a &= \sqrt{2E/k} \quad &\text{(solve for $a$; the turning point of Eq. 5.3)}
+> \end{aligned}$$
+>
+> $$\boxed{E = \tfrac12\,k\,a^2,\qquad a = \sqrt{2E/k}}$$
+>
+> **Units:** $\mathrm{(N/m)\,m^2} = \mathrm J$
+> **Meaning:** the energy is constant and splits between kinetic and potential energy as the squares of a sine and a cosine; the amplitude of Eq. 5.10 is the same constant $a$ introduced in Eq. 5.3, and the particle oscillates between $x$ equal to $-a$ and $a$ (Notes.pdf, Sec. 5.1).
+
+> [!derivation] Period and frequency
+> **Law:** energy equation solved for the speed; change of the integration variable from time to position; trigonometric substitution; Barrow's rule
+> **Source:** [Lecture 6, Slide 7]; Notes.pdf, Eq. 5.13; Notes.pdf, Eq. 5.3; Notes.pdf, Eq. 4.27
+>
+> In the half period in which the particle goes from $-a$ to $a$ its velocity is positive; the return takes the same time, because the speed depends only on $x$. $u$ is the substitution variable.
+>
+> $$\begin{aligned}
+> \tfrac12\,m\,\dot x^2 &= E - \tfrac12\,k\,x^2 \quad &\text{(Eq. 4.27 with the potential of the spring)} \\
+> \frac{dx}{dt} &= \sqrt{\frac{2E - k\,x^2}{m}} \quad &\text{(solve for the velocity, positive in this half)} \\
+> \frac{\tau}{2} &= \int_{-a}^{a}\frac{dx}{\sqrt{\left(2E - k\,x^2\right)/m}} \quad &\text{(change of variable $t \to x$: $dx = \dot x\,dt$; [Lecture 6, Slide 7])} \\
+> \sqrt{\frac{2E - k\,x^2}{m}} &= \sqrt{\frac{k}{m}}\sqrt{a^2 - x^2} \quad &\text{($2E = k\,a^2$; take out the factor $k/m$)} \\
+> &= \omega_0\sqrt{a^2 - x^2} \quad &\text{(Eq. 5.23)} \\
+> \frac{\tau}{2} &= \frac{1}{\omega_0}\int_{-a}^{a}\frac{dx}{\sqrt{a^2 - x^2}} \quad &\text{(substitute)} \\
+> x &= a\sin u,\qquad dx = a\cos u\,du \quad &\text{(substitution and its differential)} \\
+> \sqrt{a^2 - a^2\sin^2 u} &= a\cos u \quad &\text{(Pythagoras; $\cos u \geq 0$ for $u$ between $-\pi/2$ and $\pi/2$)} \\
+> \frac{\tau}{2} &= \frac{1}{\omega_0}\int_{-\pi/2}^{\pi/2}\frac{a\cos u}{a\cos u}\,du \quad &\text{(limits: $x = -a$ gives $u = -\pi/2$, $x = a$ gives $u = \pi/2$)} \\
+> &= \frac{1}{\omega_0}\big[u\big]_{-\pi/2}^{\pi/2} \quad &\text{(the integrand is one; antiderivative $u = \arcsin(x/a)$, as on the slide)} \\
+> &= \frac{1}{\omega_0}\left(\frac{\pi}{2} - \left(-\frac{\pi}{2}\right)\right) \quad &\text{(Barrow)} \\
+> &= \frac{\pi}{\omega_0} \quad &\text{(arithmetic)} \\
+> \tau &= \frac{2\pi}{\omega_0} \quad &\text{(multiply by two)} \\
+> f &= \frac{1}{\tau} \quad &\text{(oscillations per unit time)} \\
+> &= \frac{\omega_0}{2\pi} \quad &\text{(Eq. 5.13)} \\
+> \cos\big(\omega_0(t + \tau) + \phi\big) &= \cos(\omega_0 t + \phi + 2\pi) \quad &\text{(check on Eq. 5.10: $\omega_0\tau = 2\pi$)} \\
+> &= \cos(\omega_0 t + \phi) \quad &\text{(the cosine has period $2\pi$)}
+> \end{aligned}$$
+>
+> $$\boxed{\tau = \frac{2\pi}{\omega_0},\qquad f = \frac{1}{\tau} = \frac{\omega_0}{2\pi}}$$
+>
+> **Units:** $\tau$ in $\mathrm s$ ($\mathrm{rad}/\mathrm{s^{-1}}$); $f$ in $\mathrm{s^{-1}} = \mathrm{Hz}$
+> **Meaning:** the motion is periodic, and its period does not depend on the amplitude $a$ (Notes.pdf, Sec. 5.1). The frequency $f$ counts oscillations per second and must not be confused with the angular frequency $\omega_0$, in radians per second. The linearised pendulum of Section 7 (Eq. 4.46) is an undamped harmonic oscillator with $\theta$ in place of $x$ and $g/\ell$ in place of the square of $\omega_0$, and the period of this box is then the one found there from its own integral.
+
+![[attachments/EM-T/t2-free-oscillation.svg]]
+
+## 9. Complex representation
+
+It is often convenient to describe periodic phenomena with complex exponentials (Notes.pdf, Sec. 5.2; [Lecture 6, Slide 4]): a complex constant holds the two real constants of a solution, derivatives of exponentials are products, and the motion appears as the turning of an arrow in the complex plane. The imaginary unit is the italic $i$; the bold $\mathbf i$ remains the unit vector of $Ox$.
+
+> [!derivation] Euler's relation
+> **Law:** derivative of a product; derivative of a complex exponential; a function with zero derivative is constant
+> **Source:** Notes.pdf, Eq. 5.16; [Lecture 6, Slide 4]
+>
+> $\beta$ is a real variable (the notes call it $\theta$). The auxiliary function is the product of $\exp(-i\beta)$ and $\cos\beta + i\sin\beta$; for any complex constant $c$ the derivative of $\exp(c\,\beta)$ with respect to $\beta$ is $c\exp(c\,\beta)$.
+>
+> $$\begin{aligned}
+> \frac{d}{d\beta}\Big[\exp(-i\beta)\left(\cos\beta + i\sin\beta\right)\Big] &= -i\exp(-i\beta)\left(\cos\beta + i\sin\beta\right) + \exp(-i\beta)\left(-\sin\beta + i\cos\beta\right) \quad &\text{(product rule)} \\
+> &= \exp(-i\beta)\left(-i\cos\beta + \sin\beta - \sin\beta + i\cos\beta\right) \quad &\text{(expand; $-i\cdot i = 1$)} \\
+> &= 0 \quad &\text{(the four terms cancel in pairs)} \\
+> \exp(-i\beta)\left(\cos\beta + i\sin\beta\right) &= \exp(0)\left(\cos 0 + i\sin 0\right) \quad &\text{(constant: equal to its value at $\beta = 0$)} \\
+> &= 1 \quad &\text{(arithmetic)} \\
+> \exp(i\beta) &= \cos\beta + i\sin\beta \quad &\text{(multiply by $\exp(i\beta)$; Eq. 5.16)} \\
+> \exp(-i\beta) &= \cos\beta - i\sin\beta \quad &\text{(replace $\beta$ by $-\beta$: the cosine is even, the sine odd)} \\
+> \cos\beta &= \frac{\exp(i\beta) + \exp(-i\beta)}{2} \quad &\text{(add the two rows and halve)} \\
+> \sin\beta &= \frac{\exp(i\beta) - \exp(-i\beta)}{2i} \quad &\text{(subtract them and divide by $2i$)} \\
+> \Re(z) &= \frac{z + z^*}{2},\qquad \Im(z) = \frac{z - z^*}{2i} \quad &\text{(the same steps for any complex $z$ and its conjugate)}
+> \end{aligned}$$
+>
+> $$\boxed{\exp(i\beta) = \cos\beta + i\sin\beta,\qquad \cos\beta = \frac{\exp(i\beta) + \exp(-i\beta)}{2},\qquad \sin\beta = \frac{\exp(i\beta) - \exp(-i\beta)}{2i}}$$
+>
+> **Units:** $\beta$ in radians; every term is dimensionless
+> **Meaning:** $\exp(i\beta)$ is the point of the unit circle at the angle $\beta$ from the real axis: its real part is the cosine and its imaginary part the sine. These are the useful relations of [Lecture 6, Slide 4].
+
+> [!derivation] Complex form of the free oscillation
+> **Law:** a real solution equals its own conjugate; Euler's relation; polar form of a complex number
+> **Source:** Notes.pdf, Eq. 5.14; Notes.pdf, Eq. 5.15; Notes.pdf, Eq. 5.17; Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.10; [Lecture 6, Slide 6]
+>
+> $$\begin{aligned}
+> x &= D_1\exp(i\omega_0 t) + D_2\exp(-i\omega_0 t) \quad &\text{(general solution, Section 8)} \\
+> x^* &= D_1^*\exp(-i\omega_0 t) + D_2^*\exp(i\omega_0 t) \quad &\text{(conjugate: the conjugate of $\exp(i\beta)$ is $\exp(-i\beta)$ for real $\beta$)} \\
+> D_2 &= D_1^* \quad &\text{($x$ real means $x^* = x$ at every $t$: equal coefficients of $\exp(-i\omega_0 t)$)} \\
+> x &= \tfrac12 A\exp(i\omega_0 t) + \tfrac12 A^*\exp(-i\omega_0 t) \quad &\text{(name $A$ twice $D_1$; Eq. 5.14)} \\
+> &= \tfrac12\left(z + z^*\right),\qquad z = A\exp(i\omega_0 t) \quad &\text{(the second term is the conjugate of the first)} \\
+> &= \Re(z) \quad &\text{(Euler box, last row)} \\
+> A &= C_1 - i\,C_2 \quad &\text{(Eq. 5.15)} \\
+> z &= \left(C_1 - i\,C_2\right)\left(\cos(\omega_0 t) + i\sin(\omega_0 t)\right) \quad &\text{(Euler's relation, Eq. 5.16)} \\
+> &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) + i\left(C_1\sin(\omega_0 t) - C_2\cos(\omega_0 t)\right) \quad &\text{(expand; $-i\cdot i = 1$; group real and imaginary terms)} \\
+> \Re(z) &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) \quad &\text{(real part: Eq. 5.7 is recovered)} \\
+> A &= a\exp(i\phi) \quad &\text{(polar form, Eq. 5.17)} \\
+> z &= a\exp\big(i(\omega_0 t + \phi)\big) \quad &\text{(product of exponentials: the exponents add)} \\
+> \Re(z) &= a\cos(\omega_0 t + \phi) \quad &\text{(Euler's relation: Eq. 5.10 is recovered)} \\
+> a\cos\phi + i\,a\sin\phi &= C_1 - i\,C_2 \quad &\text{(Euler on Eq. 5.17, equal to Eq. 5.15)} \\
+> C_1 &= a\cos\phi,\qquad C_2 = -a\sin\phi \quad &\text{(equal real and imaginary parts: Eqs. 5.11 and 5.12)}
+> \end{aligned}$$
+>
+> $$\boxed{x = \tfrac12 A\exp(i\omega_0 t) + \tfrac12 A^*\exp(-i\omega_0 t) = \Re\big(A\exp(i\omega_0 t)\big),\qquad A = C_1 - i\,C_2 = a\exp(i\phi)}$$
+>
+> **Units:** $A$, $z$, $C_1$, $C_2$ and $a$ in $\mathrm m$; exponents dimensionless
+> **Meaning:** the complex amplitude $A$ contains in itself the two independent constants of the solution, its modulus the amplitude and its argument the initial phase (Notes.pdf, Sec. 5.2). For a real solution the two coefficients of the exponentials are conjugate, half of $a\exp(i\phi)$ and half of $a\exp(-i\phi)$, as written on [Lecture 6, Slide 6].
+
+> [!derivation] Real and imaginary parts of a complex solution
+> **Law:** linearity of the equation; the coefficients $m$ and $k$ are real
+> **Source:** Notes.pdf, Eq. 5.18
+>
+> $$\begin{aligned}
+> z &= \Re(z) + i\,\Im(z) \quad &\text{(any complex solution of Eq. 5.4)} \\
+> m\ddot z + k\,z &= m\,\frac{d^2\Re(z)}{dt^2} + k\,\Re(z) + i\left(m\,\frac{d^2\Im(z)}{dt^2} + k\,\Im(z)\right) \quad &\text{(differentiate term by term; group; $m$, $k$ real)} \\
+> 0 &= \left(m\,\frac{d^2\Re(z)}{dt^2} + k\,\Re(z)\right) + i\left(m\,\frac{d^2\Im(z)}{dt^2} + k\,\Im(z)\right) \quad &\text{($z$ is a solution; Eq. 5.18)} \\
+> m\,\frac{d^2\Re(z)}{dt^2} + k\,\Re(z) &= 0,\qquad m\,\frac{d^2\Im(z)}{dt^2} + k\,\Im(z) = 0 \quad &\text{(a complex number is zero when both its parts are, and both brackets are real)}
+> \end{aligned}$$
+>
+> $$\boxed{m\ddot z + k\,z = 0 \ \Longrightarrow\ \Re(z) \text{ and } \Im(z) \text{ each satisfy } m\ddot x + k\,x = 0}$$
+>
+> **Units:** $\mathrm N$ in every bracket
+> **Meaning:** one may solve with complex exponentials, where every derivative is a multiplication, and take the real part at the end (Notes.pdf, Sec. 5.2). The argument works because the coefficients are real: it is also the reason why the forced oscillator of Section 11 can be solved with a complex force.
+
+> [!derivation] The phasor in the complex plane
+> **Law:** polar form of the complex amplitude and of the exponent; modulus and argument of a product of exponentials
+> **Source:** Notes.pdf Fig. 5.2; Notes.pdf, Sec. 5.2; [Lecture 6, Slide 4]
+>
+> [Lecture 6, Slide 4] writes a general complex exponential with the complex amplitude $A$ and the eigenvalue $p$ split as $-\gamma + i\omega$: $\omega$ is the angular frequency and $\gamma$ the decay or damping rate. The free oscillation of this section is the case of $\gamma$ equal to zero and $\omega$ equal to $\omega_0$.
+>
+> $$\begin{aligned}
+> z &= A\exp(p\,t) \quad &\text{([Lecture 6, Slide 4])} \\
+> &= a\exp(i\phi)\exp\big((-\gamma + i\omega)\,t\big) \quad &\text{(polar form of $A$; $p = -\gamma + i\omega$)} \\
+> &= a\exp(-\gamma t)\exp\big(i(\omega t + \phi)\big) \quad &\text{(the exponents add; real and imaginary exponents grouped)} \\
+> \lvert z\rvert &= a\exp(-\gamma t) \quad &\text{($\lvert\exp(i\beta)\rvert = \sqrt{\cos^2\beta + \sin^2\beta} = 1$)} \\
+> \arg z &= \omega t + \phi \quad &\text{(argument of $\exp(i\beta)$ is $\beta$)} \\
+> \frac{d}{dt}\arg z &= \omega \quad &\text{(rate at which the arrow turns)} \\
+> \Re(z) &= a\exp(-\gamma t)\cos(\omega t + \phi) \quad &\text{(Euler's relation: projection on the real axis)} \\
+> \lvert z\rvert &= a,\qquad \Re(z) = a\cos(\omega_0 t + \phi) \quad &\text{(free undamped oscillator: $\gamma = 0$, $\omega = \omega_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{z = a\exp(-\gamma t)\exp\big(i(\omega t + \phi)\big):\quad \lvert z\rvert = a\exp(-\gamma t),\quad \arg z = \omega t + \phi;\qquad \text{undamped: a circle of radius } a \text{ at the rate } \omega_0}$$
+>
+> **Units:** $\lvert z\rvert$ in $\mathrm m$; $\omega$, $\gamma$ and the rate of the argument in $\mathrm{s^{-1}}$
+> **Meaning:** the phasor, the arrow from $0$ to $z$, turns about the origin with angular velocity $\omega_0$ on a circle whose radius is the amplitude, starting at the initial phase; the solution is the projection of this circular motion on the real axis, which is why $\omega_0$ is called the angular frequency (Notes.pdf, Sec. 5.2). Exponentials with $\omega$ positive turn counterclockwise, and with $\gamma$ positive their modulus decays with time, so the arrow spirals in ([Lecture 6, Slide 4]): this is the damped oscillator of Section 10.
+
+![[attachments/EM-T/t2-phasor.svg]]
+
+## 10. The damped harmonic oscillator
+
+A viscous damper added to the spring-mass system exerts a force proportional and opposite to the velocity, with the proportionality constant $\lambda$ (Notes.pdf, Sec. 5.3); with $k$ and $\lambda$ positive and no applied force, the equation of motion is the free damped equation of the first box of Section 8 ([Lecture 6, Slide 5]). The damper is a non-conservative force, so the mechanical energy is no longer constant.
+
+> [!derivation] Energy dissipated by the damper
+> **Law:** rate of change of the mechanical energy equals the power of the non-conservative forces (Section 5)
+> **Source:** Notes.pdf, Eq. 5.19; Notes.pdf, Sec. 4.5.1; [Lecture 2, Slide 19]
+>
+> The spring force is conservative, with the potential of Section 8; the damper force is the non-conservative force.
+>
+> $$\begin{aligned}
+> \frac{dE}{dt} &= \mathbf F_\lambda\cdot\mathbf v_0^P \quad &\text{(Section 5: $dE_0/dt = \mathbf F_N\cdot\mathbf v_0^P$)} \\
+> &= \left(-\lambda\dot x\,\mathbf i\right)\cdot\left(\dot x\,\mathbf i\right) \quad &\text{(damper force, Eq. 5.19; velocity along $\mathbf i$)} \\
+> &= -\lambda\,\dot x^2 \quad &\text{($\mathbf i\cdot\mathbf i = 1$)} \\
+> E &= \tfrac12\,m\,\dot x^2 + \tfrac12\,k\,x^2 \quad &\text{(mechanical energy of the oscillator)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{d}{dt}\left(\tfrac12\,m\,\dot x^2 + \tfrac12\,k\,x^2\right) = -\lambda\,\dot x^2 \leq 0}$$
+>
+> **Units:** $\mathrm{(N\,s/m)(m/s)^2} = \mathrm{N\,m/s} = \mathrm W$
+> **Meaning:** the damper removes energy at every instant at which the particle moves, so the energy can only decrease, and it stays constant only at the instants of zero velocity. The oscillations must therefore die out, which the solutions below make precise.
+
+> [!derivation] Characteristic equation of the damped oscillator
+> **Law:** trial exponential solution; quadratic formula; sign of the discriminant
+> **Source:** Notes.pdf, Eq. 5.20; Notes.pdf, Eq. 5.21; Notes.pdf, Eq. 5.22; Notes.pdf, Eq. 5.23; [Lecture 6, Slide 5]
+>
+> $$\begin{aligned}
+> m\ddot x + \lambda\dot x + k\,x &= 0 \quad &\text{(Eq. 5.20: Section 8 with $F_x = 0$)} \\
+> x &= \exp(p\,t),\qquad \dot x = p\exp(p\,t),\qquad \ddot x = p^2\exp(p\,t) \quad &\text{(trial solution and its derivatives, chain rule; Section 8)} \\
+> \left(m\,p^2 + \lambda\,p + k\right)\exp(p\,t) &= 0 \quad &\text{(substitute)} \\
+> m\,p^2 + \lambda\,p + k &= 0 \quad &\text{(the exponential is never zero; Eq. 5.21)} \\
+> p^2 + 2\gamma\,p + \omega_0^2 &= 0 \quad &\text{(divide by $m$; Eq. 5.23; [Lecture 6, Slide 5])} \\
+> p &= \frac{-2\gamma \pm \sqrt{4\gamma^2 - 4\omega_0^2}}{2} \quad &\text{(quadratic formula)} \\
+> &= -\gamma \pm \sqrt{\gamma^2 - \omega_0^2} \quad &\text{(take the factor $4$ out of the root and divide by $2$; Eq. 5.22)} \\
+> \sqrt{\gamma^2 - \omega_0^2} &< \gamma \quad &\text{(when $\gamma > \omega_0$: the radicand is smaller than $\gamma^2$)} \\
+> -\gamma \pm \sqrt{\gamma^2 - \omega_0^2} &< 0 \quad &\text{(both real roots are then negative)}
+> \end{aligned}$$
+>
+> $$\boxed{p = -\gamma \pm \sqrt{\gamma^2 - \omega_0^2}:\quad \frac{\gamma}{\omega_0} < 1 \text{ complex conjugate},\quad \frac{\gamma}{\omega_0} = 1 \text{ double, } -\gamma,\quad \frac{\gamma}{\omega_0} > 1 \text{ real, both negative}}$$
+>
+> **Units:** $p$, $\gamma$ and $\omega_0$ in $\mathrm{s^{-1}}$; every term of the characteristic equation in $\mathrm{s^{-2}}$
+> **Meaning:** the roots are generally complex (Notes.pdf, Sec. 5.3), and the sign of the discriminant, that is, the damping ratio compared with one, separates three kinds of motion: small, critical and large damping. In every case their real part is negative, so every solution decays.
+
+### Small damping
+
+> [!derivation] Underdamped solution
+> **Law:** complex conjugate roots; a real solution has conjugate coefficients; Euler's relation
+> **Source:** Notes.pdf, Eq. 5.24; Notes.pdf, Eq. 5.25; Notes.pdf, Eq. 5.26; [Lecture 6, Slide 8]
+>
+> $$\begin{aligned}
+> \sqrt{\gamma^2 - \omega_0^2} &= \sqrt{-\left(\omega_0^2 - \gamma^2\right)} \quad &\text{($\gamma < \omega_0$: the radicand is negative)} \\
+> &= i\,\omega,\qquad \omega = \sqrt{\omega_0^2 - \gamma^2} \quad &\text{($\sqrt{-1} = i$; Eq. 5.24)} \\
+> p_\pm &= -\gamma \pm i\,\omega \quad &\text{(the two roots; [Lecture 6, Slide 8])} \\
+> x &= D_1\exp\big((-\gamma + i\omega)\,t\big) + D_2\exp\big((-\gamma - i\omega)\,t\big) \quad &\text{(two distinct roots, Section 8)} \\
+> &= \tfrac12 A\exp(i\omega t - \gamma t) + \tfrac12 A^*\exp(-i\omega t - \gamma t) \quad &\text{($x$ real: $D_2 = D_1^*$, and $A$ is twice $D_1$, as in Section 9; Eq. 5.25)} \\
+> &= \Re\big[A\exp(i\omega t - \gamma t)\big] \quad &\text{(the second term is the conjugate of the first; Eq. 5.26)} \\
+> &= a\exp(-\gamma t)\,\Re\big[\exp(i\phi)\exp(i\omega t)\big] \quad &\text{($A = a\exp(i\phi)$; the real factor $a\exp(-\gamma t)$ comes out)} \\
+> &= a\exp(-\gamma t)\cos(\omega t + \phi) \quad &\text{(exponents add; Euler's relation)} \\
+> &= \exp(-\gamma t)\left[C_1\cos(\omega t) + C_2\sin(\omega t)\right] \quad &\text{(cosine of a sum, with $C_1 = a\cos\phi$, $C_2 = -a\sin\phi$)} \\
+> \omega^2 &= \omega_0^2 - \gamma^2 < \omega_0^2 \quad &\text{($\gamma$ is positive)}
+> \end{aligned}$$
+>
+> $$\boxed{x = a\exp(-\gamma t)\cos(\omega t + \phi) = \exp(-\gamma t)\left[C_1\cos(\omega t) + C_2\sin(\omega t)\right],\qquad \omega = \sqrt{\omega_0^2 - \gamma^2} < \omega_0}$$
+>
+> **Units:** $a$, $C_1$, $C_2$ in $\mathrm m$; $\gamma t$ and $\omega t$ dimensionless
+> **Meaning:** the solution is an oscillation with the exponentially decreasing amplitude $a\exp(-\gamma t)$ and the angular frequency $\omega$ of the damped oscillator, always smaller than the frequency $\omega_0$ of the undamped one (Notes.pdf, Sec. 5.3.1; Notes.pdf Fig. 5.3): the oscillatory behaviour of the ideal case, with a slightly different frequency, damped with the decay rate $\gamma$ ([Lecture 6, Slide 8]).
+
+> [!warning] Erratum to Notes.pdf, Eq. 5.26: position of a bracket
+> The last form of Eq. 5.26 is printed with the real part closed before the factor $\exp(i\omega t)$, so that this factor multiplies a real number from outside the real part and the printed expression is complex, not a displacement. The real part must enclose both exponentials of unit modulus, as in the box above and on [Lecture 6, Slide 8], where the factor $a\exp(-\gamma t)$ is outside and $\exp(i\phi)\exp(i\omega t)$ inside. Check: with the printed bracket, for $\gamma$ equal to zero, $\phi$ equal to zero and $\omega t$ equal to $\pi/2$ the expression is $a$ times $i$, a purely imaginary number, while the corrected one gives $a\cos(\pi/2)$, zero.
+
+> [!derivation] Constants of the underdamped solution from the initial conditions
+> **Law:** evaluation of the solution and of its first derivative at the initial instant
+> **Source:** Notes.pdf, Eq. 5.26; [Lecture 6, Slide 8]; [Lecture 6, Slide 3]
+>
+> $$\begin{aligned}
+> x(0) &= \exp(0)\left[C_1\cos 0 + C_2\sin 0\right] \quad &\text{(last form of the box above at $t = 0$)} \\
+> &= C_1 \quad &\text{(arithmetic)} \\
+> C_1 &= x_0 \quad &\text{(first initial condition)} \\
+> \dot x &= -\gamma\exp(-\gamma t)\left[C_1\cos(\omega t) + C_2\sin(\omega t)\right] + \exp(-\gamma t)\left[-C_1\,\omega\sin(\omega t) + C_2\,\omega\cos(\omega t)\right] \quad &\text{(product rule; chain rule on each factor)} \\
+> \dot x(0) &= -\gamma\,C_1 + \omega\,C_2 \quad &\text{(at $t = 0$)} \\
+> C_2 &= \frac{\dot x_0 + \gamma\,x_0}{\omega} \quad &\text{(second initial condition with $C_1 = x_0$; divide by $\omega$)}
+> \end{aligned}$$
+>
+> $$\boxed{C_1 = x_0,\qquad C_2 = \frac{\dot x_0 + \gamma\,x_0}{\omega}}$$
+>
+> **Units:** $\mathrm m$ for both: $\mathrm{(m/s + s^{-1}\,m)/s^{-1}}$
+> **Meaning:** without damping ($\gamma$ zero, $\omega$ equal to $\omega_0$) these are Eqs. 5.8 and 5.9. A particle released from rest still needs a small sine term, because the damper slows it from the start.
+
+> [!derivation] Relaxation time and quality factor
+> **Law:** decay of the amplitude $a\exp(-\gamma t)$; definitions of the notes; first-order expansion for small damping
+> **Source:** Notes.pdf, Eq. 5.27; Notes.pdf, Eq. 5.28; Notes.pdf, Sec. 5.3.1; [Lecture 6, Slide 8]
+>
+> $$\begin{aligned}
+> a\exp(-\gamma\,t_r) &= a\,e^{-1} \quad &\text{(the amplitude falls by the factor $1/e$ in the time $t_r$)} \\
+> t_r &= \frac{1}{\gamma} \quad &\text{(equal exponents)} \\
+> &= \frac{2m}{\lambda} \quad &\text{($\gamma = \lambda/(2m)$; Eq. 5.27)} \\
+> Q &= \frac{\omega_0}{2\gamma} \quad &\text{(definition of the quality factor; Eq. 5.28; [Lecture 6, Slide 8])} \\
+> &= \frac{m\,\omega_0}{\lambda} \quad &\text{(the same substitution; Eq. 5.28)} \\
+> \frac{a\exp\big(-\gamma\,(t + 2\pi/\omega)\big)}{a\exp(-\gamma t)} &= \exp\left(-\frac{2\pi\gamma}{\omega}\right) \quad &\text{(amplitude after one period $2\pi/\omega$, over the amplitude before it)} \\
+> \omega &= \omega_0\left(1 - \frac{\gamma^2}{\omega_0^2}\right)^{1/2} \quad &\text{(take $\omega_0^2$ out of the root)} \\
+> &= \omega_0\left(1 - \frac{\gamma^2}{2\,\omega_0^2} + \dots\right) \quad &\text{(binomial expansion; the correction is of second order in $\gamma/\omega_0$)} \\
+> \exp\left(-\frac{2\pi\gamma}{\omega}\right) &\simeq \exp\left(-\frac{2\pi\gamma}{\omega_0}\right) \quad &\text{(small damping: keep $\omega \simeq \omega_0$)} \\
+> &= \exp\left(-\frac{\pi}{Q}\right) \quad &\text{($2\gamma/\omega_0 = 1/Q$)} \\
+> \frac{t_r}{2\pi/\omega} &= \frac{\omega}{2\pi\gamma} \quad &\text{(number of periods in a relaxation time)} \\
+> &\simeq \frac{\omega_0}{2\pi\gamma} \quad &\text{($\omega \simeq \omega_0$)} \\
+> &= \frac{Q}{\pi} \quad &\text{(definition of $Q$)}
+> \end{aligned}$$
+>
+> $$\boxed{t_r = \frac{1}{\gamma} = \frac{2m}{\lambda},\qquad Q = \frac{m\,\omega_0}{\lambda} = \frac{\omega_0}{2\gamma};\qquad \text{per period: } \exp\left(-\frac{2\pi\gamma}{\omega}\right) \simeq \exp\left(-\frac{\pi}{Q}\right),\quad \frac{t_r}{2\pi/\omega} \simeq \frac{Q}{\pi}}$$
+>
+> **Units:** $t_r$ in $\mathrm s$ ($1/\mathrm{s^{-1}}$ and $\mathrm{kg/(N\,s/m)} = \mathrm s$); $Q$ dimensionless ($\mathrm{kg\,s^{-1}/(N\,s/m)} = 1$)
+> **Meaning:** small damping means a large quality factor (Notes.pdf, Sec. 5.3.1). For $Q$ equal to $10$ ($\gamma/\omega_0$ equal to $0.05$) one period multiplies the amplitude by $0.730$ (the approximation $\exp(-\pi/Q)$ gives $0.730$ as well), and a relaxation time holds about $3.2$ periods.
+
+### Large damping
+
+> [!derivation] Overdamped solution
+> **Law:** two real negative roots; general solution with two exponentials; constants from the initial conditions
+> **Source:** Notes.pdf, Eq. 5.29; Notes.pdf, Eq. 5.30; Notes.pdf, Sec. 5.3.2; [Lecture 6, Slide 9]
+>
+> The decay rates $\gamma_+$ and $\gamma_-$ are both positive, by the last row of the box on the characteristic equation.
+>
+> $$\begin{aligned}
+> p &= -\gamma \pm \sqrt{\gamma^2 - \omega_0^2} \quad &\text{($\gamma > \omega_0$: real roots, Eq. 5.22)} \\
+> p_- &= -\gamma_+,\qquad p_+ = -\gamma_-,\qquad \gamma_\pm = \gamma \pm \sqrt{\gamma^2 - \omega_0^2} \quad &\text{(Eq. 5.29; [Lecture 6, Slide 9])} \\
+> x &= C_+\exp(-\gamma_+ t) + C_-\exp(-\gamma_- t) \quad &\text{(two distinct real roots; Eq. 5.30 with $C_+ = A/2$, $C_- = B/2$)} \\
+> x_0 &= C_+ + C_- \quad &\text{(at $t = 0$)} \\
+> \dot x &= -\gamma_+ C_+\exp(-\gamma_+ t) - \gamma_- C_-\exp(-\gamma_- t) \quad &\text{(differentiate; chain rule)} \\
+> \dot x_0 &= -\gamma_+ C_+ - \gamma_- C_- \quad &\text{(at $t = 0$)} \\
+> \gamma_+ x_0 + \dot x_0 &= \left(\gamma_+ - \gamma_-\right)C_- \quad &\text{(multiply the first condition by $\gamma_+$ and add the second)} \\
+> C_- &= \frac{\dot x_0 + \gamma_+ x_0}{\gamma_+ - \gamma_-} \quad &\text{(divide; $\gamma_+ - \gamma_- = 2\sqrt{\gamma^2 - \omega_0^2} > 0$)} \\
+> C_+ &= x_0 - C_- \quad &\text{(first condition)} \\
+> &= -\frac{\dot x_0 + \gamma_- x_0}{\gamma_+ - \gamma_-} \quad &\text{(common denominator)} \\
+> \frac{C_+\exp(-\gamma_+ t)}{C_-\exp(-\gamma_- t)} &= \frac{C_+}{C_-}\exp\big(-(\gamma_+ - \gamma_-)\,t\big) \quad &\text{(ratio of the fast term to the slow term, for $C_-$ nonzero)} \\
+> &\to 0 \ \text{ as } t \to \infty \quad &\text{($\gamma_+ > \gamma_-$)}
+> \end{aligned}$$
+>
+> $$\boxed{x = C_+\exp(-\gamma_+ t) + C_-\exp(-\gamma_- t),\quad \gamma_\pm = \gamma \pm \sqrt{\gamma^2 - \omega_0^2};\quad C_- = \frac{\dot x_0 + \gamma_+ x_0}{\gamma_+ - \gamma_-},\ \ C_+ = -\frac{\dot x_0 + \gamma_- x_0}{\gamma_+ - \gamma_-}}$$
+>
+> **Units:** $\gamma_\pm$ in $\mathrm{s^{-1}}$; $C_\pm$ in $\mathrm m$
+> **Meaning:** the oscillatory behaviour has disappeared: the oscillator is dominated by the damping force, and the displacement is the sum of two real decaying exponentials, a fast one with $\gamma_+$ and a slow one with $\gamma_-$, which survives longer (Notes.pdf, Sec. 5.3.2; [Lecture 6, Slide 9]). For large times the slow term dominates, so the displacement falls by the factor $1/e$ in a time of order $1/\gamma_-$: the relaxation time is now about $1/\gamma_-$.
+
+### Critical damping
+
+> [!derivation] Critically damped solution
+> **Law:** double root of the characteristic equation; second solution checked by direct substitution; constants from the initial conditions
+> **Source:** Notes.pdf, Eq. 5.31; Notes.pdf, Sec. 5.3.3; [Lecture 6, Slide 10]; [Lecture 6, Slide 3]
+>
+> $$\begin{aligned}
+> p &= -\gamma \quad &\text{($\gamma = \omega_0$: zero discriminant, one double root)} \\
+> x &= t\exp(-\gamma t) \quad &\text{(candidate second solution)} \\
+> \dot x &= \exp(-\gamma t) - \gamma\,t\exp(-\gamma t) \quad &\text{(product rule; chain rule on the exponential)} \\
+> \ddot x &= -\gamma\exp(-\gamma t) - \gamma\exp(-\gamma t) + \gamma^2\,t\exp(-\gamma t) \quad &\text{(differentiate each term; product rule on the second)} \\
+> &= \left(-2\gamma + \gamma^2\,t\right)\exp(-\gamma t) \quad &\text{(group)} \\
+> \ddot x + 2\gamma\,\dot x + \omega_0^2\,x &= \left(-2\gamma + \gamma^2 t + 2\gamma - 2\gamma^2 t + \omega_0^2\,t\right)\exp(-\gamma t) \quad &\text{(substitute the three rows)} \\
+> &= \left(\omega_0^2 - \gamma^2\right)t\exp(-\gamma t) \quad &\text{(the terms without $t$ cancel)} \\
+> &= 0 \quad &\text{($\gamma = \omega_0$: the candidate is a solution)} \\
+> \frac{t\exp(-\gamma t)}{\exp(-\gamma t)} &= t \quad &\text{(not constant: the two solutions are independent)} \\
+> x &= \left(C_1 + C_2\,t\right)\exp(-\gamma t) \quad &\text{(general solution, Eq. 5.31, which writes $a$ and $b$ for $C_1$ and $C_2$)} \\
+> x(0) &= C_1 \quad &\text{(at $t = 0$)} \\
+> \dot x &= C_2\exp(-\gamma t) - \gamma\left(C_1 + C_2\,t\right)\exp(-\gamma t) \quad &\text{(product rule)} \\
+> \dot x(0) &= C_2 - \gamma\,C_1 \quad &\text{(at $t = 0$)} \\
+> C_1 &= x_0,\qquad C_2 = \dot x_0 + \gamma\,x_0 \quad &\text{(initial conditions)}
+> \end{aligned}$$
+>
+> $$\boxed{\gamma = \omega_0:\qquad x = \left(C_1 + C_2\,t\right)\exp(-\gamma t),\qquad C_1 = x_0,\ \ C_2 = \dot x_0 + \gamma\,x_0}$$
+>
+> **Units:** $C_1$ in $\mathrm m$; $C_2$ in $\mathrm{m/s}$, so $C_2\,t$ is in $\mathrm m$
+> **Meaning:** with a double root the single exponential holds only one arbitrary constant and cannot be the general solution; the second independent solution is $t\exp(-\gamma t)$, a new type of function (Notes.pdf, Sec. 5.3.3; [Lecture 6, Slide 10]), as [Lecture 6, Slide 3] states for any double root. The displacement decays without oscillating; with a large initial velocity towards the equilibrium it may cross zero once, where the bracket vanishes, as in the example of [Lecture 6, Slide 10].
+
+![[attachments/EM-T/t2-damped-responses.svg]]
+
+> [!derivation] Critical damping gives the fastest return to equilibrium
+> **Law:** the slowest of the two decay rates sets the response time; derivative of the slow rate with respect to $\gamma$
+> **Source:** Notes.pdf, Sec. 5.3.3; [Lecture 6, Slide 10]; Notes.pdf, Eq. 5.29
+>
+> The stiffness, hence $\omega_0$, is fixed and the damping is varied. The decay rate of each solution is minus the real part of its root.
+>
+> $$\begin{aligned}
+> -\Re(p_\pm) &= \gamma \quad &\text{($\gamma < \omega_0$: both roots $-\gamma \pm i\omega$; grows with $\gamma$)} \\
+> -p_+ &= \gamma_- = \gamma - \sqrt{\gamma^2 - \omega_0^2} \quad &\text{($\gamma > \omega_0$: the slower of the two rates)} \\
+> \frac{d\gamma_-}{d\gamma} &= 1 - \frac{\gamma}{\sqrt{\gamma^2 - \omega_0^2}} \quad &\text{(derivative; chain rule on the root)} \\
+> &< 0 \quad &\text{($\sqrt{\gamma^2 - \omega_0^2} < \gamma$: the fraction exceeds one)} \\
+> \gamma_- &= \frac{\left(\gamma - \sqrt{\gamma^2 - \omega_0^2}\right)\left(\gamma + \sqrt{\gamma^2 - \omega_0^2}\right)}{\gamma + \sqrt{\gamma^2 - \omega_0^2}} \quad &\text{(multiply and divide by the conjugate)} \\
+> &= \frac{\omega_0^2}{\gamma + \sqrt{\gamma^2 - \omega_0^2}} \quad &\text{(difference of squares: $\gamma^2 - (\gamma^2 - \omega_0^2)$)} \\
+> &\simeq \frac{\omega_0^2}{2\gamma} \ \text{ for } \gamma \gg \omega_0 \quad &\text{(the root tends to $\gamma$)} \\
+> \gamma_- &\to \omega_0 \ \text{ as } \gamma \to \omega_0 \quad &\text{(the root vanishes: both branches meet the value $\omega_0$ at critical damping)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{slowest decay rate} = \begin{cases} \gamma, & \gamma \leq \omega_0 \\ \gamma - \sqrt{\gamma^2 - \omega_0^2}, & \gamma \geq \omega_0 \end{cases} \quad\text{maximal, equal to } \omega_0, \text{ at } \gamma = \omega_0}$$
+>
+> **Units:** every rate in $\mathrm{s^{-1}}$; the derivative is dimensionless
+> **Meaning:** below critical damping the response time is the relaxation time $1/\gamma$, which decreases as $\gamma$ grows; above it the response time $1/\gamma_-$ increases with $\gamma$, and for very strong damping the particle creeps back at the slow rate of about $\omega_0^2/(2\gamma)$. The shortest response time, $1/\omega_0$, is obtained with critical damping, which is the ideal for a measuring instrument whose pointer must settle at its correct position as quickly as possible (Notes.pdf, Sec. 5.3.3): the smaller decay rate of the two independent solutions is maximal in the critical case ([Lecture 6, Slide 10]).
+
+![[attachments/EM-T/t2-decay-rates.svg]]
+
+## 11. The damped oscillator under a periodic force
+
+One is often interested in the response of an oscillatory system to an external force that is a function of time (Notes.pdf, Sec. 5.4): the equation of motion is then the complete equation of the first box of Section 8, with the applied force on the right side ([Lecture 6, Slide 11]). Here $x_p$ and $x_h$ denote a particular solution of the complete equation and a solution of the homogeneous one (the notes write $x_1$ and $x_0$; $x_0$ is the initial position in this note).
+
+> [!derivation] General solution of the complete equation
+> **Law:** linearity: the difference of two solutions of the complete equation solves the homogeneous one
+> **Source:** Notes.pdf, Eq. 5.32; Notes.pdf, Eq. 5.20; Notes.pdf, Sec. 5.4; [Lecture 6, Slide 3]
+>
+> $F(t)$ is the applied force and $x_p$ any one solution of the complete equation.
+>
+> $$\begin{aligned}
+> m\ddot x_p + \lambda\dot x_p + k\,x_p &= F(t) \quad &\text{(a particular solution, Eq. 5.32)} \\
+> m\ddot x_h + \lambda\dot x_h + k\,x_h &= 0 \quad &\text{(a homogeneous solution, Eq. 5.20)} \\
+> m\left(\ddot x_p + \ddot x_h\right) + \lambda\left(\dot x_p + \dot x_h\right) + k\left(x_p + x_h\right) &= F(t) + 0 \quad &\text{(add the two rows; derivative of a sum)} \\
+> m\left(\ddot x - \ddot x_p\right) + \lambda\left(\dot x - \dot x_p\right) + k\left(x - x_p\right) &= F(t) - F(t) = 0 \quad &\text{(any other solution $x$ of Eq. 5.32, minus the first row)}
+> \end{aligned}$$
+>
+> $$\boxed{x = x_p + x_h,\qquad x_h = \text{general solution of } m\ddot x + \lambda\dot x + k\,x = 0}$$
+>
+> **Units:** $\mathrm N$ in every row
+> **Meaning:** the sum of a particular solution and a homogeneous one is a solution, and every solution is of this form, because its difference from the particular one solves the homogeneous equation: one particular solution of the complete equation is enough, and the general solution follows by adding the general solution of Section 10, built from two independent solutions (Notes.pdf, Sec. 5.4). The solutions of the complete equation form a two-dimensional affine space ([Lecture 6, Slide 3]).
+
+> [!derivation] The periodic force in complex form
+> **Law:** Euler's relation; real coefficients keep the real part of a complex solution a solution
+> **Source:** Notes.pdf, Eq. 5.33; Notes.pdf, Eq. 5.34; Notes.pdf, Eq. 5.35; [Lecture 6, Slide 11]
+>
+> $F_1$ and $\omega_1$ are real constants; $F_1$ is taken positive (a negative amplitude is a shift of the origin of time by half a period).
+>
+> $$\begin{aligned}
+> F(t) &= F_1\cos(\omega_1 t) \quad &\text{(Eq. 5.33)} \\
+> &= \Re\big[F_1\exp(i\omega_1 t)\big] \quad &\text{(Euler's relation, $F_1$ real; Eq. 5.34)} \\
+> m\ddot z + \lambda\dot z + k\,z &= F_1\exp(i\omega_1 t) \quad &\text{(complex equation, Eq. 5.35)} \\
+> m\,\frac{d^2\Re(z)}{dt^2} + \lambda\,\frac{d\Re(z)}{dt} + k\,\Re(z) &= \Re\big[F_1\exp(i\omega_1 t)\big] \quad &\text{(real part of both sides; $m$, $\lambda$, $k$ real, as in Section 9)} \\
+> &= F_1\cos(\omega_1 t) \quad &\text{(second row)}
+> \end{aligned}$$
+>
+> $$\boxed{m\ddot z + \lambda\dot z + k\,z = F_1\exp(i\omega_1 t) \ \Longrightarrow\ x = \Re(z) \text{ solves } m\ddot x + \lambda\dot x + k\,x = F_1\cos(\omega_1 t)}$$
+>
+> **Units:** $\mathrm N$ on both sides
+> **Meaning:** the complex equation is solved first, where derivatives of $\exp(i\omega_1 t)$ are multiplications by $i\omega_1$, and its real part is the solution of the real problem (Notes.pdf, Sec. 5.4; [Lecture 6, Slide 11]).
+
+> [!derivation] Particular solution: amplitude and phase of the forced oscillation
+> **Law:** trial solution with the period of the force; equal real and imaginary parts; right triangle of the complex coefficient
+> **Source:** Notes.pdf, Eq. 5.36; Notes.pdf, Eq. 5.37; Notes.pdf, Eq. 5.38; Notes.pdf, Eq. 5.39; Notes.pdf, Eq. 5.40; Notes.pdf, Eq. 5.41; Notes.pdf, Eq. 5.42; [Lecture 6, Slide 11]
+>
+> The coefficient of $a_1$ in Eq. 5.38 is a complex number: in the complex plane it is the hypotenuse of a right triangle whose horizontal leg is the real part $\omega_0^2 - \omega_1^2$ (adjacent to its argument) and whose vertical leg is the imaginary part $2\gamma\omega_1$ (opposite to its argument). By Eq. 5.38 its argument is $-\phi_1$.
+>
+> $$\begin{aligned}
+> z_p &= A_1\exp(i\omega_1 t),\qquad A_1 = a_1\exp(i\phi_1) \quad &\text{(trial solution with the frequency of the force, Eq. 5.36)} \\
+> \dot z_p &= i\omega_1 A_1\exp(i\omega_1 t) \quad &\text{(chain rule)} \\
+> \ddot z_p &= -\omega_1^2 A_1\exp(i\omega_1 t) \quad &\text{(chain rule again; $i^2 = -1$)} \\
+> \left(-m\,\omega_1^2 + i\lambda\omega_1 + k\right)A_1\exp(i\omega_1 t) &= F_1\exp(i\omega_1 t) \quad &\text{(substitute in Eq. 5.35)} \\
+> \left(-m\,\omega_1^2 + i\lambda\omega_1 + k\right)A_1 &= F_1 \quad &\text{(divide by the exponential; Eq. 5.37)} \\
+> \left(\omega_0^2 - \omega_1^2 + 2i\gamma\omega_1\right)A_1 &= \frac{F_1}{m} \quad &\text{(divide by $m$; $k/m = \omega_0^2$, $\lambda/m = 2\gamma$)} \\
+> \left(\omega_0^2 - \omega_1^2 + 2i\gamma\omega_1\right)a_1 &= \frac{F_1}{m}\exp(-i\phi_1) \quad &\text{($A_1 = a_1\exp(i\phi_1)$; multiply by $\exp(-i\phi_1)$; Eq. 5.38)} \\
+> &= \frac{F_1}{m}\left(\cos\phi_1 - i\sin\phi_1\right) \quad &\text{(Euler's relation)} \\
+> \left(\omega_0^2 - \omega_1^2\right)a_1 &= \frac{F_1}{m}\cos\phi_1 \quad &\text{(real parts; Eq. 5.39)} \\
+> 2\gamma\omega_1\,a_1 &= -\frac{F_1}{m}\sin\phi_1 \quad &\text{(imaginary parts; Eq. 5.40)} \\
+> \left[\left(\omega_0^2 - \omega_1^2\right)^2 + 4\gamma^2\omega_1^2\right]a_1^2 &= \frac{F_1^2}{m^2}\left(\cos^2\phi_1 + \sin^2\phi_1\right) \quad &\text{(square the two rows and add)} \\
+> &= \frac{F_1^2}{m^2} \quad &\text{(Pythagoras)} \\
+> a_1 &= \frac{F_1/m}{\sqrt{\left(\omega_0^2 - \omega_1^2\right)^2 + 4\gamma^2\omega_1^2}} \quad &\text{(positive root: hypotenuse of the triangle; Eq. 5.41)} \\
+> \tan\phi_1 &= -\frac{2\gamma\omega_1}{\omega_0^2 - \omega_1^2} \quad &\text{(divide Eq. 5.40 by Eq. 5.39: minus opposite over adjacent; Eq. 5.42)} \\
+> \sin\phi_1 &= -\frac{2\gamma\omega_1\,a_1\,m}{F_1} < 0 \quad &\text{(Eq. 5.40 solved: $\gamma$, $\omega_1$, $a_1$, $F_1$ positive)} \\
+> \cos\phi_1 &= \frac{\left(\omega_0^2 - \omega_1^2\right)a_1\,m}{F_1} \quad &\text{(Eq. 5.39 solved: the sign of $\omega_0^2 - \omega_1^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{a_1 = \frac{F_1/m}{\sqrt{\left(\omega_0^2 - \omega_1^2\right)^2 + 4\gamma^2\omega_1^2}},\qquad \tan\phi_1 = -\frac{2\gamma\omega_1}{\omega_0^2 - \omega_1^2},\qquad -\pi < \phi_1 < 0}$$
+>
+> **Units:** $a_1$ in $\mathrm{(N/kg)/s^{-2}} = \mathrm{(m/s^2)\,s^2} = \mathrm m$; the tangent is a quotient of two terms in $\mathrm{s^{-2}}$, dimensionless
+> **Meaning:** of the two angles with this tangent, the meaningful one lies between $-\pi$ and $0$, because the sine of $\phi_1$ is negative (Notes.pdf, Sec. 5.4): below $\omega_0$ the cosine is positive and $\phi_1$ lies between $-\pi/2$ and $0$; above $\omega_0$ it lies between $-\pi$ and $-\pi/2$. A negative phase means that the oscillator lags behind the force: it moves after the force phasor in the complex circle ([Lecture 6, Slide 12]).
+
+![[attachments/EM-T/t2-forced-triangle.svg]]
+
+> [!derivation] General forced solution and the steady state
+> **Law:** real part of the particular solution; superposition with the homogeneous solution; decay of the transient
+> **Source:** Notes.pdf, Eq. 5.43; Notes.pdf, Eq. 5.44; Notes.pdf, Sec. 5.4; [Lecture 6, Slide 12]
+>
+> For damping less than critical the homogeneous solution is the underdamped one of Section 10.
+>
+> $$\begin{aligned}
+> x_p &= \Re\Big(a_1\exp\big(i(\omega_1 t + \phi_1)\big)\Big) \quad &\text{(real part of Eq. 5.36)} \\
+> &= a_1\cos(\omega_1 t + \phi_1) \quad &\text{(Euler's relation; Eq. 5.43)} \\
+> x &= a_1\cos(\omega_1 t + \phi_1) + a\exp(-\gamma t)\cos(\omega t + \phi) \quad &\text{(add the homogeneous solution; Eq. 5.44; [Lecture 6, Slide 12])} \\
+> x_h(0) &= x_0 - a_1\cos\phi_1 \quad &\text{(initial value of the homogeneous part: $x_0$ minus $x_p(0)$)} \\
+> \dot x_p &= -a_1\,\omega_1\sin(\omega_1 t + \phi_1) \quad &\text{(differentiate $x_p$; chain rule)} \\
+> \dot x_h(0) &= \dot x_0 + a_1\,\omega_1\sin\phi_1 \quad &\text{($\dot x_0$ minus $\dot x_p(0)$)} \\
+> \lvert a\exp(-\gamma t)\cos(\omega t + \phi)\rvert &\leq a\exp(-\gamma t) \quad &\text{($\lvert\cos\rvert \leq 1$)} \\
+> &\to 0 \ \text{ as } t \to \infty \quad &\text{($\gamma > 0$ when $\lambda \neq 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{x = a_1\cos(\omega_1 t + \phi_1) + a\exp(-\gamma t)\cos(\omega t + \phi) \ \longrightarrow\ a_1\cos(\omega_1 t + \phi_1) \ \text{ for large } t}$$
+>
+> **Units:** $\mathrm m$ in every term
+> **Meaning:** $a_1$ and $\phi_1$ are fixed by the force (Eqs. 5.41 and 5.42), while $a$ and $\phi$ are fixed by the initial conditions: they are those of the underdamped box of Section 10 with the initial values of the homogeneous part found in the fourth and sixth rows. The second term is a free damped oscillation, the initial transient, and dies away exponentially; whatever the initial conditions, the motion is ultimately governed by the external force alone, at the angular frequency $\omega_1$ of the force and not at the natural frequency (Notes.pdf, Sec. 5.4). The particular solution is the solution at long times and is independent of the initial conditions ([Lecture 6, Slide 12]).
+
+> [!info] Extension: beats
+> Neither Notes.pdf nor the slides of Lecture 6 treat beats. They appear when an undamped oscillator, started at rest, is driven at a frequency close to its natural frequency: the free and the forced oscillations, of nearly equal frequencies, add up to a fast oscillation whose amplitude swells and fades slowly. The box below derives them with the tools of this section.
+
+> [!derivation] Extension: beats of the undamped forced oscillator
+> **Law:** particular solution by substitution; constants from the initial conditions; cosines of a sum and of a difference
+> **Source:** Notes.pdf, Eq. 5.32; Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.41; [Lecture 6, Slide 11]
+>
+> No damper ($\lambda$ zero), the force of Eq. 5.33 with $\omega_1$ different from $\omega_0$, and the particle at rest at the relaxed position at $t$ equal to zero.
+>
+> $$\begin{aligned}
+> \ddot x + \omega_0^2\,x &= \frac{F_1}{m}\cos(\omega_1 t) \quad &\text{(Eq. 5.32 with $\lambda = 0$, divided by $m$)} \\
+> x_p &= B_1\cos(\omega_1 t) \quad &\text{(trial solution with the frequency of the force)} \\
+> \ddot x_p &= -\omega_1^2 B_1\cos(\omega_1 t) \quad &\text{(chain rule twice)} \\
+> \left(\omega_0^2 - \omega_1^2\right)B_1\cos(\omega_1 t) &= \frac{F_1}{m}\cos(\omega_1 t) \quad &\text{(substitute)} \\
+> B_1 &= \frac{F_1/m}{\omega_0^2 - \omega_1^2} \quad &\text{(divide; $\omega_1 \neq \omega_0$; Eq. 5.41 with $\gamma = 0$, with a sign)} \\
+> x &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) + B_1\cos(\omega_1 t) \quad &\text{(add the homogeneous solution, Eq. 5.7)} \\
+> \dot x &= -C_1\,\omega_0\sin(\omega_0 t) + C_2\,\omega_0\cos(\omega_0 t) - B_1\,\omega_1\sin(\omega_1 t) \quad &\text{(differentiate; chain rule)} \\
+> C_1 + B_1 &= 0,\qquad C_2\,\omega_0 = 0 \quad &\text{($x(0) = 0$ and $\dot x(0) = 0$)} \\
+> x &= B_1\left[\cos(\omega_1 t) - \cos(\omega_0 t)\right] \quad &\text{(substitute $C_1 = -B_1$, $C_2 = 0$)} \\
+> \cos(\omega_1 t) &= \cos\tfrac{(\omega_0 + \omega_1)t}{2}\cos\tfrac{(\omega_0 - \omega_1)t}{2} + \sin\tfrac{(\omega_0 + \omega_1)t}{2}\sin\tfrac{(\omega_0 - \omega_1)t}{2} \quad &\text{($\omega_1 t$ is half the sum minus half the difference: cosine of a difference)} \\
+> \cos(\omega_0 t) &= \cos\tfrac{(\omega_0 + \omega_1)t}{2}\cos\tfrac{(\omega_0 - \omega_1)t}{2} - \sin\tfrac{(\omega_0 + \omega_1)t}{2}\sin\tfrac{(\omega_0 - \omega_1)t}{2} \quad &\text{($\omega_0 t$ is half the sum plus half the difference: cosine of a sum)} \\
+> \cos(\omega_1 t) - \cos(\omega_0 t) &= 2\sin\tfrac{(\omega_0 + \omega_1)t}{2}\sin\tfrac{(\omega_0 - \omega_1)t}{2} \quad &\text{(subtract: the products of cosines cancel)} \\
+> x &= \left[2B_1\sin\tfrac{(\omega_0 - \omega_1)t}{2}\right]\sin\tfrac{(\omega_0 + \omega_1)t}{2} \quad &\text{(substitute)} \\
+> \sin\tfrac{(\omega_0 - \omega_1)t}{2} &\simeq \tfrac{(\omega_0 - \omega_1)t}{2} \quad &\text{(as $\omega_1 \to \omega_0$, for fixed $t$: first-order Taylor term of the sine)} \\
+> 2B_1\,\tfrac{(\omega_0 - \omega_1)t}{2} &= \frac{F_1\,t}{m\left(\omega_0 + \omega_1\right)} \quad &\text{($\omega_0^2 - \omega_1^2 = (\omega_0 - \omega_1)(\omega_0 + \omega_1)$; cancel)} \\
+> x &\to \frac{F_1\,t}{2m\,\omega_0}\sin(\omega_0 t) \quad &\text{(limit $\omega_1 \to \omega_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{x = \left[\frac{2F_1/m}{\omega_0^2 - \omega_1^2}\sin\frac{(\omega_0 - \omega_1)t}{2}\right]\sin\frac{(\omega_0 + \omega_1)t}{2};\qquad \omega_1 \to \omega_0:\ \ x \to \frac{F_1\,t}{2m\,\omega_0}\sin(\omega_0 t)}$$
+>
+> **Units:** $B_1$ in $\mathrm{(m/s^2)/s^{-2}} = \mathrm m$; $\mathrm{N\,s/(kg\,s^{-1})} = \mathrm m$ for the limit
+> **Meaning:** for close frequencies the second sine is a fast oscillation at the mean frequency, and the bracket is a slowly varying amplitude that vanishes each time half the frequency difference times $t$ is a multiple of $\pi$, that is, with the beat period $2\pi$ over the magnitude of the difference of the two frequencies: the oscillation swells and fades, and the closer the frequencies, the longer and larger the beats. At equal frequencies the amplitude grows linearly with time without bound: without damping, resonance has no steady state, which is why the damping, however small, sets the height of the peak in Section 12.
+
+![[attachments/EM-T/t2-beats.svg]]
+
+## 12. Resonance
+
+The amplitude and the phase of the forced oscillation depend strongly on the angular frequency of the applied force (Notes.pdf, Sec. 5.4.1); they vary wildly with the difference of the squares of the two frequencies ([Lecture 6, Slide 13]). The amplitude of Eq. 5.41 is largest where the radicand of its denominator is smallest, so every maximum below is found as a minimum of that radicand.
+
+> [!derivation] Oscillator tuned to the force
+> **Law:** minimum of the radicand of Eq. 5.41 with respect to the natural frequency
+> **Source:** Notes.pdf, Eq. 5.45; Notes.pdf, Eq. 5.41; Notes.pdf, Sec. 5.4.1
+>
+> $\gamma$ and the forcing frequency $\omega_1$ are fixed and the natural frequency $\omega_0$ of the oscillator is varied.
+>
+> $$\begin{aligned}
+> \frac{d}{d\omega_0}\left[\left(\omega_0^2 - \omega_1^2\right)^2 + 4\gamma^2\omega_1^2\right] &= 2\left(\omega_0^2 - \omega_1^2\right)\cdot 2\omega_0 \quad &\text{(chain rule; the second term does not depend on $\omega_0$)} \\
+> 4\omega_0\left(\omega_0^2 - \omega_1^2\right) &= 0 \quad &\text{(stationary point)} \\
+> \omega_0 &= \omega_1 \quad &\text{($\omega_0$ and $\omega_1$ positive)} \\
+> \left(\omega_0^2 - \omega_1^2\right)^2 + 4\gamma^2\omega_1^2 &\geq 4\gamma^2\omega_1^2 \quad &\text{(a square is never negative: equality only at $\omega_0 = \omega_1$, a minimum)} \\
+> a_1 &= \frac{F_1/m}{\sqrt{4\gamma^2\omega_1^2}} \quad &\text{(Eq. 5.41 at $\omega_0 = \omega_1$)} \\
+> &= \frac{F_1}{2m\gamma\omega_1} \quad &\text{(root of the square)} \\
+> &= \frac{F_1}{\lambda\,\omega_1} \quad &\text{($2m\gamma = \lambda$; Eq. 5.45)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega_0 = \omega_1:\qquad a_1 = \frac{F_1}{2m\gamma\omega_1} = \frac{F_1}{\lambda\,\omega_1}}$$
+>
+> **Units:** $\mathrm N/\mathrm{(kg\,s^{-1}\,s^{-1})} = \mathrm m$; $\mathrm N/\mathrm{(N\,s\,m^{-1}\,s^{-1})} = \mathrm m$
+> **Meaning:** an oscillator whose natural frequency equals the forcing frequency responds with the largest amplitude, which can be very large if the damping constant is small (Notes.pdf, Sec. 5.4.1).
+
+> [!derivation] Resonant frequency for a given oscillator
+> **Law:** stationary point of the radicand of Eq. 5.41 with respect to the forcing frequency; sign of its derivative
+> **Source:** Notes.pdf, Eq. 5.46; Notes.pdf, Eq. 5.41; Notes.pdf, Eq. 5.42; Notes.pdf, Sec. 5.4.1; [Lecture 6, Slide 14]
+>
+> Now $\omega_0$ and $\gamma$ are fixed and $\omega_1$, positive, is varied.
+>
+> $$\begin{aligned}
+> \frac{d}{d\omega_1}\left[\left(\omega_0^2 - \omega_1^2\right)^2 + 4\gamma^2\omega_1^2\right] &= 2\left(\omega_0^2 - \omega_1^2\right)\left(-2\omega_1\right) + 8\gamma^2\omega_1 \quad &\text{(chain rule on the square; derivative of $\omega_1^2$)} \\
+> &= 4\omega_1\left(\omega_1^2 - \omega_0^2 + 2\gamma^2\right) \quad &\text{(take out $4\omega_1$)} \\
+> \omega_1^2 &= \omega_0^2 - 2\gamma^2 \quad &\text{(the bracket vanishes; $\omega_1 > 0$)} \\
+> \omega_1 &= \sqrt{\omega_0^2 - 2\gamma^2} \quad &\text{(real only if $\gamma < \omega_0/\sqrt2$; Eq. 5.46)} \\
+> \omega_1^2 - \omega_0^2 + 2\gamma^2 &\lessgtr 0 \ \text{ for } \omega_1 \lessgtr \sqrt{\omega_0^2 - 2\gamma^2} \quad &\text{(the derivative goes from negative to positive: a minimum of the radicand)} \\
+> \left(2\gamma^2\right)^2 + 4\gamma^2\left(\omega_0^2 - 2\gamma^2\right) &= 4\gamma^2\left(\omega_0^2 - \gamma^2\right) \quad &\text{(radicand at the peak, where $\omega_0^2 - \omega_1^2 = 2\gamma^2$; expand and group)} \\
+> a_{1,\max} &= \frac{F_1/m}{2\gamma\sqrt{\omega_0^2 - \gamma^2}} \quad &\text{(Eq. 5.41)} \\
+> &= \frac{F_1}{2m\gamma\,\omega} \quad &\text{($\omega$ of the damped oscillator, Section 10)} \\
+> \tan\phi_1 &= -\frac{2\gamma\sqrt{\omega_0^2 - 2\gamma^2}}{2\gamma^2} \quad &\text{(phase at the peak: Eq. 5.42 with $\omega_0^2 - \omega_1^2 = 2\gamma^2$)} \\
+> &= -\frac{\sqrt{\omega_0^2 - 2\gamma^2}}{\gamma} \quad &\text{(cancel $2\gamma$)} \\
+> \omega_1^2 - \omega_0^2 + 2\gamma^2 &> 0 \ \text{ for every } \omega_1 > 0 \quad &\text{(if $\gamma \geq \omega_0/\sqrt2$: no peak, the amplitude only decreases)} \\
+> \omega_0^2 - 2\gamma^2 &< \omega_0^2 - \gamma^2 < \omega_0^2 \quad &\text{(ordering of the three squared frequencies)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega_1 = \sqrt{\omega_0^2 - 2\gamma^2}\ \ (\gamma < \omega_0/\sqrt2),\qquad a_{1,\max} = \frac{F_1}{2m\gamma\,\omega},\qquad \sqrt{\omega_0^2 - 2\gamma^2} < \omega < \omega_0}$$
+>
+> **Units:** every frequency in $\mathrm{s^{-1}}$; $a_{1,\max}$ in $\mathrm{N/(kg\,s^{-2})} = \mathrm m$
+> **Meaning:** this is the resonant frequency, at which the system is at resonance: it is slightly lower than the natural frequency, and for small damping it hardly differs from it (Notes.pdf, Sec. 5.4.1; [Lecture 6, Slide 14]). The peak exists only while the damping coefficient is below $\omega_0/\sqrt2$; the frequency of the free damped oscillator lies between the resonant frequency and the undamped one. The peak height has the form of Eq. 5.45 with the damped frequency $\omega$ in place of the forcing frequency. Since the tangent of the phase at the peak is negative and finite, the phase there lies between $-\pi/2$ and $0$, not at $-\pi/2$ (see the warning below). Designers usually avoid systems that operate near their resonance frequency ([Lecture 6, Slide 14]).
+
+> [!derivation] Half-width of the resonance and the quality factor
+> **Law:** first-order approximation of the radicand near the natural frequency for small damping; ratio of two amplitudes of Eq. 5.41
+> **Source:** Notes.pdf, Sec. 5.4.1; Notes.pdf, Eq. 5.41; Notes.pdf, Eq. 5.45; Notes.pdf, Eq. 5.47; Notes.pdf, Eq. 5.28; [Lecture 6, Slide 14]
+>
+> Small damping, and forcing frequencies close to $\omega_0$.
+>
+> $$\begin{aligned}
+> \omega_0^2 - \omega_1^2 &= \left(\omega_0 - \omega_1\right)\left(\omega_0 + \omega_1\right) \quad &\text{(difference of squares)} \\
+> &\simeq 2\omega_0\left(\omega_0 - \omega_1\right) \quad &\text{($\omega_1 \simeq \omega_0$ in the second factor)} \\
+> \left(\omega_0^2 - \omega_1^2\right)^2 + 4\gamma^2\omega_1^2 &\simeq 4\omega_0^2\left(\omega_0 - \omega_1\right)^2 + 4\gamma^2\omega_0^2 \quad &\text{(the same approximation in the second term)} \\
+> a_1 &\simeq \frac{F_1/m}{2\omega_0\sqrt{\left(\omega_0 - \omega_1\right)^2 + \gamma^2}} \quad &\text{(Eq. 5.41; take out $4\omega_0^2$)} \\
+> \frac{a_1}{a_1(\omega_0)} &\simeq \frac{\gamma}{\sqrt{\left(\omega_0 - \omega_1\right)^2 + \gamma^2}} \quad &\text{(divide by its value at $\omega_1 = \omega_0$)} \\
+> &= \frac{1}{\sqrt2} \quad &\text{(when the two terms are equal: $(\omega_0 - \omega_1)^2 = \gamma^2$)} \\
+> \omega_1 &\simeq \omega_0 \pm \gamma \quad &\text{(square root of both sides)} \\
+> a_1(\omega_0) &= \frac{F_1/m}{2\gamma\omega_0} \quad &\text{(Eq. 5.41 at $\omega_1 = \omega_0$, exact)} \\
+> a_1(0) &= \frac{F_1/m}{\omega_0^2} = \frac{F_1}{k} \quad &\text{(Eq. 5.41 at $\omega_1 = 0$: a constant force; Eq. 5.47)} \\
+> \frac{a_1(\omega_0)}{a_1(0)} &= \frac{\omega_0}{2\gamma} \quad &\text{(divide)} \\
+> &= Q \quad &\text{(Eq. 5.28)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{half-width} \simeq \gamma\ \ (a_1 \text{ down to } 1/\sqrt2 \text{ of its peak at } \omega_1 \simeq \omega_0 \pm \gamma),\qquad \frac{a_1(\omega_0)}{a_1(0)} = Q = \frac{\omega_0}{2\gamma}}$$
+>
+> **Units:** frequencies in $\mathrm{s^{-1}}$; the ratios are dimensionless
+> **Meaning:** $\gamma$ is the approximate half-width of the resonance peak, and the narrower the resonance the higher its peak, since the height grows as $1/\gamma$ while the width shrinks as $\gamma$ (Notes.pdf, Sec. 5.4.1; [Lecture 6, Slide 14]). The quality factor measures the sharpness of the peak: it is exactly the ratio of the amplitude at $\omega_1$ equal to $\omega_0$ to the response to a constant force. For $\gamma/\omega_0$ equal to $0.05$ the amplitude stays above $1/\sqrt2$ of its peak between $0.946\,\omega_0$ and $1.046\,\omega_0$, a half-width of $0.05\,\omega_0$ as predicted.
+
+> [!derivation] Amplification factor and phase lag against the frequency ratio
+> **Law:** Eqs. 5.41 and 5.42 written with the dimensionless ratios; limits of small, equal and large forcing frequency
+> **Source:** Notes.pdf, Eq. 5.41; Notes.pdf, Eq. 5.42; Notes.pdf, Eq. 5.47; Notes.pdf Fig. 5.4; [Lecture 6, Slide 13]; [Lecture 6, Slide 14]
+>
+> The amplification factor is the forced amplitude divided by the static deflection $F_1/k$; the damping enters only through the ratio $\gamma/\omega_0$ and the frequency only through $\omega_1/\omega_0$.
+>
+> $$\begin{aligned}
+> \frac{a_1\,k}{F_1} &= \frac{m\,\omega_0^2\,a_1}{F_1} \quad &\text{($k = m\,\omega_0^2$)} \\
+> &= \frac{\omega_0^2}{\sqrt{\left(\omega_0^2 - \omega_1^2\right)^2 + 4\gamma^2\omega_1^2}} \quad &\text{(Eq. 5.41)} \\
+> &= \frac{1}{\sqrt{\left(1 - (\omega_1/\omega_0)^2\right)^2 + 4\left(\gamma/\omega_0\right)^2\left(\omega_1/\omega_0\right)^2}} \quad &\text{(divide numerator and denominator by $\omega_0^2$)} \\
+> \tan\phi_1 &= -\frac{2\left(\gamma/\omega_0\right)\left(\omega_1/\omega_0\right)}{1 - (\omega_1/\omega_0)^2} \quad &\text{(Eq. 5.42, numerator and denominator divided by $\omega_0^2$)} \\
+> \frac{a_1\,k}{F_1} &\to 1,\qquad \tan\phi_1 \to 0^-,\qquad \phi_1 \to 0 \quad &\text{($\omega_1 \ll \omega_0$: the ratio tends to zero; $\cos\phi_1 > 0$)} \\
+> \frac{a_1\,k}{F_1} &= \frac{\omega_0}{2\gamma} = Q,\qquad \cos\phi_1 = 0,\qquad \phi_1 = -\frac{\pi}{2} \quad &\text{($\omega_1 = \omega_0$: Eq. 5.39 has a zero left side)} \\
+> \frac{a_1\,k}{F_1} &\simeq \left(\frac{\omega_0}{\omega_1}\right)^2,\qquad \tan\phi_1 \to 0^+,\qquad \phi_1 \to -\pi \quad &\text{($\omega_1 \gg \omega_0$: the fourth power of the ratio dominates; $\cos\phi_1 < 0$)} \\
+> a_1 &\simeq \frac{F_1}{k}\,\frac{\omega_0^2}{\omega_1^2} = \frac{F_1}{m\,\omega_1^2} \quad &\text{(multiply by $F_1/k$; $k = m\,\omega_0^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{a_1\,k}{F_1} = \frac{1}{\sqrt{\left(1 - (\omega_1/\omega_0)^2\right)^2 + 4\left(\gamma/\omega_0\right)^2\left(\omega_1/\omega_0\right)^2}},\qquad \tan\phi_1 = -\frac{2\left(\gamma/\omega_0\right)\left(\omega_1/\omega_0\right)}{1 - (\omega_1/\omega_0)^2}}$$
+>
+> **Units:** both sides dimensionless
+> **Meaning:** one curve for each damping ratio, as in Notes.pdf Fig. 5.4 and [Lecture 6, Slides 13-14]: every amplitude curve starts at one, the static response; for small damping it rises to a sharp peak near the frequency ratio one and then falls as the inverse square of the ratio. For damping ratios $0.05$, $0.1$, $0.25$ and $0.5$ (quality factors $10$, $5$, $2$ and $1$) the peaks are $10.01$, $5.03$, $2.07$ and $1.15$, at the frequency ratios $0.997$, $0.990$, $0.935$ and $0.707$; from the ratio $1/\sqrt2$ on there is no peak. Every phase curve goes from $0$ to $-\pi$ through $-\pi/2$ at the ratio one, more abruptly the smaller the damping. The value of the damping constant matters for the forced amplitude only near resonance (Notes.pdf, Sec. 5.4.1).
+
+![[attachments/EM-T/t2-amplification.svg]]
+
+> [!derivation] Which force balances the applied force
+> **Law:** sizes of the inertia, damping and spring terms on the steady response
+> **Source:** [Lecture 6, Slide 13]; Notes.pdf, Eq. 5.43; Notes.pdf, Eq. 5.47; Notes.pdf, Sec. 5.4.1
+>
+> On the steady response each term of the equation of motion is a cosine of frequency $\omega_1$; their amplitudes are compared.
+>
+> $$\begin{aligned}
+> x_p &= a_1\cos(\omega_1 t + \phi_1) \quad &\text{(Eq. 5.43)} \\
+> \lvert m\ddot x_p\rvert_{\max} &= m\,\omega_1^2\,a_1 \quad &\text{(two derivatives, each a factor $\omega_1$)} \\
+> \lvert\lambda\dot x_p\rvert_{\max} &= \lambda\,\omega_1\,a_1 = 2m\gamma\,\omega_1\,a_1 \quad &\text{(one derivative; $\lambda = 2m\gamma$)} \\
+> \lvert k\,x_p\rvert_{\max} &= k\,a_1 = m\,\omega_0^2\,a_1 \quad &\text{(no derivative)} \\
+> m\,\omega_1^2 : 2m\gamma\,\omega_1 : m\,\omega_0^2 &= \omega_1^2 : 2\gamma\,\omega_1 : \omega_0^2 \quad &\text{(ratios of the three amplitudes, $m\,a_1$ cancelled)} \\
+> k\,x_p &\simeq F_1\cos(\omega_1 t) \quad &\text{($\omega_1 \ll \omega_0$, with $\gamma$ not larger than $\omega_0$: the spring term dominates)} \\
+> m\ddot x_p &\simeq F_1\cos(\omega_1 t) \quad &\text{($\omega_1 \gg \omega_0$ and $\omega_1 \gg \gamma$: the inertia term dominates)} \\
+> m\ddot x_p + k\,x_p &= -m\,\omega_1^2\,x_p + m\,\omega_0^2\,x_p \quad &\text{(two derivatives of the cosine give $-\omega_1^2$; $k = m\,\omega_0^2$)} \\
+> &= 0 \quad &\text{($\omega_1 = \omega_0$: the inertia and spring terms cancel exactly)} \\
+> \lambda\dot x_p &= F_1\cos(\omega_1 t) \quad &\text{(the equation of motion at $\omega_1 = \omega_0$ keeps only the damper)}
+> \end{aligned}$$
+>
+> $$\boxed{\omega_1 \ll \omega_0:\ x \simeq \frac{F_1}{k}\cos(\omega_1 t);\qquad \omega_1 = \omega_0:\ \text{damper balances the force};\qquad \omega_1 \gg \omega_0:\ x \simeq \frac{F_1}{m\,\omega_1^2}\cos(\omega_1 t - \pi)}$$
+>
+> **Units:** each force amplitude in $\mathrm N$; the ratios of the fifth row in $\mathrm{s^{-2}}$ each
+> **Meaning:** for a slowly varying force the position is approximately the instantaneous equilibrium position under the force minus the spring force, as if the force were constant, and the oscillation is in phase with it; for a very fast force the restoring and damping forces become irrelevant and the particle moves as a free particle under the applied force, completely out of phase with it (Notes.pdf, Sec. 5.4.1; [Lecture 6, Slide 13]). At $\omega_1$ equal to $\omega_0$ the response lags by a quarter period, so the velocity is in phase with the force and only the damper resists it, which is why the damping alone sets the height of the peak.
+
+> [!warning] "At resonance" and the phase of a quarter period
+> The notes state that at resonance the phase is $-\pi/2$ (Notes.pdf, Sec. 5.4.1). This holds exactly when the forcing frequency equals the natural frequency $\omega_0$, as [Lecture 6, Slide 14] states, and for every value of the damping. At the resonant frequency of Eq. 5.46, where the amplitude peaks, the phase is slightly smaller in magnitude (the box on the resonant frequency gives its tangent); the two frequencies, and the two statements, coincide only in the limit of small damping.
+
+## 13. Linearisation about an equilibrium
+
+Section 6 linearised a conservative force about an equilibrium. [Lecture 6, Slide 15] takes the general case: a one-dimensional system whose nonlinear equation of motion has a force depending on the position and on the velocity, with an equilibrium configuration $x^*$, where the force vanishes at rest. Near it, the motion is that of a harmonic oscillator, and the roots of its characteristic equation decide the stability.
+
+> [!derivation] The linearised equation of motion
+> **Law:** first-order Taylor expansion of the force in its two variables about the equilibrium at rest
+> **Source:** [Lecture 6, Slide 15]; Notes.pdf, Sec. 4.6; Notes.pdf, Eq. 5.20; Notes.pdf, Eq. 5.22
+>
+> The equation of motion is $m$ times the acceleration equal to $F(x,\dot x)$, and the equilibrium condition is that $F$ vanishes at $x^*$ with zero velocity. $\xi$ is the departure from the equilibrium, as in Section 6.
+>
+> $$\begin{aligned}
+> m\ddot x &= F(x, \dot x),\qquad F(x^*, 0) = 0 \quad &\text{(nonlinear equation and equilibrium; [Lecture 6, Slide 15])} \\
+> \xi &= x - x^* \quad &\text{(departure from the equilibrium)} \\
+> \dot x &= \dot\xi,\qquad \ddot x = \ddot\xi \quad &\text{(differentiate; $x^*$ is constant)} \\
+> F(x^* + \xi, \dot\xi) &= F(x^*, 0) + \left.\frac{\partial F}{\partial x}\right|_{x^*,0}\xi + \left.\frac{\partial F}{\partial\dot x}\right|_{x^*,0}\dot\xi + \dots \quad &\text{(Taylor expansion about $(x^*, 0)$: zero-order term, then one first-order term per variable)} \\
+> &= \left.\frac{\partial F}{\partial x}\right|_{x^*,0}\xi + \left.\frac{\partial F}{\partial\dot x}\right|_{x^*,0}\dot\xi + \dots \quad &\text{(the zero-order term vanishes: equilibrium)} \\
+> k &= -\left.\frac{\partial F}{\partial x}\right|_{x^*,0},\qquad \lambda = -\left.\frac{\partial F}{\partial\dot x}\right|_{x^*,0} \quad &\text{(names of the two constant coefficients)} \\
+> m\ddot\xi &= -k\,\xi - \lambda\,\dot\xi \quad &\text{(keep only the linear terms, for $\xi$ and $\dot\xi$ small enough)} \\
+> m\ddot\xi + \lambda\dot\xi + k\,\xi &= 0 \quad &\text{(move the terms to the left)} \\
+> m\,p^2 + \lambda\,p + k &= 0 \quad &\text{(characteristic equation, Section 10)} \\
+> p_\pm &= -\frac{\lambda}{2m} \pm \sqrt{\frac{\lambda^2}{4m^2} - \frac{k}{m}} \quad &\text{(quadratic formula; [Lecture 6, Slide 15])} \\
+> k &= \frac{d^2V}{dx^2}(x^*),\qquad \lambda = 0 \quad &\text{(conservative force, Eq. 4.16: the stiffness of Section 6)}
+> \end{aligned}$$
+>
+> $$\boxed{m\ddot\xi + \lambda\dot\xi + k\,\xi = 0,\qquad k = -\left.\frac{\partial F}{\partial x}\right|_{x^*,0},\ \ \lambda = -\left.\frac{\partial F}{\partial\dot x}\right|_{x^*,0},\qquad p_\pm = -\frac{\lambda}{2m} \pm \sqrt{\frac{\lambda^2}{4m^2} - \frac{k}{m}}}$$
+>
+> **Units:** $k$ in $\mathrm{N/m}$, $\lambda$ in $\mathrm{N\,s/m}$, $p_\pm$ in $\mathrm{s^{-1}}$
+> **Meaning:** near any equilibrium the motion obeys a second-order linear equation with constant coefficients, just like a harmonic oscillator: minus the slope of the force with respect to the position acts as a spring stiffness, and minus its slope with respect to the velocity as a damping constant ([Lecture 6, Slide 15]). For a conservative force there is no velocity dependence and the stiffness is the curvature of the potential, as in Section 6.
+
+> [!derivation] Stability from the roots of the linearised equation
+> **Law:** modulus of a complex exponential; ordering of the real parts of the roots; double root
+> **Source:** [Lecture 6, Slide 15]; [Lecture 6, Slide 3]; [Lecture 6, Slide 4]
+>
+> The departure is a combination of $\exp(p_+ t)$ and $\exp(p_- t)$ (Section 8). The root $p_+$ carries the plus sign, so its real part is never smaller than that of $p_-$.
+>
+> $$\begin{aligned}
+> \lvert\exp(p\,t)\rvert &= \exp\big(\Re(p)\,t\big)\,\lvert\exp\big(i\,\Im(p)\,t\big)\rvert \quad &\text{(split the exponent into its real and imaginary parts)} \\
+> &= \exp\big(\Re(p)\,t\big) \quad &\text{(Euler: unit modulus)} \\
+> \Re(p_+) &< 0:\ \ \lvert\xi\rvert \leq \left(\lvert D_1\rvert + \lvert D_2\rvert\right)\exp\big(\Re(p_+)\,t\big) \to 0 \quad &\text{(both terms decay: asymptotically stable)} \\
+> \Re(p_+) &= 0,\ p_+ \neq p_-:\ \ \lvert\xi\rvert \leq \lvert D_1\rvert + \lvert D_2\rvert \quad &\text{(bounded, not decaying: marginally stable)} \\
+> p_+ &= p_- = 0:\ \ \xi = D_1 + D_2\,t \quad &\text{($k = \lambda = 0$: double root, Section 10; grows unless $D_2 = 0$: unstable)} \\
+> \Re(p_+) &> 0:\ \ \lvert D_1\exp(p_+ t)\rvert \to \infty \quad &\text{(grows unless $D_1 = 0$: unstable)} \\
+> \Re(p_\pm) &= -\frac{\lambda}{2m} < 0 \ \text{ or } \ p_\pm = -\frac{\lambda}{2m} \pm \sqrt{\frac{\lambda^2}{4m^2} - \frac{k}{m}} < 0 \quad &\text{($k > 0$, $\lambda > 0$: complex roots, or real roots with the root smaller than $\lambda/(2m)$)} \\
+> p_\pm &= \pm\,i\sqrt{k/m} \quad &\text{($k > 0$, $\lambda = 0$: marginal)} \\
+> p_+ &= -\frac{\lambda}{2m} + \sqrt{\frac{\lambda^2}{4m^2} - \frac{k}{m}} > -\frac{\lambda}{2m} + \frac{\lvert\lambda\rvert}{2m} \geq 0 \quad &\text{($k < 0$: the radicand exceeds $\lambda^2/(4m^2)$; unstable for any $\lambda$)} \\
+> \Re(p_+) &> 0 \quad &\text{($k > 0$, $\lambda < 0$: the real part $-\lambda/(2m)$, or the larger real root, is positive: unstable)}
+> \end{aligned}$$
+>
+> $$\boxed{\Re(p_+) < 0:\ \text{asymptotically stable};\qquad \Re(p_+) = 0,\ p_+ \neq p_-:\ \text{marginally stable (check higher orders)};\qquad \text{otherwise unstable}}$$
+>
+> **Units:** $\Re(p)\,t$ dimensionless
+> **Meaning:** if the real part of $p_+$ is negative, any perturbation from equilibrium dies away over time and the equilibrium is asymptotically stable; if it is zero with distinct roots, the perturbation survives but does not grow without bound and the equilibrium is marginally stable, although the higher-order terms must be checked to be sure; otherwise the perturbation grows and the equilibrium is unstable ([Lecture 6, Slide 15]). In terms of the coefficients: a positive stiffness with positive damping is asymptotically stable, a positive stiffness without damping is marginal, and a negative stiffness, or a negative damping, is unstable. The conservative equilibria of Section 6 have no damping, so a minimum of the potential is only marginal for the linear test; Section 6 proved its stability from the energy, which is the check of the higher-order terms that the slide asks for.
+
+![[attachments/EM-T/t2-linearisation.svg]]
+
+> [!example] Linearisation of the simple pendulum ([Lecture 6, Slide 15]; Section 7)
+> The pendulum of Section 7 written in the form of the slide: the coordinate is the arc length of the bob from the lowest point, $\ell$ times $\theta$, and the force along the circle is the tangential component of the weight found in Section 7. Its equilibria are $\theta$ equal to $0$ and $\pi$.
+>
+> | Data | Value |
+> | :--- | :--- |
+> | coordinate | $x = \ell\theta$ (arc length) |
+> | equation | $m\ddot x = F(x) = -m g\sin(x/\ell)$ (Eq. 4.38 times $m\ell$) |
+> | equilibria | $x^* = 0$ and $x^* = \pi\ell$ |
+
+> [!derivation] Stiffness of the pendulum at its two equilibria
+> **Law:** linearised equation of [Lecture 6, Slide 15]; chain rule
+> **Source:** [Lecture 6, Slide 15]; Notes.pdf, Eq. 4.38; Notes.pdf, Eq. 4.46
+>
+> $$\begin{aligned}
+> \frac{\partial F}{\partial x} &= -m g\cos\left(\frac{x}{\ell}\right)\frac{1}{\ell} \quad &\text{(chain rule: derivative of the sine times that of $x/\ell$)} \\
+> \frac{\partial F}{\partial\dot x} &= 0 \quad &\text{(no velocity dependence)} \\
+> k &= \frac{m g}{\ell} \quad &\text{(at $x^* = 0$: $\cos 0 = 1$, sign changed)} \\
+> p_\pm &= \pm\,i\sqrt{g/\ell} \quad &\text{(previous box with $\lambda = 0$: marginal; Eq. 4.46)} \\
+> k &= -\frac{m g}{\ell} \quad &\text{(at $x^* = \pi\ell$: $\cos\pi = -1$)} \\
+> p_\pm &= \pm\sqrt{g/\ell} \quad &\text{(one positive real root: unstable)}
+> \end{aligned}$$
+>
+> $$\boxed{x^* = 0:\ k = \frac{m g}{\ell} > 0,\ p_\pm = \pm\,i\sqrt{g/\ell};\qquad x^* = \pi\ell:\ k = -\frac{m g}{\ell} < 0,\ p_\pm = \pm\sqrt{g/\ell}}$$
+>
+> **Units:** $k$ in $\mathrm{kg\,(m/s^2)/m} = \mathrm{N/m}$; $p$ in $\mathrm{s^{-1}}$
+> **Meaning:** the inverted pendulum is unstable already for the linear test; the hanging pendulum is only marginally stable for it, and the energy argument of Sections 6 and 7 (a strict minimum of the potential) confirms its stability. The roots are those found in Section 7, as they must be.
+
+## 14. Extension: the bead on a rotating hoop
+
+> [!info] Extension: an example beyond Lecture 6
+> Neither Notes.pdf, Chapter 5, nor the slides of Lecture 6 contain this example: the deck closes with the general linearisation of [Lecture 6, Slide 15]. It is added because it gathers every tool of this topic, an equation of motion from Newton's second law, a first integral with an effective potential, equilibria with their stability, small oscillations, and an equilibrium that changes its stability when a parameter crosses a critical value (a bifurcation). The problem is worked in the inertial frame $S_0$ with a basis that turns with the hoop, so no inertia force is needed; the same equation can be written in the frame of the hoop with the inertia forces of relative motion, which belong to Topic 5 (Notes.pdf, Ch. 3; Notes.pdf, Sec. 4.9). The reaction of a smooth wire is a constraint force, the subject of Topic 3 (Notes.pdf, Ch. 6); here only its direction is used.
+
+> [!example] Bead on a hoop turning about its vertical diameter
+> A small bead $P$ of mass $m$ slides without friction on a circular hoop of radius $b$ whose centre $O$ is fixed. The hoop is driven so that it turns about its vertical diameter at the constant rate $\Omega$. The position of the bead on the hoop is the angle $\theta$ from the downward vertical, measured in the plane of the hoop. Find the equation of motion, the equilibria and their stability as functions of $\Omega$, and the frequencies of the small oscillations.
+>
+> | Data | Value |
+> | :--- | :--- |
+> | inertial frame | $S_0 : \{O;\mathbf i,\mathbf j,\mathbf k\}$, $\mathbf k$ vertical upwards along the axis of rotation |
+> | frame of the hoop | $S_h : \{O;\mathbf i_h,\mathbf j_h,\mathbf k\}$; $\mathbf i_h$ horizontal in the plane of the hoop, $\mathbf j_h$ normal to it; $\mathbf i_h$ along $\mathbf i$ at $t = 0$ |
+> | rotation | angle $\Omega t$ from $\mathbf i$ to $\mathbf i_h$ about $\mathbf k$; $\Omega$ constant |
+> | bead | mass $m$, at distance $b$ from $O$, angle $\theta$ from $-\mathbf k$ towards $\mathbf i_h$ |
+> | forces | weight $-m g\,\mathbf k$; reaction $\mathbf N$ of the smooth hoop, normal to the hoop |
+
+![[attachments/EM-T/t2-hoop.svg]]
+
+> [!derivation] Extension: basis of the hoop and its change of basis matrix
+> **Law:** simple rotation about the vertical axis; change of basis matrix with the rotated unit vectors as columns; determinant and orthogonality; derivatives of the rotating unit vectors
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 1.32
+>
+> View along $\mathbf k$, which points out of the paper (⊙), looking down on the hoop. The angle $\Omega t$ lies between $\mathbf i$ and $\mathbf i_h$, counterclockwise. In the right triangle of unit hypotenuse $\mathbf i_h$, the leg along $\mathbf i$ is adjacent to $\Omega t$ (cosine) and the leg along $\mathbf j$ is opposite (sine). $\mathbf j_h$ is $\mathbf i_h$ turned a quarter turn counterclockwise about $\mathbf k$; the same angle lies between $\mathbf j$ and $\mathbf j_h$, its leg along $\mathbf j$ is adjacent and its leg along $\mathbf i$ is opposite and points along $-\mathbf i$: by the right-hand rule a counterclockwise turn about $\mathbf k$ (⊙) carries $\mathbf j$ towards $-\mathbf i$, which is the minus sign of entry $(1,2)$.
+>
+> $$\begin{aligned}
+> \mathbf i_h &= \cos(\Omega t)\,\mathbf i + \sin(\Omega t)\,\mathbf j \quad &\text{(adjacent and opposite legs)} \\
+> \mathbf j_h &= -\sin(\Omega t)\,\mathbf i + \cos(\Omega t)\,\mathbf j \quad &\text{(opposite leg along $-\mathbf i$, adjacent leg along $\mathbf j$)} \\
+> [{}_0R_h] &= \begin{pmatrix} \cos(\Omega t) & -\sin(\Omega t) & 0 \cr \sin(\Omega t) & \cos(\Omega t) & 0 \cr 0 & 0 & 1 \end{pmatrix} \quad &\text{(columns: $\mathbf i_h$, $\mathbf j_h$, $\mathbf k$ in $\mathcal B_0$, Eq. 1.13; Eq. 1.20 with the angle $\Omega t$)} \\
+> \det[{}_0R_h] &= 1\cdot\left(\cos^2(\Omega t) - \left(-\sin(\Omega t)\right)\sin(\Omega t)\right) \quad &\text{(expand along the third row)} \\
+> &= \cos^2(\Omega t) + \sin^2(\Omega t) \quad &\text{(simplify the signs)} \\
+> &= 1 \quad &\text{(Pythagoras)} \\
+> \left([{}_0R_h][{}_0R_h]^T\right)_{11} &= \cos^2(\Omega t) + \sin^2(\Omega t) + 0 \quad &\text{(row 1 times row 1)} \\
+> &= 1 \quad &\text{(Pythagoras)} \\
+> \left([{}_0R_h][{}_0R_h]^T\right)_{12} &= \cos(\Omega t)\sin(\Omega t) - \sin(\Omega t)\cos(\Omega t) + 0 \quad &\text{(row 1 times row 2)} \\
+> &= 0 \quad &\text{(the two products cancel)} \\
+> \frac{d\mathbf i_h}{dt} &= -\Omega\sin(\Omega t)\,\mathbf i + \Omega\cos(\Omega t)\,\mathbf j \quad &\text{(chain rule: the derivative of $\Omega t$ is $\Omega$; $\mathbf i$, $\mathbf j$ fixed)} \\
+> &= \Omega\,\mathbf j_h \quad &\text{(second row)} \\
+> \frac{d\mathbf j_h}{dt} &= -\Omega\cos(\Omega t)\,\mathbf i - \Omega\sin(\Omega t)\,\mathbf j \quad &\text{(chain rule)} \\
+> &= -\Omega\,\mathbf i_h \quad &\text{(first row)} \\
+> \Omega\,\mathbf k\times\mathbf i_h &= \Omega\cos(\Omega t)\,\mathbf k\times\mathbf i + \Omega\sin(\Omega t)\,\mathbf k\times\mathbf j \quad &\text{(distribute, Eq. 1.32)} \\
+> &= \Omega\cos(\Omega t)\,\mathbf j - \Omega\sin(\Omega t)\,\mathbf i \quad &\text{($\mathbf k\times\mathbf i = \mathbf j$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> &= \Omega\,\mathbf j_h \quad &\text{(the same as the derivative of $\mathbf i_h$: Eq. 1.62 with the angular velocity $\Omega\,\mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_h] = \begin{bmatrix} \cos\Omega t & -\sin\Omega t & 0 \\ \sin\Omega t & \cos\Omega t & 0 \\ 0 & 0 & 1 \end{bmatrix},\ \ \det = 1;\qquad \frac{d\mathbf i_h}{dt} = \Omega\,\mathbf j_h,\qquad \frac{d\mathbf j_h}{dt} = -\Omega\,\mathbf i_h}$$
+>
+> **Units:** the matrix is dimensionless; the derivatives of the unit vectors in $\mathrm{rad/s}$
+> **Meaning:** the remaining entries of the product of the matrix with its transpose follow the same way ($(2,2)$ by Pythagoras, $(3,3)$ equal to one, $(1,3)$ and $(2,3)$ zero), so $\mathcal B_h$ is orthonormal, and with determinant one it is right-handed. The hoop basis turns about $\mathbf k$ at the rate $\Omega$, while $\mathbf k$ itself stays fixed.
+
+![[attachments/EM-T/t2-hoop-top.svg]]
+
+> [!derivation] Extension: position of the bead and the unit vectors in the plane of the hoop
+> **Law:** right triangle of the radius with the vertical in the plane of the hoop; derivative with respect to the angle; orthonormality checks
+> **Source:** Notes.pdf, Sec. 4.7; Notes.pdf, Eq. 1.24
+>
+> Plane of the hoop, $\mathbf j_h$ normal to it: $O$, the bead $P$ and the foot $H$ of the perpendicular from $P$ to the vertical diameter form a right triangle, right-angled at $H$, with hypotenuse $OP$ of length $b$ and the angle $\theta$ at $O$ between the downward vertical $OH$ and the radius. As for the pendulum of Section 7, the leg $OH$ is adjacent to $\theta$ and points along $-\mathbf k$, the leg $HP$ is opposite and points along $\mathbf i_h$.
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= b\sin\theta\,\mathbf i_h - b\cos\theta\,\mathbf k \quad &\text{(opposite leg along $\mathbf i_h$; adjacent leg along $-\mathbf k$)} \\
+> \mathbf u_r &= \sin\theta\,\mathbf i_h - \cos\theta\,\mathbf k \quad &\text{(unit vector from $O$ to $P$: divide by $b$)} \\
+> \mathbf u_\theta &= \frac{\partial\mathbf u_r}{\partial\theta} \quad &\text{(tangent to the hoop, in the sense of growing $\theta$)} \\
+> &= \cos\theta\,\mathbf i_h + \sin\theta\,\mathbf k \quad &\text{(derivatives of $\sin\theta$ and $-\cos\theta$)} \\
+> \mathbf u_r\cdot\mathbf u_\theta &= \sin\theta\cos\theta - \cos\theta\sin\theta \quad &\text{(dot product in $\mathcal B_h$, Eq. 1.24)} \\
+> &= 0 \quad &\text{(the products cancel)} \\
+> \mathbf u_\theta\cdot\mathbf u_\theta &= \cos^2\theta + \sin^2\theta \quad &\text{(dot product)} \\
+> &= 1 \quad &\text{(Pythagoras: unit length; the same for $\mathbf u_r$)} \\
+> \sin\theta\,\mathbf u_r + \cos\theta\,\mathbf u_\theta &= \left(\sin^2\theta + \cos^2\theta\right)\mathbf i_h + \left(-\sin\theta\cos\theta + \cos\theta\sin\theta\right)\mathbf k \quad &\text{(combine the two rows)} \\
+> &= \mathbf i_h \quad &\text{(Pythagoras; the $\mathbf k$ terms cancel)} \\
+> -\cos\theta\,\mathbf u_r + \sin\theta\,\mathbf u_\theta &= \mathbf k \quad &\text{(the same steps)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = b\,\mathbf u_r,\qquad \mathbf u_r = \sin\theta\,\mathbf i_h - \cos\theta\,\mathbf k,\qquad \mathbf u_\theta = \cos\theta\,\mathbf i_h + \sin\theta\,\mathbf k;\qquad \mathbf i_h = \sin\theta\,\mathbf u_r + \cos\theta\,\mathbf u_\theta,\ \ \mathbf k = -\cos\theta\,\mathbf u_r + \sin\theta\,\mathbf u_\theta}$$
+>
+> **Units:** $\mathrm m$ for the position; the unit vectors are dimensionless
+> **Meaning:** $\mathbf u_r$, $\mathbf u_\theta$ and $\mathbf j_h$ are three orthonormal vectors ($\mathbf j_h$ is normal to the plane that contains the other two); the last two rows invert the first ones and are used to project the acceleration and the weight. At $\theta$ equal to zero the bead is at the bottom of the hoop.
+
+![[attachments/EM-T/t2-hoop-plane.svg]]
+
+> [!derivation] Extension: velocity and acceleration of the bead
+> **Law:** definition of velocity and acceleration in $S_0$; product rule; chain rule; derivatives of the hoop basis
+> **Source:** Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4; Notes.pdf, Eq. 1.64
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \left.\frac{d}{dt}\left(b\sin\theta\,\mathbf i_h - b\cos\theta\,\mathbf k\right)\right|_0 \quad &\text{(Eq. 2.3)} \\
+> &= b\cos\theta\,\dot\theta\,\mathbf i_h + b\sin\theta\,\frac{d\mathbf i_h}{dt} + b\sin\theta\,\dot\theta\,\mathbf k \quad &\text{(product rule, Eq. 1.64; chain rule on the sine and the cosine; $\mathbf k$ fixed)} \\
+> &= b\cos\theta\,\dot\theta\,\mathbf i_h + b\,\Omega\sin\theta\,\mathbf j_h + b\sin\theta\,\dot\theta\,\mathbf k \quad &\text{(derivative of $\mathbf i_h$)} \\
+> &= b\dot\theta\,\mathbf u_\theta + b\,\Omega\sin\theta\,\mathbf j_h \quad &\text{(group the $\mathbf i_h$ and $\mathbf k$ terms into $\mathbf u_\theta$)} \\
+> \frac{d\mathbf u_\theta}{dt} &= -\sin\theta\,\dot\theta\,\mathbf i_h + \cos\theta\,\frac{d\mathbf i_h}{dt} + \cos\theta\,\dot\theta\,\mathbf k \quad &\text{(product rule on $\mathbf u_\theta$; chain rule)} \\
+> &= -\dot\theta\,\mathbf u_r + \Omega\cos\theta\,\mathbf j_h \quad &\text{(derivative of $\mathbf i_h$; group the rest into $-\mathbf u_r$)} \\
+> \mathbf a_0^P &= b\ddot\theta\,\mathbf u_\theta + b\dot\theta\,\frac{d\mathbf u_\theta}{dt} + b\,\Omega\cos\theta\,\dot\theta\,\mathbf j_h + b\,\Omega\sin\theta\,\frac{d\mathbf j_h}{dt} \quad &\text{(Eq. 2.4: product rule on the two terms of the velocity; $\Omega$ constant)} \\
+> &= b\ddot\theta\,\mathbf u_\theta - b\dot\theta^2\,\mathbf u_r + b\,\Omega\dot\theta\cos\theta\,\mathbf j_h + b\,\Omega\dot\theta\cos\theta\,\mathbf j_h - b\,\Omega^2\sin\theta\,\mathbf i_h \quad &\text{(substitute the two derivatives of unit vectors)} \\
+> &= b\ddot\theta\,\mathbf u_\theta - b\dot\theta^2\,\mathbf u_r + 2b\,\Omega\dot\theta\cos\theta\,\mathbf j_h - b\,\Omega^2\sin\theta\left(\sin\theta\,\mathbf u_r + \cos\theta\,\mathbf u_\theta\right) \quad &\text{(add the $\mathbf j_h$ terms; $\mathbf i_h$ in terms of $\mathbf u_r$, $\mathbf u_\theta$)} \\
+> &= -\left(b\dot\theta^2 + b\,\Omega^2\sin^2\theta\right)\mathbf u_r + \left(b\ddot\theta - b\,\Omega^2\sin\theta\cos\theta\right)\mathbf u_\theta + 2b\,\Omega\dot\theta\cos\theta\,\mathbf j_h \quad &\text{(group by unit vector)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = b\dot\theta\,\mathbf u_\theta + b\,\Omega\sin\theta\,\mathbf j_h,\qquad \mathbf a_0^P = -b\left(\dot\theta^2 + \Omega^2\sin^2\theta\right)\mathbf u_r + b\left(\ddot\theta - \Omega^2\sin\theta\cos\theta\right)\mathbf u_\theta + 2b\,\Omega\dot\theta\cos\theta\,\mathbf j_h}$$
+>
+> **Units:** $\mathrm{m/s}$ for every term of the velocity; $\mathrm{m/s^2}$ for every term of the acceleration ($\mathrm m\cdot\mathrm{s^{-2}}$)
+> **Meaning:** the velocity has a part along the hoop, $b\dot\theta$, and a part normal to its plane, the speed $b\,\Omega\sin\theta$ of a point at the distance $b\sin\theta$ from the axis carried round by the hoop. With $\Omega$ equal to zero the velocity and acceleration are those of the pendulum of Section 7 with $b$ for $\ell$.
+
+> [!derivation] Extension: equation of motion and the reaction of the hoop
+> **Law:** Newton's second law projected on $\mathbf u_r$, $\mathbf u_\theta$ and $\mathbf j_h$; the reaction of a smooth hoop has no tangential component
+> **Source:** Notes.pdf, Eq. 4.4; Notes.pdf, Ch. 6; Notes.pdf, Eq. 4.38
+>
+> The bead slides without friction, so the hoop can only push it perpendicularly to the wire: along $\mathbf u_r$ and along $\mathbf j_h$, never along $\mathbf u_\theta$.
+>
+> $$\begin{aligned}
+> -m g\,\mathbf k &= m g\cos\theta\,\mathbf u_r - m g\sin\theta\,\mathbf u_\theta \quad &\text{(weight; $\mathbf k$ in terms of $\mathbf u_r$, $\mathbf u_\theta$)} \\
+> \mathbf N &= N_r\,\mathbf u_r + N_h\,\mathbf j_h \quad &\text{(smooth hoop)} \\
+> m\,\mathbf a_0^P &= -m g\,\mathbf k + \mathbf N \quad &\text{(second law, Eq. 4.4)} \\
+> \mathbf u_\theta:\quad m b\left(\ddot\theta - \Omega^2\sin\theta\cos\theta\right) &= -m g\sin\theta \quad &\text{(dot-multiply by $\mathbf u_\theta$)} \\
+> \ddot\theta &= -\frac{g}{b}\sin\theta + \Omega^2\sin\theta\cos\theta \quad &\text{(divide by $m b$; rearrange)} \\
+> \mathbf u_r:\quad -m b\left(\dot\theta^2 + \Omega^2\sin^2\theta\right) &= m g\cos\theta + N_r \quad &\text{(dot-multiply by $\mathbf u_r$)} \\
+> N_r &= -m b\dot\theta^2 - m b\,\Omega^2\sin^2\theta - m g\cos\theta \quad &\text{(solve)} \\
+> \mathbf j_h:\quad N_h &= 2m b\,\Omega\dot\theta\cos\theta \quad &\text{(dot-multiply by $\mathbf j_h$: the weight has no component)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\theta = -\frac{g}{b}\sin\theta + \Omega^2\sin\theta\cos\theta,\qquad N_r = -m\left(b\dot\theta^2 + b\,\Omega^2\sin^2\theta + g\cos\theta\right),\qquad N_h = 2m b\,\Omega\dot\theta\cos\theta}$$
+>
+> **Units:** $\mathrm{s^{-2}}$ in the equation of motion; $\mathrm N$ for the reactions
+> **Meaning:** the mass drops out of the equation of motion; with $\Omega$ equal to zero it is the pendulum equation, Eq. 4.38. The rotation adds a term that pushes the bead away from the axis. The reaction normal to the plane of the hoop is the push of the driven hoop that keeps the bead turning with it; it vanishes when the bead does not move along the hoop.
+
+![[attachments/EM-T/t2-hoop-fbd.svg]]
+
+> [!derivation] Extension: first integral and effective potential
+> **Law:** multiplication by $\dot\theta$; chain rule; integration in time with Barrow's rule; power of the reaction of the hoop
+> **Source:** Notes.pdf, Eq. 4.39; Notes.pdf, Sec. 4.5.1; Notes.pdf, Eq. 4.2
+>
+> $$\begin{aligned}
+> \dot\theta\,\ddot\theta + \frac{g}{b}\sin\theta\,\dot\theta - \Omega^2\sin\theta\cos\theta\,\dot\theta &= 0 \quad &\text{(multiply the equation of motion by $\dot\theta$)} \\
+> \frac{d}{dt}\left(\tfrac12\dot\theta^2\right) &= \dot\theta\,\ddot\theta \quad &\text{(chain rule)} \\
+> \frac{d}{dt}\left(-\frac{g}{b}\cos\theta\right) &= \frac{g}{b}\sin\theta\,\dot\theta \quad &\text{(chain rule)} \\
+> \frac{d}{dt}\left(\tfrac12\Omega^2\sin^2\theta\right) &= \Omega^2\sin\theta\cos\theta\,\dot\theta \quad &\text{(chain rule twice: square, then sine)} \\
+> \frac{d}{dt}\left(\tfrac12\dot\theta^2 - \frac{g}{b}\cos\theta - \tfrac12\Omega^2\sin^2\theta\right) &= 0 \quad &\text{(the first row is the sum of the three derivatives)} \\
+> \left[\tfrac12\dot\theta^2 - \frac{g}{b}\cos\theta - \tfrac12\Omega^2\sin^2\theta\right]_0^t &= 0 \quad &\text{(integrate from $0$ to $t$; Barrow)} \\
+> \tfrac12 m b^2\dot\theta^2 + m g b\left(1 - \cos\theta\right) - \tfrac12 m b^2\Omega^2\sin^2\theta &= \text{const} \quad &\text{(multiply by $m b^2$ and add the constant $m g b$)} \\
+> V_{\mathrm{eff}}(\theta) &= m g b\left(1 - \cos\theta\right) - \tfrac12 m b^2\Omega^2\sin^2\theta \quad &\text{(name the terms that depend on $\theta$ only)} \\
+> -\frac{dV_{\mathrm{eff}}}{d\theta} &= -m g b\sin\theta + m b^2\Omega^2\sin\theta\cos\theta \quad &\text{(derivative; chain rule)} \\
+> &= m b^2\,\ddot\theta \quad &\text{(the equation of motion times $m b^2$)} \\
+> T &= \tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P \quad &\text{(kinetic energy, Eq. 4.2)} \\
+> &= \tfrac12 m b^2\dot\theta^2 + \tfrac12 m b^2\Omega^2\sin^2\theta \quad &\text{(velocity of the previous boxes; $\mathbf u_\theta\cdot\mathbf j_h = 0$)} \\
+> E - m b^2\Omega^2\sin^2\theta &= \tfrac12 m b^2\dot\theta^2 + V_{\mathrm{eff}}(\theta) \quad &\text{($E$ is $T$ plus the potential $m g b(1 - \cos\theta)$ of the weight)} \\
+> \mathbf N\cdot\mathbf v_0^P &= N_h\,b\,\Omega\sin\theta \quad &\text{(power of the reaction: only $\mathbf j_h$ survives)} \\
+> &= 2m b^2\Omega^2\dot\theta\sin\theta\cos\theta \quad &\text{(previous box)} \\
+> \frac{d}{dt}\left(m b^2\Omega^2\sin^2\theta\right) &= 2m b^2\Omega^2\dot\theta\sin\theta\cos\theta \quad &\text{(chain rule: the same as the power)}
+> \end{aligned}$$
+>
+> $$\boxed{\tfrac12 m b^2\dot\theta^2 + V_{\mathrm{eff}}(\theta) = \text{const},\qquad V_{\mathrm{eff}}(\theta) = m g b\left(1 - \cos\theta\right) - \tfrac12 m b^2\Omega^2\sin^2\theta,\qquad m b^2\ddot\theta = -\frac{dV_{\mathrm{eff}}}{d\theta}}$$
+>
+> **Units:** $\mathrm J$ for every term ($\mathrm{kg\,m^2\,s^{-2}}$); $\mathrm W$ for the power
+> **Meaning:** the motion along the hoop is that of a one-dimensional system with the coordinate $\theta$, the inertia $m b^2$ and the potential $V_{\mathrm{eff}}$: the gravity well of the pendulum minus a term that grows away from the axis. This constant is not the mechanical energy: the kinetic energy also contains the motion carried by the hoop, and the reaction normal to the hoop has a nonzero power, so the motor that keeps the rate constant feeds energy in and out (Notes.pdf, Sec. 4.5.1: the energy is conserved only when the non-conservative forces do no work). By Section 5 the mechanical energy changes at the rate of that power, and so does the subtracted term $m b^2\Omega^2\sin^2\theta$ (last row): their difference, the first integral, stays constant.
+
+> [!derivation] Extension: equilibria of the bead and their stability
+> **Law:** critical points of the effective potential; sign of its second derivative
+> **Source:** Notes.pdf, Sec. 4.6; [Lecture 2, Slide 22]; [Lecture 6, Slide 15]
+>
+> $\Omega_c$ is the critical rate, the square root of $g/b$.
+>
+> $$\begin{aligned}
+> \frac{dV_{\mathrm{eff}}}{d\theta} &= m g b\sin\theta - m b^2\Omega^2\sin\theta\cos\theta \quad &\text{(previous box)} \\
+> &= m b^2\sin\theta\left(\Omega_c^2 - \Omega^2\cos\theta\right) \quad &\text{(take out $m b^2\sin\theta$; $g/b = \Omega_c^2$)} \\
+> \sin\theta &= 0:\ \ \theta = 0,\ \ \theta = \pi \quad &\text{(first factor: bottom and top of the hoop, for every $\Omega$)} \\
+> \cos\theta_e &= \frac{\Omega_c^2}{\Omega^2} \quad &\text{(second factor: $\pm\theta_e$, real only if $\Omega > \Omega_c$)} \\
+> \frac{d^2V_{\mathrm{eff}}}{d\theta^2} &= m g b\cos\theta - m b^2\Omega^2\left(\cos^2\theta - \sin^2\theta\right) \quad &\text{(product rule on $\sin\theta\cos\theta$)} \\
+> \frac{d^2V_{\mathrm{eff}}}{d\theta^2}(0) &= m b^2\left(\Omega_c^2 - \Omega^2\right) \quad &\text{($\cos 0 = 1$, $\sin 0 = 0$)} \\
+> \frac{d^2V_{\mathrm{eff}}}{d\theta^2}(\pi) &= -m b^2\left(\Omega_c^2 + \Omega^2\right) < 0 \quad &\text{($\cos\pi = -1$: always a maximum)} \\
+> \frac{d^2V_{\mathrm{eff}}}{d\theta^2}(\theta_e) &= m b^2\left(\Omega_c^2\cos\theta_e - 2\Omega^2\cos^2\theta_e + \Omega^2\right) \quad &\text{($\cos^2 - \sin^2 = 2\cos^2 - 1$)} \\
+> &= m b^2\left(\Omega_c^2\cos\theta_e - 2\Omega_c^2\cos\theta_e + \Omega^2\right) \quad &\text{($\Omega^2\cos\theta_e = \Omega_c^2$)} \\
+> &= m b^2\left(\Omega^2 - \Omega_c^2\cos\theta_e\right) \quad &\text{(group)} \\
+> &= m b^2\,\Omega^2\left(1 - \cos^2\theta_e\right) \quad &\text{($\Omega_c^2 = \Omega^2\cos\theta_e$ again)} \\
+> &= m b^2\,\Omega^2\sin^2\theta_e > 0 \quad &\text{(Pythagoras: a minimum whenever it exists)}
+> \end{aligned}$$
+>
+> $$\boxed{\Omega < \Omega_c:\ \theta = 0 \text{ stable},\ \theta = \pi \text{ unstable};\qquad \Omega > \Omega_c:\ \theta = 0,\ \pi \text{ unstable},\ \pm\theta_e \text{ stable},\ \cos\theta_e = \frac{\Omega_c^2}{\Omega^2},\qquad \Omega_c = \sqrt{g/b}}$$
+>
+> **Units:** $\Omega$, $\Omega_c$ in $\mathrm{rad/s}$; the derivatives of $V_{\mathrm{eff}}$ in $\mathrm{J/rad}$ and $\mathrm{J/rad^2}$
+> **Meaning:** below the critical rate the bead rests at the bottom as on a still hoop; above it the bottom becomes a maximum of the effective potential and the bead settles at one of two symmetric positions up the hoop, higher the faster the rotation, which approach the horizontal through $O$ as $\Omega$ grows without bound. For a hoop of radius $0.5\ \mathrm m$ the critical rate is $4.43\ \mathrm{rad/s}$, about $42$ revolutions per minute; at twice that rate the stable positions are at $75.5^\circ$ from the bottom.
+
+![[attachments/EM-T/t2-hoop-potential.svg]]
+
+> [!derivation] Extension: small oscillations of the bead
+> **Law:** linearisation about an equilibrium (Section 13) with $\theta$ for $x$ and $m b^2$ for $m$
+> **Source:** [Lecture 6, Slide 15]; Notes.pdf, Eq. 5.6
+>
+> The equation $m b^2\ddot\theta$ equal to minus the derivative of the effective potential has no velocity dependence, so the linearised equation has no damping and its stiffness is the second derivative of $V_{\mathrm{eff}}$ at the equilibrium.
+>
+> $$\begin{aligned}
+> m b^2\,\ddot\xi + \frac{d^2V_{\mathrm{eff}}}{d\theta^2}(\theta^*_{\mathrm{eq}})\,\xi &= 0 \quad &\text{(Section 13: $\xi$ the departure from the equilibrium $\theta^*_{\mathrm{eq}}$)} \\
+> \omega_{\mathrm{eq}}^2 &= \frac{1}{m b^2}\,\frac{d^2V_{\mathrm{eff}}}{d\theta^2}(\theta^*_{\mathrm{eq}}) \quad &\text{(Eq. 5.6: divide by $m b^2$, stable equilibria only)} \\
+> \omega_{\mathrm{eq}} &= \sqrt{\Omega_c^2 - \Omega^2} \quad &\text{(at $\theta^*_{\mathrm{eq}} = 0$, for $\Omega < \Omega_c$)} \\
+> \omega_{\mathrm{eq}} &= \Omega\sin\theta_e \quad &\text{(at $\pm\theta_e$, for $\Omega > \Omega_c$: previous box)} \\
+> &= \sqrt{\Omega^2 - \Omega_c^4/\Omega^2} \quad &\text{($\sin^2\theta_e = 1 - \cos^2\theta_e = 1 - \Omega_c^4/\Omega^4$)}
+> \end{aligned}$$
+>
+> $$\boxed{\theta = 0,\ \Omega < \Omega_c:\ \ \omega_{\mathrm{eq}} = \sqrt{\Omega_c^2 - \Omega^2};\qquad \pm\theta_e,\ \Omega > \Omega_c:\ \ \omega_{\mathrm{eq}} = \Omega\sin\theta_e = \sqrt{\Omega^2 - \Omega_c^4/\Omega^2}}$$
+>
+> **Units:** $\mathrm{rad/s}$
+> **Meaning:** both frequencies fall to zero as the rate approaches the critical one from either side: the restoring stiffness vanishes there, and the linear test of Section 13 is marginal. At zero rate the first one is the pendulum frequency, the square root of $g/b$. For the hoop of radius $0.5\ \mathrm m$ at half the critical rate the bead oscillates about the bottom at $3.84\ \mathrm{rad/s}$, and at twice the critical rate about $\pm\theta_e$ at $8.58\ \mathrm{rad/s}$.
+
+> [!derivation] Extension: the critical rate and the bifurcation
+> **Law:** Taylor expansions to fourth order (higher-order terms when the second derivative vanishes); branch of equilibria near the critical rate
+> **Source:** [Lecture 6, Slide 15]; Notes.pdf, Sec. 4.6
+>
+> $$\begin{aligned}
+> 1 - \cos\theta &= \frac{\theta^2}{2} - \frac{\theta^4}{24} + O(\theta^6) \quad &\text{(Taylor series of the cosine)} \\
+> \sin\theta &= \theta - \frac{\theta^3}{6} + O(\theta^5) \quad &\text{(Taylor series of the sine)} \\
+> \sin^2\theta &= \theta^2 - 2\,\theta\,\frac{\theta^3}{6} + O(\theta^6) \quad &\text{(square: the cross term)} \\
+> &= \theta^2 - \frac{\theta^4}{3} + O(\theta^6) \quad &\text{(arithmetic)} \\
+> V_{\mathrm{eff}} &= m g b\left(1 - \cos\theta\right) - \tfrac12 m g b\sin^2\theta \quad &\text{(at $\Omega = \Omega_c$: $m b^2\Omega_c^2 = m g b$)} \\
+> &= m g b\left(\frac{\theta^2}{2} - \frac{\theta^4}{24} - \frac{\theta^2}{2} + \frac{\theta^4}{6}\right) + O(\theta^6) \quad &\text{(substitute both series)} \\
+> &= \frac{m g b}{8}\,\theta^4 + O(\theta^6) \quad &\text{(the squares cancel; $\tfrac16 - \tfrac1{24} = \tfrac18$)} \\
+> \cos\theta_e &\simeq 1 - \frac{\theta_e^2}{2} \quad &\text{(near the critical rate $\theta_e$ is small)} \\
+> \frac{\theta_e^2}{2} &\simeq 1 - \frac{\Omega_c^2}{\Omega^2} \quad &\text{(the previous row equals $\Omega_c^2/\Omega^2$: equilibrium condition)} \\
+> &= \frac{\left(\Omega - \Omega_c\right)\left(\Omega + \Omega_c\right)}{\Omega^2} \quad &\text{(common denominator; difference of squares)} \\
+> &\simeq \frac{2\left(\Omega - \Omega_c\right)}{\Omega_c} \quad &\text{($\Omega \simeq \Omega_c$ in the other factors)} \\
+> \theta_e &\simeq \pm 2\sqrt{\frac{\Omega - \Omega_c}{\Omega_c}} \quad &\text{(square root)}
+> \end{aligned}$$
+>
+> $$\boxed{\Omega = \Omega_c:\ V_{\mathrm{eff}} \simeq \frac{m g b}{8}\,\theta^4 \ \text{(a flat minimum, stable)};\qquad \Omega \gtrsim \Omega_c:\ \theta_e \simeq \pm 2\sqrt{\frac{\Omega - \Omega_c}{\Omega_c}}}$$
+>
+> **Units:** $\mathrm J$ for the potential; $\theta_e$ in radians (a quotient of rates)
+> **Meaning:** at the critical rate the bottom of the hoop is still a strict minimum, now of fourth order, so the energy argument of Section 6 makes it stable although the linear test is marginal: this is the case where the higher-order terms must be checked ([Lecture 6, Slide 15]). As the rate crosses $\Omega_c$ the single stable equilibrium at the bottom loses its stability and two new stable equilibria branch off from it, growing like the square root of the excess rate: a pitchfork bifurcation, drawn in the bifurcation diagram below. For $\Omega$ equal to $1.1\,\Omega_c$ the estimate gives $0.63\ \mathrm{rad}$, against the exact $0.60\ \mathrm{rad}$ from the arccosine.
+
+![[attachments/EM-T/t2-hoop-bifurcation.svg]]
+
+> [!key] Summary of Topic 2
+> - In an inertial frame the second law ties the rate of change of the linear momentum to the resultant force; projected on a basis it gives the equations of motion, whose integration with the initial position and velocity yields the trajectory (Sections 1 to 3).
+> - Dotting the second law with the velocity gives the theorem of kinetic energy: the power of the forces changes the kinetic energy, and the work of a force is the time integral of its power (Section 4).
+> - A force whose work does not depend on the path derives from a potential energy, the force is minus its gradient, and the curl test decides whether it exists; when every working force is conservative the mechanical energy is constant, and otherwise it changes at the rate of the power of the non-conservative forces (Sections 4 and 5).
+> - In one dimension the energy diagram shows the allowed regions and the turning points; the equilibria are the critical points of the potential, the minima are stable and the maxima unstable (Section 6).
+> - The simple pendulum gathers these tools: kinematics in a polar basis, the tension from the radial equation, a first integral, oscillations and rotations, and the linearised equation for small oscillations (Section 7).
+> - The harmonic oscillator has a linear equation with constant coefficients, solved through its characteristic equation: an undamped oscillation of amplitude and phase set by the initial conditions, with a period independent of the amplitude; complex exponentials hold the two constants in one complex amplitude (Sections 8 and 9).
+> - The damping ratio decides the free motion: below one a decaying oscillation at a frequency slightly lower than the natural one, with a relaxation time and a quality factor; above one two decaying exponentials; at one the fastest return to equilibrium (Section 10).
+> - Under a periodic force the transient dies and the response follows the force at its own frequency, with an amplitude and a phase lag fixed by the frequency ratio and the damping ratio; the amplitude peaks at the resonant frequency, with a height set by the damping, and the phase lag passes a quarter period when the forcing frequency equals the natural one (Sections 11 and 12).
+> - Near an equilibrium any one-dimensional system is linearised into a harmonic oscillator whose stiffness and damping are the slopes of the force; the real part of the larger root decides asymptotic stability, marginal stability or instability, and the marginal case needs the higher-order terms (Section 13).
+> - Extensions: beats of a driven undamped oscillator, and the bead on a rotating hoop, whose bottom equilibrium loses its stability at the critical rate while two stable equilibria branch off (Sections 11 and 14).
