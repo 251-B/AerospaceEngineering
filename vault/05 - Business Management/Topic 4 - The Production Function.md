@@ -202,4 +202,4 @@ The eight exercises of the break-even and operating leverage sheet are solved on
 
 **Back to:** [[Business Management MOC]]
 
-**Related notes:** [[Problem Set - T4 Break-Even Point and Operating Leverage]] · Previous: [[Topic 3 - Financial Management I - Financial Statements]] · Next: [[Topic 5 - Marketing and Sales Management]]
+**Related notes:** [[Problem Set - T4 Break-Even Point and Operating Leverage]] · Previous: [[Topic 3 (II) - Financial Management II - Accounting Indicators and Investment Decisions]] · Next: [[Topic 5 - Marketing and Sales Management]]
