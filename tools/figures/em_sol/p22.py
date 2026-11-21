@@ -14,12 +14,12 @@ def _y(x):
 
 @figure("p22-curve-plane",
         "Plane of the curve y = a(1 - cos(x1/a)) with k1 out of the paper, the particle P at abscissa x1, the dashed "
-        "components x1 and y1 of its position, the slope triangle with legs dx1 and sin(x1/a) dx1 and hypotenuse ds, "
+        "components x1 and y1 of its position, the slope triangle with legs dx1 and sin(x1/a) dx1 and hypotenuse dℓ, "
         "the basis i1, j1 at O and the unit tangent e_t and normal n at P",
         r"Plane of the curve (fixed in $S_0$ for (a)–(c), fixed in $S_1$ for (d)–(g); $\mathbf k_1$ out of the paper, "
         r"$\odot$). The dashed lines are the components $x_1$ and $y_1 = a(1 - \cos(x_1/a))$ of $\mathbf r_1^P$. In the "
         r"shaded slope triangle the leg adjacent to the tangent angle $\alpha$ is $dx_1$, the opposite leg is "
-        r"$dy = \sin(x_1/a)\,dx_1$ and the hypotenuse is the arc element $ds$; $\mathbf e_t$ and $\mathbf n$ in orange")
+        r"$dy = \sin(x_1/a)\,dx_1$ and the hypotenuse is the arc element $d\ell$; $\mathbf e_t$ and $\mathbf n$ in orange")
 def curve_plane():
     sc = Scene(940, 430, (440, 360), 108)
     P = (X, _y(X))
@@ -37,7 +37,7 @@ def curve_plane():
     fixed_axis(sc, (-3.55, 0.0), 0, 7.4, S("X", "1") + " (X for the fixed curve)", off=(-84, 50))
     fixed_axis(sc, (0.0, -0.12), 90, 3.1, "Y ≡ " + S("Y", "1"), off=(40, 2))
     spin_about_vertical(sc, (0.0, 2.55), 0.24, 0.06, "Ω")
-    # slope triangle at P: dx along i1, dy = sin(x/a) dx along j1, hypotenuse ds along the tangent
+    # slope triangle at P: dx along i1, dy = sin(x/a) dx along j1, hypotenuse dℓ along the tangent
     dx = 1.0
     A = (P[0] + dx, P[1])
     B = (P[0] + dx, P[1] + s * dx)
@@ -48,7 +48,7 @@ def curve_plane():
     sc.line(A, B, "EDGE", 1.1)
     sc.label(((P[0] + A[0]) / 2, P[1]), "dx₁", "TEXT", "middle", 16, dy=21)
     sc.label((A[0] + 0.9, B[1]), "dy = sin(x₁/a) dx₁", "TEXT", "end", 16, dy=-14)
-    sc.label((P[0] + 0.5 * dx, P[1] + 0.5 * s * dx), "ds", "TEXT", "end", 16, dx=-12, dy=-6)
+    sc.label((P[0] + 0.5 * dx, P[1] + 0.5 * s * dx), "dℓ", "TEXT", "end", 16, dx=-12, dy=-6)
     sc.angle(P, 0.5, 0, alpha, "α", name_r=0.66)
     # components of the position (dashed)
     sc.dashed(P, (P[0], 0.0))

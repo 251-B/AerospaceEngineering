@@ -1472,17 +1472,17 @@ A heavy particle $P$ of mass $m$ slides without friction on a plane curve of the
 > **Law:** position vector as the sum of its components; chain rule; right triangle of the arc element
 > **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.19; Problems.pdf, p. 10
 >
-> The plane of the curve is drawn with the horizontal axis to the right and $\mathbf j_0$ up. For the fixed curve the horizontal axis is $OX$ with $\mathbf i_0$; for the turning curve the same drawing holds in $S_1$ with $OX_1$, $\mathbf i_1$ and $x_1$. The position of $P$ is the sum of its two dashed components: the abscissa along the horizontal axis and the height given by the equation of the curve. Moving a distance $dx_1$ along the axis, the height changes by $dy$; in the shaded right triangle the leg adjacent to the tangent angle $\alpha$ is $dx_1$, the opposite leg is $dy$ and the hypotenuse is the arc element $ds$ (Eq. 2.19).
+> The plane of the curve is drawn with the horizontal axis to the right and $\mathbf j_0$ up. For the fixed curve the horizontal axis is $OX$ with $\mathbf i_0$; for the turning curve the same drawing holds in $S_1$ with $OX_1$, $\mathbf i_1$ and $x_1$. The position of $P$ is the sum of its two dashed components: the abscissa along the horizontal axis and the height given by the equation of the curve. Moving a distance $dx_1$ along the axis, the height changes by $dy$; in the shaded right triangle the leg adjacent to the tangent angle $\alpha$ is $dx_1$, the opposite leg is $dy$ and the hypotenuse is the arc element $d\ell$ (Eq. 2.19, where it is called $ds$; here $s$ is the sine of the shorthand).
 >
 > $$\begin{aligned}
 > \mathbf r_1^P &= x_1\,\mathbf i_1 + a\left(1 - \cos\frac{x_1}{a}\right)\mathbf j_1 \quad &\text{(abscissa plus height on the curve)} \\
 > \frac{d}{dx_1}\cos\frac{x_1}{a} &= -\sin\frac{x_1}{a}\cdot\frac{d}{dx_1}\left(\frac{x_1}{a}\right) = -\frac{1}{a}\sin\frac{x_1}{a} \quad &\text{(chain rule)} \\
 > \frac{dy}{dx_1} &= a\cdot\frac{1}{a}\sin\frac{x_1}{a} = s \quad &\text{(derivative of the height; shorthand $s$)} \\
-> ds^2 &= dx_1^2 + dy^2 = \left(1 + s^2\right)dx_1^2 \quad &\text{(Pythagoras in the slope triangle)} \\
-> ds &= D\,dx_1, \quad \cos\alpha = \frac{dx_1}{ds} = \frac{1}{D}, \quad \sin\alpha = \frac{dy}{ds} = \frac{s}{D} \quad &\text{(adjacent and opposite legs over the hypotenuse)}
+> d\ell^2 &= dx_1^2 + dy^2 = \left(1 + s^2\right)dx_1^2 \quad &\text{(Pythagoras in the slope triangle)} \\
+> d\ell &= D\,dx_1, \quad \cos\alpha = \frac{dx_1}{d\ell} = \frac{1}{D}, \quad \sin\alpha = \frac{dy}{d\ell} = \frac{s}{D} \quad &\text{(adjacent and opposite legs over the hypotenuse)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf r_1^P = x_1\,\mathbf i_1 + a\left(1 - \cos\frac{x_1}{a}\right)\mathbf j_1, \qquad \frac{ds}{dx_1} = D = \sqrt{1 + \sin^2\frac{x_1}{a}}, \qquad \tan\alpha = \sin\frac{x_1}{a}}$$
+> $$\boxed{\mathbf r_1^P = x_1\,\mathbf i_1 + a\left(1 - \cos\frac{x_1}{a}\right)\mathbf j_1, \qquad \frac{d\ell}{dx_1} = D = \sqrt{1 + \sin^2\frac{x_1}{a}}, \qquad \tan\alpha = \sin\frac{x_1}{a}}$$
 >
 > **Units:** $[x_1] = [a] = [\mathrm{L}]$; $x_1/a$ and the slope dimensionless
 > **Meaning:** $x_1$ zero gives the initial point $O$; at the crests, plus and minus $\pi a$, the height is twice $a$. The fixed curve has the same expressions with $x$, $\mathbf i_0$ and $\mathbf j_0$.
@@ -1494,7 +1494,7 @@ A heavy particle $P$ of mass $m$ slides without friction on a plane curve of the
 > The plane is seen with $\mathbf i_1$ to the right and $\mathbf j_1$ up, so $\mathbf k_1$, their cross product, points out of the paper (⊙) and a positive rotation about it is counterclockwise. $\mathbf e_t$ is $\mathbf i_1$ turned by $\alpha$: hypotenuse 1, adjacent leg $\cos\alpha$ along $\mathbf i_1$, opposite leg $\sin\alpha$ along $\mathbf j_1$. $\mathbf n$ is $\mathbf j_1$ turned by the same angle: adjacent leg $\cos\alpha$ along $\mathbf j_1$, opposite leg $\sin\alpha$ along minus $\mathbf i_1$ (the upward vector turned counterclockwise leans to the left: the minus sign).
 >
 > $$\begin{aligned}
-> \mathbf e_t &= \cos\alpha\,\mathbf i_1 + \sin\alpha\,\mathbf j_1 = \frac{\mathbf i_1 + s\,\mathbf j_1}{D} \quad &\text{(right triangle of $\mathbf e_t$; Eq. 2.9: $d\mathbf r/ds$)} \\
+> \mathbf e_t &= \cos\alpha\,\mathbf i_1 + \sin\alpha\,\mathbf j_1 = \frac{\mathbf i_1 + s\,\mathbf j_1}{D} \quad &\text{(right triangle of $\mathbf e_t$; Eq. 2.9: $d\mathbf r/d\ell$)} \\
 > \mathbf n &= -\sin\alpha\,\mathbf i_1 + \cos\alpha\,\mathbf j_1 = \frac{-s\,\mathbf i_1 + \mathbf j_1}{D} \quad &\text{(right triangle of $\mathbf n$: opposite leg on $-\mathbf i_1$)} \\
 > \det[{}_1R_t] &= (+1)\cdot 1\cdot\left(\cos\alpha\cos\alpha - (-\sin\alpha)\sin\alpha\right) = \frac{1 + s^2}{D^2} = 1 \quad &\text{(expansion along the third row, cofactor sign $(-1)^{3+3}$)} \\
 > \mathbf e_t\cdot\mathbf e_t &= \frac{1 + s^2}{D^2} = 1, \quad \mathbf e_t\cdot\mathbf n = \frac{-s + s}{D^2} = 0 \quad &\text{(columns orthonormal: $[{}_1R_t][{}_1R_t]^T = I$)} \\
@@ -1721,15 +1721,15 @@ The free-body diagram of $P$ in $S_1$ shows, in the plane of the curve, the weig
 > **Law:** allowed region of the energy integral; behaviour of the quadrature near a maximum of the potential
 > **Source:** Notes.pdf, Eq. 4.28; Notes.pdf, Eq. 4.44; Problems.pdf, p. 10
 >
-> To reach the crest the radicand must not be negative on the whole way from 0 to $\pi a$; it decreases with $x$ there, because $1 - \cos(x/a)$ grows, so the condition is its value at the crest. At the limiting speed write $u$ for the distance $\pi a - x$ still to go; the half-angle identity is $1 + \cos\beta = 2\cos^2(\beta/2)$.
+> To reach the crest the radicand must not be negative on the whole way from 0 to $\pi a$; it decreases with $x$ there, because $1 - \cos(x/a)$ grows, so the condition is its value at the crest. At the limiting speed write $\delta$ for the distance $\pi a - x$ still to go; the half-angle identity is $1 + \cos\beta = 2\cos^2(\beta/2)$.
 >
 > $$\begin{aligned}
 > v_0^2 - 2ga\left(1 - \cos\pi\right) &= v_0^2 - 4ga \ge 0 \quad &\text{(radicand at $x = \pi a$; $\cos\pi = -1$)} \\
 > v_0 &\ge 2\sqrt{ga} \quad &\text{(positive root, $v_0 \gt 0$)} \\
 > v_0^2 - 2ga\left(1 - \cos\frac{x}{a}\right) &= 2ga\left(1 + \cos\frac{x}{a}\right) = 4ga\cos^2\frac{x}{2a} \quad &\text{(case $v_0^2 = 4ga$; half-angle identity)} \\
-> \cos\frac{x}{2a} &= \cos\left(\frac{\pi}{2} - \frac{u}{2a}\right) = \sin\frac{u}{2a} \simeq \frac{u}{2a} \quad &\text{(difference formula; small $u$)} \\
-> \sqrt{\frac{1 + \sin^2(x/a)}{4ga\cos^2(x/2a)}} &\simeq \sqrt{\frac{1}{4ga}}\cdot\frac{2a}{u} = \sqrt{\frac{a}{g}}\,\frac{1}{u} \quad &\text{(integrand of the quadrature near the crest; $\sin(x/a) \simeq 0$)} \\
-> \int_{u}^{u_1}\sqrt{\frac{a}{g}}\,\frac{du'}{u'} &= \sqrt{\frac{a}{g}}\left[\ln u'\right]_{u}^{u_1} = \sqrt{\frac{a}{g}}\,\ln\frac{u_1}{u} \to \infty \ \ (u \to 0) \quad &\text{(time from a point at $u_1$ to a point at $u$: antiderivative $\ln u'$, Barrow's rule)}
+> \cos\frac{x}{2a} &= \cos\left(\frac{\pi}{2} - \frac{\delta}{2a}\right) = \sin\frac{\delta}{2a} \simeq \frac{\delta}{2a} \quad &\text{(difference formula; small $\delta$)} \\
+> \sqrt{\frac{1 + \sin^2(x/a)}{4ga\cos^2(x/2a)}} &\simeq \sqrt{\frac{1}{4ga}}\cdot\frac{2a}{\delta} = \sqrt{\frac{a}{g}}\,\frac{1}{\delta} \quad &\text{(integrand of the quadrature near the crest; $\sin(x/a) \simeq 0$)} \\
+> \int_{\delta}^{\delta_1}\sqrt{\frac{a}{g}}\,\frac{d\delta'}{\delta'} &= \sqrt{\frac{a}{g}}\left[\ln \delta'\right]_{\delta}^{\delta_1} = \sqrt{\frac{a}{g}}\,\ln\frac{\delta_1}{\delta} \to \infty \ \ (\delta \to 0) \quad &\text{(time from a point at $\delta_1$ to a point at $\delta$: antiderivative $\ln \delta'$, Barrow's rule)}
 > \end{aligned}$$
 >
 > $$\boxed{v_{0,\min} = 2\sqrt{ga}: \ \text{for } v_0 \gt 2\sqrt{ga} \text{ the crest is reached in a finite time; at } v_0 = 2\sqrt{ga} \text{ only as } t \to \infty}$$
@@ -1756,7 +1756,9 @@ The free-body diagram of $P$ in $S_1$ shows, in the plane of the curve, the weig
 
 > [!derivation] Energy integral in the turning frame and quadrature
 > **Law:** the tangent equation multiplied by the rate is an exact derivative (chain rule); Barrow's rule; separation of variables
-> **Source:** Notes.pdf, Eq. 4.22; Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]; [Lecture 5, Slide 30]
+> **Source:** Notes.pdf, Eq. 4.22; Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]; [Lecture 5, Slide 30]; [Lecture 5, Slide 31]
+>
+> The energy in $S_1$ is conserved for two reasons. First, the forces that do no work in $S_1$: the reaction, because the curve is smooth and at rest in $S_1$, so the reaction is normal to the relative velocity; the Coriolis force, always normal to the relative velocity; and the force of the origin and the Euler force, which vanish. Second, the forces that do work have potentials that depend on the position only: the weight, and the centrifugal force, whose potential is minus one half of $m\Omega^2x_1^2$ only because $\Omega$ is constant.
 >
 > $$\begin{aligned}
 > m\left(1 + s^2\right)\dot x_1\ddot x_1 + \frac{m}{a}sc\,\dot x_1^3 + mg\,s\,\dot x_1 - m\Omega^2x_1\dot x_1 &= 0 \quad &\text{(tangent equation times $m\dot x_1$)} \\
@@ -1803,7 +1805,7 @@ The free-body diagram of $P$ in $S_1$ shows, in the plane of the curve, the weig
 > \frac{d}{du}\left(\frac{\sin u}{u}\right) &= \frac{u\cos u - \sin u}{u^2}, \quad h(u) = h(0) + \int_0^u\left(-u'\sin u'\right)du' \lt 0 \quad &\text{(quotient rule; $h' = \cos u - u\sin u - \cos u$)}
 > \end{aligned}$$
 >
-> $$\boxed{g\sin\frac{x_1}{a} = \Omega^2x_1: \ \ x_1 = 0 \text{ for every } \Omega; \ \text{a symmetric pair } \pm x_1^* \ \text{with } 0 \lt x_1^* \lt \pi a \text{ exactly when } \Omega^2a \lt g}$$
+> $$\boxed{g\sin\frac{x_1}{a} = \Omega^2x_1: \ \ x_1 = 0 \text{ for every } \Omega; \ \text{a symmetric pair } \pm x_1^* \ \text{with } 0 \lt x_1^* \lt \pi a \text{ exactly when } 0 \lt \Omega^2a \lt g}$$
 >
 > **Units:** $[g] = [\Omega^2x_1] = [\mathrm{L\,T^{-2}}]$; $\lambda$ dimensionless
 > **Meaning:** at an off-axis equilibrium the tangential pull of the weight towards the bottom balances the tangential push of the centrifugal force; with a fast spin no off-axis balance exists inside the range of the curve.
@@ -1814,7 +1816,7 @@ The free-body diagram of $P$ in $S_1$ shows, in the plane of the curve, the weig
 > **Law:** inertia forces with a variable angular velocity; power of each force on the relative velocity; product rule
 > **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.62; [Lecture 5, Slide 29]; [Lecture 5, Slide 30]
 >
-> With $\Omega(t)$ the Euler force appears. It is normal to the plane of the curve, so it does no work in $S_1$ and drops out of the tangent equation, which keeps its form with $\Omega(t)$; it only changes the reaction along $\mathbf k_1$. The centrifugal force, however, no longer derives from a potential that depends on the position only.
+> With $\Omega(t)$ the Euler force appears. It is normal to the plane of the curve, so it does no work in $S_1$ and drops out of the tangent equation, which keeps its form with $\Omega(t)$; it only changes the reaction along $\mathbf k_1$. The centrifugal force, however, no longer derives from a potential that depends on the position only. Write $E_1^P$ for the energy of part (e) with $\Omega(t)$ in its centrifugal term: the bracket of the last row below, the relative kinetic energy plus the potential of the weight minus one half of $m\Omega^2x_1^2$.
 >
 > $$\begin{aligned}
 > \boldsymbol\alpha_{10} &= \dot\Omega\,\mathbf j_1, \quad \mathbf F_E = -m\dot\Omega\,\mathbf j_1\times\left(x_1\,\mathbf i_1 + y_1\,\mathbf j_1\right) = m\dot\Omega x_1\,\mathbf k_1 \quad &\text{(Eq. 3.9 and Eq. 4.62; $\mathbf j_1\times\mathbf i_1 = -\mathbf k_1$)} \\
@@ -1835,7 +1837,7 @@ The free-body diagram of $P$ in $S_1$ shows, in the plane of the curve, the weig
 | (a) Integrals, fixed curve | $\frac12 m(1 + \sin^2\frac{x}{a})\dot x^2 + mga(1 - \cos\frac{x}{a}) = \frac12 mv_0^2$; $t = \int_0^x\sqrt{(1 + \sin^2(\xi/a))/(v_0^2 - 2ga(1 - \cos(\xi/a)))}\,d\xi$ |
 | (b) Extreme abscissas, $v_0 = \sqrt{ga}$ | $x_{\min} = -\pi a/3$, $x_{\max} = \pi a/3$ (oscillation between them) |
 | (c) Minimum speed to reach $x = \pi a$ | $v_0 = 2\sqrt{ga}$ (lower bound: reached in a finite time for any larger speed, asymptotically at that speed) |
-| (d) Moving frame and inertia force | $S_1$: $\mathbf i_1$ in the plane of the curve, $\mathbf j_1 = \mathbf j_0$ the axis, $\mathbf k_1$ normal to the plane; $\mathbf F_i = m\Omega^2x_1\,\mathbf i_1 + 2m\Omega\dot x_1\,\mathbf k_1$ |
+| (d) Moving frame and inertia force | (answered in Forces and Equations of Motion, before (a)–(c)) $S_1$: $\mathbf i_1$ in the plane of the curve, $\mathbf j_1 = \mathbf j_0$ the axis, $\mathbf k_1$ normal to the plane; $\mathbf F_i = m\Omega^2x_1\,\mathbf i_1 + 2m\Omega\dot x_1\,\mathbf k_1$ |
 | (e) Quadrature, turning curve | $t = \int_0^{x_1}\sqrt{(1 + \sin^2(\xi/a))/(v_0^2 - 2ga(1 - \cos(\xi/a)) + \Omega^2\xi^2)}\,d\xi$ |
 | (e) Reaction | $\mathbf N = \frac{m}{D}\left(g + \Omega^2x_1\sin\frac{x_1}{a} + \frac{\dot x_1^2}{a}\cos\frac{x_1}{a}\right)\mathbf n - 2m\Omega\dot x_1\,\mathbf k_1$, with $\mathbf n = (-\sin\frac{x_1}{a}\,\mathbf i_1 + \mathbf j_1)/D$ and $\dot x_1^2$ from the energy integral |
 | (f) Equilibria | $g\sin(x_1/a) = \Omega^2x_1$: $x_1 = 0$ always, and a pair $\pm x_1^*$ only if $\Omega^2a \lt g$ |
@@ -1898,7 +1900,7 @@ A spacecraft $S$ moves on a conic of semi-latus rectum $p$ and eccentricity $e$ 
 | Applied forces | the cord, $-T\,\mathbf e_c$; the gravity of $F$ on the astronaut, $m\,\mathbf g_P$ |
 | Inertia forces (in $S_1$) | of the origin, Euler, centrifugal and Coriolis (Notes.pdf, Eq. 4.62) |
 | Hypotheses | $S_0$ inertial; planar motion in the orbital plane; the astronaut does not perturb $S$; from part (e) on, $\mathbf g_P$ equal to the gravitational acceleration $\mathbf g_S$ at $S$ |
-| Readings | $\dot\nu \gt 0$ (the spacecraft moves towards growing $\nu$; with $\dot\nu \lt 0$ the unit tangent of part (b) changes sign). The spacecraft is in free flight about $F$, as the conic orbit of Notes.pdf, Eq. 8.14 implies; parts (e) and (f) are given both in general and under this reading |
+| Readings | $\dot\nu \gt 0$ (the spacecraft moves towards growing $\nu$; with $\dot\nu \lt 0$ the unit tangent of part (b) changes sign). Hypothesis: the spacecraft is in free flight about $F$, which the conic orbit of Notes.pdf, Eq. 8.14 suggests but does not imply (the statement prescribes $\nu(t)$ and gives no force on $S$); parts (e) and (f) are given both in general and under this hypothesis |
 
 ### Change of Basis and Position Vector
 
@@ -2491,7 +2493,10 @@ The free-body diagram of the particle in $S_1$ shows, in the plane of the wire, 
 > **Law:** power of the reaction on the absolute velocity
 > **Source:** Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.31
 >
+> Write $E_0^P$ for the energy in $S_0$: the kinetic energy computed with the absolute velocity plus the potential of the weight. Of the forces in $S_0$ only the weight has a potential, so the rate of $E_0^P$ is the power of the reaction (Eq. 4.11).
+>
 > $$\begin{aligned}
+> E_0^P &= \tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P + mga\left(1 - \cos\theta\right) = \tfrac12 m\left(a^2\dot\theta^2 + \Omega^2a^2\sin^2\theta\right) + mga\left(1 - \cos\theta\right) \quad &\text{(absolute velocity box: $\mathbf e_t$ and $\mathbf k_1$ orthogonal)} \\
 > \mathbf N\cdot\mathbf v_0^P &= \left(N_n\,\mathbf e_n + N_b\,\mathbf k_1\right)\cdot\left(a\dot\theta\,\mathbf e_t - \Omega a\sin\theta\,\mathbf k_1\right) = -N_b\,\Omega a\sin\theta \quad &\text{(absolute velocity box)} \\
 > &= 2m\Omega^2a^2\dot\theta\sin\theta\cos\theta \quad &\text{($N_b$ of the equations of motion)}
 > \end{aligned}$$
@@ -2568,7 +2573,7 @@ A heavy bead $P$ of mass $m$ slides without friction on a plane wire of sine sha
 | Applied forces | weight $-mg\,\mathbf j_1$; spring, vertical, towards the rail |
 | Inertia forces (in $S_1$) | of the origin, Euler, centrifugal and Coriolis (Notes.pdf, Eq. 4.62) |
 | Hypotheses | $S_0$ inertial; uniform gravity; smooth wire; massless spring with its upper end free on a smooth rail, so it stays vertical; $\omega$ constant |
-| Readings | the wire equation is numerical, with $x_1$ and $y_1$ in metres (the rail at 2 m); the natural length of the spring is taken as zero, as the energy integral of the key implies (with a natural length $\ell_0$ every result below holds with 2 replaced by $2 - \ell_0$) |
+| Readings | the wire equation is numerical, with $x_1$ and $y_1$ in metres (the rail at 2 m); the natural length of the spring is taken as zero, as the energy integral of the key implies (with a natural length $\ell_0$, replace 2 by $2 - \ell_0$ in the spring terms; the bounds on $\lambda$ in part (d) then shift by $\ell_0$) |
 
 ### Change of Basis and Position Vector
 
@@ -2790,7 +2795,7 @@ The free-body diagram of the bead in $S_1$ shows, in the plane of the wire, the 
 
 #### (e) Motion without spring after a release at pi
 
-> [!derivation] Dimensionless potential and allowed region
+> [!derivation] Scaled potential and allowed region
 > **Law:** energy integral of part (c) with $k = 0$; the bead can only be where the potential does not exceed its initial value
 > **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.28; [Lecture 5, Slide 30]
 >
@@ -2837,7 +2842,7 @@ The free-body diagram of the bead in $S_1$ shows, in the plane of the wire, the 
 > $$\begin{aligned}
 > \tilde V(x_c) &= 2\sin x_c - \beta_c x_c^2 = -\beta_c\pi^2 \quad &\text{(the top at the starting level)} \\
 > \tilde V'(x_c) &= 2\cos x_c - 2\beta_c x_c = 0 \quad &\text{(stationary)} \\
-> \tilde V''(x_c) &= -2\sin x_c - 2\beta_c \lt 0 \quad &\text{(a maximum; $x_c \gt \pi$)} \\
+> \tilde V''(x_c) &= -2\sin x_c - 2\beta_c \lt 0 \quad &\text{(a maximum: it needs $\sin x_c \gt 0$, so $x_c$ lies between $2\pi$ and $5\pi/2$, beyond the trough; a stationary point between $\pi$ and $2\pi$, where the sine is negative, is a minimum)} \\
 > x_c &= 7.5436\ \mathrm{m} = 2.4012\pi, \quad \beta_c = 0.040489\ \mathrm{m^{-1}}, \quad \tilde V''(x_c) = -1.985\ \mathrm{m^{-1}} \quad &\text{(numerical solution: Newton's method from the starting values 7.5 and 0.04)} \\
 > \beta = 0.95\beta_c:\ \max\tilde V &= -0.284\ \mathrm{m} \gt \tilde V(\pi) = -0.380\ \mathrm{m}; \quad \beta = 1.05\beta_c:\ \max\tilde V = -0.515\ \mathrm{m} \lt \tilde V(\pi) = -0.420\ \mathrm{m} \quad &\text{(top of the hump against the start, on both sides)}
 > \end{aligned}$$
@@ -2962,7 +2967,7 @@ A particle $P$ of mass $m$ hangs from a massless cord of length $L$ fixed at the
 > **Law:** right triangle of the cord in its vertical plane; right triangle of the horizontal projection; relation with the standard polar angle; position as a sum of segments
 > **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 3.16; Problems.pdf, p. 16
 >
-> First figure: the vertical plane through $Az'$ and the cord, with $\mathbf u$ its horizontal unit vector from the axis towards $P$. In the shaded right triangle the hypotenuse is the cord $L$; the angle $\varphi$ is at $A$, measured from the upward vertical, so the adjacent leg is vertical, $L\cos\varphi$ along $\mathbf k$, and the opposite leg is horizontal, $L\sin\varphi$ along $\mathbf u$. The standard polar angle of $P$ in that plane, measured from $\mathbf u$, is $\pi/2 - \varphi$. Second figure (below): the view from above, $\mathbf k$ out of the paper (⊙), $Ax'$ to the right and $Ay'$ up; the horizontal projection, of length $L\sin\varphi$, makes the azimuth $\theta$ with $Ax'$: adjacent leg along $\mathbf i$, opposite leg along $\mathbf j$.
+> First figure: the vertical plane through $Az'$ and the cord, with $\mathbf u$ its horizontal unit vector from the axis towards $P$. In the shaded right triangle the hypotenuse is the cord $L$; the angle $\varphi$ is at $A$, measured from the upward vertical, so the adjacent leg is vertical, $L\cos\varphi$ along $\mathbf k$, and the opposite leg is horizontal, $L\sin\varphi$ along $\mathbf u$. The standard polar angle of $P$ in that plane, measured from $\mathbf u$, is $\pi/2 - \varphi$: the latitude, which is the angle called $\varphi$ in the spherical coordinates of Notes.pdf, Eq. 2.31, while the $\varphi$ of the statement is the colatitude, measured from the vertical. Second figure (below): the view from above, $\mathbf k$ out of the paper (⊙), $Ax'$ to the right and $Ay'$ up; the horizontal projection, of length $L\sin\varphi$, makes the azimuth $\theta$ with $Ax'$: adjacent leg along $\mathbf i$, opposite leg along $\mathbf j$.
 >
 > $$\begin{aligned}
 > \overrightarrow{AP} &= L\sin\varphi\,\mathbf u + L\cos\varphi\,\mathbf k \quad &\text{(legs of the meridian triangle)} \\
@@ -2983,7 +2988,7 @@ A particle $P$ of mass $m$ hangs from a massless cord of length $L$ fixed at the
 > **Law:** unit vectors as normalised partial derivatives of the position; change of basis matrix, its determinant by cofactors, orthonormality; partial derivatives of each component
 > **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 2.32; Notes.pdf, Eq. 2.34; Problems.pdf, p. 16
 >
-> $\mathbf e_\varphi$ is the direction in which $P$ moves when $\varphi$ grows: in the meridian plane, perpendicular to the cord, pointing down and away from the axis (the minus sign of its $\mathbf k$ component: $\varphi$ is measured from the upward vertical, so a growing $\varphi$ lowers the particle). $\mathbf e_\theta$ is $\mathbf u$ turned by a quarter turn counterclockwise about $\mathbf k$ in the view from above (⊙): the horizontal part $\cos\theta\,\mathbf i$ turns into $\cos\theta\,\mathbf j$, and $\sin\theta\,\mathbf j$ turns into minus $\sin\theta\,\mathbf i$ (the minus sign).
+> $\mathbf e_\varphi$ is the direction in which $P$ moves when $\varphi$ grows: in the meridian plane, perpendicular to the cord, pointing down and away from the axis (the minus sign of its $\mathbf k$ component: $\varphi$ is measured from the upward vertical, so a growing $\varphi$ lowers the particle). Because the Notes measure the latitude, the unit vector of their Eq. 2.32 to Eq. 2.34 for that angle is minus the $\mathbf e_\varphi$ of the statement; $\mathbf e_r$ and $\mathbf e_\theta$ are the same. $\mathbf e_\theta$ is $\mathbf u$ turned by a quarter turn counterclockwise about $\mathbf k$ in the view from above (⊙): the horizontal part $\cos\theta\,\mathbf i$ turns into $\cos\theta\,\mathbf j$, and $\sin\theta\,\mathbf j$ turns into minus $\sin\theta\,\mathbf i$ (the minus sign).
 >
 > $$\begin{aligned}
 > \mathbf e_\varphi &= \frac{\partial\mathbf e_r}{\partial\varphi} = \cos\varphi\cos\theta\,\mathbf i + \cos\varphi\sin\theta\,\mathbf j - \sin\varphi\,\mathbf k \quad &\text{($\tfrac{\partial}{\partial\varphi}\sin\varphi = \cos\varphi$, $\tfrac{\partial}{\partial\varphi}\cos\varphi = -\sin\varphi$; length 1)} \\
@@ -3007,6 +3012,8 @@ A particle $P$ of mass $m$ hangs from a massless cord of length $L$ fixed at the
 > [!derivation] Relative velocity and relative acceleration in the translating frame
 > **Law:** time derivatives in $S_1$; multivariable chain rule through $\varphi(t)$ and $\theta(t)$; product rule
 > **Source:** Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.24; Notes.pdf, Eq. 2.33; Problems.pdf, p. 16
+>
+> Eq. 2.33 is written with the latitude of the Notes; with the colatitude of the statement its angle is replaced by $\pi/2 - \varphi$ and its polar unit vector by minus $\mathbf e_\varphi$, which is what the rows below do directly from the partial derivatives.
 >
 > The vectors $\mathbf i$, $\mathbf j$, $\mathbf k$ are constant in $S_1$; each spherical vector depends on time through the two angles, so its rate is the partial derivative with respect to $\varphi$ times the rate of $\varphi$ plus the one with respect to $\theta$ times the rate of $\theta$.
 >
@@ -3079,7 +3086,7 @@ The free-body diagram of $P$ in $S_1$ shows the pull of the cord towards $A$, th
 
 > [!derivation] First integral of the azimuth equation
 > **Law:** the azimuth equation times $\sin\varphi$ is an exact derivative (product rule); Barrow's rule
-> **Source:** Notes.pdf, Eq. 4.48; Notes.pdf, Eq. 4.53
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 4.48
 >
 > $$\begin{aligned}
 > \frac{d}{dt}\left(\dot\theta\sin^2\varphi\right) &= \ddot\theta\sin^2\varphi + \dot\theta\cdot 2\sin\varphi\cos\varphi\,\dot\varphi \quad &\text{(product rule; chain rule on $\sin^2\varphi$)} \\
@@ -3090,7 +3097,7 @@ The free-body diagram of $P$ in $S_1$ shows the pull of the cord towards $A$, th
 > $$\boxed{mL^2\dot\theta\sin^2\varphi = mL^2\dot\theta_0\sin^2\varphi_0}$$
 >
 > **Units:** $[mL^2\dot\theta] = [\mathrm{M\,L^2\,T^{-1}}]$, an angular momentum
-> **Meaning:** it is the vertical component of the relative angular momentum about $A$: the tension passes through $A$ and the effective weight is vertical, so neither has a moment about the vertical through $A$.
+> **Meaning:** the quantity is the vertical component of the angular momentum about $A$ computed with the relative velocity (Eq. 4.48). Its conservation comes from the $\mathbf e_\theta$ equation of $S_1$, which contains no force: the tension lies along $\mathbf e_r$, and the weight plus the inertia force of the moving support form a vertical effective weight with no $\mathbf e_\theta$ component. It is not taken from the theorem of a fixed point, because $A$ accelerates.
 
 ### Answers and Checks
 
