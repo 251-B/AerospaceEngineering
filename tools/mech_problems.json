@@ -172,8 +172,7 @@
   "title": "Particle on a Curve",
   "badge": "1D Curve Constraint",
   "source_note": "",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "23": {
   "topic": 3,
@@ -197,16 +196,14 @@
   "title": "Ijon Tichy's Space Walk",
   "badge": "Orbiting Frame + Inertia Forces",
   "source_note": "(PDF page 13); key on PDF pages 73-74",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "26": {
   "topic": 5,
   "title": "Heavy Particle on a Rotating Half-Circumference (Moving-Frame Method)",
   "badge": "Rotating Wire + Inertia Forces",
   "source_note": "",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "27": {
   "topic": 5,
@@ -214,7 +211,6 @@
   "badge": "Rotating Wire + Spring",
   "source_note": "(PDF page 15); key on PDF page 74",
   "structure": 3,
-  "boxed": false,
   "badges": [
    "In-Class Session 10"
   ]
@@ -224,8 +220,7 @@
   "title": "Spherical Pendulum with a Vertically Oscillating Suspension Point",
   "badge": "Translating Frame + Inertia Force",
   "source_note": "",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "29": {
   "topic": 3,
