@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-21-mechanics-official-figures",
+    "date": "2026-11-21",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics theory figures now come from the official notes",
+    "text": "The figures of the theory pages of Topics 6 to 8 are now crops of the official notes and slides, so the diagrams look exactly as the course prints them.",
+    "link": "subjects/engineering-mechanics/teoria/index.html"
+  },
+  {
     "id": "2026-11-21-fluids-official-figures",
     "date": "2026-11-21",
     "tag": "Fluid Mechanics",
