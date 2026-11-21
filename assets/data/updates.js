@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-21-maths-lecture-log-november",
+    "date": "2026-11-21",
+    "tag": "Advanced Maths",
+    "title": "Class log to 12 November, with book pages and new notes",
+    "text": "The calendar now lists the classes up to 12 November with the book sections of each one. The lecturer's notes on nonlinear systems and Fourier series are in the PDFs page.",
+    "link": "subjects/advanced-maths/sources/index.html"
+  },
+  {
     "id": "2026-11-21-business-midterm-2-full-bank",
     "date": "2026-11-21",
     "tag": "Business Management",

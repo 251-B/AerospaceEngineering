@@ -1490,7 +1490,7 @@ window.AE_TIMETABLE = {
      "n": 1,
      "kind": "lecture",
      "title": "Differential equations: definitions and first models",
-     "text": "Definition of differential equation; examples of ODEs and PDEs; order and linearity; systems of ODEs; exponential and logistic population growth; free fall under gravity.",
+     "text": "Definition of differential equation; examples of ODEs and PDEs; order and linearity; systems of ODEs; exponential and logistic population growth; free fall under gravity. Book: Robinson Ch. 3 (p. 11-15), Sec. 5.3 (p. 29), Sec. 8.2-8.5 (p. 61-66).",
      "date": "2026-09-08",
      "start": null,
      "end": null,
@@ -1509,7 +1509,7 @@ window.AE_TIMETABLE = {
      "n": 2,
      "kind": "lecture",
      "title": "Well-posed problems, autonomous and separable ODEs",
-     "text": "Corrected linear/nonlinear example; IVP; well-posed problems; Picard's theorem; autonomous ODEs, stable and unstable critical points, 1D phase portraits; logistic ODE; separable ODEs (Exercise 1.9 started).",
+     "text": "Corrected linear/nonlinear example; IVP; well-posed problems; Picard's theorem; autonomous ODEs, stable and unstable critical points, 1D phase portraits; logistic ODE; separable ODEs (Exercise 1.9 started). Book: Robinson Sec. 3.3 (p. 13), Ch. 6 (p. 38-40), Sec. 7.1-7.2 (p. 46-48), Sec. 8.1, 8.4-8.5 (p. 59-66).",
      "date": "2026-09-10",
      "start": null,
      "end": null,
@@ -1532,7 +1532,7 @@ window.AE_TIMETABLE = {
      "n": 3,
      "kind": "problems",
      "title": "Exercises of Chapter 1",
-     "text": "Exercises 1.1 (i), (ii), (iii); 1.9; 1.4; 1.5.",
+     "text": "Exercises 1.1 (i), (ii), (iii); 1.9; 1.4; 1.5. Book: Robinson Ex. 3.1, Sec. 9.4 (p. 79-80), Ex. 9.2, Sec. 8.5 (p. 66).",
      "date": "2026-09-14",
      "start": null,
      "end": null,
@@ -1551,7 +1551,7 @@ window.AE_TIMETABLE = {
      "n": 4,
      "kind": "problems",
      "title": "Exercises of Chapters 1 and 2",
-     "text": "Exercise 1.5 corrected; Exercise 1.6; Exercises 2.13, 2.14, 2.17 (to finish).",
+     "text": "Exercise 1.5 corrected; Exercise 1.6; Exercises 2.13, 2.14, 2.17 (to finish). Book: Robinson Ex. 9.2, Ch. 8-9, Sec. 6.1-6.2 and 7.1-7.2.",
      "date": "2026-09-15",
      "start": null,
      "end": null,
@@ -1574,7 +1574,7 @@ window.AE_TIMETABLE = {
      "n": 5,
      "kind": "lecture",
      "title": "Integrating factor and exact equations",
-     "text": "First-order linear ODEs by integrating factor; Exercise 2.3 (ii); exact equations and an exercise; Exercise 2.4 (ii) (unfinished).",
+     "text": "First-order linear ODEs by integrating factor; Exercise 2.3 (ii); exact equations and an exercise; Exercise 2.4 (ii) (unfinished). Book: Robinson Sec. 9.1-9.2 (p. 75-76), Sec. 10.1 (p. 89), Ex. 9.1 (ii), 10.1 (ii).",
      "date": "2026-09-17",
      "start": null,
      "end": null,
@@ -1597,7 +1597,7 @@ window.AE_TIMETABLE = {
      "n": 6,
      "kind": "problems",
      "title": "Exercises of Chapter 2",
-     "text": "Exercises 2.2 (iv), 2.3 (iii), 2.3 (vi), 2.6, 2.17.",
+     "text": "Exercises 2.2 (iv), 2.3 (iii), 2.3 (vi), 2.6, 2.17. Book: Robinson Ex. 8.1 (iv), 9.1 (iii), (vi), 10.3.",
      "date": "2026-09-21",
      "start": null,
      "end": null,
@@ -1616,7 +1616,7 @@ window.AE_TIMETABLE = {
      "n": 7,
      "kind": "lecture",
      "title": "Second-order linear ODEs",
-     "text": "Mass-spring example; homogeneous and nonhomogeneous equations; existence and uniqueness; superposition; linear independence and the Wronskian; constant coefficients: two real roots, a repeated root, complex roots.",
+     "text": "Mass-spring example; homogeneous and nonhomogeneous equations; existence and uniqueness; superposition; linear independence and the Wronskian; constant coefficients: two real roots, a repeated root, complex roots. Book: Robinson Ch. 11 (p. 101-106), Sec. 12.1-12.3 (p. 112-115), Sec. 13.1 (p. 120).",
      "date": "2026-09-22",
      "start": null,
      "end": null,
@@ -1635,7 +1635,7 @@ window.AE_TIMETABLE = {
      "n": 8,
      "kind": "lecture",
      "title": "Inhomogeneous equations with constant coefficients",
-     "text": "General solution as homogeneous plus particular solution; particular solutions for polynomial, exponential and trigonometric forcing; higher order; variable coefficients and reduction of order (started).",
+     "text": "General solution as homogeneous plus particular solution; particular solutions for polynomial, exponential and trigonometric forcing; higher order; variable coefficients and reduction of order (started). Book: Robinson Sec. 14.1-14.4 (p. 131-137), Sec. 16.1 (p. 150), Ch. 17 (p. 159).",
      "date": "2026-09-24",
      "start": null,
      "end": null,
@@ -1654,7 +1654,7 @@ window.AE_TIMETABLE = {
      "n": 9,
      "kind": "lecture",
      "title": "Reduction of order and undetermined coefficients",
-     "text": "Reduction of order finished; method of undetermined coefficients; Exercises 3-1.4 (i), (ii), (iv), (vii) and 3-2.1 (iii), (vi).",
+     "text": "Reduction of order finished; method of undetermined coefficients; Exercises 3-1.4 (i), (ii), (iv), (vii) and 3-2.1 (iii), (vi). Book: Robinson Ch. 17 (p. 159), Sec. 14.5 (p. 139), Ex. 12.1, 14.1.",
      "date": "2026-09-29",
      "start": null,
      "end": null,
@@ -1681,7 +1681,7 @@ window.AE_TIMETABLE = {
      "n": 10,
      "kind": "lecture",
      "title": "Variation of constants",
-     "text": "Exercise 3-2.1 (vi) finished; method of variation of constants; Exercises 3-2.6 (i), (ii) and 3-2.9.",
+     "text": "Exercise 3-2.1 (vi) finished; method of variation of constants; Exercises 3-2.6 (i), (ii) and 3-2.9. Book: Robinson Ch. 18 (p. 164-167), Ex. 14.1 (vi), 18.1 (i), (ii).",
      "date": "2026-10-01",
      "start": null,
      "end": null,
@@ -1704,7 +1704,7 @@ window.AE_TIMETABLE = {
      "n": 11,
      "kind": "problems",
      "title": "Exercises of Chapter 3",
-     "text": "Exercises 3-1.5, 3-1.8, 3-1.9 and 3-2.1 (ix).",
+     "text": "Exercises 3-1.5, 3-1.8, 3-1.9 and 3-2.1 (ix). Book: Robinson Ex. 12.2, Sec. 13.3 (p. 123), Ex. 14.1 (ix).",
      "date": "2026-10-05",
      "start": null,
      "end": null,
@@ -1727,7 +1727,7 @@ window.AE_TIMETABLE = {
      "n": 12,
      "kind": "lecture",
      "title": "Systems of first-order ODEs",
-     "text": "Existence and uniqueness; second-order ODE as a system; linear systems, superposition, Wronskian and fundamental sets; constant coefficients reduced to the eigenvalue problem.",
+     "text": "Existence and uniqueness; second-order ODE as a system; linear systems, superposition, Wronskian and fundamental sets; constant coefficients reduced to the eigenvalue problem. Book: Robinson Ch. 25 (p. 249-252), Ch. 26 (p. 253), Sec. 27.1-27.2 (p. 259-261).",
      "date": "2026-10-06",
      "start": null,
      "end": null,
@@ -1746,7 +1746,7 @@ window.AE_TIMETABLE = {
      "n": 13,
      "kind": "lecture",
      "title": "Eigenvalues and phase portraits I",
-     "text": "Eigenvalues and eigenvectors; the three cases; two distinct real eigenvalues, change of basis z = P^-1 x, nodes and saddles.",
+     "text": "Eigenvalues and eigenvectors; the three cases; two distinct real eigenvalues, change of basis z = P^-1 x, nodes and saddles. Book: Robinson Sec. 27.2 (p. 260-266), Sec. 28.1-28.4 (p. 270-280).",
      "date": "2026-10-08",
      "start": null,
      "end": null,
@@ -1765,7 +1765,7 @@ window.AE_TIMETABLE = {
      "n": 14,
      "kind": "lecture",
      "title": "Phase portraits II: complex eigenvalues",
-     "text": "Phase portrait of the example; complex eigenvalues, change of basis z = Q^-1 x; spirals and centres.",
+     "text": "Phase portrait of the example; complex eigenvalues, change of basis z = Q^-1 x; spirals and centres. Book: Robinson Ch. 29 (p. 285-293).",
      "date": "2026-10-13",
      "start": null,
      "end": null,
@@ -1784,7 +1784,7 @@ window.AE_TIMETABLE = {
      "n": 15,
      "kind": "lecture",
      "title": "Phase portraits III: repeated eigenvalues",
-     "text": "Exercise; repeated real eigenvalues: stars and the improper node, change of variable and general solution.",
+     "text": "Exercise; repeated real eigenvalues: stars and the improper node, change of variable and general solution. Book: Robinson Ch. 30 (p. 295-297).",
      "date": "2026-10-15",
      "start": null,
      "end": null,
@@ -1803,7 +1803,7 @@ window.AE_TIMETABLE = {
      "n": 16,
      "kind": "problems",
      "title": "Exercises of Chapter 4, part 1",
-     "text": "Exercises 4-1.3, 4-1.8 (i)-(v), (viii), 4-1.9 (i), (iv) and 4-1.11.",
+     "text": "Exercises 4-1.3, 4-1.8 (i)-(v), (viii), 4-1.9 (i), (iv) and 4-1.11. Book: Robinson Ex. 11.2, 28.1, 28.2, 28.6.",
      "date": "2026-10-20",
      "start": null,
      "end": null,
@@ -1822,7 +1822,7 @@ window.AE_TIMETABLE = {
      "n": 17,
      "kind": "problems",
      "title": "Exercises of Chapter 4, part 2",
-     "text": "Exercises 4-2.1 (i), (ii), (iii), (v), (vii), 4-2.3 (i), (ii) and 4-2.5 (i).",
+     "text": "Exercises 4-2.1 (i), (ii), (iii), (v), (vii), 4-2.3 (i), (ii) and 4-2.5 (i). Book: Robinson Ex. 29.1, 29.2, 29.3, 29.5.",
      "date": "2026-10-22",
      "start": null,
      "end": null,
@@ -1841,7 +1841,7 @@ window.AE_TIMETABLE = {
      "n": 18,
      "kind": "problems",
      "title": "Exercises of Chapter 4, part 2",
-     "text": "Exercises 4-2.6 (i)-(v), 4-2.7 and 4-2.8 (i), (ii).",
+     "text": "Exercises 4-2.6 (i)-(v), 4-2.7 and 4-2.8 (i), (ii). Book: Robinson Ex. 30.1, 30.5, 31.1; Ch. 31 (p. 301).",
      "date": "2026-10-27",
      "start": null,
      "end": null,
@@ -1852,6 +1852,156 @@ window.AE_TIMETABLE = {
       {
        "label": "Problems Chapter 4, part 2",
        "href": "subjects/advanced-maths/problemas/topic-4-part-2.html"
+      }
+     ]
+    },
+    {
+     "id": "am-l19",
+     "n": 19,
+     "kind": "test",
+     "title": "Midterm exam",
+     "text": "First midterm exam; no class.",
+     "date": "2026-10-29",
+     "start": null,
+     "end": null,
+     "room": null,
+     "groups": null,
+     "lab": null,
+     "links": [
+      {
+       "label": "Extra problems, midterm 1",
+       "href": "subjects/advanced-maths/extra-problems/midterm-1-problems.html"
+      },
+      {
+       "label": "Exam simulator",
+       "href": "subjects/advanced-maths/simulator/index.html"
+      }
+     ]
+    },
+    {
+     "id": "am-l20",
+     "n": 20,
+     "kind": "lecture",
+     "title": "Coupled nonlinear systems: models and the four steps",
+     "text": "Autonomous nonlinear systems and the phase diagram; two species (competition, predator-prey, cooperation); Newtonian dynamics from conservation of energy, with and without friction; simple and damped pendulum; critical points, stability definitions, reminder of the linear types; Step 1 (critical points) and Step 2 (linearisation by the Jacobian). Lecturer's notes: Notes03-05-Nov_v2.pdf, p. 1-8. Book: Robinson Ch. 32 (p. 309-316), Sec. 33.1-33.3 (p. 323-337), Ex. 33.2, Sec. 34.1 and 34.3 (p. 341-349), Sec. 35.1-35.2 (p. 352-357), Ch. 31 (p. 301).",
+     "date": "2026-11-03",
+     "start": null,
+     "end": null,
+     "room": null,
+     "groups": null,
+     "lab": null,
+     "links": [
+      {
+       "label": "Extra problem P08: competing species",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P08"
+      },
+      {
+       "label": "Course PDFs",
+       "href": "subjects/advanced-maths/sources/index.html"
+      }
+     ]
+    },
+    {
+     "id": "am-l21",
+     "n": 21,
+     "kind": "lecture",
+     "title": "Nonlinear systems: local study, global picture, pendulum",
+     "text": "Step 3 (local study: eigenvalues and eigenvectors at each point) and Step 4 (global picture); Hartman-Grobman (Poincare) theorem and its limits for centres and improper nodes; simple pendulum: centres at (2k pi, 0), saddles at ((2k+1) pi, 0), energy curves and separatrix E = 1; damped pendulum, Steps 1 and 2. Lecturer's notes: Notes03-05-Nov_v2.pdf, p. 8-12. Book: Robinson Sec. 32.4.3-32.4.5 (p. 316-321), Ex. 32.1, Sec. 35.1-35.2 (p. 352-357).",
+     "date": "2026-11-05",
+     "start": null,
+     "end": null,
+     "room": null,
+     "groups": null,
+     "lab": null,
+     "links": [
+      {
+       "label": "Extra problem P09: double-well oscillator",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P09"
+      },
+      {
+       "label": "Course PDFs",
+       "href": "subjects/advanced-maths/sources/index.html"
+      }
+     ]
+    },
+    {
+     "id": "am-l22",
+     "n": 22,
+     "kind": "problems",
+     "title": "Damped pendulum and exercises of Chapter 5",
+     "text": "Local study and global picture of the damped pendulum (spirals or nodes at (2m pi, 0), saddles at ((2m+1) pi, 0), worked with k = sqrt 2); Exercise 5.4 (ii); Exercise 5.2 (ii) started. Lecturer's notes: Notes03-05-Nov_v2.pdf, p. 13-17. Book: Robinson Sec. 35.2 (p. 356-357), Ex. 34.1 (ii), Ex. 33.1 (ii).",
+     "date": "2026-11-09",
+     "start": null,
+     "end": null,
+     "room": null,
+     "groups": null,
+     "lab": null,
+     "links": [
+      {
+       "label": "Extra problem P08",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P08"
+      },
+      {
+       "label": "Extra problem P09",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P09"
+      },
+      {
+       "label": "Course PDFs",
+       "href": "subjects/advanced-maths/sources/index.html"
+      }
+     ]
+    },
+    {
+     "id": "am-l23",
+     "n": 23,
+     "kind": "problems",
+     "title": "Exercises of Chapter 5; introduction to PDEs",
+     "text": "Exercise 5.2 (ii) finished (competing species: four critical points, the coexistence point (8/7, 6/7) is a stable node; solved also in Solved_exer_nonlinear_system.pdf); Exercise 5.4 (ii) (double-well oscillator: saddle at the origin, centres at (+-1, 0)); introduction to PDEs and Fourier series. Book: Robinson Ex. 33.1 (i), (ii), Ex. 34.1 (ii); Haberman Ch. 1 (p. 1-2) and Sec. 2.1 (p. 28).",
+     "date": "2026-11-10",
+     "start": null,
+     "end": null,
+     "room": null,
+     "groups": null,
+     "lab": null,
+     "links": [
+      {
+       "label": "Extra problem P08",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P08"
+      },
+      {
+       "label": "Extra problem P09",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P09"
+      },
+      {
+       "label": "Course PDFs",
+       "href": "subjects/advanced-maths/sources/index.html"
+      }
+     ]
+    },
+    {
+     "id": "am-l24",
+     "n": 24,
+     "kind": "lecture",
+     "title": "Heat equation and Fourier series",
+     "text": "Heat equation u_t = u_xx with zero Dirichlet conditions by separation of variables: eigenvalues (n pi/L)^2, eigenfunctions sin(n pi x/L), superposition; Fourier series of a function, periodic extension; the three questions (convergence, term-by-term differentiation, coefficients); orthogonality and the formulas for a_0, a_n, b_n; examples of a step function and of f(x) = x; even and odd functions; convergence theorem; term-by-term differentiation. Lecturer's notes: Notes09-12-Nov.pdf. Book: Haberman Sec. 2.2-2.3 (p. 29-49), Sec. 3.1-3.4 (p. 75-100).",
+     "date": "2026-11-12",
+     "start": null,
+     "end": null,
+     "room": null,
+     "groups": null,
+     "lab": null,
+     "links": [
+      {
+       "label": "Extra problem P10: a full Fourier series",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P10"
+      },
+      {
+       "label": "Extra problem P12: heat equation",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P12"
+      },
+      {
+       "label": "Course PDFs",
+       "href": "subjects/advanced-maths/sources/index.html"
       }
      ]
     }
