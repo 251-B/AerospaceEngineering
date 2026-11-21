@@ -39,8 +39,8 @@ tags_html:
 
 The sheet prints "a pipe or radius $R_2$" ("or" for "of").
 
-![[attachments/FM-T7/vf19-statement.svg]]
-*Statement figure (redrawn from VF19.pdf): a reservoir at p_a, a vertical pipe of radius R_2 and length L up to the bottom of an open container of depth H, and a coaxial rod of radius R_1 moving up with velocity U inside the pipe; z is vertical and r radial*
+![[attachments/FM-T7/vf19-statement.png]]
+*Statement figure: a reservoir at p_a, a vertical pipe of radius R_2 and length L up to the bottom of an open container of depth H, and a coaxial rod of radius R_1 moving up with velocity U inside the pipe; z is vertical and r radial. Copied from VF19.pdf, p. 1.*
 
 Source: VF19.pdf (page 1, final exam of Jan 21, 2014; statement and handwritten key). Notes.pdf, Chapter 7: steady flow in a circular pipe, Eqs. 7.13-7.16; slender flows, Eqs. 7.40-7.46.
 

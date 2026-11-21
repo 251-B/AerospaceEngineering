@@ -45,8 +45,8 @@ The liquid flow can be assumed steady, two-dimensional (spanwise length much lar
 
 The sheet prints "cartersian". In the key the efficiency is item (5), the statement's item 6; the key has no text for item 7.
 
-![[attachments/FM-T7/vf15-statement.svg]]
-*Statement figure (redrawn from VF15.pdf): two parallel belts of length L, a distance h apart, whose facing strands move at V_u and V_l and drag liquid of density ρ and viscosity μ from a reservoir at P_0 to one at P_0 + ΔP*
+![[attachments/FM-T7/vf15-statement.png]]
+*Statement figure: two parallel belts of length L, a distance h apart, whose facing strands move at V_u and V_l and drag liquid of density ρ and viscosity μ from a reservoir at P_0 to one at P_0 + ΔP. Copied from VF15.pdf, p. 1.*
 
 Source: VF15.pdf (page 1: statement; pages 2 and 3: handwritten key; exam of Dec 18, 2012). Notes.pdf, Chapter 7: Couette and Poiseuille flows, Eqs. 7.8-7.12; slender flows, Eqs. 7.40-7.46.
 

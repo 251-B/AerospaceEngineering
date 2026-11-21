@@ -1,7 +1,7 @@
 """Theory figures of Topic 7 (Momentum, Kinetic Energy and Rigid Body Dynamics)."""
 import math
 
-from figures.em_theory import axis_out, figure, fixed_axis, right_angle, triangle, unit
+from figures.em_theory import axis_out, figure, fixed_axis, raster, right_angle, triangle, unit
 from figures.mech import S, Scene, bold
 
 RED = "#ef4444"          # principal axes e1, e2, e3
@@ -17,127 +17,20 @@ def _add(p, q, k=1.0):
     return (p[0] + k * q[0], p[1] + k * q[1])
 
 
-def _blob(c, r, phase=0.0, n=72):
-    pts = []
-    for i in range(n):
-        f = 2 * math.pi * i / n
-        rr = r * (1 + 0.12 * math.sin(3 * f + phase) + 0.07 * math.cos(2 * f) + 0.04 * math.sin(5 * f))
-        pts.append((c[0] + rr * math.cos(f), c[1] + 0.82 * rr * math.sin(f)))
-    return pts
-
-
-def _frame(sc, o, names, col, length, offs, w=2.2):
-    """Short parallel frame (x down-left at 218 deg, y right, z up) with subscripted names."""
-    dirs = [(-0.789, -0.614), (1.0, 0.0), (0.0, 1.0)]
-    for dv, nm, off in zip(dirs, names, offs):
-        tip = _add(o, dv, length)
-        sc.vec(o, tip, nm, col, w, name_off=off, size=15, head=8)
-
-
-def _frame_axes(sc, o, lens, offs, names):
-    dirs = [(-0.789, -0.614), (1.0, 0.0), (0.0, 1.0)]
-    for dv, ln, nm, off in zip(dirs, lens, names, offs):
-        sc.vec(o, _add(o, dv, ln), None, "EDGE", 1.4, head=8)
-        sc.label(_add(o, dv, ln), nm, "TEXT", "middle", 16, weight="700", dx=off[0], dy=off[1])
-
-
-def _xyz(sub):
-    return [bold(c) + S("", sub) for c in ("x", "y", "z")]
+# --------------------------------------------------------------------------------------------------------------------
+raster("t7-material-system",
+       "A rigid body with its centre of mass G, a material element P and a generic point A, with the position vectors from O, A and G.",
+       r"Material system $B$ moving in the fixed frame $S_0$. The frames $S_A$ and $S_G$ have origins at $A$ and $G$ and axes parallel to $S_0$, so they translate without rotating. Copied from Notes.pdf, Fig. 11.1, p. 90", 460)
 
 
 # --------------------------------------------------------------------------------------------------------------------
-@figure("t7-material-system",
-        "A rigid body with its centre of mass G, a material element P and a generic point A, with the position vectors "
-        "from O, A and G.",
-        r"Material system $B$ moving in the fixed frame $S_0$. The frames $S_A$ and $S_G$ have origins at $A$ and $G$ "
-        r"and axes parallel to $S_0$, so they translate without rotating.")
-def material_system():
-    sc = Scene(600, 470, (190, 350), 150)
-    O, A, G, P = (0.0, 0.0), (-0.5, 0.8), (1.3, 0.0), (1.0, 1.0)
-    triangle(sc, _blob((1.4, 0.4), 0.9), "BLUE", 0.16)
-    sc.poly(_blob((1.4, 0.4), 0.9), "BLUE", 1.6, close=True)
-    sc.note((2.15, 0.95), "B", "TEXT", "start", 15)
-    _frame_axes(sc, O, [1.1, 2.4, 1.6], [(-12, 14), (8, 20), (-14, 4)], _xyz("0"))
-    # parallel frames
-    _frame(sc, G, _xyz("G"), "BLUE", 0.6, [(-16, 10), (4, 20), (-16, 4)])
-    _frame(sc, A, _xyz("A"), "PINK", 0.6, [(-16, 10), (14, 14), (-16, 4)])
-    # position vectors
-    sc.vec(O, A, None, "HEAD", 1.9, head=9)
-    sc.vec(O, G, None, "HEAD", 1.9, head=9)
-    sc.vec(O, P, None, "HEAD", 1.9, head=9)
-    sc.vec(A, P, None, "PINK", 2.0, head=9)
-    sc.vec(G, P, None, "BLUE", 2.0, head=9)
-    sc.label((-0.30, 0.50), S(bold("r"), "0", "A"), "HEAD", "end", 16, dx=-4, dy=0)
-    sc.label((0.65, -0.02), S(bold("r"), "0", "G"), "HEAD", "middle", 16, dy=-8)
-    sc.label((0.50, 0.50), S(bold("r"), "0", "P"), "HEAD", "end", 16, dx=-4, dy=8)
-    sc.label((0.25, 0.92), S(bold("r"), "A", "P"), "PINK", "middle", 16, dy=-9)
-    sc.label((1.12, 0.52), S(bold("r"), "G", "P"), "BLUE", "start", 16, dx=4, dy=18)
-    # velocities
-    sc.vec(P, _add(P, (0.55, 0.45)), S(bold("v"), "0", "P"), "BLUE", 2.6, name_off=(26, -2), size=16, head=10)
-    sc.vec(G, _add(G, (0.55, 0.45)), S(bold("v"), "0", "G"), "BLUE", 2.6, name_off=(26, -2), size=16, head=10)
-    # points
-    sc.dotp(O, 4)
-    sc.label(O, "O", "HEAD", "end", 17, dx=-8, dy=18)
-    sc.mass(A, None, r=5, col="PINK")
-    sc.label(A, "A", "PINK", "middle", 17, dx=-12, dy=-8)
-    sc.mass(G, None, r=5, col="BLUE")
-    sc.label(G, "G", "BLUE", "middle", 17, dx=10, dy=18)
-    sx, sy = sc.P(P)
-    sc.c.add(f'<rect x="{sx - 5:.1f}" y="{sy - 5:.1f}" width="10" height="10" fill="HEAD" fill-opacity="0.9"/>')
-    sc.label(P, "P", "HEAD", "middle", 17, dx=-10, dy=-12)
-    sc.note(P, "dm", "TEXT", "start", 14, dx=-6, dy=-26)
-    return sc
+raster("t7-internal-external-forces",
+       "Particles of a material system acted on by external forces and by equal and opposite collinear internal forces.",
+       r"External forces come from the environment; internal forces act in equal, opposite and collinear pairs, so their resultant and their moment about any point vanish. Copied from Notes.pdf, Fig. 12.1, p. 94", 480)
 
 
 # --------------------------------------------------------------------------------------------------------------------
-@figure("t7-internal-external-forces",
-        "Particles of a material system acted on by external forces and by equal and opposite collinear internal forces.",
-        r"External forces come from the environment; internal forces act in equal, opposite and collinear pairs, so "
-        r"their resultant and their moment about any point vanish.")
-def internal_external():
-    sc = Scene(640, 470, (150, 340), 160)
-    O = (0.0, 0.0)
-    P1, P2, P3, G, A = (0.8, 1.0), (1.9, 1.1), (1.6, 0.5), (1.3, 0.6), (1.9, -0.2)
-    blob = _blob((1.4, 0.6), 0.85, 1.0)
-    triangle(sc, blob, "BLUE", 0.14)
-    sc.poly(blob, "BLUE", 1.6, close=True)
-    _frame_axes(sc, O, [0.9, 3.0, 1.9], [(-12, 14), (10, 18), (-14, 4)], _xyz("0"))
-    _frame(sc, G, _xyz("G"), "BLUE", 0.5, [(-14, 10), (12, 18), (-14, 4)], w=1.8)
-    # position vectors
-    sc.vec(O, P1, None, "HEAD", 1.8, head=8)
-    sc.vec(O, G, None, "HEAD", 1.8, head=8)
-    sc.vec(G, P1, None, "BLUE", 1.9, head=8)
-    sc.vec(A, P3, None, "PINK", 1.9, head=8)
-    sc.label((0.40, 0.46), S(bold("r"), "0", "P1"), "HEAD", "end", 16, dx=-3, dy=16)
-    sc.label((0.62, 0.20), S(bold("r"), "0", "G"), "HEAD", "start", 16, dx=6, dy=18)
-    sc.label((1.05, 0.80), S(bold("r"), "G", "P1"), "BLUE", "end", 16, dx=-4, dy=-4)
-    sc.label((1.75, 0.15), S(bold("r"), "A", "P3"), "PINK", "start", 16, dx=6, dy=4)
-    # internal pair on the dashed line P1P2
-    sc.dashed(P1, P2)
-    u = ((P2[0] - P1[0]) / math.hypot(P2[0] - P1[0], P2[1] - P1[1]), (P2[1] - P1[1]) / math.hypot(P2[0] - P1[0], P2[1] - P1[1]))
-    sc.vec(P1, _add(P1, u, 0.5), None, "GREEN", 2.2, head=9)
-    sc.vec(P2, _add(P2, u, -0.5), None, "GREEN", 2.2, head=9)
-    sc.label(_add(P1, u, 0.42), S(bold("f"), "P2", "P1"), "GREEN", "middle", 16, dy=22)
-    sc.label(_add(P2, u, -0.42), S(bold("f"), "P1", "P2"), "GREEN", "middle", 16, dy=-14)
-    # external forces
-    sc.vec(P1, _add(P1, _d(140), 0.62), S(bold("F"), None, "P1"), "GREEN", 3.2, name_off=(-14, -6), size=17, head=11)
-    sc.vec(P2, _add(P2, (0.65, 0.0)), S(bold("F"), None, "P2"), "GREEN", 3.2, name_off=(8, -12), size=17, head=11)
-    sc.vec(P3, _add(P3, (0.8, 0.0)), S(bold("F"), None, "P3"), "GREEN", 3.2, name_off=(24, 4), size=17, head=11)
-    # points
-    sc.dotp(O, 4)
-    sc.label(O, "O", "HEAD", "end", 17, dx=-8, dy=18)
-    for p, nm, off in ((P1, "P1", (-6, -12)), (P2, "P2", (0, -14)), (P3, "P3", (-16, 6))):
-        sc.mass(p, None, r=5.5)
-        sc.label(p, S("P", None, None).replace("P", "P") + f'<tspan baseline-shift="sub" font-size="70%">{nm[1]}</tspan>',
-                 "HEAD", "middle", 17, dx=off[0], dy=off[1])
-    sc.mass(G, None, r=5, col="BLUE")
-    sc.label(G, "G", "BLUE", "middle", 17, dx=-12, dy=18)
-    sc.mass(A, None, r=5, col="PINK")
-    sc.label(A, "A", "PINK", "middle", 17, dx=12, dy=18)
-    return sc
-
-
-# --------------------------------------------------------------------------------------------------------------------
+# INVIABLE: the slide sketch sits under an equation; no clean crop
 @figure("t7-spring-pair",
         "Two particles joined by a spring of stiffness k, with their position vectors and the pair of spring forces.",
         r"The spring forces derive from one potential energy of the pair; that term appears once in the energy equation.")
@@ -175,52 +68,10 @@ def spring_pair():
 
 
 # --------------------------------------------------------------------------------------------------------------------
-def _bar(sc, o, ang=15.0, L=2.0, t=0.12):
-    d = _d(ang)
-    n = (-d[1], d[0])
-    pts = [_add(o, n, -t / 2), _add(_add(o, n, -t / 2), d, L), _add(_add(o, n, t / 2), d, L), _add(o, n, t / 2)]
-    sc.poly(pts, "BLUE", 1.8, close=True, fill="BLUE", opacity=0.30)
-    return lambda s: _add(o, d, s)
-
-
-@figure("t7-equivalent-force-systems",
-        "Three equivalent load systems on a bar: individual forces, the reduction at A and the reduction at B.",
-        r"Three equivalent force systems on a rigid bar. The resultant force is the same; the moment changes with the "
-        r"reduction point following Eq. 12.15.")
-def equivalent_systems():
-    sc = Scene(760, 300, (50, 200), 100)
-    W = 2.55
-    F = S(bold("F"))
-    # left: individual forces
-    o1 = (0.0, 0.0)
-    pt = _bar(sc, o1)
-    p1, p2, p3 = pt(0.0), pt(2.0 / 3), pt(2.0)
-    sc.vec(p1, _add(p1, _d(65), 0.85), S(bold("F"), None, "P1"), "GREEN", 3.0, name_off=(-18, -4), size=17, head=11)
-    sc.vec(p2, _add(p2, _d(-60), 0.85), S(bold("F"), None, "P2"), "GREEN", 3.0, name_off=(22, 12), size=17, head=11)
-    sc.vec(p3, _add(p3, _d(-90), 0.85), S(bold("F"), None, "P3"), "GREEN", 3.0, name_off=(22, 10), size=17, head=11)
-    for p in (p1, p2, p3):
-        sc.dotp(p, 3.2, "HEAD")
-    # middle: reduction at A
-    o2 = (W, 0.0)
-    pt = _bar(sc, o2)
-    A = pt(2.0 / 3)
-    sc.vec(A, _add(A, _d(-60), 0.9), bold("F"), "GREEN", 3.0, name_off=(18, 10), size=17, head=11)
-    sc.spin(A, 0.30, -10, 255, S(bold("M"), "A"), "GREEN", name_r=0.55)
-    sc.dotp(A, 3.4, "HEAD")
-    sc.label(A, "A", "HEAD", "middle", 17, dx=-4, dy=-38)
-    # right: reduction at B
-    o3 = (2 * W, 0.0)
-    pt = _bar(sc, o3)
-    B = pt(2.0)
-    sc.vec(B, _add(B, _d(-60), 0.9), bold("F"), "GREEN", 3.0, name_off=(18, 10), size=17, head=11)
-    sc.spin(B, 0.44, -10, 255, S(bold("M"), "B"), "GREEN", name_r=0.70)
-    sc.dotp(B, 3.4, "HEAD")
-    sc.label(B, "B", "HEAD", "middle", 17, dx=-4, dy=-52)
-    # equivalence signs and axes
-    sc.label((W - 0.30, 0.45), "≡", "TEXT", "middle", 26, italic=False)
-    sc.label((2 * W - 0.30, 0.45), "≡", "TEXT", "middle", 26, italic=False)
-    axis_out(sc, (-0.25, 1.55), bold("k"), "HEAD", off=(18, 5))
-    return sc
+# --------------------------------------------------------------------------------------------------------------------
+raster("t7-equivalent-force-systems",
+       "Three equivalent load systems on a bar: individual forces, the reduction at A and the reduction at B.",
+       r"Three equivalent force systems on a rigid bar. The resultant force is the same; the moment changes with the reduction point following Eq. 12.15. Copied from Notes.pdf, Fig. 12.2, p. 98", 760)
 
 
 # --------------------------------------------------------------------------------------------------------------------
@@ -264,6 +115,8 @@ def _principal_panel(sc, g, dirty, title):
     sc.label((g[0], g[1] - 1.55), title, "TEXT", "middle", 16, italic=False)
 
 
+# --------------------------------------------------------------------------------------------------------------------
+# EXTRA: deduction, free-body or per-rotation figure, not printed in the official material
 @figure("t7-principal-axes",
         "A block spinning about a principal axis with parallel angular velocity and angular momentum, and spinning off "
         "the axis with the two vectors apart.",
@@ -278,6 +131,7 @@ def principal_axes():
 
 
 # --------------------------------------------------------------------------------------------------------------------
+# EXTRA: deduction, free-body or per-rotation figure, not printed in the official material
 @figure("t7-planar-motion",
         "A lamina in plane motion with its body axes turned by theta about the normal axis that points out of the paper.",
         r"Plane motion: the body axes turn by $\theta$ about $\mathbf k_0$, which points out of the paper; the shaded "
@@ -325,6 +179,7 @@ def planar_motion():
 
 
 # --------------------------------------------------------------------------------------------------------------------
+# EXTRA: deduction, free-body or per-rotation figure, not printed in the official material
 @figure("t7-compound-pendulum",
         "A uniform rod hanging from a pin at its end, turned by theta, with the triangle that locates G and its "
         "free-body diagram.",

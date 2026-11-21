@@ -1,7 +1,7 @@
 """Problem figures of Fluid Mechanics Topic 7 (viscous-flow sheets VF2-VF20; VF10 has no figure).
 
-One statement figure per sheet that has a drawing, redrawn from the sheet (the scans carry the handwritten key next
-to it). Registered in the FM-T7 registry of tools/figures/fluids_t7.py; colour code as there (BLUE liquid and
+One statement figure per sheet that has a drawing: a PNG crop of the sheet where the figure is clean (VF3, VF8, VF15,
+VF16, VF17, VF19, VF20), else redrawn (INVIABLE: the scans carry handwriting over or in the figure). Registered in the FM-T7 registry of tools/figures/fluids_t7.py; colour code as there (BLUE liquid and
 velocities, ACC forces and the unknown, GREEN dimensions, HEAD/TEXT/EDGE lines and labels).
 """
 import math
@@ -50,6 +50,7 @@ def vf2():
     line(c, (220, 228), (380, 228), "ACC", 2.4, head=True)
     line(c, (380, 228), (220, 228), "ACC", 2.4, head=True)
     lab(c, (300, 248), "V cos(ωt)", "ACC", "middle", 17)
+    # INVIABLE: handwriting over the figure in the official sheet
     put("vf2-statement", c, "Oscillating wall under a liquid layer",
         "Statement figure (redrawn from VF2_w_solution.pdf, p. 1): a liquid layer of thickness h with a free surface at "
         "p_a on a wall that oscillates with velocity V cos(ωt); y is normal to the wall and x along it")
@@ -57,25 +58,8 @@ def vf2():
 
 # ------------------------------------------------------------------------------------------------- VF3
 def vf3():
-    c = Canvas(600, 290)
-    yc, a, b = 150, 95, 48                              # axis, outer radius a, inner radius αa
-    for s in (-1, 1):
-        line(c, (90, yc + s * a), (540, yc + s * a), "HEAD", 3.6)
-    rect(c, 70, yc - b, 490, 2 * b, "HEAD", 1.8, fill="EDGE", opacity=0.12)
-    hatch(c, (70, yc - b), (560, yc - b), side=1, col="EDGE", step=10)
-    liquid(c, [(90, yc - a), (540, yc - a), (540, yc - b), (90, yc - b)], 0.14)
-    liquid(c, [(90, yc + a), (540, yc + a), (540, yc + b), (90, yc + b)], 0.14)
-    arrow(c, (440, yc - a - 22), (330, yc - a - 22), "ACC", 3.0, 12)
-    lab(c, (385, yc - a - 32), "V", "ACC", "middle", 19)
-    dim(c, (572, yc - a), (572, yc + a), "2a", "GREEN", (14, 6), size=16)
-    dim(c, (50, yc - b), (50, yc + b), "2αa", "GREEN", (-18, 6), size=16)
-    lab(c, (200, yc - b - 14), "ρ, μ", "HEAD", "middle", 17)
-    lab(c, (200, yc + b + 36), sub("P", "l"), "ACC", "middle", 17)
-    axes(c, (85, 268), "x", "r", 38)
-    put("vf3-statement", c, "Annulus with a moving outer cylinder",
-        "Statement figure (redrawn from VF3.pdf): liquid of density ρ and viscosity μ between a rod of radius αa and "
-        "a cylinder of radius a, along x, driven by the pressure gradient P_l; the outer cylinder moves backward with "
-        "velocity V")
+    REG.raster("vf3-statement", "Annulus with a moving outer cylinder",
+               "Statement figure: liquid of density ρ and viscosity μ between a rod of radius αa and a cylinder of radius a, along x, driven by the pressure gradient P_l; the outer cylinder moves backward with velocity V. Copied from VF3.pdf, p. 1.", 700)
 
 
 # ------------------------------------------------------------------------------------------------- VF4
@@ -100,6 +84,7 @@ def vf4():
     dim(c, (x0, 258), (x1, 258), "L", "GREEN", (0, 18), size=17)
     dim(c, (x1 - 40, yc - 24), (x1 - 40, yc + 24), "αD", "GREEN", (-22, 5), size=15)
     axes(c, (200, 226), "x", "r", 36)
+    # INVIABLE: handwriting over the figure in the official sheet
     put("vf4-statement", c, "Pipe with a partly inserted bar",
         "Statement figure (redrawn from VF4.pdf): a container at p_c discharging through a pipe of diameter D and "
         "length L; a coaxial bar of diameter αD enters from the exit along the last stretch βL; p_o is the pressure "
@@ -132,6 +117,7 @@ def vf5():
     arrow(c, (190, 290), (190, 250), "HEAD", 1.2, 8)
     lab(c, (176, 258), "z", "HEAD", "end", 16)
     arrow(c, (270, 316), (270, 336), "BLUE", 1.4, 7)
+    # INVIABLE: handwriting over the figure in the official sheet
     put("vf5-statement", c, "Vertical tube with two immiscible liquids",
         "Statement figure (redrawn from VF5.pdf): a vertical tube of radius a, open at both ends once the bottom is "
         "released, with liquid 1 (ρ_1, μ_1) of height l_1 above liquid 2 (ρ_2, μ_2) of height h(t); p_s is the "
@@ -157,6 +143,7 @@ def vf6():
     gravity(c, 450, 70, 140)
     arrow(c, (200, 262), (200, 222), "HEAD", 1.2, 8)
     lab(c, (210, 236), "z", "HEAD", "start", 16)
+    # INVIABLE: handwriting over the figure in the official sheet
     put("vf6-statement", c, "Oil rising in a vertical tube",
         "Statement figure (redrawn from VF6.pdf): a vertical tube of radius a, closed at the top, with its lower end "
         "in a pool at p_a; the oil column of height h(t) has p = 0 above it; z is the vertical axis from the pool")
@@ -184,6 +171,7 @@ def vf7():
     for y in (yb - 70, yb - 40, yb - 12):
         arrow(c, (280, y), (280, y + 22), "BLUE", 1.3, 7)
     lab(c, (410, 352), "a(z) = a₀(1 + αz/L)", "HEAD", "middle", 15)
+    # INVIABLE: handwriting over the figure in the official sheet
     put("vf7-statement", c, "Vertical conical pipe",
         "Statement figure (redrawn from VF7.pdf): a vertical conical pipe of length L, radius a_0 at the lower end "
         "and increasing linearly upward, open at both ends, with the free surface at the height h(t) above the lower end")
@@ -191,23 +179,8 @@ def vf7():
 
 # ------------------------------------------------------------------------------------------------- VF8
 def vf8():
-    c = Canvas(560, 290)
-    ground(c, 60, 500, 210)
-    rect(c, 190, 80, 180, 112, "HEAD", 2.4, fill="EDGE", opacity=0.12)
-    liquid(c, [(190, 192), (370, 192), (370, 210), (190, 210)], 0.30)
-    dim(c, (190, 60), (370, 60), "2R", "GREEN", (0, -8), size=18)
-    dim(c, (175, 192), (175, 210), "h(t)", "GREEN", (-26, -14), size=16)
-    lab(c, (110, 160), sub("P", "o"), "ACC", "middle", 19)
-    lab(c, (450, 160), sub("P", "o"), "ACC", "middle", 19)
-    arrow(c, (280, 130), (280, 90), "ACC", 3.0, 12)
-    lab(c, (292, 112), "ḣ", "ACC", "start", 19)
-    arrow(c, (440, 201), (385, 201), "BLUE", 1.4, 7)
-    arrow(c, (95, 201), (150, 201), "BLUE", 1.4, 7)
-    axes(c, (480, 268), "r", "y", 34)
-    put("vf8-statement", c, "Cylinder lifted from an oil film",
-        "Statement figure (redrawn from VF8.pdf): a cylindrical body of radius R lifted with velocity ḣ from a "
-        "horizontal surface; the oil film of thickness h(t) between them is fed by a radial inflow from the outer "
-        "pressure P_o")
+    REG.raster("vf8-statement", "Cylinder lifted from an oil film",
+               "Statement figure: a cylindrical body of radius R lifted with velocity ḣ from a horizontal surface; the oil film of thickness h(t) between them is fed by a radial inflow from the outer pressure P_o. Copied from VF8.pdf, p. 1.", 440)
 
 
 # ------------------------------------------------------------------------------------------------- VF9
@@ -252,6 +225,7 @@ def vf9():
     lab(c, (a1[0] + 38 * ux, a1[1] + 38 * uy + 14), "x", "HEAD", "start", 15)
     line(c, a1, (a1[0] + 34 * vx, a1[1] + 34 * vy), "HEAD", 1.2, head=True)
     lab(c, (a1[0] + 38 * vx - 8, a1[1] + 38 * vy), "y", "HEAD", "end", 15)
+    # INVIABLE: handwriting over the figure in the official sheet
     put("vf9-statement", c, "Conveyor belt pumping up an incline",
         "Statement figure (redrawn from VF9.pdf): an inclined channel at the angle α between the conveyor belt, which "
         "moves up the slope with velocity V, and a fixed wall with a step (gap 2h over a length L, then h over a "
@@ -277,6 +251,7 @@ def vf11():
     lab(c, (556, 168), sub("p", "a"), "ACC", "end", 18)
     lab(c, (150, 178), sub("p", "o"), "ACC", "start", 17)
     axes(c, (560, 262), "x", "y", 26)
+    # INVIABLE: handwriting over the figure in the official sheet
     put("vf11-statement", c, "Windshield wiper",
         "Statement figure (redrawn from VF11.pdf): an L-shaped arm whose horizontal bar of length L is at a height h "
         "above the wall and whose vertical leg closes the channel at x = 0; the wall moves with velocity V towards "
@@ -318,6 +293,7 @@ def vf12():
     lab(c, (C[0] + Rb + 10, C[1] + 20), sub("R", "b"), "HEAD", "start", 17)
     lab(c, (O[0] + R * math.cos(math.radians(27)) + 14, O[1] - R * math.sin(math.radians(27)) + 8), "x = Rθ", "HEAD",
         "start", 15)
+    # INVIABLE: the official figure is hand-drawn with handwritten labels
     put("vf12-statement", c, "Journal bearing",
         "Statement figure (redrawn from VF12.pdf): a shaft of radius R rotating with ω inside a fixed casing of "
         "radius R_b, their centres O and C a distance e apart; θ is measured from the line of centres, h(θ) is the "
@@ -349,6 +325,7 @@ def vf13():
     axes(c, (24, 246), "x", "y", 26)
     dot(c, O, 4, "HEAD")
     lab(c, (O[0] - 6, O[1] + 18), "O", "HEAD", "end", 15, italic=False)
+    # INVIABLE: the official figure is hand-drawn with handwritten labels
     put("vf13-statement", c, "Plate rotating over a wall",
         "Statement figure (redrawn from VF13.pdf): a plate of length L hinged at O on a horizontal wall, rotating "
         "with ω = dα/dt under the torque M; the gap is h(x, t) = αx and the surrounding liquid is at P_∞")
@@ -371,6 +348,7 @@ def vf14():
     lab(c, (556, 190), sub("P", "∞"), "ACC", "end", 19)
     lab(c, (150, 192), sub("P", "o"), "ACC", "start", 17)
     axes(c, (540, 262), "x", "y", 28)
+    # INVIABLE: handwriting over the figure in the official sheet
     put("vf14-statement", c, "Arm approaching a wall",
         "Statement figure (redrawn from VF14.pdf): an L-shaped arm whose horizontal bar of length L is at the height "
         "h(t) above a wall and whose vertical leg closes the channel at x = 0; A is the end of the bar and P_∞ the "
@@ -379,103 +357,20 @@ def vf14():
 
 # ------------------------------------------------------------------------------------------------- VF15
 def vf15():
-    c = Canvas(680, 300)
-    for yc, name in ((95, "u"), (195, "l")):
-        rect(c, 150, yc - 20, 330, 40, "HEAD", 1.8, rx=20)
-        circle(c, (170, yc), 16, "HEAD", 1.2)
-        circle(c, (460, yc), 16, "HEAD", 1.2)
-    arrow(c, (280, 124), (330, 124), "BLUE", 1.8, 9)
-    lab(c, (338, 129), sub("V", "u"), "BLUE", "start", 16)
-    arrow(c, (280, 166), (330, 166), "BLUE", 1.8, 9)
-    lab(c, (338, 171), sub("V", "l"), "BLUE", "start", 16)
-    arrow(c, (330, 76), (280, 76), "EDGE", 1.2, 8)
-    arrow(c, (330, 214), (280, 214), "EDGE", 1.2, 8)
-    dim(c, (400, 115), (400, 175), "h", "GREEN", (14, 6), size=16)
-    line(c, (130, 28), (130, 262), "HEAD", 1.4)
-    line(c, (500, 28), (500, 262), "HEAD", 1.4)
-    dim(c, (150, 258), (480, 258), "L", "GREEN", (0, 20), size=16)
-    lab(c, (70, 150), sub("P", "0"), "ACC", "middle", 17)
-    lab(c, (594, 150), sub("P", "0") + " + ΔP", "ACC", "middle", 17)
-    lab(c, (70, 60), "ρ, μ", "HEAD", "middle", 16)
-    axes(c, (560, 250), "x", "y", 30)
-    put("vf15-statement", c, "Two-belt viscous pump",
-        "Statement figure (redrawn from VF15.pdf): two parallel belts of length L, a distance h apart, whose facing "
-        "strands move at V_u and V_l and drag liquid of density ρ and viscosity μ from a reservoir at P_0 to one at "
-        "P_0 + ΔP")
+    REG.raster("vf15-statement", "Two-belt viscous pump",
+               "Statement figure: two parallel belts of length L, a distance h apart, whose facing strands move at V_u and V_l and drag liquid of density ρ and viscosity μ from a reservoir at P_0 to one at P_0 + ΔP. Copied from VF15.pdf, p. 1.", 640)
 
 
 # ------------------------------------------------------------------------------------------------- VF16
 def vf16():
-    c = Canvas(620, 360)
-    xl, xr, yb = 120, 520, 290
-    xm = (xl + xr) / 2
-    hole = 22                                              # αR in pixels
-    line(c, (xl, 60), (xl, yb), "HEAD", 3.4)
-    line(c, (xr, 60), (xr, yb), "HEAD", 3.4)
-    line(c, (xl, yb), (xm - hole, yb), "HEAD", 3.4)
-    line(c, (xm + hole, yb), (xr, yb), "HEAD", 3.4)
-    pathd(c, f"M{xm - hole},{yb} C{xm - hole},{yb + 24} {xm - hole},{yb + 34} {xm - hole - 8},{yb + 50}", "HEAD", 2.4)
-    pathd(c, f"M{xm + hole},{yb} C{xm + hole},{yb + 24} {xm + hole},{yb + 34} {xm + hole + 8},{yb + 50}", "HEAD", 2.4)
-    yp = 150
-    liquid(c, [(xl, yp + 24), (xr, yp + 24), (xr, yb), (xm + hole, yb), (xm - hole, yb), (xl, yb)], 0.14)
-    rect(c, xl, yp, xr - xl, 24, "HEAD", 2.0, fill="EDGE", opacity=0.45)
-    arrow(c, (xm, yp - 52), (xm, yp - 6), "HEAD", 3.0, 13)
-    lab(c, (xm + 12, yp - 28), "W", "HEAD", "start", 19)
-    lab(c, (xl + 20, yp - 40), sub("p", "a"), "ACC", "start", 18)
-    lab(c, (xm + 50, yb + 52), sub("p", "a"), "ACC", "start", 18)
-    dim(c, (xl, 76), (xm, 76), "R", "GREEN", (0, -8), size=18)
-    dim(c, (xm, yb - 14), (xm + hole, yb - 14), "αR", "GREEN", (14, 24), size=14)
-    dim(c, (xr + 24, yb), (xr + 24, yp + 24), "h(t)", "GREEN", (28, 5), size=17)
-    line(c, (xm, 40), (xm, yb + 60), "EDGE", 0.9, dash="8,4,2,4")
-    arrow(c, (xm - 60, yb - 60), (xm - 26, yb - 14), "BLUE", 1.5, 7)
-    arrow(c, (xm + 60, yb - 60), (xm + 26, yb - 14), "BLUE", 1.5, 7)
-    gravity(c, 580, 60, 130)
-    put("vf16-statement", c, "Piston over a liquid layer with a central hole",
-        "Statement figure (redrawn from VF16.pdf): a piston of weight W and radius R at the height h(t) above the "
-        "bottom of a container; the liquid below it leaves through a central hole of radius αR at the pressure p_a "
-        "(axisymmetric section, r radial and z vertical)")
+    REG.raster("vf16-statement", "Piston over a liquid layer with a central hole",
+               "Statement figure: a piston of weight W and radius R at the height h(t) above the bottom of a container; the liquid below it leaves through a central hole of radius αR at the pressure p_a (axisymmetric section, r radial and z vertical). Copied from VF16.pdf, p. 1.", 480)
 
 
 # ------------------------------------------------------------------------------------------------- VF17
 def vf17():
-    c = Canvas(680, 300)
-    yc, h = 150, 90
-    line(c, (30, yc - h), (650, yc - h), "HEAD", 3.2)
-    line(c, (30, yc + h), (650, yc + h), "HEAD", 3.2)
-    for yy in (yc - h - 16, yc + h + 16):
-        arrow(c, (50, yy), (120, yy), "ACC", 2.4, 11)
-        lab(c, (135, yy + 5), "U", "ACC", "start", 17)
-    xa, xb = 210, 470
-    line(c, (xa, yc), (xb, yc), "HEAD", 5.0)
-    for y in (yc - 66, yc - 44, yc - 22, yc + 22, yc + 44, yc + 66):
-        pass
-    for s in (-1, 1):
-        for k in range(1, 9):
-            y = k * h / 9.0
-            v = 60 * (y / h) * (4 - 3 * y / h) / 1.33
-            arrow(c, (xa + 40, yc + s * y), (xa + 40 + v, yc + s * y), "BLUE", 1.0, 6)
-        pts = [(xa + 40 + 60 * (y / h) * (4 - 3 * y / h) / 1.33, yc + s * y) for y in [h * i / 30 for i in range(31)]]
-        pathd(c, "M" + " L".join(f"{a:.1f},{b:.1f}" for a, b in pts), "BLUE", 1.8)
-    for yy in (yc - 40, yc - 14, yc + 14, yc + 40):
-        arrow(c, (40, yy), (100, yy), "BLUE", 1.4, 8)
-        arrow(c, (590, yy), (650, yy), "BLUE", 1.4, 8)
-    lab(c, (150, yc - 4), sub("P", "−∞"), "ACC", "middle", 16)
-    lab(c, (150, yc + 16), sub("T", "−∞"), "ACC", "middle", 16)
-    lab(c, (540, yc - 4), sub("P", "∞"), "ACC", "middle", 16)
-    lab(c, (540, yc + 16), sub("T", "∞"), "ACC", "middle", 16)
-    dim(c, (xa, 278), (xb, 278), "L", "GREEN", (0, 18), size=17)
-    line(c, (xa, 262), (xa, 286), "EDGE", 0.8, dash="4,3")
-    line(c, (xb, 262), (xb, 286), "EDGE", 0.8, dash="4,3")
-    dim(c, (xb + 40, yc), (xb + 40, yc - h), "h", "GREEN", (14, 5), size=16)
-    dim(c, (xb + 40, yc), (xb + 40, yc + h), "h", "GREEN", (14, 5), size=16)
-    line(c, (xa, yc), (xa, yc - 40), "HEAD", 1.0, head=True)
-    lab(c, (xa - 6, yc - 42), "y", "HEAD", "end", 15)
-    lab(c, (xa - 14, yc + 18), "x = 0", "HEAD", "end", 14)
-    put("vf17-statement", c, "Thin plate in a Couette channel",
-        "Statement figure (redrawn from VF17.pdf): a channel between two walls at y = ±h moving with velocity U, "
-        "with a thin plate of length L on the centre line from x = 0 to x = L; the liquid far upstream and "
-        "downstream moves with U at the pressures and temperatures P_{−∞}, T_{−∞} and P_∞, T_∞; the sketched "
-        "profiles are those found in the solution")
+    REG.raster("vf17-statement", "Thin plate in a Couette channel",
+               "Statement figure: a channel between two walls at y = ±h moving with velocity U, with a thin plate of length L on the centre line from x = 0 to x = L; the liquid far upstream and downstream moves with U at the pressures and temperatures P_{−∞}, T_{−∞} and P_∞, T_∞; the figure also sketches the velocity profile over each side of the plate. Copied from VF17.pdf, p. 1.", 680)
 
 
 # ------------------------------------------------------------------------------------------------- VF18
@@ -500,6 +395,7 @@ def vf18():
     line(c, (xp + 6, ys + 100), (xp + 6, ys + 60), "HEAD", 1.2, head=True)
     lab(c, (xp + 16, ys + 70), "z", "HEAD", "start", 15)
     gravity(c, 520, 50, 120)
+    # INVIABLE: handwriting over the figure in the official sheet
     put("vf18-statement", c, "Liquid dragged into a gap by a moving wall",
         "Statement figure (redrawn from VF18.pdf, panel t > 0): a vertical wall that moves up with velocity V and a "
         "fixed plate at the distance d, with its lower end at the depth H below the free surface; the gap is "
@@ -509,69 +405,14 @@ def vf18():
 
 # ------------------------------------------------------------------------------------------------- VF19
 def vf19():
-    c = Canvas(600, 420)
-    xm = 300
-    r2, r1 = 46, 22
-    poly(c, [(60, 340), (540, 340), (540, 400), (60, 400)], "HEAD", 1.6, fill="BLUE", close=True, opacity=0.14)
-    poly(c, [(60, 40), (540, 40), (540, 100), (60, 100)], "HEAD", 1.6, fill="BLUE", close=True, opacity=0.14)
-    line(c, (60, 340), (540, 340), "BLUE", 1.8)
-    line(c, (60, 100), (540, 100), "HEAD", 1.6)
-    for s in (-1, 1):
-        line(c, (xm + s * r2, 100), (xm + s * r2, 340), "HEAD", 3.0)
-    liquid(c, [(xm - r2, 100), (xm + r2, 100), (xm + r2, 340), (xm - r2, 340)], 0.18)
-    rect(c, xm - r1, 30, 2 * r1, 380, "HEAD", 2.0, fill="EDGE", opacity=0.35)
-    arrow(c, (xm + 80, 260), (xm + 80, 200), "ACC", 3.4, 13)
-    lab(c, (xm + 92, 232), "U", "ACC", "start", 19)
-    dim(c, (xm - 120, 340), (xm - 120, 100), "L", "GREEN", (-16, 6), size=18)
-    dim(c, (90, 100), (90, 40), "H", "GREEN", (-16, 6), size=17)
-    lab(c, (110, 330), sub("p", "a"), "ACC", "middle", 17)
-    lab(c, (130, 64), sub("p", "a"), "ACC", "middle", 17)
-    lab(c, (xm + r2 + 10, 150), "2R₂", "GREEN", "start", 15)
-    lab(c, (xm - 8, 215), "2R₁", "GREEN", "end", 15)
-    gravity(c, 540, 150, 230)
-    line(c, (xm + 160, 330), (xm + 160, 290), "HEAD", 1.2, head=True)
-    lab(c, (xm + 170, 300), "z", "HEAD", "start", 15)
-    line(c, (xm + 160, 330), (xm + 200, 330), "HEAD", 1.2, head=True)
-    lab(c, (xm + 204, 335), "r", "HEAD", "start", 15)
-    put("vf19-statement", c, "Viscous pump with a moving rod",
-        "Statement figure (redrawn from VF19.pdf): a reservoir at p_a, a vertical pipe of radius R_2 and length L up "
-        "to the bottom of an open container of depth H, and a coaxial rod of radius R_1 moving up with velocity U "
-        "inside the pipe; z is vertical and r radial")
+    REG.raster("vf19-statement", "Viscous pump with a moving rod",
+               "Statement figure: a reservoir at p_a, a vertical pipe of radius R_2 and length L up to the bottom of an open container of depth H, and a coaxial rod of radius R_1 moving up with velocity U inside the pipe; z is vertical and r radial. Copied from VF19.pdf, p. 1.", 400)
 
 
 # ------------------------------------------------------------------------------------------------- VF20
 def vf20():
-    c = Canvas(620, 360)
-    yb = 280
-    line(c, (40, yb), (580, yb), "HEAD", 3.0)
-    hatch(c, (40, yb + 2), (580, yb + 2), side=-1, col="EDGE", step=12)
-    s = 110                                               # R in pixels
-    xc, hh = 310, 22
-    poly(c, [(xc - s, yb - hh), (xc + s, yb - hh), (xc + s, yb - hh - 2 * s), (xc - s, yb - hh - 2 * s)], "HEAD", 2.4,
-         fill="ACC", close=True, opacity=0.18)
-    lab(c, (xc, yb - hh - s + 6), sub("ρ", "s"), "HEAD", "middle", 22)
-    dim(c, (xc - s, 36), (xc + s, 36), "2R", "GREEN", (0, -8), size=18)
-    dim(c, (xc + s + 24, yb - hh), (xc + s + 24, yb - hh - 2 * s), "2R", "GREEN", (28, 6), size=18)
-    dim(c, (xc - s - 24, yb), (xc - s - 24, yb - hh), "h", "GREEN", (-16, 5), size=17)
-    pathd(c, f"M{xc - 8},{yb} L{xc - 8},{yb + 50}", "HEAD", 2.4)
-    pathd(c, f"M{xc + 8},{yb} L{xc + 8},{yb + 50}", "HEAD", 2.4)
-    arrow(c, (xc, yb + 48), (xc, yb - 14), "BLUE", 3.0, 12)
-    lab(c, (xc + 16, yb + 40), "Q", "BLUE", "start", 19)
-    for k in range(3):
-        arrow(c, (xc + 20 + 24 * k, yb - hh / 2 - 1), (xc + 56 + 24 * k, yb - hh / 2 - 1), "BLUE", 1.2, 6)
-        arrow(c, (xc - 20 - 24 * k, yb - hh / 2 - 1), (xc - 56 - 24 * k, yb - hh / 2 - 1), "BLUE", 1.2, 6)
-    lab(c, (90, 150), "ρ, μ", "HEAD", "middle", 18)
-    lab(c, (90, 180), sub("P", "0"), "ACC", "middle", 18)
-    lab(c, (550, 230), sub("P", "0"), "ACC", "middle", 18)
-    gravity(c, 560, 60, 130)
-    line(c, (80, yb - 6), (80, yb - 46), "HEAD", 1.2, head=True)
-    lab(c, (70, yb - 30), "z", "HEAD", "end", 15)
-    line(c, (80, yb - 6), (120, yb - 6), "HEAD", 1.2, head=True)
-    lab(c, (124, yb - 2), "r", "HEAD", "start", 15)
-    put("vf20-statement", c, "Cylinder levitated by a jet",
-        "Statement figure (redrawn from VF20.pdf): a cylinder of radius R, height 2R and density ρ_s hovering at the "
-        "height h above the bottom of a tank of liquid (ρ, μ, pressure P_0 far away) on a jet of flow rate Q "
-        "injected at the centre of its base; z is vertical and r radial")
+    REG.raster("vf20-statement", "Cylinder levitated by a jet",
+               "Statement figure: a cylinder of radius R, height 2R and density ρ_s hovering at the height h above the bottom of a tank of liquid (ρ, μ, pressure P_0 far away) on a jet of flow rate Q injected at the centre of its base; z is vertical and r radial. Copied from VF20.pdf, p. 1.", 520)
 
 
 def build(reg, raster):

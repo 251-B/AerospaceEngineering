@@ -2,8 +2,9 @@
 
 Theory figures (this module): the plane surface with its pressure prism and the folded-down front view, the curved
 surface with its projections and the radial element, Archimedes' control volume, the stability of submerged and
-floating bodies (Fig. 5.1 of the notes, redrawn, plus the metacentre as an extension), the U-tube manometer and the
-standard atmosphere (Fig. 5.2, recomputed from Eqs. 5.20, 5.24, 5.25 and 5.18). Problem figures: tools/figures/fluids_t5p.py.
+floating bodies (Fig. 5.1 of the notes, a crop), the U-tube manometer and the standard atmosphere (Fig. 5.2, a crop).
+The plane surface, curved surface, Archimedes and manometer drawings are EXTRA (not printed in Notes.pdf Chapter 5).
+Problem figures: tools/figures/fluids_t5p.py.
 
 Colour code: BLUE liquid and pressure distributions, ACC resultant forces, GREEN geometry of the deduction
 (right triangles, strips, areas), PINK weights and reactions, HEAD/TEXT/EDGE lines and labels.
@@ -52,6 +53,7 @@ def water_surface(c, x0, x1, y, label=True, lab_x=None):
 
 
 # ----------------------------------------------------------------------------------------------- plane surface
+# EXTRA: not printed in Notes.pdf Chapter 5
 def plane_surface():
     c = Canvas(800, 360)
     th = math.radians(50)
@@ -134,6 +136,7 @@ def plane_surface():
 
 
 # ----------------------------------------------------------------------------------------------- curved surface
+# EXTRA: not printed in Notes.pdf Chapter 5
 def curved_surface():
     c = Canvas(800, 330)
     O, R = (110, 60), 170
@@ -186,6 +189,7 @@ def curved_surface():
 
 
 # ----------------------------------------------------------------------------------------------- Archimedes
+# EXTRA: not printed in Notes.pdf Chapter 5
 def archimedes():
     c = Canvas(560, 300)
     poly(c, [(40, 60), (520, 60), (520, 280), (40, 280)], "BLUE", 0, fill="BLUE", close=True, opacity=0.08)
@@ -219,42 +223,24 @@ def archimedes():
 
 # ----------------------------------------------------------------------------------------------- stability
 def stability():
-    c = Canvas(820, 320)
+    REG.raster("t5-stability",
+               "Stability of a submerged body, as in Fig. 5.1 of the notes: A, centroid of the displaced liquid, above B, centre of "
+               "gravity, gives a restoring torque; B above A overturns",
+               "Stability of a submerged body: the buoyancy $\\rho g V$ acts at the centroid $A$ of the displaced liquid and the "
+               "weight $W$ at the centre of gravity $B$; upright, and tilted with $A$ above $B$ (restoring torque). "
+               "Copied from Notes.pdf, Fig. 5.1, p. 63.", 560)
 
-    def body(cx, cy, tilt, A_up):
-        t = math.radians(tilt)
-        rot = lambda dx, dy: (cx + dx * math.cos(t) - dy * math.sin(t), cy + dx * math.sin(t) + dy * math.cos(t))
-        pts = [rot(35 * math.cos(a), 85 * math.sin(a)) for a in [2 * math.pi * k / 48 for k in range(48)]]
-        poly(c, pts, "HEAD", 2.0, fill="ACC", close=True, opacity=0.08)
-        line(c, rot(0, -95), rot(0, 95), "EDGE", 1.0, dash="4,4")
-        A = rot(0, -28) if A_up else rot(0, 28)
-        B = rot(0, 28) if A_up else rot(0, -28)
-        dot(c, A, 4, "ACC")
-        dot(c, B, 4, "PINK")
-        lab(c, (A[0] - 10, A[1] + 5), "A", "ACC", "end", 16, italic=False)
-        lab(c, (B[0] + 10, B[1] + 5), "B", "PINK", "start", 16, italic=False)
-        arrow(c, A, (A[0], A[1] - 70), "ACC", 2.6, 11)
-        lab(c, (A[0] - 12, A[1] - 52), "ρgV", "ACC", "end", 16)
-        arrow(c, B, (B[0], B[1] + 70), "PINK", 2.6, 11)
-        lab(c, (B[0] + 6, B[1] + 78), "W", "PINK", "start", 16)
-        return A, B
 
-    body(120, 160, 0, True)
-    note(c, (120, 312), "upright: A above B", "TEXT", size=12)
-    A, B = body(290, 160, 22, True)
-    arc(c, (290, 160), 118, 115, 75, "GREEN", 1.8, head=True)
-    note(c, (290, 312), "tilted: restoring torque", "TEXT", size=12)
-    A, B = body(460, 160, 22, False)
-    arc(c, (460, 160), 118, 65, 105, "PINK", 1.8, head=True)
-    note(c, (460, 312), "B above A: overturns", "TEXT", size=12)
-
-    # floating body and metacentre (extension)
-    x0, wl = 690, 150
+# ----------------------------------------------------------------------------------------------- metacentre
+# EXTRA: metacentre extension, not printed in Notes.pdf
+def metacentre():
+    c = Canvas(260, 320)
+    x0, wl = 130, 150
     t = math.radians(14)
     rot = lambda dx, dy: (x0 + dx * math.cos(t) - dy * math.sin(t), wl + dx * math.sin(t) + dy * math.cos(t))
     hull = [rot(-70, -40), rot(70, -40), rot(70, 50), rot(-70, 50)]
-    poly(c, [(570, wl), (810, wl), (810, 290), (570, 290)], "BLUE", 0, fill="BLUE", close=True, opacity=0.08)
-    line(c, (570, wl), (810, wl), "BLUE", 1.8)
+    poly(c, [(10, wl), (250, wl), (250, 290), (10, 290)], "BLUE", 0, fill="BLUE", close=True, opacity=0.08)
+    line(c, (10, wl), (250, wl), "BLUE", 1.8)
     poly(c, hull, "HEAD", 2.0, fill="ACC", close=True, opacity=0.08)
     line(c, rot(0, -70), rot(0, 60), "EDGE", 1.0, dash="4,4")
     G = rot(0, -5)
@@ -266,23 +252,24 @@ def stability():
     line(c, Bp, (M[0], M[1] + 4), "ACC", 1.2, dash="4,3")
     arrow(c, Bp, (Bp[0], Bp[1] - 26), "ACC", 2.4, 10)
     dot(c, Bp, 4, "ACC")
-    lab(c, (Bp[0] + 9, Bp[1] + 12), "B′", "ACC", "start", 16, italic=False)
+    lab(c, (Bp[0] + 11, Bp[1] + 14), "B′", "ACC", "start", 16, italic=False)
+    arrow(c, G, (G[0], G[1] + 50), "PINK", 2.4, 10)
+    lab(c, (G[0] + 2, G[1] + 82), "W", "PINK", "middle", 16)
     dot(c, G, 4, "PINK")
     lab(c, (G[0] - 9, G[1] + 2), "G", "PINK", "end", 16, italic=False)
     dot(c, M, 4, "GREEN")
     lab(c, (M[0] + 9, M[1] + 4), "M", "GREEN", "start", 16, italic=False)
-    note(c, (690, 312), "floating: M above G (extension)", "TEXT", size=12)
-    REG.put("t5-stability", c,
-            "Stability of a submerged body, as in Fig. 5.1 of the notes: A, centroid of the displaced liquid, above B, centre of "
-            "gravity, gives a restoring torque; B above A overturns. Right: a floating body heeled, with G, the shifted centre of "
-            "buoyancy B prime and the metacentre M",
-            "Stability (Notes.pdf, Fig. 5.1, redrawn): for a submerged body the buoyancy acts at the centroid $A$ of the displaced "
-            "liquid and the weight at the centre of gravity $B$; with $A$ above $B$ a tilt produces a restoring torque, with $B$ "
-            "above $A$ it overturns the body. Right (extension): a heeled floating body, where the centre of buoyancy moves to "
-            "$B'$ and the vertical through $B'$ cuts the symmetry line at the metacentre $M$; the body is stable when $M$ lies above $G$")
+    note(c, (130, 312), "floating: M above G", "TEXT", size=12)
+    REG.put("t5-metacentre", c,
+            "Teaching sketch of a heeled floating body: the weight W at G, the buoyancy at the shifted centre of buoyancy B prime "
+            "and the metacentre M where the vertical through B prime cuts the symmetry line",
+            "Metacentre (extension; teaching sketch, not from the notes): a floating body heeled by a small angle. The centre of "
+            "buoyancy moves from $B$ to $B'$, the vertical through $B'$ cuts the symmetry line at the metacentre $M$, and the body "
+            "is stable when $M$ lies above the centre of gravity $G$")
 
 
 # ----------------------------------------------------------------------------------------------- manometer
+# EXTRA: not printed in Notes.pdf Chapter 5
 def manometer():
     c = Canvas(600, 330)
     # pipe with fluid at pressure p_A on the left
@@ -327,49 +314,12 @@ def manometer():
 
 # ----------------------------------------------------------------------------------------------- standard atmosphere
 def atmosphere():
-    c = Canvas(780, 330)
-    g, Rg, T0, lam = 9.81, 287.0, 288.16, 6.5e-3
-    n = g / (Rg * lam)
-    T11 = T0 - lam * 11000
-    p11 = (T11 / T0) ** n
-
-    def T(z):
-        return T0 - lam * z if z <= 11000 else T11
-
-    def p(z):
-        return (1 - lam * z / T0) ** n if z <= 11000 else p11 * math.exp(-g * (z - 11000) / (Rg * T11))
-
-    def rho(z):
-        return p(z) * T0 / T(z)
-
-    top, bot = 30, 280
-    Y = lambda z: bot - (bot - top) * z / 20000
-    panels = [("T (K)", T, 200, 300, 40), ("p / pₐ", p, 0, 1, 300), ("ρ / ρ₀", rho, 0, 1, 540)]
-    for name, f, lo, hi, x0 in panels:
-        wpx = 200
-        X = lambda v: x0 + wpx * (v - lo) / (hi - lo)
-        line(c, (x0, bot), (x0 + wpx, bot), "EDGE", 1.0)
-        line(c, (x0, bot), (x0, top), "EDGE", 1.0)
-        for zk in (0, 5000, 10000, 15000, 20000):
-            line(c, (x0 - 4, Y(zk)), (x0, Y(zk)), "EDGE", 1.0)
-            if x0 == 40:
-                note(c, (x0 - 8, Y(zk) + 4), f"{zk // 1000}", "TEXT", "end", 12)
-        for v in (lo, (lo + hi) / 2, hi):
-            note(c, (X(v), bot + 18), f"{v:g}", "TEXT", "middle", 12)
-        lab(c, (x0 + wpx / 2, bot + 40), name, "HEAD", "middle", 15, italic=False)
-        tro = [(X(f(z)), Y(z)) for z in range(0, 11001, 250)]
-        stra = [(X(f(z)), Y(z)) for z in range(11000, 20001, 250)]
-        poly(c, tro, "PINK", 2.4)
-        poly(c, stra, "BLUE", 2.4)
-        line(c, (x0, Y(8848)), (x0 + wpx, Y(8848)), "EDGE", 0.8, dash="4,4")
-    note(c, (12, 22), "z (km)", "TEXT", "start", 12)
-    lab(c, (788, Y(8848) - 6), "Everest", "TEXT", "end", 12, italic=False)
-    REG.put("t5-atmosphere", c,
-            "Standard atmosphere from 0 to 20 km: temperature, pressure ratio and density ratio, troposphere in pink and "
-            "stratosphere in blue, with the height of Everest dashed",
-            "Standard atmosphere recomputed from Eqs. (5.20), (5.24), (5.25) and (5.18) with $T_0 = 288.16$ K and "
-            "$\\lambda = 6.5\\times10^{-3}$ K/m: temperature, $p/p_a$ and $\\rho/\\rho_0$ against the height $z$ (troposphere in pink, "
-            "stratosphere in blue; dashed: Everest, 8848 m, where $\\rho/\\rho_0 \\approx 0.39$), as in Notes.pdf, Fig. 5.2")
+    REG.raster("t5-atmosphere",
+               "Standard atmosphere from 0 to 20 km: pressure, temperature and density against the height, troposphere in blue and "
+               "stratosphere in red, with the density at four heights as a percentage of the sea-level value",
+               "Standard atmosphere, $0 \\le z \\le 20$ km: pressure $p$ (atm), temperature $T$ (°C) and density $\\rho$ "
+               "(kg/m$^3$) against the height $z$; the percentages mark the density at four heights relative to sea level. "
+               "Copied from Notes.pdf, Fig. 5.2, p. 64.", 760)
 
 
 def build():
@@ -377,6 +327,7 @@ def build():
     curved_surface()
     archimedes()
     stability()
+    metacentre()
     manometer()
     atmosphere()
     try:

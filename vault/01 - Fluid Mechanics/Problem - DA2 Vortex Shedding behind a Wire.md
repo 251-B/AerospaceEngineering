@@ -30,8 +30,8 @@ A wind stream of velocity $U$ flows over a circular wire of radius $R$. It is ob
 
 1. Use the dimensional analysis to reduce the parametric dependence of $U_c$.
 
-![[attachments/FM-T6/da2-statement.svg]]
-*Statement figure (redrawn from DA2.pdf): a wind stream of velocity U, density ρ and viscosity μ over a wire of radius R; above the critical velocity the wake becomes a periodic street of vortices of opposite circulation*
+![[attachments/FM-T6/da2-statement.png]]
+*A wind stream of velocity U, density ρ and viscosity μ over a wire of radius R; above the critical velocity the wake becomes a periodic street of vortices of opposite circulation. Copied from DA2.pdf, p. 1.*
 
 The periodic flow that appears for $U > U_c$ causes a periodic force on the cylinder perpendicular to the incident wind stream.
 

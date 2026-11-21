@@ -36,7 +36,7 @@ The notes treat a general material system $B$ first and only use the rigidity of
 | $\mathbf p_0$, $\mathbf H_{A,0}$, $T_0$ | linear momentum, angular momentum about $A$ and kinetic energy, all in $S_0$ | kg m/s, kg m$^2$/s, J |
 | $\mathbf F$, $\mathbf M_A$, $\mathbf Q_k$ | resultant external force, resultant external moment about $A$, external torques | N, N m, N m |
 
-![[attachments/EM-T/t7-material-system.svg]]
+![[attachments/EM-T/t7-material-system.png]]
 
 The linear momentum of an element of mass $dm$ is the momentum of a point particle (Notes Eq. 4.1) with that mass; the momentum of the body is the integral over $\mathcal D$.
 
@@ -395,7 +395,7 @@ A material system is regarded as a collection of point particles $P_i$, $i$ from
 | $\mathbf F$ | resultant of the external forces |
 | $\mathbf M_A$ | resultant moment of the external forces about $A$ |
 
-![[attachments/EM-T/t7-internal-external-forces.svg]]
+![[attachments/EM-T/t7-internal-external-forces.png]]
 
 A system of $N$ free particles has $3N$ degrees of freedom and needs the $3N$ scalar equations of Newton's second law. A rigid body is an infinite collection of particles, but the rigidity constraint leaves only 6 degrees of freedom, so 6 independent scalar equations are enough [Lecture 10, Slide 3]. These are the two vector equations derived in this section.
 
@@ -598,7 +598,7 @@ When two external forces are equal and opposite but have different lines of acti
 
 The external forces on a rigid body are sliding vectors and the torques are free vectors, so the dynamics depend only on the pair $\{\mathbf F; \mathbf M_A\}$, the reduction of the system at $A$. Two systems are equivalent when they have the same resultant force and the same resultant moment about one point [Lecture 10, Slide 9]. These ideas apply to rigid bodies only.
 
-![[attachments/EM-T/t7-equivalent-force-systems.svg]]
+![[attachments/EM-T/t7-equivalent-force-systems.png]]
 
 > [!derivation] Conditions of equivalence of two load systems
 > **Law:** definition of equivalence through the reduction at A

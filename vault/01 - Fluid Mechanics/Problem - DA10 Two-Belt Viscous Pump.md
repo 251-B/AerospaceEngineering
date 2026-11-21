@@ -29,8 +29,8 @@ tags_html:
 
 In the forthcoming analysis, the liquid flow can be assumed steady and two-dimensional (spanwise length much larger than $h$). The most important parameters of the system are the liquid volume flux **per unit spanwise length**, $q$, the power needed to drive the system **per unit spanwise length**, $\dot{W}$, and the pump efficiency, $\eta = q\Delta P/\dot{W}$.
 
-![[attachments/FM-T6/da10-statement.svg]]
-*Statement figure (redrawn from DA10.pdf): two parallel belts of length L, a distance h ≪ L apart, driven at V_u and V_l, drag liquid of density ρ and viscosity μ from a reservoir at reduced pressure P_0 to one at P_0 + ΔP*
+![[attachments/FM-T6/da10-statement.png]]
+*Two parallel belts of length L, a distance h ≪ L apart, driven at V_u and V_l, drag liquid of density ρ and viscosity μ from a reservoir at reduced pressure P_0 to one at P_0 + ΔP. Copied from DA10.pdf, p. 1.*
 
 1. (*3 points*). Use dimensional analysis to simplify the dependence of $q$, $\dot{W}$ and $\eta$, as functions of an appropriately chosen set of parameters governing the operation of the pump.
 

@@ -23,6 +23,22 @@ window.AE_UPDATES = [
     "link": "subjects/business-management/extra-problems/index.html"
   },
   {
+    "id": "2026-11-21-mechanics-official-figures",
+    "date": "2026-11-21",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics theory figures now come from the official notes",
+    "text": "The figures of the theory pages of Topics 6 to 8 are now crops of the official notes and slides, so the diagrams look exactly as the course prints them.",
+    "link": "subjects/engineering-mechanics/teoria/index.html"
+  },
+  {
+    "id": "2026-11-21-fluids-official-figures",
+    "date": "2026-11-21",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics figures now come from the official material",
+    "text": "The figures of the theory and problem pages (Topics 3 to 7) are now crops of the official notes and problem sheets, so you see the diagrams exactly as the course prints them.",
+    "link": "subjects/fluid-mechanics/teoria/index.html"
+  },
+  {
     "id": "2026-11-20-business-midterm-2-simulator",
     "date": "2026-11-20",
     "tag": "Business Management",

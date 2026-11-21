@@ -1,7 +1,7 @@
 """Topic 6 figures for Fluid Mechanics: dimensional analysis (Notes.pdf, Chapter 6) and the problems DA1-DA14.
 
-Theory figures (this module): the fall of a point mass (Fig. 6.1 of the notes, redrawn), the sphere moving in a
-stagnant liquid (Fig. 6.2, redrawn) and a sketch of the two limits of the drag law, Eqs. (6.51) and (6.53), drawn on
+Theory figures (this module): the fall of a point mass (Fig. 6.1 of the notes) and the sphere moving in a
+stagnant liquid (Fig. 6.2), both PNG crops of Notes.pdf, and a sketch of the two limits of the drag law, Eqs. (6.51) and (6.53), drawn on
 logarithmic axes (a sketch of the slopes only: the constants C1 and C2 are not given in the notes). Problem figures:
 tools/figures/fluids_t6p.py.
 
@@ -10,7 +10,7 @@ and labels.
 """
 import math
 
-from figures.svgkit import Canvas, Registry, arrow, circle, dot, hatch, line, pathd, rect, sub
+from figures.svgkit import Canvas, Registry, line, pathd, sub
 
 REG = Registry("FM-T6")
 SERIF = "Newsreader, Georgia, 'Times New Roman', serif"
@@ -27,69 +27,20 @@ def note(c, p, s, col="TEXT", anchor="middle", size=13):
     lab(c, p, s, col, anchor, size, italic=False)
 
 
-# ----------------------------------------------------------------------------------------------- Fig. 6.1
-def falling_mass():
-    c = Canvas(520, 300)
-    ground = 250
-    line(c, (60, ground), (460, ground), "EDGE", 2.0)
-    hatch(c, (60, ground), (460, ground), side=1, col="EDGE", step=12)
-    m = (200, 60)
-    circle(c, m, 13, "HEAD", 2.0, fill="ACC", opacity=0.25)
-    lab(c, (m[0] + 22, m[1] + 6), "m", "HEAD", "start", 19)
-    # falling height
-    line(c, (130, m[1]), (130, ground), "GREEN", 1.2)
-    line(c, (122, m[1]), (138, m[1]), "GREEN", 1.2)
-    lab(c, (118, (m[1] + ground) / 2 + 6), "h", "GREEN", "end", 19)
-    line(c, (m[0], m[1] + 16), (m[0], ground - 6), "HEAD", 1.0, dash="5,5")
-    # gravity
-    arrow(c, (390, 70), (390, 150), "HEAD", 2.0, 11)
-    lab(c, (402, 118), "g", "HEAD", "start", 19)
-    # unknowns at impact
-    dot(c, (m[0], ground), 4, "ACC")
-    arrow(c, (m[0] + 32, ground - 70), (m[0] + 32, ground - 14), "ACC", 2.2, 10)
-    lab(c, (m[0] + 42, ground - 36), sub("v", "c") + "  at  t = " + sub("t", "c"), "ACC", "start", 17)
-    lab(c, (260, 290), "unknowns " + sub("t", "c") + " and " + sub("v", "c") + ", functions of (m, h, g): Eq. (6.1)",
-        "TEXT", "middle", 13, italic=False)
-    REG.put("t6-falling-mass", c, "The fall of a point mass (Fig. 6.1 of the notes)",
-            "The fall of a point mass, Fig. 6.1 of the notes: a mass m released from rest at a height h falls under "
-            "gravity g; the unknowns are the collision time t_c and the collision velocity v_c")
-
-
-# ----------------------------------------------------------------------------------------------- Fig. 6.2
-def sphere():
-    c = Canvas(640, 320)
-    C = (380, 170)
-    R = 62
-    circle(c, C, R, "HEAD", 2.2, fill="EDGE", opacity=0.10)
-    # radius
-    line(c, C, (C[0] - 44, C[1] + 44), "GREEN", 1.4)
-    lab(c, (C[0] - 34, C[1] + 20), "R", "GREEN", "end", 18)
-    # axes at the centre
-    arrow(c, C, (C[0] + 38, C[1]), "HEAD", 1.3, 8)
-    lab(c, (C[0] + 42, C[1] + 16), "x", "HEAD", "start", 16)
-    arrow(c, C, (C[0], C[1] - 38), "HEAD", 1.3, 8)
-    lab(c, (C[0] - 6, C[1] - 42), "z", "HEAD", "end", 16)
-    arrow(c, C, (C[0] + 22, C[1] - 16), "HEAD", 1.1, 7)
-    lab(c, (C[0] + 26, C[1] - 18), "y", "HEAD", "start", 15)
-    # uniform stream far away (frame of the sphere)
-    for y in (90, 150, 210, 270):
-        arrow(c, (60, y), (150, y), "BLUE", 1.8, 10)
-    lab(c, (105, 76), "U", "BLUE", "middle", 19)
-    lab(c, (60, 40), "p + ρgz = " + sub("P", "∞"), "HEAD", "start", 17)
-    note(c, (60, 305), "liquid of density ρ and viscosity μ", "TEXT", "start", 13)
-    # gravity
-    arrow(c, (585, 50), (585, 120), "HEAD", 2.0, 11)
-    lab(c, (597, 96), "g", "HEAD", "start", 19)
-    # drag
-    arrow(c, (C[0] + R + 6, C[1] + 50), (C[0] + R + 76, C[1] + 50), "ACC", 2.6, 11)
-    lab(c, (C[0] + R + 82, C[1] + 56), sub("F", "x"), "ACC", "start", 19)
-    REG.put("t6-sphere", c, "Fluid motion around a sphere (Fig. 6.2 of the notes)",
-            "Fluid motion around a sphere, Fig. 6.2 of the notes, seen from the sphere: far away the liquid moves "
-            "with velocity U and its pressure is hydrostatic, p + ρgz = P_∞; the unknown is the drag F_x")
+# ----------------------------------------------------------------------------------------------- Figs. 6.1 and 6.2
+def crops():
+    REG.raster("t6-falling-mass", "The fall of a point mass (Fig. 6.1 of the notes)",
+               "The fall of a point mass: a mass m released from rest at a height h falls under gravity g; the unknowns "
+               "are the collision time t_c and the collision velocity v_c. Copied from Notes.pdf, Fig. 6.1, p. 66.", 440)
+    REG.raster("t6-sphere", "Fluid motion around a sphere (Fig. 6.2 of the notes)",
+               "Fluid motion around a sphere, seen from the sphere: far away the liquid moves with velocity U and its "
+               "pressure is hydrostatic, p + ρgz = P_∞; the unknown is the drag F_x. Copied from Notes.pdf, Fig. 6.2, "
+               "p. 73.", 640)
 
 
 # ----------------------------------------------------------------------------------------------- limits
 def drag_limits():
+    # EXTRA: sketch of the drag limits, not printed in Notes.pdf
     """Log-log sketch of Fx/(rho U^2 R^2) = f(Re): slope -1 for Re << 1 (6.53), constant for Re >> 1 (6.51)."""
     c = Canvas(640, 360)
     x0, y0, x1, y1 = 90, 300, 600, 40                   # plot box (screen)
@@ -124,8 +75,7 @@ def drag_limits():
 
 
 def build():
-    falling_mass()
-    sphere()
+    crops()
     drag_limits()
     try:
         from figures import fluids_t6p

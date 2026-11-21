@@ -33,8 +33,8 @@ A fluid of density $\rho$ and viscosity $\mu$ is confined between two infinitely
 
 3. Calculate the value of $V$ for which the volume flux in the pipe is identically zero.
 
-![[attachments/FM-T7/vf3-statement.svg]]
-*Statement figure (redrawn from VF3.pdf): liquid of density ρ and viscosity μ between a rod of radius αa and a cylinder of radius a, along x, driven by the pressure gradient P_l; the outer cylinder moves backward with velocity V*
+![[attachments/FM-T7/vf3-statement.png]]
+*Statement figure: liquid of density ρ and viscosity μ between a rod of radius αa and a cylinder of radius a, along x, driven by the pressure gradient P_l; the outer cylinder moves backward with velocity V. Copied from VF3.pdf, p. 1.*
 
 Source: VF3.pdf (page 1, statement and handwritten key). Notes.pdf, Chapter 7: unidirectional flow, Eq. 7.7; steady flow in a circular pipe, Eqs. 7.13-7.16.
 

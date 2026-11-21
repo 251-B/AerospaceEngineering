@@ -43,8 +43,8 @@ The known data are $(\rho, \mu, h_0, R, \alpha, W, g, p_a)$. The objective is to
 
 The sheet gives the hint $\int x\ln x\,dx = \frac{x^2}{2}\left(\ln x - \frac{1}{2}\right)$.
 
-![[attachments/FM-T7/vf16-statement.svg]]
-*Statement figure (redrawn from VF16.pdf): a piston of weight W and radius R at the height h(t) above the bottom of a container; the liquid below it leaves through a central hole of radius αR at the pressure p_a (axisymmetric section, r radial and z vertical)*
+![[attachments/FM-T7/vf16-statement.png]]
+*Statement figure: a piston of weight W and radius R at the height h(t) above the bottom of a container; the liquid below it leaves through a central hole of radius αR at the pressure p_a (axisymmetric section, r radial and z vertical). Copied from VF16.pdf, p. 1.*
 
 Source: VF16.pdf (page 1: statement; page 2: handwritten key; exam of Jan 14, 2013). Notes.pdf, Chapter 7: slender films, Eqs. 7.67-7.71; the wedge effect, Eq. 7.72; Newton's second law.
 

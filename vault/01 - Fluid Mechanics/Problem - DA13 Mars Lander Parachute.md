@@ -37,8 +37,8 @@ tags_html:
 
 5. Verify that the viscosity is actually negligible for the experimental and mission conditions.
 
-![[attachments/FM-T6/da13-statement.svg]]
-*Statement figure (redrawn from DA13.pdf): a module of mass m hangs from a parachute of diameter D and falls at its terminal velocity V under gravity g*
+![[attachments/FM-T6/da13-statement.png]]
+*A module of mass m hangs from a parachute of diameter D and falls at its terminal velocity V under gravity g. Copied from DA13.pdf, p. 1.*
 
 Source: DA13.pdf (page 1, final exam of Jan 21, 2014, statement and handwritten key). Notes.pdf, Chapter 6: Π theorem, Eq. 6.25; limits, Eq. 6.55; physical similarity, Eqs. 6.57-6.59.
 
