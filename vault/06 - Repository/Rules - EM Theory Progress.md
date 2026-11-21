@@ -20,7 +20,7 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 | Topic | Note | Figures | Page | Links | PDF | Audit | State | Commit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 Kinematics of a Point Particle | done: 102 boxes, Ch. 1-2, Lecture 1 Slides 3-29 | done: 28 (`em_th/t1.py`, `t1b.py`) | generated | done | printed | done: 22 findings, all verified and applied | done | see `git log` (`feat(mechanics): close Topic 1 theory`) |
-| 2 Dynamics, Equilibrium and Oscillations | | | | | | | not started | |
+| 2 Dynamics, Equilibrium and Oscillations | done: 94 boxes, Ch. 4 Secs. 4.1-4.7, Ch. 5, Lecture 2 Slides 1-23, Lecture 6 Slides 1-15 | in progress: 32 briefed | pending | pending | pending | pending | in progress | `0b0a528` |
 | 3 Constraints and Reaction Forces | | | | | | | not started | |
 | 4 Angular Momentum and Central Forces | | | | | | | not started | |
 | 5 Relative Motion | | | | | | | not started | |
@@ -48,6 +48,9 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 
 1. **Lecture numbers.** The brief gives Topic 1 "Lectures 1 and 2", Topic 3 "Lecture 4", Topic 4 "Lecture 5 (deck 04)" and Topic 5 the deck 05 only. The title slides print: 1 Fundamentals and particle kinematics (deck 01), 2 Particle dynamics (deck 02), 3 Constraints and reaction forces (deck 03), 4 Angular momentum and torque (deck 04), 5 Relative motion (deck 05), 6 Oscillations; `00.pdf` is the course presentation, unnumbered. The brief itself says to use the printed number, and `tools/source_links.json` maps lectures that way, so the notes cite Topic 1 Lecture 1, Topic 2 Lectures 2 and 6, Topic 3 Lecture 3, Topic 4 Lecture 4, Topic 5 Lecture 5.
 2. **`render_check`.** `tools/render_check.py` loads KaTeX from the CDN, which is blocked here; pages are rendered instead on a mirror with the npm copy of KaTeX 0.16.8 (the same mirror `build_pdfs --katex` uses).
+
+3. **Content of Lecture 6.** The brief lists for Topic 2, as Lecture 6 content, beats, the amplification factor as a function of the frequency ratio, a dimensionless damping ratio, and the bead on a rotating hoop with its effective potential and bifurcation. The deck (16 slides; slide 16 is "Thank you") covers linear equations with constant coefficients, complex exponentials, free oscillator (undamped, small, large and critical damping), the forced oscillator, resonance and linearisation (checked slide by slide by the orchestrator); it has no beats and no hoop, and it calls the dimensional constant of the damping term the damping ratio. The note follows the deck and adds the beats and the hoop as marked extensions; the amplification factor is defined as the forced amplitude over the static deflection.
+4. **Source issues found in Topic 2** (callouts in the note): erratum to Notes.pdf Eq. 4.37, the tension is defined along minus the radial unit vector but the radial equation is printed with the opposite sign (checked on the PDF page by the orchestrator); erratum to Notes.pdf Eq. 5.26 (the real part closes before the exponential factor; Slide 8 is right); the units of power and work on Notes.pdf p. 43 written with t for seconds; Lecture 2 Slide 20 writes the kinetic energy without the mass; Notes.pdf Sec. 5.4.1 gives the phase at resonance at the natural frequency, not at the peak frequency of Eq. 5.46.
 
 ## Observations (task-observer has no stable path in this container)
 
