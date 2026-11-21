@@ -41,7 +41,7 @@ ESTADO ACTUAL (verificado)
    están en git (tienen copyright y el repo es público); solo libros.json. Ya existe el corpus:
    tools/ai_training/extract_books.py -> tools/ai_training/out/books_cpt.jsonl
    (un registro por fragmento de ~900 palabras con solapamiento de 80:
-   {"text", "book_id", "subject", "title", "lang", "pages"}). Ahora mismo: 11 libros con texto,
+   {"text", "book_id", "subject", "title", "lang", "pages"}). Ahora mismo: 12 libros con texto,
    ~2,9 M palabras, 2.897 fragmentos, ~20 MB (Callister, Askeland, Shackelford [es], Mangonon,
    Ashby, Mouritz, White, Lagerstrom, Apostol, Kermode, Ginsberg, Robinson).
    Esta noche se está haciendo OCR (tools/ai_training/ocr_books.py, RapidOCR) de 7 libros
@@ -116,8 +116,8 @@ python tools/ai_training/extract_books.py
 ```
 
 ```powershell
-Compress-Archive -Force tools/ai_training/out/books_cpt.jsonl tools/ai_training/out/sideris-books.zip
+Compress-Archive -Force tools/ai_training/out/books_cpt.jsonl tools/ai_training/out/books_cpt.zip
 ```
 
-Sube `sideris-books.zip` a Kaggle como dataset **privado** llamado `Sideris-Books`. No lo subas a GitHub
+Sube `books_cpt.zip` a Kaggle como dataset **privado** llamado `Sideris-Books`. No lo subas a GitHub
 (ya está en `.gitignore`).
