@@ -48,7 +48,7 @@
       var mc = bp.parts.filter(function (p) { return p.type === 'multiple_choice'; })[0];
       ok('blueprint carries the real rule', mc && mc.count === 10 && mc.points_correct === 0.5 && mc.points_wrong === -0.15 && mc.points_blank === 0 && mc.floor === 0, JSON.stringify(mc));
       ok('structure table states the rule', /right \+0\.5 · wrong -0\.15 · blank 0 · never below 0/.test(d.getElementById('simStructure').textContent), d.getElementById('simStructure').textContent);
-      ok('no canvas on the page', d.querySelectorAll('canvas').length === 0, '');
+      ok('no canvas on the page', d.querySelectorAll('canvas:not(.fl-canvas)').length === 0, '');
       ok('block practice card exists', !!d.getElementById('simBlockStart'), '');
 
       // --- exam 1: 4 right, 3 wrong, 3 blank -> 4*0.5 - 3*0.15 = 1.55

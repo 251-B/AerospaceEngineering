@@ -115,6 +115,8 @@
             if (solution) {
               if (f.contentWindow.AESidebar) f.contentWindow.AESidebar.close();
               solution.open = true;
+              // problem-collapse.js folds every card on load, which would hide the bar from the probe.
+              var folded = solution.closest('.pc-collapsed'); if (folded) folded.classList.remove('pc-collapsed');
               var barEl = solution.querySelector(':scope > .sol-close-bar');
               if (barEl) {
                 var bar = probe(f.contentDocument, barEl);

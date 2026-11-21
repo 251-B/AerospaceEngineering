@@ -30,6 +30,8 @@
         // Some pages set `html { scroll-behavior: smooth }`, which would also leave scrolls unfinished.
         s.textContent = '*{transition:none!important;animation:none!important}html{scroll-behavior:auto!important}';
         d.head.appendChild(s);
+        // problem-collapse.js folds every card on load; this harness tests the solutions inside them.
+        Array.prototype.forEach.call(d.querySelectorAll('.pc-collapsed'), function (c) { c.classList.remove('pc-collapsed'); });
         var w = f.contentWindow;
         if (w.scrollTo) {
           var orig = w.scrollTo.bind(w);
@@ -65,8 +67,9 @@
       record(label + ': the bar is the last child of the <details>', last.lastElementChild.classList.contains('sol-close-bar'), last.lastElementChild.className);
       if (sel === 'details.solution-details') {
         var content = last.querySelector(':scope > .solution-content');
+        // problem-reader.js puts its step nav between the content and the bar
         record(label + ': the bar follows .solution-content, whose last phase keeps :last-child',
-          content && content.nextElementSibling === last.lastElementChild &&
+          content && (content.compareDocumentPosition(last.lastElementChild) & 4) &&
           content.lastElementChild.classList.contains('phase-block'), '');
       }
       f.contentWindow.AESolutionClose.init();
@@ -109,9 +112,9 @@
   }
 
   function scenarios() {
-    return checkPage('mechanics', MECH, 'details.solution-details', 'summary.solution-summary', 'Close solution')
+    return checkPage('mechanics', MECH + '?mode=full', 'details.solution-details', 'summary.solution-summary', 'Close solution')
     .then(function () {
-      return checkPage('fluids', FLUID, 'details.solution-details', 'summary.solution-summary', 'Close solution');
+      return checkPage('fluids', FLUID + '?mode=full', 'details.solution-details', 'summary.solution-summary', 'Close solution');
     }).then(function () {
       return checkPage('materials', MATERIALS, 'details.problem-card', 'summary.problem-summary', 'Close problem');
     }).then(function () {

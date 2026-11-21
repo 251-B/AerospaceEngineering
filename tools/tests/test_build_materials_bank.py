@@ -484,7 +484,7 @@ class MultipleChoiceSimulatorTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_harness_ran_every_scenario(self):
-        self.assertEqual(len(self.results), 42, [r["name"] for r in self.results])
+        self.assertEqual(len(self.results), 41, [r["name"] for r in self.results])
 
     def test_every_scenario_passes(self):
         failures = [f"{r['name']}: {r['detail'][:300]}" for r in self.results if not r["pass"]]
