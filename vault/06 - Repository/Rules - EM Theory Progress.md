@@ -42,6 +42,8 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 
 - **Topic 1 audit** (read-only, Opus): no wrong result or citation; 22 findings applied (latitude and colatitude glyphs swapped in four figures, the Cartesian projections of Slides 19 and 22 written out, the helix example derived from its position vector, merged rows split, symbols used twice renamed, four attributions to the sources toned down, the stray comma of Eq. 2.29 noted, seven figure defects).
 
+- **Test suite after Topic 1** (451 tests): 7 failures and 1 error, all present at the start commit of this branch as well (checked in a worktree of `origin/claude/clever-faraday-8xtaon`): the 3 known ones (`test_theme`, `test_solution_close`, `test_surface` close bar), the Aerospace Materials I bank (`test_build_materials_bank`: 2 failures and the setUpClass error), and the stale problem pages and PDFs of the orchestrator (`test_build_mech_problems`, `test_build_pdfs`). No failure comes from this branch.
+
 ## Conflicts between the brief and the repository (not resolved silently)
 
 1. **Lecture numbers.** The brief gives Topic 1 "Lectures 1 and 2", Topic 3 "Lecture 4", Topic 4 "Lecture 5 (deck 04)" and Topic 5 the deck 05 only. The title slides print: 1 Fundamentals and particle kinematics (deck 01), 2 Particle dynamics (deck 02), 3 Constraints and reaction forces (deck 03), 4 Angular momentum and torque (deck 04), 5 Relative motion (deck 05), 6 Oscillations; `00.pdf` is the course presentation, unnumbered. The brief itself says to use the printed number, and `tools/source_links.json` maps lectures that way, so the notes cite Topic 1 Lecture 1, Topic 2 Lectures 2 and 6, Topic 3 Lecture 3, Topic 4 Lecture 4, Topic 5 Lecture 5.
