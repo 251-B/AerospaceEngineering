@@ -321,16 +321,14 @@
   "title": "Spring-Coupled Particles on a Vertical Axis and a Revolving Ring",
   "badge": "Two Particles in a Rotating Frame",
   "source_note": "(PDF page 28); key on PDF page 76",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "41": {
   "topic": 5,
   "title": "Satellite Solar Panel: Composition of Rotations",
   "badge": "Relative Kinematics",
   "source_note": "(PDF page 29); key on PDF page 76",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "42": {
   "topic": 4,
@@ -381,8 +379,7 @@
   "title": "Two Repelling Particles on Concentric Wires in a Rotating Plane",
   "badge": "Relative Equilibrium",
   "source_note": "(PDF page 32); key on PDF page 76",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "48": {
   "topic": 3,
@@ -397,8 +394,7 @@
   "badge": "Relative Equilibria & Bifurcation",
   "source_note": "(PDF page 34); no official key",
   "structure": 3,
-  "boxed": false,
-  "badges": [
+    "badges": [
    "In-Class Session 13"
   ]
  },
@@ -417,8 +413,7 @@
   "title": "Particle inside a Hollow Sphere in a Rotating Frame",
   "badge": "Non-Inertial Frame + Surface Constraint",
   "source_note": "(PDF page 36); no official key",
-  "structure": 3,
-  "boxed": false
+  "structure": 3
  },
  "rb-01": {
   "topic": 6,
