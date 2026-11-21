@@ -3,6 +3,7 @@ import math
 
 from figures.em_solutions import axis_in, axis_out, figure, fixed_axis, right_angle, spin_about_vertical, triangle, unit
 from figures.mech import S, Scene, bold
+from figures.svgkit import arrow_head
 
 X1, X2 = -0.7, 1.2                      # abscissas of P1 and P2 in units of L
 
@@ -60,11 +61,11 @@ def top_view():
 @figure("p33-wire-plane",
         "Plane Oxz of the wire: the parabola z = x squared over 2L, the axis Oz with the spin omega, j1 into the paper at "
         "O, the beads P1 and P2, the dashed components x2 and x2 squared over 2L of the position of P2, and at P2 the "
-        "slope triangle with legs 1 and x2 over L and hypotenuse s2, with the unit tangent t2 and normal n2",
+        "slope triangle with legs 1 and x2 over L and hypotenuse sigma2, with the unit tangent t2 and normal n2",
         r"Plane $Oxz$, fixed in $S_1$ ($\mathbf j_1$ points into the paper, $\otimes$). The position of $P_2$ has the "
         r"dashed components $x_2$ and $z_2 = x_2^2/(2L)$. The shaded slope triangle at $P_2$ has a horizontal leg "
-        r"proportional to $1$, a vertical leg proportional to $dz/dx = x_2/L$ and the hypotenuse $s_2 = "
-        r"\sqrt{1 + x_2^2/L^2}$ along the tangent; dividing by $s_2$ gives $\mathbf t_2$, and turning it $90^\circ$ "
+        r"proportional to $1$, a vertical leg proportional to $dz/dx = x_2/L$ and the hypotenuse $\sigma_2 = "
+        r"\sqrt{1 + x_2^2/L^2}$ along the tangent; dividing by $\sigma_2$ gives $\mathbf t_2$, and turning it $90^\circ$ "
         r"towards the concave side gives $\mathbf n_2$ (orange)")
 def wire_plane():
     sc = Scene(640, 400, (320, 335), 150)
@@ -91,7 +92,7 @@ def wire_plane():
     sc.line(P2, (X2 + 1.6 * h, P2[1] + 1.6 * h * X2), "EDGE", 1.0, "2 3")
     sc.label(((P2[0] + A[0]) / 2 + 0.06, A[1]), "1", "TEXT", "middle", 15, dy=-6)
     sc.label((A[0], (A[1] + C[1]) / 2), S("x", "2") + "/L", "TEXT", "start", 15, dx=8, dy=5)
-    sc.label((P2[0] + 0.85 * (C[0] - P2[0]), P2[1] + 0.85 * (C[1] - P2[1])), S("s", "2"), "TEXT", "end", 15, dx=-12, dy=-2)
+    sc.label((P2[0] + 0.85 * (C[0] - P2[0]), P2[1] + 0.85 * (C[1] - P2[1])), S("σ", "2"), "TEXT", "end", 15, dx=-12, dy=-2)
     ang = math.degrees(math.atan(X2))
     unit(sc, P2, ang, 0.32, S(bold("t"), "2"), "ACC", off=(-6, -12))
     unit(sc, P2, ang + 90, 0.32, S(bold("n"), "2"), "ACC", off=(-12, -6))
@@ -142,4 +143,114 @@ def chord():
     sc.mass(P2, None, r=7)
     sc.label(P2, S("P", "2"), "HEAD", "start", 17, dx=14, dy=18)
     sc.label((0.0, 0.0), "O", "HEAD", "start", 16, dx=8, dy=20)
+    return sc
+
+
+def _dvec(sc, a, b, col="PINK", w=2.4, head=10):
+    """Dashed arrow (inertia force) from world point a to b."""
+    ax, ay = sc.P(a)
+    bx, by = sc.P(b)
+    ang = math.atan2(by - ay, bx - ax)
+    tip = (bx - head * 0.6 * math.cos(ang), by - head * 0.6 * math.sin(ang))
+    sc.c.add(f'<line x1="{ax:.1f}" y1="{ay:.1f}" x2="{tip[0]:.1f}" y2="{tip[1]:.1f}" stroke="{col}" stroke-width="{w}" '
+             f'stroke-dasharray="7 4"/>')
+    arrow_head(sc.c, (ax, ay), (bx, by), col, head)
+
+
+XA, XB = -0.8, 1.4                      # abscissas of P1 and P2 in the free-body diagram (units of L)
+
+
+@figure("p33-fbd",
+        "Free-body diagram of the two beads on the turning parabola: top, the plane of the wire with the weight, the "
+        "repulsion along the chord, the in-plane reaction and the centrifugal force; bottom, the view from above with "
+        "the Coriolis forces and the normal reactions",
+        r"Forces in $Oxyz$. In the plane of the wire: weight, repulsion along the chord, reaction $N_{in}\,\mathbf n_i$ "
+        r"and the centrifugal force $m\omega^2x_i\,\mathbf i_1$ (dashed). Seen from above: the Coriolis forces "
+        r"$-2m\omega\dot x_i\,\mathbf j_1$ (dashed) and the reactions $N_{iy}\,\mathbf j_1$ that cancel them.")
+def fbd():
+    k = 125.0
+    sc = Scene(780, 740, (340, 330), k)
+    RY = -(570 - 330) / k                               # world y of the trace of the lower panel (pixel y = 560)
+    z = lambda x: x * x / 2.0
+    P1 = (XA, z(XA))
+    P2 = (XB, z(XB))
+    sg = math.sqrt(1 + XB * XB)
+    t2 = (1 / sg, XB / sg)
+    n2 = (-XB / sg, 1 / sg)
+    ch = (P2[0] - P1[0], P2[1] - P1[1])
+    cl = math.hypot(*ch)
+    ch = (ch[0] / cl, ch[1] / cl)                       # unit vector from P1 to P2
+    # ---- upper panel: plane Oxz, j1 into the paper
+    fixed_axis(sc, (-2.4, 0.0), 0, 4.9, "x", off=(12, 5))
+    sc.line((0.0, -0.15), (0.0, 2.3), "EDGE", 1.4, "10 3 2 3")
+    sc.label((0.0, 2.3), "z", "TEXT", "middle", 16, weight="700", dx=14, dy=4)
+    spin_about_vertical(sc, (0.0, 2.1), 0.17, 0.05, "ω")
+    sc.curve(lambda x: (x, z(x)), -2.0, 2.0, col="HEAD", w=3.0)
+    sc.line(P1, P2, "EDGE", 1.2, "6 4")
+    sc.label((0.3, 0.64), "chord", "TEXT", "middle", 14, italic=False, dy=-10)
+    axis_in(sc, (0.0, 0.0), None, col="BLUE")
+    sc.label((0.0, 0.0), bold("j") + S("", "1") + " (into the paper)", "BLUE", "start", 15, weight="700", dx=14, dy=28)
+    sc.label((0.0, 0.0), "O", "HEAD", "end", 17, dx=-14, dy=22)
+    unit(sc, (0.0, 0.0), 0, 0.4, bold("i") + S("", "1"), off=(6, -12))
+    unit(sc, (0.0, 0.0), 90, 0.4, bold("k") + S("", "1"), off=(-16, 4))
+    # forces at P2
+    sc.vec(P2, (P2[0], P2[1] - 0.6), None, "PINK", 2.8, head=11)
+    sc.label((P2[0], P2[1] - 0.6), "−m g " + bold("k") + S("", "1"), "PINK", "start", 16, weight="700", dx=10, dy=6)
+    e2 = (P2[0] + 0.6 * ch[0], P2[1] + 0.6 * ch[1])
+    sc.vec(P2, e2, None, "PINK", 2.8, head=11)
+    sc.label(e2, S(bold("F"), "E2"), "PINK", "start", 16, weight="700", dx=8, dy=-8)
+    n0 = (P2[0] - 0.1 * t2[0], P2[1] - 0.1 * t2[1])
+    n1 = (n0[0] + 0.55 * n2[0], n0[1] + 0.55 * n2[1])
+    sc.vec(n0, n1, None, "PINK", 2.8, head=11)
+    sc.label(n1, S(bold("N"), "2n") + " " + S(bold("n"), "2"), "PINK", "end", 16, weight="700", dx=-8, dy=-2)
+    c2 = (P2[0] + 0.6, P2[1])
+    _dvec(sc, P2, c2, "PINK", 2.6)
+    sc.label(c2, S(bold("F"), "C") + " = m ω² " + S("x", "2") + " " + bold("i") + S("", "1"), "PINK", "start", 16, weight="700",
+             dx=10, dy=24)
+    sc.label(c2, "(inertia)", "PINK", "start", 14, dx=10, dy=42)
+    unit(sc, P2, math.degrees(math.atan2(t2[1], t2[0])), 0.35, S(bold("t"), "2"), "ACC", off=(12, -4))
+    unit(sc, P2, math.degrees(math.atan2(n2[1], n2[0])), 0.35, S(bold("n"), "2"), "ACC", off=(-6, -12))
+    # forces at P1
+    e1 = (P1[0] - 0.6 * ch[0], P1[1] - 0.6 * ch[1])
+    sc.vec(P1, e1, None, "PINK", 2.8, head=11)
+    sc.label(e1, S(bold("F"), "E1"), "PINK", "end", 16, weight="700", dx=-8, dy=20)
+    c1 = (P1[0] - 0.35, P1[1])
+    _dvec(sc, P1, c1, "PINK", 2.6)
+    sc.label(c1, "m ω² " + S("x", "1") + " " + bold("i") + S("", "1") + " (inertia)", "PINK", "end", 16, weight="700", dx=-8, dy=-10)
+    sc.mass(P1, None, r=7)
+    sc.label(P1, S("P", "1"), "HEAD", "start", 17, dx=12, dy=-12)
+    sc.mass(P2, None, r=7)
+    sc.label(P2, S("P", "2"), "HEAD", "end", 17, dx=-24, dy=24)
+    sc.note((-2.6, -0.45), "plane Oxz of the wire", "TEXT", "start", 13)
+    # ---- lower panel: view from above, k1 out of the paper, j1 up the page
+    def R(x, y):
+        return (x, RY + y)
+    O = R(0.0, 0.0)
+    sc.line(R(-2.0, 0.0), R(2.0, 0.0), "HEAD", 5.0)
+    axis_out(sc, O, None, "BLUE")
+    sc.label(O, bold("k") + S("", "1") + " (⊙)", "BLUE", "start", 15, weight="700", dx=14, dy=28)
+    sc.label(O, "O", "HEAD", "end", 17, dx=-14, dy=28)
+    unit(sc, O, 90, 0.55, bold("j") + S("", "1"), off=(-14, -2))
+    unit(sc, R(2.15, 0.0), 0, 0.45, bold("i") + S("", "1"), off=(2, 22))
+    sc.spin(O, 0.30, 105, 165, "ω", name_r=0.43)
+    for xs, nm in ((XA, "1"), (XB, "2")):
+        sc.mass(R(xs, 0.0), None, r=6.5)
+        sc.label(R(xs, 0.0), S("P", nm), "HEAD", "end", 17, dx=-12, dy=26)
+    # P2: x2-dot > 0
+    p2 = R(XB, 0.0)
+    _dvec(sc, (p2[0], p2[1] - 0.06), (p2[0], p2[1] - 0.85), "PINK", 2.6)
+    sc.label((p2[0], p2[1] - 0.85), S(bold("F"), "COR,2") + " = −2 m ω ẋ₂ " + bold("j") + S("", "1"), "PINK", "start", 16,
+             weight="700", dx=12, dy=2)
+    sc.label((p2[0], p2[1] - 0.85), "(inertia)", "PINK", "start", 14, dx=12, dy=20)
+    sc.vec((p2[0], p2[1] + 0.06), (p2[0], p2[1] + 0.85), None, "PINK", 2.8, head=11)
+    sc.label((p2[0], p2[1] + 0.85), S(bold("N"), "2y") + " " + bold("j") + S("", "1") + " = 2 m ω ẋ₂ " + bold("j") + S("", "1"),
+             "PINK", "start", 16, weight="700", dx=12, dy=-4)
+    # P1: x1-dot < 0
+    p1 = R(XA, 0.0)
+    _dvec(sc, (p1[0], p1[1] + 0.06), (p1[0], p1[1] + 0.85), "PINK", 2.6)
+    sc.label((p1[0], p1[1] + 0.85), S(bold("F"), "COR,1") + " (inertia)", "PINK", "start", 16, weight="700", dx=12, dy=-4)
+    sc.vec((p1[0], p1[1] - 0.06), (p1[0], p1[1] - 0.85), None, "PINK", 2.8, head=11)
+    sc.label((p1[0], p1[1] - 0.85), S(bold("N"), "1y") + " " + bold("j") + S("", "1"), "PINK", "start", 16, weight="700",
+             dx=12, dy=4)
+    sc.note((-2.6, RY - 1.2), "view from above: the wire is seen edge-on", "TEXT", "start", 13)
     return sc

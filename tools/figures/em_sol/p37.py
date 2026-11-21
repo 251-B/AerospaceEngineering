@@ -1,8 +1,9 @@
 """Problem 37: particle on an elliptic cone that spins about its vertical axis Oz1."""
 import math
 
-from figures.em_solutions import axis_out, figure, fixed_axis, right_angle, triangle, unit
+from figures.em_solutions import axis_out, figure, fixed_axis, right_angle, spin_about_vertical, triangle, unit
 from figures.mech import S, Scene, bold
+from figures.svgkit import arrow_head
 
 WT = 35.0          # angle turned by the cone, deg (drawing value)
 BETA = 50.0        # parameter beta of the drawn point, deg
@@ -133,4 +134,92 @@ def sections():
     unit(sc, P2, a + 90, 0.65, bold("n"), "ACC", off=(-10, -6))
     sc.mass(P2, "P", r=6, name_off=(18, 10))
     sc.note((2.6, -0.62), "plane y₁z₁ (β = π/2)", "TEXT", "start", 13)
+    return sc
+
+
+def _dvec(sc, a, b, col="PINK", w=2.4, head=10):
+    """Dashed arrow (inertia force) from world point a to b."""
+    ax, ay = sc.P(a)
+    bx, by = sc.P(b)
+    ang = math.atan2(by - ay, bx - ax)
+    tip = (bx - head * 0.6 * math.cos(ang), by - head * 0.6 * math.sin(ang))
+    sc.c.add(f'<line x1="{ax:.1f}" y1="{ay:.1f}" x2="{tip[0]:.1f}" y2="{tip[1]:.1f}" stroke="{col}" stroke-width="{w}" '
+             f'stroke-dasharray="7 4"/>')
+    arrow_head(sc.c, (ax, ay), (bx, by), col, head)
+
+
+@figure("p37-fbd",
+        "Free-body diagram of the particle on the spinning cone at the start: top, the vertical principal plane y1 z1 "
+        "with the weight, the normal reaction and the centrifugal force; bottom, the view from above with the relative "
+        "velocity, the Coriolis force and the centrifugal force",
+        r"Forces on $P$ in $S_1$ at the start ($\zeta = 1$, $\beta = \pi/2$). In the vertical plane $y_1z_1$: the "
+        r"weight, the reaction $N\,\mathbf n$ normal to the generator and the centrifugal force (dashed), away from the "
+        r"axis. Seen from above: the Coriolis force $-2m\Omega\,\mathbf k_1\times\mathbf v_1^P$ (dashed) for the initial "
+        r"velocity $\mathbf i_1$.")
+def fbd():
+    k = 105.0
+    sc = Scene(790, 800, (285, 265), k)
+    O = (0.0, 0.0)
+    P = (2.0, 1.0)
+    n = (-1 / math.sqrt(5), 2 / math.sqrt(5))
+    ez = (2 / math.sqrt(5), 1 / math.sqrt(5))
+    # ---- upper panel: plane y1 z1, i1 out of the paper
+    sc.line((-2.5, 1.25), O, "HEAD", 3.0)
+    sc.line(O, (2.5, 1.25), "HEAD", 3.0)
+    sc.line((0.0, -0.1), (0.0, 1.6), "EDGE", 1.4, "10 3 2 3")
+    spin_about_vertical(sc, (0.0, 1.45), 0.3, 0.08, "Ω")
+    axis_out(sc, O, None, "BLUE")
+    sc.label(O, S(bold("i"), "1") + " (⊙)", "BLUE", "end", 15, weight="700", dx=-16, dy=24)
+    sc.label(O, "O", "HEAD", "start", 17, dx=14, dy=24)
+    unit(sc, O, 0, 0.4, S(bold("j"), "1"), off=(4, 22))
+    unit(sc, O, 90, 0.4, S(bold("k"), "1"), off=(-16, 4))
+    # forces at P
+    sc.vec(P, (P[0], P[1] - 0.9), None, "PINK", 2.8, head=11)
+    sc.label((P[0], P[1] - 0.9), "W = −m g " + S(bold("k"), "1"), "PINK", "start", 16, weight="700", dx=10, dy=6)
+    n1 = (P[0] + 1.0 * n[0], P[1] + 1.0 * n[1])
+    sc.vec(P, n1, None, "PINK", 2.8, head=11)
+    sc.label(n1, "N " + bold("n"), "PINK", "end", 16, weight="700", dx=-8, dy=-6)
+    f1 = (P[0] + 0.7, P[1])
+    _dvec(sc, P, f1, "PINK", 2.6)
+    sc.label(f1, S(bold("F"), "C") + " = m Ω² ζ", "PINK", "start", 16, weight="700", dx=10, dy=22)
+    sc.label(f1, "(cos β " + S(bold("i"), "1") + " + 2 sin β " + S(bold("j"), "1") + ")", "PINK", "start", 16, weight="700", dx=10, dy=41)
+    sc.label(f1, "(inertia)", "PINK", "start", 14, dx=10, dy=59)
+    e1 = (P[0] + 0.6 * ez[0], P[1] + 0.6 * ez[1])
+    sc.vec(P, e1, None, "ACC", 2.6, head=11)
+    sc.label(e1, S(bold("e"), "ζ"), "ACC", "start", 16, weight="700", dx=8, dy=-6)
+    right_angle(sc, P, math.degrees(math.atan2(ez[1], ez[0])), math.degrees(math.atan2(n[1], n[0])), 0.11)
+    sc.mass(P, "P", r=7, name_off=(-14, 30))
+    sc.note((-2.5, -0.35), "vertical plane y₁z₁ (β = π/2, ζ = 1)", "TEXT", "start", 13)
+    # ---- lower panel: view from above, k1 out of the paper
+    f = 0.65
+    RY = -(610 - 265) / k                               # world y of O in the lower panel (pixel y = 610)
+
+    def R(x, y):
+        return (f * x, RY + f * y)
+    Oq = R(0.0, 0.0)
+    sc.curve(lambda t: R(math.cos(t), 2 * math.sin(t)), 0.0, 2 * math.pi, n=160, col="HEAD", w=3.0)
+    axis_out(sc, Oq, None, "BLUE")
+    sc.label(Oq, S(bold("k"), "1") + " (⊙)", "BLUE", "start", 15, weight="700", dx=14, dy=26)
+    sc.label(Oq, "O", "HEAD", "end", 17, dx=-12, dy=-10)
+    unit(sc, Oq, 0, 0.35, S(bold("i"), "1"), off=(6, -12))
+    unit(sc, Oq, 90, 0.35, S(bold("j"), "1"), off=(-16, 4))
+    sc.arc(Oq, 0.32, 200, 255, "GREEN", 1.8, head=True)
+    sc.label(Oq, "Ω", "GREEN", "middle", 16, weight="700", dx=-42, dy=46)
+    Pq = R(0.0, 2.0)
+    sc.mass(Pq, None, r=7)
+    sc.label(Pq, "P (seen from above)", "HEAD", "end", 16, dx=-22, dy=-12)
+    # initial relative velocity: tangent to the ellipse, along i1
+    v1 = (Pq[0] + 0.7, Pq[1])
+    sc.vec(Pq, v1, None, "ACC", 2.8, head=11)
+    sc.label(v1, S(bold("v"), "1", "P") + "(0) = " + S(bold("i"), "1"), "ACC", "start", 16, weight="700", dx=10, dy=-6)
+    tip = (Pq[0] + 0.07, Pq[1] - 0.75)
+    _dvec(sc, (Pq[0] + 0.07, Pq[1] - 0.06), tip, "PINK", 2.6)
+    lab = (Pq[0] + 0.07 + 0.95, tip[1])
+    sc.line((tip[0] + 0.05, tip[1]), (lab[0] - 0.05, lab[1]), "EDGE", 1.0, "2 3")
+    sc.label(lab, S(bold("F"), "COR") + " = −2 m Ω " + S(bold("k"), "1") + " × " + S(bold("v"), "1", "P") + " (inertia)",
+             "PINK", "start", 16, weight="700", dx=0, dy=-8)
+    sc.label(lab, "= −2 m Ω " + S(bold("j"), "1") + "  (drawn at the start)", "PINK", "start", 16, weight="700", dx=0, dy=12)
+    _dvec(sc, (Pq[0] - 0.07, Pq[1] + 0.06), (Pq[0] - 0.07, Pq[1] + 0.6), "PINK", 2.6)
+    sc.label((Pq[0] - 0.07, Pq[1] + 0.6), S(bold("F"), "C") + " (inertia)", "PINK", "end", 16, weight="700", dx=-6, dy=-4)
+    sc.note((-2.5, RY - 1.62), "view from above: elliptic section at ζ = 1 (semi-axes 1 and 2)", "TEXT", "start", 13)
     return sc

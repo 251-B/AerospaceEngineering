@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 825 570" width="100%" class="fig-kit" style="max-width:825px;margin:0 auto;display:block" role="img" aria-label="Close-up of the contact point C: the bar, the two segments of string towards A and towards P making equal angles with the bar, the two pulls T e_CA and T e_CP, the push N_b of the bar normal to it, and the dashed components of the two unit vectors along the bar">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="47.0" y1="300.0" x2="710.0" y2="300.0" stroke="#4b5563" stroke-width="5.0"/>
+<text x="710.0" y="288.0" fill="#4b5563" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">bar, <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="370.0" y1="521.0" x2="370.0" y2="53.5" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="378.0" y="57.5" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">plane normal to the bar</text>
+<line x1="370.0" y1="300.0" x2="298.9" y2="121.0" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="370.0" y1="300.0" x2="454.3" y2="481.6" stroke="#4b5563" stroke-width="2.4"/>
+<text x="298.9" y="109.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">to A</text>
+<text x="454.3" y="507.6" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">to P</text>
+<line x1="310.8" y1="300.0" x2="310.8" y2="150.8" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="440.3" y1="300.0" x2="440.3" y2="451.3" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="310.8" cy="150.8" r="3.5" fill="#4b5563"/>
+<circle cx="440.3" cy="451.3" r="3.5" fill="#4b5563"/>
+<circle cx="310.8" cy="300.0" r="3.0" fill="#6b7280"/>
+<circle cx="440.3" cy="300.0" r="3.0" fill="#6b7280"/>
+<text x="498.0" y="334.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">CP</tspan> · <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan> = − <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">CA</tspan> · <tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<path d="M331.1,202.0 A105.4,105.4 0 0 0 264.6,300.0" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="260.3" y="230.5" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">π − φ</text>
+<path d="M414.4,395.6 A105.4,105.4 0 0 0 475.4,300.0" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="484.6" y="378.2" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+<line x1="358.2" y1="304.7" x2="313.2" y2="191.5" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M310.8,185.4 L318.5,193.2 L310.5,196.4 Z" fill="#ec4899"/>
+<text x="302.8" y="181.4" fill="#ec4899" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">T <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">CA</tspan></text>
+<line x1="381.6" y1="294.6" x2="435.0" y2="409.7" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M437.8,415.7 L429.6,408.3 L437.4,404.7 Z" fill="#ec4899"/>
+<text x="445.8" y="421.7" fill="#ec4899" font-size="16" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">T <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">CP</tspan></text>
+<line x1="370.0" y1="300.0" x2="321.3" y2="290.6" stroke="#ec4899" stroke-width="2.8"/>
+<path d="M314.8,289.4 L325.5,287.1 L323.9,295.5 Z" fill="#ec4899"/>
+<text x="308.8" y="319.4" fill="#ec4899" font-size="16" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">N</tspan><tspan baseline-shift="sub" font-size="70%">b</tspan> (×5) = −T(<tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">CA</tspan> + <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">CP</tspan>)</text>
+<circle cx="370.0" cy="300.0" r="4.5" fill="#4b5563"/>
+<text x="380.0" y="290.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<line x1="89.5" y1="478.5" x2="167.9" y2="478.5" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M174.5,478.5 L164.4,482.8 L164.4,474.2 Z" fill="#3b82f6"/>
+<text x="178.5" y="500.5" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="89.5" y1="478.5" x2="128.0" y2="456.3" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M133.7,453.0 L127.0,461.8 L122.8,454.4 Z" fill="#3b82f6"/>
+<text x="147.7" y="451.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="89.5" y1="478.5" x2="89.5" y2="400.1" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M89.5,393.5 L93.8,403.6 L85.2,403.6 Z" fill="#3b82f6"/>
+<text x="73.5" y="397.5" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan><tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="47.0" y="529.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">oblique view of the bar frame (y₁ drawn at half scale)</text>
+</g></svg>
