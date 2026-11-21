@@ -98,6 +98,19 @@
    },
    "figures": "bm_t3"
   },
+  "subjects/business-management/teoria/topic-3-investment.html": {
+   "note": "vault/05 - Business Management/Topic 3 (II) - Financial Management II - Accounting Indicators and Investment Decisions.md",
+   "html_title": "Topic 3 (II): Financial Management (II) — Accounting Indicators and Investment Decisions | Business Management",
+   "category": "Topic 03 (II) · Financial Management (II)",
+   "title": "Financial Management (II): Accounting Indicators and Investment Decisions",
+   "subtitle": "Return on assets and return on equity, their decomposition, financial leverage, the time value of money, payback, net present value, internal rate of return and the Fisher rate.",
+   "source": "Universidad Carlos III de Madrid · Topic 3_Financial Management (II).pdf (Prof. Carmen Paz-Aparicio), Slides 1-33",
+   "problems": {
+    "href": "../problemas/topic-3-npv-irr.html",
+    "label": "Solved exercises for this topic (investment selection, NPV and IRR, problems 1-9)"
+   },
+   "figures": "bm_t3ii"
+  },
   "subjects/business-management/teoria/topic-4.html": {
    "note": "vault/05 - Business Management/Topic 4 - The Production Function.md",
    "html_title": "Topic 4: The Production Function | Business Management",

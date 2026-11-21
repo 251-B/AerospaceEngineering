@@ -277,6 +277,11 @@
    "label": "Topic 3 Financial Management (I).pdf",
    "pages": 37
   },
+  "bm-t3ii": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic 3_Financial Management (II).pdf",
+   "label": "Topic 3 Financial Management (II).pdf",
+   "pages": 33
+  },
   "bm-t3ex": {
    "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial Statements_EXERCISES.pdf",
    "label": "T3_Financial Statements_EXERCISES.pdf",
@@ -1568,6 +1573,21 @@
    ],
    "cite": {
     "slides": "bm-t3"
+   }
+  },
+  "subjects/business-management/teoria/topic-3-investment.html": {
+   "panel": [
+    [
+     "bm-t3ii",
+     1
+    ],
+    [
+     "bm-npv",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t3ii"
    }
   },
   "subjects/business-management/teoria/topic-4.html": {

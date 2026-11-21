@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-21-business-topic-3-ii-theory",
+    "date": "2026-11-21",
+    "tag": "Business Management",
+    "title": "Topic 3 (II) theory: ROA, ROE, NPV and IRR",
+    "text": "New theory page for Financial Management (II): return on assets and equity, financial leverage, payback, net present value, IRR and the Fisher rate.",
+    "link": "subjects/business-management/teoria/topic-3-investment.html"
+  },
+  {
     "id": "2026-11-21-business-midterm-2-full-bank",
     "date": "2026-11-21",
     "tag": "Business Management",

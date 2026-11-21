@@ -482,6 +482,10 @@ window.AE_NAV = {
               "label": "3 · Financial management (I)"
             },
             {
+              "href": "subjects/business-management/teoria/topic-3-investment.html",
+              "label": "3 · Financial management (II)"
+            },
+            {
               "href": "subjects/business-management/teoria/topic-4.html",
               "label": "4 · The production function"
             },

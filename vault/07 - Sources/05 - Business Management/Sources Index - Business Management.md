@@ -10,8 +10,8 @@ tags:
 
 ## Coverage
 
-- Files: 33
-- Referenced by at least one note (a mention counts): 21
+- Files: 35
+- Referenced by at least one note (a mention counts): 23
 - Not referenced yet: 12
 - Build artifacts: 0
 - Working files: 0
@@ -30,6 +30,12 @@ tags:
 | [[Source - 05-business-management - business-plan - teoria - BUSINESS PLAN_guide_26_27 (pdf)\|BUSINESS PLAN_guide_26_27.pdf]] | teoria | not-referenced |
 | [[Source - 05-business-management - business-plan - teoria - Engineers  Managing_Business Plan_26-27 W1 (pdf)\|Engineers  Managing_Business Plan_26-27 W1.pdf]] | teoria | not-referenced |
 | [[Source - 05-business-management - business-plan - teoria - how-to-write-a-business-plan (pdf)\|how-to-write-a-business-plan.pdf]] | teoria | not-referenced |
+
+## examenes
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 05-business-management - examenes - BUSINESS_SECONDPARTIAL_2026_EXAMPLES_SOL (pdf)\|BUSINESS_SECONDPARTIAL_2026_EXAMPLES_SOL.pdf]] | examenes | referenced |
 
 ## unit-01-the-firm-types-objectives/problemas
 
@@ -75,6 +81,7 @@ tags:
 | [[Source - 05-business-management - unit-03-financial-management-statements - teoria - notebooklm-financial-accounting-videos (md)\|notebooklm-financial-accounting-videos.md]] | teoria | not-referenced |
 | [[Source - 05-business-management - unit-03-financial-management-statements - teoria - The_3_Financial_Statements_EN (pdf)\|The_3_Financial_Statements_EN.pdf]] | teoria | not-referenced |
 | [[Source - 05-business-management - unit-03-financial-management-statements - teoria - Topic 3_Financial Management (I) (pdf)\|Topic 3_Financial Management (I).pdf]] | teoria | referenced |
+| [[Source - 05-business-management - unit-03-financial-management-statements - teoria - Topic 3_Financial Management (II) (pdf)\|Topic 3_Financial Management (II).pdf]] | teoria | referenced |
 
 ## unit-03-financial-management-statements/videos
 

@@ -75,6 +75,7 @@ tags:
 ---
 
 #### 📈 Topic 3 (II): Investment Selection
+* **Topic Note:** [[05 - Business Management/Topic 3 (II) - Financial Management II - Accounting Indicators and Investment Decisions|Topic 3 (II): Financial Management (II) — ROA, ROE, financial leverage, payback, NPV and IRR]]
 * **Solved problems:** [[05 - Business Management/Problem Set - T3 Investment Selection NPV and IRR|Problem Set: capitalization, payback, NPV, IRR and the Fisher rate (9 problems)]]
 
 ---

@@ -19,7 +19,7 @@ bytes: 467053
 - **Path:** `sources/cuatrimestre-1/05-business-management/examenes/BUSINESS_SECONDPARTIAL_2026_EXAMPLES_SOL.pdf`
 - **Kind:** examenes
 - **Size:** 467.1 kB
-- **Status:** referenced by 15 note(s) below
+- **Status:** referenced by 38 note(s) below
 
 ## Referenced by
 
@@ -29,12 +29,35 @@ bytes: 467053
 - [[05 - Business Management/Problem Bank/Problem - Bank M03 - VectraSky Survey Drones Marketing Strategy]]
 - [[05 - Business Management/Problem Bank/Problem - Bank M04 - Altair MRO Digital Maintenance Platform]]
 - [[05 - Business Management/Problem Bank/Problem - Bank M05 - Celeris Reusable Launcher Against an Expendable Incumbent]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M06 - Corvus Flight Simulators Payback against NPV under a Budget]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M07 - Boreal Hydrogen Aviation Two IRRs below the Cost of Capital]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M08 - Orbis Sensors Cost Structure from Two Months]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M09 - Tessera Brackets Robotic or Manual Cell]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M10 - Nimbo Pocket Drones Segments Retail and Promotion Mix]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M11 - Altamira Cabin Systems Range Pricing and Exclusive Distributors]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M12 - Kestrel Drones Outgrows Its Simple Structure]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M13 - Orbis Aerostructures Quality and Training Programme]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M14 - Voltaris Hybrid-Electric Regional Aircraft]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M15 - Aurelia Standard Small-Satellite Bus]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank B01 - Unit 3 NPV IRR Payback and Cost of Capital]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank B02 - Unit 4 Break-Even Point Leverage and Production]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank B05 - Unit 7 Sources of Innovation and Design Dominance]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank B06 - Unit 3 Two-Year IRR Fisher Rate and Decision Intervals]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank B07 - Unit 4 Objectives Layouts Planning and Cost Analysis]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank B10 - Unit 7 Classifying Aerospace Innovations and Reading Adoption]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank F01 - Unit 3 Investment Selection Criteria]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank F02 - Unit 4 Production Systems Costs and Leverage]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank F03 - Unit 5 Marketing Concepts Mix and Elasticity]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank F04 - Unit 6 Decisions Structures and Control]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank F05 - Unit 7 Innovation Types and Technology Cycles]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F06 - Unit 3 Cash-Flow Profiles Timing and Payback]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F07 - Unit 3 Ranking Conflicts Fisher Rate and WACC]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F08 - Unit 4 Production Systems Layouts and Planning]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F09 - Unit 4 Efficiency Break-Even Point and Leverage]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F10 - Unit 5 Marketing Orientation Segmentation and Positioning]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F11 - Unit 5 Product Price Place and Promotion Decisions]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F12 - Unit 6 Decisions Levels Roles and Planning]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F13 - Unit 6 Organizing People and Control]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F14 - Unit 7 Sources of Innovation and Creativity]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F15 - Unit 7 Trajectories Diffusion and Learning Effects]]
 - [[05 - Business Management/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]

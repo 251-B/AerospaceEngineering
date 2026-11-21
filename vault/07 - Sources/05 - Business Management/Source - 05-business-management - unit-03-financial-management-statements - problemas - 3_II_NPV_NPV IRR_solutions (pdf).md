@@ -19,7 +19,7 @@ bytes: 216977
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV_NPV IRR_solutions.pdf`
 - **Kind:** problemas
 - **Size:** 217.0 kB
-- **Status:** referenced by 14 note(s) below
+- **Status:** referenced by 19 note(s) below
 
 ## Referenced by
 
@@ -33,7 +33,12 @@ bytes: 216977
 - [[05 - Business Management/Problem - T3 NPV 8 - Gofres IRR Against the Cost of Capital]]
 - [[05 - Business Management/Problem - T3 NPV 9 - Osopanda Payback, IRR and Fisher Rate]]
 - [[05 - Business Management/Problem Bank/Problem - Bank M01 - Aldebaran Space Systems IRR Ranking against NPV]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M06 - Corvus Flight Simulators Payback against NPV under a Budget]]
+- [[05 - Business Management/Problem Bank/Problem - Bank M07 - Boreal Hydrogen Aviation Two IRRs below the Cost of Capital]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank B01 - Unit 3 NPV IRR Payback and Cost of Capital]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank B06 - Unit 3 Two-Year IRR Fisher Rate and Decision Intervals]]
 - [[05 - Business Management/Problem Bank/Quiz - Bank F01 - Unit 3 Investment Selection Criteria]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F06 - Unit 3 Cash-Flow Profiles Timing and Payback]]
+- [[05 - Business Management/Problem Bank/Quiz - Bank F07 - Unit 3 Ranking Conflicts Fisher Rate and WACC]]
 - [[05 - Business Management/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
 - [[05 - Business Management/Problem Set - T3 Investment Selection NPV and IRR]]
