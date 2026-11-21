@@ -45,6 +45,24 @@ This note follows `Notes.pdf` Chapter 1 (Getting started, Eqs. 1.1 to 1.79: mech
 | $\mathbf e_\omega$, $\boldsymbol\omega$ | unit vector of the rotation axis and angular velocity vector |
 | $[\Omega]$ | angular velocity matrix (antisymmetric) |
 | $\nabla f$, $\nabla\cdot\mathbf A$, $\nabla\times\mathbf A$ | gradient, divergence and curl |
+| $S_0 : \{O;\mathcal B_0\}$, $S_1 : \{O_1;\mathcal B_1\}$ | reference frames: an origin and an orthonormal right-handed basis; $S_0$ is also written $Oxyz$ (the notes call the origin of $S_1$ $A$) |
+| $\boldsymbol\omega_{10}$ | angular velocity of $\mathcal B_1$ (of $S_1$) with respect to $S_0$ |
+| $\left.\dfrac{d\mathbf b}{dt}\right\rvert_0$ | time derivative of the vector $\mathbf b$ taken in $S_0$, as seen by its observer |
+| $\mathbf r_0^P$, $\mathbf v_0^P$, $\mathbf a_0^P$ | position, velocity and acceleration of the point particle $P$ with respect to $S_0$ |
+| $x, y, z$ | Cartesian coordinates of $P$ in $S_0$ |
+| $v = \lvert\mathbf v_0^P\rvert$ | speed (celerity) |
+| $s$, $\dot s$ | arc length coordinate along the trajectory, and its rate |
+| $\mathbf e_t$, $\mathbf e_n$, $\mathbf e_b$; $\mathcal B_F(P)$, $S_F(P)$ | tangent, normal and binormal unit vectors; intrinsic basis and intrinsic (Frenet-Serret) reference frame at $P$ |
+| $C$, $\rho$, $\kappa = 1/\rho$, $\tau$ | centre and radius of the osculating circle (centre and radius of curvature), curvature and torsion of the trajectory |
+| $a_t$, $a_n$ | tangential and normal components of the acceleration |
+| $\theta_t$ | angle turned by the tangent $\mathbf e_t$; for a planar trajectory, the angle of $\mathbf e_t$ from $Ox$ (the notes write $\theta$) |
+| $\mathcal C : \{q_1,q_2,q_3\}$; $\mathbf u_{q_i} = \partial\mathbf r_0^P/\partial q_i$; $\mathcal B_{\mathcal C}(P) : \{\mathbf e_{q_1},\mathbf e_{q_2},\mathbf e_{q_3}\}$, $S_{\mathcal C}$ | coordinate system; coordinate vectors; local unit basis and local reference frame at $P$ (the notes write $C$ for the coordinate system) |
+| $R, \theta, z$; $\mathcal B_{\mathrm{cyl}} : \{\mathbf e_R,\mathbf e_\theta,\mathbf e_z\}$ | cylindrical coordinates (distance to $Oz$, azimuth, height) and their local basis (the slides write $\mathcal B_C$); the radius $R$ never carries brackets, a matrix always does |
+| $r, \theta, \phi$; $\mathcal B_{\mathrm{sph}} : \{\mathbf e_r,\mathbf e_\theta,\mathbf e_\phi\}$ | spherical coordinates (distance to $O$, azimuth, latitude measured from the plane $Oxy$) and their local basis (the slides write $\mathcal B_S$); the scalar field $\phi$ of Section 8 is unrelated |
+| $\varphi = \pi/2 - \phi$ | colatitude, measured from $Oz$ ([Lecture 1, Slide 20]) |
+| $[{}_0R_{\mathrm{cyl}}]$, $[{}_0R_{\mathrm{sph}}]$, $[{}_{\mathrm{cyl}}R_{\mathrm{sph}}]$ | change of basis matrices between the local bases and $\mathcal B_0$ |
+| $\boldsymbol\omega_{\mathrm{cyl}}$, $\boldsymbol\omega_{\mathrm{sph}}$ | angular velocities of the local bases with respect to $\mathcal B_0$ |
+| $q_i$, $n$ | generalized coordinates and number of configuration degrees of freedom |
 
 ## 1. Mechanical modelling and physical quantities
 
@@ -1368,3 +1386,1069 @@ Helmholtz's theorem states that a twice continuously differentiable vector field
 | Helmholtz decomposition (Eq. 1.79) | Consequence |
 | :--- | :--- |
 | $\mathbf A = \nabla\phi + \nabla\times\mathbf B$ | solenoidal: $\mathbf A = \nabla\times\mathbf B$; irrotational: $\mathbf A = \nabla\phi$ |
+
+## 9. Reference frames
+
+Kinematics describes the motion of bodies without considering the forces that cause it: it expresses positions, velocities and accelerations as functions of useful variables, or coordinates, relates them in different reference frames and identifies the constraints of the system. Solving the kinematics is always the first step of a problem in mechanics (Notes.pdf, Ch. 2). From here on the note follows Chapter 2 of the notes and [Lecture 1, Slides 8-28]. See also [[Concept - Cartesian Cylindrical and Spherical Coordinate Systems]], [[Concept - Intrinsic Frenet-Serret Frame and Intrinsic Acceleration]] and [[Concept - Degrees of Freedom Generalized Coordinates and Constraints]].
+
+The motion of an object can only be described relative to something else: other bodies, or a set of space-time coordinates. The description of motion only makes sense relative to a reference frame, which represents an observer, a virtual person located in space with a certain orientation and a certain state of linear motion and rotation (Notes.pdf, Sec. 2.1; [Lecture 1, Slide 8]). For all practical purposes a reference frame is the combination of a point, the origin, and an orthonormal right-handed vector basis:
+
+| Element | Role ([Lecture 1, Slide 8]) |
+| :--- | :--- |
+| $S_0 : \{O;\mathcal B_0\}$, also written $Oxyz$ (Eq. 2.1) | the reference frame |
+| origin $O$ | the point from which the observer measures the position of every other point of space |
+| basis $\mathcal B_0 : \{\mathbf i,\mathbf j,\mathbf k\}$ | the orientation (attitude) of the observer in space and its rotation |
+| axes $Ox$, $Oy$, $Oz$ and planes $Oxy$, $Oxz$, $Oyz$ | defined naturally by $O$ and the directions of $\mathcal B_0$ |
+
+When there is more than one frame, subindices remove the ambiguity. For a second frame $S_1 : \{O_1;\mathcal B_1\}$, the linear motion of the observer mounted on $S_1$ is the evolution in time of the position of $O_1$ as seen from $S_0$, and its rotation is the evolution in time of the vectors of $\mathcal B_1$ with respect to $\mathcal B_0$; both must be given to define $S_1$ fully with respect to $S_0$ (Notes.pdf, Sec. 2.1). It is sometimes useful to think of a frame as the whole Euclidean space moving with the observer. Frames are often attached to a rigid body (a rotating platform, the chassis of an aircraft, the Earth, the Sun): the observer moves with that body and has its rotation, and Chapter 9 identifies frames with rigid bodies. Frames of relativistic mechanics, where space-time is not absolute, are not covered (Notes.pdf, Sec. 2.1, footnote 9).
+
+![[attachments/EM-T/t1-reference-frames.svg]]
+
+### The observer matters: time derivatives in a frame
+
+The differential, and therefore the rate of change, of a vector depends on the frame it is observed from: an observer of $S_1$ sees the vectors of $\mathcal B_1$ fixed, while the observer of $S_0$ sees them turn. The frame in which a derivative is taken is written as a subindex on the derivative, and in general the derivatives of one vector in $S_0$ and in $S_1$ differ ([Lecture 1, Slide 10]). The vectors of $\mathcal B_0$ do not vary in $S_0$.
+
+> [!derivation] Derivative in S0 of a vector given in the basis of S0
+> **Law:** sum and product rules of differentiation; the vectors of $\mathcal B_0$ are constant for the observer of $S_0$
+> **Source:** [Lecture 1, Slide 10]; Notes.pdf, Eq. 1.64; Notes.pdf, Eq. 1.65
+>
+> $$\begin{aligned}
+> \mathbf b &= b_{x0}\,\mathbf i_0 + b_{y0}\,\mathbf j_0 + b_{z0}\,\mathbf k_0 \quad &\text{(components in $\mathcal B_0$, Eq. 1.6)} \\
+> \left.\frac{d\mathbf b}{dt}\right|_0 &= \frac{db_{x0}}{dt}\,\mathbf i_0 + b_{x0}\left.\frac{d\mathbf i_0}{dt}\right|_0 + \frac{db_{y0}}{dt}\,\mathbf j_0 + b_{y0}\left.\frac{d\mathbf j_0}{dt}\right|_0 + \frac{db_{z0}}{dt}\,\mathbf k_0 + b_{z0}\left.\frac{d\mathbf k_0}{dt}\right|_0 \quad &\text{(sum rule, Eq. 1.65, and product rule, Eq. 1.64, on each term)} \\
+> &= \frac{db_{x0}}{dt}\,\mathbf i_0 + \frac{db_{y0}}{dt}\,\mathbf j_0 + \frac{db_{z0}}{dt}\,\mathbf k_0 \quad &\text{(the derivatives of $\mathbf i_0$, $\mathbf j_0$, $\mathbf k_0$ in $S_0$ are $\mathbf 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\left.\frac{d\mathbf b}{dt}\right|_0 = \frac{db_{x0}}{dt}\,\mathbf i_0 + \frac{db_{y0}}{dt}\,\mathbf j_0 + \frac{db_{z0}}{dt}\,\mathbf k_0}$$
+>
+> **Units:** $[\mathbf b][\mathrm{T^{-1}}]$ in every term; the unit vectors are dimensionless
+> **Meaning:** in the basis of the observer the derivative of a vector is the vector of the derivatives of its components; the derivatives of the scalar components are the same for every observer, and only the derivatives of the unit vectors can differ.
+
+When the components of $\mathbf b$ are known in $\mathcal B_1$, the vectors $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ may rotate as seen from $S_0$ and their derivatives in $S_0$ must be kept ([Lecture 1, Slide 11]). Writing those derivatives with Eq. 1.62 gives the relation between the derivatives taken by the two observers; Chapter 3 of the notes (Topic 5) derives it in full and builds relative motion on it, and it is anticipated here because it explains why the frame subindex is never dropped when two frames are in use.
+
+> [!derivation] Derivative in S0 of a vector given in the basis of S1
+> **Law:** product rule; Eq. 1.62 for the unit vectors of a rotating basis; linearity of the cross product
+> **Source:** [Lecture 1, Slide 11]; Notes.pdf, Eq. 3.2; Notes.pdf, Eq. 3.6; Notes.pdf, Eq. 3.7; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 1.62
+>
+> $\mathcal B_1$ rotates with the angular velocity $\boldsymbol\omega_{10}$ with respect to $S_0$; its unit vectors have constant magnitude, so each one rotates with $\boldsymbol\omega_{10}$ as seen from $S_0$.
+>
+> $$\begin{aligned}
+> \mathbf b &= b_{x1}\,\mathbf i_1 + b_{y1}\,\mathbf j_1 + b_{z1}\,\mathbf k_1 \quad &\text{(the same vector, components in $\mathcal B_1$)} \\
+> \left.\frac{d\mathbf b}{dt}\right|_0 &= \frac{db_{x1}}{dt}\,\mathbf i_1 + \frac{db_{y1}}{dt}\,\mathbf j_1 + \frac{db_{z1}}{dt}\,\mathbf k_1 + b_{x1}\left.\frac{d\mathbf i_1}{dt}\right|_0 + b_{y1}\left.\frac{d\mathbf j_1}{dt}\right|_0 + b_{z1}\left.\frac{d\mathbf k_1}{dt}\right|_0 \quad &\text{(sum and product rules; the vectors of $\mathcal B_1$ are not constant in $S_0$, Eq. 3.2)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \boldsymbol\omega_{10}\times\mathbf i_1,\quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = \boldsymbol\omega_{10}\times\mathbf j_1,\quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \boldsymbol\omega_{10}\times\mathbf k_1 \quad &\text{(Eq. 1.62 for each unit vector, Eqs. 3.3 to 3.5)} \\
+> b_{x1}\left.\frac{d\mathbf i_1}{dt}\right|_0 + b_{y1}\left.\frac{d\mathbf j_1}{dt}\right|_0 + b_{z1}\left.\frac{d\mathbf k_1}{dt}\right|_0 &= b_{x1}\,\boldsymbol\omega_{10}\times\mathbf i_1 + b_{y1}\,\boldsymbol\omega_{10}\times\mathbf j_1 + b_{z1}\,\boldsymbol\omega_{10}\times\mathbf k_1 \quad &\text{(substitute the previous row)} \\
+> &= \boldsymbol\omega_{10}\times\left(b_{x1}\,\mathbf i_1 + b_{y1}\,\mathbf j_1 + b_{z1}\,\mathbf k_1\right) \quad &\text{(linearity of the cross product, Eq. 1.32)} \\
+> &= \boldsymbol\omega_{10}\times\mathbf b \quad &\text{(the first row, Eq. 3.6)} \\
+> \frac{db_{x1}}{dt}\,\mathbf i_1 + \frac{db_{y1}}{dt}\,\mathbf j_1 + \frac{db_{z1}}{dt}\,\mathbf k_1 &= \left.\frac{d\mathbf b}{dt}\right|_1 \quad &\text{(the box above written for $S_1$, whose vectors are constant for its own observer, Eq. 3.7)} \\
+> \left.\frac{d\mathbf b}{dt}\right|_0 &= \left.\frac{d\mathbf b}{dt}\right|_1 + \boldsymbol\omega_{10}\times\mathbf b \quad &\text{(substitute the last two results in the second row, Eq. 3.8)}
+> \end{aligned}$$
+>
+> $$\boxed{\left.\frac{d\mathbf b}{dt}\right|_0 = \left.\frac{d\mathbf b}{dt}\right|_1 + \boldsymbol\omega_{10}\times\mathbf b}$$
+>
+> **Units:** $[\mathbf b][\mathrm{T^{-1}}]$ in every term: $\boldsymbol\omega_{10}$ in $\mathrm{rad/s}$ times $[\mathbf b]$
+> **Meaning:** the two observers agree on the derivative of a vector only when $\mathcal B_1$ does not rotate with respect to $\mathcal B_0$; a translation of $O_1$ does not change the orientation of $\mathcal B_1$, so it plays no role. The notes call Eq. 3.8 Coriolis theorem; the derivatives of scalars are the same in every frame (Notes.pdf, Sec. 3.1).
+
+> [!warning] Weird hybrids
+> The derivative in $S_1$ of the position vector measured from $S_0$ is a legitimate vector, but it is neither the velocity with respect to $S_0$ nor the velocity with respect to $S_1$: a velocity always pairs the position with respect to a frame with the derivative taken in that same frame ([Lecture 1, Slide 13]).
+
+## 10. Position, velocity and acceleration
+
+Once a reference frame $S_0 : \{O;\mathcal B_0\}$ is defined, vector calculus describes the kinematics of point particles (Notes.pdf, Sec. 2.2). The nomenclature carries the whole meaning of a kinematic vector ([Lecture 1, Slide 12]):
+
+| Part of $\mathbf r_0^P$ | Meaning |
+| :--- | :--- |
+| bold $\mathbf r$ (an arrow or a bar over the symbol in handwriting) | a vector; the letter $r$ is kept for positions |
+| superindex $P$ | the point or particle we refer to |
+| subindex $0$ | the reference frame with respect to whose origin the vector is measured; sub- and superindex are dropped only when there is no ambiguity |
+
+The position vectors of one point with respect to $S_0$ and to $S_1$ differ if the origins differ, and the velocities and accelerations with respect to $S_0$ and to $S_1$ differ if the origins translate or the frames rotate with respect to each other ([Lecture 1, Slides 12-13]). When $P$ moves with respect to $S_0$, its position vector is a function of time whose magnitude, direction or both change.
+
+![[attachments/EM-T/t1-position-velocity.svg]]
+
+> [!derivation] Velocity of a point particle with respect to S0
+> **Law:** definition of velocity as the rate of change of the position, taken by the observer of $S_0$
+> **Source:** Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.3; Notes.pdf Fig. 2.1; [Lecture 1, Slide 13]
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \overrightarrow{OP} \quad &\text{(position vector of $P$ in $S_0$, Eq. 2.2)} \\
+> \Delta\mathbf r_0^P &= \mathbf r_0^P(t+\Delta t) - \mathbf r_0^P(t) \quad &\text{(displacement between two consecutive instants, Fig. 2.1)} \\
+> \mathbf v_0^P &= \lim_{\Delta t\to 0}\frac{(\mathbf r_0^P + \Delta\mathbf r_0^P) - \mathbf r_0^P}{\Delta t} \quad &\text{(definition of velocity, Eq. 2.3)} \\
+> &= \lim_{\Delta t\to 0}\frac{\Delta\mathbf r_0^P}{\Delta t} \quad &\text{(the two $\mathbf r_0^P$ cancel)} \\
+> &= \left.\frac{d\mathbf r_0^P}{dt}\right|_0 \quad &\text{(definition of the derivative, Eq. 1.51, taken in $S_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \lim_{\Delta t\to 0}\frac{\Delta\mathbf r_0^P}{\Delta t} = \left.\frac{d\mathbf r_0^P}{dt}\right|_0}$$
+>
+> **Units:** $[\mathrm{L}]/[\mathrm{T}] = [\mathrm{L\,T^{-1}}]$, $\mathrm{m/s}$
+> **Meaning:** as $\Delta t$ shrinks, the chord $\Delta\mathbf r_0^P$ turns into the tangent to the trajectory, so the velocity always points along the differential of the position, tangent to the path ([Lecture 1, Slide 14]). Its magnitude is the speed or celerity; calling the velocity vector just "speed" is incorrect.
+
+> [!derivation] Acceleration of a point particle with respect to S0
+> **Law:** definition of acceleration as the rate of change of the velocity, taken by the observer of $S_0$
+> **Source:** Notes.pdf, Eq. 2.4; [Lecture 1, Slide 13]
+>
+> $$\begin{aligned}
+> \Delta\mathbf v_0^P &= \mathbf v_0^P(t+\Delta t) - \mathbf v_0^P(t) \quad &\text{(change of the velocity between two instants)} \\
+> \mathbf a_0^P &= \lim_{\Delta t\to 0}\frac{(\mathbf v_0^P + \Delta\mathbf v_0^P) - \mathbf v_0^P}{\Delta t} \quad &\text{(definition of acceleration, Eq. 2.4)} \\
+> &= \lim_{\Delta t\to 0}\frac{\Delta\mathbf v_0^P}{\Delta t} \quad &\text{(the two $\mathbf v_0^P$ cancel)} \\
+> &= \left.\frac{d\mathbf v_0^P}{dt}\right|_0 \quad &\text{(definition of the derivative, taken in $S_0$)} \\
+> &= \left.\frac{d^2\mathbf r_0^P}{dt^2}\right|_0 \quad &\text{(substitute the velocity of the box above)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \left.\frac{d\mathbf v_0^P}{dt}\right|_0 = \left.\frac{d^2\mathbf r_0^P}{dt^2}\right|_0}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]/[\mathrm{T}] = [\mathrm{L\,T^{-2}}]$, $\mathrm{m/s^2}$
+> **Meaning:** the acceleration, like the velocity, can come from a change of magnitude, of direction or both. Higher derivatives exist but have little interest in mechanics, because Newton's laws involve only the second derivative (Notes.pdf, Sec. 2.2, footnote 11).
+
+> [!derivation] Position, velocity and acceleration in Cartesian components
+> **Law:** components in $\mathcal B_0$; derivative in $S_0$ of a vector given in $\mathcal B_0$
+> **Source:** Notes.pdf, Eq. 2.5; Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.7; [Lecture 1, Slide 16]
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= x\,\mathbf i + y\,\mathbf j + z\,\mathbf k \quad &\text{(the Cartesian coordinates are the components of $\mathbf r_0^P$ in $\mathcal B_0$, Eq. 2.5)} \\
+> \mathbf v_0^P &= \left.\frac{d\mathbf r_0^P}{dt}\right|_0 \quad &\text{(Eq. 2.3)} \\
+> &= \dot x\,\mathbf i + \dot y\,\mathbf j + \dot z\,\mathbf k \quad &\text{(Section 9, first box: $\mathbf i$, $\mathbf j$, $\mathbf k$ do not change in $S_0$; Eq. 2.6)} \\
+> \mathbf a_0^P &= \left.\frac{d\mathbf v_0^P}{dt}\right|_0 \quad &\text{(Eq. 2.4)} \\
+> &= \ddot x\,\mathbf i + \ddot y\,\mathbf j + \ddot z\,\mathbf k \quad &\text{(the same rule applied to the components $\dot x$, $\dot y$, $\dot z$; Eq. 2.7)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = x\,\mathbf i + y\,\mathbf j + z\,\mathbf k,\qquad \mathbf v_0^P = \dot x\,\mathbf i + \dot y\,\mathbf j + \dot z\,\mathbf k,\qquad \mathbf a_0^P = \ddot x\,\mathbf i + \ddot y\,\mathbf j + \ddot z\,\mathbf k}$$
+>
+> **Units:** $\mathrm m$, $\mathrm{m/s}$ and $\mathrm{m/s^2}$ for every component of the three vectors
+> **Meaning:** in Cartesian coordinates, and only in them, the coordinates equal the components of the position vector in the associated basis, so differentiating the vectors is differentiating the three coordinates ([Lecture 1, Slide 16]).
+
+> [!derivation] Velocity and acceleration do not depend on the origin
+> **Law:** head-to-tail sum of vectors; sum rule of differentiation; points fixed in $S_0$ have zero velocity in $S_0$
+> **Source:** Notes.pdf, Sec. 2.2; Notes.pdf, Eq. 1.65; Notes.pdf, Eq. 2.3
+>
+> Let $O'$ be another point at rest in $S_0$, used as origin instead of $O$.
+>
+> $$\begin{aligned}
+> \overrightarrow{O'P} &= \overrightarrow{O'O} + \overrightarrow{OP} \quad &\text{(head-to-tail sum)} \\
+> &= \mathbf r_0^P - \overrightarrow{OO'} \quad &\text{(Eq. 2.2; reversing a vector changes its sign)} \\
+> \left.\frac{d\overrightarrow{O'P}}{dt}\right|_0 &= \left.\frac{d\mathbf r_0^P}{dt}\right|_0 - \left.\frac{d\overrightarrow{OO'}}{dt}\right|_0 \quad &\text{(sum rule, Eq. 1.65)} \\
+> &= \mathbf v_0^P - \mathbf 0 \quad &\text{(Eq. 2.3; $O$ and $O'$ are both at rest in $S_0$, so $\overrightarrow{OO'}$ is constant there)} \\
+> \left.\frac{d^2\overrightarrow{O'P}}{dt^2}\right|_0 &= \left.\frac{d\mathbf v_0^P}{dt}\right|_0 \quad &\text{(differentiate the previous row once more)} \\
+> &= \mathbf a_0^P \quad &\text{(Eq. 2.4)}
+> \end{aligned}$$
+>
+> $$\boxed{\left.\frac{d\overrightarrow{O'P}}{dt}\right|_0 = \mathbf v_0^P,\qquad \left.\frac{d^2\overrightarrow{O'P}}{dt^2}\right|_0 = \mathbf a_0^P}$$
+>
+> **Units:** $\mathrm{m/s}$ and $\mathrm{m/s^2}$
+> **Meaning:** the value of the position vector depends on the point chosen as origin, but the velocity and the acceleration depend only on the frame (the observer), not on which of its fixed points is the origin (Notes.pdf, Sec. 2.2).
+
+Over time the velocity may change in magnitude, which goes with an acceleration parallel to the velocity, or in direction, which goes with an acceleration perpendicular to it ([Lecture 1, Slide 14]). This is Eq. 1.63 applied to the velocity vector; Section 13 makes the two parts explicit with the intrinsic basis.
+
+## 11. Trajectory and arc length coordinate
+
+The curve traced by $P$ as seen from $S_0$ is its trajectory or path. The path coordinate, or arc length coordinate, $s$ measures the distance travelled by the particle along the trajectory from an origin chosen arbitrarily on it (Notes.pdf, Sec. 2.3, Fig. 2.1; [Lecture 1, Slide 24]). Knowing the shape of the trajectory and the time law is equivalent to solving the motion:
+
+| Object | What it gives |
+| :--- | :--- |
+| trajectory $\mathbf r_0^P = \mathbf r_0^P(s)$ | the geometric shape of the path, with each point labelled by its arc length |
+| time law $s = s(t)$ | where on the path the particle is at each instant |
+| motion $\mathbf r_0^P = \mathbf r_0^P(s(t))$ | the position at every instant, and from it $\mathbf v_0^P$, $\mathbf a_0^P$ and any other quantity of the motion |
+
+The trajectory is specific to the frame from which it is observed: another observer, in a different frame, perceives a different curve for the motion of the same particle (Notes.pdf, Sec. 2.3). Quantities that depend only on the shape of the trajectory, and not on how quickly $P$ moves along it, are called path variables: the unit vectors $\mathbf e_t$, $\mathbf e_n$, $\mathbf e_b$, the curvature $\kappa$, the radius of curvature $\rho$ and the torsion $\tau$ defined in the next section ([Lecture 1, Slide 24]).
+
+## 12. The intrinsic vector basis and reference frame
+
+![[attachments/EM-T/t1-trajectory-triad.svg]]
+
+> [!derivation] Tangent unit vector
+> **Law:** definition of the derivative with respect to the arc length; the chord tends to the arc
+> **Source:** Notes.pdf, Eq. 2.8; Notes.pdf, Eq. 2.9; [Lecture 1, Slide 25]
+>
+> $$\begin{aligned}
+> \Delta\mathbf r_0^P &= \mathbf r_0^P(s+\Delta s) - \mathbf r_0^P(s) \quad &\text{(chord between two points of the trajectory, Eq. 2.8)} \\
+> \frac{d\mathbf r_0^P}{ds} &= \lim_{\Delta s\to 0}\frac{\Delta\mathbf r_0^P}{\Delta s} \quad &\text{(definition of the derivative with respect to $s$)} \\
+> \left\lvert\frac{d\mathbf r_0^P}{ds}\right\rvert &= \lim_{\Delta s\to 0}\frac{\lvert\Delta\mathbf r_0^P\rvert}{\Delta s} \quad &\text{(the magnitude of the limit is the limit of the magnitudes)} \\
+> &= 1 \quad &\text{(as $\Delta s\to 0$ the chord tends to the arc, whose length is $\Delta s$ by the definition of $s$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_t \equiv \frac{d\mathbf r_0^P}{ds} = \lim_{\Delta s\to 0}\frac{\Delta\mathbf r_0^P}{\Delta s},\qquad \lvert\mathbf e_t\rvert = 1}$$
+>
+> **Units:** $[\mathrm L]/[\mathrm L]$, dimensionless
+> **Meaning:** the direction of the chord tends to the tangent to the curve, so $\mathbf e_t$ is the unit tangent vector, pointing in the sense in which $s$ grows; it changes from point to point, so it is a function of $s$.
+
+> [!derivation] The derivative of the tangent vector is normal to it
+> **Law:** $\mathbf e_t$ has unit magnitude; differentiation of a dot product
+> **Source:** Notes.pdf, Eq. 2.10; Notes.pdf, Eq. 1.66; Notes.pdf, Eq. 1.25
+>
+> $$\begin{aligned}
+> \mathbf e_t\cdot\mathbf e_t &= 1 \quad &\text{($\mathbf e_t$ is a unit vector at every $s$)} \\
+> \frac{d}{ds}\left(\mathbf e_t\cdot\mathbf e_t\right) &= \frac{d\mathbf e_t}{ds}\cdot\mathbf e_t + \mathbf e_t\cdot\frac{d\mathbf e_t}{ds} \quad &\text{(rule of Eq. 1.66, with $s$ as the variable)} \\
+> &= 2\,\frac{d\mathbf e_t}{ds}\cdot\mathbf e_t \quad &\text{(commutativity of the dot product, Eq. 1.25)} \\
+> \frac{d}{ds}(1) &= 0 \quad &\text{(derivative of a constant)} \\
+> 2\,\frac{d\mathbf e_t}{ds}\cdot\mathbf e_t &= 0 \quad &\text{(the derivatives of both sides of the first row are equal)}
+> \end{aligned}$$
+>
+> $$\boxed{2\,\frac{d\mathbf e_t}{ds}\cdot\mathbf e_t = 0}$$
+>
+> **Units:** $[\mathrm{L^{-1}}]$
+> **Meaning:** the vector $d\mathbf e_t/ds$ is always perpendicular to $\mathbf e_t$, the same property as for any unit vector in Section 6: in the limit, the small change of $\mathbf e_t$ between two neighbouring points is normal to it ([Lecture 1, Slide 25]).
+
+At each point the trajectory can be approximated locally by a circular arc, the osculating circle, of centre $C$ (the local centre of curvature) and radius $\rho$; the plane of $\mathbf e_t$ and of the normal vector defined next is the local osculating plane (Notes.pdf, Sec. 2.4, Fig. 2.2; [Lecture 1, Slide 26]).
+
+![[attachments/EM-T/t1-osculating-circle.svg]]
+
+> [!derivation] Normal unit vector, curvature and radius of curvature
+> **Law:** normalisation of the derivative of $\mathbf e_t$; geometry of the isosceles triangle of the two tangent vectors; arc of the osculating circle
+> **Source:** Notes.pdf, Eq. 2.11; Notes.pdf, Eq. 2.12; Notes.pdf Fig. 2.2; [Lecture 1, Slide 26]
+>
+> The tangents at $P(s)$ and $P(s+\Delta s)$ are perpendicular to the radii $CP(s)$ and $CP(s+\Delta s)$ of the osculating circle, so the angle between $\mathbf e_t(s)$ and $\mathbf e_t(s+\Delta s)$ equals the angle $\Delta\theta_t$ subtended by the arc at $C$ (the angle turned by the tangent; the notes write $\Delta\theta$) (two angles whose sides are perpendicular pair by pair). Drawn from a common origin, the two unit tangent vectors and $\Delta\mathbf e_t$ form an isosceles triangle with apex angle $\Delta\theta_t$ (detail of Fig. 2.2). Its height from the apex splits it into two right triangles of hypotenuse one, in which half of the base is the leg opposite to the half angle.
+>
+> $$\begin{aligned}
+> \mathbf e_n &= \frac{d\mathbf e_t}{ds}\bigg/\left\lvert\frac{d\mathbf e_t}{ds}\right\rvert \quad &\text{(definition: the derivative of $\mathbf e_t$, normal to it, normalised; Eq. 2.11)} \\
+> \lvert\Delta\mathbf e_t\rvert &= 2\cdot 1\cdot\sin\frac{\Delta\theta_t}{2} \quad &\text{(twice the leg opposite to $\Delta\theta_t/2$ in a right triangle of unit hypotenuse)} \\
+> &= \Delta\theta_t + O(\Delta\theta_t^3) \quad &\text{(Maclaurin series of the sine, Eq. 1.69)} \\
+> \Delta s &= \rho\,\Delta\theta_t \quad &\text{(arc of the osculating circle of radius $\rho$ that subtends $\Delta\theta_t$)} \\
+> \left\lvert\frac{d\mathbf e_t}{ds}\right\rvert &= \lim_{\Delta s\to 0}\frac{\lvert\Delta\mathbf e_t\rvert}{\Delta s} \quad &\text{(definition of the derivative; magnitude of a limit)} \\
+> &= \frac{d\theta_t}{ds} \quad &\text{(substitute $\lvert\Delta\mathbf e_t\rvert$; the cubic term vanishes in the limit)} \\
+> &= \frac{1}{\rho} \quad &\text{(substitute $\Delta s = \rho\,\Delta\theta_t$)} \\
+> &\equiv \kappa \quad &\text{(definition of the curvature, Eq. 2.12)} \\
+> \frac{d\mathbf e_t}{ds} &= \kappa\,\mathbf e_n \quad &\text{(magnitude times unit vector, from the first row)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{d\mathbf e_t}{ds} = \kappa\,\mathbf e_n,\qquad \left\lvert\frac{d\mathbf e_t}{ds}\right\rvert = \frac{d\theta_t}{ds} = \frac{1}{\rho} = \kappa}$$
+>
+> **Units:** $\kappa$ in $[\mathrm{L^{-1}}]$ ($\mathrm{m^{-1}}$), $\rho$ in $\mathrm m$; $\mathbf e_n$ dimensionless
+> **Meaning:** $\Delta\mathbf e_t$ points to the inside of the curve, so $\mathbf e_n$ always points towards the centre of the osculating circle $C$, at the distance $\rho$ from $P$. On a circular trajectory $\rho$ is constant and equal to its radius; in general $\rho$ and the osculating circle change with $s$. The magnitude of $d\mathbf e_t/ds$ is the inverse of the local radius of curvature (Notes.pdf, Sec. 2.4).
+
+> [!warning] Straight segments
+> On a straight trajectory, or a straight segment of one, the derivative of $\mathbf e_t$ vanishes and $\rho$ tends to infinity, so $\mathbf e_n$ and $\mathbf e_b$ are not defined; the intrinsic frame must then be redefined, choosing $\mathbf e_n$ along any direction perpendicular to $\mathbf e_t$ (Notes.pdf, Sec. 2.4, footnote 12; [Lecture 1, Slide 26]).
+
+The unit vector perpendicular to the osculating plane is the binormal vector; the three unit vectors form the intrinsic vector basis at $P$, and with $P$ as origin they define the intrinsic (Frenet-Serret) reference frame (Notes.pdf, Sec. 2.4; [Lecture 1, Slide 27]).
+
+| Definition | Equation |
+| :--- | :--- |
+| binormal vector $\mathbf e_b = \mathbf e_t\times\mathbf e_n$ | Sec. 2.4 |
+| intrinsic vector basis $\mathcal B_F(P) : \{\mathbf e_t,\mathbf e_n,\mathbf e_b\}$ | Eq. 2.13 |
+| intrinsic reference frame $S_F(P) : \{P;\mathcal B_F(P)\}$ | Eq. 2.14 |
+
+> [!derivation] The intrinsic basis is orthonormal and right-handed
+> **Law:** magnitude and direction of the cross product; cyclic property of the triple product
+> **Source:** Notes.pdf, Eq. 2.13; Notes.pdf, Eq. 1.30; Notes.pdf, Sec. 1.6.2; Notes.pdf, Eq. 1.33
+>
+> $$\begin{aligned}
+> \lvert\mathbf e_b\rvert &= \lvert\mathbf e_t\rvert\,\lvert\mathbf e_n\rvert\,\left\lvert\sin\frac{\pi}{2}\right\rvert \quad &\text{(Eq. 1.30; $\mathbf e_n$ is perpendicular to $\mathbf e_t$ by Eq. 2.10)} \\
+> &= 1\cdot 1\cdot 1 \quad &\text{(both factors are unit vectors)} \\
+> \mathbf e_b\cdot\mathbf e_t &= 0,\qquad \mathbf e_b\cdot\mathbf e_n = 0 \quad &\text{(a cross product is orthogonal to both of its factors, Sec. 1.6.2)} \\
+> [\mathbf e_t,\mathbf e_n,\mathbf e_b] &= [\mathbf e_b,\mathbf e_t,\mathbf e_n] \quad &\text{(cyclic permutation of the triple product, Eq. 1.33)} \\
+> &= \mathbf e_b\cdot(\mathbf e_t\times\mathbf e_n) \quad &\text{(definition of the triple product)} \\
+> &= \mathbf e_b\cdot\mathbf e_b \quad &\text{(definition of $\mathbf e_b$)} \\
+> &= 1 \quad &\text{(unit magnitude, first two rows)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathcal B_F(P) : \{\mathbf e_t,\mathbf e_n,\mathbf e_b\}\ \text{orthonormal},\qquad [\mathbf e_t,\mathbf e_n,\mathbf e_b] = +1\ \text{(right-handed)}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the triple product of the three unit vectors is the volume of a unit cube taken with the positive sign, so the vectors follow the right-hand rule in the order tangent, normal, binormal. They depend only on $\mathbf r_0^P(s)$, not on the time law $s(t)$: they are path variables, intrinsic to the trajectory (Notes.pdf, Sec. 2.4).
+
+The same differentiation applied to $\mathbf e_n$ and $\mathbf e_b$ gives the Frenet-Serret formulas. For a planar trajectory the notes read the result from Fig. 2.2; for a curve in space $d\mathbf e_n/ds$ gains a component along $\mathbf e_b$, whose magnitude, the torsion $\tau$, also has units of inverse length (Notes.pdf, Sec. 2.4; [Lecture 1, Slide 27]). Both follow from the definitions.
+
+> [!derivation] Frenet-Serret formulas
+> **Law:** differentiation of a cross product; orthogonality of the derivative of a unit vector; right-handed cyclic order of $\mathcal B_F(P)$
+> **Source:** Notes.pdf, Eq. 2.15; Notes.pdf, Eq. 1.67; Notes.pdf, Eq. 2.12; [Lecture 1, Slide 27]
+>
+> In the right-handed basis $\mathcal B_F(P)$ the products of its vectors follow the cyclic order: $\mathbf e_t\times\mathbf e_n = \mathbf e_b$, $\mathbf e_n\times\mathbf e_b = \mathbf e_t$, $\mathbf e_b\times\mathbf e_t = \mathbf e_n$, and the reversed products change sign (Eq. 1.31).
+>
+> $$\begin{aligned}
+> \frac{d\mathbf e_b}{ds} &= \frac{d\mathbf e_t}{ds}\times\mathbf e_n + \mathbf e_t\times\frac{d\mathbf e_n}{ds} \quad &\text{(derivative of $\mathbf e_t\times\mathbf e_n$, rule of Eq. 1.67)} \\
+> &= \kappa\,\mathbf e_n\times\mathbf e_n + \mathbf e_t\times\frac{d\mathbf e_n}{ds} \quad &\text{(Eq. 2.12)} \\
+> &= \mathbf e_t\times\frac{d\mathbf e_n}{ds} \quad &\text{($\mathbf e_n\times\mathbf e_n = \mathbf 0$)} \\
+> \frac{d\mathbf e_b}{ds}\cdot\mathbf e_t &= 0 \quad &\text{(a cross product is orthogonal to its factor $\mathbf e_t$)} \\
+> \frac{d\mathbf e_b}{ds}\cdot\mathbf e_b &= 0 \quad &\text{($\mathbf e_b$ is a unit vector: the steps of Eq. 2.10)} \\
+> \frac{d\mathbf e_b}{ds} &= -\tau\,\mathbf e_n \quad &\text{(the only direction left is $\mathbf e_n$; this row defines the torsion $\tau$, with the sign of the notes)} \\
+> \mathbf e_n &= \mathbf e_b\times\mathbf e_t \quad &\text{(cyclic order of the basis)} \\
+> \frac{d\mathbf e_n}{ds} &= \frac{d\mathbf e_b}{ds}\times\mathbf e_t + \mathbf e_b\times\frac{d\mathbf e_t}{ds} \quad &\text{(rule of Eq. 1.67)} \\
+> &= -\tau\,\mathbf e_n\times\mathbf e_t + \kappa\,\mathbf e_b\times\mathbf e_n \quad &\text{(substitute $d\mathbf e_b/ds$ and Eq. 2.12)} \\
+> &= -\tau\,(-\mathbf e_b) + \kappa\,(-\mathbf e_t) \quad &\text{($\mathbf e_n\times\mathbf e_t = -\mathbf e_b$ and $\mathbf e_b\times\mathbf e_n = -\mathbf e_t$, reversed cyclic products)} \\
+> &= -\kappa\,\mathbf e_t + \tau\,\mathbf e_b \quad &\text{(reorder)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{d\mathbf e_t}{ds} = \kappa\,\mathbf e_n,\qquad \frac{d\mathbf e_n}{ds} = -\kappa\,\mathbf e_t + \tau\,\mathbf e_b,\qquad \frac{d\mathbf e_b}{ds} = -\tau\,\mathbf e_n}$$
+>
+> **Units:** $[\mathrm{L^{-1}}]$ in every term: $\kappa$ and $\tau$ in $\mathrm{m^{-1}}$
+> **Meaning:** on a planar trajectory the osculating plane is the plane of the curve, so $\mathbf e_b$ is constant, $\tau$ is zero and the normal vector turns back along the tangent at the rate $\kappa$; on a curve in space the torsion measures how fast the osculating plane twists about the tangent.
+
+The trajectory is specific to the frame $S_0$, so the intrinsic basis and frame also depend on the frame of observation; a subindex $0$ would show it, but using these concepts in two frames at once is unusual, and the notes drop it for $s$, $\mathbf r_0^P(s)$ and the intrinsic vectors (Notes.pdf, Sec. 2.4).
+
+## 13. Velocity and acceleration in the intrinsic basis
+
+With a single frame $S_0$ the derivatives are taken in $S_0$ and the frame subindex of the derivative is dropped; the chain rule through the time law gives the components of the velocity and the acceleration in the intrinsic basis (Notes.pdf, Sec. 2.5; [Lecture 1, Slide 28]).
+
+> [!derivation] Velocity in the intrinsic basis
+> **Law:** definition of velocity; chain rule through the time law
+> **Source:** Notes.pdf, Eq. 2.16; Notes.pdf, Eq. 2.9; [Lecture 1, Slide 28]
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \frac{d\mathbf r_0^P}{dt} \quad &\text{(Eq. 2.3, single frame)} \\
+> &= \frac{d\mathbf r_0^P}{ds}\,\frac{ds}{dt} \quad &\text{(chain rule: $\mathbf r_0^P = \mathbf r_0^P(s(t))$)} \\
+> &= \dot s\,\mathbf e_t \quad &\text{(Eq. 2.9)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \dot s\,\mathbf e_t,\qquad \dot s \equiv v}$$
+>
+> **Units:** $[\mathrm{L\,T^{-1}}]$: $\dot s$ in $\mathrm{m/s}$ times a dimensionless unit vector
+> **Meaning:** the velocity is always tangent to the path and has no normal or binormal component; $\dot s$ is the speed at which the trajectory is travelled (its magnitude when $s$ decreases), while $\mathbf e_t$ depends only on the shape of the trajectory, not on how fast it is travelled.
+
+> [!derivation] Acceleration in the intrinsic basis
+> **Law:** definition of acceleration; product rule; chain rule for $\mathbf e_t(s(t))$; Eq. 2.12
+> **Source:** Notes.pdf, Eq. 2.17; Notes.pdf, Eq. 2.18; Notes.pdf, Eq. 2.12; [Lecture 1, Slide 28]
+>
+> $$\begin{aligned}
+> \mathbf a_0^P &= \frac{d}{dt}\left(\dot s\,\mathbf e_t\right) \quad &\text{(Eq. 2.4 applied to Eq. 2.16)} \\
+> &= \ddot s\,\mathbf e_t + \dot s\,\frac{d\mathbf e_t}{dt} \quad &\text{(product rule, Eq. 1.64)} \\
+> \frac{d\mathbf e_t}{dt} &= \frac{d\mathbf e_t}{ds}\,\frac{ds}{dt} \quad &\text{(chain rule: $\mathbf e_t = \mathbf e_t(s(t))$)} \\
+> &= \kappa\,\dot s\,\mathbf e_n \quad &\text{(Eq. 2.12)} \\
+> \mathbf a_0^P &= \ddot s\,\mathbf e_t + \dot s\,\kappa\,\dot s\,\mathbf e_n \quad &\text{(substitute in the second row)} \\
+> &= \ddot s\,\mathbf e_t + \frac{\dot s^2}{\rho}\,\mathbf e_n \quad &\text{($\kappa = 1/\rho$, Eq. 2.12)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \ddot s\,\mathbf e_t + \frac{\dot s^2}{\rho}\,\mathbf e_n,\qquad a_t = \ddot s,\qquad a_n = \frac{\dot s^2}{\rho} \equiv \frac{v^2}{\rho}}$$
+>
+> **Units:** $a_t$: $[\mathrm{L\,T^{-2}}]$; $a_n$: $[\mathrm{L\,T^{-1}}]^2/[\mathrm L] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the tangential acceleration comes from the change of the speed and the normal acceleration from the turning of $\mathbf e_t$, the change of direction of the velocity; $a_n$ is never negative, so the normal part always points towards the centre of curvature.
+
+The two results reveal the structure of the motion along its path (Notes.pdf, Sec. 2.5; [Lecture 1, Slide 28]):
+
+- The velocity is always tangent to the path: its normal and binormal components are always zero.
+- The acceleration can have a tangential and a normal component, but never a binormal one.
+- The velocity and the acceleration always lie in the osculating plane of $\mathbf e_t$ and $\mathbf e_n$.
+- The osculating plane is constant only if the path is planar; otherwise it twists around the tangent as the particle moves, because of the torsion.
+- The tangential component $a_t$ is related to changes of the speed: if it is zero, the speed is constant.
+- The normal component $a_n$ is related to changes of the direction of the velocity: if it is zero, the direction of travel is constant.
+- Both components are non-zero unless the speed is constant (then $a_t$ vanishes), the path is straight (then $\rho$ tends to infinity and $a_n$ vanishes) or the particle is momentarily at rest (then $a_n$ vanishes).
+
+### Planar problems in path variables
+
+In planar problems the data are sometimes conditions on the velocity, the acceleration, its tangential or normal component, or the radius of curvature, and the task is to obtain the trajectory and the time law, that is, to solve the motion. With the trajectory in the plane $Oxy$, its Cartesian components follow by integration once the angle $\theta_t$ that the tangent forms with $Ox$ is known as a function of $s$ (Notes.pdf, Sec. 2.5.1, Fig. 2.3).
+
+![[attachments/EM-T/t1-path-angle.svg]]
+
+> [!derivation] Differentials of the coordinates in terms of the arc length
+> **Law:** the unit tangent at the angle $\theta_t$ from $Ox$; $d\mathbf r_0^P$ along $\mathbf e_t$ with length $ds$
+> **Source:** Notes.pdf, Eq. 2.19; Notes.pdf, Eq. 2.9; Notes.pdf Fig. 2.3; Notes.pdf, Eq. 1.3; Notes.pdf, Eq. 1.4
+>
+> View with $\mathbf k$ out of the paper (⊙), $\mathbf i$ to the right, $\mathbf j$ up; $\theta_t$ is measured counterclockwise from $Ox$ to $\mathbf e_t$. The differential element is the hypotenuse $ds$ of a right triangle with the leg $dx$ adjacent to $\theta_t$ and the leg $dy$ opposite to it (Fig. 2.3).
+>
+> $$\begin{aligned}
+> \mathbf e_t &= \cos\theta_t\,\mathbf i + \sin\theta_t\,\mathbf j \quad &\text{(unit vector at $\theta_t$ from $Ox$: adjacent leg along $\mathbf i$, opposite leg along $\mathbf j$, Eqs. 1.3 and 1.4)} \\
+> d\mathbf r_0^P &= \mathbf e_t\,ds \quad &\text{(Eq. 2.9 multiplied by $ds$)} \\
+> dx\,\mathbf i + dy\,\mathbf j &= \cos\theta_t\,ds\,\mathbf i + \sin\theta_t\,ds\,\mathbf j \quad &\text{(differential of $\mathbf r_0^P = x\,\mathbf i + y\,\mathbf j$ on the left; substitute $\mathbf e_t$ on the right)} \\
+> dx &= ds\cos\theta_t,\qquad dy = ds\sin\theta_t \quad &\text{(components are unique, Eq. 1.9)}
+> \end{aligned}$$
+>
+> $$\boxed{dx = ds\cos\theta_t,\qquad dy = ds\sin\theta_t}$$
+>
+> **Units:** $\mathrm m$ in every term
+> **Meaning:** marching along the path, each element $ds$ adds its projections on the two axes; the shape of the path is fixed once $\theta_t(s)$ is known.
+
+> [!derivation] Relations among the path variables in the plane
+> **Law:** chain rule on $\mathbf e_t(\theta_t(s))$; Eqs. 2.12, 2.16 and 2.18
+> **Source:** Notes.pdf, Eq. 2.20; Notes.pdf, Eq. 2.12; Notes.pdf, Eq. 2.16; Notes.pdf, Eq. 2.18
+>
+> $$\begin{aligned}
+> \frac{d\mathbf e_t}{ds} &= \frac{d\cos\theta_t}{d\theta_t}\,\frac{d\theta_t}{ds}\,\mathbf i + \frac{d\sin\theta_t}{d\theta_t}\,\frac{d\theta_t}{ds}\,\mathbf j \quad &\text{(chain rule; $\mathbf i$ and $\mathbf j$ are constant)} \\
+> &= -\sin\theta_t\,\frac{d\theta_t}{ds}\,\mathbf i + \cos\theta_t\,\frac{d\theta_t}{ds}\,\mathbf j \quad &\text{(derivatives of the cosine and the sine)} \\
+> &= \frac{d\theta_t}{ds}\left(-\sin\theta_t\,\mathbf i + \cos\theta_t\,\mathbf j\right) \quad &\text{(factor the common scalar)} \\
+> \left\lvert\frac{d\mathbf e_t}{ds}\right\rvert &= \left\lvert\frac{d\theta_t}{ds}\right\rvert\sqrt{\sin^2\theta_t + \cos^2\theta_t} \quad &\text{(magnitude: Pythagoras on the components)} \\
+> &= \left\lvert\frac{d\theta_t}{ds}\right\rvert \quad &\text{($\sin^2 + \cos^2 = 1$)} \\
+> \kappa &= \frac{d\theta_t}{ds} \quad &\text{(Eq. 2.12, for a path that turns counterclockwise, with $\theta_t$ growing along $s$)}
+> \end{aligned}$$
+>
+> $$\boxed{v = \dot s,\qquad a_t = \dot v = \ddot s,\qquad a_n = \frac{v^2}{\rho},\qquad \frac{d\theta_t}{ds} = \kappa = \frac{1}{\rho}}$$
+>
+> **Units:** $v$ in $\mathrm{m/s}$; $a_t$ and $a_n$ in $\mathrm{m/s^2}$; $d\theta_t/ds$ and $\kappa$ in $\mathrm{rad/m}$
+> **Meaning:** the vector in brackets is $\mathbf e_t$ turned a quarter turn counterclockwise, which is $\mathbf e_n$ when the path turns counterclockwise; for a path that turns clockwise $\theta_t$ decreases along $s$, its rate is $-\kappa$ and $\mathbf e_n$ is $\mathbf e_t$ turned clockwise. The relations of Eq. 2.20 link the data of a problem with $\theta_t(s)$ and $s(t)$.
+
+> [!derivation] Trajectory from the angle of the tangent
+> **Law:** integration of Eq. 2.19 along the path; Barrow's rule
+> **Source:** Notes.pdf, Eq. 2.19; Notes.pdf, Sec. 2.5.1
+>
+> $$\begin{aligned}
+> \frac{dx}{ds'} &= \cos\theta_t(s') \quad &\text{(Eq. 2.19 divided by $ds'$; $s'$ is the integration variable)} \\
+> \int_{s_0}^{s}\frac{dx}{ds'}\,ds' &= \int_{s_0}^{s}\cos\theta_t(s')\,ds' \quad &\text{(integrate both sides from $s_0$ to $s$)} \\
+> \left[\,x\,\right]_{s_0}^{s} &= \int_{s_0}^{s}\cos\theta_t(s')\,ds' \quad &\text{(an antiderivative of $dx/ds'$ is $x$)} \\
+> x(s) - x(s_0) &= \int_{s_0}^{s}\cos\theta_t(s')\,ds' \quad &\text{(Barrow's rule)} \\
+> y(s) - y(s_0) &= \int_{s_0}^{s}\sin\theta_t(s')\,ds' \quad &\text{(the same three steps with $dy = ds\sin\theta_t$)}
+> \end{aligned}$$
+>
+> $$\boxed{x(s) = x(s_0) + \int_{s_0}^{s}\cos\theta_t(s')\,ds',\qquad y(s) = y(s_0) + \int_{s_0}^{s}\sin\theta_t(s')\,ds'}$$
+>
+> **Units:** $\mathrm m$: the integrands are dimensionless and $ds'$ is a length
+> **Meaning:** the conditions of the problem give $\theta_t(s)$ through Eq. 2.20; these two integrals then give the trajectory, and $\dot s$ gives the time law.
+
+The method can be illustrated with the simplest datum, a constant curvature (an illustration built for this note, not an example of the notes): the path must be a circle of radius equal to the inverse of the curvature, with its centre on the normal through the initial point.
+
+> [!derivation] Illustration: a planar path of constant curvature is a circle
+> **Law:** Eq. 2.20 integrated with Barrow's rule; Eq. 2.19 integrated with a change of variable
+> **Source:** Notes.pdf, Eq. 2.19; Notes.pdf, Eq. 2.20; Notes.pdf, Sec. 2.5.1
+>
+> Data: the curvature has the constant value $\kappa_0$ and the path turns counterclockwise; at $s = 0$ the particle is at $(x_0, y_0)$ with the tangent at the angle $\theta_0$.
+>
+> $$\begin{aligned}
+> \int_0^{s}\frac{d\theta_t}{ds'}\,ds' &= \int_0^{s}\kappa_0\,ds' \quad &\text{(Eq. 2.20 integrated from $0$ to $s$)} \\
+> \left[\,\theta_t\,\right]_0^{s} &= \left[\,\kappa_0\,s'\,\right]_0^{s} \quad &\text{(antiderivatives: $\theta_t$ and $\kappa_0 s'$)} \\
+> \theta_t(s) - \theta_0 &= \kappa_0\,s - 0 \quad &\text{(Barrow's rule)} \\
+> x(s) - x_0 &= \int_0^{s}\cos(\theta_0 + \kappa_0 s')\,ds' \quad &\text{(previous box with $s_0 = 0$)} \\
+> &= \int_{\theta_0}^{\theta_0 + \kappa_0 s}\cos u\,\frac{du}{\kappa_0} \quad &\text{(change $u = \theta_0 + \kappa_0 s'$, $du = \kappa_0\,ds'$; $s' = 0$ gives $u = \theta_0$, $s' = s$ gives $u = \theta_0 + \kappa_0 s$)} \\
+> &= \frac{1}{\kappa_0}\left[\,\sin u\,\right]_{\theta_0}^{\theta_0 + \kappa_0 s} \quad &\text{(an antiderivative of $\cos u$ is $\sin u$)} \\
+> &= \frac{\sin(\theta_0 + \kappa_0 s) - \sin\theta_0}{\kappa_0} \quad &\text{(Barrow's rule)} \\
+> y(s) - y_0 &= \int_{\theta_0}^{\theta_0 + \kappa_0 s}\sin u\,\frac{du}{\kappa_0} \quad &\text{(the same change of variable in the integral of $\sin\theta_t$)} \\
+> &= \frac{1}{\kappa_0}\left[\,-\cos u\,\right]_{\theta_0}^{\theta_0 + \kappa_0 s} \quad &\text{(an antiderivative of $\sin u$ is $-\cos u$)} \\
+> &= \frac{\cos\theta_0 - \cos(\theta_0 + \kappa_0 s)}{\kappa_0} \quad &\text{(Barrow's rule)} \\
+> x - x_0 + \frac{\sin\theta_0}{\kappa_0} &= \frac{\sin(\theta_0 + \kappa_0 s)}{\kappa_0} \quad &\text{(move the constant term of $x$ to the left)} \\
+> y - y_0 - \frac{\cos\theta_0}{\kappa_0} &= -\frac{\cos(\theta_0 + \kappa_0 s)}{\kappa_0} \quad &\text{(move the constant term of $y$ to the left)} \\
+> \left(x - x_0 + \frac{\sin\theta_0}{\kappa_0}\right)^2 + \left(y - y_0 - \frac{\cos\theta_0}{\kappa_0}\right)^2 &= \frac{\sin^2(\theta_0 + \kappa_0 s)}{\kappa_0^2} + \frac{\cos^2(\theta_0 + \kappa_0 s)}{\kappa_0^2} \quad &\text{(add the squares of the last two rows)} \\
+> &= \frac{1}{\kappa_0^2} \quad &\text{($\sin^2 + \cos^2 = 1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\left(x - x_0 + \frac{\sin\theta_0}{\kappa_0}\right)^2 + \left(y - y_0 - \frac{\cos\theta_0}{\kappa_0}\right)^2 = \frac{1}{\kappa_0^2}}$$
+>
+> **Units:** $\mathrm{m^2}$ on both sides: $\kappa_0$ in $\mathrm{m^{-1}}$
+> **Meaning:** a circle of radius $1/\kappa_0$, which is $\rho$; its centre lies at the distance $\rho$ from the initial point along $-\sin\theta_0\,\mathbf i + \cos\theta_0\,\mathbf j$, the tangent turned a quarter turn counterclockwise, that is along $\mathbf e_n$, as Eq. 2.12 requires.
+
+## 14. Coordinate systems
+
+### Coordinates and the local vector basis
+
+Vector bases describe any vector by its components; reference frames give the position vector and the observer. The position of a point can also be given by its coordinates in a coordinate system: two coordinates locate a point in the plane and three in space (Notes.pdf, Sec. 2.6; [Lecture 1, Slide 15]). The classical spatial coordinates are:
+
+| Coordinates | Description (Notes.pdf, Sec. 2.6) |
+| :--- | :--- |
+| Cartesian $\{x,y,z\}$ | exist by default in every frame $S_0$: the rectilinear distances from $O$ to $P$ along $\mathbf i$, $\mathbf j$ and $\mathbf k$; the only ones that coincide numerically with the components of $\mathbf r_0^P$ in $\mathcal B_0$ |
+| cylindrical $\{R,\theta,z\}$ | orthogonal curvilinear coordinates: $x$ and $y$ replaced by the cylindrical radius and the azimuthal angle; in the plane $Oxy$ alone they are the polar coordinates and $\theta$ is the polar angle |
+| spherical $\{r,\theta,\phi\}$ | orthogonal curvilinear coordinates: $\theta$ as in cylindrical coordinates, $R$ and $z$ replaced by the spherical radius and the latitude; the radius equals the magnitude of $\mathbf r_0^P$ |
+
+A coordinate system defines at each point a local vector basis along the directions in which each coordinate grows while the other two are kept constant. The vectors are normalised when necessary, and the coordinates are ordered so that the local basis is orthonormal and right-handed when the coordinates are orthogonal; with the point as origin the local basis defines a local reference frame, which in general changes from point to point (Notes.pdf, Sec. 2.6.1; [Lecture 1, Slide 15]).
+
+![[attachments/EM-T/t1-local-basis.svg]]
+
+> [!derivation] Local vector basis of a coordinate system
+> **Law:** the direction of growth of one coordinate, the other two fixed, is the partial derivative of the position vector
+> **Source:** Notes.pdf, Eq. 2.21; Notes.pdf, Eq. 2.22; [Lecture 1, Slide 15]; [Lecture 1, Slide 16]
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= \mathbf r_0^P(q_1, q_2, q_3) \quad &\text{(the position is a function of the three coordinates)} \\
+> \mathbf u_{q_i} &= \frac{\partial\mathbf r_0^P}{\partial q_i} \quad &\text{(change of $\mathbf r_0^P$ when only $q_i$ grows, Slide 15)} \\
+> \mathbf e_{q_i} &= \frac{\mathbf u_{q_i}}{\lvert\mathbf u_{q_i}\rvert} \quad &\text{(normalised, Sec. 2.6.1)} \\
+> \mathbf u_x &= \frac{\partial}{\partial x}\left(x\,\mathbf i + y\,\mathbf j + z\,\mathbf k\right) \quad &\text{(Cartesian case, Eq. 2.5)} \\
+> &= \mathbf i \quad &\text{($y$, $z$ and the vectors of $\mathcal B_0$ do not depend on $x$)} \\
+> \mathbf u_y &= \mathbf j,\qquad \mathbf u_z = \mathbf k \quad &\text{(the same step for $y$ and $z$; all three already have unit magnitude)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathcal B_{\mathcal C}(P) : \{\mathbf e_{q_1},\mathbf e_{q_2},\mathbf e_{q_3}\},\quad \mathbf e_{q_i} = \frac{\partial\mathbf r_0^P/\partial q_i}{\lvert\partial\mathbf r_0^P/\partial q_i\rvert},\quad S_{\mathcal C} : \{P;\mathcal B_{\mathcal C}(P)\};\qquad \text{Cartesian: } \mathbf e_x = \mathbf i,\ \mathbf e_y = \mathbf j,\ \mathbf e_z = \mathbf k}$$
+>
+> **Units:** $\mathbf u_{q_i}$ has the units of length divided by those of $q_i$ (dimensionless for a length coordinate, metres per radian for an angle); $\mathbf e_{q_i}$ is dimensionless
+> **Meaning:** the coordinate system is orthogonal when the three vectors are mutually perpendicular, as for the Cartesian, cylindrical and spherical systems. In Cartesian coordinates the local basis is the basis $\mathcal B_0$ we started with, the same at every point; in other systems it varies with the coordinates.
+
+### Cylindrical coordinates
+
+Cylindrical coordinates suit motions with some form of cylindrical symmetry. The position of $P$ is given by $R$, the cylindrical radius, the distance from the axis $Oz$ to $P$; by $\theta$, the azimuthal angle between the plane $Oxz$ and the plane that contains $Oz$ and $P$, undefined when $P$ is on $Oz$; and by $z$, the height, the same as the Cartesian $z$ (Notes.pdf, Sec. 2.6.2, Fig. 2.4; [Lecture 1, Slide 17]). Call $P'$ the projection of $P$ on the plane $Oxy$.
+
+![[attachments/EM-T/t1-cylindrical-3d.svg]]
+
+![[attachments/EM-T/t1-cylindrical-plan.svg]]
+
+> [!derivation] Cylindrical coordinates: transformation relations and position vector
+> **Law:** right triangle in the plane $Oxy$; Pythagoras
+> **Source:** Notes.pdf, Eq. 2.23; Notes.pdf Fig. 2.4; [Lecture 1, Slide 17]; [Lecture 1, Slide 19]
+>
+> Plan view (⊙ $\mathbf k$ out of the paper, $\mathbf i$ to the right, $\mathbf j$ up): the triangle $O$, $F$, $P'$, with $F$ the foot of the perpendicular from $P'$ to $Ox$, is right-angled at $F$; its hypotenuse $OP'$ has length $R$ and the angle at $O$ is $\theta$.
+>
+> $$\begin{aligned}
+> x &= R\cos\theta \quad &\text{(leg $OF$, adjacent to $\theta$, of the triangle of hypotenuse $R$)} \\
+> y &= R\sin\theta \quad &\text{(leg $FP'$, opposite to $\theta$)} \\
+> R &= \sqrt{x^2 + y^2} \quad &\text{(Pythagoras in the same triangle; $R$ is not negative)} \\
+> \theta &= \arctan(y/x) \quad &\text{(opposite over adjacent; the quadrant is the one of the signs of $x$ and $y$)} \\
+> \mathbf r_0^P &= R\cos\theta\,\mathbf i + R\sin\theta\,\mathbf j + z\,\mathbf k \quad &\text{(substitute $x$ and $y$ in Eq. 2.5)}
+> \end{aligned}$$
+>
+> $$\boxed{x = R\cos\theta,\quad y = R\sin\theta;\qquad R = \sqrt{x^2 + y^2},\quad \theta = \arctan(y/x);\qquad \mathbf r_0^P = R\cos\theta\,\mathbf i + R\sin\theta\,\mathbf j + z\,\mathbf k}$$
+>
+> **Units:** $x$, $y$, $z$, $R$ in $\mathrm m$; $\theta$ in $\mathrm{rad}$
+> **Meaning:** the height $z$ is shared with the Cartesian system; only the pair $x$, $y$ is replaced by a distance and an angle in the plane $Oxy$.
+
+> [!derivation] Cylindrical local basis from the position vector
+> **Law:** coordinate vectors as partial derivatives, then normalised
+> **Source:** Notes.pdf, Eq. 2.24; Notes.pdf, Eq. 2.21; [Lecture 1, Slide 15]; [Lecture 1, Slide 17]
+>
+> In the plan view $\mathbf e_R$ is the unit vector of $OP'$: the angle $\theta$ lies between $\mathbf i$ and $\mathbf e_R$, so its leg along $\mathbf i$ (adjacent) is the cosine and its leg along $\mathbf j$ (opposite) the sine. $\mathbf e_\theta$ is $\mathbf e_R$ turned a quarter turn counterclockwise, the sense in which $\theta$ grows (right-hand rule about $\mathbf k$, which points out of the paper); the angle $\theta$ lies between $\mathbf j$ and $\mathbf e_\theta$, so its leg along $\mathbf j$ is the cosine, and for $\theta$ in the first quadrant $\mathbf e_\theta$ leans to the left of $\mathbf j$: its other leg points along $-\mathbf i$, which is the minus sign.
+>
+> $$\begin{aligned}
+> \mathbf u_R &= \frac{\partial\mathbf r_0^P}{\partial R} \quad &\text{(Slide 15)} \\
+> &= \cos\theta\,\mathbf i + \sin\theta\,\mathbf j \quad &\text{($\theta$, $z$ and the vectors of $\mathcal B_0$ do not depend on $R$)} \\
+> \lvert\mathbf u_R\rvert &= \sqrt{\cos^2\theta + \sin^2\theta} \quad &\text{(magnitude from the components)} \\
+> &= 1 \quad &\text{(Pythagoras: $\mathbf e_R = \mathbf u_R$)} \\
+> \mathbf u_\theta &= \frac{\partial\mathbf r_0^P}{\partial\theta} \quad &\text{(Slide 15)} \\
+> &= -R\sin\theta\,\mathbf i + R\cos\theta\,\mathbf j \quad &\text{(derivatives of the cosine and the sine; $R$ and $z$ fixed)} \\
+> \lvert\mathbf u_\theta\rvert &= R\sqrt{\sin^2\theta + \cos^2\theta} \quad &\text{(magnitude from the components)} \\
+> &= R \quad &\text{(Pythagoras)} \\
+> \mathbf e_\theta &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(divide $\mathbf u_\theta$ by its magnitude $R$)} \\
+> \mathbf u_z &= \mathbf k \quad &\text{(only the last term of $\mathbf r_0^P$ depends on $z$; unit magnitude, so $\mathbf e_z = \mathbf k$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_R = \cos\theta\,\mathbf i + \sin\theta\,\mathbf j,\qquad \mathbf e_\theta = -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j,\qquad \mathbf e_z = \mathbf k}$$
+>
+> **Units:** dimensionless unit vectors; $\mathbf u_\theta$ in metres per radian
+> **Meaning:** $\lvert\mathbf u_\theta\rvert$ equal to $R$ says that a change $d\theta$ moves $P$ along a circle of radius $R$ by $R\,d\theta$. The vectors are not the same at all points of space: they vary with $\theta$ ([Lecture 1, Slide 17]).
+
+> [!derivation] Cylindrical change of basis matrix and its checks
+> **Law:** columns are the local unit vectors in $\mathcal B_0$; determinant; orthogonality; right-handedness
+> **Source:** Notes.pdf, Eq. 2.24; Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15
+>
+> $$\begin{aligned}
+> [{}_0R_{\mathrm{cyl}}] &= \begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix} \quad &\text{(columns: $\mathbf e_R$, $\mathbf e_\theta$, $\mathbf e_z$ in $\mathcal B_0$, Eq. 1.13)} \\
+> &= [{}_0R_1(z,\theta)] \quad &\text{(Eq. 1.20 with $\theta_z = \theta$: $\mathcal B_{\mathrm{cyl}}$ is $\mathcal B_0$ turned by $\theta$ about $\mathbf k$)} \\
+> \det[{}_0R_{\mathrm{cyl}}] &= 1\cdot\left(\cos\theta\cos\theta - (-\sin\theta)\sin\theta\right) \quad &\text{(expand along the third row)} \\
+> &= \cos^2\theta + \sin^2\theta \quad &\text{(simplify the signs)} \\
+> &= 1 \quad &\text{(Pythagoras)} \\
+> \left([{}_0R_{\mathrm{cyl}}][{}_0R_{\mathrm{cyl}}]^T\right)_{11} &= \cos\theta\cos\theta + (-\sin\theta)(-\sin\theta) + 0\cdot 0 \quad &\text{(row 1 times row 1)} \\
+> &= 1 \quad &\text{(Pythagoras)} \\
+> \left([{}_0R_{\mathrm{cyl}}][{}_0R_{\mathrm{cyl}}]^T\right)_{12} &= \cos\theta\sin\theta + (-\sin\theta)\cos\theta + 0\cdot 0 \quad &\text{(row 1 times row 2)} \\
+> &= 0 \quad &\text{(the two products cancel)} \\
+> \mathbf e_R\times\mathbf e_\theta &= \cos\theta\cos\theta\,\mathbf i\times\mathbf j + \sin\theta\,(-\sin\theta)\,\mathbf j\times\mathbf i \quad &\text{(distribute, Eq. 1.32; $\mathbf i\times\mathbf i$ and $\mathbf j\times\mathbf j$ vanish)} \\
+> &= \cos^2\theta\,\mathbf k + \sin^2\theta\,\mathbf k \quad &\text{($\mathbf i\times\mathbf j = \mathbf k$, $\mathbf j\times\mathbf i = -\mathbf k$)} \\
+> &= \mathbf e_z \quad &\text{(Pythagoras)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_{\mathrm{cyl}}] = [{}_0R_1(z,\theta)] = \begin{bmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix},\qquad \det = 1,\qquad \mathbf e_R\times\mathbf e_\theta = \mathbf e_z}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the cylindrical basis is a simple rotation of $\mathcal B_0$ about $\mathbf k$ by the azimuth; the remaining entries of $[{}_0R_{\mathrm{cyl}}][{}_0R_{\mathrm{cyl}}]^T$ follow in the same way ($(2,2)$ by Pythagoras, $(1,3)$ and $(2,3)$ are zero), so the basis is orthonormal, and with $\mathbf e_R\times\mathbf e_\theta = \mathbf e_z$ it is right-handed in the order $R$, $\theta$, $z$.
+
+> [!derivation] Time derivatives of the cylindrical unit vectors
+> **Law:** partial derivatives with respect to $\theta$; chain rule through $\theta(t)$; Eq. 1.62 with the angular velocity of the local basis
+> **Source:** Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 2.27; [Lecture 1, Slide 17]; Notes.pdf, Eq. 1.62
+>
+> The derivatives are taken in $S_0$, where $\mathbf i$, $\mathbf j$, $\mathbf k$ are constant; the local vectors depend on time only through $\theta(t)$.
+>
+> $$\begin{aligned}
+> \frac{\partial\mathbf e_R}{\partial\theta} &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(derivatives of the cosine and the sine)} \\
+> &= \mathbf e_\theta \quad &\text{(Eq. 2.24)} \\
+> \frac{\partial\mathbf e_\theta}{\partial\theta} &= -\cos\theta\,\mathbf i - \sin\theta\,\mathbf j \quad &\text{(derivatives of $-\sin\theta$ and $\cos\theta$)} \\
+> &= -\mathbf e_R \quad &\text{(Eq. 2.24)} \\
+> \frac{d\mathbf e_R}{dt} &= \frac{\partial\mathbf e_R}{\partial\theta}\,\dot\theta \quad &\text{(chain rule: $\mathbf e_R = \mathbf e_R(\theta(t))$)} \\
+> &= \dot\theta\,\mathbf e_\theta \quad &\text{(first result)} \\
+> \frac{d\mathbf e_\theta}{dt} &= \frac{\partial\mathbf e_\theta}{\partial\theta}\,\dot\theta \quad &\text{(chain rule)} \\
+> &= -\dot\theta\,\mathbf e_R \quad &\text{(second result)} \\
+> \frac{d\mathbf e_z}{dt} &= \frac{d\mathbf k}{dt} \quad &\text{($\mathbf e_z = \mathbf k$)} \\
+> &= \mathbf 0 \quad &\text{($\mathbf k$ is constant in $S_0$)} \\
+> \boldsymbol\omega_{\mathrm{cyl}} &= \dot\theta\,\mathbf k \quad &\text{(the local basis turns about $\mathbf k$ at the rate $\dot\theta$, the simple rotation of the box above)} \\
+> \boldsymbol\omega_{\mathrm{cyl}}\times\mathbf e_R &= \dot\theta\left(\cos\theta\,\mathbf k\times\mathbf i + \sin\theta\,\mathbf k\times\mathbf j\right) \quad &\text{(distribute, Eq. 1.32)} \\
+> &= \dot\theta\left(\cos\theta\,\mathbf j - \sin\theta\,\mathbf i\right) \quad &\text{($\mathbf k\times\mathbf i = \mathbf j$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
+> &= \dot\theta\,\mathbf e_\theta \quad &\text{(the same as the derivative of $\mathbf e_R$: Eq. 1.62 holds)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{d\mathbf e_R}{dt} = \dot\theta\,\mathbf e_\theta,\qquad \frac{d\mathbf e_\theta}{dt} = -\dot\theta\,\mathbf e_R,\qquad \frac{d\mathbf e_z}{dt} = \mathbf 0;\qquad \boldsymbol\omega_{\mathrm{cyl}} = \dot\theta\,\mathbf k}$$
+>
+> **Units:** $[\mathrm{T^{-1}}]$ ($\mathrm{rad/s}$) in every term
+> **Meaning:** these are the derivatives of the basis in simple rotation about $\mathbf k$ of Section 6, with $\theta$ in place of $\theta_z$: each vector of the plane $Oxy$ is turned a quarter turn in the sense of growing $\theta$ and scaled by $\dot\theta$, and $\boldsymbol\omega_{\mathrm{cyl}}\times\mathbf e_\theta$ gives $-\dot\theta\,\mathbf e_R$ by the same steps.
+
+> [!derivation] Position and velocity in cylindrical coordinates
+> **Law:** position vector rewritten in the local basis; definition of velocity; product rule
+> **Source:** Notes.pdf, Eq. 2.28; Notes.pdf, Eq. 2.29; [Lecture 1, Slide 19]
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= R\cos\theta\,\mathbf i + R\sin\theta\,\mathbf j + z\,\mathbf k \quad &\text{(Eq. 2.23 in Eq. 2.5)} \\
+> &= R\left(\cos\theta\,\mathbf i + \sin\theta\,\mathbf j\right) + z\,\mathbf k \quad &\text{(factor $R$)} \\
+> &= R\,\mathbf e_R + z\,\mathbf e_z \quad &\text{(Eq. 2.24)} \\
+> \mathbf v_0^P &= \frac{d}{dt}\left(R\,\mathbf e_R\right) + \frac{d}{dt}\left(z\,\mathbf e_z\right) \quad &\text{(Eq. 2.3; sum rule, Eq. 1.65)} \\
+> &= \dot R\,\mathbf e_R + R\,\frac{d\mathbf e_R}{dt} + \dot z\,\mathbf e_z + z\,\frac{d\mathbf e_z}{dt} \quad &\text{(product rule on both terms, Eq. 1.64)} \\
+> &= \dot R\,\mathbf e_R + R\dot\theta\,\mathbf e_\theta + \dot z\,\mathbf e_z + \mathbf 0 \quad &\text{(Eqs. 2.25 and 2.27)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = R\,\mathbf e_R + z\,\mathbf e_z,\qquad \mathbf v_0^P = \dot R\,\mathbf e_R + R\dot\theta\,\mathbf e_\theta + \dot z\,\mathbf e_z}$$
+>
+> **Units:** $\mathrm{m/s}$ in every term: $\dot R$, $R\dot\theta$ ($\mathrm m$ times $\mathrm{rad/s}$) and $\dot z$
+> **Meaning:** the position has no $\mathbf e_\theta$ component, because the azimuth enters only through the direction of $\mathbf e_R$; the velocity has a radial part, a circumferential part, the speed of a point at the distance $R$ from $Oz$ turning at the rate $\dot\theta$, and an axial part.
+
+> [!derivation] Acceleration in cylindrical coordinates
+> **Law:** definition of acceleration; product rule term by term; Eqs. 2.25 to 2.27
+> **Source:** Notes.pdf, Eq. 2.30; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 2.27; [Lecture 1, Slide 19]
+>
+> $$\begin{aligned}
+> \mathbf a_0^P &= \frac{d}{dt}\left(\dot R\,\mathbf e_R\right) + \frac{d}{dt}\left(R\dot\theta\,\mathbf e_\theta\right) + \frac{d}{dt}\left(\dot z\,\mathbf e_z\right) \quad &\text{(Eq. 2.4 on Eq. 2.29; sum rule)} \\
+> \frac{d}{dt}\left(\dot R\,\mathbf e_R\right) &= \ddot R\,\mathbf e_R + \dot R\,\frac{d\mathbf e_R}{dt} \quad &\text{(product rule)} \\
+> &= \ddot R\,\mathbf e_R + \dot R\dot\theta\,\mathbf e_\theta \quad &\text{(Eq. 2.25)} \\
+> \frac{d}{dt}\left(R\dot\theta\,\mathbf e_\theta\right) &= \dot R\dot\theta\,\mathbf e_\theta + R\ddot\theta\,\mathbf e_\theta + R\dot\theta\,\frac{d\mathbf e_\theta}{dt} \quad &\text{(product rule for the three factors $R$, $\dot\theta$, $\mathbf e_\theta$)} \\
+> &= \dot R\dot\theta\,\mathbf e_\theta + R\ddot\theta\,\mathbf e_\theta - R\dot\theta^2\,\mathbf e_R \quad &\text{(Eq. 2.26)} \\
+> \frac{d}{dt}\left(\dot z\,\mathbf e_z\right) &= \ddot z\,\mathbf e_z + \dot z\,\frac{d\mathbf e_z}{dt} \quad &\text{(product rule)} \\
+> &= \ddot z\,\mathbf e_z \quad &\text{(Eq. 2.27)} \\
+> \mathbf a_0^P &= \left(\ddot R - R\dot\theta^2\right)\mathbf e_R + \left(\dot R\dot\theta + \dot R\dot\theta + R\ddot\theta\right)\mathbf e_\theta + \ddot z\,\mathbf e_z \quad &\text{(add the three results and collect by unit vector)} \\
+> &= \left(\ddot R - R\dot\theta^2\right)\mathbf e_R + \left(R\ddot\theta + 2\dot R\dot\theta\right)\mathbf e_\theta + \ddot z\,\mathbf e_z \quad &\text{(add the two equal terms)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \left(\ddot R - R\dot\theta^2\right)\mathbf e_R + \left(R\ddot\theta + 2\dot R\dot\theta\right)\mathbf e_\theta + \ddot z\,\mathbf e_z}$$
+>
+> **Units:** $\mathrm{m/s^2}$ in every term: $\ddot R$, $R\dot\theta^2$, $R\ddot\theta$, $\dot R\dot\theta$ and $\ddot z$ are each a length over a time squared
+> **Meaning:** the term in $-R\dot\theta^2$ comes from the turning of $\mathbf e_\theta$ and points towards the axis $Oz$; of the two equal terms in $\dot R\dot\theta$, one comes from the turning of $\mathbf e_R$ while $R$ changes, the other from the change of $R$ in the circumferential velocity. For a circle of fixed radius traversed at a constant rate only $-R\dot\theta^2\,\mathbf e_R$ remains.
+
+> [!derivation] Check: the cylindrical velocity projected on the basis of S0
+> **Law:** direct differentiation of the Cartesian coordinates; change of basis with $[{}_0R_{\mathrm{cyl}}]$
+> **Source:** [Lecture 1, Slide 19]; Notes.pdf, Eq. 2.23; Notes.pdf, Eq. 1.12
+>
+> $$\begin{aligned}
+> \dot x &= \frac{d}{dt}\left(R\cos\theta\right) \quad &\text{(Eq. 2.23)} \\
+> &= \dot R\cos\theta + R\,\frac{d\cos\theta}{dt} \quad &\text{(product rule)} \\
+> &= \dot R\cos\theta - R\dot\theta\sin\theta \quad &\text{(chain rule: $\dfrac{d\cos\theta}{dt} = -\sin\theta\,\dot\theta$)} \\
+> [\mathbf v_0^P]_0 &= [{}_0R_{\mathrm{cyl}}]\,[\mathbf v_0^P]_{\mathrm{cyl}} \quad &\text{(Eq. 1.12)} \\
+> &= \begin{pmatrix} \cos\theta\,\dot R - \sin\theta\,R\dot\theta + 0\cdot\dot z \cr \sin\theta\,\dot R + \cos\theta\,R\dot\theta + 0\cdot\dot z \cr 0\cdot\dot R + 0\cdot R\dot\theta + 1\cdot\dot z \end{pmatrix} \quad &\text{(rows of the matrix times the column $(\dot R,\ R\dot\theta,\ \dot z)$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \left(\dot R\cos\theta - R\dot\theta\sin\theta\right)\mathbf i + \left(\dot R\sin\theta + R\dot\theta\cos\theta\right)\mathbf j + \dot z\,\mathbf k}$$
+>
+> **Units:** $\mathrm{m/s}$ in every term
+> **Meaning:** the first row of the product equals $\dot x$ obtained without the local basis, so both routes agree. Each vector can be written with the coordinates $R$, $\theta$, $z$ in either basis, $\mathcal B_0$ or $\mathcal B_{\mathrm{cyl}}$ ([Lecture 1, Slide 19]); projecting the acceleration the same way gives the Cartesian components listed on that slide.
+
+> [!warning] Cylindrical components are not intrinsic components
+> The radial and azimuthal components of Eq. 2.30 cannot, in general, be identified with the tangential and normal accelerations (Notes.pdf, Sec. 2.6.2): $\mathbf e_R$ and $\mathbf e_\theta$ are defined by the coordinate system, $\mathbf e_t$ and $\mathbf e_n$ by the trajectory. They correspond only in special motions, such as a circle in a plane normal to $Oz$ and centred on it, where $\mathbf e_\theta$ is tangent to the path and $-\mathbf e_R$ points to the centre of curvature.
+
+### Spherical coordinates
+
+Spherical coordinates are used in some three-dimensional problems. The position of $P$ is given by $r$, the radius, the distance from $O$ to $P$, equal to the magnitude of $\mathbf r_0^P$; by $\theta$, the azimuthal angle, as in cylindrical coordinates; and by $\phi$, the latitude, the angle between the plane $Oxy$ and the vector $\mathbf r_0^P$, positive above the plane. The coordinates are not well defined at $r$ equal to zero or on the axis $Oz$, at the latitudes of plus and minus a right angle, where $\theta$ is undefined (Notes.pdf, Sec. 2.6.3, Fig. 2.5; [Lecture 1, Slide 20]).
+
+The latitude is measured from the plane $Oxy$, not from the axis $Oz$. Some texts use instead the complementary angle, measured from the pole and called colatitude, $\varphi$; always check which one a statement uses (Notes.pdf, Sec. 2.6; [Lecture 1, Slide 20]).
+
+![[attachments/EM-T/t1-spherical-3d.svg]]
+
+![[attachments/EM-T/t1-spherical-meridian.svg]]
+
+> [!derivation] Latitude and colatitude
+> **Law:** the axis $Oz$ is perpendicular to the plane $Oxy$; cosine and sine of a difference
+> **Source:** [Lecture 1, Slide 20]; Notes.pdf, Sec. 2.6
+>
+> Work in the meridian plane, the plane that contains $Oz$ and $P$; it cuts the plane $Oxy$ along the line $OP'$, perpendicular to $Oz$. The colatitude is the angle from $Oz$ to $\mathbf r_0^P$ and the latitude the angle from $OP'$ to $\mathbf r_0^P$, positive towards $Oz$.
+>
+> $$\begin{aligned}
+> \varphi + \phi &= \frac{\pi}{2} \quad &\text{(together they span the right angle between $Oz$ and $OP'$; for $P$ below $Oxy$ the latitude is negative and the colatitude exceeds a right angle by the same amount)} \\
+> \varphi &= \frac{\pi}{2} - \phi \quad &\text{(subtract $\phi$)} \\
+> \cos\varphi &= \cos\frac{\pi}{2}\cos\phi + \sin\frac{\pi}{2}\sin\phi \quad &\text{(cosine of a difference)} \\
+> &= \sin\phi \quad &\text{($\cos\frac{\pi}{2} = 0$, $\sin\frac{\pi}{2} = 1$)} \\
+> \sin\varphi &= \sin\frac{\pi}{2}\cos\phi - \cos\frac{\pi}{2}\sin\phi \quad &\text{(sine of a difference)} \\
+> &= \cos\phi \quad &\text{(the same values)}
+> \end{aligned}$$
+>
+> $$\boxed{\varphi = \frac{\pi}{2} - \phi,\qquad \cos\varphi = \sin\phi,\qquad \sin\varphi = \cos\phi}$$
+>
+> **Units:** angles in $\mathrm{rad}$
+> **Meaning:** with the colatitude every sine of the latitude becomes a cosine and every cosine a sine; the height of $P$, for instance, is $r$ times the sine of the latitude but $r$ times the cosine of the colatitude. This note, like the notes and slides, uses the latitude $\phi$.
+
+> [!derivation] Spherical coordinates: transformation relations and position vector
+> **Law:** two right triangles, one in the meridian plane and one in the plane $Oxy$; Pythagoras
+> **Source:** Notes.pdf, Eq. 2.31; Notes.pdf Fig. 2.5; [Lecture 1, Slide 20]; [Lecture 1, Slide 22]
+>
+> Meridian triangle: $O$, $P'$, $P$, right-angled at $P'$ ($P'P$ parallel to $Oz$, $OP'$ in the plane $Oxy$), hypotenuse $OP$ of length $r$, angle $\phi$ at $O$. Plan triangle: $O$, $F$, $P'$ as in cylindrical coordinates, hypotenuse $OP'$, angle $\theta$ at $O$.
+>
+> $$\begin{aligned}
+> z &= r\sin\phi \quad &\text{(leg $P'P$, opposite to $\phi$ in the meridian triangle of hypotenuse $r$)} \\
+> \lvert OP'\rvert &= r\cos\phi \quad &\text{(leg $OP'$, adjacent to $\phi$: the cylindrical radius $R$)} \\
+> x &= r\cos\phi\cos\theta \quad &\text{(leg adjacent to $\theta$ in the plan triangle of hypotenuse $r\cos\phi$)} \\
+> y &= r\cos\phi\sin\theta \quad &\text{(leg opposite to $\theta$ in the plan triangle)} \\
+> r &= \sqrt{x^2 + y^2 + z^2} \quad &\text{(Pythagoras twice: $\lvert OP'\rvert^2 = x^2 + y^2$, then $r^2 = \lvert OP'\rvert^2 + z^2$)} \\
+> \theta &= \arctan(y/x) \quad &\text{(plan triangle, as in Eq. 2.23)} \\
+> \phi &= \arctan\left(z/\sqrt{x^2 + y^2}\right) \quad &\text{(meridian triangle: opposite over adjacent)} \\
+> \mathbf r_0^P &= r\cos\phi\cos\theta\,\mathbf i + r\cos\phi\sin\theta\,\mathbf j + r\sin\phi\,\mathbf k \quad &\text{(substitute $x$, $y$, $z$ in Eq. 2.5)}
+> \end{aligned}$$
+>
+> $$\boxed{x = r\cos\phi\cos\theta,\quad y = r\cos\phi\sin\theta,\quad z = r\sin\phi;\qquad r = \sqrt{x^2 + y^2 + z^2},\quad \theta = \arctan(y/x),\quad \phi = \arctan\left(z/\sqrt{x^2 + y^2}\right)}$$
+>
+> **Units:** $x$, $y$, $z$, $r$ in $\mathrm m$; $\theta$, $\phi$ in $\mathrm{rad}$
+> **Meaning:** the radius is the magnitude of the position vector, a property of the spherical coordinates only; the latitude is the arctangent of a height over a non-negative horizontal distance, so it lies between minus and plus a right angle.
+
+![[attachments/EM-T/t1-spherical-plan.svg]]
+
+> [!derivation] Spherical local basis from the meridian and plan views
+> **Law:** projections of unit vectors on the legs of right triangles; the cylindrical vectors of Eq. 2.24
+> **Source:** Notes.pdf, Eq. 2.32; Notes.pdf Fig. 2.5; [Lecture 1, Slide 20]
+>
+> Meridian view: $\mathbf e_R$ (horizontal, along $OP'$) to the right and $\mathbf k$ up. Since $\mathbf k\times\mathbf e_R = \mathbf e_\theta$ (cyclic order of $\mathcal B_{\mathrm{cyl}}$), the vector out of the paper, $\mathbf e_R\times\mathbf k$, is $-\mathbf e_\theta$: $\mathbf e_\theta$ points into the paper (⊗), and the latitude grows counterclockwise in this view. Each unit vector is the hypotenuse (length one) of a right triangle with legs along $\mathbf e_R$ and $\mathbf k$; the leg along $\mathbf e_R$ is then projected on $\mathbf i$ and $\mathbf j$ with the plan triangle.
+>
+> $$\begin{aligned}
+> \mathbf e_r &= \cos\phi\,\mathbf e_R + \sin\phi\,\mathbf k \quad &\text{(along $OP$: $\phi$ lies between $\mathbf e_R$ and $\mathbf e_r$, adjacent leg along $\mathbf e_R$, opposite leg along $\mathbf k$)} \\
+> &= \cos\phi\cos\theta\,\mathbf i + \cos\phi\sin\theta\,\mathbf j + \sin\phi\,\mathbf k \quad &\text{(substitute $\mathbf e_R$, Eq. 2.24)} \\
+> \mathbf e_\theta &= -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j \quad &\text{(growing $\theta$ with $r$ and $\phi$ fixed moves $P$ along a horizontal parallel circle: the cylindrical $\mathbf e_\theta$, Eq. 2.24)} \\
+> \mathbf e_\phi &= -\sin\phi\,\mathbf e_R + \cos\phi\,\mathbf k \quad &\text{($\mathbf e_r$ turned a quarter turn counterclockwise: $\phi$ lies between $\mathbf k$ and $\mathbf e_\phi$, adjacent leg along $\mathbf k$; $\mathbf e_\phi$ leans back towards the axis $Oz$, so its other leg points along $-\mathbf e_R$)} \\
+> &= -\sin\phi\cos\theta\,\mathbf i - \sin\phi\sin\theta\,\mathbf j + \cos\phi\,\mathbf k \quad &\text{(substitute $\mathbf e_R$, Eq. 2.24)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_r = \cos\phi\cos\theta\,\mathbf i + \cos\phi\sin\theta\,\mathbf j + \sin\phi\,\mathbf k,\quad \mathbf e_\theta = -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j,\quad \mathbf e_\phi = -\sin\phi\cos\theta\,\mathbf i - \sin\phi\sin\theta\,\mathbf j + \cos\phi\,\mathbf k}$$
+>
+> **Units:** dimensionless
+> **Meaning:** $\mathbf e_r$ points away from $O$, $\mathbf e_\theta$ along the parallel (towards growing azimuth) and $\mathbf e_\phi$ along the meridian towards the north pole; at the latitude zero $\mathbf e_r$ is $\mathbf e_R$ and $\mathbf e_\phi$ is $\mathbf k$.
+
+> [!derivation] Check: the spherical coordinate vectors
+> **Law:** coordinate vectors as partial derivatives of the position vector
+> **Source:** [Lecture 1, Slide 15]; Notes.pdf, Eq. 2.21; Notes.pdf, Eq. 2.32
+>
+> $$\begin{aligned}
+> \mathbf u_r &= \frac{\partial\mathbf r_0^P}{\partial r} \quad &\text{(Slide 15)} \\
+> &= \cos\phi\cos\theta\,\mathbf i + \cos\phi\sin\theta\,\mathbf j + \sin\phi\,\mathbf k \quad &\text{(only the factor $r$ depends on $r$)} \\
+> \lvert\mathbf u_r\rvert^2 &= \cos^2\phi\cos^2\theta + \cos^2\phi\sin^2\theta + \sin^2\phi \quad &\text{(sum of the squared components)} \\
+> &= \cos^2\phi + \sin^2\phi \quad &\text{(factor $\cos^2\phi$; Pythagoras for $\theta$)} \\
+> &= 1 \quad &\text{(Pythagoras for $\phi$)} \\
+> \mathbf u_\theta &= \frac{\partial\mathbf r_0^P}{\partial\theta} \quad &\text{(Slide 15)} \\
+> &= -r\cos\phi\sin\theta\,\mathbf i + r\cos\phi\cos\theta\,\mathbf j \quad &\text{(derivatives of $\cos\theta$ and $\sin\theta$; the $\mathbf k$ term does not contain $\theta$)} \\
+> &= r\cos\phi\,\mathbf e_\theta \quad &\text{(factor $r\cos\phi$)} \\
+> \mathbf u_\phi &= \frac{\partial\mathbf r_0^P}{\partial\phi} \quad &\text{(Slide 15)} \\
+> &= -r\sin\phi\cos\theta\,\mathbf i - r\sin\phi\sin\theta\,\mathbf j + r\cos\phi\,\mathbf k \quad &\text{(derivatives of $\cos\phi$ and $\sin\phi$)} \\
+> &= r\,\mathbf e_\phi \quad &\text{(factor $r$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf u_r = \mathbf e_r,\qquad \mathbf u_\theta = r\cos\phi\,\mathbf e_\theta,\qquad \mathbf u_\phi = r\,\mathbf e_\phi}$$
+>
+> **Units:** $\mathbf u_r$ dimensionless; $\mathbf u_\theta$ and $\mathbf u_\phi$ in metres per radian
+> **Meaning:** normalising the coordinate vectors gives the same three unit vectors as the views; the magnitudes are the radii of the parallel circle, $r\cos\phi$, and of the meridian circle, $r$, on which $P$ moves when only $\theta$ or only $\phi$ changes.
+
+> [!derivation] Spherical change of basis matrix as two simple rotations
+> **Law:** columns are the local unit vectors; composition of changes of basis; determinant and orthogonality
+> **Source:** Notes.pdf, Eq. 2.32; Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.19; Notes.pdf, Eq. 1.20
+>
+> The second matrix has as columns $\mathbf e_r$, $\mathbf e_\theta$, $\mathbf e_\phi$ written in $\mathcal B_{\mathrm{cyl}}$ (the first expressions of the box above). With $\mathbf e_R$, $\mathbf e_\theta$, $\mathbf e_z$ in the roles of $\mathbf i_0$, $\mathbf j_0$, $\mathbf k_0$, it is a simple rotation about $\mathbf e_\theta$: in the meridian view $\mathbf e_\theta$ points into the paper, so the counterclockwise latitude is a rotation by $-\phi$ about $\mathbf e_\theta$ by the right-hand rule.
+>
+> $$\begin{aligned}
+> [{}_0R_{\mathrm{sph}}] &= \begin{pmatrix} \cos\phi\cos\theta & -\sin\theta & -\sin\phi\cos\theta \cr \cos\phi\sin\theta & \cos\theta & -\sin\phi\sin\theta \cr \sin\phi & 0 & \cos\phi \end{pmatrix} \quad &\text{(columns: $\mathbf e_r$, $\mathbf e_\theta$, $\mathbf e_\phi$ in $\mathcal B_0$, Eq. 1.13)} \\
+> [{}_{\mathrm{cyl}}R_{\mathrm{sph}}] &= \begin{pmatrix} \cos\phi & 0 & -\sin\phi \cr 0 & 1 & 0 \cr \sin\phi & 0 & \cos\phi \end{pmatrix} \quad &\text{(columns: $\mathbf e_r$, $\mathbf e_\theta$, $\mathbf e_\phi$ in $\mathcal B_{\mathrm{cyl}}$)} \\
+> &= [{}_0R_1(y,-\phi)] \quad &\text{(Eq. 1.19 with $\theta_y = -\phi$: cosine even, sine odd)} \\
+> [{}_0R_{\mathrm{cyl}}]\,[{}_{\mathrm{cyl}}R_{\mathrm{sph}}] &= \begin{pmatrix} \cos\theta\cos\phi + (-\sin\theta)\cdot 0 + 0\cdot\sin\phi & \cos\theta\cdot 0 + (-\sin\theta)\cdot 1 + 0\cdot 0 & \cos\theta(-\sin\phi) + (-\sin\theta)\cdot 0 + 0\cdot\cos\phi \cr \sin\theta\cos\phi + \cos\theta\cdot 0 + 0\cdot\sin\phi & \sin\theta\cdot 0 + \cos\theta\cdot 1 + 0\cdot 0 & \sin\theta(-\sin\phi) + \cos\theta\cdot 0 + 0\cdot\cos\phi \cr 0\cdot\cos\phi + 0\cdot 0 + 1\cdot\sin\phi & 0\cdot 0 + 0\cdot 1 + 1\cdot 0 & 0\cdot(-\sin\phi) + 0\cdot 0 + 1\cdot\cos\phi \end{pmatrix} \quad &\text{(row $m$ of Eq. 1.20 with $\theta_z = \theta$ times column $n$)} \\
+> &= [{}_0R_{\mathrm{sph}}] \quad &\text{(drop the zero products: the first row; Eq. 1.16)} \\
+> \det[{}_0R_{\mathrm{sph}}] &= \sin\phi\left((-\sin\theta)(-\sin\phi\sin\theta) - (-\sin\phi\cos\theta)\cos\theta\right) + \cos\phi\left(\cos\phi\cos\theta\cos\theta - (-\sin\theta)\cos\phi\sin\theta\right) \quad &\text{(expand along the third row; cofactor signs $+$ at $(3,1)$ and $(3,3)$, entry $(3,2)$ is zero)} \\
+> &= \sin\phi\left(\sin\phi\sin^2\theta + \sin\phi\cos^2\theta\right) + \cos\phi\left(\cos\phi\cos^2\theta + \cos\phi\sin^2\theta\right) \quad &\text{(simplify the signs)} \\
+> &= \sin^2\phi + \cos^2\phi \quad &\text{(Pythagoras for $\theta$ inside each bracket)} \\
+> &= 1 \quad &\text{(Pythagoras for $\phi$)} \\
+> \left([{}_0R_{\mathrm{sph}}][{}_0R_{\mathrm{sph}}]^T\right)_{11} &= \cos^2\phi\cos^2\theta + \sin^2\theta + \sin^2\phi\cos^2\theta \quad &\text{(row 1 times row 1)} \\
+> &= \left(\cos^2\phi + \sin^2\phi\right)\cos^2\theta + \sin^2\theta \quad &\text{(group the terms in $\cos^2\theta$)} \\
+> &= 1 \quad &\text{(Pythagoras twice)} \\
+> \left([{}_0R_{\mathrm{sph}}][{}_0R_{\mathrm{sph}}]^T\right)_{13} &= \cos\phi\cos\theta\sin\phi + (-\sin\theta)\cdot 0 + (-\sin\phi\cos\theta)\cos\phi \quad &\text{(row 1 times row 3)} \\
+> &= 0 \quad &\text{(the first and last products cancel)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_{\mathrm{sph}}] = [{}_0R_{\mathrm{cyl}}]\,[{}_{\mathrm{cyl}}R_{\mathrm{sph}}] = \begin{bmatrix} \cos\phi\cos\theta & -\sin\theta & -\sin\phi\cos\theta \\ \cos\phi\sin\theta & \cos\theta & -\sin\phi\sin\theta \\ \sin\phi & 0 & \cos\phi \end{bmatrix},\qquad \det = 1}$$
+>
+> **Units:** dimensionless
+> **Meaning:** the spherical basis is reached from $\mathcal B_0$ by turning $\theta$ about $\mathbf k$ and then $-\phi$ about the new $\mathbf e_\theta$; the matrix is orthogonal and its determinant, the triple product of its columns, is $+1$, so the basis is right-handed in the order $r$, $\theta$, $\phi$: $\mathbf e_r\times\mathbf e_\theta = \mathbf e_\phi$, $\mathbf e_\theta\times\mathbf e_\phi = \mathbf e_r$, $\mathbf e_\phi\times\mathbf e_r = \mathbf e_\theta$. Its third row gives $\mathbf k$ in $\mathcal B_{\mathrm{sph}}$: $\mathbf k = \sin\phi\,\mathbf e_r + \cos\phi\,\mathbf e_\phi$.
+
+> [!derivation] Partial derivatives of the spherical unit vectors
+> **Law:** differentiation of the components of Eq. 2.32 with respect to one angle, the other fixed; inverse relation between the meridian vectors
+> **Source:** [Lecture 1, Slide 20]; Notes.pdf, Eq. 2.32
+>
+> $$\begin{aligned}
+> \frac{\partial\mathbf e_r}{\partial\theta} &= -\cos\phi\sin\theta\,\mathbf i + \cos\phi\cos\theta\,\mathbf j \quad &\text{(derivatives of $\cos\theta$ and $\sin\theta$; $\phi$ fixed)} \\
+> &= \cos\phi\,\mathbf e_\theta \quad &\text{(factor $\cos\phi$; Eq. 2.32)} \\
+> \frac{\partial\mathbf e_r}{\partial\phi} &= -\sin\phi\cos\theta\,\mathbf i - \sin\phi\sin\theta\,\mathbf j + \cos\phi\,\mathbf k \quad &\text{(derivatives of $\cos\phi$ and $\sin\phi$; $\theta$ fixed)} \\
+> &= \mathbf e_\phi \quad &\text{(Eq. 2.32)} \\
+> \frac{\partial\mathbf e_\theta}{\partial\theta} &= -\cos\theta\,\mathbf i - \sin\theta\,\mathbf j \quad &\text{(derivatives of $-\sin\theta$ and $\cos\theta$)} \\
+> &= -\mathbf e_R \quad &\text{(Eq. 2.24)} \\
+> \cos\phi\,\mathbf e_r - \sin\phi\,\mathbf e_\phi &= \cos^2\phi\,\mathbf e_R + \cos\phi\sin\phi\,\mathbf k + \sin^2\phi\,\mathbf e_R - \sin\phi\cos\phi\,\mathbf k \quad &\text{(substitute the first forms of $\mathbf e_r$ and $\mathbf e_\phi$, in $\mathbf e_R$ and $\mathbf k$)} \\
+> &= \mathbf e_R \quad &\text{(Pythagoras; the $\mathbf k$ terms cancel)} \\
+> \frac{\partial\mathbf e_\theta}{\partial\theta} &= -\cos\phi\,\mathbf e_r + \sin\phi\,\mathbf e_\phi \quad &\text{(substitute $\mathbf e_R$)} \\
+> \frac{\partial\mathbf e_\theta}{\partial\phi} &= \mathbf 0 \quad &\text{($\mathbf e_\theta$ does not contain $\phi$)} \\
+> \frac{\partial\mathbf e_\phi}{\partial\theta} &= \sin\phi\sin\theta\,\mathbf i - \sin\phi\cos\theta\,\mathbf j \quad &\text{(derivatives of $\cos\theta$ and $\sin\theta$)} \\
+> &= -\sin\phi\,\mathbf e_\theta \quad &\text{(factor $-\sin\phi$)} \\
+> \frac{\partial\mathbf e_\phi}{\partial\phi} &= -\cos\phi\cos\theta\,\mathbf i - \cos\phi\sin\theta\,\mathbf j - \sin\phi\,\mathbf k \quad &\text{(derivatives of $-\sin\phi$ and $\cos\phi$)} \\
+> &= -\mathbf e_r \quad &\text{(Eq. 2.32)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{\partial\mathbf e_r}{\partial\theta} = \cos\phi\,\mathbf e_\theta,\quad \frac{\partial\mathbf e_r}{\partial\phi} = \mathbf e_\phi,\quad \frac{\partial\mathbf e_\theta}{\partial\theta} = -\cos\phi\,\mathbf e_r + \sin\phi\,\mathbf e_\phi,\quad \frac{\partial\mathbf e_\theta}{\partial\phi} = \mathbf 0,\quad \frac{\partial\mathbf e_\phi}{\partial\theta} = -\sin\phi\,\mathbf e_\theta,\quad \frac{\partial\mathbf e_\phi}{\partial\phi} = -\mathbf e_r}$$
+>
+> **Units:** $\mathrm{rad^{-1}}$
+> **Meaning:** each partial derivative is perpendicular to its own unit vector, as it must be; $\mathbf e_\theta$ does not change along a meridian, and its derivative with respect to $\theta$ is $-\mathbf e_R$, pointing towards the axis $Oz$ at every latitude.
+
+> [!derivation] Time derivatives of the spherical unit vectors
+> **Law:** chain rule with the two variables $\theta(t)$ and $\phi(t)$; check with Eq. 1.62 and the angular velocity of the local basis
+> **Source:** Notes.pdf, Eq. 2.33; Notes.pdf, Eq. 2.34; Notes.pdf, Eq. 2.35; Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 1.73
+>
+> In a time $dt$ the local basis turns $d\theta$ about $\mathbf k$ (plan view) and $d\phi$ about $-\mathbf e_\theta$ (meridian view); infinitesimal rotations add (Section 7), so its angular velocity is the sum of the two rates along their axes.
+>
+> $$\begin{aligned}
+> \frac{d\mathbf e_r}{dt} &= \frac{\partial\mathbf e_r}{\partial\theta}\,\dot\theta + \frac{\partial\mathbf e_r}{\partial\phi}\,\dot\phi \quad &\text{(chain rule: $\mathbf e_r = \mathbf e_r(\theta(t),\phi(t))$)} \\
+> &= \dot\theta\cos\phi\,\mathbf e_\theta + \dot\phi\,\mathbf e_\phi \quad &\text{(partial derivatives of the box above)} \\
+> \frac{d\mathbf e_\theta}{dt} &= \frac{\partial\mathbf e_\theta}{\partial\theta}\,\dot\theta + \frac{\partial\mathbf e_\theta}{\partial\phi}\,\dot\phi \quad &\text{(chain rule)} \\
+> &= -\dot\theta\cos\phi\,\mathbf e_r + \dot\theta\sin\phi\,\mathbf e_\phi \quad &\text{(partial derivatives; the second one is zero)} \\
+> \frac{d\mathbf e_\phi}{dt} &= \frac{\partial\mathbf e_\phi}{\partial\theta}\,\dot\theta + \frac{\partial\mathbf e_\phi}{\partial\phi}\,\dot\phi \quad &\text{(chain rule)} \\
+> &= -\dot\theta\sin\phi\,\mathbf e_\theta - \dot\phi\,\mathbf e_r \quad &\text{(partial derivatives)} \\
+> \boldsymbol\omega_{\mathrm{sph}} &= \dot\theta\,\mathbf k - \dot\phi\,\mathbf e_\theta \quad &\text{(sum of the two rates of rotation, Eq. 1.73)} \\
+> &= \dot\theta\sin\phi\,\mathbf e_r - \dot\phi\,\mathbf e_\theta + \dot\theta\cos\phi\,\mathbf e_\phi \quad &\text{(substitute $\mathbf k$ from the third row of $[{}_0R_{\mathrm{sph}}]$)} \\
+> \boldsymbol\omega_{\mathrm{sph}}\times\mathbf e_r &= \dot\theta\sin\phi\,\mathbf e_r\times\mathbf e_r - \dot\phi\,\mathbf e_\theta\times\mathbf e_r + \dot\theta\cos\phi\,\mathbf e_\phi\times\mathbf e_r \quad &\text{(distribute, Eq. 1.32)} \\
+> &= \dot\phi\,\mathbf e_\phi + \dot\theta\cos\phi\,\mathbf e_\theta \quad &\text{($\mathbf e_r\times\mathbf e_r = \mathbf 0$, $\mathbf e_\theta\times\mathbf e_r = -\mathbf e_\phi$, $\mathbf e_\phi\times\mathbf e_r = \mathbf e_\theta$)} \\
+> \boldsymbol\omega_{\mathrm{sph}}\times\mathbf e_\theta &= \dot\theta\sin\phi\,\mathbf e_r\times\mathbf e_\theta - \dot\phi\,\mathbf e_\theta\times\mathbf e_\theta + \dot\theta\cos\phi\,\mathbf e_\phi\times\mathbf e_\theta \quad &\text{(distribute)} \\
+> &= \dot\theta\sin\phi\,\mathbf e_\phi - \dot\theta\cos\phi\,\mathbf e_r \quad &\text{($\mathbf e_r\times\mathbf e_\theta = \mathbf e_\phi$, $\mathbf e_\theta\times\mathbf e_\theta = \mathbf 0$, $\mathbf e_\phi\times\mathbf e_\theta = -\mathbf e_r$)} \\
+> \boldsymbol\omega_{\mathrm{sph}}\times\mathbf e_\phi &= \dot\theta\sin\phi\,\mathbf e_r\times\mathbf e_\phi - \dot\phi\,\mathbf e_\theta\times\mathbf e_\phi + \dot\theta\cos\phi\,\mathbf e_\phi\times\mathbf e_\phi \quad &\text{(distribute)} \\
+> &= -\dot\theta\sin\phi\,\mathbf e_\theta - \dot\phi\,\mathbf e_r \quad &\text{($\mathbf e_r\times\mathbf e_\phi = -\mathbf e_\theta$, $\mathbf e_\theta\times\mathbf e_\phi = \mathbf e_r$, $\mathbf e_\phi\times\mathbf e_\phi = \mathbf 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{d\mathbf e_r}{dt} = \dot\theta\cos\phi\,\mathbf e_\theta + \dot\phi\,\mathbf e_\phi,\quad \frac{d\mathbf e_\theta}{dt} = -\dot\theta\cos\phi\,\mathbf e_r + \dot\theta\sin\phi\,\mathbf e_\phi,\quad \frac{d\mathbf e_\phi}{dt} = -\dot\theta\sin\phi\,\mathbf e_\theta - \dot\phi\,\mathbf e_r;\qquad \boldsymbol\omega_{\mathrm{sph}} = \dot\theta\,\mathbf k - \dot\phi\,\mathbf e_\theta}$$
+>
+> **Units:** $\mathrm{rad/s}$ in every term
+> **Meaning:** the three cross products reproduce the three chain-rule results, so the spherical basis rotates as a whole with $\boldsymbol\omega_{\mathrm{sph}}$, as Eq. 1.62 requires; the notes write the intermediate forms in $\mathbf i$, $\mathbf j$, $\mathbf k$ (Eqs. 2.33 to 2.35), which are the partial derivatives above before they are recognised as local vectors.
+
+> [!derivation] Position and velocity in spherical coordinates
+> **Law:** position vector rewritten in the local basis; definition of velocity; product rule
+> **Source:** Notes.pdf, Eq. 2.36; Notes.pdf, Eq. 2.37; Notes.pdf, Eq. 2.33; [Lecture 1, Slide 22]
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= r\cos\phi\cos\theta\,\mathbf i + r\cos\phi\sin\theta\,\mathbf j + r\sin\phi\,\mathbf k \quad &\text{(Eq. 2.31 in Eq. 2.5)} \\
+> &= r\left(\cos\phi\cos\theta\,\mathbf i + \cos\phi\sin\theta\,\mathbf j + \sin\phi\,\mathbf k\right) \quad &\text{(factor $r$)} \\
+> &= r\,\mathbf e_r \quad &\text{(Eq. 2.32)} \\
+> \mathbf v_0^P &= \frac{d}{dt}\left(r\,\mathbf e_r\right) \quad &\text{(Eq. 2.3)} \\
+> &= \dot r\,\mathbf e_r + r\,\frac{d\mathbf e_r}{dt} \quad &\text{(product rule, Eq. 1.64)} \\
+> &= \dot r\,\mathbf e_r + r\left(\dot\theta\cos\phi\,\mathbf e_\theta + \dot\phi\,\mathbf e_\phi\right) \quad &\text{(Eq. 2.33)} \\
+> &= \dot r\,\mathbf e_r + r\dot\theta\cos\phi\,\mathbf e_\theta + r\dot\phi\,\mathbf e_\phi \quad &\text{(distribute)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = r\,\mathbf e_r,\qquad \mathbf v_0^P = \dot r\,\mathbf e_r + r\dot\theta\cos\phi\,\mathbf e_\theta + r\dot\phi\,\mathbf e_\phi}$$
+>
+> **Units:** $\mathrm{m/s}$ in every term: $\dot r$, and lengths times $\mathrm{rad/s}$
+> **Meaning:** the radial part stretches $\mathbf r_0^P$; the azimuthal part is the speed of a point on the parallel circle of radius $r\cos\phi$ turning at $\dot\theta$; the meridian part is the speed on the meridian circle of radius $r$ turning at $\dot\phi$.
+
+> [!derivation] Acceleration in spherical coordinates
+> **Law:** definition of acceleration; product rule term by term; chain rule; Eqs. 2.33 to 2.35
+> **Source:** Notes.pdf, Eq. 2.38; Notes.pdf, Eq. 2.39; Notes.pdf, Eq. 2.40; [Lecture 1, Slide 22]
+>
+> $$\begin{aligned}
+> \mathbf a_0^P &= \frac{d}{dt}\left(\dot r\,\mathbf e_r\right) + \frac{d}{dt}\left(r\dot\theta\cos\phi\,\mathbf e_\theta\right) + \frac{d}{dt}\left(r\dot\phi\,\mathbf e_\phi\right) \quad &\text{(Eq. 2.4 on Eq. 2.37; sum rule)} \\
+> \frac{d}{dt}\left(\dot r\,\mathbf e_r\right) &= \ddot r\,\mathbf e_r + \dot r\,\frac{d\mathbf e_r}{dt} \quad &\text{(product rule)} \\
+> &= \ddot r\,\mathbf e_r + \dot r\left(\dot\theta\cos\phi\,\mathbf e_\theta + \dot\phi\,\mathbf e_\phi\right) \quad &\text{(Eq. 2.33)} \\
+> &= \ddot r\,\mathbf e_r + \dot r\dot\theta\cos\phi\,\mathbf e_\theta + \dot r\dot\phi\,\mathbf e_\phi \quad &\text{(distribute)} \\
+> \frac{d}{dt}\left(r\dot\theta\cos\phi\,\mathbf e_\theta\right) &= \dot r\dot\theta\cos\phi\,\mathbf e_\theta + r\ddot\theta\cos\phi\,\mathbf e_\theta + r\dot\theta\,\frac{d\cos\phi}{dt}\,\mathbf e_\theta + r\dot\theta\cos\phi\,\frac{d\mathbf e_\theta}{dt} \quad &\text{(product rule for the four factors $r$, $\dot\theta$, $\cos\phi$, $\mathbf e_\theta$)} \\
+> &= \dot r\dot\theta\cos\phi\,\mathbf e_\theta + r\ddot\theta\cos\phi\,\mathbf e_\theta - r\dot\theta\dot\phi\sin\phi\,\mathbf e_\theta + r\dot\theta\cos\phi\,\frac{d\mathbf e_\theta}{dt} \quad &\text{(chain rule: $\dfrac{d\cos\phi}{dt} = -\sin\phi\,\dot\phi$)} \\
+> &= \dot r\dot\theta\cos\phi\,\mathbf e_\theta + r\ddot\theta\cos\phi\,\mathbf e_\theta - r\dot\theta\dot\phi\sin\phi\,\mathbf e_\theta + r\dot\theta\cos\phi\left(-\dot\theta\cos\phi\,\mathbf e_r + \dot\theta\sin\phi\,\mathbf e_\phi\right) \quad &\text{(Eq. 2.34)} \\
+> &= \dot r\dot\theta\cos\phi\,\mathbf e_\theta + r\ddot\theta\cos\phi\,\mathbf e_\theta - r\dot\theta\dot\phi\sin\phi\,\mathbf e_\theta - r\dot\theta^2\cos^2\phi\,\mathbf e_r + r\dot\theta^2\cos\phi\sin\phi\,\mathbf e_\phi \quad &\text{(distribute)} \\
+> \frac{d}{dt}\left(r\dot\phi\,\mathbf e_\phi\right) &= \dot r\dot\phi\,\mathbf e_\phi + r\ddot\phi\,\mathbf e_\phi + r\dot\phi\,\frac{d\mathbf e_\phi}{dt} \quad &\text{(product rule for the three factors $r$, $\dot\phi$, $\mathbf e_\phi$)} \\
+> &= \dot r\dot\phi\,\mathbf e_\phi + r\ddot\phi\,\mathbf e_\phi + r\dot\phi\left(-\dot\theta\sin\phi\,\mathbf e_\theta - \dot\phi\,\mathbf e_r\right) \quad &\text{(Eq. 2.35)} \\
+> &= \dot r\dot\phi\,\mathbf e_\phi + r\ddot\phi\,\mathbf e_\phi - r\dot\theta\dot\phi\sin\phi\,\mathbf e_\theta - r\dot\phi^2\,\mathbf e_r \quad &\text{(distribute)} \\
+> \mathbf a_0^P &= \left(\ddot r - r\dot\theta^2\cos^2\phi - r\dot\phi^2\right)\mathbf e_r + \left(\dot r\dot\theta\cos\phi + \dot r\dot\theta\cos\phi + r\ddot\theta\cos\phi - r\dot\theta\dot\phi\sin\phi - r\dot\theta\dot\phi\sin\phi\right)\mathbf e_\theta + \left(\dot r\dot\phi + r\dot\theta^2\cos\phi\sin\phi + \dot r\dot\phi + r\ddot\phi\right)\mathbf e_\phi \quad &\text{(add the three results and collect by unit vector)} \\
+> &= \left(\ddot r - r\dot\theta^2\cos^2\phi - r\dot\phi^2\right)\mathbf e_r + \left(2\dot r\dot\theta\cos\phi + r\ddot\theta\cos\phi - 2r\dot\theta\dot\phi\sin\phi\right)\mathbf e_\theta + \left(2\dot r\dot\phi + r\ddot\phi + r\dot\theta^2\cos\phi\sin\phi\right)\mathbf e_\phi \quad &\text{(add the equal terms)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \left(\ddot r - r\dot\theta^2\cos^2\phi - r\dot\phi^2\right)\mathbf e_r + \left(2\dot r\dot\theta\cos\phi + r\ddot\theta\cos\phi - 2r\dot\theta\dot\phi\sin\phi\right)\mathbf e_\theta + \left(2\dot r\dot\phi + r\ddot\phi + r\dot\theta^2\cos\phi\sin\phi\right)\mathbf e_\phi}$$
+>
+> **Units:** $\mathrm{m/s^2}$ in every term: each is a length times a squared rate or a length rate times a rate
+> **Meaning:** for a motion that stays in the plane $Oxy$ (latitude and its rate zero) the result reduces to $(\ddot r - r\dot\theta^2)\,\mathbf e_r + (r\ddot\theta + 2\dot r\dot\theta)\,\mathbf e_\theta$, which is Eq. 2.30 with $r$ in place of $R$ and no height, as it must; projecting this vector with $[{}_0R_{\mathrm{sph}}]$ gives the Cartesian components listed in [Lecture 1, Slide 22].
+
+## 15. Degrees of freedom and constraints
+
+The word coordinate is also used in a broader sense. The configuration degrees of freedom of a mechanical system are the number of independent parameters, or generalized coordinates, that must be given to determine fully the position and orientation of all its parts (Notes.pdf, Sec. 2.7). Any parameters that locate a point in space unambiguously will do as coordinates: angles, areas, distances. When a point cannot move freely in space, because it must stay on a surface or a line, or because several particles are related, for example by a string, the possible configurations are described with the minimum number of coordinates; that minimum is the number of configuration degrees of freedom, and the space of all possible values of the chosen coordinates is the configuration space ([Lecture 1, Slide 23]).
+
+| System | Coordinates needed | Source |
+| :--- | :--- | :--- |
+| free point particle in space | 3 | Notes.pdf, Sec. 2.7 |
+| rigid body in space (an aircraft) | 6: three position coordinates of one point and three angular coordinates (Chapter 9) | Notes.pdf, Sec. 2.7 |
+| point particle constrained to a plane, or to a surface, $\mathbf r_0^P(q_1,q_2)$ | 2 | Notes.pdf, Sec. 2.7; [Lecture 1, Slide 23] |
+| flat plate confined to a plane | 3: two position coordinates of one point and one angle | Notes.pdf, Sec. 2.7 |
+| point particle on a curve (a bead sliding on a wire), $\mathbf r_0^P(q_1)$ | 1 | Notes.pdf, Sec. 2.7; [Lecture 1, Slide 23] |
+| two particles joined by a string over a pulley | the string ties their motions: equal and opposite displacements | Notes.pdf, Sec. 2.7 |
+
+The number of independent coordinates falls below these values either because the number of spatial dimensions is reduced or because relationships are specified among the coordinates; it is useful to think of those relationships as constraints. A particle on a surface or on a curve needs as many coordinates as the dimension of the underlying object ([Lecture 1, Slide 23]). Chapter 6 (Topic 3) adds the reaction forces that enforce the constraints.
+
+![[attachments/EM-T/t1-constraints.svg]]
+
+> [!derivation] A particle on a sphere and a bead on a circular wire
+> **Law:** each constraint equation removes one independent coordinate; Eqs. 2.28, 2.29, 2.36 and 2.37 with the constrained coordinates held fixed
+> **Source:** Notes.pdf, Sec. 2.7; [Lecture 1, Slide 23]; Notes.pdf, Eq. 2.31; Notes.pdf, Eq. 2.37; Notes.pdf, Eq. 2.29
+>
+> Sphere: $P$ stays on a sphere of radius $R_0$ centred at $O$. Wire: $P$ is a bead on a circular wire of radius $R_0$ in the plane $Oxy$, centred at $O$.
+>
+> $$\begin{aligned}
+> x^2 + y^2 + z^2 &= R_0^2 \quad &\text{(sphere: one equation among the three Cartesian coordinates)} \\
+> r &= R_0 \quad &\text{(Eq. 2.31: the same constraint in spherical coordinates)} \\
+> \mathbf r_0^P &= R_0\,\mathbf e_r(\theta,\phi) \quad &\text{(Eq. 2.36: only $\theta$ and $\phi$ remain free)} \\
+> \mathbf v_0^P &= R_0\dot\theta\cos\phi\,\mathbf e_\theta + R_0\dot\phi\,\mathbf e_\phi \quad &\text{(Eq. 2.37 with $\dot r = 0$)} \\
+> z = 0,\qquad R &= R_0 \quad &\text{(wire: two equations, the plane and the circle, in cylindrical coordinates)} \\
+> \mathbf r_0^P &= R_0\,\mathbf e_R(\theta) \quad &\text{(Eq. 2.28: only $\theta$ remains free)} \\
+> \mathbf v_0^P &= R_0\dot\theta\,\mathbf e_\theta \quad &\text{(Eq. 2.29 with $\dot R = 0$ and $\dot z = 0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{sphere: } 3 - 1 = 2 \text{ degrees of freedom},\ q_1 = \theta,\ q_2 = \phi;\qquad \text{wire: } 3 - 2 = 1 \text{ degree of freedom},\ q_1 = \theta}$$
+>
+> **Units:** $R_0$ in $\mathrm m$, angles in $\mathrm{rad}$, velocities in $\mathrm{m/s}$
+> **Meaning:** choosing coordinates in which the constraints fix some coordinates leaves exactly the free ones as generalized coordinates; the velocity then has no component along the constrained directions ($\mathbf e_r$ on the sphere, $\mathbf e_R$ and $\mathbf e_z$ on the wire).
+
+> [!derivation] Two particles joined by a string over a pulley
+> **Law:** constant length of an inextensible string; time derivative of the constraint
+> **Source:** Notes.pdf, Sec. 2.7; [Lecture 1, Slide 23]
+>
+> Two particles hang on the two sides of a fixed pulley from an inextensible string of length $\ell$, each moving along its own vertical line; $h_1$ and $h_2$ are their depths below the axis of the pulley, and $\ell_0$ is the constant length of string in contact with the pulley.
+>
+> $$\begin{aligned}
+> h_1 + h_2 + \ell_0 &= \ell \quad &\text{(the string does not stretch)} \\
+> \dot h_1 + \dot h_2 &= 0 \quad &\text{(time derivative; $\ell$ and $\ell_0$ are constant)} \\
+> \dot h_2 &= -\dot h_1 \quad &\text{(solve for $\dot h_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{h_2 = \ell - \ell_0 - h_1,\qquad \dot h_2 = -\dot h_1:\quad 2 - 1 = 1 \text{ degree of freedom}}$$
+>
+> **Units:** $\mathrm m$ and $\mathrm{m/s}$
+> **Meaning:** when one particle goes down the other goes up by the same amount, at the same speed: the motions are equal and opposite, and one coordinate, $h_1$, describes the whole system.
+
+We are not restricted to Cartesian, cylindrical or spherical coordinates for positions and angles for orientations: other valid sets of parameters, such as distances or areas, can determine the configuration, and when they are chosen they are called generalized coordinates (Notes.pdf, Sec. 2.7; [Lecture 1, Slide 23]). Analytical mechanics uses generalized coordinates to reduce the equations of motion to their simplest form systematically; it is beyond the scope of the course and is not one of its tools (Notes.pdf, Sec. 2.7, footnote 13).
+
+## 16. Worked example: the helical rocket
+
+> [!example] Out-of-control rocket on a helix ([Lecture 1, Slide 29])
+> An out-of-control rocket, modelled as a point particle, traces an upward helical trajectory described in Cartesian coordinates of $S_0$ for positive times by the functions of the table, where $a$, $v_z$ and $\omega$ are constants. (a) Express the position, velocity and acceleration vectors in the Cartesian system with the unit vectors $\mathbf i$, $\mathbf j$, $\mathbf k$. (b) Express them in the cylindrical coordinate system with $\mathbf e_R$, $\mathbf e_\theta$, $\mathbf e_z$. (c) Express the velocity and the acceleration with the intrinsic coordinates $s$, $\rho$ and the basis $\mathbf e_t$, $\mathbf e_n$, $\mathbf e_b$. (d) Compute the modulus of the velocity. (e) Express the arc length coordinate as a function of time. (f) Write the trajectory as a function of the arc length. (g) Find the centre of curvature when the particle is at the point $(a, 0, 0)$.
+
+| Datum | Meaning |
+| :--- | :--- |
+| $x = a\cos(\omega t)$, $y = a\sin(\omega t)$, $z = v_z t$ | Eqs. (1) to (3) of the slide |
+| $a$ (m), positive | radius of the helix |
+| $\omega$ (rad/s), positive | constant angular rate about $Oz$ (the magnitude of $\boldsymbol\omega_{\mathrm{cyl}}$) |
+| $v_z$ (m/s), positive | constant rate of climb |
+
+![[attachments/EM-T/t1-helix.svg]]
+
+> [!derivation] (a) Position, velocity and acceleration in the Cartesian basis
+> **Law:** Cartesian components; chain rule on the trigonometric functions of $\omega t$
+> **Source:** Notes.pdf, Eq. 2.5; Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.7; [Lecture 1, Slide 29]
+>
+> $$\begin{aligned}
+> \mathbf r_0^P &= a\cos(\omega t)\,\mathbf i + a\sin(\omega t)\,\mathbf j + v_z t\,\mathbf k \quad &\text{(Eq. 2.5 with the data)} \\
+> \dot x &= a\,\frac{d\cos(\omega t)}{d(\omega t)}\,\frac{d(\omega t)}{dt} \quad &\text{(chain rule)} \\
+> &= -a\omega\sin(\omega t) \quad &\text{(derivative of the cosine; $\omega$ constant)} \\
+> \dot y &= a\,\frac{d\sin(\omega t)}{d(\omega t)}\,\frac{d(\omega t)}{dt} \quad &\text{(chain rule)} \\
+> &= a\omega\cos(\omega t) \quad &\text{(derivative of the sine)} \\
+> \dot z &= v_z \quad &\text{(derivative of $v_z t$)} \\
+> \ddot x &= -a\omega\cos(\omega t)\,\omega \quad &\text{(chain rule on $\dot x$)} \\
+> \ddot y &= -a\omega\sin(\omega t)\,\omega \quad &\text{(chain rule on $\dot y$)} \\
+> \ddot z &= 0 \quad &\text{($v_z$ is constant)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = -a\omega\sin(\omega t)\,\mathbf i + a\omega\cos(\omega t)\,\mathbf j + v_z\,\mathbf k,\qquad \mathbf a_0^P = -a\omega^2\cos(\omega t)\,\mathbf i - a\omega^2\sin(\omega t)\,\mathbf j}$$
+>
+> **Units:** $a\omega$ and $v_z$ in $\mathrm{m/s}$; $a\omega^2$ in $\mathrm{m/s^2}$
+> **Meaning:** the acceleration is horizontal and points from $P$ to the axis $Oz$: its components are those of the horizontal part of $\mathbf r_0^P$ times $-\omega^2$.
+
+> [!derivation] (b) Position, velocity and acceleration in the cylindrical basis
+> **Law:** transformation relations; Eqs. 2.28 to 2.30; check with the inverse change of basis
+> **Source:** Notes.pdf, Eq. 2.23; Notes.pdf, Eq. 2.28; Notes.pdf, Eq. 2.29; Notes.pdf, Eq. 2.30; Notes.pdf, Eq. 1.14
+>
+> $$\begin{aligned}
+> R &= \sqrt{a^2\cos^2(\omega t) + a^2\sin^2(\omega t)} \quad &\text{(Eq. 2.23)} \\
+> &= a \quad &\text{(Pythagoras; $a$ is positive)} \\
+> \theta &= \arctan\frac{a\sin(\omega t)}{a\cos(\omega t)} \quad &\text{(Eq. 2.23)} \\
+> &= \omega t \quad &\text{(the signs of $x$ and $y$ put $\theta$ in the quadrant of $\omega t$; $\theta$ is taken continuous in time)} \\
+> \dot R = 0,\qquad \ddot R &= 0 \quad &\text{($R$ is constant)} \\
+> \dot\theta = \omega,\qquad \ddot\theta &= 0 \quad &\text{(derivatives of $\omega t$; $\omega$ constant)} \\
+> \dot z = v_z,\qquad \ddot z &= 0 \quad &\text{(part (a))} \\
+> \mathbf r_0^P &= a\,\mathbf e_R + v_z t\,\mathbf e_z \quad &\text{(Eq. 2.28)} \\
+> \mathbf v_0^P &= 0\,\mathbf e_R + a\omega\,\mathbf e_\theta + v_z\,\mathbf e_z \quad &\text{(Eq. 2.29)} \\
+> \mathbf a_0^P &= \left(0 - a\omega^2\right)\mathbf e_R + \left(a\cdot 0 + 2\cdot 0\cdot\omega\right)\mathbf e_\theta + 0\,\mathbf e_z \quad &\text{(Eq. 2.30)} \\
+> &= -a\omega^2\,\mathbf e_R \quad &\text{(simplify)} \\
+> [{}_{\mathrm{cyl}}R_0] &= [{}_0R_{\mathrm{cyl}}]^T \quad &\text{(Eq. 1.14)} \\
+> \left([\mathbf a_0^P]_{\mathrm{cyl}}\right)_1 &= \cos(\omega t)\left(-a\omega^2\cos(\omega t)\right) + \sin(\omega t)\left(-a\omega^2\sin(\omega t)\right) + 0\cdot 0 \quad &\text{(first row of $[{}_{\mathrm{cyl}}R_0]$ times the Cartesian column of part (a))} \\
+> &= -a\omega^2 \quad &\text{(Pythagoras)} \\
+> \left([\mathbf a_0^P]_{\mathrm{cyl}}\right)_2 &= -\sin(\omega t)\left(-a\omega^2\cos(\omega t)\right) + \cos(\omega t)\left(-a\omega^2\sin(\omega t)\right) + 0\cdot 0 \quad &\text{(second row times the same column)} \\
+> &= 0 \quad &\text{(the two products cancel)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_0^P = a\,\mathbf e_R + v_z t\,\mathbf e_z,\qquad \mathbf v_0^P = a\omega\,\mathbf e_\theta + v_z\,\mathbf e_z,\qquad \mathbf a_0^P = -a\omega^2\,\mathbf e_R,\qquad \theta = \omega t}$$
+>
+> **Units:** $\mathrm m$, $\mathrm{m/s}$, $\mathrm{m/s^2}$
+> **Meaning:** the rocket stays on the cylinder of radius $a$ about $Oz$; the projection of the Cartesian acceleration agrees with Eq. 2.30, and the only acceleration is the term in $-R\dot\theta^2$, directed to the axis.
+
+> [!derivation] (c, d) Velocity in the intrinsic basis and its modulus
+> **Law:** speed as the magnitude of the velocity; Eq. 2.16
+> **Source:** Notes.pdf, Eq. 2.16; Notes.pdf, Eq. 1.40; [Lecture 1, Slide 28]
+>
+> $$\begin{aligned}
+> \lvert\mathbf v_0^P\rvert^2 &= \mathbf v_0^P\cdot\mathbf v_0^P \quad &\text{(magnitude from the dot product)} \\
+> &= (a\omega)^2 + v_z^2 \quad &\text{(components in the orthonormal basis $\mathcal B_{\mathrm{cyl}}$, Eq. 1.40)} \\
+> \dot s &= \sqrt{a^2\omega^2 + v_z^2} \quad &\text{(Eq. 2.16: the speed, with $s$ growing along the motion)} \\
+> \mathbf e_t &= \frac{\mathbf v_0^P}{\dot s} \quad &\text{(Eq. 2.16 divided by $\dot s$)} \\
+> &= \frac{a\omega\,\mathbf e_\theta + v_z\,\mathbf e_z}{\sqrt{a^2\omega^2 + v_z^2}} \quad &\text{(part (b))}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \dot s\,\mathbf e_t,\qquad \lvert\mathbf v_0^P\rvert = \dot s = \sqrt{a^2\omega^2 + v_z^2},\qquad \mathbf e_t = \frac{a\omega\,\mathbf e_\theta + v_z\,\mathbf e_z}{\sqrt{a^2\omega^2 + v_z^2}}}$$
+>
+> **Units:** $\mathrm{m/s}$; $\mathbf e_t$ dimensionless
+> **Meaning:** the speed is constant, and the tangent keeps a constant angle with the horizontal plane, whose tangent is the ratio of the climb rate to the circumferential speed.
+
+> [!derivation] (c) Acceleration in the intrinsic basis: curvature and normal vector
+> **Law:** chain rule from $t$ to $s$; Eqs. 2.11, 2.12, 2.17 and 2.18
+> **Source:** Notes.pdf, Eq. 2.11; Notes.pdf, Eq. 2.12; Notes.pdf, Eq. 2.17; Notes.pdf, Eq. 2.18; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 2.27
+>
+> $$\begin{aligned}
+> \frac{d\mathbf e_t}{dt} &= \frac{1}{\dot s}\left(a\omega\,\frac{d\mathbf e_\theta}{dt} + v_z\,\frac{d\mathbf e_z}{dt}\right) \quad &\text{($a$, $\omega$, $v_z$ and $\dot s$ are constant)} \\
+> &= \frac{1}{\dot s}\left(a\omega\left(-\omega\,\mathbf e_R\right) + v_z\,\mathbf 0\right) \quad &\text{(Eqs. 2.26 and 2.27 with $\dot\theta = \omega$)} \\
+> &= -\frac{a\omega^2}{\dot s}\,\mathbf e_R \quad &\text{(simplify)} \\
+> \frac{d\mathbf e_t}{ds} &= \frac{1}{\dot s}\,\frac{d\mathbf e_t}{dt} \quad &\text{(chain rule: $\dfrac{d\mathbf e_t}{dt} = \dfrac{d\mathbf e_t}{ds}\,\dot s$)} \\
+> &= -\frac{a\omega^2}{a^2\omega^2 + v_z^2}\,\mathbf e_R \quad &\text{($\dot s^2 = a^2\omega^2 + v_z^2$)} \\
+> \kappa &= \frac{a\omega^2}{a^2\omega^2 + v_z^2} \quad &\text{(magnitude, Eq. 2.12)} \\
+> \mathbf e_n &= -\mathbf e_R \quad &\text{(direction, Eq. 2.11)} \\
+> \rho &= \frac{a^2\omega^2 + v_z^2}{a\omega^2} \quad &\text{(inverse of $\kappa$, Eq. 2.12)} \\
+> a_t &= \ddot s = 0 \quad &\text{($\dot s$ is constant, Eq. 2.18)} \\
+> a_n &= \frac{\dot s^2}{\rho} \quad &\text{(Eq. 2.18)} \\
+> &= \left(a^2\omega^2 + v_z^2\right)\frac{a\omega^2}{a^2\omega^2 + v_z^2} \quad &\text{(substitute $\dot s^2$ and $\rho$)} \\
+> &= a\omega^2 \quad &\text{(cancel)} \\
+> \mathbf a_0^P &= 0\,\mathbf e_t + a\omega^2\,\mathbf e_n \quad &\text{(Eq. 2.17)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \frac{\dot s^2}{\rho}\,\mathbf e_n = a\omega^2\,\mathbf e_n,\qquad \mathbf e_n = -\mathbf e_R,\qquad \rho = \frac{a^2\omega^2 + v_z^2}{a\omega^2} = a + \frac{v_z^2}{a\omega^2}}$$
+>
+> **Units:** $\kappa$ in $\mathrm{m^{-1}}$; $\rho$ in $\mathrm m$: $(\mathrm{m^2/s^2})/(\mathrm{m/s^2})$; $a_n$ in $\mathrm{m/s^2}$
+> **Meaning:** with $\mathbf e_n$ equal to $-\mathbf e_R$ this is the acceleration of part (b); the radius of curvature exceeds the radius of the cylinder because the climb stretches the curve, and it tends to $a$ (a horizontal circle) as $v_z$ tends to zero.
+
+> [!derivation] (c) Binormal vector, and a check of the Frenet-Serret formulas
+> **Law:** definition of the binormal; cross products in the right-handed basis $\mathcal B_{\mathrm{cyl}}$; Eq. 2.15
+> **Source:** Notes.pdf, Eq. 2.13; Notes.pdf, Eq. 2.15; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 1.32
+>
+> $$\begin{aligned}
+> \mathbf e_b &= \mathbf e_t\times\mathbf e_n \quad &\text{(definition)} \\
+> &= \frac{1}{\dot s}\left(a\omega\,\mathbf e_\theta + v_z\,\mathbf e_z\right)\times\left(-\mathbf e_R\right) \quad &\text{(substitute $\mathbf e_t$ and $\mathbf e_n$)} \\
+> &= \frac{1}{\dot s}\left(-a\omega\,\mathbf e_\theta\times\mathbf e_R - v_z\,\mathbf e_z\times\mathbf e_R\right) \quad &\text{(distribute, Eq. 1.32)} \\
+> &= \frac{1}{\dot s}\left(a\omega\,\mathbf e_z - v_z\,\mathbf e_\theta\right) \quad &\text{($\mathbf e_\theta\times\mathbf e_R = -\mathbf e_z$, $\mathbf e_z\times\mathbf e_R = \mathbf e_\theta$)} \\
+> \frac{d\mathbf e_b}{dt} &= \frac{1}{\dot s}\left(a\omega\,\mathbf 0 - v_z\left(-\omega\,\mathbf e_R\right)\right) \quad &\text{(Eqs. 2.26 and 2.27)} \\
+> &= \frac{v_z\omega}{\dot s}\,\mathbf e_R \quad &\text{(simplify)} \\
+> \frac{d\mathbf e_b}{ds} &= \frac{v_z\omega}{\dot s^2}\,\mathbf e_R \quad &\text{(chain rule: divide by $\dot s$)} \\
+> &= -\frac{v_z\omega}{a^2\omega^2 + v_z^2}\,\mathbf e_n \quad &\text{($\mathbf e_R = -\mathbf e_n$)} \\
+> \tau &= \frac{v_z\omega}{a^2\omega^2 + v_z^2} \quad &\text{(compare with the third Frenet-Serret formula, Eq. 2.15)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_b = \frac{a\omega\,\mathbf e_z - v_z\,\mathbf e_\theta}{\sqrt{a^2\omega^2 + v_z^2}},\qquad \tau = \frac{v_z\omega}{a^2\omega^2 + v_z^2}}$$
+>
+> **Units:** $\tau$ in $(\mathrm{m/s})(\mathrm{rad/s})/(\mathrm{m^2/s^2}) = \mathrm{m^{-1}}$
+> **Meaning:** the derivative of $\mathbf e_b$ lies along $\mathbf e_n$, as Eq. 2.15 requires; the torsion is the extra result of this box (the slide does not ask for it), positive for a climbing helix and zero when $v_z$ vanishes and the path becomes the planar circle.
+
+> [!derivation] (e, f) Time law and trajectory as a function of the arc length
+> **Law:** integration of the speed with Barrow's rule; substitution of the inverse time law
+> **Source:** Notes.pdf, Eq. 2.16; Notes.pdf, Sec. 2.3; Notes.pdf, Eq. 2.9
+>
+> The origin of $s$ is the point of the trajectory at the initial instant, $(a, 0, 0)$.
+>
+> $$\begin{aligned}
+> \int_0^t\frac{ds}{dt'}\,dt' &= \int_0^t\sqrt{a^2\omega^2 + v_z^2}\,dt' \quad &\text{(integrate the speed of part (d) from $0$ to $t$)} \\
+> \left[\,s\,\right]_0^t &= \left[\sqrt{a^2\omega^2 + v_z^2}\;t'\right]_0^t \quad &\text{(antiderivatives: $s$, and the constant times $t'$)} \\
+> s(t) - s(0) &= \sqrt{a^2\omega^2 + v_z^2}\;t - 0 \quad &\text{(Barrow's rule)} \\
+> s(t) &= \dot s\,t \quad &\text{($s(0) = 0$; $\dot s$ is the constant speed)} \\
+> t &= \frac{s}{\dot s} \quad &\text{(invert the time law)} \\
+> \mathbf r_0^P(s) &= a\cos\frac{\omega s}{\dot s}\,\mathbf i + a\sin\frac{\omega s}{\dot s}\,\mathbf j + \frac{v_z s}{\dot s}\,\mathbf k \quad &\text{(substitute $t$ in the position of part (a))} \\
+> \frac{d\mathbf r_0^P}{ds} &= -\frac{a\omega}{\dot s}\sin\frac{\omega s}{\dot s}\,\mathbf i + \frac{a\omega}{\dot s}\cos\frac{\omega s}{\dot s}\,\mathbf j + \frac{v_z}{\dot s}\,\mathbf k \quad &\text{(chain rule on each component)} \\
+> \left\lvert\frac{d\mathbf r_0^P}{ds}\right\rvert^2 &= \frac{a^2\omega^2\left(\sin^2 + \cos^2\right) + v_z^2}{\dot s^2} \quad &\text{(sum of the squared components)} \\
+> &= 1 \quad &\text{(Pythagoras; $\dot s^2 = a^2\omega^2 + v_z^2$)}
+> \end{aligned}$$
+>
+> $$\boxed{s(t) = \sqrt{a^2\omega^2 + v_z^2}\;t,\qquad \mathbf r_0^P(s) = a\cos\frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}}\,\mathbf i + a\sin\frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}}\,\mathbf j + \frac{v_z s}{\sqrt{a^2\omega^2 + v_z^2}}\,\mathbf k}$$
+>
+> **Units:** $s$ in $\mathrm m$; the arguments of the cosine and sine are in $\mathrm{rad}$, $(\mathrm{rad/s})\,\mathrm m/(\mathrm{m/s})$
+> **Meaning:** the derivative of the trajectory with respect to $s$ has unit magnitude, as Eq. 2.9 requires of $\mathbf e_t$; one turn of the helix, a change of $2\pi$ in the angle, measures $2\pi\dot s/\omega$ of arc.
+
+> [!derivation] (g) Centre of curvature at the point (a, 0, 0)
+> **Law:** the centre of the osculating circle lies at the distance $\rho$ from $P$ along $\mathbf e_n$
+> **Source:** Notes.pdf, Sec. 2.4; Notes.pdf Fig. 2.2; Notes.pdf, Eq. 2.24
+>
+> The point $(a, 0, 0)$ has zero height, so it is reached at $t = 0$, the start of the motion (the limit of positive times); there $\theta$ is zero and $\mathbf e_R$ is $\mathbf i$ (Eq. 2.24).
+>
+> $$\begin{aligned}
+> \overrightarrow{OC} &= \mathbf r_0^P + \rho\,\mathbf e_n \quad &\text{($\mathbf e_n$ points from $P$ to $C$, at the distance $\rho$, Fig. 2.2)} \\
+> &= a\,\mathbf i + \frac{a^2\omega^2 + v_z^2}{a\omega^2}\left(-\mathbf i\right) \quad &\text{(at $t = 0$: $\mathbf r_0^P = a\,\mathbf i$, $\mathbf e_n = -\mathbf e_R = -\mathbf i$)} \\
+> &= \left(a - a - \frac{v_z^2}{a\omega^2}\right)\mathbf i \quad &\text{(split the fraction)} \\
+> &= -\frac{v_z^2}{a\omega^2}\,\mathbf i \quad &\text{(cancel)}
+> \end{aligned}$$
+>
+> $$\boxed{C = \left(-\frac{v_z^2}{a\omega^2},\ 0,\ 0\right)}$$
+>
+> **Units:** $(\mathrm{m^2/s^2})/(\mathrm{m\,rad^2/s^2}) = \mathrm m$
+> **Meaning:** the centre of curvature is not on the axis of the helix: it lies on the far side of $Oz$, at the distance $v_z^2/(a\omega^2)$ from it, and it moves to $O$, the centre of the horizontal circle, as $v_z$ tends to zero.
+
+> [!key] Kinematics of a point particle
+> Choose the reference frame first: an origin and an orthonormal right-handed basis, which define the observer. The position vector with respect to that frame, differentiated once and twice in that frame, gives the velocity and the acceleration; a derivative always carries the frame it is taken in, and two observers agree only if their bases do not rotate relative to each other. The velocity is tangent to the trajectory; the acceleration splits into a tangential part, from the change of speed, and a normal part, from the change of direction, both in the osculating plane. Write vectors in the basis that suits the problem: Cartesian (fixed), cylindrical or spherical (local bases that turn with the coordinates, built column by column as rotations of the fixed basis), or intrinsic (tangent, normal and binormal, which depend only on the shape of the path). Never quote the curvilinear components: derive them from the position vector, the derivatives of the local unit vectors and the product rule. Count the degrees of freedom as the coordinates needed minus the independent constraints, and choose generalized coordinates in which the constraints are automatically satisfied.
