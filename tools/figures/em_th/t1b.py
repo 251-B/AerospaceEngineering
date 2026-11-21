@@ -509,8 +509,8 @@ def cylindrical_plan():
 
 
 # --------------------------------------------------------------------------------------------------------------------
-PHI_LAT = "φ"
-PHI_COL = "ϕ"
+PHI_LAT = "ϕ"
+PHI_COL = "φ"
 
 
 def _sph(r, th, ph):
@@ -555,7 +555,7 @@ def spherical_3d():
     L = 1.2
     _vec3(sc, P, _mul(er, L), _vb("e", "r"), "BLUE", 3.4, off=(14, 4), size=18, head=11)
     _vec3(sc, P, _mul(et, L), _vb("e", "θ"), "BLUE", 3.4, off=(22, 6), size=18, head=11)
-    _vec3(sc, P, _mul(ep, L), _vb("e", "φ"), "BLUE", 3.4, off=(-20, -4), size=18, head=11)
+    _vec3(sc, P, _mul(ep, L), _vb("e", "ϕ"), "BLUE", 3.4, off=(-20, -4), size=18, head=11)
     sc.dotp(P3(P), 4.6, "ACC")
     sc.label(P3(P), "P", "HEAD", "start", 18, dx=10, dy=22)
     sc.dotp(P3(Pp), 3.6)
@@ -598,7 +598,7 @@ def spherical_meridian():
     T1 = (A1[0], A1[1] + s2 * L)
     A2 = (P[0], P[1] + c_ * L)
     T2 = (A2[0] - s2 * L, A2[1])
-    _rot_pair(sc, P, PH, L, _vb("e", "r"), _vb("e", "φ"), _vb("e", "R"), bold("k"), "−sin " + PHI_LAT + " " + _vb("e", "R"),
+    _rot_pair(sc, P, PH, L, _vb("e", "r"), _vb("e", "ϕ"), _vb("e", "R"), bold("k"), "−sin " + PHI_LAT + " " + _vb("e", "R"),
               cs=ph_c, sn=ph_s, tn=PHI_LAT, e1_lab=(24, -4), e2_lab=(-26, -8))
     sc.dotp(P, 4.4, "ACC")
     sc.label(P, "P", "HEAD", "end", 18, dx=-6, dy=36)
@@ -639,7 +639,7 @@ def spherical_plan():
     eT = (Pp[0] - L * s_, Pp[1] + L * c)
     sc.line(Pp, eR, "BLUE", 3.2, "7 4")
     arrow_head(sc.c, sc.P(Pp), sc.P(eR), "BLUE", 12)
-    sc.label(eR, _vb("e", "R") + ", horizontal part of " + _vb("e", "r") + " and " + MINUS + _vb("e", "φ"), "BLUE", "start", 15,
+    sc.label(eR, _vb("e", "R") + ", horizontal part of " + _vb("e", "r") + " and " + MINUS + _vb("e", "ϕ"), "BLUE", "start", 15,
              dx=12, dy=-2, italic=False)
     sc.vec(Pp, eT, _vb("e", "θ"), "BLUE", 3.4, name_off=(-26, -8), size=18, head=12)
     sc.arc(Pp, 0.7, 90, 90 + TH, "GREEN", 1.6, head=True)
@@ -662,7 +662,7 @@ def _subs(s):
 
 @figure("t1-constraints",
         r"A particle on a sphere with two angular coordinates, a bead on a circular wire with one angle, and two blocks joined by a string over a pulley.",
-        r"Constraints reduce the coordinates: on a sphere $3 - 1 = 2$, on a circular wire $3 - 2 = 1$, and the string over a pulley ties the two depths, $\dot h_2 = -\dot h_1$ (Notes.pdf Sec. 2.7).")
+        r"Constraints reduce the coordinates: on a sphere $3 - 1 = 2$, on a circular wire $3 - 2 = 1$, and the string over a pulley ties the two depths, $\dot d_2 = -\dot d_1$ (Notes.pdf Sec. 2.7).")
 def constraints():
     sc = Scene(1080, 450, (125, 290), 58)
     # ---- panel 1: particle on a sphere ---------------------------------------------------------------------------------
@@ -691,7 +691,7 @@ def constraints():
     sc.label(mid2, PHI_LAT, "GREEN", "middle", 16, dx=10, dy=18)
     sc.label((0.2, -2.25), "r = R" + _subs("0"), "HEAD", "middle", 16)
     _vec3(sc, P, _mul(et, 0.95), _vb("e", "θ"), "BLUE", 3.2, off=(20, 4), size=17, head=10)
-    _vec3(sc, P, _mul(ep, 0.95), _vb("e", "φ"), "BLUE", 3.2, off=(24, -2), size=17, head=10)
+    _vec3(sc, P, _mul(ep, 0.95), _vb("e", "ϕ"), "BLUE", 3.2, off=(24, -2), size=17, head=10)
     sc.dotp(P3(P), 4.6, "ACC")
     sc.label(P3(P), "P", "HEAD", "start", 17, dx=12, dy=24)
     sc.dotp(P3(O), 3.2)
@@ -731,13 +731,13 @@ def constraints():
     sc.line((x1, PC[1]), (x1, y1 + b), "HEAD", 1.6)
     sc.line((x2, PC[1]), (x2, y2 + b), "HEAD", 1.6)
     sc.arc(PC, rp, 0, 180, ORANGE, 3.8)
-    sc.label(_add(PC, _d(45), rp + 0.42), "ℓ" + _subs("0"), "ACC", "start", 17, dx=4, dy=-2, weight="700")
+    sc.label(_add(PC, _d(45), rp + 0.42), "L" + _subs("0"), "ACC", "start", 17, dx=4, dy=-2, weight="700")
     for xx, yy, nm in ((x1, y1, "1"), (x2, y2, "2")):
         sc.poly([(xx - b, yy + b), (xx + b, yy + b), (xx + b, yy - b), (xx - b, yy - b)], "HEAD", 1.8, None, "ACC", True, 0.55)
     sc.line((PC[0] - 2.3, PC[1]), (PC[0] + 2.3, PC[1]), "EDGE", 1.1, "7 4")
     xd1, xd2 = PC[0] - 1.9, PC[0] + 1.9
-    sc.dim((xd1, PC[1]), (xd1, y1), "h" + _subs("1"), off=(-16, 4))
-    sc.dim((xd2, PC[1]), (xd2, y2), "h" + _subs("2"), off=(16, 4))
+    sc.dim((xd1, PC[1]), (xd1, y1), "d" + _subs("1"), off=(-16, 4))
+    sc.dim((xd2, PC[1]), (xd2, y2), "d" + _subs("2"), off=(16, 4))
     sc.line((x1 - b, y1), (xd1, y1), "EDGE", 1.1, "7 4")
     sc.line((x2 + b, y2), (xd2, y2), "EDGE", 1.1, "7 4")
     # equal and opposite displacements

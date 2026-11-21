@@ -2,8 +2,14 @@
 import math
 
 from figures.em_theory import axis_in, axis_out, figure, fixed_axis, right_angle, triangle
-from figures.mech import S, Scene, bold, dot1
+from figures.mech import S, Scene, bold
 from figures.svgkit import arrow_head, poly as _poly, rect as _rect
+
+def dot1(ch):
+    """Letter with a proper overdot: a raised full stop centred over the glyph (the combining U+0307 renders after it)."""
+    return (ch + '<tspan dx="-0.38em" dy="-0.80em" font-style="normal">.</tspan>'
+            '<tspan dx="0.13em" dy="0.80em" font-style="normal">\u200b</tspan>')
+
 
 ORANGE = "ACC"
 DRED = "#be123c"          # second colour: products, angular velocity, small changes
@@ -511,10 +517,10 @@ def triple_product():
     _vec3(sc, O, _mul(n, 1.8), None, DRED, 3.4, head=12)
     sc.label(P3(_mul(n, 1.8)), bold("A") + " × " + bold("B"), DRED, "end", 17, dx=-12, dy=14)
     mid = _arc3(sc, C, n, 1.25, "GREEN")
-    sc.label(mid, "φ" + S("", "C"), "GREEN", "middle", 16, dx=-4, dy=-14)
+    sc.label(mid, "γ" + S("", "C"), "GREEN", "middle", 16, dx=-4, dy=-14)
     hm = P3(_mul(_v3(C, foot), 0.5))
     sc.label(hm, "height =", "HEAD", "start", 15, dx=12, dy=-2)
-    sc.label(hm, "C cos φ" + S("", "C"), "HEAD", "start", 15, dx=12, dy=18)
+    sc.label(hm, "C cos γ" + S("", "C"), "HEAD", "start", 15, dx=12, dy=18)
     sc.dotp(P3(foot), 3.0, "TEXT")
     sc.dotp(P3(O), 3.5)
     sc.label(P3(O), "O", "HEAD", "end", 17, dx=-8, dy=14)
