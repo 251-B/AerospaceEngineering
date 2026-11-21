@@ -3395,14 +3395,14 @@ A particle $P$ of mass $m$ slides on a smooth quarter circumference of radius $R
 
 > [!derivation] Three components of Newton's second law in the path basis
 > **Law:** Newton's second law in a non-inertial frame, projected on $\{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$
-> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.17; [Lecture 5, Slide 28]; Problems.pdf, p. 18
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.17; Notes.pdf, Eq. 6.18; Notes.pdf, Eq. 6.19; [Lecture 5, Slide 28]; Problems.pdf, p. 18
 >
 > Three scalar equations for three unknowns: the coordinate and the two components of the reaction.
 >
 > $$\begin{aligned}
-> \mathbf e_t:\ mR\ddot\phi &= 2\alpha m\omega^2R\cos\phi - m\omega^2R\left(1 - \sin\phi\right)\cos\phi \quad &\text{(no reaction along the tangent)} \\
-> \mathbf e_n:\ mR\dot\phi^2 &= N_n + \alpha m\omega^2R\left(1 - 2\sin\phi\right) + m\omega^2R\left(1 - \sin\phi\right)\sin\phi \quad &\text{(normal)} \\
-> \mathbf e_b:\ 0 &= N_b + 2m\omega R\cos\phi\,\dot\phi \quad &\text{(binormal)} \\
+> \mathbf e_t:\ mR\ddot\phi &= 2\alpha m\omega^2R\cos\phi - m\omega^2R\left(1 - \sin\phi\right)\cos\phi \quad &\text{(Eq. 6.17: no reaction along the tangent)} \\
+> \mathbf e_n:\ mR\dot\phi^2 &= N_n + \alpha m\omega^2R\left(1 - 2\sin\phi\right) + m\omega^2R\left(1 - \sin\phi\right)\sin\phi \quad &\text{(Eq. 6.18, normal)} \\
+> \mathbf e_b:\ 0 &= N_b + 2m\omega R\cos\phi\,\dot\phi \quad &\text{(Eq. 6.19, binormal)} \\
 > \ddot\phi &= \omega^2\cos\phi\left(2\alpha - 1 + \sin\phi\right) \quad &\text{(tangential equation divided by $mR$; $\cos\phi$ factored)}
 > \end{aligned}$$
 >
@@ -3551,7 +3551,7 @@ A particle $P$ of mass $m$ slides on a smooth quarter circumference of radius $R
 > $$\boxed{\beta_c = \tfrac12, \qquad \mathbf N\left(\tfrac{\pi}{2}\right) = m\omega^2R\left(\beta^2 + \tfrac14\right)\mathbf i_1 \ \xrightarrow{\ \beta\to\beta_c^+\ }\ \tfrac12 m\omega^2R\,\mathbf i_1}$$
 >
 > **Units:** $[m\omega^2R] = [\mathrm{M\,L\,T^{-2}}]$
-> **Meaning:** at the upper end the particle is on the axis and moves along it, so the centrifugal and Coriolis forces vanish there; the reaction points to $O$ and supplies the centripetal force of the circular path plus the balance of the spring, which there pulls towards $B$ with a quarter of the mass times the squared rate times $R$.
+> **Meaning:** at the upper end the particle is on the axis and moves along it, so the origin and centrifugal forces together, and the Coriolis force, vanish there; the reaction points to $O$ and supplies the centripetal force of the circular path plus the balance of the spring, which there pulls towards $B$ with a quarter of the mass times the squared rate times $R$.
 
 #### (f) Maximum height after leaving the arc
 
@@ -3900,13 +3900,17 @@ Two heavy particles $P_1$ and $P_2$ of mass $m$ slide without friction on a para
 > -u_1u_2 &= 2 + u_1u_2 \;\Rightarrow\; u_1u_2 = -1, \ \ x_1x_2 = -L^2 \quad &\text{(opposite branches)} \\
 > u_1 - u_2 &= u_1 + \frac{1}{u_1}, \quad 1 + \frac{\Sigma^2}{4} = \frac{\left(u_1 + 1/u_1\right)^2}{4}, \quad D^3 = \frac{\left|u_1 + 1/u_1\right|^6}{8} \quad &\text{($u_2 = -1/u_1$; $\left(u_1 - 1/u_1\right)^2 + 4 = \left(u_1 + 1/u_1\right)^2$)} \\
 > \gamma - 1 &= \frac{\kappa\left(u_1 + 1/u_1\right)^2\cdot 8}{2\left(u_1 + 1/u_1\right)^6} = \frac{4\kappa}{\left(u_1 + 1/u_1\right)^4} \;\Rightarrow\; \left|u_1 + \frac{1}{u_1}\right| = c \quad &\text{(back in the sum condition)} \\
-> u_1^2 - c\,u_1 + 1 &= 0 \;\Rightarrow\; u_1 = \frac{c \pm \sqrt{c^2 - 4}}{2}, \quad u_2 = -\frac{1}{u_1} \quad &\text{($u_1 \gt 0$; both roots, real only if $c \ge 2$)}
+> u_1^2 - c\,u_1 + 1 &= 0 \;\Rightarrow\; u_1 = \frac{c \pm \sqrt{c^2 - 4}}{2}, \quad u_2 = -\frac{1}{u_1} \quad &\text{($u_1 \gt 0$; both roots, real only if $c \ge 2$)} \\
+> \gamma = 2,\ \kappa = 8:\quad c &= 32^{1/4} = 2.3784, \quad u_1 = 1.8328, \quad u_2 = -0.5456, \quad \Sigma = 1.2872, \quad D = 2\sqrt2, \quad \frac{\kappa}{D^3} = 0.35355 \quad &\text{(example)} \\
+> f_1 &= -1.8328 + 0.35355\cdot 2.3784\cdot\left(1 + \tfrac12\cdot 1.8328\cdot 1.2872\right) = -1.8328 + 0.35355\cdot 2.3784\cdot 2.1796 = -1.8328 + 1.8328 \simeq 0 \quad &\text{(first equation)} \\
+> f_2 &= 0.5456 + 0.35355\cdot\left(-2.3784\right)\cdot\left(1 - \tfrac12\cdot 0.5456\cdot 1.2872\right) = 0.5456 - 0.35355\cdot 2.3784\cdot 0.6488 = 0.5456 - 0.5456 \simeq 0 \quad &\text{(second equation)} \\
+> \left|u_1\right|^3 &= \frac{8}{4\cdot 1} = 2 \;\Rightarrow\; u_1 = 1.2599, \quad f_1 = -1.2599 + \frac{8}{4\cdot 2}\cdot 1.2599 = 0 \quad &\text{(symmetric root, same example)}
 > \end{aligned}$$
 >
 > $$\boxed{\begin{gathered} \text{symmetric: } x_1 = -x_2,\quad x_1^2 = \left[\frac{\kappa L^3}{4\left(\gamma - 1\right)}\right]^{2/3}; \cr \text{asymmetric: } x_1x_2 = -L^2,\quad \frac{x_1}{L} = \frac{c \pm \sqrt{c^2 - 4}}{2},\quad c = \left(\frac{4\kappa}{\gamma - 1}\right)^{1/4}, \ \text{ real and distinct only for } \kappa \gt 4\left(\gamma - 1\right) \end{gathered}}$$
 >
 > **Units:** $[x_1^2] = [L^2] = [\mathrm{L^2}]$
-> **Meaning:** gravity, stronger than the rotation, acts along the wire as a spring towards the vertex that balances the repulsion. The two roots of the asymmetric case are a mirror pair (one root is the reciprocal of the other), with the chord through the point at height one half of $L$ on the axis; at the limiting value of $\kappa$ they merge into the symmetric equilibrium at the abscissa $L$. Example checked numerically: $\gamma$ equal to 2 and $\kappa$ equal to 8 give the asymmetric pair 1.833 and $-0.546$ and the symmetric value 1.260, with both equilibrium equations satisfied to round-off. No equilibrium has both particles on the same branch, because both alternatives give abscissas of opposite sign.
+> **Meaning:** gravity, stronger than the rotation, acts along the wire as a spring towards the vertex that balances the repulsion. The two roots of the asymmetric case are a mirror pair (one root is the reciprocal of the other), with the chord through the point at height one half of $L$ on the axis; at the limiting value of $\kappa$ they merge into the symmetric equilibrium at the abscissa $L$. In the example of the last three rows ($\gamma$ equal to 2, $\kappa$ equal to 8) the asymmetric pair 1.833 and $-0.546$ and the symmetric value 1.260 satisfy the equilibrium equations to round-off. No equilibrium has both particles on the same branch, because both alternatives give abscissas of opposite sign.
 
 #### (e) Symmetric motion with gamma and kappa equal to 2: extreme values of x1
 
@@ -3960,7 +3964,7 @@ Two heavy particles $P_1$ and $P_2$ of mass $m$ slide without friction on a para
 | (e) Extreme values of $x_1$ | $x_1^3/L^3 - 3x_1/L + 1 = 0$: $x_{1,min} = 2L\cos(4\pi/9) \simeq 0.347L$, $x_{1,max} = 2L\cos(2\pi/9) \simeq 1.532L$ |
 | (e) Other reading of the initial velocity | if $\dot x_1(0) = L\omega$ instead of the speed: scaled energy 4, $x_1^3/L^3 - 4x_1/L + 1 = 0$, extreme values $0.254L$ and $1.861L$ |
 
-**Check against the official key:** Problems.pdf, p. 75 prints the torque, the equilibria and the cubics of the extreme values for positive and negative $x_1$. All coincide with parts (c), (d) and (e) (box below). The cubic for negative $x_1$ is the mirror case of a start on the other branch, which does not apply to a start at $L$. The key's cubic confirms Reading 1 of the initial velocity (the speed); the other reading gives a different cubic.
+**Check against the official key:** Problems.pdf, p. 75 prints the torque, the equilibria and the cubics of the extreme values for positive and negative $x_1$. The torque, the cases of $\gamma$ below and equal to 1, the symmetric equilibrium and the cubics coincide with parts (c), (d) and (e) (box below); the statement on the asymmetric equilibria differs (warning below). The cubic for negative $x_1$ is the mirror case of a start on the other branch, which does not apply to a start at $L$. The key's cubic confirms Reading 1 of the initial velocity (the speed); the other reading gives a different cubic.
 
 > [!derivation] Comparison with the official key
 > **Law:** term-by-term comparison
@@ -3969,14 +3973,17 @@ Two heavy particles $P_1$ and $P_2$ of mass $m$ slide without friction on a para
 > $$\begin{aligned}
 > \text{key: } M &= 2m\omega\left(\dot x_1x_1 + \dot x_2x_2\right) = M_m \quad &\text{(part (c))} \\
 > \text{key: } \gamma \lt 1 &: \text{none}; \quad \gamma = 1: \text{ only } \kappa = 0, \text{ all positions} \quad &\text{(part (d), first box of cases)} \\
-> \text{key: } \gamma \gt 1 &: \ x_1 = -x_2,\ x_1^2 = \left[\frac{\kappa L^3}{4\left(\gamma - 1\right)}\right]^{2/3}, \text{ and asymmetric ones} \quad &\text{(part (d), symmetric root and $x_1x_2 = -L^2$)} \\
+> \text{key: } \gamma \gt 1 &: \ x_1 = -x_2,\ x_1^2 = \left[\frac{\kappa L^3}{4\left(\gamma - 1\right)}\right]^{2/3}, \text{ and "asymmetric ones also exist"} \quad &\text{(part (d); the key adds $x_1x_2 \lt 0$ for the symmetric one)} \\
 > \text{key: } \frac{x_1^3}{L^3} - 3\frac{x_1}{L} &+ 1 = 0 \ (x_1 \gt 0), \quad \frac{x_1^3}{L^3} - 3\frac{x_1}{L} - 1 = 0 \ (x_1 \lt 0) \quad &\text{(part (e); the second is the first with $x_1 \to -x_1$)}
 > \end{aligned}$$
 >
-> $$\boxed{\text{torque, equilibria and the cubic of the extreme values coincide with the key}}$$
+> $$\boxed{\text{torque, symmetric equilibrium, cases } \gamma \le 1 \text{ and the cubic of the extreme values coincide with the key}}$$
 >
 > **Units:** $[M_m] = [\mathrm{M\,L^2\,T^{-2}}]$
-> **Meaning:** the key states the asymmetric equilibria exist without conditions; this solution adds that they are real and distinct only when $\kappa$ exceeds four times $\gamma - 1$, the case in which the symmetric equilibrium lies beyond the abscissa $L$.
+> **Meaning:** every result printed by the key is recovered, except the statement on the asymmetric equilibria (warning below).
+
+> [!warning] Discrepancy with the official solution
+> The key says, for $\gamma$ above 1, that asymmetric equilibrium configurations also exist, with no condition. This solution finds that an asymmetric equilibrium must have $x_1x_2$ equal to $-L^2$ and $|x_1/L + L/x_1|$ equal to $c$, the fourth root of $4\kappa/(\gamma - 1)$; since $|u + 1/u|$ is never below 2, such configurations exist (distinct from the symmetric one) only for $\kappa$ above $4(\gamma - 1)$, the case in which the symmetric equilibrium lies beyond the abscissa $L$. For $\kappa$ at most $4(\gamma - 1)$ the only equilibrium is the symmetric one. Check: with $\gamma$ equal to 2 and $\kappa$ equal to 2, $c$ is the fourth root of 8, 1.68, below 2, so the quadratic for $u_1$ has no real root.
 
 > [!derivation] Limiting cases
 > **Law:** the results at extreme values of the data
@@ -4195,11 +4202,11 @@ A heavy particle $P$ of mass $m$ slides without friction on a circular wire of c
 
 > [!derivation] Components of the reaction
 > **Law:** radial and normal components of Newton's second law in $S_1$
-> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.17; Problems.pdf, p. 22
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.18; Notes.pdf, Eq. 6.19; Problems.pdf, p. 22
 >
 > $$\begin{aligned}
-> N_1 &= mg\sin\varphi - mA^2\omega^2R\sin^2\omega t\left(1 + \cos\varphi\right)\cos\varphi - mR\dot\varphi^2 \quad &\text{(radial equation solved for $N_1$)} \\
-> N_2 &= 2mA\omega R\sin\omega t\sin\varphi\,\dot\varphi - mA\omega^2R\cos\omega t\left(1 + \cos\varphi\right) \quad &\text{(normal equation solved for $N_2$)}
+> N_1 &= mg\sin\varphi - mA^2\omega^2R\sin^2\omega t\left(1 + \cos\varphi\right)\cos\varphi - mR\dot\varphi^2 \quad &\text{(radial equation solved for $N_1$; Eq. 6.18)} \\
+> N_2 &= 2mA\omega R\sin\omega t\sin\varphi\,\dot\varphi - mA\omega^2R\cos\omega t\left(1 + \cos\varphi\right) \quad &\text{(normal equation solved for $N_2$; Eq. 6.19)}
 > \end{aligned}$$
 >
 > $$\boxed{\begin{gathered} \mathbf N = N_1\cos\varphi\,\mathbf i_1 + N_1\sin\varphi\,\mathbf j_1 + N_2\,\mathbf k_1, \cr N_1 = mg\sin\varphi - mA^2R\omega^2\left(1 + \cos\varphi\right)\sin^2\left(\omega t\right)\cos\varphi - mR\dot\varphi^2, \cr N_2 = 2mAR\omega\,\dot\varphi\sin\varphi\sin\left(\omega t\right) - mAR\omega^2\left(1 + \cos\varphi\right)\cos\left(\omega t\right) \end{gathered}}$$
@@ -4256,13 +4263,13 @@ A heavy particle $P$ of mass $m$ slides without friction on a circular wire of c
 > **Law:** general solution of the forced undamped oscillator as homogeneous plus particular solution; resonance
 > **Source:** Notes.pdf, Eq. 5.6; Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.32; Notes.pdf, Eq. 5.41; Notes.pdf, Sec. 5.4
 >
-> Write $\omega_n$ for the square root of $g/R$. A particular solution is a constant $\delta_0$ plus a term $C\cos 2\omega t$; the second derivative of that term is written before it is substituted.
+> Write $\omega_n$ for the square root of $g/R$. A particular solution is a constant $\delta_0$ plus a term $D_1\cos 2\omega t$; the second derivative of that term is written before it is substituted.
 >
 > $$\begin{aligned}
 > \omega_n^2\delta_0 &= \frac{A^2\omega^2}{2} \;\Rightarrow\; \delta_0 = \frac{A^2\omega^2}{2\omega_n^2} = \frac{A^2R\omega^2}{2g} \quad &\text{(constant part)} \\
-> \frac{d}{dt}\left(C\cos 2\omega t\right) &= -2\omega C\sin 2\omega t, \quad \frac{d^2}{dt^2}\left(C\cos 2\omega t\right) = -4\omega^2C\cos 2\omega t \quad &\text{(chain rule, twice)} \\
-> \left(\omega_n^2 - 4\omega^2\right)C &= -\frac{A^2\omega^2}{2} \;\Rightarrow\; C = -\frac{A^2\omega^2}{2\left(\omega_n^2 - 4\omega^2\right)} \quad &\text{(oscillating part, $2\omega \ne \omega_n$)} \\
-> \delta(t) &= \delta_0 + C\cos 2\omega t + a\cos\omega_nt + b\sin\omega_nt \quad &\text{(Eq. 5.7 for the homogeneous part; $a$, $b$ from the initial conditions)} \\
+> \frac{d}{dt}\left(D_1\cos 2\omega t\right) &= -2\omega D_1\sin 2\omega t, \quad \frac{d^2}{dt^2}\left(D_1\cos 2\omega t\right) = -4\omega^2D_1\cos 2\omega t \quad &\text{(chain rule, twice)} \\
+> \left(\omega_n^2 - 4\omega^2\right)D_1 &= -\frac{A^2\omega^2}{2} \;\Rightarrow\; D_1 = -\frac{A^2\omega^2}{2\left(\omega_n^2 - 4\omega^2\right)} \quad &\text{(oscillating part, $2\omega \ne \omega_n$)} \\
+> \delta(t) &= \delta_0 + D_1\cos 2\omega t + a\cos\omega_nt + b\sin\omega_nt \quad &\text{(Eq. 5.7 for the homogeneous part; $a$, $b$ from the initial conditions)} \\
 > 2\omega = \omega_n:\quad \delta_p &= K\,t\sin\omega_nt, \quad \ddot\delta_p = 2K\omega_n\cos\omega_nt - K\omega_n^2t\sin\omega_nt \quad &\text{(trial at exact resonance; product rule)} \\
 > \ddot\delta_p + \omega_n^2\delta_p &= 2K\omega_n\cos\omega_nt = -\frac{A^2\omega^2}{2}\cos\omega_nt \;\Rightarrow\; K = -\frac{A^2\omega^2}{4\omega_n} \quad &\text{(amplitude growing linearly in time)}
 > \end{aligned}$$
@@ -4566,7 +4573,7 @@ A heavy particle $P$ of mass $m$ hangs at rest from the ceiling point $A$ by a s
 
 > [!derivation] Partial derivatives of l and phi with respect to xi and t
 > **Law:** implicit differentiation of the two relations of part (c); chain rule
-> **Source:** Notes.pdf, Eq. 1.64; Problems.pdf, p. 24
+> **Source:** Problems.pdf, p. 24
 >
 > $$\begin{aligned}
 > 2D\frac{\partial D}{\partial\xi} &= 2\xi - 2R\cos\omega t \;\Rightarrow\; \frac{\partial D}{\partial\xi} = \cos\varphi, \quad \frac{\partial\ell}{\partial\xi} = -\cos\varphi \quad &\text{(derivative of $D^2$)} \\
@@ -5063,7 +5070,7 @@ A heavy particle $P$ of mass $m$ moves without friction on a cone of elliptic cr
 | (b) Kinematics in $S_1$ | $\mathbf r_1^P = \zeta\cos\beta\,\mathbf i_1 + 2\zeta\sin\beta\,\mathbf j_1 + \zeta\,\mathbf k_1$; $\mathbf v_1^P$, $\mathbf a_1^P$ as boxed in part (b); $\mathbf i_1 = \cos\Omega t\,\mathbf i_0 + \sin\Omega t\,\mathbf j_0$, $\mathbf j_1 = -\sin\Omega t\,\mathbf i_0 + \cos\Omega t\,\mathbf j_0$, $\mathbf k_1 = \mathbf k_0$ |
 | (c) Forces | $-mg\,\mathbf k_1$; $N\,\mathbf n$, $\mathbf n = (-2\cos\beta, -\sin\beta, 2)/\sqrt{5 + 3\cos^2\beta}$; $\mathbf F_C = m\Omega^2\zeta(\cos\beta\,\mathbf i_1 + 2\sin\beta\,\mathbf j_1)$; $\mathbf F_{COR} = 4m\Omega(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta)\,\mathbf i_1 - 2m\Omega(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta)\,\mathbf j_1$; origin and Euler forces zero |
 | (d) Equations of motion | the two boxed equations of part (d); initial conditions $\zeta(0) = 1$ m, $\beta(0) = \pi/2$, $\dot\zeta(0) = 0$, $\dot\beta(0) = -1$ rad/s |
-| (e) Conservation law | energy in $S_1$: $\frac m2[(2 + 3\sin^2\beta)\dot\zeta^2 + (1 + 3\cos^2\beta)\zeta^2\dot\beta^2 + 6\zeta\dot\zeta\dot\beta\sin\beta\cos\beta] + mg\zeta - \frac12 m\Omega^2\zeta^2(1 + 3\sin^2\beta) = m(\frac12 + g - 2\Omega^2)$ (SI units) |
+| (e) Conservation law | energy in $S_1$: $\frac m2[(2 + 3\sin^2\beta)\dot\zeta^2 + (1 + 3\cos^2\beta)\zeta^2\dot\beta^2 + 6\zeta\dot\zeta\dot\beta\sin\beta\cos\beta] + mg\zeta - \frac12 m\Omega^2\zeta^2(1 + 3\sin^2\beta) = m(\frac12 + g - 2\Omega^2)$ (SI units); in general units, with $z_0$ one unit of length and $v_0$ one unit of velocity, the constant is $m(\frac12 v_0^2 + gz_0 - 2\Omega^2z_0^2)$ |
 | (f) Equilibria | $\beta = 0, \pi$: $\zeta = g/\Omega^2$; $\beta = \pi/2, 3\pi/2$: $\zeta = g/(4\Omega^2)$ |
 
 **Check against the official key:** Problems.pdf, p. 75 prints the two equations of part (d); they coincide term by term (box below). The key prints nothing for the other parts; the energy is checked against the two equations, and the equilibria by the full force balance in part (f).
