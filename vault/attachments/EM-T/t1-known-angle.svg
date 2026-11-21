@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 410" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="A vector in the plane Oxy forming the angle theta with Ox and beta with Oy, with the right triangle of its two components.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="80.0,350.0 335.6,350.0 335.6,171.0" fill="#f59e0b" fill-opacity="0.18" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="80.0" y1="350.0" x2="465.2" y2="350.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M470.0,350.0 L462.6,353.1 L462.6,346.9 Z" fill="#8a94a6"/>
+<text x="484.0" y="356.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x</text>
+<line x1="80.0" y1="350.0" x2="80.0" y2="62.3" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M80.0,57.5 L83.1,64.9 L76.9,64.9 Z" fill="#8a94a6"/>
+<text x="94.0" y="61.5" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">y</text>
+<line x1="335.6" y1="350.0" x2="335.6" y2="171.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="326.2,350.0 326.2,340.6 335.6,340.6" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="80.0" y1="350.0" x2="151.4" y2="350.0" stroke="#4b5563" stroke-width="3.0"/>
+<path d="M158.0,350.0 L147.9,354.3 L147.9,345.7 Z" fill="#4b5563"/>
+<text x="154.0" y="372.0" fill="#4b5563" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">i</tspan></text>
+<line x1="80.0" y1="350.0" x2="80.0" y2="278.6" stroke="#4b5563" stroke-width="3.0"/>
+<path d="M80.0,272.0 L84.3,282.1 L75.7,282.1 Z" fill="#4b5563"/>
+<text x="66.0" y="276.0" fill="#4b5563" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<line x1="80.0" y1="350.0" x2="330.2" y2="174.8" stroke="#f59e0b" stroke-width="3.2"/>
+<path d="M335.6,171.0 L329.7,180.4 L324.8,173.3 Z" fill="#f59e0b"/>
+<text x="351.6" y="165.0" fill="#f59e0b" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">A</tspan></text>
+<path d="M181.4,350.0 A101.4,101.4 0 0 0 163.1,291.8" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M161.3,289.4 L169.0,294.2 L163.2,298.2 Z" fill="#10b981"/>
+<text x="201.2" y="319.1" fill="#10b981" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<path d="M80.0,201.8 A148.2,148.2 0 0 1 201.4,265.0" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M203.1,267.5 L195.5,262.7 L201.2,258.7 Z" fill="#10b981"/>
+<text x="132.7" y="186.7" fill="#10b981" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">β (from Oy)</text>
+<text x="207.8" y="400.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A<tspan baseline-shift="sub" font-size="70%">x</tspan> = A cos θ  (adjacent to θ)</text>
+<text x="347.6" y="316.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A<tspan baseline-shift="sub" font-size="70%">y</tspan> = A sin θ</text>
+<text x="347.6" y="336.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">(opposite to θ)</text>
+<text x="221.8" y="286.5" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<text x="347.6" y="368.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F</text>
+<circle cx="80.0" cy="350.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="80.0" cy="350.0" r="2.6" fill="#4b5563"/>
+<text x="62.0" y="374.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+</g></svg>

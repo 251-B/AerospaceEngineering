@@ -238,6 +238,34 @@
     ]
    ]
   },
+  "subjects/engineering-mechanics/teoria/topic-1.html": {
+   "flavor": "mechanics",
+   "template": "tools/templates/em-theory-shell.html",
+   "note": "vault/03 - Engineering Mechanics/Topic 1 - Kinematics of a Point Particle.md",
+   "figures": "em_theory",
+   "html_title": "Topic 1: Kinematics of a Point Particle — Engineering Mechanics",
+   "category": "Topic 01 · Point Particle",
+   "title": "Kinematics of a Point Particle",
+   "subtitle": "Mechanical modelling, vectors and tensors, vector bases and change of basis matrices, simple rotations and their sequences, the time derivative of a vector and Poisson's formula, reference frames, the intrinsic basis and the curvilinear coordinate systems.",
+   "source": "Sources: Notes.pdf, chapters 1 and 2; Lecture 1.",
+   "nav": [
+    [
+     "index.html",
+     "Mechanics Applied Index",
+     "prev"
+    ],
+    [
+     "../problemas/topic-1.html",
+     "Topic 1 Problems (6)",
+     "center"
+    ],
+    [
+     "topic-2.html",
+     "Topic 2",
+     "next"
+    ]
+   ]
+  },
   "subjects/engineering-mechanics/teoria/topic-6.html": {
    "flavor": "mechanics",
    "template": "tools/templates/em-theory-shell.html",
