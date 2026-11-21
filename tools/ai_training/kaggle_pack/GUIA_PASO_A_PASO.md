@@ -2,7 +2,19 @@
 
 Con dos cuentas gratuitas de Kaggle (**60 h/semana de GPU gratis entre los dos**) podéis entrenar toda la familia Sideris en paralelo:
 - **Cuenta 1 (Héctor):** `Sideris Aether` (`"aether"`) y luego `Sideris Titan` (`"titan"`).
-- **Cuenta 2 (Compañero):** **`Sideris Lux` (`"lux"`, ~3,5–4 h)** y luego **`Sideris Orion` (`"orion"`, ~5–6 h)**.
+- **Cuenta 2 (Compañero):** **`Sideris Lux` (`"lux"`, ~5,5–6,5 h con dataset v2)** y luego **`Sideris Orion` (`"orion"`, ~5–6 h)**.
+
+---
+
+## Novedades y estado compartido (`SiderisAI` + Dataset v2)
+
+- **Organización compartida en Hugging Face:** [https://huggingface.co/SiderisAI](https://huggingface.co/SiderisAI) — todos los notebooks vienen ya configurados por defecto con `HF_USERNAME = "SiderisAI"` (cambia o usa un token `Write` con acceso a `SiderisAI`).
+- **Modelos ya subidos (v1):** `SiderisAI/Sideris-Lux` (4,57 GB, Private) y `SiderisAI/Sideris-Orion` (7,69 GB, Private, fusionado en 16-bit sin pérdida en CPU).
+- **Dataset `kaggle_pack/sideris-data.zip` actualizado a v2 (4,73 MB):** `5.926` ejemplos SFT (+2.627 STEM/finanzas externos verificados con KaTeX y anti-saltos), `1.310` pares DPO, `1.037` prompts GRPO y `eval_holdout.jsonl` (`314`) intacto sin contaminación. Regenerable/escalable con:
+  `python tools/ai_training/fetch_external_datasets.py --per-subject 800 --build-v2-zip`
+- **Correcciones en los notebooks para Kaggle T4:**
+  - `orion` (`Phi-4-mini-reasoning`) desactiva `mem_efficient_sdp` en T4 (evita el error `attn_bias is not correctly aligned`) y añade `qkv_proj` + `gate_up_proj` a `target_modules`.
+  - Si en cualquier modelo falla GRPO por CUDA o la cola de GPU está bloqueada, el adaptador `Sideris-*-dpo` guardado en *Output* se puede fusionar en 16-bit y subir en ~4 min usando CPU (`Accelerator: None`, 0 cuota de GPU).
 
 ---
 
