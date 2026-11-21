@@ -3632,979 +3632,1470 @@ A particle $P$ of mass $m$ slides on a smooth quarter circumference of radius $R
 ## Problem 33: Two Repelling Particles on a Rotating Parabola
 
 ### Reference Frames, Bases and Coordinates
-* **System:** two particles $P_1$, $P_2$ of mass $m$ slide on a smooth parabolic wire $z = x^2/(2L)$ that spins about its vertical axis $Oz$ at constant $\omega$. They repel each other with $F_E = k/d^2$ along the line that joins them, and both are heavy.
-* **Why the rotating frame $Oxyz$.** In $Oxyz$ the wire is fixed, so each particle is located by a single coordinate $x_i$ and its relative kinematics is that of a point on a fixed plane curve. The frame rotates uniformly about a fixed axis through $O$, so the inertia forces reduce to the centrifugal and Coriolis forces (Slide 28), and the centrifugal force has a potential (Slide 30).
-* **Hypotheses:** <br>1. The frame $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, with $O$ the vertex of the parabola and $\mathbf{k}_0$ vertical upward, is inertial. <br>2. The wire is smooth and bilateral (each particle is a bead): its reaction on $P_i$ is perpendicular to the wire, with components in the plane of the wire and along $\mathbf{j}_1$. <br>3. $\omega$ is kept constant by the motor; the axis bearings exert no torque about $Oz$. <br>4. Electric repulsion is a central internal force: equal and opposite on the two particles, along $\overrightarrow{P_2P_1}$.
-* **Fixed (inertial) frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, basis $\mathcal{B}_0$, origin at the vertex of the parabola, which lies on the axis and is fixed.
-* **Moving frame:** $S_1 = Oxyz = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, basis $\mathcal{B}_1$, attached to the wire, with the wire in the plane $Oxz$ and $\mathbf{k}_1 = \mathbf{k}_0$ along the axis. The two frames share the origin $O$. We choose $\mathbf{i}_1 = \mathbf{i}_0$ at $t = 0$.
-* **Local basis of the wire at $P_i$:** unit tangent $\mathbf{t}_i$, in-plane unit normal $\mathbf{n}_i$ and $-\mathbf{j}_1$; deduced in the next section.
-* **Degrees of freedom:** two, the abscissas $x_1$ and $x_2$ in $Oxyz$ (each bead has 3 coordinates and 2 constraints: $y = 0$ and $z = x^2/(2L)$). In part (e) the symmetry constraint $x_2 = -x_1$ leaves one.
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $m$ | mass of each particle | kg |
-| $L$ | parameter of the parabola $z = x^2/(2L)$ (the radius of curvature at the vertex) | m |
-| $\omega$ | constant angular velocity of the wire | rad/s |
-| $g$ | gravitational acceleration | m/s$^2$ |
-| $k$ | electric repulsion constant, $F_E = k/d^2$ | N$\cdot$m$^2$ |
-| $\gamma = g/(\omega^2L)$ | weight versus centrifugal force | 1 |
-| $\kappa = k/(m\omega^2L^3)$ | repulsion versus centrifugal force | 1 |
+Two heavy particles $P_1$ and $P_2$ of mass $m$ slide without friction on a parabolic wire in the vertical plane $Oxz$, which turns about its axis $Oz$ with the constant rate $\omega$; they repel each other with a force of magnitude $k$ over the square of their distance (Problems.pdf, p. 21). The statement asks for the relative position, velocity and acceleration of each particle, Newton's second law in the turning frame, the motor torque that keeps the rate constant, the equilibria in terms of $\gamma$ and $\kappa$, and the equation of the extreme values of $x_1$ in a symmetric motion. The wire is at rest in $Oxyz$, so the solution works there, with the composition of motions of Notes.pdf, Sec. 3.2 and the inertia forces of Notes.pdf, Sec. 4.9.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$, origin at the vertex $O$ (on the axis, fixed), $\mathbf k_0$ vertical, up |
+| Moving frame | $S_1 = \{O;\ \mathcal B_1\}$, the frame $Oxyz$ of the statement, attached to the wire: $\mathbf i_1$ along $Ox$ in the plane of the wire, $\mathbf k_1 = \mathbf k_0$ along the axis, $\mathbf j_1 = \mathbf k_1\times\mathbf i_1$ normal to the plane; $\mathbf i_1 = \mathbf i_0$ at $t = 0$ |
+| Wire | $z = x^2/(2L)$, $y = 0$, fixed in $S_1$ |
+| Local basis of the wire at $P_i$ | unit tangent $\mathbf t_i$ (sense of growing $x$), in-plane unit normal $\mathbf n_i$ (towards the concave side), and $\mathbf j_1$ |
+| Coordinates | $x_1$, $x_2$: abscissas of $P_1$ and $P_2$ along $Ox$ |
+| Constraints | for each particle $y_i = 0$ and $z_i = x_i^2/(2L)$: four holonomic, smooth, bilateral constraints, fixed in $S_1$; in part (e) also $x_2 = -x_1$ |
+| Degrees of freedom | 6 minus 4: 2, the coordinates $x_1(t)$, $x_2(t)$; 1 in part (e) |
+| Data | $m$ [kg], $L$ [m], $\omega$ [rad s$^{-1}$], $g$ [m s$^{-2}$], $k$ [N m$^2$]; $\gamma = g/(\omega^2L)$ and $\kappa = k/(m\omega^2L^3)$ [1] |
+| Auxiliary symbols | $u_i = x_i/L$; $\sigma_i = \sqrt{1 + x_i^2/L^2}$ [1]; $\Delta x = x_1 - x_2$; $d$ distance between the particles; $D = d/L$ |
+| Unknowns | $x_1(t)$, $x_2(t)$; reactions $\mathbf N_i = N_{in}\,\mathbf n_i + N_{iy}\,\mathbf j_1$ (no tangential component: smooth wire); in part (c) the motor torque $M_m$ |
+| Applied forces | weights $-mg\,\mathbf k_1$; electric repulsion, equal and opposite, along the line $P_1P_2$ |
+| Inertia forces (in $S_1$) | centrifugal and Coriolis; no origin or Euler terms (Notes.pdf, Eq. 4.62) |
+| Hypotheses | $S_0$ inertial; uniform gravity; smooth wire acting as a bead guide; $\omega$ constant (held by the motor); the wire is massless (see part (c)) |
+| Readings | (1) In part (e) "$v_1(0) = L\omega$" is read as the speed of $P_1$ relative to $Oxyz$; the other reading, the rate of the abscissa equal to $L\omega$, is worked in the Answers table. (2) The initial abscissa of $P_2$ in part (e) is $-L$, by the symmetry stated |
 
 ### Change of Basis and Position Vector
 
-#### The basis $\mathcal{B}_1$ seen from above
-
 ![[attachments/EM-SOL/p33-top-view.svg]]
 
-The rotation is about the vertical $\mathbf{k}_0$, so it is drawn looking down the axis, from $+z$. In that view $\mathbf{k}_0$ points out of the paper, towards the reader ($\odot$). Take $\mathbf{i}_0$ to the right; then $\mathbf{j}_0 = \mathbf{k}_0\times\mathbf{i}_0$ (right-hand rule: thumb along $\mathbf{k}_0$, towards the reader, fingers turning $\mathbf{i}_0$ counter-clockwise by $90^\circ$) points up the page. With $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_0$, $\omega \gt 0$, the wire turns counter-clockwise in this view, and after a time $t$ it has turned the angle $\omega t$:
-
-* $\mathbf{i}_1$ is the hypotenuse (length 1) of a dashed right triangle: its leg adjacent to $\omega t$ lies along $\mathbf{i}_0$ and measures $\cos\omega t$; its opposite leg lies along $+\mathbf{j}_0$ and measures $\sin\omega t$. So $\mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$.
-* $\mathbf{j}_1$ starts on $\mathbf{j}_0$ (up the page) and turns counter-clockwise, so its tip moves to the left: its leg along $\mathbf{j}_0$ (adjacent) is $\cos\omega t$ and its leg along $-\mathbf{i}_0$ (opposite) is $\sin\omega t$. So $\mathbf{j}_1 = -\sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{j}_0$; **the minus sign comes from the counter-clockwise turn carrying the upward axis to the left.**
-* $\mathbf{k}_1 = \mathbf{k}_0$, the axis of the rotation.
-
-The plane of the wire contains $\mathbf{i}_1$ and $\mathbf{k}_1$, so in this view it is seen edge-on as the dotted line along $\mathbf{i}_1$; $P_1$ ($x_1 \lt 0$) and $P_2$ ($x_2 \gt 0$) lie on it, on either side of the axis. The columns of $[{}_0R_1]$ are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$:
-
-$$ [{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = 1\cdot\left(\cos\omega t\cos\omega t - (-\sin\omega t)\sin\omega t\right) = \cos^2\omega t + \sin^2\omega t = 1 $$
-
-The columns have unit length ($\cos^2\omega t + \sin^2\omega t = 1$) and are mutually orthogonal (first and second: $-\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0$; the third is orthogonal to both because their third components are zero), so $[{}_0R_1][{}_0R_1]^T = I$.
-
-* **Motion of $S_1$:** $\mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0}$; $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_1$; $\boldsymbol{\alpha}_{10} = \mathbf{0}$ because $\omega$ is constant. Poisson check with the chain rule: $\left.\frac{d\mathbf{i}_1}{dt}\right|_0 = -\omega\sin\omega t\,\mathbf{i}_0 + \omega\cos\omega t\,\mathbf{j}_0 = \omega\,\mathbf{j}_1$, and indeed $\omega\mathbf{k}_1\times\mathbf{i}_1 = \omega\,\mathbf{j}_1$.
-
-#### The position vectors and the local basis of the wire
+> [!derivation] Basis of the wire frame: rotation by omega t about k0
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; [Lecture 5, Slide 16]
+>
+> View from above, along $\mathbf k_0$, which points out of the paper (⊙) at the vertex. With $\mathbf i_0$ to the right, $\mathbf j_0$, the cross product of $\mathbf k_0$ and $\mathbf i_0$, points up the page (thumb towards the reader, the fingers turn $\mathbf i_0$ counterclockwise by a quarter turn). A positive $\omega$ turns the wire counterclockwise. $\mathbf i_1$ is $\mathbf i_0$ turned by $\omega t$: hypotenuse 1, adjacent leg $\cos\omega t$ along $\mathbf i_0$, opposite leg $\sin\omega t$ along plus $\mathbf j_0$. $\mathbf j_1$ is $\mathbf j_0$ turned by the same angle: adjacent leg $\cos\omega t$ along $\mathbf j_0$; the counterclockwise turn carries its tip to the left, so the opposite leg $\sin\omega t$ lies along minus $\mathbf i_0$ (the minus sign). The plane of the wire is seen edge-on along $\mathbf i_1$.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0, \quad \mathbf j_1 = -\sin\omega t\,\mathbf i_0 + \cos\omega t\,\mathbf j_0, \quad \mathbf k_1 = \mathbf k_0 \quad &\text{(the two right triangles; axis)} \\
+> \det[{}_0R_1] &= (+1)\cdot 1\cdot\left(\cos\omega t\cos\omega t - \left(-\sin\omega t\right)\sin\omega t\right) = 1 \quad &\text{(expansion along the third row, cofactor sign $(-1)^{3+3}$)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\omega t + \sin^2\omega t = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{12} = -\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0 \quad &\text{(rows times rows)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \cr \sin\omega t & \cos\omega t & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** $[\omega t] = [1]$
+> **Meaning:** the matrix of Eq. 1.20 with the angle $\omega t$; heights and the weight have the same components in both frames.
 
 ![[attachments/EM-SOL/p33-wire-plane.svg]]
 
-The plane $Oxz$ is fixed in $S_1$; it is drawn with $\mathbf{i}_1$ to the right and $\mathbf{k}_1$ up. The direction out of the paper is $\mathbf{i}_1\times\mathbf{k}_1 = -\mathbf{j}_1$, so $\mathbf{j}_1$ points **into** the paper ($\otimes$).
-
-**Position.** A bead at abscissa $x_i$ is reached from $O$ by moving $x_i$ along $\mathbf{i}_1$ and then the height of the wire at that abscissa, $z_i = x_i^2/(2L)$, along $\mathbf{k}_1$ (the two dashed components drawn for $P_2$):
-
-$$ \mathbf{r}_1^{P_i} = x_i\,\mathbf{i}_1 + \frac{x_i^2}{2L}\,\mathbf{k}_1, \qquad i = 1, 2 $$
-
-**Tangent.** A tangent vector is the derivative of the position with respect to the coordinate; with $\frac{d}{dx}\left(\frac{x^2}{2L}\right) = \frac{2x}{2L} = \frac{x}{L}$:
-
-$$ \frac{d}{dx}\left(x\,\mathbf{i}_1 + \frac{x^2}{2L}\mathbf{k}_1\right) = \mathbf{i}_1 + \frac{x}{L}\,\mathbf{k}_1 $$
-
-It is the hypotenuse of the shaded slope triangle at $P_2$: horizontal leg $1$, vertical leg $dz/dx = x_i/L$, hence length $s_i = \sqrt{1 + x_i^2/L^2}$ (Pythagoras). Dividing by $s_i$:
-
-$$ \mathbf{t}_i = \frac{1}{s_i}\left(\mathbf{i}_1 + \frac{x_i}{L}\mathbf{k}_1\right), \qquad \mathbf{n}_i = \frac{1}{s_i}\left(-\frac{x_i}{L}\mathbf{i}_1 + \mathbf{k}_1\right) $$
-
-$\mathbf{n}_i$ is $\mathbf{t}_i$ turned $90^\circ$ counter-clockwise in the drawing (the components $(a, b)$ become $(-b, a)$), which points towards the concave side of the parabola, upwards and towards the axis. They are orthogonal, $\mathbf{t}_i\cdot\mathbf{n}_i = \dfrac{1}{s_i^2}\left(-\dfrac{x_i}{L} + \dfrac{x_i}{L}\right) = 0$, both have length $\sqrt{1 + x_i^2/L^2}/s_i = 1$, and, using $\mathbf{i}_1\times\mathbf{k}_1 = -\mathbf{j}_1$ and $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$,
-
-$$ \mathbf{t}_i\times\mathbf{n}_i = \frac{1}{s_i^2}\left[\mathbf{i}_1\times\mathbf{k}_1 - \frac{x_i^2}{L^2}\,\mathbf{k}_1\times\mathbf{i}_1\right] = \frac{1}{s_i^2}\left[-\mathbf{j}_1 - \frac{x_i^2}{L^2}\mathbf{j}_1\right] = -\mathbf{j}_1 $$
-
-(the direction out of the paper), so $\{\mathbf{t}_i, \mathbf{n}_i, -\mathbf{j}_1\}$ is a right-handed orthonormal triad attached to the wire at $P_i$. The reaction of the smooth wire lies in the plane spanned by $\mathbf{n}_i$ and $\mathbf{j}_1$.
-
-#### The chord between the beads
+> [!derivation] Position vectors and local basis of the wire
+> **Law:** position as the sum of its components; slope triangle; quarter turn in the plane; vector product
+> **Source:** Notes.pdf, Eq. 2.5; Notes.pdf, Eq. 2.9; Notes.pdf, Eq. 3.16; Problems.pdf, p. 21
+>
+> The plane $Oxz$, fixed in $S_1$, is drawn with $\mathbf i_1$ to the right and $\mathbf k_1$ up; out of the paper is the cross product of $\mathbf i_1$ and $\mathbf k_1$, which is minus $\mathbf j_1$, so $\mathbf j_1$ points into the paper (⊗). A particle at the abscissa $x_i$ is reached from $O$ by $x_i$ along $\mathbf i_1$ and the height of the wire along $\mathbf k_1$. In the slope triangle the horizontal leg is $dx$ and the vertical leg $dz$; the hypotenuse lies along the wire, with length $\sigma_i\,dx$. The normal is the tangent turned a quarter turn counterclockwise in the drawing (components $(a, b)$ become $(-b, a)$), towards the concave side.
+>
+> $$\begin{aligned}
+> \mathbf r_0^O &= \mathbf 0, \quad \mathbf r_0^{P_i} = \mathbf r_1^{P_i} = x_i\,\mathbf i_1 + \frac{x_i^2}{2L}\,\mathbf k_1 \quad &\text{(Eq. 3.16 with $O$ fixed and shared)} \\
+> dz &= \frac{d}{dx}\left(\frac{x^2}{2L}\right)dx = \frac{2x}{2L}\,dx = \frac{x}{L}\,dx \quad &\text{(vertical leg of the slope triangle)} \\
+> \mathbf t_i &= \frac{dx\,\mathbf i_1 + \frac{x_i}{L}dx\,\mathbf k_1}{\sigma_i\,dx} = \frac{1}{\sigma_i}\left(\mathbf i_1 + \frac{x_i}{L}\,\mathbf k_1\right), \quad \sigma_i^2 = 1 + \frac{x_i^2}{L^2} \quad &\text{(sum of the legs over the hypotenuse; Pythagoras)} \\
+> \mathbf n_i &= \frac{1}{\sigma_i}\left(-\frac{x_i}{L}\,\mathbf i_1 + \mathbf k_1\right), \quad \mathbf t_i\cdot\mathbf n_i = \frac{1}{\sigma_i^2}\left(-\frac{x_i}{L} + \frac{x_i}{L}\right) = 0 \quad &\text{(quarter turn; orthogonal)} \\
+> \mathbf t_i\times\mathbf n_i &= \frac{1}{\sigma_i^2}\left(\mathbf i_1\times\mathbf k_1 - \frac{x_i^2}{L^2}\,\mathbf k_1\times\mathbf i_1\right) = \frac{1}{\sigma_i^2}\left(-\mathbf j_1 - \frac{x_i^2}{L^2}\,\mathbf j_1\right) = -\mathbf j_1 \quad &\text{($\mathbf i_1\times\mathbf k_1 = -\mathbf j_1$, $\mathbf k_1\times\mathbf i_1 = \mathbf j_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^{P_i} = x_i\,\mathbf i_1 + \frac{x_i^2}{2L}\,\mathbf k_1, \quad \mathbf t_i = \frac{\mathbf i_1 + (x_i/L)\,\mathbf k_1}{\sigma_i}, \quad \mathbf n_i = \frac{-(x_i/L)\,\mathbf i_1 + \mathbf k_1}{\sigma_i}, \quad \mathbf t_i\times\mathbf n_i = -\mathbf j_1}$$
+>
+> **Units:** $[x_i^2/L] = [\mathrm{L}]$; $[x_i/L] = [\sigma_i] = [1]$
+> **Meaning:** $\{\mathbf t_i, \mathbf n_i, -\mathbf j_1\}$ is a right-handed orthonormal triad at each particle; the reaction of the smooth wire lies in the plane of $\mathbf n_i$ and $\mathbf j_1$.
 
 ![[attachments/EM-SOL/p33-chord.svg]]
 
-The repulsion acts along the chord $P_1P_2$. With $\Delta x = x_1 - x_2$, the shaded right triangle has the horizontal leg $|\Delta x|$, the vertical leg $\Delta z = z_1 - z_2 = \dfrac{x_1^2 - x_2^2}{2L} = \Delta x\,\dfrac{x_1 + x_2}{2L}$ (difference of squares) and the hypotenuse $d$. Hence
-
-$$ \overrightarrow{P_2P_1} = \mathbf{r}_1^{P_1} - \mathbf{r}_1^{P_2} = \Delta x\left[\mathbf{i}_1 + \frac{x_1 + x_2}{2L}\mathbf{k}_1\right], \qquad d^2 = |\overrightarrow{P_2P_1}|^2 = \Delta x^2\left[1 + \frac{(x_1 + x_2)^2}{4L^2}\right] $$
-
-so the slope of the chord is $(x_1 + x_2)/(2L)$, the mean of the slopes $x_i/L$ at its ends.
+> [!derivation] Chord between the particles
+> **Law:** difference of position vectors; right triangle of the chord; difference of squares
+> **Source:** Notes.pdf, Eq. 2.5; Problems.pdf, p. 21
+>
+> In the shaded right triangle of the chord the horizontal leg is $\Delta x$, the vertical leg is the difference of heights and the hypotenuse is the distance $d$.
+>
+> $$\begin{aligned}
+> \overrightarrow{P_2P_1} &= \mathbf r_1^{P_1} - \mathbf r_1^{P_2} = \left(x_1 - x_2\right)\mathbf i_1 + \frac{x_1^2 - x_2^2}{2L}\,\mathbf k_1 \quad &\text{(difference of positions)} \\
+> \frac{x_1^2 - x_2^2}{2L} &= \left(x_1 - x_2\right)\frac{x_1 + x_2}{2L} \quad &\text{(difference of squares)} \\
+> d^2 &= \Delta x^2 + \Delta x^2\frac{\left(x_1 + x_2\right)^2}{4L^2} = \Delta x^2\left[1 + \frac{\left(x_1 + x_2\right)^2}{4L^2}\right] \quad &\text{(Pythagoras)}
+> \end{aligned}$$
+>
+> $$\boxed{\overrightarrow{P_2P_1} = \Delta x\left[\mathbf i_1 + \frac{x_1 + x_2}{2L}\,\mathbf k_1\right], \qquad d = \left|\Delta x\right|\sqrt{1 + \frac{\left(x_1 + x_2\right)^2}{4L^2}}}$$
+>
+> **Units:** $[d] = [\Delta x] = [\mathrm{L}]$
+> **Meaning:** the slope of the chord is the mean of the slopes of the wire at its two ends.
 
 ### Kinematics
 
-##### (a) Relative position, velocity and acceleration
-* **Pedagogical Justification:** Relative kinematics is computed in $S_1$, where $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ are constant, so only the scalar components are differentiated. Each $z_i = x_i^2/(2L)$ depends on time through $x_i(t)$, so the chain rule is needed.
+> [!derivation] Motion of the wire frame and derivatives of its unit vectors
+> **Law:** angular velocity of a simple rotation; derivative of a unit vector of a turning basis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.4; Notes.pdf, Eq. 3.5; Notes.pdf, Eq. 3.9
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \omega\,\mathbf k_1, \quad \boldsymbol\alpha_{10} = \mathbf 0, \quad \mathbf v_0^O = \mathbf a_0^O = \mathbf 0 \quad &\text{(rotation about the fixed axis; $\omega$ constant; $O$ fixed)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \omega\,\mathbf k_1\times\mathbf i_1 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = \omega\,\mathbf k_1\times\mathbf j_1 = -\omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0 \quad &\text{(Eq. 3.3 to 3.5)} \\
+> \frac{d}{dt}\left(\cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0\right) &= -\omega\sin\omega t\,\mathbf i_0 + \omega\cos\omega t\,\mathbf j_0 = \omega\,\mathbf j_1 \quad &\text{(check: chain rule on the components of $\mathbf i_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{10} = \omega\,\mathbf k_1, \quad \left.\frac{d\mathbf i_1}{dt}\right|_0 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = -\omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0}$$
+>
+> **Units:** $[\omega] = [\mathrm{T^{-1}}]$
+> **Meaning:** seen from $S_1$ the unit vectors are constant; seen from $S_0$ the horizontal ones turn with the wire.
 
-Chain rule: $\dfrac{d}{dt}\left(\dfrac{x_i^2}{2L}\right) = \dfrac{2x_i}{2L}\,\dot x_i = \dfrac{x_i\dot x_i}{L}$. Hence
+#### (a) Relative position, velocity and acceleration
 
-$$ \mathbf{v}_1^{P_i} = \dot x_i\,\mathbf{i}_1 + \frac{x_i\dot x_i}{L}\,\mathbf{k}_1 $$
+> [!derivation] Relative velocity and relative acceleration of each particle
+> **Law:** time derivatives in $S_1$, where $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ are constant; chain rule and product rule
+> **Source:** Notes.pdf, Eq. 3.7; Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.24; Problems.pdf, p. 21
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\frac{x_i^2}{2L}\right) &= \frac{2x_i}{2L}\,\dot x_i = \frac{x_i\dot x_i}{L} \quad &\text{(chain rule)} \\
+> \mathbf v_1^{P_i} &= \dot x_i\,\mathbf i_1 + \frac{x_i\dot x_i}{L}\,\mathbf k_1 = \sigma_i\dot x_i\,\mathbf t_i \quad &\text{(components differentiated; Eq. 3.19)} \\
+> \frac{d}{dt}\left(x_i\dot x_i\right) &= \dot x_i\dot x_i + x_i\ddot x_i \quad &\text{(product rule)} \\
+> \mathbf a_1^{P_i} &= \ddot x_i\,\mathbf i_1 + \frac{\dot x_i^2 + x_i\ddot x_i}{L}\,\mathbf k_1 \quad &\text{(components differentiated again; Eq. 3.24)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^{P_i} = x_i\,\mathbf i_1 + \frac{x_i^2}{2L}\,\mathbf k_1, \quad \mathbf v_1^{P_i} = \dot x_i\,\mathbf i_1 + \frac{x_i\dot x_i}{L}\,\mathbf k_1, \quad \mathbf a_1^{P_i} = \ddot x_i\,\mathbf i_1 + \frac{\dot x_i^2 + x_i\ddot x_i}{L}\,\mathbf k_1 \quad (i = 1, 2)}$$
+>
+> **Units:** $[\dot x_i] = [\mathrm{L\,T^{-1}}]$; $[\ddot x_i] = [\dot x_i^2/L] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the relative velocity is tangent to the wire and the relative acceleration lies in the plane of the wire.
 
-Product rule on $x_i\dot x_i$: $\dfrac{d}{dt}(x_i\dot x_i) = \dot x_i\dot x_i + x_i\ddot x_i$. Hence
-
-$$ \mathbf{a}_1^{P_i} = \ddot x_i\,\mathbf{i}_1 + \frac{\dot x_i^2 + x_i\ddot x_i}{L}\,\mathbf{k}_1 $$
-
-Note $\mathbf{v}_1^{P_i} = s_i\dot x_i\,\mathbf{t}_i$, tangent to the wire, as it must be.
+> [!derivation] Absolute acceleration: centripetal and Coriolis terms
+> **Law:** time derivative in $S_0$ of the position written in the turning basis; product rule
+> **Source:** Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.21; Notes.pdf, Eq. 3.22; Notes.pdf, Eq. 3.23; Notes.pdf, Eq. 3.27; [Lecture 5, Slide 24]; [Lecture 5, Slide 25]
+>
+> $$\begin{aligned}
+> \mathbf v_0^{P_i} &= \dot x_i\,\mathbf i_1 + x_i\,\omega\,\mathbf j_1 + \frac{x_i\dot x_i}{L}\,\mathbf k_1 = \mathbf v_1^{P_i} + \omega x_i\,\mathbf j_1 \quad &\text{(product rule; derivative of $\mathbf i_1$; $\mathbf k_1$ constant)} \\
+> \left.\frac{d\mathbf v_1^{P_i}}{dt}\right|_0 &= \mathbf a_1^{P_i} + \dot x_i\,\omega\,\mathbf j_1 \quad &\text{(product rule; the turning of $\mathbf i_1$ inside $\mathbf v_1^{P_i}$)} \\
+> \left.\frac{d}{dt}\right|_0\left(\omega x_i\,\mathbf j_1\right) &= \omega\dot x_i\,\mathbf j_1 + \omega x_i\left(-\omega\,\mathbf i_1\right) \quad &\text{(product rule; derivative of $\mathbf j_1$)} \\
+> 2\,\boldsymbol\omega_{10}\times\mathbf v_1^{P_i} &= 2\omega\,\mathbf k_1\times\left(\dot x_i\,\mathbf i_1 + \frac{x_i\dot x_i}{L}\,\mathbf k_1\right) = 2\omega\dot x_i\,\mathbf j_1 \quad &\text{(the two $\mathbf j_1$ terms above)} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^{P_i}\right) &= \omega\,\mathbf k_1\times\left(\omega x_i\,\mathbf j_1\right) = -\omega^2x_i\,\mathbf i_1 \quad &\text{(the $\mathbf i_1$ term above)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^{P_i} = \mathbf a_1^{P_i} - \omega^2x_i\,\mathbf i_1 + 2\omega\dot x_i\,\mathbf j_1}$$
+>
+> **Units:** $[\omega^2x_i] = [\omega\dot x_i] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the centripetal term points horizontally to the axis and the Coriolis term is normal to the plane of the wire; with $O$ fixed and the rate constant there are no origin or Euler terms.
 
 ### Forces and Equations of Motion
 
-##### (b) Newton's second law in $Oxyz$
-* **Pedagogical Justification:** $Oxyz$ is not inertial; Newton's law holds there if the inertia forces are added, $m\mathbf{a}_1^{P_i} = \mathbf{F} + \mathbf{F}_i$ (Notes Eqs. 4.62–4.63). Projecting on the tangent $\mathbf{t}_i$ eliminates the unknown reaction and gives the equation of motion; the other two projections give the reaction.
+![[attachments/EM-SOL/p33-fbd.svg]]
 
-**Actual forces on $P_i$:**
+#### (b) Newton's second law for each particle in Oxyz
 
-* Weight: $-mg\,\mathbf{k}_1$.
-* Reaction of the smooth wire: $\mathbf{N}_i = N_{in}\,\mathbf{n}_i + N_{iy}\,\mathbf{j}_1$ (so $\mathbf{N}_i\cdot\mathbf{t}_i = 0$).
-* Electric repulsion. With $\overrightarrow{P_2P_1}$ and $d$ of the chord triangle, the force on $P_1$ has magnitude $k/d^2$ and the direction of $\overrightarrow{P_2P_1}/d$, and the force on $P_2$ is opposite:
-$$ \mathbf{F}_{E1} = \frac{k}{d^2}\,\frac{\overrightarrow{P_2P_1}}{d} = \frac{k}{d^3}\,\Delta x\left[\mathbf{i}_1 + \frac{x_1 + x_2}{2L}\mathbf{k}_1\right] = -\mathbf{F}_{E2} $$
+> [!derivation] Actual and inertia forces on each particle
+> **Law:** weight; repulsion along the line of the particles; smooth reaction; inertia forces of a non-inertial frame
+> **Source:** Notes.pdf, Eq. 4.62; Notes.pdf, Eq. 6.16; [Lecture 5, Slide 28]; Problems.pdf, p. 21
+>
+> The force on $P_1$ has the magnitude $k$ over the square of $d$ and the direction from $P_2$ to $P_1$ (repulsion); the force on $P_2$ is opposite.
+>
+> $$\begin{aligned}
+> \mathbf W_i &= -mg\,\mathbf k_1, \quad \mathbf N_i = N_{in}\,\mathbf n_i + N_{iy}\,\mathbf j_1 \quad &\text{(weight; smooth wire)} \\
+> \mathbf F_{E1} &= \frac{k}{d^2}\,\frac{\overrightarrow{P_2P_1}}{d} = \frac{k\,\Delta x}{d^3}\left[\mathbf i_1 + \frac{x_1 + x_2}{2L}\,\mathbf k_1\right], \quad \mathbf F_{E2} = -\mathbf F_{E1} \quad &\text{(chord box; action and reaction)} \\
+> \mathbf F_{A,i} &= \mathbf 0, \quad \mathbf F_{E\!u,i} = \mathbf 0 \quad &\text{($O$ fixed; $\boldsymbol\alpha_{10}$ zero)} \\
+> \mathbf F_{C,i} &= -m\,\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^{P_i}\right) = m\omega^2x_i\,\mathbf i_1 \quad &\text{(centrifugal: composition box times $-m$)} \\
+> \mathbf F_{COR,i} &= -2m\,\boldsymbol\omega_{10}\times\mathbf v_1^{P_i} = -2m\omega\dot x_i\,\mathbf j_1 \quad &\text{(Coriolis: composition box times $-m$)}
+> \end{aligned}$$
+>
+> $$\boxed{m\,\mathbf a_1^{P_i} = -mg\,\mathbf k_1 + N_{in}\,\mathbf n_i + N_{iy}\,\mathbf j_1 + \mathbf F_{Ei} + m\omega^2x_i\,\mathbf i_1 - 2m\omega\dot x_i\,\mathbf j_1, \qquad i = 1, 2}$$
+>
+> **Units:** $[k/d^2] = [mg] = [m\omega^2x_i] = [m\omega\dot x_i] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** this is Newton's second law of each particle in $Oxyz$ (Eq. 4.63): six scalar equations for the six unknowns, two coordinates and four reaction components. The centrifugal force pushes each particle away from the axis.
 
-**Inertia forces** ($\mathbf{a}_0^O = \mathbf{0}$, $\boldsymbol{\alpha}_{10} = \mathbf{0}$, so $\mathbf{F}_A = \mathbf{F}_E^{\text{Euler}} = \mathbf{0}$):
-
-* Centrifugal: $\boldsymbol{\omega}_{10}\times\mathbf{r}_1^{P_i} = \omega\mathbf{k}_1\times\left(x_i\mathbf{i}_1 + \tfrac{x_i^2}{2L}\mathbf{k}_1\right) = \omega x_i\,\mathbf{j}_1$, then $\boldsymbol{\omega}_{10}\times\omega x_i\mathbf{j}_1 = \omega^2x_i\,(\mathbf{k}_1\times\mathbf{j}_1) = -\omega^2x_i\,\mathbf{i}_1$, so $\mathbf{F}_{C,i} = m\omega^2x_i\,\mathbf{i}_1$ (outward from the axis, Slide 30).
-* Coriolis: $\boldsymbol{\omega}_{10}\times\mathbf{v}_1^{P_i} = \omega\mathbf{k}_1\times\left(\dot x_i\mathbf{i}_1 + \tfrac{x_i\dot x_i}{L}\mathbf{k}_1\right) = \omega\dot x_i\,\mathbf{j}_1$, so $\mathbf{F}_{COR,i} = -2m\omega\dot x_i\,\mathbf{j}_1$.
-
-##### (b, continued) Newton's equations
-
-**Newton's second law for each particle** (vector form):
-
-$$ m\left[\ddot x_i\,\mathbf{i}_1 + \frac{\dot x_i^2 + x_i\ddot x_i}{L}\,\mathbf{k}_1\right] = -mg\,\mathbf{k}_1 + N_{in}\,\mathbf{n}_i + N_{iy}\,\mathbf{j}_1 + \mathbf{F}_{Ei} + m\omega^2x_i\,\mathbf{i}_1 - 2m\omega\dot x_i\,\mathbf{j}_1, \qquad i = 1, 2 $$
-
-**Projection on $s_i\mathbf{t}_i = \mathbf{i}_1 + \dfrac{x_i}{L}\mathbf{k}_1$** (no reaction). Left side: $m\left[\ddot x_i + \dfrac{x_i}{L}\cdot\dfrac{\dot x_i^2 + x_i\ddot x_i}{L}\right] = m\left[\left(1 + \dfrac{x_i^2}{L^2}\right)\ddot x_i + \dfrac{x_i\dot x_i^2}{L^2}\right]$. Right side: weight $-mg\,x_i/L$; centrifugal $m\omega^2x_i$; Coriolis $0$; electric, for $P_1$,
-
-$$ \mathbf{F}_{E1}\cdot\left(\mathbf{i}_1 + \frac{x_1}{L}\mathbf{k}_1\right) = \frac{k}{d^3}\,(x_1 - x_2)\left[1 + \frac{x_1(x_1 + x_2)}{2L^2}\right] $$
-
-and for $P_2$ the same with the indices exchanged (because $\mathbf{F}_{E2} = -\mathbf{F}_{E1}$ and $-\Delta x = x_2 - x_1$). The **equations of motion** are
-
-$$ \boxed{m\left[\left(1 + \frac{x_1^2}{L^2}\right)\ddot x_1 + \frac{x_1\dot x_1^2}{L^2}\right] = m\left(\omega^2 - \frac{g}{L}\right)x_1 + \frac{k}{d^3}\,(x_1 - x_2)\left[1 + \frac{x_1(x_1 + x_2)}{2L^2}\right]} $$
-$$ \boxed{m\left[\left(1 + \frac{x_2^2}{L^2}\right)\ddot x_2 + \frac{x_2\dot x_2^2}{L^2}\right] = m\left(\omega^2 - \frac{g}{L}\right)x_2 + \frac{k}{d^3}\,(x_2 - x_1)\left[1 + \frac{x_2(x_1 + x_2)}{2L^2}\right]} $$
-
-with $d^3 = |x_1 - x_2|^3\left[1 + \dfrac{(x_1 + x_2)^2}{4L^2}\right]^{3/2}$.
-
-**Projection on $\mathbf{j}_1$:** $0 = N_{iy} - 2m\omega\dot x_i$, so $\boxed{N_{iy} = 2m\omega\dot x_i}$: the wire pushes each bead sideways to cancel the Coriolis force.
-
-**Projection on $s_i\mathbf{n}_i = -\dfrac{x_i}{L}\mathbf{i}_1 + \mathbf{k}_1$.** Left side: $m\left[-\dfrac{x_i\ddot x_i}{L} + \dfrac{\dot x_i^2 + x_i\ddot x_i}{L}\right] = \dfrac{m\dot x_i^2}{L}$. Right side: $N_{in}s_i - mg - \dfrac{m\omega^2x_i^2}{L} + \mathbf{F}_{Ei}\cdot(s_i\mathbf{n}_i)$, where for $P_1$
-
-$$ \mathbf{F}_{E1}\cdot\left(-\frac{x_1}{L}\mathbf{i}_1 + \mathbf{k}_1\right) = \frac{k\,\Delta x}{d^3}\left[-\frac{x_1}{L} + \frac{x_1 + x_2}{2L}\right] = \frac{k\,\Delta x}{d^3}\cdot\frac{x_2 - x_1}{2L} = -\frac{k\,\Delta x^2}{2Ld^3} $$
-
-and the same value is found for $P_2$. Therefore
-
-$$ \boxed{N_{in} = \frac{m}{s_i}\left[\frac{\dot x_i^2}{L} + g + \frac{\omega^2x_i^2}{L}\right] + \frac{k\,(x_1 - x_2)^2}{2L\,s_i\,d^3}}, \qquad s_i = \sqrt{1 + \frac{x_i^2}{L^2}} $$
+> [!derivation] Projections: equations of motion and reactions
+> **Law:** projection of Newton's second law on $\sigma_i\mathbf t_i$, $\mathbf j_1$ and $\sigma_i\mathbf n_i$
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.17; [Lecture 5, Slide 28]
+>
+> The projection on the tangent removes the reaction. The electric force on $P_2$ is the one on $P_1$ with the indices exchanged, because both the sign of $\Delta x$ and the direction of the force reverse.
+>
+> $$\begin{aligned}
+> m\,\mathbf a_1^{P_1}\cdot\left(\mathbf i_1 + \tfrac{x_1}{L}\mathbf k_1\right) &= m\left[\ddot x_1 + \frac{x_1}{L}\cdot\frac{\dot x_1^2 + x_1\ddot x_1}{L}\right] = m\left[\left(1 + \frac{x_1^2}{L^2}\right)\ddot x_1 + \frac{x_1\dot x_1^2}{L^2}\right] \quad &\text{(left side, tangent)} \\
+> \left(-mg\,\mathbf k_1 + m\omega^2x_1\,\mathbf i_1\right)\cdot\left(\mathbf i_1 + \tfrac{x_1}{L}\mathbf k_1\right) &= m\omega^2x_1 - mg\frac{x_1}{L} = m\left(\omega^2 - \frac{g}{L}\right)x_1 \quad &\text{(weight and centrifugal; Coriolis and reaction give 0)} \\
+> \mathbf F_{E1}\cdot\left(\mathbf i_1 + \tfrac{x_1}{L}\mathbf k_1\right) &= \frac{k\,\Delta x}{d^3}\left[1 + \frac{x_1\left(x_1 + x_2\right)}{2L^2}\right] \quad &\text{(electric, tangent)} \\
+> \mathbf j_1:\ 0 &= N_{iy} - 2m\omega\dot x_i \quad &\text{(binormal direction)} \\
+> m\,\mathbf a_1^{P_i}\cdot\left(-\tfrac{x_i}{L}\mathbf i_1 + \mathbf k_1\right) &= m\left[-\frac{x_i\ddot x_i}{L} + \frac{\dot x_i^2 + x_i\ddot x_i}{L}\right] = \frac{m\dot x_i^2}{L} \quad &\text{(left side, normal)} \\
+> \mathbf F_{E1}\cdot\left(-\tfrac{x_1}{L}\mathbf i_1 + \mathbf k_1\right) &= \frac{k\,\Delta x}{d^3}\left[-\frac{x_1}{L} + \frac{x_1 + x_2}{2L}\right] = -\frac{k\,\Delta x^2}{2Ld^3} \quad &\text{(electric, normal; the same value for $P_2$)} \\
+> \frac{m\dot x_i^2}{L} &= \sigma_iN_{in} - mg - \frac{m\omega^2x_i^2}{L} - \frac{k\,\Delta x^2}{2Ld^3} \quad &\text{(normal component: $\mathbf n_i\cdot\sigma_i\mathbf n_i = \sigma_i$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} m\left[\left(1 + \frac{x_1^2}{L^2}\right)\ddot x_1 + \frac{x_1\dot x_1^2}{L^2}\right] = m\left(\omega^2 - \frac{g}{L}\right)x_1 + \frac{k\left(x_1 - x_2\right)}{d^3}\left[1 + \frac{x_1\left(x_1 + x_2\right)}{2L^2}\right] \cr m\left[\left(1 + \frac{x_2^2}{L^2}\right)\ddot x_2 + \frac{x_2\dot x_2^2}{L^2}\right] = m\left(\omega^2 - \frac{g}{L}\right)x_2 + \frac{k\left(x_2 - x_1\right)}{d^3}\left[1 + \frac{x_2\left(x_1 + x_2\right)}{2L^2}\right] \cr N_{iy} = 2m\omega\dot x_i, \qquad N_{in} = \frac{m}{\sigma_i}\left[\frac{\dot x_i^2}{L} + g + \frac{\omega^2x_i^2}{L}\right] + \frac{k\left(x_1 - x_2\right)^2}{2L\sigma_id^3} \end{gathered}}$$
+>
+> **Units:** every term of the equations of motion $[\mathrm{M\,L\,T^{-2}}]$; $[k\,\Delta x^2/(L d^3)] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** weight and centrifugal force combine along the wire into one linear term in the abscissa: restoring towards the vertex if gravity wins ($\gamma$ above 1), repelling if the rotation wins. The reaction normal to the plane cancels the Coriolis force.
 
 ### Answers and Checks
 
-##### (a) Relative position, velocity and acceleration
-$$ \mathbf{r}_1^{P_i} = x_i\,\mathbf{i}_1 + \frac{x_i^2}{2L}\,\mathbf{k}_1, \qquad \mathbf{v}_1^{P_i} = \dot x_i\,\mathbf{i}_1 + \frac{x_i\dot x_i}{L}\,\mathbf{k}_1, \qquad \mathbf{a}_1^{P_i} = \ddot x_i\,\mathbf{i}_1 + \frac{\dot x_i^2 + x_i\ddot x_i}{L}\,\mathbf{k}_1 \qquad (i = 1, 2) $$
+#### (c) Motor torque that keeps omega constant
 
-##### (b) Newton's second law in $Oxyz$
-The vector equation of each bead, with its tangential projections (the two boxed equations of motion), $N_{iy} = 2m\omega\dot x_i$ and the boxed $N_{in}$, all derived in the previous section.
+> [!derivation] Balance of moments on the wire about Oz
+> **Law:** action and reaction between wire and particles; moment of a force about an axis; massless guide
+> **Source:** Notes.pdf, Eq. 4.48; Notes.pdf, Eq. 4.53; Problems.pdf, p. 21
+>
+> The particles push on the wire with minus the reactions. The wire is taken massless, so the moments about $Oz$ of all the actions on it add up to zero (a wire with mass, turning at a constant rate about its axis of symmetry, keeps its own angular momentum about the axis constant: rigid body result, **extension**; the torque is the same). The bearings act on the axis and have no moment about it. The component along $\mathbf k_1$ of the cross product of $x_i\,\mathbf i_1 + z_i\,\mathbf k_1$ with $N_{ix}\,\mathbf i_1 + N_{iy}\,\mathbf j_1 + N_{iz}\,\mathbf k_1$ is the first component of the first factor times the second of the second minus the second of the first times the first of the second.
+>
+> $$\begin{aligned}
+> \left[\mathbf r_1^{P_i}\times\left(-\mathbf N_i\right)\right]\cdot\mathbf k_1 &= -\left(x_iN_{iy} - 0\cdot N_{ix}\right) = -x_iN_{iy} \quad &\text{(moment of the push of $P_i$)} \\
+> M_m - x_1N_{1y} - x_2N_{2y} &= 0 \quad &\text{(massless wire)} \\
+> M_m &= x_1\cdot 2m\omega\dot x_1 + x_2\cdot 2m\omega\dot x_2 \quad &\text{(part (b): $N_{iy} = 2m\omega\dot x_i$)}
+> \end{aligned}$$
+>
+> $$\boxed{M_m = 2m\omega\left(x_1\dot x_1 + x_2\dot x_2\right)}$$
+>
+> **Units:** $[m\omega x\dot x] = [\mathrm{M\,L^2\,T^{-2}}]$, a torque
+> **Meaning:** when the particles move away from the axis the motor must supply angular momentum (positive torque); when they move towards it, it must brake.
 
-##### (c) Motor torque that keeps $\omega$ constant
-* **Pedagogical Justification:** The motor torque acts on the wire; the wire acts on the particles through the reactions $\mathbf{N}_i$, and the particles act back with $-\mathbf{N}_i$. The wire is a massless guide (if it had mass and were symmetric about $Oz$, rotating at constant $\omega$, its own angular momentum about $Oz$ would be constant; this remark goes beyond the particle units and does not change the result). Hence the moment about $Oz$ of all the actions on it must vanish.
+> [!derivation] Check: angular momentum of the particles about Oz
+> **Law:** angular momentum about the fixed point $O$ and its rate, equal to the moment of the external forces on the particles
+> **Source:** Notes.pdf, Eq. 3.26; Notes.pdf, Eq. 4.48; Notes.pdf, Eq. 4.53
+>
+> In $\mathcal B_1$ the position of $P_i$ has the components $(x_i, 0, z_i)$ and its absolute velocity $(\dot x_i, \omega x_i, \dot z_i)$ (composition box). The weights are parallel to the axis and the electric pair acts along the line of the particles, so its total moment is zero; only the reactions have an axial moment, the moment $M_m$ transmitted through the wire.
+>
+> $$\begin{aligned}
+> \mathbf H_{O,0}\cdot\mathbf k_1 &= \sum_i m\left(x_i\cdot\omega x_i - 0\cdot\dot x_i\right) = m\omega\left(x_1^2 + x_2^2\right) \quad &\text{(Eq. 4.48, axial component)} \\
+> \frac{d}{dt}\left[m\omega\left(x_1^2 + x_2^2\right)\right] &= m\omega\left(2x_1\dot x_1 + 2x_2\dot x_2\right) \quad &\text{(chain rule; $\omega$ constant)} \\
+> \sum_i\left(\mathbf r_1^{P_i}\times\mathbf N_i\right)\cdot\mathbf k_1 &= x_1N_{1y} + x_2N_{2y} \quad &\text{(Eq. 4.53)}
+> \end{aligned}$$
+>
+> $$\boxed{x_1N_{1y} + x_2N_{2y} = 2m\omega\left(x_1\dot x_1 + x_2\dot x_2\right) = M_m}$$
+>
+> **Units:** $[\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the same torque by a second route, without inertia forces.
 
-**Balance of moments about $Oz$ on the wire:** $M + \sum_i \left[\mathbf{r}^{P_i}\times(-\mathbf{N}_i)\right]\cdot\mathbf{k}_1 = 0$. Expand the cross product with $\mathbf{r}^{P_i} = x_i\mathbf{i}_1 + z_i\mathbf{k}_1$ and $\mathbf{N}_i = N_{ix}\mathbf{i}_1 + N_{iy}\mathbf{j}_1 + N_{iz}\mathbf{k}_1$; its $\mathbf{k}_1$ component is $x_iN_{iy} - 0\cdot N_{ix} = x_iN_{iy}$. With $N_{iy} = 2m\omega\dot x_i$ from part (b):
+#### (d) Equilibrium configurations in Oxyz
 
-$$ \boxed{M = x_1N_{1y} + x_2N_{2y} = 2m\omega\left(x_1\dot x_1 + x_2\dot x_2\right)} $$
+> [!derivation] Equilibrium equations in nondimensional form and their sum
+> **Law:** relative equilibrium: the rates and accelerations vanish; scaling by $m\omega^2L$
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Sec. 4.6; Problems.pdf, p. 21
+>
+> With the rates and accelerations zero, the equations of motion become algebraic. Divide by $m\omega^2L$ and write $\Sigma$ for the sum of the $u_i$.
+>
+> $$\begin{aligned}
+> f_1 &\equiv \left(1 - \gamma\right)u_1 + \frac{\kappa}{D^3}\left(u_1 - u_2\right)\left[1 + \frac{u_1\Sigma}{2}\right] = 0 \quad &\text{(equation of $P_1$)} \\
+> f_2 &\equiv \left(1 - \gamma\right)u_2 + \frac{\kappa}{D^3}\left(u_2 - u_1\right)\left[1 + \frac{u_2\Sigma}{2}\right] = 0 \quad &\text{(equation of $P_2$)} \\
+> D &= \left|u_1 - u_2\right|\sqrt{1 + \frac{\Sigma^2}{4}} \quad &\text{(chord box divided by $L$)} \\
+> f_1 + f_2 &= \left(1 - \gamma\right)\Sigma + \frac{\kappa}{D^3}\left(u_1 - u_2\right)\frac{\left(u_1 - u_2\right)\Sigma}{2} = \Sigma\left[\left(1 - \gamma\right) + \frac{\kappa\left(u_1 - u_2\right)^2}{2D^3}\right] = 0 \quad &\text{(the constant 1 cancels in the brackets)}
+> \end{aligned}$$
+>
+> $$\boxed{\Sigma = 0 \ \text{(symmetric)} \qquad \text{or} \qquad \gamma - 1 = \frac{\kappa\left(u_1 - u_2\right)^2}{2D^3} \ \text{(only if } \gamma \gt 1\text{)}}$$
+>
+> **Units:** $[\gamma] = [\kappa] = [u_i] = [1]$
+> **Meaning:** only the two nondimensional numbers matter: weight against centrifugal force, and repulsion against centrifugal force.
 
-**Check with the angular momentum of the particles in $S_0$.** By Notes Eq. 3.26, $\mathbf{v}_0^{P_i} = \mathbf{v}_1^{P_i} + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^{P_i} = \dot x_i\mathbf{i}_1 + \omega x_i\mathbf{j}_1 + \tfrac{x_i\dot x_i}{L}\mathbf{k}_1$, whose $\mathbf{k}_1$-moment about $O$ is $m\left[x_i(\omega x_i) - 0\cdot\dot x_i\right] = m\omega x_i^2$. So $H_{Oz} = m\omega(x_1^2 + x_2^2)$ and, by the product and chain rules, $\dot H_{Oz} = 2m\omega(x_1\dot x_1 + x_2\dot x_2)$. The weights are parallel to $Oz$ and the electric pair is central ($(\mathbf{r}^{P_1} - \mathbf{r}^{P_2})\times\mathbf{F}_{E1} = \mathbf{0}$), so only the reactions have a moment about $Oz$, and that moment equals $M$. Both routes agree with the official key (Problems.pdf, p. 75).
+> [!derivation] Cases gamma below 1 and gamma equal to 1
+> **Law:** sign of the terms of the equilibrium equations
+> **Source:** Notes.pdf, Eq. 4.32; Problems.pdf, p. 21
+>
+> Two particles cannot occupy the same point, so the difference of the $u_i$ is not zero and the symmetric case has the first abscissa not zero.
+>
+> $$\begin{aligned}
+> \Sigma = 0:\quad u_2 &= -u_1, \quad D = 2\left|u_1\right|, \quad f_1 = u_1\left[\left(1 - \gamma\right) + \frac{2\kappa}{8\left|u_1\right|^3}\right] \quad &\text{(symmetric case)} \\
+> \gamma \lt 1:\quad \left(1 - \gamma\right) + \frac{\kappa}{4\left|u_1\right|^3} &\gt 0 \ \text{ and } \ \left(1 - \gamma\right) + \frac{\kappa\left(u_1 - u_2\right)^2}{2D^3} \gt 0 \quad &\text{(neither alternative can vanish)} \\
+> \gamma = 1:\quad \frac{\kappa}{4\left|u_1\right|^3} &= 0 \ \text{ and } \ \frac{\kappa\left(u_1 - u_2\right)^2}{2D^3} = 0 \iff \kappa = 0 \quad &\text{(both alternatives need $\kappa = 0$)} \\
+> \gamma = 1,\ \kappa = 0:\quad f_1 &= 0\cdot u_1 + 0 = 0, \quad f_2 = 0 \quad &\text{(every configuration)}
+> \end{aligned}$$
+>
+> $$\boxed{\gamma \lt 1: \text{ no equilibrium}; \qquad \gamma = 1: \text{ equilibrium only if } \kappa = 0, \text{ and then every position is one}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** when the rotation beats gravity everywhere along the wire, nothing holds the particles, and the repulsion only pushes them further out; when they balance exactly, any repulsion breaks the balance.
 
-##### (d) Equilibrium configurations in $Oxyz$
-* **Pedagogical Justification:** A relative equilibrium has $\dot x_i = \ddot x_i = 0$; then the two equations of motion become algebraic. Writing them with $u_i = x_i/L$ and dividing by $m\omega^2L$ shows that only $\gamma$ and $\kappa$ matter.
+> [!derivation] Case gamma above 1: symmetric and asymmetric equilibria
+> **Law:** solution of the algebraic equilibrium equations
+> **Source:** Notes.pdf, Eq. 4.32; Problems.pdf, p. 21
+>
+> In the asymmetric case the second alternative of the sum gives $\kappa$ over the cube of $D$, which is substituted in the equation of $P_1$; then $c$ denotes the fourth root of $4\kappa$ over $\gamma - 1$.
+>
+> $$\begin{aligned}
+> \Sigma = 0:\quad \left(1 - \gamma\right) + \frac{\kappa}{4\left|u_1\right|^3} &= 0 \;\Rightarrow\; \left|u_1\right|^3 = \frac{\kappa}{4\left(\gamma - 1\right)} \;\Rightarrow\; x_1^2 = \left[\frac{\kappa L^3}{4\left(\gamma - 1\right)}\right]^{2/3} \quad &\text{(symmetric; $x_1 = Lu_1$)} \\
+> \Sigma \ne 0:\quad \frac{\kappa}{D^3} &= \frac{2\left(\gamma - 1\right)}{\left(u_1 - u_2\right)^2} \quad &\text{(second alternative)} \\
+> \left(1 - \gamma\right)u_1 + \frac{2\left(\gamma - 1\right)}{u_1 - u_2}\left[1 + \frac{u_1\left(u_1 + u_2\right)}{2}\right] &= 0 \;\Rightarrow\; u_1\left(u_1 - u_2\right) = 2 + u_1\left(u_1 + u_2\right) \quad &\text{(in $f_1$; divided by $\gamma - 1$, times $u_1 - u_2$)} \\
+> -u_1u_2 &= 2 + u_1u_2 \;\Rightarrow\; u_1u_2 = -1, \ \ x_1x_2 = -L^2 \quad &\text{(opposite branches)} \\
+> u_1 - u_2 &= u_1 + \frac{1}{u_1}, \quad 1 + \frac{\Sigma^2}{4} = \frac{\left(u_1 + 1/u_1\right)^2}{4}, \quad D^3 = \frac{\left|u_1 + 1/u_1\right|^6}{8} \quad &\text{($u_2 = -1/u_1$; $\left(u_1 - 1/u_1\right)^2 + 4 = \left(u_1 + 1/u_1\right)^2$)} \\
+> \gamma - 1 &= \frac{\kappa\left(u_1 + 1/u_1\right)^2\cdot 8}{2\left(u_1 + 1/u_1\right)^6} = \frac{4\kappa}{\left(u_1 + 1/u_1\right)^4} \;\Rightarrow\; \left|u_1 + \frac{1}{u_1}\right| = c \quad &\text{(back in the sum condition)} \\
+> u_1^2 - c\,u_1 + 1 &= 0 \;\Rightarrow\; u_1 = \frac{c \pm \sqrt{c^2 - 4}}{2}, \quad u_2 = -\frac{1}{u_1} \quad &\text{($u_1 \gt 0$; both roots, real only if $c \ge 2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \text{symmetric: } x_1 = -x_2,\quad x_1^2 = \left[\frac{\kappa L^3}{4\left(\gamma - 1\right)}\right]^{2/3}; \cr \text{asymmetric: } x_1x_2 = -L^2,\quad \frac{x_1}{L} = \frac{c \pm \sqrt{c^2 - 4}}{2},\quad c = \left(\frac{4\kappa}{\gamma - 1}\right)^{1/4}, \ \text{ real and distinct only for } \kappa \gt 4\left(\gamma - 1\right) \end{gathered}}$$
+>
+> **Units:** $[x_1^2] = [L^2] = [\mathrm{L^2}]$
+> **Meaning:** gravity, stronger than the rotation, acts along the wire as a spring towards the vertex that balances the repulsion. The two roots of the asymmetric case are a mirror pair (one root is the reciprocal of the other), with the chord through the point at height one half of $L$ on the axis; at the limiting value of $\kappa$ they merge into the symmetric equilibrium at the abscissa $L$. Example checked numerically: $\gamma$ equal to 2 and $\kappa$ equal to 8 give the asymmetric pair 1.833 and $-0.546$ and the symmetric value 1.260, with both equilibrium equations satisfied to round-off. No equilibrium has both particles on the same branch, because both alternatives give abscissas of opposite sign.
 
-With $\dot x_i = \ddot x_i = 0$, $x_i = Lu_i$ and $d = LD$, $D = |u_1 - u_2|\sqrt{1 + (u_1 + u_2)^2/4}$, dividing by $m\omega^2L$:
+#### (e) Symmetric motion with gamma and kappa equal to 2: extreme values of x1
 
-$$ f_1 \equiv (1 - \gamma)\,u_1 + \frac{\kappa}{D^3}(u_1 - u_2)\left[1 + \frac{u_1(u_1 + u_2)}{2}\right] = 0, \qquad f_2 \equiv (1 - \gamma)\,u_2 + \frac{\kappa}{D^3}(u_2 - u_1)\left[1 + \frac{u_2(u_1 + u_2)}{2}\right] = 0 $$
+> [!derivation] Why the energy of the pair in Oxyz is conserved, and its potentials
+> **Law:** power of each force on the relative velocities; potentials as minus the work, with Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.14; Notes.pdf, Eq. 4.24; Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]; [Lecture 5, Slide 30]; [Lecture 5, Slide 31]
+>
+> A symmetric start stays symmetric: the equations of part (b) are unchanged when the abscissas change sign and the labels are exchanged, so the symmetry needs no extra force. Two reasons for the conservation. First, the forces that do no work in $S_1$: the reactions (wire at rest in $S_1$, smooth), the Coriolis forces (normal to the relative velocities), and the origin and Euler forces, which vanish. Second, the forces that work have potentials of the positions in $S_1$ only: the weights, the repulsion (central pair, a function of the distance) and the centrifugal forces (rate constant, axis fixed). Along the wire the displacement is $\mathbf i_1$ plus $x/L$ times $\mathbf k_1$, times $dx$.
+>
+> $$\begin{aligned}
+> V_g(x_i) &= -\int_0^{x_i}\left(-mg\,\mathbf k_1\right)\cdot\left(\mathbf i_1 + \frac{x'}{L}\mathbf k_1\right)dx' = \frac{mg}{L}\left[\frac{x'^2}{2}\right]_0^{x_i} = \frac{mgx_i^2}{2L} \quad &\text{(Eq. 4.14; Barrow's rule)} \\
+> V_C(x_i) &= -\int_0^{x_i}m\omega^2x'\,dx' = -m\omega^2\left[\frac{x'^2}{2}\right]_0^{x_i} = -\tfrac12 m\omega^2x_i^2 \quad &\text{(Eq. 4.14; Barrow's rule)} \\
+> V_E(d) &= -\int_{\infty}^{d}\frac{k}{d'^2}\,dd' = -\left[-\frac{k}{d'}\right]_{\infty}^{d} = \frac{k}{d} \quad &\text{(repulsion along growing $d$; zero at infinity; Barrow's rule)} \\
+> T_1 &= \sum_i\tfrac12 m\,\mathbf v_1^{P_i}\cdot\mathbf v_1^{P_i} = \sum_i\tfrac12 m\dot x_i^2\left(1 + \frac{x_i^2}{L^2}\right) \quad &\text{(kinetic energy of the pair in $S_1$)} \\
+> x_1 = x \gt 0,\ x_2 = -x:\quad d &= 2x, \quad T_1 = m\dot x^2\left(1 + \frac{x^2}{L^2}\right) \quad &\text{(symmetric motion)} \\
+> E_1 &= m\dot x^2\left(1 + \frac{x^2}{L^2}\right) + \frac{mgx^2}{L} - m\omega^2x^2 + \frac{k}{2x} \quad &\text{(two weights, two centrifugal terms, one pair)}
+> \end{aligned}$$
+>
+> $$\boxed{E_1 = m\dot x^2\left(1 + \frac{x^2}{L^2}\right) + m\left(\frac{g}{L} - \omega^2\right)x^2 + \frac{k}{2x} = \text{const}}$$
+>
+> **Units:** $[m\dot x^2] = [mgx^2/L] = [m\omega^2x^2] = [k/x] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the abscissa stays positive: the repulsion potential grows without bound as the particles approach the vertex together.
 
-**Sum.** With $S = u_1 + u_2$, the electric terms add to $\dfrac{\kappa}{D^3}(u_1 - u_2)\left[\dfrac{u_1S}{2} - \dfrac{u_2S}{2}\right] = \dfrac{\kappa\,(u_1 - u_2)^2S}{2D^3}$, so
+> [!derivation] Initial energy and the cubic of the turning points
+> **Law:** initial conditions in the energy integral; turning points where the kinetic energy vanishes; all three roots of the cubic
+> **Source:** Notes.pdf, Eq. 4.27; Notes.pdf, Eq. 4.28; Problems.pdf, p. 21
+>
+> At the start the relative velocity of part (a) is evaluated at the abscissa $L$ and its length is set to $L\omega$ (Reading 1). Then everything is divided by $m\omega^2L^2$ with $u$ equal to $x/L$. The roots of the cubic follow from the triple-angle identity with $u$ written as twice a cosine.
+>
+> $$\begin{aligned}
+> \left|\mathbf v_1^{P_1}(0)\right|^2 &= \dot x(0)^2\left(1 + \frac{L^2}{L^2}\right) = 2\dot x(0)^2 = L^2\omega^2 \;\Rightarrow\; \dot x(0) = \frac{L\omega}{\sqrt2} \quad &\text{(part (a) at $t = 0$; $\dot x(0) \gt 0$)} \\
+> \frac{E_1}{m\omega^2L^2} &= \frac{\dot x^2}{\omega^2L^2}\left(1 + u^2\right) + \left(\gamma - 1\right)u^2 + \frac{\kappa}{2u} \quad &\text{(scaled energy; $k/(2x) = m\omega^2L^2\,\kappa/(2u)$)} \\
+> \frac{E_1(0)}{m\omega^2L^2} &= \frac12\cdot 2 + \left(2 - 1\right)\cdot 1 + \frac{2}{2} = 3 \quad &\text{($u = 1$, $\gamma = \kappa = 2$)} \\
+> u^2 + \frac{1}{u} &= 3 \;\Rightarrow\; u^3 - 3u + 1 = 0 \quad &\text{(rate zero; times $u \gt 0$)} \\
+> u = 2\cos\theta:\quad 8\cos^3\theta - 6\cos\theta + 1 &= 2\left(4\cos^3\theta - 3\cos\theta\right) + 1 = 2\cos 3\theta + 1 = 0 \quad &\text{(triple-angle identity)} \\
+> \cos 3\theta = -\tfrac12 &\Rightarrow\; \theta = \tfrac{2\pi}{9},\ \tfrac{4\pi}{9},\ \tfrac{8\pi}{9} \;\Rightarrow\; u = 1.532,\ 0.347,\ -1.879 \quad &\text{(the three roots)} \\
+> 3 - u^2 - \frac1u \ge 0 &\iff u^3 - 3u + 1 \le 0 \ \ (u \gt 0); \quad 1 - 3 + 1 = -1 \le 0 \text{ at } u = 1 \quad &\text{(allowed region contains the start)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{x_1^3}{L^3} - 3\frac{x_1}{L} + 1 = 0: \qquad x_{1,max} = 2L\cos\frac{2\pi}{9} \simeq 1.532\,L, \qquad x_{1,min} = 2L\cos\frac{4\pi}{9} \simeq 0.347\,L}$$
+>
+> **Units:** $[u] = [1]$; $[x_1] = [\mathrm{L}]$
+> **Meaning:** the negative root, $-1.879$, is rejected: the abscissa of $P_1$ stays positive. The start lies between the two positive roots, so $P_1$ first moves out to 1.532 times $L$ and then oscillates between the two extreme values, with $P_2$ as its mirror image.
 
-$$ f_1 + f_2 = S\left[(1 - \gamma) + \frac{\kappa\,(u_1 - u_2)^2}{2D^3}\right] = 0 $$
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Position, velocity, acceleration | $\mathbf r_1^{P_i} = x_i\,\mathbf i_1 + \frac{x_i^2}{2L}\mathbf k_1$, $\mathbf v_1^{P_i} = \dot x_i\,\mathbf i_1 + \frac{x_i\dot x_i}{L}\mathbf k_1$, $\mathbf a_1^{P_i} = \ddot x_i\,\mathbf i_1 + \frac{\dot x_i^2 + x_i\ddot x_i}{L}\mathbf k_1$ ($i = 1, 2$) |
+| (b) Newton's second law | $m\,\mathbf a_1^{P_i} = -mg\,\mathbf k_1 + N_{in}\mathbf n_i + N_{iy}\mathbf j_1 + \mathbf F_{Ei} + m\omega^2x_i\,\mathbf i_1 - 2m\omega\dot x_i\,\mathbf j_1$, $\mathbf F_{E1} = -\mathbf F_{E2} = \frac{k\Delta x}{d^3}[\mathbf i_1 + \frac{x_1 + x_2}{2L}\mathbf k_1]$; tangential projections give the two equations of motion, $N_{iy} = 2m\omega\dot x_i$ and $N_{in}$ (box of part (b)) |
+| (c) Motor torque | $M_m = 2m\omega(x_1\dot x_1 + x_2\dot x_2)$ along $\mathbf k$ |
+| (d) Equilibria | $\gamma \lt 1$: none; $\gamma = 1$: only if $\kappa = 0$ (then every position); $\gamma \gt 1$: symmetric $x_1 = -x_2$, $x_1^2 = [\kappa L^3/(4(\gamma - 1))]^{2/3}$; asymmetric $x_1x_2 = -L^2$ with $x_1/L = (c \pm \sqrt{c^2 - 4})/2$, $c = (4\kappa/(\gamma - 1))^{1/4}$, for $\kappa \gt 4(\gamma - 1)$ |
+| (e) Extreme values of $x_1$ | $x_1^3/L^3 - 3x_1/L + 1 = 0$: $x_{1,min} = 2L\cos(4\pi/9) \simeq 0.347L$, $x_{1,max} = 2L\cos(2\pi/9) \simeq 1.532L$ |
+| (e) Other reading of the initial velocity | if $\dot x_1(0) = L\omega$ instead of the speed: scaled energy 4, $x_1^3/L^3 - 4x_1/L + 1 = 0$, extreme values $0.254L$ and $1.861L$ |
 
-Either $S = 0$ (symmetric configuration) or $\gamma - 1 = \dfrac{\kappa(u_1 - u_2)^2}{2D^3} \gt 0$.
+**Check against the official key:** Problems.pdf, p. 75 prints the torque, the equilibria and the cubics of the extreme values for positive and negative $x_1$. All coincide with parts (c), (d) and (e) (box below). The cubic for negative $x_1$ is the mirror case of a start on the other branch, which does not apply to a start at $L$. The key's cubic confirms Reading 1 of the initial velocity (the speed); the other reading gives a different cubic.
 
-**Case $\gamma \lt 1$.** If $S = 0$, $u_2 = -u_1$, $D = 2|u_1|$ and $f_1 = u_1\left[(1 - \gamma) + \dfrac{2\kappa}{8|u_1|^3}\right]$: both terms of the bracket are positive and $u_1 \neq 0$ (the particles cannot coincide), so $f_1 \neq 0$. If $S \neq 0$ the bracket of the sum is positive. **No equilibrium exists.** (Centrifugal force beats gravity everywhere and the repulsion only pushes the particles further out.)
+> [!derivation] Comparison with the official key
+> **Law:** term-by-term comparison
+> **Source:** Problems.pdf, p. 75
+>
+> $$\begin{aligned}
+> \text{key: } M &= 2m\omega\left(\dot x_1x_1 + \dot x_2x_2\right) = M_m \quad &\text{(part (c))} \\
+> \text{key: } \gamma \lt 1 &: \text{none}; \quad \gamma = 1: \text{ only } \kappa = 0, \text{ all positions} \quad &\text{(part (d), first box of cases)} \\
+> \text{key: } \gamma \gt 1 &: \ x_1 = -x_2,\ x_1^2 = \left[\frac{\kappa L^3}{4\left(\gamma - 1\right)}\right]^{2/3}, \text{ and asymmetric ones} \quad &\text{(part (d), symmetric root and $x_1x_2 = -L^2$)} \\
+> \text{key: } \frac{x_1^3}{L^3} - 3\frac{x_1}{L} &+ 1 = 0 \ (x_1 \gt 0), \quad \frac{x_1^3}{L^3} - 3\frac{x_1}{L} - 1 = 0 \ (x_1 \lt 0) \quad &\text{(part (e); the second is the first with $x_1 \to -x_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{torque, equilibria and the cubic of the extreme values coincide with the key}}$$
+>
+> **Units:** $[M_m] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the key states the asymmetric equilibria exist without conditions; this solution adds that they are real and distinct only when $\kappa$ exceeds four times $\gamma - 1$, the case in which the symmetric equilibrium lies beyond the abscissa $L$.
 
-**Case $\gamma = 1$.** Both alternatives require $\kappa = 0$. For $\kappa \gt 0$ there is no equilibrium; only without repulsion ($\kappa = 0$) is every configuration an equilibrium (gravity and centrifugal force balance along the wire at every point: $(\omega^2 - g/L)x_i = 0$).
-
-**Case $\gamma \gt 1$, symmetric ($x_2 = -x_1$).** $f_1 = u_1\left[(1 - \gamma) + \dfrac{\kappa}{4|u_1|^3}\right] = 0$ gives $|u_1|^3 = \dfrac{\kappa}{4(\gamma - 1)}$:
-
-$$ \boxed{x_1 = -x_2, \qquad x_1^2 = \left[\frac{\kappa L^3}{4(\gamma - 1)}\right]^{2/3}} $$
-
-**Case $\gamma \gt 1$, asymmetric ($S \neq 0$).** Insert $\dfrac{\kappa}{D^3} = \dfrac{2(\gamma - 1)}{(u_1 - u_2)^2}$ from the sum into $f_1 = 0$ and divide by $(\gamma - 1)$:
-
-$$ -u_1 + \frac{2}{u_1 - u_2}\left[1 + \frac{u_1(u_1 + u_2)}{2}\right] = 0 \implies u_1(u_1 - u_2) = 2 + u_1(u_1 + u_2) \implies \boxed{x_1x_2 = -L^2} $$
-
-The particles are on opposite branches and the chord $P_1P_2$ passes through the focus $(0, L/2)$ of the parabola. Then $u_2 = -1/u_1$, $S = u_1 - 1/u_1$, $u_1 - u_2 = u_1 + 1/u_1$, and $1 + S^2/4 = (u_1 + 1/u_1)^2/4$, so $D^3 = |u_1 + 1/u_1|^6/8$ and the sum condition becomes
-
-$$ \gamma - 1 = \frac{4\kappa}{(u_1 + 1/u_1)^4} \implies \left|u_1 + \frac{1}{u_1}\right| = \left(\frac{4\kappa}{\gamma - 1}\right)^{1/4} $$
-
-Since $|u_1 + 1/u_1| \ge 2$, with equality only for $|u_1| = 1$ (which is the symmetric equilibrium), **asymmetric equilibria exist if and only if $\kappa \gt 4(\gamma - 1)$**, i.e. exactly when the symmetric equilibrium lies at $|x_1| \gt L$. They come in mirror pairs, $u_1 = \tfrac12\left[q \pm \sqrt{q^2 - 4}\right]$ with $q = (4\kappa/(\gamma - 1))^{1/4}$ and $u_2 = -1/u_1$ (plus the configurations with the labels exchanged). No equilibrium has both particles on the same branch.
-
-##### (e) Symmetric motion with $\gamma = \kappa = 2$: turning points
-* **Pedagogical Justification:** In $Oxyz$ the wire (and the symmetry constraint) is fixed, $\boldsymbol{\omega}_{10}$ is constant and the origin is fixed. The reactions and the Coriolis forces do no work in $S_1$ (Slide 31), and the weights, the electric pair and the centrifugal forces have potentials (Slides 29–30). The mechanical energy of the pair in $S_1$ is therefore conserved, and its turning points ($\dot x_1 = 0$) give the extreme values of $x_1$.
-
-Put $x_1 = x \gt 0$, $x_2 = -x$ (the repulsion becomes infinite at $x = 0$, so $x_1$ stays positive). Then $d = 2x$ and, for each particle, $|\mathbf{v}_1^{P_i}|^2 = \dot x^2\left(1 + x^2/L^2\right)$.
-
-* Kinetic energy: $T_1 = 2\cdot\tfrac12 m\dot x^2\left(1 + \dfrac{x^2}{L^2}\right) = m\dot x^2\left(1 + \dfrac{x^2}{L^2}\right)$.
-* Gravity: $2\,mg\,\dfrac{x^2}{2L} = \dfrac{mgx^2}{L}$. Centrifugal: $2\left(-\tfrac12 m\omega^2x^2\right) = -m\omega^2x^2$. Electric: $\dfrac{k}{d} = \dfrac{k}{2x}$ (its gradient gives the repulsion $k/d^2$).
-$$ E_1 = m\dot x^2\left(1 + \frac{x^2}{L^2}\right) + m\left(\frac{g}{L} - \omega^2\right)x^2 + \frac{k}{2x} = \text{const} $$
-
-**Initial value.** $|\mathbf{v}_1^{P_1}(0)| = L\omega$ at $x = L$ gives $2\dot x(0)^2 = L^2\omega^2$, so $T_1(0) = mL^2\omega^2$ and $E_1 = mL^2\omega^2 + m(g/L - \omega^2)L^2 + k/(2L)$. Dividing by $m\omega^2L^2$, with $u = x/L$:
-
-$$ \frac{E_1}{m\omega^2L^2} = \gamma + \frac{\kappa}{2} = 3 \qquad (\gamma = \kappa = 2) $$
-
-**Turning points** ($\dot x = 0$): $(\gamma - 1)u^2 + \dfrac{\kappa}{2u} = \gamma + \dfrac{\kappa}{2}$, i.e. $u^2 + \dfrac1u = 3$. Multiply by $u \gt 0$:
-
-$$ \boxed{\frac{x_1^3}{L^3} - 3\,\frac{x_1}{L} + 1 = 0} $$
-
-**Roots.** With $u = 2\cos\theta$ and $4\cos^3\theta - 3\cos\theta = \cos3\theta$: $8\cos^3\theta - 6\cos\theta + 1 = 2\cos3\theta + 1 = 0$, so $\cos3\theta = -\tfrac12$ and $\theta = 2\pi/9,\ 4\pi/9,\ 8\pi/9$. The roots are $u = 2\cos(2\pi/9) = 1.532$, $2\cos(4\pi/9) = 0.347$ and $2\cos(8\pi/9) = -1.879$ (rejected, $x_1 \gt 0$). Since the starting point $u = 1$ lies between the two positive roots (there $u^2 + 1/u = 2 \lt 3$),
-
-$$ x_{1,\min} = 2L\cos\frac{4\pi}{9} \approx 0.347\,L, \qquad x_{1,\max} = 2L\cos\frac{2\pi}{9} \approx 1.532\,L $$
-
-and $x_1$ oscillates between them. The key also lists $x_1^3/L^3 - 3x_1/L - 1 = 0$ for $x_1 \lt 0$: that is the mirror image (a start on the negative branch) and does not apply to $x_1(0) = L \gt 0$.
-
-##### Checks
-* **Effective spring along the wire.** Gravity and the centrifugal force combine into $m(\omega^2 - g/L)x_i$ in the tangential equation: a restoring force if $\gamma \gt 1$ (gravity wins and pulls the beads to the vertex) and a repelling one if $\gamma \lt 1$. Equilibrium requires the repulsion to be balanced by this restoring force, hence the condition $\gamma \gt 1$.
-* **Limits.** $\kappa \to 0$: the symmetric equilibrium collapses to $x_1 = x_2 = 0$ (no repulsion to separate the beads). $\gamma \to 1^+$: $x_1^2 \to \infty$, the restoring force vanishes and the beads are pushed to infinity. At the vertex, $x_i = 0$ gives $\mathbf{t}_i = \mathbf{i}_1$ and $\mathbf{n}_i = \mathbf{k}_1$, as the slope triangle degenerates to its horizontal leg.
-* **Torque sign.** $M = \tfrac{d}{dt}\left[m\omega(x_1^2 + x_2^2)\right]$: when the beads move outward the moment of inertia of the system grows and the motor has to supply angular momentum ($M \gt 0$); when they move inward it must brake ($M \lt 0$).
-* **Orthogonality:** $\mathbf{t}_i\cdot\mathbf{n}_i = 0$, $\mathbf{t}_i\times\mathbf{n}_i = -\mathbf{j}_1$ and $\det[{}_0R_1] = 1$ (change-of-basis section).
-* **Inertial check.** Differentiating $[{}_0R_1]\mathbf{r}_1^{P_i}$ twice reproduces $\mathbf{a}_1^{P_i} + \boldsymbol{\omega}_{10}\times(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^{P_i}) + 2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^{P_i}$ (Notes Eq. 3.27), and $dE_1/dt = 0$ along the equations of motion of part (b) (both checked symbolically with sympy, together with the equilibria of part (d)).
-* **Dimensions.** $[x_i^2/(2L)] = \text{m}$, $[x_i/L] = 1$; $[k/d^2] = \text{N}\cdot\text{m}^2/\text{m}^2 = \text{N}$; $[m\omega^2x] = \text{kg}\cdot\text{s}^{-2}\cdot\text{m} = \text{N}$; $[M] = [m\omega x\dot x] = \text{kg}\cdot\text{s}^{-1}\cdot\text{m}\cdot\text{m/s} = \text{N}\cdot\text{m}$; $[\gamma] = \dfrac{\text{m/s}^2}{\text{s}^{-2}\,\text{m}} = 1$; $[\kappa] = \dfrac{\text{N}\cdot\text{m}^2}{\text{kg}\cdot\text{s}^{-2}\cdot\text{m}^3} = 1$.
-* **Check against the official key:** the key of `Problems.pdf` gives the motor torque $2m\omega\left(\dot x_1x_1 + \dot x_2x_2\right)$, the equilibrium cases ($\gamma \lt 1$: none; $\gamma = 1$: only for $\kappa = 0$; $\gamma \gt 1$: symmetric with $x_1 = -x_2$ and $x_1^2 = \left[\kappa L^3/\left(4(\gamma - 1)\right)\right]^{2/3}$, and asymmetric ones) and the turning-point equations $x_1^3/L^3 - 3x_1/L \pm 1 = 0$. They coincide with the results of (c), (d) and (e) (for $\gamma = \kappa = 2$ the turning-point condition $u^3 - 3u + 1 = 0$ is the positive-$x_1$ case).
+> [!derivation] Limiting cases
+> **Law:** the results at extreme values of the data
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Sec. 4.6
+>
+> $$\begin{aligned}
+> \kappa \to 0:\quad x_1^2 &= \left[\frac{\kappa L^3}{4\left(\gamma - 1\right)}\right]^{2/3} \to 0 \quad &\text{(no repulsion: both particles at the vertex)} \\
+> \gamma \to 1^+:\quad x_1^2 &\to \infty \quad &\text{(the restoring term vanishes: nothing balances the repulsion)} \\
+> \omega \to 0:\quad N_{iy} &\to 0, \quad M_m \to 0 \quad &\text{(no Coriolis force and no torque without rotation)} \\
+> x_i = 0:\quad \mathbf t_i &= \mathbf i_1, \quad \mathbf n_i = \mathbf k_1 \quad &\text{(at the vertex the wire is horizontal)}
+> \end{aligned}$$
+>
+> $$\boxed{\kappa \to 0: \text{ equilibrium at the vertex}; \quad \gamma \to 1^+: \text{ equilibrium at infinity}; \quad \omega \to 0: \text{ no torque}}$$
+>
+> **Units:** dimensionless
+> **Meaning:** each limit matches the physical picture: gravity pulls both particles to the vertex, the repulsion separates them and the rotation pushes them out.
 
 ---
 
 ## Problem 34: Particle on a Circular Wire in an Oscillating Vertical Plane
 
 ### Reference Frames, Bases and Coordinates
-* **System:** a heavy bead $P$ (mass $m$) slides on a smooth circular wire of radius $R$ whose centre $C$ lies on the $Ox$ axis at distance $R$ from $O$ (the circle passes through $O$). The vertical plane $Oxy$ of the wire swings about the vertical axis $Oy$ with the prescribed angular velocity $\boldsymbol{\Omega}(t) = A\omega\sin(\omega t)\,\mathbf{j}$.
-* **Why the frame $Oxyz$.** The wire is fixed in $Oxyz$, so $P$ is described by the single angle $\varphi$ and its relative kinematics is that of circular motion. Because $\Omega$ depends on time, the inertia forces now include the **Euler force** $-m\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P$ (Slide 28), which has no potential (Slide 31), and the centrifugal potential depends explicitly on time; the energy discussion of part (c) depends on both facts.
-* **Hypotheses:** <br>1. A frame $S_0$ with origin $O$ on the fixed vertical axis is inertial; $Oy$ is vertical upward and gravity is $-g\,\mathbf{j}$. <br>2. The wire is smooth and bilateral: the reaction is perpendicular to the tangent of the wire, with a radial component in the plane of the wire and a component along $\mathbf{k}_1$, normal to the plane. <br>3. The rotation of the plane is prescribed (imposed by an external drive whatever the motion of $P$).
-* **Fixed (inertial) frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, basis $\mathcal{B}_0$, with $\mathbf{j}_0$ along the vertical rotation axis $Oy$.
-* **Moving frame:** $S_1 = Oxyz = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, basis $\mathcal{B}_1$, attached to the plane of the wire ($\mathbf{i}_1$ along $Ox$, $\mathbf{j}_1$ along $Oy$ upward, $\mathbf{k}_1 = \mathbf{i}_1\times\mathbf{j}_1$ normal to the plane), with $\mathbf{j}_1 = \mathbf{j}_0$ (the rotation axis) and $S_1$ coinciding with $S_0$ at $t = 0$.
-* **Polar basis of the wire** $\{\mathbf{e}_r, \mathbf{e}_\varphi, \mathbf{k}_1\}$ at $P$, attached to the centre $C$; deduced in the next section.
-* **Degrees of freedom:** one, the angle $\varphi$ of $\overrightarrow{CP}$ measured from $Ox$ (3 coordinates minus 2 constraints: $z = 0$ and the circle of centre $C$).
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $m$ | mass of $P$ | kg |
-| $R$ | radius of the wire ($OC = R$) | m |
-| $A$ | amplitude parameter of $\Omega(t)$ | 1 (rad) |
-| $\omega$ | frequency of the oscillation of the plane | rad/s |
-| $g$ | gravitational acceleration | m/s$^2$ |
-| $\varphi$ | angle of $\overrightarrow{CP}$ from $Ox$ | rad |
+A heavy particle $P$ of mass $m$ slides without friction on a circular wire of centre $C$ and radius $R$, in a vertical plane $Oxy$ that swings about the vertical axis $Oy$ with the prescribed angular velocity $A\omega\sin(\omega t)$ along $\mathbf j$ (Problems.pdf, p. 22). The statement asks for the relative position, velocity and acceleration, the forces, whether the mechanical energy seen from $Oxy$ is conserved, the equation of motion, the reaction, and the small oscillations about the lowest point. The wire is at rest in $Oxyz$, so the solution works there, with the composition of motions of Notes.pdf, Sec. 3.2 and the inertia forces of Notes.pdf, Sec. 4.9.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $O$ on the rotation axis (fixed), $\mathbf j_0$ vertical, up, $\mathbf k_0 = \mathbf i_0\times\mathbf j_0$ |
+| Moving frame | $S_1 = \{O;\ \mathcal B_1\}$, the frame $Oxyz$ of the statement, attached to the plane of the wire: $\mathbf i_1$ along $Ox$, $\mathbf j_1 = \mathbf j_0$ along the axis, $\mathbf k_1 = \mathbf i_1\times\mathbf j_1$ normal to the plane; it coincides with $S_0$ at $t = 0$ |
+| Wire | circle of centre $C$ on $Ox$ at distance $R$ from $O$ and radius $R$: it passes through $O$ (read from the figure) |
+| Polar basis at $P$ | $\{\mathbf e_r, \mathbf e_\varphi, \mathbf k_1\}$: $\mathbf e_r$ from $C$ to $P$, $\mathbf e_\varphi$ tangent in the sense of growing $\varphi$ |
+| Coordinate | $\varphi$, angle at $C$ from $Ox$ to $\overrightarrow{CP}$, counterclockwise towards $\mathbf j_1$ |
+| Angle of the plane | $\psi(t)$, rotation of $S_1$ about $\mathbf j_0$, with rate $\Omega(t) = A\omega\sin\omega t$ and $\psi(0) = 0$ |
+| Constraints | $z_1 = 0$ and the circle: two holonomic, smooth, bilateral constraints, fixed in $S_1$ |
+| Degrees of freedom | 3 minus 2: 1, the coordinate $\varphi(t)$ (the motion of the plane is prescribed) |
+| Data | $m$ [kg], $R$ [m], $g$ [m s$^{-2}$], $A$ [1], $\omega$ [rad s$^{-1}$] |
+| Unknowns | $\varphi(t)$; the reaction $\mathbf N = N_1\,\mathbf e_r + N_2\,\mathbf k_1$ (no tangential component: smooth wire) |
+| Applied forces | weight $-mg\,\mathbf j_1$ |
+| Inertia forces (in $S_1$) | Euler, centrifugal and Coriolis; no origin term ($O$ fixed) (Notes.pdf, Eq. 4.62) |
+| Hypotheses | $S_0$ inertial; uniform gravity; smooth wire acting as a bead guide; the swing of the plane is imposed whatever the particle does |
 
 ### Change of Basis and Position Vector
 
-#### Angle turned by the plane
-With $\psi(t)$ the angle of rotation about $\mathbf{j}_0$, $\dot\psi = \Omega(t)$ and $\psi(0) = 0$. Integrating with the substitution $u = \omega\tau$, $du = \omega\,d\tau$ (so $A\omega\sin(\omega\tau)\,d\tau = A\sin u\,du$, and the limits $\tau = 0, t$ become $u = 0, \omega t$), and Barrow's rule:
-
-$$ \psi(t) = \int_0^t A\omega\sin(\omega\tau)\,d\tau = A\int_0^{\omega t}\sin u\,du = A\left[-\cos u\right]_0^{\omega t} = A\left(-\cos\omega t + \cos 0\right) = A\left(1 - \cos\omega t\right) $$
-
-Since $0 \le 1 - \cos\omega t \le 2$, the plane swings between $\psi = 0$ and $\psi = 2A$: it oscillates, it does not spin.
-
-#### The basis $\mathcal{B}_1$ seen from above
+> [!derivation] Angle turned by the plane
+> **Law:** angle as the time integral of the angular rate; substitution in the integral; Barrow's rule
+> **Source:** Notes.pdf, Eq. 1.62; Problems.pdf, p. 22
+>
+> The substitution $u$ equal to $\omega\tau$ has the differential $\omega\,d\tau$, and the limits 0 and $t$ become 0 and $\omega t$.
+>
+> $$\begin{aligned}
+> \psi(t) &= \psi(0) + \int_0^t A\omega\sin\left(\omega\tau\right)d\tau = 0 + A\int_0^{\omega t}\sin u\,du \quad &\text{(rate integrated; $u = \omega\tau$, $du = \omega\,d\tau$)} \\
+> &= A\left[-\cos u\right]_0^{\omega t} = A\left(-\cos\omega t + \cos 0\right) = A\left(1 - \cos\omega t\right) \quad &\text{(antiderivative; Barrow's rule)} \\
+> \dot\psi &= A\omega\sin\omega t = \Omega(t) \quad &\text{(check: chain rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\psi(t) = A\left(1 - \cos\omega t\right), \qquad 0 \le \psi \le 2A}$$
+>
+> **Units:** $[A] = [\psi] = [1]$; $[A\omega] = [\mathrm{T^{-1}}]$
+> **Meaning:** the plane swings back and forth between the angles 0 and $2A$; it does not spin.
 
 ![[attachments/EM-SOL/p34-top-view.svg]]
 
-The rotation is about $\mathbf{j}_0$, so it is drawn looking down the vertical axis, from $+y$. In that view $\mathbf{j}_0$ points out of the paper, towards the reader ($\odot$). Take $\mathbf{i}_0$ to the right. By the right-hand rule $\mathbf{k}_0 = \mathbf{i}_0\times\mathbf{j}_0$: the fingers go from $\mathbf{i}_0$ (right) to $\mathbf{j}_0$ (towards the reader) and the thumb points down the page. So $\mathbf{k}_0$ points down and $-\mathbf{k}_0$ up. A positive rotation $\psi$ about $\mathbf{j}_0$ (thumb towards the reader) is counter-clockwise in this view:
-
-* $\mathbf{i}_1$ is the hypotenuse (length 1) of the dashed right triangle. Its leg adjacent to $\psi$ lies along $\mathbf{i}_0$ and measures $\cos\psi$; its leg opposite to $\psi$ points up the page, along $-\mathbf{k}_0$, and measures $\sin\psi$. So $\mathbf{i}_1 = \cos\psi\,\mathbf{i}_0 - \sin\psi\,\mathbf{k}_0$; **the minus sign comes from $\mathbf{k}_0$ pointing down the page in this view.**
-* $\mathbf{k}_1$ starts on $\mathbf{k}_0$ (down the page) and turns $\psi$ counter-clockwise, so its tip moves towards $+\mathbf{i}_0$: its leg along $\mathbf{k}_0$ (adjacent) is $\cos\psi$ and its leg along $\mathbf{i}_0$ (opposite) is $+\sin\psi$. So $\mathbf{k}_1 = \sin\psi\,\mathbf{i}_0 + \cos\psi\,\mathbf{k}_0$.
-* $\mathbf{j}_1 = \mathbf{j}_0$, the axis of the rotation.
-
-This is the simple rotation of angle $\psi$ about $\mathbf{j}_0$ (Notes Eqs. 1.18–1.20); the columns of $[{}_0R_1]$ are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$:
-
-$$ [{}_0R_1] = \begin{pmatrix} \cos\psi & 0 & \sin\psi \\ 0 & 1 & 0 \\ -\sin\psi & 0 & \cos\psi \end{pmatrix}, \qquad \det[{}_0R_1] = \cos\psi\cdot\cos\psi - 0 + \sin\psi\cdot\sin\psi = 1 $$
-
-(expansion along the first row: $\cos\psi\,(1\cdot\cos\psi - 0) - 0 + \sin\psi\,(0 - 1\cdot(-\sin\psi))$). The columns are unit vectors and pairwise orthogonal ($\cos\psi\sin\psi - \sin\psi\cos\psi = 0$), so $[{}_0R_1][{}_0R_1]^T = I$. Poisson check, with the chain rule $\frac{d}{dt}\cos\psi = -\sin\psi\,\dot\psi$ and $\frac{d}{dt}\sin\psi = \cos\psi\,\dot\psi$: $\left.\dfrac{d\mathbf{i}_1}{dt}\right|_0 = \dot\psi\left(-\sin\psi\,\mathbf{i}_0 - \cos\psi\,\mathbf{k}_0\right) = -\dot\psi\,\mathbf{k}_1$, and indeed $\Omega\,\mathbf{j}_1\times\mathbf{i}_1 = -\Omega\,\mathbf{k}_1$.
-
-* **Motion of $S_1$:** origin fixed on the axis, $\mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0}$;
-$$ \boldsymbol{\omega}_{10} = \Omega(t)\,\mathbf{j}_1 = A\omega\sin(\omega t)\,\mathbf{j}_1, \qquad \boldsymbol{\alpha}_{10} = \left.\frac{d\boldsymbol{\omega}_{10}}{dt}\right|_0 = \dot\Omega\,\mathbf{j}_1 = A\omega^2\cos(\omega t)\,\mathbf{j}_1 $$
-
-($\mathbf{j}_1 = \mathbf{j}_0$ is fixed, and the chain rule gives $\tfrac{d}{dt}\sin\omega t = \omega\cos\omega t$.)
-
-#### The position vector in the plane of the wire
+> [!derivation] Basis of the swinging plane: rotation by psi about j0
+> **Law:** elementary rotation about the second axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19; [Lecture 5, Slide 16]
+>
+> View from above, along $\mathbf j_0$, which points out of the paper (⊙). With $\mathbf i_0$ to the right, $\mathbf k_0$, the cross product of $\mathbf i_0$ and $\mathbf j_0$, points down the page (fingers from $\mathbf i_0$, to the right, towards $\mathbf j_0$, towards the reader; the thumb goes down the page), so minus $\mathbf k_0$ points up the page. A positive $\psi$ is counterclockwise in this view. $\mathbf i_1$ is $\mathbf i_0$ turned by $\psi$: hypotenuse 1, adjacent leg $\cos\psi$ along $\mathbf i_0$, opposite leg $\sin\psi$ up the page, along minus $\mathbf k_0$ (the minus sign). $\mathbf k_1$ is $\mathbf k_0$ turned by the same angle: adjacent leg $\cos\psi$ along $\mathbf k_0$, opposite leg $\sin\psi$ along plus $\mathbf i_0$.
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\psi\,\mathbf i_0 - \sin\psi\,\mathbf k_0, \quad \mathbf j_1 = \mathbf j_0, \quad \mathbf k_1 = \sin\psi\,\mathbf i_0 + \cos\psi\,\mathbf k_0 \quad &\text{(the two right triangles; axis)} \\
+> \det[{}_0R_1] &= (+1)\cdot 1\cdot\left(\cos\psi\cos\psi - \sin\psi\left(-\sin\psi\right)\right) = 1 \quad &\text{(expansion along the second row, cofactor sign $(-1)^{2+2}$)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\psi + \sin^2\psi = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{13} = -\cos\psi\sin\psi + \sin\psi\cos\psi = 0 \quad &\text{(rows times rows)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\psi & 0 & \sin\psi \cr 0 & 1 & 0 \cr -\sin\psi & 0 & \cos\psi \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** $[\psi] = [1]$
+> **Meaning:** the matrix of Eq. 1.19 with the angle $\psi$; the vertical, and with it the weight, is the same in both frames.
 
 ![[attachments/EM-SOL/p34-wire-plane.svg]]
 
-The plane $Oxy$ is fixed in $S_1$ and is drawn with $\mathbf{i}_1$ to the right and $\mathbf{j}_1$ up, so $\mathbf{k}_1 = \mathbf{i}_1\times\mathbf{j}_1$ points out of the paper ($\odot$). To go from $O$ to $P$ we pass through the centre, because the distance from $C$ is the one that stays constant:
-
-$$ \mathbf{r}_1^P = \overrightarrow{OC} + \overrightarrow{CP} $$
-
-* $\overrightarrow{OC} = R\,\mathbf{i}_1$: the circle passes through $O$ and its centre lies on $Ox$ at distance $R$.
-* $\overrightarrow{CP}$ has length $R$ and makes the angle $\varphi$ with $Ox$. Let $F$ be the foot of the perpendicular from $P$ to the $x$ axis. In the shaded right triangle $CFP$ (right angle at $F$) the hypotenuse is $|CP| = R$, the leg adjacent to $\varphi$ is $CF = R\cos\varphi$, along $\mathbf{i}_1$, and the leg opposite to $\varphi$ is $FP = R\sin\varphi$, along $\mathbf{j}_1$. So $\overrightarrow{CP} = R\cos\varphi\,\mathbf{i}_1 + R\sin\varphi\,\mathbf{j}_1$.
-
-Adding the two vectors:
-
-$$ \mathbf{r}_1^P = R\,(1 + \cos\varphi)\,\mathbf{i}_1 + R\sin\varphi\,\mathbf{j}_1 $$
-
-Checks: $\varphi = \pi$ gives $\mathbf{r}_1^P = \mathbf{0}$ (the point $O$ of the wire); $\varphi = -\pi/2$ gives $R\,\mathbf{i}_1 - R\,\mathbf{j}_1$, the lowest point of the wire. The $\mathbf{i}_1$ component $x = R(1 + \cos\varphi)$ is the distance from $P$ to the rotation axis $Oy$ (the dimension at the bottom of the figure); it is the lever arm of the centrifugal and Euler forces.
-
-**Polar angle.** Here $\varphi$ is measured at $C$ from the direction $+\mathbf{i}_1$, counter-clockwise towards $+\mathbf{j}_1$, so it is already the standard polar angle about $C$; no shift of origin of the angle is needed (unlike an angle measured from a vertical).
-
-**Polar basis.** The radial unit vector is $\overrightarrow{CP}/R$, and the transverse one is its derivative with respect to $\varphi$ ($\frac{d}{d\varphi}\cos\varphi = -\sin\varphi$, $\frac{d}{d\varphi}\sin\varphi = \cos\varphi$):
-
-$$ \mathbf{e}_r = \cos\varphi\,\mathbf{i}_1 + \sin\varphi\,\mathbf{j}_1, \qquad \mathbf{e}_\varphi = \frac{d\mathbf{e}_r}{d\varphi} = -\sin\varphi\,\mathbf{i}_1 + \cos\varphi\,\mathbf{j}_1, \qquad \frac{d\mathbf{e}_\varphi}{d\varphi} = -\cos\varphi\,\mathbf{i}_1 - \sin\varphi\,\mathbf{j}_1 = -\mathbf{e}_r $$
-
-$\mathbf{e}_\varphi$ has length $\sqrt{\sin^2\varphi + \cos^2\varphi} = 1$ and is the tangent to the wire in the direction of increasing $\varphi$. With $\mathbf{i}_1\times\mathbf{j}_1 = \mathbf{k}_1$ and $\mathbf{j}_1\times\mathbf{i}_1 = -\mathbf{k}_1$, $\mathbf{e}_r\times\mathbf{e}_\varphi = \cos^2\varphi\,\mathbf{k}_1 - \sin^2\varphi\,(-\mathbf{k}_1) = (\cos^2\varphi + \sin^2\varphi)\,\mathbf{k}_1 = \mathbf{k}_1$. Its matrix in $\mathcal{B}_1$ (columns $\mathbf{e}_r, \mathbf{e}_\varphi, \mathbf{k}_1$) is a rotation by $\varphi$ about $\mathbf{k}_1$, with determinant $\cos^2\varphi + \sin^2\varphi = 1$. Useful projections: $\mathbf{i}_1\cdot\mathbf{e}_r = \cos\varphi$, $\mathbf{i}_1\cdot\mathbf{e}_\varphi = -\sin\varphi$, $\mathbf{j}_1\cdot\mathbf{e}_r = \sin\varphi$, $\mathbf{j}_1\cdot\mathbf{e}_\varphi = \cos\varphi$.
+> [!derivation] Position vector and polar basis in the plane of the wire
+> **Law:** position through the centre of the circle; right triangle; polar basis and its derivatives
+> **Source:** Notes.pdf, Eq. 2.24; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 3.16; Problems.pdf, p. 22
+>
+> The plane $Oxy$, fixed in $S_1$, is drawn with $\mathbf i_1$ to the right and $\mathbf j_1$ up, so $\mathbf k_1$ points out of the paper (⊙). From $O$ to $P$ the path goes through $C$, because the distance from $C$ is the constant one. Let $F$ be the foot of the perpendicular from $P$ to the $x$ axis: in the shaded right triangle $CFP$ (right angle at $F$) the hypotenuse is $CP$, of length $R$, the leg adjacent to $\varphi$ is $CF$, of length $R\cos\varphi$, along $\mathbf i_1$, and the opposite leg $FP$, of length $R\sin\varphi$, is along $\mathbf j_1$. The angle is measured from $\mathbf i_1$ counterclockwise towards $\mathbf j_1$: it is already the standard polar angle about $C$.
+>
+> $$\begin{aligned}
+> \mathbf r_1^P &= \overrightarrow{OC} + \overrightarrow{CP} = R\,\mathbf i_1 + R\cos\varphi\,\mathbf i_1 + R\sin\varphi\,\mathbf j_1 = R\left(1 + \cos\varphi\right)\mathbf i_1 + R\sin\varphi\,\mathbf j_1 \quad &\text{(the two legs)} \\
+> \mathbf e_r &= \frac{\overrightarrow{CP}}{R} = \cos\varphi\,\mathbf i_1 + \sin\varphi\,\mathbf j_1, \quad \mathbf e_\varphi = \frac{d\mathbf e_r}{d\varphi} = -\sin\varphi\,\mathbf i_1 + \cos\varphi\,\mathbf j_1 \quad &\text{(Eq. 2.24)} \\
+> \frac{d\mathbf e_\varphi}{d\varphi} &= -\cos\varphi\,\mathbf i_1 - \sin\varphi\,\mathbf j_1 = -\mathbf e_r \quad &\text{(derivative of each component)} \\
+> \mathbf e_r\times\mathbf e_\varphi &= \cos^2\varphi\,\mathbf i_1\times\mathbf j_1 - \sin^2\varphi\,\mathbf j_1\times\mathbf i_1 = \left(\cos^2\varphi + \sin^2\varphi\right)\mathbf k_1 = \mathbf k_1 \quad &\text{($\mathbf i_1\times\mathbf j_1 = \mathbf k_1$, $\mathbf j_1\times\mathbf i_1 = -\mathbf k_1$)} \\
+> x_1^P &= R\left(1 + \cos\varphi\right) \ge 0 \quad &\text{(distance from $P$ to the axis $Oy$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^P = R\left(1 + \cos\varphi\right)\mathbf i_1 + R\sin\varphi\,\mathbf j_1, \quad \mathbf e_r = \cos\varphi\,\mathbf i_1 + \sin\varphi\,\mathbf j_1, \quad \mathbf e_\varphi = -\sin\varphi\,\mathbf i_1 + \cos\varphi\,\mathbf j_1}$$
+>
+> **Units:** $[R(1 + \cos\varphi)] = [R\sin\varphi] = [\mathrm{L}]$
+> **Meaning:** at an angle of $\pi$ the particle is at $O$, on the axis; at minus a quarter turn it is at the lowest point of the wire. The abscissa is the lever arm of the centrifugal and Euler forces.
 
 ### Kinematics
 
-##### (a) Relative position, velocity and acceleration
-* **Pedagogical Justification:** Relative quantities are derivatives in $S_1$, where $\mathbf{i}_1, \mathbf{j}_1$ are constant; only $\varphi$ depends on time, so each component is differentiated with the chain rule.
+> [!derivation] Motion of the swinging frame and derivatives of its unit vectors
+> **Law:** angular velocity of a simple rotation; angular acceleration; derivative of a unit vector of a turning basis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.4; Notes.pdf, Eq. 3.5; Notes.pdf, Eq. 3.9
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \dot\psi\,\mathbf j_1 = \Omega\,\mathbf j_1 = A\omega\sin\omega t\,\mathbf j_1, \quad \mathbf v_0^O = \mathbf a_0^O = \mathbf 0 \quad &\text{(simple rotation about the fixed vertical; $O$ on the axis)} \\
+> \boldsymbol\alpha_{10} &= \left.\frac{d\boldsymbol\omega_{10}}{dt}\right|_0 = \dot\Omega\,\mathbf j_1 = A\omega^2\cos\omega t\,\mathbf j_1 \quad &\text{(Eq. 3.9; $\mathbf j_1$ fixed; chain rule)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \Omega\,\mathbf j_1\times\mathbf i_1 = -\Omega\,\mathbf k_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = \mathbf 0, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \Omega\,\mathbf j_1\times\mathbf k_1 = \Omega\,\mathbf i_1 \quad &\text{(Eq. 3.3 to 3.5)} \\
+> \frac{d}{dt}\left(\cos\psi\,\mathbf i_0 - \sin\psi\,\mathbf k_0\right) &= -\dot\psi\sin\psi\,\mathbf i_0 - \dot\psi\cos\psi\,\mathbf k_0 = -\Omega\,\mathbf k_1 \quad &\text{(check: chain rule on the components of $\mathbf i_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{10} = A\omega\sin\omega t\,\mathbf j_1, \quad \boldsymbol\alpha_{10} = A\omega^2\cos\omega t\,\mathbf j_1, \quad \left.\frac{d\mathbf i_1}{dt}\right|_0 = -\Omega\,\mathbf k_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \Omega\,\mathbf i_1}$$
+>
+> **Units:** $[A\omega] = [\mathrm{T^{-1}}]$; $[A\omega^2] = [\mathrm{T^{-2}}]$
+> **Meaning:** the rate of the plane changes in time, so an Euler term appears; the angular acceleration is parallel to the angular velocity, both along the fixed axis.
 
-With $\tfrac{d}{dt}\cos\varphi = -\sin\varphi\,\dot\varphi$ and $\tfrac{d}{dt}\sin\varphi = \cos\varphi\,\dot\varphi$ applied to $\mathbf{r}_1^P = R\,(1 + \cos\varphi)\,\mathbf{i}_1 + R\sin\varphi\,\mathbf{j}_1$:
+#### (a) Relative position, velocity and acceleration
 
-$$ \mathbf{v}_1^P = -R\dot\varphi\sin\varphi\,\mathbf{i}_1 + R\dot\varphi\cos\varphi\,\mathbf{j}_1 = R\dot\varphi\,\mathbf{e}_\varphi $$
+> [!derivation] Relative velocity and relative acceleration
+> **Law:** time derivatives in $S_1$, where $\mathbf i_1$, $\mathbf j_1$ are constant; chain rule and product rule
+> **Source:** Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.24; Problems.pdf, p. 22
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\cos\varphi &= -\sin\varphi\,\dot\varphi, \quad \frac{d}{dt}\sin\varphi = \cos\varphi\,\dot\varphi \quad &\text{(chain rule)} \\
+> \mathbf v_1^P &= -R\sin\varphi\,\dot\varphi\,\mathbf i_1 + R\cos\varphi\,\dot\varphi\,\mathbf j_1 = R\dot\varphi\,\mathbf e_\varphi \quad &\text{(components differentiated; Eq. 3.19)} \\
+> \left.\frac{d\mathbf e_\varphi}{dt}\right|_1 &= \frac{d\mathbf e_\varphi}{d\varphi}\,\dot\varphi = -\dot\varphi\,\mathbf e_r \quad &\text{(chain rule)} \\
+> \mathbf a_1^P &= \left.\frac{d}{dt}\left(R\dot\varphi\,\mathbf e_\varphi\right)\right|_1 = R\ddot\varphi\,\mathbf e_\varphi + R\dot\varphi\left(-\dot\varphi\,\mathbf e_r\right) \quad &\text{(product rule; Eq. 3.24)} \\
+> &= -R\left(\ddot\varphi\sin\varphi + \dot\varphi^2\cos\varphi\right)\mathbf i_1 + R\left(\ddot\varphi\cos\varphi - \dot\varphi^2\sin\varphi\right)\mathbf j_1 \quad &\text{(in $\mathcal B_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^P = R\left(1 + \cos\varphi\right)\mathbf i_1 + R\sin\varphi\,\mathbf j_1, \quad \mathbf v_1^P = R\dot\varphi\,\mathbf e_\varphi, \quad \mathbf a_1^P = R\ddot\varphi\,\mathbf e_\varphi - R\dot\varphi^2\,\mathbf e_r}$$
+>
+> **Units:** $[R\dot\varphi] = [\mathrm{L\,T^{-1}}]$; $[R\ddot\varphi] = [R\dot\varphi^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** circular motion about $C$ seen in the plane: tangential acceleration and centripetal acceleration towards $C$.
 
-Product rule on each component, e.g. $\tfrac{d}{dt}\left(-R\dot\varphi\sin\varphi\right) = -R\ddot\varphi\sin\varphi - R\dot\varphi^2\cos\varphi$ and $\tfrac{d}{dt}\left(R\dot\varphi\cos\varphi\right) = R\ddot\varphi\cos\varphi - R\dot\varphi^2\sin\varphi$:
-
-$$ \mathbf{a}_1^P = -R\left(\ddot\varphi\sin\varphi + \dot\varphi^2\cos\varphi\right)\mathbf{i}_1 + R\left(\ddot\varphi\cos\varphi - \dot\varphi^2\sin\varphi\right)\mathbf{j}_1 = R\ddot\varphi\,\mathbf{e}_\varphi - R\dot\varphi^2\,\mathbf{e}_r $$
+> [!derivation] Absolute acceleration: Euler, centripetal and Coriolis terms
+> **Law:** time derivative in $S_0$ of the position written in the swinging basis; product rule
+> **Source:** Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.21; Notes.pdf, Eq. 3.22; Notes.pdf, Eq. 3.23; Notes.pdf, Eq. 3.27; [Lecture 5, Slide 24]; [Lecture 5, Slide 25]
+>
+> Write the position as $x\,\mathbf i_1 + y\,\mathbf j_1$, with $x$ and $y$ the two components of the boxed position; the time derivatives of $x$ and $y$ are the components of the relative velocity.
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \dot x\,\mathbf i_1 + \dot y\,\mathbf j_1 + x\left(-\Omega\,\mathbf k_1\right) = \mathbf v_1^P - \Omega x\,\mathbf k_1 \quad &\text{(product rule; derivative of $\mathbf i_1$; $\mathbf j_1$ constant)} \\
+> \left.\frac{d\mathbf v_1^P}{dt}\right|_0 &= \mathbf a_1^P + \dot x\left(-\Omega\,\mathbf k_1\right) \quad &\text{(product rule; the turning of $\mathbf i_1$ inside $\mathbf v_1^P$)} \\
+> \left.\frac{d}{dt}\right|_0\left(-\Omega x\,\mathbf k_1\right) &= -\dot\Omega x\,\mathbf k_1 - \Omega\dot x\,\mathbf k_1 - \Omega x\,\Omega\,\mathbf i_1 \quad &\text{(product rule on three factors; derivative of $\mathbf k_1$)} \\
+> \boldsymbol\alpha_{10}\times\mathbf r_1^P &= \dot\Omega\,\mathbf j_1\times\left(x\,\mathbf i_1 + y\,\mathbf j_1\right) = -\dot\Omega x\,\mathbf k_1 \quad &\text{(the $\dot\Omega$ term: Euler)} \\
+> 2\,\boldsymbol\omega_{10}\times\mathbf v_1^P &= 2\Omega\,\mathbf j_1\times\left(\dot x\,\mathbf i_1 + \dot y\,\mathbf j_1\right) = -2\Omega\dot x\,\mathbf k_1 = 2\Omega R\sin\varphi\,\dot\varphi\,\mathbf k_1 \quad &\text{(the two $\Omega\dot x$ terms: Coriolis; $\dot x = -R\sin\varphi\,\dot\varphi$)} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) &= \Omega\,\mathbf j_1\times\left(-\Omega x\,\mathbf k_1\right) = -\Omega^2x\,\mathbf i_1 \quad &\text{(the $\mathbf i_1$ term: centripetal)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \mathbf a_1^P - \dot\Omega R\left(1 + \cos\varphi\right)\mathbf k_1 - \Omega^2R\left(1 + \cos\varphi\right)\mathbf i_1 + 2\Omega R\sin\varphi\,\dot\varphi\,\mathbf k_1}$$
+>
+> **Units:** $[\dot\Omega R] = [\Omega^2R] = [\Omega R\dot\varphi] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the Euler and Coriolis terms are normal to the plane of the wire; the centripetal term points horizontally to the axis.
 
 ### Forces and Equations of Motion
 
-##### (b) Forces acting on $P$
-* **Pedagogical Justification:** In the non-inertial frame $Oxyz$ we use $m\mathbf{a}_1^P = \mathbf{F} + \mathbf{F}_i$ (Notes Eqs. 4.62–4.63). The actual forces are the weight and the reaction of the wire; the inertia forces follow from Slide 28 with $\mathbf{a}_0^O = \mathbf{0}$, $\boldsymbol{\omega}_{10} = \Omega\mathbf{j}_1$, $\boldsymbol{\alpha}_{10} = \dot\Omega\mathbf{j}_1$.
+![[attachments/EM-SOL/p34-fbd.svg]]
 
-**Actual forces:**
+#### (b) Forces acting on P
 
-* Weight: $\mathbf{W} = -mg\,\mathbf{j}_1$.
-* Reaction of the smooth wire (no component along the tangent $\mathbf{e}_\varphi$): $\mathbf{N} = N_1\,\mathbf{e}_r + N_2\,\mathbf{k}_1 = N_1\cos\varphi\,\mathbf{i}_1 + N_1\sin\varphi\,\mathbf{j}_1 + N_2\,\mathbf{k}_1$.
+> [!derivation] Actual and inertia forces on the particle
+> **Law:** weight; smooth reaction normal to the tangent; inertia forces of a non-inertial frame
+> **Source:** Notes.pdf, Eq. 4.62; Notes.pdf, Eq. 6.16; [Lecture 5, Slide 28]; Problems.pdf, p. 22
+>
+> $$\begin{aligned}
+> \mathbf W &= -mg\,\mathbf j_1 \quad &\text{(weight; $\mathbf j_1$ is the vertical)} \\
+> \mathbf N &= N_1\,\mathbf e_r + N_2\,\mathbf k_1 = N_1\cos\varphi\,\mathbf i_1 + N_1\sin\varphi\,\mathbf j_1 + N_2\,\mathbf k_1 \quad &\text{(smooth wire: no component along $\mathbf e_\varphi$)} \\
+> \mathbf F_A &= -m\,\mathbf a_0^O = \mathbf 0 \quad &\text{($O$ fixed)} \\
+> \mathbf F_E &= -m\,\boldsymbol\alpha_{10}\times\mathbf r_1^P = mA\omega^2R\cos\omega t\left(1 + \cos\varphi\right)\mathbf k_1 \quad &\text{(Euler: composition box times $-m$)} \\
+> \mathbf F_C &= -m\,\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) = mA^2\omega^2R\sin^2\omega t\left(1 + \cos\varphi\right)\mathbf i_1 \quad &\text{(centrifugal; $\Omega^2 = A^2\omega^2\sin^2\omega t$)} \\
+> \mathbf F_{COR} &= -2m\,\boldsymbol\omega_{10}\times\mathbf v_1^P = -2mA\omega R\sin\omega t\sin\varphi\,\dot\varphi\,\mathbf k_1 \quad &\text{(Coriolis: composition box times $-m$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf W = -mg\,\mathbf j_1, \quad \mathbf N = N_1\,\mathbf e_r + N_2\,\mathbf k_1, \quad \mathbf F_C = mA^2\omega^2R\sin^2\omega t\left(1 + \cos\varphi\right)\mathbf i_1, \cr \mathbf F_E = mA\omega^2R\cos\omega t\left(1 + \cos\varphi\right)\mathbf k_1, \quad \mathbf F_{COR} = -2mA\omega R\sin\omega t\sin\varphi\,\dot\varphi\,\mathbf k_1 \end{gathered}}$$
+>
+> **Units:** $[mg] = [mA^2\omega^2R] = [mA\omega^2R] = [mA\omega R\dot\varphi] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** two actual forces (weight and reaction) and three inertia forces: the centrifugal force lies in the plane and pushes away from the axis; the Euler and Coriolis forces are normal to the plane.
 
-**Inertia forces** (cross products with $\mathbf{j}_1\times\mathbf{i}_1 = -\mathbf{k}_1$, $\mathbf{j}_1\times\mathbf{j}_1 = \mathbf{0}$, $\mathbf{j}_1\times\mathbf{k}_1 = \mathbf{i}_1$):
+> [!derivation] Projections of Newton's second law on the polar basis
+> **Law:** Newton's second law in a non-inertial frame, projected on $\{\mathbf e_r, \mathbf e_\varphi, \mathbf k_1\}$
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.17; [Lecture 5, Slide 28]
+>
+> The projections of $\mathbf i_1$ on $\mathbf e_r$ and $\mathbf e_\varphi$ are the cosine and minus the sine; those of $\mathbf j_1$ are the sine and the cosine.
+>
+> $$\begin{aligned}
+> \mathbf e_\varphi:\ mR\ddot\varphi &= -mg\cos\varphi - mA^2\omega^2R\sin^2\omega t\left(1 + \cos\varphi\right)\sin\varphi \quad &\text{(weight and centrifugal; the reaction and the $\mathbf k_1$ forces drop out)} \\
+> \mathbf e_r:\ -mR\dot\varphi^2 &= N_1 - mg\sin\varphi + mA^2\omega^2R\sin^2\omega t\left(1 + \cos\varphi\right)\cos\varphi \quad &\text{(radial)} \\
+> \mathbf k_1:\ 0 &= N_2 + mA\omega^2R\cos\omega t\left(1 + \cos\varphi\right) - 2mA\omega R\sin\omega t\sin\varphi\,\dot\varphi \quad &\text{(normal to the plane)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{three scalar equations for the three unknowns } \varphi,\ N_1,\ N_2}$$
+>
+> **Units:** every term $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** only the tangential equation is free of the reaction; it is the equation of motion of part (d). The other two give the reaction of part (e).
 
-* Origin: $\mathbf{F}_A = -m\mathbf{a}_0^O = \mathbf{0}$.
-* Euler: $\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P = \dot\Omega\,\mathbf{j}_1\times\left[R(1 + \cos\varphi)\mathbf{i}_1 + R\sin\varphi\,\mathbf{j}_1\right] = -\dot\Omega R(1 + \cos\varphi)\,\mathbf{k}_1$, so
-$$ \mathbf{F}_E = -m\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P = mA\omega^2R\cos(\omega t)\,(1 + \cos\varphi)\,\mathbf{k}_1 $$
-* Centrifugal: $\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P = -\Omega R(1 + \cos\varphi)\,\mathbf{k}_1$ and $\boldsymbol{\omega}_{10}\times\left(-\Omega R(1 + \cos\varphi)\mathbf{k}_1\right) = -\Omega^2R(1 + \cos\varphi)\,\mathbf{i}_1$, so (Slide 30, distance to the axis $x = R(1 + \cos\varphi)$)
-$$ \mathbf{F}_C = m\Omega^2R\,(1 + \cos\varphi)\,\mathbf{i}_1 = mA^2\omega^2R\sin^2(\omega t)\,(1 + \cos\varphi)\,\mathbf{i}_1 $$
-* Coriolis: $\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P = \Omega R\dot\varphi\,\mathbf{j}_1\times\left(-\sin\varphi\,\mathbf{i}_1 + \cos\varphi\,\mathbf{j}_1\right) = \Omega R\dot\varphi\sin\varphi\,\mathbf{k}_1$, so
-$$ \mathbf{F}_{COR} = -2m\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P = -2mA\omega R\dot\varphi\sin(\omega t)\sin\varphi\,\mathbf{k}_1 $$
+#### (d) Equation of motion
 
-##### (d) Equation of motion
-* **Pedagogical Justification:** The tangential direction $\mathbf{e}_\varphi$ is the only one free of the unknown reaction ($\mathbf{N}\perp\mathbf{e}_\varphi$), and the Euler and Coriolis forces (along $\mathbf{k}_1$) also drop out.
+> [!derivation] Single second-order equation for phi
+> **Law:** tangential component of Newton's second law in $S_1$
+> **Source:** Notes.pdf, Eq. 4.63; Problems.pdf, p. 22
+>
+> $$\begin{aligned}
+> mR\ddot\varphi + mg\cos\varphi + mA^2\omega^2R\sin^2\omega t\left(1 + \cos\varphi\right)\sin\varphi &= 0 \quad &\text{(tangential equation, all terms on the left)} \\
+> \ddot\varphi + \frac{g}{R}\cos\varphi + A^2\omega^2\sin^2\omega t\left(1 + \cos\varphi\right)\sin\varphi &= 0 \quad &\text{(divided by $mR$)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\varphi + \frac{g}{R}\cos\varphi + A^2\omega^2\left(1 + \cos\varphi\right)\sin^2\left(\omega t\right)\sin\varphi = 0}$$
+>
+> **Units:** $[\ddot\varphi] = [g/R] = [A^2\omega^2] = [\mathrm{T^{-2}}]$
+> **Meaning:** a nonlinear pendulum about the lowest point whose coefficient changes periodically in time: the swing of the plane enters only through the centrifugal force.
 
-Projections on $\mathbf{e}_\varphi = -\sin\varphi\,\mathbf{i}_1 + \cos\varphi\,\mathbf{j}_1$: $m\mathbf{a}_1^P\cdot\mathbf{e}_\varphi = mR\ddot\varphi$; $\mathbf{W}\cdot\mathbf{e}_\varphi = -mg\cos\varphi$; $\mathbf{F}_C\cdot\mathbf{e}_\varphi = -m\Omega^2R(1 + \cos\varphi)\sin\varphi$. Hence $mR\ddot\varphi = -mg\cos\varphi - m\Omega^2R(1 + \cos\varphi)\sin\varphi$, i.e.
+#### (e) Reaction of the wire
 
-$$ \boxed{\ddot\varphi + \frac{g}{R}\cos\varphi + A^2\omega^2\sin^2(\omega t)\,(1 + \cos\varphi)\sin\varphi = 0} $$
-
-a nonlinear equation with a time-periodic coefficient (parametric forcing). It agrees with the official key.
-
-##### (e) Reaction of the wire
-* **Pedagogical Justification:** The remaining two components of $m\mathbf{a}_1^P = \mathbf{F} + \mathbf{F}_i$, along $\mathbf{e}_r$ and $\mathbf{k}_1$, each contain one reaction component.
-
-**Along $\mathbf{e}_r$:** $m\mathbf{a}_1^P\cdot\mathbf{e}_r = -mR\dot\varphi^2$; $\mathbf{W}\cdot\mathbf{e}_r = -mg\sin\varphi$; $\mathbf{F}_C\cdot\mathbf{e}_r = m\Omega^2R(1 + \cos\varphi)\cos\varphi$. So $-mR\dot\varphi^2 = N_1 - mg\sin\varphi + m\Omega^2R(1 + \cos\varphi)\cos\varphi$:
-
-$$ \boxed{N_1 = mg\sin\varphi - mA^2R\omega^2\,(1 + \cos\varphi)\sin^2(\omega t)\cos\varphi - mR\dot\varphi^2} $$
-
-**Along $\mathbf{k}_1$:** $m\mathbf{a}_1^P\cdot\mathbf{k}_1 = 0 = N_2 + mA\omega^2R\cos(\omega t)(1 + \cos\varphi) - 2mA\omega R\dot\varphi\sin(\omega t)\sin\varphi$:
-
-$$ \boxed{N_2 = 2mAR\omega\,\dot\varphi\sin\varphi\sin(\omega t) - mAR\omega^2\,(1 + \cos\varphi)\cos(\omega t)} $$
-
-and $\mathbf{N} = N_1\cos\varphi\,\mathbf{i}_1 + N_1\sin\varphi\,\mathbf{j}_1 + N_2\,\mathbf{k}_1$. Both components agree with the official key. The normal component $N_2$ is what the wire must supply to drag $P$ along with the swinging plane (it balances the Euler and Coriolis forces).
+> [!derivation] Components of the reaction
+> **Law:** radial and normal components of Newton's second law in $S_1$
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.17; Problems.pdf, p. 22
+>
+> $$\begin{aligned}
+> N_1 &= mg\sin\varphi - mA^2\omega^2R\sin^2\omega t\left(1 + \cos\varphi\right)\cos\varphi - mR\dot\varphi^2 \quad &\text{(radial equation solved for $N_1$)} \\
+> N_2 &= 2mA\omega R\sin\omega t\sin\varphi\,\dot\varphi - mA\omega^2R\cos\omega t\left(1 + \cos\varphi\right) \quad &\text{(normal equation solved for $N_2$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf N = N_1\cos\varphi\,\mathbf i_1 + N_1\sin\varphi\,\mathbf j_1 + N_2\,\mathbf k_1, \cr N_1 = mg\sin\varphi - mA^2R\omega^2\left(1 + \cos\varphi\right)\sin^2\left(\omega t\right)\cos\varphi - mR\dot\varphi^2, \cr N_2 = 2mAR\omega\,\dot\varphi\sin\varphi\sin\left(\omega t\right) - mAR\omega^2\left(1 + \cos\varphi\right)\cos\left(\omega t\right) \end{gathered}}$$
+>
+> **Units:** every term $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the normal component is the push the wire must give to carry the particle with the swinging plane: it balances the Euler and Coriolis forces. It depends on time even at rest in the plane, through the Euler term.
 
 ### Answers and Checks
 
-##### (a) Relative position, velocity and acceleration
-$$ \mathbf{r}_1^P = R\,(1 + \cos\varphi)\,\mathbf{i}_1 + R\sin\varphi\,\mathbf{j}_1, \qquad \mathbf{v}_1^P = R\dot\varphi\,\mathbf{e}_\varphi, \qquad \mathbf{a}_1^P = R\ddot\varphi\,\mathbf{e}_\varphi - R\dot\varphi^2\,\mathbf{e}_r $$
+#### (c) Is the mechanical energy conserved in Oxy?
 
-##### (b) Forces acting on $P$
-Weight $-mg\,\mathbf{j}_1$, reaction $N_1\,\mathbf{e}_r + N_2\,\mathbf{k}_1$, and the inertia forces $\mathbf{F}_A = \mathbf{0}$, $\mathbf{F}_E = mA\omega^2R\cos(\omega t)(1 + \cos\varphi)\,\mathbf{k}_1$, $\mathbf{F}_C = mA^2\omega^2R\sin^2(\omega t)(1 + \cos\varphi)\,\mathbf{i}_1$ and $\mathbf{F}_{COR} = -2mA\omega R\dot\varphi\sin(\omega t)\sin\varphi\,\mathbf{k}_1$.
+> [!derivation] Power of each force in the swinging frame
+> **Law:** power of each force on the relative velocity; potential of the centrifugal force; time derivative of the energy along the motion
+> **Source:** Notes.pdf, Eq. 4.14; Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]; [Lecture 5, Slide 30]; [Lecture 5, Slide 31]
+>
+> The reaction, the Euler force and the Coriolis force do no work in $S_1$ (the wire is at rest there; the last two are normal to the plane that holds the relative velocity). The weight has the potential $mgR\sin\varphi$. The centrifugal force has, at each instant, the potential minus one half of $m\Omega^2$ times the squared distance to the axis, but this potential depends explicitly on time because $\Omega$ does. Write $E_1^P$ for the kinetic energy in $S_1$ plus these two potentials.
+>
+> $$\begin{aligned}
+> \left(\mathbf N + \mathbf F_E + \mathbf F_{COR}\right)\cdot\mathbf v_1^P &= \left(N_1\,\mathbf e_r + \left(N_2 + F_{E} + F_{COR}\right)\mathbf k_1\right)\cdot R\dot\varphi\,\mathbf e_\varphi = 0 \quad &\text{(no power)} \\
+> E_1^P &= \tfrac12 mR^2\dot\varphi^2 + mgR\sin\varphi - \tfrac12 m\Omega^2R^2\left(1 + \cos\varphi\right)^2 \quad &\text{(kinetic plus the two potentials)} \\
+> \frac{dE_1^P}{dt} &= mR^2\dot\varphi\ddot\varphi + mgR\cos\varphi\,\dot\varphi + m\Omega^2R^2\left(1 + \cos\varphi\right)\sin\varphi\,\dot\varphi - m\Omega\dot\Omega R^2\left(1 + \cos\varphi\right)^2 \quad &\text{(product rule; chain rule on each factor)} \\
+> &= mR^2\dot\varphi\left[\ddot\varphi + \frac{g}{R}\cos\varphi + \Omega^2\left(1 + \cos\varphi\right)\sin\varphi\right] - m\Omega\dot\Omega R^2\left(1 + \cos\varphi\right)^2 \quad &\text{(first three terms grouped)} \\
+> &= -m\Omega\dot\Omega R^2\left(1 + \cos\varphi\right)^2 = -mA^2\omega^3R^2\sin\omega t\cos\omega t\left(1 + \cos\varphi\right)^2 \quad &\text{(bracket zero by part (d); $\Omega\dot\Omega$ substituted)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{dE_1^P}{dt} = -mA^2\omega^3R^2\sin\left(\omega t\right)\cos\left(\omega t\right)\left(1 + \cos\varphi\right)^2 \ne 0: \ \text{not conserved}}$$
+>
+> **Units:** $[mA^2\omega^3R^2] = [\mathrm{M\,L^2\,T^{-3}}]$, a power
+> **Meaning:** no. The rate of the plane is not constant, so the centrifugal force has no potential independent of time, and the energy changes at the rate of the explicit time derivative of that potential. With a constant rate the energy would be conserved: the Euler force would vanish and the Coriolis force does no work. The energy in $S_0$ is not conserved either: there the wire moves and its normal reaction works.
 
-##### (c) Is the mechanical energy conserved in $Oxy$?
-* **Pedagogical Justification:** By Slide 29, $E_1^P$ is conserved only if every force that does work in $S_1$ derives from a potential that does not depend explicitly on time. Compute the power of each force in $S_1$.
-* $\mathbf{N}\cdot\mathbf{v}_1^P = R\dot\varphi\,(N_1\mathbf{e}_r + N_2\mathbf{k}_1)\cdot\mathbf{e}_\varphi = 0$ (the wire is fixed in $S_1$).
-* $\mathbf{F}_E$ and $\mathbf{F}_{COR}$ are along $\mathbf{k}_1$, normal to the plane in which $\mathbf{v}_1^P$ lies: they do no work. (In general the Euler force has no potential, Slide 31; here it happens to be powerless.)
-* The weight has the potential $mgy = mgR\sin\varphi$.
-* The centrifugal force has the potential $V_C = -\tfrac12 m\Omega(t)^2x^2$, but **it depends explicitly on time** because $\Omega$ does.
+#### (f) Small oscillations about the lowest point
 
-Define $E_1^P = \tfrac12 mR^2\dot\varphi^2 + mgR\sin\varphi - \tfrac12 m\Omega^2R^2(1 + \cos\varphi)^2$. Differentiating with the chain and product rules,
+> [!derivation] Linearised equation about the lowest point
+> **Law:** Taylor expansion to first order about the equilibrium; neglect of the small parametric term
+> **Source:** Notes.pdf, Eq. 4.46; Notes.pdf, Eq. 5.32; Problems.pdf, p. 22
+>
+> With $\varphi$ equal to $\delta$ minus a quarter turn, the difference formulas give the cosine and the sine of $\varphi$; then the first-order Taylor expansions in $\delta$ are kept. The hypothesis on $A$ makes the product of $A^2\omega^2$ and $\delta$ small against $g/R$ times $\delta$.
+>
+> $$\begin{aligned}
+> \cos\varphi &= \cos\delta\cos\tfrac{\pi}{2} + \sin\delta\sin\tfrac{\pi}{2} = \sin\delta \simeq \delta \quad &\text{(difference formula; Taylor)} \\
+> \sin\varphi &= \sin\delta\cos\tfrac{\pi}{2} - \cos\delta\sin\tfrac{\pi}{2} = -\cos\delta \simeq -1 \quad &\text{(difference formula; Taylor, error of order $\delta^2$)} \\
+> \ddot\varphi &= \ddot\delta \quad &\text{(the quarter turn is constant)} \\
+> \ddot\delta + \frac{g}{R}\delta - A^2\omega^2\sin^2\omega t\left(1 + \delta\right) &= 0 \quad &\text{(part (d), first order in $\delta$)} \\
+> A^2\omega^2\sin^2\omega t\,\delta &\ll \frac{g}{R}\delta \quad &\text{(hypothesis $A^2 \ll g/(R\omega^2)$: term dropped)} \\
+> \sin^2\omega t &= \tfrac12\left(1 - \cos 2\omega t\right) \quad &\text{(double-angle identity)}
+> \end{aligned}$$
+>
+> $$\boxed{\ddot\delta + \frac{g}{R}\delta = \frac{A^2\omega^2}{2}\left[1 - \cos\left(2\omega t\right)\right]}$$
+>
+> **Units:** $[g\delta/R] = [A^2\omega^2] = [\mathrm{T^{-2}}]$
+> **Meaning:** a harmonic oscillator of natural frequency the square root of $g/R$, driven by a constant push and a push at twice the frequency of the swing; both come from the mean and the oscillating part of the centrifugal force.
 
-$$ \frac{dE_1^P}{dt} = mR^2\dot\varphi\ddot\varphi + mgR\cos\varphi\,\dot\varphi + m\Omega^2R^2(1 + \cos\varphi)\sin\varphi\,\dot\varphi - m\Omega\dot\Omega R^2(1 + \cos\varphi)^2 $$
+> [!derivation] Solution: mean position and the frequency of breakdown
+> **Law:** general solution of the forced undamped oscillator as homogeneous plus particular solution; resonance
+> **Source:** Notes.pdf, Eq. 5.6; Notes.pdf, Eq. 5.7; Notes.pdf, Eq. 5.32; Notes.pdf, Eq. 5.41; Notes.pdf, Sec. 5.4
+>
+> Write $\omega_n$ for the square root of $g/R$. A particular solution is a constant $\delta_0$ plus a term $C\cos 2\omega t$; the second derivative of that term is written before it is substituted.
+>
+> $$\begin{aligned}
+> \omega_n^2\delta_0 &= \frac{A^2\omega^2}{2} \;\Rightarrow\; \delta_0 = \frac{A^2\omega^2}{2\omega_n^2} = \frac{A^2R\omega^2}{2g} \quad &\text{(constant part)} \\
+> \frac{d}{dt}\left(C\cos 2\omega t\right) &= -2\omega C\sin 2\omega t, \quad \frac{d^2}{dt^2}\left(C\cos 2\omega t\right) = -4\omega^2C\cos 2\omega t \quad &\text{(chain rule, twice)} \\
+> \left(\omega_n^2 - 4\omega^2\right)C &= -\frac{A^2\omega^2}{2} \;\Rightarrow\; C = -\frac{A^2\omega^2}{2\left(\omega_n^2 - 4\omega^2\right)} \quad &\text{(oscillating part, $2\omega \ne \omega_n$)} \\
+> \delta(t) &= \delta_0 + C\cos 2\omega t + a\cos\omega_nt + b\sin\omega_nt \quad &\text{(Eq. 5.7 for the homogeneous part; $a$, $b$ from the initial conditions)} \\
+> 2\omega = \omega_n:\quad \delta_p &= K\,t\sin\omega_nt, \quad \ddot\delta_p = 2K\omega_n\cos\omega_nt - K\omega_n^2t\sin\omega_nt \quad &\text{(trial at exact resonance; product rule)} \\
+> \ddot\delta_p + \omega_n^2\delta_p &= 2K\omega_n\cos\omega_nt = -\frac{A^2\omega^2}{2}\cos\omega_nt \;\Rightarrow\; K = -\frac{A^2\omega^2}{4\omega_n} \quad &\text{(amplitude growing linearly in time)}
+> \end{aligned}$$
+>
+> $$\boxed{\delta \text{ oscillates about } \delta_0 = \frac{A^2R\omega^2}{2g} \text{ with } \omega_n = \sqrt{\frac{g}{R}}; \qquad \delta \ll 1 \text{ fails near } 2\omega = \sqrt{\frac{g}{R}}}$$
+>
+> **Units:** $[\delta_0] = [A^2R\omega^2/g] = [1]$; $[\omega_n] = [\mathrm{T^{-1}}]$
+> **Meaning:** the mean position is shifted outward, away from the axis, by the mean centrifugal force, and the shift is small precisely because of the hypothesis on $A$. When twice the swing frequency approaches the natural frequency the forced amplitude grows without bound (no damping), so the small-angle hypothesis breaks down.
 
-The first three terms are $mR^2\dot\varphi$ times the equation of motion of part (d), so they cancel, leaving
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Position, velocity, acceleration | $\mathbf r_1^P = R(1 + \cos\varphi)\,\mathbf i_1 + R\sin\varphi\,\mathbf j_1$, $\mathbf v_1^P = R\dot\varphi\,\mathbf e_\varphi$, $\mathbf a_1^P = R\ddot\varphi\,\mathbf e_\varphi - R\dot\varphi^2\,\mathbf e_r$, with $\mathbf e_r = \cos\varphi\,\mathbf i_1 + \sin\varphi\,\mathbf j_1$, $\mathbf e_\varphi = -\sin\varphi\,\mathbf i_1 + \cos\varphi\,\mathbf j_1$ |
+| (b) Forces | weight $-mg\,\mathbf j_1$; reaction $N_1\mathbf e_r + N_2\mathbf k_1$; $\mathbf F_A = \mathbf 0$; Euler $mA\omega^2R\cos\omega t(1 + \cos\varphi)\,\mathbf k_1$; centrifugal $mA^2\omega^2R\sin^2\omega t(1 + \cos\varphi)\,\mathbf i_1$; Coriolis $-2mA\omega R\sin\omega t\sin\varphi\,\dot\varphi\,\mathbf k_1$ |
+| (c) Energy in $Oxy$ | not conserved: the centrifugal potential depends explicitly on time; $dE_1^P/dt = -mA^2\omega^3R^2\sin\omega t\cos\omega t(1 + \cos\varphi)^2$ |
+| (d) Equation of motion | $\ddot\varphi + (g/R)\cos\varphi + A^2\omega^2(1 + \cos\varphi)\sin^2(\omega t)\sin\varphi = 0$ |
+| (e) Reaction | $\mathbf N = N_1\cos\varphi\,\mathbf i_1 + N_1\sin\varphi\,\mathbf j_1 + N_2\mathbf k_1$, $N_1 = mg\sin\varphi - mA^2R\omega^2(1 + \cos\varphi)\sin^2(\omega t)\cos\varphi - mR\dot\varphi^2$, $N_2 = 2mAR\omega\dot\varphi\sin\varphi\sin(\omega t) - mAR\omega^2(1 + \cos\varphi)\cos(\omega t)$ |
+| (f) Oscillation | $\ddot\delta + (g/R)\delta = \frac{A^2\omega^2}{2}[1 - \cos 2\omega t]$; oscillation about $\delta_0 = A^2R\omega^2/(2g)$ with $\omega_n = \sqrt{g/R}$; the approximation fails near $\omega = \frac12\sqrt{g/R}$ (resonance) |
 
-$$ \frac{dE_1^P}{dt} = -m\Omega\dot\Omega\,R^2(1 + \cos\varphi)^2 = -mA^2\omega^3R^2\sin(\omega t)\cos(\omega t)\,(1 + \cos\varphi)^2 \neq 0 $$
+**Check against the official key:** Problems.pdf, p. 75 prints the equation of motion, the reaction with the components $N_1$ and $N_2$, the linearised equation, the centre of oscillation, the natural frequency and the resonance condition. All coincide with parts (d), (e) and (f), term by term (box below).
 
-**No**: the mechanical energy of $P$ in $Oxy$ is not conserved, because the centrifugal potential changes with time (the frame does not rotate at a constant rate). It would be conserved if $\Omega$ were constant. Nor is the energy conserved in $S_0$: there the wire moves and its reaction $N_2\mathbf{k}_1$ does work.
+> [!derivation] Comparison with the official key
+> **Law:** term-by-term comparison
+> **Source:** Problems.pdf, p. 75
+>
+> $$\begin{aligned}
+> \text{key: } \ddot\varphi + \frac{g\cos\varphi}{R} + A^2\omega^2\left(1 + \cos\varphi\right)\sin^2\left(\omega t\right)\sin\varphi &= 0 \quad &\text{(part (d))} \\
+> \text{key: } \mathbf N = N_1\cos\varphi\,\mathbf i + N_1\sin\varphi\,\mathbf j + N_2\,\mathbf k&, \text{ with the same } N_1,\ N_2 \quad &\text{(part (e); the key's $\mathbf i, \mathbf j, \mathbf k$ are $\mathcal B_1$)} \\
+> \text{key: } \ddot\delta + \frac{g}{R}\delta = \frac{A^2\omega^2}{2}\left[1 - \cos\left(2\omega t\right)\right]&, \quad \delta_0 = \frac{A^2R\omega^2}{2g}, \quad \omega_n = \sqrt{\frac{g}{R}}, \quad 2\omega \simeq \omega_n \quad &\text{(part (f))}
+> \end{aligned}$$
+>
+> $$\boxed{\text{equation of motion, reaction and small oscillations coincide with the key}}$$
+>
+> **Units:** as in parts (d) to (f)
+> **Meaning:** no discrepancy.
 
-##### (d) Equation of motion
-$$ \ddot\varphi + \frac{g}{R}\cos\varphi + A^2\omega^2\sin^2(\omega t)\,(1 + \cos\varphi)\sin\varphi = 0 $$
+> [!derivation] Independent check: angular momentum about the vertical axis
+> **Law:** angular momentum about the fixed point $O$ and its rate, equal to the moment of the actual forces
+> **Source:** Notes.pdf, Eq. 4.48; Notes.pdf, Eq. 4.53
+>
+> In $\mathcal B_1$ the position has the components $(x, y, 0)$ and the absolute velocity $(\dot x, \dot y, -\Omega x)$ (composition box). The component along $\mathbf j_1$ of a vector product is the third component of the first factor times the first of the second minus the first of the first times the third of the second. The weight and the in-plane reaction lie in the plane, which contains the axis: no axial moment.
+>
+> $$\begin{aligned}
+> \mathbf H_{O,0}\cdot\mathbf j_1 &= m\left(0\cdot\dot x - x\left(-\Omega x\right)\right) = m\Omega x^2 \quad &\text{(Eq. 4.48)} \\
+> \mathbf M_O\cdot\mathbf j_1 &= 0\cdot N_x - x\,N_2 = -xN_2 \quad &\text{(only $N_2\,\mathbf k_1$ at the lever arm $x$)} \\
+> m\dot\Omega x^2 + 2m\Omega x\dot x &= -xN_2 \quad &\text{(Eq. 4.53; product rule and chain rule)} \\
+> N_2 &= -m\dot\Omega x - 2m\Omega\dot x = -mA\omega^2\cos\omega t\,R\left(1 + \cos\varphi\right) + 2mA\omega\sin\omega t\,R\sin\varphi\,\dot\varphi \quad &\text{(divided by $-x$; $\dot x = -R\sin\varphi\,\dot\varphi$)}
+> \end{aligned}$$
+>
+> $$\boxed{N_2 = 2mAR\omega\,\dot\varphi\sin\varphi\sin\omega t - mAR\omega^2\left(1 + \cos\varphi\right)\cos\omega t \quad (x \ne 0)}$$
+>
+> **Units:** $[xN_2] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** the same normal reaction as part (e), found without inertia forces.
 
-##### (e) Reaction of the wire
-$\mathbf{N} = N_1\,\mathbf{e}_r + N_2\,\mathbf{k}_1$ with the boxed $N_1(\varphi, \dot\varphi, t)$ and $N_2(\varphi, \dot\varphi, t)$ of the previous section.
-
-##### (f) Small oscillations about the lowest point
-* **Pedagogical Justification:** For $\delta \ll 1$ the trigonometric functions are replaced by their first-order Taylor expansions; the condition $A^2 \ll g/(R\omega^2)$, i.e. $A^2\omega^2 \ll g/R$, lets us drop the parametric term $A^2\omega^2\sin^2(\omega t)\,\delta$ against $(g/R)\,\delta$. The result is a linear forced oscillator.
-
-With $\varphi = \delta - \pi/2$, the subtraction formulas give $\cos\varphi = \cos\delta\cos\tfrac{\pi}{2} + \sin\delta\sin\tfrac{\pi}{2} = \sin\delta \approx \delta$ and $\sin\varphi = \sin\delta\cos\tfrac{\pi}{2} - \cos\delta\sin\tfrac{\pi}{2} = -\cos\delta \approx -1$; also $\ddot\varphi = \ddot\delta$. Substituting into the equation of part (d) and keeping first-order terms:
-
-$$ \ddot\delta + \frac{g}{R}\,\delta - A^2\omega^2\sin^2(\omega t)\,(1 + \delta) = 0 $$
-
-Dropping $A^2\omega^2\sin^2(\omega t)\,\delta$ (small compared with $(g/R)\,\delta$) and using $\sin^2(\omega t) = \tfrac12\left[1 - \cos(2\omega t)\right]$:
-
-$$ \boxed{\ddot\delta + \frac{g}{R}\,\delta = \frac{A^2\omega^2}{2}\left[1 - \cos(2\omega t)\right]} $$
-
-**Solution.** With $\omega_n = \sqrt{g/R}$, a particular solution is a constant plus a term at $2\omega$. The constant $\delta_0$ satisfies $\omega_n^2\delta_0 = A^2\omega^2/2$. For $\delta_p = C\cos(2\omega t)$, $\ddot\delta_p = -4\omega^2C\cos(2\omega t)$ and $(\omega_n^2 - 4\omega^2)\,C = -A^2\omega^2/2$. Hence
-
-$$ \delta(t) = \frac{A^2R\omega^2}{2g} - \frac{A^2\omega^2}{2\left(\omega_n^2 - 4\omega^2\right)}\cos(2\omega t) + a\cos\omega_nt + b\sin\omega_nt $$
-
-($a$, $b$ set by the initial conditions). The particle oscillates, with natural frequency $\omega_n = \sqrt{g/R}$, about
-
-$$ \boxed{\delta_0 = \frac{A^2R\omega^2}{2g}} $$
-
-which is small, consistent with $A^2 \ll g/(R\omega^2)$. It is positive: on average the bead is displaced slightly outward, away from the axis, by the mean centrifugal force.
-
-**Breakdown.** The forced amplitude $|C| = \dfrac{A^2\omega^2}{2\left|\omega_n^2 - 4\omega^2\right|}$ grows without bound when $2\omega \to \omega_n$, i.e. for
-
-$$ \boxed{\omega \approx \frac12\sqrt{\frac{g}{R}}} $$
-
-At exact resonance the particular solution is $\delta_p = -\dfrac{A^2\omega^2}{4\omega_n}\,t\sin(\omega_nt)$ (check: $\ddot\delta_p + \omega_n^2\delta_p = -\tfrac{A^2\omega^2}{2}\cos\omega_nt$), whose amplitude grows linearly in time. The assumption $\delta \ll 1$ then fails, as stated in the key.
-
-##### Checks
-* **Role of each inertia force.** The centrifugal force (along $\mathbf{i}_1$, in the plane) is the only inertia force that enters the equation of motion. The Euler and Coriolis forces are normal to the plane: they do not change $\varphi$, but they load the wire through $N_2$.
-* **Limits.** $A \to 0$: $\ddot\varphi + (g/R)\cos\varphi = 0$, the simple pendulum about $\varphi = -\pi/2$ in a fixed plane, and $N_2 = 0$. $\omega \to 0$ with $A$ fixed: $\Omega \to 0$ and the same pendulum is recovered.
-* **Energy.** $dE_1^P/dt$ averages to zero over a period of the forcing ($\sin\omega t\cos\omega t$ has zero mean) but is not zero instant by instant; near resonance the drive pumps energy into the oscillation.
-* **Orthogonality:** $\mathbf{e}_r\cdot\mathbf{e}_\varphi = -\cos\varphi\sin\varphi + \sin\varphi\cos\varphi = 0$, $\mathbf{e}_r\times\mathbf{e}_\varphi = \mathbf{k}_1$ and $\det[{}_0R_1] = 1$ (change-of-basis section).
-* **Inertial check.** Differentiating $[{}_0R_1]\mathbf{r}_1^P$ twice reproduces $\mathbf{a}_1^P + \boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P + \boldsymbol{\omega}_{10}\times(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P) + 2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P$ (Notes Eq. 3.27), and $m\mathbf{a}_0^P = \mathbf{W} + \mathbf{N}$ holds with the reaction of part (e) (checked symbolically with sympy).
-* **Dimensions.** $[R(1 + \cos\varphi)] = [R\sin\varphi] = \text{m}$; $[\psi] = [A] = 1$; $[g/R] = [A^2\omega^2] = \text{s}^{-2}$ (same units as $\ddot\varphi$); $[mA^2R\omega^2] = [mR\dot\varphi^2] = [mg] = \text{N}$; $[mAR\omega\dot\varphi] = \text{kg}\cdot\text{m}\cdot\text{s}^{-2} = \text{N}$; $[A^2R\omega^2/g] = \dfrac{\text{m}\cdot\text{s}^{-2}}{\text{m}\cdot\text{s}^{-2}} = 1$, as an angle must be.
-* **Check against the official key:** the key of `Problems.pdf` gives the equation of motion $\ddot\varphi + (g/R)\cos\varphi + A^2\omega^2(1 + \cos\varphi)\sin^2(\omega t)\sin\varphi = 0$, the reaction components $N_1$ and $N_2$ and the small-oscillation equation; all coincide with (d), (e) and (f) (no discrepancy).
+> [!derivation] Limiting cases
+> **Law:** the results at extreme values of the data
+> **Source:** Notes.pdf, Eq. 4.38; Notes.pdf, Eq. 4.63
+>
+> $$\begin{aligned}
+> A \to 0:\quad \ddot\varphi + \frac{g}{R}\cos\varphi &= 0, \quad N_2 = 0 \quad &\text{(pendulum in a fixed plane, about the lowest point)} \\
+> A \to 0:\quad \delta_0 &\to 0 \quad &\text{(no outward shift without swing)} \\
+> \omega \to 0,\ A \text{ fixed}:\quad \Omega &\to 0, \quad \dot\Omega \to 0 \quad &\text{(the same pendulum)}
+> \end{aligned}$$
+>
+> $$\boxed{A \to 0 \text{ or } \omega \to 0: \text{ simple pendulum in a fixed vertical plane, } N_2 \to 0}$$
+>
+> **Units:** dimensionless
+> **Meaning:** without the swing of the plane the inertia forces vanish and the particle is a pendulum on a fixed circle.
 
 ---
 
 ## Problem 36: Pendulum String Dragged by a Rotating Bar
 
 ### Reference Frames, Bases and Coordinates
-* **System:** a heavy particle $P$ (mass $m$) hangs from the fixed ceiling point $A$ by a string of length $L$. A bar turning at constant rate $\omega$ about the vertical axis through its centre $O$, in a horizontal plane a distance $h$ below the ceiling, hits the string at $t = 0$ and drags it. The string then runs $A \to C \to P$, bent over the bar at the contact point $C$.
-* **Why the frame $S_1$ attached to the bar.** In $S_1$ the bar is the fixed axis $Ox_1$, so the contact point is simply $C = (\xi, 0, 0)$ and the string geometry is described by $\xi$, $\ell$, $\varphi$, $\theta$. The price is that $A$ moves in $S_1$ and that the centrifugal and Coriolis forces (Slides 27–28) have to be added. Since $\boldsymbol{\omega}_{10}$ is constant and $O$ is fixed, the Euler force and the force of the origin's acceleration vanish, and the centrifugal force has a potential (Slide 30).
-* **Hypotheses:** <br>1. A frame $S_0$ with origin $O$ and vertical axis $\mathbf{k}_0$ (upward) is inertial; gravity is $-g\,\mathbf{k}_0$. <br>2. The string is massless and inextensible, and stays tense ($T \gt 0$) and in contact with the bar (the only stage of the motion studied, as the statement asks). <br>3. The bar is thin (a straight line) and long enough for $C$ to stay on it; the contact is frictionless. <br>4. The rotation of the bar is prescribed: $\omega$ is kept constant whatever the string does. <br>5. The bar reaches the string at $t = 0$ while $P$ is at rest below $A$, so $L \gt h$.
-* **Fixed (inertial) frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, basis $\mathcal{B}_0$, with $\mathbf{k}_0$ vertical upward and $\mathbf{i}_0$ pointing horizontally from $O$ towards the vertical of $A$, so that $\mathbf{r}_0^A = R\,\mathbf{i}_0 + h\,\mathbf{k}_0$.
-* **Moving frame:** $S_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, basis $\mathcal{B}_1$, attached to the bar: $\mathbf{i}_1$ along the bar and $\mathbf{k}_1 = \mathbf{k}_0$. At $t = 0$ the bar is below $A$, so $S_1$ coincides with $S_0$ at that instant.
-* **Sense of rotation.** In the left drawing of the statement ($t \lt 0$) the vertical projection of $A$ lies at positive $x_1$ and positive $y_1$, so the bar reaches it turning from $\mathbf{i}_1$ towards $\mathbf{j}_1$: $\boldsymbol{\omega}_{10} = +\omega\,\mathbf{k}_1$. (The same sign is implied by the Coriolis force of the official key.) The angle turned by the bar is $\omega t$.
-* **String basis:** $\mathcal{B}_2 = \{\mathbf{e}_{CP}, \mathbf{e}_\theta, \mathbf{e}_\varphi\}$, with $\mathbf{e}_{CP}$ the unit vector from $C$ to $P$; it is deduced, with two drawings, in the next section.
-* **Degrees of freedom:** $P$ moves in space with the single constraint "string tense", so it has **two** degrees of freedom. We take $\xi$ and $\theta$; $\ell$ and $\varphi$ are fixed by $\xi$ and $t$ through the constraints of part (c). The tension $T$ is the additional unknown.
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $m$ | mass of $P$ | kg |
-| $L$ | total length of the string | m |
-| $h$ | height of the ceiling above the plane of the bar | m |
-| $R$ | horizontal distance between $O$ and $A$ | m |
-| $\omega$ | angular velocity of the bar (constant) | rad/s |
-| $g$ | gravitational acceleration | m/s$^2$ |
-| $\xi$ | distance $OC$ along the bar | m |
-| $\ell$ | length of the segment $CP$ | m |
-| $\varphi$ | angle between $\overrightarrow{CP}$ and the bar ($\mathbf{i}_1$) | rad |
-| $\theta$ | angle between the plane $Ox_1z_1$ and the plane bar–$P$ | rad |
-| $T$ | tension of the string | N |
+A heavy particle $P$ of mass $m$ hangs at rest from the ceiling point $A$ by a string of length $L$. A bar turning at the constant rate $\omega$ about the vertical through its centre $O$, in a horizontal plane a distance $h$ below the ceiling, hits the string at the start and drags it; the string slides on the bar without friction, over the contact point $C$ (Problems.pdf, p. 24). The statement asks for the position and velocity of $A$ in the bar frame $S_1$, the position, velocity and acceleration of $P$ there, the length $AC$, $\ell$ and $\varphi$ in terms of $\xi$ and time, the forces on $P$, the equations of motion, their initial conditions, whether the energy is conserved, and the condition of separation. The bar is at rest in $S_1$, so the solution works there, with the composition of motions of Notes.pdf, Sec. 3.2 and the inertia forces of Notes.pdf, Sec. 4.9.
+
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $O$ the centre of the bar (fixed), $\mathbf k_0$ vertical, up, $\mathbf i_0$ horizontal from $O$ towards the point $A'$ of the plane of the bar directly below $A$ |
+| Moving frame | $S_1 = \{O;\ \mathcal B_1\}$, attached to the bar: $\mathbf i_1$ along the bar, $\mathbf k_1 = \mathbf k_0$, $\mathbf j_1 = \mathbf k_1\times\mathbf i_1$; at $t = 0$ the bar lies along $\mathbf i_0$ (it hits the string at that instant), so $S_1$ coincides with $S_0$ then |
+| Sense of rotation | read from the left drawing: before the impact $A'$ lies at positive $x_1$ and positive $y_1$, so the bar turns from $\mathbf i_1$ towards $\mathbf j_1$: angular velocity $+\omega\,\mathbf k_1$ (the Coriolis force of the key implies the same sign) |
+| String basis | $\mathcal B_2 = \{\mathbf e_{CP}, \mathbf e_\theta, \mathbf e_\varphi\}$, with $\mathbf e_{CP}$ from $C$ to $P$ (deduced below) |
+| Coordinates | $\xi$ (distance $OC$ along the bar), $\ell$ (length $CP$), $\theta$ (angle between the vertical plane $Ox_1z_1$ and the plane bar–$P$, from the downward vertical; positive towards negative $y_1$, the sign of the key), $\varphi$ (angle between $\overrightarrow{CP}$ and the bar, in $(0, \pi)$) |
+| Constraints | constant string length, $AC + \ell = L$; frictionless contact (equal angles of the two segments with the bar, part (c)); string tense and in contact with the bar (the stage studied) |
+| Degrees of freedom | the particle moves in space with one constraint (the string), so 3 minus 1: 2, taken as $\xi(t)$ and $\theta(t)$; $\ell$ and $\varphi$ are functions of $\xi$ and $t$ (part (c)) |
+| Data | $m$ [kg], $L$ [m], $h$ [m], $R$ [m] (horizontal distance $OA$), $\omega$ [rad s$^{-1}$], $g$ [m s$^{-2}$] |
+| Auxiliary symbol | $D$, the length $AC$ [m] |
+| Unknowns | $\xi(t)$, $\theta(t)$ and the tension $T(t) \gt 0$ |
+| Applied forces | weight $-mg\,\mathbf k_1$; string pull $-T\,\mathbf e_{CP}$ (the bar touches the string, not $P$) |
+| Inertia forces (in $S_1$) | centrifugal and Coriolis; no origin or Euler terms ($O$ fixed, $\omega$ constant) (Notes.pdf, Eq. 4.62) |
+| Hypotheses | $S_0$ inertial; uniform gravity; massless inextensible string; thin bar, long enough for $C$ to stay on it; no friction at $C$; $\omega$ imposed whatever the string does; $L \gt h$ |
+| Readings | (1) "Separates" (part (h)) is read as the string straightening, so that the bar no longer bends it; the other way to lose contact, $C$ sliding off the end of the bar, is the condition that $\xi$ reaches the half-length of the bar, not a relation between $\theta$ and time. (2) No impulse at the impact: the string is perpendicular to the bar there, so its path length changes only to second order (part (f)) |
 
 ### Change of Basis and Position Vector
 
-There are two rotations: the bar turns $\omega t$ about the vertical $\mathbf{k}_0$ ($\mathcal{B}_0 \to \mathcal{B}_1$), and the plane that contains the bar and $P$ is turned $\theta$ about the bar from the vertical plane $Ox_1z_1$, inside which the segment $CP$ makes the angle $\varphi$ with the bar ($\mathcal{B}_1 \to \mathcal{B}_2$). Each one is drawn looking along its own axis.
-
-#### The basis $\mathcal{B}_1$ seen from above
-
 ![[attachments/EM-SOL/p36-top-view.svg]]
 
-The first rotation is about $\mathbf{k}_0$, so we look down the vertical from $+z_0$: $\mathbf{k}_0 = \mathbf{k}_1$ points out of the paper, towards the reader ($\odot$). Take $\mathbf{i}_0$ to the right, towards the point $A'$ of the plane of the bar directly below $A$. The direction of $\mathbf{j}_0$ follows from the right-hand rule, $\mathbf{j}_0 = \mathbf{k}_0\times\mathbf{i}_0$: the fingers go from $\mathbf{k}_0$ (towards the reader) to $\mathbf{i}_0$ (right) and the thumb points up the page. With $\boldsymbol{\omega}_{10} = \omega\,\mathbf{k}_0$ and $\omega \gt 0$, the bar turns counter-clockwise in this view (thumb along $\mathbf{k}_0$, towards the reader), and at time $t$ it has turned the angle $\omega t$ from $\mathbf{i}_0$:
-
-* $\mathbf{i}_1$ is the hypotenuse (length 1) of a right triangle whose leg adjacent to $\omega t$ lies along $\mathbf{i}_0$ and measures $\cos\omega t$, and whose opposite leg points up the page, along $+\mathbf{j}_0$, and measures $\sin\omega t$. Hence $\mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$.
-* $\mathbf{j}_1$ starts on $\mathbf{j}_0$ (up the page) and turns the same angle counter-clockwise, so its tip leans to the left, towards $-\mathbf{i}_0$. Its leg along $\mathbf{j}_0$ (adjacent) is $\cos\omega t$ and its leg along $-\mathbf{i}_0$ (opposite) is $\sin\omega t$: $\mathbf{j}_1 = -\sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{j}_0$. **The minus sign comes from the counter-clockwise turn carrying the upward axis to the left, towards $-\mathbf{i}_0$.**
-* $\mathbf{k}_1 = \mathbf{k}_0$, the axis of the rotation.
-
-The columns of the change-of-basis matrix are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$:
-
-$$ [{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos\omega t\cos\omega t - (-\sin\omega t)\sin\omega t = \cos^2\omega t + \sin^2\omega t = 1 $$
-
-The product $[{}_0R_1][{}_0R_1]^T$ has diagonal entries $\cos^2\omega t + \sin^2\omega t = 1$ (first two rows) and $1$ (third row), and off-diagonal entries $\cos\omega t\sin\omega t - \sin\omega t\cos\omega t = 0$ (first row times second row) and $0$ (any row times the third), so $[{}_0R_1][{}_0R_1]^T = I$.
-
-**Motion of $S_1$:** $\mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0}$ (the centre of the bar is fixed), $\boldsymbol{\omega}_{10} = \omega\,\mathbf{k}_1$, $\boldsymbol{\alpha}_{10} = \mathbf{0}$ ($\omega$ constant and $\mathbf{k}_1 = \mathbf{k}_0$ fixed). Check with the chain rule: $\left.\frac{d\mathbf{i}_1}{dt}\right|_0 = -\omega\sin\omega t\,\mathbf{i}_0 + \omega\cos\omega t\,\mathbf{j}_0 = \omega\,\mathbf{j}_1$, and indeed $\boldsymbol{\omega}_{10}\times\mathbf{i}_1 = \omega\,\mathbf{k}_1\times\mathbf{i}_1 = \omega\,\mathbf{j}_1$.
+> [!derivation] Basis of the bar: rotation by omega t about k0
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; [Lecture 5, Slide 16]
+>
+> View from above, along $\mathbf k_0$, which points out of the paper (⊙). With $\mathbf i_0$ to the right, $\mathbf j_0$, the cross product of $\mathbf k_0$ and $\mathbf i_0$, points up the page (thumb towards the reader, the fingers turn $\mathbf i_0$ counterclockwise by a quarter turn). The bar turns counterclockwise. $\mathbf i_1$ is $\mathbf i_0$ turned by $\omega t$: hypotenuse 1, adjacent leg $\cos\omega t$ along $\mathbf i_0$, opposite leg $\sin\omega t$ along plus $\mathbf j_0$. $\mathbf j_1$ is $\mathbf j_0$ turned by the same angle; the counterclockwise turn carries its tip to the left, so its opposite leg $\sin\omega t$ lies along minus $\mathbf i_0$ (the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0, \quad \mathbf j_1 = -\sin\omega t\,\mathbf i_0 + \cos\omega t\,\mathbf j_0, \quad \mathbf k_1 = \mathbf k_0 \quad &\text{(the two right triangles; axis)} \\
+> \det[{}_0R_1] &= (+1)\cdot 1\cdot\left(\cos\omega t\cos\omega t - \left(-\sin\omega t\right)\sin\omega t\right) = 1 \quad &\text{(expansion along the third row, cofactor sign $(-1)^{3+3}$)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\omega t + \sin^2\omega t = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{12} = -\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0 \quad &\text{(rows times rows)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \cr \sin\omega t & \cos\omega t & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** $[\omega t] = [1]$
+> **Meaning:** the matrix of Eq. 1.20 with the angle $\omega t$; the vertical is common to both frames.
 
 ![[attachments/EM-SOL/p36-anchor-top.svg]]
 
-**Position of $A$ in $S_1$.** In the same view, $A'$ is at distance $R$ from $O$ along $\mathbf{i}_0$, that is, the angle $\omega t$ behind the bar (clockwise from $\mathbf{i}_1$). Drop the perpendicular from $A'$ to the line of the bar, with foot $F$. In the right triangle $OFA'$ (right angle at $F$) the hypotenuse is $OA' = R$, the leg adjacent to $\omega t$ is $OF = R\cos\omega t$, along $+\mathbf{i}_1$, and the opposite leg is $FA' = R\sin\omega t$, along $-\mathbf{j}_1$ because $A'$ lies on the clockwise side of the bar. $A$ is a height $h$ above $A'$, so
-
-$$ \mathbf{r}_1^A = R\cos\omega t\,\mathbf{i}_1 - R\sin\omega t\,\mathbf{j}_1 + h\,\mathbf{k}_1 $$
-
-The matrix gives the same result: the origins coincide, so $\mathbf{r}_1^A = [{}_0R_1]^T\mathbf{r}_0^A$,
-
-$$ [{}_0R_1]^T\begin{pmatrix} R \\ 0 \\ h \end{pmatrix} = \begin{pmatrix} R\cos\omega t \\ -R\sin\omega t \\ h \end{pmatrix} $$
-
-#### The plane bar–$P$ seen along the bar
+> [!derivation] Position of the anchor A in S1
+> **Law:** right triangle in the plane of the bar; components through the transposed matrix
+> **Source:** Notes.pdf, Eq. 1.12; Notes.pdf, Eq. 1.14; Problems.pdf, p. 24
+>
+> In the same view, $A'$ is at the distance $R$ from $O$ along $\mathbf i_0$, that is, the angle $\omega t$ behind the bar (clockwise from $\mathbf i_1$). Let $F$ be the foot of the perpendicular from $A'$ to the line of the bar: in the right triangle $OFA'$ (right angle at $F$) the hypotenuse is $OA'$, of length $R$; the leg adjacent to $\omega t$, $OF$, has length $R\cos\omega t$ along plus $\mathbf i_1$; the opposite leg $FA'$ has length $R\sin\omega t$ along minus $\mathbf j_1$, because $A'$ lies on the clockwise side of the bar. $A$ is a height $h$ above $A'$.
+>
+> $$\begin{aligned}
+> \mathbf r_1^A &= \overrightarrow{OF} + \overrightarrow{FA'} + \overrightarrow{A'A} = R\cos\omega t\,\mathbf i_1 - R\sin\omega t\,\mathbf j_1 + h\,\mathbf k_1 \quad &\text{(the legs, with their directions)} \\
+> [{}_0R_1]^T\begin{pmatrix} R \cr 0 \cr h \end{pmatrix} &= \begin{pmatrix} \cos\omega t\cdot R + \sin\omega t\cdot 0 + 0\cdot h \cr -\sin\omega t\cdot R + \cos\omega t\cdot 0 + 0\cdot h \cr 0 + 0 + 1\cdot h \end{pmatrix} = \begin{pmatrix} R\cos\omega t \cr -R\sin\omega t \cr h \end{pmatrix} \quad &\text{(check: Eq. 1.14, rows of the transpose times $\mathbf r_0^A$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^A = R\cos\omega t\,\mathbf i_1 - R\sin\omega t\,\mathbf j_1 + h\,\mathbf k_1}$$
+>
+> **Units:** $[R\cos\omega t] = [h] = [\mathrm{L}]$
+> **Meaning:** seen from the bar, the anchor turns backwards on a circle of radius $R$ at the height $h$.
 
 ![[attachments/EM-SOL/p36-bar-view.svg]]
 
-The second rotation is about the bar, so we now look along $\mathbf{i}_1$, with $\mathbf{i}_1$ pointing out of the paper ($\odot$) and the bar reduced to the point $C$. Take $\mathbf{k}_1$ up. Then $\mathbf{j}_1 = \mathbf{k}_1\times\mathbf{i}_1$ points to the right: the fingers go from $\mathbf{k}_1$ (up) to $\mathbf{i}_1$ (towards the reader) and the thumb points right. The plane that contains the bar and $P$ contains the line of sight, so in this view it is a straight line through $C$. $\theta$ is its angle with the downward vertical $-\mathbf{k}_1$ (the trace of the plane $Ox_1z_1$), and $\theta \gt 0$ puts $P$ on the side $y_1 \lt 0$, the side of $A$ for $0 \lt \omega t \lt \pi$ (this is the sign convention of the official key); in the drawing that is the left.
-
-Let $\mathbf{u}$ be the unit vector along that line, from $C$ towards the side of $P$ (an auxiliary vector, perpendicular to the bar). It is the hypotenuse (length 1) of the shaded right triangle: the leg adjacent to $\theta$ lies along $-\mathbf{k}_1$ and measures $\cos\theta$; the leg opposite to $\theta$ lies along $-\mathbf{j}_1$ and measures $\sin\theta$. Hence
-
-$$ \mathbf{u} = -\sin\theta\,\mathbf{j}_1 - \cos\theta\,\mathbf{k}_1 $$
-
-Both components are negative because, for $0 \lt \theta \lt \pi/2$, $\mathbf{u}$ points down and to the left. Differentiating with respect to $\theta$ ($\frac{d}{d\theta}(-\sin\theta) = -\cos\theta$, $\frac{d}{d\theta}(-\cos\theta) = \sin\theta$) gives a vector of length $\sqrt{\cos^2\theta + \sin^2\theta} = 1$, perpendicular to $\mathbf{u}$ in this view and pointing in the sense of increasing $\theta$:
-
-$$ \mathbf{e}_\theta = \frac{d\mathbf{u}}{d\theta} = -\cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1 $$
-
-**Relation with the standard azimuth.** The usual azimuth $\psi$ about the polar axis $\mathbf{i}_1$ is measured from $\mathbf{j}_1$ towards $\mathbf{k}_1$, with perpendicular unit vector $\cos\psi\,\mathbf{j}_1 + \sin\psi\,\mathbf{k}_1$. Matching $\mathbf{u} = -\sin\theta\,\mathbf{j}_1 - \cos\theta\,\mathbf{k}_1$ requires $\cos\psi = -\sin\theta$ and $\sin\psi = -\cos\theta$, which holds for $\psi = -\theta - \frac{\pi}{2}$:
-
-$$ \cos\left(-\theta - \tfrac{\pi}{2}\right) = \cos\left(\theta + \tfrac{\pi}{2}\right) = \cos\theta\cos\tfrac{\pi}{2} - \sin\theta\sin\tfrac{\pi}{2} = -\sin\theta, \qquad \sin\left(-\theta - \tfrac{\pi}{2}\right) = -\left(\sin\theta\cos\tfrac{\pi}{2} + \cos\theta\sin\tfrac{\pi}{2}\right) = -\cos\theta $$
-
-(with $\cos\frac{\pi}{2} = 0$, $\sin\frac{\pi}{2} = 1$, and cosine even, sine odd). So $\theta$ is measured from the downward vertical instead of $\mathbf{j}_1$, and in the opposite sense; it is chosen so that $\theta = 0$ is the hanging position, in the plane $Ox_1z_1$.
-
-#### The segment $CP$ inside the plane bar–$P$
+> [!derivation] Plane bar–P: rotation by theta about the bar
+> **Law:** right triangle in the view along the bar; derivative of a unit vector with respect to its angle; relation with the standard azimuth
+> **Source:** Notes.pdf, Eq. 1.18; Notes.pdf, Eq. 2.24; Problems.pdf, p. 24
+>
+> View along the bar, with $\mathbf i_1$ out of the paper (⊙) at $C$ and $\mathbf k_1$ up; then $\mathbf j_1$, the cross product of $\mathbf k_1$ and $\mathbf i_1$, points to the right (fingers from $\mathbf k_1$, up, towards $\mathbf i_1$, towards the reader; the thumb points right). The plane bar–$P$ contains the line of sight, so it is seen as a line through $C$, at the angle $\theta$ from the downward vertical, towards the left (negative $y_1$) for positive $\theta$. Its unit vector $\mathbf u$, from $C$ towards the side of $P$, is the hypotenuse of the shaded right triangle: adjacent leg $\cos\theta$ along minus $\mathbf k_1$, opposite leg $\sin\theta$ along minus $\mathbf j_1$ (both minus signs: down and to the left). The standard azimuth $\chi$ about $\mathbf i_1$ is measured from $\mathbf j_1$ towards $\mathbf k_1$; $\theta$ is measured from minus $\mathbf k_1$ in the opposite sense, so $\chi$ is minus the sum of $\theta$ and a quarter turn.
+>
+> $$\begin{aligned}
+> \mathbf u &= -\sin\theta\,\mathbf j_1 - \cos\theta\,\mathbf k_1 \quad &\text{(the two legs)} \\
+> \mathbf e_\theta &= \frac{d\mathbf u}{d\theta} = -\cos\theta\,\mathbf j_1 + \sin\theta\,\mathbf k_1, \quad \mathbf u\cdot\mathbf e_\theta = \sin\theta\cos\theta - \cos\theta\sin\theta = 0 \quad &\text{(derivative of each component; orthogonal, unit)} \\
+> \cos\chi &= \cos\left(\theta + \tfrac{\pi}{2}\right) = \cos\theta\cos\tfrac{\pi}{2} - \sin\theta\sin\tfrac{\pi}{2} = -\sin\theta \quad &\text{($\chi = -\theta - \pi/2$; cosine even)} \\
+> \sin\chi &= -\sin\left(\theta + \tfrac{\pi}{2}\right) = -\left(\sin\theta\cos\tfrac{\pi}{2} + \cos\theta\sin\tfrac{\pi}{2}\right) = -\cos\theta \quad &\text{(sine odd)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf u = -\sin\theta\,\mathbf j_1 - \cos\theta\,\mathbf k_1 = \cos\chi\,\mathbf j_1 + \sin\chi\,\mathbf k_1, \qquad \mathbf e_\theta = -\cos\theta\,\mathbf j_1 + \sin\theta\,\mathbf k_1}$$
+>
+> **Units:** dimensionless
+> **Meaning:** at zero $\theta$ the plane bar–$P$ is the vertical plane $Ox_1z_1$ and $\mathbf u$ points straight down: the hanging position.
 
 ![[attachments/EM-SOL/p36-string-plane.svg]]
 
-This drawing is the true view of the plane that contains the bar ($\mathbf{i}_1$, to the right) and $\mathbf{u}$ (down the page). The segment $CP$ makes the angle $\varphi$ with the bar, with $\varphi \in (0, \pi)$. Let $E$ be the foot of the perpendicular from $P$ to the line of the bar. In the shaded right triangle $CEP$ (right angle at $E$) the hypotenuse is $CP = \ell$, the leg adjacent to $\varphi$ is $CE = \ell\cos\varphi$, along $\mathbf{i}_1$, and the opposite leg is $EP = \ell\sin\varphi$, along $\mathbf{u}$. Therefore $\overrightarrow{CP} = \ell\cos\varphi\,\mathbf{i}_1 + \ell\sin\varphi\,\mathbf{u}$, and dividing by $\ell$ and substituting $\mathbf{u}$:
+> [!derivation] String basis and position of P
+> **Law:** right triangle in the true view of the plane bar–$P$; partial derivatives of a unit vector; vector product; position through the contact point
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 3.16; Problems.pdf, p. 24
+>
+> True view of the plane bar–$P$: the bar to the right, $\mathbf u$ down the page. Let $E$ be the foot of the perpendicular from $P$ to the bar: in the shaded right triangle $CEP$ (right angle at $E$) the hypotenuse is $CP$, of length $\ell$, the leg adjacent to $\varphi$ is $CE$, of length $\ell\cos\varphi$, along $\mathbf i_1$, and the opposite leg $EP$, of length $\ell\sin\varphi$, is along $\mathbf u$. The determinant is expanded along its first row, with the cofactor signs plus, minus, plus.
+>
+> $$\begin{aligned}
+> \mathbf e_{CP} &= \cos\varphi\,\mathbf i_1 + \sin\varphi\,\mathbf u = \cos\varphi\,\mathbf i_1 - \sin\varphi\sin\theta\,\mathbf j_1 - \sin\varphi\cos\theta\,\mathbf k_1 \quad &\text{(the two legs over $\ell$)} \\
+> \mathbf e_\varphi &= \frac{\partial\mathbf e_{CP}}{\partial\varphi} = -\sin\varphi\,\mathbf i_1 + \cos\varphi\,\mathbf u = -\sin\varphi\,\mathbf i_1 - \cos\varphi\sin\theta\,\mathbf j_1 - \cos\varphi\cos\theta\,\mathbf k_1 \quad &\text{(derivative in $\varphi$)} \\
+> \frac{\partial\mathbf e_{CP}}{\partial\theta} &= \sin\varphi\,\frac{d\mathbf u}{d\theta} = \sin\varphi\,\mathbf e_\theta \quad &\text{(only $\mathbf u$ depends on $\theta$)} \\
+> \det[{}_1R_2] &= (+1)\cos\varphi\left(\cos\varphi\cos^2\theta + \cos\varphi\sin^2\theta\right) - 0 + (+1)\left(-\sin\varphi\right)\left(-\sin\varphi\sin^2\theta - \sin\varphi\cos^2\theta\right) = 1 \quad &\text{(columns $\mathbf e_{CP}, \mathbf e_\theta, \mathbf e_\varphi$; first row)} \\
+> \mathbf e_{CP}\cdot\mathbf e_\varphi &= -\cos\varphi\sin\varphi + \sin\varphi\cos\varphi\left(\sin^2\theta + \cos^2\theta\right) = 0, \quad \mathbf e_{CP}\cdot\mathbf e_\theta = \sin\varphi\sin\theta\cos\theta - \sin\varphi\cos\theta\sin\theta = 0 \quad &\text{(orthogonal)} \\
+> \mathbf r_1^P &= \overrightarrow{OC} + \overrightarrow{CP} = \xi\,\mathbf i_1 + \ell\,\mathbf e_{CP} \quad &\text{(through the contact point)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} [{}_1R_2] = \begin{pmatrix} \cos\varphi & 0 & -\sin\varphi \cr -\sin\varphi\sin\theta & -\cos\theta & -\cos\varphi\sin\theta \cr -\sin\varphi\cos\theta & \sin\theta & -\cos\varphi\cos\theta \end{pmatrix}, \quad \det[{}_1R_2] = 1, \quad \mathbf e_{CP}\times\mathbf e_\theta = \mathbf e_\varphi \cr \mathbf r_1^P = \left(\xi + \ell\cos\varphi\right)\mathbf i_1 - \ell\sin\varphi\sin\theta\,\mathbf j_1 - \ell\sin\varphi\cos\theta\,\mathbf k_1 \end{gathered}}$$
+>
+> **Units:** $[\xi] = [\ell] = [\mathrm{L}]$; the unit vectors are dimensionless
+> **Meaning:** $C$ plays the role of a moving centre of spherical coordinates: $\ell$ is the radius, $\varphi$ the angle from the bar and $\theta$ the azimuth about the bar.
 
-$$ \mathbf{e}_{CP} = \cos\varphi\,\mathbf{i}_1 + \sin\varphi\,\mathbf{u} = \cos\varphi\,\mathbf{i}_1 - \sin\varphi\sin\theta\,\mathbf{j}_1 - \sin\varphi\cos\theta\,\mathbf{k}_1 $$
-
-The other two unit vectors of $\mathcal{B}_2$ come from differentiating $\mathbf{e}_{CP}$ with respect to each angle. With respect to $\varphi$ ($\frac{\partial}{\partial\varphi}\cos\varphi = -\sin\varphi$, $\frac{\partial}{\partial\varphi}\sin\varphi = \cos\varphi$) we get the unit vector perpendicular to $CP$ in this plane, drawn at $P$:
-
-$$ \mathbf{e}_\varphi = \frac{\partial\mathbf{e}_{CP}}{\partial\varphi} = -\sin\varphi\,\mathbf{i}_1 + \cos\varphi\,\mathbf{u} = -\sin\varphi\,\mathbf{i}_1 - \cos\varphi\sin\theta\,\mathbf{j}_1 - \cos\varphi\cos\theta\,\mathbf{k}_1 $$
-
-With respect to $\theta$, only $\mathbf{u}$ depends on it, so $\frac{\partial\mathbf{e}_{CP}}{\partial\theta} = \sin\varphi\,\frac{d\mathbf{u}}{d\theta} = \sin\varphi\,\mathbf{e}_\theta$, which has length $\sin\varphi$:
-
-$$ \mathbf{e}_\theta = \frac{1}{\sin\varphi}\frac{\partial\mathbf{e}_{CP}}{\partial\theta} = -\cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1 $$
-
-The matrix with columns $\mathbf{e}_{CP}, \mathbf{e}_\theta, \mathbf{e}_\varphi$ in $\mathcal{B}_1$ is
-
-$$ [{}_1R_2] = \begin{pmatrix} \cos\varphi & 0 & -\sin\varphi \\ -\sin\varphi\sin\theta & -\cos\theta & -\cos\varphi\sin\theta \\ -\sin\varphi\cos\theta & \sin\theta & -\cos\varphi\cos\theta \end{pmatrix} $$
-
-Expanding along the first row: $\det[{}_1R_2] = \cos\varphi\left(\cos\varphi\cos^2\theta + \cos\varphi\sin^2\theta\right) - \sin\varphi\left(-\sin\varphi\sin^2\theta - \sin\varphi\cos^2\theta\right) = \cos^2\varphi + \sin^2\varphi = 1$. Each column has unit norm, and $\mathbf{e}_{CP}\cdot\mathbf{e}_\theta = \sin\varphi\sin\theta\cos\theta - \sin\varphi\cos\theta\sin\theta = 0$, $\mathbf{e}_{CP}\cdot\mathbf{e}_\varphi = -\cos\varphi\sin\varphi + \sin\varphi\cos\varphi\left(\sin^2\theta + \cos^2\theta\right) = 0$, $\mathbf{e}_\theta\cdot\mathbf{e}_\varphi = \cos\theta\cos\varphi\sin\theta - \sin\theta\cos\varphi\cos\theta = 0$, so $[{}_1R_2][{}_1R_2]^T = I$ and $\mathbf{e}_{CP}\times\mathbf{e}_\theta = \mathbf{e}_\varphi$.
-
-**Derivatives of $\mathcal{B}_2$ in $S_1$** (chain rule, $\tfrac{d}{dt}\mathbf{e}(\varphi(t), \theta(t)) = \tfrac{\partial\mathbf{e}}{\partial\varphi}\dot\varphi + \tfrac{\partial\mathbf{e}}{\partial\theta}\dot\theta$, with $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ constant in $S_1$). Using $\partial\mathbf{e}_\varphi/\partial\varphi = \cos\varphi\,(-\mathbf{i}_1) + \sin\varphi\sin\theta\,\mathbf{j}_1 + \sin\varphi\cos\theta\,\mathbf{k}_1 = -\mathbf{e}_{CP}$, $\partial\mathbf{e}_\varphi/\partial\theta = -\cos\varphi\cos\theta\,\mathbf{j}_1 + \cos\varphi\sin\theta\,\mathbf{k}_1 = \cos\varphi\,\mathbf{e}_\theta$ and $\partial\mathbf{e}_\theta/\partial\theta = \sin\theta\,\mathbf{j}_1 + \cos\theta\,\mathbf{k}_1 = -\left(\sin\varphi\,\mathbf{e}_{CP} + \cos\varphi\,\mathbf{e}_\varphi\right)$:
-
-$$ \left.\frac{d\mathbf{e}_{CP}}{dt}\right|_1 = \dot\varphi\,\mathbf{e}_\varphi + \dot\theta\sin\varphi\,\mathbf{e}_\theta, \qquad \left.\frac{d\mathbf{e}_\varphi}{dt}\right|_1 = -\dot\varphi\,\mathbf{e}_{CP} + \dot\theta\cos\varphi\,\mathbf{e}_\theta, \qquad \left.\frac{d\mathbf{e}_\theta}{dt}\right|_1 = -\dot\theta\left(\sin\varphi\,\mathbf{e}_{CP} + \cos\varphi\,\mathbf{e}_\varphi\right) $$
-
-**Position of $P$ in $S_1$.** To go from $O$ to $P$ we pass through the contact point, which is on the bar: $\overrightarrow{OP} = \overrightarrow{OC} + \overrightarrow{CP}$, with $\overrightarrow{OC} = \xi\,\mathbf{i}_1$ (the dimension $\xi$ of the drawing) and $\overrightarrow{CP} = \ell\,\mathbf{e}_{CP}$:
-
-$$ \mathbf{r}_1^P = \xi\,\mathbf{i}_1 + \ell\,\mathbf{e}_{CP} = (\xi + \ell\cos\varphi)\,\mathbf{i}_1 - \ell\sin\varphi\sin\theta\,\mathbf{j}_1 - \ell\sin\varphi\cos\theta\,\mathbf{k}_1 $$
+> [!derivation] Derivatives of the string basis in S1
+> **Law:** chain rule on unit vectors that depend on two angles; $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ constant in $S_1$
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 3.7
+>
+> $$\begin{aligned}
+> \frac{\partial\mathbf e_\varphi}{\partial\varphi} &= -\cos\varphi\,\mathbf i_1 - \sin\varphi\,\mathbf u = -\mathbf e_{CP}, \quad \frac{\partial\mathbf e_\varphi}{\partial\theta} = \cos\varphi\,\mathbf e_\theta \quad &\text{(component by component)} \\
+> \frac{d\mathbf e_\theta}{d\theta} &= \sin\theta\,\mathbf j_1 + \cos\theta\,\mathbf k_1 = -\mathbf u = -\left(\sin\varphi\,\mathbf e_{CP} + \cos\varphi\,\mathbf e_\varphi\right) \quad &\text{($\sin\varphi\,\mathbf e_{CP} + \cos\varphi\,\mathbf e_\varphi = \mathbf u$)} \\
+> \left.\frac{d\mathbf e_{CP}}{dt}\right|_1 &= \frac{\partial\mathbf e_{CP}}{\partial\varphi}\dot\varphi + \frac{\partial\mathbf e_{CP}}{\partial\theta}\dot\theta = \dot\varphi\,\mathbf e_\varphi + \dot\theta\sin\varphi\,\mathbf e_\theta \quad &\text{(chain rule)} \\
+> \left.\frac{d\mathbf e_\varphi}{dt}\right|_1 &= -\dot\varphi\,\mathbf e_{CP} + \dot\theta\cos\varphi\,\mathbf e_\theta, \quad \left.\frac{d\mathbf e_\theta}{dt}\right|_1 = -\dot\theta\left(\sin\varphi\,\mathbf e_{CP} + \cos\varphi\,\mathbf e_\varphi\right) \quad &\text{(chain rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot{\mathbf e}_{CP} = \dot\varphi\,\mathbf e_\varphi + \dot\theta\sin\varphi\,\mathbf e_\theta, \quad \dot{\mathbf e}_\varphi = -\dot\varphi\,\mathbf e_{CP} + \dot\theta\cos\varphi\,\mathbf e_\theta, \quad \dot{\mathbf e}_\theta = -\dot\theta\left(\sin\varphi\,\mathbf e_{CP} + \cos\varphi\,\mathbf e_\varphi\right) \quad (\text{in } S_1)}$$
+>
+> **Units:** $[\dot\varphi] = [\dot\theta] = [\mathrm{T^{-1}}]$
+> **Meaning:** the string basis turns with the rates of the two angles, as a spherical basis does.
 
 ### Kinematics
 
-##### (a) Position and velocity of $A$ in $S_1$
-* **Pedagogical Justification:** $A$ is fixed in $S_0$; its coordinates in $S_1$ were obtained above from the top view and from $\mathbf{r}_1^A = [{}_0R_1]^T\mathbf{r}_0^A$; its relative velocity is the derivative of those coordinates in $S_1$.
+> [!derivation] Motion of the bar frame and derivatives of its unit vectors
+> **Law:** angular velocity of a simple rotation; derivative of a unit vector of a turning basis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.4; Notes.pdf, Eq. 3.5; Notes.pdf, Eq. 3.9
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \omega\,\mathbf k_1, \quad \boldsymbol\alpha_{10} = \mathbf 0, \quad \mathbf v_0^O = \mathbf a_0^O = \mathbf 0 \quad &\text{(rotation about the fixed vertical through $O$; $\omega$ constant)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \omega\,\mathbf k_1\times\mathbf i_1 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = \omega\,\mathbf k_1\times\mathbf j_1 = -\omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0 \quad &\text{(Eq. 3.3 to 3.5)} \\
+> \frac{d}{dt}\left(\cos\omega t\,\mathbf i_0 + \sin\omega t\,\mathbf j_0\right) &= -\omega\sin\omega t\,\mathbf i_0 + \omega\cos\omega t\,\mathbf j_0 = \omega\,\mathbf j_1 \quad &\text{(check: chain rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{10} = \omega\,\mathbf k_1, \quad \left.\frac{d\mathbf i_1}{dt}\right|_0 = \omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = -\omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0}$$
+>
+> **Units:** $[\omega] = [\mathrm{T^{-1}}]$
+> **Meaning:** in $S_1$ the bar is a fixed line; in $S_0$ its basis turns at the constant rate.
 
-$$ \boxed{\mathbf{r}_1^A = R\cos\omega t\,\mathbf{i}_1 - R\sin\omega t\,\mathbf{j}_1 + h\,\mathbf{k}_1} $$
+#### (a) Position and velocity of A in S1
 
-With the chain rule $\tfrac{d}{dt}\cos\omega t = -\omega\sin\omega t$ and $\tfrac{d}{dt}\sin\omega t = \omega\cos\omega t$:
+> [!derivation] Velocity of the anchor seen from the bar
+> **Law:** time derivative in $S_1$; check with the composition of velocities for a point fixed in $S_0$
+> **Source:** Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.26; Problems.pdf, p. 24
+>
+> $$\begin{aligned}
+> \mathbf v_1^A &= \left.\frac{d\mathbf r_1^A}{dt}\right|_1 = -R\omega\sin\omega t\,\mathbf i_1 - R\omega\cos\omega t\,\mathbf j_1 \quad &\text{(chain rule on $\cos\omega t$ and $\sin\omega t$; $h$ constant)} \\
+> \boldsymbol\omega_{10}\times\mathbf r_1^A &= \omega\,\mathbf k_1\times\left(R\cos\omega t\,\mathbf i_1 - R\sin\omega t\,\mathbf j_1 + h\,\mathbf k_1\right) = R\omega\cos\omega t\,\mathbf j_1 + R\omega\sin\omega t\,\mathbf i_1 \quad &\text{($\mathbf k_1\times\mathbf i_1 = \mathbf j_1$, $\mathbf k_1\times\mathbf j_1 = -\mathbf i_1$)} \\
+> \mathbf v_0^A &= \mathbf v_0^O + \mathbf v_1^A + \boldsymbol\omega_{10}\times\mathbf r_1^A = \mathbf 0 \quad &\text{(Eq. 3.26: $A$ is fixed in $S_0$, as it must be)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^A = R\cos\omega t\,\mathbf i_1 - R\sin\omega t\,\mathbf j_1 + h\,\mathbf k_1, \qquad \mathbf v_1^A = -R\omega\sin\omega t\,\mathbf i_1 - R\omega\cos\omega t\,\mathbf j_1}$$
+>
+> **Units:** $[R\omega] = [\mathrm{L\,T^{-1}}]$
+> **Meaning:** in $S_1$ the anchor goes round its circle with the angular velocity minus $\omega$ about the vertical: the end of the string moves in the frame of the bar.
 
-$$ \boxed{\mathbf{v}_1^A = \left.\frac{d\mathbf{r}_1^A}{dt}\right|_1 = -R\omega\sin\omega t\,\mathbf{i}_1 - R\omega\cos\omega t\,\mathbf{j}_1} $$
+#### (b) Position, velocity and acceleration of P in S1
 
-Check with the velocity composition (Notes Eq. 3.26): $\mathbf{0} = \mathbf{v}_0^A = \mathbf{v}_1^A + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^A$, and $\omega\mathbf{k}_1\times\mathbf{r}_1^A = R\omega\cos\omega t\,\mathbf{j}_1 + R\omega\sin\omega t\,\mathbf{i}_1 = -\mathbf{v}_1^A$. In $S_1$, $A$ describes a circle of radius $R$ at height $h$ with angular velocity $-\omega$.
+> [!derivation] Relative velocity and relative acceleration of P
+> **Law:** time derivatives in $S_1$; product rule; derivatives of the string basis
+> **Source:** Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.24; Problems.pdf, p. 24
+>
+> $$\begin{aligned}
+> \mathbf v_1^P &= \dot\xi\,\mathbf i_1 + \dot\ell\,\mathbf e_{CP} + \ell\left(\dot\varphi\,\mathbf e_\varphi + \dot\theta\sin\varphi\,\mathbf e_\theta\right) \quad &\text{(product rule on $\ell\,\mathbf e_{CP}$)} \\
+> \frac{d}{dt}\left(\dot\ell\,\mathbf e_{CP}\right) &= \ddot\ell\,\mathbf e_{CP} + \dot\ell\dot\varphi\,\mathbf e_\varphi + \dot\ell\dot\theta\sin\varphi\,\mathbf e_\theta \quad &\text{(product rule)} \\
+> \frac{d}{dt}\left(\ell\dot\varphi\,\mathbf e_\varphi\right) &= \left(\dot\ell\dot\varphi + \ell\ddot\varphi\right)\mathbf e_\varphi - \ell\dot\varphi^2\,\mathbf e_{CP} + \ell\dot\varphi\dot\theta\cos\varphi\,\mathbf e_\theta \quad &\text{(product rule)} \\
+> \frac{d}{dt}\left(\ell\dot\theta\sin\varphi\,\mathbf e_\theta\right) &= \left(\dot\ell\dot\theta\sin\varphi + \ell\ddot\theta\sin\varphi + \ell\dot\theta\dot\varphi\cos\varphi\right)\mathbf e_\theta - \ell\dot\theta^2\sin\varphi\left(\sin\varphi\,\mathbf e_{CP} + \cos\varphi\,\mathbf e_\varphi\right) \quad &\text{(product rule on three factors)} \\
+> \mathbf a_1^P &= \ddot\xi\,\mathbf i_1 + \text{the three lines above, collected along } \mathbf e_{CP},\ \mathbf e_\varphi,\ \mathbf e_\theta \quad &\text{(sum)} \\
+> v_x &= \dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi \quad &\text{(derivative of the first component of $\mathbf r_1^P$; product and chain rules)} \\
+> v_y &= -\left(\dot\ell\sin\varphi\sin\theta + \ell\dot\varphi\cos\varphi\sin\theta + \ell\dot\theta\sin\varphi\cos\theta\right) \quad &\text{(second component)} \\
+> v_z &= -\left(\dot\ell\sin\varphi\cos\theta + \ell\dot\varphi\cos\varphi\cos\theta - \ell\dot\theta\sin\varphi\sin\theta\right) \quad &\text{(third component)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf r_1^P = \xi\,\mathbf i_1 + \ell\,\mathbf e_{CP}, \qquad \mathbf v_1^P = \dot\xi\,\mathbf i_1 + \dot\ell\,\mathbf e_{CP} + \ell\dot\varphi\,\mathbf e_\varphi + \ell\dot\theta\sin\varphi\,\mathbf e_\theta, \cr \mathbf a_1^P = \ddot\xi\,\mathbf i_1 + \left(\ddot\ell - \ell\dot\varphi^2 - \ell\dot\theta^2\sin^2\varphi\right)\mathbf e_{CP} + \left(\ell\ddot\varphi + 2\dot\ell\dot\varphi - \ell\dot\theta^2\sin\varphi\cos\varphi\right)\mathbf e_\varphi + \left(\ell\ddot\theta\sin\varphi + 2\dot\ell\dot\theta\sin\varphi + 2\ell\dot\theta\dot\varphi\cos\varphi\right)\mathbf e_\theta \end{gathered}}$$
+>
+> **Units:** $[\dot\xi] = [\ell\dot\varphi] = [\mathrm{L\,T^{-1}}]$; $[\ddot\xi] = [\ell\dot\theta^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the acceleration along the bar of the moving centre $C$ plus the spherical acceleration about it; the components of the velocity in $\mathcal B_1$ are listed in the last three rows.
 
-##### (b) Position, velocity and acceleration of $P$ in $S_1$
-* **Pedagogical Justification:** $\overrightarrow{OP} = \overrightarrow{OC} + \overrightarrow{CP}$ with $\overrightarrow{OC} = \xi\,\mathbf{i}_1$ along the bar and $\overrightarrow{CP} = \ell\,\mathbf{e}_{CP}$. Derivatives are taken in $S_1$ with the product rule and the basis derivatives of the change-of-basis section.
+> [!derivation] Absolute acceleration of P: centripetal and Coriolis terms
+> **Law:** time derivative in $S_0$ of a vector written in the turning basis; product rule
+> **Source:** Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.21; Notes.pdf, Eq. 3.22; Notes.pdf, Eq. 3.23; Notes.pdf, Eq. 3.27; [Lecture 5, Slide 24]; [Lecture 5, Slide 25]
+>
+> Write the position in $\mathcal B_1$ as $x\,\mathbf i_1 + y\,\mathbf j_1 + z\,\mathbf k_1$, with the components of the boxed position; their time derivatives are $v_x$, $v_y$, $v_z$.
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \dot x\,\mathbf i_1 + \dot y\,\mathbf j_1 + \dot z\,\mathbf k_1 + x\,\omega\,\mathbf j_1 - y\,\omega\,\mathbf i_1 = \mathbf v_1^P + \omega\left(x\,\mathbf j_1 - y\,\mathbf i_1\right) \quad &\text{(product rule; derivatives of $\mathbf i_1$, $\mathbf j_1$)} \\
+> \left.\frac{d\mathbf v_1^P}{dt}\right|_0 &= \mathbf a_1^P + \omega\left(v_x\,\mathbf j_1 - v_y\,\mathbf i_1\right) \quad &\text{(product rule; the turning of $\mathbf i_1$, $\mathbf j_1$ inside $\mathbf v_1^P$)} \\
+> \left.\frac{d}{dt}\right|_0\left[\omega\left(x\,\mathbf j_1 - y\,\mathbf i_1\right)\right] &= \omega\left(v_x\,\mathbf j_1 - v_y\,\mathbf i_1\right) + \omega^2\left(-x\,\mathbf i_1 - y\,\mathbf j_1\right) \quad &\text{(product rule; derivatives of $\mathbf j_1$, $\mathbf i_1$)} \\
+> 2\,\boldsymbol\omega_{10}\times\mathbf v_1^P &= 2\omega\,\mathbf k_1\times\left(v_x\,\mathbf i_1 + v_y\,\mathbf j_1 + v_z\,\mathbf k_1\right) = 2\omega\left(v_x\,\mathbf j_1 - v_y\,\mathbf i_1\right) \quad &\text{(the two equal terms: Coriolis)} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) &= \omega\,\mathbf k_1\times\omega\left(x\,\mathbf j_1 - y\,\mathbf i_1\right) = -\omega^2\left(x\,\mathbf i_1 + y\,\mathbf j_1\right) \quad &\text{(the last term: centripetal)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \mathbf a_1^P - \omega^2\left(x\,\mathbf i_1 + y\,\mathbf j_1\right) + 2\omega\left(v_x\,\mathbf j_1 - v_y\,\mathbf i_1\right)}$$
+>
+> **Units:** $[\omega^2x] = [\omega v_x] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** the centripetal term points horizontally to the axis of the bar; the Coriolis term is horizontal and normal to the horizontal part of the relative velocity.
 
-**Position** (built step by step in the previous section):
+#### (c) AC, l and phi as functions of xi and time
 
-$$ \boxed{\mathbf{r}_1^P = \xi\,\mathbf{i}_1 + \ell\,\mathbf{e}_{CP} = (\xi + \ell\cos\varphi)\,\mathbf{i}_1 - \ell\sin\varphi\sin\theta\,\mathbf{j}_1 - \ell\sin\varphi\cos\theta\,\mathbf{k}_1} $$
+> [!derivation] Length AC and length l
+> **Law:** distance between two points; constant length of the string
+> **Source:** Notes.pdf, Eq. 2.5; Problems.pdf, p. 24
+>
+> $$\begin{aligned}
+> \overrightarrow{AC} &= \mathbf r_1^C - \mathbf r_1^A = \left(\xi - R\cos\omega t\right)\mathbf i_1 + R\sin\omega t\,\mathbf j_1 - h\,\mathbf k_1 \quad &\text{($\mathbf r_1^C = \xi\,\mathbf i_1$; part (a))} \\
+> D^2 &= \left(\xi - R\cos\omega t\right)^2 + R^2\sin^2\omega t + h^2 = \xi^2 - 2R\xi\cos\omega t + R^2\left(\cos^2\omega t + \sin^2\omega t\right) + h^2 \quad &\text{(square expanded)} \\
+> \ell &= L - D \quad &\text{(string of constant length)}
+> \end{aligned}$$
+>
+> $$\boxed{AC = D = \sqrt{\xi^2 - 2R\xi\cos\omega t + R^2 + h^2}, \qquad \ell = L - \sqrt{\xi^2 - 2R\xi\cos\omega t + R^2 + h^2}}$$
+>
+> **Units:** $[D] = [\ell] = [\mathrm{L}]$
+> **Meaning:** the cosine law in the triangle $OA'C$ plus the height: as the anchor falls behind the bar, $AC$ grows and the hanging part shortens.
 
-**Velocity.** Product rule, $\tfrac{d}{dt}(\ell\,\mathbf{e}_{CP}) = \dot\ell\,\mathbf{e}_{CP} + \ell\left(\dot\varphi\,\mathbf{e}_\varphi + \dot\theta\sin\varphi\,\mathbf{e}_\theta\right)$:
+![[attachments/EM-SOL/p36-contact.svg]]
 
-$$ \boxed{\mathbf{v}_1^P = \dot\xi\,\mathbf{i}_1 + \dot\ell\,\mathbf{e}_{CP} + \ell\dot\varphi\,\mathbf{e}_\varphi + \ell\dot\theta\sin\varphi\,\mathbf{e}_\theta} $$
+> [!derivation] Angle phi from the frictionless contact
+> **Law:** equilibrium of the massless piece of string at $C$; smooth contact: the bar pushes normal to itself
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Eq. 6.16; Problems.pdf, p. 24
+>
+> Without friction the tension is the same on both sides of $C$. The piece of string at $C$ is massless, so the two pulls and the push $\mathbf N_b$ of the bar add up to zero, and $\mathbf N_b$ has no component along the bar.
+>
+> $$\begin{aligned}
+> T\,\mathbf e_{CA} + T\,\mathbf e_{CP} + \mathbf N_b &= \mathbf 0, \quad \mathbf N_b\cdot\mathbf i_1 = 0 \quad &\text{(equilibrium; smooth bar)} \\
+> \mathbf e_{CP}\cdot\mathbf i_1 &= -\mathbf e_{CA}\cdot\mathbf i_1 = \frac{\overrightarrow{AC}\cdot\mathbf i_1}{D} \quad &\text{(projection on $\mathbf i_1$; $\mathbf e_{CA} = -\overrightarrow{AC}/D$)} \\
+> \cos\varphi &= \frac{\xi - R\cos\omega t}{D}, \quad \sin\varphi = \sqrt{1 - \cos^2\varphi} = \frac{\sqrt{R^2\sin^2\omega t + h^2}}{D} \quad &\text{($\varphi$ in $(0, \pi)$: positive sine; $D^2$ of the box above)}
+> \end{aligned}$$
+>
+> $$\boxed{\varphi = \arccos\frac{\xi - R\cos\omega t}{\sqrt{\xi^2 - 2R\xi\cos\omega t + R^2 + h^2}}}$$
+>
+> **Units:** $[\cos\varphi] = [\mathrm{L}]/[\mathrm{L}] = [1]$
+> **Meaning:** the two segments make equal angles with the bar, on opposite sides of the plane normal to it: the string passes over the bar like a light ray reflected by a mirror. The bar pushes the string only across itself.
 
-In $\mathcal{B}_1$ (differentiating each component; e.g. $\tfrac{d}{dt}(-\ell\sin\varphi\sin\theta) = -\dot\ell\sin\varphi\sin\theta - \ell\dot\varphi\cos\varphi\sin\theta - \ell\dot\theta\sin\varphi\cos\theta$):
-
-$$ \mathbf{v}_1^P = \left(\dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi\right)\mathbf{i}_1 - \left(\dot\ell\sin\varphi\sin\theta + \ell\dot\varphi\cos\varphi\sin\theta + \ell\dot\theta\sin\varphi\cos\theta\right)\mathbf{j}_1 - \left(\dot\ell\sin\varphi\cos\theta + \ell\dot\varphi\cos\varphi\cos\theta - \ell\dot\theta\sin\varphi\sin\theta\right)\mathbf{k}_1 $$
-
-**Acceleration.** Differentiate term by term:
-
-* $\tfrac{d}{dt}(\dot\xi\,\mathbf{i}_1) = \ddot\xi\,\mathbf{i}_1$;
-* $\tfrac{d}{dt}(\dot\ell\,\mathbf{e}_{CP}) = \ddot\ell\,\mathbf{e}_{CP} + \dot\ell\dot\varphi\,\mathbf{e}_\varphi + \dot\ell\dot\theta\sin\varphi\,\mathbf{e}_\theta$;
-* $\tfrac{d}{dt}(\ell\dot\varphi\,\mathbf{e}_\varphi) = (\dot\ell\dot\varphi + \ell\ddot\varphi)\,\mathbf{e}_\varphi + \ell\dot\varphi\left(-\dot\varphi\,\mathbf{e}_{CP} + \dot\theta\cos\varphi\,\mathbf{e}_\theta\right)$;
-* $\tfrac{d}{dt}(\ell\dot\theta\sin\varphi\,\mathbf{e}_\theta) = \left(\dot\ell\dot\theta\sin\varphi + \ell\ddot\theta\sin\varphi + \ell\dot\theta\dot\varphi\cos\varphi\right)\mathbf{e}_\theta - \ell\dot\theta^2\sin\varphi\left(\sin\varphi\,\mathbf{e}_{CP} + \cos\varphi\,\mathbf{e}_\varphi\right)$.
-
-Collecting along each unit vector:
-
-$$ \boxed{\mathbf{a}_1^P = \ddot\xi\,\mathbf{i}_1 + \left(\ddot\ell - \ell\dot\varphi^2 - \ell\dot\theta^2\sin^2\varphi\right)\mathbf{e}_{CP} + \left(\ell\ddot\varphi + 2\dot\ell\dot\varphi - \ell\dot\theta^2\sin\varphi\cos\varphi\right)\mathbf{e}_\varphi + \left(\ell\ddot\theta\sin\varphi + 2\dot\ell\dot\theta\sin\varphi + 2\ell\dot\theta\dot\varphi\cos\varphi\right)\mathbf{e}_\theta} $$
-
-with $\mathbf{e}_{CP}, \mathbf{e}_\varphi, \mathbf{e}_\theta$ given in $\mathcal{B}_1$ in the change-of-basis section. The bracketed terms are the spherical-coordinate acceleration of $P$ about the moving centre $C$, plus the acceleration $\ddot\xi\,\mathbf{i}_1$ of the centre along the bar. Time enters through $\xi$, $\ell$, $\varphi$, $\theta$ only; the explicit time dependence appears when $\ell$ and $\varphi$ are replaced by the constraints of part (c).
-
-##### (c) $AC$, $\ell$ and $\varphi$ as functions of $\xi$ and $t$
-* **Pedagogical Justification:** The string has constant length, which gives $\ell$. The angle $\varphi$ follows from the frictionless contact: the massless piece of string at $C$ must be in equilibrium under the two tensions and the bar's reaction, which has no component along the bar.
-
-**Vector $\overrightarrow{AC}$:** with $\mathbf{r}_1^C = \xi\,\mathbf{i}_1$ and part (a),
-
-$$ \boxed{\overrightarrow{AC} = \mathbf{r}_1^C - \mathbf{r}_1^A = (\xi - R\cos\omega t)\,\mathbf{i}_1 + R\sin\omega t\,\mathbf{j}_1 - h\,\mathbf{k}_1} $$
-$$ AC^2 = (\xi - R\cos\omega t)^2 + R^2\sin^2\omega t + h^2 = \xi^2 - 2R\xi\cos\omega t + R^2\left(\cos^2\omega t + \sin^2\omega t\right) + h^2 \quad\Longrightarrow\quad \boxed{AC = \sqrt{\xi^2 - 2R\xi\cos\omega t + R^2 + h^2}} $$
-
-**Length $\ell$.** $AC + CP = L$:
-
-$$ \boxed{\ell = L - \sqrt{\xi^2 - 2R\xi\cos\omega t + R^2 + h^2}} $$
-
-**Angle $\varphi$.** With no friction the tension is the same, $T$, on both sides of $C$. Equilibrium of the massless string element at $C$: $T\,\mathbf{e}_{CA} + T\,\mathbf{e}_{CP} + \mathbf{N}_b = \mathbf{0}$ with $\mathbf{N}_b\cdot\mathbf{i}_1 = 0$. Projecting on $\mathbf{i}_1$: $\mathbf{e}_{CP}\cdot\mathbf{i}_1 = -\mathbf{e}_{CA}\cdot\mathbf{i}_1$, where $\mathbf{e}_{CA} = -\overrightarrow{AC}/AC$. Hence
-
-$$ \cos\varphi = \frac{\xi - R\cos\omega t}{AC} \quad\Longrightarrow\quad \boxed{\varphi = \arccos\frac{\xi - R\cos\omega t}{\sqrt{\xi^2 - 2R\xi\cos\omega t + R^2 + h^2}}}, \qquad \sin\varphi = \frac{\sqrt{R^2\sin^2\omega t + h^2}}{AC} $$
-
-($\varphi \in (0, \pi)$, so $\sin\varphi \gt 0$). The two segments make equal angles with the bar, on opposite sides of the plane perpendicular to it. (Extension: this is also the condition for the path $A \to C \to P$ to be the shortest one for fixed $P$, $\tfrac{\partial}{\partial\xi}(AC + CP) = \cos\angle(\overrightarrow{AC}, \mathbf{i}_1) - \cos\varphi = 0$.)
-
-**Compact notation for part (e).** Let $q = \xi - R\cos\omega t$, $\rho = \sqrt{R^2\sin^2\omega t + h^2}$ and $D = AC = \sqrt{q^2 + \rho^2}$. Then $q = D\cos\varphi$, $\rho = D\sin\varphi$: $(D, \varphi)$ are the polar coordinates of the point $(q, \rho)$, and $\ell = L - D$. Their derivatives:
-
-* $\dot q = \dot\xi + R\omega\sin\omega t$ and $\ddot q = \ddot\xi + R\omega^2\cos\omega t$ (chain rule on $\cos\omega t$).
-* From $\rho^2 = R^2\sin^2\omega t + h^2$: $2\rho\dot\rho = 2R^2\omega\sin\omega t\cos\omega t$, so $\dot\rho = \dfrac{R^2\omega\sin 2\omega t}{2\rho}$. Differentiating $\rho\dot\rho = \tfrac12 R^2\omega\sin 2\omega t$ (product rule): $\dot\rho^2 + \rho\ddot\rho = R^2\omega^2\cos 2\omega t$, so $\ddot\rho = \dfrac{R^2\omega^2\cos 2\omega t - \dot\rho^2}{\rho}$.
-* Differentiating $q = D\cos\varphi$, $\rho = D\sin\varphi$: $\dot q = \dot D\cos\varphi - D\dot\varphi\sin\varphi$, $\dot\rho = \dot D\sin\varphi + D\dot\varphi\cos\varphi$. Solving this rotation-type system:
-$$ \dot D = \dot q\cos\varphi + \dot\rho\sin\varphi, \qquad D\dot\varphi = \dot\rho\cos\varphi - \dot q\sin\varphi $$
-* Differentiating once more, $\ddot q = (\ddot D - D\dot\varphi^2)\cos\varphi - (D\ddot\varphi + 2\dot D\dot\varphi)\sin\varphi$ and $\ddot\rho = (\ddot D - D\dot\varphi^2)\sin\varphi + (D\ddot\varphi + 2\dot D\dot\varphi)\cos\varphi$, so
-$$ \ddot D - D\dot\varphi^2 = \ddot q\cos\varphi + \ddot\rho\sin\varphi, \qquad D\ddot\varphi + 2\dot D\dot\varphi = \ddot\rho\cos\varphi - \ddot q\sin\varphi $$
-* Finally $\dot\ell = -\dot D$, $\ddot\ell = -\ddot D$. Since $\dot\rho\sin\varphi = \dfrac{R^2\omega\sin\omega t\cos\omega t}{\rho}\dfrac{\rho}{D}$ and $\cos\varphi = q/D$,
-$$ \dot\ell = -(\dot\xi + R\omega\sin\omega t)\frac{\xi - R\cos\omega t}{D} - \frac{R^2\omega\sin\omega t\cos\omega t}{D} \quad\Longrightarrow\quad \boxed{\dot\ell + \dot\xi\cos\varphi = -\frac{R\omega\,\xi\sin\omega t}{D}} $$
+> [!derivation] Partial derivatives of l and phi with respect to xi and t
+> **Law:** implicit differentiation of the two relations of part (c); chain rule
+> **Source:** Notes.pdf, Eq. 1.64; Problems.pdf, p. 24
+>
+> $$\begin{aligned}
+> 2D\frac{\partial D}{\partial\xi} &= 2\xi - 2R\cos\omega t \;\Rightarrow\; \frac{\partial D}{\partial\xi} = \cos\varphi, \quad \frac{\partial\ell}{\partial\xi} = -\cos\varphi \quad &\text{(derivative of $D^2$)} \\
+> 2D\frac{\partial D}{\partial t} &= 2R\xi\omega\sin\omega t \;\Rightarrow\; \frac{\partial\ell}{\partial t} = -\frac{R\omega\xi\sin\omega t}{D} \quad &\text{(chain rule on $\cos\omega t$)} \\
+> \dot\ell &= \frac{\partial\ell}{\partial\xi}\dot\xi + \frac{\partial\ell}{\partial t} = -\dot\xi\cos\varphi - \frac{R\omega\xi\sin\omega t}{D} \quad &\text{(chain rule)} \\
+> -\sin\varphi\,\frac{\partial\varphi}{\partial\xi} &= \frac{\partial}{\partial\xi}\left(\frac{\xi - R\cos\omega t}{D}\right) = \frac{D - \left(\xi - R\cos\omega t\right)\cos\varphi}{D^2} = \frac{1 - \cos^2\varphi}{D} \quad &\text{(quotient rule)} \\
+> \frac{\partial\varphi}{\partial\xi} &= -\frac{\sin\varphi}{D}, \quad \ddot\varphi = \frac{\partial\varphi}{\partial\xi}\ddot\xi + \left(\text{terms in } \xi,\ \dot\xi,\ t\right) \quad &\text{(chain rule twice: $\ddot\xi$ appears only through the first factor)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\ell + \dot\xi\cos\varphi = -\frac{R\omega\xi\sin\omega t}{D}, \qquad \frac{\partial\ell}{\partial\xi} = -\cos\varphi, \qquad \frac{\partial\varphi}{\partial\xi} = -\frac{\sin\varphi}{D}}$$
+>
+> **Units:** $[R\omega\xi/D] = [\mathrm{L\,T^{-1}}]$; $[\partial\varphi/\partial\xi] = [\mathrm{L^{-1}}]$
+> **Meaning:** the string pays out along $CP$ (the left side is the rate of the projection of the relative velocity on $\mathbf e_{CP}$) only because the anchor moves; with the anchor fixed in $S_1$ the right side would vanish.
 
 ### Forces and Equations of Motion
 
-##### (d) Forces acting on $P$
-* **Pedagogical Justification:** In the non-inertial frame $S_1$, $m\mathbf{a}_1^P = \mathbf{F} + \mathbf{F}_i$ (Notes Eqs. 4.62–4.63). The actual forces on $P$ are only the weight and the pull of the string (the bar touches the string, not $P$). The inertia forces are those of Slide 28 with $\mathbf{a}_0^O = \mathbf{0}$, $\boldsymbol{\alpha}_{10} = \mathbf{0}$, $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_1$.
+![[attachments/EM-SOL/p36-fbd.svg]]
 
-**Actual forces:**
+#### (d) Forces acting on P
 
-* Weight: $\mathbf{W} = -mg\,\mathbf{k}_1$.
-* Tension, along the string towards $C$: $\mathbf{T} = -T\,\mathbf{e}_{CP} = -T\cos\varphi\,\mathbf{i}_1 + T\sin\varphi\sin\theta\,\mathbf{j}_1 + T\sin\varphi\cos\theta\,\mathbf{k}_1$, with $T \gt 0$.
+> [!derivation] Actual and inertia forces on P
+> **Law:** weight; string pull along the string; inertia forces of a non-inertial frame
+> **Source:** Notes.pdf, Eq. 4.62; [Lecture 5, Slide 28]; [Lecture 5, Slide 30]; Problems.pdf, p. 24
+>
+> $$\begin{aligned}
+> \mathbf W &= -mg\,\mathbf k_1, \quad \mathbf T = -T\,\mathbf e_{CP} = -T\cos\varphi\,\mathbf i_1 + T\sin\varphi\sin\theta\,\mathbf j_1 + T\sin\varphi\cos\theta\,\mathbf k_1 \quad &\text{(weight; pull towards $C$, $T \gt 0$)} \\
+> \mathbf F_A &= -m\,\mathbf a_0^O = \mathbf 0, \quad \mathbf F_E = -m\,\boldsymbol\alpha_{10}\times\mathbf r_1^P = \mathbf 0 \quad &\text{($O$ fixed; $\omega$ constant)} \\
+> \mathbf F_C &= -m\,\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) = m\omega^2\left(x\,\mathbf i_1 + y\,\mathbf j_1\right) \quad &\text{(composition box times $-m$)} \\
+> \mathbf F_{COR} &= -2m\,\boldsymbol\omega_{10}\times\mathbf v_1^P = 2m\omega v_y\,\mathbf i_1 - 2m\omega v_x\,\mathbf j_1 \quad &\text{(composition box times $-m$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf W = -mg\,\mathbf k_1, \quad \mathbf T = -T\,\mathbf e_{CP}, \quad \mathbf F_C = m\omega^2\left(\xi + \ell\cos\varphi\right)\mathbf i_1 - m\omega^2\ell\sin\varphi\sin\theta\,\mathbf j_1, \cr \mathbf F_{COR} = -2m\omega\left(\dot\ell\sin\varphi\sin\theta + \ell\dot\varphi\cos\varphi\sin\theta + \ell\dot\theta\sin\varphi\cos\theta\right)\mathbf i_1 - 2m\omega\left(\dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi\right)\mathbf j_1 \end{gathered}}$$
+>
+> **Units:** $[mg] = [m\omega^2\xi] = [m\omega\dot\xi] = [T] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** two actual forces (weight and string) and two inertia forces, both horizontal: the centrifugal force away from the axis, the Coriolis force normal to the horizontal relative velocity.
 
-**Inertia forces:** write $\mathbf{r}_1^P = x\,\mathbf{i}_1 + y\,\mathbf{j}_1 + z\,\mathbf{k}_1$ with $x = \xi + \ell\cos\varphi$, $y = -\ell\sin\varphi\sin\theta$, and $\mathbf{v}_1^P = v_x\mathbf{i}_1 + v_y\mathbf{j}_1 + v_z\mathbf{k}_1$ from part (b). With $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$, $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$:
+#### (e) Equations of motion
 
-* Origin and Euler: $\mathbf{F}_A = -m\mathbf{a}_0^O = \mathbf{0}$, $\mathbf{F}_E = -m\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P = \mathbf{0}$.
-* Centrifugal: $\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P = \omega\left(x\,\mathbf{j}_1 - y\,\mathbf{i}_1\right)$, $\boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) = \omega^2\left(-x\,\mathbf{i}_1 - y\,\mathbf{j}_1\right)$, so (Slide 30, $\mathbf{r}_\perp = x\,\mathbf{i}_1 + y\,\mathbf{j}_1$)
-$$ \boxed{\mathbf{F}_C = m\omega^2(\xi + \ell\cos\varphi)\,\mathbf{i}_1 - m\omega^2\ell\sin\varphi\sin\theta\,\mathbf{j}_1} $$
-* Coriolis: $\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P = \omega\left(v_x\,\mathbf{j}_1 - v_y\,\mathbf{i}_1\right)$, so $\mathbf{F}_{COR} = -2m\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P = 2m\omega v_y\,\mathbf{i}_1 - 2m\omega v_x\,\mathbf{j}_1$:
-$$ \boxed{\mathbf{F}_{COR} = -2m\omega\left(\dot\ell\sin\varphi\sin\theta + \ell\dot\varphi\cos\varphi\sin\theta + \ell\dot\theta\sin\varphi\cos\theta\right)\mathbf{i}_1 - 2m\omega\left(\dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi\right)\mathbf{j}_1} $$
+> [!derivation] Projections of each force on the string basis
+> **Law:** scalar products with the columns of $[{}_1R_2]$
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 4.63
+>
+> From the columns of $[{}_1R_2]$: the projections of $\mathbf i_1$ on $\mathbf e_{CP}$, $\mathbf e_\varphi$, $\mathbf e_\theta$ are the cosine, minus the sine and 0; those of $\mathbf j_1$ are $-\sin\varphi\sin\theta$, $-\cos\varphi\sin\theta$ and $-\cos\theta$; those of $\mathbf k_1$ are $-\sin\varphi\cos\theta$, $-\cos\varphi\cos\theta$ and $\sin\theta$. In the Coriolis projections the terms in $\dot\varphi$ cancel along $\mathbf e_\varphi$ and the terms in $\dot\ell$ cancel along $\mathbf e_{CP}$.
+>
+> $$\begin{aligned}
+> \mathbf W\cdot\mathbf e_\theta &= -mg\sin\theta, \quad \mathbf W\cdot\mathbf e_\varphi = mg\cos\varphi\cos\theta, \quad \mathbf W\cdot\mathbf e_{CP} = mg\sin\varphi\cos\theta \quad &\text{(third row of $[{}_1R_2]$ times $-mg$)} \\
+> \mathbf F_C\cdot\mathbf e_\theta &= m\omega^2\left(-y\cos\theta\right) = m\omega^2\ell\sin\varphi\sin\theta\cos\theta \quad &\text{($\mathbf i_1\cdot\mathbf e_\theta = 0$)} \\
+> \mathbf F_C\cdot\mathbf e_\varphi &= m\omega^2\left(-x\sin\varphi - y\cos\varphi\sin\theta\right) = -m\omega^2\sin\varphi\left(\xi + \ell\cos\varphi - \ell\cos\varphi\sin^2\theta\right) = -m\omega^2\sin\varphi\left(\xi + \ell\cos\varphi\cos^2\theta\right) \quad &\text{($1 - \sin^2\theta = \cos^2\theta$)} \\
+> \mathbf F_C\cdot\mathbf e_{CP} &= m\omega^2\left(x\cos\varphi - y\sin\varphi\sin\theta\right) = m\omega^2\left[\left(\xi + \ell\cos\varphi\right)\cos\varphi + \ell\sin^2\varphi\sin^2\theta\right] \quad &\text{(first column)} \\
+> \mathbf F_{COR}\cdot\mathbf e_\theta &= -2m\omega v_x\left(-\cos\theta\right) = 2m\omega\cos\theta\left(\dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi\right) \quad &\text{(second column)} \\
+> \mathbf F_{COR}\cdot\mathbf e_\varphi &= 2m\omega\left(-v_y\sin\varphi + v_x\cos\varphi\sin\theta\right) = 2m\omega\left[\sin\theta\left(\dot\ell + \dot\xi\cos\varphi\right) + \ell\dot\theta\sin^2\varphi\cos\theta\right] \quad &\text{($\sin^2\varphi + \cos^2\varphi = 1$)} \\
+> \mathbf F_{COR}\cdot\mathbf e_{CP} &= 2m\omega\left(v_y\cos\varphi + v_x\sin\varphi\sin\theta\right) = 2m\omega\left[\sin\theta\left(\dot\xi\sin\varphi - \ell\dot\varphi\right) - \ell\dot\theta\sin\varphi\cos\varphi\cos\theta\right] \quad &\text{(first column)} \\
+> \mathbf T\cdot\mathbf e_\theta &= \mathbf T\cdot\mathbf e_\varphi = 0, \quad \mathbf T\cdot\mathbf e_{CP} = -T \quad &\text{(string along $\mathbf e_{CP}$)} \\
+> m\,\mathbf a_1^P\cdot\mathbf e_\varphi &= m\left(\ell\ddot\varphi + 2\dot\ell\dot\varphi - \ell\dot\theta^2\sin\varphi\cos\varphi - \ddot\xi\sin\varphi\right), \quad m\,\mathbf a_1^P\cdot\mathbf e_{CP} = m\left(\ddot\ell - \ell\dot\varphi^2 - \ell\dot\theta^2\sin^2\varphi + \ddot\xi\cos\varphi\right) \quad &\text{($\ddot\xi\,\mathbf i_1$ projected)}
+> \end{aligned}$$
+>
+> $$\boxed{\text{every projection of } \mathbf W,\ \mathbf T,\ \mathbf F_C,\ \mathbf F_{COR} \text{ and } m\,\mathbf a_1^P \text{ on } \mathbf e_\theta,\ \mathbf e_\varphi,\ \mathbf e_{CP} \text{ as listed}}$$
+>
+> **Units:** every projection $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the tension appears only along $\mathbf e_{CP}$, so the two other projections are free of it.
 
-Both inertia forces agree with the official key.
-
-##### (e) Equations of motion
-* **Pedagogical Justification:** Project $m\mathbf{a}_1^P = \mathbf{W} + \mathbf{T} + \mathbf{F}_C + \mathbf{F}_{COR}$ on $\mathcal{B}_2$. The tension is along $\mathbf{e}_{CP}$, so the projections on $\mathbf{e}_\theta$ and $\mathbf{e}_\varphi$ are free of the unknown $T$: they are the two equations of motion for the two degrees of freedom $\xi$, $\theta$. The projection on $\mathbf{e}_{CP}$ then gives $T$.
-
-**Projections of each term** (using $\mathbf{i}_1\cdot\mathbf{e}_{CP} = \cos\varphi$, $\mathbf{i}_1\cdot\mathbf{e}_\varphi = -\sin\varphi$, $\mathbf{i}_1\cdot\mathbf{e}_\theta = 0$, and the components of the change-of-basis section):
-
-| Term | $\cdot\,\mathbf{e}_\theta$ | $\cdot\,\mathbf{e}_\varphi$ | $\cdot\,\mathbf{e}_{CP}$ |
-|---|---|---|---|
-| $\mathbf{a}_1^P$ (multiply by $m$) | $\ell\ddot\theta\sin\varphi + 2\dot\ell\dot\theta\sin\varphi + 2\ell\dot\theta\dot\varphi\cos\varphi$ | $\ell\ddot\varphi + 2\dot\ell\dot\varphi - \ddot\xi\sin\varphi - \ell\dot\theta^2\sin\varphi\cos\varphi$ | $\ddot\xi\cos\varphi + \ddot\ell - \ell\dot\varphi^2 - \ell\dot\theta^2\sin^2\varphi$ |
-| $\mathbf{W}$ | $-mg\sin\theta$ | $mg\cos\varphi\cos\theta$ | $mg\sin\varphi\cos\theta$ |
-| $\mathbf{T}$ | $0$ | $0$ | $-T$ |
-| $\mathbf{F}_C$ | $m\omega^2\ell\sin\varphi\sin\theta\cos\theta$ | $-m\omega^2\sin\varphi\left(\xi + \ell\cos\varphi\cos^2\theta\right)$ | $m\omega^2\left[(\xi + \ell\cos\varphi)\cos\varphi + \ell\sin^2\varphi\sin^2\theta\right]$ |
-| $\mathbf{F}_{COR}$ | $2m\omega\cos\theta\,v_x$ | $2m\omega\left[\sin\theta(\dot\ell + \dot\xi\cos\varphi) + \ell\dot\theta\sin^2\varphi\cos\theta\right]$ | $2m\omega\left[\sin\theta(\dot\xi\sin\varphi - \ell\dot\varphi) - \ell\dot\theta\sin\varphi\cos\varphi\cos\theta\right]$ |
-
-Details of the less obvious entries:
-
-* $\mathbf{F}_C\cdot\mathbf{e}_\varphi = m\omega^2\left[-x\sin\varphi - y\cos\varphi\sin\theta\right] = m\omega^2\left[-(\xi + \ell\cos\varphi)\sin\varphi + \ell\sin\varphi\cos\varphi\sin^2\theta\right] = -m\omega^2\sin\varphi\left[\xi + \ell\cos\varphi(1 - \sin^2\theta)\right]$.
-* $\mathbf{F}_{COR}\cdot\mathbf{e}_\varphi = 2m\omega\left[-v_y\sin\varphi + v_x\cos\varphi\sin\theta\right]$, where $-v_y\sin\varphi = \dot\ell\sin^2\varphi\sin\theta + \ell\dot\varphi\sin\varphi\cos\varphi\sin\theta + \ell\dot\theta\sin^2\varphi\cos\theta$ and $v_x\cos\varphi\sin\theta = \dot\xi\cos\varphi\sin\theta + \dot\ell\cos^2\varphi\sin\theta - \ell\dot\varphi\sin\varphi\cos\varphi\sin\theta$; the $\dot\varphi$ terms cancel and $\sin^2\varphi + \cos^2\varphi = 1$.
-* $\mathbf{F}_{COR}\cdot\mathbf{e}_{CP} = 2m\omega\left[v_y\cos\varphi + v_x\sin\varphi\sin\theta\right]$: the $\dot\ell$ terms cancel and the $\dot\varphi$ terms add up to $-\ell\dot\varphi\sin\theta\left(\cos^2\varphi + \sin^2\varphi\right)$.
-* $\mathbf{F}_{COR}\cdot\mathbf{e}_\theta = 2m\omega\left[-v_x\,(-\cos\theta)\right] = 2m\omega\cos\theta\,v_x$, with $v_x = \dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi$.
-
-**Equation along $\mathbf{e}_\theta$** (divided by $m$):
-
-$$ \boxed{\ell\sin\varphi\,\ddot\theta + 2\dot\ell\dot\theta\sin\varphi + 2\ell\dot\theta\dot\varphi\cos\varphi = -g\sin\theta + \omega^2\ell\sin\varphi\sin\theta\cos\theta + 2\omega\cos\theta\left(\dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi\right)} $$
-
-**Equation along $\mathbf{e}_\varphi$** (divided by $m$):
-
-$$ \boxed{\ell\ddot\varphi + 2\dot\ell\dot\varphi - \ddot\xi\sin\varphi - \ell\dot\theta^2\sin\varphi\cos\varphi = g\cos\varphi\cos\theta - \omega^2\sin\varphi\left(\xi + \ell\cos\varphi\cos^2\theta\right) + 2\omega\left[\sin\theta\left(\dot\ell + \dot\xi\cos\varphi\right) + \ell\dot\theta\sin^2\varphi\cos\theta\right]} $$
-
-**Closing the system.** $\ell$, $\varphi$ and their derivatives are the functions of $(\xi, \dot\xi, \ddot\xi, t)$ of part (c). In particular $\ell\ddot\varphi = \tfrac{\ell}{D}\left(\ddot\rho\cos\varphi - \ddot q\sin\varphi - 2\dot D\dot\varphi\right)$ with $\ddot q = \ddot\xi + R\omega^2\cos\omega t$, and $2\dot\ell\dot\varphi = -2\dot D\dot\varphi$, so with $\ell + D = L$ the left-hand side of the $\mathbf{e}_\varphi$ equation becomes
-
-$$ \ell\ddot\varphi + 2\dot\ell\dot\varphi - \ddot\xi\sin\varphi = -\frac{L}{D}\sin\varphi\,\ddot\xi + \frac{\ell}{D}\left(\ddot\rho\cos\varphi - R\omega^2\cos\omega t\sin\varphi\right) - \frac{2L}{D}\dot D\dot\varphi $$
-
-The coefficient of $\ddot\xi$, $-(L/D)\sin\varphi$, is non-zero while the string is bent ($\sin\varphi \gt 0$), so the $\mathbf{e}_\varphi$ equation gives $\ddot\xi$ and the $\mathbf{e}_\theta$ equation gives $\ddot\theta$: **two second-order ODEs for $\xi(t)$ and $\theta(t)$**, non-autonomous through $\omega t$ (the motion of $A$ in $S_1$). In the $\mathbf{e}_\varphi$ equation the Coriolis term can also be written with $\dot\ell + \dot\xi\cos\varphi = -R\omega\xi\sin\omega t/D$.
-
-**Tension** (projection on $\mathbf{e}_{CP}$, solved for $T$):
-
-$$ \boxed{T = -m\left(\ddot\xi\cos\varphi + \ddot\ell - \ell\dot\varphi^2 - \ell\dot\theta^2\sin^2\varphi\right) + mg\sin\varphi\cos\theta + m\omega^2\left[(\xi + \ell\cos\varphi)\cos\varphi + \ell\sin^2\varphi\sin^2\theta\right] + 2m\omega\left[\sin\theta\left(\dot\xi\sin\varphi - \ell\dot\varphi\right) - \ell\dot\theta\sin\varphi\cos\varphi\cos\theta\right]} $$
-
-The solution is valid while $T \gt 0$ (string tense).
+> [!derivation] Two equations of motion and the tension
+> **Law:** Newton's second law in a non-inertial frame projected on $\mathcal B_2$; elimination of $\ell$ and $\varphi$ through part (c)
+> **Source:** Notes.pdf, Eq. 4.63; [Lecture 5, Slide 28]; Problems.pdf, p. 24
+>
+> Three scalar equations for the three unknowns $\xi$, $\theta$ and $T$. In the $\mathbf e_\varphi$ equation the second derivative of $\xi$ appears in $-\ddot\xi\sin\varphi$ and, through the chain rule of part (c), in $\ell\ddot\varphi$; their sum has a coefficient that does not vanish while the string is bent.
+>
+> $$\begin{aligned}
+> \mathbf e_\theta:\ \ell\sin\varphi\,\ddot\theta + 2\dot\ell\dot\theta\sin\varphi + 2\ell\dot\theta\dot\varphi\cos\varphi &= -g\sin\theta + \omega^2\ell\sin\varphi\sin\theta\cos\theta + 2\omega\cos\theta\left(\dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi\right) \quad &\text{(divided by $m$)} \\
+> \mathbf e_\varphi:\ \ell\ddot\varphi + 2\dot\ell\dot\varphi - \ddot\xi\sin\varphi - \ell\dot\theta^2\sin\varphi\cos\varphi &= g\cos\varphi\cos\theta - \omega^2\sin\varphi\left(\xi + \ell\cos\varphi\cos^2\theta\right) + 2\omega\left[\sin\theta\left(\dot\ell + \dot\xi\cos\varphi\right) + \ell\dot\theta\sin^2\varphi\cos\theta\right] \quad &\text{(divided by $m$)} \\
+> \mathbf e_{CP}:\ m\left(\ddot\xi\cos\varphi + \ddot\ell - \ell\dot\varphi^2 - \ell\dot\theta^2\sin^2\varphi\right) &= -T + mg\sin\varphi\cos\theta + \mathbf F_C\cdot\mathbf e_{CP} + \mathbf F_{COR}\cdot\mathbf e_{CP} \quad &\text{(gives $T$)} \\
+> \ell\,\frac{\partial\varphi}{\partial\xi}\ddot\xi - \sin\varphi\,\ddot\xi &= -\left(\frac{\ell}{D} + 1\right)\sin\varphi\,\ddot\xi = -\frac{L}{D}\sin\varphi\,\ddot\xi \quad &\text{(coefficient of $\ddot\xi$ in the $\mathbf e_\varphi$ equation; $\ell + D = L$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \ell\sin\varphi\,\ddot\theta + 2\dot\ell\dot\theta\sin\varphi + 2\ell\dot\theta\dot\varphi\cos\varphi = -g\sin\theta + \omega^2\ell\sin\varphi\sin\theta\cos\theta + 2\omega\cos\theta\left(\dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi\right) \cr \ell\ddot\varphi + 2\dot\ell\dot\varphi - \ddot\xi\sin\varphi - \ell\dot\theta^2\sin\varphi\cos\varphi = g\cos\varphi\cos\theta - \omega^2\sin\varphi\left(\xi + \ell\cos\varphi\cos^2\theta\right) + 2\omega\left[\sin\theta\left(\dot\ell + \dot\xi\cos\varphi\right) + \ell\dot\theta\sin^2\varphi\cos\theta\right] \cr T = -m\left(\ddot\xi\cos\varphi + \ddot\ell - \ell\dot\varphi^2 - \ell\dot\theta^2\sin^2\varphi\right) + mg\sin\varphi\cos\theta + m\omega^2\left[\left(\xi + \ell\cos\varphi\right)\cos\varphi + \ell\sin^2\varphi\sin^2\theta\right] + 2m\omega\left[\sin\theta\left(\dot\xi\sin\varphi - \ell\dot\varphi\right) - \ell\dot\theta\sin\varphi\cos\varphi\cos\theta\right] \end{gathered}}$$
+>
+> **Units:** every term of the first two lines $[\mathrm{L\,T^{-2}}]$; $[T] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** with $\ell$, $\varphi$ and their derivatives replaced by the functions of $\xi$, its rate and time of part (c), the first two lines are two second-order equations for $\xi$ and $\theta$ (the coefficients of their second derivatives, $\ell\sin\varphi$ and minus $L$ over $D$ times the sine, are not zero while the string is bent), with time present explicitly through the motion of the anchor. The third gives the tension; the solution holds while it stays positive.
 
 ### Answers and Checks
 
-##### (a) Position and velocity of $A$
-$\mathbf{r}_1^A = R\cos\omega t\,\mathbf{i}_1 - R\sin\omega t\,\mathbf{j}_1 + h\,\mathbf{k}_1$ and $\mathbf{v}_1^A = -R\omega\sin\omega t\,\mathbf{i}_1 - R\omega\cos\omega t\,\mathbf{j}_1$: in $S_1$, $A$ goes round a circle of radius $R$ at height $h$ with angular velocity $-\omega$.
+#### (f) Initial conditions at t equal to zero
 
-##### (b) Position, velocity and acceleration of $P$
-$\mathbf{r}_1^P = \xi\,\mathbf{i}_1 + \ell\,\mathbf{e}_{CP}$, $\mathbf{v}_1^P = \dot\xi\,\mathbf{i}_1 + \dot\ell\,\mathbf{e}_{CP} + \ell\dot\varphi\,\mathbf{e}_\varphi + \ell\dot\theta\sin\varphi\,\mathbf{e}_\theta$ and $\mathbf{a}_1^P$ as boxed in the kinematics section, with $\mathbf{e}_{CP}, \mathbf{e}_\varphi, \mathbf{e}_\theta$ given in $\mathcal{B}_1$.
+> [!derivation] Initial position
+> **Law:** geometry at the instant of the impact
+> **Source:** Problems.pdf, p. 24
+>
+> At the start the bar lies along $\mathbf i_0$ and meets the vertical string at $A'$, directly below $A$; the particle hangs in the vertical plane $Ox_1z_1$.
+>
+> $$\begin{aligned}
+> \xi(0) &= R, \quad D(0) = \sqrt{R^2 - 2R^2 + R^2 + h^2} = h, \quad \ell(0) = L - h \quad &\text{(part (c) at $t = 0$)} \\
+> \cos\varphi(0) &= \frac{R - R}{h} = 0 \;\Rightarrow\; \varphi(0) = \tfrac{\pi}{2}, \quad \theta(0) = 0 \quad &\text{(string normal to the bar, hanging)} \\
+> \mathbf e_{CP}(0) &= -\mathbf k_1, \quad \mathbf e_\varphi(0) = -\mathbf i_1, \quad \mathbf e_\theta(0) = -\mathbf j_1, \quad \mathbf r_1^P(0) = R\,\mathbf i_1 - \left(L - h\right)\mathbf k_1 \quad &\text{(columns of $[{}_1R_2]$ at these angles)}
+> \end{aligned}$$
+>
+> $$\boxed{\xi(0) = R, \quad \theta(0) = 0 \qquad \left(\ell(0) = L - h,\ \varphi(0) = \tfrac{\pi}{2}\right)}$$
+>
+> **Units:** $[\xi] = [\ell] = [\mathrm{L}]$
+> **Meaning:** the particle is a depth $L - h$ below the bar, that is $L$ below the anchor.
 
-##### (c) $AC$, $\ell$ and $\varphi$
-$AC = \sqrt{\xi^2 - 2R\xi\cos\omega t + R^2 + h^2}$, $\ell = L - AC$ and $\cos\varphi = (\xi - R\cos\omega t)/AC$.
+> [!derivation] Initial rates
+> **Law:** continuity of the absolute velocity (no impulse); composition of velocities; the velocity of part (b) at the start
+> **Source:** Notes.pdf, Eq. 3.26; Problems.pdf, p. 24
+>
+> The particle is at rest in $S_0$ just before the impact. The string meets the bar at a right angle, so its path length grows only to second order in time ($\dot\ell(0)$ is zero below) and no impulsive tension acts: the absolute velocity stays zero. The velocity of part (b) is written at the start before the components are matched.
+>
+> $$\begin{aligned}
+> \mathbf v_1^P(0) &= \mathbf v_0^P(0) - \boldsymbol\omega_{10}\times\mathbf r_1^P(0) = \mathbf 0 - \omega\,\mathbf k_1\times\left[R\,\mathbf i_1 - \left(L - h\right)\mathbf k_1\right] = -\omega R\,\mathbf j_1 \quad &\text{(Eq. 3.26 with $\mathbf v_0^O$ zero)} \\
+> \mathbf v_1^P(0) &= \dot\xi\,\mathbf i_1 + \dot\ell\left(-\mathbf k_1\right) + \left(L - h\right)\dot\varphi\left(-\mathbf i_1\right) + \left(L - h\right)\dot\theta\left(-\mathbf j_1\right) \quad &\text{(part (b) at $\varphi = \pi/2$, $\theta = 0$)} \\
+> \mathbf k_1:\ \dot\ell(0) &= 0, \quad \text{and part (c): } \dot\ell(0) = -\dot\xi(0)\cos\tfrac{\pi}{2} - \frac{R\omega R\sin 0}{h} = 0 \quad &\text{(consistent)} \\
+> \mathbf j_1:\ \left(L - h\right)\dot\theta(0) &= \omega R \;\Rightarrow\; \dot\theta(0) = \frac{\omega R}{L - h} \quad &\text{(sideways component)} \\
+> \dot\varphi(0) &= \frac{\partial\varphi}{\partial\xi}\dot\xi + \frac{\partial\varphi}{\partial t} = -\frac{\sin\tfrac{\pi}{2}}{h}\dot\xi(0) + 0 = -\frac{\dot\xi(0)}{h} \quad &\text{(chain rule; $\partial\varphi/\partial t$ is zero at $t = 0$, from $\cos\varphi\,D = \xi - R\cos\omega t$)} \\
+> \mathbf i_1:\ \dot\xi(0) - \left(L - h\right)\dot\varphi(0) &= \dot\xi(0)\left(1 + \frac{L - h}{h}\right) = \frac{L}{h}\dot\xi(0) = 0 \;\Rightarrow\; \dot\xi(0) = 0,\ \dot\varphi(0) = 0 \quad &\text{(component along the bar)}
+> \end{aligned}$$
+>
+> $$\boxed{\xi(0) = R, \quad \dot\xi(0) = 0, \quad \theta(0) = 0, \quad \dot\theta(0) = \frac{\omega R}{L - h} \qquad \left(\dot\ell(0) = 0,\ \dot\varphi(0) = 0\right)}$$
+>
+> **Units:** $[\dot\theta(0)] = [\omega R/(L - h)] = [\mathrm{T^{-1}}]$
+> **Meaning:** seen from the bar, the particle starts moving backwards with the speed of the point of the bar that hits the string, swinging about $C$ as a pendulum of length $L - h$; $\theta$ grows from zero towards the side of the anchor. The time derivative of $\varphi$ at fixed $\xi$ vanishes at the start because the derivative of the cosine of $\omega t$ is zero there.
 
-##### (d) Forces
-Weight $-mg\,\mathbf{k}_1$, tension $-T\,\mathbf{e}_{CP}$, and the centrifugal and Coriolis forces boxed above; the Euler force and the force of the origin's acceleration are zero.
+#### (g) Is the mechanical energy of the particle conserved?
 
-##### (e) Equations of motion
-The $\mathbf{e}_\theta$ and $\mathbf{e}_\varphi$ equations boxed above, closed with part (c), are two second-order ODEs for $\xi(t)$ and $\theta(t)$; the $\mathbf{e}_{CP}$ projection gives $T$.
+> [!derivation] Rate of the energy in S0 and in S1
+> **Law:** power of the forces on the absolute and on the relative velocity; potentials of the weight and of the centrifugal force
+> **Source:** Notes.pdf, Eq. 3.26; Notes.pdf, Eq. 4.29; Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]; [Lecture 5, Slide 30]; [Lecture 5, Slide 31]
+>
+> In $S_0$ the weight has the potential $mgz$ and the only other force is the string pull. In $S_1$ the weight and the centrifugal force (constant rate, fixed axis) have potentials, the Coriolis force does no work, and again only the string pull is left. Let $E_0^P$ be one half of $m$ times the squared absolute speed plus $mgz$, and $E_1^P$ one half of $m$ times the squared relative speed plus $mgz$ minus one half of $m\omega^2(x^2 + y^2)$. The projection of the relative velocity on $\mathbf e_{CP}$ is $\dot\xi\cos\varphi + \dot\ell$.
+>
+> $$\begin{aligned}
+> \frac{dE_1^P}{dt} &= \mathbf T\cdot\mathbf v_1^P = -T\left(\dot\xi\cos\varphi + \dot\ell\right) = \frac{TR\omega\xi\sin\omega t}{D} \quad &\text{(Eq. 4.29 in $S_1$; part (c))} \\
+> \mathbf e_{CP}\cdot\omega\left(x\,\mathbf j_1 - y\,\mathbf i_1\right) &= \omega\left[-\left(\xi + \ell\cos\varphi\right)\sin\varphi\sin\theta + \ell\sin\varphi\sin\theta\cos\varphi\right] = -\omega\xi\sin\varphi\sin\theta \quad &\text{(the transport velocity of the composition box on $\mathbf e_{CP}$)} \\
+> \frac{dE_0^P}{dt} &= \mathbf T\cdot\mathbf v_0^P = \mathbf T\cdot\mathbf v_1^P - T\,\mathbf e_{CP}\cdot\omega\left(x\,\mathbf j_1 - y\,\mathbf i_1\right) = T\omega\xi\left(\frac{R\sin\omega t}{D} + \sin\varphi\sin\theta\right) \quad &\text{(Eq. 4.29 in $S_0$)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{dE_0^P}{dt} = T\omega\xi\left(\frac{R\sin\omega t}{D} + \sin\varphi\sin\theta\right) \ne 0, \qquad \frac{dE_1^P}{dt} = \frac{TR\omega\xi\sin\omega t}{D} \ne 0: \ \text{not conserved}}$$
+>
+> **Units:** $[T\omega\xi] = [\mathrm{M\,L^2\,T^{-3}}]$, a power
+> **Meaning:** no. The string is a moving constraint: in $S_0$ the bar drags the bend of the string, in $S_1$ the anchor moves, and in both frames the tension works on the particle. While the anchor is behind the bar (the sine of $\omega t$ positive) and the string is tense, the energy in $S_1$ grows. The energy comes from the motor that keeps the rate of the bar constant (check box below).
 
-##### (f) Initial conditions at $t = 0$
-* **Pedagogical Justification:** At $t = 0^-$ the particle hangs at rest below $A$, and the string is straight and vertical. The bar touches it at the point of the string at the height of the bar. No impulsive force acts on $P$: the string is perpendicular to the bar, so displacing $C$ sideways does not change the path length to first order ($\dot D(0) = 0$ below). Position and velocity of $P$ are therefore continuous at $t = 0$.
+#### (h) Separation of the string from the bar
 
-**Positions.** At $t = 0$ the bar lies along $\mathbf{i}_0$, and the string meets it directly below $A$: $\xi(0) = R$. Then $q(0) = R - R = 0$, $\rho(0) = h$, $D(0) = h$, so
+> [!derivation] Geometric condition of separation
+> **Law:** the bar pushes the string only while the string is bent at $C$; straight string: $A$, $C$ and $P$ collinear
+> **Source:** Notes.pdf, Eq. 4.32; Problems.pdf, p. 24
+>
+> The push of the bar is minus $T$ times the sum of $\mathbf e_{CA}$ and $\mathbf e_{CP}$ (contact box); it vanishes when the string is straight, and beyond that instant the bend would have to reverse, which a bar pushing from one side cannot impose. The components along $\mathbf i_1$ of $\mathbf e_{CP}$ and of minus $\mathbf e_{CA}$ are already equal (contact box); the other two components are equated, with the sine of $\varphi$ from part (c).
+>
+> $$\begin{aligned}
+> \mathbf e_{CP} &= -\mathbf e_{CA} = \frac{\overrightarrow{AC}}{D} \quad &\text{(straight string)} \\
+> \mathbf j_1:\ -\sin\varphi\sin\theta &= \frac{R\sin\omega t}{D} \;\Rightarrow\; \sin\theta = -\frac{R\sin\omega t}{\sqrt{R^2\sin^2\omega t + h^2}} \quad &\text{($\sin\varphi\,D = \sqrt{R^2\sin^2\omega t + h^2}$)} \\
+> \mathbf k_1:\ -\sin\varphi\cos\theta &= -\frac{h}{D} \;\Rightarrow\; \cos\theta = \frac{h}{\sqrt{R^2\sin^2\omega t + h^2}} \gt 0 \quad &\text{(vertical component)} \\
+> \tan\theta &= \frac{\sin\theta}{\cos\theta} = -\frac{R\sin\omega t}{h} \quad &\text{(quotient)}
+> \end{aligned}$$
+>
+> $$\boxed{\tan\theta = -\frac{R\sin\omega t}{h}, \qquad \theta_{sep}(t) = -\arctan\frac{R\sin\omega t}{h}}$$
+>
+> **Units:** $[R\sin\omega t/h] = [1]$
+> **Meaning:** the string leaves the bar at the first instant at which the angle obtained from the equations of part (e) reaches this value. For the sine of $\omega t$ positive the value is negative: the particle must have swung forward, past the vertical plane of the bar, to the side opposite to the anchor, so that the straight line from $A$ through $C$ reaches it.
 
-$$ \xi(0) = R, \qquad \ell(0) = L - h, \qquad \cos\varphi(0) = 0 \;\Rightarrow\; \varphi(0) = \frac{\pi}{2}, \qquad \theta(0) = 0 $$
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Anchor in $S_1$ | $\mathbf r_1^A = R\cos\omega t\,\mathbf i_1 - R\sin\omega t\,\mathbf j_1 + h\,\mathbf k_1$, $\mathbf v_1^A = -R\omega\sin\omega t\,\mathbf i_1 - R\omega\cos\omega t\,\mathbf j_1$ |
+| (b) $P$ in $S_1$ | $\mathbf r_1^P = \xi\,\mathbf i_1 + \ell\,\mathbf e_{CP}$; $\mathbf v_1^P = \dot\xi\,\mathbf i_1 + \dot\ell\,\mathbf e_{CP} + \ell\dot\varphi\,\mathbf e_\varphi + \ell\dot\theta\sin\varphi\,\mathbf e_\theta$; $\mathbf a_1^P$ as boxed in part (b), with $\mathbf e_{CP}, \mathbf e_\theta, \mathbf e_\varphi$ the columns of $[{}_1R_2]$ |
+| (c) $AC$, $\ell$, $\varphi$ | $AC = \sqrt{\xi^2 - 2R\xi\cos\omega t + R^2 + h^2}$, $\ell = L - AC$, $\cos\varphi = (\xi - R\cos\omega t)/AC$ |
+| (d) Forces | $\mathbf W = -mg\,\mathbf k_1$, $\mathbf T = -T\,\mathbf e_{CP}$, $\mathbf F_C = m\omega^2(\xi + \ell\cos\varphi)\,\mathbf i_1 - m\omega^2\ell\sin\varphi\sin\theta\,\mathbf j_1$, $\mathbf F_{COR} = -2m\omega(\dot\ell\sin\varphi\sin\theta + \ell\dot\varphi\cos\varphi\sin\theta + \ell\dot\theta\sin\varphi\cos\theta)\,\mathbf i_1 - 2m\omega(\dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi)\,\mathbf j_1$; origin and Euler forces zero |
+| (e) Equations | the $\mathbf e_\theta$ and $\mathbf e_\varphi$ equations of part (e), closed with part (c): two second-order equations for $\xi(t)$, $\theta(t)$; the $\mathbf e_{CP}$ equation gives $T$ |
+| (f) Initial conditions | $\xi(0) = R$, $\dot\xi(0) = 0$, $\theta(0) = 0$, $\dot\theta(0) = \omega R/(L - h)$ (and $\ell(0) = L - h$, $\varphi(0) = \pi/2$, $\dot\ell(0) = \dot\varphi(0) = 0$) |
+| (g) Energy | not conserved in $S_0$ nor in $S_1$: $dE_0^P/dt = T\omega\xi(R\sin\omega t/AC + \sin\varphi\sin\theta)$, $dE_1^P/dt = TR\omega\xi\sin\omega t/AC$ |
+| (h) Separation | $\tan\theta = -R\sin\omega t/h$ (string straight); the other way to lose contact, $C$ reaching the end of the bar, is $\xi$ equal to the half-length of the bar |
 
-($P$ is directly below the bar in the plane $Ox_1z_1$). Check: $\mathbf{r}_1^P(0) = R\,\mathbf{i}_1 - (L - h)\,\mathbf{k}_1$, i.e. $P$ at depth $L - h$ below the bar, $L$ below $A$.
+**Check against the official key:** Problems.pdf, p. 75 prints only the centrifugal and the Coriolis forces; both coincide term by term with part (d) (box below). The rest is checked independently with the power of the bar on the string and with limiting cases.
 
-**Velocities.** $\mathbf{v}_0^P(0) = \mathbf{0}$, and by Notes Eq. 3.26
+> [!derivation] Comparison with the official key
+> **Law:** term-by-term comparison
+> **Source:** Problems.pdf, p. 75
+>
+> $$\begin{aligned}
+> \text{key: } \mathbf F_{cent} &= m\omega^2\left(\xi + \ell\cos\varphi\right)\mathbf i_1 - m\omega^2\ell\sin\varphi\sin\theta\,\mathbf j_1 = \mathbf F_C \quad &\text{(part (d))} \\
+> \text{key: } \mathbf F_{Cori} &= -2m\omega\left(\dot\ell\sin\varphi\sin\theta + \ell\dot\varphi\cos\varphi\sin\theta + \ell\dot\theta\sin\varphi\cos\theta\right)\mathbf i_1 - 2m\omega\left(\dot\xi + \dot\ell\cos\varphi - \ell\dot\varphi\sin\varphi\right)\mathbf j_1 = \mathbf F_{COR} \quad &\text{(part (d))}
+> \end{aligned}$$
+>
+> $$\boxed{\text{both inertia forces coincide with the key}}$$
+>
+> **Units:** $[\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** the agreement also confirms the reading of the sense of rotation and of the sign of $\theta$.
 
-$$ \mathbf{v}_1^P(0) = \mathbf{v}_0^P - \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P = -\omega\,\mathbf{k}_1\times\left[R\,\mathbf{i}_1 - (L - h)\,\mathbf{k}_1\right] = -\omega R\,\mathbf{j}_1 $$
+> [!derivation] Independent check: the energy comes from the bar
+> **Law:** power of the push of the bar on the string at the moving contact point; the massless string transmits it to the particle
+> **Source:** Notes.pdf, Eq. 3.26; Notes.pdf, Eq. 4.29
+>
+> The contact point moves in $S_0$ with the velocity of part (b) for a point at $\xi$ on the bar, $\dot\xi\,\mathbf i_1 + \omega\xi\,\mathbf j_1$; the push of the bar has no component along $\mathbf i_1$. The anchor is fixed, so the string receives power only at $C$, and a massless string passes it on to the particle.
+>
+> $$\begin{aligned}
+> \mathbf N_b &= -T\left(\mathbf e_{CA} + \mathbf e_{CP}\right), \quad \mathbf e_{CA}\cdot\mathbf j_1 = -\frac{R\sin\omega t}{D}, \quad \mathbf e_{CP}\cdot\mathbf j_1 = -\sin\varphi\sin\theta \quad &\text{(contact box; part (c))} \\
+> \mathbf N_b\cdot\left(\dot\xi\,\mathbf i_1 + \omega\xi\,\mathbf j_1\right) &= 0 - T\omega\xi\left(-\frac{R\sin\omega t}{D} - \sin\varphi\sin\theta\right) = T\omega\xi\left(\frac{R\sin\omega t}{D} + \sin\varphi\sin\theta\right) \quad &\text{(power of the bar)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf N_b\cdot\mathbf v_0^C = \frac{dE_0^P}{dt}}$$
+>
+> **Units:** $[\mathrm{M\,L^2\,T^{-3}}]$
+> **Meaning:** the rate of the energy found in part (g) is exactly the power the bar puts into the string.
 
-At $\varphi = \pi/2$, $\theta = 0$: $\mathbf{e}_{CP} = -\mathbf{k}_1$, $\mathbf{e}_\varphi = -\mathbf{i}_1$, $\mathbf{e}_\theta = -\mathbf{j}_1$, so the velocity of part (b) is $\mathbf{v}_1^P(0) = \left(\dot\xi - \ell\dot\varphi\right)\mathbf{i}_1 - \ell\dot\theta\,\mathbf{j}_1 - \dot\ell\,\mathbf{k}_1$. Matching components:
-
-* $\mathbf{k}_1$: $\dot\ell(0) = 0$, consistent with the constraint: $\dot D(0) = \dot q\cos\tfrac{\pi}{2} + \dot\rho(0)\sin\tfrac{\pi}{2} = \dot\rho(0) = \dfrac{R^2\omega\sin 0}{2h} = 0$.
-* $\mathbf{j}_1$: $(L - h)\,\dot\theta(0) = \omega R$, so $\dot\theta(0) = \dfrac{\omega R}{L - h}$.
-* $\mathbf{i}_1$: $\dot\xi(0) = (L - h)\,\dot\varphi(0)$. From part (c), $D\dot\varphi = \dot\rho\cos\varphi - \dot q\sin\varphi$ gives $h\,\dot\varphi(0) = -\dot q(0) = -\left(\dot\xi(0) + R\omega\sin 0\right) = -\dot\xi(0)$. Substituting, $\dot\xi(0)\left(1 + \dfrac{L - h}{h}\right) = \dot\xi(0)\dfrac{L}{h} = 0$, so $\dot\xi(0) = 0$ and $\dot\varphi(0) = 0$.
-$$ \boxed{\xi(0) = R, \quad \dot\xi(0) = 0, \quad \theta(0) = 0, \quad \dot\theta(0) = \frac{\omega R}{L - h}} \qquad \left(\ell(0) = L - h,\ \dot\ell(0) = 0,\ \varphi(0) = \frac{\pi}{2},\ \dot\varphi(0) = 0\right) $$
-
-In $S_1$ the particle starts moving backwards ($-\mathbf{j}_1$) with the speed $\omega R$ of the point of the bar that hits the string: $P$ lags behind the bar, $\theta$ grows from zero.
-
-##### (g) Is the mechanical energy conserved?
-* **Pedagogical Justification:** By Slide 29, $E_1^P$ is conserved only if every force that does work in $S_1$ derives from a potential that does not depend explicitly on time. Here $\mathbf{W}$ and $\mathbf{F}_C$ have potentials ($mgz$ and $-\tfrac12 m\omega^2 r_\perp^2$, $\omega$ constant, Slide 30) and $\mathbf{F}_{COR}$ does no work (Slide 31). The question is the power of the tension, which is a constraint force of a constraint that moves.
-
-**In $S_1$.** Define $E_1^P = \tfrac12 m\left|\mathbf{v}_1^P\right|^2 + mgz - \tfrac12 m\omega^2\left(x^2 + y^2\right)$. By the work–energy theorem in $S_1$, $\dfrac{dE_1^P}{dt} = \mathbf{T}\cdot\mathbf{v}_1^P = -T\,\mathbf{e}_{CP}\cdot\mathbf{v}_1^P$. From part (b), $\mathbf{e}_{CP}\cdot\mathbf{v}_1^P = \dot\xi\cos\varphi + \dot\ell$, and part (c) gives $\dot\ell + \dot\xi\cos\varphi = -R\omega\xi\sin\omega t/D$. Therefore
-
-$$ \boxed{\frac{dE_1^P}{dt} = \frac{T\,R\,\omega\,\xi\sin\omega t}{\sqrt{\xi^2 - 2R\xi\cos\omega t + R^2 + h^2}}} $$
-
-which is positive for $0 \lt \omega t \lt \pi$ (with $T \gt 0$, $\xi \gt 0$): **$E_1^P$ is not conserved.** The reason is that the end $A$ of the string moves in $S_1$ (part (a)): the constraint "string tense" depends explicitly on time in $S_1$, and the tension does work on $P$.
-
-**In $S_0$.** $E_0^P = \tfrac12 m\left|\mathbf{v}_0^P\right|^2 + mgz$ changes at the rate $\mathbf{T}\cdot\mathbf{v}_0^P$ with $\mathbf{v}_0^P = \mathbf{v}_1^P + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P$ (Notes Eq. 3.26). The extra term is $-T\,\mathbf{e}_{CP}\cdot\omega\left(x\,\mathbf{j}_1 - y\,\mathbf{i}_1\right) = -T\omega\left(-x\sin\varphi\sin\theta - y\cos\varphi\right) = T\omega\sin\varphi\sin\theta\left(\xi + \ell\cos\varphi - \ell\cos\varphi\right) = T\omega\xi\sin\varphi\sin\theta$, so
-
-$$ \frac{dE_0^P}{dt} = T\,\omega\,\xi\left(\frac{R\sin\omega t}{D} + \sin\varphi\sin\theta\right) \neq 0 $$
-
-**No**: the mechanical energy of the particle is not conserved in either frame. The motor that keeps the bar at constant $\omega$ feeds energy into the particle through the string.
-
-##### (h) Separation condition
-* **Pedagogical Justification:** The string can only be pushed by the bar. The bar's force on the string, $\mathbf{N}_b = -T\left(\mathbf{e}_{CA} + \mathbf{e}_{CP}\right)$, vanishes when the string is straight; beyond that instant the bend would have to reverse, which a bar pushing from one side cannot impose. Separation is therefore the instant at which $A$, $C$ and $P$ become collinear: $\mathbf{e}_{CP} = -\mathbf{e}_{CA}$.
-
-From part (c), $-\mathbf{e}_{CA} = \overrightarrow{AC}/D = \dfrac{1}{D}\left[(\xi - R\cos\omega t)\,\mathbf{i}_1 + R\sin\omega t\,\mathbf{j}_1 - h\,\mathbf{k}_1\right]$. The $\mathbf{i}_1$ components of $\mathbf{e}_{CP}$ and $-\mathbf{e}_{CA}$ are already equal (frictionless condition, $\cos\varphi = q/D$). Equating the other two, with $\sin\varphi = \rho/D$:
-
-$$ -\frac{\rho}{D}\sin\theta = \frac{R\sin\omega t}{D}, \qquad -\frac{\rho}{D}\cos\theta = -\frac{h}{D} \quad\Longrightarrow\quad \sin\theta = -\frac{R\sin\omega t}{\rho}, \quad \cos\theta = \frac{h}{\rho} $$
-
-Dividing the two relations ($\cos\theta = h/\rho \gt 0$):
-
-$$ \boxed{\tan\theta = -\frac{R\sin\omega t}{h}} \qquad \text{i.e.}\quad \theta_{sep}(t) = -\arctan\left(\frac{R\sin\omega t}{h}\right) $$
-
-The string leaves the bar at the first instant at which $\theta(t)$, obtained from the equations of part (e), reaches this value. For $0 \lt \omega t \lt \pi$ it is negative: $P$ must have swung forward, past the vertical plane of the bar, to the side opposite to $A$, so that the straight line from $A$ through $C$ passes through $P$.
-
-##### Checks
-* **Mechanism.** In $S_1$ the anchor $A$ circles backwards at radius $R$ and speed $\omega R$, while the string is held on the rotating bar. The string's end at $A$ and the bar together act as a moving constraint that pumps energy into the pendulum ($dE_1^P/dt \gt 0$ for $0 \lt \omega t \lt \pi$). The centrifugal force pushes $P$ outward along the bar ($+\mathbf{i}_1$); the Coriolis force deflects it sideways and couples $\xi$ and $\theta$.
-* **Initial kick.** $\dot\theta(0) = \omega R/(L - h)$: in $S_1$ the particle starts swinging backwards about the contact point with the speed of the point of the bar that hits the string, a pendulum of length $L - h$.
-* **Limits.** $R \to 0$: $A$ lies on the rotation axis and is fixed in $S_1$, the constraint becomes time-independent, and $dE_1^P/dt = TR\omega\xi\sin\omega t/D \to 0$: $E_1^P$ becomes a first integral (Slide 29). $\omega \to 0$: the inertia forces vanish and the bar would never reach the string; the problem reduces to a pendulum at rest. Separation: $h \to \infty$ gives $\theta_{sep} \to 0$; $\omega t = \pi$ (anchor on the opposite side of the bar) gives $\theta_{sep} = 0$. Basis: $\theta = 0$, $\varphi = \pi/2$ give $\mathbf{u} = -\mathbf{k}_1$ and $\mathbf{e}_{CP} = -\mathbf{k}_1$, the hanging string.
-* **Inertial check.** Differentiating $[{}_0R_1]\mathbf{r}_1^P$ twice reproduces Notes Eq. 3.27; at random states, with $\ddot\xi$, $\ddot\theta$ taken from the two equations of part (e), $m\mathbf{a}_0^P - \mathbf{W}$ is parallel to $\mathbf{e}_{CP}$ (only the tension is left), and $dE_1^P/dt = -T\,\mathbf{e}_{CP}\cdot\mathbf{v}_1^P$; the constraint derivatives of part (c), the initial conditions and the separation condition were also checked symbolically with sympy.
-* **Dimensions.** $[AC] = \sqrt{\text{m}^2} = \text{m}$; $[\omega^2\ell] = [\omega\dot\xi] = [g] = \text{m}\cdot\text{s}^{-2}$, the same as $[\ell\ddot\theta] = [\ddot\xi]$ in the equations of part (e); $[m\omega^2\xi] = [m\omega\dot\ell] = \text{kg}\cdot\text{m}\cdot\text{s}^{-2} = \text{N}$; $[\dot\theta(0)] = \dfrac{\text{s}^{-1}\cdot\text{m}}{\text{m}} = \text{s}^{-1}$; $\left[TR\omega\xi/D\right] = \dfrac{\text{N}\cdot\text{m}\cdot\text{s}^{-1}\cdot\text{m}}{\text{m}} = \text{W}$, a power; $[R\sin\omega t/h] = 1$, as $\tan\theta$ must be.
-* **Check against the official key:** the centrifugal and Coriolis forces of part (d) coincide term by term with the official key (the key gives only these two forces).
+> [!derivation] Limiting cases
+> **Law:** the results at extreme values of the data
+> **Source:** Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]
+>
+> $$\begin{aligned}
+> R \to 0:\quad \frac{dE_1^P}{dt} &\to 0 \quad &\text{(anchor on the axis, fixed in $S_1$: the energy in $S_1$ becomes a first integral)} \\
+> h \to \infty:\quad \theta_{sep} &\to 0 \quad &\text{(very high ceiling: the string separates near the vertical plane of the bar)} \\
+> \omega t = \pi:\quad \theta_{sep} &= 0 \quad &\text{(anchor straight across the bar)} \\
+> \theta = 0,\ \varphi = \tfrac{\pi}{2}:\quad \mathbf e_{CP} &= \mathbf u = -\mathbf k_1 \quad &\text{(the hanging string)}
+> \end{aligned}$$
+>
+> $$\boxed{R \to 0: \ E_1^P \text{ conserved}; \qquad h \to \infty \text{ or } \omega t = \pi: \ \theta_{sep} = 0}$$
+>
+> **Units:** dimensionless
+> **Meaning:** each limit matches the picture of an anchor that moves in the frame of the bar and feeds energy into the pendulum.
 
 ---
 
 ## Problem 37: Particle on a Spinning Elliptic Cone
 
 ### Reference Frames, Bases and Coordinates
-* **Physical system:** a heavy point particle $P$ of mass $m$ slides on the inner surface of an elliptic cone with vertex $O$ and vertical axis $Oz_1 \equiv Oz_0$. The cone spins about that axis with constant angular rate $\Omega$ relative to the inertial frame $S_0$.
-* **Hypotheses:**
-  1. $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ is inertial; gravity is $\mathbf{g} = -g\,\mathbf{k}_0$.
-  2. The contact is smooth (no friction) and bilateral: the reaction of the cone is normal to its surface.
-  3. $\Omega$ is constant and the vertex $O$ is fixed, so $O$ is a common origin of $S_0$ and $S_1$.
-  4. The data $\mathbf{r}^P_{1,0} = 2\mathbf{j}_1 + \mathbf{k}_1$ and $\mathbf{v}^P_{1,0} = \mathbf{i}_1$ are read in SI units (m and m/s).
-* **Why a moving frame:** in $S_0$ the surface of the cone moves, so the constraint depends explicitly on time. In the frame $S_1$ attached to the cone the surface is fixed and is described by the two parameters $(\zeta, \beta)$ of Eq. (5). The price is that $S_1$ is not inertial, so Newton's law in $S_1$ needs the inertia forces of Notes Eqs. 4.62–4.63 (Slides 27–28); they are known functions of the relative position and velocity.
-* **Fixed (inertial) frame:** $S_0 = \{O; \mathcal{B}_0\}$, $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, with $\mathbf{k}_0$ vertical and upward.
-* **Cone frame:** $S_1 = \{O; \mathcal{B}_1\}$, $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, attached to the cone, with $\mathbf{k}_1 = \mathbf{k}_0$ along its axis and $\mathbf{i}_1$, $\mathbf{j}_1$ along the two axes of its elliptic sections. It turns the angle $\Omega t$ about $\mathbf{k}_0$ (the figure of the statement measures $\Omega t$ from $x_0$ to $x_1$) and coincides with $S_0$ at $t = 0$.
-* **Surface basis:** the two tangent vectors $\mathbf{e}_\zeta$, $\mathbf{e}_\beta$ of the cone at $P$ and its unit normal $\mathbf{n}$, deduced in the next section.
-* **Coordinates:** $(\zeta, \beta)$, the parameters of Eq. (5): $\zeta$ is the height of $P$ above the vertex and $\beta$ the angular parameter of the elliptic section through $P$.
 
-| Symbol | Meaning | SI unit |
-|---|---|---|
-| $m$ | mass of $P$ | kg |
-| $g$ | gravitational acceleration | m/s$^2$ |
-| $\Omega$ | constant spin rate of the cone | rad/s |
-| $\zeta$ | height of $P$ above the vertex ($z_1 = \zeta$) | m |
-| $\beta$ | angular parameter of the elliptic section | rad |
-| $N$ | magnitude of the normal reaction | N |
+A heavy particle $P$ of mass $m$ moves without friction on a cone of elliptic cross-section, with vertex $O$ and vertical axis, described by the parameters $\zeta$ and $\beta$; the cone spins about its axis at the constant rate $\Omega$, and at the start the frames coincide, with the particle at $2\,\mathbf j_1 + \mathbf k_1$ and the velocity $\mathbf i_1$ (Problems.pdf, p. 25). The statement asks for the degrees of freedom, the position, velocity and acceleration in $S_1$, the forces seen from $S_1$, two equations of motion free of other unknowns, one conservation law with its constant, and the equilibria for positive $\zeta$. The cone is at rest in $S_1$, so the solution works there, with the composition of motions of Notes.pdf, Sec. 3.2 and the inertia forces of Notes.pdf, Sec. 4.9.
 
-##### (a) Degrees of freedom
-* **Pedagogical Justification:** a free particle has 3 coordinates; each independent holonomic constraint removes one.
+| Item | Definition |
+| :--- | :--- |
+| Fixed (inertial) frame | $S_0 = \{O;\ \mathcal B_0\}$, $\mathcal B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $O$ the vertex (fixed), $\mathbf k_0$ vertical, up |
+| Moving frame | $S_1 = \{O;\ \mathcal B_1\}$, attached to the cone: $\mathbf k_1 = \mathbf k_0$ along its axis, $\mathbf i_1$ and $\mathbf j_1$ along the axes of its elliptic sections; it turns by $\Omega t$ about $\mathbf k_0$, from $x_0$ towards $y_0$ (figure), and coincides with $S_0$ at $t = 0$ |
+| Cone | $x_1 = \zeta\cos\beta$, $y_1 = 2\zeta\sin\beta$, $z_1 = \zeta$ (Eq. (5) of the statement), fixed in $S_1$ |
+| Surface vectors at $P$ | $\mathbf e_\zeta$ and $\mathbf e_\beta$ (tangent, not unit; deduced below), unit normal $\mathbf n$ |
+| Coordinates | $\zeta$ (height above the vertex), $\beta$ (angular parameter of the elliptic section, not the polar angle) |
+| Data | $m$ [kg], $g$ [m s$^{-2}$], $\Omega$ [rad s$^{-1}$]; initial position $2\,\mathbf j_1 + \mathbf k_1$ and velocity $\mathbf i_1$ |
+| Unknowns | $\zeta(t)$, $\beta(t)$ and the reaction $N\,\mathbf n$ |
+| Applied forces | weight $-mg\,\mathbf k_1$ |
+| Inertia forces (in $S_1$) | centrifugal and Coriolis; no origin or Euler terms (Notes.pdf, Eq. 4.62) |
+| Hypotheses | $S_0$ inertial; uniform gravity; smooth contact; $\Omega$ constant |
+| Readings | (1) The initial data carry no units; they are read in SI units (metres and metres per second); with another unit of length the numbers of the constant of part (e) change accordingly. (2) The contact is taken as bilateral (the normal reaction may take either sign); the particle is on the inner surface of the cone, and the equilibria of part (f) need a positive reaction along the inward normal, which is checked there |
 
-Eliminating the parameters of Eq. (5): $\cos\beta = x_1/\zeta$, $\sin\beta = y_1/(2\zeta)$ and $\zeta = z_1$, so $\cos^2\beta + \sin^2\beta = 1$ gives the single constraint equation of the surface, fixed in $S_1$:
+#### (a) Degrees of freedom
 
-$$ \frac{x_1^2}{z_1^2} + \frac{y_1^2}{4z_1^2} = 1 \iff x_1^2 + \frac{y_1^2}{4} - z_1^2 = 0 $$
-
-Hence $\text{DOF} = 3 - 1 = 2$, and $(\zeta, \beta)$ are suitable generalized coordinates. Each horizontal section $z_1 = \zeta$ is an ellipse with semi-axes $\zeta$ (along $\mathbf{i}_1$) and $2\zeta$ (along $\mathbf{j}_1$).
+> [!derivation] Equation of the cone and number of degrees of freedom
+> **Law:** elimination of the parameters; a holonomic constraint removes one coordinate
+> **Source:** Notes.pdf, Eq. 6.3; Problems.pdf, p. 25
+>
+> $$\begin{aligned}
+> \cos\beta &= \frac{x_1}{\zeta}, \quad \sin\beta = \frac{y_1}{2\zeta}, \quad \zeta = z_1 \quad &\text{(Eq. (5) solved for the parameters)} \\
+> \cos^2\beta + \sin^2\beta &= \frac{x_1^2}{z_1^2} + \frac{y_1^2}{4z_1^2} = 1 \;\Rightarrow\; x_1^2 + \frac{y_1^2}{4} - z_1^2 = 0 \quad &\text{(Pythagorean identity)} \\
+> \text{degrees of freedom} &= 3 - 1 = 2 \quad &\text{(one holonomic constraint, fixed in $S_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{x_1^2 + \frac{y_1^2}{4} - z_1^2 = 0, \qquad \text{2 degrees of freedom: } \zeta,\ \beta}$$
+>
+> **Units:** $[x_1^2] = [y_1^2] = [z_1^2] = [\mathrm{L^2}]$
+> **Meaning:** each horizontal section at the height $\zeta$ is an ellipse of semi-axes $\zeta$ along $\mathbf i_1$ and $2\zeta$ along $\mathbf j_1$.
 
 ### Change of Basis and Position Vector
 
-#### The basis $\mathcal{B}_1$ seen from above
-
 ![[attachments/EM-SOL/p37-top-view.svg]]
 
-The cone spins about $\mathbf{k}_0$, so we look down the axis from $+z_0$: $\mathbf{k}_0 = \mathbf{k}_1$ points out of the paper, towards the reader ($\odot$). Take $\mathbf{i}_0$ to the right; then $\mathbf{j}_0 = \mathbf{k}_0\times\mathbf{i}_0$ points up the page (right-hand rule: fingers from $\mathbf{k}_0$, towards the reader, to $\mathbf{i}_0$, right; the thumb points up). With $\Omega \gt 0$ the cone turns counter-clockwise in this view (thumb along $\mathbf{k}_0$), and at time $t$ it has turned $\Omega t$ from $\mathbf{i}_0$:
-
-* $\mathbf{i}_1$ is the hypotenuse (length 1) of the shaded right triangle on the right: the leg adjacent to $\Omega t$ lies along $\mathbf{i}_0$ and measures $\cos\Omega t$; the opposite leg lies along $+\mathbf{j}_0$ and measures $\sin\Omega t$.
-* $\mathbf{j}_1$ starts on $\mathbf{j}_0$ (up) and turns the same angle counter-clockwise, so its tip leans to the left, towards $-\mathbf{i}_0$: its leg along $\mathbf{j}_0$ (adjacent) is $\cos\Omega t$ and its leg along $-\mathbf{i}_0$ (opposite) is $\sin\Omega t$. **That is where the minus sign of $\mathbf{j}_1$ comes from.**
-* $\mathbf{k}_1 = \mathbf{k}_0$, the axis of the rotation.
-
-$$ \mathbf{i}_1 = \cos\Omega t\,\mathbf{i}_0 + \sin\Omega t\,\mathbf{j}_0, \qquad \mathbf{j}_1 = -\sin\Omega t\,\mathbf{i}_0 + \cos\Omega t\,\mathbf{j}_0, \qquad \mathbf{k}_1 = \mathbf{k}_0 $$
-
-The columns of the change-of-basis matrix are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$:
-
-$$ [{}_0R_1] = \begin{pmatrix} \cos\Omega t & -\sin\Omega t & 0 \\ \sin\Omega t & \cos\Omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos\Omega t\cos\Omega t - (-\sin\Omega t)\sin\Omega t = \cos^2\Omega t + \sin^2\Omega t = 1 $$
-
-In the product $[{}_0R_1][{}_0R_1]^T$ the diagonal entries are $\cos^2\Omega t + \sin^2\Omega t = 1$ (first and second rows) and $1$ (third row), and the off-diagonal ones are $\cos\Omega t\sin\Omega t - \sin\Omega t\cos\Omega t = 0$ (first row times second) and $0$ (any row times the third), so $[{}_0R_1][{}_0R_1]^T = I$.
-
-**Motion of $S_1$:** the origin is fixed, $\mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0}$. For a simple rotation about the fixed vector $\mathbf{k}_0$ (Slide 16), $\boldsymbol{\omega}_{10} = \Omega\,\mathbf{k}_1$. Check with the chain rule: $\left.\dfrac{d\mathbf{i}_1}{dt}\right|_0 = \dfrac{d\cos\Omega t}{d(\Omega t)}\,\Omega\,\mathbf{i}_0 + \dfrac{d\sin\Omega t}{d(\Omega t)}\,\Omega\,\mathbf{j}_0 = \Omega\left(-\sin\Omega t\,\mathbf{i}_0 + \cos\Omega t\,\mathbf{j}_0\right) = \Omega\,\mathbf{j}_1 = \Omega\,\mathbf{k}_1\times\mathbf{i}_1$. Since $\Omega$ and $\mathbf{k}_1 = \mathbf{k}_0$ are constant, $\boldsymbol{\alpha}_{10} = \left.\dfrac{d\boldsymbol{\omega}_{10}}{dt}\right|_0 = \mathbf{0}$.
-
-#### The elliptic section through $P$
+> [!derivation] Basis of the cone: rotation by Omega t about k0
+> **Law:** elementary rotation about the third axis; change of basis matrix and its checks
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; [Lecture 5, Slide 16]
+>
+> View from above, along $\mathbf k_0$, which points out of the paper (⊙). With $\mathbf i_0$ to the right, $\mathbf j_0$, the cross product of $\mathbf k_0$ and $\mathbf i_0$, points up the page. The figure measures $\Omega t$ from $x_0$ towards $y_0$, so the cone turns counterclockwise in this view. $\mathbf i_1$ is $\mathbf i_0$ turned by $\Omega t$: hypotenuse 1, adjacent leg $\cos\Omega t$ along $\mathbf i_0$, opposite leg $\sin\Omega t$ along plus $\mathbf j_0$. $\mathbf j_1$ is $\mathbf j_0$ turned by the same angle; the counterclockwise turn carries its tip to the left, so its opposite leg $\sin\Omega t$ lies along minus $\mathbf i_0$ (the minus sign).
+>
+> $$\begin{aligned}
+> \mathbf i_1 &= \cos\Omega t\,\mathbf i_0 + \sin\Omega t\,\mathbf j_0, \quad \mathbf j_1 = -\sin\Omega t\,\mathbf i_0 + \cos\Omega t\,\mathbf j_0, \quad \mathbf k_1 = \mathbf k_0 \quad &\text{(the two right triangles; axis)} \\
+> \det[{}_0R_1] &= (+1)\cdot 1\cdot\left(\cos\Omega t\cos\Omega t - \left(-\sin\Omega t\right)\sin\Omega t\right) = 1 \quad &\text{(expansion along the third row, cofactor sign $(-1)^{3+3}$)} \\
+> \left([{}_0R_1][{}_0R_1]^T\right)_{11} &= \cos^2\Omega t + \sin^2\Omega t = 1, \quad \left([{}_0R_1][{}_0R_1]^T\right)_{12} = -\cos\Omega t\sin\Omega t + \sin\Omega t\cos\Omega t = 0 \quad &\text{(rows times rows)}
+> \end{aligned}$$
+>
+> $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\Omega t & -\sin\Omega t & 0 \cr \sin\Omega t & \cos\Omega t & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
+>
+> **Units:** $[\Omega t] = [1]$
+> **Meaning:** these are the unit vectors of $\mathcal B_1$ in terms of $\mathcal B_0$, as the statement asks; at the start the matrix is the identity and the frames coincide.
 
 ![[attachments/EM-SOL/p37-section.svg]]
 
-$O$ is the origin of $S_1$, so $\mathbf{r}_1^P = \overrightarrow{OP}$ (Notes Eq. 3.16 with $\mathbf{r}_0^O = \mathbf{0}$). We build it in two steps: up the axis to the height of $P$, then across the horizontal section. The section $z_1 = \zeta$, seen from above, is the ellipse of semi-axes $\zeta$ along $\mathbf{i}_1$ and $2\zeta$ along $\mathbf{j}_1$.
-
-**What $\beta$ is.** $\beta$ is not the polar angle of $P$. Draw the auxiliary circle of radius $\zeta$ (dashed) and the point $B$ of that circle at the polar angle $\beta$. In the shaded right triangle with vertex $O$ and hypotenuse $OB = \zeta$, the leg adjacent to $\beta$ lies along $\mathbf{i}_1$ and measures $\zeta\cos\beta$, and the opposite leg measures $\zeta\sin\beta$. The point of the ellipse has the same $x_1 = \zeta\cos\beta$ and twice the height, $y_1 = 2\zeta\sin\beta$: the ellipse is the circle stretched by a factor 2 along $\mathbf{j}_1$. So $\beta$ is the polar angle of $B$, not of $P$; the polar angle $\alpha$ of the horizontal projection of $P$ satisfies
-
-$$ \tan\alpha = \frac{y_1}{x_1} = \frac{2\zeta\sin\beta}{\zeta\cos\beta} = 2\tan\beta $$
-
-and $\alpha = \beta$ only at $\beta = 0, \pi/2, \pi, 3\pi/2$, on the axes of the ellipse. Adding the vertical part $\zeta\,\mathbf{k}_1$:
-
-$$ \mathbf{r}_1^P = \zeta\cos\beta\,\mathbf{i}_1 + 2\zeta\sin\beta\,\mathbf{j}_1 + \zeta\,\mathbf{k}_1 $$
-
-Check with the initial datum: $\zeta = 1$, $\beta = \pi/2$ give $2\mathbf{j}_1 + \mathbf{k}_1 = \mathbf{r}^P_{1,0}$.
-
-**Tangent vectors and normal of the cone.** Two tangent vectors at $P$ are the partial derivatives of $\mathbf{r}_1^P$ with respect to each parameter (they are not unit vectors). With $\frac{\partial}{\partial\beta}\cos\beta = -\sin\beta$ and $\frac{\partial}{\partial\beta}\sin\beta = \cos\beta$:
-
-$$ \mathbf{e}_\zeta \equiv \frac{\partial\mathbf{r}_1^P}{\partial\zeta} = \cos\beta\,\mathbf{i}_1 + 2\sin\beta\,\mathbf{j}_1 + \mathbf{k}_1, \qquad \frac{\partial\mathbf{r}_1^P}{\partial\beta} = \zeta\,\mathbf{e}_\beta, \quad \mathbf{e}_\beta \equiv -\sin\beta\,\mathbf{i}_1 + 2\cos\beta\,\mathbf{j}_1 $$
-
-$\mathbf{e}_\zeta$ runs along the generator through $P$ (the straight line from the vertex) and $\mathbf{e}_\beta$ is tangent to the ellipse, drawn at $P$ in the figure. A normal vector is their cross product, expanded component by component:
-
-$$ \mathbf{e}_\zeta\times\mathbf{e}_\beta = \begin{vmatrix} \mathbf{i}_1 & \mathbf{j}_1 & \mathbf{k}_1 \\ \cos\beta & 2\sin\beta & 1 \\ -\sin\beta & 2\cos\beta & 0 \end{vmatrix} = \left(0 - 2\cos\beta\right)\mathbf{i}_1 - \left(0 + \sin\beta\right)\mathbf{j}_1 + \left(2\cos^2\beta + 2\sin^2\beta\right)\mathbf{k}_1 = -2\cos\beta\,\mathbf{i}_1 - \sin\beta\,\mathbf{j}_1 + 2\,\mathbf{k}_1 $$
-
-Its squared norm is $4\cos^2\beta + \sin^2\beta + 4 = 5 + 3\cos^2\beta$, so the unit normal (pointing into the cone, upward) is
-
-$$ \mathbf{n} = \frac{-2\cos\beta\,\mathbf{i}_1 - \sin\beta\,\mathbf{j}_1 + 2\,\mathbf{k}_1}{\sqrt{5 + 3\cos^2\beta}} $$
-
-(Check: the gradient of $x_1^2 + y_1^2/4 - z_1^2$ is $(2x_1, y_1/2, -2z_1) = \zeta(2\cos\beta, \sin\beta, -2)$, parallel to $\mathbf{n}$.)
-
-#### The two principal vertical sections
+> [!derivation] Position vector of P: the elliptic section through P
+> **Law:** position up the axis and across the horizontal section; auxiliary circle; stretch of the ellipse
+> **Source:** Notes.pdf, Eq. 2.5; Notes.pdf, Eq. 3.16; Problems.pdf, p. 25
+>
+> The section at the height $\zeta$ is seen from above. Draw the auxiliary circle of radius $\zeta$ and its point $B$ at the polar angle $\beta$: in the shaded right triangle with hypotenuse $OB$, of length $\zeta$, the leg adjacent to $\beta$ is $\zeta\cos\beta$ along $\mathbf i_1$ and the opposite leg is $\zeta\sin\beta$ along $\mathbf j_1$. The point $P$ of the ellipse has the same abscissa and twice the ordinate: the ellipse is the circle stretched by 2 along $\mathbf j_1$. So $\beta$ is the polar angle of $B$, not of $P$; the polar angle $\alpha$ of the horizontal projection of $P$ is related to it below.
+>
+> $$\begin{aligned}
+> \mathbf r_0^O &= \mathbf 0, \quad \mathbf r_0^P = \mathbf r_1^P = \zeta\,\mathbf k_1 + \zeta\cos\beta\,\mathbf i_1 + 2\zeta\sin\beta\,\mathbf j_1 \quad &\text{(up the axis, then across the section; Eq. 3.16)} \\
+> \tan\alpha &= \frac{y_1}{x_1} = \frac{2\zeta\sin\beta}{\zeta\cos\beta} = 2\tan\beta \quad &\text{(polar angle of the projection)} \\
+> \zeta_0 &= 1, \quad \zeta_0\cos\beta_0 = 0, \quad 2\zeta_0\sin\beta_0 = 2 \;\Rightarrow\; \beta_0 = \tfrac{\pi}{2} \quad &\text{(initial position $2\,\mathbf j_1 + \mathbf k_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf r_1^P = \zeta\cos\beta\,\mathbf i_1 + 2\zeta\sin\beta\,\mathbf j_1 + \zeta\,\mathbf k_1, \qquad \zeta(0) = 1\ \mathrm{m}, \ \beta(0) = \tfrac{\pi}{2}}$$
+>
+> **Units:** $[\zeta] = [\mathrm{L}]$; $[\beta] = [1]$
+> **Meaning:** the two angles coincide only on the axes of the ellipse; at the start the particle is at the end of the long axis of the section at height 1 m.
 
 ![[attachments/EM-SOL/p37-sections.svg]]
 
-In the vertical plane $x_1z_1$ ($\beta = 0$ or $\pi$) the generators are the lines $z_1 = |x_1|$: in the shaded right triangle the horizontal leg is $\zeta$ and the vertical leg is $\zeta$, so the hypotenuse is $\zeta\sqrt2$ and the generator makes $45^\circ$ with the horizontal. In the plane $y_1z_1$ ($\beta = \pm\pi/2$) the generators are $z_1 = |y_1|/2$: horizontal leg $2\zeta$, vertical leg $\zeta$, hypotenuse $\sqrt{4\zeta^2 + \zeta^2} = \zeta\sqrt5$. At $\beta = 0$, $\mathbf{e}_\zeta = \mathbf{i}_1 + \mathbf{k}_1$ and $\mathbf{n} = (-\mathbf{i}_1 + \mathbf{k}_1)/\sqrt2$; at $\beta = \pi/2$, $\mathbf{e}_\zeta = 2\mathbf{j}_1 + \mathbf{k}_1$ and $\mathbf{n} = (-\mathbf{j}_1 + 2\mathbf{k}_1)/\sqrt5$, perpendicular to the generator in each drawing. These sections are where the equilibria of part (f) lie.
+> [!derivation] Tangent vectors and unit normal of the cone
+> **Law:** tangent vectors as partial derivatives of the position; normal as their vector product
+> **Source:** Notes.pdf, Eq. 6.3; Notes.pdf, Eq. 6.9; Notes.pdf, Eq. 6.10; Problems.pdf, p. 25
+>
+> The determinant is expanded along its first row, with the cofactor signs plus, minus, plus.
+>
+> $$\begin{aligned}
+> \mathbf e_\zeta &= \frac{\partial\mathbf r_1^P}{\partial\zeta} = \cos\beta\,\mathbf i_1 + 2\sin\beta\,\mathbf j_1 + \mathbf k_1 \quad &\text{(along the generator through $P$)} \\
+> \frac{\partial\mathbf r_1^P}{\partial\beta} &= \zeta\,\mathbf e_\beta, \quad \mathbf e_\beta = -\sin\beta\,\mathbf i_1 + 2\cos\beta\,\mathbf j_1 \quad &\text{(tangent to the ellipse; $\tfrac{d}{d\beta}\cos\beta = -\sin\beta$)} \\
+> \mathbf e_\zeta\times\mathbf e_\beta &= \begin{vmatrix} \mathbf i_1 & \mathbf j_1 & \mathbf k_1 \cr \cos\beta & 2\sin\beta & 1 \cr -\sin\beta & 2\cos\beta & 0 \end{vmatrix} = (+1)\left(0 - 2\cos\beta\right)\mathbf i_1 + (-1)\left(0 + \sin\beta\right)\mathbf j_1 + (+1)\left(2\cos^2\beta + 2\sin^2\beta\right)\mathbf k_1 \quad &\text{(first row; cofactor signs)} \\
+> \left|\mathbf e_\zeta\times\mathbf e_\beta\right|^2 &= 4\cos^2\beta + \sin^2\beta + 4 = 5 + 3\cos^2\beta \quad &\text{(squared length)} \\
+> \nabla\left(x_1^2 + \tfrac14 y_1^2 - z_1^2\right) &= \left(2x_1,\ \tfrac12 y_1,\ -2z_1\right) = -\zeta\left(-2\cos\beta,\ -\sin\beta,\ 2\right) \quad &\text{(check: parallel to the normal)} \\
+> \mathbf e_\zeta\cdot\mathbf e_\beta &= -\sin\beta\cos\beta + 4\sin\beta\cos\beta = 3\sin\beta\cos\beta \quad &\text{(the tangent vectors are not orthogonal in general)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf e_\zeta = \cos\beta\,\mathbf i_1 + 2\sin\beta\,\mathbf j_1 + \mathbf k_1, \quad \mathbf e_\beta = -\sin\beta\,\mathbf i_1 + 2\cos\beta\,\mathbf j_1, \quad \mathbf n = \frac{-2\cos\beta\,\mathbf i_1 - \sin\beta\,\mathbf j_1 + 2\,\mathbf k_1}{\sqrt{5 + 3\cos^2\beta}}}$$
+>
+> **Units:** $[\mathbf e_\zeta] = [\mathbf e_\beta] = [\mathbf n] = [1]$
+> **Meaning:** the normal points into the cone and upwards. In the vertical plane $x_1z_1$ the generators make 45 degrees with the horizontal (legs $\zeta$ and $\zeta$, hypotenuse $\zeta\sqrt2$); in the plane $y_1z_1$ they rise one for two across (legs $2\zeta$ and $\zeta$, hypotenuse $\zeta\sqrt5$), as drawn.
 
 ### Kinematics
 
-##### (b) Position, velocity and acceleration in $S_1$
-* **Pedagogical Justification:** the relative derivatives $\left.\frac{d}{dt}\right|_1$ treat $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ as constants, so only the components of $\mathbf{r}_1^P$ are differentiated (product and chain rules).
+> [!derivation] Motion of the cone frame and derivatives of its unit vectors
+> **Law:** angular velocity of a simple rotation; derivative of a unit vector of a turning basis
+> **Source:** Notes.pdf, Eq. 1.62; Notes.pdf, Eq. 3.3; Notes.pdf, Eq. 3.4; Notes.pdf, Eq. 3.5; Notes.pdf, Eq. 3.9
+>
+> $$\begin{aligned}
+> \boldsymbol\omega_{10} &= \Omega\,\mathbf k_1, \quad \boldsymbol\alpha_{10} = \mathbf 0, \quad \mathbf v_0^O = \mathbf a_0^O = \mathbf 0 \quad &\text{(rotation about the fixed vertical; $\Omega$ constant; vertex fixed)} \\
+> \left.\frac{d\mathbf i_1}{dt}\right|_0 &= \Omega\,\mathbf k_1\times\mathbf i_1 = \Omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = \Omega\,\mathbf k_1\times\mathbf j_1 = -\Omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0 \quad &\text{(Eq. 3.3 to 3.5)} \\
+> \frac{d}{dt}\left(\cos\Omega t\,\mathbf i_0 + \sin\Omega t\,\mathbf j_0\right) &= -\Omega\sin\Omega t\,\mathbf i_0 + \Omega\cos\Omega t\,\mathbf j_0 = \Omega\,\mathbf j_1 \quad &\text{(check: chain rule)}
+> \end{aligned}$$
+>
+> $$\boxed{\boldsymbol\omega_{10} = \Omega\,\mathbf k_1, \quad \left.\frac{d\mathbf i_1}{dt}\right|_0 = \Omega\,\mathbf j_1, \quad \left.\frac{d\mathbf j_1}{dt}\right|_0 = -\Omega\,\mathbf i_1, \quad \left.\frac{d\mathbf k_1}{dt}\right|_0 = \mathbf 0}$$
+>
+> **Units:** $[\Omega] = [\mathrm{T^{-1}}]$
+> **Meaning:** in $S_1$ the unit vectors are constant; in $S_0$ the horizontal ones turn with the cone.
 
-$$ \mathbf{r}_1^P = \zeta\cos\beta\,\mathbf{i}_1 + 2\zeta\sin\beta\,\mathbf{j}_1 + \zeta\,\mathbf{k}_1 $$
+#### (b) Position, velocity and acceleration in S1
 
-Component by component, with $\frac{d}{dt}\cos\beta = \frac{d\cos\beta}{d\beta}\dot\beta = -\dot\beta\sin\beta$ and $\frac{d}{dt}\sin\beta = \dot\beta\cos\beta$:
+> [!derivation] Relative velocity and relative acceleration
+> **Law:** time derivatives in $S_1$, where $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ are constant; chain rule and product rule
+> **Source:** Notes.pdf, Eq. 3.7; Notes.pdf, Eq. 3.19; Notes.pdf, Eq. 3.24; Problems.pdf, p. 25
+>
+> $$\begin{aligned}
+> \frac{d}{dt}\left(\zeta\cos\beta\right) &= \dot\zeta\cos\beta - \zeta\sin\beta\,\dot\beta, \quad \frac{d}{dt}\left(2\zeta\sin\beta\right) = 2\dot\zeta\sin\beta + 2\zeta\cos\beta\,\dot\beta \quad &\text{(product rule; chain rule)} \\
+> \mathbf v_1^P &= \left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)\mathbf i_1 + 2\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)\mathbf j_1 + \dot\zeta\,\mathbf k_1 = \dot\zeta\,\mathbf e_\zeta + \zeta\dot\beta\,\mathbf e_\beta \quad &\text{(Eq. 3.19; tangent to the cone)} \\
+> \frac{d}{dt}\left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right) &= \ddot\zeta\cos\beta - \dot\zeta\dot\beta\sin\beta - \dot\zeta\dot\beta\sin\beta - \zeta\ddot\beta\sin\beta - \zeta\dot\beta^2\cos\beta \quad &\text{(product rule on each term)} \\
+> \frac{d}{dt}\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right) &= \ddot\zeta\sin\beta + \dot\zeta\dot\beta\cos\beta + \dot\zeta\dot\beta\cos\beta + \zeta\ddot\beta\cos\beta - \zeta\dot\beta^2\sin\beta \quad &\text{(product rule on each term)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf v_1^P = \left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)\mathbf i_1 + 2\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)\mathbf j_1 + \dot\zeta\,\mathbf k_1, \cr \mathbf a_1^P = \left[\left(\ddot\zeta - \zeta\dot\beta^2\right)\cos\beta - \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\sin\beta\right]\mathbf i_1 + 2\left[\left(\ddot\zeta - \zeta\dot\beta^2\right)\sin\beta + \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\cos\beta\right]\mathbf j_1 + \ddot\zeta\,\mathbf k_1 \end{gathered}}$$
+>
+> **Units:** $[\dot\zeta] = [\zeta\dot\beta] = [\mathrm{L\,T^{-1}}]$; $[\ddot\zeta] = [\zeta\dot\beta^2] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** with the unit vectors of $\mathcal B_1$ written in $\mathcal B_0$ in the rotation box, these are the vectors the statement asks for, as seen from $S_1$.
 
-$$ \frac{d}{dt}\left(\zeta\cos\beta\right) = \dot\zeta\cos\beta - \zeta\dot\beta\sin\beta, \qquad \frac{d}{dt}\left(2\zeta\sin\beta\right) = 2\dot\zeta\sin\beta + 2\zeta\dot\beta\cos\beta, \qquad \frac{d}{dt}\zeta = \dot\zeta $$
-$$ \mathbf{v}_1^P = \left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)\mathbf{i}_1 + 2\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)\mathbf{j}_1 + \dot\zeta\,\mathbf{k}_1 $$
+> [!derivation] Initial rates
+> **Law:** the velocity of part (b) written at the start, matched with the datum
+> **Source:** Problems.pdf, p. 25
+>
+> $$\begin{aligned}
+> \mathbf v_1^P(0) &= \left(\dot\zeta_0\cdot 0 - 1\cdot\dot\beta_0\cdot 1\right)\mathbf i_1 + 2\left(\dot\zeta_0\cdot 1 + 1\cdot\dot\beta_0\cdot 0\right)\mathbf j_1 + \dot\zeta_0\,\mathbf k_1 = -\dot\beta_0\,\mathbf i_1 + 2\dot\zeta_0\,\mathbf j_1 + \dot\zeta_0\,\mathbf k_1 \quad &\text{($\zeta_0 = 1$, $\beta_0 = \pi/2$)} \\
+> -\dot\beta_0\,\mathbf i_1 + 2\dot\zeta_0\,\mathbf j_1 + \dot\zeta_0\,\mathbf k_1 &= \mathbf i_1 \;\Rightarrow\; \dot\beta_0 = -1\ \mathrm{rad\,s^{-1}}, \quad \dot\zeta_0 = 0 \quad &\text{(three components; the second agrees with the third)}
+> \end{aligned}$$
+>
+> $$\boxed{\dot\zeta(0) = 0, \qquad \dot\beta(0) = -1\ \mathrm{rad\,s^{-1}}}$$
+>
+> **Units:** $[\dot\beta] = [\mathrm{T^{-1}}]$
+> **Meaning:** the initial velocity is horizontal and tangent to the section: the particle starts along the ellipse, towards decreasing $\beta$.
 
-Equivalently $\mathbf{v}_1^P = \dot\zeta\,\mathbf{e}_\zeta + \zeta\dot\beta\,\mathbf{e}_\beta$: the velocity is tangent to the cone.
-
-Differentiating again. For the $\mathbf{i}_1$ component, $\frac{d}{dt}(\dot\zeta\cos\beta) = \ddot\zeta\cos\beta - \dot\zeta\dot\beta\sin\beta$ and $\frac{d}{dt}(\zeta\dot\beta\sin\beta) = \dot\zeta\dot\beta\sin\beta + \zeta\ddot\beta\sin\beta + \zeta\dot\beta^2\cos\beta$; for the $\mathbf{j}_1$ component, $\frac{d}{dt}(\dot\zeta\sin\beta) = \ddot\zeta\sin\beta + \dot\zeta\dot\beta\cos\beta$ and $\frac{d}{dt}(\zeta\dot\beta\cos\beta) = \dot\zeta\dot\beta\cos\beta + \zeta\ddot\beta\cos\beta - \zeta\dot\beta^2\sin\beta$. Collecting terms:
-
-$$ \mathbf{a}_1^P = \left[\left(\ddot\zeta - \zeta\dot\beta^2\right)\cos\beta - \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\sin\beta\right]\mathbf{i}_1 + 2\left[\left(\ddot\zeta - \zeta\dot\beta^2\right)\sin\beta + \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\cos\beta\right]\mathbf{j}_1 + \ddot\zeta\,\mathbf{k}_1 $$
-
-The unit vectors $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ are defined in terms of $\mathcal{B}_0$ in the change-of-basis section. For later use we write $\mathbf{r}_1^P = x_1\mathbf{i}_1 + y_1\mathbf{j}_1 + z_1\mathbf{k}_1$ and $\mathbf{v}_1^P = \dot x_1\mathbf{i}_1 + \dot y_1\mathbf{j}_1 + \dot z_1\mathbf{k}_1$ with the components above.
+> [!derivation] Absolute acceleration: centripetal and Coriolis terms
+> **Law:** time derivative in $S_0$ of the position written in the turning basis; product rule
+> **Source:** Notes.pdf, Eq. 3.17; Notes.pdf, Eq. 3.21; Notes.pdf, Eq. 3.22; Notes.pdf, Eq. 3.23; Notes.pdf, Eq. 3.27; [Lecture 5, Slide 24]; [Lecture 5, Slide 25]
+>
+> Write the position as $x_1\,\mathbf i_1 + y_1\,\mathbf j_1 + z_1\,\mathbf k_1$ with the components of part (b); their time derivatives are the components of the relative velocity.
+>
+> $$\begin{aligned}
+> \mathbf v_0^P &= \dot x_1\,\mathbf i_1 + \dot y_1\,\mathbf j_1 + \dot z_1\,\mathbf k_1 + x_1\Omega\,\mathbf j_1 - y_1\Omega\,\mathbf i_1 = \mathbf v_1^P + \Omega\left(x_1\,\mathbf j_1 - y_1\,\mathbf i_1\right) \quad &\text{(product rule; derivatives of $\mathbf i_1$, $\mathbf j_1$)} \\
+> \left.\frac{d\mathbf v_1^P}{dt}\right|_0 &= \mathbf a_1^P + \Omega\left(\dot x_1\,\mathbf j_1 - \dot y_1\,\mathbf i_1\right) \quad &\text{(product rule; the turning of the basis inside $\mathbf v_1^P$)} \\
+> \left.\frac{d}{dt}\right|_0\left[\Omega\left(x_1\,\mathbf j_1 - y_1\,\mathbf i_1\right)\right] &= \Omega\left(\dot x_1\,\mathbf j_1 - \dot y_1\,\mathbf i_1\right) - \Omega^2\left(x_1\,\mathbf i_1 + y_1\,\mathbf j_1\right) \quad &\text{(product rule; derivatives of $\mathbf j_1$, $\mathbf i_1$)} \\
+> 2\,\boldsymbol\omega_{10}\times\mathbf v_1^P &= 2\Omega\,\mathbf k_1\times\left(\dot x_1\,\mathbf i_1 + \dot y_1\,\mathbf j_1 + \dot z_1\,\mathbf k_1\right) = 2\Omega\left(\dot x_1\,\mathbf j_1 - \dot y_1\,\mathbf i_1\right) \quad &\text{(the two equal terms: Coriolis)} \\
+> \boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) &= \Omega\,\mathbf k_1\times\Omega\left(x_1\,\mathbf j_1 - y_1\,\mathbf i_1\right) = -\Omega^2\left(x_1\,\mathbf i_1 + y_1\,\mathbf j_1\right) \quad &\text{(the last term: centripetal)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \mathbf a_1^P - \Omega^2\left(x_1\,\mathbf i_1 + y_1\,\mathbf j_1\right) + 2\Omega\left(\dot x_1\,\mathbf j_1 - \dot y_1\,\mathbf i_1\right)}$$
+>
+> **Units:** $[\Omega^2x_1] = [\Omega\dot x_1] = [\mathrm{L\,T^{-2}}]$
+> **Meaning:** both rotation terms are horizontal; with the vertex fixed and the rate constant there are no origin or Euler terms.
 
 ### Forces and Equations of Motion
 
-##### (c) Forces acting on $P$ as seen from $S_1$
-* **Pedagogical Justification:** in the non-inertial frame $S_1$ Newton's law reads $m\mathbf{a}_1^P = \mathbf{F} + \mathbf{F}_i$ (Notes Eq. 4.63), where $\mathbf{F}$ are the actual forces and $\mathbf{F}_i$ the inertia forces of Notes Eq. 4.62 (Slide 28).
+![[attachments/EM-SOL/p37-fbd.svg]]
 
-**1. Weight:** $\mathbf{W} = -mg\,\mathbf{k}_0 = -mg\,\mathbf{k}_1$.
+#### (c) Forces acting on P as seen from S1
 
-**2. Normal reaction.** The contact is smooth, so the reaction is along the unit normal of the change-of-basis section:
+> [!derivation] Actual and inertia forces on the particle
+> **Law:** weight; smooth reaction along the normal; inertia forces of a non-inertial frame
+> **Source:** Notes.pdf, Eq. 4.62; Notes.pdf, Eq. 6.11; [Lecture 5, Slide 28]; [Lecture 5, Slide 30]
+>
+> $$\begin{aligned}
+> \mathbf W &= -mg\,\mathbf k_1, \quad \mathbf N = N\,\mathbf n \quad &\text{(weight; smooth contact)} \\
+> \mathbf F_A &= -m\,\mathbf a_0^O = \mathbf 0, \quad \mathbf F_E = -m\,\boldsymbol\alpha_{10}\times\mathbf r_1^P = \mathbf 0 \quad &\text{(vertex fixed; $\Omega$ constant)} \\
+> \mathbf F_C &= -m\,\boldsymbol\omega_{10}\times\left(\boldsymbol\omega_{10}\times\mathbf r_1^P\right) = m\Omega^2\left(x_1\,\mathbf i_1 + y_1\,\mathbf j_1\right) = m\Omega^2\zeta\left(\cos\beta\,\mathbf i_1 + 2\sin\beta\,\mathbf j_1\right) \quad &\text{(composition box times $-m$)} \\
+> \mathbf F_{COR} &= -2m\,\boldsymbol\omega_{10}\times\mathbf v_1^P = 2m\Omega\left(\dot y_1\,\mathbf i_1 - \dot x_1\,\mathbf j_1\right) \quad &\text{(composition box times $-m$)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf W = -mg\,\mathbf k_1, \quad \mathbf N = N\,\frac{-2\cos\beta\,\mathbf i_1 - \sin\beta\,\mathbf j_1 + 2\,\mathbf k_1}{\sqrt{5 + 3\cos^2\beta}}, \quad \mathbf F_C = m\Omega^2\zeta\left(\cos\beta\,\mathbf i_1 + 2\sin\beta\,\mathbf j_1\right), \cr \mathbf F_{COR} = 4m\Omega\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)\mathbf i_1 - 2m\Omega\left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)\mathbf j_1 \end{gathered}}$$
+>
+> **Units:** $[mg] = [m\Omega^2\zeta] = [m\Omega\dot\zeta] = [\mathrm{M\,L\,T^{-2}}]$
+> **Meaning:** two actual forces and two inertia forces; the centrifugal force points horizontally away from the axis, the Coriolis force is horizontal and normal to the horizontal relative velocity. Newton's second law in $S_1$ is the sum of the four equal to the mass times the relative acceleration (Eq. 4.63).
 
-$$ \mathbf{N} = N\,\mathbf{n}, \qquad \mathbf{n} = \frac{-2\cos\beta\,\mathbf{i}_1 - \sin\beta\,\mathbf{j}_1 + 2\,\mathbf{k}_1}{\sqrt{5 + 3\cos^2\beta}} $$
+#### (d) Two equations of motion free of the reaction
 
-with $N$ an unknown scalar.
-
-**3. Inertia forces** (Notes Eq. 4.62). Since $\mathbf{a}_0^O = \mathbf{0}$ and $\boldsymbol{\alpha}_{10} = \mathbf{0}$, the force due to the acceleration of the origin and the Euler force vanish: $\mathbf{F}_A = -m\mathbf{a}_0^O = \mathbf{0}$, $\mathbf{F}_E = -m\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P = \mathbf{0}$.
-
-*Centrifugal force.* With $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$, $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$:
-
-$$ \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P = \Omega\,\mathbf{k}_1\times\left(x_1\mathbf{i}_1 + y_1\mathbf{j}_1 + z_1\mathbf{k}_1\right) = \Omega\left(x_1\mathbf{j}_1 - y_1\mathbf{i}_1\right) $$
-$$ \boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) = \Omega\,\mathbf{k}_1\times\Omega\left(x_1\mathbf{j}_1 - y_1\mathbf{i}_1\right) = -\Omega^2\left(x_1\mathbf{i}_1 + y_1\mathbf{j}_1\right) $$
-$$ \mathbf{F}_C = -m\boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) = m\Omega^2\left(x_1\mathbf{i}_1 + y_1\mathbf{j}_1\right) = m\Omega^2\zeta\left(\cos\beta\,\mathbf{i}_1 + 2\sin\beta\,\mathbf{j}_1\right) $$
-
-which is $m\Omega^2\mathbf{r}_\perp$, radially outward from the axis (Slide 30).
-
-*Coriolis force.*
-
-$$ \mathbf{F}_{COR} = -2m\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P = -2m\Omega\,\mathbf{k}_1\times\left(\dot x_1\mathbf{i}_1 + \dot y_1\mathbf{j}_1 + \dot z_1\mathbf{k}_1\right) = 2m\Omega\left(\dot y_1\,\mathbf{i}_1 - \dot x_1\,\mathbf{j}_1\right) $$
-$$ \mathbf{F}_{COR} = 4m\Omega\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)\mathbf{i}_1 - 2m\Omega\left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)\mathbf{j}_1 $$
-
-**Equation of motion in $S_1$** (Notes Eq. 4.63):
-
-$$ m\mathbf{a}_1^P = -mg\,\mathbf{k}_1 + N\,\mathbf{n} + \mathbf{F}_C + \mathbf{F}_{COR} $$
-
-##### (d) Two equations of motion free of the reaction
-* **Pedagogical Justification:** the only unknown besides $\zeta$ and $\beta$ is $N$, and $\mathbf{N}$ is perpendicular to the surface. Projecting the vector equation on the two tangent vectors $\mathbf{e}_\zeta$ and $\mathbf{e}_\beta$ eliminates it: $(-2\cos\beta)\cos\beta + (-\sin\beta)(2\sin\beta) + 2 = 0$ and $(-2\cos\beta)(-\sin\beta) + (-\sin\beta)(2\cos\beta) = 0$.
-
-**Projection on $\mathbf{e}_\zeta = (\cos\beta, 2\sin\beta, 1)$.** Left-hand side:
-
-$$ \mathbf{a}_1^P\cdot\mathbf{e}_\zeta = \left(\ddot\zeta - \zeta\dot\beta^2\right)\left(\cos^2\beta + 4\sin^2\beta\right) + \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\left(-\sin\beta\cos\beta + 4\sin\beta\cos\beta\right) + \ddot\zeta $$
-$$ = \ddot\zeta + \left(\ddot\zeta - \zeta\dot\beta^2\right)\left(1 + 3\sin^2\beta\right) + 3\left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\sin\beta\cos\beta $$
-
-Right-hand side, term by term: $-mg\,\mathbf{k}_1\cdot\mathbf{e}_\zeta = -mg$; $\mathbf{F}_C\cdot\mathbf{e}_\zeta = m\Omega^2\zeta\left(\cos^2\beta + 4\sin^2\beta\right) = m\Omega^2\zeta\left(1 + 3\sin^2\beta\right)$;
-
-$$ \mathbf{F}_{COR}\cdot\mathbf{e}_\zeta = 4m\Omega\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)\cos\beta - 4m\Omega\left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)\sin\beta = 4m\Omega\zeta\dot\beta\left(\cos^2\beta + \sin^2\beta\right) = 4m\Omega\zeta\dot\beta $$
-
-Dividing by $m$:
-
-$$ \boxed{\ddot\zeta + \left(\ddot\zeta - \zeta\dot\beta^2\right)\left(1 + 3\sin^2\beta\right) + 3\left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\cos\beta\sin\beta = -g + \Omega^2\zeta\left(1 + 3\sin^2\beta\right) + 4\Omega\zeta\dot\beta} $$
-
-**Projection on $\mathbf{e}_\beta = (-\sin\beta, 2\cos\beta, 0)$.** Left-hand side:
-
-$$ \mathbf{a}_1^P\cdot\mathbf{e}_\beta = \left(\ddot\zeta - \zeta\dot\beta^2\right)\left(-\sin\beta\cos\beta + 4\sin\beta\cos\beta\right) + \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\left(\sin^2\beta + 4\cos^2\beta\right) = 3\left(\ddot\zeta - \zeta\dot\beta^2\right)\sin\beta\cos\beta + \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\left(1 + 3\cos^2\beta\right) $$
-
-Right-hand side: $-mg\,\mathbf{k}_1\cdot\mathbf{e}_\beta = 0$; $\mathbf{F}_C\cdot\mathbf{e}_\beta = m\Omega^2\zeta\left(-\cos\beta\sin\beta + 4\sin\beta\cos\beta\right) = 3m\Omega^2\zeta\sin\beta\cos\beta$;
-
-$$ \mathbf{F}_{COR}\cdot\mathbf{e}_\beta = -4m\Omega\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)\sin\beta - 4m\Omega\left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)\cos\beta = -4m\Omega\dot\zeta $$
-
-Dividing by $m$:
-
-$$ \boxed{3\left(\ddot\zeta - \zeta\dot\beta^2\right)\cos\beta\sin\beta + \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\left(1 + 3\cos^2\beta\right) = 3\Omega^2\zeta\cos\beta\sin\beta - 4\Omega\dot\zeta} $$
-
-These two equations contain only $\zeta$, $\beta$ and their derivatives. The initial conditions follow from the data: $\mathbf{r}^P_{1,0} = 2\mathbf{j}_1 + \mathbf{k}_1$ gives $\zeta_0 = 1$, $\zeta_0\cos\beta_0 = 0$ and $2\zeta_0\sin\beta_0 = 2$, so $\beta_0 = \pi/2$; $\mathbf{v}^P_{1,0} = \mathbf{i}_1$ gives $\dot\zeta_0 = 0$ ($\mathbf{k}_1$ component) and $\dot\zeta_0\cos\beta_0 - \zeta_0\dot\beta_0\sin\beta_0 = -\dot\beta_0 = 1$, so $\dot\beta_0 = -1$ rad/s; the $\mathbf{j}_1$ component $2(\dot\zeta_0\sin\beta_0 + \zeta_0\dot\beta_0\cos\beta_0) = 0$ is consistent (the initial velocity is tangent to the cone).
+> [!derivation] Projections on the two tangent vectors
+> **Law:** Newton's second law in a non-inertial frame projected on $\mathbf e_\zeta$ and $\mathbf e_\beta$, which are normal to the reaction
+> **Source:** Notes.pdf, Eq. 4.63; Notes.pdf, Eq. 6.11; [Lecture 5, Slide 28]; Problems.pdf, p. 25
+>
+> Write $a$ for $\ddot\zeta - \zeta\dot\beta^2$ and $b$ for $2\dot\zeta\dot\beta + \zeta\ddot\beta$, the two brackets of the relative acceleration.
+>
+> $$\begin{aligned}
+> \mathbf n\cdot\mathbf e_\zeta &\propto -2\cos^2\beta - 2\sin^2\beta + 2 = 0, \quad \mathbf n\cdot\mathbf e_\beta \propto 2\cos\beta\sin\beta - 2\sin\beta\cos\beta = 0 \quad &\text{(the reaction drops out)} \\
+> \mathbf a_1^P\cdot\mathbf e_\zeta &= a\left(\cos^2\beta + 4\sin^2\beta\right) + b\left(-\sin\beta\cos\beta + 4\sin\beta\cos\beta\right) + \ddot\zeta = \ddot\zeta + a\left(1 + 3\sin^2\beta\right) + 3b\sin\beta\cos\beta \quad &\text{(components of part (b))} \\
+> \mathbf W\cdot\mathbf e_\zeta &= -mg, \quad \mathbf F_C\cdot\mathbf e_\zeta = m\Omega^2\zeta\left(\cos^2\beta + 4\sin^2\beta\right) = m\Omega^2\zeta\left(1 + 3\sin^2\beta\right) \quad &\text{(weight; centrifugal)} \\
+> \mathbf F_{COR}\cdot\mathbf e_\zeta &= 4m\Omega\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)\cos\beta - 4m\Omega\left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)\sin\beta = 4m\Omega\zeta\dot\beta \quad &\text{(the $\dot\zeta$ terms cancel)} \\
+> \mathbf a_1^P\cdot\mathbf e_\beta &= a\left(-\sin\beta\cos\beta + 4\sin\beta\cos\beta\right) + b\left(\sin^2\beta + 4\cos^2\beta\right) = 3a\sin\beta\cos\beta + b\left(1 + 3\cos^2\beta\right) \quad &\text{(components of part (b))} \\
+> \mathbf W\cdot\mathbf e_\beta &= 0, \quad \mathbf F_C\cdot\mathbf e_\beta = m\Omega^2\zeta\left(-\cos\beta\sin\beta + 4\sin\beta\cos\beta\right) = 3m\Omega^2\zeta\sin\beta\cos\beta \quad &\text{(weight; centrifugal)} \\
+> \mathbf F_{COR}\cdot\mathbf e_\beta &= -4m\Omega\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)\sin\beta - 4m\Omega\left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)\cos\beta = -4m\Omega\dot\zeta \quad &\text{(the $\dot\beta$ terms cancel)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \ddot\zeta + \left(\ddot\zeta - \zeta\dot\beta^2\right)\left(1 + 3\sin^2\beta\right) + 3\left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\cos\beta\sin\beta = -g + \Omega^2\zeta\left(1 + 3\sin^2\beta\right) + 4\Omega\zeta\dot\beta \cr 3\left(\ddot\zeta - \zeta\dot\beta^2\right)\cos\beta\sin\beta + \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\left(1 + 3\cos^2\beta\right) = 3\Omega^2\zeta\cos\beta\sin\beta - 4\Omega\dot\zeta \end{gathered}}$$
+>
+> **Units:** every term $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** two second-order equations for $\zeta$ and $\beta$ alone, with the initial conditions $\zeta$ equal to 1 m, $\beta$ a quarter turn, zero rate of $\zeta$ and minus 1 rad/s for the rate of $\beta$. The Coriolis terms couple them antisymmetrically. The third projection, on $\mathbf n$, would give the reaction.
 
 ### Answers and Checks
 
-##### (a) Degrees of freedom
-$\text{DOF} = 2$, with generalized coordinates $(\zeta, \beta)$.
+#### (e) A conservation law: the energy of the relative motion
 
-##### (b) Kinematics in $S_1$
-$\mathbf{r}_1^P$, $\mathbf{v}_1^P$ and $\mathbf{a}_1^P$ as in the kinematics section, with $\mathbf{i}_1 = \cos\Omega t\,\mathbf{i}_0 + \sin\Omega t\,\mathbf{j}_0$, $\mathbf{j}_1 = -\sin\Omega t\,\mathbf{i}_0 + \cos\Omega t\,\mathbf{j}_0$, $\mathbf{k}_1 = \mathbf{k}_0$.
+> [!derivation] Why the energy in S1 is conserved, and its value
+> **Law:** power of each force on the relative velocity; potentials of the weight and of the centrifugal force; initial conditions
+> **Source:** Notes.pdf, Eq. 4.14; Notes.pdf, Eq. 4.31; [Lecture 5, Slide 29]; [Lecture 5, Slide 30]; [Lecture 5, Slide 31]
+>
+> Two reasons. First, the forces that do no work in $S_1$: the reaction (the cone is at rest in $S_1$ and the relative velocity is tangent to it), the Coriolis force (normal to the relative velocity), and the origin and Euler forces, which vanish. Second, the forces that work have potentials of the position in $S_1$: the weight, constant in $S_1$ because $\mathbf k_1$ is the fixed vertical, and the centrifugal force, because the rate is constant and the axis fixed. The squared distance to the axis is the sum of the squares of $x_1$ and $y_1$.
+>
+> $$\begin{aligned}
+> \mathbf N\cdot\mathbf v_1^P &= N\,\mathbf n\cdot\left(\dot\zeta\,\mathbf e_\zeta + \zeta\dot\beta\,\mathbf e_\beta\right) = 0, \quad \mathbf F_{COR}\cdot\mathbf v_1^P = 2m\Omega\left(\dot y_1\dot x_1 - \dot x_1\dot y_1\right) = 0 \quad &\text{(no power)} \\
+> V_1 &= mgz_1 - \tfrac12 m\Omega^2\left(x_1^2 + y_1^2\right) = mg\zeta - \tfrac12 m\Omega^2\zeta^2\left(\cos^2\beta + 4\sin^2\beta\right) = mg\zeta - \tfrac12 m\Omega^2\zeta^2\left(1 + 3\sin^2\beta\right) \quad &\text{(Eq. 4.14; Slide 30)} \\
+> \left|\mathbf v_1^P\right|^2 &= \left(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta\right)^2 + 4\left(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta\right)^2 + \dot\zeta^2 \quad &\text{(components of part (b))} \\
+> &= \left(2 + 3\sin^2\beta\right)\dot\zeta^2 + \left(1 + 3\cos^2\beta\right)\zeta^2\dot\beta^2 + 6\zeta\dot\zeta\dot\beta\sin\beta\cos\beta \quad &\text{(squares expanded; cross terms $-2 + 8 = 6$)} \\
+> \frac{dE_1^P}{dt} &= \dot\zeta\left(m\,\mathbf a_1^P - \mathbf W - \mathbf F_C\right)\cdot\mathbf e_\zeta + \zeta\dot\beta\left(m\,\mathbf a_1^P - \mathbf W - \mathbf F_C\right)\cdot\mathbf e_\beta = \dot\zeta\left(4m\Omega\zeta\dot\beta\right) + \zeta\dot\beta\left(-4m\Omega\dot\zeta\right) = 0 \quad &\text{(check with the two equations of part (d))} \\
+> E_1^P(0) &= \tfrac12 m\left|\mathbf i_1\right|^2 + mg\cdot 1 - \tfrac12 m\Omega^2\cdot 1^2\left(1 + 3\cdot 1\right) = m\left(\tfrac12 + g - 2\Omega^2\right) \quad &\text{(initial data, SI units)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{m}{2}\left[\left(2 + 3\sin^2\beta\right)\dot\zeta^2 + \left(1 + 3\cos^2\beta\right)\zeta^2\dot\beta^2 + 6\zeta\dot\zeta\dot\beta\sin\beta\cos\beta\right] + mg\zeta - \frac{m}{2}\Omega^2\zeta^2\left(1 + 3\sin^2\beta\right) = m\left(\tfrac12 + g - 2\Omega^2\right)}$$
+>
+> **Units:** $[m\dot\zeta^2] = [mg\zeta] = [m\Omega^2\zeta^2] = [\mathrm{M\,L^2\,T^{-2}}]$; the constant is $m(\tfrac12\ \mathrm{m^2\,s^{-2}} + g\cdot 1\ \mathrm{m} - 2\Omega^2\cdot 1\ \mathrm{m^2})$
+> **Meaning:** the energy of the motion relative to the cone is constant. The angular momentum about the axis is not: the section is not circular, so the normal reaction has a moment about the axis (next box).
 
-##### (c) Forces
-Weight $-mg\,\mathbf{k}_1$, normal reaction $N\,\mathbf{n}$, centrifugal force $m\Omega^2\zeta(\cos\beta\,\mathbf{i}_1 + 2\sin\beta\,\mathbf{j}_1)$ and Coriolis force $2m\Omega(\dot y_1\,\mathbf{i}_1 - \dot x_1\,\mathbf{j}_1)$; the Euler force and the force of the origin's acceleration are zero.
+> [!derivation] Why the angular momentum about the axis is not conserved
+> **Law:** moment of the reaction about the vertical axis
+> **Source:** Notes.pdf, Eq. 4.48; Notes.pdf, Eq. 4.53
+>
+> The weight is parallel to the axis; the reaction is the only force with an axial moment. Its component along $\mathbf k_1$ is the first component of the position times the second of the force minus the second times the first.
+>
+> $$\begin{aligned}
+> \left(\mathbf r_1^P\times\mathbf N\right)\cdot\mathbf k_1 &= \frac{N}{\sqrt{5 + 3\cos^2\beta}}\left[\zeta\cos\beta\left(-\sin\beta\right) - 2\zeta\sin\beta\left(-2\cos\beta\right)\right] = \frac{3N\zeta\sin\beta\cos\beta}{\sqrt{5 + 3\cos^2\beta}} \quad &\text{(components of the position and of the normal)}
+> \end{aligned}$$
+>
+> $$\boxed{M_{O} \cdot\mathbf k_1 = \frac{3N\zeta\sin\beta\cos\beta}{\sqrt{5 + 3\cos^2\beta}} \ne 0 \text{ in general}}$$
+>
+> **Units:** $[N\zeta] = [\mathrm{M\,L^2\,T^{-2}}]$
+> **Meaning:** only on the principal planes of the cone, where the product of the sine and cosine vanishes, does the reaction pass through the axis; on a circular cone it always would.
 
-##### (d) Equations of motion
-The two boxed equations of the previous section, with $\zeta_0 = 1$ m, $\beta_0 = \pi/2$, $\dot\zeta_0 = 0$, $\dot\beta_0 = -1$ rad/s.
+#### (f) Equilibrium positions in S1 for positive zeta
 
-##### (e) Conservation law: mechanical energy in $S_1$
-* **Pedagogical Justification:** $E_1^P$ is conserved when every force that does work in $S_1$, inertia forces included, derives from a potential (Slide 29). Here: $\mathbf{N}\cdot\mathbf{v}_1^P = 0$ because the cone is fixed in $S_1$ and $\mathbf{v}_1^P$ is tangent to it; $\mathbf{F}_{COR}\cdot\mathbf{v}_1^P = 0$ always (Slide 31); $\mathbf{F}_A = \mathbf{F}_E = \mathbf{0}$; the weight is a constant force in $S_1$ ($\mathbf{k}_1 = \mathbf{k}_0$) with potential $mgz_1$; and, since $\boldsymbol{\omega}_{10}$ is constant, the centrifugal force has potential $-\tfrac12 m\Omega^2 r_\perp^2$ (Slide 30).
+> [!derivation] Equilibria and the reaction there
+> **Law:** relative equilibrium: constant coordinates, so the rates and accelerations vanish in the two equations of part (d)
+> **Source:** Notes.pdf, Eq. 4.32; Notes.pdf, Sec. 4.6; Problems.pdf, p. 25
+>
+> $$\begin{aligned}
+> \mathbf e_\beta:\ 0 &= 3\Omega^2\zeta\cos\beta\sin\beta = \tfrac32\Omega^2\zeta\sin 2\beta \;\Rightarrow\; \beta = 0,\ \tfrac{\pi}{2},\ \pi,\ \tfrac{3\pi}{2} \quad &\text{($\zeta \gt 0$, $\Omega \ne 0$)} \\
+> \mathbf e_\zeta:\ 0 &= -g + \Omega^2\zeta\left(1 + 3\sin^2\beta\right) \;\Rightarrow\; \zeta_{eq} = \frac{g}{\Omega^2\left(1 + 3\sin^2\beta\right)} \quad &\text{(second equation)} \\
+> \beta = 0, \pi:\quad \zeta_{eq} &= \frac{g}{\Omega^2}; \quad \beta = \tfrac{\pi}{2}, \tfrac{3\pi}{2}:\quad \zeta_{eq} = \frac{g}{4\Omega^2} \quad &\text{($\sin^2\beta$ equal to 0 or 1)} \\
+> \beta = 0:\quad \mathbf 0 &= -mg\,\mathbf k_1 + m\Omega^2\zeta\,\mathbf i_1 + \frac{N}{\sqrt8}\left(-2\,\mathbf i_1 + 2\,\mathbf k_1\right) \;\Rightarrow\; N = \sqrt2\,mg \gt 0 \quad &\text{(check by the full balance, $\mathbf k_1$ component)} \\
+> \beta = \tfrac{\pi}{2}:\quad \mathbf 0 &= -mg\,\mathbf k_1 + 2m\Omega^2\zeta\,\mathbf j_1 + \frac{N}{\sqrt5}\left(-\mathbf j_1 + 2\,\mathbf k_1\right) \;\Rightarrow\; N = \tfrac{\sqrt5}{2}mg \gt 0, \ \zeta = \frac{g}{4\Omega^2} \quad &\text{(check by the full balance)}
+> \end{aligned}$$
+>
+> $$\boxed{\begin{gathered} \mathbf r_1^P = \frac{g}{\Omega^2}\left(\pm\mathbf i_1 + \mathbf k_1\right) \ \ (\beta = 0, \pi), \qquad \mathbf r_1^P = \pm\frac{g}{2\Omega^2}\,\mathbf j_1 + \frac{g}{4\Omega^2}\,\mathbf k_1 \ \ \left(\beta = \tfrac{\pi}{2}, \tfrac{3\pi}{2}\right) \end{gathered}}$$
+>
+> **Units:** $[g/\Omega^2] = [\mathrm{L}]$
+> **Meaning:** the four equilibria lie on the generators of the two principal vertical planes, the only places where the normal lies in the vertical plane through the axis and can balance the weight and the horizontal centrifugal force with nothing left along the section. On the steeper generators (45 degrees) the particle sits four times higher than on the flatter ones. The reaction is positive along the inward normal at all four, so a particle on the inner surface stays in contact there.
 
-Kinetic energy in $S_1$, expanding the squares of the components of $\mathbf{v}_1^P$:
+| Part of the statement | Answer |
+| :--- | :--- |
+| (a) Degrees of freedom | 2 ($\zeta$, $\beta$); the cone is $x_1^2 + y_1^2/4 - z_1^2 = 0$ |
+| (b) Kinematics in $S_1$ | $\mathbf r_1^P = \zeta\cos\beta\,\mathbf i_1 + 2\zeta\sin\beta\,\mathbf j_1 + \zeta\,\mathbf k_1$; $\mathbf v_1^P$, $\mathbf a_1^P$ as boxed in part (b); $\mathbf i_1 = \cos\Omega t\,\mathbf i_0 + \sin\Omega t\,\mathbf j_0$, $\mathbf j_1 = -\sin\Omega t\,\mathbf i_0 + \cos\Omega t\,\mathbf j_0$, $\mathbf k_1 = \mathbf k_0$ |
+| (c) Forces | $-mg\,\mathbf k_1$; $N\,\mathbf n$, $\mathbf n = (-2\cos\beta, -\sin\beta, 2)/\sqrt{5 + 3\cos^2\beta}$; $\mathbf F_C = m\Omega^2\zeta(\cos\beta\,\mathbf i_1 + 2\sin\beta\,\mathbf j_1)$; $\mathbf F_{COR} = 4m\Omega(\dot\zeta\sin\beta + \zeta\dot\beta\cos\beta)\,\mathbf i_1 - 2m\Omega(\dot\zeta\cos\beta - \zeta\dot\beta\sin\beta)\,\mathbf j_1$; origin and Euler forces zero |
+| (d) Equations of motion | the two boxed equations of part (d); initial conditions $\zeta(0) = 1$ m, $\beta(0) = \pi/2$, $\dot\zeta(0) = 0$, $\dot\beta(0) = -1$ rad/s |
+| (e) Conservation law | energy in $S_1$: $\frac m2[(2 + 3\sin^2\beta)\dot\zeta^2 + (1 + 3\cos^2\beta)\zeta^2\dot\beta^2 + 6\zeta\dot\zeta\dot\beta\sin\beta\cos\beta] + mg\zeta - \frac12 m\Omega^2\zeta^2(1 + 3\sin^2\beta) = m(\frac12 + g - 2\Omega^2)$ (SI units) |
+| (f) Equilibria | $\beta = 0, \pi$: $\zeta = g/\Omega^2$; $\beta = \pi/2, 3\pi/2$: $\zeta = g/(4\Omega^2)$ |
 
-$$ \left|\mathbf{v}_1^P\right|^2 = \left(\dot\zeta^2\cos^2\beta - 2\zeta\dot\zeta\dot\beta\sin\beta\cos\beta + \zeta^2\dot\beta^2\sin^2\beta\right) + 4\left(\dot\zeta^2\sin^2\beta + 2\zeta\dot\zeta\dot\beta\sin\beta\cos\beta + \zeta^2\dot\beta^2\cos^2\beta\right) + \dot\zeta^2 $$
-$$ T_1^P = \frac{m}{2}\left[\left(2 + 3\sin^2\beta\right)\dot\zeta^2 + \left(1 + 3\cos^2\beta\right)\zeta^2\dot\beta^2 + 6\zeta\dot\zeta\dot\beta\sin\beta\cos\beta\right] $$
+**Check against the official key:** Problems.pdf, p. 75 prints the two equations of part (d); they coincide term by term (box below). The key prints nothing for the other parts; the energy is checked against the two equations, and the equilibria by the full force balance in part (f).
 
-Potential in $S_1$, with $z_1 = \zeta$ and $r_\perp^2 = x_1^2 + y_1^2 = \zeta^2\left(\cos^2\beta + 4\sin^2\beta\right) = \zeta^2\left(1 + 3\sin^2\beta\right)$:
+> [!derivation] Comparison with the official key
+> **Law:** term-by-term comparison
+> **Source:** Problems.pdf, p. 75
+>
+> $$\begin{aligned}
+> \text{key, } \mathbf e_\zeta:\ \ddot\zeta + \left(\ddot\zeta - \zeta\dot\beta^2\right)\left(1 + 3\sin^2\beta\right) + 3\left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\cos\beta\sin\beta &= -g + \Omega^2\zeta\left(1 + 3\sin^2\beta\right) + 4\Omega\zeta\dot\beta \quad &\text{(first equation of part (d))} \\
+> \text{key, } \mathbf e_\beta:\ 3\left(\ddot\zeta - \zeta\dot\beta^2\right)\cos\beta\sin\beta + \left(2\dot\zeta\dot\beta + \zeta\ddot\beta\right)\left(1 + 3\cos^2\beta\right) &= 3\Omega^2\zeta\cos\beta\sin\beta - 4\Omega\dot\zeta \quad &\text{(second equation of part (d))}
+> \end{aligned}$$
+>
+> $$\boxed{\text{both equations coincide with the key}}$$
+>
+> **Units:** $[\mathrm{L\,T^{-2}}]$
+> **Meaning:** the signs of the Coriolis terms confirm the sense of rotation read from the figure.
 
-$$ V_1 = mg\zeta - \frac12 m\Omega^2\zeta^2\left(1 + 3\sin^2\beta\right) $$
-
-**Direct check that $E_1^P = T_1^P + V_1$ is constant.** Since $\mathbf{v}_1^P = \dot\zeta\,\mathbf{e}_\zeta + \zeta\dot\beta\,\mathbf{e}_\beta$ and $\dfrac{dV_1}{dt} = -\left(\mathbf{W} + \mathbf{F}_C\right)\cdot\mathbf{v}_1^P$ (chain rule on $V_1(\mathbf{r}_1^P(t))$):
-
-$$ \frac{dE_1^P}{dt} = \left(m\mathbf{a}_1^P - \mathbf{W} - \mathbf{F}_C\right)\cdot\mathbf{v}_1^P = \dot\zeta\left(m\mathbf{a}_1^P - \mathbf{W} - \mathbf{F}_C\right)\cdot\mathbf{e}_\zeta + \zeta\dot\beta\left(m\mathbf{a}_1^P - \mathbf{W} - \mathbf{F}_C\right)\cdot\mathbf{e}_\beta $$
-
-and by the two equations of part (d) the brackets equal $4m\Omega\zeta\dot\beta$ and $-4m\Omega\dot\zeta$, so
-
-$$ \frac{dE_1^P}{dt} = \dot\zeta\left(4m\Omega\zeta\dot\beta\right) + \zeta\dot\beta\left(-4m\Omega\dot\zeta\right) = 0 $$
-
-**Conservation law:**
-
-$$ \boxed{\frac{m}{2}\left[\left(2 + 3\sin^2\beta\right)\dot\zeta^2 + \left(1 + 3\cos^2\beta\right)\zeta^2\dot\beta^2 + 6\zeta\dot\zeta\dot\beta\sin\beta\cos\beta\right] + mg\zeta - \frac{m}{2}\Omega^2\zeta^2\left(1 + 3\sin^2\beta\right) = E_1^P = m\left(\tfrac12 v_0^2 + g\zeta_0 - 2\Omega^2\zeta_0^2\right)} $$
-with $v_0 = |\mathbf{v}^P_{1,0}| = 1$ m/s and $\zeta_0 = 1$ m, so numerically $E_1^P = m\left(\tfrac12 + g - 2\Omega^2\right)$ in SI units.
-
-The constant comes from $t = 0$: $\zeta_0 = 1$ m, $\beta_0 = \pi/2$, $\dot\zeta_0 = 0$, $\dot\beta_0 = -1$ rad/s give $T_1^P(0) = \frac{m}{2}\left(1 + 0\right)(1)^2(-1)^2 = \frac{m}{2}$ (that is, $\tfrac12 m|\mathbf{v}^P_{1,0}|^2$ with $|\mathbf{v}^P_{1,0}| = 1$ m/s) and $V_1(0) = mg(1) - \frac12 m\Omega^2(1)^2(1 + 3) = m\left(g - 2\Omega^2\right)$, in joules when $m$, $g$ and $\Omega$ are in SI units.
-
-The angular momentum about $Oz_0$ is **not** conserved: the moment of $\mathbf{N}$ about the axis is $\left(\mathbf{r}_1^P\times\mathbf{n}\right)\cdot\mathbf{k}_1\,N = \left(x_1n_y - y_1n_x\right)N = \dfrac{\zeta\left(-\cos\beta\sin\beta + 4\sin\beta\cos\beta\right)}{\sqrt{5 + 3\cos^2\beta}}N = \dfrac{3\zeta\sin\beta\cos\beta}{\sqrt{5 + 3\cos^2\beta}}N$, which does not vanish in general because the section is not circular.
-
-##### (f) Equilibrium positions in $S_1$
-* **Pedagogical Justification:** an equilibrium in $S_1$ is a solution with $\zeta$ and $\beta$ constant, so $\dot\zeta = \dot\beta = \ddot\zeta = \ddot\beta = 0$ in the two equations of part (d); the Coriolis terms vanish automatically.
-
-The $\mathbf{e}_\beta$ equation reduces to $0 = 3\Omega^2\zeta\cos\beta\sin\beta = \tfrac32\Omega^2\zeta\sin 2\beta$. With $\zeta \gt 0$ and $\Omega \neq 0$, $\sin 2\beta = 0$:
-
-$$ \beta \in \left\{0,\ \frac{\pi}{2},\ \pi,\ \frac{3\pi}{2}\right\} $$
-
-The $\mathbf{e}_\zeta$ equation reduces to $0 = -g + \Omega^2\zeta\left(1 + 3\sin^2\beta\right)$, so
-
-$$ \zeta_{eq} = \frac{g}{\Omega^2\left(1 + 3\sin^2\beta\right)} $$
-
-| $\beta$ | $\zeta_{eq}$ | Position $\mathbf{r}_1^P$ |
-|---|---|---|
-| $0$ | $g/\Omega^2$ | $\dfrac{g}{\Omega^2}\left(\mathbf{i}_1 + \mathbf{k}_1\right)$ |
-| $\pi$ | $g/\Omega^2$ | $\dfrac{g}{\Omega^2}\left(-\mathbf{i}_1 + \mathbf{k}_1\right)$ |
-| $\pi/2$ | $g/(4\Omega^2)$ | $\dfrac{g}{2\Omega^2}\mathbf{j}_1 + \dfrac{g}{4\Omega^2}\mathbf{k}_1$ |
-| $3\pi/2$ | $g/(4\Omega^2)$ | $-\dfrac{g}{2\Omega^2}\mathbf{j}_1 + \dfrac{g}{4\Omega^2}\mathbf{k}_1$ |
-
-**Force-balance check at $\beta = 0$:** $\mathbf{n} = (-2, 0, 2)/\sqrt{8}$, so $\mathbf{0} = -mg\,\mathbf{k}_1 + m\Omega^2\zeta\,\mathbf{i}_1 + \dfrac{N}{\sqrt2}\left(-\mathbf{i}_1 + \mathbf{k}_1\right)$ gives $N = \sqrt2\,mg$ and $\Omega^2\zeta = g$. **At $\beta = \pi/2$:** $\mathbf{n} = (0, -1, 2)/\sqrt5$, so $\mathbf{0} = -mg\,\mathbf{k}_1 + 2m\Omega^2\zeta\,\mathbf{j}_1 + \dfrac{N}{\sqrt5}\left(-\mathbf{j}_1 + 2\mathbf{k}_1\right)$ gives $N = \tfrac{\sqrt5}{2}mg$ and $2\Omega^2\zeta = \tfrac{g}{2}$, i.e. $\zeta = g/(4\Omega^2)$. Both agree with the table.
-
-*Extension (stability, not asked):* the Hessian of $V_1(\zeta, \beta)$ is $\operatorname{diag}\left(-m\Omega^2,\ -3mg^2/\Omega^2\right)$ at $\beta = 0, \pi$ and $\operatorname{diag}\left(-4m\Omega^2,\ 3mg^2/(16\Omega^2)\right)$ at $\beta = \pi/2, 3\pi/2$. $V_1$ has no minimum (along each generator it is a downward parabola in $\zeta$), so the energy criterion cannot certify the stability of any of these equilibria.
-
-##### Checks
-* **Meaning of the equilibria:** they lie on the four generators contained in the principal planes $x_1z_1$ and $y_1z_1$ of the cone (the sections drawn above). Only there does the normal $\mathbf{n}$ lie in the vertical plane through the axis, so that it can balance the weight and the (radial) centrifugal force without a tangential remainder. On the steeper generators ($\beta = 0, \pi$, slope $45^\circ$) the particle must be higher, $\zeta = g/\Omega^2$, than on the flatter ones ($\beta = \pm\pi/2$, $\zeta = g/(4\Omega^2)$).
-* **Gyroscopic coupling:** the Coriolis terms $4\Omega\zeta\dot\beta$ and $-4\Omega\dot\zeta$ couple the two equations antisymmetrically, which is why they cancel in $dE_1^P/dt$ (Coriolis never does work).
-* **Limit $\Omega \to 0$:** the centrifugal and Coriolis terms vanish, $E_1^P$ becomes the ordinary energy $\tfrac12 m v^2 + mgz$, and $\zeta_{eq} \to \infty$: a fixed, vertex-down smooth cone has no equilibrium position with $\zeta \gt 0$. Basis: $t = 0$ gives $[{}_0R_1] = I$, the two frames coincide as stated.
-* **Orthogonality:** $\mathbf{n}\cdot\mathbf{e}_\zeta = \mathbf{n}\cdot\mathbf{e}_\beta = 0$ (computed in part (d)); $\mathbf{e}_\zeta$ and $\mathbf{e}_\beta$ are not orthogonal in general, $\mathbf{e}_\zeta\cdot\mathbf{e}_\beta = 3\sin\beta\cos\beta$, which is why the projections of part (d) mix the two accelerations.
-* **Dimensions:** in the $\mathbf{e}_\zeta$ equation, $[\ddot\zeta] = [\zeta\dot\beta^2] = [\dot\zeta\dot\beta] = [\zeta\ddot\beta] = \text{m/s}^2$, $[g] = \text{m/s}^2$, $[\Omega^2\zeta] = \text{s}^{-2}\,\text{m}$, $[\Omega\zeta\dot\beta] = \text{s}^{-1}\,\text{m}\,\text{s}^{-1}$; the $\mathbf{e}_\beta$ equation has the same terms. $[E_1^P] = \text{kg}\,\text{m}^2/\text{s}^2 = \text{J}$; $[g/\Omega^2] = (\text{m/s}^2)/\text{s}^{-2} = \text{m}$.
-* **Symbolic check (sympy):** $\mathbf{a}_0^P$ obtained by differentiating $[{}_0R_1]\,\mathbf{r}_1^P$ twice equals $\mathbf{a}_1^P + \boldsymbol{\omega}_{10}\times(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P) + 2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P$ (Notes Eq. 3.27); both projections match the key; $dE_1^P/dt = 0$ along the equations of motion; the four equilibria satisfy both equations.
-* **Check against the official key:** both equations of part (d) coincide with the official key (Problems.pdf, p. 75) term by term.
+> [!derivation] Limiting cases
+> **Law:** the results at extreme values of the data
+> **Source:** Notes.pdf, Eq. 4.31; Notes.pdf, Eq. 4.63
+>
+> $$\begin{aligned}
+> \Omega \to 0:\quad \zeta_{eq} &\to \infty \quad &\text{(a fixed smooth cone with its vertex down has no equilibrium above the vertex)} \\
+> \Omega \to 0:\quad E_1^P &\to \tfrac12 m\left|\mathbf v_1^P\right|^2 + mg\zeta \quad &\text{(ordinary energy of a fixed cone)} \\
+> \beta = \tfrac{\pi}{2}:\quad \mathbf e_\zeta &= 2\,\mathbf j_1 + \mathbf k_1, \quad \mathbf n = \frac{-\mathbf j_1 + 2\,\mathbf k_1}{\sqrt5}, \quad \mathbf e_\zeta\cdot\mathbf n = \frac{-2 + 2}{\sqrt5} = 0 \quad &\text{(generator of the plane $y_1z_1$)}
+> \end{aligned}$$
+>
+> $$\boxed{\Omega \to 0: \ \text{no equilibrium for positive } \zeta, \text{ and the energy becomes the ordinary one}}$$
+>
+> **Units:** $[g/\Omega^2] = [\mathrm{L}]$
+> **Meaning:** the rotation is what holds the particle up the wall of the cone.
 
 ---
 
