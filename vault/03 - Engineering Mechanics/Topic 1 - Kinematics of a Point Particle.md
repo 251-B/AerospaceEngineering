@@ -63,12 +63,18 @@ This note follows `Notes.pdf` Chapter 1 (Getting started, Eqs. 1.1 to 1.79: mech
 | $[{}_0R_{\mathrm{cyl}}]$, $[{}_0R_{\mathrm{sph}}]$, $[{}_{\mathrm{cyl}}R_{\mathrm{sph}}]$ | change of basis matrices between the local bases and $\mathcal B_0$ |
 | $\boldsymbol\omega_{\mathrm{cyl}}$, $\boldsymbol\omega_{\mathrm{sph}}$ | angular velocities of the local bases with respect to $\mathcal B_0$ |
 | $q_i$, $n$ | generalized coordinates and number of configuration degrees of freedom |
+| $c_{\theta x}$, $s_{\theta x}$ (and likewise for $\theta_y$, $\theta_z$) | short forms of the cosine and sine of $\theta_x$ in the products of rotation matrices of Section 3 (not the arc length $s$) |
+| $\gamma_C$ | angle between $\mathbf C$ and the unit normal $\mathbf n$ of the base, in the volume of the parallelepiped (Section 4) |
+| $R_0$ | radius of the sphere and of the circular wire of the constraint examples (Section 15); not the cylindrical coordinate $R$ |
+| $L$, $L_0$, $d_1$, $d_2$ | length of the string over a pulley, length in contact with the pulley, and depths of the two particles below its axis (Section 15) |
 
 ## 1. Mechanical modelling and physical quantities
 
 ### Models of reality
 
 Classical (Newtonian) mechanics is governed by Newton's laws. It breaks down at speeds comparable with the speed of light and at atomic scales, but for engineering it is a very good model of reality; the most notable exception in aerospace is the relativistic correction of global navigation satellite systems (Notes.pdf, Ch. 1). In aerospace engineering it is applied to the motion of aircraft (position, velocity, acceleration and stability), of spacecraft (orbits, attitude, launch and orbit transfers) and of their subsystems (engines, flaps, landing gear), and it is the basis of fluid dynamics and structural dynamics.
+
+On the way to aircraft and spacecraft, the course also applies the methods of Newtonian mechanics to simpler devices outside the aerospace field, such as ground vehicles, particles on a wire and spring-mass systems: they make the methods easier to learn, and these simple academic contraptions, or variations of them, often model parts of real aerospace systems directly. The first chapter reviews the linear algebra and vector calculus that the rest of the course needs; most of it should already be known, and the notes strongly advise reviewing the first-year notes of Calculus, Linear Algebra and Physics before starting (Notes.pdf, Ch. 1, p. 9).
 
 All design and analysis activities require a model of the reality we want to study ([Lecture 1, Slide 3]; Notes.pdf, Sec. 1.1). The model identifies the design parameters, gives the performance figures and shows how each parameter affects the operation. It is built with linear algebra and calculus, and it is not the reality: it is a simplified representation that ignores some aspects of the system and its environment. Trying to "solve reality" directly leads to analysis paralysis; only after stating the simplifying assumptions can we solve a version of the problem. The conclusions of a model must always be validated against reality ([Lecture 1, Slide 3]).
 
@@ -96,7 +102,7 @@ A physical quantity is anything we can measure or describe about a mechanical sy
 | Vector | one (an element of $\mathbb R^N$, $N$ = 2 or 3) | a column of $N$ numbers plus units | position, displacement, velocity, acceleration, angular velocity, force |
 | Second-order tensor | two (an element of $\mathbb R^N\times\mathbb R^N$) | an $N\times N$ matrix plus units | tensor of inertia of a rigid body |
 
-A vector cannot be represented by a magnitude alone: a displacement needs its starting point and its direction besides its numerical value. Vectors are written in bold, $\mathbf v$, and their magnitude or norm in normal type, $v$ (Notes.pdf, Sec. 1.2). In handwriting a small arrow marks a vector; failing to distinguish a vector from a scalar (and the magnitude of a vector is a scalar) is a serious error in an exam.
+A vector cannot be represented by a magnitude alone: a displacement needs its starting point and its direction besides its numerical value. Vectors are written in bold, $\mathbf v$, and their magnitude or norm in normal type, $v$ (Notes.pdf, Sec. 1.2). The vectors of mechanics have two or three components; vectors of higher dimension are also used in some formulations of mechanics (Notes.pdf, p. 10, footnote 1). In handwriting a small arrow marks a vector; failing to distinguish a vector from a scalar (and the magnitude of a vector is a scalar) is a serious error in an exam.
 
 A tensor describes linear relations between vectors, scalars and other tensors. With a vector $\mathbf A$ and a tensor $\bar{\bar M}$ of matching dimension, the contractions below are a vector and a scalar (Notes.pdf, Sec. 1.2; [Lecture 1, Slide 4]):
 
@@ -126,7 +132,7 @@ The vectors of a vector basis are always free vectors (Notes.pdf, Sec. 1.4).
 
 ### Vector spaces
 
-A set $V$ is a vector space over $\mathbb R$ when it has a vector addition and a multiplication by a scalar with the properties below, for any elements $\mathbf A$, $\mathbf B$ of $V$ and any scalars $\lambda$, $\mu$ (Notes.pdf, Sec. 1.3; [Lecture 1, Slide 5]). The vector spaces of mechanics are the plane $\mathbb R^2$ and space $\mathbb R^3$.
+A set $V$ is a vector space over $\mathbb R$ when it has a vector addition and a multiplication by a scalar with the properties below, for any elements $\mathbf A$, $\mathbf B$ of $V$ and any scalars $\lambda$, $\mu$ (Notes.pdf, Sec. 1.3; [Lecture 1, Slide 5]). The vector spaces of mechanics are the plane $\mathbb R^2$ and space $\mathbb R^3$. They are not the only ones: the set of all scalars and the set of all second-order tensors of a given dimension also have the structure of a vector space (Notes.pdf, p. 11, footnote 4).
 
 | Operation | Required properties |
 | :--- | :--- |
@@ -309,7 +315,7 @@ The orthonormality of both bases makes $[{}_0R_1]$ an orthogonal matrix. The not
 > **Units:** dimensionless
 > **Meaning:** going from $\mathcal B_2$ to $\mathcal B_0$ directly is the same as going through $\mathcal B_1$; the matrices are written in the order of the bases, from the first to the last, and in general they do not commute.
 
-Eq. 1.17 writes the composite matrix of $n$ sequential changes of basis as the right-to-left product of the matrices of each change. Read with Eq. 1.16, this holds for the matrices in the other direction, from the old basis to the new one, as the next box shows.
+Eq. 1.17 writes the composite matrix of $n$ sequential changes of basis as the right-to-left product of the matrices of each change. The notes do not say which matrix each factor is. One consistent reading, with Eq. 1.16, is that the factors are the matrices in the other direction, from the old basis to the new one, as the next box shows. Another valid reading takes each factor as the $k$-th rotation written as an active rotation in the fixed basis $\mathcal B_0$; that product, also composed right to left, gives the matrix from $\mathcal B_n$ to $\mathcal B_0$.
 
 > [!derivation] Right-to-left product of n changes of basis
 > **Law:** Eq. 1.16 repeated; transpose of a product; inverse equals transpose
@@ -472,22 +478,22 @@ In general none of the vectors of a new basis $\mathcal B_3$ coincides with a ve
 > **Units:** dimensionless
 > **Meaning:** the angles of such a sequence are Euler angles, here of type 1-2-3; another common choice is 3-1-3, a $z$, then an $x$, then a $z$ rotation (Notes.pdf, Sec. 1.5.3; Topic 6 develops them).
 
-The product of Eq. 1.23 is written out below, first the two leftmost factors and then the third, with the short forms $c_x$, $s_x$ for the cosine and sine of $\theta_x$, and likewise for $\theta_y$ and $\theta_z$.
+The product of Eq. 1.23 is written out below, first the two leftmost factors and then the third, with the short forms $c_{\theta x}$, $s_{\theta x}$ for the cosine and sine of $\theta_x$, and likewise for $\theta_y$ and $\theta_z$.
 
 > [!derivation] The 1-2-3 rotation matrix written out
 > **Law:** product of matrices, row of the left factor times column of the right factor
 > **Source:** Notes.pdf, Eq. 1.23; Notes.pdf, Eq. 1.18; Notes.pdf, Eq. 1.19; Notes.pdf, Eq. 1.20
 >
 > $$\begin{aligned}
-> [{}_0R_1][{}_1R_2] &= \begin{pmatrix} 1 & 0 & 0 \cr 0 & c_x & -s_x \cr 0 & s_x & c_x \end{pmatrix}\begin{pmatrix} c_y & 0 & s_y \cr 0 & 1 & 0 \cr -s_y & 0 & c_y \end{pmatrix} \quad &\text{(Eqs. 1.18 and 1.19)} \\
-> &= \begin{pmatrix} 1\cdot c_y + 0\cdot 0 + 0\cdot(-s_y) & 1\cdot 0 + 0\cdot 1 + 0\cdot 0 & 1\cdot s_y + 0\cdot 0 + 0\cdot c_y \cr 0\cdot c_y + c_x\cdot 0 + (-s_x)(-s_y) & 0\cdot 0 + c_x\cdot 1 + (-s_x)\cdot 0 & 0\cdot s_y + c_x\cdot 0 + (-s_x)\,c_y \cr 0\cdot c_y + s_x\cdot 0 + c_x(-s_y) & 0\cdot 0 + s_x\cdot 1 + c_x\cdot 0 & 0\cdot s_y + s_x\cdot 0 + c_x\,c_y \end{pmatrix} \quad &\text{(row $m$ of the left factor times column $n$ of the right factor)} \\
-> &= \begin{pmatrix} c_y & 0 & s_y \cr s_x s_y & c_x & -s_x c_y \cr -c_x s_y & s_x & c_x c_y \end{pmatrix} \quad &\text{(drop the zero products)} \\
-> [{}_0R_3] &= \begin{pmatrix} c_y & 0 & s_y \cr s_x s_y & c_x & -s_x c_y \cr -c_x s_y & s_x & c_x c_y \end{pmatrix}\begin{pmatrix} c_z & -s_z & 0 \cr s_z & c_z & 0 \cr 0 & 0 & 1 \end{pmatrix} \quad &\text{(right-multiply by Eq. 1.20)} \\
-> &= \begin{pmatrix} c_y c_z + 0\cdot s_z + s_y\cdot 0 & -c_y s_z + 0\cdot c_z + s_y\cdot 0 & c_y\cdot 0 + 0\cdot 0 + s_y\cdot 1 \cr s_x s_y c_z + c_x s_z + (-s_x c_y)\cdot 0 & -s_x s_y s_z + c_x c_z + (-s_x c_y)\cdot 0 & s_x s_y\cdot 0 + c_x\cdot 0 + (-s_x c_y)\cdot 1 \cr -c_x s_y c_z + s_x s_z + c_x c_y\cdot 0 & c_x s_y s_z + s_x c_z + c_x c_y\cdot 0 & -c_x s_y\cdot 0 + s_x\cdot 0 + c_x c_y\cdot 1 \end{pmatrix} \quad &\text{(row $m$ times column $n$)} \\
-> &= \begin{pmatrix} c_y c_z & -c_y s_z & s_y \cr s_x s_y c_z + c_x s_z & c_x c_z - s_x s_y s_z & -s_x c_y \cr s_x s_z - c_x s_y c_z & s_x c_z + c_x s_y s_z & c_x c_y \end{pmatrix} \quad &\text{(drop the zero products and order the terms)}
+> [{}_0R_1][{}_1R_2] &= \begin{pmatrix} 1 & 0 & 0 \cr 0 & c_{\theta x} & -s_{\theta x} \cr 0 & s_{\theta x} & c_{\theta x} \end{pmatrix}\begin{pmatrix} c_{\theta y} & 0 & s_{\theta y} \cr 0 & 1 & 0 \cr -s_{\theta y} & 0 & c_{\theta y} \end{pmatrix} \quad &\text{(Eqs. 1.18 and 1.19)} \\
+> &= \begin{pmatrix} 1\cdot c_{\theta y} + 0\cdot 0 + 0\cdot(-s_{\theta y}) & 1\cdot 0 + 0\cdot 1 + 0\cdot 0 & 1\cdot s_{\theta y} + 0\cdot 0 + 0\cdot c_{\theta y} \cr 0\cdot c_{\theta y} + c_{\theta x}\cdot 0 + (-s_{\theta x})(-s_{\theta y}) & 0\cdot 0 + c_{\theta x}\cdot 1 + (-s_{\theta x})\cdot 0 & 0\cdot s_{\theta y} + c_{\theta x}\cdot 0 + (-s_{\theta x})\,c_{\theta y} \cr 0\cdot c_{\theta y} + s_{\theta x}\cdot 0 + c_{\theta x}(-s_{\theta y}) & 0\cdot 0 + s_{\theta x}\cdot 1 + c_{\theta x}\cdot 0 & 0\cdot s_{\theta y} + s_{\theta x}\cdot 0 + c_{\theta x}\,c_{\theta y} \end{pmatrix} \quad &\text{(row $m$ of the left factor times column $n$ of the right factor)} \\
+> &= \begin{pmatrix} c_{\theta y} & 0 & s_{\theta y} \cr s_{\theta x} s_{\theta y} & c_{\theta x} & -s_{\theta x} c_{\theta y} \cr -c_{\theta x} s_{\theta y} & s_{\theta x} & c_{\theta x} c_{\theta y} \end{pmatrix} \quad &\text{(drop the zero products)} \\
+> [{}_0R_3] &= \begin{pmatrix} c_{\theta y} & 0 & s_{\theta y} \cr s_{\theta x} s_{\theta y} & c_{\theta x} & -s_{\theta x} c_{\theta y} \cr -c_{\theta x} s_{\theta y} & s_{\theta x} & c_{\theta x} c_{\theta y} \end{pmatrix}\begin{pmatrix} c_{\theta z} & -s_{\theta z} & 0 \cr s_{\theta z} & c_{\theta z} & 0 \cr 0 & 0 & 1 \end{pmatrix} \quad &\text{(right-multiply by Eq. 1.20)} \\
+> &= \begin{pmatrix} c_{\theta y} c_{\theta z} + 0\cdot s_{\theta z} + s_{\theta y}\cdot 0 & -c_{\theta y} s_{\theta z} + 0\cdot c_{\theta z} + s_{\theta y}\cdot 0 & c_{\theta y}\cdot 0 + 0\cdot 0 + s_{\theta y}\cdot 1 \cr s_{\theta x} s_{\theta y} c_{\theta z} + c_{\theta x} s_{\theta z} + (-s_{\theta x} c_{\theta y})\cdot 0 & -s_{\theta x} s_{\theta y} s_{\theta z} + c_{\theta x} c_{\theta z} + (-s_{\theta x} c_{\theta y})\cdot 0 & s_{\theta x} s_{\theta y}\cdot 0 + c_{\theta x}\cdot 0 + (-s_{\theta x} c_{\theta y})\cdot 1 \cr -c_{\theta x} s_{\theta y} c_{\theta z} + s_{\theta x} s_{\theta z} + c_{\theta x} c_{\theta y}\cdot 0 & c_{\theta x} s_{\theta y} s_{\theta z} + s_{\theta x} c_{\theta z} + c_{\theta x} c_{\theta y}\cdot 0 & -c_{\theta x} s_{\theta y}\cdot 0 + s_{\theta x}\cdot 0 + c_{\theta x} c_{\theta y}\cdot 1 \end{pmatrix} \quad &\text{(row $m$ times column $n$)} \\
+> &= \begin{pmatrix} c_{\theta y} c_{\theta z} & -c_{\theta y} s_{\theta z} & s_{\theta y} \cr s_{\theta x} s_{\theta y} c_{\theta z} + c_{\theta x} s_{\theta z} & c_{\theta x} c_{\theta z} - s_{\theta x} s_{\theta y} s_{\theta z} & -s_{\theta x} c_{\theta y} \cr s_{\theta x} s_{\theta z} - c_{\theta x} s_{\theta y} c_{\theta z} & s_{\theta x} c_{\theta z} + c_{\theta x} s_{\theta y} s_{\theta z} & c_{\theta x} c_{\theta y} \end{pmatrix} \quad &\text{(drop the zero products and order the terms)}
 > \end{aligned}$$
 >
-> $$\boxed{[{}_0R_3] = \begin{bmatrix} c_y c_z & -c_y s_z & s_y \\ s_x s_y c_z + c_x s_z & c_x c_z - s_x s_y s_z & -s_x c_y \\ s_x s_z - c_x s_y c_z & s_x c_z + c_x s_y s_z & c_x c_y \end{bmatrix}}$$
+> $$\boxed{[{}_0R_3] = \begin{bmatrix} c_{\theta y} c_{\theta z} & -c_{\theta y} s_{\theta z} & s_{\theta y} \\ s_{\theta x} s_{\theta y} c_{\theta z} + c_{\theta x} s_{\theta z} & c_{\theta x} c_{\theta z} - s_{\theta x} s_{\theta y} s_{\theta z} & -s_{\theta x} c_{\theta y} \\ s_{\theta x} s_{\theta z} - c_{\theta x} s_{\theta y} c_{\theta z} & s_{\theta x} c_{\theta z} + c_{\theta x} s_{\theta y} s_{\theta z} & c_{\theta x} c_{\theta y} \end{bmatrix}}$$
 >
 > **Units:** dimensionless
 > **Meaning:** the columns are $\mathbf i_3$, $\mathbf j_3$, $\mathbf k_3$ in $\mathcal B_0$; with $\theta_y$ and $\theta_z$ equal to zero the matrix reduces to the $x$ rotation of Eq. 1.18, as it must.
@@ -500,13 +506,13 @@ The product of Eq. 1.23 is written out below, first the two leftmost factors and
 > \det[{}_0R_3] &= \det[{}_0R_1]\,\det[{}_1R_2]\,\det[{}_2R_3] \quad &\text{(the determinant of a product is the product of the determinants)} \\
 > &= 1\cdot 1\cdot 1 \quad &\text{(each simple rotation has unit determinant, boxes above)} \\
 > &= 1 \quad &\text{(multiply)} \\
-> \big([{}_0R_3][{}_0R_3]^T\big)_{11} &= c_y^2c_z^2 + c_y^2s_z^2 + s_y^2 \quad &\text{(row 1 times row 1)} \\
-> &= c_y^2\left(c_z^2+s_z^2\right) + s_y^2 \quad &\text{(factor $c_y^2$)} \\
-> &= c_y^2 + s_y^2 \quad &\text{(Pythagoras for $\theta_z$)} \\
+> \big([{}_0R_3][{}_0R_3]^T\big)_{11} &= c_{\theta y}^2c_{\theta z}^2 + c_{\theta y}^2s_{\theta z}^2 + s_{\theta y}^2 \quad &\text{(row 1 times row 1)} \\
+> &= c_{\theta y}^2\left(c_{\theta z}^2+s_{\theta z}^2\right) + s_{\theta y}^2 \quad &\text{(factor $c_{\theta y}^2$)} \\
+> &= c_{\theta y}^2 + s_{\theta y}^2 \quad &\text{(Pythagoras for $\theta_z$)} \\
 > &= 1 \quad &\text{(Pythagoras for $\theta_y$)} \\
-> \big([{}_0R_3][{}_0R_3]^T\big)_{12} &= c_yc_z\left(s_xs_yc_z + c_xs_z\right) - c_ys_z\left(c_xc_z - s_xs_ys_z\right) - s_y\,s_xc_y \quad &\text{(row 1 times row 2)} \\
-> &= s_xs_yc_yc_z^2 + c_xc_yc_zs_z - c_xc_yc_zs_z + s_xs_yc_ys_z^2 - s_xs_yc_y \quad &\text{(expand the products)} \\
-> &= s_xs_yc_y\left(c_z^2+s_z^2\right) - s_xs_yc_y \quad &\text{(the $c_x$ terms cancel; factor the rest)} \\
+> \big([{}_0R_3][{}_0R_3]^T\big)_{12} &= c_{\theta y}c_{\theta z}\left(s_{\theta x}s_{\theta y}c_{\theta z} + c_{\theta x}s_{\theta z}\right) - c_{\theta y}s_{\theta z}\left(c_{\theta x}c_{\theta z} - s_{\theta x}s_{\theta y}s_{\theta z}\right) - s_{\theta y}\,s_{\theta x}c_{\theta y} \quad &\text{(row 1 times row 2)} \\
+> &= s_{\theta x}s_{\theta y}c_{\theta y}c_{\theta z}^2 + c_{\theta x}c_{\theta y}c_{\theta z}s_{\theta z} - c_{\theta x}c_{\theta y}c_{\theta z}s_{\theta z} + s_{\theta x}s_{\theta y}c_{\theta y}s_{\theta z}^2 - s_{\theta x}s_{\theta y}c_{\theta y} \quad &\text{(expand the products)} \\
+> &= s_{\theta x}s_{\theta y}c_{\theta y}\left(c_{\theta z}^2+s_{\theta z}^2\right) - s_{\theta x}s_{\theta y}c_{\theta y} \quad &\text{(the $c_{\theta x}$ terms cancel; factor the rest)} \\
 > &= 0 \quad &\text{(Pythagoras for $\theta_z$)}
 > \end{aligned}$$
 >
@@ -534,14 +540,14 @@ The next example applies the advice of Notes.pdf, Sec. 1.4.1: a direction that l
 > $$\begin{aligned}
 > [\mathbf k_2]_2 &= \begin{pmatrix} 0 \cr 0 \cr 1 \end{pmatrix}_2 \quad &\text{($\mathbf k_2$ in its own basis)} \\
 > [\mathbf k_2]_1 &= [{}_1R_2(x,\theta_x)]\,[\mathbf k_2]_2 \quad &\text{(Eq. 1.12 from $\mathcal B_2$ to $\mathcal B_1$)} \\
-> &= \begin{pmatrix} 1\cdot 0 + 0\cdot 0 + 0\cdot 1 \cr 0\cdot 0 + c_x\cdot 0 + (-s_x)\cdot 1 \cr 0\cdot 0 + s_x\cdot 0 + c_x\cdot 1 \end{pmatrix}_1 \quad &\text{(rows of Eq. 1.18 times the column)} \\
-> &= \begin{pmatrix} 0 \cr -s_x \cr c_x \end{pmatrix}_1 \quad &\text{(third column of Eq. 1.18: $\mathbf k_2 = -s_x\,\mathbf j_1 + c_x\,\mathbf k_1$)} \\
+> &= \begin{pmatrix} 1\cdot 0 + 0\cdot 0 + 0\cdot 1 \cr 0\cdot 0 + c_{\theta x}\cdot 0 + (-s_{\theta x})\cdot 1 \cr 0\cdot 0 + s_{\theta x}\cdot 0 + c_{\theta x}\cdot 1 \end{pmatrix}_1 \quad &\text{(rows of Eq. 1.18 times the column)} \\
+> &= \begin{pmatrix} 0 \cr -s_{\theta x} \cr c_{\theta x} \end{pmatrix}_1 \quad &\text{(third column of Eq. 1.18: $\mathbf k_2 = -s_{\theta x}\,\mathbf j_1 + c_{\theta x}\,\mathbf k_1$)} \\
 > [\mathbf k_2]_0 &= [{}_0R_1(z,\theta_z)]\,[\mathbf k_2]_1 \quad &\text{(Eq. 1.12 from $\mathcal B_1$ to $\mathcal B_0$)} \\
-> &= \begin{pmatrix} c_z\cdot 0 + (-s_z)(-s_x) + 0\cdot c_x \cr s_z\cdot 0 + c_z(-s_x) + 0\cdot c_x \cr 0\cdot 0 + 0\cdot(-s_x) + 1\cdot c_x \end{pmatrix}_0 \quad &\text{(rows of Eq. 1.20 times the column)} \\
-> &= \begin{pmatrix} s_z s_x \cr -c_z s_x \cr c_x \end{pmatrix}_0 \quad &\text{(drop the zero products)} \\
-> \lVert\mathbf k_2\rVert^2 &= s_z^2s_x^2 + c_z^2s_x^2 + c_x^2 \quad &\text{(sum of the squared components)} \\
-> &= s_x^2\left(s_z^2 + c_z^2\right) + c_x^2 \quad &\text{(factor $s_x^2$)} \\
-> &= s_x^2 + c_x^2 \quad &\text{(Pythagoras for $\theta_z$)} \\
+> &= \begin{pmatrix} c_{\theta z}\cdot 0 + (-s_{\theta z})(-s_{\theta x}) + 0\cdot c_{\theta x} \cr s_{\theta z}\cdot 0 + c_{\theta z}(-s_{\theta x}) + 0\cdot c_{\theta x} \cr 0\cdot 0 + 0\cdot(-s_{\theta x}) + 1\cdot c_{\theta x} \end{pmatrix}_0 \quad &\text{(rows of Eq. 1.20 times the column)} \\
+> &= \begin{pmatrix} s_{\theta z} s_{\theta x} \cr -c_{\theta z} s_{\theta x} \cr c_{\theta x} \end{pmatrix}_0 \quad &\text{(drop the zero products)} \\
+> \lVert\mathbf k_2\rVert^2 &= s_{\theta z}^2s_{\theta x}^2 + c_{\theta z}^2s_{\theta x}^2 + c_{\theta x}^2 \quad &\text{(sum of the squared components)} \\
+> &= s_{\theta x}^2\left(s_{\theta z}^2 + c_{\theta z}^2\right) + c_{\theta x}^2 \quad &\text{(factor $s_{\theta x}^2$)} \\
+> &= s_{\theta x}^2 + c_{\theta x}^2 \quad &\text{(Pythagoras for $\theta_z$)} \\
 > &= 1 \quad &\text{(Pythagoras for $\theta_x$)}
 > \end{aligned}$$
 >
@@ -558,11 +564,13 @@ The next example applies the advice of Notes.pdf, Sec. 1.4.1: a direction that l
 >
 > $$\begin{aligned}
 > \mathbf k_{2'} &= \mathbf k_{1'} \quad &\text{(the second rotation is about $\mathbf k_{1'}$, which does not move)} \\
-> [\mathbf k_{1'}]_0 &= \begin{pmatrix} 0 \cr -s_x \cr c_x \end{pmatrix}_0 \quad &\text{(third column of Eq. 1.18)} \\
-> [\mathbf k_2]_0 - [\mathbf k_{2'}]_0 &= \begin{pmatrix} s_z s_x \cr -c_z s_x + s_x \cr 0 \end{pmatrix}_0 \quad &\text{(subtract from the previous result)}
+> [\mathbf k_{1'}]_0 &= \begin{pmatrix} 0 \cr -s_{\theta x} \cr c_{\theta x} \end{pmatrix}_0 \quad &\text{(third column of Eq. 1.18)} \\
+> [\mathbf k_2]_0 - [\mathbf k_{2'}]_0 &= \begin{pmatrix} s_{\theta z} s_{\theta x} \cr -c_{\theta z} s_{\theta x} + s_{\theta x} \cr 0 \end{pmatrix}_0 \quad &\text{(subtract from the previous result)} \\
+> &= s_{\theta x}\begin{pmatrix} s_{\theta z} \cr 1 - c_{\theta z} \cr 0 \end{pmatrix}_0 \quad &\text{(factor $s_{\theta x}$)} \\
+> s_{\theta z} = 0 \ \text{and}\ 1 - c_{\theta z} = 0 &\iff \theta_z = 2\pi n,\ n \in \mathbb Z \quad &\text{(the column vanishes only where the sine is zero and the cosine is one)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf k_{2'} = -\sin\theta_x\,\mathbf j_0 + \cos\theta_x\,\mathbf k_0 \neq \mathbf k_2\quad\text{unless } \sin\theta_x = 0 \text{ or } \theta_z = 0}$$
+> $$\boxed{\mathbf k_{2'} = -\sin\theta_x\,\mathbf j_0 + \cos\theta_x\,\mathbf k_0 \neq \mathbf k_2\quad\text{unless } \sin\theta_x = 0 \text{ or } \theta_z = 2\pi n,\ n \in \mathbb Z}$$
 >
 > **Units:** dimensionless
 > **Meaning:** the difference vanishes only when $\sin\theta_x$ is zero (no tilt) or when $\theta_z$ is a whole number of turns (no first turn); finite rotations do not commute, so the order of a sequence must always be stated.
@@ -693,11 +701,11 @@ The triple product of $\mathbf A$, $\mathbf B$, $\mathbf C$ is the scalar $[\mat
 > **Law:** volume as base area times height; dot product with the unit normal of the base
 > **Source:** Notes.pdf, Eq. 1.33; Notes.pdf Fig. 1.6; Notes.pdf, Eq. 1.30
 >
-> The base is the parallelogram of $\mathbf A$ and $\mathbf B$, of area $\lVert\mathbf A\times\mathbf B\rVert$ and unit normal $\mathbf n$ along $\mathbf A\times\mathbf B$. The height is the leg along $\mathbf n$ of the right triangle whose hypotenuse is $\mathbf C$; call $\varphi_C$ the angle between $\mathbf C$ and $\mathbf n$.
+> The base is the parallelogram of $\mathbf A$ and $\mathbf B$, of area $\lVert\mathbf A\times\mathbf B\rVert$ and unit normal $\mathbf n$ along $\mathbf A\times\mathbf B$. The height is the leg along $\mathbf n$ of the right triangle whose hypotenuse is $\mathbf C$; call $\gamma_C$ the angle between $\mathbf C$ and $\mathbf n$.
 >
 > $$\begin{aligned}
-> \mathbf C\cdot(\mathbf A\times\mathbf B) &= \lVert\mathbf A\times\mathbf B\rVert\;C\cos\varphi_C \quad &\text{(Eq. 1.24)} \\
-> C\cos\varphi_C &= \pm\,\text{height} \quad &\text{(leg adjacent to $\varphi_C$; positive when $\mathbf C$ is on the side of $\mathbf n$)} \\
+> \mathbf C\cdot(\mathbf A\times\mathbf B) &= \lVert\mathbf A\times\mathbf B\rVert\;C\cos\gamma_C \quad &\text{(Eq. 1.24)} \\
+> C\cos\gamma_C &= \pm\,\text{height} \quad &\text{(leg adjacent to $\gamma_C$; positive when $\mathbf C$ is on the side of $\mathbf n$)} \\
 > \mathbf C\cdot(\mathbf A\times\mathbf B) &= \pm\,\text{base}\cdot\text{height} \quad &\text{(the base area is $\lVert\mathbf A\times\mathbf B\rVert$, Eq. 1.30)}
 > \end{aligned}$$
 >
@@ -997,11 +1005,20 @@ Take a sliding or bound vector $\mathbf A$, a point $O$ and any point $P$ on the
 
 ## 6. Time derivative of a vector
 
-The differential change of a vector is a vector, with magnitude and direction, and the differential of a tensor is a tensor; so the derivative with respect to time of a vector function of time is again a vector (Notes.pdf, Sec. 1.7). In this chapter there is a single observer, for whom the vectors of $\mathcal B_0$ do not change; how the derivative depends on the observer is the subject of Chapter 2 ([Lecture 1, Slide 10]). The derivative is defined as the limit of Eq. 1.51:
+The differential change of a vector is a vector, with magnitude and direction, and the differential of a tensor is a tensor; so the derivative with respect to time of a vector function of time is again a vector (Notes.pdf, Sec. 1.7). In this chapter there is a single observer, for whom the vectors of $\mathcal B_0$ do not change; how the derivative depends on the observer is introduced with the frames of Chapter 2 (Section 9 of this note) and developed in Chapter 3 ([Lecture 1, Slide 10]; Notes.pdf, p. 28, footnote 10). The derivative is defined as the limit of Eq. 1.51:
 
 | Definition (Eq. 1.51) |
 | :--- |
 | $\dfrac{d\mathbf A}{dt} = \displaystyle\lim_{\Delta t\to 0}\frac{\mathbf A(t+\Delta t) - \mathbf A(t)}{\Delta t}$ |
+
+Vector differentiation follows the rules of scalar differentiation for addition, multiplication by a scalar and the products, keeping the order of the factors of a cross product. The notes list them at the end of Notes.pdf, Sec. 1.7.1; they are listed here first because the boxes below use them:
+
+| Rule | Equation |
+| :--- | :--- |
+| $d(\lambda\mathbf A) = d\lambda\,\mathbf A + \lambda\,d\mathbf A$ | Eq. 1.64 |
+| $d(\mathbf A + \mathbf B) = d\mathbf A + d\mathbf B$ | Eq. 1.65 |
+| $d(\mathbf A\cdot\mathbf B) = d\mathbf A\cdot\mathbf B + \mathbf A\cdot d\mathbf B$ | Eq. 1.66 |
+| $d(\mathbf A\times\mathbf B) = d\mathbf A\times\mathbf B + \mathbf A\times d\mathbf B$ | Eq. 1.67 |
 
 A vector changes when its magnitude, its direction or both change, and the rate of change is the vector sum of the two rates (Notes.pdf, Sec. 1.7.1; [Lecture 1, Slide 9]). The dot over a scalar always denotes its time derivative.
 
@@ -1037,27 +1054,27 @@ A vector changes when its magnitude, its direction or both change, and the rate 
 > **Units:** $[\mathbf A]^2$
 > **Meaning:** $d\mathbf A$ is orthogonal to $\mathbf A$; a sketch with a finite $d\mathbf A$ shows them only nearly perpendicular, and the orthogonality is exact in the limit of a vanishing angle (Notes.pdf Fig. 1.9). In particular the derivative of a unit vector is always perpendicular to it.
 
-[Lecture 1, Slide 9] splits a general differential into both parts at once:
+[Lecture 1, Slide 9] splits a general differential into both parts at once (the slide calls the vector $\mathbf b$; here it keeps the name $\mathbf A$, because $\mathbf e_b$ is the binormal from Section 12 on):
 
 > [!derivation] Parallel and perpendicular parts of the differential of a vector
 > **Law:** differential of a product; the unit vector has constant magnitude
 > **Source:** [Lecture 1, Slide 9]; Notes.pdf, Eq. 1.64; Notes.pdf, Eq. 1.66
 >
 > $$\begin{aligned}
-> \mathbf b &= b\,\mathbf e_b \quad &\text{(magnitude times unit vector)} \\
-> d\mathbf b &= (db)\,\mathbf e_b + b\,(d\mathbf e_b) \quad &\text{(differential of a product, Eq. 1.64)} \\
-> \mathbf e_b\cdot d\mathbf b &= db\;\mathbf e_b\cdot\mathbf e_b + b\;\mathbf e_b\cdot d\mathbf e_b \quad &\text{(dot-multiply by $\mathbf e_b$)} \\
-> &= db + b\;\mathbf e_b\cdot d\mathbf e_b \quad &\text{($\mathbf e_b\cdot\mathbf e_b = 1$)} \\
-> \mathbf e_b\cdot d\mathbf e_b &= \tfrac{1}{2}\,d(\mathbf e_b\cdot\mathbf e_b) \quad &\text{(Eq. 1.66 with both factors $\mathbf e_b$)} \\
-> &= \tfrac{1}{2}\,d(1) \quad &\text{($\mathbf e_b$ is a unit vector)} \\
+> \mathbf A &= A\,\mathbf e_A \quad &\text{(magnitude times unit vector)} \\
+> d\mathbf A &= (dA)\,\mathbf e_A + A\,(d\mathbf e_A) \quad &\text{(differential of a product, Eq. 1.64)} \\
+> \mathbf e_A\cdot d\mathbf A &= dA\;\mathbf e_A\cdot\mathbf e_A + A\;\mathbf e_A\cdot d\mathbf e_A \quad &\text{(dot-multiply by $\mathbf e_A$)} \\
+> &= dA + A\;\mathbf e_A\cdot d\mathbf e_A \quad &\text{($\mathbf e_A\cdot\mathbf e_A = 1$)} \\
+> \mathbf e_A\cdot d\mathbf e_A &= \tfrac{1}{2}\,d(\mathbf e_A\cdot\mathbf e_A) \quad &\text{(Eq. 1.66 with both factors $\mathbf e_A$)} \\
+> &= \tfrac{1}{2}\,d(1) \quad &\text{($\mathbf e_A$ is a unit vector)} \\
 > &= 0 \quad &\text{(differential of a constant)} \\
-> \mathbf e_b\cdot d\mathbf b &= db \quad &\text{(substitute in the fourth row)}
+> \mathbf e_A\cdot d\mathbf A &= dA \quad &\text{(substitute in the fourth row)}
 > \end{aligned}$$
 >
-> $$\boxed{d\mathbf b = (d\mathbf b)_\parallel + (d\mathbf b)_\perp,\qquad (d\mathbf b)_\parallel = db\,\mathbf e_b,\qquad (d\mathbf b)_\perp = b\,d\mathbf e_b}$$
+> $$\boxed{d\mathbf A = (d\mathbf A)_\parallel + (d\mathbf A)_\perp,\qquad (d\mathbf A)_\parallel = dA\,\mathbf e_A,\qquad (d\mathbf A)_\perp = A\,d\mathbf e_A}$$
 >
-> **Units:** $[\mathbf b]$ in every term
-> **Meaning:** the component of $d\mathbf b$ along $\mathbf e_b$ is the change of magnitude and the part perpendicular to $\mathbf e_b$ is the change of direction ([Lecture 1, Slide 9]).
+> **Units:** $[\mathbf A]$ in every term
+> **Meaning:** the component of $d\mathbf A$ along $\mathbf e_A$ is the change of magnitude and the part perpendicular to $\mathbf e_A$ is the change of direction ([Lecture 1, Slide 9]).
 
 > [!warning] The magnitude of the differential is not the differential of the magnitude
 > When the direction of $\mathbf A$ changes, the change of its magnitude, $dA$, differs from the magnitude of its change, $\lvert d\mathbf A\rvert$: a vector of constant magnitude has zero $dA$ but a non-zero $\lvert d\mathbf A\rvert$ (Notes.pdf, Sec. 1.7.1, footnote 8).
@@ -1162,15 +1179,6 @@ Eq. 1.62 also holds when the axis does not pass through the origin of $\mathbf A
 > **Units:** $[\mathbf A][\mathrm{T^{-1}}]$ in every term
 > **Meaning:** the first term, due to the change of magnitude only, is parallel to $\mathbf A$; the second, due to the change of direction only, is orthogonal to both $\mathbf A$ and $\boldsymbol\omega$.
 
-Vector differentiation follows the rules of scalar differentiation for addition, multiplication by a scalar and the products, keeping the order of the factors of a cross product (Notes.pdf, Sec. 1.7.1):
-
-| Rule | Equation |
-| :--- | :--- |
-| $d(\lambda\mathbf A) = d\lambda\,\mathbf A + \lambda\,d\mathbf A$ | Eq. 1.64 |
-| $d(\mathbf A + \mathbf B) = d\mathbf A + d\mathbf B$ | Eq. 1.65 |
-| $d(\mathbf A\cdot\mathbf B) = d\mathbf A\cdot\mathbf B + \mathbf A\cdot d\mathbf B$ | Eq. 1.66 |
-| $d(\mathbf A\times\mathbf B) = d\mathbf A\times\mathbf B + \mathbf A\times d\mathbf B$ | Eq. 1.67 |
-
 ### The unit vectors of a rotating basis
 
 The vectors of a basis $\mathcal B_1$ that rotates with respect to $\mathcal B_0$ have constant magnitude and keep their mutual angles, so all three rotate with the same angular velocity $\boldsymbol\omega$ and Eq. 1.62 gives their derivatives. For a simple rotation this can be checked from the columns of the rotation matrix, differentiated with the chain rule; the derivative is the one seen by the observer for whom $\mathbf i_0$, $\mathbf j_0$, $\mathbf k_0$ are constant ([Lecture 1, Slide 10]).
@@ -1260,8 +1268,10 @@ Finite rotations do not commute (Section 3). For two small simple rotations abou
 > **Source:** Notes.pdf, Sec. 1.7.2; Notes.pdf, Eq. 1.71
 >
 > $$\begin{aligned}
-> [R_z][R_y] &= \begin{pmatrix} 1 & -d\theta_z & d\theta_y \cr d\theta_z & 1 & d\theta_z d\theta_y \cr -d\theta_y & 0 & 1 \end{pmatrix} \quad &\text{(row times column; the only product of two non-zero off-diagonal entries is $d\theta_z\cdot d\theta_y$ in entry $(2,3)$)} \\
-> [R_z][R_y][R_x] &= \begin{pmatrix} 1 & -d\theta_z + d\theta_y d\theta_x & d\theta_y + d\theta_z d\theta_x \cr d\theta_z & 1 + d\theta_z d\theta_y d\theta_x & -d\theta_x + d\theta_z d\theta_y \cr -d\theta_y & d\theta_x & 1 \end{pmatrix} \quad &\text{(right-multiply by $[R_x]$, row times column)} \\
+> [R_z][R_y] &= \begin{pmatrix} 1\cdot 1 + (-d\theta_z)\cdot 0 + 0\cdot(-d\theta_y) & 1\cdot 0 + (-d\theta_z)\cdot 1 + 0\cdot 0 & 1\cdot d\theta_y + (-d\theta_z)\cdot 0 + 0\cdot 1 \cr d\theta_z\cdot 1 + 1\cdot 0 + 0\cdot(-d\theta_y) & d\theta_z\cdot 0 + 1\cdot 1 + 0\cdot 0 & d\theta_z\cdot d\theta_y + 1\cdot 0 + 0\cdot 1 \cr 0\cdot 1 + 0\cdot 0 + 1\cdot(-d\theta_y) & 0\cdot 0 + 0\cdot 1 + 1\cdot 0 & 0\cdot d\theta_y + 0\cdot 0 + 1\cdot 1 \end{pmatrix} \quad &\text{(row $m$ of $[R_z]$ times column $n$ of $[R_y]$)} \\
+> &= \begin{pmatrix} 1 & -d\theta_z & d\theta_y \cr d\theta_z & 1 & d\theta_z d\theta_y \cr -d\theta_y & 0 & 1 \end{pmatrix} \quad &\text{(drop the zero products)} \\
+> [R_z][R_y][R_x] &= \begin{pmatrix} 1\cdot 1 + (-d\theta_z)\cdot 0 + d\theta_y\cdot 0 & 1\cdot 0 + (-d\theta_z)\cdot 1 + d\theta_y\cdot d\theta_x & 1\cdot 0 + (-d\theta_z)(-d\theta_x) + d\theta_y\cdot 1 \cr d\theta_z\cdot 1 + 1\cdot 0 + d\theta_z d\theta_y\cdot 0 & d\theta_z\cdot 0 + 1\cdot 1 + d\theta_z d\theta_y\cdot d\theta_x & d\theta_z\cdot 0 + 1\cdot(-d\theta_x) + d\theta_z d\theta_y\cdot 1 \cr (-d\theta_y)\cdot 1 + 0\cdot 0 + 1\cdot 0 & (-d\theta_y)\cdot 0 + 0\cdot 1 + 1\cdot d\theta_x & (-d\theta_y)\cdot 0 + 0\cdot(-d\theta_x) + 1\cdot 1 \end{pmatrix} \quad &\text{(right-multiply by $[R_x]$: row $m$ times column $n$)} \\
+> &= \begin{pmatrix} 1 & -d\theta_z + d\theta_y d\theta_x & d\theta_y + d\theta_z d\theta_x \cr d\theta_z & 1 + d\theta_z d\theta_y d\theta_x & -d\theta_x + d\theta_z d\theta_y \cr -d\theta_y & d\theta_x & 1 \end{pmatrix} \quad &\text{(drop the zero products)} \\
 > &= \begin{pmatrix} 1 & -d\theta_z & d\theta_y \cr d\theta_z & 1 & -d\theta_x \cr -d\theta_y & d\theta_x & 1 \end{pmatrix} \quad &\text{(drop the products of second and third order)}
 > \end{aligned}$$
 >
@@ -1400,7 +1410,7 @@ The motion of an object can only be described relative to something else: other 
 | basis $\mathcal B_0 : \{\mathbf i,\mathbf j,\mathbf k\}$ | the orientation (attitude) of the observer in space and its rotation |
 | axes $Ox$, $Oy$, $Oz$ and planes $Oxy$, $Oxz$, $Oyz$ | defined naturally by $O$ and the directions of $\mathcal B_0$ |
 
-When there is more than one frame, subindices remove the ambiguity. For a second frame $S_1 : \{O_1;\mathcal B_1\}$, the linear motion of the observer mounted on $S_1$ is the evolution in time of the position of $O_1$ as seen from $S_0$, and its rotation is the evolution in time of the vectors of $\mathcal B_1$ with respect to $\mathcal B_0$; both must be given to define $S_1$ fully with respect to $S_0$ (Notes.pdf, Sec. 2.1). It is sometimes useful to think of a frame as the whole Euclidean space moving with the observer. Frames are often attached to a rigid body (a rotating platform, the chassis of an aircraft, the Earth, the Sun): the observer moves with that body and has its rotation, and Chapter 9 identifies frames with rigid bodies. Frames of relativistic mechanics, where space-time is not absolute, are not covered (Notes.pdf, Sec. 2.1, footnote 9).
+When there is more than one frame, subindices remove the ambiguity. For a second frame $S_1 : \{O_1;\mathcal B_1\}$, the linear motion of the observer mounted on $S_1$ is the evolution in time of the position of $O_1$ as seen from $S_0$, and its rotation is the evolution in time of the vectors of $\mathcal B_1$ with respect to $\mathcal B_0$; both must be given to define $S_1$ fully with respect to $S_0$ (Notes.pdf, Sec. 2.1). It is sometimes useful to think of a frame as the whole Euclidean space moving with the observer. Frames are often attached to a rigid body (a rotating platform, the chassis of an aircraft, the Earth, the Sun): the observer moves with that body and has its rotation; the notes add that later in the course a reference frame and a rigid body are identified with each other (Notes.pdf, Sec. 2.1; the pointer to the rigid body part, Topics 6 to 8, is this note's own). Frames of relativistic mechanics, where space-time is not absolute, are not covered (Notes.pdf, Sec. 2.1, footnote 9).
 
 ![[attachments/EM-T/t1-reference-frames.svg]]
 
@@ -1425,7 +1435,7 @@ The differential, and therefore the rate of change, of a vector depends on the f
 
 When the components of $\mathbf b$ are known in $\mathcal B_1$, the vectors $\mathbf i_1$, $\mathbf j_1$, $\mathbf k_1$ may rotate as seen from $S_0$ and their derivatives in $S_0$ must be kept ([Lecture 1, Slide 11]). Writing those derivatives with Eq. 1.62 gives the relation between the derivatives taken by the two observers; Chapter 3 of the notes (Topic 5) derives it in full and builds relative motion on it, and it is anticipated here because it explains why the frame subindex is never dropped when two frames are in use.
 
-> [!derivation] Derivative in S0 of a vector given in the basis of S1
+> [!derivation] Derivative in S0 of a vector given in the basis of S1 (anticipated from Notes.pdf, Ch. 3)
 > **Law:** product rule; Eq. 1.62 for the unit vectors of a rotating basis; linearity of the cross product
 > **Source:** [Lecture 1, Slide 11]; Notes.pdf, Eq. 3.2; Notes.pdf, Eq. 3.6; Notes.pdf, Eq. 3.7; Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 1.62
 >
@@ -1686,10 +1696,10 @@ With a single frame $S_0$ the derivatives are taken in $S_0$ and the frame subin
 > &= \dot s\,\mathbf e_t \quad &\text{(Eq. 2.9)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf v_0^P = \dot s\,\mathbf e_t,\qquad \dot s \equiv v}$$
+> $$\boxed{\mathbf v_0^P = \dot s\,\mathbf e_t,\qquad \dot s \equiv v \ \text{($s$ measured in the sense of motion)}}$$
 >
 > **Units:** $[\mathrm{L\,T^{-1}}]$: $\dot s$ in $\mathrm{m/s}$ times a dimensionless unit vector
-> **Meaning:** the velocity is always tangent to the path and has no normal or binormal component; $\dot s$ is the speed at which the trajectory is travelled (its magnitude when $s$ decreases), while $\mathbf e_t$ depends only on the shape of the trajectory, not on how fast it is travelled.
+> **Meaning:** the velocity is always tangent to the path and has no normal or binormal component. The identification of $\dot s$ with the speed $v$, which is never negative, is the convention of Notes.pdf, Eq. 2.16: the arc length grows in the sense in which the particle travels. If $s$ is measured the other way, $\dot s$ is negative and the speed is its absolute value, while $\dot s\,\mathbf e_t$ is still the velocity. $\mathbf e_t$ depends only on the shape of the trajectory, not on how fast it is travelled.
 
 > [!derivation] Acceleration in the intrinsic basis
 > **Law:** definition of acceleration; product rule; chain rule for $\mathbf e_t(s(t))$; Eq. 2.12
@@ -1907,7 +1917,8 @@ Cylindrical coordinates suit motions with some form of cylindrical symmetry. The
 > &= 1 \quad &\text{(Pythagoras)} \\
 > \left([{}_0R_{\mathrm{cyl}}][{}_0R_{\mathrm{cyl}}]^T\right)_{12} &= \cos\theta\sin\theta + (-\sin\theta)\cos\theta + 0\cdot 0 \quad &\text{(row 1 times row 2)} \\
 > &= 0 \quad &\text{(the two products cancel)} \\
-> \mathbf e_R\times\mathbf e_\theta &= \cos\theta\cos\theta\,\mathbf i\times\mathbf j + \sin\theta\,(-\sin\theta)\,\mathbf j\times\mathbf i \quad &\text{(distribute, Eq. 1.32; $\mathbf i\times\mathbf i$ and $\mathbf j\times\mathbf j$ vanish)} \\
+> \mathbf e_R\times\mathbf e_\theta &= \cos\theta\,(-\sin\theta)\,\mathbf i\times\mathbf i + \cos\theta\cos\theta\,\mathbf i\times\mathbf j + \sin\theta\,(-\sin\theta)\,\mathbf j\times\mathbf i + \sin\theta\cos\theta\,\mathbf j\times\mathbf j \quad &\text{(distribute, Eq. 1.32)} \\
+> &= \cos\theta\cos\theta\,\mathbf i\times\mathbf j + \sin\theta\,(-\sin\theta)\,\mathbf j\times\mathbf i \quad &\text{($\mathbf i\times\mathbf i = \mathbf j\times\mathbf j = \mathbf 0$)} \\
 > &= \cos^2\theta\,\mathbf k + \sin^2\theta\,\mathbf k \quad &\text{($\mathbf i\times\mathbf j = \mathbf k$, $\mathbf j\times\mathbf i = -\mathbf k$)} \\
 > &= \mathbf e_z \quad &\text{(Pythagoras)}
 > \end{aligned}$$
@@ -1963,6 +1974,9 @@ Cylindrical coordinates suit motions with some form of cylindrical symmetry. The
 > **Units:** $\mathrm{m/s}$ in every term: $\dot R$, $R\dot\theta$ ($\mathrm m$ times $\mathrm{rad/s}$) and $\dot z$
 > **Meaning:** the position has no $\mathbf e_\theta$ component, because the azimuth enters only through the direction of $\mathbf e_R$; the velocity has a radial part, a circumferential part, the speed of a point at the distance $R$ from $Oz$ turning at the rate $\dot\theta$, and an axial part.
 
+> [!warning] Typo in Notes.pdf, Eq. 2.29
+> The printed Eq. 2.29 (Notes.pdf, p. 33) carries a stray comma between the axial rate and its unit vector, "+ ż, e_z": the term is the axial rate times $\mathbf e_z$, as in the box above and in Eq. 2.30. The typo does not change any result.
+
 > [!derivation] Acceleration in cylindrical coordinates
 > **Law:** definition of acceleration; product rule term by term; Eqs. 2.25 to 2.27
 > **Source:** Notes.pdf, Eq. 2.30; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 2.27; [Lecture 1, Slide 19]
@@ -1999,14 +2013,32 @@ Cylindrical coordinates suit motions with some form of cylindrical symmetry. The
 > $$\boxed{\mathbf v_0^P = \left(\dot R\cos\theta - R\dot\theta\sin\theta\right)\mathbf i + \left(\dot R\sin\theta + R\dot\theta\cos\theta\right)\mathbf j + \dot z\,\mathbf k}$$
 >
 > **Units:** $\mathrm{m/s}$ in every term
-> **Meaning:** the first row of the product equals $\dot x$ obtained without the local basis, so both routes agree. Each vector can be written with the coordinates $R$, $\theta$, $z$ in either basis, $\mathcal B_0$ or $\mathcal B_{\mathrm{cyl}}$ ([Lecture 1, Slide 19]); projecting the acceleration the same way gives the Cartesian components listed on that slide.
+> **Meaning:** the first row of the product equals $\dot x$ obtained without the local basis, so both routes agree. Each vector can be written with the coordinates $R$, $\theta$, $z$ in either basis, $\mathcal B_0$ or $\mathcal B_{\mathrm{cyl}}$ ([Lecture 1, Slide 19]); the next box projects the acceleration the same way.
+
+> [!derivation] The cylindrical acceleration projected on the basis of S0
+> **Law:** change of basis with $[{}_0R_{\mathrm{cyl}}]$, row times column
+> **Source:** [Lecture 1, Slide 19]; Notes.pdf, Eq. 1.12; Notes.pdf, Eq. 2.30
+>
+> The column of components in $\mathcal B_{\mathrm{cyl}}$ is that of Eq. 2.30: the radial component $\ddot R - R\dot\theta^2$, the azimuthal component $R\ddot\theta + 2\dot R\dot\theta$ and the axial component $\ddot z$.
+>
+> $$\begin{aligned}
+> [\mathbf a_0^P]_0 &= [{}_0R_{\mathrm{cyl}}]\,[\mathbf a_0^P]_{\mathrm{cyl}} \quad &\text{(Eq. 1.12)} \\
+> &= \begin{pmatrix} \cos\theta\left(\ddot R - R\dot\theta^2\right) + (-\sin\theta)\left(R\ddot\theta + 2\dot R\dot\theta\right) + 0\cdot\ddot z \cr \sin\theta\left(\ddot R - R\dot\theta^2\right) + \cos\theta\left(R\ddot\theta + 2\dot R\dot\theta\right) + 0\cdot\ddot z \cr 0\cdot\left(\ddot R - R\dot\theta^2\right) + 0\cdot\left(R\ddot\theta + 2\dot R\dot\theta\right) + 1\cdot\ddot z \end{pmatrix} \quad &\text{(rows of the matrix times the column of Eq. 2.30)} \\
+> &= \begin{pmatrix} \cos\theta\left(\ddot R - R\dot\theta^2\right) - \sin\theta\left(R\ddot\theta + 2\dot R\dot\theta\right) \cr \sin\theta\left(\ddot R - R\dot\theta^2\right) + \cos\theta\left(R\ddot\theta + 2\dot R\dot\theta\right) \cr \ddot z \end{pmatrix} \quad &\text{(drop the zero products)} \\
+> &= \begin{pmatrix} \ddot R\cos\theta - R\dot\theta^2\cos\theta - 2\dot R\dot\theta\sin\theta - R\ddot\theta\sin\theta \cr \ddot R\sin\theta - R\dot\theta^2\sin\theta + 2\dot R\dot\theta\cos\theta + R\ddot\theta\cos\theta \cr \ddot z \end{pmatrix} \quad &\text{(distribute, in the order of the slide)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf a_0^P = \left(\ddot R\cos\theta - R\dot\theta^2\cos\theta - 2\dot R\dot\theta\sin\theta - R\ddot\theta\sin\theta\right)\mathbf i + \left(\ddot R\sin\theta - R\dot\theta^2\sin\theta + 2\dot R\dot\theta\cos\theta + R\ddot\theta\cos\theta\right)\mathbf j + \ddot z\,\mathbf k}$$
+>
+> **Units:** $\mathrm{m/s^2}$ in every term: each is a length over a time squared
+> **Meaning:** these are the Cartesian components printed on [Lecture 1, Slide 19], term by term. For a circle of fixed radius traversed at a constant rate only the terms in $R\dot\theta^2$ remain, and they form minus that magnitude times the horizontal direction of $\mathbf e_R$: the acceleration points to the axis.
 
 > [!warning] Cylindrical components are not intrinsic components
 > The radial and azimuthal components of Eq. 2.30 cannot, in general, be identified with the tangential and normal accelerations (Notes.pdf, Sec. 2.6.2): $\mathbf e_R$ and $\mathbf e_\theta$ are defined by the coordinate system, $\mathbf e_t$ and $\mathbf e_n$ by the trajectory. They correspond only in special motions, such as a circle in a plane normal to $Oz$ and centred on it, where $\mathbf e_\theta$ is tangent to the path and $-\mathbf e_R$ points to the centre of curvature.
 
 ### Spherical coordinates
 
-Spherical coordinates are used in some three-dimensional problems. The position of $P$ is given by $r$, the radius, the distance from $O$ to $P$, equal to the magnitude of $\mathbf r_0^P$; by $\theta$, the azimuthal angle, as in cylindrical coordinates; and by $\phi$, the latitude, the angle between the plane $Oxy$ and the vector $\mathbf r_0^P$, positive above the plane. The coordinates are not well defined at $r$ equal to zero or on the axis $Oz$, at the latitudes of plus and minus a right angle, where $\theta$ is undefined (Notes.pdf, Sec. 2.6.3, Fig. 2.5; [Lecture 1, Slide 20]).
+Spherical coordinates are used in some three-dimensional problems. The position of $P$ is given by $r$, the radius, the distance from $O$ to $P$, equal to the magnitude of $\mathbf r_0^P$; by $\theta$, the azimuthal angle, as in cylindrical coordinates; and by $\phi$, the latitude, the angle between the plane $Oxy$ and the vector $\mathbf r_0^P$, positive above the plane. The coordinates are not well defined at $r$ equal to zero or on the axis $Oz$, where $\theta$ is undefined (Notes.pdf, Sec. 2.6.3, Fig. 2.5; [Lecture 1, Slide 20]): the notes list the latitude of a right angle; by symmetry the latitude of minus a right angle, the other half of the axis, is singular too.
 
 The latitude is measured from the plane $Oxy$, not from the axis $Oz$. Some texts use instead the complementary angle, measured from the pole and called colatitude, $\varphi$; always check which one a statement uses (Notes.pdf, Sec. 2.6; [Lecture 1, Slide 20]).
 
@@ -2139,7 +2171,8 @@ The latitude is measured from the plane $Oxy$, not from the axis $Oz$. Some text
 > &= \mathbf e_\phi \quad &\text{(Eq. 2.32)} \\
 > \frac{\partial\mathbf e_\theta}{\partial\theta} &= -\cos\theta\,\mathbf i - \sin\theta\,\mathbf j \quad &\text{(derivatives of $-\sin\theta$ and $\cos\theta$)} \\
 > &= -\mathbf e_R \quad &\text{(Eq. 2.24)} \\
-> \cos\phi\,\mathbf e_r - \sin\phi\,\mathbf e_\phi &= \cos^2\phi\,\mathbf e_R + \cos\phi\sin\phi\,\mathbf k + \sin^2\phi\,\mathbf e_R - \sin\phi\cos\phi\,\mathbf k \quad &\text{(substitute the first forms of $\mathbf e_r$ and $\mathbf e_\phi$, in $\mathbf e_R$ and $\mathbf k$)} \\
+> \cos\phi\,\mathbf e_r - \sin\phi\,\mathbf e_\phi &= \cos\phi\left(\cos\phi\,\mathbf e_R + \sin\phi\,\mathbf k\right) - \sin\phi\left(-\sin\phi\,\mathbf e_R + \cos\phi\,\mathbf k\right) \quad &\text{(substitute the first forms of $\mathbf e_r$ and $\mathbf e_\phi$, in $\mathbf e_R$ and $\mathbf k$)} \\
+> &= \cos^2\phi\,\mathbf e_R + \cos\phi\sin\phi\,\mathbf k + \sin^2\phi\,\mathbf e_R - \sin\phi\cos\phi\,\mathbf k \quad &\text{(distribute)} \\
 > &= \mathbf e_R \quad &\text{(Pythagoras; the $\mathbf k$ terms cancel)} \\
 > \frac{\partial\mathbf e_\theta}{\partial\theta} &= -\cos\phi\,\mathbf e_r + \sin\phi\,\mathbf e_\phi \quad &\text{(substitute $\mathbf e_R$)} \\
 > \frac{\partial\mathbf e_\theta}{\partial\phi} &= \mathbf 0 \quad &\text{($\mathbf e_\theta$ does not contain $\phi$)} \\
@@ -2224,7 +2257,77 @@ The latitude is measured from the plane $Oxy$, not from the axis $Oz$. Some text
 > $$\boxed{\mathbf a_0^P = \left(\ddot r - r\dot\theta^2\cos^2\phi - r\dot\phi^2\right)\mathbf e_r + \left(2\dot r\dot\theta\cos\phi + r\ddot\theta\cos\phi - 2r\dot\theta\dot\phi\sin\phi\right)\mathbf e_\theta + \left(2\dot r\dot\phi + r\ddot\phi + r\dot\theta^2\cos\phi\sin\phi\right)\mathbf e_\phi}$$
 >
 > **Units:** $\mathrm{m/s^2}$ in every term: each is a length times a squared rate or a length rate times a rate
-> **Meaning:** for a motion that stays in the plane $Oxy$ (latitude and its rate zero) the result reduces to $(\ddot r - r\dot\theta^2)\,\mathbf e_r + (r\ddot\theta + 2\dot r\dot\theta)\,\mathbf e_\theta$, which is Eq. 2.30 with $r$ in place of $R$ and no height, as it must; projecting this vector with $[{}_0R_{\mathrm{sph}}]$ gives the Cartesian components listed in [Lecture 1, Slide 22].
+> **Meaning:** for a motion that stays in the plane $Oxy$ (latitude and its rate zero) the result reduces to $(\ddot r - r\dot\theta^2)\,\mathbf e_r + (r\ddot\theta + 2\dot r\dot\theta)\,\mathbf e_\theta$, which is Eq. 2.30 with $r$ in place of $R$ and no height, as it must. The boxes below project the velocity and this acceleration with $[{}_0R_{\mathrm{sph}}]$ and compare them with [Lecture 1, Slide 22].
+
+> [!derivation] The spherical velocity projected on the basis of S0
+> **Law:** change of basis with $[{}_0R_{\mathrm{sph}}]$, row times column; check of the third component by direct differentiation
+> **Source:** [Lecture 1, Slide 22]; Notes.pdf, Eq. 1.12; Notes.pdf, Eq. 2.37; Notes.pdf, Eq. 2.31
+>
+> The column of components in $\mathcal B_{\mathrm{sph}}$ is that of Eq. 2.37: the radial component $\dot r$, the azimuthal component $r\dot\theta\cos\phi$ and the meridian component $r\dot\phi$.
+>
+> $$\begin{aligned}
+> [\mathbf v_0^P]_0 &= [{}_0R_{\mathrm{sph}}]\,[\mathbf v_0^P]_{\mathrm{sph}} \quad &\text{(Eq. 1.12)} \\
+> &= \begin{pmatrix} \cos\phi\cos\theta\,\dot r + (-\sin\theta)\,r\dot\theta\cos\phi + (-\sin\phi\cos\theta)\,r\dot\phi \cr \cos\phi\sin\theta\,\dot r + \cos\theta\,r\dot\theta\cos\phi + (-\sin\phi\sin\theta)\,r\dot\phi \cr \sin\phi\,\dot r + 0\cdot r\dot\theta\cos\phi + \cos\phi\,r\dot\phi \end{pmatrix} \quad &\text{(rows of the matrix times the column of Eq. 2.37)} \\
+> &= \begin{pmatrix} \dot r\cos\phi\cos\theta - r\dot\phi\sin\phi\cos\theta - r\dot\theta\cos\phi\sin\theta \cr \dot r\cos\phi\sin\theta - r\dot\phi\sin\phi\sin\theta + r\dot\theta\cos\phi\cos\theta \cr \dot r\sin\phi + r\dot\phi\cos\phi \end{pmatrix} \quad &\text{(drop the zero product; order the factors and terms as on the slide)} \\
+> \dot z &= \frac{d}{dt}\left(r\sin\phi\right) \quad &\text{(Eq. 2.31)} \\
+> &= \dot r\sin\phi + r\,\frac{d\sin\phi}{dt} \quad &\text{(product rule)} \\
+> &= \dot r\sin\phi + r\dot\phi\cos\phi \quad &\text{(chain rule: $\dfrac{d\sin\phi}{dt} = \cos\phi\,\dot\phi$)}
+> \end{aligned}$$
+>
+> $$\boxed{\mathbf v_0^P = \left(\dot r\cos\phi\cos\theta - r\dot\phi\sin\phi\cos\theta - r\dot\theta\cos\phi\sin\theta\right)\mathbf i + \left(\dot r\cos\phi\sin\theta - r\dot\phi\sin\phi\sin\theta + r\dot\theta\cos\phi\cos\theta\right)\mathbf j + \left(\dot r\sin\phi + r\dot\phi\cos\phi\right)\mathbf k}$$
+>
+> **Units:** $\mathrm{m/s}$ in every term: $\dot r$, and lengths times $\mathrm{rad/s}$
+> **Meaning:** these are the Cartesian components printed on [Lecture 1, Slide 22], term by term, and the third one agrees with the derivative of the height taken without the local basis. At the latitude zero the $\mathbf k$ component is $r\dot\phi$, the meridian part of the velocity, which is then vertical.
+
+> [!derivation] The spherical acceleration projected on the basis of S0: the i component
+> **Law:** first row of $[{}_0R_{\mathrm{sph}}]$ times the column of the acceleration; Pythagoras
+> **Source:** [Lecture 1, Slide 22]; Notes.pdf, Eq. 1.12; Notes.pdf, Eq. 2.38; Notes.pdf, Eq. 2.39; Notes.pdf, Eq. 2.40
+>
+> The column of components in $\mathcal B_{\mathrm{sph}}$ is that of the box "Acceleration in spherical coordinates" (Eqs. 2.38 to 2.40), in the order radial, azimuthal, meridian.
+>
+> $$\begin{aligned}
+> a_x &= \cos\phi\cos\theta\,\left(\ddot r - r\dot\theta^2\cos^2\phi - r\dot\phi^2\right) + (-\sin\theta)\,\left(2\dot r\dot\theta\cos\phi + r\ddot\theta\cos\phi - 2r\dot\theta\dot\phi\sin\phi\right) + (-\sin\phi\cos\theta)\,\left(2\dot r\dot\phi + r\ddot\phi + r\dot\theta^2\cos\phi\sin\phi\right) \quad &\text{(first row of $[{}_0R_{\mathrm{sph}}]$ times the column, Eq. 1.12)} \\
+> &= \ddot r\cos\phi\cos\theta - r\dot\theta^2\cos^3\phi\cos\theta - r\dot\phi^2\cos\phi\cos\theta - 2\dot r\dot\theta\cos\phi\sin\theta - r\ddot\theta\cos\phi\sin\theta + 2r\dot\theta\dot\phi\sin\phi\sin\theta - 2\dot r\dot\phi\sin\phi\cos\theta - r\ddot\phi\sin\phi\cos\theta - r\dot\theta^2\cos\phi\sin^2\phi\cos\theta \quad &\text{(distribute the three products)} \\
+> &= \ddot r\cos\phi\cos\theta - r\dot\phi^2\cos\phi\cos\theta - 2\dot r\dot\theta\cos\phi\sin\theta - r\ddot\theta\cos\phi\sin\theta + 2r\dot\theta\dot\phi\sin\phi\sin\theta - 2\dot r\dot\phi\sin\phi\cos\theta - r\ddot\phi\sin\phi\cos\theta - r\dot\theta^2\cos\phi\cos\theta\left(\cos^2\phi + \sin^2\phi\right) \quad &\text{(group the two terms in $\dot\theta^2$)} \\
+> &= \ddot r\cos\phi\cos\theta - 2\dot r\dot\phi\sin\phi\cos\theta - 2\dot r\dot\theta\cos\phi\sin\theta - r\ddot\phi\sin\phi\cos\theta - r\dot\phi^2\cos\phi\cos\theta + 2r\dot\phi\dot\theta\sin\phi\sin\theta - r\ddot\theta\cos\phi\sin\theta - r\dot\theta^2\cos\phi\cos\theta \quad &\text{(Pythagoras; terms in the order of the slide)}
+> \end{aligned}$$
+>
+> $$\boxed{a_x = \ddot r\cos\phi\cos\theta - 2\dot r\dot\phi\sin\phi\cos\theta - 2\dot r\dot\theta\cos\phi\sin\theta - r\ddot\phi\sin\phi\cos\theta - r\dot\phi^2\cos\phi\cos\theta + 2r\dot\phi\dot\theta\sin\phi\sin\theta - r\ddot\theta\cos\phi\sin\theta - r\dot\theta^2\cos\phi\cos\theta}$$
+>
+> **Units:** $\mathrm{m/s^2}$ in every term
+> **Meaning:** this is the $\mathbf i$ component printed on [Lecture 1, Slide 22], term by term; the term in $\dot\theta^2$ reduces to the centripetal acceleration of the parallel circle, of radius $r\cos\phi$, projected on $\mathbf i$.
+
+> [!derivation] The spherical acceleration projected on the basis of S0: the j component
+> **Law:** second row of $[{}_0R_{\mathrm{sph}}]$ times the column of the acceleration; Pythagoras
+> **Source:** [Lecture 1, Slide 22]; Notes.pdf, Eq. 1.12; Notes.pdf, Eq. 2.38; Notes.pdf, Eq. 2.39; Notes.pdf, Eq. 2.40
+>
+> $$\begin{aligned}
+> a_y &= \cos\phi\sin\theta\,\left(\ddot r - r\dot\theta^2\cos^2\phi - r\dot\phi^2\right) + \cos\theta\,\left(2\dot r\dot\theta\cos\phi + r\ddot\theta\cos\phi - 2r\dot\theta\dot\phi\sin\phi\right) + (-\sin\phi\sin\theta)\,\left(2\dot r\dot\phi + r\ddot\phi + r\dot\theta^2\cos\phi\sin\phi\right) \quad &\text{(second row of $[{}_0R_{\mathrm{sph}}]$ times the column, Eq. 1.12)} \\
+> &= \ddot r\cos\phi\sin\theta - r\dot\theta^2\cos^3\phi\sin\theta - r\dot\phi^2\cos\phi\sin\theta + 2\dot r\dot\theta\cos\phi\cos\theta + r\ddot\theta\cos\phi\cos\theta - 2r\dot\theta\dot\phi\sin\phi\cos\theta - 2\dot r\dot\phi\sin\phi\sin\theta - r\ddot\phi\sin\phi\sin\theta - r\dot\theta^2\cos\phi\sin^2\phi\sin\theta \quad &\text{(distribute the three products)} \\
+> &= \ddot r\cos\phi\sin\theta - r\dot\phi^2\cos\phi\sin\theta + 2\dot r\dot\theta\cos\phi\cos\theta + r\ddot\theta\cos\phi\cos\theta - 2r\dot\theta\dot\phi\sin\phi\cos\theta - 2\dot r\dot\phi\sin\phi\sin\theta - r\ddot\phi\sin\phi\sin\theta - r\dot\theta^2\cos\phi\sin\theta\left(\cos^2\phi + \sin^2\phi\right) \quad &\text{(group the two terms in $\dot\theta^2$)} \\
+> &= \ddot r\cos\phi\sin\theta - 2\dot r\dot\phi\sin\phi\sin\theta + 2\dot r\dot\theta\cos\phi\cos\theta - r\ddot\phi\sin\phi\sin\theta - r\dot\phi^2\cos\phi\sin\theta - 2r\dot\phi\dot\theta\sin\phi\cos\theta + r\ddot\theta\cos\phi\cos\theta - r\dot\theta^2\cos\phi\sin\theta \quad &\text{(Pythagoras; terms in the order of the slide)}
+> \end{aligned}$$
+>
+> $$\boxed{a_y = \ddot r\cos\phi\sin\theta - 2\dot r\dot\phi\sin\phi\sin\theta + 2\dot r\dot\theta\cos\phi\cos\theta - r\ddot\phi\sin\phi\sin\theta - r\dot\phi^2\cos\phi\sin\theta - 2r\dot\phi\dot\theta\sin\phi\cos\theta + r\ddot\theta\cos\phi\cos\theta - r\dot\theta^2\cos\phi\sin\theta}$$
+>
+> **Units:** $\mathrm{m/s^2}$ in every term
+> **Meaning:** this is the $\mathbf j$ component printed on [Lecture 1, Slide 22], term by term; it follows from the $\mathbf i$ component by replacing the cosine of the azimuth by its sine and the sine by minus the cosine (the azimuth decreased by a right angle), as the symmetry about $Oz$ requires.
+
+> [!derivation] The spherical acceleration projected on the basis of S0: the k component
+> **Law:** third row of $[{}_0R_{\mathrm{sph}}]$ times the column of the acceleration
+> **Source:** [Lecture 1, Slide 22]; Notes.pdf, Eq. 1.12; Notes.pdf, Eq. 2.38; Notes.pdf, Eq. 2.40
+>
+> $$\begin{aligned}
+> a_z &= \sin\phi\,\left(\ddot r - r\dot\theta^2\cos^2\phi - r\dot\phi^2\right) + 0\cdot \left(2\dot r\dot\theta\cos\phi + r\ddot\theta\cos\phi - 2r\dot\theta\dot\phi\sin\phi\right) + \cos\phi\,\left(2\dot r\dot\phi + r\ddot\phi + r\dot\theta^2\cos\phi\sin\phi\right) \quad &\text{(third row of $[{}_0R_{\mathrm{sph}}]$ times the column, Eq. 1.12)} \\
+> &= \sin\phi\,\left(\ddot r - r\dot\theta^2\cos^2\phi - r\dot\phi^2\right) + \cos\phi\,\left(2\dot r\dot\phi + r\ddot\phi + r\dot\theta^2\cos\phi\sin\phi\right) \quad &\text{(drop the zero product)} \\
+> &= \ddot r\sin\phi - r\dot\theta^2\cos^2\phi\sin\phi - r\dot\phi^2\sin\phi + 2\dot r\dot\phi\cos\phi + r\ddot\phi\cos\phi + r\dot\theta^2\cos^2\phi\sin\phi \quad &\text{(distribute the two products)} \\
+> &= \ddot r\sin\phi + 2\dot r\dot\phi\cos\phi + r\ddot\phi\cos\phi - r\dot\phi^2\sin\phi \quad &\text{(the two terms in $\dot\theta^2$ cancel; order of the slide)}
+> \end{aligned}$$
+>
+> $$\boxed{a_z = \ddot r\sin\phi + 2\dot r\dot\phi\cos\phi + r\ddot\phi\cos\phi - r\dot\phi^2\sin\phi}$$
+>
+> **Units:** $\mathrm{m/s^2}$ in every term
+> **Meaning:** this is the $\mathbf k$ component printed on [Lecture 1, Slide 22], term by term. The azimuthal rate does not appear: turning about $Oz$ moves $P$ on a horizontal circle, whose centripetal acceleration is horizontal.
 
 ## 15. Degrees of freedom and constraints
 
@@ -2268,18 +2371,18 @@ The number of independent coordinates falls below these values either because th
 > **Law:** constant length of an inextensible string; time derivative of the constraint
 > **Source:** Notes.pdf, Sec. 2.7; [Lecture 1, Slide 23]
 >
-> Two particles hang on the two sides of a fixed pulley from an inextensible string of length $\ell$, each moving along its own vertical line; $h_1$ and $h_2$ are their depths below the axis of the pulley, and $\ell_0$ is the constant length of string in contact with the pulley.
+> Two particles hang on the two sides of a fixed pulley from an inextensible string of length $L$, each moving along its own vertical line; $d_1$ and $d_2$ are their depths below the axis of the pulley, and $L_0$ is the constant length of string in contact with the pulley.
 >
 > $$\begin{aligned}
-> h_1 + h_2 + \ell_0 &= \ell \quad &\text{(the string does not stretch)} \\
-> \dot h_1 + \dot h_2 &= 0 \quad &\text{(time derivative; $\ell$ and $\ell_0$ are constant)} \\
-> \dot h_2 &= -\dot h_1 \quad &\text{(solve for $\dot h_2$)}
+> d_1 + d_2 + L_0 &= L \quad &\text{(the string does not stretch)} \\
+> \dot d_1 + \dot d_2 &= 0 \quad &\text{(time derivative; $L$ and $L_0$ are constant)} \\
+> \dot d_2 &= -\dot d_1 \quad &\text{(solve for $\dot d_2$)}
 > \end{aligned}$$
 >
-> $$\boxed{h_2 = \ell - \ell_0 - h_1,\qquad \dot h_2 = -\dot h_1:\quad 2 - 1 = 1 \text{ degree of freedom}}$$
+> $$\boxed{d_2 = L - L_0 - d_1,\qquad \dot d_2 = -\dot d_1:\quad 2 - 1 = 1 \text{ degree of freedom}}$$
 >
 > **Units:** $\mathrm m$ and $\mathrm{m/s}$
-> **Meaning:** when one particle goes down the other goes up by the same amount, at the same speed: the motions are equal and opposite, and one coordinate, $h_1$, describes the whole system.
+> **Meaning:** when one particle goes down the other goes up by the same amount, at the same speed: the motions are equal and opposite, and one coordinate, $d_1$, describes the whole system.
 
 We are not restricted to Cartesian, cylindrical or spherical coordinates for positions and angles for orientations: other valid sets of parameters, such as distances or areas, can determine the configuration, and when they are chosen they are called generalized coordinates (Notes.pdf, Sec. 2.7; [Lecture 1, Slide 23]). Analytical mechanics uses generalized coordinates to reduce the equations of motion to their simplest form systematically; it is beyond the scope of the course and is not one of its tools (Notes.pdf, Sec. 2.7, footnote 13).
 
@@ -2319,21 +2422,26 @@ We are not restricted to Cartesian, cylindrical or spherical coordinates for pos
 > **Meaning:** the acceleration is horizontal and points from $P$ to the axis $Oz$: its components are those of the horizontal part of $\mathbf r_0^P$ times $-\omega^2$.
 
 > [!derivation] (b) Position, velocity and acceleration in the cylindrical basis
-> **Law:** transformation relations; Eqs. 2.28 to 2.30; check with the inverse change of basis
-> **Source:** Notes.pdf, Eq. 2.23; Notes.pdf, Eq. 2.28; Notes.pdf, Eq. 2.29; Notes.pdf, Eq. 2.30; Notes.pdf, Eq. 1.14
+> **Law:** transformation relations; position in the local basis; product rule with the derivatives of the cylindrical unit vectors; check with the inverse change of basis
+> **Source:** Notes.pdf, Eq. 2.23; Notes.pdf, Eq. 2.24; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 2.27; Notes.pdf, Eq. 1.64; Notes.pdf, Eq. 1.14
 >
 > $$\begin{aligned}
 > R &= \sqrt{a^2\cos^2(\omega t) + a^2\sin^2(\omega t)} \quad &\text{(Eq. 2.23)} \\
 > &= a \quad &\text{(Pythagoras; $a$ is positive)} \\
 > \theta &= \arctan\frac{a\sin(\omega t)}{a\cos(\omega t)} \quad &\text{(Eq. 2.23)} \\
 > &= \omega t \quad &\text{(the signs of $x$ and $y$ put $\theta$ in the quadrant of $\omega t$; $\theta$ is taken continuous in time)} \\
-> \dot R = 0,\qquad \ddot R &= 0 \quad &\text{($R$ is constant)} \\
-> \dot\theta = \omega,\qquad \ddot\theta &= 0 \quad &\text{(derivatives of $\omega t$; $\omega$ constant)} \\
-> \dot z = v_z,\qquad \ddot z &= 0 \quad &\text{(part (a))} \\
-> \mathbf r_0^P &= a\,\mathbf e_R + v_z t\,\mathbf e_z \quad &\text{(Eq. 2.28)} \\
-> \mathbf v_0^P &= 0\,\mathbf e_R + a\omega\,\mathbf e_\theta + v_z\,\mathbf e_z \quad &\text{(Eq. 2.29)} \\
-> \mathbf a_0^P &= \left(0 - a\omega^2\right)\mathbf e_R + \left(a\cdot 0 + 2\cdot 0\cdot\omega\right)\mathbf e_\theta + 0\,\mathbf e_z \quad &\text{(Eq. 2.30)} \\
-> &= -a\omega^2\,\mathbf e_R \quad &\text{(simplify)} \\
+> \dot\theta &= \omega \quad &\text{(derivative of $\omega t$; $\omega$ constant)} \\
+> \mathbf r_0^P &= a\cos(\omega t)\,\mathbf i + a\sin(\omega t)\,\mathbf j + v_z t\,\mathbf k \quad &\text{(part (a))} \\
+> &= a\left(\cos\theta\,\mathbf i + \sin\theta\,\mathbf j\right) + v_z t\,\mathbf k \quad &\text{(factor $a$; $\theta = \omega t$)} \\
+> &= a\,\mathbf e_R + v_z t\,\mathbf e_z \quad &\text{(Eq. 2.24)} \\
+> \mathbf v_0^P &= \frac{d}{dt}\left(a\,\mathbf e_R\right) + \frac{d}{dt}\left(v_z t\,\mathbf e_z\right) \quad &\text{(Eq. 2.3; sum rule, Eq. 1.65)} \\
+> &= 0\,\mathbf e_R + a\,\frac{d\mathbf e_R}{dt} + v_z\,\mathbf e_z + v_z t\,\frac{d\mathbf e_z}{dt} \quad &\text{(product rule on both terms, Eq. 1.64; $a$ constant, the derivative of $v_z t$ is $v_z$)} \\
+> &= a\dot\theta\,\mathbf e_\theta + v_z\,\mathbf e_z + \mathbf 0 \quad &\text{(Eqs. 2.25 and 2.27)} \\
+> &= a\omega\,\mathbf e_\theta + v_z\,\mathbf e_z \quad &\text{($\dot\theta = \omega$)} \\
+> \mathbf a_0^P &= \frac{d}{dt}\left(a\omega\,\mathbf e_\theta\right) + \frac{d}{dt}\left(v_z\,\mathbf e_z\right) \quad &\text{(Eq. 2.4; sum rule)} \\
+> &= a\omega\,\frac{d\mathbf e_\theta}{dt} + v_z\,\frac{d\mathbf e_z}{dt} \quad &\text{(product rule; $a\omega$ and $v_z$ are constant)} \\
+> &= a\omega\left(-\dot\theta\,\mathbf e_R\right) + v_z\,\mathbf 0 \quad &\text{(Eqs. 2.26 and 2.27)} \\
+> &= -a\omega^2\,\mathbf e_R \quad &\text{($\dot\theta = \omega$)} \\
 > [{}_{\mathrm{cyl}}R_0] &= [{}_0R_{\mathrm{cyl}}]^T \quad &\text{(Eq. 1.14)} \\
 > \left([\mathbf a_0^P]_{\mathrm{cyl}}\right)_1 &= \cos(\omega t)\left(-a\omega^2\cos(\omega t)\right) + \sin(\omega t)\left(-a\omega^2\sin(\omega t)\right) + 0\cdot 0 \quad &\text{(first row of $[{}_{\mathrm{cyl}}R_0]$ times the Cartesian column of part (a))} \\
 > &= -a\omega^2 \quad &\text{(Pythagoras)} \\
@@ -2344,7 +2452,7 @@ We are not restricted to Cartesian, cylindrical or spherical coordinates for pos
 > $$\boxed{\mathbf r_0^P = a\,\mathbf e_R + v_z t\,\mathbf e_z,\qquad \mathbf v_0^P = a\omega\,\mathbf e_\theta + v_z\,\mathbf e_z,\qquad \mathbf a_0^P = -a\omega^2\,\mathbf e_R,\qquad \theta = \omega t}$$
 >
 > **Units:** $\mathrm m$, $\mathrm{m/s}$, $\mathrm{m/s^2}$
-> **Meaning:** the rocket stays on the cylinder of radius $a$ about $Oz$; the projection of the Cartesian acceleration agrees with Eq. 2.30, and the only acceleration is the term in $-R\dot\theta^2$, directed to the axis.
+> **Meaning:** the rocket stays on the cylinder of radius $a$ about $Oz$; the projection of the Cartesian acceleration of part (a) agrees with the acceleration obtained with the local basis, which is also what Eq. 2.30 gives for a constant radius, azimuthal rate and climb rate: the only acceleration is the centripetal term, directed to the axis.
 
 > [!derivation] (c, d) Velocity in the intrinsic basis and its modulus
 > **Law:** speed as the magnitude of the velocity; Eq. 2.16
@@ -2447,7 +2555,7 @@ We are not restricted to Cartesian, cylindrical or spherical coordinates for pos
 >
 > $$\boxed{C = \left(-\frac{v_z^2}{a\omega^2},\ 0,\ 0\right)}$$
 >
-> **Units:** $(\mathrm{m^2/s^2})/(\mathrm{m\,rad^2/s^2}) = \mathrm m$
+> **Units:** $(\mathrm{m^2/s^2})/(\mathrm{m\,rad^2/s^2}) = \mathrm m$, because the radian is dimensionless (a ratio of two lengths)
 > **Meaning:** the centre of curvature is not on the axis of the helix: it lies on the far side of $Oz$, at the distance $v_z^2/(a\omega^2)$ from it, and it moves to $O$, the centre of the horizontal circle, as $v_z$ tends to zero.
 
 > [!key] Kinematics of a point particle
