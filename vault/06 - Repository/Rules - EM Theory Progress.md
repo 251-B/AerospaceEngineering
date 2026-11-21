@@ -19,7 +19,7 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 
 | Topic | Note | Figures | Page | Links | PDF | Audit | State | Commit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 Kinematics of a Point Particle | | | | | | | not started | |
+| 1 Kinematics of a Point Particle | done: 97 boxes, Ch. 1-2, Lecture 1 Slides 3-29 | done: 28 (`em_th/t1.py`, `t1b.py`) | generated | done | pending | in progress | in progress | `48ba132` |
 | 2 Dynamics, Equilibrium and Oscillations | | | | | | | not started | |
 | 3 Constraints and Reaction Forces | | | | | | | not started | |
 | 4 Angular Momentum and Central Forces | | | | | | | not started | |
@@ -36,6 +36,9 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 - **Mission tools** (deleted when the mission closes): `tools/briefs/EM_THEORY_BRIEF.md` (brief of the note writers), `tools/briefs/check_theory_note.py` (builds a page with placeholders for figures not drawn yet: gate, boxes, KaTeX), `tools/briefs/em_theory_pages.json` (page entries of Topics 1 to 5, moved into `tools/topic_pages.json` when each note is ready, so `build_topic_pages --check` stays green meanwhile).
 - **Chapters** (printed numbers of `Notes.pdf`): Topic 1 Ch. 1-2; Topic 2 Ch. 4 Secs. 4.1-4.7 and Ch. 5; Topic 3 Ch. 6-7; Topic 4 Sec. 4.8 and Ch. 8; Topic 5 Ch. 3 and Sec. 4.9.
 - **One agent at a time** (user's request): a writer (Opus) per topic or part of a topic, then a figure agent (Sonnet), then a read-only audit (Opus), each finding verified by the orchestrator before it is fixed.
+
+- **Anchors of chapters 1 to 8.** `tools/source_anchors.json` had few anchors for chapters 1 to 8 (none for chapter 7). They are refreshed with a script that runs `--refresh-anchors` and keeps every other block as it was (`em-notes`: 320 to 565 anchors). Side effect: citations of chapters 1 to 8 already present on the problem pages of Topics 1-4 and 6-8 and on the Topic 6 theory page become links too, so those pages change (tool output, committed) and their PDFs become stale. Their PDFs are not reprinted on this branch, to avoid binary conflicts with the orchestrator, who reprints the problem PDFs at the closing (98 problem PDFs were already stale at the start of this branch).
+- **Source issues found in Topic 1** (callouts in the note): erratum to Notes.pdf Eq. 1.76, every component of the curl printed with the opposite sign (checked on the PDF page by the orchestrator); reversed wording in Sec. 1.5.3; two typos in Sec. 1.6.7 and Eq. 1.44.
 
 ## Conflicts between the brief and the repository (not resolved silently)
 
