@@ -37,3 +37,4 @@ sources/libros/**/*.pdf
 
 # Sideris generated datasets (book-derived text must never be published)
 tools/ai_training/out/books_*
+sources/libros/.ocr/

@@ -91,11 +91,23 @@ def extract_book(entry, chunk_words, overlap):
 
     path = BOOKS / entry["file"]
     doc = pymupdf.open(path)
+    ocr = {}  # page -> text, from ocr_books.py (scanned books)
+    cache = BOOKS / ".ocr" / f"{entry['id']}.jsonl"
+    if cache.exists():
+        for line in cache.read_text(encoding="utf-8").splitlines():
+            try:
+                rec = json.loads(line)
+            except ValueError:
+                continue
+            if rec.get("t"):
+                ocr[rec["p"]] = rec["t"]
     first, last = entry.get("page_range", [1, doc.page_count])
-    pages, empty = [], 0
+    pages, empty, from_ocr = [], 0, 0
     for i in range(first - 1, min(last, doc.page_count)):
         t = clean(doc[i].get_text("text"))
-        if len(t.split()) < 25:  # cover, blank, figure-only or scanned page without text layer
+        if len(t.split()) < 25 and (i + 1) in ocr:
+            t, from_ocr = clean(ocr[i + 1]), from_ocr + 1
+        if len(t.split()) < 25:  # cover, blank, figure-only or scanned page not yet OCR'd
             empty += 1
             continue
         pages.append((i + 1, t))
@@ -125,10 +137,12 @@ def extract_book(entry, chunk_words, overlap):
     ]
     words = sum(len(t.split()) for _, t in pages)
     stats = {"pages_with_text": len(pages), "pages_skipped": empty, "words": words, "chunks": len(records)}
+    if from_ocr:
+        stats["ocr_pages"] = from_ocr
     if pages and empty > len(pages):
-        stats["warning"] = "most pages have no text layer (scanned?) - needs OCR"
+        stats["warning"] = "most pages have no text layer (scanned?) - needs OCR (ocr_books.py)"
     elif not pages:
-        stats["warning"] = "no text extracted - scanned PDF, needs OCR"
+        stats["warning"] = "no text extracted - scanned PDF, needs OCR (ocr_books.py)"
     return records, stats
 
 
