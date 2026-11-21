@@ -33,7 +33,7 @@ The *Mechanics Applied to Aerospace Engineering* course provides the core physic
 Entries shown as plain text with "(planned)" do not have a note in the vault yet.
 
 ### 🚀 Part I: Mechanics of the Point Particle
-* [[Topic 1 - Kinematics of a Point Particle|Topic 1: Fundamentals and Particle Kinematics]] *(unit-01-particle-kinematics; Fully Developed)*
+* [[Topic 1 - Kinematics of a Point Particle|Topic 1: Kinematics of a Point Particle]] *(unit-01-particle-kinematics; Notes.pdf chapters 1 and 2, Lecture 1; derivation boxes)*
   * [[Concept - Mechanical Modeling and Physical Quantities|Concept: Mechanical Modeling and Physical Quantities (Scalars, Vectors, Tensors)]]
   * [[Concept - Vector Bases Rotation Matrices and Poisson Theorem|Concept: Vector Bases, Rotation Matrices, and Poisson's Theorem]]
   * [[Concept - Cartesian Cylindrical and Spherical Coordinate Systems|Concept: Cartesian, Cylindrical, and Spherical Coordinate Systems]]
