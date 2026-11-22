@@ -21,7 +21,7 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 Kinematics of a Point Particle | done: 102 boxes, Ch. 1-2, Lecture 1 Slides 3-29 | done: 28 (`em_th/t1.py`, `t1b.py`) | generated | done | printed | done: 22 findings, all verified and applied | done | see `git log` (`feat(mechanics): close Topic 1 theory`) |
 | 2 Dynamics, Equilibrium and Oscillations | done: 96 boxes, Ch. 4 Secs. 4.1-4.7, Ch. 5, Lecture 2 Slides 1-23, Lecture 6 Slides 1-15 | done: 31 (`em_th/t2.py`, `t2b.py`) | generated | done | printed | done: 16 findings, all verified and applied | done | see `git log` (`feat(mechanics): close Topic 2 theory`) |
-| 3 Constraints and Reaction Forces | | | | | | | not started | |
+| 3 Constraints and Reaction Forces | done: 40 boxes, Ch. 6-7, Lecture 3 Slides 3-23 | done: 19 (`em_th/t3.py`) | generated | done | pending | in progress | in progress | `78bba00` |
 | 4 Angular Momentum and Central Forces | | | | | | | not started | |
 | 5 Relative Motion | | | | | | | not started | |
 
@@ -53,6 +53,8 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 
 3. **Content of Lecture 6.** The brief lists for Topic 2, as Lecture 6 content, beats, the amplification factor as a function of the frequency ratio, a dimensionless damping ratio, and the bead on a rotating hoop with its effective potential and bifurcation. The deck (16 slides; slide 16 is "Thank you") covers linear equations with constant coefficients, complex exponentials, free oscillator (undamped, small, large and critical damping), the forced oscillator, resonance and linearisation (checked slide by slide by the orchestrator); it has no beats and no hoop, and it calls the dimensional constant of the damping term the damping ratio. The note follows the deck and adds the beats and the hoop as marked extensions; the amplification factor is defined as the forced amplitude over the static deflection.
 4. **Source issues found in Topic 2** (callouts in the note): erratum to Notes.pdf Eq. 4.37, the tension is defined along minus the radial unit vector but the radial equation is printed with the opposite sign (checked on the PDF page by the orchestrator); erratum to Notes.pdf Eq. 5.26 (the real part closes before the exponential factor; Slide 8 is right); the units of power and work on Notes.pdf p. 43 written with t for seconds; Lecture 2 Slide 20 writes the kinetic energy without the mass; Notes.pdf Sec. 5.4.1 gives the phase at resonance at the natural frequency, not at the peak frequency of Eq. 5.46.
+
+5. **Source issues found in Topic 3** (callouts in the note): Notes.pdf Eq. 6.8 writes R² for the radius that Eq. 6.2 calls a (checked on the PDF page by the orchestrator); Sec. 7.5 writes the spring force with a vector OA and no point A defined; the paraboloid of Lecture 3 Slide 12 is not dimensionally homogeneous; the normal reaction of Slide 20 comes out negative. Chapters 6 and 7 have no figures of their own and Ch. 7 has no worked example, so its procedure is applied to the examples of Lecture 3.
 
 ## Observations (task-observer has no stable path in this container)
 

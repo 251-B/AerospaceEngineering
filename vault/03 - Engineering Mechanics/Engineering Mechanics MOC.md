@@ -46,7 +46,7 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
   * [[Concept - Conservation of Mechanical Energy and Energy Diagrams|Concept: Conservation of Mechanical Energy and Energy Diagrams]]
   * [[Concept - Equilibrium Configurations and Stability Criteria|Concept: Equilibrium Configurations and Stability Criteria]]
   * [[Concept - The Simple Pendulum Nonlinear Dynamics and Linearization|Concept: The Simple Pendulum - Nonlinear Dynamics and Linearization]]
-* [[Topic 3 - Constraints and Reaction Forces|Topic 3: Constraints and Reaction Forces]] *(unit-03-constraints-reactions; Fully Developed)*
+* [[Topic 3 - Constraints and Reaction Forces|Topic 3: Constraints and Reaction Forces]] *(unit-03-constraints-reactions; Notes.pdf chapters 6 and 7, Lecture 3; derivation boxes)*
   * [[Concept - Classification of Constraints Holonomic Rheonomic and Unilateral|Concept: Classification of Constraints (Holonomic, Rheonomic, Unilateral)]]
   * [[Concept - Normal and Tangent Subspaces for Surfaces and Curves|Concept: Normal and Tangent Subspaces for Surfaces and Curves]]
   * [[Concept - Constraint and Reaction Forces Dynamical Decoupling|Concept: Constraint and Reaction Forces Dynamical Decoupling]]
