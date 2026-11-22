@@ -1,0 +1,6 @@
+{
+  "name": "claude-mem",
+  "displayName": "Claude-Mem Shared Memory",
+  "version": "13.34.2",
+  "description": "Shared persistent SQLite memory MCP server (connected to the same local claude-mem database as Claude Code) plus core memory and handoff skills."
+}

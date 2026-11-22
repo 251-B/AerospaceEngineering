@@ -1,0 +1,11 @@
+{
+  "skill-evolution-session-start": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "\"{{PYTHON}}\" ./scripts/session_start.py",
+        "timeout": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,263 @@
+{
+ "_doc": "Global rules of ~/.claude/hooks/skill_router.py. 'match' is a regex on the prompt in lower case without accents; 'use' lists skills (Skill tool) or 'agent:<name>'. Add a rule whenever a new skill is installed or created.",
+ "rules": [
+  {
+   "match": "\\b(error(es)?|bugs?|falla[ns]?|fallo|roto|rota|broken|404|crash|traceback|exception|no compila|no funciona|no carga|no se ve|no va|tests? en rojo|failing)\\b",
+   "use": [
+    "superpowers:systematic-debugging"
+   ]
+  },
+  {
+   "match": "\\b(crea una pagina|nueva pagina|nueva feature|nueva funcion(alidad)?|disena|nuevo tema|new feature|new page|quiero (hacer|crear|anadir)|se me ocurre|idea para)\\b",
+   "use": [
+    "superpowers:brainstorming"
+   ]
+  },
+  {
+   "match": "\\b(planifica|haz un plan|crea un plan|plan de accion|mision|hoja de ruta|roadmap)\\b",
+   "use": [
+    "superpowers:writing-plans"
+   ]
+  },
+  {
+   "match": "\\b(ejecuta el plan|sigue el plan|aplica el plan|continua el plan)\\b",
+   "use": [
+    "superpowers:executing-plans"
+   ]
+  },
+  {
+   "match": "\\b(en paralelo|lanza (varios )?agentes|varios agentes a la vez)\\b",
+   "use": [
+    "superpowers:dispatching-parallel-agents"
+   ]
+  },
+  {
+   "match": "\\b(tdd|escribe (los )?tests|anade (los )?tests|test primero)\\b",
+   "use": [
+    "superpowers:test-driven-development"
+   ]
+  },
+  {
+   "match": "\\b(revisa el codigo|code review|revisa el diff|revisa los cambios)\\b",
+   "use": [
+    "code-review"
+   ]
+  },
+  {
+   "match": "\\b(simplifica|limpia el codigo|refactoriza)\\b",
+   "use": [
+    "simplify"
+   ]
+  },
+  {
+   "match": "\\b(crea|crear|nueva|mejora|mejorar|optimiza|evalua|ajusta)\\b.{0,30}\\bskills?\\b|\\bskills?\\b.{0,30}\\b(nueva|mejorad|optimizad)",
+   "use": [
+    "anthropic-skills:skill-creator",
+    "superpowers:writing-skills"
+   ]
+  },
+  {
+   "match": "\\b(observaciones|skill observations|aprende de mi|lo que has aprendido)\\b",
+   "use": [
+    "task-observer"
+   ]
+  },
+  {
+   "match": "\\b(automatiza(lo)?|cada vez que|crea un hook|anade un hook|permisos?|settings\\.json)\\b",
+   "use": [
+    "update-config"
+   ]
+  },
+  {
+   "match": "\\b(humaniza|suena a ia|suena artificial|en mi voz|como si lo escribiera yo|redacta|reescribe|mejora el texto|corrige el estilo)\\b",
+   "use": [
+    "humanizer"
+   ]
+  },
+  {
+   "match": "\\b(estilo|interfaz|ui|ux|maqueta|layout|tipografia|colores|se ve feo|se ve mal|aspecto|pulir|polish|critica el diseno)\\b",
+   "use": [
+    "impeccable",
+    "design-taste-frontend"
+   ]
+  },
+  {
+   "match": "\\b(no me gusta|asi no|eso no|demasiado (grande|pequeno|oscuro|claro)|cambia el (diseno|color|tamano)|queda raro)\\b",
+   "use": [
+    "learn-taste"
+   ]
+  },
+  {
+   "match": "\\b(anima|animacion(es)?|animar|animad[oa]s?|transiciones?|motion)\\b",
+   "use": [
+    "animate",
+    "review-animations",
+    "emil-design-eng"
+   ]
+  },
+  {
+   "match": "\\b(tirones|jank|va lento|se traba|fps)\\b",
+   "use": [
+    "animation-performance"
+   ]
+  },
+  {
+   "match": "\\b(demasiadas animaciones|quita animaciones|sobreanimado)\\b",
+   "use": [
+    "remove-animations"
+   ]
+  },
+  {
+   "match": "\\b(que (se podria|puedo) animar|mas vivo|mas vida)\\b",
+   "use": [
+    "find-animation-opportunities",
+    "improve-animations"
+   ]
+  },
+  {
+   "match": "\\b(varios elementos|escalonad|stagger|coreografia|uno tras otro)\\b",
+   "use": [
+    "choreograph"
+   ]
+  },
+  {
+   "match": "\\b(arrastra|arrastrar|swipe|deslizar|gesto|drawer|sheet)\\b",
+   "use": [
+    "gestures"
+   ]
+  },
+  {
+   "match": "\\b(movil|iphone|android|tablet|telefono|pwa)\\b",
+   "use": [
+    "mobile-native"
+   ]
+  },
+  {
+   "match": "\\b(caso limite|casos limite|edge case|peor caso|rompe la ui|stress)\\b",
+   "use": [
+    "break-ui"
+   ]
+  },
+  {
+   "match": "\\b(apple|ios style|estilo apple|spring)\\b",
+   "use": [
+    "apple-design"
+   ]
+  },
+  {
+   "match": "\\b(como se llama (ese|el) efecto|que nombre tiene)\\b",
+   "use": [
+    "animation-vocabulary"
+   ]
+  },
+  {
+   "match": "\\b(grafica|grafico|chart|plot|visualiza|dashboard|diagrama de barras)\\b",
+   "use": [
+    "dataviz"
+   ]
+  },
+  {
+   "match": "\\b(docx|documento word|archivo word|(en|a) word)\\b",
+   "use": [
+    "anthropic-skills:docx"
+   ]
+  },
+  {
+   "match": "\\b(excel|xlsx|hoja de calculo)\\b",
+   "use": [
+    "anthropic-skills:xlsx"
+   ]
+  },
+  {
+   "match": "\\b(powerpoint|pptx|presentacion|diapositivas)\\b",
+   "use": [
+    "anthropic-skills:pptx"
+   ]
+  },
+  {
+   "match": "\\b(rellena el pdf|une (los )?pdf|divide el pdf|extrae del pdf|formulario pdf)\\b",
+   "use": [
+    "anthropic-skills:pdf"
+   ]
+  },
+  {
+   "match": "\\b(investiga|deep research|busca informacion|estado del arte)\\b",
+   "use": [
+    "anthropic-skills:deep-research"
+   ]
+  },
+  {
+   "match": "\\b(recuerdas|la otra vez|sesion anterior|que hicimos|ayer hicimos|como lo resolvimos)\\b",
+   "use": [
+    "claude-mem:mem-search"
+   ]
+  },
+  {
+   "match": "\\bfigma\\b",
+   "use": [
+    "figma:figma-use",
+    "figma:figma-design-to-code"
+   ]
+  },
+  {
+   "match": "\\b(gemini|antigravity)\\b",
+   "use": [
+    "dual-agent-team"
+   ]
+  },
+  {
+   "match": "\\b(programa una tarea|cada dia a las|cada semana|recordatorio programado)\\b",
+   "use": [
+    "schedule"
+   ]
+  },
+  {
+   "match": "\\b(swift|swiftui|xcode)\\b",
+   "use": [
+    "write-swift"
+   ]
+  },
+  {
+   "match": "\\b(expo|react native)\\b",
+   "use": [
+    "animate-expo"
+   ]
+  },
+  {
+   "match": "\\b(sonner|toast)\\b",
+   "use": [
+    "ask-sonner"
+   ]
+  },
+  {
+   "match": "\\b(que libreria de ui|libreria de componentes)\\b",
+   "use": [
+    "pick-ui-library"
+   ]
+  },
+  {
+   "match": "\\b(prototipo|prototype)\\b",
+   "use": [
+    "prototype"
+   ]
+  },
+  {
+   "match": "\\b(log enorme|logs? (muy )?(largo|grande)s?|archivo (muy |demasiado )?(grande|largo)|csv|json (enorme|grande)|demasiado largo para leer)\\b",
+   "use": [
+    "headroom:headroom"
+   ]
+  },
+  {
+   "match": "\\b(revisa las skills|audita las skills|mantenimiento de (las )?skills|skills? (obsoletas|desactualizadas))\\b",
+   "use": [
+    "adaptive-agent:skill-review"
+   ]
+  },
+  {
+   "match": "\\b(mi perfil|quien soy|perfil de usuario|como trabajo yo)\\b",
+   "use": [
+    "adaptive-agent:build-user-profile"
+   ]
+  }
+ ]
+}

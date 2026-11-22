@@ -1,0 +1,11 @@
+{
+  "agy-skill-router": {
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "\"{{PYTHON}}\" ./hooks/agy_skill_router.py",
+        "timeout": 10
+      }
+    ]
+  }
+}

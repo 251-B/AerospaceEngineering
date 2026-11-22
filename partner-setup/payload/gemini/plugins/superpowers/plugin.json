@@ -1,0 +1,6 @@
+{
+  "name": "superpowers",
+  "displayName": "Superpowers Engineering Workflows",
+  "version": "6.4.2",
+  "description": "Disciplined software engineering skills (TDD, systematic debugging, brainstorming, planning, verification, git worktrees, and code review) migrated from Claude Code."
+}

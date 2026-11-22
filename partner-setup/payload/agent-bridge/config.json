@@ -1,0 +1,47 @@
+{
+  "max_recursion_depth": 1,
+  "quota_cooldown_minutes": 45,
+  "default_timeout_sec": 300,
+  "claude": {
+    "executable": "{{CLAUDE_EXE}}",
+    "roles": {
+      "fast": {
+        "model": "haiku",
+        "effort": "medium"
+      },
+      "worker": {
+        "model": "sonnet",
+        "effort": "medium"
+      },
+      "reviewer": {
+        "model": "opus",
+        "effort": "high"
+      },
+      "architect": {
+        "model": "opus",
+        "effort": "high"
+      }
+    }
+  },
+  "antigravity": {
+    "executable": "{{AGY_EXE}}",
+    "roles": {
+      "fast": {
+        "model": "gemini-4-hydrogen-medium",
+        "effort": "medium"
+      },
+      "worker": {
+        "model": "gemini-4-hydrogen-high",
+        "effort": "high"
+      },
+      "reviewer": {
+        "model": "gemini-4-neon-high",
+        "effort": "high"
+      },
+      "architect": {
+        "model": "gemini-4-neon-high",
+        "effort": "high"
+      }
+    }
+  }
+}

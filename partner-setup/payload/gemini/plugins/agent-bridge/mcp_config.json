@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "claude-bridge": {
+      "command": "{{PYTHON}}",
+      "args": [
+        "{{HOME}}/.gemini/config/plugins/agent-bridge/servers/claude_bridge_mcp.py"
+      ]
+    }
+  }
+}

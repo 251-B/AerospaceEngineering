@@ -1,0 +1,11 @@
+{
+  "name": "ui-design-craft",
+  "displayName": "UI & Motion Design Craft",
+  "version": "1.0.0",
+  "description": "High-craft web UI design engineering, visual taste, stress-testing, prototyping, and CSS/web animation skills for frontend apps.",
+  "suggestedPrompts": [
+    "Audit this page's UI craft, typography, and edge-case layout resilience",
+    "Review and improve the animations and transitions on this interface",
+    "Build two distinct interactive UI prototypes for this view"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "skill-evolution",
+  "displayName": "Skill Evolution (Auto-Discovery & Creator)",
+  "version": "1.0.0",
+  "description": "Continuously monitors recurring tasks, user corrections, and multi-step workflows across sessions to log observations and automatically create or refine reusable Antigravity skills.",
+  "suggestedPrompts": [
+    "Review my pending skill observations and turn recurring patterns into skills",
+    "Create a new Antigravity skill from the workflow we just completed",
+    "Show what recurring patterns have been captured in skill-observations"
+  ]
+}

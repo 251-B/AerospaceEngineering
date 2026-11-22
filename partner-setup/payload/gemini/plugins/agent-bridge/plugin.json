@@ -1,0 +1,6 @@
+{
+  "name": "agent-bridge",
+  "displayName": "Dual-Agent Bridge (Antigravity <-> Claude Code)",
+  "version": "1.0.0",
+  "description": "Bidirectional MCP bridge, shared quota/handoff state, and multi-model orchestration protocol connecting Antigravity and Claude Code."
+}

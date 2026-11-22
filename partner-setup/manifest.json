@@ -1,0 +1,76 @@
+{
+  "_doc": "Inventory of the Claude Code + Antigravity setup that partner-setup/install.py reproduces on another computer. export.py (run on the owner's computer) refreshes payload/ from the live setup. Placeholders in payload files: {{HOME}}, {{PYTHON}}, {{REPO}}, {{CLAUDE_EXE}}, {{AGY_EXE}}. See README.md.",
+  "version": 1,
+  "claude": {
+    "files": {
+      "claude/CLAUDE.md": ".claude/CLAUDE.md",
+      "claude/hooks/skill_router.py": ".claude/hooks/skill_router.py",
+      "claude/skill_rules.json": ".claude/skill_rules.json"
+    },
+    "vendored_skills": ["task-observer", "dual-agent-team"],
+    "hooks": {
+      "UserPromptSubmit": "\"{{PYTHON}}\" \"{{HOME}}/.claude/hooks/skill_router.py\"",
+      "SessionStart": "\"{{PYTHON}}\" \"{{HOME}}/.claude/hooks/skill_router.py\" --session"
+    },
+    "marketplaces": [
+      {"name": "superpowers-marketplace", "source": "obra/superpowers-marketplace", "settings": {"source": "github", "repo": "obra/superpowers-marketplace"}},
+      {"name": "thedotmack", "source": "thedotmack/claude-mem", "settings": {"source": "github", "repo": "thedotmack/claude-mem"}},
+      {"name": "ponytail", "source": "https://github.com/DietrichGebert/ponytail.git", "settings": {"source": "git", "url": "https://github.com/DietrichGebert/ponytail.git"}}
+    ],
+    "plugins": [
+      "superpowers@superpowers-marketplace",
+      "claude-mem@thedotmack",
+      "claude-code-setup@claude-plugins-official",
+      "ponytail@ponytail",
+      "figma@claude-plugins-official"
+    ],
+    "mcp": [
+      {"name": "playwright", "command": "npx", "args": ["@playwright/mcp@latest", "--caps=devtools"]},
+      {"name": "antigravity-bridge", "command": "{{PYTHON}}", "args": ["{{HOME}}/.gemini/config/plugins/agent-bridge/servers/antigravity_bridge_mcp.py"]}
+    ],
+    "upstream_skills": [
+      {"repo": "emilkowalski/skills", "skills": ["animate", "animate-expo", "animation-performance", "animation-vocabulary", "apple-design", "ask-sonner", "break-ui", "choreograph", "emil-design-eng", "find-animation-opportunities", "gestures", "improve-animations", "learn-taste", "mobile-native", "pick-ui-library", "prototype", "remove-animations", "review-animations", "write-swift"]},
+      {"repo": "pbakaus/impeccable", "skills": ["impeccable"]},
+      {"repo": "Leonxlnx/taste-skill", "skills": ["design-taste-frontend"]}
+    ],
+    "skills_cli": "skills@1.9.0",
+    "router_rules_excluded": ["reverse-engineer-anything"],
+    "enable_model_invocation": ["learn-taste", "pick-ui-library", "prototype", "review-animations"]
+  },
+  "gemini": {
+    "vendored_plugins": ["agent-bridge", "skill-evolution", "aerospace-study-workflows"],
+    "built_plugins": {
+      "superpowers": {
+        "from": ".claude/plugins/cache/superpowers-marketplace/superpowers",
+        "skills": ["brainstorming", "dispatching-parallel-agents", "executing-plans", "finishing-a-development-branch", "receiving-code-review", "requesting-code-review", "subagent-driven-development", "systematic-debugging", "test-driven-development", "using-git-worktrees", "verification-before-completion", "writing-plans", "writing-skills"]
+      },
+      "claude-mem": {
+        "from": ".claude/plugins/cache/thedotmack/claude-mem",
+        "skills": ["handoff", "mem-search", "smart-explore", "timeline-report"]
+      },
+      "ui-design-craft": {
+        "from": ".claude/skills",
+        "description": "High-craft web UI design engineering, visual taste, stress-testing, prototyping, and CSS/web animation skills for frontend apps.",
+        "skills": ["animate", "animate-expo", "animation-performance", "animation-vocabulary", "apple-design", "ask-sonner", "break-ui", "choreograph", "design-taste-frontend", "emil-design-eng", "find-animation-opportunities", "gestures", "impeccable", "improve-animations", "learn-taste", "mobile-native", "pick-ui-library", "prototype", "remove-animations", "review-animations", "write-swift"]
+      }
+    },
+    "marketplace_plugins": ["chrome-devtools-plugin@antigravity-plugins-official"],
+    "user_settings": {
+      "autoExecutionPolicy": "CASCADE_COMMANDS_AUTO_EXECUTION_EAGER",
+      "enableTerminalSandbox": false,
+      "nonWorkspaceFileAccessPolicy": "AGENT_SETTING_POLICY_ALLOW"
+    }
+  },
+  "agent_bridge": {
+    "files": {
+      "agent-bridge/config.json": ".agent-bridge/config.json",
+      "agent-bridge/TEAM_PROTOCOL.md": ".agent-bridge/TEAM_PROTOCOL.md"
+    }
+  },
+  "not_included": {
+    "claude.ai account items": "anthropic-skills (docx, pdf, pptx, xlsx, skill-creator...), adaptive-agent, headroom, claude-memory and the account connectors come from each person's own claude.ai account; they cannot be copied.",
+    "claude-migrated-settings (Antigravity)": "Anthropic's docx/pdf/pptx/xlsx skills: proprietary licence, never copied into a public repository.",
+    "personal": "reverse-engineer-anything, gemini-notebook MCP, cloudflare, supabase, mobbin, figma (Antigravity), trading-research, swarm sidecar ids, remote-control hostname.",
+    "state": "claude-mem database, ~/.agent-bridge state.json and handoff.json, observation logs, memories, session history."
+  }
+}

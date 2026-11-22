@@ -1,0 +1,10 @@
+{
+  "name": "aerospace-study-workflows",
+  "displayName": "Aerospace Study & Knowledge Workflows",
+  "version": "1.1.0",
+  "description": "UC3M Aerospace Engineering study-team orchestration, adversarial review/ultrareview protocols, natural writing humanization, and 6 specialized aerospace subagents.",
+  "suggestedPrompts": [
+    "Run an ultrareview audit on this topic page and its worked problems",
+    "Humanize this text so it reads naturally without AI writing tells"
+  ]
+}
