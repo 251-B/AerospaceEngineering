@@ -227,7 +227,7 @@ window.AE_NAV = {
             },
             {
               "href": "subjects/engineering-mechanics/teoria/topic-2.html",
-              "label": "2 · Point particle dynamics"
+              "label": "2 · Dynamics and oscillations"
             },
             {
               "href": "subjects/engineering-mechanics/teoria/topic-3.html",

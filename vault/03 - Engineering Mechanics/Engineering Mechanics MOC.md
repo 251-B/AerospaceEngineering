@@ -39,7 +39,7 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
   * [[Concept - Cartesian Cylindrical and Spherical Coordinate Systems|Concept: Cartesian, Cylindrical, and Spherical Coordinate Systems]]
   * [[Concept - Intrinsic Frenet-Serret Frame and Intrinsic Acceleration|Concept: Intrinsic Frenet-Serret Frame and Intrinsic Acceleration]]
   * [[Concept - Degrees of Freedom Generalized Coordinates and Constraints|Concept: Degrees of Freedom, Generalized Coordinates, and Constraints]]
-* [[Topic 2 - Dynamics of a Point Particle, Equilibrium and Oscillations|Topic 2: Point Particle Dynamics]] *(unit-02-dynamics-point-particle; Fully Developed)*
+* [[Topic 2 - Dynamics of a Point Particle, Equilibrium and Oscillations|Topic 2: Dynamics of a Point Particle, Equilibrium and Oscillations]] *(unit-02-dynamics-point-particle; Notes.pdf Secs. 4.1-4.7 and chapter 5, Lectures 2 and 6; derivation boxes)*
   * [[Concept - Newton Laws and Equations of Motion|Concept: Newton's Laws and Equations of Motion]]
   * [[Concept - Work Power and Kinetic Energy Theorem|Concept: Work, Power, and the Kinetic Energy Theorem]]
   * [[Concept - Conservative Forces and Potential Energy|Concept: Conservative Forces and Potential Energy]]
