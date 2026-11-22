@@ -39,6 +39,8 @@ def arc_plane():
     sc.line(O, P, "HEAD", 1.6)
     sc.label((0.3 * P[0], 0.3 * P[1]), "R", "TEXT", "end", 17, dx=-12, dy=-4)
     sc.label((0.0, P[1] / 2), "R cos φ", "TEXT", "start", 15, dx=10, dy=4)
+    sc.dotp(F, 3.5)
+    sc.label(F, "F", "HEAD", "start", 17, dx=10, dy=18)
     sc.dashed(F, P)
     sc.label(((F[0] + P[0]) / 2, F[1]), "R sin φ", "TEXT", "middle", 15, dy=20)
     sc.angle(O, 0.22, -90 - 50, -90, "φ", name_r=0.32)

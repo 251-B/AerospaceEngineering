@@ -33,6 +33,8 @@ def wire_plane():
     sc.label((C[0] + 0.35 * math.cos(PHI), 0.35 * math.sin(PHI)), "R", "TEXT", "end", 17, dx=-6, dy=-8)
     sc.angle(C, 0.24, 0, 40, "φ", name_r=0.36)
     sc.dashed(F, P)
+    sc.dotp(F, 3.5)
+    sc.label(F, "F", "HEAD", "start", 17, dx=9, dy=22)
     sc.label(((C[0] + F[0]) / 2, 0.0), "R cos φ", "TEXT", "middle", 15, dy=20)
     sc.label((P[0], P[1] / 2), "R sin φ", "TEXT", "start", 15, dx=40, dy=5)
     # horizontal distance from the rotation axis

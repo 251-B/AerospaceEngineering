@@ -10,6 +10,8 @@
 <polygon points="300.0,270.0 300.0,189.7 204.2,189.7" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
 <line x1="300.0" y1="270.0" x2="204.2" y2="189.7" stroke="#4b5563" stroke-width="1.6"/>
 <line x1="300.0" y1="189.7" x2="204.2" y2="189.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="300.0" cy="189.7" r="3.5" fill="#4b5563"/>
+<text x="310.0" y="181.7" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F</text>
 <polyline points="300.0,198.4 291.2,198.4 291.2,189.7" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
 <text x="310.0" y="234.8" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R cos φ</text>
 <text x="252.1" y="179.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R sin φ</text>

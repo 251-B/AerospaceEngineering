@@ -70,6 +70,8 @@ def ring():
     triangle(sc, [D, F, Q])
     sc.line(D, Q, "HEAD", 1.6)
     sc.dashed(F, Q)
+    sc.dotp(F, 3.5)
+    sc.label(F, "F", "HEAD", "start", 17, dx=10, dy=-8)
     right_angle(sc, F, 270, 180, 0.07)
     sc.label((0.0, (D[1] + F[1]) / 2), "R cos φ", "TEXT", "start", 15, dx=10, dy=5)
     sc.label((Q[0] / 2, F[1]), "R sin φ", "TEXT", "middle", 15, dy=-10)
@@ -85,4 +87,117 @@ def ring():
     unit(sc, Q, 180 + PHI, 0.5, bold("e") + S("", "φ"), "ACC", off=(-16, 8))
     sc.mass(Q, "Q", r=7, name_off=(-26, 6))
     axis_out(sc, (1.2, 2.75), bold("k") + S("", "1"), off=(26, 6))
+    return sc
+
+
+def _dvec(sc, a, b, col="PINK", w=2.4, head=10):
+    """Dashed arrow (inertia force) from world point a to b."""
+    from figures.svgkit import arrow_head
+    ax, ay = sc.P(a)
+    bx, by = sc.P(b)
+    ang = math.atan2(by - ay, bx - ax)
+    tip = (bx - head * 0.6 * math.cos(ang), by - head * 0.6 * math.sin(ang))
+    sc.c.add(f'<line x1="{ax:.1f}" y1="{ay:.1f}" x2="{tip[0]:.1f}" y2="{tip[1]:.1f}" stroke="{col}" stroke-width="{w}" '
+             f'stroke-dasharray="7 4"/>')
+    arrow_head(sc.c, (ax, ay), (bx, by), col, head)
+
+
+@figure("p40-fbd",
+        "Free-body diagrams: top, the vertical plane through the axis and Q with the weights, the spring forces and the "
+        "reactions on P and Q; bottom, the horizontal plane of the ring seen from above with the reaction N3 e_r, the "
+        "horizontal part of the spring force and the centrifugal and Coriolis inertia forces on Q",
+        r"Forces seen from $S_1$. On $P$: weight, spring $k\,\overrightarrow{PQ}$ and the reaction of the axis, normal to it; "
+        r"no inertia force, since $P$ is on the axis. On $Q$: weight, spring $-k\,\overrightarrow{PQ}$, reaction "
+        r"$N_3\,\mathbf e_r + N_4\,\mathbf k_1$, and the centrifugal and Coriolis forces (dashed), both horizontal")
+def fbd():
+    k = 110.0
+    sc = Scene(900, 820, (470, 225), k)
+    LY = -(770 - 225) / k                                   # world y of O in the lower panel (pixel y = 740)
+
+    def L(x, y):
+        return (x, LY + y)
+    # ---------------- upper panel: vertical plane through the axis and Q
+    zeta, dq = 0.8, 2.4
+    P, Q, O = (0.0, zeta), (dq, 0.0), (0.0, 0.0)
+    sc.line((0.0, -0.85), (0.0, 1.5), "EDGE", 1.8, "10 3 2 3")
+    sc.vec((0.0, 1.5), (0.0, 1.75), None, "EDGE", 1.6, head=8)
+    sc.label((0.0, 1.75), bold("k") + S("", "1"), "TEXT", "middle", 17, weight="700", dy=-8)
+    sc.vec((0.0, 0.0), (3.3, 0.0), None, "EDGE", 1.4, head=8)
+    sc.label((1.2, 0.0), "towards Q (horizontal)", "TEXT", "middle", 15, dy=24)
+    sc.spring(P, Q, coils=9, amp=7.0)
+    L_ = math.hypot(Q[0] - P[0], Q[1] - P[1])
+    u = ((Q[0] - P[0]) / L_, (Q[1] - P[1]) / L_)
+    nrm = (-u[1], u[0])                                      # normal pointing up-right of the spring
+    # forces on P
+    sc.vec(P, (0.0, zeta - 0.55), None, "PINK", 2.8, head=11)
+    sc.label((0.0, zeta - 0.55), "−mg " + bold("k") + S("", "1"), "PINK", "end", 16, weight="700", dx=-10, dy=6)
+    sc.vec(P, (-0.8, zeta), None, "PINK", 2.8, head=11)
+    sc.label((-0.8, zeta), S(bold("N"), "1") + " " + bold("i") + S("", "1") + " + " + S(bold("N"), "2") + " " + bold("j") + S("", "1"),
+             "PINK", "end", 16, weight="700", dx=-8, dy=-8)
+    sc.note((-0.8, zeta), "(normal to the axis)", "PINK", "end", 13, dx=-8, dy=14)
+    s0 = (P[0] + 0.11 * nrm[0], P[1] + 0.11 * nrm[1])
+    s1 = (s0[0] + 0.8 * u[0], s0[1] + 0.8 * u[1])
+    sc.vec(s0, s1, None, "PINK", 2.8, head=11)
+    sc.label(s1, "k " + bold("PQ"), "PINK", "start", 16, weight="700", dx=6, dy=-14)
+    sc.note((0.15, 1.5), "no inertia force on the axis", "TEXT", "start", 13)
+    # forces on Q
+    sc.vec(Q, (Q[0], -0.55), None, "PINK", 2.8, head=11)
+    sc.label((Q[0], -0.55), "−mg " + bold("k") + S("", "1"), "PINK", "start", 16, weight="700", dx=10, dy=6)
+    sc.vec(Q, (Q[0], 0.55), None, "PINK", 2.8, head=11)
+    sc.label((Q[0], 0.55), S(bold("N"), "4") + " " + bold("k") + S("", "1"), "PINK", "start", 16, weight="700", dx=10, dy=4)
+    q0 = (Q[0] + 0.11 * nrm[0], Q[1] + 0.11 * nrm[1])
+    q1 = (q0[0] - 0.8 * u[0], q0[1] - 0.8 * u[1])
+    sc.vec(q0, q1, None, "PINK", 2.8, head=11)
+    sc.label(q1, "−k " + bold("PQ"), "PINK", "middle", 16, weight="700", dx=-4, dy=-18)
+    sc.mass(P, "P", r=7, name_off=(-16, 22))
+    sc.mass(Q, "Q", r=7, name_off=(-18, 24))
+    sc.label(O, "O", "HEAD", "end", 17, dx=-10, dy=22)
+    sc.note((-4.2, 1.75), "vertical plane through the axis and Q", "TEXT", "start", 13)
+    # ---------------- lower panel: horizontal plane of the ring seen from above, k1 out of the paper
+    ell, R = 1.6, 1.0
+    p = math.radians(PHI)
+    D = L(0.0, ell)
+    Qp = L(-R * math.sin(p), ell + R * math.cos(p))
+    Oq = L(0.0, 0.0)
+    er = (-math.sin(p), math.cos(p))
+    ep = (-math.cos(p), -math.sin(p))
+    sc.circle(D, R, "HEAD", 2.4)
+    sc.dotp(D, 4.0)
+    sc.label(D, "D", "HEAD", "start", 17, dx=10, dy=-8)
+    axis_out(sc, Oq, None, "BLUE")
+    sc.label(Oq, "O", "HEAD", "end", 17, dx=-14, dy=24)
+    sc.label(Oq, bold("k") + S("", "1") + " (⊙)", "BLUE", "start", 15, weight="700", dx=14, dy=30)
+    unit(sc, Oq, 0, 0.45, bold("i") + S("", "1"), off=(4, -12))
+    unit(sc, Oq, 90, 0.45, bold("j") + S("", "1"), off=(-16, 4))
+    sc.spin(Oq, 0.62, 110, 170, "Ω", name_r=0.78)
+    sc.note(L(-4.2, 3.55), "horizontal plane of the ring, seen from above", "TEXT", "start", 13)
+    dq_ = math.hypot(Qp[0] - Oq[0], Qp[1] - Oq[1])
+    ur = ((Qp[0] - Oq[0]) / dq_, (Qp[1] - Oq[1]) / dq_)    # from O towards Q (away from the axis)
+
+    def sh(pt, v, d):
+        return (pt[0] + d * v[0], pt[1] + d * v[1])
+    # N3 e_r and F_COR are both along e_r: parallel arrows on the +e_phi side of Q
+    n0 = sh(Qp, ep, 0.07)
+    n1 = sh(n0, er, 0.55)
+    sc.vec(n0, n1, None, "PINK", 2.8, head=11)
+    sc.label(n1, S(bold("N"), "3") + " " + S(bold("e"), "r"), "PINK", "middle", 16, weight="700", dx=-4, dy=-12)
+    c0 = sh(Qp, ep, 0.17)
+    c1 = sh(c0, er, 0.95)
+    _dvec(sc, c0, c1, "PINK", 2.6)
+    sc.label(c1, S(bold("F"), "COR") + " = 2 m Ω R φ̇ " + S(bold("e"), "r"), "PINK", "end", 16, weight="700", dx=-10, dy=-2)
+    sc.label(c1, "(inertia; drawn for φ̇ > 0)", "PINK", "end", 14, dx=-10, dy=16)
+    W = L(1.55, 2.55)                                       # the ring basis at Q, redrawn clear of the forces
+    unit(sc, W, 90 + PHI, 0.45, bold("e") + S("", "r"), "ACC", off=(-12, -6))
+    unit(sc, W, 180 + PHI, 0.45, bold("e") + S("", "φ"), "ACC", off=(-14, 12))
+    sc.note(W, "ring basis at Q", "TEXT", "start", 13, dx=12, dy=22)
+    # horizontal part of the spring force: from Q towards O; centrifugal force: away from the axis
+    t1 = sh(Qp, ur, -0.8)
+    sc.vec(Qp, t1, None, "PINK", 2.8, head=11)
+    sc.label(t1, "−k " + bold("PQ"), "PINK", "start", 16, weight="700", dx=8, dy=8)
+    sc.note(t1, "(horizontal part)", "PINK", "start", 13, dx=8, dy=24)
+    f1 = sh(Qp, ur, 0.7)
+    _dvec(sc, Qp, f1, "PINK", 2.6)
+    sc.label(f1, S(bold("F"), "C") + " = m Ω² " + S(bold("r"), "1", "Q"), "PINK", "start", 16, weight="700", dx=10, dy=0)
+    sc.label(f1, "(inertia)", "PINK", "start", 14, dx=10, dy=18)
+    sc.mass(Qp, "Q", r=7, name_off=(22, 6))
     return sc

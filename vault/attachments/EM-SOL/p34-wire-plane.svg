@@ -17,6 +17,8 @@
 <path d="M320.8,280.0 A40.8,40.8 0 0 0 311.3,253.8" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
 <text x="337.5" y="264.1" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
 <line x1="410.2" y1="280.0" x2="410.2" y2="170.7" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="410.2" cy="280.0" r="3.5" fill="#4b5563"/>
+<text x="419.2" y="302.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F</text>
 <text x="345.1" y="300.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R cos φ</text>
 <text x="450.2" y="230.4" fill="#6b7280" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R sin φ</text>
 <line x1="410.2" y1="170.7" x2="410.2" y2="480.6" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>

@@ -102,3 +102,123 @@ def vertical():
     sc.mass(P, "P", r=7, name_off=(24, 6))
     sc.label(C, "C", "HEAD", "end", 17, dx=-10, dy=22)
     return sc
+
+
+def _dvec(sc, a, b, col="PINK", w=2.4, head=10):
+    """Dashed arrow (inertia force) from world point a to b."""
+    from figures.svgkit import arrow_head
+    ax, ay = sc.P(a)
+    bx, by = sc.P(b)
+    ang = math.atan2(by - ay, bx - ax)
+    tip = (bx - head * 0.6 * math.cos(ang), by - head * 0.6 * math.sin(ang))
+    sc.c.add(f'<line x1="{ax:.1f}" y1="{ay:.1f}" x2="{tip[0]:.1f}" y2="{tip[1]:.1f}" stroke="{col}" stroke-width="{w}" '
+             f'stroke-dasharray="7 4"/>')
+    arrow_head(sc.c, (ax, ay), (bx, by), col, head)
+
+
+@figure("p51-fbd",
+        "Free-body diagrams of the particle in the rotating hollow sphere: top, the vertical plane through the axis and C "
+        "at the admissible equilibrium with the weight, the reaction towards C and the centrifugal inertia force; bottom, "
+        "the view from above with the Euler, Coriolis and centrifugal inertia forces of a moving particle",
+        r"Forces seen from $S_1$. Top: at the admissible equilibrium ($\theta = \pi/2$, $\phi_1 = -30.3^\circ$ for "
+        r"$\Omega = 3$ rad/s, $R = 1$ m) the weight, the reaction $-N\,\mathbf u_r$ towards $C$ and the centrifugal force "
+        r"(dashed), away from the axis. Bottom: seen from above, the Euler force (dashed, only while the rate changes), the "
+        r"Coriolis force (dashed, normal to the relative velocity) and the centrifugal force")
+def fbd():
+    k = 150.0
+    sc = Scene(900, 1000, (130, 440), k)
+    ph = math.radians(-30.3)
+    C = (1.0, 1.0)
+    P = (C[0] + math.cos(ph), C[1] + math.sin(ph))
+    O = (0.0, 0.0)
+    # ---------------- upper panel: vertical plane x1 = 0 (i1 out of the paper)
+    sc.circle(C, 1.0, "HEAD", 2.4)
+    sc.vec((-0.25, 0.0), (3.2, 0.0), None, "EDGE", 1.4, head=8)
+    sc.label((3.2, 0.0), S(bold("j"), "1"), "TEXT", "middle", 16, weight="700", dx=14, dy=5)
+    sc.line((0.0, -0.3), (0.0, 2.2), "EDGE", 1.8, "10 3 2 3")
+    sc.vec((0.0, 2.2), (0.0, 2.4), None, "EDGE", 1.6, head=8)
+    sc.label((0.0, 2.4), S(bold("k"), "1"), "TEXT", "start", 16, weight="700", dx=10, dy=4)
+    sc.note((0.0, -0.3), "axis of rotation", "TEXT", "start", 13, dx=10, dy=14)
+    from figures.em_solutions import spin_about_vertical
+    spin_about_vertical(sc, (0.0, 2.65), 0.2, 0.05, "Ω")
+    axis_out(sc, O, None, "BLUE")
+    sc.label(O, "A", "HEAD", "end", 17, dx=-12, dy=-10)
+    sc.label(O, S(bold("i"), "1") + " (⊙)", "BLUE", "end", 15, weight="700", dx=-14, dy=26)
+    sc.dotp(C, 3.5)
+    sc.label(C, "C", "HEAD", "start", 17, dx=8, dy=-8)
+    sc.dashed((0.0, P[1]), P)
+    sc.label((P[0] / 2, P[1]), S("r", "⊥"), "TEXT", "middle", 16, dy=-8)
+    sc.angle(C, 0.32, -30.3, 0, "φ₁ < 0", name_r=0.62)
+    sc.line(C, P, "EDGE", 1.0, "2 3")
+    # forces at P
+    w1 = (P[0], P[1] - 0.45)
+    sc.vec(P, w1, None, "PINK", 2.8, head=11)
+    sc.label(w1, "−mg " + S(bold("k"), "1"), "PINK", "end", 16, weight="700", dx=-8, dy=8)
+    ur = (math.cos(ph), math.sin(ph))
+    n1 = (P[0] - 0.85 * ur[0], P[1] - 0.85 * ur[1])
+    sc.vec(P, n1, None, "PINK", 2.8, head=11)
+    sc.label(n1, "−N " + S(bold("u"), "r"), "PINK", "end", 16, weight="700", dx=-8, dy=-2)
+    sc.label(n1, "(N = 1.98 mg)", "PINK", "end", 14, dx=-8, dy=16)
+    c1 = (P[0] + 0.77, P[1])
+    _dvec(sc, P, c1, "PINK", 2.6)
+    sc.label(c1, S(bold("F"), "C") + " = m Ω² " + S("r", "⊥"), "PINK", "start", 16, weight="700", dx=10, dy=-6)
+    sc.label(c1, "(inertia; 1.71 mg)", "PINK", "start", 14, dx=10, dy=12)
+    unit(sc, P, -30.3, 0.3, S(bold("u"), "r"), "ACC", off=(12, 10))
+    unit(sc, P, 59.7, 0.3, S(bold("u"), "φ"), "ACC", off=(12, -4))
+    sc.mass(P, "P", r=7, name_off=(-14, -10))
+    sc.note((-0.1, 2.9), "vertical plane x₁ = 0, through the axis and C", "TEXT", "start", 13)
+    sc.note((-0.1, 2.77), "Ω = 3 rad/s, R = 1 m, branch θ = π/2", "TEXT", "start", 13)
+    # ---------------- lower panel: from above, k1 out of the paper
+    s = 1.3
+    LY = -(960 - 440) / k
+
+    def R(x, y):
+        return (x * s, LY + y * s)
+    Ac = R(0.0, 0.0)
+    Cc = R(0.0, 1.0)
+    sc.circle(Cc, s, "HEAD", 2.0, dash="6 4")
+    sc.dotp(Cc, 3.5)
+    sc.label(Cc, "C", "HEAD", "end", 17, dx=-10, dy=-8)
+    axis_out(sc, Ac, None, "BLUE")
+    sc.label(Ac, "A", "HEAD", "end", 17, dx=-14, dy=24)
+    sc.label(Ac, S(bold("k"), "1") + " (⊙)", "BLUE", "start", 15, weight="700", dx=14, dy=30)
+    unit(sc, Ac, 0, 0.35 * s, S(bold("i"), "1"), off=(6, 20))
+    unit(sc, Ac, 90, 0.35 * s, S(bold("j"), "1"), off=(-16, 4))
+    sc.spin(Ac, 0.7 * s, 120, 200, "Ω(t)", name_r=0.98 * s)
+    th = math.radians(35.0)
+    Pp = R(0.8 * math.cos(th), 1.0 + 0.8 * math.sin(th))
+    rv = (Pp[0] - Ac[0], Pp[1] - Ac[1])
+    rn = math.hypot(*rv)
+    rh = (rv[0] / rn, rv[1] / rn)                           # from A outwards
+    cw = (rh[1], -rh[0])                                    # a quarter turn clockwise
+    ut = (-math.sin(th), math.cos(th))                      # u_theta, counter-clockwise about C
+    sc.line(Ac, Pp, "EDGE", 1.0, "2 3")
+    sc.label(((Ac[0] + Pp[0]) / 2, (Ac[1] + Pp[1]) / 2), S(bold("r"), "1", "P") + "⊥", "TEXT", "end", 15, dx=-8, dy=6)
+
+    def sh(pt, v, d):
+        return (pt[0] + d * v[0], pt[1] + d * v[1])
+    # horizontal part of the relative velocity along u_theta
+    v1 = sh(Pp, ut, 0.55)
+    sc.vec(Pp, v1, None, "ACC", 2.8, head=11)
+    sc.label(v1, "horizontal part of " + S(bold("v"), "1", "P"), "ACC", "end", 15, weight="700", dx=-8, dy=-6)
+    # Coriolis: v turned a quarter turn clockwise
+    cv = (ut[1], -ut[0])
+    f2 = sh(Pp, cv, 0.55)
+    _dvec(sc, Pp, f2, "PINK", 2.6)
+    sc.label(f2, S(bold("F"), "COR") + " = −2 m Ω " + S(bold("k"), "1") + " × " + S(bold("v"), "1", "P"), "PINK", "start", 16,
+             weight="700", dx=10, dy=-4)
+    sc.label(f2, "(inertia)", "PINK", "start", 14, dx=10, dy=13)
+    # centrifugal: outwards along A -> P'
+    f3 = sh(Pp, rh, 0.45)
+    _dvec(sc, Pp, f3, "PINK", 2.6)
+    sc.label(f3, S(bold("F"), "C") + " (inertia)", "PINK", "start", 16, weight="700", dx=8, dy=-8)
+    # Euler: perpendicular to A -> P', clockwise (drawn for a positive rate)
+    f4 = sh(Pp, cw, 0.6)
+    _dvec(sc, Pp, f4, "PINK", 2.6)
+    sc.label(f4, S(bold("F"), "E") + " = −m Ω̇ " + S(bold("k"), "1") + " × " + S(bold("r"), "1", "P"), "PINK", "start", 16,
+             weight="700", dx=10, dy=6)
+    sc.label(f4, "(inertia; drawn for Ω̇ > 0)", "PINK", "start", 14, dx=10, dy=24)
+    sc.mass(Pp, "P′", r=6, name_off=(-18, 16))
+    sc.note(R(-1.2, 2.25), "seen from above: moving particle", "TEXT", "start", 13)
+    sc.note(R(-1.2, 2.12), "dashed circle: equator of the sphere", "TEXT", "start", 13)
+    return sc
