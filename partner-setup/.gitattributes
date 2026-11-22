@@ -1,0 +1,2 @@
+# Keep every byte as committed: bash scripts break with CRLF and export.py --check compares bytes.
+* -text
