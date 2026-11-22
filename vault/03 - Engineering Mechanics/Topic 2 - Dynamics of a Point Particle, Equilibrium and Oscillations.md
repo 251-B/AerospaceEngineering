@@ -25,21 +25,25 @@ tags:
 
 > Dynamics asks what causes motion: in an inertial reference frame $S_0$ Newton's second law ties the rate of change of the linear momentum $\mathbf p_0$ of a particle to the resultant force $\mathbf F$ and gives the differential equations whose integration, with the initial position and velocity, yields the trajectory. Dotting that law with the velocity turns it into a statement about energy: the power of the forces changes the kinetic energy $T_0$, a force that derives from a potential energy $V_0$ can be absorbed into a mechanical energy $E_0$ that stays constant when no other force works, and the shape of $V_0$ alone shows the allowed regions, the equilibria (its critical points) and their stability (its minima). Near a stable equilibrium every such system behaves, to first order, as a harmonic oscillator, free or damped, driven or not, which is why the simple pendulum leads to the oscillator and to the linearisation of the equations of motion.
 
-This note follows `Notes.pdf` Chapter 4, Sections 4.1 to 4.7 (Dynamics of the point particle, Eqs. 4.1 to 4.47: force, linear momentum and kinetic energy; Newton's laws; the equations of motion; power, work and potential energy; the conservation of mechanical energy; equilibrium; the simple pendulum) and Chapter 5 (The harmonic oscillator, Eqs. 5.1 to 5.47: undamped motion, the complex representation, the damped oscillator with small, large and critical damping, the oscillator under a periodic force and resonance), with the decks of Lecture 2 (Particle dynamics, Slides 1 to 23) and Lecture 6 (Oscillations, Slides 1 to 15: linear equations with constant coefficients, complex exponentials, the free oscillator without damping and with small, large and critical damping, the forced oscillator, resonance and the linearisation about an equilibrium), in the order of the notes. Two topics that neither the notes nor the slides treat are added as extensions, marked as such: the beats of the undamped forced oscillator and the bead on a rotating hoop with its bifurcation. Sections 4.8 (angular momentum and central forces) and 4.9 (dynamics of relative motion) of the same chapter belong to Topics 4 and 5. Kinematic results of Topic 1 are cited, not re-derived: the velocity and acceleration (Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4) and their Cartesian (Eqs. 2.5 to 2.7), intrinsic (Eqs. 2.16 to 2.18) and cylindrical (Eqs. 2.23 to 2.29) forms, the dot product (Eqs. 1.24 to 1.28), the rules of differentiation of vectors (Eqs. 1.64 to 1.67) and the gradient and curl (Eqs. 1.74, 1.76 and 1.77). See also [[Concept - Newton Laws and Equations of Motion]], [[Concept - Work Power and Kinetic Energy Theorem]], [[Concept - Conservative Forces and Potential Energy]], [[Concept - Conservation of Mechanical Energy and Energy Diagrams]], [[Concept - Equilibrium Configurations and Stability Criteria]] and [[Concept - The Simple Pendulum Nonlinear Dynamics and Linearization]].
+This note follows `Notes.pdf` Chapter 4, Sections 4.1 to 4.7 (Dynamics of the point particle, Eqs. 4.1 to 4.47: force, linear momentum and kinetic energy; Newton's laws; the equations of motion; power, work and potential energy; the conservation of mechanical energy; equilibrium; the simple pendulum) and Chapter 5 (The harmonic oscillator, Eqs. 5.1 to 5.47: undamped motion, the complex representation, the damped oscillator with small, large and critical damping, the oscillator under a periodic force and resonance), with the decks of Lecture 2 (Particle dynamics, Slides 1 to 23) and Lecture 6 (Oscillations, Slides 1 to 15: linear equations with constant coefficients, complex exponentials, the free oscillator without damping and with small, large and critical damping, the forced oscillator, resonance and the linearisation about an equilibrium), in the order of the notes. Two topics that neither the notes nor the slides treat are added as extensions, marked as such: the beats of the undamped forced oscillator and the bead on a rotating hoop with its bifurcation. Sections 4.8 (angular momentum and central forces) and 4.9 (dynamics of relative motion) of the same chapter belong to Topics 4 and 5. Kinematic results of Topic 1 are cited, not re-derived: the velocity and acceleration (Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4) and their Cartesian (Eqs. 2.5 to 2.7), intrinsic (Eqs. 2.16 to 2.18) and cylindrical (Eqs. 2.23 to 2.29) forms, the dot product (Eqs. 1.24 to 1.28), the rules of differentiation of vectors (Eqs. 1.64 to 1.67) and the gradient and curl (Eqs. 1.74, 1.76 with its erratum, and 1.77). See also [[Concept - Newton Laws and Equations of Motion]], [[Concept - Work Power and Kinetic Energy Theorem]], [[Concept - Conservative Forces and Potential Energy]], [[Concept - Conservation of Mechanical Energy and Energy Diagrams]], [[Concept - Equilibrium Configurations and Stability Criteria]] and [[Concept - The Simple Pendulum Nonlinear Dynamics and Linearization]].
 
 | Symbol | Meaning |
 | :--- | :--- |
 | $S_0 : \{O;\mathcal B_0\}$, $\mathcal B_0 : \{\mathbf i,\mathbf j,\mathbf k\}$ | inertial reference frame and its basis (also written $\mathbf i_0$, $\mathbf j_0$, $\mathbf k_0$, as on the slides); axes $Ox$, $Oy$, $Oz$ |
 | $S_1$, $O_1$, $\mathbf v_0^{O_1}$ | a second frame that does not rotate with respect to $S_0$, its origin, and the velocity of that origin with respect to $S_0$ |
 | $P$, $m$ | the point particle and its mass (the slides write $m^{\mathrm P}$); $m$ is constant |
-| $Q$, $m^{\mathrm Q}$ | a second particle (Slides 6, 8 and 16) and its mass |
+| $P'$, $m^{\mathrm{P'}}$ | a second particle and its mass (Slides 6, 8 and 16 write $Q$; renamed here because $Q$ is the quality factor of Sections 10 to 12) |
+| $\mathbf r_0^{P'}$, $\mathbf p_0^{P'}$ | position and linear momentum of $P'$ with respect to $S_0$ |
+| $\mathbf F_{\mathrm P}$, $\mathbf F_{\mathrm{P'}}$ | forces of the electrostatic pair on $P$ and on $P'$ (Section 4) |
 | $\mathbf r_0^P$, $\mathbf v_0^P$, $\mathbf a_0^P$ | position, velocity and acceleration of $P$ with respect to $S_0$ (Topic 1) |
 | $v_0^P$, $(v_0^P)^2$ | speed of $P$ and its square, $\mathbf v_0^P\cdot\mathbf v_0^P$ |
 | $x, y, z$; $\dot x$, $\ddot x$ | Cartesian coordinates of $P$ in $S_0$ and their time derivatives |
+| $\mathbf r_{0,0}^P$, $\mathbf v_{0,0}^P$; $x_0$, $y_0$, $z_0$ | initial position and initial velocity of $P$, and the initial values of its Cartesian coordinates (Section 3; $x_0$ keeps this meaning for the oscillator of Sections 8 to 12) |
 | $\mathbf F$, $F_x$, $F_y$, $F_z$ | resultant of the forces on $P$ and its components in $\mathcal B_0$ |
 | $\mathbf F_1, \mathbf F_2, \dots$ | individual forces acting on $P$ |
 | $\mathbf F_C$, $\mathbf F_N$ | the conservative part and the non-conservative part of the resultant ([Lecture 2, Slide 19]) |
 | $\mathbf p_0$ (also $\mathbf p_0^P$) | linear momentum of $P$ with respect to $S_0$ |
+| $\mathbf v_1^P$, $\mathbf p_1^P$, $T_1$ | velocity, linear momentum and kinetic energy of $P$ with respect to the non-rotating frame $S_1$ (Sections 1 and 2) |
 | $T_0$ (also $T_0^P$) | kinetic energy of $P$ with respect to $S_0$ |
 | $\dot W_0$ | power of a force on $P$, as seen from $S_0$ |
 | $W_0(t_1,t_2)$, $\delta W_0$ | work of a force between the instants $t_1$ and $t_2$, and work in a differential time interval $dt$ |
@@ -48,7 +52,7 @@ This note follows `Notes.pdf` Chapter 4, Sections 4.1 to 4.7 (Dynamics of the po
 | $\alpha_F$ | angle between a force and the velocity |
 | $\sigma$ | parameter along a path $\Gamma$, used to write a line integral as an ordinary integral |
 | $\sigma_*$, $\sigma_P$ | values of $\sigma$ at the reference position and at the current position of $P$ |
-| $x_1$, $x_2$, $x_{\mathrm{ref}}$ | positions on a line at $t_1$ and $t_2$, and the reference position of a one-dimensional potential |
+| $x_1$, $x_2$, $x_{\mathrm{ref}}$; $\dot x_1$, $\dot x_2$ | positions on a line at $t_1$ and $t_2$, and the reference position of a one-dimensional potential; velocities on the line at $t_1$ and $t_2$ |
 | $x'$, $t'$, $R'$, $\eta$ | integration (dummy) variables |
 | $\mathbf r_{0,1}^P$, $\mathbf r_{0,2}^P$; $\mathbf r_{0,*}^P$ | positions of $P$ at $t_1$ and $t_2$; reference position at which the potential energy is zero (the notes write $\mathbf r_{0,1}^P$ for it in Eq. 4.14) |
 | $V_0$ | potential energy of a conservative force (a scalar field of the position) |
@@ -57,11 +61,11 @@ This note follows `Notes.pdf` Chapter 4, Sections 4.1 to 4.7 (Dynamics of the po
 | $E_{0,1}$, $E_{0,2}$, $E_{0,3}$ | three levels of mechanical energy in the energy diagrams (Notes.pdf Fig. 4.2 and Fig. 4.4) |
 | $g$, $\mathbf g$ | acceleration of gravity and its vector, pointing down |
 | $k$ | stiffness of a linear spring of zero natural length ([Lecture 2, Slide 16]) |
-| $k_0$, $q^{\mathrm P}$, $q^{\mathrm Q}$ | electrostatic constant and the charges of $P$ and $Q$ ([Lecture 2, Slide 16]) |
+| $k_0$, $q^{\mathrm P}$, $q^{\mathrm{P'}}$ | electrostatic constant and the charges of $P$ and $P'$ ([Lecture 2, Slide 16]) |
 | $c_1$, $c_2$ | constants of the velocity of the example of [Lecture 2, Slide 12] (the slide writes $a$ and $b$) |
 | $c_3$, $c_4$ | constants of the forces of [Lecture 2, Slides 17-18] (the slides write $a$ and $b$) |
 | $R_*$, $R_0$ | radius at the reference position (Slide 17) and radius of the closed circular path (Slide 18) |
-| $d$ | distance between the particles $P$ and $Q$ (Slide 16) |
+| $d$ | distance between the particles $P$ and $P'$ (Slide 16) |
 | $w$ | inner argument of the second cosine of the example potential of Notes.pdf Fig. 4.1 |
 | $C_1, \dots, C_6$ | integration constants of the equations of motion (Eqs. 4.7 to 4.9; Section 6) |
 | $t_{\mathrm{apex}}$, $t_{\mathrm L}$ | instants of the apex and of the landing in the example of [Lecture 2, Slide 11] |
@@ -83,8 +87,9 @@ This note follows `Notes.pdf` Chapter 4, Sections 4.1 to 4.7 (Dynamics of the po
 | $\theta_{\mathrm{pol}}$ | standard polar angle of the pendulum bob, measured from $Ox$ counterclockwise |
 | $[{}_0R_{\mathrm{pol}}]$ | change of basis matrix from the polar basis of the pendulum to $\mathcal B_0$ |
 | $\theta^*$, $\pm\theta^*$ | amplitude of a pendulum oscillation and its two turning points |
-| $v_{0,0}^P$, $v_{0,1}^P$ | speed of the bob at its lowest point at the start, and at the upward vertical |
+| $v_{0,0}^P$, $v_{0,\mathrm{up}}^P$, $T_{0,\mathrm{up}}$ | speed of the bob at its lowest point at the start; speed and kinetic energy of the bob at the upward vertical (Section 7) |
 | $\tau$, $t^*$ | period of the oscillation, and the instant at which the bob reaches $\theta^*$ ($-\theta^*$ at $-t^*$) |
+| $\theta_a$, $\theta_b$ | a fixed angle a little below the amplitude and an upper limit that tends to it, used to show that the period integral is finite (Section 7) |
 | $\tilde V_0$ | potential energy of the linearised pendulum |
 | $u$ | substitution variable of the period integral |
 | $x$, $\dot x$, $\ddot x$ (Sections 8 to 12) | displacement of the oscillator along $Ox$ from the position where the spring is relaxed, and its time derivatives; as in Chapter 5 of the notes, the indices $P$ and $0$ are dropped for the single particle in the single frame $S_0$ |
@@ -109,7 +114,7 @@ This note follows `Notes.pdf` Chapter 4, Sections 4.1 to 4.7 (Dynamics of the po
 | $\Re$, $\Im$ | real part and imaginary part of a complex number |
 | $\beta$ | real argument of Euler's relation (the notes write $\theta$, which is an angle of the particle in this note) |
 | $t_r$ | relaxation time, the time in which the amplitude of the damped oscillator falls by the factor $1/e$ |
-| $Q$ (Sections 10 to 12) | quality factor $\omega_0/(2\gamma)$; not the second particle $Q$ of Sections 1 to 4, which does not appear after Section 4 |
+| $Q$ (Sections 10 to 12) | quality factor $\omega_0/(2\gamma)$ (the second particle of Sections 1 to 4, written $Q$ on the slides, is $P'$ in this note) |
 | $C_+$, $C_-$ | real constants of the overdamped solution ([Lecture 6, Slide 9]; the notes write $\tfrac12 A$ and $\tfrac12 B$) |
 | $F_1$, $\omega_1$ | amplitude and angular frequency of the periodic applied force $F_1\cos(\omega_1 t)$ |
 | $A_1$, $a_1$, $\phi_1$; $a_{1,\max}$ | complex amplitude, amplitude and phase of the forced (particular) response; $\phi_1$ is the phase lag behind the force; the amplitude at the resonant frequency |
@@ -175,14 +180,14 @@ Both $\mathbf p_0$ and $T_0$ are built from the velocity, so they depend on the 
 > $$\begin{aligned}
 > \mathbf v_0^P &= \mathbf v_1^P + \mathbf v_0^{O_1} \quad &\text{(composition of velocities for a non-rotating $S_1$, Notes p. 42)} \\
 > \mathbf p_0 &= m\,\mathbf v_1^P + m\,\mathbf v_0^{O_1} \quad &\text{(multiply by $m$, Eq. 4.1)} \\
-> &= \mathbf p_1 + m\,\mathbf v_0^{O_1} \quad &\text{(Eq. 4.1 written in $S_1$)} \\
+> &= \mathbf p_1^P + m\,\mathbf v_0^{O_1} \quad &\text{(Eq. 4.1 written in $S_1$)} \\
 > T_0 &= \tfrac12\,m\left(\mathbf v_1^P + \mathbf v_0^{O_1}\right)\cdot\left(\mathbf v_1^P + \mathbf v_0^{O_1}\right) \quad &\text{(Eq. 4.2)} \\
 > &= \tfrac12\,m\left(\mathbf v_1^P\cdot\mathbf v_1^P + \mathbf v_1^P\cdot\mathbf v_0^{O_1} + \mathbf v_0^{O_1}\cdot\mathbf v_1^P + \mathbf v_0^{O_1}\cdot\mathbf v_0^{O_1}\right) \quad &\text{(distribute, Eq. 1.26)} \\
 > &= \tfrac12\,m\,\mathbf v_1^P\cdot\mathbf v_1^P + m\,\mathbf v_1^P\cdot\mathbf v_0^{O_1} + \tfrac12\,m\,\mathbf v_0^{O_1}\cdot\mathbf v_0^{O_1} \quad &\text{(the two cross terms are equal by commutativity, Eq. 1.25: add them)} \\
 > &= T_1 + m\,\mathbf v_1^P\cdot\mathbf v_0^{O_1} + \tfrac12\,m\,\mathbf v_0^{O_1}\cdot\mathbf v_0^{O_1} \quad &\text{(Eq. 4.2 written in $S_1$)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf p_0 = \mathbf p_1 + m\,\mathbf v_0^{O_1},\qquad T_0 = T_1 + m\,\mathbf v_1^P\cdot\mathbf v_0^{O_1} + \tfrac12\,m\,\mathbf v_0^{O_1}\cdot\mathbf v_0^{O_1}}$$
+> $$\boxed{\mathbf p_0 = \mathbf p_1^P + m\,\mathbf v_0^{O_1},\qquad T_0 = T_1 + m\,\mathbf v_1^P\cdot\mathbf v_0^{O_1} + \tfrac12\,m\,\mathbf v_0^{O_1}\cdot\mathbf v_0^{O_1}}$$
 >
 > **Units:** $\mathrm{kg\,m/s}$ in the first result; $\mathrm{kg\,(m/s)^2} = \mathrm J$ in every term of the second
 > **Meaning:** both quantities change with the observer, by amounts that vanish only when $S_1$ is at rest with respect to $S_0$; a particle at rest in $S_1$ has zero momentum and kinetic energy there and not in $S_0$. A force, being an interaction between bodies, is the same for both observers.
@@ -252,13 +257,13 @@ The second law in the form of Eq. 4.3 complies with the principle of Galilean in
 > $$\begin{aligned}
 > \mathbf v_0^P &= \mathbf v_1^P + \mathbf v_0^{O_1} \quad &\text{(composition of velocities, Notes p. 42)} \\
 > \left.\frac{d\mathbf v_0^P}{dt}\right|_0 &= \left.\frac{d\mathbf v_1^P}{dt}\right|_1 \quad &\text{($\mathbf v_0^{O_1}$ is constant and the frames do not rotate: equal accelerations, Notes p. 42)} \\
-> \left.\frac{d\mathbf p_1}{dt}\right|_1 &= \frac{dm}{dt}\,\mathbf v_1^P + m\left.\frac{d\mathbf v_1^P}{dt}\right|_1 \quad &\text{(product rule in $S_1$, Eq. 1.64)} \\
+> \left.\frac{d\mathbf p_1^P}{dt}\right|_1 &= \frac{dm}{dt}\,\mathbf v_1^P + m\left.\frac{d\mathbf v_1^P}{dt}\right|_1 \quad &\text{(product rule in $S_1$, Eq. 1.64)} \\
 > \left.\frac{d\mathbf p_0}{dt}\right|_0 &= \frac{dm}{dt}\,\mathbf v_0^P + m\left.\frac{d\mathbf v_0^P}{dt}\right|_0 \quad &\text{(product rule in $S_0$)} \\
-> \left.\frac{d\mathbf p_0}{dt}\right|_0 - \left.\frac{d\mathbf p_1}{dt}\right|_1 &= \frac{dm}{dt}\left(\mathbf v_0^P - \mathbf v_1^P\right) \quad &\text{(subtract; the acceleration terms cancel by the second row)} \\
+> \left.\frac{d\mathbf p_0}{dt}\right|_0 - \left.\frac{d\mathbf p_1^P}{dt}\right|_1 &= \frac{dm}{dt}\left(\mathbf v_0^P - \mathbf v_1^P\right) \quad &\text{(subtract; the acceleration terms cancel by the second row)} \\
 > &= \frac{dm}{dt}\,\mathbf v_0^{O_1} \quad &\text{(first row)}
 > \end{aligned}$$
 >
-> $$\boxed{\left.\frac{d\mathbf p_0}{dt}\right|_0 - \left.\frac{d\mathbf p_1}{dt}\right|_1 = \frac{dm}{dt}\,\mathbf v_0^{O_1} \neq \mathbf 0 \quad\text{if}\quad \frac{dm}{dt} \neq 0}$$
+> $$\boxed{\left.\frac{d\mathbf p_0}{dt}\right|_0 - \left.\frac{d\mathbf p_1^P}{dt}\right|_1 = \frac{dm}{dt}\,\mathbf v_0^{O_1} \neq \mathbf 0 \quad\text{if}\quad \frac{dm}{dt} \neq 0}$$
 >
 > **Units:** $(\mathrm{kg/s})\,(\mathrm{m/s}) = \mathrm{kg\,m/s^2} = \mathrm N$
 > **Meaning:** with a varying mass the two inertial observers would assign different forces to the same interaction, which is the inconsistency of the footnote. Systems of varying mass, such as a rocket, are therefore studied by applying Newton's equation to a control volume whose total mass stays constant (Notes.pdf, p. 42).
@@ -266,7 +271,7 @@ The second law in the form of Eq. 4.3 complies with the principle of Galilean in
 ### Third law
 
 > [!key] Newton's third law (Notes.pdf, Sec. 4.2; [Lecture 2, Slide 6])
-> "To every action (force) there is an equal and opposite reaction (force)." If a particle $Q$ exerts a force $\mathbf F$ on a particle $P$, then $P$ exerts the force $-\mathbf F$ on $Q$; the two forces, called action and reaction, share the same line of action. The law forbids unpaired forces in the universe, embodies the conservation of the total momentum of interacting bodies, and lies at the foundations of aerospace propulsion: a space vehicle must expel mass, and momentum with it, to accelerate and change its motion.
+> "To every action (force) there is an equal and opposite reaction (force)." If a particle $P'$ exerts a force $\mathbf F$ on a particle $P$, then $P$ exerts the force $-\mathbf F$ on $P'$; the two forces, called action and reaction, share the same line of action. The law forbids unpaired forces in the universe, embodies the conservation of the total momentum of interacting bodies, and lies at the foundations of aerospace propulsion: a space vehicle must expel mass, and momentum with it, to accelerate and change its motion.
 
 ![[attachments/EM-T/t2-action-reaction.svg]]
 
@@ -287,21 +292,22 @@ A system of analysis is isolated when no external force acts on its particles ([
 > **Law:** second law for each particle; third law; sum rule of differentiation; Barrow's rule
 > **Source:** [Lecture 2, Slide 8]; Notes.pdf, Sec. 4.2; Notes.pdf, Eq. 4.3; Notes.pdf, Eq. 1.65
 >
-> The system of analysis is $\{P, Q\}$, isolated: the only forces are the force $\mathbf F$ of $Q$ on $P$ and, by the third law, $-\mathbf F$ of $P$ on $Q$.
+> The system of analysis is $\{P, P'\}$, isolated: the only forces are the force $\mathbf F$ of $P'$ on $P$ and, by the third law, $-\mathbf F$ of $P$ on $P'$.
 >
 > $$\begin{aligned}
 > \left.\frac{d\mathbf p_0^P}{dt}\right|_0 &= \mathbf F \quad &\text{(second law for $P$, Eq. 4.3)} \\
-> \left.\frac{d\mathbf p_0^Q}{dt}\right|_0 &= -\mathbf F \quad &\text{(second law for $Q$, with the third law)} \\
-> \left.\frac{d}{dt}\left(\mathbf p_0^P + \mathbf p_0^Q\right)\right|_0 &= \left.\frac{d\mathbf p_0^P}{dt}\right|_0 + \left.\frac{d\mathbf p_0^Q}{dt}\right|_0 \quad &\text{(sum rule, Eq. 1.65)} \\
+> \left.\frac{d\mathbf p_0^{P'}}{dt}\right|_0 &= -\mathbf F \quad &\text{(second law for $P'$, with the third law)} \\
+> \left.\frac{d}{dt}\left(\mathbf p_0^P + \mathbf p_0^{P'}\right)\right|_0 &= \left.\frac{d\mathbf p_0^P}{dt}\right|_0 + \left.\frac{d\mathbf p_0^{P'}}{dt}\right|_0 \quad &\text{(sum rule, Eq. 1.65)} \\
 > &= \mathbf F - \mathbf F \quad &\text{(the two rows above)} \\
 > &= \mathbf 0 \quad &\text{(action and reaction cancel)} \\
-> \left(\mathbf p_0^P + \mathbf p_0^Q\right)(t) - \left(\mathbf p_0^P + \mathbf p_0^Q\right)(t_1) &= \mathbf 0 \quad &\text{(integrate from $t_1$ to $t$; Barrow)}
+> \int_{t_1}^{t}\left.\frac{d}{dt'}\left(\mathbf p_0^P + \mathbf p_0^{P'}\right)\right|_0 dt' &= \int_{t_1}^{t}\mathbf 0\,dt' \quad &\text{(integrate both sides from $t_1$ to $t$; $t'$ is the integration variable)} \\
+> \left(\mathbf p_0^P + \mathbf p_0^{P'}\right)(t) - \left(\mathbf p_0^P + \mathbf p_0^{P'}\right)(t_1) &= \mathbf 0 \quad &\text{(Barrow: the total momentum is an antiderivative of its own derivative; the integral of zero is zero)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf p_0 = \mathbf p_0^P + \mathbf p_0^Q = \mathrm{const}}$$
+> $$\boxed{\mathbf p_0 = \mathbf p_0^P + \mathbf p_0^{P'} = \mathrm{const}}$$
 >
 > **Units:** $\mathrm{kg\,m/s}$ in every term
-> **Meaning:** the total linear momentum of an isolated system is constant ([Lecture 2, Slide 8]); the momenta of $P$ and $Q$ change, but every change of one is matched by an opposite change of the other.
+> **Meaning:** the total linear momentum of an isolated system is constant ([Lecture 2, Slide 8]); the momenta of $P$ and $P'$ change, but every change of one is matched by an opposite change of the other.
 
 ## 3. Equations of motion
 
@@ -649,7 +655,7 @@ In two- and three-dimensional problems in simply connected domains without bound
 > **Source:** Notes.pdf, Eq. 4.19; Notes.pdf, Eq. 4.20; Notes.pdf, Eq. 4.14; Notes.pdf, Eq. 1.74; [Lecture 2, Slide 14]
 >
 > $$\begin{aligned}
-> dV_0 &= -\mathbf F\cdot d\mathbf r_0^P \quad &\text{(moving the upper limit of Eq. 4.14 by $d\mathbf r_0^P$ adds the integrand times $d\mathbf r_0^P$)} \\
+> dV_0 &= -\mathbf F\cdot d\mathbf r_0^P \quad &\text{(moving the upper limit of Eq. 4.14 by $d\mathbf r_0^P$ changes $V_0$ by minus the integrand times $d\mathbf r_0^P$: fundamental theorem of calculus)} \\
 > &= -\left(F_x\,dx + F_y\,dy + F_z\,dz\right) \quad &\text{(dot product in components, with $d\mathbf r_0^P = dx\,\mathbf i + dy\,\mathbf j + dz\,\mathbf k$)} \\
 > dV_0 &= \frac{\partial V_0}{\partial x}\,dx + \frac{\partial V_0}{\partial y}\,dy + \frac{\partial V_0}{\partial z}\,dz \quad &\text{(total differential of $V_0(x,y,z)$)} \\
 > F_x &= -\frac{\partial V_0}{\partial x},\quad F_y = -\frac{\partial V_0}{\partial y},\quad F_z = -\frac{\partial V_0}{\partial z} \quad &\text{(the two rows hold for any $dx$, $dy$, $dz$: equate their coefficients)} \\
@@ -667,7 +673,7 @@ In two- and three-dimensional problems in simply connected domains without bound
 > **Source:** Notes.pdf, Eq. 4.18; Notes.pdf, Eq. 1.76; Notes.pdf, Eq. 1.77; Notes.pdf, Eq. 4.19
 >
 > $$\begin{aligned}
-> \left(\nabla\times\mathbf F\right)\cdot\mathbf k &= \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \quad &\text{(third component of the curl, Eq. 1.76)} \\
+> \left(\nabla\times\mathbf F\right)\cdot\mathbf k &= \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \quad &\text{(third component of the curl; the printed Eq. 1.76 has the opposite sign, see the erratum in Topic 1)} \\
 > &= \frac{\partial}{\partial x}\left(-\frac{\partial V_0}{\partial y}\right) - \frac{\partial}{\partial y}\left(-\frac{\partial V_0}{\partial x}\right) \quad &\text{(Eq. 4.19)} \\
 > &= -\frac{\partial^2 V_0}{\partial x\,\partial y} + \frac{\partial^2 V_0}{\partial y\,\partial x} \quad &\text{(take the signs out)} \\
 > &= 0 \quad &\text{(the order of differentiation does not matter for a smooth $V_0$)}
@@ -727,28 +733,28 @@ The potential energies of [Lecture 2, Slide 16] are derived below from their def
 > **Units:** $k$ in $\mathrm{N/m}$, so $(\mathrm{N/m})\,\mathrm{m^2} = \mathrm J$
 > **Meaning:** the potential energy depends only on the distance to the origin, whatever the path, so the spring force is conservative; it is zero with the spring unstretched and grows with the square of the stretch.
 
-A pair of internal forces between two particles $P$ and $Q$ may also be conservative; it then has a single potential energy, a function of both positions, and each force is minus the derivative of it with respect to the position of the particle it acts on ([Lecture 2, Slide 16]).
+A pair of internal forces between two particles $P$ and $P'$ may also be conservative; it then has a single potential energy, a function of both positions, and each force is minus the derivative of it with respect to the position of the particle it acts on ([Lecture 2, Slide 16]).
 
 > [!derivation] Electrostatic pair: the forces from one potential
 > **Law:** gradient with respect to the position of one particle; chain rule; Newton's third law as a check
 > **Source:** [Lecture 2, Slide 16]; Notes.pdf, Eq. 4.20; Notes.pdf, Eq. 1.66
 >
-> $d$ is the distance between the particles; the derivative with respect to $\mathbf r_0^P$ is the gradient with respect to the coordinates of $P$, with $Q$ held fixed.
+> $d$ is the distance between the particles; the derivative with respect to $\mathbf r_0^P$ is the gradient with respect to the coordinates of $P$, with $P'$ held fixed.
 >
 > $$\begin{aligned}
-> V_0 &= \frac{k_0\,q^{\mathrm P}q^{\mathrm Q}}{d},\qquad d = \left\lVert\mathbf r_0^P - \mathbf r_0^Q\right\rVert \quad &\text{(potential of the pair, Slide 16)} \\
-> d^2 &= \left(\mathbf r_0^P - \mathbf r_0^Q\right)\cdot\left(\mathbf r_0^P - \mathbf r_0^Q\right) \quad &\text{(square of a magnitude)} \\
-> 2\,d\,\frac{\partial d}{\partial\mathbf r_0^P} &= 2\left(\mathbf r_0^P - \mathbf r_0^Q\right) \quad &\text{(differentiate both sides with respect to $\mathbf r_0^P$: chain rule on the left, Eq. 1.66 on the right)} \\
-> \frac{\partial d}{\partial\mathbf r_0^P} &= \frac{\mathbf r_0^P - \mathbf r_0^Q}{d} \quad &\text{(divide by $2d$)} \\
-> \frac{\partial V_0}{\partial\mathbf r_0^P} &= -\frac{k_0\,q^{\mathrm P}q^{\mathrm Q}}{d^2}\,\frac{\partial d}{\partial\mathbf r_0^P} \quad &\text{(chain rule: the derivative of $1/d$ is $-1/d^2$)} \\
+> V_0 &= \frac{k_0\,q^{\mathrm P}q^{\mathrm{P'}}}{d},\qquad d = \left\lVert\mathbf r_0^P - \mathbf r_0^{P'}\right\rVert \quad &\text{(potential of the pair, Slide 16)} \\
+> d^2 &= \left(\mathbf r_0^P - \mathbf r_0^{P'}\right)\cdot\left(\mathbf r_0^P - \mathbf r_0^{P'}\right) \quad &\text{(square of a magnitude)} \\
+> 2\,d\,\frac{\partial d}{\partial\mathbf r_0^P} &= 2\left(\mathbf r_0^P - \mathbf r_0^{P'}\right) \quad &\text{(differentiate both sides with respect to $\mathbf r_0^P$: chain rule on the left, Eq. 1.66 on the right)} \\
+> \frac{\partial d}{\partial\mathbf r_0^P} &= \frac{\mathbf r_0^P - \mathbf r_0^{P'}}{d} \quad &\text{(divide by $2d$)} \\
+> \frac{\partial V_0}{\partial\mathbf r_0^P} &= -\frac{k_0\,q^{\mathrm P}q^{\mathrm{P'}}}{d^2}\,\frac{\partial d}{\partial\mathbf r_0^P} \quad &\text{(chain rule: the derivative of $1/d$ is $-1/d^2$)} \\
 > \mathbf F_{\mathrm P} &= -\frac{\partial V_0}{\partial\mathbf r_0^P} \quad &\text{(force on $P$, Slide 16)} \\
-> &= \frac{k_0\,q^{\mathrm P}q^{\mathrm Q}}{d^3}\left(\mathbf r_0^P - \mathbf r_0^Q\right) \quad &\text{(substitute the two rows above)} \\
-> \frac{\partial d}{\partial\mathbf r_0^Q} &= -\frac{\mathbf r_0^P - \mathbf r_0^Q}{d} \quad &\text{(the same steps with respect to $\mathbf r_0^Q$: the inner derivative is $-1$)} \\
-> \mathbf F_{\mathrm Q} &= -\frac{\partial V_0}{\partial\mathbf r_0^Q} \quad &\text{(force on $Q$, Slide 16)} \\
+> &= \frac{k_0\,q^{\mathrm P}q^{\mathrm{P'}}}{d^3}\left(\mathbf r_0^P - \mathbf r_0^{P'}\right) \quad &\text{(substitute the two rows above)} \\
+> \frac{\partial d}{\partial\mathbf r_0^{P'}} &= -\frac{\mathbf r_0^P - \mathbf r_0^{P'}}{d} \quad &\text{(the same steps with respect to $\mathbf r_0^{P'}$: the inner derivative is $-1$)} \\
+> \mathbf F_{\mathrm{P'}} &= -\frac{\partial V_0}{\partial\mathbf r_0^{P'}} \quad &\text{(force on $P'$, Slide 16)} \\
 > &= -\mathbf F_{\mathrm P} \quad &\text{(only the sign of the inner derivative changes)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf F_{\mathrm P} = \frac{k_0\,q^{\mathrm P}q^{\mathrm Q}}{\left\lVert\mathbf r_0^P - \mathbf r_0^Q\right\rVert^3}\left(\mathbf r_0^P - \mathbf r_0^Q\right) = -\mathbf F_{\mathrm Q}}$$
+> $$\boxed{\mathbf F_{\mathrm P} = \frac{k_0\,q^{\mathrm P}q^{\mathrm{P'}}}{\left\lVert\mathbf r_0^P - \mathbf r_0^{P'}\right\rVert^3}\left(\mathbf r_0^P - \mathbf r_0^{P'}\right) = -\mathbf F_{\mathrm{P'}}}$$
 >
 > **Units:** $k_0$ in $\mathrm{N\,m^2/C^2}$ and charges in $\mathrm C$: $V_0$ in $\mathrm{N\,m} = \mathrm J$, the forces in $(\mathrm{N\,m^2})\,\mathrm m/\mathrm{m^3} = \mathrm N$
 > **Meaning:** the forces lie along the line joining the particles, are equal and opposite (the third law comes out of the single potential), have a magnitude inversely proportional to the square of the distance, and push the particles apart when the charges have the same sign.
@@ -798,7 +804,7 @@ A pair of internal forces between two particles $P$ and $Q$ may also be conserva
 > \frac{\partial}{\partial y}\sqrt{x^2+y^2} &= \frac{y}{\sqrt{x^2+y^2}} \quad &\text{(the same with respect to $y$)} \\
 > \frac{\partial F_y}{\partial x} &= c_4\sqrt{x^2+y^2} + c_4 x\,\frac{x}{\sqrt{x^2+y^2}} \quad &\text{(product rule on $c_4 x\sqrt{x^2+y^2}$)} \\
 > \frac{\partial F_x}{\partial y} &= -c_4\sqrt{x^2+y^2} - c_4 y\,\frac{y}{\sqrt{x^2+y^2}} \quad &\text{(product rule on $-c_4 y\sqrt{x^2+y^2}$)} \\
-> \left(\nabla\times\mathbf F\right)\cdot\mathbf k &= c_4\sqrt{x^2+y^2} + \frac{c_4 x^2}{\sqrt{x^2+y^2}} + c_4\sqrt{x^2+y^2} + \frac{c_4 y^2}{\sqrt{x^2+y^2}} \quad &\text{(Eq. 1.76: the first minus the second)} \\
+> \left(\nabla\times\mathbf F\right)\cdot\mathbf k &= c_4\sqrt{x^2+y^2} + \frac{c_4 x^2}{\sqrt{x^2+y^2}} + c_4\sqrt{x^2+y^2} + \frac{c_4 y^2}{\sqrt{x^2+y^2}} \quad &\text{($\mathbf k$ component of the curl, sign corrected from the printed Eq. 1.76: the first minus the second)} \\
 > &= 2\,c_4\sqrt{x^2+y^2} + c_4\,\frac{x^2+y^2}{\sqrt{x^2+y^2}} \quad &\text{(group the like terms)} \\
 > &= 2\,c_4 R + c_4 R \quad &\text{($\sqrt{x^2+y^2}$ is $R$, and so is the fraction)} \\
 > &= 3\,c_4 R \quad &\text{(add)}
@@ -808,6 +814,9 @@ A pair of internal forces between two particles $P$ and $Q$ may also be conserva
 >
 > **Units:** $c_4$ in $\mathrm{N/m^2}$: the work in $(\mathrm{N/m^2})\,\mathrm{m^3} = \mathrm J$, the curl in $\mathrm{N/m}$
 > **Meaning:** the work around a closed circle is not zero (it changes sign with the sense of travel), so Eq. 4.17 fails and the force is not conservative: no potential energy exists, even though the force depends only on the position. The curl, nonzero off the axis, says the same through Eq. 4.18.
+
+> [!warning] Erratum to Notes.pdf, Eq. 1.76 (see Topic 1)
+> Every component of the curl in Eq. 1.76 of the notes is printed with the opposite sign (Notes.pdf, p. 25); the two boxes above use the corrected order, the derivative of the $y$ component with respect to $x$ minus the derivative of the $x$ component with respect to $y$ for the $\mathbf k$ component. The printed formula would give minus the same value for the force of Slide 18, which is still nonzero off the axis, so the conclusion stands: the force is not conservative. The irrotational property of a conservative force is not affected either, because it only involves a zero curl.
 
 ## 5. Conservation of mechanical energy
 
@@ -1041,10 +1050,19 @@ Otherwise the equilibrium is unstable. To decide, one studies the forces in the 
 > $$\begin{aligned}
 > m\,\ddot\xi &= -\frac{d^2V_0}{dx^2}(x^*)\,\xi \quad &\text{(Eq. 4.21 with the first-order force of the box above; $\ddot x = \ddot\xi$ because $x^*$ is constant)} \\
 > \xi &= \exp(p\,t) \quad &\text{(trial solution of a linear equation with constant coefficients)} \\
-> m\,p^2\exp(p\,t) &= -\frac{d^2V_0}{dx^2}(x^*)\exp(p\,t) \quad &\text{(substitute: each time derivative brings a factor $p$)} \\
+> \dot\xi &= p\exp(p\,t) \quad &\text{(chain rule: the derivative of the exponent is $p$)} \\
+> \ddot\xi &= p^2\exp(p\,t) \quad &\text{(chain rule again)} \\
+> m\,p^2\exp(p\,t) &= -\frac{d^2V_0}{dx^2}(x^*)\exp(p\,t) \quad &\text{(substitute the trial solution and its second derivative)} \\
 > m\,p^2 + \frac{d^2V_0}{dx^2}(x^*) &= 0 \quad &\text{(divide by the exponential, never zero: characteristic equation)} \\
 > p &= \pm\,i\sqrt{\frac{d^2V_0/dx^2(x^*)}{m}} \quad &\text{(minimum: positive second derivative, two imaginary roots)} \\
-> \xi &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t),\quad \omega_0 = \sqrt{\frac{d^2V_0/dx^2(x^*)}{m}} \quad &\text{(real form of the solution with imaginary roots, Eq. 5.7)} \\
+> \omega_0 &= \sqrt{\frac{d^2V_0/dx^2(x^*)}{m}} \quad &\text{(name the modulus of the two roots)} \\
+> m\,\omega_0^2 &= \frac{d^2V_0}{dx^2}(x^*) \quad &\text{(square and multiply by $m$)} \\
+> \frac{d}{dt}\cos(\omega_0 t) &= -\omega_0\sin(\omega_0 t) \quad &\text{(chain rule: the derivative of $\omega_0 t$ is $\omega_0$)} \\
+> \frac{d^2}{dt^2}\cos(\omega_0 t) &= -\omega_0^2\cos(\omega_0 t) \quad &\text{(chain rule again)} \\
+> m\frac{d^2}{dt^2}\cos(\omega_0 t) + \frac{d^2V_0}{dx^2}(x^*)\cos(\omega_0 t) &= \left(-m\,\omega_0^2 + \frac{d^2V_0}{dx^2}(x^*)\right)\cos(\omega_0 t) \quad &\text{(substitute $\xi = \cos(\omega_0 t)$ in the first row, written with every term on the left)} \\
+> &= 0 \quad &\text{(the row with $m\,\omega_0^2$: the cosine is a real solution)} \\
+> \frac{d^2}{dt^2}\sin(\omega_0 t) &= -\omega_0^2\sin(\omega_0 t) \quad &\text{(chain rule twice: the same steps, so the sine is a solution too)} \\
+> \xi &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) \quad &\text{(the equation is linear and homogeneous: any combination of two solutions is one; two constants for a second-order equation, as in Section 8, Eq. 5.7)} \\
 > p &= \pm\,p_1,\quad p_1 = \sqrt{\frac{-d^2V_0/dx^2(x^*)}{m}} > 0 \quad &\text{(maximum: negative second derivative, two real roots)} \\
 > \xi &= C_1\exp(p_1 t) + C_2\exp(-p_1 t) \quad &\text{(general solution with two real roots)} \\
 > \dot\xi &= p_1 C_1\exp(p_1 t) - p_1 C_2\exp(-p_1 t) \quad &\text{(differentiate; chain rule on each exponential)} \\
@@ -1209,7 +1227,8 @@ The bob is subject to two forces (Notes.pdf, Sec. 4.7): the constant weight, poi
 >
 > $$\begin{aligned}
 > m\,\mathbf a_0^P &= \mathbf F_g + \mathbf F_t \quad &\text{(second law, Eq. 4.4)} \\
-> m\left(-\ell\dot\theta^2\,\mathbf e_R + \ell\ddot\theta\,\mathbf e_\theta\right) &= \left(m g\cos\theta - F_t\right)\mathbf e_R - m g\sin\theta\,\mathbf e_\theta \quad &\text{(Eqs. 4.35 and 4.36; group by unit vector)} \\
+> m\left(-\ell\dot\theta^2\,\mathbf e_R + \ell\ddot\theta\,\mathbf e_\theta\right) &= m g\cos\theta\,\mathbf e_R - m g\sin\theta\,\mathbf e_\theta - F_t\,\mathbf e_R \quad &\text{(substitute the acceleration, Eq. 4.35, the weight, Eq. 4.36, and the force of the rod, previous box)} \\
+> &= \left(m g\cos\theta - F_t\right)\mathbf e_R - m g\sin\theta\,\mathbf e_\theta \quad &\text{(group the terms by unit vector)} \\
 > \mathbf e_R:\quad -m\ell\dot\theta^2 &= m g\cos\theta - F_t \quad &\text{(dot-multiply by $\mathbf e_R$)} \\
 > \mathbf e_\theta:\quad m\ell\ddot\theta &= -m g\sin\theta \quad &\text{(dot-multiply by $\mathbf e_\theta$)} \\
 > \ddot\theta + \frac{g}{\ell}\sin\theta &= 0 \quad &\text{(divide by $m\ell$ and move the right side over)} \\
@@ -1244,7 +1263,7 @@ The bob is subject to two forces (Notes.pdf, Sec. 4.7): the constant weight, poi
 > **Units:** $\mathrm{rad^2/s^2}$, that is $\mathrm{s^{-2}}$, in every term and in $C$
 > **Meaning:** a first integral: a combination of $\theta$ and $\dot\theta$ that stays constant during the motion. The mass does not appear in it (Notes.pdf, Sec. 4.7).
 
-The same result follows directly from energy conservation (Notes.pdf, Sec. 4.7): the tension exerts no work on the bob, being always perpendicular to its velocity, and the weight is uniform and derives from a potential. From here on the indices $P$ and $0$ of the potential energy are dropped where no confusion arises, since there is one particle and one frame.
+The same result follows directly from energy conservation (Notes.pdf, Sec. 4.7): the tension exerts no work on the bob, being always perpendicular to its velocity, and the weight is uniform and derives from a potential. From Section 8 on, the indices $P$ and $0$ of the energies are dropped where no confusion arises, since there is one particle and one frame.
 
 > [!derivation] Potential, kinetic and mechanical energy of the pendulum
 > **Law:** potential energy of the weight (Section 4); zero power of a force perpendicular to the velocity; kinetic energy
@@ -1335,7 +1354,31 @@ Let the bob start at its equilibrium position, the lowest point, with the speed 
 > $$\boxed{\tau = 2\int_{-t^*}^{t^*}dt = 2\int_{-\theta^*}^{\theta^*}\sqrt{\frac{m\ell^2}{2E_0 - 2V_0(\theta)}}\,d\theta}$$
 >
 > **Units:** $\sqrt{\mathrm{kg\,m^2}/\mathrm J} = \mathrm s$ for the integrand per radian, so $\tau$ is in $\mathrm s$
-> **Meaning:** the period depends on the amplitude through $E_0$. The integrand grows without bound at the turning points, where the bob stops, but the integral is finite (the box on small oscillations below evaluates it in that limit).
+> **Meaning:** the period depends on the amplitude through $E_0$. The integrand grows without bound at the turning points, where the bob stops, but the integral is finite (next box; the box on small oscillations below evaluates it in that limit).
+
+> [!derivation] The period integral is finite
+> **Law:** potential energy of the pendulum; first-order Taylor expansion of the cosine about the turning point; antiderivative of a power; Barrow's rule with a moving limit
+> **Source:** Notes.pdf, Eq. 4.40; Notes.pdf, Eq. 4.44
+>
+> The amplitude lies between $0$ and $\pi$, so the sine of $\theta^*$ is positive. $\theta_a$ is a fixed angle a little below $\theta^*$ and $\theta_b$ an upper limit that tends to $\theta^*$ from below; at the turning point the kinetic energy vanishes, so $E_0$ equals the potential energy at $\theta^*$.
+>
+> $$\begin{aligned}
+> 2E_0 - 2V_0(\theta) &= 2\,m g\ell\left(1 - \cos\theta^*\right) - 2\,m g\ell\left(1 - \cos\theta\right) \quad &\text{(Eq. 4.40 at $\theta^*$ and at $\theta$)} \\
+> &= 2\,m g\ell\left(\cos\theta - \cos\theta^*\right) \quad &\text{(the terms $2\,m g\ell$ cancel)} \\
+> \cos\theta &= \cos\theta^* - \sin\theta^*\left(\theta - \theta^*\right) + O\big((\theta - \theta^*)^2\big) \quad &\text{(first-order Taylor expansion of the cosine about $\theta^*$; its derivative is minus the sine)} \\
+> 2E_0 - 2V_0(\theta) &\simeq 2\,m g\ell\sin\theta^*\left(\theta^* - \theta\right) \quad &\text{(substitute in the second row, near $\theta^*$)} \\
+> \sqrt{\frac{m\ell^2}{2E_0 - 2V_0(\theta)}} &\simeq \sqrt{\frac{\ell}{2 g\sin\theta^*}}\left(\theta^* - \theta\right)^{-1/2} \quad &\text{(the integrand of the previous box; $m\ell^2/(2\,m g\ell)$ simplifies to $\ell/(2g)$)} \\
+> \frac{d}{d\theta}\left[-2\left(\theta^* - \theta\right)^{1/2}\right] &= -2\cdot\tfrac12\left(\theta^* - \theta\right)^{-1/2}\cdot(-1) \quad &\text{(chain rule: the derivative of $\theta^* - \theta$ is $-1$)} \\
+> &= \left(\theta^* - \theta\right)^{-1/2} \quad &\text{(arithmetic: an antiderivative of the power)} \\
+> \int_{\theta_a}^{\theta_b}\left(\theta^* - \theta\right)^{-1/2}d\theta &= \Big[-2\left(\theta^* - \theta\right)^{1/2}\Big]_{\theta_a}^{\theta_b} \quad &\text{(the antiderivative of the two rows above)} \\
+> &= -2\left(\theta^* - \theta_b\right)^{1/2} + 2\left(\theta^* - \theta_a\right)^{1/2} \quad &\text{(Barrow: upper limit minus lower limit)} \\
+> &\to 2\left(\theta^* - \theta_a\right)^{1/2} \quad &\text{(limit $\theta_b \to \theta^*$: the first term tends to zero)}
+> \end{aligned}$$
+>
+> $$\boxed{\sqrt{\frac{m\ell^2}{2E_0 - 2V_0(\theta)}} \simeq \sqrt{\frac{\ell}{2 g\sin\theta^*}}\left(\theta^* - \theta\right)^{-1/2},\qquad \int_{\theta_a}^{\theta^*}\left(\theta^* - \theta\right)^{-1/2}d\theta = 2\left(\theta^* - \theta_a\right)^{1/2} \ \text{(finite)}}$$
+>
+> **Units:** $\sqrt{\mathrm m/(\mathrm{m/s^2})} = \mathrm s$ for the factor of the integrand; the angles in radians
+> **Meaning:** near the turning point the integrand of the period is a constant times an inverse square root of the distance to $\theta^*$, and the integral of that inverse square root has a finite limit, so the contribution of the end of the interval to the period is finite; the end at $-\theta^*$ is the same by the symmetry of the potential, and between the two ends the integrand is bounded. The period is therefore finite for every amplitude below $\pi$.
 
 > [!derivation] Rotations: energy above the maxima
 > **Law:** conservation of mechanical energy; the potential never exceeds its maximum
@@ -1345,11 +1388,11 @@ Let the bob start at its equilibrium position, the lowest point, with the speed 
 > V_0(\theta) &\leq 2\,m g\ell \quad &\text{($1 - \cos\theta \leq 2$ for every $\theta$)} \\
 > T_0 &= E_0 - V_0(\theta) \quad &\text{(Eq. 4.42)} \\
 > &\geq E_0 - 2\,m g\ell > 0 \quad &\text{(first row, with $E_0 > 2\,m g\ell$)} \\
-> T_{0,1} &= \tfrac12\,m\left(v_{0,1}^P\right)^2 \quad &\text{(at the upward vertical, $\theta = \pi$, where the speed is $v_{0,1}^P$)} \\
+> T_{0,\mathrm{up}} &= \tfrac12\,m\left(v_{0,\mathrm{up}}^P\right)^2 \quad &\text{(at the upward vertical, $\theta = \pi$, where the speed is $v_{0,\mathrm{up}}^P$)} \\
 > &= E_0 - 2\,m g\ell \quad &\text{(Eq. 4.42 with $V_0(\pi) = 2\,m g\ell$; Eq. 4.45)}
 > \end{aligned}$$
 >
-> $$\boxed{T_{0,1} = \tfrac12\,m\left(v_{0,1}^P\right)^2 = E_0 - 2\,m g\ell > 0}$$
+> $$\boxed{T_{0,\mathrm{up}} = \tfrac12\,m\left(v_{0,\mathrm{up}}^P\right)^2 = E_0 - 2\,m g\ell > 0}$$
 >
 > **Units:** $\mathrm J$
 > **Meaning:** if the bob is pushed so hard that $E_0$ exceeds $2\,m g\ell$ (the level $E_{0,2}$ of Fig. 4.4) the kinetic energy never vanishes, the rate keeps its sign, and the bob passes the upward vertical with a nonzero speed: the motion is a continuous rotation rather than an oscillation (Notes.pdf, Sec. 4.7).
@@ -1592,7 +1635,8 @@ From the classical spring-mass-damper system to the linearised aeroelastic oscil
 > \tfrac12\,m\,\dot x^2 &= E - \tfrac12\,k\,x^2 \quad &\text{(Eq. 4.27 with the potential of the spring)} \\
 > \frac{dx}{dt} &= \sqrt{\frac{2E - k\,x^2}{m}} \quad &\text{(solve for the velocity, positive in this half)} \\
 > \frac{\tau}{2} &= \int_{-a}^{a}\frac{dx}{\sqrt{\left(2E - k\,x^2\right)/m}} \quad &\text{(change of variable $t \to x$: $dx = \dot x\,dt$; [Lecture 6, Slide 7])} \\
-> \sqrt{\frac{2E - k\,x^2}{m}} &= \sqrt{\frac{k}{m}}\sqrt{a^2 - x^2} \quad &\text{($2E = k\,a^2$; take out the factor $k/m$)} \\
+> \sqrt{\frac{2E - k\,x^2}{m}} &= \sqrt{\frac{k\,a^2 - k\,x^2}{m}} \quad &\text{(the energy of Eq. 5.13: $2E = k\,a^2$)} \\
+> &= \sqrt{\frac{k}{m}}\sqrt{a^2 - x^2} \quad &\text{(take out the common factor $k/m$)} \\
 > &= \omega_0\sqrt{a^2 - x^2} \quad &\text{(Eq. 5.23)} \\
 > \frac{\tau}{2} &= \frac{1}{\omega_0}\int_{-a}^{a}\frac{dx}{\sqrt{a^2 - x^2}} \quad &\text{(substitute)} \\
 > x &= a\sin u,\qquad dx = a\cos u\,du \quad &\text{(substitution and its differential)} \\
@@ -1627,7 +1671,8 @@ It is often convenient to describe periodic phenomena with complex exponentials 
 >
 > $$\begin{aligned}
 > \frac{d}{d\beta}\Big[\exp(-i\beta)\left(\cos\beta + i\sin\beta\right)\Big] &= -i\exp(-i\beta)\left(\cos\beta + i\sin\beta\right) + \exp(-i\beta)\left(-\sin\beta + i\cos\beta\right) \quad &\text{(product rule)} \\
-> &= \exp(-i\beta)\left(-i\cos\beta + \sin\beta - \sin\beta + i\cos\beta\right) \quad &\text{(expand; $-i\cdot i = 1$)} \\
+> &= \exp(-i\beta)\left(-i\cos\beta - i\cdot i\,\sin\beta - \sin\beta + i\cos\beta\right) \quad &\text{(expand: take out the common factor $\exp(-i\beta)$ and distribute $-i$)} \\
+> &= \exp(-i\beta)\left(-i\cos\beta + \sin\beta - \sin\beta + i\cos\beta\right) \quad &\text{($-i\cdot i = 1$)} \\
 > &= 0 \quad &\text{(the four terms cancel in pairs)} \\
 > \exp(-i\beta)\left(\cos\beta + i\sin\beta\right) &= \exp(0)\left(\cos 0 + i\sin 0\right) \quad &\text{(constant: equal to its value at $\beta = 0$)} \\
 > &= 1 \quad &\text{(arithmetic)} \\
@@ -1656,7 +1701,9 @@ It is often convenient to describe periodic phenomena with complex exponentials 
 > &= \Re(z) \quad &\text{(Euler box, last row)} \\
 > A &= C_1 - i\,C_2 \quad &\text{(Eq. 5.15)} \\
 > z &= \left(C_1 - i\,C_2\right)\left(\cos(\omega_0 t) + i\sin(\omega_0 t)\right) \quad &\text{(Euler's relation, Eq. 5.16)} \\
-> &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) + i\left(C_1\sin(\omega_0 t) - C_2\cos(\omega_0 t)\right) \quad &\text{(expand; $-i\cdot i = 1$; group real and imaginary terms)} \\
+> &= C_1\cos(\omega_0 t) + i\,C_1\sin(\omega_0 t) - i\,C_2\cos(\omega_0 t) - i\cdot i\,C_2\sin(\omega_0 t) \quad &\text{(expand the product)} \\
+> &= C_1\cos(\omega_0 t) + i\,C_1\sin(\omega_0 t) - i\,C_2\cos(\omega_0 t) + C_2\sin(\omega_0 t) \quad &\text{($-i\cdot i = 1$)} \\
+> &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) + i\left(C_1\sin(\omega_0 t) - C_2\cos(\omega_0 t)\right) \quad &\text{(group the real and the imaginary terms)} \\
 > \Re(z) &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) \quad &\text{(real part: Eq. 5.7 is recovered)} \\
 > A &= a\exp(i\phi) \quad &\text{(polar form, Eq. 5.17)} \\
 > z &= a\exp\big(i(\omega_0 t + \phi)\big) \quad &\text{(product of exponentials: the exponents add)} \\
@@ -1730,7 +1777,7 @@ A viscous damper added to the spring-mass system exerts a force proportional and
 > $$\boxed{\frac{d}{dt}\left(\tfrac12\,m\,\dot x^2 + \tfrac12\,k\,x^2\right) = -\lambda\,\dot x^2 \leq 0}$$
 >
 > **Units:** $\mathrm{(N\,s/m)(m/s)^2} = \mathrm{N\,m/s} = \mathrm W$
-> **Meaning:** the damper removes energy at every instant at which the particle moves, so the energy can only decrease, and it stays constant only at the instants of zero velocity. The oscillations must therefore die out, which the solutions below make precise.
+> **Meaning:** the damper removes energy at every instant at which the particle moves, so the energy can only decrease, and its rate of change vanishes only at the instants of zero velocity. The oscillations must therefore die out, which the solutions below make precise.
 
 > [!derivation] Characteristic equation of the damped oscillator
 > **Law:** trial exponential solution; quadratic formula; sign of the discriminant
@@ -1738,8 +1785,11 @@ A viscous damper added to the spring-mass system exerts a force proportional and
 >
 > $$\begin{aligned}
 > m\ddot x + \lambda\dot x + k\,x &= 0 \quad &\text{(Eq. 5.20: Section 8 with $F_x = 0$)} \\
-> x &= \exp(p\,t),\qquad \dot x = p\exp(p\,t),\qquad \ddot x = p^2\exp(p\,t) \quad &\text{(trial solution and its derivatives, chain rule; Section 8)} \\
-> \left(m\,p^2 + \lambda\,p + k\right)\exp(p\,t) &= 0 \quad &\text{(substitute)} \\
+> x &= \exp(p\,t) \quad &\text{(trial solution, Section 8)} \\
+> \dot x &= p\exp(p\,t) \quad &\text{(chain rule: derivative of the exponential times the derivative $p$ of its exponent)} \\
+> \ddot x &= p^2\exp(p\,t) \quad &\text{(chain rule again)} \\
+> m\,p^2\exp(p\,t) + \lambda\,p\exp(p\,t) + k\exp(p\,t) &= 0 \quad &\text{(substitute the three rows in the first)} \\
+> \left(m\,p^2 + \lambda\,p + k\right)\exp(p\,t) &= 0 \quad &\text{(take out the common factor $\exp(p\,t)$)} \\
 > m\,p^2 + \lambda\,p + k &= 0 \quad &\text{(the exponential is never zero; Eq. 5.21)} \\
 > p^2 + 2\gamma\,p + \omega_0^2 &= 0 \quad &\text{(divide by $m$; Eq. 5.23; [Lecture 6, Slide 5])} \\
 > p &= \frac{-2\gamma \pm \sqrt{4\gamma^2 - 4\omega_0^2}}{2} \quad &\text{(quadratic formula)} \\
@@ -1913,13 +1963,13 @@ One is often interested in the response of an oscillatory system to an external 
 > **Law:** linearity: the difference of two solutions of the complete equation solves the homogeneous one
 > **Source:** Notes.pdf, Eq. 5.32; Notes.pdf, Eq. 5.20; Notes.pdf, Sec. 5.4; [Lecture 6, Slide 3]
 >
-> $F(t)$ is the applied force and $x_p$ any one solution of the complete equation.
+> $F_x(t)$ is the applied force and $x_p$ any one solution of the complete equation.
 >
 > $$\begin{aligned}
-> m\ddot x_p + \lambda\dot x_p + k\,x_p &= F(t) \quad &\text{(a particular solution, Eq. 5.32)} \\
+> m\ddot x_p + \lambda\dot x_p + k\,x_p &= F_x(t) \quad &\text{(a particular solution, Eq. 5.32)} \\
 > m\ddot x_h + \lambda\dot x_h + k\,x_h &= 0 \quad &\text{(a homogeneous solution, Eq. 5.20)} \\
-> m\left(\ddot x_p + \ddot x_h\right) + \lambda\left(\dot x_p + \dot x_h\right) + k\left(x_p + x_h\right) &= F(t) + 0 \quad &\text{(add the two rows; derivative of a sum)} \\
-> m\left(\ddot x - \ddot x_p\right) + \lambda\left(\dot x - \dot x_p\right) + k\left(x - x_p\right) &= F(t) - F(t) = 0 \quad &\text{(any other solution $x$ of Eq. 5.32, minus the first row)}
+> m\left(\ddot x_p + \ddot x_h\right) + \lambda\left(\dot x_p + \dot x_h\right) + k\left(x_p + x_h\right) &= F_x(t) + 0 \quad &\text{(add the two rows; derivative of a sum)} \\
+> m\left(\ddot x - \ddot x_p\right) + \lambda\left(\dot x - \dot x_p\right) + k\left(x - x_p\right) &= F_x(t) - F_x(t) = 0 \quad &\text{(any other solution $x$ of Eq. 5.32, minus the first row)}
 > \end{aligned}$$
 >
 > $$\boxed{x = x_p + x_h,\qquad x_h = \text{general solution of } m\ddot x + \lambda\dot x + k\,x = 0}$$
@@ -1934,7 +1984,7 @@ One is often interested in the response of an oscillatory system to an external 
 > $F_1$ and $\omega_1$ are real constants; $F_1$ is taken positive (a negative amplitude is a shift of the origin of time by half a period).
 >
 > $$\begin{aligned}
-> F(t) &= F_1\cos(\omega_1 t) \quad &\text{(Eq. 5.33)} \\
+> F_x(t) &= F_1\cos(\omega_1 t) \quad &\text{(Eq. 5.33)} \\
 > &= \Re\big[F_1\exp(i\omega_1 t)\big] \quad &\text{(Euler's relation, $F_1$ real; Eq. 5.34)} \\
 > m\ddot z + \lambda\dot z + k\,z &= F_1\exp(i\omega_1 t) \quad &\text{(complex equation, Eq. 5.35)} \\
 > m\,\frac{d^2\Re(z)}{dt^2} + \lambda\,\frac{d\Re(z)}{dt} + k\,\Re(z) &= \Re\big[F_1\exp(i\omega_1 t)\big] \quad &\text{(real part of both sides; $m$, $\lambda$, $k$ real, as in Section 9)} \\
@@ -2013,7 +2063,8 @@ One is often interested in the response of an oscillatory system to an external 
 > \ddot x + \omega_0^2\,x &= \frac{F_1}{m}\cos(\omega_1 t) \quad &\text{(Eq. 5.32 with $\lambda = 0$, divided by $m$)} \\
 > x_p &= B_1\cos(\omega_1 t) \quad &\text{(trial solution with the frequency of the force)} \\
 > \ddot x_p &= -\omega_1^2 B_1\cos(\omega_1 t) \quad &\text{(chain rule twice)} \\
-> \left(\omega_0^2 - \omega_1^2\right)B_1\cos(\omega_1 t) &= \frac{F_1}{m}\cos(\omega_1 t) \quad &\text{(substitute)} \\
+> -\omega_1^2 B_1\cos(\omega_1 t) + \omega_0^2 B_1\cos(\omega_1 t) &= \frac{F_1}{m}\cos(\omega_1 t) \quad &\text{(substitute $x_p$ and $\ddot x_p$ in the first row)} \\
+> \left(\omega_0^2 - \omega_1^2\right)B_1\cos(\omega_1 t) &= \frac{F_1}{m}\cos(\omega_1 t) \quad &\text{(take out the common factor $B_1\cos(\omega_1 t)$)} \\
 > B_1 &= \frac{F_1/m}{\omega_0^2 - \omega_1^2} \quad &\text{(divide; $\omega_1 \neq \omega_0$; Eq. 5.41 with $\gamma = 0$, with a sign)} \\
 > x &= C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) + B_1\cos(\omega_1 t) \quad &\text{(add the homogeneous solution, Eq. 5.7)} \\
 > \dot x &= -C_1\,\omega_0\sin(\omega_0 t) + C_2\,\omega_0\cos(\omega_0 t) - B_1\,\omega_1\sin(\omega_1 t) \quad &\text{(differentiate; chain rule)} \\
@@ -2024,7 +2075,9 @@ One is often interested in the response of an oscillatory system to an external 
 > \cos(\omega_1 t) - \cos(\omega_0 t) &= 2\sin\tfrac{(\omega_0 + \omega_1)t}{2}\sin\tfrac{(\omega_0 - \omega_1)t}{2} \quad &\text{(subtract: the products of cosines cancel)} \\
 > x &= \left[2B_1\sin\tfrac{(\omega_0 - \omega_1)t}{2}\right]\sin\tfrac{(\omega_0 + \omega_1)t}{2} \quad &\text{(substitute)} \\
 > \sin\tfrac{(\omega_0 - \omega_1)t}{2} &\simeq \tfrac{(\omega_0 - \omega_1)t}{2} \quad &\text{(as $\omega_1 \to \omega_0$, for fixed $t$: first-order Taylor term of the sine)} \\
-> 2B_1\,\tfrac{(\omega_0 - \omega_1)t}{2} &= \frac{F_1\,t}{m\left(\omega_0 + \omega_1\right)} \quad &\text{($\omega_0^2 - \omega_1^2 = (\omega_0 - \omega_1)(\omega_0 + \omega_1)$; cancel)} \\
+> 2B_1\,\tfrac{(\omega_0 - \omega_1)t}{2} &= \frac{2F_1/m}{\omega_0^2 - \omega_1^2}\,\frac{(\omega_0 - \omega_1)t}{2} \quad &\text{(substitute $B_1$)} \\
+> &= \frac{2F_1/m}{\left(\omega_0 - \omega_1\right)\left(\omega_0 + \omega_1\right)}\,\frac{(\omega_0 - \omega_1)t}{2} \quad &\text{(factor the difference of squares)} \\
+> &= \frac{F_1\,t}{m\left(\omega_0 + \omega_1\right)} \quad &\text{(cancel the factor $\omega_0 - \omega_1$ and the $2$)} \\
 > x &\to \frac{F_1\,t}{2m\,\omega_0}\sin(\omega_0 t) \quad &\text{(limit $\omega_1 \to \omega_0$)}
 > \end{aligned}$$
 >
@@ -2072,7 +2125,10 @@ The amplitude and the phase of the forced oscillation depend strongly on the ang
 > \omega_1^2 &= \omega_0^2 - 2\gamma^2 \quad &\text{(the bracket vanishes; $\omega_1 > 0$)} \\
 > \omega_1 &= \sqrt{\omega_0^2 - 2\gamma^2} \quad &\text{(real only if $\gamma < \omega_0/\sqrt2$; Eq. 5.46)} \\
 > \omega_1^2 - \omega_0^2 + 2\gamma^2 &\lessgtr 0 \ \text{ for } \omega_1 \lessgtr \sqrt{\omega_0^2 - 2\gamma^2} \quad &\text{(the derivative goes from negative to positive: a minimum of the radicand)} \\
-> \left(2\gamma^2\right)^2 + 4\gamma^2\left(\omega_0^2 - 2\gamma^2\right) &= 4\gamma^2\left(\omega_0^2 - \gamma^2\right) \quad &\text{(radicand at the peak, where $\omega_0^2 - \omega_1^2 = 2\gamma^2$; expand and group)} \\
+> \left(\omega_0^2 - \omega_1^2\right)^2 + 4\gamma^2\omega_1^2 &= \left(2\gamma^2\right)^2 + 4\gamma^2\left(\omega_0^2 - 2\gamma^2\right) \quad &\text{(radicand at the peak: substitute $\omega_0^2 - \omega_1^2 = 2\gamma^2$ and $\omega_1^2 = \omega_0^2 - 2\gamma^2$)} \\
+> &= 4\gamma^4 + 4\gamma^2\omega_0^2 - 8\gamma^4 \quad &\text{(expand)} \\
+> &= 4\gamma^2\omega_0^2 - 4\gamma^4 \quad &\text{(group the terms in $\gamma^4$)} \\
+> &= 4\gamma^2\left(\omega_0^2 - \gamma^2\right) \quad &\text{(take out the common factor $4\gamma^2$)} \\
 > a_{1,\max} &= \frac{F_1/m}{2\gamma\sqrt{\omega_0^2 - \gamma^2}} \quad &\text{(Eq. 5.41)} \\
 > &= \frac{F_1}{2m\gamma\,\omega} \quad &\text{($\omega$ of the damped oscillator, Section 10)} \\
 > \tan\phi_1 &= -\frac{2\gamma\sqrt{\omega_0^2 - 2\gamma^2}}{2\gamma^2} \quad &\text{(phase at the peak: Eq. 5.42 with $\omega_0^2 - \omega_1^2 = 2\gamma^2$)} \\
@@ -2200,12 +2256,14 @@ Section 6 linearised a conservative force about an equilibrium. [Lecture 6, Slid
 > $$\begin{aligned}
 > \lvert\exp(p\,t)\rvert &= \exp\big(\Re(p)\,t\big)\,\lvert\exp\big(i\,\Im(p)\,t\big)\rvert \quad &\text{(split the exponent into its real and imaginary parts)} \\
 > &= \exp\big(\Re(p)\,t\big) \quad &\text{(Euler: unit modulus)} \\
-> \Re(p_+) &< 0:\ \ \lvert\xi\rvert \leq \left(\lvert D_1\rvert + \lvert D_2\rvert\right)\exp\big(\Re(p_+)\,t\big) \to 0 \quad &\text{(both terms decay: asymptotically stable)} \\
+> \Re(p_+) &< 0,\ p_+ \neq p_-:\ \ \lvert\xi\rvert \leq \left(\lvert D_1\rvert + \lvert D_2\rvert\right)\exp\big(\Re(p_+)\,t\big) \to 0 \quad &\text{(distinct roots: both terms decay; asymptotically stable)} \\
+> p_+ &= p_- = p < 0:\ \ \xi = \left(D_1 + D_2\,t\right)\exp(p\,t) \to 0 \quad &\text{(double root, Section 10: $t\exp(p\,t) \to 0$ because the exponential decays faster than $t$ grows; asymptotically stable)} \\
 > \Re(p_+) &= 0,\ p_+ \neq p_-:\ \ \lvert\xi\rvert \leq \lvert D_1\rvert + \lvert D_2\rvert \quad &\text{(bounded, not decaying: marginally stable)} \\
 > p_+ &= p_- = 0:\ \ \xi = D_1 + D_2\,t \quad &\text{($k = \lambda = 0$: double root, Section 10; grows unless $D_2 = 0$: unstable)} \\
 > \Re(p_+) &> 0:\ \ \lvert D_1\exp(p_+ t)\rvert \to \infty \quad &\text{(grows unless $D_1 = 0$: unstable)} \\
 > \Re(p_\pm) &= -\frac{\lambda}{2m} < 0 \ \text{ or } \ p_\pm = -\frac{\lambda}{2m} \pm \sqrt{\frac{\lambda^2}{4m^2} - \frac{k}{m}} < 0 \quad &\text{($k > 0$, $\lambda > 0$: complex roots, or real roots with the root smaller than $\lambda/(2m)$)} \\
 > p_\pm &= \pm\,i\sqrt{k/m} \quad &\text{($k > 0$, $\lambda = 0$: marginal)} \\
+> p_+ &= 0,\quad p_- = -\frac{\lambda}{m} \quad &\text{($k = 0$, $\lambda > 0$: the radicand is $\lambda^2/(4m^2)$, two distinct roots with the larger one zero: marginal)} \\
 > p_+ &= -\frac{\lambda}{2m} + \sqrt{\frac{\lambda^2}{4m^2} - \frac{k}{m}} > -\frac{\lambda}{2m} + \frac{\lvert\lambda\rvert}{2m} \geq 0 \quad &\text{($k < 0$: the radicand exceeds $\lambda^2/(4m^2)$; unstable for any $\lambda$)} \\
 > \Re(p_+) &> 0 \quad &\text{($k > 0$, $\lambda < 0$: the real part $-\lambda/(2m)$, or the larger real root, is positive: unstable)}
 > \end{aligned}$$
@@ -2213,7 +2271,7 @@ Section 6 linearised a conservative force about an equilibrium. [Lecture 6, Slid
 > $$\boxed{\Re(p_+) < 0:\ \text{asymptotically stable};\qquad \Re(p_+) = 0,\ p_+ \neq p_-:\ \text{marginally stable (check higher orders)};\qquad \text{otherwise unstable}}$$
 >
 > **Units:** $\Re(p)\,t$ dimensionless
-> **Meaning:** if the real part of $p_+$ is negative, any perturbation from equilibrium dies away over time and the equilibrium is asymptotically stable; if it is zero with distinct roots, the perturbation survives but does not grow without bound and the equilibrium is marginally stable, although the higher-order terms must be checked to be sure; otherwise the perturbation grows and the equilibrium is unstable ([Lecture 6, Slide 15]). In terms of the coefficients: a positive stiffness with positive damping is asymptotically stable, a positive stiffness without damping is marginal, and a negative stiffness, or a negative damping, is unstable. The conservative equilibria of Section 6 have no damping, so a minimum of the potential is only marginal for the linear test; Section 6 proved its stability from the energy, which is the check of the higher-order terms that the slide asks for.
+> **Meaning:** if the real part of $p_+$ is negative, any perturbation from equilibrium dies away over time and the equilibrium is asymptotically stable; if it is zero with distinct roots, the perturbation survives but does not grow without bound and the equilibrium is marginally stable, although the higher-order terms must be checked to be sure; otherwise the perturbation grows and the equilibrium is unstable ([Lecture 6, Slide 15]). In terms of the coefficients: a positive stiffness with positive damping is asymptotically stable, a positive stiffness without damping is marginal, so is a zero stiffness with positive damping (roots $0$ and $-\lambda/m$), and a negative stiffness, or a negative damping, is unstable. The conservative equilibria of Section 6 have no damping, so a minimum of the potential is only marginal for the linear test; Section 6 proved its stability from the energy, which is the check of the higher-order terms that the slide asks for.
 
 ![[attachments/EM-T/t2-linearisation.svg]]
 
@@ -2297,7 +2355,7 @@ Section 6 linearised a conservative force about an equilibrium. [Lecture 6, Slid
 
 > [!derivation] Extension: position of the bead and the unit vectors in the plane of the hoop
 > **Law:** right triangle of the radius with the vertical in the plane of the hoop; derivative with respect to the angle; orthonormality checks
-> **Source:** Notes.pdf, Sec. 4.7; Notes.pdf, Eq. 1.24
+> **Source:** Notes.pdf, Sec. 4.7; Notes.pdf, Eq. 1.26
 >
 > Plane of the hoop, $\mathbf j_h$ normal to it: $O$, the bead $P$ and the foot $H$ of the perpendicular from $P$ to the vertical diameter form a right triangle, right-angled at $H$, with hypotenuse $OP$ of length $b$ and the angle $\theta$ at $O$ between the downward vertical $OH$ and the radius. As for the pendulum of Section 7, the leg $OH$ is adjacent to $\theta$ and points along $-\mathbf k$, the leg $HP$ is opposite and points along $\mathbf i_h$.
 >
@@ -2306,7 +2364,7 @@ Section 6 linearised a conservative force about an equilibrium. [Lecture 6, Slid
 > \mathbf u_r &= \sin\theta\,\mathbf i_h - \cos\theta\,\mathbf k \quad &\text{(unit vector from $O$ to $P$: divide by $b$)} \\
 > \mathbf u_\theta &= \frac{\partial\mathbf u_r}{\partial\theta} \quad &\text{(tangent to the hoop, in the sense of growing $\theta$)} \\
 > &= \cos\theta\,\mathbf i_h + \sin\theta\,\mathbf k \quad &\text{(derivatives of $\sin\theta$ and $-\cos\theta$)} \\
-> \mathbf u_r\cdot\mathbf u_\theta &= \sin\theta\cos\theta - \cos\theta\sin\theta \quad &\text{(dot product in $\mathcal B_h$, Eq. 1.24)} \\
+> \mathbf u_r\cdot\mathbf u_\theta &= \sin\theta\cos\theta - \cos\theta\sin\theta \quad &\text{(linearity of the dot product, Eq. 1.26, with the orthonormality of $\mathcal B_h$)} \\
 > &= 0 \quad &\text{(the products cancel)} \\
 > \mathbf u_\theta\cdot\mathbf u_\theta &= \cos^2\theta + \sin^2\theta \quad &\text{(dot product)} \\
 > &= 1 \quad &\text{(Pythagoras: unit length; the same for $\mathbf u_r$)} \\
@@ -2335,7 +2393,8 @@ Section 6 linearised a conservative force about an equilibrium. [Lecture 6, Slid
 > &= -\dot\theta\,\mathbf u_r + \Omega\cos\theta\,\mathbf j_h \quad &\text{(derivative of $\mathbf i_h$; group the rest into $-\mathbf u_r$)} \\
 > \mathbf a_0^P &= b\ddot\theta\,\mathbf u_\theta + b\dot\theta\,\frac{d\mathbf u_\theta}{dt} + b\,\Omega\cos\theta\,\dot\theta\,\mathbf j_h + b\,\Omega\sin\theta\,\frac{d\mathbf j_h}{dt} \quad &\text{(Eq. 2.4: product rule on the two terms of the velocity; $\Omega$ constant)} \\
 > &= b\ddot\theta\,\mathbf u_\theta - b\dot\theta^2\,\mathbf u_r + b\,\Omega\dot\theta\cos\theta\,\mathbf j_h + b\,\Omega\dot\theta\cos\theta\,\mathbf j_h - b\,\Omega^2\sin\theta\,\mathbf i_h \quad &\text{(substitute the two derivatives of unit vectors)} \\
-> &= b\ddot\theta\,\mathbf u_\theta - b\dot\theta^2\,\mathbf u_r + 2b\,\Omega\dot\theta\cos\theta\,\mathbf j_h - b\,\Omega^2\sin\theta\left(\sin\theta\,\mathbf u_r + \cos\theta\,\mathbf u_\theta\right) \quad &\text{(add the $\mathbf j_h$ terms; $\mathbf i_h$ in terms of $\mathbf u_r$, $\mathbf u_\theta$)} \\
+> &= b\ddot\theta\,\mathbf u_\theta - b\dot\theta^2\,\mathbf u_r + 2b\,\Omega\dot\theta\cos\theta\,\mathbf j_h - b\,\Omega^2\sin\theta\,\mathbf i_h \quad &\text{(add the two $\mathbf j_h$ terms)} \\
+> &= b\ddot\theta\,\mathbf u_\theta - b\dot\theta^2\,\mathbf u_r + 2b\,\Omega\dot\theta\cos\theta\,\mathbf j_h - b\,\Omega^2\sin\theta\left(\sin\theta\,\mathbf u_r + \cos\theta\,\mathbf u_\theta\right) \quad &\text{(rewrite $\mathbf i_h$ in terms of $\mathbf u_r$ and $\mathbf u_\theta$, earlier box)} \\
 > &= -\left(b\dot\theta^2 + b\,\Omega^2\sin^2\theta\right)\mathbf u_r + \left(b\ddot\theta - b\,\Omega^2\sin\theta\cos\theta\right)\mathbf u_\theta + 2b\,\Omega\dot\theta\cos\theta\,\mathbf j_h \quad &\text{(group by unit vector)}
 > \end{aligned}$$
 >
@@ -2369,8 +2428,8 @@ Section 6 linearised a conservative force about an equilibrium. [Lecture 6, Slid
 ![[attachments/EM-T/t2-hoop-fbd.svg]]
 
 > [!derivation] Extension: first integral and effective potential
-> **Law:** multiplication by $\dot\theta$; chain rule; integration in time with Barrow's rule; power of the reaction of the hoop
-> **Source:** Notes.pdf, Eq. 4.39; Notes.pdf, Sec. 4.5.1; Notes.pdf, Eq. 4.2
+> **Law:** multiplication by $\dot\theta$; chain rule; integration in time with Barrow's rule
+> **Source:** Notes.pdf, Eq. 4.39
 >
 > $$\begin{aligned}
 > \dot\theta\,\ddot\theta + \frac{g}{b}\sin\theta\,\dot\theta - \Omega^2\sin\theta\cos\theta\,\dot\theta &= 0 \quad &\text{(multiply the equation of motion by $\dot\theta$)} \\
@@ -2379,22 +2438,41 @@ Section 6 linearised a conservative force about an equilibrium. [Lecture 6, Slid
 > \frac{d}{dt}\left(\tfrac12\Omega^2\sin^2\theta\right) &= \Omega^2\sin\theta\cos\theta\,\dot\theta \quad &\text{(chain rule twice: square, then sine)} \\
 > \frac{d}{dt}\left(\tfrac12\dot\theta^2 - \frac{g}{b}\cos\theta - \tfrac12\Omega^2\sin^2\theta\right) &= 0 \quad &\text{(the first row is the sum of the three derivatives)} \\
 > \left[\tfrac12\dot\theta^2 - \frac{g}{b}\cos\theta - \tfrac12\Omega^2\sin^2\theta\right]_0^t &= 0 \quad &\text{(integrate from $0$ to $t$; Barrow)} \\
-> \tfrac12 m b^2\dot\theta^2 + m g b\left(1 - \cos\theta\right) - \tfrac12 m b^2\Omega^2\sin^2\theta &= \text{const} \quad &\text{(multiply by $m b^2$ and add the constant $m g b$)} \\
+> \tfrac12\dot\theta^2 - \frac{g}{b}\cos\theta - \tfrac12\Omega^2\sin^2\theta &= \text{const} \quad &\text{(the value at $t$ equals the value at $0$, set by the initial state)} \\
+> \tfrac12 m b^2\dot\theta^2 - m g b\cos\theta - \tfrac12 m b^2\Omega^2\sin^2\theta &= \text{const} \quad &\text{(multiply by the constant $m b^2$; the constant is renamed)} \\
+> \tfrac12 m b^2\dot\theta^2 + m g b\left(1 - \cos\theta\right) - \tfrac12 m b^2\Omega^2\sin^2\theta &= \text{const} \quad &\text{(add the constant $m g b$ to both sides)} \\
 > V_{\mathrm{eff}}(\theta) &= m g b\left(1 - \cos\theta\right) - \tfrac12 m b^2\Omega^2\sin^2\theta \quad &\text{(name the terms that depend on $\theta$ only)} \\
 > -\frac{dV_{\mathrm{eff}}}{d\theta} &= -m g b\sin\theta + m b^2\Omega^2\sin\theta\cos\theta \quad &\text{(derivative; chain rule)} \\
 > &= m b^2\,\ddot\theta \quad &\text{(the equation of motion times $m b^2$)} \\
-> T &= \tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P \quad &\text{(kinetic energy, Eq. 4.2)} \\
-> &= \tfrac12 m b^2\dot\theta^2 + \tfrac12 m b^2\Omega^2\sin^2\theta \quad &\text{(velocity of the previous boxes; $\mathbf u_\theta\cdot\mathbf j_h = 0$)} \\
-> E - m b^2\Omega^2\sin^2\theta &= \tfrac12 m b^2\dot\theta^2 + V_{\mathrm{eff}}(\theta) \quad &\text{($E$ is $T$ plus the potential $m g b(1 - \cos\theta)$ of the weight)} \\
-> \mathbf N\cdot\mathbf v_0^P &= N_h\,b\,\Omega\sin\theta \quad &\text{(power of the reaction: only $\mathbf j_h$ survives)} \\
-> &= 2m b^2\Omega^2\dot\theta\sin\theta\cos\theta \quad &\text{(previous box)} \\
-> \frac{d}{dt}\left(m b^2\Omega^2\sin^2\theta\right) &= 2m b^2\Omega^2\dot\theta\sin\theta\cos\theta \quad &\text{(chain rule: the same as the power)}
+> \tfrac12 m b^2\dot\theta^2 + V_{\mathrm{eff}}(\theta) &= \text{const} \quad &\text{(the first integral written with the name $V_{\mathrm{eff}}$)}
 > \end{aligned}$$
 >
 > $$\boxed{\tfrac12 m b^2\dot\theta^2 + V_{\mathrm{eff}}(\theta) = \text{const},\qquad V_{\mathrm{eff}}(\theta) = m g b\left(1 - \cos\theta\right) - \tfrac12 m b^2\Omega^2\sin^2\theta,\qquad m b^2\ddot\theta = -\frac{dV_{\mathrm{eff}}}{d\theta}}$$
 >
-> **Units:** $\mathrm J$ for every term ($\mathrm{kg\,m^2\,s^{-2}}$); $\mathrm W$ for the power
-> **Meaning:** the motion along the hoop is that of a one-dimensional system with the coordinate $\theta$, the inertia $m b^2$ and the potential $V_{\mathrm{eff}}$: the gravity well of the pendulum minus a term that grows away from the axis. This constant is not the mechanical energy: the kinetic energy also contains the motion carried by the hoop, and the reaction normal to the hoop has a nonzero power, so the motor that keeps the rate constant feeds energy in and out (Notes.pdf, Sec. 4.5.1: the energy is conserved only when the non-conservative forces do no work). By Section 5 the mechanical energy changes at the rate of that power, and so does the subtracted term $m b^2\Omega^2\sin^2\theta$ (last row): their difference, the first integral, stays constant.
+> **Units:** $\mathrm J$ for every term ($\mathrm{kg\,m^2\,s^{-2}}$)
+> **Meaning:** the motion along the hoop is that of a one-dimensional system with the coordinate $\theta$, the inertia $m b^2$ and the potential $V_{\mathrm{eff}}$: the gravity well of the pendulum minus a term that grows away from the axis. The next box shows that this constant is not the mechanical energy.
+
+> [!derivation] Extension: the first integral is not the mechanical energy
+> **Law:** kinetic energy; power of the reaction of the hoop; rate of change of the mechanical energy equals the power of the non-conservative forces (Section 5)
+> **Source:** Notes.pdf, Sec. 4.5.1; Notes.pdf, Eq. 4.2
+>
+> $E$ is the mechanical energy of the bead, its kinetic energy plus the potential energy of the weight; the reaction $\mathbf N$ of the hoop is the only non-conservative force.
+>
+> $$\begin{aligned}
+> T &= \tfrac12 m\,\mathbf v_0^P\cdot\mathbf v_0^P \quad &\text{(kinetic energy, Eq. 4.2)} \\
+> &= \tfrac12 m b^2\dot\theta^2 + \tfrac12 m b^2\Omega^2\sin^2\theta \quad &\text{(velocity of the previous boxes; $\mathbf u_\theta\cdot\mathbf j_h = 0$)} \\
+> E &= \tfrac12 m b^2\dot\theta^2 + \tfrac12 m b^2\Omega^2\sin^2\theta + m g b\left(1 - \cos\theta\right) \quad &\text{(add the potential energy $m g b(1 - \cos\theta)$ of the weight)} \\
+> E - m b^2\Omega^2\sin^2\theta &= \tfrac12 m b^2\dot\theta^2 + V_{\mathrm{eff}}(\theta) \quad &\text{(subtract $m b^2\Omega^2\sin^2\theta$ and use the definition of $V_{\mathrm{eff}}$)} \\
+> \mathbf N\cdot\mathbf v_0^P &= N_h\,b\,\Omega\sin\theta \quad &\text{(power of the reaction: $\mathbf u_r\cdot\mathbf u_\theta = \mathbf u_r\cdot\mathbf j_h = 0$, so only $\mathbf j_h$ survives)} \\
+> &= 2m b^2\Omega^2\dot\theta\sin\theta\cos\theta \quad &\text{(reaction $N_h$ of the previous box)} \\
+> \frac{dE}{dt} &= \mathbf N\cdot\mathbf v_0^P \quad &\text{(Section 5: $dE_0/dt = \mathbf F_N\cdot\mathbf v_0^P$, the weight being conservative)} \\
+> \frac{d}{dt}\left(m b^2\Omega^2\sin^2\theta\right) &= 2m b^2\Omega^2\dot\theta\sin\theta\cos\theta \quad &\text{(chain rule twice: square, then sine)}
+> \end{aligned}$$
+>
+> $$\boxed{\frac{dE}{dt} = \mathbf N\cdot\mathbf v_0^P = 2m b^2\Omega^2\dot\theta\sin\theta\cos\theta = \frac{d}{dt}\left(m b^2\Omega^2\sin^2\theta\right)}$$
+>
+> **Units:** $\mathrm J$ for the energies; $\mathrm W$ ($\mathrm{kg\,m^2\,s^{-3}}$) for every term of the power
+> **Meaning:** the constant of the previous box is not the mechanical energy: the kinetic energy also contains the motion carried by the hoop, and the reaction normal to the hoop has a nonzero power, so the motor that keeps the rate constant feeds energy in and out (Notes.pdf, Sec. 4.5.1: the energy is conserved only when the non-conservative forces do no work). The mechanical energy changes at the rate of that power, and so does the subtracted term $m b^2\Omega^2\sin^2\theta$: their difference, the first integral, stays constant.
 
 > [!derivation] Extension: equilibria of the bead and their stability
 > **Law:** critical points of the effective potential; sign of its second derivative
