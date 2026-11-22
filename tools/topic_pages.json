@@ -294,6 +294,34 @@
     ]
    ]
   },
+  "subjects/engineering-mechanics/teoria/topic-3.html": {
+   "flavor": "mechanics",
+   "template": "tools/templates/em-theory-shell.html",
+   "note": "vault/03 - Engineering Mechanics/Topic 3 - Constraints and Reaction Forces.md",
+   "figures": "em_theory",
+   "html_title": "Topic 3: Constraints and Reaction Forces — Engineering Mechanics",
+   "category": "Topic 03 · Point Particle",
+   "title": "Constraints and Reaction Forces",
+   "subtitle": "Curves and surfaces as constraints, the tangent and normal subspaces, the reaction of a smooth constraint, motion on a smooth surface and along a smooth curve, Coulomb friction, and the Newtonian procedure for particle problems.",
+   "source": "Sources: Notes.pdf, chapters 6 and 7; Lecture 3.",
+   "nav": [
+    [
+     "topic-2.html",
+     "Topic 2",
+     "prev"
+    ],
+    [
+     "../problemas/topic-3.html",
+     "Topic 3 Problems (12)",
+     "center"
+    ],
+    [
+     "topic-4.html",
+     "Topic 4",
+     "next"
+    ]
+   ]
+  },
   "subjects/engineering-mechanics/teoria/topic-6.html": {
    "flavor": "mechanics",
    "template": "tools/templates/em-theory-shell.html",
