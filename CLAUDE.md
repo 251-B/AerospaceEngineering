@@ -63,6 +63,7 @@ Whenever a task changes the repository or the portal (a file created, edited or 
 
 - **`review` mode** for a single unit of work (one problem, note, page, fix or small change).
 - **`ultrareview` mode** when the work closes a chapter, problem sheet, exam, refactor or milestone, or when the user asks for it.
+  - It includes a **cross-review by the other agent**: Claude asks Antigravity for one (`antigravity_delegate`, `role="reviewer"` = Neon high, `mode="read_only"`, `timeout_sec` of 300 or more), passing the diff and the 2 to 5 files that matter; Antigravity asks Claude the same way (`claude_delegate`, Opus high). Check `antigravity_status` first. Re-verify each finding before fixing it. If the bridge is down, in cooldown or returns an empty response, say so in the final message instead of presenting the cross-review as done. The router fires `dual-agent-team` on these prompts (`.claude/skill_rules.json`).
 - Run the skill's checklist together with the repository gates listed in `AGENTS.md` (`vault_lint`, `audit_portal`, `render_check` on edited pages, tests). Fix every finding, re-verify it, and then run the gates again.
 - The final message states the outcome: what passed, what failed, what was skipped and why. If a check cannot run here (for example, a CDN or font is blocked), say so explicitly and do not present the task as closed.
 - Read-only work (answering questions, reading sources without editing anything) does not trigger this rule.

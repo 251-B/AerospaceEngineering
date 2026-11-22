@@ -8,6 +8,13 @@
    ]
   },
   {
+   "match": "\\b(ultrareview|auditoria profunda|revision cruzada|cierra el (tema|capitulo|examen)|fin de (tema|capitulo|examen)|hoja (terminada|completa))\\b",
+   "use": [
+    "review-ultrareview",
+    "dual-agent-team"
+   ]
+  },
+  {
    "match": "\\b(resuelve|resolver|hoja de problemas|problemas? \\d+|problemas del tema|ejercicio \\d+|solucion paso a paso)\\b",
    "use": [
     "agent:problem-step-mentor"
