@@ -20,7 +20,7 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 | Topic | Note | Figures | Page | Links | PDF | Audit | State | Commit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 Kinematics of a Point Particle | done: 102 boxes, Ch. 1-2, Lecture 1 Slides 3-29 | done: 28 (`em_th/t1.py`, `t1b.py`) | generated | done | printed | done: 22 findings, all verified and applied | done | see `git log` (`feat(mechanics): close Topic 1 theory`) |
-| 2 Dynamics, Equilibrium and Oscillations | done: 94 boxes, Ch. 4 Secs. 4.1-4.7, Ch. 5, Lecture 2 Slides 1-23, Lecture 6 Slides 1-15 | in progress: 32 briefed | pending | pending | pending | pending | in progress | `0b0a528` |
+| 2 Dynamics, Equilibrium and Oscillations | done: 96 boxes, Ch. 4 Secs. 4.1-4.7, Ch. 5, Lecture 2 Slides 1-23, Lecture 6 Slides 1-15 | done: 31 (`em_th/t2.py`, `t2b.py`) | generated | done | printed | done: 16 findings, all verified and applied | done | see `git log` (`feat(mechanics): close Topic 2 theory`) |
 | 3 Constraints and Reaction Forces | | | | | | | not started | |
 | 4 Angular Momentum and Central Forces | | | | | | | not started | |
 | 5 Relative Motion | | | | | | | not started | |
@@ -43,6 +43,8 @@ Related: [[Rules - EM Mission Progress]], [[Tool - build_topic_pages]].
 - **Topic 1 audit** (read-only, Opus): no wrong result or citation; 22 findings applied (latitude and colatitude glyphs swapped in four figures, the Cartesian projections of Slides 19 and 22 written out, the helix example derived from its position vector, merged rows split, symbols used twice renamed, four attributions to the sources toned down, the stray comma of Eq. 2.29 noted, seven figure defects).
 
 - **Test suite after Topic 1** (451 tests): 7 failures and 1 error, all present at the start commit of this branch as well (checked in a worktree of `origin/claude/clever-faraday-8xtaon`): the 3 known ones (`test_theme`, `test_solution_close`, `test_surface` close bar), the Aerospace Materials I bank (`test_build_materials_bank`: 2 failures and the setUpClass error), and the stale problem pages and PDFs of the orchestrator (`test_build_mech_problems`, `test_build_pdfs`). No failure comes from this branch.
+
+- **Topic 2 audit** (read-only, Opus): no wrong result or number, all six source issues confirmed; 16 findings applied (the curl cited to the printed Eq. 1.76 without its erratum, the oscillatory solution used before Section 8, the finiteness of the period integral and the double-root case argued, merged rows split, the second particle renamed P′ so that Q is only the quality factor, missing table entries, three figure defects).
 
 ## Conflicts between the brief and the repository (not resolved silently)
 

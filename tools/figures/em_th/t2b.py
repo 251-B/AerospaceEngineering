@@ -775,8 +775,6 @@ def hoop_plane():
     sc.label((Pb[0] / 2, Pb[1] / 2), "b", "HEAD", "middle", 19, dx=22, dy=-12)
     sc.label(H, "H", "HEAD", "end", 17, dx=-10, dy=20)
     sc.label(Pb, "P", "HEAD", "start", 18, dx=-4, dy=-14)
-    sc.label((0.0, Pb[1]), "distance to the axis", "TEXT", "end", 15, italic=False, dx=-12, dy=-30)
-    sc.label((0.0, Pb[1]), _i("b") + " sin " + _i("θ"), "TEXT", "end", 15, italic=False, dx=-12, dy=-12)
     return sc
 
 
@@ -813,6 +811,7 @@ def hoop_fbd():
     nr = _add(P, ur, -1.5)
     sc.vec(P, nr, None, "PINK", 4.0, head=13)
     sc.label(_add(P, ur, -1.5), S("N", "r") + bold("u") + S("", "r"), "PINK", "end", 19, weight="700", dx=-8, dy=-10)
+    sc.label(_add(P, ur, -1.5), "(drawn for " + S("N", "r") + " < 0)", "PINK", "end", 14, italic=False, dx=-8, dy=12)
     sc.label(_add(P, ur, 1.3), _i("m") + " " + _i("g") + " cos " + _i("θ"), "PINK", "start", 16, italic=False, dx=14, dy=6)
     sc.label(_add(A, (-0.866, -0.5), 0.5), _i("m") + " " + _i("g") + " sin " + _i("θ"), "PINK", "start", 16, italic=False, dx=12, dy=34)
     # angle between the weight and u_r
@@ -837,6 +836,7 @@ def hoop_fbd():
     sc.vec(B, _w(sc, bx, by_ - 100), None, "PINK", 4.0, head=13)
     sc.dotp(B, 6.0, "HEAD")
     sc.label(_w(sc, bx - 100, by_), S("N", "r"), "PINK", "middle", 19, weight="700", dy=26)
+    sc.label(_w(sc, bx - 100, by_), "(drawn for " + S("N", "r") + " < 0)", "PINK", "middle", 14, italic=False, dx=44, dy=50)
     sc.label(_w(sc, bx, by_ - 100), S("N", "h"), "PINK", "start", 19, weight="700", dx=12, dy=4)
     tx, ty = x0 + 40, y0 + 255
     T = _w(sc, tx, ty)

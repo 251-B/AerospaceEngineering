@@ -12,11 +12,11 @@ TEXT = {
         'A particle on a curved trajectory with its velocity and its linear momentum drawn along the same tangent line.',
         'The linear momentum $\\mathbf p_0$ has the direction and sense of the velocity $\\mathbf v_0^P$, tangent to the trajectory ([Lecture 2, Slide 3]).'),
     't2-action-reaction': (
-        'Two particles P and Q joined by a dashed line, with equal and opposite forces F on P and minus F on Q along that line.',
+        'Two particles P and P′ joined by a dashed line, with equal and opposite forces F on P and minus F on P′ along that line.',
         'Third law: action and reaction are equal, opposite and share the same line of action ([Lecture 2, Slide 6]).'),
     't2-momentum-conservation': (
         'An isolated system of two particles with equal and opposite internal forces and their momenta, whose vector sum is drawn as a constant total momentum.',
-        'In an isolated system the internal forces cancel in pairs and the total linear momentum $\\mathbf p_0^P + \\mathbf p_0^Q$ stays constant ([Lecture 2, Slide 8]).'),
+        'In an isolated system the internal forces cancel in pairs and the total linear momentum $\\mathbf p_0^P + \\mathbf p_0^{P\\prime}$ stays constant ([Lecture 2, Slide 8]).'),
     't2-free-body': (
         'A particle isolated in a dashed circle with three forces drawn from it, and beside it the polygon of the three forces closing with their resultant.',
         'Free-body diagram of a particle: every force acting on $P$ is drawn, and their vector sum is the resultant $\\mathbf F$ of the second law.'),
@@ -145,13 +145,13 @@ def action_reaction():
     sc.vec(Pp, (Pp[0] + 1.9, 0), None, "PINK", 3.4, head=12)
     sc.vec(Q, (Q[0] - 1.9, 0), None, "PINK", 3.4, head=12)
     sc.label((Pp[0] + 0.95, 0), bold("F"), "PINK", "middle", 19, weight="700", dy=-26)
-    sc.note((Pp[0] + 0.95, 0), "(force of Q on P)", "TEXT", "middle", 14, dy=-10)
+    sc.note((Pp[0] + 0.95, 0), "(force of P′ on P)", "TEXT", "middle", 14, dy=-10)
     sc.label((Q[0] - 0.95, 0), MINUS + bold("F"), "PINK", "middle", 19, weight="700", dy=-26)
-    sc.note((Q[0] - 0.95, 0), "(force of P on Q)", "TEXT", "middle", 14, dy=-10)
+    sc.note((Q[0] - 0.95, 0), "(force of P on P′)", "TEXT", "middle", 14, dy=-10)
     sc.dotp(Pp, 5.0, "HEAD")
     sc.dotp(Q, 5.0, "HEAD")
     sc.label(Pp, "P", "HEAD", "middle", 19, dy=28)
-    sc.label(Q, "Q", "HEAD", "middle", 19, dy=28)
+    sc.label(Q, "P′", "HEAD", "middle", 19, dy=28)
     sc.note((0, 0), "common line of action", "TEXT", "middle", 14, dy=22)
     return sc
 
@@ -182,11 +182,11 @@ def momentum_conservation():
     sc.vec(P, (P[0] + pP[0], P[1] + pP[1]), None, ORANGE, 3.2, head=11)
     sc.vec(Q, (Q[0] + pQ[0], Q[1] + pQ[1]), None, ORANGE, 3.2, head=11)
     sc.label((P[0] + pP[0], P[1] + pP[1]), _vb("p", "0", "P"), ORANGE, "end", 18, weight="700", dx=-8, dy=-6)
-    sc.label((Q[0] + pQ[0], Q[1] + pQ[1]), _vb("p", "0", "Q"), ORANGE, "start", 18, weight="700", dx=8, dy=20)
+    sc.label((Q[0] + pQ[0], Q[1] + pQ[1]), _vb("p", "0", "P′"), ORANGE, "start", 18, weight="700", dx=8, dy=20)
     sc.dotp(P, 5.0, "HEAD")
     sc.dotp(Q, 5.0, "HEAD")
     sc.label(P, "P", "HEAD", "middle", 19, dx=-14, dy=24)
-    sc.label(Q, "Q", "HEAD", "middle", 19, dx=14, dy=-14)
+    sc.label(Q, "P′", "HEAD", "middle", 19, dx=14, dy=-14)
     sc.note((cen[0], cen[1] - 1.95), "isolated system", "TEXT", "middle", 14, dy=10)
     # right panel: vector sum, tail to tail
     C = (8.8, 1.3)
@@ -200,9 +200,9 @@ def momentum_conservation():
     sc.line(tQ, tS, "EDGE", 1.2, "5 4")
     sc.vec(C, tS, None, "BLUE", 3.8, head=13)
     sc.label(tP, _vb("p", "0", "P"), ORANGE, "end", 18, weight="700", dx=-8, dy=-6)
-    sc.label(tQ, _vb("p", "0", "Q"), ORANGE, "start", 18, weight="700", dx=8, dy=20)
+    sc.label(tQ, _vb("p", "0", "P′"), ORANGE, "start", 18, weight="700", dx=8, dy=20)
     sc.label(tS, _vb("p", "0") + " constant", "BLUE", "start", 18, weight="700", dx=12, dy=-12, italic=False)
-    sc.note((C[0] + 0.5, C[1] - 1.9), _vb("p", "0") + " = " + _vb("p", "0", "P") + " + " + _vb("p", "0", "Q"), "TEXT", "middle", 15)
+    sc.note((C[0] + 0.5, C[1] - 1.9), _vb("p", "0") + " = " + _vb("p", "0", "P") + " + " + _vb("p", "0", "P′"), "TEXT", "middle", 15)
     sc.dotp(C, 3.5, "HEAD")
     sc.note((C[0] + 0.5, C[1] - 2.4), "vector sum", "TEXT", "middle", 14)
     return sc
@@ -508,32 +508,34 @@ def _ex_roots(level, x0=-1.0, x1=8.0, n=4000):
 
 @_fig("t2-energy-diagram")
 def energy_diagram():
-    sc = Scene(830, 440, (110, 290), 74)
+    sc = Scene(900, 440, (180, 290), 74)
     V0 = "V" + S("", "0")
     vmin, vmax = _V(XVALLEY), _V(XPEAK1)
     E = [vmin + f * (vmax - vmin) for f in (0.30, 0.70, 1.10)]
     ytop, ybot = E[2] * YS + 0.12, -1.3 * YS
     # forbidden intervals of the lowest level: V0 > E_{0,1}
-    r = [-1.0] + _ex_roots(E[0]) + [8.0]
+    XL = -1.6
+    roots = _ex_roots(E[0], x0=XL)
+    r = [XL] + roots + [8.0]
     for i in range(len(r) - 1):
         m = (r[i] + r[i + 1]) / 2
         if _V(m) > E[0]:
             sc.poly([(r[i], ybot), (r[i + 1], ybot), (r[i + 1], ytop), (r[i], ytop)], "HEAD", 0.0, fill="EDGE", close=True,
                     opacity=0.16)
-    _vgraph(sc, None, names=("x", V0 + "(x)"), ya=(-1.3, 2.5))
+    _vgraph(sc, None, x0=XL, xa=(-1.9, 8.4), names=("x", V0 + "(x)"), ya=(-1.3, 2.5))
     sc.line((1.0, 0.0), (1.0, -0.05), "EDGE", 1.3)
     sc.label((1.0, 0.0), "1", "TEXT", "middle", 15, italic=False, dy=19)
     sc.line((0.0, 0.5 * YS), (-0.05, 0.5 * YS), "EDGE", 1.3)
     sc.label((0.0, 0.5 * YS), "0.5", "TEXT", "end", 15, italic=False, dx=-9, dy=5)
     sc.label((0.0, 0.0), "0, 0", "TEXT", "end", 15, italic=False, dx=-8, dy=18)
     for i, e in enumerate(E):
-        sc.line((-1.1, e * YS), (8.3, e * YS), "BLUE", 1.8, "8 5")
+        sc.line((XL - 0.1, e * YS), (8.3, e * YS), "BLUE", 1.8, "8 5")
         sc.label((8.3, e * YS), S("E", f"0,{i + 1}"), "BLUE", "start", 18, weight="700", dx=6, dy=5)
-    for x in _ex_roots(E[0]):
+    for x in roots:
         sc.dotp((x, E[0] * YS), 4.8, "GREEN")
-    xt = _ex_roots(E[0])[0]
-    sc.label((xt, E[0] * YS), "turning point", "GREEN", "end", 15, italic=False, dx=-16, dy=-12)
-    for a, b in ((r[0], r[1]), (r[2], r[3])):
+    xt = roots[1]
+    sc.label((xt, E[0] * YS), "turning point", "GREEN", "end", 15, italic=False, dx=-26, dy=-10)
+    for a, b in zip(r[:-1], r[1:]):
         if _V((a + b) / 2) > E[0]:
             sc.note(((a + b) / 2, ybot), "forbidden", "TEXT", "middle", 14, dy=-8)
     xv = XVALLEY

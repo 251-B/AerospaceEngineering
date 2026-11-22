@@ -21,6 +21,7 @@
 <line x1="290.0" y1="190.0" x2="181.1" y2="98.6" stroke="#ec4899" stroke-width="4.0"/>
 <path d="M175.1,93.6 L187.5,97.4 L181.0,105.2 Z" fill="#ec4899"/>
 <text x="167.1" y="83.6" fill="#ec4899" font-size="19" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N<tspan baseline-shift="sub" font-size="70%">r</tspan><tspan font-weight="700" font-style="normal">u</tspan><tspan baseline-shift="sub" font-size="70%">r</tspan></text>
+<text x="167.1" y="105.6" fill="#ec4899" font-size="14" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">(drawn for N<tspan baseline-shift="sub" font-size="70%">r</tspan> < 0)</text>
 <text x="403.6" y="279.6" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums"><tspan font-style="italic">m</tspan> <tspan font-style="italic">g</tspan> cos <tspan font-style="italic">θ</tspan></text>
 <text x="357.2" y="331.6" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums"><tspan font-style="italic">m</tspan> <tspan font-style="italic">g</tspan> sin <tspan font-style="italic">θ</tspan></text>
 <path d="M290.0,270.0 A80.0,80.0 0 0 0 351.3,241.4" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
@@ -43,6 +44,7 @@
 <path d="M830.0,305.0 L835.1,317.0 L824.9,317.0 Z" fill="#ec4899"/>
 <circle cx="830.0" cy="405.0" r="6.0" fill="#4b5563"/>
 <text x="730.0" y="431.0" fill="#ec4899" font-size="19" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N<tspan baseline-shift="sub" font-size="70%">r</tspan></text>
+<text x="774.0" y="455.0" fill="#ec4899" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">(drawn for N<tspan baseline-shift="sub" font-size="70%">r</tspan> < 0)</text>
 <text x="842.0" y="309.0" fill="#ec4899" font-size="19" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">N<tspan baseline-shift="sub" font-size="70%">h</tspan></text>
 <line x1="680.0" y1="470.0" x2="733.4" y2="470.0" stroke="#3b82f6" stroke-width="3.0"/>
 <path d="M740.0,470.0 L729.9,474.3 L729.9,465.7 Z" fill="#3b82f6"/>

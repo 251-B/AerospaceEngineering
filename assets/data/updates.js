@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-22-mechanics-topic-2-theory",
+    "date": "2026-11-22",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 2 theory rewritten step by step",
+    "text": "Dynamics, energy, equilibrium and the harmonic oscillator now build every result in boxed steps, with resonance, linearisation and 31 new figures.",
+    "link": "subjects/engineering-mechanics/teoria/topic-2.html"
+  },
+  {
     "id": "2026-11-21-mechanics-topic-1-theory",
     "date": "2026-11-21",
     "tag": "Engineering Mechanics",

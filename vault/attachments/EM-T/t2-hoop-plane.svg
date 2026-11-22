@@ -32,6 +32,4 @@
 <text x="437.0" y="369.3" fill="#4b5563" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">b</text>
 <text x="320.0" y="472.7" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">H</text>
 <text x="496.1" y="438.7" fill="#4b5563" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
-<text x="318.0" y="422.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">distance to the axis</text>
-<text x="318.0" y="440.7" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums"><tspan font-style="italic">b</tspan> sin <tspan font-style="italic">θ</tspan></text>
 </g></svg>
