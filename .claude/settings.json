@@ -11,5 +11,17 @@
     "humanizer@synced": true,
     "claude-code-setup@claude-plugins-official": true
   },
-  "teammateMode": "in-process"
+  "teammateMode": "in-process",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/skill_router.py\""
+          }
+        ]
+      }
+    ]
+  }
 }

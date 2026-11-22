@@ -31,3 +31,6 @@ graphify-out/
 _site/
 tools/ai_training/out/
 sideris_out/
+
+# task-observer log (personal)
+skill-observations/

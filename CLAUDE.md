@@ -130,7 +130,8 @@ Use the cheapest model that can do the job well. The main session is the orchest
 - Agent teams: keep to 3–5 members, limit tasks to 5–6 per teammate, and shut teammates down as soon as they finish.
 - Ignore `define_subagent` / `manage_subagents` instructions if you find them elsewhere; they belong to the Gemini setup in `GEMINI.md`.
 - Token compression (optional, per machine): install with `pip install "headroom-ai[all]"` and register the MCP server with `headroom mcp install` (tool `headroom_retrieve`, shown as `mcp__headroom__headroom_retrieve`). To run a session through the compression proxy, use `headroom wrap claude` instead of `claude`. Check the setup with `headroom mcp status`.
-- `task-observer` (meta-skill from `rebelytics/one-skill-to-rule-them-all`) is bundled in `.claude/skills/task-observer/` and `.agents/skills/task-observer/`; keep both copies identical, as with the other project skills.
+- `task-observer` (meta-skill from `rebelytics/one-skill-to-rule-them-all`) is bundled in `.claude/skills/task-observer/` and `.agents/skills/task-observer/`; keep both copies identical, as with the other project skills. Invoke it before the first tool call of every session (main session only; subagents do not run it). Its log lives in `skill-observations/` (gitignored); ask "revisa las observaciones de task-observer" to turn it into skill proposals.
+- Skill router hook: `.claude/hooks/skill_router.py` (`UserPromptSubmit` in `.claude/settings.json`) adds a one-line note when a prompt names a bug ("error", "falla", "404", "no compila", ...) or a new page or feature ("crea una página", "diseña", ...), asking Claude to invoke `superpowers:systematic-debugging` or `superpowers:brainstorming`. Ordinary prompts get nothing. Edit `RULES` in the script to change the keywords.
 
 ## Ask AI prompt: repository links and location
 
