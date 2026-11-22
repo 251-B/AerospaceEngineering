@@ -19,7 +19,7 @@ bytes: 234430
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems T10_CompositeMaterials.pdf`
 - **Kind:** problemas
 - **Size:** 234.4 kB
-- **Status:** referenced by 13 note(s) below
+- **Status:** referenced by 23 note(s) below
 
 ## Referenced by
 
@@ -36,3 +36,13 @@ bytes: 234430
 - [[02 - Aerospace Materials I/Problem - T10-10 Stress on the Fibres of a Glass-Epoxy Rod]]
 - [[02 - Aerospace Materials I/Problem - T10-11 Lighter Replacements for a Titanium Part]]
 - [[02 - Aerospace Materials I/Problem - T10-12 Density of a Porous Tungsten Matrix Infiltrated with Silver]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P22 - Mass-Specified Boron-Aluminium Aerospace Strut]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P23 - Glass-Epoxy Composite Replacing Metallic Plate]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P26 - Hybrid Carbon-Glass Wing Spar Comparison]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P27 - Spacecraft Strut Mass Reduction and Specific Properties]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P28 - Candidate Fiber Selection Under Stiffness and Strength Limits]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P29 - Inverse Fiber Volume Fraction from Allowable Fiber Stress]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P30 - Porous Metal Matrix Infiltration and Target Modulus]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B102 - Unit 10 Metal Matrix Composites and Processing]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B98 - Unit 10 Longitudinal Isostrain Micromechanics]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

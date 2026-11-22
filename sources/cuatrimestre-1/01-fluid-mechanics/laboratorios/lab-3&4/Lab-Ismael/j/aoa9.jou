@@ -1,0 +1,40 @@
+/file/start-transcript "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fluent_aoa9.txt"
+/define/boundary-conditions/velocity-inlet inlet
+no
+yes
+yes
+no
+0
+no
+9.8769
+no
+1.5643
+no
+no
+yes
+no
+10
+/solve/report-definitions/edit lift_coeff
+force-vector -0.1564 0.9877
+q
+/solve/initialize/hyb-initialization
+ok
+/solve/iterate 5000
+/plot/plot
+yes
+"C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/pcoeff_aoa9.txt"
+no
+no
+no
+pressure-coefficient
+yes
+1
+0
+wing
+()
+/report/forces/wall-forces
+yes
+-0.1564
+0.9877
+no
+/file/stop-transcript

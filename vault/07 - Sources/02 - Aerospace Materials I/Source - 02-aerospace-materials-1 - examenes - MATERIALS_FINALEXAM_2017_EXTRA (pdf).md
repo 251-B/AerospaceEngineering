@@ -19,7 +19,7 @@ bytes: 343857
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2017_EXTRA.pdf`
 - **Kind:** examenes
 - **Size:** 343.9 kB
-- **Status:** referenced by 6 note(s) below
+- **Status:** referenced by 15 note(s) below
 
 ## Referenced by
 
@@ -28,4 +28,13 @@ bytes: 343857
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P11 - Carbon Content of a Steel from Its Micrograph]]
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P12 - Three Steels Compared Microconstituents Hardness and Alloying]]
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P19 - Aluminium Alloy Specimen Loaded beyond Yield and Unloaded]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P21 - Unidirectional Carbon-Epoxy Rod Under Axial Load]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P24 - Carbon-Polycarbonate Stiffener Micromechanics]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P35 - Contaminated Polymer Blend Molecular Weights]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B15 - Unit 4 Steels Cooling Rate Alloying and Ceramic Diagrams]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B52 - Unit 7 Thermal Stresses and Thermal Shock]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B55 - Unit 6 Extrinsic Semiconductors Dopants and Carrier Data]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B65 - Unit 8 Fluorite Antifluorite Perovskite and Corundum]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B98 - Unit 10 Longitudinal Isostrain Micromechanics]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

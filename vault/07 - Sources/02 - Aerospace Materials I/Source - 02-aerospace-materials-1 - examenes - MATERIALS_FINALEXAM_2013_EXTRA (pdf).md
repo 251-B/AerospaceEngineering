@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - examenes
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_EXTRA.pdf"
 kind: examenes
-status: not-referenced
+status: referenced
 bytes: 124699
 ---
 
@@ -19,8 +19,11 @@ bytes: 124699
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_EXTRA.pdf`
 - **Kind:** examenes
 - **Size:** 124.7 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 4 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B110 - Unit 11 Surface Preparation Primers and Joint Production]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B15 - Unit 4 Steels Cooling Rate Alloying and Ceramic Diagrams]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B60 - Unit 7 Loop Factors Curie and Neel Temperatures and Superconductors]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B83 - Unit 9 Crystallinity Effects on Polymer Properties]]

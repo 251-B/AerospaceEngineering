@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - examenes
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_ORD.pdf"
 kind: examenes
-status: not-referenced
+status: referenced
 bytes: 97800
 ---
 
@@ -19,8 +19,10 @@ bytes: 97800
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_ORD.pdf`
 - **Kind:** examenes
 - **Size:** 97.8 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 3 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B100 - Unit 10 Prepregs Laminates and Autoclave Cure]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B55 - Unit 6 Extrinsic Semiconductors Dopants and Carrier Data]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B93 - Unit 10 Fiber Matrix Roles and Glass Fibers]]

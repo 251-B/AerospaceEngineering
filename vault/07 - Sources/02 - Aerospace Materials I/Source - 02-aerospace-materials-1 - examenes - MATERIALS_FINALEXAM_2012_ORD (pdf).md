@@ -19,8 +19,15 @@ bytes: 130363
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_ORD.pdf`
 - **Kind:** examenes
 - **Size:** 130.4 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 8 note(s) below
 
 ## Referenced by
 
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P28 - Candidate Fiber Selection Under Stiffness and Strength Limits]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B33 - Unit 6 Energy Bands and Classification of Materials]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B60 - Unit 7 Loop Factors Curie and Neel Temperatures and Superconductors]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B72 - Unit 8 Glasses Formers Modifiers and Glass-Ceramics]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B87 - Unit 9 Temperature Strain Rate and Viscoelasticity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B98 - Unit 10 Longitudinal Isostrain Micromechanics]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

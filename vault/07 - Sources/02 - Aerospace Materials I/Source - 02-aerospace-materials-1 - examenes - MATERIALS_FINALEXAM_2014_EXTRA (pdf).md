@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - examenes
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_EXTRA.pdf"
 kind: examenes
-status: not-referenced
+status: referenced
 bytes: 111586
 ---
 
@@ -19,8 +19,13 @@ bytes: 111586
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_EXTRA.pdf`
 - **Kind:** examenes
 - **Size:** 111.6 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 6 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B110 - Unit 11 Surface Preparation Primers and Joint Production]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B29 - Unit 5 Strengthening Principle and Strain Hardening]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B47 - Unit 7 Soft and Hard Magnetic Materials]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B70 - Unit 8 Ceramic Mechanical Properties and Porosity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B85 - Unit 9 Structural Factors Controlling Tg and Tm]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B99 - Unit 10 Transverse Isostress and Fracture Curves]]

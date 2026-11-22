@@ -19,7 +19,7 @@ bytes: 1405429
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf`
 - **Kind:** examenes
 - **Size:** 1.4 MB
-- **Status:** referenced by 12 note(s) below
+- **Status:** referenced by 16 note(s) below
 
 ## Referenced by
 
@@ -34,4 +34,8 @@ bytes: 1405429
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P15 - Resilience and True Stress of a Steel Read from Its Stress-Strain Curve]]
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P16 - Rebuilding the Raw Measurements of a Magnesium Alloy Tensile Test from Its Report]]
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P20 - Minimum Diameter of a Titanium Hanger Rod]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P24 - Carbon-Polycarbonate Stiffener Micromechanics]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B100 - Unit 10 Prepregs Laminates and Autoclave Cure]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B86 - Unit 9 Stress Strain Curves and Deformation of Polymers]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

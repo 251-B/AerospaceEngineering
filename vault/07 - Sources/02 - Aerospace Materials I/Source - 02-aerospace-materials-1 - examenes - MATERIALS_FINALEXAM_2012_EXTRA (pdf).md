@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - examenes
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_EXTRA.pdf"
 kind: examenes
-status: not-referenced
+status: referenced
 bytes: 79422
 ---
 
@@ -19,8 +19,12 @@ bytes: 79422
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_EXTRA.pdf`
 - **Kind:** examenes
 - **Size:** 79.4 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 5 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B53 - Unit 6 Metallic and Ionic Conduction Applied]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B61 - Unit 7 Superconductor Applications Heat Capacity and Thermal Expansion]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B70 - Unit 8 Ceramic Mechanical Properties and Porosity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B87 - Unit 9 Temperature Strain Rate and Viscoelasticity]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

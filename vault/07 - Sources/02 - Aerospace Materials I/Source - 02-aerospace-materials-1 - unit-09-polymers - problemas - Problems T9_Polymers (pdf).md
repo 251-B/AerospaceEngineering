@@ -19,7 +19,7 @@ bytes: 233803
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems T9_Polymers.pdf`
 - **Kind:** problemas
 - **Size:** 233.8 kB
-- **Status:** referenced by 10 note(s) below
+- **Status:** referenced by 19 note(s) below
 
 ## Referenced by
 
@@ -33,3 +33,12 @@ bytes: 233803
 - [[02 - Aerospace Materials I/Problem - T9-07 Weight Average Polydispersity and Repeat Unit of a Polyalkene]]
 - [[02 - Aerospace Materials I/Problem - T9-08 Number and Weight Averages and Monomer of an Unknown Polymer]]
 - [[02 - Aerospace Materials I/Problem - T9-09 Densities of Crystalline and Amorphous Polypropylene]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B78 - Unit 9 Molecular Weight Averages and Polydispersity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B80 - Unit 9 Stereoisomerism Tacticity and Polymer Repeat Units]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B81 - Unit 9 Semicrystalline Structure Spherulites and Lamellae]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B82 - Unit 9 Factors Governing Polymer Crystallinity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B83 - Unit 9 Crystallinity Effects on Polymer Properties]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B85 - Unit 9 Structural Factors Controlling Tg and Tm]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B86 - Unit 9 Stress Strain Curves and Deformation of Polymers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B87 - Unit 9 Temperature Strain Rate and Viscoelasticity]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

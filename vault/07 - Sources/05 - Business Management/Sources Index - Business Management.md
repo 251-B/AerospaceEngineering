@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 35
+- Files: 36
 - Referenced by at least one note (a mention counts): 23
-- Not referenced yet: 12
+- Not referenced yet: 13
 - Build artifacts: 0
 - Working files: 0
 
@@ -21,6 +21,12 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 05-business-management - README (md)\|README.md]] | other | not-referenced |
+
+## business-plan/FeedbackOtherCorrections
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 05-business-management - business-plan - FeedbackOtherCorrections - Feedback_Group46_Group_B (pdf)\|Feedback_Group46_Group_B.pdf]] | other | not-referenced |
 
 ## business-plan/teoria
 

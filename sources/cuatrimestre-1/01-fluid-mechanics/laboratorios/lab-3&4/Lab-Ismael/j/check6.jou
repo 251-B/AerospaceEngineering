@@ -1,0 +1,8 @@
+/file/start-transcript "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fluent_check6_saved.txt"
+/define/boundary-conditions/list-zones
+/report/forces/wall-forces
+yes
+-0.1045
+0.9945
+no
+/file/stop-transcript

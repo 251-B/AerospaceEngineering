@@ -1,0 +1,11 @@
+/display/set/colors/wall-faces black
+/display/set/overlays? no
+/display/objects/display wingmesh
+/display/set/overlays? yes
+/display/objects/display velocity-wake
+/views/camera/target 1.08 0.0 0
+/views/camera/position 1.08 0.0 10
+/views/camera/up-vector 0 1 0
+/views/camera/field 0.42 0.26
+/display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig3_quiver_wake_aoa6.png"
+yes

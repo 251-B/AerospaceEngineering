@@ -19,9 +19,15 @@ bytes: 345073
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_ORD_SOL.pdf`
 - **Kind:** examenes
 - **Size:** 345.1 kB
-- **Status:** referenced by 2 note(s) below
+- **Status:** referenced by 8 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P18 - Choosing the Alloy of a Light Control Rod]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P29 - Inverse Fiber Volume Fraction from Allowable Fiber Stress]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P32 - Fluorite Oxide Unit Cell from Crystallographic Planes]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B19 - Unit 5 Youngs Modulus Bonding and Non-Linear Elasticity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B59 - Unit 7 Domains Hysteresis and the Tables of Magnetic Materials]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B89 - Unit 9 Polymer Processing for Thermoplastics]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

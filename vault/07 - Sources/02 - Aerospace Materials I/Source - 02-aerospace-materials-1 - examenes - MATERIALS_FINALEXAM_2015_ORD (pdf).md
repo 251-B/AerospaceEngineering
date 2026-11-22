@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - examenes
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_ORD.pdf"
 kind: examenes
-status: not-referenced
+status: referenced
 bytes: 963307
 ---
 
@@ -19,8 +19,13 @@ bytes: 963307
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_ORD.pdf`
 - **Kind:** examenes
 - **Size:** 963.3 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 6 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B107 - Unit 11 Adhesive Constituents and Classification]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B17 - Unit 5 Elastic and Plastic Deformation]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B39 - Unit 6 Extrinsic Semiconductors, Dopants and Carriers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B83 - Unit 9 Crystallinity Effects on Polymer Properties]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B88 - Unit 9 Thermoplastics Thermosets and Elastomers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B95 - Unit 10 Textiles Laminates Sandwich and GLARE]]

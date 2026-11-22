@@ -1,0 +1,49 @@
+/surface/line-surface s1.000 1.000 -10 1.000 10
+/surface/line-surface s1.025 1.025 -10 1.025 10
+/surface/line-surface s1.050 1.050 -10 1.050 10
+/surface/line-surface s1.075 1.075 -10 1.075 10
+/surface/line-surface s1.100 1.100 -10 1.100 10
+/surface/line-surface s1.200 1.200 -10 1.200 10
+/surface/line-surface s-0.050 -0.050 -10 -0.050 10
+/surface/line-surface s0.000 0.000 -10 0.000 10
+/surface/line-surface s0.025 0.025 -10 0.025 10
+/surface/line-surface s0.050 0.050 -10 0.050 10
+/surface/line-surface s0.100 0.100 -10 0.100 10
+/surface/line-surface s0.150 0.150 -10 0.150 10
+/surface/line-surface s0.200 0.200 -10 0.200 10
+/display/objects/edit velocity-wake
+surfaces-list
+s1.000
+s1.025
+s1.050
+s1.075
+s1.100
+s1.200
+()
+q
+/display/objects/edit velocity-le
+surfaces-list
+s-0.050
+s0.000
+s0.025
+s0.050
+s0.100
+s0.150
+s0.200
+()
+q
+/display/objects/edit wingmesh
+surfaces-list
+wing
+()
+q
+/display/set/overlays? no
+/display/objects/display wingmesh
+/display/set/overlays? yes
+/display/objects/display velocity-wake
+/views/camera/target 1.09 0.0 0
+/views/camera/position 1.09 0.0 10
+/views/camera/up-vector 0 1 0
+/views/camera/field 0.36 0.22
+/display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig3_quiver_wake_aoa6_v2.png"
+yes

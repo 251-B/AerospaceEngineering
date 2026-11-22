@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - examenes
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_THIRDPARTIAL_2020.pdf"
 kind: examenes
-status: not-referenced
+status: referenced
 bytes: 851639
 ---
 
@@ -19,8 +19,32 @@ bytes: 851639
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_THIRDPARTIAL_2020.pdf`
 - **Kind:** examenes
 - **Size:** 851.6 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 25 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P25 - Hybrid Graphite-Kevlar Epoxy Laminate]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B100 - Unit 10 Prepregs Laminates and Autoclave Cure]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B101 - Unit 10 PMC Closed Mold and Continuous Processes]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B103 - Unit 10 Ceramic Matrix Composites and Toughening]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B104 - Unit 10 Aerospace Composite Applications and Certification]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B63 - Unit 8 Ceramic Bonding and Packing Rules]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B64 - Unit 8 AX Crystal Structures CsCl NaCl and ZnS]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B72 - Unit 8 Glasses Formers Modifiers and Glass-Ceramics]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B74 - Unit 8 Colloidal Shaping Slip Tape Extrusion and Injection]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B79 - Unit 9 Chain Architecture Copolymers and Isomerism]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B82 - Unit 9 Factors Governing Polymer Crystallinity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B84 - Unit 9 Glass Transition and Melting Temperatures]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B85 - Unit 9 Structural Factors Controlling Tg and Tm]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B86 - Unit 9 Stress Strain Curves and Deformation of Polymers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B87 - Unit 9 Temperature Strain Rate and Viscoelasticity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B88 - Unit 9 Thermoplastics Thermosets and Elastomers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B89 - Unit 9 Polymer Processing for Thermoplastics]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B90 - Unit 9 Thermoset Processing and Polymer Selection]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B91 - Unit 10 Composite Concept and Classification]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B92 - Unit 10 Particle and Dispersion Strengthened Composites]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B93 - Unit 10 Fiber Matrix Roles and Glass Fibers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B96 - Unit 10 Polymer Matrices Thermoset vs Thermoplastic]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B97 - Unit 10 Composite Interface and Fiber Alignment]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B98 - Unit 10 Longitudinal Isostrain Micromechanics]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

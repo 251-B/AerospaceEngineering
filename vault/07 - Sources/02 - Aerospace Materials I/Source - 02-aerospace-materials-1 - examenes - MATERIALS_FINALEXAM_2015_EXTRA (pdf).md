@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - examenes
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_EXTRA.pdf"
 kind: examenes
-status: not-referenced
+status: referenced
 bytes: 827771
 ---
 
@@ -19,8 +19,15 @@ bytes: 827771
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_EXTRA.pdf`
 - **Kind:** examenes
 - **Size:** 827.8 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 8 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B103 - Unit 10 Ceramic Matrix Composites and Toughening]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B12 - Unit 4 Intermetallic Compounds and the Fe-Fe3C Diagram]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B13 - Unit 4 The Fe-Fe3C Diagram]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B15 - Unit 4 Steels Cooling Rate Alloying and Ceramic Diagrams]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B36 - Unit 6 Matthiessen Rule, Residual Resistivity and Hardening]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B60 - Unit 7 Loop Factors Curie and Neel Temperatures and Superconductors]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B69 - Unit 8 Ceramic Point Defects and Ionic Lattice Energy]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B90 - Unit 9 Thermoset Processing and Polymer Selection]]

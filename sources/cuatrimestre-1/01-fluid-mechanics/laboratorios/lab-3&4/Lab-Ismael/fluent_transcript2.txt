@@ -1,0 +1,904 @@
+Transcript Start Time:  23:19:08, 21 Nov 2026 Hora estándar romance 
+Current Directory: "C:\Users\Ismael\Documents\GitHub\AerospaceEngineering\sources\cuatrimestre-1\01-fluid-mechanics\laboratorios\lab-3&4\Lab3Geometry_files\dp0\FFF\Fluent"
+
+Build Time: Feb  2 2026 16:27:16 EST 
+Executable Path: C:/PROGRA~1/ANSYSI~1/ANSYSS~1/v261/fluent/ntbin/win64/fluent.exe
+
+------------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                          
+------------------------------------------------------------------------------------------
+n3    DESKTOP-KHPO3PU  4/16  Windows-x64  9808   13th Gen Intel(R) Core(TM) i7-13620H    
+n2    DESKTOP-KHPO3PU  3/16  Windows-x64  25136  13th Gen Intel(R) Core(TM) i7-13620H    
+n1    DESKTOP-KHPO3PU  2/16  Windows-x64  20364  13th Gen Intel(R) Core(TM) i7-13620H    
+n0*   DESKTOP-KHPO3PU  1/16  Windows-x64  25392  13th Gen Intel(R) Core(TM) i7-13620H    
+host  DESKTOP-KHPO3PU        Windows-x64  26160  13th Gen Intel(R) Core(TM) i7-13620H    
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------------
+
+Cortex Process ID: 18224 
+License Server Path: () 
+
+
+> /define/boundary-conditions/zone-name wall-surface_body wing
+
+> /define/models/solver/pressure-based yes
+
+> /define/models/viscous/spalart-allmaras yes
+
+> /define/boundary-conditions/velocity-inlet (inlet)
+inlet
+Velocity Specification Method: Magnitude and Direction [no] no
+Velocity Specification Method: Components [no] yes
+Reference Frame: Absolute [yes] yes
+Use Profile for Supersonic/Initial Gauge Pressure? [no] no
+Supersonic/Initial Gauge Pressure (constant or expression) (in [Pa]) [0] 0
+Use Profile for X-Velocity? [no] no
+X-Velocity (constant or expression) (in [m/s]) [0] 9.945
+Use Profile for Y-Velocity? [no] no
+Y-Velocity (constant or expression) (in [m/s]) [0] 1.045
+Turbulence Specification Method: Modified Turbulent Viscosity [no] no
+Turbulence Specification Method: Intensity and Length Scale [no] no
+Turbulence Specification Method: Turbulent Viscosity Ratio [yes] yes
+Use Profile for Turbulent Viscosity Ratio? [no] no
+Turbulent Viscosity Ratio (constant or expression) [10] 10
+
+> /report/reference-values/compute/velocity-inlet (inlet)
+inlet
+
+> /solve/monitors/residual/convergence-criteria
+continuity residual convergence criterion [0.001] 1e-6
+x-velocity residual convergence criterion [0.001] 1e-6
+y-velocity residual convergence criterion [0.001] 1e-6
+nut residual convergence criterion [0.001] 0.001
+
+> /solve/set/discretization-scheme
+
+//solve/set/discretization-scheme> mom
+Convective discretization scheme for Momentum (0 1 4 6) [1] 
+
+//solve/set/discretization-scheme> q
+
+> /solve/report-definitions/add lift_coeff lift
+
+/solve/report-definitions/add/lift_coeff> 
+average-over            per-zone?               thread-names
+force-vector            scaled?
+
+/solve/report-definitions/add/lift_coeff> force-vector -0.1045 0.9945
+
+/solve/report-definitions/add/lift_coeff> thread-names wing ()
+
+/solve/report-definitions/add/lift_coeff> scaled? yes
+
+/solve/report-definitions/add/lift_coeff> q
+
+> /solve/report-plots/add lift_coeff-rplot
+
+/solve/report-plots/add/lift_coeff-rplot> 
+active?                                         print?
+evaluate?                                       report-defs
+frequency                                       title
+frequency-of                                    x-label
+name                                            y-label
+plot-instantaneous-values?
+
+/solve/report-plots/add/lift_coeff-rplot> report-defs lift_coeff ()
+
+/solve/report-plots/add/lift_coeff-rplot> print? yes
+
+/solve/report-plots/add/lift_coeff-rplot> q
+
+> /solve/report-definitions/list
+lift_coeff
+
+> (cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions"))
+(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions"))
+(cx-gui-do cx-set-list-selections "Boundary Conditions*Table1*List2(Zone)" '( 0))
+(cx-gui-do cx-activate-item "Boundary Conditions*Table1*List2(Zone)")
+(cx-gui-do cx-activate-item "Boundary Conditions*Table1*Table3*Table4*ButtonBox1*PushButton1(Edit)")
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 1)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 2)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 3)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 4)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 5)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 6)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 7)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 8)
+(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-item "Velocity Inlet*PanelButtons*PushButton2(Cancel)")
+(cx-gui-do cx-set-list-selections "Boundary Conditions*Table1*List2(Zone)" '( 2))
+(cx-gui-do cx-activate-item "Boundary Conditions*Table1*List2(Zone)")
+(cx-gui-do cx-activate-item "Boundary Conditions*Table1*Table3*Table4*ButtonBox1*PushButton1(Edit)")
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 1)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 2)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 3)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 4)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 5)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 6)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 7)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 8)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-item "Pressure Outlet*PanelButtons*PushButton2(Cancel)")
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Reference Values"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Reference Values"))
+(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Reference Values"))
+/solve/initialize/hyb-initialization
+
+Initialize using the hybrid initialization method.
+
+Checking case topology... 
+-This case has both inlets & outlets 
+-Pressure information is not available at the boundaries.
+ Case will be initialized with constant pressure
+
+	iter		scalar-0
+
+	1		1.000000e+00
+	2		3.138429e-05
+	3		6.845368e-06
+	4		4.122905e-06
+	5		1.776909e-06
+	6		1.622211e-06
+	7		5.003903e-07
+	8		7.272461e-07
+	9		1.964530e-07
+	10		2.197401e-07
+
+Hybrid initialization is done.
+
+> /solve/iterate 
+Writing Settings file "C:\Users\Ismael\Documents\GitHub\AerospaceEngineering\sources\cuatrimestre-1\01-fluid-mechanics\laboratorios\lab-3&4\Lab3Geometry_files\dp0\FFF\Fluent\FFF.set"...
+	writing rp variables ... Done.
+	writing domain variables ... Done.
+	writing surface_body (type fluid) (mixture) ... Done.
+	writing interior-surface_body (type interior) (mixture) ... Done.
+	writing inlet (type velocity-inlet) (mixture) ... Done.
+	writing outlet (type pressure-outlet) (mixture) ... Done.
+	writing wing (type wall) (mixture) ... Done.
+	writing zones map name-id ... Done.
+5000
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+     1  1.0000e+00  4.1835e-04  3.9272e-04  2.0195e-03  1.0192e-01  0:17:42 4999
+     2  4.7652e-01  2.7968e-04  2.6335e-04  9.6626e-04  2.3009e-01  0:34:47 4998
+     3  2.4091e-01  1.9205e-04  1.8278e-04  7.2127e-04  3.5034e-01  0:29:56 4997
+     4  1.3907e-01  1.3218e-04  1.2859e-04  8.9994e-04  4.4275e-01  0:25:55 4996
+     5  1.2542e-01  9.2041e-05  9.0507e-05  7.8732e-04  5.1333e-01  0:22:45 4995
+     6  1.2289e-01  6.4909e-05  6.4241e-05  4.7644e-04  5.6787e-01  0:20:25 4994
+     7  1.0662e-01  4.5655e-05  4.5678e-05  3.0406e-04  6.1117e-01  0:18:33 4993
+     8  8.8235e-02  3.3023e-05  3.2835e-05  2.1537e-04  6.4129e-01  0:16:40 4992
+     9  7.2430e-02  2.4186e-05  2.3311e-05  1.7565e-04  6.7098e-01  0:15:20 4991
+    10  5.8520e-02  1.8823e-05  1.7473e-05  1.6196e-04  6.9726e-01  0:14:11 4990
+    11  4.5921e-02  1.4559e-05  1.2771e-05  1.4814e-04  7.1822e-01  0:13:41 4989
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    12  3.6308e-02  1.1693e-05  9.7060e-06  1.3503e-04  7.3648e-01  0:13:06 4988
+    13  2.8816e-02  9.4864e-06  7.3735e-06  1.2315e-04  7.5126e-01  0:12:45 4987
+    14  2.3116e-02  7.7782e-06  5.6893e-06  1.0884e-04  7.6397e-01  0:12:12 4986
+    15  1.8755e-02  6.4996e-06  4.4261e-06  9.4737e-05  7.7427e-01  0:11:44 4985
+    16  1.5291e-02  5.5373e-06  3.4871e-06  7.9629e-05  7.8303e-01  0:11:20 4984
+    17  1.2898e-02  4.7791e-06  2.8030e-06  6.5934e-05  7.9010e-01  0:11:01 4983
+    18  1.0774e-02  4.1213e-06  2.2303e-06  5.2951e-05  7.9600e-01  0:10:47 4982
+    19  9.1783e-03  3.5627e-06  1.7791e-06  4.1371e-05  8.0075e-01  0:10:51 4981
+    20  7.7988e-03  3.0728e-06  1.4011e-06  3.1407e-05  8.0468e-01  0:10:55 4980
+    21  6.7150e-03  2.6718e-06  1.1250e-06  2.2989e-05  8.0791e-01  0:10:38 4979
+    22  5.6764e-03  2.3243e-06  9.1394e-07  1.7722e-05  8.1060e-01  0:10:26 4978
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    23  4.7874e-03  2.0045e-06  7.5643e-07  1.4848e-05  8.1285e-01  0:10:19 4977
+    24  4.0655e-03  1.7312e-06  6.2504e-07  1.3790e-05  8.1474e-01  0:10:12 4976
+    25  3.4514e-03  1.4946e-06  5.2075e-07  1.3688e-05  8.1633e-01  0:10:00 4975
+    26  2.9307e-03  1.2859e-06  4.3436e-07  1.3510e-05  8.1766e-01  0:10:02 4974
+    27  2.5031e-03  1.1063e-06  3.6178e-07  1.3030e-05  8.1877e-01  0:10:08 4973
+    28  2.1456e-03  9.4948e-07  3.0671e-07  1.2302e-05  8.1970e-01  0:10:19 4972
+    29  1.8303e-03  8.1413e-07  2.6011e-07  1.1411e-05  8.2047e-01  0:10:03 4971
+    30  1.5524e-03  6.9333e-07  2.2058e-07  1.0402e-05  8.2112e-01  0:09:57 4970
+    31  1.3118e-03  5.8644e-07  1.8775e-07  9.3267e-06  8.2167e-01  0:09:53 4969
+    32  1.1067e-03  4.9619e-07  1.5985e-07  8.2545e-06  8.2213e-01  0:10:00 4968
+    33  9.3539e-04  4.1976e-07  1.3550e-07  7.2329e-06  8.2251e-01  0:09:54 4967
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    34  7.9247e-04  3.5467e-07  1.1487e-07  6.2790e-06  8.2284e-01  0:09:51 4966
+    35  6.7766e-04  3.0036e-07  9.7540e-08  5.4307e-06  8.2312e-01  0:10:01 4965
+    36  5.8308e-04  2.5486e-07  8.2824e-08  4.6744e-06  8.2335e-01  0:10:05 4964
+    37  5.0124e-04  2.1701e-07  7.0484e-08  3.9991e-06  8.2355e-01  0:10:00 4963
+    38  4.2661e-04  1.8511e-07  6.0004e-08  3.4039e-06  8.2372e-01  0:09:59 4962
+    39  3.6315e-04  1.5750e-07  5.1040e-08  2.8796e-06  8.2386e-01  0:09:55 4961
+    40  3.1125e-04  1.3394e-07  4.3292e-08  2.4154e-06  8.2398e-01  0:09:59 4960
+    41  2.6693e-04  1.1391e-07  3.6670e-08  2.0157e-06  8.2408e-01  0:09:57 4959
+    42  2.2834e-04  9.6798e-08  3.0960e-08  1.6760e-06  8.2416e-01  0:10:03 4958
+    43  1.9528e-04  8.2168e-08  2.6117e-08  1.3928e-06  8.2423e-01  0:09:54 4957
+    44  1.6662e-04  6.9672e-08  2.1996e-08  1.1471e-06  8.2429e-01  0:09:49 4956
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    45  1.4225e-04  5.9084e-08  1.8497e-08  9.4001e-07  8.2434e-01  0:09:40 4955
+    46  1.2097e-04  5.0055e-08  1.5542e-08  7.4813e-07  8.2438e-01  0:09:37 4954
+    47  1.0187e-04  4.1676e-08  1.2641e-08  5.9624e-07  8.2441e-01  0:09:30 4953
+    48  8.5729e-05  3.5278e-08  1.0667e-08  4.7427e-07  8.2443e-01  0:09:24 4952
+    49  7.2216e-05  2.9725e-08  8.7638e-09  3.8023e-07  8.2446e-01  0:09:12 4951
+    50  6.0769e-05  2.5146e-08  7.3808e-09  3.1564e-07  8.2448e-01  0:09:25 4950
+    51  5.1325e-05  2.1571e-08  6.4123e-09  2.5960e-07  8.2450e-01  0:09:18 4949
+    52  4.3384e-05  1.8227e-08  5.4437e-09  2.1234e-07  8.2451e-01  0:09:47 4948
+    53  3.6882e-05  1.5509e-08  4.7370e-09  1.7282e-07  8.2452e-01  0:10:00 4947
+    54  3.1264e-05  1.3069e-08  4.0036e-09  1.3674e-07  8.2453e-01  0:09:52 4946
+    55  2.6267e-05  1.0868e-08  3.2907e-09  1.0879e-07  8.2454e-01  0:09:47 4945
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    56  2.2044e-05  9.1536e-09  2.7628e-09  8.6668e-08  8.2455e-01  0:09:26 4944
+    57  1.8446e-05  7.6776e-09  2.2686e-09  6.9620e-08  8.2455e-01  0:09:22 4943
+    58  1.5479e-05  6.4620e-09  1.8946e-09  5.6157e-08  8.2456e-01  0:09:28 4942
+    59  1.3003e-05  5.4308e-09  1.5744e-09  4.5772e-08  8.2456e-01  0:09:28 4941
+    60  1.0912e-05  4.5809e-09  1.3276e-09  3.9493e-08  8.2457e-01  0:09:27 4940
+    61  9.2290e-06  3.9213e-09  1.1568e-09  3.3577e-08  8.2457e-01  0:09:24 4939
+    62  7.7939e-06  3.3067e-09  9.7367e-10  2.8824e-08  8.2457e-01  0:09:50 4938
+    63  6.5910e-06  2.8028e-09  8.4022e-10  2.4650e-08  8.2457e-01  0:09:42 4937
+    64  5.5489e-06  2.3599e-09  7.0501e-10  2.1271e-08  8.2458e-01  0:09:40 4936
+    65  4.6810e-06  1.9882e-09  5.9718e-10  1.8333e-08  8.2458e-01  0:09:31 4935
+    66  3.9422e-06  1.6706e-09  4.9844e-10  1.5934e-08  8.2458e-01  0:09:28 4934
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    67  3.3242e-06  1.4059e-09  4.1708e-10  1.3832e-08  8.2458e-01  0:09:24 4933
+    68  2.8006e-06  1.1828e-09  3.4789e-10  1.1643e-08  8.2458e-01  0:09:25 4932
+    69  2.3472e-06  9.8295e-10  2.8175e-10  9.9497e-09  8.2458e-01  0:09:20 4931
+    70  1.9766e-06  8.2966e-10  2.3608e-10  8.8755e-09  8.2458e-01  0:09:21 4930
+    71  1.6748e-06  7.0800e-10  2.0021e-10  7.8294e-09  8.2458e-01  0:09:15 4929
+    72  1.4245e-06  6.0216e-10  1.6870e-10  6.8995e-09  8.2458e-01  0:09:25 4928
+    73  1.2167e-06  5.1369e-10  1.4371e-10  6.0534e-09  8.2458e-01  0:18:05 4927
+    74  1.0417e-06  4.3719e-10  1.2126e-10  5.2962e-09  8.2458e-01  0:16:18 4926
+    75  8.9247e-07  3.7311e-10  1.0280e-10  4.6134e-09  8.2458e-01  0:15:04 4925
+!   75 solution is converged
+
+Writing "| gzip -2cf > SolutionMonitor.gz"...
+
+Writing temporary file C:\\Users\\Ismael\\AppData\\Local\\Temp\\flntgz-261602 ...
+Done.
+
+Writing data to C:\\Users\\Ismael\\Documents\\GitHub\\AerospaceEngineering\\sources\\cuatrimestre-1\\01-fluid-mechanics\\laboratorios\\lab-3&4\\Lab3Geometry_files\\dp0\\FFF\\Fluent\\FFF.ip ...
+	x-coord
+	y-coord
+	pressure
+	x-velocity
+	y-velocity
+	nut
+	hyb_init-0
+	hyb_init-1
+Done.
+
+> /display/objects/create contour pressure
+
+Choose setting to change> 
+annotations-list        contour-lines?          name
+boundary-values?        display-state-name      node-values?
+color-map               field                   range-option
+coloring                filled?                 surfaces-list
+
+Choose setting to change> field pressure
+
+Choose setting to change> filled? yes
+
+Choose setting to change> node-values? yes
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] 
+
+Choose setting to change> /file/r
+
+non-fatal Error: invalid command [file]
+
+
+ead-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j2.jou"
+
+> 
+adjoint/                mesh/                   report/
+close-fluent            parallel/               solve/
+define/                 plot/                   surface/
+display/                preferences/            views/
+file/                   print-license-usage
+
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j2.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j2.jou...
+
+> /display/objects/create contour pressure
+Object with same name already exists.
+
+> field 
+Error: invalid command
+Error Object: "field"
+
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+Interrupted.
+
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j2.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j2.jou...
+
+> /display/objects/edit pressure
+
+Choose setting to change> field pressure
+
+Choose setting to change> filled? yes
+
+Choose setting to change> node-values? yes
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> surfaces-list surface_body 
+Error: eval: unbound variable
+Error Object: surface_body
+
+Error: Invalid surface.
+Error Object: surface_body
+
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+Interrupted.
+
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j2.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j2.jou...
+
+> /display/objects/edit pressure
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] surface_body
+
+Error: eval: unbound variable
+Error Object: surface_body
+
+Error: Invalid surface.
+Error Object: surface_body
+
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+Interrupted.
+
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j2.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j2.jou...
+
+> /display/objects/edit pressure
+
+Choose setting to change> q
+
+> /display/objects/display pressure
+Creating zone surface for surface_body zone
+
+> /views/camera/target 0.5 0 0
+
+> /views/camera/position 0.5 0 10
+
+> /views/camera/up-vector 0 1 0
+
+> /views/camera/field 2.6 1.6
+
+> /display/set/picture/driver png
+
+> /display/set/picture/use-window-resolution? no
+
+> /display/set/picture/x-resolution 1800
+
+> /display/set/picture/y-resolution 1100
+
+> /display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig1_pressure_aoa6.png"
+
+> 
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j3.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j3.jou...
+
+> /display/objects/create contour streamlines
+
+Choose setting to change> field stream-function
+
+Choose setting to change> filled? no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "streamlines". Changing the Coloring type to "Banded".
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [banded] banded
+
+Choose setting to change/coloring> range-option
+
+Error: invalid command
+Error Object: "range-option"
+
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+Interrupted.
+
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j3.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j3.jou...
+
+> q
+
+> q
+
+> /display/objects/edit streamlines
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] 
+Choose setting to change/range-option> 
+Choose setting to change> 
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j3.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j3.jou...
+
+> /display/objects/edit streamlines
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-off
+
+Choose setting to change/range-option> 
+Choose setting to change> 
+> 
+adjoint/                mesh/                   report/
+close-fluent            parallel/               solve/
+define/                 plot/                   surface/
+display/                preferences/            views/
+file/                   print-license-usage
+
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j3.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j3.jou...
+
+> /display/objects/edit streamlines
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-off] auto-range-off
+
+Choose setting to change/range-option> minimum 150
+
+Choose setting to change/range-option> maximum 170
+
+Choose setting to change/range-option> clip-to-range? yes
+
+Choose setting to change/range-option> 
+Choose setting to change> 
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j4.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j4.jou...
+
+> /display/objects/display streamlines
+
+> /views/camera/target 0.5 0 0
+
+> /views/camera/position 0.5 0 10
+
+> /views/camera/up-vector 0 1 0
+
+> /views/camera/field 2.6 1.6
+
+> /display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig2_streamlines_aoa6.png"
+
+> 
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j5.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j5.jou...
+
+> /surface/line-surface s1.000 1.000 -10 1.000 10
+
+> /surface/line-surface s1.025 1.025 -10 1.025 10
+
+> /surface/line-surface s1.050 1.050 -10 1.050 10
+
+> /surface/line-surface s1.075 1.075 -10 1.075 10
+
+> /surface/line-surface s1.100 1.100 -10 1.100 10
+
+> /surface/line-surface s1.200 1.200 -10 1.200 10
+
+> /surface/line-surface s-0.050 -0.050 -10 -0.050 10
+
+> /surface/line-surface s0.000 0.000 -10 0.000 10
+
+> /surface/line-surface s0.025 0.025 -10 0.025 10
+
+> /surface/line-surface s0.050 0.050 -10 0.050 10
+
+> /surface/line-surface s0.100 0.100 -10 0.100 10
+
+> /surface/line-surface s0.150 0.150 -10 0.150 10
+
+> /surface/line-surface s0.200 0.200 -10 0.200 10
+
+> /surface/list-surfaces
+surface group name          id    points  0D facets   1D facets   2D facets
+------------------------- ---- --------- ---------- ----------- -----------
+inlet                        2         0          0           0           0
+interior-surface_body        3         0          0           0           0
+outlet                       1         0          0           0           0
+s-0.050                     11         0          0           0           0
+s0.000                      12         0          0           0           0
+s0.025                      13         0          0           0           0
+s0.050                      14         0          0           0           0
+s0.100                      15         0          0           0           0
+s0.150                      16         0          0           0           0
+s0.200                      17         0          0           0           0
+s1.000                       5         0          0           0           0
+s1.025                       6         0          0           0           0
+s1.050                       7         0          0           0           0
+s1.075                       8         0          0           0           0
+s1.100                       9         0          0           0           0
+s1.200                      10         0          0           0           0
+surface_body                 4     27751          0           0       26902
+wing                         0         0          0           0           0
+
+Total: 27751 points, 26902 facets.
+
+> /display/objects/create vector velocity-wake
+
+Choose setting to change> 
+> 
+adjoint/                mesh/                   report/
+close-fluent            parallel/               solve/
+define/                 plot/                   surface/
+display/                preferences/            views/
+file/                   print-license-usage
+
+> /display/objects/edit velocity-wake
+
+Choose setting to change> 
+annotations-list        name                    style
+color-map               range-option            surfaces-list
+display-state-name      scale                   vector-field
+field                   skip                    vector-opt
+
+Choose setting to change> q
+
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j6.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j6.jou...
+
+> /display/objects/edit velocity-wake
+
+Choose setting to change> vector-field velocity
+
+Choose setting to change> field velocity-magnitude
+
+Choose setting to change> style filled-arrow
+
+Choose setting to change> skip 0
+
+Choose setting to change> scale
+
+Choose setting to change/scale> auto-scale? yes
+
+Choose setting to change/scale> scale-f 10
+
+Choose setting to change/scale> q
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] s1.000
+surface id/name(2) [()] s1.025
+surface id/name(3) [()] s1.050
+surface id/name(4) [()] s1.075
+surface id/name(5) [()] s1.100
+surface id/name(6) [()] s1.200
+surface id/name(7) [()] ()
+
+Choose setting to change> q
+
+> /display/objects/create mesh wingmesh
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] wing
+surface id/name(2) [()] ()
+
+Choose setting to change> q
+
+> 
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j7.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j7.jou...
+
+> /display/set/overlays? no
+
+> /display/objects/display wingmesh
+
+> /display/set/overlays? yes
+
+> /display/objects/display velocity-wake
+
+> /views/camera/target 1.06 0.0 0
+
+> /views/camera/position 1.06 0.0 10
+
+> /views/camera/up-vector 0 1 0
+
+> /views/camera/field 0.42 0.26
+
+> /display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig3_quiver_wake_aoa6.png"
+
+> 
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j7.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j7.jou...
+
+> /views/camera/target 1.15 0.0 0
+
+> /views/camera/position 1.15 0.0 10
+
+> /views/camera/up-vector 0 1 0
+
+> /views/camera/field 1.3 0.8
+
+> /display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig3_quiver_wake_aoa6.png"
+The file "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig3_quiver_wake_aoa6.png" already exists.
+OK to overwrite? [no] yes
+
+> 
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j8.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j8.jou...
+
+> /display/objects/edit velocity-wake
+
+Choose setting to change> scale
+
+Choose setting to change/scale> scale-f 0.2
+
+Choose setting to change/scale> q
+
+Choose setting to change> q
+
+> /display/set/overlays? no
+
+> /display/objects/display wingmesh
+
+> /display/set/overlays? yes
+
+> /display/objects/display velocity-wake
+
+> /views/camera/target 1.08 0.0 0
+
+> /views/camera/position 1.08 0.0 10
+
+> /views/camera/up-vector 0 1 0
+
+> /views/camera/field 0.42 0.26
+
+> /display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/test_wake_s02.png"
+
+> 
+> /display/objects/edit wingmesh
+
+Choose setting to change> 
+annotations-list        edge-type               shrink-factor
+coloring                name                    surfaces-list
+display-state-name      options
+
+Choose setting to change> coloring
+Options: (by-type-or-surface uniform)
+ [by-type-or-surface] 
+Options: (by-type by-surface)
+ [by-type] 
+
+Choose setting to change> q
+
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j9.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j9.jou...
+
+> /display/set/colors/wall-faces black
+
+> /display/set/overlays? no
+
+> /display/objects/display wingmesh
+
+> /display/set/overlays? yes
+
+> /display/objects/display velocity-wake
+
+> /views/camera/target 1.08 0.0 0
+
+> /views/camera/position 1.08 0.0 10
+
+> /views/camera/up-vector 0 1 0
+
+> /views/camera/field 0.42 0.26
+
+> /display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig3_quiver_wake_aoa6.png"
+The file "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig3_quiver_wake_aoa6.png" already exists.
+OK to overwrite? [no] yes
+
+> 
+> /file/read-journal "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j10.jou"
+Journal file names [()] 
+Does this journal file contain commands that
+read or write files after the calculation begins? [no] 
+
+Reading journal file C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/j10.jou...
+
+> /display/objects/create vector velocity-le
+
+Choose setting to change> vector-field velocity
+
+Choose setting to change> field velocity-magnitude
+
+Choose setting to change> style filled-arrow
+
+Choose setting to change> skip 0
+
+Choose setting to change> scale
+
+Choose setting to change/scale> auto-scale? yes
+
+Choose setting to change/scale> scale-f 0.2
+
+Choose setting to change/scale> q
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] s-0.050
+surface id/name(2) [()] s0.000
+surface id/name(3) [()] s0.025
+surface id/name(4) [()] s0.050
+surface id/name(5) [()] s0.100
+surface id/name(6) [()] s0.150
+surface id/name(7) [()] s0.200
+surface id/name(8) [()] ()
+
+Choose setting to change> q
+
+> /display/set/overlays? no
+
+> /display/objects/display wingmesh
+
+> /display/set/overlays? yes
+
+> /display/objects/display velocity-le
+
+> /views/camera/target 0.08 0.0 0
+
+> /views/camera/position 0.08 0.0 10
+
+> /views/camera/up-vector 0 1 0
+
+> /views/camera/field 0.42 0.26
+
+> /display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig4_quiver_le_aoa6.png"
+
+> 
+> /plot/plot
+node values? [no] yes
+filename [""] "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/pcoeff_aoa6.txt"
+Order points? [no] no
+Y Axis direction vector? [no] no
+Y Axis curve length? [no] no
+
+Enter Field:> pressure-coefficient
+X Axis direction vector? [no] yes
+ix [1] 1
+iy [0] 0
+Available surfaces: (s0.200 s0.150 s0.100 s0.050 s0.025 s0.000 s-0.050 s1.200 s1.100 s1.075 s1.050 s1.025 s1.000 surface_body wing outlet inlet interior-surface_body)
+Enter Surfaces(1) [()] wing
+Enter Surfaces(2) [()] 
+
+> /report/forces/wall-forces
+all wall zones [yes] yes
+x-component of force vector [1] -0.1045
+y-component of force vector [0] 0.9945
+Write to File? [no] no
+
+Forces
+                          Forces [N]                                                                                                                                Coefficients                                                                                                                             
+Zone                      Pressure                                      Viscous                                       Total                                         Pressure                                      Viscous                                       Total                                        
+wing                      (-4.8841292 50.260166 0)                      (0.5508585 0.065781641 0)                     (-4.3332707 50.325948 0)                      (-0.079744832 0.82061476 0)                   (0.0089940534 0.0010740391 0)                 (-0.070750778 0.8216888 0)                   
+------------------------- --------------------------------------------- --------------------------------------------- --------------------------------------------- --------------------------------------------- --------------------------------------------- ---------------------------------------------
+Net                       (-4.8841292 50.260166 0)                      (0.5508585 0.065781641 0)                     (-4.3332707 50.325948 0)                      (-0.079744832 0.82061476 0)                   (0.0089940534 0.0010740391 0)                 (-0.070750778 0.8216888 0)                   
+
+Forces - Direction Vector (-0.1045 0.9945 0)
+                          Forces [N]                                      Coefficients                                   
+Zone                      Pressure        Viscous         Total           Pressure        Viscous         Total          
+wing                      50.495376       0.007855323     50.503232       0.82445512      0.00012825652   0.82458338     
+------------------------- --------------- --------------- --------------- --------------- --------------- ---------------
+Net                       50.495376       0.007855323     50.503232       0.82445512      0.00012825652   0.82458338     
+
+> /file/stop-transcript
+
+Performance Timer for 75 iterations on 4 compute nodes
+  Average wall-clock time per iteration:                0.052 sec
+  Global reductions per iteration:                         82 ops
+  Global reductions time per iteration:                 0.000 sec (0.0%)
+  Message count per iteration:                           6055 messages
+  Data transfer per iteration:                          0.964 MB
+  LE solves per iteration:                                  2 solves
+  LE wall-clock time per iteration:                     0.042 sec (80.6%)
+  LE coupled wall-clock time per iteration:             0.023 sec (43.2%)
+  LE global solves per iteration:                           6 solves
+  LE global wall-clock time per iteration:              0.000 sec (0.8%)
+  LE global matrix maximum size:                           35
+  AMG cycles per iteration:                             6.507 cycles
+  AMG coupled cycles per iteration:                     2.800 cycles
+  Relaxation sweeps per iteration:                       1597 sweeps
+  Relaxation exchanges per iteration:                       0 exchanges
+  LE early protections (stall) per iteration:           0.000 times
+  LE early protections (divergence) per iteration:      0.000 times
+  Total SVARS touched:                                    395
+
+  Total wall-clock time:                                3.917 sec
+
+Transcript Stop Time:  23:40:32, 21 Nov 2026 Hora estándar romance 
+Total Transcript Time: 21 Minute 24 Second.

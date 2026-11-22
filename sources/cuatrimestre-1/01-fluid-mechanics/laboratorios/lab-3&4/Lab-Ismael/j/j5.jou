@@ -1,0 +1,15 @@
+/surface/line-surface s1.000 1.000 -10 1.000 10
+/surface/line-surface s1.025 1.025 -10 1.025 10
+/surface/line-surface s1.050 1.050 -10 1.050 10
+/surface/line-surface s1.075 1.075 -10 1.075 10
+/surface/line-surface s1.100 1.100 -10 1.100 10
+/surface/line-surface s1.200 1.200 -10 1.200 10
+/surface/line-surface s-0.050 -0.050 -10 -0.050 10
+/surface/line-surface s0.000 0.000 -10 0.000 10
+/surface/line-surface s0.025 0.025 -10 0.025 10
+/surface/line-surface s0.050 0.050 -10 0.050 10
+/surface/line-surface s0.100 0.100 -10 0.100 10
+/surface/line-surface s0.150 0.150 -10 0.150 10
+/surface/line-surface s0.200 0.200 -10 0.200 10
+/surface/list-surfaces
+/display/objects/create vector velocity-wake

@@ -19,9 +19,13 @@ bytes: 483571
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2018.docx`
 - **Kind:** examenes
 - **Size:** 483.6 kB
-- **Status:** referenced by 2 note(s) below
+- **Status:** referenced by 6 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B35 - Unit 6 Conductivity, Carriers and Resistivity of Metals]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B40 - Unit 6 Dopant Levels and Extrinsic Conductivity with Temperature]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B44 - Unit 7 Types of Magnetism and Dipole Arrangements]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B50 - Unit 7 Thermal Expansion]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]

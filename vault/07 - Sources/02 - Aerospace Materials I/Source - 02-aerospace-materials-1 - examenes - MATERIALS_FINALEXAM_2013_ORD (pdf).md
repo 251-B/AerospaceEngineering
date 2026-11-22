@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - examenes
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_ORD.pdf"
 kind: examenes
-status: not-referenced
+status: referenced
 bytes: 125894
 ---
 
@@ -19,8 +19,11 @@ bytes: 125894
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_ORD.pdf`
 - **Kind:** examenes
 - **Size:** 125.9 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 4 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B109 - Unit 11 Joint Design and Stress States]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B55 - Unit 6 Extrinsic Semiconductors Dopants and Carrier Data]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B94 - Unit 10 Carbon Aramid and Ceramic Fibers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B99 - Unit 10 Transverse Isostress and Fracture Curves]]

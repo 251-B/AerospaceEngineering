@@ -19,7 +19,7 @@ bytes: 240487
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems T8_CeramicMaterials.pdf`
 - **Kind:** problemas
 - **Size:** 240.5 kB
-- **Status:** referenced by 8 note(s) below
+- **Status:** referenced by 12 note(s) below
 
 ## Referenced by
 
@@ -31,3 +31,7 @@ bytes: 240487
 - [[02 - Aerospace Materials I/Problem - T8-05 Rock Salt Structure AB from Two Planes]]
 - [[02 - Aerospace Materials I/Problem - T8-06 Perovskite SrSnO3 Linear and Planar Densities and Rod Mass]]
 - [[02 - Aerospace Materials I/Problem - T8-07 MgO Rock Salt Cell Packing and Densities]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B64 - Unit 8 AX Crystal Structures CsCl NaCl and ZnS]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B65 - Unit 8 Fluorite Antifluorite Perovskite and Corundum]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B66 - Unit 8 Crystal Structure Identification and Stoichiometry]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

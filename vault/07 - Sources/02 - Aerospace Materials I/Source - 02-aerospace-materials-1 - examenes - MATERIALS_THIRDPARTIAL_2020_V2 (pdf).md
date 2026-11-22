@@ -19,9 +19,23 @@ bytes: 17199825
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_THIRDPARTIAL_2020_V2.pdf`
 - **Kind:** examenes
 - **Size:** 17.2 MB
-- **Status:** referenced by 2 note(s) below
+- **Status:** referenced by 16 note(s) below
 
 ## Referenced by
 
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P21 - Unidirectional Carbon-Epoxy Rod Under Axial Load]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B102 - Unit 10 Metal Matrix Composites and Processing]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B44 - Unit 7 Types of Magnetism and Dipole Arrangements]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B50 - Unit 7 Thermal Expansion]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B58 - Unit 7 Magnetic Moments Fields and Types of Magnetism Applied]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B61 - Unit 7 Superconductor Applications Heat Capacity and Thermal Expansion]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B64 - Unit 8 AX Crystal Structures CsCl NaCl and ZnS]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B70 - Unit 8 Ceramic Mechanical Properties and Porosity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B74 - Unit 8 Colloidal Shaping Slip Tape Extrusion and Injection]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B82 - Unit 9 Factors Governing Polymer Crystallinity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B88 - Unit 9 Thermoplastics Thermosets and Elastomers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B89 - Unit 9 Polymer Processing for Thermoplastics]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B94 - Unit 10 Carbon Aramid and Ceramic Fibers]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B99 - Unit 10 Transverse Isostress and Fracture Curves]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

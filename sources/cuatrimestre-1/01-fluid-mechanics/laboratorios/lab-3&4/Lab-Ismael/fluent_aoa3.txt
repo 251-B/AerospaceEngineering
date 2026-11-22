@@ -1,0 +1,225 @@
+
+> /define/boundary-conditions/velocity-inlet (inlet)
+inlet
+Velocity Specification Method: Magnitude and Direction [no] no
+Velocity Specification Method: Components [yes] yes
+Reference Frame: Absolute [yes] yes
+Use Profile for Supersonic/Initial Gauge Pressure? [no] no
+Supersonic/Initial Gauge Pressure (constant or expression) (in [Pa]) [0] 0
+Use Profile for X-Velocity? [no] no
+X-Velocity (constant or expression) (in [m/s]) [9.9863] 9.9863
+Use Profile for Y-Velocity? [no] no
+Y-Velocity (constant or expression) (in [m/s]) [0.5234] 0.5234
+Turbulence Specification Method: Modified Turbulent Viscosity [no] no
+Turbulence Specification Method: Intensity and Length Scale [no] no
+Turbulence Specification Method: Turbulent Viscosity Ratio [yes] yes
+Use Profile for Turbulent Viscosity Ratio? [no] no
+Turbulent Viscosity Ratio (constant or expression) [10] 10
+
+> /solve/report-definitions/edit lift_coeff
+
+/solve/report-definitions/edit/lift_coeff> force-vector -0.0523 0.9986
+
+/solve/report-definitions/edit/lift_coeff> q
+
+> /solve/initialize/hyb-initialization
+Current data has not been saved, including solution data and any report files, animation files, etc.
+Do you want to discard the data and proceed with initialization? [cancel] ok
+
+Initialize using the hybrid initialization method.
+
+Checking case topology... 
+-This case has both inlets & outlets 
+-Pressure information is not available at the boundaries.
+ Case will be initialized with constant pressure
+
+	iter		scalar-0
+
+	1		1.000000e+00
+	2		3.110692e-05
+	3		6.799824e-06
+	4		4.205827e-06
+	5		1.665015e-06
+	6		1.704216e-06
+	7		4.885185e-07
+	8		7.069277e-07
+	9		1.914424e-07
+	10		2.127192e-07
+
+Hybrid initialization is done.
+
+> /solve/iterate 
+Writing Settings file "C:\Users\Ismael\Documents\GitHub\AerospaceEngineering\sources\cuatrimestre-1\01-fluid-mechanics\laboratorios\lab-3&4\Lab3Geometry_files\dp0\FFF\Fluent\FFF.set"...
+	writing rp variables ... Done.
+	writing domain variables ... Done.
+	writing surface_body (type fluid) (mixture) ... Done.
+	writing interior-surface_body (type interior) (mixture) ... Done.
+	writing inlet (type velocity-inlet) (mixture) ... Done.
+	writing outlet (type pressure-outlet) (mixture) ... Done.
+	writing wing (type wall) (mixture) ... Done.
+	writing zones map name-id ... Done.
+5000
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+     1  1.0000e+00  2.7101e-04  2.4877e-04  1.9424e-03  5.3205e-02  0:18:48 4999
+     2  4.9077e-01  1.7472e-04  1.6005e-04  9.3657e-04  1.2444e-01  0:19:36 4998
+     3  2.4780e-01  1.1778e-04  1.0719e-04  6.9876e-04  1.9509e-01  0:18:08 4997
+     4  1.3677e-01  8.0339e-05  7.3481e-05  8.6884e-04  2.5025e-01  0:17:11 4996
+     5  1.1311e-01  5.5171e-05  5.0693e-05  7.5377e-04  2.9352e-01  0:16:22 4995
+     6  1.0625e-01  3.8144e-05  3.5223e-05  4.4193e-04  3.2951e-01  0:15:32 4994
+     7  9.3116e-02  2.6739e-05  2.4837e-05  2.6927e-04  3.6019e-01  0:14:37 4993
+     8  7.6336e-02  1.9520e-05  1.7896e-05  1.7961e-04  3.8663e-01  0:14:11 4992
+     9  6.1031e-02  1.4601e-05  1.3229e-05  1.3533e-04  4.0919e-01  0:13:47 4991
+    10  4.8752e-02  1.1432e-05  9.9794e-06  1.2148e-04  4.2864e-01  0:13:21 4990
+    11  3.9084e-02  9.2489e-06  7.6426e-06  1.0384e-04  4.4516e-01  0:13:00 4989
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    12  3.1573e-02  7.6019e-06  5.9305e-06  8.8986e-05  4.5929e-01  0:12:42 4988
+    13  2.5423e-02  6.3996e-06  4.6268e-06  7.6049e-05  4.7126e-01  0:12:30 4987
+    14  2.0987e-02  5.4721e-06  3.6486e-06  6.4019e-05  4.8127e-01  0:12:31 4986
+    15  1.7421e-02  4.6990e-06  2.9050e-06  5.2858e-05  4.8948e-01  0:12:29 4985
+    16  1.4422e-02  4.0513e-06  2.3028e-06  4.2756e-05  4.9613e-01  0:12:22 4984
+    17  1.1792e-02  3.5055e-06  1.8196e-06  3.3834e-05  5.0146e-01  0:12:23 4983
+    18  9.7436e-03  3.0419e-06  1.4304e-06  2.5970e-05  5.0569e-01  0:12:30 4982
+    19  7.9925e-03  2.6357e-06  1.1307e-06  1.9442e-05  5.0901e-01  0:12:14 4981
+    20  6.6453e-03  2.2838e-06  8.9820e-07  1.4319e-05  5.1162e-01  0:12:06 4980
+    21  5.5001e-03  1.9607e-06  7.0721e-07  1.0690e-05  5.1367e-01  0:12:12 4979
+    22  4.5952e-03  1.6714e-06  5.6034e-07  8.2129e-06  5.1526e-01  0:12:34 4978
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    23  3.8577e-03  1.4204e-06  4.5136e-07  6.5937e-06  5.1634e-01  0:12:33 4977
+    24  3.2447e-03  1.1923e-06  3.5510e-07  5.8366e-06  5.1718e-01  0:12:35 4976
+    25  2.7151e-03  1.0116e-06  2.8955e-07  5.3706e-06  5.1785e-01  0:12:18 4975
+    26  2.3117e-03  8.5635e-07  2.3037e-07  4.9787e-06  5.1838e-01  0:12:07 4974
+    27  1.9572e-03  7.2624e-07  1.8718e-07  4.5477e-06  5.1881e-01  0:12:05 4973
+    28  1.6466e-03  6.1542e-07  1.5085e-07  4.1911e-06  5.1916e-01  0:11:52 4972
+    29  1.3694e-03  5.2011e-07  1.2413e-07  3.8157e-06  5.1945e-01  0:11:30 4971
+    30  1.1507e-03  4.3880e-07  1.0284e-07  3.4938e-06  5.1968e-01  0:11:07 4970
+    31  9.6534e-04  3.7007e-07  8.6044e-08  3.1724e-06  5.1988e-01  0:11:14 4969
+    32  8.1026e-04  3.1208e-07  7.1753e-08  2.8824e-06  5.2005e-01  0:11:34 4968
+    33  6.8813e-04  2.6303e-07  6.0164e-08  2.7071e-06  5.2021e-01  0:11:36 4967
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    34  5.9281e-04  2.2414e-07  5.2301e-08  2.4646e-06  5.2035e-01  0:11:44 4966
+    35  5.1086e-04  1.8955e-07  4.4888e-08  2.2244e-06  5.2047e-01  0:11:58 4965
+    36  4.4343e-04  1.6092e-07  3.9274e-08  1.9208e-06  5.2056e-01  0:11:55 4964
+    37  3.8034e-04  1.3471e-07  3.2928e-08  1.6503e-06  5.2062e-01  0:12:10 4963
+    38  3.2755e-04  1.1395e-07  2.8109e-08  1.3993e-06  5.2068e-01  0:11:42 4962
+    39  2.8077e-04  9.6410e-08  2.3467e-08  1.1796e-06  5.2072e-01  0:11:34 4961
+    40  2.4042e-04  8.1786e-08  1.9780e-08  9.7845e-07  5.2076e-01  0:11:33 4960
+    41  2.0576e-04  6.9582e-08  1.6640e-08  8.0839e-07  5.2080e-01  0:11:34 4959
+    42  1.7608e-04  5.9381e-08  1.4107e-08  6.8210e-07  5.2083e-01  0:12:00 4958
+    43  1.5180e-04  5.1424e-08  1.2328e-08  5.7057e-07  5.2086e-01  0:11:49 4957
+    44  1.3039e-04  4.4221e-08  1.0631e-08  4.6003e-07  5.2088e-01  0:11:46 4956
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    45  1.1090e-04  3.7582e-08  9.0100e-09  3.7456e-07  5.2090e-01  0:11:43 4955
+    46  9.4543e-05  3.2156e-08  7.6689e-09  3.0489e-07  5.2092e-01  0:26:49 4954
+    47  8.0715e-05  2.7452e-08  6.4504e-09  2.4905e-07  5.2093e-01  0:33:49 4953
+    48  6.8749e-05  2.3451e-08  5.4630e-09  2.0285e-07  5.2094e-01  0:29:18 4952
+    49  5.8590e-05  2.0006e-08  4.6101e-09  1.6660e-07  5.2095e-01  0:26:36 4951
+    50  4.9862e-05  1.7063e-08  3.9002e-09  1.3773e-07  5.2096e-01  0:23:41 4950
+    51  4.2360e-05  1.4505e-08  3.2892e-09  1.1421e-07  5.2096e-01  0:21:15 4949
+    52  3.5908e-05  1.2285e-08  2.7763e-09  9.5240e-08  5.2097e-01  0:19:16 4948
+    53  3.0385e-05  1.0375e-08  2.3380e-09  7.9924e-08  5.2097e-01  0:17:33 4947
+    54  2.5687e-05  8.7344e-09  1.9652e-09  6.7228e-08  5.2098e-01  0:16:19 4946
+    55  2.1670e-05  7.3312e-09  1.6462e-09  5.6881e-08  5.2098e-01  0:15:02 4945
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    56  1.8227e-05  6.1415e-09  1.3767e-09  4.8215e-08  5.2098e-01  0:14:16 4944
+    57  1.5288e-05  5.1415e-09  1.1497e-09  4.1098e-08  5.2098e-01  0:13:46 4943
+    58  1.2812e-05  4.2968e-09  9.5849e-10  3.5253e-08  5.2099e-01  0:13:21 4942
+    59  1.0741e-05  3.5869e-09  7.9943e-10  3.0460e-08  5.2099e-01  0:13:01 4941
+    60  8.9870e-06  2.9862e-09  6.6692e-10  2.6462e-08  5.2099e-01  0:12:37 4940
+    61  7.5053e-06  2.4826e-09  5.5763e-10  2.3058e-08  5.2099e-01  0:12:04 4939
+    62  6.2655e-06  2.0587e-09  4.6769e-10  2.0103e-08  5.2099e-01  0:11:41 4938
+    63  5.2346e-06  1.7064e-09  3.9301e-10  1.7525e-08  5.2099e-01  0:11:36 4937
+    64  4.3722e-06  1.4127e-09  3.3072e-10  1.5251e-08  5.2099e-01  0:11:29 4936
+    65  3.6466e-06  1.1690e-09  2.7902e-10  1.3245e-08  5.2099e-01  0:11:30 4935
+    66  3.0456e-06  9.6595e-10  2.3587e-10  1.1465e-08  5.2099e-01  0:11:24 4934
+
+  iter  continuity  x-velocity  y-velocity         nut  lift_coeff     time/iter
+    67  2.5492e-06  7.9769e-10  1.9983e-10  9.8986e-09  5.2099e-01  0:11:16 4933
+    68  2.1340e-06  6.5880e-10  1.6949e-10  8.5233e-09  5.2099e-01  0:11:03 4932
+    69  1.7847e-06  5.4321e-10  1.4415e-10  7.3143e-09  5.2099e-01  0:10:54 4931
+    70  1.4913e-06  4.4776e-10  1.2266e-10  6.2494e-09  5.2099e-01  0:10:45 4930
+    71  1.2475e-06  3.6914e-10  1.0450e-10  5.3160e-09  5.2099e-01  0:10:38 4929
+    72  1.0440e-06  3.0430e-10  8.9042e-11  4.5045e-09  5.2099e-01  0:10:34 4928
+    73  8.7457e-07  2.5109e-10  7.5737e-11  3.8035e-09  5.2099e-01  0:10:29 4927
+!   73 solution is converged
+
+Writing "| gzip -2cf > SolutionMonitor.gz"...
+
+Writing temporary file C:\\Users\\Ismael\\AppData\\Local\\Temp\\flntgz-261603 ...
+Done.
+
+Writing data to C:\\Users\\Ismael\\Documents\\GitHub\\AerospaceEngineering\\sources\\cuatrimestre-1\\01-fluid-mechanics\\laboratorios\\lab-3&4\\Lab3Geometry_files\\dp0\\FFF\\Fluent\\FFF.ip ...
+	x-coord
+	y-coord
+	pressure
+	x-velocity
+	y-velocity
+	nut
+	hyb_init-0
+	hyb_init-1
+Done.
+
+> /plot/plot
+node values? [no] yes
+filename [""] "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/pcoeff_aoa3.txt"
+Order points? [no] no
+Y Axis direction vector? [no] no
+Y Axis curve length? [no] no
+
+Enter Field:> pressure-coefficient
+X Axis direction vector? [no] yes
+ix [1] 1
+iy [0] 0
+Available surfaces: (s0.200 s0.150 s0.100 s0.050 s0.025 s0.000 s-0.050 s1.200 s1.100 s1.075 s1.050 s1.025 s1.000 surface_body wing outlet inlet interior-surface_body)
+Enter Surfaces(1) [()] wing
+Enter Surfaces(2) [()] ()
+
+> /report/forces/wall-forces
+all wall zones [yes] yes
+x-component of force vector [1] -0.0523
+y-component of force vector [0] 0.9986
+Write to File? [no] no
+
+Forces
+                          Forces [N]                                                                                                                                Coefficients                                                                                                                             
+Zone                      Pressure                                      Viscous                                       Total                                         Pressure                                      Viscous                                       Total                                        
+wing                      (-1.4642304 31.869732 0)                      (0.58082579 0.037090215 0)                    (-0.88340458 31.906823 0)                     (-0.023906985 0.52034792 0)                   (0.0094833394 0.00060558451 0)                (-0.014423646 0.5209535 0)                   
+------------------------- --------------------------------------------- --------------------------------------------- --------------------------------------------- --------------------------------------------- --------------------------------------------- ---------------------------------------------
+Net                       (-1.4642304 31.869732 0)                      (0.58082579 0.037090215 0)                    (-0.88340458 31.906823 0)                     (-0.023906985 0.52034792 0)                   (0.0094833394 0.00060558451 0)                (-0.014423646 0.5209535 0)                   
+
+Forces - Direction Vector (-0.0523 0.9986 0)
+                          Forces [N]                                      Coefficients                                   
+Zone                      Pressure        Viscous         Total           Pressure        Viscous         Total          
+wing                      31.902695       0.0066613094    31.909356       0.52088611      0.00010876146   0.52099487     
+------------------------- --------------- --------------- --------------- --------------- --------------- ---------------
+Net                       31.902695       0.0066613094    31.909356       0.52088611      0.00010876146   0.52099487     
+
+> /file/stop-transcript
+
+Performance Timer for 73 iterations on 4 compute nodes
+  Average wall-clock time per iteration:                0.057 sec
+  Global reductions per iteration:                         80 ops
+  Global reductions time per iteration:                 0.000 sec (0.0%)
+  Message count per iteration:                           5107 messages
+  Data transfer per iteration:                          0.864 MB
+  LE solves per iteration:                                  2 solves
+  LE wall-clock time per iteration:                     0.045 sec (79.6%)
+  LE coupled wall-clock time per iteration:             0.046 sec (81.6%)
+  LE global solves per iteration:                           6 solves
+  LE global wall-clock time per iteration:              0.001 sec (1.2%)
+  LE global matrix maximum size:                           37
+  AMG cycles per iteration:                             6.110 cycles
+  AMG coupled cycles per iteration:                     2.342 cycles
+  Relaxation sweeps per iteration:                       1464 sweeps
+  Relaxation exchanges per iteration:                       0 exchanges
+  LE early protections (stall) per iteration:           0.000 times
+  LE early protections (divergence) per iteration:      0.000 times
+  Total SVARS touched:                                    395
+
+  Total wall-clock time:                                4.158 sec
+

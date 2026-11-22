@@ -1,0 +1,78 @@
+Transcript Start Time:  10:13:12, 22 Nov 2026 Hora estándar romance 
+Current Directory: "C:\Users\Ismael\Documents\GitHub\AerospaceEngineering\sources\cuatrimestre-1\01-fluid-mechanics\laboratorios\lab-3&4\Lab-Ismael\j"
+
+Build Time: Feb  2 2026 16:27:16 EST 
+Executable Path: C:/PROGRA~1/ANSYSI~1/ANSYSS~1/v261/fluent/ntbin/win64/fluent.exe
+
+------------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                          
+------------------------------------------------------------------------------------------
+n3    DESKTOP-KHPO3PU  4/16  Windows-x64  26744  13th Gen Intel(R) Core(TM) i7-13620H    
+n2    DESKTOP-KHPO3PU  3/16  Windows-x64  2800   13th Gen Intel(R) Core(TM) i7-13620H    
+n1    DESKTOP-KHPO3PU  2/16  Windows-x64  14424  13th Gen Intel(R) Core(TM) i7-13620H    
+n0*   DESKTOP-KHPO3PU  1/16  Windows-x64  30196  13th Gen Intel(R) Core(TM) i7-13620H    
+host  DESKTOP-KHPO3PU        Windows-x64  27096  13th Gen Intel(R) Core(TM) i7-13620H    
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------------
+
+Cortex Process ID: 18288 
+License Server Path: () 
+
+
+> /define/boundary-conditions/list-zones
+  id  name                       type                adj-zone-material     wall-material         kind
+----  -------------------------  ------------------  --------------------  --------------------  ----
+   2  surface_body               fluid               air                                         cell
+   1  interior-surface_body      interior                                                        face
+   5  inlet                      velocity-inlet                                                  face
+   6  outlet                     pressure-outlet                                                 face
+   7  wing                       wall                air                   aluminum              face
+
+> /report/forces/wall-forces
+all wall zones [yes] yes
+x-component of force vector [1] -0.1045
+y-component of force vector [0] 0.9945
+Write to File? [no] no
+
+Forces
+                          Forces [N]                                                                                                                                Coefficients                                                                                                                             
+Zone                      Pressure                                      Viscous                                       Total                                         Pressure                                      Viscous                                       Total                                        
+wing                      (-4.8841292 50.260166 0)                      (0.5508585 0.065781641 0)                     (-4.3332707 50.325948 0)                      (-0.079744832 0.82061476 0)                   (0.0089940534 0.0010740391 0)                 (-0.070750778 0.8216888 0)                   
+------------------------- --------------------------------------------- --------------------------------------------- --------------------------------------------- --------------------------------------------- --------------------------------------------- ---------------------------------------------
+Net                       (-4.8841292 50.260166 0)                      (0.5508585 0.065781641 0)                     (-4.3332707 50.325948 0)                      (-0.079744832 0.82061476 0)                   (0.0089940534 0.0010740391 0)                 (-0.070750778 0.8216888 0)                   
+
+Forces - Direction Vector (-0.1045 0.9945 0)
+                          Forces [N]                                      Coefficients                                   
+Zone                      Pressure        Viscous         Total           Pressure        Viscous         Total          
+wing                      50.495376       0.007855323     50.503232       0.82445512      0.00012825652   0.82458338     
+------------------------- --------------- --------------- --------------- --------------- --------------- ---------------
+Net                       50.495376       0.007855323     50.503232       0.82445512      0.00012825652   0.82458338     
+
+> /file/stop-transcript
+
+Performance Timer for 75 iterations on 4 compute nodes
+  Average wall-clock time per iteration:                0.061 sec
+  Global reductions per iteration:                         82 ops
+  Global reductions time per iteration:                 0.000 sec (0.0%)
+  Message count per iteration:                           6055 messages
+  Data transfer per iteration:                          0.964 MB
+  LE solves per iteration:                                  2 solves
+  LE wall-clock time per iteration:                     0.049 sec (80.7%)
+  LE coupled wall-clock time per iteration:             0.027 sec (44.3%)
+  LE global solves per iteration:                           6 solves
+  LE global wall-clock time per iteration:              0.000 sec (0.8%)
+  LE global matrix maximum size:                           35
+  AMG cycles per iteration:                             6.507 cycles
+  AMG coupled cycles per iteration:                     2.800 cycles
+  Relaxation sweeps per iteration:                       1597 sweeps
+  Relaxation exchanges per iteration:                       0 exchanges
+  LE early protections (stall) per iteration:           0.000 times
+  LE early protections (divergence) per iteration:      0.000 times
+  Total SVARS touched:                                    395
+
+  Total wall-clock time:                                4.585 sec
+
+Transcript Stop Time:  10:13:13, 22 Nov 2026 Hora estándar romance 
+Total Transcript Time: 0 Minute 0 Second.

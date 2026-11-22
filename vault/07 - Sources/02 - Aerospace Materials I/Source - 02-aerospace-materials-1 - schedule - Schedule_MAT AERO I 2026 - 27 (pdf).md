@@ -19,9 +19,10 @@ bytes: 300281
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/schedule/Schedule_MAT AERO I 2026 - 27.pdf`
 - **Kind:** schedule
 - **Size:** 300.3 kB
-- **Status:** referenced by 2 note(s) below
+- **Status:** referenced by 3 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]
 - [[02 - Aerospace Materials I/Schedule - Aerospace Materials I 2026-27]]

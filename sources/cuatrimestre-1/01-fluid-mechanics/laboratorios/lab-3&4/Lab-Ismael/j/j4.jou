@@ -1,0 +1,6 @@
+/display/objects/display streamlines
+/views/camera/target 0.5 0 0
+/views/camera/position 0.5 0 10
+/views/camera/up-vector 0 1 0
+/views/camera/field 2.6 1.6
+/display/save-picture "C:/Users/Ismael/Documents/GitHub/AerospaceEngineering/sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig2_streamlines_aoa6.png"

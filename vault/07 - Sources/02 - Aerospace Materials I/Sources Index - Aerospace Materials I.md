@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 77
-- Referenced by at least one note (a mention counts): 51
-- Not referenced yet: 26
+- Referenced by at least one note (a mention counts): 59
+- Not referenced yet: 18
 - Build artifacts: 0
 - Working files: 0
 
@@ -27,21 +27,21 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2012_EXTRA (pdf)\|MATERIALS_FINALEXAM_2012_EXTRA.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2012_EXTRA (pdf)\|MATERIALS_FINALEXAM_2012_EXTRA.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2012_EXTRA_SOL (pdf)\|MATERIALS_FINALEXAM_2012_EXTRA_SOL.pdf]] | examenes | not-referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2012_ORD (pdf)\|MATERIALS_FINALEXAM_2012_ORD.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2012_ORD_SOL (pdf)\|MATERIALS_FINALEXAM_2012_ORD_SOL.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2013_EXTRA (pdf)\|MATERIALS_FINALEXAM_2013_EXTRA.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2013_EXTRA (pdf)\|MATERIALS_FINALEXAM_2013_EXTRA.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2013_EXTRA_SOL (pdf)\|MATERIALS_FINALEXAM_2013_EXTRA_SOL.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2013_ORD (pdf)\|MATERIALS_FINALEXAM_2013_ORD.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2013_ORD (pdf)\|MATERIALS_FINALEXAM_2013_ORD.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2013_ORD_SOL (pdf)\|MATERIALS_FINALEXAM_2013_ORD_SOL.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2014_EXTRA (pdf)\|MATERIALS_FINALEXAM_2014_EXTRA.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2014_EXTRA (pdf)\|MATERIALS_FINALEXAM_2014_EXTRA.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2014_EXTRA_SOL (pdf)\|MATERIALS_FINALEXAM_2014_EXTRA_SOL.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2014_ORD (pdf)\|MATERIALS_FINALEXAM_2014_ORD.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2014_ORD (pdf)\|MATERIALS_FINALEXAM_2014_ORD.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2014_ORD_SOL (pdf)\|MATERIALS_FINALEXAM_2014_ORD_SOL.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2015_EXTRA (pdf)\|MATERIALS_FINALEXAM_2015_EXTRA.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2015_EXTRA (pdf)\|MATERIALS_FINALEXAM_2015_EXTRA.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2015_EXTRA_SOL (pdf)\|MATERIALS_FINALEXAM_2015_EXTRA_SOL.pdf]] | examenes | not-referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2015_ORD (pdf)\|MATERIALS_FINALEXAM_2015_ORD.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2015_ORD (pdf)\|MATERIALS_FINALEXAM_2015_ORD.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2015_ORD_SOL (pdf)\|MATERIALS_FINALEXAM_2015_ORD_SOL.pdf]] | examenes | not-referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2016_EXTRA_SOL (pdf)\|MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FINALEXAM_2016_ORD_SOL (pdf)\|MATERIALS_FINALEXAM_2016_ORD_SOL.pdf]] | examenes | referenced |
@@ -55,7 +55,7 @@ tags:
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_FIRSTPARTIAL_UNDATED_V2 (pdf)\|MATERIALS_FIRSTPARTIAL_UNDATED_V2.pdf]] | examenes | not-referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_SECONDPARTIAL_2018 (docx)\|MATERIALS_SECONDPARTIAL_2018.docx]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_SECONDPARTIAL_2019 (pdf)\|MATERIALS_SECONDPARTIAL_2019.pdf]] | examenes | referenced |
-| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_THIRDPARTIAL_2020 (pdf)\|MATERIALS_THIRDPARTIAL_2020.pdf]] | examenes | not-referenced |
+| [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_THIRDPARTIAL_2020 (pdf)\|MATERIALS_THIRDPARTIAL_2020.pdf]] | examenes | referenced |
 | [[Source - 02-aerospace-materials-1 - examenes - MATERIALS_THIRDPARTIAL_2020_V2 (pdf)\|MATERIALS_THIRDPARTIAL_2020_V2.pdf]] | examenes | referenced |
 
 ## examenes/first-partial

@@ -19,7 +19,7 @@ bytes: 2646391
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2019.pdf`
 - **Kind:** examenes
 - **Size:** 2.6 MB
-- **Status:** referenced by 66 note(s) below
+- **Status:** referenced by 59 note(s) below
 
 ## Referenced by
 
@@ -40,11 +40,9 @@ bytes: 2646391
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B12 - Unit 4 Intermetallic Compounds and the Fe-Fe3C Diagram]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B13 - Unit 4 The Fe-Fe3C Diagram]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B14 - Unit 4 Steel Microstructures and Amounts]]
-- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B15 - Unit 4 Steels Cooling Rate Alloying and Ceramic Diagrams]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B16 - Unit 5 Tension Test and Engineering Stress and Strain]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B17 - Unit 5 Elastic and Plastic Deformation]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B18 - Unit 5 Hookes Law and Elastic Elongation]]
-- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B19 - Unit 5 Youngs Modulus Bonding and Non-Linear Elasticity]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B20 - Unit 5 Poissons Ratio and Shear Modulus]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B21 - Unit 5 Elastic Constants and Other Mechanical Tests]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B22 - Unit 5 Slip Dislocations and Slip Systems]]
@@ -55,16 +53,13 @@ bytes: 2646391
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B27 - Unit 5 Toughness and Modulus of Resilience]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B28 - Unit 5 True Stress and True Strain]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B29 - Unit 5 Strengthening Principle and Strain Hardening]]
-- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B30 - Unit 5 Cold Work Solid Solution and Grain Size]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B31 - Unit 5 Precipitation Strengthening and Aircraft Alloys]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B32 - Unit 5 Hardness Tests and Tensile Strength]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B33 - Unit 6 Energy Bands and Classification of Materials]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B34 - Unit 6 Metallic Conduction, Drift Velocity and Mobility]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B35 - Unit 6 Conductivity, Carriers and Resistivity of Metals]]
-- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B36 - Unit 6 Matthiessen Rule, Residual Resistivity and Hardening]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B37 - Unit 6 Non-Metallic Conductors and Intrinsic Semiconductors]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B38 - Unit 6 Intrinsic Semiconductors, Band Gap and Temperature]]
-- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B39 - Unit 6 Extrinsic Semiconductors, Dopants and Carriers]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B40 - Unit 6 Dopant Levels and Extrinsic Conductivity with Temperature]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B41 - Unit 6 Temperature Ranges and Semiconductor Devices]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B42 - Unit 6 Dielectrics, Ferroelectrics and Piezoelectrics]]
@@ -78,9 +73,7 @@ bytes: 2646391
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B50 - Unit 7 Thermal Expansion]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B51 - Unit 7 Thermal Conductivity]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B52 - Unit 7 Thermal Stresses and Thermal Shock]]
-- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B53 - Unit 6 Metallic and Ionic Conduction Applied]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B54 - Unit 6 Intrinsic Semiconductors Applied]]
-- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B55 - Unit 6 Extrinsic Semiconductors Dopants and Carrier Data]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B56 - Unit 6 Extrinsic Conductivity against Temperature and Devices]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B57 - Unit 6 Dielectrics Ferroelectrics and Piezoelectrics Applied]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B58 - Unit 7 Magnetic Moments Fields and Types of Magnetism Applied]]

@@ -19,7 +19,7 @@ bytes: 285640
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams II.pdf`
 - **Kind:** problemas
 - **Size:** 285.6 kB
-- **Status:** referenced by 12 note(s) below
+- **Status:** referenced by 14 note(s) below
 
 ## Referenced by
 
@@ -35,3 +35,5 @@ bytes: 285640
 - [[02 - Aerospace Materials I/Problem - T4-FC09 A 3 C Cast Iron from 1146 to 800 C]]
 - [[02 - Aerospace Materials I/Problem - T4-FC10 Fe-Cementite Questions and Pearlite Limits]]
 - [[02 - Aerospace Materials I/Problem - T4-FC11 Composition of a Ternary Alloy]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B14 - Unit 4 Steel Microstructures and Amounts]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B15 - Unit 4 Steels Cooling Rate Alloying and Ceramic Diagrams]]

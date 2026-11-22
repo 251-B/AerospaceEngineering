@@ -19,10 +19,18 @@ bytes: 827847
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2017_ORD.pdf`
 - **Kind:** examenes
 - **Size:** 827.8 kB
-- **Status:** referenced by 3 note(s) below
+- **Status:** referenced by 11 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P01 - Two Eutectics Around a Congruently Melting Compound]]
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P17 - Nickel Alloy Tie Rod under a Tensile Load]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B109 - Unit 11 Joint Design and Stress States]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B30 - Unit 5 Cold Work Solid Solution and Grain Size]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B36 - Unit 6 Matthiessen Rule, Residual Resistivity and Hardening]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B65 - Unit 8 Fluorite Antifluorite Perovskite and Corundum]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B67 - Unit 8 Covalent Ceramics and Carbon Allotropes]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B75 - Unit 8 Drying Debinding and Sintering of Ceramics]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B85 - Unit 9 Structural Factors Controlling Tg and Tm]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]

@@ -19,7 +19,7 @@ bytes: 626247
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams I.pdf`
 - **Kind:** problemas
 - **Size:** 626.2 kB
-- **Status:** referenced by 23 note(s) below
+- **Status:** referenced by 24 note(s) below
 
 ## Referenced by
 
@@ -45,4 +45,5 @@ bytes: 626247
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P06 - Building a Eutectic Diagram from a Description and Using It]]
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P07 - Composition of an Ag-Cu Alloy from its Micrograph]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B07 - Unit 4 Eutectic Systems and the Pb-Sn Diagram]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B08 - Unit 4 Hypoeutectic and Hypereutectic Alloys]]
 - [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification]]

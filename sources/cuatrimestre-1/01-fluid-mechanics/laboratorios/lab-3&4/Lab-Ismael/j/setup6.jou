@@ -1,0 +1,32 @@
+/define/boundary-conditions/zone-name wall-surface_body wing
+/define/models/solver/pressure-based yes
+/define/models/viscous/spalart-allmaras yes
+/define/boundary-conditions/velocity-inlet inlet
+no
+yes
+yes
+no
+0
+no
+9.945
+no
+1.045
+no
+no
+yes
+no
+10
+/report/reference-values/compute/velocity-inlet inlet
+/solve/monitors/residual/convergence-criteria
+1e-6
+1e-6
+1e-6
+0.001
+/solve/report-definitions/edit lift_coeff
+force-vector -0.1045 0.9945
+thread-names wing ()
+scaled? yes
+q
+/solve/initialize/hyb-initialization
+ok
+/solve/iterate 5000

@@ -19,10 +19,18 @@ bytes: 357215
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf`
 - **Kind:** examenes
 - **Size:** 357.2 kB
-- **Status:** referenced by 3 note(s) below
+- **Status:** referenced by 11 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P09 - Hypoeutectoid Steel Bar Above and Below the Eutectoid]]
 - [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P11 - Carbon Content of a Steel from Its Micrograph]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P24 - Carbon-Polycarbonate Stiffener Micromechanics]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B111 - Unit 11 Adhesive Testing and Failure Modes]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B51 - Unit 7 Thermal Conductivity]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B71 - Unit 8 Thermal Shock and Ferroelectric Ceramics]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B81 - Unit 9 Semicrystalline Structure Spherulites and Lamellae]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B85 - Unit 9 Structural Factors Controlling Tg and Tm]]
+- [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B99 - Unit 10 Transverse Isostress and Fracture Curves]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]
+- [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 3 Exam Style Analysis]]
