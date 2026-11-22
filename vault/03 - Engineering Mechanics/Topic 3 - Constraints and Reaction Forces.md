@@ -21,7 +21,7 @@ tags:
 
 > A particle that must stay on a surface or on a curve loses one or two of its three configuration degrees of freedom, and the constraint makes itself felt through an unknown reaction force $\mathbf N$ that lies in the normal subspace of the constraint: one unknown for a surface, two for a curve, so that Newton's three scalar equations always close the problem. Projected on the tangent directions, the second law gives equations of motion free of the reaction; projected on the normal directions, it gives the reaction afterwards. A smooth stationary constraint never does work, so it does not decide whether the mechanical energy is conserved, while a moving constraint can work and friction, bounded by the normal reaction and opposed to the relative velocity, dissipates energy while the particle slides. The same ideas, applied step by step, make up the Newtonian procedure for any problem of particles.
 
-This note follows `Notes.pdf` Chapter 6 (Constraints and reaction forces, Eqs. 6.1 to 6.21: curves and surfaces, choosing coordinates, tangent and normal vectors, motion on a smooth surface, motion along a smooth curve, friction forces) and Chapter 7 (The Newtonian mechanics approach I, Eq. 7.1 and Sections 7.1 to 7.8: understanding the problem, selecting the coordinates, defining reference frames, kinematics of the particles, defining the forces, obtaining the equations of motion, integration and particular questions, final comments), with the deck of Lecture 3 (Constraints and reaction forces, Slides 1 to 24), in the order of the notes; the slides on two-particle constraints, on the classification of constraints and their examples (Slides 17 and 21 to 23) are placed where the notes discuss the same ideas. Neither chapter has figures of its own: the figures redraw the sketches of the slides or are drawn for this note, and the worked examples are those of the slides; where an example or a step is built for this note it is said so. Earlier results are cited, not re-derived: the change of basis (Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.20), the dot and cross products (Notes.pdf, Eq. 1.32), the derivative of a unit vector of a rotating basis (Notes.pdf, Eq. 1.62), the gradient (Notes.pdf, Eq. 1.74), the velocity and acceleration (Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4), the intrinsic basis (Notes.pdf, Eq. 2.16; Notes.pdf, Eq. 2.17), the cylindrical and spherical bases (Notes.pdf, Eq. 2.24; Notes.pdf, Eq. 2.32), the Coriolis theorem and the composition of velocities (Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 3.20), the second law (Notes.pdf, Eq. 4.4) and the theorem of kinetic energy and the conservation of mechanical energy (Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.31).
+This note follows `Notes.pdf` Chapter 6 (Constraints and reaction forces, Eqs. 6.1 to 6.21: curves and surfaces, choosing coordinates, tangent and normal vectors, motion on a smooth surface, motion along a smooth curve, friction forces) and Chapter 7 (The Newtonian mechanics approach I, Eq. 7.1 and Sections 7.1 to 7.8: understanding the problem, selecting the coordinates, defining reference frames, kinematics of the particles, defining the forces, obtaining the equations of motion, integration and particular questions, final comments), with the deck of Lecture 3 (Constraints and reaction forces, Slides 1 to 24), in the order of the notes; the slides on two-particle constraints, on the classification of constraints and their examples (Slides 17 and 21 to 23) are placed where the notes discuss the same ideas. Neither chapter has figures of its own: the figures redraw the sketches of the slides or are drawn for this note, and the worked examples are those of the slides; where an example or a step is built for this note it is said so. Earlier results are cited, not re-derived: the change of basis (Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.20), the dot product (Notes.pdf, Eq. 1.24), the cross product, which is perpendicular to both factors (Notes.pdf, Sec. 1.6.2), and its distributivity (Notes.pdf, Eq. 1.32), the derivative of a unit vector of a rotating basis (Notes.pdf, Eq. 1.62), the gradient (Notes.pdf, Eq. 1.74), the velocity and acceleration (Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4), the intrinsic basis (Notes.pdf, Eq. 2.13) and the velocity and acceleration written in it (Notes.pdf, Eq. 2.16; Notes.pdf, Eq. 2.17), the cylindrical and spherical bases (Notes.pdf, Eq. 2.24; Notes.pdf, Eq. 2.32), the Coriolis theorem and the composition of velocities (Notes.pdf, Eq. 3.8; Notes.pdf, Eq. 3.20), the second law (Notes.pdf, Eq. 4.4) and the theorem of kinetic energy and the conservation of mechanical energy (Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.31).
 See also [[Concept - Classification of Constraints Holonomic Rheonomic and Unilateral]], [[Concept - Normal and Tangent Subspaces for Surfaces and Curves]], [[Concept - Constraint and Reaction Forces Dynamical Decoupling]], [[Concept - Coulomb Friction as Applied Force and Tangent Reaction]], [[Concept - Work and Power of Constraint Forces and Energy Preservation]] and [[Concept - Constraints on Multi-Particle Systems and Pulleys]].
 
 | Symbol | Meaning |
@@ -55,14 +55,15 @@ See also [[Concept - Classification of Constraints Holonomic Rheonomic and Unila
 | $N_R$, $N_z$ | components of the reaction along $\mathbf e_R$ and $\mathbf k$ in the worked examples |
 | $\dot W_0$, $\delta W_0$, $W_0$ | power of a force, its work in a time $dt$, and its work over an interval, as seen from $S_0$; $\dot W_0^{(P)}$, $\dot W_0^{(P')}$ the power of the string on $P$ and on $P'$ |
 | $T_0$, $V_0$, $E_0$ | kinetic, potential and mechanical energy with respect to $S_0$ (Topic 2) |
-| $\mathbf F_R$; $R_1$, $R_2$; $\mu$ | friction force (the notes write $\mathbf R$); its unknown components along the tangent vectors while $P$ sticks; friction coefficient |
+| $\mathbf F_\mu$; $R_1$, $R_2$; $\mu$ | friction force (the notes write $\mathbf R$); its unknown components along the tangent vectors while $P$ sticks; friction coefficient |
 | $\mathbf F_g$, $g$ | weight of a particle and the acceleration of gravity |
-| $\mathbf F_T$, $F_T$ | force of a string on a particle and the tension (its magnitude; the slides write $T$, a letter kept here for kinetic energy) |
+| $\mathbf F_\tau$, $F_\tau$ | force of a string on a particle and the tension (its magnitude; the slides write $T$, a letter kept here for kinetic energy) |
 | $K$ | constant of the first integral of the particle on the vertical circle |
 | $\zeta$, $c$, $\ell_0$ | depth of $P$ below the spool, the rate at which the string is collected and the initial length of string ([Lecture 3, Slide 22]; the slide writes $L$) |
-| $L$, $\rho_a$, $v$, $S_w$, $C_L$ | lift of the airplane of [Lecture 3, Slide 23], air density, speed, wing area and lift coefficient (the slide writes $\rho$ and $S$) |
-| $d$, $d'$, $\ell_s$, $\ell_c$ | depths of $P$ and $P'$ below the pulleys, total length of the string and its constant length over the pulleys (Section 7) |
-| $S_1$, $\mathcal B_1$; $\mathbf i_1, \mathbf j_1, \mathbf k_1$ | an auxiliary frame, its basis and the vectors of that basis: the frame in which a rough constraint is at rest (Section 8), the frame whose basis is the polar basis $\mathbf e_R$, $\mathbf e_\theta$, $\mathbf k$ and turns with the radius (Sections 6, 8 and 9), and the first frame of Eq. 7.1 |
+| $L$, $\rho_a$, $S_w$, $C_L$ | lift of the airplane of [Lecture 3, Slide 23], air density, wing area and lift coefficient; the speed of the airplane is $v_0^P$ (the slide writes $\rho$, $S$ and $v$) |
+| $\eta$, $\eta'$, $\ell_s$, $\ell_c$ | depths of $P$ and $P'$ below the pulleys, total length of the string and its constant length over the pulleys (Section 7) |
+| $S_1$, $\mathcal B_1$; $\mathbf i_1, \mathbf j_1, \mathbf k_1$ | an auxiliary frame, its basis and the vectors of that basis: the frame in which a rough constraint is at rest (Section 8), the frame whose basis is the polar basis $\mathbf e_R$, $\mathbf e_\theta$, $\mathbf k$ and turns with the radius of the vertical circle (Sections 6 and 9), and the first frame of Eq. 7.1 |
+| $S_c$, $\mathcal B_c$; $[{}_0R_c]$ | the frame of the rough cylinder of Section 8 that turns about its axis with the meridian plane of $P$, its cylindrical basis $\mathbf e_R$, $\mathbf e_\theta$, $\mathbf e_z$, and its change of basis matrix to $\mathcal B_0$ (a separate letter, because in Section 8 $S_1$ is the frame in which the cylinder is at rest) |
 | $S_2$; $\mathbf i_2, \mathbf j_2, \mathbf k_2$ | the frame rotated an angle $\theta$ with respect to $S_1$ about $\mathbf k_1$, and its basis (Eq. 7.1) |
 | $[{}_0R_1]$, $[{}_1R_2]$ | change of basis matrices from the basis of $S_1$ to $\mathcal B_0$ and from that of $S_2$ to that of $S_1$ |
 | $\boldsymbol\omega_{10}$, $\boldsymbol\omega_{21}$, $\boldsymbol\alpha_{10}$ | angular velocity of $S_1$ with respect to $S_0$, of $S_2$ with respect to $S_1$, and angular acceleration of $S_1$ with respect to $S_0$ (Topic 5 notation, Notes.pdf, Ch. 3) |
@@ -70,7 +71,8 @@ See also [[Concept - Classification of Constraints Holonomic Rheonomic and Unila
 | $\mathbf v_0^O$, $\mathbf a_0^O$ | velocity and acceleration of the origin of $S_1$ with respect to $S_0$ (zero in Section 9) |
 | $k$, $\mathbf F_S$ | stiffness of a spring of zero natural length and its force on $P$ (Sec. 7.5) |
 | $\theta_*$ | turning angle of the particle on the vertical circle, a root of the boundary of the region of existence |
-| $\psi$; $v$, $t'$ | constant angle between the velocity and the horizontal on the rough cylinder; integration (dummy) variables |
+| $\psi$; $v$, $t'$, $y'$, $\varepsilon'$ | constant angle between the velocity and the horizontal on the rough cylinder; integration (dummy) variables |
+| $\varepsilon$; $\varepsilon_1$, $t_1$; $q$ | small departure of $\theta$ from the highest point of the vertical circle (Section 9); its value at an instant $t_1$; root of the characteristic equation of the linearized motion |
 | $\ell_1$, $\ell_2$, $H$ | distances of $P$ to two parallel planes and the height of the second plane (Sec. 7.2; the notes write $l_1$, $l_2$, $L$) |
 
 ## 1. Constraints and configuration degrees of freedom
@@ -149,7 +151,8 @@ The parameter of a curve can be, for example, an arc length. If a parametric for
 >
 > $$\begin{aligned}
 > x &= R_s\cos\alpha\sin\beta,\quad y = R_s\sin\alpha\sin\beta,\quad z = R_s\cos\beta \quad &\text{(Eq. 6.4)} \\
-> x^2 + y^2 &= R_s^2\sin^2\beta\left(\cos^2\alpha + \sin^2\alpha\right) \quad &\text{(square the first two and add; common factor)} \\
+> x^2 + y^2 &= R_s^2\cos^2\alpha\sin^2\beta + R_s^2\sin^2\alpha\sin^2\beta \quad &\text{(square the first two and add)} \\
+> &= R_s^2\sin^2\beta\left(\cos^2\alpha + \sin^2\alpha\right) \quad &\text{(common factor $R_s^2\sin^2\beta$)} \\
 > &= R_s^2\sin^2\beta \quad &\text{($\cos^2\alpha + \sin^2\alpha = 1$: $\alpha$ is eliminated)} \\
 > x^2 + y^2 + z^2 &= R_s^2\sin^2\beta + R_s^2\cos^2\beta \quad &\text{(add the square of the third)} \\
 > &= R_s^2 \quad &\text{($\sin^2\beta + \cos^2\beta = 1$: $\beta$ is eliminated)}
@@ -168,10 +171,13 @@ The parameter of a curve can be, for example, an arc length. If a parametric for
 >
 > $$\begin{aligned}
 > x &= a_e\cos\alpha,\quad y = b_e\sin\alpha,\quad z = 0 \quad &\text{(ellipse, Slide 6)} \\
-> \frac{x^2}{a_e^2} + \frac{y^2}{b_e^2} &= \cos^2\alpha + \sin^2\alpha \quad &\text{(divide by the semi-axes, square and add)} \\
+> \frac{x}{a_e} &= \cos\alpha,\quad \frac{y}{b_e} = \sin\alpha \quad &\text{(divide each equation by its semi-axis)} \\
+> \frac{x^2}{a_e^2} + \frac{y^2}{b_e^2} &= \cos^2\alpha + \sin^2\alpha \quad &\text{(square both equations and add them)} \\
 > &= 1 \quad &\text{($\alpha$ is eliminated)} \\
 > x &= R_s\cos\alpha\cos\varphi,\quad y = R_s\sin\alpha\cos\varphi,\quad z = R_s\sin\varphi \quad &\text{(sphere, Slide 6)} \\
-> x^2 + y^2 &= R_s^2\cos^2\varphi \quad &\text{(square and add the first two; $\cos^2\alpha + \sin^2\alpha = 1$)} \\
+> x^2 + y^2 &= R_s^2\cos^2\alpha\cos^2\varphi + R_s^2\sin^2\alpha\cos^2\varphi \quad &\text{(square the first two and add)} \\
+> &= R_s^2\cos^2\varphi\left(\cos^2\alpha + \sin^2\alpha\right) \quad &\text{(common factor $R_s^2\cos^2\varphi$)} \\
+> &= R_s^2\cos^2\varphi \quad &\text{($\cos^2\alpha + \sin^2\alpha = 1$: $\alpha$ is eliminated)} \\
 > x^2 + y^2 + z^2 &= R_s^2\cos^2\varphi + R_s^2\sin^2\varphi \quad &\text{(add the square of the third)} \\
 > &= R_s^2 \quad &\text{($\varphi$ is eliminated)}
 > \end{aligned}$$
@@ -198,7 +204,10 @@ The coordinates of a problem can be chosen freely, but an intelligent choice can
 > \mathbf e_r &= \cos\varphi\cos\theta\,\mathbf i + \cos\varphi\sin\theta\,\mathbf j + \sin\varphi\,\mathbf k \quad &\text{(1: Eq. 2.32)} \\
 > R &= \ell_V\sin\gamma,\quad z = \ell_V\cos\gamma \quad &\text{(2: legs of the meridian triangle)} \\
 > \mathbf r_0^P &= \ell_V\sin\gamma\,\mathbf e_R(\theta) + \ell_V\cos\gamma\,\mathbf k \quad &\text{(2: Eq. 2.28 with these $R$ and $z$; $\mathbf e_R$ of Eq. 2.24)} \\
-> x^2 + y^2 - z^2\tan^2\gamma &= \ell_V^2\sin^2\gamma - \ell_V^2\cos^2\gamma\,\frac{\sin^2\gamma}{\cos^2\gamma} \quad &\text{(2: substitute $x^2 + y^2 = R^2$ and $z$)} \\
+> x^2 + y^2 - z^2\tan^2\gamma &= R^2 - z^2\tan^2\gamma \quad &\text{(2: $x^2 + y^2 = R^2$, the squared distance to $Oz$)} \\
+> &= \ell_V^2\sin^2\gamma - \ell_V^2\cos^2\gamma\,\tan^2\gamma \quad &\text{(2: substitute the legs $R$ and $z$)} \\
+> &= \ell_V^2\sin^2\gamma - \ell_V^2\cos^2\gamma\,\frac{\sin^2\gamma}{\cos^2\gamma} \quad &\text{(2: $\tan\gamma = \sin\gamma/\cos\gamma$)} \\
+> &= \ell_V^2\sin^2\gamma - \ell_V^2\sin^2\gamma \quad &\text{(2: simplify $\cos^2\gamma$)} \\
 > &= 0 \quad &\text{(2: the two terms cancel: the implicit equation of the cone)} \\
 > \mathbf r_0^P &= \mathbf r_0^P(s) \quad &\text{(3: the position along the wire)} \\
 > \mathbf r_0^P &= \mathbf r(\alpha,\beta) \quad &\text{(4: Eq. 6.3)}
@@ -229,7 +238,7 @@ When a constraint is given in parametric form, partial differentiation with resp
 
 > [!derivation] Tangent vectors of a parametric curve and of a parametric surface, and the normal of the surface
 > **Law:** the tangent to a curve is the limit of the chord divided by the change of the parameter; a coordinate line of a surface is a curve on it; the cross product is perpendicular to both factors
-> **Source:** Notes.pdf, Sec. 6.3; Notes.pdf, Eq. 2.9; Notes.pdf, Eq. 1.32; [Lecture 3, Slide 8]; [Lecture 3, Slide 9]
+> **Source:** Notes.pdf, Sec. 6.3; Notes.pdf, Eq. 2.9; Notes.pdf, Sec. 1.6.2; [Lecture 3, Slide 8]; [Lecture 3, Slide 9]
 >
 > The chord between the points of parameters $\alpha$ and $\alpha + \Delta\alpha$ of a curve lies, in the limit, along the curve; on a surface, the curve obtained by varying $\alpha$ with $\beta$ fixed lies on the surface, and so does the curve obtained by varying $\beta$ with $\alpha$ fixed.
 >
@@ -239,7 +248,7 @@ When a constraint is given in parametric form, partial differentiation with resp
 > \left|\frac{d\mathbf r}{ds}\right| &= 1 \quad &\text{(if $\alpha$ is the arc length $s$, Eq. 2.9: $\mathbf t$ is then $\mathbf e_t$)} \\
 > \mathbf t_\alpha &= \frac{\partial x}{\partial\alpha}\,\mathbf i + \frac{\partial y}{\partial\alpha}\,\mathbf j + \frac{\partial z}{\partial\alpha}\,\mathbf k \quad &\text{(surface: tangent of the line of varying $\alpha$, $\beta$ fixed)} \\
 > \mathbf t_\beta &= \frac{\partial x}{\partial\beta}\,\mathbf i + \frac{\partial y}{\partial\beta}\,\mathbf j + \frac{\partial z}{\partial\beta}\,\mathbf k \quad &\text{(tangent of the line of varying $\beta$, $\alpha$ fixed)} \\
-> \mathbf n &= \mathbf t_\alpha \times \mathbf t_\beta \quad &\text{(perpendicular to both tangent vectors, Eq. 1.32)}
+> \mathbf n &= \mathbf t_\alpha \times \mathbf t_\beta \quad &\text{(perpendicular to both tangent vectors, Sec. 1.6.2)}
 > \end{aligned}$$
 >
 > $$\boxed{\mathbf t = \frac{d\mathbf r}{d\alpha},\qquad \mathbf t_\alpha = \frac{\partial\mathbf r}{\partial\alpha},\quad \mathbf t_\beta = \frac{\partial\mathbf r}{\partial\beta},\quad \mathbf n = \mathbf t_\alpha \times \mathbf t_\beta}$$
@@ -276,14 +285,14 @@ When a constraint is given by implicit equations, it is easier to obtain first a
 
 > [!derivation] A curve as the intersection of two surfaces: two normals and the tangent
 > **Law:** a curve lying on two surfaces is tangent to both; the cross product is perpendicular to both factors; the tangent subspace of a curve has dimension one
-> **Source:** Notes.pdf, Sec. 6.3; Notes.pdf, Eq. 6.7; Notes.pdf, Eq. 1.32; [Lecture 3, Slide 10]
+> **Source:** Notes.pdf, Sec. 6.3; Notes.pdf, Eq. 6.7; Notes.pdf, Sec. 1.6.2; [Lecture 3, Slide 10]
 >
 > The curve of Eq. 6.7 lies on the surface of $f$ and on the surface of $h$, so its tangent $\mathbf t$ belongs to the tangent plane of each of them.
 >
 > $$\begin{aligned}
 > \mathbf n_f &= \nabla f,\quad \mathbf n_h = \nabla h \quad &\text{(the gradient of each implicit equation, previous box)} \\
 > \mathbf n_f\cdot\mathbf t &= 0,\quad \mathbf n_h\cdot\mathbf t = 0 \quad &\text{(previous box applied to each surface, with $\Gamma$ the curve itself)} \\
-> \mathbf t &\parallel \mathbf n_f \times \mathbf n_h \quad &\text{(the cross product is perpendicular to both normals, Eq. 1.32, and $V_T$ is a line)}
+> \mathbf t &\parallel \mathbf n_f \times \mathbf n_h \quad &\text{(the cross product is perpendicular to both normals, Sec. 1.6.2, and $V_T$ is a line)}
 > \end{aligned}$$
 >
 > $$\boxed{\mathbf n_f = \nabla f,\quad \mathbf n_h = \nabla h \ \in V_N,\qquad \mathbf t = \mathbf n_f \times \mathbf n_h \ \in V_T}$$
@@ -305,7 +314,7 @@ One can always operate on the parametric equations of a constraint to obtain an 
 
 > [!derivation] Tangent and normals of the ellipse
 > **Law:** derivative of the parametric form; gradients of the implicit equations; dot and cross products in $\mathcal B_0$
-> **Source:** [Lecture 3, Slide 11]; [Lecture 3, Slide 10]; Notes.pdf, Eq. 6.9; Notes.pdf, Eq. 1.32
+> **Source:** [Lecture 3, Slide 11]; [Lecture 3, Slide 10]; Notes.pdf, Eq. 6.9; Notes.pdf, Eq. 1.24; Notes.pdf, Eq. 1.32
 >
 > $$\begin{aligned}
 > \mathbf t &= \frac{d}{d\alpha}\left(a_e\cos\alpha\right)\mathbf i + \frac{d}{d\alpha}\left(b_e\sin\alpha\right)\mathbf j + \frac{d}{d\alpha}(0)\,\mathbf k \quad &\text{(derivative of the parametric form)} \\
@@ -343,7 +352,7 @@ One can always operate on the parametric equations of a constraint to obtain an 
 
 > [!derivation] Tangent and normal vectors of the paraboloid
 > **Law:** gradient of the implicit form; partial derivatives of the parametric form; cross product in $\mathcal B_0$
-> **Source:** [Lecture 3, Slide 12]; [Lecture 3, Slide 9]; Notes.pdf, Eq. 6.9; Notes.pdf, Eq. 1.32
+> **Source:** [Lecture 3, Slide 12]; [Lecture 3, Slide 9]; Notes.pdf, Eq. 6.9; Notes.pdf, Eq. 1.24; Notes.pdf, Eq. 1.32
 >
 > In the meridian plane of $P$, $R$ is the horizontal distance to $Oz$: the right triangle in the plane $Oxy$ with hypotenuse $R$ and angle $\theta$ at $O$ has the leg $R\cos\theta$ along $Ox$ (adjacent) and $R\sin\theta$ along $Oy$ (opposite), and the surface sets the height to $R^2$.
 >
@@ -358,15 +367,19 @@ One can always operate on the parametric equations of a constraint to obtain an 
 > &= 0 \quad &\text{(the two terms cancel)} \\
 > \mathbf t_R\times\mathbf t_\theta &= R\cos^2\theta\,\mathbf i\times\mathbf j - R\sin^2\theta\,\mathbf j\times\mathbf i - 2R^2\sin\theta\,\mathbf k\times\mathbf i + 2R^2\cos\theta\,\mathbf k\times\mathbf j \quad &\text{(distribute; the products $\mathbf i\times\mathbf i$ and $\mathbf j\times\mathbf j$ vanish)} \\
 > &= R\cos^2\theta\,\mathbf k + R\sin^2\theta\,\mathbf k - 2R^2\sin\theta\,\mathbf j - 2R^2\cos\theta\,\mathbf i \quad &\text{($\mathbf j\times\mathbf i = -\mathbf k$, $\mathbf k\times\mathbf i = \mathbf j$, $\mathbf k\times\mathbf j = -\mathbf i$)} \\
-> &= -2R^2\cos\theta\,\mathbf i - 2R^2\sin\theta\,\mathbf j + R\,\mathbf k \quad &\text{(Pythagoras in the $\mathbf k$ term; reorder)} \\
-> &= -R\left(2x\,\mathbf i + 2y\,\mathbf j - \mathbf k\right) \quad &\text{(take out $-R$; $R\cos\theta = x$, $R\sin\theta = y$)} \\
-> &= -R\,\mathbf n \quad &\text{(the bracket is the gradient)}
+> &= -2R^2\cos\theta\,\mathbf i - 2R^2\sin\theta\,\mathbf j + R\left(\cos^2\theta + \sin^2\theta\right)\mathbf k \quad &\text{(reorder; common factor $R$ in the $\mathbf k$ terms)} \\
+> &= -2R^2\cos\theta\,\mathbf i - 2R^2\sin\theta\,\mathbf j + R\,\mathbf k \quad &\text{(Pythagoras)} \\
+> &= -R\left(2R\cos\theta\,\mathbf i + 2R\sin\theta\,\mathbf j - \mathbf k\right) \quad &\text{(take out $-R$)} \\
+> &= -R\left(2x\,\mathbf i + 2y\,\mathbf j - \mathbf k\right) \quad &\text{($R\cos\theta = x$, $R\sin\theta = y$)} \\
+> &= -R\,\mathbf n \quad &\text{(the bracket is the gradient)} \\
+> \mathbf t_R\cdot\mathbf t_\theta &= -R\sin\theta\cos\theta + R\sin\theta\cos\theta + 2R\cdot 0 \quad &\text{(dot product in $\mathcal B_0$)} \\
+> &= 0 \quad &\text{(the two terms cancel: the tangent vectors are orthogonal here)}
 > \end{aligned}$$
 >
 > $$\boxed{\mathbf t_R = \cos\theta\,\mathbf i + \sin\theta\,\mathbf j + 2R\,\mathbf k,\quad \mathbf t_\theta = -R\sin\theta\,\mathbf i + R\cos\theta\,\mathbf j,\qquad \mathbf n = 2x\,\mathbf i + 2y\,\mathbf j - \mathbf k}$$
 >
-> **Units:** with lengths in the unit of the slide, $\mathbf t_R$ and $\mathbf n$ are dimensionless and $\mathbf t_\theta$ is in length per radian
-> **Meaning:** the cross product of the two tangent vectors is parallel to the gradient, as it must be; here it points the other way, inwards and upwards, because $f$ grows outwards and downwards, away from the axis and towards negative $z$. $\mathbf t_R$ climbs along the meridian with slope $2R$ and $\mathbf t_\theta$ is horizontal, along the parallel; they happen to be orthogonal here, since $\mathbf t_R\cdot\mathbf t_\theta$ equals $-R\sin\theta\cos\theta + R\sin\theta\cos\theta$, which is zero, but not unit vectors. At the vertex, excluded by $z > 0$, $\mathbf t_\theta$ would vanish and the parametrization would fail.
+> **Units:** under the reading of the warning above, $f$ is in $\mathrm{m^2}$ (the hidden coefficient of one length multiplies $z$), so $\mathbf n$ is in $\mathrm m$; $\mathbf t_R$ is dimensionless (a length per length, the $\mathbf k$ component being $2R$ divided by that unit length) and $\mathbf t_\theta$ is in $\mathrm{m/rad}$
+> **Meaning:** the cross product of the two tangent vectors is parallel to the gradient, as it must be; here it points the other way, inwards and upwards, because $f$ grows outwards and downwards, away from the axis and towards negative $z$. $\mathbf t_R$ climbs along the meridian with slope $2R$ and $\mathbf t_\theta$ is horizontal, along the parallel; they happen to be orthogonal here (last two rows), but they are not unit vectors. At the vertex, excluded because $z$ must be positive, $\mathbf t_\theta$ would vanish and the parametrization would fail.
 
 ## 5. Motion of a particle on a smooth surface
 
@@ -440,7 +453,11 @@ The coordinates can be found first if an equal number of equations of motion fre
 > &= \mathbf F\cdot\mathbf v_0^P \quad &\text{(the reaction has zero power)} \\
 > &= -\nabla V_0\cdot\mathbf v_0^P \quad &\text{(conservative applied force, Eq. 4.20)} \\
 > &= -\frac{dV_0}{dt} \quad &\text{(chain rule for $V_0$ along the motion)} \\
-> \frac{d}{dt}\left(T_0 + V_0\right) &= 0 \quad &\text{(move the right side over)}
+> \frac{d}{dt}\left(T_0 + V_0\right) &= 0 \quad &\text{(move the right side over)} \\
+> \int_0^t \frac{d}{dt'}\left(T_0 + V_0\right)dt' &= 0 \quad &\text{(integrate the previous row from $0$ to $t$)} \\
+> \Big[T_0 + V_0\Big]_0^t &= 0 \quad &\text{(antiderivative of a derivative)} \\
+> \big(T_0 + V_0\big)(t) - \big(T_0 + V_0\big)(0) &= 0 \quad &\text{(Barrow's rule: upper limit minus lower limit)} \\
+> T_0 + V_0 &= E_0 \quad &\text{($E_0$: the value of $T_0 + V_0$ at $t = 0$, a constant)}
 > \end{aligned}$$
 >
 > $$\boxed{\delta W_0 = \lambda\,df = 0,\qquad \dot W_0 = \mathbf N\cdot\mathbf v_0^P = 0;\qquad \mathbf F = -\nabla V_0 \ \Rightarrow\ T_0 + V_0 = E_0 = \text{const}}$$
@@ -477,7 +494,7 @@ This conclusion holds only under the assumptions above (Notes.pdf, Sec. 6.4): if
 > | frame | $S_0$, origin at the spool $O$, $\mathbf k$ vertical upwards |
 > | coordinate | $\zeta$, depth of $P$ below $O$, the length of string extended |
 > | rate and initial length | $\dot\zeta = -c$, $\zeta(0) = \ell_0$ |
-> | forces | weight $\mathbf F_g = -m g\,\mathbf k$; force of the string $\mathbf F_T = F_T\,\mathbf k$, with the tension $F_T$ unknown |
+> | forces | weight $\mathbf F_g = -m g\,\mathbf k$; force of the string $\mathbf F_\tau = F_\tau\,\mathbf k$, with the tension $F_\tau$ unknown |
 
 ![[attachments/EM-T/t3-spool.svg]]
 
@@ -495,19 +512,21 @@ This conclusion holds only under the assumptions above (Notes.pdf, Sec. 6.4): if
 > \mathbf v_0^P &= -\dot\zeta\,\mathbf k \quad &\text{(derivative in $S_0$; $\mathbf k$ is constant)} \\
 > &= c\,\mathbf k \quad &\text{($\dot\zeta = -c$)} \\
 > \mathbf a_0^P &= \mathbf 0 \quad &\text{(derivative of a constant vector)} \\
-> m\,\mathbf a_0^P &= -m g\,\mathbf k + F_T\,\mathbf k \quad &\text{(second law, Eq. 4.4)} \\
-> F_T &= m g \quad &\text{($\mathbf a_0^P = \mathbf 0$; component along $\mathbf k$)} \\
-> \dot W_0 &= F_T\,\mathbf k\cdot c\,\mathbf k \quad &\text{(power of the string, Eq. 4.10)} \\
-> &= m g\,c \quad &\text{($\mathbf k\cdot\mathbf k = 1$; $F_T = m g$)} \\
+> m\,\mathbf a_0^P &= -m g\,\mathbf k + F_\tau\,\mathbf k \quad &\text{(second law, Eq. 4.4)} \\
+> F_\tau &= m g \quad &\text{($\mathbf a_0^P = \mathbf 0$; component along $\mathbf k$)} \\
+> \dot W_0 &= F_\tau\,\mathbf k\cdot c\,\mathbf k \quad &\text{(power of the string, Eq. 4.10)} \\
+> &= F_\tau\,c \quad &\text{($\mathbf k\cdot\mathbf k = 1$)} \\
+> &= m g\,c \quad &\text{($F_\tau = m g$)} \\
 > f(z, t) &= z + \ell_0 - c\,t \quad &\text{(the constraint as a moving surface: $z = -\zeta$)} \\
-> \nabla f &= \mathbf k,\quad \lambda = F_T \quad &\text{(gradient of $f$; the string force is $F_T\,\mathbf k = \lambda\,\nabla f$)} \\
+> \nabla f &= \mathbf k \quad &\text{(gradient of $f$)} \\
+> \lambda &= F_\tau \quad &\text{(the string force is $F_\tau\,\mathbf k = \lambda\,\nabla f$)} \\
 > \frac{\partial f}{\partial t} &= -c \quad &\text{(explicit time derivative of $f$)} \\
-> -\lambda\,\frac{\partial f}{\partial t} &= F_T\,c \quad &\text{(power of a moving constraint, previous box: the same value)}
+> -\lambda\,\frac{\partial f}{\partial t} &= F_\tau\,c \quad &\text{(power of a moving constraint, previous box: the same value)}
 > \end{aligned}$$
 >
-> $$\boxed{\zeta = \ell_0 - c\,t,\qquad \mathbf v_0^P = c\,\mathbf k,\qquad F_T = m g,\qquad \dot W_0 = m g\,c \neq 0}$$
+> $$\boxed{\zeta = \ell_0 - c\,t,\qquad \mathbf v_0^P = c\,\mathbf k,\qquad F_\tau = m g,\qquad \dot W_0 = m g\,c \neq 0}$$
 >
-> **Units:** $\zeta$ in $\mathrm m$; $c$ in $\mathrm{m/s}$; $F_T$ in $\mathrm N$; $\dot W_0$ in $\mathrm{N\,m/s} = \mathrm W$
+> **Units:** $\zeta$ in $\mathrm m$; $c$ in $\mathrm{m/s}$; $F_\tau$ in $\mathrm N$; $\dot W_0$ in $\mathrm{N\,m/s} = \mathrm W$
 > **Meaning:** the motion is fully prescribed by the spool: no coordinate is left free, only time, and the string, a constraint force, raises the particle at constant speed and works on it at the rate $m g\,c$, which is exactly the rate at which the potential energy of the weight grows; the kinetic energy stays constant. A time-dependent constraint can thus work, as the general box predicts with the same value. The horizontal reactions that keep $P$ on the vertical axis are zero here, because no applied force has a horizontal component.
 
 Surface constraints come in two types (Notes.pdf, Sec. 6.4; [Lecture 3, Slide 21]), and the constraints of the course are also classified by whether they can be written with the coordinates only and by their dependence on time ([Lecture 3, Slide 21]):
@@ -521,7 +540,7 @@ Surface constraints come in two types (Notes.pdf, Sec. 6.4; [Lecture 3, Slide 21
 | sides | bilateral (equation) | the particle cannot leave the surface on either side; the normal force may point to either side as required | Notes.pdf, Sec. 6.4; [Lecture 3, Slide 21] |
 | sides | unilateral (inequality) | the particle can leave the surface on one side; two problems must be solved, with the constraint in effect and without it, and the particle separates when the normal force becomes zero | Notes.pdf, Sec. 6.4; [Lecture 3, Slide 21] |
 
-A simple constraint is an integrable, stationary, bilateral constraint ([Lecture 3, Slide 21]). An airplane rolling on the ground is the example of a unilateral constraint: it can take off into the sky but may not dig into the ground (Notes.pdf, Sec. 6.4).
+A simple constraint is an integrable, stationary, bilateral constraint ([Lecture 3, Slide 21]). An airplane rolling on the ground, at the moment it takes off, is the example of a unilateral constraint (Notes.pdf, Sec. 6.4): it can take off into the sky but may not dig into the ground ([Lecture 3, Slide 21]).
 
 > [!example] Lift-off of an airplane ([Lecture 3, Slide 23])
 > Consider an ideal airplane on the runway, in a stationary atmosphere. The airplane is heavy and has a mass $m$; it is modelled as a point particle. The lift force has the magnitude given below; there is no drag. At what speed does the airplane lift off the ground?
@@ -529,7 +548,7 @@ A simple constraint is an integrable, stationary, bilateral constraint ([Lecture
 > | Data | Value |
 > | :--- | :--- |
 > | frame | $S_0$, origin on the horizontal runway, $\mathbf i$ along the runway, $\mathbf k$ vertical upwards |
-> | lift | $L = \rho_a v^2 S_w C_L/2$, $v$ the speed; vertical upwards, perpendicular to the runway and to the velocity (direction assumed here; the slide gives the magnitude) |
+> | lift | $L = \rho_a (v_0^P)^2 S_w C_L/2$, $v_0^P$ the speed; vertical upwards, perpendicular to the runway and to the velocity (direction assumed here; the slide gives the magnitude) |
 > | weight | $\mathbf F_g = -m g\,\mathbf k$ |
 > | ground | unilateral constraint $z \geq 0$; normal reaction $\mathbf N = N\,\mathbf k$ with $N \geq 0$ (the ground can only push) |
 
@@ -543,14 +562,15 @@ A simple constraint is an integrable, stationary, bilateral constraint ([Lecture
 >
 > $$\begin{aligned}
 > z &= 0,\quad \ddot z = 0 \quad &\text{(on the runway: the constraint is in effect)} \\
-> m\,\ddot z &= N + \tfrac12\rho_a v^2 S_w C_L - m g \quad &\text{(second law along $\mathbf k$, Eq. 4.4)} \\
-> N &= m g - \tfrac12\rho_a v^2 S_w C_L \quad &\text{($\ddot z = 0$; solve for $N$)} \\
+> m\,\ddot z &= N + \tfrac12\rho_a (v_0^P)^2 S_w C_L - m g \quad &\text{(second law along $\mathbf k$, Eq. 4.4)} \\
+> 0 &= N + \tfrac12\rho_a (v_0^P)^2 S_w C_L - m g \quad &\text{($\ddot z = 0$)} \\
+> N &= m g - \tfrac12\rho_a (v_0^P)^2 S_w C_L \quad &\text{(solve for $N$)} \\
 > N &= 0 \quad &\text{(separation: the ground no longer pushes)} \\
-> \tfrac12\rho_a v^2 S_w C_L &= m g \quad &\text{(previous two rows)} \\
-> v &= \sqrt{\frac{2 m g}{\rho_a S_w C_L}} \quad &\text{(solve for the speed; positive root)}
+> \tfrac12\rho_a (v_0^P)^2 S_w C_L &= m g \quad &\text{(previous two rows)} \\
+> v_0^P &= \sqrt{\frac{2 m g}{\rho_a S_w C_L}} \quad &\text{(solve for the speed; positive root)}
 > \end{aligned}$$
 >
-> $$\boxed{N = m g - \tfrac12\rho_a v^2 S_w C_L \geq 0 \ \text{on the ground},\qquad v_{\mathrm{lift\text{-}off}} = \sqrt{\frac{2 m g}{\rho_a S_w C_L}}}$$
+> $$\boxed{N = m g - \tfrac12\rho_a (v_0^P)^2 S_w C_L \geq 0 \ \text{on the ground},\qquad v_{\mathrm{lift\text{-}off}} = \sqrt{\frac{2 m g}{\rho_a S_w C_L}}}$$
 >
 > **Units:** $\sqrt{\mathrm{kg\cdot m\,s^{-2}}/(\mathrm{kg\,m^{-3}}\cdot\mathrm{m^2})} = \sqrt{\mathrm{m^2\,s^{-2}}} = \mathrm{m/s}$
 > **Meaning:** as the airplane speeds up, the lift takes over more and more of the weight and the normal force decreases; it reaches zero at the lift-off speed. Beyond that speed the formula would give a negative normal force, which the ground cannot exert: the constraint stops being in effect and the airplane is a free particle (the second problem of a unilateral constraint). A heavier airplane, or a smaller wing or lift coefficient, needs a higher lift-off speed.
@@ -605,7 +625,7 @@ When studying the motion along curves it is sometimes useful to use path variabl
 > **Meaning:** the tangential equation is the equation of motion, free of the reaction; the normal and binormal equations give the two reaction components afterwards. The normal reaction supplies, together with the normal applied force, the centripetal force that bends the path, and the binormal reaction cancels whatever applied force pushes the particle out of the osculating plane.
 
 > [!example] A heavy particle on a vertical circle ([Lecture 3, Slide 15])
-> A heavy particle $P$ is constrained to move along a vertical circle of radius $a$. Get the equation of motion for the angle $\theta$ first, and then the equation that yields the magnitude of the constraint force $\mathbf N$. The wire is smooth and fixed.
+> A heavy particle $P$ is constrained to move along a vertical circle of radius $a$. Get the equation of motion for the angle $\theta$ first, and then the equation that yields the magnitude of the constraint force $\mathbf N$. (The wire is taken smooth and fixed: an assumption of this note, not written on the slide.)
 >
 > | Data | Value |
 > | :--- | :--- |
@@ -642,7 +662,7 @@ When studying the motion along curves it is sometimes useful to use path variabl
 > $$\boxed{\mathbf e_R = \cos\theta\,\mathbf i + \sin\theta\,\mathbf j,\quad \mathbf e_\theta = -\sin\theta\,\mathbf i + \cos\theta\,\mathbf j;\qquad [{}_0R_1] = \begin{bmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix},\ \ \det = 1}$$
 >
 > **Units:** dimensionless
-> **Meaning:** $\mathcal B_1$, made of $\mathbf e_R$, $\mathbf e_\theta$ and $\mathbf k$, is the basis of a frame $S_1$ that turns with the radius $OP$; the other entries of the product follow the same way ($(2,2)$ by Pythagoras, the third row and column trivially), so the basis is orthonormal, and $\mathbf e_R\times\mathbf e_\theta$ is $\mathbf k$ (Topic 1), so it is right-handed. At $\theta = 0$ it coincides with $\mathcal B_0$.
+> **Meaning:** $\mathcal B_1$, made of $\mathbf e_R$, $\mathbf e_\theta$ and $\mathbf k$, is the basis of a frame $S_1$ that turns with the radius $OP$; the other entries of the product follow the same way ($(2,2)$ by Pythagoras, the third row and column trivially), so the basis is orthonormal, and the cross product of $\mathbf e_R$ and $\mathbf e_\theta$ is $\mathbf k$ (Topic 1), so it is right-handed. When $\theta$ is zero it coincides with $\mathcal B_0$.
 
 > [!derivation] Time derivatives of the polar unit vectors
 > **Law:** chain rule through $\theta(t)$; check with the angular velocity of $S_1$
@@ -665,7 +685,7 @@ When studying the motion along curves it is sometimes useful to use path variabl
 > $$\boxed{\frac{d\mathbf e_R}{dt} = \dot\theta\,\mathbf e_\theta,\qquad \frac{d\mathbf e_\theta}{dt} = -\dot\theta\,\mathbf e_R,\qquad \boldsymbol\omega_{10} = \dot\theta\,\mathbf k}$$
 >
 > **Units:** $\mathrm{rad/s}$ in every term
-> **Meaning:** the basis turns with the radius about $\mathbf k$ at the rate $\dot\theta$; each unit vector changes in the direction perpendicular to itself.
+> **Meaning:** the basis turns with the radius about $\mathbf k$ at the rate of change of $\theta$; each unit vector changes in the direction perpendicular to itself.
 
 > [!derivation] Position, velocity and acceleration of the particle
 > **Law:** position along the radius; definition of velocity and acceleration; product rule; the radius is constant
@@ -708,7 +728,7 @@ When studying the motion along curves it is sometimes useful to use path variabl
 > $$\boxed{\mathbf F_g = -m g\sin\theta\,\mathbf e_R - m g\cos\theta\,\mathbf e_\theta,\qquad \mathbf N = N_R\,\mathbf e_R + N_z\,\mathbf k}$$
 >
 > **Units:** $\mathrm N$
-> **Meaning:** the weight has a component $-m g\sin\theta$ along the radius, inwards in the upper half of the circle, and a tangential component $-m g\cos\theta$, which pulls the particle towards the lowest point, at $\theta = -\pi/2$. The reaction has no $\mathbf e_\theta$ component, because the wire is smooth.
+> **Meaning:** the weight has a radial component, minus the weight times the sine of $\theta$, which points inwards in the upper half of the circle, and a tangential component, minus the weight times the cosine of $\theta$, which pulls the particle towards the lowest point, where $\theta$ is minus a right angle. The reaction has no $\mathbf e_\theta$ component, because the wire is smooth.
 
 > [!derivation] Equation of motion and reaction of the particle on the vertical circle
 > **Law:** Newton's second law projected on $\mathbf e_\theta$ (tangent), $\mathbf e_R$ and $\mathbf k$ (normals); counting of equations and unknowns
@@ -717,7 +737,8 @@ When studying the motion along curves it is sometimes useful to use path variabl
 > $$\begin{aligned}
 > m\left(-a\dot\theta^2\,\mathbf e_R + a\ddot\theta\,\mathbf e_\theta\right) &= -m g\sin\theta\,\mathbf e_R - m g\cos\theta\,\mathbf e_\theta + N_R\,\mathbf e_R + N_z\,\mathbf k \quad &\text{(second law: acceleration and forces of the boxes above)} \\
 > \mathbf e_\theta:\quad m a\ddot\theta &= -m g\cos\theta \quad &\text{(dot-multiply by the tangent: no reaction)} \\
-> \ddot\theta + \frac{g}{a}\cos\theta &= 0 \quad &\text{(divide by $m a$ and move the right side over)} \\
+> m a\ddot\theta + m g\cos\theta &= 0 \quad &\text{(move the right side over)} \\
+> \ddot\theta + \frac{g}{a}\cos\theta &= 0 \quad &\text{(divide by $m a$)} \\
 > \mathbf e_R:\quad -m a\dot\theta^2 &= -m g\sin\theta + N_R \quad &\text{(dot-multiply by $\mathbf e_R$)} \\
 > N_R &= m g\sin\theta - m a\dot\theta^2 \quad &\text{(solve for $N_R$)} \\
 > \mathbf k:\quad 0 &= N_z \quad &\text{(dot-multiply by $\mathbf k$)} \\
@@ -727,21 +748,33 @@ When studying the motion along curves it is sometimes useful to use path variabl
 > $$\boxed{\ddot\theta + \frac{g}{a}\cos\theta = 0,\qquad N_R = m g\sin\theta - m a\dot\theta^2,\qquad N_z = 0}$$
 >
 > **Units:** $\mathrm{rad/s^2}$ in the equation of motion ($g/a$ in $\mathrm{s^{-2}}$); $\mathrm N$ in the reaction
-> **Meaning:** the tangential projection is the equation of motion for $\theta$ alone, as asked first; the radial projection then gives the reaction, as asked second. At the lowest point, $\theta = -\pi/2$, the reaction is $-m g - m a\dot\theta^2$ along $\mathbf e_R$, which there points down: the wire pushes the particle upwards with the weight plus the force needed to turn the velocity. The wire does not push out of the plane, since no applied force does.
+> **Meaning:** the tangential projection is the equation of motion for $\theta$ alone, as asked first; the radial projection then gives the reaction, as asked second. At the lowest point, where $\theta$ is minus a right angle and the sine is minus one, $N_R$ is minus the weight minus the mass times $a$ times the square of the rate of $\theta$; since $\mathbf e_R$ points down there, the wire pushes the particle upwards with the weight plus the force needed to turn the velocity. The wire does not push out of the plane, since no applied force does.
 
 > [!derivation] First integral and the reaction as a function of the position
 > **Law:** multiplication by $\dot\theta$; chain rule; integration in time with Barrow's rule; conservation of mechanical energy (the reaction does no work)
-> **Source:** [Lecture 3, Slide 15]; [Lecture 3, Slide 16]; Notes.pdf, Eq. 4.31; Notes.pdf, Sec. 6.5
+> **Source:** [Lecture 3, Slide 15]; [Lecture 3, Slide 16]; Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.14; Notes.pdf, Eq. 4.20; Notes.pdf, Eq. 4.31; Notes.pdf, Sec. 6.5
 >
 > $$\begin{aligned}
 > \dot\theta\,\ddot\theta + \frac{g}{a}\cos\theta\,\dot\theta &= 0 \quad &\text{(multiply the equation of motion by $\dot\theta$)} \\
 > \frac{d}{dt}\left(\tfrac12\,\dot\theta^2\right) &= \dot\theta\,\ddot\theta \quad &\text{(chain rule)} \\
 > \frac{d}{dt}\left(\frac{g}{a}\sin\theta\right) &= \frac{g}{a}\cos\theta\,\dot\theta \quad &\text{(chain rule)} \\
 > \frac{d}{dt}\left(\tfrac12\,\dot\theta^2 + \frac{g}{a}\sin\theta\right) &= 0 \quad &\text{(the first row is the sum of the two derivatives)} \\
-> \left[\tfrac12\,\dot\theta^2 + \frac{g}{a}\sin\theta\right]_0^t &= 0 \quad &\text{(integrate from $0$ to $t$; Barrow)} \\
-> \tfrac12\,\dot\theta^2 + \frac{g}{a}\sin\theta &= K \quad &\text{($K$: the value of the bracket at $t = 0$)} \\
-> T_0 + V_0 &= \tfrac12\,m\,a^2\dot\theta^2 + m g\,a\sin\theta \quad &\text{(kinetic energy with $v_0^P = a\dot\theta$; weight with $V_0 = m g y$, $y = a\sin\theta$)} \\
-> &= m a^2 K \quad &\text{(factor $m a^2$; the first integral)} \\
+> \int_0^t \frac{d}{dt'}\left(\tfrac12\,\dot\theta^2 + \frac{g}{a}\sin\theta\right)dt' &= 0 \quad &\text{(integrate the previous row from $0$ to $t$)} \\
+> \left[\tfrac12\,\dot\theta^2 + \frac{g}{a}\sin\theta\right]_0^t &= 0 \quad &\text{(antiderivative of a derivative)} \\
+> \tfrac12\,\dot\theta(t)^2 + \frac{g}{a}\sin\theta(t) - \tfrac12\,\dot\theta(0)^2 - \frac{g}{a}\sin\theta(0) &= 0 \quad &\text{(Barrow's rule: $F(t) - F(0)$)} \\
+> \tfrac12\,\dot\theta^2 + \frac{g}{a}\sin\theta &= K \quad &\text{($K = \tfrac12\,\dot\theta(0)^2 + (g/a)\sin\theta(0)$, a constant)} \\
+> T_0 &= \tfrac12\,m\,\mathbf v_0^P\cdot\mathbf v_0^P \quad &\text{(kinetic energy, Eq. 4.11)} \\
+> &= \tfrac12\,m\,a^2\dot\theta^2 \quad &\text{($\mathbf v_0^P = a\dot\theta\,\mathbf e_\theta$, $\mathbf e_\theta\cdot\mathbf e_\theta = 1$)} \\
+> V_0 &= -\int_{\mathbf 0}^{\mathbf r_0^P}\left(-m g\,\mathbf j\right)\cdot d\mathbf r \quad &\text{(potential energy of the weight, Eq. 4.14, reference point $O$)} \\
+> &= m g\int_{\mathbf 0}^{\mathbf r_0^P}\mathbf j\cdot d\mathbf r \quad &\text{(take out the constant factor; the two minus signs cancel)} \\
+> &= m g\int_0^y dy' \quad &\text{($\mathbf j\cdot d\mathbf r = dy'$, the vertical component of the step)} \\
+> &= m g\Big[y'\Big]_0^y \quad &\text{(antiderivative of a constant)} \\
+> &= m g\,y \quad &\text{(Barrow's rule: $y - 0$)} \\
+> -\nabla V_0 &= -m g\,\mathbf j \quad &\text{(check with Eq. 4.20: the weight is recovered)} \\
+> V_0 &= m g\,a\sin\theta \quad &\text{($y = a\sin\theta$ on the circle)} \\
+> T_0 + V_0 &= \tfrac12\,m\,a^2\dot\theta^2 + m g\,a\sin\theta \quad &\text{(add the two energies)} \\
+> &= m a^2\left(\tfrac12\,\dot\theta^2 + \frac{g}{a}\sin\theta\right) \quad &\text{(factor $m a^2$)} \\
+> &= m a^2 K \quad &\text{(the first integral)} \\
 > a\dot\theta^2 &= 2aK - 2g\sin\theta \quad &\text{(first integral times $2a$)} \\
 > N_R &= m g\sin\theta - m\left(2aK - 2g\sin\theta\right) \quad &\text{(substitute into the reaction of the previous box)} \\
 > &= 3 m g\sin\theta - 2 m a K \quad &\text{(group the sine terms)}
@@ -756,7 +789,7 @@ When studying the motion along curves it is sometimes useful to use path variabl
 > **Law:** arc length along the circle; intrinsic basis from the derivative of the tangent; Eqs. 6.17 to 6.19
 > **Source:** Notes.pdf, Eq. 6.17; Notes.pdf, Eq. 6.18; Notes.pdf, Eq. 6.19; Notes.pdf, Eq. 2.16; Notes.pdf, Eq. 2.11; Notes.pdf, Eq. 2.12; Notes.pdf, Eq. 2.13
 >
-> The arc length is measured from the point of $Ox$, growing with $\theta$.
+> Here $s$ is a signed arc coordinate, measured from the point of $Ox$ and growing with $\theta$; its rate is negative when the particle moves clockwise. Notes.pdf, Eq. 2.16 (p. 30) writes the rate of $s$ for the speed instead, which is never negative; the rows below use the signed coordinate.
 >
 > $$\begin{aligned}
 > s &= a\,\theta \quad &\text{(arc of a circle of radius $a$)} \\
@@ -783,7 +816,7 @@ When studying the motion along curves it is sometimes useful to use path variabl
 > $$\boxed{\rho = a,\quad \mathbf e_t = \mathbf e_\theta,\quad \mathbf e_n = -\mathbf e_R,\quad \mathbf e_b = \mathbf k:\qquad \text{Eqs. 6.17 to 6.19 reproduce the three projections}}$$
 >
 > **Units:** $\mathrm N$ in each projection
-> **Meaning:** the path variables give the same three scalar equations, because the polar basis of this problem is the intrinsic basis up to the sign of $\mathbf e_R$. If the particle moves clockwise, $\dot s$ is negative but the equations are unchanged, since only $\dot s^2$ and $\ddot s$ appear.
+> **Meaning:** the path variables give the same three scalar equations, because the polar basis of this problem is the intrinsic basis up to the sign of $\mathbf e_R$. With the signed coordinate $s$ the result holds for either sense of motion. With the convention of the notes, where the rate of the arc length is the speed, a clockwise motion has $\mathbf e_t$ along the motion, the opposite of $\mathbf e_\theta$, and $\mathbf e_b$ the opposite of $\mathbf k$, while $\mathbf e_n$, towards the centre of curvature, is the opposite of $\mathbf e_R$ either way; the three projections are then the same scalar equations.
 
 ## 7. Constraints affecting two or more particles
 
@@ -795,9 +828,9 @@ In systems of particles there can be constraints that restrict the combined moti
 > | Data | Value |
 > | :--- | :--- |
 > | frame | $S_0$, inertial, origin $O$ at the left pulley; $\mathbf i$ horizontal towards the right pulley, $\mathbf j$ vertical upwards |
-> | coordinates | depths $d$ of $P$ below the left pulley and $d'$ of $P'$ below the right pulley |
-> | string | $d + \ell_c + d' = \ell_s$ (inextensible) |
-> | forces | weights $-m g\,\mathbf j$ and $-m' g\,\mathbf j$; force of the string $F_T\,\mathbf j$ on each particle, with the same tension $F_T$ |
+> | coordinates | depths $\eta$ of $P$ below the left pulley and $\eta'$ of $P'$ below the right pulley |
+> | string | $\eta + \ell_c + \eta' = \ell_s$ (inextensible) |
+> | forces | weights $-m g\,\mathbf j$ and $-m' g\,\mathbf j$; force of the string $F_\tau\,\mathbf j$ on each particle, with the same tension $F_\tau$ |
 
 ![[attachments/EM-T/t3-two-particles.svg]]
 
@@ -806,70 +839,84 @@ In systems of particles there can be constraints that restrict the combined moti
 > **Source:** [Lecture 3, Slide 17]; Notes.pdf, Sec. 2.7; Notes.pdf, Eq. 2.3; Notes.pdf, Eq. 2.4
 >
 > $$\begin{aligned}
-> d' &= \ell_s - \ell_c - d \quad &\text{(string constraint solved for $d'$)} \\
-> \dot d' &= -\dot d \quad &\text{(time derivative; $\ell_s$ and $\ell_c$ constant)} \\
-> \ddot d' &= -\ddot d \quad &\text{(time derivative again)} \\
-> \mathbf r_0^P &= -d\,\mathbf j \quad &\text{($P$ is a depth $d$ below $O$)} \\
-> \mathbf r_0^{P'} &= \ell_c\,\mathbf i - d'\,\mathbf j \quad &\text{($P'$ is a depth $d'$ below the right pulley)} \\
-> \mathbf v_0^P &= -\dot d\,\mathbf j \quad &\text{(derivative in $S_0$; $\mathbf j$ constant)} \\
-> \mathbf a_0^P &= -\ddot d\,\mathbf j \quad &\text{(derivative again)} \\
-> \mathbf v_0^{P'} &= -\dot d'\,\mathbf j \quad &\text{(derivative in $S_0$; $\ell_c\,\mathbf i$ constant)} \\
-> &= \dot d\,\mathbf j \quad &\text{($\dot d' = -\dot d$)} \\
-> \mathbf a_0^{P'} &= -\ddot d'\,\mathbf j \quad &\text{(derivative again)} \\
-> &= \ddot d\,\mathbf j \quad &\text{($\ddot d' = -\ddot d$)}
+> \eta' &= \ell_s - \ell_c - \eta \quad &\text{(string constraint solved for $\eta'$)} \\
+> \dot \eta' &= -\dot \eta \quad &\text{(time derivative; $\ell_s$ and $\ell_c$ constant)} \\
+> \ddot \eta' &= -\ddot \eta \quad &\text{(time derivative again)} \\
+> \mathbf r_0^P &= -\eta\,\mathbf j \quad &\text{($P$ is a depth $\eta$ below $O$)} \\
+> \mathbf r_0^{P'} &= \ell_c\,\mathbf i - \eta'\,\mathbf j \quad &\text{($P'$ is a depth $\eta'$ below the right pulley)} \\
+> \mathbf v_0^P &= -\dot \eta\,\mathbf j \quad &\text{(derivative in $S_0$; $\mathbf j$ constant)} \\
+> \mathbf a_0^P &= -\ddot \eta\,\mathbf j \quad &\text{(derivative again)} \\
+> \mathbf v_0^{P'} &= -\dot \eta'\,\mathbf j \quad &\text{(derivative in $S_0$; $\ell_c\,\mathbf i$ constant)} \\
+> &= \dot \eta\,\mathbf j \quad &\text{($\dot \eta' = -\dot \eta$)} \\
+> \mathbf a_0^{P'} &= -\ddot \eta'\,\mathbf j \quad &\text{(derivative again)} \\
+> &= \ddot \eta\,\mathbf j \quad &\text{($\ddot \eta' = -\ddot \eta$)}
 > \end{aligned}$$
 >
-> $$\boxed{\mathbf v_0^P = -\dot d\,\mathbf j,\quad \mathbf a_0^P = -\ddot d\,\mathbf j;\qquad \mathbf v_0^{P'} = \dot d\,\mathbf j,\quad \mathbf a_0^{P'} = \ddot d\,\mathbf j}$$
+> $$\boxed{\mathbf v_0^P = -\dot \eta\,\mathbf j,\quad \mathbf a_0^P = -\ddot \eta\,\mathbf j;\qquad \mathbf v_0^{P'} = \dot \eta\,\mathbf j,\quad \mathbf a_0^{P'} = \ddot \eta\,\mathbf j}$$
 >
 > **Units:** $\mathrm{m/s}$ and $\mathrm{m/s^2}$
-> **Meaning:** one coordinate, $d$, describes both particles: two particles on their vertical lines, with one constraint, have one degree of freedom, and when $P$ goes down $P'$ goes up at the same speed.
+> **Meaning:** one coordinate, $\eta$, describes both particles: two particles on their vertical lines, with one constraint, have one degree of freedom, and when $P$ goes down $P'$ goes up at the same speed.
 
 > [!derivation] Equations of motion and tension of the two particles
 > **Law:** Newton's second law for each particle along $\mathbf j$; counting of equations and unknowns
 > **Source:** [Lecture 3, Slide 17]; Notes.pdf, Eq. 4.4; Notes.pdf, Sec. 7.6
 >
 > $$\begin{aligned}
-> m\left(-\ddot d\right) &= -m g + F_T \quad &\text{(second law for $P$, component along $\mathbf j$)} \\
-> m'\,\ddot d &= -m' g + F_T \quad &\text{(second law for $P'$, component along $\mathbf j$)} \\
-> 2 \ \text{equations},\quad d, F_T &\ \to\ 2 \ \text{unknowns} \quad &\text{($d'$ already eliminated by the constraint)} \\
-> -\left(m + m'\right)\ddot d &= -m g + m' g \quad &\text{(subtract the second equation from the first: $F_T$ disappears)} \\
-> \ddot d &= \frac{m - m'}{m + m'}\,g \quad &\text{(divide by $-(m + m')$)} \\
-> F_T &= m g - m\,\ddot d \quad &\text{(first equation solved for $F_T$)} \\
-> &= m g\,\frac{\left(m + m'\right) - \left(m - m'\right)}{m + m'} \quad &\text{(substitute $\ddot d$; common denominator)} \\
-> &= \frac{2 m m'}{m + m'}\,g \quad &\text{(simplify the numerator)}
+> m\left(-\ddot \eta\right) &= -m g + F_\tau \quad &\text{(second law for $P$, component along $\mathbf j$)} \\
+> m'\,\ddot \eta &= -m' g + F_\tau \quad &\text{(second law for $P'$, component along $\mathbf j$)} \\
+> 2 \ \text{equations},\quad \eta, F_\tau &\ \to\ 2 \ \text{unknowns} \quad &\text{($\eta'$ already eliminated by the constraint)} \\
+> -\left(m + m'\right)\ddot \eta &= -m g + m' g \quad &\text{(subtract the second equation from the first: $F_\tau$ disappears)} \\
+> \ddot \eta &= \frac{m - m'}{m + m'}\,g \quad &\text{(divide by $-(m + m')$)} \\
+> F_\tau &= m g - m\,\ddot \eta \quad &\text{(first equation solved for $F_\tau$)} \\
+> &= m g - m g\,\frac{m - m'}{m + m'} \quad &\text{(substitute $\ddot \eta$)} \\
+> &= m g\,\frac{\left(m + m'\right) - \left(m - m'\right)}{m + m'} \quad &\text{(common denominator)} \\
+> &= \frac{2 m m'}{m + m'}\,g \quad &\text{(simplify the numerator)} \\
+> &= m g\,\frac{2 m'}{m + m'} \quad &\text{(the weight of $P$ times a factor below one when $m > m'$)} \\
+> &= m' g\,\frac{2 m}{m + m'} \quad &\text{(the weight of $P'$ times a factor above one when $m > m'$)}
 > \end{aligned}$$
 >
-> $$\boxed{\ddot d = \frac{m - m'}{m + m'}\,g,\qquad F_T = \frac{2 m m'}{m + m'}\,g}$$
+> $$\boxed{\ddot \eta = \frac{m - m'}{m + m'}\,g,\qquad F_\tau = \frac{2 m m'}{m + m'}\,g}$$
 >
 > **Units:** $\mathrm{m/s^2}$ and $\mathrm N$
-> **Meaning:** the heavier particle goes down with a constant acceleration smaller than $g$; with equal masses there is no acceleration and the tension is the weight of each. The tension lies between the two weights: it equals the weight $m g$ times the factor $2m'/(m + m')$, smaller than one when $m$ is the heavier mass, and also the weight $m' g$ times $2m/(m + m')$, larger than one.
+> **Meaning:** the heavier particle goes down with a constant acceleration smaller than $g$; with equal masses there is no acceleration and the tension is the weight of each. The tension lies between the two weights: when $m$ is the heavier mass it is the weight of $P$ reduced by a factor smaller than one, and also the weight of $P'$ increased by a factor larger than one (last two rows).
 
 > [!derivation] Work of the string on each particle and the energy of the system
 > **Law:** power of a force; sum of the powers on the system; theorem of kinetic energy for each particle; chain rule
-> **Source:** [Lecture 3, Slide 17]; Notes.pdf, Eq. 4.10; Notes.pdf, Eq. 4.11
+> **Source:** [Lecture 3, Slide 17]; Notes.pdf, Eq. 4.10; Notes.pdf, Eq. 4.11; Notes.pdf, Eq. 4.14
 >
 > $$\begin{aligned}
-> \dot W_0^{(P)} &= F_T\,\mathbf j\cdot\left(-\dot d\,\mathbf j\right) \quad &\text{(power of the string on $P$, Eq. 4.10)} \\
-> &= -F_T\,\dot d \quad &\text{($\mathbf j\cdot\mathbf j = 1$)} \\
-> \dot W_0^{(P')} &= F_T\,\mathbf j\cdot\dot d\,\mathbf j \quad &\text{(power of the string on $P'$)} \\
-> &= F_T\,\dot d \quad &\text{($\mathbf j\cdot\mathbf j = 1$)} \\
+> \dot W_0^{(P)} &= F_\tau\,\mathbf j\cdot\left(-\dot \eta\,\mathbf j\right) \quad &\text{(power of the string on $P$, Eq. 4.10)} \\
+> &= -F_\tau\,\dot \eta \quad &\text{($\mathbf j\cdot\mathbf j = 1$)} \\
+> \dot W_0^{(P')} &= F_\tau\,\mathbf j\cdot\dot \eta\,\mathbf j \quad &\text{(power of the string on $P'$)} \\
+> &= F_\tau\,\dot \eta \quad &\text{($\mathbf j\cdot\mathbf j = 1$)} \\
 > \dot W_0^{(P)} + \dot W_0^{(P')} &= 0 \quad &\text{(the two powers cancel at every instant)} \\
-> \frac{d}{dt}\left(\tfrac12\left(m + m'\right)\dot d^2\right) &= \left(m + m'\right)\dot d\,\ddot d \quad &\text{(chain rule; total kinetic energy, both speeds equal to $\lvert\dot d\rvert$)} \\
-> &= \left(m - m'\right)g\,\dot d \quad &\text{(equation of motion of the previous box)} \\
-> &= \frac{d}{dt}\Big(\left(m - m'\right)g\,d\Big) \quad &\text{(chain rule backwards)} \\
-> \frac{d}{dt}\left(\tfrac12\left(m + m'\right)\dot d^2 - \left(m - m'\right)g\,d\right) &= 0 \quad &\text{(move the right side over)}
+> \frac{d}{dt}\left(\tfrac12\left(m + m'\right)\dot \eta^2\right) &= \left(m + m'\right)\dot \eta\,\ddot \eta \quad &\text{(chain rule; total kinetic energy, both speeds equal to $\lvert\dot \eta\rvert$)} \\
+> &= \left(m - m'\right)g\,\dot \eta \quad &\text{(equation of motion of the previous box)} \\
+> &= \frac{d}{dt}\Big(\left(m - m'\right)g\,\eta\Big) \quad &\text{(chain rule backwards)} \\
+> \frac{d}{dt}\left(\tfrac12\left(m + m'\right)\dot \eta^2 - \left(m - m'\right)g\,\eta\right) &= 0 \quad &\text{(move the right side over)} \\
+> \int_0^t \frac{d}{dt'}\left(\tfrac12\left(m + m'\right)\dot \eta^2 - \left(m - m'\right)g\,\eta\right)dt' &= 0 \quad &\text{(integrate the previous row from $0$ to $t$)} \\
+> \Big[\tfrac12\left(m + m'\right)\dot \eta^2 - \left(m - m'\right)g\,\eta\Big]_0^t &= 0 \quad &\text{(antiderivative of a derivative)} \\
+> \tfrac12\left(m + m'\right)\dot \eta(t)^2 - \left(m - m'\right)g\,\eta(t) - \tfrac12\left(m + m'\right)\dot \eta(0)^2 + \left(m - m'\right)g\,\eta(0) &= 0 \quad &\text{(Barrow's rule: $F(t) - F(0)$)} \\
+> \tfrac12\left(m + m'\right)\dot \eta^2 - \left(m - m'\right)g\,\eta &= \tfrac12\left(m + m'\right)\dot \eta(0)^2 - \left(m - m'\right)g\,\eta(0) \quad &\text{(the value at $t = 0$, a constant)} \\
+> V_0 &= -m g\,\eta - m' g\,\eta' \quad &\text{(potential energy $m g y$ of each weight, as in Section 6, with heights $-\eta$ and $-\eta'$ below the pulleys)} \\
+> &= -m g\,\eta - m' g\left(\ell_s - \ell_c - \eta\right) \quad &\text{(string constraint for $\eta'$)} \\
+> &= -\left(m - m'\right)g\,\eta - m' g\left(\ell_s - \ell_c\right) \quad &\text{(group the terms in $\eta$)} \\
+> T_0 + V_0 &= \tfrac12\left(m + m'\right)\dot \eta^2 - \left(m - m'\right)g\,\eta - m' g\left(\ell_s - \ell_c\right) \quad &\text{(add the kinetic energy of both particles)}
 > \end{aligned}$$
 >
-> $$\boxed{\dot W_0^{(P)} = -F_T\,\dot d = -\dot W_0^{(P')},\qquad \tfrac12\left(m + m'\right)\dot d^2 - \left(m - m'\right)g\,d = \text{const}}$$
+> $$\boxed{\dot W_0^{(P)} = -F_\tau\,\dot \eta = -\dot W_0^{(P')},\qquad \tfrac12\left(m + m'\right)\dot \eta^2 - \left(m - m'\right)g\,\eta = \text{const}}$$
 >
 > **Units:** $\mathrm W$ for the powers, $\mathrm J$ for the energy
-> **Meaning:** the string works on each particle, negatively on the one that goes down and positively on the one that goes up, but the two works are equal and opposite: the string only transfers energy from one particle to the other. The constant is the total mechanical energy of the system up to an additive constant: $-m g\,d - m' g\,d'$ is the potential energy of the two weights measured from the pulleys, and with $d'$ from the constraint it equals $-(m - m')g\,d$ plus a constant.
+> **Meaning:** the string works on each particle, negatively on the one that goes down and positively on the one that goes up, but the two works are equal and opposite: the string only transfers energy from one particle to the other. The conserved quantity is the total mechanical energy of the system up to the additive constant set by the length of the string (last rows): the potential energy of the two weights, measured from the pulleys, depends on $\eta$ alone once $\eta'$ is eliminated with the constraint.
 
 ## 8. Friction forces
 
-When a surface or a curve is not smooth, a friction force $\mathbf F_R$ must be considered in addition to the normal reaction (Notes.pdf, Sec. 6.6; [Lecture 3, Slide 18]). There are several friction models of different complexity; the course uses the simplest one, the Coulomb model, with a single friction coefficient $\mu$ that depends on the surface and on the particle (a glass particle sliding over ice is not the same as a sand particle sliding over wood). More advanced models distinguish a static coefficient, for a particle at rest, from a dynamic one, for a particle in relative motion; the course makes no such distinction (Notes.pdf, Sec. 6.6, footnote 15; [Lecture 3, Slide 19]). The constraint is assumed to be at rest in some reference frame $S_1$, and $\mathbf v_1^P$ is the velocity of the particle relative to the constraint, measured in $S_1$.
+When a surface or a curve is not smooth, a friction force $\mathbf F_\mu$ must be considered in addition to the normal reaction (Notes.pdf, Sec. 6.6; [Lecture 3, Slide 18]). There are several friction models of different complexity; the course uses the simplest one, the Coulomb model, with a single friction coefficient $\mu$ that depends on the surface and on the particle (a glass particle sliding over ice is not the same as a sand particle sliding over wood). More advanced models distinguish a static coefficient, for a particle at rest, from a dynamic one, for a particle in relative motion; the course makes no such distinction (Notes.pdf, Sec. 6.6, footnote 15). The constraint is assumed to be at rest in some reference frame $S_1$, and $\mathbf v_1^P$ is the velocity of the particle relative to the constraint, measured in $S_1$.
 
 ![[attachments/EM-T/t3-friction.svg]]
+
+> [!info] Extension: the friction cone
+> The figure also draws a cone about the normal, of half-angle $\arctan\mu$, inside which the total reaction must lie, on its edge while the particle slides. This cone is an **extension**: neither Notes.pdf nor the slides of Lecture 3 use it; it is only the Coulomb bound of Eq. 6.20 read as a set of admissible directions of the total reaction.
 
 > [!derivation] The Coulomb model: the bound and the two regimes
 > **Law:** magnitude bound of the friction force; friction lies in the tangent subspace; while sliding it opposes the relative velocity with the saturated magnitude; power relative to the constraint
@@ -878,19 +925,20 @@ When a surface or a curve is not smooth, a friction force $\mathbf F_R$ must be 
 > Sticking: $\mathbf v_1^P$ is zero, the magnitude of the friction force is unknown, and so is its direction within the tangent subspace. Sliding: $\mathbf v_1^P$ is not zero, and the force is fully known once the normal reaction is.
 >
 > $$\begin{aligned}
-> \lvert\mathbf F_R\rvert &\leq \mu\,\lvert\mathbf N\rvert \quad &\text{(Coulomb bound, Eq. 6.20)} \\
-> \mathbf F_R &= R_1\,\mathbf t \quad &\text{(sticking on a curve: one new unknown)} \\
-> \mathbf F_R &= R_1\,\mathbf t_\alpha + R_2\,\mathbf t_\beta \quad &\text{(sticking on a surface: two new unknowns)} \\
-> \mathbf F_R\cdot\mathbf v_1^P &= 0 \quad &\text{(sticking: $\mathbf v_1^P = \mathbf 0$, no work relative to the constraint)} \\
-> \mathbf F_R &= -\mu\,\lvert\mathbf N\rvert\,\frac{\mathbf v_1^P}{\lvert\mathbf v_1^P\rvert} \quad &\text{(sliding: saturated bound, antiparallel to $\mathbf v_1^P$, Eq. 6.21)} \\
-> \mathbf F_R\cdot\mathbf v_1^P &= -\mu\,\lvert\mathbf N\rvert\,\frac{\mathbf v_1^P\cdot\mathbf v_1^P}{\lvert\mathbf v_1^P\rvert} \quad &\text{(power while sliding, relative to the constraint)} \\
-> &= -\mu\,\lvert\mathbf N\rvert\,\lvert\mathbf v_1^P\rvert \quad &\text{($\mathbf v_1^P\cdot\mathbf v_1^P = \lvert\mathbf v_1^P\rvert^2$)}
+> \lvert\mathbf F_\mu\rvert &\leq \mu\,\lvert\mathbf N\rvert \quad &\text{(Coulomb bound, Eq. 6.20)} \\
+> \mathbf F_\mu &= R_1\,\mathbf t \quad &\text{(sticking on a curve: one new unknown)} \\
+> \mathbf F_\mu &= R_1\,\mathbf t_\alpha + R_2\,\mathbf t_\beta \quad &\text{(sticking on a surface: two new unknowns)} \\
+> \mathbf F_\mu\cdot\mathbf v_1^P &= 0 \quad &\text{(sticking: $\mathbf v_1^P = \mathbf 0$, no work relative to the constraint)} \\
+> \mathbf F_\mu &= -\mu\,\lvert\mathbf N\rvert\,\frac{\mathbf v_1^P}{\lvert\mathbf v_1^P\rvert} \quad &\text{(sliding: saturated bound, antiparallel to $\mathbf v_1^P$, Eq. 6.21)} \\
+> \mathbf F_\mu\cdot\mathbf v_1^P &= -\mu\,\lvert\mathbf N\rvert\,\frac{\mathbf v_1^P\cdot\mathbf v_1^P}{\lvert\mathbf v_1^P\rvert} \quad &\text{(power while sliding, relative to the constraint)} \\
+> &= -\mu\,\lvert\mathbf N\rvert\,\lvert\mathbf v_1^P\rvert \quad &\text{($\mathbf v_1^P\cdot\mathbf v_1^P = \lvert\mathbf v_1^P\rvert^2$)} \\
+> &\leq 0 \quad &\text{($\mu \geq 0$ and both magnitudes $\geq 0$; equal to zero when $\mu\lvert\mathbf N\rvert = 0$)}
 > \end{aligned}$$
 >
-> $$\boxed{\lvert\mathbf F_R\rvert \leq \mu\lvert\mathbf N\rvert;\qquad \mathbf v_1^P = \mathbf 0:\ \mathbf F_R \in V_T \ \text{unknown};\qquad \mathbf v_1^P \neq \mathbf 0:\ \mathbf F_R = -\mu\lvert\mathbf N\rvert\,\frac{\mathbf v_1^P}{\lvert\mathbf v_1^P\rvert},\ \ \mathbf F_R\cdot\mathbf v_1^P = -\mu\lvert\mathbf N\rvert\,\lvert\mathbf v_1^P\rvert < 0}$$
+> $$\boxed{\lvert\mathbf F_\mu\rvert \leq \mu\lvert\mathbf N\rvert;\qquad \mathbf v_1^P = \mathbf 0:\ \mathbf F_\mu \in V_T \ \text{unknown};\qquad \mathbf v_1^P \neq \mathbf 0:\ \mathbf F_\mu = -\mu\lvert\mathbf N\rvert\,\frac{\mathbf v_1^P}{\lvert\mathbf v_1^P\rvert},\ \ \mathbf F_\mu\cdot\mathbf v_1^P = -\mu\lvert\mathbf N\rvert\,\lvert\mathbf v_1^P\rvert \leq 0\ \ (< 0 \ \text{only if}\ \mu\lvert\mathbf N\rvert > 0)}$$
 >
 > **Units:** $\mathrm N$ for the forces ($\mu$ is dimensionless); $\mathrm W$ for the power
-> **Meaning:** while the particle sticks, friction is a constraint force, contained in the tangent subspace, with components unknown a priori, and it does no work because the particle does not move relative to the constraint. While the particle slides, friction is an applied force: it introduces no new unknown, points against the relative velocity and does negative work, dissipating energy (Notes.pdf, Sec. 6.6; [Lecture 3, Slide 18]).
+> **Meaning:** while the particle sticks, friction is a constraint force, contained in the tangent subspace, with components unknown a priori, and it does no work because the particle does not move relative to the constraint. While the particle slides, friction is an applied force: it introduces no new unknown, points against the relative velocity and its power relative to the constraint is never positive: it is negative, dissipating energy, whenever the normal reaction is not zero, and zero at the instants when the normal reaction vanishes, as on the rough cylinder below for a particle with no turning rate (Notes.pdf, Sec. 6.6; [Lecture 3, Slide 18]).
 
 Each regime is a different mechanics problem, with different equations, and in general it is not known a priori whether friction is large enough to keep the particle at rest or whether it starts to move; the particle may begin moving, stop, move again, and so on. Solving such a problem requires monitoring the bound and the relative velocity continuously and switching from one formulation to the other as necessary (Notes.pdf, Sec. 6.6; [Lecture 3, Slide 19]).
 
@@ -902,15 +950,15 @@ Each regime is a different mechanics problem, with different equations, and in g
 >
 > $$\begin{aligned}
 > \text{surface, sticking:}\quad &N_1,\ R_1,\ R_2 \ \to\ 3 \ \text{unknowns} \quad &\text{(coordinates fixed by $\mathbf v_1^P = \mathbf 0$)} \\
-> \text{surface, sliding:}\quad &\text{2 coordinates},\ N_1 \ \to\ 3 \ \text{unknowns} \quad &\text{($\mathbf F_R$ known through Eq. 6.21)} \\
+> \text{surface, sliding:}\quad &\text{2 coordinates},\ N_1 \ \to\ 3 \ \text{unknowns} \quad &\text{($\mathbf F_\mu$ known through Eq. 6.21)} \\
 > \text{curve, sticking:}\quad &N_1,\ N_2,\ R_1 \ \to\ 3 \ \text{unknowns} \quad &\text{(coordinate fixed)} \\
-> \text{curve, sliding:}\quad &\text{1 coordinate},\ N_1,\ N_2 \ \to\ 3 \ \text{unknowns} \quad &\text{($\mathbf F_R$ known through Eq. 6.21)} \\
-> \text{sticking holds while}\quad &\lvert\mathbf F_R\rvert \leq \mu\lvert\mathbf N\rvert \quad &\text{(the friction found from the sticking equations must obey Eq. 6.20)} \\
-> \text{switch to sliding when}\quad &\lvert\mathbf F_R\rvert = \mu\lvert\mathbf N\rvert \quad &\text{(beyond it the sticking solution would break Eq. 6.20)} \\
+> \text{curve, sliding:}\quad &\text{1 coordinate},\ N_1,\ N_2 \ \to\ 3 \ \text{unknowns} \quad &\text{($\mathbf F_\mu$ known through Eq. 6.21)} \\
+> \text{sticking holds while}\quad &\lvert\mathbf F_\mu\rvert \leq \mu\lvert\mathbf N\rvert \quad &\text{(the friction found from the sticking equations must obey Eq. 6.20)} \\
+> \text{switch to sliding when}\quad &\lvert\mathbf F_\mu\rvert = \mu\lvert\mathbf N\rvert \quad &\text{(beyond it the sticking solution would break Eq. 6.20)} \\
 > \text{switch to sticking when}\quad &\mathbf v_1^P = \mathbf 0 \quad &\text{(Eq. 6.21 needs a direction of relative motion)}
 > \end{aligned}$$
 >
-> $$\boxed{\text{constraint-force case while } \lvert\mathbf F_R\rvert \leq \mu\lvert\mathbf N\rvert;\qquad \text{applied-force case from } \lvert\mathbf F_R\rvert = \mu\lvert\mathbf N\rvert \text{ until } \mathbf v_1^P = \mathbf 0}$$
+> $$\boxed{\text{constraint-force case while } \lvert\mathbf F_\mu\rvert \leq \mu\lvert\mathbf N\rvert;\qquad \text{applied-force case from } \lvert\mathbf F_\mu\rvert = \mu\lvert\mathbf N\rvert \text{ until } \mathbf v_1^P = \mathbf 0}$$
 >
 > **Units:** pure numbers in the counting; $\mathrm N$ in the conditions
 > **Meaning:** both regimes are closed problems. The sticking formulation yields the friction force needed to keep the particle at rest; if that force would have to exceed the bound, no sticking solution exists and the particle begins to move immediately; it then slides until its relative velocity vanishes, and the sticking formulation is tried again ([Lecture 3, Slide 19]). Other friction models exist but are not covered in the course.
@@ -923,7 +971,7 @@ Each regime is a different mechanics problem, with different equations, and in g
 > | frame | $S_0$, inertial, origin $O$ on the axis of the cylinder, $\mathbf k$ along the axis; the cylinder is at rest in $S_0$, so $S_1$ is $S_0$ and $\mathbf v_1^P$ is $\mathbf v_0^P$ |
 > | surface | $f = x^2 + y^2 - a^2 = 0$ |
 > | coordinates | cylindrical $\theta$ and $z$ (two degrees of freedom); $R = a$ fixed |
-> | reaction | normal $N_R\,\mathbf e_R$ (the slide writes $N\,\mathbf e_R$); friction $\mathbf F_R$ |
+> | reaction | normal $N_R\,\mathbf e_R$ (the slide writes $N\,\mathbf e_R$); friction $\mathbf F_\mu$ |
 
 ![[attachments/EM-T/t3-rough-cylinder.svg]]
 
@@ -931,15 +979,16 @@ Each regime is a different mechanics problem, with different equations, and in g
 > **Law:** cylindrical basis and its change of basis matrix; derivatives of the unit vectors (Section 6); product rule
 > **Source:** [Lecture 3, Slide 20]; Notes.pdf, Eq. 2.24; Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 2.25; Notes.pdf, Eq. 2.26; Notes.pdf, Eq. 1.64
 >
-> View along $\mathbf k$, out of the paper (⊙), on a cross-section of the cylinder: $\mathbf e_R$ and $\mathbf e_\theta$ follow from $\mathbf i$ and $\mathbf j$ by the rotation of angle $\theta$ about $\mathbf k$ with the same right triangles as in Section 6 (adjacent legs $\cos\theta$, opposite legs $\sin\theta$, and the minus sign of the $\mathbf i$ component of $\mathbf e_\theta$, which points to the left of $\mathbf j$ when $\theta$ is between $0$ and $\pi/2$), and $\mathbf e_z$ is $\mathbf k$.
+> $S_c$ is the frame with origin $O$ and basis $\mathcal B_c$ made of $\mathbf e_R$, $\mathbf e_\theta$, $\mathbf e_z$, which turns about the axis with the meridian plane of $P$; it is not the frame $S_1$ of the friction law, which here is $S_0$. View along $\mathbf k$, out of the paper (⊙), on a cross-section of the cylinder: $\mathbf e_R$ and $\mathbf e_\theta$ follow from $\mathbf i$ and $\mathbf j$ by the rotation of angle $\theta$ about $\mathbf k$ with the same right triangles as in Section 6 (adjacent legs $\cos\theta$, opposite legs $\sin\theta$, and the minus sign of the $\mathbf i$ component of $\mathbf e_\theta$, which points to the left of $\mathbf j$ when $\theta$ is between $0$ and $\pi/2$), and $\mathbf e_z$ is $\mathbf k$.
 >
 > $$\begin{aligned}
-> [{}_0R_1] &= \begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix} \quad &\text{(columns $\mathbf e_R$, $\mathbf e_\theta$, $\mathbf e_z$ in $\mathcal B_0$, Eq. 1.13)} \\
-> \det[{}_0R_1] &= \cos^2\theta + \sin^2\theta \quad &\text{(expansion along the third row, as in Section 6)} \\
+> [{}_0R_c] &= \begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix} \quad &\text{(columns $\mathbf e_R$, $\mathbf e_\theta$, $\mathbf e_z$ in $\mathcal B_0$, Eq. 1.13)} \\
+> \det[{}_0R_c] &= 1\cdot\left(\cos\theta\cos\theta - (-\sin\theta)\sin\theta\right) \quad &\text{(expand along the third row)} \\
+> &= \cos^2\theta + \sin^2\theta \quad &\text{(simplify the signs)} \\
 > &= 1 \quad &\text{(Pythagoras)} \\
-> \left([{}_0R_1][{}_0R_1]^T\right)_{22} &= \sin\theta\sin\theta + \cos\theta\cos\theta + 0\cdot 0 \quad &\text{(row 2 times row 2)} \\
+> \left([{}_0R_c][{}_0R_c]^T\right)_{22} &= \sin\theta\sin\theta + \cos\theta\cos\theta + 0\cdot 0 \quad &\text{(row 2 times row 2)} \\
 > &= 1 \quad &\text{(Pythagoras)} \\
-> \left([{}_0R_1][{}_0R_1]^T\right)_{12} &= \cos\theta\sin\theta + (-\sin\theta)\cos\theta + 0\cdot 0 \quad &\text{(row 1 times row 2)} \\
+> \left([{}_0R_c][{}_0R_c]^T\right)_{12} &= \cos\theta\sin\theta + (-\sin\theta)\cos\theta + 0\cdot 0 \quad &\text{(row 1 times row 2)} \\
 > &= 0 \quad &\text{(the two products cancel)} \\
 > \mathbf r_0^P &= a\,\mathbf e_R + z\,\mathbf k \quad &\text{(radius $a$ from the axis, height $z$)} \\
 > \mathbf v_0^P &= a\,\frac{d\mathbf e_R}{dt} + \dot z\,\mathbf k \quad &\text{(derivative in $S_0$; $a$ and $\mathbf k$ constant)} \\
@@ -1003,7 +1052,7 @@ Each regime is a different mechanics problem, with different equations, and in g
 >
 > $$\boxed{\frac{\dot z}{a\dot\theta} = \tan\psi = \text{const},\qquad \frac{d v_0^P}{dt} = -\mu a\dot\theta^2,\qquad v_0^P(t) = \frac{v_0^P(0)}{1 + \mu\cos^2\psi\,v_0^P(0)\,t/a}}$$
 >
-> **Units:** $\mathrm{m/s^2}$ for the rate of the speed ($a\dot\theta^2$ in $\mathrm{m\,s^{-2}}$); $\mu\,v\,t/a$ dimensionless
+> **Units:** $\mathrm{m/s^2}$ for the rate of the speed ($a\dot\theta^2$ in $\mathrm{m\,s^{-2}}$); $\mu\,v_0^P\,t/a$ dimensionless
 > **Meaning:** friction only slows the particle down without turning its velocity within the tangent plane, so the particle follows a helix of constant angle $\psi$; the rate of the speed is minus $\mu$ times the magnitude of the normal reaction divided by the mass, the tangential equation of Eq. 6.17 with the friction as the only tangential force. The speed decreases like the inverse of time: it never vanishes in finite time, since the denominator stays finite, so the particle never sticks on this frictional cylinder without applied forces. Here $v$ and $t'$ are integration variables.
 
 ## 9. The Newtonian mechanics approach
@@ -1027,7 +1076,7 @@ The first and most important step is to understand what is looked for (Notes.pdf
 | Example of this note | Conditions translated into constraints | Degrees of freedom |
 | :--- | :--- | :--- |
 | vertical circle, Section 6 | circle and its plane: two equations | $3 - 2 = 1$: $\theta$ |
-| two particles and a string, Section 7 | two vertical lines (two equations each) and the string (one equation) | $6 - 5 = 1$: $d$ |
+| two particles and a string, Section 7 | two vertical lines (two equations each) and the string (one equation) | $6 - 5 = 1$: $\eta$ |
 | rough cylinder, Section 8 | the cylinder: one equation | $3 - 1 = 2$: $\theta$, $z$ (none while the particle sticks) |
 | spool, Section 5 | vertical axis (two equations) and the string collected at a given rate (one equation, depending on time) | $3 - 3 = 0$: only time |
 
@@ -1050,7 +1099,7 @@ The number of coordinates should match the number of configuration degrees of fr
 > $$\boxed{\ell_2 = H - \ell_1}$$
 >
 > **Units:** $\mathrm m$
-> **Meaning:** the two distances carry the same information, so only one of them may be a coordinate. Introducing a redundant coordinate temporarily can help to pose a problem, but it must then be eliminated with the constraint equation (Notes.pdf, Sec. 7.2), as $d'$ was in Section 7.
+> **Meaning:** the two distances carry the same information, so only one of them may be a coordinate. Introducing a redundant coordinate temporarily can help to pose a problem, but it must then be eliminated with the constraint equation (Notes.pdf, Sec. 7.2), as $\eta'$ was in Section 7.
 
 ### Defining reference frames
 
@@ -1101,7 +1150,7 @@ With the coordinates and the frames chosen, the next step obtains the position, 
 > $$\boxed{\boldsymbol\omega_{21} = \dot\theta\,\mathbf k_1,\qquad \boldsymbol\omega_{20} = \dot\theta\,\mathbf k_1 + \boldsymbol\omega_{10}}$$
 >
 > **Units:** $\mathrm{rad/s}$ and $\mathrm{rad/s^2}$
-> **Meaning:** each simple rotation contributes the rate of its angle along its axis, and the contributions add; the angular acceleration of the last frame needs the extra term $\boldsymbol\omega_{10}\times\boldsymbol\omega_{21}$ because the axis $\mathbf k_1$ is carried by $S_1$.
+> **Meaning:** each simple rotation contributes the rate of its angle along its axis, and the contributions add; the angular acceleration of the last frame needs the extra term, the cross product of $\boldsymbol\omega_{10}$ with $\boldsymbol\omega_{21}$, because the axis $\mathbf k_1$ is carried by $S_1$.
 
 The position, velocity and acceleration can then be obtained in several equivalent ways (Notes.pdf, Sec. 7.4): (1) write the absolute position with vectors of different bases and differentiate in the fixed frame, using the Coriolis theorem for every unit vector that is not constant in it; (2) first transform the position to the basis of the fixed frame with relations like Eq. 7.1 and differentiate there, which needs no Coriolis theorem but may give longer intermediate expressions; (3) write the relative position with respect to a useful auxiliary frame, differentiate it in that frame to obtain the relative velocity and acceleration, and connect them with the absolute ones through the composition laws of Chapter 3. Any of the three must give the same result, and all begin with a position vector, which can be built as a sum of simpler vectors, such as $\overrightarrow{OA}$, $\overrightarrow{AB}$, $\overrightarrow{BC}$ and $\overrightarrow{CP}$. Way (1) was used for the particle on the vertical circle of Section 6; the box below checks ways (2) and (3) on the same particle.
 
@@ -1131,7 +1180,7 @@ The position, velocity and acceleration can then be obtained in several equivale
 > $$\boxed{\text{ways (1), (2), (3)}:\quad \mathbf v_0^P = a\dot\theta\,\mathbf e_\theta,\qquad \mathbf a_0^P = -a\dot\theta^2\,\mathbf e_R + a\ddot\theta\,\mathbf e_\theta}$$
 >
 > **Units:** $\mathrm{m/s}$ and $\mathrm{m/s^2}$
-> **Meaning:** the three ways give the vectors of Section 6, as they must. In way (3) the centripetal part of the acceleration comes from the double cross product $\boldsymbol\omega_{10}\times(\boldsymbol\omega_{10}\times\mathbf r_1^P)$ and the tangential part from $\boldsymbol\alpha_{10}\times\mathbf r_1^P$; there is no Coriolis term because $P$ does not move in $S_1$.
+> **Meaning:** the three ways give the vectors of Section 6, as they must. In way (3) the centripetal part of the acceleration comes from the double cross product of $\boldsymbol\omega_{10}$ with the cross product of $\boldsymbol\omega_{10}$ and $\mathbf r_1^P$, and the tangential part from the cross product of $\boldsymbol\alpha_{10}$ with $\mathbf r_1^P$; there is no Coriolis term because $P$ does not move in $S_1$.
 
 > [!warning] Relative to a frame is not the same as expressed in a basis
 > A position, velocity or acceleration relative to some reference frame (who observes, and which derivative is taken) is a different concept from a vector expressed in the basis of some frame (which unit vectors are used to write its components): any of these vectors can be written in any basis (Notes.pdf, Sec. 7.4). In way (3) above, $\mathbf v_0^P$ is relative to $S_0$ but is written in the basis of $S_1$.
@@ -1143,7 +1192,7 @@ The next step identifies the magnitude and direction of every force on each part
 | Group | Examples | What is known | Source |
 | :--- | :--- | :--- | :--- |
 | applied forces | gravity on a heavy particle, drag, buoyancy, the force of a spring, any force exerted directly on the particle; friction while sliding | the magnitude, always a priori, although it may depend on the position, the velocity and time in a prescribed way | Notes.pdf, Sec. 7.5; [Lecture 3, Slide 18] |
-| reaction (constraint) forces | the normal force of a surface, the two normal components of a curve, the friction force when its magnitude and direction are unknown, the tension of a cable | only the subspace: an extra unknown parameter is introduced for each component, as $\lambda$ in $\lambda\,\nabla f$ or $F_T$ in a tension along the cable | Notes.pdf, Sec. 7.5; [Lecture 3, Slide 13] |
+| reaction (constraint) forces | the normal force of a surface, the two normal components of a curve, the friction force when its magnitude and direction are unknown, the tension of a cable | only the subspace: an extra unknown parameter is introduced for each component, as $\lambda$ in $\lambda\,\nabla f$ or $F_\tau$ in a tension along the cable | Notes.pdf, Sec. 7.5; [Lecture 3, Slide 13] |
 | inertia forces | present if and only if the second law is written in a non-inertial frame (Topic 5) | they follow from the motion of that frame | Notes.pdf, Sec. 7.5 |
 
 Including inertia forces when the second law is applied in an inertial frame is a common mistake of beginners (Notes.pdf, Sec. 7.5). Each force must be expressed with its magnitude and direction as a function of the chosen coordinates, their derivatives and perhaps time; the direction of a normal reaction follows from the gradient of the surface or surfaces of the constraint.
@@ -1181,10 +1230,10 @@ The unknowns of the problem are the chosen coordinates as functions of time and 
 >
 > $$\begin{aligned}
 > \text{vertical circle:}\quad &3 \ \text{equations};\ \ \theta,\ N_R,\ N_z \ \to\ 3 \ \text{unknowns} \quad &\text{(Section 6)} \\
-> \text{two particles:}\quad &3 + 3 = 6 \ \text{equations};\ \ d,\ F_T \ \text{and two horizontal reaction components per particle} \ \to\ 6 \ \text{unknowns} \quad &\text{(Section 7: the reactions of the vertical lines are zero, no applied force being horizontal)} \\
+> \text{two particles:}\quad &3 + 3 = 6 \ \text{equations};\ \ \eta,\ F_\tau \ \text{and two horizontal reaction components per particle} \ \to\ 6 \ \text{unknowns} \quad &\text{(Section 7: the reactions of the vertical lines are zero, no applied force being horizontal)} \\
 > \text{rough cylinder, sliding:}\quad &3 \ \text{equations};\ \ \theta,\ z,\ N_R \ \to\ 3 \ \text{unknowns} \quad &\text{(Section 8)} \\
 > \text{rough cylinder, sticking:}\quad &3 \ \text{equations};\ \ N_R,\ R_1,\ R_2 \ \to\ 3 \ \text{unknowns} \quad &\text{(Section 8)} \\
-> \text{spool:}\quad &3 \ \text{equations};\ \ F_T \ \text{and two horizontal reaction components} \ \to\ 3 \ \text{unknowns} \quad &\text{(Section 5: no coordinate left)}
+> \text{spool:}\quad &3 \ \text{equations};\ \ F_\tau \ \text{and two horizontal reaction components} \ \to\ 3 \ \text{unknowns} \quad &\text{(Section 5: no coordinate left)}
 > \end{aligned}$$
 >
 > $$\boxed{\text{number of independent scalar equations} = \text{number of coordinates} + \text{number of reaction parameters}}$$
@@ -1206,22 +1255,45 @@ Sometimes only certain features of the motion are wanted, such as the regions of
 > **Law:** the first integral is a relation between the square of the rate and the angle; a real motion needs a non-negative square; boundaries where the rate vanishes
 > **Source:** Notes.pdf, Sec. 7.7; [Lecture 3, Slide 15]
 >
-> The first integral of Section 6, with $K$ fixed by the initial conditions; the effective potential is the term $(g/a)\sin\theta$, plotted against $\theta$ with the level $K$.
+> The first integral of Section 6, with $K$ fixed by the initial conditions; the effective potential is the term $(g/a)\sin\theta$, plotted against $\theta$ with the level $K$. In the separating case the angle is written near the highest point with a small departure $\varepsilon$, whose value at an instant $t_1$ is $\varepsilon_1$.
 >
 > $$\begin{aligned}
 > \dot\theta^2 &= 2K - \frac{2g}{a}\sin\theta \quad &\text{(first integral of Section 6 solved for the square of the rate)} \\
 > 2K - \frac{2g}{a}\sin\theta &\geq 0 \quad &\text{(the square of a real rate is not negative)} \\
+> \frac{2g}{a}\sin\theta &\leq 2K \quad &\text{(move the sine term over)} \\
 > \sin\theta &\leq \frac{a K}{g} \quad &\text{(divide by $2g/a$, which is positive)} \\
 > \sin\theta_* &= \frac{a K}{g} \quad &\text{(boundaries: the rate is zero)} \\
 > \frac{a K}{g} &\geq 1 \ \Rightarrow \ \text{every } \theta \text{ allowed} \quad &\text{(the sine never exceeds one)} \\
 > -1 < \frac{a K}{g} &< 1 \ \Rightarrow \ \sin\theta \leq \frac{a K}{g} \quad &\text{(an arc around the lowest point, between two turning angles $\theta_*$)} \\
-> \frac{a K}{g} &= -1 \ \Rightarrow \ \theta = -\frac{\pi}{2},\ \dot\theta = 0 \quad &\text{(only the lowest point: rest at the bottom)}
+> \frac{a K}{g} &= -1 \ \Rightarrow \ \theta = -\frac{\pi}{2},\ \dot\theta = 0 \quad &\text{(only the lowest point: rest at the bottom)} \\
+> \frac{a K}{g} &= 1:\quad \theta = \frac{\pi}{2} + \varepsilon \quad &\text{(the separating case, near the highest point)} \\
+> \ddot\theta\big|_{\theta = \pi/2} &= -\frac{g}{a}\cos\frac{\pi}{2} \quad &\text{(equation of motion of Section 6 at the highest point)} \\
+> &= 0 \quad &\text{($\cos(\pi/2) = 0$: the highest point is an equilibrium)} \\
+> \ddot\theta &= \ddot\varepsilon \quad &\text{(second time derivative; $\pi/2$ is constant)} \\
+> \cos\left(\frac{\pi}{2} + \varepsilon\right) &= \cos\frac{\pi}{2}\cos\varepsilon - \sin\frac{\pi}{2}\sin\varepsilon \quad &\text{(cosine of a sum)} \\
+> &= -\sin\varepsilon \quad &\text{($\cos(\pi/2) = 0$, $\sin(\pi/2) = 1$)} \\
+> &\approx -\varepsilon \quad &\text{(first order in $\varepsilon$)} \\
+> \ddot\varepsilon - \frac{g}{a}\,\varepsilon &= 0 \quad &\text{(substitute in the equation of motion of Section 6: linearized)} \\
+> \varepsilon &= e^{q t} \quad &\text{(trial solution of a linear equation with constant coefficients)} \\
+> q^2 e^{q t} - \frac{g}{a}\,e^{q t} &= 0 \quad &\text{(substitute the trial solution)} \\
+> q^2 - \frac{g}{a} &= 0 \quad &\text{(characteristic equation; $e^{q t} \neq 0$)} \\
+> q &= \pm\sqrt{g/a} \quad &\text{(one root is positive: a small departure grows exponentially, unstable)} \\
+> \dot\theta^2 &= \frac{2g}{a}\left(1 - \sin\theta\right) \quad &\text{(first row with $K = g/a$)} \\
+> 1 - \sin\left(\frac{\pi}{2} + \varepsilon\right) &= 1 - \cos\varepsilon \quad &\text{(sine of a sum: $\sin(\pi/2 + \varepsilon) = \cos\varepsilon$)} \\
+> &\approx \tfrac12\,\varepsilon^2 \quad &\text{(Taylor expansion of $\cos\varepsilon$ to second order)} \\
+> \dot\varepsilon^2 &\approx \frac{g}{a}\,\varepsilon^2 \quad &\text{(substitute; $\dot\theta = \dot\varepsilon$)} \\
+> \dot\varepsilon &= -\sqrt{g/a}\,\varepsilon \quad &\text{(approach: $\lvert\varepsilon\rvert$ decreases, from either side; the negative root $q$)} \\
+> \int_{\varepsilon_1}^{\varepsilon}\frac{d\varepsilon'}{\varepsilon'} &= -\sqrt{g/a}\int_{t_1}^{t} dt' \quad &\text{(separate variables and integrate)} \\
+> \Big[\ln\lvert\varepsilon'\rvert\Big]_{\varepsilon_1}^{\varepsilon} &= -\sqrt{g/a}\,\Big[t'\Big]_{t_1}^{t} \quad &\text{(antiderivatives; $\varepsilon$ keeps its sign)} \\
+> \ln\lvert\varepsilon\rvert - \ln\lvert\varepsilon_1\rvert &= -\sqrt{g/a}\,\left(t - t_1\right) \quad &\text{(Barrow's rule on both sides)} \\
+> t - t_1 &= \sqrt{a/g}\,\ln\frac{\lvert\varepsilon_1\rvert}{\lvert\varepsilon\rvert} \quad &\text{(solve for the time)} \\
+> t - t_1 &\to \infty \ \text{as}\ \varepsilon \to 0 \quad &\text{(the logarithm diverges: the highest point is reached only in infinite time)}
 > \end{aligned}$$
 >
-> $$\boxed{\dot\theta^2 = 2K - \frac{2g}{a}\sin\theta \geq 0:\quad aK/g > 1 \ \text{revolutions};\quad -1 < aK/g < 1 \ \text{oscillations between the two roots of } \sin\theta_* = aK/g;\quad aK/g = -1 \ \text{rest at the bottom}}$$
+> $$\boxed{\dot\theta^2 = 2K - \frac{2g}{a}\sin\theta \geq 0:\quad aK/g > 1 \ \text{revolutions};\quad -1 < aK/g < 1 \ \text{oscillations between the two roots of } \sin\theta_* = aK/g;\quad aK/g = -1 \ \text{rest at the bottom};\quad aK/g = 1 \ \text{unstable equilibrium at } \theta = \pi/2 \ (q = \pm\sqrt{g/a}),\ \text{approached in infinite time}}$$
 >
-> **Units:** $\mathrm{s^{-2}}$ in the first row; $aK/g$ dimensionless
-> **Meaning:** with $aK/g$ above one the rate never vanishes and the particle goes round the circle for ever, fastest at the bottom; between minus one and one it swings about the lowest point between the two angles where the sine equals $aK/g$, where its rate vanishes and its tangential acceleration, minus $(g/a)\cos\theta$, sends it back; values of $aK/g$ below minus one are impossible. The value one separates both classes: the particle then tends to the highest point, an unstable equilibrium, with vanishing speed. No integration of the motion in time was needed for this discussion.
+> **Units:** $\mathrm{s^{-2}}$ in the first row; $aK/g$ and $\varepsilon$ dimensionless (radians); $q$ in $\mathrm{s^{-1}}$ and $\sqrt{a/g}$ in $\mathrm s$, as $\sqrt{\mathrm m/(\mathrm{m\,s^{-2}})}$
+> **Meaning:** with $aK/g$ above one the rate never vanishes and the particle goes round the circle for ever, fastest at the bottom; between minus one and one it swings about the lowest point between the two angles where the sine equals $aK/g$, where its rate vanishes and its tangential acceleration sends it back; values of $aK/g$ below minus one are impossible. The value one separates both classes: the particle then tends to the highest point with vanishing speed. That point is an equilibrium, and an unstable one, because the linearized equation has a positive root, so any small departure grows exponentially; and the particle never reaches it, because the time needed grows like the logarithm of the inverse of the remaining departure. No integration of the motion in time was needed for this discussion.
 
 ### Final comments
 
