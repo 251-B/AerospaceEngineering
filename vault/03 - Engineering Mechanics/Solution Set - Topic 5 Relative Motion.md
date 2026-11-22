@@ -5129,7 +5129,7 @@ Two heavy particles $P$ and $Q$ of mass $m$ are joined by a spring of stiffness 
 
 > [!derivation] Coordinates minus independent constraints
 > **Law:** each holonomic constraint removes one coordinate; the motion of $D$ is prescribed and adds none
-> **Source:** Notes.pdf, Eq. 6.3; Problems.pdf, p. 28
+> **Source:** Notes.pdf, Ch. 6; Notes.pdf, Sec. 6.2; Problems.pdf, p. 28
 >
 > In $S_1$ write $(x_1^P, y_1^P, z_1^P)$ and $(x_1^Q, y_1^Q, z_1^Q)$ for the Cartesian coordinates of the two particles.
 >
@@ -5274,7 +5274,7 @@ Two heavy particles $P$ and $Q$ of mass $m$ are joined by a spring of stiffness 
 
 > [!derivation] Actual and inertia forces on both particles
 > **Law:** weight; smooth reactions normal to the allowed motion; linear spring; inertia forces of a non-inertial frame
-> **Source:** Notes.pdf, Eq. 4.62; Notes.pdf, Eq. 6.11; [Lecture 5, Slide 28]; Problems.pdf, p. 28
+> **Source:** Notes.pdf, Eq. 4.62; Notes.pdf, Eq. 6.13; [Lecture 5, Slide 28]; Problems.pdf, p. 28
 >
 > The axis lets $P$ move only along $\mathbf k_1$, so its smooth reaction has no $\mathbf k_1$ component; the ring lets $Q$ move only along $\mathbf e_\phi$, so its reaction has no $\mathbf e_\phi$ component. The spring vector is $\overrightarrow{PQ}$, the difference of the two positions.
 >
@@ -5443,7 +5443,7 @@ A satellite spins about its $z$ axis at the constant rate $\omega$; its solar pa
 
 > [!derivation] Second rotation: the panel turns by theta about the hinge i1
 > **Law:** elementary rotation about the first axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.20
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.16; Notes.pdf, Eq. 1.18
 >
 > View along the hinge, with $\mathbf i_1$ out of the paper (⊙). With $\mathbf j_1$ to the right, $\mathbf k_1$, the cross product of $\mathbf i_1$ and $\mathbf j_1$, points up the page. $\theta$ is measured about $+\mathbf i_1$, counterclockwise in this view, from $\mathbf j_1$. $\mathbf j_2$ is $\mathbf j_1$ turned by $\theta$: hypotenuse 1, adjacent leg $\cos\theta$ along $\mathbf j_1$, opposite leg $\sin\theta$ along plus $\mathbf k_1$. $\mathbf k_2$ is $\mathbf k_1$ turned by the same angle; the counterclockwise turn carries its tip to the left, so its opposite leg $\sin\theta$ lies along minus $\mathbf j_1$ (the minus sign). The determinant is expanded along the first row.
 >
@@ -5612,13 +5612,13 @@ Two heavy particles of mass $m$ move without friction, $P$ on a circular wire of
 | Applied forces | weights $-mg\,\mathbf j_1$; repulsion $k\,\overrightarrow{QP}$ on $P$ and $k\,\overrightarrow{PQ}$ on $Q$ |
 | Inertia forces (in $S_1$) | centrifugal and Coriolis; no origin or Euler terms (Notes.pdf, Eq. 4.62) |
 | Hypotheses | $S_0$ inertial; uniform gravity; smooth bilateral wires; $\Omega$ constant |
-| Readings | (1) The curved arrow of the figure is read as a turn in the positive sense about $+\mathbf j_0$ (counterclockwise seen from above), so the angular velocity is $\Omega\,\mathbf j_1$ with $\Omega$ positive. The opposite sense changes the sign of $\Omega$, which changes only the Coriolis forces and the reactions $N_2$, $N_4$ (they change sign); the equations of motion, the energy and part (i) contain only the square of $\Omega$ and do not change. (2) $\mathbf k_1$, the cross product of $\mathbf i_1$ and $\mathbf j_1$, points out of the paper in the figure |
+| Readings | (1) The curved arrow of the figure is read as a turn in the positive sense about $+\mathbf j_0$ (counterclockwise seen from above), so the angular velocity is $\Omega\,\mathbf j_1$ with $\Omega$ positive. The opposite sense changes the sign of $\Omega$, hence the matrix $[{}_0R_1]$ and the derivatives of $\mathbf i_1$ and $\mathbf k_1$ (their signs); among the dynamic results it changes only the Coriolis forces and the reactions $N_2$, $N_4$ (they change sign); the equations of motion, the energy and part (i) contain only the square of $\Omega$ and do not change. (2) $\mathbf k_1$, the cross product of $\mathbf i_1$ and $\mathbf j_1$, points out of the paper in the figure |
 
 #### (a) Configuration degrees of freedom
 
 > [!derivation] Coordinates minus independent constraints
 > **Law:** each holonomic constraint removes one coordinate; the motion of the plane is prescribed
-> **Source:** Notes.pdf, Eq. 6.3; Problems.pdf, p. 32
+> **Source:** Notes.pdf, Ch. 6; Notes.pdf, Sec. 6.2; Problems.pdf, p. 32
 >
 > $$\begin{aligned}
 > P:&\quad z_1^P = 0, \quad \left(x_1^P\right)^2 + \left(y_1^P\right)^2 - a^2 = 0 \quad &\text{(plane and circle of radius $a$)} \\
@@ -5637,7 +5637,7 @@ Two heavy particles of mass $m$ move without friction, $P$ on a circular wire of
 
 > [!derivation] Basis of S1: rotation by Omega t about the vertical j0
 > **Law:** elementary rotation about the second axis; change of basis matrix and its checks
-> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.20; [Lecture 5, Slide 16]
+> **Source:** Notes.pdf, Eq. 1.13; Notes.pdf, Eq. 1.14; Notes.pdf, Eq. 1.15; Notes.pdf, Eq. 1.19; [Lecture 5, Slide 16]
 >
 > View from above, along $\mathbf j_0$, which points out of the paper (⊙). With $\mathbf i_0$ to the right, $\mathbf k_0$, the cross product of $\mathbf i_0$ and $\mathbf j_0$, points down the page (fingers from $\mathbf i_0$ to the reader, thumb down). The plane turns counterclockwise in this view. $\mathbf i_1$ is $\mathbf i_0$ turned by $\Omega t$: hypotenuse 1, adjacent leg $\cos\Omega t$ along $\mathbf i_0$, opposite leg $\sin\Omega t$ up the page, which is the direction of minus $\mathbf k_0$ (the minus sign). $\mathbf k_1$ is $\mathbf k_0$ turned by the same angle; the counterclockwise turn of a vector pointing down carries its tip to the right, so its opposite leg $\sin\Omega t$ lies along plus $\mathbf i_0$.
 >
@@ -5738,7 +5738,7 @@ Two heavy particles of mass $m$ move without friction, $P$ on a circular wire of
 
 > [!derivation] Components of the reactions
 > **Law:** a smooth wire exerts no force along its tangent; one reaction component per constraint
-> **Source:** Notes.pdf, Eq. 6.11; [Lecture 3, Slide 14]; Problems.pdf, p. 32
+> **Source:** Notes.pdf, Eq. 6.13; [Lecture 3, Slide 14]; Problems.pdf, p. 32
 >
 > The tangent of the wire of $P$ is $\mathbf e_\varphi$ and that of $Q$ is $\mathbf e_\theta$; the plane normal to each tangent is spanned by the radial vector and $\mathbf k_1$.
 >
@@ -5756,7 +5756,7 @@ Two heavy particles of mass $m$ move without friction, $P$ on a circular wire of
 
 > [!derivation] Weights and mutual repulsion in the polar bases
 > **Law:** uniform weight; repulsion along the line of the particles, proportional to the distance, action and reaction
-> **Source:** Notes.pdf, Eq. 4.14; Problems.pdf, p. 32
+> **Source:** Problems.pdf, p. 32
 >
 > $$\begin{aligned}
 > \mathbf W^P &= -mg\,\mathbf j_1 = -mg\sin\varphi\,\mathbf e_r^P - mg\cos\varphi\,\mathbf e_\varphi, \quad \mathbf W^Q = -mg\sin\theta\,\mathbf e_r^Q - mg\cos\theta\,\mathbf e_\theta \quad &\text{($\mathbf j_1$ in each polar basis)} \\
@@ -5768,7 +5768,7 @@ Two heavy particles of mass $m$ move without friction, $P$ on a circular wire of
 > $$\boxed{\begin{gathered} \mathbf F^P = -mg\,\mathbf j_1 + k\left(\mathbf r_1^P - \mathbf r_1^Q\right) = \left[-mg\sin\varphi + ka\left(1 - 2\cos\left(\varphi - \theta\right)\right)\right]\mathbf e_r^P + \left[-mg\cos\varphi + 2ka\sin\left(\varphi - \theta\right)\right]\mathbf e_\varphi \cr \mathbf F^Q = -mg\,\mathbf j_1 + k\left(\mathbf r_1^Q - \mathbf r_1^P\right) = \left[-mg\sin\theta + ka\left(2 - \cos\left(\varphi - \theta\right)\right)\right]\mathbf e_r^Q + \left[-mg\cos\theta - ka\sin\left(\varphi - \theta\right)\right]\mathbf e_\theta \end{gathered}}$$
 >
 > **Units:** $[mg] = [ka] = [\mathrm{M\,L\,T^{-2}}]$
-> **Meaning:** the applied forces lie in the plane of the wires; the repulsion is tangent to the wire of $P$ with its largest value when the two radii are perpendicular.
+> **Meaning:** the applied forces lie in the plane of the wires; the tangential part of the repulsion on $P$ is largest when the two radii are perpendicular, and its radial part is then $ka$, outwards; the radial part vanishes and changes sign where the cosine of the angle between the radii is one half.
 
 #### (e) Inertia forces seen from S1
 
@@ -5879,8 +5879,8 @@ Two heavy particles of mass $m$ move without friction, $P$ on a circular wire of
 | Part of the statement | Answer |
 | :--- | :--- |
 | (a) Degrees of freedom | 2 ($\varphi$, $\theta$) |
-| (b) Reactions | 4 independent components: $\mathbf N^P = N_1\,\mathbf e_r^P + N_2\,\mathbf k_1$, $\mathbf N^Q = N_3\,\mathbf e_r^Q + N_4\,\mathbf k_1$ |
-| (c) Relative accelerations | $\mathbf a_1^P = a\ddot\varphi\,\mathbf e_\varphi - a\dot\varphi^2\,\mathbf e_r^P$, $\mathbf a_1^Q = 2a\ddot\theta\,\mathbf e_\theta - 2a\dot\theta^2\,\mathbf e_r^Q$, with $\mathbf e_r^P = \cos\varphi\,\mathbf i_1 + \sin\varphi\,\mathbf j_1$, $\mathbf e_\varphi = -\sin\varphi\,\mathbf i_1 + \cos\varphi\,\mathbf j_1$ (same with $\theta$) |
+| (b) Reactions | answered under Forces and Equations of Motion, after part (c): 4 independent components: $\mathbf N^P = N_1\,\mathbf e_r^P + N_2\,\mathbf k_1$, $\mathbf N^Q = N_3\,\mathbf e_r^Q + N_4\,\mathbf k_1$ |
+| (c) Relative accelerations | answered under Kinematics, before part (b): $\mathbf a_1^P = a\ddot\varphi\,\mathbf e_\varphi - a\dot\varphi^2\,\mathbf e_r^P$, $\mathbf a_1^Q = 2a\ddot\theta\,\mathbf e_\theta - 2a\dot\theta^2\,\mathbf e_r^Q$, with $\mathbf e_r^P = \cos\varphi\,\mathbf i_1 + \sin\varphi\,\mathbf j_1$, $\mathbf e_\varphi = -\sin\varphi\,\mathbf i_1 + \cos\varphi\,\mathbf j_1$ (same with $\theta$) |
 | (d) Applied forces | $-mg\,\mathbf j_1 + k(\mathbf r_1^P - \mathbf r_1^Q)$ on $P$ and $-mg\,\mathbf j_1 + k(\mathbf r_1^Q - \mathbf r_1^P)$ on $Q$, in polar components as boxed in part (d) |
 | (e) Inertia forces | $\mathbf F_C^P = m\Omega^2a\cos\varphi\,\mathbf i_1$, $\mathbf F_C^Q = 2m\Omega^2a\cos\theta\,\mathbf i_1$, $\mathbf F_{COR}^P = -2m\Omega a\dot\varphi\sin\varphi\,\mathbf k_1$, $\mathbf F_{COR}^Q = -4m\Omega a\dot\theta\sin\theta\,\mathbf k_1$; origin and Euler forces zero (opposite sense of rotation: Coriolis forces change sign) |
 | (f) Equations of motion | $\ddot\varphi = -(g/a)\cos\varphi + (2k/m)\sin(\varphi - \theta) - \Omega^2\sin\varphi\cos\varphi$; $\ddot\theta = -(g/2a)\cos\theta - (k/2m)\sin(\varphi - \theta) - \Omega^2\sin\theta\cos\theta$ |
@@ -5925,7 +5925,7 @@ A particle $P$ of mass $m$ slides without friction on a sphere of radius $a$ cen
 | Applied force | attraction $k\,\overrightarrow{PA}$; no gravity |
 | Inertia forces (in $S_1$) | centrifugal and Coriolis; no origin or Euler terms (Notes.pdf, Eq. 4.62) |
 | Hypotheses | $S_0$ inertial; smooth sphere; $\Omega$ constant |
-| Readings | (1) Read from the figure: $\phi$ is the angle $AOP$ and $\theta$ the angle, seen at the point where $OA$ crosses the sphere, between the equator and the great circle through that point and $P$; so $\phi$ is a polar angle about $OA$ and $\theta$ its azimuth. If instead $\phi$ were the azimuth in the equatorial plane from $\mathbf i_1$ and $\theta$ the latitude, the position would be $a(\cos\theta\cos\phi\,\mathbf i_1 + \cos\theta\sin\phi\,\mathbf j_1 + \sin\theta\,\mathbf k_1)$; the equilibria are the same points, with the coordinates given in the Answers table. (2) The contact is read as bilateral (the reaction may take either sign): one equilibrium needs the sphere to pull the particle in. With a one-sided contact on the outer face, the equilibria with a negative reaction are not admissible (Answers table) |
+| Readings | (1) Read from the figure: $\phi$ is the angle $AOP$ and $\theta$ the angle, seen at the point where $OA$ crosses the sphere, between the equator and the great circle through that point and $P$; so $\phi$ is a polar angle about $OA$ and $\theta$ its azimuth. If instead $\phi$ were the azimuth in the equatorial plane from $\mathbf i_1$ and $\theta$ the latitude, the position would be $a(\cos\theta\cos\phi\,\mathbf i_1 + \cos\theta\sin\phi\,\mathbf j_1 + \sin\theta\,\mathbf k_1)$; the equilibria are the same points, with the coordinates given in the Answers table. (2) The contact is read as bilateral (the reaction may take either sign): the equilibrium $E_1$ always, and $E_2$ when $m\Omega^2$ exceeds $3k$, need the sphere to pull the particle in. With a one-sided contact on the outer face, the equilibria with a negative reaction are not admissible (Answers table) |
 
 ### Change of Basis and Position Vector
 
@@ -5953,7 +5953,7 @@ A particle $P$ of mass $m$ slides without friction on a sphere of radius $a$ cen
 
 > [!derivation] The azimuth theta: view along OA
 > **Law:** elementary rotation about $\mathbf i_1$; right triangle of the unit vector $\mathbf u$
-> **Source:** Notes.pdf, Eq. 1.20; Notes.pdf, Eq. 2.5; Problems.pdf, p. 34
+> **Source:** Notes.pdf, Eq. 1.18; Notes.pdf, Eq. 2.5; Problems.pdf, p. 34
 >
 > View along $OA$, with $\mathbf i_1$ out of the paper (⊙). With $\mathbf j_1$ to the right, $\mathbf k_1$, the cross product of $\mathbf i_1$ and $\mathbf j_1$, points up the page. The azimuth starts at $\mathbf j_1$ (equatorial plane) and grows counterclockwise towards $\mathbf k_1$. The unit vector $\mathbf u$ of the plane of $\mathbf j_1$ and $\mathbf k_1$ in the direction $\theta$ is the hypotenuse of the shaded triangle: adjacent leg $\cos\theta$ along $\mathbf j_1$, opposite leg $\sin\theta$ along $\mathbf k_1$. $\mathbf e_\theta$ is $\mathbf u$ turned a further quarter turn counterclockwise; that carries its tip to the side of minus $\mathbf j_1$ (the minus sign).
 >
@@ -6152,7 +6152,7 @@ A particle $P$ of mass $m$ slides without friction on a sphere of radius $a$ cen
 > $$\boxed{E_1:\ N = -\left(k + m\Omega^2\right)a, \qquad E_2:\ N = \left(3k - m\Omega^2\right)a, \qquad E_3, E_4:\ N = ka}$$
 >
 > **Units:** $[ka] = [m\Omega^2a] = [\mathrm{M\,L\,T^{-2}}]$
-> **Meaning:** $E_1$ (the point nearest $A$) and $E_2$ (the farthest) exist for every rate, because there both forces are radial. At $E_1$ the reaction points inwards: the sphere must pull the particle in, which needs the bilateral contact of the readings. At $E_3$ and $E_4$ the reaction points outwards.
+> **Meaning:** $E_1$ (the point nearest $A$) and $E_2$ (the farthest) exist for every rate, because there both forces are radial. At $E_1$ the reaction points inwards: the sphere must pull the particle in, which needs the bilateral contact of the readings. At $E_2$ it points outwards while $m\Omega^2$ is below $3k$, vanishes when they are equal and points inwards beyond. At $E_3$ and $E_4$ the reaction points outwards.
 
 #### (e) Reaction of the sphere
 
@@ -6218,7 +6218,7 @@ A heavy particle $P$ of mass $m$ moves on the smooth inner surface of a hollow s
 | Applied force | weight $-mg\,\mathbf k_1$ |
 | Inertia forces (in $S_1$) | Euler, centrifugal and Coriolis; no origin term (Notes.pdf, Eq. 4.62) |
 | Hypotheses | $S_0$ inertial; uniform gravity; $A$ fixed; smooth surface; $\Omega(t)$ known |
-| Readings | (1) Read from the figure: $\theta$ is drawn in the horizontal plane through $C$ from the direction of $\mathbf i_1$ towards the side of $\mathbf j_1$, and $\phi$ from that plane upwards. If $\phi$ were the colatitude (measured from $\mathbf k_1$ downwards), $\cos\phi$ and $\sin\phi$ would swap in every result. (2) The particle is inside the sphere and the statement asks when it separates, so the contact is read as one-sided: the reaction points towards $C$, written $-N\,\mathbf u_r$ with $N$ non-negative while in contact. For a contact that holds on both sides, every solution of part (e) would be admissible |
+| Readings | (1) Read from the figure: $\theta$ is drawn in the horizontal plane through $C$ from the direction of $\mathbf i_1$ towards the side of $\mathbf j_1$, and $\phi$ from that plane upwards. If $\phi$ were the colatitude $\phi_c$ (measured from $\mathbf k_1$ downwards, the complement of $\phi$), the cosine and the sine of the angle would swap in every result, and every term linear in the rate or in the second derivative of the angle would change sign, because those of $\phi_c$ are minus those of $\phi$ and $\mathbf u_\phi$ reverses; the converted equations are in the Answers table. (2) The particle is inside the sphere and the statement asks when it separates, so the contact is read as one-sided: the reaction points towards $C$, written $-N\,\mathbf u_r$ with $N$ non-negative while in contact. For a contact that holds on both sides, every solution of part (e) would be admissible |
 
 ### Change of Basis and Position Vector
 
@@ -6239,7 +6239,7 @@ A heavy particle $P$ of mass $m$ moves on the smooth inner surface of a hollow s
 >
 > $$\boxed{[{}_0R_1] = \begin{pmatrix} \cos\Psi & -\sin\Psi & 0 \cr \sin\Psi & \cos\Psi & 0 \cr 0 & 0 & 1 \end{pmatrix}, \quad \det[{}_0R_1] = 1, \quad [{}_0R_1][{}_0R_1]^T = I}$$
 >
-> **Units:** $[\Psi] = [1]$; $[\Omega\,t] = [1]$
+> **Units:** $[\Psi] = [1]$; $[\Omega] = [\mathrm{T^{-1}}]$
 > **Meaning:** the orientation of $S_1$ is known at every instant because the rate is known; the rate of change of the angle is the given rate.
 
 ![[attachments/EM-SOL/p51-horizontal.svg]]
@@ -6455,6 +6455,7 @@ A heavy particle $P$ of mass $m$ moves on the smooth inner surface of a hollow s
 | (b) Forces in $S_1$ | $-mg\,\mathbf k_1$; $-N\,\mathbf u_r$; origin force zero; Euler $-m\dot\Omega\,\mathbf k_1\times\mathbf r_1^P$; centrifugal $m\Omega^2\mathbf r_\perp$ with $\mathbf r_\perp = R(\cos\phi + \sin\theta)\,\mathbf e_h + R\cos\theta\,\mathbf u_\theta$; Coriolis $2m\Omega R(\dot\theta\cos\phi\,\mathbf e_h + \dot\phi\sin\phi\,\mathbf u_\theta)$ |
 | (c) Equations | $\ddot\theta\cos\phi - 2\dot\phi\sin\phi(\dot\theta + \Omega) = \Omega^2\cos\theta - \dot\Omega(\cos\phi + \sin\theta)$; $\ddot\phi + \dot\theta(\dot\theta + 2\Omega)\sin\phi\cos\phi + (g/R)\cos\phi + \Omega^2\sin\phi(\cos\phi + \sin\theta) + \dot\Omega\cos\theta\sin\phi = 0$ |
 | (d) Reaction and separation | $N = mR\dot\phi^2 + mR\cos^2\phi(\dot\theta + \Omega)^2 + m\Omega^2R\cos\phi\sin\theta + m\dot\Omega R\cos\phi\cos\theta - mg\sin\phi$; separation when $N$ reaches zero and would become negative |
+| (c), (d) with the colatitude $\phi_c = \pi/2 - \phi$ | $\ddot\theta\sin\phi_c + 2\dot\phi_c\cos\phi_c(\dot\theta + \Omega) = \Omega^2\cos\theta - \dot\Omega(\sin\phi_c + \sin\theta)$; $-\ddot\phi_c + \dot\theta(\dot\theta + 2\Omega)\sin\phi_c\cos\phi_c + (g/R)\sin\phi_c + \Omega^2\cos\phi_c(\sin\phi_c + \sin\theta) + \dot\Omega\cos\theta\cos\phi_c = 0$; $N = mR\dot\phi_c^2 + mR\sin^2\phi_c(\dot\theta + \Omega)^2 + m\Omega^2R\sin\phi_c\sin\theta + m\dot\Omega R\sin\phi_c\cos\theta - mg\cos\phi_c$ |
 | (e) Equilibria, constant $\Omega$ | $\theta = \pi/2$ with $\tan\phi_1 + \sin\phi_1 = -g/(\Omega^2R)$, $\phi_1 \in (-\pi/2, 0)$, $N = mg/\lvert\sin\phi_1\rvert \gt 0$: the only admissible equilibrium; $\theta = -\pi/2$ with $\tan\phi_2 - \sin\phi_2 = g/(\Omega^2R)$, $\phi_2 \in (0, \pi/2)$, $N = -mg/\sin\phi_2 \lt 0$: not admissible for the one-sided contact (admissible for a two-sided one); with zero rate: the bottom point, $N = mg$ |
 
 **Check against the official key:** Problems.pdf, p. 76 prints no answer for problem 51. Independent checks: the reaction at the equilibria agrees with the vertical balance (box above), and the limiting cases follow.
