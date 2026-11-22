@@ -266,6 +266,34 @@
     ]
    ]
   },
+  "subjects/engineering-mechanics/teoria/topic-2.html": {
+   "flavor": "mechanics",
+   "template": "tools/templates/em-theory-shell.html",
+   "note": "vault/03 - Engineering Mechanics/Topic 2 - Dynamics of a Point Particle, Equilibrium and Oscillations.md",
+   "figures": "em_theory",
+   "html_title": "Topic 2: Dynamics of a Point Particle, Equilibrium and Oscillations — Engineering Mechanics",
+   "category": "Topic 02 · Point Particle",
+   "title": "Dynamics of a Point Particle, Equilibrium and Oscillations",
+   "subtitle": "Newton's laws and the equations of motion, work, power and potential energy, conservation of mechanical energy, equilibrium and its stability, the simple pendulum, and the harmonic oscillator: free, damped, forced, resonance and linearisation.",
+   "source": "Sources: Notes.pdf, chapter 4 (Sections 4.1 to 4.7) and chapter 5; Lectures 2 and 6.",
+   "nav": [
+    [
+     "topic-1.html",
+     "Topic 1",
+     "prev"
+    ],
+    [
+     "../problemas/topic-2.html",
+     "Topic 2 Problems (10)",
+     "center"
+    ],
+    [
+     "topic-3.html",
+     "Topic 3",
+     "next"
+    ]
+   ]
+  },
   "subjects/engineering-mechanics/teoria/topic-6.html": {
    "flavor": "mechanics",
    "template": "tools/templates/em-theory-shell.html",

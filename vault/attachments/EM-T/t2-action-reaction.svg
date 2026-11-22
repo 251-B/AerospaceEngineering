@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 190" width="100%" class="fig-kit" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="Two particles P and Q joined by a dashed line, with equal and opposite forces F on P and minus F on Q along that line.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="38.4" y1="95.0" x2="661.6" y2="95.0" stroke="#8a94a6" stroke-width="1.3" stroke-dasharray="7 5"/>
+<line x1="494.4" y1="95.0" x2="631.6" y2="95.0" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M638.8,95.0 L627.7,99.7 L627.7,90.3 Z" fill="#ec4899"/>
+<line x1="205.6" y1="95.0" x2="68.4" y2="95.0" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M61.2,95.0 L72.3,90.3 L72.3,99.7 Z" fill="#ec4899"/>
+<text x="566.6" y="69.0" fill="#ec4899" font-size="19" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">F</tspan></text>
+<text x="566.6" y="85.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">(force of Q on P)</text>
+<text x="133.4" y="69.0" fill="#ec4899" font-size="19" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−<tspan font-weight="700" font-style="normal">F</tspan></text>
+<text x="133.4" y="85.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">(force of P on Q)</text>
+<circle cx="494.4" cy="95.0" r="5.0" fill="#4b5563"/>
+<circle cx="205.6" cy="95.0" r="5.0" fill="#4b5563"/>
+<text x="494.4" y="123.0" fill="#4b5563" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="205.6" y="123.0" fill="#4b5563" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Q</text>
+<text x="350.0" y="117.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">common line of action</text>
+</g></svg>

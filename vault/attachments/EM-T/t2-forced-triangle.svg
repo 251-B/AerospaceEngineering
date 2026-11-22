@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1202 400" width="100%" class="fig-kit" style="max-width:1202px;margin:0 auto;display:block" role="img" aria-label="Right triangles in the complex plane formed by the real part omega0 squared minus omega1 squared and the imaginary part two gamma omega1, below and above resonance, and two phasors showing the response lagging behind the force.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="-106.6" y1="320.0" x2="235.8" y2="320.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M240.6,320.0 L233.2,323.1 L233.2,316.9 Z" fill="#8a94a6"/>
+<line x1="95.0" y1="353.6" x2="95.0" y2="123.2" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M95.0,118.4 L98.1,125.8 L91.9,125.8 Z" fill="#8a94a6"/>
+<text x="246.6" y="325.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">Re</text>
+<text x="103.0" y="116.4" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">Im</text>
+<text x="81.0" y="45.6" fill="#4b5563" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">ω<tspan baseline-shift="sub" font-size="70%">1</tspan> &lt; ω<tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<polygon points="95.0,320.0 195.8,320.0 195.8,252.8" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="95.0" y1="320.0" x2="195.8" y2="320.0" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="195.8" y1="320.0" x2="195.8" y2="252.8" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="95.0" y1="320.0" x2="189.8" y2="256.8" stroke="#3b82f6" stroke-width="3.6"/>
+<path d="M195.8,252.8 L189.2,262.8 L184.0,255.0 Z" fill="#3b82f6"/>
+<polyline points="183.2,320.0 183.2,307.4 195.8,307.4" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<circle cx="95.0" cy="320.0" r="2.5" fill="#4b5563"/>
+<path d="M131.4,320.0 A36.4,36.4 0 0 0 125.3,299.8" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M123.6,297.3 L131.1,302.3 L125.3,306.2 Z" fill="#10b981"/>
+<text x="151.9" y="311.4" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−φ<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="89.0" y="338.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<text x="103.0" y="346.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">ω<tspan baseline-shift="sub" font-size="70%">0</tspan>² − ω<tspan baseline-shift="sub" font-size="70%">1</tspan>² (adjacent)</text>
+<text x="207.8" y="291.4" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">2γω<tspan baseline-shift="sub" font-size="70%">1</tspan> (opposite)</text>
+<text x="155.8" y="212.8" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">√((ω<tspan baseline-shift="sub" font-size="70%">0</tspan>² − ω<tspan baseline-shift="sub" font-size="70%">1</tspan>²)² + 4γ²ω<tspan baseline-shift="sub" font-size="70%">1</tspan>²)</text>
+<text x="155.8" y="232.8" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">= (F<tspan baseline-shift="sub" font-size="70%">1</tspan>/m) / a<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<line x1="439.4" y1="320.0" x2="781.8" y2="320.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M786.6,320.0 L779.2,323.1 L779.2,316.9 Z" fill="#8a94a6"/>
+<line x1="641.0" y1="353.6" x2="641.0" y2="123.2" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M641.0,118.4 L644.1,125.8 L637.9,125.8 Z" fill="#8a94a6"/>
+<text x="792.6" y="325.0" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">Re</text>
+<text x="649.0" y="116.4" fill="#6b7280" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">Im</text>
+<text x="627.0" y="45.6" fill="#4b5563" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">ω<tspan baseline-shift="sub" font-size="70%">1</tspan> &gt; ω<tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<polygon points="641.0,320.0 483.5,320.0 483.5,215.0" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="641.0" y1="320.0" x2="483.5" y2="320.0" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="483.5" y1="320.0" x2="483.5" y2="215.0" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="641.0" y1="320.0" x2="489.5" y2="219.0" stroke="#3b82f6" stroke-width="3.6"/>
+<path d="M483.5,215.0 L495.3,217.2 L490.1,225.0 Z" fill="#3b82f6"/>
+<polyline points="496.1,320.0 496.1,307.4 483.5,307.4" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<circle cx="641.0" cy="320.0" r="2.5" fill="#4b5563"/>
+<path d="M677.4,320.0 A36.4,36.4 0 0 0 610.7,299.8" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M609.0,302.3 L610.7,293.5 L616.6,297.4 Z" fill="#10b981"/>
+<text x="673.6" y="273.1" fill="#10b981" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−φ<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="649.0" y="338.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<text x="633.0" y="346.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">ω<tspan baseline-shift="sub" font-size="70%">0</tspan>² − ω<tspan baseline-shift="sub" font-size="70%">1</tspan>² (adjacent)</text>
+<text x="471.5" y="272.5" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">2γω<tspan baseline-shift="sub" font-size="70%">1</tspan> (opposite)</text>
+<text x="493.5" y="175.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">√((ω<tspan baseline-shift="sub" font-size="70%">0</tspan>² − ω<tspan baseline-shift="sub" font-size="70%">1</tspan>²)² + 4γ²ω<tspan baseline-shift="sub" font-size="70%">1</tspan>²)</text>
+<text x="493.5" y="195.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">= (F<tspan baseline-shift="sub" font-size="70%">1</tspan>/m) / a<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+<text x="979.8" y="45.6" fill="#4b5563" font-size="19" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">phasors at one instant</text>
+<circle cx="979.8" cy="236.0" r="126.0" fill="none" stroke="#8a94a6" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="979.8" y1="236.0" x2="1036.1" y2="138.6" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M1039.7,132.3 L1038.2,144.2 L1030.1,139.6 Z" fill="#ec4899"/>
+<text x="1050.4" y="105.8" fill="#ec4899" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">force</text>
+<line x1="979.8" y1="236.0" x2="1054.7" y2="199.0" stroke="#3b82f6" stroke-width="3.4"/>
+<path d="M1061.1,195.8 L1053.3,204.9 L1049.1,196.5 Z" fill="#3b82f6"/>
+<text x="1110.3" y="178.5" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">response</text>
+<circle cx="979.8" cy="236.0" r="2.5" fill="#4b5563"/>
+<path d="M1055.1,198.8 A84.0,84.0 0 0 0 1021.8,163.3" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="1085.6" y="126.2" fill="#10b981" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">|φ<tspan baseline-shift="sub" font-size="70%">1</tspan>| (lag)</text>
+<path d="M907.5,100.0 A154.0,154.0 0 0 0 828.1,209.3" fill="none" stroke="#10b981" stroke-width="1.9" stroke-linejoin="round"/>
+<path d="M827.6,212.2 L825.6,203.4 L832.5,204.7 Z" fill="#10b981"/>
+<text x="820.8" y="130.7" fill="#10b981" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ω<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+</g></svg>

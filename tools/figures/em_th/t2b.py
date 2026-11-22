@@ -5,7 +5,7 @@ import math
 
 from figures.em_theory import axis_in, axis_out, figure, fixed_axis, right_angle, triangle  # noqa: F401
 from figures.em_th.t1 import ORANGE, MINUS, P3, _add, _circ3, _line3, _matrix, _mul, _poly3, _unit3, _v3, _vec3, dot1
-from figures.em_th.t2 import _dbl, _dir, _pt
+from figures.em_th.t2 import _dbl, _dir, _dvec, _pt
 from figures.mech import S, Scene, bold
 from figures.svgkit import fmt, rect as _rect
 
@@ -213,8 +213,10 @@ def free_oscillation():
         return a * math.cos(w0 * t + phi)
 
     _axes(sc, -0.1, 2.8, -1.28 * YS, 1.32 * YS, "t (s)", "x (m)", offx=(20, 6), offy=(12, 4))
-    for t in (0.5, 1.0, 1.5, 2.0, 2.5):
-        _tick(sc, (t, 0.0), f"{t:g}", dx=0, dy=0)
+    for t in (0.5, 1.0, 1.5, 2.0, 2.5):          # the curve crosses the axis next to every tick: labels in a row below the graph
+        sc.line((t, 0.0), (t, -0.07), "EDGE", 1.3)
+        sc.line((t, -0.07), (t, -1.1 * YS), "EDGE", 1.0, "2 4")
+        sc.label((t, -1.1 * YS), f"{t:g}", "TEXT", "middle", 15, italic=False, dy=18)
     for sg in (-1, 1):
         sc.line((0.0, sg * a * YS), (2.62, sg * a * YS), "EDGE", 1.3, "7 5")
     sc.label((0.0, a * YS), "a", "TEXT", "end", 17, dx=-9, dy=5)
@@ -566,7 +568,7 @@ def amplification():
     sc.note((2.45, 1.6 * AY), "Low Q", "HEAD", "end", 16, dx=0, dy=0)
     # ---- right graph
     sc.label((XR + 1.25, 2.62), "Phase lag", "HEAD", "middle", 19, italic=False)
-    _axes(sc, XR - 0.05, XR + 2.62, -0.04, RY(0) + 0.3, "ω" + S("", "1") + "/" + W0, "φ" + S("", "1"), oy=0.0, ox=XR, offx=(40, 6), offy=(12, 4))
+    _axes(sc, XR - 0.05, XR + 2.62, -0.04, RY(0) + 0.3, "ω" + S("", "1") + "/" + W0, "φ" + S("", "1"), oy=0.0, ox=XR, offx=(6, 42), offy=(12, 4))
     sc.line((XR, RY(0)), (XR - 0.05, RY(0)), "EDGE", 1.3)
     sc.line((XR, RY(-math.pi / 2)), (XR - 0.05, RY(-math.pi / 2)), "EDGE", 1.3)
     sc.label((XR, RY(0)), "0", "TEXT", "end", 14, italic=False, dx=-9, dy=5)
@@ -633,4 +635,308 @@ def linearisation():
     sc.label((0.45, -0.3), "ξ", "HEAD", "middle", 17, dy=22)
     sc.label((-1.15, FL + FS * 1.15), "slope −" + _i("k"), "BLUE", "end", 16, italic=False, dx=-8, dy=4)
     sc.label((PI + 1.15, FL + FS * 1.15), "slope −" + _i("k"), ORANGE, "start", 16, italic=False, dx=8, dy=4)
+    return sc
+
+
+# --------------------------------------------------------------------------------------------------------------------
+# Extension: the bead on a hoop turning about its vertical diameter
+OMT = 35.0                  # Omega t
+THB = 50.0                  # bead angle theta
+HB = 3.0                    # radius b of the hoop
+
+
+def _hoop_basis():
+    a = math.radians(OMT)
+    return (math.cos(a), math.sin(a), 0.0), (-math.sin(a), math.cos(a), 0.0)
+
+
+@_fig("t2-hoop")
+def hoop():
+    sc = Scene(860, 800, (380, 420), 80)
+    ih, jh = _hoop_basis()
+    K = (0.0, 0.0, 1.0)
+    O = (0.0, 0.0, 0.0)
+    th = math.radians(THB)
+    # grey fixed axes and the dashed axis of rotation
+    _vec3(sc, O, (3.7, 0, 0), bold("i"), "EDGE", 1.4, off=(-12, 12), size=16, head=8)
+    _vec3(sc, O, (0, 4.6, 0), bold("j"), "EDGE", 1.4, off=(12, 6), size=16, head=8)
+    _vec3(sc, O, (0, 0, 4.6), bold("k"), "EDGE", 1.4, off=(-12, -2), size=16, head=8)
+    _line3(sc, (0, 0, -4.1), O, "EDGE", 1.2, "6 4")
+    # hoop: circle of radius b in the plane of i_h and k
+    _circ3(sc, O, ih, K, HB, 0, 360, "HEAD", w=3.4)
+    # horizontal angle Omega t, from i to i_h
+    _circ3(sc, O, (1, 0, 0), (0, 1, 0), 1.6, 0, OMT, "GREEN", head=True, w=1.8)
+    m = P3(_v3(_mul((1, 0, 0), 2.0 * math.cos(math.radians(OMT / 2))), _mul((0, 1, 0), 2.0 * math.sin(math.radians(OMT / 2)))))
+    sc.label(P3(_v3(_mul((1, 0, 0), 1.6 * math.cos(math.radians(10))), _mul((0, 1, 0), 1.6 * math.sin(math.radians(10))))), "Ω" + _i("t"), "GREEN", "middle", 17, dx=-52, dy=-6)
+    # rotating basis of the hoop
+    _vec3(sc, O, _mul(ih, 2.3), _vb("i", "h"), "BLUE", 2.8, off=(22, 14), size=17, head=11)
+    _vec3(sc, O, _mul(jh, 2.3), _vb("j", "h"), "BLUE", 2.8, off=(16, -2), size=17, head=11)
+    # rotation about the vertical axis, counterclockwise seen from above
+    _circ3(sc, (0, 0, 4.0), (1, 0, 0), (0, 1, 0), 0.9, -150, 130, "GREEN", head=True, w=1.8)
+    sc.label(P3((0, 0, 4.0)), "Ω", "GREEN", "start", 18, weight="700", dx=-52, dy=-26)
+    # bead, radius and angle theta in the plane of the hoop
+    Pb = _v3(_mul(ih, HB * math.sin(th)), (0, 0, -HB * math.cos(th)))
+    _line3(sc, O, (0, 0, -HB), "EDGE", 1.2, "5 4")
+    sc.poly([P3(O), P3(Pb)], "HEAD", 1.6)
+    _circ3(sc, O, (0, 0, -1.0), ih, 1.5, 0, THB, "GREEN", head=True, w=1.8)
+    mid = _v3(_mul((0, 0, -1.0), math.cos(th / 2)), _mul(ih, math.sin(th / 2)))
+    sc.label(P3(_mul(mid, 1.95)), "θ", "GREEN", "middle", 18, dx=-4, dy=10)
+    sc.dotp(P3(Pb), 7.0, "HEAD")
+    sc.label(P3(Pb), "P, " + _i("m"), "HEAD", "start", 18, dx=12, dy=22)
+    sc.label(P3(_mul(Pb, 0.4)), "b", "HEAD", "start", 19, dx=10, dy=4)
+    sc.vec(P3(Pb), (P3(Pb)[0], P3(Pb)[1] - 1.0), _i("m") + " " + _i("g"), "PINK", 3.4, name_off=(-24, 8), size=18, head=12)
+    sc.dotp(P3(O), 3.0, "HEAD")
+    return sc
+
+
+@_fig("t2-hoop-top")
+def hoop_top():
+    sc = Scene(900, 450, (260, 260), 80)
+    a = math.radians(OMT)
+    th = math.radians(THB)
+    O = (0.0, 0.0)
+    ih = (math.cos(a), math.sin(a))
+    jh = (-math.sin(a), math.cos(a))
+    c, s = math.cos(a), math.sin(a)
+    L = 2.0
+    # hoop seen edge-on
+    sc.poly([(-HB * ih[0], -HB * ih[1]), (HB * ih[0], HB * ih[1])], "HEAD", 3.4)
+    # triangles
+    ti = (L * c, L * s)
+    tj = (-L * s, L * c)
+    triangle(sc, [O, (ti[0], 0.0), ti], ORANGE, 0.16)
+    triangle(sc, [O, (0.0, tj[1]), tj], ORANGE, 0.16)
+    sc.line((ti[0], 0.0), ti, "EDGE", 1.3, "6 4")
+    sc.line((0.0, tj[1]), tj, "EDGE", 1.3, "6 4")
+    right_angle(sc, (ti[0], 0.0), 180, 90, 0.12)
+    right_angle(sc, (0.0, tj[1]), 270, 180, 0.12)
+    # fixed axes
+    fixed_axis(sc, O, 0, 3.4, bold("i"), off=(14, 6))
+    fixed_axis(sc, O, 90, 3.0, bold("j"), off=(12, 6))
+    # rotating basis
+    sc.vec(O, ti, None, "BLUE", 3.4, head=12)
+    sc.vec(O, tj, None, "BLUE", 3.4, head=12)
+    sc.label(ti, _vb("i", "h"), "BLUE", "start", 19, weight="700", dx=10, dy=22)
+    sc.label(tj, _vb("j", "h"), "BLUE", "end", 19, weight="700", dx=-10, dy=-8)
+    # angles
+    sc.arc(O, 0.95, 0, OMT, "GREEN", 1.8, head=True)
+    sc.label(_pt(O, OMT / 2, 1.45), "Ω" + _i("t"), "GREEN", "middle", 17, dy=6)
+    sc.arc(O, 0.95, 90, 90 + OMT, "GREEN", 1.8, head=True)
+    sc.label(_pt(O, 90 + OMT / 2, 1.45), "Ω" + _i("t"), "GREEN", "middle", 17, dx=-4, dy=6)
+    # leg labels
+    sc.label((ti[0] / 2, 0.0), "cos Ω" + _i("t"), "HEAD", "middle", 16, italic=False, dy=24, dx=-6)
+    sc.label((ti[0], ti[1] / 2), "sin Ω" + _i("t"), "HEAD", "start", 16, italic=False, dx=10, dy=5)
+    sc.label((0.0, tj[1] / 2), "cos Ω" + _i("t"), "HEAD", "start", 16, italic=False, dx=10, dy=6)
+    sc.label((tj[0] / 2, tj[1]), MINUS + "sin Ω" + _i("t"), "HEAD", "middle", 16, italic=False, dy=-12)
+    # projection of the bead
+    pb = (HB * math.sin(th) * ih[0], HB * math.sin(th) * ih[1])
+    sc.dotp(pb, 6.0, "HEAD")
+    sc.label(pb, _i("b") + " sin " + _i("θ"), "HEAD", "start", 17, italic=False, dx=14, dy=26)
+    sc.dotp(O, 3.0, "HEAD")
+    axis_out(sc, O, bold("k"), "HEAD", off=(6, 34))
+    # matrix
+    _matrix(sc, 560, 140, "[" + S("", "0") + "R" + S("", "h") + "]",
+            [["cos Ω" + _i("t"), MINUS + "sin Ω" + _i("t"), "0"], ["sin Ω" + _i("t"), "cos Ω" + _i("t"), "0"], ["0", "0", "1"]], cw=84)
+    return sc
+
+
+@_fig("t2-hoop-plane")
+def hoop_plane():
+    sc = Scene(860, 640, (330, 310), 74)
+    th = math.radians(THB)
+    O = (0.0, 0.0)
+    Pb = (HB * math.sin(th), -HB * math.cos(th))
+    H = (0.0, Pb[1])
+    sc.poly([(HB * math.cos(t), HB * math.sin(t)) for t in [2 * math.pi * i / 240 for i in range(241)]], "HEAD", 3.4)
+    fixed_axis(sc, O, 0, 3.7, bold("i") + S("", "h"), off=(18, 6))
+    fixed_axis(sc, O, 90, 3.7, bold("k"), off=(12, 8))
+    sc.line(O, (0.0, -HB - 0.7), "EDGE", 1.3, "6 4")
+    triangle(sc, [O, H, Pb], ORANGE, 0.16)
+    sc.line(H, Pb, "EDGE", 1.3, "6 4")
+    right_angle(sc, H, 90, 0, 0.14)
+    sc.poly([O, Pb], "HEAD", 1.8)
+    # angle
+    sc.arc(O, 1.1, -90, -90 + THB, "GREEN", 1.8, head=True)
+    sc.label(_pt(O, -90 + THB / 2, 1.55), "θ", "GREEN", "middle", 18, dy=8)
+    # unit vectors at P
+    ur = (math.sin(th), -math.cos(th))
+    ut = (math.cos(th), math.sin(th))
+    sc.vec(Pb, _add(Pb, ur, 1.2), None, "BLUE", 3.0, head=11)
+    sc.vec(Pb, _add(Pb, ut, 1.2), None, "BLUE", 3.0, head=11)
+    sc.label(_add(Pb, ur, 1.2), _vb("u", "r"), "BLUE", "start", 19, weight="700", dx=8, dy=18)
+    sc.label(_add(Pb, ut, 1.2), _vb("u", "θ"), "BLUE", "start", 19, weight="700", dx=10, dy=-4)
+    sc.dotp(Pb, 7.0, "HEAD")
+    sc.dotp(O, 3.0, "HEAD")
+    axis_in(sc, O, _vb("j", "h"), "HEAD", off=(-26, 26))
+    # labels
+    sc.label((0.0, Pb[1] / 2), _i("b") + " cos " + _i("θ") + " (adjacent)", "HEAD", "end", 17, italic=False, dx=-12, dy=5)
+    sc.label((Pb[0] / 2, Pb[1]), _i("b") + " sin " + _i("θ"), "HEAD", "middle", 17, italic=False, dy=26)
+    sc.label((Pb[0] / 2, Pb[1]), "(opposite)", "HEAD", "middle", 17, italic=False, dx=-34, dy=46)
+    sc.label((Pb[0] / 2, Pb[1] / 2), "b", "HEAD", "middle", 19, dx=22, dy=-12)
+    sc.label(H, "H", "HEAD", "end", 17, dx=-10, dy=20)
+    sc.label(Pb, "P", "HEAD", "start", 18, dx=-4, dy=-14)
+    sc.label((0.0, Pb[1]), "distance to the axis", "TEXT", "end", 15, italic=False, dx=-12, dy=-30)
+    sc.label((0.0, Pb[1]), _i("b") + " sin " + _i("θ"), "TEXT", "end", 15, italic=False, dx=-12, dy=-12)
+    return sc
+
+
+@_fig("t2-hoop-fbd")
+def hoop_fbd():
+    sc = Scene(1000, 540, (290, 190), 100)
+    th = math.radians(THB)
+    P = (0.0, 0.0)
+    ur = (math.sin(th), -math.cos(th))
+    ut = (math.cos(th), math.sin(th))
+    mg = 2.0
+    A = _add(P, ur, mg * math.cos(th))              # foot of the component along u_r
+    W = (0.0, -mg)
+    # short arc of the hoop through the bead (centre at distance b along -u_r)
+    ctr = _add(P, ur, -3.0)
+    a0 = math.degrees(math.atan2(ur[1], ur[0]))
+    sc.poly([(ctr[0] + 3.0 * math.cos(math.radians(a0 + d)), ctr[1] + 3.0 * math.sin(math.radians(a0 + d)))
+             for d in [-22 + 44 * i / 60 for i in range(61)]], "EDGE", 1.6)
+    sc.circle(P, 0.28, "EDGE", 1.5, "6 4")
+    sc.label(P, "free body", "TEXT", "end", 15, italic=False, dx=-34, dy=2)
+    # split of the weight
+    triangle(sc, [P, A, W], ORANGE, 0.16)
+    right_angle(sc, A, 120, 210, 0.12)
+    _dvec(sc, P, A, "PINK", 1.8, "6 4", 9)
+    _dvec(sc, A, W, "PINK", 1.8, "6 4", 9)
+    # unit vectors of the plane (blue, short)
+    sc.vec(P, _add(P, ur, 0.7), None, "BLUE", 3.0, head=11)
+    sc.vec(P, _add(P, ut, 0.7), None, "BLUE", 3.0, head=11)
+    sc.label(_add(P, ur, 0.7), _vb("u", "r"), "BLUE", "start", 18, weight="700", dx=12, dy=-4)
+    sc.label(_add(P, ut, 0.7), _vb("u", "θ"), "BLUE", "middle", 18, weight="700", dx=-14, dy=-6)
+    # forces (pink): weight and the in-plane reaction, drawn towards O
+    sc.vec(P, W, None, "PINK", 4.0, head=13)
+    sc.label((0.0, -mg * 0.45), _i("m") + " " + _i("g"), "PINK", "end", 19, weight="700", dx=-12, dy=5)
+    nr = _add(P, ur, -1.5)
+    sc.vec(P, nr, None, "PINK", 4.0, head=13)
+    sc.label(_add(P, ur, -1.5), S("N", "r") + bold("u") + S("", "r"), "PINK", "end", 19, weight="700", dx=-8, dy=-10)
+    sc.label(_add(P, ur, 1.3), _i("m") + " " + _i("g") + " cos " + _i("θ"), "PINK", "start", 16, italic=False, dx=14, dy=6)
+    sc.label(_add(A, (-0.866, -0.5), 0.5), _i("m") + " " + _i("g") + " sin " + _i("θ"), "PINK", "start", 16, italic=False, dx=12, dy=34)
+    # angle between the weight and u_r
+    sc.arc(P, 0.8, -90, -90 + THB, "GREEN", 1.8, head=True)
+    sc.label(_pt(P, -90 + THB / 2, 1.1), "θ", "GREEN", "middle", 18, dx=10, dy=12)
+    sc.dotp(P, 5.5, "HEAD")
+    # out-of-plane reaction: pink cross in a circle (into the paper)
+    Q = (1.7, 0.3)
+    sc.line(P, Q, "PINK", 1.2, "2 4")
+    axis_in(sc, Q, None, "PINK", r_px=11)
+    sc.label(Q, S("N", "h") + bold("j") + S("", "h") + " (normal to the plane)", "PINK", "start", 17, weight="700", dx=20, dy=6)
+    sc.note((-1.5, 1.45), "no force along " + bold("u") + S("", "θ") + " from the smooth hoop", "TEXT", "start", 15, dx=0, dy=0)
+    # view marker
+    axis_in(sc, (-2.2, 1.45), _vb("j", "h"), "HEAD", off=(0, 32))
+    # inset: side view along u_theta (u_theta towards the reader)
+    x0, y0, w, h = 640, 215, 330, 290
+    _rect(sc.c, x0, y0, w, h, "EDGE", 1.2, rx=8)
+    sc.label(_w(sc, x0 + w / 2, y0 + 30), "side view along " + bold("u") + S("", "θ"), "HEAD", "middle", 17, italic=False)
+    bx, by_ = x0 + 190, y0 + 190
+    B = _w(sc, bx, by_)
+    sc.vec(B, _w(sc, bx - 100, by_), None, "PINK", 4.0, head=13)
+    sc.vec(B, _w(sc, bx, by_ - 100), None, "PINK", 4.0, head=13)
+    sc.dotp(B, 6.0, "HEAD")
+    sc.label(_w(sc, bx - 100, by_), S("N", "r"), "PINK", "middle", 19, weight="700", dy=26)
+    sc.label(_w(sc, bx, by_ - 100), S("N", "h"), "PINK", "start", 19, weight="700", dx=12, dy=4)
+    tx, ty = x0 + 40, y0 + 255
+    T = _w(sc, tx, ty)
+    sc.vec(T, _w(sc, tx + 60, ty), None, "BLUE", 3.0, head=11)
+    sc.vec(T, _w(sc, tx, ty - 60), None, "BLUE", 3.0, head=11)
+    sc.label(_w(sc, tx + 60, ty), _vb("u", "r"), "BLUE", "start", 17, weight="700", dx=8, dy=6)
+    sc.label(_w(sc, tx, ty - 60), _vb("j", "h"), "BLUE", "middle", 17, weight="700", dx=0, dy=-10)
+    axis_out(sc, T, None, "HEAD", r_px=8)
+    sc.label(T, _vb("u", "θ"), "HEAD", "middle", 16, dx=0, dy=28)
+    return sc
+
+
+# --------------------------------------------------------------------------------------------------------------------
+def _veff(th, r):
+    """V_eff / (m g b) for the rate ratio r = Omega / Omega_c."""
+    return 1.0 - math.cos(th) - 0.5 * r * r * math.sin(th) ** 2
+
+
+HR = ((0.5, NAVY, None), (1.0, "BLUE", "9 6"), (1.5, ORANGE, None), (2.0, DORANGE, None))
+
+
+@_fig("t2-hoop-potential")
+def hoop_potential():
+    sc = Scene(860, 640, (430, 360), 96)
+    YS = 1.5                              # world units per unit of V_eff / (m g b)
+    PI = math.pi
+    xl, xr, yb, yt = -3.5, 3.55, -2.15, 3.55
+    sc.vec((xl, yb), (xr, yb), None, "EDGE", 1.4, head=8)
+    sc.vec((xl, yb), (xl, yt), None, "EDGE", 1.4, head=8)
+    sc.label((xr, yb), "θ", "TEXT", "middle", 17, weight="700", dx=6, dy=26)
+    sc.label((xl, yt), "V" + S("", "eff") + "/(" + _i("m g b") + ")", "TEXT", "start", 17, weight="700", dx=10, dy=4)
+    for t, nm in ((-PI, MINUS + "π"), (-PI / 2, MINUS + "π/2"), (0.0, "0"), (PI / 2, "π/2"), (PI, "π")):
+        _tick(sc, (t, yb), nm, size=15)
+    for v in (-1, 0, 1, 2):
+        sc.line((xl, v * YS), (xl - 0.07, v * YS), "EDGE", 1.3)
+        sc.label((xl, v * YS), (MINUS if v < 0 else "") + str(abs(v)), "TEXT", "end", 15, italic=False, dx=-12, dy=5)
+    sc.line((xl, 0.0), (PI + 0.2, 0.0), "EDGE", 1.2, "2 4")
+    xs = [-PI + 2 * PI * i / 480 for i in range(481)]
+    for r, col, dash in HR:
+        _pl(sc, [(x, YS * _veff(x, r)) for x in xs], col, 2.8 if dash is None else 2.4, dash)
+    # equilibria: the minima are green dots, the maxima open circles
+    for sgn in (-1, 1):
+        for r in (1.5, 2.0):
+            te = sgn * math.acos(1.0 / (r * r))
+            sc.dotp((te, YS * _veff(te, r)), 5.5, "GREEN")
+        sc.circle((sgn * PI, 2.0 * YS), 0.095, "GREEN", 2.0)
+    sc.dotp((0.0, 0.0), 5.5, "GREEN")
+    sc.circle((0.0, 0.0), 0.12, "GREEN", 2.0)
+    # values of the new minima
+    for r, txt in ((1.5, "63.6°"), (2.0, "75.5°")):
+        te = math.acos(1.0 / (r * r))
+        sc.label((te, YS * _veff(te, r)), txt, "GREEN", "middle", 15, italic=False, dy=26)
+    # legend: one row per rate, then the markers
+    lx, ly = -2.0, 3.28
+    for i, (r, col, dash) in enumerate(HR):
+        y = ly - 0.26 * i
+        _pl(sc, [(lx, y), (lx + 0.5, y)], col, 2.8 if dash is None else 2.4, dash)
+        sc.label((lx + 0.6, y), "Ω = " + f"{r:g}" + " Ω" + S("", "c"), col if col != "BLUE" else "BLUE", "start", 16, italic=False, dy=5)
+    mx, my = 0.55, 3.28
+    sc.dotp((mx, my), 5.5, "GREEN")
+    sc.label((mx + 0.2, my), "stable (minimum)", "GREEN", "start", 16, italic=False, dy=5)
+    sc.circle((mx, my - 0.26), 0.095, "GREEN", 2.0)
+    sc.label((mx + 0.2, my - 0.26), "unstable (maximum)", "GREEN", "start", 16, italic=False, dy=5)
+    return sc
+
+
+@_fig("t2-hoop-bifurcation")
+def hoop_bifurcation():
+    sc = Scene(900, 730, (130, 355), 88)
+    XS = 2.5                              # world units per unit of Omega / Omega_c
+    PI = math.pi
+    xr, yb, yt = 3.0 * XS + 0.35, -PI - 0.45, PI + 0.5
+    sc.vec((0.0, yb), (xr, yb), None, "EDGE", 1.4, head=8)
+    sc.vec((0.0, yb), (0.0, yt), None, "EDGE", 1.4, head=8)
+    sc.label((xr, yb), "Ω/Ω" + S("", "c"), "TEXT", "middle", 17, weight="700", dx=6, dy=30)
+    sc.label((0.0, yt), "θ" + S("", "eq", "*"), "TEXT", "start", 17, weight="700", dx=12, dy=4)
+    for t in (0, 1, 2, 3):
+        _tick(sc, (t * XS, yb), str(t), size=15)
+    for v, nm in ((-PI, MINUS + "π"), (-PI / 2, MINUS + "π/2"), (0.0, "0"), (PI / 2, "π/2"), (PI, "π")):
+        sc.line((0.0, v), (-0.07, v), "EDGE", 1.3)
+        sc.label((0.0, v), nm, "TEXT", "end", 15, italic=False, dx=-12, dy=5)
+    # asymptotes, top of the hoop and the critical rate
+    for sgn in (-1, 1):
+        sc.line((0.0, sgn * PI / 2), (3.0 * XS, sgn * PI / 2), "EDGE", 1.3, "2 4")
+        sc.line((0.0, sgn * PI), (3.0 * XS, sgn * PI), "EDGE", 1.5, "8 6")
+    sc.line((XS, yb), (XS, 0.0), "EDGE", 1.2, "2 4")
+    # branches
+    sc.poly([(0.0, 0.0), (XS, 0.0)], "BLUE", 3.2)
+    sc.poly([(XS, 0.0), (3.0 * XS, 0.0)], "BLUE", 3.0, "9 6")
+    rs = [1.0 + 2.0 * (i / 500) ** 2 for i in range(501)]
+    for sgn in (-1, 1):
+        sc.poly([(r * XS, sgn * math.acos(1.0 / (r * r))) for r in rs], "BLUE", 3.2)
+    sc.dotp((XS, 0.0), 6.0, "GREEN")
+    sc.label((XS, 0.0), "pitchfork, Ω = Ω" + S("", "c"), "GREEN", "end", 17, italic=False, dx=-14, dy=-16)
+    # labels at the right end
+    sc.label((3.0 * XS, math.acos(1 / 9.0)), "+θ" + S("", "e"), "BLUE", "start", 17, dx=10, dy=5)
+    sc.label((3.0 * XS, -math.acos(1 / 9.0)), MINUS + "θ" + S("", "e"), "BLUE", "start", 17, dx=10, dy=5)
+    sc.label((3.0 * XS, 0.0), "0", "BLUE", "start", 17, italic=False, dx=10, dy=5)
+    sc.label((1.7 * XS, PI), "top of the hoop, unstable", "TEXT", "middle", 15, italic=False, dy=22)
+    sc.label((1.7 * XS, -PI), "top of the hoop, unstable", "TEXT", "middle", 15, italic=False, dy=-10)
+    # legend
+    sc.label((0.2 * XS, 2.35), "solid: stable, dashed: unstable", "HEAD", "start", 17, italic=False)
     return sc
