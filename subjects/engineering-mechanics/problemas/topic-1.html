@@ -503,7 +503,7 @@ $$ z = v_z t \tag{3} $$
 <div class="phase-block">
 <h3 class="phase-heading">Reference Frames, Bases and Coordinates</h3>
 <p style="margin-bottom: 10px;">The rocket is modelled as a point particle $P$. Its three Cartesian coordinates are given as functions of time, so the motion is prescribed: the problem is purely kinematic and has no forces section.</p>
-<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Item</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Definition</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Fixed frame</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$S_0 = \{O;\ \mathbf i_0, \mathbf j_0, \mathbf k_0\}$, origin at the launch point, $\mathbf k_0$ vertical, along the axis of the helix</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Fixed basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$ (Notes.pdf, Eq. 1.1)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Cylindrical basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_C = \{\mathbf e_R, \mathbf e_\theta, \mathbf e_z\}$, obtained from $B_0$ by a rotation of angle $\theta$ about $\mathbf k_0$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Intrinsic basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_F = \{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$ (tangent, principal normal, binormal; Notes.pdf, Eq. 2.13)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Cartesian coordinates</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$x = a\cos(\omega t)$, $y = a\sin(\omega t)$, $z = v_z t$ (statement)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Cylindrical coordinates</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$R = \sqrt{x^2+y^2}$, $\theta = \arctan(y/x)$, $z$ (Notes.pdf, Eq. 2.23)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Arc length</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$s$, measured along the helix from the point reached at $t = 0$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Data</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a$ [m] radius of the helix, $\omega$ [rad/s] angular frequency, $v_z$ [m/s] vertical speed, $t$ [s] time</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Hypotheses</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a \gt 0$, $\omega \gt 0$, $v_z \gt 0$ constant; the law of the statement is taken to hold for $t \ge 0$ so that part (g), at $t = 0$, is the limit $t \to 0^+$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Degrees of freedom</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">3 Cartesian coordinates minus 2 relations of the helix ($x = a\cos(\omega z/v_z)$, $y = a\sin(\omega z/v_z)$) leave 1; it is fixed by the time law</td></tr></tbody></table></div>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Item</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Definition</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Fixed frame</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$S_0 = \{O;\ \mathbf i_0, \mathbf j_0, \mathbf k_0\}$, origin at the launch point, $\mathbf k_0$ vertical, along the axis of the helix</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Fixed basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_0 = \{\mathbf i_0, \mathbf j_0, \mathbf k_0\}$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=13" target="_blank" rel="noopener" title="Open Notes.pdf at page 13">1.1</a>)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Cylindrical basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_C = \{\mathbf e_R, \mathbf e_\theta, \mathbf e_z\}$, obtained from $B_0$ by a rotation of angle $\theta$ about $\mathbf k_0$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Intrinsic basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_F = \{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$ (tangent, principal normal, binormal; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.13</a>)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Cartesian coordinates</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$x = a\cos(\omega t)$, $y = a\sin(\omega t)$, $z = v_z t$ (statement)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Cylindrical coordinates</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$R = \sqrt{x^2+y^2}$, $\theta = \arctan(y/x)$, $z$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.23</a>)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Arc length</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$s$, measured along the helix from the point reached at $t = 0$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Data</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a$ [m] radius of the helix, $\omega$ [rad/s] angular frequency, $v_z$ [m/s] vertical speed, $t$ [s] time</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Hypotheses</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a \gt 0$, $\omega \gt 0$, $v_z \gt 0$ constant; the law of the statement is taken to hold for $t \ge 0$ so that part (g), at $t = 0$, is the limit $t \to 0^+$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Degrees of freedom</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">3 Cartesian coordinates minus 2 relations of the helix ($x = a\cos(\omega z/v_z)$, $y = a\sin(\omega z/v_z)$) leave 1; it is fixed by the time law</td></tr></tbody></table></div>
 <p style="margin-bottom: 10px;">The position vector is first written in $B_0$, then in $B_C$; the intrinsic basis is built from the velocity in the kinematics section.</p>
 </div><div class="phase-block">
 <h3 class="phase-heading">Change of Basis and Position Vector</h3>
@@ -563,7 +563,7 @@ $$ z = v_z t \tag{3} $$
   <div class="derivation-head">
     <span class="derivation-title">Cylindrical radius and azimuth of the helix</span>
     <span class="derivation-law"><strong>Law:</strong> coordinate transformation of cylindrical coordinates</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.23; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=17" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 17">17</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.23</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=17" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 17">17</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -583,7 +583,7 @@ R &amp;= \sqrt{x^2 + y^2} \quad &amp;\text{(definition of the cylindrical radius
   <div class="derivation-head">
     <span class="derivation-title">Unit vectors of the cylindrical basis and the change of basis matrix</span>
     <span class="derivation-law"><strong>Law:</strong> components of a unit vector with a known angle; simple rotation about the third axis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. 2.24; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=7" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 7">7</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.24</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=7" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 7">7</a>]</span>
   </div>
   <div class="derivation-body">
     <p>In the view of the figure $\mathbf k_0$ points out of the paper (⊙), $\mathbf i_0$ to the right and $\mathbf j_0$ up. A positive $\theta$ turns $\mathbf i_0$ towards $\mathbf j_0$, counterclockwise, as the right-hand rule about $\mathbf k_0$ requires.</p>
@@ -1062,7 +1062,7 @@ R &amp;= \sqrt{x^2 + y^2} \quad &amp;\text{(definition of the cylindrical radius
   <div class="derivation-head">
     <span class="derivation-title">Position vector in the fixed and in the cylindrical basis</span>
     <span class="derivation-law"><strong>Law:</strong> position vector of a point in Cartesian and in cylindrical components</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.5; Notes.pdf, Eq. 2.28; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 12">12</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.5</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.28</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1084,7 +1084,7 @@ R &amp;= \sqrt{x^2 + y^2} \quad &amp;\text{(definition of the cylindrical radius
   <div class="derivation-head">
     <span class="derivation-title">Velocity and acceleration in Cartesian components</span>
     <span class="derivation-law"><strong>Law:</strong> definition of velocity and acceleration; the vectors of $B_0$ are constant in $S_0$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.7; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=13" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 13">13</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.6</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.7</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=13" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1131,7 +1131,7 @@ R &amp;= \sqrt{x^2 + y^2} \quad &amp;\text{(definition of the cylindrical radius
   <div class="derivation-head">
     <span class="derivation-title">Velocity and acceleration in cylindrical components</span>
     <span class="derivation-law"><strong>Law:</strong> definition of velocity and acceleration; product rule for a scalar times a vector</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.64; Notes.pdf, Eqs. 2.28-2.30; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=18" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 18">19</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">1.64</a>; Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.28-2.30</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=18" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 18">19</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1153,7 +1153,7 @@ R &amp;= \sqrt{x^2 + y^2} \quad &amp;\text{(definition of the cylindrical radius
   <div class="derivation-head">
     <span class="derivation-title">Speed of the rocket</span>
     <span class="derivation-law"><strong>Law:</strong> modulus of a vector in an orthonormal basis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.40</a>; Notes.pdf, Eq. 2.16</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.40</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1214,7 +1214,7 @@ v &amp;= \sqrt{\mathbf v_0^P\cdot\mathbf v_0^P} \quad &amp;\text{(definition of 
   <div class="derivation-head">
     <span class="derivation-title">Unit tangent vector</span>
     <span class="derivation-law"><strong>Law:</strong> the unit tangent is the derivative of the position with respect to the arc length; chain rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.9; Notes.pdf, Eq. 2.16; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=23" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 23">25</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.9</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=23" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 23">25</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1232,7 +1232,7 @@ v &amp;= \sqrt{\mathbf v_0^P\cdot\mathbf v_0^P} \quad &amp;\text{(definition of 
   <div class="derivation-head">
     <span class="derivation-title">Principal normal and radius of curvature</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the normal vector and of the curvature</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.11; Notes.pdf, Eq. 2.12; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=24" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 24">26</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.11</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=24" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 24">26</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1252,7 +1252,7 @@ v &amp;= \sqrt{\mathbf v_0^P\cdot\mathbf v_0^P} \quad &amp;\text{(definition of 
   <div class="derivation-head">
     <span class="derivation-title">Binormal vector</span>
     <span class="derivation-law"><strong>Law:</strong> the binormal completes a right-handed basis; vector product in an orthonormal right-handed basis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.13; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.42</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=25" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 25">27</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.42</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=25" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 25">27</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1291,7 +1291,7 @@ v &amp;= \sqrt{\mathbf v_0^P\cdot\mathbf v_0^P} \quad &amp;\text{(definition of 
   <div class="derivation-head">
     <span class="derivation-title">Velocity and acceleration with $s$ and $\rho$ in the intrinsic basis</span>
     <span class="derivation-law"><strong>Law:</strong> intrinsic components of velocity and acceleration</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.16; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; Notes.pdf, Eq. 2.18; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.18</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1311,7 +1311,7 @@ v &amp;= \sqrt{\mathbf v_0^P\cdot\mathbf v_0^P} \quad &amp;\text{(definition of 
   <div class="derivation-head">
     <span class="derivation-title">Arc length as a function of time</span>
     <span class="derivation-law"><strong>Law:</strong> the arc length is the integral of the speed</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.16; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=22" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 22">24</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=22" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 22">24</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1328,7 +1328,7 @@ s(t) &amp;= \int_0^t \dot s\,dt' = \int_0^t V\,dt' \quad &amp;\text{(origin of $
   <div class="derivation-head">
     <span class="derivation-title">Trajectory parametrised by the arc length</span>
     <span class="derivation-law"><strong>Law:</strong> inversion of the time law and substitution in the parametric equations</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 2.3; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=22" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 22">24</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.3</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=22" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 22">24</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1398,7 +1398,7 @@ z(s) &amp;= \frac{v_z s}{V} \quad &amp;\text{(substitution in Eq. (3))}
   <div class="derivation-head">
     <span class="derivation-title">Centre of the osculating circle at $(a, 0, 0)$</span>
     <span class="derivation-law"><strong>Law:</strong> the centre of curvature lies on the principal normal at distance $\rho$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.4</a>; Notes.pdf, Eq. 2.12</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.4</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1419,7 +1419,7 @@ v_z t &amp;= 0 \;\Rightarrow\; t = 0 \quad &amp;\text{(the height of $(a,0,0)$ i
   <div class="derivation-head">
     <span class="derivation-title">Answers (a) to (g)</span>
     <span class="derivation-law"><strong>Law:</strong> collection of the boxed results above</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eqs. 2.5-2.7; Notes.pdf, Eqs. 2.16-2.18; Notes.pdf, Eq. 2.28</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.5-2.7</a>; Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16-2.18</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.28</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1441,7 +1441,7 @@ v_z t &amp;= 0 \;\Rightarrow\; t = 0 \quad &amp;\text{(the height of $(a,0,0)$ i
   <div class="derivation-head">
     <span class="derivation-title">Limiting cases</span>
     <span class="derivation-law"><strong>Law:</strong> the general result must reduce to the known particular motions</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.4</a>; Notes.pdf, Eq. 2.12</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.4</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1516,7 +1516,7 @@ v_z \to 0:\quad \rho &amp;\to a + 0 = a, \quad C \to (0, 0, 0) \quad &amp;\text{
 <div class="phase-block">
 <h3 class="phase-heading">Reference Frames, Bases and Coordinates</h3>
 <p style="margin-bottom: 10px;">The particle $P$ moves on a given planar curve with a given angular law, so the motion is prescribed and the problem is purely kinematic (no forces section).</p>
-<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Item</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Definition</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Fixed frame</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$S_0 = \{O;\ \mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $O$ the pole of the spiral, the motion in the plane of $\mathbf i_0$ and $\mathbf j_0$, $\mathbf k_0$ normal to it</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Polar basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_C = \{\mathbf e_r, \mathbf e_\theta, \mathbf k_0\}$, $B_0$ turned by $\theta$ about $\mathbf k_0$ (cylindrical basis with $z = 0$, Notes.pdf, Eq. 2.24)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Intrinsic basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_F = \{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$ (Notes.pdf, Eq. 2.13)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Coordinates</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">polar radius $r$ and polar angle $\theta$, measured from $\mathbf i_0$ counterclockwise about $\mathbf k_0$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Trajectory</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$r = \alpha e^{\beta\theta}$ (logarithmic spiral)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Time law</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\theta = \delta t^n$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Data</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha$ [m], $\beta$ [1], $\delta$ [rad s$^{-n}$], $n$ [1], $t$ [s]</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Hypotheses</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha \gt 0$, $\delta \gt 0$, $n \gt 0$, $t \gt 0$ (so the angular rate is positive); $\beta \gt 0$ (the spiral opens as the angle grows; for $\beta \lt 0$ the same formulas hold with $\psi = \operatorname{arccot}\beta$ in $(0, \pi)$); $z = 0$ throughout</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Degrees of freedom</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">2 plane coordinates minus 1 relation (the spiral) leave 1; it is fixed by the time law</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Notation</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\dot\theta$, $\ddot\theta$, $\dot r$, $\ddot r$ time derivatives; $v$ speed; $\rho$ radius of curvature</td></tr></tbody></table></div>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Item</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Definition</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Fixed frame</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$S_0 = \{O;\ \mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $O$ the pole of the spiral, the motion in the plane of $\mathbf i_0$ and $\mathbf j_0$, $\mathbf k_0$ normal to it</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Polar basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_C = \{\mathbf e_r, \mathbf e_\theta, \mathbf k_0\}$, $B_0$ turned by $\theta$ about $\mathbf k_0$ (cylindrical basis with $z = 0$, Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.24</a>)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Intrinsic basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_F = \{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.13</a>)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Coordinates</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">polar radius $r$ and polar angle $\theta$, measured from $\mathbf i_0$ counterclockwise about $\mathbf k_0$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Trajectory</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$r = \alpha e^{\beta\theta}$ (logarithmic spiral)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Time law</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\theta = \delta t^n$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Data</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha$ [m], $\beta$ [1], $\delta$ [rad s$^{-n}$], $n$ [1], $t$ [s]</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Hypotheses</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha \gt 0$, $\delta \gt 0$, $n \gt 0$, $t \gt 0$ (so the angular rate is positive); $\beta \gt 0$ (the spiral opens as the angle grows; for $\beta \lt 0$ the same formulas hold with $\psi = \operatorname{arccot}\beta$ in $(0, \pi)$); $z = 0$ throughout</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Degrees of freedom</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">2 plane coordinates minus 1 relation (the spiral) leave 1; it is fixed by the time law</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Notation</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\dot\theta$, $\ddot\theta$, $\dot r$, $\ddot r$ time derivatives; $v$ speed; $\rho$ radius of curvature</td></tr></tbody></table></div>
 </div><div class="phase-block">
 <h3 class="phase-heading">Change of Basis and Position Vector</h3>
 <p style="margin-bottom: 10px;">The view along $\mathbf k_0$ (out of the paper) shows the rotation by $\theta$ from $B_0$ to the polar basis.</p>
@@ -1569,7 +1569,7 @@ v_z \to 0:\quad \rho &amp;\to a + 0 = a, \quad C \to (0, 0, 0) \quad &amp;\text{
   <div class="derivation-head">
     <span class="derivation-title">Polar unit vectors and the change of basis matrix</span>
     <span class="derivation-law"><strong>Law:</strong> components of a unit vector with a known angle; simple rotation about the third axis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. 2.24; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=17" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 17">17</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.24</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=17" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 17">17</a>]</span>
   </div>
   <div class="derivation-body">
     <p>In the view of the figure $\mathbf k_0$ points out of the paper (⊙), $\mathbf i_0$ to the right, $\mathbf j_0$ up; a positive $\theta$ is counterclockwise by the right-hand rule about $\mathbf k_0$.</p>
@@ -1591,7 +1591,7 @@ v_z \to 0:\quad \rho &amp;\to a + 0 = a, \quad C \to (0, 0, 0) \quad &amp;\text{
   <div class="derivation-head">
     <span class="derivation-title">Position vector on the spiral</span>
     <span class="derivation-law"><strong>Law:</strong> position vector in polar components</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.23; Notes.pdf, Eq. 2.28; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 12">12</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.23</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.28</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=12" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 12">12</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1650,7 +1650,7 @@ r(t) &amp;= \alpha e^{\beta\theta(t)} = \alpha e^{\beta\delta t^n} \quad &amp;\t
   <div class="derivation-head">
     <span class="derivation-title">Velocity in the polar basis</span>
     <span class="derivation-law"><strong>Law:</strong> definition of velocity; product rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.64; Notes.pdf, Eq. 2.29; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=13" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 13">13</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">1.64</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.29</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=13" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 13">13</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1670,7 +1670,7 @@ r(t) &amp;= \alpha e^{\beta\theta(t)} = \alpha e^{\beta\delta t^n} \quad &amp;\t
   <div class="derivation-head">
     <span class="derivation-title">Acceleration in the polar basis</span>
     <span class="derivation-law"><strong>Law:</strong> definition of acceleration; product rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.64; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.30</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=18" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 18">19</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">1.64</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.30</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=18" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 18">19</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1733,7 +1733,7 @@ a_\theta &amp;= n\delta t^{n-2}\,r\left[(n-1) + 2\beta n\delta t^n\right] \quad 
   <div class="derivation-head">
     <span class="derivation-title">Speed and unit tangent</span>
     <span class="derivation-law"><strong>Law:</strong> the velocity is tangent to the path; unit tangent as the derivative with respect to the arc length</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.9; Notes.pdf, Eq. 2.16; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.9</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1752,7 +1752,7 @@ v &amp;= \sqrt{v_r^2 + v_\theta^2} = \sqrt{\beta^2 r^2\dot\theta^2 + r^2\dot\the
   <div class="derivation-head">
     <span class="derivation-title">Principal normal, binormal and radius of curvature</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the normal vector and of the curvature; binormal completes the right-handed basis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.11; Notes.pdf, Eq. 2.12; Notes.pdf, Eq. 2.13; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=24" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 24">26</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.11</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.13</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=24" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 24">26</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1793,7 +1793,7 @@ v &amp;= \sqrt{v_r^2 + v_\theta^2} = \sqrt{\beta^2 r^2\dot\theta^2 + r^2\dot\the
   <div class="derivation-head">
     <span class="derivation-title">Intrinsic components of the acceleration</span>
     <span class="derivation-law"><strong>Law:</strong> tangential and normal acceleration</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; Notes.pdf, Eq. 2.18; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.18</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1813,7 +1813,7 @@ a_n &amp;= \frac{\dot s^2}{\rho} = \frac{r^2\dot\theta^2(1+\beta^2)}{r\sqrt{1+\b
   <div class="derivation-head">
     <span class="derivation-title">Projection check of the intrinsic components</span>
     <span class="derivation-law"><strong>Law:</strong> components of a vector by the dot product with the unit vectors</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.28; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.40</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">1.28</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.40</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1888,7 +1888,7 @@ a_n &amp;= \frac{\dot s^2}{\rho} = \frac{r^2\dot\theta^2(1+\beta^2)}{r\sqrt{1+\b
   <div class="derivation-head">
     <span class="derivation-title">Radius of curvature and its centre</span>
     <span class="derivation-law"><strong>Law:</strong> definition of curvature; the centre of curvature lies on the normal at distance $\rho$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.12; Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.4</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a>; Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.4</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1908,7 +1908,7 @@ a_n &amp;= \frac{\dot s^2}{\rho} = \frac{r^2\dot\theta^2(1+\beta^2)}{r\sqrt{1+\b
   <div class="derivation-head">
     <span class="derivation-title">Answers (a) to (e)</span>
     <span class="derivation-law"><strong>Law:</strong> collection of the boxed results, with $r = \alpha e^{\beta\delta t^n}$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eqs. 2.29-2.30; Notes.pdf, Eqs. 2.16-2.18</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.29-2.30</a>; Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16-2.18</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1927,7 +1927,7 @@ a_n &amp;= \frac{\dot s^2}{\rho} = \frac{r^2\dot\theta^2(1+\beta^2)}{r\sqrt{1+\b
   <div class="derivation-head">
     <span class="derivation-title">Limiting cases</span>
     <span class="derivation-law"><strong>Law:</strong> the general result must reduce to the known particular motions</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.30</a>; Notes.pdf, Eq. 2.12</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.30</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -1980,7 +1980,7 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <div class="phase-block">
 <h3 class="phase-heading">Reference Frames, Bases and Coordinates</h3>
 <p style="margin-bottom: 10px;">The particle $P$ moves on a given planar curve with a given tangential acceleration. The only unknown is the time law along the curve, so the problem is kinematic (no forces section): the position follows from integrating the motion along the path.</p>
-<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Item</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Definition</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Fixed frame</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$S_0 = \{O;\ \mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $O$ the centre of the astroid, the curve in the plane of $\mathbf i_0$ and $\mathbf j_0$, $\mathbf k_0$ normal to it</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Intrinsic basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_F = \{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$ (Notes.pdf, Eq. 2.13)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Trajectory</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$x = a\cos^3\phi$, $y = a\sin^3\phi$ (statement); $\phi$ is a parameter of the curve, not the polar angle of $P$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Polar angle of $P$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\vartheta$, measured from $\mathbf i_0$ counterclockwise, with $\tan\vartheta = y/x$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Arc length</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$s$, measured along the curve from the cusp $(a, 0)$ at $\phi = 0$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Tangential acceleration</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a_t = \ddot s = k$, constant (statement)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Initial conditions</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">at $t = 0$: $\phi = 0$ (so $s = 0$) and rest (so $\dot s = 0$)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Data</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a$ [m], $k$ [m s$^{-2}$], $t$ [s]</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Hypotheses</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a \gt 0$, $k \gt 0$; the particle leaves the cusp $(a, 0)$ along the first-quadrant arc, with $0 \le \phi \le \pi/2$ and $\phi$ growing (the smooth segment between the cusps $(a, 0)$ and $(0, a)$); $s$ grows with $\phi$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Degrees of freedom</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">2 plane coordinates minus 1 relation (the curve) leave 1, the arc length $s$; the time law $s(t)$ is the unknown</td></tr></tbody></table></div>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Item</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Definition</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Fixed frame</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$S_0 = \{O;\ \mathbf i_0, \mathbf j_0, \mathbf k_0\}$, $O$ the centre of the astroid, the curve in the plane of $\mathbf i_0$ and $\mathbf j_0$, $\mathbf k_0$ normal to it</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Intrinsic basis</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_F = \{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$ (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.13</a>)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Trajectory</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$x = a\cos^3\phi$, $y = a\sin^3\phi$ (statement); $\phi$ is a parameter of the curve, not the polar angle of $P$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Polar angle of $P$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\vartheta$, measured from $\mathbf i_0$ counterclockwise, with $\tan\vartheta = y/x$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Arc length</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$s$, measured along the curve from the cusp $(a, 0)$ at $\phi = 0$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Tangential acceleration</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a_t = \ddot s = k$, constant (statement)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Initial conditions</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">at $t = 0$: $\phi = 0$ (so $s = 0$) and rest (so $\dot s = 0$)</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Data</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a$ [m], $k$ [m s$^{-2}$], $t$ [s]</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Hypotheses</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a \gt 0$, $k \gt 0$; the particle leaves the cusp $(a, 0)$ along the first-quadrant arc, with $0 \le \phi \le \pi/2$ and $\phi$ growing (the smooth segment between the cusps $(a, 0)$ and $(0, a)$); $s$ grows with $\phi$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Degrees of freedom</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">2 plane coordinates minus 1 relation (the curve) leave 1, the arc length $s$; the time law $s(t)$ is the unknown</td></tr></tbody></table></div>
 </div><div class="phase-block">
 <h3 class="phase-heading">Change of Basis and Position Vector</h3>
 <p style="margin-bottom: 10px;">The main plane shows the astroid, the smooth arc used, and the position vector of $P$ built from its two projections.</p>
@@ -2042,7 +2042,7 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
   <div class="derivation-head">
     <span class="derivation-title">Position vector on the astroid</span>
     <span class="derivation-law"><strong>Law:</strong> position vector in Cartesian components</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.5; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=16" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 16">16</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.5</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=16" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 16">16</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2095,7 +2095,7 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
   <div class="derivation-head">
     <span class="derivation-title">Parameter of the curve and polar angle of the particle</span>
     <span class="derivation-law"><strong>Law:</strong> polar angle of a point from its Cartesian coordinates</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.23; Notes.pdf, Eq. 1.3</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.23</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=13" target="_blank" rel="noopener" title="Open Notes.pdf at page 13">1.3</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2165,7 +2165,7 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
   <div class="derivation-head">
     <span class="derivation-title">Arc element</span>
     <span class="derivation-law"><strong>Law:</strong> arc length of a plane curve (hint of the statement: Pythagoras on the infinitesimal triangle)</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.19; Problems.pdf, p. 6</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.19</a>; Problems.pdf, p. 6</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2184,7 +2184,7 @@ ds &amp;= 3a\sin\phi\cos\phi\,d\phi \quad &amp;\text{(positive root: $\sin\phi$,
   <div class="derivation-head">
     <span class="derivation-title">Arc length as a function of the parameter</span>
     <span class="derivation-law"><strong>Law:</strong> integration of the arc element with a substitution and Barrow's rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 2.3; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=22" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 22">24</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.3</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=22" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 22">24</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2253,7 +2253,7 @@ s(\phi) &amp;= 3a\int_0^{\sin\phi} w\,dw = 3a\left[\frac{w^2}{2}\right]_0^{\sin\
   <div class="derivation-head">
     <span class="derivation-title">Unit tangent, principal normal and radius of curvature</span>
     <span class="derivation-law"><strong>Law:</strong> unit tangent and normal as derivatives with respect to the arc length; curvature</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.9; Notes.pdf, Eq. 2.11; Notes.pdf, Eq. 2.12; [Lecture 1, Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=23" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 23">25-26</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.9</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.11</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a>; [Lecture 1, Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=23" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 23">25-26</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2273,7 +2273,7 @@ s(\phi) &amp;= 3a\int_0^{\sin\phi} w\,dw = 3a\left[\frac{w^2}{2}\right]_0^{\sin\
   <div class="derivation-head">
     <span class="derivation-title">Change of basis from the fixed to the intrinsic basis</span>
     <span class="derivation-law"><strong>Law:</strong> change of basis matrix; binormal completes the right-handed basis; vector product in components</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.42</a>; Notes.pdf, Eq. 2.13</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.42</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.13</a></span>
   </div>
   <div class="derivation-body">
     <p>In the view of the figure $\mathbf k_0$ points out of the paper (⊙), $\mathbf i_0$ to the right and $\mathbf j_0$ up.</p>
@@ -2302,7 +2302,7 @@ s(\phi) &amp;= 3a\int_0^{\sin\phi} w\,dw = 3a\left[\frac{w^2}{2}\right]_0^{\sin\
   <div class="derivation-head">
     <span class="derivation-title">Arc length as a function of time</span>
     <span class="derivation-law"><strong>Law:</strong> the tangential acceleration is the second derivative of the arc length; two integrations with Barrow's rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.18; Notes.pdf, Eq. 2.20; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.18</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.20</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2321,7 +2321,7 @@ s(t) &amp;= \frac{kt^2}{2} \quad &amp;\text{(starts at the origin of $s$)}
   <div class="derivation-head">
     <span class="derivation-title">Parameter as a function of time</span>
     <span class="derivation-law"><strong>Law:</strong> the arc length is one quantity: its geometric and its kinematic expressions are equal</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 2.3; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=22" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 22">24</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.3</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=22" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 22">24</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2339,7 +2339,7 @@ s(t) &amp;= \frac{kt^2}{2} \quad &amp;\text{(starts at the origin of $s$)}
   <div class="derivation-head">
     <span class="derivation-title">Position as a function of time</span>
     <span class="derivation-law"><strong>Law:</strong> substitution of the time law in the parametric equations</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.5; Problems.pdf, p. 6</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.5</a>; Problems.pdf, p. 6</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2356,7 +2356,7 @@ y(t) &amp;= a\sin^3\phi = a\left(\frac{k}{3a}\right)^{3/2}t^3 \quad &amp;\text{(
   <div class="derivation-head">
     <span class="derivation-title">Velocity and acceleration along the arc</span>
     <span class="derivation-law"><strong>Law:</strong> intrinsic components of velocity and acceleration</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.16; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; [Lecture 1, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf#page=26" target="_blank" rel="noopener" title="Open 01 Point particle kinematics.pdf at page 26">28</a>]</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2376,7 +2376,7 @@ y(t) &amp;= a\sin^3\phi = a\left(\frac{k}{3a}\right)^{3/2}t^3 \quad &amp;\text{(
   <div class="derivation-head">
     <span class="derivation-title">Answer: position as a function of time on the smooth arc</span>
     <span class="derivation-law"><strong>Law:</strong> collection of the boxed results above</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.18; Problems.pdf, p. 6</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.18</a>; Problems.pdf, p. 6</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2393,7 +2393,7 @@ x(t) &amp;= a\left(1 - \frac{kt^2}{3a}\right)^{3/2}, \quad y(t) = a\left(\frac{k
   <div class="derivation-head">
     <span class="derivation-title">Limits of validity and limiting cases</span>
     <span class="derivation-law"><strong>Law:</strong> consistency of the time law with the geometry of the arc</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; Notes.pdf, Eq. 2.12</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2587,7 +2587,7 @@ s(\phi(t)) &amp;= \frac{3a}{2}\cdot\frac{kt^2}{3a} = \frac{kt^2}{2} \quad &amp;\
   <div class="derivation-head">
     <span class="derivation-title">Polar unit vectors and the change of basis matrix</span>
     <span class="derivation-law"><strong>Law:</strong> rotation of the basis about $\mathbf k_0$ by the angle $\theta$; definition of the change of basis matrix</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. 2.24</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.20</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.24</a></span>
   </div>
   <div class="derivation-body">
     <p>In the view along $\mathbf k_0$ (⊙), $\mathbf e_r$ is a unit hypotenuse: its projection on $\mathbf i_0$ is the leg adjacent to $\theta$ and its projection on $\mathbf j_0$ is the opposite leg. The vector $\mathbf e_\theta$ is $\mathbf e_r$ turned a further right angle counterclockwise (right-hand rule about $\mathbf k_0$ ⊙); its leg adjacent to $\theta$ now lies along $\mathbf j_0$ and its opposite leg points toward $-\mathbf i_0$, which is the origin of the minus sign.</p>
@@ -2610,7 +2610,7 @@ s(\phi(t)) &amp;= \frac{3a}{2}\cdot\frac{kt^2}{3a} = \frac{kt^2}{2} \quad &amp;\
   <div class="derivation-head">
     <span class="derivation-title">Polar coordinates from the right triangle O H P</span>
     <span class="derivation-law"><strong>Law:</strong> trigonometry of the right triangle with vertices $O$, the foot $H$ of the vertical through $P$, and $P$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.23; Problems.pdf, p. 7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.23</a>; Problems.pdf, p. 7</span>
   </div>
   <div class="derivation-body">
     <p>The triangle has its right angle at $H$; the hypotenuse is $OP$, the leg adjacent to $\theta$ is $OH$ (horizontal) and the opposite leg is $HP$ (vertical, of length equal to the altitude).</p>
@@ -2650,7 +2650,7 @@ r &amp;= \sqrt{x^2 + y_0^2} \quad &amp;\text{(positive root: $r$ is a distance)}
   <div class="derivation-head">
     <span class="derivation-title">Position vector of the aircraft</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the position vector, written in both bases</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.2; Notes.pdf, Eq. 2.5</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=28" target="_blank" rel="noopener" title="Open Notes.pdf at page 28">2.2</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.5</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2671,7 +2671,7 @@ r &amp;= \sqrt{x^2 + y_0^2} \quad &amp;\text{(positive root: $r$ is a distance)}
   <div class="derivation-head">
     <span class="derivation-title">Time law of the abscissa</span>
     <span class="derivation-law"><strong>Law:</strong> definition of acceleration and velocity in $S_0$; integration with Barrow's rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.7; Problems.pdf, p. 7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.6</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.7</a>; Problems.pdf, p. 7</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2694,7 +2694,7 @@ v^2 - v_0^2 &amp;= 2 a_x v_0 t + a_x^2 t^2 = 2a_x x \quad &amp;\text{(squaring $
   <div class="derivation-head">
     <span class="derivation-title">Radial rate</span>
     <span class="derivation-law"><strong>Law:</strong> implicit differentiation of the Pythagorean relation with the chain rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.23; Problems.pdf, p. 7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.23</a>; Problems.pdf, p. 7</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2714,7 +2714,7 @@ r^2 &amp;= x^2 + y_0^2 \quad &amp;\text{(triangle $OHP$)} \\
   <div class="derivation-head">
     <span class="derivation-title">Angular rate</span>
     <span class="derivation-law"><strong>Law:</strong> differentiation of the horizontal leg of the triangle with the product and chain rules</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.23; Problems.pdf, p. 7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.23</a>; Problems.pdf, p. 7</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2736,7 +2736,7 @@ y_0\,\dot\theta &amp;= -v\,\frac{y_0^2}{r^2} \quad &amp;\text{(Pythagoras: $r^2 
   <div class="derivation-head">
     <span class="derivation-title">Radial second derivative</span>
     <span class="derivation-law"><strong>Law:</strong> quotient rule applied to result (a)</span>
-    <span class="derivation-source"><strong>Source:</strong> Problems.pdf, p. 7; Notes.pdf, Eq. 2.7</span>
+    <span class="derivation-source"><strong>Source:</strong> Problems.pdf, p. 7; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.7</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2759,7 +2759,7 @@ y_0\,\dot\theta &amp;= -v\,\frac{y_0^2}{r^2} \quad &amp;\text{(Pythagoras: $r^2 
   <div class="derivation-head">
     <span class="derivation-title">Angular second derivative</span>
     <span class="derivation-law"><strong>Law:</strong> quotient rule applied to result (b), with the chain rule for the square of the distance</span>
-    <span class="derivation-source"><strong>Source:</strong> Problems.pdf, p. 7; Notes.pdf, Eq. 2.7</span>
+    <span class="derivation-source"><strong>Source:</strong> Problems.pdf, p. 7; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.7</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2779,7 +2779,7 @@ y_0\,\dot\theta &amp;= -v\,\frac{y_0^2}{r^2} \quad &amp;\text{(Pythagoras: $r^2 
   <div class="derivation-head">
     <span class="derivation-title">Derivatives of the polar unit vectors</span>
     <span class="derivation-law"><strong>Law:</strong> derivative of a unit vector that rotates with angular velocity $\boldsymbol\omega$; the vector products written out</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.62</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.25</a>; Notes.pdf, Eq. 2.26</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.62</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.25</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.26</a></span>
   </div>
   <div class="derivation-body">
     <p>The basis $B_1$ turns about $\mathbf k_0$ with the rate of $\theta$, so its angular velocity seen from $S_0$ is the rate of $\theta$ times $\mathbf k_0$. The products of the fixed unit vectors are those of a right-handed basis: k0 cross i0 gives j0 and k0 cross j0 gives minus i0.</p>
@@ -2800,7 +2800,7 @@ y_0\,\dot\theta &amp;= -v\,\frac{y_0^2}{r^2} \quad &amp;\text{(Pythagoras: $r^2 
   <div class="derivation-head">
     <span class="derivation-title">Velocity in the polar basis</span>
     <span class="derivation-law"><strong>Law:</strong> time derivative of the position vector in $S_0$ with the product rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.3; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.25</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.25</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2819,7 +2819,7 @@ y_0\,\dot\theta &amp;= -v\,\frac{y_0^2}{r^2} \quad &amp;\text{(Pythagoras: $r^2 
   <div class="derivation-head">
     <span class="derivation-title">Acceleration in the polar basis</span>
     <span class="derivation-law"><strong>Law:</strong> time derivative of the velocity in $S_0$ with the product rule and the derivatives of the unit vectors</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.4; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.25</a>; Notes.pdf, Eq. 2.26</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.4</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.25</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.26</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -2911,7 +2911,7 @@ a_\theta &amp;= \frac{2v^2 x y_0 - a_x y_0 r^2 - 2v^2 x y_0}{r^3} \quad &amp;\te
   <div class="derivation-head">
     <span class="derivation-title">Position, velocity and acceleration in the fixed basis</span>
     <span class="derivation-law"><strong>Law:</strong> in $S_0$ the fixed unit vectors have zero derivative</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.5; Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.5</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.6</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.7</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3147,7 +3147,7 @@ a_r^2 + a_\theta^2 &amp;= a_x^2\,\frac{x^2}{r^2} + a_x^2\,\frac{y_0^2}{r^2} \qua
   <div class="derivation-head">
     <span class="derivation-title">Polar angle of the cable from the angle with the horizontal</span>
     <span class="derivation-law"><strong>Law:</strong> relation between an angle measured from $-\mathbf i_0$ and the standard polar angle measured from $\mathbf i_0$</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.23; Problems.pdf, p. 7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.23</a>; Problems.pdf, p. 7</span>
   </div>
   <div class="derivation-body">
     <p>The direction $-\mathbf i_0$ has polar angle $\pi$. The cable is reached from $-\mathbf i_0$ by turning $\theta$ clockwise (toward $+\mathbf j_0$ from the left side), that is, by turning $-\theta$ in the positive sense about $\mathbf k_0$ ⊙.</p>
@@ -3206,7 +3206,7 @@ a_r^2 + a_\theta^2 &amp;= a_x^2\,\frac{x^2}{r^2} + a_x^2\,\frac{y_0^2}{r^2} \qua
   <div class="derivation-head">
     <span class="derivation-title">Position vector of the glider</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the position vector as a sum of two segments</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.2; Problems.pdf, p. 7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=28" target="_blank" rel="noopener" title="Open Notes.pdf at page 28">2.2</a>; Problems.pdf, p. 7</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3226,7 +3226,7 @@ a_r^2 + a_\theta^2 &amp;= a_x^2\,\frac{x^2}{r^2} + a_x^2\,\frac{y_0^2}{r^2} \qua
   <div class="derivation-head">
     <span class="derivation-title">Derivatives of the cable unit vectors</span>
     <span class="derivation-law"><strong>Law:</strong> derivative of a unit vector rotating with angular velocity $\boldsymbol\omega$; vector products written out</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.62</a>; Notes.pdf, Eq. 1.56</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.62</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.56</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3245,7 +3245,7 @@ a_r^2 + a_\theta^2 &amp;= a_x^2\,\frac{x^2}{r^2} + a_x^2\,\frac{y_0^2}{r^2} \qua
   <div class="derivation-head">
     <span class="derivation-title">Velocity of the glider</span>
     <span class="derivation-law"><strong>Law:</strong> time derivative of the position vector in $S_0$ with the product rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.3; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">1.63</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">1.63</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3281,7 +3281,7 @@ a_r^2 + a_\theta^2 &amp;= a_x^2\,\frac{x^2}{r^2} + a_x^2\,\frac{y_0^2}{r^2} \qua
   <div class="derivation-head">
     <span class="derivation-title">Acceleration of the glider</span>
     <span class="derivation-law"><strong>Law:</strong> time derivative of the velocity in $S_0$ with the product rule and the derivatives of the cable unit vectors</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.4; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">1.63</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.4</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">1.63</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3382,7 +3382,7 @@ a_0^B &amp;= \sqrt{r^2\dot\theta^4} = r\dot\theta^2 \quad &amp;\text{(positive r
   <div class="derivation-head">
     <span class="derivation-title">Second computation of the acceleration, in the fixed basis</span>
     <span class="derivation-law"><strong>Law:</strong> derivative of the Cartesian components with the product and chain rules</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.7</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3472,7 +3472,7 @@ $$ y = \sin x $$
 <div class="phase-block">
 <h3 class="phase-heading">Reference Frames, Bases and Coordinates</h3>
 <p style="margin-bottom: 10px;">The particle $P$ moves on a fixed plane curve, the graph of the sine function, with a prescribed horizontal rate. The intrinsic (Frenet-Serret) basis of the trajectory is built from the definitions of Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.4</a>, and the accelerations from the definitions of Sec. 2.5.</p>
-<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Units</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$S_0 = \{O;\ \mathbf i_0, \mathbf j_0, \mathbf k_0\}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">fixed frame; the curve lies in the plane of $\mathbf i_0$ (right) and $\mathbf j_0$ (up); $\mathbf k_0$ out of the paper (⊙)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_F = \{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">intrinsic basis at $P$: tangent, principal normal (toward the centre of curvature), binormal $\mathbf e_t \times \mathbf e_n$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mathbf e_\perp$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">auxiliary unit normal, $\mathbf k_0 \times \mathbf e_t$ (the tangent turned a right angle counterclockwise)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$x$, $y$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Cartesian coordinates of $P$; the curve is $y = \sin x$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\gamma$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">angle from $\mathbf i_0$ to $\mathbf e_t$, counterclockwise with $\mathbf k_0$ ⊙ (the angle of Notes.pdf, Eq. 2.19)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">rad</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$s$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">arc length along the curve, measured from the origin $O$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$L(x)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">metric factor $\sqrt{1 + \cos^2 x}$, the arc length per unit of abscissa</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\dot x = 1$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">prescribed horizontal rate</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\sigma$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">sign that orients the normal toward the centre of curvature, $\sigma = -\operatorname{sgn}(\sin x)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr></tbody></table></div>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Units</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$S_0 = \{O;\ \mathbf i_0, \mathbf j_0, \mathbf k_0\}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">fixed frame; the curve lies in the plane of $\mathbf i_0$ (right) and $\mathbf j_0$ (up); $\mathbf k_0$ out of the paper (⊙)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$B_F = \{\mathbf e_t, \mathbf e_n, \mathbf e_b\}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">intrinsic basis at $P$: tangent, principal normal (toward the centre of curvature), binormal $\mathbf e_t \times \mathbf e_n$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mathbf e_\perp$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">auxiliary unit normal, $\mathbf k_0 \times \mathbf e_t$ (the tangent turned a right angle counterclockwise)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$x$, $y$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Cartesian coordinates of $P$; the curve is $y = \sin x$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\gamma$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">angle from $\mathbf i_0$ to $\mathbf e_t$, counterclockwise with $\mathbf k_0$ ⊙ (the angle of Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.19</a>)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">rad</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$s$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">arc length along the curve, measured from the origin $O$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$L(x)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">metric factor $\sqrt{1 + \cos^2 x}$, the arc length per unit of abscissa</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\dot x = 1$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">prescribed horizontal rate</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\sigma$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">sign that orients the normal toward the centre of curvature, $\sigma = -\operatorname{sgn}(\sin x)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">-</td></tr></tbody></table></div>
 <p style="margin-bottom: 10px;">Hypotheses and degrees of freedom:</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>The data are read in SI units: the sine curve carries a length scale $\ell$ of 1 m (height and abscissa in metres, the argument of the sine in units of $\ell$) and the horizontal rate is 1 m/s; with that length scale every formula below keeps its dimensions.</li>
@@ -3561,7 +3561,7 @@ $$ y = \sin x $$
   <div class="derivation-head">
     <span class="derivation-title">Position vector and arc length element</span>
     <span class="derivation-law"><strong>Law:</strong> definition of the position vector; length of the differential displacement along the curve</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.5; Notes.pdf, Eq. 2.9; Notes.pdf, Eq. 2.19</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.5</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.9</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.19</a></span>
   </div>
   <div class="derivation-body">
     <p>The differential displacement along the curve is the hypotenuse of a right triangle whose horizontal leg is the increment of abscissa and whose vertical leg is the increment of height.</p>
@@ -3581,7 +3581,7 @@ ds &amp;= \sqrt{1 + \cos^2 x}\,dx = L\,dx \quad &amp;\text{(positive root: $s$ g
   <div class="derivation-head">
     <span class="derivation-title">Tangent unit vector and its angle</span>
     <span class="derivation-law"><strong>Law:</strong> the tangent unit vector is the derivative of the position with respect to the arc length</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.9; Notes.pdf, Eq. 2.19</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.9</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.19</a></span>
   </div>
   <div class="derivation-body">
     <p>In the differential triangle the hypotenuse is the arc element, the leg adjacent to the angle of the tangent is the horizontal increment and the opposite leg is the vertical increment.</p>
@@ -3664,7 +3664,7 @@ ds &amp;= \sqrt{1 + \cos^2 x}\,dx = L\,dx \quad &amp;\text{(positive root: $s$ g
   <div class="derivation-head">
     <span class="derivation-title">Time law, velocity and speed</span>
     <span class="derivation-law"><strong>Law:</strong> definition of velocity in $S_0$; chain rule</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.6; Notes.pdf, Eq. 2.16; Problems.pdf, p. 7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.6</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16</a>; Problems.pdf, p. 7</span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3677,13 +3677,13 @@ x(t) &amp;= x(0) + \int_0^t 1\,dt' = 0 + [t']_0^t = t \quad &amp;\text{(prescrib
     <div class="derivation-result">$$\boxed{\mathbf v_0^P = \mathbf i_0 + \cos x\,\mathbf j_0 = \dot s\,\mathbf e_t,\qquad \dot s = v = \sqrt{1 + \cos^2 x}}$$</div>
   </div>
   <p class="derivation-units"><strong>Units:</strong> $[\mathrm{L\,T^{-1}}]$</p>
-  <p class="derivation-foot"><strong>Meaning:</strong> the velocity is tangent to the curve, as Notes.pdf, Eq. 2.16 states; the speed is largest at the inflection points, where the curve is steepest.</p>
+  <p class="derivation-foot"><strong>Meaning:</strong> the velocity is tangent to the curve, as Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.16</a> states; the speed is largest at the inflection points, where the curve is steepest.</p>
 </div>
 <div class="derivation-box">
   <div class="derivation-head">
     <span class="derivation-title">Rotation rate of the tangent and derivatives of the unit vectors</span>
     <span class="derivation-law"><strong>Law:</strong> derivative of a unit vector rotating with angular velocity $\boldsymbol\omega$; vector products written out</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.62</a>; Notes.pdf, Eq. 1.56</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.62</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.56</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3706,7 +3706,7 @@ x(t) &amp;= x(0) + \int_0^t 1\,dt' = 0 + [t']_0^t = t \quad &amp;\text{(prescrib
   <div class="derivation-head">
     <span class="derivation-title">Curvature and principal normal</span>
     <span class="derivation-law"><strong>Law:</strong> derivative of the tangent with respect to the arc length; definition of the normal and of the curvature</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.11; Notes.pdf, Eq. 2.12; Notes.pdf, Eq. 2.15</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.11</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.15</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3727,7 +3727,7 @@ x(t) &amp;= x(0) + \int_0^t 1\,dt' = 0 + [t']_0^t = t \quad &amp;\text{(prescrib
   <div class="derivation-head">
     <span class="derivation-title">Change of basis matrix to the intrinsic basis</span>
     <span class="derivation-law"><strong>Law:</strong> columns are the intrinsic unit vectors in the fixed basis; orthogonality and determinant checked</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; Notes.pdf, Eq. 2.13</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.13</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.15</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.13</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3746,7 +3746,7 @@ x(t) &amp;= x(0) + \int_0^t 1\,dt' = 0 + [t']_0^t = t \quad &amp;\text{(prescrib
   <div class="derivation-head">
     <span class="derivation-title">Arc length as an integral and its inversion</span>
     <span class="derivation-law"><strong>Law:</strong> integration of the arc element with Barrow's rule; inverse of a strictly increasing function</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. 2.3; Notes.pdf, Eq. 2.19</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.3</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.19</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3766,7 +3766,7 @@ x &amp;= s^{-1}(s) \quad &amp;\text{(strictly increasing function: unique invers
   <div class="derivation-head">
     <span class="derivation-title">Acceleration in the fixed basis</span>
     <span class="derivation-law"><strong>Law:</strong> definition of acceleration; product and chain rules</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.7</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.7</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3783,7 +3783,7 @@ x &amp;= s^{-1}(s) \quad &amp;\text{(strictly increasing function: unique invers
   <div class="derivation-head">
     <span class="derivation-title">Intrinsic components of the acceleration</span>
     <span class="derivation-law"><strong>Law:</strong> derivative of the velocity written in the intrinsic basis</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; Notes.pdf, Eq. 2.18</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.18</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3803,7 +3803,7 @@ a_t &amp;= -\frac{\sin x\cos x}{L},\quad a_n = \frac{|\sin x|}{L} \quad &amp;\te
   <div class="derivation-head">
     <span class="derivation-title">Radius of curvature</span>
     <span class="derivation-law"><strong>Law:</strong> normal acceleration equals the square of the speed over the radius of curvature</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.18; Notes.pdf, Eq. 2.12</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.18</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.12</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3884,7 +3884,7 @@ a_t &amp;= -\frac{\sin x\cos x}{L},\quad a_n = \frac{|\sin x|}{L} \quad &amp;\te
   <div class="derivation-head">
     <span class="derivation-title">Check: projections of the Cartesian acceleration</span>
     <span class="derivation-law"><strong>Law:</strong> components of a vector on an orthonormal basis are dot products</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 1.28; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.40</a></span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">1.28</a>; Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=21" target="_blank" rel="noopener" title="Open Notes.pdf at page 21">1.40</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}
@@ -3901,7 +3901,7 @@ a_t^2 + a_n^2 &amp;= \frac{\sin^2 x\,(\cos^2 x + 1)}{1 + \cos^2 x} = \sin^2 x \q
   <div class="derivation-head">
     <span class="derivation-title">Limiting cases</span>
     <span class="derivation-law"><strong>Law:</strong> evaluation at special points of the curve</span>
-    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. 2.18</span>
+    <span class="derivation-source"><strong>Source:</strong> Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=32" target="_blank" rel="noopener" title="Open Notes.pdf at page 32">2.18</a></span>
   </div>
   <div class="derivation-body">
     <div class="derivation-steps">$$\begin{aligned}

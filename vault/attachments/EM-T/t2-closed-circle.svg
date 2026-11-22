@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 590" width="100%" class="fig-kit" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="A circle around the origin with the azimuthal force tangent to it everywhere in the sense of travel, so the work around it never cancels.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="330.0" y1="315.0" x2="660.6" y2="315.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M665.4,315.0 L658.0,318.1 L658.0,311.9 Z" fill="#8a94a6"/>
+<text x="675.4" y="321.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x</text>
+<line x1="330.0" y1="315.0" x2="330.0" y2="46.8" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M330.0,42.0 L333.1,49.4 L326.9,49.4 Z" fill="#8a94a6"/>
+<text x="344.0" y="46.0" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">y</text>
+<circle cx="330.0" cy="315.0" r="234.0" fill="none" stroke="#be123c" stroke-width="2.6" stroke-linejoin="round"/>
+<line x1="136.5" y1="183.1" x2="130.7" y2="192.3" stroke="#be123c" stroke-width="2.6"/>
+<path d="M126.6,198.9 L128.6,186.1 L137.2,191.5 Z" fill="#be123c"/>
+<line x1="516.3" y1="456.9" x2="522.6" y2="447.9" stroke="#be123c" stroke-width="2.6"/>
+<path d="M527.1,441.5 L524.3,454.3 L516.0,448.5 Z" fill="#be123c"/>
+<text x="179.1" y="523.0" fill="#be123c" font-size="20" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Γ</text>
+<line x1="289.4" y1="84.6" x2="204.3" y2="99.6" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M197.2,100.8 L207.3,94.3 L208.9,103.5 Z" fill="#ec4899"/>
+<circle cx="289.4" cy="84.6" r="3.0" fill="#be123c"/>
+<line x1="99.6" y1="355.6" x2="114.6" y2="440.7" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M115.8,447.8 L109.3,437.7 L118.5,436.1 Z" fill="#ec4899"/>
+<circle cx="99.6" cy="355.6" r="3.0" fill="#be123c"/>
+<line x1="370.6" y1="545.4" x2="455.7" y2="530.4" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M462.8,529.2 L452.7,535.7 L451.1,526.5 Z" fill="#ec4899"/>
+<circle cx="370.6" cy="545.4" r="3.0" fill="#be123c"/>
+<line x1="556.0" y1="375.6" x2="578.4" y2="292.1" stroke="#ec4899" stroke-width="3.4"/>
+<path d="M580.3,285.2 L581.9,297.0 L572.9,294.6 Z" fill="#ec4899"/>
+<circle cx="556.0" cy="375.6" r="3.0" fill="#be123c"/>
+<text x="143.0" y="432.1" fill="#ec4899" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">c<tspan baseline-shift="sub" font-size="70%">4</tspan>R<tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">2</tspan> <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<line x1="271.5" y1="213.7" x2="255.4" y2="223.0" stroke="#ec4899" stroke-width="1.8"/>
+<path d="M251.2,225.4 L256.1,219.0 L259.2,224.4 Z" fill="#ec4899"/>
+<line x1="228.7" y1="373.5" x2="238.0" y2="389.6" stroke="#ec4899" stroke-width="1.8"/>
+<path d="M240.4,393.8 L234.0,388.9 L239.4,385.8 Z" fill="#ec4899"/>
+<line x1="388.5" y1="416.3" x2="404.6" y2="407.0" stroke="#ec4899" stroke-width="1.8"/>
+<path d="M408.8,404.6 L403.9,411.0 L400.8,405.6 Z" fill="#ec4899"/>
+<text x="330.0" y="498.3" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">at R<tspan baseline-shift="sub" font-size="70%">0</tspan>/2: a quarter of the length</text>
+<line x1="330.0" y1="315.0" x2="532.6" y2="198.0" stroke="#8a94a6" stroke-width="1.5"/>
+<text x="427.3" y="244.5" fill="#6b7280" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R<tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="532.6" y1="198.0" x2="594.5" y2="162.3" stroke="#3b82f6" stroke-width="3.0"/>
+<path d="M600.2,159.0 L593.6,167.8 L589.3,160.4 Z" fill="#3b82f6"/>
+<line x1="532.6" y1="198.0" x2="496.9" y2="136.2" stroke="#3b82f6" stroke-width="3.0"/>
+<path d="M493.6,130.5 L502.4,137.1 L495.0,141.4 Z" fill="#3b82f6"/>
+<text x="608.2" y="159.0" fill="#3b82f6" font-size="18" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">R</tspan></text>
+<text x="501.6" y="124.5" fill="#3b82f6" font-size="18" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<circle cx="532.6" cy="198.0" r="4.5" fill="#4b5563"/>
+<text x="552.6" y="220.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<path d="M408.0,315.0 A78.0,78.0 0 0 0 397.5,276.0" fill="none" stroke="#10b981" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M396.0,273.4 L403.2,278.8 L397.2,282.3 Z" fill="#10b981"/>
+<text x="436.8" y="300.3" fill="#10b981" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<polyline points="454.0,116.6 449.1,113.6 444.2,110.7 439.1,108.0 434.0,105.4 428.9,102.9 423.7,100.6 418.4,98.3 413.1,96.3 407.7,94.3 402.3,92.5" fill="none" stroke="#f59e0b" stroke-width="4.2" stroke-linejoin="round"/>
+<path d="M402.3,92.5 L413.3,91.8 L410.4,99.9 Z" fill="#f59e0b"/>
+<text x="470.2" y="70.8" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R<tspan baseline-shift="sub" font-size="70%">0</tspan> dθ <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<circle cx="330.0" cy="315.0" r="2.0" fill="#4b5563"/>
+<circle cx="330.0" cy="315.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="330.0" cy="315.0" r="2.6" fill="#4b5563"/>
+<text x="312.0" y="339.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+</g></svg>

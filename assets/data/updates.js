@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-22-mechanics-topic-2-theory",
+    "date": "2026-11-22",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 2 theory rewritten step by step",
+    "text": "Dynamics, energy, equilibrium and the harmonic oscillator now build every result in boxed steps, with resonance, linearisation and 31 new figures.",
+    "link": "subjects/engineering-mechanics/teoria/topic-2.html"
+  },
+  {
     "id": "2026-11-22-maths-theory-topics-5-6",
     "date": "2026-11-22",
     "tag": "Advanced Maths",
@@ -37,6 +45,14 @@ window.AE_UPDATES = [
     "title": "Particle problems: new solutions and 3D simulators",
     "text": "All 51 point particle problems are redone step by step in boxes, with new figures, and each one has an interactive simulator you can orbit and move.",
     "link": "subjects/engineering-mechanics/problemas/topic-5.html"
+  },
+  {
+    "id": "2026-11-21-mechanics-topic-1-theory",
+    "date": "2026-11-21",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 1 theory rewritten step by step",
+    "text": "Point particle kinematics now builds every result in boxed steps, from rotation matrices to cylindrical and spherical coordinates, with 28 new figures.",
+    "link": "subjects/engineering-mechanics/teoria/topic-1.html"
   },
   {
     "id": "2026-11-21-business-topic-3-ii-theory",

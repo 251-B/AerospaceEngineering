@@ -1,0 +1,58 @@
+{
+ "subjects/engineering-mechanics/teoria/topic-4.html": {
+  "flavor": "mechanics",
+  "template": "tools/templates/em-theory-shell.html",
+  "note": "vault/03 - Engineering Mechanics/Topic 4 - Angular Momentum and Central Forces.md",
+  "figures": "em_theory",
+  "html_title": "Topic 4: Angular Momentum and Central Forces — Engineering Mechanics",
+  "category": "Topic 04 · Point Particle",
+  "title": "Angular Momentum and Central Forces",
+  "subtitle": "Angular momentum and torque, the angular momentum theorem, central force motion and its first integrals, and Kepler's problem: the laws, the Binet equation, the conic orbits and the vis-viva equation.",
+  "source": "Sources: Notes.pdf, Section 4.8 and chapter 8; Lecture 4.",
+  "nav": [
+   [
+    "topic-3.html",
+    "Topic 3",
+    "prev"
+   ],
+   [
+    "../problemas/topic-4.html",
+    "Topic 4 Problems (3)",
+    "center"
+   ],
+   [
+    "topic-5.html",
+    "Topic 5",
+    "next"
+   ]
+  ]
+ },
+ "subjects/engineering-mechanics/teoria/topic-5.html": {
+  "flavor": "mechanics",
+  "template": "tools/templates/em-theory-shell.html",
+  "note": "vault/03 - Engineering Mechanics/Topic 5 - Relative Motion.md",
+  "figures": "em_theory",
+  "html_title": "Topic 5: Relative Motion — Engineering Mechanics",
+  "category": "Topic 05 · Point Particle",
+  "title": "Relative Motion",
+  "subtitle": "The derivative of a vector in a moving reference frame, the angular velocity and its composition, the composition of velocities and accelerations with the Coriolis term, and the dynamics of a particle in a non-inertial frame with its inertia forces.",
+  "source": "Sources: Notes.pdf, chapter 3 and Section 4.9; Lecture 5.",
+  "nav": [
+   [
+    "topic-4.html",
+    "Topic 4",
+    "prev"
+   ],
+   [
+    "../problemas/topic-5.html",
+    "Topic 5 Problems (20)",
+    "center"
+   ],
+   [
+    "topic-6.html",
+    "Topic 6",
+    "next"
+   ]
+  ]
+ }
+}

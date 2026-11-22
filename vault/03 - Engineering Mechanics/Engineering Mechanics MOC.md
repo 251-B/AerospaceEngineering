@@ -33,20 +33,20 @@ The *Mechanics Applied to Aerospace Engineering* course provides the core physic
 Entries shown as plain text with "(planned)" do not have a note in the vault yet.
 
 ### 🚀 Part I: Mechanics of the Point Particle
-* [[Topic 1 - Kinematics of a Point Particle|Topic 1: Fundamentals and Particle Kinematics]] *(unit-01-particle-kinematics; Fully Developed)*
+* [[Topic 1 - Kinematics of a Point Particle|Topic 1: Kinematics of a Point Particle]] *(unit-01-particle-kinematics; Notes.pdf chapters 1 and 2, Lecture 1; derivation boxes)*
   * [[Concept - Mechanical Modeling and Physical Quantities|Concept: Mechanical Modeling and Physical Quantities (Scalars, Vectors, Tensors)]]
   * [[Concept - Vector Bases Rotation Matrices and Poisson Theorem|Concept: Vector Bases, Rotation Matrices, and Poisson's Theorem]]
   * [[Concept - Cartesian Cylindrical and Spherical Coordinate Systems|Concept: Cartesian, Cylindrical, and Spherical Coordinate Systems]]
   * [[Concept - Intrinsic Frenet-Serret Frame and Intrinsic Acceleration|Concept: Intrinsic Frenet-Serret Frame and Intrinsic Acceleration]]
   * [[Concept - Degrees of Freedom Generalized Coordinates and Constraints|Concept: Degrees of Freedom, Generalized Coordinates, and Constraints]]
-* [[Topic 2 - Dynamics of a Point Particle, Equilibrium and Oscillations|Topic 2: Point Particle Dynamics]] *(unit-02-dynamics-point-particle; Fully Developed)*
+* [[Topic 2 - Dynamics of a Point Particle, Equilibrium and Oscillations|Topic 2: Dynamics of a Point Particle, Equilibrium and Oscillations]] *(unit-02-dynamics-point-particle; Notes.pdf Secs. 4.1-4.7 and chapter 5, Lectures 2 and 6; derivation boxes)*
   * [[Concept - Newton Laws and Equations of Motion|Concept: Newton's Laws and Equations of Motion]]
   * [[Concept - Work Power and Kinetic Energy Theorem|Concept: Work, Power, and the Kinetic Energy Theorem]]
   * [[Concept - Conservative Forces and Potential Energy|Concept: Conservative Forces and Potential Energy]]
   * [[Concept - Conservation of Mechanical Energy and Energy Diagrams|Concept: Conservation of Mechanical Energy and Energy Diagrams]]
   * [[Concept - Equilibrium Configurations and Stability Criteria|Concept: Equilibrium Configurations and Stability Criteria]]
   * [[Concept - The Simple Pendulum Nonlinear Dynamics and Linearization|Concept: The Simple Pendulum - Nonlinear Dynamics and Linearization]]
-* [[Topic 3 - Constraints and Reaction Forces|Topic 3: Constraints and Reaction Forces]] *(unit-03-constraints-reactions; Fully Developed)*
+* [[Topic 3 - Constraints and Reaction Forces|Topic 3: Constraints and Reaction Forces]] *(unit-03-constraints-reactions; Notes.pdf chapters 6 and 7, Lecture 3; derivation boxes)*
   * [[Concept - Classification of Constraints Holonomic Rheonomic and Unilateral|Concept: Classification of Constraints (Holonomic, Rheonomic, Unilateral)]]
   * [[Concept - Normal and Tangent Subspaces for Surfaces and Curves|Concept: Normal and Tangent Subspaces for Surfaces and Curves]]
   * [[Concept - Constraint and Reaction Forces Dynamical Decoupling|Concept: Constraint and Reaction Forces Dynamical Decoupling]]

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 470" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Free-body diagram of the pendulum bob with its weight split into components along and across the rod and the tension along the rod.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="250.0" y1="190.0" x2="150.0" y2="16.8" stroke="#8a94a6" stroke-width="1.4" stroke-dasharray="7 5"/>
+<circle cx="250.0" cy="190.0" r="30.0" fill="none" stroke="#8a94a6" stroke-width="1.5" stroke-dasharray="6 4" stroke-linejoin="round"/>
+<text x="218.0" y="192.0" fill="#6b7280" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">free body</text>
+<polygon points="250.0,190.0 336.6,340.0 250.0,390.0" fill="#f59e0b" fill-opacity="0.16" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<polyline points="330.6,329.6 320.2,335.6 326.2,346.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="250.0" y1="190.0" x2="333.9" y2="335.3" stroke="#ec4899" stroke-width="1.8" stroke-dasharray="6 4"/>
+<path d="M336.6,340.0 L329.4,334.6 L335.5,331.1 Z" fill="#ec4899"/>
+<line x1="336.6" y1="340.0" x2="254.7" y2="387.3" stroke="#ec4899" stroke-width="1.8" stroke-dasharray="6 4"/>
+<path d="M250.0,390.0 L255.4,382.8 L258.9,388.9 Z" fill="#ec4899"/>
+<line x1="250.0" y1="190.0" x2="409.9" y2="97.7" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6 4"/>
+<path d="M414.5,95.0 L409.1,102.2 L405.6,96.1 Z" fill="#f59e0b"/>
+<text x="424.5" y="91.0" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ℓθ<tspan dx="-0.38em" dy="-0.80em" font-style="normal">.</tspan><tspan dx="0.13em" dy="0.80em" font-style="normal">​</tspan> <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<line x1="250.0" y1="190.0" x2="281.7" y2="244.9" stroke="#3b82f6" stroke-width="3.0"/>
+<path d="M285.0,250.6 L276.2,244.0 L283.6,239.7 Z" fill="#3b82f6"/>
+<line x1="250.0" y1="190.0" x2="304.9" y2="158.3" stroke="#3b82f6" stroke-width="3.0"/>
+<path d="M310.6,155.0 L304.0,163.8 L299.7,156.4 Z" fill="#3b82f6"/>
+<text x="293.0" y="258.6" fill="#3b82f6" font-size="18" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">R</tspan></text>
+<text x="298.6" y="181.0" fill="#3b82f6" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">θ</tspan></text>
+<line x1="250.0" y1="190.0" x2="250.0" y2="382.2" stroke="#ec4899" stroke-width="4.0"/>
+<path d="M250.0,390.0 L244.9,378.0 L255.1,378.0 Z" fill="#ec4899"/>
+<text x="238.0" y="285.0" fill="#ec4899" font-size="19" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m g</text>
+<line x1="250.0" y1="190.0" x2="178.9" y2="66.9" stroke="#ec4899" stroke-width="4.0"/>
+<path d="M175.0,60.1 L185.4,67.9 L176.6,73.0 Z" fill="#ec4899"/>
+<text x="195.5" y="116.4" fill="#ec4899" font-size="20" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<text x="329.0" y="308.6" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">m g cos θ</text>
+<text x="305.3" y="399.0" fill="#ec4899" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">m g sin θ</text>
+<path d="M250.0,270.0 A80.0,80.0 0 0 0 290.0,259.3" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M292.6,257.8 L287.2,265.0 L283.7,258.9 Z" fill="#10b981"/>
+<text x="288.5" y="308.3" fill="#10b981" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<circle cx="250.0" cy="190.0" r="5.5" fill="#4b5563"/>
+<circle cx="105.0" cy="70.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="105.0" cy="70.0" r="2.6" fill="#4b5563"/>
+<text x="105.0" y="98.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">k</tspan></text>
+</g></svg>

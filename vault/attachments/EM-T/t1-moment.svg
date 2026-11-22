@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="100%" class="fig-kit" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="A vector on its line of action, a point O off the line, two position vectors to points of the line and the perpendicular distance h.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="71.5" y1="248.1" x2="642.8" y2="126.7" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="8 5"/>
+<text x="71.5" y="272.1" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">line of action</text>
+<polygon points="140.0,70.0 173.3,226.5 361.1,186.6" fill="#f59e0b" fill-opacity="0.18" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="140.0" y1="70.0" x2="173.3" y2="226.5" stroke="#8a94a6" stroke-width="1.3" stroke-dasharray="5 4"/>
+<line x1="173.3" y1="226.5" x2="361.1" y2="186.6" stroke="#8a94a6" stroke-width="1.3" stroke-dasharray="5 4"/>
+<line x1="140.0" y1="70.0" x2="574.8" y2="139.2" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M580.2,140.0 L571.4,142.2 L572.5,135.2 Z" fill="#8a94a6"/>
+<line x1="140.0" y1="70.0" x2="355.2" y2="183.5" stroke="#4b5563" stroke-width="3.0"/>
+<path d="M361.1,186.6 L350.1,185.6 L354.1,178.1 Z" fill="#4b5563"/>
+<line x1="361.1" y1="186.6" x2="471.4" y2="163.1" stroke="#f59e0b" stroke-width="3.6"/>
+<path d="M478.4,161.6 L468.6,168.5 L466.7,159.4 Z" fill="#f59e0b"/>
+<text x="482.4" y="145.6" fill="#f59e0b" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">A</tspan></text>
+<polyline points="171.3,217.1 180.7,215.1 182.7,224.5" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<text x="168.6" y="148.3" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">h = |<tspan font-weight="700" font-style="normal">OP</tspan><tspan baseline-shift="sub" font-size="70%">⊥</tspan>|</text>
+<text x="261.2" y="232.5" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">OP</tspan><tspan baseline-shift="sub" font-size="70%">∥</tspan></text>
+<text x="274.5" y="118.3" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">OP</tspan></text>
+<text x="448.9" y="99.4" fill="#6b7280" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">OP</tspan>′</text>
+<circle cx="140.0" cy="70.0" r="3.8" fill="#4b5563"/>
+<text x="126.0" y="58.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<circle cx="173.3" cy="226.5" r="3.8" fill="#4b5563"/>
+<text x="159.3" y="246.5" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">H</text>
+<circle cx="361.1" cy="186.6" r="3.8" fill="#4b5563"/>
+<text x="365.1" y="208.6" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<circle cx="580.2" cy="140.0" r="3.8" fill="#4b5563"/>
+<text x="586.2" y="162.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P′</text>
+<circle cx="80.0" cy="70.0" r="9" fill="none" stroke="#4b5563" stroke-width="1.8"/>
+<circle cx="80.0" cy="70.0" r="2.6" fill="#4b5563"/>
+<text x="94.0" y="106.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">M</tspan> = h A <tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">M</tspan></text>
+</g></svg>

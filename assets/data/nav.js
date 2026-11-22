@@ -263,11 +263,11 @@ window.AE_NAV = {
           "pages": [
             {
               "href": "subjects/engineering-mechanics/teoria/topic-1.html",
-              "label": "1 · Fundamentals and kinematics"
+              "label": "1 · Point particle kinematics"
             },
             {
               "href": "subjects/engineering-mechanics/teoria/topic-2.html",
-              "label": "2 · Point particle dynamics"
+              "label": "2 · Dynamics and oscillations"
             },
             {
               "href": "subjects/engineering-mechanics/teoria/topic-3.html",

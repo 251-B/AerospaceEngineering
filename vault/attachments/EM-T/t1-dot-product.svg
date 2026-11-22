@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" width="100%" class="fig-kit" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="Two vectors from a common origin with the projection of A on the direction of B as the adjacent leg of a right triangle.">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="70.0,255.0 299.8,255.0 299.8,62.2" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="0.0" stroke-linejoin="round"/>
+<line x1="70.0" y1="255.0" x2="463.4" y2="255.0" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M470.0,255.0 L459.9,259.3 L459.9,250.7 Z" fill="#f59e0b"/>
+<text x="486.0" y="261.0" fill="#f59e0b" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">B</tspan></text>
+<line x1="70.0" y1="255.0" x2="294.8" y2="66.4" stroke="#f59e0b" stroke-width="3.0"/>
+<path d="M299.8,62.2 L294.8,72.0 L289.3,65.4 Z" fill="#f59e0b"/>
+<text x="313.8" y="52.2" fill="#f59e0b" font-size="18" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">A</tspan></text>
+<line x1="299.8" y1="255.0" x2="299.8" y2="62.2" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<polyline points="288.8,255.0 288.8,244.0 299.8,244.0" fill="none" stroke="#8a94a6" stroke-width="1.1" stroke-linejoin="round"/>
+<line x1="70.0" y1="255.0" x2="163.4" y2="255.0" stroke="#3b82f6" stroke-width="3.8"/>
+<path d="M170.0,255.0 L159.9,259.3 L159.9,250.7 Z" fill="#3b82f6"/>
+<text x="172.0" y="280.0" fill="#3b82f6" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<path d="M132.0,255.0 A62.0,62.0 0 0 0 117.5,215.1" fill="none" stroke="#10b981" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="180.7" y="221.5" fill="#10b981" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ<tspan baseline-shift="sub" font-size="70%">AB</tspan></text>
+<text x="204.9" y="307.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A cos θ<tspan baseline-shift="sub" font-size="70%">AB</tspan> = <tspan font-weight="700" font-style="normal">A</tspan>·<tspan font-weight="700" font-style="normal">e</tspan><tspan baseline-shift="sub" font-size="70%">B</tspan></text>
+<text x="170.9" y="150.6" fill="#f59e0b" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<circle cx="70.0" cy="255.0" r="3.5" fill="#4b5563"/>
+<text x="62.0" y="261.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<circle cx="299.8" cy="255.0" r="3.0" fill="#4b5563"/>
+</g></svg>
