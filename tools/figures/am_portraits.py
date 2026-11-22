@@ -327,14 +327,416 @@ def draw_response(spec, uid):
     return c
 
 
+# --------------------------------------------------------------------------- nonlinear portraits, Fourier & transcendental plots
+def _nl_field(name):
+    """Named 2D nonlinear vector fields (f(x, y), g(x, y)) for Chapter 5."""
+    fields = {
+        "ch5_e1": lambda x, y: (-y - x * (x * x + y * y), x - y * (x * x + y * y)),
+        "ch5_e2_i": lambda x, y: (x * (2 - x - y), y * (2 - 2 * y - 2 * x)),
+        "ch5_e2_ii": lambda x, y: (x * (2 - x - y), y * (2 - 2 * y - x / 4.0)),
+        "ch5_e2_iii": lambda x, y: (x * (2 - x - 3 * y), y * (2 - 2 * y - 3 * x)),
+        "ch5_e2_iv": lambda x, y: (x * (1 - 2 * y), y * (-2 + 3 * x)),
+        "ch5_e2_v": lambda x, y: (x * (4 - x / 2.0 - 3 * y), y * (-2 + x)),
+        "ch5_e2_vi": lambda x, y: (x * (10 - x - 3 * y), y * (1 + x - 10 * y)),
+        "ch5_e2_vii": lambda x, y: (x * (3 - x - y), y * (-2 + x)),
+        "ch5_e3_i": lambda x, y: (x * (1 - x + y), y * (1 + x - 2 * y)),
+        "ch5_e3_ii": lambda x, y: (x * (2 - x + y), y * (4 + 2 * x - y)),
+        "ch5_e4_i": lambda x, y: (y, -x),
+        "ch5_e4_ii": lambda x, y: (y, -2 * x**3 + 2 * x),
+        "ch5_e4_iii": lambda x, y: (y, -(3 * x**5 - 5 * x**3 + 4 * x)),
+        "ch5_e5_ii": lambda x, y: (y, -((2 * x**3 - 2 * x) * (1 + (6 * x**2 - 2) * y**2)) / (1 + (2 * x**3 - 2 * x)**2)),
+        "ch5_e6_i": lambda x, y: (y, -x - y),
+        "ch5_e6_ii": lambda x, y: (y, -2 * x**3 + 2 * x - y),
+        "ch5_e6_iii": lambda x, y: (y, -(3 * x**5 - 5 * x**3 + 4 * x) - y),
+        "ch5_e8": lambda x, y: (y, -math.sin(x)),
+        "ch5_e9": lambda x, y: (y, -math.sin(x) - 0.5 * y),
+        "ch5_e10": lambda x, y: (y, -math.sin(x) - 0.4 * y * abs(y)),
+    }
+    return fields[name]
+
+
+def _rk4_nl(fn, p, h):
+    k1 = fn(p[0], p[1])
+    k2 = fn(p[0] + 0.5 * h * k1[0], p[1] + 0.5 * h * k1[1])
+    k3 = fn(p[0] + 0.5 * h * k2[0], p[1] + 0.5 * h * k2[1])
+    k4 = fn(p[0] + h * k3[0], p[1] + h * k3[1])
+    return (p[0] + h / 6.0 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0]),
+            p[1] + h / 6.0 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1]))
+
+
+def _trace_nl(fn, seed, bounds, h=0.015, max_steps=1600, both=True):
+    xmin, xmax, ymin, ymax = bounds
+    margin_x = 0.08 * (xmax - xmin)
+    margin_y = 0.08 * (ymax - ymin)
+    tol = 1e-4 * max(xmax - xmin, ymax - ymin)
+
+    def run(sign):
+        pts, p = [], seed
+        for _ in range(max_steps):
+            v = fn(p[0], p[1])
+            spd = math.hypot(v[0], v[1])
+            if spd < 1e-6 or spd > 1e5:
+                break
+            # normalize step in phase space for smooth, uniform curves
+            dt = sign * min(h, 0.015 * max(xmax - xmin, ymax - ymin) / max(spd, 1e-6))
+            q = _rk4_nl(fn, p, dt)
+            if not (xmin - margin_x <= q[0] <= xmax + margin_x and ymin - margin_y <= q[1] <= ymax + margin_y):
+                pts.append(q)
+                break
+            if math.hypot(q[0] - p[0], q[1] - p[1]) < tol * 0.05:
+                break
+            pts.append(q)
+            p = q
+            if len(pts) > 25 and math.hypot(p[0] - seed[0], p[1] - seed[1]) < tol * 18:
+                break
+        return pts
+
+    fwd = run(+1)
+    if not both:
+        return [seed] + fwd
+    back = run(-1)
+    return back[::-1] + [seed] + fwd
+
+
+def draw_nonlinear(spec, uid):
+    """Nonlinear 2D phase portrait with RK4 orbits, nullclines, separatrices and critical points."""
+    w, h_px = int(spec.get("w", 400)), int(spec.get("h", 300))
+    L, R, T, B = 48.0, w - 18.0, 20.0, h_px - 36.0
+    xmin, xmax, ymin, ymax = [float(v) for v in spec["bounds"]]
+
+    def px(xv, yv):
+        return L + (R - L) * (xv - xmin) / (xmax - xmin), B - (B - T) * (yv - ymin) / (ymax - ymin)
+
+    c = Canvas(w, h_px)
+    c.add(f'<defs><clipPath id="{uid}"><rect x="{L}" y="{T}" width="{R - L}" height="{B - T}"/></clipPath></defs>')
+
+    # axes inside box
+    if xmin <= 0 <= xmax:
+        x0 = px(0, 0)[0]
+        line(c, (x0, B), (x0, T), "EDGE", 1.1)
+    if ymin <= 0 <= ymax:
+        y0 = px(0, 0)[1]
+        line(c, (L, y0), (R, y0), "EDGE", 1.1)
+
+    # ticks
+    tx = _nice_ticks(xmax - xmin)
+    v = math.ceil(xmin / tx - 1e-9) * tx
+    while v <= xmax + 1e-9:
+        if abs(v) < 1e-9:
+            v = 0.0
+        xp = px(v, ymin)[0]
+        line(c, (xp, B), (xp, B + 4), "EDGE", 1.0)
+        text(c, (xp, B + 16), f"{v:g}", "TEXT", "middle", 10)
+        v += tx
+    ty = _nice_ticks(ymax - ymin)
+    v = math.ceil(ymin / ty - 1e-9) * ty
+    while v <= ymax + 1e-9:
+        if abs(v) < 1e-9:
+            v = 0.0
+        yp = px(xmin, v)[1]
+        line(c, (L - 4, yp), (L, yp), "EDGE", 1.0)
+        text(c, (L - 7, yp + 3.5), f"{v:g}", "TEXT", "end", 10)
+        v += ty
+
+    ax, ay = spec.get("axes", ["x", "y"])
+    text(c, ((L + R) / 2, h_px - 6), label_markup(ax), "TEXT", "middle", 12)
+    text(c, (14, (T + B) / 2), label_markup(ay), "TEXT", "middle", 12)
+
+    fn = _nl_field(spec["field"])
+    c.add(f'<g clip-path="url(#{uid})">')
+    # nullclines (dashed)
+    for nc in spec.get("nullclines", []):
+        pts = [px(p[0], p[1]) for p in nc["pts"]]
+        poly(c, pts, nc.get("col", "ACC"), 1.3, "5 4")
+
+    # trajectories
+    for seed in spec.get("seeds", []):
+        pts = _trace_nl(fn, tuple(seed), (xmin, xmax, ymin, ymax),
+                        h=float(spec.get("dt", 0.015)),
+                        max_steps=int(spec.get("max_steps", 1200)))
+        if len(pts) < 3:
+            continue
+        ppx = thin([px(q[0], q[1]) for q in pts], 1.8)
+        if len(ppx) < 3:
+            continue
+        poly(c, ppx, "BLUE", 1.35)
+        # place 1 arrowhead near the middle of the visible segment
+        vis = [i for i, q in enumerate(pts) if xmin + 0.05 * (xmax - xmin) < q[0] < xmax - 0.05 * (xmax - xmin)
+               and ymin + 0.05 * (ymax - ymin) < q[1] < ymax - 0.05 * (ymax - ymin)]
+        if vis:
+            q = pts[vis[len(vis) // 2]]
+            vv = fn(q[0], q[1])
+            dx = vv[0] * (R - L) / (xmax - xmin)
+            dy = -vv[1] * (B - T) / (ymax - ymin)
+            nrm = math.hypot(dx, dy)
+            if nrm > 1e-9:
+                ux, uy = dx / nrm, dy / nrm
+                qx, qy = px(q[0], q[1])
+                arrow_head(c, (qx - ux, qy - uy), (qx + 3.0 * ux, qy + 3.0 * uy), "BLUE", 6.5)
+
+    # separatrices (highlighted in PINK)
+    for sep in spec.get("separatrices", []):
+        pts = _trace_nl(fn, tuple(sep), (xmin, xmax, ymin, ymax),
+                        h=float(spec.get("dt", 0.012)),
+                        max_steps=int(spec.get("max_steps", 1600)))
+        if len(pts) < 3:
+            continue
+        ppx = thin([px(q[0], q[1]) for q in pts], 1.6)
+        poly(c, ppx, "PINK", 2.0)
+
+    c.add("</g>")
+    c.add(f'<rect x="{L}" y="{T}" width="{R - L}" height="{B - T}" fill="none" stroke="EDGE" stroke-width="1"/>')
+
+    # critical points (drawn on top of frame so boundary equilibria stay crisp)
+    for cp in spec.get("crit_pts", []):
+        cx_p, cy_p = px(cp["x"], cp["y"])
+        st = cp.get("kind", "stable")
+        if st == "stable":
+            circle(c, (cx_p, cy_p), 3.8, "GREEN", 1.5, fill="GREEN")
+        elif st == "centre":
+            circle(c, (cx_p, cy_p), 3.8, "BLUE", 1.6, fill="BG")
+        elif st == "saddle":
+            circle(c, (cx_p, cy_p), 3.8, "ACC", 1.8, fill="BG")
+        else:
+            circle(c, (cx_p, cy_p), 3.8, "PINK", 1.6, fill="BG")
+        if cp.get("label"):
+            dx = cp.get("dx", 6)
+            dy = cp.get("dy", -6)
+            anch = cp.get("anchor", "start")
+            text(c, (cx_p + dx, cy_p + dy), cp["label"], "TEXT", anch, 10.5, "600")
+    return c
+
+
+def draw_fourier(spec, uid):
+    """Plot periodic extension of f(x) vs its N-term Fourier partial sum S_N(x)."""
+    c = Canvas(PW, PH)
+    L_val = float(spec.get("L", math.pi))
+    xmin, xmax = -3.0 * L_val, 3.0 * L_val
+    ymin, ymax = float(spec["ymin"]), float(spec["ymax"])
+    L0p, R0p, T0p, B0p = 48.0, PW - 16.0, 20.0, PH - 36.0
+
+    def px(xv, yv):
+        return L0p + (R0p - L0p) * (xv - xmin) / (xmax - xmin), B0p - (B0p - T0p) * (yv - ymin) / (ymax - ymin)
+
+    c.add(f'<defs><clipPath id="{uid}"><rect x="{L0p}" y="{T0p}" width="{R0p - L0p}" height="{B0p - T0p}"/></clipPath></defs>')
+    c.add(f'<rect x="{L0p}" y="{T0p}" width="{R0p - L0p}" height="{B0p - T0p}" fill="none" stroke="EDGE" stroke-width="1"/>')
+    if ymin < 0 < ymax:
+        line(c, (L0p, px(0, 0)[1]), (R0p, px(0, 0)[1]), "EDGE", 1.0)
+    line(c, (px(0, 0)[0], T0p), (px(0, 0)[0], B0p), "EDGE", 1.0)
+
+    # x ticks at multiples of L
+    unit_lbl = "π" if abs(L_val - math.pi) < 1e-6 else "L"
+    for m in (-3, -2, -1, 0, 1, 2, 3):
+        xp = px(m * L_val, 0)[0]
+        line(c, (xp, B0p), (xp, B0p + 4), "EDGE", 1.0)
+        lbl = "0" if m == 0 else (unit_lbl if m == 1 else (f"-{unit_lbl}" if m == -1 else f"{m}{unit_lbl}"))
+        text(c, (xp, B0p + 16), lbl, "TEXT", "middle", 10.5)
+    ty = _nice_ticks(ymax - ymin)
+    v = math.ceil(ymin / ty - 1e-9) * ty
+    while v <= ymax + 1e-9:
+        if abs(v) < 1e-9:
+            v = 0.0
+        yp = px(0, v)[1]
+        line(c, (L0p - 4, yp), (L0p, yp), "EDGE", 1.0)
+        text(c, (L0p - 7, yp + 3.5), f"{v:g}", "TEXT", "end", 10)
+        v += ty
+    text(c, ((L0p + R0p) / 2, PH - 6), label_markup("x"), "TEXT", "middle", 12)
+    text(c, (14, (T0p + B0p) / 2), label_markup("y"), "TEXT", "middle", 12)
+
+    fn_name = spec["fn"]
+    N = int(spec.get("N", 12))
+
+    def wrap(xv):
+        return ((xv + L_val) % (2 * L_val)) - L_val
+
+    def f_val(xv):
+        u = wrap(xv)
+        if fn_name == "step_pi":
+            return 0.0 if u < 0 else math.pi
+        if fn_name == "x2":
+            return u * u
+        if fn_name == "exp_x":
+            return math.exp(u)
+        if fn_name == "piecewise_68":
+            return 1.0 if u < 0 else u + 1.0
+        raise ValueError(fn_name)
+
+    def s_val(xv):
+        if fn_name == "step_pi":
+            s = math.pi / 2.0
+            for k in range(1, N + 1):
+                if k % 2 == 1:
+                    s += (2.0 / k) * math.sin(k * xv)
+            return s
+        if fn_name == "x2":
+            s = L_val * L_val / 3.0
+            for k in range(1, N + 1):
+                s += (4.0 * L_val * L_val * ((-1) ** k) / ((k * math.pi) ** 2)) * math.cos(k * math.pi * xv / L_val)
+            return s
+        if fn_name == "exp_x":
+            sh = math.sinh(L_val)
+            s = sh / L_val
+            for k in range(1, N + 1):
+                denom = L_val * L_val + (k * math.pi) ** 2
+                sg = (-1) ** k
+                s += (2.0 * L_val * sg * sh / denom) * math.cos(k * math.pi * xv / L_val)
+                s += (-2.0 * k * math.pi * sg * sh / denom) * math.sin(k * math.pi * xv / L_val)
+            return s
+        if fn_name == "piecewise_68":
+            s = 1.0 + L_val / 4.0
+            for k in range(1, N + 1):
+                an = L_val * (((-1) ** k) - 1.0) / ((k * math.pi) ** 2)
+                bn = -L_val * ((-1) ** k) / (k * math.pi)
+                s += an * math.cos(k * math.pi * xv / L_val) + bn * math.sin(k * math.pi * xv / L_val)
+            return s
+        raise ValueError(fn_name)
+
+    c.add(f'<g clip-path="url(#{uid})">')
+    # draw periodic extension f(x) piece by piece so jumps do not draw vertical lines
+    segs, cur = [], []
+    steps = 900
+    prev_y = None
+    for i in range(steps + 1):
+        xv = xmin + (xmax - xmin) * i / steps
+        yv = f_val(xv)
+        if prev_y is not None and abs(yv - prev_y) > 0.25 * (ymax - ymin):
+            if len(cur) >= 2:
+                segs.append(cur)
+            cur = [px(xv, yv)]
+        else:
+            cur.append(px(xv, yv))
+        prev_y = yv
+    if len(cur) >= 2:
+        segs.append(cur)
+    for seg in segs:
+        poly(c, seg, "BLUE", 1.8)
+
+    # partial sum S_N(x)
+    spts = [px(xmin + (xmax - xmin) * i / 900, s_val(xmin + (xmax - xmin) * i / 900)) for i in range(901)]
+    poly(c, spts, "PINK", 1.4)
+
+    # jump midpoints
+    for jp in spec.get("jumps", []):
+        circle(c, px(jp[0] * L_val, jp[1]), 3.5, "GREEN", 1.5, fill="GREEN")
+    c.add("</g>")
+
+    # legend (top left inside plot)
+    line(c, (L0p + 8, T0p + 12), (L0p + 26, T0p + 12), "BLUE", 2.0)
+    text(c, (L0p + 31, T0p + 16), "Periodic f(x)", "TEXT", "start", 10.5)
+    line(c, (L0p + 115, T0p + 12), (L0p + 133, T0p + 12), "PINK", 1.8)
+    text(c, (L0p + 138, T0p + 16), f"S_{N}(x)", "TEXT", "start", 10.5)
+    return c
+
+
+def draw_transcendental(spec, uid):
+    """Graphical solution of tan(mu) = -mu/h (Robin) or tan(mu) = mu (Ex. 6.2(ii))."""
+    c = Canvas(PW, PH)
+    mode = spec.get("mode", "robin")
+    h_val = float(spec.get("h", 1.0))
+    xmax = float(spec.get("xmax", 3.5 * math.pi))
+    ymax = float(spec.get("ymax", 10.0))
+    L0p, R0p, T0p, B0p = 48.0, PW - 16.0, 20.0, PH - 36.0
+
+    def px(xv, yv):
+        return L0p + (R0p - L0p) * xv / xmax, B0p - (B0p - T0p) * (yv + ymax) / (2 * ymax)
+
+    c.add(f'<defs><clipPath id="{uid}"><rect x="{L0p}" y="{T0p}" width="{R0p - L0p}" height="{B0p - T0p}"/></clipPath></defs>')
+    c.add(f'<rect x="{L0p}" y="{T0p}" width="{R0p - L0p}" height="{B0p - T0p}" fill="none" stroke="EDGE" stroke-width="1"/>')
+    line(c, (L0p, px(0, 0)[1]), (R0p, px(0, 0)[1]), "EDGE", 1.0)
+
+    # x ticks at multiples of pi/2
+    for k_t in range(0, int(xmax / (math.pi / 2)) + 1):
+        xv = k_t * math.pi / 2
+        if xv > xmax + 1e-6:
+            break
+        xp = px(xv, 0)[0]
+        line(c, (xp, B0p), (xp, B0p + 4), "EDGE", 1.0)
+        if k_t == 0:
+            lbl = "0"
+        elif k_t % 2 == 0:
+            m_pi = k_t // 2
+            lbl = "π" if m_pi == 1 else f"{m_pi}π"
+        else:
+            lbl = "π/2" if k_t == 1 else f"{k_t}π/2"
+        text(c, (xp, B0p + 16), lbl, "TEXT", "middle", 9.5)
+    for yv in (-ymax, -ymax / 2, 0, ymax / 2, ymax):
+        yp = px(0, yv)[1]
+        line(c, (L0p - 4, yp), (L0p, yp), "EDGE", 1.0)
+        text(c, (L0p - 7, yp + 3.5), f"{yv:g}", "TEXT", "end", 10)
+    text(c, ((L0p + R0p) / 2, PH - 6), "μ = √λ" if mode == "robin" else "μ = √(-λ)", "TEXT", "middle", 11.5)
+    text(c, (14, (T0p + B0p) / 2), "y", "TEXT", "middle", 12)
+
+    c.add(f'<g clip-path="url(#{uid})">')
+    # asymptotes and tan(mu) branches
+    k_br = 0
+    while (k_br - 0.5) * math.pi < xmax:
+        a = max(0.0, (k_br - 0.5) * math.pi + 0.04)
+        b = min(xmax, (k_br + 0.5) * math.pi - 0.04)
+        if (k_br + 0.5) * math.pi < xmax:
+            xa = px((k_br + 0.5) * math.pi, 0)[0]
+            line(c, (xa, T0p), (xa, B0p), "EDGE", 1.0, "4 4")
+        if b > a:
+            pts = [px(a + (b - a) * i / 120, math.tan(a + (b - a) * i / 120)) for i in range(121)]
+            poly(c, pts, "BLUE", 1.7)
+        k_br += 1
+
+    # line y = -mu/h or y = mu
+    if mode == "robin":
+        poly(c, [px(0, 0), px(xmax, -xmax / h_val)], "PINK", 1.8)
+        roots = []
+        for idx in (1, 2, 3):
+            lo, hi = (idx - 0.5) * math.pi + 1e-5, idx * math.pi - 1e-5
+            if lo < xmax:
+                for _ in range(60):
+                    mid = 0.5 * (lo + hi)
+                    if math.tan(mid) + mid / h_val < 0:
+                        lo = mid
+                    else:
+                        hi = mid
+                roots.append((idx, 0.5 * (lo + hi), -0.5 * (lo + hi) / h_val))
+    else:
+        poly(c, [px(0, 0), px(xmax, xmax)], "PINK", 1.8)
+        roots = []
+        for idx in (1, 2, 3):
+            lo, hi = idx * math.pi + 1e-5, (idx + 0.5) * math.pi - 1e-5
+            if hi < xmax:
+                for _ in range(60):
+                    mid = 0.5 * (lo + hi)
+                    if math.tan(mid) - mid < 0:
+                        lo = mid
+                    else:
+                        hi = mid
+                roots.append((idx, 0.5 * (lo + hi), 0.5 * (lo + hi)))
+
+    for idx, rx, ry in roots:
+        if -ymax <= ry <= ymax:
+            qx, qy = px(rx, ry)
+            circle(c, (qx, qy), 3.8, "GREEN", 1.5, fill="GREEN")
+            text(c, (qx + 6, qy - 6 if mode == "robin" else qy + 13), f"μ{idx}≈{rx:.2f}", "TEXT", "start", 10, "600")
+    c.add("</g>")
+
+    line(c, (L0p + 8, T0p + 12), (L0p + 26, T0p + 12), "BLUE", 2.0)
+    text(c, (L0p + 31, T0p + 16), "y = tan μ", "TEXT", "start", 10.5)
+    line(c, (L0p + 98, T0p + 12), (L0p + 116, T0p + 12), "PINK", 2.0)
+    text(c, (L0p + 121, T0p + 16), f"y = -μ/{h_val:g}" if mode == "robin" else "y = μ", "TEXT", "start", 10.5)
+    return c
+
+
 def build(specs):
     """Registry of the figures listed in `specs` ({name: spec} with 'caption' and 'title')."""
     reg = Registry(FOLDER)
+    renderers = {
+        "series": draw_series,
+        "response": draw_response,
+        "nonlinear": draw_nonlinear,
+        "fourier": draw_fourier,
+        "transcendental": draw_transcendental,
+    }
     for name in sorted(specs):
         spec = specs[name]
         uid = "clip-" + re.sub(r"[^A-Za-z0-9]", "-", name)
         kind = spec.get("kind", "portrait")
-        canvas = {"series": draw_series, "response": draw_response}.get(kind, draw)(spec, uid)
-        # EXTRA: computed answer to "sketch the phase portrait"; the official sheets print no figure
+        canvas = renderers.get(kind, draw)(spec, uid)
+        # EXTRA: computed answer to "sketch the phase portrait" / Fourier / transcendental plot; official sheets print no figure
         reg.put(name, canvas, spec.get("title", name), spec.get("caption"))
     return reg

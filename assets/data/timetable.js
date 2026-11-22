@@ -1942,12 +1942,12 @@ window.AE_TIMETABLE = {
        "href": "subjects/advanced-maths/teoria/topic-5.html#sec-8"
       },
       {
-       "label": "Extra problem P08",
-       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P08"
+       "label": "Problem 5.2",
+       "href": "subjects/advanced-maths/problemas/topic-5-problems.html#e2"
       },
       {
-       "label": "Extra problem P09",
-       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P09"
+       "label": "Problem 5.4",
+       "href": "subjects/advanced-maths/problemas/topic-5-problems.html#e4"
       }
      ]
     },
@@ -1965,8 +1965,12 @@ window.AE_TIMETABLE = {
      "lab": null,
      "links": [
       {
-       "label": "Theory Topic 5 (§10)",
-       "href": "subjects/advanced-maths/teoria/topic-5.html#sec-10"
+       "label": "Problem 5.2",
+       "href": "subjects/advanced-maths/problemas/topic-5-problems.html#e2"
+      },
+      {
+       "label": "Problem 5.4",
+       "href": "subjects/advanced-maths/problemas/topic-5-problems.html#e4"
       },
       {
        "label": "Theory Topic 6 (§1)",

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-22-maths-problems-ch5-ch6",
+    "date": "2026-11-22",
+    "tag": "Advanced Maths",
+    "title": "Solved problem sheets: Chapters 5 and 6 (19 exercises)",
+    "text": "Added step-by-step solutions and computed phase portraits, Robin curves and Fourier plots for all exercises of Chapters 5 (nonlinear systems) and 6 (Sturm-Liouville and Fourier).",
+    "link": "subjects/advanced-maths/problemas/index.html"
+  },
+  {
     "id": "2026-11-22-maths-theory-topics-5-6",
     "date": "2026-11-22",
     "tag": "Advanced Maths",

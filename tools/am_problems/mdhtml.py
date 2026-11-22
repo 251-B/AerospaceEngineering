@@ -78,18 +78,18 @@ def parse(text):
             out.append(("table", rows[0], [r for r in rows[2:]]))
         elif re.match(r"- ", s):
             items = []
-            while i < len(lines) and (lines[i].startswith("- ") or lines[i].startswith("  ")) and lines[i].strip():
-                if lines[i].startswith("- "):
-                    items.append(lines[i][2:].strip())
+            while i < len(lines) and (lines[i].lstrip().startswith("- ") or lines[i].startswith("  ")) and lines[i].strip():
+                if not items or lines[i].lstrip().startswith("- "):
+                    items.append(lines[i].lstrip()[2:].strip())
                 else:
                     items[-1] += " " + lines[i].strip()
                 i += 1
             out.append(("ul", items))
         elif re.match(r"\d+\. ", s):
             items = []
-            while i < len(lines) and (re.match(r"\d+\. ", lines[i]) or lines[i].startswith("   ")) and lines[i].strip():
-                if re.match(r"\d+\. ", lines[i]):
-                    items.append(re.sub(r"^\d+\. ", "", lines[i]).strip())
+            while i < len(lines) and (re.match(r"\d+\. ", lines[i].lstrip()) or lines[i].startswith("   ")) and lines[i].strip():
+                if not items or re.match(r"\d+\. ", lines[i].lstrip()):
+                    items.append(re.sub(r"^\d+\. ", "", lines[i].lstrip()).strip())
                 else:
                     items[-1] += " " + lines[i].strip()
                 i += 1
@@ -171,4 +171,6 @@ def split_note(text):
             statement = rest
         elif pm:
             phases.append((int(pm.group(1)), pm.group(2).strip(), rest))
+        elif head.strip():
+            phases.append((min(len(phases) + 1, 4), head.strip(), rest))
     return fm, title, statement, phases

@@ -125,14 +125,16 @@ flowchart TD
   * [[04 - Advanced Maths/Concept - Planar Systems with Complex Eigenvalues|Planar Systems with Complex Eigenvalues]] — $\mathbf z = Q^{-1}\mathbf x$ with $Q = [\mathbf u \mid \mathbf w]$, $J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho \end{pmatrix}$, polar solution, spirals and centre in the $\mathbf z$- and $\mathbf x$-planes, sense of rotation.
   * [[04 - Advanced Maths/Concept - Planar Systems with a Repeated Eigenvalue|Planar Systems with a Repeated Eigenvalue]] — $m_a$ vs $m_g$, stars ($A = \lambda I$), Jordan chain, $z_1 = (c_1 + c_2t)e^{\lambda t}$, improper nodes with a full worked example.
 * **Problem Sheets 4, parts 1 and 2 (19 exercises, step by step):** [[04 - Advanced Maths/Problem Set - Chapter 4 Part 1|Problem Set - Chapter 4 Part 1]] (systems, elimination, real eigenvalues, decoupling) and [[04 - Advanced Maths/Problem Set - Chapter 4 Part 2|Problem Set - Chapter 4 Part 2]] (complex and repeated eigenvalues, canonical forms, nine portraits). Web pages: `topic-4-part-1.html` and `topic-4-part-2.html` in `subjects/advanced-maths/problemas/`.
-* *Status: web pages available (`subjects/advanced-maths/teoria/topic-4.html` and `subjects/advanced-maths/teoria/topic-5.html`).*
+* **Problem Sheet 5 (10 exercises, step by step):** [[04 - Advanced Maths/Problem Set - Chapter 5|Problem Set - Chapter 5]] (linearized centre vs nonlinear spiral, seven competition and predator-prey models, two cooperative systems, conservative and damped potentials, bead on a curved wire, and undamped, linearly damped and quadratically damped pendula). Web page: `subjects/advanced-maths/problemas/topic-5-problems.html`.
+* *Status: web pages available (`subjects/advanced-maths/teoria/topic-4.html`, `topic-5.html`, and `problemas/topic-5-problems.html`).*
 
 ---
 
 ### 🌊 Bloque IV: Classical PDEs and Fourier Analysis
 * **Unit Guide (Topic 6 — Heat Equation, Sturm-Liouville & Fourier Series):** [[04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series|Tema 6: The Heat Equation, Sturm-Liouville Problems and Fourier Series]] (`Notes09-12-Nov.pdf`, pp. 1-14; Haberman Ch. 1-3, 5; Sheet 6). Web page: `subjects/advanced-maths/teoria/topic-6.html`.
 * **Topics:** 1D heat equation with zero Dirichlet BCs, separation of variables $u = \phi(x)T(t)$, eigenvalue problems ($\lambda > 0, = 0, < 0$), superposition, Fourier series and periodic extensions, orthogonality and Euler-Fourier coefficients, symmetry and half-range expansions, pointwise convergence, term-by-term differentiation, and Sturm-Liouville extensions (Dirichlet, Neumann, mixed, Robin, integrating factor, Euler equation, Rayleigh quotient).
-* *Status: Topic 6 theory web page available (`subjects/advanced-maths/teoria/topic-6.html`).*
+* **Problem Sheet 6 (9 exercises, step by step):** [[04 - Advanced Maths/Problem Set - Chapter 6|Problem Set - Chapter 6]] (Dirichlet, mixed, Neumann and Robin eigenvalue problems, first-derivative constant-coefficient BVPs, Sturm-Liouville integrating factor, Euler BVP with Rayleigh quotient, nine Fourier series, trigonometric identities, orthogonality, periodic sketches and jump midpoints, even/odd series). Web page: `subjects/advanced-maths/problemas/topic-6-problems.html`.
+* *Status: Topic 6 theory and problem web pages available (`subjects/advanced-maths/teoria/topic-6.html` and `problemas/topic-6-problems.html`).*
 
 ---
 

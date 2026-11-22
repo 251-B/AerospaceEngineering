@@ -1978,5 +1978,1859 @@
   "caption": "Canonical $\\mathbf z$-plane (unstable spiral): clockwise, $\\dot\\theta = -\\omega$.",
   "plane": "z-plane",
   "title": "ch4b-e8-viii z-plane"
+ },
+ "ch5-e1-spiral": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -1.6,
+   1.6,
+   -1.6,
+   1.6
+  ],
+  "caption": "Phase portrait of $\\dot x = -y + \\lambda x(x^2+y^2)$, $\\dot y = x + \\lambda y(x^2+y^2)$ for $\\lambda = -1$: trajectories wind counter-clockwise and spiral slowly into the origin.",
+  "crit_pts": [
+   {
+    "dx": 8,
+    "dy": -8,
+    "kind": "stable",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e1",
+  "dt": 0.02,
+  "kind": "nonlinear",
+  "max_steps": 2200,
+  "seeds": [
+   [
+    1.4,
+    0.0
+   ],
+   [
+    -1.4,
+    0.0
+   ],
+   [
+    0.0,
+    1.4
+   ],
+   [
+    0.0,
+    -1.4
+   ]
+  ],
+  "title": "Nonlinear stable spiral (lambda = -1)"
+ },
+ "ch5-e10-quad-pendulum": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -6.6,
+   6.6,
+   -3.0,
+   3.0
+  ],
+  "caption": "Exercise 5.10: pendulum with quadratic drag ($k = 0.4$). Although the linearization at $(2m\\pi, 0)$ is a centre, $\\dot E = -ky^2|y| \\le 0$ forces orbits to spiral slowly into $(2m\\pi, 0)$.",
+  "crit_pts": [
+   {
+    "dx": 5,
+    "dy": -7,
+    "kind": "stable",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 5,
+    "dy": -7,
+    "kind": "saddle",
+    "label": "(π,0)",
+    "x": 3.141592653589793,
+    "y": 0
+   },
+   {
+    "dx": -30,
+    "dy": -7,
+    "kind": "saddle",
+    "label": "(-π,0)",
+    "x": -3.141592653589793,
+    "y": 0
+   },
+   {
+    "dx": -28,
+    "dy": -7,
+    "kind": "stable",
+    "label": "(2π,0)",
+    "x": 6.283185307179586,
+    "y": 0
+   },
+   {
+    "dx": 5,
+    "dy": -7,
+    "kind": "stable",
+    "label": "(-2π,0)",
+    "x": -6.283185307179586,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e10",
+  "h": 270,
+  "kind": "nonlinear",
+  "max_steps": 2400,
+  "seeds": [
+   [
+    -6.2,
+    2.6
+   ],
+   [
+    6.2,
+    -2.6
+   ],
+   [
+    -2.2,
+    2.5
+   ],
+   [
+    2.2,
+    -2.5
+   ],
+   [
+    0,
+    1.8
+   ],
+   [
+    0,
+    -1.8
+   ]
+  ],
+  "separatrices": [
+   [
+    3.101592653589793,
+    0.04
+   ],
+   [
+    3.181592653589793,
+    -0.04
+   ],
+   [
+    -3.181592653589793,
+    0.04
+   ],
+   [
+    -3.101592653589793,
+    -0.04
+   ]
+  ],
+  "title": "Quadratically damped pendulum 5.10",
+  "w": 460
+ },
+ "ch5-e2-i": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   0,
+   3.0,
+   0,
+   2.5
+  ],
+  "caption": "Exercise 5.2 (i) for $x, y \\ge 0$: dashed nullclines $y = 2 - x$ and $y = 1 - x$ do not intersect in the first quadrant; every interior orbit converges to $(2, 0)$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "unstable",
+    "label": "A(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": -6,
+    "kind": "saddle",
+    "label": "B(0,1)",
+    "x": 0,
+    "y": 1
+   },
+   {
+    "dx": 5,
+    "dy": -8,
+    "kind": "stable",
+    "label": "C(2,0)",
+    "x": 2,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e2_i",
+  "kind": "nonlinear",
+  "nullclines": [
+   {
+    "col": "ACC",
+    "pts": [
+     [
+      0,
+      2
+     ],
+     [
+      2,
+      0
+     ]
+    ]
+   },
+   {
+    "col": "GREEN",
+    "pts": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      0
+     ]
+    ]
+   }
+  ],
+  "seeds": [
+   [
+    0.15,
+    0.3
+   ],
+   [
+    0.2,
+    0.8
+   ],
+   [
+    0.15,
+    1.5
+   ],
+   [
+    0.5,
+    2.2
+   ],
+   [
+    1.5,
+    2.0
+   ],
+   [
+    2.6,
+    1.8
+   ],
+   [
+    2.8,
+    0.5
+   ],
+   [
+    0.6,
+    0.15
+   ],
+   [
+    1.2,
+    1.1
+   ]
+  ],
+  "title": "Competing species 5.2(i)"
+ },
+ "ch5-e2-ii": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   0,
+   3.0,
+   0,
+   2.5
+  ],
+  "caption": "Exercise 5.2 (ii) for $x, y \\ge 0$: nullclines $y = 2 - x$ and $y = 1 - x/8$ cross at the stable coexistence node $D(8/7, 6/7)$, attracting all interior trajectories.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "unstable",
+    "label": "A",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": -6,
+    "kind": "saddle",
+    "label": "B(0,1)",
+    "x": 0,
+    "y": 1
+   },
+   {
+    "dx": 5,
+    "dy": -8,
+    "kind": "saddle",
+    "label": "C(2,0)",
+    "x": 2,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": -7,
+    "kind": "stable",
+    "label": "D(8/7,6/7)",
+    "x": 1.1428571428571428,
+    "y": 0.8571428571428571
+   }
+  ],
+  "field": "ch5_e2_ii",
+  "kind": "nonlinear",
+  "nullclines": [
+   {
+    "col": "ACC",
+    "pts": [
+     [
+      0,
+      2
+     ],
+     [
+      2,
+      0
+     ]
+    ]
+   },
+   {
+    "col": "GREEN",
+    "pts": [
+     [
+      0,
+      1
+     ],
+     [
+      3,
+      0.625
+     ]
+    ]
+   }
+  ],
+  "seeds": [
+   [
+    0.12,
+    0.25
+   ],
+   [
+    0.15,
+    0.75
+   ],
+   [
+    0.15,
+    1.7
+   ],
+   [
+    0.6,
+    2.3
+   ],
+   [
+    1.8,
+    2.2
+   ],
+   [
+    2.7,
+    1.6
+   ],
+   [
+    2.8,
+    0.3
+   ],
+   [
+    1.8,
+    0.12
+   ],
+   [
+    0.7,
+    0.1
+   ]
+  ],
+  "title": "Competing species 5.2(ii)"
+ },
+ "ch5-e2-iii": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   0,
+   2.6,
+   0,
+   1.8
+  ],
+  "caption": "Exercise 5.2 (iii) for $x, y \\ge 0$: the stable manifold (pink) of the saddle $D(2/7, 4/7)$ separates the basins of the two stable exclusion nodes $B(0, 1)$ and $C(2, 0)$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "unstable",
+    "label": "A",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": -6,
+    "kind": "stable",
+    "label": "B(0,1)",
+    "x": 0,
+    "y": 1
+   },
+   {
+    "dx": 5,
+    "dy": -8,
+    "kind": "stable",
+    "label": "C(2,0)",
+    "x": 2,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": 4,
+    "kind": "saddle",
+    "label": "D(2/7,4/7)",
+    "x": 0.2857142857142857,
+    "y": 0.5714285714285714
+   }
+  ],
+  "field": "ch5_e2_iii",
+  "kind": "nonlinear",
+  "nullclines": [
+   {
+    "col": "ACC",
+    "pts": [
+     [
+      0,
+      0.6666666666666666
+     ],
+     [
+      2,
+      0
+     ]
+    ]
+   },
+   {
+    "col": "GREEN",
+    "pts": [
+     [
+      0,
+      1
+     ],
+     [
+      0.6666666666666666,
+      0
+     ]
+    ]
+   }
+  ],
+  "seeds": [
+   [
+    0.1,
+    0.4
+   ],
+   [
+    0.15,
+    1.5
+   ],
+   [
+    0.7,
+    1.6
+   ],
+   [
+    1.4,
+    1.5
+   ],
+   [
+    2.3,
+    1.2
+   ],
+   [
+    2.4,
+    0.3
+   ],
+   [
+    0.8,
+    0.15
+   ],
+   [
+    0.25,
+    0.1
+   ]
+  ],
+  "separatrices": [
+   [
+    0.3057142857142857,
+    0.6114285714285714
+   ],
+   [
+    0.2657142857142857,
+    0.5314285714285714
+   ]
+  ],
+  "title": "Strong competition 5.2(iii)"
+ },
+ "ch5-e2-iv": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   0,
+   2.2,
+   0,
+   1.6
+  ],
+  "caption": "Exercise 5.2 (iv) for $x, y \\ge 0$: closed counter-clockwise periodic orbits around the nonlinear centre $(2/3, 1/2)$, with saddle at the origin.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "saddle",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": -6,
+    "kind": "centre",
+    "label": "(2/3,1/2)",
+    "x": 0.6666666666666666,
+    "y": 0.5
+   }
+  ],
+  "field": "ch5_e2_iv",
+  "kind": "nonlinear",
+  "max_steps": 2000,
+  "nullclines": [
+   {
+    "col": "ACC",
+    "pts": [
+     [
+      0,
+      0.5
+     ],
+     [
+      2.2,
+      0.5
+     ]
+    ]
+   },
+   {
+    "col": "GREEN",
+    "pts": [
+     [
+      0.6666666666666666,
+      0
+     ],
+     [
+      0.6666666666666666,
+      1.6
+     ]
+    ]
+   }
+  ],
+  "seeds": [
+   [
+    0.9,
+    0.5
+   ],
+   [
+    1.2,
+    0.5
+   ],
+   [
+    1.55,
+    0.5
+   ],
+   [
+    1.9,
+    0.5
+   ]
+  ],
+  "title": "Lotka-Volterra predator-prey 5.2(iv)"
+ },
+ "ch5-e2-v": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   0,
+   9.0,
+   0,
+   2.6
+  ],
+  "caption": "Exercise 5.2 (v) for $x, y \\ge 0$: saddles at $(0, 0)$ and $(8, 0)$; every interior orbit spirals counter-clockwise into the stable coexistence spiral $(2, 1)$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "saddle",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": -16,
+    "dy": -8,
+    "kind": "saddle",
+    "label": "(8,0)",
+    "x": 8,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": -6,
+    "kind": "stable",
+    "label": "(2,1)",
+    "x": 2,
+    "y": 1
+   }
+  ],
+  "field": "ch5_e2_v",
+  "kind": "nonlinear",
+  "max_steps": 2200,
+  "nullclines": [
+   {
+    "col": "ACC",
+    "pts": [
+     [
+      0,
+      1.3333333333333333
+     ],
+     [
+      8,
+      0
+     ]
+    ]
+   },
+   {
+    "col": "GREEN",
+    "pts": [
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      2.6
+     ]
+    ]
+   }
+  ],
+  "seeds": [
+   [
+    0.5,
+    0.2
+   ],
+   [
+    5.0,
+    0.25
+   ],
+   [
+    8.4,
+    0.5
+   ],
+   [
+    7.0,
+    2.2
+   ],
+   [
+    1.0,
+    2.3
+   ]
+  ],
+  "title": "Logistic prey and predator 5.2(v)"
+ },
+ "ch5-e2-vi": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   0,
+   12.0,
+   0,
+   2.2
+  ],
+  "caption": "Exercise 5.2 (vi) for $x, y \\ge 0$: unstable node $(0,0)$, saddles $(10,0)$ and $(0, 1/10)$, and stable coexistence spiral $(97/13, 11/13) \\approx (7.46, 0.85)$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "unstable",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": -14,
+    "dy": -8,
+    "kind": "saddle",
+    "label": "(10,0)",
+    "x": 10,
+    "y": 0
+   },
+   {
+    "dx": 6,
+    "dy": -5,
+    "kind": "saddle",
+    "label": "(0,0.1)",
+    "x": 0,
+    "y": 0.1
+   },
+   {
+    "dx": 6,
+    "dy": -8,
+    "kind": "stable",
+    "label": "(97/13,11/13)",
+    "x": 7.461538461538462,
+    "y": 0.8461538461538461
+   }
+  ],
+  "field": "ch5_e2_vi",
+  "kind": "nonlinear",
+  "max_steps": 1800,
+  "nullclines": [
+   {
+    "col": "ACC",
+    "pts": [
+     [
+      3.4,
+      2.2
+     ],
+     [
+      10,
+      0
+     ]
+    ]
+   },
+   {
+    "col": "GREEN",
+    "pts": [
+     [
+      0,
+      0.1
+     ],
+     [
+      12,
+      1.3
+     ]
+    ]
+   }
+  ],
+  "seeds": [
+   [
+    1.0,
+    0.2
+   ],
+   [
+    1.5,
+    1.6
+   ],
+   [
+    5.0,
+    2.0
+   ],
+   [
+    11.0,
+    1.8
+   ],
+   [
+    11.5,
+    0.4
+   ],
+   [
+    5.0,
+    0.1
+   ]
+  ],
+  "title": "Predator with alternative food 5.2(vi)"
+ },
+ "ch5-e2-vii": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   0,
+   4.2,
+   0,
+   3.0
+  ],
+  "caption": "Exercise 5.2 (vii) for $x, y \\ge 0$: saddles at $(0, 0)$ and $(3, 0)$; all interior trajectories spiral into the stable coexistence spiral $(2, 1)$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "saddle",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 5,
+    "dy": -8,
+    "kind": "saddle",
+    "label": "(3,0)",
+    "x": 3,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": -6,
+    "kind": "stable",
+    "label": "(2,1)",
+    "x": 2,
+    "y": 1
+   }
+  ],
+  "field": "ch5_e2_vii",
+  "kind": "nonlinear",
+  "max_steps": 1800,
+  "nullclines": [
+   {
+    "col": "ACC",
+    "pts": [
+     [
+      0,
+      3
+     ],
+     [
+      3,
+      0
+     ]
+    ]
+   },
+   {
+    "col": "GREEN",
+    "pts": [
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      3
+     ]
+    ]
+   }
+  ],
+  "seeds": [
+   [
+    0.3,
+    0.2
+   ],
+   [
+    2.4,
+    0.15
+   ],
+   [
+    3.8,
+    0.5
+   ],
+   [
+    3.6,
+    2.4
+   ],
+   [
+    0.8,
+    2.7
+   ]
+  ],
+  "title": "Logistic prey and predator 5.2(vii)"
+ },
+ "ch5-e3-i": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   0,
+   5.0,
+   0,
+   4.0
+  ],
+  "caption": "Exercise 5.3 (i) for $x, y \\ge 0$: cooperation with finite carrying capacity; nullclines $y = x - 1$ and $y = (1 + x)/2$ intersect at the globally attracting stable node $(3, 2)$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "unstable",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 5,
+    "dy": -8,
+    "kind": "saddle",
+    "label": "(1,0)",
+    "x": 1,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": -5,
+    "kind": "saddle",
+    "label": "(0,1/2)",
+    "x": 0,
+    "y": 0.5
+   },
+   {
+    "dx": 7,
+    "dy": -6,
+    "kind": "stable",
+    "label": "(3,2)",
+    "x": 3,
+    "y": 2
+   }
+  ],
+  "field": "ch5_e3_i",
+  "kind": "nonlinear",
+  "nullclines": [
+   {
+    "col": "ACC",
+    "pts": [
+     [
+      1,
+      0
+     ],
+     [
+      5,
+      4
+     ]
+    ]
+   },
+   {
+    "col": "GREEN",
+    "pts": [
+     [
+      0,
+      0.5
+     ],
+     [
+      5,
+      3
+     ]
+    ]
+   }
+  ],
+  "seeds": [
+   [
+    0.2,
+    0.15
+   ],
+   [
+    0.2,
+    1.5
+   ],
+   [
+    0.5,
+    3.6
+   ],
+   [
+    2.5,
+    3.8
+   ],
+   [
+    4.7,
+    3.6
+   ],
+   [
+    4.8,
+    1.5
+   ],
+   [
+    4.5,
+    0.25
+   ],
+   [
+    2.0,
+    0.15
+   ]
+  ],
+  "title": "Bounded cooperation 5.3(i)"
+ },
+ "ch5-e3-ii": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   0,
+   6.0,
+   0,
+   8.0
+  ],
+  "caption": "Exercise 5.3 (ii) for $x, y \\ge 0$: nullclines $y = x - 2$ and $y = 4 + 2x$ diverge in the first quadrant; no interior equilibrium exists and both populations grow unboundedly.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "unstable",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 5,
+    "dy": -8,
+    "kind": "saddle",
+    "label": "(2,0)",
+    "x": 2,
+    "y": 0
+   },
+   {
+    "dx": 7,
+    "dy": -5,
+    "kind": "saddle",
+    "label": "(0,4)",
+    "x": 0,
+    "y": 4
+   }
+  ],
+  "field": "ch5_e3_ii",
+  "kind": "nonlinear",
+  "nullclines": [
+   {
+    "col": "ACC",
+    "pts": [
+     [
+      2,
+      0
+     ],
+     [
+      6,
+      4
+     ]
+    ]
+   },
+   {
+    "col": "GREEN",
+    "pts": [
+     [
+      0,
+      4
+     ],
+     [
+      2,
+      8
+     ]
+    ]
+   }
+  ],
+  "seeds": [
+   [
+    0.2,
+    0.3
+   ],
+   [
+    0.4,
+    2.5
+   ],
+   [
+    0.4,
+    6.0
+   ],
+   [
+    1.5,
+    0.2
+   ],
+   [
+    3.5,
+    0.3
+   ],
+   [
+    5.5,
+    0.5
+   ],
+   [
+    3.0,
+    3.0
+   ]
+  ],
+  "title": "Unbounded cooperation 5.3(ii)"
+ },
+ "ch5-e4-i": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -2.4,
+   2.4,
+   -2.4,
+   2.4
+  ],
+  "caption": "Exercise 5.4 (i) with $\\omega = 1$: concentric clockwise circles $y^2 + x^2 = 2E$ around the centre $(0, 0)$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "centre",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e4_i",
+  "kind": "nonlinear",
+  "seeds": [
+   [
+    0.5,
+    0
+   ],
+   [
+    1.0,
+    0
+   ],
+   [
+    1.5,
+    0
+   ],
+   [
+    2.0,
+    0
+   ]
+  ],
+  "title": "Harmonic oscillator 5.4(i)"
+ },
+ "ch5-e4-ii": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -2.2,
+   2.2,
+   -2.2,
+   2.2
+  ],
+  "caption": "Exercise 5.4 (ii): saddle at $(0, 0)$ with figure-eight homoclinic separatrix $E = 0$ (pink), centres at $(\\pm 1, 0)$ for low-energy wells ($-1/2 < E < 0$), and high-energy orbits ($E > 0$).",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -10,
+    "kind": "saddle",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "centre",
+    "label": "(1,0)",
+    "x": 1,
+    "y": 0
+   },
+   {
+    "dx": -32,
+    "dy": -6,
+    "kind": "centre",
+    "label": "(-1,0)",
+    "x": -1,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e4_ii",
+  "kind": "nonlinear",
+  "max_steps": 1800,
+  "seeds": [
+   [
+    1.0,
+    0.4
+   ],
+   [
+    1.0,
+    0.8
+   ],
+   [
+    -1.0,
+    0.4
+   ],
+   [
+    -1.0,
+    0.8
+   ],
+   [
+    0.0,
+    0.6
+   ],
+   [
+    0.0,
+    1.2
+   ],
+   [
+    0.0,
+    1.7
+   ]
+  ],
+  "separatrices": [
+   [
+    0.05,
+    0.0706
+   ],
+   [
+    -0.05,
+    -0.0706
+   ]
+  ],
+  "title": "Double-well oscillator 5.4(ii)"
+ },
+ "ch5-e4-iii": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -1.8,
+   1.8,
+   -3.5,
+   3.5
+  ],
+  "caption": "Exercise 5.4 (iii) with the sheet potential $V(x) = \\tfrac{1}{2}x^6 - \\tfrac{5}{4}x^4 + 2x^2$: only $(0, 0)$ is a real equilibrium (centre), surrounded by nested clockwise periodic orbits.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "centre",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e4_iii",
+  "kind": "nonlinear",
+  "max_steps": 1800,
+  "seeds": [
+   [
+    0.4,
+    0
+   ],
+   [
+    0.8,
+    0
+   ],
+   [
+    1.15,
+    0
+   ],
+   [
+    1.4,
+    0
+   ]
+  ],
+  "title": "Sextic single-well oscillator 5.4(iii)"
+ },
+ "ch5-e5-ii": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -2.0,
+   2.0,
+   -2.0,
+   2.0
+  ],
+  "caption": "Exercise 5.5 (ii): bead moving on the wire $z = \\tfrac{1}{2}x^4 - x^2$; same equilibria and figure-eight separatrix topology as Exercise 5.4 (ii), with flattened high-energy curves due to the $1 + (V')^2$ inertia factor.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -10,
+    "kind": "saddle",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "centre",
+    "label": "(1,0)",
+    "x": 1,
+    "y": 0
+   },
+   {
+    "dx": -32,
+    "dy": -6,
+    "kind": "centre",
+    "label": "(-1,0)",
+    "x": -1,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e5_ii",
+  "kind": "nonlinear",
+  "max_steps": 1800,
+  "seeds": [
+   [
+    1.0,
+    0.4
+   ],
+   [
+    1.0,
+    0.8
+   ],
+   [
+    -1.0,
+    0.4
+   ],
+   [
+    -1.0,
+    0.8
+   ],
+   [
+    0.0,
+    0.5
+   ],
+   [
+    0.0,
+    1.0
+   ],
+   [
+    0.0,
+    1.5
+   ]
+  ],
+  "separatrices": [
+   [
+    0.05,
+    0.0706
+   ],
+   [
+    -0.05,
+    -0.0706
+   ]
+  ],
+  "title": "Bead on a double-well wire 5.5(ii)"
+ },
+ "ch5-e6-i": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -2.2,
+   2.2,
+   -2.2,
+   2.2
+  ],
+  "caption": "Exercise 5.6 (i) ($\\omega = 1$, damping $-\\dot x$): underdamped stable spiral at $(0, 0)$ with $\\lambda = (-1 \\pm i\\sqrt{3})/2$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "stable",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e6_i",
+  "kind": "nonlinear",
+  "seeds": [
+   [
+    2.0,
+    0
+   ],
+   [
+    -2.0,
+    0
+   ],
+   [
+    0,
+    2.0
+   ],
+   [
+    0,
+    -2.0
+   ]
+  ],
+  "title": "Damped harmonic oscillator 5.6(i)"
+ },
+ "ch5-e6-ii": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -2.2,
+   2.2,
+   -2.4,
+   2.4
+  ],
+  "caption": "Exercise 5.6 (ii): the stable manifold (pink) of the saddle $(0, 0)$ partitions the phase plane into the basins of attraction of the two stable spirals $(-1, 0)$ and $(1, 0)$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -8,
+    "kind": "saddle",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "stable",
+    "label": "(1,0)",
+    "x": 1,
+    "y": 0
+   },
+   {
+    "dx": -32,
+    "dy": -6,
+    "kind": "stable",
+    "label": "(-1,0)",
+    "x": -1,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e6_ii",
+  "kind": "nonlinear",
+  "max_steps": 1800,
+  "seeds": [
+   [
+    -1.9,
+    1.8
+   ],
+   [
+    1.9,
+    -1.8
+   ],
+   [
+    -0.4,
+    2.1
+   ],
+   [
+    0.4,
+    -2.1
+   ],
+   [
+    -1.8,
+    -1.6
+   ],
+   [
+    1.8,
+    1.6
+   ]
+  ],
+  "separatrices": [
+   [
+    0.03,
+    -0.06
+   ],
+   [
+    -0.03,
+    0.06
+   ]
+  ],
+  "title": "Damped double-well oscillator 5.6(ii)"
+ },
+ "ch5-e6-iii": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -1.6,
+   1.6,
+   -3.2,
+   3.2
+  ],
+  "caption": "Exercise 5.6 (iii): with damping $-\\dot x$, every orbit in the sheet potential spirals into the unique stable equilibrium $(0, 0)$.",
+  "crit_pts": [
+   {
+    "dx": 6,
+    "dy": -6,
+    "kind": "stable",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e6_iii",
+  "kind": "nonlinear",
+  "max_steps": 1800,
+  "seeds": [
+   [
+    1.35,
+    0
+   ],
+   [
+    -1.35,
+    0
+   ],
+   [
+    0,
+    2.8
+   ],
+   [
+    0,
+    -2.8
+   ]
+  ],
+  "title": "Damped sextic oscillator 5.6(iii)"
+ },
+ "ch5-e8-pendulum": {
+  "axes": [
+   "θ",
+   "v"
+  ],
+  "bounds": [
+   -6.6,
+   6.6,
+   -3.0,
+   3.0
+  ],
+  "caption": "Exercise 5.8: simple pendulum ($\\omega = 1$). Centres at $(2m\\pi, 0)$, saddles at $((2m+1)\\pi, 0)$, separatrices $E = 1$ (pink) dividing librations ($|E| < 1$) from continuous rotations ($E > 1$).",
+  "crit_pts": [
+   {
+    "dx": 5,
+    "dy": -7,
+    "kind": "centre",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 5,
+    "dy": -7,
+    "kind": "saddle",
+    "label": "(π,0)",
+    "x": 3.141592653589793,
+    "y": 0
+   },
+   {
+    "dx": -30,
+    "dy": -7,
+    "kind": "saddle",
+    "label": "(-π,0)",
+    "x": -3.141592653589793,
+    "y": 0
+   },
+   {
+    "dx": -28,
+    "dy": -7,
+    "kind": "centre",
+    "label": "(2π,0)",
+    "x": 6.283185307179586,
+    "y": 0
+   },
+   {
+    "dx": 5,
+    "dy": -7,
+    "kind": "centre",
+    "label": "(-2π,0)",
+    "x": -6.283185307179586,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e8",
+  "h": 270,
+  "kind": "nonlinear",
+  "max_steps": 1800,
+  "seeds": [
+   [
+    0,
+    0.8
+   ],
+   [
+    0,
+    1.5
+   ],
+   [
+    6.283185307179586,
+    1.0
+   ],
+   [
+    -6.283185307179586,
+    1.0
+   ],
+   [
+    0,
+    2.4
+   ],
+   [
+    0,
+    -2.4
+   ],
+   [
+    0,
+    2.8
+   ],
+   [
+    0,
+    -2.8
+   ]
+  ],
+  "separatrices": [
+   [
+    0.0,
+    1.999
+   ],
+   [
+    0.0,
+    -1.999
+   ],
+   [
+    6.283185307179586,
+    1.999
+   ],
+   [
+    -6.283185307179586,
+    -1.999
+   ]
+  ],
+  "title": "Simple undamped pendulum 5.8",
+  "w": 460
+ },
+ "ch5-e9-damped-pendulum": {
+  "axes": [
+   "x",
+   "y"
+  ],
+  "bounds": [
+   -6.6,
+   6.6,
+   -3.0,
+   3.0
+  ],
+  "caption": "Exercise 5.9: damped pendulum ($k = 0.5 < 2$). Every trajectory not on a saddle stable manifold spirals into one of the downward equilibria $(2m\\pi, 0)$.",
+  "crit_pts": [
+   {
+    "dx": 5,
+    "dy": -7,
+    "kind": "stable",
+    "label": "(0,0)",
+    "x": 0,
+    "y": 0
+   },
+   {
+    "dx": 5,
+    "dy": -7,
+    "kind": "saddle",
+    "label": "(π,0)",
+    "x": 3.141592653589793,
+    "y": 0
+   },
+   {
+    "dx": -30,
+    "dy": -7,
+    "kind": "saddle",
+    "label": "(-π,0)",
+    "x": -3.141592653589793,
+    "y": 0
+   },
+   {
+    "dx": -28,
+    "dy": -7,
+    "kind": "stable",
+    "label": "(2π,0)",
+    "x": 6.283185307179586,
+    "y": 0
+   },
+   {
+    "dx": 5,
+    "dy": -7,
+    "kind": "stable",
+    "label": "(-2π,0)",
+    "x": -6.283185307179586,
+    "y": 0
+   }
+  ],
+  "field": "ch5_e9",
+  "h": 270,
+  "kind": "nonlinear",
+  "max_steps": 2000,
+  "seeds": [
+   [
+    -6.2,
+    2.6
+   ],
+   [
+    -6.2,
+    1.6
+   ],
+   [
+    6.2,
+    -2.6
+   ],
+   [
+    6.2,
+    -1.6
+   ],
+   [
+    -2.5,
+    2.6
+   ],
+   [
+    2.5,
+    -2.6
+   ],
+   [
+    0,
+    2.6
+   ],
+   [
+    0,
+    -2.6
+   ]
+  ],
+  "separatrices": [
+   [
+    3.101592653589793,
+    0.05
+   ],
+   [
+    3.181592653589793,
+    -0.05
+   ],
+   [
+    -3.181592653589793,
+    0.05
+   ],
+   [
+    -3.101592653589793,
+    -0.05
+   ]
+  ],
+  "title": "Damped pendulum 5.9 (k = 0.5)",
+  "w": 460
+ },
+ "ch6-e1-robin": {
+  "caption": "Exercise 6.1 (iv) ($h = 1$): intersections of $y = \\tan\\mu$ and $y = -\\mu/h$ give the positive roots $\\mu_n = \\sqrt{\\lambda_n} \\in ((n-\\tfrac{1}{2})\\pi, n\\pi)$, approaching $(n-\\tfrac{1}{2})\\pi$ from the right for large $n$.",
+  "h": 1.0,
+  "kind": "transcendental",
+  "mode": "robin",
+  "title": "Robin transcendental equation",
+  "xmax": 10.367255756846317,
+  "ymax": 10.0
+ },
+ "ch6-e2-tan": {
+  "caption": "Exercise 6.2 (ii): intersections of $y = \\tan\\mu$ and $y = \\mu$ yield the negative eigenvalues $\\lambda_n = -\\mu_n^2$ ($\\mu_1 \\approx 4.49$, $\\mu_2 \\approx 7.73$), in addition to $\\lambda_0 = 0$.",
+  "kind": "transcendental",
+  "mode": "tan_eq_mu",
+  "title": "Transcendental equation tan(mu) = mu",
+  "xmax": 10.367255756846317,
+  "ymax": 10.0
+ },
+ "ch6-e5-step": {
+  "L": 3.141592653589793,
+  "N": 15,
+  "caption": "Exercise 6.5 (vii): $2\\pi$-periodic extension of the step function on $[-3\\pi, 3\\pi]$ (blue) vs $S_{15}(x)$ (pink); green dots mark the jump midpoints $\\pi/2$.",
+  "fn": "step_pi",
+  "jumps": [
+   [
+    -3,
+    1.5707963267948966
+   ],
+   [
+    -2,
+    1.5707963267948966
+   ],
+   [
+    -1,
+    1.5707963267948966
+   ],
+   [
+    0,
+    1.5707963267948966
+   ],
+   [
+    1,
+    1.5707963267948966
+   ],
+   [
+    2,
+    1.5707963267948966
+   ],
+   [
+    3,
+    1.5707963267948966
+   ]
+  ],
+  "kind": "fourier",
+  "title": "Fourier series of step function 6.5(vii)",
+  "ymax": 4.0,
+  "ymin": -0.8
+ },
+ "ch6-e8-i": {
+  "L": 1.0,
+  "N": 8,
+  "caption": "Exercise 6.8 (i) ($L = 1$): the $2L$-periodic extension of $f(x) = x^2$ is continuous everywhere (since $f(-L) = f(L) = L^2$), so $S_8(x)$ tracks it closely with no jumps.",
+  "fn": "x2",
+  "jumps": [],
+  "kind": "fourier",
+  "title": "Fourier series of x^2 on [-L, L]",
+  "ymax": 1.3,
+  "ymin": -0.2
+ },
+ "ch6-e8-ii": {
+  "L": 1.0,
+  "N": 12,
+  "caption": "Exercise 6.8 (ii) ($L = 1$): $2L$-periodic extension of $e^x$ (blue) vs $S_{12}(x)$ (pink); at every odd multiple of $L$ the series converges to the midpoint $\\cosh L \\approx 1.54$ (green dots).",
+  "fn": "exp_x",
+  "jumps": [
+   [
+    -3,
+    1.5430806348152437
+   ],
+   [
+    -1,
+    1.5430806348152437
+   ],
+   [
+    1,
+    1.5430806348152437
+   ],
+   [
+    3,
+    1.5430806348152437
+   ]
+  ],
+  "kind": "fourier",
+  "title": "Fourier series of e^x on [-L, L]",
+  "ymax": 3.2,
+  "ymin": -0.2
+ },
+ "ch6-e8-iii": {
+  "L": 1.0,
+  "N": 12,
+  "caption": "Exercise 6.8 (iii) ($L = 1$): continuous at $x = 0$ (value $1$) with jumps at odd multiples of $L$ where the series converges to the midpoint $1 + L/2 = 1.5$ (green dots).",
+  "fn": "piecewise_68",
+  "jumps": [
+   [
+    -3,
+    1.5
+   ],
+   [
+    -1,
+    1.5
+   ],
+   [
+    1,
+    1.5
+   ],
+   [
+    3,
+    1.5
+   ]
+  ],
+  "kind": "fourier",
+  "title": "Fourier series of piecewise function 6.8(iii)",
+  "ymax": 2.4,
+  "ymin": 0.5
  }
 }

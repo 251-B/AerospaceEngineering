@@ -425,6 +425,14 @@ window.AE_NAV = {
             {
               "href": "subjects/advanced-maths/problemas/topic-4-part-2.html",
               "label": "4 · Systems, part 2"
+            },
+            {
+              "href": "subjects/advanced-maths/problemas/topic-5-problems.html",
+              "label": "5 · Nonlinear systems"
+            },
+            {
+              "href": "subjects/advanced-maths/problemas/topic-6-problems.html",
+              "label": "6 · Sturm-Liouville & Fourier"
             }
           ]
         },
