@@ -57,51 +57,19 @@ At a given temperature in α + L, $F = 1$ has been used by the temperature, so t
 
 Session 7, Slides 13 and 15-16.
 
-## Q05.2 Liquid fraction at point c-prime
+## Q05.2 Equilibrium cooling path in Cu-Ni
 
 - id: B05-Q2
 - concept_id: u4-lever-rule-cooling-path
-- format: numeric
-- asks: calculation
-- calc: (40-33)/(40-29)*100
+- format: topic-true
+- asks: effect
 
-At the temperature of point c′ of the Cu-Ni diagram the tie line runs from $C_L = 29$ to $C_\alpha = 40$ wt% Ni. Determine the mass percentage of liquid in a Cu-33 wt% Ni alloy at that temperature:
+Referring to equilibrium solidification of a Cu-35 wt% Ni alloy between the liquidus and the solidus, which statement is TRUE:
 
-a) 36.4 %
-b) 63.6 %
-c) 82.5 %
-d) 87.9 %
-
-### Answer
-
-b
-
-### Explanation
-
-Lever rule (Session 7, Slide 16): $W_L = \dfrac{C_\alpha - C_0}{C_\alpha - C_L} = \dfrac{40 - 33}{40 - 29} = \dfrac{7}{11} = 0.636$.
-
-- a) $(33 - 29)/(40 - 29) = 0.364$ is the fraction of α: the arm on the side of the liquid itself was used (arms swapped).
-- c) $33/40 = 0.825$ divides the alloy composition by that of α, a ratio of compositions and not a mass balance.
-- d) $29/33 = 0.879$ divides the liquid composition by the alloy composition, again a ratio of compositions.
-
-### Source
-
-Session 7, Slides 16 and 23 (tie line at c′: 29 and 40 wt% Ni).
-
-## Q05.3 Mass of alpha in a 5 kg casting
-
-- id: B05-Q3
-- concept_id: u4-lever-rule-masses
-- format: numeric
-- asks: calculation
-- calc: 5*(38-32)/(43-32)
-
-A 5 kg Cu-38 wt% Ni casting is held where the tie line gives $C_L = 32$ and $C_\alpha = 43$ wt% Ni. Determine the mass of α:
-
-a) 1.90 kg
-b) 2.27 kg
-c) 2.73 kg
-d) 4.42 kg
+a) The solid keeps its initial composition of 46 wt% Ni until solidification completes
+b) At the solidus temperature, the last drop of liquid reaches 35 wt% Ni composition
+c) Both phases become poorer in Ni on cooling, and α reaches 35 wt% Ni at the solidus
+d) Between liquidus and solidus, the mass fraction of liquid remains constant at 0.50
 
 ### Answer
 
@@ -109,11 +77,41 @@ c
 
 ### Explanation
 
-Lever rule (Session 7, Slide 16): $W_\alpha = \dfrac{C_0 - C_L}{C_\alpha - C_L} = \dfrac{38 - 32}{43 - 32} = 0.545$, so $m_\alpha = 0.545 \times 5 = 2.73$ kg.
+In equilibrium cooling (Session 7, Slide 23), the liquid composition follows the liquidus ($35 \to 29 \to 24$ wt% Ni) and the solid composition follows the solidus ($46 \to 40 \to 35$ wt% Ni); both phases become poorer in Ni, and at the solidus (d′) the solid reaches the overall alloy composition, 35 wt% Ni, as $W_\alpha \to 1$.
 
-- a) $0.38 \times 5 = 1.90$ kg takes the alloy composition as the fraction of α.
-- b) $5 \times (43 - 38)/(43 - 32) = 2.27$ kg is the mass of liquid: the arms were swapped.
-- d) $5 \times 38/43 = 4.42$ kg uses a ratio of compositions instead of the lever.
+- a) Keeping the first solid's composition occurs only under fast non-equilibrium cooling (coring), not in equilibrium.
+- b) At the solidus it is the solid that reaches 35 wt% Ni; the last trace of liquid has the liquidus composition (24 wt% Ni).
+- d) The phase fractions vary continuously along the cooling path from $W_L = 1$ at the liquidus to $W_L = 0$ at the solidus according to the lever rule.
+
+### Source
+
+Session 7, Slides 16 and 23.
+
+## Q05.3 Tie lines and total alloy mass
+
+- id: B05-Q3
+- concept_id: u4-lever-rule-masses
+- format: topic-false
+- asks: comparison
+
+Regarding tie lines and phase masses in a two-phase field ($\alpha + L$) at fixed temperature, which statement is FALSE:
+
+a) Two castings of different overall compositions share the same phase compositions
+b) Multiplying a phase's mass fraction by the casting mass gives the mass of that phase
+c) The phase whose boundary is closer to the alloy point has the larger mass fraction
+d) Doubling the total mass of the casting doubles the wt% Ni in both $\alpha$ and $L$
+
+### Answer
+
+d
+
+### Explanation
+
+Statement d) is false: phase compositions ($C_L$ and $C_\alpha$) are intensive properties fixed solely by the ends of the horizontal tie line at that temperature ($F = 1$ at 1 atm, Session 7, Slides 13 and 15). Doubling the total casting mass doubles the absolute masses $m_L$ and $m_\alpha$ without changing their wt% compositions.
+
+- a) True: at constant temperature inside a two-phase field, every alloy on the same tie line has the same phase compositions.
+- b) True: the lever rule gives mass fractions $W_\alpha$ and $W_L$, so $m_\alpha = W_\alpha m_{\text{total}}$.
+- c) True: by the inverse lever rule, the opposite arm is longer for the phase closer to $C_0$, giving it the larger fraction.
 
 ### Source
 

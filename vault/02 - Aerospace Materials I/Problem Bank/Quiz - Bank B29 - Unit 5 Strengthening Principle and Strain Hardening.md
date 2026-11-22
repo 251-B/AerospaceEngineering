@@ -11,7 +11,7 @@ concepts:
   - u5-strain-hardening-mechanism
   - u5-percent-cold-work
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 11, Slide 38 and Session 12, Slides 2-7."
+origen: "Includes official exam questions (MATERIALS_SECONDPARTIAL_2019.pdf, Q3; MATERIALS_FINALEXAM_2014_EXTRA.pdf, Q8b) and practice items in the style of Part I of Assessment Test II. Data from Session 11, Slide 38 and Session 12, Slides 2-7."
 tags:
   - problem-bank
   - midterm-2
@@ -21,8 +21,8 @@ tags:
 
 # Bank B29 — The neck, the strengthening principle and strain hardening
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 11, Slide 38 and Session 12, Slides 2-7.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong), combining official exam items and bank practice items. Content: Session 11, Slide 38 and Session 12, Slides 2-7.
 
 ## Q29.1 True values after necking
 
@@ -84,19 +84,20 @@ Session 11, Slide 38: the relation comes from $l_0A_0 = l_iA_i$ with the same ar
 
 Session 11, Slide 38.
 
-## Q29.3 Principle of all strengthening mechanisms
+## Q29.3 Microscopic objective of all strengthening mechanisms
 
 - id: B29-Q3
 - concept_id: u5-strengthening-principle
 - format: complete-sentence
 - asks: definition
+- origin: official-exam
 
-All the strengthening mechanisms of metals rely on one principle:
+At the microscopic level, the common key objective shared by all strengthening mechanisms in metals is:
 
-a) breaking all the bonds of a plane at once
-b) making the dislocations move more easily
-c) raising the Young's modulus of the metal
-d) impeding the movement of dislocations
+a) breaking all atomic bonds across a slip plane simultaneously
+b) making dislocations glide more easily through the crystal lattice
+c) raising the intrinsic elastic modulus of the metallic bonds
+d) impeding and restricting the movement of dislocations
 
 ### Answer
 
@@ -104,15 +105,15 @@ d
 
 ### Explanation
 
-Session 12, Slide 4: "a restriction in the dislocation movement → increase in the stress required to activate the slip system → strengthening"; all four methods rely on this one principle.
+Session 12, Slide 4: "a restriction in the dislocation movement $\to$ increase in the stress required to activate the slip system $\to$ strengthening". Every strengthening method (strain hardening, solid solution, grain size reduction, precipitation) relies on this single microscopic objective.
 
-- a) Simultaneous breaking of bonds is the slip without dislocations, which is not a strengthening method.
-- b) Easier dislocation motion means easier plastic deformation, that is, a weaker metal.
-- c) $E$ measures elastic stiffness and is set by the bonds; strengthening raises the yield strength.
+- a) Simultaneous bond breaking describes theoretical slip in a defect-free crystal, not a strengthening mechanism.
+- b) Making dislocation motion easier lowers the yield strength rather than raising it.
+- c) Young's modulus measures elastic stiffness governed by interatomic bonding; strengthening increases resistance to plastic flow ($\sigma_y$).
 
 ### Source
 
-Session 11, Slides 13 and 23; Session 12, Slide 4.
+MATERIALS_FINALEXAM_2014_EXTRA.pdf, p. 8, Question 8(b); Session 11, Slides 13 and 23; Session 12, Slide 4.
 
 ## Q29.4 Not a strengthening mechanism
 
@@ -121,12 +122,12 @@ Session 11, Slides 13 and 23; Session 12, Slide 4.
 - format: identify
 - asks: classification
 
-Which of the following is NOT one of the four strengthening mechanisms listed in the slides?
+Which of the following is NOT one of the four primary strengthening mechanisms in metallic materials?
 
 a) Solid solution strengthening
 b) Precipitation strengthening
 c) Strain hardening
-d) Growth of the grain size
+d) Grain growth (increasing the average grain size)
 
 ### Answer
 
@@ -134,11 +135,11 @@ d
 
 ### Explanation
 
-Session 12, Slide 4: strain hardening, solid solution strengthening, grain size reduction strengthening and precipitation strengthening. Growth of the grains removes barriers to slip, the opposite of grain size reduction (Slide 10).
+Session 12, Slide 4 lists the four strengthening mechanisms: strain hardening, solid solution strengthening, grain size reduction strengthening and precipitation strengthening. Increasing the average grain size reduces the density of grain boundaries and removes barriers to slip, weakening the metal (Slide 10).
 
-- a) It is listed: solute atoms distort the lattice (Slides 4 and 8).
-- b) It is listed: particles of a secondary phase obstruct dislocations (Slides 4 and 12).
-- c) It is listed: cold work raises the dislocation density (Slides 4-5).
+- a) It is one of the four mechanisms: solute atoms distort the lattice (Slides 4 and 8).
+- b) It is one of the four mechanisms: second-phase particles obstruct dislocations (Slides 4 and 12).
+- c) It is one of the four mechanisms: cold plastic deformation raises the dislocation density (Slides 4-5).
 
 ### Source
 
@@ -174,19 +175,20 @@ Session 12, Slides 2-3: plastic deformation is the movement of dislocations, and
 
 Session 12, Slides 2-4.
 
-## Q29.6 Mechanism of strain hardening
+## Q29.6 Strengthening by increasing dislocation density
 
 - id: B29-Q6
 - concept_id: u5-strain-hardening-mechanism
-- format: true-statement
+- format: identify
 - asks: cause
+- origin: official-exam
 
-Which one of the following statements about strain hardening is TRUE?
+Which strengthening mechanism in metallic materials is based on a significant increase in the number of dislocations?
 
-a) It works by particles of a secondary phase in the grains
-b) Cold deformation multiplies dislocations, which tangle together
-c) It works by solute atoms that distort the lattice
-d) Cold deformation removes dislocations, so slip becomes easier
+a) Solid solution hardening
+b) Strain hardening
+c) Precipitation hardening
+d) Grain refining
 
 ### Answer
 
@@ -194,15 +196,15 @@ b
 
 ### Explanation
 
-Session 12, Slide 5: cold plastic deformation generates dislocations; the increase in dislocation density makes further deformation difficult because the dislocations "tangle with each other".
+Session 12, Slide 5: in strain hardening (cold work), cold plastic deformation generates dislocations (increasing dislocation density from roughly $10^6$ to $10^{12}\text{ m/m}^3$), causing dislocations to tangle with one another and impede further slip.
 
-- a) This is precipitation strengthening (Slide 12).
-- c) This is solid solution strengthening (Slide 8).
-- d) Inverted: the density rises, from $10^6$ to $10^{12}$ m/m³ on the slide, and slip becomes harder.
+- a) Solid solution hardening relies on lattice strains around dissolved solute atoms (Slide 8), not on multiplying dislocations.
+- c) Precipitation hardening relies on dispersed secondary-phase particles acting as barriers to dislocations (Slide 12).
+- d) Grain refining increases the area of grain boundaries that block dislocation slip across crystals (Slide 10).
 
 ### Source
 
-Session 12, Slides 5, 8 and 12.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 2, Question 3; Session 12, Slides 5, 8, 10 and 12.
 
 ## Q29.7 Cold rolling a copper strip
 

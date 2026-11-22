@@ -234,7 +234,12 @@
     });
     why.appendChild(el('p', 'bank-panel__title', 'Why the other options are wrong'));
     why.appendChild(ul);
-    if (item.source_html) { var s = el('div', 'sim-muted', null); s.innerHTML = item.source_html; why.appendChild(s); }
+    if (item.source_html || item.origin === 'official-exam') {
+      var s = el('div', 'sim-muted sim-source-line', null);
+      if (item.origin === 'official-exam') s.appendChild(el('span', 'sim-origin-badge', 'Official exam'));
+      if (item.source_html) { var sh = el('span', null, null); sh.innerHTML = item.source_html; s.appendChild(sh); }
+      why.appendChild(s);
+    }
     box.appendChild(why);
     return box;
   }
@@ -258,6 +263,16 @@
     if (Array.isArray(mode.parts)) {
       // Flexible mode: keep the listed parts; the pickers (applyCustom) then set the counts.
       bp.parts = bp.parts.filter(function (p) { return mode.parts.indexOf(p.id) >= 0; });
+      if (Array.isArray(mode.archetypes)) {
+        bp.parts.forEach(function (p) {
+          if (!isObjPart(p)) {
+            p.selection_rules = p.selection_rules || {};
+            p.selection_rules.archetypes = mode.archetypes.slice();
+            delete p.selection_rules.must_archetypes;
+            delete p.selection_rules.units;
+          }
+        });
+      }
       bp.total_points = Math.round(bp.parts.reduce(function (s, p) { return s + p.count * p.points_each; }, 0) * 100) / 100;
       if (mode.duration_minutes) bp.duration_minutes = mode.duration_minutes;
       if (mode.duration_options_minutes) bp.duration_options_minutes = mode.duration_options_minutes;
@@ -293,7 +308,10 @@
 
   // ---- Pickers of the flexible modes (units, number of items, problem types, instant feedback) ----------
   var UNIT_LABELS = BP_FULL.unit_labels || BANK.units || {};
-  function unitWord() { return BP_FULL.unit_labels ? 'Topic ' : 'Unit '; }
+  function unitWord() {
+    var first = Object.keys(UNIT_LABELS).map(function (k) { return UNIT_LABELS[k]; })[0] || '';
+    return /^Topic\b/i.test(first) ? 'Topic ' : 'Unit ';
+  }
   function customKey() { return (examKey || 'default') + ':' + modeId; }
   function customFor() {
     var mode = modeById(modeId);
@@ -303,8 +321,15 @@
     if (!c || typeof c !== 'object') c = store.custom[customKey()] = {};
     if (!Array.isArray(c.units)) c.units = Object.keys(UNIT_LABELS);
     if (c.count == null || (mode.count_options && mode.count_options.indexOf(c.count) < 0)) c.count = mode.default_count;
-    var prob = BP_FULL.parts.filter(function (p) { return p.selection_rules && p.selection_rules.archetypes; })[0];
-    if (!Array.isArray(c.archetypes)) c.archetypes = prob ? prob.selection_rules.archetypes.slice() : [];
+    var allArch = Array.isArray(mode.archetypes) ? mode.archetypes.slice() : [];
+    if (!allArch.length) {
+      BP.parts.forEach(function (p) {
+        if (!isObjPart(p) && p.selection_rules) {
+          allArch = allArch.concat(p.selection_rules.archetypes || [], p.selection_rules.must_archetypes || []);
+        }
+      });
+    }
+    if (!Array.isArray(c.archetypes)) c.archetypes = allArch;
     c.instant = !!(c.instant && mode.instant_feedback);
     return c;
   }
@@ -342,7 +367,11 @@
         p.count = want;
       } else if (!isObjPart(p) && mode.archetype_picker) {
         rules.only_archetypes = c.archetypes.slice();
-        var pool = BANK.items.filter(function (i) { return i.category === p.category && c.archetypes.indexOf(i.archetype) >= 0; });
+        var pool = BANK.items.filter(function (i) {
+          return i.category === p.category && c.archetypes.indexOf(i.archetype) >= 0 &&
+            (!rules.units || rules.units.indexOf(i.unit) >= 0) &&
+            (!rules.must_archetypes || rules.must_archetypes.indexOf(i.archetype) >= 0);
+        });
         p.count = Math.min(Number(c.count) || 1, pool.length);
       }
       p.points_total = Math.round(p.count * p.points_each * 100) / 100;
@@ -468,8 +497,14 @@
       customBox.appendChild(checkboxes('Units', Object.keys(UNIT_LABELS), UNIT_LABELS, c.units, function (v) { c.units = v; changed(); }, 'units'));
     }
     if (mode.archetype_picker) {
-      var probPart = BP_FULL.parts.filter(function (p) { return p.selection_rules && p.selection_rules.archetypes; })[0];
-      var keys = probPart ? probPart.selection_rules.archetypes : [];
+      var keys = Array.isArray(mode.archetypes) ? mode.archetypes.slice() : [];
+      if (!keys.length) {
+        BP.parts.forEach(function (p) {
+          if (!isObjPart(p) && p.selection_rules) {
+            keys = keys.concat(p.selection_rules.archetypes || [], p.selection_rules.must_archetypes || []);
+          }
+        });
+      }
       var labels = {};
       keys.forEach(function (k) { labels[k] = (BANK.archetypes && BANK.archetypes[k]) || k; });
       customBox.appendChild(checkboxes('Types of problem', keys, labels, c.archetypes, function (v) { c.archetypes = v; changed(); }, 'types'));
@@ -507,7 +542,8 @@
   // The generate button is off while the pickers leave nothing to draw.
   function renderGenerateState() {
     var btn = document.getElementById('simGenerate'), msg = document.getElementById('simCustomMsg');
-    var empty = BP.parts.some(function (p) { return !p.count; });
+    var curMode = modeById(modeId);
+    var empty = curMode && curMode.archetype_picker ? BP.parts.every(function (p) { return !p.count; }) : BP.parts.some(function (p) { return !p.count; });
     var c = customFor();
     if (btn) btn.disabled = empty;
     if (msg) {
@@ -1066,7 +1102,9 @@
   function partForKind(kind) {
     return BP_FULL.parts.filter(function (p) { return p.type === (kind || 'multiple_choice'); })[0] || null;
   }
-  var practiceBlocks = Array.isArray(BANK.blocks) ? BANK.blocks.filter(function (b) { return partForKind(b.kind); }) : [];
+  var practiceBlocks = Array.isArray(BANK.blocks) ? BANK.blocks.filter(function (b) {
+    return partForKind(b.kind) && (!b.exam || !examKey || b.exam === examKey);
+  }) : [];
   function setupBlockPractice() {
     if (!practiceBlocks.length) return;
     var card = el('div', 'sim-card sim-block-card', null);

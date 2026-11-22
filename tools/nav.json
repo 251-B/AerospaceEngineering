@@ -184,6 +184,14 @@
     {
      "page": "midterm-2-problems.html",
      "label": "2nd Midterm · Problems"
+    },
+    {
+     "page": "midterm-3-test.html",
+     "label": "3rd Midterm · Test"
+    },
+    {
+     "page": "midterm-3-problems.html",
+     "label": "3rd Midterm · Problems"
     }
    ]
   },

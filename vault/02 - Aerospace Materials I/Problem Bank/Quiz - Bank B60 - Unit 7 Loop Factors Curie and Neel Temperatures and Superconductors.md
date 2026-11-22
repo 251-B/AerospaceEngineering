@@ -9,15 +9,15 @@ concepts:
   - u7-grain-size-loop-effect
   - u7-inclusions-dislocations-pores
   - u7-heating-below-curie-loop
-  - u7-curie-margin-calc
-  - u7-curie-recording-comparison-calc
+  - u7-curie-neel-comparison
+  - u7-curie-thermal-agitation
   - u7-curie-table-working-temperature
   - u7-neel-table-working-temperature
-  - u7-superconductor-tc-limit-calc
+  - u7-superconductivity-meissner-relationship
   - u7-type-ii-materials
   - u7-mixed-state-hc1-hc2
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 15, Slides 20-25 and 28-29, and Problems T6 and T7, Problem 12."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf, including adaptations of Q7 (Jan 2012 final) and Q6B/Q8b (June 2013 & June 2015 finals). Content and data from Session 15, Slides 20-29."
 tags:
   - problem-bank
   - midterm-2
@@ -27,8 +27,8 @@ tags:
 
 # Bank B60 — Loop factors, Curie and Néel temperatures and superconductors
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 20-25 and 28-29. Kelvin and Celsius: use 0 °C = 273 K.
+> [!info] Includes official exam questions
+> Ten test questions written for the bank in the style of Part I of Assessment Test II, including adaptations from the 2012, 2013 and 2015 final exams (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 20-29. Kelvin and Celsius: use 0 °C = 273 K.
 
 ## Q60.1 Effect of the grain size on the loop
 
@@ -120,20 +120,20 @@ Slide 22: the thermal agitation reduces the maximum alignment of the dipoles rea
 
 Session 15, Slides 20 and 22.
 
-## Q60.4 Margin of cobalt below its Curie temperature
+## Q60.4 Curie vs. Néel temperatures and operating limits
 
 - id: B60-Q4
-- concept_id: u7-curie-margin-calc
-- format: numeric
-- asks: calculation
-- calc: 1404-(1000+273)
+- concept_id: u7-curie-neel-comparison
+- format: topic-true
+- asks: comparison
+- origin: official-exam
 
-Cobalt has $T_c = 1404$ K (Slide 23). A cobalt part works at 1000 °C. Determine by how many kelvin the working temperature is below $T_c$:
+With respect to Curie and Néel temperatures in magnetic materials, which one of the following statements is TRUE:
 
-a) 404 K
-b) 131 K
-c) 677 K
-d) 1131 K
+a) The Curie temperature applies to antiferromagnets and the Néel temperature to ferromagnets, marking where each gains permanent order
+b) The Curie temperature marks where ferromagnets and ferrimagnets become paramagnetic, whereas the Néel temperature marks that transition for antiferromagnets
+c) Above the Curie or Néel temperature, dipoles lock into a rigid antiparallel lattice, making these the minimum operating temperatures
+d) Knowing $T_c$ or $T_N$ defines the temperature where electrical resistivity drops to zero rather than the upper limit of magnetic ordering
 
 ### Answer
 
@@ -141,46 +141,45 @@ b
 
 ### Explanation
 
-The working temperature is $1000 + 273 = 1273$ K, so the margin is $1404 - 1273 = 131$ K and the part is still ferromagnetic (Slide 23).
+January 2012 final exam, Q7 (and Session 15, Slide 23): the Curie temperature $T_c$ is the temperature above which ferromagnetic and ferrimagnetic materials become paramagnetic, whereas the Néel temperature $T_N$ is the analogous transition temperature for antiferromagnetic materials. Knowing them fixes the upper service-temperature limit beyond which spontaneous magnetic order is lost.
 
-- a) The 1000 is subtracted from 1404 without converting °C to K.
-- c) The conversion is made in the wrong direction ($1000 - 273 = 727$ K), giving $1404 - 727 = 677$ K.
-- d) $T_c$ is converted to °C ($1404 - 273 = 1131$ °C) and that value is reported as the margin.
+- a) Swaps Curie and Néel temperatures and reverses what happens above them (order is lost, not gained).
+- c) Inverts the thermal effect: above $T_c$ or $T_N$, thermal energy destroys macroscopic ordering rather than locking dipoles in place.
+- d) Confuses the magnetic Curie/Néel transition with the critical temperature $T_c$ of a superconductor (Slide 25).
 
 ### Source
 
-Session 15, Slide 23.
+MATERIALS_FINALEXAM_2012_ORD.pdf, p. 3 Q7; Session 15, Slides 23 and 25.
 
-## Q60.5 Nickel against barium ferrite
+## Q60.5 Thermal agitation and reversibility at the Curie point
 
 - id: B60-Q5
-- concept_id: u7-curie-recording-comparison-calc
-- format: numeric
-- asks: calculation
-- calc: 631-(350+273)
+- concept_id: u7-curie-thermal-agitation
+- format: topic-false
+- asks: cause
 
-The Curie temperature of nickel is 631 K (Slide 23) and that of the barium ferrite recording powder is 350 °C (Slide 24). Determine by how many kelvin the $T_c$ of nickel is above that of the barium ferrite:
+Regarding the Curie temperature $T_c$ and thermal agitation in ferromagnetic materials, which one of the following statements is FALSE:
 
-a) 8 K
-b) 281 K
-c) 554 K
-d) 904 K
+a) Thermal agitation opposes dipole alignment, so $M_s$ falls and drops abruptly to zero at $T_c$
+b) Above $T_c$, dipoles can still align temporarily under an applied field, so the material behaves as paramagnetic
+c) Once the field $H$ is removed above $T_c$, thermal energy randomizes the dipoles and no hysteresis loop remains
+d) Heating past $T_c$ permanently destroys the atomic magnetic moments so ferromagnetism cannot recover upon cooling
 
 ### Answer
 
-a
+d
 
 ### Explanation
 
-Barium ferrite: $350 + 273 = 623$ K, so the difference is $631 - 623 = 8$ K. Both values must be in the same scale before subtracting.
+Session 15, Slides 22-23: heating above $T_c$ overcomes macroscopic dipole alignment through thermal agitation so the material becomes paramagnetic, but individual atomic dipoles remain intact and cooling back below $T_c$ restores spontaneous domain ordering. Statement d is false.
 
-- b) The 350 °C is subtracted from 631 K directly, mixing scales.
-- c) The conversion of the barium ferrite is made in the wrong direction ($350 - 273 = 77$ K), giving $631 - 77 = 554$ K.
-- d) The kelvin value of nickel is treated as if it were in °C and converted again ($631 + 273 = 904$ K), which is then the number reported.
+- a) True: Slide 23 states that thermal agitation misaligns dipoles until $M_s$ drops abruptly to zero at $T_c$.
+- b) True: Slide 22 notes that above $T_c$ the dipoles still align with $H$, giving paramagnetic behaviour.
+- c) True: Slide 22 notes that above $T_c$, when $H$ disappears, the alignments become random with no remanence.
 
 ### Source
 
-Session 15, Slides 23 and 24.
+Session 15, Slides 22-23.
 
 ## Q60.6 Ferromagnetic metals at 400 °C
 
@@ -189,7 +188,7 @@ Session 15, Slides 23 and 24.
 - format: diagram-reading
 - asks: classification
 
-Using the shown Curie temperatures (Slide 23), indicate which metals are ferromagnetic at 400 °C:
+Using the Curie temperatures below, indicate which metals are ferromagnetic at 400 °C:
 
 | Metal | Fe | Co | Ni | Gd |
 | :--- | ---: | ---: | ---: | ---: |
@@ -223,7 +222,7 @@ Session 15, Slide 23.
 - format: diagram-reading
 - asks: classification
 
-Using the shown Néel temperatures (Slide 23), indicate which material is still antiferromagnetic at 100 °C:
+Using the Néel temperatures below, indicate which material is still antiferromagnetic at 100 °C:
 
 | Material | α-Mn | MnO | Cr | NiO |
 | :--- | ---: | ---: | ---: | ---: |
@@ -250,20 +249,20 @@ d
 
 Session 15, Slide 23.
 
-## Q60.8 Highest critical temperature in °C
+## Q60.8 Superconductivity, critical temperature and magnetism
 
 - id: B60-Q8
-- concept_id: u7-superconductor-tc-limit-calc
-- format: numeric
-- asks: calculation
-- calc: 165-273
+- concept_id: u7-superconductivity-meissner-relationship
+- format: topic-true
+- asks: definition
+- origin: official-exam
 
-Slide 25 states that the critical temperatures of superconductors range between 0.01 and 165 K. Express the upper limit in °C:
+Referring to superconductivity, the critical temperature $T_c$, and the Meissner effect, which one of the following statements is TRUE:
 
-a) 438 °C
-b) 165 °C
-c) -108 °C
-d) -208 °C
+a) Below $T_c$, electrical resistivity drops to zero while external magnetic flux lines concentrate inside the material like a ferromagnet
+b) Above $T_c$, a metal becomes superconducting and the Meissner effect forces all magnetic field lines into its interior
+c) Below $T_c$, electrical resistivity drops to zero and the Meissner effect expels magnetic flux lines, yielding perfect diamagnetism
+d) At $T_c$, electrical resistivity rises sharply while the material loses its induced diamagnetism and becomes permanently ferromagnetic
 
 ### Answer
 
@@ -271,15 +270,15 @@ c
 
 ### Explanation
 
-$T\,(°\text{C}) = T\,(\text{K}) - 273 = 165 - 273 = -108$ °C: even the best known superconductor needs a very low temperature (Slide 25).
+June 2013 extraordinary final exam (Q6B) and June 2015 extraordinary final exam (Q8b), with Session 15, Slides 25 and 27: $T_c$ is the critical temperature below which electrical resistivity vanishes; in the superconducting state, the Meissner-Ochsenfeld effect expels external magnetic flux lines from the bulk, producing perfect diamagnetism.
 
-- a) The 273 is added instead of subtracted: $165 + 273 = 438$ °C.
-- b) The kelvin value is reported as it is, without any conversion.
-- d) The offset 373 (the boiling point of water in kelvin) is used in place of 273: $165 - 373 = -208$ °C.
+- a) Confuses perfect diamagnetism with ferromagnetism: flux lines are pushed out around the superconductor, not concentrated inside.
+- b) Inverts both the temperature condition (superconductivity occurs below $T_c$, not above) and the flux-expulsion direction.
+- d) Inverts the resistivity drop at $T_c$ and wrongly associates the transition with ferromagnetism.
 
 ### Source
 
-Session 15, Slide 25.
+MATERIALS_FINALEXAM_2013_EXTRA.pdf, p. 3 Q6B; MATERIALS_FINALEXAM_2015_EXTRA.pdf, p. 9 Q8b; Session 15, Slides 25 and 27.
 
 ## Q60.9 Type II superconductors
 
@@ -340,3 +339,5 @@ Slide 29: flux lines begin to penetrate at $H_{c1}$ and the penetration is compl
 ### Source
 
 Session 15, Slides 27-29.
+
+**Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

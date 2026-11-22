@@ -57,20 +57,19 @@ Session 11, Slide 19: $\varepsilon_x = -\nu\,\varepsilon_z$. In compression $\va
 
 Session 11, Slide 19.
 
-## Q21.2 Largest load for an allowed contraction
+## Q21.2 Lateral contraction with doubled Poisson's ratio
 
 - id: B21-Q2
 - concept_id: u5-modulus-from-poisson-contraction
-- format: numeric
+- format: what-happens
 - asks: application
-- calc: 110000*(2.0e-3/10/0.34)*pi*5**2/1000
 
-A copper bar of 10 mm diameter ($E$ = 110 GPa, $\nu$ = 0.34) may lose at most $2.0\times10^{-3}$ mm of diameter elastically. Determine the largest tensile load:
+An isotropic cylindrical bar under elastic tension is replaced by a bar of identical dimensions and Young's modulus $E$, but with twice the Poisson's ratio $\nu$, under the same axial load. What will happen to its diameter contraction:
 
-a) 0.587 kN
-b) 1.73 kN
-c) 5.08 kN
-d) 20.3 kN
+a) It will halve, because the axial strain halves
+b) It will stay unchanged, because $E$ and the axial stress are the same
+c) It will double, because $\varepsilon_x = -\nu\,\varepsilon_z$
+d) It will quadruple, because area varies as the square of diameter
 
 ### Answer
 
@@ -78,15 +77,15 @@ c
 
 ### Explanation
 
-$\varepsilon_x = 2.0\times10^{-3}/10 = 2.0\times10^{-4}$; $\varepsilon_z = \varepsilon_x/\nu = 5.88\times10^{-4}$ (Session 11, Slide 19); $\sigma = E\varepsilon_z = 64.7$ MPa (Slide 12); $F = \sigma\,\pi\,(5)^2 = 5082$ N $= 5.08$ kN.
+Since the axial load, cross-sectional area, and Young's modulus $E$ are unchanged, the axial strain $\varepsilon_z = \sigma/E$ stays the same (Session 11, Slide 12). By $\varepsilon_x = -\nu\,\varepsilon_z$ (Slide 19), doubling $\nu$ doubles the transverse strain and hence the diameter contraction $\Delta d = \varepsilon_x d_0$.
 
-- a) The transverse strain was multiplied by $\nu$ instead of divided by it, which gives an axial strain far too small.
-- b) Poisson's ratio was left out: the transverse strain $2.0\times10^{-4}$ was used as the axial strain.
-- d) The diameter was used as the radius, so the area, and with it the load, is four times too large.
+- a) Inverted dependence: a higher $\nu$ increases lateral contraction rather than reducing it, and $\varepsilon_z = \sigma/E$ does not depend on $\nu$.
+- b) Equal $E$ keeps $\varepsilon_z$ unchanged, not $\varepsilon_x$, because lateral contraction scales directly with $\nu$.
+- d) Lateral contraction is linear in $\varepsilon_x = \Delta d/d_0$, not quadratic in diameter.
 
 ### Source
 
-Session 11, Slides 9, 12 and 17-19.
+Session 11, Slides 12 and 19.
 
 ## Q21.3 Wrong Poisson's ratio in the modulus
 
@@ -118,32 +117,31 @@ $\varepsilon_z = |\varepsilon_x|/\nu$ (Session 11, Slide 19) and $E = \sigma/\va
 
 Session 11, Slides 12 and 19.
 
-## Q21.4 Poisson's ratio from E and G
+## Q21.4 Relation among isotropic elastic constants
 
 - id: B21-Q4
 - concept_id: u5-shear-modulus-relation
-- format: numeric
+- format: topic-false
 - asks: application
-- calc: 207/(2*80) - 1
 
-A steel has $E$ = 207 GPa and a shear modulus $G$ = 80 GPa. Determine its Poisson's ratio:
+Regarding the isotropic elastic relation $E = 2G(1 + \nu)$ for real metals with $0 < \nu < 0.5$, which statement is FALSE?
 
-a) 0.294
-b) 0.773
-c) 1.29
-d) 1.59
+a) Young's modulus $E$ is always more than twice the shear modulus $G$
+b) For an ideal incompressible material ($\nu = 0.5$), $E = 3G$
+c) The shear modulus $G$ is larger than Young's modulus $E$
+d) Knowing any two of $E$, $G$, and $\nu$ uniquely determines the third
 
 ### Answer
 
-a
+c
 
 ### Explanation
 
-Session 11, Slide 7: $E = 2G(1 + \nu)$, so $\nu = E/(2G) - 1 = 207/160 - 1 = 0.294$, inside the range 0.25-0.4 of metals (Slide 19).
+From $E = 2G(1 + \nu)$ (Session 11, Slide 7), with $\nu > 0$ we always have $2(1 + \nu) > 2$, so $E > 2G > G$. Thus $G$ is always smaller than $E$ in typical metals ($\nu \approx 0.25$–$0.4$, Slide 19).
 
-- b) The ratio $2G/E$ was taken as $\nu$; it is $1/(1 + \nu)$.
-- c) The 1 was not subtracted: $E/(2G) = 1.29$ is $1 + \nu$.
-- d) The factor 2 was left out: $E/G - 1$.
+- a) This is true: because $\nu > 0$, $2(1+\nu) > 2$ and therefore $E > 2G$.
+- b) This is true: substituting $\nu = 0.5$ into $E = 2G(1+\nu)$ gives $E = 3G$.
+- d) This is true: one equation connects the three constants, so two values fix the third.
 
 ### Source
 
@@ -156,7 +154,7 @@ Session 11, Slides 7 and 19.
 - format: identify
 - asks: application
 
-Which test of the course best characterises a ceramic brick that carries the weight of a wall?
+Which mechanical test best characterises a ceramic brick that carries the structural weight of a wall?
 
 a) Rockwell hardness test
 b) Compression test
@@ -278,7 +276,7 @@ Session 11, Slide 6.
 - asks: calculation
 - calc: 26000*0.05/20
 
-In an elastic shear test on an aluminium alloy ($G$ = 26 GPa, $E$ = 69 GPa), a 20 mm high block slides 0.05 mm. Determine the shear stress:
+In an elastic shear test on an aluminium alloy ($G$ = 26 GPa, $E$ = 69 GPa), a 20 mm high block shears horizontally by 0.05 mm. Determine the shear stress:
 
 a) 0.0650 MPa
 b) 65.0 MPa

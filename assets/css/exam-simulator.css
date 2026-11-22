@@ -381,6 +381,21 @@ body:has(#examSimulator) .page-header > p { display: none; }
 .sim-picks__quick { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .sim-picks__quick .bank-btn { padding: 4px 12px; font-size: 0.85rem; }
 @media (max-width: 640px) { .sim-reason-compare { grid-template-columns: minmax(0, 1fr); } }
+.sim-source-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; margin-top: 8px; }
+.sim-source-line p { margin: 0; }
+.sim-origin-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-soft);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
 @media print {
   .sim-custom, .sim-void, .sim-reason-compare .bank-panel--hint { display: none; }
   .sim-reason textarea { border: 1px solid #000; min-height: 4em; }

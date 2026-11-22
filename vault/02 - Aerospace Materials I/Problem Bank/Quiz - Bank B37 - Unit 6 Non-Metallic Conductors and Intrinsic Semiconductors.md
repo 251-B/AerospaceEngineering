@@ -9,7 +9,6 @@ concepts:
   - u6-polymers-graphene
   - u6-conductive-ceramics
   - u6-semiconductor-definition-types
-  - u6-intrinsic-resistivity-calc
   - u6-intrinsic-carriers
 difficulty: 1
 origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 13 Slides 20-22, 25-28 and 31-33."
@@ -205,20 +204,19 @@ Session 13, Slide 25: semiconductors are mediocre conductors whose conductivity 
 
 Session 13, Slides 6, 8, 25 and 26.
 
-## Q37.7 Resistivity of intrinsic silicon
+## Q37.7 Intrinsic semiconductor conduction mechanism
 
 - id: B37-Q7
-- concept_id: u6-intrinsic-resistivity-calc
-- format: numeric
-- asks: calculation
-- calc: 1/(1.5e16*q*(0.135+0.048))
+- concept_id: u6-intrinsic-carriers
+- format: topic-true
+- asks: cause
 
-Intrinsic silicon has $n_i = 1.5\times10^{16}$ m⁻³, $\mu_e = 0.135$ m²/(V·s) and $\mu_h = 0.048$ m²/(V·s). Determine its electrical resistivity:
+Regarding intrinsic semiconductors and their electrical conduction, indicate which statement is TRUE:
 
-a) $4.40\times10^{-4}$ Ω·m
-b) $1.14\times10^{3}$ Ω·m
-c) $2.27\times10^{3}$ Ω·m
-d) $3.08\times10^{3}$ Ω·m
+a) Conduction-band electrons carry all current because valence-band holes stay pinned to lattice atoms
+b) Electrons and holes carry charge of the same sign, so their drift velocities point in the same direction
+c) Both electrons and holes contribute to $\sigma = n|q_e|(\mu_e + \mu_h)$ because thermal excitation creates equal pairs
+d) Intrinsic conductivity is independent of carrier mobility because equal carrier numbers cancel $\mu_e$ and $\mu_h$
 
 ### Answer
 
@@ -226,15 +224,15 @@ c
 
 ### Explanation
 
-Session 13, Slide 28: $\sigma = n|q_e|(\mu_e+\mu_h)$ with $n = p = n_i$: $\sigma = 1.5\times10^{16}\cdot1.6\times10^{-19}\cdot0.183 = 4.40\times10^{-4}$ (Ω·m)⁻¹, so $\rho = 1/\sigma = 2.27\times10^{3}$ Ω·m (the table of Slide 31 gives about 2300 Ω·m).
+Session 13, Slides 27-28: thermal or electric excitation lifts valence electrons across the band gap into the conduction band, leaving positively charged holes behind ($n_e = n_H = n$); both carriers move under an electric field and sum in $\sigma = n|q_e|(\mu_e + \mu_h)$.
 
-- a) The conductivity was given instead of its reciprocal, the resistivity.
-- b) The carrier density was counted twice ($2n_i$ with the sum of mobilities), which halves the resistivity: $1.14\times10^{3}$ Ω·m.
-- d) Only the electrons were counted: $1/(n_i|q_e|\mu_e) = 3.08\times10^{3}$ Ω·m; in an intrinsic semiconductor holes conduct too.
+- a) Ignores hole motion: valence electrons shift into adjacent empty bonding sites, causing holes to drift across the crystal.
+- b) Holes carry $+1.6\times10^{-19}$ C while electrons carry $-1.6\times10^{-19}$ C, so they drift in opposite directions while adding to the same current direction.
+- d) Equal carrier concentrations factor out $n$, leaving the sum of mobilities $(\mu_e + \mu_h)$ rather than cancelling them.
 
 ### Source
 
-Session 13, Slides 28 and 31.
+Session 13, Slides 27-28.
 
 ## Q37.8 Carriers of an intrinsic semiconductor
 

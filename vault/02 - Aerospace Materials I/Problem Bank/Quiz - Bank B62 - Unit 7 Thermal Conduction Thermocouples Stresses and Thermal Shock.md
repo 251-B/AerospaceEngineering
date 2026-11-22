@@ -6,14 +6,14 @@ title: "Thermal conduction, thermocouples, thermal stresses and thermal shock"
 category: mt2_test_block
 unit: 7
 concepts:
-  - u7-k-ordering-alloys-table
-  - u7-fourier-heat-flow-stainless
-  - u7-wf-celsius-slip
+  - u7-k-classes-comparison
+  - u7-fourier-conceptual-microstructure
+  - u7-wf-conceptual-intuition
   - u7-k-alloy-electron-scattering
   - u7-k-porosity-ceramic
   - u7-thermocouple-principle
-  - u7-thermal-stress-cooling-steel
-  - u7-wire-constant-length-diameter
+  - u7-thermal-stress-constrained-sign
+  - u7-thermal-stress-length-independence
   - u7-thermal-shock-heating-surface
   - u7-tsr-ceramic-ordering
 difficulty: 2
@@ -30,57 +30,49 @@ tags:
 > [!info] Practice item, not an official exercise
 > Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 38 and 40-48.
 
-## Q62.1 Ranking of alloys by thermal conductivity
+## Q62.1 Thermal conductivity in metals, ceramics and polymers
 
 - id: B62-Q1
-- concept_id: u7-k-ordering-alloys-table
-- format: ordering
+- concept_id: u7-k-classes-comparison
+- format: topic-true
 - asks: comparison
 
-From the table of Slide 41, with the values shown, order the following alloys by increasing thermal conductivity:
+Referring to thermal conductivity in metals, ceramics and polymers, which one of the following statements is TRUE:
 
-| Material | $k$ (W/(m·K)) |
-| :--- | :--- |
-| 1020 steel | 100 |
-| 3003 aluminum alloy | 280 |
-| 304 stainless steel | 30 |
-| Cementite | 50 |
-
-a) cementite, 304 stainless steel, 1020 steel, 3003 aluminum alloy
-b) 3003 aluminum alloy, 1020 steel, cementite, 304 stainless steel
-c) 304 stainless steel, cementite, 1020 steel, 3003 aluminum alloy
-d) 304 stainless steel, 1020 steel, cementite, 3003 aluminum alloy
+a) Ceramics and polymers typically conduct heat better than pure metals because covalent and ionic bonds vibrate faster
+b) Pure metals generally show the highest thermal conductivity via free electrons, whereas polymers are poor conductors via phonons
+c) Polymers have higher thermal conductivity than metals because their specific heat $c_p$ per kilogram is much higher
+d) Metals and polymers both conduct heat primarily by free electrons, whereas ceramics conduct exclusively by ion diffusion
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Session 15, Slide 41: $k$ = 30 (304 stainless steel) < 50 (cementite) < 100 (1020 steel) < 280 W/(m·K) (3003 aluminum alloy).
+Session 15, Slides 40-41: thermal energy is transferred by free electrons ($k_e$) and phonons ($k_{ph}$); pure metals have abundant free electrons ($k \approx k_e$, hundreds of W/(m·K)), whereas polymers and traditional ceramics lack free electrons and rely on less effective phonon conduction ($k \approx k_{ph}$, roughly 0.1–0.5 W/(m·K) for polymers).
 
-- a) The two lowest values are swapped: 304 stainless steel (30) is below cementite (50).
-- b) The order is read from the highest value: it is the decreasing order.
-- d) Cementite (50) and 1020 steel (100) are swapped.
+- a) Inverts the classes: pure metals conduct far better than common ceramics and polymers because free-electron transport is much more effective than phonon transport.
+- c) Confuses specific heat $c_p$ (heat stored per kg and degree) with thermal conductivity $k$ (rate of heat transfer).
+- d) Wrong carriers: polymers lack free electrons and conduct by phonons, and conduction is not mass diffusion of ions.
 
 ### Source
 
-Session 15, Slide 41.
+Session 15, Slides 40-41.
 
-## Q62.2 Heat flow through a stainless steel wall
+## Q62.2 Fourier's law and microstructural sensitivity of k
 
 - id: B62-Q2
-- concept_id: u7-fourier-heat-flow-stainless
-- format: numeric
+- concept_id: u7-fourier-conceptual-microstructure
+- format: topic-false
 - asks: application
-- calc: 15.9*0.20*(100-20)/0.005
 
-A 316 stainless steel wall ($k = 15.9$ W/(m·K), Slide 38) is 5.0 mm thick and has an area of 0.20 m². Its faces are at 100 °C and 20 °C. Determine the heat flow through it in steady state:
+Regarding steady-state heat conduction and Fourier's law ($q = -k\,\Delta T/\Delta x$), which one of the following statements is FALSE:
 
-a) $5.09\times10^{4}$ W
-b) $2.54\times10^{5}$ W
-c) 50.9 W
-d) 1.27 W
+a) Thermal conductivity $k$ is insensitive to microstructure, so impurities and porosity leave $k$ unchanged
+b) The minus sign in Fourier's law indicates that thermal energy flows down the temperature gradient from hot to cold
+c) The heat flux $q = Q/A$ is measured in W/m², whereas the thermal conductivity $k$ is measured in W/(m·K)
+d) Raising the thermal conductivity $k$ increases the steady-state heat flux $q$ for a given temperature gradient
 
 ### Answer
 
@@ -88,30 +80,29 @@ a
 
 ### Explanation
 
-Session 15, Slide 40: with $q = Q/A = k\,\Delta T/\Delta x$, the heat flow is $Q = k\,A\,\Delta T/\Delta x = 15.9\times0.20\times80/0.005 = 5.09\times10^{4}$ W.
+Session 15, Slides 40 and 43: thermal conductivity $k$ is explicitly defined as a *microstructure-sensitive* property—impurities, alloying elements, dislocations, and porosity scatter electrons and phonons, reducing $k$ (unlike heat capacity, which is nearly structure-insensitive). Statement a is false.
 
-- b) The area was left out, which gives the heat flux $q$ in W/m² (2.54×10⁵) instead of the heat flow $Q$.
-- c) The thickness was entered in mm (5.0) instead of in m: the result is 1000 times too small.
-- d) The thickness multiplied instead of dividing: $15.9\times0.20\times80\times0.005$.
+- b) True: heat flux flows from the hot end towards the cold end (Slide 40).
+- c) True: $q = Q/A$ has units of W/m², and $k$ has units of W/(m·K) (Slide 40).
+- d) True: $q$ is directly proportional to $k$ at fixed $\Delta T/\Delta x$.
 
 ### Source
 
-Session 15, Slides 38 and 40.
+Session 15, Slides 40 and 43.
 
-## Q62.3 Electrical conductivity from a measured thermal conductivity
+## Q62.3 Wiedemann-Franz relation and alloying
 
 - id: B62-Q3
-- concept_id: u7-wf-celsius-slip
-- format: numeric
-- asks: calculation
-- calc: 150/(2.44e-8*(127+273.15))
+- concept_id: u7-wf-conceptual-intuition
+- format: cause-effect
+- asks: effect
 
-A metal whose heat is carried by its free electrons has $k = 150$ W/(m·K) at 127 °C. Using the Lorentz number $L = 2.44\times10^{-8}$ W·Ω/K², determine its electrical conductivity at that temperature:
+According to the Wiedemann-Franz law ($L = k/(\sigma T)$), if alloying a pure metal at constant temperature reduces its electrical conductivity $\sigma$ to one third of its original value, its electronic thermal conductivity $k_e$ will:
 
-a) $4.84\times10^{7}$ (Ω·m)⁻¹
-b) $6.82\times10^{7}$ (Ω·m)⁻¹
-c) $2.15\times10^{8}$ (Ω·m)⁻¹
-d) $1.54\times10^{7}$ (Ω·m)⁻¹
+a) triple, because $k_e$ and $\sigma$ are inversely proportional at constant temperature
+b) remain unchanged, because thermal energy in metals is carried mainly by phonons
+c) increase slightly, because alloying atoms supply extra free electrons
+d) decrease to roughly one third, because free electrons carry both charge and heat
 
 ### Answer
 
@@ -119,15 +110,15 @@ d
 
 ### Explanation
 
-Session 15, Slide 41: $L = k/(\sigma T)$, so $\sigma = k/(L\,T)$ with $T$ in kelvin: $T = 127 + 273.15 = 400.15$ K and $\sigma = 150/(2.44\times10^{-8}\times400.15) = 1.54\times10^{7}$ (Ω·m)⁻¹.
+Session 15, Slides 40-41: with the Lorenz number $L$ constant and temperature $T$ fixed, $k \approx k_e = L\sigma T$, so electronic thermal conductivity scales directly with electrical conductivity $\sigma$. Cutting $\sigma$ to one third by electron scattering cuts $k_e$ in the same proportion.
 
-- a) The temperature was entered as 127 K, the value in °C.
-- b) The Lorentz number of the slide in cal·Ω/(s·K²) ($5.5\times10^{-9}$) was used with $k$ in W/(m·K).
-- c) Both slips together: the cal-based Lorentz number and 127 in place of 400 K.
+- a) Inverts the proportionality: $k = L\sigma T$ places $\sigma$ in the numerator, not the denominator.
+- b) Wrong heat carrier for metals: in conductive metals, heat is carried predominantly by free electrons ($k \approx k_e$).
+- c) Ignores impurity scattering: solute atoms act as defects that scatter conduction electrons and lower both $\sigma$ and $k$ (Slide 43).
 
 ### Source
 
-Session 15, Slide 41.
+Session 15, Slides 40-41 and 43.
 
 ## Q62.4 Nickel in copper
 
@@ -136,7 +127,7 @@ Session 15, Slide 41.
 - format: cause-effect
 - asks: cause
 
-In the table of Slide 41, copper has $k = 400$ W/(m·K) while the alloy Cu-30% Ni has 50 W/(m·K). The main reason for this drop is that the nickel atoms:
+Pure copper has a thermal conductivity of about 400 W/(m·K), whereas a Cu-30% Ni solid-solution alloy drops to about 50 W/(m·K). The main reason for this drop is that the nickel atoms:
 
 a) scatter the free electrons, which lowers their contribution to $k$
 b) add free electrons that scatter the phonons of the lattice
@@ -198,10 +189,10 @@ Session 15, Slides 35, 40 and 43.
 
 A thermocouple produces a voltage when:
 
-a) a single conductor carries a current while it is heated uniformly
-b) two identical conductors touch each other at a hot spot
-c) a conductor is moved through a magnetic field at room temperature
-d) two dissimilar conductors touch and one contact is not at the reference temperature
+a) a single homogeneous conductor carries an electric current while heated uniformly
+b) two identical metal conductors touch each other at a single heated spot
+c) a single metal conductor moves steadily through a magnetic field at room temperature
+d) two dissimilar conductors touch and one contact differs from the reference temperature
 
 ### Answer
 
@@ -219,51 +210,19 @@ Session 15, Slide 44: a thermocouple has two dissimilar conductors that contact 
 
 Session 15, Slide 44.
 
-## Q62.7 Steel bar cooled between rigid walls
+## Q62.7 Thermal stress sign in constrained heating and cooling
 
 - id: B62-Q7
-- concept_id: u7-thermal-stress-cooling-steel
-- format: numeric
-- asks: calculation
-- calc: 207e3*12.5e-6*45
+- concept_id: u7-thermal-stress-constrained-sign
+- format: topic-true
+- asks: effect
 
-A steel bar ($E = 207$ GPa, $\alpha = 12.5\times10^{-6}$ °C⁻¹, Slide 46) is held between rigid walls so that it cannot contract, and it is cooled by 45 °C. Determine the magnitude of the thermal stress that develops:
+Referring to thermal stresses in a bar constrained between rigid walls ($\sigma = E\alpha(T_0 - T_f)$), which one of the following statements is TRUE:
 
-a) 2.59 MPa
-b) 116 MPa
-c) $1.16\times10^{5}$ MPa
-d) 0.116 MPa
-
-### Answer
-
-b
-
-### Explanation
-
-Session 15, Slide 45: $\sigma = E\,\alpha\,\Delta T = 207\times10^{3}\ \text{MPa}\times12.5\times10^{-6}\ ^\circ\text{C}^{-1}\times45\ ^\circ\text{C} = 116$ MPa. On cooling ($T_f < T_0$) the bar would contract, the walls prevent it and the stress is tensile ($\sigma > 0$); on heating it would be compressive.
-
-- a) The temperature change was left out: $E\,\alpha = 2.59$ MPa per °C.
-- c) The modulus was converted from GPa to MPa with a factor $10^{6}$ instead of $10^{3}$.
-- d) The modulus was entered as 207 MPa instead of 207 GPa: the result is 1000 times too small.
-
-### Source
-
-Session 15, Slides 45 and 46.
-
-## Q62.8 Wire diameter for a compensating thermal stress
-
-- id: B62-Q8
-- concept_id: u7-wire-constant-length-diameter
-- format: numeric
-- asks: application
-- calc: (4*2000/(207e3*12.5e-6*30)/pi)**0.5
-
-A steel wire ($E = 207$ GPa, $\alpha = 12.5\times10^{-6}$ °C⁻¹) is stretched by a force of 2000 N at 15 °C, then held at constant length and heated to 45 °C. Determine the diameter of the wire so that the thermal stress equals the applied stress:
-
-a) 2.86 mm
-b) 4.68 mm
-c) 5.73 mm
-d) 8.20 mm
+a) Heating ($T_f > T_0$) produces tensile stress because the bar tries to expand, whereas cooling produces compressive stress
+b) Uniform heating or cooling produces zero stress in a constrained bar because a temperature gradient is required
+c) Cooling ($T_f < T_0$) produces tensile stress because contraction is prevented, whereas heating produces compressive stress
+d) Doubling Young's modulus $E$ halves the thermal stress because a stiffer material resists thermal strain
 
 ### Answer
 
@@ -271,15 +230,45 @@ c
 
 ### Explanation
 
-Session 15, Slides 45 and 46: $\sigma_{th} = E\,\alpha\,\Delta T = 207\times10^{3}\times12.5\times10^{-6}\times30 = 77.6$ MPa. Then $A_0 = F/\sigma = 2000/77.6 = 25.8$ mm² and $d = \sqrt{4A_0/\pi} = 5.73$ mm.
+Session 15, Slide 45: in a constrained bar held at fixed length, cooling ($T_f < T_0$) prevents natural contraction so the walls pull on the bar, creating tensile stress ($\sigma > 0$), while heating ($T_f > T_0$) prevents expansion and creates compressive stress ($\sigma < 0$).
 
-- a) The radius ($\sqrt{A_0/\pi} = 2.86$ mm) was given instead of the diameter.
-- b) The final temperature (45 °C) was used instead of the change $\Delta T = 30$ °C, which gives a higher $\sigma$ and a thinner wire.
-- d) The area was taken as $\pi d$ instead of $\pi d^2/4$: $d = A_0/\pi$.
+- a) Inverts the signs of heating and cooling: prevented expansion causes compression, and prevented contraction causes tension.
+- b) Confuses constrained thermal stress (which arises at uniform temperature when external walls block $\alpha\Delta T$) with thermal-shock gradient stress (Slide 47).
+- d) Inverts the proportionality to $E$: $\sigma = E\alpha(T_0 - T_f)$ scales linearly with $E$, so doubling $E$ doubles the stress.
 
 ### Source
 
-Session 15, Slides 45 and 46.
+Session 15, Slides 45 and 47.
+
+## Q62.8 Length independence of constrained thermal stress
+
+- id: B62-Q8
+- concept_id: u7-thermal-stress-length-independence
+- format: cause-effect
+- asks: comparison
+
+Two bars of the same alloy and cross-sectional area—one 0.5 m long and the other 2.0 m long—are clamped between rigid walls and cooled by the same $\Delta T$. Compared with the shorter bar, the thermal stress magnitude in the longer bar is:
+
+a) four times larger, because the blocked free contraction $\Delta l = \alpha\,l_0\,\Delta T$ is four times larger
+b) the same, because prevented thermal strain $\alpha\,\Delta T$ and $\sigma = E\alpha\,\Delta T$ do not depend on initial length
+c) one quarter as large, because the same thermal strain is distributed over four times the length
+d) zero, because constrained bars develop thermal stress during heating rather than during cooling
+
+### Answer
+
+b
+
+### Explanation
+
+Session 15, Slide 45: although free contraction $\Delta l = \alpha\,l_0\,\Delta T$ scales with $l_0$, thermal strain is $\varepsilon_{th} = \Delta l/l_0 = \alpha\,\Delta T$, so clamping the bar induces $\sigma = E\alpha(T_0 - T_f)$, which is independent of the initial length $l_0$.
+
+- a) Confuses total free elongation $\Delta l$ (which depends on $l_0$) with thermal strain $\alpha\Delta T$ (which does not).
+- c) Wrongly treats $\Delta l$ as fixed rather than proportional to $l_0$, leading to an inverse-$l_0$ scaling.
+- d) False restriction: cooling a clamped bar produces tensile thermal stress just as heating produces compressive stress.
+
+### Source
+
+Session 15, Slide 45.
 
 ## Q62.9 Cold ceramic block put in a hot furnace
 
@@ -318,7 +307,7 @@ Session 15, Slide 47.
 - format: ordering
 - asks: comparison
 
-Assume equal fracture stress and modulus of elasticity. With the data of Slide 38 shown, order the ceramics by increasing thermal shock resistance:
+Assume equal fracture stress and modulus of elasticity. Using the values below, order these four ceramics by increasing thermal shock resistance:
 
 | Ceramic | $\alpha$ ($10^{-6}$ °C⁻¹) | $k$ (W/(m·K)) |
 | :--- | :--- | :--- |
@@ -347,3 +336,5 @@ Session 15, Slide 48: $TSR = \sigma_f k/(E\,\alpha_l)$, so with equal $\sigma_f$
 ### Source
 
 Session 15, Slides 38 and 48.
+
+**Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

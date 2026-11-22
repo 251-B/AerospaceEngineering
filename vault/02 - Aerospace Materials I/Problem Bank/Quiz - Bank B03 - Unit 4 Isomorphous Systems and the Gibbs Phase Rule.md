@@ -180,32 +180,31 @@ Statement c) is false: Al₂O₃-Cr₂O₃ is isomorphous (Session 10, Slide 2),
 
 Session 10, Slide 2; Session 7, Slide 11.
 
-## Q03.6 Degrees of freedom on a melting line
+## Q03.6 Gibbs phase rule in a unary system
 
 - id: B03-Q6
 - concept_id: u4-gibbs-rule-unary
-- format: numeric
-- asks: calculation
-- calc: 1-2+2
+- format: topic-false
+- asks: application
 
-Determine the degrees of freedom of a pure substance at a point of its melting line, with pressure and temperature both free:
+Referring to the Gibbs phase rule ($F = C - P + N$) applied to a one-component system, which statement is FALSE:
 
-a) 0
-b) 1
-c) 2
-d) 3
+a) At fixed atmospheric pressure ($N = 1$), a pure metal melts at one constant temperature because $F = 0$
+b) With pressure and temperature variable ($N = 2$), three phases coexist at an invariant triple point ($F = 0$)
+c) Along a two-phase coexistence line with $N = 2$, pressure and temperature can both vary freely together
+d) At fixed pressure ($N = 1$), inside a single-phase region temperature can change freely because $F = 1$
 
 ### Answer
 
-b
+c
 
 ### Explanation
 
-Gibbs phase rule with $N = 2$ (Session 7, Slide 13): one component and two phases (solid and liquid) on the line, so $F = C - P + 2 = 1 - 2 + 2 = 1$. If the temperature is chosen, the line fixes the pressure.
+Statement c) is false: along a two-phase line (such as solid–liquid or liquid–vapour) with $C = 1$, $P = 2$ and $N = 2$, the Gibbs phase rule gives $F = 1 - 2 + 2 = 1$ (Session 7, Slide 13). Only one variable is independent: choosing the temperature fixes the equilibrium pressure along the line.
 
-- a) $F = 0$ is the triple point, where three phases coexist ($1 - 3 + 2$).
-- c) $F = 2$ is a point inside a single-phase region ($1 - 1 + 2$).
-- d) $F = 3$ comes from adding the number of phases instead of subtracting it ($1 + 2 + 2 - 2$): a wrong sign in the rule.
+- a) True: with $C = 1$, $P = 2$ (solid + liquid) and $N = 1$ (constant pressure), $F = 1 - 2 + 1 = 0$, so melting occurs at one fixed temperature.
+- b) True: at the triple point $P = 3$, giving $F = 1 - 3 + 2 = 0$, so temperature and pressure are both fixed.
+- d) True: inside a single-phase field at 1 atm ($N = 1$), $F = 1 - 1 + 1 = 1$, leaving temperature free to vary.
 
 ### Source
 

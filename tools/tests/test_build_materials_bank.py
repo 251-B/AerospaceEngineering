@@ -309,9 +309,17 @@ class ModeTests(unittest.TestCase):
         bp = self.bp()
         bmb.check_blueprint(bp, [], [], partial=True)
         ids = [m["id"] for m in bp["modes"]]
-        self.assertEqual(ids, ["real-paper", "focus-6-7", "unit-4", "unit-5", "unit-6", "unit-7"])
+        self.assertEqual(ids, ["real-paper", "focus-6-7", "custom-test", "problems"])
         self.assertEqual(bp["modes"][0]["per_unit"], bp["parts"][0]["selection_rules"]["per_unit"])
         self.assertGreater(bp["modes"][1]["per_unit"]["6"] + bp["modes"][1]["per_unit"]["7"], 5)
+        self.assertTrue(bp["modes"][2].get("unit_picker"))
+        self.assertTrue(bp["modes"][3].get("archetype_picker"))
+
+        bp3 = json.loads((bmb.OUT_DIR / bmb.BLUEPRINT_MT3).read_text(encoding="utf-8"))
+        bmb.check_blueprint(bp3, [], [], partial=True)
+        self.assertEqual([m["id"] for m in bp3["modes"]], ["full", "paper-2020", "custom-test", "problems"])
+        self.assertEqual(bp3["modes"][0]["per_unit"], bp3["parts"][0]["selection_rules"]["per_unit"])
+        self.assertTrue(bp3["modes"][2].get("unit_picker"))
 
     def test_a_mode_must_add_up_to_the_part_count(self):
         bp = self.bp()
@@ -331,11 +339,11 @@ class ModeTests(unittest.TestCase):
 
     def test_unknown_unit_and_bad_duration_are_rejected(self):
         bp = self.bp()
-        bp["modes"][2]["per_unit"] = {"9": 10}
+        bp["modes"][1]["per_unit"] = {"99": 10}
         with self.assertRaisesRegex(bpb.BankError, "per_unit must map"):
             bmb.check_blueprint(bp, [], [], partial=True)
         bp = self.bp()
-        bp["modes"][2]["duration_minutes"] = 25
+        bp["modes"][1]["duration_minutes"] = 25
         with self.assertRaisesRegex(bpb.BankError, "duration_minutes"):
             bmb.check_blueprint(bp, [], [], partial=True)
 
@@ -382,7 +390,13 @@ class RealBankTests(unittest.TestCase):
     def setUpClass(cls):
         cls.outputs, cls.data, cls.review = bmb.build()
         cls.questions = [i for i in cls.data["items"] if i.get("kind") == "multiple_choice"]
-        cls.problems = [i for i in cls.data["items"] if i["category"] == bmb.PROBLEM_CATEGORY]
+        cls.mt2_questions = [q for q in cls.questions if q["category"] == bmb.TEST_CATEGORY]
+        cls.mt3_questions = [q for q in cls.questions if q["category"] == bmb.MT3_TEST_CATEGORY]
+        cls.mt2_blocks = [b for b in cls.data["blocks"] if b.get("exam") == "midterm-2"]
+        cls.mt3_blocks = [b for b in cls.data["blocks"] if b.get("exam") == "midterm-3"]
+        cls.mt2_problems = [i for i in cls.data["items"] if i["category"] == bmb.PROBLEM_CATEGORY]
+        cls.mt3_problems = [i for i in cls.data["items"] if i["category"] == bmb.MT3_PROBLEM_CATEGORY]
+        cls.problems = cls.mt2_problems + cls.mt3_problems
 
     def test_generated_files_are_up_to_date(self):
         for path, content in self.outputs.items():
@@ -390,24 +404,38 @@ class RealBankTests(unittest.TestCase):
         self.assertEqual(bmb.mt2fig.REG.stale(REPO), [])
 
     def test_bank_size_and_quotas(self):
-        self.assertGreaterEqual(len(self.questions), 520)
-        self.assertGreaterEqual(len(self.data["blocks"]), 52)
+        self.assertGreaterEqual(len(self.mt2_questions), 620)
+        self.assertGreaterEqual(len(self.mt2_blocks), 62)
+        self.assertGreaterEqual(len(self.mt3_questions), 500)
+        self.assertGreaterEqual(len(self.mt3_blocks), 50)
         self.assertTrue(all(len(b["items"]) == 10 for b in self.data["blocks"]))
-        for unit, minimum in bmb.QUOTAS.items():
-            self.assertGreaterEqual(sum(q["unit"] == unit for q in self.questions), minimum, unit)
+        for unit, minimum in bmb.MT2_QUOTAS.items():
+            self.assertGreaterEqual(sum(q["unit"] == unit for q in self.mt2_questions), minimum, unit)
             self.assertGreaterEqual(minimum, 60)
-        self.assertGreaterEqual(len(self.problems), 20)
-        for arch in bmb.ARCHETYPES:
-            self.assertGreaterEqual(sum(p["archetype"] == arch for p in self.problems), 4, arch)
+        for unit, minimum in bmb.MT3_QUOTAS.items():
+            self.assertGreaterEqual(sum(q["unit"] == unit for q in self.mt3_questions), minimum, unit)
+        self.assertGreaterEqual(len(self.mt2_problems), 20)
+        self.assertGreaterEqual(len(self.mt3_problems), 16)
+        for arch, minimum in bmb.MIN_PROBLEMS_BY_ARCHETYPE.items():
+            self.assertGreaterEqual(sum(p["archetype"] == arch for p in self.problems), minimum, arch)
 
     def test_concepts_and_right_letters(self):
         counts = {}
         for q in self.questions:
             counts[q["concept_id"]] = counts.get(q["concept_id"], 0) + 1
         self.assertLessEqual(max(counts.values()), bmb.MAX_PER_CONCEPT)
-        for k in "abcd":
-            share = sum(q["answer"] == k for q in self.questions) / len(self.questions)
-            self.assertTrue(0.20 <= share <= 0.30, (k, share))
+        for group in (self.mt2_questions, self.mt3_questions):
+            for k in "abcd":
+                share = sum(q["answer"] == k for q in group) / len(group)
+                self.assertTrue(0.20 <= share <= 0.30, (k, share))
+        # Numeric caps and official-exam items present in both exams
+        for unit, cap in bmb.MAX_NUMERIC_SHARE.items():
+            u_qs = [q for q in self.questions if q["unit"] == unit]
+            self.assertLessEqual(sum(q["format"] == "numeric" for q in u_qs) / len(u_qs), cap, unit)
+        self.assertGreater(sum(q.get("origin") == "official-exam" for q in self.mt2_questions), 0)
+        self.assertGreater(sum(q.get("origin") == "official-exam" for q in self.mt3_questions), 0)
+        self.assertGreater(sum(q["format"] in ("topic-true", "topic-false") for q in self.mt2_questions), 0)
+        self.assertGreater(sum(q["format"] in ("topic-true", "topic-false") for q in self.mt3_questions), 0)
 
     def test_no_pair_of_questions_is_too_similar(self):
         self.assertTrue(all(r < bmb.SIM_FAIL for r, _a, _b in self.review))
@@ -419,14 +447,19 @@ class RealBankTests(unittest.TestCase):
 
     def test_pages_carry_the_bank(self):
         test_page = bmb.TEST_PAGE.read_text(encoding="utf-8")
-        self.assertEqual(len(re.findall(r'class="problem-box"', test_page)), len(self.data["blocks"]))
-        self.assertEqual(len(re.findall(r'class="phase-block mcq-item"', test_page)), len(self.questions))
-        self.assertEqual(len(re.findall(r'<details class="mcq-answer">', test_page)), len(self.questions))
+        self.assertEqual(len(re.findall(r'class="problem-box"', test_page)), len(self.mt2_blocks))
+        self.assertEqual(len(re.findall(r'class="phase-block mcq-item"', test_page)), len(self.mt2_questions))
+        self.assertEqual(len(re.findall(r'<details class="mcq-answer">', test_page)), len(self.mt2_questions))
         self.assertNotIn("<details class=\"mcq-answer\" open", test_page)
         self.assertIn("Practice item, not an official exercise", test_page)
         problems_page = bmb.PROBLEMS_PAGE.read_text(encoding="utf-8")
-        self.assertEqual(len(re.findall(r'class="problem-box"', problems_page)), len(self.problems))
-        for page in (test_page, problems_page):
+        self.assertEqual(len(re.findall(r'class="problem-box"', problems_page)), len(self.mt2_problems))
+        mt3_test_page = bmb.TEST_PAGE_MT3.read_text(encoding="utf-8")
+        self.assertEqual(len(re.findall(r'class="problem-box"', mt3_test_page)), len(self.mt3_blocks))
+        self.assertEqual(len(re.findall(r'class="phase-block mcq-item"', mt3_test_page)), len(self.mt3_questions))
+        mt3_problems_page = bmb.PROBLEMS_PAGE_MT3.read_text(encoding="utf-8")
+        self.assertEqual(len(re.findall(r'class="problem-box"', mt3_problems_page)), len(self.mt3_problems))
+        for page in (test_page, problems_page, mt3_test_page, mt3_problems_page):
             self.assertIsNone(re.search(r">\s*Phase \d", page))
             self.assertIn("ask-ai.js", page)
             self.assertIn("pdf-export.js", page)
@@ -434,6 +467,8 @@ class RealBankTests(unittest.TestCase):
         hub = bmb.HUB.read_text(encoding="utf-8")
         self.assertIn('href="midterm-2-test.html"', hub)
         self.assertIn('href="midterm-2-problems.html"', hub)
+        self.assertIn('href="midterm-3-test.html"', hub)
+        self.assertIn('href="midterm-3-problems.html"', hub)
 
     def test_blueprint_is_the_real_structure(self):
         bp = json.loads((bmb.OUT_DIR / bmb.BLUEPRINT).read_text(encoding="utf-8"))
@@ -445,9 +480,17 @@ class RealBankTests(unittest.TestCase):
         self.assertEqual(bp["total_points"], 10.0)
         self.assertIn("MATERIALS_SECONDPARTIAL_2019.pdf", bp["provenance"]["structure_source"])
 
+        bp3 = json.loads((bmb.OUT_DIR / bmb.BLUEPRINT_MT3).read_text(encoding="utf-8"))
+        mc3, comp_prob = bp3["parts"]
+        self.assertEqual((mc3["type"], mc3["count"], mc3["points_correct"], mc3["points_wrong"], mc3["points_blank"], mc3["floor"]),
+                         ("multiple_choice", 10, 0.5, -0.15, 0, 0))
+        self.assertEqual((comp_prob["count"], comp_prob["points_each"], comp_prob["selection_rules"]["units"]), (1, 5.0, [10]))
+        self.assertEqual(bp3["total_points"], 10.0)
+
     def test_simulator_page_reads_the_bank_and_the_blueprint(self):
         page = (REPO / "subjects/aerospace-materials-1/simulator/index.html").read_text(encoding="utf-8")
         for needle in ('data-bank="AE_MAT_BANK"', 'data-blueprint-midterm-2="AE_MAT_BLUEPRINT_MT2"',
+                       'data-blueprint-midterm-3="AE_MAT_BLUEPRINT_MT3"',
                        'data-default-exam="midterm-2"', 'data-storage="ae_mat_exams"', "../data/problems.js",
                        'aria-current="page">Exam simulator</a>'):
             self.assertIn(needle, page)
@@ -484,7 +527,7 @@ class MultipleChoiceSimulatorTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_harness_ran_every_scenario(self):
-        self.assertEqual(len(self.results), 41, [r["name"] for r in self.results])
+        self.assertEqual(len(self.results), 45, [r["name"] for r in self.results])
 
     def test_every_scenario_passes(self):
         failures = [f"{r['name']}: {r['detail'][:300]}" for r in self.results if not r["pass"]]

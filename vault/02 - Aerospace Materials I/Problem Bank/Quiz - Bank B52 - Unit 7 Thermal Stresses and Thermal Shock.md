@@ -12,7 +12,7 @@ concepts:
   - u7-thermal-shock-gradients
   - u7-thermal-shock-resistance
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf and of the thermal shock items of the 2016 and 2017 finals; not official exercises. Content and data from Session 15, Slides 38, 40, 42 and 45-48, and Session 11, Slide 17 (moduli)."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf, including Q1.4 from the June 2017 final exam. Content and data from Session 15, Slides 36, 38, 40, 42 and 45-48."
 tags:
   - problem-bank
   - midterm-2
@@ -22,8 +22,8 @@ tags:
 
 # Bank B52 — Thermal stresses and thermal shock
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 38, 40, 42 and 45-48.
+> [!info] Includes official exam questions
+> Ten test questions written for the bank in the style of Part I of Assessment Test II, including a statement from the June 2017 final exam (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 36, 38, 40, 42 and 45-48.
 
 ## Q52.1 Temperature and the conductivity of metals
 
@@ -55,36 +55,35 @@ Slide 42 gives two competing effects for metals: a higher temperature increases 
 
 Session 15, Slide 42.
 
-## Q52.2 Heat lost through a window pane
+## Q52.2 Thickness effect in steady-state heat conduction
 
 - id: B52-Q2
 - concept_id: u7-fourier-law-calc
-- format: numeric
-- asks: application
-- calc: 1.7*1.5*(10-6)/0.004/1000
+- format: cause-effect
+- asks: effect
 
-A soda-lime glass pane ($k = 1.7$ W/(m·K), Slide 38) of 1.5 m² and 4.0 mm thickness has its faces at 10 °C and 6 °C. Determine the heat flow through it:
+In steady-state one-dimensional heat conduction through a flat plate at fixed face temperatures, doubling the plate thickness causes the heat flux $q$ to:
 
-a) 0.00255 kW
-b) 1.70 kW
-c) 2.55 kW
-d) 6.38 kW
+a) double, because a thicker plate transfers twice as much heat across the section
+b) halve, because the temperature gradient $\Delta T/\Delta x$ is cut in half
+c) stay constant, because thermal conductivity $k$ is an intensive property
+d) drop to one quarter, because thermal resistance scales with thickness squared
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Fourier's law (Slide 40), $Q = q\,A = k\,A\,\Delta T/\Delta x = 1.7\times1.5\times(10 - 6)/0.0040 = 2550$ W $= 2.55$ kW.
+Session 15, Slide 40: by Fourier's law, $q = -k\,\Delta T/\Delta x$; with $k$ and $\Delta T$ unchanged, doubling $\Delta x$ halves the temperature gradient and therefore halves the steady-state heat flux $q$.
 
-- a) The thickness is entered as 4.0 m instead of 0.0040 m: $1.7\times1.5\times4/4.0 = 2.55$ W $= 0.00255$ kW.
-- b) The area is left out: $1.7\times4/0.0040 = 1700$ W is the flux per square metre, $q$, not the heat flow $Q$.
-- d) The temperature of the warm face is used instead of the difference: $1.7\times1.5\times10/0.0040 = 6380$ W.
+- a) Inverts the denominator dependence on $\Delta x$: heat flux is inversely proportional to thickness, not proportional.
+- c) Ignores the spatial gradient: $k$ is an intensive material property, but $q$ also depends on $\Delta T/\Delta x$.
+- d) Applies an inverse-square scaling instead of the linear inverse thickness in Fourier's law.
 
 ### Source
 
-Session 15, Slides 38 and 40.
+Session 15, Slide 40.
 
 ## Q52.3 Copper bar between rigid walls
 
@@ -94,7 +93,7 @@ Session 15, Slides 38 and 40.
 - asks: calculation
 - calc: 110e3*17.0e-6*(70-20)
 
-A copper bar ($E = 110$ GPa, Session 11; $\alpha = 17.0\times10^{-6}$ °C⁻¹, Slide 38) fits between rigid walls at 20 °C and is heated to 70 °C. Determine the magnitude of its thermal stress:
+A copper bar ($E = 110$ GPa, $\alpha = 17.0\times10^{-6}$ °C⁻¹) fits between rigid walls at 20 °C and is heated to 70 °C. Determine the magnitude of its thermal stress:
 
 a) 0.0935 MPa
 b) 93.5 MPa
@@ -238,20 +237,20 @@ Slide 47: thermal stresses are established by temperature gradients across a bod
 
 Session 15, Slides 45 and 47.
 
-## Q52.8 Thermal shock resistance of alumina
+## Q52.8 Thermal expansion, bonding and rapid thermal cycling
 
 - id: B52-Q8
 - concept_id: u7-thermal-shock-resistance
-- format: numeric
-- asks: calculation
-- calc: 300e6*39/(393e9*7.6e-6)
+- format: topic-false
+- asks: application
+- origin: official-exam
 
-Alumina has a fracture stress of 300 MPa, $k = 39$ W/(m·K), $\alpha = 7.6\times10^{-6}$ °C⁻¹ (Slide 38) and $E = 393$ GPa (Session 11). Determine its thermal shock resistance $TSR = \sigma_f k/(E\alpha_l)$:
+Regarding thermal expansion, atomic bonding, and thermal shock resistance, which one of the following statements is FALSE:
 
-a) $2.55\times10^{-4}$ W/m
-b) $3.92\times10^{2}$ W/m
-c) $3.92\times10^{3}$ W/m
-d) $3.92\times10^{6}$ W/m
+a) Materials with strong atomic bonding and a deep potential well display low coefficients of thermal expansion
+b) Increasing thermal conductivity $k$ and fracture stress $\sigma_f$ improves a brittle material's thermal shock resistance
+c) Materials with a high $\alpha$ have strong atomic bonding and perform well under rapid heating and cooling
+d) Rapid cooling puts the surface of a brittle ceramic under tensile stress, which can initiate cracking
 
 ### Answer
 
@@ -259,15 +258,15 @@ c
 
 ### Explanation
 
-Slide 48: $TSR = \sigma_f k/(E\alpha_l) = (300\times10^6\times39)/(393\times10^9\times7.6\times10^{-6}) = 3.92\times10^3$ W/m, with $\sigma_f$ and $E$ in the same unit (Pa).
+June 2017 extraordinary final exam, Q1.4 (and Session 15, Slides 36, 47-48): a high linear coefficient of thermal expansion $\alpha$ reflects weak atomic bonding (a shallow energy well), and from $TSR = \sigma_f k/(E\alpha_l)$ a high $\alpha$ produces large thermal strains and stresses during rapid heating and cooling, lowering thermal shock resistance. Statement c is therefore false.
 
-- a) The formula is inverted: $E\alpha_l/(\sigma_f k) = 2.55\times10^{-4}$.
-- b) The coefficient is taken as $7.6\times10^{-5}$ °C⁻¹ (exponent slip), giving a value ten times too small.
-- d) $\sigma_f$ in MPa and $E$ in GPa are mixed without conversion: $300\times39/(393\times7.6\times10^{-6}) = 3.92\times10^6$.
+- a) True: strong bonding corresponds to a deep, narrow energy well and small expansion on heating (Slide 36).
+- b) True: both $\sigma_f$ and $k$ stand in the numerator of $TSR = \sigma_f k/(E\alpha_l)$ (Slide 48).
+- d) True: rapid cooling shrinks the outer layer faster than the interior, putting the surface in tension where ceramics fracture easily (Slide 47).
 
 ### Source
 
-Session 15, Slides 38 and 48; Session 11, Slide 17.
+MATERIALS_FINALEXAM_2017_EXTRA.pdf, p. 1 Q1.4; Session 15, Slides 36 and 47-48.
 
 ## Q52.9 Thermal conductivity and thermal shock
 

@@ -6,8 +6,8 @@ title: "Extrinsic conductivity against temperature and devices"
 category: mt2_test_block
 unit: 6
 concepts:
-  - u6-extrinsic-slope-calc
-  - u6-intrinsic-ratio-calc
+  - u6-extrinsic-temperature-regions
+  - u6-extrinsic-slopes
   - u6-photon-gap-calc
   - u6-gap-from-curves
   - u6-exhaustion-mobility
@@ -30,25 +30,19 @@ tags:
 > [!info] Practice item, not an official exercise
 > Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 13, Slides 29 and 43-49.
 
-## Q56.1 Donor energy from the extrinsic range
+## Q56.1 Three temperature regimes of an extrinsic semiconductor
 
 - id: B56-Q1
-- concept_id: u6-extrinsic-slope-calc
-- format: numeric
-- asks: calculation
-- calc: 2*8.62e-5*log(0.130/0.100)/(1/200-1/250)
+- concept_id: u6-extrinsic-temperature-regions
+- format: topic-true
+- asks: comparison
 
-Two points of the extrinsic range of an n-type semiconductor are given in the table. With $k_B = 8.62\times10^{-5}$ eV/K, determine the donor energy $E_c - E_d$:
+With respect to the three temperature regimes of an extrinsic semiconductor on a $\ln\sigma$ against $1/T$ plot, indicate which statement is TRUE:
 
-| $T$ (K) | $\sigma$ ((Ω·m)⁻¹) |
-| :--- | :--- |
-| 200 | 0.100 |
-| 250 | 0.130 |
-
-a) 0.0196 eV
-b) 0.0226 eV
-c) 0.0452 eV
-d) 0.0905 eV
+a) In the low-temperature extrinsic range, all dopant atoms are already ionised and conductivity remains flat
+b) In the exhaustion range, conductivity climbs steeply with slope $-E_g/2k$ as valence electrons cross the gap
+c) In the extrinsic range $\sigma$ rises as dopants ionise, plateaus during exhaustion, and becomes intrinsic at very high $T$
+d) In the high-temperature intrinsic range, conductivity drops sharply because thermal vibrations destroy dopant ions
 
 ### Answer
 
@@ -56,46 +50,45 @@ c
 
 ### Explanation
 
-Session 13, Slide 43: in the extrinsic range $\ln\sigma = \ln\sigma_0 - (E_c - E_d)/2kT$, so $\ln(\sigma_2/\sigma_1) = \frac{E_c - E_d}{2k}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)$ and $E_c - E_d = 2k\,\ln(0.130/0.100)/(1/200 - 1/250) = 2\cdot8.62\times10^{-5}\cdot0.2624/0.00100 = 0.0452$ eV, close to the 0.045 eV of phosphorus in silicon (Slide 40).
+Session 13, Slides 43-44: on heating from low temperature, $\sigma$ first grows in the extrinsic range as dopants ionise; once all impurities are ionised it reaches the flat exhaustion/saturation range; at very high temperature excitation across $E_g$ dominates in the intrinsic range.
 
-- a) The common logarithm was used instead of the natural one: $0.0452\cdot0.434 = 0.0196$ eV.
-- b) The factor 2 of the slope $-(E_c - E_d)/2k$ was dropped: $k\ln(\sigma_2/\sigma_1)/(1/T_1 - 1/T_2) = 0.0226$ eV.
-- d) The slope was taken as $-2(E_c - E_d)/k$ in place of $-(E_c - E_d)/2k$.
+- a) Describes the intermediate-temperature exhaustion (or saturation) plateau, not the low-temperature extrinsic range.
+- b) Assigns the high-temperature intrinsic slope $-E_g/2k$ to the flat exhaustion range.
+- d) Inverts the high-temperature intrinsic trend: intrinsic carrier generation across $E_g$ drives $\sigma$ steeply upward.
 
 ### Source
 
-Session 13, Slides 40 and 43.
+Session 13, Slides 43-44.
 
-## Q56.2 Intrinsic range between two temperatures
+## Q56.2 Arrhenius slopes of a doped semiconductor
 
 - id: B56-Q2
-- concept_id: u6-intrinsic-ratio-calc
-- format: numeric
-- asks: calculation
-- calc: exp(1.11/(2*8.62e-5)*(1/400-1/500))
+- concept_id: u6-extrinsic-slopes
+- format: topic-false
+- asks: cause
 
-Intrinsic silicon has $E_g = 1.11$ eV. With $k_B = 8.62\times10^{-5}$ eV/K, determine the ratio $\sigma(500\ \mathrm{K})/\sigma(400\ \mathrm{K})$:
+Regarding the Arrhenius plot of $\ln\sigma$ against $1/T$ for an extrinsic semiconductor, indicate which statement is FALSE:
 
-a) 0.0400
-b) 3.22
-c) 25.0
-d) 625
+a) The high-temperature intrinsic slope equals $-E_g/2k$, matching that of the pure semiconductor host
+b) Increasing the dopant concentration makes the slope of the low-temperature extrinsic line steeper
+c) The extrinsic slope $-(E_c - E_d)/2k$ is far gentler than the intrinsic slope because $E_c - E_d \ll E_g$
+d) Across the exhaustion plateau, conductivity can dip slightly as temperature rises due to reduced carrier mobility
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Session 13, Slide 29: $\sigma = \sigma_0\exp(-E_g/2kT)$, so $\sigma_2/\sigma_1 = \exp\left[\frac{E_g}{2k}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)\right] = \exp\left[\frac{1.11}{2\cdot8.62\times10^{-5}}\cdot0.00050\right] = \exp(3.22) = 25.0$.
+Session 13, Slide 43: in the extrinsic range $\ln\sigma = \ln\sigma_0 - (E_c - E_d)/(2kT)$ (or with $E_a - E_v$), so the slope depends on the dopant ionisation energy while changing dopant concentration shifts the curve vertically ($\sigma_0$) rather than steepening the slope. Statement b) is false.
 
-- a) The ratio was inverted: $\sigma(400)/\sigma(500) = 0.0400$.
-- b) The exponent was reported and the exponential was not evaluated: $\ln(\sigma_2/\sigma_1) = 3.22$.
-- d) The factor 2 of $2kT$ was dropped: $\sigma\propto\exp(-E_g/kT)$ gives $\exp(6.44) = 625$.
+- a) True (Slide 43): intrinsic generation across $E_g$ gives slope $-E_g/2k$ regardless of doping.
+- c) True (Slides 40 and 43): shallow donor/acceptor energies are $\sim 0.04$ eV against $E_g \sim 1.1$ eV in Si.
+- d) True (Slide 44): with all dopants ionised ($n$ fixed), lattice scattering lowers $\mu$ and causes a slight drop in $\sigma$.
 
 ### Source
 
-Session 13, Slides 29 and 33.
+Session 13, Slides 40 and 43-44.
 
 ## Q56.3 Wavelength that crosses the gap
 
@@ -204,28 +197,28 @@ Four n-type samples have the same donor concentration. From the band gaps of the
 | Si | 1.11 |
 | Ge | 0.67 |
 | GaAs | 1.42 |
-| InSb | 0.17 |
+| Diamond | 6.0 |
 
 a) Germanium
 b) Silicon
 c) Gallium arsenide
-d) Indium antimonide
+d) Diamond
 
 ### Answer
 
-d
+a
 
 ### Explanation
 
-Session 13, Slides 33 and 43: the intrinsic range starts when the electrons excited across the gap, $\propto\exp(-E_g/2kT)$, outnumber those of the donors; the smaller the gap, the lower the temperature at which this happens. InSb has the smallest gap (0.17 eV).
+Session 13, Slides 8, 33 and 43: the intrinsic range starts when the electrons excited across the gap, $\propto\exp(-E_g/2kT)$, outnumber those of the donors; the smaller the gap, the lower the temperature at which this happens. Germanium has the smallest gap of the four ($0.67$ eV).
 
-- a) Germanium has the second smallest gap (0.67 eV), not the smallest.
-- b) Silicon, the best-known elemental semiconductor, has a larger gap (1.11 eV) than Ge and InSb.
-- c) The largest gap was chosen, which gives the highest onset temperature, not the lowest.
+- b) Silicon has a larger band gap ($1.11$ eV) than germanium, so intrinsic generation overtakes doping at a higher temperature.
+- c) Gallium arsenide ($1.42$ eV) needs a higher temperature than both Ge and Si to reach the intrinsic regime.
+- d) Diamond has the widest gap ($6.0$ eV), giving the highest onset temperature rather than the lowest.
 
 ### Source
 
-Session 13, Slides 33, 43 and 44.
+Session 13, Slides 8, 33 and 43-44.
 
 ## Q56.7 Joining two doped crystals
 
@@ -257,19 +250,19 @@ Session 13, Slides 36, 37 and 45: a p-n junction is the interface between p-type
 
 Session 13, Slides 36, 37 and 45.
 
-## Q56.8 LED materials with a larger gap than GaP
+## Q56.8 Light-emitting diode band gap and photon emission
 
 - id: B56-Q8
 - concept_id: u6-led-gap-comparison
-- format: complete-sentence
-- asks: classification
+- format: topic-true
+- asks: cause
 
-Among the LED materials of the slide, the two whose band gap is larger than that of the green GaP are:
+Referring to a light-emitting diode (LED) formed by a forward-biased p-n junction, indicate which statement is TRUE:
 
-a) AlGaAs and ZnSe
-b) AlGaAs and diamond
-c) SiC and diamond
-d) AlGaAs and SiC
+a) Raising the forward bias current widens the band gap and shifts the emitted colour from red toward blue
+b) Monochromatic light is emitted when valence electrons absorb heat and jump into the conduction band
+c) Electrons and holes recombine at the junction, emitting photons whose energy and colour depend on $E_g$
+d) Choosing a semiconductor with a larger band gap emits longer-wavelength light toward the infrared
 
 ### Answer
 
@@ -277,11 +270,11 @@ c
 
 ### Explanation
 
-Session 13, Slide 47: the band gap increases down the list, and the emitted wavelength falls with it: AlGaAs (red and infrared) lies above GaP (green), while SiC (blue) and diamond (ultraviolet) lie below, so both have a larger gap.
+Session 13, Slide 47: in a forward-biased LED, electrons from the n side and holes from the p side recombine across the junction and release an energy equal to $E_g$ as a monochromatic photon, so the emitted colour is set by the band gap $E_g$.
 
-- a) AlGaAs has the smaller gap (red and infrared) and ZnSe the larger one; one of the two is wrong.
-- b) AlGaAs emits red and infrared light, which needs a gap smaller than that of GaP.
-- d) SiC is right, but AlGaAs again has the smaller gap.
+- a) Forward current controls light intensity (number of recombinations), whereas $E_g$ fixes photon energy and colour.
+- b) Describes thermal excitation (absorption of energy), the opposite of radiative electron-hole recombination.
+- d) Inverts the photon energy-wavelength relation ($E_g = hc/\lambda$): a larger band gap emits shorter-wavelength light (toward blue/UV, Slide 47).
 
 ### Source
 

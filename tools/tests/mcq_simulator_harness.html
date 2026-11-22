@@ -16,7 +16,7 @@
   var frame = document.getElementById('frame');
   var SRC = '../../subjects/aerospace-materials-1/simulator/index.html';
   var errors = [];
-  function load() {
+  function load(query) {
     return new Promise(function (resolve) {
       frame.onload = function () {
         var w = frame.contentWindow;
@@ -24,7 +24,7 @@
         w.addEventListener('error', function (e) { errors.push(e.message); });
         setTimeout(function () { resolve(w); }, 400);
       };
-      frame.src = SRC + '?t=' + Date.now();
+      frame.src = SRC + '?' + (query ? query + '&' : '') + 't=' + Date.now();
     });
   }
   function pick(d, n, letter) {
@@ -114,9 +114,9 @@
       ok('ten right answers give 5.00', /Mark of the test: 5\.00/.test(d.querySelector('.sim-mcq-summary').textContent), d.querySelector('.sim-mcq-summary').textContent);
       d.getElementById('simNew').click();
 
-      // --- block practice
+      // --- block practice (filtered to Midterm 2 units 4..7)
       var blockSel = d.getElementById('simBlockSelect'), unitSel = d.getElementById('simBlockUnit');
-      ok('block practice lists every unit and block', unitSel.options.length === Object.keys(bank.units).length && blockSel.options.length >= 1, unitSel.options.length + ' units');
+      ok('block practice lists every unit and block of the active exam', unitSel.options.length === 4 && blockSel.options.length >= 1, unitSel.options.length + ' units');
       d.getElementById('simBlockStart').click();
       var blk = d.getElementById('simBlock');
       ok('block screen shows ten questions', !blk.hidden && blk.querySelectorAll('.sim-question').length === 10, blk.querySelectorAll('.sim-question').length);
@@ -130,7 +130,7 @@
       ok('block tally uses the exam rule', /2 of 10 answered · 1 right, 1 wrong · with the exam rule: 0\.35/.test(d.getElementById('simBlockTally').textContent), d.getElementById('simBlockTally').textContent);
       ok('block practice stores nothing', JSON.parse(w.localStorage.getItem('ae_mat_exams')).current === null, '');
 
-      // --- practice scopes (blueprint modes)
+      // --- practice scopes (blueprint modes + custom unit picker)
       d.getElementById('simBlockBack').click();
       var radios = d.querySelectorAll('#simModes input[name=simMode]');
       ok('scope picker lists the modes of the blueprint, real paper first and checked', radios.length === bp.modes.length && radios[0].value === 'real-paper' && radios[0].checked, radios.length);
@@ -142,27 +142,36 @@
         var u = {}; c.items.filter(function (e) { return byId[e.id].kind === 'multiple_choice'; }).forEach(function (e) { var k = byId[e.id].unit; u[k] = (u[k] || 0) + 1; });
         return u;
       }
-      chooseMode('unit-6');
-      ok('unit mode shows the test alone, out of 5, with its own clock', /5\.0/.test(d.getElementById('simStructure').textContent) && !/Part II/.test(d.getElementById('simStructure').textContent) && d.querySelector('#simDurations input:checked').value === '20', d.getElementById('simStructure').textContent);
-      ok('unit mode hides the problem type', d.getElementById('simArchetype').parentNode.hidden === true, '');
-      ok('generate button names the mode', /Unit 6 Test/.test(d.querySelector('#simGenerate').textContent), d.querySelector('#simGenerate').textContent);
+      chooseMode('custom-test');
+      var unitBoxes = d.querySelectorAll('.sim-picks input[type=checkbox]');
+      ok('custom-test shows the 4 unit checkboxes and hides problem archetype', unitBoxes.length === 4 && d.getElementById('simArchetype').parentNode.hidden === true, unitBoxes.length);
+      // Select Unit 6 only and set count to 10
+      for (var ui = 0; ui < unitBoxes.length; ui++) {
+        var want = unitBoxes[ui].value === '6';
+        if (unitBoxes[ui].checked !== want) {
+          unitBoxes[ui].checked = want;
+          unitBoxes[ui].dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }
+      ok('custom-test shows the test alone, out of 5, with its own clock', /5\.0/.test(d.getElementById('simStructure').textContent) && !/Part II/.test(d.getElementById('simStructure').textContent), d.getElementById('simStructure').textContent);
+      ok('generate button names the mode', /Custom test/i.test(d.querySelector('#simGenerate').textContent), d.querySelector('#simGenerate').textContent);
       d.getElementById('simGenerate').click();
       cur = current(w);
       var blocksUsed = {};
       cur.items.forEach(function (e) { blocksUsed[byId[e.id].block] = 1; });
-      ok('unit mode draws ten questions of Unit 6 and no problem', cur.items.length === 10 && JSON.stringify(mixOf(cur)) === '{"6":10}' && cur.mode === 'unit-6', JSON.stringify(mixOf(cur)));
-      ok('unit mode draws every question from a different block', Object.keys(blocksUsed).length === 10, Object.keys(blocksUsed).length);
+      ok('custom-test with Unit 6 selected draws ten questions of Unit 6 and no problem', cur.items.length === 10 && JSON.stringify(mixOf(cur)) === '{"6":10}' && cur.mode === 'custom-test', JSON.stringify(mixOf(cur)));
+      ok('custom-test draws every question from a different block', Object.keys(blocksUsed).length === 10, Object.keys(blocksUsed).length);
       cur.items.forEach(function (e, idx) { var it = byId[e.id]; if (idx < 6) pick(d, idx + 1, it.answer); else if (idx < 8) pick(d, idx + 1, wrongLetter(it)); });
       d.getElementById('simFinish').click();
-      ok('unit mode: 6 right and 2 wrong give 2.70 of 5', /Mark of the test: 2\.70/.test(d.querySelector('.sim-mcq-summary').textContent) && d.getElementById('simScore').textContent === '2.70', d.querySelector('.sim-mcq-summary').textContent);
-      ok('unit mode can be saved without a problem', d.getElementById('simSave').disabled === false, '');
+      ok('custom-test: 6 right and 2 wrong give 2.70 of 5', /Mark of the test: 2\.70/.test(d.querySelector('.sim-mcq-summary').textContent) && d.getElementById('simScore').textContent === '2.70', d.querySelector('.sim-mcq-summary').textContent);
+      ok('custom-test can be saved without a problem', d.getElementById('simSave').disabled === false, '');
       d.getElementById('simSave').click();
       st = JSON.parse(w.localStorage.getItem('ae_mat_exams'));
       h = st.history[st.history.length - 1];
-      ok('history keeps the mode and the maximum of 5', h.mode === 'unit-6' && h.modeLabel === 'Unit 6 only' && h.max === 5 && Math.abs(h.total - 2.7) < 1e-9, JSON.stringify([h.mode, h.max, h.total]));
+      ok('history keeps the mode and the maximum of 5', h.mode === 'custom-test' && /Custom test/i.test(h.modeLabel) && h.max === 5 && Math.abs(h.total - 2.7) < 1e-9, JSON.stringify([h.mode, h.modeLabel, h.max, h.total]));
       d.getElementById('simNew').click();
-      ok('history lists the mode of each attempt', /Unit 6 only/.test(d.getElementById('simHistory').textContent), d.getElementById('simHistory').textContent.slice(0, 200));
-      ok('the chosen mode is remembered on the setup screen', d.querySelector('#simModes input:checked').value === 'unit-6', '');
+      ok('history lists the mode of each attempt', /Custom test/i.test(d.getElementById('simHistory').textContent), d.getElementById('simHistory').textContent.slice(0, 200));
+      ok('the chosen mode is remembered on the setup screen', d.querySelector('#simModes input:checked').value === 'custom-test', '');
       chooseMode('focus-6-7');
       d.getElementById('simGenerate').click();
       ok('focus mode draws 1 + 2 + 4 + 3', JSON.stringify(mixOf(current(w))) === '{"4":1,"5":2,"6":4,"7":3}', JSON.stringify(mixOf(current(w))));
@@ -172,7 +181,35 @@
       ok('real-paper mode keeps 2 + 4 + 2 + 2', JSON.stringify(mixOf(current(w))) === '{"4":2,"5":4,"6":2,"7":2}', JSON.stringify(mixOf(current(w))));
       d.getElementById('simAbandon').click();
       var n7 = bank.blocks.filter(function (b) { return b.unit === 7; }).length;
-      ok('every unit has blocks enough for a single-unit test', [4, 5, 6, 7].every(function (u) { return bank.blocks.filter(function (b) { return b.unit === u; }).length >= 10; }), n7);
+      ok('every MT2 unit has blocks enough for a single-unit test', [4, 5, 6, 7].every(function (u) { return bank.blocks.filter(function (b) { return b.unit === u; }).length >= 10; }), n7);
+
+      // --- Midterm 3 tab (?exam=midterm-3)
+      w = await load('exam=midterm-3'); d = w.document;
+      var bp3 = w.AE_MAT_BLUEPRINT_MT3;
+      ok('MT3 tab loads MT3 blueprint with 4 modes', !!bp3 && d.querySelectorAll('#simModes input[name=simMode]').length === bp3.modes.length, bp3 && bp3.modes.length);
+      ok('MT3 block practice shows Units 8..11 only', d.getElementById('simBlockUnit').options.length === 4 && /^B(6[3-9]|[7-9]\d|10\d|11[0-2])$/.test(d.getElementById('simBlockSelect').value), d.getElementById('simBlockSelect').value);
+      d.getElementById('simGenerate').click();
+      var cur3 = current(w);
+      var mcs3 = cur3.items.filter(function (e) { return byId[e.id].kind === 'multiple_choice'; });
+      var probs3 = cur3.items.filter(function (e) { return byId[e.id].kind !== 'multiple_choice'; });
+      ok('MT3 full exam draws 10 MCQs (3+3+2+2) and 1 composite problem', mcs3.length === 10 && probs3.length === 1 && JSON.stringify(mixOf(cur3)) === '{"8":3,"9":3,"10":2,"11":2}' && byId[probs3[0].id].unit === 10, JSON.stringify(mixOf(cur3)));
+      d.getElementById('simAbandon').click();
+      // Test MT3 custom-test picking Units 8 and 11 mixed
+      var mt3Custom = d.querySelector('#simModes input[value="custom-test"]');
+      mt3Custom.checked = true; mt3Custom.dispatchEvent(new Event('change', { bubbles: true }));
+      var u3Boxes = d.querySelectorAll('.sim-picks input[type=checkbox]');
+      for (var k3 = 0; k3 < u3Boxes.length; k3++) {
+        var keep3 = u3Boxes[k3].value === '8' || u3Boxes[k3].value === '11';
+        if (u3Boxes[k3].checked !== keep3) {
+          u3Boxes[k3].checked = keep3;
+          u3Boxes[k3].dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }
+      d.getElementById('simGenerate').click();
+      cur3 = current(w);
+      var mix3 = mixOf(cur3);
+      ok('MT3 custom-test with Units 8 and 11 draws only Units 8 and 11', cur3.items.length === 10 && Object.keys(mix3).every(function (k) { return k === '8' || k === '11'; }) && mix3['8'] > 0 && mix3['11'] > 0, JSON.stringify(mix3));
+      d.getElementById('simAbandon').click();
 
       // --- shortcuts
       d.dispatchEvent(new KeyboardEvent('keydown', { key: '?', bubbles: true }));

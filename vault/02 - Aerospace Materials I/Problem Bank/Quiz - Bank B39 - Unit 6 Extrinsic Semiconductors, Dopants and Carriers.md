@@ -10,9 +10,8 @@ concepts:
   - u6-donor-acceptor-levels
   - u6-majority-carriers
   - u6-n-type-conductivity-calc
-  - u6-dopant-concentration-calc
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 13 Slides 31 and 35-38."
+origen: "Includes Question 6b of MATERIALS_FINALEXAM_2015_ORD.pdf alongside practice items in the style of Part I. Content and data from Session 13 Slides 28, 31 and 35-38."
 tags:
   - problem-bank
   - midterm-2
@@ -22,8 +21,8 @@ tags:
 
 # Bank B39 — Extrinsic semiconductors, dopants and carriers
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 13, Slides 31 and 35-38.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Question 10 adapts Question 6b of MATERIALS_FINALEXAM_2015_ORD.pdf; the remaining nine are practice items. Content: Session 13, Slides 28, 31 and 35-38.
 
 ## Q39.1 Silicon doped with indium
 
@@ -296,20 +295,20 @@ Session 13, Slide 36: arsenic is a donor, so with complete ionisation $n_e = 2.0
 
 Session 13, Slides 31 and 36.
 
-## Q39.10 Donor concentration for a target resistivity
+## Q39.10 Main charge carriers across semiconductor types
 
 - id: B39-Q10
-- concept_id: u6-dopant-concentration-calc
-- format: numeric
-- asks: calculation
-- calc: (1/0.010)/(q*0.135)
+- concept_id: u6-majority-carriers
+- format: topic-true
+- asks: classification
+- origin: official-exam
 
-Phosphorus-doped silicon must have a resistivity of 0.010 Ω·m at room temperature. With $\mu_e = 0.135$ m²/(V·s), $\mu_h = 0.048$ m²/(V·s) and complete ionisation, determine the phosphorus concentration:
+With respect to the main charge carriers in intrinsic, p-type and n-type semiconductors, indicate which statement is TRUE:
 
-a) $4.62\times10^{17}$ m⁻³
-b) $3.41\times10^{21}$ m⁻³
-c) $4.62\times10^{21}$ m⁻³
-d) $1.30\times10^{22}$ m⁻³
+a) Intrinsic semiconductors conduct mainly by holes, p-type by electrons, and n-type by equal numbers of both
+b) Both p-type and n-type semiconductors contain equal concentrations of electrons and holes at room temperature
+c) Intrinsic semiconductors have equal electrons and holes, p-type have majority holes, and n-type have majority electrons
+d) In p-type semiconductors minority holes dominate conduction, whereas in n-type semiconductors dopant ions carry the charge
 
 ### Answer
 
@@ -317,14 +316,14 @@ c
 
 ### Explanation
 
-Session 13, Slides 13 and 36: $\sigma = 1/\rho = 100$ (Ω·m)⁻¹ and $\sigma \approx n_e|q_e|\mu_e$, so $n_e = 100/(1.6\times10^{-19}\cdot0.135) = 4.62\times10^{21}$ m⁻³, one electron per phosphorus atom.
+MATERIALS_FINALEXAM_2015_ORD.pdf, p. 7 (Question 6b) and Session 13, Slides 28 and 36-38: in intrinsic semiconductors thermal excitation creates electrons and holes in equal numbers ($n = p$); in p-type semiconductors group IIIA acceptors create majority holes ($p \gg n$); in n-type semiconductors group VA donors supply majority conduction electrons ($n \gg p$).
 
-- a) The resistivity was used as if it were the conductivity: $0.010/(1.6\times10^{-19}\cdot0.135) = 4.62\times10^{17}$.
-- b) Both mobilities were added, $0.183$, as for an intrinsic semiconductor: $3.41\times10^{21}$.
-- d) The hole mobility was used, as if phosphorus gave holes: $1.30\times10^{22}$.
+- a) Assigns intrinsic equality to n-type and swaps the majority carriers of p-type and n-type semiconductors.
+- b) Applies the intrinsic condition $n = p$ to extrinsic semiconductors, ignoring the excess carriers introduced by doping.
+- d) Misstates both extrinsic cases: holes are the majority (not minority) carriers in p-type material, and ionised dopant cores stay fixed in the crystal lattice.
 
 ### Source
 
-Session 13, Slides 13, 31 and 36.
+MATERIALS_FINALEXAM_2015_ORD.pdf, p. 7 (Question 6b); Session 13, Slides 28 and 36-38.
 
 **Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

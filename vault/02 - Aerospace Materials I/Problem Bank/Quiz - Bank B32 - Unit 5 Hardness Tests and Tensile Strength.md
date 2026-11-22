@@ -85,20 +85,19 @@ Session 12, Slide 19: $HB = \dfrac{2P}{\pi D\left(D - \sqrt{D^2 - D_i^2}\right)}
 
 Session 12, Slide 19.
 
-## Q32.3 Brinell load for a brass
+## Q32.3 Scaling the Brinell test load with ball diameter
 
 - id: B32-Q3
 - concept_id: u5-brinell-calc
-- format: numeric
-- asks: application
-- calc: 10*5**2
+- format: cause-effect
+- asks: comparison
 
-Using the load factor that the slides assign to bronzes and brasses, determine the Brinell load for a brass tested with a 5 mm ball:
+In a Brinell hardness test, if the ball diameter $D$ is halved from 10 mm to 5 mm for a thinner specimen of the same alloy while keeping the load factor $Q = P/D^2$ constant, the applied load $P$ must:
 
-a) 50.0 kg
-b) 125 kg
-c) 250 kg
-d) 750 kg
+a) remain unchanged, since $Q$ depends only on the alloy
+b) decrease to one half of its original value
+c) decrease to one quarter of its original value
+d) increase by a factor of four
 
 ### Answer
 
@@ -106,11 +105,11 @@ c
 
 ### Explanation
 
-Session 12, Slide 20: $Q = P/D^2$ is constant for each material, with $Q = 10$ for bronzes and brasses; $P = Q\,D^2 = 10 \times 5^2 = 250$ kg, as in the slide's table.
+Session 12, Slide 20: geometric similarity in Brinell testing requires a constant load factor $Q = P/D^2$, so $P = Q\,D^2$. Halving the indenter diameter $D$ reduces $D^2$ by $2^2 = 4$, so the load $P$ must decrease to one quarter of its original value.
 
-- a) The ball diameter was not squared: $Q\,D = 10 \times 5$.
-- b) The load factor of aluminium alloys ($Q = 5$) was used instead of that of brasses.
-- d) The load factor of steels ($Q = 30$) was used instead of that of brasses.
+- a) Keeping $P$ unchanged when $D$ is halved raises $Q = P/D^2$ by a factor of four and invalidates geometric similarity.
+- b) This treats $P$ as proportional to $D$ rather than $D^2$.
+- d) Inverted scaling: a smaller indenter ball requires a smaller, not larger, test load.
 
 ### Source
 
@@ -123,7 +122,7 @@ Session 12, Slide 20.
 - format: complete-sentence
 - asks: application
 
-For a thin specimen, the slides' Brinell practice is to use:
+When performing a Brinell hardness test on a thin specimen (thickness near the minimum $2\varnothing$ limit), standard practice is to use:
 
 a) a smaller ball diameter
 b) a load in newtons instead of kilograms
@@ -244,7 +243,7 @@ Session 12, Slides 16, 19, 22-23 and 29.
 - format: true-statement
 - asks: definition
 
-Which one of the following statements about hardness and tensile strength in the slides is TRUE?
+Which one of the following statements about hardness and tensile strength is TRUE?
 
 a) The two properties are not related at all
 b) Hardness measures elastic stiffness, unlike tensile strength
@@ -304,7 +303,9 @@ Session 12, Slide 30.
 - format: cause-effect
 - asks: effect
 
-With an increase in the Brinell hardness of a steel, its tensile strength on the slide's chart:
+From the shown correlation chart, with an increase in the Brinell hardness of a steel, its tensile strength:
+
+![[attachments/T5/s12-hardness-tensile.png]]
 
 a) increases, along the line for brass
 b) increases, along the line for steels

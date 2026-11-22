@@ -10,7 +10,7 @@ concepts:
   - u5-load-outcome-design
   - u5-curve-points-reading
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 11, Slides 9-10, 12, 16 and 28-31."
+origen: "Includes official exam question (MATERIALS_SECONDPARTIAL_2019.pdf, Q2) and practice items in the style of Part I of Assessment Test II. Data from Session 11, Slides 9-10, 12, 16 and 28-31."
 tags:
   - problem-bank
   - midterm-2
@@ -20,39 +20,40 @@ tags:
 
 # Bank B25 — What a given load does to a wire, a bar or a rod
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 11, Slides 9-10, 12, 16 and 28-31.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong), combining an official exam question and bank practice items. Content: Session 11, Slides 9-10, 12, 16 and 28-31.
 
-## Q25.1 Aluminium wire under a 2.0 kN load
+## Q25.1 Nickel wire under a 6000 N load
 
 - id: B25-Q1
 - concept_id: u5-load-outcome-wire
 - format: what-happens
 - asks: effect
-- check: 270 < 2000/(pi*1.5**2) < 310
+- origin: official-exam
+- check: 250 < 6000/(pi*2.5**2) < 310
 
-A 2.0 kN force is applied to a 3.0 mm diameter aluminium alloy wire with a yield strength of 270 MPa and a tensile strength of 310 MPa. What will happen to the wire:
+A 6000 N force is applied to a 5 mm diameter nickel wire having a yield strength of 250 MPa and a tensile strength of 310 MPa. What will happen with the wire:
 
-a) It will fracture
-b) It will deform plastically and uniformly
-c) It will neck in one region
-d) It will recover its original length when unloaded
+a) The wire will deform plastically and uniformly
+b) The wire will fracture
+c) The wire will experience necking
+d) The wire will recover its original length when unloaded
 
 ### Answer
 
-b
+a
 
 ### Explanation
 
-$\sigma = F/A_0 = 2000/(\pi\cdot 1.5^2) = 2000/7.07 = 283$ MPa (Session 11, Slide 9). Since $270 < 283 < 310$ MPa, the wire is past the yield strength but below the tensile strength: uniform plastic deformation (Slides 10 and 30).
+With $r = 2.5$ mm, $A_0 = \pi(2.5)^2 = 19.63$ mm², so the engineering stress is $\sigma = F/A_0 = 6000/19.63 = 305.6$ MPa (Session 11, Slide 9). Because $\sigma_y = 250\ \text{MPa} < 305.6\ \text{MPa} < \text{TS} = 310$ MPa, the wire is past yielding but below the tensile strength, so it undergoes uniform plastic deformation (Slides 10 and 30).
 
-- a) Fracture needs a load above the maximum load, $310 \times \pi\cdot 1.5^2 = 2.19$ kN.
-- c) Necking starts only when the stress reaches the tensile strength, 310 MPa.
-- d) This needs a stress below 270 MPa; it is what one gets with the diameter used as the radius ($2000/(\pi\cdot 3^2) = 71$ MPa).
+- b) Fracture occurs only after exceeding the tensile strength (310 MPa), which requires more than $310 \times 19.63 = 6087$ N.
+- c) Necking begins only once the stress reaches the tensile strength of 310 MPa; at 305.6 MPa deformation is still uniform.
+- d) Full elastic recovery occurs only below the yield strength (250 MPa); using diameter instead of radius would falsely give 76.4 MPa.
 
 ### Source
 
-Session 11, Slides 9-10 and 28-30.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 2, Question 2; Session 11, Slides 9-10 and 28-30.
 
 ## Q25.2 Length of a brass bar after unloading
 
@@ -178,36 +179,35 @@ To stay elastic, $\sigma = F/A_0 \le \sigma_y$ (Session 11, Slides 9-10): $A_0 =
 
 Session 11, Slides 9-10 and 28.
 
-## Q25.6 Largest load before necking
+## Q25.6 Effect of yield strength on minimum rod diameter
 
 - id: B25-Q6
 - concept_id: u5-load-outcome-design
-- format: numeric
+- format: cause-effect
 - asks: application
-- calc: 900*pi*3**2/1000
 
-Determine the largest load that a titanium wire of 6.0 mm diameter ($\sigma_y$ = 830 MPa, tensile strength 900 MPa) can carry before necking starts:
+Referring to sizing a cylindrical tie rod to carry a fixed axial load $F$ without yielding, replacing the alloy with one that has four times the yield strength $\sigma_y$ allows the minimum required diameter $d_{\min}$ to:
 
-a) 8.10 kN
-b) 23.5 kN
-c) 25.4 kN
-d) 102 kN
+a) decrease to one quarter of its original value
+b) decrease to one half of its original value
+c) decrease to one sixteenth of its original value
+d) stay unchanged because minimum diameter depends only on Young's modulus
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Necking starts at the tensile strength, the maximum nominal stress (Session 11, Slide 30): $F_{\max} = \sigma_{\text{UTS}}\,A_0 = 900 \times \pi\cdot 3.0^2 = 25\,450$ N $= 25.4$ kN.
+To avoid yielding, $\sigma = F/A_0 \le \sigma_y$, giving $A_{\min} = \pi d_{\min}^2/4 = F/\sigma_y$ (Session 11, Slides 9-10 and 28). Thus $d_{\min} = \sqrt{4F/(\pi\sigma_y)} \propto 1/\sqrt{\sigma_y}$; quadrupling $\sigma_y$ reduces $d_{\min}$ by $\sqrt{4} = 2$ (to one half).
 
-- a) The factor $\pi$ was left out of the area: $900 \times 3^2$.
-- b) The yield strength was used; that load starts plastic deformation, not necking.
-- d) The diameter was used as the radius, an area four times too large.
+- a) This assumes diameter scales linearly as $1/\sigma_y$; it is the cross-sectional area $A_{\min}$ that drops by a factor of four.
+- c) This squares the area factor instead of taking its square root.
+- d) Young's modulus governs elastic stiffness (deflection), whereas the onset of yielding is governed by $\sigma_y$.
 
 ### Source
 
-Session 11, Slides 9 and 30.
+Session 11, Slides 9-10, 12 and 28.
 
 ## Q25.7 Sizing a bar on the tensile strength
 

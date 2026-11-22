@@ -176,32 +176,31 @@ Session 11, Slide 28: $\sigma_y = \sigma(0.2\,\%\ \text{of}\ \varepsilon)$: a li
 
 Session 11, Slides 28 and 32.
 
-## Q23.6 Stress on the offset line
+## Q23.6 Construction of the 0.2 % offset line
 
 - id: B23-Q6
 - concept_id: u5-offset-method
-- format: numeric
+- format: topic-false
 - asks: application
-- calc: 110000*(0.0050 - 0.002)
 
-For a copper alloy with $E$ = 110 GPa, determine the stress of the 0.2 % offset line at a total strain of 0.0050:
+Referring to the 0.2 % offset method for determining yield strength on a tensile curve, which statement is FALSE?
 
-a) 220 MPa
-b) 330 MPa
-c) 550 MPa
-d) 770 MPa
+a) The offset line is drawn parallel to the linear elastic slope
+b) The offset line starts on the strain axis at $\varepsilon = 0.002$
+c) The slope of the offset line equals twice the material's Young's modulus
+d) The intersection of the offset line with the stress-strain curve defines $\sigma_y$
 
 ### Answer
 
-b
+c
 
 ### Explanation
 
-The offset line has the elastic slope and starts at $\varepsilon = 0.002$ (Session 11, Slide 28): $\sigma = E(\varepsilon - 0.002) = 110\,000 \times 0.0030 = 330$ MPa.
+Session 11, Slide 28: the 0.2 % offset construction line is drawn parallel to the initial elastic line, so its slope equals Young's modulus $E$, not $2E$; it originates at $\varepsilon = 0.002$ so that the plastic strain at intersection is 0.2 %.
 
-- a) Only the offset strain was used: $110\,000 \times 0.002$.
-- c) The offset was ignored: $110\,000 \times 0.0050$ is the elastic line from the origin.
-- d) The offset was added instead of subtracted: $110\,000 \times (0.0050 + 0.002)$.
+- a) This is true: the offset line must share the elastic slope $E$ so that elastic recovery returns to 0.2 % plastic strain.
+- b) This is true: 0.2 % strain written as a fraction is 0.002.
+- d) This is true: the conventional yield stress is read at that intersection.
 
 ### Source
 
@@ -245,7 +244,7 @@ Session 11, Slides 28 and 30-31.
 - asks: figure-reading
 - check: (330 + 290)/2 == 310
 
-From the shown curve of a low-carbon steel, indicate its yield stress according to the criterion of the slides:
+From the shown curve of a low-carbon steel, determine its yield stress taken as the mean of the upper and lower yield points:
 
 ![[attachments/MAT-MT2/u5-discontinuous-yield.svg]]
 
@@ -263,8 +262,8 @@ c
 Session 11, Slide 28: for discontinuous yielding (low-carbon steels, some polymers), $\sigma_y = (\sigma_{\max} + \sigma_{\min})/2 = (330 + 290)/2 = 310$ MPa.
 
 - a) The difference was halved, $(330 - 290)/2$, instead of the sum.
-- b) Only the lower yield point was taken; the slide uses the mean of both points.
-- d) Only the upper yield point was taken; the slide uses the mean of both points.
+- b) Only the lower yield point was taken; the midpoint criterion uses the mean of both points.
+- d) Only the upper yield point was taken; the midpoint criterion uses the mean of both points.
 
 ### Source
 
@@ -277,7 +276,7 @@ Session 11, Slide 28.
 - format: identify
 - asks: classification
 
-Which materials show upper and lower yield points according to the slides?
+Which materials commonly exhibit upper and lower yield points (discontinuous yielding)?
 
 a) Low-carbon steels and some polymers
 b) Elastomers such as natural rubber
@@ -300,20 +299,19 @@ Session 11, Slide 28: "discontinuity phenomena in the yield point: low carbon st
 
 Session 11, Slides 16 and 28.
 
-## Q23.10 Lower yield point from the yield stress
+## Q23.10 Features of discontinuous yielding
 
 - id: B23-Q10
 - concept_id: u5-discontinuous-yield
-- format: numeric
-- asks: application
-- calc: 2*240 - 262
+- format: topic-true
+- asks: definition
 
-A steel with discontinuous yielding has an upper yield point of 262 MPa and a yield stress of 240 MPa by the slides' criterion. Determine its lower yield point:
+With respect to discontinuous yielding in low-carbon steels and certain polymers, which statement is TRUE?
 
-a) 22.0 MPa
-b) 218 MPa
-c) 251 MPa
-d) 284 MPa
+a) Stress increases smoothly without any drop after leaving the linear elastic region
+b) The curve reaches an upper yield peak, drops to a lower yield point, and $\sigma_y$ is taken as $(\sigma_{\max} + \sigma_{\min})/2$
+c) The yield strength is always determined solely from the 0.2 % offset construction
+d) Discontinuous yielding occurs only in brittle ceramics prior to cleavage fracture
 
 ### Answer
 
@@ -321,12 +319,12 @@ b
 
 ### Explanation
 
-Session 11, Slide 28: $\sigma_y = (\sigma_{\max} + \sigma_{\min})/2$, so $\sigma_{\min} = 2\sigma_y - \sigma_{\max} = 480 - 262 = 218$ MPa.
+Session 11, Slide 28: materials with a discontinuous yield point show a localized maximum $\sigma_{\max}$ (upper yield point) followed by a drop to a minimum $\sigma_{\min}$ (lower yield point), and their yield stress is defined as the average $\sigma_y = (\sigma_{\max} + \sigma_{\min})/2$.
 
-- a) This is the difference $262 - 240$, not the lower yield point.
-- c) The yield stress and the upper point were averaged, $(240 + 262)/2$, which reverses the criterion.
-- d) The difference was added to the yield stress instead of subtracted: $240 + 22$.
+- a) Smooth, gradual yielding without a drop characterizes metals such as aluminium or copper alloys, where the 0.2 % offset method is used.
+- c) Discontinuous yielding uses the upper/lower yield-point criterion rather than the 0.2 % offset method.
+- d) Brittle ceramics fracture elastically with negligible plastic flow and exhibit no yield point.
 
 ### Source
 
-Session 11, Slide 28.
+Session 11, Slides 16 and 28.

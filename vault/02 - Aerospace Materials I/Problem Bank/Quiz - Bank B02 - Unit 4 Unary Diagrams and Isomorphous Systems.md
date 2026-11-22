@@ -302,15 +302,15 @@ Session 7, Slides 9-10.
 
 - id: B02-Q10
 - concept_id: u4-complete-solubility
-- format: true-statement
+- format: topic-true
 - asks: definition
 
-Which one of the following statements about alloys with complete solid solubility is TRUE:
+Regarding alloys with complete solid solubility and their cooling curves, which statement is TRUE:
 
-a) They solidify at one temperature, like a pure metal
-b) Their solid microstructure contains two solid phases
-c) Adding solute does not change the melting temperature
-d) They solidify over a range of temperatures
+a) They solidify at one constant temperature, like a pure metal
+b) Their solid microstructure contains two distinct solid phases
+c) Adding solute leaves the melting temperature unchanged across the diagram
+d) They solidify over a temperature range between liquidus and solidus
 
 ### Answer
 
@@ -318,11 +318,11 @@ d
 
 ### Explanation
 
-Session 7, Slide 11: with complete solid solubility the material is a single-phase polycrystal, the melting temperature is modified by the solute, and the alloy does not solidify at a constant temperature but over a range, between liquidus and solidus.
+Session 7, Slides 8-11: with complete solid solubility the material is a single-phase polycrystal, the melting temperature changes with composition, and solidification takes place over a range of temperatures between the liquidus and the solidus (showing changes of slope rather than a thermal arrest).
 
-- a) Solidification at one temperature is the behaviour of a pure metal (or a eutectic), not of a solid solution alloy.
-- b) Complete solubility gives a single solid phase, the solid solution; two solid phases need limited solubility.
-- c) The slide states the opposite: adding solute modifies the melting temperature.
+- a) Solidification at one constant temperature is the behaviour of a pure metal (or a eutectic), not of a solid-solution alloy.
+- b) Complete solubility produces a single solid solution; two solid phases require limited solid solubility.
+- c) Adding solute modifies the melting temperature along the liquidus and solidus lines between the pure component melting points.
 
 ### Source
 

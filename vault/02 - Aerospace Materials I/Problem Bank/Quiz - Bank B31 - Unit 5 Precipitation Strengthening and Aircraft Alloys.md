@@ -152,7 +152,7 @@ Session 12, Slide 12.
 - format: ordering
 - asks: definition
 
-Order the stages, shown on the slides, of a dislocation that passes a row of precipitate particles:
+Order the stages by which a dislocation passes a row of secondary-phase precipitate particles:
 
 a) Bending, approach, critical bow-out, escape leaving loops
 b) Approach, critical bow-out, bending, escape leaving loops
@@ -175,19 +175,19 @@ Session 12, Slide 12: (a) approach under a force $\tau b$, (b) sub-critical bend
 
 Session 12, Slide 12.
 
-## Q31.6 Strength of aluminium by mechanism
+## Q31.6 Strength of aluminium by strengthening state
 
 - id: B31-Q6
 - concept_id: u5-strengthening-aircraft-alloys
 - format: ordering
 - asks: comparison
 
-Order these aluminium materials from the highest to the lowest UTS given in the slides: pure Al, solid solution alloy, cold worked alloy, Al-Cu-Mg precipitation alloy:
+Order these aluminium materials from the highest to the lowest typical ultimate tensile strength: pure annealed Al, cold-worked commercial Al, precipitation-strengthened 2xxx (Al-Cu-Mg) alloy, and precipitation-strengthened 7xxx (Al-Cu-Mg-Zn) alloy:
 
-a) Precipitation > solid solution > cold worked > pure Al
-b) Precipitation > cold worked > solid solution > pure Al
-c) Cold worked > precipitation > solid solution > pure Al
-d) Pure Al > solid solution > cold worked > precipitation
+a) 2xxx (Al-Cu-Mg) > 7xxx (Al-Cu-Mg-Zn) > cold-worked Al > pure Al
+b) 7xxx (Al-Cu-Mg-Zn) > 2xxx (Al-Cu-Mg) > cold-worked Al > pure Al
+c) Cold-worked Al > 7xxx (Al-Cu-Mg-Zn) > 2xxx (Al-Cu-Mg) > pure Al
+d) Pure Al > cold-worked Al > 2xxx (Al-Cu-Mg) > 7xxx (Al-Cu-Mg-Zn)
 
 ### Answer
 
@@ -195,30 +195,29 @@ b
 
 ### Explanation
 
-Session 12, Slide 13: pure Al 45 MPa, solid solution 110 MPa, cold worked 165 MPa, Al-Cu-Mg (precipitation) 469 MPa, Al-Cu-Mg-Zn (precipitation) 572 MPa.
+Session 12, Slide 13 gives the typical UTS progression: 7xxx Al-Cu-Mg-Zn (572 MPa) > 2xxx Al-Cu-Mg (469 MPa) > cold-worked Al (165 MPa) > pure Al (45 MPa), showing the much higher strength achieved by precipitation hardening in aircraft alloys.
 
-- a) The middle pair is swapped: cold work gives 165 MPa, solid solution 110 MPa.
-- c) The first pair is swapped: 469 MPa for the precipitation alloy against 165 MPa for the cold worked one.
-- d) This is the order reversed.
+- a) The two precipitation-hardened alloys are swapped: the 7xxx Al-Cu-Mg-Zn alloy reaches higher strength than the 2xxx Al-Cu-Mg alloy.
+- c) Cold working alone produces far lower strength than precipitation hardening in aerospace aluminium alloys.
+- d) This is the complete ranking reversed, placing pure annealed aluminium first.
 
 ### Source
 
 Session 12, Slide 13.
 
-## Q31.7 Gain in strength of a 7xxx alloy
+## Q31.7 Why precipitation-hardened aircraft alloys are so strong
 
 - id: B31-Q7
 - concept_id: u5-strengthening-aircraft-alloys
-- format: numeric
-- asks: calculation
-- calc: 572/45
+- format: topic-true
+- asks: cause
 
-Using the UTS values of the slides, determine how many times stronger the Al-Cu-Mg-Zn precipitation alloy is than pure aluminium:
+Referring to precipitation strengthening in 2xxx and 7xxx aerospace aluminium alloys, why are these heat-treated alloys far stronger than pure aluminium?
 
-a) 0.0787
-b) 1.22
-c) 3.67
-d) 12.7
+a) Heat treatment removes all grain boundaries and crystal defects from the matrix
+b) Pure aluminium has fewer than six primary slip systems at room temperature
+c) Alloying converts the FCC aluminium matrix into a brittle ceramic crystal
+d) Fine, densely dispersed intermetallic precipitates distort the lattice and block dislocations
 
 ### Answer
 
@@ -226,15 +225,15 @@ d
 
 ### Explanation
 
-Session 12, Slide 13: UTS of the Al-Cu-Mg-Zn alloy 572 MPa and of pure Al 45 MPa: $572/45 = 12.7$.
+Session 12, Slides 12-13: in 2xxx (Al-Cu-Mg) and 7xxx (Al-Cu-Mg-Zn) alloys, fine secondary-phase precipitates (such as $\text{MgZn}_2$) form throughout the matrix, distending the lattice and forcing dislocations to bow between closely spaced obstacles at much higher stress.
 
-- a) The ratio is inverted: pure Al over the alloy.
-- b) The two precipitation alloys were compared, 572/469, instead of the alloy and pure aluminium.
-- c) The cold worked alloy (165 MPa) was compared with pure aluminium instead of the precipitation alloy.
+- a) Fewer defects would make dislocation glide easier, not harder; pure, defect-free crystals are weak.
+- b) Aluminium has an FCC crystal structure with 12 slip systems, which is why pure aluminium is very soft and ductile.
+- c) Aerospace 2xxx and 7xxx aluminium alloys retain a ductile FCC metallic matrix strengthened by precipitates.
 
 ### Source
 
-Session 12, Slide 13.
+Session 11, Slide 25; Session 12, Slides 12-13.
 
 ## Q31.8 Mechanism of aircraft aluminium alloys
 
@@ -273,7 +272,7 @@ Session 12, Slide 13.
 - format: complete-sentence
 - asks: definition
 
-In the slides, hardness is defined as:
+In materials engineering, hardness is defined as:
 
 a) the energy absorbed by the material up to fracture
 b) the plastic strain supported before fracture

@@ -215,7 +215,7 @@ Session 13, Slides 45 and 47.
 - format: ordering
 - asks: comparison
 
-Order the following LED materials from the smallest to the largest band gap:
+Order these LED materials from the smallest to the largest band gap using their emitted colours (AlGaAs red/infrared, GaP green, ZnSe blue, diamond ultraviolet):
 
 a) AlGaAs < GaP < ZnSe < diamond
 b) Diamond < ZnSe < GaP < AlGaAs
@@ -246,7 +246,7 @@ Session 13, Slides 8, 33, 46 and 47.
 - asks: application
 - check: 1.1 < 1.3 < 1.43
 
-What will happen to photons of 1.3 eV that reach a silicon cell and a gallium arsenide cell:
+What will happen to photons of 1.3 eV that reach a silicon cell ($E_g = 1.1$ eV) and a gallium arsenide cell ($E_g = 1.43$ eV):
 
 a) Both materials will absorb them
 b) Neither material will absorb them

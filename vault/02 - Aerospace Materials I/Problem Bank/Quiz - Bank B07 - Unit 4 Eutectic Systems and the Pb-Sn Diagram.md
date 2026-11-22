@@ -9,10 +9,10 @@ concepts:
   - u4-pbsn-reading
   - u4-eutectic-microstructure
   - u4-eutectic-product-phases
-  - u4-hypo-hyper-classification
+  - u4-eutectic-reaction
   - u4-eutectic-lines
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 7 Slides 26-32 (Pb-Sn: 183 °C, 18.3, 61.9 and 97.8 wt% Sn) and the melting points of Problems T4_PhaseDiagrams I.pdf, p. 1."
+origen: "Includes official exam question Q7 of MATERIALS_SECONDPARTIAL_2019.pdf (p. 3); other questions written for the bank in the style of Part I of Assessment Test II. Data from Session 7 Slides 26-32 (Pb-Sn: 183 °C, 18.3, 61.9 and 97.8 wt% Sn) and the melting points of Problems T4_PhaseDiagrams I.pdf, p. 1."
 tags:
   - problem-bank
   - midterm-2
@@ -22,8 +22,8 @@ tags:
 
 # Bank B07 — Eutectic systems and the Pb-Sn diagram
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 7, Slides 26-32.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong); Q07.9 is Question 7 from `MATERIALS_SECONDPARTIAL_2019.pdf`. Content: Session 7, Slides 26-32.
 
 ## Q07.1 Phases at a marked point of Pb-Sn
 
@@ -272,37 +272,38 @@ Every eutectic forms from liquid of the eutectic composition, 61.9 wt% Sn, and s
 
 Session 7, Slides 28 and 32.
 
-## Q07.9 Which alloys are hypereutectic
+## Q07.9 Alloys undergoing the eutectic transformation
 
 - id: B07-Q9
-- concept_id: u4-hypo-hyper-classification
+- concept_id: u4-eutectic-reaction
 - format: diagram-reading
-- asks: classification
+- asks: figure-reading
+- origin: official-exam
 
-From the shown A-B phase diagram, indicate which alloys are hypereutectic:
+From the shown Pb-Sn phase diagram, indicate which alloys will go through the eutectic transformation:
 
-![[attachments/MAT-MT2/u4-eut-ab.svg]]
+![[attachments/MAT-MT2/u4-pbsn-points.svg]]
 
-a) Between 15 and 60 wt% B
-b) Between 60 and 90 wt% B
-c) Between 15 and 90 wt% B
-d) Only the 60 wt% B alloy
+a) All the compositions of alloys from 18.3 wt% Sn to eutectic composition
+b) Alloys with composition lower than the solubility limit of Sn in the α phase
+c) All the compositions of alloys from 18.3 wt% Sn to 97.8 wt% Sn
+d) Only the alloy with composition 61.9 wt% Sn
 
 ### Answer
 
-b
+c
 
 ### Explanation
 
-Session 7, Slide 30: alloys between the eutectic composition and the β limit are hypereutectic. Here the eutectic is at 60 wt% B and the β limit at 90 wt% B.
+On the shown Pb-Sn diagram, the 183 °C eutectic isotherm spans from the maximum solubility of Sn in $\alpha$ (18.3 wt% Sn) to the $\beta$ boundary (97.8 wt% Sn), so every alloy in that range reaches 183 °C with liquid of 61.9 wt% Sn and undergoes $L \rightarrow \alpha + \beta$ (Session 7, Slides 26–32).
 
-- a) Between the α limit (15) and the eutectic (60) the alloys are hypoeutectic.
-- c) From 15 to 90 wt% B is the whole eutectic line: hypoeutectic, eutectic and hypereutectic alloys together.
-- d) 60 wt% B is the eutectic alloy itself, neither hypo- nor hypereutectic.
+- a) Stopping at 61.9 wt% Sn omits all hypereutectic alloys (61.9 to 97.8 wt% Sn), which also cross the eutectic isotherm.
+- b) Alloys below 18.3 wt% Sn solidify completely as single-phase $\alpha$ above 183 °C and precipitate $\beta$ in the solid state upon crossing the solvus without meeting the eutectic line.
+- d) 61.9 wt% Sn is the only alloy that becomes 100 % eutectic, whereas every alloy from 18.3 to 97.8 wt% Sn partially undergoes the eutectic transformation.
 
 ### Source
 
-Session 7, Slides 26 and 30-31.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 3 (Part I, Q7); Session 7, Slides 26-32.
 
 ## Q07.10 Liquidus of the Pb-rich alloys
 
