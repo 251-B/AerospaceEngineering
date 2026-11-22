@@ -1,19 +1,21 @@
 ---
 materia: Aerospace Materials I
-tema: "Midterm 2 bank: test blocks and Part II problems (Units 4 to 7)"
+tema: "Midterm 2 and Midterm 3 banks: test blocks and Part II problems (Units 4 to 11)"
 tipo: problem-set
-estado: in-progress
+estado: complete
 tags:
   - problem-bank
   - midterm-2
+  - midterm-3
   - index
 ---
 
-# Aerospace Materials I: Midterm 2 problem bank
+# Aerospace Materials I: Midterm 2 and Midterm 3 problem bank
 
-Practice items written for the portal in the style of Assessment Test II (Units 4 to 7). They are not official exercises: the official problems are the `Problem - T4-...` to `Problem - T7-...` notes of this subject.
+Practice and official-exam-tagged items written for the portal in the style of Assessment Test II (Units 4 to 7) and Assessment Test III (Units 8 to 11). The official unit problem sets are the `Problem - T4-...` to `Problem - T10-...` notes of this subject.
 
-- Specification: [[Rules - Midterm 2 Exam Style Analysis]]
+- Midterm 2 specification: [[Rules - Midterm 2 Exam Style Analysis]]
+- Midterm 3 specification: [[Rules - Midterm 3 Exam Style Analysis]]
 - Builder and note format: [[Tool - build_materials_bank]]
 - Web: `subjects/aerospace-materials-1/extra-problems/` and `subjects/aerospace-materials-1/simulator/`
 
@@ -129,5 +131,102 @@ Practice items written for the portal in the style of Assessment Test II (Units 
 - [[Problem - Bank P18 - Choosing the Alloy of a Light Control Rod|P18]]: Choosing the alloy of a light control rod
 - [[Problem - Bank P19 - Aluminium Alloy Specimen Loaded beyond Yield and Unloaded|P19]]: Aluminium alloy specimen loaded beyond yield and unloaded
 - [[Problem - Bank P20 - Minimum Diameter of a Titanium Hanger Rod|P20]]: Minimum diameter of a titanium hanger rod
+
+## Midterm 3 test blocks (ten questions each)
+
+### Unit 8 · Ceramic materials
+
+- [[Quiz - Bank B63 - Unit 8 Ceramic Bonding and Packing Rules|B63]]: Ceramic bonding and packing rules
+- [[Quiz - Bank B64 - Unit 8 AX Crystal Structures CsCl NaCl and ZnS|B64]]: AX crystal structures: CsCl, NaCl and ZnS
+- [[Quiz - Bank B65 - Unit 8 Fluorite Antifluorite Perovskite and Corundum|B65]]: Fluorite, antifluorite, perovskite and corundum
+- [[Quiz - Bank B66 - Unit 8 Crystal Structure Identification and Stoichiometry|B66]]: Crystal structure identification and stoichiometry
+- [[Quiz - Bank B67 - Unit 8 Covalent Ceramics and Carbon Allotropes|B67]]: Covalent ceramics and carbon allotropes
+- [[Quiz - Bank B68 - Unit 8 Silicate Structures and Silica Polymorphs|B68]]: Silicate structures and silica polymorphs
+- [[Quiz - Bank B69 - Unit 8 Ceramic Point Defects and Ionic Lattice Energy|B69]]: Ceramic point defects and ionic lattice energy
+- [[Quiz - Bank B70 - Unit 8 Ceramic Mechanical Properties and Porosity|B70]]: Ceramic mechanical properties and porosity
+- [[Quiz - Bank B71 - Unit 8 Thermal Shock and Ferroelectric Ceramics|B71]]: Thermal shock and ferroelectric ceramics
+- [[Quiz - Bank B72 - Unit 8 Glasses Formers Modifiers and Glass-Ceramics|B72]]: Glasses, formers, modifiers and glass-ceramics
+- [[Quiz - Bank B73 - Unit 8 Ceramic Powder Preparation and Pressing|B73]]: Ceramic powder preparation and pressing
+- [[Quiz - Bank B74 - Unit 8 Colloidal Shaping Slip Tape Extrusion and Injection|B74]]: Colloidal shaping: slip, tape, extrusion and injection
+- [[Quiz - Bank B75 - Unit 8 Drying Debinding and Sintering of Ceramics|B75]]: Drying, debinding and sintering of ceramics
+- [[Quiz - Bank B76 - Unit 8 Glass Processing Tempering and Aerospace Ceramics|B76]]: Glass processing, tempering and aerospace ceramics
+
+### Unit 9 · Polymeric materials
+
+- [[Quiz - Bank B77 - Unit 9 Monomers Repeat Units and Polymerization|B77]]: Monomers, repeat units and polymerization
+- [[Quiz - Bank B78 - Unit 9 Molecular Weight Averages and Polydispersity|B78]]: Molecular weight averages and polydispersity
+- [[Quiz - Bank B79 - Unit 9 Chain Architecture Copolymers and Isomerism|B79]]: Chain architecture, copolymers and isomerism
+- [[Quiz - Bank B80 - Unit 9 Stereoisomerism Tacticity and Polymer Repeat Units|B80]]: Stereoisomerism, tacticity and polymer repeat units
+- [[Quiz - Bank B81 - Unit 9 Semicrystalline Structure Spherulites and Lamellae|B81]]: Semicrystalline structure, spherulites and lamellae
+- [[Quiz - Bank B82 - Unit 9 Factors Governing Polymer Crystallinity|B82]]: Factors governing polymer crystallinity
+- [[Quiz - Bank B83 - Unit 9 Crystallinity Effects on Polymer Properties|B83]]: Crystallinity effects on polymer properties
+- [[Quiz - Bank B84 - Unit 9 Glass Transition and Melting Temperatures|B84]]: Glass transition and melting temperatures
+- [[Quiz - Bank B85 - Unit 9 Structural Factors Controlling Tg and Tm|B85]]: Structural factors controlling $T_g$ and $T_m$
+- [[Quiz - Bank B86 - Unit 9 Stress Strain Curves and Deformation of Polymers|B86]]: Stress-strain curves and deformation of polymers
+- [[Quiz - Bank B87 - Unit 9 Temperature Strain Rate and Viscoelasticity|B87]]: Temperature, strain rate and viscoelasticity
+- [[Quiz - Bank B88 - Unit 9 Thermoplastics Thermosets and Elastomers|B88]]: Thermoplastics, thermosets and elastomers
+- [[Quiz - Bank B89 - Unit 9 Polymer Processing for Thermoplastics|B89]]: Polymer processing for thermoplastics
+- [[Quiz - Bank B90 - Unit 9 Thermoset Processing and Polymer Selection|B90]]: Thermoset processing and polymer selection
+
+### Unit 10 · Composite materials
+
+- [[Quiz - Bank B91 - Unit 10 Composite Concept and Classification|B91]]: Composite concept and classification
+- [[Quiz - Bank B92 - Unit 10 Particle and Dispersion Strengthened Composites|B92]]: Particle and dispersion strengthened composites
+- [[Quiz - Bank B93 - Unit 10 Fiber Matrix Roles and Glass Fibers|B93]]: Fiber and matrix roles, and glass fibers
+- [[Quiz - Bank B94 - Unit 10 Carbon Aramid and Ceramic Fibers|B94]]: Carbon, aramid and ceramic fibers
+- [[Quiz - Bank B95 - Unit 10 Textiles Laminates Sandwich and GLARE|B95]]: Textiles, laminates, sandwich and GLARE
+- [[Quiz - Bank B96 - Unit 10 Polymer Matrices Thermoset vs Thermoplastic|B96]]: Polymer matrices: thermoset vs thermoplastic
+- [[Quiz - Bank B97 - Unit 10 Composite Interface and Fiber Alignment|B97]]: Composite interface and fiber alignment
+- [[Quiz - Bank B98 - Unit 10 Longitudinal Isostrain Micromechanics|B98]]: Longitudinal isostrain micromechanics
+- [[Quiz - Bank B99 - Unit 10 Transverse Isostress and Fracture Curves|B99]]: Transverse isostress and fracture curves
+- [[Quiz - Bank B100 - Unit 10 Prepregs Laminates and Autoclave Cure|B100]]: Prepregs, laminates and autoclave cure
+- [[Quiz - Bank B101 - Unit 10 PMC Closed Mold and Continuous Processes|B101]]: PMC closed-mold and continuous processes
+- [[Quiz - Bank B102 - Unit 10 Metal Matrix Composites and Processing|B102]]: Metal matrix composites and processing
+- [[Quiz - Bank B103 - Unit 10 Ceramic Matrix Composites and Toughening|B103]]: Ceramic matrix composites and toughening
+- [[Quiz - Bank B104 - Unit 10 Aerospace Composite Applications and Certification|B104]]: Aerospace composite applications and certification
+
+### Unit 11 · Structural adhesives
+
+- [[Quiz - Bank B105 - Unit 11 Joining Methods Adhesion and Cohesion|B105]]: Joining methods, adhesion and cohesion
+- [[Quiz - Bank B106 - Unit 11 Mechanisms of Adhesion and Surface Roughness|B106]]: Mechanisms of adhesion and surface roughness
+- [[Quiz - Bank B107 - Unit 11 Adhesive Constituents and Classification|B107]]: Adhesive constituents and classification
+- [[Quiz - Bank B108 - Unit 11 Structural and Specialized Adhesive Families|B108]]: Structural and specialized adhesive families
+- [[Quiz - Bank B109 - Unit 11 Joint Design and Stress States|B109]]: Joint design and stress states
+- [[Quiz - Bank B110 - Unit 11 Surface Preparation Primers and Joint Production|B110]]: Surface preparation, primers and joint production
+- [[Quiz - Bank B111 - Unit 11 Adhesive Testing and Failure Modes|B111]]: Adhesive testing and failure modes
+- [[Quiz - Bank B112 - Unit 11 Environmental Degradation and Durability|B112]]: Environmental degradation and durability
+
+## Midterm 3 Part II and final-style problems
+
+### Unidirectional composite micromechanics
+
+- [[Problem - Bank P21 - Unidirectional Carbon-Epoxy Rod Under Axial Load|P21]]: Unidirectional carbon-epoxy rod under axial load
+- [[Problem - Bank P22 - Mass-Specified Boron-Aluminium Aerospace Strut|P22]]: Mass-specified boron-aluminium aerospace strut
+- [[Problem - Bank P23 - Glass-Epoxy Composite Replacing Metallic Plate|P23]]: Glass-epoxy composite replacing metallic plate
+- [[Problem - Bank P24 - Carbon-Polycarbonate Stiffener Micromechanics|P24]]: Carbon-polycarbonate stiffener micromechanics
+
+### Hybrid composites and specific properties
+
+- [[Problem - Bank P25 - Hybrid Graphite-Kevlar Epoxy Laminate|P25]]: Hybrid graphite-Kevlar epoxy laminate
+- [[Problem - Bank P26 - Hybrid Carbon-Glass Wing Spar Comparison|P26]]: Hybrid carbon-glass wing spar comparison
+- [[Problem - Bank P27 - Spacecraft Strut Mass Reduction and Specific Properties|P27]]: Spacecraft strut mass reduction and specific properties
+
+### Composite selection and inverse design
+
+- [[Problem - Bank P28 - Candidate Fiber Selection Under Stiffness and Strength Limits|P28]]: Candidate fiber selection under stiffness and strength limits
+- [[Problem - Bank P29 - Inverse Fiber Volume Fraction from Allowable Fiber Stress|P29]]: Inverse fiber volume fraction from allowable fiber stress
+- [[Problem - Bank P30 - Porous Metal Matrix Infiltration and Target Modulus|P30]]: Porous metal matrix infiltration and target modulus
+
+### Ceramic crystal structures and densities
+
+- [[Problem - Bank P31 - MgO Rock Salt Unit Cell APF and Ionic Densities|P31]]: MgO rock salt unit cell, APF and ionic densities
+- [[Problem - Bank P32 - Fluorite Oxide Unit Cell from Crystallographic Planes|P32]]: Fluorite oxide unit cell from crystallographic planes
+- [[Problem - Bank P33 - Zinc Blende Semiconductor Ceramic Structure and Density|P33]]: Zinc blende semiconductor ceramic structure and density
+
+### Polymer molecular weight and crystallinity
+
+- [[Problem - Bank P34 - Polymer Molecular Weight Distribution and Monomer Identification|P34]]: Polymer molecular weight distribution and monomer identification
+- [[Problem - Bank P35 - Contaminated Polymer Blend Molecular Weights|P35]]: Contaminated polymer blend molecular weights
+- [[Problem - Bank P36 - Polymer Crystallinity from Two Density Measurements|P36]]: Polymer crystallinity from two density measurements
 
 **Back to:** [[Aerospace Materials I MOC]]

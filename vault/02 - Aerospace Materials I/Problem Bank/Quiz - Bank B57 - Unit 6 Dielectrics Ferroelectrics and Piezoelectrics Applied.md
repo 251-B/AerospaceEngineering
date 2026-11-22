@@ -6,11 +6,10 @@ title: "Dielectrics, ferroelectrics and piezoelectrics applied"
 category: mt2_test_block
 unit: 6
 concepts:
-  - u6-dipole-moment-charge-distance
-  - u6-capacitor-circular-plates
-  - u6-permittivity-table-ratio
-  - u6-permittivity-plate-area-order
+  - u6-dielectric-polarisation
+  - u6-dielectric-capacitance
   - u6-insulator-against-dielectric
+  - u6-permittivity-plate-area-order
   - u6-dielectric-strength-voltage
   - u6-loss-factor-factors
   - u6-ferroelectric-loop-area-energy
@@ -30,20 +29,19 @@ tags:
 > [!info] Practice item, not an official exercise
 > Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 13, Slides 51-60.
 
-## Q57.1 Dipole moment of a pair of charges
+## Q57.1 Dipoles and polarisation in a dielectric
 
 - id: B57-Q1
-- concept_id: u6-dipole-moment-charge-distance
-- format: numeric
-- asks: calculation
-- calc: 3.2e-19*0.12e-9
+- concept_id: u6-dielectric-polarisation
+- format: topic-true
+- asks: definition
 
-A dipole is formed by two charges, $+q$ and $-q$ with $q = 3.2\times10^{-19}$ C, separated by a distance of 0.12 nm. Determine its dipole moment:
+Regarding electrical dipoles and polarisation in a dielectric material, indicate which statement is TRUE:
 
-a) $1.92\times10^{-29}$ C·m
-b) $3.84\times10^{-29}$ C·m
-c) $7.68\times10^{-29}$ C·m
-d) $3.84\times10^{-30}$ C·m
+a) Free conduction electrons drift across the insulator and gather at the positive plate to create a dipole moment
+b) Without an electric field dipoles orient randomly; applying a field aligns them and induces opposite surface charges
+c) Any common dielectric preserves full saturation polarisation permanently once the external electric field is turned off
+d) Polarising a dielectric inside a capacitor lowers the charge stored on the plates at a fixed applied voltage
 
 ### Answer
 
@@ -51,30 +49,30 @@ b
 
 ### Explanation
 
-Session 13, Slide 51: the dipole moment is $p = q\cdot d$, with $q$ the dipole charge and $d$ the separation between its positive and negative ends: $p = 3.2\times10^{-19}\cdot0.12\times10^{-9} = 3.84\times10^{-29}$ C·m.
+Session 13, Slides 51-52: in a common dielectric without an applied field the dipoles point in random directions (zero net polarisation); an external field aligns the dipoles ($p = q\,d$) and generates surface charges ($-Q'$ and $+Q'$) that let the capacitor store more charge ($Q_0 + Q'$).
 
-- a) The charge of a single electron, $1.6\times10^{-19}$ C, was used instead of the stated $q$: $1.6\times10^{-19}\cdot0.12\times10^{-9} = 1.92\times10^{-29}$.
-- c) The two charges were added, $2q\cdot d$: in $p = q\,d$ the charge $q$ is the magnitude of one end of the dipole.
-- d) The nanometre was converted as $10^{-10}$ m (an ångström): the separation is ten times too small.
+- a) Insulators/dielectrics lack free conduction electrons ($E_g > 2$ eV); polarisation shifts bound dipole charges locally.
+- c) Permanent spontaneous polarisation after removing the field is a property of ferroelectrics (Slide 55), not of common dielectrics.
+- d) Inverts the dielectric effect: polarisation increases capacitance $C = \varepsilon_r C_0$ and increases stored charge $Q = CV$.
 
 ### Source
 
-Session 13, Slide 51.
+Session 13, Slides 51-52 and 55.
 
-## Q57.2 Capacitor of circular plates with a PET film
+## Q57.2 Capacitance change with separation and dielectric
 
 - id: B57-Q2
-- concept_id: u6-capacitor-circular-plates
-- format: numeric
-- asks: calculation
-- calc: 3.2*8.85e-12*3.141592653589793*0.015**2/0.2e-3*1e12
+- concept_id: u6-dielectric-capacitance
+- format: what-happens
+- asks: application
+- check: 10*2 == 20
 
-A capacitor has two circular plates of 3.0 cm diameter separated by a PET film 0.20 mm thick ($\varepsilon_r = 3.2$, $\varepsilon_0 = 8.85\times10^{-12}$ F/m). Determine its capacitance:
+What will happen to the capacitance $C$ of a parallel-plate capacitor if the plate separation $d$ is halved and the vacuum between the plates is replaced by alumina ($\varepsilon_r = 10$):
 
-a) 31.3 pF
-b) 0.100 pF
-c) 400 pF
-d) 100 pF
+a) It will increase 5 times, because $C = \varepsilon_r\varepsilon_0 d/A$ places $d$ in the numerator
+b) It will decrease 20 times, because the dielectric opposes charge storage on the plates
+c) It will increase 10 times, because plate separation $d$ cancels out when $\varepsilon_r$ is inserted
+d) It will increase 20 times, because $C = \varepsilon_r\varepsilon_0 A/d$ scales with $\varepsilon_r$ and $1/d$
 
 ### Answer
 
@@ -82,41 +80,29 @@ d
 
 ### Explanation
 
-Session 13, Slides 52 and 57: $C = \varepsilon_r\varepsilon_0 A/d$ with $A = \pi(D/2)^2 = \pi(0.015)^2 = 7.07\times10^{-4}$ m² and $d = 0.20\times10^{-3}$ m: $C = 3.2\cdot8.85\times10^{-12}\cdot7.07\times10^{-4}/0.20\times10^{-3} = 1.00\times10^{-10}$ F $= 100$ pF.
+Session 13, Slides 52 and 57: $C = \varepsilon_r\varepsilon_0 A/d = \varepsilon_r C_0$. Replacing vacuum with alumina multiplies $C$ by $\varepsilon_r = 10$, and halving the separation $d$ multiplies $C$ by $2$, giving $10\times 2 = 20$ times the initial capacitance.
 
-- a) The dielectric constant was left out: $C_0 = \varepsilon_0 A/d = 31.3$ pF is the value with vacuum between the plates.
-- b) The separation was left in mm ($d = 0.20$ taken as metres): the result is $10^{3}$ times too small.
-- c) The diameter was used as the radius, $A = \pi D^2$: the area is four times too large.
+- a) Inverts $d$ in the formula: $C$ is inversely proportional to plate separation $d$, so halving $d$ doubles $C$ rather than halving it.
+- b) Inverts both factors: a dielectric increases stored charge and capacitance rather than reducing them.
+- c) Ignores the geometric factor $1/d$, counting only the permittivity gain $\varepsilon_r = 10$.
 
 ### Source
 
 Session 13, Slides 52 and 57.
 
-## Q57.3 Capacitance ratio from the permittivity table
+## Q57.3 Dielectric, ferroelectric and piezoelectric materials
 
 - id: B57-Q3
-- concept_id: u6-permittivity-table-ratio
-- format: numeric
-- asks: calculation
-- calc: 700/6.0
+- concept_id: u6-insulator-against-dielectric
+- format: topic-false
+- asks: application
 
-The table gives the relative permittivity of several materials:
+Regarding dielectric, ferroelectric and piezoelectric materials, indicate which statement is FALSE:
 
-| Material | $\varepsilon_r$ |
-| --- | --- |
-| BaTiO₃ | 4000 |
-| KNbO₃ | 700 |
-| Rochelle salt | 170 |
-| Al₂O₃ | 10 |
-| Porcelain | 6.0 |
-| PET | 3.2 |
-
-Two capacitors have identical plates and separation, one filled with KNbO₃ and the other with porcelain. Determine the ratio $C_{KNbO_3}/C_{porcelain}$:
-
-a) 117
-b) 28.3
-c) 667
-d) 1.67
+a) Electrical insulators separating high-voltage conductors require a very high permittivity $\varepsilon_r$ to store charge
+b) Capacitor dielectrics benefit from a high permittivity $\varepsilon_r$ to maximise charge stored per unit area and voltage
+c) Ferroelectric ceramics such as BaTiO$_3$ reach $\varepsilon_r$ orders of magnitude higher than polyethylene or alumina
+d) Polymers such as polyethylene and ceramics such as alumina act as electrical insulators with wide band gaps
 
 ### Answer
 
@@ -124,15 +110,15 @@ a
 
 ### Explanation
 
-Session 13, Slides 52 and 57: with the same $A$ and $d$, $C = \varepsilon_r\varepsilon_0 A/d$ is proportional to $\varepsilon_r$, so $C_{KNbO_3}/C_{porcelain} = 700/6.0 = 117$.
+Session 13, Slides 52, 54 and 57: an electrical insulator must have a **low** permittivity $\varepsilon_r$ to avoid polarisation, alongside high resistivity, high dielectric strength and a small loss factor; a high $\varepsilon_r$ is desired in capacitor dielectrics, not in insulators. Statement a) is false.
 
-- b) The value of Rochelle salt was used in place of KNbO₃: $170/6.0 = 28.3$.
-- c) The value of BaTiO₃, the first row of the table, was used: $4000/6.0 = 667$.
-- d) The value of Al₂O₃ was used for the porcelain-to-KNbO₃ pair: $10/6.0 = 1.67$.
+- b) True (Slide 52): $C = \varepsilon_r\varepsilon_0 A/d$, so high $\varepsilon_r$ raises capacitance.
+- c) True (Slide 57): BaTiO$_3$ has $\varepsilon_r = 4000$ against $2.3$ for polyethylene and $10$ for Al$_2$O$_3$.
+- d) True (Slides 5, 8 and 57): polyethylene and alumina are classic wide-gap insulating materials.
 
 ### Source
 
-Session 13, Slides 52 and 57.
+Session 13, Slides 5, 8, 52, 54 and 57.
 
 ## Q57.4 Plate area needed for the same capacitance
 
@@ -141,12 +127,12 @@ Session 13, Slides 52 and 57.
 - format: ordering
 - asks: comparison
 
-Three capacitors must have the same capacitance and the same plate separation, using PET, Rochelle salt or Al₂O₃ as dielectric ($\varepsilon_r$ = 3.2, 170 and 10, respectively). Ranked from the smallest to the largest plate area required, they are:
+Three capacitors must have the same capacitance and the same plate separation, using polyethylene ($\varepsilon_r = 2.3$), alumina ($\varepsilon_r = 10$) or barium titanate ($\varepsilon_r = 4000$) as dielectric. Ranked from the smallest to the largest plate area required, they are:
 
-a) PET, Al₂O₃, Rochelle salt
-b) Al₂O₃, Rochelle salt, PET
-c) Rochelle salt, Al₂O₃, PET
-d) Rochelle salt, PET, Al₂O₃
+a) Polyethylene, alumina, barium titanate
+b) Alumina, barium titanate, polyethylene
+c) Barium titanate, alumina, polyethylene
+d) Barium titanate, polyethylene, alumina
 
 ### Answer
 
@@ -154,11 +140,11 @@ c
 
 ### Explanation
 
-Session 13, Slides 52 and 57: from $C = \varepsilon_r\varepsilon_0 A/d$, a fixed $C$ and $d$ give $A = Cd/(\varepsilon_r\varepsilon_0)$, so the area is inversely proportional to $\varepsilon_r$: the largest $\varepsilon_r$ (Rochelle salt, 170) needs the smallest area and the smallest (PET, 3.2) the largest.
+Session 13, Slides 52 and 57: from $C = \varepsilon_r\varepsilon_0 A/d$, a fixed $C$ and $d$ give $A = Cd/(\varepsilon_r\varepsilon_0)$, so the area is inversely proportional to $\varepsilon_r$: the largest $\varepsilon_r$ (BaTiO$_3$, 4000) needs the smallest plate area and the smallest (polyethylene, 2.3) the largest.
 
-- a) The order was inverted: it ranks by increasing $\varepsilon_r$, which is the order of increasing capacitance, not of increasing area required.
-- b) The first two were swapped: Al₂O₃ ($\varepsilon_r = 10$) cannot need less area than Rochelle salt (170).
-- d) The last two were swapped: PET ($\varepsilon_r = 3.2$) needs more area than Al₂O₃ (10).
+- a) The order was inverted: it ranks by increasing $\varepsilon_r$, which is the order of increasing capacitance at fixed area, not of increasing area required.
+- b) The first two were swapped: alumina ($\varepsilon_r = 10$) cannot need less area than barium titanate ($4000$).
+- d) The last two were swapped: polyethylene ($\varepsilon_r = 2.3$) needs more area than alumina ($10$).
 
 ### Source
 
@@ -204,21 +190,21 @@ Session 13, Slides 52 and 54.
 
 An insulating sheet 2.4 mm thick has a dielectric strength of 14 kV/mm. Determine the maximum voltage it can hold across its thickness without electrical breakdown:
 
-a) 0.171 kV
+a) 33.6 kV
 b) 16.4 kV
-c) 33.6 kV
+c) 0.171 kV
 d) 5.83 kV
 
 ### Answer
 
-c
+a
 
 ### Explanation
 
 Session 13, Slide 53: $E_{break} = U_{break}/d$, so $U_{break} = E_{break}\,d = 14\ \text{kV/mm}\cdot2.4\ \text{mm} = 33.6$ kV.
 
-- a) The ratio was inverted, $d/E_{break} = 2.4/14$: the units of the result would not be kV.
 - b) The strength and the thickness were added, $14 + 2.4 = 16.4$, instead of multiplied.
+- c) The ratio was inverted, $d/E_{break} = 2.4/14$: the units of the result would not be kV.
 - d) The strength was divided by the thickness, $E_{break}/d = 14/2.4$, instead of multiplied by it.
 
 ### Source

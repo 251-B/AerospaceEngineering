@@ -12,7 +12,7 @@ concepts:
   - u7-expansion-melting-allotropy
   - u7-bimetal-strip
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf and of the thermal expansion items of MATERIALS_THIRDPARTIAL_2020_V2.pdf; not official exercises. Content and data from Session 15, Slides 36-39."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf, including Q10 of that paper (linear coefficient of thermal expansion). Content and data from Session 15, Slides 36-39."
 tags:
   - problem-bank
   - midterm-2
@@ -22,8 +22,8 @@ tags:
 
 # Bank B50 — Thermal expansion
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 36-39.
+> [!info] Includes official exam questions
+> Ten test questions written for the bank in the style of Part I of Assessment Test II, including an official Assessment Test II item (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 36-39.
 
 ## Q50.1 Expansion of the material families
 
@@ -32,7 +32,7 @@ tags:
 - format: complete-sentence
 - asks: comparison
 
-The linear coefficient of thermal expansion:
+Comparing the linear coefficient of thermal expansion across the main classes of materials:
 
 a) is higher for materials with a deeper bonding energy well
 b) is larger for polymers than for ceramics
@@ -63,7 +63,7 @@ Session 15, Slides 36-38.
 - asks: calculation
 - calc: 23.6e-6*2000*(170-20)
 
-A 2.00 m aluminium rod ($\alpha = 23.6\times10^{-6}$ °C⁻¹, Slide 38) is heated freely from 20 °C to 170 °C. Determine its elongation:
+A 2.00 m aluminium rod ($\alpha = 23.6\times10^{-6}$ °C⁻¹) is heated freely from 20 °C to 170 °C. Determine its elongation:
 
 a) $7.08\times10^{-3}$ mm
 b) 3.54 mm
@@ -178,36 +178,36 @@ Slide 37: the linear coefficient of thermal expansion of iron changes abruptly a
 
 Session 15, Slides 37-38.
 
-## Q50.6 Expansion coefficient from a measured elongation
+## Q50.6 Thermal expansion and bonding energy well
 
 - id: B50-Q6
-- concept_id: u7-expansion-values-materials
-- format: numeric
-- asks: calculation
-- calc: 1.53/(1500*60)
+- concept_id: u7-expansion-bonding-well
+- format: complete-sentence
+- asks: effect
+- origin: official-exam
 
-A 1.500 m metal bar lengthens 1.53 mm when it is heated by 60 °C. Determine its linear coefficient of thermal expansion:
+The linear coefficient of thermal expansion:
 
-a) $1.70\times10^{-5}$ °C⁻¹
-b) $1.02\times10^{-3}$ °C⁻¹
-c) $1.70\times10^{-2}$ °C⁻¹
-d) $6.12\times10^{-2}$ °C⁻¹
+a) is high when atomic bonding is strong
+b) is not affected by allotropic changes
+c) is low when the material shows a deep bonding energy well
+d) of iron is higher than that of lead, due to its higher melting temperature
 
 ### Answer
 
-a
+c
 
 ### Explanation
 
-$\alpha = \Delta l/(l_0\,\Delta T)$ (Slide 36): $1.53/(1500\times60) = 1.70\times10^{-5}$ °C⁻¹, the value of copper on Slide 38.
+Session 15, Slides 36-37: materials with high bonding energy display a deep, narrow potential energy well, so raising vibrational energy increases the mean interatomic spacing only slightly and yields a low linear coefficient of thermal expansion.
 
-- b) The temperature change is left out: $1.53/1500 = 1.02\times10^{-3}$ is the strain, not the coefficient.
-- c) $\Delta l$ in mm divided by $l_0$ in m: $1.53/(1.5\times60) = 1.70\times10^{-2}$, a factor 1000 too large.
-- d) $\Delta T$ multiplied instead of divided: $1.53\times60/1500 = 6.12\times10^{-2}$.
+- a) Inverted trend: strong atomic bonding lowers the thermal expansion coefficient rather than raising it.
+- b) False statement: allotropic transformations (such as $\alpha \to \gamma$ in iron) cause abrupt changes in dimensions and $\alpha$ (Slide 37).
+- d) Inverted comparison with a contradicting cause: iron has a higher melting temperature than lead, which reflects stronger bonding and therefore a lower $\alpha$ than lead.
 
 ### Source
 
-Session 15, Slides 36 and 38.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 3 Q10 (also MATERIALS_SECONDPARTIAL_2018.docx, Q10; MATERIALS_THIRDPARTIAL_2020_V2.pdf, p. 3 Q10); Session 15, Slides 36-37.
 
 ## Q50.7 Ranking of expansion coefficients
 
@@ -216,7 +216,7 @@ Session 15, Slides 36 and 38.
 - format: ordering
 - asks: comparison
 
-Order fused silica, alumina, copper and high-density polyethylene by increasing linear coefficient of thermal expansion (Slide 38).
+Order fused silica, alumina, copper and high-density polyethylene by increasing linear coefficient of thermal expansion.
 
 a) fused silica, alumina, copper, polyethylene
 b) polyethylene, copper, alumina, fused silica
@@ -277,12 +277,12 @@ Session 15, Slides 38-39.
 - format: identify
 - asks: application
 
-Which metallic material of Slide 38 is the best choice for a part that must keep its length almost constant when the temperature changes?
+Which metallic alloy is specifically designed to keep its length nearly constant when the temperature changes?
 
-a) Kovar
+a) Brass
 b) Tungsten
-c) 316 stainless steel
-d) Super Invar
+c) Plain carbon steel
+d) Invar (Fe-36% Ni)
 
 ### Answer
 
@@ -290,11 +290,11 @@ d
 
 ### Explanation
 
-Slide 38 boxes Invar and Super Invar as the low-expansion alloys; Super Invar (63Fe-32Ni-5Co) has $\alpha = 0.72\times10^{-6}$ °C⁻¹, the lowest of the metals in the table.
+Session 15, Slide 38 highlights Invar (64Fe-36Ni, $\alpha = 1.6\times10^{-6}$ °C⁻¹) as a dedicated low-expansion alloy, far below plain carbon steel ($\sim 12\times10^{-6}$ °C⁻¹) or brass ($\sim 20\times10^{-6}$ °C⁻¹).
 
-- a) Kovar has a low coefficient, $5.1\times10^{-6}$ °C⁻¹, but about seven times that of Super Invar.
-- b) Tungsten has the lowest coefficient of the pure metals, $4.5\times10^{-6}$ °C⁻¹, still about six times that of Super Invar.
-- c) The 316 stainless steel has $16.0\times10^{-6}$ °C⁻¹, more than iron; being "stainless" says nothing about its expansion.
+- a) Brass has a large expansion coefficient (about $20\times10^{-6}$ °C⁻¹), so it is used as the high-expansion half of bimetallic strips rather than for constant length.
+- b) Pure tungsten has a relatively low coefficient ($4.5\times10^{-6}$ °C⁻¹) for a pure metal, but still nearly three times larger than Invar.
+- c) Plain carbon steel expands by roughly $12\times10^{-6}$ °C⁻¹, nearly an order of magnitude more than Invar.
 
 ### Source
 

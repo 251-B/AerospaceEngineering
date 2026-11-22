@@ -6,10 +6,10 @@ title: "Metallic and ionic conduction applied"
 category: mt2_test_block
 unit: 6
 concepts:
-  - u6-resistivity-match-temperature
-  - u6-matthiessen-table-reading
+  - u6-thermal-resistivity-linear
+  - u6-defects-resistivity
   - u6-conductivity-from-n-mobility
-  - u6-graphene-copper-ratio
+  - u6-polymers-graphene
   - u6-wire-strategy-weight
   - u6-wire-strategy-effects
   - u6-resistivity-coefficient-table
@@ -17,7 +17,7 @@ concepts:
   - u6-ionic-metal-temperature
   - u6-polymer-doping-scale
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 13 Slides 10-23."
+origen: "Includes Question 5 of MATERIALS_FINALEXAM_2012_EXTRA.pdf alongside practice items in the style of Part I. Content and data from Session 13 Slides 10-23."
 tags:
   - problem-bank
   - midterm-2
@@ -27,128 +27,22 @@ tags:
 
 # Bank B53 — Metallic and ionic conduction applied
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 13, Slides 10-23 (resistivity of metals, strengthening and conductivity, conductive ceramics, polymers and graphene).
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Question 2 adapts Question 5 of MATERIALS_FINALEXAM_2012_EXTRA.pdf; the remaining nine are practice items. Content: Session 13, Slides 10-23 (resistivity of metals, strengthening and conductivity, conductive ceramics, polymers and graphene).
 
-## Q53.1 Gold and copper at the same resistivity
+## Q53.1 Thermal resistivity of pure metals
 
 - id: B53-Q1
-- concept_id: u6-resistivity-match-temperature
-- format: numeric
-- asks: calculation
-- calc: (1.6*(1+0.0039*300)/2.3-1)/0.0034
-
-At what temperature will a gold wire exhibit the same resistivity as a copper wire at 300 °C? Use $\rho_0 = 1.6$ μΩ·cm and $\alpha_T = 0.0039$ °C⁻¹ for copper, and $\rho_0 = 2.3$ μΩ·cm and $\alpha_T = 0.0034$ °C⁻¹ for gold:
-
-a) 131 °C
-b) 345 °C
-c) 150 °C
-d) 444 °C
-
-### Answer
-
-c
-
-### Explanation
-
-Session 13, Slide 14: $\rho_T = \rho_0(1+\alpha_T T)$. Copper at 300 °C: $\rho = 1.6\,(1+0.0039\cdot300) = 3.472$ μΩ·cm. For gold, $T = \dfrac{\rho/\rho_{0,Au}-1}{\alpha_{T,Au}} = \dfrac{3.472/2.3-1}{0.0034} = 150$ °C.
-
-- a) The coefficient of copper (0.0039) was used for gold: $(3.472/2.3-1)/0.0039 = 131$ °C.
-- b) The $\rho_0$ of gold was dropped from the denominator: $(3.472-2.3)/0.0034 = 345$ °C.
-- d) The term 1 was forgotten: $3.472/(2.3\cdot0.0034) = 444$ °C, which is not the temperature for $\rho_T = \rho_0(1+\alpha_T T)$.
-
-### Source
-
-Session 13, Slide 14 and Slide 15 (same method, other metals and temperatures).
-
-## Q53.2 Aluminium wire with residual resistivity
-
-- id: B53-Q2
-- concept_id: u6-matthiessen-table-reading
-- format: numeric
-- asks: calculation
-- calc: 2.7*(1+0.0039*80)+0.35+0.20+0.10
-
-An aluminium wire ($\rho_0 = 2.7$ μΩ·cm, $\alpha_T = 0.0039$ °C⁻¹) works at 80 °C. Its residual resistivity comes from the three defect sources of the table. Determine its total resistivity:
-
-| Source of residual resistivity | Contribution (μΩ·cm) |
-| :--- | :---: |
-| Alloying atoms in solid solution | 0.35 |
-| Dislocations from cold work | 0.20 |
-| Grain boundaries | 0.10 |
-
-a) 4.19 μΩ·cm
-b) 3.54 μΩ·cm
-c) 3.89 μΩ·cm
-d) 4.40 μΩ·cm
-
-### Answer
-
-a
-
-### Explanation
-
-Session 13, Slide 14 (Matthiessen's rule) and Slide 16: $\rho_{total} = \rho_T + \rho_r$ with $\rho_T = 2.7\,(1+0.0039\cdot80) = 3.542$ μΩ·cm and $\rho_r = 0.35+0.20+0.10 = 0.65$ μΩ·cm, so $\rho_{total} = 4.19$ μΩ·cm.
-
-- b) The residual term was left out: only the thermal part, $3.54$ μΩ·cm.
-- c) Only the alloying atoms were added: $3.542+0.35 = 3.89$ μΩ·cm; dislocations and grain boundaries also scatter the electrons (Slide 16).
-- d) The residual term was multiplied by $(1+\alpha_T T)$ as well: $3.542 + 0.65\cdot1.312 = 4.40$ μΩ·cm; $\rho_r$ does not depend on temperature.
-
-### Source
-
-Session 13, Slides 14 and 16.
-
-## Q53.3 A hypothetical metal against copper
-
-- id: B53-Q3
-- concept_id: u6-conductivity-from-n-mobility
-- format: numeric
-- asks: calculation
-- calc: 6.0e28*q*5.0e-3/0.60e8
-
-A hypothetical metal has $n = 6.0\times10^{28}$ free electrons per m³ and an electron mobility $\mu = 5.0\times10^{-3}$ m²/(V·s). With $\sigma_{Cu} = 0.60\times10^{8}$ (Ω·m)⁻¹, determine the ratio $\sigma/\sigma_{Cu}$:
-
-a) 0.50
-b) 1.25
-c) 1.60
-d) 0.80
-
-### Answer
-
-d
-
-### Explanation
-
-Session 13, Slides 13 and 21: $\sigma = n|q_e|\mu = 6.0\times10^{28}\cdot1.602\times10^{-19}\cdot5.0\times10^{-3} = 4.81\times10^{7}$ (Ω·m)⁻¹, and $4.81\times10^{7}/0.60\times10^{8} = 0.80$. Units: m⁻³ · C · m²/(V·s) = (Ω·m)⁻¹.
-
-- a) The conductivity was compared with that of graphene, $0.96\times10^{8}$ (Ω·m)⁻¹: $4.81\times10^{7}/0.96\times10^{8} = 0.50$.
-- b) The ratio was inverted: $\sigma_{Cu}/\sigma = 1.25$.
-- c) The charge was counted twice, as if each atom gave two electrons that also carried a double charge: $2\cdot0.80 = 1.60$.
-
-### Source
-
-Session 13, Slides 13 and 21.
-
-## Q53.4 Resistivity of copper and graphene
-
-- id: B53-Q4
-- concept_id: u6-graphene-copper-ratio
-- format: numeric
+- concept_id: u6-thermal-resistivity-linear
+- format: topic-true
 - asks: comparison
-- calc: (0.96/0.60-1)*100
 
-The conductivities of two materials are given in the table. Compared with that of graphene, the resistivity of copper is higher by:
+Referring to the linear thermal resistivity relation $\rho_T = \rho_0(1+\alpha_T\,\Delta T)$ for pure metals such as copper and aluminium, indicate which statement is TRUE:
 
-| Material | $\sigma$ ((Ω·m)⁻¹) |
-| :--- | :---: |
-| Graphene | $0.96\times10^{8}$ |
-| Copper | $0.60\times10^{8}$ |
-| Silicon | $4.5\times10^{-4}$ |
-
-a) 37.5 %
-b) 60 %
-c) 62.5 %
-d) 160 %
+a) The reference resistivity $\rho_0$ is measured at 0 K, so $\Delta T$ must be entered in kelvin
+b) Two metals with different $\rho_0$ and $\alpha_T$ can reach equal resistivities if held at different temperatures
+c) Thermal resistivity $\rho_T$ decreases linearly on heating because lattice vibrations lose amplitude
+d) Dissolving alloying elements changes $\alpha_T$ strongly while keeping the residual resistivity $\rho_r$ equal to zero
 
 ### Answer
 
@@ -156,15 +50,107 @@ b
 
 ### Explanation
 
-Session 13, Slide 21: $\rho = 1/\sigma$, so $\rho_{Cu}/\rho_{gr} = \sigma_{gr}/\sigma_{Cu} = 0.96/0.60 = 1.60$: the resistivity of copper is 60 % higher.
+Session 13, Slides 14-15: since $\rho_T = \rho_0(1+\alpha_T\Delta T)$ increases linearly with temperature at a rate $\rho_0\alpha_T$, a better conductor at 0 °C (such as silver or copper) can reach the same resistivity as a higher-$\rho_0$ metal when heated to a higher temperature.
 
-- a) The percentage by which the conductivity of copper is lower, $(0.96-0.60)/0.96 = 37.5$ %, was given instead of the rise of the resistivity.
-- c) The inverse ratio $\sigma_{Cu}/\sigma_{gr} = 0.625$ was written as a percentage.
-- d) The ratio 1.60 was written as 160 % instead of the excess over 100 %.
+- a) In the course relation $\rho_0$ is tabulated at 0 °C and $\Delta T$ is measured in degrees Celsius, not from 0 K.
+- c) Inverts the trend: heating raises thermal vibration amplitude, increasing electron scattering and $\rho_T$.
+- d) Inverts Matthiessen's rule: alloying elements keep the temperature slope nearly parallel while adding a positive residual term $\rho_i$ (Slides 16-17).
 
 ### Source
 
-Session 13, Slide 21.
+Session 13, Slides 14-17.
+
+## Q53.2 Defects and electrical conductivity in metals
+
+- id: B53-Q2
+- concept_id: u6-defects-resistivity
+- format: topic-true
+- asks: effect
+- origin: official-exam
+
+Referring to point defects, dislocations and grain boundaries in a metallic conductor, indicate which statement is TRUE:
+
+a) Vacancies and solute atoms leave residual resistivity unchanged whenever the solute shares the host valence
+b) Dislocations act as conductive channels that guide free electrons and lower metallic resistivity
+c) Grain boundaries affect the thermal resistivity $\rho_T$ and vanish from Matthiessen's rule below 0 °C
+d) Lattice imperfections break crystal periodicity, scatter conduction electrons, reduce mobility and lower conductivity
+
+### Answer
+
+d
+
+### Explanation
+
+MATERIALS_FINALEXAM_2012_EXTRA.pdf, p. 2 (Question 5) and Session 13, Slides 16-17: in a metal, conduction electrons move without scattering only in a perfect periodic lattice; point defects (vacancies, impurities/solutes) and structural defects (dislocations, grain boundaries) distort periodicity, scatter electrons, shorten the mean free time $\tau$, reduce mobility $\mu$ and therefore lower conductivity (raising $\rho_r = \rho_i + \rho_d$).
+
+- a) Any foreign atom or vacancy disturbs the periodic crystal potential around it and increases scattering regardless of valence.
+- b) Dislocations obstruct and scatter conduction electrons rather than guiding them, raising $\rho_d$.
+- c) Grain boundaries belong to the temperature-independent residual deformation resistivity $\rho_d$, which persists down to 0 K.
+
+### Source
+
+MATERIALS_FINALEXAM_2012_EXTRA.pdf, p. 2 (Question 5); Session 13, Slides 16-17.
+
+## Q53.3 Conductivity from electron density and mobility
+
+- id: B53-Q3
+- concept_id: u6-conductivity-from-n-mobility
+- format: numeric
+- asks: calculation
+- calc: 6.0e28*q*5.0e-3
+
+A metallic conductor has $6.0\times10^{28}$ free electrons per m³ and an electron mobility of $5.0\times10^{-3}$ m²/(V·s). Using $|q_e| = 1.602\times10^{-19}$ C, determine its electrical conductivity:
+
+a) $4.81\times10^{7}$ (Ω·m)⁻¹
+b) $3.00\times10^{26}$ (Ω·m)⁻¹
+c) $2.08\times10^{-8}$ (Ω·m)⁻¹
+d) $9.61\times10^{7}$ (Ω·m)⁻¹
+
+### Answer
+
+a
+
+### Explanation
+
+Session 13, Slides 12-13: $\sigma = n|q_e|\mu = 6.0\times10^{28}\cdot1.602\times10^{-19}\cdot5.0\times10^{-3} = 4.81\times10^{7}$ (Ω·m)⁻¹. Units: $\text{m}^{-3}\cdot\text{C}\cdot\text{m}^2/(\text{V}\cdot\text{s}) = \text{A}/(\text{V}\cdot\text{m}) = (\Omega\cdot\text{m})^{-1}$.
+
+- b) The elementary charge $|q_e|$ was omitted: $n\mu = 6.0\times10^{28}\cdot5.0\times10^{-3} = 3.00\times10^{26}$.
+- c) The resistivity $\rho = 1/\sigma = 2.08\times10^{-8}$ Ω·m was computed instead of the conductivity.
+- d) The charge was doubled ($2|q_e|$), giving $9.61\times10^{7}$ (Ω·m)⁻¹.
+
+### Source
+
+Session 13, Slides 12-13.
+
+## Q53.4 Non-metallic conductors compared with copper
+
+- id: B53-Q4
+- concept_id: u6-polymers-graphene
+- format: topic-false
+- asks: comparison
+
+Regarding non-metallic conductors such as graphene and conductive polymers compared with copper, indicate which statement is FALSE:
+
+a) Graphene is a single hexagonal carbon sheet whose delocalised $\pi$ electrons give higher conductivity than copper
+b) Conductive polymers transport charge by delocalised electron exchange between neighbouring redox sites and offer flexibility
+c) Graphite conducts better across its stacked layers than graphene because interlayer spacing multiplies electron speed
+d) Undoped polymers behave as electrical insulators until chemical doping creates mobile charge carriers
+
+### Answer
+
+c
+
+### Explanation
+
+Session 13, Slides 20-21: graphene is a single hexagonal carbon sheet with a huge delocalised $\pi$-electron cloud moving at very high speed, giving higher conductivity than copper ($0.96\times10^{8}$ vs $0.60\times10^{8}$ (Ω·m)⁻¹); graphite is a multi-layer stack and does not outperform single-layer graphene across layers. Statement c) is false.
+
+- a) True (Slide 21): graphene exceeds copper in conductivity via its delocalised $\pi$ cloud.
+- b) True (Slide 20): conductive polymers combine flexibility and easy formability with electron exchange between redox sites.
+- d) True (Slide 20): undoped polymers lie in the insulator band and jump into the conductive range upon doping.
+
+### Source
+
+Session 13, Slides 20-21.
 
 ## Q53.5 Lighter wire with the same strength and conductivity
 

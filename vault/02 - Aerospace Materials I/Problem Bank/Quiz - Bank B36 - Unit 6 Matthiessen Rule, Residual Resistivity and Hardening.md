@@ -9,11 +9,10 @@ concepts:
   - u6-thermal-resistivity-linear
   - u6-matthiessen-sum
   - u6-residual-resistivity
-  - u6-metal-conductivity-temperature
   - u6-hardening-conductivity
   - u6-defects-resistivity
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 13 Slides 14-18; the chart of question 5 is the official figure of Slide 17."
+origen: "Includes Questions from MATERIALS_FINALEXAM_2017_ORD.pdf (Q6) and MATERIALS_FINALEXAM_2015_EXTRA.pdf (Q8a) alongside practice items. Content and data from Session 13 Slides 14-18; the chart of question 5 is the official figure of Slide 17."
 tags:
   - problem-bank
   - midterm-2
@@ -23,8 +22,8 @@ tags:
 
 # Bank B36 — Matthiessen's rule, residual resistivity and hardening
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 13, Slides 14-18.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Questions 3 and 7 adapt Questions from MATERIALS_FINALEXAM_2017_ORD.pdf (Q6) and MATERIALS_FINALEXAM_2015_EXTRA.pdf (Q8a); the rest are practice items. Content: Session 13, Slides 14-18.
 
 ## Q36.1 Resistivity of gold at 150 °C
 
@@ -87,36 +86,36 @@ Session 13, Slide 14 (table at 0 °C): Ag 1.47, Cu 1.6, Al 2.7 and Fe 9 μΩ·cm
 
 Session 13, Slide 14.
 
-## Q36.3 Total resistivity of a deformed alloy
+## Q36.3 Residual resistivity in Matthiessen's rule
 
 - id: B36-Q3
-- concept_id: u6-matthiessen-sum
-- format: numeric
-- asks: calculation
-- calc: 1.6*(1+0.0039*100)+1.4+0.3
+- concept_id: u6-residual-resistivity
+- format: topic-true
+- asks: cause
+- origin: official-exam
 
-A cold-worked Cu-Ni alloy at 100 °C has $\rho_i = 1.4$ μΩ·cm and $\rho_d = 0.3$ μΩ·cm. With $\rho_0 = 1.6$ μΩ·cm and $\alpha_T = 0.0039$ °C⁻¹ for copper, determine its total resistivity:
+Regarding the residual resistivity $\rho_r$ in Matthiessen's rule for a metallic conductor, indicate which statement is TRUE:
 
-a) 3.30 μΩ·cm
-b) 3.92 μΩ·cm
-c) 4.59 μΩ·cm
-d) 5.63 μΩ·cm
+a) It originates from thermal lattice vibrations and rises linearly above 0 °C
+b) It disappears completely once solute atoms are dissolved into solid solution
+c) It decreases whenever cold plastic deformation increases dislocation density
+d) It is temperature-independent and arises from lattice distortion by impurities and structural defects
 
 ### Answer
 
-b
+d
 
 ### Explanation
 
-Matthiessen's rule (Session 13, Slides 14 and 16): $\rho = \rho_T + \rho_i + \rho_d$. The thermal part is that of copper (the curves of Slide 17 are parallel): $\rho_T = 1.6\,(1+0.0039\cdot100) = 2.22$ μΩ·cm, so $\rho = 2.22 + 1.4 + 0.3 = 3.92$ μΩ·cm.
+Session 13, Slides 14 and 16 (MATERIALS_FINALEXAM_2017_ORD.pdf, Q6): in Matthiessen's rule $\rho_{\text{total}} = \rho_T + \rho_r$, the residual resistivity $\rho_r = \rho_i + \rho_d$ does not depend on temperature and depends on the concentration and type of impurities/alloying elements and structural imperfections (dislocations, grain boundaries) that distort the crystal lattice.
 
-- a) The value at 0 °C, $\rho_0 = 1.6$, was used for the thermal part: $1.6 + 1.4 + 0.3 = 3.30$.
-- c) The temperature factor was applied to the residual terms too: $(1.6+1.4+0.3)\cdot1.39 = 4.59$; $\rho_i$ and $\rho_d$ do not depend on temperature.
-- d) The temperature was put in kelvin: $1.6\,(1+0.0039\cdot373) + 1.7 = 5.63$.
+- a) Describes the thermal part $\rho_T = \rho_0(1+\alpha_T\Delta T)$, not the residual part $\rho_r$.
+- b) Inverts the impurity effect: dissolved solute atoms distort the lattice and raise $\rho_i$, adding to $\rho_r$.
+- c) Inverts the deformation effect: dislocations scatter electrons and raise $\rho_d$, increasing $\rho_r$.
 
 ### Source
 
-Session 13, Slides 14, 16 and 17.
+MATERIALS_FINALEXAM_2017_ORD.pdf, p. 4 (Question 6); Session 13, Slides 14 and 16.
 
 ## Q36.4 Matthiessen's rule
 
@@ -210,19 +209,20 @@ Session 13, Slides 16-17: $\rho_r$ increases with the degree of distortion of th
 
 Session 13, Slides 16-17.
 
-## Q36.7 Why a heated metal conducts less
+## Q36.7 Temperature and defect effects on metallic resistivity
 
 - id: B36-Q7
-- concept_id: u6-metal-conductivity-temperature
-- format: identify
-- asks: cause
+- concept_id: u6-matthiessen-sum
+- format: topic-true
+- asks: effect
+- origin: official-exam
 
-Which mechanism lowers the electrical conductivity of a pure metal when it is heated?
+Referring to Matthiessen's rule and how metallic electrical resistivity responds to temperature, impurities and structural defects, indicate which statement is TRUE:
 
-a) Scattering of electrons by vibrating atoms
-b) Scattering of electrons by impurity atoms
-c) A fall in the number of free electrons
-d) The opening of a gap above the Fermi level
+a) Higher temperature raises $\rho_T$ via lattice vibrations, while alloying, dislocations and grain boundaries add to $\rho_r$
+b) Impurities and grain boundaries raise the thermal term $\rho_T$, while temperature sets the residual term $\rho_r$
+c) Cold working lowers resistivity by aligning grains, whereas alloying additions raise resistivity above 0 °C
+d) Higher temperature lowers metallic resistivity by freeing more electrons, whereas defects leave resistivity unchanged
 
 ### Answer
 
@@ -230,15 +230,15 @@ a
 
 ### Explanation
 
-Session 13, Slide 17: in a crystal heated to a high temperature the atoms vibrate and displace from their sites, scatter the electrons and reduce their mobility, so the conductivity falls.
+MATERIALS_FINALEXAM_2015_EXTRA.pdf, p. 9 (Question 8a) and Session 13, Slides 14 and 16-17: total metallic resistivity is $\rho_{\text{total}} = \rho_T + \rho_i + \rho_d$. Raising temperature increases $\rho_T$ because thermal atomic vibrations scatter electrons, while impurities, alloying elements, dislocations and grain boundaries increase the temperature-independent residual contributions $\rho_i$ and $\rho_d$.
 
-- b) Impurity scattering exists, but it does not depend on temperature (residual resistivity, Slide 16), so it cannot explain the change on heating.
-- c) The number of free electrons of a metal stays constant; the mobility changes.
-- d) The band structure of a metal keeps empty states just above $E_f$ (Slide 6); no gap opens on heating.
+- b) Swaps the thermal and residual mechanisms: temperature enters $\rho_T$, whereas alloying and defects enter $\rho_r$.
+- c) Cold work raises resistivity through dislocation scattering ($\rho_d$), and alloying raises $\rho_i$ at all temperatures.
+- d) Applies intrinsic-semiconductor behaviour to metals while falsely claiming defects have no scattering effect.
 
 ### Source
 
-Session 13, Slides 6, 16 and 17.
+MATERIALS_FINALEXAM_2015_EXTRA.pdf, p. 9 (Question 8a); Session 13, Slides 14 and 16-17.
 
 ## Q36.8 Hardening and conductivity
 
@@ -247,7 +247,7 @@ Session 13, Slides 6, 16 and 17.
 - format: complete-sentence
 - asks: effect
 
-According to the course, all hardening methods of metals, to a greater or lesser extent:
+All hardening methods applied to metallic alloys, to a greater or lesser extent:
 
 a) Increase the electrical conductivity
 b) Leave the electrical conductivity unchanged

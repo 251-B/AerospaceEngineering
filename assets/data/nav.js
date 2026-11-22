@@ -220,6 +220,14 @@ window.AE_NAV = {
             {
               "href": "subjects/aerospace-materials-1/extra-problems/midterm-2-problems.html",
               "label": "2nd Midterm · Problems"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/extra-problems/midterm-3-test.html",
+              "label": "3rd Midterm · Test"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/extra-problems/midterm-3-problems.html",
+              "label": "3rd Midterm · Problems"
             }
           ]
         }

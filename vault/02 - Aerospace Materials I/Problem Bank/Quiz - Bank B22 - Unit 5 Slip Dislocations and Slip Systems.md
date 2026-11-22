@@ -53,20 +53,19 @@ Session 11, Slide 24: "E used to move a dislocation $\propto |\vec b|^2$", so FC
 
 Session 11, Slide 24.
 
-## Q22.2 Energy ratio of two slip directions
+## Q22.2 Energy comparison of two slip directions in FCC
 
 - id: B22-Q2
 - concept_id: u5-dislocation-slip-energy
-- format: numeric
+- format: topic-true
 - asks: comparison
-- calc: 8/4
 
-Using the Burgers vectors of the slides, determine the ratio of the energy to move a dislocation along FCC [100] to that along FCC [110]:
+Referring to dislocation slip energy ($E_{\text{slip}} \propto |\vec b|^2$), compare moving a dislocation along the close-packed $[110]$ direction ($b = 2R$) versus the $[100]$ direction ($b = 2\sqrt{2}\,R$) in an FCC crystal. Which statement is TRUE?
 
-a) 0.500
-b) 1.41
-c) 2.00
-d) 4.00
+a) Slip along $[100]$ requires half as much energy as along $[110]$
+b) Both directions require the same energy because the atomic radius $R$ is identical
+c) Slip along $[100]$ requires twice as much energy as along $[110]$
+d) Slip along $[100]$ requires four times as much energy as along $[110]$
 
 ### Answer
 
@@ -74,11 +73,11 @@ c
 
 ### Explanation
 
-Session 11, Slide 24: $E_b \propto |\vec b|^2$, with $b_{[110]} = 2R$ ($E \propto 4R^2$) and $b_{[100]} = 2\sqrt2\,R$ ($E \propto 8R^2$); the ratio is $8R^2/4R^2 = 2.00$.
+Session 11, Slide 24: the energy needed to move a dislocation scales as $|\vec b|^2$, with $b_{[110]} = 2R$ ($E \propto 4R^2$) and $b_{[100]} = 2\sqrt{2}\,R$ ($E \propto 8R^2$). The ratio is $8R^2/(4R^2) = 2$, so $[100]$ requires twice as much energy.
 
-- a) The ratio is inverted: compact [110] over non-compact [100].
-- b) The ratio of the Burgers vectors, $2\sqrt2R/2R$, was taken without squaring them.
-- d) The Burgers vectors were squared twice: $(\sqrt2)^4 = 4$.
+- a) Inverted ratio: the shorter Burgers vector $[110]$ has the lower energy, not $[100]$.
+- b) Even with the same atomic radius $R$, the step length $|\vec b|$ differs along different crystallographic directions.
+- d) This squares the Burgers vector ratio twice: $(2\sqrt{2}/2)^4 = 4$.
 
 ### Source
 
@@ -151,7 +150,7 @@ Session 11, Slides 23-24.
 - format: identify
 - asks: classification
 
-Which is the slip direction of FCC metals in the slip-system table of the slides?
+Which crystallographic direction family is the primary slip direction of FCC metals?
 
 a) $\langle 110\rangle$
 b) $\langle 100\rangle$
@@ -164,30 +163,29 @@ a
 
 ### Explanation
 
-Session 11, Slide 25: FCC slips on $\{111\}$ planes along $\langle\bar110\rangle$ directions, 4 × 3 = 12 systems; Slide 24 shows [110] as the compact direction with $b = 2R$.
+Session 11, Slide 25: FCC slips on $\{111\}$ planes along $\langle\bar110\rangle$ directions, $4 \times 3 = 12$ systems; Slide 24 shows $[110]$ as the compact direction with $b = 2R$.
 
-- b) $\langle 100\rangle$ is the non-compact direction of Slide 24, with a Burgers vector $2\sqrt2R$ and twice the energy.
-- c) $\{111\}$ is the FCC slip plane, not its slip direction.
-- d) $\langle 111\rangle$ is the slip direction of BCC metals, not of FCC.
+- b) $\langle 100\rangle$ is the non-compact direction of Slide 24, with a Burgers vector $2\sqrt2 R$ and twice the energy.
+- c) $\{111\}$ is the FCC slip plane family, not its slip direction.
+- d) $\langle 111\rangle$ is the slip direction family of BCC metals, not of FCC.
 
 ### Source
 
 Session 11, Slides 24-25.
 
-## Q22.6 Burgers vector in the compact direction
+## Q22.6 Slip direction and interplanar packing
 
 - id: B22-Q6
 - concept_id: u5-slip-direction-packing
-- format: numeric
-- asks: calculation
-- calc: 2*0.143
+- format: topic-false
+- asks: comparison
 
-An FCC metal has an atomic radius of 0.143 nm. Determine the magnitude of the Burgers vector along its compact direction, as given in the slides:
+Regarding dislocation glide and slip directions in crystalline metals, which statement is FALSE?
 
-a) 0.143 nm
-b) 0.286 nm
-c) 0.404 nm
-d) 0.572 nm
+a) Slip occurs preferentially along directions of maximum linear atomic packing
+b) Dislocations favour slip directions with the longest Burgers vector and smallest interplanar spacing
+c) Along the close-packed FCC $[110]$ direction, the Burgers vector magnitude is $2R$
+d) Greater spacing between slip planes lowers the attractive force between them and eases slip
 
 ### Answer
 
@@ -195,11 +193,11 @@ b
 
 ### Explanation
 
-Session 11, Slide 24: along the compact FCC [110] direction $b = 2R = 2 \times 0.143 = 0.286$ nm.
+Session 11, Slide 24: dislocations move along the direction of maximum packing, which has the shortest Burgers vector (minimizing $E \propto |\vec b|^2$) and the largest spacing between planes (minimizing attractive forces across the plane).
 
-- a) This is the atomic radius $R$; along the compact direction neighbouring atoms are $2R$ apart.
-- c) This is $2\sqrt2R$, the Burgers vector along the non-compact [100] direction.
-- d) This is $4R$, the whole face diagonal of the cube, which spans two atomic spacings.
+- a) This is true: dislocation motion is parallel to the direction of maximum packing (Slide 24).
+- c) This is true: along the face diagonal $[110]$ of FCC, touching atoms are $2R$ apart (Slide 24).
+- d) This is true: larger interplanar spacing lowers the attractive force between neighbouring planes and makes slip easier.
 
 ### Source
 
@@ -212,7 +210,7 @@ Session 11, Slide 24.
 - format: complete-sentence
 - asks: definition
 
-In the slides, a slip system is:
+In crystal plasticity, a slip system consists of:
 
 a) a family of grain boundaries
 b) a set of parallel dislocations in a grain
@@ -242,7 +240,7 @@ Session 11, Slides 23 and 25; Session 12, Slide 10.
 - format: complete-sentence
 - asks: classification
 
-According to the slides, the numbers of slip systems of BCC, FCC and HCP metals are, in that order:
+Considering the primary $\{110\}$, $\{111\}$ and basal $(0001)$ slip planes, the numbers of slip systems in BCC, FCC and HCP metals are, in that order:
 
 a) 6, 12 and 12
 b) 12, 6 and 6
@@ -255,11 +253,11 @@ c
 
 ### Explanation
 
-Session 11, Slide 25: BCC $\{110\}$ 6 × 2 = 12; FCC $\{111\}$ 4 × 3 = 12; HCP (0001) 2 × 3 = 6.
+Session 11, Slide 25: BCC $\{110\}$ $6 \times 2 = 12$; FCC $\{111\}$ $4 \times 3 = 12$; HCP $(0001)$ $2 \times 3 = 6$.
 
-- a) BCC and HCP were swapped: BCC has 6 × 2 = 12 systems.
-- b) FCC was given the value of HCP: FCC has 4 × 3 = 12 systems.
-- d) HCP has only 2 × 3 = 6 systems on its basal plane, half of the cubic structures.
+- a) BCC and HCP were swapped: BCC has $6 \times 2 = 12$ systems.
+- b) FCC was given the value of HCP: FCC has $4 \times 3 = 12$ systems.
+- d) HCP has only $2 \times 3 = 6$ primary systems on its basal plane, half of the cubic structures.
 
 ### Source
 
@@ -272,7 +270,7 @@ Session 11, Slide 25.
 - format: identify
 - asks: application
 
-Which metal from the examples of the slides has a crystal structure with only six slip systems?
+Which of the following metals has an HCP crystal structure with only six primary slip systems?
 
 a) Nickel
 b) Alpha iron
@@ -285,7 +283,7 @@ d
 
 ### Explanation
 
-Session 11, Slide 25: the HCP examples are Cd, Mg, $\alpha$-Ti and Zn, with 2 × 3 = 6 slip systems; Al, Cu, $\gamma$-Fe and Ni are FCC and $\alpha$-Fe, Mo and W are BCC.
+Session 11, Slide 25: the HCP examples are Cd, Mg, $\alpha$-Ti and Zn, with $2 \times 3 = 6$ slip systems; Al, Cu, $\gamma$-Fe and Ni are FCC and $\alpha$-Fe, Mo and W are BCC.
 
 - a) Nickel is FCC, with 12 slip systems.
 - b) $\alpha$-Fe is BCC, with 12 slip systems.
@@ -302,7 +300,7 @@ Session 11, Slide 25.
 - format: true-statement
 - asks: comparison
 
-Which one of the following statements about the slip systems in the slides is TRUE?
+Which one of the following statements about slip systems in crystalline metals is TRUE?
 
 a) BCC metals slip on $\{111\}$ planes
 b) Slip occurs on any plane, whatever the structure

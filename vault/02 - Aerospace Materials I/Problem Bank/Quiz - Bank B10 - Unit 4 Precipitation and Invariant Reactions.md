@@ -271,32 +271,31 @@ Session 8, Slide 8: a solid and a liquid transform into a different solid, $\alp
 
 Session 8, Slides 6 and 8.
 
-## Q10.9 Liquid just above the peritectic
+## Q10.9 Outcomes of the peritectic reaction
 
 - id: B10-Q9
 - concept_id: u4-peritectic-reaction
-- format: numeric
-- asks: calculation
-- calc: (4.6-4.0)/(5.4-4.0)*100
+- format: topic-true
+- asks: comparison
 
-A Fe-4.6 wt% Ni alloy is just above 1517 °C, with δ of 4.0 wt% Ni and liquid of 5.4 wt% Ni. Determine the mass percentage of liquid:
+Regarding the peritectic reaction ($\alpha + L \rightarrow \beta$) in a binary alloy system, which statement is TRUE:
 
-a) 27.3 %
-b) 42.9 %
-c) 57.1 %
-d) 85.2 %
+a) An alloy at the exact peritectic composition consumes both $\alpha$ and liquid completely to yield 100 % $\beta$
+b) Below the peritectic isotherm in the $\alpha + \beta$ region, the alloy forms primary $\alpha$ plus a eutectic ($\alpha + \beta$)
+c) On cooling, a single homogeneous solid transforms into two different solid phases at fixed temperature
+d) An intermediate compound formed by a peritectic reaction melts congruently on heating
 
 ### Answer
 
-b
+a
 
 ### Explanation
 
-Lever rule on the tie line δ-L just above the peritectic line (Session 8, Slide 8; Session 7, Slide 16): $W_L = \dfrac{4.6 - 4.0}{5.4 - 4.0} = \dfrac{0.6}{1.4} = 0.429$.
+Session 8, Slides 8-9: at the exact peritectic composition (such as Fe-4.3 wt% Ni or Pt-42.4 wt% Ag), the primary $\alpha$ and remaining liquid react in the exact stoichiometric ratio at the peritectic temperature to form 100 % $\beta$.
 
-- a) $(4.6 - 4.3)/(5.4 - 4.3) = 0.273$ is the liquid left just below 1517 °C, after the reaction, on the γ-L tie line.
-- c) $(5.4 - 4.6)/1.4 = 0.571$ is the fraction of δ: arms swapped.
-- d) $4.6/5.4 = 0.852$ is a ratio of compositions.
+- b) Below a peritectic reaction in $\alpha + \beta$ there is no eutectic microconstituent (a common misconception); the liquid reacted with $\alpha$ to produce $\beta$ rather than splitting into $\alpha + \beta$.
+- c) One solid decomposing into two solids on cooling is the eutectoid reaction ($\gamma \rightarrow \alpha + \beta$), not the peritectic.
+- d) A phase formed on cooling by a peritectic reaction ($\alpha + L \rightarrow \beta$) decomposes on heating back into $\alpha + L$, which is incongruent melting.
 
 ### Source
 

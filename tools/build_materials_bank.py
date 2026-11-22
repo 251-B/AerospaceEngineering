@@ -77,22 +77,45 @@ BANK = VAULT / "Problem Bank"
 OUT_DIR = REPO / "subjects" / "aerospace-materials-1" / "data"
 EXTRA = REPO / "subjects" / "aerospace-materials-1" / "extra-problems"
 INDEX_NOTE = "Problem Set - Aerospace Materials I Problem Bank"
+HUB = EXTRA / "index.html"
+TEST_PAGE, PROBLEMS_PAGE = EXTRA / "midterm-2-test.html", EXTRA / "midterm-2-problems.html"
+TEST_PAGE_MT3, PROBLEMS_PAGE_MT3 = EXTRA / "midterm-3-test.html", EXTRA / "midterm-3-problems.html"
 BLUEPRINT = "exam-blueprint-midterm-2.json"
-HUB, TEST_PAGE, PROBLEMS_PAGE = EXTRA / "index.html", EXTRA / "midterm-2-test.html", EXTRA / "midterm-2-problems.html"
+BLUEPRINT_MT3 = "exam-blueprint-midterm-3.json"
 
 TEST_CATEGORY, PROBLEM_CATEGORY, BLOCK_CATEGORY = "mt2_test_question", "mt2_problem", "mt2_test_block"
-PAGES = {TEST_CATEGORY: TEST_PAGE.name, PROBLEM_CATEGORY: PROBLEMS_PAGE.name}
-# Part II of the 2026-27 paper: one longer problem on phase diagrams (Unit 4, 3.0 points) and one shorter problem on
-# mechanical properties (Unit 5, 2.0 points); the 2:1 ratio is the one of the finals of 2016 and 2017 (Rules note, section 6).
-PROBLEM_POINTS = 5.0  # the whole of Part II
-UNITS = {4: "Unit 4 · Phase diagrams", 5: "Unit 5 · Mechanical properties", 6: "Unit 6 · Electrical properties",
-         7: "Unit 7 · Magnetic and thermal properties"}
-# Minimum number of test questions per unit (Rules - Midterm 2 Exam Style Analysis, quota table).
-QUOTAS = {4: 150, 5: 170, 6: 150, 7: 150}
+MT3_TEST_CATEGORY, MT3_PROBLEM_CATEGORY, MT3_BLOCK_CATEGORY = "mt3_test_question", "mt3_problem", "mt3_test_block"
+PAGES = {
+    TEST_CATEGORY: TEST_PAGE.name,
+    PROBLEM_CATEGORY: PROBLEMS_PAGE.name,
+    MT3_TEST_CATEGORY: TEST_PAGE_MT3.name,
+    MT3_PROBLEM_CATEGORY: PROBLEMS_PAGE_MT3.name,
+}
+# Part II of the 2026-27 MT2 paper: one longer problem on phase diagrams (Unit 4, 3.0 points) and one shorter problem on
+# mechanical properties (Unit 5, 2.0 points); Part II of MT3: one 5.0-point problem.
+PROBLEM_POINTS = 5.0
+MT2_UNITS = {4: "Unit 4 · Phase diagrams", 5: "Unit 5 · Mechanical properties", 6: "Unit 6 · Electrical properties",
+             7: "Unit 7 · Magnetic and thermal properties"}
+MT3_UNITS = {8: "Unit 8 · Ceramic materials", 9: "Unit 9 · Polymers", 10: "Unit 10 · Composite materials",
+             11: "Unit 11 · Adhesives"}
+UNITS = {**MT2_UNITS, **MT3_UNITS}
+EXAM_FOR_UNIT = {**{u: "midterm-2" for u in MT2_UNITS}, **{u: "midterm-3" for u in MT3_UNITS}}
+# Minimum number of test questions per unit.
+MT2_QUOTAS = {4: 150, 5: 170, 6: 150, 7: 150}
+MT3_QUOTAS = {8: 140, 9: 140, 10: 140, 11: 80}
+QUOTAS = {**MT2_QUOTAS, **MT3_QUOTAS}
+MAX_NUMERIC_SHARE = {4: 0.16, 5: 0.16, 6: 0.08, 7: 0.08, 8: 0.08, 9: 0.08, 10: 0.08, 11: 0.08}
 MIN_PROBLEMS_PER_ARCHETYPE = 4
+MIN_PROBLEMS_BY_ARCHETYPE = {
+    "phase-diagram-invariant": 4, "eutectic-lever-rule": 4, "fe-c-steels": 4, "tensile-test": 4, "loaded-bar": 4,
+    "composite-unidirectional": 4, "composite-hybrid-specific": 3, "composite-selection-inverse": 3,
+    "ceramic-structure": 3, "polymer-mw-crystallinity": 3,
+}
 FORMATS = {
     "true-statement": "Which of the following statements is TRUE",
     "false-statement": "Which of the following statements is FALSE",
+    "topic-true": "Referring to / Regarding ... (pick the TRUE statement)",
+    "topic-false": "Referring to / Regarding ... (pick the FALSE statement)",
     "complete-sentence": "Sentence completed by the right option",
     "cause-effect": "With an increase in ... (cause and effect)",
     "what-happens": "What will happen to ... (scenario and outcome)",
@@ -109,26 +132,46 @@ ARCHETYPES = {
     "fe-c-steels": "Fe-Fe3C diagram and steel microstructures",
     "tensile-test": "Tensile test and mechanical properties",
     "loaded-bar": "Bar or rod under load: elastic check, Poisson, design and unloading",
+    "composite-unidirectional": "Unidirectional composite: density, rule of mixtures, forces and strain",
+    "composite-hybrid-specific": "Hybrid composite: specific modulus, specific strength and weight comparison",
+    "composite-selection-inverse": "Composite design: reinforcement selection and inverse volume fraction",
+    "ceramic-structure": "Ceramic crystal structure: stoichiometry, packing factor and densities",
+    "polymer-mw-crystallinity": "Polymer molecular weight averages, PDI and crystallinity",
 }
 LEVELS = emb.LEVELS
 MAX_PER_CONCEPT = 4
-# Points and unit of each problem type (Part II: the long phase-diagram problem and the short Unit 5 problem).
-ARCH_POINTS = {"phase-diagram-invariant": 3.0, "eutectic-lever-rule": 3.0, "fe-c-steels": 3.0,
-               "tensile-test": 2.0, "loaded-bar": 2.0}
-ARCH_UNIT = {"phase-diagram-invariant": 4, "eutectic-lever-rule": 4, "fe-c-steels": 4, "tensile-test": 5, "loaded-bar": 5}
+# Points and unit of each problem type.
+ARCH_POINTS = {
+    "phase-diagram-invariant": 3.0, "eutectic-lever-rule": 3.0, "fe-c-steels": 3.0,
+    "tensile-test": 2.0, "loaded-bar": 2.0,
+    "composite-unidirectional": 5.0, "composite-hybrid-specific": 5.0, "composite-selection-inverse": 5.0,
+    "ceramic-structure": 5.0, "polymer-mw-crystallinity": 5.0,
+}
+ARCH_UNIT = {
+    "phase-diagram-invariant": 4, "eutectic-lever-rule": 4, "fe-c-steels": 4, "tensile-test": 5, "loaded-bar": 5,
+    "composite-unidirectional": 10, "composite-hybrid-specific": 10, "composite-selection-inverse": 10,
+    "ceramic-structure": 8, "polymer-mw-crystallinity": 9,
+}
 SIM_FAIL, SIM_WARN = 0.80, 0.65
 LETTERS = "abcd"
+ORIGINS = ("practice", "official-exam")
 QUIZ_REQUIRED = ("bank_id", "title", "category", "unit", "concepts", "difficulty", "tags", "origen")
-_QUIZ_NAME = re.compile(r"Quiz - Bank (B\d{2}) - .+\.md$")
-_PROB_NAME = re.compile(r"Problem - Bank (P\d{2}) - .+\.md$")
+_QUIZ_NAME = re.compile(r"Quiz - Bank (B\d{2,3}) - .+\.md$")
+_PROB_NAME = re.compile(r"Problem - Bank (P\d{2,3}) - .+\.md$")
 _EMOJI = re.compile("[\U0001F300-\U0001FAFF☀-➿]")
 _PHASE = re.compile(r"\b(?:Phase \d|First phase|Second phase|four phases|4-phase)\b", re.I)
 _EMBED = re.compile(r"!\[\[attachments/([\w-]+)/([\w-]+)\.(svg|png)\]\]")
-_QHEAD = re.compile(r"Q(\d{2})\.(\d{1,2})\s+(.+)$")
-_META = re.compile(r"^- (id|concept_id|format|asks|calc|check):\s*(.+?)\s*$")
+_QHEAD = re.compile(r"Q(\d{2,3})\.(\d{1,2})\s+(.+)$")
+_META = re.compile(r"^- (id|concept_id|format|asks|calc|check|origin):\s*(.+?)\s*$")
 _OPT = re.compile(r"^([a-d])\)\s+(.+?)\s*$")
-_CONCEPT = re.compile(r"u([4-7])-[a-z0-9]+(?:-[a-z0-9]+)*$")
-_VERIFY_FOLDERS = ("MAT-MT2", "T4", "T5", "T6", "T7")
+_CONCEPT = re.compile(r"u([4-9]|1[01])-[a-z0-9]+(?:-[a-z0-9]+)*$")
+_VERIFY_FOLDERS = ("MAT-MT2", "MAT-MT3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11")
+_SLIDE_META = re.compile(
+    r"\b(?:the\s+slides?|Session\s+\d+|Slides?\s+\d+|Table\s+\d+[-–.]\d+)\b"
+    r"|\b(?:in|from|on|of)\s+the\s+(?:course|notes|lectures?)\b"
+    r"|\b(?:named|listed|given)\s+(?:in|on)\s+the\s+(?:course|slides?|notes)\b",
+    re.I,
+)
 
 # Names available to `calc`, `check` and the "## Verification" expressions.
 CALC_ENV = {k: getattr(math, k) for k in ("pi", "e", "sqrt", "exp", "log", "log10", "sin", "cos", "tan", "atan", "radians",
@@ -171,7 +214,7 @@ class Figures:
             rel = f"vault/attachments/{folder}/{name}.{ext}"
             if folder not in _VERIFY_FOLDERS or not (REPO / rel).is_file():
                 raise bpb.BankError(f"figure {rel} does not exist")
-            cap = f"Figure of the course slides ({name})"
+            cap = f"Reference diagram ({name})"
             body = (f'<figure class="slide-figure" style="margin:0"><img src="../../../{rel}" alt="{html.escape(cap)}" '
                     'loading="lazy" style="max-width:min(100%,560px);height:auto;display:block;margin:0 auto;'
                     'background:#fff;border-radius:8px;padding:8px"></figure>')
@@ -249,13 +292,16 @@ def parse_quiz_note(path):
         raise bpb.BankError(f"{where}: frontmatter lacks {', '.join(missing)}")
     if meta["bank_id"] != m.group(1):
         raise bpb.BankError(f"{where}: bank_id {meta['bank_id']} does not match the file name")
-    if meta["category"] != BLOCK_CATEGORY:
-        raise bpb.BankError(f"{where}: category must be {BLOCK_CATEGORY}")
-    if meta["unit"] not in UNITS or meta["difficulty"] not in (1, 2, 3):
-        raise bpb.BankError(f"{where}: unit must be 4-7 and difficulty 1-3")
-    if f"Unit {meta['unit']}" not in path.name:
-        raise bpb.BankError(f"{where}: the file name must carry 'Unit {meta['unit']}'")
-    if "Practice item, not an official exercise" not in body:
+    unit = meta["unit"]
+    if unit not in UNITS or meta["difficulty"] not in (1, 2, 3):
+        raise bpb.BankError(f"{where}: unit must be in {sorted(UNITS)} and difficulty 1-3")
+    expected_block_cat = BLOCK_CATEGORY if unit in MT2_UNITS else MT3_BLOCK_CATEGORY
+    test_cat = TEST_CATEGORY if unit in MT2_UNITS else MT3_TEST_CATEGORY
+    if meta["category"] != expected_block_cat:
+        raise bpb.BankError(f"{where}: category must be {expected_block_cat}")
+    if f"Unit {unit}" not in path.name:
+        raise bpb.BankError(f"{where}: the file name must carry 'Unit {unit}'")
+    if "Practice item, not an official exercise" not in body and "Includes official exam questions" not in body:
         raise bpb.BankError(f"{where}: lacks the 'Practice item, not an official exercise' callout")
     body = _join_display_math(body.split("**Back to:**")[0])
     figs = _figures_for(body, where)
@@ -268,7 +314,7 @@ def parse_quiz_note(path):
             raise bpb.BankError(f"{where}: unexpected section '## {head.strip()}' (questions are '## Qnn.k <title>')")
         if hm.group(1) != block_id[1:]:
             raise bpb.BankError(f"{where}: '## {head.strip()}' does not belong to block {block_id}")
-        questions.append(_question(block_id, int(hm.group(2)), hm.group(3).strip(), rest, meta, where, figs, path))
+        questions.append(_question(block_id, int(hm.group(2)), hm.group(3).strip(), rest, meta, where, figs, path, test_cat))
     numbers = [q["number"] for q in questions]
     if numbers != list(range(1, 11)):
         raise bpb.BankError(f"{where}: a block has questions 1 to 10 in order, got {numbers}")
@@ -281,13 +327,14 @@ def parse_quiz_note(path):
     if listed != used:
         raise bpb.BankError(f"{where}: frontmatter concepts and the questions' concept_id differ: "
                             f"{sorted(listed ^ used)}")
-    return {"id": block_id, "unit": meta["unit"], "title": meta["title"], "difficulty": meta["difficulty"],
+    return {"id": block_id, "unit": unit, "exam": EXAM_FOR_UNIT[unit], "title": meta["title"],
+            "difficulty": meta["difficulty"],
             "tags": [t for t in meta["tags"] if t != "problem-bank"], "source": meta["origen"],
             "vault_note": path.relative_to(REPO).as_posix() if path.is_relative_to(REPO) else path.name,
             "figures": figs.used, "questions": questions}
 
 
-def _question(block_id, number, title, rest, meta, where, figs, path):
+def _question(block_id, number, title, rest, meta, where, figs, path, test_cat=TEST_CATEGORY):
     qid = f"{block_id}-Q{number}"
     where = f"{where} {qid}"
     sections = re.split(r"\n### ", "\n" + rest)
@@ -325,6 +372,9 @@ def _question(block_id, number, title, rest, meta, where, figs, path):
         raise bpb.BankError(f"{where}: unknown format {info.get('format')!r}")
     if info.get("asks") not in ASKS:
         raise bpb.BankError(f"{where}: unknown asks {info.get('asks')!r}")
+    origin = info.get("origin", "practice")
+    if origin not in ORIGINS:
+        raise bpb.BankError(f"{where}: unknown origin {origin!r} (must be one of {ORIGINS})")
     if "".join(sorted(options)) != LETTERS:
         raise bpb.BankError(f"{where}: needs the four options a) to d), got {sorted(options)}")
     if not any(x.strip() for x in stem):
@@ -381,10 +431,13 @@ def _question(block_id, number, title, rest, meta, where, figs, path):
         return figs.html(em.group(2), numbered=False) if em else bt.inline(text)
 
     plain_stem = " ".join(x.strip() for x in stem if x.strip() and not _EMBED.search(x))
+    sm = _SLIDE_META.search(plain_stem)
+    if sm:
+        raise bpb.BankError(f"{where}: stem must not mention slides, course notes or slide tables: {sm.group(0)!r}")
     return {
-        "id": qid, "category": TEST_CATEGORY, "kind": "multiple_choice", "block": block_id, "number": number,
+        "id": qid, "category": test_cat, "kind": "multiple_choice", "block": block_id, "number": number,
         "unit": meta["unit"], "concept_id": info["concept_id"], "theme": info["concept_id"], "format": info["format"],
-        "asks": info["asks"], "title": title, "difficulty": meta["difficulty"], "points": 0.5,
+        "asks": info["asks"], "origin": origin, "title": title, "difficulty": meta["difficulty"], "points": 0.5,
         "statement_html": emb.render(list(stem), where, figs),
         "options": [{"label": k, "html": option_html(options[k])} for k in LETTERS],
         "answer": answer,
@@ -412,28 +465,30 @@ def parse_problem_note(path):
         raise bpb.BankError(f"{where}: frontmatter lacks {', '.join(missing)}")
     if meta["bank_id"] != m.group(1):
         raise bpb.BankError(f"{where}: bank_id {meta['bank_id']} does not match the file name")
-    if meta["category"] != PROBLEM_CATEGORY:
-        raise bpb.BankError(f"{where}: category must be {PROBLEM_CATEGORY}")
+    unit = meta["unit"]
+    if unit not in UNITS or meta["difficulty"] not in (1, 2, 3):
+        raise bpb.BankError(f"{where}: unit must be in {sorted(UNITS)} and difficulty 1-3")
+    expected_prob_cat = PROBLEM_CATEGORY if unit in MT2_UNITS else MT3_PROBLEM_CATEGORY
+    if meta["category"] != expected_prob_cat:
+        raise bpb.BankError(f"{where}: category must be {expected_prob_cat}")
     points = float(meta["points"])
     if meta["archetype"] not in ARCHETYPES:
         raise bpb.BankError(f"{where}: unknown archetype {meta['archetype']!r}")
     if points != ARCH_POINTS[meta["archetype"]]:
         raise bpb.BankError(f"{where}: a {meta['archetype']} problem is worth {ARCH_POINTS[meta['archetype']]} points, not {points}")
-    if meta["unit"] != ARCH_UNIT[meta["archetype"]]:
+    if unit != ARCH_UNIT[meta["archetype"]]:
         raise bpb.BankError(f"{where}: a {meta['archetype']} problem belongs to unit {ARCH_UNIT[meta['archetype']]}")
     if meta["level"] not in LEVELS:
         raise bpb.BankError(f"{where}: unknown level {meta['level']!r}")
-    if meta["unit"] not in UNITS or meta["difficulty"] not in (1, 2, 3):
-        raise bpb.BankError(f"{where}: unit must be 4-7 and difficulty 1-3")
-    if "Practice item, not an official exercise" not in body:
+    if "Practice item, not an official exercise" not in body and "Includes official exam adaptation" not in body:
         raise bpb.BankError(f"{where}: lacks the 'Practice item, not an official exercise' callout")
     body = _join_display_math(body.split("**Back to:**")[0])
     figs = _figures_for(body, where)
     item = {
-        "id": meta["bank_id"], "category": PROBLEM_CATEGORY, "archetype": meta["archetype"], "theme": meta["archetype"],
-        "level": meta["level"], "unit": meta["unit"], "title": meta["title"], "difficulty": meta["difficulty"],
+        "id": meta["bank_id"], "category": expected_prob_cat, "archetype": meta["archetype"], "theme": meta["archetype"],
+        "level": meta["level"], "unit": unit, "title": meta["title"], "difficulty": meta["difficulty"],
         "points": points, "time_minutes": meta["time_minutes"], "tags": [t for t in meta["tags"] if t != "problem-bank"],
-        "official": False, "source": meta["origen"],
+        "official": bool(meta.get("official", False)), "source": meta["origen"],
         "vault_note": path.relative_to(REPO).as_posix() if path.is_relative_to(REPO) else path.name,
         "statement_html": None, "setup_html": None, "subquestions": [], "interpretation_html": None,
         "figures": [], "verify": [],
@@ -531,71 +586,114 @@ def check_bank(blocks, problems, partial=False):
                             "; ".join(f"{a} ~ {b} ({r:.2f})" for r, a, b in too_close[:12]))
     if questions and not partial:
         for unit, minimum in QUOTAS.items():
-            n = sum(q["unit"] == unit for q in questions)
+            u_qs = [q for q in questions if q["unit"] == unit]
+            n = len(u_qs)
             if n < minimum:
                 raise bpb.BankError(f"unit {unit} has {n} test questions, the quota is {minimum}")
-        share = {k: sum(q["answer"] == k for q in questions) / len(questions) for k in LETTERS}
-        off = {k: round(v, 3) for k, v in share.items() if not 0.20 <= v <= 0.30}
-        if off:
-            raise bpb.BankError(f"the right answer is not spread evenly over a-d: {off}")
+            num_share = sum(q["format"] == "numeric" for q in u_qs) / n
+            if num_share > MAX_NUMERIC_SHARE[unit]:
+                raise bpb.BankError(f"unit {unit} has {num_share:.1%} numeric questions (max {MAX_NUMERIC_SHARE[unit]:.0%})")
+        for label, group in (("Midterm 2", [q for q in questions if q["unit"] in MT2_UNITS]),
+                             ("Midterm 3", [q for q in questions if q["unit"] in MT3_UNITS])):
+            if not group:
+                continue
+            share = {k: sum(q["answer"] == k for q in group) / len(group) for k in LETTERS}
+            off = {k: round(v, 3) for k, v in share.items() if not 0.20 <= v <= 0.30}
+            if off:
+                raise bpb.BankError(f"{label}: the right answer is not spread evenly over a-d: {off}")
         for arch in ARCHETYPES:
             n = sum(p["archetype"] == arch for p in problems)
-            if n < MIN_PROBLEMS_PER_ARCHETYPE:
-                raise bpb.BankError(f"problem type {arch} has {n} problems, the minimum is {MIN_PROBLEMS_PER_ARCHETYPE}")
+            req = MIN_PROBLEMS_BY_ARCHETYPE.get(arch, MIN_PROBLEMS_PER_ARCHETYPE)
+            if n < req:
+                raise bpb.BankError(f"problem type {arch} has {n} problems, the minimum is {req}")
     return [p for p in pairs if p[0] < SIM_FAIL]
 
 
-def check_blueprint(blueprint, blocks, problems, partial=False):
+def check_blueprint(blueprint, blocks, problems, partial=False, name=BLUEPRINT):
     parts = blueprint.get("parts", [])
     total = round(sum(p["count"] * p["points_each"] for p in parts), 4)
     if total != blueprint.get("total_points"):
-        raise bpb.BankError(f"{BLUEPRINT}: parts add up to {total}, not {blueprint.get('total_points')}")
+        raise bpb.BankError(f"{name}: parts add up to {total}, not {blueprint.get('total_points')}")
     for part in parts:
         if part.get("type") == "multiple_choice":
             for key in ("points_correct", "points_wrong", "points_blank", "floor"):
                 if not isinstance(part.get(key), (int, float)):
-                    raise bpb.BankError(f"{BLUEPRINT}: {part['id']} lacks the number {key}")
+                    raise bpb.BankError(f"{name}: {part['id']} lacks the number {key}")
             if part["points_correct"] != part["points_each"]:
-                raise bpb.BankError(f"{BLUEPRINT}: {part['id']} points_correct must equal points_each")
+                raise bpb.BankError(f"{name}: {part['id']} points_correct must equal points_each")
             per_unit = part.get("selection_rules", {}).get("per_unit", {})
             if per_unit and sum(per_unit.values()) != part["count"]:
-                raise bpb.BankError(f"{BLUEPRINT}: {part['id']} per_unit adds up to {sum(per_unit.values())}, not {part['count']}")
+                raise bpb.BankError(f"{name}: {part['id']} per_unit adds up to {sum(per_unit.values())}, not {part['count']}")
             if not partial:
                 for unit, n in per_unit.items():
                     have = sum(len(b["questions"]) for b in blocks if b["unit"] == int(unit))
                     if have < 2 * n:
-                        raise bpb.BankError(f"{BLUEPRINT}: unit {unit} needs at least {2 * n} test questions")
+                        raise bpb.BankError(f"{name}: unit {unit} needs at least {2 * n} test questions")
         else:
             rules = part.get("selection_rules", {})
             kinds = rules.get("archetypes", []) + rules.get("must_archetypes", [])
             if not kinds:
-                raise bpb.BankError(f"{BLUEPRINT}: {part['id']} must list its problem types (archetypes or must_archetypes)")
+                raise bpb.BankError(f"{name}: {part['id']} must list its problem types (archetypes or must_archetypes)")
             for a in kinds:
                 if ARCH_POINTS.get(a) != part["points_each"]:
-                    raise bpb.BankError(f"{BLUEPRINT}: {part['id']} is worth {part['points_each']} points but {a} problems are worth {ARCH_POINTS.get(a)}")
+                    raise bpb.BankError(f"{name}: {part['id']} is worth {part['points_each']} points but {a} problems are worth {ARCH_POINTS.get(a)}")
             for a in kinds:
                 if a not in ARCHETYPES or (not partial and not any(p["archetype"] == a for p in problems)):
-                    raise bpb.BankError(f"{BLUEPRINT}: archetype {a!r} has no problem in the bank")
-    _check_modes(blueprint, parts, blocks, partial)
+                    raise bpb.BankError(f"{name}: archetype {a!r} has no problem in the bank")
+    _check_modes(blueprint, parts, blocks, problems, partial, name)
 
 
-def _check_modes(blueprint, parts, blocks, partial):
-    """Practice scopes ("modes") read by assets/js/exam-simulator.js: each fixes the test questions per unit."""
+def _check_modes(blueprint, parts, blocks, problems, partial, name=BLUEPRINT):
+    """Practice scopes ("modes") read by assets/js/exam-simulator.js."""
     modes = blueprint.get("modes")
     if modes is None:
         return
     mc = next((p for p in parts if p.get("type") == "multiple_choice"), None)
     if mc is None or not isinstance(modes, list) or not modes:
-        raise bpb.BankError(f"{BLUEPRINT}: modes need a list and a multiple-choice part")
+        raise bpb.BankError(f"{name}: modes need a list and a multiple-choice part")
     ids = [m.get("id") for m in modes]
     if len(set(ids)) != len(ids) or not all(isinstance(i, str) and re.fullmatch(r"[\w-]+", i) for i in ids):
-        raise bpb.BankError(f"{BLUEPRINT}: mode ids must be unique words, got {ids}")
+        raise bpb.BankError(f"{name}: mode ids must be unique words, got {ids}")
     if sum(1 for m in modes if m.get("default")) != 1:
-        raise bpb.BankError(f"{BLUEPRINT}: exactly one mode must be the default")
+        raise bpb.BankError(f"{name}: exactly one mode must be the default")
+    part_ids = {p["id"] for p in parts}
     for m in modes:
-        where = f"{BLUEPRINT}: mode {m['id']}"
+        where = f"{name}: mode {m['id']}"
         if not m.get("label") or not m.get("description"):
             raise bpb.BankError(f"{where} needs a label and a description")
+        if "duration_minutes" in m:
+            if m["duration_minutes"] not in m.get("duration_options_minutes", []):
+                raise bpb.BankError(f"{where}: duration_minutes must be one of its duration_options_minutes")
+        if isinstance(m.get("parts"), list):
+            if not m["parts"] or any(pid not in part_ids for pid in m["parts"]):
+                raise bpb.BankError(f"{where}: parts must list valid part ids from {sorted(part_ids)}")
+            if m.get("unit_picker"):
+                ul = blueprint.get("unit_labels")
+                if not isinstance(ul, dict) or not ul or any(int(u) not in UNITS for u in ul):
+                    raise bpb.BankError(f"{where}: unit_picker needs blueprint unit_labels in {sorted(UNITS)}")
+                opts = m.get("count_options")
+                if not isinstance(opts, list) or not opts or m.get("default_count") not in opts:
+                    raise bpb.BankError(f"{where}: unit_picker needs count_options containing default_count")
+                if not partial:
+                    for u in ul:
+                        have = sum(len(b["questions"]) for b in blocks if b["unit"] == int(u))
+                        if have < 10:
+                            raise bpb.BankError(f"{where}: unit {u} needs at least 10 test questions, has {have}")
+            if m.get("archetype_picker"):
+                arches = m.get("archetypes")
+                if arches is None:
+                    arches = []
+                    for p in parts:
+                        if p["id"] in m["parts"] and p.get("type") != "multiple_choice":
+                            r = p.get("selection_rules", {})
+                            arches += r.get("archetypes", []) + r.get("must_archetypes", [])
+                if not arches or any(a not in ARCHETYPES for a in arches):
+                    raise bpb.BankError(f"{where}: archetype_picker needs valid archetypes")
+                if not partial:
+                    for a in arches:
+                        if not any(p["archetype"] == a for p in problems):
+                            raise bpb.BankError(f"{where}: archetype {a!r} has no problem in the bank")
+            continue
         per_unit = m.get("per_unit")
         if not isinstance(per_unit, dict) or not per_unit:
             raise bpb.BankError(f"{where} needs per_unit")
@@ -606,9 +704,6 @@ def _check_modes(blueprint, parts, blocks, partial):
         if not m.get("include_problem", True):
             if mc["points_total"] != round(mc["count"] * mc["points_each"], 4):
                 raise bpb.BankError(f"{where}: the test alone must add up to {mc['points_total']}")
-        if "duration_minutes" in m:
-            if m["duration_minutes"] not in m.get("duration_options_minutes", []):
-                raise bpb.BankError(f"{where}: duration_minutes must be one of its duration_options_minutes")
         if not partial:
             for u, n in per_unit.items():
                 unit_blocks = [b for b in blocks if b["unit"] == int(u)]
@@ -652,29 +747,61 @@ def load_bank(bank_dir=BANK, partial=False, index=True):
 def build(partial=False):
     blocks, problems, review = load_bank(partial=partial)
     questions = [{k: v for k, v in q.items() if not k.startswith("_")} for b in blocks for q in b["questions"]]
+    mt2_blocks = [b for b in blocks if b["unit"] in MT2_UNITS]
+    mt3_blocks = [b for b in blocks if b["unit"] in MT3_UNITS]
+    mt2_problems = [p for p in problems if p["unit"] in MT2_UNITS]
+    mt3_problems = [p for p in problems if p["unit"] in MT3_UNITS]
     data = {
         "_comment": "Generated by tools/build_materials_bank.py from vault/02 - Aerospace Materials I/Problem Bank/. Do not edit by hand.",
         "subject": "aerospace-materials-1",
-        "categories": {TEST_CATEGORY: {"label": "Test questions", "points": 0.5},
-                       PROBLEM_CATEGORY: {"label": "Part II problems", "points": PROBLEM_POINTS}},
+        "categories": {
+            TEST_CATEGORY: {"label": "2nd Midterm test questions", "points": 0.5},
+            PROBLEM_CATEGORY: {"label": "2nd Midterm Part II problems", "points": PROBLEM_POINTS},
+            MT3_TEST_CATEGORY: {"label": "3rd Midterm test questions", "points": 0.5},
+            MT3_PROBLEM_CATEGORY: {"label": "3rd Midterm Part II problems", "points": PROBLEM_POINTS},
+        },
         "archetype_points": ARCH_POINTS,
         "pages": PAGES, "archetypes": ARCHETYPES, "levels": LEVELS, "formats": FORMATS,
         "units": {str(k): v for k, v in UNITS.items()},
-        "counts": {TEST_CATEGORY: len(questions), PROBLEM_CATEGORY: len(problems), BLOCK_CATEGORY: len(blocks)},
-        "blocks": [{"id": b["id"], "unit": b["unit"], "title": b["title"], "items": [q["id"] for q in b["questions"]]}
-                   for b in blocks],
+        "counts": {
+            TEST_CATEGORY: sum(q["category"] == TEST_CATEGORY for q in questions),
+            PROBLEM_CATEGORY: len(mt2_problems),
+            BLOCK_CATEGORY: len(mt2_blocks),
+            MT3_TEST_CATEGORY: sum(q["category"] == MT3_TEST_CATEGORY for q in questions),
+            MT3_PROBLEM_CATEGORY: len(mt3_problems),
+            MT3_BLOCK_CATEGORY: len(mt3_blocks),
+        },
+        "blocks": [
+            {"id": b["id"], "unit": b["unit"], "exam": b["exam"], "title": b["title"],
+             "items": [q["id"] for q in b["questions"]]}
+            for b in blocks
+        ],
         "items": questions + problems,
     }
-    blueprint = json.loads((OUT_DIR / BLUEPRINT).read_text(encoding="utf-8"))
-    check_blueprint(blueprint, blocks, problems, partial)
+    bp2 = json.loads((OUT_DIR / BLUEPRINT).read_text(encoding="utf-8"))
+    check_blueprint(bp2, mt2_blocks, mt2_problems, partial, name=BLUEPRINT)
     js = ("/* Generated by tools/build_materials_bank.py (same data as problems.json). Do not edit by hand. */\n"
           f"window.AE_MAT_BANK = {json.dumps(data, ensure_ascii=False)};\n"
           f"/* The exam structure of data/{BLUEPRINT}, for the Exam Simulator. */\n"
-          f"window.AE_MAT_BLUEPRINT_MT2 = {json.dumps(blueprint, ensure_ascii=False)};\n")
+          f"window.AE_MAT_BLUEPRINT_MT2 = {json.dumps(bp2, ensure_ascii=False)};\n")
+    bp3_path = OUT_DIR / BLUEPRINT_MT3
+    bp3 = None
+    if bp3_path.is_file():
+        bp3 = json.loads(bp3_path.read_text(encoding="utf-8"))
+        check_blueprint(bp3, mt3_blocks, mt3_problems, partial, name=BLUEPRINT_MT3)
+        js += (f"/* The exam structure of data/{BLUEPRINT_MT3}, for the Exam Simulator. */\n"
+               f"window.AE_MAT_BLUEPRINT_MT3 = {json.dumps(bp3, ensure_ascii=False)};\n")
     outputs = {OUT_DIR / "problems.json": json.dumps(data, indent=1, ensure_ascii=False) + "\n", OUT_DIR / "problems.js": js}
-    for path, block, pattern in ((HUB, render_hub(blocks, problems), emb._HUB_BLOCK),
-                                 (TEST_PAGE, render_test_page(blocks, blueprint), emb._PAGE_BLOCK),
-                                 (PROBLEMS_PAGE, render_problems_page(problems), emb._PAGE_BLOCK)):
+    renders = [
+        (HUB, render_hub(blocks, problems), emb._HUB_BLOCK),
+        (TEST_PAGE, render_test_page(mt2_blocks, bp2, exam_num="II", units=MT2_UNITS), emb._PAGE_BLOCK),
+        (PROBLEMS_PAGE, render_problems_page(mt2_problems), emb._PAGE_BLOCK),
+    ]
+    if bp3 is not None and TEST_PAGE_MT3.is_file():
+        renders.append((TEST_PAGE_MT3, render_test_page(mt3_blocks, bp3, exam_num="III", units=MT3_UNITS), emb._PAGE_BLOCK))
+    if PROBLEMS_PAGE_MT3.is_file():
+        renders.append((PROBLEMS_PAGE_MT3, render_problems_page_mt3(mt3_problems), emb._PAGE_BLOCK))
+    for path, block, pattern in renders:
         if path.is_file():
             page = path.read_bytes().decode("utf-8").replace("\r\n", "\n")
             outputs[path] = emb._fill(pattern, path, page, block)
@@ -690,6 +817,7 @@ def _question_html(q):
     opts = "\n".join(f'            <li class="mcq-option"><span class="mcq-letter">{o["label"]})</span> '
                      f'<span class="mcq-text">{o["html"]}</span></li>' for o in q["options"])
     wrong = "\n".join(f'              <li><strong>{k})</strong> {v}</li>' for k, v in sorted(q["distractors"].items()))
+    badge = '<span class="mcq-origin-badge">Official exam</span>' if q.get("origin") == "official-exam" else ""
     return "\n".join([
         f'        <div class="phase-block mcq-item" id="{q["id"]}">',
         f'          <h3 class="phase-title">Question {q["number"]} · {html.escape(q["title"])}</h3>',
@@ -701,43 +829,50 @@ def _question_html(q):
         q["explanation_html"],
         '            <p class="mcq-why">Why the other options are wrong:</p>',
         '            <ul class="mcq-distractors">', wrong, "            </ul>",
-        '            <div class="mcq-source"><span class="mcq-source__label">Source.</span> ' + q["source_html"] + "</div>",
+        f'            <div class="mcq-source"><span class="mcq-source__label">Source.</span> ' + q["source_html"] + badge + "</div>",
         "          </details>",
         "        </div>"])
 
 
-def _block_card(block, mc):
+def _block_card(block, mc, exam_num="II"):
+    has_official = any(q.get("origin") == "official-exam" for q in block["questions"])
+    note_tag = "Includes official exam questions" if has_official else "Practice item, not an official exercise"
     tag = (f"Test block · {UNITS[block['unit']].split(' · ')[0]} · 10 questions · "
-           f"+{mc['points_correct']:g} right, {mc['points_wrong']:g} wrong · Practice item, not an official exercise")
+           f"+{mc['points_correct']:g} right, {mc['points_wrong']:g} wrong · {note_tag}")
     return "\n".join([
         f'      <section class="problem-box" id="{block["id"]}">',
         f'        <span class="problem-tag">{html.escape(tag)}</span>',
         f'        <h4 class="problem-title">{block["id"]} — {html.escape(block["title"])}</h4>',
         '        <div class="statement-box">',
         f'<p>Ten test questions on {html.escape(UNITS[block["unit"]].split(" · ")[1].lower())}, written for this portal in '
-        'the style of Part I of Assessment Test II. Each question has four options and only one is right. Answer all ten '
+        f'the style of Part I of Assessment Test {exam_num}. Each question has four options and only one is right. Answer all ten '
         'before opening any explanation.</p>',
         "        </div>",
         "\n".join(_question_html(q) for q in block["questions"]),
         "      </section>"])
 
 
-def render_test_page(blocks, blueprint):
+def render_test_page(blocks, blueprint, exam_num="II", units=MT2_UNITS):
     mc = _mc_part(blueprint)
     n = sum(len(b["questions"]) for b in blocks)
-    out = [f'      <p class="midterm-part-lead">{n} test questions in {len(blocks)} blocks of ten, on Units 4 to 7. Part I of '
-           f'Assessment Test II is {mc["count"]} questions with four options and one right answer: '
+    sim_q = "" if exam_num == "II" else "?exam=midterm-3"
+    u_lo, u_hi = min(units), max(units)
+    if not blocks:
+        return (f'      <p class="midterm-part-lead">Test blocks for Assessment Test {exam_num} (Units {u_lo} to {u_hi}) are being '
+                f'written and will appear here. Meanwhile, open the <a href="../simulator/index.html{sim_q}">Exam simulator</a>.</p>\n')
+    out = [f'      <p class="midterm-part-lead">{n} test questions in {len(blocks)} blocks of ten, on Units {u_lo} to {u_hi}. Part I of '
+           f'Assessment Test {exam_num} is {mc["count"]} questions with four options and one right answer: '
            f'+{mc["points_correct"]:g} points for a right answer, {mc["points_wrong"]:g} for a wrong one, '
            f'{mc["points_blank"]:g} for a blank, and the mark of the test never goes below {mc["floor"]:g}. '
-           'These are practice items, not official exercises. The <a href="../simulator/index.html">Exam simulator</a> '
-           'draws ten of them with the mix of units of the real paper, or lets you practise one block.</p>']
-    for unit in UNITS:
+           f'Blocks mark whether they hold practice items or include official exam questions. The <a href="../simulator/index.html{sim_q}">Exam simulator</a> '
+           'draws a timed exam or lets you select specific units and blocks.</p>']
+    for unit in units:
         mine = [b for b in blocks if b["unit"] == unit]
         if not mine:
             continue
-        out.append(f'      <h2 class="mcq-unit-title" id="unit-{unit}">{html.escape(UNITS[unit])} '
+        out.append(f'      <h2 class="mcq-unit-title" id="unit-{unit}">{html.escape(units[unit])} '
                    f'<span class="mcq-unit-count">{len(mine)} blocks</span></h2>')
-        out += [_block_card(b, mc) for b in mine]
+        out += [_block_card(b, mc, exam_num) for b in mine]
     return "\n".join(out) + "\n"
 
 
@@ -789,29 +924,79 @@ def render_problems_page(problems):
     return "\n".join(out) + "\n"
 
 
+def render_problems_page_mt3(problems):
+    if not problems:
+        return ('      <p class="midterm-part-lead">The Part II problems of Assessment Test III are being written and will appear here. '
+                'Meanwhile, the official problems of Units 8 to 10 are solved on the <a href="../problemas/index.html">Problems</a> '
+                'page and the test questions are on the <a href="midterm-3-test.html">test page</a>.</p>\n')
+    lead = (f'      <p class="midterm-part-lead">{len(problems)} exam-style problems for Assessment Test III (5 points each). '
+            'Part II of the real third partial is a composite-materials problem (unidirectional rule of mixtures, hybrid specific '
+            'properties, or reinforcement selection). Ceramic crystal structure (Unit 8) and polymer molecular-weight/crystallinity '
+            '(Unit 9) problems from the finals are also available for targeted practice in the '
+            '<a href="../simulator/index.html?exam=midterm-3">Exam simulator</a>.</p>')
+    order = list(ARCHETYPES)
+    problems = sorted(problems, key=lambda p: (ARCH_UNIT[p["archetype"]], order.index(p["archetype"]), int(p["id"][1:])))
+    out = [lead]
+    for unit, title in ((10, "Composite materials (Part II standard · 5 points)"),
+                        (8, "Ceramic crystal structures (Final exam practice · 5 points)"),
+                        (9, "Polymer molecular weight & crystallinity (Final exam practice · 5 points)")):
+        mine = [p for p in problems if ARCH_UNIT[p["archetype"]] == unit]
+        if mine:
+            out.append(f'      <h2 class="mcq-unit-title" id="unit-{unit}">{title} '
+                       f'<span class="mcq-unit-count">{len(mine)} problems</span></h2>')
+            out += [_problem_card(p) for p in mine]
+    return "\n".join(out) + "\n"
+
+
 def render_hub(blocks, problems):
-    n = sum(len(b["questions"]) for b in blocks)
-    cards = []
-    if blocks:
-        cards.append(emb._hub_card(
-            TEST_PAGE.name, "2nd Midterm • Test", f"Test Questions, Blocks {blocks[0]['id']} to {blocks[-1]['id']}",
-            f"{n} questions with four options in {len(blocks)} blocks of ten, each with its answer and the reason why "
-            "every wrong option is wrong.", blocks,
-            [f"{n} Questions", "Blocks of 10", "Units 4 to 7", "Answers explained"]))
-    if problems:
-        cards.append(emb._hub_card(
-            PROBLEMS_PAGE.name, "2nd Midterm • Problems", f"Exam-Style Problems {problems[0]['id']} to {problems[-1]['id']}",
-            f"{len(problems)} problems solved step by step: the long phase-diagram problem (3 points) and the short "
-            "Unit 5 problem (2 points).", problems,
-            [f"{len(problems)} Problems", "3 + 2 points", "Step-by-step solutions", "Results recomputed"]))
-    return "\n".join([
+    mt2_blocks = [b for b in blocks if b["unit"] in MT2_UNITS]
+    mt3_blocks = [b for b in blocks if b["unit"] in MT3_UNITS]
+    mt2_problems = [p for p in problems if p["unit"] in MT2_UNITS]
+    mt3_problems = [p for p in problems if p["unit"] in MT3_UNITS]
+    sections = []
+    cards2 = []
+    if mt2_blocks:
+        n2 = sum(len(b["questions"]) for b in mt2_blocks)
+        cards2.append(emb._hub_card(
+            TEST_PAGE.name, "2nd Midterm • Test", f"Test Questions, Blocks {mt2_blocks[0]['id']} to {mt2_blocks[-1]['id']}",
+            f"{n2} questions with four options in {len(mt2_blocks)} blocks of ten, each with its answer and the reason why "
+            "every wrong option is wrong.", mt2_blocks,
+            [f"{n2} Questions", "Blocks of 10", "Units 4 to 7", "Answers explained"]))
+    if mt2_problems:
+        cards2.append(emb._hub_card(
+            PROBLEMS_PAGE.name, "2nd Midterm • Problems", f"Exam-Style Problems {mt2_problems[0]['id']} to {mt2_problems[-1]['id']}",
+            f"{len(mt2_problems)} problems solved step by step: the long phase-diagram problem (3 points) and the short "
+            "Unit 5 problem (2 points).", mt2_problems,
+            [f"{len(mt2_problems)} Problems", "3 + 2 points", "Step-by-step solutions", "Results recomputed"]))
+    sections.append("\n".join([
         '    <section class="exam-block" id="midterm-2" aria-labelledby="midterm-2-title">',
         '      <h2 class="exam-block-title" id="midterm-2-title">2nd Midterm</h2>',
         '      <p class="exam-block-lead">Assessment Test II covers Units 4 to 7: phase diagrams, mechanical, electrical, '
         'magnetic and thermal properties. It is a test of ten questions (5 points) and two problems: a longer one on phase diagrams (3 points) and a shorter one on mechanical properties (2 points). Practise '
         'the questions block by block, work through the problems, or take a timed exam in the '
         '<a href="../simulator/index.html">Exam simulator</a>.</p>',
-        '      <div class="problem-sets-grid">', "\n\n".join(cards), "      </div>", "    </section>"]) + "\n"
+        '      <div class="problem-sets-grid">', "\n\n".join(cards2), "      </div>", "    </section>"]))
+    if mt3_blocks or mt3_problems:
+        cards3 = []
+        if mt3_blocks:
+            n3 = sum(len(b["questions"]) for b in mt3_blocks)
+            cards3.append(emb._hub_card(
+                TEST_PAGE_MT3.name, "3rd Midterm • Test", f"Test Questions, Blocks {mt3_blocks[0]['id']} to {mt3_blocks[-1]['id']}",
+                f"{n3} questions with four options in {len(mt3_blocks)} blocks of ten on ceramics, polymers, composites and adhesives.",
+                mt3_blocks, [f"{n3} Questions", "Blocks of 10", "Units 8 to 11", "Answers explained"]))
+        if mt3_problems:
+            cards3.append(emb._hub_card(
+                PROBLEMS_PAGE_MT3.name, "3rd Midterm • Problems", f"Exam-Style Problems {mt3_problems[0]['id']} to {mt3_problems[-1]['id']}",
+                f"{len(mt3_problems)} problems solved step by step: composite materials (Part II standard, 5 points), ceramic structures and polymers.",
+                mt3_problems, [f"{len(mt3_problems)} Problems", "5 points each", "Step-by-step solutions", "Results recomputed"]))
+        sections.append("\n".join([
+            '    <section class="exam-block" id="midterm-3" aria-labelledby="midterm-3-title">',
+            '      <h2 class="exam-block-title" id="midterm-3-title">3rd Midterm</h2>',
+            '      <p class="exam-block-lead">Assessment Test III covers Units 8 to 11: ceramic materials, polymers, composite materials '
+            'and adhesives. It is a test of ten questions (5 points) and a composite-materials problem (5 points). Practise '
+            'by block or take a custom or full timed exam in the <a href="../simulator/index.html?exam=midterm-3">Exam simulator</a>.</p>',
+            '      <div class="problem-sets-grid">', "\n\n".join(cards3), "      </div>", "    </section>"]))
+    return "\n\n".join(sections) + "\n"
 
 
 # --------------------------------------------------------------------------- command line
@@ -824,7 +1009,13 @@ def main(argv=None):
     try:
         if args.lint:
             blocks, problems, review = load_bank(partial=args.allow_partial)
-            check_blueprint(json.loads((OUT_DIR / BLUEPRINT).read_text(encoding="utf-8")), blocks, problems, args.allow_partial)
+            mt2_b = [b for b in blocks if b["unit"] in MT2_UNITS]
+            mt2_p = [p for p in problems if p["unit"] in MT2_UNITS]
+            check_blueprint(json.loads((OUT_DIR / BLUEPRINT).read_text(encoding="utf-8")), mt2_b, mt2_p, args.allow_partial, BLUEPRINT)
+            if (OUT_DIR / BLUEPRINT_MT3).is_file():
+                mt3_b = [b for b in blocks if b["unit"] in MT3_UNITS]
+                mt3_p = [p for p in problems if p["unit"] in MT3_UNITS]
+                check_blueprint(json.loads((OUT_DIR / BLUEPRINT_MT3).read_text(encoding="utf-8")), mt3_b, mt3_p, args.allow_partial, BLUEPRINT_MT3)
             _report(blocks, problems, review)
             return 0
         outputs, data, review = build(partial=args.allow_partial)
@@ -848,7 +1039,8 @@ def main(argv=None):
         for rel in (stale_figs if args.check else mt2fig.REG.write(REPO)):
             print("stale" if args.check else "wrote", rel)
     c = data["counts"]
-    print(f"build_materials_bank: {c[TEST_CATEGORY]} test questions in {c[BLOCK_CATEGORY]} blocks, {c[PROBLEM_CATEGORY]} problems, "
+    print(f"build_materials_bank: MT2 {c[TEST_CATEGORY]} Qs/{c[BLOCK_CATEGORY]} blocks/{c[PROBLEM_CATEGORY]} probs; "
+          f"MT3 {c[MT3_TEST_CATEGORY]} Qs/{c[MT3_BLOCK_CATEGORY]} blocks/{c[MT3_PROBLEM_CATEGORY]} probs; "
           f"{len(review)} similar pairs to review")
     return 1 if (args.check and stale) else 0
 

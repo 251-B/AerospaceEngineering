@@ -147,36 +147,35 @@ Session 11, Slide 38: before necking the volume is constant, $A_0/A_i = l_i/l_0 
 
 Session 11, Slide 38.
 
-## Q28.5 True stress from the instantaneous diameter
+## Q28.5 True stress versus engineering stress during necking
 
 - id: B28-Q5
 - concept_id: u5-true-stress-calc
-- format: numeric
+- format: what-happens
 - asks: application
-- calc: 40000/(pi*5.0**2)
 
-A bar of 12.0 mm original diameter carries 40 kN at the moment its diameter has shrunk to 10.0 mm. Determine the true stress:
+With respect to engineering versus true stress-strain curves after necking begins in a ductile tensile test, what happens to the true stress $\sigma_r = F/A_i$ while the engineering stress falls?
 
-a) 127 MPa
-b) 246 MPa
-c) 354 MPa
-d) 509 MPa
+a) It drops alongside the engineering stress because the load $F$ drops
+b) It continues to rise because the neck area $A_i$ shrinks faster than $F$ drops
+c) It stays constant at the ultimate tensile strength until fracture
+d) It falls below the engineering stress as necking progresses
 
 ### Answer
 
-d
+b
 
 ### Explanation
 
-Session 11, Slide 37: $\sigma_r = F/A_i = 40\,000/(\pi\cdot 5.0^2) = 509$ MPa, larger than the engineering stress $40\,000/(\pi\cdot 6.0^2) = 354$ MPa.
+Session 11, Slides 37-38: true stress is defined with the instantaneous neck cross-section, $\sigma_r = F/A_i$. During necking, $A_i$ decreases rapidly enough to outweigh the drop in applied load $F$, so $\sigma_r$ keeps rising all the way to fracture.
 
-- a) The instantaneous diameter was used as the radius: an area four times too large.
-- b) The area ratio was inverted: the engineering stress was multiplied by $A_i/A_0$ instead of $A_0/A_i$.
-- c) This is the engineering stress, with the original area of 12.0 mm diameter.
+- a) Engineering stress $F/A_0$ drops because $A_0$ is fixed; dividing by $A_i$ reverses that trend.
+- c) Only the nominal stress peaks at UTS; true stress increases continuously with strain hardening in the neck.
+- d) Because $A_i < A_0$ throughout tension, $\sigma_r = \sigma_{\text{eng}}(A_0/A_i)$ is always greater than $\sigma_{\text{eng}}$.
 
 ### Source
 
-Session 11, Slide 37.
+Session 11, Slides 37-38.
 
 ## Q28.6 True stress in terms of engineering values
 
@@ -300,32 +299,31 @@ Session 11, Slide 37: the true strain adds the increments of length over the cur
 
 Session 11, Slide 37.
 
-## Q28.10 True strain in the neck
+## Q28.10 True strain formula after necking
 
 - id: B28-Q10
 - concept_id: u5-true-after-necking
-- format: numeric
-- asks: calculation
-- calc: 2*log(10.0/7.0)
+- format: topic-true
+- asks: application
 
-A 10.0 mm diameter specimen has necked down to 7.0 mm. Determine the true strain in the neck:
+Referring to true strain after necking begins in a round bar of initial diameter $D_0$ and minimum neck diameter $D$, which statement is TRUE?
 
-a) 0.357
-b) 0.510
-c) 0.713
-d) 1.04
+a) True strain in the neck is found from $\varepsilon_r = 2\ln(D_0/D)$ because $\ln(1+\varepsilon_{\text{eng}})$ assumes uniform deformation
+b) True strain in the neck is still given accurately by $\ln(1+\varepsilon_{\text{eng}})$ using total gauge length
+c) True strain in the neck is given by $\ln(D_0/D)$ without the factor of two
+d) True strain in the neck is negative because the diameter decreases
 
 ### Answer
 
-c
+a
 
 ### Explanation
 
-Session 11, Slide 38: after necking $\varepsilon_r = \ln(A_0/A) = 2\ln(D_0/D) = 2\ln(10.0/7.0) = 2 \times 0.357 = 0.713$.
+Session 11, Slide 38: once necking starts, deformation is no longer uniform along the gauge length, so $\ln(1+\varepsilon_{\text{eng}})$ no longer applies. Using local volume constancy at the neck gives $\varepsilon_r = \ln(A_0/A) = \ln(D_0^2/D^2) = 2\ln(D_0/D)$.
 
-- a) The factor 2 was left out: $\ln(D_0/D)$ is half of $\ln(A_0/A)$.
-- b) This is the reduction in area as a fraction, $(A_0 - A)/A_0$, not a true strain.
-- d) The ratio $A_0/A - 1$ was taken, an engineering-type strain on areas.
+- b) Total gauge elongation averages over the whole specimen and misses the concentrated plastic strain inside the neck.
+- c) Cross-sectional area scales as $D^2$, so $\ln(A_0/A) = 2\ln(D_0/D)$; omitting the factor 2 halves the true strain.
+- d) Because $D_0 > D$, the ratio $D_0/D > 1$ and $\varepsilon_r = 2\ln(D_0/D) > 0$.
 
 ### Source
 

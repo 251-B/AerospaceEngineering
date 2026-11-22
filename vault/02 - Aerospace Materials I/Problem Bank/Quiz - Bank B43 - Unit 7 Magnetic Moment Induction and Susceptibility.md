@@ -53,20 +53,19 @@ Session 15, Slide 3: each electron has an orbital magnetic moment, $m_l\mu_B$, f
 
 Session 15, Slide 3.
 
-## Q43.2 Moment of a cobalt atom in Bohr magnetons
+## Q43.2 Atomic magnetic moments and electron pairing
 
 - id: B43-Q2
 - concept_id: u7-atomic-magnetic-moment
-- format: numeric
-- asks: calculation
-- calc: 3*9.27e-24
+- format: topic-true
+- asks: cause
 
-The table of Session 15 gives a moment of 3 Bohr magnetons for an isolated Co atom. Determine this moment in SI units, with $\mu_B = 9.27\times10^{-24}$ A·m²:
+Regarding the origin of the magnetic moment in an isolated atom, which one of the following statements is TRUE:
 
-a) $9.27\times10^{-24}$ A·m²
-b) $1.39\times10^{-23}$ A·m²
-c) $2.78\times10^{-23}$ A·m²
-d) $6.49\times10^{-23}$ A·m²
+a) An atom acts as a magnetic dipole even when all electron spins pair up and orbital moments cancel to zero
+b) Electron spins cancel in pairs inside every shell, so the static nuclear charge generates the atomic dipole
+c) Each electron has orbital and spin moments, and paired spins cancel so an atom is a dipole if its sum is nonzero
+d) Every electron in the 3d shell adds equally to the net atomic moment without any spin pairing or cancellation
 
 ### Answer
 
@@ -74,15 +73,15 @@ c
 
 ### Explanation
 
-The moment of the atom is the number of Bohr magnetons times $\mu_B$ (Slide 3): $3 \times 9.27\times10^{-24} = 2.78\times10^{-23}$ A·m².
+Session 15, Slide 3: each electron carries an orbital magnetic moment $m_l\mu_B$ and a spin magnetic moment $\pm\mu_B$; the net moment of an atom is the vector sum over all its electrons, and the atom behaves as a magnetic dipole only when that net moment is nonzero.
 
-- a) This is a single Bohr magneton, as if only one unpaired electron counted.
-- b) Each unpaired spin is taken as $\mu_B/2$, confusing the spin quantum number $\pm 1/2$ with the spin moment $\pm\mu_B$: $1.5\times9.27\times10^{-24} = 1.39\times10^{-23}$ A·m².
-- d) All seven 3d electrons of Co are counted as $7\mu_B$; paired spins cancel, so only the three unpaired ones contribute.
+- a) Inverts the dipole condition: an atom behaves as a magnetic dipole only if its net magnetic moment is not zero.
+- b) Wrong source of magnetism: static nuclear charge does not give the electronic magnetic dipole, whereas unpaired electron spins do.
+- d) Ignores spin pairing: once a subshell is more than half full, additional electrons pair with opposite spins and partially cancel earlier moments.
 
 ### Source
 
-Session 15, Slide 3 (value of $\mu_B$ and table of the 3d elements).
+Session 15, Slide 3.
 
 ## Q43.3 Moments of the 3d transition elements
 
@@ -91,7 +90,7 @@ Session 15, Slide 3 (value of $\mu_B$ and table of the 3d elements).
 - format: true-statement
 - asks: comparison
 
-Which one of the following statements is TRUE about the atomic moments tabulated for the 3d elements?
+Which one of the following statements is TRUE about the net magnetic moments of isolated 3d transition-metal atoms?
 
 a) A Cu atom has no net moment, since its 3d shell has no unpaired spins
 b) An Fe atom has a larger moment than a Mn atom

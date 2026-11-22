@@ -153,15 +153,15 @@ Session 8, Slides 6 and 11.
 
 - id: B11-Q5
 - concept_id: u4-peritectoid-reaction
-- format: true-statement
+- format: topic-true
 - asks: comparison
 
-Which one of the following statements about invariant reactions is TRUE:
+With respect to invariant reactions in binary systems, which statement is TRUE:
 
 a) The eutectoid and the peritectoid happen entirely in the solid state
-b) The peritectoid needs a liquid phase
-c) The eutectoid gives one solid from two solids
-d) The peritectoid gives two solids from one solid
+b) The peritectoid requires a liquid and a solid phase on cooling
+c) The eutectoid forms a single new solid from two solid phases
+d) The peritectoid forms two new solids from a single solid phase
 
 ### Answer
 

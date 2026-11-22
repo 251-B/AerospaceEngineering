@@ -14,7 +14,7 @@ concepts:
   - u6-extrinsic-to-intrinsic
   - u6-extrinsic-temperature-regions
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 13 Slides 31, 35-44."
+origen: "Includes Question 5 of MATERIALS_SECONDPARTIAL_2019.pdf (and 2018) alongside practice items in the style of Part I. Content and data from Session 13 Slides 31 and 35-44."
 tags:
   - problem-bank
   - midterm-2
@@ -24,8 +24,8 @@ tags:
 
 # Bank B40 — Dopant levels and extrinsic conductivity with temperature
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 13, Slides 31 and 35-44.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Question 9 is Question 5 of MATERIALS_SECONDPARTIAL_2019.pdf; the remaining nine are practice items. Content: Session 13, Slides 31 and 35-44.
 
 ## Q40.1 Dopants of silicon
 
@@ -121,35 +121,35 @@ Session 13, Slides 36 and 40: the excess electron of the donor jumps from the do
 
 Session 13, Slides 29, 36 and 40.
 
-## Q40.4 Easiest dopant to ionise in silicon
+## Q40.4 Impurity levels compared with the band gap
 
 - id: B40-Q4
 - concept_id: u6-dopant-ionisation-energy
-- format: identify
-- asks: comparison
+- format: topic-true
+- asks: cause
 
-Which dopant of silicon needs the smallest energy to supply a charge carrier?
+With respect to donor and acceptor impurity levels in extrinsic silicon, indicate which statement is TRUE:
 
-a) Arsenic
-b) Gallium
-c) Indium
-d) Antimony
+a) Ionising a phosphorus donor atom requires supplying the full 1.1 eV band gap of silicon
+b) Increasing the ionic size of a group IIIA acceptor reduces $E_a - E_v$ and increases conductivity
+c) Donor and acceptor levels lie very close to the band edges, requiring far less energy than $E_g$ to ionise
+d) Impurity levels sit exactly at mid-gap, so half of $E_g$ is needed to activate any dopant
 
 ### Answer
 
-d
+c
 
 ### Explanation
 
-Session 13, Slide 40 (table of donor and acceptor energies in Si): Sb 0.039 eV, As 0.049 eV, Ga 0.065 eV and In 0.160 eV. Antimony has the smallest ionisation energy.
+Session 13, Slides 36-37 and 40: donor levels sit just below $E_c$ and acceptor levels just above $E_v$ (about $0.04$ to $0.16$ eV in Si against $E_g = 1.1$ eV), so dopants ionise much more easily than intrinsic valence electrons at room temperature.
 
-- a) Arsenic needs 0.049 eV, slightly more than antimony.
-- b) Gallium is an acceptor with $E_a - E_v = 0.065$ eV.
-- c) Indium has the largest ionisation energy of the table, 0.160 eV.
+- a) Confuses extrinsic donor excitation ($E_c - E_d$) with intrinsic band-to-band excitation across $E_g$.
+- b) Inverts the ionic-size trend for acceptors (Slide 40): a larger acceptor ion holds the valence electron more weakly and increases $E_a - E_v$, lowering conductivity.
+- d) Misplaces the impurity states: mid-gap states would need $\approx E_g/2$, whereas shallow dopants sit near the band edges.
 
 ### Source
 
-Session 13, Slide 40.
+Session 13, Slides 36-37 and 40.
 
 ## Q40.5 Ranking acceptors in silicon
 
@@ -158,7 +158,7 @@ Session 13, Slide 40.
 - format: ordering
 - asks: comparison
 
-Order the following acceptors in silicon from the smallest to the largest ionisation energy $E_a - E_v$:
+Order the group IIIA acceptors in silicon from the smallest to the largest acceptor ionisation energy $E_a - E_v$ (ionic radius increases down the group: $\text{B} < \text{Al} < \text{Ga} < \text{In}$):
 
 a) In < Ga < Al < B
 b) B < Al < Ga < In
@@ -171,46 +171,45 @@ b
 
 ### Explanation
 
-Session 13, Slide 40: in silicon $E_a - E_v$ is 0.045 eV for B, 0.057 eV for Al, 0.065 eV for Ga and 0.160 eV for In; the energy grows with the size of the acceptor.
+Session 13, Slide 40: in silicon $E_a - E_v$ grows with the size of the acceptor ion (B 0.045, Al 0.057, Ga 0.065, In 0.160 eV), because a smaller acceptor ion exerts a stronger attraction on the valence electron and places the acceptor level closer to the valence band.
 
-- a) Fully reversed order, from the largest to the smallest energy.
-- c) Ga and Al are swapped: aluminium (0.057 eV) is below gallium (0.065 eV).
-- d) Al and B are swapped: boron (0.045 eV) has the smallest energy.
+- a) Fully reversed order, from the largest to the smallest ionisation energy.
+- c) Ga and Al are swapped against the periodic trend down group IIIA.
+- d) Al and B are swapped: boron is the smallest group IIIA atom and has the smallest $E_a - E_v$.
 
 ### Source
 
 Session 13, Slide 40.
 
-## Q40.6 Changing the acceptor of germanium
+## Q40.6 Increasing donor ionisation energy
 
 - id: B40-Q6
 - concept_id: u6-dopant-ionisation-energy
 - format: what-happens
 - asks: application
-- check: 0.0104 < 0.0112
 
-What will happen to the conductivity of germanium at a low temperature if its indium dopant is replaced by the same concentration of boron:
+What will happen to the low-temperature electron concentration of an n-type semiconductor if a dopant with a larger donor ionisation energy $E_c - E_d$ is used at the same dopant concentration:
 
-a) It will decrease, as boron has a smaller $E_a - E_v$
-b) It will stay the same, as both are group IIIA acceptors
-c) It will increase, as boron has a smaller $E_a - E_v$
-d) It will increase, as boron acts as a donor
+a) It will increase, because the donor level lies closer to the conduction band
+b) It will stay identical, because all group VA elements always give the same level
+c) It will double, because each ionised donor releases both an electron and a hole
+d) It will decrease, because fewer donor electrons have enough thermal energy to reach $E_c$
 
 ### Answer
 
-c
+d
 
 ### Explanation
 
-Session 13, Slides 40 and 43: in Ge, $E_a - E_v$ is 0.0104 eV for B and 0.0112 eV for In. In the extrinsic range $\sigma = \sigma_0\exp[-(E_a-E_v)/2kT]$, so the smaller energy ionises more acceptors and the conductivity increases (the slide's arrow: smaller acceptor, higher conductivity).
+Session 13, Slides 40 and 43: in the extrinsic range $\sigma = \sigma_0\exp[-(E_c - E_d)/2kT]$, so a larger energy gap $E_c - E_d$ makes donor ionisation harder and reduces the concentration of free conduction electrons at a given low temperature.
 
-- a) Right energy comparison, inverted consequence: a smaller ionisation energy gives more holes, not fewer.
-- b) Being in the same group does not give the same level; the energies of the table differ.
-- d) Boron has three valence electrons: it is an acceptor in Ge as in Si.
+- a) Inverts the meaning of $E_c - E_d$: a larger ionisation energy means the donor level lies farther below $E_c$, not closer.
+- b) Assumes group membership fixes the exact energy level; the levels vary with dopant and host.
+- c) Confuses donor ionisation (one conduction electron per donor, no mobile hole) with intrinsic excitation across $E_g$.
 
 ### Source
 
-Session 13, Slides 37, 40 and 43.
+Session 13, Slides 36, 40 and 43.
 
 ## Q40.7 Region with the band-gap slope
 
@@ -274,35 +273,36 @@ Session 13, Slide 43: in the extrinsic range $\ln\sigma = \ln\sigma_0 - (E_c - E
 
 Session 13, Slide 43.
 
-## Q40.9 n-type semiconductor at very high temperature
+## Q40.9 When an extrinsic semiconductor behaves as intrinsic
 
 - id: B40-Q9
 - concept_id: u6-extrinsic-to-intrinsic
 - format: complete-sentence
-- asks: cause
+- asks: definition
+- origin: official-exam
 
-At very high temperature, the conductivity of an n-type semiconductor is controlled by:
+An extrinsic semiconductor behaves as an intrinsic one only:
 
-a) The electrons supplied by the donor levels as they ionise
-b) The holes created at the acceptor levels
-c) The electrons and holes generated across the band gap
-d) The mobility of the ionised donor atoms
+a) If it is a p-type
+b) At very high temperatures
+c) If it is an n-type
+d) At very low temperatures
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Session 13, Slides 43-44: at very high temperature the intrinsic generation across the gap takes over and the material behaves as an intrinsic conductor; the carriers are the electrons and holes created across $E_g$.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 2 (Question 5) and Session 13, Slides 43-44: at very high temperatures, thermal excitation of valence electrons across the band gap $E_g$ produces far more intrinsic electron-hole pairs than the dopant atoms supply, so the material behaves as an intrinsic semiconductor regardless of whether it is n-type or p-type.
 
-- a) Electrons from the donors describe the extrinsic and exhaustion ranges; at very high temperature they are outnumbered by intrinsic carriers.
-- b) An n-type material has donor levels, not acceptor levels.
-- d) The ionised donors are fixed in the lattice; they are not carriers.
+- a) Being p-type sets the majority carriers at moderate temperature; it does not turn the semiconductor intrinsic.
+- c) Being n-type sets electron conduction in the extrinsic and exhaustion regimes, not intrinsic behaviour.
+- d) Inverts the temperature limit: at very low temperatures intrinsic carrier generation is negligible and even dopants freeze out.
 
 ### Source
 
-Session 13, Slides 36 and 43-44.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 2 (Question 5); MATERIALS_SECONDPARTIAL_2018.docx; Session 13, Slides 43-44.
 
 ## Q40.10 Extrinsic semiconductor at low temperature
 
@@ -314,20 +314,20 @@ Session 13, Slides 36 and 43-44.
 Which one of the following statements about an extrinsic semiconductor heated from a low temperature is TRUE?
 
 a) At low temperature, $\sigma$ is set by electrons crossing the band gap
-b) At low temperature, $\sigma$ is set by the number of ionised impurities
-c) At intermediate temperature, $\sigma$ rises steeply with temperature
+b) At intermediate temperature, $\sigma$ rises steeply with temperature
+c) At low temperature, $\sigma$ is set by the number of ionised impurities
 d) At very high temperature, it behaves as a metallic conductor
 
 ### Answer
 
-b
+c
 
 ### Explanation
 
 Session 13, Slides 43-44: at low temperature the number of ionised impurities per unit volume determines $\sigma$; as $T$ increases more atoms are ionised and $\sigma$ increases (extrinsic range).
 
 - a) Excitation across the gap is the very-high-temperature (intrinsic) mechanism.
-- c) At intermediate temperature all the impurities are ionised and $\sigma$ is almost constant (exhaustion or saturation range).
+- b) At intermediate temperature all the impurities are ionised and $\sigma$ is almost constant (exhaustion or saturation range).
 - d) At very high temperature the material behaves as an intrinsic semiconductor, not as a metal.
 
 ### Source

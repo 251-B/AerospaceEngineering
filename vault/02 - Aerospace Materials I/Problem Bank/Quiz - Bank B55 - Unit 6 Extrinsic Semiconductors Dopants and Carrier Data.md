@@ -8,16 +8,16 @@ unit: 6
 concepts:
   - u6-donor-host-comparison
   - u6-acceptor-pair-comparison
-  - u6-ionisation-energy-ratio
-  - u6-solubility-limit-table
+  - u6-donor-acceptor-levels
+  - u6-extrinsic-band-diagram
   - u6-mobility-vs-doping
-  - u6-mobility-ratio-calc
-  - u6-solubility-ppm-calc
+  - u6-dopant-concentration-effect
+  - u6-dopant-identification
   - u6-carrier-number-control
-  - u6-extrinsic-intrinsic-ratio
+  - u6-extrinsic-intrinsic-comparison
   - u6-minority-carrier-term
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 13 Slides 35-42."
+origen: "Includes Questions adapted from MATERIALS_FINALEXAM_2014_ORD.pdf (Q8a), MATERIALS_FINALEXAM_2013_ORD.pdf (Q4A) and MATERIALS_FINALEXAM_2017_EXTRA.pdf (Q6a) alongside practice items. Content and data from Session 13 Slides 35-42."
 tags:
   - problem-bank
   - midterm-2
@@ -27,8 +27,8 @@ tags:
 
 # Bank B55 — Extrinsic semiconductors, dopants and carrier data
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 13, Slides 35-42.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Question 2 adapts Question 8a of MATERIALS_FINALEXAM_2014_ORD.pdf and Question 4 adapts Question 4A of MATERIALS_FINALEXAM_2013_ORD.pdf (and Q6a of 2017_EXTRA); the rest are practice items. Content: Session 13, Slides 35-42.
 
 ## Q55.1 Phosphorus in two hosts
 
@@ -37,7 +37,7 @@ tags:
 - format: cause-effect
 - asks: comparison
 
-With a change of the host from silicon to germanium, for the same phosphorus content and at the same low temperature, the electrical conductivity:
+With a change of the host from silicon to germanium for the same phosphorus content at the same low temperature (given $E_c - E_d = 0.045$ eV in Si and $0.012$ eV in Ge), the electrical conductivity:
 
 a) Decreases, as germanium has the smaller band gap and fewer donors ionise
 b) Increases, as the donor level of phosphorus lies closer to the conduction band
@@ -64,15 +64,16 @@ Session 13, Slides 36 and 40; Problems T6 and T7, Problem 10 d.
 
 - id: B55-Q2
 - concept_id: u6-acceptor-pair-comparison
-- format: true-statement
+- format: topic-true
 - asks: comparison
+- origin: official-exam
 
-Which one of the following statements about two silicon samples at the same low temperature, one with 10 ppm of boron and the other with 10 ppm of indium, is TRUE?
+Referring to silicon doped with 1 ppm of boron versus silicon doped with 1 ppm of indium (both group IIIA acceptors, with B ion size smaller than In ion size) at the same temperature, indicate which statement is TRUE:
 
-a) The indium sample conducts better, as its larger ionic radius gives a larger acceptor energy
-b) Both conduct equally, as boron and indium are both group IIIA acceptors
-c) The boron sample conducts better, as $E_a - E_v$ is 0.045 eV against 0.160 eV
-d) The boron sample conducts better, as $E_a - E_v$ is 0.160 eV against 0.045 eV
+a) Both are n-type semiconductors with donor levels, and indium conducts better due to its larger ionic size
+b) Both conduct identically at low temperature because equal ppm amounts always ionise equal numbers of holes
+c) Both are p-type semiconductors, and boron conducts better because its smaller ion reduces $E_a$ via stronger attraction
+d) Boron gives a p-type semiconductor while indium gives an n-type semiconductor because indium sits lower in the periodic table
 
 ### Answer
 
@@ -80,84 +81,76 @@ c
 
 ### Explanation
 
-Session 13, Slide 40: in silicon $E_a = 0.045$ eV for boron and 0.160 eV for indium. The smaller the energy needed to take an electron from the valence band to the acceptor level, the more holes at a given low temperature, so $\sigma$ is larger for boron (Problem 10 e). The arrow "Increasing $\sigma$" of the slide points towards boron.
+MATERIALS_FINALEXAM_2014_ORD.pdf, p. 7 (Question 8a) and Official Key (COMPILATION, p. 16); Session 13, Slides 37 and 40: both B and In belong to group IIIA (three valence electrons), making silicon p-type with an acceptor level; the smaller B ion attracts the valence electron more strongly, lowering the acceptor ionisation energy $E_a$ and increasing the hole concentration and conductivity ($\sigma_{\text{B-doped}} > \sigma_{\text{In-doped}}$).
 
-- a) A larger energy $E_a - E_v$ means that fewer acceptors are ionised, so it lowers $\sigma$ instead of raising it.
-- b) The same group gives the same type of semiconductor, not the same ionisation energy.
-- d) Right conclusion with the two values swapped: indium is the one with 0.160 eV.
+- a) Misidentifies group IIIA acceptors as n-type donors and inverts the ion-size effect on acceptors.
+- b) Ignores the difference in acceptor level energy $E_a - E_v$ ($0.045$ eV for B vs $0.160$ eV for In), which controls partial ionisation.
+- d) Places B and In into opposite dopant types even though both lie in group IIIA with three valence electrons.
 
 ### Source
 
-Session 13, Slide 40; Problems T6 and T7, Problem 10 e.
+MATERIALS_FINALEXAM_2014_ORD.pdf, p. 7 (Question 8a) and Official Key (COMPILATION, p. 16); Session 13, Slides 37 and 40.
 
-## Q55.3 Ratio of the donor energies of antimony
+## Q55.3 Extrinsic impurity energy levels
 
 - id: B55-Q3
-- concept_id: u6-ionisation-energy-ratio
-- format: numeric
-- asks: calculation
-- calc: 0.039/0.0096
+- concept_id: u6-donor-acceptor-levels
+- format: topic-false
+- asks: cause
 
-The donor energies $E_c - E_d$ of the slide (in eV, silicon and germanium) are 0.045 and 0.0120 for P, 0.049 and 0.0127 for As, 0.039 and 0.0096 for Sb. Determine the ratio between the donor energy of antimony in silicon and in germanium:
+With respect to extrinsic semiconductors and their impurity energy levels, indicate which statement is FALSE:
 
-a) 0.246
-b) 3.75
-c) 3.86
-d) 4.06
+a) Group IIIA acceptors such as boron donate their extra valence electron directly into the conduction band
+b) Group VA elements such as phosphorus and arsenic create occupied donor levels $E_d$ just below the conduction band
+c) Doping silicon with ppm levels of impurities increases majority carrier density by orders of magnitude over pure silicon
+d) Extrinsic conductivity is dominated by the majority carrier term ($n_e|q_e|\mu_e$ or $p|q_e|\mu_h$) at room temperature
 
 ### Answer
 
-d
+a
 
 ### Explanation
 
-Session 13, Slide 40: for antimony the ratio is $E_d^{Si}/E_d^{Ge} = 0.039/0.0096 = 4.06$ (both in eV, so the ratio is dimensionless).
+Session 13, Slides 36-37: group IIIA acceptors such as boron have only three valence electrons (one fewer than Si), so they accept an electron from the valence band into an acceptor level $E_a$ just above $E_v$, leaving a hole. Donating an extra electron into the conduction band is what group VA donors do. Statement a) is false.
 
-- a) The ratio was inverted: $0.0096/0.039 = 0.246$ is germanium over silicon.
-- b) The phosphorus row was used: $0.045/0.0120 = 3.75$.
-- c) The arsenic row was used: $0.049/0.0127 = 3.86$.
+- b) True (Slide 36): group VA atoms form four covalent bonds and contribute one loosely bound electron in a donor level just below $E_c$.
+- c) True (Slides 26 and 31): ppm doping yields $\sim 10^{22}$–$10^{23}$ carriers/m³ against $n_i = 1.5\times10^{16}$ m⁻³ in pure Si.
+- d) True (Slides 36-37): since $n \gg p$ (n-type) or $p \gg n$ (p-type), the minority carrier contribution is negligible.
 
 ### Source
 
-Session 13, Slide 40.
+Session 13, Slides 26, 31 and 36-37.
 
-## Q55.4 Donor able to supply a high concentration
+## Q55.4 Band diagrams of P-doped and B-doped silicon
 
 - id: B55-Q4
-- concept_id: u6-solubility-limit-table
-- format: identify
-- asks: application
+- concept_id: u6-extrinsic-band-diagram
+- format: topic-true
+- asks: classification
+- origin: official-exam
 
-A silicon crystal has to hold $1.5\times10^{27}$ donor atoms/m³. From the maximum solid solubilities of the slide, indicate which dopant can supply them:
+With respect to the energy-band diagrams of silicon doped with phosphorus (group VA) and silicon doped with boron (group IIIA), indicate which statement is TRUE:
 
-| Dopant in Si | Group | Maximum solubility (atoms/m³) |
-| :--- | :--- | :--- |
-| B | IIIA | $600\times10^{24}$ |
-| Ga | IIIA | $40\times10^{24}$ |
-| P | VA | $1000\times10^{24}$ |
-| As | VA | $2000\times10^{24}$ |
-| Sb | VA | $70\times10^{24}$ |
-
-a) Phosphorus
-b) Gallium
-c) Antimony
-d) Arsenic
+a) Phosphorus creates an occupied donor level just below the conduction band (n-type), whereas boron creates an acceptor level just above the valence band (p-type)
+b) Boron creates a donor level near the conduction band (n-type), whereas phosphorus creates an acceptor level near the valence band (p-type)
+c) Both phosphorus and boron create levels at the exact centre of the band gap, differing in carrier mobility
+d) Neither dopant adds states inside the band gap; doping changes conductivity solely by narrowing the gap $E_g$
 
 ### Answer
 
-d
+a
 
 ### Explanation
 
-Session 13, Slide 40: the target is $1.5\times10^{27} = 1500\times10^{24}$ atoms/m³ of donors, so the dopant must be a donor (group VA) with a solubility limit above it: only arsenic ($2000\times10^{24}$) qualifies.
+MATERIALS_FINALEXAM_2013_ORD.pdf, p. 1 (Question 4A), MATERIALS_FINALEXAM_2017_EXTRA.pdf, p. 4 (Question 6a), and Session 13, Slides 35-37: phosphorus (5 valence electrons) behaves as an electron donor creating an n-type semiconductor with level $E_d$ just below $E_c$, while boron (3 valence electrons) behaves as an acceptor creating a p-type semiconductor with level $E_a$ just above $E_v$.
 
-- a) Phosphorus is a donor, but its limit of $1000\times10^{24}$ is below the target.
-- b) Gallium is a group IIIA acceptor, and its limit is only $40\times10^{24}$.
-- c) Antimony is a donor, but its limit of $70\times10^{24}$ is far below the target.
+- b) Swaps the donor and acceptor roles and the n-type and p-type classifications of P and B.
+- c) Places impurity states at mid-gap rather than close to the band edges ($E_c$ for donors, $E_v$ for acceptors).
+- d) Ignores the discrete donor/acceptor states in the gap that enable low-energy extrinsic ionisation while leaving $E_g$ of the host unchanged.
 
 ### Source
 
-Session 13, Slide 40.
+MATERIALS_FINALEXAM_2013_ORD.pdf, p. 1 (Question 4A); MATERIALS_FINALEXAM_2017_EXTRA.pdf, p. 4 (Question 6a); Session 13, Slides 35-37.
 
 ## Q55.5 Hole mobility at high doping
 
@@ -195,20 +188,49 @@ Session 13, Slide 42 (chart): $\mu_h$ goes from about 0.048 to about 0.010 m²/(
 
 Session 13, Slide 42.
 
-## Q55.6 Conductivity from the mobility ratio
+## Q55.6 Increasing phosphorus doping in silicon
 
 - id: B55-Q6
-- concept_id: u6-mobility-ratio-calc
-- format: numeric
-- asks: calculation
-- calc: 5e21*q*2.81*0.045
+- concept_id: u6-dopant-concentration-effect
+- format: what-happens
+- asks: application
 
-Silicon contains $5.0\times10^{21}$ phosphorus atoms/m³, all ionised. With $\mu_h = 0.045$ m²/(V·s) and $\mu_e/\mu_h = 2.81$, determine its electrical conductivity:
+A silicon crystal at room temperature has its phosphorus donor concentration raised from 100 ppm to 1000 ppm (both in the moderate doping regime). What will happen to its electrical conductivity:
 
-a) 12.8 (Ω·m)⁻¹
-b) 36.0 (Ω·m)⁻¹
-c) 101 (Ω·m)⁻¹
-d) 285 (Ω·m)⁻¹
+a) It will stay nearly constant, because silicon covalent bonds saturate above 100 ppm
+b) It will decrease roughly tenfold, because phosphorus atoms scatter electrons ten times more strongly
+c) It will decrease slightly, because excess phosphorus converts the crystal from n-type to p-type
+d) It will increase roughly tenfold, because carrier density scales with doping while mobility stays nearly constant
+
+### Answer
+
+d
+
+### Explanation
+
+Session 13, Slides 26, 36 and 42: in the moderate doping range ($\sim 100$ to $1000$ ppm), crystal distortion by the dopant is small so $\mu_e$ changes little, while all donors are ionised at room temperature, so increasing dopant concentration tenfold multiplies $n_e$ and $\sigma \approx n_e|q_e|\mu_e$ by roughly ten.
+
+- a) Saturation of ionisation with temperature occurs in the exhaustion range for fixed doping; adding ten times more dopant atoms supplies ten times more carriers.
+- b) Inverted effect: at moderate concentrations impurity scattering is modest and does not offset the tenfold rise in carrier concentration.
+- c) Phosphorus remains a group VA donor at 1000 ppm and keeps the silicon n-type.
+
+### Source
+
+Session 13, Slides 26, 36 and 42; Problems T6 and T7, Problem 9 c.
+
+## Q55.7 Dopants that produce p-type silicon
+
+- id: B55-Q7
+- concept_id: u6-dopant-identification
+- format: identify
+- asks: classification
+
+Which pair of substitutional dopants will both make pure silicon a p-type extrinsic semiconductor?
+
+a) Phosphorus and arsenic
+b) Antimony and boron
+c) Boron and indium
+d) Arsenic and antimony
 
 ### Answer
 
@@ -216,46 +238,15 @@ c
 
 ### Explanation
 
-Session 13, Slides 36 and 42: phosphorus is a donor, so $n_e \approx 5.0\times10^{21}$ m⁻³ and $\sigma \approx n_e|q_e|\mu_e$ with $\mu_e = 2.81\cdot0.045 = 0.126$ m²/(V·s): $\sigma = 5.0\times10^{21}\cdot1.602\times10^{-19}\cdot0.126 = 101$ (Ω·m)⁻¹.
+Session 13, Slides 35 and 37: silicon has four valence electrons (group IVA), so p-type doping requires group IIIA elements with three valence electrons (acceptors), such as boron (B) and indium (In).
 
-- a) $\mu_e$ was taken as $\mu_h/2.81$: the ratio was inverted.
-- b) The hole mobility was used: $n_e|q_e|\mu_h = 36.0$ (Ω·m)⁻¹, but in an n-type semiconductor the electrons conduct.
-- d) The ratio was applied twice: $\mu_e = 2.81^2\cdot0.045$.
-
-### Source
-
-Session 13, Slides 36 and 42.
-
-## Q55.7 Solubility limit of antimony in ppm
-
-- id: B55-Q7
-- concept_id: u6-solubility-ppm-calc
-- format: numeric
-- asks: calculation
-- calc: 70e24/5.0e28*1e6
-
-Silicon has $5.0\times10^{28}$ atoms/m³. From the table of maximum solid solubilities, the limit of dopant in silicon is $1000\times10^{24}$ atoms/m³ for P, $2000\times10^{24}$ for As and $70\times10^{24}$ for Sb, and in germanium $10\times10^{24}$ for Sb. Determine the maximum content of antimony in silicon in ppm of atoms:
-
-a) 200 ppm
-b) 1400 ppm
-c) 20000 ppm
-d) 40000 ppm
-
-### Answer
-
-b
-
-### Explanation
-
-Session 13, Slide 40: the fraction is $70\times10^{24}/5.0\times10^{28} = 1.4\times10^{-3}$, that is 1400 ppm ($1\ \mathrm{ppm} = 10^{-6}$).
-
-- a) The germanium row was used: $10\times10^{24}/5.0\times10^{28}\cdot10^6 = 200$ ppm.
-- c) The phosphorus limit was used: $1000\times10^{24}/5.0\times10^{28}\cdot10^6 = 20\,000$ ppm.
-- d) The arsenic limit was used: $2000\times10^{24}/5.0\times10^{28}\cdot10^6 = 40\,000$ ppm.
+- a) Both phosphorus and arsenic belong to group VA (five valence electrons) and act as donors (n-type).
+- b) Boron is a group IIIA acceptor, but antimony is a group VA donor.
+- d) Both arsenic and antimony belong to group VA and produce n-type silicon.
 
 ### Source
 
-Session 13, Slide 40.
+Session 13, Slides 35-37.
 
 ## Q55.8 Why the carriers control the conductivity
 
@@ -264,7 +255,7 @@ Session 13, Slide 40.
 - format: cause-effect
 - asks: cause
 
-According to the slides, the conductivity of an extrinsic semiconductor is controlled by the number of charge carriers because the doping:
+In an extrinsic semiconductor at moderate dopant concentrations, the electrical conductivity is controlled by the number of charge carriers because the doping:
 
 a) Raises the mobility in proportion to the number of carriers
 b) Distorts the crystal strongly, so the mobility falls as fast as $n$ rises
@@ -287,20 +278,19 @@ Session 13, Slide 42: $\sigma = n|q_e|\mu$; the distortion of the crystal caused
 
 Session 13, Slide 42.
 
-## Q55.9 Doped against pure silicon
+## Q55.9 Extrinsic versus intrinsic silicon at room temperature
 
 - id: B55-Q9
-- concept_id: u6-extrinsic-intrinsic-ratio
-- format: numeric
-- asks: calculation
-- calc: 2e22*q*0.10/4e-4
+- concept_id: u6-extrinsic-intrinsic-comparison
+- format: topic-true
+- asks: comparison
 
-Silicon doped with $2.0\times10^{22}$ donor atoms/m³, all ionised, has $\mu_e = 0.10$ m²/(V·s). Pure silicon at the same temperature has $\sigma = 4\times10^{-4}$ (Ω·m)⁻¹. Determine the ratio of the conductivity of the doped to the pure silicon:
+Referring to the conductivity of doped extrinsic silicon versus pure intrinsic silicon at room temperature, indicate which statement is TRUE:
 
-a) $1.25\times10^{-6}$
-b) $3.20\times10^{2}$
-c) $8.01\times10^{3}$
-d) $8.01\times10^{5}$
+a) Pure silicon conducts much better than doped silicon because dopant atoms break lattice periodicity and cut mobility
+b) Both have almost identical conductivity at 300 K because thermal excitation across the 1.1 eV gap dominates both samples
+c) Extrinsic doping raises conductivity solely by increasing electron mobility $\mu_e$, while carrier density stays near $10^{16}$ m⁻³
+d) Even trace ppm doping adds orders of magnitude more carriers than $n_i$, raising conductivity dramatically over pure silicon
 
 ### Answer
 
@@ -308,15 +298,15 @@ d
 
 ### Explanation
 
-Session 13, Slides 36 and 42: $\sigma_{ext} \approx n_e|q_e|\mu_e = 2.0\times10^{22}\cdot1.602\times10^{-19}\cdot0.10 = 320$ (Ω·m)⁻¹, and $320/(4\times10^{-4}) = 8.01\times10^{5}$ (dimensionless). Doping multiplies the conductivity by many orders of magnitude.
+Session 13, Slides 26, 31, 36 and 42 (Problem 9 b): pure silicon has $n_i = 1.5\times10^{16}$ m⁻³ ($\sigma \approx 4\times10^{-4}$ (Ω·m)⁻¹), whereas even 1 ppm of phosphorus or boron supplies $\sim 5\times10^{22}$ carriers/m³, multiplying the room-temperature conductivity by many orders of magnitude.
 
-- a) The ratio was inverted: $4\times10^{-4}/320$.
-- b) The extrinsic conductivity was reported and not divided by the intrinsic one.
-- c) A factor 100 was slipped in the conversion of the intrinsic value between (Ω·cm)⁻¹ and (Ω·m)⁻¹, although both data are already in (Ω·m)⁻¹.
+- a) While dopants add minor scattering at high levels, the huge gain in carrier number overwhelms any mobility drop.
+- b) Intrinsic excitation across $1.1$ eV at 300 K produces negligible carriers compared with shallow-level dopant ionisation.
+- c) Doping increases carrier concentration $n$ or $p$ by orders of magnitude while slightly lowering or leaving $\mu$ nearly constant (Slide 42).
 
 ### Source
 
-Session 13, Slides 36 and 42.
+Session 13, Slides 26, 31, 36 and 42; Problems T6 and T7, Problem 9 b.
 
 ## Q55.10 Electron term in p-type silicon
 

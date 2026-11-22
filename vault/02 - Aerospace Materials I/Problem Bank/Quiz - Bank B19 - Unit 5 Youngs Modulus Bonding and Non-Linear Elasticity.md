@@ -12,7 +12,7 @@ concepts:
   - u5-compression-test
   - u5-bend-test
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 11, Slides 5-6 and 13-17."
+origen: "Includes official exam statement (MATERIALS_FINALEXAM_2016_ORD_SOL.pdf, Q1.4) and practice items in the style of Part I of Assessment Test II. Data from Session 11, Slides 5-6 and 13-17."
 tags:
   - problem-bank
   - midterm-2
@@ -22,8 +22,8 @@ tags:
 
 # Bank B19 — Young's modulus, bonding, families of materials and non-linear elasticity
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 11, Slides 5-6 and 13-17.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong), combining an official exam item and bank practice items. Content: Session 11, Slides 5-6 and 13-17.
 
 ## Q19.1 Modulus and the interatomic force curve
 
@@ -61,13 +61,14 @@ Session 11, Slides 13-14.
 - concept_id: u5-modulus-bond-strength
 - format: false-statement
 - asks: comparison
+- origin: official-exam
 
-Which one of the following statements about bonding and elastic behaviour is FALSE?
+Which one of the following statements about atomic bonding and elastic modulus is FALSE?
 
-a) Weakly bonded materials have the highest Young's moduli
-b) Elastic deformation is reversible
-c) Ceramics are stiffer than metals
-d) Stronger bonds go with higher melting temperatures
+a) Materials with a strong atomic bonding present a low Young's modulus
+b) Elastic deformation is reversible upon removal of the load
+c) Ceramics generally have higher elastic moduli than metals
+d) Stronger interatomic bonds go with higher melting temperatures
 
 ### Answer
 
@@ -75,15 +76,15 @@ a
 
 ### Explanation
 
-Session 11, Slide 13: "↑ bond strength ↔ ↑E". Weak bonds give the lowest moduli (polymers), so the statement inverts the trend.
+Session 11, Slide 13: "$\uparrow$ bond strength $\leftrightarrow \uparrow E$". Materials with strong atomic bonding have steep interatomic force curves at $r_0$ and therefore exhibit high Young's moduli, not low ones; weak bonding gives low moduli (polymers).
 
-- b) This is true: "elastic means reversible" (Slide 12).
+- b) This is true: elastic deformation is reversible when the load is removed (Slide 12).
 - c) This is true: $E_{\text{ceramics}} > E_{\text{metals}} > E_{\text{polymers}}$ (Slide 13).
-- d) This is true: Slide 13 links the bond force with the melting temperature.
+- d) This is true: Slide 13 links higher interatomic bond force directly with a higher melting temperature.
 
 ### Source
 
-Session 11, Slides 12-13.
+MATERIALS_FINALEXAM_2016_ORD_SOL.pdf, p. 1, Question 1 (statement 4); Session 11, Slides 12-13.
 
 ## Q19.3 Ranking four materials by modulus
 
@@ -122,7 +123,7 @@ Session 11, Slides 13 and 17.
 - format: complete-sentence
 - asks: classification
 
-By elastic modulus, the slides rank the families of materials as:
+Ordered from highest to lowest typical Young's modulus, the three main families of engineering materials rank as:
 
 a) metals, then ceramics, then polymers
 b) ceramics, then metals, then polymers
@@ -153,7 +154,7 @@ Session 11, Slides 13 and 18.
 - asks: comparison
 - check: 390/3.9 > max(210/7.8, 70/2.7, 69/2.6)
 
-According to the specific modulus $E/\rho$ in the slides, which material is the stiffest per unit mass?
+Among alumina, aluminium alloy, silica glass and steel, which material has the highest specific modulus $E/\rho$ (stiffness per unit mass)?
 
 a) Alumina
 b) Aluminium alloy
@@ -245,7 +246,7 @@ Session 11, Slide 15.
 - format: identify
 - asks: classification
 
-Which group of materials shows non-linear elastic behaviour according to the slides?
+Which group of engineering materials typically exhibits non-linear elastic behaviour on a stress-strain curve?
 
 a) Some polymers, concrete and grey cast irons
 b) Steels, aluminium alloys and copper

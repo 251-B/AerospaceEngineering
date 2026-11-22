@@ -146,32 +146,31 @@ Session 11, Slide 35: $U_r = \sigma_y^2/(2E) = 1000^2/(2 \times 207\,000) = 2.42
 
 Session 11, Slide 35.
 
-## Q27.5 Yield strength for a required resilience
+## Q27.5 Yield-strength dependence of resilience
 
 - id: B27-Q5
 - concept_id: u5-modulus-resilience-calc
-- format: numeric
+- format: topic-false
 - asks: application
-- calc: sqrt(2*69000*0.75)
 
-An aluminium alloy with $E$ = 69 GPa must store 0.75 MJ/m³ of elastic energy up to yielding. Determine the yield strength it needs:
+Referring to the modulus of resilience $U_r = \sigma_y^2/(2E)$ of a linear-elastic material, which statement is FALSE?
 
-a) 10.2 MPa
-b) 161 MPa
-c) 227 MPa
-d) 322 MPa
+a) Its SI unit is J/m³ (equivalently Pa or MJ/m³)
+b) It equals the maximum elastic energy per unit volume recoverable on unloading
+c) Doubling $\sigma_y$ while keeping $E$ constant doubles the modulus of resilience
+d) High-resilience spring alloys combine high yield strength with relatively low $E$
 
 ### Answer
 
-d
+c
 
 ### Explanation
 
-From $U_r = \sigma_y^2/(2E)$ (Session 11, Slide 35): $\sigma_y = \sqrt{2EU_r} = \sqrt{2 \times 69\,000 \times 0.75} = \sqrt{103\,500} = 322$ MPa.
+Because $U_r = \sigma_y^2/(2E)$ scales with the square of the yield strength $\sigma_y$ (Session 11, Slide 35), doubling $\sigma_y$ at constant $E$ multiplies $U_r$ by $2^2 = 4$, not by $2$.
 
-- a) The modulus was kept in GPa: $\sqrt{2 \times 69 \times 0.75}$.
-- b) $E U_r$ was divided by 2 instead of multiplied by 2: $\sqrt{EU_r/2}$.
-- c) The factor 2 was left out: $\sqrt{E U_r}$.
+- a) This is true: Slide 35 gives $U_r$ in Pa or J/m³, since stress has units of Pa = J/m³ and strain is dimensionless.
+- b) This is true: resilience is the elastic energy absorbed up to the yield point and recovered on unloading.
+- d) This is true: maximizing $\sigma_y^2/(2E)$ calls for high $\sigma_y$ and low $E$, the criterion for spring alloys (Slide 35).
 
 ### Source
 

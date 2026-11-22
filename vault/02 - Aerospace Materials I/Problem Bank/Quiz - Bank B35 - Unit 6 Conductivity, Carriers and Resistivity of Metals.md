@@ -13,7 +13,7 @@ concepts:
   - u6-residual-resistivity
   - u6-thermal-resistivity-linear
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 13 Slides 10-17 and 22."
+origen: "Includes Question 4 of MATERIALS_SECONDPARTIAL_2019.pdf (and 2018) alongside practice questions in the style of Part I. Content and data from Session 13 Slides 10-17 and 22."
 tags:
   - problem-bank
   - midterm-2
@@ -23,8 +23,8 @@ tags:
 
 # Bank B35 — Conductivity, carriers and resistivity of metals
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 13, Slides 10-17 and 22.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Question 7 is Question 4 of MATERIALS_SECONDPARTIAL_2019.pdf; the remaining nine are practice items. Content: Session 13, Slides 10-17 and 22.
 
 ## Q35.1 Resistance of a copper wire
 
@@ -57,36 +57,35 @@ $R = \rho\,l/A$ (Topic 6 note, Section 4) with $\rho = 1.6\ \mu\Omega\cdot\text{
 
 Session 13, Slide 14 (resistivity of copper at 0 °C); Topic 6 note, Section 4 ($R = \rho l/A$).
 
-## Q35.2 Electron mobility of a hypothetical metal
+## Q35.2 Factors of metallic conductivity
 
 - id: B35-Q2
 - concept_id: u6-conductivity-carriers-mobility
-- format: numeric
-- asks: calculation
-- calc: 1/(1.7e-8*8.5e28*q)
+- format: topic-false
+- asks: cause
 
-Determine the electron mobility of some hypothetical metal if it has $8.5\times10^{28}$ free electrons per m³ and a resistivity of $1.7\times10^{-8}$ Ω·m:
+Regarding metallic electrical conductivity $\sigma = n|q_e|\mu$, indicate which statement is FALSE:
 
-a) $6.92\times10^{-22}$ m²/(V·s)
-b) $1.25\times10^{-18}$ m²/(V·s)
-c) $4.32\times10^{-3}$ m²/(V·s)
-d) $2.31\times10^{2}$ m²/(V·s)
+a) Free non-bonded valence electrons act as the charge carriers in a metallic conductor
+b) Increasing the applied electric field $E$ raises the electrical conductivity $\sigma$ of the metal
+c) Shortening the mean relaxation time $\tau$ lowers the mobility $\mu$ and decreases $\sigma$
+d) Among metals with similar carrier density $n$, fewer electron-ion collisions yield a higher $\sigma$
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Session 13, Slides 12-13: $\sigma = n|q_e|\mu$ and $\sigma = 1/\rho$, so $\mu = 1/(\rho\,n\,|q_e|) = 1/(1.7\times10^{-8}\cdot 8.5\times10^{28}\cdot 1.6\times10^{-19}) = 4.32\times10^{-3}$ m²/(V·s).
+Session 13, Slides 11-13: current density $J = \sigma E$ increases with the applied electric field $E$, whereas $\sigma = n|q_e|\mu$ with $\mu = \tau|q_e|/m_e$ is a material property independent of $E$. Statement b) is false.
 
-- a) The electron charge was left out: $1/(\rho n) = 6.92\times10^{-22}$.
-- b) The resistivity was used as if it were the conductivity: $\rho/(n|q_e|) = 1.25\times10^{-18}$.
-- d) The formula was inverted: $\rho\,n\,|q_e| = 2.31\times10^{2}$ is the reciprocal of the mobility.
+- a) True (Slide 13): in metals the charge is carried by the cloud of non-bonded electrons.
+- c) True (Slides 11 and 13): $\mu = \tau|q_e|/m_e$, so shorter $\tau$ lowers $\mu$ and $\sigma$.
+- d) True (Slide 13): fewer collisions mean longer $\tau$, higher mobility and higher conductivity.
 
 ### Source
 
-Session 13, Slides 12-13.
+Session 13, Slides 11-13.
 
 ## Q35.3 What the conductivity of a metal depends on
 
@@ -209,35 +208,36 @@ Session 13, Slides 10 and 13: metals conduct electronically, through the cloud o
 
 Session 13, Slides 10, 13 and 22.
 
-## Q35.7 Resistivity of a pure metal and temperature
+## Q35.7 Electrical conductivity of metals and temperature
 
 - id: B35-Q7
 - concept_id: u6-metal-conductivity-temperature
 - format: cause-effect
 - asks: effect
+- origin: official-exam
 
-With an increase in temperature, the electrical resistivity of a pure metal:
+With an increase in temperature, the electrical conductivity of metals:
 
-a) Decreases, due to a larger number of free electrons
-b) Increases, due to stronger vibrations of the atoms
-c) Increases, due to a smaller number of free electrons
-d) Stays constant, as the scattering is due to impurities
+a) Decreases due to higher scattering of electrons
+b) Increases due to higher number of electrons
+c) Increases due to higher number of lattice imperfections
+d) Decreases due to lower thermal vibrations of atoms
 
 ### Answer
 
-b
+a
 
 ### Explanation
 
-Session 13, Slides 14 and 17: the thermal resistivity $\rho_T = \rho_0(1+\alpha_T\Delta T)$ grows linearly with temperature because the atoms vibrate and scatter the electrons, which lowers their mobility.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 2 (Question 4) and Session 13, Slides 13-14 and 17: higher temperature makes the lattice ions vibrate more strongly around their equilibrium sites, raising the number of collisions (scattering of electrons), lowering mobility $\mu$ and decreasing $\sigma$.
 
-- a) Inverted trend with the semiconductor mechanism: more carriers with temperature is what happens in an intrinsic semiconductor (Slide 29).
-- c) Right trend with the wrong reason: the number of free electrons of a metal does not change; the mobility does.
-- d) Takes the residual part for the whole resistivity: that part is independent of temperature (Slide 16), but the thermal part grows with it.
+- b) Applies the intrinsic-semiconductor mechanism to metals: in a metal the number of free electrons $n$ does not grow with temperature.
+- c) Inverted effect: lattice imperfections scatter electrons and lower conductivity rather than raising it.
+- d) Right trend with an inverted physical cause: heating increases thermal vibrations of atoms, it does not lower them.
 
 ### Source
 
-Session 13, Slides 14, 16, 17 and 29.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 2 (Question 4); MATERIALS_SECONDPARTIAL_2018.docx; Session 13, Slides 13-14 and 17.
 
 ## Q35.8 A metal heated from 20 to 200 °C
 
@@ -306,7 +306,7 @@ Session 13, Slides 14 and 16.
 - format: complete-sentence
 - asks: definition
 
-In the law $\rho_T = \rho_0(1+\alpha_T\,\Delta T)$ given in the course for metals, $\rho_0$ is:
+In the thermal resistivity relation $\rho_T = \rho_0(1+\alpha_T\,\Delta T)$ for a pure metal, $\rho_0$ represents:
 
 a) The residual resistivity measured at 0 K
 b) The resistivity of the metal at 0 °C

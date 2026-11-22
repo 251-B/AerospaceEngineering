@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-22-materials-mt3-simulator",
+    "date": "2026-11-22",
+    "tag": "Aerospace Materials I",
+    "title": "Midterm 3 simulator, 500 new MCQs and refactored Midterm 2 bank",
+    "text": "Added the Units 8–11 exam simulator with 500 MCQs, 16 worked problems and flexible unit selection, and updated the Midterm 2 bank to match the real exam style.",
+    "link": "subjects/aerospace-materials-1/simulator/index.html"
+  },
+  {
     "id": "2026-11-21-business-topic-3-ii-theory",
     "date": "2026-11-21",
     "tag": "Business Management",

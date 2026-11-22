@@ -191,7 +191,7 @@ Which one of the following statements is FALSE about antiferromagnetic materials
 
 a) Their permanent dipoles are oriented antiparallel
 b) The solid as a whole has no net magnetic moment
-c) MnO and Mn are examples given on the slides
+c) MnO and Mn are typical examples of this behaviour
 d) They are strongly magnetized by a field, like ferromagnets
 
 ### Answer

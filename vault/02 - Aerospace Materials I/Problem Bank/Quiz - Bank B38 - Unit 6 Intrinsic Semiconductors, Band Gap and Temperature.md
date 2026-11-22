@@ -145,36 +145,35 @@ Session 13, Slide 29: both $n$ and $p$ increase with temperature, $n_i \propto \
 
 Session 13, Slides 29 and 48.
 
-## Q38.5 Silicon heated from 27 to 77 °C
+## Q38.5 Intrinsic conductivity and temperature
 
 - id: B38-Q5
 - concept_id: u6-intrinsic-temperature
-- format: numeric
-- asks: calculation
-- calc: exp(1.1/(2*k_B)*(1/300.15-1/350.15))
+- format: topic-false
+- asks: cause
 
-Intrinsic silicon ($E_g = 1.1$ eV, $k_B = 8.62\times10^{-5}$ eV/K) is heated from 27 °C to 77 °C. Determine by what factor its conductivity is multiplied:
+Regarding the temperature dependence of conductivity in an intrinsic semiconductor ($\sigma = \sigma_0\exp(-E_g/2kT)$), indicate which statement is FALSE:
 
-a) 0.0480 times
-b) 1.17 times
-c) 20.8 times
-d) 433 times
+a) Raising temperature increases the number of excited electrons and holes exponentially across the gap
+b) Conductivity increases on heating because thermal lattice vibrations raise carrier mobilities $\mu_e$ and $\mu_h$
+c) Plotting $\ln\sigma$ against $1/T$ produces a straight line whose slope equals $-E_g/2k$
+d) The temperature $T$ in the Arrhenius exponent must be expressed in kelvin rather than degrees Celsius
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Session 13, Slide 29: $\sigma = \sigma_0\exp(-E_g/2kT)$, so $\dfrac{\sigma_2}{\sigma_1} = \exp\!\left[\dfrac{E_g}{2k}\left(\dfrac{1}{T_1}-\dfrac{1}{T_2}\right)\right] = \exp\!\left[\dfrac{1.1}{2\cdot8.62\times10^{-5}}\left(\dfrac{1}{300.15}-\dfrac{1}{350.15}\right)\right] = e^{3.04} = 20.8$.
+Session 13, Slide 29: thermal disorder from lattice vibrations actually reduces carrier mobility as temperature rises, just as in metals, but in an intrinsic semiconductor this reduction is masked by the far larger exponential growth in carrier concentration $n_i \propto \exp(-E_g/2kT)$. Statement b) is false.
 
-- a) The ratio was inverted ($\sigma_1/\sigma_2 = 0.0480$): the conductivity of a semiconductor rises on heating, it does not fall.
-- b) The ratio of the absolute temperatures, $350/300 = 1.17$, was taken, as if $\sigma$ were proportional to $T$.
-- d) The factor 2 of $2kT$ was dropped: $\exp(2\cdot3.04) = 433$.
+- a) True (Slide 29): both $n$ and $p$ grow exponentially with temperature via $\exp(-E_g/2kT)$.
+- c) True (Slide 29): taking the natural logarithm gives $\ln\sigma = \ln\sigma_0 - (E_g/2k)(1/T)$, a straight line of slope $-E_g/2k$.
+- d) True (Slide 29): absolute temperature in kelvin is required in the Boltzmann factor $kT$.
 
 ### Source
 
-Session 13, Slide 29 (and $k_B$ from the problem sheet).
+Session 13, Slide 29.
 
 ## Q38.6 Picture of an intrinsic semiconductor
 

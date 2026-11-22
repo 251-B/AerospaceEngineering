@@ -145,20 +145,19 @@ Session 13, Slide 53: the loss factor is the electrical energy lost as heat by a
 
 Session 13, Slide 53.
 
-## Q42.5 Dielectric strength of a porcelain sheet
+## Q42.5 Dielectric strength and loss factor
 
 - id: B42-Q5
 - concept_id: u6-insulator-properties
-- format: numeric
-- asks: calculation
-- calc: 24/2.0
+- format: topic-false
+- asks: cause
 
-A porcelain insulator sheet 0.20 cm thick breaks down at a voltage of 24 kV. Determine its dielectric strength:
+Regarding the dielectric strength $E_{\text{break}}$ and loss factor $\tan\delta$ of insulating materials, indicate which statement is FALSE:
 
-a) 0.0833 kV/mm
-b) 12.0 kV/mm
-c) 48.0 kV/mm
-d) $1.20\times10^{2}$ kV/mm
+a) Dielectric strength $E_{\text{break}} = U_{\text{break}}/d$ is the maximum electric field sustained before electrical breakdown
+b) Increasing moisture and temperature lowers the loss factor $\tan\delta$ and increases electrical resistivity
+c) The loss factor $\tan\delta$ represents electrical energy lost as heat due to dipole friction in an AC circuit
+d) Increasing the thickness $d$ of a given insulating sheet raises the maximum breakdown voltage $U_{\text{break}}$
 
 ### Answer
 
@@ -166,15 +165,15 @@ b
 
 ### Explanation
 
-Session 13, Slide 53: $E_{break} = U_{break}/d = 24\ \text{kV}/2.0\ \text{mm} = 12.0$ kV/mm, at the top of the 2-12 kV/mm range of porcelain insulators (Slide 54).
+Session 13, Slide 53: moisture, temperature and higher AC frequency make dipoles reorient with greater energy loss and facilitate leakage, so they increase the loss factor $\tan\delta$ and decrease the resistivity. Statement b) is false.
 
-- a) The ratio was inverted: $d/U = 2.0/24 = 0.0833$.
-- c) Voltage and thickness were multiplied: $24\cdot2.0 = 48.0$.
-- d) The thickness was left in cm: $24/0.20 = 1.20\times10^{2}$, ten times too large in kV/mm.
+- a) True (Slide 53): $E_{\text{break}} = U_{\text{break}}/d$ defines the breakdown field threshold.
+- c) True (Slide 53): dipole friction during AC realignment dissipates electrical energy as heat.
+- d) True (Slide 53): $U_{\text{break}} = E_{\text{break}}\,d$ grows directly with thickness $d$.
 
 ### Source
 
-Session 13, Slides 53-54.
+Session 13, Slide 53.
 
 ## Q42.6 Ferroelectric materials
 

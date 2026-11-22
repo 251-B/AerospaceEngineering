@@ -6,8 +6,6 @@ title: "Steels, cooling rate, alloying elements and ceramic diagrams"
 category: mt2_test_block
 unit: 4
 concepts:
-  - u4-total-ferrite-steel
-  - u4-pearlite-composition
   - u4-steel-carbon-from-microstructure
   - u4-hypereutectoid-microstructure
   - u4-cooling-rate-pearlite
@@ -15,7 +13,7 @@ concepts:
   - u4-ceramic-diagrams
   - u4-ternary-reading
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 9 Slides 4-23 (0.022, 0.76 and 6.67 wt% C at 727 °C) and Session 10 Slides 3 and 5."
+origen: "Includes official exam adaptations of Q4(d) from MATERIALS_FINALEXAM_2017_EXTRA.pdf (pp. 2-3), Q2(d) from MATERIALS_FINALEXAM_2015_EXTRA.pdf (p. 3), and Q5(e) from MATERIALS_FINALEXAM_2013_EXTRA.pdf (p. 2); other questions written for the bank in the style of Part I of Assessment Test II. Data from Session 9 Slides 4-23 and Session 10 Slides 3 and 5."
 tags:
   - problem-bank
   - midterm-2
@@ -25,54 +23,23 @@ tags:
 
 # Bank B15 — Steels, cooling rate, alloying elements and ceramic diagrams
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 9, Slides 4-23; Session 10, Slides 3 and 5.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong); Q15.1 and Q15.2 adapt official exam questions from `MATERIALS_FINALEXAM_2017_EXTRA.pdf` (Q4d) and `MATERIALS_FINALEXAM_2015_EXTRA.pdf` (Q2d). Content: Session 9, Slides 4-23; Session 10, Slides 3 and 5.
 
-## Q15.1 Ferrite in 200 g of a 0.6 C steel
+## Q15.1 Effect of Ni on hypoeutectoid steel
 
 - id: B15-Q1
-- concept_id: u4-total-ferrite-steel
-- format: numeric
-- asks: calculation
-- calc: 200*(6.67-0.6)/(6.67-0.022)
+- concept_id: u4-alloying-elements
+- format: topic-true
+- asks: application
+- origin: official-exam
 
-Determine the total mass of ferrite in 200 g of a slowly cooled 0.6 wt% C steel at 600 °C:
+Regarding the addition of Ni to a hypoeutectoid plain-carbon steel (0.55 wt% C), which statement is TRUE:
 
-a) 17.4 g
-b) 43.4 g
-c) 139 g
-d) 183 g
-
-### Answer
-
-d
-
-### Explanation
-
-Below 727 °C the phases are α (0.022) and Fe₃C (6.67 wt% C) (Session 9, Slides 4 and 9): $W_\alpha = \dfrac{6.67 - 0.6}{6.67 - 0.022} = \dfrac{6.07}{6.648} = 0.913$, so $m_\alpha = 0.913 \times 200 = 183$ g.
-
-- a) $200 \times (0.6 - 0.022)/6.648 = 17.4$ g is the cementite: arms swapped.
-- b) $200 \times (0.76 - 0.6)/0.738 = 43.4$ g is only the proeutectoid ferrite, a microconstituent.
-- c) $183 - 43.4 = 139$ g is only the ferrite inside the pearlite, missing the proeutectoid ferrite.
-
-### Source
-
-Session 9, Slides 4, 9 and 17-18.
-
-## Q15.2 Cementite inside the pearlite of 2 kg
-
-- id: B15-Q2
-- concept_id: u4-pearlite-composition
-- format: numeric
-- asks: calculation
-- calc: 2*(0.76-0.022)/(6.67-0.022)
-
-Determine the mass of cementite in 2 kg of a slowly cooled eutectoid steel (0.76 wt% C) below 727 °C:
-
-a) 0.0152 kg
-b) 0.222 kg
-c) 1.78 kg
-d) 2.00 kg
+a) Ni stabilises α-ferrite, raising the eutectoid temperature and increasing the proeutectoid ferrite fraction
+b) Ni stabilises γ-austenite, lowering eutectoid T and %C and decreasing the proeutectoid ferrite fraction
+c) Ni lowers the eutectoid temperature while raising the eutectoid carbon content above 0.76 wt% C in steel
+d) Ni raises both the eutectoid temperature and carbon content, moving the eutectoid point above 0.76 wt% C
 
 ### Answer
 
@@ -80,15 +47,46 @@ b
 
 ### Explanation
 
-The steel is all pearlite, whose cementite comes from the lever rule on the tie line 0.022-6.67 wt% C (Session 9, Slides 12-13): $W_{\text{Fe}_3\text{C}} = \dfrac{0.76 - 0.022}{6.648} = 0.111$, and $0.111 \times 2 = 0.222$ kg.
+Session 9, Slides 22-23 and Problems T4_PhaseDiagrams II.pdf (Q8c; also adapted from MATERIALS_FINALEXAM_2017_EXTRA.pdf, Q4d): Ni is a γ-stabilising element, so it lowers the eutectoid temperature (shifting $A_1$ and $A_3$ downward) and lowers the eutectoid carbon content below 0.76 wt% C. Because the eutectoid point moves closer to 0.55 wt% C, the steel produces less proeutectoid ferrite and more pearlite.
 
-- a) $2 \times 0.76/100 = 0.0152$ kg is the mass of carbon, not the mass of cementite that holds it.
-- c) $2 \times 0.889 = 1.78$ kg is the ferrite of the pearlite: the other phase.
-- d) 2.00 kg is the whole pearlite, a microconstituent made of two phases.
+- a) Ni is a γ-stabiliser, not an α-stabiliser; raising the eutectoid temperature is the effect of elements such as Cr, Mo or Si.
+- c) The eutectoid carbon content decreases (never increases) when Ni or any other common alloying element is added to steel.
+- d) Both trends are wrong for Ni: temperature falls and eutectoid carbon content also falls.
 
 ### Source
 
-Session 9, Slides 12-13.
+MATERIALS_FINALEXAM_2017_EXTRA.pdf, pp. 2-3 (Q4d); Session 9, Slides 22-23; Problems T4_PhaseDiagrams II.pdf, Q8c.
+
+## Q15.2 Alloying additions Mn and Cr in steels
+
+- id: B15-Q2
+- concept_id: u4-alloying-elements
+- format: topic-false
+- asks: comparison
+- origin: official-exam
+
+Referring to alloying additions in steels (such as Mn or Cr), which statement is FALSE:
+
+a) Adding 8 wt% Mn lowers the eutectoid temperature below 727 °C because Mn stabilises austenite
+b) Adding 8 wt% Mn reduces the carbon content of pearlite below the 0.76 wt% C of plain carbon steel
+c) Adding 12 wt% Cr raises the eutectoid carbon content above 0.76 wt% C while raising the eutectoid temperature
+d) Adding 12 wt% Cr raises the eutectoid temperature because Cr is an α-stabilising element
+
+### Answer
+
+c
+
+### Explanation
+
+Statement c) is false: both α-stabilisers (such as Cr) and γ-stabilisers (such as Mn or Ni) shift the eutectoid composition to lower carbon contents than 0.76 wt% C (Session 9, Slides 22-23); Cr raises the eutectoid temperature while lowering the eutectoid %C.
+
+- a) True: Mn favours γ, lowering the eutectoid temperature (tested in `MATERIALS_FINALEXAM_2015_EXTRA.pdf`, Q2d).
+- b) True: because Mn shifts the eutectoid point to lower %C, the pearlite formed at the eutectoid point contains less than 0.76 wt% C.
+- d) True: Cr is an α-stabiliser, so it raises the eutectoid temperature above 727 °C (tested in `MATERIALS_FINALEXAM_2013_EXTRA.pdf`, Q5e).
+
+### Source
+
+MATERIALS_FINALEXAM_2015_EXTRA.pdf, p. 3 (Q2d); MATERIALS_FINALEXAM_2013_EXTRA.pdf, p. 2 (Q5e); Session 9, Slides 22-23.
 
 ## Q15.3 Steel with ferrite and pearlite
 
@@ -274,10 +272,10 @@ Session 9, Slides 22-23.
 
 - id: B15-Q9
 - concept_id: u4-ceramic-diagrams
-- format: true-statement
+- format: topic-true
 - asks: classification
 
-Which one of the following statements about the Al₂O₃-SiO₂ system of the slides is TRUE:
+Regarding the Al₂O₃-SiO₂ ceramic phase diagram, which statement is TRUE:
 
 a) Mullite melts congruently at 1587 °C
 b) Mullite melts incongruently at 1828 °C

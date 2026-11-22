@@ -145,20 +145,19 @@ Slide 34: the thermal energy of a solid is the vibrational energy of its atoms, 
 
 Session 15, Slides 34 and 40.
 
-## Q49.5 Specific heat of aluminium from 3R
+## Q49.5 Heat capacity plateau above the Debye temperature
 
 - id: B49-Q5
 - concept_id: u7-heat-capacity-debye
-- format: numeric
-- asks: calculation
-- calc: 3*8.314/26.98*1000
+- format: topic-true
+- asks: comparison
 
-Above its Debye temperature, aluminium (atomic weight 26.98 g/mol) has a heat capacity $C \approx 3R$, with $R = 8.314$ J/(mol·K). Estimate its specific heat:
+Regarding the Debye temperature $\theta_D$ and the molar heat capacity $C$ of crystalline solids, which one of the following statements is TRUE:
 
-a) 222 J/(kg·K)
-b) 308 J/(kg·K)
-c) 924 J/(kg·K)
-d) 1850 J/(kg·K)
+a) Above $\theta_D$, the molar heat capacity rises linearly with temperature without reaching a plateau
+b) Below $\theta_D$, ceramics typically reach the $3R$ plateau at lower temperatures than metals
+c) Above $\theta_D$, the molar heat capacity levels off near $3R$ and becomes nearly temperature-independent
+d) Above $\theta_D$, grain size and dislocation density double the molar heat capacity of pure metals
 
 ### Answer
 
@@ -166,15 +165,15 @@ c
 
 ### Explanation
 
-Slide 34 gives the specific heat as heat capacity over atomic weight, and Slide 35 gives $C \approx 3R$ above $\theta_D$: $3\times8.314/26.98 = 0.924$ J/(g·K) $= 924$ J/(kg·K), close to the 900 J/(kg·K) of Slide 38.
+Session 15, Slide 35: as temperature rises, lattice waves gain average energy so $C$ increases until it reaches the Debye temperature $\theta_D$, above which $C$ levels off at approximately $3R \approx 6\ \text{cal/(mol}\cdot\text{K)}$ ($\approx 24.9$ J/(mol·K)) and becomes independent of temperature.
 
-- a) The 6 cal/(mol·K) of the slide is used without converting calories to joules: $6/26.98\times1000 = 222$.
-- b) The factor 3 is forgotten: $R/26.98\times1000 = 308$.
-- d) $6R$ instead of $3R$, mixing the "6" of 6 cal/(mol·K) with the gas constant: $6\times8.314/26.98\times1000 = 1850$.
+- a) Inverts the high-temperature plateau: above $\theta_D$, $C$ stops rising and levels off near $3R$.
+- b) Swaps metals and ceramics: the Slide 35 chart shows metals reaching the $3R$ plateau at lower temperatures than ceramics.
+- d) Contradicts structural insensitivity: Slide 35 states that dislocations, vacancies, and grain size do not significantly affect heat capacity.
 
 ### Source
 
-Session 15, Slides 34-35 and 38.
+Session 15, Slide 35.
 
 ## Q49.6 Heat capacity below the Debye temperature
 
@@ -244,7 +243,7 @@ Session 15, Slide 35.
 - asks: calculation
 - calc: 2.0*386*(120-20)/1000
 
-Determine the heat needed to raise a 2.0 kg copper block ($c_p = 386$ J/(kg·K), Slide 38) from 20 °C to 120 °C:
+Determine the heat needed to raise a 2.0 kg copper block ($c_p = 386$ J/(kg·K)) from 20 °C to 120 °C:
 
 a) 38.6 kJ
 b) 77.2 kJ
@@ -274,7 +273,7 @@ Session 15, Slides 34 and 38.
 - format: ordering
 - asks: comparison
 
-Equal masses of tungsten, iron, aluminium and high-density polyethylene are heated by the same amount. Order them by increasing heat needed (Slide 38).
+Equal masses of tungsten ($c_p = 138$ J/(kg·K)), iron ($448$ J/(kg·K)), aluminium ($900$ J/(kg·K)) and high-density polyethylene ($1850$ J/(kg·K)) are heated by the same temperature increment. Order them by increasing heat needed:
 
 a) polyethylene, aluminium, iron, tungsten
 b) iron, tungsten, aluminium, polyethylene

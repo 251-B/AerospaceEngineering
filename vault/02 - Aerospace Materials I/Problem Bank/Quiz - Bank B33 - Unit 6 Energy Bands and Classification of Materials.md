@@ -12,7 +12,7 @@ concepts:
   - u6-conductor-band-structure
   - u6-conductivity-ranges
 difficulty: 1
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content from Session 13 Slides 3-8."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf and adapted from MATERIALS_FINALEXAM_2012_ORD.pdf (Q6). Content from Session 13 Slides 3-8, 10 and 22."
 tags:
   - problem-bank
   - midterm-2
@@ -22,8 +22,8 @@ tags:
 
 # Bank B33 — Energy bands and classification of materials
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 13, Slides 3-8.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Question 10 adapts Question 6 of MATERIALS_FINALEXAM_2012_ORD.pdf; the remaining nine are practice items. Content: Session 13, Slides 3-8, 10 and 22.
 
 ## Q33.1 Atomic levels in a solid
 
@@ -295,19 +295,20 @@ Session 13, Slide 5: insulators (polyethylene) have $10^{-20}$ to $10^{-10}$ (Ω
 
 Session 13, Slide 5.
 
-## Q33.10 Conductivity range of semiconductors
+## Q33.10 Metals, ceramics and polymers compared
 
 - id: B33-Q10
 - concept_id: u6-conductivity-ranges
-- format: identify
-- asks: definition
+- format: topic-true
+- asks: cause
+- origin: official-exam
 
-Which range of electrical conductivity is given in the course for semiconductors?
+Referring to the electrical conductivity of metals, typical ceramics and typical polymers, indicate which statement is TRUE:
 
-a) $10^{-20}$ to $10^{-10}$ (Ω·m)⁻¹
-b) About $10^{7}$ (Ω·m)⁻¹
-c) $10^{-6}$ to $10^{4}$ (Ω·m)⁻¹
-d) $10^{-4}$ to $10^{6}$ (Ω·m)⁻¹
+a) Metals conduct poorly compared with ceramics because their valence electrons are tightly held in ionic bonds
+b) Polymers are strong conductors because covalent chains share free electrons across overlapping bands
+c) Metals have the highest conductivity due to free electrons, while ceramics and polymers act as insulators with wide band gaps
+d) Ceramics conduct better than metals at room temperature because their ions hop easily between lattice sites
 
 ### Answer
 
@@ -315,14 +316,14 @@ c
 
 ### Explanation
 
-Session 13, Slide 5: semiconductors such as Si and Ge have conductivities between $10^{-6}$ and $10^{4}$ (Ω·m)⁻¹.
+Session 13, Slides 5-8 and 10 (MATERIALS_FINALEXAM_2012_ORD.pdf, Q6): metals have half-filled or overlapping bands with free delocalised electrons ($\sigma \sim 10^{7}$ (Ω·m)⁻¹), whereas typical ceramics and polymers bind their valence electrons in ionic or covalent bonds, leaving a wide band gap ($E_g > 2$ eV) and very low conductivity ($10^{-20}$ to $10^{-10}$ (Ω·m)⁻¹).
 
-- a) This is the range of insulators (polyethylene).
-- b) This is the value of conductors (metals, copper wire).
-- d) These are the reciprocals of the semiconductor limits, that is the resistivity range in Ω·m written as a conductivity.
+- a) Inverts the bonding and conductivity of metals and ceramics: metals have metallic bonds with free electron clouds, not tightly bound ionic electrons.
+- b) Confuses insulating polymers (tight covalent bonds, large gap) with metals; only specially manufactured conductive polymers conduct (Slide 20).
+- d) Ionic conduction in advanced ceramics requires high temperatures to mobilise ions through vacancies (Slide 22); at room temperature typical ceramics remain insulators.
 
 ### Source
 
-Session 13, Slide 5.
+MATERIALS_FINALEXAM_2012_ORD.pdf, p. 3 (Question 6); Session 13, Slides 5-8, 10 and 22.
 
 **Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

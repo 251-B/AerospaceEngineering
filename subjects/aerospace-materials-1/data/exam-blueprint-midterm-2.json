@@ -21,6 +21,12 @@
     75,
     90
   ],
+  "unit_labels": {
+    "4": "Unit 4 · Phase diagrams",
+    "5": "Unit 5 · Mechanical properties",
+    "6": "Unit 6 · Electrical properties",
+    "7": "Unit 7 · Magnetic and thermal properties"
+  },
   "parts": [
     {
       "id": "part-1",
@@ -133,68 +139,52 @@
       }
     },
     {
-      "id": "unit-4",
-      "label": "Unit 4 only",
-      "include_problem": false,
-      "generate_label": "Generate New Unit 4 Test",
-      "duration_minutes": 20,
-      "duration_options_minutes": [
+      "id": "custom-test",
+      "label": "Custom test practice (choose units)",
+      "parts": [
+        "part-1"
+      ],
+      "unit_picker": true,
+      "count_options": [
+        5,
+        10,
         15,
         20,
         30
       ],
-      "description": "Ten test questions on Unit 4 (Phase diagrams) from different blocks, graded out of 5. No Part II problem.",
-      "per_unit": {
-        "4": 10
-      }
+      "default_count": 10,
+      "instant_feedback": true,
+      "duration_minutes": 20,
+      "duration_options_minutes": [
+        10,
+        15,
+        20,
+        30,
+        45
+      ],
+      "generate_label": "Start Custom Test Practice",
+      "description": "Pick one, two, three or all four units (Units 4 to 7) and the number of questions, spread evenly across your selection. Timed with the real penalty or corrected as you answer."
     },
     {
-      "id": "unit-5",
-      "label": "Unit 5 only",
-      "include_problem": false,
-      "generate_label": "Generate New Unit 5 Test",
-      "duration_minutes": 20,
-      "duration_options_minutes": [
-        15,
-        20,
-        30
+      "id": "problems",
+      "label": "Part II problems practice",
+      "parts": [
+        "part-2",
+        "part-3"
       ],
-      "description": "Ten test questions on Unit 5 (Mechanical properties) from different blocks, graded out of 5. No Part II problem.",
-      "per_unit": {
-        "5": 10
-      }
-    },
-    {
-      "id": "unit-6",
-      "label": "Unit 6 only",
-      "include_problem": false,
-      "generate_label": "Generate New Unit 6 Test",
-      "duration_minutes": 20,
-      "duration_options_minutes": [
-        15,
-        20,
-        30
+      "archetype_picker": true,
+      "count_options": [
+        1
       ],
-      "description": "Ten test questions on Unit 6 (Electrical properties) from different blocks, graded out of 5. No Part II problem.",
-      "per_unit": {
-        "6": 10
-      }
-    },
-    {
-      "id": "unit-7",
-      "label": "Unit 7 only",
-      "include_problem": false,
-      "generate_label": "Generate New Unit 7 Test",
-      "duration_minutes": 20,
+      "default_count": 1,
+      "duration_minutes": 45,
       "duration_options_minutes": [
-        15,
-        20,
-        30
+        30,
+        45,
+        60
       ],
-      "description": "Ten test questions on Unit 7 (Magnetic and thermal properties) from different blocks, graded out of 5. No Part II problem.",
-      "per_unit": {
-        "7": 10
-      }
+      "generate_label": "Start Problems Practice",
+      "description": "Practise Part II problems by type: phase diagrams (3 points) and mechanical properties (2 points), timed and graded part by part."
     }
   ]
 }

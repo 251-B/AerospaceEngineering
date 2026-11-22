@@ -52,7 +52,7 @@ def main(argv):
     quiz = sorted(bmb.BANK.glob("Quiz - Bank *.md"))
     probs = sorted(bmb.BANK.glob("Problem - Bank *.md"))
     if only:
-        pick = lambda p: re.search(r"Bank ([BP]\d{2})", p.name).group(1) in only  # noqa: E731
+        pick = lambda p: re.search(r"Bank ([BP]\d{2,3})", p.name).group(1) in only  # noqa: E731
         quiz, probs = [p for p in quiz if pick(p)], [p for p in probs if pick(p)]
         if len(quiz) + len(probs) != len(only):
             print(f"verify_mt2: some of {sorted(only)} do not exist")
