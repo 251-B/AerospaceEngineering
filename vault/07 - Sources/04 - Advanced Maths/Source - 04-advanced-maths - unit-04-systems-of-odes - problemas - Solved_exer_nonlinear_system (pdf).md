@@ -19,8 +19,10 @@ bytes: 1206349
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/Solved_exer_nonlinear_system.pdf`
 - **Kind:** problemas
 - **Size:** 1.2 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 3 note(s) below
 
 ## Referenced by
 
+- [[04 - Advanced Maths/Advanced Maths MOC]]
 - [[04 - Advanced Maths/Schedule - Advanced Maths 2026-27]]
+- [[04 - Advanced Maths/Topic 5 - Coupled Nonlinear Systems and the Phase Plane]]

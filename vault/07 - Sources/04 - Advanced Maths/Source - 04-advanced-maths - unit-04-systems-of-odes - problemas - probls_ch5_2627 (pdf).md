@@ -3,10 +3,10 @@ subject: "Advanced Maths"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch5_2627.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 32113
 ---
 
@@ -19,8 +19,8 @@ bytes: 32113
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch5_2627.pdf`
 - **Kind:** problemas
 - **Size:** 32.1 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[04 - Advanced Maths/Topic 5 - Coupled Nonlinear Systems and the Phase Plane]]

@@ -386,6 +386,14 @@ window.AE_NAV = {
             {
               "href": "subjects/advanced-maths/teoria/topic-4.html",
               "label": "4 · Systems and phase plane"
+            },
+            {
+              "href": "subjects/advanced-maths/teoria/topic-5.html",
+              "label": "5 · Coupled nonlinear systems"
+            },
+            {
+              "href": "subjects/advanced-maths/teoria/topic-6.html",
+              "label": "6 · Heat eq., Sturm-Liouville, Fourier"
             }
           ]
         },

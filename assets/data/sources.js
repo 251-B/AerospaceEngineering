@@ -1075,7 +1075,7 @@ window.AE_SOURCES = {
               "name": "Elasticity exercises STATEMENTS.pdf"
             },
             {
-              "bytes": 231635,
+              "bytes": 231995,
               "href": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/PED%20Exercises%20SOL.pdf",
               "name": "PED Exercises SOL.pdf"
             }

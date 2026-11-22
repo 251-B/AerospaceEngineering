@@ -19,8 +19,11 @@ bytes: 3542621
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/Notes09-12-Nov.pdf`
 - **Kind:** teoria
 - **Size:** 3.5 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 4 note(s) below
 
 ## Referenced by
 
+- [[04 - Advanced Maths/Advanced Maths MOC]]
+- [[04 - Advanced Maths/Formula Sheet - Advanced Maths]]
 - [[04 - Advanced Maths/Schedule - Advanced Maths 2026-27]]
+- [[04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series]]

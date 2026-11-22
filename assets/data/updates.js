@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-22-maths-theory-topics-5-6",
+    "date": "2026-11-22",
+    "tag": "Advanced Maths",
+    "title": "New theory pages: Topics 5 and 6 (Nonlinear Systems & Fourier Series)",
+    "text": "Added step-by-step theory for Coupled Nonlinear Systems and for the Heat Equation, Sturm-Liouville Problems and Fourier Series, with figures and updated formula sheet.",
+    "link": "subjects/advanced-maths/teoria/index.html"
+  },
+  {
     "id": "2026-11-21-maths-sheets-ch5-ch6",
     "date": "2026-11-21",
     "tag": "Advanced Maths",

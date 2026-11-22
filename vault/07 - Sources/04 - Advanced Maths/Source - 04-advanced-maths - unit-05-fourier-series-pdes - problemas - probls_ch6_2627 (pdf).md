@@ -3,10 +3,10 @@ subject: "Advanced Maths"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 34958
 ---
 
@@ -19,8 +19,8 @@ bytes: 34958
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf`
 - **Kind:** problemas
 - **Size:** 35.0 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series]]

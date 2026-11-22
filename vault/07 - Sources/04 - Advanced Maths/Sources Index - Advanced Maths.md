@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 88
-- Referenced by at least one note (a mention counts): 14
-- Not referenced yet: 74
+- Referenced by at least one note (a mention counts): 16
+- Not referenced yet: 72
 - Build artifacts: 0
 - Working files: 0
 
@@ -142,7 +142,7 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch4-i_2627_v2 (pdf)\|probls_ch4-i_2627_v2.pdf]] | problemas | referenced |
 | [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch4-ii_2627 (pdf)\|probls_ch4-ii_2627.pdf]] | problemas | referenced |
-| [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch5_2627 (pdf)\|probls_ch5_2627.pdf]] | problemas | not-referenced |
+| [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch5_2627 (pdf)\|probls_ch5_2627.pdf]] | problemas | referenced |
 | [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - Solved_exer_nonlinear_system (pdf)\|Solved_exer_nonlinear_system.pdf]] | problemas | referenced |
 
 ## unit-04-systems-of-odes/teoria
@@ -155,7 +155,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 04-advanced-maths - unit-05-fourier-series-pdes - problemas - probls_ch6_2627 (pdf)\|probls_ch6_2627.pdf]] | problemas | not-referenced |
+| [[Source - 04-advanced-maths - unit-05-fourier-series-pdes - problemas - probls_ch6_2627 (pdf)\|probls_ch6_2627.pdf]] | problemas | referenced |
 
 ## unit-05-fourier-series-pdes/teoria
 

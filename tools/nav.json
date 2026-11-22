@@ -290,6 +290,14 @@
     {
      "page": "topic-4.html",
      "label": "4 · Systems and phase plane"
+    },
+    {
+     "page": "topic-5.html",
+     "label": "5 · Coupled nonlinear systems"
+    },
+    {
+     "page": "topic-6.html",
+     "label": "6 · Heat eq., Sturm-Liouville, Fourier"
     }
    ],
    "problemas": [

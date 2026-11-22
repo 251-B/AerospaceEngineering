@@ -19,8 +19,11 @@ bytes: 4685361
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/teoria/Notes03-05-Nov_v2.pdf`
 - **Kind:** teoria
 - **Size:** 4.7 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 4 note(s) below
 
 ## Referenced by
 
+- [[04 - Advanced Maths/Advanced Maths MOC]]
+- [[04 - Advanced Maths/Formula Sheet - Advanced Maths]]
 - [[04 - Advanced Maths/Schedule - Advanced Maths 2026-27]]
+- [[04 - Advanced Maths/Topic 5 - Coupled Nonlinear Systems and the Phase Plane]]

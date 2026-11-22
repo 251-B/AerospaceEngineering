@@ -417,6 +417,56 @@
      "next"
     ]
    ]
+  },
+  "subjects/advanced-maths/teoria/topic-5.html": {
+   "flavor": "maths",
+   "template": "subjects/advanced-maths/teoria/topic-4.html",
+   "note": "vault/04 - Advanced Maths/Topic 5 - Coupled Nonlinear Systems and the Phase Plane.md",
+   "figures": "am_t5",
+   "html_title": "Topic 5: Coupled Nonlinear Systems and the Phase Plane — Advanced Mathematics | UC3M",
+   "brand": "Advanced Maths • Topic 5",
+   "category": "Topic 5 • Theory",
+   "title": "Coupled Nonlinear Systems and the Phase Plane",
+   "subtitle": "Autonomous nonlinear planar systems: population models and Newtonian dynamics, planar stability definitions, the p-q diagram, the four-step linearisation method, Poincaré / Hartman-Grobman, the undamped and damped pendulums, the double-well oscillator and worked competition systems.",
+   "source": "Class notes Notes03-05-Nov_v2.pdf (pp. 1-17) and Solved_exer_nonlinear_system.pdf (pp. 1-5) • Robinson (2004), Ch. 31-35 • Sheet 5 (probls_ch5_2627.pdf)",
+   "footer_ref": "Primary source: lecturer's handwritten notes (Nov 3-9, Notes03-05-Nov_v2.pdf & Solved_exer_nonlinear_system.pdf). Reference text: J. C. Robinson, An Introduction to Ordinary Differential Equations (2004), Ch. 31-35.",
+   "nav": [
+    [
+     "topic-4.html",
+     "Topic 4: Systems of First-Order ODEs and the Phase Plane",
+     "prev"
+    ],
+    [
+     "topic-6.html",
+     "Topic 6: The Heat Equation, Sturm-Liouville Problems and Fourier Series",
+     "next"
+    ]
+   ]
+  },
+  "subjects/advanced-maths/teoria/topic-6.html": {
+   "flavor": "maths",
+   "template": "subjects/advanced-maths/teoria/topic-4.html",
+   "note": "vault/04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series.md",
+   "figures": "am_t6",
+   "html_title": "Topic 6: The Heat Equation, Sturm-Liouville Problems and Fourier Series — Advanced Mathematics | UC3M",
+   "brand": "Advanced Maths • Topic 6",
+   "category": "Topic 6 • Theory",
+   "title": "The Heat Equation, Sturm-Liouville Problems and Fourier Series",
+   "subtitle": "The 1D heat equation with zero Dirichlet boundary conditions, separation of variables, eigenvalue analysis across all three sign cases, superposition, Fourier series and periodic extensions, orthogonality and coefficient formulas, worked examples, symmetry, convergence, term-by-term differentiation, and Sturm-Liouville extensions for Sheet 6.",
+   "source": "Class notes Notes09-12-Nov.pdf (pp. 1-14) • Haberman, Elementary Applied Partial Differential Equations (BookPDE's.pdf, Ch. 1-3, 5) • Sheet 6 (probls_ch6_2627.pdf)",
+   "footer_ref": "Primary source: lecturer's handwritten notes (Nov 10-12, Notes09-12-Nov.pdf). Reference text: R. Haberman, Elementary Applied Partial Differential Equations (BookPDE's.pdf), Sec. 1.1-1.2, 2.1-2.4, 3.1-3.4, 5.3, 5.6, 5.8.",
+   "nav": [
+    [
+     "topic-5.html",
+     "Topic 5: Coupled Nonlinear Systems and the Phase Plane",
+     "prev"
+    ],
+    [
+     "index.html",
+     "Theory index",
+     "next"
+    ]
+   ]
   }
  }
 }

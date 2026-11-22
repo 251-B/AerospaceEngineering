@@ -1892,12 +1892,12 @@ window.AE_TIMETABLE = {
      "lab": null,
      "links": [
       {
-       "label": "Extra problem P08: competing species",
-       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P08"
+       "label": "Theory Topic 5 (§1–5)",
+       "href": "subjects/advanced-maths/teoria/topic-5.html#sec-1"
       },
       {
-       "label": "Course PDFs",
-       "href": "subjects/advanced-maths/sources/index.html"
+       "label": "Extra problem P08",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P08"
       }
      ]
     },
@@ -1915,12 +1915,12 @@ window.AE_TIMETABLE = {
      "lab": null,
      "links": [
       {
-       "label": "Extra problem P09: double-well oscillator",
-       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P09"
+       "label": "Theory Topic 5 (§6–8)",
+       "href": "subjects/advanced-maths/teoria/topic-5.html#sec-6"
       },
       {
-       "label": "Course PDFs",
-       "href": "subjects/advanced-maths/sources/index.html"
+       "label": "Extra problem P09",
+       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P09"
       }
      ]
     },
@@ -1938,16 +1938,16 @@ window.AE_TIMETABLE = {
      "lab": null,
      "links": [
       {
+       "label": "Theory Topic 5 (§8–10)",
+       "href": "subjects/advanced-maths/teoria/topic-5.html#sec-8"
+      },
+      {
        "label": "Extra problem P08",
        "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P08"
       },
       {
        "label": "Extra problem P09",
        "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P09"
-      },
-      {
-       "label": "Course PDFs",
-       "href": "subjects/advanced-maths/sources/index.html"
       }
      ]
     },
@@ -1965,16 +1965,12 @@ window.AE_TIMETABLE = {
      "lab": null,
      "links": [
       {
-       "label": "Extra problem P08",
-       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P08"
+       "label": "Theory Topic 5 (§10)",
+       "href": "subjects/advanced-maths/teoria/topic-5.html#sec-10"
       },
       {
-       "label": "Extra problem P09",
-       "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P09"
-      },
-      {
-       "label": "Course PDFs",
-       "href": "subjects/advanced-maths/sources/index.html"
+       "label": "Theory Topic 6 (§1)",
+       "href": "subjects/advanced-maths/teoria/topic-6.html#sec-1"
       }
      ]
     },
@@ -1992,16 +1988,16 @@ window.AE_TIMETABLE = {
      "lab": null,
      "links": [
       {
-       "label": "Extra problem P10: a full Fourier series",
+       "label": "Theory Topic 6 (§1–9)",
+       "href": "subjects/advanced-maths/teoria/topic-6.html#sec-1"
+      },
+      {
+       "label": "Extra problem P10",
        "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P10"
       },
       {
-       "label": "Extra problem P12: heat equation",
+       "label": "Extra problem P12",
        "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P12"
-      },
-      {
-       "label": "Course PDFs",
-       "href": "subjects/advanced-maths/sources/index.html"
       }
      ]
     }
