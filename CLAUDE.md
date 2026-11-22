@@ -114,17 +114,21 @@ These rules apply to every session that builds or changes a subject's Extra prob
 
 Use the cheapest model that can do the job well. The main session is the orchestrator: it reads the request, plans, decides and hands work to the subagents below. Each agent's model and effort are fixed in its frontmatter; when you spawn a generic agent, pass the `model` of the matching tier.
 
-| Tier | Model and effort | Work | Agents |
+**Source of truth:** the role table of `~/.agent-bridge/TEAM_PROTOCOL.md` (section 1, built by Antigravity from benchmarks), shared by Claude and Antigravity. The tiers below are its four roles (`fast`, `worker`, `reviewer`, `architect`) mapped to this repo's agents; if the two ever differ, the protocol wins and this table, the agent frontmatter and both copies of the team skills are updated to match. Work delegated to Antigravity uses its model for the same role: Hydrogen medium (`fast`), Hydrogen high (`worker`), Neon high (`reviewer`, `architect`).
+
+| Tier (protocol role) | Model and effort | Work | Agents |
 | :--- | :--- | :--- | :--- |
-| Read and execute | Haiku 5.5, medium | Reading PDFs, slides and long files; extracting text, formulas, tables and figures verbatim; copying extracted material into notes; running build and check tools; carrying out a plan that already names every file and step | `source-researcher`, `task-runner`, `Explore` |
-| Build and review | Sonnet 5.5, medium (high for reviews) | Writing code and pages from a decided design, routine decisions, reviewing finished work against the rules | `subject-web-builder`, `web-qa-reviewer` |
-| Think and derive | Opus 5.5, low to high as needed | Planning, splitting work among subagents, choosing between approaches, solving and auditing hard problems, derivations | main session, `aerospace-pedagogue`, `problem-step-mentor` |
+| Read and execute (`fast`) | Haiku 5.5, medium | Reading PDFs, slides and long files; extracting text, formulas, tables and figures verbatim; copying extracted material into notes; running build and check tools; carrying out a plan that already names every file and step (atomic tasks of 1 or 2 steps) | `source-researcher`, `task-runner`, `Explore` |
+| Build (`worker`) | Sonnet 5.5, medium (never `max` by default) | Writing code and pages from a decided design, routine decisions, terminal work, tests | `subject-web-builder` |
+| Review (`reviewer`) | Opus 5.5, high | Reviewing finished work against the rules and auditing the other agent's diff or derivations (read only) | `web-qa-reviewer` |
+| Think and derive (`architect`) | Opus 5.5, high | Planning, splitting work among subagents, choosing between approaches, solving and auditing hard problems, derivations | main session, `aerospace-pedagogue`, `problem-step-mentor` |
 | Orchestrate a mission and write its highest-risk code | Fable 5.2 (when the session runs on it) | Orchestrating a multi-milestone mission (plan, split, decide, approve), discrepancies with an official key, the final `ultrareview`, and the code that many pages depend on and is not delegated (e.g. `assets/js/mechanics-3d-sim.js`, reused by every Engineering Mechanics problem card) | main session only |
 
 - When a mission brief gives its own routing table, pass the `model` of that table on every spawn, even where the agent's frontmatter names another one.
 - Delegate only when it saves tokens: a few reads or one small edit stay in the main session, because every subagent starts with no context.
 - Hand Haiku a complete plan (files, steps, expected result) and ask for verbatim extracts with document and page, never a summary of formulas or data. If it reports something it was not told how to handle, the decision comes back to the orchestrator.
 - Never give a Haiku agent work that needs judgement (a derivation, a design choice, a discrepancy with an official key), and never spend Opus on a plain read or a mechanical edit.
+- Zero-retry rule (protocol): never use `low` effort for code that spans several files; give each subagent only the 2 to 5 files it needs; keep Haiku prompts under 100k tokens; a subagent that edits code runs a deterministic check (test, lint or build) before it reports back.
 - `/model opusplan` is an optional setting for the main session: Opus while in plan mode, Sonnet once the plan is approved and execution starts.
 - Project skills live in `.claude/skills/` (`review-ultrareview`, `aerospace-study-team`, `claude-agents`, `humanizer`). Skill creation uses the built-in `anthropic-skills:skill-creator` (kept up to date by claude.ai); there is no project copy. `humanizer` rewrites prose in the author's voice; it must not touch derivations, formulas, or results. Use `review-ultrareview` for chapter- or exam-level audits.
 - `.claude/settings.json` enables `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` and the plugins `superpowers`, `claude-mem` and `claude-code-setup` (`humanizer@synced` is disabled: the project skill `humanizer` is the one used). `bm` (GSD), `context-mode` and `headroom` were removed on 2026-11-22 (unused; see `docs/plans/2026-11-22-tooling-cleanup.md`).

@@ -56,7 +56,7 @@ En este repositorio existen 5 roles clave definidos en `.claude/agents/*.md`, re
    - **Salida:** Enunciados exactos, fórmulas en KaTeX, condiciones de contorno y datos numéricos sin alucinaciones.
 
 2. **`aerospace-pedagogue`**:
-   - **Misión:** Ingeniero Aeroespacial & Pedagogo Mayor (Modelo `opus` o `sonnet` con alto esfuerzo).
+   - **Misión:** Ingeniero Aeroespacial & Pedagogo Mayor (Modelo `opus`, esfuerzo alto).
    - **Permisos:** Solo lectura / razonamiento profundo.
    - **Salida:** Deducción de ecuaciones desde primeros principios con trazabilidad a fuentes oficiales y explicaciones analíticas en inglés.
 
