@@ -119,18 +119,20 @@ flowchart TD
 
 ### 🔄 Bloque III: Linear Systems and Phase Plane Analysis
 * **Topics:** First-order systems $\dot{\mathbf{x}} = A\mathbf{x}$, eigenvalues and eigenvectors, classification of critical points (nodes, saddles, spirals, centers), stability analysis, phase portraits, non-linear perturbations and linearization.
-* **Unit Guide:** [[04 - Advanced Maths/Topic 4 - Systems of Linear ODEs and Phase Portraits|Tema 4: Systems of Linear ODEs and Phase Portraits]] (class notes pp. 9-10).
+* **Unit Guide (Topic 4 — Linear Systems):** [[04 - Advanced Maths/Topic 4 - Systems of Linear ODEs and Phase Portraits|Tema 4: Systems of Linear ODEs and Phase Portraits]] (class notes pp. 9-10).
+* **Unit Guide (Topic 5 — Nonlinear Systems):** [[04 - Advanced Maths/Topic 5 - Coupled Nonlinear Systems and the Phase Plane|Tema 5: Coupled Nonlinear Systems and the Phase Plane]] (`Notes03-05-Nov_v2.pdf`, pp. 1-17; `Solved_exer_nonlinear_system.pdf`, pp. 1-5; Robinson Ch. 31-35; Sheet 5). Web page: `subjects/advanced-maths/teoria/topic-5.html`.
 * **Concept notes (Oct 13 and Oct 15 lectures, Robinson Ch. 29-30):**
   * [[04 - Advanced Maths/Concept - Planar Systems with Complex Eigenvalues|Planar Systems with Complex Eigenvalues]] — $\mathbf z = Q^{-1}\mathbf x$ with $Q = [\mathbf u \mid \mathbf w]$, $J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho \end{pmatrix}$, polar solution, spirals and centre in the $\mathbf z$- and $\mathbf x$-planes, sense of rotation.
   * [[04 - Advanced Maths/Concept - Planar Systems with a Repeated Eigenvalue|Planar Systems with a Repeated Eigenvalue]] — $m_a$ vs $m_g$, stars ($A = \lambda I$), Jordan chain, $z_1 = (c_1 + c_2t)e^{\lambda t}$, improper nodes with a full worked example.
 * **Problem Sheets 4, parts 1 and 2 (19 exercises, step by step):** [[04 - Advanced Maths/Problem Set - Chapter 4 Part 1|Problem Set - Chapter 4 Part 1]] (systems, elimination, real eigenvalues, decoupling) and [[04 - Advanced Maths/Problem Set - Chapter 4 Part 2|Problem Set - Chapter 4 Part 2]] (complex and repeated eigenvalues, canonical forms, nine portraits). Web pages: `topic-4-part-1.html` and `topic-4-part-2.html` in `subjects/advanced-maths/problemas/`.
-* *Status: web page available (`subjects/advanced-maths/teoria/topic-4.html`), written from the Topic 4 note (Sections 1-6, 9) and the two concept notes above (Sections 7-8).*
+* *Status: web pages available (`subjects/advanced-maths/teoria/topic-4.html` and `subjects/advanced-maths/teoria/topic-5.html`).*
 
 ---
 
 ### 🌊 Bloque IV: Classical PDEs and Fourier Analysis
-* **Topics:** Classification of 2nd-order linear PDEs (elliptic, parabolic, hyperbolic), separation of variables, Fourier series (sine, cosine, full trigonometric), Dirichlet and Neumann boundary conditions, 1D Wave equation (vibrating string), 1D Heat equation (thermal conduction), 2D Laplace equation in Cartesian and polar domains.
-* *Status: Scheduled for upcoming unit development.*
+* **Unit Guide (Topic 6 — Heat Equation, Sturm-Liouville & Fourier Series):** [[04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series|Tema 6: The Heat Equation, Sturm-Liouville Problems and Fourier Series]] (`Notes09-12-Nov.pdf`, pp. 1-14; Haberman Ch. 1-3, 5; Sheet 6). Web page: `subjects/advanced-maths/teoria/topic-6.html`.
+* **Topics:** 1D heat equation with zero Dirichlet BCs, separation of variables $u = \phi(x)T(t)$, eigenvalue problems ($\lambda > 0, = 0, < 0$), superposition, Fourier series and periodic extensions, orthogonality and Euler-Fourier coefficients, symmetry and half-range expansions, pointwise convergence, term-by-term differentiation, and Sturm-Liouville extensions (Dirichlet, Neumann, mixed, Robin, integrating factor, Euler equation, Rayleigh quotient).
+* *Status: Topic 6 theory web page available (`subjects/advanced-maths/teoria/topic-6.html`).*
 
 ---
 

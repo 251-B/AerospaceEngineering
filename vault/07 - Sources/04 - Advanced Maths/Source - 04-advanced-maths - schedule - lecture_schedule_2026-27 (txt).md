@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/04-advanced-maths/schedule/lecture_schedule_2026-27.txt"
 kind: schedule
 status: referenced
-bytes: 5562
+bytes: 7534
 ---
 
 # Source: lecture_schedule_2026-27.txt
@@ -18,7 +18,7 @@ bytes: 5562
 
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/schedule/lecture_schedule_2026-27.txt`
 - **Kind:** schedule
-- **Size:** 5.6 kB
+- **Size:** 7.5 kB
 - **Status:** referenced by 1 note(s) below
 
 ## Referenced by

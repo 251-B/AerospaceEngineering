@@ -15,12 +15,36 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-22-maths-theory-topics-5-6",
+    "date": "2026-11-22",
+    "tag": "Advanced Maths",
+    "title": "New theory pages: Topics 5 and 6 (Nonlinear Systems & Fourier Series)",
+    "text": "Added step-by-step theory for Coupled Nonlinear Systems and for the Heat Equation, Sturm-Liouville Problems and Fourier Series, with figures and updated formula sheet.",
+    "link": "subjects/advanced-maths/teoria/index.html"
+  },
+  {
     "id": "2026-11-21-business-topic-3-ii-theory",
     "date": "2026-11-21",
     "tag": "Business Management",
     "title": "Topic 3 (II) theory: ROA, ROE, NPV and IRR",
     "text": "New theory page for Financial Management (II): return on assets and equity, financial leverage, payback, net present value, IRR and the Fisher rate.",
     "link": "subjects/business-management/teoria/topic-3-investment.html"
+  },
+  {
+    "id": "2026-11-21-maths-sheets-ch5-ch6",
+    "date": "2026-11-21",
+    "tag": "Advanced Maths",
+    "title": "New problem sheets: Chapter 5 and Chapter 6",
+    "text": "The exercise sheets on nonlinear systems (Chapter 5) and on Sturm-Liouville problems and Fourier series (Chapter 6) are in the PDFs page.",
+    "link": "subjects/advanced-maths/sources/index.html"
+  },
+  {
+    "id": "2026-11-21-maths-lecture-log-november",
+    "date": "2026-11-21",
+    "tag": "Advanced Maths",
+    "title": "Class log to 12 November, with book pages and new notes",
+    "text": "The calendar now lists the classes up to 12 November with the book sections of each one. The lecturer's notes on nonlinear systems and Fourier series are in the PDFs page.",
+    "link": "subjects/advanced-maths/sources/index.html"
   },
   {
     "id": "2026-11-21-business-midterm-2-full-bank",

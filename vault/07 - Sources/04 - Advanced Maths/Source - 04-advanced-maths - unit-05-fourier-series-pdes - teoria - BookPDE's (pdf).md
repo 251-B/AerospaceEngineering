@@ -19,7 +19,7 @@ bytes: 6536814
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/BookPDE's.pdf`
 - **Kind:** teoria
 - **Size:** 6.5 MB
-- **Status:** referenced by 9 note(s) below
+- **Status:** referenced by 11 note(s) below
 
 ## Referenced by
 
@@ -32,3 +32,5 @@ bytes: 6536814
 - [[04 - Advanced Maths/Problem Bank/Problem - Bank P20 - Fourier Series of the Rectified Sine Wave]]
 - [[04 - Advanced Maths/Problem Bank/Problem - Bank P21 - Laplace Equation in a Circular Wedge with Mixed Edges]]
 - [[04 - Advanced Maths/Problem Bank/Problem - Bank P22 - Heat Equation in a Rod with Insulated Ends]]
+- [[04 - Advanced Maths/Schedule - Advanced Maths 2026-27]]
+- [[04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series]]

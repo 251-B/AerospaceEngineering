@@ -389,23 +389,50 @@ window.AE_SOURCES = {
               "bytes": 33481,
               "href": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf",
               "name": "probls_ch4-ii_2627.pdf"
+            },
+            {
+              "bytes": 32113,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch5_2627.pdf",
+              "name": "probls_ch5_2627.pdf"
+            },
+            {
+              "bytes": 1206349,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/Solved_exer_nonlinear_system.pdf",
+              "name": "Solved_exer_nonlinear_system.pdf"
             }
           ],
           "slides": [],
-          "teoria": [],
+          "teoria": [
+            {
+              "bytes": 4685361,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/teoria/Notes03-05-Nov_v2.pdf",
+              "name": "Notes03-05-Nov_v2.pdf"
+            }
+          ],
           "title": "Systems Of Odes"
         },
         {
           "id": "unit-05-fourier-series-pdes",
           "number": 5,
           "other": [],
-          "problemas": [],
+          "problemas": [
+            {
+              "bytes": 34958,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf",
+              "name": "probls_ch6_2627.pdf"
+            }
+          ],
           "slides": [],
           "teoria": [
             {
               "bytes": 6536814,
               "href": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/BookPDE%27s.pdf",
               "name": "BookPDE's.pdf"
+            },
+            {
+              "bytes": 3542621,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/Notes09-12-Nov.pdf",
+              "name": "Notes09-12-Nov.pdf"
             }
           ],
           "title": "Fourier Series Pdes"

@@ -2,10 +2,17 @@ ODE LECTURE THEORY -> ROBINSON CHAPTER MAP
 Book: J. C. Robinson, "An Introduction to Ordinary Differential Equations"
 (Cambridge University Press, 2004)
 
-Parts I-IV map the theory. The section "EXERCISES SOLVED IN CLASS" maps
-every exercise of the course sheets to its Robinson exercise or section.
-Page numbers are the book's printed pages (PDF page minus 16). Lectures
-covered: Sep 8 to Oct 22 (full schedule in lecture_schedule_2026-27.txt).
+Parts I-V map the ODE theory to Robinson. Part VI maps the start of
+the PDE part (Nov 10 onwards) to the unit 5 book, Haberman, "Elementary
+Applied Partial Differential Equations",
+file unit-05-fourier-series-pdes/teoria/BookPDE's.pdf; Robinson has no
+Fourier series. The section "EXERCISES SOLVED IN CLASS" maps every
+exercise of the course sheets to its Robinson exercise or section.
+Page numbers are the book's printed pages: Robinson PDF page minus 16,
+Haberman PDF page minus 11. Lectures covered: Sep 8 to Nov 12 (full
+schedule in lecture_schedule_2026-27.txt; Oct 29 was the midterm).
+The lecturer's own notes for Nov 3-12 are in sources/ (see the end of
+lecture_schedule_2026-27.txt).
 
 ======================================================================
 PART I - FIRST ORDER EQUATIONS
@@ -362,6 +369,204 @@ Ch. 31 (p. 301-305)
     Oct 8-15.
 
 ======================================================================
+PART V - COUPLED NONLINEAR SYSTEMS (book Part VI, Ch. 32-35)
+Lecturer's notes: unit-04-systems-of-odes/teoria/Notes03-05-Nov_v2.pdf
+======================================================================
+
+----------------------------------------------------------------------
+Nov 3 lecture: models and the four-step method
+----------------------------------------------------------------------
+
+Ch. 32, intro and Sec. 32.1 (p. 309-310)
+  - Autonomous nonlinear systems x' = f(x, y), y' = g(x, y); the aim
+    is the phase diagram when no explicit solution can be found
+  [Nov 3; notes p. 1]
+
+Ch. 32, Sec. 32.2 (p. 310) and Ch. 33, Sec. 33.1 (p. 323)
+  - Population dynamics: two interacting species; competition model
+    x' = x(A - ax - by), y' = y(B - cx - dy), Eq. (33.1); with one
+    species it reduces to the logistic equation
+  [Nov 3; notes p. 1-2]
+
+Ch. 33, Sec. 33.2-33.3 (p. 331-337)
+  - Predator-prey models. The lecture's x' = kx(1 - ay),
+    y' = y(bx - s) is the book's "Predator-prey models II"
+    (Sec. 33.3, p. 334: prey with exponential growth); Sec. 33.2
+    (p. 331) is the version with a logistic prey
+  [Nov 3; notes p. 2]
+
+Ch. 33, Exercise 33.2 (p. 339)
+  - Cooperation models x' = x(A - ax + by), y' = y(B + cx - dy). The
+    book has them only as an exercise, not in the text
+  [Nov 3; notes p. 2]
+
+Ch. 34, Sec. 34.1 (p. 341-343)
+  - Newtonian dynamics: particle of mass m in a potential V(x),
+    E = (1/2) m x'^2 + V(x); dE/dt = 0 gives m x'' = -V'(x); reduction
+    of order with y = x' gives the system x' = y, m y' = -V'(x)
+  [Nov 3; notes p. 2-3]
+
+Ch. 34, Sec. 34.3 (p. 347-349)
+  - With friction proportional to velocity: m x'' = -k x' - V'(x),
+    system x' = y, m y' = -k y - V'(x)
+  [Nov 3; notes p. 3]
+
+Ch. 35, Sec. 35.1 and 35.2 (p. 352 and 356)
+  - Simple pendulum theta'' = -w^2 sin(theta): system theta' = v,
+    v' = -w^2 sin(theta); damped: v' = -k v - w^2 sin(theta)
+  [Nov 3; notes p. 3-4]
+
+Ch. 7, Sec. 7.2 (p. 48), one-dimensional version only
+  - Definitions: critical (equilibrium) point, isolated critical
+    point, trajectory tending to a point, stable, asymptotically
+    stable, unstable. The book defines stability only for one
+    equation (Sec. 7.2); the planar definitions with discs of radius
+    r and R are not in the book
+  [Nov 3; notes p. 5-6]
+
+Ch. 31 (p. 301)
+  - Reminder: stability type of the origin for linear systems
+    (nodes, saddle, stars and improper nodes, spirals, centre). The
+    trace-determinant plot of the notes (characteristic polynomial
+    lambda^2 + p lambda + q = 0, parabola p^2 - 4q = 0, notes p. 7) is
+    not in the book
+  [Nov 3; notes p. 6-7]
+
+Ch. 32, Sec. 32.4 and 32.4.1 (p. 314)
+  - The four steps; Step 1: find the stationary points,
+    f(x*, y*) = g(x*, y*) = 0
+  [Nov 3; notes p. 7]
+
+Ch. 32, Sec. 32.4.2 (p. 314-316)
+  - Step 2: linearise. x = x* + xi, y = y* + eta, Taylor expansion,
+    higher-order terms dropped: (xi, eta)' = J(x*, y*) (xi, eta),
+    J the Jacobian matrix of (f, g)
+  [Nov 3; notes p. 7-8]
+
+----------------------------------------------------------------------
+Nov 5 lecture: local study, global picture, pendulums
+----------------------------------------------------------------------
+
+Ch. 32, Sec. 32.4.4 (p. 318-319)
+  - Step 3: local study, i.e. eigenvalues, eigenvectors and the
+    linear phase portrait at each stationary point
+  [Nov 5; notes p. 8-9]
+
+Ch. 32, Sec. 32.4.3 (p. 316) and Exercise 32.1 (p. 322)
+  - Hartman-Grobman theorem: near a stationary point the nonlinear
+    portrait looks like the linearised one provided the eigenvalues
+    have non-zero real part; a linear centre may become a spiral
+    (Exercise 32.1). The notes call the same statement "Theorem
+    (Poincare)" and add that an improper node may become a node or a
+    spiral
+  [Nov 5; notes p. 9-10]
+
+Ch. 32, Sec. 32.4.5 (p. 320-321)
+  - Step 4: "join the dots", the global picture
+  [Nov 5]
+
+Ch. 35, Sec. 35.1 (p. 352-355)
+  - Undamped pendulum (w = 1): stationary points (k pi, 0); centres for
+    k even, saddles for k odd; energy E = v^2/2 - cos(theta), so
+    v = +/- sqrt(2(E + cos theta)); E < 1 oscillations, E > 1 the
+    pendulum goes over the top, E = 1 separatrices
+  [Nov 5; notes p. 10-12]
+
+Ch. 35, Sec. 35.2 (p. 356-357)
+  - Damped pendulum theta' = v, v' = -k v - sin(theta): stationary
+    points (m pi, 0) and Jacobian [0 1; (-1)^(m+1) -k] (Steps 1-2)
+  [Nov 5; notes p. 12]
+
+----------------------------------------------------------------------
+Nov 9-10 lectures: damped pendulum and Chapter 5 exercises
+----------------------------------------------------------------------
+
+Ch. 35, Sec. 35.2 (p. 356-357)
+  - Local study of the damped pendulum: lambda^2 + k lambda +
+    cos(m pi) = 0. m even: stable spiral (0 < k < 2), stable node
+    (k >= 2), centre (k = 0); m odd: saddle. Worked with k = sqrt(2),
+    then the global picture
+  [Nov 9; notes p. 13-14]
+
+Exercises 5.2 and 5.4 (ii): see the table below.
+
+======================================================================
+PART VI - FOURIER SERIES AND THE HEAT EQUATION (Haberman, unit 5)
+Lecturer's notes: unit-05-fourier-series-pdes/teoria/Notes09-12-Nov.pdf
+Book: BookPDE's.pdf (Haberman); printed page = PDF page - 11
+======================================================================
+
+Robinson, Ch. 38, Sec. 38.1 (p. 373) only mentions PDEs and boundary
+value problems; everything below is in Haberman.
+
+Haberman Ch. 1, Sec. 1.1-1.2 (p. 1-2) and Ch. 2, Sec. 2.1 (p. 28)
+  - Introduction to PDEs: the heat equation
+  [Nov 10]
+
+----------------------------------------------------------------------
+Nov 12 lecture
+----------------------------------------------------------------------
+
+Haberman Ch. 2, Sec. 2.3 (p. 31-49)
+  - Heat equation u_t = u_xx on 0 < x < L with u(x, 0) = f(x) and zero
+    Dirichlet conditions u(0, t) = u(L, t) = 0. Separation of
+    variables u = phi(x) T(t), separation constant -lambda,
+    T = C e^(-lambda t); eigenvalue problem phi'' = -lambda phi,
+    phi(0) = phi(L) = 0, with the three cases lambda > 0, = 0, < 0;
+    eigenvalues (n pi / L)^2, eigenfunctions sin(n pi x / L)
+  [Nov 12; notes p. 1-5]
+
+Haberman Ch. 2, Sec. 2.2 (p. 29) and Sec. 2.3 (p. 31-49)
+  - Superposition principle; the infinite series
+    u = sum b_n sin(n pi x / L) e^(-(n pi / L)^2 t); the initial
+    condition must be a Fourier sine series
+  [Nov 12; notes p. 5-6]
+
+Haberman Ch. 3, Sec. 3.1 (p. 75-77, Fig. 3.1.4 on p. 77)
+  - General Fourier series a_0 + sum a_n cos + sum b_n sin; it is
+    2L-periodic, so f is replaced by its periodic extension (for
+    f(x) = x the extension is not continuous)
+  [Nov 12; notes p. 7]
+
+Haberman Ch. 3, Sec. 3.2 (p. 77-78), Eq. (3.2.1)-(3.2.2); orthogonality
+in Appendix to Sec. 2.3 (p. 49)
+  - The three questions (convergence to f, term-by-term
+    differentiation, coefficients); orthogonality of sines and cosines
+    on [-L, L]; coefficients a_0 = (1/2L) int f, a_n = (1/L) int f cos,
+    b_n = (1/L) int f sin
+  [Nov 12; notes p. 7-10]
+
+Haberman Ch. 3, Sec. 3.2 (p. 79, Eq. 3.2.5)
+  - Example: f = 1 on one side of the interval, 0 on the other (the
+    book's example has the jump at x = L/2, the notes at x = 0);
+    result 1/2 + sum (1 - (-1)^m)/(m pi) sin(m pi x / L)
+  [Nov 12; notes p. 10-11]
+
+Haberman Ch. 3, Sec. 3.3 (p. 81-98)
+  - Even f gives a cosine series, odd f a sine series; a function given
+    on [0, L] is extended periodically and as an odd or even function
+  [Nov 12; notes p. 11-12]
+
+Haberman Ch. 3, Sec. 3.2-3.3 (p. 77-98)
+  - Example f(x) = x on [-L, L]: a_0 = a_n = 0,
+    b_n = 2L (-1)^(n+1) / (n pi)
+  [Nov 12; notes p. 11-12]
+
+Haberman Ch. 3, Sec. 3.2 (p. 77-78)
+  - Piecewise smooth functions and the convergence theorem: the series
+    converges to f where f is continuous and to the average of the two
+    side limits at a jump
+  [Nov 12; notes p. 12-13]
+
+Haberman Ch. 3, Sec. 3.4 (p. 99-100, Fig. 3.4.1)
+  - Term-by-term differentiation is not always allowed. Counterexample:
+    the sine series of x on 0 <= x < L differentiated gives
+    1 = 2 sum (-1)^(n+1) cos(n pi x / L), which is false. Theorem: a
+    continuous Fourier series (f(-L) = f(L)) with f' piecewise smooth
+    can be differentiated term by term
+  [Nov 12; notes p. 13-14]
+
+======================================================================
 EXERCISES SOLVED IN CLASS -> ROBINSON
 ======================================================================
 
@@ -369,6 +574,9 @@ Course sheets (sources/.../unit-0N-*/problemas/):
   "1.n"   = ProblemsCh1.pdf          "2.n"   = ProblemsCh2.pdf
   "3-1.n" = probls_ch3_2627.pdf      "3-2.n" = probls_ch3-ii_2627.pdf
   "4-1.n" = probls_ch4-i_2627_v2.pdf "4-2.n" = probls_ch4-ii_2627.pdf
+  "5.n"   = probls_ch5_2627.pdf (unit-04, nonlinear systems)
+  "6.n"   = probls_ch6_2627.pdf (unit-05, Sturm-Liouville problems and
+            Fourier series; mapped to Haberman, see the last table)
 "= Ex. R" means the sheet item is Robinson's exercise R word for word
 (same items and data); "-> Sec." gives the theory to read when the
 book has no matching exercise.
@@ -421,6 +629,39 @@ Course ex.        Date          Robinson
   (vii) + sol.                  solution = Ex. 29.2
 4-2.3 (i), (ii)   Oct 22        = Ex. 29.3 (i), (ii); theory Sec. 29.2
 4-2.5 (i)         Oct 22        = Ex. 29.5 (i) (T)
+4-2.6 (i)-(v)     Oct 27        = Ex. 30.1 (same items); theory
+                                Sec. 30.1-30.2
+4-2.7             Oct 27        = Ex. 30.5 (T) (zero as a repeated
+                                eigenvalue)
+4-2.8 (i), (ii)   Oct 27        = Ex. 31.1 (i), (ii); theory Ch. 31
+5.2 (i), (ii)     Nov 9-10      = Ex. 33.1 (i), (ii) (competing
+                                species); theory Sec. 32.4, 33.1.
+                                Solved by the lecturer in
+                                unit-04-systems-of-odes/problemas/
+                                Solved_exer_nonlinear_system.pdf
+5.4 (ii)          Nov 9-10      = Ex. 34.1 (ii), V(x) = x^4/2 - x^2
+                                (double-well oscillator); theory
+                                Sec. 34.1 and 32.4. Solved in
+                                Notes03-05-Nov_v2.pdf, p. 15-17
+
+Whole Chapter 5 sheet (probls_ch5_2627.pdf), not yet done in class
+unless listed above:
+5.1               -             = Ex. 32.1 (linearised centre that is
+                                not a centre); theory Sec. 32.4.3
+5.2 (i)-(vii)     -             = Ex. 33.1 (i)-(vii); theory Ch. 33
+5.3 (i), (ii)     -             = Ex. 33.2 (i), (ii) (cooperation)
+5.4 (i)-(iii)     -             = Ex. 34.1 (i)-(iii); theory Sec. 34.1.
+                                Item (iii): the sheet prints
+                                V = x^6/2 - 5x^4/4 + 2x^2, the book
+                                V = x^6/6 - 5x^4/4 + 2x^2 (p. 350)
+5.5               -             = Ex. 34.2 (bead on a wire, Sec. 34.2)
+5.6               -             = Ex. 34.3; theory Sec. 34.3
+5.7               -             = Ex. 34.4 (T)
+5.8               -             -> Sec. 35.1 (p. 352-355), undamped
+                                pendulum
+5.9               -             -> Sec. 35.2 (p. 356-357); closest
+                                Ex. 35.1 (damped pendulum, k = 2, 3)
+5.10              -             = Ex. 35.2 (quadratic damping)
 
 Unnamed exercises: "Exercise on exact equations" (Sep 17) -> Sec. 10.1
 examples; "Exercise" (Oct 15) is not identified in the schedule.
@@ -501,3 +742,51 @@ NOTES ON DIFFERENCES BETWEEN LECTURE AND BOOK
   eigenvectors, not of the vector solutions e^(lambda t) v directly,
   and it does not use the Wronskian for systems (see the Oct 6 note
   above).
+
+- Nonlinear systems (Nov 3-10): the lecture follows Robinson Sec. 32.4
+  step by step (find the stationary points, linearise, local study,
+  global picture). The notes use "critical point" and "stationary
+  point" for the same thing, and call the linearisation theorem
+  "Poincare"; the book names it Hartman-Grobman (Sec. 32.4.3) and its
+  wording is the same as the "Key theorem" in the notes.
+
+- Stability of a planar critical point (Nov 3): the definitions of
+  stable, asymptotically stable and unstable for two dimensions (discs
+  of radius r and R) and the trace-determinant diagram are not in the
+  book. Robinson only gives the one-dimensional definition (Sec. 7.2,
+  p. 48) and the list of linear types (Ch. 31, p. 301).
+
+- Fourier series (Nov 10-12): Robinson stops at the ODEs (Ch. 38 only
+  points to PDEs), so the PDE part uses Haberman (BookPDE's.pdf). The
+  lecture's order is the book's: Sec. 2.3 (heat equation by separation
+  of variables) first, then Ch. 3 (Fourier series, convergence,
+  sine and cosine series, term-by-term differentiation).
+
+======================================================================
+CHAPTER 6 SHEET (probls_ch6_2627.pdf) -> HABERMAN (BookPDE's.pdf)
+======================================================================
+Not yet done in class (lecture log up to Nov 12). Theory to read for
+each exercise; Haberman printed page = PDF page - 11.
+
+6.1 (i)-(iv)      Eigenvalue problems phi'' + lambda phi = 0 on (0, 1):
+                  Dirichlet, mixed and Neumann ends -> Sec. 2.3-2.4
+                  (p. 31-60); Robin end phi'(1) + h phi(1) = 0 ->
+                  Sec. 5.8 (p. 167, boundary conditions of the third
+                  kind)
+6.2 (i)-(iii)     Constant-coefficient problems with a first-derivative
+                  term -> Sec. 5.3 (p. 133) after Exercise 6.3's
+                  integrating factor
+6.3               Sturm-Liouville form by an integrating factor ->
+                  Sec. 5.3 (p. 133)
+6.4               x^2 phi'' + x phi' + lambda phi = 0 on [1, 2] (Euler
+                  equation) -> Sec. 5.3 (p. 133), Rayleigh quotient
+                  Sec. 5.6 (p. 159) for lambda >= 0
+6.5 (i)-(ix)      Fourier series -> Sec. 3.2 (p. 77-80); (vi) and (ix)
+                  are given on [0, pi] only -> Sec. 3.3 (p. 81)
+6.6               Series read off trigonometric identities -> Sec. 3.2
+6.7               Orthogonality of sines and cosines -> Appendix to
+                  Sec. 2.3 (p. 49), Sec. 3.2 (p. 77)
+6.8 (i)-(iii)     Sketch of the Fourier series vs f -> Sec. 3.2
+                  (p. 77-80, periodic extension and jumps)
+6.9               Even and odd 2L-periodic functions -> Sec. 3.3 (p. 81)
+

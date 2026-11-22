@@ -1,7 +1,8 @@
 ADVANCED MATHEMATICS 2026/27 - LECTURE SCHEDULE (ODE part)
-Copied from Aula Global, updated to Oct 22. view.htm is the older
-snapshot (up to Sep 22). Robinson chapters for every item:
-ODE_lecture_theory_to_Robinson_chapters.txt
+Copied from Aula Global, updated to Nov 12 (page last modified
+12 Nov 2026, 7:07 PM; view.htm is that snapshot). Book chapters for
+every item (Robinson for the ODEs, Haberman for Fourier series and
+PDEs): ODE_lecture_theory_to_Robinson_chapters.txt
 
 September 8th
 * Definition of differential equation
@@ -158,3 +159,47 @@ October 27th
 * Exercise 4-2.6 (i), (ii), (iii), (iv), (v)
 * Exercise 4-2.7
 * Exercise 4-2.8 (i), (ii)
+
+October 29th - Midterm exam
+
+November 3rd
+* Announcements
+* Coupled nonlinear equations, phase diagram approach
+* Example: population dynamics, interaction of two species
+* Competition models, predator-prey models, cooperation models
+* Newtonian dynamics
+* Derivation of nonlinear system via conservation of energy and reduction of order, also with friction
+* Case of the simple pendulum, with and without friction
+* How to "solve" these systems (phase diagrams)
+* Step 1: find the critical points (with concrete example)
+* Step 2: linearization (with concrete example)
+
+November 5th
+* Step 3: local study (with concrete example)
+* Step 4: global picture (with concrete example)
+* Example of the simple pendulum (four steps), trajectories and interpretation
+* Example of the damped pendulum (step one and step two, need to do local study)
+
+November 9th
+* Local study and global picture of damped pendulum
+* Exercise 5.4(ii)
+* Exercise 5.2(ii) (need to finish)
+
+November 10th
+* Finish Exercise 5.2 (ii)
+* Exercise 5.4 (ii)
+* Introduction to PDEs and Fourier series
+
+November 12th
+* Derivation of Fourier series for heat equation with zero Dirichlet boundary conditions
+* Definition of Fourier series of general function f with three questions: 1) does the series converge? If so, does it converge to f? 2) Can we differentiate term-by-term? 3) How to calculate the Fourier coefficients
+* Derivation of Fourier coefficients a_0, a_n, b_n
+* Example: Fourier series of f(x)=x
+
+Lecturer's handwritten notes for these classes (in sources/):
+* Nov 3-9: unit-04-systems-of-odes/teoria/Notes03-05-Nov_v2.pdf
+  (nonlinear systems, the four steps, pendulums, Exercise 5.4 (ii))
+* Exercise 5.2 (i), (ii): unit-04-systems-of-odes/problemas/
+  Solved_exer_nonlinear_system.pdf
+* Nov 10-12: unit-05-fourier-series-pdes/teoria/Notes09-12-Nov.pdf
+  (heat equation by separation of variables, Fourier series)

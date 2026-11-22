@@ -90,8 +90,8 @@ class TimetableTests(unittest.TestCase):
     def test_maths_is_log(self):
         am = self.data["subjects"]["advanced-maths"]
         self.assertEqual(am["basis"], "log")
-        self.assertEqual(len(am["sessions"]), 18)
-        self.assertTrue(all(s["date"] <= "2026-10-27" for s in am["sessions"]))
+        self.assertEqual(len(am["sessions"]), 24)
+        self.assertTrue(all(s["date"] <= "2026-11-12" for s in am["sessions"]))
         self.assertEqual(am["groups"], {})
 
     def test_generated_file_is_js(self):

@@ -39,8 +39,8 @@ the vault currently reaches.
 * **Formula sheet:** [[03 - Engineering Mechanics/Formula Sheet - Engineering Mechanics|Formula Sheet - Engineering Mechanics]]
 
 ### 📐 [[04 - Advanced Maths/Advanced Maths MOC|Advanced Mathematics]]
-* **Units (6):** introduction to ODE modelling, first-order ODEs, second-order linear ODEs, systems of ODEs, Fourier series and PDEs, heat/wave/Laplace equations.
-* **Vault notes:** chapters 1-3. The web page for Topic 4 (`subjects/advanced-maths/teoria/topic-4.html`) has no vault note yet.
+* **Units (6):** introduction to ODE modelling, first-order ODEs, second-order linear ODEs, linear systems & phase portraits, coupled nonlinear systems & phase plane, heat equation / Sturm-Liouville problems & Fourier series.
+* **Vault notes:** Topics 1-6 (including [[04 - Advanced Maths/Topic 5 - Coupled Nonlinear Systems and the Phase Plane|Topic 5]] and [[04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series|Topic 6]]), solved problems for Chapters 1-4, and the exam problem bank.
 * **NotebookLM notebook:** `c27033c3-5a64-403f-a517-5847831aabcb`
 * **Web pages:** `subjects/advanced-maths/`
 * **Formula sheet:** [[04 - Advanced Maths/Formula Sheet - Advanced Maths|Formula Sheet - Advanced Maths]]

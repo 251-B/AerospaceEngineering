@@ -886,6 +886,38 @@
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session 24 T11 Adhesives.pdf",
    "label": "Session 24 T11 Adhesives.pdf",
    "pages": 38
+  },
+  "am-notes5": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/teoria/Notes03-05-Nov_v2.pdf",
+   "label": "Notes03-05-Nov_v2.pdf",
+   "pages": 18
+  },
+  "am-ex52": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/Solved_exer_nonlinear_system.pdf",
+   "label": "Solved_exer_nonlinear_system.pdf",
+   "pages": 6
+  },
+  "am-notes6": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/Notes09-12-Nov.pdf",
+   "label": "Notes09-12-Nov.pdf",
+   "pages": 14
+  },
+  "am-haberman": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/BookPDE's.pdf",
+   "label": "Haberman (BookPDE's.pdf)",
+   "pages": 545,
+   "offset": 11,
+   "body_start": 12
+  },
+  "am-p5": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch5_2627.pdf",
+   "label": "probls_ch5_2627.pdf",
+   "pages": 3
+  },
+  "am-p6": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf",
+   "label": "probls_ch6_2627.pdf",
+   "pages": 2
   }
  },
  "lectures": {
@@ -3888,6 +3920,53 @@
     "sessions": {
      "24": "mat-s24"
     }
+   }
+  },
+  "subjects/advanced-maths/teoria/topic-5.html": {
+   "panel": [
+    [
+     "am-notes5",
+     1
+    ],
+    [
+     "am-ex52",
+     1
+    ],
+    [
+     "am-book",
+     325
+    ],
+    [
+     "am-p5",
+     1
+    ]
+   ],
+   "cite": {
+    "notes": "am-notes5",
+    "solved": "am-ex52",
+    "robinson": "am-book",
+    "sheet": "am-p5"
+   }
+  },
+  "subjects/advanced-maths/teoria/topic-6.html": {
+   "panel": [
+    [
+     "am-notes6",
+     1
+    ],
+    [
+     "am-haberman",
+     42
+    ],
+    [
+     "am-p6",
+     1
+    ]
+   ],
+   "cite": {
+    "notes": "am-notes6",
+    "haberman": "am-haberman",
+    "sheet": "am-p6"
    }
   }
  }
