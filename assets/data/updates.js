@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-22-mechanics-particle-simulators",
+    "date": "2026-11-22",
+    "tag": "Engineering Mechanics",
+    "title": "Particle problems: new solutions and 3D simulators",
+    "text": "All 51 point particle problems are redone step by step in boxes, with new figures, and each one has an interactive simulator you can orbit and move.",
+    "link": "subjects/engineering-mechanics/problemas/topic-5.html"
+  },
+  {
     "id": "2026-11-16-mechanics-topic-4-problems",
     "date": "2026-11-16",
     "tag": "Engineering Mechanics",
