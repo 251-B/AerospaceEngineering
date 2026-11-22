@@ -116,7 +116,7 @@ Use the cheapest model that can do the job well. The main session is the orchest
 
 | Tier | Model and effort | Work | Agents |
 | :--- | :--- | :--- | :--- |
-| Read and execute | Haiku 5.5, high | Reading PDFs, slides and long files; extracting text, formulas, tables and figures verbatim; copying extracted material into notes; running build and check tools; carrying out a plan that already names every file and step | `source-researcher`, `task-runner`, `Explore` |
+| Read and execute | Haiku 5.5, medium | Reading PDFs, slides and long files; extracting text, formulas, tables and figures verbatim; copying extracted material into notes; running build and check tools; carrying out a plan that already names every file and step | `source-researcher`, `task-runner`, `Explore` |
 | Build and review | Sonnet 5.5, medium (high for reviews) | Writing code and pages from a decided design, routine decisions, reviewing finished work against the rules | `subject-web-builder`, `web-qa-reviewer` |
 | Think and derive | Opus 5.5, low to high as needed | Planning, splitting work among subagents, choosing between approaches, solving and auditing hard problems, derivations | main session, `aerospace-pedagogue`, `problem-step-mentor` |
 | Orchestrate a mission and write its highest-risk code | Fable 5.2 (when the session runs on it) | Orchestrating a multi-milestone mission (plan, split, decide, approve), discrepancies with an official key, the final `ultrareview`, and the code that many pages depend on and is not delegated (e.g. `assets/js/mechanics-3d-sim.js`, reused by every Engineering Mechanics problem card) | main session only |
