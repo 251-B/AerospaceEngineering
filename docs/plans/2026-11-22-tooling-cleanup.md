@@ -14,6 +14,13 @@ Criterio: conservar todo lo útil, quedarse con la mejor de cada pareja de dupli
 - **Se conservan:** `superpowers`, `claude-mem`, `ponytail`, `figma`, `claude-code-setup` (una skill sin hooks que recomienda automatizaciones), `task-observer`, el puente con Gemini, todas las skills de diseño y animación, `reverse-engineer-anything` y `playwright`.
 - **Automatización:** `~/.claude/hooks/skill_router.py`, un hook global en `UserPromptSubmit` y `SessionStart`. Lee 40 reglas globales (`~/.claude/skill_rules.json`) y 8 del proyecto (`.claude/skill_rules.json`), que cubren skills y subagentes. Al empezar cada sesión pone en marcha el ciclo de aprendizaje: `task-observer`, `skill-creator` y una regla nueva para cada skill que se cree.
 - **Activación automática desbloqueada** en `learn-taste`, `pick-ui-library`, `prototype` y `review-animations` (`disable-model-invocation: false`). `claude-code-setup:claude-automation-recommender` sigue bloqueada porque vive en la caché del plugin; solo se puede usar como `/claude-code-setup:claude-automation-recommender`.
+- **Segunda revisión (mismo día):**
+  - Duplicados que se escaparon en la primera pasada: había copias globales de `review-ultrareview` y `task-observer`. Se borró la copia vieja de `review-ultrareview`.
+  - `task-observer` pasa a ser solo global para Claude. Su log se fija en `~/.agent-bridge/skill-observations/`, compartido con Antigravity.
+  - Se quitó una versión antigua de la caché de `figma`.
+  - Falsos positivos del router medidos sobre 268 mensajes reales: las notas bajan de 64 a 52 al acotar `siempre que`, `word`, `parcial`, `portal`, `anima` y `a la vez`.
+  - Plugins sincronizados desde claude.ai: se usan `headroom:headroom` (archivos grandes sin MCP), `adaptive-agent:skill-review` y `adaptive-agent:build-user-profile`, con sus reglas. `claude-memory@synced` se desactiva porque ya hay memoria propia y `claude-mem`.
+  - Prompts de arranque: `docs/plans/2026-11-22-tooling-handoff-prompts.md`.
 - **Pendiente:** la carpeta `plugins/cache/context-mode` sigue ocupada por el proceso de esta sesión; se borra cuando se cierre (`rm -rf ~/.claude/plugins/cache/context-mode`).
 
 ## Decisiones tomadas (22-nov)
