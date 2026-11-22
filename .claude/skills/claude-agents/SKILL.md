@@ -144,14 +144,14 @@ El orquestador no espera órdenes manuales sobre qué plugin o rol invocar. Apli
 
 | Intención Detectada | Plugin Involucrado | Rol / Subagente Activado | Acción Automática |
 | :--- | :--- | :--- | :--- |
-| **Nuevo módulo / Refactorización** | `superpowers:brainstorming` + `bm:plan-phase` | `aerospace-pedagogue` | Cuestionamiento socrático y diseño de arquitectura antes de tocar código. |
+| **Nuevo módulo / Refactorización** | `superpowers:brainstorming` + `superpowers:writing-plans` | `aerospace-pedagogue` | Cuestionamiento socrático y diseño de arquitectura antes de tocar código. |
 | **Fallo de renderizado / Bug KaTeX / Enlace roto** | `superpowers:systematic-debugging` | `web-qa-reviewer` | Reproducción, hipótesis falsificable, arreglo de causa raíz y test de verificación. |
-| **Inspección de múltiples archivos o logs** | `context-mode` (`ctx_execute`, `ctx_search`) | `source-researcher` | Ejecución en sandbox para parsear y resumir sin saturar la ventana de contexto. |
+| **Inspección de múltiples archivos o logs** | Script de filtrado o subagente `Explore` | `source-researcher` | Ejecución en sandbox para parsear y resumir sin saturar la ventana de contexto. |
 | **Desarrollo de problemas o exámenes** | Ninguno (Rigor analítico puro) | `problem-step-mentor` | Orden del profesor sin etiquetas "Phase", cada paso justificado, derivadas e integrales explícitas en KaTeX, figuras de cambio de base. |
-| **Hitos de larga duración / Sprints temáticos** | `bm` (`/bm:plan-phase`, `/bm:execute-phase`) | Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) | Lanzamiento coordinado de 3–5 compañeros con lista de tareas compartida. |
+| **Hitos de larga duración / Sprints temáticos** | `superpowers:writing-plans` + `superpowers:executing-plans` | Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) | Lanzamiento coordinado de 3–5 compañeros con lista de tareas compartida. |
 | **Cierre de tarea puntual** | `review-ultrareview` (Modo: `review`) | `web-qa-reviewer` | Checklist rápido: KaTeX delimitadores, link `../../../index.html`, idioma y YAML. |
 | **Cierre de capítulo o examen** | `review-ultrareview` (Modo: `ultrareview`) | Equipo Completo (Adversarial) | Auditoría 4D: comprobación algebraica sin saltos, Barrow, SI, fuentes oficiales. |
-| **Diseño o ajuste de nuevas skills** | `skill-creator` + `superpowers:writing-skills` | Meta-skill | Pruebas de disparo con `run_eval.py` y optimización con `improve_description.py`. |
+| **Diseño o ajuste de nuevas skills** | `anthropic-skills:skill-creator` + `superpowers:writing-skills` | Meta-skill | Pruebas de disparo con `run_eval.py` y optimización con `improve_description.py`. |
 | **Continuidad entre sesiones** | `claude-mem` | Auto-Memory | Recuperación de decisiones previas y estado consolidado de la asignatura. |
 
 ---
@@ -177,6 +177,6 @@ Cada compañero de equipo y el líder deben someter los entregables a la auditor
 ## 9. Directrices de Eficiencia de Tokens, Memoria y Optimización de Caché
 
 1. **Prompt Caching Invariable:** Las directivas de sistema y encabezados de agentes deben permanecer idénticos entre llamadas para reutilizar el caché de prefijo de la API. Prohibido insertar timestamps o datos dinámicos en los prefijos.
-2. **Context Shielding (`context-mode`):** Nunca volcar contenidos masivos de PDFs o logs a la conversación. Emplear `ctx_execute` para procesar y filtrar datos en sandbox.
+2. **Context Shielding:** Nunca volcar contenidos masivos de PDFs o logs a la conversación. Filtrar con un script corto o delegar en un subagente de solo lectura.
 3. **Persistencia en Memoria (`claude-mem`):** Almacenar decisiones consolidadas en `claude-mem` para que al reanudar sesiones se carguen en <100 tokens, evitando releer transcripciones enteras.
 4. **Respuestas Concisas:** No duplicar en la respuesta de texto el contenido íntegro de los archivos guardados en disco. Compartir enlaces markdown, resúmenes de cambios y pruebas de verificación.

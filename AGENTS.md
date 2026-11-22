@@ -188,15 +188,15 @@ When a request arrives, classify it and activate the matching role or tool. Plug
 | Intent / trigger | Tool / plugin | Role | Expected action |
 | :--- | :--- | :--- | :--- |
 | Error, bug, 404, broken formula | `superpowers:systematic-debugging` | `web-qa-reviewer` | Falsifiable hypothesis, fix the root cause, verify. |
-| New module, syllabus, refactor | `superpowers:brainstorming` + `bm:plan-phase` | `aerospace-pedagogue` | Clarify and plan before editing files. |
-| Search in `sources/` PDFs | `context-mode` (`ctx_search`, `ctx_execute`) | `source-researcher` | Official extraction, clean LaTeX, no invented content. |
+| New module, syllabus, refactor | `superpowers:brainstorming` + `superpowers:writing-plans` | `aerospace-pedagogue` | Clarify and plan before editing files. |
+| Search in `sources/` PDFs | Targeted reads of `sources/` | `source-researcher` | Official extraction, clean LaTeX, no invented content. |
 | Theory and notes | `aerospace-pedagogue` | Obsidian first (`vault/`) | First-principles derivation in English. |
 | Problem solving | `problem-step-mentor` | Lecturer's order per subject (silent checklist) | Frames and $[{}_0 R_1]$ with figures, no skipped step, derivatives and Barrow, SI check. |
 | Web layout and styling | `subject-web-builder` | `web-qa-reviewer` | KaTeX CDN, theme via `ae_theme`, back-link `../../../index.html`. |
 | Parallel or milestone work | Agent Teams | `claude-agents` (Claude) | 3–5 teammates with separate scopes in `vault/` and `subjects/`. |
 | Routine task closure | `review-ultrareview` (`review`) | `web-qa-reviewer` | Standard gate above. |
 | Chapter or exam closure | `review-ultrareview` (`ultrareview`) | Full team | Four-dimension audit above. |
-| Create or tune a skill | `skill-creator` | `superpowers:writing-skills` | Test with `run_eval.py`, tune the description. |
+| Create or tune a skill | `skill-creator` (Claude: `anthropic-skills:skill-creator`) | `superpowers:writing-skills` | Test with `run_eval.py`, tune the description. |
 | Session resume | `claude-mem` | Auto-memory | Recover recorded decisions and progress. |
 
 ## Agent roles
@@ -214,7 +214,7 @@ Claude Code defines them in `.claude/agents/`; Gemini registers them as describe
 ## Token economy and memory
 
 1. **Prompt cache stability:** keep system instructions, agent definitions, and skill frontmatter static; do not inject timestamps or volatile metadata into prompt prefixes.
-2. **Context shielding:** never dump source PDFs, logs, or directory trees into the chat. Use targeted reads, `ctx_search`, or sandboxed `ctx_execute` to extract only what is needed.
+2. **Context shielding:** never dump source PDFs, logs, or directory trees into the chat. Use targeted reads, a read-only subagent, or a short script that filters the output to extract only what is needed.
 3. **Memory persistence (`claude-mem`):** record resolved questions, verified formulas, and established frames as short summaries (<100 tokens) so future sessions can recover them cheaply.
 4. **Concise responses:** when files are created or changed on disk, do not repeat their contents in chat. Give a clickable link, a summary of the diff, and the key rationale.
 

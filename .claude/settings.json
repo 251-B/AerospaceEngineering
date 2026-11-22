@@ -4,24 +4,9 @@
   },
   "enabledPlugins": {
     "superpowers@superpowers-marketplace": true,
-    "skill-creator@claude-plugins-official": true,
-    "bm@gsd-plugin": true,
-    "context-mode@context-mode": true,
     "claude-mem@thedotmack": true,
-    "humanizer@synced": true,
+    "humanizer@synced": false,
     "claude-code-setup@claude-plugins-official": true
   },
-  "teammateMode": "in-process",
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/skill_router.py\""
-          }
-        ]
-      }
-    ]
-  }
+  "teammateMode": "in-process"
 }

@@ -1,0 +1,21 @@
+{
+  "_doc": "Project rules of the skill router (~/.claude/hooks/skill_router.py), read before the global ones in ~/.claude/skill_rules.json. 'match' is a regex on the prompt in lower case without accents; 'use' lists skills or 'agent:<name>' (.claude/agents/). See CLAUDE.md, 'Skill router'.",
+  "rules": [
+    {"match": "\\b(revisa lo hecho|review|ultrareview|auditoria|audita|cierre|cierra la tarea)\\b",
+     "use": ["review-ultrareview"]},
+    {"match": "\\b(resuelve|resolver|ejercicio|hoja de problemas|problema \\d+|problemas del tema|examen|parcial|solucion paso a paso)\\b",
+     "use": ["agent:problem-step-mentor"]},
+    {"match": "\\b(explica la teoria|desarrolla el tema|apuntes|teoria del tema|deriva|demuestra)\\b",
+     "use": ["agent:aerospace-pedagogue"]},
+    {"match": "\\b(busca en los pdfs?|que dice la catedra|temario|slides?|diapositiva|enunciado oficial|transcribe|extrae (las formulas|el enunciado))\\b",
+     "use": ["agent:source-researcher"]},
+    {"match": "\\b(maqueta la web|pasa a html|pagina del portal|pagina web|portal|tema oscuro|paleta)\\b",
+     "use": ["agent:subject-web-builder"]},
+    {"match": "\\b(regenera|reconstruye|rebuild|build_pdfs|pasa los tests|pasa la suite|ejecuta los checks|render_check)\\b",
+     "use": ["agent:task-runner"]},
+    {"match": "\\b(haz todo el tema|sprint|desarrollo completo|tema entero|todos los problemas)\\b",
+     "use": ["claude-agents", "aerospace-study-team", "superpowers:writing-plans"]},
+    {"match": "\\b(laboratorio|lab \\d|informe de (lab|practica))\\b",
+     "use": ["humanizer"]}
+  ]
+}

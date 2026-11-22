@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Claude Code operating framework
 
-The workspace operates under an **Autonomous Triggering Engine** combining specialised subagents, Claude Code Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`), and installed plugins (`superpowers`, `context-mode`, `claude-mem`, `bm`, `skill-creator`).
+The workspace operates under an **Autonomous Triggering Engine** combining specialised subagents, Claude Code Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`), and installed plugins (`superpowers`, `claude-mem`, `ponytail`, `figma`, `claude-code-setup`), all fired automatically by the skill router hook (see "Skill router and learning loop" below).
 
 ### Triggering pipeline
 
@@ -21,12 +21,12 @@ Before editing, follow this five-stage pipeline:
          ▼                                            ▼
 [ Stage 2: Memory & Context Shielding ]       [ Triggers Detected ]
   • claude-mem: recall past decisions           • Bug / Error ──► superpowers:systematic-debugging
-  • context-mode: sandbox file scans            • New Feature ──► superpowers:brainstorming + bm:plan-phase
+  • Explore/source-researcher: filtered reads   • New Feature ──► superpowers:brainstorming + writing-plans
          │                                      • Theory Note ──► source-researcher ──► aerospace-pedagogue
          ▼                                      • Problem Set ──► problem-step-mentor (lecturer's order)
 [ Stage 3: Autonomous Routing & Execution ]     • Web Page    ──► subject-web-builder (Obsidian-First)
-  • Single Agent / Subagent vs. Agent Teams     • Skill Work  ──► skill-creator + superpowers:writing-skills
-  • Enforce Academic Standards (English, SI)    • Sprint/Milestone ──► Agent Teams + bm
+  • Single Agent / Subagent vs. Agent Teams     • Skill Work  ──► anthropic-skills:skill-creator + writing-skills
+  • Enforce Academic Standards (English, SI)    • Sprint/Milestone ──► Agent Teams + superpowers plans
          │
          ▼
 [ Stage 4: Mandatory Closing Verification Gate ]
@@ -45,16 +45,16 @@ Classify the prompt against this table and trigger the matching tool chain witho
 | Detected trigger / keywords | Primary plugin / workflow | Assigned role / skill | Invariant rules and expected deliverables |
 | :--- | :--- | :--- | :--- |
 | **"Error", "bug", "falla", "broken math", "404", "no compila"** | `superpowers:systematic-debugging` | `web-qa-reviewer` | 1. Reproduce error. 2. Formulate falsifiable hypothesis. 3. Fix root cause (never patch symptoms blindly). 4. Test and verify live. |
-| **"Crea una página", "diseña", "nuevo tema", "nueva feature"** | `superpowers:brainstorming` + `bm:plan-phase` | `subject-web-builder` / `aerospace-pedagogue` | Socratic clarification before writing files. Check Obsidian first (`vault/`) before creating HTML in `subjects/`. |
-| **"Busca en los PDFs", "qué dice la cátedra", "temario", "fórmulas"** | `context-mode` (`ctx_search`, `ctx_execute`) | `source-researcher` | Read local PDFs in `sources/`. Zero hallucinations. Extract exact math in LaTeX and raw numerical data. Keep context lean. |
+| **"Crea una página", "diseña", "nuevo tema", "nueva feature"** | `superpowers:brainstorming` + `superpowers:writing-plans` | `subject-web-builder` / `aerospace-pedagogue` | Socratic clarification before writing files. Check Obsidian first (`vault/`) before creating HTML in `subjects/`. |
+| **"Busca en los PDFs", "qué dice la cátedra", "temario", "fórmulas"** | `source-researcher` (targeted reads, page by page) | `source-researcher` | Read local PDFs in `sources/`. Zero hallucinations. Extract exact math in LaTeX and raw numerical data. Keep context lean. |
 | **"Explica la teoría", "desarrolla el tema", "apuntes"** | `aerospace-pedagogue` | `aerospace-study-team` | Derive equations from first principles in academic English. Cite official notes. Write notes to `vault/<asignatura>/` using templates. |
 | **"Resuelve el problema", "ejercicio", "hoja de problemas", "examen"** | `problem-step-mentor` | Lecturer's order per subject (`AGENTS.md`) | Continuous development with no "Phase" labels. Mechanics: frames, bases and coordinates → change of basis and position vector, with figures → kinematics → forces and equations of motion → answers and checks. Every sine, cosine and sign justified; chain rule, differentials and Barrow's rule with limits explicit; SI units and limiting cases. The four-step verification checklist is silent. |
 | **"Maqueta la web", "pasa a HTML", "estilo", "tema oscuro"** | `subject-web-builder` | Frontend builder | Obsidian is source of truth. KaTeX CDN, dark/light switch via `assets/js/theme.js` (key `ae_theme`, no inline theme code), back-link `../../../index.html`. No lab pages. |
 | **"Haz todo el tema", "sprint paralelo", "desarrollo completo"** | Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) | `claude-agents` | Spawn 3–5 teammates with distinct scopes (`vault/`, `teoria/`, `problemas/`). Communicate via `SendMessage`. Coordinate shared tasks. |
 | **"Revisa lo hecho", "review", cierre de tarea unitaria** | `review-ultrareview` (mode `review`) | `web-qa-reviewer` | Standard checklist from `AGENTS.md`. |
 | **"Ultrareview", "auditoría profunda", fin de capítulo/examen** | `review-ultrareview` (mode `ultrareview`) | Multi-agent adversarial gate | Four-dimension audit from `AGENTS.md`, plus sources cross-check. |
-| **"Crea una skill", "evalúa la skill", "optimiza el prompt de la skill"** | `skill-creator` | `superpowers:writing-skills` | Draft `SKILL.md` frontmatter, run test cases with `run_eval.py`, run variance analysis with `improve_description.py`. |
-| **"Busca en el repositorio", "cuántos archivos hay", "revisa logs"** | `context-mode` (`ctx_execute`) | Context preservation | Never dump raw grep/find output into context. Run sandboxed scripts that filter and report summary counts. |
+| **"Crea una skill", "evalúa la skill", "optimiza el prompt de la skill"** | `anthropic-skills:skill-creator` | `superpowers:writing-skills` | Draft `SKILL.md` frontmatter, run test cases with its `run_eval.py`, run variance analysis with `improve_description.py`, then add a router rule for the skill. |
+| **"Busca en el repositorio", "cuántos archivos hay", "revisa logs"** | `Explore` subagent or a short filtering script | Context preservation | Never dump raw grep/find output into context. Run sandboxed scripts that filter and report summary counts. |
 | **Session resume, reconnection, past task context** | `claude-mem` | Auto-memory | Query and integrate recorded observations and past architectural milestones. |
 
 ### Mandatory closing review (`review-ultrareview`)
@@ -125,13 +125,20 @@ Use the cheapest model that can do the job well. The main session is the orchest
 - Hand Haiku a complete plan (files, steps, expected result) and ask for verbatim extracts with document and page, never a summary of formulas or data. If it reports something it was not told how to handle, the decision comes back to the orchestrator.
 - Never give a Haiku agent work that needs judgement (a derivation, a design choice, a discrepancy with an official key), and never spend Opus on a plain read or a mechanical edit.
 - `/model opusplan` is an optional setting for the main session: Opus while in plan mode, Sonnet once the plan is approved and execution starts.
-- Project skills live in `.claude/skills/` (`review-ultrareview`, `aerospace-study-team`, `claude-agents`, `skill-creator`, `humanizer`). `humanizer` rewrites prose in the author's voice; it must not touch derivations, formulas, or results. Use `review-ultrareview` for chapter- or exam-level audits.
-- `.claude/settings.json` enables `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` and the plugins `superpowers`, `skill-creator`, `bm`, `context-mode`, `claude-mem`, `humanizer` and `claude-code-setup` (recommends hooks, subagents, skills and MCP servers for this project).
+- Project skills live in `.claude/skills/` (`review-ultrareview`, `aerospace-study-team`, `claude-agents`, `humanizer`, `task-observer`). Skill creation uses the built-in `anthropic-skills:skill-creator` (kept up to date by claude.ai); there is no project copy. `humanizer` rewrites prose in the author's voice; it must not touch derivations, formulas, or results. Use `review-ultrareview` for chapter- or exam-level audits.
+- `.claude/settings.json` enables `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` and the plugins `superpowers`, `claude-mem` and `claude-code-setup` (`humanizer@synced` is disabled: the project skill `humanizer` is the one used). `bm` (GSD), `context-mode` and `headroom` were removed on 2026-11-22 (unused; see `docs/plans/2026-11-22-tooling-cleanup.md`).
 - Agent teams: keep to 3–5 members, limit tasks to 5–6 per teammate, and shut teammates down as soon as they finish.
 - Ignore `define_subagent` / `manage_subagents` instructions if you find them elsewhere; they belong to the Gemini setup in `GEMINI.md`.
-- Token compression (optional, per machine): install with `pip install "headroom-ai[all]"` and register the MCP server with `headroom mcp install` (tool `headroom_retrieve`, shown as `mcp__headroom__headroom_retrieve`). To run a session through the compression proxy, use `headroom wrap claude` instead of `claude`. Check the setup with `headroom mcp status`.
 - `task-observer` (meta-skill from `rebelytics/one-skill-to-rule-them-all`) is bundled in `.claude/skills/task-observer/` and `.agents/skills/task-observer/`; keep both copies identical, as with the other project skills. Invoke it before the first tool call of every session (main session only; subagents do not run it). Its log lives in `skill-observations/` (gitignored); ask "revisa las observaciones de task-observer" to turn it into skill proposals.
-- Skill router hook: `.claude/hooks/skill_router.py` (`UserPromptSubmit` in `.claude/settings.json`) adds a one-line note when a prompt names a bug ("error", "falla", "404", "no compila", ...) or a new page or feature ("crea una página", "diseña", ...), asking Claude to invoke `superpowers:systematic-debugging` or `superpowers:brainstorming`. Ordinary prompts get nothing. Edit `RULES` in the script to change the keywords.
+
+### Skill router and learning loop (automatic use of every tool)
+
+The owner does not want to remember skills, plugins or agents: they must fire on their own as the work comes up.
+
+- **Engine:** `~/.claude/hooks/skill_router.py` (per machine, registered in `~/.claude/settings.json` as `UserPromptSubmit` and `SessionStart`). On each prompt it matches the text (lower case, accents removed) against the rules and adds a one-line note naming the skills to invoke and the subagents to delegate to; a prompt with no match, or an explicit `/command`, gets nothing. `--selftest` checks it.
+- **Rules are data:** project rules in `.claude/skill_rules.json` (committed: review, problems, theory, PDFs, portal pages, builds, sprints, lab reports), read before the global ones in `~/.claude/skill_rules.json` (debugging, brainstorming, plans, design, animation, documents, research, memory, skills). When a note names a skill, invoke it before acting unless it is plainly irrelevant; process skills (debugging, brainstorming, plans) run first.
+- **Learning loop:** at session start the hook asks for `task-observer` (main session only). Its observations (corrections, repeated patterns) become proposals for new or improved skills, built with `anthropic-skills:skill-creator` and `superpowers:writing-skills`; `learn-taste` turns design corrections into rules. **Every skill installed or created gets a rule** in the right `skill_rules.json`, so it fires automatically from then on. A skill with `disable-model-invocation: true` cannot be fired by Claude: set it to `false` or leave it out of the rules.
+- Partners without the engine on their machine simply get no notes; nothing else depends on it.
 
 ## Ask AI prompt: repository links and location
 

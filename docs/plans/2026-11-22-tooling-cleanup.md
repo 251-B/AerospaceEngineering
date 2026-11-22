@@ -1,6 +1,20 @@
 # Limpieza de skills, plugins, hooks y MCP (2026-11-22)
 
-Plan para revisar juntos. **Nada se ha borrado todavía.**
+Plan para revisar juntos.
+
+## Ejecutado (22-nov), con el criterio final del dueño
+
+Criterio: conservar todo lo útil, quedarse con la mejor de cada pareja de duplicados y que todo se active solo.
+
+- **Copia de seguridad:** `~/claude-config-backup-20261122/`.
+- **Arreglado:** la coma final de `.claude/settings.local.json`; los 11 registros de plugins duplicados a nivel proyecto; restos de la caché.
+- **Desinstalado:** `bm` (GSD; lo sustituyen los planes de `superpowers`), `context-mode` (y su hook), el plugin `skill-creator`, los marketplaces `gsd-plugin` y `context-mode`, y los MCP `rea` y `headroom`.
+- **Duplicados (se queda la mejor copia):** `skill-creator` → la integrada `anthropic-skills:skill-creator`, la más reciente, que claude.ai mantiene al día (se borran las copias de `~/.claude/skills`, `.claude/skills` y `.agents/skills`); `humanizer` → la skill del proyecto (`humanizer@synced` desactivado); `aerospace-study-team`, `claude-agents` y los 5 agentes → las copias del proyecto, más recientes (se borran las globales); `ask-emil` → borrada, porque el router hace su trabajo.
+- **Borrado:** las 11 `trader-*` y `graphify`.
+- **Se conservan:** `superpowers`, `claude-mem`, `ponytail`, `figma`, `claude-code-setup` (una skill sin hooks que recomienda automatizaciones), `task-observer`, el puente con Gemini, todas las skills de diseño y animación, `reverse-engineer-anything` y `playwright`.
+- **Automatización:** `~/.claude/hooks/skill_router.py`, un hook global en `UserPromptSubmit` y `SessionStart`. Lee 40 reglas globales (`~/.claude/skill_rules.json`) y 8 del proyecto (`.claude/skill_rules.json`), que cubren skills y subagentes. Al empezar cada sesión pone en marcha el ciclo de aprendizaje: `task-observer`, `skill-creator` y una regla nueva para cada skill que se cree.
+- **Activación automática desbloqueada** en `learn-taste`, `pick-ui-library`, `prototype` y `review-animations` (`disable-model-invocation: false`). `claude-code-setup:claude-automation-recommender` sigue bloqueada porque vive en la caché del plugin; solo se puede usar como `/claude-code-setup:claude-automation-recommender`.
+- **Pendiente:** la carpeta `plugins/cache/context-mode` sigue ocupada por el proceso de esta sesión; se borra cuando se cierre (`rm -rf ~/.claude/plugins/cache/context-mode`).
 
 ## Decisiones tomadas (22-nov)
 
